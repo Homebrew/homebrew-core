@@ -6,17 +6,15 @@ class Libarchive < Formula
 
   bottle do
     cellar :any
-    sha256 "382799f81cebbdd3b22a681cfc5f5d2ada51db5025d4bdd9454a3c59c404a78a" => :mojave
-    sha256 "8848eb337cc9646fb2499539175b664cc00680d0e5897fa0fe1b137091f4c16c" => :high_sierra
-    sha256 "7aa83e866dbdc3b92443b24c684e0392fbee5542246156822718e08331419235" => :sierra
-    sha256 "6cf2c9dda85ef5ec4f312c509c8843c30fedde748282886be4a2b88b0e877788" => :el_capitan
+    rebuild 1
+    sha256 "0a789c0f212b5e1d06acc213bda685bf97e3036f89d8f4d2580b29bac32b3d3d" => :mojave
+    sha256 "078eed374d5df2b561c6d36fe7284946f0556ba450e86fb048ca443cd4e3d894" => :high_sierra
+    sha256 "fc7b2124e4d4bdb8df5e41e9b5992d151e7505e71e790f9e53ac8a7cdd55490d" => :sierra
   end
 
   keg_only :provided_by_macos
 
-  depends_on "xz" => :recommended
-  depends_on "lz4" => :optional
-  depends_on "lzop" => :optional
+  depends_on "xz"
 
   def install
     system "./configure",

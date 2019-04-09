@@ -12,7 +12,6 @@ class Kakasi < Formula
     sha256 "7fca04e65ce14fa8d18d19e197525063274057a2760e4841d4e8a9b06f4b0fa3" => :el_capitan
     sha256 "da407c10d807cf72679df6555d29b53f388dd32abf674f1ae0ecbace44fc3372" => :yosemite
     sha256 "86403b2e2a45e2ea81b78bbe7edc7bf2b01d464f351ea265441413e63bf85822" => :mavericks
-    sha256 "7c4bb01289baeee60544acf6fd81e9b0f5522428938ac9cd5b6ed2b3bc6619bf" => :mountain_lion
   end
 
   def install

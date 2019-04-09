@@ -3,14 +3,13 @@ class Libgaiagraphics < Formula
   homepage "https://www.gaia-gis.it/fossil/libgaiagraphics/index"
   url "https://www.gaia-gis.it/gaia-sins/gaiagraphics-sources/libgaiagraphics-0.5.tar.gz"
   sha256 "ccab293319eef1e77d18c41ba75bc0b6328d0fc3c045bb1d1c4f9d403676ca1c"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "96fa1b8c18f022531ebb36212bb27346aef3f563a66d1ee66b77608fe2019f84" => :mojave
-    sha256 "0214b2e415ead8026fc796a6f743304188b4453877de09114d3d02ed14bdb13c" => :high_sierra
-    sha256 "e84cb82edf2b0a3926f2f6de212107256932643d89f188ddb67f71c08c4218b1" => :sierra
-    sha256 "b3419626a7acd62b6afc604769013b661d3bc57736cdf79a262c287432194693" => :el_capitan
+    sha256 "f32bbb80c77f637c3e6a2750273aa538b5216f8f74df58c2f4e8a7a789d629c7" => :mojave
+    sha256 "aa79227a117c57090885c99f8419ea14acd5af2e1101af06b84d72edaaaf3101" => :high_sierra
+    sha256 "05cc87204dd39dfafc44c1e2cca791001b4796382c77227d6c0fc0f45e00da11" => :sierra
   end
 
   depends_on "pkg-config" => :build

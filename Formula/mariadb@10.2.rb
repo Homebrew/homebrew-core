@@ -1,13 +1,13 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.19/source/mariadb-10.2.19.tar.gz"
-  sha256 "c0e103cfd73ee96d58402073e9513f0f7b5c0bd216641faecc8d763fb6529727"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.22/source/mariadb-10.2.22.tar.gz"
+  sha256 "42f4c54c29b7c196bd105bbf4d2ea721f869b14cb7ba436c3566e6dd2760614c"
 
   bottle do
-    sha256 "7c51898ac9518be979acbe2232bd8196377fb147104249fcb85e8df3f75c1563" => :mojave
-    sha256 "54922aa5a3df248c030ee07f37e309e058e36ac83be6294aa7adbc6b87a79cc8" => :high_sierra
-    sha256 "868069efcf2b721dd7cec65f4d96dc93540c5b2ef569d527ecaa34752f2e1981" => :sierra
+    sha256 "76d874a0e82d23f8268b4ae285944d3440d2bfea7dd682075955da671c8ef7be" => :mojave
+    sha256 "a44eccf33ae91fde4dc49eef088298dd74c11473e2bcec657b7078a539798d27" => :high_sierra
+    sha256 "12228f79db03a1e27c56ba0a7f3eb51f21c4b7fe420de7b61cf5eb6e94143383" => :sierra
   end
 
   keg_only :versioned_formula

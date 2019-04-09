@@ -12,7 +12,6 @@ class Ipmiutil < Formula
     sha256 "25f46961b538e12edffb311b07cd90af6ad7e4dc323431b6e512375f243e9f21" => :el_capitan
     sha256 "9fe09553dea21a6ea088bf0d571400da32b9826ab07263e6f9f618c34c2980b4" => :yosemite
     sha256 "b1372295d77f7d211372bb496c856778369397fea35db58aba7262ad157e191e" => :mavericks
-    sha256 "debbe1e403702b0ee6178ca9674f7c05c4db8f1e68256152eb1c91482eaeda2d" => :mountain_lion
   end
 
   depends_on "openssl"

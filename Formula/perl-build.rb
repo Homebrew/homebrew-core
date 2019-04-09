@@ -189,6 +189,7 @@ class PerlBuild < Formula
     resources.each do |r|
       r.stage do
         next if build_pl.include? r.name
+
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"
         system "make", "install"

@@ -6,35 +6,28 @@ class Fftw < Formula
 
   bottle do
     cellar :any
-    sha256 "9de0f472ee7346aca3d44e10c94f4c3fcb89f0c3ba223aaaa530a4a3d9234980" => :mojave
-    sha256 "79b08a5da9b091c43d4fdaabd73ecb6e4dba6525598d376d7d74bdf5d1183acc" => :high_sierra
-    sha256 "17f2f88898b2754adb35f19857cd7c80966299fcdf2158cc1466b054deaa460e" => :sierra
-    sha256 "a94c5f646948f918e986ab0be56672ac52f527debe1ed4cc783fd1ba6c99fe73" => :el_capitan
+    rebuild 1
+    sha256 "8df061c7222cc121bda7fa99383762de7a4e4f5f7b722ed324e5db3aeccf7c87" => :mojave
+    sha256 "61cae18adcd0140264dd31818f3986b58b3399201ec3fc9bbc18666a815c1af9" => :high_sierra
+    sha256 "30dd2e1659c5288859e19204aa2afeb61a514cb12fc9e75a849b7c944ced314b" => :sierra
   end
 
-  option "with-mpi", "Enable MPI parallel transforms"
-  option "with-openmp", "Enable OpenMP parallel transforms"
-  option "without-fortran", "Disable Fortran bindings"
+  depends_on "gcc"
+  depends_on "open-mpi"
 
-  depends_on "gcc" if build.with?("fortran") || build.with?("openmp")
-
-  depends_on "open-mpi" if build.with? "mpi"
-
-  fails_with :clang if build.with? "openmp"
+  fails_with :clang
 
   def install
-    args = ["--enable-shared",
-            "--disable-debug",
-            "--prefix=#{prefix}",
-            "--enable-threads",
-            "--disable-dependency-tracking"]
+    args = [
+      "--enable-shared",
+      "--disable-debug",
+      "--prefix=#{prefix}",
+      "--enable-threads",
+      "--disable-dependency-tracking",
+      "--enable-mpi",
+      "--enable-openmp",
+    ]
     simd_args = ["--enable-sse2"]
-    simd_args << "--enable-avx" if ENV.compiler == :clang && Hardware::CPU.avx? && !build.bottle?
-    simd_args << "--enable-avx2" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
-
-    args << "--disable-fortran" if build.without? "fortran"
-    args << "--enable-mpi" if build.with? "mpi"
-    args << "--enable-openmp" if build.with? "openmp"
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision

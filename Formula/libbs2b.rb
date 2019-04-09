@@ -13,7 +13,6 @@ class Libbs2b < Formula
     sha256 "7949aa7768466a789d992d079a63d5933d19e76ebfb330b38d3b4822929a71ac" => :el_capitan
     sha256 "62a45fde4ae7db34b1c14212d2c0ec5c603fdc403dc1df2b629972789dc7489e" => :yosemite
     sha256 "7cf43c31d5aee33a241af345c4b8a05fc73f48afc8b9f37d5ad9c4fa22d6920e" => :mavericks
-    sha256 "d97d172800ed96916fa256625cc08320286cd0f0609c25ecf310535fc9266330" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

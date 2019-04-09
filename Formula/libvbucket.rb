@@ -13,7 +13,6 @@ class Libvbucket < Formula
     sha256 "cc3333f73161a96deb410ae0b8185a74e0c2a5bc8e62018929b17efe6ef732b8" => :el_capitan
     sha256 "dd69ae3261c461b15bd29e435ab95496441dfde4535cb7d6925527cdfa8c64dd" => :yosemite
     sha256 "920f0656e62f10e6fc6649b0edc4a6f46dc196f931b7c14833608d9e926a4d09" => :mavericks
-    sha256 "e0cd80d589c2375f3b2f4d0f1f7f19b94264f93d603d9539c0da637eb473ce72" => :mountain_lion
   end
 
   def install

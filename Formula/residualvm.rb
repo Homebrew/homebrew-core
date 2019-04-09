@@ -1,6 +1,6 @@
 class Residualvm < Formula
   desc "3D graphic adventure game interpreter"
-  homepage "http://residualvm.org"
+  homepage "https://residualvm.org/"
   url "https://downloads.sourceforge.net/project/residualvm/residualvm/0.2.1/residualvm-0.2.1-sources.tar.bz2"
   sha256 "cd2748a665f80b8c527c6dd35f8435e718d2e10440dca10e7765574c7402d924"
   revision 1

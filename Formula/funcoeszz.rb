@@ -1,7 +1,7 @@
 class Funcoeszz < Formula
   desc "Dozens of command-line mini-applications (Portuguese)"
-  homepage "http://funcoeszz.net/"
-  url "http://funcoeszz.net/download/funcoeszz-15.5.sh"
+  homepage "https://funcoeszz.net/"
+  url "https://funcoeszz.net/download/funcoeszz-15.5.sh"
   sha256 "13e6347018b43c54f5032d4700d45255f7e26e1e8f1eacb25e324d4fbe07e15d"
 
   bottle :unneeded

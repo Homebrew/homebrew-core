@@ -1,19 +1,16 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "https://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.3.0.tar.gz"
-  sha256 "3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a"
+  url "https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz"
+  sha256 "63f5a4713ecafc86de51bfad89cc07bb788e9bba24ebbf0c4ca637621aadb6a9"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
     cellar :any
-    sha256 "7626f5d3c63cade331daf83d8394ecf85f7bc3b715b4f06d297506ebd7f84ac1" => :mojave
-    sha256 "87762c08c68afefa25166be5d0727a052fd6ad628b25a2d1d57d54b42e3b06d3" => :high_sierra
-    sha256 "66694c288e9c15f54ab8332183d4d15ea204623dd13a5acadb211eef28cd5076" => :sierra
-    sha256 "b5041fc90ace09f0b556072ce5fedfa99ff9025f031a4eb70fdee5b90f9aa438" => :el_capitan
+    sha256 "6de317bfef3ab808ff5f3eb9c1aa47f77e7236fba8ad0d606b29b38eb47c321e" => :mojave
+    sha256 "1eb8b2f698ecf16196e06a2d9f7ba20eb7f0ba447d351e36eb3344d3ed6c5c58" => :high_sierra
+    sha256 "d2b377424ff5387892bc1af653654fdcc70702e4524f3309b3f0874ac6e2d84c" => :sierra
   end
-
-  option "with-static", "Build a static library."
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
@@ -22,10 +19,7 @@ class Openjpeg < Formula
   depends_on "little-cms2"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
-    args << "-DBUILD_DOC=ON"
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DBUILD_DOC=ON"
     system "make", "install"
   end
 

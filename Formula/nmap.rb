@@ -12,10 +12,7 @@ class Nmap < Formula
     sha256 "a597fa10396be4a782a198f4af51565c15dc8ae59cbe8c367bb78fd3babd972e" => :el_capitan
   end
 
-  option "with-pygtk", "Build Zenmap GUI"
-
   depends_on "openssl"
-  depends_on "pygtk" => :optional
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 
@@ -29,9 +26,8 @@ class Nmap < Formula
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --without-nmap-update
       --disable-universal
+      --without-zenmap
     ]
-
-    args << "--without-zenmap" if build.without? "pygtk"
 
     system "./configure", *args
     system "make" # separate steps required otherwise the build fails

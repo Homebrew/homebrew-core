@@ -13,7 +13,6 @@ class Noweb < Formula
     sha256 "1a3ec7b1f7fba58e0d8064d279d518d69e50b1f813284792deb6b7db702eae38" => :el_capitan
     sha256 "34dd66401fe717e1ed384114d7037ea7a6e0aaabe6f2a98f314c8d6bb41c25be" => :yosemite
     sha256 "54bf1e45409d1c022d08dee3a43c4e2d7f038a646f00a5d5f2f6db90ff54d668" => :mavericks
-    sha256 "d422058f08a621f2d6ab78adabb887b550754cbb3c8581c31fe72f52300fc3f5" => :mountain_lion
   end
 
   depends_on "icon"

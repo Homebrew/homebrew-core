@@ -15,7 +15,6 @@ class ImapUw < Formula
     sha256 "2b9f5cbd682299610f20f1fda87c5d5c63b378ec071be2ed4889276bed53f0b4" => :el_capitan
     sha256 "001a10201375e639d4dbb4c8cba174ef02b19b89ba8e71ce2e2182610b6f120d" => :yosemite
     sha256 "f91d54e0b6f2f5c0ba371e68298dafe178ecd4ac23222dd0de982ba95643ded4" => :mavericks
-    sha256 "d5788fa0de07892dca5a7867bd3edb3cf822ce85f4e3993b01c7a3d9a8ecb0d3" => :mountain_lion
   end
 
   depends_on "openssl"

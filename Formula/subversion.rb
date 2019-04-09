@@ -1,15 +1,15 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.2.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.10.2.tar.bz2"
-  sha256 "5b35e3a858d948de9e8892bf494893c9f7886782f6abbe166c0487c19cf6ed88"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.11.1.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.11.1.tar.bz2"
+  sha256 "9efd2750ca4d72ec903431a24b9c732b6cbb84aad9b7563f59dd96dea5be60bb"
 
   bottle do
-    sha256 "2115c4455e243a34fe537da1f901779d1fd2668937e2da48ccb5f7bad484249f" => :mojave
-    sha256 "b40f591a44176f1e7f7f1c0aaebe8772657687b13e672286f3ab45b69f22db0b" => :high_sierra
-    sha256 "274b5e82027f90b8d707c859cf143808672b55e243b4070c4d18f0f6e914d6f3" => :sierra
-    sha256 "c5fee4ce6dae3f2c7398dd01a5c6df56f0227ec2323b4be107a2d26196339b6c" => :el_capitan
+    rebuild 1
+    sha256 "9d3a8c168d6f349d1b61fa842107b74d4a5b14518785ed14a78fd5330e80e7a0" => :mojave
+    sha256 "27c5465c3a107fb20afd70740d058802df1354aaea46b3c60615d49f2592cad8" => :high_sierra
+    sha256 "95b7ba66dbc0450c66af5874df960f675a01ea3ed6a849af629a921a07101e75" => :sierra
   end
 
   head do
@@ -20,10 +20,7 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
-  option "with-java", "Build Java bindings"
-
-  deprecated_option "java" => "with-java"
-
+  depends_on :java => ["1.8+", :build]
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
@@ -31,23 +28,13 @@ class Subversion < Formula
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl" # For Serf
   depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
-
-  # Other optional dependencies
-  depends_on :java => ["1.8", :optional]
-
-  # When building Perl or Ruby bindings, need to use a compiler that
-  # recognizes GCC-style switches, since that's what the system languages
-  # were compiled against.
-  fails_with :clang do
-    build 318
-    cause "core.c:1: error: bad value (native) for -march= switch"
-  end
 
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
@@ -62,6 +49,8 @@ class Subversion < Formula
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    # Fix #33530 by ensuring the system Ruby can build test programs.
+    ENV.delete "SDKROOT"
 
     serf_prefix = libexec/"serf"
 
@@ -74,14 +63,8 @@ class Subversion < Formula
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
-      scons(*args)
-      scons "install"
-    end
-
-    if build.with? "java"
-      # Java support doesn't build correctly in parallel:
-      # https://github.com/Homebrew/homebrew/issues/20415
-      ENV.deparallelize
+      system "scons", *args
+      system "scons", "install"
     end
 
     # Use existing system zlib
@@ -92,21 +75,21 @@ class Subversion < Formula
       --disable-debug
       --enable-optimize
       --disable-mod-activation
-      --disable-nls
+      --disable-plaintext-password-storage
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
       --with-ruby-sitedir=#{lib}/ruby
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      --with-zlib=/usr
+      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
+      --enable-javahl
+      --without-jikes
       RUBY=/usr/bin/ruby
     ]
-
-    args << "--enable-javahl" << "--without-jikes" if build.with? "java"
 
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
@@ -129,8 +112,15 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    # In theory SWIG can be built in parallel, in practice...
+    # Peg to system Ruby
+    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
+    system "make", "install-swig-rb"
+
+    # Java and Perl support don't build correctly in parallel:
+    # https://github.com/Homebrew/homebrew/issues/20415
     ENV.deparallelize
+    system "make", "javahl"
+    system "make", "install-javahl"
 
     archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
     perl_core = Pathname.new(archlib)/"CORE"
@@ -148,19 +138,10 @@ class Subversion < Formula
     # "Library" directories. It is however pointless to keep around as it
     # only contains the perllocal.pod installation file.
     rm_rf prefix/"Library/Perl"
-
-    if build.with? "java"
-      system "make", "javahl"
-      system "make", "install-javahl"
-    end
-
-    # Peg to system Ruby
-    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
-    system "make", "install-swig-rb"
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       svntools have been installed to:
         #{opt_libexec}
 
@@ -170,18 +151,11 @@ class Subversion < Formula
       If you wish to use the Ruby bindings you may need to add:
         #{HOMEBREW_PREFIX}/lib/ruby
       to your RUBYLIB.
+
+      You may need to link the Java bindings into the Java Extensions folder:
+        sudo mkdir -p /Library/Java/Extensions
+        sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib
     EOS
-
-    if build.with? "java"
-      s += "\n"
-      s += <<~EOS
-        You may need to link the Java bindings into the Java Extensions folder:
-          sudo mkdir -p /Library/Java/Extensions
-          sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib
-      EOS
-    end
-
-    s
   end
 
   test do
@@ -197,9 +171,9 @@ index a60430b..bd9b017 100644
 --- a/subversion/bindings/swig/perl/native/Makefile.PL.in
 +++ b/subversion/bindings/swig/perl/native/Makefile.PL.in
 @@ -76,10 +76,13 @@ my $apr_ldflags = '@SVN_APR_LIBS@'
- 
+
  chomp $apr_shlib_path_var;
- 
+
 +my $config_ccflags = $Config{ccflags};
 +$config_ccflags =~ s/-arch\s+\S+//g;
 +

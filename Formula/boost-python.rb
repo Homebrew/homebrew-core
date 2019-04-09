@@ -1,20 +1,18 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
-  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
+  url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
+  sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "48b97ffce588620bfcb088feab4f8fb66672193e1f2e26202667ad0a7ca21880" => :mojave
-    sha256 "7df8a449456e24d5b54f52756effdcd2e7c21137df5c9c6a4ad0d58053b625b9" => :high_sierra
-    sha256 "d99c58b8b43289bee78a20fa8accc4b67077ee2c5d9c0b941502ed25e8690eb9" => :sierra
+    sha256 "b377edc8e5bc2ea6b3873d54d694298590278c291eb2820d408691e7491b853a" => :mojave
+    sha256 "51810bd5962d2ed44d696fb583de2a9f4b35084ad768d0789490701f748365a4" => :high_sierra
+    sha256 "23a5aadabf25a54196083be6478c105efd8c1503fc36330cfd5cafff62b16a80" => :sierra
   end
 
   depends_on "boost"
-
-  needs :cxx11
 
   def install
     # "layout" should be synchronized with boost
@@ -22,13 +20,13 @@ class BoostPython < Formula
             "--libdir=#{lib}",
             "-d2",
             "-j#{ENV.make_jobs}",
-            "--layout=tagged",
+            "--layout=tagged-1.66",
             "threading=multi,single",
             "link=shared,static"]
 
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++11"
+    # Boost is using "clang++ -x c" to select C compiler which breaks C++14
+    # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
+    args << "cxxflags=-std=c++14"
     if ENV.compiler == :clang
       args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
@@ -57,11 +55,13 @@ class BoostPython < Formula
       }
     EOS
 
+    pyprefix = `python-config --prefix`.chomp
     pyincludes = Utils.popen_read("python-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python-config --ldflags").chomp.split(" ")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27", "-o",
-           "hello.so", *pyincludes, *pylib
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
+                    "-o", "hello.so", "-I#{pyprefix}/include/python2.7",
+                    *pyincludes, *pylib
 
     output = <<~EOS
       from __future__ import print_function

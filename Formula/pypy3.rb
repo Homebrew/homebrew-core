@@ -1,15 +1,14 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v6.0.0-src.tar.bz2"
-  sha256 "ed8005202b46d6fc6831df1d13a4613bc40084bfa42f275068edadf8954034a3"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.0.0-src.tar.bz2"
+  sha256 "7ccbf81db5c647fa0c27636c7d18d059d2570fff7eaffc03857c67bee84b8a26"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a2da5d37954296140125b0d8b817c546375eeb074fe834bf3d1d933a74b369e0" => :mojave
-    sha256 "25f4b9222205b8d951cf54c771e70b0959daefb55bbe84f0c0529251d1f0a3b0" => :high_sierra
-    sha256 "2cb646b4b7bfb7b9c9f7381a376143d18e97eb570b2150bd7147b4cb06a5eacd" => :sierra
+    sha256 "d84192d75138a909a590edba538e5887325489bf1d882ece92618316cec06c9c" => :mojave
+    sha256 "572e61330699307ab49d425f9683e90e226325ddd3b2107857c1b92026c9307e" => :high_sierra
+    sha256 "59dbf2859908c30f12904b68caadf5d6b48093d4f51043d8a91d7c15fec28995" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -22,9 +21,6 @@ class Pypy3 < Formula
   depends_on "openssl"
   depends_on "sqlite"
   depends_on "xz"
-
-  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc_4_2
 
   # packaging depends on pyparsing
   resource "pyparsing" do
@@ -61,8 +57,10 @@ class Pypy3 < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+
     # Work around "dyld: Symbol not found: _utimensat"
-    if MacOS.version == :sierra && MacOS::Xcode.installed? && MacOS::Xcode.version >= "9.0"
+    if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
       ENV.delete("SDKROOT")
     end
 

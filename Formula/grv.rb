@@ -1,15 +1,15 @@
 class Grv < Formula
   desc "Terminal interface for viewing git repositories"
   homepage "https://github.com/rgburke/grv"
-  url "https://github.com/rgburke/grv/releases/download/v0.3.0/grv-0.3.0-src.tar.gz"
-  sha256 "ee1b51bfcc1a5c1b4c71b3b84cae6370eced5dfcb4c677c53c75aab370edab63"
+  url "https://github.com/rgburke/grv/releases/download/v0.3.2/grv-0.3.2-src.tar.gz"
+  sha256 "988788cce5c581531c26df9048e4187440c5ebc9811afd371d565436dfb65d57"
   head "https://github.com/rgburke/grv.git"
 
   bottle do
     cellar :any
-    sha256 "1330f549f1aad09f70f7173fdd0e108673b71adb85c37b539b448e31ebc02f90" => :mojave
-    sha256 "a064e3eb5c0346b74f6e48270eb96a788970664671fbad2255b6d04499096b14" => :high_sierra
-    sha256 "0da9d83d788502893b6ca9619b800b16787b3aeada2cf678996fc1b2ccd9f029" => :sierra
+    sha256 "2f223f7ca56ee01201a05e8660c219a2f70d7ead2c5e4f0dac65f4a9b8cd5941" => :mojave
+    sha256 "d51249eec72ee11cc90b0d5b4c06e10b77eec0bd7ddf8b53df6d0a0d8a291605" => :high_sierra
+    sha256 "19f2e8bedb458d0b339160b275e196add00abcca7db92ba141aaccae255bb973" => :sierra
   end
 
   depends_on "cmake" => :build

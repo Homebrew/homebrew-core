@@ -4,20 +4,17 @@ class Ekg2 < Formula
   url "https://src.fedoraproject.org/lookaside/extras/ekg2/ekg2-0.3.1.tar.gz/68fc05b432c34622df6561eaabef5a40/ekg2-0.3.1.tar.gz"
   mirror "https://web.archive.org/web/20161227025528/pl.ekg2.org/ekg2-0.3.1.tar.gz"
   sha256 "6ad360f8ca788d4f5baff226200f56922031ceda1ce0814e650fa4d877099c63"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "ca01c5798e1d0ec70dfb19a1b35c2c076af2ea02a8b0e1ea96b2090f2d292e57" => :mojave
-    sha256 "59cef56ba8d42aa5f198e11b7c342ddeabe8382543562ef9a13fc169ab5d4efa" => :high_sierra
-    sha256 "77d62ccb6a0ff4e9126850aa1c5287e583cc5f643f6fbe2505199e694de7a337" => :sierra
-    sha256 "34a9b94c6161be85b1b42a57395528982965357cffd7f4771456c01309fb402e" => :el_capitan
-    sha256 "dafaf67dca8fefd62b5e76ec03c8d71a85542d04157e53e0ceb915475a2c5067" => :yosemite
+    sha256 "0743656772367528b12696d599be81d46a0f2dffd8599b7331da7dc2c46fa404" => :mojave
+    sha256 "4415b63628ac3a3f2e43419bbbdacd17184e3e23913b26bcc87152fc0a91a4ae" => :high_sierra
+    sha256 "bb1c5ca15114cdd1b9f93cf1db9fc544cfdd1edc4f9fc31e0891627d738ad027" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "readline"
-  depends_on "libgadu" => :optional
 
   # Fix the build on OS X 10.9+
   # http://bugs.ekg2.org/issues/152
@@ -30,14 +27,13 @@ class Ekg2 < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --without-python
-      --without-perl
+      --enable-unicode
       --with-readline=#{readline}
       --without-gtk
-      --enable-unicode
+      --without-libgadu
+      --without-perl
+      --without-python
     ]
-
-    args << (build.with?("libgadu") ? "--with-libgadu" : "--without-libgadu")
 
     system "./configure", *args
     system "make", "install"

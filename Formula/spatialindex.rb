@@ -1,21 +1,21 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
-  homepage "https://libspatialindex.github.io/"
-  url "https://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar.gz"
-  sha256 "7caa46a2cb9b40960f7bc82c3de60fa14f8f3e000b02561b36cbf2cfe6a9bfef"
+  homepage "https://libspatialindex.org/"
+  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.0/spatialindex-src-1.9.0.tar.gz"
+  sha256 "52d6875deea12f88e6918d192cbfd38d6e78d13f84e1fd10cca66132fa063941"
 
   bottle do
     cellar :any
-    sha256 "3cffbd33a299a0354849d510cbc7aaa71abdb41fdff3a7d5d0dd3459de2a91fb" => :mojave
-    sha256 "76e41dc6e6ccb457cb2db3d6806461e065784bf161864ed4276c8041724ce995" => :high_sierra
-    sha256 "6c60b7939a2220b10e04cc5e47a6672935697a13accc1284bb90b401b866044c" => :sierra
-    sha256 "34d1e02dd4133ed67a8a4c299044e277e1e9cfc982962c50c44c751723eb85cb" => :el_capitan
-    sha256 "907f40e614218622fd9fecc0a542adcdf768446a198ef4cc972b30a7eb5e6cd3" => :yosemite
-    sha256 "33e053a03ea77bc87c3aab4f8319461baab56824e3c933cb09398e6df1b542ba" => :mavericks
-    sha256 "401c416f243996ac4f6bca61a871aec7fb8811f8aef6073dfc62c64dfe2650f7" => :mountain_lion
+    sha256 "bdda20e0607a6ac0a2bbf3ee37c0d507b7f9ede93f2210c3b33887b1682c173e" => :mojave
+    sha256 "81cb9da70510a276cf06cc993f1b94aa27ce688b923aeac8170df372496bd371" => :high_sierra
+    sha256 "98434cec34dcc25434dd5ea1ea669b4f4471f1b361f17dbe408c1e984eb6016f" => :sierra
   end
 
   def install
+    ENV.cxx11
+
+    ENV.append "CXXFLAGS", "-std=c++11"
+
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -70,7 +70,7 @@ class Spatialindex < Formula
           return (q_vis.matches.size() == 1) ? 0 : 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
     system "./test"
   end
 end

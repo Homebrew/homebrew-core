@@ -1,13 +1,14 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.21/mapnik-v3.0.21.tar.bz2"
-  sha256 "6db7918e8fd24346dfc81745e455c383a718335ffa64015cf625fed5ed92b524"
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.22/mapnik-v3.0.22.tar.bz2"
+  sha256 "930612ad9e604b6a29b9cea1bc1de85cf7cf2b2b8211f57ec8b6b94463128ab9"
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
-    sha256 "dad661596f6ccbc19dc3ba0943b37547faf3b874c2f27951683b1fde2aa9c5f5" => :mojave
-    sha256 "aafd2fcd785323de7be9e5460826a63852efe57b314e329b916a559fd73d0579" => :sierra
+    cellar :any
+    sha256 "630f3503b1002123ca8f92c8e3be07f713906af21c26eb06553cb84c3b9d422d" => :mojave
+    sha256 "53703b9205a68a8e4d35e2d6f0a835e2c79a63e1162f05d755db5fb5cf5a4799" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,20 +25,16 @@ class Mapnik < Formula
   depends_on "proj"
   depends_on "webp"
 
-  # Upstream commit to fix build with boost >= 1.68
-  patch do
-    url "https://github.com/mapnik/mapnik/commit/c067eb7eec32fdd6d1c3d0e90b13a889459f2756.diff?full_index=1"
-    sha256 "e00e8475f04e9010dbb1724e5ae10403d2e7f1da8a83e67dfb54a7a969d81669"
-  end
-
-  needs :cxx11
-
   def install
     ENV.cxx11
 
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
+    # Use Proj 6.0.0 compatibility headers
+    # https://github.com/mapnik/mapnik/issues/4036
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     boost = Formula["boost"].opt_prefix
     freetype = Formula["freetype"].opt_prefix

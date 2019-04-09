@@ -13,7 +13,6 @@ class Man2html < Formula
     sha256 "37bfcf3cab42938fff23a66429872e935b59cf769caf238928bd4acc6544d8d4" => :el_capitan
     sha256 "2e3cc12c0e7bc0ae5b194f397874015df1fe6b8a8ab52c6972e17ad992732463" => :yosemite
     sha256 "7ebaf5a969df65809220222b69414a51ed06b90601a28fc2ad140955e17febe0" => :mavericks
-    sha256 "82efff57b082ea9f817287e96d185bf15f351cfb0d4a7c3837f89bb5e14ce30c" => :mountain_lion
   end
 
   def install

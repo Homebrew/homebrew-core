@@ -15,8 +15,6 @@ class Capnp < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx14
-
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args

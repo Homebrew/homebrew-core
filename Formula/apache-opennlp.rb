@@ -1,8 +1,8 @@
 class ApacheOpennlp < Formula
   desc "Machine learning toolkit for processing natural language text"
   homepage "https://opennlp.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=opennlp/opennlp-1.9.0/apache-opennlp-1.9.0-bin.tar.gz"
-  sha256 "f5632772c2bc871498102c566441d6fe1f1c6f852e63c1a95fdd94e5201134bd"
+  url "https://www.apache.org/dyn/closer.cgi?path=opennlp/opennlp-1.9.1/apache-opennlp-1.9.1-bin.tar.gz"
+  sha256 "ce636b08c876b4f528003260e1ca2c647ef2a2d7faa4ea0ff7b85b5b5eaf22da"
 
   bottle :unneeded
 

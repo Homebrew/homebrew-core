@@ -12,7 +12,6 @@ class Liblunar < Formula
     sha256 "df420ea75e5e22b18dcd1fd49eac3478cd8bae3ec6e3b40d02afe7e253e0354b" => :el_capitan
     sha256 "0964777ae7bbc24c64cab3a1197b5dfa123a08d7e320b4829b9f0a3d1a3cb6be" => :yosemite
     sha256 "9c4abb431abb5c60d1a9beba72f8139255f64d19a02e1994345531c948c72c3d" => :mavericks
-    sha256 "66a40eb29dedc1cecc5947e5837e221a233273b130361eecb3488d51eede35be" => :mountain_lion
   end
 
   depends_on "intltool" => :build

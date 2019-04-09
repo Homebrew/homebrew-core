@@ -3,11 +3,13 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
   url "https://github.com/tmux/tmux/releases/download/2.8/tmux-2.8.tar.gz"
   sha256 "7f6bf335634fafecff878d78de389562ea7f73a7367f268b66d37ea13617a2ba"
+  revision 1
 
   bottle do
-    sha256 "1853b704405374f88dcb00ef4c82c18efbcbac2ce855de681bd7017c3b5e6b36" => :mojave
-    sha256 "b50d0ac39ae8219d84b9fba7ae5f0422143d8a7a9575b9193d7604dc1b3a85f0" => :high_sierra
-    sha256 "d4b259196136dfb9fe4cf68a348d68edc58ac2b6d0954fe60c6694b053826cd3" => :sierra
+    cellar :any
+    sha256 "67d13dac99a7db602d062eee405d5f1b7e2add16bb39d8a03a5c0de3504e5683" => :mojave
+    sha256 "6b30c67549860286f549f7cbdc88612d9e00a294544ef80fe6c40d098c3805f4" => :high_sierra
+    sha256 "52e1fe5132fad335968af1302ad0166247260368fed8b729e73acbead262fab3" => :sierra
   end
 
   head do
@@ -20,7 +22,7 @@ class Tmux < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "utf8proc" => :optional
+  depends_on "ncurses"
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
@@ -35,8 +37,6 @@ class Tmux < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
     ]
-
-    args << "--enable-utf8proc" if build.with?("utf8proc")
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args

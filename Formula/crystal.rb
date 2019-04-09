@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.27.0.tar.gz"
-    sha256 "43c8ac1b5c59ccea3cd58c9bd2a7af07a56f96cf1eff1e54d93f648b5340e83a"
+    url "https://github.com/crystal-lang/crystal/archive/0.27.2.tar.gz"
+    sha256 "d2fe8a025668b143e8ff70b3cd407765140ed10e52523dd08253139f9322171b"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,10 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "fd57919e22be24ecf51e0da2d13c3a54ae8bc166bdcd1264deaacfc964b1c3bd" => :mojave
-    sha256 "3c0396e3353fdefc933ec377941fb8c36ce12e2d4e458c1123c95ca1210a0731" => :high_sierra
-    sha256 "27250e0754f7b3d592ab5499e65078c87c1c19d5257023bde50c0ab6b446f318" => :sierra
+    cellar :any
+    sha256 "d2af850ac6832460a4f88d9788cd205412a73e5f0807e27b61b7bb3c39c2f0cd" => :mojave
+    sha256 "1274def6adff3b374aa5a4eeba12ac1664e3cd1405036c288834cd7ad2599071" => :high_sierra
+    sha256 "02804838a14b4c196ea615d3813cad05d912d09d85a4920a894e2e1ef9ed5bf1" => :sierra
   end
 
   head do
@@ -27,18 +28,18 @@ class Crystal < Formula
   end
 
   depends_on "libatomic_ops" => :build # for building bdw-gc
-  depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "llvm@6"
   depends_on "pcre"
+  depends_on "pkg-config" # @[Link] will use pkg-config if available
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.26.1/crystal-0.26.1-1-darwin-x86_64.tar.gz"
-    version "0.26.1-1"
-    sha256 "3ad9616204d36ee4171e15892ee32216eab06f87f1f6cf5e32b45196dd4231d7"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.27.1/crystal-0.27.1-1-darwin-x86_64.tar.gz"
+    version "0.27.1-1"
+    sha256 "f5102f34b6801a1bae3afe66fb6da15308cc304c3a9fba5799f4379c1e3010b1"
   end
 
   def install
@@ -57,6 +58,7 @@ class Crystal < Formula
     system "bin/crystal", "build",
                           "-D", "without_openssl",
                           "-D", "without_zlib",
+                          "-D", "preview_overflow",
                           "-o", ".build/crystal",
                           "src/compiler/crystal.cr",
                           "--release", "--no-debug"

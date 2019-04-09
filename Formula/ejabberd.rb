@@ -1,13 +1,14 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/18.09/ejabberd-18.09.tgz"
-  sha256 "781a68d2deefb4afae563c29a8955063c759c244d308251167d46185f145d4ff"
+  url "https://www.process-one.net/downloads/ejabberd/19.02/ejabberd-19.02.tgz"
+  sha256 "fb72871a28fb0951e6b1553125c30ce6015a3527a61e9c22e522c24af841eaa1"
 
   bottle do
-    sha256 "a9655946c1b7eaa199339475c84aeec9be1c99b9d541f1b537f1c49bf1f7331c" => :mojave
-    sha256 "226a2827e29c3ad146762d94587c08d0442183e47c68f0eaf3f1aac814700ff4" => :high_sierra
-    sha256 "ed2429d0c5941fbfb7f7f34b3bdf09a73273441b44959a6c81fb2484ef5c56eb" => :sierra
+    cellar :any
+    sha256 "49749d922507aefb319a633c91303c0b92548d6e728ffcdf5ee212878b9d5be7" => :mojave
+    sha256 "04721a9380e6b9d02003e930d90a873632a5d1571efd4d79d97958155166f119" => :high_sierra
+    sha256 "be68699ba5c08b3570082b72e94c144c23e415e04b5f4f76899ccfc245f1ae46" => :sierra
   end
 
   head do
@@ -21,8 +22,6 @@ class Ejabberd < Formula
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl"
-  # for CAPTCHA challenges
-  depends_on "imagemagick" => :optional
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"

@@ -1,14 +1,14 @@
 class MklDnn < Formula
   desc "Intel Math Kernel Library for Deep Neural Networks"
   homepage "https://01.org/mkl-dnn"
-  url "https://github.com/intel/mkl-dnn/archive/v0.17.1.tar.gz"
-  sha256 "75777735458c9e03434d9b1b111b92bca4230427b8de890dd694039dc34480ed"
+  url "https://github.com/intel/mkl-dnn/archive/v0.18.1.tar.gz"
+  sha256 "fc7506701dfece9b03c0dc83d0cda9a44a5de17cdb54bc7e09168003f02dbb70"
 
   bottle do
     cellar :any
-    sha256 "8c4a383393cf3ffaf2d80cbd3a0d519f8d5dc1f60ed3d7e41058a96d5ea19c6f" => :mojave
-    sha256 "52797f6e0cc0fcbecceb7e696073f7e56b3e8ac4e61606f9992b14ba8920889b" => :high_sierra
-    sha256 "ca9e26e3b1aaafd8c6c8aabb18cfc1f0d253b1f1750ab9c7ccec34575f3343fd" => :sierra
+    sha256 "ac17d1c4e9d3519959d55c51dc5cd5644412457d097f816c93932e818d0e90c6" => :mojave
+    sha256 "a23203dbbf531d6f0d8ffc07da7f72513ea048ccda4c19cd3e0e3ab102a3f56c" => :high_sierra
+    sha256 "04709a34737fe09d980a57c9f69d252060a1cc27ed8d2af83dad3d82f96f737a" => :sierra
   end
 
   depends_on "cmake" => :build

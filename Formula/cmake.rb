@@ -1,15 +1,15 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.13.1/cmake-3.13.1.tar.gz"
-  sha256 "befe1ce6d672f2881350e94d4e3cc809697dd2c09e5b708b76c1dae74e1b2210"
+  url "https://github.com/Kitware/CMake/releases/download/v3.14.1/cmake-3.14.1.tar.gz"
+  sha256 "7321be640406338fc12590609c42b0fae7ea12980855c1be363d25dcd76bb25f"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62ca3187c2b0b597cf5e83660b2d77a1015cb22abd29c4c52f741122806f0e35" => :mojave
-    sha256 "6cbf6ba51d109f7a9db6dd88538729a643f30fc22c43eaa2eb1823904b8de07b" => :high_sierra
-    sha256 "916ef4954546cdd82931b0b9d63b424030944bf17932bdd5feb28bf1df144de8" => :sierra
+    sha256 "5842b3ef096fb2c4e2433dea17fdd5c5d243fca69b1d08c62e6ca844f7283296" => :mojave
+    sha256 "5c7041819855f9120b04c13da94419c99f7575ad36784bcb556961f686eb9661" => :high_sierra
+    sha256 "4a592fcc1e7018a844362cc40c401df9bcdd2b387f93aef1b8284729529cc43e" => :sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -20,15 +20,7 @@ class Cmake < Formula
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
   # For the GUI application please instead use `brew cask install cmake`.
 
-  needs :cxx11
-
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
-    # Avoid the following compiler error:
-    # SecKeychain.h:102:46: error: shift expression '(1853123693 << 8)' overflows
-    ENV.append_to_cflags "-fpermissive" if MacOS.version <= :lion
-
     args = %W[
       --prefix=#{prefix}
       --no-system-libs

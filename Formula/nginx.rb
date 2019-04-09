@@ -3,23 +3,25 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.15.7.tar.gz"
-  sha256 "8f22ea2f6c0e0a221b6ddc02b6428a3ff708e2ad55f9361102b1c9f4142bdf93"
+  url "https://nginx.org/download/nginx-1.15.10.tar.gz"
+  sha256 "b865743abd52bce4745d0f7e7fedde3cafbaaab617b022c105e3e4e456537c3c"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "4b1fbbd533d58e2c755bc419612eada94ffb094694dfd226dc68d84f8d9cc383" => :mojave
-    sha256 "4818e2fd38d7dd1587d0a9eb8532e43015593a1afb29ad16f784e2792ea9311f" => :high_sierra
-    sha256 "eb7fefcf9073857048275449a1e148f7a69d862b107278e7005361762c383701" => :sierra
+    rebuild 1
+    sha256 "4ce8352d57aed86d9d0a1aba8a92dfddf08571e1fbdff63b614bfda8fa4039ac" => :mojave
+    sha256 "26268914ca57498d5441796e91f60fde917f3dcd36d2392631139caf234630d6" => :high_sierra
+    sha256 "0c9641af36fe58fc1e92f32e9a4ce770c7d7d4a465927695764515f0c76fbf99" => :sierra
   end
 
-  option "with-passenger", "Compile with support for Phusion Passenger module"
-
-  depends_on "openssl" # don't switch to 1.1 until passenger is switched, too
+  depends_on "openssl"
   depends_on "pcre"
-  depends_on "passenger" => :optional
 
   def install
+    # keep clean copy of source for compiling dynamic modules e.g. passenger
+    (pkgshare/"src").mkpath
+    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "--options", "compression-level=9", "."
+
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
       s.gsub! "listen       80;", "listen       8080;"
@@ -47,6 +49,7 @@ class Nginx < Formula
       --http-scgi-temp-path=#{var}/run/nginx/scgi_temp
       --http-log-path=#{var}/log/nginx/access.log
       --error-log-path=#{var}/log/nginx/error.log
+      --with-compat
       --with-debug
       --with-http_addition_module
       --with-http_auth_request_module
@@ -75,10 +78,7 @@ class Nginx < Formula
       --with-stream_ssl_preread_module
     ]
 
-    if build.with? "passenger"
-      nginx_ext = `#{Formula["passenger"].opt_bin}/passenger-config --nginx-addon-dir`.chomp
-      args << "--add-module=#{nginx_ext}"
-    end
+    (pkgshare/"src/configure_args.txt").write args.join("\n")
 
     if build.head?
       system "./auto/configure", *args
@@ -123,15 +123,8 @@ class Nginx < Formula
     end
   end
 
-  def passenger_caveats; <<~EOS
-    To activate Phusion Passenger, add this to #{etc}/nginx/nginx.conf, inside the 'http' context:
-      passenger_root #{Formula["passenger"].opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
-      passenger_ruby /usr/bin/ruby;
-  EOS
-  end
-
   def caveats
-    s = <<~EOS
+    <<~EOS
       Docroot is: #{var}/www
 
       The default port has been set in #{etc}/nginx/nginx.conf to 8080 so that
@@ -139,8 +132,6 @@ class Nginx < Formula
 
       nginx will load all files in #{etc}/nginx/servers/.
     EOS
-    s << "\n" << passenger_caveats if build.with? "passenger"
-    s
   end
 
   plist_options :manual => "nginx"

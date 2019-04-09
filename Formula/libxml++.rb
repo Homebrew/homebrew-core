@@ -17,8 +17,6 @@ class Libxmlxx < Formula
   depends_on "pkg-config" => :build
   depends_on "glibmm"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

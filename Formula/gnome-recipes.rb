@@ -3,14 +3,12 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 6
+  revision 8
 
   bottle do
-    rebuild 1
-    sha256 "ec344aea10673e323e449140a75ec6b0d1f0e7d2df311a7d1b74ba5d38060e59" => :mojave
-    sha256 "4e26ec4a2a2ed06ef948fca74364265d2d02416575e67117000531abe7fef756" => :high_sierra
-    sha256 "6c2bdccb10c2fd094cf6a618b57b7361b1a4ff60377aaebe69b9891c60d7e05d" => :sierra
-    sha256 "5fba96e2200b9a7763cae02c8998a43422c8a69543f362b058fb92adad950ee8" => :el_capitan
+    sha256 "d4b76cbd04850877a91f733dcf1039ade2abf71b4bbf46cf55dcded08cd5b823" => :mojave
+    sha256 "7a3248e3ba15d91ed5ce28520c7e384bdf1f5f05f4fcc6f8d6deb425a40b0447" => :high_sierra
+    sha256 "7c84b25efe430c5a8436e144c45243ff588177aba5ed63b2ba42ab8214196ddb" => :sierra
   end
 
   depends_on "itstool" => :build
@@ -30,8 +28,8 @@ class GnomeRecipes < Formula
   depends_on "libxml2"
 
   resource "goa" do
-    url "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.0.tar.xz"
-    sha256 "27d9d88942aa02a1f8d003dfe515483d8483f216ba1e297a8ef67a42cf4bcfc3"
+    url "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.2.tar.xz"
+    sha256 "05c7e588c884a4145db376880303588f74b76d1fa11afbeccb74c6eff36b2fdc"
   end
 
   def install

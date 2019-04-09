@@ -1,18 +1,16 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.2.0.tar.gz"
-  sha256 "ee254fcf3f92447787a87b3f6df190c694a787de46348c45101e8dc7b29b5a78"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.4.0.tar.gz"
+  sha256 "a29e61a82b1a5727b145403914812273dfa033a0c07a15500078726bb3b84165"
 
   bottle do
-    sha256 "65a81abb80579b3816192036705d38be83a8c9f55ab3af8c2333ad079f60560e" => :mojave
-    sha256 "99c9327eb8634f81affaa415b339357eb61a1b5d00cd47551ba97f3bdd9286af" => :high_sierra
-    sha256 "2e1a9e6ab753ae8cccc9e899faa7aa53e83e0c2495f14b49af784a0c1a700e8b" => :sierra
-    sha256 "bd0ccbaa102b45b745ee3ac97efab1cac6ad35e42e5660c63598fd31e0ff9357" => :el_capitan
+    sha256 "65f55dfae3d1c883d0368883e16c1a7f68e64ab4a0b4451ec13a57fbc0586bf8" => :mojave
+    sha256 "b75e0154484d4206e833df6757750802d74e85bbab41f68cbe98edc776640029" => :high_sierra
+    sha256 "2f1b47a9f2b6cf3c877a79c14ae6f8f7cf3f85a1fbf7c8226f195ae0a3af02a7" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
   depends_on "gettext"
@@ -65,7 +63,6 @@ class Libosinfo < Formula
       -losinfo-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

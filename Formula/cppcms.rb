@@ -16,8 +16,6 @@ class Cppcms < Formula
   depends_on "openssl"
   depends_on "pcre"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "cmake", *std_cmake_args

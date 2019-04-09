@@ -1,20 +1,19 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.5.0.tar.gz"
-  sha256 "e1484edbb63480bc5ce75b661a328abb7b7b2c609de41e8fd0af0e6539fe02c7"
+  url "https://github.com/prometheus/prometheus/archive/v2.8.0.tar.gz"
+  sha256 "691fdadf5913c17ac0bedc1e8c2b865fd2958800b9cb118b1139e58a1963a11f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "394665ad8383aa39be07f711d734a0dbc0cdc43ba1065eaeda8df466dfdd2b2e" => :mojave
-    sha256 "e6c9d071352de4f97c4a7905fc940b266fb6232faa722acfe7748bed64ce3c37" => :high_sierra
-    sha256 "fa2803eadb0fbbfe5d127c272f345b677dfe4f7511af5302945c15d9ebde7085" => :sierra
+    sha256 "716a232bc0393eccebbb68baaa5ac160bb4230d6ee59a4c3aff8a2a87d104331" => :mojave
+    sha256 "68ac6f010c0da3db86ee64a70a367f2ac48e29a246969887a12b74014910784c" => :high_sierra
+    sha256 "b8b5052f7f47e20d6629d6ffaeae6d67165bf20d4150f3ee809bbbcf6be9ee91" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 

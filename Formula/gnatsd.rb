@@ -1,16 +1,15 @@
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v1.3.0.tar.gz"
-  sha256 "2cb9a228acfa1932196652f4c50118e55c9b5ea1b1d6549c0f2cdda7edc1fc10"
+  url "https://github.com/nats-io/gnatsd/archive/v1.4.1.tar.gz"
+  sha256 "1d319ec9466d5b4d56b8dc0c059bbb50942a8e988c3dcc155271476c3ae629a1"
   head "https://github.com/nats-io/gnatsd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54ec93978457b7054de85e5bd364949520d3aed109f7cc8de45d69218bc60a11" => :mojave
-    sha256 "68741a973382bdb90d9f969f587db8ab8e3bcc3edb5f71bb4010e0d25622e474" => :high_sierra
-    sha256 "dcad1025191f78aa0ea3e5f1f927d56124688a5dfd93e775cdb5040e89526aaa" => :sierra
-    sha256 "c5aad266e2bbc534897cd210689071391a100a6fcd726334a4679ecdcc85a00f" => :el_capitan
+    sha256 "9da840ed277927cfe8114b55e908a747297714940df6074f6b0368097a866ce1" => :mojave
+    sha256 "27d0bec653ddcc30784d3da1edd7cad84072387b36f10205b4dced8ac5a47488" => :high_sierra
+    sha256 "dcb55aeaa2cf3b0a3aa8bd3f31189ad85aebd7f8357f98e90ef82e78b926590d" => :sierra
   end
 
   depends_on "go" => :build

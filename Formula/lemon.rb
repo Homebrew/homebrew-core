@@ -11,7 +11,6 @@ class Lemon < Formula
     sha256 "9016fa354fa9f34abf2db3cdca2e13a6dd6223534ff9ea08001ddaff053fe446" => :el_capitan
     sha256 "e9b8328c8d905424be43404911bff1296c16fbdd83ecfeab7b51917f31c81ab7" => :yosemite
     sha256 "a8120db2de1708f3ecd4bddc5775f90cf5c39a55010a90d01b8cd5f58325560e" => :mavericks
-    sha256 "dd245cd856b28f4d14a3f34e243b29b032becf0809208db66bb4c550e4789a83" => :mountain_lion
   end
 
   def install

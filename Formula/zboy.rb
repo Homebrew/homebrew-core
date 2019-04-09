@@ -3,7 +3,7 @@ class Zboy < Formula
   homepage "https://zboy.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/zboy/zBoy%20v0.60/zboy-0.60.tar.gz"
   sha256 "f81e61433a5b74c61ab84cac33da598deb03e49699f3d65dcb983151a6f1c749"
-  head "http://svn.code.sf.net/p/zboy/code/trunk"
+  head "https://svn.code.sf.net/p/zboy/code/trunk"
 
   bottle do
     cellar :any

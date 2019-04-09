@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.30.1-src.tar.gz"
-    sha256 "36a38902dbd9a3e1240d46ab0f2ca40d2fd07c2ab6508ed7970c6c4c036b5b29"
+    url "https://static.rust-lang.org/dist/rustc-1.33.0-src.tar.gz"
+    sha256 "5a01a8d7e65126f6079042831385e77485fa5c014bf217e9f3e4aff36a485d94"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.31.1",
-          :revision => "a1a4ad37271b61209cd55d21f2c83f2773cbe113"
+          :tag      => "0.34.0",
+          :revision => "f099fe94b66f0a2f80370be8f2d3db2a55b97050"
     end
 
     resource "racer" do
@@ -21,9 +21,11 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "65dcd3e7f69883520de0b7fd966ee8227f0542f4aa95d17462528f254cf573ea" => :mojave
-    sha256 "c9ca103ddfdfa71690b7b8b22cceda79f44cb21b8203637398ad960570ba5223" => :high_sierra
-    sha256 "e521491486d4b300b6095f0a30ac2379717115d988cf97dda2faf1fdf64a3966" => :sierra
+    cellar :any
+    rebuild 1
+    sha256 "4061bd9640258ff2d50228b419b8016a1b347fc0eaf80d493170dc436c02c292" => :mojave
+    sha256 "5cd48c60b52d3c92e224f03e919c72a1282c926ae8ac4dc76a772dacb00c222b" => :high_sierra
+    sha256 "4d2cf000ff7f615a6d8ce1712d9895724d4a0af24f83ead797dd3a1a13261d14" => :sierra
   end
 
   head do
@@ -43,17 +45,10 @@ class Rust < Formula
   depends_on "openssl"
   depends_on "pkg-config"
 
-  # According to the official readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-10-12/cargo-0.30.0-x86_64-apple-darwin.tar.gz"
-    sha256 "defc1ba047f09219a50ff39032b5d7aaf26563f6bed528b93055622eedfddabf"
+    url "https://static.rust-lang.org/dist/2019-01-17/cargo-0.33.0-x86_64-apple-darwin.tar.gz"
+    sha256 "25cf75479da383d2307e1d6204e915f628ec3f1c185b124f57839cfd622f54b1"
   end
 
   def install
@@ -90,7 +85,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix, "--path", "."
+      system "cargo", "install", "--root", prefix, "--path", ".", "--features", "curl-sys/force-system-lib-on-osx"
     end
 
     resource("racer").stage do

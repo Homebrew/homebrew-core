@@ -17,8 +17,7 @@ class Giflib < Formula
   # https://sourceforge.net/p/giflib/bugs/102/
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=820526
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/giflib/giflib_5.1.4-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/giflib/giflib_5.1.4-3.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/g/giflib/giflib_5.1.4-3.debian.tar.xz"
     sha256 "767ea03c1948fa203626107ead3d8b08687a3478d6fbe4690986d545fb1d60bf"
     apply "patches/CVE-2016-3977.patch"
   end

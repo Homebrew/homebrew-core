@@ -1,15 +1,14 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://www.hyperscan.io/"
-  url "https://github.com/intel/hyperscan/archive/v5.0.0.tar.gz"
-  sha256 "f2bdebff62a2fc0b974b309da7be4959869fb7cababe1169b7693cfd672c2fe0"
+  url "https://github.com/intel/hyperscan/archive/v5.1.0.tar.gz"
+  sha256 "c751e85a537bc2cebb699f42a66faaf42edf10468f0315cb0719d2051eefa4d8"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9a4ae35b756b62b885018d1666f25b7ebdd700708a3c9dfff296a7c383d4f7be" => :mojave
-    sha256 "4eb9cb28a8a13cdf02831b940c4b833f10119005fa531c6be5c1c734e8f5495b" => :high_sierra
-    sha256 "ea325f93c7bb9ef06b9c5de2fb30a0d369fda33fc12c9a9a54d1640ef06e8dca" => :sierra
+    sha256 "724e189eba53847758564440c7d648503ab241abdefd8a67814f75060c119873" => :mojave
+    sha256 "c496461231e9261012665f5632e38016747eef826c08a2280a4ea1201eebd303" => :high_sierra
+    sha256 "4b3abe7a19dad7770dd1168d0bcf8a139b325d3c7e9582a446486e16a23935a4" => :sierra
   end
 
   depends_on "boost" => :build

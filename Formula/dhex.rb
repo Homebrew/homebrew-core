@@ -1,18 +1,14 @@
 class Dhex < Formula
   desc "Ncurses based advanced hex editor featuring diff mode and more"
   homepage "http://www.dettus.net/dhex/"
-  url "http://www.dettus.net/dhex/dhex_0.68.tar.gz"
-  sha256 "126c34745b48a07448cfe36fe5913d37ec562ad72d3f732b99bd40f761f4da08"
+  url "http://www.dettus.net/dhex/dhex_0.69.tar.gz"
+  sha256 "52730bcd1cf16bd4dae0de42531be9a4057535ec61ca38c0804eb8246ea6c41b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4227c87e7830d06a8634ce87a15c935596d7a29d051f4ad1ddf0c45bf9f406d3" => :mojave
-    sha256 "749b905cdb51713ea2cfbc8ceceaf5bb2c569bc1196a0229d586698c549b5522" => :high_sierra
-    sha256 "133636389b472224c6d12f8082be088464e256d7d108ef33f94f3e4e034086cf" => :sierra
-    sha256 "78d10f5fc83e4c46f4c6fbe46df834498118b80f190b2b40d1093630be3e039b" => :el_capitan
-    sha256 "c6d92d8f4175ecd84be55b071887a97c7924977fbd24509162c956d17d85c84e" => :yosemite
-    sha256 "de8a9b04e49e85b4cca75050375724076c9e496a124b0af49006d60fe44dc81f" => :mavericks
-    sha256 "159aec24f0a7d68d4284344cc140bfe247a7f7d18a01db6308dd45f55de1e90e" => :mountain_lion
+    sha256 "2d6043ce881b7b407fa40691639c25c72d73a427fcdd39a56e0683f48b16b328" => :mojave
+    sha256 "bfc2aa6c73ffff61a471b4dd8e183e493781a5c34baeddffc56fa89b0542a9bd" => :high_sierra
+    sha256 "b83e63ad0f1e2910e1f2495903ac4077aa5caaabe8cb2702094f42c3921c7a9c" => :sierra
   end
 
   def install

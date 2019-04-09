@@ -1,13 +1,13 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/11.0/gucharmap-11.0.3.tar.xz"
-  sha256 "6fe4405aa4d2edeedf412befa3cdf423211c80f8836085c4c8c56679658e37fa"
+  url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
+  sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
 
   bottle do
-    sha256 "9c378f03cd0812959ea940e8014acfc38aa21dbebc47b443badb53fc7fe2020a" => :mojave
-    sha256 "5b26d5e330593770c86ddc82183224d05cb78ce36cd89c71e9be5eb48ce63910" => :high_sierra
-    sha256 "d902d39d58d1cdb90365d23dada129747b6a5ac3e494c24897ab70d306cf4ba8" => :sierra
+    sha256 "9bb1d5a9b175c4297aad6e9bbcf4c205939ee10988c5f331ec3d18ba0910f1bf" => :mojave
+    sha256 "8afb998c47ced996ec89d5820d629c8dd479023f2f80d525227878f1f67eeb57" => :high_sierra
+    sha256 "ad46ff5cef59ac214eb3badf906823d8948c6817a68bcb48ac08f04fe083ea4c" => :sierra
   end
 
   depends_on "coreutils" => :build
@@ -15,11 +15,14 @@ class Gucharmap < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "gtk+3"
 
   def install
+    xy = Language::Python.major_minor_version "python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
     ENV["WGET"] = "curl"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

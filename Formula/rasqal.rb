@@ -12,7 +12,6 @@ class Rasqal < Formula
     sha256 "fa7368eb30256eb80ead76f7b551bc5980ed15ae8aa655d332a200edb073c2a3" => :el_capitan
     sha256 "c84ec1a4c837b4a30fe597c9cc728f5075764b87978c5977757e2836db3eca0b" => :yosemite
     sha256 "8bef11d9b2763b72cb5576926bd251175c2b0c4c7dec6ffc666f98720341ba27" => :mavericks
-    sha256 "a7c5108c07f038e9fab347dea4c3f68f733d6115b852637a60192d06cf7c7eb2" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

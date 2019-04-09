@@ -1,24 +1,20 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.2.1.tar.gz"
-  sha256 "4a65118508dc7a562e5f90dd7c3f56219fff22367c496f17d77cd0c7e2724e34"
+  url "https://www.dovecot.org/releases/2.3/dovecot-2.3.5.1.tar.gz"
+  sha256 "d78f9d479e3b2caa808160f86bfec1c9c7b46344d8b14b88f5fa9bbbf8c7c33f"
 
   bottle do
-    sha256 "63acd1b4cb9da5efb409656601b5c50b08b4ca8bf026e0b75110e3d2cda123d4" => :mojave
-    sha256 "a65b0489355543c50a65eff854b5bdbc1ea79246517eea0a49c97617a22edff5" => :high_sierra
-    sha256 "182a940de84e95f3ddf06746c28b616412417d9684d100b1d03ea90991ae5517" => :sierra
-    sha256 "0ea8bb9c76d54244d97a8ef135c98b9321be68c1bf3ff0ddfea1d1080f55c01a" => :el_capitan
+    sha256 "8e8b2cbf26ef7760b20a012247ccd495cfcb28312776f5889c261ed93409d74e" => :mojave
+    sha256 "e80b3088c9bb8081bdd39fcd269cb68353f356bb0520f97d787ab621bf35ae43" => :high_sierra
+    sha256 "d9fd6d64dc1910ea166801939754e8dce929f2f645d12f148cc1eb98978600fb" => :sierra
   end
-
-  option "with-pam", "Build with PAM support"
-  option "with-pigeonhole", "Add Sieve addon for Dovecot mailserver"
 
   depends_on "openssl"
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.2.tar.gz"
-    sha256 "950e8e15c58e539761255e140dd3678dd2477fa432a5f2b804e53821bdc02535"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.5.tar.gz"
+    sha256 "cbaa106e1c2b23824420efdd6a9f8572c64c8dccf75a3101a899b6ddb25149a5"
   end
 
   def install
@@ -29,28 +25,25 @@ class Dovecot < Formula
       --sysconfdir=#{etc}
       --localstatedir=#{var}
       --with-bzlib
+      --with-pam
       --with-sqlite
       --with-ssl=openssl
       --with-zlib
     ]
 
-    args << "--with-pam" if build.with? "pam"
-
     system "./configure", *args
     system "make", "install"
 
-    if build.with? "pigeonhole"
-      resource("pigeonhole").stage do
-        args = %W[
-          --disable-dependency-tracking
-          --with-dovecot=#{lib}/dovecot
-          --prefix=#{prefix}
-        ]
+    resource("pigeonhole").stage do
+      args = %W[
+        --disable-dependency-tracking
+        --with-dovecot=#{lib}/dovecot
+        --prefix=#{prefix}
+      ]
 
-        system "./configure", *args
-        system "make"
-        system "make", "install"
-      end
+      system "./configure", *args
+      system "make"
+      system "make", "install"
     end
   end
 

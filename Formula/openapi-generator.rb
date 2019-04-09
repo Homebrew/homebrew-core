@@ -21,10 +21,10 @@ class OpenapiGenerator < Formula
     if build.head?
       system "mvn", "clean", "package", "-Dmaven.javadoc.skip=true"
       libexec.install "modules/openapi-generator-cli/target/openapi-generator-cli.jar"
-      bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator"
+      bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator", "$JAVA_OPTS"
     else
       libexec.install "openapi-generator-cli-#{version}.jar"
-      bin.write_jar_script libexec/"openapi-generator-cli-#{version}.jar", "openapi-generator"
+      bin.write_jar_script libexec/"openapi-generator-cli-#{version}.jar", "openapi-generator", "$JAVA_OPTS"
     end
   end
 

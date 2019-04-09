@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.30.tar.xz"
-  sha256 "a1a4a5c12703d4e1ccda28333b87ff462741dc365131fbc94c218ae81d9a6567"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.7.tar.xz"
+  sha256 "52121144a2df4babed75eb5f34de130a46420101fde3ae216d3142df8a481520"
 
   bottle do
-    sha256 "bc0243c2284d6c7b45350f0530b704b8bbf3643ffc6f83eb247db94cc53a79b1" => :mojave
-    sha256 "ca8e625e7f00fca495c6724d46fac0b384b61d449d4f1e0a687ea86273a41dd7" => :high_sierra
-    sha256 "a0f6f6f21e84bf16e15b284bdac7c06ae0acbffccf076bfbfd0db96e39344cf0" => :sierra
-    sha256 "5949596413f77dcdc0e59087ca3b187272af4606011494c5357c481a8f92ce52" => :el_capitan
+    sha256 "06206a95bcc033def97b226ef94fc19773768ba238b114350d8add6db510e464" => :mojave
+    sha256 "79ec4fbdbd9f84c04921cebc63ab21333efe03c68f58a6809e3a6c979e352ab0" => :high_sierra
+    sha256 "83a228aa828991e4e69b2493a2ca5198d41b673f7bde45d0032e50fd127c668d" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -16,10 +15,10 @@ class Gtkx3 < Formula
   depends_on "atk"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "gsettings-desktop-schemas"
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
-  depends_on "gsettings-desktop-schemas" => :recommended
 
   def install
     args = %W[

@@ -1,24 +1,26 @@
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
-  url "https://github.com/bcicen/ctop/archive/v0.7.1.tar.gz"
-  sha256 "baa632235c43ed84557a13b475a1972a8327a55babb6dd08d2d72643f8442ed2"
+  url "https://github.com/bcicen/ctop.git",
+    :tag      => "v0.7.2",
+    :revision => "70bd2ae3a3476969cae3c7f921d38b130ceec648"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c581ea1e2572f43ac4410fcbb5f39e706a031d45998ad54cc1ba474fa2c1cb1" => :mojave
-    sha256 "0d2f00fb47786a5a95578da90f80979683e76d431ad90c62088d082af4ecdeff" => :high_sierra
-    sha256 "3d3968570b78e240fe94f16eb4235f016ba1f5943e3030eb177b0a7a71989934" => :sierra
-    sha256 "149adb4dfa66b7492992c07f1007743f69a6069d380a43d0e14dfffba7bc8988" => :el_capitan
+    rebuild 1
+    sha256 "2e2f235137e94a3480bf54a0ef951665756736e38db7e0d61bee478e03d550ce" => :mojave
+    sha256 "6d86410f2860a8d05d15b4cb0ae22a940de3968d75209493b3988d0c456b0b34" => :high_sierra
+    sha256 "143755c7fee144254c6d3fa401a607aae977820acf199f954ff8cdfabf336235" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/bcicen/ctop").install buildpath.children
-    cd "src/github.com/bcicen/ctop" do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/bcicen/ctop"
+    src.install buildpath.children
+    src.cd do
       system "make", "build"
       bin.install "ctop"
       prefix.install_metafiles

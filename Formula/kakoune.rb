@@ -1,18 +1,19 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2018.10.27/kakoune-2018.10.27.tar.bz2"
-  sha256 "687a173c8f94fb66aad899e7a3095fe8f08e1fdcab955dbc6785335427cc8a1d"
+  url "https://github.com/mawww/kakoune/releases/download/v2019.01.20/kakoune-2019.01.20.tar.bz2"
+  sha256 "991103a227be00ca1b10ad575fd6c749fa4c99eb19763971c7b1e113e299b995"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f75753c33d4e6c0061780b208bfae759900c7e981c121a46b5628ac02bd7980f" => :mojave
-    sha256 "375b52230d9e13a71ad5942f0d9beafda8472ad9fcb8452b3efbcbfcb4290ecb" => :high_sierra
-    sha256 "b23fc8390c4c16924434b32674b322bbc62e3b18887fef153f2569fe63acd22c" => :sierra
+    cellar :any
+    sha256 "898cd671f9407a36f4f0a039113251fcb0c18839415b25067de7b823cbcf7122" => :mojave
+    sha256 "a5992a3e250758a4026927218c78b387cc7054de11353f59c28278f2236a8e17" => :high_sierra
+    sha256 "225f222b1abe79c31cfaebf60756eef4f47d79a365e75c03261e143f21ea52af" => :sierra
   end
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "ncurses"
 
   if MacOS.version <= :el_capitan
     depends_on "gcc"

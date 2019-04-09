@@ -6,12 +6,11 @@ class Graphicsmagick < Formula
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
-    sha256 "6a897b2005fd451bcdcfa173d16b7bb79fd272bf873de5309de709166721820b" => :mojave
-    sha256 "db7ab60e8c022c0dc2a18a7d8dae0f6b1cd083aad1c90b15abf0a64f231e959d" => :high_sierra
-    sha256 "2a55a11637c14270380f5ea6a614603fdf7f27455569ffe85eab6cbcf5ff0e6e" => :sierra
+    rebuild 1
+    sha256 "f5d9f2e78344f2cbe8fa1b2501fad25a197f3a9e494391ba6cd9ad0061d06b95" => :mojave
+    sha256 "3b4c0a4ac3a704617fd885c00a36dcd92d18caa1265da2016c7da8a80ea948f4" => :high_sierra
+    sha256 "dd3e5e9c22e07ce195de6bafc066b11f39a07e9b291d820f4a6fa5ec1bc77794" => :sierra
   end
-
-  option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
@@ -20,11 +19,8 @@ class Graphicsmagick < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
-  depends_on "ghostscript" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "little-cms2" => :optional
-  depends_on "webp" => :optional
-  depends_on :x11 => :optional
+  depends_on "little-cms2"
+  depends_on "webp"
 
   skip_clean :la
 
@@ -32,45 +28,22 @@ class Graphicsmagick < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --enable-shared
-      --disable-static
-      --with-modules
-      --without-lzma
       --disable-openmp
+      --disable-static
+      --enable-shared
+      --with-modules
       --with-quantum-depth=16
+      --without-lzma
+      --without-x
+      --without-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-wmf
     ]
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--with-perl" if build.with? "perl"
-    args << "--with-webp=no" if build.without? "webp"
-    args << "--without-x" if build.without? "x11"
-    args << "--without-lcms2" if build.without? "little-cms2"
-    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
-    if build.with? "perl"
-      cd "PerlMagick" do
-        # Install the module under the GraphicsMagick prefix
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-        system "make"
-        system "make", "install"
-      end
-    end
-  end
-
-  def caveats
-    if build.with? "perl"
-      <<~EOS
-        The Graphics::Magick perl module has been installed under:
-
-          #{lib}
-
-      EOS
-    end
   end
 
   test do

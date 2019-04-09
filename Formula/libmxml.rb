@@ -2,14 +2,15 @@ class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
   url "https://github.com/michaelrsweet/mxml/releases/download/v2.12/mxml-2.12.tar.gz"
-  sha256 "afd6b75a120dc422c7b45dca19254f535d51c37b73f6783962b1e14b54c716fd"
+  sha256 "6bfb53baa1176e916855bd3b6d592fd5b962c3c259aacdb5670d90c57ce4034f"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
     cellar :any
-    sha256 "a5e58b0137687c3fb938f38bfc57573576ad8840b120d5befb4bf707e8a5b1e2" => :mojave
-    sha256 "51c6ef931e9ce4d8b477826223ac3afb961b4522903a710ced751d82081a67e7" => :high_sierra
-    sha256 "fb13cdf0e19d628feffbddc62e3e68306eddc31334414d02eddfade55069fe28" => :sierra
+    rebuild 1
+    sha256 "a2b4ef33ab0e325d90dc981a1ec1dcc51cc7f655f9dbfdf4d1d22b77f2c485be" => :mojave
+    sha256 "fb7036772610237c6f56e3ce22d3ca4d48cc6ee0b9274bedb5cc40468fa9e2ac" => :high_sierra
+    sha256 "d4593b0721fa4cdec6664b30cf908fc70afa14cc904cf62cd6302c6435cc9c98" => :sierra
   end
 
   depends_on :xcode => :build # for docsetutil

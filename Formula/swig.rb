@@ -48,7 +48,7 @@ class Swig < Formula
     EOS
     system "#{bin}/swig", "-ruby", "test.i"
     system ENV.cc, "-c", "test.c"
-    system ENV.cc, "-c", "test_wrap.c", "-I/System/Library/Frameworks/Ruby.framework/Headers/"
+    system ENV.cc, "-c", "test_wrap.c", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Ruby.framework/Headers/"
     system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o", "test_wrap.o", "-o", "test.bundle"
     assert_equal "2", shell_output("/usr/bin/ruby run.rb").strip
   end

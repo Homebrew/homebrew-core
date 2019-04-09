@@ -2,30 +2,21 @@ class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
   url "https://github.com/bazelbuild/buildtools.git",
-      :tag      => "0.17.2",
-      :revision => "7926f6cd8f2568556b0efc23530743df4278e0fe"
+      :tag      => "0.22.0",
+      :revision => "55b64c3d2ddfb57f06477c1d94ef477419c96bd6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3c17f5b5dcc56bea01dbc84796cfaea83fe4bc991a3c4ba301f7a2c74b4975f" => :mojave
-    sha256 "9146773b6013b16d689769a97ca35b88f63ebfb905415618ad275569f1470f7a" => :high_sierra
-    sha256 "eaae6bfd07289eedced6fec304145d68b297b52440ce4407aaf74a88d2862fe1" => :sierra
+    sha256 "723a91cd55aa79548dd7a72775c6e89b394c5f8f81403265b0b9e37480404f90" => :mojave
+    sha256 "723a91cd55aa79548dd7a72775c6e89b394c5f8f81403265b0b9e37480404f90" => :high_sierra
+    sha256 "0a3f5e7f68bd1e075bea7edce8412e33dbba9650a6b99af85ef39c202fd09efa" => :sierra
   end
 
-  depends_on "go" => :build
+  depends_on "bazel" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/bazelbuild").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/bazelbuild/buildtools"
-
-    commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-    inreplace "buildifier/buildifier.go" do |s|
-      s.gsub! /^(var buildifierVersion = ")redacted/, "\\1#{version}"
-      s.gsub! /^(var buildScmRevision = ")redacted/, "\\1#{commit}"
-    end
-
-    system "go", "build", "-o", bin/"buildifier", "buildifier/buildifier.go"
+    system "bazel", "build", "--workspace_status_command=#{buildpath}/status.sh", "buildifier:buildifier"
+    bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
 
   test do

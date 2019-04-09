@@ -25,7 +25,7 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
-  depends_on "python@2"
+  depends_on "python@2" # protobuf@3.1 does not support Python 3
 
   resource "protobuf-c" do
     url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.2.1/protobuf-c-1.2.1.tar.gz"

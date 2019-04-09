@@ -7,23 +7,16 @@ class LlvmAT4 < Formula
 
   bottle do
     cellar :any
-    sha256 "d9a4baa88b775e4fb640532b08d1aa290ab7a606683cd3e40a8afedb7f502bbf" => :mojave
-    sha256 "ee8df6a837856170a8e4acd2be96bda6bbb3a17901491c1f0a8cc3da391254aa" => :high_sierra
-    sha256 "b9f1d2ba25ebe94dd48e7ecbbb7d83f657b435f9a3a4c8aed9e55936fc7ae9ef" => :sierra
+    rebuild 1
+    sha256 "71636f7639720777e3e26c6d06456706cc79ad9bac08ba9d9100becfb903b210" => :mojave
+    sha256 "acd6bae928b7a8d339b500e1571bc691e2bcfabfd08b6c9c74ff6ef962a2bbe4" => :high_sierra
+    sha256 "e240000e773bbd10c9aac0eba8b510137a43929100b20b56e440ebca14dc7276" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
-
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
 
   resource "clang" do
     url "https://releases.llvm.org/4.0.1/cfe-4.0.1.src.tar.xz"
@@ -116,9 +109,13 @@ class LlvmAT4 < Formula
       system "make", "install-xcode-toolchain"
     end
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
     (share/"cmake").install "cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
+
+    # scan-build is in Perl, so the @ in our path needs to be escaped
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build",
+              "$RealBin/bin/clang", "#{bin}/clang".gsub("@", "\\@")
+
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 

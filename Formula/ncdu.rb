@@ -1,15 +1,14 @@
 class Ncdu < Formula
   desc "NCurses Disk Usage"
   homepage "https://dev.yorhel.nl/ncdu"
-  url "https://dev.yorhel.nl/download/ncdu-1.13.tar.gz"
-  sha256 "f4d9285c38292c2de05e444d0ba271cbfe1a705eee37c2b23ea7c448ab37255a"
+  url "https://dev.yorhel.nl/download/ncdu-1.14.tar.gz"
+  sha256 "c694783aab21e27e64baad314b7c1ff34541bfa219fe9645ef6780f1c5558c44"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "623b7f91e30f6c673893ff06c66a430736e918eb370b7c303a099cc6d87fb8df" => :mojave
-    sha256 "5db180d05ce0d3e8571340f69916c5b867a9ad8f600873887881e692d6f7d333" => :high_sierra
-    sha256 "17c8904b40c21d0fa8e1f9f5b7d40817911b34c1fc3f92360b98f6d43470a736" => :sierra
-    sha256 "8a7eb78e5d778b71d688f1f935b775a7f55fd9319d1cec2988b809c359223a65" => :el_capitan
+    sha256 "692b24d1716e5506519d5d410f3ea58421622a6eaeeed599500164b07b700c3c" => :mojave
+    sha256 "72bb45a38627439df5107dea24d5c88731c3c5de9018282b08586ce2712af381" => :high_sierra
+    sha256 "54c677b9f5985244e59ce78f3d55883f8149423d90565a5ba7965173416bce27" => :sierra
   end
 
   head do

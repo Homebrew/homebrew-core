@@ -1,8 +1,8 @@
 class ElasticsearchAT56 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.12.tar.gz"
-  sha256 "a815ea5096a885af4a307591d275ee6ebc9e52f7ec3ff8a5fd2c23120e4767a1"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.15.tar.gz"
+  sha256 "ac91825bc5f7facaaa4f3358267abca0717e986c7ef3c19c5267214a8c5c5032"
 
   bottle :unneeded
 
@@ -60,8 +60,8 @@ class ElasticsearchAT56 < Formula
     # Make sure runtime directories exist
     (var/"elasticsearch/#{cluster_name}").mkpath
     (var/"log/elasticsearch").mkpath
-    ln_s etc/"elasticsearch", libexec/"config"
-    (libexec/"plugins").mkdir
+    ln_s etc/"elasticsearch", libexec/"config" unless (libexec/"config").exist?
+    (libexec/"plugins").mkpath
   end
 
   def caveats
@@ -76,7 +76,7 @@ class ElasticsearchAT56 < Formula
     s
   end
 
-  plist_options :manual => "elasticsearch"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/elasticsearch@5.6/bin/elasticsearch"
 
   def plist
     <<~EOS

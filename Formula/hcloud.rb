@@ -1,14 +1,14 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/v1.10.0.tar.gz"
-  sha256 "69366f84753e1c4bbd9312be3fade23a8888969feee39eafefbd581919dbada4"
+  url "https://github.com/hetznercloud/cli/archive/v1.12.0.tar.gz"
+  sha256 "23485952b9095c7ee0d004f714d9a9199afa5cb4309627636b53fb51760fb18e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f043ac2f3b8545feab56999d41c998cc8a90469c5f3db5a499f3b82d19258ba0" => :mojave
-    sha256 "7a052a0266e1e793fc891d30862a5a868ced55313e131e0a8597c64e27df8282" => :high_sierra
-    sha256 "e58763394a36c4e838669a6020fdc55d61c020f7a4a9643687fef346391b4c65" => :sierra
+    sha256 "bab8821a1b871fea76d8cdc598bb5995c06cd4eb484bcb01630d2491e9ab4912" => :mojave
+    sha256 "1e232a192dfbe91a7c5ea734c5d93504c8427d3c3e9a3117e8fe93cf12fc9876" => :high_sierra
+    sha256 "5ea57a4f11d0c090a87e17cf9c914e7a57d113f60b79684ec1a8305cff617510" => :sierra
   end
 
   depends_on "go" => :build

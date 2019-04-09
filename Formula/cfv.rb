@@ -13,7 +13,6 @@ class Cfv < Formula
     sha256 "49b83783b5737a364504fdd9fd09672134e0103c7bb8152741d67fca455fde04" => :el_capitan
     sha256 "df85f8ee2901bb0b3033a3158d04848bb2fbc455f8af12d7d6eb6869c1471ed9" => :yosemite
     sha256 "f251efc545293925f29093f8574495ebbbfe1cbad2a285a7a531e357310e3d1f" => :mavericks
-    sha256 "7d34208fb03b4f45e61bac26348e928b6cceb3aee1bf113a4d285e0935641520" => :mountain_lion
   end
 
   def install

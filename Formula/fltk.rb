@@ -1,16 +1,14 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
-  homepage "http://www.fltk.org/"
-  url "http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.4-2.tar.gz"
-  version "1.3.4-2"
-  sha256 "25d349c18c99508737d48f225a2eb26a43338f9247551cab72a317fa42cda910"
+  homepage "https://www.fltk.org/"
+  url "https://www.fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.5.tar.gz"
+  sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
 
   bottle do
-    sha256 "fbf193393bb8d95b303e3e9bdda7b7808c8211b06ec76017ef386f3dac3ca8aa" => :mojave
-    sha256 "5dd4bbb5cf10af5e0a1ff2f29c6d12657f09626fab43811b441b27c677afd0af" => :high_sierra
-    sha256 "e22929035ced94a301c1294de6d305079e34d9709d3e9551b19555ab2f06656e" => :sierra
-    sha256 "5481ffce354c2c98ed7634b036d678c7476780085e1a518af186f2e4b22d2c31" => :el_capitan
+    sha256 "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b" => :mojave
+    sha256 "6edac0b91f19783376ec95c84819405a6f029d7d2bf8ac636d421682fc064e34" => :high_sierra
+    sha256 "e2bd28a348c8fbf948f2400d3df29ba786a2ca9cc3f87b3727477fb49ebf57f0" => :sierra
   end
 
   depends_on "jpeg"

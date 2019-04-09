@@ -17,8 +17,6 @@ class Task < Formula
   depends_on "cmake" => :build
   depends_on "gnutls"
 
-  needs :cxx11
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"

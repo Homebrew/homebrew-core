@@ -1,14 +1,15 @@
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
-  url "https://github.com/mozilla/geckodriver/archive/v0.23.0.tar.gz"
-  sha256 "2ed7eac7c40ff3813e11410d65d8b15b05a55cb15df8413577cad03f13e5a86a"
+  url "https://github.com/mozilla/geckodriver/archive/v0.24.0.tar.gz"
+  sha256 "e6f86b3b6411f078c0a762f978c00ee99926463036a68be01d111bd91f25340e"
   head "https://hg.mozilla.org/mozilla-central/", :using => :hg
 
   bottle do
-    sha256 "15d57a2252a5e6c6aa43d77862ef1bc052854bbe2d22ce2a20675e97b803596c" => :mojave
-    sha256 "1d146bd0da0d5489f1032c35c6dd92b5a4f8dee20ab2881fe8c74ab266c62b10" => :high_sierra
-    sha256 "e6802e185deefb48c408acc7ceef12420e2b7648851e07d0dbd4220184fb40a0" => :sierra
+    cellar :any_skip_relocation
+    sha256 "a298af36e97630af54412dfd6539ab167a4d79718ecd8b35293bd2a2f548b347" => :mojave
+    sha256 "bebf98611d54ba2a2226988e35c3ac099da175bf940393d99adefd22ad804de2" => :high_sierra
+    sha256 "2f258830aa0c09fe2e67e7ca55c6498426a42901586bc6cbac5c59ca22d34fcc" => :sierra
   end
 
   depends_on "rust" => :build

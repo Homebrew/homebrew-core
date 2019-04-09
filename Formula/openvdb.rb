@@ -1,15 +1,15 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
-  homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v5.2.0.tar.gz"
-  sha256 "86b3bc51002bc25ae8d69991228228c79b040cb1a5803d87543b407645f6ab20"
-  revision 2
-  head "https://github.com/dreamworksanimation/openvdb.git"
+  homepage "https://www.openvdb.org/"
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
+  sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
+  revision 1
+  head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
-    sha256 "00211fc05a2115a68dc0313494976e5bec61ada1c90a768d595293e8275791b5" => :mojave
-    sha256 "6685baa769a463f33b79d522d1dd4cc74507e6c71b34cf4e70820a84ae0e6628" => :high_sierra
-    sha256 "44c17a11b7f0859bd7738400e793a129d57964281ad1a69b836c8b6dbd97d3bd" => :sierra
+    sha256 "25c6873c89871ee1200bf7fdc594f5a49d93a7a9e4e3ce5d53dc3bbea690a1a1" => :mojave
+    sha256 "1e61d2ab95f4cab9bf2bf7dc77ffae151b585fe982b5122bbd314ceba1cf13bd" => :high_sierra
+    sha256 "356f08b2d1ad0b157a7e408641a72cab3aed98adc00539c1c6a8aa7eed38a905" => :sierra
   end
 
   depends_on "doxygen" => :build
@@ -22,11 +22,9 @@ class Openvdb < Formula
   depends_on "tbb"
 
   resource "test_file" do
-    url "http://www.openvdb.org/download/models/cube.vdb.zip"
+    url "https://nexus.aswf.io/content/repositories/releases/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
     sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11

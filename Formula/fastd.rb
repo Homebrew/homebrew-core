@@ -30,13 +30,10 @@ class Fastd < Formula
   depends_on "json-c"
   depends_on "libsodium"
   depends_on "libuecc"
-  depends_on "openssl" => :optional
-  depends_on :tuntap => :optional
 
   def install
     args = std_cmake_args
     args << "-DENABLE_LTO=ON"
-    args << "-DENABLE_OPENSSL=ON" if build.with? "openssl"
 
     # https://projects.universe-factory.net/issues/251
     args << "-DWITH_CIPHER_AES128_CTR_NACL=OFF"

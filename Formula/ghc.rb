@@ -5,17 +5,17 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-src.tar.xz"
-  sha256 "11117735a58e507c481c09f3f39ae5a314e9fbf49fc3109528f99ea7959004b2"
+  url "https://downloads.haskell.org/~ghc/8.6.4/ghc-8.6.4-src.tar.xz"
+  sha256 "5b5d07e4463203a433c3ed3df461ba6cce11b6d2b9b264db31f3429075d0303a"
 
   bottle do
-    sha256 "93d708bb5757fdfae246d64ae7923af03d1e9bfa0ecb421ef9a4aee83e977f1b" => :mojave
-    sha256 "915296edcf4e259b9e499173b8a6eec61690e91d9fce74529b432e3cf3d911a3" => :high_sierra
-    sha256 "402849ba1792133beac944d7af71e59ce0113c9b44d8aa52e35c4d01e078031f" => :sierra
+    sha256 "4a2c5a01f9e3ef499a30b25942e4d52ee86e2cb902b33dc11c1065948b9c4e50" => :mojave
+    sha256 "72e530954801084477803d9f37265f4c067ab23ddae13826ac357acf954bb725" => :high_sierra
+    sha256 "b115dacf7a6fee79a2c929d9406258e975eb6348e1471b877fe3122c80e6b4a5" => :sierra
   end
 
   head do
-    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.4"
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.6"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -27,26 +27,14 @@ class Ghc < Formula
     end
   end
 
-  depends_on "python" => :build if build.bottle?
+  depends_on "python" => :build
   depends_on "sphinx-doc" => :build
-  depends_on :macos => :lion
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
     mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
-  end
-
-  if MacOS.version <= :lion
-    fails_with :clang do
-      cause <<~EOS
-        Fails to bootstrap ghc-cabal. Error is:
-          libraries/Cabal/Cabal/Distribution/Compat/Binary/Class.hs:398:14:
-              The last statement in a 'do' block must be an expression
-                n <- get :: Get Int getMany n
-      EOS
-    end
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
@@ -56,45 +44,22 @@ class Ghc < Formula
     sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
   end
 
-  resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-testsuite.tar.xz"
-    sha256 "46babc7629c9bce58204d6425e3726e35aa8dc58a8c4a7e44dc81ed975721469"
-  end
-
-  patch :DATA
-
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-
-    # Setting -march=native, which is what --build-from-source does, fails
-    # on Skylake (and possibly other architectures as well) with the error
-    # "Segmentation fault: 11" for at least the following files:
-    #   utils/haddock/dist/build/Haddock/Backends/Hyperlinker/Types.dyn_o
-    #   utils/haddock/dist/build/Documentation/Haddock/Types.dyn_o
-    #   utils/haddock/dist/build/Haddock/GhcUtils.dyn_o
-    #   utils/haddock/dist/build/Paths_haddock.dyn_o
-    #   utils/haddock/dist/build/ResponseFile.dyn_o
-    # Setting -march=core2 works around the bug.
-    # Reported 22 May 2016: https://ghc.haskell.org/trac/ghc/ticket/12100
-    # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
-    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.
     gmp = libexec/"integer-gmp"
 
-    # MPN_PATH: The lowest common denominator asm paths that work on Darwin,
-    # corresponding to Yonah and Merom. Obviates --disable-assembly.
-    ENV["MPN_PATH"] = "x86_64/fastsse x86_64/core2 x86_64 generic" if build.bottle?
-
-    # GMP *does not* use PIC by default without shared libs  so --with-pic
+    # GMP *does not* use PIC by default without shared libs so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
-      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared"
+      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
+                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
       system "make"
       system "make", "check"
-      ENV.deparallelize { system "make", "install" }
+      system "make", "install"
     end
 
     args = ["--with-gmp-includes=#{gmp}/include",
@@ -143,14 +108,6 @@ class Ghc < Formula
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
-    if build.bottle?
-      resource("testsuite").stage { buildpath.install Dir["*"] }
-      cd "testsuite" do
-        system "make", "clean"
-        system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
-      end
-    end
-
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
   end
@@ -164,42 +121,3 @@ class Ghc < Formula
     system "#{bin}/runghc", testpath/"hello.hs"
   end
 end
-
-__END__
-
-diff --git a/docs/users_guide/flags.py b/docs/users_guide/flags.py
-index cc30b8c066..21c7ae3a16 100644
---- a/docs/users_guide/flags.py
-+++ b/docs/users_guide/flags.py
-@@ -46,9 +46,11 @@
-
- from docutils import nodes
- from docutils.parsers.rst import Directive, directives
-+import sphinx
- from sphinx import addnodes
- from sphinx.domains.std import GenericObject
- from sphinx.errors import SphinxError
-+from distutils.version import LooseVersion
- from utils import build_table_from_list
-
- ### Settings
-@@ -597,14 +599,18 @@ def purge_flags(app, env, docname):
- ### Initialization
-
- def setup(app):
-+    # The override argument to add_directive_to_domain is only supported by >= 1.8
-+    sphinx_version = LooseVersion(sphinx.__version__)
-+    override_arg = {'override': True} if sphinx_version >= LooseVersion('1.8') else {}
-
-     # Add ghc-flag directive, and override the class with our own
-     app.add_object_type('ghc-flag', 'ghc-flag')
--    app.add_directive_to_domain('std', 'ghc-flag', Flag)
-+    app.add_directive_to_domain('std', 'ghc-flag', Flag, **override_arg)
-
-     # Add extension directive, and override the class with our own
-     app.add_object_type('extension', 'extension')
--    app.add_directive_to_domain('std', 'extension', LanguageExtension)
-+    app.add_directive_to_domain('std', 'extension', LanguageExtension,
-+                                **override_arg)
-     # NB: language-extension would be misinterpreted by sphinx, and produce
-     # lang="extensions" XML attributes

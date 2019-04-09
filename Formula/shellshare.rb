@@ -1,12 +1,10 @@
 class Shellshare < Formula
   desc "Live Terminal Broadcast"
   homepage "https://shellshare.net"
-  url "https://github.com/vitorbaptista/shellshare/archive/v1.0.3.tar.gz"
-  sha256 "d984a413c3b1f785265430519e9b1eecc6e47b96d63f5b207f82872dab0a0765"
+  url "https://github.com/vitorbaptista/shellshare/archive/v1.0.4.tar.gz"
+  sha256 "55bfb1521f312b9b9b3e7bc10c9ab8e0c198278e6372187556a8d310ee6b602a"
 
   bottle :unneeded
-
-  depends_on "python@2"
 
   def install
     bin.install "public/bin/shellshare"

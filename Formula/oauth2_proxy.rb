@@ -82,6 +82,7 @@ class Oauth2Proxy < Formula
         loop do
           Utils.popen_read "curl", "-s", "http://127.0.0.1:#{port}"
           break if $CHILD_STATUS.exitstatus.zero?
+
           sleep 1
         end
       end

@@ -1,17 +1,14 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.52.tar.xz"
-  sha256 "27bc0991c530b7c6335e6efff2181934d3c1a1c516f7401ea71d8302cefda764"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.53.tar.xz"
+  sha256 "3bdfce1cf3e9650a556a8c26fb15342c5717c63f530c54693db632b0371dcb78"
 
   bottle do
-    sha256 "1b197e528b8796813ac936e6aac04deb7135109aab3bc86032d274e10fae6b46" => :mojave
-    sha256 "ef7f151c1cb17d9d49b9973d1eeaa889525a93efb6b860d630c86571e836320b" => :high_sierra
-    sha256 "7b4c767ee72d46a040ecbe7817b1de342cc5541698c05aafd43dcdf21686de6d" => :sierra
+    sha256 "1278aa2ca117a24e1c39ce0e73d4b139904b1c4ef9545e25f780c6672a6a3020" => :mojave
+    sha256 "fa763b938617bef3b014deda1b8fc4cb75f4ed446a2317837546f7650a5e029b" => :high_sierra
+    sha256 "4adf53490186376154418caa61919560c825eae7dac6232586bf7438bba7378a" => :sierra
   end
-
-  option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
-  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -20,8 +17,6 @@ class Lighttpd < Formula
   depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "libev" => :optional
-  depends_on "lua@5.1" => :optional
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512
@@ -53,9 +48,6 @@ class Lighttpd < Formula
       --with-zlib
       --with-bzip2
     ]
-
-    args << "--with-lua" if build.with? "lua@5.1"
-    args << "--with-libev" if build.with? "libev"
 
     # autogen must be run, otherwise prebuilt configure may complain
     # about a version mismatch between included automake and Homebrew's

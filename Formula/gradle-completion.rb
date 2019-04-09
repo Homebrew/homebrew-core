@@ -1,13 +1,13 @@
 class GradleCompletion < Formula
   desc "Bash and Zsh completion for Gradle"
   homepage "https://gradle.org/"
-  url "https://github.com/gradle/gradle-completion/archive/v1.3.1.tar.gz"
-  sha256 "d2a83ed883f5ca7f209e23f3b0b500bd849221f8a5aeaab1517afade8f20b3d2"
+  url "https://github.com/gradle/gradle-completion/archive/v1.4.1.tar.gz"
+  sha256 "5d77f0c739fe983cfa86078a615f43be9be0e3ce05a3a7b70cb813a1ebd1ceef"
   head "https://github.com/gradle/gradle-completion.git"
 
   bottle :unneeded
 
-  depends_on "bash-completion" => :recommended
+  depends_on "bash-completion"
 
   def install
     bash_completion.install "gradle-completion.bash" => "gradle"

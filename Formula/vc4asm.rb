@@ -20,8 +20,6 @@ class Vc4asm < Formula
     sha256 "2ea9a9e660e85dace2e9b1c9be17a57c8a91e89259d477f9f63820aee102a2d3"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

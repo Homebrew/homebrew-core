@@ -26,10 +26,8 @@ class Nethack < Formula
     cd "sys/unix" do
       if MacOS.version >= :yosemite
         hintfile = "macosx10.10"
-      elsif MacOS.version >= :lion
-        hintfile = "macosx10.7"
       else
-        hintfile = "macosx10.5"
+        hintfile = "macosx10.7"
       end
 
       inreplace "hints/#{hintfile}",

@@ -27,7 +27,7 @@ class Pdf2htmlex < Formula
   depends_on "libpng" # for fontforge
   depends_on "libtiff" # for fontforge
   depends_on "libtool" # for fontforge
-  depends_on :macos => :lion
+
   depends_on "openjpeg" # for poppler
   depends_on "pango" # for fontforge
   depends_on "ttfautohint"
@@ -51,8 +51,6 @@ class Pdf2htmlex < Formula
   end
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     resource("fontforge").stage do
       # Fix for incomplete giflib 5 support, see
       # https://github.com/coolwanglu/pdf2htmlEX/issues/713

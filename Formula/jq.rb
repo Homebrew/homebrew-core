@@ -20,7 +20,7 @@ class Jq < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "oniguruma" # jq depends > 1.5
+  depends_on "oniguruma"
 
   def install
     system "autoreconf", "-iv" if build.head?

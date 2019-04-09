@@ -15,20 +15,12 @@ class Mercury < Formula
     sha256 "0e736ef6f5cc48bc9d6f7d50cb9df6fb52dba2b0b3bf2d83b378f83fcff4ecb9" => :mavericks
   end
 
-  depends_on "erlang" => :optional
-  depends_on "hwloc" => :optional
-  depends_on "mono" => :optional
-
   def install
     args = ["--prefix=#{prefix}",
             "--mandir=#{man}",
             "--infodir=#{info}",
             "--disable-dependency-tracking",
             "--enable-java-grade"]
-
-    args << "--enable-erlang-grade" if build.with? "erlang"
-    args << "--with-hwloc" if build.with? "hwloc"
-    args << "--enable-csharp-grade" if build.with? "mono"
 
     system "./configure", *args
 

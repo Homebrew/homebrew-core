@@ -4,16 +4,13 @@ class Inetutils < Formula
   url "https://ftp.gnu.org/gnu/inetutils/inetutils-1.9.4.tar.xz"
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-1.9.4.tar.xz"
   sha256 "849d96f136effdef69548a940e3e0ec0624fc0c81265296987986a0dd36ded37"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "7516d588827d17639de90dbec68a726763880500d1423773390e55b5ef97c8d9" => :mojave
-    sha256 "83a83d549780840164b9b3da28d3aef47e41378415d6cdb6c6aee48d04623340" => :high_sierra
-    sha256 "538f028274c5afbc0d4eb397b142f724d48c68a85acc6e1c5c30e00e652d5afb" => :sierra
-    sha256 "08419e32bd90cdc6c6b4715e64b2facae634a3cd45ecc7e54da87cab7b112458" => :el_capitan
+    sha256 "cd8d9c2d67518442b03bd4c6573a22408136fbfa54822db89db9236dca9d31bb" => :mojave
+    sha256 "52c3e2f7e4d62cf0e0c742e81c026f591b9c331a338d110619b285d02a9d8b2f" => :high_sierra
+    sha256 "40fc6bf3589516e420a3452c7effc46cb9463150680ab08ceed27206ddfe0b2a" => :sierra
   end
-
-  option "with-default-names", "Do not prepend 'g' to the binary"
 
   depends_on "libidn"
 
@@ -29,48 +26,42 @@ class Inetutils < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --program-prefix=g
       --with-idn
     ]
-    args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
-      # Binaries not shadowing macOS utils symlinked without 'g' prefix
-      noshadow.each do |cmd|
-        bin.install_symlink "g#{cmd}" => cmd
-        man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
-      end
-
-      # Symlink commands without 'g' prefix into libexec/gnubin and
-      # man pages into libexec/gnuman
-      bin.find.each do |path|
-        next unless File.executable?(path) && !File.directory?(path)
-        cmd = path.basename.to_s.sub(/^g/, "")
-        (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
-        (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
-      end
+    # Binaries not shadowing macOS utils symlinked without 'g' prefix
+    noshadow.each do |cmd|
+      bin.install_symlink "g#{cmd}" => cmd
+      man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
     end
+
+    # Symlink commands without 'g' prefix into libexec/gnubin and
+    # man pages into libexec/gnuman
+    bin.find.each do |path|
+      next unless File.executable?(path) && !File.directory?(path)
+
+      cmd = path.basename.to_s.sub(/^g/, "")
+      (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
+      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
+    end
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      The following commands have been installed with the prefix 'g'.
+  def caveats; <<~EOS
+    The following commands have been installed with the prefix 'g'.
 
-          #{noshadow.sort.join("\n    ")}
+        #{noshadow.sort.join("\n    ")}
 
-      If you really need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
+    If you really need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-
-          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-    EOS
-    end
+        PATH="#{opt_libexec}/gnubin:$PATH"
+  EOS
   end
 
   test do

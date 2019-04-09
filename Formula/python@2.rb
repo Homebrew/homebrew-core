@@ -1,16 +1,14 @@
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
-  sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
-  revision 1
+  url "https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz"
+  sha256 "f222ef602647eecb6853681156d32de4450a2c39f4de93bd5b20235f2e660ed7"
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 7
-    sha256 "a54499e1c8e85bb7f30f72fdb9870e77864bd45024cc738cb6f82a79dd786081" => :mojave
-    sha256 "b4c0326f997351bb5d5f5e044a2b58ff4466117bf93f002f87c137a6dc54b908" => :high_sierra
-    sha256 "d31db54e8ae8e6aaa164787be935bc3e75a6c8690c0e10507dcb3dcb3186c43f" => :sierra
+    sha256 "61f3bbffdba8360e2637eeb21cd1b054444a0b6f366446c3bda40ff06711f797" => :mojave
+    sha256 "ced71f55e00f965b7ba78c30f2867accb060b1b56025ae64765cfa57717e6e5b" => :high_sierra
+    sha256 "54bbea4ddeb037c2d87ffd953ebe38400b53758ac1097549045e07b5d0eb2ecf" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -25,25 +23,25 @@ class PythonAT2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build if MacOS.version > :snow_leopard
+  depends_on "sphinx-doc" => :build
   depends_on "gdbm"
   depends_on "openssl"
   depends_on "readline"
   depends_on "sqlite"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/6e/9c/6a003320b00ef237f94aa74e4ad66c57a7618f6c79d67527136e2544b728/setuptools-40.4.3.zip"
-    sha256 "acbc5740dd63f243f46c2b4b8e2c7fd92259c2ddb55a4115b16418a2ed371b15"
+    url "https://files.pythonhosted.org/packages/c2/f7/c7b501b783e5a74cf1768bc174ee4fb0a8a6ee5af6afa92274ff964703e0/setuptools-40.8.0.zip"
+    sha256 "6e4eec90337e849ade7103723b9a99631c1f0d19990d6e8412dc42f5ae8b304d"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/69/81/52b68d0a4de760a2f1979b0931ba7889202f302072cc7a0d614211bc7579/pip-18.0.tar.gz"
-    sha256 "a0e11645ee37c90b40c46d607070c4fd583e2cd46231b1c06e389c5e814eed76"
+    url "https://files.pythonhosted.org/packages/36/fa/51ca4d57392e2f69397cd6e5af23da2a8d37884a605f9e3f2d3bfdc48397/pip-19.0.3.tar.gz"
+    sha256 "6e6f197a1abfb45118dbb878b5c859a0edbdd33fd250100bc015b67fded4b9f2"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/68/f0/545cbeae75f248c4ad7c2d062672cd7e046dd325a81b74fc02c62450d133/wheel-0.32.0.tar.gz"
-    sha256 "a26bc27230baaec9039972b7cb43db94b17c13e4d66a9ff6a4d46a0344c55c9a"
+    url "https://files.pythonhosted.org/packages/b7/cf/1ea0f5b3ce55cacde1e84cdde6cee1ebaff51bd9a3e6c7ba4082199af6f6/wheel-0.33.1.tar.gz"
+    sha256 "66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d"
   end
 
   def lib_cellar
@@ -169,11 +167,9 @@ class PythonAT2 < Formula
     (libexec/"pip").install resource("pip")
     (libexec/"wheel").install resource("wheel")
 
-    if MacOS.version > :snow_leopard
-      cd "Doc" do
-        system "make", "html"
-        doc.install Dir["build/html/*"]
-      end
+    cd "Doc" do
+      system "make", "html"
+      doc.install Dir["build/html/*"]
     end
   end
 

@@ -3,14 +3,15 @@ class Urh < Formula
   homepage "https://github.com/jopohl/urh"
   url "https://files.pythonhosted.org/packages/81/29/8ffecf5a0d99bef5a4463fd9dbea537e119562737aaac10b1997da135d5d/urh-2.2.3.tar.gz"
   sha256 "9867398e94b1c05a227fa2a5765cfbf7fda6327600a2e50f612988063d05ee1d"
-  revision 1
+  revision 3
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "31e1196e53213644c17bc3df1c2af4ba5159dd2b8312150a56a3ea37d8c660ca" => :mojave
-    sha256 "c77f3080e796ed94595a9de1743491aed7396214070163d9e4cf11571f5b95d1" => :high_sierra
-    sha256 "696d51839952863780505a3ff51bb5c0cce60498241a73cfe88203fbc3440b39" => :sierra
-    sha256 "d390fd9273b25cfd8b8211bde9b1d1f39bd63d0eb6898a2c67103a18cbdc9a58" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "6c3adad798551c02d0f032bb4aa605ee9aa5fe6e3bc1545b66d2314f34645712" => :mojave
+    sha256 "02b56d2752c2e3f972c24cf08ef6d516ffd5f82b191834e27be1e61f369b6f32" => :high_sierra
+    sha256 "26a380a8bc363c10c56ce1aaf7662c876f67700b80c02b64390ed84c1d6565fe" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -45,6 +46,7 @@ class Urh < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       next if r.name == "Cython"
+
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end

@@ -13,8 +13,6 @@ class Sshfs < Formula
     sha256 "61c578fbd666a6c2b5b452a7429e3fd5a64da153652d428386c41b4ebb6e30fa" => :yosemite
   end
 
-  option "without-sshnodelay", "Don't compile NODELAY workaround for ssh"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -23,14 +21,7 @@ class Sshfs < Formula
   depends_on :osxfuse
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--disable-sshnodelay" if build.without? "sshnodelay"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 

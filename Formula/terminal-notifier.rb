@@ -14,7 +14,6 @@ class TerminalNotifier < Formula
   end
 
   depends_on :xcode => :build
-  depends_on :macos => :mountain_lion
 
   def install
     xcodebuild "-project", "Terminal Notifier.xcodeproj",

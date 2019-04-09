@@ -1,13 +1,14 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v3.0.1.tar.gz"
-  sha256 "621e9281b7851f88a51da5d857c4f1a53b3b7911151a6420d77bbf227f0f573a"
+  url "https://github.com/gravitational/teleport/archive/v3.1.8.tar.gz"
+  sha256 "5993de3223933ea5015a0cf0465f77983952fdf543ec58b70b492bb5238b1601"
 
   bottle do
-    sha256 "1bdb2bb7e97862291f12792743102365b1b8b40efd12d43df96f88bb5af0e4c3" => :mojave
-    sha256 "a0fa2cf128d526c24fa547f399c83f0481ce04ffcd5c47dfb67e99166ab68660" => :high_sierra
-    sha256 "c2667661301acd34d625575055c9a29139262bf17bec531467d807afb005375f" => :sierra
+    cellar :any_skip_relocation
+    sha256 "3b9f69ecbd0720b43f9d015ceaef199cbc182f7bd12bf83fc631cfe555bb2322" => :mojave
+    sha256 "03bea5a8bf95cb8aa434428577633b732be2a6fceeae213b94ac06bc6024f531" => :high_sierra
+    sha256 "0916887d28542d520b7974fceb7187de7b48958c2779d8792386b96e31ae8ca3" => :sierra
   end
 
   depends_on "go" => :build
@@ -16,7 +17,7 @@ class Teleport < Formula
 
   def install
     ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     ENV["GOROOT"] = Formula["go"].opt_libexec
 

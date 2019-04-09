@@ -1,19 +1,17 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.85.tar.gz"
-  sha256 "dc17ecf2f6bacbee32141fe7713747de9026bbb36207bfad2d73a5185c6b14a3"
+  url "https://github.com/danmar/cppcheck/archive/1.87.tar.gz"
+  sha256 "ea7ac1cd2f5c00ecffd596fd0f7281cba44308e565a634fae02b77ecd927c153"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "e0e32d3e4f6e08b8bff28613e568ff61542deb401cb836c3e9b1b4cdc66f25b1" => :mojave
-    sha256 "33404712b64582e6528444c1108a4ae8ff22472b8cbac74cef314c8452892d55" => :high_sierra
-    sha256 "ee54883a0ef9b46f3eff472e1a5d7b45c7e48428a3c658165a53dea33c82d47d" => :sierra
+    sha256 "459379b27b56d2d21e66a73b971f5f95a95cc40a05bfea06584b59600ee606f4" => :mojave
+    sha256 "ac488840fa1fbb9e4413f0720a23ef262884805d42712f922e83ff0cae0b279f" => :high_sierra
+    sha256 "76f7886607cb555fc93e61032b5d56b84ddb9e40b5d61920bbfb1e98e876ed49" => :sierra
   end
 
   depends_on "pcre"
-
-  needs :cxx11
 
   def install
     ENV.cxx11

@@ -13,7 +13,6 @@ class TaLib < Formula
     sha256 "3b5927cdb5f69cdc57d8ecbdf5b6fc95a5b6aad7c626c79d1893f2d824030e65" => :el_capitan
     sha256 "bb40b6d09be26ee497aae27abea5808730af29e6387fa347996eae49c32c448d" => :yosemite
     sha256 "da1457eb5a09c71f90da185b954aff3d399e61a20ff78ad0bd9d177ad11ad1b7" => :mavericks
-    sha256 "d4c5bf3efdaed633acf74d8039d723fd828e52982ebc864a48e09c2e71506311" => :mountain_lion
   end
 
   def install

@@ -1,13 +1,13 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.100.2.tar.gz"
-  sha256 "4a2e4f0cd41e62adb5a713b4a1857c49145cd09a69957e6d946ecad575206dd6"
+  url "https://www.clamav.net/downloads/production/clamav-0.101.2.tar.gz"
+  sha256 "0a12ebdf6ff7a74c0bde2bdc2b55cae33449e6dd953ec90824a9e01291277634"
 
   bottle do
-    sha256 "3c3cf0708c41acea618c1fa44514860e2f628525fff24b32bf7d9b889b0eae6d" => :mojave
-    sha256 "b32daa605ce566aeee7f8f6f69bc4b38f4ee5500284f74111eedefb22bfffc02" => :high_sierra
-    sha256 "23f15b3fd6bb54d16ca0d12c070160d42d7683a619045a1488049e410f279e8c" => :sierra
+    sha256 "1056117fca7f6f1c1e1bee530ba8b8e54791a96dddf6472836d2e6af31554d3e" => :mojave
+    sha256 "09c5da032cd80c38a7041d4a6372f37f7b0136cdd93116cac1ab0438ae4d5b93" => :high_sierra
+    sha256 "a30c568e36a1a74c31c85bc7b37909734e10d5089f4ffe6aa3821b0b712b94a1" => :sierra
   end
 
   head do
@@ -19,10 +19,10 @@ class Clamav < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "json-c"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "json-c" => :optional
-  depends_on "yara" => :optional
+  depends_on "yara"
 
   skip_clean "share/clamav"
 
@@ -33,15 +33,13 @@ class Clamav < Formula
       --prefix=#{prefix}
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
-      --with-openssl=#{Formula["openssl"].opt_prefix}
-      --with-pcre=#{Formula["pcre"].opt_prefix}
       --disable-zlib-vcheck
       --enable-llvm=no
+      --with-libjson=#{Formula["json-c"].opt_prefix}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-pcre=#{Formula["pcre"].opt_prefix}
+      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
     ]
-
-    args << (build.with?("json-c") ? "--with-libjson=#{Formula["json-c"].opt_prefix}" : "--without-libjson")
-    args << "--disable-yara" if build.without? "yara"
-    args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
 
     pkgshare.mkpath
     system "autoreconf", "-fvi" if build.head?

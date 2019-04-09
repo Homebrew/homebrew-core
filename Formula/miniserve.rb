@@ -1,13 +1,14 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/v0.2.1.tar.gz"
-  sha256 "9d58319ae1dcf460f85114e49939ffeae8b6161de7e9dfaf6a7a985d52e998d4"
+  url "https://github.com/svenstaro/miniserve/archive/v0.3.0.tar.gz"
+  sha256 "80ee5d661730ddad14671f961b560467f3b3a9f0544b9b11dec65098eb4a1f7e"
 
   bottle do
-    sha256 "a3af5e213d0af2c5e899215f638b2b9f47ce71d5d04b15bc36160d1ac1385627" => :mojave
-    sha256 "e04be638d9a20ed8481b28a39d12c9232354931313820a612a02b72a28c61cc5" => :high_sierra
-    sha256 "a4d01bb0280ea8850b8f01e809d0e659bb971435ca5809b2b21fa26add4a23b5" => :sierra
+    cellar :any_skip_relocation
+    sha256 "e8955f888b8c0828d741d5541a2ae6567704d78db99600d59b3d9a02dc571089" => :mojave
+    sha256 "8711ae0bb727abd3ed3ad8d1335275d26fbc473f19bacfbad76b10b5a0bf4efc" => :high_sierra
+    sha256 "a00b82cfce9fecd067b62ec3135a0e9cc59d3133f97ed3c0e7b815e4921c32d0" => :sierra
   end
 
   depends_on "rust" => :build

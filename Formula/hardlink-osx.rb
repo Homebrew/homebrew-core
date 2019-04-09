@@ -12,7 +12,6 @@ class HardlinkOsx < Formula
     sha256 "edf85db2b0586c410dd96f8ab50cf4cc0f34d1494b3b91a5ef0b00ae16fed3c0" => :el_capitan
     sha256 "dcba3e0320ca63d1b958173aa9e2ac24074c5c1f94becaba07f0c92e721b941e" => :yosemite
     sha256 "2ebdf76a67f7c63614d581963d92d79de15cf834b7e3857c139f474db71aab73" => :mavericks
-    sha256 "fb90d16f641a705e9101133d44a3274db764eca6350bfcc453447cac4bb3cfaf" => :mountain_lion
   end
 
   def install

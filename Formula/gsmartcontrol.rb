@@ -17,8 +17,6 @@ class Gsmartcontrol < Formula
   depends_on "pcre"
   depends_on "smartmontools"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",

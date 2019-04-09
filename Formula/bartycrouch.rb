@@ -1,26 +1,20 @@
 class Bartycrouch < Formula
-  desc "Incrementally update your Strings files"
+  desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
-  url "https://github.com/Flinesoft/BartyCrouch/archive/3.13.1.tar.gz"
-  sha256 "86a48d807e2028061cbdcd63ad021122cc60408327a8de32daf332344332bd92"
+  url "https://github.com/Flinesoft/BartyCrouch.git",
+      :tag      => "4.0.1",
+      :revision => "b7e940a6383c9d1f013288081dcc2a395c68448b"
+  head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a26c3afa9894c89d09350f6d233744fd104ac07b63f0d6ae3c533264957b8e05" => :mojave
-    sha256 "9fada7c618c2293819746b7802d4b71c4c3615ec342be6b8c899e4551297b159" => :high_sierra
-    sha256 "659b955035f9dbc317b7e1d74d7add56ae7cb874464545bc0ed5dd87cd144642" => :sierra
+    sha256 "725bb849db135f7d2975526d342e1d83754b94ceebea3473c4ed919b67b75e0a" => :mojave
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.2", :build]
 
   def install
-    xcodebuild "-project", "BartyCrouch.xcodeproj",
-               "-scheme", "BartyCrouch CLI",
-               "SYMROOT=build",
-               "DSTROOT=#{prefix}",
-               "INSTALL_PATH=/bin",
-               "-verbose",
-               "install"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
@@ -39,7 +33,7 @@ class Bartycrouch < Formula
       "oldKey" = "Some translation";
     EOS
 
-    system bin/"bartycrouch", "code", "-p", testpath, "-l", testpath, "-a"
+    system bin/"bartycrouch", "update"
     assert_match /"oldKey" = "/, File.read("en.lproj/Localizable.strings")
     assert_match /"test" = "/, File.read("en.lproj/Localizable.strings")
   end

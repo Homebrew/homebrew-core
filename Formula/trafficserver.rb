@@ -5,8 +5,6 @@ class Trafficserver < Formula
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.4.tar.bz2"
     sha256 "1c5213f8565574ec8a66e08529fd20060c1b9a6cd9b803ba9bbb3b9847651b53"
-
-    needs :cxx11
   end
 
   bottle do
@@ -38,11 +36,6 @@ class Trafficserver < Formula
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-
-    # Needed for OpenSSL headers
-    if MacOS.version <= :lion
-      ENV.append_to_cflags "-Wno-deprecated-declarations"
-    end
 
     args = %W[
       --prefix=#{prefix}

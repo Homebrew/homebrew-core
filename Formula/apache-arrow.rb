@@ -1,39 +1,52 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.11.0/apache-arrow-0.11.0.tar.gz"
-  sha256 "1838faa3775e082062ad832942ebc03aaf95386c0284288346ddae0632be855d"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
+  sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
+  revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "702985ab75e66013b03ca0d6b16abbb839bb8ca72a5a11df7ddb630c25eaf544" => :mojave
-    sha256 "825cbad795fde15c7f48a22494c3f413a52c6d59048dc0a4570b56308e3447e2" => :high_sierra
-    sha256 "04c5ef6542fdfb29eb624d80a465885e8ef946793727fa8e25d6eb067f438139" => :sierra
+    sha256 "6aa00e8691bb50792063fabf779654c84779191c61e535f673bdcce23f6ab5c9" => :mojave
+    sha256 "b1e94f45e5784bac3dd5d7e91cc9b528b327ef04414aee50e3e0e2f3a1a95cde" => :high_sierra
+    sha256 "edb8034cb655983af33466bf7b8347af2761e36be3ff9324c1f69b62ebea717b" => :sierra
   end
 
+  depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "jemalloc"
-  depends_on "python" => :optional
-  depends_on "python@2" => :optional
-
-  needs :cxx11
+  depends_on "flatbuffers"
+  depends_on "lz4"
+  depends_on "numpy"
+  depends_on "protobuf"
+  depends_on "python"
+  depends_on "snappy"
+  depends_on "thrift"
+  depends_on "zstd"
 
   def install
     ENV.cxx11
-    args = []
+    args = %W[
+      -DARROW_ORC=ON
+      -DARROW_PARQUET=ON
+      -DARROW_PLASMA=ON
+      -DARROW_PROTOBUF_USE_SHARED=ON
+      -DARROW_PYTHON=ON
+      -DARROW_INSTALL_NAME_RPATH=OFF
+      -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
+      -DLZ4_HOME=#{Formula["lz4"].prefix}
+      -DPROTOBUF_HOME=#{Formula["protobuf"].prefix}
+      -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
+      -DSNAPPY_HOME=#{Formula["snappy"].prefix}
+      -DTHRIFT_HOME=#{Formula["thrift"].prefix}
+      -DZSTD_HOME=#{Formula["zstd"].prefix}
+    ]
 
-    if build.with?("python") && build.with?("python@2")
-      odie "Cannot provide both --with-python and --with-python@2"
-    end
-    Language::Python.each_python(build) do |python, _version|
-      args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{which python}"
-    end
-
-    cd "cpp" do
-      system "cmake", ".", *std_cmake_args, *args
-      system "make", "unittest"
+    mkdir "build"
+    cd "build" do
+      system "cmake", "../cpp", *std_cmake_args, *args
+      system "make"
       system "make", "install"
     end
   end
@@ -41,8 +54,7 @@ class ApacheArrow < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include "arrow/api.h"
-      int main(void)
-      {
+      int main(void) {
         arrow::int64();
         return 0;
       }

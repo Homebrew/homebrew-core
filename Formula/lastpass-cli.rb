@@ -1,16 +1,15 @@
 class LastpassCli < Formula
   desc "LastPass command-line interface tool"
   homepage "https://github.com/lastpass/lastpass-cli"
-  url "https://github.com/lastpass/lastpass-cli/archive/v1.3.1.tar.gz"
-  sha256 "25dc9a0c99a10ee70b5b3991d525448c25f312cc69fa0216d7ac70c4ae384b1b"
-  revision 1
+  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.2/lastpass-cli-1.3.2.tar.gz"
+  sha256 "515093bd9777051596f8b0f5e55d4d47bf7154570d2d9ad71347cb1e9d7b1ef9"
   head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
     cellar :any
-    sha256 "b6867561b8ba2c646b2c15037837db58d8085721d4d918ede963c30f95812818" => :mojave
-    sha256 "20ea8f49e0be8c5f0ebdfcc3d0cd368cecf2a1d1fe4e4aa5b4e0a93bb9881d57" => :high_sierra
-    sha256 "9c2c97113d8f5d9787c25a289c48301f6b8d46275f9b27e1847ef516cb3ad1b2" => :sierra
+    sha256 "644f34d11c0776baada68ada57ce19e1c2a4ed030b668baa3223821829300e01" => :mojave
+    sha256 "95a6d678d7ba3f065f3e45dadee09e359a96a20f572e91b5ff8d8441e97e087e" => :high_sierra
+    sha256 "c6db5831f35cfd51c116fddb7ada509fd36a893da36ff4be1d5a2fa4b433ca30" => :sierra
   end
 
   depends_on "asciidoc" => :build

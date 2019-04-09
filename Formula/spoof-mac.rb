@@ -3,19 +3,17 @@ class SpoofMac < Formula
   homepage "https://github.com/feross/SpoofMAC"
   url "https://files.pythonhosted.org/packages/9c/59/cc52a4c5d97b01fac7ff048353f8dc96f217eadc79022f78455e85144028/SpoofMAC-2.1.1.tar.gz"
   sha256 "48426efe033a148534e1d4dc224c4f1b1d22299c286df963c0b56ade4c7dc297"
+  revision 1
   head "https://github.com/feross/SpoofMAC.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "168b9ea72b3ef3b6bd5bf248ee4e2dafaa8f7b35e70c7db2be481be53e73b66e" => :mojave
-    sha256 "f7972b66a491d8513262e3bdb9098850fe91e4c8e0e3d7a12efd24994e47dda5" => :high_sierra
-    sha256 "baa45eb53fc9e1a713ca7693351409f66c833834e7c7d0838115bcf5f38df555" => :sierra
-    sha256 "6c97eaa9a82f7eadb5c1127a0dcf9b0f9f1837e36d3e9978e989471322f42b4a" => :el_capitan
-    sha256 "927644491edf064dcc3145e05107737c3e571b55989ae8d539bf0b499da3685c" => :yosemite
-    sha256 "f7dc1529dd2c83d8bf8667d170299aa592910bb4918174b23f6a9b7d3555084e" => :mavericks
+    sha256 "18ea6ecd4ef0b23a9272795ae3991f02f41e964cf76f32d305a4091b3111567c" => :mojave
+    sha256 "51eb8c3a59a45e6db0feabfe73c661bd1c082a4d5777cefe3f54767749e01733" => :high_sierra
+    sha256 "51eb8c3a59a45e6db0feabfe73c661bd1c082a4d5777cefe3f54767749e01733" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
@@ -23,14 +21,15 @@ class SpoofMac < Formula
   end
 
   def install
-    ENV["PYTHONPATH"] = libexec/"lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resources.each do |r|
-      r.stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
+      r.stage { system "python3", *Language::Python.setup_install_args(libexec/"vendor") }
     end
 
-    system "python", *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end

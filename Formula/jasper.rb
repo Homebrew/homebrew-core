@@ -1,14 +1,14 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
-  url "https://github.com/mdadams/jasper/archive/version-2.0.14.tar.gz"
-  sha256 "85266eea728f8b14365db9eaf1edc7be4c348704e562bb05095b9a077cf1a97b"
+  url "https://github.com/mdadams/jasper/archive/version-2.0.16.tar.gz"
+  sha256 "f1d8b90f231184d99968f361884e2054a1714fdbbd9944ba1ae4ebdcc9bbfdb1"
+  revision 1
 
   bottle do
-    sha256 "799c0986353251ad4b1d6d8cbdcfae357ef428cbc534a89ed0be5a5de3dcaf80" => :mojave
-    sha256 "086de22e8e8a01299962f3bea5374c90490b66e84b7e10a4078f172e64b0079f" => :high_sierra
-    sha256 "86058296fb5efea3ca509bd335bf7da48a83078fc237c1ccb1bb2d428ef2343b" => :sierra
-    sha256 "c481b8887b8d29e3c63735dd2151c9246e08f21bf50334033de4a054f700a6db" => :el_capitan
+    sha256 "ed0856ff9b2429852401e658f4045c9e39cd05fa77b5ea7a6a3c2e21b4d8c460" => :mojave
+    sha256 "630b86c544fda0a769815637e37b34e587a6d070b26d642b0d50401f609c744f" => :high_sierra
+    sha256 "15ccd9ba448e5de3468d6be07c41106ed77e45d65adbea74a524c042e8791b06" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -23,6 +23,10 @@ class Jasper < Formula
       system "make"
       system "make", "test"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", "-DJAS_ENABLE_SHARED=OFF", *std_cmake_args
+      system "make"
+      lib.install "src/libjasper/libjasper.a"
     end
   end
 

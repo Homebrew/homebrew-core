@@ -24,18 +24,11 @@ class NordugridArc < Formula
   # libc++ and libstdc++
   depends_on :macos => :yosemite
 
-  fails_with :clang do
-    build 500
-    cause "Fails with 'template specialization requires \"template<>\"'"
-  end
-
   # bug filed upstream at https://bugzilla.nordugrid.org/show_bug.cgi?id=3514
   patch do
     url "https://gist.githubusercontent.com/tschoonj/065dabc33be5ec636058/raw/beee466cdf5fe56f93af0b07022532b1945e9d2e/nordugrid-arc.diff"
     sha256 "5561ea013ddd03ee4f72437f2e01f22b2c0cac2806bf837402724be281ac2b6d"
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11

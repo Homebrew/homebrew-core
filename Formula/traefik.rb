@@ -1,16 +1,16 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.4/traefik-v1.7.4.src.tar.gz"
-  version "1.7.4"
-  sha256 "4d525114e815f821e2fac51b7798999428294050f2312830c387e198b527b5c0"
+  url "https://github.com/containous/traefik/releases/download/v1.7.10/traefik-v1.7.10.src.tar.gz"
+  version "1.7.10"
+  sha256 "9706aa14f7def1efe732b9bab16a9ddd29f18c707400ebabaca92e0f6e9fc808"
   head "https://github.com/containous/traefik.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fa8e46b9025659aa44c3959b561721dff5ef89cdc470c073a5d2af0195b1280" => :mojave
-    sha256 "9d7eb709add65229b2785600f14c82fd9aa7e7a45ab97de09b6ea262994bcad3" => :high_sierra
-    sha256 "42d5b32d906583d1c4387f675c37f50084d2f5d23f6fcc25d2acbe0b1893a8d1" => :sierra
+    sha256 "9d612d06689f6260db400bd0bbfa36ac25b37f3087303498a43a3492cdd15e84" => :mojave
+    sha256 "2731bbccad6e59ca82ce29d6698acbbb4a29915e5f1f91dd4504c9676721f632" => :high_sierra
+    sha256 "82ea02c37eb1d2a12f3f6d053293f681f151547be3d17ce1b52f287f6eb891fe" => :sierra
   end
 
   depends_on "go" => :build
@@ -34,6 +34,39 @@ class Traefik < Formula
       system "go", "build", "-o", bin/"traefik", "./cmd/traefik"
       prefix.install_metafiles
     end
+  end
+
+  plist_options :manual => "traefik"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/traefik</string>
+            <string>--configfile=#{etc/"traefik/traefik.toml"}</string>
+          </array>
+          <key>EnvironmentVariables</key>
+          <dict>
+          </dict>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/traefik.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/traefik.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

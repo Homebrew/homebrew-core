@@ -6,46 +6,47 @@ class Mu < Formula
   homepage "https://www.djcbsoftware.nl/code/mu/"
   url "https://github.com/djcb/mu/releases/download/v1.0/mu-1.0.tar.xz"
   sha256 "966adc4db108f8ddf162891f9c3c24ba27f78c31f86575a0e05fbf14e857a513"
+  revision 1
 
   bottle do
-    sha256 "c17d20c6deebf4f75da2f7fa028114f48176714c46d1f204d469880121e9b6d0" => :mojave
-    sha256 "d6d58dc0b9fc5d5454c0bf68230f6f8fb8cb973821de3e41ec267ce2614d8ec3" => :high_sierra
-    sha256 "0a818cbcfa365710bd48a97092218042dc8d00afd73b3f781c0982f8668a8410" => :sierra
-    sha256 "588ebfb6e7d577e8efd4a38ca1ae598998c8e015dd1101db8785641bdea17f6a" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "b12b4e6d3a86efb4cceb1e7d06cd6a202210e190f02249c19cbc0bec23c1fdfe" => :mojave
+    sha256 "3194434108363a40f108ea380e2dd5014f318e5cd5e5330a9b4afd02420ba6e4" => :high_sierra
+    sha256 "e233b018589b46b4e72ba96d71427cb4b5240ee02fec05b4f19e278bec428b3c" => :sierra
   end
 
   head do
     url "https://github.com/djcb/mu.git"
 
     depends_on "autoconf-archive" => :build
+    depends_on "gmime"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "xapian"
-  depends_on "emacs" => :optional
 
-  # Currently requires gmime 2.6.x
+  # Stable requires gmime 2.6.x, future versions will depend on gmime like head does
   resource "gmime" do
     url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
     sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
   end
 
   def install
-    resource("gmime").stage do
-      system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
+    unless build.head?
+      resource("gmime").stage do
+        system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
+        system "make", "install"
+        ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
+      end
     end
-
-    # Explicitly tell the build not to include emacs support as the version
-    # shipped by default with macOS is too old.
-    ENV["EMACS"] = "no" if build.without? "emacs"
 
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",

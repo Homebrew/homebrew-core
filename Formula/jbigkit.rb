@@ -2,7 +2,7 @@ class Jbigkit < Formula
   desc "JBIG1 data compression standard implementation"
   homepage "https://www.cl.cam.ac.uk/~mgk25/jbigkit/"
   url "https://www.cl.cam.ac.uk/~mgk25/jbigkit/download/jbigkit-2.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
        :using => :git
@@ -15,7 +15,6 @@ class Jbigkit < Formula
     sha256 "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00" => :el_capitan
     sha256 "764396342e87b84253aa06f5046f90c778cacca998ce970900cb2fdf1cfdc3fa" => :yosemite
     sha256 "0ce925915b984307d2e679622138143c5cc5baf832b0a16003fa1e6111a5df9f" => :mavericks
-    sha256 "0afb6297101bc3269f0ebca1590cda66a62cbd90e3fdbec38dc011131711d32b" => :mountain_lion
   end
 
   conflicts_with "netpbm", :because => "both install `pbm.5` and `pgm.5` files"

@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.12.0.tar.gz"
-  sha256 "81fe7b1b0cba93e7d7aa3cfbfd55f5280d3639e4fcb14bf9d1b95ab35f41cf0d"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.15.1.tar.gz"
+  sha256 "fc9b6d88b5889736cd9bc296667fb512c94f33856450155789117f773dd5119c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07e0b0330e2f0e46d66d90a0e3d2b1f57a3c205ac457583ef5d6364a9401d7f0" => :mojave
-    sha256 "c0b7a04609f85bec21a4d5860fbbdb78eab07a1cfd6a373dd35762d04f6ddbec" => :high_sierra
-    sha256 "51b3395661c7d2ffe45ec08647c692f0d0475c9580e1d0da3deb947b2321c5f6" => :sierra
+    sha256 "a0c00374ed2561becf03eef293764ce37275174b8dfd73de9a8a480a592827a0" => :mojave
+    sha256 "d9c6d6f9d426109dcdd05a83b9bd585349c53edbd34bc5c995727204094bd11a" => :high_sierra
+    sha256 "55f04ff035a1ca0de42025e83765798ef7dec7933c7e3079971786ec803f8376" => :sierra
   end
 
   depends_on "python"
@@ -28,6 +28,7 @@ class PreCommit < Formula
     lib_python_path = Pathname.glob(libexec/"lib/python*").first
     lib_python_path.each_child do |f|
       next unless f.symlink?
+
       realpath = f.realpath
       rm f
       ln_s realpath, f

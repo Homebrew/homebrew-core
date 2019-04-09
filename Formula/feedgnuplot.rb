@@ -6,9 +6,10 @@ class Feedgnuplot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "672b773f3fc4ab3aa1447ceadcc14cd394944e3b7ee7b932839a98e318d0d8af" => :mojave
-    sha256 "59415efda86bb2c5474ba8539108813a2970c5863a1a9eb9f634cbd911a2a41d" => :high_sierra
-    sha256 "5f60ed2583d232fb65f6900f23ab1ecb99ffd1812948b288d87836f221da3e08" => :sierra
+    rebuild 1
+    sha256 "6f00b17519378944d02640d187db840c316b9cf730882504a51f036c737dbaf5" => :mojave
+    sha256 "898fe29c81b8ceaecbdb94db803e0ed9c715100eee54a259ad84a6b0ce5a66af" => :high_sierra
+    sha256 "c72aa3fa82a3a6a685fe3e1d55d16a7e22f4fa343422b019f08c954b0f709599" => :sierra
   end
 
   depends_on "gnuplot"
@@ -17,6 +18,9 @@ class Feedgnuplot < Formula
     system "perl", "Makefile.PL", "prefix=#{prefix}"
     system "make"
     system "make", "install"
+
+    bash_completion.install "completions/bash/feedgnuplot"
+    zsh_completion.install "completions/zsh/_feedgnuplot"
   end
 
   test do

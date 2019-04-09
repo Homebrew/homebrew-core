@@ -12,8 +12,6 @@ class Mafft < Formula
     sha256 "8a3bcbc305bf8d1c5aebe9e98e972c1050cbf10cc39669e0b33098045eab3557" => :el_capitan
   end
 
-  depends_on :macos => :lion
-
   def install
     make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} PREFIX=#{prefix} install]
     system "make", "-C", "core", *make_args

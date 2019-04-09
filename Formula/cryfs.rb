@@ -1,29 +1,25 @@
 class Cryfs < Formula
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/0.9.9/cryfs-0.9.9.tar.xz"
-  sha256 "aa8d90bb4c821cf8347f0f4cbc5f68a1e0f4eb461ffd8f1ee093c4d37eac2908"
+  url "https://github.com/cryfs/cryfs/releases/download/0.10.1/cryfs-0.10.1.tar.xz"
+  sha256 "be7a9bb550e1bd5fc0f009ba61b8d0df161fbd8b2db48a746f99238a752ce69a"
 
   bottle do
     cellar :any
-    sha256 "9ad2ecacb4813c16b2b706d4cf6b4348ff86ef019fe6c5a7d9c39fb418010c46" => :mojave
-    sha256 "8f58cac3f867d51a95f09e17e15b893dc4415df18476963dd8cdd72c9a99f56c" => :high_sierra
-    sha256 "db97f7cd1d28b3036165d4f8142688b73e3bce12416d0a1a0b9eff03d44a0245" => :sierra
-    sha256 "2fab8415b94e7b2f782ec642e2e4fb0ce345524f5fd014cc21d14b2b410c8635" => :el_capitan
+    sha256 "aa52518edcf8edc3707ceb8081483606c3878d1e1087a0f392ee694e6680a576" => :mojave
+    sha256 "24c8beaf4992fd001a98a6b0fbd9da75e2293e22a482edb62070d136a1fe93af" => :high_sierra
+    sha256 "1c142ea0d1ed5ccfb895ceec992d91bde06cee5deee13c963b898d39d4881d55" => :sierra
   end
 
   head do
     url "https://github.com/cryfs/cryfs.git", :branch => "develop", :shallow => false
-    depends_on "libomp"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "cryptopp"
+  depends_on "libomp"
   depends_on "openssl"
   depends_on :osxfuse
-
-  needs :cxx11
 
   def install
     configure_args = [
@@ -47,6 +43,17 @@ class Cryfs < Formula
 
   test do
     ENV["CRYFS_FRONTEND"] = "noninteractive"
-    assert_match "CryFS", shell_output("#{bin}/cryfs", 10)
+
+    # Test showing help page
+    assert_match "CryFS", shell_output("#{bin}/cryfs 2>&1", 10)
+
+    # Test mounting a filesystem. This command will ultimately fail because homebrew tests
+    # don't have the required permissions to mount fuse filesystems, but before that
+    # it should display "Mounting filesystem". If that doesn't happen, there's something
+    # wrong. For example there was an ABI incompatibility issue between the crypto++ version
+    # the cryfs bottle was compiled with and the crypto++ library installed by homebrew to.
+    mkdir "basedir"
+    mkdir "mountdir"
+    assert_match "Operation not permitted", pipe_output("#{bin}/cryfs -f basedir mountdir 2>&1", "password")
   end
 end

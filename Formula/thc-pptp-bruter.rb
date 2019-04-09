@@ -13,7 +13,6 @@ class ThcPptpBruter < Formula
     sha256 "29311d0d9c7592bcaae2acbf529bc6cb836df622361a9343aeb37543a0ff7f48" => :el_capitan
     sha256 "9236475e9ec15fdddefd4b9ad01d619d645ad0227adc50e9ae7c5b01a68ff964" => :yosemite
     sha256 "e34bda13c8753b1064fb59712e799191dd00addfa30b0f9947d2dd97dac47b1a" => :mavericks
-    sha256 "fa6df7bd11a9f2a2903e60775ab1324a7220d37da30a4bb6e4a8eb77e2163c3d" => :mountain_lion
   end
 
   depends_on "openssl"

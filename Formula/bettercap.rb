@@ -1,18 +1,20 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.11.tar.gz"
-  sha256 "4684008ede40ec1673a8371ec6dce5484732d5d459ed308e9c882975b7996904"
+  url "https://github.com/bettercap/bettercap/archive/v2.22.tar.gz"
+  sha256 "5bcbde5785dd2983f6379f8bbc5f286fe8e53295cf1e04a8042fa467f345e7f4"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "772c089bf5a99dba535e368a69a0ec4d738d786282bf52b180036f02c28699b9" => :mojave
-    sha256 "b42f39865281f48c282522e4add060419b1a2793bcff29e11808ca5b66ee2de1" => :high_sierra
-    sha256 "a96df7cb136db3415d16e2402d53a005f52982a2cfdc7c7d581a06e097e7c0a9" => :sierra
+    cellar :any
+    sha256 "b4d4ab97b06f2b9f21ac42f81b365d64ea05467d89c91373841735f38388068a" => :mojave
+    sha256 "bd847ba574e13e6b76df2f083d97eec3c01df79f141b58f6a7d761f0e555a929" => :high_sierra
+    sha256 "e6950b2c923628d4cbab5ac03e1f0fd50d25378742ce0fe4e361acb5a95468fa" => :sierra
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libusb"
 
   def install
     ENV["GOPATH"] = buildpath

@@ -15,7 +15,6 @@ class Liblqr < Formula
     sha256 "9d47668f2c1b428499931a32bcb55c957d837e677ce14215cd4d9a674eff1485" => :el_capitan
     sha256 "a0f647159bd2c17e449381c67b5e4718b3629196bbf71da999a852794899fe67" => :yosemite
     sha256 "5912e95a5c22808ee83053af73817b5514708bb0a9c9549ac2e819f20676e941" => :mavericks
-    sha256 "61c2f4e9ed619d0995ddd160cf50f9219aa1dbbbaea717372d8197572a79c112" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

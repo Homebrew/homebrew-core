@@ -3,15 +3,14 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/3.3.4.tar.gz"
-  sha256 "d6456e784a54d90b11bacd95d18382e336aa9786f33c91830a0941df4748ed02"
+  url "https://github.com/Supervisor/supervisor/archive/3.3.5.tar.gz"
+  sha256 "151001bd249f7556aa1baf3ce4c8fcf3a2bf39a58d6581ac1a7ea1c398b75f5a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4516d66758dedd72409d7bcb650dc29fc33df660f0bcc025653309e2c4182025" => :mojave
-    sha256 "de602ba5a4d850c369a1cb9f7275044babd776b21aed0d028e87b68e68dba2b4" => :high_sierra
-    sha256 "432c2afe07eecfb03c4b8268caa0898b68cd7af5bf6364ae71d054e805842905" => :sierra
-    sha256 "dfae5fc72acbfe08f53222ee70fa34259c29a46927272f1af8512c010acf02df" => :el_capitan
+    sha256 "a3ed3071d994b9b2d196fc578efa73df0f718b1987625d51dc557d2ab1ed13a1" => :mojave
+    sha256 "3eaf8b83c15a57a21ad897c98c7aca0b585bb17da659ce9e49d221a1f2c23f09" => :high_sierra
+    sha256 "980435fca59e5310dfda4e5d10892dab22fa9e11504428031c7f632be65aead2" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3

@@ -7,8 +7,6 @@ class Betty < Formula
 
   bottle :unneeded
 
-  depends_on "ruby" if MacOS.version <= :mountain_lion
-
   def install
     libexec.install "lib", "main.rb" => "betty"
     bin.write_exec_script libexec/"betty"

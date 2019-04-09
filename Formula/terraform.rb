@@ -1,16 +1,15 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.10.tar.gz"
-  sha256 "3cdf16618f7291ac70793f680d859223907039bdf559ca5b5e49fae7df2e736d"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.13.tar.gz"
+  sha256 "6a7440aa752d15111a8e5fb00969a533e288e8b348ba2e425222d7151398aa86"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "23def7afb065ed8cfed4d933f260516089603353ce87fc25f2ac87bee63a86c5" => :mojave
-    sha256 "51904d661cfe27d9dbcb0e5c04d07692f08f5524ef5a3aeee915c7b5becb30b4" => :high_sierra
-    sha256 "b6d95e097001c82821c2fdede75d122764f6cbc51a350ef526c00c35527b3cfb" => :sierra
+    sha256 "a979f1cd1bd2a247c9d446c61a42f0640b49745db074c61f9271b205e9444a29" => :mojave
+    sha256 "3a256286c866424853162834988d6e52a0912a7fe23824776ba3165bea76b1b0" => :high_sierra
+    sha256 "24408628538b0b382f2ed8bef9b19faa9d4f3654e746641f7e5d59aae3eed4b3" => :sierra
   end
 
   depends_on "go" => :build
@@ -30,12 +29,11 @@ class Terraform < Formula
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
-      ENV["XC_ARCH"] = arch
+      ENV["XC_ARCH"] = "amd64"
       system "make", "tools", "test", "bin"
 
-      bin.install "pkg/darwin_#{arch}/terraform"
+      bin.install "pkg/darwin_amd64/terraform"
       prefix.install_metafiles
     end
   end

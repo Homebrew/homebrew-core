@@ -1,8 +1,7 @@
 class Corkscrew < Formula
   desc "Tunnel SSH through HTTP proxies"
   homepage "https://packages.debian.org/sid/corkscrew"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
   sha256 "0d0fcbb41cba4a81c4ab494459472086f377f9edb78a2e2238ed19b58956b0be"
 
   bottle do
@@ -13,7 +12,6 @@ class Corkscrew < Formula
     sha256 "f7e4e63df01aa33a6518f4f6c2c0ccbb0c7b8aaca95052d4aa827b5e56ed8e5c" => :el_capitan
     sha256 "5a0916aa242a22808bbbb652664f1e44620c1c78b896982f67c9a5a1b85a5efc" => :yosemite
     sha256 "79ca3f19c2a8df1cd7b43410ab600d32c4fc7038f99998acb656e5cc61807f25" => :mavericks
-    sha256 "8844bb407417189b8ded9d8843017a86306f7832b776906d18db5817503faa84" => :mountain_lion
   end
 
   depends_on "libtool" => :build

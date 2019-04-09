@@ -14,7 +14,6 @@ class Libchaos < Formula
   end
 
   depends_on "cmake" => :build
-  needs :cxx11
 
   def install
     mkdir "build" do

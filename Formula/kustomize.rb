@@ -2,14 +2,15 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v1.0.10",
-      :revision => "383b3e798b7042f8b7431f93e440fb85631890a3"
+      :tag      => "v2.0.3",
+      :revision => "a6f65144121d1955266b0cd836ce954c04122dc8"
+  head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8413ec0b8fd4f9ee3bac2629b51fafdd5cf81a1cbbc2a19ec12b5bd08a0547c5" => :mojave
-    sha256 "07f52df1f41f4daf9a8e7b1c2925967ee50527f7f3fc09c4e44fa2c331fd82cd" => :high_sierra
-    sha256 "3ed58091ed7be69a7432f4e1049cac9b780fed064eeb083196b4f63b60f88d49" => :sierra
+    sha256 "890f083da79f381eac8be9731aa6aaab989c043b029a024d9977db40622beca7" => :mojave
+    sha256 "60d93cc4d83058d513fb989792af7eae98f91fef6a3a3846c97b334a7333b1e3" => :high_sierra
+    sha256 "60256cfa80ffc43bbbb3a0c6c88204a7784dea44b089f55bc436853b08c255c1" => :sierra
   end
 
   depends_on "go" => :build
@@ -24,8 +25,9 @@ class Kustomize < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/pkg/commands.kustomizeVersion=#{tag}
-        -X sigs.k8s.io/kustomize/pkg/commands.gitCommit=#{revision}
+        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{tag}
+        -X sigs.k8s.io/kustomize/pkg/commands/misc.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/pkg/commands/misc.buildDate=#{Time.now.iso8601}
       ]
       system "go", "install", "-ldflags", ldflags.join(" ")
       bin.install buildpath/"bin/kustomize"
@@ -34,7 +36,7 @@ class Kustomize < Formula
   end
 
   test do
-    assert_match "KustomizeVersion:", shell_output("#{bin}/kustomize version")
+    assert_match "KustomizeVersion:v#{version}", shell_output("#{bin}/kustomize version")
 
     (testpath/"kustomization.yaml").write <<~EOS
       resources:

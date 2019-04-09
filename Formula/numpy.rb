@@ -1,30 +1,26 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
-  sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
+  url "https://files.pythonhosted.org/packages/cf/8d/6345b4f32b37945fedc1e027e83970005fc9c699068d2f566b82826515f2/numpy-1.16.2.zip"
+  sha256 "6c692e3879dde0b67a9dc78f9bfb6f61c666b4562fd8619632d7043fb5b691b0"
+  head "https://github.com/numpy/numpy.git"
 
   bottle do
-    sha256 "5b718dd8e7b82c90212e5bb7f8c19abde83aba114a3ccce7c12af857a4841978" => :mojave
-    sha256 "84ae5941c9d952657ea49708f2e705fac035c410dc991790edd6779432e357f2" => :high_sierra
-    sha256 "d4267f45ef17ecc2827960f4c063bf0cd2b99f2eeb99e2ec24d4f335595ea268" => :sierra
+    cellar :any
+    sha256 "4af6cbcbf617b78e55cfe0e53f1d272ac685a270eccd5d7f687f6b94b46719b6" => :mojave
+    sha256 "3d47aa2a68b449a363a494519a816c5ec4b298022637e8954aa7b272387f1b5e" => :high_sierra
+    sha256 "77da49b2ae86921e47c9c7e050899a4c491586471b6b79d786c00cc658f2331a" => :sierra
   end
-
-  head do
-    url "https://github.com/numpy/numpy.git"
-
-    resource "Cython" do
-      url "https://files.pythonhosted.org/packages/f0/66/6309291b19b498b672817bd237caec787d1b18013ee659f17b1ec5844887/Cython-0.29.tar.gz"
-      sha256 "94916d1ede67682638d3cc0feb10648ff14dc51fb7a7f147f4fedce78eaaea97"
-    end
-  end
-
-  option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
+  depends_on "python"
+  depends_on "python@2"
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/e0/31/4a166556f92c469d8291d4b03a187f325c773c330fffc1e798bf83d947f2/Cython-0.29.5.tar.gz"
+    sha256 "9d5290d749099a8e446422adfb0aa2142c711284800fb1eb70f595101e32cbf1"
+  end
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -45,7 +41,8 @@ class Numpy < Formula
 
     Pathname("site.cfg").write config
 
-    Language::Python.each_python(build) do |python, version|
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
 
@@ -55,11 +52,9 @@ class Numpy < Formula
         (dest_path/"homebrew-numpy-nose.pth").write "#{nose_path}\n"
       end
 
-      if build.head?
-        ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
-        resource("Cython").stage do
-          system python, *Language::Python.setup_install_args(buildpath/"tools")
-        end
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
+      resource("Cython").stage do
+        system python, *Language::Python.setup_install_args(buildpath/"tools")
       end
 
       system python, "setup.py",
@@ -70,21 +65,19 @@ class Numpy < Formula
   end
 
   def caveats
-    if build.with?("python@2") && !Formula["python@2"].installed?
-      homebrew_site_packages = Language::Python.homebrew_site_packages
-      user_site_packages = Language::Python.user_site_packages "python"
-      <<~EOS
-        If you use system python (that comes - depending on the OS X version -
-        with older versions of numpy, scipy and matplotlib), you may need to
-        ensure that the brewed packages come earlier in Python's sys.path with:
-          mkdir -p #{user_site_packages}
-          echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
-      EOS
-    end
+    homebrew_site_packages = Language::Python.homebrew_site_packages
+    user_site_packages = Language::Python.user_site_packages "python"
+    <<~EOS
+      If you use system python (that comes - depending on the OS X version -
+      with older versions of numpy, scipy and matplotlib), you may need to
+      ensure that the brewed packages come earlier in Python's sys.path with:
+        mkdir -p #{user_site_packages}
+        echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
+    EOS
   end
 
   test do
-    Language::Python.each_python(build) do |python, _version|
+    ["python2", "python3"].each do |python|
       system python, "-c", <<~EOS
         import numpy as np
         t = np.ones((3,3), int)

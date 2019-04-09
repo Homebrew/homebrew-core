@@ -12,7 +12,6 @@ class Libb2 < Formula
     sha256 "6c70feb4b8eb42361fc4b626e164317a7f46d977896e928007954f2c9ca3ee80" => :el_capitan
     sha256 "4c604799e388530022494535a551c06bf08baba5d6d37fd5622f9fe50773b860" => :yosemite
     sha256 "513444d15673a2bba2b8042522db8fc68e25154955d18cb8eff6b8bb9bb4503f" => :mavericks
-    sha256 "686a12f6cd03b3ed92c4f900f8a75a0467fd33c9b703678b06ad1060773b16b5" => :mountain_lion
   end
 
   def install

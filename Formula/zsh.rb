@@ -1,16 +1,14 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.6.2.tar.xz"
-  sha256 "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
-  revision 1
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.7.1/zsh-5.7.1.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.7.1.tar.xz"
+  sha256 "7260292c2c1d483b2d50febfa5055176bd512b32a8833b116177bf5f01e77ee8"
 
   bottle do
-    rebuild 1
-    sha256 "807b44a6f1c3468cbc853383770384630acb32681ef4a2259f2d4224ec7e280e" => :mojave
-    sha256 "7c45d08186d58959039441892909a645c36408966f51ed1051b3f00e3fcda8a0" => :high_sierra
-    sha256 "040db78ee0c3a141f57db8f91c7458f1244c5beb2238a672e792de4304d7a751" => :sierra
+    sha256 "793d87f67e64a5e01dfdea890af218e4779a2df514d395b956e464129af16fd7" => :mojave
+    sha256 "6656fe9aa5d5cbaff49bc9c1ccf17b7d96d21036ac44c9181bd35c57dc38b450" => :high_sierra
+    sha256 "008dfc844b88fcd61925233b08f0d78b2851bf2901320a5f6ee975da4b8604e3" => :sierra
   end
 
   head do
@@ -19,11 +17,12 @@ class Zsh < Formula
   end
 
   depends_on "ncurses"
+  depends_on "pcre"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz"
-    sha256 "98973267547cbdd8471b52e3a2bbe415be2c2c473246536ed8914f685e260114"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7.1/zsh-5.7.1-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.7.1-doc.tar.xz"
+    sha256 "3053670250e23905c940592c79428d7f67495fa05b0fff49dfaab9172c4239b4"
   end
 
   def install
@@ -38,6 +37,7 @@ class Zsh < Formula
                           "--enable-cap",
                           "--enable-maildir-support",
                           "--enable-multibyte",
+                          "--enable-pcre",
                           "--enable-zsh-secure-free",
                           "--enable-unicode9",
                           "--enable-etcdir=/etc",

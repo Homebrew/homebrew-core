@@ -1,8 +1,8 @@
 class Bundletool < Formula
   desc "Command-line tool to manipulate Android App Bundles"
   homepage "https://github.com/google/bundletool"
-  url "https://github.com/google/bundletool/releases/download/0.7.1/bundletool-all-0.7.1.jar"
-  sha256 "f3fb1fe7810639828a640f45d467966603268eadf288082887744ff505cb77c1"
+  url "https://github.com/google/bundletool/releases/download/0.9.0/bundletool-all-0.9.0.jar"
+  sha256 "d22a73484bb286a0efd3accfedd130aa81cc3df8a2d74268198b34e1e849255b"
 
   bottle :unneeded
   depends_on :java => "1.8+"
@@ -22,8 +22,8 @@ class Bundletool < Formula
       expected = <<~EOS
         App Bundle information
         ------------
-        Modules:
-        	Module: base
+        Feature modules:
+        	Feature module: base
         		File: dex/classes.dex
       EOS
 

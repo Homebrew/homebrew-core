@@ -1,9 +1,9 @@
 class ConfluentOss < Formula
   desc "Developer-optimized distribution of Apache Kafka"
   homepage "https://www.confluent.io/product/confluent-open-source/"
-  url "https://packages.confluent.io/archive/5.0/confluent-oss-5.0.1-2.11.tar.gz"
-  version "5.0.1"
-  sha256 "9d2a3b744f982e4004142411c49fb98952b768723911c9421b0302f15aea8c0d"
+  url "https://packages.confluent.io/archive/5.2/confluent-5.2.0-2.12.tar.gz"
+  version "5.2.0"
+  sha256 "0b469eabbfe283cbdf8b8f98a2966d3344a95344bc08ca4ca86a6ca52d8cf2d4"
 
   bottle :unneeded
 

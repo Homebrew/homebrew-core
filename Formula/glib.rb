@@ -1,40 +1,30 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.1.tar.xz"
-  sha256 "97d6a9d926b6aa3dfaadad3077cfb43eec74432ab455dff14250c769d526d7d6"
+  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
+  sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
+  revision 1
 
   bottle do
-    sha256 "4521831e8fa3b11426f0192fe5f9159d3840f01225c6002ce4ee56d83d5da6d2" => :mojave
-    sha256 "6f4b16f4146bfa8ca324a2e066b60e18ca9c45e1bc0d9ec51ac4970129e7072e" => :high_sierra
-    sha256 "38021da8a98c8d86672b4bdf7fb92568f0599fa202110d23f4b318f1491b0e70" => :sierra
-    sha256 "b79c2f30d938327006a2716bb26bb667f09783c3b258cc4be7e12760fd28ff44" => :el_capitan
+    sha256 "7f3dda9780ca3352b170afb63175cb8ebd6d759c028a088f5f73103ad312bdc4" => :mojave
+    sha256 "2813d19cd554f197a914f40200fb1460cb9192d0ad0b19d7b224b4e13f16a2fa" => :high_sierra
+    sha256 "c141ff8a13d4df9a5b41bc5b22ff4b80b6a2ea17fc162a6ef6a29a84c86d53fa" => :sierra
   end
 
-  # autoconf, automake and libtool can be removed when
-  # bug 780271 is fixed and gio.patch is modified accordingly
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
+  depends_on "python"
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/hardcoded-paths.diff"
-    sha256 "a4cb96b5861672ec0750cb30ecebe1d417d38052cac12fbb8a77dbf04a886fcb"
-  end
-
-  # Revert some bad macOS specific commits
-  # https://bugzilla.gnome.org/show_bug.cgi?id=780271
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5857984/glib/revert-appinfo-contenttype.patch"
-    sha256 "88bfc2a69aaeda07c5f057d11e106a97837ff319f8be1f553b8537f3c136f48c"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6164294a7/glib/hardcoded-paths.diff"
+    sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
   end
 
   def install
@@ -43,45 +33,29 @@ class Glib < Formula
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
-      --disable-maintainer-mode
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-dtrace
-      --disable-libelf
-      --enable-static
-      --prefix=#{prefix}
-      --localstatedir=#{var}
-      --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
+      -Diconv=native
+      -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
+      -Dbsymbolic_functions=false
     ]
 
-    # next two lines can be removed when bug 780271 is fixed and gio.patch
-    # is modified accordingly
-    ENV["NOCONFIGURE"] = "1"
-    system "./autogen.sh"
-
-    system "./configure", *args
-
-    # disable creating directory for GIO_MODULE_DIR, we will do
-    # this manually in post_install
-    inreplace "gio/Makefile",
-              "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)",
-              ""
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
     # used by glib-networking and glib-openssl to determine where to install
     # their modules
-    inreplace "gio-2.0.pc",
+    inreplace lib/"pkgconfig/gio-2.0.pc",
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
-              "giomoduledir=${prefix}/lib/gio/modules"
-
-    system "make"
-    system "make", "install"
+              "giomoduledir=${libdir}/gio/modules"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
     # have a pkgconfig file, so we add gettext lib and include paths here.
     gettext = Formula["gettext"].opt_prefix
     inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-      s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
+      s.gsub! "Libs: -lintl -L${libdir} -lglib-2.0",
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"

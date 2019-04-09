@@ -14,7 +14,6 @@ class Libxmi < Formula
     sha256 "d7be88ce4d945b11adc82fe6bac6aca8a837e0206cd781e4cab82c8c1b684e20" => :el_capitan
     sha256 "b8a406a6559eb59890d519e41c824f75f1b37027e6dda108f3648d85480ba5f8" => :yosemite
     sha256 "fe1bd51baf04d248d233d92ed8c2343d49b03e09427dd6774a86cabfc21372e9" => :mavericks
-    sha256 "1bfaff32eb89a52d7a3b3ef98e2e7070df837d904590c0c54e31df3e61e01172" => :mountain_lion
   end
 
   def install

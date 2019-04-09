@@ -17,8 +17,6 @@ class Xqilla < Formula
 
   conflicts_with "zorba", :because => "Both supply xqc.h"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

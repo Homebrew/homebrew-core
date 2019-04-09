@@ -1,6 +1,6 @@
 class Jython < Formula
   desc "Python implementation written in Java (successor to JPython)"
-  homepage "http://www.jython.org"
+  homepage "https://www.jython.org/"
   url "https://search.maven.org/remotecontent?filepath=org/python/jython-installer/2.7.1/jython-installer-2.7.1.jar"
   sha256 "6e58dad0b8565b95c6fb14b4bfbf570523d1c5290244cfb33822789fa53b1d25"
 

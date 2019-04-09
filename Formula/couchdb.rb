@@ -1,15 +1,14 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
-  sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
-  revision 8
+  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
+  sha256 "7b7c0db046ded544a587a8935d495610dd10f01a9cae3cd42cf88c5ae40bc431"
 
   bottle do
-    sha256 "81a9ef09e872ead7a3ae847f57f6cd01f4e7e46384c456b1cf4162cf7eecab42" => :mojave
-    sha256 "726a7e2329d938f0d64552a2b5c724fc665b5de8b1d046c9fdbd270cf941ba44" => :high_sierra
-    sha256 "3b5ed55595f163362f6a583a13fae6353c79b2cf9e66f0d35bcf7e5f13a38613" => :sierra
+    sha256 "8868d7714bfdbee9c6e3b975e4d807a8a77312d020a4e9a7d93e890e4f0565e1" => :mojave
+    sha256 "cc974d6fcbc24dc639c48e4a4a2942016553a4f3a188241af835946b34328ea8" => :high_sierra
+    sha256 "f0f136585526e769370a82935cfb574392f6a25e2cf16dacf2c1cb2703c45e7f" => :sierra
   end
 
   head do
@@ -23,16 +22,14 @@ class Couchdb < Formula
     depends_on "pkg-config" => :build
   end
 
-  option "with-geocouch", "Build with GeoCouch spatial index extension"
-
   depends_on "erlang@19"
   depends_on "icu4c"
   depends_on "spidermonkey"
 
-  resource "geocouch" do
-    url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
-    sha256 "1bad2275756e2f03151d7b2706c089b3059736130612de279d879db91d4b21e7"
-  end
+  # Allow overwriting old configuration with new symlinks.
+  link_overwrite "etc/couchdb/default.ini"
+  link_overwrite "etc/couchdb/local.ini"
+  link_overwrite "etc/logrotate.d/couchdb"
 
   def install
     # CouchDB >=1.3.0 supports vendor names and versioning
@@ -51,7 +48,7 @@ class Couchdb < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}",
+                          "--sysconfdir=#{prefix}/etc",
                           "--disable-init",
                           "--with-erlang=#{Formula["erlang@19"].opt_lib}/erlang/usr/include",
                           "--with-js-include=#{HOMEBREW_PREFIX}/include/js",
@@ -59,117 +56,15 @@ class Couchdb < Formula
     system "make"
     system "make", "install"
 
-    install_geocouch if build.with? "geocouch"
-
     # Use our plist instead to avoid faffing with a new system user.
     (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete
     (lib/"couchdb/bin/couchjs").chmod 0755
-  end
-
-  def geocouch_share
-    share/"couchdb-geocouch"
-  end
-
-  def install_geocouch
-    resource("geocouch").stage(buildpath/"geocouch")
-    ENV["COUCH_SRC"] = "#{buildpath}/src/couchdb"
-
-    cd "geocouch" do
-      system "make"
-
-      linked_geocouch_share = (HOMEBREW_PREFIX/"share/couchdb-geocouch")
-      geocouch_share.mkpath
-      geocouch_share.install "ebin"
-      # Install geocouch.plist for launchctl support.
-      geocouch_plist = geocouch_share/"geocouch.plist"
-      cp buildpath/"etc/launchd/org.apache.couchdb.plist.tpl.in", geocouch_plist
-      geocouch_plist.chmod 0644
-      inreplace geocouch_plist, "<string>org.apache.couchdb</string>", \
-        "<string>geocouch</string>"
-      inreplace geocouch_plist, "<key>HOME</key>", <<~EOS.lstrip.chop
-        <key>ERL_FLAGS</key>
-              <string>-pa #{linked_geocouch_share}/ebin</string>
-              <key>HOME</key>
-      EOS
-      inreplace geocouch_plist, "%bindir%/%couchdb_command_name%", \
-        HOMEBREW_PREFIX/"bin/couchdb"
-      #  Turn off RunAtLoad and KeepAlive (to simplify experience for first-timers)
-      inreplace geocouch_plist, "<key>RunAtLoad</key>\n    <true/>",
-        "<key>RunAtLoad</key>\n    <false/>"
-      inreplace geocouch_plist, "<key>KeepAlive</key>\n    <true/>",
-        "<key>KeepAlive</key>\n    <false/>"
-      #  Install geocouch.ini into couchdb.
-      (etc/"couchdb/default.d").install "etc/couchdb/default.d/geocouch.ini"
-
-      #  Install tests into couchdb.
-      test_files = Dir["share/www/script/test/*.js"]
-      (pkgshare/"www/script/test").install test_files
-      #  Complete the install by referencing the geocouch tests in couch_tests.js
-      #  (which runs the tests).
-      test_lines = ["//  GeoCouch Tests..."]
-      test_lines.concat(test_files.map { |file| file.gsub(%r{^.*\/(.*)$}, 'loadTest("\1");') })
-      test_lines << "//  ...GeoCouch Tests"
-      (pkgshare/"www/script/couch_tests.js").append_lines test_lines
-    end
   end
 
   def post_install
     (var/"lib/couchdb").mkpath
     (var/"log/couchdb").mkpath
     (var/"run/couchdb").mkpath
-    # default.ini is owned by CouchDB and marked not user-editable
-    # and must be overwritten to ensure correct operation.
-    if (etc/"couchdb/default.ini.default").exist?
-      # but take a backup just in case the user didn't read the warning.
-      mv etc/"couchdb/default.ini", etc/"couchdb/default.ini.old"
-      mv etc/"couchdb/default.ini.default", etc/"couchdb/default.ini"
-    end
-  end
-
-  def caveats
-    str = <<~EOS
-      To test CouchDB run:
-          curl http://127.0.0.1:5984/
-      The reply should look like:
-          {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
-    EOS
-    str += "\n#{geocouch_caveats}" if build.with? "geocouch"
-    str
-  end
-
-  def geocouch_caveats; <<~EOS
-    GeoCouch Caveats:
-    FYI:  geocouch installs as an extension of couchdb, so couchdb effectively
-    becomes geocouch.  However, you can use couchdb normally (using geocouch
-    extensions optionally).  NB: one exception: the couchdb test suite now
-    includes several geocouch tests.
-    To start geocouch manually and verify any geocouch version information (-V),
-      ERL_FLAGS="-pa #{geocouch_share}/ebin"  couchdb -V
-    For general convenience, export your ERL_FLAGS (erlang flags, above) in
-    your login shell, and then start geocouch:
-      export ERL_FLAGS="-pa #{geocouch_share}/ebin"
-      couchdb
-    Alternately, prepare launchctl to start/stop geocouch as follows:
-      cp #{geocouch_share}/geocouch.plist ~/Library/LaunchAgents
-      chmod 0644 ~/Library/LaunchAgents/geocouch.plist
-      launchctl load ~/Library/LaunchAgents/geocouch.plist
-    Then start, check status of, and stop geocouch with the following three
-    commands.
-      launchctl start geocouch
-      launchctl list geocouch
-      launchctl stop geocouch
-    Finally, access, test, and configure your new geocouch with:
-      http://127.0.0.1:5984
-      http://127.0.0.1:5984/_utils/couch_tests.html?script/couch_tests.js
-      http://127.0.0.1:5984/_utils
-    And... relax.
-    -=-
-    To uninstall geocouch from your couchdb installation, uninstall couchdb
-    and re-install it without the '--with-geocouch' option.
-      brew uninstall couchdb
-      brew install couchdb
-    To see these instructions again, just run 'brew info couchdb'.
-  EOS
   end
 
   plist_options :manual => "couchdb"
@@ -201,11 +96,10 @@ class Couchdb < Formula
     (testpath/"var/lib/couchdb").mkpath
     (testpath/"var/log/couchdb").mkpath
     (testpath/"var/run/couchdb").mkpath
-    cp_r etc/"couchdb", testpath
+    cp_r prefix/"etc/couchdb", testpath
     inreplace "#{testpath}/couchdb/default.ini", "/usr/local/var", testpath/"var"
 
     pid = fork do
-      ENV["ERL_LIBS"] = geocouch_share if build.with? "geocouch"
       exec "#{bin}/couchdb -A #{testpath}/couchdb"
     end
     sleep 2

@@ -18,7 +18,6 @@ class ZeroInstall < Formula
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
   depends_on "gnupg"
-  depends_on "gtk+" => :optional
 
   def install
     ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
@@ -39,7 +38,6 @@ class ZeroInstall < Formula
       sha
       cppo_ocamlbuild
     ]
-    modules << "lablgtk" << "lwt_glib" if build.with? "gtk+"
     system "opam", "config", "exec", "opam", "install", *modules
 
     # mkdir: <buildpath>/build: File exists.

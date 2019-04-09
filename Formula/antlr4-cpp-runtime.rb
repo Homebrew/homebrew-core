@@ -1,15 +1,14 @@
 class Antlr4CppRuntime < Formula
   desc "ANother Tool for Language Recognition C++ Runtime Library"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.7.1-source.zip"
-  sha256 "23bebc0411052a260f43ae097aa1ab39869eb6b6aa558b046c367a4ea33d1ccc"
+  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.7.2-source.zip"
+  sha256 "8631a39116684638168663d295a969ad544cead3e6089605a44fea34ec01f31a"
 
   bottle do
     cellar :any
-    sha256 "7c55dcee97d1d509f6f602a2e4002ec6df85a1bab231284c343e22a917aa41eb" => :mojave
-    sha256 "bdb81df9b567f1d0584712616f4e5e8d4028c0875c79c0e4479e3db98be498f7" => :high_sierra
-    sha256 "3b41cda988528eaa6f9c8792464f5a71786674774dc3ab370b6bb1171d5758cb" => :sierra
-    sha256 "5cc0d3c4ef8111228b058c52a1645168d772d797ed2cbf7747f38d1803c08dc9" => :el_capitan
+    sha256 "61e3aedd11c8ed9dda57ff30f67966c178c1209ba847c44d8db686b9691e645c" => :mojave
+    sha256 "3a7b6fd7bd3a8aa81c4844f9c6544f96072e6cc95f5ff4cfa6d0cf8dc5af843d" => :high_sierra
+    sha256 "035803548352d0189b5d2a6d3e736cacd64b8a86896fabf87e02b274b89068c3" => :sierra
   end
 
   depends_on "cmake" => :build

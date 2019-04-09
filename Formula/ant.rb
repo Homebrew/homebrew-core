@@ -7,11 +7,6 @@ class Ant < Formula
 
   bottle :unneeded
 
-  keg_only :provided_by_macos if MacOS.version < :mavericks
-
-  option "with-ivy", "Install ivy dependency manager"
-  option "with-bcel", "Install Byte Code Engineering Library"
-
   depends_on :java => "1.8+"
 
   resource "ivy" do
@@ -20,8 +15,8 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.2-bin.tar.gz"
-    sha256 "e5963ed50ef1f243f852a27efaf898c050a3b39721d147ccda8418c0b7255955"
+    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.3.1-bin.tar.gz"
+    sha256 "ed1d281cb66dedb89611019168071fe22a50ff325253e2c453dc00423905cf9d"
   end
 
   def install
@@ -33,15 +28,13 @@ class Ant < Formula
       #!/bin/sh
       #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
-    if build.with? "ivy"
-      resource("ivy").stage do
-        (libexec/"lib").install Dir["ivy-*.jar"]
-      end
+
+    resource("ivy").stage do
+      (libexec/"lib").install Dir["ivy-*.jar"]
     end
-    if build.with? "bcel"
-      resource("bcel").stage do
-        (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
-      end
+
+    resource("bcel").stage do
+      (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
     end
   end
 

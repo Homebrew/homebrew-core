@@ -3,18 +3,24 @@ class Metaproxy < Formula
   homepage "https://www.indexdata.com/metaproxy"
   url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.15.0.tar.gz"
   sha256 "b43a9e4dd2c231442ea07af7a05e929cd6cae2921826f66d201397b838aa8aac"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "381c1a291c26cb0c6f762a406073fd8cf928546b807a1b07008eff445596213c" => :mojave
-    sha256 "9d8bde99c0381cb3a72e26dd41a5d6595be4a951fe72719a88a2444839a2880e" => :high_sierra
-    sha256 "f3ae9ef9ab5c6d055638f1b92b93d05b732dac62f1ecd249296644895a469314" => :sierra
+    sha256 "2c6517c647813df8178c0b84eb83dca7234ca8cf43276d37f3caacdef330a502" => :mojave
+    sha256 "f8aa17e2d7ca539ac9e490704bb3327a11f4de5b0909fcdf9bd6fb7afe5eae8a" => :high_sierra
+    sha256 "11ec2478eae4aa5a1da4a7f3cb720324ba1455402394f9a902d02ba652e88ac1" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "yazpp"
+
+  # fix build for boost 1.69
+  patch do
+    url "https://github.com/indexdata/metaproxy/commit/186513e6205c6b0216e727907aa9e8d7b162f070.patch?full_index=1"
+    sha256 "69579e45d27de8243f7ea3d7d3d23ef954ba7949995f08c07f7f88e81601fb39"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

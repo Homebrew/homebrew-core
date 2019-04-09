@@ -7,6 +7,9 @@ class Homeshick < Formula
 
   bottle :unneeded
 
+  conflicts_with "asdf",
+    :because => "asdf and homeshick both install files in lib/commands"
+
   def install
     inreplace "bin/homeshick", /^homeshick=.*/, "homeshick=#{opt_prefix}"
 

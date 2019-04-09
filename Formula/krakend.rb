@@ -1,14 +1,14 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/devopsfaith/krakend-ce/archive/0.7.0.tar.gz"
-  sha256 "d72aa3a1d17c875d73317eedbe9aea7fa8715ac953975cf3e34244ebfd74bf4b"
+  url "https://github.com/devopsfaith/krakend-ce/archive/0.9.0.tar.gz"
+  sha256 "8d6938af3483c909b0762ab44998f09812632081045bebc33b707c85b3985a00"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "17f4c4a0c6b4a8f561334daa18ac687b850d3f95b6c7003c09087a79f4737499" => :mojave
-    sha256 "a632ad23efea88712d57a6a868277aa3a1b93c3890e8e22deebe4112dfc3bf11" => :high_sierra
-    sha256 "04a1242a6edfb84037966cf79bb57de03bcc81b96ecd6c775585f52b59554524" => :sierra
+    sha256 "7dd2278ffff7ddf5a88988a3ea5180df6da93c7189e673de995cace1948c7bd9" => :mojave
+    sha256 "7cd76dbba92ea6011ef3ff439d51d19a7dddb9e1c64bf339cd78b2acb34e560c" => :high_sierra
+    sha256 "da0d6975c2b58afceb078f2281d0e266398bb360af3db008fb267db56cdbf72b" => :sierra
   end
 
   depends_on "dep" => :build
@@ -39,7 +39,7 @@ class Krakend < Formula
         }
       }
     EOS
-    assert_match "Unsupported version", shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1")
+    assert_match "Unsupported version", shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1", 1)
 
     (testpath/"krakend_bad_file.json").write <<~EOS
       {
@@ -47,7 +47,7 @@ class Krakend < Formula
         "bad": file
       }
     EOS
-    assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_bad_file.json 2>&1")
+    assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_bad_file.json 2>&1", 1)
 
     (testpath/"krakend.json").write <<~EOS
       {

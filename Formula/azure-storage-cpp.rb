@@ -1,14 +1,15 @@
 class AzureStorageCpp < Formula
   desc "Microsoft Azure Storage Client Library for C++"
   homepage "https://azure.github.io/azure-storage-cpp"
-  url "https://github.com/Azure/azure-storage-cpp/archive/v5.2.0.tar.gz"
-  sha256 "c7e4cddd0d3c913ca1f367e3b5d84b5260311dcb33beaf2fefb66f821d2255fc"
+  url "https://github.com/Azure/azure-storage-cpp/archive/v6.0.0.tar.gz"
+  sha256 "3ec43349b741e0d8619e5510901a0abe8832da83167c74275b2e79544d105956"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d113d3a9b40a1c1e804701ab91bf0bba9ec6ea5258f38ef4e9887f3e85a21a36" => :mojave
-    sha256 "245d504aa58031cd17e0e22d94ab3a23ee33e0113962c5ea05db374407c1d688" => :high_sierra
-    sha256 "9c2e8d60a2a270edcdb96dd42492644a271477e707268e6919312a52de2f4c15" => :sierra
+    sha256 "67d8e17e425da6eca509d52b5ebd7977e0481c9831af05dfa7b9d6872d1679eb" => :mojave
+    sha256 "eb91ca1c57bf23e33f80e1f90bde5254dfd21ed134b9e2f4c8bf71edcd5d4a5d" => :high_sierra
+    sha256 "6c0fc630ba5250923846dfcd2b91672962297f823866d21a047c80f771a81671" => :sierra
   end
 
   depends_on "cmake" => :build

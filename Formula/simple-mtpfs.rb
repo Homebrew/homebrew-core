@@ -19,8 +19,6 @@ class SimpleMtpfs < Formula
   depends_on "libmtp"
   depends_on :osxfuse
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

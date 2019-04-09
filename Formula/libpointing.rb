@@ -1,19 +1,15 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
   homepage "https://github.com/INRIA/libpointing"
-  url "https://github.com/INRIA/libpointing/releases/download/v1.0.7/libpointing-mac-1.0.7.tar.gz"
-  sha256 "29f12da75727d1b03ff952a2754ce79b88aec39b5e03a52d3b0ff7440f08f147"
+  url "https://github.com/INRIA/libpointing/releases/download/v1.0.8/libpointing-mac-1.0.8.tar.gz"
+  sha256 "b19a701b9181be05c3879bbfc901709055c27de7995bd59ada4e3f631dfad8f2"
 
   bottle do
     cellar :any
-    sha256 "c6057c63451e9913f0a7e5d55ca34282bd7da1d3e99bbc1452b267fb8d048a77" => :mojave
-    sha256 "078c97a802303ac5db84dfe72ae189f1bd261c193612fbe36d9e92451da725c2" => :high_sierra
-    sha256 "6ba8dbbb5a606a1e4b78512868986b80c4c3c971be04c90fbea59250dc6103ee" => :sierra
-    sha256 "6ba8dbbb5a606a1e4b78512868986b80c4c3c971be04c90fbea59250dc6103ee" => :el_capitan
-    sha256 "7120c106e54576154687dd63cdedb72633644e27213c7dbc1aa515a1227a8f3c" => :yosemite
+    sha256 "adecdbec3a556dfd78dd1aa24f6868814fc4b3243310311192fee4e9de912c62" => :mojave
+    sha256 "97e7550c8e3c3007df96cc98eab35a297ed857a6fd1bc24011d1dea8350966e5" => :high_sierra
+    sha256 "1fc9b4bdab762eb8f93c4a75c57e82b14f3274186f5185fa9a17e8d0f3bc3452" => :sierra
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11

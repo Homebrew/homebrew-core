@@ -1,15 +1,15 @@
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
-  url "https://github.com/etr/libhttpserver/archive/0.15.0.tar.gz"
-  sha256 "d32a8000923a67ae7867813b638b9fa66579f51e8ce145e7747e9745b3fe50d5"
+  url "https://github.com/etr/libhttpserver/archive/0.17.5.tar.gz"
+  sha256 "778fa0aec199bf8737b2d540c2563a694c18957329f9885e372f7aaafb838351"
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do
     cellar :any
-    sha256 "584ce9e1f496db74be01e358e6a899348332355587d81224ba48b4b3cc16fb77" => :mojave
-    sha256 "7d387aa6e0b0d1b12afab75b46975f93c844298fc932956f7c5d2bb650e1d706" => :high_sierra
-    sha256 "0f7f6b7fae3400d0090e6fbef1dce0eaf810cbe66ee5c8a839ca6013c1bf2135" => :sierra
+    sha256 "086dcf919fa2afba8883e7d6c26bdd9823d8741b93ffe3864226534f71a218d9" => :mojave
+    sha256 "948c65b78b36e0baf3682fb94459c33ae5283b811b836b7f4abdf27a94aa8859" => :high_sierra
+    sha256 "59d96bc3f9f33c84c0700318deed666528a9ee60da8a55d45fd3450185ecfed0" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -35,7 +35,7 @@ class Libhttpserver < Formula
 
   test do
     system ENV.cxx, pkgshare/"examples/hello_world.cpp",
-      "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
+      "-std=c++11", "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
     pid = fork { exec "./hello_world" }
     sleep 1 # grace time for server start
     begin

@@ -1,28 +1,20 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.14.4/node-v6.14.4.tar.xz"
-  sha256 "9a4bfc99787f8bdb07d5ae8b1f00ec3757e7b09c99d11f0e8a5e9a16a134ec0f"
-  revision 1
+  url "https://nodejs.org/dist/v6.17.0/node-v6.17.0.tar.xz"
+  sha256 "c1dac78ea71c2e622cea6f94ba97a4be49329a1d36cd05945a1baf1ae8652748"
 
   bottle do
-    sha256 "5c493aa31e3950ef73fc825c60a152a2653d89ae6a2cad8e4632502ed4738a5d" => :mojave
-    sha256 "be5b70fa6c55407565e6b9bbd913efcd357d7e38175869d8dfe1b97347a2ca99" => :high_sierra
-    sha256 "3393c15c0362128e3579ef41e3dd82d1fb182db60d4fbe2b554088df7f9199ac" => :sierra
+    cellar :any_skip_relocation
+    sha256 "38069ace5dafd7c3160334c417e8842a0c3695eb0efeb3e0bda3ed08915a9be5" => :mojave
+    sha256 "776370159f4697c58e11fc77be7a3c845f6a3ac73c3fb449092a9884bd91cccd" => :high_sierra
+    sha256 "3578994784d18fb1d7279f51d1cd82e96b198a1ac85a6157a3615a17b7951159" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
-
-  # Per upstream - "Need g++ 4.8 or clang++ 3.4".
-  fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :gcc_4_0
-  fails_with :gcc_4_2
-  ("4.3".."4.7").each do |n|
-    fails_with :gcc => n
-  end
 
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
@@ -31,13 +23,21 @@ class NodeAT6 < Formula
   end
 
   def install
+    # Switches standard libary for native addons from libstdc++ to libc++ to
+    # match the superenv enforced one for the node binary itself. This fixes
+    # incompatibilities between native addons built with our node-gyp and our
+    # node binary and makes building native addons with XCode 10.1+ possible.
+    inreplace "common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.7',",
+                             "'MACOSX_DEPLOYMENT_TARGET': '#{MacOS.version}',"
     resource("icu4c").stage buildpath/"deps/icu"
     system "./configure", "--prefix=#{prefix}", "--with-intl=full-icu"
     system "make", "install"
   end
 
   def post_install
-    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    # sets global prefix and prevents our patched common.gypi to be overriden
+    # with the one downloaded by node-gyp with the header tarball otherwise
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\nnodedir = #{opt_prefix}\n")
   end
 
   test do

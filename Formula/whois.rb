@@ -1,21 +1,19 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.4.0.tar.xz"
-  sha256 "3775ae0cfaa6dd8d886e5233c4826225cddcb88c99c2a08130d14e15fe58e378"
+  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.4.2.tar.xz"
+  sha256 "eee33a3b3a56912fbf115a7dd24ed60314e2707a3ad6aa604ca2752c1ed01f57"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "10059480020bd2630bedbcfc0b268992a2ba97a730fff1c9cd147672d17a7fab" => :mojave
-    sha256 "189674db6b83258f70b76372c44ad0644497e65757ee5ed7004e576327f87797" => :high_sierra
-    sha256 "69e7f9739c62cd476b297cfa2263be993970f4646d925db6e35c2b74fce76948" => :sierra
+    cellar :any
+    sha256 "66e068933f97c0f7afc1f53eadca1befbd739295c2384343d35595008cd8c5a3" => :mojave
+    sha256 "460c91fbfe20fa011af0e912f6139ec87de04c8a34fb1f0d28b29dd602bac53b" => :high_sierra
+    sha256 "57392e6c829947253e65e9e353b39c17dc85d448ebf8af94cbc5803ee927fdcf" => :sierra
   end
 
-  option "with-libidn2", "Compile with IDN support"
-
-  depends_on "libidn2" => :optional
-  depends_on "pkg-config" => :build if build.with? "libidn2"
+  depends_on "pkg-config" => :build
+  depends_on "libidn2"
 
   def install
     ENV.append "LDFLAGS", "-L/usr/lib -liconv"

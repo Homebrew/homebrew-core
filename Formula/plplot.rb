@@ -1,15 +1,14 @@
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
   homepage "https://plplot.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
-  sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
-  revision 5
+  url "https://downloads.sourceforge.net/project/plplot/plplot/5.14.0%20Source/plplot-5.14.0.tar.gz"
+  sha256 "331009037c9cad9fcefacd7dbe9c7cfae25e766f5590f9efd739a294c649df97"
+  revision 1
 
   bottle do
-    sha256 "f1a2091723c4fae1dcfe3e9d9c45c9604748db213238dba8a6f33d5186dbc751" => :mojave
-    sha256 "f148ea712e0e42c68b4c42a91a374c81dc24da3a00a57ecc98d878f2cbeae360" => :high_sierra
-    sha256 "746e17fd844ed430c8bbc8e2f120a4c5ea2122324419798391ae6c6189d649d5" => :sierra
-    sha256 "4e42e6722a1e5cea2624829631f93985bb4c82d60237697f05bb6e0bafd97a08" => :el_capitan
+    sha256 "d38e07c8b56d1f5eb392f655f2420eac9f6a8c4f94312499d17796c0f5e00e5b" => :mojave
+    sha256 "d912ca0e40535d001e8303b5b7e55306191c25f40aeb3e32469547f4feebb0a5" => :high_sierra
+    sha256 "d129f9e4341a5a0040cd0e7ecedfaf8d288269cbb423df89bf0e0ec559530131" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -18,8 +17,6 @@ class Plplot < Formula
   depends_on "freetype"
   depends_on "gcc" # for gfortran
   depends_on "pango"
-  depends_on :java => :optional
-  depends_on :x11 => :optional
 
   def install
     args = std_cmake_args + %w[
@@ -35,14 +32,24 @@ class Plplot < Formula
       -DPLD_wxwidgets=OFF
       -DENABLE_wxwidgets=OFF
       -DENABLE_DYNDRIVERS=OFF
+      -DENABLE_java=OFF
+      -DPLD_xwin=OFF
     ]
-    args << "-DENABLE_java=OFF" if build.without? "java"
-    args << "-DPLD_xwin=OFF" if build.without? "x11"
 
     mkdir "plplot-build" do
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+    end
+
+    # fix rpaths
+    cd (lib.to_s) do
+      Dir["*.dylib"].select { |f| File.ftype(f) == "file" }.each do |f|
+        MachO::Tools.dylibs(f).select { |d| d.start_with?("@rpath") }.each do |d|
+          d_new = d.sub("@rpath", opt_lib.to_s)
+          MachO::Tools.change_install_name(f, d, d_new)
+        end
+      end
     end
   end
 

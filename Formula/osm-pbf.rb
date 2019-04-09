@@ -15,8 +15,6 @@ class OsmPbf < Formula
 
   depends_on "protobuf"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

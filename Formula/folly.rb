@@ -1,16 +1,15 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2018.09.24.00.tar.gz"
-  sha256 "99b6ddb92ee9cf3db262b372ee7dc6a29fe3e2de14511ecc50458bf77fc29c6e"
+  url "https://github.com/facebook/folly/archive/v2019.03.18.00.tar.gz"
+  sha256 "45b47d5d0ee5652bcb87bde6b03cf5a3232b04b3750056831b9e72ea4e1871db"
   revision 2
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "28840bf0a5ad104246f3a33a732cd6f479587e912eb25248e26411d0176b4178" => :mojave
-    sha256 "475c8170ef5e74c2fab069499b7f33438de55fad6e570d8e7f90caf684f765e9" => :high_sierra
-    sha256 "5704909af39dbf86429109c0f790f9d1dcb0e12cd64a238931babb2d524b7338" => :sierra
+    sha256 "34403daae605becd5da491a2354f903498bbc9309e5b7e8847ecc83fe310f9ad" => :mojave
+    sha256 "f86f5dffe2a308e6b9ad5a46da71cc5e015fe5eb76fc914ca111c745c7d0908a" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,8 +21,8 @@ class Folly < Formula
   depends_on "libevent"
   depends_on "lz4"
 
-  # https://github.com/facebook/folly/issues/451
-  depends_on :macos => :el_capitan
+  # https://github.com/facebook/folly/issues/966
+  depends_on :macos => :high_sierra
 
   depends_on "openssl"
   depends_on "snappy"
@@ -34,7 +33,11 @@ class Folly < Formula
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
 
-  needs :cxx11
+  # patch for pclmul compiler flags to fix mojave build
+  patch do
+    url "https://github.com/facebook/folly/commit/964ca3c4979f72115ebfec58056e968a69d5942c.diff?full_index=1"
+    sha256 "b719dd8783f655f0d98cd0e2339ef66753a8d2503c82d334456a86763b0b889f"
+  end
 
   def install
     ENV.cxx11

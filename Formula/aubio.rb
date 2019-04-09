@@ -1,19 +1,18 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
   homepage "https://aubio.org/"
-  url "https://aubio.org/pub/aubio-0.4.7.tar.bz2"
-  sha256 "cbed4afec5ab3a1a6300c7e3af0a1369379aa94259f5e701a8ca905cdd9fa041"
+  url "https://aubio.org/pub/aubio-0.4.9.tar.bz2"
+  sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
 
   bottle do
     cellar :any
-    sha256 "36711680d58975f60c38d2ad9775afe4897f1b8328257cc3089a25617765ed15" => :mojave
-    sha256 "99017df7e892a6c7ef892d882c730201c89a2c34d0603533b4d31dede77f5ead" => :high_sierra
-    sha256 "cc3bef276f2980e2cfd44abb9cf45ffa68da6ef47001a9a526d484d7993be142" => :sierra
+    sha256 "1c011afadd6d9590101b46cb6f3bf530c5ddfb2cef0983bf4fea287ef5f8c265" => :mojave
+    sha256 "f4d0585fe52669ce1c8f3b33e64af22219cc8623f27423bc7d9ce8c3f4e2351a" => :high_sierra
+    sha256 "11ce710814cb514c434620c24fbb4504a3744747ae06dfe260bcdcfa6b69ef64" => :sierra
   end
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on :macos => :lion
   depends_on "numpy"
   depends_on "python"
 

@@ -1,15 +1,14 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "https://dicom.offis.de/dcmtk.php.en"
-  url "https://dicom.offis.de/download/dcmtk/dcmtk363/dcmtk-3.6.3.tar.gz"
-  sha256 "63c373929f610653f10cbb8218ec643804eec6f842d3889d2b46a227da1ed530"
+  url "https://dicom.offis.de/download/dcmtk/dcmtk364/dcmtk-3.6.4.tar.gz"
+  sha256 "a93ff354fae091689a0740a1000cde7d4378fdf733aef9287a70d7091efa42c0"
   head "https://git.dcmtk.org/dcmtk.git"
 
   bottle do
-    sha256 "cf1f1557cbb1842de688bc31128a98e059cddad80e9265d1244129f838ae60d8" => :mojave
-    sha256 "ebc1492ba0b008c2d84e84cce1be2da9eb9210ffa8809bcfc710a0bcf35d5575" => :high_sierra
-    sha256 "c7771b2deb50e919f2b332d532f7f81bd67331a2350aea85f7f61658a70b5b15" => :sierra
-    sha256 "586903834cdc7bbc4ffc7adb5478b63fb80df1f95b1a631a8b41d5b54bbc275f" => :el_capitan
+    sha256 "46d767ca45268ce74114db9d9593e28acd17ac31ffb055c00653702f11795102" => :mojave
+    sha256 "322ad228d11c068ddab0ce532106aeddfbebd6019c433a918d3ee90eb53d7bee" => :high_sierra
+    sha256 "09ed452dbde3f7eae5233d475a1bbf07824505773729dcc55f6f00b90378d8fd" => :sierra
   end
 
   depends_on "cmake" => :build

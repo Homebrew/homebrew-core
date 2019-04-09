@@ -14,8 +14,6 @@ class CsvFix < Formula
     sha256 "0b86933c8e32830d5abd0f26ef83b1a60e0254da67542b695fd50ab1e3ba2e68" => :mavericks
   end
 
-  needs :cxx11
-
   def install
     # clang on Mt. Lion will try to build against libstdc++,
     # despite -std=gnu++0x

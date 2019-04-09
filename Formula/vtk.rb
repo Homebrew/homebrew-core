@@ -3,17 +3,14 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.2.tar.gz"
   sha256 "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
+  revision 3
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "5b8a2aa16741db6f3fb5b4a8cf0a0e4057291457018521a06e31a88821d79828" => :mojave
-    sha256 "45c099cf78ffc78b66cf21eed6ebf704fd67b75bfa3a86648a864b07535974d3" => :high_sierra
-    sha256 "5e089bf8847eb38d2412a24dbf0c125099a5908b9412881c6611ac675379e392" => :sierra
+    sha256 "bfdec9cd62e663602dab123763c3cd78ceefa77cc42bdffa95749c224c34ff75" => :mojave
+    sha256 "b2d6092296d7ef4ed9f226766ee926458db158eac5ea5e523d27adf6fa9cec54" => :high_sierra
+    sha256 "7c01576efb1b78069e6dca1cacab30a9fcf855966a1885ef5810076f4c476c7c" => :sierra
   end
-
-  option "without-python@2", "Build without python2 support"
-
-  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -23,14 +20,17 @@ class Vtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
-  depends_on "python@2" => :recommended
-  depends_on "python" => :optional
-  depends_on "qt" => :optional
-  depends_on "pyqt" if build.with? "qt"
-
-  needs :cxx11
+  depends_on "pyqt"
+  depends_on "python"
+  depends_on "qt"
 
   def install
+    python_executable = `which python3`.strip
+    python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+    python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
+    python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+    py_site_packages = "#{lib}/#{python_version}/site-packages"
+
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -49,70 +49,42 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_PNG=ON
       -DVTK_USE_SYSTEM_TIFF=ON
       -DVTK_USE_SYSTEM_ZLIB=ON
+      -DVTK_WRAP_PYTHON=ON
+      -DPYTHON_EXECUTABLE='#{python_executable}'
+      -DPYTHON_INCLUDE_DIR='#{python_include}'
+      -DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'
+      -DVTK_QT_VERSION:STRING=5
+      -DVTK_Group_Qt=ON
+      -DVTK_WRAP_PYTHON_SIP=ON
+      -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
 
+    # CMake picks up the system's python dylib, even if we have a brewed one.
+    if File.exist? "#{python_prefix}/Python"
+      args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
+    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
+      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
+    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
+      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+    else
+      odie "No libpythonX.Y.{dylib|a} file found!"
+    end
+
     mkdir "build" do
-      if build.with?("python") && build.with?("python@2")
-        # VTK Does not support building both python 2 and 3 versions
-        odie "VTK: Does not support building both python 2 and 3 wrappers"
-      elsif build.with?("python") || build.with?("python@2")
-        python_executable = `which python3`.strip if build.with? "python"
-        python_executable = `which python2.7`.strip if build.with? "python@2"
-
-        python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
-        python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
-        python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
-        py_site_packages = "#{lib}/#{python_version}/site-packages"
-
-        args << "-DVTK_WRAP_PYTHON=ON"
-        args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
-        args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
-        # CMake picks up the system's python dylib, even if we have a brewed one.
-        if File.exist? "#{python_prefix}/Python"
-          args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
-        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
-        else
-          odie "No libpythonX.Y.{dylib|a} file found!"
-        end
-        # Set the prefix for the python bindings to the Cellar
-        args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
-      end
-
-      if build.with? "qt"
-        args << "-DVTK_QT_VERSION:STRING=5" << "-DVTK_Group_Qt=ON"
-        args << "-DVTK_WRAP_PYTHON_SIP=ON"
-        args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'"
-      end
-
       system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
 
-    # Avoid hard-coding Python 2 or 3's Cellar paths
-    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first do |s|
-      if build.with? "python"
-        s.gsub! Formula["python"].prefix.realpath, Formula["python"].opt_prefix
-      end
-      if build.with? "python@2"
-        s.gsub! Formula["python@2"].prefix.realpath, Formula["python@2"].opt_prefix
-      end
-    end
+    # Avoid hard-coding Python's Cellar paths
+    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first,
+      Formula["python"].prefix.realpath,
+      Formula["python"].opt_prefix
 
     # Avoid hard-coding HDF5's Cellar path
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
-      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix
-  end
-
-  def caveats; <<~EOS
-    Even without the --with-qt option, you can display native VTK render windows
-    from python. Alternatively, you can integrate the RenderWindowInteractor
-    in PyQt5 or Wx at runtime. Read more:
-      import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
-  EOS
+      Formula["hdf5"].prefix.realpath,
+      Formula["hdf5"].opt_prefix
   end
 
   test do

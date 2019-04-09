@@ -14,7 +14,6 @@ class Lha < Formula
     sha256 "35f3e193c1bf0d26c62ea6897721c559191fea64f27d71781a90f670d9a23557" => :el_capitan
     sha256 "9cb516a73d1d117c39f63d16b3211df626783c9bb1a7038f524dd9c36045b1ac" => :yosemite
     sha256 "bd26a5a48396d06019f7998f4c9bf511a74ef237814fee5f5c8ba9df31b30a37" => :mavericks
-    sha256 "3def5e7035ef758428c7e158b93ad5459d6d221ba4698608cc1d14526cbfd5f8" => :mountain_lion
   end
 
   head do

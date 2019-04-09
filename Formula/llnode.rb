@@ -1,14 +1,14 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v2.0.0.tar.gz"
-  sha256 "e35eaca06491161b12c8b974c2a15172e99cd95df4885809e575a5e942c2ed44"
+  url "https://github.com/nodejs/llnode/archive/v2.2.0.tar.gz"
+  sha256 "fb1ef8eddc67abcbd5c65f6b6a712b3ff4948814539f1313eed7cd3b58d60fb3"
 
   bottle do
     cellar :any
-    sha256 "77b994bc37d651f5a865ab0403cce168fa5814ce843d711fa0032b7b9fb6b2be" => :mojave
-    sha256 "45e6c787c26197a328af2e20cc61ce09129c0c6dc2b37564379ffdce44660218" => :high_sierra
-    sha256 "5e300fbc65de1abca63e912fdb70cc747ba7305aabfa6922b9f162dbaaa3403a" => :sierra
+    sha256 "bd25f25283d4da121c4b64a34ffa060f46e20efbdd463b8af088ed1568cf64ca" => :mojave
+    sha256 "5e3d8bfdcafce47c4f36da32a4820b0970020459e8a22d0d28eb3d38fd1c89f3" => :high_sierra
+    sha256 "fc975b5e0cb5ee39039100a8da42db92e3359e3e5e3b6c2465e4e969dbee0e7d" => :sierra
   end
 
   depends_on "node" => :build
@@ -36,7 +36,7 @@ class Llnode < Formula
       # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
       # of 34.
       # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
-      url "http://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
+      url "https://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
           :using => :svn
     end
   end

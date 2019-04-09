@@ -41,11 +41,7 @@ class JohnJumbo < Formula
 
   def install
     cd "src" do
-      args = []
-      if build.bottle?
-        args << "--disable-native-tests" << "--disable-native-macro"
-      end
-      system "./configure", *args
+      system "./configure", "--disable-native-tests", "--disable-native-macro"
       system "make", "clean"
       system "make", "-s", "CC=#{ENV.cc}"
     end
@@ -85,7 +81,7 @@ __END__
 -#define JOHN_SYSTEMWIDE			0
 +#define JOHN_SYSTEMWIDE			1
  #endif
- 
+
  #if JOHN_SYSTEMWIDE
  #ifndef JOHN_SYSTEMWIDE_EXEC /* please refer to the notes above */
 -#define JOHN_SYSTEMWIDE_EXEC		"/usr/libexec/john"

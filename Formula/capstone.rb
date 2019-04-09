@@ -1,16 +1,15 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://github.com/aquynh/capstone/archive/3.0.5.tar.gz"
-  sha256 "913dd695e7c5a2b972a6f427cb31f2e93677ec1c38f39dda37d18a91c70b6df1"
+  url "https://github.com/aquynh/capstone/archive/4.0.1.tar.gz"
+  sha256 "79bbea8dbe466bd7d051e037db5961fdb34f67c9fac5c3471dd105cfb1e05dc7"
   head "https://github.com/aquynh/capstone.git"
 
   bottle do
     cellar :any
-    sha256 "15cc782e0990bd7b4f531a4bc18c14f2c34318355e3f56d10225d3e26af9306c" => :mojave
-    sha256 "90c24c16624b06137aeec9cf9040c6cf91ccc5045a4fa5606c4ee39be8b06991" => :high_sierra
-    sha256 "e3cd9819d2ff6cc1ee026458463c939070085a78558a99a85aab34243f7f63ea" => :sierra
-    sha256 "8d2b3cb82b16a0e40242f9413335fbdb60d99860e2f3ba85a4dab442fc72f804" => :el_capitan
+    sha256 "e792acf6f3c23be1853f8658f35766c87dc35f165b6d6728aca61596bc9de230" => :mojave
+    sha256 "2a8a4842ad2660dad079216a12efe8b6d6394b548c6e056f250aa6d6cdf3802d" => :high_sierra
+    sha256 "561639bc13e269d61af352e106b3d039a4c9b5fdadd45b04bcf9f8c9f99a53c6" => :sierra
   end
 
   def install

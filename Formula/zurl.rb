@@ -1,20 +1,18 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.9.1.tar.bz2"
-  sha256 "b57385d768c9df62dd225a462d0e35998f95fdbd34ea628bf3d6a38b012dba41"
+  url "https://dl.bintray.com/fanout/source/zurl-1.10.1.tar.bz2"
+  sha256 "8ac27fc791a7cd44e95afc42da726e8e1a2481324f4a6b5bbfce629faf1d2601"
 
   bottle do
     cellar :any
-    sha256 "16717a421d3a1f80a4bac2cbee9444d87afba83aad445df4e998996522e031a8" => :mojave
-    sha256 "f94e3fbd570a122222ad66c0013b9b3425c5d49ca8f0e082e0377b1b7e6a538c" => :high_sierra
-    sha256 "9ebde17a2751ce4b04a0215fe90ffebe880b4e07ab822897b5b8f7e44f4f273e" => :sierra
-    sha256 "9deb04a87b09d9805a2fdfd443744fca5e61bcd00c79ecd067dc67c6319ef88f" => :el_capitan
+    sha256 "dc4b0a36c65f43a71ba755f462bd7758cb7334a032575513fc870e17a739cad0" => :mojave
+    sha256 "97eab3631942ebb2943b88cb8ac6ec393aad2e69e42c6c0f20dc70c06b2cb3c7" => :high_sierra
+    sha256 "2cd3bea68357284aee258c268280bf72f0ce81461cc825d7bb163615b0428668" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@2" => :test
-  depends_on "curl" if MacOS.version < :lion
   depends_on "qt"
   depends_on "zeromq"
 
@@ -37,7 +35,7 @@ class Zurl < Formula
 
     resource("pyzmq").stage { system "python", *Language::Python.setup_install_args(testpath/"vendor") }
 
-    conffile.write(<<~EOS
+    conffile.write(<<~EOS,
       [General]
       in_req_spec=ipc://#{ipcfile}
       defpolicy=allow
@@ -45,7 +43,7 @@ class Zurl < Formula
     EOS
                   )
 
-    runfile.write(<<~EOS
+    runfile.write(<<~EOS,
       import json
       import threading
       from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer

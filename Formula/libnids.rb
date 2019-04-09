@@ -13,7 +13,6 @@ class Libnids < Formula
     sha256 "75494ad58d4718de0ba012866ccde060e494293a93f575d42e95b57f7bbe9cc7" => :el_capitan
     sha256 "a0375ba5851ffc54b89948d05d843102dbf33dbe8f8d77e46673a985df40ca4f" => :yosemite
     sha256 "4ad0be7662127faff0e9103f678f9d3f277278de4cdc801e2ecdc40ad81e448a" => :mavericks
-    sha256 "e88e84cda8a3bad62118791243f4642572fa19b9656f30bcdda08c510fd6b366" => :mountain_lion
   end
 
   depends_on "autoconf" => :build
@@ -44,7 +43,7 @@ __END__
  LIBSTATIC      = libnids.a
 -LIBSHARED      = libnids.so.1.24
 +LIBSHARED      = libnids.1.24.dylib
- 
+
  CC		= @CC@
  CFLAGS		= @CFLAGS@ -DLIBNET_VER=@LIBNET_VER@ -DHAVE_ICMPHDR=@ICMPHEADER@ -DHAVE_TCP_STATES=@TCPSTATES@ -DHAVE_BSD_UDPHDR=@HAVE_BSD_UDPHDR@
 @@ -65,7 +65,7 @@
@@ -53,7 +52,7 @@ __END__
  $(LIBSHARED): $(OBJS_SHARED)
 -	$(CC) -shared -Wl,-soname,$(LIBSHARED) -o $(LIBSHARED) $(OBJS_SHARED) $(LIBS) $(LNETLIB) $(PCAPLIB)
 +	$(CC) -dynamiclib -Wl,-dylib -Wl,-install_name,$(LIBSHARED) -Wl,-headerpad_max_install_names -o $(LIBSHARED) $(OBJS_SHARED) $(LIBS) $(LNETLIB) $(PCAPLIB)
- 
+
  _install install: $(LIBSTATIC)
  	../mkinstalldirs $(install_prefix)$(libdir)
 @@ -76,7 +76,7 @@
@@ -62,6 +61,6 @@ __END__
  	$(INSTALL) -c -m 755 $(LIBSHARED) $(install_prefix)$(libdir)
 -	ln -s -f $(LIBSHARED) $(install_prefix)$(libdir)/libnids.so
 +	ln -s -f $(LIBSHARED) $(install_prefix)$(libdir)/libnids.dylib
-  
+
  clean:
  	rm -f *.o *~ $(LIBSTATIC) $(LIBSHARED)

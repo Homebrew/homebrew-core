@@ -17,7 +17,7 @@ class Ddar < Formula
 
   depends_on "xmltoman" => :build
   depends_on "protobuf"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     system "make", "-f", "Makefile.prep", "pydist"

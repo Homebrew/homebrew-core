@@ -17,9 +17,6 @@ class Gettext < Formula
   keg_only :shadowed_by_macos,
     "macOS provides the BSD gettext library & some software gets confused if both are in the library path"
 
-  # https://savannah.gnu.org/bugs/index.php?46844
-  depends_on "libxml2" if MacOS.version <= :mountain_lion
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

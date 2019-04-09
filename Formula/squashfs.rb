@@ -3,19 +3,18 @@ class Squashfs < Formula
   homepage "https://squashfs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/squashfs/squashfs/squashfs4.3/squashfs4.3.tar.gz"
   sha256 "0d605512437b1eb800b4736791559295ee5f60177e102e4d4ccd0ee241a5f3f6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "af10950ae4b9e2acd20ba275b8ea5ca4544e87951ff3c2db94735596c7f3ad39" => :mojave
-    sha256 "06c8d10e167295f91684c9c5bb596143189f4de5f4e1cba7b3f45ab0ee9ed1cb" => :high_sierra
-    sha256 "cbf0fba9b2b73aff6465c8611453b832886159c6e12191eb27ab39e58e9ef577" => :sierra
-    sha256 "192a9b40b56ded7b5d97c1ae9a587173f4380e0a71ec8332dc475d9c5beeb5e1" => :el_capitan
+    sha256 "c48d6bf745747564c7b8736c1f703165d0787415d54c09680e272e2d68fdd572" => :mojave
+    sha256 "59fe238379463c52b0e219192139180be496fcc20adc734a84699f34191461c3" => :high_sierra
+    sha256 "2e015389c160a1094f0995e3d5b11f54b0549cbab7a506cbb2706608213735a6" => :sierra
   end
 
+  depends_on "lz4"
   depends_on "lzo"
   depends_on "xz"
-  depends_on "lz4" => :optional
 
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
@@ -27,15 +26,15 @@ class Squashfs < Formula
 
   def install
     args = %W[
-      XATTR_SUPPORT=0
       EXTRA_CFLAGS=-std=gnu89
-      LZO_SUPPORT=1
-      LZO_DIR=#{Formula["lzo"].opt_prefix}
-      XZ_SUPPORT=1
-      XZ_DIR=#{Formula["xz"].opt_prefix}
+      LZ4_SUPPORT=1
       LZMA_XZ_SUPPORT=1
+      LZO_DIR=#{Formula["lzo"].opt_prefix}
+      LZO_SUPPORT=1
+      XATTR_SUPPORT=0
+      XZ_DIR=#{Formula["xz"].opt_prefix}
+      XZ_SUPPORT=1
     ]
-    args << "LZ4_SUPPORT=1" if build.with? "lz4"
 
     cd "squashfs-tools" do
       system "make", *args

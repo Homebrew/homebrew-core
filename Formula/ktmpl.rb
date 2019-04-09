@@ -1,16 +1,15 @@
 class Ktmpl < Formula
   desc "Parameterized templates for Kubernetes manifests"
-  homepage "https://github.com/InQuicker/ktmpl"
-  url "https://github.com/InQuicker/ktmpl/archive/0.7.0.tar.gz"
-  sha256 "c10d26f8e834543d8f0952a76b67292cd8f10f0814128cda9bb623ffe0952615"
-  head "https://github.com/InQuicker/ktmpl.git"
+  homepage "https://github.com/jimmycuadra/ktmpl"
+  url "https://github.com/jimmycuadra/ktmpl/archive/0.9.0.tar.gz"
+  sha256 "b2f05ae4b36f31f6801f4dcd2f5aec31d7b53b8b6dea6ddf974b22c88d8bc62b"
+  head "https://github.com/jimmycuadra/ktmpl.git"
 
   bottle do
-    sha256 "baa701366440c52fcd4463d4215625a16300f17360d925ca6fea7dbbeabf4dc5" => :mojave
-    sha256 "b9012d8fb7919b22b93d5b44cdd7304ed2398c81a2627cb2c78302950e6016c7" => :high_sierra
-    sha256 "53bd12218388a8a5d3db81c0638d85582bf04358266309bf9b62ada65901560e" => :sierra
-    sha256 "9c969b22228adccf275ff10decb4f5667f0b9489d143679208b3100be683356b" => :el_capitan
-    sha256 "1b56cf4694e17406aca60ebf1d6e67a8bc33f6bd3921c914aef7546fabb0f020" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "4387bf621c411a8d59791a0bda3d83e6ee1279c71bee0738d2c5912319a8b77b" => :mojave
+    sha256 "bd4b35069ade7f55ffe0fb1cd3f1b605cc0703b69b0a5dcea543a7e3f170a8f3" => :high_sierra
+    sha256 "e3e22aa7c9144e4536e3c7417309f16c4af16aa28fd8e78642663258e21f6837" => :sierra
   end
 
   depends_on "rust" => :build

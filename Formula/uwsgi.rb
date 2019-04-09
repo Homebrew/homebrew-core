@@ -16,24 +16,17 @@ class Uwsgi < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "bedd428644e52332dea9c0c022e1b95572e86b82a26f00676d9041e1d3668041" => :mojave
-    sha256 "a324da423d63b2e6fa8c36680a84a19c5a2a82f33c8e819c1c3c3ca318fb48a7" => :high_sierra
-    sha256 "c46dd9c0e215063d503b275759ec1055521b124d1f8c5d378de086d186089088" => :sierra
+    rebuild 2
+    sha256 "aa95c6aa7628d8b24c4b39fe57a7eef5e8d8ee87e213d8cfc14847bacc344995" => :mojave
+    sha256 "90a83b0aaf8f43ca1ca0374fc6df91ca1263e48261fa0dc5df80783006d70734" => :high_sierra
+    sha256 "cede48b191857733597fee22d494426cffe2127cadca87b07595c8d40d163aef" => :sierra
   end
 
-  deprecated_option "with-python3" => "with-python"
-
-  depends_on "go" => [:build, :optional]
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "pcre"
   depends_on "python@2"
   depends_on "yajl"
-
-  depends_on "libyaml" => :optional
-  depends_on "python" => :optional
-  depends_on "zeromq" => :optional
 
   # "no such file or directory: '... libpython2.7.a'"
   # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
@@ -54,14 +47,12 @@ class Uwsgi < Formula
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
-    yaml = build.with?("libyaml") ? "libyaml" : "embedded"
-
     (buildpath/"buildconf/brew.ini").write <<~EOS
       [uwsgi]
       ssl = true
       json = yajl
       xml = libxml2
-      yaml = #{yaml}
+      yaml = embedded
       inherit = base
       plugin_dir = #{libexec}/uwsgi
       embedded_plugins = null
@@ -86,8 +77,6 @@ class Uwsgi < Formula
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
 
-    plugins << "gccgo" if build.with? "go"
-
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
       system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
@@ -97,7 +86,6 @@ class Uwsgi < Formula
       "python"  => "python2.7",
       "python2" => "python2.7",
     }
-    python_versions["python3"] = "python3" if build.with? "python"
     python_versions.each do |k, v|
       system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end

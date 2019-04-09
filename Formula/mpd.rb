@@ -1,15 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
-  sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.5.tar.xz"
+  sha256 "2ea9f0eb3a7bdae5d705adf4e8ec45ef38b5b9ddf133f32b8926dd4e205b0ef9"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    sha256 "0e8b637524e77052e1b8b35ded89033cfa5ea351509474804296506c32d2cbd3" => :mojave
-    sha256 "ec55a408fc1f1c8a90df41488c782eb77e53db92b4766632e008905f12e3decc" => :high_sierra
-    sha256 "9fe5ee4e9126630e02600df8e1a4eb6cebef72bda40ba5cacf0cb452b19bc434" => :sierra
+    cellar :any
+    sha256 "0d7097c4dc2715a22d52dfb043079af7caff6334c86f02df9a94d391e7c07a3d" => :mojave
+    sha256 "53ac967273ff331d9935747054ca99ed0f928527d1c89ffbcc8a3b0d6b46386d" => :high_sierra
+    sha256 "c4a226d7ac56d643e0a9e9cf767511b642340af52c157f7bf014fad25791e35b" => :sierra
   end
 
   depends_on "boost" => :build
@@ -27,13 +27,12 @@ class Mpd < Formula
   depends_on "libao"
   depends_on "libid3tag"
   depends_on "libmpdclient"
+  depends_on "libnfs"
   depends_on "libsamplerate"
   depends_on "libupnp"
   depends_on "libvorbis"
   depends_on "opus"
   depends_on "sqlite"
-
-  needs :cxx11
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -53,6 +52,7 @@ class Mpd < Formula
       -Dexpat=enabled
       -Dffmpeg=enabled
       -Dfluidsynth=enabled
+      -Dnfs=enabled
       -Dupnp=enabled
       -Dvorbisenc=enabled
     ]
@@ -108,8 +108,14 @@ class Mpd < Formula
     sleep 2
 
     begin
-      assert_match "OK MPD", shell_output("curl localhost:6600")
-      assert_match "ACK", shell_output("(sleep 2; echo playid foo) | nc localhost 6600")
+      ohai "Connect to MPD command (localhost:6600)"
+      TCPSocket.open("localhost", 6600) do |sock|
+        assert_match "OK MPD", sock.gets
+        ohai "Ping server"
+        sock.puts("ping")
+        assert_match "OK", sock.gets
+        sock.close
+      end
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid

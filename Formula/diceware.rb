@@ -3,15 +3,14 @@ class Diceware < Formula
 
   desc "Passphrases to remember"
   homepage "https://github.com/ulif/diceware"
-  url "https://github.com/ulif/diceware/archive/v0.9.5.tar.gz"
-  sha256 "70c5884eed7f9d55204075cc8816ef7259000a0548f930a98d51132eef5c90ad"
+  url "https://github.com/ulif/diceware/archive/v0.9.6.tar.gz"
+  sha256 "ff55832e725abff212dec1a2cb6e1c3545ae782b5f49ec91ec870a2b50e1f0e8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f17a7034c6bd69b188c16dc4ad98e493dcaba45372831631fdee1e6443b244cc" => :mojave
-    sha256 "804dedba249ec07880d46de1c438ab1e030dcabbd3c3a856376421c365fc2355" => :high_sierra
-    sha256 "d6a2b39814cd36908c198fff005f449c5acda91b7b4416e8e670348bee83aaf1" => :sierra
-    sha256 "5f0aeaaeecf438f4d61a8cdf4420198f167d49bf962dbde55e2bd8abc305dd63" => :el_capitan
+    sha256 "0337fa5b3f3b8975a3e98dcf2cc547f0b49362bba602c8ae0ba04c6bcd9775fd" => :mojave
+    sha256 "860337c1b1054ebdab64426b10cdcc1b5f508bd327560f78273ccfba348d9e1e" => :high_sierra
+    sha256 "7fd4218db14b490a0b2b0f5372c636dced0801829a16278f7751d3d831f79785" => :sierra
   end
 
   depends_on "python"

@@ -13,11 +13,6 @@ class Ccrypt < Formula
 
   conflicts_with "ccat", :because => "both install `ccat` binaries"
 
-  fails_with :clang do
-    build 318
-    cause "Tests fail when optimizations are enabled"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

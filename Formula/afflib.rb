@@ -1,15 +1,14 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.17.tar.gz"
-  sha256 "3c5a718731c90a75a1134796ab9de9a0156f6b3a8d1dec4f532e161b94bdaff4"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.18.tar.gz"
+  sha256 "5481cd5d8dbacd39d0c531a68ae8afcca3160c808770d66dcbf5e9b5be3e8199"
 
   bottle do
     cellar :any
-    sha256 "e2f6aabed324721e31798315e0f8f7768f14b3858e6b16f4f921edb57ff40838" => :mojave
-    sha256 "0ebbe3c416cd433966a37d6724129720a1314e9a0f9b58ef3ff132ece9d8efb3" => :high_sierra
-    sha256 "ea3328cb0ffa8848a1f21893ee96782bd886cd9821d0e4542968b98c7c209cf7" => :sierra
-    sha256 "cb6ada311bc269985934cc835adf7dde8e8437f882beda9223ba47613c5364f0" => :el_capitan
+    sha256 "8777c09fb89f6ef70f6324fe9765a2dfc1c3d9a86fcd0b583d9c8f2465be61f1" => :mojave
+    sha256 "09d2326ac0d816477129b38f85af29b8f2ab42448b76f603ec77bf8b64aebb24" => :high_sierra
+    sha256 "771fa58a6d3470a4a40a64b6c771533e4a5705077d9ea02a006f0d71074892b0" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -19,18 +18,13 @@ class Afflib < Formula
   depends_on "openssl"
   # Python 3 error filed upstream: https://github.com/sshock/AFFLIBv3/issues/35
   depends_on "python@2" # does not support Python 3
-  depends_on :osxfuse => :optional
 
   def install
-    args = ["--enable-s3", "--enable-python"]
-
-    if build.with? "osxfuse"
-      ENV.append "CPPFLAGS", "-I/usr/local/include/osxfuse"
-      ENV.append "LDFLAGS", "-L/usr/local/lib"
-      args << "--enable-fuse"
-    else
-      args << "--disable-fuse"
-    end
+    args = %w[
+      --enable-s3
+      --enable-python
+      --disable-fuse
+    ]
 
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",

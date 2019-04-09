@@ -1,16 +1,16 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
-  url "https://github.com/libbi/LibBi/archive/1.4.2.tar.gz"
-  sha256 "17824f6b466777a02d6bc6bb4704749fb64ce56ec4468b936086bc9901b5bf78"
-  revision 2
-  head "https://github.com/libbi/LibBi.git"
+  url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
+  sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
+  revision 3
+  head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f41e59dcedb80e736d51fcbd7046a969d7d673e343ce067a481abfcabd18a177" => :mojave
-    sha256 "f95535ce37790f404fd5942a3aa1422f4a6557e179b7395d159fdc05d0a0f155" => :high_sierra
-    sha256 "73a677ced1a8ba4b9f7783bfcb63c469118c341cc5ca5db994f085b953a154c0" => :sierra
+    sha256 "2e53c92aaa7dc0446b22a305130ae8d7e3deaf3d370116fae8b1b7ef60a6820e" => :mojave
+    sha256 "b0888c11a7fde4aceea78f281593b2dee115521bec9cfa9aaa0b29109881cf51" => :high_sierra
+    sha256 "dc6d58a9f2b19b86d64097ecee68e40f1f060020b17590d08c759b199b740924" => :sierra
   end
 
   depends_on "automake"
@@ -100,8 +100,8 @@ class Libbi < Formula
   end
 
   resource "thrust" do
-    url "https://github.com/thrust/thrust/releases/download/1.8.2/thrust-1.8.2.zip"
-    sha256 "00925daee4d9505b7f33d0ed42ab0de0f9c68c4ffbe2a41e6d04452cdee77b2d"
+    url "https://github.com/thrust/thrust/archive/1.8.2.tar.gz"
+    sha256 "83bc9e7b769daa04324c986eeaf48fcb53c2dda26bcc77cb3c07f4b1c359feb8"
   end
 
   def install
@@ -110,6 +110,7 @@ class Libbi < Formula
     resources.each do |r|
       r.stage do
         next if r.name == "thrust"
+
         # need to set TT_ACCEPT=y for Template library for non-interactive install
         perl_flags = "TT_ACCEPT=y" if r.name == "Template"
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", perl_flags
@@ -118,7 +119,7 @@ class Libbi < Formula
       end
     end
 
-    (include/"thrust").install resource("thrust")
+    resource("thrust").stage { (include/"thrust").install Dir["thrust/*"] }
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INSTALLSITESCRIPT=#{bin}"
 
@@ -136,7 +137,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf"
+    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
     assert_predicate testpath/"test.nc", :exist?
   end
 end

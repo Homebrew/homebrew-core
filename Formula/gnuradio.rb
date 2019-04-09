@@ -3,13 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
-  revision 1
+  revision 5
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "01f0981d8ade9849af92a984cc0127029682e90aec903a5942531267dc952614" => :mojave
-    sha256 "affc7924c2a035c28886672d3fec311a7ab2d478557a71bd901d8f03f3818fca" => :high_sierra
-    sha256 "d7c9f1df5a49c157ba03e7baf69ac7484a3d8676e8c131bc23cb1787b6f93852" => :sierra
+    sha256 "0e0f6963f6cbbbcd84e9abf35304c11dd256357b3a4ad0609dbdecb9eeaa4742" => :mojave
+    sha256 "f75a8d702859c08319368c6d17989a835c61bcc8f6f3f109b5780bbe20dc8a22" => :high_sierra
+    sha256 "dc2eede0f815fd6adf05aaf375bacd30a9aac5dc85570dc4b65271be6ff3b175" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -25,10 +25,6 @@ class Gnuradio < Formula
   depends_on "python@2"
   depends_on "uhd"
   depends_on "zeromq"
-  depends_on "jack" => :optional
-  depends_on "pygtk" => :optional
-  depends_on "sdl" => :optional
-  depends_on "wxpython" => :optional
 
   # cheetah starts here
   resource "Markdown" do
@@ -93,20 +89,17 @@ class Gnuradio < Formula
 
     resource("cppzmq").stage include.to_s
 
-    args = std_cmake_args
-    args << "-DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d"
-    args << "-DGR_PREFSDIR=#{etc}/gnuradio/conf.d"
-    args << "-DENABLE_DEFAULT=OFF"
+    args = std_cmake_args + %W[
+      -DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d
+      -DGR_PREFSDIR=#{etc}/gnuradio/conf.d
+      -DENABLE_DEFAULT=OFF
+    ]
 
     enabled = %w[GR_ANALOG GR_FFT VOLK GR_FILTER GNURADIO_RUNTIME
                  GR_BLOCKS GR_PAGER GR_NOAA GR_CHANNELS GR_AUDIO
                  GR_FCD GR_VOCODER GR_FEC GR_DIGITAL GR_DTV GR_ATSC
                  GR_TRELLIS GR_ZEROMQ GR_WAVELET GR_UHD DOXYGEN SPHINX
                  PYTHON GR_UTILS]
-    enabled << "GRC" if build.with? "pygtk"
-    enabled << "GR_WXGUI" if build.with? "wxpython"
-    enabled << "GR_VIDEO_SDL" if build.with? "sdl"
-
     enabled.each do |c|
       args << "-DENABLE_#{c}=ON"
     end

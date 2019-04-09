@@ -1,9 +1,9 @@
 class Pig < Formula
   desc "Platform for analyzing large data sets"
   homepage "https://pig.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=pig/pig-0.16.0/pig-0.16.0.tar.gz"
-  mirror "https://archive.apache.org/dist/pig/pig-0.16.0/pig-0.16.0.tar.gz"
-  sha256 "08947c3f381a1f810430c3703081277bd0b27ac3f76c5a52c096ea587e7ee95c"
+  url "https://www.apache.org/dyn/closer.cgi?path=pig/pig-0.17.0/pig-0.17.0.tar.gz"
+  mirror "https://archive.apache.org/dist/pig/pig-0.17.0/pig-0.17.0.tar.gz"
+  sha256 "6d613768e9a6435ae8fa758f8eef4bd4f9d7f336a209bba3cd89b843387897f3"
 
   bottle :unneeded
 
@@ -11,7 +11,8 @@ class Pig < Formula
 
   def install
     (libexec/"bin").install "bin/pig"
-    libexec.install ["pig-#{version}-core-h1.jar", "pig-#{version}-core-h2.jar", "lib"]
+    libexec.install Dir["pig-#{version}-core-h*.jar"]
+    libexec.install "lib"
     (bin/"pig").write_env_script libexec/"bin/pig", Language::Java.java_home_env("1.6+").merge(:PIG_HOME => libexec)
   end
 

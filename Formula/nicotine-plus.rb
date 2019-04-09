@@ -20,7 +20,7 @@ class NicotinePlus < Formula
   depends_on "gtk+"
   depends_on "miniupnpc"
   depends_on "pygtk"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/14/d5/51f49f345d4490a9a6a04677ab136f78e4e0c64ed142e48b4ed818c13c96/mutagen-1.37.tar.gz"

@@ -15,12 +15,11 @@ class Vimpager < Formula
     sha256 "4e751d2207b8925e1c229edb88a7f635d41aa611a576a1b7a9bf0b9b701df341" => :mavericks
   end
 
-  option "with-pandoc", "Use pandoc to build and install man pages"
-  depends_on "pandoc" => [:build, :optional]
+  depends_on "pandoc" => :build
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
-    system "make", "docs" if build.with? "pandoc"
+    system "make", "docs"
   end
 
   def caveats; <<~EOS

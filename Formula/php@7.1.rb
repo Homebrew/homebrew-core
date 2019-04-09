@@ -1,14 +1,13 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.24.tar.xz/from/this/mirror"
-  sha256 "e70dcec0ae28b6bc308b78972ec15aa850808819cc765f505aa51e5a7e2fa5d7"
-  revision 2
+  url "https://php.net/get/php-7.1.28.tar.xz/from/this/mirror"
+  sha256 "45131497ec0a947e3f9145c000e8fcc1f86b46518ee3f6810d80efa2d39521e2"
 
   bottle do
-    sha256 "e278bf781dc8baac774bccf1ff44b8b8900359295b8e9dc89cf0975533eecce9" => :mojave
-    sha256 "cc7c978882c1267772e5a8f76f73d088d8eb9bd7995787f351999978b9169332" => :high_sierra
-    sha256 "eb4a9a2562f89b1aef9fc2da4b038492f8a90d073695501af731a8a7202bd687" => :sierra
+    sha256 "c1120c97c326d4665c48ecf961fa50c1196108d570ef4debdbff76b0d316f1ea" => :mojave
+    sha256 "eff37b675d3e0b343995d30cdb81d5376dee1e6231a5d60afaa539d221a6cc1b" => :high_sierra
+    sha256 "3d5d29f8bd337cca870ffe049ecfddae4ebe2f65ad8d3b6b0f11e576530b912e" => :sierra
   end
 
   keg_only :versioned_formula
@@ -34,7 +33,6 @@ class PhpAT71 < Formula
   depends_on "mcrypt"
   depends_on "openldap"
   depends_on "openssl"
-  depends_on "pcre"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -43,8 +41,6 @@ class PhpAT71 < Formula
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
   patch :DATA
-
-  needs :cxx11
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS

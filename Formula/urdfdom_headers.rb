@@ -1,19 +1,17 @@
 class UrdfdomHeaders < Formula
   desc "Headers for Unified Robot Description Format (URDF) parsers"
   homepage "https://wiki.ros.org/urdfdom_headers/"
-  url "https://github.com/ros/urdfdom_headers/archive/1.0.2.tar.gz"
-  sha256 "28d488d4a1542c427f09df23d443655db50405406f7b8e313eb0de499ce6b163"
+  url "https://github.com/ros/urdfdom_headers/archive/1.0.3.tar.gz"
+  sha256 "b58989cba5ba413cba4caa5f0aa64dfcd724feca0309ab059761f2bfa3759edb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bddc8c1985d764bee36ee25db4b3c18fe45b8de0f113875a3085489f3cd50d1d" => :mojave
-    sha256 "9757800f4153efd48e5d77b3548da9a4b854165376eed6d541897f120a3d7da5" => :high_sierra
-    sha256 "9757800f4153efd48e5d77b3548da9a4b854165376eed6d541897f120a3d7da5" => :sierra
+    sha256 "03363b4cd2cc6fd0a84992e05f722123cde706b1d458d4d7cdcdde365edbaa8e" => :mojave
+    sha256 "110d5406db175f8290aa9ad46c685be7a7e6bddd2dc45695e1b8d774c57370c2" => :high_sierra
+    sha256 "110d5406db175f8290aa9ad46c685be7a7e6bddd2dc45695e1b8d774c57370c2" => :sierra
   end
 
   depends_on "cmake" => :build
-
-  needs :cxx11
 
   def install
     ENV.cxx11

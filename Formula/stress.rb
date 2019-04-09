@@ -13,7 +13,6 @@ class Stress < Formula
     sha256 "b4635c185bfba65271d74aaff155161d2df388be303d135315066260e9699c5e" => :el_capitan
     sha256 "845f44585d0a3749c163300029f832125950d37af4a5b53c0b20fb143e6db014" => :yosemite
     sha256 "6741dc72df4a43cfe2c947d9e50d08df1e35029025ff2436d5a20a01117f4fb6" => :mavericks
-    sha256 "28ac09ff04e83b174f915a6306de69f70d8b81f6316b0f1884bf2ac8061134ee" => :mountain_lion
   end
 
   def install

@@ -2,20 +2,23 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      :tag      => "0.31.2",
-      :revision => "8dea448b9b2814dadb6130dbf8bae4171487dd69",
+      :tag      => "0.33.0",
+      :revision => "c8ac06e106b6b61f907918bfb2b7a5c432de4678",
       :shallow  => false
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
   bottle do
-    cellar :any
-    sha256 "dcfbfc02d18e352a771997008648aa8dd765188a736733fa45d8af5fea7f81a5" => :mojave
-    sha256 "86222951266058640d2794f06f592b7961cf60016184657e8a2269e8f3503a5c" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "7f88034cfbd51439cd45467745ea3b1a21e6eec2cdd8a7eb2a8945382404b5f0" => :high_sierra
   end
 
-  depends_on :xcode => ["9.4", :build]
+  depends_on :xcode => ["10.0", :build]
 
   def install
+    if MacOS::Xcode.version >= "10.2" && MacOS.version < "10.14.4" && MacOS.version >= "10.14"
+      odie "Xcode >=10.2 requires macOS >=10.14.4 to build Swift formulae."
+    end
+
     system "make", "prefix_install", "PREFIX=#{prefix}"
     bash_completion.install "Source/Scripts/carthage-bash-completion" => "carthage"
     zsh_completion.install "Source/Scripts/carthage-zsh-completion" => "_carthage"

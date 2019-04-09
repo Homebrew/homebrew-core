@@ -1,14 +1,13 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.20.tar.gz"
-  sha256 "8a057925c74c059d9e37de63a63b450da66c5c1c8cef869a6df420b3bb45a0cf"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz"
+  sha256 "31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e"
 
   bottle do
-    sha256 "cd2a2237a28814d98fb2e938ea0c99b404314a3512d87eb1ef4b69c184a06178" => :mojave
-    sha256 "bdb2f184c887cb1166bc049bcfff1b999460e9e38ba80504f41217f9dfc52178" => :high_sierra
-    sha256 "fd41c3a34906f621754f28b2ae914aaa2f539d7644e9afe2099eeb44fcea0281" => :sierra
+    sha256 "cfe40dfe41b8da402e74e2ec6a0ca03ff2bd998824188af6e9eacd300d1cc226" => :mojave
+    sha256 "fef738f888e306166489396a2aaf7f0d7cc3257eef97e0d18a62d75e6e6ae440" => :high_sierra
+    sha256 "c2a5d0e2dd91659d491805c7c50723db552abf49e59f39e99eebe08656c858fe" => :sierra
   end
 
   head do
@@ -21,7 +20,6 @@ class Wget < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
   depends_on "openssl"
 
@@ -31,7 +29,10 @@ class Wget < Formula
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}",
-                          "--disable-debug"
+                          "--disable-debug",
+                          "--disable-pcre",
+                          "--disable-pcre2",
+                          "--without-libpsl"
     system "make", "install"
   end
 

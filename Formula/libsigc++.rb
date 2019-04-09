@@ -11,8 +11,6 @@ class Libsigcxx < Formula
     sha256 "c0183cda1eafe9542d87a47e986c1efb02b82c747e5f466a4ddd5cff9ac4c6a1" => :sierra
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"

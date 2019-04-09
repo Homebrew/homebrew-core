@@ -37,8 +37,6 @@ class Enigma < Formula
     sha256 "5870bb761dbba508e998fc653b7b05a130f9afe84180fa21667e7c2271ccb677"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

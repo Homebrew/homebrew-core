@@ -23,9 +23,8 @@ class Pup < Formula
     dir.install buildpath.children
 
     cd dir do
-      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      system "gox", "-arch", arch, "-os", "darwin", "./..."
-      bin.install "pup_darwin_#{arch}" => "pup"
+      system "gox", "-arch", "amd64", "-os", "darwin", "./..."
+      bin.install "pup_darwin_amd64" => "pup"
     end
 
     prefix.install_metafiles dir

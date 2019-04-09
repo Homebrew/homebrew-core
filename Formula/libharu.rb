@@ -13,7 +13,6 @@ class Libharu < Formula
     sha256 "68003e06f893b8df9d412960a06c69f6b45cb4ab5abd96e9f10c5936ab8724ac" => :el_capitan
     sha256 "fd4201d2cf6e068aed5e946b09ae1b22a390ca4ed968084bfed18ed705047987" => :yosemite
     sha256 "74e714dd0419580bbde47d9458abd95efd4ea316ec0a28e4c665bbeb89401329" => :mavericks
-    sha256 "76798fc963932099d6760d1fcb46cf3b1d829f97cc00ac36b55a5a5aadf4bc3e" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

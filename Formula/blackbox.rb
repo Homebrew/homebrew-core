@@ -1,8 +1,8 @@
 class Blackbox < Formula
   desc "Safely store secrets in Git/Mercurial/Subversion"
   homepage "https://github.com/StackExchange/blackbox"
-  url "https://github.com/StackExchange/blackbox/archive/v1.20180618.tar.gz"
-  sha256 "dae06417d2aeaba41cf0f0f7bd8c07c7f65914c926b61f6047b389847e53794e"
+  url "https://github.com/StackExchange/blackbox/archive/v1.20181219.tar.gz"
+  sha256 "afd40d1676645ce9aaf4cdbf71352bf1a8f6d426998436cea3ae536881ef5f81"
 
   bottle :unneeded
 

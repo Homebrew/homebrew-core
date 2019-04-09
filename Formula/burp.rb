@@ -3,20 +3,19 @@ class Burp < Formula
   homepage "https://burp.grke.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.32/burp-2.1.32.tar.bz2"
-    sha256 "56f8a13ae96e50f2274857a08c9f3d9f06ed6dee306d49fd189e3ff9f93c74fd"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.2.18/burp-2.2.18.tar.bz2"
+    sha256 "9c0c5298d8c2995d30d4e1a63d2882662e7056ce2b0cee1f65d7d0a6775c0f81"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
-          :revision => "1048ed82f22fe57f1e139821ae3a3ce6a52f1002"
+          :revision => "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
     end
   end
 
   bottle do
-    sha256 "4cbdd3b5057ce83ac9237689bb0aae356e5d8a1a1f47032b2c282f512d7ab1a2" => :mojave
-    sha256 "63448a114768888ecf29a7e43dc47bfa7d6bf8dcf29100dd686427c767d5c1f1" => :high_sierra
-    sha256 "7227edca3f5ccc37bb27c129f6191440341f1d6513a720a45d0132aae52f2a69" => :sierra
-    sha256 "327c71e933b05d212cc522748e4928b52da9c968f7f2ca50cee31a7ec99add0b" => :el_capitan
+    sha256 "3db87f3ffbd42fbf4cd122393abb5e8d0971c92f164dd5276e865d4b1de25be6" => :mojave
+    sha256 "599ab71a1111c212dd7a840c0efe212ee11f01dad2537a21c1636d9c24ac5ea4" => :high_sierra
+    sha256 "0ed8e8db9c0358582be4e8a28476057dc18325b0d868c4554c3200ce9a6844cd" => :sierra
   end
 
   head do
@@ -92,6 +91,6 @@ class Burp < Formula
   end
 
   test do
-    system bin/"burp", "-v"
+    system bin/"burp", "-V"
   end
 end

@@ -3,7 +3,7 @@ class Ucon64 < Formula
   homepage "https://ucon64.sourceforge.io/"
   url "https://downloads.sourceforge.net/ucon64/ucon64-2.1.0-src.tar.gz"
   sha256 "c99964060a5337cea811b27c4103e186a14ba1f04b19cff08bac0260271bc872"
-  head "http://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
+  head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
   bottle do
     sha256 "84609c8e92dae09a76f12eebe5c19d1769eb22d28029db5d15c14949800c358f" => :mojave

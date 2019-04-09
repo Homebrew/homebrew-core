@@ -3,41 +3,41 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://github.com/dnsviz/dnsviz/releases/download/v0.6.7/dnsviz-0.6.7.tar.gz"
-  sha256 "b94f06afb78754ef70597b214a3bd29c0d2f1fd1478ddc8bdd35edc372703ce2"
+  url "https://github.com/dnsviz/dnsviz/releases/download/v0.8.2/dnsviz-0.8.2.tar.gz"
+  sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
 
   bottle do
     cellar :any
-    sha256 "a8616dd78b6f1c08fd8f22d836223d55c40122de093c9c5e804dc5707365bfb4" => :mojave
-    sha256 "af19e811f005a5fde01489c7364fe8cd9d98467466ccb4d215e2aac9799ce967" => :high_sierra
-    sha256 "b5e94daf80161fc321668a9f63062a0e4b994fec5e020a60e133686dde81fadd" => :sierra
-    sha256 "fabdeb85ef8745e3c1fb3a56efb44b0d583c3833a9c20200da193a0055b335b8" => :el_capitan
+    sha256 "f55b130eee33b503ea3b4c88ba34c952ae58a070c632fdac326962199c9ef5b6" => :mojave
+    sha256 "6324be158374f9b93e287ada9dfe33c2aef01b05a4bacc78fea47719f69d2db9" => :high_sierra
+    sha256 "08325b100e560aad351b72002e7828b713f3f39e003e2a3eaa2a6cc7d4797e62" => :sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "bind" => :test
   depends_on "graphviz"
+  depends_on "libsodium"
   depends_on "openssl"
   depends_on "python@2"
-  depends_on "bind" => :optional
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
-    sha256 "40f563e1f7a7b80dc5a4e76ad75c23da53d62f1e15e6e517293b04e1f84ead7c"
+    url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
+    sha256 "36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01"
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/98/bb/a32e33f7665b921c926209305dde66fe41003a4ad934b10efb7c1211a419/pygraphviz-1.3.1.tar.gz"
-    sha256 "7c294cbc9d88946be671cc0d8602aac176d8c56695c0a7d871eadea75a958408"
+    url "https://files.pythonhosted.org/packages/7e/b1/d6d849ddaf6f11036f9980d433f383d4c13d1ebcfc3cd09bc845bda7e433/pygraphviz-1.5.zip"
+    sha256 "50a829a305dc5a0fd1f9590748b19fece756093b581ac91e00c2c27c651d319d"
   end
 
   resource "m2crypto" do
-    url "https://files.pythonhosted.org/packages/11/29/0b075f51c38df4649a24ecff9ead1ffc57b164710821048e3d997f1363b9/M2Crypto-0.26.0.tar.gz"
-    sha256 "05d94fd9b2dae2fb8e072819a795f0e05d3611b09ea185f68e1630530ec09ae8"
+    url "https://files.pythonhosted.org/packages/17/2b/f551dbff0f7b70746568c6546efccca128fe8651be7ad915b99e1bae15cf/M2Crypto-0.32.0.tar.gz"
+    sha256 "29c9c6fa6abdeb4156b8e0342c30028c5ee68055b60aa21c88abfb1d85fea325"
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/17/75/3698d7992a828ad6d7be99c0a888b75ed173a9280e53dbae67326029b60e/typing-3.6.1.tar.gz"
-    sha256 "c36dec260238e7464213dcd50d4b5ef63a507972f5780652e835d0228d0edace"
+    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
+    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
   def install
@@ -51,170 +51,91 @@ class Dnsviz < Formula
   end
 
   test do
-    message_1 = <<~EOS
-      6heBoAABAA4AAAABAAACAAEAAAIAAQAAQEQAFAFqDHJvb3Qtc2VydmVycwNuZXQAAAACAAEAA
-      EBEAAQBZsAeAAACAAEAAEBEAAQBa8AeAAACAAEAAEBEAAQBZcAeAAACAAEAAEBEAAQBZMAeAA
-      ACAAEAAEBEAAQBacAeAAACAAEAAEBEAAQBaMAeAAACAAEAAEBEAAQBY8AeAAACAAEAAEBEAAQ
-      BZ8AeAAACAAEAAEBEAAQBYsAeAAACAAEAAEBEAAQBbMAeAAACAAEAAEBEAAQBYcAeAAACAAEA
-      AEBEAAQBbcAeAAAuAAEAAEBEARMAAggAAAfpAFgqllBYGWTAmXsAco8uPM6BjFcEV4KkRvruu
-      C/2W4UHu5GcXkZKs9SbBc4i7KHFM+oyr4IPBZiNUEtn9L7rKJxyRdas+y3+uFld4jy7r0nhsx
-      cQnsQ1KvpwQPGJfzZnHYqSLofyXx2v3zWp1TItBHA4719vgGbj0ZsbnsonyvZt6N+t8cF0rFK
-      s2eWWcSwSFRGOOvxw2shQsvxQhDw4hC1jxkiG94xhJCbhZcmJq3DEc27I25amDYik9NkYROgf
-      mIA9+UcsmJ0tFJ0u4OBS6JN9iMomPOXcPFz/ZF3wGdCV1Jcx3Kj3ytOX2XccjAMF4kvbwx2/U
-      +pEm1xBDebTTOXC8biZ6gHF3AVRFgAAKQIAAACAAAAA
+    (testpath/"example.com.zone.signed").write <<~EOS
+      ; File written on Thu Jan 10 21:14:03 2019
+      ; dnssec_signzone version 9.11.4-P2-3~bpo9+1-Debian
+      example.com.		3600	IN SOA	example.com. root.example.com. (
+					1          ; serial
+					3600       ; refresh (1 hour)
+					3600       ; retry (1 hour)
+					14400      ; expire (4 hours)
+					3600       ; minimum (1 hour)
+					)
+			3600	RRSIG	SOA 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					D2WDMpH4Ip+yi2wQFmCq8iPWWdHo/vGig/rG
+					+509RbOLHbeFaO84PrPvw/dS6kjDupQbyG1t
+					8Hx0XzlvitBZjpYFq3bd/k0zU/S39IroeDfU
+					xR/BlI2bEaIPxgG2AulJjS6lnYigfko4AKfe
+					AqssO7P1jpiUUYtFpivK3ybl03o= )
+			3600	NS	example.com.
+			3600	RRSIG	NS 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					bssTLRwAeyn0UtOjWKVbaJdq+lNbeOKBE2a4
+					QdR2lrgNDVenY8GciWarYcd5ldPfrfX5t5I9
+					QwiIsv/xAPgksVlmWcZGVDAAzzlglVhCg2Ys
+					J7YEcV2DDIMZLx2hm6gu9fKaMcqp8lhUSCBD
+					h4VTswLV1HoUDGYwEsjLEtiRin8= )
+			3600	A	127.0.0.1
+			3600	RRSIG	A 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					TH+PWGhFd3XL09IkCeAd0TNrWVsj+bAcQESx
+					F27lCgMnYYebiy86QmhEGzM+lu7KX1Vn15qn
+					2KnyEKofW+kFlCaOMZDmwBcU0PznBuGJ/oQ9
+					2OWe3X2bw5kMEQdxo7tjMlDo+v975VaZgbCz
+					od9pETQxdNBHkEfKmxWpenMi9PI= )
+			3600	AAAA	::1
+			3600	RRSIG	AAAA 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					qZM60MUJp95oVqQwdW03eoCe5yYu8hdpnf2y
+					Z7eyxTDg1qEgF+NUF6Spe8OKsu2SdTolT0CF
+					8X068IGTEr2rbFK/Ut1owQEyYuAnbNGBmg99
+					+yo1miPgxpHL/GbkMiSK7q6phMdF+LOmGXkQ
+					G3wbQ5LUn2R7uSPehDwXiRbD0V8= )
+			3600	NSEC	example.com. A NS SOA AAAA RRSIG NSEC DNSKEY
+			3600	RRSIG	NSEC 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					Rdx/TmynYt0plItVI10plFis6PbsH29qyXBw
+					NLOEAMNLvU6IhCOlv7T8YxZWsamg3NyM0det
+					NgQqIFfJCfLEn2mzHdqfPeVqxyKgXF1mEwua
+					TZpE8nFw95buxV0cg67N8VF7PZX6zr1aZvEn
+					b022mYFpqaGMhaA6f++lGChDw80= )
+			3600	DNSKEY	256 3 10 (
+					AwEAAaqQ5dsqndLRH+9j/GbtUObxgAEvM7VH
+					/y12xjouBFnqTkAL9VvonNwYkFjnCZnIriyl
+					jOkNDgE4G8pYzYlK13EtxBDJrUoHU11ZdL95
+					ZQEpd8hWGqSG2KQiCYwAAhmG1qu+I+LtexBe
+					kNwT3jJ1BMgGB3xsCluUYHBeSlq9caU/
+					) ; ZSK; alg = RSASHA512 ; key id = 39026
+			3600	DNSKEY	257 3 10 (
+					AwEAAaLSZl7J7bJnFAcRrqWE7snJvJ1uzkS8
+					p1iq3ciHnt6rZJq47HYoP5TCnKgCpje/HtZt
+					L/7n8ixPjhgj8/GkfOwoWq5kU3JUN2uX6pBb
+					FhSsVeNe2JgEFtloZSMHhSU52yS009WcjZJV
+					O2QX2JXcLy0EMI2S4JIFLa5xtatXQ2/F
+					) ; KSK; alg = RSASHA512 ; key id = 34983
+			3600	RRSIG	DNSKEY 10 2 3600 (
+					20230110031403 20190111031403 34983 example.com.
+					g1JfHNrvVch3pAX3/qHuiivUeSawpmO7h2Pp
+					Hqt9hPbR7jpzOxbOzLAxHopMR/xxXN1avyI5
+					dh23ySy1rbRMJprz2n09nYbK7m695u7P18+F
+					sCmI8pjqtpJ0wg/ltEQBCRNaYOrHvK+8NLvt
+					PGJqJru7+7aaRr1PP+ne7Wer+gE= )
     EOS
-
-    message_2 = <<~EOS
-      rQmBoAABAAIAAAABAAAGAAEAAAYAAQAATiEAQAFhDHJvb3Qtc2VydmVycwNuZXQABW5zdGxkD
-      HZlcmlzaWduLWdycwNjb20AeCtmeAAABwgAAAOEAAk6gAABUYAAAC4AAQAATiEBEwAGCAAAAV
-      GAWCqWUFgZZMCZewAlgFTcjso0WCaN8gG1M1bAGce8KhyDRZsYGIHzMpJmSZyB6TIJMuFq+/a
-      9VDqDXcUq5F3EVjppXN8v8yLYMUoQmW3JmkXMlH/70ID2AImRVciDFhQO48WY4wgq1lhRe/nx
-      mp7Qxvk8b2G4BQma4Qkel4f/UAaFogDpv7DtTfvQydDi8ZcduN2MbDiQqZZCV/CPGf2ekJZX7
-      YRrC3j+VfLfyck5VFv2xzzP7aWxtpzhk7L4xeGvDsmbaiU0xNb+oq+mhw7SU1AZLsQUhXe3v1
-      uxFlhMc0au6BSskHwDIsaNX/cS+8NM1DsNU7neZNzHteekzKcHpwcJhfJx+GS/XtKAAAApAgA
-      AAIAAAAA=
+    (testpath/"example.com.zone-delegation").write <<~EOS
+      example.com.	IN	NS	ns1.example.com.
+      ns1.example.com.	IN	A	127.0.0.1
+      example.com.		IN DS 34983 10 1 EC358CFAAEC12266EF5ACFC1FEAF2CAFF083C418
+      example.com.		IN DS 34983 10 2 608D3B089D79D554A1947BD10BEC0A5B1BDBE67B4E60E34B1432ED00 33F24B49
     EOS
-
-    # message_3 is inlined because it is not >80 characters.
-    message_4 = <<~EOS
-      ex6BoAABAAMAAAABAAAwAAEAADAAAQAAM3wBCAEBAwgDAQABqAAgqVVmukLohruATNqE5H71b
-      b167GEmFVUs7JBtIRbQ7yBwKMUVVBRN/q/nx8uPAF3RgjQTOsBxCoEYLOH9FK0ig7yDQ1+d8v
-      YxMlGTGhdt8NpR5U9C5gSGDfs1lYAlD1WcxUPE/9Ucvj3oz9BnGSN/n8R+5ynaBoNfpFLoJem
-      hjrwuy89WNHRlLDPPVqkDO8312XMSF5fsgIkEG24DobctCnNbmE4DaHMJMyMk8nwtuoXp2xXo
-      OgFDOC6XSwYhwY5iXs7JB1d9nnut6VJBqB676KkB1NMnbkCxFMCi5vw40ZwuaqsCZEsoE/V1/
-      CFgHg3uSc2e6WpDED5STWKHPQAAMAABAAAzfAEIAQADCAMBAAGG4p2rhwPaFG+GhjbSSK3qch
-      qGMtDi9Na7yIb6N0VjfwofKdguGRJKb1GJMe+K/SaYKzrIyjr/iUHSrU9rvAMRo1KB/MfB3aQ
-      4jFe156ViaPcAMZRbQ7WzJz8EUN3VrE9aeZsqxnJuxBSfY+ypogBBuYRrHr2anJ6jDlvUBZJq
-      f8zNExWF2FqugLAKH9rmai1MnfpxyFtExrGhzM3EzXwPFsPjmFe0eG3Ef/HnQhKOjgIfY+PEd
-      YUbbjtXtjEHZ5CE3PQyZYweAqtYECsL/5Lu5gL5hblpEaLTGSBTd7w4aZqZsuzNAtRB0kQID/
-      h5G5S0UCjj58CP1ZLCRFOH5p4ZAAAuAAEAADN8ARMAMAgAAAKjAFgqT/9YFomASlwALPuldf5
-      oWFdSHSTPYL5WvrvwJTElxY6LTEw2Cit0JOcVAbZG6LLCmlpCJ55Ngf/sdE4UXUPJ/m6CFRYT
-      +aAePvEWrjRPGGX64V82oCeCPyAqD4XHd3CIQi3LBYk8ZbEktyvBX+VS16rbSEQib7xNYvoht
-      iJ0dRiw/wjr6YVF8xUdYO1vvXPYOGXISYwW4vDiKAuyLDGuoLRh/F9GZQxBPwv6Bmx8/JfNCf
-      IygbnZ/8qIZUsFH68DPbAHPBqwR1GP+haAa6vQPhXwn4p+Vci7rYNzfPzdQfDNWsQ+8ur8xxS
-      danAZcZRrytaidLtIQx4DeGANdwmNjnAn8ZSg6q8etQAAKQIAAACAAAAA
-    EOS
-
-    (testpath/"test.json").write <<~EOS
-      {
-        ".": {
-          "type": "recursive",
-          "stub": false,
-          "analysis_start": "2016-11-02 16:00:37 UTC",
-          "analysis_end": "2016-11-02 16:00:37 UTC",
-          "clients_ipv4": [
-            "127.0.0.1"
-          ],
-          "clients_ipv6": [],
-          "explicit_delegation": true,
-          "auth_ns_ip_mapping": {
-            "ns1.": [
-              "127.0.0.1"
-            ]
-          },
-          "queries": [
-            {
-              "qname": ".",
-              "qclass": "IN",
-              "qtype": "NS",
-              "options": {
-                "flags": 256,
-                "edns_version": 0,
-                "edns_max_udp_payload": 4096,
-                "edns_flags": 32768,
-                "edns_options": [],
-                "tcp": false
-              },
-              "responses": {
-                "127.0.0.1": {
-                  "127.0.0.1": {
-                    "message": "#{message_1.delete!("\n")}",
-                    "msg_size": 525,
-                    "time_elapsed": 25,
-                    "history": []
-                  }
-                }
-              }
-            },
-            {
-              "qname": ".",
-              "qclass": "IN",
-              "qtype": "SOA",
-              "options": {
-                "flags": 256,
-                "edns_version": 0,
-                "edns_max_udp_payload": 4096,
-                "edns_flags": 32768,
-                "edns_options": [],
-                "tcp": false
-              },
-              "responses": {
-                "127.0.0.1": {
-                  "127.0.0.1": {
-                    "message": "#{message_2.delete!("\n")}",
-                    "msg_size": 389,
-                    "time_elapsed": 26,
-                    "history": []
-                  }
-                }
-              }
-            },
-            {
-              "qname": ".",
-              "qclass": "IN",
-              "qtype": "DNSKEY",
-              "options": {
-                "flags": 256,
-                "edns_version": 0,
-                "edns_max_udp_payload": 512,
-                "edns_flags": 32768,
-                "edns_options": [],
-                "tcp": false
-              },
-              "responses": {
-                "127.0.0.1": {
-                  "127.0.0.1": {
-                    "message": "Z/ODgAABAAAAAAABAAAwAAEAACkCAAAAgAAAAA==",
-                    "msg_size": 28,
-                    "time_elapsed": 38,
-                    "history": []
-                  }
-                }
-              }
-            },
-            {
-              "qname": ".",
-              "qclass": "IN",
-              "qtype": "DNSKEY",
-              "options": {
-                "flags": 256,
-                "edns_version": 0,
-                "edns_max_udp_payload": 4096,
-                "edns_flags": 32768,
-                "edns_options": [],
-                "tcp": false
-              },
-              "responses": {
-                "127.0.0.1": {
-                  "127.0.0.1": {
-                    "message": "#{message_4.delete!("\n")}",
-                    "msg_size": 864,
-                    "time_elapsed": 30,
-                    "history": []
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "_meta._dnsviz.": {
-          "version": 1.1,
-          "names": [
-            "."
-          ]
-        }
-      }
-    EOS
-    system "#{bin}/dnsviz", "graph", "-Thtml", "-O", "-r", "test.json"
+    system "#{bin}/dnsviz", "probe", "-d", "0", "-A",
+      "-x", "example.com:example.com.zone.signed",
+      "-N", "example.com:example.com.zone-delegation",
+      "-D", "example.com:example.com.zone-delegation",
+      "-o", "example.com.json",
+      "example.com"
+    system "#{bin}/dnsviz", "graph", "-r", "example.com.json", "-Thtml", "-o", "/dev/null"
+    system "#{bin}/dnsviz", "grok", "-r", "example.com.json", "-o", "/dev/null"
+    system "#{bin}/dnsviz", "print", "-r", "example.com.json", "-o", "/dev/null"
   end
 end

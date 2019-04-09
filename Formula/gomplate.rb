@@ -1,16 +1,15 @@
 class Gomplate < Formula
   desc "Command-line Golang template processor"
   homepage "https://gomplate.hairyhenderson.ca/"
-  url "https://github.com/hairyhenderson/gomplate/archive/v2.8.0.tar.gz"
-  sha256 "d343053d5112989fe2bc1b4b373ece651ec6fdc72f7b9ff4b273a3ba108f1cbe"
+  url "https://github.com/hairyhenderson/gomplate/archive/v3.3.1.tar.gz"
+  sha256 "5e35c551d9d89900278bd0991bc502085088c9dc725daa43fda5b061a97f3293"
   head "https://github.com/hairyhenderson/gomplate.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0fcf8a34b052ee4886f9d9807533592580be6dae5c8de4a393749191f9bf5f68" => :mojave
-    sha256 "a8a660307bc86dec5f1ca64b4340ce0f2214dd15a58f64c1f6fe77abd6cec74e" => :high_sierra
-    sha256 "f6bc660bc410341a280728fc167f66623ae830be8ef7a44c9512e867e57e0114" => :sierra
-    sha256 "1b676e87e11d083f391a0198df5c6d582931ceb7272d006969f1ac0dbc28cff9" => :el_capitan
+    sha256 "375f09da5a8d8b4256595a488d135b1b36321d260bfeb520685311c6d5de6d3b" => :mojave
+    sha256 "c7b02085433b3df1e964bf4cd313e6db856d47899abf3a19e53e0f2d8e325131" => :high_sierra
+    sha256 "5174b91a63eb7636796ef06e778309bb501ece9f6b4a2be423faee5bdcc41bb4" => :sierra
   end
 
   depends_on "go" => :build

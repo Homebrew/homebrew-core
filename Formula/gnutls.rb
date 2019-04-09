@@ -1,15 +1,14 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.19.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.5/gnutls-3.5.19.tar.xz"
-  sha256 "1936eb64f03aaefd6eb16cef0567457777618573826b94d03376bb6a4afadc44"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.7.1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.7.1.tar.xz"
+  sha256 "881b26409ecd8ea4c514fd3fbdb6fae5fab422ca7b71116260e263940a4bbbad"
 
   bottle do
-    sha256 "a4766ca826880a2ed933a0f1c024b68fec42c0f26455244f4b77260273721435" => :mojave
-    sha256 "454aa1bd182781825f870608ba2712599c4936097f7f74528f57098d3792543c" => :high_sierra
-    sha256 "fcb6992abe7f180b1c92b36f4d462b6d4757204262091a70cef43fd0010070dd" => :sierra
-    sha256 "32ff14835283bea56a1b2ac9aac7d5e2712901a65e098086836dac136eeeb478" => :el_capitan
+    sha256 "8ac55be3286c011d104ebeadd3d79186a2513e7ac41b73e3e111fd2b474340c3" => :mojave
+    sha256 "c7ab489a0991438e3d2ed470cbf6fd0106b02330f11a2a046855809841568aaf" => :high_sierra
+    sha256 "511e751619a7a3429849dde189f6f4250bf1f3433e1436be9f08b2b79bf5d5f3" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -17,17 +16,10 @@ class Gnutls < Formula
   depends_on "libtasn1"
   depends_on "libunistring"
   depends_on "nettle"
-  depends_on "p11-kit" => :recommended
-  depends_on "guile" => :optional
-  depends_on "unbound" => :optional
+  depends_on "p11-kit"
+  depends_on "unbound"
 
   def install
-    # Fix "dyld: lazy symbol binding failed: Symbol not found: _getentropy"
-    # Reported 18 Oct 2016 https://gitlab.com/gnutls/gnutls/issues/142
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace "configure", "getentropy(0, 0);", "undefinedgibberish(0, 0);"
-    end
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
@@ -35,20 +27,10 @@ class Gnutls < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-default-trust-store-file=#{etc}/openssl/cert.pem
+      --disable-guile
       --disable-heartbeat-support
+      --with-p11-kit
     ]
-
-    if build.with? "p11-kit"
-      args << "--with-p11-kit"
-    else
-      args << "--without-p11-kit"
-    end
-
-    if build.with? "guile"
-      args << "--enable-guile" << "--with-guile-site-dir"
-    else
-      args << "--disable-guile"
-    end
 
     system "./configure", *args
     system "make", "install"

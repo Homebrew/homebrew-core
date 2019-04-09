@@ -1,20 +1,20 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.19.0.tar.gz"
-  sha256 "e83f51e83b19f9ba6b8bd144475fc12edf2d7b3b930d8d280bdebd8a8f3ed259"
+  url "https://www.libraw.org/data/LibRaw-0.19.2.tar.gz"
+  sha256 "400d47969292291d297873a06fb0535ccce70728117463927ddd9452aa849644"
 
   bottle do
     cellar :any
-    sha256 "28a8d643501d0ba5d5b91e081a78e4f39038116de99598787e8c9af5f3394cb3" => :mojave
-    sha256 "3304c2735f53a0967fd6ca446365d12e455119fe331b36af666b6b64bbcafa08" => :high_sierra
-    sha256 "b8fd178ff8f28172a77b109daa7b8e71f564291fe9725f0e096988ec258f742f" => :sierra
-    sha256 "aa91b68a3f4aa66cca36c0348e2167339319ee1628ab0369031473b4a4cfe043" => :el_capitan
+    sha256 "0abbb192dbe6464e84b81009ecf957748ea4cb00a721eb0157d08c2325c67a43" => :mojave
+    sha256 "a35af2fb6335b0a6d2ec6a99b112e6677df436f9cd074894ea4a1c26ac27b16b" => :high_sierra
+    sha256 "16dd714a8cc2609f4edd4bc881a2d8e7b37379df5867b365ae4d8a02b120bbcd" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "jasper"
   depends_on "jpeg"
+  depends_on "libomp"
   depends_on "little-cms2"
 
   resource "librawtestfile" do
@@ -24,7 +24,10 @@ class Libraw < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking"
+                          "--disable-dependency-tracking",
+                          "ac_cv_prog_c_openmp=-Xpreprocessor -fopenmp",
+                          "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
+                          "LDFLAGS=-lomp"
     system "make"
     system "make", "install"
     doc.install Dir["doc/*"]

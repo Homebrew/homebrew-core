@@ -1,6 +1,6 @@
 class Riak < Formula
   desc "Distributed database"
-  homepage "http://basho.com/products/riak-kv/"
+  homepage "https://riak.com/products/riak-kv/"
   url "https://github.com/basho/riak.git",
       :tag      => "riak-2.2.3",
       :revision => "d96b67eeb5f934c673ee8e5c75c00a3861f388aa"
@@ -14,7 +14,6 @@ class Riak < Formula
 
   depends_on :arch => :x86_64
   depends_on "erlang@17"
-  depends_on :macos => :mountain_lion
 
   # rebar tries to fetch fuse using git over ssh
   resource "fuse" do

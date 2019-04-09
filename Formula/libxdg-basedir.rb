@@ -12,7 +12,6 @@ class LibxdgBasedir < Formula
     sha256 "30b3e34a46470f11d90ca01aebd2b2d1fbaa6cc8a05c1bcec7067d40fdec75d1" => :el_capitan
     sha256 "7e165b0e949f559789981a5c0e0fd68bbf478943a0c9b03ad3778cecb0219691" => :yosemite
     sha256 "5c7bfadf4ca8b26c077eea7480df5a4ca3634b5823860a06ce2756050acbe84a" => :mavericks
-    sha256 "63250688af20be1cb163530ea3849e4ca8b4ce93e15040904936414995af93f0" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

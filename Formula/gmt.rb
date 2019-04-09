@@ -1,16 +1,16 @@
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.4-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.4-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.4-src.tar.xz"
-  sha256 "30fe868c91df30c51a637d54cb9ac52a64fe57e15daa9e08a73a4d1f0847e69f"
-  revision 2
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.5-src.tar.gz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.5-src.tar.xz"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.xz"
+  sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
+  revision 3
 
   bottle do
-    sha256 "835d1c8950943dba95e09db387bf8e495079e1797ffb1669a216229edd427e89" => :mojave
-    sha256 "e4b26e49dfc778b0a5c291821069bf1fb3680424dc3f1350ff77a6d2f73a8827" => :high_sierra
-    sha256 "b2ea67725c98e15206edd3f39f3e85bec2daf5635507eabaafa5091973bb6d0b" => :sierra
+    sha256 "c780ff65c09758be9a2c97ff88dd65ac45c7f422c09ef0f705c7ea93286d169e" => :mojave
+    sha256 "a5d45b1884ea498b0e27d5e00c6cbc037fc0bc65973c36bf877d7b7c95984b9b" => :high_sierra
+    sha256 "43d123a71375f4e8fbc8db656b9dc001c740d8fe889c330d4737e024a97ecc20" => :sierra
   end
 
   depends_on "cmake" => :build

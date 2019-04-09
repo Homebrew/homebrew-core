@@ -13,7 +13,6 @@ class Makeicns < Formula
     sha256 "96f91bccf728f040931c2816156a7c5de739ae91e63191795cd108d0a46370ac" => :el_capitan
     sha256 "40c3d4befe2d4625d7013ea40f307b4f5b26e122a6dad51706a25bb22734f075" => :yosemite
     sha256 "8c54ce9e5f819dda4eb274f8bf8a22d49e1d0086e33300f236840acf1a46837f" => :mavericks
-    sha256 "dfffe46a25b846de31dc220c279a628b719a3b353aa220ed31189bc8ce5da4b2" => :mountain_lion
   end
 
   patch :p0 do

@@ -13,11 +13,10 @@ class Mplayershell < Formula
     sha256 "ae4c1c9d069053afa7e71867256b577e23bd0dec87a90ccab2ebeab089a3634b" => :el_capitan
     sha256 "1637360e180d7b48367cb7c4f01d03856b9d13247000e4cc33f0af5f6ed92101" => :yosemite
     sha256 "a95437813704c56c3e52bd1b17974bec24c209e26df8e9dfe07af45d51ecaf49" => :mavericks
-    sha256 "0553f3ff5cae0a8938c3dc09e6448621029b52bbbc6c17d53225c1f3e7881ae4" => :mountain_lion
   end
 
   depends_on :xcode => :build
-  depends_on :macos => :lion
+
   depends_on "mplayer"
 
   def install

@@ -14,8 +14,6 @@ class HowardHinnantDate < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
     system "cmake", ".", *std_cmake_args,
                          "-DENABLE_DATE_TESTING=OFF",

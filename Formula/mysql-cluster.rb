@@ -14,7 +14,6 @@ class MysqlCluster < Formula
 
   depends_on "cmake" => :build
   depends_on :java => "1.8"
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
   conflicts_with "memcached", :because => "both install `bin/memcached`"
@@ -22,11 +21,6 @@ class MysqlCluster < Formula
     :because => "mysql, mariadb, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
     :because => "both install `bin/my_print_defaults`"
-
-  fails_with :clang do
-    build 500
-    cause "https://article.gmane.org/gmane.comp.db.mysql.cluster/2085"
-  end
 
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
@@ -38,7 +32,7 @@ class MysqlCluster < Formula
     (var/"mysql-cluster").mkpath
 
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       inreplace "configure.cmake", "(clock_gettime", "(everything_is_terrible"
     end
 

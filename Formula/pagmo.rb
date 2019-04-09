@@ -1,23 +1,20 @@
 class Pagmo < Formula
   desc "Scientific library for massively parallel optimization"
   homepage "https://esa.github.io/pagmo2/"
-  url "https://github.com/esa/pagmo2/archive/v2.9.tar.gz"
-  sha256 "d482650e0c79a49ce0312c7e9e5722f3a1b24327e08af11daa66c59374bed3b4"
+  url "https://github.com/esa/pagmo2/archive/v2.10.tar.gz"
+  sha256 "2fa95e2b464ddeadb9fc09bd314081293f02a1b6abc11c0b05064729a077227c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dbafe3f25a46bc9393034034e3c4ec0d646e0f05156d0c40f9e18dfca4cbb36b" => :mojave
-    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :high_sierra
-    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :sierra
-    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :el_capitan
+    sha256 "11a158a55b100b182c49807d68d5400ca55d98011535b4d923f1ee232f58a9b0" => :mojave
+    sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :high_sierra
+    sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
   depends_on "nlopt"
-
-  needs :cxx11
 
   def install
     ENV.cxx11

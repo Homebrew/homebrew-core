@@ -1,14 +1,14 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.6.0.tar.gz"
-  sha256 "e75b361d828d7b6e9ba537137d5243fa1e000a20686cddec2775b533a6b08f01"
+  url "https://github.com/git-lfs/git-lfs/releases/download/v2.7.1/git-lfs-v2.7.1.tar.gz"
+  sha256 "0334bea2c917cd8ed1215bca0c3fe8f015f664651611fe410826fe14bdcae0d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fbe2d1a7a645d81f76daca4599bc2136e0c23924cfe50f579b6563821d69aa27" => :mojave
-    sha256 "577f94bb93b07ca1fe6c0ed26d03a7ad485c6d363281640f3677fc9919314dc9" => :high_sierra
-    sha256 "57cab08034d61a6393adcd2167868c8682a049092b8d04843c7513a670063ab5" => :sierra
+    sha256 "759ac2c2aa483ec14fc41e79ee798dc148c608e8574772316ab228d4dac8837f" => :mojave
+    sha256 "7a9732daa19813b37895fe94f4c91d9b47bab837a488da2dc99d1134a4cbedde" => :high_sierra
+    sha256 "0a8ae7b598e77655081fe07756e13711331e44bfd01091bf024611bf054c1763" => :sierra
   end
 
   depends_on "go" => :build
@@ -25,10 +25,7 @@ class GitLfs < Formula
       ENV["GEM_HOME"] = ".gem_home"
       system "gem", "install", "ronn"
 
-      # Git LFS v2.6.0 removes dependencies that are necessary in order to
-      # install it. Set RM=true for now to make removing those dependencies a
-      # no-op.
-      system "make", "vendor", "RM=true"
+      system "make", "vendor"
       system "make"
       system "make", "man", "RONN=.gem_home/bin/ronn"
 

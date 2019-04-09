@@ -1,16 +1,15 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.3.1/OpenCoarrays-2.3.1.tar.gz"
-  sha256 "2b87cc8c31874ecb01e0300bc99b30e4017714fc0d17690f637d8fa4d48560f3"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.6.1/OpenCoarrays-2.6.1.tar.gz"
+  sha256 "c0072a82cb2ca38de655bc6b6cd21559d12b27fc1a5635f45ac678e5c57e2f80"
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f9381136d912f0b101c3fae93853d374257a55b87902ffc0ba7929c610372a19" => :mojave
-    sha256 "daf826a8943012133433f240d47dea04f3debedad6dcd92e27bf322344a3ce4b" => :high_sierra
-    sha256 "96dca35e40409e14bc79bd8db5c956f389ef8b2d4969f7269ceb3649c8ebde5d" => :sierra
+    sha256 "5a7462278ab992253d628e4db461bd559605cd9a807517acee38e9e1f2e76be3" => :mojave
+    sha256 "a94a0e4574a162948c1941a952a69a3aa848976fc6a2140bb4128b0d23097231" => :high_sierra
+    sha256 "0793dc8c6b22ebfed3996c46506f29fdb35f16a972be1ebb54226fb3898ec0a3" => :sierra
   end
 
   depends_on "cmake" => :build

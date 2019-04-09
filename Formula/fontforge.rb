@@ -1,18 +1,15 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
-  sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
-  revision 3
+  url "https://github.com/fontforge/fontforge/releases/download/20190317/fontforge-20190317.tar.gz"
+  sha256 "b711adec0da9ee490bbc2698b33e6630150931e08e826d1b63eb3131d85db8b5"
 
   bottle do
-    rebuild 1
-    sha256 "7917392b435917468ce7f8e4c31822ba376d901cc9303ab354c44ef8155fad49" => :mojave
-    sha256 "5a04540e69d56213fb104a968ad9ce2bc5c2ca152d5c3e0ecfccbd93981f80dc" => :high_sierra
-    sha256 "7c4e3def1ac5f5b374e773d6dd7bda60b09eb304a19c6b231a292125d4d14915" => :sierra
+    cellar :any
+    sha256 "881917282849e10c9dc746e280e8891ee201d195f4044fd42527d3504b4c5f03" => :mojave
+    sha256 "29dbbd01fcac434e21142ef14f2ed270f9debaef657788b8daab30310f1aa587" => :high_sierra
+    sha256 "7a3b998f17b60acba7df784f84a3b9090af7270648a34e9f18b3863ba4c487f7" => :sierra
   end
-
-  option "with-extra-tools", "Build with additional font tools"
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
@@ -28,21 +25,9 @@ class Fontforge < Formula
   depends_on "pango"
   depends_on "python@2"
 
-  # Remove for > 20170731
-  # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
-  # Upstream PR from 22 Sep 2017 https://github.com/fontforge/fontforge/pull/3156
-  patch do
-    url "https://github.com/fontforge/fontforge/commit/9f69bd0f9.patch?full_index=1"
-    sha256 "f8afa9a6ab7a71650a3f013d9872881754e1ba4a265f693edd7ba70f2ec1d525"
-  end
-
   def install
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
     ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
-
-    # Fix header includes to avoid crash at runtime:
-    # https://github.com/fontforge/fontforge/pull/3147
-    inreplace "fontforgeexe/startnoui.c", "#include \"fontforgevw.h\"", "#include \"fontforgevw.h\"\n#include \"encoding.h\""
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
@@ -75,7 +60,8 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    ENV.append_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python2.7", "-c", "import fontforge; fontforge.font()"
+    xy = Language::Python.major_minor_version "python"
+    ENV.append_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system "python", "-c", "import fontforge; fontforge.font()"
   end
 end

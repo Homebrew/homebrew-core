@@ -23,8 +23,6 @@ class Pioneer < Formula
   depends_on "sdl2"
   depends_on "sdl2_image"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV["PIONEER_DATA_DIR"] = "#{pkgshare}/data"

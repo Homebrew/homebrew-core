@@ -1,15 +1,14 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-4.4.1.tar.xz"
-  sha256 "7e4e9ac67ed809bd56768fb69807abae0d229f4e169db63a37c11c9f08215f90"
-  revision 3
+  url "https://ftp.gnu.org/gnu/octave/octave-5.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-5.1.0.tar.xz"
+  sha256 "87b4df6dfa28b1f8028f69659f7a1cabd50adfb81e1e02212ff22c863a29454e"
 
   bottle do
-    sha256 "22b27fa6783872defc8d164fc71b34902a2dbbb1d48de32aeed54c1acb4622a8" => :mojave
-    sha256 "8cb997d37a0ab4edee59e4a91e0eb45da5de9361810da079dc9b32ae6c683b9b" => :high_sierra
-    sha256 "d93391a93a5b2393b22a225545615c37256201995cde221b3929b8565e57cf96" => :sierra
+    sha256 "dd428970e2ad65bb84d5f34777b3fe262ebcca08a5fe44a4d2677714fb7469cc" => :mojave
+    sha256 "aa72c60193e946659cc11bea9bb2c67ecd0e833782607b29a5235bc37ceafc02" => :high_sierra
+    sha256 "e277a4cc58273d65d927fa827b3e6852ca6771a905c8786f53b62bbe7e613746" => :sierra
   end
 
   head do
@@ -24,7 +23,7 @@ class Octave < Formula
 
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on :java => ["1.6+", :build, :test]
+  depends_on :java => ["1.6+", :build]
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -47,13 +46,12 @@ class Octave < Formula
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "qt"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
   depends_on "veclibfort"
-
-  depends_on "qt" => :optional
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -62,10 +60,19 @@ class Octave < Formula
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
     # cause linking problems.
-    inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
+    inreplace "src/mkoctfile.in.cc",
+              /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
+              '""'
 
-    args = []
-    args << "--without-qt" if build.without? "qt"
+    # Qt 5.12 compatibility
+    # https://savannah.gnu.org/bugs/?55187
+    ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
+    # These "shouldn't" be necessary, but the build breaks without them.
+    # https://savannah.gnu.org/bugs/?55883
+    ENV["QT_CPPFLAGS"]="-I#{Formula["qt"].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{Formula["qt"].opt_include}"
+    ENV["QT_LDFLAGS"]="-F#{Formula["qt"].opt_lib}"
+    ENV.append "LDFLAGS", "-F#{Formula["qt"].opt_lib}"
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
@@ -74,14 +81,12 @@ class Octave < Formula
                           "--enable-link-all-dependencies",
                           "--enable-shared",
                           "--disable-static",
-                          "--without-osmesa",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
                           "--with-x=no",
                           "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
                           "--with-portaudio",
-                          "--with-sndfile",
-                          *args
+                          "--with-sndfile"
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
@@ -101,7 +106,5 @@ class Octave < Formula
     system bin/"octave", "--eval", "(22/7 - pi)/pi"
     # This is supposed to crash octave if there is a problem with veclibfort
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
-    # Test java bindings: check if javaclasspath is working, return error if not
-    system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;"
   end
 end

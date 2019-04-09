@@ -16,8 +16,6 @@ class Pangomm < Formula
   depends_on "glibmm"
   depends_on "pango"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

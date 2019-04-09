@@ -14,7 +14,7 @@ class Shakespeare < Formula
     sha256 "1e35a35e7ca7eef401a76360320389fe23e2cea6db8bf9f2d266732c742ad8d5" => :yosemite
   end
 
-  depends_on "flex" if MacOS.version >= :mountain_lion
+  depends_on "flex"
 
   def install
     system "make", "install"

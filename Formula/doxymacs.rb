@@ -12,7 +12,6 @@ class Doxymacs < Formula
     sha256 "fb892db831aed57dbdcb2d3a81d78bd05c5b689376d4b7f14bffc56826205ce9" => :el_capitan
     sha256 "09eb19921c2ecce5bb02b185c1040caef07d18706866006bdd5fa428bf6b8560" => :yosemite
     sha256 "9efc35f7eee0ff431afbd36367676afb608498f823e6094b67d4c86d83694dd4" => :mavericks
-    sha256 "2a08771aecf0d6475b8f1e3bf9858c13fa190529a1fe1652ad59dc927a141de4" => :mountain_lion
   end
 
   head do

@@ -1,14 +1,13 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.37.tar.bz2"
-  sha256 "3498dc5c6772fac2eb7307dc7963122ffe243b5e806e0be4fb51974ff759d726"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.38.tar.bz2"
+  sha256 "7dc65857a994c98370dc4334b260101a7a04be60e6e74a5c57a6dee1bc8f394a"
 
   bottle do
-    sha256 "a87d9e50fc2685fac96a452d0b717d25a0ca498af1824992e40c2eb634c162e4" => :mojave
-    sha256 "135f8207e6f84f887ad6a0e663fdb379a137e12473b495734c78107af94e7f03" => :high_sierra
-    sha256 "2a590a6481db784637da8d6b0f82b927819ec5f29d70829079bd4e06d8c68a23" => :sierra
+    sha256 "dd630fc8d917c4f623f9d1141af574ae51f9b2a0c89611f5c31069bacecf8c7b" => :mojave
+    sha256 "ff5507ee926c69c828de1f281f221c1a90aa1645f56b2f86d6e25204b8dfd9b8" => :high_sierra
+    sha256 "9cdc6f8b1d45437c12f9006ab720a5b189b65f2e05018b6eb96a3a0e4752fd51" => :sierra
   end
 
   depends_on "apr"

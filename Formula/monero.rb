@@ -2,14 +2,15 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag      => "v0.13.0.4",
-      :revision => "29073f65e8816d4c32b6ffef514943a5650b8d3b"
+      :tag      => "v0.14.0.2",
+      :revision => "6cadbdcd2d952433db3c2422511ed4d13b2cc824"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "45928480da2c4a496220a52ec7f1234b7339754d8b2246d09d0d484995004c1d" => :mojave
-    sha256 "c3f4f86ff92ffd2b26d850841093d96cdf70d648dcaaf4104bfbbb43800ce681" => :high_sierra
-    sha256 "1a67d7a752fb671b4cbeb26efc0b4964d4e709852c4f65b07088ad8ee962bbf5" => :sierra
+    sha256 "02a31124feedd3dd840367ae9d6cccd0c800a83a0ea9284854b750ae1e2006d5" => :mojave
+    sha256 "733ae2e0521db05cf07f4907125da164ee4adc6f3e7c4772ddbf1bf007250a07" => :high_sierra
+    sha256 "8ec50fe41fda424f00d147852689b50e0a8e9f72d7be1f9a45483864c4978d65" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -37,6 +38,27 @@ class Monero < Formula
     # Reported upstream 25 May 2018 https://github.com/monero-project/monero/issues/3862
     rm lib/"libminiupnpc.a"
     rm_rf include/"miniupnpc"
+  end
+
+  plist_options :manual => "monerod"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/monerod</string>
+        <string>--non-interactive</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+    </dict>
+    </plist>
+  EOS
   end
 
   test do

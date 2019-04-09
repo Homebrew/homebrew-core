@@ -2,24 +2,25 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.5.1",
-      :revision => "2ba5ab17f369e26e68edc4e35f0ece0391bdeb4c"
+      :tag      => "v6.7.0",
+      :revision => "e09a026ba3803569800034af6ce923cdc1864a08"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "2cf8f0448a5ccff72d532c98313c3f18b78f64653e7ad79458d92e3f628556da" => :mojave
-    sha256 "8cc203ca82b6af4a6e955e2c78e4a289b59e4e08efb1c07d73b695ce9d59ae2c" => :high_sierra
-    sha256 "a9463e55ce832579bfe84f973621d49ce8afc17f18759c7be222ac60cc6038bd" => :sierra
+    cellar :any_skip_relocation
+    sha256 "816b080f23423325015617638742e0ab8f13849e7ae3b7df4c317008681a8c26" => :mojave
+    sha256 "476ff95d7836789773fc9d620fea37592748144a765f23558e87c05e50a2b43e" => :high_sierra
+    sha256 "0eb27ed7d15294cc3ddbbc1ab9b6bba2f23bd0d3bbf823ff5bf928c68f16ef91" => :sierra
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
-    sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
+    url "https://nodejs.org/dist/v10.15.2/node-v10.15.2.tar.xz"
+    sha256 "b8bb2da7cb016e895bc2f70009a420f6b8d519e66548624b6130bbfbd5118c59"
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.12.3/yarn-v1.12.3.tar.gz"
-    sha256 "02cd4b589ec22c4bdbd2bc5ebbfd99c5e99b07242ad68a539cb37896b93a24f2"
+    url "https://yarnpkg.com/downloads/1.15.2/yarn-v1.15.2.tar.gz"
+    sha256 "c4feca9ba5d6bf1e820e8828609d3de733edf0e4722d17ed7ce493ed39f61abd"
   end
 
   def install
@@ -30,6 +31,7 @@ class Kibana < Formula
 
     # remove non open source files
     rm_rf "x-pack"
+    inreplace "package.json", /"x-pack":.*/, ""
 
     # patch build to not try to read tsconfig.json's from the removed x-pack folder
     inreplace "src/dev/typescript/projects.ts" do |s|
@@ -48,7 +50,9 @@ class Kibana < Formula
     system "yarn", "kbn", "bootstrap"
     system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
-    prefix.install Dir["build/oss/kibana-#{version}-darwin-x86_64/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
+    prefix.install Dir
+      .glob("build/oss/kibana-#{version}-darwin-x86_64/**")
+      .reject { |f| File.fnmatch("build/oss/kibana-#{version}-darwin-x86_64/{node, data, plugins}", f) }
     mv "licenses/APACHE-LICENSE-2.0.txt", "LICENSE.txt" # install OSS license
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"

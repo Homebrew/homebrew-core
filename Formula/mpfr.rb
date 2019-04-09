@@ -1,16 +1,15 @@
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "https://www.mpfr.org/"
-  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.1.tar.xz"
-  sha256 "67874a60826303ee2fb6affc6dc0ddd3e749e9bfcb4c8655e3953d0458a6e16e"
+  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.2.tar.xz"
+  sha256 "1d3be708604eae0e42d578ba93b390c2a145f17743a744d8f3f8c2ad5855a38a"
 
   bottle do
     cellar :any
-    sha256 "a51f47143ac39b4e9073946b08e846adf2509a4447555aa4c9dceea363d8e429" => :mojave
-    sha256 "223ac973eb796b275cf751111c458dc1466f82f302e96ca764ea091309d1a963" => :high_sierra
-    sha256 "a29b4585cb97715cdab177ea586b3fbee2c578248b115e3b86505724f2b0fc76" => :sierra
-    sha256 "33b9a9b53120eae11bf2d241d0285f1bb0410ff133d2ecc1d4df07846da93018" => :el_capitan
+    sha256 "cfce7ab866e98360c9364cd924da620ae7936d3a224d686aacc209c2107d19aa" => :mojave
+    sha256 "bf5d21e7e8e549f7e8d07791a90f44a487f4c7151897b7c64d02928b5bd73520" => :high_sierra
+    sha256 "4fb1860a481e24c70eefc8e5782030612840f1bb8f50586ca76a4c6c53629deb" => :sierra
   end
 
   depends_on "gmp"

@@ -1,28 +1,28 @@
 class MongodbAT36 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.9.tar.gz"
-  sha256 "b5da7cf4323bd0958a38957e74107a149936d576db2a51fdabf2ea10a8f1eae4"
+  # do not upgrade to versions >3.6.8 as they are under the SSPL which is not
+  # an open-source license.
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.8.tar.gz"
+  sha256 "cbb6bedd8963db2abf87cdb6dcceffaa5ee86729d19f4dcbeefb6e0dba0a2d7d"
+  revision 1
 
   bottle do
-    sha256 "0b494089cd797aabe923075ba00d32a0edf5d9d2e7b5473d49bd27336cefc993" => :mojave
-    sha256 "494292de2eff348bfa0f29d13d694d7a86719df58c147231a1f749a24e0f9382" => :high_sierra
-    sha256 "67da2bba59034da2e27b7379774bfe2908c855b72a3e06fe21f679a5aafcc269" => :sierra
+    cellar :any
+    sha256 "17700a35d1ae69422747abea85cbc9a5cb6c162f75ca00e5e74512e412a15d23" => :mojave
+    sha256 "cd334cae4a0c939b7e39f3e0fc26c05e8f0807d406ec190d4140baeb1e084b38" => :high_sierra
+    sha256 "f3cc1d1f566dcf6a0fbd2b355496e2adb6bba2a98fafde11b345db407e0d3b1f" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
-  option "with-sasl", "Compile with SASL support"
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
-  depends_on :macos => :mountain_lion
+
+  depends_on "openssl"
   depends_on "python@2"
-  depends_on "openssl" => :recommended
-  depends_on "boost" => :optional
 
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
@@ -39,11 +39,7 @@ class MongodbAT36 < Formula
     sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     ENV.libcxx
 
     ["Cheetah", "PyYAML", "typing"].each do |r|
@@ -55,8 +51,8 @@ class MongodbAT36 < Formula
       import site; site.addsitedir("#{buildpath}/vendor/lib/python2.7/site-packages")
     EOS
 
-    # New Go tools have their own build script but the server scons "install" target is still
-    # responsible for installing them.
+    # New Go tools have their own build script but the server scons "install"
+    # target is still responsible for installing them.
 
     cd "src/mongo/gotools" do
       inreplace "build.sh" do |s|
@@ -64,46 +60,31 @@ class MongodbAT36 < Formula
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
 
-      args = %w[]
+      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["CPATH"] = Formula["openssl"].opt_include
 
-      if build.with? "openssl"
-        args << "ssl"
-        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
-        ENV["CPATH"] = Formula["openssl"].opt_include
-      end
-
-      args << "sasl" if build.with? "sasl"
-
-      system "./build.sh", *args
+      system "./build.sh", "ssl"
     end
 
     (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
 
     args = %W[
-      --prefix=#{prefix}
       -j#{ENV.make_jobs}
+      --build-mongoreplay=true
+      --prefix=#{prefix}
+      --ssl
+      --use-new-tools
+      CC=#{ENV.cc}
+      CXX=#{ENV.cxx}
+      CCFLAGS=-mmacosx-version-min=#{MacOS.version}
+      LINKFLAGS=-mmacosx-version-min=#{MacOS.version}
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    args << "CC=#{ENV.cc}"
-    args << "CXX=#{ENV.cxx}"
-
-    args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
-    args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
-
-    args << "--use-sasl-client" if build.with? "sasl"
-    args << "--use-system-boost" if build.with? "boost"
-    args << "--use-new-tools"
-    args << "--build-mongoreplay=true"
     args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
 
-    if build.with? "openssl"
-      args << "--ssl"
-
-      args << "CCFLAGS=-I#{Formula["openssl"].opt_include}"
-      args << "LINKFLAGS=-L#{Formula["openssl"].opt_lib}"
-    end
-
-    scons "install", *args
+    system "scons", "install", *args
 
     (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
@@ -126,7 +107,7 @@ class MongodbAT36 < Formula
   EOS
   end
 
-  plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mongodb@3.6/bin/mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>

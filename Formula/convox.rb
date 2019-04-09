@@ -1,21 +1,33 @@
 class Convox < Formula
   desc "Command-line interface for the Rack PaaS on AWS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20181110123948.tar.gz"
-  sha256 "aaff22d2c8b1e7db4520d5ec7d30fbf90b7b7910f4511a2f7697b6e5400e0560"
+  url "https://github.com/convox/rack/archive/20190329133039.tar.gz"
+  sha256 "9a5c2d9cd08d814bfe1acc919477ec7ebb3e8e7fd3acf26abfd7d8e5d3427f60"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "755c8d9d88fb3ecf6ae90b7620d09711cd019c7712f3e7d33add1d07dfaa31c1" => :mojave
-    sha256 "19f0c44393f7dd257e4db63576ab2a02458e8cd51811cc7b7564535454587565" => :high_sierra
-    sha256 "85ea26a95e9d07c6a436ec3d2a53837955c6b8dd9864ec29c21a4a05605ba1f0" => :sierra
+    sha256 "2d859bdce77b34b21676d5825092fe566c349032d86ec0a31ad741a734599420" => :mojave
+    sha256 "4fa8f7bf0e82f0e67c00e68150dc67242794b2ee4706e8aaf6c914a3f1f03558" => :high_sierra
+    sha256 "ade7bbb5ec769fa40d8b674d66a82d6252e5e9cc020d3f9b6b00dceb913cf510" => :sierra
   end
 
   depends_on "go" => :build
 
+  resource "packr" do
+    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
+    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
+
     (buildpath/"src/github.com/convox/rack").install Dir["*"]
+
+    resource("packr").stage { system "go", "install", "./packr" }
+    cd buildpath/"src/github.com/convox/rack" do
+      system buildpath/"bin/packr"
+    end
+
     system "go", "build", "-ldflags=-X main.version=#{version}",
            "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
     prefix.install_metafiles

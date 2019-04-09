@@ -2,8 +2,7 @@ class MecabIpadic < Formula
   desc "IPA dictionary compiled for MeCab"
   homepage "https://taku910.github.io/mecab/"
   # Canonical url is https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7MWVlSDBCSXZMTXM
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mecab-ipadic/mecab-ipadic_2.7.0-20070801+main.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mecab-ipadic/mecab-ipadic_2.7.0-20070801+main.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/m/mecab-ipadic/mecab-ipadic_2.7.0-20070801+main.orig.tar.gz"
   version "2.7.0-20070801"
   sha256 "b62f527d881c504576baed9c6ef6561554658b175ce6ae0096a60307e49e3523"
 
@@ -15,7 +14,6 @@ class MecabIpadic < Formula
     sha256 "9f0ae0a62141e3b28807349cb7a9560e36770acb869f4a4e7a54ea1a28ef8ba5" => :el_capitan
     sha256 "55703c812de3e7cff503b9cd1eafa0656b3f17c4885165ce4d8e4d2b2356050e" => :yosemite
     sha256 "0a9ea36b7cc03f73ae34f72e078b7e84ebe814cf8e1cfbea2d5f876c1893b1c5" => :mavericks
-    sha256 "c70d627c447086a66b6eaca37cd98e1da099f65bfb6b87f2c47d1901d5e4a090" => :mountain_lion
   end
 
   depends_on "mecab"

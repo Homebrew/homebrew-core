@@ -2,15 +2,15 @@ class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
-      :tag      => "v0.12.0",
-      :revision => "d7e327d3da1e08021edd8bf24cc72fef4132f0af"
+      :tag      => "v0.12.2",
+      :revision => "73136f96f097612b7566c3272c1b3cd48d4a0db2"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9078fbf661e698806792606b197374af301b2024ad42d54e7dfb8f0df4e0123" => :mojave
-    sha256 "4bdc3016b4e20a9c57a932aea241fcf70ba8d76ca03039122bd9531ea7643b63" => :high_sierra
-    sha256 "fffdabcce63790444868136d02ddd1e995855f6f841685545e25123e18d53671" => :sierra
+    sha256 "6b048c872c17fce2a11fcb6a0935363f83ccea515623d579c6b0a44315f6cbe8" => :mojave
+    sha256 "57b9ac7f0359d13138e7721131023199545f1eab296921b1dca5c363df2b6395" => :high_sierra
+    sha256 "a0e3ae85e6430684b0e3c5d6ccc439e375be99e835240fb5ca8a0a273abe5666" => :sierra
   end
 
   depends_on "go" => :build

@@ -1,19 +1,18 @@
 class MariadbAT100 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.0.37/source/mariadb-10.0.37.tar.gz"
-  sha256 "b49021989bb850163c5a47a4a9496001661b64d7f879b1237a37b07d4090a413"
+  url "https://downloads.mariadb.org/f/mariadb-10.0.38/source/mariadb-10.0.38.tar.gz"
+  sha256 "022620ebeb4fb3744d101e72443ec55b4585e7d9a3d8c92aa846bc30e6808ac1"
 
   bottle do
-    sha256 "412caad4e7b5302276a507d5aea843e689bdcd43789e949cead3b1f2edace402" => :mojave
-    sha256 "9026c2de04fdd99c881c3375bedef30dda69791ffd656ce4e708172dfee1b552" => :high_sierra
-    sha256 "cfcebdecfec12141989784345997d4be3c4f181697948a0688c4370c039a17fa" => :sierra
+    sha256 "a7f0c2b6a8331ec16fd99041ca36a21b2d549f8348bbf5741243f79b81c47891" => :mojave
+    sha256 "a583dc308eda30c397b5254a7c2bb1d89607081daac6c272e515e74e1899d3d2" => :high_sierra
+    sha256 "31510d6ab60ab73fafc8e079303e755d1a10a0860104236a7a4a84dce8062224" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
   def install

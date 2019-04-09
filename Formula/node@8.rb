@@ -1,13 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.14.0/node-v8.14.0.tar.xz"
-  sha256 "8ce252913c9f6aaa9871f2d9661b6e54858dae2f0064bd3c624676edb09083c4"
+  url "https://nodejs.org/dist/v8.15.1/node-v8.15.1.tar.xz"
+  sha256 "6b6486a3f452624941f6e11dd5f878c298d43e9c21b5f43ca1721dc7ce25add1"
 
   bottle do
-    sha256 "50b1024723e2fcab7e46ff34d549defe3eea7a2cec27387f08466bd02e3840c8" => :mojave
-    sha256 "6b1edf9153635409be6f895467a247fe0c59f918f77aedf41095cd161a6c785a" => :high_sierra
-    sha256 "f68b03e36dbe1eb7016cdb67744043cd4c84b15b3e5483037b691409198689ef" => :sierra
+    cellar :any
+    sha256 "99d7b256e5090592344f21eba78066a1668e4001b2d0d4906a7b805f13022492" => :mojave
+    sha256 "21efe0a7fd4105434e0ce75a66554f8ccaee4adaa20c1712121a44f51931c58b" => :high_sierra
+    sha256 "5ccba12493760031b79345b84a6b4c662cbc387ecb1fd4c34e7b9af2dbcc4ea8" => :sierra
   end
 
   keg_only :versioned_formula
@@ -15,14 +16,6 @@ class NodeAT8 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
   depends_on "icu4c"
-
-  # Per upstream - "Need g++ 4.8 or clang++ 3.4".
-  fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :gcc_4_0
-  fails_with :gcc_4_2
-  ("4.3".."4.7").each do |n|
-    fails_with :gcc => n
-  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"

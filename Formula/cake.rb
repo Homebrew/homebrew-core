@@ -1,12 +1,12 @@
 class Cake < Formula
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/releases/download/v0.30.0/Cake-bin-net461-v0.30.0.zip"
-  sha256 "c5baf6c8c9c17a16b092192756b1283b537d805c360807be25908a91159c7e66"
+  url "https://github.com/cake-build/cake/releases/download/v0.33.0/Cake-bin-net461-v0.33.0.zip"
+  sha256 "72b42e2a1acd1d4dab942c38c769a56db1e47c6666cb792da15abcdbc5c36157"
 
   bottle :unneeded
 
-  depends_on "mono" => :recommended
+  depends_on "mono"
 
   conflicts_with "coffeescript", :because => "both install `cake` binaries"
 

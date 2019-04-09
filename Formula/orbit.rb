@@ -11,7 +11,6 @@ class Orbit < Formula
     sha256 "11bb24fb06daef1ccea017470e23e56706c24265a4f7551a14d99e4f88121781" => :el_capitan
     sha256 "adf8c93736bee9ceede9f65ae9e4d6d10529a085315ec522bfd661a7b6fcd94a" => :yosemite
     sha256 "ae04763dcb6ea680fba27e49b01235d65204cd9240a871b429095fa414fda4fb" => :mavericks
-    sha256 "9f987a2d8be82cf391d2903872cfe20ce304cbc91fbe638820c41b00a3ecb4cc" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

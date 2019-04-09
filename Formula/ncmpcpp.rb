@@ -3,13 +3,13 @@ class Ncmpcpp < Formula
   homepage "https://rybczak.net/ncmpcpp/"
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.8.2.tar.bz2"
   sha256 "650ba3e8089624b7ad9e4cc19bc1ac6028edb7523cc111fa1686ea44c0921554"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "e4d08914a6a702889887350dc4a69bedb21dc3b5791a052bb9fd45264c4642b9" => :mojave
-    sha256 "9295452e597f8596e06cb4a82b070c060efa018a144dd1c9dd2687adb01889d7" => :high_sierra
-    sha256 "b5c1a6f409183d5345c2946977de4a6927894ef4e86fa4a05fee5d978c8a0699" => :sierra
+    sha256 "f115d9c481c42162f9d56db0f0c7bd030c73061b6f7fce09e443a101642e7dfc" => :mojave
+    sha256 "f5008a2a7c9cc598917a644b91da440c0c8cd37bc3f5fc28a1d748bdc283a828" => :high_sierra
+    sha256 "a9272373ee8dff15827dfcf4af6507b2a043e64578119e5b85a34184b28f7237" => :sierra
   end
 
   head do
@@ -27,8 +27,6 @@ class Ncmpcpp < Formula
   depends_on "ncurses"
   depends_on "readline"
   depends_on "taglib"
-
-  needs :cxx11
 
   def install
     ENV.cxx11

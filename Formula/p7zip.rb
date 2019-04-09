@@ -14,8 +14,7 @@ class P7zip < Formula
   end
 
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/p7zip/p7zip_16.02+dfsg-6.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/p/p7zip/p7zip_16.02+dfsg-6.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/p/p7zip/p7zip_16.02+dfsg-6.debian.tar.xz"
     sha256 "fab0be1764efdbde1804072f1daa833de4e11ea65f718ad141a592404162643c"
     apply "patches/12-CVE-2016-9296.patch",
           "patches/13-CVE-2017-17969.patch"

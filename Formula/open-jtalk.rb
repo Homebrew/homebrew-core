@@ -40,7 +40,7 @@ class OpenJtalk < Formula
                           "--with-charset=UTF-8",
                           "--prefix=#{prefix}"
 
-    if MacOS.version <= :mavericks
+    if MacOS.version == :mavericks
       inreplace "config.status", "-finput-charset=UTF-8 -fexec-charset=UTF-8", ""
       # https://sourceforge.net/p/open-jtalk/mailman/message/33404251/
     end

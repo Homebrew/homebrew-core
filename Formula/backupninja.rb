@@ -1,19 +1,18 @@
 class Backupninja < Formula
   desc "Backup automation tool"
   homepage "https://0xacab.org/riseuplabs/backupninja"
-  url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
-  mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.0.2.orig.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/backupninja_1.0.2.orig.tar.gz"
-  sha256 "fdb399de331493c8f959a784318349b19a01fbeece275da2ecd70ec9847a80b6"
+  url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.1.0.orig.tar.gz"
+  mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.1.0.orig.tar.gz"
+  sha256 "abe444d0c7520ede7847b9497da4b1253a49579f59293b043c47b1dd9833280a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fc931f546efa005cd351b37688a7f82386524e6c78304889ecf426f045db3d2f" => :mojave
-    sha256 "9018c721fb3774083fac0c4994afe6a0151bafaa5459242e37eec3c7c67a26dc" => :high_sierra
-    sha256 "9018c721fb3774083fac0c4994afe6a0151bafaa5459242e37eec3c7c67a26dc" => :sierra
-    sha256 "9018c721fb3774083fac0c4994afe6a0151bafaa5459242e37eec3c7c67a26dc" => :el_capitan
+    sha256 "39df0693351a58ac9f406d6c16ab9c15ddb5d96ddf7ac9e98cf94061ccffe9a8" => :mojave
+    sha256 "39df0693351a58ac9f406d6c16ab9c15ddb5d96ddf7ac9e98cf94061ccffe9a8" => :high_sierra
+    sha256 "071ac37b853475ae44c4b3dde995d694a5fce322e68d7eeb39eb52a85c781cea" => :sierra
   end
 
+  depends_on "bash"
   depends_on "dialog"
   depends_on "gawk"
 

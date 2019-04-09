@@ -1,8 +1,8 @@
 class Dasht < Formula
   desc "Search API docs offline, in your terminal or browser"
   homepage "https://sunaku.github.io/dasht"
-  url "https://github.com/sunaku/dasht/archive/v2.2.0.tar.gz"
-  sha256 "ba3e20b351c0c0b4bd526d306c577e104414656a9ac011d672cb46892d394030"
+  url "https://github.com/sunaku/dasht/archive/v2.3.0.tar.gz"
+  sha256 "44db949eb95653e59d88eafce2b2d1e4378db66776e0d39ee15453dabf010e09"
 
   bottle :unneeded
 
@@ -17,6 +17,7 @@ class Dasht < Formula
   end
 
   test do
-    system "#{bin}/dasht"
+    system "#{bin}/dasht-docsets-install", "--force", "bash"
+    assert_equal "Bash\n", shell_output("#{bin}/dasht-docsets")
   end
 end

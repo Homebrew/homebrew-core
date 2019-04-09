@@ -1,13 +1,13 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "http://www.freetds.org/files/stable/freetds-1.00.104.tar.gz"
-  sha256 "c4f51525f2dd722fe3651913d4ea194798211293f195c38fc3933cc6db1dae42"
+  url "http://www.freetds.org/files/stable/freetds-1.1.4.tar.gz"
+  sha256 "e59b7111001b95de77412b5ca8ec45fae240d7273f874e42fafbd8e1083b5556"
 
   bottle do
-    sha256 "90914c82e7bcc6dd60a71a380e77ddd32a8d87dcbbee8de7b749fbe0eb025906" => :mojave
-    sha256 "da0b1d22579cf3e949ab1b9692a0cc8a9860fa264c9fc523324440705072de7b" => :high_sierra
-    sha256 "5eb80bcc14d56d4c7aa389f5883bcc0b852f3cd087144dee361c5453c464820f" => :sierra
+    sha256 "d512bb67c8126eed281c3be01ac0e3cb2ba88042b884a2724aa5aefb63ee2b03" => :mojave
+    sha256 "b1f7dff8f3bcb5643d28b9dc553a95549a9d767c98bfa69bda7ce2e71509041a" => :high_sierra
+    sha256 "a4fddd9728600ba9914b840ffc536f412e5af9e68854449d4a53ffcfd8be57a4" => :sierra
   end
 
   head do
@@ -18,8 +18,6 @@ class Freetds < Formula
     depends_on "gettext" => :build
     depends_on "libtool" => :build
   end
-
-  option "with-msdblib", "Enable Microsoft behavior in the DB-Library API where it diverges from Sybase's"
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
@@ -37,10 +35,6 @@ class Freetds < Formula
       --enable-krb5
       --enable-odbc-wide
     ]
-
-    if build.with? "msdblib"
-      args << "--enable-msdblib"
-    end
 
     if build.head?
       system "./autogen.sh", *args

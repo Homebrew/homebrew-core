@@ -12,7 +12,6 @@ class Bcrypt < Formula
     sha256 "d674203ce681f17519eee1ce7a3258615b2de5a8a12460d7de284af09028d7da" => :el_capitan
     sha256 "dbd530bd84a1e92120aacf07f60e3b6131c92421702ab8b9f9e02d3b72a00ad6" => :yosemite
     sha256 "2a0a662d778677d75222745b30e6c5e825078855d303cf853609f50b1ceca4a6" => :mavericks
-    sha256 "7f9c94e9c1527e596b316746d9705f524afb70c661abeb1279bf2c88ad061ddf" => :mountain_lion
   end
 
   def install
