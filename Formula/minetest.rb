@@ -70,72 +70,13 @@ class Minetest < Formula
     # --help and --version produce output directly.
     # --videomodes need user data directory in order to work.
     # --info and --trace need user data directory and will actually run the game.
-    # --run-unittests incomplete, further creation of support files needed.
-    # --speedtests forced creation of support files created by program automatically.
     #
-    # Debug file, all test information should wind up in here.
+    # --run-unittests and --speedtests do not work for Homebrew
+    #   with Irrlicht Engine reporting No doublebuffering available.
+    #
+    # Debug File: all test information should wind up in here.
     #
     (testpath/"Library/Application Support/minetest/debug.txt").write("")
-    #
-    # Meta map file, needed for map generation.
-    #
-    (testpath/"Library/Application Support/minetest/worlds/world/map_meta.txt").write("mg_biome_np_humidity_blend = {
-	octaves = 2
-	lacunarity = 2
-	persistence = 1
-	spread = (8,8,8)
-	scale = 1.5
-	seed = 90003
-	flags = defaults
-	offset = 0
-}
-mg_biome_np_heat_blend = {
-	octaves = 2
-	lacunarity = 2
-	persistence = 1
-	spread = (8,8,8)
-	scale = 1.5
-	seed = 13
-	flags = defaults
-	offset = 0
-}
-mg_biome_np_humidity = {
-	octaves = 3
-	lacunarity = 2
-	persistence = 0.5
-	spread = (1000,1000,1000)
-	scale = 50
-	seed = 842
-	flags = defaults
-	offset = 50
-}
-mg_biome_np_heat = {
-	octaves = 3
-	lacunarity = 2
-	persistence = 0.5
-	spread = (1000,1000,1000)
-	scale = 50
-	seed = 5349
-	flags = defaults
-	offset = 50
-}
-mg_flags = caves, dungeons, light, decorations, biomes
-mapgen_limit = 31000
-seed = 15
-chunksize = 5
-water_level = 1
-mg_name = v7
-[end_of_params]")
-    #
-    # World configuration file.
-    #
-    (testpath/"Library/Application Support/minetest/worlds/world/world.mt").write("enable_damage = true
-auth_backend = sqlite3
-player_backend = sqlite3
-backend = sqlite3
-creative_mode = false
-gameid = minetest
-")
-    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--speedtests"
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--videomodes"
   end
 end
