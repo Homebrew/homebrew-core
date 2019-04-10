@@ -2,9 +2,8 @@ class Lolcat < Formula
   desc "Rainbows and unicorns in your console!"
   homepage "https://github.com/busyloop/lolcat"
   url "https://github.com/busyloop/lolcat.git",
-      :tag      => "v99.9.21",
-      :revision => "58d5b5ba6d1d3f70aa72b140ee84034aaab91a9c"
-  revision 1
+      :tag      => "v99.9.69",
+      :revision => "692002ad5d5b2b797f4918c21655de4eb88d4349"
 
   bottle do
     cellar :any_skip_relocation
