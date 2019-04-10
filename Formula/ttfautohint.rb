@@ -1,8 +1,8 @@
 class Ttfautohint < Formula
   desc "Auto-hinter for TrueType fonts"
   homepage "https://www.freetype.org/ttfautohint/"
-  url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.2/ttfautohint-1.8.2.tar.gz"
-  sha256 "386741701596a8b2d5fb744901922ed2bd740490f7e6c81e5d7e83ac677889a7"
+  url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3.tar.gz"
+  sha256 "87bb4932571ad57536a7cc20b31fd15bc68cb5429977eb43d903fa61617cf87e"
 
   bottle do
     cellar :any
@@ -37,6 +37,8 @@ class Ttfautohint < Formula
   end
 
   test do
-    system "#{bin}/ttfautohint", "-V"
+    cp "/Library/Fonts/Arial.ttf", testpath
+    system "#{bin}/ttfautohint", "Arial.ttf", "output.ttf"
+    assert_predicate testpath/"output.ttf", :exist?
   end
 end
