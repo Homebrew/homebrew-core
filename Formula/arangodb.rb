@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.4.4.tar.gz"
-  sha256 "c28ab923a6b90f058f4eaac3cb8eb22395b8cfb1068c423d6bfea0fca6704fc6"
+  url "https://download.arangodb.com/Source/ArangoDB-3.4.5.tar.gz"
+  sha256 "4a342516ee527160c00cb7f36e82ba22e457514c2ae681b3df9e8508de0e8e41"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
@@ -16,13 +16,30 @@ class Arangodb < Formula
   depends_on :macos => :yosemite
   depends_on "openssl"
 
-  fails_with :gcc do
-    build 820
-    cause "Generates incorrect code"
+  # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87665
+  fails_with :gcc => "7"
+
+  # the ArangoStarter is in a separate github repository;
+  # it is used to easily start single server and clusters
+  # with a unified CLI
+  resource "starter" do
+    url "https://github.com/arangodb-helper/arangodb.git",
+      :revision => "ca2ddf942ba63c47bbccdc47fd362377b8c88b19"
   end
 
   def install
     ENV.cxx11
+
+    resource("starter").stage do
+      ENV.append "GOPATH", Dir.pwd + "/.gobuild"
+      system "make", "deps"
+      # use commit-id as projectBuild
+      commit = `git rev-parse HEAD`.chomp
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.0 -X main.projectBuild=#{commit}",
+                            "-o", "arangodb",
+                            "github.com/arangodb-helper/arangodb"
+      bin.install "arangodb"
+    end
 
     mkdir "build" do
       args = std_cmake_args + %W[
@@ -33,6 +50,7 @@ class Arangodb < Formula
         -DCMAKE_INSTALL_DATAROOTDIR=#{share}
         -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
       ]
 
       if ENV.compiler == "gcc-6"
@@ -83,8 +101,31 @@ class Arangodb < Formula
   end
 
   test do
+    require "pty"
+
     testcase = "require('@arangodb').print('it works!')"
     output = shell_output("#{bin}/arangosh --server.password \"\" --javascript.execute-string \"#{testcase}\"")
     assert_equal "it works!", output.chomp
+
+    ohai "#{bin}/arangodb --starter.instance-up-timeout 1m --starter.mode single"
+    PTY.spawn("#{bin}/arangodb", "--starter.instance-up-timeout", "1m",
+              "--starter.mode", "single", "--starter.disable-ipv6",
+              "--server.arangod", "#{sbin}/arangod",
+              "--server.js-dir", "#{share}/arangodb3/js") do |r, _, pid|
+      begin
+        loop do
+          available = IO.select([r], [], [], 60)
+          assert_not_equal available, nil
+
+          line = r.readline.strip
+          ohai line
+
+          break if line.include?("Your single server can now be accessed")
+        end
+      ensure
+        Process.kill "SIGINT", pid
+        ohai "shuting down #{pid}"
+      end
+    end
   end
 end
