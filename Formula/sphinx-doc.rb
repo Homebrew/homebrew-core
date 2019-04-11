@@ -57,8 +57,8 @@ class SphinxDoc < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+    url "https://files.pythonhosted.org/packages/93/ea/d884a06f8c7f9b7afbc8138b762e80479fb17aedbbe2b06515a12de9378d/Jinja2-2.10.1.tar.gz"
+    sha256 "065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013"
   end
 
   resource "MarkupSafe" do
@@ -82,8 +82,8 @@ class SphinxDoc < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/b9/b8/6b32b3e84014148dcd60dd05795e35c2e7f4b72f918616c61fdce83d27fc/pyparsing-2.3.1.tar.gz"
-    sha256 "66c9268862641abcac4a96ba74506e594c884e3f57690a696d21ad8210ed667a"
+    url "https://files.pythonhosted.org/packages/5d/3a/24d275393f493004aeb15a1beae2b4a3043526e8b692b65b4a9341450ebe/pyparsing-2.4.0.tar.gz"
+    sha256 "1873c03321fc118f4e9746baf201ff990ceb915f433f23b395f5580d1840cb2a"
   end
 
   resource "python-docs-theme" do
@@ -92,8 +92,8 @@ class SphinxDoc < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/af/be/6c59e30e208a5f28da85751b93ec7b97e4612268bb054d0dff396e758a90/pytz-2018.9.tar.gz"
-    sha256 "d5f05e487007e29e03409f9398d074e158d920d36eb82eaf66fb1136b0c5374c"
+    url "https://files.pythonhosted.org/packages/df/d5/3e3ff673e8f3096921b3f1b79ce04b832e0100b4741573154b72b756a681/pytz-2019.1.tar.gz"
+    sha256 "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"
   end
 
   resource "requests" do
@@ -122,8 +122,8 @@ class SphinxDoc < Formula
   end
 
   resource "sphinxcontrib-htmlhelp" do
-    url "https://files.pythonhosted.org/packages/92/0e/ba2033e7ca81a46ab5295063a8eec4c063e1127e4ebca0956186da84c13b/sphinxcontrib-htmlhelp-1.0.1.tar.gz"
-    sha256 "0d691ca8edf5995fbacfe69b191914256071a94cbad03c3688dca47385c9206c"
+    url "https://files.pythonhosted.org/packages/f1/f2/88e9d6dc4a17f1e95871f8b634adefcc5d691334f7a121e9f384d1dc06fd/sphinxcontrib-htmlhelp-1.0.2.tar.gz"
+    sha256 "4670f99f8951bd78cd4ad2ab962f798f5618b17675c35c5ac3b2132a14ea8422"
   end
 
   resource "sphinxcontrib-jsmath" do
@@ -137,8 +137,8 @@ class SphinxDoc < Formula
   end
 
   resource "sphinxcontrib-serializinghtml" do
-    url "https://files.pythonhosted.org/packages/94/c5/ddb8d1d64e03441789078737eea1340667fd82029335d9e7f0805113dd9e/sphinxcontrib-serializinghtml-1.1.1.tar.gz"
-    sha256 "392187ac558863b8aff0d76dc78e0731fed58f3b06e2b00e22995dcdb630f213"
+    url "https://files.pythonhosted.org/packages/cd/cc/fd7d17cfae18e5a92564bb899bc05e13260d7a633f3cffdaad4e5f3ce46a/sphinxcontrib-serializinghtml-1.1.3.tar.gz"
+    sha256 "c0efb33f8052c04fd7a26c0a07f1678e8512e0faec19f4aa8f2473a8b81d5227"
   end
 
   resource "typing" do
