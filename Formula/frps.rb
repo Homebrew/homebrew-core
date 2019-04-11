@@ -5,6 +5,13 @@ class Frps < Formula
       :tag      => "v0.26.0",
       :revision => "6a7efc81c9fcd410ba603573cdbe501056b1b04a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "eaf2b89d0afa6b2b3e9ffc3f69a93eb0c9d8ecf4c3ec5d2aea207f28f515a72c" => :mojave
+    sha256 "9cf61e02eba03ed84b5af4e329b301c6bcd34c8284bce3ce2d0f2bc1c8b96125" => :high_sierra
+    sha256 "4cceafca479dc0341de2d0b2fa9ccd767030939e36ab8745633481d06d020177" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
