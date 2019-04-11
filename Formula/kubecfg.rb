@@ -1,8 +1,8 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
-  homepage "https://github.com/ksonnet/kubecfg"
-  url "https://github.com/ksonnet/kubecfg/archive/v0.9.1.tar.gz"
-  sha256 "22255007b6b9fd7e30f0af0456ba49eb405e714b3236a88926c776716096f5ac"
+  homepage "https://github.com/bitnami/kubecfg"
+  url "https://github.com/bitnami/kubecfg/archive/v0.11.0.tar.gz"
+  sha256 "79dcd7e680e2bba156e48ef7ecfa47b151560265b7bac9fdbe7bf193cddf3c28"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,10 +14,9 @@ class Kubecfg < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/ksonnet/kubecfg").install buildpath.children
+    (buildpath/"src/github.com/bitnami/kubecfg").install buildpath.children
 
-    cd "src/github.com/ksonnet/kubecfg" do
+    cd "src/github.com/bitnami/kubecfg" do
       system "make", "VERSION=v#{version}"
       bin.install "kubecfg"
       pkgshare.install Dir["examples/*"], "testdata/kubecfg_test.jsonnet"
