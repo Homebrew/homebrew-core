@@ -5,6 +5,11 @@ class Ospray < Formula
   sha256 "36527eb01a09b0f30608550373aa305ecbfa2faea23cd929cc731af5864ca326"
   head "https://github.com/ospray/ospray.git"
 
+  bottle do
+    cellar :any
+    sha256 "19a2a2c636c07427b7d6bdff6d771e571bfa6d8dbf926695932e8cadf60d65fc" => :mojave
+  end
+
   depends_on "cmake" => :build
   depends_on "ispc" => :build
   depends_on "embree"
