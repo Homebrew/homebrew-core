@@ -5,6 +5,13 @@ class Frpc < Formula
       :tag      => "v0.26.0",
       :revision => "6a7efc81c9fcd410ba603573cdbe501056b1b04a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "13fdfb091388d4288eb19289dbfc45f09e7a21a94cece0e8d669e80b9c4f94d7" => :mojave
+    sha256 "a64f8f155f54a6a13d3d8b8e91c4d47d97e4c244f1878678bae671f81f19693d" => :high_sierra
+    sha256 "c963d12a7685b1d747a164eb9f50e376c1397809931f579b35b1adb82b97754a" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
