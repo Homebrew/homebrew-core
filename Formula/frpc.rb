@@ -1,14 +1,13 @@
 class Frpc < Formula
-  desc "This is the client of frp"
+  desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      :tag      => "v0.24.1",
-      :revision => "cbf9c731a096ce33ec282ed913a25cb2e5f05303"
+      :tag      => "v0.26.0",
+      :revision => "6a7efc81c9fcd410ba603573cdbe501056b1b04a"
 
   depends_on "go" => :build
 
   def install
-    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/fatedier/frp").install contents
