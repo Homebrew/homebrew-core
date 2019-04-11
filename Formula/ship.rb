@@ -1,8 +1,8 @@
 class Ship < Formula
   desc "Reducing the overhead of maintaining 3rd-party applications in Kubernetes"
   homepage "https://www.replicated.com/ship"
-  url "https://github.com/replicatedhq/ship/archive/v0.39.0.tar.gz"
-  sha256 "1e7d492a470dafd7b0c2accabcc51b170b24b2245c8c589ed9db6bb90ea3d090"
+  url "https://github.com/replicatedhq/ship/archive/v0.40.0.tar.gz"
+  sha256 "a0fbc99509131f21332906130e86dc956808608245de05fdebed35985445656e"
 
   bottle do
     cellar :any_skip_relocation
