@@ -3,7 +3,7 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -17,11 +17,17 @@ class CucumberCpp < Formula
   depends_on "boost"
 
   def install
-    args = std_cmake_args
-    args << "-DCUKE_DISABLE_GTEST=on"
-    args << "-DCUKE_DISABLE_CPPSPEC=on"
-    args << "-DCUKE_DISABLE_FUNCTIONAL=on"
-    args << "-DCUKE_DISABLE_BOOST_TEST=on"
+    args = std_cmake_args + %w[
+      -DCUKE_DISABLE_GTEST=on
+      -DCUKE_DISABLE_CPPSPEC=on
+      -DCUKE_DISABLE_FUNCTIONAL=on
+      -DCUKE_DISABLE_BOOST_TEST=on
+    ]
+
+    # Temporary fix for bad boost 1.70.0 / cmake interaction
+    # https://github.com/Homebrew/homebrew-core/pull/38890
+    args << "-DBoost_NO_BOOST_CMAKE=ON"
+
     system "cmake", ".", *args
     system "cmake", "--build", "."
     system "make", "install"
