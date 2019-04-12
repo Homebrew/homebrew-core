@@ -3,7 +3,7 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.5.0.tar.gz"
   sha256 "630cffd577c0d10345b44ce8160f4604519b0ca69bf201f524f104c207b930aa"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "095134cfdfd0234fe22a5d6e5117be283d6fab1d1fb06ee65eb6edee960dccb4" => :mojave
