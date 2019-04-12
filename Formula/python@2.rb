@@ -23,7 +23,6 @@ class PythonAT2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "gdbm"
   depends_on "openssl"
   depends_on "readline"
@@ -166,11 +165,6 @@ class PythonAT2 < Formula
     (libexec/"setuptools").install resource("setuptools")
     (libexec/"pip").install resource("pip")
     (libexec/"wheel").install resource("wheel")
-
-    cd "Doc" do
-      system "make", "html"
-      doc.install Dir["build/html/*"]
-    end
   end
 
   def post_install
