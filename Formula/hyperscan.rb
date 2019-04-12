@@ -6,9 +6,9 @@ class Hyperscan < Formula
 
   bottle do
     cellar :any
-    sha256 "724e189eba53847758564440c7d648503ab241abdefd8a67814f75060c119873" => :mojave
-    sha256 "c496461231e9261012665f5632e38016747eef826c08a2280a4ea1201eebd303" => :high_sierra
-    sha256 "4b3abe7a19dad7770dd1168d0bcf8a139b325d3c7e9582a446486e16a23935a4" => :sierra
+    sha256 "eb3598a0cc81779744de90bed42c6fcd4b0a00178e30addeaef875b9f512393e" => :mojave
+    sha256 "d5f4957952f9ee837b50e81cb9c58f6d8889d9df823a91ca9c9418230b7093bf" => :high_sierra
+    sha256 "c7a0dc597b4bf6c4c162c4d0ad2827a8b243d949035d9e1dd05680bce0d17d1b" => :sierra
   end
 
   depends_on "boost" => :build
