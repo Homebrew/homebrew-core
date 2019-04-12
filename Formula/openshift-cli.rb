@@ -5,7 +5,8 @@ class OpenshiftCli < Formula
       :tag      => "v3.11.0",
       :revision => "0cbc58b117403b9d9169dbafdfac59ef104bb997",
       :shallow  => false
-  head "https://github.com/openshift/origin.git"
+  head "https://github.com/openshift/origin.git",
+      :shallow  => false
 
   bottle do
     cellar :any_skip_relocation
@@ -14,19 +15,23 @@ class OpenshiftCli < Formula
     sha256 "9a9273ba88209e9011c33571cdd06ad7fa1cee5aec66f5453b450723863cc894" => :sierra
   end
 
+  depends_on "coreutils" => :build
   depends_on "go" => :build
   depends_on "socat"
 
   def install
-    # this is necessary to avoid having the version marked as dirty
-    (buildpath/".git/info/exclude").atomic_write "/.brew_home"
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/openshift/origin"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
+    cd dir do
+      system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v"
 
-    bin.install "_output/local/bin/darwin/amd64/oc"
-    bin.install_symlink "oc" => "oadm"
+      bin.install "_output/local/bin/darwin/amd64/oc"
+      bin.install_symlink "oc" => "oadm"
 
-    bash_completion.install Dir["contrib/completions/bash/*"]
+      bash_completion.install Dir["contrib/completions/bash/*"]
+    end
   end
 
   test do
