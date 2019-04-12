@@ -19,7 +19,7 @@ class CypherShell < Formula
   end
 
   test do
-    # `doesntexist` is printed, but shell_output captures //, unsure why
-    assert_match //, shell_output("#{bin}/cypher-shell -a bolt://doesntexist", 1)
+    # The connection will fail and print the name of the host
+    assert_match /doesntexist/, shell_output("#{bin}/cypher-shell -a bolt://doesntexist 2>&1", 1)
   end
 end
