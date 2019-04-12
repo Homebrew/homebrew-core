@@ -23,6 +23,12 @@ class Pcl < Formula
   depends_on "qhull"
   depends_on "vtk"
 
+  # Upstream patch for boost 1.70.0
+  patch do
+    url "https://github.com/PointCloudLibrary/pcl/commit/648932bc.diff?full_index=1"
+    sha256 "23f2cced7786715c59b49a48e4037eb9dea9abee099c4c5c92d95a647636b5ec"
+  end
+
   def install
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
