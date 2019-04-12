@@ -1,8 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.0.1.tar.gz"
-  sha256 "7b86a0ee804244e0c407321f895b15e4a7162e9c5c0d2efc85f1cadec4011af4"
+  url "https://github.com/opencv/opencv/archive/4.1.0.tar.gz"
+  sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
 
   bottle do
     sha256 "73f03c0b70646230276817b41cb8b3901008cffd88350309b008d19285e4a7cf" => :mojave
@@ -14,6 +14,7 @@ class Opencv < Formula
   depends_on "pkg-config" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
+  depends_on "harfbuzz"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -24,8 +25,13 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.0.1.tar.gz"
-    sha256 "0d8acbad4b7074cfaafd906a7419c23629179d5e98894714402090b192ef8237"
+    url "https://github.com/opencv/opencv_contrib/archive/4.1.0.tar.gz"
+    sha256 "e7d775cc0b87b04308823ca518b11b34cc12907a59af4ccdaf64419c1ba5e682"
+  end
+
+  patch do
+    url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
+    sha256 "9de405097cbafeadf0b980083edf1ff6b1a18e452bffea2b88a235c36677a1f8"
   end
 
   def install
@@ -56,7 +62,7 @@ class Opencv < Formula
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
-      -DBUILD_opencv_text=OFF
+      -DBUILD_opencv_text=ON
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON
