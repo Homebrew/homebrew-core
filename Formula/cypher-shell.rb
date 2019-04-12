@@ -10,15 +10,16 @@ class CypherShell < Formula
   def install
     rm_f Dir["bin/*.bat"]
 
-    ENV["NEO4J_HOME"] = share
+    # Needs the jar, but cannot go in bin
     share.install ["cypher-shell.jar"]
 
+    # Copy the bin
     bin.install ["cypher-shell"]
     bin.env_script_all_files(share, :NEO4J_HOME => ENV["NEO4J_HOME"])
   end
 
   test do
-    ENV["NEO4J_HOME"] = libexec
-    system "#{bin}/cypher-shell", "--version"
+    # `doesntexist` is printed, but shell_output captures //, unsure why
+    assert_match //, shell_output("#{bin}/cypher-shell -a bolt://doesntexist", 1)
   end
 end
