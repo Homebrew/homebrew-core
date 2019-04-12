@@ -53,8 +53,8 @@ class Pgcli < Formula
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/52/be/f898e712f5f08131d651a62754fca82a1deb42e4e9889ad01932f770a2be/psycopg2-2.8.1.tar.gz"
-    sha256 "b4a475ce87eabc0607e068a3c704d0aa0820237ed78d493b8e2d880eb73cd7fe"
+    url "https://files.pythonhosted.org/packages/63/54/c039eb0f46f9a9406b59a638415c2012ad7be9b4b97bfddb1f48c280df3a/psycopg2-2.7.7.tar.gz"
+    sha256 "f4526d078aedd5187d0508aa5f9a01eae6a48a470ed678406da94b4cd6524b7e"
   end
 
   resource "Pygments" do
