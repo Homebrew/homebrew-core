@@ -3,6 +3,7 @@ class Libpulsar < Formula
   homepage "https://pulsar.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.3.2/apache-pulsar-2.3.2-src.tar.gz"
   sha256 "18f3681982f206c8f9ad98b5ce0cfaeae24628473d86feb9a3711682050bbbbc"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,12 @@ class Libpulsar < Formula
   depends_on "openssl"
   depends_on "protobuf"
   depends_on "zstd"
+
+  # patch for boost 1.70
+  patch do
+    url "https://github.com/apache/pulsar/commit/07845c5b463b35824f7b4bcab526e90e53489cdb.diff?full_index=1"
+    sha256 "62467d4ff27485caf6784ce3a6756ba9e62b5ad5070fb29637435faf12c39afe"
+  end
 
   def install
     cd "pulsar-client-cpp" do
