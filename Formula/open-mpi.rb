@@ -1,14 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.bz2"
-  sha256 "2f0b8a36cfeb7354b45dda3c5425ef8393c9b04115570b615213faaa3f97366b"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
+  sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
 
   bottle do
-    rebuild 1
-    sha256 "bc3079464eb727d8ae283c81e6ec6189eb749db8ee5254cbf132ee1233dc3508" => :mojave
-    sha256 "ed4e5a8d080142914e4e4142207b8fdc1740aadcc0a4e1a8f5b89a3bb4984008" => :high_sierra
-    sha256 "2e7b97df336f4151eda50bebde5c329b2ab50d79d463fe55ecc68210537910b2" => :sierra
+    sha256 "6d96c0b1c952dd49952f400c80568d33c5a0c2f720d28782e52b015363825729" => :mojave
+    sha256 "7965178c3c6e0fdd1cb4df2a8c9db6b16029508e9cc4b5b6aa006d502fef4224" => :high_sierra
+    sha256 "c4fd61bd3fd433804c02f5245a5e6cd3e3cbac66acbfdc11e5684b230a82ebc9" => :sierra
   end
 
   head do

@@ -3,13 +3,13 @@ class Postgis < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz"
   sha256 "b6cb286c5016029d984f8c440947bf9178da72e1f6f840ed639270e1c451db5e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "493b847abc13a5d85e78c2c97351c1a5f51fe1f98ff6cb0af03addeb28a3ca5f" => :mojave
-    sha256 "3a4b7d55abec7712716c68fb0fe7a7fe7dfe2fb05428bb92f668a127a12c15ae" => :high_sierra
-    sha256 "32062bb7d1f0b5bd5f5fd86166a819d8dafd775db82e13b767e47d9e00c23d04" => :sierra
+    sha256 "b4249fd625f68664b121d896f9ef069ad3bf4469bc6fa0173b9d7aa0524bf160" => :mojave
+    sha256 "c3e4f07c51d0b8409c2ff8eec5203de906d06360db15245f359622e6cde1c73b" => :high_sierra
+    sha256 "bc929fc49418613e0eb1a9dde940ffbe756a42baae69b40a6fcb6847fffdde29" => :sierra
   end
 
   head do
@@ -28,6 +28,7 @@ class Postgis < Formula
   depends_on "pcre"
   depends_on "postgresql"
   depends_on "proj"
+  depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
 
   def install
@@ -37,6 +38,7 @@ class Postgis < Formula
       "--with-projdir=#{Formula["proj"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
       "--with-pgconfig=#{Formula["postgresql"].opt_bin}/pg_config",
+      "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}",
       # Unfortunately, NLS support causes all kinds of headaches because
       # PostGIS gets all of its compiler flags from the PGXS makefiles. This
       # makes it nigh impossible to tell the buildsystem where our keg-only

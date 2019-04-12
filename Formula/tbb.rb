@@ -4,12 +4,13 @@ class Tbb < Formula
   url "https://github.com/01org/tbb/archive/2019_U5.tar.gz"
   version "2019_U5"
   sha256 "2ea82d74dec50e18075b4982b8d360f8bd2bf2950f38e2db483aef82e0047444"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "dddaece3fa2a6f9956cfc960904bc783e8d514ee2062efa235896c920011d8eb" => :mojave
-    sha256 "ff7652fd64198f0ad020c417b337efbc91a37e0f566f56a8ef237363e19dc338" => :high_sierra
-    sha256 "42fe13b9961e7560bac489d4c4ed7b3e79ef6aba54d1d851fe851776e42a933c" => :sierra
+    sha256 "e46dedc9910976bc00022a64376111ad81fc7886168b1dc543fd11f5d80c17d0" => :mojave
+    sha256 "836ea9d1e9d39346c3aead8ca1d0b431d6b3ed6a61ff6b42a14510fc7ca4f37d" => :high_sierra
+    sha256 "bbcc0ffb360b670793c0beb89e4572c1f3ddeb3ed100d42d5de3cba86c23eed8" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -32,10 +33,10 @@ class Tbb < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    system "cmake", "-DTBB_ROOT=#{prefix}",
-                    "-DTBB_OS=Darwin",
-                    "-DSAVE_TO=lib/cmake/TBB",
-                    "-P", "cmake/tbb_config_generator.cmake"
+    system "cmake", "-DINSTALL_DIR=lib/cmake/TBB",
+                    "-DSYSTEM_NAME=Darwin",
+                    "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
+                    "-P", "cmake/tbb_config_installer.cmake"
 
     (lib/"cmake"/"TBB").install Dir["lib/cmake/TBB/*.cmake"]
   end
