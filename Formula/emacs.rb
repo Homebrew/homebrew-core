@@ -1,10 +1,9 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-26.1.tar.xz"
-  sha256 "1cf4fc240cd77c25309d15e18593789c8dbfba5c2b44d8f77c886542300fd32c"
-  revision 1
+  url "https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-26.2.tar.xz"
+  sha256 "151ce69dbe5b809d4492ffae4a4b153b2778459de6deb26f35691e1281a9c58e"
 
   bottle do
     rebuild 1
