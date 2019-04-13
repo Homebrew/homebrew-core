@@ -3,7 +3,7 @@ class Caffe < Formula
   homepage "https://caffe.berkeleyvision.org/"
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
-  revision 11
+  revision 12
 
   bottle do
     sha256 "1db18c2a6f30c925f31186809476522608607728e0b81088d889495b9620c710" => :mojave
