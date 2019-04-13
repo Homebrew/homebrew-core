@@ -1,9 +1,8 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.13.1.0.tar.gz"
-  sha256 "16fb265b9611ff51ea229058824661c04db935cf88fde17af9cb66a8b9299bd5"
-  revision 1
+  url "https://github.com/EttusResearch/uhd/archive/v3.14.0.0.tar.gz"
+  sha256 "612bcc4e857e126c2e1ace98618816209665b20c4136c9e987c67511661715df"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
@@ -21,12 +20,6 @@ class Uhd < Formula
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
     sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
-  end
-
-  # fix build for boost 1.69
-  patch do
-    url "https://github.com/EttusResearch/uhd/commit/5c012cad7858cadcaa85ec295080f3c8b21fdee0.patch?full_index=1"
-    sha256 "30192c65d63a45bc1510cf65d0538da5e3d2e74fe247588eda18058196da3863"
   end
 
   def install
