@@ -1,8 +1,8 @@
 class Gox < Formula
   desc "Go cross compile tool"
   homepage "https://github.com/mitchellh/gox"
-  url "https://github.com/mitchellh/gox/archive/v0.4.0.tar.gz"
-  sha256 "2df7439e9901877685ff4e6377de863c3c2ec4cde43d0ca631ff65d1b64774ad"
+  url "https://github.com/mitchellh/gox/archive/v1.0.1.tar.gz"
+  sha256 "25aab55a4ba75653931be2a2b95e29216b54bd8fecc7931bd416efe49a388229"
   head "https://github.com/mitchellh/gox.git"
 
   bottle do
