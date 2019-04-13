@@ -2,8 +2,8 @@ class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
   homepage "https://github.com/tstack/lnav"
-  url "https://github.com/tstack/lnav/releases/download/v0.8.4/lnav-0.8.4.tar.gz"
-  sha256 "22283a59eca51f85dd3283eea1f326fdaa175d9a7a4957a6edf8fb894a1f891d"
+  url "https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5.tar.gz"
+  sha256 "bb809bc8198d8f7395f3de76efdc1a08a5c2c97dc693040faee38802c38945de"
 
   bottle do
     sha256 "2fd7a4d77dc91c33314e87a3b6f34d70f6aad47deac63fe14ca33f0181ebcb05" => :mojave
