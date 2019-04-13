@@ -15,7 +15,7 @@ class Jenv < Formula
 
   def caveats
     <<~EOS
-      To activate jenv, add the following to your .zshrc:
+      To activate jenv, add the following to your #{shell_profile}:
 
         export PATH="$HOME/.jenv/bin:$PATH"
         eval "$(jenv init -)"
