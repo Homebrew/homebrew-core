@@ -4,6 +4,13 @@ class Osqp < Formula
   url "https://github.com/oxfordcontrol/osqp/archive/v0.5.0.tar.gz"
   sha256 "e0932d1f7bc56dbe526bee4a81331c1694d94c570f8ac6a6cb413f38904e0f64"
 
+  bottle do
+    cellar :any
+    sha256 "02787f8c20cbfa8f8c36cdead8e7a14bc32512bce34cc4c3e7d8c4961e2c9c68" => :mojave
+    sha256 "563a972e1ba486955b23830bfa9c19772f73fa71cfbf7022dc846e0e55681243" => :high_sierra
+    sha256 "1f647ffcc9b71eac3f9db3d2221af3da0a5f31c06b90f731d4dcf2e015281df5" => :sierra
+  end
+
   depends_on "cmake" => [:build, :test]
 
   resource "qdldl" do
