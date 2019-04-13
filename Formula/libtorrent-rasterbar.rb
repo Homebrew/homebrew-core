@@ -1,9 +1,8 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_11/libtorrent-rasterbar-1.1.11.tar.gz"
-  sha256 "7c23deba7fa279825642307587609d51c9935ac7606e0ef2f2d0ba10728b5847"
-  revision 1
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_2_0/libtorrent-rasterbar-1.2.0.tar.gz"
+  sha256 "428eefcf6a603abc0dc87e423dbd60caa00795ece07696b65f8ee8bceaa37c30"
 
   bottle do
     cellar :any
@@ -26,8 +25,6 @@ class LibtorrentRasterbar < Formula
   depends_on "python"
 
   def install
-    ENV.cxx11
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -51,10 +48,12 @@ class LibtorrentRasterbar < Formula
   end
 
   test do
-    system ENV.cxx, "-L#{lib}", "-ltorrent-rasterbar",
-           "-I#{Formula["boost"].include}/boost",
-           "-L#{Formula["boost"].lib}", "-lboost_system",
-           libexec/"examples/make_torrent.cpp", "-o", "test"
+    system ENV.cxx, "-std=c++11", "-I#{Formula["boost"].include}/boost",
+                    "-L#{lib}", "-ltorrent-rasterbar",
+                    "-L#{Formula["boost"].lib}", "-lboost_system",
+                    "-framework", "SystemConfiguration",
+                    "-framework", "CoreFoundation",
+                    libexec/"examples/make_torrent.cpp", "-o", "test"
     system "./test", test_fixtures("test.mp3"), "-o", "test.torrent"
     assert_predicate testpath/"test.torrent", :exist?
   end
