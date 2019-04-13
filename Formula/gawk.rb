@@ -1,10 +1,9 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.1.tar.xz"
-  sha256 "d1119785e746d46a8209d28b2de404a57f983aa48670f4e225531d3bdc175551"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gawk/gawk-5.0.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-5.0.0.tar.xz"
+  sha256 "50f091ed0eb485ad87dbb620d773a3e2c31a27f75f5e008f7bf065055f024406"
 
   bottle do
     rebuild 1
