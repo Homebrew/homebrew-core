@@ -1,13 +1,13 @@
 class ApacheArrowGlib < Formula
   desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.12.1/apache-arrow-0.12.1.tar.gz"
-  sha256 "e93e43343544e344bbc912b89da01d8abf66596f029d26b2b135b102a9e39895"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
+  sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
 
   bottle do
-    sha256 "930d5249652eddc1ccae438a2353a08b5ce18231edd2e42e16982e3d84cccc66" => :mojave
-    sha256 "96a41fd90da27750a9f4abdbb0b0cd127db04807831001a4ca14751ebeb6c576" => :high_sierra
-    sha256 "56acc7a8804e5c2828ba71204001b306dd8666f7c38afd45134b00a4c00af22c" => :sierra
+    sha256 "ec0c08a84ad0d172d4db2981b1f1e511b8f7eab7de12ef75c2cbcad1a1599872" => :mojave
+    sha256 "4d4b5983b16adb5bf50b6c07b08b752ff90e5e6c2223165543b0c2d05e00ddbb" => :high_sierra
+    sha256 "9a0e6a53881bd60ae0a12b5b51aa7c4c9f575480ccdcea54484e8711c644c9f2" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

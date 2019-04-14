@@ -3,16 +3,15 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   # pull from git tag to get submodules
   url "https://github.com/Microsoft/cpprestsdk.git",
-      :tag      => "v2.10.11",
-      :revision => "a325079f7e1976e0485a212d8921ce9b837c1f2f"
-  revision 1
+      :tag      => "v2.10.12",
+      :revision => "d4fb1cf7f7d22c12e2e442ba5a5e98d09b0a28ab"
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "4937a58b5c45b50f0cdb98e75a50671319fa9e0a127e1af11df5454ae64219f6" => :mojave
-    sha256 "824282698a520daec9a42b7acd9054cb204e10a86f52fcd7279e9b87ddb3d38b" => :high_sierra
-    sha256 "642cb8176b0a339487a1d60b86339a3635006bc50e83756cde2a02f84d2126f8" => :sierra
+    sha256 "5bd9d04689e75649c7c2213d3c8ec9a4e8e7897cdc1a927b6b0c5ad2ad7f4a39" => :mojave
+    sha256 "2093cc569fd50a6d5a47ee5cfac603b8fac0317b4f253117f9106d879886b566" => :high_sierra
+    sha256 "068c43cb90f4eb109f66ee93eb83e2bca65e3a394a7a6c066e5d03b9a5933775" => :sierra
   end
 
   depends_on "cmake" => :build

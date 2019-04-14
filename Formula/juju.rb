@@ -1,14 +1,14 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
-  url "https://launchpad.net/juju/2.5/2.5.2/+download/juju-core_2.5.2.tar.gz"
-  sha256 "76c52c263d598e0a87c7a7a70b92030b31d751e0f7a068d388187df59312038e"
+  url "https://launchpad.net/juju/2.5/2.5.4/+download/juju-core_2.5.4.tar.gz"
+  sha256 "d5bc711df3753cee45c258cc7ce3ca9d4492f77d8d1db9fc073fbb93ad6f62f6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2bef0dba1f1f5ce2b4b06a5a39d0ece18b4050ee470e542e8c171555e80c212d" => :mojave
-    sha256 "31f57179868a2e00cc8af4fcd984f59fa9abbb88f94828280df4adf1a75916d5" => :high_sierra
-    sha256 "27f867aac3215ccdac6e908625454e26c22896e0f161ab3744339b25e43385ec" => :sierra
+    sha256 "ba8afe300f829f9864d38b399f80d65c94f365dfe5731633e8bf178b435ebae8" => :mojave
+    sha256 "16b772fa42a3b52e427e8f185c58c11d3dc843ff60f15f24ee30792ea0d791db" => :high_sierra
+    sha256 "a77fc04d4c813f7665abe6a054c7ba721dc927caf9910f6f28ecadcfb21f62cf" => :sierra
   end
 
   depends_on "go" => :build

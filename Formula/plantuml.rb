@@ -15,7 +15,10 @@ class Plantuml < Formula
     libexec.install "plantuml.#{version}.jar" => jar
     (bin/"plantuml").write <<~EOS
       #!/bin/bash
-      GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{libexec}/#{jar} "$@"
+      if [[ "$*" != *"-gui"* ]]; then
+        VMARGS="-Djava.awt.headless=true"
+      fi
+      GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java $VMARGS -jar #{libexec}/#{jar} "$@"
     EOS
     chmod 0555, bin/"plantuml"
   end

@@ -1,15 +1,15 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v11.12.0/node-v11.12.0.tar.gz"
-  sha256 "7d408dcd485f7193ab37e1f36d0a38676d5dbc9c91329c775e5afe6c687393b8"
+  url "https://nodejs.org/dist/v11.14.0/node-v11.14.0.tar.gz"
+  sha256 "b903ba6dc8131b9357e7c5e26967a0f48aa460c708154244a6348d49a7d8ff9a"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "054c08a67e39a3c8926b51fbe6052b6946bd29d010556961f4da8c9766b23584" => :mojave
-    sha256 "ced2c338cae5acc5d3cd3c62811fbaf2695cf02f733e848a73e25422546834ab" => :high_sierra
-    sha256 "bc601a7b533be1a4876d3339c86d65c6d058e291b1329170ca82fd00ba7ae02f" => :sierra
+    sha256 "a6404eaaa9ad08fe5e224f55ff2062c4bd675d06d8bc6be21d59845a289fca03" => :mojave
+    sha256 "3df7f422d05b869deadaa7e1aae42b2f54fcc1154bb4b0c48149bbcd9733672a" => :high_sierra
+    sha256 "d16c2db92e11113dccfa200b63bf143085d0c1892f51a1b0d8499564d0fde8c7" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -19,8 +19,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.7.0.tgz"
-    sha256 "6ce036f070fe8fe602577fd80c103c3d7684077b0f567fdc8792c9ec65d35685"
+    url "https://registry.npmjs.org/npm/-/npm-6.9.0.tgz"
+    sha256 "d6194c36bf612f1b2a6fbe351a7cb6f44dfb9a87a1d5336b1303dc1c07e87276"
   end
 
   def install

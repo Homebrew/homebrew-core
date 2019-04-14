@@ -1,17 +1,15 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.2.0/sshguard-2.2.0.tar.gz"
-  sha256 "2aff07fee6ec33e4ffd5411916b75189977af1d77b86dac5f3834dd3aa3656c2"
-  revision 1
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.3.1/sshguard-2.3.1.tar.gz"
+  sha256 "769055e26df78f4bca34c9a7acf265dfa224c055b33ced47f53d55bf659d20a2"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64f1cdc325ebfd0cbb29926c2e98e0d1c04ea8661a05aecab217c63a2d23244a" => :mojave
-    sha256 "2b979c2504070e5f23e74567eb309128a89ce468e1fbdb0507467fa59f48fe59" => :high_sierra
-    sha256 "db07c4e6798f424c73a343fd52ce08b026bfa7457e88de3c9af7a92428312df0" => :sierra
-    sha256 "e7abf2b9d63c4051e10e565f37cbf069748ff7836932aa1e3971abd98356d6ac" => :el_capitan
+    sha256 "3cd89e0a19db4220d583cd5404931b48a0564e0febc5236dceb308f34ccfc970" => :mojave
+    sha256 "924436fc182a6d79a0f4e2461b25f4aca1aa57c48bb2db049ae1fbe0f115cdab" => :high_sierra
+    sha256 "37b791a9417754e5db8f1665b2982bd6a8421927b73950d520af0c9eb369c474" => :sierra
   end
 
   head do

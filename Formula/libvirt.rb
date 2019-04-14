@@ -1,14 +1,14 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.1.0.tar.xz"
-  sha256 "26f97a53d3172f07f8b63884d845ed71307c4675dc4e1b281c59d253e1e323ab"
+  url "https://libvirt.org/sources/libvirt-5.2.0.tar.xz"
+  sha256 "e51cfb41afe629ce0d46fb93182a4f4ae0c151490db97c49f722756e1154e63f"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "dff9deeb8be9300d9f8670daa82bc6d16c9de4b569b925d370f4262ac79d603a" => :mojave
-    sha256 "0eaab249841b8c165f2e9b387cd9d844f90b2d007660a3fd0b907cc6c7fef923" => :high_sierra
-    sha256 "47831b3b643b8c7697ac88c5a94941618a087f75fc2007f49f93c1c3fa06e94e" => :sierra
+    sha256 "e0639ddf0a8321d21706f319b8d3bd45cc16d6bcafacb58c6203d2c3144953aa" => :mojave
+    sha256 "0c8945c907d1d684516bf69df620c1bd2c931789f14fb4e13f07c59ca278b8bb" => :high_sierra
+    sha256 "4db7091edfc5c12ccc63ca55d80ad65160af3800b974bc629adde4a2ca6ac340" => :sierra
   end
 
   depends_on "pkg-config" => :build

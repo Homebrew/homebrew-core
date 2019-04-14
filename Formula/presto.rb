@@ -1,16 +1,16 @@
 class Presto < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.217/presto-server-0.217.tar.gz"
-  sha256 "b0e95957d56fa91dac7649853cd65f8b22532fe891499feb1b3efb0af47bfcd1"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.218/presto-server-0.218.tar.gz"
+  sha256 "ec06af1e5c2856bfba8fdb86f30ab841296556e903d175989e7bd39c33d29b18"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.217/presto-cli-0.217-executable.jar"
-    sha256 "5481c46bcf5d22b3972f0e8c5811f1091cb2c3547adb1c1b30188bb6856c2b33"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.218/presto-cli-0.218-executable.jar"
+    sha256 "3bdaa697e4a695868186286d0048eb674fdd614bd975b3bd1a7b09d740fc162d"
   end
 
   def install

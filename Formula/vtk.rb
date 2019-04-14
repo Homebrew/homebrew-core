@@ -3,13 +3,13 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.2.tar.gz"
   sha256 "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
-  revision 2
+  revision 3
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "acd90fab027fe1d8c3fee002e9d6ae53d37cb193867e6760349a95f4cc61c6ed" => :mojave
-    sha256 "9e4cd8949c2562df2ead05265f9e192b270d6b5bfa66c58cb2b235ff32ec1a4f" => :high_sierra
-    sha256 "73986d08c7dcec7cdb5122352e84b4ca7b7c2eb4f1e69ccd4d1a5624c9d5808b" => :sierra
+    sha256 "bfdec9cd62e663602dab123763c3cd78ceefa77cc42bdffa95749c224c34ff75" => :mojave
+    sha256 "b2d6092296d7ef4ed9f226766ee926458db158eac5ea5e523d27adf6fa9cec54" => :high_sierra
+    sha256 "7c01576efb1b78069e6dca1cacab30a9fcf855966a1885ef5810076f4c476c7c" => :sierra
   end
 
   depends_on "cmake" => :build

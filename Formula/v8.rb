@@ -4,13 +4,13 @@ class V8 < Formula
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
       :revision => "5637e87bda2811565c3e4e58bd2274aeb3a4757e"
-  version "7.3.492.25" # the version of the v8 checkout, not a depot_tools version
+  version "7.3.492.27" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
-    sha256 "35b386b2849ebc64a866a6bf6907cc3102060194527f434a54f6da40b5a53c43" => :mojave
-    sha256 "4a04302a9d9b2724168c0da83d3098cee5ab9537c4b1426ac6af95ca7fcca0e7" => :high_sierra
-    sha256 "56e3e88070de154b64a29281333e1ad02640ca75f65cf394ec6ad5b95b457866" => :sierra
+    sha256 "48cb06dfcfc1afcdcb808ecdfbdd911e91fc8d68ca41855c7c62ccf740efcc46" => :mojave
+    sha256 "b6e09cb2d9829fe352bfd4577360cb58418a6c3caf8d5d36a6fe04836ce5e438" => :high_sierra
+    sha256 "d899ba287714639bcc34f6a42e048e64af12a72595beb757863935cf61d8c954" => :sierra
   end
 
   # depot_tools/GN require Python 2.7+
@@ -56,6 +56,7 @@ class V8 < Formula
         :is_component_build           => true,
         :v8_use_external_startup_data => false,
         :v8_enable_i18n_support       => true,
+        :use_custom_libcxx            => false,
       }
 
       # Transform to args string
@@ -76,5 +77,21 @@ class V8 < Formula
     assert_equal "Hello World!", shell_output("#{bin}/d8 -e 'print(\"Hello World!\");'").chomp
     t = "#{bin}/d8 -e 'print(new Intl.DateTimeFormat(\"en-US\").format(new Date(\"2012-12-20T03:00:00\")));'"
     assert_match %r{12/\d{2}/2012}, shell_output(t).chomp
+
+    (testpath/"test.cpp").write <<~'EOS'
+      #include <libplatform/libplatform.h>
+      #include <v8.h>
+      int main(){
+        static std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
+        v8::V8::InitializePlatform(platform.get());
+        v8::V8::Initialize();
+        return 0;
+      }
+    EOS
+
+    # link against installed libc++
+    system ENV.cxx, "-std=c++11", "test.cpp",
+      "-I#{libexec}/include",
+      "-L#{libexec}", "-lv8", "-lv8_libplatform"
   end
 end

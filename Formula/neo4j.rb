@@ -30,11 +30,14 @@ class Neo4j < Formula
     (libexec/"conf/neo4j.conf").append_lines <<~EOS
       wrapper.java.additional=-Djava.awt.headless=true
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
+      dbms.directories.data=#{var}/neo4j/data
+      dbms.directories.logs=#{var}/log/neo4j
     EOS
   end
 
   def post_install
-    (var/"log").mkpath
+    (var/"log/neo4j").mkpath
+    (var/"neo4j").mkpath
   end
 
   plist_options :manual => "neo4j start"

@@ -1,15 +1,15 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.19.tar.gz"
-  sha256 "79ed21b469e6cd1e182a731752d3ea20ca2679920dea203d4dbc89e8295ee242"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.20.tar.gz"
+  sha256 "296d1c6bd6f237d8c65ca3dffd6a28e70451552c302f31ac231d609cceeb355d"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f7e986f05a5f019b8b02633ddb08d074f96117ab63b580f74e0a93e9def57409" => :mojave
-    sha256 "1d57e85d0b77693301564970c08fd7c8adcbb34881a93042c26c48b515222503" => :high_sierra
-    sha256 "5e13cf470e8fe3d22236871841068293bed6cb6da43183838b6b696da325ce3b" => :sierra
+    sha256 "e846d2ede69a1e10cde71ca185ae90d8bcd8f7d1d440441419e7fe0a4847d2f5" => :mojave
+    sha256 "0a24107a3f1c0e92a7783f7a158a07347131228861c39ad2241d61a05ef109f5" => :high_sierra
+    sha256 "4ff0d85034c39258acbe3427725a1cf0fd5e54d2715628780a7532ff46cb5a76" => :sierra
   end
 
   depends_on "atomicparsley"
@@ -22,13 +22,13 @@ class GetIplayer < Formula
   end
 
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.059.tar.gz"
-    sha256 "217debbe0a79f0b7c5669978b4d733271998df4497f4718f78456e5f54d64849"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz"
+    sha256 "0d47064781a545304d5dcea5dfcee3acc2e95a32e1b4884d80505cde8ee6ebcd"
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.93.tar.gz"
-    sha256 "00c30fc566fee0823af0a75bdf4f170531655df14beca6d51f0e453a43aaad5d"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.94.tar.gz"
+    sha256 "171a1741f3ea57519657bfb1e40a5290149d7c7d69a1131464c7db23029e8f6e"
   end
 
   resource "Mozilla::CA" do

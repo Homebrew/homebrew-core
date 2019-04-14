@@ -1,22 +1,20 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2019_U4.tar.gz"
-  version "2019_U4"
-  sha256 "342a0a2cd583879850658284b86e9351ea019b4f3fcd731f4c18456f0ce9f900"
+  url "https://github.com/01org/tbb/archive/2019_U5.tar.gz"
+  version "2019_U5"
+  sha256 "2ea82d74dec50e18075b4982b8d360f8bd2bf2950f38e2db483aef82e0047444"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0f2810f2137cc02f4ed9dcd19e10c9c305b9be6c4b1b24ecbf8ef543ae6c91e2" => :mojave
-    sha256 "4d50a2091e3e275f1fbe9c25f29cf1448ae01887862924bc2a94702e67f3adee" => :high_sierra
-    sha256 "877768fb618aa28de419e5cabdb11ae9bc77c82bf6d73e843b220814029c1854" => :sierra
+    sha256 "e46dedc9910976bc00022a64376111ad81fc7886168b1dc543fd11f5d80c17d0" => :mojave
+    sha256 "836ea9d1e9d39346c3aead8ca1d0b431d6b3ed6a61ff6b42a14510fc7ca4f37d" => :high_sierra
+    sha256 "bbcc0ffb360b670793c0beb89e4572c1f3ddeb3ed100d42d5de3cba86c23eed8" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  # requires malloc features first introduced in Lion
-  # https://github.com/Homebrew/homebrew/issues/32274
-
   depends_on "python"
 
   def install
@@ -35,10 +33,10 @@ class Tbb < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    system "cmake", "-DTBB_ROOT=#{prefix}",
-                    "-DTBB_OS=Darwin",
-                    "-DSAVE_TO=lib/cmake/TBB",
-                    "-P", "cmake/tbb_config_generator.cmake"
+    system "cmake", "-DINSTALL_DIR=lib/cmake/TBB",
+                    "-DSYSTEM_NAME=Darwin",
+                    "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
+                    "-P", "cmake/tbb_config_installer.cmake"
 
     (lib/"cmake"/"TBB").install Dir["lib/cmake/TBB/*.cmake"]
   end

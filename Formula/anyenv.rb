@@ -1,14 +1,14 @@
 class Anyenv < Formula
   desc "All in one for **env"
   homepage "https://anyenv.github.io/"
-  url "https://github.com/anyenv/anyenv/archive/v1.0.1.tar.gz"
-  sha256 "5d42ac8748db41b8ec0cb3ad986bb10084e55df0153366403ea458e7a958a1a7"
+  url "https://github.com/anyenv/anyenv/archive/v1.1.0.tar.gz"
+  sha256 "43d51b31b4efccc52cd48290d565d33ee8ef9fc9dbcf635909481744e9898617"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e151eaa92c93a0c8e33a1f285cf3fc3abf98b7eab601df1cafa1b57d98d543a3" => :mojave
-    sha256 "288be8d02cec3886f56eea01f494fd0b3ffdf28ed6d323566a1b533b2cce9e43" => :high_sierra
-    sha256 "288be8d02cec3886f56eea01f494fd0b3ffdf28ed6d323566a1b533b2cce9e43" => :sierra
+    sha256 "f36c96fb9dce2d36e6d67aaf1aa8fc846983333b101816ff6a78ae5b68135a08" => :mojave
+    sha256 "f36c96fb9dce2d36e6d67aaf1aa8fc846983333b101816ff6a78ae5b68135a08" => :high_sierra
+    sha256 "021fa6c226fdd920311d5fb871dd8befe70690b14bd2e03365059f0a011973f8" => :sierra
   end
 
   def install

@@ -30,10 +30,6 @@ class Gexiv2 < Formula
       system "ninja"
       system "ninja", "install"
     end
-
-    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/GExiv2-0.10.gir", "@rpath", lib.to_s
-    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/GExiv2-0.10.typelib", share/"gir-1.0/GExiv2-0.10.gir"
   end
 
   test do

@@ -3,14 +3,14 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.15.9.tar.gz"
-  sha256 "e4cfba989bba614cd53f3f406ac6da9f05977d6b1296e5d20a299f10c2d7ae43"
+  url "https://nginx.org/download/nginx-1.15.11.tar.gz"
+  sha256 "d5eb2685e2ebe8a9d048b07222ffdab50e6ff6245919eebc2482c1f388e3f8ad"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "01235eb30ff0d8e79f47735ee0cf527d2dbe6cab12b33ec8e0525405a1d40f34" => :mojave
-    sha256 "82dc5cb72d60737035d6c5e11cbdfe0a4cf5c17ca67856bd383083923a2ce3e2" => :high_sierra
-    sha256 "a92aaf5fd66dc3b486c2c090d01470ed415c104cc71518fd4a427da627405818" => :sierra
+    sha256 "3f7180fcc57fb9e32bf8650f0bd79230717b55e9e341f8d7c3dff0f18866f630" => :mojave
+    sha256 "3654e93805660f9eaef26ee986db315ba0d33ee7f0d7f72f913e5ae5cdb65a2d" => :high_sierra
+    sha256 "51cfa0a1db431a239dff54e5a17bf1432971aa8c58ac5c7622ee6a4e644561e3" => :sierra
   end
 
   depends_on "openssl"
@@ -48,6 +48,7 @@ class Nginx < Formula
       --http-scgi-temp-path=#{var}/run/nginx/scgi_temp
       --http-log-path=#{var}/log/nginx/access.log
       --error-log-path=#{var}/log/nginx/error.log
+      --with-compat
       --with-debug
       --with-http_addition_module
       --with-http_auth_request_module

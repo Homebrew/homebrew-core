@@ -3,13 +3,14 @@ class Liblwgeom < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz"
   sha256 "b6cb286c5016029d984f8c440947bf9178da72e1f6f840ed639270e1c451db5e"
+  revision 1
   head "https://svn.osgeo.org/postgis/trunk/"
 
   bottle do
     cellar :any
-    sha256 "7a5b41e04d2f3351e8f8ea97c6025ee6e868cb1389055b5bdfe11b4f2b87836e" => :mojave
-    sha256 "1f1d5f8e6148e67fd069d01d00cbbdc5a719cd3e8bbdbcdbd7524261364a844f" => :high_sierra
-    sha256 "ab29ba07d76f6511297ffc3fc57adbe38a9dc44e0aec908c78fa26b7a4880d74" => :sierra
+    sha256 "ae9c29245251a22f8a93b751ae13ebb756e32f29f3fcfc18f1908db22fec534d" => :mojave
+    sha256 "7fb25efd9d5c9066478b3bfa37eb20fe9067dde08a68d5d0ab71906f16c9b934" => :high_sierra
+    sha256 "5f4e4b2b89b59da69a7b0274b6a5db86b14b007a46ad985193fc173f8926ec9e" => :sierra
   end
 
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"
