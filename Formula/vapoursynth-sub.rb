@@ -13,6 +13,7 @@ class VapoursynthSub < Formula
 
   depends_on "ffmpeg"
   depends_on "libass"
+  depends_on "vapoursynth"
 
   def install
     system "./autogen.sh"
