@@ -1,8 +1,8 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "http://opencolorio.org/"
-  url "https://github.com/imageworks/OpenColorIO/archive/v1.1.0.tar.gz"
-  sha256 "228589879e1f11e455a555304007748a8904057088319ebbf172d9384b93c079"
+  url "https://github.com/imageworks/OpenColorIO/archive/v1.1.1.tar.gz"
+  sha256 "c9b5b9def907e1dafb29e37336b702fff22cc6306d445a13b1621b8a754c14c8"
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
