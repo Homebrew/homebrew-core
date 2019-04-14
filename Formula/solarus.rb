@@ -1,10 +1,10 @@
 class Solarus < Formula
   desc "Action-RPG game engine"
-  homepage "http://www.solarus-games.org/"
+  homepage "https://www.solarus-games.org/"
   head "https://github.com/christopho/solarus.git"
 
   stable do
-    url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.3-src.tar.gz"
+    url "https://www.solarus-games.org/downloads/solarus/solarus-1.5.3-src.tar.gz"
     sha256 "7608f3bdc7baef36e95db5e4fa4c8c5be0a3f436c50c53ab72d70a92aa44cc1c"
 
     # Upstream patch for build issue, remove in next version
