@@ -1,9 +1,8 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://savannah.nongnu.org/download/openexr/openexr-2.2.0.tar.gz"
-  sha256 "36a012f6c43213f840ce29a8b182700f6cf6b214bea0d5735594136b44914231"
-  revision 1
+  url "https://github.com/openexr/openexr/releases/download/v2.3.0/openexr-2.3.0.tar.gz"
+  sha256 "fd6cb3a87f8c1a233be17b94c74799e6241d50fc5efd4df75c7a4b9cf4e25ea6"
 
   bottle do
     cellar :any
