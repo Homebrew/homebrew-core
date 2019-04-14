@@ -1,8 +1,8 @@
 class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "https://www.openexr.com/"
-  url "https://download.savannah.nongnu.org/releases/openexr/ilmbase-2.2.1.tar.gz"
-  sha256 "cac206e63be68136ef556c2b555df659f45098c159ce24804e9d5e9e0286609e"
+  url "https://github.com/openexr/openexr/releases/download/v2.3.0/ilmbase-2.3.0.tar.gz"
+  sha256 "456978d1a978a5f823c7c675f3f36b0ae14dba36638aeaa3c4b0e784f12a3862"
 
   bottle do
     cellar :any
