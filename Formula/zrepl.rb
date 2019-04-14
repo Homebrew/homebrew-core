@@ -1,12 +1,15 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/0.1.0-rc3.tar.gz"
+  url "https://github.com/zrepl/zrepl/archive/v0.1.0.tar.gz"
   head "https://github.com/zrepl/zrepl.git"
-  sha256 "09b4eb2b160c131a23e45f7b786d2103b362b5802a4b65b6e764243a1afe2ed6"
+  sha256 ""
   depends_on "go" => :build
   depends_on "python3" => :build
 
+  devel do
+    url "https://github.com/zrepl/zrepl/archive/problame/fix-io-timeout-despite-heartbeats.zip"
+  end
   def install
     contents = Dir["{*,.git,.gitignore}"]
     gopath = buildpath/"gopath"
