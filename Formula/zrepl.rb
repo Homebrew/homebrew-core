@@ -1,11 +1,10 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/v0.1.0.tar.gz"
+  url "https://github.com/zrepl/zrepl/archive/v0.1.1.tar.gz"
   head "https://github.com/zrepl/zrepl.git"
   sha256 ""
   depends_on "go" => :build
-  depends_on "python3" => :build
 
   devel do
     url "https://github.com/zrepl/zrepl/archive/problame/fix-io-timeout-despite-heartbeats.zip"
@@ -20,7 +19,7 @@ class Zrepl < Formula
     
     cd gopath/"src/github.com/zrepl/zrepl" do
       system "./lazy.sh",  "godep"
-      system "make", "ZREPL_VERSION=0.1.0"
+      system "make"
       bin.install "artifacts/zrepl"
     end      
   end
