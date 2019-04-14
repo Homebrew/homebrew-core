@@ -16,8 +16,8 @@ class Protobuf < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python"
-  depends_on "python@2"
+  depends_on "python" => [:build, :test]
+  depends_on "python@2" => [:build, :test]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
