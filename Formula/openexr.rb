@@ -1,9 +1,8 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://savannah.nongnu.org/download/openexr/openexr-2.2.0.tar.gz"
-  sha256 "36a012f6c43213f840ce29a8b182700f6cf6b214bea0d5735594136b44914231"
-  revision 1
+  url "https://github.com/openexr/openexr/releases/download/v2.3.0/openexr-2.3.0.tar.gz"
+  sha256 "fd6cb3a87f8c1a233be17b94c74799e6241d50fc5efd4df75c7a4b9cf4e25ea6"
 
   bottle do
     cellar :any
@@ -19,13 +18,6 @@ class Openexr < Formula
   resource "exr" do
     url "https://github.com/openexr/openexr-images/raw/master/TestImages/AllHalfValues.exr"
     sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
-  end
-
-  # Fixes builds on 32-bit targets due to incorrect long literals
-  # Patches are already applied in the upstream git repo.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f1a3ea4f69b7a54d8123e2f16488864d52202de8/openexr/64bit_types.patch"
-    sha256 "c95374d8fdcc41ddc2f7c5b3c6f295a56dd5a6249bc26d0829548e70f5bd2dc9"
   end
 
   def install
