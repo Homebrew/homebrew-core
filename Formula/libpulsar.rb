@@ -1,9 +1,8 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.3.0/apache-pulsar-2.3.0-src.tar.gz"
-  sha256 "ac182c83f2fff03e8242cb9f9540d5ae2a32e3b9b382a2340f139dfa0bfb0a28"
-  revision 2
+  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.3.1/apache-pulsar-2.3.1-src.tar.gz"
+  sha256 "f4541182384942f59a83fd3150d3c46351ed443b159520296d69ae0ae8612dd8"
 
   bottle do
     cellar :any
