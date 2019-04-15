@@ -1,8 +1,8 @@
 class Libvmaf < Formula
   desc "Perceptual video quality assessment based on multi-method fusion"
   homepage "https://github.com/Netflix/vmaf"
-  url "https://github.com/Netflix/vmaf/archive/v1.3.13.tar.gz"
-  sha256 "926ed538c7d7ae3a36064b87a34094a9d2bee20f7e51a64f8bb275f6c44a8ae3"
+  url "https://github.com/Netflix/vmaf/archive/v1.3.14.tar.gz"
+  sha256 "e405b9716ea194b851b7d341f670e417ec6a319daec74d3e7bf591b71cbbac1c"
 
   bottle do
     cellar :any_skip_relocation
