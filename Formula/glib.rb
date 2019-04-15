@@ -1,9 +1,8 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
-  sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
-  revision 1
+  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.1.tar.xz"
+  sha256 "89f884f5d5c6126140ec868cef184c42ce72902c13cd08f36e660371779b5560"
 
   bottle do
     sha256 "7f3dda9780ca3352b170afb63175cb8ebd6d759c028a088f5f73103ad312bdc4" => :mojave
@@ -36,6 +35,7 @@ class Glib < Formula
       -Diconv=native
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
+      -Ddtrace=false
     ]
 
     mkdir "build" do
