@@ -3,6 +3,7 @@ class LibtorrentRasterbar < Formula
   homepage "https://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_2_0/libtorrent-rasterbar-1.2.0.tar.gz"
   sha256 "428eefcf6a603abc0dc87e423dbd60caa00795ece07696b65f8ee8bceaa37c30"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,6 +24,12 @@ class LibtorrentRasterbar < Formula
   depends_on "boost-python3"
   depends_on "openssl"
   depends_on "python"
+
+  # Upstream commit for Boost 1.70.0
+  patch do
+    url "https://github.com/arvidn/libtorrent/commit/76c27949.diff?full_index=1"
+    sha256 "c44db22b3eabcefc8e2ace5d8e0d39364c1a8a49dbee3d3f2223bee13395921a"
+  end
 
   def install
     args = %W[
