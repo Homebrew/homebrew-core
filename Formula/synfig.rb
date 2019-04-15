@@ -3,7 +3,7 @@ class Synfig < Formula
   homepage "https://synfig.org/"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
   sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
-  revision 5
+  revision 6
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
