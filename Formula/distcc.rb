@@ -18,7 +18,6 @@ class Distcc < Formula
 
   resource "libiberty" do
     url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20190122.orig.tar.xz"
-    mirror "http://httpredir.debian.org/debian/pool/main/libi/libiberty/libiberty_20190122.orig.tar.xz"
     sha256 "45bd422ace29f124c068ad44edf41f845b2061ee043275ef3e233a3f647ab509"
   end
 
