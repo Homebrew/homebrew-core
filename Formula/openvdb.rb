@@ -3,7 +3,7 @@ class Openvdb < Formula
   homepage "https://www.openvdb.org/"
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
   sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
-  revision 1
+  revision 2
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
