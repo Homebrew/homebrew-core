@@ -3,6 +3,7 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
+  revision 1
 
   bottle do
     sha256 "18209065db7e487bd9bdcb576eb0be29f8cbfd8532619b7248c3c54329eb865b" => :mojave
@@ -28,6 +29,11 @@ class OpencvAT3 < Formula
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/3.4.5.tar.gz"
     sha256 "8f73d029887c726fed89c69a2b0fcb1d098099fcd81c1070e1af3b452669fbe2"
+  end
+
+  patch do
+    url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
+    sha256 "c48a6a769f364e6f61bc99cf47a6e664c85246c9fcd4a201afc408158fc4f1ef"
   end
 
   def install
