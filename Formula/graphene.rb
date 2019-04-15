@@ -1,8 +1,8 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.8/graphene-1.8.2.tar.xz"
-  sha256 "b3fcf20996e57b1f4df3941caac10f143bb29890a42f7a65407cd19271fc89f7"
+  url "https://download.gnome.org/sources/graphene/1.8/graphene-1.8.6.tar.xz"
+  sha256 "82a07f188d34eb69df4b087b5e1d66e918475f59f7e62fb0308e2c91432a712f"
 
   bottle do
     sha256 "c01711d7053a1f6afdbf3a7c7897fecfac381c5c6e3bdb70d17d7022a7ba8c2a" => :mojave
@@ -12,21 +12,20 @@ class Graphene < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "glib"
 
+  # patch submitted upstream at https://github.com/ebassi/graphene/pull/146
   patch :DATA
 
   def install
-    ENV.refurbish_args
-
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
@@ -57,11 +56,24 @@ end
 
 __END__
 diff --git a/meson.build b/meson.build
-index 0736994..5932028 100644
+index 67e3ad0..b045a54 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -112,11 +112,6 @@ if host_system == 'linux' and cc.get_id() == 'gcc'
-   common_ldflags = [ '-Wl,-Bsymbolic-functions', '-Wl,-z,relro', '-Wl,-z,now', ]
+@@ -35,7 +35,11 @@ graphene_binary_age = 100 * graphene_minor_version + graphene_micro_version
+
+ # Maintain compatibility with the previous libtool versioning
+ soversion = 0
+-libversion = '@0@.@1@.@2@'.format(soversion, graphene_binary_age - graphene_interface_age, graphene_interface_age)
++current = graphene_binary_age - graphene_interface_age
++revision = graphene_interface_age
++libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
++
++darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, revision)]
+
+ # Paths
+ graphene_prefix = get_option('prefix')
+@@ -117,11 +121,6 @@ if host_system == 'linux'
+   common_ldflags += cc.get_supported_link_arguments(ldflags)
  endif
 
 -# Maintain compatibility with Autotools on macOS
@@ -72,3 +84,15 @@ index 0736994..5932028 100644
  # Required dependencies
  mathlib = cc.find_library('m', required: false)
  threadlib = dependency('threads')
+diff --git a/src/meson.build b/src/meson.build
+index 0d3970f..942c188 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -112,6 +112,7 @@ libgraphene = library(
+   sources: sources + simd_sources + private_headers,
+   version: libversion,
+   soversion: soversion,
++  darwin_versions: darwin_versions,
+   install: true,
+   dependencies: [ mathlib, threadlib ] + platform_deps,
+   c_args: extra_args + common_cflags + debug_flags + [
