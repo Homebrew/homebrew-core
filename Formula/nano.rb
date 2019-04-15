@@ -1,8 +1,8 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://nano-editor.org/dist/v4/nano-4.0.tar.gz"
-  sha256 "5b3f67d7d187e9feb980e1482ba38c1bc424bace5282c6bbe85b4bb98371ef1e"
+  url "https://www.nano-editor.org/dist/v4/nano-4.1.tar.gz"
+  sha256 "094a67b9cd651d359de03d79b407b499a18a577221ebc002b56763b0346fbb6f"
 
   bottle do
     sha256 "34a92e5858a02623f53514fed225a4f040551c647e7765a5489cc2918778f512" => :mojave
