@@ -17,9 +17,9 @@ class Distcc < Formula
   depends_on "python"
 
   resource "libiberty" do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libi/libiberty/libiberty_20180614.orig.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20180614.orig.tar.xz"
-    sha256 "ffee051e01d07833ba2ae8cfaf8fffaa8047f530d725c6c6fcaf51c3d604740c"
+    url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20190122.orig.tar.xz"
+    mirror "http://httpredir.debian.org/debian/pool/main/libi/libiberty/libiberty_20190122.orig.tar.xz"
+    sha256 "45bd422ace29f124c068ad44edf41f845b2061ee043275ef3e233a3f647ab509"
   end
 
   def install
