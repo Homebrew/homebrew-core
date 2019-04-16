@@ -1,9 +1,8 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
-  sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
-  revision 6
+  url "https://github.com/synfig/synfig/archive/v1.3.11.tar.gz"
+  sha256 "ffb0abda955aa81756883740a290e87f5205e3438bdc74424978a42d221f26ee"
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
@@ -11,7 +10,7 @@ class Synfig < Formula
     sha256 "2efa4408b8aaca6acf4a83b794b0e81e75498d4f5401727b17ed0d9e38b7eb19" => :sierra
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cairo"
   depends_on "etl"
@@ -25,21 +24,11 @@ class Synfig < Formula
   depends_on "openexr"
   depends_on "pango"
 
-  # bug filed upstream as https://synfig.org/issues/thebuggenie/synfig/issues/904
-  patch do
-    url "https://gist.githubusercontent.com/tschoonj/06d5de3cdc5d063f8612/raw/26fe46b6eedeecdc686b9fd5aac01de9f2756424/synfig.diff"
-    sha256 "0ac5b757ba3dda6a863a79e717fc239648c490eac1e643ff275b8ac232a466a3"
-  end
-
   def install
-    ENV.cxx11
-    boost = Formula["boost"]
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-boost=#{boost.opt_prefix}",
-                          "--without-jpeg"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", *std_cmake_args, "../ETL/"
+      system "make", "install"
+    end
   end
 
   test do
