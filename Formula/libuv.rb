@@ -1,8 +1,8 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.27.0.tar.gz"
-  sha256 "4afcdc84cd315b77c8e532e7b3fde43d536af0e2e835eafbd0e75518ed26dbed"
+  url "https://github.com/libuv/libuv/archive/v1.28.0.tar.gz"
+  sha256 "9ab338062e5b73bd4a05b7fcb77a0745c925c0be9118e0946434946a262cdad5"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
@@ -21,6 +21,9 @@ class Libuv < Formula
   def install
     # This isn't yet handled by the make install process sadly.
     cd "docs" do
+      # `app.info()` was deprecated on Jan 4, 2017 (sphinx-doc/sphinx#3267),
+      # and removed as of Sphinx 2.0.0. https://github.com/libuv/libuv/pull/2265
+      inreplace "src/sphinx-plugins/manpage.py", "app.info('Initializing manpage plugin')", ""
       system "make", "man"
       system "make", "singlehtml"
       man1.install "build/man/libuv.1"
