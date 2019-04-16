@@ -5,6 +5,13 @@ class VapoursynthSub < Formula
   sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  bottle do
+    cellar :any
+    sha256 "3f18667ff79b4320548cbbd584b5ea37493fd819e1946f83e48aaad8649e406f" => :mojave
+    sha256 "4dc5ed3a87f9eb830fabcbb45a13857ac90db6efcd6de33159c6c98e656b349a" => :high_sierra
+    sha256 "a2f0a16cbfd13c6852afcb7602b60f15e849db51782ffc7aad46255903ed43c6" => :sierra
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
