@@ -5,6 +5,13 @@ class VapoursynthOcr < Formula
   sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  bottle do
+    cellar :any
+    sha256 "2d2f61ac4cfd2f12710b5e48feafd7c6d9bea85fd3f3ee7859c23eea9300fd4d" => :mojave
+    sha256 "110b3600b19c7ae5353e17db3de4f8aa4a1acf6685ca81ddde089f117b75f10b" => :high_sierra
+    sha256 "416264483cddf5d31882f734610bc9f545a6dea30b0189e67b259b9934cb6a70" => :sierra
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
