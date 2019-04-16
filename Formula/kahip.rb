@@ -18,6 +18,7 @@ class Kahip < Formula
   end
 
   test do
-    system "#{bin}/interface_test"
+    output = shell_output("#{bin}/interface_test")
+    assert_match "edge cut 2", output
   end
 end
