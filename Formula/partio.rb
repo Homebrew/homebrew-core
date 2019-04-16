@@ -16,8 +16,6 @@ class Partio < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python" => :build
-  depends_on "swig" => :build
 
   def install
     mkdir "build" do
