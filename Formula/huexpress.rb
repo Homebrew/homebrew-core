@@ -8,10 +8,10 @@ class Huexpress < Formula
 
   bottle do
     cellar :any
-    sha256 "e7086c5229f7e2e9434f648de9fe1b1564e9a56ee7936a2bb247e1d21f1974ab" => :mojave
-    sha256 "82e99480094c372b83088649696ee110b20b1f71c11d08f45125c03a7de28a17" => :high_sierra
-    sha256 "0f2ad080284a6cf9076293a4f1f7afa7ca6461f9cb215d618a56a8f9101c2a2e" => :sierra
-    sha256 "61d7da52fc3ad3e4a83b57e81dc66233a211bd7a850008ac2c7c3226d75b7071" => :el_capitan
+    rebuild 1
+    sha256 "f395a18b662d16c84b18e4594f67516a43e7a692879d68289c08ee652cedc651" => :mojave
+    sha256 "53eec3fc474a553bdd70ad1c8dcb63714db5d059839748dcbc80b86380c81d4c" => :high_sierra
+    sha256 "31ffed8cb0c04131abefe50aa06aa8154e3cf8e49fa24ebe5f4e6d456f6b3d9b" => :sierra
   end
 
   depends_on "pkg-config" => :build
