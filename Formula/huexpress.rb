@@ -22,7 +22,7 @@ class Huexpress < Formula
   depends_on "sdl2_mixer"
 
   def install
-    scons
+    system "scons"
     bin.install ["src/huexpress", "src/hucrc"]
   end
 
