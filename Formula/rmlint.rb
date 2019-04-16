@@ -21,7 +21,7 @@ class Rmlint < Formula
 
   def install
     system "scons", "config"
-    scons
+    system "scons"
     bin.install "rmlint"
     man1.install "docs/rmlint.1.gz"
   end
