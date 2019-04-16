@@ -8,7 +8,6 @@ class Inlets < Formula
   depends_on "go" => :build
 
   def install
-    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/alexellis/inlets").install buildpath.children
     cd "src/github.com/alexellis/inlets" do
