@@ -21,6 +21,9 @@ class Libuv < Formula
   def install
     # This isn't yet handled by the make install process sadly.
     cd "docs" do
+      # `app.info()` was deprecated on Jan 4, 2017 (sphinx-doc/sphinx#3267),
+      # and removed as of Sphinx 2.0.0.
+      inreplace "src/sphinx-plugins/manpage.py", "app.info('Initializing manpage plugin')", ""
       system "make", "man"
       system "make", "singlehtml"
       man1.install "build/man/libuv.1"
