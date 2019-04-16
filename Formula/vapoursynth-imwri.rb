@@ -5,6 +5,13 @@ class VapoursynthImwri < Formula
   sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  bottle do
+    cellar :any
+    sha256 "4b74c31f8c292a7151a85a8bcfcd187ab78c5e29dcae3b953a57bd4658c24727" => :mojave
+    sha256 "9f3984dc4b3fc382a9cadbced0676b975035807f3c4bfc945bc2aa353e08bc10" => :high_sierra
+    sha256 "429d80c42d846d6693148d2354e50bcc1ec86b8466a69f531a4f37fd8fc7d7f2" => :sierra
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
