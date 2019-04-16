@@ -18,7 +18,7 @@ class Field3d < Formula
   depends_on "ilmbase"
 
   def install
-    scons
+    system "scons"
     include.install Dir["install/**/**/release/include/*"]
     lib.install Dir["install/**/**/release/lib/*"]
     man1.install "man/f3dinfo.1"
