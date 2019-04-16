@@ -7,9 +7,9 @@ class Iamy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03bc1dae355a2c7be4ab4b9beb7499c98631e94bc9c179ed1730fede35c4c11f" => :mojave
-    sha256 "b64e1208a256256434da77d5fa96027963095f0a76eda6b0b0d6cb9e37bba0a7" => :high_sierra
-    sha256 "9a1318eb21fbe17a3b572e8b22fcb2315e98d7cc8f1c0586e6305d0aa2d13994" => :sierra
+    sha256 "ec31036a74b3e7fa56dc920b4dcb4f55dd525588a60e7e0306bccadb1101e11b" => :mojave
+    sha256 "89e0a7f9d27d589ad0639f01160036e891cbbe811b28d45a5904e0a22aa66990" => :high_sierra
+    sha256 "044aabaea888d7d318c8dc5f0319a33b9bbec6478ff45782ff5e1edec4eeb9dc" => :sierra
   end
 
   depends_on "go" => :build
