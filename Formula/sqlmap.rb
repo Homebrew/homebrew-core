@@ -5,6 +5,7 @@ class Sqlmap < Formula
   sha256 "7174148df741c7bf30bd090b71781b0f77d5d349c7bbb3c6cdf8e964111c0a0b"
   head "https://github.com/sqlmapproject/sqlmap.git"
 
+  depends_on "python@2"
   bottle :unneeded
 
   def install
