@@ -3,15 +3,15 @@ class Exiftool < Formula
   homepage "https://www.sno.phy.queensu.ca/~phil/exiftool/index.html"
   # Ensure release is tagged production before submitting.
   # https://www.sno.phy.queensu.ca/~phil/exiftool/history.html
-  url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-11.11.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-11.11.tar.gz"
-  sha256 "e64eee75cdbc0944ea598bade44a2c100e7c940ce7d163cbbd087d2bd00cefeb"
+  url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-11.30.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-11.30.tar.gz"
+  sha256 "3a53733a1532bede4ce7eee763e5ab2bb87149e75e869e11a64d0e159858726e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ddec4475d058dcd1a6a5ffe5666abf9fa76aeb0bd965aed10f15a80f22a711df" => :mojave
-    sha256 "06fbfc9844eab96cd0589d829798e6b0893e7421d136ee2d8b2c759aeb5bc554" => :high_sierra
-    sha256 "06fbfc9844eab96cd0589d829798e6b0893e7421d136ee2d8b2c759aeb5bc554" => :sierra
+    sha256 "a6e176ab3141ad2b7d7604383253abd2790687f721a174208f8870dcf8733da8" => :mojave
+    sha256 "a6e176ab3141ad2b7d7604383253abd2790687f721a174208f8870dcf8733da8" => :high_sierra
+    sha256 "fa6557f353f44dca4c41c79596b9fefb52caaeaf4795b35d262836084df67e08" => :sierra
   end
 
   def install

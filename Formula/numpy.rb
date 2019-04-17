@@ -1,15 +1,15 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/2b/26/07472b0de91851b6656cbc86e2f0d5d3a3128e7580f23295ef58b6862d6c/numpy-1.16.1.zip"
-  sha256 "31d3fe5b673e99d33d70cfee2ea8fe8dccd60f265c3ed990873a88647e3dd288"
+  url "https://files.pythonhosted.org/packages/cf/8d/6345b4f32b37945fedc1e027e83970005fc9c699068d2f566b82826515f2/numpy-1.16.2.zip"
+  sha256 "6c692e3879dde0b67a9dc78f9bfb6f61c666b4562fd8619632d7043fb5b691b0"
   head "https://github.com/numpy/numpy.git"
 
   bottle do
     cellar :any
-    sha256 "806337a307c32fc7ea674fd8a1d8aeee785e67e938d998c90d7dc19b4712737c" => :mojave
-    sha256 "fb6572f9250e9de38eb3967a222180a9d07bc6895f1cf6d7945f5277038ddc65" => :high_sierra
-    sha256 "fe82e8ced1bb0e86b98f472ea077dc5e5196e9cf6b10bad1c5a42a8a3547de50" => :sierra
+    sha256 "4af6cbcbf617b78e55cfe0e53f1d272ac685a270eccd5d7f687f6b94b46719b6" => :mojave
+    sha256 "3d47aa2a68b449a363a494519a816c5ec4b298022637e8954aa7b272387f1b5e" => :high_sierra
+    sha256 "77da49b2ae86921e47c9c7e050899a4c491586471b6b79d786c00cc658f2331a" => :sierra
   end
 
   depends_on "gcc" => :build # for gfortran
@@ -18,8 +18,8 @@ class Numpy < Formula
   depends_on "python@2"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/02/24/f73045afb049295b34ac55aaf6ea1592604cda3749632a22e563e66604a3/Cython-0.29.3.tar.gz"
-    sha256 "d687fb1cd9df28c1515666174c62e54bd894a6a6d0862f89705063cd47739f83"
+    url "https://files.pythonhosted.org/packages/e0/31/4a166556f92c469d8291d4b03a187f325c773c330fffc1e798bf83d947f2/Cython-0.29.5.tar.gz"
+    sha256 "9d5290d749099a8e446422adfb0aa2142c711284800fb1eb70f595101e32cbf1"
   end
 
   resource "nose" do

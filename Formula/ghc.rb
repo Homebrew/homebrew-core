@@ -5,13 +5,13 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.6.3/ghc-8.6.3-src.tar.xz"
-  sha256 "9f9e37b7971935d88ba80426c36af14b1e0b3ec1d9c860f44a4391771bc07f23"
+  url "https://downloads.haskell.org/~ghc/8.6.4/ghc-8.6.4-src.tar.xz"
+  sha256 "5b5d07e4463203a433c3ed3df461ba6cce11b6d2b9b264db31f3429075d0303a"
 
   bottle do
-    sha256 "9415b057d996a9d4d27f61edf2e31b3f11fb511661313d9f266fa029254c9088" => :mojave
-    sha256 "b16adbcf90f33bf12162855bd2f2308d5f4656cbb2f533a8cb6a0ed48519be83" => :high_sierra
-    sha256 "c469d291be7683a759ac950c11226d080994b9e4d44f9f784ab81d0f0483b498" => :sierra
+    sha256 "4a2c5a01f9e3ef499a30b25942e4d52ee86e2cb902b33dc11c1065948b9c4e50" => :mojave
+    sha256 "72e530954801084477803d9f37265f4c067ab23ddae13826ac357acf954bb725" => :high_sierra
+    sha256 "b115dacf7a6fee79a2c929d9406258e975eb6348e1471b877fe3122c80e6b4a5" => :sierra
   end
 
   head do

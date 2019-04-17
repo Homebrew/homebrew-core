@@ -32,6 +32,7 @@ class CrosstoolNg < Formula
     depends_on "bash"
     depends_on "bison"
     depends_on "gettext"
+    depends_on "lzip"
   end
 
   def install

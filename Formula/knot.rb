@@ -1,13 +1,13 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.7.5.tar.xz"
-  sha256 "7d70d6d8f708285517d1d7c4ff2e5ddfd119cd2962c7a8d3f50a4c695209a086"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.7.6.tar.xz"
+  sha256 "a1cb1877f04f7c2549c977c2658cfafd07c7e0e924f8e8aa8d4ae4b707f697a2"
 
   bottle do
-    sha256 "76131c932aef5e03d54f725fbda012f61b51e8401604e5c0819d942e174a3c80" => :mojave
-    sha256 "00228062e04b23590ea26a28bbfc01742971e773b9b8b0bfe7199a1663bff7b4" => :high_sierra
-    sha256 "1ac28e8dd3b0840493b93348949a45da87c61bc4934ff951400d0af33fe42966" => :sierra
+    sha256 "a4aada91becc36fed0c3b9416325b4e31bde2bcd6954fa5ccf284f341ed01ccf" => :mojave
+    sha256 "9e56321341856b71fa43a724274a64b42ef75c434a9a9eec141e065252418489" => :high_sierra
+    sha256 "a647a0de0f7879a0d3d0e7b71d2713b7cfde7df9b038d9f714cb91c46d5fc95d" => :sierra
   end
 
   head do
@@ -22,7 +22,7 @@ class Knot < Formula
   depends_on "sphinx-doc" => :build
   depends_on "fstrm"
   depends_on "gnutls"
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on :macos => :yosemite # due to AT_REMOVEDIR
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
@@ -87,8 +87,6 @@ class Knot < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_sbin}/knotd</string>
-        <string>-c</string>
-        <string>#{etc}/knot.conf</string>
       </array>
       <key>StandardInPath</key>
       <string>/dev/null</string>
@@ -104,6 +102,6 @@ class Knot < Formula
   test do
     system bin/"kdig", "www.knot-dns.cz"
     system bin/"khost", "brew.sh"
-    system sbin/"knotc", "-c", etc/"knot.conf", "conf-check"
+    system sbin/"knotc", "conf-check"
   end
 end

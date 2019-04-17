@@ -1,17 +1,15 @@
 class Afio < Formula
   desc "Creates cpio-format archives"
   homepage "http://members.chello.nl/~k.holtman/afio.html"
-  url "http://members.chello.nl/~k.holtman/afio-2.5.1.tgz"
-  sha256 "363457a5d6ee422d9b704ef56d26369ca5ee671d7209cfe799cab6e30bf2b99a"
+  url "http://members.chello.nl/~k.holtman/afio-2.5.2.tgz"
+  sha256 "c64ca14109df547e25702c9f3a9ca877881cd4bf38dcbe90fbd09c8d294f42b9"
   head "https://github.com/kholtman/afio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "365c570b59790368b8ef4f47b375ad8bc64b4017f89ecfb6facca16d8a8ea672" => :mojave
-    sha256 "ae3eea7cafc324521405f6ebfe697e04f109dd48b66e60054238ffba470e867b" => :high_sierra
-    sha256 "5863378152ea720ffb5614cceb27eabcd98a2e2734810830f7908af3262ee303" => :sierra
-    sha256 "4bbebea8c0ea4bc79d0614dcf04a12aa44282198a0af4d9fee40fa0b70abb745" => :el_capitan
-    sha256 "c729e81f3952e8475ec4fe1ed4dc5a870e550af781b877a610a09686e9fe8a71" => :mavericks
+    sha256 "a0f6de009260949cb2199851b08f77fb82b99b92cd1c9e680cd557ed2515b42f" => :mojave
+    sha256 "38f4da84d7056b33a6b7685f5206c32691ea673824faf3a971045feee8f52d93" => :high_sierra
+    sha256 "e235a62bd03e7c65ebd55b6e47d668d50bf7681d8be9a4022263a835333a6047" => :sierra
   end
 
   def install

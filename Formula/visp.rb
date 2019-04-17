@@ -3,11 +3,12 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.2.0.tar.gz"
   sha256 "072237ed5c6fcbc6a87300fa036014ec574fd081724907e41ae2d6fb5a222fbc"
+  revision 1
 
   bottle do
-    sha256 "7f4ea998988f9cbf17b0525986b7167f5a03e34c17a31710272d98e17cc1a45c" => :mojave
-    sha256 "7cd7a3232812115a000fd65ac92839233a32b8c76af606da5f0e36252eb4a315" => :high_sierra
-    sha256 "c92e90a5252f4ba4fcfcf04fac9166e059b0f09ac4d6a2c3791f15cdc2ce4b95" => :sierra
+    sha256 "a757a056b336ec61af0a4fff50e4450e34b7ae9a0a58898cf57b8de2ac672a85" => :mojave
+    sha256 "0c618abe1e923b8063e4a09ebc02120a659cf6b376380061d87f2c751ae3e5ab" => :high_sierra
+    sha256 "22dcf5e1add32b7838adccc9da76d2132c7fd9d0ce600b3c649824ccabbf72e7" => :sierra
   end
 
   depends_on "cmake" => :build

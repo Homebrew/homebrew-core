@@ -3,18 +3,31 @@ class Libswiften < Formula
   homepage "https://swift.im/swiften"
   url "https://swift.im/downloads/releases/swift-4.0/swift-4.0.tar.gz"
   sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "17b63d430ff948e007e772d2ea7703c285862c365dc91e8b4fa6d4deca809c3f" => :mojave
-    sha256 "d6f72af74d50059da4be26ce6132b295e9644504214559b283261a6feb7261a3" => :high_sierra
-    sha256 "6ec48b297dc04f2f4b544a760a3b05964d17e04ff3f5b37ffddc7b8aad5b031a" => :sierra
+    cellar :any
+    sha256 "822a8010f7ec2bf10e19eb45970729fd3676086b01980881b4a88b5f881d33c2" => :mojave
+    sha256 "bcdb2fec93af1b9bc7e3c914e0c0bb9530b3869a4fe8a54572468f48107bc945" => :high_sierra
+    sha256 "aeac54677158c71e559b0db7f85895ce5e2b54f2b0a0e566638c568848f2fe1f" => :sierra
   end
 
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "libidn"
   depends_on "lua@5.1"
+
+  # fix build for boost 1.69
+  patch do
+    url "https://swift.im/git/swift/patch/?id=3666cbbe30e4d4e25401a5902ae359bc2c24248b"
+    sha256 "483ace97ee0d0c17a96f8feb7820611fdb1eca1cbb95777c36ca4fad0fdef7f9"
+  end
+
+  # fix build for boost 1.69
+  patch do
+    url "https://swift.im/git/swift/patch/?id=a2dc74cd0e4891037b97b6a782de80458675e4f0"
+    sha256 "28fa8bfdd5b3ec45c00cab8a968ac1528846bbc5a2e3eeeaaaef83785b42bb7f"
+  end
 
   def install
     boost = Formula["boost"]

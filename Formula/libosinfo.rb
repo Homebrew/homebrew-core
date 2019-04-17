@@ -1,17 +1,16 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.3.0.tar.gz"
-  sha256 "2159b969fe90715ee779eb3921365a9148e862e1ed60328ef1ba57714e511da5"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.4.0.tar.gz"
+  sha256 "a29e61a82b1a5727b145403914812273dfa033a0c07a15500078726bb3b84165"
 
   bottle do
-    sha256 "f58ae2f93837a243b8618018e61507420533ca22eb211e8358d10417a8ea0de0" => :mojave
-    sha256 "0e8ee2dc06d18db71b4fff7034fa3cef8f2b486f4915d872f7cc6c9d134acd7c" => :high_sierra
-    sha256 "a21fee88638e7ee314dd50f81e7db67e0c60fce70fed0a481727ae65f24aec1d" => :sierra
+    sha256 "65f55dfae3d1c883d0368883e16c1a7f68e64ab4a0b4451ec13a57fbc0586bf8" => :mojave
+    sha256 "b75e0154484d4206e833df6757750802d74e85bbab41f68cbe98edc776640029" => :high_sierra
+    sha256 "2f1b47a9f2b6cf3c877a79c14ae6f8f7cf3f85a1fbf7c8226f195ae0a3af02a7" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
   depends_on "gettext"
@@ -64,7 +63,6 @@ class Libosinfo < Formula
       -losinfo-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

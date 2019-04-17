@@ -1,24 +1,21 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.11.tar.gz"
-  sha256 "279202687409b8e7b4f267e178aed1bd4c68b79c01c10b80f07197f2f73d6695"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.13.tar.gz"
+  sha256 "6cfeed551baa1116b1d295e3c0701344597faf12a9747a8363092b80964ae468"
 
   bottle do
-    sha256 "50017a1a58e325f6cf2bf442e69279334f97a3167160d09ce14803d115fb74ff" => :mojave
-    sha256 "39c79b2b08e58b4784fb16bdf8ff6133d8eb3b435bbc8e97e493001a16fd5f4c" => :high_sierra
-    sha256 "c1942ec66157c586e6648051d2461ccbd8aaa0b99ec7f4f757c982683c9c08aa" => :sierra
-    sha256 "4d137ea6f6ff75f6bd792584aa4d86ead5445f0e5df9c9ed7074d84df3b7fb0f" => :el_capitan
+    sha256 "4949c96b5a87abcda782eb8033922e4d7feeaa834b339f3fef486bf9b66ffbcd" => :mojave
+    sha256 "7e1320caa4b15e0f3515c18a1633816af1a3fa1fd91b8c2728a7c5d904125787" => :high_sierra
+    sha256 "85fc1cc3611245e8da770c28a1d8a3137ed639d08b60c845a892c76eb89d922d" => :sierra
   end
 
+  depends_on "awk" => :build
   depends_on "libidn"
   depends_on "openssl"
 
   def install
-    system "make", "OPT_AUTOCC=no",
-                   "CC=#{ENV.cc}",
-                   "cc_maxtopt=1",
-                   "OPT_NOMEMBDBG=1",
+    system "make", "CC=#{ENV.cc}",
                    "C_INCLUDE_PATH=#{Formula["openssl"].opt_include}",
                    "LDFLAGS=-L#{Formula["openssl"].opt_lib}",
                    "VAL_PREFIX=#{prefix}",

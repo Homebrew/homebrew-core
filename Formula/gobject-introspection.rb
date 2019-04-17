@@ -1,13 +1,13 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.58/gobject-introspection-1.58.3.tar.xz"
-  sha256 "025b632bbd944dcf11fc50d19a0ca086b83baf92b3e34936d008180d28cdc3c8"
+  url "https://download.gnome.org/sources/gobject-introspection/1.60/gobject-introspection-1.60.1.tar.xz"
+  sha256 "d844d1499ecd36f3ec8a3573616186d36626ec0c9a7981939e99aa02e9c824b3"
 
   bottle do
-    sha256 "adbc39c550b6e87f089ec59b312c81dbd0c547ca38bf16c8bf102973e2193624" => :mojave
-    sha256 "0075bcc77c062a7f5e33d06ab8e6058e70c3a67cb71e82ad69126c82c100f86c" => :high_sierra
-    sha256 "597f57f061dec016d686f96106d9eb77d8fd9031d0a0c54ad143a1549858d6c2" => :sierra
+    sha256 "2cf3026bc6369c0a4d2654a2e138cce4bacb5b21637a93c46f9c8818ce27a8f7" => :mojave
+    sha256 "d15b36fe6f2735551c8472f5dc2ce7ba1fed3a0a69a863ea59c4a91c77cd4d4e" => :high_sierra
+    sha256 "980bda6463b96866750a118d4f1a2afb74d8bcd89c4aa44dbe86c160fb7475db" => :sierra
   end
 
   depends_on "cairo"

@@ -2,16 +2,15 @@
 class FileFormula < Formula
   desc "Utility to determine file types"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.35.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.35.tar.gz"
-  sha256 "30c45e817440779be7aac523a905b123cba2a6ed0bf4f5439e1e99ba940b5546"
+  url "ftp://ftp.astron.com/pub/file/file-5.36.tar.gz"
+  sha256 "fb608290c0fd2405a8f63e5717abf6d03e22e183fb21884413d1edd918184379"
   head "https://github.com/file/file.git"
 
   bottle do
     cellar :any
-    sha256 "414a7ea4620970ec73ac089629e244e878072d4ac9b279be52c42e5756bd9220" => :mojave
-    sha256 "661aec7c6c1fbd510f03faf696cde94d55d5ea691346078dc947c18a78ceb312" => :high_sierra
-    sha256 "a0c67d9fdfbf0deb40a81be2cc7fce0196ea919f3496550fa8ff679cd47705f4" => :sierra
+    sha256 "b26d1dc9e339e8f8c238ee25baf66f7b5153696662ff23cec1fb0a3e61e9844e" => :mojave
+    sha256 "9a479081d4805d2bc22190f9ae388a138fbb33696796b60e63638759ee1845e4" => :high_sierra
+    sha256 "2592d8a9c0c9838135bec5af4084bade0900f10d57f2beb7d9cdf567152fab47" => :sierra
   end
 
   keg_only :provided_by_macos

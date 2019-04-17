@@ -3,12 +3,13 @@ class Bitcoin < Formula
   homepage "https://bitcoin.org/"
   url "https://bitcoin.org/bin/bitcoin-core-0.17.1/bitcoin-0.17.1.tar.gz"
   sha256 "3e564fb5cf832f39e930e19c83ea53e09cfe6f93a663294ed83a32e194bda42a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9f31d9597cb82823d23baf05afbfa6a3e177a8a5ee043a4f618cb3b248515f8d" => :mojave
-    sha256 "dbdd16f4c04598c60c8a1b6835e42570582b8ee81a8ef509cd308b292658406c" => :high_sierra
-    sha256 "574444c09a0d32df7c4942daebc06946c7ce06b32a4ee8e044b2ddc51da8d0e3" => :sierra
+    sha256 "997ec756fb344e2d2fd32e6a114650be378eb1e1e771ee23521fefeb4f63b69d" => :mojave
+    sha256 "4914d564d82268fb483d570e35c8133d03ba45a9f4aedb15a3ed14d1ea435557" => :high_sierra
+    sha256 "f3db34cdb178af236d04afc56753235aaee7367f576080a2bd4512383717cd56" => :sierra
   end
 
   head do

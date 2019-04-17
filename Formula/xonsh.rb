@@ -3,15 +3,15 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://github.com/xonsh/xonsh/archive/0.8.7.tar.gz"
-  sha256 "875aebb1f09463c36c3bd8cb958d4272839d687c6c5ab997518140f5610faf23"
+  url "https://github.com/xonsh/xonsh/archive/0.8.12.tar.gz"
+  sha256 "7c51ce752f86e9eaae786a4886a6328ba66e16d91d2b7ba696baa6560a4de4ec"
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3dc26c9a3b40828076809c096da943e7026233ab1858553ec23967399b75604d" => :mojave
-    sha256 "506cb0649b5c2421a960cb8596252372a0653fbd49198b61dac74e8f8b279439" => :high_sierra
-    sha256 "1347036951ee05629fcd65d240f9e28ee1bc303a3ba3a7b55c8f91da61f25306" => :sierra
+    sha256 "0946b4172b6c6f927f17d9bd12ecb2fdf18f8f086abe0e7841c9dcb3b4c634dc" => :mojave
+    sha256 "19efaf5ee095bdbfd58e8b32b3629e3f5bd58f3dc3d310e382520554873bfaf6" => :high_sierra
+    sha256 "188f0659e92c741173d0d9fd14ecfd050abdbc7d82a350cb5e38faf931a65d35" => :sierra
   end
 
   depends_on "python"

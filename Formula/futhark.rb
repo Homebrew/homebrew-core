@@ -5,15 +5,15 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.9.1.tar.gz"
-  sha256 "9d77e04776004eff153585b27280192097f1ae54a62ca173a988c4414e88dbf1"
+  url "https://github.com/diku-dk/futhark/archive/v0.10.2.tar.gz"
+  sha256 "6a389196d843b583ab33bf1b844b6898868ddb536e99cfb1d03b80534c52b4eb"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dfe6048a06f884ad4e802a853e9b9719ba602361dc19109ca14d6b449b82d587" => :mojave
-    sha256 "c9e557e01d02b09c5b61948d949e9452f7c8d7e3a7aa022ca5d4fe501b8188b4" => :high_sierra
-    sha256 "200bc8494a95d5edc0653b89386e81404a1a4c6550dbb04de5e8d6e8028ea842" => :sierra
+    sha256 "9c11527c221bcd225dc9d25a2a913e4a8e068c0e404c3b420de36ec4604d6aa2" => :mojave
+    sha256 "a7c3d6f2f5a1aa82fe89c23841bafa7336f16274a5a83d1cdd38d56d89c4bb9d" => :high_sierra
+    sha256 "0172254dfbb2894ecfb518145df4f8e74a6b01d595c4c5f28a021a80bbde4a85" => :sierra
   end
 
   depends_on "cabal-install" => :build
@@ -36,7 +36,7 @@ class Futhark < Formula
     (testpath/"test.fut").write <<~EOS
       let main (n: i32) = reduce (*) 1 (1...n)
     EOS
-    system "#{bin}/futhark-c", "test.fut"
+    system "#{bin}/futhark", "c", "test.fut"
     assert_equal "3628800i32", pipe_output("./test", "10", 0).chomp
   end
 end

@@ -2,7 +2,7 @@ class Jbigkit < Formula
   desc "JBIG1 data compression standard implementation"
   homepage "https://www.cl.cam.ac.uk/~mgk25/jbigkit/"
   url "https://www.cl.cam.ac.uk/~mgk25/jbigkit/download/jbigkit-2.1.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
        :using => :git

@@ -1,7 +1,7 @@
 class Jmxterm < Formula
   desc "Open source, command-line based interactive JMX client"
-  homepage "https://wiki.cyclopsgroup.org/jmxterm/"
-  url "https://downloads.sourceforge.net/project/cyclops-group/jmxterm/1.0.0/jmxterm-1.0.0-uber.jar"
+  homepage "https://docs.cyclopsgroup.org/jmxterm"
+  url "https://github.com/jiaqi/jmxterm/releases/download/v1.0.0/jmxterm-1.0.0-uber.jar"
   sha256 "c1f49b132c435ff5059f48aa560f07feb7a742a9db595ecae7fc34ca0aca054f"
 
   bottle :unneeded

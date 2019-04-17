@@ -11,11 +11,12 @@ class Bash < Formula
     mirror "https://gnu.cu.be/bash/bash-5.0.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-5.0.tar.gz"
     sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
-    version "5.0.2"
+    version "5.0.3"
 
     %w[
       001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
       002 87e87d3542e598799adb3e7e01c8165bc743e136a400ed0de015845f7ff68707
+      003 4eebcdc37b13793a232c5f2f498a5fcbf7da0ecb3da2059391c096db620ec85b
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
@@ -30,9 +31,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "72c08f9abb1556ba97617d108717dfced16fd03a13a1b959a0cc4f7601e3b5fc" => :mojave
-    sha256 "8aaba75411debe66a23dc6b4dec8f49711bc39354b674b7605d6c5c963bb7aee" => :high_sierra
-    sha256 "1db2a380877c4e8a4daf7bfcdef5a9b6b8980b02f9c72f39a98365cb8b446ccc" => :sierra
+    sha256 "6573f80429e70d699ef4c352c5a25575a15924d126a6ca6aede797fb47ce1068" => :mojave
+    sha256 "153f3cde71a02dad3d763a8516e14b45525bd4008eaf89d67fda820623249afe" => :high_sierra
+    sha256 "92e65ddb78c110783313f99ed331a650ce21692bc4bb827d031e5e34cacf420b" => :sierra
   end
 
   def install

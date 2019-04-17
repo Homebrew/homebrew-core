@@ -3,16 +3,15 @@ require "language/go"
 class GxGo < Formula
   desc "Tool to use with the gx package manager for packages written in go"
   homepage "https://github.com/whyrusleeping/gx-go"
-  url "https://github.com/whyrusleeping/gx-go/archive/v1.7.0.tar.gz"
-  sha256 "e45883ae81b655cc142ccfdbc9da745481af028ac89a526c44e4e303b512a4a0"
+  url "https://github.com/whyrusleeping/gx-go/archive/v1.9.0.tar.gz"
+  sha256 "f3a0ee17359e0e5efab8008361da0e312ca723a0c9e165342a0306caba55a535"
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18d61c9186cba473aea8e552aaa5f0042715f35c60e224889ae1cb5946ed1ddc" => :mojave
-    sha256 "7f169d9c48b0170a759ce56d9b14ea6975a2b120270276304254b88201767339" => :high_sierra
-    sha256 "523c2412e982efd6a1107b1a123981eed3b9fb9e2eb73d9118312e4638e520bd" => :sierra
-    sha256 "b55dab0e39dae445bed065f555535457b1f20cb22a4bcc3d0ec4584ed28c20c9" => :el_capitan
+    sha256 "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb" => :mojave
+    sha256 "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d" => :high_sierra
+    sha256 "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d" => :sierra
   end
 
   depends_on "go" => :build
@@ -27,14 +26,14 @@ class GxGo < Formula
         :revision => "675abc5df3c5531bc741b56a765e35623459da6d"
   end
 
-  go_resource "github.com/codegangsta/cli" do
+  go_resource "github.com/urfave/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "8e01ec4cd3e2d84ab2fe90d8210528ffbb06d8ff"
+        :revision => "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
   end
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-        :revision => "30cf7ac33676b5786e78c746683f0d4cd64fa75b"
+        :revision => "ba06b47c162d49f2af050fb4c75bcbc86a159d5c"
   end
 
   go_resource "github.com/gxed/hashland" do
@@ -74,7 +73,7 @@ class GxGo < Formula
 
   go_resource "github.com/libp2p/go-libp2p-pubsub" do
     url "https://github.com/libp2p/go-libp2p-pubsub.git",
-        :revision => "a031ab4d1b8142714eec946acb7033abafade3d7"
+        :revision => "f736644fe805a9f5677c82aca25c82da7cde2c76"
   end
 
   go_resource "github.com/mattn/go-colorable" do
@@ -127,8 +126,8 @@ class GxGo < Formula
         :revision => "6c572c00d1830223701e155de97408483dfcd14a"
   end
 
-  go_resource "github.com/sabhiram/go-git-ignore" do
-    url "https://github.com/sabhiram/go-git-ignore.git",
+  go_resource "github.com/sabhiram/go-gitignore" do
+    url "https://github.com/sabhiram/go-gitignore.git",
         :revision => "fc6676d5d4e5b94d6530686eecb94f85b44cdc39"
   end
 
@@ -144,7 +143,7 @@ class GxGo < Formula
 
   go_resource "github.com/whyrusleeping/gx" do
     url "https://github.com/whyrusleeping/gx.git",
-        :revision => "3ee41653fe28e654b1b98e59700d36bc4ecdac21"
+        :revision => "733691bc18c0858a3d7e1a6e0a42df7d0bcac1de"
   end
 
   go_resource "github.com/whyrusleeping/progmeter" do

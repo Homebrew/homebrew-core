@@ -2,14 +2,14 @@ class Lolcat < Formula
   desc "Rainbows and unicorns in your console!"
   homepage "https://github.com/busyloop/lolcat"
   url "https://github.com/busyloop/lolcat.git",
-      :tag      => "v99.9.21",
-      :revision => "58d5b5ba6d1d3f70aa72b140ee84034aaab91a9c"
+      :tag      => "v99.9.69",
+      :revision => "692002ad5d5b2b797f4918c21655de4eb88d4349"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "936aa4a368904c0366a123a42428aa8876f6b9798fe1ef2844dff0e85861c486" => :mojave
-    sha256 "45b78768bd819af7036826373821c1c103b1ba140b9c0acdbea400cdc7e1cb65" => :high_sierra
-    sha256 "daffd2e11adf25676c4d00b298c01a9ddc5e18a030249dd85564c006f530e1a7" => :sierra
+    sha256 "a80143a72192e7deb0ac935b9915bcb702aaa7902eac2d35fbe307562c9e2537" => :mojave
+    sha256 "6c49fea808082b581f45e7c09d8f8623cb35bf2d8a11e9f7f4a694352f94a1d2" => :high_sierra
+    sha256 "23e4f4e393c138057234c7c281dd4bbdbc554a3cd4afdf43d976a92330e44825" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
@@ -20,6 +20,7 @@ class Lolcat < Formula
     system "gem", "install", "lolcat-#{version}.gem"
     bin.install libexec/"bin/lolcat"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    man6.install "man/lolcat.6"
   end
 
   test do

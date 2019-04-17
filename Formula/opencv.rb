@@ -1,19 +1,21 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.0.1.tar.gz"
-  sha256 "7b86a0ee804244e0c407321f895b15e4a7162e9c5c0d2efc85f1cadec4011af4"
+  url "https://github.com/opencv/opencv/archive/4.1.0.tar.gz"
+  sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
+  revision 1
 
   bottle do
-    sha256 "73f03c0b70646230276817b41cb8b3901008cffd88350309b008d19285e4a7cf" => :mojave
-    sha256 "5c384dfe3fc7bfa405aac1e25dfc384afb2084030153b195c24581ddac1d39ec" => :high_sierra
-    sha256 "8fb8cf21b549e1f603fc108fd8fee886501a377692feb27f703a629217b47dc0" => :sierra
+    sha256 "e480ec68ccb914da357f8c3b799552fdfbfe38e24a75a2c091b28382e1801f70" => :mojave
+    sha256 "b1e6aa6491c192384f163505702dc227dbd182e00a21b370f50e3c5b74cea7de" => :high_sierra
+    sha256 "e2b359e6062e5614e3a6758e51f9768cc99f5c034ab6d1ffa116765b10781f14" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
+  depends_on "harfbuzz"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -24,8 +26,13 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.0.1.tar.gz"
-    sha256 "0d8acbad4b7074cfaafd906a7419c23629179d5e98894714402090b192ef8237"
+    url "https://github.com/opencv/opencv_contrib/archive/4.1.0.tar.gz"
+    sha256 "e7d775cc0b87b04308823ca518b11b34cc12907a59af4ccdaf64419c1ba5e682"
+  end
+
+  patch do
+    url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
+    sha256 "c48a6a769f364e6f61bc99cf47a6e664c85246c9fcd4a201afc408158fc4f1ef"
   end
 
   def install
@@ -56,7 +63,7 @@ class Opencv < Formula
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
-      -DBUILD_opencv_text=OFF
+      -DBUILD_opencv_text=ON
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON

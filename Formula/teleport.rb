@@ -1,14 +1,14 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://gravitational.com/teleport"
-  url "https://github.com/gravitational/teleport/archive/v3.1.3.tar.gz"
-  sha256 "224e89e65e83ebd4bd48a3d0e1f4f65e7c203240d63194b6d3617a5a35edd0ca"
+  url "https://github.com/gravitational/teleport/archive/v3.1.8.tar.gz"
+  sha256 "5993de3223933ea5015a0cf0465f77983952fdf543ec58b70b492bb5238b1601"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "947a11d0d644b2d42b08ee34c6898297afa56dcf01f3ec0c4db465871978d674" => :mojave
-    sha256 "ea228d043a8128b466e2d2308d6dee50152df46e08e2d4e60660b592f528ddff" => :high_sierra
-    sha256 "fb8482ef098769a913216dbf77b11255e0e5e47079bd2e52c8be9489b94f1b1b" => :sierra
+    sha256 "3b9f69ecbd0720b43f9d015ceaef199cbc182f7bd12bf83fc631cfe555bb2322" => :mojave
+    sha256 "03bea5a8bf95cb8aa434428577633b732be2a6fceeae213b94ac06bc6024f531" => :high_sierra
+    sha256 "0916887d28542d520b7974fceb7187de7b48958c2779d8792386b96e31ae8ca3" => :sierra
   end
 
   depends_on "go" => :build

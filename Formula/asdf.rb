@@ -1,8 +1,8 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://github.com/asdf-vm"
-  url "https://github.com/asdf-vm/asdf/archive/v0.6.3.tar.gz"
-  sha256 "01fb75889b854034ed95c1c728dd53564256ecee6fc7167919283f3b654a4e1d"
+  url "https://github.com/asdf-vm/asdf/archive/v0.7.1.tar.gz"
+  sha256 "8aa4d72d18d0ac5cf0dd2a1937bf6947f50c58caa59c63e873e2a4eac4072b9f"
   head "https://github.com/asdf-vm/asdf.git"
 
   bottle :unneeded
@@ -24,10 +24,6 @@ class Asdf < Formula
     fish_completion.install "completions/asdf.fish"
     libexec.install "bin/private"
     prefix.install Dir["*"]
-
-    inreplace "#{lib}/commands/reshim.sh",
-              "exec $(asdf_dir)/bin/private/asdf-exec ",
-              "exec $(asdf_dir)/libexec/private/asdf-exec "
   end
 
   test do

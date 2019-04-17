@@ -1,8 +1,7 @@
 class Minicom < Formula
   desc "Menu-driven communications program"
   homepage "https://packages.debian.org/sid/minicom"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/minicom/minicom_2.7.1.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/minicom/minicom_2.7.1.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.7.1.orig.tar.gz"
   sha256 "532f836b7a677eb0cb1dca8d70302b73729c3d30df26d58368d712e5cca041f1"
 
   bottle do

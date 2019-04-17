@@ -1,16 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2"
-  sha256 "90815e812874831e9a4bf6e1136bf73bc2c5a0464ef142e2dfea40cda206db08"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v11.2/postgresql-11.2.tar.bz2"
+  sha256 "2676b9ce09c21978032070b6794696e0aa5a476e3d21d60afc036dc0a9c09405"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    rebuild 1
-    sha256 "2fbb3a06211b1ca2587920b032a89d7ee759ea536d68ee73f3ad5563038ca843" => :mojave
-    sha256 "5fbe8a446bed7532b1517f5f92356166e4a219b516086364094f00e86cbd1fd3" => :high_sierra
-    sha256 "007ae1c315ec0c01345a9cc754ec927909667697cf35ddd675e7778af39ceebc" => :sierra
+    sha256 "8fd1cacd7b9aa9325c9ddcc1c3fabbc0f76d70898cb45aa476ef53ffef7983b5" => :mojave
+    sha256 "08d79f786ec1cee0d836101040e544b52e33527ed0612ca3283237e11455fa15" => :high_sierra
+    sha256 "3941b3241eec502036ad48abec93b6bc5cfce831ab354a5db9f358e41422b95b" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -66,7 +64,7 @@ class Postgresql < Formula
     (var/"log").mkpath
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/postgres"
+      system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/postgres"
     end
   end
 

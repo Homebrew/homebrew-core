@@ -15,8 +15,8 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.3-bin.tar.gz"
-    sha256 "378a2d81bbf8d660a4a2515ef19dc66e74f8f6aa9495a8a909cd35b17eef3665"
+    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.3.1-bin.tar.gz"
+    sha256 "ed1d281cb66dedb89611019168071fe22a50ff325253e2c453dc00423905cf9d"
   end
 
   def install

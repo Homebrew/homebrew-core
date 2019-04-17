@@ -1,15 +1,15 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/version_66.tar.gz"
-  sha256 "36db3a61e76896b6e2ffd63bf5b18903dffb3d28acffa4f2ea0acfa5686005d9"
+  url "https://github.com/WebAssembly/binaryen/archive/version_77.tar.gz"
+  sha256 "7193259930905f891393e0a0b0db2b30c4dafd549e003cd58a825a630813d48b"
   head "https://github.com/WebAssembly/binaryen.git"
 
   bottle do
     cellar :any
-    sha256 "4add472ffbcbb9a8505098f3764ae745061f1059dabee83363b49fc09f00032e" => :mojave
-    sha256 "145793b7b11e4c382a397b2100c27662809f8028112a3c3da27847907238d0eb" => :high_sierra
-    sha256 "bb9bc4dcd2b1253bcf842f0844c655e5d3cafbed3f85bc51ccff6c8492feacea" => :sierra
+    sha256 "982e7aaceb7d504431a40555a638e0af2addd260de28aa305761f98d199e0568" => :mojave
+    sha256 "bcb61a9a7a90be6df81ed7d09dd423299a19d82d9a0c61b40501ccebef94b698" => :high_sierra
+    sha256 "7b6ef73716308fe93df224e8ed0cc5c2f3eada1535cdd898af42ec31dcb4e1c1" => :sierra
   end
 
   depends_on "cmake" => :build

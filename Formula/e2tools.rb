@@ -1,7 +1,7 @@
 class E2tools < Formula
   desc "Utilities to read, write, and manipulate files in ext2/3/4 filesystems"
-  homepage "http://home.earthlink.net/~k_sheff/sw/e2tools/"
-  url "http://home.earthlink.net/~k_sheff/sw/e2tools/e2tools-0.0.16.tar.gz"
+  homepage "https://web.archive.org/web/home.earthlink.net/~k_sheff/sw/e2tools/"
+  url "https://web.archive.org/web/20190302014158/home.earthlink.net/~k_sheff/sw/e2tools/e2tools-0.0.16.tar.gz"
   sha256 "4e3c8e17786ccc03fc9fb4145724edf332bb50e1b3c91b6f33e0e3a54861949b"
 
   bottle do

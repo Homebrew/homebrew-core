@@ -1,16 +1,15 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
-  url "https://www.uni-due.de/~be0001/bibtexconv/download/bibtexconv-1.1.12.tar.gz"
-  sha256 "dce954b9e81b31f9b2aaaac4a4b1e528d7cc901376be095b40ba44525db3fd76"
+  url "https://www.uni-due.de/~be0001/bibtexconv/download/bibtexconv-1.1.13.tar.gz"
+  sha256 "90d9a65ef6cbb9e61197a54c292105981b5a3528268f76eb61067112332f4538"
   head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
     cellar :any
-    sha256 "ed2cf1c4018b8605632c7d771da2eee7212ec1267d459fe77e1b1fd27ecafeaf" => :mojave
-    sha256 "ff0392f367020e150acc25eb36a5020ae78f43c97450ff144654d1c55da362c5" => :high_sierra
-    sha256 "22bef646b19754ee426d9e98158f1bbd7e18b59f674abc0c1c6f7c4012511122" => :sierra
-    sha256 "824b5ec5e79e9624510c834aa0ce76de90c3bb63100c4e995927fa4b06905706" => :el_capitan
+    sha256 "6f6011d0f4881805977ee882cdead5e69222b3a8d119d27ef9b3895f8e63b288" => :mojave
+    sha256 "96eda092763e70b1af132b834a5f8bb9c9f12ad6f2f0802e3c09d18ebf2f6115" => :high_sierra
+    sha256 "210b19d5a4d6b38a544f677d87e59d0909ca727fd4c0519d8be38174a0e07af1" => :sierra
   end
 
   depends_on "cmake" => :build

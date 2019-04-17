@@ -1,16 +1,14 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-26.1.tar.xz"
-  sha256 "1cf4fc240cd77c25309d15e18593789c8dbfba5c2b44d8f77c886542300fd32c"
-  revision 1
+  url "https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-26.2.tar.xz"
+  sha256 "151ce69dbe5b809d4492ffae4a4b153b2778459de6deb26f35691e1281a9c58e"
 
   bottle do
-    rebuild 1
-    sha256 "fb8404e2022004dc005edffe93a8d341255bc74adb3e1127d76c6581b3677429" => :mojave
-    sha256 "dcf80c5623c64e627b852a3188acb1d064fe0a33b3244503a744e354a42ccf7e" => :high_sierra
-    sha256 "6786339aef285a9d5b6011a39141daf4f8e442f2cd9ed0667c996094b0b89659" => :sierra
+    sha256 "dc49de7034346e692662d10ebacd75ea257d61ebba6f57699b855f158e4a7eda" => :mojave
+    sha256 "de836e0766066201968c2dd0ef25ff4458ee532a61dc4ed9d7d8fb284b395b8d" => :high_sierra
+    sha256 "6b07616447d66a8066c08591400dc8fed75d44bf51f81de2e1208635e03204c6" => :sierra
   end
 
   head do

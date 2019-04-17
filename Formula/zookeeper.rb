@@ -78,6 +78,7 @@ class Zookeeper < Formula
 
     Pathname.glob("#{libexec}/bin/*.sh") do |path|
       next if path == libexec+"bin/zkEnv.sh"
+
       script_name = path.basename
       bin_name    = path.basename ".sh"
       (bin+bin_name).write shim_script(script_name)

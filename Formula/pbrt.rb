@@ -3,14 +3,13 @@ class Pbrt < Formula
   homepage "https://pbrt.org/"
   url "https://github.com/mmp/pbrt-v2/archive/2.0.342.tar.gz"
   sha256 "397941435d4b217cd4a4adaca12ab6add9a960d46984972f259789d1462fb6d5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "bbef8afbd930c10498a65d8e70621eba607489a97994ba1b875523eec2db8b88" => :mojave
-    sha256 "c1914092491b0a3e9b8f0aa53c08c290e4548d4c8236652f6987f585506c840b" => :high_sierra
-    sha256 "e55782038c1b74d847254afae36fbfe11d3af774431b84bd7d56f16bbe73986b" => :sierra
-    sha256 "f9104d3cf2dc87dc5b8cdc6b43b7c32447508ad4282d4caa850136e9742b61be" => :el_capitan
+    sha256 "cb7db9ee459b829416669ed7a714523e2a5f91f507b80d1109224e8b7ebb4727" => :mojave
+    sha256 "11eedcb0ab187fcc29ae87501553341a13a875dc9b2d3c87be61c67ad38b5941" => :high_sierra
+    sha256 "71cc74c9781e4f2008f397703a90fdc2cb1d655ef4bd9c66e1b6399c26cdcd28" => :sierra
   end
 
   depends_on "flex"

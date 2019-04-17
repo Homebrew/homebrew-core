@@ -1,13 +1,13 @@
 class Bluetoothconnector < Formula
   desc "Connect and disconnect Bluetooth devices"
   homepage "https://github.com/lapfelix/BluetoothConnector"
-  url "https://github.com/lapfelix/BluetoothConnector/archive/1.2.0.tar.gz"
-  sha256 "63cf474670041127effbeec8b84f9b84421f7cae74fb2908d6c10c2b331cb4be"
+  url "https://github.com/lapfelix/BluetoothConnector/archive/1.3.0.tar.gz"
+  sha256 "66b94a154e25c867bbdad50e643980a475a63af935900b539e7c48ed0fb1edd7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fac038a2fda3fdb144fb764166eeda3b31799caf1ce8e44a8f77bd5881daf1e" => :mojave
-    sha256 "5fac038a2fda3fdb144fb764166eeda3b31799caf1ce8e44a8f77bd5881daf1e" => :high_sierra
+    sha256 "b49cd1726285c91d42935e0052814940a9c33a99df54ea1da2eab4c5b7411c71" => :mojave
+    sha256 "b49cd1726285c91d42935e0052814940a9c33a99df54ea1da2eab4c5b7411c71" => :high_sierra
   end
 
   depends_on :xcode => ["10.0", :build]

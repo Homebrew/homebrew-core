@@ -1,14 +1,14 @@
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
-  url "https://www.cabextract.org.uk/cabextract-1.9.tar.gz"
-  sha256 "1bbc793d83c73288acd7e28ce33ec04955a76c73bf6471424ff835d725fcc4c1"
+  url "https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz"
+  sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "41b602b3d06f9414fd8d6b964b8735e345c133d51b2e12f52a1bc277083389b5" => :mojave
-    sha256 "6f52b4c2e1debdcc2d5fa8d47c3678ec8dd703afc7c7b193596f1fe319eaa9cc" => :high_sierra
-    sha256 "0fd78ce411d50aacad23db777441ae624977604036c2674b9eed24853ce13bca" => :sierra
+    sha256 "cd27b939a0191d4dfff8ae13300b260b5ae01c563a21613718160012a982d5e8" => :mojave
+    sha256 "c77caa7c32b4320f9e887abeea99261345e83f03e2c321ec9e99ddd9c75f5d98" => :high_sierra
+    sha256 "c531546af69afda3101f07b509eb143cdaef00f4fdcbdd420e60287508a87e5e" => :sierra
   end
 
   def install

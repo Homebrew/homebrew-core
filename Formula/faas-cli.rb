@@ -2,14 +2,14 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag      => "0.8.3",
-      :revision => "a141dedf94ffeed84412365fd591bdc8999c5a1b"
+      :tag      => "0.8.6",
+      :revision => "96f159fc3e85a6782461c9dde77cbf88308aa21d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8319df9bec7d403a4896cd5a7d2fa06c4bd84e793adabfff0ee0639452a0eb7e" => :mojave
-    sha256 "dcb7e0a0de6eb4df22dc493aecd932af5da315d63d03abad256ced3864baaa40" => :high_sierra
-    sha256 "4a609304f87d1e850f311dcda145d1d749e1784edce1a9951e4ac2471ee26ed0" => :sierra
+    sha256 "31bfa659ca60a334baa30b4e1ddca886df199dd02afd59f2a78b16a469f88f87" => :mojave
+    sha256 "072fee44d09fce3e42ba98fcba148f86ef24695dd7757b1ca435b587a33d11c2" => :high_sierra
+    sha256 "913a5ccd81eabb762ed3b23f63060db49b5b189ce078b22de8f6fc137509f399" => :sierra
   end
 
   depends_on "go" => :build
@@ -61,14 +61,6 @@ class FaasCli < Formula
           image: dummy_image
     EOS
 
-    expected = <<~EOS
-      Deploying: dummy_function.
-      Function dummy_function already exists, attempting rolling-update.
-
-      Deployed. 200 OK.
-      URL: http://localhost:#{port}/function/dummy_function
-    EOS
-
     begin
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
       assert_match "stat ./template/python/template.yml", output
@@ -77,7 +69,8 @@ class FaasCli < Formula
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output.chomp
+      assert_match "Function dummy_function already exists, attempting rolling-update", output
+      assert_match "Deployed. 200 OK", output
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]

@@ -1,13 +1,13 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.2.15.tar.xz/from/this/mirror"
-  sha256 "75e90012faef700dffb29311f3d24fa25f1a5e0f70254a9b8d5c794e25e938ce"
+  url "https://php.net/get/php-7.2.17.tar.xz/from/this/mirror"
+  sha256 "a3e5f51a9ae08813b3925bea3a4de02cd4906fcccf75646e267a213bb63bcf84"
 
   bottle do
-    sha256 "83797994bfdbe218f17fbeedcc3aaaaa3ba96e4bd3407376c0ba5ac8b91e00c2" => :mojave
-    sha256 "41d87712abc11e8dc43286bd5bb02c32785d639f151396e46cde93c55a323212" => :high_sierra
-    sha256 "3dd816c761a354cc75b52fa3ccf682fac8dc16725d48a7ebe209102aef4fa40e" => :sierra
+    sha256 "0875da9ab51f38d18e6292680872647d55e3f230805e3e23b34d62194db47a7e" => :mojave
+    sha256 "aacb32bb4678b27c41dd5e340900d6cbad3c4942d6f5ccba331d4891a2c2a01a" => :high_sierra
+    sha256 "9102dab50bfa77878504f2c42ca2d6c3cb3a5e67ca98aff792d4428a835fda68" => :sierra
   end
 
   keg_only :versioned_formula
@@ -33,7 +33,6 @@ class PhpAT72 < Formula
   depends_on "libzip"
   depends_on "openldap"
   depends_on "openssl"
-  depends_on "pcre"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"

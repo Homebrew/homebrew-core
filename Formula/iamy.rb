@@ -1,15 +1,15 @@
 class Iamy < Formula
   desc "AWS IAM import and export tool"
   homepage "https://github.com/99designs/iamy"
-  url "https://github.com/99designs/iamy/archive/v2.3.0.tar.gz"
-  sha256 "0bcf294e90e83985b6cef8f635091a0df70a6751dc9436e8304f1b2135428a7c"
+  url "https://github.com/99designs/iamy/archive/v2.3.1.tar.gz"
+  sha256 "abbc3f23afb8a57d02ec939a21ccac9fe0db18f96a742e03b16d32f3a8a12e1d"
   head "https://github.com/99designs/iamy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03bc1dae355a2c7be4ab4b9beb7499c98631e94bc9c179ed1730fede35c4c11f" => :mojave
-    sha256 "b64e1208a256256434da77d5fa96027963095f0a76eda6b0b0d6cb9e37bba0a7" => :high_sierra
-    sha256 "9a1318eb21fbe17a3b572e8b22fcb2315e98d7cc8f1c0586e6305d0aa2d13994" => :sierra
+    sha256 "ec31036a74b3e7fa56dc920b4dcb4f55dd525588a60e7e0306bccadb1101e11b" => :mojave
+    sha256 "89e0a7f9d27d589ad0639f01160036e891cbbe811b28d45a5904e0a22aa66990" => :high_sierra
+    sha256 "044aabaea888d7d318c8dc5f0319a33b9bbec6478ff45782ff5e1edec4eeb9dc" => :sierra
   end
 
   depends_on "go" => :build
@@ -17,9 +17,10 @@ class Iamy < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/99designs/iamy"
-    dir.install buildpath.children
-    cd dir do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/99designs/iamy"
+    src.install buildpath.children
+    src.cd do
       system "go", "build", "-o", bin/"iamy", "-ldflags",
              "-X main.Version=v#{version}"
       prefix.install_metafiles

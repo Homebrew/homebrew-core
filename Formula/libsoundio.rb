@@ -1,16 +1,14 @@
 class Libsoundio < Formula
   desc "Cross-platform audio input and output"
   homepage "http://libsound.io"
-  url "https://github.com/andrewrk/libsoundio/archive/1.1.0.tar.gz"
-  sha256 "ba0b21397cb3e29dc8f51ed213ae27625f05398c01aefcfbaa860fab42a84281"
+  url "https://github.com/andrewrk/libsoundio/archive/2.0.0.tar.gz"
+  sha256 "67a8fc1c9bef2b3704381bfb3fb3ce99e3952bc4fea2817729a7180fddf4a71e"
 
   bottle do
     cellar :any
-    sha256 "f62f2b57eba5227047b10254946035cc72b909bef698eecb803faad223b96d76" => :mojave
-    sha256 "5bc5fcbcb3e6475d59f7a3b95c494f6e776a6e8b5b903217267195dfd8ed761a" => :high_sierra
-    sha256 "1aa2aab043cb9358898b7c9f3c33c727e72342b414048620be561cfca8bc839a" => :sierra
-    sha256 "33e6599cba76ac835cb2ffc597f8358a8b13c7cd19c7ce9b85a3d3ff60ec4327" => :el_capitan
-    sha256 "594c0042c86a0a6aeca3b7286435b3cc9593ffa158f921092df90f0aef3a865e" => :yosemite
+    sha256 "628d236080adb8e63089ce94e4e723c5726128558d09d28d0691669b15ac765c" => :mojave
+    sha256 "7b24e3aad33f017119899e24c22ab7d94e6b96d87b10a4dc728e615530ee180e" => :high_sierra
+    sha256 "e0b25e880fb129834acc0e446499051bd1d0f9efecc4a9c32c82a77c9c54a378" => :sierra
   end
 
   depends_on "cmake" => :build

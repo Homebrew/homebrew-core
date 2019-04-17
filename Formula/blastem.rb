@@ -1,18 +1,16 @@
 class Blastem < Formula
   desc "Fast and accurate Genesis emulator"
   homepage "https://www.retrodev.com/blastem/"
-  url "https://www.retrodev.com/repos/blastem/archive/3d48cb0c28be.tar.gz"
-  version "0.5.1"
-  sha256 "1929e39179ef46fd6b43b0bfd8f51dff29fc4ec001bd2e53811579707f5d9f1f"
+  url "https://www.retrodev.com/repos/blastem/archive/357b4951d9b2.tar.gz"
+  version "0.6.1"
+  sha256 "63ed9a1d068d97f7bb47770449715767442a1356912cb15bee1f7fe8765b9880"
   head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "bc38d936759fca569d4d4e74928134d43faee7775605bcba99f5bd3479e27a1a" => :mojave
-    sha256 "733eb0a2e78065fdbb4909a23e4e3f004bfe9ae8340fc9cf2a020201122ba02d" => :high_sierra
-    sha256 "c6f50055cec8cc49df276ff30beb14290c6587796c0684ae4caf7df7a9353e9f" => :sierra
-    sha256 "ddd56aef9836a1bca79a55aa3757879bf205942a23c666a0d9b8af772c7de5ad" => :el_capitan
+    sha256 "4becc15b16ef0a6b58a731d7e78bb5dfdf3360cb4ccd3b86bb274d25c2ef6152" => :mojave
+    sha256 "26b745117fe55e41fa2d3dfde89e6ea092983e3f2f09934bbcc46325a60f4b50" => :high_sierra
+    sha256 "0c7a00d5ed0f16fa729be9f24b440a2f2ab21bbb6822bfc80e78d59c8f6f1092" => :sierra
   end
 
   depends_on "freetype" => :build
@@ -29,7 +27,7 @@ class Blastem < Formula
   end
 
   resource "vasm" do
-    url "http://server.owl.de/~frank/tags/vasm1_7e.tar.gz"
+    url "https://server.owl.de/~frank/tags/vasm1_7e.tar.gz"
     sha256 "2878c9c62bd7b33379111a66649f6de7f9267568946c097ffb7c08f0acd0df92"
   end
 

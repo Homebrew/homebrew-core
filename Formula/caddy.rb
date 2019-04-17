@@ -1,15 +1,15 @@
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.11.3.tar.gz"
-  sha256 "b99973614b85f55da309cdf79e5d6c9aae8ad1bd83c425b1f1fd17b21386eab6"
+  url "https://github.com/mholt/caddy/archive/v0.11.5.tar.gz"
+  sha256 "ab2dc210bc7089fa7d041e702663e592b480945aa99f14b348090091103b7ec5"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "800c44973e725df06412ca44729680c5435bb0eacdec4bc186f2546d57124204" => :mojave
-    sha256 "2d79050ed8c8128ed7a300fed18082d5db3ef8be5ad67326ebfaa4ebd03729e7" => :high_sierra
-    sha256 "e600bf856cb30e0cc12a46cd19b036e4f9a4fc790b7c2dcd195beed88abe2aad" => :sierra
+    sha256 "27191a06eab88e00de8e26151d8dad30f64d6b4255d860feaa52db9e332df7be" => :mojave
+    sha256 "815640cfb1d339447b762a8d79feb92c334d31553a894c921e7ed94467c06f47" => :high_sierra
+    sha256 "e9a344ad86a981d5600d8e49f2a48f45c50ce8c964ce7397f3d122ed5d62edb8" => :sierra
   end
 
   depends_on "go" => :build

@@ -1,15 +1,15 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.7.4.tar.gz"
-  sha256 "2b32a1e51766476c9baab4017001e3e9ce2b6b102e2ac7492002305483607036"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.0.tar.gz"
+  sha256 "1c7e3ce7582e39d617666491e11794e3dc08ec3e3aedd38aaa79710f7845c919"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "4de28b404a43504acf29619dfc5002b2ac7b5f7285d165cf2f69670023678e58" => :mojave
-    sha256 "c0fb9de7e874f4f16c9d93c8e5aeb57c9dccdc475e95af9a46e6b92319763933" => :high_sierra
-    sha256 "c59612cbd75e27f3a996813cb6e270faf9be5fe0a096b74355533f3f5515f70c" => :sierra
+    sha256 "165faaaac6f07a735e29a395dddcdd2ac4029538443a5587a2027efe8dbd958e" => :mojave
+    sha256 "c09babf3b0c6a8e4202caaacb3a4cdeed27ae703a0f8d48f988edb135eee6112" => :high_sierra
+    sha256 "f3ff0ac76a65dd8b2fdfd04b15fc1f134555a103ecf294a1ab7d4402c2527678" => :sierra
   end
 
   depends_on "bison" => :build

@@ -21,8 +21,7 @@ class Jhead < Formula
   patch :DATA
 
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
     sha256 "d2553bb7e7e47c33fa1136841e4b5bfbad6b92edce1dcad639ab5d74ace606aa"
     apply "patches/31_CVE-2016-3822"
   end

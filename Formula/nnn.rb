@@ -1,21 +1,25 @@
 class Nnn < Formula
-  desc "Free, fast, friendly file browser"
+  desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v2.2.tar.gz"
-  sha256 "88dd08d624ae7a61ef749b1e258e4b29ed61ba9fcc5a18813f291ce80efc5e74"
+  url "https://github.com/jarun/nnn/archive/v2.4.tar.gz"
+  sha256 "859ba5bd4892016aed9a4830ee1e1b03eb74e94c4f1bd82f0288dc559f7327eb"
   head "https://github.com/jarun/nnn.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f678ffcf42043c17dd4aaf4857d5d6cb738ae50e35485b81eca6382b2c1562a0" => :mojave
-    sha256 "4337e0b9968a516f0518eb722f0757d34330d5967fec6a69840ce91b0592d6ac" => :high_sierra
-    sha256 "f4d378f77db6f6b0cfaf65b530e6e0ed6cf39b58ce1924981ae60fc7f2d5f548" => :sierra
+    cellar :any
+    sha256 "ddf0361deeb681303efc74a08e5bdce4a08225bb3b9ff6cdb607d6cfb4158860" => :mojave
+    sha256 "b26f8e25a48ebfa64ec49c496a625121e367075778610643181f55740edabd25" => :high_sierra
+    sha256 "997ecd4a9ef2d58c17dc8a23dd83143297a434a81e9e6567097e7f5610c86a6d" => :sierra
   end
 
   depends_on "readline"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+
+    bash_completion.install "scripts/auto-completion/bash/nnn-completion.bash"
+    zsh_completion.install "scripts/auto-completion/zsh/_nnn"
+    fish_completion.install "scripts/auto-completion/fish/nnn.fish"
   end
 
   test do

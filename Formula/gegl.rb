@@ -1,6 +1,6 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
-  homepage "http://www.gegl.org/"
+  homepage "https://www.gegl.org/"
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.12.tar.bz2"
   sha256 "e967293eabe89257e1d511bf68435fbfd44e6e0f9ef51b86cc50781f09eb5852"
 

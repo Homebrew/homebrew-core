@@ -1,14 +1,14 @@
 class OpentracingCpp < Formula
   desc "OpenTracing API for C++"
   homepage "https://opentracing.io/"
-  url "https://github.com/opentracing/opentracing-cpp/archive/v1.5.0.tar.gz"
-  sha256 "4455ca507936bc4b658ded10a90d8ebbbd61c58f06207be565a4ffdc885687b5"
+  url "https://github.com/opentracing/opentracing-cpp/archive/v1.5.1.tar.gz"
+  sha256 "015c4187f7a6426a2b5196f0ccd982aa87f010cf61f507ae3ce5c90523f92301"
 
   bottle do
     cellar :any
-    sha256 "77e90986d743b410c54ba63a30cf0741eb8f2faa68392a5c726c613c6113695c" => :mojave
-    sha256 "e88447ef67b65da415b9c6b747eb38e18a6ef7abc268334bd5b561d825b7eedb" => :high_sierra
-    sha256 "5466485c5f18de7452c2d4b043e0dcf0c23f3e0fa9fc93d8d84177b38eae8c34" => :sierra
+    sha256 "db04cd1a4d2e9a371d45a600e7f225381581e033a18df17cca658d6e98888878" => :mojave
+    sha256 "940e0c80b1d95e0597b4dd590c1d1149bcdb3de36d05f9a22ba257e6f0db2227" => :high_sierra
+    sha256 "327b16eea15c233bbe7822616b485efe899591a3d43bf56606e605cbb336f2b2" => :sierra
   end
 
   depends_on "cmake" => :build

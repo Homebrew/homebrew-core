@@ -4,12 +4,13 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.16.00.source.tar.gz"
   version "6.16.00"
   sha256 "2a45055c6091adaa72b977c512f84da8ef92723c30837c7e2643eecc9c5ce4d8"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "b4654cd7f0f7e0190d311e6b3b7734a1cd247b01c5a6f233c8916929ad151bdc" => :mojave
-    sha256 "fa4c773cdcdf4f4705fd2f0f5009e2dc4e89f8927dd0ebba9c356e0e53f83d8b" => :high_sierra
-    sha256 "91142b7de7f49991589cb6f2ca1a0f55857fc11314ccaf8f70c0fea1b26709e8" => :sierra
+    sha256 "4ed1123934988c376e54252e48e6d04e7e5c2a92050dabfc9be0a61e817c2b57" => :mojave
+    sha256 "1273692c685e9ddc47b06887d5f0861f538cc55768d2fedb893b67bbd4094d85" => :high_sierra
+    sha256 "87742f106314a7c9ee7cf90f089bb10ac4d93e8b1dc26da5a46e264a0e01ad04" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
@@ -55,11 +56,20 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
+    # Fix issue with ROOT 6.12-6.16 on a case-insensitive filesystem
+    # with /usr/local/include included before /usr/local/include/root
+    # Will be fixed in 6.16.02
+    # See https://trac.macports.org/ticket/57007
+    inreplace "core/base/inc/RConfig.h",
+              "<ROOT/RConfig.h>",
+              "\"ROOT/RConfig.h\""
+
     py_exe = Utils.popen_read("which python3").strip
     py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
     py_inc = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
 
     args = std_cmake_args + %W[
+      -Dcxx11=OFF
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{py_exe}
@@ -84,6 +94,15 @@ class Root < Formula
       -Dtmva=ON
       -Dxrootd=ON
     ]
+
+    # This will become -DCMAKE_CXX_STANDARD=14 (or 17) in ROOT 6.18
+    if MacOS.version < :mojave
+      args << "-Dcxx14=ON"
+      args << "-Dcxx17=OFF"
+    else
+      args << "-Dcxx14=OFF"
+      args << "-Dcxx17=ON"
+    end
 
     mkdir "builddir" do
       system "cmake", "..", *args
@@ -114,6 +133,8 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
+    For fish users:
+      . #{HOMEBREW_PREFIX}/bin/thisroot.fish
   EOS
   end
 
@@ -124,15 +145,38 @@ class Root < Formula
         std::cout << "Hello, world!" << std::endl;
       }
     EOS
-    (testpath/"test.bash").write <<~EOS
+
+    # Test ROOT command line mode
+    system "#{bin}/root", "-b", "-l", "-q", "-e", "gSystem->LoadAllLibraries(); 0"
+
+    # Test ROOT executable
+    (testpath/"test_root.bash").write <<~EOS
       . #{bin}/thisroot.sh
       root -l -b -n -q test.C
     EOS
     assert_equal "\nProcessing test.C...\nHello, world!\n",
-                 shell_output("/bin/bash test.bash")
+                 shell_output("/bin/bash test_root.bash")
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <TString.h>
+      int main() {
+        std::cout << TString("Hello, world!") << std::endl;
+        return 0;
+      }
+    EOS
+
+    # Test linking
+    (testpath/"test_compile.bash").write <<~EOS
+      . #{bin}/thisroot.sh
+      $(root-config --cxx) $(root-config --cflags) $(root-config --libs) $(root-config --ldflags) test.cpp
+      ./a.out
+    EOS
+    assert_equal "Hello, world!\n",
+                 shell_output("/bin/bash test_compile.bash")
 
     # Test Python module
     ENV["PYTHONPATH"] = lib/"root"
-    system "python3", "-c", "import ROOT"
+    system "python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end

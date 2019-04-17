@@ -1,8 +1,8 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php\?name\=neo4j-community-3.5.0-unix.tar.gz"
-  sha256 "a33df85dbdd22297d5bc9962bd42f7e70c3703ba3067b1adeaf5c18240944f37"
+  url "https://neo4j.com/artifact.php\?name\=neo4j-community-3.5.3-unix.tar.gz"
+  sha256 "d4b6e48327d5283131e9a38db25d722119e21ef5420b3cc393b9263aa37313ea"
 
   bottle :unneeded
 
@@ -30,11 +30,14 @@ class Neo4j < Formula
     (libexec/"conf/neo4j.conf").append_lines <<~EOS
       wrapper.java.additional=-Djava.awt.headless=true
       wrapper.java.additional.4=-Dneo4j.ext.udc.source=homebrew
+      dbms.directories.data=#{var}/neo4j/data
+      dbms.directories.logs=#{var}/log/neo4j
     EOS
   end
 
   def post_install
-    (var/"log").mkpath
+    (var/"log/neo4j").mkpath
+    (var/"neo4j").mkpath
   end
 
   plist_options :manual => "neo4j start"

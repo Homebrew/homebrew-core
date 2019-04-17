@@ -3,55 +3,55 @@ class Llvm < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/7.0.1/llvm-7.0.1.src.tar.xz"
-    sha256 "a38dfc4db47102ec79dcc2aa61e93722c5f6f06f0a961073bd84b78fb949419b"
+    url "https://releases.llvm.org/8.0.0/llvm-8.0.0.src.tar.xz"
+    sha256 "8872be1b12c61450cacc82b3d153eab02be2546ef34fa3580ed14137bb26224c"
 
     resource "clang" do
-      url "https://releases.llvm.org/7.0.1/cfe-7.0.1.src.tar.xz"
-      sha256 "a45b62dde5d7d5fdcdfa876b0af92f164d434b06e9e89b5d0b1cbc65dfe3f418"
+      url "https://releases.llvm.org/8.0.0/cfe-8.0.0.src.tar.xz"
+      sha256 "084c115aab0084e63b23eee8c233abb6739c399e29966eaeccfc6e088e0b736b"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/7.0.1/clang-tools-extra-7.0.1.src.tar.xz"
-      sha256 "4c93c7d2bb07923a8b272da3ef7914438080aeb693725f4fc5c19cd0e2613bed"
+      url "https://releases.llvm.org/8.0.0/clang-tools-extra-8.0.0.src.tar.xz"
+      sha256 "4f00122be408a7482f2004bcf215720d2b88cf8dc78b824abb225da8ad359d4b"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/7.0.1/compiler-rt-7.0.1.src.tar.xz"
-      sha256 "782edfc119ee172f169c91dd79f2c964fb6b248bd9b73523149030ed505bbe18"
+      url "https://releases.llvm.org/8.0.0/compiler-rt-8.0.0.src.tar.xz"
+      sha256 "b435c7474f459e71b2831f1a4e3f1d21203cb9c0172e94e9d9b69f50354f21b1"
     end
 
     resource "libcxx" do
-      url "https://releases.llvm.org/7.0.1/libcxx-7.0.1.src.tar.xz"
-      sha256 "020002618b319dc2a8ba1f2cba88b8cc6a209005ed8ad29f9de0c562c6ebb9f1"
+      url "https://releases.llvm.org/8.0.0/libcxx-8.0.0.src.tar.xz"
+      sha256 "c2902675e7c84324fb2c1e45489220f250ede016cc3117186785d9dc291f9de2"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/7.0.1/libunwind-7.0.1.src.tar.xz"
-      sha256 "89c852991dfd9279dbca9d5ac10b53c67ad7d0f54bbab7156e9f057a978b5912"
+      url "https://releases.llvm.org/8.0.0/libunwind-8.0.0.src.tar.xz"
+      sha256 "ff243a669c9cef2e2537e4f697d6fb47764ea91949016f2d643cb5d8286df660"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/7.0.1/lld-7.0.1.src.tar.xz"
-      sha256 "8869aab2dd2d8e00d69943352d3166d159d7eae2615f66a684f4a0999fc74031"
+      url "https://releases.llvm.org/8.0.0/lld-8.0.0.src.tar.xz"
+      sha256 "9caec8ec922e32ffa130f0fb08e4c5a242d7e68ce757631e425e9eba2e1a6e37"
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/7.0.1/openmp-7.0.1.src.tar.xz"
-      sha256 "bf16b78a678da67d68405214ec7ee59d86a15f599855806192a75dcfca9b0d0c"
+      url "https://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
+      sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/7.0.1/polly-7.0.1.src.tar.xz"
-      sha256 "1bf146842a09336b9c88d2d76c2d117484e5fad78786821718653d1a9d57fb71"
+      url "https://releases.llvm.org/8.0.0/polly-8.0.0.src.tar.xz"
+      sha256 "e3f5a3d6794ef8233af302c45ceb464b74cdc369c1ac735b6b381b21e4d89df4"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "e3e64458543bfe1d74820523d5878d55bef3aaad4f06a05464ea910ea9420864" => :mojave
-    sha256 "5eb7a6eebe9ebfa25a3a0d4365e0dc04fb72ed65be4bbc867c7a92d968de3e21" => :high_sierra
-    sha256 "d00b3cb887d22294ee85abec309ad4c2dec2763a3cf06cb22a7866d9415433ac" => :sierra
+    sha256 "28494073b3d20b22668ca82af68fef01c59708547acec2f6b86ff5e3e152e8dc" => :mojave
+    sha256 "a2bf6ec0b51b56541c40d31ec7677b700764850e93f29474f54333b96355bc0d" => :high_sierra
+    sha256 "b827b266bcbca04ea70b362b452aa0c903403e14847665c0ce59b6b11273a21f" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed

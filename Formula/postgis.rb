@@ -1,14 +1,15 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-2.5.1.tar.gz"
-  sha256 "fb137056f43aae0e9d475dc5b7934eccce466f86f5ceeb69ec8b5cea26817a91"
+  url "https://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz"
+  sha256 "b6cb286c5016029d984f8c440947bf9178da72e1f6f840ed639270e1c451db5e"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4b2a6bc8fd4be4eb126266b7abc893a61f0323355594768e34de2b8031d21339" => :mojave
-    sha256 "39aa93761802a7d885bc0db8b10ef66314725ca5114f77859be1be05480b3c67" => :high_sierra
-    sha256 "934efc3deeb8c3bfa3a4cf0dc2e2eb0a48853412702cc51d10405a28cdffd8ee" => :sierra
+    sha256 "b4249fd625f68664b121d896f9ef069ad3bf4469bc6fa0173b9d7aa0524bf160" => :mojave
+    sha256 "c3e4f07c51d0b8409c2ff8eec5203de906d06360db15245f359622e6cde1c73b" => :high_sierra
+    sha256 "bc929fc49418613e0eb1a9dde940ffbe756a42baae69b40a6fcb6847fffdde29" => :sierra
   end
 
   head do
@@ -27,6 +28,7 @@ class Postgis < Formula
   depends_on "pcre"
   depends_on "postgresql"
   depends_on "proj"
+  depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
 
   def install
@@ -36,6 +38,7 @@ class Postgis < Formula
       "--with-projdir=#{Formula["proj"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
       "--with-pgconfig=#{Formula["postgresql"].opt_bin}/pg_config",
+      "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}",
       # Unfortunately, NLS support causes all kinds of headaches because
       # PostGIS gets all of its compiler flags from the PGXS makefiles. This
       # makes it nigh impossible to tell the buildsystem where our keg-only

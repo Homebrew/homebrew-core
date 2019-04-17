@@ -1,15 +1,13 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.35.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.35.tar.gz"
-  sha256 "30c45e817440779be7aac523a905b123cba2a6ed0bf4f5439e1e99ba940b5546"
+  url "ftp://ftp.astron.com/pub/file/file-5.36.tar.gz"
+  sha256 "fb608290c0fd2405a8f63e5717abf6d03e22e183fb21884413d1edd918184379"
 
   bottle do
-    rebuild 1
-    sha256 "0fd1814daaab8aaef0f6c9bbfac4eb3d251def6778e6d59bd4e3df3dd5def9bb" => :mojave
-    sha256 "ba9b9ee461f6a5de3618f462a13e1c2aa83185bd0cf8cc759788577f2d2b39fe" => :high_sierra
-    sha256 "0df405f6459085824e349764bbb324da02b6bac817a2d307317e713045c7972b" => :sierra
+    sha256 "2f9cd29505ced7c842c5c673db528c68237acc69f552fb1ebe7b903f0e2597be" => :mojave
+    sha256 "b63065cb2c3501a8b352d1587804a0c7af97e2fac27fd114987e7571dfc1c3ab" => :high_sierra
+    sha256 "8187a0d50ab22d037e598c08d2e2793a84c9ce994748fa79ad8f505b889528c6" => :sierra
   end
 
   def install

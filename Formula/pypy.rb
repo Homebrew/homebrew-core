@@ -1,16 +1,15 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-src.tar.bz2"
-  sha256 "6097ec5ee23d0d34d8cd27a1072bed041c8a080ad48731190a03a2223029212d"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.0-src.tar.bz2"
+  sha256 "84ce5bc2867b224e2516ef431d78c6908d0182bc89444f7c1ef707443763754f"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "9900f0310051127ad2935df61c22256f837b256cfa2475f114082fbb37a0f2d9" => :mojave
-    sha256 "f0e0ad67095ff19e37c1ea445c6b778928ea188a45c0bcea30a8a364e7b21b47" => :high_sierra
-    sha256 "102a0e56f25c1d7ee2e91ccf91e3fd157e53d94126d8a534a67f0b70fef18c5f" => :sierra
+    sha256 "e336ac7f63484ca17a06ccf36d8041b5b01fb1b78c0254dd29180c65cce9ec96" => :mojave
+    sha256 "8306ce9444a1a3c7268b69644f5a49a9077b9bd5334269c618373ec7dba44002" => :high_sierra
+    sha256 "6891bf253e0cb77f10a70151ad5ffc6c08453a4535f15c4710db8ea3fd6a8c11" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -39,6 +38,7 @@ class Pypy < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364

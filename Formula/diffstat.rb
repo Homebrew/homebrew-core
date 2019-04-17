@@ -1,18 +1,15 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.61.tgz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz"
-  sha256 "25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.62.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.62.orig.tar.gz"
+  sha256 "7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "33b2a3e33397f24b695c98fd986ac90394e30f72eacd53ff5338ba4bd392835e" => :mojave
-    sha256 "19e885ba26c8b1d9df6e1577a8a419946e9c0e8f1e19223fef5d5b988125c22a" => :high_sierra
-    sha256 "30255ba9338a70f51fb80f44cc3993b98e44bd7946f5b598252f9a7d1c6800e9" => :sierra
-    sha256 "4b383a964ff74029f6555162d7548e11c1fe8a9f2295671484419c8e32016ede" => :el_capitan
-    sha256 "fb1b7c5b2802e7f13afcf58bd694eec31577c76ec9e32bbdef8254d08ca9866f" => :yosemite
+    sha256 "f2ddd2775174056c48eab541d32b99cfd2cc586e0227c4f2eec4b15bf5ce7128" => :mojave
+    sha256 "ac1e5199d1776d52adc03842b378da475f1db1282150ed9ce22c365a5b0cf7dd" => :high_sierra
+    sha256 "c6f9fd47c9736faf0cfb2f3e0ab6490e3974b4dca06d36f4bf01967c56aa1c14" => :sierra
   end
 
   def install
@@ -33,7 +30,7 @@ class Diffstat < Formula
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
       +  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 '25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee'
+      +  sha256 '7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f'
     EOS
     output = shell_output("#{bin}/diffstat diff.diff")
     assert_match "2 insertions(+), 3 deletions(-)", output

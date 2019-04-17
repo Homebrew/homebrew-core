@@ -3,14 +3,14 @@ class Btfs < Formula
   homepage "https://github.com/johang/btfs"
   url "https://github.com/johang/btfs/archive/v2.18.tar.gz"
   sha256 "bb9679045540554232eff303fc4f615d28eb4023461eae3f65f08f2427ec9ef2"
-  revision 2
+  revision 4
   head "https://github.com/johang/btfs.git"
 
   bottle do
     cellar :any
-    sha256 "e03434b33a6b3f27436b7e31e22696d3c645c27840729559b156e42ac4f99715" => :mojave
-    sha256 "cd5cffcddc4a7a7013fd7a38edba49b70c6bb9dc6ef965db0d003682d2a032c3" => :high_sierra
-    sha256 "b5bda19961ac5e3e9729c16ee6b39de5370fc462cbffac63823f7ba0f174548e" => :sierra
+    sha256 "70ff35b5db83e4c55d70e1d17c830fc68c34a01f1b85fa83001fa97be32b7354" => :mojave
+    sha256 "d9427d71e9b9e39bf5eed697493c64dd1212b38bb6fd8306c200baee00de0f0f" => :high_sierra
+    sha256 "1d19a06617a3971728a3e4d22b4b163ddfb4c274ec2169236e007fb0fcea5608" => :sierra
   end
 
   depends_on "autoconf" => :build

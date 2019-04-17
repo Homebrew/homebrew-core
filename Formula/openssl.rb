@@ -4,15 +4,15 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2q.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2q.tar.gz"
-  sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
+  url "https://www.openssl.org/source/openssl-1.0.2r.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2r.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2r.tar.gz"
+  sha256 "ae51d08bba8a83958e894946f15303ff894d75c2b8bbd44a852b64e3fe11d0d6"
 
   bottle do
-    sha256 "cdbee2befd8f2e178ff0c5f9e8796a73a7de20055aae51cba7cc749429e8c90f" => :mojave
-    sha256 "d3ac5de6ccd9c604a5f2b8582ebd721ab421c0fdbfefa5a4b1190f83277f2c27" => :high_sierra
-    sha256 "94881a8df581a9f63b6a0a6c9f362d873133c2a27f2708803bca778390356975" => :sierra
+    sha256 "c1f8c06740398325c7028213b20b18c5de39763fbc81e5819c78a06ee0621170" => :mojave
+    sha256 "2b68bd92c0c2faea5a1e70cc57a2403482ab2d83d0201bb42016c57c754427a5" => :high_sierra
+    sha256 "02c6161715bd1bdb45e6f922615c97f420c852b28ea0865d39ff8db6d8e70678" => :sierra
   end
 
   keg_only :provided_by_macos,

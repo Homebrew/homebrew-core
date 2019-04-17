@@ -1,8 +1,8 @@
 class Spotbugs < Formula
   desc "Tool for Java static analysis (FindBugs's successor)"
   homepage "https://spotbugs.github.io/"
-  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.10/spotbugs-3.1.10.tgz"
-  sha256 "cc86b7fade75d85378b951eb8dca40aea75bf33336454eea522fccd4e1c540e1"
+  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz"
+  sha256 "9c475d6c7096ed7af783e04dc2db40462145291de75a80029391600b6eb2d401"
 
   head do
     url "https://github.com/spotbugs/spotbugs.git"

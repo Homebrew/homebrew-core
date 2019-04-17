@@ -1,14 +1,14 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.8.25.tar.gz"
-  sha256 "37829256e102e967fe3d58613a036d9fb9b8f9658e20c23fa787eac0bfbb8a79"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.8.26.tar.gz"
+  sha256 "5806cd0b2b1075fe0d5a303649d0bd9365752053e86c684ab7c06e7f369155d3"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
-    sha256 "0e237b881bfd86eaeb4aff21cc7c077e2951ad7388e9b2ab1a078f39acd4abac" => :mojave
-    sha256 "c6d60cf7da3fb2c3b9c92dc7a256ba531b134f05965d1fb7dca192f0233305cb" => :high_sierra
-    sha256 "2f710c6230a61223bdf0060ebf7808725b5779a1aaedb23e3344c3d996587afd" => :sierra
+    sha256 "37e844cb59c8fc378e232ac0a86d053a6a7a65b797672565907f86dfdde1647b" => :mojave
+    sha256 "b8b31fdbd8f73df0671eed8bd348bef1eea631ce310f0c10037d61a40090ce2c" => :high_sierra
+    sha256 "141d0e2788c329dd27801cf1245cabe3893d898139996c75997519338a42acb8" => :sierra
   end
 
   depends_on "cmake" => :build

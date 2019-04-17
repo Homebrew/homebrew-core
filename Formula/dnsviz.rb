@@ -3,14 +3,14 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://github.com/dnsviz/dnsviz/releases/download/v0.8.1/dnsviz-0.8.1.tar.gz"
-  sha256 "b62e6642aba46cf145f9ca23d02fcfd101752a7448d1b44537334ddc4e359eae"
+  url "https://github.com/dnsviz/dnsviz/releases/download/v0.8.2/dnsviz-0.8.2.tar.gz"
+  sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
 
   bottle do
     cellar :any
-    sha256 "dd80c8d3dd7b5c1d7ea4582543660ec347b5ec9c5a032ffbee8b5e66ba86c55d" => :mojave
-    sha256 "4b906c5a99b284e5d3874d984952fb0422ea62246630c0632531f1712e69cbbc" => :high_sierra
-    sha256 "b3ab518a1efdd10bebd202aac28863c00e2af5ecd3b5d0b3b334b34dd212b66c" => :sierra
+    sha256 "f55b130eee33b503ea3b4c88ba34c952ae58a070c632fdac326962199c9ef5b6" => :mojave
+    sha256 "6324be158374f9b93e287ada9dfe33c2aef01b05a4bacc78fea47719f69d2db9" => :high_sierra
+    sha256 "08325b100e560aad351b72002e7828b713f3f39e003e2a3eaa2a6cc7d4797e62" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -31,8 +31,8 @@ class Dnsviz < Formula
   end
 
   resource "m2crypto" do
-    url "https://files.pythonhosted.org/packages/0a/d3/ecef6a0eaef77448deb6c9768af936fec71c0c4b42af983699cfa1499962/M2Crypto-0.31.0.tar.gz"
-    sha256 "fd59a9705275d609948005f4cbcaf25f28a4271308237eb166169528692ce498"
+    url "https://files.pythonhosted.org/packages/17/2b/f551dbff0f7b70746568c6546efccca128fe8651be7ad915b99e1bae15cf/M2Crypto-0.32.0.tar.gz"
+    sha256 "29c9c6fa6abdeb4156b8e0342c30028c5ee68055b60aa21c88abfb1d85fea325"
   end
 
   resource "typing" do

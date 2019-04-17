@@ -2,14 +2,14 @@ class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
   homepage "https://github.com/tstack/lnav"
-  url "https://github.com/tstack/lnav/releases/download/v0.8.4/lnav-0.8.4.tar.gz"
-  sha256 "22283a59eca51f85dd3283eea1f326fdaa175d9a7a4957a6edf8fb894a1f891d"
+  url "https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5.tar.gz"
+  sha256 "bb809bc8198d8f7395f3de76efdc1a08a5c2c97dc693040faee38802c38945de"
 
   bottle do
-    sha256 "2fd7a4d77dc91c33314e87a3b6f34d70f6aad47deac63fe14ca33f0181ebcb05" => :mojave
-    sha256 "e7a3dd56d462d6bc1373dc15245a9a5baead456b6368449688c2a9b8b87e98c2" => :high_sierra
-    sha256 "2ce8bb7aa0c2102abeb4e4c0e5d61c1aa55156e7de67587698cfe29f78043730" => :sierra
-    sha256 "20a996133ad0b0f753e2b0ca619471dee7683ed479a652cf84b1f3758386b033" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "b888a423afd1868ef45428afc107f5fe7a9df3204330dc4f589a8e9acffaa14d" => :mojave
+    sha256 "2d2a97a3c86fe5e16dd0579185fdb24151abb881c9415872875708b2e8e75be6" => :high_sierra
+    sha256 "a1bd07d7c2cb1c08f8b894e994cf17e65d7ebcf2d10b39d34d643bfbb3b4f5ce" => :sierra
   end
 
   head do

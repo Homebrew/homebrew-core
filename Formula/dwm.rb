@@ -1,16 +1,16 @@
 class Dwm < Formula
   desc "Dynamic window manager"
   homepage "https://dwm.suckless.org/"
-  url "https://dl.suckless.org/dwm/dwm-6.1.tar.gz"
-  sha256 "c2f6c56167f0acdbe3dc37cca9c1a19260c040f2d4800e3529a21ad7cce275fe"
+  url "https://dl.suckless.org/dwm/dwm-6.2.tar.gz"
+  sha256 "97902e2e007aaeaa3c6e3bed1f81785b817b7413947f1db1d3b62b8da4cd110e"
   revision 1
   head "https://git.suckless.org/dwm", :using => :git
 
   bottle do
-    cellar :any
-    sha256 "96b24743e0a1e80f183fb9a9a6ba413c1feb78dc88bf7cf5fa5767a427bc24aa" => :mojave
-    sha256 "3f38007bc1083269deb427a95e932e9474d7ff095406e3738944b3ae2d440a8d" => :high_sierra
-    sha256 "ad026318ad2c198f997d2ffbf9724521d8ef766889a936f8ff9c4dbab8dafaf3" => :sierra
+    cellar :any_skip_relocation
+    sha256 "a749a913684983c05a9998ca73d55bd8f05197fcf6d7573336eacf7e168a5120" => :mojave
+    sha256 "0c5e0fd48f4d52ab748d5301add02b7ca39d773c604e108d2eb81705cf80c315" => :high_sierra
+    sha256 "20707f7d694eef615c63c98c055db728a6922e68ccf287ca63933715781311e6" => :sierra
   end
 
   depends_on "dmenu"

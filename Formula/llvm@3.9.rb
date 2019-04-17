@@ -7,9 +7,10 @@ class LlvmAT39 < Formula
 
   bottle do
     cellar :any
-    sha256 "3948911a5db9401e8d2f82b2a30c11709a6fe281018f207cad98b657aeab108e" => :mojave
-    sha256 "8c56062d501cb59782b016be75be14702d565498bbe8d0b7f3e26fd08265850f" => :high_sierra
-    sha256 "d3b1d7c45c60869be95666a4675551e330889c0dda24f9e4c2968034cf6862e9" => :sierra
+    rebuild 1
+    sha256 "0a9b15fb4f4633f7758671d0ced83b54333b58229a2b24905aa7d5f4fe49cfd9" => :mojave
+    sha256 "341efc104ef59aa23177e257615cef092ec8f67845b7235a87e8ad1ae210b53c" => :high_sierra
+    sha256 "621531bbbc72bb0ffe01e25b3cc6beb2f51f9738aafa6ee52ecc9b3296ba0db3" => :sierra
   end
 
   keg_only :versioned_formula
@@ -109,7 +110,11 @@ class LlvmAT39 < Formula
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+
+    # scan-build is in Perl, so the @ in our path needs to be escaped
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build",
+              "$RealBin/bin/clang", "#{bin}/clang".gsub("@", "\\@")
+
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 

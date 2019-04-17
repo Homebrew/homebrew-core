@@ -1,18 +1,16 @@
 class Prototool < Formula
   desc "Your Swiss Army Knife for Protocol Buffers"
   homepage "https://github.com/uber/prototool"
-  url "https://github.com/uber/prototool/archive/v1.3.0.tar.gz"
-  sha256 "727c64ce45e2f07445838677bd08009f7975d70648d327008ec5369631266493"
+  url "https://github.com/uber/prototool/archive/v1.6.0.tar.gz"
+  sha256 "47374f818244d6fe8679c3d9a15ee7933a996b245e1c5431071c58d7cb01694a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b596a61d1a00123c749d473b87460d2dc84123c1b6b2a25307b5a3557232da0e" => :mojave
-    sha256 "d0c768377d7336ace520a3476ec40740a21249b46b600d44c6ef95b23d6dfed0" => :high_sierra
-    sha256 "b2781bc1baccfb8957ecfd2db0c1a67d337dcb6eb123f7cd681ec74bb3157b0f" => :sierra
-    sha256 "b159f5c718bea7a8dae0c5a920ceb9e3de783e7bad8bed4c1898eff874003321" => :el_capitan
+    sha256 "5eaa0eb6f0121f409af1612362c055aa798ce10bf316b22bca0f35f21cdf38ef" => :mojave
+    sha256 "b58b0581fdefb0f92eec86474693891988b301669cb5e2090a8baecb396ec0cf" => :high_sierra
+    sha256 "6639f60c9a848f642f85b16955333e68594309e6e5af11b500760f7b27e7f8e3" => :sierra
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install

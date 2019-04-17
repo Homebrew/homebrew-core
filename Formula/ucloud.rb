@@ -1,20 +1,19 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.9.tar.gz"
-  sha256 "8abc4cdc3fc0130dbe9ea44c5f4a6ce3603be85e674f3f0f55bea7e13a8376f8"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.14.tar.gz"
+  sha256 "63ecd4be5750045889685bd51f2cfb508e8176278347068dd603bbbfe08fa958"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f01a660731454d70083bd85c2c35dd51bead5650becc0c6e16bb206e7270bc8" => :mojave
-    sha256 "7b3a1e6e3fcc6da4c5a907a284b9e91186ff453b00c1f37721dcb4e36c0fe113" => :high_sierra
-    sha256 "7512d599d18c4aa5a48f5e6c9c1a3855c076d1dc3efc2cb89cf976676a1220e4" => :sierra
+    sha256 "9bfc09de816718339f2f0d3cd21c59046ef4d44a089ea7a115a0999016ad5825" => :mojave
+    sha256 "19cc2ae5483bebc90ade41bc716cb00c86942e21c7d6340d6a71aa3e00fc10cd" => :high_sierra
+    sha256 "d01218092f5d74abde518003ad09a6b2c84b75bdf18a21649ca7b5bac7675120" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/ucloud/ucloud-cli"
     dir.install buildpath.children
     cd dir do

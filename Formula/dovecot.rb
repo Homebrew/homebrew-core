@@ -1,21 +1,20 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.2.1.tar.gz"
-  sha256 "4a65118508dc7a562e5f90dd7c3f56219fff22367c496f17d77cd0c7e2724e34"
-  revision 1
+  url "https://www.dovecot.org/releases/2.3/dovecot-2.3.5.1.tar.gz"
+  sha256 "d78f9d479e3b2caa808160f86bfec1c9c7b46344d8b14b88f5fa9bbbf8c7c33f"
 
   bottle do
-    sha256 "6626329909388aafbb99245c8fcd458333f72318cca0b40f32dd4901243fa633" => :mojave
-    sha256 "9cebefeee05f78fa705d1b1955027c4d60095d70b572658d4fd98d3b68912d01" => :high_sierra
-    sha256 "f7cd5b3ffb07fffc80c3f7af828efbe745ea72978112721558a19910b6c09e4c" => :sierra
+    sha256 "8e8b2cbf26ef7760b20a012247ccd495cfcb28312776f5889c261ed93409d74e" => :mojave
+    sha256 "e80b3088c9bb8081bdd39fcd269cb68353f356bb0520f97d787ab621bf35ae43" => :high_sierra
+    sha256 "d9fd6d64dc1910ea166801939754e8dce929f2f645d12f148cc1eb98978600fb" => :sierra
   end
 
   depends_on "openssl"
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.2.tar.gz"
-    sha256 "950e8e15c58e539761255e140dd3678dd2477fa432a5f2b804e53821bdc02535"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.5.tar.gz"
+    sha256 "cbaa106e1c2b23824420efdd6a9f8572c64c8dccf75a3101a899b6ddb25149a5"
   end
 
   def install

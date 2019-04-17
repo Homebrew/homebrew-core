@@ -2,27 +2,27 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.6.1.3",
-      :revision => "66dc42d891a4fc8e9190c524fd67961688a37bbe"
-  revision 1
+      :tag      => "v3.7.1",
+      :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
     cellar :any
-    sha256 "587c01fb41ef890636c73751035b94fbff711b4176f0629c78484b4beb752211" => :mojave
-    sha256 "a110365419ed380141d06fae861ddfb76b3dfda47984c30ba999c3820b2e7278" => :high_sierra
-    sha256 "87abe0838ac015768cb6f4577332bfaf8ae4031254a63350461280ff2f62303c" => :sierra
+    rebuild 1
+    sha256 "410f34fc3240dc94c16bf74e3317b56d987acddc361228c03e6b10e8373588fb" => :mojave
+    sha256 "cb0e47a0eaa45e5237eab16fec5cc1efb00c531d51484aefceb9a19d6c686f61" => :high_sierra
+    sha256 "8caa4610c0d140dc509c61ee3c10e2457f3b5240ee53ee88bbb32d185b4a216c" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python"
-  depends_on "python@2"
+  depends_on "python" => [:build, :test]
+  depends_on "python@2" => [:build, :test]
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install

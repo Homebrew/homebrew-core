@@ -1,13 +1,14 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/v0.14.tar.gz"
-  sha256 "8525877960ba7a6122d6dfd2bae34ed1437d5231f9e31de97bbe6106c4dfa03a"
+  url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
+  sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
+  revision 2
 
   bottle do
-    sha256 "a331ddcc97bf8d41ee701cbd42f8832e513501836bb3b386e1f09530b9d5522b" => :mojave
-    sha256 "4039f9cd484154ee87df82400f267650cb068145b2134342c8d143b7ae95b036" => :high_sierra
-    sha256 "18f6929712d4237c3ffb4cadb74c4f7abd50211a6002e8cec5bc882917d0549b" => :sierra
+    sha256 "7d98740f145b601a509b460303f989fe3e2429ac01b40cb517268e91594abcc9" => :mojave
+    sha256 "0d47340043001bee75aedda418d51b495fd2674c6bd0943cbae1f2c2dce212ca" => :high_sierra
+    sha256 "ab61374dfe21d4babacf651d88940e7eba76a7f5a8f769ee2aa8cd0c602eb6bd" => :sierra
   end
 
   depends_on "gambit-scheme"

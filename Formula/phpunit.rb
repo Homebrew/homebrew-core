@@ -1,8 +1,8 @@
 class Phpunit < Formula
   desc "Programmer-oriented testing framework for PHP"
   homepage "https://phpunit.de"
-  url "https://phar.phpunit.de/phpunit-8.0.3.phar"
-  sha256 "c20e8196173d91c149f57e1753306a8614b2cf83c1517cf8e3a98406389e6113"
+  url "https://phar.phpunit.de/phpunit-8.1.2.phar"
+  sha256 "09f6df448717f7c7e7566cdea18da29075126b43efc0c97468d9f804d8073afa"
 
   bottle :unneeded
 

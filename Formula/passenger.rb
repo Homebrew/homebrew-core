@@ -1,27 +1,22 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.1/passenger-6.0.1.tar.gz"
-  sha256 "038be424e30a850f340285371419a9bbf236d103f81c79d50e2807bb335502e5"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.2/passenger-6.0.2.tar.gz"
+  sha256 "56b2273312e6dc9880f6ba83e381583b8759085a0b41338b782c9575d58346bc"
+  revision 1
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "3b5e444fe0ac01be904a4f08d5c24e32f04eea2f73dff333a06dc6cfd765e30b" => :mojave
-    sha256 "83e9714af4d118daaf04d2601fceaee8b6254ab82f84abf6a7584a7e7e987ba3" => :high_sierra
-    sha256 "e5ac3df781538eaa706dabd46d237e09d6a6db84a0cc7331d0d8c6b83080dddd" => :sierra
+    sha256 "e2edabb892cdc821157fa271813e907b15cffda3ea2c4fd7f0c8988bbc6f1e0e" => :mojave
+    sha256 "99df6916b44f350c9a0e07af57ed8c4eb6cf5be2ecd055edaede21f82ce4f3ce" => :high_sierra
+    sha256 "26feea9c9ab93f7c3f7493532c2f980e16b75d07fcec8602d4d1713ca1563a62" => :sierra
   end
 
   # to build nginx module
   depends_on "nginx" => [:build, :test]
   depends_on "openssl"
   depends_on "pcre"
-
-  patch do
-    url "https://github.com/phusion/passenger/commit/20ca9e52.patch?full_index=1"
-    sha256 "e18966542571ce906b6fd9bdb7959418fba20da3669a2c7442a17f4e53179892"
-  end
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046

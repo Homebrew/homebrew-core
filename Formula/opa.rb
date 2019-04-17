@@ -1,14 +1,14 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.10.2.tar.gz"
-  sha256 "2ffcbd4bb57790a7c397f15af6f88bad468c98dcf75bee48eb040f52c96bbc1c"
+  url "https://github.com/open-policy-agent/opa/archive/v0.10.6.tar.gz"
+  sha256 "ad757f2eee14e7262335967fd58a96a900677575a67240332d271f33b6e36b85"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df64c27d4b39d0762d125d8368cace9d44508fb66a64b808e8d5c64f0d39022c" => :mojave
-    sha256 "c3e4a2baaff9d70e205d82317beb6164d13503e3b71b42d6c87ac7564733a24c" => :high_sierra
-    sha256 "558d64e6fc846b0c8f372c357de0bc9ac37323b9c2f158e12e973f1a607a1140" => :sierra
+    sha256 "6a9cddb682d94532d8adbf23e1359d8d60288c3a7fe11c2e21a81a65028fe8d6" => :mojave
+    sha256 "1898624cc87c832b6f04e9ecc6a13f22f6ddc1cc5a21a712aef0a47cfe267a88" => :high_sierra
+    sha256 "d018c5ec4c53c8262f909eb055a18802ce60335bf58a598f8e1250148aa44c79" => :sierra
   end
 
   depends_on "go" => :build

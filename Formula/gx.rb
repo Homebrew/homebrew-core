@@ -3,16 +3,15 @@ require "language/go"
 class Gx < Formula
   desc "The language-agnostic, universal package manager"
   homepage "https://github.com/whyrusleeping/gx"
-  url "https://github.com/whyrusleeping/gx/archive/v0.13.0.tar.gz"
-  sha256 "c93e96170c6e161176cfca5a866072ec2e79a85b6185bc4cefcf3fc62b0e7c4f"
+  url "https://github.com/whyrusleeping/gx/archive/v0.14.1.tar.gz"
+  sha256 "eb1f9cd2af7d9fdbfed9aeb8bdccb4c7b6aa91f3ca40a6010f22bbaaa7bc026c"
   head "https://github.com/whyrusleeping/gx.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "38573e9fdb5837218dcbe12c44b034888f5d1ed969dbae4225a8152d66a2a9d7" => :mojave
-    sha256 "b0f7b7d33126e4af1856da3d2bf4a6b314e2d44b182cf66be65744f6d961eb6b" => :high_sierra
-    sha256 "0e4f02f886f828c6c600cb98c383549fc66c5f37ffed8a8232c4821b0896ff81" => :sierra
-    sha256 "93b7c70f8c93b2d4678766a3a69780b4128bf21f2f4a0f3261b77183fad318a6" => :el_capitan
+    sha256 "cd9206262c3ec48b7c745c23b93a7d35f1eb062ab46d2a8712d1e80f97c01ba4" => :mojave
+    sha256 "f9b917fcf75f644943869f660dbb418168962bb6c32df2a0962ca11d71822c2e" => :high_sierra
+    sha256 "d10a52930db99b4e6e815148cbeb418eef47a2fac43c8d3b4a6b1c0addc3c72e" => :sierra
   end
 
   depends_on "go" => :build
@@ -34,7 +33,7 @@ class Gx < Formula
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-        :revision => "30cf7ac33676b5786e78c746683f0d4cd64fa75b"
+        :revision => "ba06b47c162d49f2af050fb4c75bcbc86a159d5c"
   end
 
   go_resource "github.com/gxed/hashland" do
@@ -69,7 +68,7 @@ class Gx < Formula
 
   go_resource "github.com/libp2p/go-libp2p-pubsub" do
     url "https://github.com/libp2p/go-libp2p-pubsub.git",
-        :revision => "a031ab4d1b8142714eec946acb7033abafade3d7"
+        :revision => "f736644fe805a9f5677c82aca25c82da7cde2c76"
   end
 
   go_resource "github.com/mattn/go-colorable" do
@@ -122,8 +121,8 @@ class Gx < Formula
         :revision => "6c572c00d1830223701e155de97408483dfcd14a"
   end
 
-  go_resource "github.com/sabhiram/go-git-ignore" do
-    url "https://github.com/sabhiram/go-git-ignore.git",
+  go_resource "github.com/sabhiram/go-gitignore" do
+    url "https://github.com/sabhiram/go-gitignore.git",
         :revision => "fc6676d5d4e5b94d6530686eecb94f85b44cdc39"
   end
 

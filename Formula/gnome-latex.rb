@@ -1,14 +1,13 @@
 class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/gnome-latex/3.30/gnome-latex-3.30.2.tar.xz"
-  sha256 "558bbd574d3d5a71b9ecde47d7cb5e9ddf7cdbfd21f8f117f09c84c38ddfc33a"
-  revision 2
+  url "https://download.gnome.org/sources/gnome-latex/3.32/gnome-latex-3.32.0.tar.xz"
+  sha256 "0f069c7b4c6754255a1c7e3e3b050925d8076f55458526a30ab59e0a7d52acc9"
 
   bottle do
-    sha256 "2d6432e2fd6982c46de4fc248811f18d94f2c9f8b0a5755b2474205ab663a704" => :mojave
-    sha256 "6dc2c72ce8ee611765d056bd1f83f07dc12411d4570ba2cff60b597971b46b81" => :high_sierra
-    sha256 "790b5a4859553539840a4f538fbd66fc9fea38c86803b1378e9713bd24efeabc" => :sierra
+    sha256 "d705dbc64afb4344d195d7c20c5a035312f2fd02b224581ecb8908c81b93e1b3" => :mojave
+    sha256 "4e837c5609bb266565c0389ebf2e3a165a479c4c6e95821b3c8c957fe38121c8" => :high_sierra
+    sha256 "c91420786faeb6ad497f5705edce6575412d6b3f9ff3628a3d5a994b95519f9f" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
