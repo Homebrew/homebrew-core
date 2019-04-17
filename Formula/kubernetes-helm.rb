@@ -15,7 +15,6 @@ class KubernetesHelm < Formula
 
   depends_on "glide" => :build
   depends_on "go" => :build
-  depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath
