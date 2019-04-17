@@ -10,15 +10,15 @@ class Zilf < Formula
 
   def install
     prefix.install "README.txt"
-    bin.install Dir["bin/*.dll", "bin/*.exe"]
+    libexec.install Dir["bin/*"]
     prefix.install Dir["doc", "library", "sample"]
     (bin/"zilf").write <<~EOS
       #!/bin/sh
-      mono #{bin}/zilf.exe "$@"
+      mono #{libexec}/zilf.exe -ip "#{prefix}/library" "$@"
     EOS
     (bin/"zapf").write <<~EOS
       #!/bin/sh
-      mono #{bin}/zapf.exe "$@"
+      mono #{libexec}/zapf.exe "$@"
     EOS
   end
 
