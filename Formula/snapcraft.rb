@@ -18,6 +18,7 @@ class Snapcraft < Formula
   depends_on "lxc"
   depends_on "python"
   depends_on "squashfs"
+  depends_on "xdelta"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
