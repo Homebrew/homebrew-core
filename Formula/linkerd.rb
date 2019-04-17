@@ -3,8 +3,8 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-    :tag      => "stable-2.2.1",
-    :revision => "5e47cb150a33150e5aeddc6672d8a64701a970de"
+    :tag      => "stable-2.3.0",
+    :revision => "e6a29728c8e3796c6acd4c9f9a17b138d51f147f"
 
   bottle do
     cellar :any_skip_relocation
@@ -47,6 +47,6 @@ class Linkerd < Formula
     stable_resource = stable.instance_variable_get(:@resource)
     assert_match stable_resource.instance_variable_get(:@specs)[:tag], version_output if build.stable?
 
-    system "#{bin}/linkerd", "install"
+    system "#{bin}/linkerd", "install", "--ignore-cluster"
   end
 end
