@@ -7,9 +7,9 @@ class Sops < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3da5dce6c4dbbdfa90521bd63bfeb6f9f84649149626065d59304c150453bcc0" => :mojave
-    sha256 "9829b2d6fbf48db2535736ad92b876421170e28eac8cbfd3d5b5d999a927eb2c" => :high_sierra
-    sha256 "9892a38517b3bbb9894bba47b72d31becd70cee86e5b912a75006b45cf90023c" => :sierra
+    sha256 "b04a345c474c2fa04802d2b3330c5f2350e6eebec8c92e1159471c1475228eba" => :mojave
+    sha256 "910754aae300a7e12474fc9787166228daeaf48a55fd9f77028bf224a6a2b1db" => :high_sierra
+    sha256 "7a19e62b0d681550fc8416d4a51400c4dee0052b781f2897a78220f539989437" => :sierra
   end
 
   depends_on "go" => :build
