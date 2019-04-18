@@ -15,6 +15,7 @@ class Kubeaudit < Formula
   end
 
   test do
-    system "#{bin}/kubeaudit", "version"
+    output = shell_output(bin/"kubeaudit -c /some-file-that-does-not-exist all 2>&1").chomp
+    assert_match "Unable to load kubeconfig. Could not open file /some-file-that-does-not-exist.", output
   end
 end
