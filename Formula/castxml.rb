@@ -1,9 +1,8 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://deb.debian.org/debian/pool/main/c/castxml/castxml_0.1+git20180702.orig.tar.xz"
-  version "0.1+git20180702"
-  sha256 "00c58b28523496fbeda731656bb022ad55e7c390609f189ebe03b4468292da40"
+  url "https://github.com/CastXML/CastXML/archive/v0.2.0.tar.gz"
+  sha256 "626c395d0d3c777b5a1582cdfc4d33d142acfb12204ebe251535209126705ec1"
   head "https://github.com/CastXML/castxml.git"
 
   bottle do
