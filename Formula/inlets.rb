@@ -5,6 +5,13 @@ class Inlets < Formula
       :tag      => "0.6.3",
       :revision => "01b26ba23791041121e4996609c96cfa4e25bf64"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4bbd500cc363dd5607b75330673963a41280ff2550fef6b24925f0106f305dba" => :mojave
+    sha256 "daaf2c48df4e934b1c45a7ef4ab5f2163c95490269282dd75fccc5af12ad6ba2" => :high_sierra
+    sha256 "b6523aa01bbf450a4f4879b84a47debc8675a61981079c74bde79085dbbc7e0c" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
