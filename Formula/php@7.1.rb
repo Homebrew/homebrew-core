@@ -3,6 +3,7 @@ class PhpAT71 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.1.28.tar.xz/from/this/mirror"
   sha256 "45131497ec0a947e3f9145c000e8fcc1f86b46518ee3f6810d80efa2d39521e2"
+  revision 1
 
   bottle do
     sha256 "c1120c97c326d4665c48ecf961fa50c1196108d570ef4debdbff76b0d316f1ea" => :mojave
