@@ -6,18 +6,31 @@ class Alluxio < Formula
 
   bottle :unneeded
 
+  def default_alluxio_conf
+    <<~EOS
+      alluxio.master.hostname=localhost
+    EOS
+  end
+
   def install
     doc.install Dir["docs/*"]
     libexec.install Dir["*"]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
 
+    rm_rf Dir["#{etc}/alluxio/*"]
+
     (etc/"alluxio").install libexec/"conf/alluxio-env.sh.template" => "alluxio-env.sh"
     ln_sf "#{etc}/alluxio/alluxio-env.sh", "#{libexec}/conf/alluxio-env.sh"
+
+    defaults = etc/"alluxio/alluxio-site.properties"
+    defaults.write(default_alluxio_conf) unless defaults.exist?
+    ln_sf "#{etc}/alluxio/alluxio-site.properties", "#{libexec}/conf/alluxio-site.properties"
   end
 
   def caveats; <<~EOS
     To configure alluxio, edit
       #{etc}/alluxio/alluxio-env.sh
+      #{etc}/alluxio/alluxio-site.properties
   EOS
   end
 
