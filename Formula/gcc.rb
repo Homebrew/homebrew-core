@@ -4,6 +4,7 @@ class Gcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   bottle do
@@ -26,6 +27,15 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC; this is an xcode bug, but
+  # this patch is a work around committed to trunk and planned to backport to
+  # 6, 7, 8 branches
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
+    sha256 "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84"
+  end
 
   def version_suffix
     if build.head?
