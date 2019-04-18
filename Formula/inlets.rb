@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/alexellis/inlets"
   url "https://github.com/alexellis/inlets.git",
-      :tag      => "0.6.2",
-      :revision => "fbc9f4fe98cf48e44300736140bd013d64d6f980"
+      :tag      => "0.6.3",
+      :revision => "01b26ba23791041121e4996609c96cfa4e25bf64"
 
   depends_on "go" => :build
 
