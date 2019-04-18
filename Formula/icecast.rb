@@ -26,6 +26,17 @@ class Icecast < Formula
   end
 
   test do
-    system "#{bin}/icecast", "-v"
+    ICECAST_PID = spawn "icecast", "-c", "#{prefix}/etc/icecast.xml", "2>", "/dev/null", "&"
+    sleep(3)
+
+    begin
+      system "kill", "-0", ICECAST_PID
+      assert_equal 0, $?.exitstatus
+
+      system "kill", ICECAST_PID
+      assert_equal 0, $?.exitstatus
+    ensure
+      Process.kill("TERM", ICECAST_PID)
+    end
   end
 end
