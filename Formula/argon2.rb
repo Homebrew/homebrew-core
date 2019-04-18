@@ -3,6 +3,7 @@ class Argon2 < Formula
   homepage "https://github.com/P-H-C/phc-winner-argon2"
   url "https://github.com/P-H-C/phc-winner-argon2/archive/20171227.tar.gz"
   sha256 "eaea0172c1f4ee4550d1b6c9ce01aab8d1ab66b4207776aa67991eb5872fdcd8"
+  revision 1
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
@@ -17,7 +18,19 @@ class Argon2 < Formula
     system "make"
     system "make", "test"
     system "make", "install", "PREFIX=#{prefix}"
+    (buildpath/"pkgconfig/libargon2.pc").write pc_file
+    lib.install "pkgconfig"
     doc.install "argon2-specs.pdf"
+  end
+
+  def pc_file; <<~EOS
+    Name: libargon2
+    Description: Development libraries for libargon2
+    Version: #{version}
+    Libs: -L#{lib} -largon2 -ldl
+    Cflags: -I#{include}
+    URL: https://github.com/P-H-C/phc-winner-argon2
+  EOS
   end
 
   test do
