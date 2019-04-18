@@ -8,9 +8,9 @@ class Svgo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "225c5919dc3bfd29c08f86863878c283ad3d647b706b3d495b1484cd16e33850" => :mojave
-    sha256 "13b0ac5a9ae8019bee8ff955c22d5872bda3c843ef0b7b68897a0e5606956112" => :high_sierra
-    sha256 "93e01c8e34b2a467a35e74f8ae40374cf6e38466717fff0f8339b637d9172ea3" => :sierra
+    sha256 "03e7f05bdf23d6f2d5ca2582f238d87a9e0d1a30b16a6ef9f076d8522ac2d814" => :mojave
+    sha256 "7289fa9ff788b90a54c0366c5caa9bc14034fde631e1c45b625b6b81e0d1de3c" => :high_sierra
+    sha256 "537153ae152735bba011228bfd8c3ea680ca9a2acfb79236e6b445835c71b2ba" => :sierra
   end
 
   depends_on "node"
