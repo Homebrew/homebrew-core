@@ -6,10 +6,9 @@ class Kore < Formula
   head "https://github.com/jorisvink/kore.git"
 
   bottle do
-    rebuild 1
-    sha256 "946ce6d884b60a4a0d0914e0d46284ba079078f03a4daf17dcfc36bd9411800d" => :mojave
-    sha256 "affd88a8f829810108c075e57f1e797302849a50c1d0948ecab8bec499ef7177" => :high_sierra
-    sha256 "42c0c518094b65d21befa71388c37d8bf0f9f0fe1fe8f8b7f5509a258cb15fe0" => :sierra
+    sha256 "9ab45f1ddd1082c77a515f543381f826924efc642d9fb42f8dc40112befcdec4" => :mojave
+    sha256 "120edda1e4e53bf6735fb172fd789de961d5a447a905e681366df29060330525" => :high_sierra
+    sha256 "5b98b520246e66e966ab811806e92c8b1cbd87a5676e6319e12249a9320c5c40" => :sierra
   end
 
   depends_on :macos => :sierra # needs clock_gettime
