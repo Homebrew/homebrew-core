@@ -3,7 +3,7 @@ class Boost < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
   sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -47,6 +47,7 @@ class Boost < Formula
       --layout=tagged-1.66
       --user-config=user-config.jam
       -sNO_LZMA=1
+      -sNO_ZSTD=1
       install
       threading=multi,single
       link=shared,static
