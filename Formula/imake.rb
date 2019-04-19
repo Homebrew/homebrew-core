@@ -1,9 +1,8 @@
 class Imake < Formula
   desc "Build automation system written for X11"
   homepage "https://xorg.freedesktop.org"
-  url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.7.tar.bz2"
-  sha256 "690c2c4ac1fad2470a5ea73156cf930b8040dc821a0da4e322014a42c045f37e"
-  revision 4
+  url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
+  sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
 
   bottle do
     sha256 "744bc37ab36128960dc813cf1a07a25cf037595448c869f1ec41151542517419" => :mojave
@@ -17,8 +16,8 @@ class Imake < Formula
   depends_on :x11
 
   resource "xorg-cf-files" do
-    url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.5.tar.bz2"
-    sha256 "ed23b85043edecc38fad4229e0ebdb7ff80b570e746bc03a7c8678d601be7ed4"
+    url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.6.tar.bz2"
+    sha256 "4dcf5a9dbe3c6ecb9d2dd05e629b3d373eae9ba12d13942df87107fdc1b3934d"
   end
 
   patch :p0 do
