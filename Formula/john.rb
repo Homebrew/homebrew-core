@@ -1,8 +1,8 @@
 class John < Formula
   desc "Featureful UNIX password cracker"
   homepage "https://www.openwall.com/john/"
-  url "https://www.openwall.com/john/j/john-1.8.0.tar.xz"
-  sha256 "952cf68369fb5b27f2d112ce7ca1eb16b975c85cbce8c658abb8bc5a20e1b266"
+  url "https://www.openwall.com/john/k/john-1.9.0.tar.xz"
+  sha256 "0b266adcfef8c11eed690187e71494baea539efbd632fe221181063ba09508df"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,8 +23,6 @@ class John < Formula
 
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", "macosx-x86-64"
 
-    # Remove the README symlink and install the real file
-    rm "README"
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
 
