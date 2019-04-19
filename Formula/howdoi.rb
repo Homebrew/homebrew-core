@@ -6,9 +6,9 @@ class Howdoi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "882896e09f7581c0d9ebf1476f1e8038ba31990988c75da512f54ec3ad8071f2" => :mojave
-    sha256 "cb68a5e3d048696ea68faceace136dcedc4a701a9254deaa613da1c0fa79b889" => :high_sierra
-    sha256 "217610f13ca56878d4e0401eb99a1e393eb5741d8b5aab7f2d4e2cfc25fd38f1" => :sierra
+    sha256 "3cac2e6afc9cf29876f565ac780cdbc4c805f1fceb127c41c579fe48c8152622" => :mojave
+    sha256 "5edf4edb30e164f02ea874811d7252f62f419333ec12c204d57a392b4dac424d" => :high_sierra
+    sha256 "3f821c39a42eaabd7117eeca050ebee938141d3affa06c6585701009ed003fc6" => :sierra
   end
 
   depends_on "python"
