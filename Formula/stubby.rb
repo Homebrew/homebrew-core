@@ -44,7 +44,6 @@ class Stubby < Formula
           <string>#{opt_bin}/stubby</string>
           <string>-C</string>
           <string>#{etc}/stubby/stubby.yml</string>
-          <string>-l</string>
         </array>
         <key>StandardErrorPath</key>
         <string>#{var}/log/stubby/stubby.log</string>
