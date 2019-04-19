@@ -1,8 +1,8 @@
 class Htmlcxx < Formula
   desc "Non-validating CSS1 and HTML parser for C++"
   homepage "https://htmlcxx.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htmlcxx/htmlcxx/0.86/htmlcxx-0.86.tar.gz"
-  sha256 "07542b5ea2442143b125ba213b6823ff4a23fff352ecdd84bbebe1d154f4f5c1"
+  url "https://downloads.sourceforge.net/project/htmlcxx/v0.87/htmlcxx-0.87.tar.gz"
+  sha256 "5d38f938cf4df9a298a5346af27195fffabfef9f460fc2a02233cbcfa8fc75c8"
 
   bottle do
     sha256 "c46b81a03d14ee9287b79bf6e668669a4c12196b2e9ea7f4b22e8610d61c0943" => :mojave
