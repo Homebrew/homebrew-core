@@ -8,9 +8,9 @@ class Terrahub < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76bafce33b0984bd9229f9e5f462b3cfec87816699d5a0b249ff8c702fb64d7d" => :mojave
-    sha256 "cbe0df754a0cc23123a805296250edd4b3b8241cd751c40acdaa9101afd453c5" => :high_sierra
-    sha256 "3519002eb0a711e3c352f4b8a498a540c8380beabd49e5fdf0de63823ce43b1c" => :sierra
+    sha256 "fc80b9a46d6deac64fdcc86a87b9d38d3b1e73c8a3b44cb93e45ddfa9abfc0f1" => :mojave
+    sha256 "25a6d4749df950ae84102c85c68dee1b13cc2af348a12423d75ec70fac9817fe" => :high_sierra
+    sha256 "7356fb544504557ecb253a6d3b4243e4ca2f7b28c8d13bf067b81e4ca540dba5" => :sierra
   end
 
   depends_on "node"
