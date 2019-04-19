@@ -1,9 +1,9 @@
 class Ircii < Formula
   desc "IRC and ICB client"
   homepage "http://www.eterna.com.au/ircii/"
-  url "https://ircii.warped.com/ircii-20170704.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20170704.orig.tar.bz2"
-  sha256 "4e5a70fc4577de06fd5855ab7ca0a501fd16e02d5fd34e434a2b5abac80a2eda"
+  url "https://ircii.warped.com/ircii-20190117.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20190117.orig.tar.bz2"
+  sha256 "10316f0a3723e4ce3d67fd5a7df10e6bcf30dd0750fb96d5437cacb16b0e9617"
 
   bottle do
     sha256 "aaf1bd01be68a060cd5e0323a6f645a05f2395708697a9754c518155f1dbd394" => :mojave
