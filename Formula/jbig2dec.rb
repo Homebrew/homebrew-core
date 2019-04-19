@@ -1,8 +1,8 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://jbig2dec.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs924/jbig2dec-0.15.tar.gz"
-  sha256 "6bfa1af72de37c7929315933a1ba696540d860936ad98f9de02fc725d7e53854"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/jbig2dec-0.16.tar.gz"
+  sha256 "a4f6bf15d217e7816aa61b92971597c801e81f0a63f9fe1daee60fb88e0f0602"
 
   bottle do
     cellar :any
@@ -10,6 +10,8 @@ class Jbig2dec < Formula
     sha256 "880df1d4364a329a3a4f78d32360f3bba01fe422877ea10e0170db06d57f8637" => :high_sierra
     sha256 "53ef474b4a04148edd1c7b2bdb5529c674a72316ecda7d46410c8e8ae0368542" => :sierra
   end
+
+  depends_on "autoconf" => :build
 
   resource("test") do
     url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
