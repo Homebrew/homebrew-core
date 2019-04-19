@@ -9,12 +9,9 @@ class JsonSpirit < Formula
 
   bottle do
     cellar :any
-    sha256 "83e0551760113ed4c6a23db7670c64b19f59b841d9ec8dd76cf5bdc833c66088" => :mojave
-    sha256 "0eed2985cea7cc97f61f595591b52889884e47617a3cebe8b0f78da0f26de95a" => :high_sierra
-    sha256 "4c7c56c29cb1e6b2f866004a82aeb89e66f177a5b155c6d723338957c0ad228f" => :sierra
-    sha256 "7668e993b4d8ca4493d6e8a706378e840b35409a96b1ac928fd96c8933528cf4" => :el_capitan
-    sha256 "192b4f814c55d038a5a0d8ab1dd13698d1f4daa4899ef9ce1cb22b8562442a96" => :yosemite
-    sha256 "fba55377ce6098174e392e66df972e070f58f9a259aa38cad592eaf2e808eace" => :mavericks
+    sha256 "2cec376e843919e2f3693e73be0e3a2c6a6f3b283e503b51d42108c5471e8091" => :mojave
+    sha256 "55299a7931b4bbbcf1ee5c576fe35283373279cc95b3b5126696ad5741f3d072" => :high_sierra
+    sha256 "0dc2370a736a065b47f6f83f8ed292209fc978005a720de8653e32cc1c568cce" => :sierra
   end
 
   depends_on "cmake" => :build
