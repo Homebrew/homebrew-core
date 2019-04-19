@@ -14,6 +14,7 @@ class Boost < Formula
   end
 
   depends_on "icu4c"
+  depends_on "zstd"
 
   def install
     # Force boost to compile with the desired compiler
