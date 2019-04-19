@@ -8,9 +8,9 @@ class Icu4c < Formula
 
   bottle do
     cellar :any
-    sha256 "e707bf5e3d0189ede7d941d95a417b5dacad3eac99b9a677042464140f12fa1d" => :mojave
-    sha256 "0ac5ee60393d26ec26a915ed957a38a0b2355fe7991f607044edaedd3ff14cc1" => :high_sierra
-    sha256 "dd64c70639ba91fe0c07304c0563681ba97b221e9f9919497b383884b8bb0b65" => :sierra
+    sha256 "e858556120acc0c2d52b8fb572b677856724cc28d24a7e1b2762d458a2977c8e" => :mojave
+    sha256 "02afdd6a472c31351e46a3b2a38c1c77354f0cc9199c3dbd7e06bc171b3638a2" => :high_sierra
+    sha256 "4270a558e2709b7cee1be047a8e890ee15bdb379825fd6dc81fdba74cd438c01" => :sierra
   end
 
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
