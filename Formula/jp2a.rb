@@ -1,9 +1,8 @@
 class Jp2a < Formula
   desc "Convert JPG images to ASCII"
   homepage "https://csl.name/jp2a/"
-  url "https://downloads.sourceforge.net/project/jp2a/jp2a/1.0.6/jp2a-1.0.6.tar.gz"
-  sha256 "0930ac8a9545c8a8a65dd30ff80b1ae0d3b603f2ef83b04226da0475c7ccce1c"
-  revision 1
+  url "https://github.com/cslarsen/jp2a/archive/v1.0.7.tar.gz"
+  sha256 "e509d8bbf9434afde5c342568b21d11831a61d9942ca8cb1633d4295b7bc5059"
 
   bottle do
     cellar :any
@@ -14,13 +13,14 @@ class Jp2a < Formula
     sha256 "2a175fef16afed3e74c834ff250f0278eedc60c4deb0296e62f073954605d97d" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "jpeg"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "autoreconf", "-ivf"
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "test"
     system "make", "install"
   end
 
