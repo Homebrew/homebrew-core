@@ -2,7 +2,7 @@ class Mimic < Formula
   desc "Lightweight text-to-speech engine based on CMU Flite"
   homepage "https://mimic.mycroft.ai"
   url "https://github.com/MycroftAI/mimic/archive/1.2.0.2.tar.gz"
-  sha256 "6adcc9911b09d6e9513add41ad9dfc0893ece277f556419869520a0f0708c102"
+  sha256 "619f3864d8ff599c1fa47424b7d87059236fcd51db3c0c311eb3635c80174b5a"
   revision 6
 
   bottle do
