@@ -3,6 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.12.2.tar.gz"
   sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
+  revision 1
 
   bottle do
     sha256 "c61580b06971b50952504c4c7ec913998531c1dc253f9f187d2a643ab92d3d55" => :mojave
@@ -13,7 +14,10 @@ class Csound < Formula
   depends_on "cmake" => :build
   depends_on "fltk"
   depends_on "liblo"
+  depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on "portaudio"
+  depends_on "portmidi"
   depends_on "stk"
 
   def install
@@ -56,6 +60,13 @@ class Csound < Formula
 
     ENV["OPCODE6DIR64"] = "#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64"
     ENV["RAWWAVE_PATH"] = "#{HOMEBREW_PREFIX}/share/stk/rawwaves"
-    system "#{bin}/csound", "test.orc", "test.sco"
+
+    require "open3"
+    stdout, stderr, status = Open3.capture3("#{bin}/csound test.orc test.sco")
+
+    assert_equal true, status.success?
+    assert_equal "hello, world\n", stdout
+    assert_match /^rtaudio:/, stderr
+    assert_match /^rtmidi:/, stderr
   end
 end
