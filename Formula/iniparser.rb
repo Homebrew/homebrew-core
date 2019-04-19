@@ -1,8 +1,8 @@
 class Iniparser < Formula
   desc "Library for parsing ini files"
   homepage "http://ndevilla.free.fr/iniparser/"
-  url "http://ndevilla.free.fr/iniparser/iniparser-3.1.tar.gz"
-  sha256 "aedf23881b834519aea5e861b2400606d211da049cd59d3cfb4568e0d9eff5c5"
+  url "https://github.com/ndevilla/iniparser/archive/v4.1.tar.gz"
+  sha256 "960daa800dd31d70ba1bacf3ea2d22e8ddfc2906534bf328319495966443f3ae"
   head "https://github.com/ndevilla/iniparser.git"
 
   bottle do
