@@ -7,12 +7,9 @@ class Iniparser < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd976b7f75d0754f92e2e7824b200d9b4393ce81ab010b133414a36e922a12d4" => :mojave
-    sha256 "2cd01e81f1feacfafa6e116d366e519f9b44fef85ab683799cf32947e8606e61" => :high_sierra
-    sha256 "6b6e99eb6ea00278e708518ca32a9660edd40b1d4b730accb8040e1fe24d3de2" => :sierra
-    sha256 "0278cf54ff7cf350232559892ada560905b6b736ce96ed1c16550bee5bfad682" => :el_capitan
-    sha256 "c31e24f968cd204eef07f40dab70174df9ac9d6d130af13b2943e8a9df00acfe" => :yosemite
-    sha256 "7e211ecdcd55d267ab0921a15cf27b739b7a1af62160ac8b62dd456119c1a5d0" => :mavericks
+    sha256 "69dde8e886645f5b89f83f36835c18449afe7f6c4f119d466d7f204e994952c7" => :mojave
+    sha256 "cec20d33114e7a5811acb41f9f9a36a411ffd2eebb7d537167b9b541b03fff8d" => :high_sierra
+    sha256 "7ad8eb3b8a66c08b78d2d9d3db18bd50e842d1c5962600ad0c9c8244d296dea8" => :sierra
   end
 
   conflicts_with "fastbit", :because => "Both install `include/dictionary.h`"
