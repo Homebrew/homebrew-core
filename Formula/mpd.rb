@@ -1,9 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.5.tar.xz"
-  sha256 "2ea9f0eb3a7bdae5d705adf4e8ec45ef38b5b9ddf133f32b8926dd4e205b0ef9"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.7.tar.xz"
+  sha256 "512062bc529bee04d4ccfaa2c6e720afc85bb071e49850a096b5ed518b3b412c"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
@@ -26,6 +25,7 @@ class Mpd < Formula
   depends_on "icu4c"
   depends_on "lame"
   depends_on "libao"
+  depends_on "libgcrypt"
   depends_on "libid3tag"
   depends_on "libmpdclient"
   depends_on "libnfs"
