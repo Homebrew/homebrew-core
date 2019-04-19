@@ -5,10 +5,9 @@ class Imake < Formula
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
 
   bottle do
-    sha256 "744bc37ab36128960dc813cf1a07a25cf037595448c869f1ec41151542517419" => :mojave
-    sha256 "f7b7121138f0c2d0d5c5dba574143f8c911b4be70538f1dbba4aeebe0dd5773f" => :high_sierra
-    sha256 "1341c20e98ef8bd974202df0805c0ca9132eb436ff8e2e06624f1dd4c19094bc" => :sierra
-    sha256 "941acafab09fe8afefe785eddce4565827de4f310494f783995b5035d95e5b4a" => :el_capitan
+    sha256 "7b88b762f87532242c2e45ea2818eaf1e73528f8c45710bba22697d53e102034" => :mojave
+    sha256 "005f26740da80aafab194f81a41699aae4f79eb9a0881e4a75984d64832f8299" => :high_sierra
+    sha256 "f95dbaaf6211d6b1384e7b1b2fde0ed73c7d9c4bddd3af9982a3092f190273e8" => :sierra
   end
 
   depends_on "pkg-config" => :build
