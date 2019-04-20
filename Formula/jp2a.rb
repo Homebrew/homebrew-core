@@ -6,11 +6,9 @@ class Jp2a < Formula
 
   bottle do
     cellar :any
-    sha256 "12a78b015bc8204f0c8375f06bf45fb71120d3b7b51ef9e695807e65b313143f" => :mojave
-    sha256 "c68f18d28eb4799c5aa6a74c5f2c98a21b9c0968ed2cd9af6b4ea16a7f206fa6" => :high_sierra
-    sha256 "2d5c4358454d3fa29f6bf4ebb9f43992f7fd0fd68f9161476ae2cd79f51a652a" => :sierra
-    sha256 "ff1455c705893442d357efb79b275c6337b24a9e11c959e38f06df5cde4367ae" => :el_capitan
-    sha256 "2a175fef16afed3e74c834ff250f0278eedc60c4deb0296e62f073954605d97d" => :yosemite
+    sha256 "97f05a0bb8f9ee5b075e21aff16503284592106cc87d384c1b85936128690345" => :mojave
+    sha256 "36bd941b1b215c93b6934a085b9cf8fdaad2ba2ce47a8fbe096e53a144932201" => :high_sierra
+    sha256 "a45231943df5bffc1589114b20b5b6c9745f909fd1e85db63da40e28bec02709" => :sierra
   end
 
   depends_on "autoconf" => :build
