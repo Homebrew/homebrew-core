@@ -12,8 +12,6 @@ class Xapian < Formula
     sha256 "a1a49718ad026797c150e012c712ad69a9d6e5a278a4750d0bddd1656a41014a" => :sierra
   end
 
-  # Sphinx greater than 1.8 has breaking API changes and is incompatible
-  depends_on "sphinx-doc@1.8" => :build
   depends_on "python"
 
   skip_clean :la
@@ -32,10 +30,19 @@ class Xapian < Formula
 
     resource("bindings").stage do
       ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
-      ENV.append_path "PYTHONPATH", Formula["sphinx-doc@1.8"].libexec/"lib/python3.7/site-packages"
-      ENV.append_path "PATH", Formula["sphinx-doc@1.8"].bin
-      ENV.append_path "PATH", Formula["sphinx-doc@1.8"].libexec/"bin"
       ENV.prepend_create_path "PYTHON3_LIB", lib/"python3.7/site-packages"
+
+      # Xapian bindings are not compatible with Sphinx-doc >= 2.0
+      # According to https://trac.xapian.org/ticket/740 there is no way to build bindigs without documentation
+      # As a workaround, we remove this step directly from the configuration script
+      inreplace "./configure", "$PYTHON3 -c 'import sphinx;print(repr(sphinx.main))'", "[ true ]"
+
+      inreplace "./python3/Makefile.in" do |s|
+        s.gsub! "all-local: $(sphinxdocs)", "all-local:"
+        s.gsub! "cp -R -p `test -r docs/html || echo '$(srcdir)/'`docs/html '$(DESTDIR)$(docdir)/python3'", "echo 'skip python doc'"
+      end
+
+      inreplace "./python3/Makefile.am", "cp -R -p `test -r docs/html || echo '$(srcdir)/'`docs/html '$(DESTDIR)$(docdir)/python3'", "echo 'skip python doc'"
 
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
