@@ -1,8 +1,8 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.32/pygobject-3.32.0.tar.xz"
-  sha256 "83f4d7e59fde6bc6b0d39c5e5208574802f759bc525a4cb8e7265dfcba45ef29"
+  url "https://download.gnome.org/sources/pygobject/3.32/pygobject-3.32.1.tar.xz"
+  sha256 "32c99def94b8dea5ce9e4bc99576ef87591ea779b4db77cfdca7af81b76d04d8"
 
   bottle do
     cellar :any
@@ -27,7 +27,7 @@ class Pygobject3 < Formula
                       "-Dpython=python2.7",
                       ".."
       system "ninja", "-v"
-      system "ninja", "install"
+      system "ninja", "install", "-v"
     end
 
     mkdir "buildpy3" do
@@ -36,7 +36,7 @@ class Pygobject3 < Formula
                       "-Dpython=python3",
                       ".."
       system "ninja", "-v"
-      system "ninja", "install"
+      system "ninja", "install", "-v"
     end
   end
 
