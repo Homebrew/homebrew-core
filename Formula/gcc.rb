@@ -55,7 +55,7 @@ class Gcc < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    osmajor = `uname -r`.chomp
+    osmajor = `uname -r`.split(".").first
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
     args = %W[
