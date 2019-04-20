@@ -1,8 +1,8 @@
 class Lego < Formula
   desc "Let's Encrypt client"
-  homepage "https://github.com/xenolf/lego"
-  url "https://github.com/xenolf/lego/archive/v1.2.1.tar.gz"
-  sha256 "16d76140fee4013df2caf3dfc126ac4648e8872c65e2d1f069c11a5f81fce986"
+  homepage "https://go-acme.github.io/lego/"
+  url "https://github.com/go-acme/lego/archive/v2.5.0.tar.gz"
+  sha256 "f2665affc8e55ed95fcd6b24b826c7d3a343c24df8d91838d4beb87b770bcf3d"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +15,8 @@ class Lego < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/xenolf/lego").install buildpath.children
-    cd "src/github.com/xenolf/lego" do
+    (buildpath/"src/github.com/go-acme/lego").install buildpath.children
+    cd "src/github.com/go-acme/lego/cmd/lego" do
       system "go", "build", "-o", bin/"lego", "-ldflags",
              "-X main.version=#{version}"
       prefix.install_metafiles
