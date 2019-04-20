@@ -5,9 +5,9 @@ class AwsIamAuthenticator < Formula
   sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5a35beb29c75a100afad5bb2706ac57fe5cc92ee56296612c34348c2ea4c8d7" => :mojave
-    sha256 "6b25272261dfd33c355ff55f0928499aa9d71a62d6609729274207578e4562e4" => :high_sierra
-    sha256 "c57e49a16d76e4af19fb05ff4547511639dac76aa1cb9e82948af0b1433f866f" => :sierra
+    sha256 "524c545b1b500aa81a578371f59c487a31f6b20463731051cc5f3e30551b8b63" => :mojave
+    sha256 "7c773fefb0506db8b95ed918ff639ede96b58a4d0d2a51d2faf941f30a61ad84" => :high_sierra
+    sha256 "d333ce7bf5e32215161a5f8ba82e86c47a425c9782d8281ab36d66a4bb7cd6f0" => :sierra
   end
 
   depends_on "dep" => :build
