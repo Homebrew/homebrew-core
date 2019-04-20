@@ -1,8 +1,8 @@
 class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
-  url "https://github.com/kubernetes-sigs/aws-iam-authenticator/archive/v0.3.0.tar.gz"
-  sha256 "91e801c1b1c097f663ebd75897cd5ea19e709bc5ab806e1169ffc508c5a79271"
+  url "https://github.com/kubernetes-sigs/aws-iam-authenticator/archive/v0.4.0.tar.gz"
+  sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
   bottle do
     cellar :any_skip_relocation
     sha256 "d5a35beb29c75a100afad5bb2706ac57fe5cc92ee56296612c34348c2ea4c8d7" => :mojave
