@@ -3,6 +3,7 @@ class Arping < Formula
   homepage "https://github.com/ThomasHabets/arping"
   url "https://github.com/ThomasHabets/arping/archive/arping-2.19.tar.gz"
   sha256 "b1477892e19687a99fa4fb42e147d7478d96d0d3fc78ca4faade6392452414db"
+  revision 1
 
   bottle do
     cellar :any
