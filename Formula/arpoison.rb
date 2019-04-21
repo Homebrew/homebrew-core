@@ -3,6 +3,7 @@ class Arpoison < Formula
   homepage "http://www.arpoison.net/"
   url "http://www.arpoison.net/arpoison-0.7.tar.gz"
   sha256 "63571633826e413a9bdaab760425d0fab76abaf71a2b7ff6a00d1de53d83e741"
+  revision 1
 
   bottle do
     cellar :any
