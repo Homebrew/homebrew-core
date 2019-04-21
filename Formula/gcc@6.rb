@@ -4,6 +4,7 @@ class GccAT6 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   sha256 "7ef1796ce497e89479183702635b14bb7a46b53249209a5e0f999bebf4740945"
+  revision 1
 
   bottle do
     sha256 "c4547a5c70b310be136aa3ae73a2dda4f0ef8a63b0759edd3849fbddb0770eb6" => :mojave
@@ -25,6 +26,16 @@ class GccAT6 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
+  # but this patch is a work around committed to GCC trunk
+  if MacOS::Xcode.version >= "10.2"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%406/gcc6-xcode10.2.patch"
+      sha256 "0f091e8b260bcfa36a537fad76823654be3ee8462512473e0b63ed83ead18085"
+    end
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
