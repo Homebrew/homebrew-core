@@ -4,7 +4,7 @@ class GccAT6 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   sha256 "7ef1796ce497e89479183702635b14bb7a46b53249209a5e0f999bebf4740945"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "8f5eaed705b59c45f39c76fb26318d2946b1e15d670ed31739336462e972e4df" => :mojave
