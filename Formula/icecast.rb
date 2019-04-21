@@ -1,3 +1,5 @@
+require "English"
+
 class Icecast < Formula
   desc "Streaming MP3 audio server"
   homepage "https://icecast.org/"
@@ -26,15 +28,15 @@ class Icecast < Formula
   end
 
   test do
-    ICECAST_PID = spawn "icecast", "-c", "#{prefix}/etc/icecast.xml", "2>", "/dev/null", "&"
+    ICECAST_PID = spawn "icecast", "-c", "#{prefix}/etc/icecast.xml", "2>", "/dev/null"
     sleep(3)
 
     begin
       system "kill", "-0", ICECAST_PID
-      assert_equal 0, $?.exitstatus
+      assert_equal 0, $CHILD_STATUS.exitstatus
 
       system "kill", ICECAST_PID
-      assert_equal 0, $?.exitstatus
+      assert_equal 0, $CHILD_STATUS.exitstatus
     ensure
       Process.kill("TERM", ICECAST_PID)
     end
