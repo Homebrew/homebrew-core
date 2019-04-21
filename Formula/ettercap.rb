@@ -1,7 +1,7 @@
 class Ettercap < Formula
   desc "Multipurpose sniffer/interceptor/logger for switched LAN"
   homepage "https://ettercap.github.io/ettercap/"
-  revision 1
+  revision 2
   head "https://github.com/Ettercap/ettercap.git"
 
   stable do
