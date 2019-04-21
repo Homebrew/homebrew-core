@@ -18,6 +18,12 @@ class Partio < Formula
   depends_on "doxygen" => :build
   depends_on "swig" => :build
 
+  # This fix is upstream and can be removed in the next released version.
+  patch do
+    url "https://github.com/wdas/partio/commit/e83243b.diff?full_index=1"
+    sha256 "452c88b81a2a6bff88bbdbdebeaebb2e3c9c1ea8f140be5e7a941270774c14c3"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
