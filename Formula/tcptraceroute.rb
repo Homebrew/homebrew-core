@@ -1,7 +1,7 @@
 class Tcptraceroute < Formula
   desc "Traceroute implementation using TCP packets"
   homepage "https://github.com/mct/tcptraceroute"
-  revision 1
+  revision 2
   head "https://github.com/mct/tcptraceroute.git"
 
   stable do
