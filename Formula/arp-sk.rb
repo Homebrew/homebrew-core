@@ -4,6 +4,7 @@ class ArpSk < Formula
   url "https://web.archive.org/web/20180223202629/sid.rstack.org/arp-sk/files/arp-sk-0.0.16.tgz"
   mirror "https://pkg.freebsd.org/ports-distfiles/arp-sk-0.0.16.tgz"
   sha256 "6e1c98ff5396dd2d1c95a0d8f08f85e51cf05b1ed85ea7b5bcf73c4ca5d301dd"
+  revision 1
 
   bottle do
     cellar :any
