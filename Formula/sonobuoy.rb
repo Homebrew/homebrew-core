@@ -36,7 +36,7 @@ class Sonobuoy < Formula
     assert_match "Sonobuoy is an introspective kubernetes component that generates reports on cluster conformance", output
     assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")
     output = shell_output("#{bin}/sonobuoy gen 2>&1")
-    assert_match "name: heptio-sonobuoy", output
+    assert_match "heptio-sonobuoy", output
     output = shell_output("#{bin}/sonobuoy e2e --show=all " + resource("sonobuoyresults").cached_download + " 2>&1")
     assert_match "all tests", output
   end
