@@ -23,14 +23,19 @@ class Terraforming < Formula
     sha256 "3c40aa67e5f7e32be3bd63daff6056a753dd7f2938e955960784a74d5be33908"
   end
 
+  resource "aws-sdk-dynamodb" do
+    url "https://rubygems.org/gems/aws-sdk-dynamodb-1.25.0.gem"
+    sha256 "529c3b1b46c997b5db79274747922669ff9f52caefcf3ee40454bf0c3e3424c8"
+  end
+
   resource "aws-sdk-ec2" do
-    url "https://rubygems.org/gems/aws-sdk-ec2-1.10.0.gem"
-    sha256 "5bc356c5e38e3e482563e40525c7fd1bb2791d847b970329b1b0688aa0aa628e"
+    url "https://rubygems.org/gems/aws-sdk-ec2-1.79.0.gem"
+    sha256 "92838c05deff4609f698a17e7b18a12a38a58aba2dffedc46964b2ff3956c98e"
   end
 
   resource "aws-sdk-efs" do
-    url "https://rubygems.org/gems/aws-sdk-efs-1.0.0.gem"
-    sha256 "91e12fcb58cc42b0a67263867c3bff9a7da8496e1312a51e1b9db991627b817c"
+    url "https://rubygems.org/gems/aws-sdk-efs-1.13.0.gem"
+    sha256 "c322bd04fed83efa1d5a4b276cab788b39258c4ecab362a789cc16cc61be05e4"
   end
 
   resource "aws-sdk-elasticache" do
