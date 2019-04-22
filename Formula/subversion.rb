@@ -4,6 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2"
   sha256 "7fae7c73d8a007c107c0ae5eb372bc0bb013dbfe966fcd5c59cd5a195a5e2edf"
+  revision 1
 
   bottle do
     sha256 "9fd5dbe51db910462158ec335367ad051e808e8e09915a1dee090bab4483bd6e" => :mojave
