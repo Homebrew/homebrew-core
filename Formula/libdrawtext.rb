@@ -18,6 +18,11 @@ class Libdrawtext < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
+  patch do
+    url "https://github.com/jtsiomb/libdrawtext/commit/543cfc67beb76e2c25df0a329b5d38eff9d36c71.diff?full_index=1"
+    sha256 "f501d0a0abec4454594257e47255fab717a4b66cb767c96f9e3db1c5bd68f850"
+  end
+
   def install
     system "./configure", "--disable-dbg", "--enable-opt", "--prefix=#{prefix}"
     system "make", "install"
