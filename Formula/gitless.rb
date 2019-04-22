@@ -52,6 +52,12 @@ class Gitless < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
+  # restores compatibility with recent pygit2 releases (0.27.1+)
+  patch do
+    url "https://github.com/sdg-mit/gitless/commit/4eb3a971d1d7d63fa359b60812a5a5df8b8a72db.patch?full_index=1"
+    sha256 "6b75c448f9a93e814610cb20b8dca4a85c89ee9f11181f03604923c040d67aa6"
+  end
+
   def install
     virtualenv_install_with_resources
   end
