@@ -86,8 +86,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/64/49/a7a621f1c2fde3dc263c10f2b2be5b42807bfdafe8465fc8e0f4c5524016/pygit2-0.27.3.tar.gz"
-    sha256 "9b7613be3f6ee6ffcfdfa9c64762d4e36a31161bd561a6f7d340a8b3f486ca10"
+    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
+    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
   end
 
   resource "pyzmq" do
