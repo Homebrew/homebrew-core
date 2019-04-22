@@ -1,8 +1,8 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.1.0.tgz"
-  sha256 "161b92519801240886a55cc27484efc995dde1ad4703d9afd49fa8f32656e27d"
+  url "https://varnish-cache.org/_downloads/varnish-6.2.0.tgz"
+  sha256 "c37af353aca25a83d22f9c5ce0ae800fe433e4d02e1457e02886a5849f988e53"
 
   bottle do
     sha256 "ba4d03d0208cd64feef54afa139f644eb9ec5c48e4117b4009108a29fcb8aeb7" => :mojave
@@ -11,7 +11,9 @@ class Varnish < Formula
   end
 
   depends_on "docutils" => :build
+  depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre"
 
