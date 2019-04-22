@@ -6,9 +6,9 @@ class Sn0int < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93e4290da3e9ef2570c60a4440364d78a6de911ddfccd31567a6656c7da772b5" => :mojave
-    sha256 "0896b55d74488be908dc916b7e08bf1db2d37595a744743ead0e17660618aed1" => :high_sierra
-    sha256 "66ee3201a6a8ef53bce08e969d88a3f9f75ff3e877e2672b45177b186c1a1c03" => :sierra
+    sha256 "b857fb412338e25e9d77757d4098cc2aeae130918dad9d8be561b4e061665fa3" => :mojave
+    sha256 "3f1c3f663ff59dcd4c0ee67ba0d6ad52a8dfc4be03f4565ba81a420e4de48263" => :high_sierra
+    sha256 "a1a9841bf1b1fb10ecffb234db292b4625d494dda8908f9da926726308fbadab" => :sierra
   end
 
   depends_on "rust" => :build
