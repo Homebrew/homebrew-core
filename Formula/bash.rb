@@ -35,9 +35,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "6573f80429e70d699ef4c352c5a25575a15924d126a6ca6aede797fb47ce1068" => :mojave
-    sha256 "153f3cde71a02dad3d763a8516e14b45525bd4008eaf89d67fda820623249afe" => :high_sierra
-    sha256 "92e65ddb78c110783313f99ed331a650ce21692bc4bb827d031e5e34cacf420b" => :sierra
+    sha256 "07f1f20a0fd6a8b06cd66d9aa6bd26d4d5afe5bd79b5354b081493bb9ee28943" => :mojave
+    sha256 "bf87f6875d02d049f651da3c31c2b5db66bb8324ce28641f18e0768112de72ac" => :high_sierra
+    sha256 "68ca9e0ac8c1dfe45c4f9e9ff25fa44080b827f4634a7ff5cc5fc6e65a302d62" => :sierra
   end
 
   def install
