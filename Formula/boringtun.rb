@@ -5,6 +5,13 @@ class Boringtun < Formula
   sha256 "544c72fc482b636e7f6460bfee205adafc55de534067819e4e4914980f0d1350"
   head "https://github.com/cloudflare/boringtun.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "54e373b9f76fc6988ed21454e567e038c835539241ee6a43f7c5d31ce90226e2" => :mojave
+    sha256 "141f4c394dce33a0559debdd2b5c89fa4064117953a414cb07ad426b4b24ad97" => :high_sierra
+    sha256 "54172a4b63ed22ae431d7d018a1d99da5dfe80637d879c9647b93d9c976186c1" => :sierra
+  end
+
   depends_on "rust" => :build
 
   def install
