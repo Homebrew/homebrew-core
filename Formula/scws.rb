@@ -1,8 +1,9 @@
+# coding: utf-8
 class Scws < Formula
   desc "Simple Chinese Word Segmentation"
   homepage "https://github.com/hightman/scws"
-  url "http://www.xunsearch.com/scws/down/scws-1.2.1.tar.bz2"
-  sha256 "74c8ec26882c3b92c6655b552bcf678a56cbcda5fc03b5a0aab08a3cc9fbf588"
+  url "http://www.xunsearch.com/scws/down/scws-1.2.3.tar.bz2"
+  sha256 "60d50ac3dc42cff3c0b16cb1cfee47d8cb8c8baa142a58bc62854477b81f1af5"
 
   def install
     system "./configure", "--disable-debug",
@@ -13,6 +14,7 @@ class Scws < Formula
   end
 
   test do
-    system "#{bin}/scws", "-h"
+    output = shell_output("#{bin}/scws -c utf8 -i 人之初")
+    assert_match "人 之 初", output
   end
 end
