@@ -38,8 +38,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/3b/0d/c11844421c7c3b9cb84c5503185bbb5ba780144fd64f5adde572bcdcdd8a/pygit2-0.27.0.tar.gz"
-    sha256 "6febce4aea72f12ed5a1e7529b91119f21d93cb2ccb3f834eea26af76cc9a4cb"
+    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
+    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
   end
 
   resource "sh" do
