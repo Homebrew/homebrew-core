@@ -6,9 +6,9 @@ class Tcpreplay < Formula
 
   bottle do
     cellar :any
-    sha256 "13eb5d7675349a7840d4cd925718fce267df8d9cacc270ae3968d9fbdd974aed" => :mojave
-    sha256 "f878a29cfa13475e768d9dcb36f2939810eb5ee05a20add2a8520bebf1a9720f" => :high_sierra
-    sha256 "160b57832d9edbfb3944534c32bb6c86d08937cd2d816418b7c6dad2ca739c9d" => :sierra
+    sha256 "502523def8034da8a129f830457c2d7fb5ac6e3ebde96370c8c2756508c7bdda" => :mojave
+    sha256 "47ee8b4473546821e5e118527de761e9aa6782055a9ca3c3b64d4b70ee0f2d5d" => :high_sierra
+    sha256 "fb7821ce52c21f7e880cc1ef5665d08a967ba79fc7fbea48b676ab151f5e7eb8" => :sierra
   end
 
   depends_on "libdnet"
