@@ -1,8 +1,8 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.28.1.tar.gz"
-  sha256 "3ebf85fe65df2ee165b22596540b7d5d42f84d4b72d84834f74e2e0b8956c347"
+  url "https://www.cpan.org/src/5.0/perl-5.28.2.tar.gz"
+  sha256 "aa95456dddb3eb1cc5475fed4e08f91876bea71fb636fba6399054dfbabed6c7"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
@@ -35,19 +35,8 @@ class Perl < Formula
 
     system "./Configure", *args
 
-    # macOS's SIP feature prevents DYLD_LIBRARY_PATH from being passed to child
-    # processes, which causes the `make test` step to fail.
-    # https://rt.perl.org/Ticket/Display.html?id=126706
-    # https://github.com/Homebrew/legacy-homebrew/issues/41716
-    # As of perl 5.28.0 `make` fails, too, so work around it with a symlink.
-    # Reported 25 Jun 2018 https://rt.perl.org/Ticket/Display.html?id=133306
-    (lib/"perl5/#{version}/darwin-thread-multi-2level/CORE").install_symlink buildpath/"libperl.dylib"
-
     system "make"
     system "make", "test"
-
-    # Remove the symlink so the library actually gets installed.
-    rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib"
 
     system "make", "install"
   end
