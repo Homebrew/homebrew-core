@@ -1,8 +1,8 @@
 class Pijul < Formula
   desc "Patch-based distributed version control system"
   homepage "https://pijul.org"
-  url "https://pijul.org/releases/pijul-0.11.0.tar.gz"
-  sha256 "e60793ab124e9054c1d5509698acbae507ebb2fab5364d964067bc9ae8b6b5e5"
+  url "https://pijul.org/releases/pijul-0.12.0.tar.gz"
+  sha256 "987820fa2a6fe92a9f516f5e9b41ad59a597973e72cb0c7a44ca0f38e741a7e6"
 
   bottle do
     sha256 "ed13c0d4328ed2c0fd47213410ccbc6c2ff63580d5219cdf26bb8e7c745b9f4a" => :mojave
@@ -13,6 +13,7 @@ class Pijul < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libsodium"
+  depends_on "nettle"
   depends_on "openssl"
 
   def install
