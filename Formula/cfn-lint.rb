@@ -6,6 +6,13 @@ class CfnLint < Formula
   url "https://github.com/awslabs/cfn-python-lint/archive/v0.19.1.tar.gz"
   sha256 "c6e972420ce9d878efe6095203a32ce5afd108d736fb3b6af20a7a4d4e6e2daa"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "69c05c39e98d243908e1a6ab70a25a2cc1df458cfa061c91c8da1ccd436e03c7" => :mojave
+    sha256 "206afc69e5eec65897253e8f614212b0088be0940a933289791b1109999ca4cd" => :high_sierra
+    sha256 "2675eb5aed211751a879a070a82eb7bc605af094db027db9b6eeebc1b7e2cf53" => :sierra
+  end
+
   depends_on "python"
 
   resource "aws-sam-translator" do
