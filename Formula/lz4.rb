@@ -7,9 +7,9 @@ class Lz4 < Formula
 
   bottle do
     cellar :any
-    sha256 "0319b38bd566413a2ce58bf49e288411be1c5f38198018f8821d6117426b0c57" => :mojave
-    sha256 "5413e031d46bc35f40d6ca17bee04cd382ad1549d4693a0e6a8fa701b346ccc2" => :high_sierra
-    sha256 "575ebf1f65b8c9e28c4bd769ed0bfa4ee4f575d2e0cd40d60f2a2041d40b3f21" => :sierra
+    sha256 "a898c71e6e254a98310ed55d54962685c2c08c181dee12ad5f705083e18c168d" => :mojave
+    sha256 "a3e6eac647b6a34547606523e97d004f29cdf3866334d04238bf088340e29a14" => :high_sierra
+    sha256 "5174837050d5f09eed1cff0b9afa224e02964f7e93f1309ac99cbf67dc1b2711" => :sierra
   end
 
   # Pull request submitted 24 Apr 2019 https://github.com/lz4/lz4/pull/694
