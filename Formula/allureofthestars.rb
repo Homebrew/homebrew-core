@@ -19,7 +19,8 @@ class Allureofthestars < Formula
   end
 
   test do
-    output = shell_output("#{bin}/Allure --dbgMsgSer --dbgMsgCli --logPriority 0 --newGame 3 --maxFps 100000 --stopAfterFrames 50 --automateAll --keepAutomated --gameMode battle --setDungeonRng 7 --setMainRng 7")
+    non_debug_args = "--logPriority 0 --newGame 3 --maxFps 100000 --stopAfterFrames 50 --automateAll --keepAutomated --gameMode battle --setDungeonRng 7 --setMainRng 7"
+    output = shell_output("#{bin}/Allure --dbgMsgSer --dbgMsgCli #{non_debug_args}")
     assert_equal "", output
     assert_equal "", shell_output("cat ~/.Allure/stderr.txt")
     assert_match "UI client FactionId 1 stopped", shell_output("cat ~/.Allure/stdout.txt")
