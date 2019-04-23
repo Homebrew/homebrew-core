@@ -6,10 +6,9 @@ class Ship < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "6f89b086839d19d642d4c64c19d87be4102b48676c6c3fb1715681597a92edd6" => :mojave
-    sha256 "628e57d3faccdfec9e3d1f90b674c60a1df262cd30f8d64ad5881957f694db39" => :high_sierra
-    sha256 "7cda06b6ab842d5a163a865f40fe4341ba175a421a00f784a066785bdb660828" => :sierra
+    sha256 "c3671484f5cc01009d1b994cdda6ba9d5183f2c8443097f0053b1aba1fa6a995" => :mojave
+    sha256 "bf18d28d2a0449f05322218befabd6b0885e81b6b2ade3521170b20936f4f3d4" => :high_sierra
+    sha256 "ed1f44931d9eeb3582f78cd9eb7611286ebb5e8d4ad5de048dd49b0d02d81dbc" => :sierra
   end
 
   depends_on "go" => :build
