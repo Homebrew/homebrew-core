@@ -5,11 +5,10 @@ class Msmtp < Formula
   sha256 "3cb2eefd33d048f0f82de100ef39a494e44fd1485e376ead31f733d2f36b92b4"
 
   bottle do
-    sha256 "a2747598c1f5d9d8223a01b8454d15e60d013e303f94e8651fbaab1d14492c90" => :mojave
-    sha256 "e9161f534cfa50edb5beae511d7689fe02a53b68f90623ebc751a41ba34b4037" => :high_sierra
-    sha256 "d0b8a2a76d7ee8ed6beda0c383acd28d7a85d9d677c8d89a8a2e6b717055fe70" => :sierra
-    sha256 "115ce90fcc11a1fbda6bf4496200b50e89d4cccdb32f999cf6b3b749635f8e3e" => :el_capitan
-    sha256 "6f5227576bf8ac42fed7190c22f2e62b0fb2a3af59fa085e783426661c606758" => :yosemite
+    cellar :any
+    sha256 "8f000e06393136dfd7cf68924553830fab4a95623da7b8ff5f52686589f8801f" => :mojave
+    sha256 "ea6cc54b88d23cbadd34ded0901fdcf7cd29714b6fef6ec6ee2e17b1f910010c" => :high_sierra
+    sha256 "ed0b8ff971d26c40e625ab45f30835fe05d340cbea9fbe3cdbc347c3a6e7144b" => :sierra
   end
 
   depends_on "pkg-config" => :build
