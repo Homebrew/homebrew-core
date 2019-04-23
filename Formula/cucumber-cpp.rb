@@ -30,6 +30,10 @@ class CucumberCpp < Formula
   test do
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
+    if MacOS.version == :high_sierra
+      ENV.delete("CPATH")
+      ENV.delete("SDKROOT")
+    end
     system "gem", "install", "cucumber", "-v", "3.0.0"
 
     (testpath/"features/test.feature").write <<~EOS
