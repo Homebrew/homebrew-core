@@ -54,6 +54,10 @@ class Dbus < Formula
     system "make", "install"
   end
 
+  def plist_name
+    "org.freedesktop.dbus-session"
+  end
+
   def post_install
     # Generate D-Bus's UUID for this machine
     system "#{bin}/dbus-uuidgen", "--ensure=#{var}/lib/dbus/machine-id"
