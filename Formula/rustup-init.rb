@@ -6,9 +6,9 @@ class RustupInit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04d0ddebac1544b99f8eebe9ad4357b76877154ce157bb0badd79f9e9eca66bb" => :mojave
-    sha256 "7d75a5bff539711ed359c21b752a446d04fc098711205d947744c92a065a56e4" => :high_sierra
-    sha256 "34ac177dbdfd66b190d84acf81db5047fa69c505649288c62bbdceb355b8d16e" => :sierra
+    sha256 "8a4d94e6eedf786c1394883c7dc3f4133a658ae93c78bd98103991441c49be6f" => :mojave
+    sha256 "3b86d51f5af4973199bb3d9ac8f3f9c32d133f32d3feed07717554aa9d769cfd" => :high_sierra
+    sha256 "59593630618347b2996c1cab5696da0b3bc306aba84b1569233fb103c2565b09" => :sierra
   end
 
   depends_on "rust" => :build
