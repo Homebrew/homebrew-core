@@ -5,7 +5,7 @@ class Kubepod < Formula
   sha256 "84dbe84e83d9d1445631978f54f93c3d9d592e518b2d52848413696674cb56e2"
 
   bottle :unneeded
- 
+
   depends_on "grep"
   depends_on "kubernetes-cli"
 
@@ -14,6 +14,6 @@ class Kubepod < Formula
   end
 
   test do
-    assert_match "USAGE:", shell_output("#{bin}/kubepod -h 2>&1")  
+    assert_match "USAGE:", shell_output("#{bin}/kubepod -h 2>&1")
   end
 end
