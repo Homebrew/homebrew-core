@@ -1,4 +1,3 @@
-# coding: utf-8
 class Scws < Formula
   desc "Simple Chinese Word Segmentation"
   homepage "https://github.com/hightman/scws"
