@@ -5,6 +5,13 @@ class CppGsl < Formula
   sha256 "6cce6fb16b651e62711a4f58e484931013c33979b795d1b1f7646f640cfa9c8e"
   head "https://github.com/Microsoft/GSL.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "88805bdbc58c3279d13269592c9b0fe8fd6616efe8d7fa71f021f1f7a74f89db" => :mojave
+    sha256 "88805bdbc58c3279d13269592c9b0fe8fd6616efe8d7fa71f021f1f7a74f89db" => :high_sierra
+    sha256 "2179e8719714e6fbaeb8f0536bc38b6a1d24a39f3ad85b3f738aa7cb6955dbd5" => :sierra
+  end
+
   depends_on "cmake" => :build
 
   def install
