@@ -3,7 +3,7 @@ class Ktlint < Formula
   homepage "https://ktlint.github.io/"
   url "https://github.com/pinterest/ktlint/releases/download/0.32.0/ktlint"
   sha256 "95d292cb45271c733640a3d24add7db4f9f2fac998fb5a15679e6da79fb04441"
-  
+
   bottle :unneeded
 
   def install
