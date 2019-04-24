@@ -5,7 +5,7 @@ class MpsYoutube < Formula
   homepage "https://github.com/mps-youtube/mps-youtube"
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.8.tar.gz"
   sha256 "d5f2c4bc1f57f0566242c4a0a721a5ceaa6d6d407f9d6dd29009a714a0abec74"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any_skip_relocation
@@ -23,8 +23,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/60/00/234371dc09f7345743cb37dabedabe6939743c85c8e745c32d2849d52277/youtube_dl-2019.4.1.tar.gz"
-    sha256 "b7efff0b7960111370a09b59fe2800341ec51d03f591d0dc29b026d28b801dff"
+    url "https://files.pythonhosted.org/packages/9c/ef/5cd4138e4b9c04f1c7875d3b64edcddb9355e488019a32df629f9f0dfcec/youtube_dl-2019.4.24.tar.gz"
+    sha256 "b20d110e1bed8d16f5771bb938ab6e5da67f08af62b599af65301cca290f2e15"
   end
 
   def install
