@@ -7,7 +7,8 @@ class Gel < Formula
   bottle :unneeded
 
   def install
-    prefix.install "bin", "exe", "lib"
+    prefix.install "lib"
+    bin.install "exe/gel"
     share.install "man"
   end
 
