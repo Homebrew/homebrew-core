@@ -4,6 +4,12 @@ class Otf2 < Formula
   url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.1.1.tar.gz"
   sha256 "01591b42e76f396869ffc84672f4eaa90ee8ec2a8939755d9c0b5b8ecdcf47d3"
 
+  bottle do
+    sha256 "cd45334e8b465b0405d641311b000de22e99eb93abe863da642307144ad8122c" => :mojave
+    sha256 "66e9193d40e126c83d98bca06d30bd18815fb4aebbd486ff8d59ad27724935aa" => :high_sierra
+    sha256 "70db1872735f904393ff8b3d1395c40eed3201072c5f08ca1ca5235d40688d07" => :sierra
+  end
+
   depends_on "sphinx-doc" => :build
   depends_on "gcc"
   depends_on "open-mpi"
