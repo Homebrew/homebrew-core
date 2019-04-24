@@ -3,7 +3,7 @@ class CrystalIcr < Formula
   homepage "https://github.com/crystal-community/icr"
   url "https://github.com/crystal-community/icr/archive/v0.6.0.tar.gz"
   sha256 "970d5ecbde6bb370c8178339db42e7812b7a2f3a5db3eec868cc18c19523c0ea"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "b623200d377ee356c083db16c9a27b5f8b4a49439d308291de3e866d06229fcf" => :mojave
