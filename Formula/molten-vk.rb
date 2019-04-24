@@ -65,8 +65,8 @@ class MoltenVk < Formula
     (buildpath/"External/Vulkan-Portability").install resource("vulkan-portability")
     (buildpath/"External/SPIRV-Cross").install resource("spirv-cross")
     (buildpath/"External/glslang").install resource("glslang")
-    (buildpath/"External/glslang/External/SPIRV-Tools").install resource("spirv-tools")
-    (buildpath/"External/glslang/External/SPIRV-Tools/External/SPIRV-Headers").install resource("spirv-headers")
+    (buildpath/"External/glslang/External/spirv-tools").install resource("spirv-tools")
+    (buildpath/"External/glslang/External/spirv-tools/external/spirv-headers").install resource("spirv-headers")
     (buildpath/"External/Vulkan-Tools").install resource("vulkan-tools")
 
     mkdir "External/glslang/External/SPIRV-Tools/build" do
@@ -84,18 +84,38 @@ class MoltenVk < Formula
                "-scheme", "MoltenVK Package (macOS only)",
                "build"
 
+    (libexec/"lib").install Dir["External/build/macOS/lib{SPIRVCross,SPIRVTools,glslang}.a"]
+    glslang_dir = Pathname.new("External/glslang")
+    Pathname.glob("External/glslang/{glslang,SPIRV}/**/*.{h,hpp}") do |header|
+      header.chmod 0o644
+      (libexec/"include"/header.parent.relative_path_from(glslang_dir)).install header
+    end
+    (libexec/"include").install "External/SPIRV-Cross/include/spirv_cross"
+    (libexec/"include").install "External/glslang/External/spirv-tools/include/spirv-tools"
+
     frameworks.install "Package/Release/MoltenVK/macOS/framework/MoltenVK.framework"
     lib.install "Package/Release/MoltenVK/macOS/dynamic/libMoltenVK.dylib"
+    lib.install "Package/Release/MoltenVK/macOS/static/libMoltenVK.a"
+    include.install "MoltenVK/MoltenVK/API" => "MoltenVK"
+    include.install "External/Vulkan-Headers/include/vulkan" => "vulkan"
+    include.install "External/Vulkan-Portability/include/vulkan" => "vulkan-portability"
+
+    bin.install "Package/Release/MoltenVKShaderConverter/Tools/MoltenVKShaderConverter"
     frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/framework/MoltenVKGLSLToSPIRVConverter.framework"
     frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/macOS/framework/MoltenVKSPIRVToMSLConverter.framework"
-    bin.install "Package/Release/MoltenVKShaderConverter/Tools/MoltenVKShaderConverter"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/dynamic/libMoltenVKGLSLToSPIRVConverter.dylib"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/static/libMoltenVKGLSLToSPIRVConverter.a"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/macOS/dynamic/libMoltenVKSPIRVToMSLConverter.dylib"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/macOS/static/libMoltenVKSPIRVToMSLConverter.a"
+    include.install Dir["Package/Release/MoltenVKShaderConverter/include/{MoltenVKGLSLToSPIRVConverter,MoltenVKSPIRVToMSLConverter}"]
+
+    (share/"vulkan").install "MoltenVK/icd" => "icd.d"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <vulkan/vulkan.h>
-      int main(void)
-      {
+      int main(void) {
         const char *extensionNames[] = { "VK_KHR_surface" };
         VkInstanceCreateInfo instanceCreateInfo = {
           VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO, NULL,
@@ -108,7 +128,7 @@ class MoltenVk < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-o", "test", "test.cpp", "-L#{lib}", "-lMoltenVK"
+    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-L#{lib}", "-lMoltenVK"
     system "./test"
   end
 end
