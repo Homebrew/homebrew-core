@@ -4,6 +4,7 @@ class CppGsl < Formula
   url "https://github.com/Microsoft/GSL/archive/v2.0.0.tar.gz"
   sha256 "6cce6fb16b651e62711a4f58e484931013c33979b795d1b1f7646f640cfa9c8e"
   head "https://github.com/Microsoft/GSL.git"
+
   depends_on "cmake" => :build
 
   def install
