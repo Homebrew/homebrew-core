@@ -4,12 +4,13 @@ class Gel < Formula
   url "https://github.com/gel-rb/gel/archive/v0.2.0.tar.gz"
   sha256 "7d69f745986c9c33272f080496aea53719d69d4f465993c740f432ef5f0a3bd3"
 
-  bottle :unneeded
-
   def install
-    prefix.install "lib"
+    ENV["PATH"] = "bin:#{ENV["HOME"]}/.local/gel/bin:#{ENV["PATH"]}"
+    system "gel", "install"
+    system "rake", "man"
     bin.install "exe/gel"
-    share.install "man"
+    prefix.install "lib"
+    man1.install Pathname.glob("man/man1/*.1")
   end
 
   test do
