@@ -32,6 +32,7 @@ class Mpd < Formula
   depends_on "libsamplerate"
   depends_on "libupnp"
   depends_on "libvorbis"
+  depends_on "libshout"
   depends_on "opus"
   depends_on "sqlite"
 
@@ -52,6 +53,7 @@ class Mpd < Formula
       -Dbzip2=enabled
       -Dexpat=enabled
       -Dffmpeg=enabled
+      -Dshout=enabled
       -Dfluidsynth=enabled
       -Dnfs=enabled
       -Dupnp=enabled
