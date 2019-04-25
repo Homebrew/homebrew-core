@@ -1,6 +1,6 @@
 class Muparser < Formula
   desc "C++ math expression parser library"
-  homepage "http://beltoforion.de/article.php?a=muparser"
+  homepage "https://beltoforion.de/article.php?a=muparser"
   url "https://github.com/beltoforion/muparser/archive/v2.2.6.1.tar.gz"
   sha256 "d2562853d972b6ddb07af47ce8a1cdeeb8bb3fa9e8da308746de391db67897b3"
   head "https://github.com/beltoforion/muparser.git"
