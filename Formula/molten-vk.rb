@@ -84,7 +84,7 @@ class MoltenVk < Formula
 
     xcodebuild "-project", "MoltenVKPackaging.xcodeproj",
                "-scheme", "MoltenVK Package (macOS only)",
-               "SYMROOT=Package", "OBJROOT=Package",
+               "SYMROOT=#{buildpath}/build", "OBJROOT=build",
                "build"
 
     (libexec/"lib").install Dir["External/build/macOS/lib{SPIRVCross,SPIRVTools,glslang}.a"]
