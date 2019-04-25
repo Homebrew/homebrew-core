@@ -1,9 +1,8 @@
 class Libchamplain < Formula
   desc "ClutterActor for displaying maps"
   homepage "https://wiki.gnome.org/Projects/libchamplain"
-  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.16.tar.xz"
-  sha256 "4a7e31cf7889669aebf04631543af64435edd989685159b804911c6005db908d"
-  revision 1
+  url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz"
+  sha256 "36842e326cdbe3cdbdab818472797eedb661dec842fe0579596a3a8d438b2aa4"
 
   bottle do
     rebuild 1
@@ -12,6 +11,9 @@ class Libchamplain < Formula
     sha256 "1aabe9dd67cb027df58b744f53adebee1c9e92e4b3eebe9d2ea7be3ffa0b4226" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gnome-common" => :build
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "clutter"
@@ -20,6 +22,7 @@ class Libchamplain < Formula
   depends_on "libsoup"
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
