@@ -5,9 +5,9 @@ class MoltenVk < Formula
   sha256 "a687007c1049fe8277b181c5e403776518e81a8e642af920a135649a058f165b"
 
   depends_on "cmake" => :build
+  depends_on :xcode => ["10.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on :macos => :sierra
-  depends_on :xcode => ["10.0", :build]
 
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
