@@ -1,8 +1,8 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_1.tar.gz"
-  sha256 "d9795d36bfb1af230bda21d93bc81390f49d936c6c9b7b3043a5c09bd0f0f8d3"
+  url "https://download.gnome.org/sources/aravis/0.6/aravis-0.6.2.tar.xz"
+  sha256 "a78b7bc98f93beb8116f796a9799ed1a364f05a6685e3f14bb09d9ac7a7858af"
 
   bottle do
     rebuild 1
@@ -27,12 +27,19 @@ class Aravis < Formula
   depends_on "libusb"
 
   def install
-    inreplace "viewer/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-    system "./autogen.sh", "--disable-dependency-tracking",
-                           "--disable-silent-rules",
-                           "--enable-introspection",
-                           "--prefix=#{prefix}"
+    # icon cache update must happen in post_install
+    inreplace "viewer/Makefile.am", "install-data-hook: install-update-icon-cache", ""
+
+    system "autoreconf", "-fi"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--enable-introspection",
+                          "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
