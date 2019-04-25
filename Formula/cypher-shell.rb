@@ -5,6 +5,8 @@ class CypherShell < Formula
   version "1.1.9"
   sha256 "027dd83ff10ac24077dc9ab7e1be4a624f8cadeab4039bb6800584d94fecf49f"
 
+  bottle :unneeded
+
   depends_on :java => "1.8"
 
   def install
