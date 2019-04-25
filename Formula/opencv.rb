@@ -15,6 +15,7 @@ class Opencv < Formula
   depends_on "pkg-config" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
+  depends_on "glog"
   depends_on "harfbuzz"
   depends_on "jpeg"
   depends_on "libpng"
