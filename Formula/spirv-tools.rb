@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
@@ -35,18 +32,13 @@ class SpirvTools < Formula
       system "cmake", "..", "-DEFFCEE_BUILD_TESTING=OFF", *std_cmake_args
       system "make", "install"
     end
+
+    (libexec/"examples").install "examples/cpp-interface/main.cpp"
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test SPIRV-Tools`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    testpath.cp libexec/"examples"/"main.cpp" => "test.cpp"
+    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-L#{lib}", "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt"
+    # system "./test" # not the example is not work, https://github.com/KhronosGroup/SPIRV-Tools/issues/2538
   end
 end
