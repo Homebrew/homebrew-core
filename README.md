@@ -2,7 +2,7 @@
 
 Core formulae for the Homebrew package manager.
 
-Core formulae for the Linuxbrew package manager (Homebrew on Linux or Windows 10 Subsystem for Linux) are in [Linuxbrew/homebrew-core](https://github.com/Linuxbrew/homebrew-core).
+Core formulae for the Linuxbrew package manager (Homebrew on Linux or Windows 10 Subsystem for Linux) are in [Homebrew/linuxbrew-core](https://github.com/Homebrew/linuxbrew-core).
 
 ## How do I install these formulae?
 
