@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2019-03-20T21-29-03Z",
-      :revision => "3ea090fe18dd675cd65bd9a5ffb4942d0d9c7a99"
-  version "20190320212903"
+      :tag      => "RELEASE.2019-04-24T00-09-41Z",
+      :revision => "ecdeb3934d8297170c508140d08a9730f16d8440"
+  version "20190424000941"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,11 +19,10 @@ class MinioMc < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
-    clipath = buildpath/"src/github.com/minio/mc"
-    clipath.install Dir["*"]
-
-    cd clipath do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/minio/mc"
+    src.install buildpath.children
+    src.cd do
       if build.head?
         system "go", "build", "-o", buildpath/"mc"
       else
