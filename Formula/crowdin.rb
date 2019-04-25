@@ -14,6 +14,12 @@ class Crowdin < Formula
   end
 
   test do
-    system bin/"crowdin"
+    generate_output = shell_output("#{bin}/crowdin generate").chomp
+    assert_predicate testpath/"crowdin.yml", :exist?
+    assert_match /^Generates Crowdin CLI configuration skeleton .*crowdin\.yml\'- OK$/, generate_output
+    lint_output = shell_output("#{bin}/crowdin lint").split("\n")
+    lint_output.each do |line|
+      assert_match /^Project [^ ]+ is empty$/, line
+    end
   end
 end
