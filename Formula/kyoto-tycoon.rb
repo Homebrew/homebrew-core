@@ -3,7 +3,7 @@ class KyotoTycoon < Formula
   homepage "https://fallabs.com/kyototycoon/"
   url "https://fallabs.com/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
   sha256 "553e4ea83237d9153cc5e17881092cefe0b224687f7ebcc406b061b2f31c75c6"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "8ac87720e1b33402d76d26dd142abc14a3ebe211b92d97d32df7a0959a87d1d3" => :mojave
