@@ -19,6 +19,9 @@ class Jsdoc3 < Formula
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    inreplace libexec/"lib/node_modules/jsdoc/node_modules/requizzle/lib/requizzle.js",
+      "if (lookupPaths[0] === targetPath && lookupPaths[1].length === 0) {",
+      "if (lookupPaths == null || lookupPaths[0] === targetPath && lookupPaths[1].length === 0) {"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
