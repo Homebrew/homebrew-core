@@ -1,9 +1,8 @@
 class Lgogdownloader < Formula
   desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.3.tar.gz"
-  sha256 "8bb7a37b48f558bddeb662ebac32796b0ae11fa2cc57a03d48b3944198e800ce"
-  revision 6
+  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.5.tar.gz"
+  sha256 "eeeaad098929a71b5fb42d14e1ca87c73fc08010ab168687bab487a763782ada"
 
   bottle do
     cellar :any
