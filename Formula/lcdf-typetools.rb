@@ -1,8 +1,8 @@
 class LcdfTypetools < Formula
   desc "Manipulate OpenType and multiple-master fonts"
   homepage "https://www.lcdf.org/type/"
-  url "https://www.lcdf.org/type/lcdf-typetools-2.107.tar.gz"
-  sha256 "46be885f4623e2e595f786c70e03264b680066de57789833db541f947a8edfdb"
+  url "https://www.lcdf.org/type/lcdf-typetools-2.108.tar.gz"
+  sha256 "fb09bf45d98fa9ab104687e58d6e8a6727c53937e451603662338a490cbbcb26"
 
   bottle do
     sha256 "d515ae40329e3412178113c85b636d380dc539015c30159d1549a2fc808fe3ea" => :mojave
