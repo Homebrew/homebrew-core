@@ -1,8 +1,8 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
   homepage "https://fallabs.com/kyotocabinet/"
-  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
-  sha256 "812a2d3f29c351db4c6f1ff29d94d7135f9e601d7cc1872ec1d7eed381d0d23c"
+  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.77.tar.gz"
+  sha256 "56899329384cc6f0f1f8aa3f1b41001071ca99c1d79225086a7f3575c0209de6"
 
   bottle do
     sha256 "0430d49ce4fd72454dd8e5d3a326f8172ff85e449d2766ca51f79e9045e8e2c0" => :mojave
