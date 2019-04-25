@@ -7,6 +7,7 @@ class MoltenVk < Formula
   depends_on "cmake" => :build
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on :macos => :sierra
+  depends_on :xcode => ["10.0", :build]
 
   # MoltenVK depends on very specific revisions of its dependencies.
   # For each resource the path to the file describing the expected
@@ -78,16 +79,18 @@ class MoltenVk < Formula
     xcodebuild "-project", "ExternalDependencies.xcodeproj",
                "-scheme", "ExternalDependencies-macOS",
                "-derivedDataPath", "External/build",
+               "SYMROOT=External/build", "OBJROOT=External/build",
                "build"
 
     xcodebuild "-project", "MoltenVKPackaging.xcodeproj",
                "-scheme", "MoltenVK Package (macOS only)",
+               "SYMROOT=Package", "OBJROOT=Package",
                "build"
 
     (libexec/"lib").install Dir["External/build/macOS/lib{SPIRVCross,SPIRVTools,glslang}.a"]
     glslang_dir = Pathname.new("External/glslang")
     Pathname.glob("External/glslang/{glslang,SPIRV}/**/*.{h,hpp}") do |header|
-      header.chmod 0o644
+      header.chmod 0644
       (libexec/"include"/header.parent.relative_path_from(glslang_dir)).install header
     end
     (libexec/"include").install "External/SPIRV-Cross/include/spirv_cross"
