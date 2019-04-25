@@ -37,8 +37,8 @@ class SpirvTools < Formula
   end
 
   test do
-    testpath.cp libexec/"examples"/"main.cpp" => "test.cpp"
-    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-L#{lib}", "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt"
-    # system "./test" # not the example is not work, https://github.com/KhronosGroup/SPIRV-Tools/issues/2538
+    system "cp", libexec/"examples"/"main.cpp", testpath/"test.cpp"
+    system ENV.cc, "-o", "test", "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", "-lc++"
+    # system "./test" # note the example is not work now, https://github.com/KhronosGroup/SPIRV-Tools/issues/2538
   end
 end
