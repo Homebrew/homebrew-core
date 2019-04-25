@@ -1,8 +1,8 @@
 class Lbdb < Formula
   desc "Little brother's database for the mutt mail reader"
   homepage "https://www.spinnaker.de/lbdb/"
-  url "https://www.spinnaker.de/lbdb/download/lbdb_0.47.tar.gz"
-  sha256 "cb8ccd75a9cba6fb099f6253c8b85542b800626d7270466236ec95830790ef1b"
+  url "https://www.spinnaker.de/lbdb/download/lbdb_0.48.1.tar.gz"
+  sha256 "b0cbc68abeb70be779b234f736dd7eb14bf3f7cd1a2ea41e636de1949da025bf"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +20,7 @@ class Lbdb < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/lbdbq -v")
+    ver = version.to_s.split(".")
+    assert_match "#{ver[0]}.#{ver[1]}", shell_output("#{bin}/lbdbq -v")
   end
 end
