@@ -2,9 +2,9 @@ class Minio < Formula
   desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2019-03-20T22-38-47Z",
-      :revision => "a9032b52b86d9d8a2b89ebbf47a50bc233565f3f"
-  version "20190320223847"
+      :tag      => "RELEASE.2019-04-23T23-50-36Z",
+      :revision => "35d19a4ae287179a0c7d6938b2b1c8e63b4747c1"
+  version "20190423235036"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,11 +17,10 @@ class Minio < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
-    clipath = buildpath/"src/github.com/minio/minio"
-    clipath.install Dir["*"]
-
-    cd clipath do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/minio/minio"
+    src.install buildpath.children
+    src.cd do
       if build.head?
         system "go", "build", "-o", buildpath/"minio"
       else
