@@ -1,9 +1,9 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
-  homepage "https://www.itk.org"
+  homepage "https://www.itk.org/"
   url "https://downloads.sourceforge.net/project/itk/itk/4.13/InsightToolkit-4.13.2.tar.gz"
   sha256 "d8760b279de20497c432e7cdf97ed349277da1ae435be1f6f0f00fbe8d4938c1"
-  head "git://itk.org/ITK.git"
+  head "https://itk.org/ITK.git"
 
   bottle do
     sha256 "6069552ee5bb62a741001cfee2ce34db7e9a570f2b6ad889e8dac0d419f64b1c" => :mojave
