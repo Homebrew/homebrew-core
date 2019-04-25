@@ -6,9 +6,9 @@ class Tmux < Formula
 
   bottle do
     cellar :any
-    sha256 "67d13dac99a7db602d062eee405d5f1b7e2add16bb39d8a03a5c0de3504e5683" => :mojave
-    sha256 "6b30c67549860286f549f7cbdc88612d9e00a294544ef80fe6c40d098c3805f4" => :high_sierra
-    sha256 "52e1fe5132fad335968af1302ad0166247260368fed8b729e73acbead262fab3" => :sierra
+    sha256 "f0f683a24fcb3148e0299273f83ca25fb90c7773bbca0672d8736cf82e34f997" => :mojave
+    sha256 "d0220b8ad9aa2ffc577b99d7c803198111dc99a0db8d15ca1831a4ef2a6f98c9" => :high_sierra
+    sha256 "3c35948e4c5816e760daac4d73a9f40e2d30b8ec5a4022bb2eced3e386e12178" => :sierra
   end
 
   head do
