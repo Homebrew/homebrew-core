@@ -11,7 +11,7 @@ class Glances < Formula
     sha256 "19db250fd6296987ae96419867e1152ab0acfb8801f3d928b2ca9a982557cbc4" => :sierra
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "bernhard" do
     url "https://files.pythonhosted.org/packages/51/d4/b2701097f9062321262c4d4e3488fdf127887502b2619e8fd1ae13955a36/bernhard-0.2.6.tar.gz"
@@ -222,7 +222,6 @@ class Glances < Formula
     url "https://files.pythonhosted.org/packages/9a/a3/9e4bb6a8e5f807c1a817168c9985f9d3975725a71ae77eb47ce1db66ada7/zeroconf-0.21.3.tar.gz"
     sha256 "5b52dfdf4e665d98a17bf9aa50dea7a8c98e25f972d9c1d7660e2b978a1f5713"
   end
-
 
   def install
     xy = Language::Python.major_minor_version "python3"
