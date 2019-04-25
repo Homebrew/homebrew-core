@@ -1,8 +1,8 @@
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
-  url "https://github.com/obgm/libcoap/archive/v4.1.2.tar.gz"
-  sha256 "f7e26dc232c177336474a14487771037a8fb32e311f5ccd076a00dc04b6d7b7a"
+  url "https://github.com/obgm/libcoap/archive/v4.2.0.tar.gz"
+  sha256 "9523e38da6ee8b2a8f5ce83ded64107dd1e514c7ad00cd74ccfe3454b679c271"
 
   bottle do
     cellar :any
@@ -14,13 +14,16 @@ class Libcoap < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "openssl@1.1" if MacOS.version <= :sierra
 
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-examples"
+                          "--disable-examples",
+                          "--disable-manpages"
     system "make"
     system "make", "install"
   end
