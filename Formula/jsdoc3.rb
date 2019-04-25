@@ -15,7 +15,7 @@ class Jsdoc3 < Formula
     sha256 "9d5a8b63309f02f86c42c7cf6973a000f4eda4ad0e1cea080a64674abea0a2da" => :el_capitan
   end
 
-  depends_on "node@10"
+  depends_on "node"
 
   def install
      system "npm", "install", *Language::Node.std_npm_install_args(libexec)
