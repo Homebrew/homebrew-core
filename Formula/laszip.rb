@@ -1,8 +1,8 @@
 class Laszip < Formula
   desc "Lossless LiDAR compression"
   homepage "https://laszip.org/"
-  url "https://github.com/LASzip/LASzip/releases/download/3.2.9/laszip-src-3.2.9.tar.gz"
-  sha256 "a1cc9ea5adfcad43b9c8afbaff20bcd573a85c90dd83d5c8e17e4ff8d8d4548e"
+  url "https://github.com/LASzip/LASzip/releases/download/3.4.1/laszip-src-3.4.1.tar.gz"
+  sha256 "5d9b0ffaf8b7319c2fa216da3f3f878bb8f4e5b4b14d2c154d441a351da2be37"
   head "https://github.com/LASzip/LASzip.git"
 
   bottle do
