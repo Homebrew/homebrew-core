@@ -1,8 +1,8 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.6.1/OpenCoarrays-2.6.1.tar.gz"
-  sha256 "c0072a82cb2ca38de655bc6b6cd21559d12b27fc1a5635f45ac678e5c57e2f80"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.6.3/OpenCoarrays-2.6.3.tar.gz"
+  sha256 "00884ad8e28385932ae9a1ad9b7fbe5cc69a3e0bee7fcba927894236a8adf422"
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
