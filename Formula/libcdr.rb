@@ -6,9 +6,9 @@ class Libcdr < Formula
 
   bottle do
     cellar :any
-    sha256 "147c5b5fe253d9c96f113e68712508c98cea69fe8247178b7fc055b95b63bbd1" => :mojave
-    sha256 "79a6e391b298c963de1b416e4370ff21aa78ff29481800bc7b54dcbfbef2da6a" => :high_sierra
-    sha256 "b2655d493d9ff07a3c454719c1be946e217f54f7f59c42e4a4c5cdeb7b4327a6" => :sierra
+    sha256 "d5362604839f1948a8b594c53e2db0c1bd419ab63c59e158813d56e916d7201f" => :mojave
+    sha256 "99fe39b40cf1977d09536fd15fa7557042c200e5848424b98b1b67fa8ed54198" => :high_sierra
+    sha256 "78dec5bba67665dc518c0eb579ed2c0d00065ee5c1ac6da234f05e0c9d734c83" => :sierra
   end
 
   depends_on "cppunit" => :build
