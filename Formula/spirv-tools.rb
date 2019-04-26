@@ -40,7 +40,7 @@ class SpirvTools < Formula
     cp libexec/"examples"/"main.cpp", "test.cpp"
     # fix test, porting https://github.com/KhronosGroup/SPIRV-Tools/pull/2540
     inreplace "test.cpp" do |s|
-      s.gsub! %r{(const std::string source =)\n(      \"         OpCapability Shader \")},
+      s.gsub! /(const std::string source =)\n(      \"         OpCapability Shader \")/,
               "\\1\n      \"         OpCapability Linkage \"\n\\2"
       s.gsub! "SPV_ENV_VULKAN_1_0", "SPV_ENV_UNIVERSAL_1_3"
     end
