@@ -6,9 +6,9 @@ class Gel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca4a4081014f2baab6285c44e1fddd6975cb33f22f76bddbc5eaa4a3a1956867" => :mojave
-    sha256 "ca4a4081014f2baab6285c44e1fddd6975cb33f22f76bddbc5eaa4a3a1956867" => :high_sierra
-    sha256 "628fbe3459425b7c30690ce3c4e2f5cadd39e2726833e866c54ef4fdb25f30b3" => :sierra
+    sha256 "7b08b9ca28185ab4ae1befb9f62d3d3a0d094f72629c0742b7135a521eac3381" => :mojave
+    sha256 "7b08b9ca28185ab4ae1befb9f62d3d3a0d094f72629c0742b7135a521eac3381" => :high_sierra
+    sha256 "a4a5e3f1b6eb3ea8511adbf12f9b22482c392616bdd37c801be2fd100a1b886f" => :sierra
   end
 
   def install
