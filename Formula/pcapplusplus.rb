@@ -16,7 +16,6 @@ class Pcapplusplus < Formula
     sdk_path_cmd = "xcrun --show-sdk-path"
     sdk_path_relace = "-I" + `#{sdk_path_cmd}`.chomp
     inreplace "mk/PcapPlusPlus.mk.macosx", "-I", sdk_path_relace
-    system "cat", "mk/PcapPlusPlus.mk.macosx"
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and
@@ -48,6 +47,7 @@ class Pcapplusplus < Formula
       \tg++ $(PCAPPP_LIBS_DIR) -o test test.o $(PCAPPP_LIBS)
     EOS
 
+    system "cat", "#{etc}/PcapPlusPlus.mk"
     system "make", "all"
     system "./test"
   end
