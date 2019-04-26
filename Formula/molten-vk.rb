@@ -18,19 +18,19 @@ class MoltenVk < Formula
         :revision => "51cbda5f30e56c801c07fe3d3aba5d7fb9e6cca4"
   end
 
-  resource "vulkan-headers" do
+  resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
         :revision => "08cbb5458f692d4778806775f65eb3dc642ddbbf"
   end
 
-  resource "vulkan-portability" do
+  resource "Vulkan-Portability" do
     # ExternalRevisions/Vulkan-Portability_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Portability.git",
         :revision => "53be040f04ce55463d0e5b25fd132f45f003e903"
   end
 
-  resource "spirv-cross" do
+  resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
         :revision => "ac5a9570a744eb72725c23c34f36fbc564c0bb51"
@@ -54,23 +54,22 @@ class MoltenVk < Formula
         :revision => "2434b89345a50c018c84f42a310b0fad4f3fd94f"
   end
 
-  resource "vulkan-tools" do
+  resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
         :revision => "2abb69904b9ad017d39d3da1e7fc3dec1a584cd8"
   end
 
   def install
-    (buildpath/"External/cereal").install resource("cereal")
-    (buildpath/"External/Vulkan-Headers").install resource("vulkan-headers")
-    (buildpath/"External/Vulkan-Portability").install resource("vulkan-portability")
-    (buildpath/"External/SPIRV-Cross").install resource("spirv-cross")
-    (buildpath/"External/glslang").install resource("glslang")
-    (buildpath/"External/glslang/External/spirv-tools").install resource("spirv-tools")
-    (buildpath/"External/glslang/External/spirv-tools/external/spirv-headers").install resource("spirv-headers")
-    (buildpath/"External/Vulkan-Tools").install resource("vulkan-tools")
+    spirv_tools = resource("spirv-tools")
+    spirv_headers = resource("spirv-headers")
+    (resources - [spirv_tools, spirv_headers]).each do |res|
+      (buildpath/"External"/res.name).install res
+    end
+    (buildpath/"External/glslang/External/spirv-tools").install spirv_tools
+    (buildpath/"External/glslang/External/spirv-tools/external/spirv-headers").install spirv_headers
 
-    mkdir "External/glslang/External/SPIRV-Tools/build" do
+    mkdir "External/glslang/External/spirv-tools/build" do
       # Required due to files being generated during build.
       system "cmake", "..", *std_cmake_args
       system "make"
