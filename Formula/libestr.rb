@@ -1,8 +1,8 @@
 class Libestr < Formula
   desc "C library for string handling (and a bit more)"
   homepage "https://libestr.adiscon.com/"
-  url "https://libestr.adiscon.com/files/download/libestr-0.1.10.tar.gz"
-  sha256 "bd655e126e750edd18544b88eb1568d200a424a0c23f665eb14bbece07ac703c"
+  url "https://libestr.adiscon.com/files/download/libestr-0.1.11.tar.gz"
+  sha256 "46632b2785ff4a231dcf241eeb0dcb5fc0c7d4da8ee49cf5687722cdbe8b2024"
 
   bottle do
     cellar :any
