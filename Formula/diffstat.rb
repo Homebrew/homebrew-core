@@ -26,10 +26,10 @@ class Diffstat < Formula
       --- a/diffstat.rb
       +++ b/diffstat.rb
       @@ -2,9 +2,8 @@
-      -  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.58.orig.tar.gz'
+      -  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.58.orig.tar.gz'
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
-      +  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
+      +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
       +  sha256 '7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f'
     EOS
     output = shell_output("#{bin}/diffstat diff.diff")
