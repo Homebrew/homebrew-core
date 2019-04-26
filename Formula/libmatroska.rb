@@ -3,6 +3,7 @@ class Libmatroska < Formula
   homepage "https://www.matroska.org/"
   url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.9.tar.xz"
   sha256 "38a61dd5d87c070928b5deb3922b63b2b83c09e2e4a10f9393eecb6afa9795c8"
+  revision 1
   head "https://github.com/Matroska-Org/libmatroska.git"
 
   bottle do
