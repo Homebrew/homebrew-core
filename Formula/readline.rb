@@ -5,6 +5,7 @@ class Readline < Formula
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
   version "8.0.0"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,6 +22,10 @@ class Readline < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
+    # There is no termcap.pc in the base system, so we have to comment out
+    # the corresponding Requires.private line otherwise pkg-config will
+    # consider the readline module unusable
+    inreplace "readline.pc", /^(Requires.private: .*)$/, "# \\1"
     system "make", "install"
   end
 
