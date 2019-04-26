@@ -1,8 +1,8 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://seladb.github.io/PcapPlusPlus-Doc"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v18.08.tar.gz"
-  sha256 "dff6f7c677b2050f880043b125e984238cd8af0f1c25864e09e87fb8d71ec9ab"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v19.04.tar.gz"
+  sha256 "0b44074ebbaaa8666e16471311b6b99b0a5bf52d16bbe1452d26bacecfd90add"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,7 @@ class Pcapplusplus < Formula
   end
 
   def install
+    inreplace "mk/PcapPlusPlus.mk.macosx", "-I", "-I#{MacOS.sdk_path}"
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and
@@ -41,7 +42,7 @@ class Pcapplusplus < Formula
       include #{etc}/PcapPlusPlus.mk
       all:
       \tg++ $(PCAPPP_BUILD_FLAGS) $(PCAPPP_INCLUDES) -c -o test.o test.cpp
-      \tg++ $(PCAPPP_LIBS_DIR) -o test test.o $(PCAPPP_LIBS)
+      \tg++ -L#{lib} -o test test.o $(PCAPPP_LIBS)
     EOS
 
     system "make", "all"
