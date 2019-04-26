@@ -1,9 +1,9 @@
 class Libedit < Formula
   desc "BSD-style licensed readline alternative"
   homepage "https://thrysoee.dk/editline/"
-  url "https://thrysoee.dk/editline/libedit-20181209-3.1.tar.gz"
-  version "20181209-3.1"
-  sha256 "2811d70c0b000f2ca91b7cb1a37203134441743c4fcc9c37b0b687f328611064"
+  url "https://thrysoee.dk/editline/libedit-20190324-3.1.tar.gz"
+  version "20190324-3.1"
+  sha256 "ac8f0f51c1cf65492e4d1e3ed2be360bda41e54633444666422fbf393bba1bae"
 
   bottle do
     cellar :any
