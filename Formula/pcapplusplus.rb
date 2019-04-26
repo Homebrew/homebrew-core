@@ -44,7 +44,7 @@ class Pcapplusplus < Formula
       include #{etc}/PcapPlusPlus.mk
       all:
       \tg++ $(PCAPPP_BUILD_FLAGS) $(PCAPPP_INCLUDES) -c -o test.o test.cpp
-      \tg++ /usr/local/Cellar/pcapplusplus/19.04/lib -o test test.o $(PCAPPP_LIBS)
+      \tg++ -L/usr/local/Cellar/pcapplusplus/19.04/lib -o test test.o $(PCAPPP_LIBS)
     EOS
 
     system "cat", "#{etc}/PcapPlusPlus.mk"
