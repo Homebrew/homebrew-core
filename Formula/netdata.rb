@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Distributed real-time performance and health monitoring"
   homepage "https://my-netdata.io/"
-  url "https://github.com/netdata/netdata/releases/download/v1.13.0/netdata-v1.13.0.tar.gz"
-  sha256 "258e64a945bf80e91c4bffab35e7f2d8930025246814038f541ff0ac403a666c"
+  url "https://github.com/netdata/netdata/releases/download/v1.14.0/netdata-v1.14.0.tar.gz"
+  sha256 "f3768f6927e3712dce73794c6943a12f4454410c872eb3dfd19af4f52296187a"
 
   bottle do
     sha256 "8b0ef1f317402901ba1189b03d9c27bd682748573dd40cb934254574dd512515" => :mojave
