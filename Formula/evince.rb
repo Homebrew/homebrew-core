@@ -26,6 +26,9 @@ class Evince < Formula
   depends_on "poppler"
   depends_on "python"
 
+  # patch submitted upstream at https://gitlab.gnome.org/GNOME/evince/merge_requests/154
+  patch :DATA
+
   def install
     # Fix build failure "ar: illegal option -- D"
     # Reported 15 Sep 2017 https://bugzilla.gnome.org/show_bug.cgi?id=787709
@@ -60,3 +63,22 @@ class Evince < Formula
     assert_match version.to_s, shell_output("#{bin}/evince --version")
   end
 end
+
+__END__
+diff --git a/libdocument/ev-document-factory.c b/libdocument/ev-document-factory.c
+index ca1aeeb..4f7f40b 100644
+--- a/libdocument/ev-document-factory.c
++++ b/libdocument/ev-document-factory.c
+@@ -58,8 +58,12 @@ get_backend_info_for_mime_type (const gchar *mime_type)
+                 guint i;
+
+                 for (i = 0; mime_types[i] != NULL; ++i) {
+-                        if (g_content_type_is_mime_type (mime_type, mime_types[i]))
++                        gchar *content_type = g_content_type_from_mime_type(mime_type);
++                        if (g_content_type_is_mime_type (content_type, mime_types[i])) {
++                                g_free(content_type);
+                                 return info;
++                        }
++                        g_free(content_type);
+                 }
+         }
