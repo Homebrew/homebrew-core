@@ -3,7 +3,7 @@ class Mkvtoolnix < Formula
   homepage "https://mkvtoolnix.download/"
   url "https://mkvtoolnix.download/sources/mkvtoolnix-30.1.0.tar.xz"
   sha256 "4628f40d62d359edb1441c52381b1f3a61aa227279133d7e01257f91e0d92591"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
