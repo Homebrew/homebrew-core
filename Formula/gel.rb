@@ -1,8 +1,8 @@
 class Gel < Formula
   desc "Modern gem manager"
   homepage "https://gel.dev"
-  url "https://github.com/gel-rb/gel/archive/v0.2.0.tar.gz"
-  sha256 "7d69f745986c9c33272f080496aea53719d69d4f465993c740f432ef5f0a3bd3"
+  url "https://github.com/gel-rb/gel/archive/v0.3.0.tar.gz"
+  sha256 "fe7c4bd67a2ea857b85b754f5b4d336e26640eda7199bc99b9a1570043362551"
 
   bottle do
     cellar :any_skip_relocation
