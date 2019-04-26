@@ -37,8 +37,14 @@ class SpirvTools < Formula
   end
 
   test do
-    cp libexec/"examples"/"main.cpp", testpath/"test.cpp"
+    cp libexec/"examples"/"main.cpp", "test.cpp"
+    # fix test, porting https://github.com/KhronosGroup/SPIRV-Tools/pull/2540
+    inreplace "test.cpp" do |s|
+      s.gsub! %r{(const std::string source =)\n(      \"         OpCapability Shader \")},
+              "\\1\n      \"         OpCapability Linkage \"\n\\2"
+      s.gsub! "SPV_ENV_VULKAN_1_0", "SPV_ENV_UNIVERSAL_1_3"
+    end
     system ENV.cc, "-o", "test", "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", "-lc++"
-    system "./test" # note the example is not work now, https://github.com/KhronosGroup/SPIRV-Tools/issues/2538
+    system "./test"
   end
 end
