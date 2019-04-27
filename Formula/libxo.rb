@@ -5,10 +5,9 @@ class Libxo < Formula
   sha256 "23885980313c42211610a65004f9f319804f2ff8e94b2e83b04f4920bf45f6cb"
 
   bottle do
-    sha256 "16bec82ed1371cbb0831f8804533f3fccdf59621faf236e9cdc48c0057c513a3" => :mojave
-    sha256 "f93b9ced03df4919102a7e5f93a243143af9107d5e63479279033d8b443203e3" => :high_sierra
-    sha256 "e3c9b12d7b8783a845557f9aba7a00bc5c73308242747307aca38336950c076c" => :sierra
-    sha256 "80d3c763c552f4cd268431132f0aa058d8ce98cd010f85fc021a3265ebc01e0d" => :el_capitan
+    sha256 "e9b18845d5b9fb0e5117beb87489d13f1ab387dabdfd71351e200d0283f6a3e4" => :mojave
+    sha256 "aa3c710b7b134bcf40d09fe0b2b82c2115bddf2d86ab8c88e5a49e5e084b29cb" => :high_sierra
+    sha256 "6de1f36c8ac26b26326393b5bf5be8d7485a72aafd1b8a6b68664c0f34025809" => :sierra
   end
 
   depends_on "libtool" => :build
