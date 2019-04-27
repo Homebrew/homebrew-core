@@ -1,8 +1,8 @@
 class Badtouch < Formula
   desc "Scriptable network authentication cracker"
   homepage "https://github.com/kpcyrd/badtouch"
-  url "https://github.com/kpcyrd/badtouch/archive/v0.6.1.tar.gz"
-  sha256 "62181ac05a68a552e1984dd42206f6a5ca195e51addc48cbfdf55a60afc7c3ae"
+  url "https://github.com/kpcyrd/badtouch/archive/v0.7.0.tar.gz"
+  sha256 "d49eb11825ab56245f82f0958a89ea69edf558c1bd142afba2d4408dc9d20fbb"
 
   bottle do
     sha256 "0adb1b9292c93963822e090e4860c6deadbdd2cc7da9d0e49639fa4a181cb425" => :mojave
