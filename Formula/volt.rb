@@ -2,8 +2,8 @@ class Volt < Formula
   desc "Meta-level vim package manager"
   homepage "https://github.com/vim-volt/volt"
   url "https://github.com/vim-volt/volt.git",
-    :tag      => "v0.3.5a",
-    :revision => "dd1a16c77faf9887408744b146efc2d0bfdf500c"
+    :tag      => "v0.3.6",
+    :revision => "b1c9efdcc7892fc5b48734bfbd73b76a4a1a5911"
   head "https://github.com/vim-volt/volt.git"
 
   bottle do
@@ -23,6 +23,8 @@ class Volt < Formula
     system "make", "BIN_DIR=#{bin}"
 
     bash_completion.install "_contrib/completion/bash" => "volt"
+    zsh_completion.install "_contrib/completion/zsh" => "_volt"
+    cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
   end
 
   test do
