@@ -1,8 +1,8 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.samba.org/"
-  url "https://www.samba.org/ftp/ccache/ccache-3.6.tar.xz"
-  sha256 "a6b129576328fcefad00cb72035bc87bc98b6a76aec0f4b59bed76d67a399b1f"
+  url "https://github.com/ccache/ccache/releases/download/v3.7/ccache-3.7.tar.xz"
+  sha256 "409f38bec6161288749a499c82060c99a551c3aced406827e28d183e9c070575"
 
   bottle do
     cellar :any_skip_relocation
