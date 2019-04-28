@@ -14,6 +14,7 @@ class Eccodes < Formula
   depends_on "gcc" # for gfortran
   depends_on "jasper"
   depends_on "libpng"
+  depends_on "netcdf"
 
   conflicts_with "grib-api",
     :because => "eccodes and grib-api install the same binaries."
@@ -22,7 +23,7 @@ class Eccodes < Formula
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_NETCDF=OFF", "-DENABLE_PNG=ON", *std_cmake_args
+      system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON", *std_cmake_args
       system "make", "install"
     end
   end
