@@ -22,7 +22,7 @@ class Erlang < Formula
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.3.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_man_21.3.tar.gz"
-    sha256 "f5464b5c8368aa40c175a5908b44b6d9670dbd01ba7a1eef1b366c7dc36ba172"
+    sha256 "332f7c7a860f6304b9eb61ef31d41ca3281783ea7ebf5cafc7e018848418e0b5"
   end
 
   resource "html" do
