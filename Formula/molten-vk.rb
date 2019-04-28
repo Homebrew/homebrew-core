@@ -61,11 +61,11 @@ class MoltenVk < Formula
   end
 
   def install
-    resources do |res|
+    resources.each do |res|
       res.stage(buildpath/"External"/res.name)
     end
-    mv buildpath/"External/spirv-tools", buildpath/"External/glslang/External/spirv-tools"
-    mv buildpath/"External/spirv-headers", buildpath/"External/glslang/External/spirv-tools/external/spirv-headers"
+    mv "External/spirv-tools", "External/glslang/External/spirv-tools"
+    mv "External/spirv-headers", "External/glslang/External/spirv-tools/external/spirv-headers"
 
     mkdir "External/glslang/External/spirv-tools/build" do
       # Required due to files being generated during build.
