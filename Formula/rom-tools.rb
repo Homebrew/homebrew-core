@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0206.tar.gz"
-  version "0.206"
-  sha256 "588ba357361cc49fdc2754d8343c8b91f6b965b30220a998cbb1da09e49dcbdd"
+  url "https://github.com/mamedev/mame/archive/mame0209.tar.gz"
+  version "0.209"
+  sha256 "9442e88bd87cfe407eb093a2ecb42a3850cabe31cd52c4efdef1bf7f584a8eab"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -13,25 +13,28 @@ class RomTools < Formula
     sha256 "62e9d54a1cb122eac6db54c374450004292a23a2c0a706e3af914b1d88bdef8b" => :sierra
   end
 
+  depends_on "asio" => :build
   depends_on "pkg-config" => :build
   depends_on "flac"
-  depends_on "portmidi"
+  # Need C++ compiler and standard library support C++14.
+  # Build failure on Sierra, see:
+  # https://github.com/Homebrew/homebrew-core/pull/39388
+  depends_on :macos => :high_sierra
   depends_on "sdl2"
   depends_on "utf8proc"
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
     system "make", "TOOLS=1",
-                   "PTR64=1",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
+                   "USE_SYSTEM_LIB_ASIO=1",
                    "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1"
     bin.install %w[
-      aueffectutil castool chdman floptool imgtool jedutil ldresample
-      ldverify nltool nlwav pngcmp regrep romcmp src2html srcclean unidasm
+      aueffectutil castool chdman floptool imgtool jedutil ldresample ldverify
+      nltool nlwav pngcmp regrep romcmp src2html srcclean testkeys unidasm
     ]
     bin.install "split" => "rom-split"
     man1.install Dir["docs/man/*.1"]
