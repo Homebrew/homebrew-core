@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.12.2.tar.gz"
   sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "90be0b3b8bd7e174b9e08eac56a9e76780e95be8f1a0025fb82e75eff67e741b" => :mojave
@@ -12,6 +12,10 @@ class Csound < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "numpy" => [:build, :test]
+  depends_on "python" => [:build, :test]
+  depends_on "python@2" => [:build, :test]
+  depends_on "swig" => :build
   depends_on "fltk"
   depends_on "liblo"
   depends_on "libsamplerate"
@@ -29,7 +33,6 @@ class Csound < Formula
       -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LUA_INTERFACE=OFF
-      -DBUILD_PYTHON_INTERFACE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
     ]
 
@@ -37,7 +40,23 @@ class Csound < Formula
       system "cmake", "..", *args
       system "make", "install"
 
-      include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
+      macho = MachO.open("_csnd6.so")
+      macho.change_install_name("@rpath/CsoundLib64.framework/Versions/6.0/CsoundLib64", "#{frameworks}/CsoundLib64.framework/CsoundLib64")
+      macho.change_install_name("@rpath/libcsnd6.6.0.dylib", "#{lib}/libcsnd6.dylib")
+      macho.delete_rpath(pwd.sub(%r{^/private/}, "/"))
+      macho.write!
+      libexec.install "_csnd6.so", "csnd6.py"
+    end
+
+    include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound"
+
+    libexec.install buildpath/"interfaces/ctcsound.py"
+
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
+      (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
+        import site; site.addsitedir('#{libexec}')
+      EOS
     end
   end
 
@@ -68,5 +87,9 @@ class Csound < Formula
     assert_equal "hello, world\n", stdout
     assert_match /^rtaudio:/, stderr
     assert_match /^rtmidi:/, stderr
+
+    system "python2", "-c", "import csnd6"
+    system "python2", "-c", "import ctcsound"
+    system "python3", "-c", "import ctcsound"
   end
 end
