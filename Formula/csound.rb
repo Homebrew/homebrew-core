@@ -48,9 +48,9 @@ class Csound < Formula
       libexec.install "_csnd6.so", "csnd6.py"
     end
 
-    include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound"
+    include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
 
-    libexec.install buildpath/"interfaces/ctcsound.py"
+    libexec.install "#{buildpath}/interfaces/ctcsound.py"
 
     ["python2", "python3"].each do |python|
       version = Language::Python.major_minor_version python
