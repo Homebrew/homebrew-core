@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.12.2.tar.gz"
   sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "90be0b3b8bd7e174b9e08eac56a9e76780e95be8f1a0025fb82e75eff67e741b" => :mojave
@@ -12,10 +12,13 @@ class Csound < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python" => [:build, :test]
+  depends_on "python@2" => [:build, :test]
   depends_on "fltk"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on "numpy"
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "stk"
@@ -36,9 +39,24 @@ class Csound < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
-
-      include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
     end
+
+    include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
+
+    libexec.install "#{buildpath}/interfaces/ctcsound.py"
+
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
+      (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
+        import site; site.addsitedir('#{libexec}')
+      EOS
+    end
+  end
+
+  def caveats; <<~EOS
+    To use the Python bindings, you may need to add to your .bash_profile:
+      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_prefix}/Frameworks"
+  EOS
   end
 
   test do
@@ -68,5 +86,10 @@ class Csound < Formula
     assert_equal "hello, world\n", stdout
     assert_match /^rtaudio:/, stderr
     assert_match /^rtmidi:/, stderr
+
+    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+
+    system "python2", "-c", "import ctcsound"
+    system "python3", "-c", "import ctcsound"
   end
 end
