@@ -1,9 +1,8 @@
 class Sipsak < Formula
   desc "SIP Swiss army knife"
   homepage "https://github.com/nils-ohlmeier/sipsak/"
-  url "https://downloads.sourceforge.net/project/sipsak.berlios/sipsak-0.9.6-1.tar.gz"
-  version "0.9.6"
-  sha256 "5064c56d482a080b6a4aea71821b78c21b59d44f6d1aa14c27429441917911a9"
+  url "https://github.com/nils-ohlmeier/sipsak/releases/download/0.9.7/sipsak-0.9.7.tar.gz"
+  sha256 "e07f32e692381d9db404d75868218b553e0aba414d35efc96d13024533a53f0f"
 
   bottle do
     cellar :any
