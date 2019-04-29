@@ -19,6 +19,7 @@ class Gitcher < Formula
 
   def install
     virtualenv_install_with_resources
+    man1.install "manpages/gitcher.1"
   end
 
   test do
