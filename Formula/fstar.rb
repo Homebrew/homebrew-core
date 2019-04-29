@@ -33,8 +33,10 @@ class Fstar < Formula
     ENV["OPAMYES"] = "1"
 
     # Avoid having to depend on coreutils
-    inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
-                                           "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
+    unless build.head?
+      inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
+                                             "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
+    end
 
     resource("z3").stage do
       # F* warns if the Z3 git hash doesn't match
