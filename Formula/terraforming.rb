@@ -94,8 +94,8 @@ class Terraforming < Formula
   end
 
   resource "multi_json" do
-    url "https://rubygems.org/gems/multi_json-1.13.1.gem"
-    sha256 "db8613c039b9501e6b2fb85efe4feabb02f55c3365bae52bba35381b89c780e6"
+    url "https://rubygems.org/gems/multi_json-1.12.2.gem"
+    sha256 "5dcc0b569969f3d1658c68b5d597fcdc1fc3a34d4ae92b4615c740d95aaa51e5"
   end
 
   resource "thor" do
