@@ -3,6 +3,7 @@ class Velero < Formula
   homepage "https://github.com/heptio/velero"
   url "https://github.com/heptio/velero/archive/v0.11.0.tar.gz"
   sha256 "366f4c1ed5800dbdddefa60ed88bdd82b406b69b76a214b1d7108997a2f973ac"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,13 +16,23 @@ class Velero < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/heptio/velero").install buildpath.children
+    dir = buildpath/"src/github.com/heptio/velero"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    cd "src/github.com/heptio/velero" do
+    cd dir do
       system "go", "build", "-o", bin/"velero", "-installsuffix", "static",
                    "-ldflags",
                    "-X github.com/heptio/velero/pkg/buildinfo.Version=#{version}",
                    "./cmd/velero"
+
+      # Install bash completion
+      output = Utils.popen_read("#{bin}/velero completion bash")
+      (bash_completion/"velero").write output
+
+      # Install zsh completion
+      output = Utils.popen_read("#{bin}/velero completion zsh")
+      (zsh_completion/"_velero").write output
+
       prefix.install_metafiles
     end
   end
