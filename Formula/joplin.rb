@@ -17,6 +17,13 @@ class Joplin < Formula
   depends_on "node"
 
   def install
+    inreplace "package.json" do |s|
+      s.gsub! "\"sharp\": \"^0.20.8\",", "\"sharp\": \"^0.22.1\","
+      s.gsub! "\"sqlite3\": \"^4.0.1\",", "\"sqlite3\": \"github:mapbox/node-sqlite3\#723de4ca\","
+    end
+    inreplace "lib/shim-init-node.js",
+              ".resize(Resource.IMAGE_MAX_DIMENSION, Resource.IMAGE_MAX_DIMENSION)\n				.max()\n				.withoutEnlargement()",
+              ".resize(Resource.IMAGE_MAX_DIMENSION, Resource.IMAGE_MAX_DIMENSION, {fit: 'inside', withoutEnlargement: true})"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
