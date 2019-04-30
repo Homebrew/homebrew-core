@@ -1,8 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.5.tar.gz"
-  sha256 "0950c14bd77c90a6427e26210d6dab422271bc86f9fc69126725833ecdaa0e85"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.6.tar.gz"
+  sha256 "e64c8fe083832ffbc1459ab6c72f71d53afd3b36e8497c922a15a06b72e9002f"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -22,6 +22,7 @@ class Openblas < Formula
   def install
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
+    ENV["NO_AVX512"] = "1"
 
     # Must call in two steps
     system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
