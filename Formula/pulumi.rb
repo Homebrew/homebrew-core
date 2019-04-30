@@ -2,8 +2,8 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v0.17.8",
-      :revision => "24f08ddb0f8489fdb02b18dd82dfc6ab30a962d0"
+      :tag      => "v0.17.9",
+      :revision => "55b233fbdc4d59706f17d64e7618f28ddab6412d"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,6 @@ class Pulumi < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
-    ENV["GOPROXY"] = "https://gocenter.io"
 
     dir = buildpath/"src/github.com/pulumi/pulumi"
     dir.install buildpath.children
