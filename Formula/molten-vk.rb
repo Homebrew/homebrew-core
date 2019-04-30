@@ -42,13 +42,13 @@ class MoltenVk < Formula
         :revision => "e06c7e9a515b716c731bda13f507546f107775d1"
   end
 
-  resource "spirv-tools" do
+  resource "SPIRV-Tools" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
         :revision => "26c1b8878315a7a5c188df45e0bc236bb222b698"
   end
 
-  resource "spirv-headers" do
+  resource "SPIRV-Headers" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
         :revision => "2434b89345a50c018c84f42a310b0fad4f3fd94f"
@@ -64,8 +64,8 @@ class MoltenVk < Formula
     resources.each do |res|
       res.stage(buildpath/"External"/res.name)
     end
-    mv "External/spirv-tools", "External/glslang/External/spirv-tools"
-    mv "External/spirv-headers", "External/glslang/External/spirv-tools/external/spirv-headers"
+    mv "External/SPIRV-Tools", "External/glslang/External/spirv-tools"
+    mv "External/SPIRV-Headers", "External/glslang/External/spirv-tools/external/spirv-headers"
 
     mkdir "External/glslang/External/spirv-tools/build" do
       # Required due to files being generated during build.
@@ -92,13 +92,13 @@ class MoltenVk < Formula
     end
     (libexec/"include").install "External/SPIRV-Cross/include/spirv_cross"
     (libexec/"include").install "External/glslang/External/spirv-tools/include/spirv-tools"
+    (libexec/"include").install "External/Vulkan-Headers/include/vulkan" => "vulkan"
+    (libexec/"include").install "External/Vulkan-Portability/include/vulkan" => "vulkan-portability"
 
     frameworks.install "Package/Release/MoltenVK/macOS/framework/MoltenVK.framework"
     lib.install "Package/Release/MoltenVK/macOS/dynamic/libMoltenVK.dylib"
     lib.install "Package/Release/MoltenVK/macOS/static/libMoltenVK.a"
     include.install "MoltenVK/MoltenVK/API" => "MoltenVK"
-    include.install "External/Vulkan-Headers/include/vulkan" => "vulkan"
-    include.install "External/Vulkan-Portability/include/vulkan" => "vulkan-portability"
 
     bin.install "Package/Release/MoltenVKShaderConverter/Tools/MoltenVKShaderConverter"
     frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/framework/MoltenVKGLSLToSPIRVConverter.framework"
@@ -128,7 +128,7 @@ class MoltenVk < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-L#{lib}", "-lMoltenVK"
+    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-I#{libexec/"include"}", "-L#{lib}", "-lMoltenVK"
     system "./test"
   end
 end
