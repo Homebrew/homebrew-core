@@ -17,7 +17,6 @@ class Pulumi < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
-    ENV["GOPROXY"] = "https://gocenter.io"
 
     dir = buildpath/"src/github.com/pulumi/pulumi"
     dir.install buildpath.children
