@@ -1,9 +1,8 @@
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
-  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.0/rrdtool-1.7.0.tar.gz"
-  sha256 "f97d348935b91780f2cd80399719e20c0b91f0a23537c0a85f9ff306d4c5526b"
-  revision 1
+  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.1/rrdtool-1.7.1.tar.gz"
+  sha256 "989b778eda6967aa5192c73abafe43e7b10e6100776971a7e79d249942781aae"
 
   bottle do
     cellar :any
@@ -23,9 +22,7 @@ class Rrdtool < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "pango"
-
-  # Ha-ha, but sleeping is annoying when running configure a lot
-  patch :DATA
+  depends_on "perl"
 
   def install
     # fatal error: 'ruby/config.h' file not found
@@ -36,9 +33,12 @@ class Rrdtool < Formula
       --prefix=#{prefix}
       --disable-tcl
       --with-tcllib=/usr/lib
-      --disable-perl-site-install
-      --disable-ruby-site-install
+      --with-perl-options='PREFIX=#{prefix}'
+      --enable-ruby-site-install
     ]
+
+    # Ha-ha, but sleeping is annoying when running configure a lot
+    inreplace "configure", /^sleep 1$/, "#sleep 1"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
@@ -57,28 +57,3 @@ class Rrdtool < Formula
     system "#{bin}/rrdtool", "dump", "temperature.rrd"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 266754d..d21ab33 100755
---- a/configure
-+++ b/configure
-@@ -23868,18 +23868,6 @@ $as_echo_n "checking in... " >&6; }
- { $as_echo "$as_me:${as_lineno-$LINENO}: result: and out again" >&5
- $as_echo "and out again" >&6; }
-
--echo $ECHO_N "ordering CD from http://tobi.oetiker.ch/wish $ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--{ $as_echo "$as_me:${as_lineno-$LINENO}: result:  just kidding ;-)" >&5
--$as_echo " just kidding ;-)" >&6; }
- echo
- echo "----------------------------------------------------------------"
- echo "Config is DONE!"
