@@ -5,7 +5,7 @@ class Bzt < Formula
   homepage "https://gettaurus.org/"
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.13.5.tar.gz"
   sha256 "3b19f007e40961241f6bc084cd44f45a3875cdf51a8e967c9cf4a7c7ed62185e"
-  head "https://github.com/greyfenrir/taurus.git"
+  head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
     cellar :any_skip_relocation
