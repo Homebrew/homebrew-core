@@ -17,6 +17,7 @@ class Mp4v2 < Formula
 
   conflicts_with "bento4",
     :because => "both install `mp4extract` and `mp4info` binaries"
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
@@ -29,3 +30,17 @@ class Mp4v2 < Formula
     assert_match version.to_s, shell_output("#{bin}/mp4art --version")
   end
 end
+__END__
+diff --git a/src/rtphint.cpp b/src/rtphint.cpp
+index e07309d..1eb01f5 100644
+--- a/src/rtphint.cpp
++++ b/src/rtphint.cpp
+@@ -339,7 +339,7 @@ void MP4RtpHintTrack::GetPayload(
+                 pSlash = strchr(pSlash, '/');
+                 if (pSlash != NULL) {
+                     pSlash++;
+-                    if (pSlash != '\0') {
++                    if (*pSlash != '\0') {
+                         length = (uint32_t)strlen(pRtpMap) - (pSlash - pRtpMap);
+                         *ppEncodingParams = (char *)MP4Calloc(length + 1);
+                         strncpy(*ppEncodingParams, pSlash, length);
