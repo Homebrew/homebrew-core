@@ -1,10 +1,9 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
-  sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
-  revision 2
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz"
+  sha256 "79a66834e96a6050d8fe78db2c3b32fb285b230b855d0a66288235bc04b327a0"
   head "https://gcc.gnu.org/git/gcc.git"
 
   bottle do
@@ -27,16 +26,6 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
-  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
-  # but this patch is a work around committed to GCC trunk
-  if MacOS::Xcode.version >= "10.2"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
-      sha256 "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84"
-    end
-  end
 
   def version_suffix
     if build.head?
