@@ -3,6 +3,7 @@ class Numpy < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/93/48/956b9dcdddfcedb1705839280e02cbfeb2861ed5d7f59241210530867d5b/numpy-1.16.3.zip"
   sha256 "78a6f89da87eeb48014ec652a65c4ffde370c036d780a995edaeb121d3625621"
+  revision 1
   head "https://github.com/numpy/numpy.git"
 
   bottle do
