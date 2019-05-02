@@ -5,9 +5,10 @@ class Gupnp < Formula
   sha256 "a9aa557eff415598e05999d0ab122f202a978ff827688d3f951023117a315f5e"
 
   bottle do
-    sha256 "295cfce3c4ec93475d6ee8a1acde0dd3912b6ed260b7f43af2f99dba53f36b99" => :mojave
-    sha256 "b6918c132d6c4a3343a82aa8985d62cea64ce0623498de0d90c8f3232f5cc403" => :high_sierra
-    sha256 "e18535de152d6b26d5589eacddc4969a0f4ac7e09d51992b94f3494cccc4f1ba" => :sierra
+    cellar :any
+    sha256 "df77e6d6914f4cac9d2fde9f6e798bbcf8e3df351c324c84385355c2f586b28f" => :mojave
+    sha256 "11e816ca31530275242672eeb2fb03309775006f1ba18be7da20e36acfcbfd35" => :high_sierra
+    sha256 "baeda23a353b10fa5f3ed22a9c17b6a72e44f75dc5622871fba62454f489167a" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
