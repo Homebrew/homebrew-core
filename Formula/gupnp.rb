@@ -1,8 +1,8 @@
 class Gupnp < Formula
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
-  url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.0.tar.xz"
-  sha256 "fd74a2c236f3dbe6f403405cecfd0632a14c7888a0f6c679da5eefb8c2a62124"
+  url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.1.tar.xz"
+  sha256 "a9aa557eff415598e05999d0ab122f202a978ff827688d3f951023117a315f5e"
 
   bottle do
     sha256 "295cfce3c4ec93475d6ee8a1acde0dd3912b6ed260b7f43af2f99dba53f36b99" => :mojave
@@ -100,7 +100,7 @@ index 9cf4697..45fb0dc 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -1,4 +1,4 @@
--project('gupnp', 'c', version : '1.2.0')
-+project('gupnp', 'c', version : '1.2.0', meson_version : '>= 0.48.0')
+-project('gupnp', 'c', version : '1.2.1')
++project('gupnp', 'c', version : '1.2.1', meson_version : '>= 0.48.0')
  gnome = import('gnome')
  pkg = import('pkgconfig')
