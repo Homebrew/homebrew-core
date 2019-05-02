@@ -34,6 +34,7 @@ class Mydumper < Formula
 
   test do
     system bin/"mydumper", "--help"
+    system bin/"myloader", "--help"
   end
 end
 
