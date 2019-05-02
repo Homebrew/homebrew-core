@@ -1,8 +1,8 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.0.tar.xz"
-  sha256 "22cbef547f522f0b062933e302482ebdb397e2f3703899757562ddffbbfd00d1"
+  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.1.tar.xz"
+  sha256 "6b57b79a96e229367981b6f00474e4bbc795909a2d3160c748cba3395b3556d3"
 
   bottle do
     sha256 "ba0e685fdd43e1a7077acc89f426094cbac4bbd6ef8a7c9a41c019d51edb48a6" => :mojave
@@ -17,12 +17,6 @@ class Gssdp < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
-
-  # to be removed when next release is out
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gssdp/commit/3b085a7e2c94119519d848c4f4f1434bbea3d937.patch"
-    sha256 "7d9b36c81bbbeca390c417f86e5e287c0ba350350928ec37617b8182db548f9c"
-  end
 
   # submitted upstream as https://gitlab.gnome.org/GNOME/gssdp/merge_requests/2
   patch :DATA
@@ -89,7 +83,7 @@ index 7e898eb..3d75cc9 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -1,4 +1,4 @@
--project('gssdp', 'c', version: '1.2.0')
-+project('gssdp', 'c', version: '1.2.0', meson_version : '>= 0.48.0')
+-project('gssdp', 'c', version: '1.2.1')
++project('gssdp', 'c', version: '1.2.1', meson_version : '>= 0.48.0')
  gnome = import('gnome')
  pkg = import('pkgconfig')
