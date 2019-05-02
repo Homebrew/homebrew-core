@@ -38,6 +38,6 @@ class Camlp4 < Formula
                  (testpath/"foo.ml.out").read.strip
 
     (testpath/"try_camlp4.ml").write "open Camlp4"
-    system "ocamlc", "-c", "-I", "/usr/local/lib/ocaml/camlp4", "-o", testpath/"try_camlp4.cmo", testpath/"try_camlp4.ml"
+    system "ocamlc", "-c", "-I", "#{HOMEBREW_PREFIX}/lib/ocaml/camlp4", "-o", testpath/"try_camlp4.cmo", testpath/"try_camlp4.ml"
   end
 end
