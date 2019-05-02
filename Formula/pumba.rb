@@ -1,8 +1,8 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
   homepage "https://github.com/alexei-led/pumba"
-  url "https://github.com/alexei-led/pumba/archive/0.6.3.tar.gz"
-  sha256 "51338bcfc459a31e481dcb8a6317ea09cc914c185f00f506507d7b331b6c24a9"
+  url "https://github.com/alexei-led/pumba/archive/0.6.4.tar.gz"
+  sha256 "099e12554997c216d8eaae69ead5ff27517fa12954017b6e222a186171a23464"
   head "https://github.com/alexei-led/pumba.git"
 
   bottle do
