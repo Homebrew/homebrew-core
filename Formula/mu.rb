@@ -9,10 +9,9 @@ class Mu < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b12b4e6d3a86efb4cceb1e7d06cd6a202210e190f02249c19cbc0bec23c1fdfe" => :mojave
-    sha256 "3194434108363a40f108ea380e2dd5014f318e5cd5e5330a9b4afd02420ba6e4" => :high_sierra
-    sha256 "e233b018589b46b4e72ba96d71427cb4b5240ee02fec05b4f19e278bec428b3c" => :sierra
+    sha256 "f8695cbe6df5fcd53c97c2df27924dc5152ac169bdfff6d4332c000d36d818ee" => :mojave
+    sha256 "9f902b4b826662224f717e17cac441d622a31a813aa69ecb55fb4bd58dc9194d" => :high_sierra
+    sha256 "2c5f3e427d6527a3be3b9268cbfda0fef31f91c0c7702bab75c790f44ed035a3" => :sierra
   end
 
   head do
