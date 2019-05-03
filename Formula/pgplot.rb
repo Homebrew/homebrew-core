@@ -6,7 +6,7 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 7
+  revision 8
 
   bottle do
     sha256 "6cad7a8a0a86d1da33229741e3eaef5076f7d74b543e86c804c4be8f7e87dc7f" => :mojave
