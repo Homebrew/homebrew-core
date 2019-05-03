@@ -4,6 +4,7 @@ class Spades < Formula
   url "http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0.tar.gz"
   mirror "https://github.com/ablab/spades/releases/download/v3.13.0/SPAdes-3.13.0.tar.gz"
   sha256 "c63442248c4c712603979fa70503c2bff82354f005acda2abc42dd5598427040"
+  revision 1
 
   bottle do
     cellar :any
