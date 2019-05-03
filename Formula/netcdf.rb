@@ -3,6 +3,7 @@ class Netcdf < Formula
   homepage "https://www.unidata.ucar.edu/software/netcdf"
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.6.3.tar.gz"
   sha256 "335fdf16d7531f430ad75e732ed1a9a3fc83ad3ef91fb33a70119a555dd5415c"
+  revision 1
 
   bottle do
     sha256 "6a595447d478f221c430caaa8f7a38f92a4b00fd758e93a9cd0e3fa2c5889cf4" => :mojave
