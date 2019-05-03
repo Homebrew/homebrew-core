@@ -27,6 +27,18 @@ class Fftw < Formula
       "--enable-mpi",
       "--enable-openmp",
     ]
+
+    # FFTW supports runtime detection of CPU capabilities, so it is safe to use more
+    # capable SIMD compiler flags. Specifically, from the FFTW documentation
+    # at http://www.fftw.org/fftw3_doc/Installation-on-Unix.html:
+    #
+    # "You need compiler that supports the given SIMD extensions, but FFTW will try to
+    # detect at runtime whether the CPU supports these extensions. That is, you can 
+    # compile with--enable-avx and the code will still run on a CPU without AVX support."
+    #
+    # For this reason we enable AVX instructions for faster code on all x86-64 CPUS
+    # newer than ~2011.
+
     simd_args = ["--enable-sse2", "--enable-avx"]
 
     # single precision
