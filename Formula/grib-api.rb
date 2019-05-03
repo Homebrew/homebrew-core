@@ -1,9 +1,8 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://deb.debian.org/debian/pool/main/g/grib-api/grib-api_1.27.0.orig.tar.xz"
-  sha256 "81078fb9946c38cd292c4eaa50f0acf0093f709a247e83493b3181955177ba09"
-  revision 1
+  url "https://deb.debian.org/debian/pool/main/g/grib-api/grib-api_1.28.0.orig.tar.xz"
+  sha256 "6afd09feede94faf353b71caa2567b985ab214331d58e8c3f303ea01f387777d"
 
   bottle do
     sha256 "437fe07006a50a5111d757ce44441d1b1c2a0f26399c7a0bd6e1842d9ebc624e" => :mojave
