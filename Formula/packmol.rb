@@ -3,6 +3,7 @@ class Packmol < Formula
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
   url "https://github.com/leandromartinez98/packmol/archive/18.169.tar.gz"
   sha256 "8acf2cbc742a609e763eb00cae55aecd09af2edb4cc4e931706e2f06ac380de9"
+  revision 1
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
