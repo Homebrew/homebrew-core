@@ -33,7 +33,7 @@ class Fftw < Formula
     # at http://www.fftw.org/fftw3_doc/Installation-on-Unix.html:
     #
     # "You need compiler that supports the given SIMD extensions, but FFTW will try to
-    # detect at runtime whether the CPU supports these extensions. That is, you can 
+    # detect at runtime whether the CPU supports these extensions. That is, you can
     # compile with--enable-avx and the code will still run on a CPU without AVX support."
     #
     # For this reason we enable AVX instructions for faster code on all x86-64 CPUS
