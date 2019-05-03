@@ -3,7 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.14.0%20Source/plplot-5.14.0.tar.gz"
   sha256 "331009037c9cad9fcefacd7dbe9c7cfae25e766f5590f9efd739a294c649df97"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d38e07c8b56d1f5eb392f655f2420eac9f6a8c4f94312499d17796c0f5e00e5b" => :mojave
@@ -23,6 +23,7 @@ class Plplot < Formula
       -DPL_HAVE_QHULL=OFF
       -DENABLE_ada=OFF
       -DENABLE_d=OFF
+      -DENABLE_octave=OFF
       -DENABLE_qt=OFF
       -DENABLE_lua=OFF
       -DENABLE_tk=OFF
