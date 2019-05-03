@@ -7,10 +7,9 @@ class Yara < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ba20adea60d74351b20c0afe07549a7cb52918cc93239cf06e724d8e8a62dce8" => :mojave
-    sha256 "210d673ea7da63cb9b340e178d095baa616a01761cce0050c279f0ca418bc6f7" => :high_sierra
-    sha256 "8cf2100e8c40df878daa7fa6ab8d666ecd3bf1b3fef36e0d42297047fa9d68cd" => :sierra
+    sha256 "96e4ce1d68bf111eb31a83380383176e3fc2d79221751e2d301e01cf5a043fe0" => :mojave
+    sha256 "da1fb89ba681a95d0841a5be0b07621cd88223d1af66564a2217c144739b2b5f" => :high_sierra
+    sha256 "eb6429e5275ef5ebcb5ba7f6669349363cc797cbef8991e33aaa1377ed263973" => :sierra
   end
 
   depends_on "autoconf" => :build
