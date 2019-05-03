@@ -5,7 +5,7 @@ class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
   url "https://www.openssl.org/source/openssl-1.0.2r.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2r.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2r.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2r.tar.gz"
   sha256 "ae51d08bba8a83958e894946f15303ff894d75c2b8bbd44a852b64e3fe11d0d6"
 
