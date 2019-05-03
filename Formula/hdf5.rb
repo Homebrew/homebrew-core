@@ -3,6 +3,7 @@ class Hdf5 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.bz2"
   sha256 "68d6ea8843d2a106ec6a7828564c1689c7a85714a35d8efafa2fee20ca366f44"
+  revision 1
 
   bottle do
     cellar :any
