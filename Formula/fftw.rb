@@ -27,7 +27,10 @@ class Fftw < Formula
       "--enable-mpi",
       "--enable-openmp",
     ]
-    simd_args = ["--enable-sse2"]
+
+    # FFTW supports runtime detection of CPU capabilities, so it is safe to
+    # use with --enable-avx and the code will still run on all CPUs
+    simd_args = ["--enable-sse2", "--enable-avx"]
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
