@@ -4,6 +4,7 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.3.tar.gz"
   sha256 "329ee02fe6c3d101b6b30a7b6fb97ddf6e82b28844306771fa9dd8845108fa0b"
+  revision 1
 
   bottle do
     sha256 "a777d07fde23048c616a51b84be3052b0b52968d17aa738335f7a22ae7453118" => :mojave
