@@ -1,6 +1,6 @@
 class Simgrid < Formula
   desc "Studies behavior of large-scale distributed systems"
-  homepage "https://simgrid.gforge.inria.fr/"
+  homepage "https://simgrid.org/"
   url "https://gforge.inria.fr/frs/download.php/file/37602/SimGrid-3.20.tar.gz"
   sha256 "4d4757eb45d87cf18d990d589c31d223b0ea8cf6fcd8c94fca4d38162193cef6"
 
