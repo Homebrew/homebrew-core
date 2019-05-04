@@ -3,6 +3,7 @@ class Klavaro < Formula
   homepage "https://klavaro.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.05.tar.bz2"
   sha256 "fe82c6c108a3c40ab97902a8874c6d10fd891b4ff1accce757e5cba0e361dd10"
+  revision 1
 
   bottle do
     sha256 "c590d7ac68930ecc99736f75a47fffba91beac782c61b6bbff88b8d34d863c3d" => :mojave
@@ -18,6 +19,7 @@ class Klavaro < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+    rm_rf include
   end
 
   test do
