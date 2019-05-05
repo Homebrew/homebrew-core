@@ -1,8 +1,8 @@
 class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
-  url "https://github.com/motemen/ghq/archive/v0.11.0.tar.gz"
-  sha256 "3f3c8cd3b6e8a8417d0ef327eedabc42e1ed14d73d31aa9c7cd19323e629db5e"
+  url "https://github.com/motemen/ghq/archive/v0.11.1.tar.gz"
+  sha256 "e6b4c0bd757b4adde04b287e2e6816e90c1a0152923334f3d61a6619d333240d"
 
   bottle do
     cellar :any_skip_relocation
