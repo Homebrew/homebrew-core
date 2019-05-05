@@ -4,6 +4,7 @@ class Glslang < Formula
   url "https://github.com/KhronosGroup/glslang/archive/7.11.3188.tar.gz"
   sha256 "0d77219780de5c061ee00c68cc8149f2fef88a2cf31c61c3d1fe0e11ae5612e2"
   head "https://github.com/KhronosGroup/glslang.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +14,18 @@ class Glslang < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "spirv-tools"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make"
+    # link against "spirv-tools" https://github.com/KhronosGroup/glslang/pull/1621
+    inreplace "CMakeLists.txt", "set(ENABLE_OPT OFF)", ""
+    inreplace "SPIRV/CMakeLists.txt", "target_link_libraries(SPIRV glslang SPIRV-Tools-opt)", <<~EOS
+      find_package(PkgConfig REQUIRED)
+      pkg_check_modules(SPIRV-Tools SPIRV-Tools)
+      target_include_directories(SPIRV PUBLIC ${SPIRV-Tools_INCLUDEDIR})
+      target_link_libraries(SPIRV glslang ${SPIRV-Tools_LIBRARIES})
+    EOS
+    system "cmake", ".", "-DENABLE_OPT=ON", *std_cmake_args
     system "make", "install"
   end
 
