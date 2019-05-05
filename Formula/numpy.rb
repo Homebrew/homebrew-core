@@ -8,9 +8,9 @@ class Numpy < Formula
 
   bottle do
     cellar :any
-    sha256 "b373b0cbbb2a03a5454f55b00d2a6c5fcb9a35f176eb6028649e5e12585ce5cf" => :mojave
-    sha256 "f2d3c81fec3c0bf1ca6fa46426ba77e042fae29d03687c634fa82c0e646c04cd" => :high_sierra
-    sha256 "2fcc77b840e15c3000c66674ad127c624aa569c9e42f15d4579dd09cb50b01d0" => :sierra
+    sha256 "d1a6b200ef06b691881d2dce01ba40f4b18be032bd8fb75fdec6b098440d7cf5" => :mojave
+    sha256 "88c5beef3c5c539ba8991cd87625e5e9ae6608f6e0c67f0fbd7c39552d28fcd8" => :high_sierra
+    sha256 "58e0581edfb56698159e2d85b774219a0157bff5b9d11a7e01f034537d0c3f6e" => :sierra
   end
 
   depends_on "gcc" => :build # for gfortran
