@@ -3,7 +3,6 @@ class Toilet < Formula
   homepage "http://caca.zoy.org/wiki/toilet"
   url "http://caca.zoy.org/raw-attachment/wiki/toilet/toilet-0.3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/t/toilet/toilet_0.3.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/toilet/toilet_0.3.orig.tar.gz"
   sha256 "89d4b530c394313cc3f3a4e07a7394fa82a6091f44df44dfcd0ebcb3300a81de"
 
   bottle do
