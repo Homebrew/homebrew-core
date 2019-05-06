@@ -1,8 +1,8 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/3.32/simple-scan-3.32.2.tar.xz"
-  sha256 "33e049e5c74e226e0937925a50fa0c4acf367abd7d9c3b14fb0fb8cb9982258b"
+  url "https://download.gnome.org/sources/simple-scan/3.32/simple-scan-3.32.2.1.tar.xz"
+  sha256 "d7f7f93a93bb302aebc80bd44edb8d4c22ec774aa12d52756b5034bd04310b77"
 
   bottle do
     sha256 "512534babfe087c4aac4ab99b895a6da8897a5f7f3b1bc1374da08731c72e027" => :mojave
