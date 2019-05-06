@@ -6,10 +6,10 @@ class Fftw < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "8df061c7222cc121bda7fa99383762de7a4e4f5f7b722ed324e5db3aeccf7c87" => :mojave
-    sha256 "61cae18adcd0140264dd31818f3986b58b3399201ec3fc9bbc18666a815c1af9" => :high_sierra
-    sha256 "30dd2e1659c5288859e19204aa2afeb61a514cb12fc9e75a849b7c944ced314b" => :sierra
+    rebuild 2
+    sha256 "759b2cd17b53caa4071279657cc79c93943f9b652eeb7334432178ac4921c670" => :mojave
+    sha256 "0c9d6d53d26aea1c85a58ea3e3802f7af53d236e4f2360cc742113468afe7357" => :high_sierra
+    sha256 "2c2e3dd55528741188da3027927d5ad4568338bfa7d2d1d38e3c7ce14d13fdf2" => :sierra
   end
 
   depends_on "gcc"
@@ -27,7 +27,10 @@ class Fftw < Formula
       "--enable-mpi",
       "--enable-openmp",
     ]
-    simd_args = ["--enable-sse2"]
+
+    # FFTW supports runtime detection of CPU capabilities, so it is safe to
+    # use with --enable-avx and the code will still run on all CPUs
+    simd_args = ["--enable-sse2", "--enable-avx"]
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision

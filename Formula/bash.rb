@@ -5,8 +5,7 @@ class Bash < Formula
 
   stable do
     url "https://ftp.gnu.org/gnu/bash/bash-5.0.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0.tar.gz"
-    mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0.tar.gz"
+    mirror "https://deb.debian.org/gnu/bash/bash-5.0.tar.gz"
     mirror "https://ftpmirror.gnu.org/bash/bash-5.0.tar.gz"
     mirror "https://gnu.cu.be/bash/bash-5.0.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-5.0.tar.gz"
@@ -25,7 +24,7 @@ class Bash < Formula
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0-patches/bash50-#{p}"
-        mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
+        mirror "https://deb.debian.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://ftpmirror.gnu.org/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://gnu.cu.be/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://mirror.unicorncloud.org/gnu/bash/bash-5.0-patches/bash50-#{p}"

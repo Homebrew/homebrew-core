@@ -5,14 +5,14 @@ class Allureofthestars < Formula
 
   desc "Near-future Sci-Fi roguelike and tactical squad combat game"
   homepage "https://www.allureofthestars.com/"
-  url "https://hackage.haskell.org/package/Allure-0.9.4.0/Allure-0.9.4.0.tar.gz"
-  sha256 "503cd08dd6dd71d0afe63920b8fa171047449e95a35369dab0936c490d3dabf4"
+  url "https://hackage.haskell.org/package/Allure-0.9.5.0/Allure-0.9.5.0.tar.gz"
+  sha256 "8180fe070633bfa5515de8f7443421044e7ad4ee050f0a92c048cec5f2c88132"
   head "https://github.com/AllureOfTheStars/Allure.git"
 
   bottle do
-    sha256 "342d8a5a02719e571c503484df6d130d20d3fa9b94bd42bfb10767816aad89e3" => :mojave
-    sha256 "c7237ae3122cb2434148325b12849679236897594d8b65e64e8c2675f99c8b1e" => :high_sierra
-    sha256 "fb3ce9cc7690dfb71e65f224c292368052983a8046f92ae2553ad034045c214f" => :sierra
+    sha256 "26fff57df9c461c021711d86d823b0d55789878063686dba5c303f24e02f43a9" => :mojave
+    sha256 "eee43f8b33142a2734dc474175f579d5e747470f8f3049f4e38433dbea30aa31" => :high_sierra
+    sha256 "f6235d97b2935adcd24d130a27337d40ef16b9051b066a896471273d3c7aa1d3" => :sierra
   end
 
   depends_on "cabal-install" => :build

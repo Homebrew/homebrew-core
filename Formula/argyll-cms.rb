@@ -1,15 +1,15 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.1.0_src.zip"
-  version "2.1.0"
-  sha256 "57a24794248937ad67facf56af8384dfbc556d5791345ab40b2d321c2707bbcf"
+  url "https://www.argyllcms.com/Argyll_V2.1.1_src.zip"
+  version "2.1.1"
+  sha256 "51269bcafc4d95679354b796685c3f0a41b44b78443cbe360cda4a2d72f32acb"
 
   bottle do
     cellar :any
-    sha256 "8cbd53a868a34f7f2a9e3de18cb1d34cbb37507e02657efb9c5adffc1458a346" => :mojave
-    sha256 "a3e9c4f3c7eeb2db41592fe91a398342f5084140f193f1a7d6682c5a085f0b0a" => :high_sierra
-    sha256 "e55a9debfa319b3853045f276683a717a69b14ad007ca36979bd6e7f4ddd99c5" => :sierra
+    sha256 "1051f72544cc48ef2a7ddda49b4dd610000eadeb59a0e06fbdb578fcc212e519" => :mojave
+    sha256 "f6a8c6a464f1293d4e50001824009d932269469e9a262c624e87779ba9c69290" => :high_sierra
+    sha256 "e7ab5c574f61c660626f10c862d865bf19f3d385428e18a0f4a4375f9e811b2f" => :sierra
   end
 
   depends_on "jam" => :build

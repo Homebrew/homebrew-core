@@ -3,11 +3,12 @@ class Klavaro < Formula
   homepage "https://klavaro.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.05.tar.bz2"
   sha256 "fe82c6c108a3c40ab97902a8874c6d10fd891b4ff1accce757e5cba0e361dd10"
+  revision 1
 
   bottle do
-    sha256 "c590d7ac68930ecc99736f75a47fffba91beac782c61b6bbff88b8d34d863c3d" => :mojave
-    sha256 "287078d6fb7e1de7c0d46cfa2157eafb59bd28542a490416acde4b6757e239d9" => :high_sierra
-    sha256 "6dad799b7ed71c0e48446c539ccec462612d7c170873cd4e1a58aeaa66e4d8a8" => :sierra
+    sha256 "4d33d082a523b398afd28e9d22d5210b2b46a8ce436785363ecfe4047f7b49fc" => :mojave
+    sha256 "4ee0e35412caf80c0f9edf92153436919e6e673d696955a090a57d94565732b8" => :high_sierra
+    sha256 "b0b978b9d20523a2b36eca2f2da5ddec4f979908e4714ffcf7f2bb2ea6927592" => :sierra
   end
 
   depends_on "intltool" => :build
@@ -18,6 +19,7 @@ class Klavaro < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+    rm_rf include
   end
 
   test do
