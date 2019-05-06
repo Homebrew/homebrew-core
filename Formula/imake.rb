@@ -3,6 +3,7 @@ class Imake < Formula
   homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
+  revision 1
 
   bottle do
     sha256 "7b88b762f87532242c2e45ea2818eaf1e73528f8c45710bba22697d53e102034" => :mojave
