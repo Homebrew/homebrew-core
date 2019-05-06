@@ -1,8 +1,8 @@
 class Leveldb < Formula
   desc "Key-value storage library with ordered mapping"
   homepage "https://github.com/google/leveldb/"
-  url "https://github.com/google/leveldb/archive/1.21.tar.gz"
-  sha256 "e0fbd238047b9e82ec26a2b808f826b60e12b4fcb5d1a18c7b3d6edf357b4026"
+  url "https://github.com/google/leveldb/archive/1.22.tar.gz"
+  sha256 "55423cac9e3306f4a9502c738a001e4a339d1a38ffbee7572d4a07d5d63949b2"
 
   bottle do
     cellar :any
