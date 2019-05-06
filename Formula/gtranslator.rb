@@ -1,13 +1,13 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/3.32/gtranslator-3.32.0.tar.xz"
-  sha256 "aa8b6ce7a6ea199a50ee8f65258e640af80407a7433359b853039a7ea07a11b7"
+  url "https://download.gnome.org/sources/gtranslator/3.32/gtranslator-3.32.1.tar.xz"
+  sha256 "e1b37b0436684eb3079916eff7b6eeac2cd51ebbf8d2d6f35b5480ca0391b4da"
 
   bottle do
-    sha256 "14135e672b3f7305cbd16823c6863ec4dc2ed16153ab93c3db410e3b8347e1a8" => :mojave
-    sha256 "9497d5b1079b08c4f28b1e816e0a8882220051d27d3762f0e0843233facde50e" => :high_sierra
-    sha256 "d11be689c651a4d27db8328cf8c5396befd791abd2bb8f1c9a7b4174cf528434" => :sierra
+    sha256 "2cb0295073c0f1df175ed5b550b5f72ace147baaea33ac1057fb55df6a850bce" => :mojave
+    sha256 "3947995fc4be8630abc393b5e2a10c93dc599fbd65a2fcf9bef3124d9750c8db" => :high_sierra
+    sha256 "ac1903136af8f037d5a5c9bbd663d7d833adaf5b887471b72666681e88c237c2" => :sierra
   end
 
   depends_on "meson" => :build

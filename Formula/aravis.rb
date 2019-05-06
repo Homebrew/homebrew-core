@@ -1,14 +1,13 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_1.tar.gz"
-  sha256 "d9795d36bfb1af230bda21d93bc81390f49d936c6c9b7b3043a5c09bd0f0f8d3"
+  url "https://download.gnome.org/sources/aravis/0.6/aravis-0.6.2.tar.xz"
+  sha256 "a78b7bc98f93beb8116f796a9799ed1a364f05a6685e3f14bb09d9ac7a7858af"
 
   bottle do
-    rebuild 1
-    sha256 "48bd639c714321d52ae4beff4a6ee94e130b3e538bae1df9527bd48f3d9aef7f" => :mojave
-    sha256 "e13f65a8fdca765cfc842faf4481d9e0ee84b7af116f251fa21efef5e85ad068" => :high_sierra
-    sha256 "ff24dda20db8c14a54ff34b11f7da695e29afb426df7ae91c97fd341cb0b39d8" => :sierra
+    sha256 "09d57461fbdb8882389b4ea25ec99bf78836ed3b5a750262df39ac3412a4d558" => :mojave
+    sha256 "b9d0ca5dd04aa35746de09d329535fcc2d5ccb4d86fe7a31620b7d7c9610a3e8" => :high_sierra
+    sha256 "50f2d2986169ebf683e8704d3a0d63d4babaa568ae602fc81eecffe026220dd0" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -27,12 +26,19 @@ class Aravis < Formula
   depends_on "libusb"
 
   def install
-    inreplace "viewer/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-    system "./autogen.sh", "--disable-dependency-tracking",
-                           "--disable-silent-rules",
-                           "--enable-introspection",
-                           "--prefix=#{prefix}"
+    # icon cache update must happen in post_install
+    inreplace "viewer/Makefile.am", "install-data-hook: install-update-icon-cache", ""
+
+    system "autoreconf", "-fi"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--enable-introspection",
+                          "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

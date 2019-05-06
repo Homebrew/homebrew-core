@@ -1,15 +1,15 @@
 class Iamy < Formula
   desc "AWS IAM import and export tool"
   homepage "https://github.com/99designs/iamy"
-  url "https://github.com/99designs/iamy/archive/v2.3.1.tar.gz"
-  sha256 "abbc3f23afb8a57d02ec939a21ccac9fe0db18f96a742e03b16d32f3a8a12e1d"
+  url "https://github.com/99designs/iamy/archive/v2.3.2.tar.gz"
+  sha256 "66d44dd6af485b2b003b0aa1c8dcd799f7bae934f1ce1efb7e5d5f6cfe7f8bf2"
   head "https://github.com/99designs/iamy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec31036a74b3e7fa56dc920b4dcb4f55dd525588a60e7e0306bccadb1101e11b" => :mojave
-    sha256 "89e0a7f9d27d589ad0639f01160036e891cbbe811b28d45a5904e0a22aa66990" => :high_sierra
-    sha256 "044aabaea888d7d318c8dc5f0319a33b9bbec6478ff45782ff5e1edec4eeb9dc" => :sierra
+    sha256 "d24e802f1fc572c7d49620531e57a5e143956b2ce1e1d05b2320167b09fbf875" => :mojave
+    sha256 "aac8b68119dad48d8aca16a2355cc5c8605e8b1fe44b18e5eb8326216873d657" => :high_sierra
+    sha256 "1d22caa158fea3cb67ca07ef5f0785dc9f8568470d0323a5958229ed1f650f6c" => :sierra
   end
 
   depends_on "go" => :build

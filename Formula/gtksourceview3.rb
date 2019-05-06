@@ -1,23 +1,27 @@
 class Gtksourceview3 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.10.tar.xz"
-  sha256 "ab5406cdd0bdcf66afcd52b1e048a2f43c0f3ab391644ee30d9ac419b93cd59b"
+  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz"
+  sha256 "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
 
   bottle do
-    sha256 "ae3a27021357a177d9213aa7925743c22132c13314fda8b48f9399bf9507a3f5" => :mojave
-    sha256 "9fd7a3315d9a49920321978bf53730245e56f03c51db01007ef22931256066eb" => :high_sierra
-    sha256 "721ca0bc5d630ec187f20c6f90ab4f51d6fd273f7ffe9bdf1babfc4d0557054b" => :sierra
+    sha256 "b2425a66c34919b9bc48c9cdf5f634736f0cf24459af1b7dc47e19cd3687d90d" => :mojave
+    sha256 "aa847d20eef1832339066f5f3f128b4bb2fb24793114b0d7c4c506ded7757b04" => :high_sierra
+    sha256 "78dded5b873437e0832eb24f3803f0ae1c7315f1b22d77a9ba6527f136eb1f24" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
   def install
+    system "autoreconf", "-fi"
     system "./configure", "--disable-dependency-tracking",
                           "--enable-vala=yes",
                           "--enable-introspection=yes",

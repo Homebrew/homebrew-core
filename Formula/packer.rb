@@ -2,15 +2,15 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.3.5",
-      :revision => "542cb1d872b4fbba57f34ebb5913a266017a38df"
+      :tag      => "v1.4.0",
+      :revision => "54d2b32d8c96aeefd6cdc59f4064ef68143fc035"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d89789a2b9eb05c72f95c160c218a1b34281de16940cecb906c0b87ff6c04f30" => :mojave
-    sha256 "4ed4109eb62477592281fb36a9ab543265fdb70916095140f9c488f06550ad3c" => :high_sierra
-    sha256 "8168a91a5748a5f673f714a398d648a6197c45ee1565a9718439c0a4ae894e31" => :sierra
+    sha256 "a2906f90eb1ab64a0462a403c0a1b3c7aca87f3e138efeb54360e0c76b1f2085" => :mojave
+    sha256 "47b3e62ab3273993f226fb52496295afa5cf4b9f617112d826d5aac671de6561" => :high_sierra
+    sha256 "ac790980a58966a1145ddc5feb3bc7325203660a1bb982614b205021540a5e11" => :sierra
   end
 
   depends_on "coreutils" => :build
@@ -29,7 +29,6 @@ class Packer < Formula
     cd packerpath do
       # Avoid running `go get`
       inreplace "Makefile" do |s|
-        s.gsub! "go get github.com/kardianos/govendor", ""
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get -u github.com/mna/pigeon", ""
         s.gsub! "go get golang.org/x/tools/cmd/goimports", ""

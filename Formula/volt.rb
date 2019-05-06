@@ -2,15 +2,15 @@ class Volt < Formula
   desc "Meta-level vim package manager"
   homepage "https://github.com/vim-volt/volt"
   url "https://github.com/vim-volt/volt.git",
-    :tag      => "v0.3.5a",
-    :revision => "dd1a16c77faf9887408744b146efc2d0bfdf500c"
+    :tag      => "v0.3.6",
+    :revision => "b1c9efdcc7892fc5b48734bfbd73b76a4a1a5911"
   head "https://github.com/vim-volt/volt.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bef81710d05a2defe04b4890f5ac9a8dd42c143994756b72e6ab7ceaa30e08e6" => :mojave
-    sha256 "cfe9f4dd24c96516de480a5d498b93f7b94740284b2ffb59219c5d632b915ad5" => :high_sierra
-    sha256 "b503cbf438b2e4ec9f72339672970fd92ead4a74965b0f5ffb6ca8120cdf71d7" => :sierra
+    sha256 "a92d0efdad62f219c3c1418fea24d63866cdfdeee636619c404b925ab895019b" => :mojave
+    sha256 "2d0f635d811c76d93c6be599f850cf1036164e6abc4b032d2a787b8fc8603ce2" => :high_sierra
+    sha256 "795b36fa36d4b257a32e7eb80d004677eb3a8f007f221b63be31df3663c17c00" => :sierra
   end
 
   depends_on "go" => :build
@@ -23,6 +23,8 @@ class Volt < Formula
     system "make", "BIN_DIR=#{bin}"
 
     bash_completion.install "_contrib/completion/bash" => "volt"
+    zsh_completion.install "_contrib/completion/zsh" => "_volt"
+    cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
   end
 
   test do

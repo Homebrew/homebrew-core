@@ -1,15 +1,14 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.2.tar.gz"
-  sha256 "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
-  revision 3
+  url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
+  sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "bfdec9cd62e663602dab123763c3cd78ceefa77cc42bdffa95749c224c34ff75" => :mojave
-    sha256 "b2d6092296d7ef4ed9f226766ee926458db158eac5ea5e523d27adf6fa9cec54" => :high_sierra
-    sha256 "7c01576efb1b78069e6dca1cacab30a9fcf855966a1885ef5810076f4c476c7c" => :sierra
+    sha256 "6048bdb469ac541f9714b278c697427afd9d8ac30b0263b307871c1877c94933" => :mojave
+    sha256 "2964017670fb49e932b0aaa7c263d872bcb579facc83f898e4aba4d1069eb512" => :high_sierra
+    sha256 "a0388d85d98c235ed9f93e8f89272442c34682c24c262a9bae9a99d1acc6546f" => :sierra
   end
 
   depends_on "cmake" => :build

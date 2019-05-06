@@ -1,18 +1,15 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
   homepage "https://dlmf.nist.gov/LaTeXML/"
-  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.2.tar.gz"
-  sha256 "3d41a3012760d31d721b569d8c1b430cde1df2b68fcc3c66f41ec640965caabf"
+  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.3.tar.gz"
+  sha256 "28a57369b65b85d09c1a2516e69d26bbbe102ab790cae5e2fc9709b26185f62f"
   head "https://github.com/brucemiller/LaTeXML.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36de089404dd52d462028b937d3c05af353e3c418b19c45a463bc0395d04a5fa" => :mojave
-    sha256 "bbbeb393b7ed0258fdbf875e103a6f2f82103a6c19fce6b77ce5dd99fde9dc72" => :high_sierra
-    sha256 "3d995988dc683269f6949f8071148ceaf7454e8e7eb37cd8d391a1eb4467fc76" => :sierra
-    sha256 "5ae3ca257610559471ea0e1bbc9d5ff8f122790564a8e7027841e5b2356b6f8f" => :el_capitan
-    sha256 "5205887f374d4bd15905f5f13b4c661c5a6cb2725fc631836cff0668e34085b5" => :yosemite
-    sha256 "884426eb041a9fa05ba6ebc64c64f4ce76f7c10cab3c5c1b98bcce201831c9d2" => :mavericks
+    sha256 "f3a5d8f45fdb180e01020f6197a9a07737f81eab6934d949b92f5b711f35041d" => :mojave
+    sha256 "5fed67a74a9966182e7f998a2184541d517a56e1293be12612b0a14b3380cb17" => :high_sierra
+    sha256 "405cb6dee92b6c535e03a4841b3961e96bfb259cdfdf2909f1743d4ff2d479df" => :sierra
   end
 
   resource "Image::Size" do
@@ -21,8 +18,8 @@ class Latexml < Formula
   end
 
   resource "Text::Unidecode" do
-    url "https://cpan.metacpan.org/authors/id/S/SB/SBURKE/Text-Unidecode-1.27.tar.gz"
-    sha256 "11876a90f0ce858d31203e80d62900383bb642ed8a470c67539b607f2a772d02"
+    url "https://cpan.metacpan.org/authors/id/S/SB/SBURKE/Text-Unidecode-1.30.tar.gz"
+    sha256 "6c24f14ddc1d20e26161c207b73ca184eed2ef57f08b5fb2ee196e6e2e88b1c6"
   end
 
   def install

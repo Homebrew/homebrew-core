@@ -1,16 +1,15 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz"
-  version "7.9p1"
-  sha256 "6b4b3ba2253d84ed3771c8050728d597c91cfce898713beb7b64a305b6f11aad"
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz"
+  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz"
+  version "8.0p1"
+  sha256 "bd943879e69498e8031eb6b7f44d08cdc37d59a7ab689aa0b437320c3481fd68"
 
   bottle do
-    rebuild 1
-    sha256 "475cc4f47a24d63d2050b95a48c9a0c624eb86f0f8a4539b76b3f1a5ca92aa82" => :mojave
-    sha256 "f0cc3763b34a7e8e9a7249b635a10453789186192c77f4fa4af7416cd8ca5a48" => :high_sierra
-    sha256 "e7bf2327f5d5fef76694d2dae0bce415cf452050177611d462cf6ddc0ccda79d" => :sierra
+    sha256 "205e6e27d530dea1c47423dea5f4d0197a708a8b66d82974220c39afa4862c40" => :mojave
+    sha256 "5b6a4b5ab220e6e77895c7abbd2194332bfc9f8f5d973059b851bc23546aa643" => :high_sierra
+    sha256 "c8d466551529ebcb1c4d17da2d389cec164c5eee45a7174325f830fbfcc6fdd6" => :sierra
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.

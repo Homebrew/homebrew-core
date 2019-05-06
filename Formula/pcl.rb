@@ -3,13 +3,13 @@ class Pcl < Formula
   homepage "http://www.pointclouds.org/"
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.9.1.tar.gz"
   sha256 "0add34d53cd27f8c468a59b8e931a636ad3174b60581c0387abb98a9fc9cddb6"
-  revision 3
+  revision 4
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    sha256 "cb2551f49fbe8ff024ec8ab9885c8d4b52fdcc0a09c5f468f4f9ef9bdad5b099" => :mojave
-    sha256 "b340b0f8468ac6e8b66caf076ec4e05b336deed8053151e84dfa5af7d3fdfc53" => :high_sierra
-    sha256 "3adc1da5ef3ec48fe4fc0b27cbd932486669ccd2f585c0d2689e3700ca9499cc" => :sierra
+    sha256 "09a416e3c1a928846a3e546cb5f222ab2c4ac86b3df254783cfe05161aa90009" => :mojave
+    sha256 "76d9b5efd92a6b5b3206badc39a12e512e6774e6c46febd1c7946faf31357b9d" => :high_sierra
+    sha256 "11255d960843127fafbaa9be1fac996ed2c400ea1a83f6c85b44b5dcc5de6843" => :sierra
   end
 
   depends_on "cmake" => :build

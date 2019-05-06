@@ -5,26 +5,26 @@ class Hledger < Formula
 
   desc "Command-line accounting tool"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.14.1/hledger-1.14.1.tar.gz"
-  sha256 "5e5df9de8efa4133a543c4f47aeff2db1efb16ac77713572cac2da3b8fc2318d"
+  url "https://hackage.haskell.org/package/hledger-1.14.2/hledger-1.14.2.tar.gz"
+  sha256 "849a6e0683192ec504da9a631ddfc82e04973583f4a028fd39b8cdac2efe29ea"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "45fd71a04aaa1e26fd86608f4c490d946f29238d9053c2019b2d502de0f225da" => :mojave
-    sha256 "64b3460aabd792a4d0a74991187591774bcee3086074abb72aef39607f144c83" => :high_sierra
-    sha256 "602fa95affba0309c55eeb4e7b66a5c65c025f3d113f10360a022dd07ae68496" => :sierra
+    sha256 "f8f717413411bf98616d3df20f31583928b8b93e937080632e08677512cd9d5b" => :mojave
+    sha256 "5150a38fc8378410ca9b7b9d2fca755ccc7fe0eef6805fc07650fd836460a0bb" => :high_sierra
+    sha256 "60422bb49e6e62f26780cec246007cfa38dc8fcb33c6718591e7f7e72fb44c2a" => :sierra
   end
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
   resource "hledger_web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.14/hledger-web-1.14.tar.gz"
-    sha256 "eb10512a8dd6af6b046d65f2d1dfcdd37eb22e1040108e29212ab0ca0abc5295"
+    url "https://hackage.haskell.org/package/hledger-web-1.14.1/hledger-web-1.14.1.tar.gz"
+    sha256 "a1eacde5b9d531df0875b65c8239e8351749610e1e6e46c847dd02594fb6a970"
   end
 
   resource "hledger_ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.14/hledger-ui-1.14.tar.gz"
-    sha256 "531ab28284370cc67316d409d41aef706eeb3d53a1d2c032f9147b5f095bdfde"
+    url "https://hackage.haskell.org/package/hledger-ui-1.14.2/hledger-ui-1.14.2.tar.gz"
+    sha256 "9951a8665c7a182d8008c92565272a6c4a8e12d363df4b169fa09dddffee112e"
   end
 
   resource "hledger_api" do

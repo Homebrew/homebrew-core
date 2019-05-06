@@ -2,14 +2,14 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v0.17.6",
-      :revision => "2532ce0527b4e4a1b289c1fccf2eea42edd00d3b"
+      :tag      => "v0.17.9",
+      :revision => "55b233fbdc4d59706f17d64e7618f28ddab6412d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aae96d7d5496a63fb4736cf26d878f8eb2951427b1a841dff3ba8ed9553f8201" => :mojave
-    sha256 "374a494c6e70c965e343607ea1efa06112340f68ddf4ee371d4a39f819426651" => :high_sierra
-    sha256 "9666b03d37f84abf857c082be9d4d7d84909dad455b1f1fdfaabf356cc6662e9" => :sierra
+    sha256 "424e82c24c3763c7ed734c210368276203028e5d53325d449cc1778f3d694819" => :mojave
+    sha256 "afd3c871133239e67350d90fd394014fc12dbc0be2d806e01a778c67782a8245" => :high_sierra
+    sha256 "748316abf872cc4b5901ae75e8a4214bd703a55c3dae384318647815faf9c7ea" => :sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +17,6 @@ class Pulumi < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
-    ENV["GOPROXY"] = "https://gocenter.io"
 
     dir = buildpath/"src/github.com/pulumi/pulumi"
     dir.install buildpath.children

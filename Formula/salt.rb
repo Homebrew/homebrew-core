@@ -5,13 +5,14 @@ class Salt < Formula
   homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/41/d4/7f6d6bb139506741771ff9feb8429d5a5ed860de9ab5a358e771e8cc3b76/salt-2019.2.0.tar.gz"
   sha256 "5695bb2b3fa288bcfc0e3b93d9449afd75220bd8f0deefb5e7fc03af381df6cd"
+  revision 1
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "ebc6fb3f0d834c8e51deb0728759e8b2a278418b4069e89b109507c5dac11c85" => :mojave
-    sha256 "8f79dcb77175cfbb7c008d10314aabbb4d81bd6fa2f2fedb096283317a1d9f4c" => :high_sierra
-    sha256 "452716a6c78ebc71f2dda3350977e4e95991a87b23550ceced2b5437e9d6f339" => :sierra
+    sha256 "34e1a591055346fe0d3a34e7d857fde0cd8e4ea6abded8e13500282f0993c340" => :mojave
+    sha256 "f7e521f883eca1584d91317e0afb0dd0f410fb0190cb3db05f13030d6732ba6d" => :high_sierra
+    sha256 "88885219ee763a48ca9f8684849201615d975d852271dd4cda90c47f24b35096" => :sierra
   end
 
   depends_on "swig" => :build
@@ -85,8 +86,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/64/49/a7a621f1c2fde3dc263c10f2b2be5b42807bfdafe8465fc8e0f4c5524016/pygit2-0.27.3.tar.gz"
-    sha256 "9b7613be3f6ee6ffcfdfa9c64762d4e36a31161bd561a6f7d340a8b3f486ca10"
+    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
+    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
   end
 
   resource "pyzmq" do

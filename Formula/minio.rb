@@ -2,26 +2,25 @@ class Minio < Formula
   desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2019-03-20T22-38-47Z",
-      :revision => "a9032b52b86d9d8a2b89ebbf47a50bc233565f3f"
-  version "20190320223847"
+      :tag      => "RELEASE.2019-04-23T23-50-36Z",
+      :revision => "35d19a4ae287179a0c7d6938b2b1c8e63b4747c1"
+  version "20190423235036"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "654b3fc9807a1b7a964a13312e8406ce7454a4089d8b49d236b383d7fdee178c" => :mojave
-    sha256 "5a2517562111ef0b31790df4a01ecfec5e4b442b051271c086109ca40ce015a1" => :high_sierra
-    sha256 "02a8e37c6144c6f82d93f4a1835fa006def36b659c8a7d746f94adeedd7cfe0f" => :sierra
+    sha256 "e78ecc85ff8296e3d7ba2da37f70e28c6477868d36f37684ddcd37456ad0151b" => :mojave
+    sha256 "ae00022fa9f49628ddf7d724975a44bdabeafca0ed8597df09c8c03c14fda071" => :high_sierra
+    sha256 "f64ae0640e1b3d1b5aadaf0c3159d6f1fb262f960569f215a2f68b44bdf61c1e" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-
-    clipath = buildpath/"src/github.com/minio/minio"
-    clipath.install Dir["*"]
-
-    cd clipath do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/minio/minio"
+    src.install buildpath.children
+    src.cd do
       if build.head?
         system "go", "build", "-o", buildpath/"minio"
       else

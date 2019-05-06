@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.18.0.268.tar.bz2"
-  sha256 "04ee081482b2f3e37ab7e2f92e2127e9e7b63211dbaa364e5b22b227a6b1bb8c"
+  url "https://download.mono-project.com/sources/mono/mono-5.20.1.19.tar.bz2"
+  sha256 "0574b61efb9bfc3364211d03d87a12c91dc7b03e8d6242cd4d8d953ef145d468"
 
   bottle do
-    sha256 "dcf2276c920131e6e631fc05d4e5ba90f7c55f21d294a9c04003758a0dac4a55" => :mojave
-    sha256 "9a8479f67d9073dc3e0fb25ca5d4f7e228e222d1ec2404f596b114c36f81eee9" => :high_sierra
-    sha256 "3343153cbf23009edcfc2c3f57cb4f02866849654c0cc6328667a4c6d16a1d0c" => :sierra
+    sha256 "08e012d25c888d0b0f40ef7757ba929ad48421c8ba5c8f4f66dc7d0d15c6f49d" => :mojave
+    sha256 "da81cb09be8a4b53c9b9e297ae23836c7818feb9ba919dbc02e333e820ea85bc" => :high_sierra
+    sha256 "bbacf1812a2f1d55ab6c15784c813554882af83d0a95211c4a4cbf948f7d0541" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -28,8 +28,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag      => "10.2.1",
-        :revision => "3de387432de8d11a89f99d1af87aa9ce194fe21b"
+        :tag      => "10.2.3",
+        :revision => "e31bc96e8a5e5742af1c6c45d55d5cc06bb524cb"
   end
 
   # When upgrading Mono, make sure to use the revision from

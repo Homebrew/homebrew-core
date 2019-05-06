@@ -3,15 +3,15 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/e3/88/39c8b7701b2f7d5c8f3a1796b0c174f21071232bc5b242feb670e913acc6/ipython-7.4.0.tar.gz"
-  sha256 "b038baa489c38f6d853a3cfc4c635b0cda66f2864d136fe8f40c1a6e334e2a6b"
+  url "https://files.pythonhosted.org/packages/75/74/9b0ef91c8e356c907bb12297000951acb804583b54eeaddc342c5bad4d96/ipython-7.5.0.tar.gz"
+  sha256 "e840810029224b56cd0d9e7719dc3b39cf84d577f8ac686547c8ba7a06eeab26"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
     cellar :any
-    sha256 "8eeb5204d0a73e734f958701b989a09f11f3be825b91a8f167d213aead940079" => :mojave
-    sha256 "53361a81248ee821e09215f7622dfefd42f3a299cc95dbd2c3ea4d7a28cd3b6c" => :high_sierra
-    sha256 "69dcb8d7650bf4d01e876f8a0d43c3bf5ec2b4ba7648990a982bf6f90fbf62de" => :sierra
+    sha256 "3acd0dacbb16c3e39b3ba3acead08134ddb545786e3a99cf7854e79fbe0135ce" => :mojave
+    sha256 "bdae276d4d6cc88400aac740e9b05f22ed1d41ee54f6d669c9030977017a02f5" => :high_sierra
+    sha256 "dedef399cc5b8cc733f3f647c9ec618462f250894dc4d44edbc50e40b6325915" => :sierra
   end
 
   depends_on "python"
@@ -58,13 +58,13 @@ class Ipython < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/01/70/d9fa1a10aed70c192815aac7fd3eb38ef49aa5ab9cb36129ae22c8ecbf1f/parso-0.3.4.tar.gz"
-    sha256 "68406ebd7eafe17f8e40e15a84b56848eccbf27d7c1feb89e93d8fca395706db"
+    url "https://files.pythonhosted.org/packages/79/52/70d0bb8a1f4b1475a603b4b1484bb351edda30846996fc93fe1976948fef/parso-0.4.0.tar.gz"
+    sha256 "2e9574cb12e7112a87253e14e2c380ce312060269d04bd018478a3c92ea9a376"
   end
 
   resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/89/43/07d07654ee3e25235d8cea4164cdee0ec39d1fda8e9203156ebe403ffda4/pexpect-4.6.0.tar.gz"
-    sha256 "2a8e88259839571d1251d278476f3eec5db26deb73a70be5ed5dc5435e418aba"
+    url "https://files.pythonhosted.org/packages/1c/b1/362a0d4235496cb42c33d1d8732b5e2c607b0129ad5fdd76f5a583b9fcb3/pexpect-4.7.0.tar.gz"
+    sha256 "9e2c1fd0e6ee3a49b28f95d4b33bc389c89b20af6a1255906e90ff1262ce62eb"
   end
 
   resource "pickleshare" do
@@ -108,8 +108,8 @@ class Ipython < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/b1/7f/8109821ff9df1bf3519169e34646705c32ac13be6a4d51a79ed57f47686e/tornado-6.0.1.tar.gz"
-    sha256 "de274c65f45f6656c375cdf1759dbf0bc52902a1e999d12a35eb13020a641a53"
+    url "https://files.pythonhosted.org/packages/03/3f/5f89d99fca3c0100c8cede4f53f660b126d39e0d6a1e943e95cc3ed386fb/tornado-6.0.2.tar.gz"
+    sha256 "457fcbee4df737d2defc181b9073758d73f54a6cfc1f280533ff48831b39f4a8"
   end
 
   resource "traitlets" do

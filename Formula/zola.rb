@@ -1,14 +1,14 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.6.0.tar.gz"
-  sha256 "647f31300f4e468374dfb325b59a08cb31c4ed855b2e5b677131464ae3ee9925"
+  url "https://github.com/getzola/zola/archive/v0.7.0.tar.gz"
+  sha256 "6a07a1a08f8b0db50ed87599fca712937004a53ef5950a1d17a1bc3d463a2979"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5031b4e225b5d7cdf6b2ccb774b38bfaffb65c6e7e223e34d73f4ca0df341824" => :mojave
-    sha256 "90351fdbd97ccc147124454b57fe3f1e8107a5ef76421f3c1011309659dc39fa" => :high_sierra
-    sha256 "3eeb73a933b7de894f222c4e5c8001f8507c437a95dbc592ddb29b7c7cfaf5a4" => :sierra
+    sha256 "449421b70b760ee6e5751522886afcdd0bdb8dc547835c051fccfdd67c39070a" => :mojave
+    sha256 "b6b45e72dd6379adc3f745693171baa659d1e5b0799eebc0d918ce58d376e5cb" => :high_sierra
+    sha256 "57dbc00aa4b53f65362803f8bca98cd9e6059aa3f9ba8477fc26810d05a806f9" => :sierra
   end
 
   depends_on "cmake" => :build

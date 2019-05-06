@@ -1,9 +1,9 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.org/"
-  url "https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.11-01-bundle.tar.gz"
-  version "2.14.11-01"
-  sha256 "1186c7552c544b9addf4b379647a680a0750b17c9732228925d7a8a6d7c13a1e"
+  url "https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/oss/nexus-2.14.13-01-bundle.tar.gz"
+  version "2.14.13-01"
+  sha256 "66e2ae803af26c6af34a82cc510d7fa2037080f35a72b4398f65d2f157fd3afc"
 
   bottle :unneeded
 
