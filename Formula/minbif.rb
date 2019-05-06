@@ -1,8 +1,7 @@
 class Minbif < Formula
   desc "IRC-to-other-IM-networks gateway using Pidgin library"
   homepage "https://symlink.me/projects/minbif/wiki/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
   version "1.0.5-20150505"
   sha256 "4e264fce518a0281de9fc3d44450677c5fa91097a0597ef7a0d2a688ee66d40b"
   revision 2
