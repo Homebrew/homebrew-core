@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://releases.llvm.org/7.0.0/openmp-7.0.0.src.tar.xz"
-  sha256 "30662b632f5556c59ee9215c1309f61de50b3ea8e89dcc28ba9a9494bba238ff"
+  url "https://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
+  sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
 
   bottle do
     cellar :any
@@ -15,9 +15,12 @@ class Libomp < Formula
   depends_on :macos => :yosemite
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
+    # libgomp alias which can conflict with GCC's libgomp.
+    system "cmake", ".", *std_cmake_args, "-DLIBOMP_INSTALL_ALIASES=OFF"
     system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args
+    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args,
+                         "-DLIBOMP_INSTALL_ALIASES=OFF"
     system "make", "install"
   end
 
