@@ -1,8 +1,8 @@
 class TmuxXpanes < Formula
   desc "Ultimate terminal divider powered by tmux"
   homepage "https://github.com/greymd/tmux-xpanes"
-  url "https://github.com/greymd/tmux-xpanes/archive/v4.1.0.tar.gz"
-  sha256 "6ec37ce8e3c6bc685e16cdf609bc6d2add7c8b4120a79b84414dc67d97766704"
+  url "https://github.com/greymd/tmux-xpanes/archive/v4.1.1.tar.gz"
+  sha256 "419534299fe37a5d1ff82b01c3750615f38b2e1820d5fb15863109031d29353c"
 
   bottle :unneeded
 
