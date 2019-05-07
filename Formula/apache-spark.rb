@@ -3,7 +3,7 @@ class ApacheSpark < Formula
   homepage "https://spark.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz"
   version "2.4.3"
-  sha256 "e68dd25227ddf616f1212d34b8f537fdf0b217f31f8e385eea48e04e2aa5482c"
+  sha256 "80a4c564ceff0d9aff82b7df610b1d34e777b45042e21e2d41f3e497bb1fa5d8"
   head "https://github.com/apache/spark.git"
 
   bottle :unneeded
