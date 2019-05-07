@@ -19,7 +19,7 @@ class Libomp < Formula
     # libgomp alias which can conflict with GCC's libgomp.
     system "cmake", ".", *std_cmake_args, "-DLIBOMP_INSTALL_ALIASES=OFF"
     system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args
+    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args,
                          "-DLIBOMP_INSTALL_ALIASES=OFF"
     system "make", "install"
   end
