@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.12/source/tarball/percona-xtrabackup-2.4.12.tar.gz"
-  sha256 "de02cfd5bde96ddbf50339ef3a4646004dde52239698df45c19ed3e8ee40738e"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
+  sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
 
   bottle do
     rebuild 1
@@ -42,6 +42,7 @@ class PerconaXtrabackup < Formula
       -DCOMPILATION_COMMENT=Homebrew
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
+      -DCMAKE_CXX_FLAGS="-DBOOST_NO_CXX11_HDR_ARRAY"
     ]
 
     # macOS has this value empty by default.
