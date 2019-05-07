@@ -7,9 +7,9 @@ class Gomplate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55b0c35116cdc27e900d4c8b805a2373511351ab2120498ecac2422ba3df29f0" => :mojave
-    sha256 "f76e8871fbe176b088b9256d3438199f1a52b805d9881e8514f8380d403bb07a" => :high_sierra
-    sha256 "762cb52ff28ae881f94cde760fd059a4370e7e0eb7dfeb941b197d7c8eff61bc" => :sierra
+    sha256 "488210a29d2f2fbd9113ae29d60869fc7e057e868eb46f16771aac7f7ac1c20e" => :mojave
+    sha256 "540010c7886dbcf8306bc09664b02d18e97d9ff0f5e7fb02e9de44de05962b91" => :high_sierra
+    sha256 "71d912d54b3dab2ae8a27a53061620658d1b5a99f31c37c57b1ea8b9d89c942a" => :sierra
   end
 
   depends_on "go" => :build
