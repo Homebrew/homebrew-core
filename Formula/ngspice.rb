@@ -20,6 +20,7 @@ class Ngspice < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "fftw"
   depends_on "readline"
 
   def install
