@@ -13,9 +13,9 @@ class GstValidate < Formula
   end
 
   bottle do
-    sha256 "c5e1c414ecc0232431b21cb0696e5a47f74d7d34fc652c2f6170f431c39a7fe8" => :mojave
-    sha256 "615a37ce9755d3a60b1a59e3c384af8822a29cac4cfb26be35eb308c9199e5d0" => :high_sierra
-    sha256 "f187c1ed1e8e49fcb0f423fe2841b110a7e42d2a296c83abb81546c7deab1e3a" => :sierra
+    sha256 "2d1195973401f7c7636a9f27476bf3420d19d082ccf66a7822c6f06b8cae95e6" => :mojave
+    sha256 "89b0c48647d9f8b03b887511cec9f1cad0722d79cc6d1b9ee17cab11be3f1a6e" => :high_sierra
+    sha256 "d60bc16aebffbc2cefa183437aa9b4525f601678d85e1e36f6686a1b1cba774e" => :sierra
   end
 
   head do
