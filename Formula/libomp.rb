@@ -1,7 +1,7 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "http://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
+  url "https://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
   sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
 
   bottle do
