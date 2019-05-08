@@ -1,8 +1,12 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
-  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.1/uriparser-0.9.1.tar.bz2"
-  sha256 "75248f3de3b7b13c8c9735ff7b86ebe72cbb8ad043291517d7d53488e0893abe"
+
+  stable do
+    patch :DATA
+    url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
+    sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
+  end
 
   bottle do
     cellar :any
@@ -13,10 +17,6 @@ class Uriparser < Formula
 
   head do
     url "https://github.com/uriparser/uriparser.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "cmake" => :build
@@ -35,13 +35,9 @@ class Uriparser < Formula
       system "cmake", "."
       system "make"
     end
-    ENV["GTEST_CFLAGS"] = "-I./gtest/googletest/include"
-    ENV["GTEST_LIBS"] = "-L./gtest/googletest/ -lgtest"
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-doc"
-    system "make", "check"
+    system "cmake", ".", "-DGTEST_ROOT=#{buildpath}/gtest/googletest", "-DURIPARSER_BUILD_DOCS=OFF", *std_cmake_args
+    system "make"
+    system "make", "test"
     system "make", "install"
   end
 
@@ -56,3 +52,18 @@ class Uriparser < Formula
     assert_equal expected, shell_output("#{bin}/uriparse https://brew.sh").chomp
   end
 end
+
+__END__
+diff --git a/test/MemoryManagerSuite.cpp b/test/MemoryManagerSuite.cpp
+index 85f498b..4cda664 100644
+--- a/test/MemoryManagerSuite.cpp
++++ b/test/MemoryManagerSuite.cpp
+@@ -19,6 +19,8 @@
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+  */
+
++#undef NDEBUG  // because we rely on assert(3) further down
++
+ #include <cassert>
+ #include <cerrno>
+ #include <cstring>  // memcpy
