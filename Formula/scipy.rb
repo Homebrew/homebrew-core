@@ -3,14 +3,14 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://files.pythonhosted.org/packages/a9/b4/5598a706697d1e2929eaf7fe68898ef4bea76e4950b9efbe1ef396b8813a/scipy-1.2.1.tar.gz"
   sha256 "e085d1babcb419bbe58e2e805ac61924dac4ca45a07c9fa081144739e500aa3c"
-  revision 1
+  revision 2
   head "https://github.com/scipy/scipy.git"
 
   bottle do
     cellar :any
-    sha256 "088ab49b1ec4e5098f1ce158e7da282d21e60f5e5de624cccf9fdc369ffd97e0" => :mojave
-    sha256 "9aadd4bce01f14039bb796dd6634b6c03665dee83b6aaef3c09e8cb584b178fa" => :high_sierra
-    sha256 "a2fd1e124e2e62416cf06954edbe6082621fb1e30d9234aac14abd0ad6bd5433" => :sierra
+    sha256 "dfcfbee2926f3f80211febfa6aac6d80194e463f4d7da594485a63ce96ab8959" => :mojave
+    sha256 "ac747251d62895c89b3e0dedbfc1f6a75398e3ebf9d63cc41eae40b7ec360db5" => :high_sierra
+    sha256 "b4f9df3bd0b71f4b4e3b8bcc3ee4ead53ad5de03b05cf8a0897a5c6a2f6b7e5f" => :sierra
   end
 
   depends_on "swig" => :build

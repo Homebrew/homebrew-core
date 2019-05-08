@@ -3,12 +3,13 @@ class Libxc < Formula
   homepage "https://tddft.org/programs/libxc/"
   url "https://tddft.org/programs/octopus/download/libxc/4.2.3/libxc-4.2.3.tar.gz"
   sha256 "02e49e9ba7d21d18df17e9e57eae861e6ce05e65e966e1e832475aa09e344256"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d3cae48aff1879bd255e227fd5a305f5bfc537ad9e3b5709e09b434e4a43dffa" => :mojave
-    sha256 "57b6d9d003ad48a50b571722e9fa59a3786f43fe90eab310ce75526c207c4b4f" => :high_sierra
-    sha256 "ae70a828ecc3c097f6bc74660bbb60618be640b3c0f80db6c5fce0ea129c0c8c" => :sierra
+    sha256 "368e272c4184fb951348a223f1c740020a76999b552d23c84c1c45aa88366902" => :mojave
+    sha256 "7ee404c4bbd65309cdd25a992a9e92dfea57cf7af6372381852f76b82e3fdc30" => :high_sierra
+    sha256 "fb1f4e04633838f4bd9301d3a33175842680d1c1301971edce5b0179e459043f" => :sierra
   end
 
   depends_on "gcc" # for gfortran

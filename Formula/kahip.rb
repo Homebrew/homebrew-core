@@ -3,12 +3,13 @@ class Kahip < Formula
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
   url "https://github.com/schulzchristian/KaHIP/archive/v2.11.tar.gz"
   sha256 "9351902b9e1c53b16ac7c3ba499a8f52348cae945c5cfc00e82c2c68302e1dca"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "01a93ef9c4510c1925cc56e44fa9d1d1de61842bc5e3d7501b1a888ef22192f1" => :mojave
-    sha256 "5f99e0c464f02c2f08afe55ee2fbd12f6b127ea769ccf8346a48ba57666b21ee" => :high_sierra
-    sha256 "40ca42f0483f14493b18535cd0f9cc389f883ae468c1e7a2e6da643201413f22" => :sierra
+    sha256 "adf04905ebd11dca87434d8185a16e910522bd2faaf983dc20c2f83819da9b4b" => :mojave
+    sha256 "99eab0a417cd7596eebd646f3da9571a40ce0154e88dcfd01361ab2bb4721282" => :high_sierra
+    sha256 "7061f28f5f464e69c5b4af293e1aa4a13f14b86ad56889f9d2d6be54c632f199" => :sierra
   end
 
   depends_on "cmake" => :build
