@@ -23,8 +23,7 @@ class Libzt < Formula
       #include<ZeroTier.h>
       int main(){return zts_socket(0,0,0)!=-2;}
     EOS
-
-    system ENV.cc, "-v", "test.cpp", "-o", "test", "-L#{lib}/Release", "-lzt"
+    system ENV.cxx, "-v", "test.cpp", "-o", "test", "-L#{lib}/Release", "-lzt"
     system "./test"
   end
 end
