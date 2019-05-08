@@ -7,10 +7,9 @@ class Qrupdate < Formula
 
   bottle do
     cellar :any
-    sha256 "3e9beaab01eb493f63fd2e472397423bdb6eb4da9ad21d77142450823b971ffa" => :mojave
-    sha256 "b5f9fcfd7ddaca8e64b8b200bd413588a7fe608b31b7d1b9a23be53a2084bd3a" => :high_sierra
-    sha256 "f1213f270e9c6a84e8c1707d3b956e7bb2a6670f53bbf405cdba4d8da2393846" => :sierra
-    sha256 "c84f04635d00f139bcc5114b36395e7347c675ccb10fbf88a1779de5c6816c3a" => :el_capitan
+    sha256 "16fc7829c3154593813d8087d222a8e081f78afc90a508521022b0835b954978" => :mojave
+    sha256 "c0f02275cee5d373ef3462afdaa0798a38bdea058e5c23b6ea0f3e87f0d95fc7" => :high_sierra
+    sha256 "0aeaf652b412ba913a8f98e37a32f90544185122ccc9b885ec1e6003c60f56ab" => :sierra
   end
 
   depends_on "gcc" # for gfortran
