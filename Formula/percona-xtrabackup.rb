@@ -5,10 +5,9 @@ class PerconaXtrabackup < Formula
   sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
 
   bottle do
-    rebuild 1
-    sha256 "ef5bf99911e8cd49c218154b34ab0f66f257b518888ec5b8bb21104b3f761422" => :mojave
-    sha256 "0d78f86e1768a845f703b4fd5a2cef722f382c6f7bfef2725933d5af02ed19ba" => :high_sierra
-    sha256 "fd664421defce224cee2753357b80521aaa6db4aaf5769fd026037db9b767104" => :sierra
+    sha256 "480e5ee70d642c0afbd2b28a043526b216fab5d3ab6971b6f170e9e6875b7498" => :mojave
+    sha256 "4d30088005c028338628847aabd6cdc79a6339c0d572f58150dba762a77e86c1" => :high_sierra
+    sha256 "60718a817a26c25ce8e35afdf73ff7bbb530789f7ae13ba5105700ea1d623e8e" => :sierra
   end
 
   depends_on "cmake" => :build
