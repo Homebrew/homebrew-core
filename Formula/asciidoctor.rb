@@ -8,9 +8,9 @@ class Asciidoctor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b45b4b0b19b41f2d2e27eb83818bd066fff37c515f631a9117f7728366dcd30f" => :mojave
-    sha256 "3fd501546687cd9fd07e00a9552514f3c3c4fd88c51ae5bebd72155f0d431004" => :high_sierra
-    sha256 "9e92f9929b1256fd9c0a8cc37e4f2dcacc36ac0fa9a60aeac16e34df2b388a81" => :sierra
+    sha256 "4cba32b552a0cb489858fe910a63334a4c722f44bb80bccbbe642f1ab73ae65f" => :mojave
+    sha256 "cc426b5e309721748eab5155e1f08566c73535e7bb4c48a7a25ca98a29d7939e" => :high_sierra
+    sha256 "00391894934b25320c75e542b956aa4b2c05d9634fb3e636e062dbd3036a0736" => :sierra
   end
 
   def install
