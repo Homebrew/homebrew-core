@@ -1,8 +1,8 @@
 class Mvnvm < Formula
   desc "Maven version manager"
   homepage "http://mvnvm.org"
-  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.11.tar.gz"
-  sha256 "8e3dd27276a028b970ec1b2e5496ba0f596f88b6bee50524bdbea1a9d75189c7"
+  url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.12.tar.gz"
+  sha256 "0c4c6cc05b25731f621c96fcba500e715875248576b6a0e176db0a14eb8587ef"
   head "https://bitbucket.org/mjensen/mvnvm.git"
 
   bottle :unneeded
