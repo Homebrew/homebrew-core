@@ -25,7 +25,7 @@ class Eccodes < Formula
 
     mkdir "build" do
       system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON",
-	                    "-DENABLE_PYTHON=OFF", *std_cmake_args
+                            "-DENABLE_PYTHON=OFF", *std_cmake_args
       system "make", "install"
     end
   end
