@@ -7,9 +7,9 @@ class Reprepro < Formula
 
   bottle do
     cellar :any
-    sha256 "0c031982eeb209bb7df512a9d80fbe90eea9bb1f1dfabe5239b99bd33807aa03" => :mojave
-    sha256 "c1d32f22872c366dec7849f15b3a4c53787b7406e97df68545f150ce9f98ae98" => :high_sierra
-    sha256 "5b0c6328f2cec66382e9202561e28b44ad61a03ad4b4f987d56467d523f00cfe" => :sierra
+    sha256 "0fe440a480fa2c723af48142ca77b2cc5fb733ba5e20c011f90c11a0a1f221a0" => :mojave
+    sha256 "dfeae3f34e3cf85ed2a5242f2b692a647935b78bae036398e02595448eb82e69" => :high_sierra
+    sha256 "6ab79c20ca3f9fc1d020edcc6909af83346501656a9918e0dee1d2b9ee260016" => :sierra
   end
 
   depends_on "berkeley-db@4"
