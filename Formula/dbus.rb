@@ -7,9 +7,10 @@ class Dbus < Formula
   sha256 "9546f226011a1e5d9d77245fe5549ef25af4694053189d624d0d6ac127ecf5f8"
 
   bottle do
-    sha256 "35bf723ad353d87124779bcc175aa59c236bb327519d7606c0919859cd906dde" => :mojave
-    sha256 "8044e64e37449d5f91c0410263ddda23a7ed74e216bf619b89bb534b319473cd" => :high_sierra
-    sha256 "1fe2295f71bc0a96a12600741f11c4973b50b2c0ec3342521f0cbcee4f2a6e8b" => :sierra
+    rebuild 1
+    sha256 "98e15e9e2fbce159fb558cc230d468b589d8102d7041985e28613419c994b374" => :mojave
+    sha256 "40d0e329c206dd5a0022cf656c2a88242a45bc2a78d2bb6234091909e40d48fc" => :high_sierra
+    sha256 "576a2fabe043a7d290b026574bf9acfccb4d925c2dea5bb953f20d9deb7157b0" => :sierra
   end
 
   head do
@@ -52,6 +53,10 @@ class Dbus < Formula
                           "--without-x",
                           "--disable-tests"
     system "make", "install"
+  end
+
+  def plist_name
+    "org.freedesktop.dbus-session"
   end
 
   def post_install

@@ -7,9 +7,10 @@ class Mplayer < Formula
 
   bottle do
     cellar :any
-    sha256 "431d83725fe2589d7e7622e3247b9eaf011741d0725577d83b865dc2e618b5b3" => :mojave
-    sha256 "b339ca86990026c8205bacf4fdb9f70778852d6eb053f2b923c39c4b24eb90b9" => :high_sierra
-    sha256 "81eea942e3ac67665125890cef18ae27610ec59bd3aa257c984f562f100167ad" => :sierra
+    rebuild 1
+    sha256 "734c950c5e1d7108a3df001d8de4e1eb292021688f98bdd96fbb674824ef1154" => :mojave
+    sha256 "eeb8869d71317d372464c189cadad3a2e551b36242ad6ce7ff1f1a9e2b558e2f" => :high_sierra
+    sha256 "12e76fed7970923d84b74bf9b8f1583186b38b7b0b2e22ed201562d69b64e88a" => :sierra
   end
 
   head do
@@ -20,7 +21,10 @@ class Mplayer < Formula
     patch :DATA
   end
 
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "libcaca"
 
   def install
@@ -35,6 +39,7 @@ class Mplayer < Formula
       --prefix=#{prefix}
       --disable-x11
       --enable-caca
+      --enable-freetype
     ]
     system "./configure", *args
     system "make"

@@ -1,6 +1,6 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
-  homepage "http://www.gnome-db.org/"
+  homepage "https://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.8.tar.xz"
   sha256 "e2876d987c00783ac3c1358e9da52794ac26f557e262194fcba60ac88bafa445"
   revision 2

@@ -7,9 +7,10 @@ class Libmatio < Formula
 
   bottle do
     cellar :any
-    sha256 "807a6c962eb5d435c89d08d3682d5995f31915c3aa16f546acf019e35e2251fe" => :mojave
-    sha256 "d49e9124679c6df7cba871bdb216d9bdfc0af71feee53007ff5cc7a0a6818638" => :high_sierra
-    sha256 "2315d4a3692ea982933e4baa7ec238295a6514c4a3c08ada8d00d4323bb74a76" => :sierra
+    rebuild 1
+    sha256 "5d2703b87aee0b2c3204cb78b7689c650b076157a274c5d543aa5852bbd7febb" => :mojave
+    sha256 "5ce978cdcbe04527d730b8fdb018304eba54328104afce7c8754dd71218b5bc8" => :high_sierra
+    sha256 "3d5970022b653c12d7b1f1b2720d9ad87e6f478e7116175fc914a3d377a2c9e3" => :sierra
   end
 
   depends_on "hdf5"
@@ -37,11 +38,28 @@ class Libmatio < Formula
     (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>
+
+      size_t dims[2] = {5, 5};
+      double data[25] = {0.0, };
+      mat_t *mat;
+      matvar_t *matvar;
+
       int main(int argc, char **argv) {
-        mat_t *matfp;
-        if (!(matfp = Mat_Open(argv[1], MAT_ACC_RDONLY)))
+        if (!(mat = Mat_Open(argv[1], MAT_ACC_RDONLY)))
           abort();
-        Mat_Close(matfp);
+        Mat_Close(mat);
+
+        mat = Mat_CreateVer("test_writenan.mat", NULL, MAT_FT_DEFAULT);
+        if (mat) {
+          matvar = Mat_VarCreate("foo", MAT_C_DOUBLE, MAT_T_DOUBLE, 2,
+                                 dims, data, MAT_F_DONT_COPY_DATA);
+          Mat_VarWrite(mat, matvar, MAT_COMPRESSION_NONE);
+          Mat_VarFree(matvar);
+          Mat_Close(mat);
+        } else {
+          abort();
+        }
+        mat = Mat_CreateVer("foo", NULL, MAT_FT_MAT73);
         return EXIT_SUCCESS;
       }
     EOS

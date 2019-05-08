@@ -1,13 +1,13 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.3.3.tar.xz/from/this/mirror"
-  sha256 "6bb03e79a183d0cb059a6d117bbb2e0679cab667fb713a13c6a16f56bebab9b3"
+  url "https://php.net/get/php-7.3.5.tar.xz/from/this/mirror"
+  sha256 "e1011838a46fd4a195c8453b333916622d7ff5bce4aca2d9d99afac142db2472"
 
   bottle do
-    sha256 "401b2509e36a73979a2f67e6b133c5d0118a1d995cfb62a27e8ed4d24ccd1559" => :mojave
-    sha256 "8330fac222c9b40500b338882a358a7159c64a152f80dd4a64ab07203993c046" => :high_sierra
-    sha256 "a2b1b28dedbe2df9a09c611a0c46c7293c2e72d310d76871f36c9d4f9bbabdd6" => :sierra
+    sha256 "61026bf867135cd7bb78f5478227b6434f35bba8ceb514dd67ff7f5ac12b51c1" => :mojave
+    sha256 "d3ba1ea5513e9319be1ca0d0fa0d8739c005cf88483f577b62b20d57e1be0a27" => :high_sierra
+    sha256 "936e1e1af595306b161e8dd352fca4220a876d591f4f3f31c265801ab987c5d8" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]

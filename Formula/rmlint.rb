@@ -6,9 +6,10 @@ class Rmlint < Formula
 
   bottle do
     cellar :any
-    sha256 "868fb80acb784a7634e5c7fe6e75cee86d4c93615213156f0d97a22c3e27d0e6" => :mojave
-    sha256 "fa8f2ebb9224446dcf5dfbaca94f97bfe983a10888dd0d514345643c0394fd70" => :high_sierra
-    sha256 "a0987dfb0b23a5e3f5a93bb93480834cdf2e54c046784af3ba2c191336905e88" => :sierra
+    rebuild 1
+    sha256 "80bcba0458b5d698083d163c9830b1337ed34784a38e89c0d7df637ecdf30a45" => :mojave
+    sha256 "fc3dff4f420008d8d29fb70d82bb8c28326e7d94ae58655e1a8e0c766f2735eb" => :high_sierra
+    sha256 "1ecbb17a04c9a141761d60cb0bf80e6a4df9fdc60cb96be9dc6a8e27222984d3" => :sierra
   end
 
   depends_on "gettext" => :build
@@ -21,7 +22,7 @@ class Rmlint < Formula
 
   def install
     system "scons", "config"
-    scons
+    system "scons"
     bin.install "rmlint"
     man1.install "docs/rmlint.1.gz"
   end

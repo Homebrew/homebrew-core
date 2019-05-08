@@ -23,6 +23,11 @@ mkdir -p "$CORE_DIR"
 rm -rf "$CORE_DIR"
 ln -s "$PWD" "$CORE_DIR"
 
+# get latest Homebrew/homebrew-core
+git -C "$CORE_DIR" fetch
+git -C "$CORE_DIR" checkout -f master
+git -C "$CORE_DIR" reset --hard origin/master
+
 # setup Homebrew environment
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
@@ -48,5 +53,7 @@ unset HOMEBREW_NO_ANALYTICS
 ruby -e "load Gem.bin_path('rake', 'rake')"
 
 # commit and push generated files
-git commit -m 'formula: update from Homebrew/core push' _data/formula api/formula formula
+git add _data/formula api/formula formula
+git diff --exit-code HEAD -- _data/analytics _data/formula api/formula formula cask && exit 0
+git commit -m 'formula: update from Homebrew/homebrew-core push' _data/analytics _data/formula api/formula formula
 git push

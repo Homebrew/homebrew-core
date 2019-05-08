@@ -13,6 +13,15 @@ class Jenv < Formula
     bin.write_exec_script libexec/"bin/jenv"
   end
 
+  def caveats
+    <<~EOS
+      To activate jenv, add the following to your #{shell_profile}:
+
+        export PATH="$HOME/.jenv/bin:$PATH"
+        eval "$(jenv init -)"
+    EOS
+  end
+
   test do
     shell_output("eval \"$(#{bin}/jenv init -)\" && jenv versions")
   end

@@ -3,12 +3,13 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz"
   sha256 "72b216e10233c3f60cb06062facf41f3b0f70615e5a60b47f9853341a0d5d145"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "42d6e8ca8a0b5b4a04a1444b8370a8bc5663cccd69ca5c15b91005148c9011da" => :mojave
-    sha256 "512f28a610777ff78aacf9ab8e6e2b9cd45eaa2dc3eeb696139bbe7c5fc62bba" => :high_sierra
-    sha256 "d1e06a7e4c3af68b3188c047cc915e6cbef75c74373bfa811da686a5d18f742b" => :sierra
+    cellar :any
+    sha256 "582d610a9cdff9f9e0ca7cf4462b9a455c38a5f1211e9fae155802cfa0b85d04" => :mojave
+    sha256 "48159553d4b3e7119ad007d4cf35f2cfb10da5c29b188a9b6e847532f67af5c3" => :high_sierra
+    sha256 "d29871503340b03b7f70e45c33c19f599287297e69cb1c6369f5c2f5bfd92c9c" => :sierra
   end
 
   depends_on "cmake" => :build

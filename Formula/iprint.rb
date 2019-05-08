@@ -17,8 +17,7 @@ class Iprint < Formula
   end
 
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/iprint/iprint_1.3-9.diff.gz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/i/iprint/iprint_1.3-9.diff.gz"
+    url "https://deb.debian.org/debian/pool/main/i/iprint/iprint_1.3-9.diff.gz"
     sha256 "3a1ff260e6d639886c005ece754c2c661c0d3ad7f1f127ddb2943c092e18ab74"
   end
 

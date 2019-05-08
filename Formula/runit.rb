@@ -40,10 +40,54 @@ class Runit < Formula
     This formula does not install runit as a replacement for init.
     The service directory is #{var}/service instead of /service.
 
-    To have runit ready to run services, start runsvdir:
+    A system service that runs runsvdir with the default service directory is
+    provided. Alternatively you can run runsvdir manually:
+
          runsvdir -P #{var}/service
 
     Depending on the services managed by runit, this may need to start as root.
   EOS
+  end
+
+  plist_options :manual => "runit"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/runsvdir</string>
+          <string>-P</string>
+          <string>#{var}/service</string>
+        </array>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{opt_bin}</string>
+        </dict>
+        <key>KeepAlive</key>
+        <dict>
+          <key>Crashed</key>
+          <true/>
+          <key>SuccessfulExit</key>
+          <false/>
+        </dict>
+        <key>ProcessType</key>
+        <string>Background</string>
+       <key>StandardErrorPath</key>
+        <string>#{var}/log/runit.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/runit.log</string>
+      </dict>
+    </plist>
+  EOS
+  end
+
+  test do
+    assert_match "usage: #{bin}/runsvdir [-P] dir", shell_output("#{bin}/runsvdir 2>&1", 1)
   end
 end

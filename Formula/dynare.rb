@@ -1,14 +1,15 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
-  url "https://www.dynare.org/release/source/dynare-4.5.6.tar.xz"
-  sha256 "a4ff0ee5892a044d169ead2778e96fefcf617535fab28d25b977d8d008c7fe87"
-  revision 3
+  url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
+  sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
+  revision 1
 
   bottle do
-    sha256 "06897825b3293494bde1e12d782a3f7e9d5070e0610b336df308e0748495132a" => :mojave
-    sha256 "2380cf6228e06a151e5f22d3db9e298a1e2c6ba6ee059708dd7ec19742e54b73" => :high_sierra
-    sha256 "59bb86c547dd4720fd7cafa1770b123038f797a9873ad55ced7dfcd2c42db233" => :sierra
+    cellar :any
+    sha256 "db0755221423f6c433e8a3a80c2aef5d59db16387fa2ff4fad81adac111075c9" => :mojave
+    sha256 "d25c43d13570db8223423b8d57b2464fb7de828bb9c3bf0e10fe64e20efab7e8" => :high_sierra
+    sha256 "0484d69e34383542c3a0c030ff3875533d7cbdaf864cabecb02ee7d7c51410e1" => :sierra
   end
 
   head do
@@ -33,8 +34,7 @@ class Dynare < Formula
   depends_on "veclibfort"
 
   resource "slicot" do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
+    url "https://deb.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
     sha256 "fa80f7c75dab6bfaca93c3b374c774fd87876f34fba969af9133eeaea5f39a3d"
   end
 

@@ -1,13 +1,13 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.15.tar.xz"
-  sha256 "336ef4a09b9fc83444a1594c8215e2bed55fbea5b6d1bf6b54c63104b4c497ab"
+  url "https://download.gnome.org/sources/gupnp-tools/0.10/gupnp-tools-0.10.0.tar.xz"
+  sha256 "41da7ff5ba8e2425adcb64ca5e04c81f57ca20ec6fdb84923939fdad42c6a18d"
 
   bottle do
-    sha256 "f330d39c1cd4c6420b5d0bfa9c8382c9180e8e09e07cb87cf3b4100db7b493d8" => :mojave
-    sha256 "f969a56e68b6d5c4f768bd16e3e2f52c9d4d44c6a51124059598bb92a270adf8" => :high_sierra
-    sha256 "02eccc04224dbb48ac598e7e18c50be6a0669f657f6ce220d42bbbbb1e319f01" => :sierra
+    sha256 "5c2de534f3dea6ecc14e664d4fe77d3a73fb7cf6e67e3b134cd5d670e58de2b1" => :mojave
+    sha256 "c71313ec263860c6bc883b790870ff45d36fe33fc007f78819fd445e0e96f8a8" => :high_sierra
+    sha256 "3d3fba98c7c2be6b5cc884b6ae1d82b1f527cc4dae4c2abe117ebfb0fe2535e5" => :sierra
   end
 
   depends_on "meson" => :build
@@ -23,8 +23,8 @@ class GupnpTools < Formula
   def install
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 

@@ -1,15 +1,13 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "http://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.12/swig-3.0.12.tar.gz"
-  sha256 "7cf9f447ae7ed1c51722efc45e7f14418d15d7a1e143ac9f09a668999f4fc94d"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.0.0/swig-4.0.0.tar.gz"
+  sha256 "e8a39cd6437e342cdcbd5af27a9bf11b62dc9efec9248065debcb8276fcbb925"
 
   bottle do
-    sha256 "7307b4ffe3222715b2206e6477c5e3022881a730eb95a717d41a3df8e6e20455" => :mojave
-    sha256 "c0e2656fd10d57281280d20ce8bf9a060cf8714f4283dd1dfde383b3688d9ed1" => :high_sierra
-    sha256 "68cb1b6bc898f2a1bd39ae24dd0235f68ffa56d04ba8cd4424835335202977d1" => :sierra
-    sha256 "37bf242aad0c18317cdaef66218483c04fa57e091b7c7f9d72089f5002881338" => :el_capitan
-    sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
+    sha256 "9eff7a235762c2727dfdb767217be4a48a55f29efcae5fedc450c3dfeb806904" => :mojave
+    sha256 "aed79cb436b3a0ac5812c4085e3121ffd62866397b8c7eaa06815ed8ec1e22b7" => :high_sierra
+    sha256 "af4c42215d5c7c042d83e98aecb70958acd73038dfc2b59d1854f2287fb50980" => :sierra
   end
 
   head do

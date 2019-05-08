@@ -1,15 +1,15 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.8.7.tar.gz"
-  sha256 "f74eac627de69190e586358b1956573a0ae1a40d0755ecdee163016949f9c7fe"
+  url "https://github.com/hashicorp/nomad/archive/v0.9.0.tar.gz"
+  sha256 "fb6a0afd6895540dd5e18c878421c39e2a2759e90af8eb771c84802d082475df"
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6bff223fa37c6e1d773ebbfe42cbb8619e37fceb3b5552fcc16edbf309310b7" => :mojave
-    sha256 "e801bad44b4a04b7322599c57cf422fc4c1b8e0a253dd3e453e6f50e5c4e2fa2" => :high_sierra
-    sha256 "c8639e939acd130aadfb77788b6412e9622c856af5ea00e6e19a078ed56154af" => :sierra
+    sha256 "9dea92611f1a36dee8dccb2ca5a82d161045f98d302dc8f7c4b6a6e9fc043bb5" => :mojave
+    sha256 "9c0a1802e904edd47fba0501ec884d8a67a425cf6e275a9b1c864ccc5d10ff78" => :high_sierra
+    sha256 "623884e34c258a8d2681cd1c781b60cfd28f4776c09c6fe0570603dabad7d9fb" => :sierra
   end
 
   depends_on "go@1.10" => :build

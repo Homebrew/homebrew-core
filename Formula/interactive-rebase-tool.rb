@@ -1,18 +1,17 @@
 class InteractiveRebaseTool < Formula
-  desc "Ncurses sequence editor for git interactive rebase"
+  desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/0.7.0.tar.gz"
-  sha256 "08e5d6dd9beacf7806abd74edfa9e7654ccb2ffc083b2fd8617d132951eee5bd"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.0.0.tar.gz"
+  sha256 "74dc96e59820bd3352984618d307d9b4de2e257aed65d0c8b3118580ffb6da56"
 
   bottle do
-    cellar :any
-    sha256 "dcf42e55363693fb261582901be1447ce5230504353ccaca773cbc6261fc456c" => :mojave
-    sha256 "693a7b57bb2ea854153cfa49d18099e1c56ff06edcf1fc1a0ee8486665a3c70e" => :high_sierra
-    sha256 "9673e43caccc0d51939cfdab6bf8ebf03b7e2a4d6c46eaf7ac9e70f0727ea9aa" => :sierra
+    cellar :any_skip_relocation
+    sha256 "6109668cf960bebee20d6412aa468c608d00ce71213b3a18087c0b27f7af08d4" => :mojave
+    sha256 "a68156fe2a1693509a89656b4e4bf7d887e9bc41aa4472bc8ea32fba8b7b1f00" => :high_sierra
+    sha256 "b88696e2077e06c1eddeb783f6230fff7dddd920442ebf5aa0b5ba5b0197541c" => :sierra
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
@@ -20,31 +19,33 @@ class InteractiveRebaseTool < Formula
 
   test do
     require "pty" # required for interactivity
-
-    (testpath/"todo").write <<~EOS
-      pick aaa Added tests
-      fixup bbb Added tests
-      pick ccc Added tests
-    EOS
-
-    correct = <<~EOS
-      drop aaa Added tests
-      fixup bbb Added tests
-      pick ccc Added tests
-    EOS
-
-    PTY.spawn("interactive-rebase-tool", "todo") do |input, output, _pid|
-      input.gets # get the input each time to simulate interactive tty
-      sleep 0.1 # sleep to give the tool time to update state
-      output.puts "d" # send lowercase d to interactive-rebase-tool to drop top commit
-      sleep 0.1
-      input.gets
-      sleep 0.1
-      output.puts "W" # send uppercase W to interactive-rebase-tool to write the file
-      sleep 0.1
-      input.gets
+    mkdir testpath/"repo" do
+      system "git", "init"
+      touch "FILE1"
+      system "git", "add", "FILE1"
+      system "git", "commit", "--date='2005-04-07T22:13:13-3:30'", "--author='Test <test@example.com>'", "--message='File 1'"
+      touch "FILE2"
+      system "git", "add", "FILE2"
+      system "git", "commit", "--date='2005-04-07T22:13:13-3:30'", "--author='Test <test@example.com>'", "--message='File 2'"
     end
 
-    assert_equal (testpath/"todo").read, correct # assert the todo file is modified correctly
+    (testpath/"repo/.git/rebase-merge/git-rebase-todo").write <<~EOS
+      pick be5eaa0 File 1
+      pick 32bd1bb File 2
+    EOS
+
+    expected_git_rebase_todo = <<~EOS
+      drop be5eaa0 File 1
+      pick 32bd1bb File 2
+    EOS
+
+    PTY.spawn({ "GIT_DIR" => testpath/"repo/.git/" }, bin/"interactive-rebase-tool", testpath/"repo/.git/rebase-merge/git-rebase-todo") do |stdout, stdin, _pid|
+      # simulate user input
+      stdin.putc "d"
+      stdin.putc "W"
+      stdout.read
+    end
+
+    assert_equal expected_git_rebase_todo, (testpath/"repo/.git/rebase-merge/git-rebase-todo").read
   end
 end

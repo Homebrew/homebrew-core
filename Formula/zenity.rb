@@ -1,13 +1,13 @@
 class Zenity < Formula
   desc "GTK+ dialog boxes for the command-line"
   homepage "https://wiki.gnome.org/Projects/Zenity"
-  url "https://download.gnome.org/sources/zenity/3.30/zenity-3.30.0.tar.xz"
-  sha256 "995ef696616492c40be6da99919851d41faed6643a97c9d24743b46bc8b537f2"
+  url "https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz"
+  sha256 "e786e733569c97372c3ef1776e71be7e7599ebe87e11e8ad67dcc2e63a82cd95"
 
   bottle do
-    sha256 "1f45ac15943a7b3493d7833072c253ffa5158aa124fcc734c890f5906496396b" => :mojave
-    sha256 "ef38b762ac8036cf3055f772b661c856e04a387c5e29b4be9b108e5b19485b17" => :high_sierra
-    sha256 "6efdbda681d0357aa8da3cd76fb047d2c66745b75b05a388cc56da5e7e0c5b46" => :sierra
+    sha256 "b89a6459e7443dc44c1b169475395d69e17cd5ad470406c6301601b3994d0c2b" => :mojave
+    sha256 "0668d5ce6d1ab6bd137ded2a2e00d3884cebad189de0c93b96e4f6ff21d1f2ce" => :high_sierra
+    sha256 "c528bd358e65b87fbc82d7b637a8b48319e5a07432cd6ca88bf55a295c008afd" => :sierra
   end
 
   depends_on "itstool" => :build

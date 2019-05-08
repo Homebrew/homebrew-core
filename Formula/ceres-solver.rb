@@ -3,15 +3,14 @@ class CeresSolver < Formula
   homepage "http://ceres-solver.org/"
   url "http://ceres-solver.org/ceres-solver-1.14.0.tar.gz"
   sha256 "4744005fc3b902fed886ea418df70690caa8e2ff6b5a90f3dd88a3d291ef8e8e"
-  revision 4
+  revision 5
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "22d9bd11518a6b65a17b67938d7b50620627a688ccdd4e5f7d6b8d1fd1e4b6b1" => :mojave
-    sha256 "a52c961c30acd20982a89b13ee2d0d7a03950a559deba9393eed13eaaefdf2d3" => :high_sierra
-    sha256 "726c9034dca2514b2bce5d5545c028782b0c535c822ae376fb03a26c38820a8d" => :sierra
+    sha256 "9aa43289999f607209096576d18176485196ddc1805519b9577c043902644cb4" => :mojave
+    sha256 "c5c74085f3ebaf62394c20ab4f390c0d851d1a83c8d528b46e0fbdb9b20981f3" => :high_sierra
+    sha256 "dec05eb9d86a2580e26e69c57768a2547fb4dd2bfba06544f25a339f56a8440d" => :sierra
   end
 
   depends_on "cmake"

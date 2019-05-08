@@ -3,13 +3,13 @@ class Pazpar2 < Formula
   homepage "https://www.indexdata.com/pazpar2"
   url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.13.1.tar.gz"
   sha256 "d3cdeff52914a82c4d815e4570f6aab0e14586754377b5d2b9cffdcbcb1ccc29"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "53937090561ad043932b1da6d141ea769396cc6bb4f5cdd49a2a20ecce39d436" => :mojave
-    sha256 "9ba978deab4a3910cfd7382711d582151c9aa190b7f27a6c005f1ed35358c73d" => :high_sierra
-    sha256 "8cd5847dd58310b8883e5a60b08c5da0b098f64fa2ca2e46aed24aad3129277c" => :sierra
+    sha256 "bc838735e29c304b4688f0fc8a326573afb6a514437b7cf3d5827a9a12c5f6a5" => :mojave
+    sha256 "7015e0a401f3e99e3ffac935e2ae804c35cda64ce2089de501e15ac7490f1d06" => :high_sierra
+    sha256 "fc33f784a355e45529b0d47c49157869635a8a7640a8c7c33e88d7ad751f2a82" => :sierra
   end
 
   head do

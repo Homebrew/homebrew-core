@@ -1,14 +1,14 @@
 class Jid < Formula
   desc "Json incremental digger"
   homepage "https://github.com/simeji/jid"
-  url "https://github.com/simeji/jid/archive/v0.7.3.tar.gz"
-  sha256 "4565030bdf22f831007ecc214fbd14205855b3dff98f7acc8dc6e1f7a2591820"
+  url "https://github.com/simeji/jid/archive/v0.7.6.tar.gz"
+  sha256 "0912050b3be3760804afaf7ecd6b42bfe79e7160066587fbc0afa5324b03fb48"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe863d058029cd05bfbab6e4cb4c047bacf083e384107bae392cd19f98fa838f" => :mojave
-    sha256 "b56ab5691802bef1c9208bceb5033c7c0189039d51cbba8d76340bc6201a0a5c" => :high_sierra
-    sha256 "26f30466774f05ac96a24d8a3210d36bbf2c17fbce36734beca7a6e91afa7e34" => :sierra
+    sha256 "2552c0ab94b892750ecff994b5f3fa963d8ab69298fc27abff7ca92f1e371532" => :mojave
+    sha256 "4cfdd2d04b54fdd4d63a1297205bc7867b8bd7049c727ab8ad306c12f0d270d6" => :high_sierra
+    sha256 "1905385bc2a0dbd606c4d90f9b119839b3674231ce3b3fa43f0bef314a1684ca" => :sierra
   end
 
   depends_on "go" => :build

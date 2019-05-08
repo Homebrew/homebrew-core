@@ -22,6 +22,6 @@ class ReactNativeCli < Formula
 
   test do
     output = shell_output("#{bin}/react-native init test")
-    assert_match "To run your app on Android", output
+    assert_match "Run instructions for Android", output
   end
 end

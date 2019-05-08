@@ -3,13 +3,13 @@ class Packmol < Formula
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
   url "https://github.com/leandromartinez98/packmol/archive/18.169.tar.gz"
   sha256 "8acf2cbc742a609e763eb00cae55aecd09af2edb4cc4e931706e2f06ac380de9"
+  revision 1
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
-    sha256 "5b66edef2e722da0b565bdfee29df4dac53e43f20f94d7e02ffc0e8e7adf3443" => :mojave
-    sha256 "74e54488ffe1f078f2e703f475e20639c6de5e518b8c9c010c29a2a74786bb10" => :high_sierra
-    sha256 "32e6f9cc2f6d4e010982e63b5e316afe3786f38e4a5bb5b6ff1908815cc11192" => :sierra
-    sha256 "ca93be32b9abda9bf4c6a7f70404122108f66e1199da4e979cf96be37d1e34a6" => :el_capitan
+    sha256 "cf9e09622c5693667366b71ac09c0a1dcde7a66994ec5fecaae93c4187032667" => :mojave
+    sha256 "7dbe01c4cf358d1183fcb8ca26e8289c20f8abd6ce04f078471eb34c65a0b204" => :high_sierra
+    sha256 "c4cd96908626a8f04e3f9e0858c15deec9baa1841c1239fdcb08bd582f5acad1" => :sierra
   end
 
   depends_on "gcc" # for gfortran

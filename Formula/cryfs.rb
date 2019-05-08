@@ -1,14 +1,14 @@
 class Cryfs < Formula
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/0.10.0/cryfs-0.10.0.tar.xz"
-  sha256 "2413b76ad73026eb166c72c2081d303eafe2357d6a981618765fc4720281e52b"
+  url "https://github.com/cryfs/cryfs/releases/download/0.10.1/cryfs-0.10.1.tar.xz"
+  sha256 "be7a9bb550e1bd5fc0f009ba61b8d0df161fbd8b2db48a746f99238a752ce69a"
 
   bottle do
     cellar :any
-    sha256 "4637872ef228da6384a3fadf194497eb2feaebdbe3c87acc7edb03286d1fef91" => :mojave
-    sha256 "af925dd1478d3f2ec79d4534104071ec61d8465aef83a7252ff1ea0b085462e2" => :high_sierra
-    sha256 "3ec5a26b681faf31a91eb2d64b079dd68d09506552788ffd528d5f80aa748a5a" => :sierra
+    sha256 "aa52518edcf8edc3707ceb8081483606c3878d1e1087a0f392ee694e6680a576" => :mojave
+    sha256 "24c8beaf4992fd001a98a6b0fbd9da75e2293e22a482edb62070d136a1fe93af" => :high_sierra
+    sha256 "1c142ea0d1ed5ccfb895ceec992d91bde06cee5deee13c963b898d39d4881d55" => :sierra
   end
 
   head do

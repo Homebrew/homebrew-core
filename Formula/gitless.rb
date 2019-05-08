@@ -5,13 +5,13 @@ class Gitless < Formula
   homepage "https://gitless.com/"
   url "https://github.com/sdg-mit/gitless/archive/v0.8.6.tar.gz"
   sha256 "e1d009bf9d7c89428d7029394cc85a0d91bd2af73f019508ddc92c98faeed8e5"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "0d80d148f18f3ac01af5593573eeb8570d1cadeaecaac4d6a00d51d7ef82c44c" => :mojave
-    sha256 "d424d1d7ccb79d9ad9cd4cc3a6d52e4571eb6f23fcb5de9772292d77315e510e" => :high_sierra
-    sha256 "8c307b1ee20d519c8bb8658c9ceab72fefbf3095d6296b2347875ae9f4095dcf" => :sierra
+    sha256 "c37600221f89482e7167270ec255c882973e5309ab2e9fbdf812e54570429b89" => :mojave
+    sha256 "09ed368b3a211cb3ca26a73cdfa3e48c622332aad591e661e74303dce77ebf8a" => :high_sierra
+    sha256 "7aad838cdb15a8426a2e112821e1d4a3af2c4d9fcf88e37047561cc27b652db1" => :sierra
   end
 
   depends_on "libgit2"
@@ -38,8 +38,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/3b/0d/c11844421c7c3b9cb84c5503185bbb5ba780144fd64f5adde572bcdcdd8a/pygit2-0.27.0.tar.gz"
-    sha256 "6febce4aea72f12ed5a1e7529b91119f21d93cb2ccb3f834eea26af76cc9a4cb"
+    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
+    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
   end
 
   resource "sh" do
@@ -50,6 +50,12 @@ class Gitless < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
+
+  # restores compatibility with recent pygit2 releases (0.27.1+)
+  patch do
+    url "https://github.com/sdg-mit/gitless/commit/4eb3a971d1d7d63fa359b60812a5a5df8b8a72db.patch?full_index=1"
+    sha256 "6b75c448f9a93e814610cb20b8dca4a85c89ee9f11181f03604923c040d67aa6"
   end
 
   def install

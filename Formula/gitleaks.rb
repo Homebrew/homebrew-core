@@ -4,6 +4,7 @@ class Gitleaks < Formula
   url "https://github.com/zricethezav/gitleaks/archive/v2.0.0.tar.gz"
   sha256 "85a5c98dedeb4e85e07eb18247b63318aa266ef3046c2022eac949cc6f254da0"
 
+
   bottle do
     cellar :any_skip_relocation
     sha256 "7a5736f016e74d6a9b2b6b46a76242ba3831291c3a4110fc7e314db18e412ace" => :mojave
@@ -12,7 +13,7 @@ class Gitleaks < Formula
   end
 
   depends_on "go" => :build
-
+  
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     system "go", "build", "-o", bin/"gitleaks"

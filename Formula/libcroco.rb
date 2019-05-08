@@ -1,16 +1,14 @@
 class Libcroco < Formula
   desc "CSS parsing and manipulation toolkit for GNOME"
   homepage "http://www.linuxfromscratch.org/blfs/view/svn/general/libcroco.html"
-  url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.12.tar.xz"
-  sha256 "ddc4b5546c9fb4280a5017e2707fbd4839034ed1aba5b7d4372212f34f84f860"
+  url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.13.tar.xz"
+  sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
 
   bottle do
     cellar :any
-    sha256 "af3b14a1519dbc7b5bd979997df77ef3152f3575b6257b4f35177abc66fa5d28" => :mojave
-    sha256 "0bf41b44e72e39031c1ece76c12b20dc8bc566931c87baa484787c478f5fe4b7" => :high_sierra
-    sha256 "26530657c9133fb47b9749889603507bc493cb85e4a61818014a1939e3cbd692" => :sierra
-    sha256 "2e8e7dfb8acc4e79089f3409a4a4772ec0b243e1e773070d4e8323acb939e668" => :el_capitan
-    sha256 "46e3c7e47448859863644d50ac6d940a19a1bfd7f5a99d4d753e4e3885654767" => :yosemite
+    sha256 "c4b14566816d0d88fda9e44ea88d10ea673c988bc996e542f8b533066715d7ce" => :mojave
+    sha256 "a49d23242587ef0d0717158e7a2212f64cdced70daf1494aa6df339638cb7329" => :high_sierra
+    sha256 "03c4e294957af16c882aa6b94cbf3b7f5f8e9da8f8a586a9a0732656b1af0d34" => :sierra
   end
 
   depends_on "intltool" => :build

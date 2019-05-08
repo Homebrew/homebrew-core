@@ -1,15 +1,16 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/7-4e23d.tar.gz"
-  version "7-4e23d"
-  sha256 "39b04ea60741ca209c37be129b852b5024fed1691817e6eb1e80e382f7261724"
+  url "https://github.com/soedinglab/MMseqs2/archive/8-fac81.tar.gz"
+  version "8-fac81"
+  sha256 "035d1c9a5fcfae50bc2d201f177722bd79d95d3ba32342972baa7b142b52aa82"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e90c697974e8bfac9ab2cba1c25521de6d8967f42c4191f5f53fb97809fce4e3" => :mojave
-    sha256 "3d65ac201907466812a84eba4e5cbd65e9921844b20d611b89ee4dadcd748529" => :high_sierra
-    sha256 "e27970a0d1e68e4385dd0aa29a0d91a62d297b4879a12ea5a512ac2356b333a7" => :sierra
+    sha256 "1453917340436e36566e7404ec973475740d79f06e71cc2b97830cf017b2aaa8" => :mojave
+    sha256 "b2a997519dedb4538e31b3ef91efd946a2c0414d71ebef18f529d0f918b7546a" => :high_sierra
+    sha256 "578ea72406c8522e5acd29c3d3e596ed653b4a1c26f2accfd78444a0e2848c4f" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -21,13 +22,20 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "d3607c7913e67c7bb553a8dff0cc66eeb3387506"
+        :revision => "a4f660d1bbf5e71438d03e09fa4ca036ceb18128"
   end
 
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
     args << "-DHAVE_SSE4_1=1"
+
+    # Workaround for issue introduced in macOS 10.14 SDK
+    # SDK uses _Atomic in ucred.h which current g++ does not support
+    # __APPLE_API_STRICT_CONFORMANCE makes sysctl.h not include apis like ucred.h
+    # and thus we dont fail compilation anymore
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864
+    args << "-DCMAKE_CXX_FLAGS=-D__APPLE_API_STRICT_CONFORMANCE"
 
     system "cmake", ".", *args
     system "make", "install"
@@ -46,9 +54,8 @@ class Mmseqs2 < Formula
   test do
     system "#{bin}/mmseqs", "createdb", "#{pkgshare}/examples/QUERY.fasta", "q"
     system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1"
-    assert_predicate testpath/"res", :exist?
-    assert_predicate (testpath/"res").size, :positive?
-    assert_predicate testpath/"res.index", :exist?
-    assert_predicate (testpath/"res.index").size, :positive?
+    system "#{bin}/mmseqs", "createtsv", "q", "q", "res", "res.tsv"
+    assert_predicate testpath/"res.tsv", :exist?
+    assert_predicate (testpath/"res.tsv").size, :positive?
   end
 end

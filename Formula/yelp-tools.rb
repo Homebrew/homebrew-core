@@ -1,28 +1,30 @@
 class YelpTools < Formula
   desc "Tools that help create and edit Mallard or DocBook documentation"
   homepage "https://github.com/GNOME/yelp-tools"
-  url "https://download.gnome.org/sources/yelp-tools/3.28/yelp-tools-3.28.0.tar.xz"
-  sha256 "82dbfeea2359dfef8ee92c7580c7f03768d12f9bf67d839f03a5e9b0686dc1ac"
-  revision 3
+  url "https://download.gnome.org/sources/yelp-tools/3.32/yelp-tools-3.32.1.tar.xz"
+  sha256 "99a7c312a5fcb427870dc198af02801eb0f8ea63317e20110fc0303eb44636e3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3f99713403a1529bad9dde8936073d9a28c42a5b1e37d0cd4bf11d5c28257c0" => :mojave
-    sha256 "10a1f9d0412ea9371a10fe0d8a792e57c345a7ec732c6b6662469ddd57325fc1" => :high_sierra
-    sha256 "10a1f9d0412ea9371a10fe0d8a792e57c345a7ec732c6b6662469ddd57325fc1" => :sierra
+    sha256 "2ac8c83a70c72d104f3b6ce093ccd989dacaa1ab4de9b895adeebdffa50b6663" => :mojave
+    sha256 "2ac8c83a70c72d104f3b6ce093ccd989dacaa1ab4de9b895adeebdffa50b6663" => :high_sierra
+    sha256 "2c11165b029ef8e8aa56ff802ccbf8d6cc1409187b42bee33a4e972bd60094f0" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "libtool" => :build
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.30/yelp-xsl-3.30.1.tar.xz"
-    sha256 "fcef31c5938c6654976bbabb8b5d0d9e49fa2ce79136db74ca213056fdb8cf39"
+    url "https://download.gnome.org/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz"
+    sha256 "cac31bc150545d6aa0de15dce04560cbf591008d17a783a1d1d9cdd47b147f04"
   end
 
   def install
@@ -35,6 +37,7 @@ class YelpTools < Formula
       ENV.append_path "PKG_CONFIG_PATH", "#{share}/pkgconfig"
     end
 
+    system "autoreconf", "-fi"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

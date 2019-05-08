@@ -3,12 +3,12 @@ class Widelands < Formula
   homepage "https://wl.widelands.org/"
   url "https://launchpad.net/widelands/build19/build19/+download/widelands-build19-src.tar.bz2"
   sha256 "e511f9d26828a2b71b64cdfc6674e6e847543b2da73961ab882acca36c7c01a6"
-  revision 13
+  revision 15
 
   bottle do
-    sha256 "1f47eacc59619797f3609a71460e6f8e25d3e19fcfcecb8cdec41dae621e020f" => :mojave
-    sha256 "33f630588ed1f396056e9dfe71004bd0fa8f1567082bacbfd94e882253622df4" => :high_sierra
-    sha256 "02c4096b565587cca30d721d936cf243dd5c92800a7b7693a3b7f40877ddca2e" => :sierra
+    sha256 "034adfe29cec33aa07d10c3433e1d128f8451af4a207258b1b5b41d42fcd64da" => :mojave
+    sha256 "0644d3786a52f1e66a6a0cd8e66f30f957cd6a06f9f8246f2089652a25f6a621" => :high_sierra
+    sha256 "d6f7b94e79c7c7af14b724106dbdcc72047baf7631e9c8e76514d969f1dece23" => :sierra
   end
 
   depends_on "cmake" => :build

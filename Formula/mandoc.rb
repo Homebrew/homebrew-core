@@ -1,14 +1,14 @@
 class Mandoc < Formula
   desc "The mandoc UNIX manpage compiler toolset"
   homepage "https://mandoc.bsd.lv/"
-  url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.4.tar.gz"
-  sha256 "24eb72103768987dcc63b53d27fdc085796330782f44b3b40c4660b1e1ee9b9c"
+  url "https://mandoc.bsd.lv/snapshots/mandoc-1.14.5.tar.gz"
+  sha256 "8219b42cb56fc07b2aa660574e6211ac38eefdbf21f41b698d3348793ba5d8f7"
   head "anoncvs@mandoc.bsd.lv:/cvs", :using => :cvs
 
   bottle do
-    sha256 "07c72a5db5a90a5938cc9b414c029039ff4c324fcf92ba0810c6620dc4ff74e1" => :mojave
-    sha256 "70cd5bfb631edc249861ee1fcda31e8a33735cb78ce7e715d5ec9a855d421ac3" => :high_sierra
-    sha256 "3542d7c75f848bc0f8eadbdf35290a72a9b1d44d53fe9abaeafdb11575ad7b15" => :sierra
+    sha256 "78ffbf8bee7e5135ea303bb861f432288f2d48d403d7e932753b1ef962348917" => :mojave
+    sha256 "3236fdca9fe2cd8cca29d246d9252eaeea8ceeb7d8f5251574c2bc771a841647" => :high_sierra
+    sha256 "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec" => :sierra
   end
 
   def install

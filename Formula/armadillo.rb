@@ -1,15 +1,15 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-9.200.7.tar.xz"
-  sha256 "e2787d40bcd46edf70f65ba4efd523ccb8b96a93fdb8f76da6adf1e921cb7df8"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-9.300.2.tar.xz"
+  sha256 "362541af7eb7f343bff893a3ac11fbb2c5cfc5966f0b6ed67f7f2779f5d256b4"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "7b9eb26cfdbf9d19e111c11348d1431ca665a11e87c538e9cf87bd77883c49b3" => :mojave
-    sha256 "0642bf308205c2e07765d56dbdc99f0525658b535de6e997262e460fc57b08c4" => :high_sierra
-    sha256 "a94cbb9c28bb7e4a93babd4f4737d159988cb20ef5922e2ab2621518bfbe589a" => :sierra
+    sha256 "eda356976968a059c6ea7052a652e0e60b6f21bdd9d9cc13738617a83fd3d174" => :mojave
+    sha256 "3f0be987bf3fcbe476ef84f1f583fd49f803ac417f62c63764b654abb17a4f57" => :high_sierra
+    sha256 "e9a337b306c94443ac6472e5b8c21dc1f29bd65fbe1bc804519ea6b0379d5bd4" => :sierra
   end
 
   depends_on "cmake" => :build

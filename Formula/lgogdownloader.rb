@@ -1,15 +1,14 @@
 class Lgogdownloader < Formula
   desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.3.tar.gz"
-  sha256 "8bb7a37b48f558bddeb662ebac32796b0ae11fa2cc57a03d48b3944198e800ce"
-  revision 5
+  url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.5.tar.gz"
+  sha256 "eeeaad098929a71b5fb42d14e1ca87c73fc08010ab168687bab487a763782ada"
 
   bottle do
     cellar :any
-    sha256 "fe2649d85f0b99186cc2804a339e6ba650b8d5e2be4800a2ee4ae2391abb3e72" => :mojave
-    sha256 "b3a4966c5cbcd79be837c92bb997d67d1c768236e29c44b89fa281f757e9879e" => :high_sierra
-    sha256 "b029b876a5b836f8ec2e89e2fab2c925fe01f8df957b4336cafb1c6029d258d6" => :sierra
+    sha256 "8439252759c6270ac52ab73af01411898ef22729504f815cb33b923502e0785f" => :mojave
+    sha256 "307a0c7faa71eccb19940f85bf16fd785aaea523eacb92c8350700b86458971c" => :high_sierra
+    sha256 "0427ed6c3ed89ccfc7a593e499ce8ca0ce1925b52611b59092bbe7b6c7c79174" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -3,13 +3,13 @@ class Points2grid < Formula
   homepage "https://github.com/CRREL/points2grid"
   url "https://github.com/CRREL/points2grid/archive/1.3.1.tar.gz"
   sha256 "6e2f2d3bbfd6f0f5c2d0c7d263cbd5453745a6fbe3113a3a2a630a997f4a1807"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "03d183ed5be6f1ecffdd3439b0ef4287ed2bcdda29bfcd3d6305f2f2e93eb244" => :high_sierra
-    sha256 "cb58d67da29769bf2481f60eb4668697699babb90ed18340a6fac217c6d3bd75" => :sierra
-    sha256 "498339350edde2ace1538bf8f361ae8a81afb5e7563859687f6309326525db1b" => :el_capitan
+    sha256 "2353397675ec9f8fe4f8cf701645e4dceedf01030ee54ff61720521ba6afa046" => :mojave
+    sha256 "4d2c91405313abf7fedda20628ce2b11b5bc3f76a42862a40e90d5252ad34e7c" => :high_sierra
+    sha256 "58d99c2471ebd555d76e36c1108d352bb4e9b7594459ea3381c5f4a6232bfca3" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -17,17 +17,16 @@ class Points2grid < Formula
   depends_on "gdal"
 
   def install
-    args = std_cmake_args + ["-DWITH_GDAL=ON"]
+    ENV.cxx11
     libexec.install "test/data/example.las"
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DWITH_GDAL=ON"
     system "make", "install"
   end
 
   test do
-    system bin/"points2grid",
-           "-i", libexec/"example.las",
-           "-o", "example",
-           "--max", "--output_format", "grid"
+    system bin/"points2grid", "-i", libexec/"example.las",
+                              "-o", "example",
+                              "--max", "--output_format", "grid"
     assert_equal 13, File.read("example.max.grid").scan("423.820000").size
   end
 end

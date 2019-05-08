@@ -1,17 +1,18 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_1.tar.gz"
-  sha256 "d9795d36bfb1af230bda21d93bc81390f49d936c6c9b7b3043a5c09bd0f0f8d3"
+  url "https://download.gnome.org/sources/aravis/0.6/aravis-0.6.2.tar.xz"
+  sha256 "a78b7bc98f93beb8116f796a9799ed1a364f05a6685e3f14bb09d9ac7a7858af"
 
   bottle do
-    sha256 "a8faa1da38cca132fa068c207fc36e41ec61ea9618c86ae503f6d18b9e8abfec" => :mojave
-    sha256 "814c7f8168575e730a3e299fb272050c9522773b12d5a5bbeeba31cfb5dd9b27" => :high_sierra
-    sha256 "553fe6f0343f4b4088c5634f270adb7436372f224d65a17b67b6bb4918a11f1c" => :sierra
+    sha256 "09d57461fbdb8882389b4ea25ec99bf78836ed3b5a750262df39ac3412a4d558" => :mojave
+    sha256 "b9d0ca5dd04aa35746de09d329535fcc2d5ccb4d86fe7a31620b7d7c9610a3e8" => :high_sierra
+    sha256 "50f2d2986169ebf683e8704d3a0d63d4babaa568ae602fc81eecffe026220dd0" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -25,11 +26,19 @@ class Aravis < Formula
   depends_on "libusb"
 
   def install
-    inreplace "viewer/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-    system "./autogen.sh", "--disable-dependency-tracking",
-                           "--disable-silent-rules",
-                           "--prefix=#{prefix}"
+    # icon cache update must happen in post_install
+    inreplace "viewer/Makefile.am", "install-data-hook: install-update-icon-cache", ""
+
+    system "autoreconf", "-fi"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--enable-introspection",
+                          "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do

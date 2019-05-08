@@ -17,7 +17,7 @@ class Cataclysm < Formula
   depends_on "gettext"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "lua"
+  depends_on "lua" unless build.head?
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -30,18 +30,19 @@ class Cataclysm < Formula
       NATIVE=osx
       RELEASE=1
       OSX_MIN=#{MacOS.version}
-      LUA=1
       USE_HOME_DIR=1
       TILES=1
       SOUND=1
     ]
 
     args << "CLANG=1" if ENV.compiler == :clang
+    args << "LUA=1" if build.stable?
 
     system "make", *args
 
     # no make install, so we have to do it ourselves
-    libexec.install "cataclysm-tiles", "data", "gfx", "lua"
+    libexec.install "cataclysm-tiles", "data", "gfx"
+    libexec.install "lua" if build.stable?
 
     inreplace "cataclysm-launcher" do |s|
       s.change_make_var! "DIR", libexec

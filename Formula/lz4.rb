@@ -1,16 +1,21 @@
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
   homepage "https://lz4.org/"
-  url "https://github.com/lz4/lz4/archive/v1.8.3.tar.gz"
-  sha256 "33af5936ac06536805f9745e0b6d61da606a1f8b4cc5c04dd3cbaca3b9b4fc43"
+  url "https://github.com/lz4/lz4/archive/v1.9.1.tar.gz"
+  sha256 "f8377c89dad5c9f266edc0be9b73595296ecafd5bfa1000de148096c50052dc4"
   head "https://github.com/lz4/lz4.git"
 
   bottle do
     cellar :any
-    sha256 "8c6ce48bb52fb87c41f7e046c3bfc49f1cafce3900bca09d28647f9aa2d7fafa" => :mojave
-    sha256 "482b331f6cff1d008d0af6f9e58620ab28286d0bfab4237ddab40e8c2df1d2b4" => :high_sierra
-    sha256 "bc702825ea1970c9ff8dabf1128fbcc7900a5d3719455175b777b8d5119b287e" => :sierra
-    sha256 "bc8d157d93aabed915fe3c57c5506f0438f9c0c9d1adeedd470875cacd4b5c39" => :el_capitan
+    sha256 "a898c71e6e254a98310ed55d54962685c2c08c181dee12ad5f705083e18c168d" => :mojave
+    sha256 "a3e6eac647b6a34547606523e97d004f29cdf3866334d04238bf088340e29a14" => :high_sierra
+    sha256 "5174837050d5f09eed1cff0b9afa224e02964f7e93f1309ac99cbf67dc1b2711" => :sierra
+  end
+
+  # Pull request submitted 24 Apr 2019 https://github.com/lz4/lz4/pull/694
+  patch do
+    url "https://github.com/lz4/lz4/pull/694.patch?full_index=1"
+    sha256 "9a4a4a94fe27492fe9e90c4c656e6ba7a0476f509433aa559958292ee2147850"
   end
 
   def install

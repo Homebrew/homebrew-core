@@ -3,13 +3,12 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2"
   sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "c26c1e26c423cbf94c7bee92236c4187a9167951df214fdb4dbf9123f64b4ddb" => :mojave
-    sha256 "0472f28907f74f9375c351ab9781959988140ad3cd13c5d63b21b4d3fc28e9a4" => :high_sierra
-    sha256 "488f2f10d6e6d83286ac87d2d27e2c4fc26d292e767ff0788be38d23533236d8" => :sierra
+    sha256 "5967e87fa3e33b7781e8dfa5bc9282eb0d16c32c90a07ff887433ea0da2aa6c1" => :mojave
+    sha256 "8693516c57090705569392ce17c057ee405b3f2bcb3627790b6e8ae73b4242ae" => :high_sierra
+    sha256 "e30ef18d7c638aa1efac6c526b5e90532b3ec5652160c374dda5289109227053" => :sierra
   end
 
   keg_only :versioned_formula

@@ -1,13 +1,13 @@
 class Netdata < Formula
   desc "Distributed real-time performance and health monitoring"
   homepage "https://my-netdata.io/"
-  url "https://github.com/netdata/netdata/releases/download/v1.11.1/netdata-v1.11.1.tar.gz"
-  sha256 "0150b2a060da0e5cc844bd9540d6704cd352c434ea1bb9d5268131830a815736"
+  url "https://github.com/netdata/netdata/releases/download/v1.14.0/netdata-v1.14.0.tar.gz"
+  sha256 "f3768f6927e3712dce73794c6943a12f4454410c872eb3dfd19af4f52296187a"
 
   bottle do
-    sha256 "5c7c86d146d3d73fa791f30014242ed796a38809a3301a88f62555b8b20eb8bf" => :mojave
-    sha256 "c577f25eaf5ae01cabcb62c428a2b1806be2f55f919d2fb5fe8c26e1b4957b4a" => :high_sierra
-    sha256 "2523906ac43fe8bb4407efeee529744b5842c01113aa9f551d5f065e1376eeb7" => :sierra
+    sha256 "4deea4c1431e478a3da1f5ac471e2b277508b45213ba7f6cb74bdfabff274aad" => :mojave
+    sha256 "1169f9b9e7d352bc26398f6aed88cd94cbfbda56589f612bef8bc3acfb05130c" => :high_sierra
+    sha256 "8fc2f0bed8eb41e9c9ee165254cc7f6a2543a870a41a2f44495ce8cb632ac5fe" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -32,6 +32,7 @@ class Netdata < Formula
       s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
       s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
     end
+    (var/"netdata").mkpath
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/netdata -D"
@@ -60,6 +61,8 @@ class Netdata < Formula
   test do
     system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file",
                               "#{testpath}/netdata.unittest.unique.id",
+                              "-W", "set", "registry", "netdata management api key file",
+                              "#{testpath}/netdata.api.key",
                               "-W", "unittest"
   end
 end

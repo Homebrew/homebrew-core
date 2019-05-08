@@ -4,23 +4,20 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/v1.0/mu-1.0.tar.xz"
-  sha256 "966adc4db108f8ddf162891f9c3c24ba27f78c31f86575a0e05fbf14e857a513"
-  revision 1
+  url "https://github.com/djcb/mu/releases/download/1.2/mu-1.2.0.tar.xz"
+  sha256 "f634c7f244dc6844ff71dc3c3e1893e48e193caa9e0e747eba616309775f053a"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b12b4e6d3a86efb4cceb1e7d06cd6a202210e190f02249c19cbc0bec23c1fdfe" => :mojave
-    sha256 "3194434108363a40f108ea380e2dd5014f318e5cd5e5330a9b4afd02420ba6e4" => :high_sierra
-    sha256 "e233b018589b46b4e72ba96d71427cb4b5240ee02fec05b4f19e278bec428b3c" => :sierra
+    sha256 "f8695cbe6df5fcd53c97c2df27924dc5152ac169bdfff6d4332c000d36d818ee" => :mojave
+    sha256 "9f902b4b826662224f717e17cac441d622a31a813aa69ecb55fb4bd58dc9194d" => :high_sierra
+    sha256 "2c5f3e427d6527a3be3b9268cbfda0fef31f91c0c7702bab75c790f44ed035a3" => :sierra
   end
 
   head do
     url "https://github.com/djcb/mu.git"
 
     depends_on "autoconf-archive" => :build
-    depends_on "gmime"
   end
 
   depends_on "autoconf" => :build
@@ -31,23 +28,10 @@ class Mu < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+  depends_on "gmime"
   depends_on "xapian"
 
-  # Stable requires gmime 2.6.x, future versions will depend on gmime like head does
-  resource "gmime" do
-    url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
-    sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
-  end
-
   def install
-    unless build.head?
-      resource("gmime").stage do
-        system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
-        system "make", "install"
-        ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
-      end
-    end
-
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

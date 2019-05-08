@@ -1,8 +1,7 @@
 class Postmark < Formula
   desc "File system benchmark from NetApp"
   homepage "https://packages.debian.org/sid/postmark"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/postmark/postmark_1.53.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/p/postmark/postmark_1.53.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/p/postmark/postmark_1.53.orig.tar.gz"
   sha256 "8a88fd322e1c5f0772df759de73c42aa055b1cd36cbba4ce6ee610ac5a3c47d3"
 
   bottle do

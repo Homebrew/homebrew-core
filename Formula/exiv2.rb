@@ -1,7 +1,7 @@
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
-  homepage "http://www.exiv2.org/"
-  url "http://www.exiv2.org/builds/exiv2-0.27.0a-Source.tar.gz"
+  homepage "https://www.exiv2.org/"
+  url "https://www.exiv2.org/builds/exiv2-0.27.0a-Source.tar.gz"
   sha256 "a4adfa7aaf295b0383adead476f8e0493b9d6c6c7570d5884d2ebf8a2871902f"
   head "https://github.com/Exiv2/exiv2.git"
 

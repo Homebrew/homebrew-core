@@ -3,11 +3,12 @@ class Sfcgal < Formula
   homepage "http://sfcgal.org/"
   url "https://github.com/Oslandia/SFCGAL/archive/v1.3.6.tar.gz"
   sha256 "5840192eb4a1a4e500f65eedfebacd4bc4b9192c696ea51d719732dc2c75530a"
+  revision 1
 
   bottle do
-    sha256 "a93d0c08573d27ec212da50cbdc64bdfed404808f8cbe0a300719c10fec07618" => :mojave
-    sha256 "485b8f11ac8d17d8f82d39e1ece3cadf48c05dd8e0090cafcb30aaff93341a43" => :high_sierra
-    sha256 "76e96ef51af1b0d4f7dc3ef37d8a2a6032ec12c24d5743445c48a4a280d962c0" => :sierra
+    sha256 "1233cb0320a8d0733f75304b4ad4d35f666c6e4fb82a720bf235d9bb58ddc75d" => :mojave
+    sha256 "04ae604dba05457c2494c38f7ad9120ef001dd0d87cb6247a9d4cd2dca442096" => :high_sierra
+    sha256 "02723bd904ea2bce6a7b930d87755ac4cc5893ecf72045b51f9d27aba00ebfaa" => :sierra
   end
 
   depends_on "cmake" => :build

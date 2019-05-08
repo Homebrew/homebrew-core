@@ -3,13 +3,13 @@ class Scalapack < Formula
   homepage "https://www.netlib.org/scalapack/"
   url "https://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
-  revision 13
+  revision 15
 
   bottle do
     cellar :any
-    sha256 "808ad91d5ebad9b0ef33c942dbecd99902caf6bdbf9cedecfb947d8212c22004" => :mojave
-    sha256 "af10eb763f1cf74164160a3f03d32409bbe84945622782e1f66197ce14eb0495" => :high_sierra
-    sha256 "caa0f69399167c1f684b4074a53a8338c8a896563e17326e7655536850f42f6b" => :sierra
+    sha256 "5145405aea16d22bc8aa4672fbda2cf9b5ad98a89c4704c0ab2c7d4d94af154e" => :mojave
+    sha256 "a18a1dce08bc8f7114143e35fea3aa9d3bbab7ff92c368664ae00083352ebc83" => :high_sierra
+    sha256 "0973c343b1bec8fade013a41c1ee3cf0bd4a0f6c175be43fe94f42645874998d" => :sierra
   end
 
   depends_on "cmake" => :build

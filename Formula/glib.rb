@@ -1,13 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
-  sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
+  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.2.tar.xz"
+  sha256 "2ef15475060addfda0443a7e8a52b28a10d5e981e82c083034061daf9a8f80d9"
 
   bottle do
-    sha256 "5e1e0db9ec145055e4d84ea26fc05ad36661883a668c9cb96aa72c93913248c5" => :mojave
-    sha256 "d830aefad89b2c64ed41c5a5b199c54f626cda1c1ec133289dce95928b876731" => :high_sierra
-    sha256 "3fb24c481dbb9ae3336225d5f3ab444110be816b4ed0b105d92a278d72157049" => :sierra
+    sha256 "1969b4088e0235f81bdd6fc846f0f990008d07122728b2e927a0af71b6edf56d" => :mojave
+    sha256 "989876659fc86bb374e56e2d585ce0ae7dec6b2a54728e20e24b1b2609c9a45b" => :high_sierra
+    sha256 "873a94deda0ef73e09e22fa30c1cdb3145f8acadfc275298d015e0a2f359725c" => :sierra
   end
 
   depends_on "meson" => :build
@@ -35,6 +35,7 @@ class Glib < Formula
       -Diconv=native
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
+      -Ddtrace=false
     ]
 
     mkdir "build" do
@@ -48,7 +49,7 @@ class Glib < Formula
     # their modules
     inreplace lib/"pkgconfig/gio-2.0.pc",
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
-              "giomoduledir=${prefix}/lib/gio/modules"
+              "giomoduledir=${libdir}/gio/modules"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
     # have a pkgconfig file, so we add gettext lib and include paths here.
