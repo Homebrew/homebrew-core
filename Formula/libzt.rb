@@ -2,17 +2,19 @@ class Libzt < Formula
   desc "ZeroTier: libzt -- An encrypted P2P networking library for applications"
   homepage "https://www.zerotier.com"
 
-  url "https://download.zerotier.com/dist/sdk/libzt-1.3.0-source.tar.gz"
-  sha256 "0db5e1df43275d17162b986be29fa8c530695e5503f207d27739703730b5b23c"
+  url "https://github.com/zerotier/libzt.git",
+  :tag      => "1.3.0",
+  :revision => "2a377146d6124bb004b9aa263c47f7df2366e7ea"
 
   depends_on "cmake" => :build
   depends_on "make" => :build
 
   def install
+    system "make", "update"
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "make", "install"
-    cp "licenses/ZEROTIER-LICENSE.GPL-3", "#{prefix}/LICENSE"
+    cp "LICENSE.GPL-3", "#{prefix}/LICENSE"
   end
 
   def caveats
