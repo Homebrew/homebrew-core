@@ -1,9 +1,8 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
   homepage "https://www.gnome-db.org/"
-  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.8.tar.xz"
-  sha256 "e2876d987c00783ac3c1358e9da52794ac26f557e262194fcba60ac88bafa445"
-  revision 2
+  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
+  sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
 
   bottle do
     sha256 "082aaf92e18ea5644d48a16ec18fd0d1d19efa7118ec17fdeca106cf8fd4379b" => :mojave
