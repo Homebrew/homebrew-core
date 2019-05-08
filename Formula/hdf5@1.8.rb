@@ -6,9 +6,10 @@ class Hdf5AT18 < Formula
   revision 1
 
   bottle do
-    sha256 "100e63ca57e49713edef20a610add098d9da6cf75f2e12146eb17a2625a6b6a3" => :mojave
-    sha256 "9df9c3319bf0734c9bed37057db565b11df30db01f380ce069d78bb54a9e01a2" => :high_sierra
-    sha256 "5dfcc37589233e529bf0094bcc376743ca6dee2c40bd7dc87c8d4d5cb6d68a6e" => :sierra
+    cellar :any
+    sha256 "1485cae9d86cf8858cbad57558e7fe5c87092df6558cf89781daf10abad1af5f" => :mojave
+    sha256 "ec5ff75dd845f8718f816e2729ede6cb163866e86c16a9a206eea7a243846f94" => :high_sierra
+    sha256 "3830625c54aa43948efd6bf23a84caee2be2427bf1345183b7b08075c32e7d3d" => :sierra
   end
 
   keg_only :versioned_formula
