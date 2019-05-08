@@ -1,8 +1,19 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
-  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.1/uriparser-0.9.1.tar.bz2"
-  sha256 "75248f3de3b7b13c8c9735ff7b86ebe72cbb8ad043291517d7d53488e0893abe"
+  head "https://github.com/uriparser/uriparser.git"
+
+  stable do
+    url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
+    sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
+
+    # Upstream fix, will be integrated in next release
+    # https://github.com/uriparser/uriparser/issues/67
+    patch do
+      url "https://github.com/uriparser/uriparser/commit/f870e6c68696a6018702caa5c8a2feba9b0f99fa.diff?full_index=1"
+      sha256 "c609224fc996b6231781e1beba4424c2237fc5e49e2de049b344d926db0630f7"
+    end
+  end
 
   bottle do
     cellar :any
@@ -11,37 +22,13 @@ class Uriparser < Formula
     sha256 "0657e76e94b481bc0b859ba68b8e31d460dce44e7ec3fcc573cb5bfd6bb89839" => :sierra
   end
 
-  head do
-    url "https://github.com/uriparser/uriparser.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
 
   conflicts_with "libkml", :because => "both install `liburiparser.dylib`"
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
-  end
-
   def install
-    (buildpath/"gtest").install resource("gtest")
-    (buildpath/"gtest/googletest").cd do
-      system "cmake", "."
-      system "make"
-    end
-    ENV["GTEST_CFLAGS"] = "-I./gtest/googletest/include"
-    ENV["GTEST_LIBS"] = "-L./gtest/googletest/ -lgtest"
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-doc"
-    system "make", "check"
+    system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF", "-DURIPARSER_BUILD_DOCS=OFF", *std_cmake_args
+    system "make"
     system "make", "install"
   end
 
