@@ -1,9 +1,8 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.8.9.tar.gz"
-  sha256 "7a143bd0eb90e825370c808d38b70cca8c399c68bea8138442f40f09b6bbafc4"
-  revision 3
+  url "https://github.com/travis-ci/travis.rb/archive/v1.8.10.tar.gz"
+  sha256 "77f43de7c1e686e2b8eca3f467047de9687c4021c4a12f46dcf1e0f3e63a96c3"
 
   bottle do
     sha256 "d695085c0886f6db8d5a1afeb6cae27e61d7fcc41d2e069c16ce0909048dba64" => :mojave
