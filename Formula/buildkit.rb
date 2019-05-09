@@ -1,8 +1,8 @@
 class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
-  url "https://github.com/moby/buildkit/archive/v0.5.0.tar.gz"
-  sha256 "43178f5696aa95db995a6de153f973186880da231d4dbe8fa8dac95f9bb4b729"
+  url "https://github.com/moby/buildkit/archive/v0.5.1.tar.gz"
+  sha256 "67f9737aa448725823eb2100a2500162719a3eac2664aaebe70dd6a0818b8341"
 
   bottle do
     cellar :any_skip_relocation
