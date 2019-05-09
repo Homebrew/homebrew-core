@@ -3,8 +3,8 @@ require "language/node"
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
-  url "https://registry.npmjs.org/terrahub/-/terrahub-0.2.49.tgz"
-  sha256 "41e859782d2baec2fb62eb09d5b4ef20e0b5261f3813890f560b47a2f93ea20e"
+  url "https://registry.npmjs.org/terrahub/-/terrahub-0.2.54.tgz"
+  sha256 "2a4df110f25cf944a94cb634820321050c2c854469b23f94bf888c5e5b9162f0"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,8 +31,6 @@ class Terrahub < Formula
       subnet_component:
         name: subnet
         root: ./subnet
-        dependsOn:
-          - ./vpc
     EOF
     output = shell_output("#{bin}/terrahub graph")
     assert_match "Project: terrahub-demo", output
