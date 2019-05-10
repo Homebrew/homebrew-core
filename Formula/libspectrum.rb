@@ -3,6 +3,7 @@ class Libspectrum < Formula
   homepage "https://fuse-emulator.sourceforge.io/libspectrum.php"
   url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.4.4/libspectrum-1.4.4.tar.gz"
   sha256 "fdfb2b2bad17bcfc98c098deaebf2a9811824b08d525172436d5eb134c9780b1"
+  revision 1
 
   bottle do
     cellar :any
