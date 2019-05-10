@@ -3,6 +3,7 @@ class Cgit < Formula
   homepage "https://git.zx2c4.com/cgit/"
   url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.1.tar.xz"
   sha256 "3c547c146340fb16d4134326e7524bfb28ffa681284f1e3914bde1c27a9182bf"
+  revision 1
 
   bottle do
     sha256 "fd47d6d609f90119f930c5b63efcba5c47efc6be390459576751d558f82f3d32" => :mojave
