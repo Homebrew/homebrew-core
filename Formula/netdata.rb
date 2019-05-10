@@ -3,6 +3,7 @@ class Netdata < Formula
   homepage "https://my-netdata.io/"
   url "https://github.com/netdata/netdata/releases/download/v1.14.0/netdata-v1.14.0.tar.gz"
   sha256 "f3768f6927e3712dce73794c6943a12f4454410c872eb3dfd19af4f52296187a"
+  revision 1
 
   bottle do
     sha256 "4deea4c1431e478a3da1f5ac471e2b277508b45213ba7f6cb74bdfabff274aad" => :mojave
@@ -13,14 +14,15 @@ class Netdata < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ossp-uuid"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
-                          "--localstatedir=#{var}"
+                          "--localstatedir=#{var}",
+                          "UUID_CFLAGS=-I/usr/include",
+                          "UUID_LIBS=-lc"
     system "make", "install"
 
     (etc/"netdata").install "system/netdata.conf"
