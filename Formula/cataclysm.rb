@@ -4,6 +4,7 @@ class Cataclysm < Formula
   url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.D.tar.gz"
   version "0.D"
   sha256 "6cc97b3e1e466b8585e8433a6d6010931e9a073f6ec060113161b38052d82882"
+  revision 1
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
   bottle do
