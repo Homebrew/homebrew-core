@@ -5,6 +5,7 @@ class Graphviz < Formula
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/graphviz/graphviz-2.40.1.tar.gz"
   mirror "https://fossies.org/linux/misc/graphviz-2.40.1.tar.gz"
   sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
+  revision 1
   version_scheme 1
 
   bottle do
