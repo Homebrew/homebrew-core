@@ -2,7 +2,9 @@ class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
   url "http://www.profanity.im/profanity-0.6.0.tar.gz"
-  sha256 "51b0932924a391656423af0d85f14dde049ac1e94214f948849d37df1c2759c4"
+  # checksum change reported upstream at https://github.com/profanity-im/profanity/issues/1094
+  sha256 "f1b2773b79eb294297686f3913e9489c20effae5e3a335c8956db18f6ee2f660"
+  revision 1
 
   bottle do
     sha256 "6c5d08457285bf82bf9a0b40dd98d0fbf69b558c7e53d53cfb4a23df7f698fe5" => :mojave
@@ -26,7 +28,6 @@ class Profanity < Formula
   depends_on "libotr"
   depends_on "libstrophe"
   depends_on "openssl"
-  depends_on "ossp-uuid"
   depends_on "readline"
   depends_on "terminal-notifier"
 
