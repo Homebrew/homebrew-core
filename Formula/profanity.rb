@@ -4,7 +4,7 @@ class Profanity < Formula
   url "http://www.profanity.im/profanity-0.6.0.tar.gz"
   # checksum change reported upstream at https://github.com/profanity-im/profanity/issues/1094
   sha256 "f1b2773b79eb294297686f3913e9489c20effae5e3a335c8956db18f6ee2f660"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e5249cc2d5a6382f385ed3986485942db175c41a96c261cbbc88992fc18b11b1" => :mojave
