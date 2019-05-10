@@ -3,6 +3,7 @@ class JsonGlib < Formula
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
   url "https://download.gnome.org/sources/json-glib/1.4/json-glib-1.4.4.tar.xz"
   sha256 "720c5f4379513dc11fd97dc75336eb0c0d3338c53128044d9fabec4374f4bc47"
+  revision 1
 
   bottle do
     sha256 "5955c4e1bb25115e61252ef5b11e6a4c7e2211b4ff71c56cae5a76c6a73c5064" => :mojave
