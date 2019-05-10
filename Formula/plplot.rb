@@ -3,6 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.15.0%20Source/plplot-5.15.0.tar.gz"
   sha256 "b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b"
+  revision 1
 
   bottle do
     sha256 "3aaab18cb485be458c9e9b272fd0831c16dfcf3efc3a2f3e97f8dd1efac0a1fc" => :mojave
