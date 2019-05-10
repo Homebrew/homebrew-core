@@ -3,6 +3,7 @@ class CrosstoolNg < Formula
   homepage "https://crosstool-ng.github.io/"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz"
   sha256 "804ced838ea7fe3fac1e82f0061269de940c82b05d0de672e7d424af98f22d2d"
+  revision 1
   head "https://github.com/crosstool-ng/crosstool-ng.git"
 
   bottle do
