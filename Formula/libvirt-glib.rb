@@ -3,6 +3,7 @@ class LibvirtGlib < Formula
   homepage "https://libvirt.org/"
   url "https://libvirt.org/sources/glib/libvirt-glib-2.0.0.tar.gz"
   sha256 "94e8c410c67501303d3b32ca8ce2c36edf898511ec4de9b7f29cd35d274b3d6a"
+  revision 1
 
   bottle do
     sha256 "712a3bdbb396b15d73fd842cb7042db78aeb3c2c3f60bf38101f4082f8e70d00" => :mojave
