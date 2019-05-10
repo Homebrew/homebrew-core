@@ -3,6 +3,7 @@ class FluidSynth < Formula
   homepage "http://www.fluidsynth.org"
   url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.4.tar.gz"
   sha256 "2c065de87e9c9ba0311ebf2f4828a4fd76f1f5cc7d1d93dd80d7a048d7d2a76c"
+  revision 1
   head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
