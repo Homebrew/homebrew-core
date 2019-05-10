@@ -3,7 +3,7 @@ class Librest < Formula
   homepage "https://wiki.gnome.org/Projects/Librest"
   url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "395cfe3524a16bb5f6b11501b5abaa58091498af73cf6fa44b900e16f8cfd0e4" => :mojave
