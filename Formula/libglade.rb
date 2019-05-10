@@ -3,7 +3,7 @@ class Libglade < Formula
   homepage "https://glade.gnome.org"
   url "https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.gz"
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "75df12d8db6a8ce9595704c743dc778d69f34af7db74228f0c7a4d4af61d2e1b" => :mojave
