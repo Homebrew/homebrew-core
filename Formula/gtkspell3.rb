@@ -3,6 +3,7 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.10/gtkspell3-3.0.10.tar.xz"
   sha256 "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+  revision 1
 
   bottle do
     sha256 "8649edc45b2ac203946b689fbeb11a5624e17d0f9dbcbad0e7f767a5835a1e78" => :mojave
