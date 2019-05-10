@@ -3,6 +3,7 @@ class Wmctrl < Formula
   homepage "https://sites.google.com/site/tstyblo/wmctrl"
   url "https://sites.google.com/site/tstyblo/wmctrl/wmctrl-1.07.tar.gz"
   sha256 "d78a1efdb62f18674298ad039c5cbdb1edb6e8e149bb3a8e3a01a4750aa3cca9"
+  revision 1
 
   bottle do
     cellar :any
