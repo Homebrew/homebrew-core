@@ -3,6 +3,7 @@ class Orbit < Formula
   homepage "https://projects.gnome.org/ORBit2"
   url "https://download.gnome.org/sources/ORBit2/2.14/ORBit2-2.14.19.tar.bz2"
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
+  revision 1
 
   bottle do
     sha256 "a70cbcdfb9d4350141ed258c4f61e0b16dddbf9bc9ce2658dfad9609a4ab3b22" => :mojave
