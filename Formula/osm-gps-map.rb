@@ -3,7 +3,7 @@ class OsmGpsMap < Formula
   homepage "https://nzjrs.github.com/osm-gps-map/"
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3fc5e8704885ee52388758422a586fe36f67f0bb88f260107d8d51ddaee69131" => :mojave
