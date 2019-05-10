@@ -3,6 +3,7 @@ class Pioneers < Formula
   homepage "https://pio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.5.tar.gz"
   sha256 "3ee1415e7c48dc144fbdb99105a6ef8a818e67ed34e9d0f8e01224c3636cef0c"
+  revision 1
 
   bottle do
     sha256 "5fb252c345552e1d485f2dbc833cf47bf37037a0c71856c02fa05d2ec6a37f21" => :mojave
