@@ -3,6 +3,7 @@ class Gammu < Formula
   homepage "https://wammu.eu/gammu/"
   url "https://dl.cihar.com/gammu/releases/gammu-1.40.0.tar.xz"
   sha256 "a760a3520d9f3a16a4ed73cefaabdbd86125bec73c6fa056ca3f0a4be8478dd6"
+  revision 1
   head "https://github.com/gammu/gammu.git"
 
   bottle do
