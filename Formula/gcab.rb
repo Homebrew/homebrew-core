@@ -3,6 +3,7 @@ class Gcab < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz"
   sha256 "5a2d96fe7e69e42d363c31cf2370d7afa3bb69cec984d4128322ea40e62c100d"
+  revision 1
 
   bottle do
     sha256 "1056d3e884ded021bbd441fa1005f798c5f670ce5c3c184f0c46faacff7d9c0a" => :mojave
