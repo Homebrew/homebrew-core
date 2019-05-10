@@ -3,7 +3,7 @@ class Gqview < Formula
   homepage "https://gqview.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gqview/gqview/2.0.4/gqview-2.0.4.tar.gz"
   sha256 "97e3b7ce5f17a315c56d6eefd7b3a60b40cc3d18858ca194c7e7262acce383cb"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "70c9791ca8c487ce98719f09ef52016ec31f801746ee52b9971bfe13bcd7119d" => :mojave
