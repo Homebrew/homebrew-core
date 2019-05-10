@@ -4,7 +4,7 @@ class Xsane < Formula
   url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/xsane-0.999.tar.gz"
   mirror "https://fossies.org/linux/misc/xsane-0.999.tar.gz"
   sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "028fa4b1496e6e0a0d6f0443bff7157b5bb70e56b1a9fd1e1b83072aa076f6a1" => :mojave
