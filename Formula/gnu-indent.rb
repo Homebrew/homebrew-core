@@ -4,6 +4,7 @@ class GnuIndent < Formula
   url "https://ftp.gnu.org/gnu/indent/indent-2.2.12.tar.gz"
   mirror "https://ftpmirror.gnu.org/indent/indent-2.2.12.tar.gz"
   sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
+  revision 1
 
   bottle do
     rebuild 3
