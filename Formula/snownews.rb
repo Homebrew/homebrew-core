@@ -3,6 +3,7 @@ class Snownews < Formula
   homepage "https://github.com/kouya/snownews"
   url "https://github.com/kouya/snownews/archive/v1.5.13.tar.gz"
   sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
+  revision 1
 
   bottle do
     sha256 "7c6a6ef9e934c27639eda4b7cc1e47225bdf9f5fc6533e129454a72595024c8c" => :mojave
