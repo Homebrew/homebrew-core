@@ -3,6 +3,7 @@ class Pangomm < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.0.tar.xz"
   sha256 "ca6da067ff93a6445780c0b4b226eb84f484ab104b8391fb744a45cbc7edbf56"
+  revision 1
 
   bottle do
     cellar :any
