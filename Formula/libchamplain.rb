@@ -3,6 +3,7 @@ class Libchamplain < Formula
   homepage "https://wiki.gnome.org/Projects/libchamplain"
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz"
   sha256 "36842e326cdbe3cdbdab818472797eedb661dec842fe0579596a3a8d438b2aa4"
+  revision 1
 
   bottle do
     sha256 "bf640f087cd8d61667cd840afabb8f4499860a0340d2ce6c824a3422fc3eb4e8" => :mojave
