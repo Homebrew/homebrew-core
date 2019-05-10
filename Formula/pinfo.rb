@@ -3,6 +3,7 @@ class Pinfo < Formula
   homepage "https://packages.debian.org/sid/pinfo"
   url "https://github.com/baszoetekouw/pinfo/archive/v0.6.13.tar.gz"
   sha256 "9dc5e848a7a86cb665a885bc5f0fdf6d09ad60e814d75e78019ae3accb42c217"
+  revision 1
 
   bottle do
     sha256 "e9b037201877468b88b7b86587977c5672f8ae4623faa0ed24db088b48618013" => :mojave
