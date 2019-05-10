@@ -6,6 +6,13 @@ class Imapsync < Formula
   sha256 "0b3fc87d95bb06f8e28dbe9ac7d87828b80204b2589411886b1a78c83ae8d969"
   head "https://github.com/imapsync/imapsync.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "b9846792eaa71812601ef1a3697fe59dde4b34eeba1a3fa881b7cf646dcbdddb" => :mojave
+    sha256 "53debfad08afdadee07591b2d0bc98620a89e2819574243d6840079c17f4ccea" => :high_sierra
+    sha256 "c15fb4c35f58028d8846ace4f1df31296feb3bc0c13fcbaceb27ac1df33b3bf6" => :sierra
+  end
+
   resource "Unicode::String" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/GAAS/Unicode-String-2.10.tar.gz"
     sha256 "894a110ece479546af8afec0972eec7320c86c4dea4e6b354dff3c7526ba9b68"
