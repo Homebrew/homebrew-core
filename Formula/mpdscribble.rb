@@ -3,7 +3,7 @@ class Mpdscribble < Formula
   homepage "https://www.musicpd.org/clients/mpdscribble/"
   url "https://www.musicpd.org/download/mpdscribble/0.22/mpdscribble-0.22.tar.gz"
   sha256 "ff882d02bd830bdcbccfe3c3c9b0d32f4f98d9becdb68dc3135f7480465f1e38"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "306e807a9e6169f58968af9f7d6067a03ec632ffe5267150f940fa628e28dfba" => :mojave
