@@ -3,6 +3,7 @@ class NordugridArc < Formula
   homepage "http://www.nordugrid.org/"
   url "https://download.nordugrid.org/packages/nordugrid-arc/releases/5.0.2/src/nordugrid-arc-5.0.2.tar.gz"
   sha256 "d7306d91b544eeba571ede341e43760997c46d4ccdacc8b785c64f594780a9d1"
+  revision 1
 
   bottle do
     sha256 "a5fba26334ea41da9949cda080a7543164f65132a1288642e6457501752b84a3" => :mojave
