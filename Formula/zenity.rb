@@ -3,6 +3,7 @@ class Zenity < Formula
   homepage "https://wiki.gnome.org/Projects/Zenity"
   url "https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz"
   sha256 "e786e733569c97372c3ef1776e71be7e7599ebe87e11e8ad67dcc2e63a82cd95"
+  revision 1
 
   bottle do
     sha256 "b89a6459e7443dc44c1b169475395d69e17cd5ad470406c6301601b3994d0c2b" => :mojave
