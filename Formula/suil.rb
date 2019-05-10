@@ -3,7 +3,7 @@ class Suil < Formula
   homepage "https://drobilla.net/software/suil/"
   url "https://download.drobilla.net/suil-0.10.0.tar.bz2"
   sha256 "9895c531f80c7e89a2b4b47de589d73b70bf48db0b0cfe56e5d54237ea4b8848"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
