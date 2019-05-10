@@ -3,6 +3,7 @@ class Libxmlxx3 < Formula
   homepage "https://libxmlplusplus.sourceforge.io/"
   url "https://download.gnome.org/sources/libxml++/3.0/libxml++-3.0.1.tar.xz"
   sha256 "19dc8d21751806c015179bc0b83f978e65c878724501bfc0b6c1bcead29971a6"
+  revision 1
 
   bottle do
     cellar :any
