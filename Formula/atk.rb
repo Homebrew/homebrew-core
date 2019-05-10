@@ -3,6 +3,7 @@ class Atk < Formula
   homepage "https://library.gnome.org/devel/atk/"
   url "https://download.gnome.org/sources/atk/2.32/atk-2.32.0.tar.xz"
   sha256 "cb41feda7fe4ef0daa024471438ea0219592baf7c291347e5a858bb64e4091cc"
+  revision 1
 
   bottle do
     sha256 "5e3a66f66762eae4e829d5e662ed1bbb1d0b63baed920b0b64caa572de0845e1" => :mojave
