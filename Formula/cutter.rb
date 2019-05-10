@@ -3,6 +3,7 @@ class Cutter < Formula
   homepage "https://cutter.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cutter/cutter/1.2.6/cutter-1.2.6.tar.gz"
   sha256 "459becce78ec4c568f4f5a5e20c73ea36be283bf955f4a252e8491b634339065"
+  revision 1
   head "https://github.com/clear-code/cutter.git"
 
   bottle do
