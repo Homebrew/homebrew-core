@@ -1,9 +1,8 @@
 class Socat < Formula
   desc "netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.2.tar.gz"
-  sha256 "ce3efc17e3e544876ebce7cd6c85b3c279fda057b2857fcaaf67b9ab8bdaf034"
-  revision 3
+  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.3.tar.gz"
+  sha256 "8cc0eaee73e646001c64adaab3e496ed20d4d729aaaf939df2a761e99c674372"
 
   bottle do
     cellar :any
