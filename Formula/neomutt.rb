@@ -3,6 +3,7 @@ class Neomutt < Formula
   homepage "https://neomutt.org/"
   url "https://github.com/neomutt/neomutt/archive/neomutt-20180716.tar.gz"
   sha256 "bd89826980b493ba312228c9c14ffe2403e268571aea6008c6dc7ed3848de200"
+  revision 1
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
