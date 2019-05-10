@@ -3,6 +3,7 @@ class Gmime < Formula
   homepage "https://spruce.sourceforge.io/gmime/"
   url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.3.tar.xz"
   sha256 "6a0875eeb552ab447dd54853a68ced62217d863631048737dd97eaa2713e7311"
+  revision 1
 
   bottle do
     sha256 "26dc02bb2c06eff3a4295cec5877568c6094e11f40cf38aff16c25a1b2ddfcd3" => :mojave
