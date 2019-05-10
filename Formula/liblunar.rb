@@ -3,6 +3,7 @@ class Liblunar < Formula
   homepage "https://code.google.com/archive/p/liblunar/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/liblunar/liblunar-2.2.5.tar.gz"
   sha256 "c24a7cd3ccbf7ab739d752a437f1879f62b975b95abcf9eb9e1dd623982bc167"
+  revision 1
 
   bottle do
     rebuild 1
