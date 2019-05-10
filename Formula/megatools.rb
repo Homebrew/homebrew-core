@@ -3,6 +3,7 @@ class Megatools < Formula
   homepage "https://megatools.megous.com/"
   url "https://megatools.megous.com/builds/megatools-1.10.2.tar.gz"
   sha256 "179e84c68e24696c171238a72bcfe5e28198e4c4e9f9043704f36e5c0b17c38a"
+  revision 1
 
   bottle do
     cellar :any
