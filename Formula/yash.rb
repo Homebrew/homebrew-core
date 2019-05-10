@@ -4,6 +4,7 @@ class Yash < Formula
   # Canonical: https://osdn.net/dl/yash/yash-*
   url "https://dotsrc.dl.osdn.net/osdn/yash/69353/yash-2.47.tar.xz"
   sha256 "931f2e7451d8b1eca2a98caeef7eda0527d96376f9f2c9bec90bc5938e39992e"
+  revision 1
 
   bottle do
     sha256 "a80b7e4adc5bb6bbfdb85ad01c761889026617455eb686eca20849c26bfbc159" => :mojave
