@@ -3,6 +3,7 @@ class ApacheArrowGlib < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
   sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
+  revision 1
 
   bottle do
     sha256 "ec0c08a84ad0d172d4db2981b1f1e511b8f7eab7de12ef75c2cbcad1a1599872" => :mojave
