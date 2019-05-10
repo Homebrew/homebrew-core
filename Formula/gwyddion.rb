@@ -3,7 +3,7 @@ class Gwyddion < Formula
   homepage "http://gwyddion.net/"
   url "http://gwyddion.net/download/2.53/gwyddion-2.53.tar.gz"
   sha256 "d142569adc4d523e51ca53cbff19414576facb774e5f4dad88b6ec475972f081"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "597581e3f8c8e43c6150827f1f0c3074f06f4d0595537757b7905b2bb26242cf" => :mojave
