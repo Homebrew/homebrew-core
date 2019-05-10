@@ -3,7 +3,7 @@ class Sylpheed < Formula
   homepage "https://sylpheed.sraoss.jp/en/"
   url "https://sylpheed.sraoss.jp/sylpheed/v3.7/sylpheed-3.7.0.tar.bz2"
   sha256 "eb23e6bda2c02095dfb0130668cf7c75d1f256904e3a7337815b4da5cb72eb04"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7b90f17a71f0bd70435538753b63f18583f4d0ea9a5650a6bb4be5b394088044" => :mojave
