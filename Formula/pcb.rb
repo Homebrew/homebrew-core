@@ -3,6 +3,7 @@ class Pcb < Formula
   homepage "http://pcb.geda-project.org/"
   url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.0/pcb-4.2.0.tar.gz"
   sha256 "cd4b36df6747789775812fb433f246d6bd5a27f3a16357d78d9c4c9b59c59a43"
+  revision 1
   version_scheme 1
 
   bottle do
