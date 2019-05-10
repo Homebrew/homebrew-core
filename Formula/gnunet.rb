@@ -3,6 +3,7 @@ class Gnunet < Formula
   homepage "https://gnunet.org/"
   url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.11.5.tar.gz"
   sha256 "98e0355ff0627bf88112b3b92a7522e98c0ae6071fc45efda5a33daed28199b3"
+  revision 1
 
   bottle do
     cellar :any
