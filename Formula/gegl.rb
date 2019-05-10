@@ -3,6 +3,7 @@ class Gegl < Formula
   homepage "https://www.gegl.org/"
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2"
   sha256 "0112df690301d9eb993cc48965fc71b7751c9021a4f4ee08fcae366c326b5e5a"
+  revision 1
 
   bottle do
     sha256 "94cd9f0bbf9fe96dc45d0ce86a71d3d4686cc86ee4ce6d66cf740e2daed886df" => :mojave
