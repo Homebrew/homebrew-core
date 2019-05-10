@@ -3,6 +3,7 @@ class Dopewars < Formula
   homepage "https://dopewars.sourceforge.io"
   url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.5.12/dopewars-1.5.12.tar.gz"
   sha256 "23059dcdea96c6072b148ee21d76237ef3535e5be90b3b2d8239d150feee0c19"
+  revision 1
 
   bottle do
     sha256 "4f3ddc708a41e33de69e23a625f40582edc8510c66bafd144eb6a20cb8d54fb9" => :mojave
