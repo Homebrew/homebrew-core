@@ -1,6 +1,7 @@
 class Bitlbee < Formula
   desc "IRC to other chat networks gateway"
   homepage "https://www.bitlbee.org/"
+  revision 1
   head "https://github.com/bitlbee/bitlbee.git"
 
   stable do
