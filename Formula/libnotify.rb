@@ -3,6 +3,7 @@ class Libnotify < Formula
   homepage "https://developer.gnome.org/libnotify"
   url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.8.tar.xz"
   sha256 "69209e0b663776a00c7b6c0e560302a8dbf66b2551d55616304f240bba66e18c"
+  revision 1
 
   bottle do
     sha256 "890c7a9086b1e6bc54cc28fbcae17c8f1a2106953ecb06a41b72bb134dc8052f" => :mojave
