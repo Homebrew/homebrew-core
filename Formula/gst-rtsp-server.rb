@@ -3,6 +3,7 @@ class GstRtspServer < Formula
   homepage "https://gstreamer.freedesktop.org/modules/gst-rtsp-server.html"
   url "https://gstreamer.freedesktop.org/src/gst-rtsp-server/gst-rtsp-server-1.16.0.tar.xz"
   sha256 "198e9eec1a3e32dc810d3fbf3a714850a22c6288d4a5c8e802c5ff984af03f19"
+  revision 1
 
   bottle do
     sha256 "6e1c3a9e72278a70e1bdb8d433c508e72cc497df0566f798c8fab122cd53bdd2" => :mojave
