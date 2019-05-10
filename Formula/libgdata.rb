@@ -3,7 +3,7 @@ class Libgdata < Formula
   homepage "https://wiki.gnome.org/Projects/libgdata"
   url "https://download.gnome.org/sources/libgdata/0.16/libgdata-0.16.1.tar.xz"
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
