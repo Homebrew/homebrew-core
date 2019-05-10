@@ -1,16 +1,20 @@
 class Libzt < Formula
-  desc "ZeroTier: libzt -- An encrypted P2P networking library for applications"
+  desc "Encrypted P2P networking library for applications"
   homepage "https://www.zerotier.com"
 
   url "https://github.com/zerotier/libzt.git",
-  :tag      => "1.3.0",
-  :revision => "2a377146d6124bb004b9aa263c47f7df2366e7ea"
+    :branch   => "master",
+    :revision => "9dbcc8eb45bf8863261599962c799b1de3557d14"
+
+  version "1.3.0"
 
   depends_on "cmake" => :build
-  depends_on "make" => :build
 
   def install
-    system "make", "update"
+    system "git", "submodule", "update", "--init"
+    system "git", "-C", "ext/lwip", "apply", "../lwip.patch"
+    system "git", "-C", "ext/lwip-contrib", "apply", "../lwip-contrib.patch"
+    system "git", "-C", "ext/ZeroTierOne", "apply", "../ZeroTierOne.patch"
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "make", "install"
@@ -18,12 +22,15 @@ class Libzt < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
-      #include<cstdlib>
-      #include<ZeroTier.h>
-      int main(){return zts_socket(0,0,0)!=-2;}
+    (testpath/"test.cpp").write <<~EOS
+      #include <cstdlib>
+      #include <ZeroTier.h>
+      int main()
+      {
+        return zts_socket(0,0,0)!=-2;
+      }
     EOS
-    system ENV.cxx, "-v", "test.cpp", "-o", "test", "-L#{lib}/Release", "-lzt"
+    system ENV.cxx, "-v", "test.cpp", "-o", "test", "-L#{lib}", "-lzt"
     system "./test"
   end
 end
