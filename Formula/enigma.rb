@@ -3,7 +3,7 @@ class Enigma < Formula
   homepage "https://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "6253830e625b924de2bde6a32272c458bdf6da871669844a65cd794ac4b1c48c" => :mojave
