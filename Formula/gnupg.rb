@@ -3,6 +3,7 @@ class Gnupg < Formula
   homepage "https://gnupg.org/"
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.16.tar.bz2"
   sha256 "6cbe8d454bf5dc204621eed3016d721b66298fa95363395bb8eeceb1d2fd14cb"
+  revision 1
 
   bottle do
     sha256 "674772ba04716d9c3faa818cc30fb8b55810d6ce14f7663ec59c153215141141" => :mojave
