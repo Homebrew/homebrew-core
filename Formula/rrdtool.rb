@@ -3,7 +3,7 @@ class Rrdtool < Formula
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
   url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.0/rrdtool-1.7.0.tar.gz"
   sha256 "f97d348935b91780f2cd80399719e20c0b91f0a23537c0a85f9ff306d4c5526b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
