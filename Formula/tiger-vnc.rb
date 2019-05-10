@@ -3,7 +3,7 @@ class TigerVnc < Formula
   homepage "https://tigervnc.org/"
   url "https://github.com/TigerVNC/tigervnc/archive/v1.9.0.tar.gz"
   sha256 "f15ced8500ec56356c3bf271f52e58ed83729118361c7103eab64a618441f740"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
