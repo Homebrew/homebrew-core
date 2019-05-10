@@ -3,6 +3,7 @@ class Eiffelstudio < Formula
   homepage "https://www.eiffel.com"
   url "https://ftp.eiffel.com/pub/download/18.11/eiffelstudio-18.11.10.2592.tar"
   sha256 "9ee3c9663e21123a84e1447e301919171c2939b117ed1ad5780ba3e8021204ef"
+  revision 1
 
   bottle do
     cellar :any
