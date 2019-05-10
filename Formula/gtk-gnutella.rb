@@ -3,6 +3,7 @@ class GtkGnutella < Formula
   homepage "https://gtk-gnutella.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.14/gtk-gnutella-1.1.14.tar.xz"
   sha256 "31eeaf02ae989aa81791af9f6b4aa3c26c39adc58605dc430edf59451494926a"
+  revision 1
 
   bottle do
     sha256 "66c1799f73b1edfaea5d5b0947a464cdefce1c8fa279e2442a4ad8800da41236" => :mojave
