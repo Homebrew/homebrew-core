@@ -4,7 +4,7 @@ class Wdiff < Formula
   url "https://ftp.gnu.org/gnu/wdiff/wdiff-1.2.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/wdiff/wdiff-1.2.2.tar.gz"
   sha256 "34ff698c870c87e6e47a838eeaaae729fa73349139fc8db12211d2a22b78af6b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5f949893137314b6b2f75f4c168b361d0b10a8da76c9d3e31f505bb086315fee" => :mojave
