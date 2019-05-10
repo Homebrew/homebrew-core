@@ -3,6 +3,7 @@ class Enchant < Formula
   homepage "https://abiword.github.io/enchant/"
   url "https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz"
   sha256 "abd8e915675cff54c0d4da5029d95c528362266557c61c7149d53fa069b8076d"
+  revision 1
 
   bottle do
     rebuild 1
