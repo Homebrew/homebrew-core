@@ -3,6 +3,7 @@ class Gwenhywfar < Formula
   homepage "https://www.aquamaniac.de/"
   url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=208&file=02&dummy=gwenhywfar-4.20.0.tar.gz"
   sha256 "5a88daabba1388f9528590aab5de527a12dd44a7da4572ce48469a29911b0fb0"
+  revision 1
 
   bottle do
     sha256 "6e6850e6a2e0edcd03665b11f66d51a2a0cb351037fdbd8b8677f4ae53595640" => :mojave
