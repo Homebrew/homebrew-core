@@ -3,6 +3,7 @@ class Libmp3splt < Formula
   homepage "https://mp3splt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mp3splt/libmp3splt/0.9.2/libmp3splt-0.9.2.tar.gz"
   sha256 "30eed64fce58cb379b7cc6a0d8e545579cb99d0f0f31eb00b9acc8aaa1b035dc"
+  revision 1
 
   bottle do
     sha256 "bd099b1f7f07b73c0ba90a0d506a5c169f9197abc3c0c2d787725f3c36262e94" => :mojave
