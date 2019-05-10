@@ -6,6 +6,7 @@ class Mu < Formula
   homepage "https://www.djcbsoftware.nl/code/mu/"
   url "https://github.com/djcb/mu/releases/download/1.2/mu-1.2.0.tar.xz"
   sha256 "f634c7f244dc6844ff71dc3c3e1893e48e193caa9e0e747eba616309775f053a"
+  revision 1
 
   bottle do
     cellar :any
