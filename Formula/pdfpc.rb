@@ -3,6 +3,7 @@ class Pdfpc < Formula
   homepage "https://pdfpc.github.io/"
   url "https://github.com/pdfpc/pdfpc/archive/v4.3.2.tar.gz"
   sha256 "44b487ea207bac88364e136570d4d4baaec08cfd1388e3477fb52a36b6c57f29"
+  revision 1
   head "https://github.com/pdfpc/pdfpc.git"
 
   bottle do
