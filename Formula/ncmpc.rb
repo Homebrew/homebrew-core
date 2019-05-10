@@ -3,7 +3,7 @@ class Ncmpc < Formula
   homepage "https://www.musicpd.org/clients/ncmpc/"
   url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.30.tar.xz"
   sha256 "e3fe0cb58b8a77f63fb1645c2f974b334f1614efdc834ec698ee7d861f1b12a3"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
