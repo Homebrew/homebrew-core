@@ -3,6 +3,7 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.8.tar.xz"
   sha256 "666962de9b9768fe9ca785b0e2f42c8b9db3868a12fa9b356b167238d70ac799"
+  revision 1
 
   bottle do
     sha256 "72194ae4f42adbe9c918ecceb344ea654601f26c93f18f9b3d12cd0d148dfc17" => :mojave
