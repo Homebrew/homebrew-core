@@ -3,6 +3,7 @@ class Libosinfo < Formula
   homepage "https://libosinfo.org/"
   url "https://releases.pagure.org/libosinfo/libosinfo-1.5.0.tar.gz"
   sha256 "bf692567983478c92bde78d454c18d6196abb032b5a77f430b09a7ef92ec6089"
+  revision 1
 
   bottle do
     sha256 "1e389f8641db3e8337190292693fcb2acf6f3c486a9a26ed94ceb4f1ab0fed92" => :mojave
