@@ -4,6 +4,7 @@ class Libidn2 < Formula
   url "https://ftp.gnu.org/gnu/libidn/libidn2-2.2.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.2.0.tar.gz"
   sha256 "fc734732b506d878753ec6606982bf7b936e868c25c30ddb0d83f7d7056381fe"
+  revision 1
 
   bottle do
     sha256 "1bddaa4464445f918c144762158254ac72edbc1f7328467a259a03aeb7bd547d" => :mojave
