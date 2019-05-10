@@ -3,6 +3,7 @@ class GtkVnc < Formula
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
   url "https://download.gnome.org/sources/gtk-vnc/0.9/gtk-vnc-0.9.0.tar.xz"
   sha256 "3a9a88426809a5df2c14353cd9839b8c8163438cb708b31d8048c79d180fcab7"
+  revision 1
 
   bottle do
     rebuild 1
