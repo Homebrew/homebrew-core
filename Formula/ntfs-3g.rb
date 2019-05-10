@@ -3,6 +3,7 @@ class Ntfs3g < Formula
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
   url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz"
   sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
+  revision 1
 
   bottle do
     sha256 "7fca129fd960c9b8ea4459232ddbd7041b427825feb724903775b386000fb5ad" => :mojave
