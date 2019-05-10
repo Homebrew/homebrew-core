@@ -3,6 +3,7 @@ class Libhttpseverywhere < Formula
   homepage "https://github.com/gnome/libhttpseverywhere"
   url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.3.tar.xz"
   sha256 "1c006f5633842a2b131c1cf644ab929556fc27968a60da55c00955bd4934b6ca"
+  revision 1
 
   bottle do
     cellar :any
