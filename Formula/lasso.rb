@@ -3,6 +3,7 @@ class Lasso < Formula
   homepage "https://lasso.entrouvert.org/"
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.0.tar.gz"
   sha256 "146bff7a25166467d960003346cbc3291f3f29067e305cb82ebb12354c7d0acf"
+  revision 1
 
   bottle do
     rebuild 1
