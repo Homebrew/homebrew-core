@@ -3,6 +3,7 @@ class Amtk < Formula
   homepage "https://wiki.gnome.org/Projects/Amtk"
   url "https://download.gnome.org/sources/amtk/5.0/amtk-5.0.0.tar.xz"
   sha256 "12a996978a30b7b69a810ac0c5656d5cf2f58d9787b98a0c028ff1b64e8f31ff"
+  revision 1
 
   bottle do
     sha256 "62f05f5fc282e1f9ac7cb6fef99eafdc0680741de535be52590bdfc71c432d8c" => :mojave
