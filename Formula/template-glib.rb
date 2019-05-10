@@ -3,6 +3,7 @@ class TemplateGlib < Formula
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
   url "https://download.gnome.org/sources/template-glib/3.32/template-glib-3.32.0.tar.xz"
   sha256 "39a334f5db404fa8b225224766684f2f63f5ec4cf4e971cfc513f1db35e81fbc"
+  revision 1
 
   bottle do
     sha256 "b18d42b4c4daf6dcde10845985cc4ddb0096cfcf74ffee2e603eaccbdfd7b6ce" => :mojave
