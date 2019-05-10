@@ -3,6 +3,7 @@ class Libgtop < Formula
   homepage "https://library.gnome.org/devel/libgtop/stable/"
   url "https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz"
   sha256 "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
+  revision 1
 
   bottle do
     sha256 "b89c3928a514ee28b9c61b84dca3ba1e30c5a5a9139393584c586f4a588565ab" => :mojave
