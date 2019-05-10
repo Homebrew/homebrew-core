@@ -3,6 +3,7 @@ class Pms < Formula
   homepage "https://pms.sourceforge.io"
   url "https://downloads.sourceforge.net/project/pms/pms/0.42/pms-0.42.tar.bz2"
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
+  revision 1
 
   bottle do
     sha256 "9526998c8cbe888fcf0b494d4d717b3b8cc9501b5f559c719274dd1de75d2d1a" => :mojave
