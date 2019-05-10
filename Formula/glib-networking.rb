@@ -3,6 +3,7 @@ class GlibNetworking < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.3.tar.xz"
   sha256 "d50183046a4ff955d8cc7e953067cdfc94f14dbfda3024bf377ff37a3121dcd5"
+  revision 1
 
   bottle do
     sha256 "b34844abdf92db2676cc2970540da132317124b8f6b731da229ff977ab938131" => :mojave
