@@ -4,7 +4,7 @@ class GnuTypist < Formula
   url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.9.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.9.5.tar.xz"
   sha256 "c13af40b12479f8219ffa6c66020618c0ce305ad305590fde02d2c20eb9cf977"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3cc13439bb4afad581022e52c5827e2cc081565bc83f2c8f47c11b21c8ad2751" => :mojave
