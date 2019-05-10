@@ -3,6 +3,7 @@ class MidnightCommander < Formula
   homepage "https://www.midnight-commander.org/"
   url "https://www.midnight-commander.org/downloads/mc-4.8.22.tar.xz"
   sha256 "ee7868d7ba0498cf2cccefe107d7efee7f2571098806bba2aed5a159db801318"
+  revision 1
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
