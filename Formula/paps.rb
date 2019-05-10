@@ -3,6 +3,7 @@ class Paps < Formula
   homepage "https://github.com/dov/paps"
   url "https://github.com/dov/paps/archive/0.7.0.tar.gz"
   sha256 "7a18e8096944a21e0d9fcfb389770d1e7672ba90569180cb5d45984914cedb13"
+  revision 1
 
   bottle do
     cellar :any
