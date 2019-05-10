@@ -3,6 +3,7 @@ class Libnice < Formula
   homepage "https://wiki.freedesktop.org/nice/"
   url "https://nice.freedesktop.org/releases/libnice-0.1.16.tar.gz"
   sha256 "06b678066f94dde595a4291588ed27acd085ee73775b8c4e8399e28c01eeefdf"
+  revision 1
 
   bottle do
     cellar :any
