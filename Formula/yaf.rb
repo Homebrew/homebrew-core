@@ -3,6 +3,7 @@ class Yaf < Formula
   homepage "https://tools.netsa.cert.org/yaf/"
   url "https://tools.netsa.cert.org/releases/yaf-2.11.0.tar.gz"
   sha256 "5e2523eeeaa5ac7e08f73b38c599f321ba93f239011efec9c39cfcbc30489dca"
+  revision 1
 
   bottle do
     cellar :any
