@@ -12,6 +12,7 @@ class Mutt < Formula
   homepage "http://www.mutt.org/"
   url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.12.1.tar.gz"
   sha256 "01c565406ec4ffa85db90b45ece2260b25fac3646cc063bbc20a242c6ed4210c"
+  revision 1
 
   bottle do
     sha256 "eadb19831ee666e6587c1eee420dd93f965304ac0b7c0180622ad66950c85e3c" => :mojave
