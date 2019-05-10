@@ -16,7 +16,6 @@ class Unarj < Formula
 
   resource "testfile" do
     url "https://s3.amazonaws.com/ARJ/ARJ286.EXE"
-    mirror "https://www.sac.sk/download/pack/arj286.exe"
     sha256 "e7823fe46fd971fe57e34eef3105fa365ded1cc4cc8295ca3240500f95841c1f"
   end
 
