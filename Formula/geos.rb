@@ -1,15 +1,14 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "https://download.osgeo.org/geos/geos-3.7.1.tar.bz2"
-  sha256 "0006c7b49eaed016b9c5c6f872417a7d7dc022e069ddd683335793d905a8228c"
-  revision 1
+  url "https://download.osgeo.org/geos/geos-3.7.2.tar.bz2"
+  sha256 "2166e65be6d612317115bfec07827c11b403c3f303e0a7420a2106bc999d7707"
 
   bottle do
     cellar :any
-    sha256 "3f5a7633f56fd1368d9c28b32965ac6c88301cca1b80a3fbcbe371db2402621d" => :mojave
-    sha256 "2150938fdf54ba352b350677bf10e71edf05fabc5e07ab96a627f141ede216a0" => :high_sierra
-    sha256 "2624adf8445ba1efa41f302c6b3c4a1bbc74dc898fcf3fc98914f0748747bd06" => :sierra
+    sha256 "8347358e36c773c315f742972786ac7a6e13f5998f799dd8fad3afec22ba5fcf" => :mojave
+    sha256 "3f074801c641178e222dfa871463e1891419545e07c36bcedff0c00de8dc8c2a" => :high_sierra
+    sha256 "efbe29b37717a44f1e1d625f338787dc945a5f8973c9b67d794cf25ae739a97c" => :sierra
   end
 
   depends_on "swig" => :build
