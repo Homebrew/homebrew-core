@@ -3,6 +3,7 @@ class Cogl < Formula
   homepage "https://developer.gnome.org/cogl/"
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.4.tar.xz"
   sha256 "5217bf94cbca3df63268a3b79d017725382b9e592b891d1e7dc6212590ce0de0"
+  revision 1
 
   bottle do
     sha256 "d91786cb81bb327e01b990d95e9b0608033ae7c58f2f93bd605a16859b07a0eb" => :mojave
