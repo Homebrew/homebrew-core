@@ -3,6 +3,7 @@ class SharedMimeInfo < Formula
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
   url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz"
   sha256 "18b2f0fe07ed0d6f81951a5fd5ece44de9c8aeb4dc5bb20d4f595f6cc6bd403e"
+  revision 1
 
   bottle do
     cellar :any
