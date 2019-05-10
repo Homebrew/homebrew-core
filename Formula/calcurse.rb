@@ -3,6 +3,7 @@ class Calcurse < Formula
   homepage "https://calcurse.org/"
   url "https://calcurse.org/files/calcurse-4.4.0.tar.gz"
   sha256 "edcbc9dbcdfe3aba43ac70b8d6895fb0ff4a364df89762d1ca3053a14cec826f"
+  revision 1
   head "https://git.calcurse.org/calcurse.git"
 
   bottle do
