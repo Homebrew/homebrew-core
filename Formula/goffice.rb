@@ -3,6 +3,7 @@ class Goffice < Formula
   homepage "https://developer.gnome.org/goffice/"
   url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.45.tar.xz"
   sha256 "702ba567e9ec0bbdd9b1a8161cd24648b4868d57a6cb89128f13c125f6f31947"
+  revision 1
 
   bottle do
     sha256 "0ad10412b7b5ca5644d68cf93241d02d1da1b03acdaa07205b66bde73d2111e4" => :mojave
