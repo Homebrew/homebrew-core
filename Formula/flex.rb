@@ -3,6 +3,7 @@ class Flex < Formula
   homepage "https://github.com/westes/flex"
   url "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
   sha256 "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+  revision 1
 
   bottle do
     sha256 "f326d68bc795592b3211e0ab7401222cdfe4f510cd5d3e5fd364678ae8cba2b2" => :mojave
