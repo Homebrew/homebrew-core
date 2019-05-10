@@ -3,6 +3,7 @@ class Libnids < Formula
   homepage "https://libnids.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libnids/libnids/1.24/libnids-1.24.tar.gz"
   sha256 "314b4793e0902fbf1fdb7fb659af37a3c1306ed1aad5d1c84de6c931b351d359"
+  revision 1
 
   bottle do
     cellar :any
