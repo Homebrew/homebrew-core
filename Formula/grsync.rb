@@ -3,7 +3,7 @@ class Grsync < Formula
   homepage "http://www.opbyte.it/grsync/"
   url "https://downloads.sourceforge.net/project/grsync/grsync-1.2.6.tar.gz"
   sha256 "66d5acea5e6767d6ed2082e1c6e250fe809cb1e797cbbee5c8e8a2d28a895619"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "f4f062368eb98e973ed137c8f01ab04b626871b5d37a1a2453ae631352236f2f" => :mojave
