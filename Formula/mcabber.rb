@@ -3,7 +3,7 @@ class Mcabber < Formula
   homepage "https://mcabber.com/"
   url "https://mcabber.com/files/mcabber-1.1.0.tar.bz2"
   sha256 "04fc2c22c36da75cf4b761b5deccd074a19836368f38ab9d03c1e5708b41f0bd"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9d764d5cf8465b0fe0f005324e93984e2d5be8be6abea22bbf9729b9bdc7550d" => :mojave
