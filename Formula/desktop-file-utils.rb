@@ -3,6 +3,7 @@ class DesktopFileUtils < Formula
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
   url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz"
   sha256 "6c094031bdec46c9f621708f919084e1cb5294e2c5b1e4c883b3e70cb8903385"
+  revision 1
 
   bottle do
     sha256 "c0538ee53f8e6f466cd601436f2a62209e871e41cbd2e2ef16ed38b2746b76ae" => :mojave
