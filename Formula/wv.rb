@@ -3,6 +3,7 @@ class Wv < Formula
   homepage "https://wvware.sourceforge.io/"
   url "https://abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz"
   sha256 "4c730d3b325c0785450dd3a043eeb53e1518598c4f41f155558385dd2635c19d"
+  revision 1
 
   bottle do
     sha256 "ccef7d779d4138475c9eea9d0e1e6174787c79f6ab244327b86a40c76c1a7acc" => :mojave
