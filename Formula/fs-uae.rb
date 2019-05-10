@@ -3,6 +3,7 @@ class FsUae < Formula
   homepage "https://fs-uae.net/"
   url "https://fs-uae.net/stable/2.8.3/fs-uae-2.8.3.tar.gz"
   sha256 "e2d5414d07c8bd5b740716471183bc5516bec0ae2989449c3026374dc4b86292"
+  revision 1
 
   bottle do
     cellar :any
