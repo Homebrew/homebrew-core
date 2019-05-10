@@ -3,6 +3,7 @@ class Vala < Formula
   homepage "https://wiki.gnome.org/Projects/Vala"
   url "https://download.gnome.org/sources/vala/0.44/vala-0.44.4.tar.xz"
   sha256 "357fb15517bb5da506b7fdcb4033802a8a5f8e6502e86b8304371b4e2132c8ef"
+  revision 1
 
   bottle do
     sha256 "91ba81683e08ff484017546c9dd65473881748e95fd364007e4332e0885c362f" => :mojave
