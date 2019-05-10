@@ -3,7 +3,7 @@ class Clutter < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.2.tar.xz"
   sha256 "e7233314983055e9018f94f56882e29e7fc34d8d35de030789fdcd9b2d0e2e56"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "87e40791a3825261a8b37eb2e159f0b32bbd9be6aacb3bb288df0b39b1c4d1b1" => :mojave
