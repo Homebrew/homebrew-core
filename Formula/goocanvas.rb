@@ -3,7 +3,7 @@ class Goocanvas < Formula
   homepage "https://wiki.gnome.org/Projects/GooCanvas"
   url "https://download.gnome.org/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz"
   sha256 "c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3449f3d31f5b9f3b6fed3cd4ea5a2941663a7ff4f8e1559a3439996f0d79068b" => :mojave
