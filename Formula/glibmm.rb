@@ -3,6 +3,7 @@ class Glibmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/glibmm/2.60/glibmm-2.60.0.tar.xz"
   sha256 "a3a1b1c9805479a16c0018acd84b3bfff23a122aee9e3c5013bb81231aeef2bc"
+  revision 1
 
   bottle do
     cellar :any
