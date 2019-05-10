@@ -3,6 +3,7 @@ class Utimer < Formula
   homepage "https://launchpad.net/utimer"
   url "https://launchpad.net/utimer/0.4/0.4/+download/utimer-0.4.tar.gz"
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
+  revision 1
 
   bottle do
     sha256 "c81c54c3cf3a208bffc2971136b48339a0d86ae78ec0843b1d62e4342621b0bd" => :mojave
