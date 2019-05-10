@@ -3,7 +3,7 @@ class Gom < Formula
   homepage "https://wiki.gnome.org/Projects/Gom"
   url "https://download.gnome.org/sources/gom/0.3/gom-0.3.3.tar.xz"
   sha256 "ac57e34b5fe273ed306efaeabb346712c264e341502913044a782cdf8c1036d8"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "20f9cc7aff0bce649e242e58c9b02938101c5fee37a4dde0941c76b7beded683" => :mojave
