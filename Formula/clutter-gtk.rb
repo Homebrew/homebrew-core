@@ -3,7 +3,7 @@ class ClutterGtk < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz"
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "6e59404c7b4172bfb03b701bd7090dd3c9e917a1f3013e5669a05704369add8a" => :mojave
