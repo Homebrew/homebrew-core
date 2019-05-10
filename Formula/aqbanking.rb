@@ -3,7 +3,7 @@ class Aqbanking < Formula
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
   url "https://www.aquamaniac.de/sites/download/download.php?package=03&release=217&file=02&dummy=aqbanking-5.7.8.tar.gz"
   sha256 "16f86e4cc49a9eaaa8dfe3206607e627873208bce45a70030c3caea9b5afc768"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "153049e5417652e7dbf7ea864751552faf1eb0d4fd5abcdf1f67208bb6c1ef04" => :mojave
