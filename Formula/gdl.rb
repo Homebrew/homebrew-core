@@ -3,7 +3,7 @@ class Gdl < Formula
   homepage "https://developer.gnome.org/gdl/"
   url "https://download.gnome.org/sources/gdl/3.28/gdl-3.28.0.tar.xz"
   sha256 "52cc98ecc105148467b3b2b4e0d27ae484b1b6710d53413f771ed07ef1b737b6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5143863d01c94bc6eb765615922b302de5d73f8d3ea40982b9ad29b3221b7e19" => :mojave
