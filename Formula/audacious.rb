@@ -1,7 +1,7 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
-  revision 3
+  revision 4
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
