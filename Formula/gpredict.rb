@@ -3,7 +3,7 @@ class Gpredict < Formula
   homepage "http://gpredict.oz9aec.net/"
   url "https://github.com/csete/gpredict/releases/download/v2.2.1/gpredict-2.2.1.tar.bz2"
   sha256 "e759c4bae0b17b202a7c0f8281ff016f819b502780d3e77b46fe8767e7498e43"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "400c62dd8752cdb30a94167fcd70d935fe45e724d0639a734ab2b4bf2ebd46f4" => :mojave
