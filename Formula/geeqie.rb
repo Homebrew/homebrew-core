@@ -9,7 +9,7 @@ class Geeqie < Formula
       :tag      => "v1.4",
       :revision => "7c9b41e7c9be8cfc9b4f0a2459c0a1e0e4aaea5b",
       :shallow  => false
-  revision 2
+  revision 3
 
   bottle do
     sha256 "1ec3ae6207e019a06e6e23eaa25e05a7e6025a557ff96e5f06620011d1598d90" => :mojave
