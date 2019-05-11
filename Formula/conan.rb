@@ -20,7 +20,6 @@ class Conan < Formula
   depends_on "python"
 
   def install
-    inreplace "conans/requirements.txt", "PyYAML>=3.11, <3.14.0", "PyYAML>=3.11"
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "PyYAML==3.13", buildpath
