@@ -1,8 +1,8 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v20.0/nzbget-20.0-src.tar.gz"
-  sha256 "04dc36d432549c33d55145ecd95cc4309b3ab4a7731a1a03d954de389eacd06f"
+  url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
+  sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
   head "https://github.com/nzbget/nzbget.git", :branch => "develop"
 
   bottle do
