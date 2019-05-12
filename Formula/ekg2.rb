@@ -18,7 +18,7 @@ class Ekg2 < Formula
   depends_on "readline"
 
   # Fix the build on OS X 10.9+
-  # http://bugs.ekg2.org/issues/152
+  # bugs.ekg2.org/issues/152 [LOST LINK]
   patch :DATA
 
   def install
