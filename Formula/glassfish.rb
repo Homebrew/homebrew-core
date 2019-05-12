@@ -1,8 +1,8 @@
 class Glassfish < Formula
-  desc "Java EE application server"
-  homepage "https://glassfish.java.net/"
-  url "https://download.oracle.com/glassfish/5.0/release/glassfish-5.0.zip"
-  sha256 "85450f0cd4875729d64be6bcbf7ed8f61009ea0f23d3be453c6f3d1dbab02420"
+  desc "Open Source Jakarta EE Platform Implementation"
+  homepage "https://eclipse-ee4j.github.io/glassfish/"
+  url "https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip&mirror_id=518"i
+  sha256 "26f3fa6463d24c5ed3956e4cab24a97e834ca37d7a23d341aadaa78d9e0093ce"
 
   bottle :unneeded
 
