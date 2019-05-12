@@ -1,8 +1,8 @@
 class Libwpd < Formula
   desc "General purpose library for reading WordPerfect files"
   homepage "https://libwpd.sourceforge.io/"
-  url "https://dev-www.libreoffice.org/src/libwpd-0.10.2.tar.xz"
-  sha256 "323f68beaf4f35e5a4d7daffb4703d0566698280109210fa4eaa90dea27d6610"
+  url "https://dev-www.libreoffice.org/src/libwpd-0.10.3.tar.xz"
+  sha256 "2465b0b662fdc5d4e3bebcdc9a79027713fb629ca2bff04a3c9251fdec42dd09"
 
   bottle do
     cellar :any
