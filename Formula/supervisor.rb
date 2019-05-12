@@ -8,9 +8,9 @@ class Supervisor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a3ed3071d994b9b2d196fc578efa73df0f718b1987625d51dc557d2ab1ed13a1" => :mojave
-    sha256 "3eaf8b83c15a57a21ad897c98c7aca0b585bb17da659ce9e49d221a1f2c23f09" => :high_sierra
-    sha256 "980435fca59e5310dfda4e5d10892dab22fa9e11504428031c7f632be65aead2" => :sierra
+    sha256 "e8445ec810a595565d0368b0164a9fde720f650bfc9fe51dd1b2edb470c28062" => :mojave
+    sha256 "dcc3f9818bad19f5fb72d9e57fc9c475180afea6cf0c02364c2c6e0a0548cd8f" => :high_sierra
+    sha256 "f44a7a1551ed5a70be2eef7a8efa7bea716701a08a05f9493442f8fff08a8983" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3
