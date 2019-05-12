@@ -7,9 +7,12 @@ class Gcc < Formula
   head "https://gcc.gnu.org/git/gcc.git"
 
   bottle do
-    sha256 "1af51e1a8c5394297c13b85548203a84279a2e24e6ab982fb299c526bdde3079" => :mojave
-    sha256 "be85387a2c7c9313da23e258013ff6de215cf1f0cb997b2edf72fb1af725d72f" => :high_sierra
-    sha256 "ca1bf59a0726ea16f4fe22ad98532e4ac0171bbb518154929d71d7f2032657ee" => :sierra
+    # sha256 "1af51e1a8c5394297c13b85548203a84279a2e24e6ab982fb299c526bdde3079" => :mojave
+    # sha256 "be85387a2c7c9313da23e258013ff6de215cf1f0cb997b2edf72fb1af725d72f" => :high_sierra
+    # sha256 "ca1bf59a0726ea16f4fe22ad98532e4ac0171bbb518154929d71d7f2032657ee" => :sierra
+    rebuild 2
+    root_url "https://dl.bintray.com/cielavenir/homebrew"
+    sha256 "f9ba42a65409a52a949f7d8b102c0ac2cd45f32a22648f4091acd4b4f249d661" => :sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -27,6 +30,11 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  patch :p1 do
+    url "http://raw.githubusercontent.com/cielavenir/homebrew-ciel/master/patch/gcc9.patch"
+    sha256 "4127a9e46525c8e69821c0c3538875dade15e66963c2cff9600bfa105ef6cc75"
+  end
+
   def version_suffix
     if build.head?
       "HEAD"
@@ -43,7 +51,7 @@ class Gcc < Formula
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
-    languages = %w[c c++ objc obj-c++ fortran]
+    languages = %w[c c++ objc obj-c++ d fortran]
 
     osmajor = `uname -r`.split(".").first
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
@@ -55,6 +63,7 @@ class Gcc < Formula
       --disable-nls
       --enable-checking=release
       --enable-languages=#{languages.join(",")}
+      --enable-libphobos
       --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
@@ -92,6 +101,7 @@ class Gcc < Formula
       system "make", "install"
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+      bin.install_symlink bin/"gdc-#{version_suffix}" => "gdc"
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
@@ -145,5 +155,16 @@ class Gcc < Formula
     EOS
     system "#{bin}/gfortran", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
+
+    (testpath/"hello_d.d").write <<~EOS
+      import std.stdio;
+      int main()
+      {
+        writeln("Hello, world!");
+        return 0;
+      }
+    EOS
+    system "#{bin}/gdc-#{version_suffix}", "-o", "hello-d", "hello_d.d"
+    assert_equal "Hello, world!\n", `./hello-d`
   end
 end
