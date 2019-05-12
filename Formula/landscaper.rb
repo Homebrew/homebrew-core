@@ -2,8 +2,8 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag      => "v1.0.21",
-      :revision => "df2a7d6a7db7a552576899b9fe8c85fdcc0af973"
+      :tag      => "v1.0.23",
+      :revision => "608a1393d1afca82b03ccb497e27f5d2b170f55b"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
