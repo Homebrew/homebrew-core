@@ -3,7 +3,7 @@ class Libzt < Formula
   homepage "https://www.zerotier.com"
 
   url "https://github.com/zerotier/libzt.git",
-    :tag   => "1.3.0-13-g9dbcc8e"
+    :tag   => "1.3.1"
 
   depends_on "cmake" => :build
 
