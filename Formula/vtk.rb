@@ -4,6 +4,7 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   head "https://github.com/Kitware/VTK.git"
+  revision 1
 
   bottle do
     sha256 "6048bdb469ac541f9714b278c697427afd9d8ac30b0263b307871c1877c94933" => :mojave
