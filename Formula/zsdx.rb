@@ -1,6 +1,6 @@
 class Zsdx < Formula
   desc "Zelda Mystery of Solarus DX"
-  homepage "http://www.solarus-games.org/games/zelda-mystery-of-solarus-dx/"
+  homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-mystery-of-solarus-dx"
   url "https://github.com/christopho/zsdx/archive/zsdx-1.11.0.tar.gz"
   sha256 "05a5d220bbf2439c9da2e71cd9d104240878123fff5bc702e2405d6d0712f0dc"
   head "https://github.com/christopho/zsdx.git"
