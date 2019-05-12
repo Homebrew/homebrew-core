@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.2.0.tar.xz"
-  sha256 "e51cfb41afe629ce0d46fb93182a4f4ae0c151490db97c49f722756e1154e63f"
+  url "https://libvirt.org/sources/libvirt-5.3.0.tar.xz"
+  sha256 "8564bdd506817b3957fa67e4f06b217922d30f19e416c4dc620995fd155dc101"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -47,9 +47,6 @@ class Libvirt < Formula
     # Compilation of docs doesn't get done if we jump straight to "make install"
     system "make"
     system "make", "install"
-
-    # Update the SASL config file with the Homebrew prefix
-    inreplace "#{etc}/sasl2/libvirt.conf", "/etc/", "#{HOMEBREW_PREFIX}/etc/"
 
     # Update the libvirt daemon config file to reflect the Homebrew prefix
     inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
