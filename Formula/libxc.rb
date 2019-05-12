@@ -1,9 +1,8 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "https://tddft.org/programs/libxc/"
-  url "https://tddft.org/programs/octopus/download/libxc/4.2.3/libxc-4.2.3.tar.gz"
-  sha256 "02e49e9ba7d21d18df17e9e57eae861e6ce05e65e966e1e832475aa09e344256"
-  revision 1
+  url "https://tddft.org/programs/octopus/download/libxc/4.3.4/libxc-4.3.4.tar.gz"
+  sha256 "a8ee37ddc5079339854bd313272856c9d41a27802472ee9ae44b58ee9a298337"
 
   bottle do
     cellar :any
