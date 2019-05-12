@@ -1,9 +1,8 @@
 class AzureStorageCpp < Formula
   desc "Microsoft Azure Storage Client Library for C++"
   homepage "https://azure.github.io/azure-storage-cpp"
-  url "https://github.com/Azure/azure-storage-cpp/archive/v6.0.0.tar.gz"
-  sha256 "3ec43349b741e0d8619e5510901a0abe8832da83167c74275b2e79544d105956"
-  revision 1
+  url "https://github.com/Azure/azure-storage-cpp/archive/v6.1.0.tar.gz"
+  sha256 "a0b6107372125f756783bf6e5d57d24e2c8330a4941f4c72e8ddcf13c31618ed"
 
   bottle do
     cellar :any
@@ -17,7 +16,9 @@ class AzureStorageCpp < Formula
   depends_on "cpprestsdk"
   depends_on "gettext"
   depends_on "openssl"
-  depends_on "ossp-uuid"
+
+  # patch submitted upstream at https://github.com/Azure/azure-storage-cpp/pull/261
+  patch :DATA
 
   def install
     system "cmake", "Microsoft.WindowsAzure.Storage",
@@ -54,3 +55,34 @@ class AzureStorageCpp < Formula
     system "./test_azurestoragecpp"
   end
 end
+
+__END__
+diff --git a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
+index 9171f8c..a427288 100644
+--- a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
++++ b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
+@@ -63,6 +63,12 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
+       /usr/freeware/lib64
+   )
+
++  if (APPLE)
++    if (NOT UUID_LIBRARY)
++      set(UUID_LIBRARY  "")
++    endif (NOT UUID_LIBRARY)
++  endif (APPLE)
++
+   find_library(UUID_LIBRARY_DEBUG
+     NAMES
+       uuidd
+@@ -88,9 +94,9 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
+   set(UUID_INCLUDE_DIRS ${UUID_INCLUDE_DIR})
+   set(UUID_LIBRARIES ${UUID_LIBRARY})
+
+-  if (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
++  if (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
+      set(UUID_FOUND TRUE)
+-  endif (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
++  endif (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
+
+   if (UUID_FOUND)
+     if (NOT UUID_FIND_QUIETLY)
