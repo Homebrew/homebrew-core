@@ -1,6 +1,6 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
-  homepage "http://roguecentral.org/doryen/libtcod/"
+  homepage "https://github.com/libtcod/libtcod"
   url "https://bitbucket.org/libtcod/libtcod/get/1.8.2.tar.bz2"
   sha256 "a33aa463e78b6df327d2aceae875edad8dba7a9e5ea0f1299c486b99f4bed31c"
 

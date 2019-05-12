@@ -2,14 +2,14 @@ class Terraforming < Formula
   desc "Export existing AWS resources to Terraform style (tf, tfstate)"
   homepage "https://terraforming.dtan4.net/"
   url "https://github.com/dtan4/terraforming.git",
-      :tag      => "v0.17.0",
-      :revision => "5e4ad86f109c992c9a8e037553f812d8520bdcca"
+      :tag      => "v0.18.0",
+      :revision => "67cb9299f283bc16bd70c197f25edc419bee280f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6015639b91584c54db6dd1bd206f7ff8aa33f5283f62b815b577221252ff6246" => :mojave
-    sha256 "acf0a20d82810f89ccd244c067f04505080b64e7969c82ae5e184718af9c77d6" => :high_sierra
-    sha256 "9958ab188d0d5d6c45813303cd9a745959c5f2cb83e1054317f5a8f6567c0d65" => :sierra
+    sha256 "e4997ba46e6e796833c2f881f68b20cd52006510371ede211d422190a5223454" => :mojave
+    sha256 "59001edf7447dbab2dd760fcec4fc0a77d711ec43e7d95658aa9c663f7baf44d" => :high_sierra
+    sha256 "f1d900508e9b2a38a1e417ee9f0faa050c89332cf9eff1a3de83c96eebead164" => :sierra
   end
 
   resource "aws-sdk-autoscaling" do

@@ -21,7 +21,7 @@ class Mpg321 < Formula
   #    This is a homemade patch fashioned using deduction.
   # 2. Also a couple of IPV6 values are not defined on OSX that are needed.
   #    This patch was seen in the wild for an app called lscube:
-  #       http://lscube.org/pipermail/lscube-commits/2009-March/000500.html
+  #       lscube.org/pipermail/lscube-commits/2009-March/000500.html [LOST LINK]
   # Both patches have been reported upstream here:
   # https://sourceforge.net/p/mpg321/patches/20/
   # Remove these at: Unknown.  These have not been merged as of 0.3.2.
