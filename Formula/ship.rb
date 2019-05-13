@@ -1,8 +1,8 @@
 class Ship < Formula
   desc "Reducing the overhead of maintaining 3rd-party applications in Kubernetes"
   homepage "https://www.replicated.com/ship"
-  url "https://github.com/replicatedhq/ship/archive/v0.42.0.tar.gz"
-  sha256 "675add9889b5ae2bcdf72be7a77e91d268572a40967607abe756bfcfc8607cb5"
+  url "https://github.com/replicatedhq/ship/archive/v0.43.0.tar.gz"
+  sha256 "6a15a5d614af4b69d8c878eaf396ac5db312c0134e76b5a5af26cdb034fe920e"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class Ship < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@8" => :build
   depends_on "yarn" => :build
 
   def install
