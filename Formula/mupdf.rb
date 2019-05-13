@@ -1,8 +1,8 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.14.0-source.tar.gz"
-  sha256 "c443483a678c3fc258fa4adc124146225d0bb443c522619faadebf6b363d7724"
+  url "https://mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.xz"
+  sha256 "565036cf7f140139c3033f0934b72e1885ac7e881994b7919e15d7bee3f8ac4e"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
