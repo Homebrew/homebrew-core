@@ -2,8 +2,8 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.0.2.tar.xz"
-  sha256 "1a2edc3ce56906a676c91e6851298db45903df1f5cb9827395a922c1452db802"
+  url "https://mesa.freedesktop.org/archive/mesa-19.0.4.tar.xz"
+  sha256 "39f9f32f448d77388ef817c6098d50eb0c1595815ce7e895dec09dd68774ce47"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
@@ -22,8 +22,8 @@ class Mesa < Formula
   depends_on :x11
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
-    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+    url "https://files.pythonhosted.org/packages/f9/93/63f78c552e4397549499169198698de23b559b52e57f27d967690811d16d/Mako-1.0.10.tar.gz"
+    sha256 "7165919e78e1feb68b4dbe829871ea9941398178fa58e6beedb9ba14acf63965"
   end
 
   resource "gears.c" do
