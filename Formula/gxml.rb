@@ -3,7 +3,7 @@ class Gxml < Formula
   homepage "https://wiki.gnome.org/GXml"
   url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.3.tar.xz"
   sha256 "520d4d779b1d31591762b2a98f84072531b9e17ac401df9668493e189eafc6ba"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3275cd7058112128a3fbc61c02aecedc830e67749ec003e4f1f09f01dcb2fd9c" => :mojave
