@@ -4,25 +4,9 @@ class Gdb < Formula
   head "https://sourceware.org/git/binutils-gdb.git"
 
   stable do
-    url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.1.tar.xz"
-    sha256 "0a6a432907a03c5c8eaad3c3cffd50c00a40c3a5e3c4039440624bae703f2202"
-
-    # Fix build with all targets. Remove for 8.3
-    # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0abb9f1a584330a1911ad06b3686e5361
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/all-targets.diff"
-      sha256 "1cb8a1b8c4b4833212e16ba8cfbe620843aba0cba0f5111c2728c3314e10d8fd"
-    end
-
-    # Fix debugging of executables of Xcode 10 and later
-    # created for 10.14 and newer versions of macOS. Remove for 8.3
-    # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=fc7b364aba41819a5d74ae0ac69f050af282d057
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/mojave.diff"
-      sha256 "6264c71b57a0d5d4aed11430d352b03639370b7d36a5b520e189a6a1f105e383"
-    end
-  end
+    url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gdb/gdb-8.3.tar.xz"
+    sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
 
   bottle do
     sha256 "01b06c2983503c78bc346b5f5e2c2bdccbc41d6f5ca759542eef712bf123ca30" => :mojave
