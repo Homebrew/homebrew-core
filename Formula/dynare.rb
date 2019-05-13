@@ -3,7 +3,7 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
   sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -30,8 +30,8 @@ class Dynare < Formula
   depends_on "libmatio"
   depends_on "metis"
   depends_on "octave"
+  depends_on "openblas"
   depends_on "suite-sparse"
-  depends_on "veclibfort"
 
   resource "slicot" do
     url "https://deb.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
