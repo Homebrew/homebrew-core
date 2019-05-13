@@ -25,14 +25,14 @@ class S6 < Formula
   end
 
   head do
-    url "git://git.skarnet.org/s6"
+    url "https://git.skarnet.org/cgi-bin/cgit.cgi/s6", :using => :git
 
     resource "skalibs" do
-      url "git://git.skarnet.org/skalibs"
+      url "https://git.skarnet.org/cgi-bin/cgit.cgi/skalibs", :using => :git
     end
 
     resource "execline" do
-      url "git://git.skarnet.org/execline"
+      url "https://git.skarnet.org/cgi-bin/cgit.cgi/execline", :using => :git
     end
   end
 
