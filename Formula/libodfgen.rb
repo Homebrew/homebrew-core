@@ -1,9 +1,9 @@
 class Libodfgen < Formula
   desc "ODF export library for projects using librevenge"
   homepage "https://sourceforge.net/p/libwpd/wiki/libodfgen/"
-  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.6.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.6/libodfgen-0.1.6.tar.bz2"
-  sha256 "2c7b21892f84a4c67546f84611eccdad6259875c971e98ddb027da66ea0ac9c2"
+  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.7.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.7/libodfgen-0.1.7.tar.xz"
+  sha256 "323e491f956c8ca2abb12c998e350670930a32317bf9662b0615dd4b3922b831"
 
   bottle do
     cellar :any
