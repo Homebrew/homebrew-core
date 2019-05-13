@@ -1,8 +1,8 @@
 class OpenapiGenerator < Formula
   desc "Generate clients, server & docs from an OpenAPI spec (v2, v3)"
   homepage "https://openapi-generator.tech/"
-  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/3.3.4/openapi-generator-cli-3.3.4.jar"
-  sha256 "24cb04939110cffcdd7062d2f50c6f61159dc3e0ca3b8aecbae6ade53ad3dc8c"
+  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/4.0.0/openapi-generator-cli-4.0.0.jar"
+  sha256 "81a5fdde8e4ba38ab7185fa14b46e8b4a555df40a6f288680ef8475cf4642100"
 
   head do
     url "https://github.com/OpenAPITools/openapi-generator.git"
