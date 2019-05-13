@@ -1,12 +1,10 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.3.tar.xz"
+  sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
   head "https://sourceware.org/git/binutils-gdb.git"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gdb/gdb-8.3.tar.xz"
-    sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
 
   bottle do
     sha256 "01b06c2983503c78bc346b5f5e2c2bdccbc41d6f5ca759542eef712bf123ca30" => :mojave
