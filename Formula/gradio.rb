@@ -3,6 +3,7 @@ class Gradio < Formula
   homepage "https://github.com/haecker-felix/Gradio"
   url "https://github.com/haecker-felix/Gradio/archive/v7.2.tar.gz"
   sha256 "5a85d7d4afb1424e46c935114b268e4a65de2629d60f48eccd75d67ff4b113d2"
+  revision 1
 
   bottle do
     sha256 "6dbf39c1065e7b56c72d503e873fa09f1ae7e39d4954b0c535709a9b7011ed30" => :mojave
