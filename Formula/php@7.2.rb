@@ -3,6 +3,7 @@ class PhpAT72 < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.2.19.tar.xz"
   sha256 "4ffa2404a88d60e993a9fe69f829ebec3eb1e006de41b6048ce5e91bbeaa9282"
+  revision 1
 
   bottle do
     sha256 "4aeb81392252f3880cdb0b0c11c2f9cbec638407c8de0ea5d5934fa098dc642c" => :mojave
