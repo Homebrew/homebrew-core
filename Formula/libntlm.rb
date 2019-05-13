@@ -1,8 +1,8 @@
 class Libntlm < Formula
   desc "Implements Microsoft's NTLM authentication"
   homepage "https://www.nongnu.org/libntlm/"
-  url "https://www.nongnu.org/libntlm/releases/libntlm-1.4.tar.gz"
-  sha256 "8415d75e31d3135dc7062787eaf4119b984d50f86f0d004b964cdc18a3182589"
+  url "https://www.nongnu.org/libntlm/releases/libntlm-1.5.tar.gz"
+  sha256 "53d799f696a93b01fe877ccdef2326ed990c0b9f66e380bceaf7bd9cdcd99bbd"
 
   bottle do
     cellar :any
@@ -16,8 +16,17 @@ class Libntlm < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "config.h", "test_ntlm.c", "test.txt", "gl/byteswap.h", "gl/md4.c", "gl/md4.h"
+  end
+
+  test do
+    cp pkgshare.children, testpath
+    system ENV.cc, "test_ntlm.c", "md4.c", "-I#{testpath}", "-L#{lib}", "-lntlm", "-DNTLM_SRCDIR=\"#{testpath}\"", "-o", "test_ntlm"
+    system "./test_ntlm"
   end
 end
