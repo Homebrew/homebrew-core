@@ -14,8 +14,8 @@ class Kibana < Formula
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v10.15.3/node-v10.15.3.tar.xz"
-    sha256 "4e22d926f054150002055474e452ed6cbb85860aa7dc5422213a2002ed9791d5"
+    url "https://nodejs.org/dist/v10.15.3/node-v10.15.2.tar.xz"
+    sha256 "b8bb2da7cb016e895bc2f70009a420f6b8d519e66548624b6130bbfbd5118c59"
   end
 
   resource "yarn" do
