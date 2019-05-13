@@ -2,14 +2,14 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.0.2.tar.xz"
-  sha256 "1a2edc3ce56906a676c91e6851298db45903df1f5cb9827395a922c1452db802"
+  url "https://mesa.freedesktop.org/archive/mesa-19.0.4.tar.xz"
+  sha256 "39f9f32f448d77388ef817c6098d50eb0c1595815ce7e895dec09dd68774ce47"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
-    sha256 "272c6fccac8c4f857cfefcd069f6d81ff36a75ecfceab8b799c3ff3846b9b8cc" => :mojave
-    sha256 "d89a8d65517d69c69aa489b7d1d1e39e9f6103fc73d74cbd32c924e7db342a81" => :high_sierra
-    sha256 "eb505185523aaa863675775b75ef1b4207a04369190c4bda0efe4e781eae4116" => :sierra
+    sha256 "48e73bae1fd4fb3fa7c1f64c3cf9e9369255b717e08b24f12b1b9c9d3d88d82f" => :mojave
+    sha256 "43636cfeedb31d0b367055dc8817a17cf005dc6b970c4502f6f2668983536a8c" => :high_sierra
+    sha256 "0540867db9519e177ee91b4eee7fed6456adf2c18fddb177a4e92d2873fb71cf" => :sierra
   end
 
   depends_on "meson-internal" => :build
@@ -22,8 +22,8 @@ class Mesa < Formula
   depends_on :x11
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
-    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+    url "https://files.pythonhosted.org/packages/f9/93/63f78c552e4397549499169198698de23b559b52e57f27d967690811d16d/Mako-1.0.10.tar.gz"
+    sha256 "7165919e78e1feb68b4dbe829871ea9941398178fa58e6beedb9ba14acf63965"
   end
 
   resource "gears.c" do

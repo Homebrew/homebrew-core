@@ -1,15 +1,14 @@
 class Libpsl < Formula
   desc "C library for the Public Suffix List"
   homepage "https://rockdaboot.github.io/libpsl"
-  url "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.20.2/libpsl-0.20.2.tar.gz"
-  sha256 "f8fd0aeb66252dfcc638f14d9be1e2362fdaf2ca86bde0444ff4d5cc961b560f"
-  revision 2
+  url "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz"
+  sha256 "41bd1c75a375b85c337b59783f5deb93dbb443fb0a52d257f403df7bd653ee12"
 
   bottle do
     cellar :any
-    sha256 "98c946ebba06f2f0841c5927a8cf40e26cd0a6b93b22f6e8882eb51aa33f962c" => :mojave
-    sha256 "8e6d078082a3db2ba057ff8b83ce8f443e59723cf3d5488d0efd453b0670745b" => :high_sierra
-    sha256 "e6b5a1ce50ba7a587f1df6be12128bc651eff278faae5e7aab470b8aaff5a7d2" => :sierra
+    sha256 "4d425f864c29546393f0b6dd4d53cff8c3b4421822a1ad84b073c0cad665eea3" => :mojave
+    sha256 "6c785199ea0e69a1e227ee3d82d302cc2f57d4e457105cd50adf54beb2574318" => :high_sierra
+    sha256 "2e9e468c9c2fe6744250870be81f207d1133aa88299c76d920470f6c9102737e" => :sierra
   end
 
   depends_on "pkg-config" => :build

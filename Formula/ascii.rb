@@ -14,7 +14,7 @@ class Ascii < Formula
   end
 
   head do
-    url "git://thyrsus.com/repositories/ascii.git"
+    url "https://gitlab.com/esr/ascii.git"
     depends_on "xmlto" => :build
   end
 
