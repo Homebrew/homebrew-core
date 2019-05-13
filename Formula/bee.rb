@@ -1,8 +1,8 @@
 class Bee < Formula
   desc "Tool for managing database changes"
   homepage "https://github.com/bluesoft/bee"
-  url "https://github.com/bluesoft/bee/releases/download/1.67/bee-1.67.zip"
-  sha256 "4aa0ea6b804600c2efe648f37fb9e023f1945da883052bf533ac5a763bf32683"
+  url "https://github.com/bluesoft/bee/releases/download/1.71/bee-1.71.zip"
+  sha256 "d6b6bede523447101fe9f8d2b73c6c7e2c980f80aee60152ffdf784b430f92f3"
 
   bottle :unneeded
 
@@ -22,6 +22,6 @@ class Bee < Formula
       test-database.password=
     EOS
     (testpath/"bee").mkpath
-    system bin/"bee", "-d", testpath/"bee", "dbchange:create new-file"
+    system bin/"bee", "-d", testpath/"bee", "dbchange:create", "new-file"
   end
 end
