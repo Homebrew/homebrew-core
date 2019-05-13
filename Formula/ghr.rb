@@ -1,8 +1,8 @@
 class Ghr < Formula
   desc "Upload multiple artifacts to GitHub Release in parallel"
   homepage "https://tcnksm.github.io/ghr"
-  url "https://github.com/tcnksm/ghr/archive/v0.12.0.tar.gz"
-  sha256 "d1b95e55fc4e995de7909942dd031cf218fcb6e3ffbad2cdd2c527b34a7dd2bd"
+  url "https://github.com/tcnksm/ghr/archive/v0.12.1.tar.gz"
+  sha256 "d124f7ad2d4bd5be2d6c51ad4d780d69fffc19e41440f7f14bcf2a24d415e006"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,11 @@ class Ghr < Formula
     dir = buildpath/"src/github.com/tcnksm/ghr"
     dir.install Dir["*"]
     cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"ghr"
+      # Avoid running `go get`
+      inreplace "Makefile", "go get ${u} -d", ""
+
+      system "make", "build"
+      bin.install "bin/ghr" => "ghr"
       prefix.install_metafiles
     end
   end
