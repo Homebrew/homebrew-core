@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-5.1.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-5.1.0.tar.xz"
   sha256 "87b4df6dfa28b1f8028f69659f7a1cabd50adfb81e1e02212ff22c863a29454e"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "c01c0bb0bc269810f92d603c7e3ca69c38707d6a23a0ce4ac58753b4cd9db3fa" => :mojave
@@ -24,7 +24,7 @@ class Octave < Formula
 
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on :java => ["1.6+", :build]
+  depends_on :java => ["1.7+", :build]
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -42,6 +42,7 @@ class Octave < Formula
   depends_on "hdf5"
   depends_on "libsndfile"
   depends_on "libtool"
+  depends_on "openblas"
   depends_on "pcre"
   depends_on "portaudio"
   depends_on "pstoedit"
@@ -52,7 +53,6 @@ class Octave < Formula
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
-  depends_on "veclibfort"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -85,15 +85,16 @@ class Octave < Formula
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
                           "--with-x=no",
-                          "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
+                          "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
                           "--with-portaudio",
                           "--with-sndfile"
     system "make", "all"
 
-    # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
+    # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change
     inreplace "src/mkoctfile.cc" do |s|
       s.gsub! Formula["fftw"].prefix.realpath, Formula["fftw"].opt_prefix
       s.gsub! Formula["gcc"].prefix.realpath, Formula["gcc"].opt_prefix
+      s.gsub! Formula["openblas"].prefix.realpath, Formula["openblas"].opt_prefix
     end
 
     # Make sure that Octave uses the modern texinfo at run time
@@ -105,7 +106,7 @@ class Octave < Formula
 
   test do
     system bin/"octave", "--eval", "(22/7 - pi)/pi"
-    # This is supposed to crash octave if there is a problem with veclibfort
+    # This is supposed to crash octave if there is a problem with BLAS
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
   end
 end
