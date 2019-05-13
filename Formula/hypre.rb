@@ -3,6 +3,7 @@ class Hypre < Formula
   homepage "https://computation.llnl.gov/casc/hypre/software.html"
   url "https://github.com/hypre-space/hypre/archive/v2.16.0.tar.gz"
   sha256 "33f8a27041e697343b820d0426e74694670f955e21bbf3fcb07ee95b22c59e90"
+  revision 1
   head "https://github.com/hypre-space/hypre.git"
 
   bottle do
@@ -14,20 +15,10 @@ class Hypre < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "veclibfort"
 
   def install
     cd "src" do
-      ENV["CC"] = ENV["MPICC"]
-      ENV["CXX"] = ENV["MPICXX"]
-
       system "./configure", "--prefix=#{prefix}",
-                            "--with-blas=yes",
-                            "--with-blas-libs=blas cblas",
-                            "--with-blas-lib-dirs=/usr/lib",
-                            "--with-lapack=yes",
-                            "--with-lapack-libs=lapack clapack f77lapack",
-                            "--with-lapack-lib-dirs=/usr/lib",
                             "--with-MPI",
                             "--enable-bigint"
       system "make", "install"
