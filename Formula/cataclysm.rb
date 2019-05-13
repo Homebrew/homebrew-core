@@ -24,8 +24,6 @@ class Cataclysm < Formula
   depends_on "sdl2_ttf"
 
   def install
-    ENV.cxx11
-
     args = %W[
       NATIVE=osx
       RELEASE=1
@@ -33,6 +31,9 @@ class Cataclysm < Formula
       USE_HOME_DIR=1
       TILES=1
       SOUND=1
+      RUNTESTS=0
+      ASTYLE=0
+      LINTJSON=0
     ]
 
     args << "CLANG=1" if ENV.compiler == :clang
