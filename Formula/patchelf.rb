@@ -1,8 +1,8 @@
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://nixos.org/patchelf.html"
-  url "https://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.gz"
-  sha256 "f2aa40a6148cb3b0ca807a1bf836b081793e55ec9e5540a5356d800132be7e0a"
+  url "https://nixos.org/releases/patchelf/patchelf-0.10/patchelf-0.10.tar.gz"
+  sha256 "b2deabce05c34ce98558c0efb965f209de592197b2c88e930298d740ead09019"
 
   bottle do
     cellar :any_skip_relocation
