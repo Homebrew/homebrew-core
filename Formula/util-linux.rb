@@ -7,9 +7,9 @@ class UtilLinux < Formula
 
   bottle do
     cellar :any
-    sha256 "e3a2f8a25014834e994e1e1316c182d7980ffa2e701d838c3c4ad4a495034c70" => :mojave
-    sha256 "3da928faa6d5dcd4aaaeff0a0c3f909d16dde253375bf7f5328924ff946006c1" => :high_sierra
-    sha256 "02c15639cc3e40c7553dbcb23e94a5e679feeaad8881ed6ddce91c4cb0a015b2" => :sierra
+    sha256 "4378cde04082e8ae81a32a02c329989f10a7b582354d248e81f5958d4a5cf150" => :mojave
+    sha256 "618e77696340f47cda39e0f80dfdc9ddaf18462ee11b536139689c8dc1381b5c" => :high_sierra
+    sha256 "569009c8d2f16d8ebaae5f56a8e6cf528e593f4c9e0ad3f32cf244fb6ddc8e65" => :sierra
   end
 
   keg_only "macOS provides the uuid.h header"
