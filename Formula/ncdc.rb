@@ -1,8 +1,8 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.20.tar.gz"
-  sha256 "8a998857df6289b6bd44287fc06f705b662098189f2a8fe95b1a5fbc703b9631"
+  url "https://dev.yorhel.nl/download/ncdc-1.22.tar.gz"
+  sha256 "fd41ef85cec3eca0107d83583ad25faa8804dd22d76f6da7fc157e0233b13a59"
 
   bottle do
     cellar :any
@@ -23,6 +23,7 @@ class Ncdc < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gnutls"
+  depends_on "ncurses"
   depends_on "sqlite"
 
   def install
