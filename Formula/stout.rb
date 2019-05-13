@@ -1,8 +1,8 @@
 class Stout < Formula
   desc "Reliable static website deploy tool"
   homepage "https://github.com/cloudflare/Stout"
-  url "https://github.com/cloudflare/Stout/archive/v1.3.1.tar.gz"
-  sha256 "455e238e238bf79f58d2e5a41f5ac582361c71a7eec72f45554f1c8f64de7006"
+  url "https://github.com/cloudflare/Stout/archive/v1.3.2.tar.gz"
+  sha256 "33aa533beda7181d5efdcfb9fadcc568f58c1f7e27a4902adf1a6807c4875c99"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +17,11 @@ class Stout < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
     mkdir_p buildpath/"src/github.com/cloudflare"
     ln_s buildpath, buildpath/"src/github.com/cloudflare/stout"
+
     system "go", "build", "-o", bin/"stout", "-v", "github.com/cloudflare/stout/src"
   end
 
