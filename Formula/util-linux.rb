@@ -3,6 +3,7 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.33/util-linux-2.33.2.tar.xz"
   sha256 "631be8eac6cf6230ba478de211941d526808dba3cd436380793334496013ce97"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class UtilLinux < Formula
     sha256 "02c15639cc3e40c7553dbcb23e94a5e679feeaad8881ed6ddce91c4cb0a015b2" => :sierra
   end
 
-  conflicts_with "rename", :because => "both install `rename` binaries"
+  keg_only "macOS provides the uuid.h header"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -20,7 +21,7 @@ class UtilLinux < Formula
                           "--disable-ipcs",        # does not build on macOS
                           "--disable-ipcrm",       # does not build on macOS
                           "--disable-wall",        # already comes with macOS
-                          "--disable-libuuid",     # conflicts with ossp-uuid
+                          "--enable-libuuid",      # conflicts with ossp-uuid
                           "--disable-libsmartcols" # macOS already ships 'column'
 
     system "make", "install"
