@@ -1,8 +1,9 @@
 class Serve < Formula
   desc "Static http server anywhere you need one"
   homepage "https://github.com/syntaqx/serve"
-  url "https://github.com/syntaqx/serve/archive/v0.3.0.tar.gz"
-  sha256 "6bdedf3e3a83ad23cd867c480d32a9f1a91e4e7a289f81579ee4ff308c12d3eb"
+  url "https://github.com/syntaqx/serve/archive/v0.4.0.tar.gz"
+  sha256 "5329738cc72bcee9c7d327981e256369c623257f7f9bd282592deafccacee6f1"
+  head "https://github.com/syntaqx/serve.git"
 
   bottle do
     cellar :any_skip_relocation
