@@ -3,8 +3,8 @@ require "language/go"
 class Teleconsole < Formula
   desc "Free service to share your terminal session with people you trust"
   homepage "https://www.teleconsole.com"
-  url "https://github.com/gravitational/teleconsole/archive/0.3.1.tar.gz"
-  sha256 "663307a1dfe4baadf7e1ed9f5b66b1d203bf9696068e9bcd86e535f286e64d59"
+  url "https://github.com/gravitational/teleconsole/archive/0.4.0.tar.gz"
+  sha256 "ba0a231c5501995e2b948c387360eb84e3a44fe2af6540b6439fc58637b0efa4"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,7 +29,7 @@ class Teleconsole < Formula
 
   go_resource "github.com/gravitational/teleport" do
     url "https://github.com/gravitational/teleport.git",
-        :revision => "002b640a16f097e2f834b4ae33c9edfb81d5798c"
+        :revision => "2cb40abd8ea8fb2915304ea4888b5b9f3e5bc223"
   end
 
   go_resource "github.com/jonboulle/clockwork" do
@@ -62,17 +62,12 @@ class Teleconsole < Formula
         :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
   end
 
-  patch do
-    url "https://github.com/gravitational/teleconsole/pull/8.patch?full_index=1"
-    sha256 "54f551f939c82c482a4aa6df5dbf5077943cf39f2b1d5265a0747c9cc5606e24"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/gravitational"
     ln_s buildpath, buildpath/"src/github.com/gravitational/teleconsole"
     Language::Go.stage_deps resources, buildpath/"src"
-    system "make", "OUT=#{bin}/teleconsole"
+    system "go", "build", "-o", bin/"teleconsole"
   end
 
   test do
