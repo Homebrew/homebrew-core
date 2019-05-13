@@ -3,8 +3,8 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.125.tgz"
-  sha256 "c41cb46e37549958a941c2e8af7d60ed667479adbbdfc8880e5158631b9c5ebc"
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.135.tgz"
+  sha256 "fbe48538043bc04fd2b265f1448adc231e00e5e7d9da233397a8e1bbd4802398"
 
   bottle do
     sha256 "62beda24cd2cd2b33d51e30a1cc30aa6dafed3f6fe9dc550be602851aa10ebdf" => :mojave
@@ -16,15 +16,6 @@ class Joplin < Formula
   depends_on "node"
 
   def install
-    # node 12 compatibility fixes, can be removed for the next version
-    inreplace "package.json" do |s|
-      s.gsub! "\"sharp\": \"^0.20.8\",", "\"sharp\": \"^0.22.1\","
-      s.gsub! "\"sqlite3\": \"^4.0.1\",", "\"sqlite3\": \"^4.0.7\","
-    end
-    inreplace "lib/shim-init-node.js",
-              ".resize(Resource.IMAGE_MAX_DIMENSION, Resource.IMAGE_MAX_DIMENSION)\n				.max()\n				.withoutEnlargement()",
-              ".resize(Resource.IMAGE_MAX_DIMENSION, Resource.IMAGE_MAX_DIMENSION, {fit: 'inside', withoutEnlargement: true})"
-
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
