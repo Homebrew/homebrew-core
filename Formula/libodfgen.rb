@@ -7,12 +7,9 @@ class Libodfgen < Formula
 
   bottle do
     cellar :any
-    sha256 "f6aaac828b7989327fdc4a9ef4e256c68be09ab8d8cb2c1e4372d527d12506b0" => :mojave
-    sha256 "42a2c0bca9c48d8c47bfc54d2b584839dcfe43051c846ddb9d7dd25c449ebe0c" => :high_sierra
-    sha256 "d18687624066fd7e4e45a6a72ef03b387189f0e1931f1a64e4c6dcabe99e0ae0" => :sierra
-    sha256 "b8b0cd9fb81020c6d6018830d75f75004a8edd9f7034e630937e92512b2ee35f" => :el_capitan
-    sha256 "342c71b7855e8a8699638f01f917c29ce85a0d7f695fc2e404446fef3b0eedd4" => :yosemite
-    sha256 "a3062a3348ba437f1cad676dd5c3c58e1541b0ec8cdd5413ab165248d18bd63e" => :mavericks
+    sha256 "82f4fd01079c63a6c460bcc30030f5c3da384775f1a96b209eba0bfaef167e4f" => :mojave
+    sha256 "8d75f3b5976c0415b4c99d78c185d086ed416a6a4a1ce6408c111193886efed7" => :high_sierra
+    sha256 "5d3eeab26f1b61ae6dc105bb6612d339e188095e9633d9e19e08f98c9d9f2b92" => :sierra
   end
 
   depends_on "boost" => :build
