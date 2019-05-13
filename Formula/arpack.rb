@@ -3,7 +3,7 @@ class Arpack < Formula
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.7.0.tar.gz"
   sha256 "972e3fc3cd0b9d6b5a737c9bf6fd07515c0d6549319d4ffb06970e64fa3cc2d6"
-  revision 1
+  revision 2
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
@@ -18,17 +18,20 @@ class Arpack < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
+  depends_on "eigen"
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "veclibfort"
+  depends_on "openblas"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{libexec}
-      --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort
+      --with-blas=-L#{Formula["openblas"].opt_lib}\ -lopenblas
       F77=mpif77
-      -enable-mpi
+      --enable-mpi
+      --enable-icb
+      --enable-icb-exmm
     ]
 
     system "./bootstrap"
@@ -40,13 +43,13 @@ class Arpack < Formula
     (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
                      "TESTS/mmio.f", "TESTS/debug.h"
-    (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
   end
 
   test do
-    system "gfortran", "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
+    ENV.fortran
+    system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
                        "-L#{lib}", "-larpack",
-                       "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
+                       "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
   end
