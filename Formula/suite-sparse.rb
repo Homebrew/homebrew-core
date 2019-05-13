@@ -3,6 +3,7 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.3.0.tar.gz"
   sha256 "90e69713d8c454da5a95a839aea5d97d8d03d00cc1f667c4bdfca03f640f963d"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,6 +15,7 @@ class SuiteSparse < Formula
 
   depends_on "cmake" => :build
   depends_on "metis"
+  depends_on "openblas"
 
   conflicts_with "mongoose", :because => "suite-sparse vendors libmongoose.dylib"
 
@@ -24,7 +26,7 @@ class SuiteSparse < Formula
 
     args = [
       "INSTALL=#{prefix}",
-      "BLAS=-framework Accelerate",
+      "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "LAPACK=$(BLAS)",
       "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
       "MY_METIS_INC=#{Formula["metis"].opt_include}",
@@ -37,7 +39,8 @@ class SuiteSparse < Formula
 
   test do
     system ENV.cc, "-o", "test", pkgshare/"klu_simple.c",
-                   "-L#{lib}", "-lsuitesparseconfig", "-lklu"
-    system "./test"
+           "-L#{lib}", "-lsuitesparseconfig", "-lklu"
+    assert_predicate testpath/"test", :exist?
+    assert_match "x [0] = 1", shell_output("./test")
   end
 end
