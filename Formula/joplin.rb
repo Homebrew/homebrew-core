@@ -3,28 +3,19 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.125.tgz"
-  sha256 "c41cb46e37549958a941c2e8af7d60ed667479adbbdfc8880e5158631b9c5ebc"
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.135.tgz"
+  sha256 "fbe48538043bc04fd2b265f1448adc231e00e5e7d9da233397a8e1bbd4802398"
 
   bottle do
-    sha256 "62beda24cd2cd2b33d51e30a1cc30aa6dafed3f6fe9dc550be602851aa10ebdf" => :mojave
-    sha256 "41cba5161cac53128d62d1d32c91d1cc215e11ead231be421bef68817eb0eb39" => :high_sierra
-    sha256 "53e066877ba15725e1af3f64ca467d43c03177351c7b78752f01575e226f6a59" => :sierra
+    sha256 "298124185fde16a020c302643c265f82cf513fb2626f5d449c33d3873e3d4c70" => :mojave
+    sha256 "54a6ba3bb9cb3bd882c6aff9e805b9b3333e25ee63f72b6ee2787abc9ab73430" => :high_sierra
+    sha256 "fe27cd4ce9b5682bfa661795dd7e3473a448bd488c1d188d793e71709cc772a7" => :sierra
   end
 
   depends_on "python@2" => :build
   depends_on "node"
 
   def install
-    # node 12 compatibility fixes, can be removed for the next version
-    inreplace "package.json" do |s|
-      s.gsub! "\"sharp\": \"^0.20.8\",", "\"sharp\": \"^0.22.1\","
-      s.gsub! "\"sqlite3\": \"^4.0.1\",", "\"sqlite3\": \"^4.0.7\","
-    end
-    inreplace "lib/shim-init-node.js",
-              ".resize(Resource.IMAGE_MAX_DIMENSION, Resource.IMAGE_MAX_DIMENSION)\n				.max()\n				.withoutEnlargement()",
-              ".resize(Resource.IMAGE_MAX_DIMENSION, Resource.IMAGE_MAX_DIMENSION, {fit: 'inside', withoutEnlargement: true})"
-
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end

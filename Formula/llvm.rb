@@ -36,6 +36,11 @@ class Llvm < Formula
       sha256 "9caec8ec922e32ffa130f0fb08e4c5a242d7e68ce757631e425e9eba2e1a6e37"
     end
 
+    resource "lldb" do
+      url "https://releases.llvm.org/8.0.0/lldb-8.0.0.src.tar.xz"
+      sha256 "49918b9f09816554a20ac44c5f85a32dc0a7a00759b3259e78064d674eac0373"
+    end
+
     resource "openmp" do
       url "https://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
       sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
@@ -49,9 +54,10 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    sha256 "28494073b3d20b22668ca82af68fef01c59708547acec2f6b86ff5e3e152e8dc" => :mojave
-    sha256 "a2bf6ec0b51b56541c40d31ec7677b700764850e93f29474f54333b96355bc0d" => :high_sierra
-    sha256 "b827b266bcbca04ea70b362b452aa0c903403e14847665c0ce59b6b11273a21f" => :sierra
+    rebuild 1
+    sha256 "6a44cd91d7e3b01fef214c31e736c77cfb681d2d0e6e576ab725c8071858a36d" => :mojave
+    sha256 "d92a2a8b0066e2b70190d59cc980a12a2362b56f9100c7ef4051dc08e762c52e" => :high_sierra
+    sha256 "168806783f260662a1bb126f300c21060fbf24d01424fd8e64cc5c54e2c81b9c" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -87,6 +93,10 @@ class Llvm < Formula
       url "https://git.llvm.org/git/lld.git"
     end
 
+    resource "lldb" do
+      url "https://git.llvm.org/git/lldb.git"
+    end
+
     resource "openmp" do
       url "https://git.llvm.org/git/openmp.git"
     end
@@ -102,6 +112,7 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
+  depends_on "swig" if MacOS.version >= :lion
 
   def install
     # Apple's libstdc++ is too old to build LLVM
@@ -113,6 +124,7 @@ class Llvm < Formula
     (buildpath/"projects/libcxx").install resource("libcxx")
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/lldb").install resource("lldb")
     (buildpath/"tools/polly").install resource("polly")
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
@@ -140,6 +152,8 @@ class Llvm < Formula
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
+      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
+      -DLLDB_DISABLE_PYTHON=1
     ]
 
     mkdir "build" do
