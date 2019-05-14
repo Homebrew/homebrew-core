@@ -1,8 +1,8 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "https://marlam.de/msmtp/"
-  url "https://marlam.de/msmtp/releases/msmtp-1.8.3.tar.xz"
-  sha256 "3cb2eefd33d048f0f82de100ef39a494e44fd1485e376ead31f733d2f36b92b4"
+  url "https://marlam.de/msmtp/releases/msmtp-1.8.4.tar.xz"
+  sha256 "e5dd7fe95bc8e2f5eea3e4894ec9628252f30bd700a7fd1a568b10efa91129f7"
 
   bottle do
     cellar :any
@@ -12,14 +12,15 @@ class Msmtp < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "gnutls"
 
   def install
     args = %W[
+      --disable-debug
       --disable-dependency-tracking
+      --disable-silent-rules
       --with-macosx-keyring
       --prefix=#{prefix}
-      --with-tls=openssl
     ]
 
     system "./configure", *args
