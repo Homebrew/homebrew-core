@@ -18,7 +18,6 @@ class GambitScheme < Formula
       --enable-single-host
       --enable-multiple-versions
       --enable-default-runtime-options=f8,-8,t8
-      --enable-poll
       --enable-openssl
     ]
 
