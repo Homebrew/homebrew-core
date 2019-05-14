@@ -7,10 +7,9 @@ class Mtools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "082a30c7f075085d136c7d2c001fc02e5b1ff47404ebc67ea53819031a878835" => :mojave
-    sha256 "f630af7b561b34f06e1f233211d66115c7b65365b3676058e6d91454f0e9941c" => :high_sierra
-    sha256 "cd5cbd343ef7f50ddb53be99ea5f5a7bd1ccddea252924bfd57fef84a69095a9" => :sierra
+    sha256 "541d3f5c8c8059dade3f91871f71c97c9ceff2987e97c95f4fefb57a8b55fc44" => :mojave
+    sha256 "402e30be30bc720b3bc8249da0ce56e7378f6e6f62ea68ddae27d558e438bca7" => :high_sierra
+    sha256 "c3fea7a5246d365ef2d4466b0722102afaf39a362b5127ffbe084de03b7afcf0" => :sierra
   end
 
   conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
