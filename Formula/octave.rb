@@ -57,6 +57,14 @@ class Octave < Formula
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
+  # Octave fails to build due to error with java. See also
+  # https://github.com/Homebrew/homebrew-core/issues/39848
+  # Patch submitted upstream at: https://savannah.gnu.org/patch/index.php?9806
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/octave/5.1.0-java-version.patch"
+    sha256 "7ea1e9b410a759fa136d153fb8482ecfc3425a39bfe71c1e71b3ff0f7d9a0b54"
+  end
+
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
@@ -94,7 +102,6 @@ class Octave < Formula
     inreplace "src/mkoctfile.cc" do |s|
       s.gsub! Formula["fftw"].prefix.realpath, Formula["fftw"].opt_prefix
       s.gsub! Formula["gcc"].prefix.realpath, Formula["gcc"].opt_prefix
-      s.gsub! Formula["openblas"].prefix.realpath, Formula["openblas"].opt_prefix
     end
 
     # Make sure that Octave uses the modern texinfo at run time
