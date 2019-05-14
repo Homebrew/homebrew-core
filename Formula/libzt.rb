@@ -3,14 +3,12 @@ class Libzt < Formula
   homepage "https://www.zerotier.com"
 
   url "https://github.com/zerotier/libzt.git",
-    :tag      => "1.3.1-hb0",
-    :revision => "26ba6add126dd425c73627706753044e10b606af"
+    :tag      => "1.3.1-hb1",
+    :revision => "d5b064623e1161196fd5bc14668e83bec2c27717"
 
   depends_on "cmake" => :build
 
   def install
-    system "git", "-C", "ext/lwip", "apply", "../lwip.patch"
-    system "git", "-C", "ext/lwip-contrib", "apply", "../lwip-contrib.patch"
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "make", "install"
