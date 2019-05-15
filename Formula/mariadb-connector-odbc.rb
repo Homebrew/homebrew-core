@@ -1,8 +1,8 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://downloads.mariadb.org/connector-odbc/"
-  url "https://downloads.mariadb.org/f/connector-odbc-3.0.2/mariadb-connector-odbc-3.0.2-ga-src.tar.gz"
-  sha256 "eba4fbda21ae9d50c94d2cd152f0ec14dde3989522f41ef7d22aa0948882ff93"
+  url "https://downloads.mariadb.org/f/connector-odbc-3.1.1/mariadb-connector-odbc-3.1.1-ga-src.tar.gz"
+  sha256 "fbfb23b09c83ce468b63488cde7ab6fbe53e24dc8940b964d3114699f1ab5cad"
 
   bottle do
     cellar :any
