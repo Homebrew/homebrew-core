@@ -8,9 +8,9 @@ class SourceToImage < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af4411e7f5e5778eea3c2bd2a14ba87b750368073dd5b9ae8b96dcf5fa8518bd" => :mojave
-    sha256 "8d4cc648d5ae922ffde63f5a0d019e5324e289bde4db4ddbae99419d695acf4f" => :high_sierra
-    sha256 "c8cb66a64bf537e985d1b32bea711be099b5377002d5ca86c59c34cb6b39368f" => :sierra
+    sha256 "179ed06aa8cee8c8c7c6b8658eed696359170116c2ac366dadfaf086d533b033" => :mojave
+    sha256 "a315100e844a70c78cf11eae24c70ff663f239fe79274da5b99223fbe6081a87" => :high_sierra
+    sha256 "02ffcf2849f2051b0a7355b626ca06b2b2560ce09f68fff64f6b7a79966c750b" => :sierra
   end
 
   depends_on "go" => :build
