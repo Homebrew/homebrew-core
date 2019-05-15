@@ -1,14 +1,13 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz"
-  sha256 "bdfa0255e031b8ee003cc283002536b77ee76450105f1dc6ab066b9bf4330068"
+  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.2.tar.xz"
+  sha256 "c022f3d10f55a5b7c31676fb001b4cb6401db8ab9f6e8418c69de00d0f268732"
 
   bottle do
-    sha256 "755fef493a32ac77d0c51b37f58059471fba1e9e709a42d22952a937c412c9c6" => :mojave
-    sha256 "434a7245581b3741d79b41f55fb4b1c7f0aea729e04b8e1ea838505025b6fc5d" => :high_sierra
-    sha256 "9db7d767f3a3b9f2f758e3076c77b59bd8905fccc2a97e21b085838e2ad7bafd" => :sierra
-    sha256 "c64f800a0043acaaa04693b684874547ce607d5b1babef1b054b9e27fa24465d" => :el_capitan
+    sha256 "d9d4579a0057696619bbf0dbf816906715d280537668dd76374fdfccaf43964b" => :mojave
+    sha256 "09acab76ae56b356896fca00d53858529d46456f48a9de6bbf98f5acb6ff89da" => :high_sierra
+    sha256 "79fb32a2ffd0c0c18ff916783f452cc6edb15289b8836d706c5894e9415de646" => :sierra
   end
 
   depends_on "meson" => :build
@@ -27,7 +26,9 @@ class GlibNetworking < Formula
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
-                      "-Dlibproxy_support=false",
+                      "-Dlibproxy=disabled",
+                      "-Dopenssl=disabled",
+                      "-Dgnome_proxy=disabled",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"

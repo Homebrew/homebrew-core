@@ -1,14 +1,14 @@
 class AzureStorageCpp < Formula
   desc "Microsoft Azure Storage Client Library for C++"
   homepage "https://azure.github.io/azure-storage-cpp"
-  url "https://github.com/Azure/azure-storage-cpp/archive/v6.0.0.tar.gz"
-  sha256 "3ec43349b741e0d8619e5510901a0abe8832da83167c74275b2e79544d105956"
+  url "https://github.com/Azure/azure-storage-cpp/archive/v6.1.0.tar.gz"
+  sha256 "a0b6107372125f756783bf6e5d57d24e2c8330a4941f4c72e8ddcf13c31618ed"
 
   bottle do
     cellar :any
-    sha256 "6929f7ab7ccc75d3986b804d8bbd39e16ced42c16d2923ff6d92dabf5836e905" => :mojave
-    sha256 "32a47cb8d26d52a582163dc7b05af696b279ee63b7557209b53e81e15e37a9ad" => :high_sierra
-    sha256 "c65aa60f0f007fb849a5bb31a7c4e46a0d1c8c5113fb950968798defdb78e2df" => :sierra
+    sha256 "2113fe5944654429f6d9e3a580588cbd954bca8c455d0947c90990dce86ebd84" => :mojave
+    sha256 "370139544c478e8af10d82e2b4e9a32b61abeecfe553589fd8e05f3da9215d49" => :high_sierra
+    sha256 "f32ae964285fb86613c99e0e216be516403810c07df60d48a7661bd9bc4be131" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -16,7 +16,9 @@ class AzureStorageCpp < Formula
   depends_on "cpprestsdk"
   depends_on "gettext"
   depends_on "openssl"
-  depends_on "ossp-uuid"
+
+  # patch submitted upstream at https://github.com/Azure/azure-storage-cpp/pull/261
+  patch :DATA
 
   def install
     system "cmake", "Microsoft.WindowsAzure.Storage",
@@ -53,3 +55,34 @@ class AzureStorageCpp < Formula
     system "./test_azurestoragecpp"
   end
 end
+
+__END__
+diff --git a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
+index 9171f8c..a427288 100644
+--- a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
++++ b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
+@@ -63,6 +63,12 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
+       /usr/freeware/lib64
+   )
+
++  if (APPLE)
++    if (NOT UUID_LIBRARY)
++      set(UUID_LIBRARY  "")
++    endif (NOT UUID_LIBRARY)
++  endif (APPLE)
++
+   find_library(UUID_LIBRARY_DEBUG
+     NAMES
+       uuidd
+@@ -88,9 +94,9 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
+   set(UUID_INCLUDE_DIRS ${UUID_INCLUDE_DIR})
+   set(UUID_LIBRARIES ${UUID_LIBRARY})
+
+-  if (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
++  if (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
+      set(UUID_FOUND TRUE)
+-  endif (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
++  endif (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
+
+   if (UUID_FOUND)
+     if (NOT UUID_FIND_QUIETLY)

@@ -4,11 +4,12 @@ class GccAT7 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
   sha256 "eddde28d04f334aec1604456e536416549e9b1aa137fc69204e65eb0c009fe51"
+  revision 2
 
   bottle do
-    sha256 "28647ff0add287c71766bca5256251a8024df615bac3165fafce28bdc2a7f2b6" => :mojave
-    sha256 "6966a74ba19fbb9f72d9587d19fa492b5a8f44e90b0d491303884b0bf579e5d0" => :high_sierra
-    sha256 "eb8d6e1902b8820e45e2ef17ae77fe2dd462d3edf3cd53792d6931d5b9b7fe85" => :sierra
+    sha256 "cd0ab374ef92a1688ccf2e6cf6c275c64e99b05ef1e7b145e3ef56569cc2f2e6" => :mojave
+    sha256 "5a47d91428176dfb4b77bcddc24844a0ae31dd0cd8347913e10eb753e0b7df61" => :high_sierra
+    sha256 "804157359c20bdb3ddf6b8b2bd86a6ead241d217d00e82b1365539ef9675ce1b" => :sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -25,6 +26,16 @@ class GccAT7 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
+  # but this patch is a work around committed to GCC trunk
+  if MacOS::Xcode.version >= "10.2"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%407/gcc7-xcode10.2.patch"
+      sha256 "873f791d249467bd4187f2994b08a924774d39311af93b61c827e066434181fe"
+    end
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.

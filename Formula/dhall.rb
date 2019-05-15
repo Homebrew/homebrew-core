@@ -5,14 +5,14 @@ class Dhall < Formula
 
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.20.1/dhall-1.20.1.tar.gz"
-  sha256 "e077e8f4945484db4e35e8ae422e9eabac1b155972602f0404d818e3e185bcdc"
+  url "https://hackage.haskell.org/package/dhall-1.21.0/dhall-1.21.0.tar.gz"
+  sha256 "9b22cc6f7694ef2f5d5d6fa66727044622b9905b2a9da0cdf376c75ad3b9df0e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "257bed839ea53d14054be3fefa0e35b78b3b807e59f88eb84013e9aa0c364a09" => :mojave
-    sha256 "ce895046f75e368da7c5e750bfdb32d487307a4ceecef3aa11febfa48524a28c" => :high_sierra
-    sha256 "ee166bcae7c837e83ba18756321da6df166906b740403353432834363fff3bcf" => :sierra
+    sha256 "c751a56dc0fd6a65f80daa209ca094fdf926b5a74630d530bbf18ffbfad43267" => :mojave
+    sha256 "993bd1c4176bb635fd7708749efe165f295ee34b5c78392cfaba53c6fb4d3c06" => :high_sierra
+    sha256 "75a9ca2016e170522742afdb2ee5d19030afa9e5b7a3336c4bf5de0645198c9a" => :sierra
   end
 
   depends_on "cabal-install" => :build

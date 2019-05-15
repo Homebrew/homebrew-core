@@ -7,21 +7,20 @@ class Agda < Formula
   homepage "https://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.4.2/Agda-2.5.4.2.tar.gz"
-    sha256 "f645add8a47a35da3f37757204fa9c80aeb0993d628fc2057fa343e92e579b1f"
+    url "https://hackage.haskell.org/package/Agda-2.6.0/Agda-2.6.0.tar.gz"
+    sha256 "bf71bc634a9fe40d717aae76b5b160dfd13a06365615e7822043e5d476c06fb8"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :tag      => "v0.17",
-          :revision => "5819a4dd9c965296224944f05b1481805649bdc2"
+          :tag      => "v1.0.1",
+          :revision => "442abf2b3418d4d488381a2f8ca4e99bbf8cfc8e"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 "eef42265827b82744ad2b9d6238fa4d8984d226251fb54825734f300a40faa98" => :mojave
-    sha256 "74b627b7b04489c7ea610fada9df16d3a6f3e5926a6ee40f3032f93e67382b44" => :high_sierra
-    sha256 "b8d0a4cd285ee27406e9dc673d03b6c0bb34604c72919b8059826a7c84b7c547" => :sierra
+    sha256 "33438627ea54c158323b499f5cff0acb0fcdb1498ed46709254182d3926c99a8" => :mojave
+    sha256 "8e41acf29ecb3319d8ef00b77de952cfccafef87bf705bc32c1837073ce62acb" => :high_sierra
+    sha256 "a49f81d7e0f49023a23067d0e496e2a387258d91820f23838f2ef804bea86714" => :sierra
   end
 
   head do
@@ -117,7 +116,7 @@ class Agda < Formula
       postulate
         return : ∀ {A : Set} → A → IO A
 
-      {-# COMPILED return (\\_ -> return) #-}
+      {-# COMPILE GHC return = \\_ -> return #-}
 
       main : _
       main = return tt

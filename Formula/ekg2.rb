@@ -7,9 +7,10 @@ class Ekg2 < Formula
   revision 3
 
   bottle do
-    sha256 "0743656772367528b12696d599be81d46a0f2dffd8599b7331da7dc2c46fa404" => :mojave
-    sha256 "4415b63628ac3a3f2e43419bbbdacd17184e3e23913b26bcc87152fc0a91a4ae" => :high_sierra
-    sha256 "bb1c5ca15114cdd1b9f93cf1db9fc544cfdd1edc4f9fc31e0891627d738ad027" => :sierra
+    rebuild 1
+    sha256 "d5f538008f49c37795bebab14977c48986e98bb0ee9d0ac8a2a40fd1e59674eb" => :mojave
+    sha256 "b8398d6f3c8a39dafc4a11765c9d78a7d136345d8d2f6822197da675dc6e7f36" => :high_sierra
+    sha256 "cc770b5b31d0c14a5794a722df0fd34429e2722ca41f603a7db48deb367c1826" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -17,7 +18,7 @@ class Ekg2 < Formula
   depends_on "readline"
 
   # Fix the build on OS X 10.9+
-  # http://bugs.ekg2.org/issues/152
+  # bugs.ekg2.org/issues/152 [LOST LINK]
   patch :DATA
 
   def install

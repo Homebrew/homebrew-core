@@ -1,16 +1,16 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://archive.apache.org/dist/arrow/arrow-0.12.1/apache-arrow-0.12.1.tar.gz"
-  sha256 "e93e43343544e344bbc912b89da01d8abf66596f029d26b2b135b102a9e39895"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
+  sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
   revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "f3f5de99bbc3316b6c7c87e00ceb8945fd247a7e677e6e7c9bf67d653ba68c2d" => :mojave
-    sha256 "c04ab30e5bcf672df66859c8179e6ced7458be0f621a3664af1b1d89ff8c46d8" => :high_sierra
-    sha256 "c4231003ed619cbd47cbca2bf74793576f14348b8feea8b3bf22b152dfb82d63" => :sierra
+    sha256 "6aa00e8691bb50792063fabf779654c84779191c61e535f673bdcce23f6ab5c9" => :mojave
+    sha256 "b1e94f45e5784bac3dd5d7e91cc9b528b327ef04414aee50e3e0e2f3a1a95cde" => :high_sierra
+    sha256 "edb8034cb655983af33466bf7b8347af2761e36be3ff9324c1f69b62ebea717b" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -33,6 +33,7 @@ class ApacheArrow < Formula
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
+      -DARROW_INSTALL_NAME_RPATH=OFF
       -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
       -DLZ4_HOME=#{Formula["lz4"].prefix}
       -DPROTOBUF_HOME=#{Formula["protobuf"].prefix}

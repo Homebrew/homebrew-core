@@ -1,16 +1,15 @@
 class Libetpan < Formula
   desc "Portable mail library handling several protocols"
   homepage "https://www.etpan.org/libetpan.html"
-  url "https://github.com/dinhviethoa/libetpan/archive/1.9.2.tar.gz"
-  sha256 "45a3bef81ae1818b8feb67cd1f016e774247d7b03804d162196e5071c82304ab"
-  revision 1
+  url "https://github.com/dinhviethoa/libetpan/archive/1.9.3.tar.gz"
+  sha256 "591f97d5102f600e668502fe1dd5a341e910a840d8ea62e689a3a79d8bfbac87"
   head "https://github.com/dinhviethoa/libetpan.git", :branch => "master"
 
   bottle do
     cellar :any
-    sha256 "98f05589259d5f285335a2ded65429e9f00213ec2b2ecf12b3d989477d75931d" => :mojave
-    sha256 "0f46d1f2eeffc2128e9a982e2c5eac22de3c56559ce1cd1076fa273ab1058782" => :high_sierra
-    sha256 "c6a39364b0652b0b80fb1cb4affee5de19d4bbcdb3ee1946f270bb5c90e8b982" => :sierra
+    sha256 "f9c8629d0d2282ffa40ab63cb18efafc8f1eced93fa34330c23c8a5aa7077e1b" => :mojave
+    sha256 "1c987f8bcdd60768be72e0b724050a6d518f472e6cd10f15a31898415ff2f254" => :high_sierra
+    sha256 "9bc63c0c6302a29e1fe513d179029fe9d70984b043e0940c31073c114fd09199" => :sierra
   end
 
   depends_on :xcode => :build

@@ -2,14 +2,14 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      :tag      => "1.10.2",
-      :revision => "163fb907e8a4e0c3e05b8e15c1fdf6e0a02ca2c9"
+      :tag      => "1.13.0",
+      :revision => "b5faf0766294ec83b600a43b6fcf3224165db839"
 
   bottle do
     cellar :any
-    sha256 "1d8048082933af07d1f1bee47c9a2fcdbe05ff957e4c9a28b77b03273e0cd7a5" => :mojave
-    sha256 "982da2ada17a8243dffab3e7dbcea9f22f8e7afed5782d5162ceb84b7c211775" => :high_sierra
-    sha256 "edc16e04dc84c2ff96a5486f03d28626c837d5fcde960cf275f1062cc151ad8d" => :sierra
+    sha256 "f4934a556e23940ffbdc844eb8c0df629a540806938a8ccd998f0f004644da0f" => :mojave
+    sha256 "ef086ac4bb57a8601cf969fcb342789663ca4993a543b49e92c7264f63dace24" => :high_sierra
+    sha256 "ef4e0bb5299cce8fc468114dc18ee35dadfcde62f4052c9525c30f68cf06f143" => :sierra
   end
 
   depends_on "libyaml"
@@ -20,6 +20,7 @@ class ThorsSerializer < Formula
     system "./configure", "--disable-binary",
                           "--disable-vera",
                           "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 

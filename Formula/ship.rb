@@ -1,18 +1,18 @@
 class Ship < Formula
   desc "Reducing the overhead of maintaining 3rd-party applications in Kubernetes"
   homepage "https://www.replicated.com/ship"
-  url "https://github.com/replicatedhq/ship/archive/v0.34.0.tar.gz"
-  sha256 "252ff2eef0b1fc9289caa037a46dc008d0dd45f893e58d7a6424c8990a447440"
+  url "https://github.com/replicatedhq/ship/archive/v0.43.0.tar.gz"
+  sha256 "6a15a5d614af4b69d8c878eaf396ac5db312c0134e76b5a5af26cdb034fe920e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "051174615c9a616cd7df62932ee2262c67ac1eb7b6100147800a7f3e04f9dbf2" => :mojave
-    sha256 "044c5f1230f1390fe11ecbc7ad938390493d75fb8d8260eebbff8839d4c22867" => :high_sierra
-    sha256 "debdb05f2b6bc5a17e014440ad3d7ddebf88887bd23a6949f3c3f22eb1bbc6d4" => :sierra
+    sha256 "8b45fb3ea81811285ec9e356c958fc78e0c1aefad0d86fb3b82faec986743fe1" => :mojave
+    sha256 "06b68058b08a534af9194a0964961f7cce77ddb645877d22d103e3cd8d9d449d" => :high_sierra
+    sha256 "9cf24478e0f1dba7b2e2644269ab01d04d0b2c66626c4427ab0aa51a28a48960" => :sierra
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@8" => :build
   depends_on "yarn" => :build
 
   def install

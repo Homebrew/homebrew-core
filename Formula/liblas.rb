@@ -3,14 +3,13 @@ class Liblas < Formula
   homepage "https://liblas.org/"
   url "https://download.osgeo.org/liblas/libLAS-1.8.1.tar.bz2"
   sha256 "9adb4a98c63b461ed2bc82e214ae522cbd809cff578f28511122efe6c7ea4e76"
-  revision 1
+  revision 2
   head "https://github.com/libLAS/libLAS.git"
 
   bottle do
-    rebuild 1
-    sha256 "132fc923c89408039e5569e1a25b47faccf26e77cd2faf7557c7cb85e0a04016" => :mojave
-    sha256 "b36963b697eca8a6860e40bbab35d6b07204b8e2902946ea11bf15d3ebb26cf3" => :high_sierra
-    sha256 "04c3faa7f0aa841bc5baa731b3b1428805c3a292c8f4961952c29091c29d67a0" => :sierra
+    sha256 "24feded542fe38d0d87d5ee2094880502809a14e4302c5fcd394f900eb74d7d8" => :mojave
+    sha256 "33aa9ae6196dafb9c1fc0a382d92abfa909314c469cf61e8c98657dcf3323c09" => :high_sierra
+    sha256 "cf7957ad8196d8cb9b792f50a096ad17261f1aa28e33a71d14baa355d7065952" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -46,7 +45,6 @@ class Liblas < Formula
                             "-DWITH_GDAL=ON",
                             "-DWITH_GEOTIFF=ON"
       system "make"
-      system "make", "test"
       system "make", "install"
     end
   end

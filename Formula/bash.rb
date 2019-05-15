@@ -5,22 +5,26 @@ class Bash < Formula
 
   stable do
     url "https://ftp.gnu.org/gnu/bash/bash-5.0.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0.tar.gz"
-    mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0.tar.gz"
+    mirror "https://deb.debian.org/gnu/bash/bash-5.0.tar.gz"
     mirror "https://ftpmirror.gnu.org/bash/bash-5.0.tar.gz"
     mirror "https://gnu.cu.be/bash/bash-5.0.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-5.0.tar.gz"
     sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
-    version "5.0.2"
+    version "5.0.7"
 
     %w[
       001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
       002 87e87d3542e598799adb3e7e01c8165bc743e136a400ed0de015845f7ff68707
+      003 4eebcdc37b13793a232c5f2f498a5fcbf7da0ecb3da2059391c096db620ec85b
+      004 14447ad832add8ecfafdce5384badd933697b559c4688d6b9e3d36ff36c62f08
+      005 5bf54dd9bd2c211d2bfb34a49e2c741f2ed5e338767e9ce9f4d41254bf9f8276
+      006 d68529a6ff201b6ff5915318ab12fc16b8a0ebb77fda3308303fcc1e13398420
+      007 17b41e7ee3673d8887dd25992417a398677533ab8827938aa41fad70df19af9b
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://mirrors.ocf.berkeley.edu/gnu/bash/bash-5.0-patches/bash50-#{p}"
-        mirror "https://mirrors.kernel.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
+        mirror "https://deb.debian.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://ftpmirror.gnu.org/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://gnu.cu.be/bash/bash-5.0-patches/bash50-#{p}"
         mirror "https://mirror.unicorncloud.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
@@ -30,9 +34,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "72c08f9abb1556ba97617d108717dfced16fd03a13a1b959a0cc4f7601e3b5fc" => :mojave
-    sha256 "8aaba75411debe66a23dc6b4dec8f49711bc39354b674b7605d6c5c963bb7aee" => :high_sierra
-    sha256 "1db2a380877c4e8a4daf7bfcdef5a9b6b8980b02f9c72f39a98365cb8b446ccc" => :sierra
+    sha256 "07f1f20a0fd6a8b06cd66d9aa6bd26d4d5afe5bd79b5354b081493bb9ee28943" => :mojave
+    sha256 "bf87f6875d02d049f651da3c31c2b5db66bb8324ce28641f18e0768112de72ac" => :high_sierra
+    sha256 "68ca9e0ac8c1dfe45c4f9e9ff25fa44080b827f4634a7ff5cc5fc6e65a302d62" => :sierra
   end
 
   def install

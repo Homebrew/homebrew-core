@@ -1,25 +1,21 @@
 class SsllabsScan < Formula
   desc "This tool is a command-line client for the SSL Labs APIs"
   homepage "https://github.com/ssllabs/ssllabs-scan/"
-  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.4.0.tar.gz"
-  sha256 "a7d5fad92649172ca4b190f481172b602aa1ae103d14dd1f1951ee250d382eec"
+  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.5.0.tar.gz"
+  sha256 "51c52e958d5da739910e9271a3abf4902892b91acb840ea74f5c052a71e3a008"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "347219010c359655ec30f056c47a7a3e0d91e80fabfc5655f141c3f20dc980d5" => :mojave
-    sha256 "bee10085983dac1bcd9d46773ea7e2fc50ec3c8c54442d8ef50cb1683ab9175c" => :high_sierra
-    sha256 "e527081f119ba004e06bba763d780d676df38bacd28b482bbeae64cbf43e4aea" => :sierra
-    sha256 "f541615737e69900d1a141af1872bc983cdeb94cd28016dfa8c3f5ba0f11d8c0" => :el_capitan
-    sha256 "18b509cec2507dd9a50aedcb618a8069ecbecc765cd31791381765c596702932" => :yosemite
+    sha256 "eab95a02c320153e8bcc68bcbc960665fd7b755d9a339d4bdd6618d5d33714e6" => :mojave
+    sha256 "91041d74d4bd340c53f15bab9c43fb6d7757601e0da00d810cdc2733a6e6c9a5" => :high_sierra
+    sha256 "a2e66ec0c5e565428d2cc33906d8eecf38697e503cedb95f4817c8f186537f73" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    system "make", "build"
-    bin.install "ssllabs-scan"
+    system "go", "build", "-o", bin/"ssllabs-scan", "ssllabs-scan-v3.go"
   end
 
   def caveats; <<~EOS

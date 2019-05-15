@@ -3,24 +3,25 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.12/5.12.1/single/qt-everywhere-src-5.12.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/5.12/5.12.1/single/qt-everywhere-src-5.12.1.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.12.1.tar.xz"
-  sha256 "caffbd625c7bc10ff8c5c7a27dbc7d84fa4de146975c0e1ffe904b514ccd6da4"
+  url "https://download.qt.io/official_releases/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.12.3.tar.xz"
+  sha256 "6462ac74c00ff466487d8ef8d0922971aa5b1d5b33c0753308ec9d57711f5a42"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "d96ef428caa3b82d52039e9b7a0c768fbd70103f35b4b87989d01b3370b1e8c5" => :mojave
-    sha256 "0b3487813eac66f3e9637fdf1ec02a054e2be9bfbb03b467798c07186fa9a19c" => :high_sierra
-    sha256 "f4898e2f36c16ba2a0d02032b7df78107a01e24407aa61def278bc492cff0272" => :sierra
+    sha256 "b669ba7803986326f32e9fe5d2b7229e6ecd806517e8bf750ea4ec59fa8da45f" => :mojave
+    sha256 "4c95d0f48f2a933f6d339c7ccd13e9e3a7aaaef69fe84bec5ede7ae8d86dd053" => :high_sierra
+    sha256 "fbffb16a29c8f755f0efeceb015554e685f616cdecbf70177f6992fffc698496" => :sierra
   end
 
   keg_only "Qt 5 has CMake issues when linked"
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
+  depends_on :macos => :sierra
 
   def install
     args = %W[

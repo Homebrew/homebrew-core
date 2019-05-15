@@ -1,13 +1,13 @@
 class Gtksourceview4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.3.tar.xz"
-  sha256 "3d55a7b82841d96bf414ced2e1e912d4881c9ba2f7b74f0ff8aad636087f9d73"
+  url "https://download.gnome.org/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz"
+  sha256 "c431eb234dc83c7819e58f77dd2af973252c7750da1c9d125ddc94268f94f675"
 
   bottle do
-    sha256 "7d17461644a667ba14d5c76e0f99dfbe820f982ac7106e26294f6648a6edd4af" => :mojave
-    sha256 "9b70d2f3882b03d185615688425f61d157eebd96f3987b1cb51080654512c90f" => :high_sierra
-    sha256 "7dd057f3add8bceb8a1062798e38adb7bdb3ff29159d5069a5ed4d7aa91b739d" => :sierra
+    sha256 "58e711a9175080860016ac65978f20cf5b273275da444984515f6536b640a87e" => :mojave
+    sha256 "705d1e72a1199de70f1a9f838a51a48e5313c1a504dc68105d09b3c9d6ff222d" => :high_sierra
+    sha256 "e216512f34adf24a7f4a06c38ef7a5c43a8f285bed2a11aea82125d7cc1cb9e7" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

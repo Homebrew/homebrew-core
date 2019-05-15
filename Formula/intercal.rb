@@ -15,7 +15,7 @@ class Intercal < Formula
   end
 
   head do
-    url "git://thyrsus.com/repositories/intercal.git"
+    url "https://gitlab.com/esr/intercal.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

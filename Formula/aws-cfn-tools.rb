@@ -1,7 +1,7 @@
 class AwsCfnTools < Formula
   desc "Client for Amazon CloudFormation web service"
   homepage "https://aws.amazon.com/developertools/AWS-CloudFormation/2555753788650372"
-  url "https://s3.amazonaws.com/cloudformation-cli/AWSCloudFormation-cli.zip"
+  url "https://cloudformation-cli.s3.amazonaws.com/AWSCloudFormation-cli.zip"
   version "1.0.12"
   sha256 "382e3e951833fd77235fae41c1742224d68bdf165e1ace4200ee88c01ac29a90"
 

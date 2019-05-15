@@ -1,15 +1,14 @@
 class Imake < Formula
   desc "Build automation system written for X11"
   homepage "https://xorg.freedesktop.org"
-  url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.7.tar.bz2"
-  sha256 "690c2c4ac1fad2470a5ea73156cf930b8040dc821a0da4e322014a42c045f37e"
-  revision 4
+  url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
+  sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
+  revision 1
 
   bottle do
-    sha256 "744bc37ab36128960dc813cf1a07a25cf037595448c869f1ec41151542517419" => :mojave
-    sha256 "f7b7121138f0c2d0d5c5dba574143f8c911b4be70538f1dbba4aeebe0dd5773f" => :high_sierra
-    sha256 "1341c20e98ef8bd974202df0805c0ca9132eb436ff8e2e06624f1dd4c19094bc" => :sierra
-    sha256 "941acafab09fe8afefe785eddce4565827de4f310494f783995b5035d95e5b4a" => :el_capitan
+    sha256 "ac21eb715eb1287107b2ce1a17b1603f84621f763e7fcbbb9a570c5591afcd79" => :mojave
+    sha256 "393c0d8de751664235eb1683351bf78dec4a65d731ffdff2afd544ad854b3ebb" => :high_sierra
+    sha256 "3a08e1b5dc7b24286dc06a10ef792c09c7ce2b9f588418c180ee67d57bf2874f" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -17,8 +16,8 @@ class Imake < Formula
   depends_on :x11
 
   resource "xorg-cf-files" do
-    url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.5.tar.bz2"
-    sha256 "ed23b85043edecc38fad4229e0ebdb7ff80b570e746bc03a7c8678d601be7ed4"
+    url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.6.tar.bz2"
+    sha256 "4dcf5a9dbe3c6ecb9d2dd05e629b3d373eae9ba12d13942df87107fdc1b3934d"
   end
 
   patch :p0 do

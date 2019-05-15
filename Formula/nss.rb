@@ -1,14 +1,14 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_42_1_RTM/src/nss-3.42.1.tar.gz"
-  sha256 "087db37d38fd49dfd584dd2a8b5baa7fc88de7c9bd97c0c2d5be4abcafc61fc6"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_44_RTM/src/nss-3.44.tar.gz"
+  sha256 "a5620e59b6eeedfd5a12c9298b50ad92e9898b223e214eb675e36f4ffb5b6aff"
 
   bottle do
     cellar :any
-    sha256 "1dadb17d6216a93ca919c92a22f353a2238e86040881eaae6a2e98a4cee6ea5e" => :mojave
-    sha256 "475bd410cc1f9af3847a1cd3d82bf891b05e429be574105ecf2649cfd4caa998" => :high_sierra
-    sha256 "01cba15cffaea80162a66d879e01e20b2e8791c8ebc17fa24ac1eff2b49e4b50" => :sierra
+    sha256 "dc1de35954b16b59b5f7839451b519e629877af6a10d1d0edeccc2fcbb8a07aa" => :mojave
+    sha256 "9db06579132e91d670c4128f583e69849427e8e7e02f74609dc2b9b8e4d0e560" => :high_sierra
+    sha256 "c6d4e00ad36d5cc0dd60d324ce2b9d497404fe5b1d07c639c5c32f7777229fe3" => :sierra
   end
 
   keg_only <<~EOS

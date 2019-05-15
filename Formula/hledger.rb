@@ -5,31 +5,31 @@ class Hledger < Formula
 
   desc "Command-line accounting tool"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.13.2/hledger-1.13.2.tar.gz"
-  sha256 "9b57e78c9c51f06c0fbc8dd499baad8fe2f323635c95159f55b041ebe12fbc37"
+  url "https://hackage.haskell.org/package/hledger-1.14.2/hledger-1.14.2.tar.gz"
+  sha256 "849a6e0683192ec504da9a631ddfc82e04973583f4a028fd39b8cdac2efe29ea"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40779fdb6412f4f35b017e3c5fc2b73dc953e742249de6c08fe95fc6fc94b98c" => :mojave
-    sha256 "ad5678930a660e6d0e4e35b03ab13f8a9871800026f9a2c2f0429ce828d582a8" => :high_sierra
-    sha256 "bfec5f6b7608d17bff44d123b8baae7fb0378886b8268c89a924daacd2d64d73" => :sierra
+    sha256 "f8f717413411bf98616d3df20f31583928b8b93e937080632e08677512cd9d5b" => :mojave
+    sha256 "5150a38fc8378410ca9b7b9d2fca755ccc7fe0eef6805fc07650fd836460a0bb" => :high_sierra
+    sha256 "60422bb49e6e62f26780cec246007cfa38dc8fcb33c6718591e7f7e72fb44c2a" => :sierra
   end
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
   resource "hledger_web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.13/hledger-web-1.13.tar.gz"
-    sha256 "d7621eccc151841458b7a2b6b1ce86585d98d88d4aa50e4dca22e9be2985ab10"
+    url "https://hackage.haskell.org/package/hledger-web-1.14.1/hledger-web-1.14.1.tar.gz"
+    sha256 "a1eacde5b9d531df0875b65c8239e8351749610e1e6e46c847dd02594fb6a970"
   end
 
   resource "hledger_ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.13.1/hledger-ui-1.13.1.tar.gz"
-    sha256 "d7f773cf626e0d67df505e2f1f10111e49097690324eb4d4272223c4ec7e4e49"
+    url "https://hackage.haskell.org/package/hledger-ui-1.14.2/hledger-ui-1.14.2.tar.gz"
+    sha256 "9951a8665c7a182d8008c92565272a6c4a8e12d363df4b169fa09dddffee112e"
   end
 
   resource "hledger_api" do
-    url "https://hackage.haskell.org/package/hledger-api-1.13/hledger-api-1.13.tar.gz"
-    sha256 "e3f2387fe4be671fcbef10184e4b0a4d895d29a40470aaedb36baad731a871de"
+    url "https://hackage.haskell.org/package/hledger-api-1.14/hledger-api-1.14.tar.gz"
+    sha256 "ad7a714201cf912a6c756e40a25116e2352b86a81b048599c15f403b2a65f7a3"
   end
 
   def install

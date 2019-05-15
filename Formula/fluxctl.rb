@@ -2,14 +2,14 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/weaveworks/flux"
   url "https://github.com/weaveworks/flux.git",
-      :tag      => "1.8.2",
-      :revision => "e3baeeb98fcbb7b267bf94ca5184833e75ec779c"
+      :tag      => "1.12.2",
+      :revision => "e366684a9e995d447e6471543a832a325ff87f5a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91bbddffb277989db8712eb26f76e7d81a18ff5caaef4d8ad37fd5493faf6d97" => :mojave
-    sha256 "f0ef0358d27ee89d14367863a3161be73933f1d3a8563fcb15171dbe2bbc4821" => :high_sierra
-    sha256 "c72d112d9567103a79da77e21e7c25df6fb6e2f8fc2ae6aa5a89dd24e85ff59e" => :sierra
+    sha256 "408e50fdec0a29a581055a3b7b751679647a145185c67e1a8b66e70c21cec0c5" => :mojave
+    sha256 "ad748e1cbe10ca7a03810ec0dbd5ce411d86335a694f1dae0558854bf1e6b62d" => :high_sierra
+    sha256 "58e4ef3cddc89d3ef8d26c06e26e59a26ca31611831b82b959a010be93af58a2" => :sierra
   end
 
   depends_on "dep" => :build
@@ -43,7 +43,7 @@ class Fluxctl < Formula
     r, _w, pid = PTY.spawn("#{bin}/fluxctl sync", :err=>:out)
     begin
       Timeout.timeout(5) do
-        assert r.gets.chomp =~ %r{Error: stat .*\/.kube\/config: no such file or directory}
+        assert_match r.gets.chomp, "Error: Could not load kubernetes configuration file: invalid configuration: no configuration has been provided"
         Process.wait pid
         assert_equal 1, $CHILD_STATUS.exitstatus
       end

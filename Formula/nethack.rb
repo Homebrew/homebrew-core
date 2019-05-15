@@ -3,16 +3,15 @@
 class Nethack < Formula
   desc "Single-player roguelike video game"
   homepage "https://www.nethack.org/"
-  url "https://www.nethack.org/download/3.6.1/nethack-361-src.tgz"
-  version "3.6.1"
-  sha256 "4b8cbf1cc3ad9f6b9bae892d44a9c63106d44782a210906162a7c3be65040ab6"
-  head "https://git.code.sf.net/p/nethack/NetHack.git", :branch => "NetHack-3.6.1"
+  url "https://www.nethack.org/download/3.6.2/nethack-362-src.tgz"
+  version "3.6.2"
+  sha256 "fbd00ada6a4ee347ecd4a350a5b2995b4b4ab5dcc63881b3bc4485b0479ddb1d"
+  head "https://git.code.sf.net/p/nethack/NetHack.git", :branch => "NetHack-3.6.2"
 
   bottle do
-    sha256 "a6edc4d29cc966b69a6ebc87048d4a27475465a9c1a251908edf45718da02ef5" => :mojave
-    sha256 "a57fbc5bdea2350dc989315ca1366da7778496421fd1962ceca266897754b2cf" => :high_sierra
-    sha256 "57db6043731411211c6de280e66c98394f0b13db000f26749afb243bf0211289" => :sierra
-    sha256 "fe8264cd2c58b19c58b4192f1eb74fe8e44f503885a300ef1cba71c402abe4d3" => :el_capitan
+    sha256 "e62f6cc80fb1ffe25c7e16394058b315cbf0414c4df2f27af44d81d3f1230810" => :mojave
+    sha256 "ab98815750c7bf5c38e7bbdaf2c8e55588a0c73070868b929cff096918c6f6f8" => :high_sierra
+    sha256 "6ab73c6cca85d88e4a9d8fd0456f1a8bb98089c9bd9fff43f22cd0b457ab9684" => :sierra
   end
 
   # Don't remove save folder

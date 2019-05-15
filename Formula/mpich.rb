@@ -4,11 +4,13 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.3.tar.gz"
   sha256 "329ee02fe6c3d101b6b30a7b6fb97ddf6e82b28844306771fa9dd8845108fa0b"
+  revision 1
 
   bottle do
-    sha256 "a777d07fde23048c616a51b84be3052b0b52968d17aa738335f7a22ae7453118" => :mojave
-    sha256 "b1779ac44ede50991bb32672fd5718e11773143c07da40b3e42e16ee53bd8958" => :high_sierra
-    sha256 "8da3ec3f75cce8eaec957de09a8b3d3d864937b61a45334a0fe1e1190f38dbcf" => :sierra
+    cellar :any
+    sha256 "38b5527778e736b19c6c28057a2a779e4d6ef40cff8aac6984340ffdc4246f1f" => :mojave
+    sha256 "4a329db2f4af491733aec3171397708fb65754e7299ea9362f8121f48bd60383" => :high_sierra
+    sha256 "6ddaa48854cb392b8aace5847c68674b058bae153a37ebf510b70c29ae8e0ade" => :sierra
   end
 
   head do

@@ -2,16 +2,15 @@ class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
   url "https://github.com/golang/dep.git",
-      :tag      => "v0.5.0",
-      :revision => "224a564abe296670b692fe08bb63a3e4c4ad7978"
+      :tag      => "0.5.2",
+      :revision => "5025d70ef6f298075c16c835a78924f2edd37502"
   head "https://github.com/golang/dep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "582943ea885a3e996b81052ce226d090b7563b5a14a342197d8361e80ca13772" => :mojave
-    sha256 "6c774e11ada19f1f1c71ba7b1d74d0f34290ab3657b316ee2b5f57a3aa633f0a" => :high_sierra
-    sha256 "9cb09a385da8bd6a23fd147a3c8eed29a223ecd8919b10127b259dfd6921a4a0" => :sierra
-    sha256 "7dc66f06e23b66f966540e80da1f16db9d9460edaf98338a66e4fdc935551160" => :el_capitan
+    sha256 "a9fd0b229d77f58fd489260eba663f2f64de165ff85ce0d59c5a9817e79c701c" => :mojave
+    sha256 "5278b1bf179af3d70a5189b3be3bb333251fe2e305fa42a774ef3260ac6144c3" => :high_sierra
+    sha256 "77a3bbe268ceb1c73dada293098bfe934f7dd997e9a6268873de74601ed2377a" => :sierra
   end
 
   depends_on "go"
@@ -25,7 +24,7 @@ class Dep < Formula
       ENV["DEP_BUILD_PLATFORMS"] = "darwin"
       ENV["DEP_BUILD_ARCHS"] = "amd64"
       system "hack/build-all.bash"
-      bin.install "release/dep-darwin-#{arch}" => "dep"
+      bin.install "release/dep-darwin-amd64" => "dep"
       prefix.install_metafiles
     end
   end

@@ -1,14 +1,14 @@
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/mapbox/tippecanoe"
-  url "https://github.com/mapbox/tippecanoe/archive/1.33.0.tar.gz"
-  sha256 "c0f8885eee6c2357d24916055bac0752b8cccf1baa36c34fff9a7832bcbb2377"
+  url "https://github.com/mapbox/tippecanoe/archive/1.34.0.tar.gz"
+  sha256 "85d4721de1170c9636bbfc5bcee0eef9a3f698c293863f337511c867da788b6c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fdf39bef8a5ee47bc74acead64a997eda7a2389f1f2219ae614e1cfe4347f5a7" => :mojave
-    sha256 "b74697e62c2a75173180305b111b6ea8fc39bd63e129c02e23f512dff4890fc8" => :high_sierra
-    sha256 "3e4ed79fac548f7868e163a050023498c91450a9e247f630dd779d9e561a9734" => :sierra
+    sha256 "07040b13d9434e2f7a57240d54b7ea2affb5cb8ddca07d26613564a5d81e8c8f" => :mojave
+    sha256 "bb8632b70fd155126246ab0b9b3a68a9d35fa6a0fb3bcc1efbb330d748c1685a" => :high_sierra
+    sha256 "254c4f0661092f0d791b12271cab78a4c1b698e9412215e4b2e842c0b4ee306b" => :sierra
   end
 
   def install

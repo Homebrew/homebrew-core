@@ -63,7 +63,7 @@ class Tesseract < Formula
   end
 
   def caveats; <<~EOS
-    This formula containes only the "eng", "osd", and "snum" language data files.
+    This formula contains only the "eng", "osd", and "snum" language data files.
     If you need all the other supported languages, `brew install tesseract-lang`.
   EOS
   end

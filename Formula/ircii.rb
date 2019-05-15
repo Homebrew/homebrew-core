@@ -1,16 +1,14 @@
 class Ircii < Formula
   desc "IRC and ICB client"
   homepage "http://www.eterna.com.au/ircii/"
-  url "https://ircii.warped.com/ircii-20170704.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20170704.orig.tar.bz2"
-  sha256 "4e5a70fc4577de06fd5855ab7ca0a501fd16e02d5fd34e434a2b5abac80a2eda"
+  url "https://ircii.warped.com/ircii-20190117.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20190117.orig.tar.bz2"
+  sha256 "10316f0a3723e4ce3d67fd5a7df10e6bcf30dd0750fb96d5437cacb16b0e9617"
 
   bottle do
-    sha256 "aaf1bd01be68a060cd5e0323a6f645a05f2395708697a9754c518155f1dbd394" => :mojave
-    sha256 "d459c638c8c9d2e0f88b4382f592b4cd28d815b0455c799a9f89fba6c6b95496" => :high_sierra
-    sha256 "e8168dd5f7bb02880b0f8d199326fb81d7cf068cd2960d10aadd698d645bfa5a" => :sierra
-    sha256 "bd98e7588df62ead1c94d09b2fb200475f4c09a0950a572ae527f13f6443107e" => :el_capitan
-    sha256 "2bc24641161180093f7ea30ddbe7692afda55f1bbf9d46ed59b7773acf8137de" => :yosemite
+    sha256 "426446f6f4752f66e58ccad00f395cbf24e3b88d155c87d9c89ca38b23e84c13" => :mojave
+    sha256 "71e73a226d88f78d1afbaa0b4231cf9e7e1d3998c4b0e556dd0ec80fed24dc07" => :high_sierra
+    sha256 "c54e77fcada6cf345612a063ee199fc2504306275c5bec5344989599d3cd16ef" => :sierra
   end
 
   depends_on "openssl"

@@ -5,16 +5,18 @@ class Restund < Formula
   sha256 "3170441dc882352ab0275556b6fc889b38b14203d936071b5fa12f39a5c86d47"
 
   bottle do
-    cellar :any
-    sha256 "489f651680461d466ab162ecbbc9f4e7acc554e3701b13828a5998de3e8accc4" => :mojave
-    sha256 "05a527dfb0207ebd9b8a94ce4307ec0f106fa3c085851476eb36c27515d9b9fb" => :high_sierra
-    sha256 "b54c91bb6457a8af37e55064d9f5093212ae7dc7c53863f4344f0862a0e6706e" => :sierra
-    sha256 "520b20cfdfb1cb5da1ee3a147a707802f6cc77a289c80e2b04a4299446e67408" => :el_capitan
+    rebuild 1
+    sha256 "7ec584f71cc4b6f54f30c1dfcae29e11f110b8f26506e1154e5646ce326923b1" => :mojave
+    sha256 "2d5b243b9971a38fdc00c1d2d332e7875aa17f74ea4d1f083eeacbfaa38d004f" => :high_sierra
+    sha256 "ea2c7e202307b9a48ed65020570d5ce3236b556757263cb16c35143baa92ca79" => :sierra
   end
 
   depends_on "libre"
 
   def install
+    # Configuration file is hardcoded
+    inreplace "src/main.c", "/etc/restund.conf", "#{etc}/restund.conf"
+
     libre = Formula["libre"]
     system "make", "install", "PREFIX=#{prefix}",
                               "LIBRE_MK=#{libre.opt_share}/re/re.mk",

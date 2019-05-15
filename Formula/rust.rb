@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.33.0-src.tar.gz"
-    sha256 "5a01a8d7e65126f6079042831385e77485fa5c014bf217e9f3e4aff36a485d94"
+    url "https://static.rust-lang.org/dist/rustc-1.34.2-src.tar.gz"
+    sha256 "c69a4a85a1c464368597df8878cb9e1121aae93e215616d45ad7d23af3052f56"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.34.0",
-          :revision => "f099fe94b66f0a2f80370be8f2d3db2a55b97050"
+          :tag      => "0.35.0",
+          :revision => "6789d8a0a54a96d95365c4e1fb01d47a5eed9937"
     end
 
     resource "racer" do
@@ -22,10 +22,9 @@ class Rust < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4061bd9640258ff2d50228b419b8016a1b347fc0eaf80d493170dc436c02c292" => :mojave
-    sha256 "5cd48c60b52d3c92e224f03e919c72a1282c926ae8ac4dc76a772dacb00c222b" => :high_sierra
-    sha256 "4d2cf000ff7f615a6d8ce1712d9895724d4a0af24f83ead797dd3a1a13261d14" => :sierra
+    sha256 "656bd85082ed899c3cfc29cf5cfce71061dac986a9c89870c4f3e6d3a1d805ac" => :mojave
+    sha256 "58969929f877b08ead2fad36ec82a7a72c48c662ab26ab0e10dda93cef3484ff" => :high_sierra
+    sha256 "0dd9ac50c3958172a149c0ad8be03e0635493b600b20a27d16dfe250733c184f" => :sierra
   end
 
   head do
@@ -47,8 +46,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2019-01-17/cargo-0.33.0-x86_64-apple-darwin.tar.gz"
-    sha256 "25cf75479da383d2307e1d6204e915f628ec3f1c185b124f57839cfd622f54b1"
+    url "https://static.rust-lang.org/dist/2019-02-28/cargo-0.34.0-x86_64-apple-darwin.tar.gz"
+    sha256 "5349b04cd783942d39be3223629efbf0325de04ee72751c4a1a1388e858caac6"
   end
 
   def install
@@ -98,7 +97,7 @@ class Rust < Formula
     end
 
     # Remove any binary files; as Homebrew will run ranlib on them and barf.
-    rm_rf Dir["src/{llvm,llvm-emscripten,test,librustdoc,etc/snapshot.pyc}"]
+    rm_rf Dir["src/{llvm-project,llvm-emscripten,test,librustdoc,etc/snapshot.pyc}"]
     (pkgshare/"rust_src").install Dir["src/*"]
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"

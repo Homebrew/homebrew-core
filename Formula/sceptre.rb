@@ -3,14 +3,14 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v2.0.0.tar.gz"
-  sha256 "6c7376c271060089488fee0e58eb7d8714b3abb06d65bc47c22591e1351b6e3e"
+  url "https://github.com/cloudreach/sceptre/archive/v2.1.0.tar.gz"
+  sha256 "4ebbc2cd8e121522df1a27d153b50f760007e513a6c2bc04c3db2292714edaf5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f797ad1253de1047661bb8574c1a9f72b4dcfd98054a98bf32a2667f36d7033" => :mojave
-    sha256 "19514193df3672678f19b7625c6f4defe61dc7b70d0142ed3c45a3acab61289b" => :high_sierra
-    sha256 "c4215d4fc53eca136d1ff899f3bb469d7f5797653bb887f44b138ed15d0b6fe5" => :sierra
+    sha256 "0b613d07a4719dc0fb2b341ee8605ae322209809a8c829a208e1ab59bce887df" => :mojave
+    sha256 "5108aa578f9569a263e4eb5dd31d477f1abad387895e735ac60751cb56d22829" => :high_sierra
+    sha256 "c673e73be62fc762f62192b220e7fc7f1682679ce1b8c315eeb8b31f47304441" => :sierra
   end
 
   depends_on "python"
@@ -25,16 +25,14 @@ class Sceptre < Formula
     sha256 "67ebafe2d0d6a37b62033bbc78786fdada02c38535f83d74313dc0dc281bf87d"
   end
 
-  # click version was fixed to 6.7 for sceptre 1.4.2
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
   end
 
-  # colorama version was fixed to 0.3.7 for sceptre 1.4.2
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz"
-    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
+    url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
+    sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
   end
 
   resource "decorator" do
@@ -85,8 +83,8 @@ class Sceptre < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+    url "https://files.pythonhosted.org/packages/a8/c6/a8d1555e795dbd0375c3c93b576ca13bbf139db51ea604afa19a2c35fc03/PyYAML-4.2b4.tar.gz"
+    sha256 "3c17fb92c8ba2f525e4b5f7941d850e7a48c3a59b32d331e2502a3cdc6648e76"
   end
 
   resource "s3transfer" do
@@ -95,8 +93,8 @@ class Sceptre < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   resource "urllib3" do

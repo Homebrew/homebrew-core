@@ -1,16 +1,15 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-4.4.1.tar.xz"
-  sha256 "7e4e9ac67ed809bd56768fb69807abae0d229f4e169db63a37c11c9f08215f90"
-  revision 5
+  url "https://ftp.gnu.org/gnu/octave/octave-5.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-5.1.0.tar.xz"
+  sha256 "87b4df6dfa28b1f8028f69659f7a1cabd50adfb81e1e02212ff22c863a29454e"
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "b28615ae5e36a3d3202256305cba518f39de19bebb6a9635f8acfe868c67a3aa" => :mojave
-    sha256 "266fbf84557ec6c4d9d672143ced419d29af3b83827aba7df191bc567ba13ba1" => :high_sierra
-    sha256 "7af138a36e98c7adbb8ab2a7dc6e39dd60f28ae2b1524d8b5ff433958304af34" => :sierra
+    sha256 "c01c0bb0bc269810f92d603c7e3ca69c38707d6a23a0ce4ac58753b4cd9db3fa" => :mojave
+    sha256 "6ca0d8e48861cfa3523415aca900728611c3331321ad98871efa097bcce11824" => :high_sierra
+    sha256 "bd19cdf4f4578cbe79c16190b0e4da4e9ac4fb5c6a6466cb15aa6a06e84dac27" => :sierra
   end
 
   head do
@@ -69,6 +68,12 @@ class Octave < Formula
     # Qt 5.12 compatibility
     # https://savannah.gnu.org/bugs/?55187
     ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
+    # These "shouldn't" be necessary, but the build breaks without them.
+    # https://savannah.gnu.org/bugs/?55883
+    ENV["QT_CPPFLAGS"]="-I#{Formula["qt"].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{Formula["qt"].opt_include}"
+    ENV["QT_LDFLAGS"]="-F#{Formula["qt"].opt_lib}"
+    ENV.append "LDFLAGS", "-F#{Formula["qt"].opt_lib}"
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",

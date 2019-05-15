@@ -3,14 +3,14 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/f1/92/202b47ed8b4e8dcef98a74426dbffa139d10d11f01a10fe6fc98728fbade/platformio-3.6.5.tar.gz"
-  sha256 "5ac22d4b171823a92d3f7234dadaed755766b2aa94d376aec39a30245a0ad82f"
+  url "https://files.pythonhosted.org/packages/dc/19/b92d62fdb3937f9f46ed833e27005923949a960fa3fe78185d4f3549bd09/platformio-3.6.7.tar.gz"
+  sha256 "eb698b93bfc06010a2a210aacadc5d08efd4f05fe5494eaf171ef54618cead36"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e6fdfef54f75aeed367ee07e9a4904122945344a8164e036eeb36d58eee02400" => :mojave
-    sha256 "44129630e9696d83186065d92a74d18abee7f018854b36a73a94c6aecfccba4b" => :high_sierra
-    sha256 "88070b6f44f1549399d2bfb726ef8e580ddd8eff968c8a12b91316d8306d5dcb" => :sierra
+    sha256 "44564b3fe02c74a0d4f76ff45aee28546b0e8795bcc69e71a26aa80196257fb1" => :mojave
+    sha256 "dfe9f15b23aed3a33ee0063b1c6a53a7ff288392e136d90abe38a27a985fdd38" => :high_sierra
+    sha256 "15d1add995b55416e0d42dad9e884e099416a14650e975e90ec91ff6a418a5bf" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3
@@ -21,8 +21,8 @@ class Platformio < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
-    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
+    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
+    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
   end
 
   resource "chardet" do
@@ -61,8 +61,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/fd/fa/b21f4f03176463a6cccdb612a5ff71b927e5224e83483012747c12fc5d62/urllib3-1.24.2.tar.gz"
+    sha256 "9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
   end
 
   def install

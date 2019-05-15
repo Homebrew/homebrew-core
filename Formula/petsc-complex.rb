@@ -3,11 +3,12 @@ class PetscComplex < Formula
   homepage "https://www.mcs.anl.gov/petsc/"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.10.3.tar.gz"
   sha256 "f03650ea5592313dd2b8be7ae9cc498369da660185b58f9e98689a9bc355e982"
+  revision 2
 
   bottle do
-    sha256 "02847e6c9dd9f824fe2ef4a704a6f0f20bf4aa971b66964e0ea86c5cbba3edab" => :mojave
-    sha256 "b42c6bc5a2271ce672b9bfb7e25c47812086070f3856057e5a9f9437d97c7f6e" => :high_sierra
-    sha256 "19cae6309c500a8cee88340e555ac3a5fc4252467bdf153b4ea35488347a45f8" => :sierra
+    sha256 "297182d5be8f9b60b43024e4d9996650d663ca449ce7ab4df4b27bdef16f7478" => :mojave
+    sha256 "278140f9773c94f6b578670277be0691fa9a62ecb11ab58deb1436803c218bee" => :high_sierra
+    sha256 "b50193acc2f0ebddd4ee43d162d2155af958f225d76ab62e8b0148da9cef476d" => :sierra
   end
 
   depends_on "hdf5"

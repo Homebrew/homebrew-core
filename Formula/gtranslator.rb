@@ -1,13 +1,13 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/3.30/gtranslator-3.30.1.tar.xz"
-  sha256 "c77afffa588c453fcf2241acc6d68a636975b69cc4aab8057a3382cb218cf42c"
+  url "https://download.gnome.org/sources/gtranslator/3.32/gtranslator-3.32.1.tar.xz"
+  sha256 "e1b37b0436684eb3079916eff7b6eeac2cd51ebbf8d2d6f35b5480ca0391b4da"
 
   bottle do
-    sha256 "9abc09ece4d2f3cecb23ae250cd629944635cf99a383a9c6fa2d586aa752397d" => :mojave
-    sha256 "09420392739bef69c8ac566c6e67da633063e08bae0d8bc12891049e55cdccb8" => :high_sierra
-    sha256 "255b8d81b662bc86f416c07a9ba5267759fc29e59b33c9c61d02aee527a0b534" => :sierra
+    sha256 "2cb0295073c0f1df175ed5b550b5f72ace147baaea33ac1057fb55df6a850bce" => :mojave
+    sha256 "3947995fc4be8630abc393b5e2a10c93dc599fbd65a2fcf9bef3124d9750c8db" => :high_sierra
+    sha256 "ac1903136af8f037d5a5c9bbd663d7d833adaf5b887471b72666681e88c237c2" => :sierra
   end
 
   depends_on "meson" => :build
@@ -28,8 +28,8 @@ class Gtranslator < Formula
     ENV["DESTDIR"] = "/"
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 

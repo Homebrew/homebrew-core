@@ -10,10 +10,11 @@ class Wine < Formula
   url "https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz"
   mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.tar.xz"
   sha256 "6736cdee95b2b8bb021ec0c19497ed8cad5ae2c8bfdb7ab5dc687ff92a480d4d"
+  revision 1
   head "https://source.winehq.org/git/wine.git"
 
   bottle do
-    sha256 "9b07da64cee04feb770f3b0d924b1b6a9c99bde9d271e05d76c9e4fee9649ee3" => :sierra
+    sha256 "587859c8be3a3254044f4e1d6c6b6d407fb5768eb99551c48b6a4ed4863b6f59" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,15 +1,14 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://podofo.sourceforge.io"
-  url "https://downloads.sourceforge.net/podofo/podofo-0.9.5.tar.gz"
-  sha256 "854981cb897ebc14bac854ea0f25305372261a48a205363fe1c61659ba7b5304"
-  revision 2
+  url "https://downloads.sourceforge.net/podofo/podofo-0.9.6.tar.gz"
+  sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
 
   bottle do
     cellar :any
-    sha256 "b744f10486e5373bc3ca29b1a5530008f90b48ea176b8098ae73fd91070ea60b" => :mojave
-    sha256 "b1ec1d67c725b6021617013c49d989bd0c91be23e5302f6d3421e6fb0c9aeb5d" => :high_sierra
-    sha256 "aea9066461ba04300b0cd20a30063c349a821b62a5285aaa2abea9068966da82" => :sierra
+    sha256 "477345ac9e2bc7bf70307dca70b1ea3e08fc1138736adc497781ee784030966c" => :mojave
+    sha256 "0b66eafa989073b3ee0abe52f2524714fcf1155592f20633dbbb9fe92f9d1382" => :high_sierra
+    sha256 "eb20ecc8daabf8742a368ed32ada7d47fea2c79ff964aae026bb7f40687b5029" => :sierra
   end
 
   depends_on "cmake" => :build

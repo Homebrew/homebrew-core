@@ -1,14 +1,14 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.4.0/gdal-2.4.0.tar.xz"
-  sha256 "c3791dcc6d37e59f6efa86e2df2a55a4485237b0a48e330ae08949f0cdf00f27"
+  url "https://download.osgeo.org/gdal/2.4.1/gdal-2.4.1.tar.xz"
+  sha256 "fd51b4900b2fc49b98d8714f55fc8a78ebfd07218357f93fb796791115a5a1ad"
   revision 1
 
   bottle do
-    sha256 "448a4cc4dde65b98bae3abaa94e7a037d95cc002ba12e9dc5fd56ed21b7b7a3e" => :mojave
-    sha256 "322f5c80ead8cda7e2466099c5e1fb6306901646234a457cdfe1b8f14e5ebf22" => :high_sierra
-    sha256 "2430ac950db9240c1548d94d410c015c202f30dd10985c229f43c1dda6032966" => :sierra
+    sha256 "c8d273221eef1ea1943d3052a720ce127345b1fd676512c520d6ce52e26a14b1" => :mojave
+    sha256 "1d09001cc301d35b5d913d8b7da50e10fefab92ba447d5416bcfd82ac4ba4adb" => :high_sierra
+    sha256 "2ee9618f5cdcc84e7a1eb922bf5e584521627a7e338794f27c4c245ef740cf35" => :sierra
   end
 
   head do
@@ -36,7 +36,6 @@ class Gdal < Formula
   depends_on "netcdf"
   depends_on "numpy"
   depends_on "pcre"
-  depends_on "podofo"
   depends_on "poppler"
   depends_on "proj"
   depends_on "python"
@@ -83,16 +82,16 @@ class Gdal < Formula
       "--with-proj=#{Formula["proj"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
       "--with-liblzma=yes",
-      "--with-cfitsio=/usr/local",
-      "--with-hdf5=/usr/local",
-      "--with-netcdf=/usr/local",
-      "--with-jasper=/usr/local",
-      "--with-xerces=/usr/local",
-      "--with-odbc=/usr/local",
-      "--with-dods-root=/usr/local",
-      "--with-epsilon=/usr/local",
-      "--with-webp=/usr/local",
-      "--with-podofo=/usr/local",
+      "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
+      "--with-hdf5=#{Formula["hdf5"].opt_prefix}",
+      "--with-netcdf=#{Formula["netcdf"].opt_prefix}",
+      "--with-jasper=#{Formula["jasper"].opt_prefix}",
+      "--with-xerces=#{Formula["xerces-c"].opt_prefix}",
+      "--with-odbc=#{Formula["unixodbc"].opt_prefix}",
+      "--with-dods-root=#{Formula["libdap"].opt_prefix}",
+      "--with-epsilon=#{Formula["epsilon"].opt_prefix}",
+      "--with-webp=#{Formula["webp"].opt_prefix}",
+      "--with-poppler=#{Formula["poppler"].opt_prefix}",
 
       # Explicitly disable some features
       "--with-armadillo=no",

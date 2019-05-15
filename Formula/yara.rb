@@ -1,15 +1,15 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.9.0.tar.gz"
-  sha256 "ebe7fab0abadb90449a62afbd24e196e18b177efe71ffd8bf22df95c5386f64d"
+  url "https://github.com/VirusTotal/yara/archive/v3.10.0.tar.gz"
+  sha256 "3281d43d6b49a4ca8d3a5d2521e06a0b72863702022f981b051856c2b83449c2"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
     cellar :any
-    sha256 "ac12e1278c753e1a79cb3fdd4fad8df6c01026c0aa159089182a65dd688ca483" => :mojave
-    sha256 "ed092caa3603842d4f9daa48a36d173d79504ef6e22b7af85b8576dc75fca55f" => :high_sierra
-    sha256 "03f2077af95ec05e06bb09c704089e6c4c63fffcd06437fda01bcd2fea0d97d9" => :sierra
+    sha256 "96e4ce1d68bf111eb31a83380383176e3fc2d79221751e2d301e01cf5a043fe0" => :mojave
+    sha256 "da1fb89ba681a95d0841a5be0b07621cd88223d1af66564a2217c144739b2b5f" => :high_sierra
+    sha256 "eb6429e5275ef5ebcb5ba7f6669349363cc797cbef8991e33aaa1377ed263973" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +29,7 @@ class Yara < Formula
                           "--enable-magic",
                           "--enable-macho",
                           "--enable-dex",
-                          "--with-crpyto"
+                          "--with-crypto"
     system "make", "install"
   end
 

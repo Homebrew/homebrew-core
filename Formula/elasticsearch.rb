@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.6.1.tar.gz"
-  sha256 "cdbc32ef68dcc89eb55dee757b52db6cbb579a136e5cf1df9ab5fb21b40a5242"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.7.2.tar.gz"
+  sha256 "c6b2cff132cc98771fc16b4beec290fc719ddbc67c01d924ebbeb422a603ca11"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -61,7 +61,7 @@ class Elasticsearch < Formula
 
   def post_install
     # Make sure runtime directories exist
-    (var/"lib/elasticsearch/#{cluster_name}").mkpath
+    (var/"lib/elasticsearch").mkpath
     (var/"log/elasticsearch").mkpath
     ln_s etc/"elasticsearch", libexec/"config" unless (libexec/"config").exist?
     (var/"elasticsearch/plugins").mkpath
@@ -72,7 +72,7 @@ class Elasticsearch < Formula
 
   def caveats
     s = <<~EOS
-      Data:    #{var}/lib/elasticsearch/#{cluster_name}/
+      Data:    #{var}/lib/elasticsearch/
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{var}/elasticsearch/plugins/
       Config:  #{etc}/elasticsearch/

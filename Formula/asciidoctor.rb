@@ -1,15 +1,16 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v1.5.8.tar.gz"
-  sha256 "bc225145feb7876bce5188aa3ef511fad49b141ec18e1bb60e69b33b0a100da0"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.9.tar.gz"
+  sha256 "5f04853811bf7dad01afb1227ee82e21abd86c575c5c969d2b227b3feee2aea5"
+
+  depends_on "ruby" if MacOS.version <= :sierra
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0cd37a53d270739c7798368d25762ecfdd4f962a6dd65805775940985f822c84" => :mojave
-    sha256 "8e11a9703b0ce01f19e64065fb296b18a2eee334c2630cb4aa5fb3bfd36ddf9c" => :high_sierra
-    sha256 "de3c2471e4afa84af77b5a5e6e78443c4b6f297d2f6da03e64d62ce1f2ac8491" => :sierra
+    sha256 "4cba32b552a0cb489858fe910a63334a4c722f44bb80bccbbe642f1ab73ae65f" => :mojave
+    sha256 "cc426b5e309721748eab5155e1f08566c73535e7bb4c48a7a25ca98a29d7939e" => :high_sierra
+    sha256 "00391894934b25320c75e542b956aa4b2c05d9634fb3e636e062dbd3036a0736" => :sierra
   end
 
   def install

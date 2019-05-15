@@ -3,12 +3,12 @@ class LibbitcoinNode < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-node"
   url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.5.0.tar.gz"
   sha256 "e3a0a96155ca93aa6cba75789c18419f40686a69cbd40c77aa77ca84ccc43cab"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "ee41f18784cf98b2cfd6060f0e3fe9f8f6ec37451a9878092e375c272e8ca164" => :mojave
-    sha256 "e901829a39b3d9c82cd548a2199ff177f66a7b39f17cc75b8316b6a9da8e6b31" => :high_sierra
-    sha256 "58d1a6da15bd06108da253e52df4d26082f10eed14022c52576c2e9405f7183f" => :sierra
+    sha256 "c9b1947f45b07d9ed0f987f436da1218c1376e9c0c1881b9fc9775dc0f341c88" => :mojave
+    sha256 "cfdbcd04f58c8614146af6b1df27275f4a693c05cef28c6983577ed65c16cb99" => :high_sierra
+    sha256 "9770db643b8cc4411b2daba946b60520185b40233a01408ae7685bfb4e428c54" => :sierra
   end
 
   depends_on "autoconf" => :build

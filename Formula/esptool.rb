@@ -3,14 +3,14 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://github.com/espressif/esptool/archive/v2.5.1.tar.gz"
-  sha256 "6730b69d8ba09ff09f845873eaeef352bd18a4ee24b31b0898fd8fc5f178c037"
+  url "https://github.com/espressif/esptool/archive/v2.6.tar.gz"
+  sha256 "51ebe169cade538c986e92eb65562b8ff3a1293baf14b9ad977df888061ed78e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5c0f0622515e9969ee8102d5b884f8b8e918dd892deea2292a3ad6f70fc297f" => :mojave
-    sha256 "4603bacc0f295533f8dde969a4512ccfa2b1e55b3b18a3fd57b4633386033de2" => :high_sierra
-    sha256 "46fd1318d852fd5c573bee52675a647ed4cb524fa7a5eb3b4bc58b86f6a18f6d" => :sierra
+    sha256 "9faa763fa31fb23e398639dc95860598b289b15ff7a8a70a76a66eb1dbf9ca3f" => :mojave
+    sha256 "6a97ebfbddb809ffdd8cfd97337dc313cff99790b2ac52f1e2c8021691bcd58f" => :high_sierra
+    sha256 "e9f9409e0ab29d504a68a61ab7767c58f8f898f317979a67b8e726e366616d87" => :sierra
   end
 
   depends_on "python"

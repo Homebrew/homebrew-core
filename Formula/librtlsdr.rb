@@ -1,9 +1,9 @@
 class Librtlsdr < Formula
   desc "Use Realtek DVT-T dongles as a cheap SDR"
-  homepage "https://sdr.osmocom.org/trac/wiki/rtl-sdr"
+  homepage "https://osmocom.org/projects/rtl-sdr/wiki"
   url "https://github.com/steve-m/librtlsdr/archive/0.6.0.tar.gz"
   sha256 "80a5155f3505bca8f1b808f8414d7dcd7c459b662a1cde84d3a2629a6e72ae55"
-  head "git://git.osmocom.org/rtl-sdr.git", :shallow => false
+  head "https://git.osmocom.org/rtl-sdr", :using => :git, :shallow => false
 
   bottle do
     cellar :any

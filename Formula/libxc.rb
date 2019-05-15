@@ -1,14 +1,14 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "https://tddft.org/programs/libxc/"
-  url "https://tddft.org/programs/octopus/download/libxc/4.2.3/libxc-4.2.3.tar.gz"
-  sha256 "02e49e9ba7d21d18df17e9e57eae861e6ce05e65e966e1e832475aa09e344256"
+  url "https://tddft.org/programs/octopus/download/libxc/4.3.4/libxc-4.3.4.tar.gz"
+  sha256 "a8ee37ddc5079339854bd313272856c9d41a27802472ee9ae44b58ee9a298337"
 
   bottle do
     cellar :any
-    sha256 "d3cae48aff1879bd255e227fd5a305f5bfc537ad9e3b5709e09b434e4a43dffa" => :mojave
-    sha256 "57b6d9d003ad48a50b571722e9fa59a3786f43fe90eab310ce75526c207c4b4f" => :high_sierra
-    sha256 "ae70a828ecc3c097f6bc74660bbb60618be640b3c0f80db6c5fce0ea129c0c8c" => :sierra
+    sha256 "f8b5f2dff116944721e2a0f3d9b8de233dd7ed5672a7a5e049be46d479be364f" => :mojave
+    sha256 "c3e5f9d0fc66335ce0d246d2ed308b0d1ece555db9a2c877bcbb493813cff9ff" => :high_sierra
+    sha256 "0022f8f1f5d6f4fb7a842b1aef84660c2cf39b081d0003c5a21c365f8e6a35d8" => :sierra
   end
 
   depends_on "gcc" # for gfortran

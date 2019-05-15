@@ -1,14 +1,14 @@
 class Smimesign < Formula
   desc "S/MIME signing utility for use with Git"
   homepage "https://github.com/github/smimesign"
-  url "https://github.com/github/smimesign/archive/0.0.10.tar.gz"
-  sha256 "c2036abba5f38b42acc40f311176a7af0bef7f9cc4f6c0454ba51d2335631db3"
+  url "https://github.com/github/smimesign/archive/0.0.11.tar.gz"
+  sha256 "3f928aa32c939ad8a4641df1060a72edee4ecfdb31088216d24655ed763fadde"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da64d72469542b9f414f755030d0f7367d86239f74a80a67ab280f8e2e792c3a" => :mojave
-    sha256 "3651001471f346165ad493458c46629ff8ba7395a6610217941cdb4634c7b84b" => :high_sierra
-    sha256 "2e4c7a707f083376c7ea4e2e659576de4ffde7252327c882516671e35530e40b" => :sierra
+    sha256 "035108c03c7bac00de054dd86576eca7c0e9fe540a2cdb57a9a7d79c8c5c3ad4" => :mojave
+    sha256 "585b86ebd7baaf3c1499cfe7626730f329c68deb8fe9266a941946b64900338d" => :high_sierra
+    sha256 "1a9f3ebbe95deb9aa66ab3cc627a5bed0e365efa4308cdbfe34a4b4f81fb544b" => :sierra
   end
 
   depends_on "go" => :build

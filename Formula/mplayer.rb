@@ -1,15 +1,14 @@
 class Mplayer < Formula
   desc "UNIX movie player"
   homepage "https://mplayerhq.hu/"
-  url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz"
-  sha256 "3ad0846c92d89ab2e4e6fb83bf991ea677e7aa2ea775845814cbceb608b09843"
-  revision 1
+  url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz"
+  sha256 "82596ed558478d28248c7bc3828eb09e6948c099bbd76bb7ee745a0e3275b548"
 
   bottle do
     cellar :any
-    sha256 "431d83725fe2589d7e7622e3247b9eaf011741d0725577d83b865dc2e618b5b3" => :mojave
-    sha256 "b339ca86990026c8205bacf4fdb9f70778852d6eb053f2b923c39c4b24eb90b9" => :high_sierra
-    sha256 "81eea942e3ac67665125890cef18ae27610ec59bd3aa257c984f562f100167ad" => :sierra
+    sha256 "72da2446b0077085121da3cc3437a3e07d0bd2136529dd7dfba79d05bca1b405" => :mojave
+    sha256 "11c01635f619e3aa77a85cd095be0b302d2b25fdd4362f47340c93122a113775" => :high_sierra
+    sha256 "225e2628b4edf16a4ffea768e03587a8cc1c3f67544c92cb3fb8f3332feee51d" => :sierra
   end
 
   head do
@@ -20,7 +19,10 @@ class Mplayer < Formula
     patch :DATA
   end
 
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "libcaca"
 
   def install
@@ -35,6 +37,7 @@ class Mplayer < Formula
       --prefix=#{prefix}
       --disable-x11
       --enable-caca
+      --enable-freetype
     ]
     system "./configure", *args
     system "make"

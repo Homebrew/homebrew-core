@@ -17,8 +17,8 @@ class Duti < Formula
 
   # Fix compilation on macOS 10.14 Mojave
   patch do
-    url "https://github.com/moretension/duti/pull/32.patch"
-    sha256 "e249113e27fbcd1daca1c75598eca8cfa65f8ed2c08a276bda390b6c4148e9be"
+    url "https://github.com/moretension/duti/pull/32.patch?full_index=1"
+    sha256 "0f6013b156b79aa498881f951172bcd1ceac53807c061f95c5252a8d6df2a21a"
   end
 
   def install

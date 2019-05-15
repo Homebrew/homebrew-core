@@ -2,8 +2,7 @@ class Mytop < Formula
   desc "Top-like query monitor for MySQL"
   homepage "http://www.mysqlfanboy.com/mytop-3/"
   url "http://www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
   revision 6
 
@@ -46,8 +45,7 @@ class Mytop < Formula
   # Pick up some patches from Debian to improve functionality & fix
   # some syntax warnings when using recent versions of Perl.
   patch do
-    url "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1-2.debian.tar.xz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mytop/mytop_1.9.1-2.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1-2.debian.tar.xz"
     sha256 "9c97b7d2a2d4d169c5f263ce0adb6340b71e3a0afd4cdde94edcead02421489a"
     apply "patches/01_fix_pod.patch",
           "patches/02_remove_db_test.patch",

@@ -1,6 +1,6 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
-  homepage "http://lasso.entrouvert.org/"
+  homepage "https://lasso.entrouvert.org/"
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.0.tar.gz"
   sha256 "146bff7a25166467d960003346cbc3291f3f29067e305cb82ebb12354c7d0acf"
 

@@ -3,12 +3,13 @@ class Openvdb < Formula
   homepage "https://www.openvdb.org/"
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
   sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
+  revision 2
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
-    sha256 "61bae9831330a80fa016b1a4337c2629648076c60ea86f3a37a9c756c16129cc" => :mojave
-    sha256 "948544b41fb3c32e8b3cd793b2b2c8354f66aa7b3dd828eb989735cb4f6ecf23" => :high_sierra
-    sha256 "f8c032884b61bd202b33991cf7bc36bdf996cc65e64e585dc126715642dea41f" => :sierra
+    sha256 "4361d3ec5fcd948c20dfdfa6178f63197bda9759242727270ac17fb8c4e80866" => :mojave
+    sha256 "8c698a855986144256a27a1923d3d608b5af4ae23a3a06117f6f6bb186640a99" => :high_sierra
+    sha256 "c7cdb976c049f0fc8298d4eed96bc6f123453a0f48c7fe570e375b21e8081aaa" => :sierra
   end
 
   depends_on "doxygen" => :build

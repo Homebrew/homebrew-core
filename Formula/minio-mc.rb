@@ -2,15 +2,15 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2019-03-09T00-30-31Z",
-      :revision => "4a130c60a8ab5508abe079a23e24fdfef99c610f"
-  version "20190309003031"
+      :tag      => "RELEASE.2019-04-24T00-09-41Z",
+      :revision => "ecdeb3934d8297170c508140d08a9730f16d8440"
+  version "20190424000941"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2256b4348ca6d06d5084b27cd4c2abd6033b29a43b86d39abf982d3e34f0a2fa" => :mojave
-    sha256 "32f71d4c339708d75499edd2e32129e2879af44cd4ba7361f08ae8062a604d37" => :high_sierra
-    sha256 "855925c9b8748997abdb72bcea386f9698295f07a127a886cc9f8641045c53e8" => :sierra
+    sha256 "b45c314961b0f6d6640db713e167119bb46fe5d18a254fac4a5605da6b70aee5" => :mojave
+    sha256 "cb9acbb6c41ccd06c3261947c4d987c5cb93bd54d9420aeffc74b70c33f360a0" => :high_sierra
+    sha256 "ea3636a63f57e17a60dae2485bb4a78a898c89676f17d41f6b06d3dd81928fd0" => :sierra
   end
 
   depends_on "go" => :build
@@ -19,11 +19,10 @@ class MinioMc < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-
-    clipath = buildpath/"src/github.com/minio/mc"
-    clipath.install Dir["*"]
-
-    cd clipath do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/minio/mc"
+    src.install buildpath.children
+    src.cd do
       if build.head?
         system "go", "build", "-o", buildpath/"mc"
       else

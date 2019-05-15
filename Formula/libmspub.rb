@@ -3,13 +3,13 @@ class Libmspub < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libmspub"
   url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
   sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "88fcaf08da9f11bedb81f2e5f7ce489325109e4481729cda57f168f2b7eaae75" => :mojave
-    sha256 "6d4a84da0d0cfc06f07e61043ff3f36310f06a3f2eff259c619b1c188f5113bd" => :high_sierra
-    sha256 "857c89b5a164acf971221125715acd419bccd092ca8ab2683f68b4174c6dd859" => :sierra
+    sha256 "93f7e02d005fb22101eab93659f200ed8376130c9a4bad0c24b0cdde51b92f18" => :mojave
+    sha256 "43347c63d9fb4a6746929b2127453241cdad9b13a9fd00ddf82af418d6a175b2" => :high_sierra
+    sha256 "ebf70558240b3cc3c49994e865108d7d29796c45d1129e844ef1c99d8ae510a7" => :sierra
   end
 
   depends_on "boost" => :build

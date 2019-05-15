@@ -3,14 +3,14 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/release-2.33/s3ql-2.33.tar.bz2"
-  sha256 "4eb12360ae8927a6e65538a7b48237561585a5775e5d8c67d023be1dd9a857ce"
+  url "https://github.com/s3ql/s3ql/releases/download/release-3.0/s3ql-3.0.tar.bz2"
+  sha256 "ef69fd20f5d89ba815dc0ad95c34351478f46299bc9ed9e2da2224af34d9b314"
 
   bottle do
     cellar :any
-    sha256 "87cf6b82ddf9dc624cf2125799ba4e5785ab1dd11e35e230d4409e1d6f50895b" => :mojave
-    sha256 "806cf92e21445ab141ee1058669e7ed3c0ef7863d4669ea9a1847f49f908754b" => :high_sierra
-    sha256 "b5bc607e509f508163e3291cf44d0db38d1c69a01601e6ffede5c24b53ad8642" => :sierra
+    sha256 "346c0ccaf0f9d52c2734b8c1116623f154b621c3b7330c4af283042092a0aed4" => :mojave
+    sha256 "7a4f72d3da9d50f1049665cedad42cb323a4844e312ffb2837221e6a9dcc0816" => :high_sierra
+    sha256 "f5018386e55a05dc119ee0763c18771854c9a924f55d4fe451402a6ee4583f8c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,18 +18,18 @@ class S3ql < Formula
   depends_on "python"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
-    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
+    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
+    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
+    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
+    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
   end
 
   resource "chardet" do
@@ -37,9 +37,29 @@ class S3ql < Formula
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/07/ca/bc827c5e55918ad223d59d299fff92f3563476c3b00d0a9157d9c0217449/cryptography-2.6.1.tar.gz"
+    sha256 "26c821cbeb683facb966045e2064303029d572a87ee69ca5a1bf54bf55f93ca6"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/64/7c/27367b38e6cc3e1f49f193deb761fe75cda9f95da37b67b422e62281fcac/cffi-1.12.2.tar.gz"
+    sha256 "e113878a446c6228669144ae8a56e268c91b7f1fafae927adc4879d9849e0ea7"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
   end
 
   resource "defusedxml" do
@@ -48,8 +68,8 @@ class S3ql < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
+    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
   end
 
   resource "apsw" do
@@ -58,13 +78,13 @@ class S3ql < Formula
   end
 
   resource "dugong" do
-    url "https://files.pythonhosted.org/packages/47/e5/637ebacead14f1a17fbf2a2be2fd11b717e9ae4f0f912682c59792265506/dugong-3.7.2.tar.bz2"
-    sha256 "f219070139c3c8867fa542316801b3cc17a95dba0f6e30f0f73963044ef88620"
+    url "https://files.pythonhosted.org/packages/0f/d0/610ab91de47d3fbfb17be139b5040cd90904201963e63f3c44311cbc8388/dugong-3.7.4.tar.bz2"
+    sha256 "ed9fa32b126dc5b3c257bf9f3e9f679a2ef0cc56e0fcd857024d4bb3229f69b9"
   end
 
   resource "llfuse" do
-    url "https://files.pythonhosted.org/packages/19/e7/26335a22c776c763d280c2985963cf2f31484b7d05b5d74a08433d08201d/llfuse-1.3.5.tar.bz2"
-    sha256 "6e412a3d9be69162d49b8a4d6fb3c343d1c1fba847f4535d229e0ece2548ead8"
+    url "https://files.pythonhosted.org/packages/75/b4/5248459ec0e7e1608814915479cb13e5baf89034b572e3d74d5c9219dd31/llfuse-1.3.6.tar.bz2"
+    sha256 "31a267f7ec542b0cd62e0f1268e1880fdabf3f418ec9447def99acfa6eff2ec9"
   end
 
   def install

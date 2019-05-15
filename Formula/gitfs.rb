@@ -5,14 +5,14 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 3
+  revision 4
   head "https://github.com/PressLabs/gitfs.git"
 
   bottle do
     cellar :any
-    sha256 "f687f98ff761c63ce29e6e95b1b59de2a7b875eed52972ebf365c97647c64b17" => :mojave
-    sha256 "3fd2dd617e55b282e12950ed3f02f22f92ec7cbda6a99d14948e0de2d1391f18" => :high_sierra
-    sha256 "d2ebbc811955fc31e22f4f8e48441c1d768200a6a3a38dead2b9c688f1b406b4" => :sierra
+    sha256 "7859077b249dd271735ef57f6472aefec42708ed8efafc472f81ff31e77d0726" => :mojave
+    sha256 "9f70c9b930752bc09c7f141b7a77990ed96b9dd995c087f6b861831e249830a2" => :high_sierra
+    sha256 "5a85dbfb02e93e66495b512a10348242f7e6380d690af2aebc8bd4b48d2e0f22" => :sierra
   end
 
   depends_on "libgit2"
@@ -35,8 +35,8 @@ class Gitfs < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/3b/0d/c11844421c7c3b9cb84c5503185bbb5ba780144fd64f5adde572bcdcdd8a/pygit2-0.27.0.tar.gz"
-    sha256 "6febce4aea72f12ed5a1e7529b91119f21d93cb2ccb3f834eea26af76cc9a4cb"
+    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
+    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
   end
 
   resource "six" do

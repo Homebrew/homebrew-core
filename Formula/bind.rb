@@ -1,14 +1,14 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz"
-  sha256 "81bf24b2b86f7288ccf727aff59f1d752cc3e9de30a7480d24d67736256a0d53"
+  url "https://ftp.isc.org/isc/bind/9.14.1/bind-9.14.1.tar.gz"
+  sha256 "c3c7485d900a03271a9918a071c123e8951871a219f4c1c4383e37717f11db48"
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "d82db03a139392f57129bd79b1ea2539976d78474e12783672a938beb52ade6a" => :mojave
-    sha256 "a5fdca7936ef8bd8b4bc816529b9410d366c077969e4719c44044094ba5d59e0" => :high_sierra
-    sha256 "a772621d02fa39eed580232b8b769414e946168e40d096cf03853fb3f0cb79d0" => :sierra
+    sha256 "aea9f2a66bb39a4edcac4de0cb064e7573b2071346a99a465a984251268b10e3" => :mojave
+    sha256 "6e5129d22fb0a0b3c2731c38ec70111b8d2f8f4c5dd3b64f28352f928310198c" => :high_sierra
+    sha256 "d4407b21dd051826993b9e60922aaceafb57973b1c5205e162129e004a499f94" => :sierra
   end
 
   depends_on "json-c"
@@ -22,7 +22,8 @@ class Bind < Formula
 
   def install
     xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
@@ -34,17 +35,12 @@ class Bind < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    # enable DNSSEC signature chasing in dig
-    ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
-
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-threads",
-                          "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
-                          "--with-libjson=#{Formula["json-c"].opt_prefix}"
+                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
+                          "--with-python=#{Formula["python"].opt_bin}/python3",
+                          "--with-python-install-dir=#{vendor_site_packages}"
 
-    # From the bind9 README: "Do not use a parallel "make"
-    ENV.deparallelize
     system "make"
     system "make", "install"
 

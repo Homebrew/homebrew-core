@@ -2,14 +2,14 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      :tag      => "v1.6.2",
-      :revision => "b3197cf3caa797aa8689cd15da3518cc7149d2ad"
+      :tag      => "v1.6.3",
+      :revision => "3ac7e51b9e9fdd33f7caf7c77bebf09bf0cce44b"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
     cellar :any
-    sha256 "f9909b8950efa64b86585fecc460ca280ebde507e864ba3d3f5b9e743b275a88" => :mojave
-    sha256 "9763488be11655b5b0868eff3f3f4cd91031f0da80f74bf38f292f62798cd98b" => :high_sierra
+    sha256 "3dd5a50b551a37c164c31375cc8498ba870e29e50086bd5c4c294bc26708a6d2" => :mojave
+    sha256 "a0d1e45203448c08420c3eab2d40ef957fd22c8e40fbeb067bc7bffe4f08dfe2" => :high_sierra
   end
 
   depends_on "carthage" => :build
@@ -26,10 +26,12 @@ class Mas < Formula
     EOS
     ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
-    system "carthage", "bootstrap", "--platform", "macOS"
+    # Only build necessary dependencies (Commandant, Result)
+    system "carthage", "bootstrap", "--platform", "macOS", "Commandant", "Result"
     system "script/install", prefix
 
     bash_completion.install "contrib/completion/mas-completion.bash" => "mas"
+    fish_completion.install "contrib/completion/mas.fish"
   end
 
   test do
