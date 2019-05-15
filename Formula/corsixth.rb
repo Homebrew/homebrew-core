@@ -3,6 +3,7 @@ class Corsixth < Formula
   homepage "https://github.com/CorsixTH/CorsixTH"
   url "https://github.com/CorsixTH/CorsixTH/archive/v0.62.tar.gz"
   sha256 "b219270310255493c881a09bb4a5569f34a72cdaf3c3be920c1036a2450317ce"
+  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
@@ -23,9 +24,8 @@ class Corsixth < Formula
   depends_on "sdl2_mixer"
 
   resource "lpeg" do
-    url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/lpeg-1.0.1.tar.gz"
-    mirror "https://ftp.heanet.ie/mirrors/ftp.openbsd.org/distfiles/lpeg-1.0.1.tar.gz"
-    sha256 "62d9f7a9ea3c1f215c77e0cadd8534c6ad9af0fb711c3f89188a8891c72f026b"
+    url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz"
+    sha256 "48d66576051b6c78388faad09b70493093264588fcd0f258ddaab1cdd4a15ffe"
   end
 
   resource "luafilesystem" do
@@ -50,8 +50,10 @@ class Corsixth < Formula
     system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua",
                          "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
                          "-DLUA_PROGRAM_PATH=#{Formula["lua"].opt_bin}/lua",
+                         "-DCORSIX_TH_DATADIR=#{prefix}/CorsixTH.app/Contents/Resources/",
                          *std_cmake_args
     system "make"
+    cp_r %w[CorsixTH/CorsixTH.lua CorsixTH/Lua CorsixTH/Levels CorsixTH/Campaigns CorsixTH/Graphics CorsixTH/Bitmap], "CorsixTH/CorsixTH.app/Contents/Resources/"
     prefix.install "CorsixTH/CorsixTH.app"
 
     env = { :LUA_PATH => ENV["LUA_PATH"], :LUA_CPATH => ENV["LUA_CPATH"] }
