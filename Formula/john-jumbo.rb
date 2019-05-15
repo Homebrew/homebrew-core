@@ -22,23 +22,6 @@ class JohnJumbo < Formula
 
   conflicts_with "john", :because => "both install the same binaries"
 
-  # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
-  fails_with :gcc do
-    cause "Upstream have a hacky workaround for supporting gcc that we can't use."
-  end
-
-  # Patch taken from MacPorts, tells john where to find runtime files.
-  # https://github.com/magnumripper/JohnTheRipper/issues/982
-  patch :DATA
-
-  # Previously john-jumbo ignored the value of $HOME; fixed
-  # upstream.  See
-  # https://github.com/magnumripper/JohnTheRipper/issues/1901
-  patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/d29ad8aabaa9726eb08f440001c37611fa072e0c.diff?full_index=1"
-    sha256 "b3400f54c64dccce6fe4846872c945b280ec221c7a3d614b03c18029cba3695a"
-  end
-
   def install
     cd "src" do
       system "./configure", "--disable-native-tests", "--disable-native-macro"
@@ -69,27 +52,3 @@ class JohnJumbo < Formula
     assert_match(/secret/, (testpath/"john2.pot").read)
   end
 end
-
-
-__END__
---- a/src/params.h	2012-08-30 13:24:18.000000000 -0500
-+++ b/src/params.h	2012-08-30 13:25:13.000000000 -0500
-@@ -70,15 +70,15 @@
-  * notes above.
-  */
- #ifndef JOHN_SYSTEMWIDE
--#define JOHN_SYSTEMWIDE			0
-+#define JOHN_SYSTEMWIDE			1
- #endif
-
- #if JOHN_SYSTEMWIDE
- #ifndef JOHN_SYSTEMWIDE_EXEC /* please refer to the notes above */
--#define JOHN_SYSTEMWIDE_EXEC		"/usr/libexec/john"
-+#define JOHN_SYSTEMWIDE_EXEC		"HOMEBREW_PREFIX/share/john"
- #endif
- #ifndef JOHN_SYSTEMWIDE_HOME
--#define JOHN_SYSTEMWIDE_HOME		"/usr/share/john"
-+#define JOHN_SYSTEMWIDE_HOME		"HOMEBREW_PREFIX/share/john"
- #endif
- #define JOHN_PRIVATE_HOME		"~/.john"
- #endif
