@@ -79,7 +79,7 @@ begin
   moved_data = true
 
   (var/"postgres").mkpath
-  system "#{bin}/initdb", *initdb_args, "#{var}/postgres"
+  safe_system "#{bin}/initdb", *initdb_args, "#{var}/postgres"
   initdb_run = true
 
   (var/"log").cd do
