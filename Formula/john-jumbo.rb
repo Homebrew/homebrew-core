@@ -1,9 +1,9 @@
 class JohnJumbo < Formula
   desc "Enhanced version of john, a UNIX password cracker"
   homepage "https://www.openwall.com/john/"
-  url "https://openwall.com/john/j/john-1.8.0-jumbo-1.tar.xz"
-  version "1.8.0"
-  sha256 "bac93d025995a051f055adbd7ce2f1975676cac6c74a6c7a3ee4cfdd9c160923"
+  url "https://www.openwall.com/john/k/john-1.9.0-jumbo-1.tar.xz"
+  version "1.9.0"
+  sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
 
   bottle do
     cellar :any
