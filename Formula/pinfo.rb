@@ -1,8 +1,8 @@
 class Pinfo < Formula
   desc "User-friendly, console-based viewer for Info documents"
   homepage "https://packages.debian.org/sid/pinfo"
-  url "https://mirrorservice.org/sites/distfiles.macports.org/pinfo/pinfo-0.6.10.tar.bz2"
-  sha256 "122180a0c23d11bc9eb569a4de3ff97d3052af96e32466fa62f2daf46ff61c5d"
+  url "https://github.com/baszoetekouw/pinfo/archive/v0.6.13.tar.gz"
+  sha256 "9dc5e848a7a86cb665a885bc5f0fdf6d09ad60e814d75e78019ae3accb42c217"
 
   bottle do
     sha256 "4a516a4f2b9857e15750d63f4d29bd6965c9e7e8f2f1972bf1413bc0a33c98e5" => :mojave
