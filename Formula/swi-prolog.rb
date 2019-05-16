@@ -3,7 +3,7 @@ class SwiProlog < Formula
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
   sha256 "abb81b55ac5f2c90997c0005b1f15b74ed046638b64e784840a139fe21d0a735"
-  revision 1
+  revision 2
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
@@ -29,7 +29,9 @@ class SwiProlog < Formula
       system "cmake", "..", *std_cmake_args,
                       "-DSWIPL_PACKAGES_JAVA=OFF",
                       "-DSWIPL_PACKAGES_X=OFF",
-                      "-DCMAKE_INSTALL_PREFIX=#{libexec}"
+                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                      "-DCMAKE_C_COMPILER=/usr/bin/clang",
+                      "-DCMAKE_CXX_COMPILER=/usr/bin/clang++"
       system "make", "install"
     end
 
