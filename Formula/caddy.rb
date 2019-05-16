@@ -1,5 +1,3 @@
-require "language/go"
-
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
@@ -16,26 +14,15 @@ class Caddy < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/flynn/go-shlex" do
-    url "https://github.com/flynn/go-shlex.git",
-        :revision => "3f9db97f856818214da2e1057f8ad84803971cff"
-  end
-
-  go_resource "github.com/google/uuid" do
-    url "https://github.com/google/uuid.git",
-        :revision => "0cd6bf5da1e1c83f8b45653022c74f71af0538a4"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/mholt/caddy"
     dir.install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
 
     cd dir do
       system "go", "build", "-o", bin/"caddy"
-
       prefix.install_metafiles
     end
   end
