@@ -1,6 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://releases.llvm.org/8.0.0/llvm-8.0.0.src.tar.xz"
@@ -154,6 +155,7 @@ class Llvm < Formula
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_DISABLE_PYTHON=1
+      -DLIBOMP_INSTALL_ALIASES=OFF
     ]
 
     mkdir "build" do
