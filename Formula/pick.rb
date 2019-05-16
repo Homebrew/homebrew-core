@@ -1,8 +1,8 @@
 class Pick < Formula
   desc "Utility to choose one option from a set of choices"
   homepage "https://github.com/calleerlandsson/pick"
-  url "https://github.com/calleerlandsson/pick/releases/download/v2.0.2/pick-2.0.2.tar.gz"
-  sha256 "f2b43aaa540ad3ff05a256a531c2f47d3d95145b82c1d1b0d62dfb40d793d385"
+  url "https://github.com/calleerlandsson/pick/releases/download/v3.0.1/pick-3.0.1.tar.gz"
+  sha256 "668c863751f94ad90e295cf861a80b4d94975e06645f401d7f82525e607c0266"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +13,9 @@ class Pick < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "check"
+    ENV["PREFIX"] = prefix
+    ENV["MANDIR"] = man
+    system "./configure"
     system "make", "install"
   end
 
