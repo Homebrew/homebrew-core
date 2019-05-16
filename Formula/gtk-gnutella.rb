@@ -1,9 +1,8 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "https://gtk-gnutella.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.13/gtk-gnutella-1.1.13.tar.xz"
-  sha256 "2126cd08941ba0847c06f1034c5e2a9428b67b2fd1685c0e3ab878cb0179f647"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.14/gtk-gnutella-1.1.14.tar.xz"
+  sha256 "31eeaf02ae989aa81791af9f6b4aa3c26c39adc58605dc430edf59451494926a"
 
   bottle do
     sha256 "082534310bc4f0dde9353a8516a157287c32004c4ad1547dc2b80d58a293ebcd" => :mojave
