@@ -1,8 +1,8 @@
 class Physfs < Formula
   desc "Library to provide abstract access to various archives"
   homepage "https://icculus.org/physfs/"
-  url "https://icculus.org/physfs/downloads/physfs-3.0.1.tar.bz2"
-  sha256 "b77b9f853168d9636a44f75fca372b363106f52d789d18a2f776397bf117f2f1"
+  url "https://icculus.org/physfs/downloads/physfs-3.0.2.tar.bz2"
+  sha256 "304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863"
   head "https://hg.icculus.org/icculus/physfs/", :using => :hg
 
   bottle do
