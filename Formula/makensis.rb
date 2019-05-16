@@ -28,6 +28,7 @@ class Makensis < Formula
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
       "STRIP=0",
       "VERSION=#{version}",
+      "NSIS_MAX_STRLEN=8192",
     ]
     system "scons", "makensis", *args
     bin.install "build/urelease/makensis/makensis"
