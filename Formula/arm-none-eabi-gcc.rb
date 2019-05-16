@@ -5,6 +5,13 @@ class ArmNoneEabiGcc < Formula
   version "8-2018-q4-major"
   sha256 "0b528ed24db9f0fa39e5efdae9bcfc56bf9e07555cb267c70ff3fee84ec98460"
 
+  depends_on "expat" => :build
+  depends_on "libiconv" => :build
+  depends_on "libmpc" => :build
+  depends_on "isl" => :build
+  depends_on "zlib" => :build
+  depends_on "libelf" => :build
+
   def install
     (prefix/"gcc").install Dir["./*"]
     Dir.glob(prefix/"gcc/bin/*") { |file| bin.install_symlink file }
