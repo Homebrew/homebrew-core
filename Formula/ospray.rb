@@ -1,8 +1,8 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v1.8.4.tar.gz"
-  sha256 "36527eb01a09b0f30608550373aa305ecbfa2faea23cd929cc731af5864ca326"
+  url "https://github.com/ospray/ospray/archive/v1.8.5.tar.gz"
+  sha256 "6d85e103280aa4c8d0032a2cc3082f08a6021a79d22cf4a8e38b09f152f35f53"
   head "https://github.com/ospray/ospray.git"
 
   bottle do
