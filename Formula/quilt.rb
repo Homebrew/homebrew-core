@@ -1,8 +1,8 @@
 class Quilt < Formula
   desc "Work with series of patches"
   homepage "https://savannah.nongnu.org/projects/quilt"
-  url "https://download.savannah.gnu.org/releases/quilt/quilt-0.65.tar.gz"
-  sha256 "f6cbc788e5cbbb381a3c6eab5b9efce67c776a8662a7795c7432fd27aa096819"
+  url "https://download.savannah.gnu.org/releases/quilt/quilt-0.66.tar.gz"
+  sha256 "314b319a6feb13bf9d0f9ffa7ce6683b06919e734a41275087ea457cc9dc6e07"
   head "https://git.savannah.gnu.org/git/quilt.git"
 
   bottle do
