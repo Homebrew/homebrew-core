@@ -7,7 +7,7 @@ class Ospray < Formula
 
   bottle do
     cellar :any
-    sha256 "19a2a2c636c07427b7d6bdff6d771e571bfa6d8dbf926695932e8cadf60d65fc" => :mojave
+    sha256 "b9b5016940568986207bc383505a8e8742252bd7c42e9f072647bdecea849865" => :mojave
   end
 
   depends_on "cmake" => :build
