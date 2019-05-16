@@ -1,8 +1,8 @@
 class Rtmidi < Formula
   desc "C++ classes that provide a common API for realtime MIDI input/output"
   homepage "https://www.music.mcgill.ca/~gary/rtmidi/"
-  url "https://github.com/thestk/rtmidi/archive/v3.0.0.tar.gz"
-  sha256 "55cd0fba60321aadcd847481d207bf2b70e783b5bfa1a01037bf916554a7d5c4"
+  url "https://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-4.0.0.tar.gz"
+  sha256 "370cfe710f43fbeba8d2b8c8bc310f314338c519c2cf2865e2d2737b251526cd"
 
   bottle do
     cellar :any
