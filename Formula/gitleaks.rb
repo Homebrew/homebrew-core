@@ -3,7 +3,6 @@ class Gitleaks < Formula
   homepage "https://github.com/zricethezav/gitleaks"
   url "https://github.com/zricethezav/gitleaks/archive/v2.0.0.tar.gz"
   sha256 "85a5c98dedeb4e85e07eb18247b63318aa266ef3046c2022eac949cc6f254da0"
-  head "https://github.com/zricethezav/gitleaks.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,17 +11,18 @@ class Gitleaks < Formula
     sha256 "3f33e0cef69f8b154fb447986f3add4193f4bb746b31e046a4158fc041f975bb" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
+    ENV["GO111MODULE"] = "on"
+
     dir = buildpath/"src/github.com/zricethezav/gitleaks"
     dir.install buildpath.children
+
     cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "install"
+      system "go", "build", "-o", bin/"gitleaks"
+      prefix.install_metafiles
     end
   end
 
