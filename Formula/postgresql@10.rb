@@ -3,7 +3,6 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.8/postgresql-10.8.tar.bz2"
   sha256 "b198c2aadf1d68308127a0f5b51dbe798958ffe60dd999134f6495c489afcd5d"
-  revision 1
 
   bottle do
     sha256 "5967e87fa3e33b7781e8dfa5bc9282eb0d16c32c90a07ff887433ea0da2aa6c1" => :mojave
