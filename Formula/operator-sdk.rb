@@ -1,8 +1,8 @@
 class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
-  url "https://github.com/operator-framework/operator-sdk/archive/v0.7.0.tar.gz"
-  sha256 "19c1fd70e4ca1242667552dc6a087bfeb2e019fffcfdbe2d7295475a7596126c"
+  url "https://github.com/operator-framework/operator-sdk/archive/v0.7.1.tar.gz"
+  sha256 "c6d5e41c5811cfe73554f5fe03a391bb6bcce641d8d7d412fd7c245c6240d081"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
