@@ -1,8 +1,9 @@
 class Ivykis < Formula
   desc "Async I/O-assisting library"
   homepage "https://sourceforge.net/projects/libivykis"
-  url "https://downloads.sourceforge.net/project/libivykis/0.42.3/ivykis-0.42.3.tar.gz"
-  sha256 "c9b025d55cefe9c58958d1012f36d63aa0a5caf22075617fff648751ea940aec"
+  url "https://github.com/buytenh/ivykis/archive/v0.42.4-trunk.tar.gz"
+  version "0.42.4"
+  sha256 "b724516d6734f4d5c5f86ad80bde8fc7213c5a70ce2d46b9a2d86e8d150402b5"
 
   bottle do
     cellar :any
@@ -19,6 +20,8 @@ class Ivykis < Formula
   def install
     system "autoreconf", "-i"
     system "./configure", "--prefix=#{prefix}"
+    system "make"
+    system "make", "check"
     system "make", "install"
   end
 
