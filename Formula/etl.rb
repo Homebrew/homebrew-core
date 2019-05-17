@@ -1,8 +1,8 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "https://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/ETL-0.04.19.tar.gz"
-  sha256 "ba944c1a07fd321488f9d034467931b8ba9e48454abef502a633ff4835380c1c"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/ETL-1.2.2.tar.gz"
+  sha256 "0dc19c5a6c9e964054ca3af6dacd6ab0c198d78071cfab2aebac178afe454d8b"
 
   bottle do
     cellar :any_skip_relocation
