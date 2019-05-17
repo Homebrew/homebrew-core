@@ -1,9 +1,8 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications"
   homepage "https://qwt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
-  sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
-  revision 4
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.4/qwt-6.1.4.tar.bz2"
+  sha256 "1529215329e51fc562e0009505a838f427919a18b362afff441f035b2d9b5bd9"
 
   bottle do
     rebuild 1
