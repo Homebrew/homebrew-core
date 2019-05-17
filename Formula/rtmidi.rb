@@ -6,11 +6,9 @@ class Rtmidi < Formula
 
   bottle do
     cellar :any
-    sha256 "8a2a9782decb8dc5cf871ed408ab3d924438df2feab9506ca53cba1d74bb1cb8" => :mojave
-    sha256 "f4a74942bb3c18351c0ff2d77a27703d70aa3311f3a39228a7615c424e9fac79" => :high_sierra
-    sha256 "27e811c4d1ad96adbc31f2f432543b85907a065a91cc0a4e515e980a2f45b253" => :sierra
-    sha256 "387b587f77423ee2ecfd716fa5235aa235ba5d33632b2765292ec318e0d67af3" => :el_capitan
-    sha256 "6e2f97819b113f8c95618377030170ddba66e79085f4f1553306b77e99683c6c" => :yosemite
+    sha256 "5cb51ca3774a1e22d2388f01ccb514d091519b9d8cbc5f4805437be1be7dba30" => :mojave
+    sha256 "8744fb2c8d9952b0e14e50f2fed7982e715843746506378645211a178a3163e0" => :high_sierra
+    sha256 "4eab0eb4ede3d1035d7918bd84e2aede8f648c2ebcf449ac6f9ce15c0c744988" => :sierra
   end
 
   depends_on "autoconf" => :build
