@@ -1,9 +1,9 @@
 class Rancid < Formula
   desc "Really Awesome New Cisco confIg Differ"
   homepage "https://www.shrubbery.net/rancid/"
-  url "ftp://ftp.shrubbery.net/pub/rancid/rancid-3.7.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/r/rancid/rancid_3.8.orig.tar.gz"
-  sha256 "9c6befff78d49d8d0757a2b57b6cfdfef55cadcbc1fa6fbe1ab9424335d51f7b"
+  url "ftp://ftp.shrubbery.net/pub/rancid/rancid-3.9.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/r/rancid/rancid_3.9.orig.tar.gz"
+  sha256 "9db9ba5026c2acae99713c6ee00f8186ea9d14eb2b902dabf40525025e0b1188"
 
   bottle do
     cellar :any_skip_relocation
