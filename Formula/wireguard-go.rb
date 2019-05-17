@@ -7,9 +7,9 @@ class WireguardGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1efcc1d6bacea0eb997da3f1fa74849c00ddb9239b9433e119af85f2261c8e41" => :mojave
-    sha256 "bd8a7b899f8b6a99390e32561b40cfc51bf81239bf7af229e9ccad51868e7db5" => :high_sierra
-    sha256 "c65c7a1dcdb68edb8185ffdc4b537f38d5af131b5360dd0d197fe95d22f1fa6b" => :sierra
+    sha256 "6c00aa32912204b9197742ba84a2d96402d49e66fba03df1417ff4bdf177038f" => :mojave
+    sha256 "faaedaff2e6101eed4766f8d7fac6026e8d5413dfe853f3fe7f2abd0fc66a831" => :high_sierra
+    sha256 "3f78a474cdcc13fa156857482bf8d52a2e59672efb139b3797fcbe55e1b2d43a" => :sierra
   end
 
   depends_on "go" => :build
