@@ -10,9 +10,9 @@ class Texmath < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84a9c7b77ccd647ff3c869c94c505d8d143b942ea3c236805621a505cc4c0d01" => :mojave
-    sha256 "760e01e12ab44dba38a1e2dba27ce6514f5875fab403b77eabcdede4aad704db" => :high_sierra
-    sha256 "486ed9a7ba32823a46744c5b8b46e5edde1ee30ed2259963cd34c6a1949b20d8" => :sierra
+    sha256 "ef810c923e8a459cc4d18ab596c348e4e8610b177c642242b4bf07915eab7e16" => :mojave
+    sha256 "1782096bfc10752b5916f16aa188a37e57609f101f334be92b1abf23bf8ed59d" => :high_sierra
+    sha256 "45e18931b08c56b33ec7610ebeae791d5acf496d1e3cfe949dca28162e10c15e" => :sierra
   end
 
   depends_on "cabal-install" => :build
