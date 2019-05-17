@@ -1,9 +1,8 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/heptio/velero"
-  url "https://github.com/heptio/velero/archive/v0.11.0.tar.gz"
-  sha256 "366f4c1ed5800dbdddefa60ed88bdd82b406b69b76a214b1d7108997a2f973ac"
-  revision 2
+  url "https://github.com/heptio/velero/archive/v0.11.1.tar.gz"
+  sha256 "9d8658f3b7826ac29cac87fe343569deb8c3aa7623fb41e8c15aa3b2659f0d4c"
 
   bottle do
     cellar :any_skip_relocation
