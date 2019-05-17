@@ -3,7 +3,7 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.2.0.tar.gz"
   sha256 "072237ed5c6fcbc6a87300fa036014ec574fd081724907e41ae2d6fb5a222fbc"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "bd803bfb559a6e8ba2badca841a200e52aa69db4a1d1e63fe304488d37cb2b8d" => :mojave
