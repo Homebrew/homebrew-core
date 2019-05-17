@@ -5,10 +5,9 @@ class Qwt < Formula
   sha256 "1529215329e51fc562e0009505a838f427919a18b362afff441f035b2d9b5bd9"
 
   bottle do
-    rebuild 1
-    sha256 "a0440f8bbfaa4a88a44ad02aac93cd1d96a45b59f0b4e3c6133c150dd877e100" => :mojave
-    sha256 "fefafb68b60362fb7c2f268171cf111a7676044d2586698d786bc448263cd315" => :high_sierra
-    sha256 "b333be61fb0188cdf98510566dd28ac51c677eba50c7257d7b5145d7619d7a44" => :sierra
+    sha256 "bbc1c7842159419ae1946cec3dcaa4e4eb645c37ee63249a93ffab255b6eeb25" => :mojave
+    sha256 "290203526a7fb210f43d53301597908172abc107d8b3260b36b1b24f73805c9f" => :high_sierra
+    sha256 "5737738dca1f1c423c45d43440baa652fc87183d6fdffa960f3df9b6b7c40a83" => :sierra
   end
 
   depends_on "qt"
