@@ -1,8 +1,8 @@
 class Sdl2Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://www.libsdl.org/projects/SDL_ttf/"
-  url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz"
-  sha256 "34db5e20bcf64e7071fe9ae25acaa7d72bdc4f11ab3ce59acc768ab62fe39276"
+  url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz"
+  sha256 "a9eceb1ad88c1f1545cd7bd28e7cbc0b2c14191d40238f531a15b01b1b22cd33"
 
   bottle do
     cellar :any
