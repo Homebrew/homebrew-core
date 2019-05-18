@@ -7,10 +7,8 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  url "https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.tar.xz"
-  sha256 "6736cdee95b2b8bb021ec0c19497ed8cad5ae2c8bfdb7ab5dc687ff92a480d4d"
-  revision 1
+  url "https://dl.winehq.org/wine/source/4.0/wine-4.0.1.tar.xz"
+  sha256 "d3a692f04c2fe03c8bd856655eaf4e6eeb4ad47f7d3120898dbf997e816b4948"
   head "https://source.winehq.org/git/wine.git"
 
   bottle do
