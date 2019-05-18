@@ -1,8 +1,8 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v2.3.0.tar.gz"
-  sha256 "f19ec6ef1bae596e013a40c300d7f28ba91f71f6f7d6d0f13d03feaf4ab1ac43"
+  url "https://github.com/pressly/goose/archive/v2.6.0.tar.gz"
+  sha256 "389953f40e567fd92090fd29d60e1baec576e6432e689f11ef54e6493502383a"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,9 +17,10 @@ class Goose < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+
     (buildpath/"src/github.com/pressly/goose").install buildpath.children
     cd "src/github.com/pressly/goose" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"goose", ".../cmd/goose"
       prefix.install_metafiles
     end
