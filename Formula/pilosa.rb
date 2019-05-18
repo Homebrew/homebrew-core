@@ -11,13 +11,13 @@ class Pilosa < Formula
     sha256 "6a60b386e7fa8539bffbf7b1082fb3add777a3f304508cb362d1c9913ddfd439" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
+    ENV["GO111MODULE"] = "on"
 
+    (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
     cd "src/github.com/pilosa/pilosa" do
       system "make", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
       prefix.install_metafiles
