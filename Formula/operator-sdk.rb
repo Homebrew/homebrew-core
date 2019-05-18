@@ -1,8 +1,7 @@
 class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
-  url "https://github.com/operator-framework/operator-sdk/archive/v0.7.1.tar.gz"
-  sha256 "c6d5e41c5811cfe73554f5fe03a391bb6bcce641d8d7d412fd7c245c6240d081"
+  url "https://github.com/operator-framework/operator-sdk.git", :tag => "v0.8.0"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
@@ -39,6 +38,7 @@ class OperatorSdk < Formula
 
   test do
     ENV["GOPATH"] = testpath
+    ENV["GO111MODULE"] = "on"
     dir = testpath/"src/example.com/test-operator"
     dir.mkpath
 
