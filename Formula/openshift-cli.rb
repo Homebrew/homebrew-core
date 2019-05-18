@@ -10,10 +10,9 @@ class OpenshiftCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3a9fe73987bae768f7bb93e8fb905c8d85f7a8e4bd7faed1c851999686736376" => :mojave
-    sha256 "36859d6b9fcc67175e84b5f72c823e2f7963f7216a83d4f48b54c5b0f08c719b" => :high_sierra
-    sha256 "f36d41feb6b8f07cd97ebe7ed8423943287ef1a3f5c21a58555ed364433c776d" => :sierra
+    sha256 "6654cc3108f415a4fd1b3731441c5e2d8da2379e5e0493442c35f79c0bee668b" => :mojave
+    sha256 "95cbed6538f55a49fdb7e1d75f99db0fad366ca56bfeb8e374591ddf6f35a0a2" => :high_sierra
+    sha256 "348d1a3c4c94c7670054d820e5c9114d903aec9cdcbb001ab845fa459877b15f" => :sierra
   end
 
   depends_on "coreutils" => :build
