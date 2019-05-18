@@ -1,10 +1,8 @@
-require "language/go"
-
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.nl/"
-  url "https://github.com/mmarkdown/mmark/archive/v2.0.40.tar.gz"
-  sha256 "6013da8bd80f68d627d8f7c147d9c0370d0543bd100dd6f7c7adc1dcc68be6b3"
+  url "https://github.com/mmarkdown/mmark/archive/v2.0.46.tar.gz"
+  sha256 "fa64a7321ff8cc531a0caa36af2a72057c5bebd634b623407b9d6415e7184003"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,21 +13,6 @@ class Mmark < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/BurntSushi/toml" do
-    url "https://github.com/BurntSushi/toml.git",
-        :revision => "3012a1dbe2e4bd1391d42b32f0577cb7bbc7f005"
-  end
-
-  go_resource "github.com/gomarkdown/markdown" do
-    url "https://github.com/gomarkdown/markdown.git",
-        :revision => "ee6a7931a1e4b802c9ff93e4dabcabacf4cb91db"
-  end
-
-  go_resource "github.com/mmarkdown/markdown" do
-    url "https://github.com/mmarkdown/markdown.git",
-        :revision => "d1d0edeb5d8598895150da44907ccacaff7f08bc"
-  end
-
   resource "test" do
     url "https://raw.githubusercontent.com/mmarkdown/mmark/v2.0.7/rfc/2100.md"
     sha256 "2d220e566f8b6d18cf584290296c45892fe1a010c38d96fb52a342e3d0deda30"
@@ -37,13 +20,14 @@ class Mmark < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/mmarkdown/"
-    ln_sf buildpath, buildpath/"src/github.com/mmarkdown/mmark"
-    Language::Go.stage_deps resources, buildpath/"src"
+    ENV["GO111MODULE"] = "on"
 
-    system "go", "build", "-o", bin/"mmark"
-    man1.install "mmark.1"
-    doc.install "Syntax.md"
+    (buildpath/"src/github.com/mmarkdown/mmark").install buildpath.children
+    cd "src/github.com/mmarkdown/mmark" do
+      system "go", "build", "-o", bin/"mmark"
+      man1.install "mmark.1"
+      prefix.install_metafiles
+    end
   end
 
   test do
