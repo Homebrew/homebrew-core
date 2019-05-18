@@ -3,8 +3,8 @@ require "language/go"
 class Gx < Formula
   desc "The language-agnostic, universal package manager"
   homepage "https://github.com/whyrusleeping/gx"
-  url "https://github.com/whyrusleeping/gx/archive/v0.14.1.tar.gz"
-  sha256 "eb1f9cd2af7d9fdbfed9aeb8bdccb4c7b6aa91f3ca40a6010f22bbaaa7bc026c"
+  url "https://github.com/whyrusleeping/gx/archive/v0.14.2.tar.gz"
+  sha256 "de363e7fab51491cfc8a4e6c9c67b63f5d10df06744920f6851cb9b4a44967d4"
   head "https://github.com/whyrusleeping/gx.git"
 
   bottle do
