@@ -9,9 +9,9 @@ class Gx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd9206262c3ec48b7c745c23b93a7d35f1eb062ab46d2a8712d1e80f97c01ba4" => :mojave
-    sha256 "f9b917fcf75f644943869f660dbb418168962bb6c32df2a0962ca11d71822c2e" => :high_sierra
-    sha256 "d10a52930db99b4e6e815148cbeb418eef47a2fac43c8d3b4a6b1c0addc3c72e" => :sierra
+    sha256 "684f06520e421a1bff37db9419bec73924826428953b4dc5227546f1c94819aa" => :mojave
+    sha256 "c60a535b2e9de4688ba699f4012527d25912b74ef9be40ff59fe5d3e6222000f" => :high_sierra
+    sha256 "9b9092d6ad1d055c601e555afb79b41c5eef4f6a7d0e70e1e57ba82580ac3bd4" => :sierra
   end
 
   depends_on "go" => :build
