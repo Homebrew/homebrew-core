@@ -6,10 +6,9 @@ class NodeExporter < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18aec98484b6171e130b362cb4fdf061ae556889b5a4d0f5e54590bed772d40f" => :mojave
-    sha256 "73a63fee885b246f401e3bb5f2ba2ef151a0d445d2c5be3480eb5ad7e34c5150" => :high_sierra
-    sha256 "a2f81f31c72150cff3ce0442ae63e783b4c8d9ea6b04cce353caed36f373c464" => :sierra
-    sha256 "43917856258a8a777b2632921070b002853b266438495320ca20d5eda6a95809" => :el_capitan
+    sha256 "c051d010b3301d3600f92e90417280710a7336362b981781b0e61dd7e780ecc9" => :mojave
+    sha256 "c7f358a38650a8529a9d10a8c38363a810003a0c3e0cfbf354950e24a7a6524a" => :high_sierra
+    sha256 "3b08291d087a3f1e8845fb88025b83e73961965be753c35ff3337a00ae37b764" => :sierra
   end
 
   depends_on "go" => :build
