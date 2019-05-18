@@ -1,8 +1,8 @@
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v1.3.0.tar.gz"
-  sha256 "135d8cdefdac6dad95c603de385f552bded73f7929aa12f7e466addd95421a6b"
+  url "https://github.com/pilosa/pilosa/archive/v1.3.1.tar.gz"
+  sha256 "5e0040b7605cae3ebf2b617d472e7c104ad026982ba52e83f8b0593b32b6fa05"
 
   bottle do
     cellar :any_skip_relocation
