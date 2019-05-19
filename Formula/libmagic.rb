@@ -1,8 +1,8 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.36.tar.gz"
-  sha256 "fb608290c0fd2405a8f63e5717abf6d03e22e183fb21884413d1edd918184379"
+  url "ftp://ftp.astron.com/pub/file/file-5.37.tar.gz"
+  sha256 "e9c13967f7dd339a3c241b7710ba093560b9a33013491318e88e6b8b57bae07f"
 
   bottle do
     sha256 "2f9cd29505ced7c842c5c673db528c68237acc69f552fb1ebe7b903f0e2597be" => :mojave
