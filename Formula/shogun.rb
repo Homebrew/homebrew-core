@@ -5,6 +5,12 @@ class Shogun < Formula
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
   revision 4
 
+  bottle do
+    sha256 "64f4bf221b7c087076161b0dbfd0fd21f621bbc547080a74a09f2c85a3c5d5c4" => :mojave
+    sha256 "d320e38e795a86bf78421ae58931894d39ef22b9adb4b68f65934eccee9f84a9" => :high_sierra
+    sha256 "0555cc4fcb1dfe0c7d762076664fd7075e5b5d46fe905b3a40d6f4945589100d" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
