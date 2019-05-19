@@ -5,8 +5,8 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-2.6.0/cryptol-2.6.0.tar.gz"
-  sha256 "5f8abbfa2765ac0f6bb887edbec7032677d107c39581a4c78614e97382738f42"
+  url "https://hackage.haskell.org/package/cryptol-2.7.0/cryptol-2.7.0.tar.gz"
+  sha256 "46c6ba5d63c0cdf074e57ea07b09dc84751a6608a9a66e552ebe2b7a343ed393"
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
