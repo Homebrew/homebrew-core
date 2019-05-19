@@ -1,9 +1,9 @@
 class SpirvCross < Formula
   desc "Performing reflection and disassembling SPIR-V"
   homepage "https://github.com/KhronosGroup/SPIRV-Cross"
-  url "https://github.com/KhronosGroup/SPIRV-Cross/archive/2019-03-22.tar.gz"
-  version "2019-03-22"
-  sha256 "fe1b7e264463b973697082d124becf2eb98c78f6c2c119ec18b6f3b5f3d07044"
+  url "https://github.com/KhronosGroup/SPIRV-Cross/archive/2019-05-14.tar.gz"
+  version "2019-05-14"
+  sha256 "e62bd665a2ee123a443acb7db5e0f4a5e8deeb6bda3ef3f6ea88b1a49979782f"
 
   bottle do
     cellar :any_skip_relocation
