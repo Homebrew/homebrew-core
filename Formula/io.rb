@@ -1,9 +1,9 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
-  url "https://github.com/stevedekorte/io/archive/2017.09.06.tar.gz"
+  url "https://github.com/IoLanguage/io/archive/2017.09.06.tar.gz"
   sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
-  head "https://github.com/stevedekorte/io.git"
+  head "https://github.com/IoLanguage/io.git"
 
   bottle do
     sha256 "9e628fa0879d7d2e370ae5275393d1d52b578f6f10d3f005faf9d0360caf8851" => :mojave
