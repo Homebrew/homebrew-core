@@ -17,7 +17,6 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "python"
-  depends_on "python@2"
 
   cxxstdlib_check :skip
 
@@ -38,13 +37,11 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
-      ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-      system python, "setup.py", "build", "--fcompiler=gnu95"
-      system python, *Language::Python.setup_install_args(prefix)
-    end
+    version = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
+    system "python3", "setup.py", "build", "--fcompiler=gnu95"
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -66,8 +63,6 @@ class Scipy < Formula
   end
 
   test do
-    ["python2", "python3"].each do |python|
-      system python, "-c", "import scipy"
-    end
+    system "python3", "-c", "import scipy"
   end
 end
