@@ -31,6 +31,13 @@ class Io < Formula
     end
   end
 
+  def caveats; <<~EOS
+    Make sure to update your shell's environment variables before using Eerie, like:
+      EERIEDIR=~/.eerie
+      PATH=$PATH:$EERIEDIR/base/bin:$EERIEDIR/activeEnv/bin
+  EOS
+  end
+
   test do
     (testpath/"test.io").write <<~EOS
       "it works!" println
