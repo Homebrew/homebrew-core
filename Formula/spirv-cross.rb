@@ -7,9 +7,9 @@ class SpirvCross < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "835b415ea283c5c4d0ad0b619dbcadc5e96f47a537b71f1bc5003462994ad6fc" => :mojave
-    sha256 "054e2e1c8092b4f0e84214272c3569903d04acd8eef76cfa06ad1bd3056914d8" => :high_sierra
-    sha256 "d744590cfafe2528e02a40d2295eda06da5e4e7e058ce7973f3f88c0ec472d35" => :sierra
+    sha256 "12e03be1f9623a697b415e345f730be85d3139cc688feb2bd99fb7c6bd0b54be" => :mojave
+    sha256 "198d10b740fc429b5066a9dd6a4bbc434743b644d7da36056e8b0f38667a487c" => :high_sierra
+    sha256 "dbb73c590b196e097e38c843ad2764ebad59e34f5670ff50858f77531aaf5a92" => :sierra
   end
 
   depends_on "cmake" => :build
