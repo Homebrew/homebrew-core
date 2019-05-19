@@ -5,6 +5,7 @@ class Supervisor < Formula
   homepage "http://supervisord.org/"
   url "https://github.com/Supervisor/supervisor/archive/4.0.2.tar.gz"
   sha256 "a9ea9e289f4d2ee1e83d0574284b8c8d05df98f5df395f7f803d3a14f18690c4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Supervisor < Formula
     sha256 "f44a7a1551ed5a70be2eef7a8efa7bea716701a08a05f9493442f8fff08a8983" => :sierra
   end
 
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   resource "meld3" do
     url "https://files.pythonhosted.org/packages/45/a0/317c6422b26c12fe0161e936fc35f36552069ba8e6f7ecbd99bbffe32a5f/meld3-1.0.2.tar.gz"
