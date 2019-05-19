@@ -6,9 +6,9 @@ class Cocoapods < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "17bfedd7fbc1e1846ff92bf8524a8e19a0dba884db1454323c5caf28e2ff5235" => :mojave
-    sha256 "a8bf9d17ede7e5a30a44e432c812667b806ddbb0f601cb7b411cd197caa982b5" => :high_sierra
-    sha256 "6a6cbb4bb332db759cbfffed409c1d5bc93b7edff8bd99bb308fa98350ffeba7" => :sierra
+    sha256 "238cc9cdc173abeea42cb5d248f383260de75dc8e8408240da56bf3e5782074c" => :mojave
+    sha256 "6f2a512bf11b6f7e07989afcf31b5c2e9644cdb56887d6cfe2716e9172e429f3" => :high_sierra
+    sha256 "1daf1a457fc8b800c89c61cf8bccc92890aa1bfe0ddb0b47ef9d9bb17d45283f" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
