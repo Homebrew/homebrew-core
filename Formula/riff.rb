@@ -4,8 +4,8 @@ class Riff < Formula
   desc "Function As A Service on top of Knative, riff is for functions"
   homepage "https://www.projectriff.io/"
   url "https://github.com/projectriff/riff.git",
-      :tag      => "v0.3.0",
-      :revision => "4e474f57a463d4d2c1159af64d562532fcb3ac1b"
+      :tag      => "v0.3.1",
+      :revision => "1ff6c6d7a708e52eb6843e89f9a618fcbfebbb9f"
 
   bottle do
     cellar :any_skip_relocation
