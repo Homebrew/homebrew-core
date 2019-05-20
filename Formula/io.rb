@@ -36,6 +36,12 @@ class Io < Formula
     Make sure to update your shell's environment variables before using Eerie, like:
       EERIEDIR=~/.eerie
       PATH=$PATH:$EERIEDIR/base/bin:$EERIEDIR/activeEnv/bin
+
+    When running eerie for the first time, you may encounter an error like:
+      Exception: unable to open file path '/home/<user>/.eerie/config.json': Permission denied
+
+    If this occurs, this is because the ~/.eerie/ folder isn't accessible due to your user permissions. To fix this, go to your home folder and run:
+      sudo chown -R <your username> ~/.eerie/
   EOS
   end
 
