@@ -2,8 +2,8 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.7.2",
-      :revision => "a8ab26dd1f818d27c17c3049f643652c6a789d88"
+      :tag      => "v6.8.0",
+      :revision => "c01de6731c401c73d03ed996cdf21f5724ad83f4"
   head "https://github.com/elastic/beats.git"
 
   bottle do
