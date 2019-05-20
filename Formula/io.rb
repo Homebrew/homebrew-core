@@ -25,6 +25,7 @@ class Io < Formula
     mkdir "buildroot" do
       system "cmake", "..", "-DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON",
                             "-DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON",
+                            "-DCMAKE_BUILD_TYPE=release",
                             *std_cmake_args
       system "make"
       system "make", "install"
