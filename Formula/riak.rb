@@ -61,20 +61,6 @@ class Riak < Formula
               "TMP_FILE=$TMP_DIR/$FILENAME",
               "TMP_FILE=#{buildpath}/$FILENAME"
 
-    system "git", "-C", "deps/hyper", "commit", "-am", "hyper-patch"
-    hyper_revision = Utils.popen_read("git", "-C", "deps/hyper", "rev-parse",
-                                      "HEAD").chomp
-
-    system "git", "-C", "deps/yokozuna", "commit", "-am", "solr-location"
-    yokozuna_revision = Utils.popen_read("git", "-C", "deps/yokozuna",
-                                         "rev-parse", "HEAD").chomp
-
-    # So that rebar doesn't revert the modifications
-    inreplace "rebar.config.lock" do |s|
-      s.gsub! resource("hyper").specs[:revision], hyper_revision
-      s.gsub! resource("yokozuna").specs[:revision], yokozuna_revision
-    end
-
     # So that rebar doesn't try to refetch the dependencies modified above
     inreplace "Makefile", "git checkout $(REPO_TAG) &&",
                           "git checkout $(REPO_TAG) && mv ../../deps . &&"
