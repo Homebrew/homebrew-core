@@ -1,9 +1,9 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v2.1.6.src.tgz"
-  version "2.1.6"
-  sha256 "04a399a619fc898fbd457c60784416e17af22b05f02be101b2fe64c536163eeb"
+  url "https://binaries.cockroachdb.com/cockroach-v19.1.1.src.tgz"
+  version "19.1.1"
+  sha256 "cc05d2f0a4310d23007985a91a2e3ac4ab17b9cd853934536228e6e4812c7fed"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
@@ -74,9 +74,7 @@ class Cockroach < Formula
 
   test do
     begin
-      # Redirect stdout and stderr to a file, or else  `brew test --verbose`
-      # will hang forever as it waits for stdout and stderr to close.
-      system "#{bin}/cockroach start --insecure --background &> start.out"
+      system "#{bin}/cockroach start --insecure --background --advertise-host=localhost"
       pipe_output("#{bin}/cockroach sql --insecure", <<~EOS)
         CREATE DATABASE bank;
         CREATE TABLE bank.accounts (id INT PRIMARY KEY, balance DECIMAL);
