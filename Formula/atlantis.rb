@@ -3,6 +3,13 @@ class Atlantis < Formula
   homepage "https://www.runatlantis.io"
   url "https://github.com/runatlantis/atlantis/archive/v0.7.2.tar.gz"
   sha256 "ecb0068f6ee1cacc4710b4f77e67b88e5d6b5d1dfae3bf6ce480980c93efa50d"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "65719df4c6b009754dd81ab0c730f279bf9466b01d726ac7ad4bdec59150eb3a" => :mojave
+    sha256 "ea999c714a9a4397e1eac09a825425fe33d86bad1cc3c6b8dbb1ff53b83d05d7" => :high_sierra
+    sha256 "f00a0840390ab8732f067fd82564dc2045d743d69b29e2604bf5d83fd5716109" => :sierra
+  end
+
   depends_on "go" => :build
   depends_on "terraform"
 
