@@ -16,11 +16,9 @@ class Atari800 < Formula
   depends_on "sdl"
 
   def install
-    do
-      system "./configure", "--prefix=#{prefix}",
+    system "./configure", "--prefix=#{prefix}",
                             "--disable-sdltest"
-      system "make", "install"
-    end
+    system "make", "install"
   end
 
   test do
