@@ -3,7 +3,7 @@ class Shogun < Formula
   homepage "http://www.shogun-toolbox.org/"
   url "http://shogun-toolbox.org/archives/shogun/releases/6.1/sources/shogun-6.1.3.tar.bz2"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "64f4bf221b7c087076161b0dbfd0fd21f621bbc547080a74a09f2c85a3c5d5c4" => :mojave
