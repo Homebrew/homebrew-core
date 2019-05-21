@@ -26,11 +26,13 @@ class Cql < Formula
     system "go", "build", "-tags", "sqlite_omit_load_extension",
       "-ldflags", ldflags, "-o", "bin/cql", "github.com/CovenantSQL/CovenantSQL/cmd/cql"
     bin.install "bin/cql"
+    bash_completion.install "bin/completion/cql-completion.bash"
+    zsh_completion.install "bin/completion/_cql"
   end
 
   test do
     testconf = testpath/"confgen"
-    system bin/"cql", "generate", testconf, "config"
+    system bin/"cql", "generate", testconf
     assert_predicate testconf/"private.key", :exist?
     assert_predicate testconf/"config.yaml", :exist?
   end
