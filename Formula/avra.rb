@@ -1,8 +1,8 @@
 class Avra < Formula
   desc "Assember for the Atmel AVR microcontroller family"
   homepage "https://github.com/hsoft/avra"
-  url "https://github.com/hsoft/avra/archive/1.4.0.tar.gz"
-  sha256 "e343858feae0376e4bb34affc2e29ecccdb6f7c168a3925b4e95ff82549414e7"
+  url "https://github.com/hsoft/avra/archive/1.4.1.tar.gz"
+  sha256 "0b92f3a2709d72b903fd95afee2c985ed3847440ad12cd651738afffa14ec69e"
 
   bottle do
     cellar :any_skip_relocation
