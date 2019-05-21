@@ -5,6 +5,13 @@ class ErlangAT21 < Formula
   url "https://github.com/erlang/otp/archive/OTP-21.3.8.tar.gz"
   sha256 "e20df59eac5ec0f3d47cb775eb7cfb20438df24d93ba859959a18fe07abf3e6e"
 
+  bottle do
+    cellar :any
+    sha256 "bd9ad028d262014d4a923a53843e6253d4f54c44a51da5fa79f7813bf75911b2" => :mojave
+    sha256 "0aca4d84b706763dad9ec1ddd1ffd84045f6e5e74385145ab1052aeb8a1eb0ca" => :high_sierra
+    sha256 "bc1811f00981ffc732757c2795e53ac98472ce752a1a3c7e5c88f680f34653b9" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
