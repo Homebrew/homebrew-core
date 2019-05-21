@@ -4,6 +4,12 @@ class MoltenVk < Formula
   url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.34.tar.gz"
   sha256 "a687007c1049fe8277b181c5e403776518e81a8e642af920a135649a058f165b"
 
+  bottle do
+    cellar :any
+    sha256 "aa69f7623d80b63e4108b48b743c9e7808369fd8d00b949b73f4b383198194f1" => :mojave
+    sha256 "c046de39ba951a976d844c9dc52255f359503eb31cd57f50e90a186a7d6d66a9" => :high_sierra
+  end
+
   depends_on "cmake" => :build
   depends_on :xcode => ["10.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
