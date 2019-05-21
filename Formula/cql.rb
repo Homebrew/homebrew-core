@@ -32,7 +32,7 @@ class Cql < Formula
 
   test do
     testconf = testpath/"confgen"
-    system bin/"cql", "generate", testconf, "config"
+    system bin/"cql", "generate", testconf
     assert_predicate testconf/"private.key", :exist?
     assert_predicate testconf/"config.yaml", :exist?
   end
