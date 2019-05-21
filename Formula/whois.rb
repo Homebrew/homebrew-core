@@ -14,6 +14,14 @@ class Whois < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
+  depends_on "openssl"
+
+  stable do
+      patch do
+          url "https://gist.githubusercontent.com/mcandre/223d933dcc7dc9a36f1bb790d9e29823/raw/7afb16ad258f2d03ce249cf98efff4632acc9bed/Makefile.patch"
+          sha256 "f60bd0d2ab0f795a8230d5967cc53325a461b7001664b43c236542d36eb92db9"
+      end
+  end
 
   def install
     ENV.append "LDFLAGS", "-L/usr/lib -liconv"
@@ -22,15 +30,23 @@ class Whois < Formula
     bin.install "whois"
     man1.install "whois.1"
     man5.install "whois.conf.5"
+
+    system "make", "mkpasswd", "HAVE_ICONV=1"
+    bin.install "mkpasswd"
+    man1.install "mkpasswd.1"
   end
 
   def caveats; <<~EOS
     Debian whois has been installed as `whois` and may shadow the
+    system binary of the same name.
+
+    Debian mkpasswd has been installed as `mkpasswd` and may shadow the
     system binary of the same name.
   EOS
   end
 
   test do
     system "#{bin}/whois", "brew.sh"
+    system "#{bin}/mkpasswd", "monkey"
   end
 end
