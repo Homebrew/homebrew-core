@@ -1,8 +1,8 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/archive/v2.16.1.tar.gz"
-  sha256 "64529add74df3db828f704b42d4ec3fcdacb8142c84f051f9213637c337e706c"
+  url "https://github.com/axel-download-accelerator/axel/archive/v2.17.3.tar.gz"
+  sha256 "13cc30194a2d52cdb87b0deca6e472ac75fbb2d8af72d554ba3936f1e2a416a7"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
@@ -12,6 +12,7 @@ class Axel < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
