@@ -3,6 +3,7 @@ class Argon2 < Formula
   homepage "https://github.com/P-H-C/phc-winner-argon2"
   url "https://github.com/P-H-C/phc-winner-argon2/archive/20171227.tar.gz"
   sha256 "eaea0172c1f4ee4550d1b6c9ce01aab8d1ab66b4207776aa67991eb5872fdcd8"
+  revision 1
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
