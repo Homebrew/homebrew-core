@@ -3,6 +3,7 @@ class Argon2 < Formula
   homepage "https://github.com/P-H-C/phc-winner-argon2"
   url "https://github.com/P-H-C/phc-winner-argon2/archive/20190702.tar.gz"
   sha256 "daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c"
+  revision 1
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
@@ -13,9 +14,9 @@ class Argon2 < Formula
   end
 
   def install
-    system "make"
+    system "make", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     system "make", "test"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     doc.install "argon2-specs.pdf"
   end
 
