@@ -1,8 +1,8 @@
 class Avra < Formula
   desc "Assember for the Atmel AVR microcontroller family"
   homepage "https://github.com/hsoft/avra"
-  url "https://github.com/hsoft/avra/archive/1.4.0.tar.gz"
-  sha256 "e343858feae0376e4bb34affc2e29ecccdb6f7c168a3925b4e95ff82549414e7"
+  url "https://github.com/hsoft/avra/archive/1.4.1.tar.gz"
+  sha256 "0b92f3a2709d72b903fd95afee2c985ed3847440ad12cd651738afffa14ec69e"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,17 +14,7 @@ class Avra < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
-  # Crashes with 'abort trap 6' unless this fix is applied.
-  # See: https://sourceforge.net/p/avra/patches/16/
-  patch do
-    url "https://gist.githubusercontent.com/adammck/7e4a14f7dd4cc58eea8afa99d1ad9f5d/raw/5cdbfe5ac310a12cae6671502697737d56827b05/avra-fix-osx.patch"
-    sha256 "03493058c351cfce0764a8c2e63c2a7b691601dd836c760048fe47ddb9e91682"
-  end
-
   def install
-    # CDEFS is not passed when building for macOS. Fixed upstream, waiting for next release.
-    # See: https://github.com/hsoft/avra/pull/1
-    inreplace "src/makefiles/Makefile.osx", "$(CC) $(ARCH) -o avra $(SOURCE)", "$(CC) $(ARCH) $(CDEFS) -o avra $(SOURCE)"
     system "make", "install", "PREFIX=#{prefix}", "OS=osx"
     pkgshare.install Dir["includes/*"]
   end
