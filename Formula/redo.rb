@@ -25,6 +25,9 @@ class Redo < Formula
     sha256 "6a8cb4401111e011b579c8c52a51cdab970041cc543814bbd9577a4529fe1cdb"
   end
 
+  # This patch fixes an issue where redo doesn't work without a controlling
+  # terminal. Merged upstream at https://github.com/apenwarr/redo/pull/27 so
+  # it's likely to be included in the next release.
   patch do
     url "https://github.com/apenwarr/redo/pull/27.patch?full_index=1"
     sha256 "43459a9c17937d2771ccb7e58756a71911d22c9c160b63e0dd9ee82aa1756ccd"
