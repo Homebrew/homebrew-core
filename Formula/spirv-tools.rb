@@ -4,6 +4,13 @@ class SpirvTools < Formula
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2019.2.tar.gz"
   sha256 "1fde9d2a0df920a401441cd77253fc7b3b9ab0578eabda8caaaceaa6c7638440"
 
+  bottle do
+    cellar :any
+    sha256 "46438f2839f8258cec5593a0db9899c5dd7d9ae4c791ed0f349d6a5ab9164d10" => :mojave
+    sha256 "741ef8b7a9b09ebc6cb485b6d752f5e2ea8e84643ca07aa8d2931861501f69b4" => :high_sierra
+    sha256 "d2a4328e6a8e8e98114c97f547e87b248384855c9013d3b48c70a20b7d525a84" => :sierra
+  end
+
   depends_on "cmake" => :build
 
   resource "re2" do
