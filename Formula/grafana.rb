@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v6.1.6.tar.gz"
-  sha256 "0df0e32c8f72384826bfe2f5daeb8b15f7fcf06acb12ced2b7211f831e47b5e5"
+  url "https://github.com/grafana/grafana/archive/v6.2.0.tar.gz"
+  sha256 "0fe025c12cffcc2e280e338693bfcfd523808c605be0b7ded169784709c68598"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Grafana < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "node@10" => :build
   depends_on "yarn" => :build
 
   def install
