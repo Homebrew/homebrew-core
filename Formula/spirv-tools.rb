@@ -3,6 +3,7 @@ class SpirvTools < Formula
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2019.2.tar.gz"
   sha256 "1fde9d2a0df920a401441cd77253fc7b3b9ab0578eabda8caaaceaa6c7638440"
+
   depends_on "cmake" => :build
 
   resource "re2" do
