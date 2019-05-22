@@ -6,9 +6,9 @@ class Dav1d < Formula
 
   bottle do
     cellar :any
-    sha256 "980226a7f72417587b363e1b2cc50d030933ee45b99ed540deeb7551d869b69d" => :mojave
-    sha256 "8f33230eca60063c0b207c688b7b39cd6000d02cbabe746d1b32e8402108870c" => :high_sierra
-    sha256 "fa6efd99966022d742b4d1606b63edfe05963896965ecfd8bcd7648acaaa1a25" => :sierra
+    sha256 "c803d7a944d1736036e79a1697c8b876d4df60e7955f8b5d2c19c7768d090ea4" => :mojave
+    sha256 "6944cc68ae74cd7e96984a6c4e82248ace079c3b000e08b280437fc26a438e06" => :high_sierra
+    sha256 "f00200b7408ec66a9ffcc7f0502b54b8865600d9e5d3c6ef1a0d43e5330b2145" => :sierra
   end
 
   depends_on "meson" => :build
