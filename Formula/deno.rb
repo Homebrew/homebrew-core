@@ -5,6 +5,13 @@ class Deno < Formula
     :tag      => "v0.6.0",
     :revision => "22feb74ba12215597416b5531f8a557302283e79"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "470aa4ad260593875fff68af034a574d447ddeeacb0a0f6ca5b99052c196cec0" => :mojave
+    sha256 "4cb01d19914fa93b83ac936c408f2cbffa5a2caf33828ddb94609da9e8cd9e64" => :high_sierra
+    sha256 "d66b1a52a81928a4a7624fe18f1dea496519993f8c71a51d9e60fe5ca2bfde4c" => :sierra
+  end
+
   depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "node" => :build
