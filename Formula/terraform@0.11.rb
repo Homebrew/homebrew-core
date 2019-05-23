@@ -5,13 +5,6 @@ class TerraformAT011 < Formula
   sha256 "50b75c94c4d3bfe44cfc12c740126747b6b34c014602777154356caa85a783f4"
   head "https://github.com/hashicorp/terraform.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "1735a0662db2c104e49a5d9c24fdca6d6d0bdd4d6a121edf690be7c549b82ffc" => :mojave
-    sha256 "676667daa2c63b89004472ae8448a3e3bc39b5fc7c1348e5993564c72260e5ac" => :high_sierra
-    sha256 "c1cfb37af0caaeed04fcf5d27e7092f22f8268d4a2d2a08506a3ef068d0fbfcc" => :sierra
-  end
-
   keg_only :versioned_formula
 
   depends_on "go" => :build
