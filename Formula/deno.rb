@@ -8,7 +8,6 @@ class Deno < Formula
   depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "node" => :build
-  depends_on "python@2" => :build # GN require Python 2.7+
   depends_on "rust" => :build
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
