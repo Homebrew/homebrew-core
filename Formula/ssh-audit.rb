@@ -8,8 +8,6 @@ class SshAudit < Formula
 
   bottle :unneeded
 
-  depends_on "python"
-
   def install
     bin.install "ssh-audit.py" => "ssh-audit"
   end
