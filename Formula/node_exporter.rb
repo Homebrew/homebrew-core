@@ -1,26 +1,29 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v0.16.0.tar.gz"
-  sha256 "2ed1c1c199e047b1524b49a6662d5969936e81520d6613b8b68cc3effda450cf"
+  url "https://github.com/prometheus/node_exporter/archive/v0.18.0.tar.gz"
+  sha256 "2f71a4a11fa1388e4a459865520365396f8b6ebbad9d45df476fe60ee0de0415"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18aec98484b6171e130b362cb4fdf061ae556889b5a4d0f5e54590bed772d40f" => :mojave
-    sha256 "73a63fee885b246f401e3bb5f2ba2ef151a0d445d2c5be3480eb5ad7e34c5150" => :high_sierra
-    sha256 "a2f81f31c72150cff3ce0442ae63e783b4c8d9ea6b04cce353caed36f373c464" => :sierra
-    sha256 "43917856258a8a777b2632921070b002853b266438495320ca20d5eda6a95809" => :el_capitan
+    sha256 "c051d010b3301d3600f92e90417280710a7336362b981781b0e61dd7e780ecc9" => :mojave
+    sha256 "c7f358a38650a8529a9d10a8c38363a810003a0c3e0cfbf354950e24a7a6524a" => :high_sierra
+    sha256 "3b08291d087a3f1e8845fb88025b83e73961965be753c35ff3337a00ae37b764" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/prometheus").mkpath
-    ln_s buildpath, "src/github.com/prometheus/node_exporter"
-    system "go", "build", "-o", bin/"node_exporter", "-ldflags",
+    ENV["GO111MODULE"] = "on"
+
+    (buildpath/"src/github.com/prometheus/node_exporter").install buildpath.children
+    cd "src/github.com/prometheus/node_exporter" do
+      system "go", "build", "-o", bin/"node_exporter", "-ldflags",
            "-X github.com/prometheus/node_exporter/vendor/github.com/prometheus/common/version.Version=#{version}",
            "github.com/prometheus/node_exporter"
+      prefix.install_metafiles
+    end
   end
 
   def caveats; <<~EOS
@@ -64,8 +67,7 @@ class NodeExporter < Formula
   end
 
   test do
-    output = shell_output("#{bin}/node_exporter --version 2>&1")
-    assert_match version.to_s, output
+    assert_match /node_exporter/, shell_output("#{bin}/node_exporter --version 2>&1")
     begin
       pid = fork { exec bin/"node_exporter" }
       sleep 2

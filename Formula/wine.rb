@@ -7,14 +7,13 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  url "https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.tar.xz"
-  sha256 "6736cdee95b2b8bb021ec0c19497ed8cad5ae2c8bfdb7ab5dc687ff92a480d4d"
-  revision 1
+  url "https://dl.winehq.org/wine/source/4.0/wine-4.0.1.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.1.tar.xz"
+  sha256 "d3a692f04c2fe03c8bd856655eaf4e6eeb4ad47f7d3120898dbf997e816b4948"
   head "https://source.winehq.org/git/wine.git"
 
   bottle do
-    sha256 "587859c8be3a3254044f4e1d6c6b6d407fb5768eb99551c48b6a4ed4863b6f59" => :sierra
+    sha256 "8dfb2b70d3587b88a00b3bf3cce39c970055fc3dff0e446eeeddc4e7c06def82" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -43,9 +42,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
-    sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
+    url "https://www.openssl.org/source/openssl-1.0.2r.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2r.tar.gz"
+    sha256 "ae51d08bba8a83958e894946f15303ff894d75c2b8bbd44a852b64e3fe11d0d6"
   end
 
   resource "libtool" do
@@ -73,15 +72,15 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz"
-    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.36/libpng-1.6.36.tar.xz"
-    sha256 "eceb924c1fa6b79172fdfd008d335f0e59172a86a66481e09d4089df872aa319"
+    url "https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz"
+    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.37/libpng-1.6.37.tar.xz"
+    sha256 "505e70834d35383537b6491e7ae8641f1a4bed1876dbfe361201fc80868d88ca"
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
-    sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.10.0/freetype-2.10.0.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.0.tar.bz2"
+    sha256 "fccc62928c65192fff6c98847233b28eb7ce05f12d2fea3f6cc90e8b4e5fbe06"
   end
 
   resource "libusb" do
@@ -108,8 +107,8 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.20/libgphoto2-2.5.20.tar.bz2"
-    sha256 "e10ff0140e2e5dddaf6c6d9d933ab6f8c0bc66fdf7445b1ef2ca9f4d96e68b0f"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.22/libgphoto2-2.5.22.tar.bz2"
+    sha256 "15d7327aa9a986af1e1dbfd8f15ba81352b67450d30e44562ce768ff9435ce58"
   end
 
   resource "net-snmp" do

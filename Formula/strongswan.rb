@@ -1,13 +1,13 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
-  url "https://download.strongswan.org/strongswan-5.7.1.tar.bz2"
-  sha256 "006f9c9126e2a2f4e7a874b5e1bd2abec1bbbb193c8b3b3a4c6ccd8c2d454bec"
+  url "https://download.strongswan.org/strongswan-5.8.0.tar.bz2"
+  sha256 "15b1e10c7dd6253ab5d791fe9b9cb84624e24c118aecd9b90251b4e60daa0933"
 
   bottle do
-    sha256 "1cbb4ac83e832978cce224ddde5e92e940484486fe22969166a10230193e32df" => :mojave
-    sha256 "40cda2362e638287bf61ec0058c61c1b9d193c680aa0c8279ab6c86ef9da8114" => :high_sierra
-    sha256 "4f829167204e004acb44aa813f5b0d7e2e6271d4cb91e6e0c580cefc1dddb8ab" => :sierra
+    sha256 "b7ecdc25dcb364981e83f6aed2d115f054d61321ebe6c7c61754456fe0744302" => :mojave
+    sha256 "bf050912991b312ff534cb38a5507a69154c76bb1a4c959dbaeb3d11f8d1a5eb" => :high_sierra
+    sha256 "4614d547317a13c48a9cfccd0a8ff4aa097c6122ae5262e21f91d9e4b934d7d1" => :sierra
   end
 
   head do

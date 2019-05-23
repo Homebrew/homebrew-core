@@ -5,9 +5,10 @@ class Php < Formula
   sha256 "e1011838a46fd4a195c8453b333916622d7ff5bce4aca2d9d99afac142db2472"
 
   bottle do
-    sha256 "61026bf867135cd7bb78f5478227b6434f35bba8ceb514dd67ff7f5ac12b51c1" => :mojave
-    sha256 "d3ba1ea5513e9319be1ca0d0fa0d8739c005cf88483f577b62b20d57e1be0a27" => :high_sierra
-    sha256 "936e1e1af595306b161e8dd352fca4220a876d591f4f3f31c265801ab987c5d8" => :sierra
+    rebuild 1
+    sha256 "6522feddf684dd1feda4c7c1e30ed25238146d651a68ab63abd071ec2c0f3bdc" => :mojave
+    sha256 "bc09a819707cfedfcc9f5d693e337afbb0bc4aeeb209fcb319672d46e4e11713" => :high_sierra
+    sha256 "f24372ffa2d58576f42188d9827e61e2b977e85275f50a9730272ece4b9ee34a" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -169,6 +170,12 @@ class Php < Formula
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
     inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
+
+    # Use OpenSSL cert bundle
+    inreplace "php.ini-development", /; ?openssl\.cafile=/,
+      "openssl.cafile = \"#{HOMEBREW_PREFIX}/etc/openssl/cert.pem\""
+    inreplace "php.ini-development", /; ?openssl\.capath=/,
+      "openssl.capath = \"#{HOMEBREW_PREFIX}/etc/openssl/certs\""
 
     config_files = {
       "php.ini-development"   => "php.ini",

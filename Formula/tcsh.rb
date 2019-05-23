@@ -1,16 +1,14 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://web.archive.org/web/20170609182511/www.tcsh.org/Home"
-  url "ftp://ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.20.00.tar.gz"
-  sha256 "b89de7064ab54dac454a266cfe5d8bf66940cb5ed048d0c30674ea62e7ecef9d"
+  url "ftp://ftp.astron.com/pub/tcsh/tcsh-6.21.00.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.21.00.tar.gz"
+  sha256 "c438325448371f59b12a4c93bfd3f6982e6f79f8c5aef4bc83aac8f62766e972"
 
   bottle do
-    sha256 "26605931ba06f06560ff0efbbec205d80a8129eee50b5106cf508d3f2ad08f65" => :mojave
-    sha256 "7a37ce9d651ee573cfd079ef0743089ddd4929817827296972b41f8af74158bd" => :high_sierra
-    sha256 "3a59ccfdab60133b8854d528465882a3a8aaaa874f70ef1e4a0deee2f06802c6" => :sierra
-    sha256 "d43bbcefe883ba5bd0dc998e5c4e6e9afcd35bacc780864fdcfe5a560002d7d1" => :el_capitan
-    sha256 "ecbd811718e22c579434568185a8ea87d78d420c251913f84da8093f61d1b408" => :yosemite
+    sha256 "b5b22fe69189ad23daaba0da4997ee6ea17b21d63f2c7ef0a78f91f5a816ab16" => :mojave
+    sha256 "a2497b4079f9ef60652e987b58e305627533491169a4ec348f7d967ab46787ca" => :high_sierra
+    sha256 "88ee66c224517188212d05f1595c6ab3a0a16cefab8fce80f6b6a36488c274e1" => :sierra
   end
 
   def install

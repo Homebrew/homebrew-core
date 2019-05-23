@@ -1,15 +1,15 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "https://planck-repl.org/"
-  url "https://github.com/planck-repl/planck/archive/2.22.0.tar.gz"
-  sha256 "2782022dd3a58ea1004c8ddccf1a98839e73e1778f7a163b224d2eb0d83f0752"
+  url "https://github.com/planck-repl/planck/archive/2.23.0.tar.gz"
+  sha256 "b18932d5d6db7b825e0c18edc9f6f268e741bc58890d64ea1dbc81034a275fe4"
   head "https://github.com/planck-repl/planck.git"
 
   bottle do
     cellar :any
-    sha256 "565f3578352fa80a839a32a6b4626cf4a78c5b56077b4dc2204a27eff84713aa" => :mojave
-    sha256 "4879e8a83f9814660018504a1fd2a516469d2586885a2f139920153ccc48a731" => :high_sierra
-    sha256 "ddb86479a5193daa01615354a89acfbe8a4af5116bfaecfff030da5640644841" => :sierra
+    sha256 "09cb6e88959cae462136493836a0ebf496a9fc50b2f478b281b3f1fe4767fdf0" => :mojave
+    sha256 "b2eac1a03c217e6276bf5a654203976baf03d2467d51f453180dbb00223e0a13" => :high_sierra
+    sha256 "1a3048a8e8630034be48bfd4ffb5fd5c71bb2cebc9dd2b54ad6e1d79c7fc95ff" => :sierra
   end
 
   depends_on "clojure" => :build

@@ -2,23 +2,23 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
   url "https://github.com/buger/goreplay.git",
-      :tag      => "v0.16.1",
-      :revision => "652e589e2b71d5dfa4d2a70431d21b108a5e471e"
+      :tag      => "v1.0.0",
+      :revision => "a8cfaa75812ac176b253ffe1d11eb9bbc7be7522"
   head "https://github.com/buger/goreplay.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7c9758b1a058ae433baefbc0e9d02cb84e2e5e6df16a9f5b376cac0a3e9df93" => :mojave
-    sha256 "204f649341531e36b220221f6dd76b3b637ea4880720111cddda6bb5224be5ed" => :high_sierra
-    sha256 "78689bec0668532515a42e5274733ad296998e0e623bdbd3bbd66d2d0fb8f1e7" => :sierra
-    sha256 "dd3721a8686fb9e08074a6787d2bbefc5d3f3a585b99e52f40734a4516564754" => :el_capitan
-    sha256 "5263cd24fee9bae85eb69aafe887865642e039236e810339f84aa546e6d444d7" => :yosemite
+    sha256 "73d9b114ff0abf11cd8f0dcde83df1c2db1921c1db8519060c9e5aec722e4b00" => :mojave
+    sha256 "7ac5b35b06c5121f377b5c2e22f4c171dc245932eff1813b89af96a00eb4b42d" => :high_sierra
+    sha256 "829149868a0fb7862c1ebb2d6db864e6e4730e3d7e138e638577aa8753334116" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
     (buildpath/"src/github.com/buger/goreplay").install buildpath.children
     cd "src/github.com/buger/goreplay" do
       system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"

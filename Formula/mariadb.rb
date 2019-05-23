@@ -1,13 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz"
-  sha256 "ba1c94d92fc8ebdf9b8a1d1b93ed6aeeead33da507efbbd4afcf49f32023e054"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.15/source/mariadb-10.3.15.tar.gz"
+  sha256 "27f391a54d544f93850d4edfb3ef1b4cf24f8e27e61e51727b0e7d31bb4d6968"
 
   bottle do
-    sha256 "9c583fdacf1602ae7919775ab36c1ce36a887bace559b1f1538e552e5140e397" => :mojave
-    sha256 "e3feb5ff53dbd59f67ce1218225e828e1bac547082cbec603f8f437ba9af7a77" => :high_sierra
-    sha256 "14ea4745d64a1d0f8a5c0f706ad8d1d9397b0c947b462c606e5b0f79ff0a731e" => :sierra
+    sha256 "027144a69409be51ba2f425ce721e0242af6a54f8a9d3d6c640914ad763f17f4" => :mojave
+    sha256 "2e4bcb4e3df922ab27c353ba3a253cd15f1af4fc70a8b1c3612d1e27310f8d5d" => :high_sierra
+    sha256 "2efc24c26caa7817ccdceb46ab513c6be9032eed1a6989053c3bc6be73cadd8c" => :sierra
   end
 
   depends_on "cmake" => :build

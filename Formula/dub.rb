@@ -1,16 +1,16 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.14.0.tar.gz"
-  sha256 "47c463eeaa612fda556d0291d32c8c59fd3c31dbb76142c7d997b7476773c332"
+  url "https://github.com/dlang/dub/archive/v1.15.0.tar.gz"
+  sha256 "078f8fe5553be5910e5cf9169aefac8f83b1a029ae2d7e3fd31792bbf86820f3"
   version_scheme 1
   head "https://github.com/dlang/dub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7bfd8f4b0b41d85ab45c1c7b891b4bbdab7b1221c1af9b7b6f0374bb2d2511c3" => :mojave
-    sha256 "ab6fb42a418e648c195971ee2037da783fd9c41eedf57ac8b13c3861563b2a97" => :high_sierra
-    sha256 "5ad4d0b09bcf6acbf52771683d9aa5b3e0cf355d8c59707a6bd670f9491bf875" => :sierra
+    sha256 "1eddccf9556c63b19f6997546ef23866493c688b9e50963675edb99ce3a44925" => :mojave
+    sha256 "ad244aa4cee496a5aaabbe41e1cdfefa09893a0be68c56440cc1fc44f716fbb0" => :high_sierra
+    sha256 "201b46005d942fe5b995a452eecd87b0032da24f7594fc838ade493261d26d5d" => :sierra
   end
 
   depends_on "dmd" => :build

@@ -3,15 +3,15 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.13.tar.gz"
-  sha256 "aac903c372324b1e57b0c61ba28d2c631ed81cb0e04f085661f2b6c0763ec818"
+  url "https://github.com/zquestz/s/archive/v0.5.14.tar.gz"
+  sha256 "c32eedf6a4080cbe221c902cf7f63b1668b3927edfc448d963d69ed66c8ec2fb"
   head "https://github.com/zquestz/s.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ce3221c790404942e5f5777ecc454e6f2bd97d8e4af50ed408a803ffc797c62" => :mojave
-    sha256 "43540301fcb089e70db3731d4788289b1078c0d03223d797fe9b9e90bf3631e3" => :high_sierra
-    sha256 "734bd178c5b32134ed870e8f5fae9684139f48408ab16389a1ffcd81923707a6" => :sierra
+    sha256 "04281fb66e28cf23c3ea1cd23ec6286432191fde31ac8c7b6c9c13bc6b365b0a" => :mojave
+    sha256 "4a0c5595943e8b7b4892ff3caf4d03b29533405a411268a77e0a51272a3d7823" => :high_sierra
+    sha256 "b9d547b1bcc45516396ed8398b624ac83a1c4ade7bf13f130b1b063b9aec1590" => :sierra
   end
 
   depends_on "go" => :build

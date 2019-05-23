@@ -1,9 +1,8 @@
 class Lensfun < Formula
   desc "Remove defects from digital images"
-  homepage "https://lensfun.sourceforge.io/"
+  homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  head "https://git.code.sf.net/p/lensfun/code.git"
 
   bottle do
     sha256 "974013385efd1386c3605de5352920b98810800ac37387d7f295dd70fcdad074" => :mojave

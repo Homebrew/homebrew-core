@@ -3,24 +3,24 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/95/13/cafafdc0c7eb30de9063b1826a521417694d7d4ed7055769db96550637ec/ocrmypdf-8.2.2.tar.gz"
-  sha256 "24822bdcac7c3eddd0411f60ac6f365badd6788eb659c298758d8819fd33053d"
+  url "https://files.pythonhosted.org/packages/a5/96/3cf3f987068ad8e8796663a711b24191f8ac71b034fce0ce4fae6d9f92ea/ocrmypdf-8.3.0.tar.gz"
+  sha256 "a133b5ae87a2dcaafdf4d01d40bd6aef836d53ba072aed37f8881ea7a32c5a5e"
 
   bottle do
     cellar :any
-    sha256 "7ca08e935beb6f45950eb0a679457d40c23fde236895e564842d647522e39633" => :mojave
-    sha256 "02d903c799d26c24d89cd78af3cf69182bd77c40446be1d63fb66aac7a7189da" => :high_sierra
-    sha256 "b09d2ed737b8b11e627174d6ba071640104c6e1de3006b19d0944aee752a139e" => :sierra
+    sha256 "69432d414b5da00fff2ce6dd04941b370e00d8f5db03317c45f6ff4016e7f0ad" => :mojave
+    sha256 "a704257a4f19e399a23684f2df6d09e606076a0f3d412d9e69fb90ac3c33c8e6" => :high_sierra
+    sha256 "c445535e9c87ffb247cbd02a3fdfebcb85d3e7df50a28c469e87bdec77720e62" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "exempi"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "jbig2enc"
   depends_on "jpeg"
   depends_on "leptonica"
   depends_on "libpng"
+  depends_on "libxml2"
   depends_on "pngquant"
   depends_on "pybind11"
   depends_on "python"
@@ -29,8 +29,8 @@ class Ocrmypdf < Formula
   depends_on "unpaper"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/64/7c/27367b38e6cc3e1f49f193deb761fe75cda9f95da37b67b422e62281fcac/cffi-1.12.2.tar.gz"
-    sha256 "e113878a446c6228669144ae8a56e268c91b7f1fafae927adc4879d9849e0ea7"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "chardet" do
@@ -39,8 +39,8 @@ class Ocrmypdf < Formula
   end
 
   resource "defusedxml" do
-    url "https://files.pythonhosted.org/packages/74/ba/4ba4e89e21b5a2e267d80736ea674609a0a33cc4435a6d748ef04f1f9374/defusedxml-0.5.0.tar.gz"
-    sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
+    url "https://files.pythonhosted.org/packages/a4/5f/f8aa58ca0cf01cbcee728abc9d88bfeb74e95e6cb4334cfd5bed5673ea77/defusedxml-0.6.0.tar.gz"
+    sha256 "f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5"
   end
 
   resource "img2pdf" do
@@ -49,18 +49,18 @@ class Ocrmypdf < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/16/4a/b085a04d6dad79aa5c00c65c9b2bbcb2c6c22e5ac341e7968e0ad2c57e2f/lxml-4.3.0.tar.gz"
-    sha256 "d1e111b3ab98613115a208c1017f266478b0ab224a67bc8eac670fa0bad7d488"
+    url "https://files.pythonhosted.org/packages/7d/29/174d70f303016c58bd790c6c86e6e86a9d18239fac314d55a9b7be501943/lxml-4.3.3.tar.gz"
+    sha256 "4a03dd682f8e35a10234904e0b9508d705ff98cf962c5851ed052e9340df3d90"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/d0/de/87be0b2b9dd5626d87df75f7f5ee04276cde661095eb4f854193eeaa32c4/pikepdf-1.1.0.tar.gz"
-    sha256 "be826ba57db1a928ca0b95d7513e1c45cb7042ddf88adbb5f80881014d366391"
+    url "https://files.pythonhosted.org/packages/04/a0/0951cda6ebdf3d205af9b177250382e3c149a96b82d0ce75e984310488e1/pikepdf-1.3.0.tar.gz"
+    sha256 "f6db680c47e01ab23ee813d7c0e2bc50469a6a9f4a33414e961d07cdec0ed541"
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/3c/7e/443be24431324bd34d22dd9d11cc845d995bcd3b500676bcf23142756975/Pillow-5.4.1.tar.gz"
-    sha256 "5233664eadfa342c639b9b9977190d64ad7aca4edc51a966394d7e08e7f38a9f"
+    url "https://files.pythonhosted.org/packages/81/1a/6b2971adc1bca55b9a53ed1efa372acff7e8b9913982a396f3fa046efaf8/Pillow-6.0.0.tar.gz"
+    sha256 "809c0a2ce9032cbcd7b5313f71af4bdc5c8c771cb86eb7559afd954cab82ebb5"
   end
 
   resource "pycparser" do
@@ -68,14 +68,9 @@ class Ocrmypdf < Formula
     sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
   end
 
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/af/be/6c59e30e208a5f28da85751b93ec7b97e4612268bb054d0dff396e758a90/pytz-2018.9.tar.gz"
-    sha256 "d5f05e487007e29e03409f9398d074e158d920d36eb82eaf66fb1136b0c5374c"
-  end
-
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/6d/b5/495011623878f1000a2bfa62fa54c3b491071f0c77062dcd1bd86e2b9764/reportlab-3.5.13.tar.gz"
-    sha256 "6116e750f98018febc08dfee6df20446cf954adbcfa378d2c703d56c8864aff3"
+    url "https://files.pythonhosted.org/packages/dd/dc/200a6113b14d41309898347270ba3d2190f10b26f399f7ad3e4f4611fd77/reportlab-3.5.20.tar.gz"
+    sha256 "7b248d2d9d4ab6d4cad91eb2b153b2c4c7b3fced89cb5a5b5bfbc7d09593871a"
   end
 
   resource "ruffus" do
@@ -109,12 +104,11 @@ class Ocrmypdf < Formula
     end
 
     venv.pip_install_and_link buildpath
+    bash_completion.install "misc/completion/ocrmypdf.bash" => "ocrmypdf"
+    fish_completion.install "misc/completion/ocrmypdf.fish"
   end
 
   test do
-    # Since we use Python 3, we require a UTF-8 locale
-    ENV["LC_ALL"] = "en_US.UTF-8"
-
     system "#{bin}/ocrmypdf", "-f", "-q", "--deskew",
                               test_fixtures("test.pdf"), "ocr.pdf"
     assert_predicate testpath/"ocr.pdf", :exist?

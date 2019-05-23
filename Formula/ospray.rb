@@ -1,13 +1,13 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v1.8.4.tar.gz"
-  sha256 "36527eb01a09b0f30608550373aa305ecbfa2faea23cd929cc731af5864ca326"
+  url "https://github.com/ospray/ospray/archive/v1.8.5.tar.gz"
+  sha256 "6d85e103280aa4c8d0032a2cc3082f08a6021a79d22cf4a8e38b09f152f35f53"
   head "https://github.com/ospray/ospray.git"
 
   bottle do
     cellar :any
-    sha256 "19a2a2c636c07427b7d6bdff6d771e571bfa6d8dbf926695932e8cadf60d65fc" => :mojave
+    sha256 "b9b5016940568986207bc383505a8e8742252bd7c42e9f072647bdecea849865" => :mojave
   end
 
   depends_on "cmake" => :build

@@ -1,14 +1,14 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/v0.4.2.tar.gz"
-  sha256 "7bcde022994eaa06ce17974f494e4cf98a1d00f4e5791c6ae61f8dd45685da25"
+  url "https://github.com/casey/just/archive/v0.4.3.tar.gz"
+  sha256 "e891be5cd7145e8d23875a3ea67d6ed5afd8c3006b31509ccdd4ea5e7f245f69"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57d43f3d4c61eb0cff35b2bd0f6c6094b1a9437dfab8df79ce7c5d096f97430f" => :mojave
-    sha256 "715fb7af58659ce90e2a6a241f2d622df112488c334c88166bc2b2377b57d6fe" => :high_sierra
-    sha256 "f0956c2e6e4ba10ba1bf3a1182d2641f6cba6091cc08c1d75b8023345dd6c419" => :sierra
+    sha256 "1ecfec3b30334b44afeaeed679e57b39aef1790e0670eea40b3407882522fbd6" => :mojave
+    sha256 "db8cde2d97d907cf276d216cd878c385960dc06d2b8c04fa85e05b9cfd2e3482" => :high_sierra
+    sha256 "c726429effc8e3147851ed252c9e1194284517b33d60644f5610d289b09455f9" => :sierra
   end
 
   depends_on "rust" => :build

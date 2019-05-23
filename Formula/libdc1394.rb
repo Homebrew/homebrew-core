@@ -1,11 +1,10 @@
 class Libdc1394 < Formula
   desc "Provides API for IEEE 1394 cameras"
   homepage "https://damien.douxchamps.net/ieee1394/libdc1394/"
-  revision 1
 
   stable do
-    url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.2/libdc1394-2.2.2.tar.gz"
-    sha256 "ff8744a92ab67a276cfaf23fa504047c20a1ff63262aef69b4f5dbaa56a45059"
+    url "https://downloads.sourceforge.net/project/libdc1394/libdc1394-2/2.2.6/libdc1394-2.2.6.tar.gz"
+    sha256 "2b905fc9aa4eec6bdcf6a2ae5f5ba021232739f5be047dec8fe8dd6049c10fed"
 
     # fix issue due to bug in OSX Firewire stack
     # libdc1394 author comments here:
@@ -18,11 +17,9 @@ class Libdc1394 < Formula
 
   bottle do
     cellar :any
-    sha256 "23454c66192a197c5d645553d557a7b1bce04ffb026bc551c4ffa288708b29ef" => :mojave
-    sha256 "5fbe25e047f3735fbc4ff24550099fac2884b5a952bc5326afdb0df038f6d29b" => :high_sierra
-    sha256 "22a0a8780a225508d5522f147997622d61a286d9edc39ec751208aa3e603a4fc" => :sierra
-    sha256 "8a8a439402bab51e569063363df076ab1220780bc0db4bc45931fb1401a2acb4" => :el_capitan
-    sha256 "204ba8144423650855fc083cc2726d3a914eb52d210a6136c9cfcc698a81c816" => :yosemite
+    sha256 "6cf02c5500f83fa2ccd1ff9b880f44f9652d68b0e90a2345d6c62fb92a988f0a" => :mojave
+    sha256 "536cbd34a43886d63a3dba41e7877ed63ad0fbe1a5e21cde499bd2c9e1e37e52" => :high_sierra
+    sha256 "ff1d7c6b07f21d8cd485574b10091eb21c2316390a7d4cfa84d29cccce8097e6" => :sierra
   end
 
   head do
