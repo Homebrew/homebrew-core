@@ -6,9 +6,11 @@ class Augustus < Formula
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   bottle do
-    sha256 "2d7449f08dbf38ee7a46d51e2f17032221b0567e4a215e7d309602cee8724ce5" => :mojave
-    sha256 "6df315ec1bad28e6708e8a99b533216de4c4049ef1e79680f4132e77209f77b5" => :high_sierra
-    sha256 "020e9e8531aeaad48d06a96ca78eda64eae25e3737e69941f9069e6abd4e898d" => :sierra
+    cellar :any
+    rebuild 1
+    sha256 "4d052d58f6a1432deabdb529c83774017cc51456e780fd0dc79d127db2593366" => :mojave
+    sha256 "54dfd9c7cb44e36d126ac9d1febe79192a5c9fa71e11b9e5bb9a3b6aa14ed3bf" => :high_sierra
+    sha256 "a6fdc891239b33bea15d9f3f87992e5bf37a9b82ef683e662331617c1ac3c980" => :sierra
   end
 
   depends_on "boost" => :build
