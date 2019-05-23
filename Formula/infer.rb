@@ -15,14 +15,11 @@ class Infer < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "camlp4" => :build
   depends_on "cmake" => :build
-  depends_on "gnu-sed" => :build
-  depends_on :java => ["1.7+", :build]
+  depends_on :java => ["1.8", :build]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-  depends_on "perl" => :build
   depends_on "pkg-config" => :build
   depends_on :x11 => :build
   depends_on :xcode => :build
@@ -45,10 +42,8 @@ class Infer < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    configure_args = %W[
-      --prefix=#{prefix}
-      --with-fcp-clang
-    ]
+    # explicitly build the clang before infer's configure
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --with-fcp-clang"
 
     llvm_args = %w[
       -DLLVM_INCLUDE_DOCS=OFF
@@ -56,40 +51,25 @@ class Infer < Formula
       -DLIBOMP_ARCH=x86_64
     ]
 
-    # infer 0.16.0: ocaml_version = ocaml-variants.4.07.1+flambda
-    ocaml_version = File.read("build-infer.sh").match(/INFER_OPAM_DEFAULT_SWITCH=\"([^\"]+)\"/)[1]
-
-    # infer 0.16.0: mlgmpidl_version = 1.2.7
-    mlgmpidl_version = File.read("opam.locked").match(/mlgmpidl\".+\"(.+)\"/)[1]
-    # infer 0.16.0: ocamlbuild_version = 0.12.0
-    ocamlbuild_version = File.read("opam.locked").match(/\"ocamlbuild\".+\"(.+)\"/)[1]
+    pathfix_lines = [
+      "export SDKROOT=#{MacOS.sdk_path}",
+      "eval $(opam env)"
+    ]
 
     # so that `infer --version` reports a release version number
     inreplace "infer/src/base/Version.ml.in", "@IS_RELEASE_TREE@", "yes"
 
-    # setup opam (disable opam sandboxing because homebrew is sandboxed already)
-    system "opam", "init", "--bare", "--no-setup", "--disable-sandboxing"
-    system "opam", "switch", "create", ocaml_version.to_s
-
-    # install some packages with care: mlgmpidl gets confused with certain homebrew tools in PATH
-    system "opam", "install", "ocamlbuild=#{ocamlbuild_version}"
-    original_path = ENV["PATH"]
-    ENV["PATH"] = "/usr/bin:" + ENV["PATH"]
-    system "opam", "install", "mlgmpidl=#{mlgmpidl_version}"
-    ENV["PATH"] = original_path
-    system "opam", "install", "utop"
-    system "opam", "install", "--deps-only", "infer", buildpath, "--locked"
-
     inreplace "facebook-clang-plugins/clang/setup.sh", "CMAKE_ARGS=(", "CMAKE_ARGS=(\n  " + llvm_args.join("\n  ")
+
+    # setup opam (disable opam sandboxing because homebrew is sandboxed already)
+    inreplace "build-infer.sh", "--no-setup", "--no-setup --disable-sandboxing"
+    # prefer system bins for opam install
+    inreplace "build-infer.sh", "opam install", "PATH=/usr/bin:$PATH\n    opam install"
+    inreplace "build-infer.sh", "./configure $INFER_CONFIGURE_OPTS",
+        pathfix_lines.join("\n") + "\n./configure $INFER_CONFIGURE_OPTS"
+
     system "facebook-clang-plugins/clang/setup.sh"
-
-    system "./autogen.sh"
-
-    # do NOT set this before ocaml packages are built (needed for clang includes)
-    ENV["SDKROOT"] = MacOS.sdk_path
-
-    system "opam", "config", "exec", "--", "./configure", *configure_args
-    system "opam", "config", "exec", "--", "make"
+    system "./build-infer.sh"
     system "opam", "config", "exec", "--", "make", "install"
   end
 
@@ -155,7 +135,7 @@ class Infer < Formula
       }
     EOS
 
-    # shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
+    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
     shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java")
   end
 end
