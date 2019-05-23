@@ -29,7 +29,7 @@ class Redo < Formula
   # terminal. Merged upstream at https://github.com/apenwarr/redo/pull/27 so
   # it's likely to be included in the next release.
   patch do
-    url "https://github.com/apenwarr/redo/pull/27.patch?full_index=1"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/redo/0.41-upstream-pr-27-tty-issue.patch"
     sha256 "43459a9c17937d2771ccb7e58756a71911d22c9c160b63e0dd9ee82aa1756ccd"
   end
 
