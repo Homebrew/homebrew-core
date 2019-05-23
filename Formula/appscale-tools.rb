@@ -122,6 +122,11 @@ class AppscaleTools < Formula
     sha256 "e36488d4f5d7d668ef5cc3e6e86f081448fd60c9bf4e051d06ff7cfc5a653e6f"
   end
 
+  resource "azure-mgmt-marketplaceordering" do
+    url "https://files.pythonhosted.org/packages/e9/90/1bf9d50614acee60ba5447bc9db6d63930f1559182fa8266ccac60a96dd3/azure-mgmt-marketplaceordering-0.2.1.zip"
+    sha256 "dc765cde7ec03efe456438c85c6207c2f77775a8ce8a7adb19b0df5c5dc513c2"
+  end
+
   resource "azure-nspkg" do
     url "https://files.pythonhosted.org/packages/06/a2/77820fa07ec4657d6456b67edfa78856b4789ada42d1bb8e8485df19824e/azure-nspkg-2.0.0.zip"
     sha256 "fe19ee5d8c66ee8ef62557fc7310f59cffb7230f0a94701eef79f6e3191fdc7b"
@@ -133,8 +138,8 @@ class AppscaleTools < Formula
   end
 
   resource "azure-servicemanagement-legacy" do
-    url "https://files.pythonhosted.org/packages/71/72/247d6e15711ace1e0e680d067f34e04facb3bc4b340234c0267b54842b01/azure-servicemanagement-legacy-0.20.4.zip"
-    sha256 "742df8756065ff033d9af974851d2de6df5cc09de53802cf3172646c1e7f2932"
+    url "https://files.pythonhosted.org/packages/7e/9e/ad8c5e8b2715736df200c0d1baf63d38044d9113145d86c4d53923a81919/azure-servicemanagement-legacy-0.20.6.zip"
+    sha256 "c883ff8fa3d4f4cb7b9344e8cb7d92a9feca2aa5efd596237aeea89e5c10981d"
   end
 
   resource "futures" do
@@ -208,8 +213,8 @@ class AppscaleTools < Formula
   end
 
   resource "azure" do
-    url "https://files.pythonhosted.org/packages/85/5c/d4a19612a2ca66966267198cd238ecc5e99e2082a41f0344733c7302ca92/azure-2.0.0rc6.zip"
-    sha256 "d71fa18a2f8f3e6d56051782e00497d28414a68219b01899ba3f791bcd6bd324"
+    url "https://files.pythonhosted.org/packages/a5/ee/b754502a20b9d35a2b35646c0ad06ae2aa1551783658f460bad3841ce9fb/azure-2.0.0.zip"
+    sha256 "9d9010483e26275543c12025a7b8bf41b226d4b0c2ce3faeed6b17ec1c7ae3a1"
   end
 
   # Dependencies for cryptography
@@ -239,8 +244,8 @@ class AppscaleTools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
-    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
+    url "https://files.pythonhosted.org/packages/22/21/233e38f74188db94e8451ef6385754a98f3cad9b59bedf3a8e8b14988be4/cryptography-2.3.1.tar.gz"
+    sha256 "8d10113ca826a4c29d5b85b2c4e045ffa8bad74fb525ee0eceb1d38d4c70dfd6"
   end
 
   resource "python-dateutil" do
@@ -254,28 +259,34 @@ class AppscaleTools < Formula
   end
 
   resource "adal" do
-    url "https://files.pythonhosted.org/packages/dd/55/fe57a0c94680f7b72bb524c085d28a0e407dcaa695ab927d1a904fdc7b6a/adal-0.4.5.tar.gz"
-    sha256 "c5ddfd473fe272ae1deefcee22f99f094f9f195bcb52a8678b2e315b755fe253"
+    url "https://files.pythonhosted.org/packages/5b/b3/d48933784ad8b9000fd0f60f9a568ee6cb9dc232ffb6ec82b820084a12a5/adal-0.7.0.tar.gz"
+    sha256 "c7251108efb9b4dcedad1426acdfe941ecb6036da30dc65f417d89c1e859f3bf"
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/3b/15/a5d90ab1a41075e8f0fae334f13452549528f82142b3b9d0c9d86ab7178c/pyOpenSSL-17.5.0.tar.gz"
-    sha256 "2c10cfba46a52c0b0950118981d61e72c1e5b1aac451ca1bc77de1a679456773"
+    url "https://files.pythonhosted.org/packages/40/d0/8efd61531f338a89b4efa48fcf1972d870d2b67a7aea9dcf70783c8464dc/pyOpenSSL-19.0.0.tar.gz"
+    sha256 "aeca66338f6de19d1aa46ed634c3b9ae519a64b458f8468aec688e7e3c20f200"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/72/46/4abc3f5aaf7bf16a52206bb0c68677a26c216c1e6625c78c5aef695b5359/requests-2.14.2.tar.gz"
-    sha256 "a274abba399a23e8713ffd2b5706535ae280ebe2b8069ee6a941cb089440d153"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/5e/f8/ac0b545c716ed7bab54d11669328e34a6f1eb4a5d8b188d443a7b234861f/keyring-11.0.0.tar.gz"
-    sha256 "b4607520a7c97be96be4ddc00f4b9dac65f47a45af4b4cd13ed5a8879641d646"
+    url "https://files.pythonhosted.org/packages/53/3c/418da48e76dd6ec171b6ad086bc6216d3c0eae13fcec96861fe83128f016/keyring-12.0.2.tar.gz"
+    sha256 "445d9521b4fcf900e51c075112e25ddcf8af1db7d1d717380b64eda2cda84abc"
+  end
+
+  # Required by keyring
+  resource "entrypoints" do
+    url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
+    sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
   end
 
   resource "msrestazure" do
-    url "https://files.pythonhosted.org/packages/6a/d1/761e69540cc8076a8a64f280638397e2eb1dcba1ff697e5cd1730797eff9/msrestazure-0.4.19.tar.gz"
-    sha256 "43b78f25a432772b48c1dee615bd2c1de2ebb2f8107e96d4eea8cf6f691069c4"
+    url "https://files.pythonhosted.org/packages/cd/ce/1381822930cb2e90e889e43831428982577acb9caec5244bcce1c9c542f9/msrestazure-0.4.34.tar.gz"
+    sha256 "4fc94a03ecd5b094ab904d929cc5be7a6a80262eab93948260cfe9081a9e6de4"
   end
 
   resource "enum34" do
@@ -304,8 +315,8 @@ class AppscaleTools < Formula
   end
 
   resource "msrest" do
-    url "https://files.pythonhosted.org/packages/e5/51/5c57754bfb2c097f5057c11a712d7b45f9a7f78191085085d3f34c809c4f/msrest-0.4.27.tar.gz"
-    sha256 "cf45f02d73e45e5382f0e03b7552f530b090547cf77c4fb19f7dbe1990b3a739"
+    url "https://files.pythonhosted.org/packages/c2/fb/24f120cb5ed06f82af1c32213270833ccfa045c202b7bb842834de11f1cc/msrest-0.5.0.tar.gz"
+    sha256 "8b0d2921f62d80ba76a264ddc0fb8cdbf8f525943e22dc47d12802ada092c2cb"
   end
 
   resource "haikunator" do
