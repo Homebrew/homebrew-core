@@ -4,6 +4,12 @@ class IncludeWhatYouUse < Formula
   url "https://include-what-you-use.org/downloads/include-what-you-use-0.12.src.tar.gz"
   sha256 "a5892fb0abccb820c394e4e245c00ef30fc94e4ae58a048b23f94047c0816025"
 
+  bottle do
+    sha256 "e5ce12e2d2b7056d8ece7ceb99d4763af538f1c4890135f47979e5cf38306c5d" => :mojave
+    sha256 "4bf150841df194cf4b56ca9e014b6f2f4bf6ff934d884f33847621094ee5a995" => :high_sierra
+    sha256 "eb35442872740e747b0e526097cac632fec3fadcaa94ba1ecfd5396d10671acc" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "llvm" # include-what-you-use 0.12 is compatible with llvm 8.0
 
