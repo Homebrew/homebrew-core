@@ -1,8 +1,8 @@
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
-  url "https://pngquant.org/pngquant-2.12.2-src.tar.gz"
-  sha256 "bb031c48039ee73ea0e60709bb9ab80c55bfa3a5920b798ea37a03f2757b099c"
+  url "https://pngquant.org/pngquant-2.12.3-src.tar.gz"
+  sha256 "8bb076832a3f1c826393f4be62df8b637dfd6493b13d5839ad697a8a80ccf95b"
   head "https://github.com/kornelski/pngquant.git"
 
   bottle do
