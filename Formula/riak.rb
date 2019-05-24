@@ -18,12 +18,20 @@ class Riak < Formula
   # rebar tries to fetch fuse using git over ssh
   resource "fuse" do
     url "https://github.com/jlouis/fuse.git",
-        :tag      => "2.4.2"
+      :tag      => "2.1.0"
   end
 
   resource "hyper" do
     url "https://github.com/basho/hyper.git",
-        :tag      => "1.0.1"
+      :revision => "f6ed834cd8799623ec00faaedc9ef2a55876d5d8"
+
+    # Avoid build failure "type gb_tree/0 is deprecated and will be removed in OTP	
+    # 18.0; use use gb_trees:tree/0 or preferably gb_trees:tree/2"	
+    # Upstream PR from 4 Oct 2016 "namespaced types for erlang 17+"	
+    patch do	
+      url "https://github.com/basho/hyper/pull/6.patch?full_index=1"	
+      sha256 "e70b9b281a8b75387b7213be8df066b89f3fdfa37f7a4786df1b572024072591"	
+    end	
   end
 
   resource "solr" do
@@ -57,14 +65,14 @@ class Riak < Formula
     hyper_revision = Utils.popen_read("git", "-C", "deps/hyper", "rev-parse",
                                       "HEAD").chomp
 
-    system "git", "-C", "deps/yokozuna", "commit", "-am", "solr-location"
-    yokozuna_revision = Utils.popen_read("git", "-C", "deps/yokozuna",
-                                         "rev-parse", "HEAD").chomp
+    # system "git", "-C", "deps/yokozuna", "commit", "-am", "solr-location"
+    # yokozuna_revision = Utils.popen_read("git", "-C", "deps/yokozuna",
+    #                                      "rev-parse", "HEAD").chomp
 
     # So that rebar doesn't revert the modifications
     inreplace "rebar.config.lock" do |s|
       s.gsub! resource("hyper").specs[:revision], hyper_revision
-      s.gsub! resource("yokozuna").specs[:revision], yokozuna_revision
+      # s.gsub! resource("yokozuna").specs[:revision], yokozuna_revision
     end
 
     # So that rebar doesn't try to refetch the dependencies modified above
