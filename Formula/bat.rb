@@ -3,6 +3,7 @@ class Bat < Formula
   homepage "https://github.com/sharkdp/bat"
   url "https://github.com/sharkdp/bat/archive/v0.11.0.tar.gz"
   sha256 "bb4e39efadfab71c0c929a92b82dac58deacfe2a4eb527d4256ac0634e042ed2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +18,7 @@ class Bat < Formula
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
+    fish_completion.install "assets/completions/bat.fish"
   end
 
   test do
