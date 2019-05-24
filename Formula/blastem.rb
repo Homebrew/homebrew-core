@@ -1,9 +1,8 @@
 class Blastem < Formula
   desc "Fast and accurate Genesis emulator"
   homepage "https://www.retrodev.com/blastem/"
-  url "https://www.retrodev.com/repos/blastem/archive/357b4951d9b2.tar.gz"
-  version "0.6.1"
-  sha256 "63ed9a1d068d97f7bb47770449715767442a1356912cb15bee1f7fe8765b9880"
+  url "https://www.retrodev.com/repos/blastem/archive/v0.6.2.tar.gz"
+  sha256 "d460632eff7e2753a0048f6bd18e97b9d7c415580c358365ff35ac64af30a452"
   head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do
@@ -94,6 +93,6 @@ class Blastem < Formula
   end
 
   test do
-    assert_equal "blastem #{version}", shell_output("#{bin}/blastem -b 1 -v").chomp
+    assert_equal version.to_s, shell_output("#{bin}/blastem -v")
   end
 end
