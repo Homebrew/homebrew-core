@@ -1,8 +1,10 @@
 class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
-  url "https://github.com/motemen/ghq/releases/download/v0.12.4/ghq-0.12.4.tar.gz"
-  sha256 "79043ce5693affe455a6bee3bc967b7d7188fb5422c21322c5fa8a8d286ce898"
+  url "https://github.com/motemen/ghq.git",
+      :tag      => "v0.12.4",
+      :revision => "757cb3ad904106157e16e7559d998be1c2eaa561"
+  head "https://github.com/motemen/ghq.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +19,7 @@ class Ghq < Formula
     system "make", "build"
     bin.install "ghq"
     zsh_completion.install "zsh/_ghq"
+    prefix.install_metafiles
   end
 
   test do
