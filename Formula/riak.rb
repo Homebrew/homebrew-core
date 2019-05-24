@@ -25,13 +25,13 @@ class Riak < Formula
     url "https://github.com/basho/hyper.git",
       :revision => "f6ed834cd8799623ec00faaedc9ef2a55876d5d8"
 
-    # Avoid build failure "type gb_tree/0 is deprecated and will be removed in OTP	
-    # 18.0; use use gb_trees:tree/0 or preferably gb_trees:tree/2"	
-    # Upstream PR from 4 Oct 2016 "namespaced types for erlang 17+"	
-    patch do	
-      url "https://github.com/basho/hyper/pull/6.patch?full_index=1"	
-      sha256 "e70b9b281a8b75387b7213be8df066b89f3fdfa37f7a4786df1b572024072591"	
-    end	
+    # Avoid build failure "type gb_tree/0 is deprecated and will be removed in OTP
+    # 18.0; use use gb_trees:tree/0 or preferably gb_trees:tree/2"
+    # Upstream PR from 4 Oct 2016 "namespaced types for erlang 17+"
+    patch do
+      url "https://github.com/basho/hyper/pull/6.patch?full_index=1"
+      sha256 "e70b9b281a8b75387b7213be8df066b89f3fdfa37f7a4786df1b572024072591"
+    end
   end
 
   resource "solr" do
