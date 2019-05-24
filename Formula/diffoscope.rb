@@ -1,8 +1,8 @@
 class Diffoscope < Formula
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/fa/fc/1183fdc089a09b612acb1673c54c7a606230c060fa95f367a3a135d97ab8/diffoscope-112.tar.gz"
-  sha256 "d3897bd41969e655004854a31f8874b24081dbbb3dabda9dc7056df759443e03"
+  url "https://files.pythonhosted.org/packages/93/70/18009604dbc54001b084ca67c9bd73c7cdadd885d402be05cc0cbe3c0784/diffoscope-114.tar.gz"
+  sha256 "f7ff08f3a1080ff4b438a3deb5073b84cdbdbcb6aee8103fd8ad63f62351551f"
 
   bottle do
     cellar :any_skip_relocation
