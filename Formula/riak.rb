@@ -2,8 +2,8 @@ class Riak < Formula
   desc "Distributed database"
   homepage "https://riak.com/products/riak-kv/"
   url "https://github.com/basho/riak.git",
-      :tag      => "riak-2.2.3",
-      :revision => "d96b67eeb5f934c673ee8e5c75c00a3861f388aa"
+      :tag      => "riak-2.9.0p1",
+      :revision => "c8d862ac611a590af77c8b698a7cedb69799a2c9"
 
   bottle do
     sha256 "163efe4af2492bd3885aebeafb894c2ec5f6c3cbc08cdfaf78de07deaf645336" => :high_sierra
