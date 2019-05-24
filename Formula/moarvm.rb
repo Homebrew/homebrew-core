@@ -16,8 +16,8 @@ class Moarvm < Formula
   depends_on "libuv"
 
   resource("nqp-2019.03") do
-    url "https://rakudo.perl6.org/downloads/nqp/nqp-2019.03.tar.gz"
-    sha256 "03ddced47583189a5ff316c05350f6f39c15f75ce44d38b409a4bb1128857fa0"
+    url "https://github.com/perl6/nqp/archive/2019.03.tar.gz"
+    sha256 "5f226de8f0567f34797fd1d5eeed1ebf85bbd91f39608f917f48081dd3bf6863"
   end
 
   def install
