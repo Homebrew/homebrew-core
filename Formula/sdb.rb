@@ -7,9 +7,9 @@ class Sdb < Formula
 
   bottle do
     cellar :any
-    sha256 "863aea9679becb97cc5d9f64bbb714a226149db7f5a7b09143ad05517f9aed72" => :mojave
-    sha256 "c25fed7f1923890c98ed5da6adb178feff0208d55f7c51bff55a1552d61339cb" => :high_sierra
-    sha256 "c0be2ac314a7655b4b0b0f2928c1bacd3b568948dda7682386dee9c797d0a401" => :sierra
+    sha256 "ce339646aae3c8ca070d2bb6d98650f58642fe33bc441f09eb041426dbf03602" => :mojave
+    sha256 "6f2385c418765b70c5b10bdacad22e6dd58c8bbb773ac1ceed4295ed7927dc26" => :high_sierra
+    sha256 "7d8bfa3c93e75136e19ab3dc914ff5b0906714ccc98be7f7f431ebd94e65e258" => :sierra
   end
 
   depends_on "pkg-config" => :build
