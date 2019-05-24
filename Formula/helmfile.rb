@@ -1,8 +1,8 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.54.2.tar.gz"
-  sha256 "ea5c861e6d9f2b2bd4d1c5537d86cc0d9456c003ad2dcae9fd846c9283bcbc2e"
+  url "https://github.com/roboll/helmfile/archive/v0.64.2.tar.gz"
+  sha256 "3a83237d919882bc59460076b2592151e67e11e86858d10d7e2d0db0ae037d96"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,11 +15,11 @@ class Helmfile < Formula
   depends_on "kubernetes-helm"
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/roboll/helmfile").install buildpath.children
     cd "src/github.com/roboll/helmfile" do
-      system "go", "build", "-ldflags", "-X main.Version=v#{version}",
-             "-o", bin/"helmfile", "-v", "github.com/roboll/helmfile"
+      system "go", "build", "-ldflags", "-X main.version=#{version}",
+             "-o", bin/"helmfile"
       prefix.install_metafiles
     end
   end
@@ -34,7 +34,8 @@ class Helmfile < Formula
     - name: test
     EOS
     system Formula["kubernetes-helm"].opt_bin/"helm", "init", "--client-only"
-    output = '"stable" has been added to your repositories'
-    assert_match output, shell_output("#{bin}/helmfile -f helmfile.yaml repos")
+    system "#{bin}/helmfile -f helmfile.yaml repos"
+    output = "helmfile version"
+    assert_match output, shell_output("#{bin}/helmfile -v")
   end
 end
