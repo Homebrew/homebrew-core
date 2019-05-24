@@ -1,8 +1,8 @@
 class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
-  url "https://github.com/glandium/git-cinnabar/archive/0.5.0.tar.gz"
-  sha256 "1e09c7c24a34eb172681283ca243677ea06f4da179916a907f43f9027ca59dea"
+  url "https://github.com/glandium/git-cinnabar/archive/0.5.1.tar.gz"
+  sha256 "f2ade7c0b5d362eb4b9e51ca4faa7a8a200f08a62a7104c0d61cab1f6ea18b09"
   head "https://github.com/glandium/git-cinnabar.git"
 
   bottle do
