@@ -1,6 +1,6 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
-  homepage "https://www.runatlantis.io"
+  homepage "https://www.runatlantis.io/"
   url "https://github.com/runatlantis/atlantis/archive/v0.8.0.tar.gz"
   sha256 "5b53152f0eda41f4e5c2b9727e262dea35fb7da46fc0e0eb732956675f0bed8b"
   bottle do
@@ -30,7 +30,7 @@ class Atlantis < Formula
     port = 4141
     loglevel = "info"
     gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-whitelist INVALID"
-    command = bin/"atlantis server --atlantis-url http://in.va.lid --port #{port} #{gh_args} --log-level #{loglevel}"
+    command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
     pid = Process.spawn(command)
     system "sleep", "5"
     output = `curl -vk# 'http://localhost:#{port}/' 2>&1`
