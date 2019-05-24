@@ -18,20 +18,12 @@ class Riak < Formula
   # rebar tries to fetch fuse using git over ssh
   resource "fuse" do
     url "https://github.com/jlouis/fuse.git",
-        :revision => "21c6e52ced3af294f2fe636039106068da12eeeb"
+        :tag      => "2.4.2"
   end
 
   resource "hyper" do
     url "https://github.com/basho/hyper.git",
-        :revision => "f6ed834cd8799623ec00faaedc9ef2a55876d5d8"
-
-    # Avoid build failure "type gb_tree/0 is deprecated and will be removed in OTP
-    # 18.0; use use gb_trees:tree/0 or preferably gb_trees:tree/2"
-    # Upstream PR from 4 Oct 2016 "namespaced types for erlang 17+"
-    patch do
-      url "https://github.com/basho/hyper/pull/6.patch?full_index=1"
-      sha256 "e70b9b281a8b75387b7213be8df066b89f3fdfa37f7a4786df1b572024072591"
-    end
+        :tag      => "1.0.1"
   end
 
   resource "solr" do
@@ -44,7 +36,7 @@ class Riak < Formula
 
   resource "yokozuna" do
     url "https://github.com/basho/yokozuna.git",
-        :revision => "b53d999529626301c36fa3efa22b2b0165217556"
+        :tag      => "riak_kv-2.9.0"
   end
 
   def install
