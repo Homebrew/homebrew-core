@@ -2,8 +2,8 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag      => "2.1.0",
-      :revision => "a036bd817d35ff1c354c644804dc588fb7c41476"
+      :tag      => "2.5.0",
+      :revision => "bf3ddf656eb5c01b5d9abefc8fd6d93c5bd452aa"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
@@ -18,12 +18,12 @@ class SyncGateway < Formula
 
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        :revision => "935b93fb9bf367510eece7db8ee3e383b101c36d"
+        :revision => "b97d193baafa7343cc869e2b48d3bffec46a0c31"
   end
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
-    repo_cache = HOMEBREW_CACHE/"repo_cache/#{name}/.repo"
+    repo_cache = buildpath/"repo_cache/#{name}/.repo"
     repo_cache.mkpath
 
     (buildpath/"depot_tools").install resource("depot_tools")
@@ -44,6 +44,7 @@ class SyncGateway < Formula
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
       cp manifest, ".repo/manifest.xml"
       system "repo", "sync"
+      ENV["SG_EDITION"] = "CE"
       system "sh", "build.sh", "-v"
       mv "godeps/bin", prefix
     end
