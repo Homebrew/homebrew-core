@@ -8,9 +8,9 @@ class Whois < Formula
 
   bottle do
     cellar :any
-    sha256 "66e068933f97c0f7afc1f53eadca1befbd739295c2384343d35595008cd8c5a3" => :mojave
-    sha256 "460c91fbfe20fa011af0e912f6139ec87de04c8a34fb1f0d28b29dd602bac53b" => :high_sierra
-    sha256 "57392e6c829947253e65e9e353b39c17dc85d448ebf8af94cbc5803ee927fdcf" => :sierra
+    sha256 "8b33d363d3e5ac7afdc51c63be8f8d4bfa6a6f07d0eebf6466807a0c2731bfca" => :mojave
+    sha256 "6da5f1c5004ba6e426c01957326bda043e02dde399719dd4e86630a5a673fcd6" => :high_sierra
+    sha256 "325df08997f0548a24bd91526e1541466a71e463c72eaba2e7ae321fe2cb39e7" => :sierra
   end
 
   depends_on "pkg-config" => :build
