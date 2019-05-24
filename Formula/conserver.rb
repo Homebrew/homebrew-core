@@ -6,9 +6,9 @@ class Conserver < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97403a07aac75ec35f200f6c804c55f6e011dd472146c87c53da209f130f74a6" => :mojave
-    sha256 "1a5372d2617d47faea48393dcf6dffe38d778194a7e1e7deb32f49548884b2d4" => :high_sierra
-    sha256 "b86cff5c3d9803a8840b06199065fe07b29d8361457412d7063f171a42cf6b2e" => :sierra
+    sha256 "cc5c46b8adeeb4eb949f8abeedee67fce87dd1b17677622963619a496b511289" => :mojave
+    sha256 "45f059778b3e32bb6cdcba3f52bb4ad99d3c2271ef0adfb61fc28a0299d3d8a2" => :high_sierra
+    sha256 "972900dc19aeb2beb11371bc9dba0c241c842328dd573d449535529dc5f560ad" => :sierra
   end
 
   def install
