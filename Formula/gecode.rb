@@ -1,8 +1,8 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
   homepage "https://www.gecode.org/"
-  url "https://github.com/Gecode/gecode/archive/release-6.1.1.tar.gz"
-  sha256 "093e9fc6e5efa47341ec777af3550ded5c25542389d1f35b1dad58179c03cb92"
+  url "https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz"
+  sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
 
   bottle do
     cellar :any
