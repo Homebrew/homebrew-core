@@ -1,0 +1,28 @@
+# Comment that will be sent if an issue is judged to be closed
+comment: >
+From the issue template:
+
+\> **Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.**
+
+If you add the necessary information to this issue (don't create a new one, please) then this issue may be reopened.
+# There can be several configs for different kind of issues.
+- content:
+# reproducible bug report
+  - "are reporting a bug others will be able to reproduce"
+  - "have a problem with "
+  - "brew update"
+  - "brew doctor"
+  - "brew gist-logs"
+  - "brew config"
+  - "brew doctor"
+  - "What you were trying to do (and why)"
+  - "What happened (include command output)"
+  - "What you expected to happen"
+  - "Step-by-step reproduction instructions (by running `brew install` commands)"
+# Optional configuration:
+#
+# whether the keywords are case-insensitive
+# default value is false, which means keywords are case-sensitive
+caseInsensitive: false
+# The issue is judged to be legal if it includes all keywords from any of these two configs.
+# Or it will be closed by the app.
