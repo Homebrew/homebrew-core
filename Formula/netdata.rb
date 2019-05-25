@@ -2,7 +2,7 @@ class Netdata < Formula
   desc "Distributed real-time performance and health monitoring"
   homepage "https://my-netdata.io/"
   url "https://github.com/netdata/netdata/releases/download/v1.15.0/netdata-v1.15.0.tar.gz"
-  sha256 "86b0f1704c67b2a6012f2fec0f192ba3f183a96fab5650bc6a8a1c51135c965d"
+  sha256 "7d2f25c62003ea96669e460ec96b69a9616c9ddd6f48a48707a79a898077d911"
 
   bottle do
     sha256 "41b7ad105a34c6d08504b519fdd831083f2e5eafae50e56dbb5f2764bf42fb3e" => :mojave
@@ -13,6 +13,7 @@ class Netdata < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
+  depends_on "openssl" if MacOS.version <= :sierra
 
   def install
     system "./configure", "--disable-dependency-tracking",
