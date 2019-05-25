@@ -45,31 +45,36 @@ class Infer < Formula
     # explicitly build the clang before infer's configure
     ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --with-fcp-clang"
 
+    # so that `infer --version` reports a release version number
+    inreplace "infer/src/base/Version.ml.in", "@IS_RELEASE_TREE@", "yes"
+
     llvm_args = %w[
-      -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=OFF
       -DLIBOMP_ARCH=x86_64
     ]
 
-    pathfix_lines = [
-      "export SDKROOT=#{MacOS.sdk_path}",
-      "eval $(opam env)"
-    ]
-
-    # so that `infer --version` reports a release version number
-    inreplace "infer/src/base/Version.ml.in", "@IS_RELEASE_TREE@", "yes"
-
     inreplace "facebook-clang-plugins/clang/setup.sh", "CMAKE_ARGS=(", "CMAKE_ARGS=(\n  " + llvm_args.join("\n  ")
 
-    # setup opam (disable opam sandboxing because homebrew is sandboxed already)
+    # setup opam (disable opam sandboxing, since it will otherwise fail inside homebrew sandbox)
+    # disabling sandboxing inside a sandboxed environment is necessary as of opam 2.0
     inreplace "build-infer.sh", "--no-setup", "--no-setup --disable-sandboxing"
-    # prefer system bins for opam install
+    # prefer system bins configuring opam dependency mlgmpidl (needs to use system clang+ranlib+libtool)
+    # if some homebrew versions of these mix with system tools, it can break compilation
     inreplace "build-infer.sh", "opam install", "PATH=/usr/bin:$PATH\n    opam install"
+
+    pathfix_lines = [
+      "export SDKROOT=#{MacOS.sdk_path}",
+      "eval $(opam env)",
+    ]
+
+    # need to set sdkroot for clang to see certain system headers
     inreplace "build-infer.sh", "./configure $INFER_CONFIGURE_OPTS",
         pathfix_lines.join("\n") + "\n./configure $INFER_CONFIGURE_OPTS"
 
-    system "facebook-clang-plugins/clang/setup.sh"
-    system "./build-infer.sh"
+    # build ocaml dependecies first so custom clang will build with ocaml bindings. then build+install infer
+    system "./build-infer.sh", "--only-setup-opam", "--yes"
+    system "opam", "config", "exec", "--", "facebook-clang-plugins/clang/setup.sh"
+    system "./build-infer.sh", "all", "--yes"
     system "opam", "config", "exec", "--", "make", "install"
   end
 
