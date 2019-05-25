@@ -1,9 +1,8 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.62.tar.gz"
-  sha256 "b219270310255493c881a09bb4a5569f34a72cdaf3c3be920c1036a2450317ce"
-  revision 1
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.63.tar.gz"
+  sha256 "9016ce0a22e0e800937970a91b48aaf536fc901c98d3edd1e11bf97590523d81"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
