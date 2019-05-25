@@ -3,8 +3,8 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/8e/db/ad9aa0e58bffc4f6f306d40608a7a755777ef283c28dee5a4c6a4dc47cad/peru-1.1.4.tar.gz"
-  sha256 "d899e1376009f7f95d220863ea79ca51712cd4bf769fff48973c239bf54e56d4"
+  url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
+  sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
 
   bottle do
     cellar :any_skip_relocation
