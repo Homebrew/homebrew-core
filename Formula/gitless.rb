@@ -3,9 +3,8 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/sdg-mit/gitless/archive/v0.8.6.tar.gz"
-  sha256 "e1d009bf9d7c89428d7029394cc85a0d91bd2af73f019508ddc92c98faeed8e5"
-  revision 3
+  url "https://github.com/sdg-mit/gitless/archive/v0.8.7.tar.gz"
+  sha256 "f5cdc28dfd26ca839405b726eccadfe3a8dc91a8a8c88788f8941fa336f199d6"
 
   bottle do
     cellar :any
