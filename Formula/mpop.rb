@@ -5,11 +5,10 @@ class Mpop < Formula
   sha256 "7d9cffe30999a7b2ea503df9b23ccbf42439b62271c45ebd7b5b04bed0654148"
 
   bottle do
-    cellar :any
-    sha256 "b2594cbd367ac7c922b279764df9f51ce8684218cd800509dc1a0c13c35a7b25" => :mojave
-    sha256 "648cdecc606fd477c7949a81b0c4dd4d83ea4e37fb44fa046562563b29653bcd" => :high_sierra
-    sha256 "4f059bd22ca42847af9e0a109d1753d50a9dc08dc2241e6efb009d5589919bff" => :sierra
-    sha256 "4a11baf2addbf2be8122ea578cea50ebacaabb0f5ba60565b5d42c58c9e889b5" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "ac5ee4b2a4359a994fe4e6e91772c265ac0cb2632efec60bc3b17c8a2d5614cd" => :mojave
+    sha256 "156ff20366981120daa63c3e1c968529d92fe75412b23e238ec76a0c0f304129" => :high_sierra
+    sha256 "12d315afd7b4e7f7d5fe5c1a0fdd420e42d31048a5a1b9f02ec65b65e20b4f43" => :sierra
   end
 
   depends_on "pkg-config" => :build
