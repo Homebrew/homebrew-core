@@ -1,8 +1,8 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "http://cassandra-reaper.io"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.4.2/cassandra-reaper-1.4.2-release.tar.gz"
-  sha256 "9deba7bf79cffecd97f11ceac5208a16fb4ad1becbd1676ab24086f9c43aab7f"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.4.3/cassandra-reaper-1.4.3-release.tar.gz"
+  sha256 "02ff31d1c46d838d5760fcc58a568b10a4bcfdbf596e166a04175b607932fad4"
 
   bottle :unneeded
 
