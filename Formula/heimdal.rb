@@ -1,8 +1,8 @@
 class Heimdal < Formula
   desc "Free Kerberos 5 implementation"
   homepage "https://www.h5l.org"
-  url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.5.0/heimdal-7.5.0.tar.gz"
-  sha256 "c5a2a0030fcc728022fa2332bad85569084d1c3b9a59587b7ebe141b0532acad"
+  url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.6.0/heimdal-7.6.0.tar.gz"
+  sha256 "afb996e27e722f51bf4d9e8d1d51e47cd10bfa1a41a84106af926e5639a52e4d"
 
   bottle do
     sha256 "e0aad0685750590e7c94e94c66dd83e145ae707136a81c7d57f9eb03959722e4" => :mojave
@@ -15,7 +15,20 @@ class Heimdal < Formula
 
   depends_on "openssl"
 
+  resource "JSON" do
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz"
+    sha256 "444a88755a89ffa2a5424ab4ed1d11dca61808ebef57e81243424619a9e8627c"
+  end
+
   def install
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    resource("JSON").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make"
+      system "make", "install"
+    end
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
