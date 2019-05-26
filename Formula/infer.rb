@@ -16,7 +16,7 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on :java => ["1.8", :build]
+  depends_on :java => ["1.8", :build, :test]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
@@ -76,9 +76,28 @@ class Infer < Formula
     system "opam", "config", "exec", "--", "facebook-clang-plugins/clang/setup.sh"
     system "./build-infer.sh", "all", "--yes"
     system "opam", "config", "exec", "--", "make", "install"
+
+    # opam switches contain lots of files for end-user usage
+    # much can be removed if all we need is a package
+    opam_switch = File.read("build-infer.sh").match(/INFER_OPAM_DEFAULT_SWITCH=\"([^\"]+)\"/)[1]
+    cd libexec/"opam" do
+      # remove everything but the opam switch used for infer
+      rm_rf Dir["*"] - [opam_switch.to_s]
+
+      # remove everything in the switch but the dylibs infer needs during runtime
+      cd opam_switch.to_s do
+        rm_rf Dir["*"] - ["share"]
+
+        cd "share" do
+          rm_rf Dir["*"] - ["apron", "elina"]
+        end
+      end
+    end
   end
 
   test do
+    shell_output("javac -version")
+    shell_output("which javac")
     (testpath/"FailingTest.c").write <<~EOS
       #include <stdio.h>
 
@@ -140,7 +159,7 @@ class Infer < Formula
       }
     EOS
 
-    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
     shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java")
+    shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
   end
 end
