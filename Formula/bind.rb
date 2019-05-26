@@ -1,8 +1,16 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind/9.15.0/bind-9.15.0.tar.gz"
-  sha256 "ee9a18d8be7bcbb3928c9c96a71ea08ed045bfe57d3ef74f06f6177bbbb2560f"
+
+  # BIND releases with even minor version numbers (9.14.x, 9.16.x, etc) are
+  # stable. Odd-numbered minor versions are for testing, and can be unstable
+  # or buggy. They are not suitable for general deployment. We have to use
+  # "version_scheme" because someone upgraded to 9.15.0, and required a
+  # downgrade.
+
+  url "https://ftp.isc.org/isc/bind/9.14.2/bind-9.14.2.tar.gz"
+  sha256 "0e4027573726502ec038db3973a086c02508671723a4845e21da1769a5c27f0c"
+  version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
