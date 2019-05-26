@@ -2,8 +2,8 @@ class Volt < Formula
   desc "Meta-level vim package manager"
   homepage "https://github.com/vim-volt/volt"
   url "https://github.com/vim-volt/volt.git",
-    :tag      => "v0.3.6",
-    :revision => "b1c9efdcc7892fc5b48734bfbd73b76a4a1a5911"
+    :tag      => "v0.3.7",
+    :revision => "e604467d8b440c89793b2e113cd241915e431bf9"
   head "https://github.com/vim-volt/volt.git"
 
   bottle do
@@ -16,15 +16,16 @@ class Volt < Formula
   depends_on "go" => :build
 
   def install
-    mkdir_p buildpath/"src/github.com/vim-volt"
-    ln_s buildpath, buildpath/"src/github.com/vim-volt/volt"
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
+    (buildpath/"src/github.com/vim-volt/volt").install buildpath.children
+    cd "src/github.com/vim-volt/volt" do
+      system "go", "build", "-o", bin/"volt"
+      prefix.install_metafiles
 
-    system "make", "BIN_DIR=#{bin}"
-
-    bash_completion.install "_contrib/completion/bash" => "volt"
-    zsh_completion.install "_contrib/completion/zsh" => "_volt"
-    cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
+      bash_completion.install "_contrib/completion/bash" => "volt"
+      zsh_completion.install "_contrib/completion/zsh" => "_volt"
+      cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
+    end
   end
 
   test do
