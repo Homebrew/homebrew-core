@@ -4,10 +4,10 @@ class DhallJson < Formula
   include Language::Haskell::Cabal
 
   desc "Dhall to JSON compiler and a Dhall to YAML compiler"
-  homepage "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library"
-  url "https://hackage.haskell.org/package/dhall-json-1.2.7/dhall-json-1.2.7.tar.gz"
-  sha256 "11fca18fceacbff9f3b3ca86012f45b82fe9d52d2e689cfec434841a6e63e3f1"
-  head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library.git"
+  homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-json"
+  url "https://hackage.haskell.org/package/dhall-json-1.2.8/dhall-json-1.2.8.tar.gz"
+  sha256 "edfd0f1cac49047f75f3096716ed961998df4bc9ce3661f6e8b0ba9ce0f3b168"
+  head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
     cellar :any_skip_relocation
