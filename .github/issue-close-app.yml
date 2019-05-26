@@ -6,6 +6,7 @@ From the issue template:
 
 If you add the necessary information to this issue (don't create a new one, please) then this issue may be reopened.
 # There can be several configs for different kind of issues.
+issueConfigs:
 - content:
 # reproducible bug report
   - "are reporting a bug others will be able to reproduce"
