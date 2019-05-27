@@ -7,9 +7,9 @@ class Dbmate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "946932c1571f2ed959a588035991b70533e5d9141b5489baf78d52bcf7412541" => :mojave
-    sha256 "b21f89fb8c5ec25db5a8c7d12fae7e1405d0268b6cbe2d4f823a2440a6885391" => :high_sierra
-    sha256 "84be32d3501f2d87d77a0c843c841a1583c0a142bc287e85fb63ee900b29284c" => :sierra
+    sha256 "7e8b233775e3f4916fc0a342e1dd30a5af8fe5d59ac59ab961d2957b9918e2af" => :mojave
+    sha256 "79784ca8ce7c443219a3c66fb4089cdda76dec37a1f0b08235d6efa59326aa33" => :high_sierra
+    sha256 "f23e60c78dbcd764ea0ddf42c6ad6c858edcc7046024001839c3aabbed16ece3" => :sierra
   end
 
   depends_on "go" => :build
