@@ -217,6 +217,11 @@ class AppscaleTools < Formula
     sha256 "9d9010483e26275543c12025a7b8bf41b226d4b0c2ce3faeed6b17ec1c7ae3a1"
   end
 
+  resource "azure-servicefabric" do
+    url "https://files.pythonhosted.org/packages/3e/6d/0485c26434d27d367987f5c2adfcf056a1e67d41a7d52efad31369d61536/azure-servicefabric-5.6.130.zip"
+    sha256 "7d4731e7513861c6a8bd3e672810ee7c88e758474d15030981c9196df74829d7"
+  end
+
   # Dependencies for cryptography
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
