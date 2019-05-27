@@ -1,5 +1,5 @@
 class Dust < Formula
-  desc "A more intuitive version of du in rust"
+  desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
   url "https://github.com/bootandy/dust/archive/v0.3.1.tar.gz"
   sha256 "a10e0b2bc5862928a257e05866e077866193cc673d97a711ddd63eeecd075867"
