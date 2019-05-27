@@ -1,8 +1,8 @@
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://go-acme.github.io/lego/"
-  url "https://github.com/go-acme/lego/archive/v2.5.0.tar.gz"
-  sha256 "f2665affc8e55ed95fcd6b24b826c7d3a343c24df8d91838d4beb87b770bcf3d"
+  url "https://github.com/go-acme/lego/archive/v2.6.0.tar.gz"
+  sha256 "1abba13871f58fe483a3d4ac3900d44cddeacfc3dfe9fae2d96e45a9a39e7ce7"
 
   bottle do
     cellar :any_skip_relocation
