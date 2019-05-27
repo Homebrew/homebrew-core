@@ -1,8 +1,9 @@
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
-  url "https://github.com/goreleaser/goreleaser/archive/v0.107.0.tar.gz"
-  sha256 "254dd8fc5c2055048d382c0107f0d9d3d2b4b361c6e18691eac373e380d2cdca"
+  url "https://github.com/goreleaser/goreleaser.git",
+      :tag      => "v0.109.0",
+      :revision => "7ee486fc9b58171e70eec99ecdbeac4c99cc82d0"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,10 +15,16 @@ class Goreleaser < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
-    cd "src/github.com/goreleaser/goreleaser" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
+    dir = buildpath/"src/github.com/goreleaser/goreleaser"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "mod", "vendor"
+      system "go", "build", "-ldflags",
+                   "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
                    "-o", bin/"goreleaser"
       prefix.install_metafiles
     end
