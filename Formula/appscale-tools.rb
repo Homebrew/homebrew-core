@@ -217,6 +217,11 @@ class AppscaleTools < Formula
     sha256 "9d9010483e26275543c12025a7b8bf41b226d4b0c2ce3faeed6b17ec1c7ae3a1"
   end
 
+  resource "azure-servicebus" do
+    url "https://files.pythonhosted.org/packages/82/29/cb0cfd5cc8b7b92b1a67c2fbab55e72792080255498cab7a2bbfe50ce90a/azure-servicebus-0.21.1.zip"
+    sha256 "bb6a27afc8f1ea9ab46ff2371069243d45000d351d9b64e450b63d52409b934d"
+  end
+
   resource "azure-servicefabric" do
     url "https://files.pythonhosted.org/packages/3e/6d/0485c26434d27d367987f5c2adfcf056a1e67d41a7d52efad31369d61536/azure-servicefabric-5.6.130.zip"
     sha256 "7d4731e7513861c6a8bd3e672810ee7c88e758474d15030981c9196df74829d7"
