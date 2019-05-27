@@ -4,13 +4,14 @@ class Bind < Formula
 
   # BIND releases with even minor version numbers (9.14.x, 9.16.x, etc) are
   # stable. Odd-numbered minor versions are for testing, and can be unstable
-  # or buggy. They are not suitable for general deployment.
+  # or buggy. They are not suitable for general deployment. We have to use
+  # "version_scheme" because someone upgraded to 9.15.0, and required a
+  # downgrade.
 
+  version_scheme 1
   url "https://ftp.isc.org/isc/bind/9.14.2/bind-9.14.2.tar.gz"
   sha256 "0e4027573726502ec038db3973a086c02508671723a4845e21da1769a5c27f0c"
   head "https://gitlab.isc.org/isc-projects/bind9.git"
-
-  version_scheme 1
 
   bottle do
     sha256 "c6f25b895b4cbb3e72aeaed007a0126bcc38c47ec1fe02e06a0398ed6434aa68" => :mojave
