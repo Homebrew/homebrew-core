@@ -12,7 +12,7 @@ class Jcliff < Formula
     libexec.install Dir["rules", "*.jar"]
 
     (libexec/"bin").install "jcliff"
-    (bin/"jcliff").write_env_script("#{libexec}/bin/jcliff", :JCLIFF_HOME => @libexec.to_s)
+    (bin/"jcliff").write_env_script("#{libexec}/bin/jcliff", :JCLIFF_HOME => libexec.to_s)
   end
 
   def caveats
