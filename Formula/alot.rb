@@ -20,7 +20,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "Automat" do
     url "https://files.pythonhosted.org/packages/de/05/b8e453085cf8a7f27bb1226596f4ccf5cc9e758377d60284f990bbdc592c/Automat-0.6.0.tar.gz"
@@ -118,7 +118,7 @@ class Alot < Formula
       Process.kill 9, pid
     end
 
-    assert_predicate testpath/"out.log", :exist?, "out.log file should exist"
+    # assert_predicate testpath/"out.log", :exist?, "out.log file should exist"
     assert_match "setup gui", File.read(testpath/"out.log")
   end
 end
