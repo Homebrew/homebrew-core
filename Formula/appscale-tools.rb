@@ -148,8 +148,8 @@ class AppscaleTools < Formula
   end
 
   resource "azure-storage" do
-    url "https://files.pythonhosted.org/packages/94/fd/301d5d72126125b59731ad64bcfcc9bc75fcddb9bb8370a917559a693433/azure-storage-0.33.0.zip"
-    sha256 "1117e15bdd699b7f44412fec06948b9161de13c0cd01bea092c7752112542c40"
+    url "https://files.pythonhosted.org/packages/5f/63/94f7c7f89a7d28b0141b3fda6ccaad75d4bc8341eabbaa6caa0602c953f8/azure-storage-0.34.2.zip"
+    sha256 "f840a878780ead8f236070ef4f09fa9f9040fc4fa6bdf0e3d5a59c4af89ca4d7"
   end
 
   resource "azure-servicebus" do
@@ -322,6 +322,11 @@ class AppscaleTools < Formula
   resource "haikunator" do
     url "https://files.pythonhosted.org/packages/af/58/6a000ee0ec34cac5c78669359a8b1db969f1f511454a140ad3d193714ba2/haikunator-2.1.0.zip"
     sha256 "91ee3949a3a613cac037ddde0b16b17062e248376b11491436e49d5ddc75ff9b"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
+    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
   end
 
   def install
