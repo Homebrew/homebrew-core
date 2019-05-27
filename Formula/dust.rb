@@ -13,6 +13,6 @@ class Dust < Formula
   end
 
   test do
-    assert_match "Dust", shell_output("#{bin}/dust -V")
+    assert_match /\d+.+?\./, shell_output("#{bin}/dust -n 1")
   end
 end
