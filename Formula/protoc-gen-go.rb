@@ -3,6 +3,7 @@ class ProtocGenGo < Formula
   homepage "https://github.com/golang/protobuf"
   url "https://github.com/golang/protobuf/archive/v1.3.1.tar.gz"
   sha256 "3f3a6123054a9847093c119895f1660612f301fe95358f3a6a1a33fd0933e6cf"
+  revision 1
   head "https://github.com/golang/protobuf.git"
 
   bottle do
@@ -18,9 +19,9 @@ class ProtocGenGo < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "off"
-    (buildpath/"src/github.com/golang").mkpath
-    ln_s buildpath, buildpath/"src/github.com/golang/protobuf"
-    system "go", "build", "-o", bin/"protoc-gen-go", "protoc-gen-go/main.go"
+    (buildpath/"src/github.com/golang/protobuf").install buildpath.children
+    system "go", "install", "github.com/golang/protobuf/protoc-gen-go"
+    bin.install buildpath/"bin/protoc-gen-go"
   end
 
   test do
