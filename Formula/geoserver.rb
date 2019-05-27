@@ -1,8 +1,8 @@
 class Geoserver < Formula
   desc "Java server to share and edit geospatial data"
   homepage "http://geoserver.org/"
-  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.14.3/geoserver-2.14.3-bin.zip"
-  sha256 "07056c692efc5a49726dca3e952767ebcaadfae50cd450e201c02df5426f5ca0"
+  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.15.1/geoserver-2.15.1-bin.zip"
+  sha256 "eff6602bee2881d88181f9cabafc4f08558ca6dad3bbfe4cb53cd58cf38af22c"
 
   bottle :unneeded
 
@@ -11,7 +11,11 @@ class Geoserver < Formula
     (bin/"geoserver").write <<~EOS
       #!/bin/sh
       if [ -z "$1" ]; then
-        echo "Usage: $ geoserver path/to/data/dir"
+        echo "Usage: $ geoserver -start | -stop | path/to/data/dir"
+      elif [ $1 == "-start" ]; then
+        cd "#{libexec}/bin" && ./startup.sh
+      elif [ $1 == "-stop" ]; then
+        cd "#{libexec}/bin" && ./shutdown.sh
       else
         cd "#{libexec}" && java -DGEOSERVER_DATA_DIR=$1 -jar start.jar
       fi
