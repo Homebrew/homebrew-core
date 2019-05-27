@@ -7,10 +7,9 @@ class GitReview < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c33e1f4874cab16140b3ba63dd1342f94e8da8aba2896812f631bf940cc350c9" => :mojave
-    sha256 "f83ed8708389cf83b000d906b185f7e7570cb488c4a0321d5f19ac64a0e5da9b" => :high_sierra
-    sha256 "1c5e52734db126e988157463ef77aa6b176c0bb1242829b94d23d466ab2c0049" => :sierra
+    sha256 "a12f62ba8ae2ec1f8247e21d1bf99eb6b2e07e801518ec65fa190558c5e36b14" => :mojave
+    sha256 "9ddf50178ac4c2bc4f8c5bb102eb36d20ad3c52d5ed2569adc08fb66c7f91bea" => :high_sierra
+    sha256 "a1cd9a36808cccc52105851a8f09ff29c82469d14701aad6c7ea06abe17c8a5f" => :sierra
   end
 
   depends_on "python"
