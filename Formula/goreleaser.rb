@@ -14,10 +14,16 @@ class Goreleaser < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
-    cd "src/github.com/goreleaser/goreleaser" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
+    dir = buildpath/"src/github.com/goreleaser/goreleaser"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "mod", "vendor"
+      system "go", "build", "-ldflags",
+                   "-s -w -X main.version=#{version} -X main.builtBy=homebrew",
                    "-o", bin/"goreleaser"
       prefix.install_metafiles
     end
