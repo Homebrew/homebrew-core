@@ -1,8 +1,8 @@
 class ThriftAT09 < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org"
-  url "https://archive.apache.org/dist/thrift/0.9.3/thrift-0.9.3.tar.gz"
-  sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
+  url "https://archive.apache.org/dist/thrift/0.9.3.1/thrift-0.9.3.1.tar.gz"
+  sha256 "8e5f59285f43bdbb30825e731d946dab49686b003f141b000539cd3eaa3f8aa2"
 
   bottle do
     cellar :any
@@ -39,6 +39,9 @@ class ThriftAT09 < Formula
 
     # Don't install extensions to /usr
     ENV["JAVA_PREFIX"] = pkgshare/"java"
+
+    # Fix `aclocal-1.14: command not found` issue
+    ENV['am__api_version'] = '1.15'
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
