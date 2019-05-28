@@ -4,6 +4,13 @@ class Lizard < Formula
   url "https://github.com/inikep/lizard/archive/v1.0.tar.gz"
   sha256 "6f666ed699fc15dc7fdaabfaa55787b40ac251681b50c0d8df017c671a9457e6"
 
+  bottle do
+    cellar :any
+    sha256 "d6d2770f6c346dbb095dbcc69f6b1cf79613d94c1777f07ca3a79ca8883e4ab6" => :mojave
+    sha256 "9790144aee9e270729e23ed984748987805161a650f970d453b706ac950cd5a6" => :high_sierra
+    sha256 "2bd42482a27e4b9c4deeb61ff2d9e858161080ced6e54e69bbbc59da6df885c3" => :sierra
+  end
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
     cd "examples" do
