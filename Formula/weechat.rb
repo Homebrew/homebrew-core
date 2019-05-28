@@ -7,9 +7,9 @@ class Weechat < Formula
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "17f0b92a8889d6716b8e568cb03cbf1df17eac761f42333b912bbb9dfca08291" => :mojave
-    sha256 "feea73ff988119f26b99ccec16307d0da2a0a66ef18d7d1135c457d98a63c119" => :high_sierra
-    sha256 "915e1455d6e6f20e1d8a5b32fe7f28651189a389131a229d94050bd5b6c2e7b5" => :sierra
+    sha256 "c0616c0a1882bbfe865332248a82278ad48d489327dd5cf0fafc50c178a24e24" => :mojave
+    sha256 "0d876e4a5484ba35f22bb689ad4a6d0a066c0ef7e7bb86dd4b072a3ca0261c7a" => :high_sierra
+    sha256 "5d5f73a9c0367663cde942c2938a4bc56a703cf1897b57df71734b1a323368d7" => :sierra
   end
 
   depends_on "asciidoctor" => :build
