@@ -1,9 +1,8 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.8.1.tar.gz"
-  sha256 "2e2e263b05e5f551c1a85e6fc5e1f14eab4e742478cd2b0edd57ab17895c2c8c"
-  revision 1
+  url "https://github.com/dartsim/dart/archive/v6.9.0.tar.gz"
+  sha256 "8351c3fe53bd5251235d28ce15cc2796e529125b7990e49a715f4f567021aaed"
 
   bottle do
     sha256 "863d050a31aa011c648f4ae04e39ec261f5086ed6d99a408f50d5773e7e9cfec" => :mojave
@@ -48,7 +47,7 @@ class Dartsim < Formula
                     "-I#{include}", "-L#{lib}", "-ldart",
                     "-L#{Formula["assimp"].opt_lib}", "-lassimp",
                     "-L#{Formula["boost"].opt_lib}", "-lboost_system",
-                    "-std=c++11", "-o", "test"
+                    "-std=c++14", "-o", "test"
     system "./test"
   end
 end
