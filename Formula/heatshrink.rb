@@ -4,6 +4,13 @@ class Heatshrink < Formula
   url "https://github.com/atomicobject/heatshrink/archive/v0.4.1.tar.gz"
   sha256 "7529a1c8ac501191ad470b166773364e66d9926aad632690c72c63a1dea7e9a6"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "504b4b64164343217c6852509b59858494ba38ad9b63e7a9b3bb247290833582" => :mojave
+    sha256 "865d11380a3e586a962a5dec0069def43e777f20626bdc5396735d003d90d20b" => :high_sierra
+    sha256 "3965350f672040dfec9d2e07ac5f26aa16b324f59d2a762a4faac0930d2de684" => :sierra
+  end
+
   def install
     mkdir_p prefix/"bin"
     mkdir_p prefix/"include"
