@@ -13,9 +13,9 @@ class Geoserver < Formula
       if [ -z "$1" ]; then
         echo "Usage: $ geoserver -start | -stop | path/to/data/dir"
       elif [ $1 == "-start" ]; then
-        cd "#{libexec}/bin" && sudo ./startup.sh
+        cd "#{libexec}/bin" && ./startup.sh
       elif [ $1 == "-stop" ]; then
-        cd "#{libexec}/bin" && sudo ./shutdown.sh
+        cd "#{libexec}/bin" && ./shutdown.sh
       else
         cd "#{libexec}" && java -DGEOSERVER_DATA_DIR=$1 -jar start.jar
       fi
