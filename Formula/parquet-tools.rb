@@ -14,6 +14,7 @@ class ParquetTools < Formula
     sha256 "5847b83a96097c31497caf966d3d28185b16912bb4017bfbc4a2dd284b3c350d" => :el_capitan
   end
 
+  depends_on "thrift" => :build
   depends_on "maven" => :build
 
   def install
