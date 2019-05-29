@@ -16,7 +16,6 @@ class Neovim < Formula
   depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "jemalloc"
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
