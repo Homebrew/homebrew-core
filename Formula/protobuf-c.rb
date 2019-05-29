@@ -3,6 +3,7 @@ class ProtobufC < Formula
   homepage "https://github.com/protobuf-c/protobuf-c"
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.3.2/protobuf-c-1.3.2.tar.gz"
   sha256 "53f251f14c597bdb087aecf0b63630f434d73f5a10fc1ac545073597535b9e74"
+  revision 1
 
   bottle do
     cellar :any
