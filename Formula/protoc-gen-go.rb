@@ -8,9 +8,9 @@ class ProtocGenGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "939188ff166b71c1f42f72bfe7b5abdb8a84a93cf0abd88a030a0abcd4bae238" => :mojave
-    sha256 "8c5a1f2ecfa91c7c646353315f61ef35a81cc7087b68793a8a1ebd61a7e4ff0c" => :high_sierra
-    sha256 "ce0c1783bbb5f79e6a8dbc14f160b5e7b9c6e06ff7a682343c72184c46885f09" => :sierra
+    sha256 "80c035e22ba7de3927be1ee7dd10427827799d5fe06d001da19b760413c9f292" => :mojave
+    sha256 "010f1f168b06ca15d68d349ffcbb4e2ac956145e751fe88b678baf7d0a773786" => :high_sierra
+    sha256 "135dca0f702150d991b367c495a7c55ad05636490c74e6928cb336ae100bb252" => :sierra
   end
 
   depends_on "go" => :build
