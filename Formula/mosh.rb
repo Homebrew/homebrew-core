@@ -3,7 +3,7 @@ class Mosh < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
   sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
@@ -21,7 +21,7 @@ class Mosh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "tmux" => :build
-  depends_on "protobuf"
+  depends_on "protobuf@3.7"
 
   # Fix mojave build.
   patch do
