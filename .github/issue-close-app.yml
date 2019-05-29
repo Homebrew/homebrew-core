@@ -16,10 +16,6 @@ issueConfigs:
   - "brew gist-logs"
   - "brew config"
   - "brew doctor"
-  - "What you were trying to do (and why)"
-  - "What happened (include command output)"
-  - "What you expected to happen"
-  - "Step-by-step reproduction instructions (by running `brew install` commands)"
 # Optional configuration:
 #
 # whether the keywords are case-insensitive
