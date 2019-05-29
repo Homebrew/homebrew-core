@@ -26,6 +26,7 @@ class Nss < Formula
 
     args = %W[
       BUILD_OPT=1
+      NSS_ALLOW_SSLKEYLOGFILE=1
       NSS_USE_SYSTEM_SQLITE=1
       NSPR_INCLUDE_DIR=#{Formula["nspr"].opt_include}/nspr
       NSPR_LIB_DIR=#{Formula["nspr"].opt_lib}
