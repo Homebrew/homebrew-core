@@ -1,8 +1,8 @@
 class SwiftProtobuf < Formula
   desc "Plugin and runtime library for using protobuf with Swift"
   homepage "https://github.com/apple/swift-protobuf"
-  url "https://github.com/apple/swift-protobuf/archive/1.3.1.tar.gz"
-  sha256 "ff0049f7e10faff918190a321dddc0084224cb3687f4e704022c57a52094bbed"
+  url "https://github.com/apple/swift-protobuf/archive/1.5.0.tar.gz"
+  sha256 "0cf4c377084539a50e7392f48b01ae6109843eaae4992fda0e905141baaea49d"
   head "https://github.com/apple/swift-protobuf.git"
 
   bottle do
@@ -19,8 +19,7 @@ class SwiftProtobuf < Formula
     :because => "both install `protoc-gen-swift` binaries"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
-           "-static-stdlib"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/protoc-gen-swift"
     doc.install "Documentation/PLUGIN.md"
   end
