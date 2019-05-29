@@ -1,9 +1,9 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.11/traefik-v1.7.11.src.tar.gz"
-  version "1.7.11"
-  sha256 "b6ef9ecfebdd6bcb998de17276ef9af3174a3c6f78e1198ed7b8ac2f3f9d0168"
+  url "https://github.com/containous/traefik/releases/download/v1.7.12/traefik-v1.7.12.src.tar.gz"
+  version "1.7.12"
+  sha256 "cc69fa2759c2d1ed0fcb41a83c988ff167703f399f6e83fca2dac520cd6fe35c"
   head "https://github.com/containous/traefik.git"
 
   bottle do
@@ -22,11 +22,9 @@ class Traefik < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containous/traefik").install buildpath.children
 
-    # Fix yarn + upath@1.0.4 incompatibility; remove once upath is upgraded to 1.0.5+
-    Pathname.new("#{ENV["HOME"]}/.yarnrc").write("ignore-engines true\n")
-
     cd "src/github.com/containous/traefik" do
       cd "webui" do
+        system "yarn", "upgrade"
         system "yarn", "install"
         system "yarn", "run", "build"
       end
