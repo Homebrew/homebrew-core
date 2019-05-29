@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Aug2018-SP2/MonetDB-11.31.13.tar.xz"
-  sha256 "f9fbf63ed7e6c306868b289c3fda8c3a8b6d3fc6bef589418940b2a21fd7c283"
+  url "https://www.monetdb.org/downloads/sources/Apr2019/MonetDB-11.33.3.tar.xz"
+  sha256 "f69e7312a77407bef2d970e6d8edfc0ca687d5b31c6b4714bd9132fa468a12e9"
 
   bottle do
     sha256 "c289a7faa889c3adf228d183a5310ef7187d679f93fde340d263f4ce3fb835d6" => :mojave
@@ -36,6 +36,11 @@ class Monetdb < Formula
                           "--enable-testing=no",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
                           "--disable-rintegration"
+    system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match "Usage", shell_output("#{bin}/mclient --help 2>&1")
   end
 end
