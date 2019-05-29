@@ -2,8 +2,8 @@ class Modsman < Formula
   desc "Minecraft mod manager for the command-line"
   homepage "https://gitlab.com/sargunv-mc-mods/modsman"
   url "https://gitlab.com/sargunv-mc-mods/modsman.git",
-      :tag      => "0.20.1"
-  sha256 "09834f6b34014652e6dd46a4e3c0ecb9d353002d44053854d05faffd3efc022b"
+      :tag      => "0.20.1",
+      :revision => "b23331f7080b5a2718ab43e4120372bcf3421b6d"
 
   depends_on :java => "1.8+"
 
