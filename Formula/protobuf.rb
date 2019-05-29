@@ -2,8 +2,8 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.7.1",
-      :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
+      :tag      => "v3.9.1",
+      :revision => "655310ca192a6e3a050e0ca0b7084a2968072260"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
