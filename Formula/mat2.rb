@@ -1,8 +1,8 @@
 class Mat2 < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://0xacab.org/jvoisin/mat2"
-  url "https://0xacab.org/jvoisin/mat2/-/archive/0.8.0/mat2-0.8.0.tar.gz"
-  sha256 "64b627eaafa1894e7516713c589055eccb1d71b7936b21a80e29877fbd7c2c34"
+  url "https://0xacab.org/jvoisin/mat2/-/archive/0.9.0/mat2-0.9.0.tar.gz"
+  sha256 "cc2265458dda0b65f488d4d97c4e1b9f99feda88398fc146e844cbd3a357d2af"
 
   bottle do
     cellar :any_skip_relocation
