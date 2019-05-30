@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://hackage.haskell.org/package/purescript-0.12.5/purescript-0.12.5.tar.gz"
-  sha256 "692815eb8b35db7b4880b1627d43426e1d8a2ab10ad3877f6aff5110ca06f636"
+  url "https://hackage.haskell.org/package/purescript-0.13.2/purescript-0.13.2.tar.gz"
+  sha256 "14ef4d299b3585e029373851fa0b3d42bea66df7e179da2ceebde46175178f3c"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -26,7 +26,7 @@ class Purescript < Formula
         system "./.cabal-sandbox/bin/hpack"
       end
 
-      install_cabal_package "-f", "release", :using => ["alex", "happy"]
+      install_cabal_package :using => ["alex", "happy"]
     end
   end
 
