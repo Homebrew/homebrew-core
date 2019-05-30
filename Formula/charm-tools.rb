@@ -3,9 +3,8 @@ class CharmTools < Formula
 
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
-  url "https://files.pythonhosted.org/packages/99/4d/16d7398fe5eefc602a8870fb3e93597aabe681b0f1497749148695cba4a1/charm-tools-2.2.3.tar.gz"
-  sha256 "ea659f59041cb3dff0be862d657830591e656a9a259931064edab7477875245b"
-  revision 3
+  url "https://files.pythonhosted.org/packages/14/c6/82503c2835948e887f4789332cfcc4828509c1f389eb0ebecdc850c82522/charm-tools-2.5.1.tar.gz"
+  sha256 "a92b631c63a184b3ed35bd17210fa5800b75ed04e5f53e5fbf11c7129074497b"
 
   bottle do
     cellar :any
@@ -19,12 +18,12 @@ class CharmTools < Formula
   depends_on "libyaml"
   depends_on "mercurial"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   # Additionally include ndg-httpsclient for requests[security]
-  resource "Cheetah" do
-    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
-    sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+  resource "cheetah3" do
+    url "https://files.pythonhosted.org/packages/3e/16/c711180492c9f40fb64dffb436fe1b91e3031637b478edb8de3c4b74097a/Cheetah3-3.2.3.tar.gz"
+    sha256 "7c450bce04a82d34cf6d48992c736c2048246cbc00f7b4903a39cf9a8ea3990c"
   end
 
   resource "Markdown" do
@@ -58,8 +57,13 @@ class CharmTools < Formula
   end
 
   resource "colander" do
-    url "https://files.pythonhosted.org/packages/4d/bc/48b9751b5c532ec74e78f3a8c09d26994f8e748e4895bbc5d2f6c8c5734b/colander-1.0b1.tar.gz"
-    sha256 "8a342bf278227be6ac96e90befa949c235e667254db17e773e79d834459be971"
+    url "https://files.pythonhosted.org/packages/ec/d1/fcca811a0a692c69d27e36b4d11a73acb98b4bab48323442642b6fd4386d/colander-1.5.1.tar.gz"
+    sha256 "d86b9e1fb42c80c68b26040e32dad584aa168abf3175133b36f5dace392350a1"
+  end
+
+  resource "dict2colander" do
+    url "https://files.pythonhosted.org/packages/aa/7e/5ed2ba3dc2f06457b76d4bc8c93559179472bf87e6982f9a9e5cea30e84e/dict2colander-0.2.tar.gz"
+    sha256 "6f668d60896991dcd271465b755f00ffd6f87f81e0d4d054be62a16c086978c7"
   end
 
   resource "cryptography" do
@@ -158,8 +162,8 @@ class CharmTools < Formula
   end
 
   resource "path.py" do
-    url "https://files.pythonhosted.org/packages/90/bb/3440e0734cb2dcfbf3644546dad7dfc08b197d5dd52877de95f95fd459b2/path.py-8.1.2.tar.gz"
-    sha256 "ada95d117c4559abe64080961daf5badda68561afdd34c278f8ca20f2fa466d2"
+    url "https://files.pythonhosted.org/packages/dc/a8/c123c1b3dfa4678d210df54ef795642300a0a56860668290f544810b7784/path.py-11.5.2.tar.gz"
+    sha256 "de7cd643affbc23e56533a6e8d551ecdee4983501a08c24e4e71565202d8cdaa"
   end
 
   resource "pathspec" do
