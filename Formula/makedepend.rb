@@ -1,9 +1,9 @@
 class Makedepend < Formula
   desc "Creates dependencies in makefiles"
   homepage "https://x.org/"
-  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.5.tar.bz2"
-  mirror "http://xorg.mirrors.pair.com/individual/util/makedepend-1.0.5.tar.bz2"
-  sha256 "f7a80575f3724ac3d9b19eaeab802892ece7e4b0061dd6425b4b789353e25425"
+  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.6.tar.bz2"
+  mirror "http://xorg.mirrors.pair.com/individual/util/makedepend-1.0.6.tar.bz2"
+  sha256 "d558a52e8017d984ee59596a9582c8d699a1962391b632bec3bb6804bf4d501c"
 
   bottle do
     cellar :any_skip_relocation
