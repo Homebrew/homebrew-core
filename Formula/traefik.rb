@@ -24,6 +24,7 @@ class Traefik < Formula
 
     cd "src/github.com/containous/traefik" do
       cd "webui" do
+        system "yarn", "upgrade"
         system "yarn", "install"
         system "yarn", "run", "build"
       end
