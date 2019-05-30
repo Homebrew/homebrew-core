@@ -4,6 +4,12 @@ class SpiceGtk < Formula
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.37.tar.bz2"
   sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
 
+  bottle do
+    sha256 "2af8aeb54caf808c2714911e21645804e97c2e4e483188285349a5fb1db90f62" => :mojave
+    sha256 "3b8016d7bbe6a3d92b1da5c4783b527fda4e8070782ec32eaeb74af31945ad4d" => :high_sierra
+    sha256 "a0b7ef075bbbc7d4b67b8e6462b55717ac97703d3456a3ccdb599f1b5892b3a8" => :sierra
+  end
+
   depends_on "autoconf" => :build
   depends_on "autogen" => :build
   depends_on "automake" => :build
