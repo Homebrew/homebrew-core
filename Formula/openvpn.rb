@@ -72,6 +72,10 @@ class Openvpn < Formula
       </array>
       <key>WorkingDirectory</key>
       <string>#{etc}/openvpn</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/openvpn.log</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/openvpn.log</string>
     </dict>
     </plist>
   EOS
