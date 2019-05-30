@@ -1,8 +1,8 @@
 class GoogleAuthenticatorLibpam < Formula
   desc "PAM module for two-factor authentication"
   homepage "https://github.com/google/google-authenticator-libpam"
-  url "https://github.com/google/google-authenticator-libpam/archive/1.05.tar.gz"
-  sha256 "862412d6927ee1a19d81150006d53c21935897ba6d033616c31fc4d6aaa4db08"
+  url "https://github.com/google/google-authenticator-libpam/archive/1.06.tar.gz"
+  sha256 "52f03ec746e8deb1af37911697d096f0fa87583491b7cc460cdf09a6ef0d6b06"
 
   bottle do
     cellar :any_skip_relocation
@@ -41,6 +41,6 @@ class GoogleAuthenticatorLibpam < Formula
   test do
     system "#{bin}/google-authenticator", "--force", "--time-based",
            "--disallow-reuse", "--rate-limit=3", "--rate-time=30",
-           "--window-size=3"
+           "--window-size=3", "--no-confirm"
   end
 end
