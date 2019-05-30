@@ -20,10 +20,6 @@ class Xpdf < Formula
     :because => "xpdf, pdf2image, and poppler install conflicting executables"
 
   def install
-    # Reported 6 Feb 2018 to xpdf AT xpdfreader DOT com
-    inreplace ["xpdf/CMakeLists.txt", "xpdf-qt/CMakeLists.txt"], " man/",
-                                                                 " share/man/"
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
