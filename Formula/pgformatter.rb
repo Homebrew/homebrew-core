@@ -6,9 +6,9 @@ class Pgformatter < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f93a3e3df7309520df02fb29f5ff386f52a6f081b6fec33e66d6ffa928b5e875" => :mojave
-    sha256 "812ff63ece606b2edf98ae23afc75f00ea2ffd59f49eb67e6fd59d11000222ef" => :high_sierra
-    sha256 "812ff63ece606b2edf98ae23afc75f00ea2ffd59f49eb67e6fd59d11000222ef" => :sierra
+    sha256 "864f59b8b06cc4b53bd6650c47c9ad759cdbd1e88dda66769a620f1447b9d27a" => :mojave
+    sha256 "24abc2f70cc5a221bd25b641a90d95dcb439cfc30e0739ed82e198155234cc96" => :high_sierra
+    sha256 "c2d42dd09ee6494902cace6bfe0cf204f0246ddaaf70c80095fbbcb22f83f3f0" => :sierra
   end
 
   def install
