@@ -1,9 +1,8 @@
 class Xpdf < Formula
   desc "PDF viewer"
   homepage "https://www.xpdfreader.com/"
-  url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.00.tar.gz"
-  mirror "https://fossies.org/linux/misc/xpdf-4.00.tar.gz"
-  sha256 "ff3d92c42166e35b1ba6aec9b5f0adffb5fc05a3eb95dc49505b6e344e4216d6"
+  url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.01.01.tar.gz"
+  sha256 "ba550c7d3e4f73b1833cfcdcd9dbe39849dd0cd459b6774c4ecdfeca993204a4"
 
   bottle do
     cellar :any
