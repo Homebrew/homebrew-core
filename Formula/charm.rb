@@ -4,7 +4,7 @@ class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
   url "https://github.com/juju/charmstore-client/archive/v2.4.0.tar.gz"
-  sha256 "778d20848939a8162fa19acb5284b3c761047c3fa5ab49b36a83464eb4904261"
+  sha256 "02f5b9c5211467353dbcf9589ecf70d6e7debf16e3a8b85fa870084525466731"
 
   bottle do
     cellar :any_skip_relocation
