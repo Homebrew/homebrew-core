@@ -22,9 +22,6 @@ class Traefik < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containous/traefik").install buildpath.children
 
-    # Fix yarn + upath@1.0.4 incompatibility; remove once upath is upgraded to 1.0.5+
-    Pathname.new("#{ENV["HOME"]}/.yarnrc").write("ignore-engines true\n")
-
     cd "src/github.com/containous/traefik" do
       cd "webui" do
         system "yarn", "install"
