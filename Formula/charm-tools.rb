@@ -18,7 +18,7 @@ class CharmTools < Formula
   depends_on "libyaml"
   depends_on "mercurial"
   depends_on "openssl"
-  depends_on "python"
+  depends_on "python@2"
 
   # Additionally include ndg-httpsclient for requests[security]
   resource "cheetah3" do
