@@ -6,10 +6,10 @@ class Mpop < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ac5ee4b2a4359a994fe4e6e91772c265ac0cb2632efec60bc3b17c8a2d5614cd" => :mojave
-    sha256 "156ff20366981120daa63c3e1c968529d92fe75412b23e238ec76a0c0f304129" => :high_sierra
-    sha256 "12d315afd7b4e7f7d5fe5c1a0fdd420e42d31048a5a1b9f02ec65b65e20b4f43" => :sierra
+    cellar :any
+    sha256 "4eebe9be39b640d427b2504e1e1bdf38d697f5d13d9cd8d841689a09988c6d63" => :mojave
+    sha256 "4119dbed882b706bf1fbeee25ea2c7d7badc7c6fe17969619149b9d4467da726" => :high_sierra
+    sha256 "ceb8b967d93722e93986063d56ec6aa381b5919131eab333c577d725241d6a40" => :sierra
   end
 
   depends_on "pkg-config" => :build
