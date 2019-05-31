@@ -3,8 +3,8 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-    :tag      => "stable-2.3.0",
-    :revision => "e6a29728c8e3796c6acd4c9f9a17b138d51f147f"
+    :tag      => "stable-2.3.1",
+    :revision => "32825a2a95dcadc5f533eb394627495003e92609"
 
   bottle do
     cellar :any_skip_relocation
