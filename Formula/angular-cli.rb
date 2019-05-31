@@ -4,7 +4,7 @@ class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
   url "https://registry.npmjs.org/@angular/cli/-/cli-8.0.1.tgz"
-  sha256 "f9c8ee13725af8c350b0270331c9bb6084091ec3c48c370b9668338edb85ffec"
+  sha256 "3d1ab4accc613eef793000c83d84d2194ebffa051e80e328337dfaf74bf217f5"
 
   bottle do
     cellar :any_skip_relocation
