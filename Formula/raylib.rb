@@ -1,8 +1,8 @@
 class Raylib < Formula
   desc "Simple and easy-to-use library to learn videogames programming"
   homepage "https://www.raylib.com/"
-  url "https://github.com/raysan5/raylib/archive/2.0.0.tar.gz"
-  sha256 "d3b476b55cedcbcff49ecf96d262748e0bf17fd7c2d2f375ee781d409c2535f4"
+  url "https://github.com/raysan5/raylib/archive/2.5.0.tar.gz"
+  sha256 "fa947329975bdc9ea284019f0edc30ca929535dc78dcf8c19676900d67a845ac"
   head "https://github.com/raysan5/raylib.git", :branch => "master"
 
   bottle do
