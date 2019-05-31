@@ -3,8 +3,8 @@ require "language/node"
 class AtomistCli < Formula
   desc "The Atomist CLI"
   homepage "https://github.com/atomist/cli#readme"
-  url "https://registry.npmjs.org/@atomist/cli/-/@atomist/cli-1.3.0.tgz"
-  sha256 "313b5f356bee3f77b800ebda3f4225813a6b1453fe26624cacbad82ba5b5d9d7"
+  url "https://registry.npmjs.org/@atomist/cli/-/@atomist/cli-1.5.1.tgz"
+  sha256 "fb6db6506ff85172e3fed2d89f503457df7795cf5f56d5a633f75656458ba605"
 
   bottle do
     sha256 "74aa8f383e1b7fcc49f45e22e87a1a7e7bb7c03283f9ea2757c33b4e149094ab" => :mojave
@@ -26,7 +26,7 @@ class AtomistCli < Formula
     assert_predicate bin/"@atomist", :exist?
     assert_predicate bin/"@atomist", :executable?
 
-    run_output = shell_output("#{bin}/atomist 2>&1")
+    run_output = shell_output("#{bin}/atomist 2>&1", 1)
     assert_match "Not enough non-option arguments", run_output
     assert_match "Specify --help for available options", run_output
 
