@@ -2,8 +2,8 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-      :tag      => "v1.10",
-      :revision => "3e25d611ef3185b68558a20057d50b0d18dc67a0"
+      :tag      => "v1.11",
+      :revision => "6f75c4f3cd393131579db70cdf0b35d1fe5b95ab"
 
   bottle do
     cellar :any
@@ -14,6 +14,7 @@ class Micropython < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
+  depends_on "python" # Requires python3 executable
 
   def install
     cd "ports/unix" do
