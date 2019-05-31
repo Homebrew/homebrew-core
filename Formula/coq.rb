@@ -1,8 +1,8 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.9.0.tar.gz"
-  sha256 "8bd6e2bc8d79f96df19b8888ebfbdfdbe50fa9cd3fb969c13b610f7d05070ff0"
+  url "https://github.com/coq/coq/archive/V8.9.1.tar.gz"
+  sha256 "87251327e8a1e25c6b08b5c0ae8e7cdf3a91a5f30832bbe74ccc4f0bde9618ea"
   head "https://github.com/coq/coq.git"
 
   bottle do
