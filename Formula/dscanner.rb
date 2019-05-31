@@ -8,9 +8,9 @@ class Dscanner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a5e5aba96d50908b8b869452915e8b048d420b9a9c625058b8709330804bf3c" => :mojave
-    sha256 "0906b6577ffe7de76f44b63d8075c1aa5933e398641422ccb33ed34b68e2e968" => :high_sierra
-    sha256 "35704e4cfa13e1cae87ef6204a1d96321474443a1ed25eb53474ede630e83029" => :sierra
+    sha256 "5077fa951bcc4b802b4faf5e70e0a79b603f1ba7f0f7e32156c16473a056c790" => :mojave
+    sha256 "c123827b04647e2e295f3f2acc79e5bc6e1d07ddb6a863ecb2b2974fdea1ac66" => :high_sierra
+    sha256 "0c3600af604e121b66885a066ca2503b2ce6301c5e24b4f6198d286934a10543" => :sierra
   end
 
   depends_on "dmd" => :build
