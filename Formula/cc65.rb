@@ -1,8 +1,8 @@
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
-  url "https://github.com/cc65/cc65/archive/V2.17.tar.gz"
-  sha256 "73b89634655bfc6cef9aa0b8950f19657a902ee5ef0c045886e418bb116d2eac"
+  url "https://github.com/cc65/cc65/archive/V2.18.tar.gz"
+  sha256 "d14a22fb87c7bcbecd8a83d5362d5d317b19c6ce2433421f2512f28293a6eaab"
   head "https://github.com/cc65/cc65.git"
 
   bottle do
