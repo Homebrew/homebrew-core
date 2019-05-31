@@ -30,43 +30,43 @@ class Zrepl < Formula
   plist_options :startup => true, :manual => "sudo zrepl daemon"
 
   def plist; <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>EnvironmentVariables</key>
         <dict>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
-          </dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/zrepl daemon</string>
-            <string>--connectTimeout=120</string>
-            <string>--logto=#{var}/log/zrepl/zrepl.log</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/zrepl/zrepl.err.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/zrepl/zrepl.out.log</string>
-          <key>ThrottleInterval</key>
-          <integer>30</integer>
-          <key>WorkingDirectory</key>
-          <string>#{var}/run/zrepl</string>
+          <key>PATH</key>
+          <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
         </dict>
-      </plist>
-    EOS
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/zrepl daemon</string>
+          <string>--connectTimeout=120</string>
+          <string>--logto=#{var}/log/zrepl/zrepl.log</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/zrepl/zrepl.err.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/zrepl/zrepl.out.log</string>
+        <key>ThrottleInterval</key>
+        <integer>30</integer>
+        <key>WorkingDirectory</key>
+        <string>#{var}/run/zrepl</string>
+      </dict>
+    </plist>
+  EOS
   end
 
   test do
-    system "wget https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
+    system "wget", "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
     assert_equal "", shell_output("#{bin}/zrepl configcheck --config local.yml")
   end
 end
