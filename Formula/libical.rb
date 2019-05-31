@@ -18,6 +18,7 @@ class Libical < Formula
 
   def install
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
+                         "-DENABLE_GTK_DOC=OFF",
                          "-DSHARED_ONLY=ON",
                          *std_cmake_args
     system "make", "install"
