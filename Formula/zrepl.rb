@@ -22,6 +22,7 @@ class Zrepl < Formula
   end
 
   test do
-    system "#{bin}/zrepl", "help"
+    system "wget https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
+    assert_equal "", shell_output("#{bin}/zrepl configcheck --config local.yml")
   end
 end
