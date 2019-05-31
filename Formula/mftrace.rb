@@ -21,6 +21,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
+  depends_on "python"
   depends_on "t1utils"
 
   def install
