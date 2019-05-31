@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.01.0.tar.gz"
-  sha256 "f28dfc9a717e4a91446cddba0e010c4383a3e973a11889948bd65ea311df28fc"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.05.7.tar.gz"
+  sha256 "06da51b6032dd5941b6ef09f8d7705f7c0a14b8dc7d0065f571369df9c339b7a"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
