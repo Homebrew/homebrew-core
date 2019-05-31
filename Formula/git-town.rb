@@ -1,8 +1,8 @@
 class GitTown < Formula
   desc "High-level command-line interface for Git"
   homepage "https://www.git-town.com/"
-  url "https://github.com/Originate/git-town/archive/v7.2.0.tar.gz"
-  sha256 "0462ed11954332960e42b5dfccbe3ac99d6df488cd60ffd4be6e81745daaf103"
+  url "https://github.com/Originate/git-town/archive/v7.2.1.tar.gz"
+  sha256 "67e061d34e6102755a4cd3f7b438487f7f5165be1836b8c26f46d5e2e8e3a121"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,9 +17,13 @@ class GitTown < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/Originate").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/Originate/git-town"
-    system "go", "build", "-o", bin/"git-town"
+
+    src = buildpath/"src/github.com/Originate/git-town"
+    src.install buildpath.children
+    src.cd do
+      system "go", "build", "-o", bin/"git-town"
+      prefix.install_metafiles
+    end
   end
 
   test do
