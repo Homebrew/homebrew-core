@@ -1,9 +1,8 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz"
-  sha256 "72b216e10233c3f60cb06062facf41f3b0f70615e5a60b47f9853341a0d5d145"
-  revision 2
+  url "https://github.com/libical/libical/releases/download/v3.0.5/libical-3.0.5.tar.gz"
+  sha256 "7ad550c8c49c9b9983658e3ab3e68b1eee2439ec17b169a6b1e6ecb5274e78e6"
 
   bottle do
     cellar :any
@@ -19,6 +18,7 @@ class Libical < Formula
 
   def install
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
+                         "-DENABLE_GTK_DOC=OFF",
                          "-DSHARED_ONLY=ON",
                          *std_cmake_args
     system "make", "install"
@@ -26,6 +26,7 @@ class Libical < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #define LIBICAL_GLIB_UNSTABLE_API 1
       #include <libical-glib/libical-glib.h>
       int main(int argc, char *argv[]) {
         ICalParser *parser = i_cal_parser_new();
@@ -33,8 +34,8 @@ class Libical < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lical-glib",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+                   "-I#{Formula["glib"].opt_include}/glib-2.0",
+                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
     system "./test"
   end
 end
