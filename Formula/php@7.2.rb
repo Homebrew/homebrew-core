@@ -5,10 +5,9 @@ class PhpAT72 < Formula
   sha256 "4ffa2404a88d60e993a9fe69f829ebec3eb1e006de41b6048ce5e91bbeaa9282"
 
   bottle do
-    rebuild 1
-    sha256 "d6d362115b427ce26faeeb5ccaa14c7d644d9d5a494e09d4a5537538974ba250" => :mojave
-    sha256 "9d84fab0bcbfaba6aabbd8e88e91b15e3cf4885264aa3a422e1e61b0f65d9df8" => :high_sierra
-    sha256 "35cb717e7473ccb1935aa7da7071aee01aa3a230dc8cca8e78a22f6fb6e91a0c" => :sierra
+    sha256 "4aeb81392252f3880cdb0b0c11c2f9cbec638407c8de0ea5d5934fa098dc642c" => :mojave
+    sha256 "a40bb3e7e6a1a41082da3bebcc9527b723b94e25477d173af22fe171b01834b0" => :high_sierra
+    sha256 "6f66591807a147f1a1c90afbf0cc98beba93c6b0f083c55e1bac40e5466b3ab6" => :sierra
   end
 
   keg_only :versioned_formula
