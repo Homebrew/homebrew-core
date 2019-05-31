@@ -3,6 +3,7 @@ class Mpop < Formula
   homepage "https://marlam.de/mpop/"
   url "https://marlam.de/mpop/releases/mpop-1.4.4.tar.xz"
   sha256 "7d9cffe30999a7b2ea503df9b23ccbf42439b62271c45ebd7b5b04bed0654148"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Mpop < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "gnutls"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
