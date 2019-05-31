@@ -39,16 +39,10 @@ class Folly < Formula
   end
 
   def install
-    ENV.cxx11
-
     mkdir "_build" do
       args = std_cmake_args + %w[
         -DFOLLY_USE_JEMALLOC=OFF
       ]
-
-      # Upstream issue 10 Jun 2018 "Build fails on macOS Sierra"
-      # See https://github.com/facebook/folly/issues/864
-      args << "-DCOMPILER_HAS_F_ALIGNED_NEW=OFF" if MacOS.version == :sierra
 
       system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make"
@@ -74,7 +68,7 @@ class Folly < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cc", "-I#{include}", "-L#{lib}",
+    system ENV.cxx, "-std=c++14", "test.cc", "-I#{include}", "-L#{lib}",
                     "-lfolly", "-o", "test"
     system "./test"
   end
