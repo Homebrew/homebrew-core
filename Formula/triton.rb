@@ -3,8 +3,8 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.0.1.tgz"
-  sha256 "9a857aade94c45edb4b1bba212a103c591bf1cde6b3f2cad1a9f85bd7d0471e9"
+  url "https://registry.npmjs.org/triton/-/triton-7.1.1.tgz"
+  sha256 "24a1f697ee71451893f108dba9e4a5a7830cefe22028d98b504b3d2fe65ab2fe"
 
   bottle do
     sha256 "d922bbc986d99360e1e6eabb2db1d62522cbbe602917d6c4fc4b92b90bb0a511" => :mojave
