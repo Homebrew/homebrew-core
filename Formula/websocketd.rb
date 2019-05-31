@@ -1,10 +1,8 @@
-require "language/go"
-
 class Websocketd < Formula
   desc "WebSockets the Unix way"
   homepage "http://websocketd.com"
-  url "https://github.com/joewalnes/websocketd/archive/v0.3.0.tar.gz"
-  sha256 "f59fefdf79d6b99140027b3c58ca77d59bb3c1fa2f15969d7239538b04042b3d"
+  url "https://github.com/joewalnes/websocketd/archive/v0.3.1.tar.gz"
+  sha256 "323700908ca7fe7b69cb2cc492b4746c4cd3449e49fbab15a4b3a5eccf8757f4"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,21 +14,17 @@ class Websocketd < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/gorilla/websocket" do
-    url "https://github.com/gorilla/websocket.git",
-        :revision => "cdedf21e585dae942951e34d6defc3215b4280fa"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
 
-    mkdir_p buildpath/"src/github.com/joewalnes/"
-    ln_sf buildpath, buildpath/"src/github.com/joewalnes/websocketd"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd",
-                          "main.go", "config.go", "help.go", "version.go"
-    man1.install "release/websocketd.man" => "websocketd.1"
+    src = buildpath/"src/github.com/joewalnes/websocketd"
+    src.install buildpath.children
+    src.cd do
+      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd"
+      man1.install "release/websocketd.man" => "websocketd.1"
+      prefix.install_metafiles
+    end
   end
 
   test do
