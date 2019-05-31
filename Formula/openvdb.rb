@@ -1,9 +1,8 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "https://www.openvdb.org/"
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
-  sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
-  revision 2
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.1.0.tar.gz"
+  sha256 "d8803214c245cf0ca14a2c30cd215b183147c03c888c59fc642f213f98b4d68f"
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
