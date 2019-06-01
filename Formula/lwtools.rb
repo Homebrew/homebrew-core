@@ -1,8 +1,8 @@
 class Lwtools < Formula
   desc "Cross-development tools for Motorola 6809 and Hitachi 6309"
   homepage "http://lwtools.projects.l-w.ca/"
-  url "http://lwtools.projects.l-w.ca/releases/lwtools/lwtools-4.15.tar.gz"
-  sha256 "2f098c59369c5588f77fb173df3642b7f0b9d2638f4947eb70403294fd9fee57"
+  url "http://lwtools.projects.l-w.ca/releases/lwtools/lwtools-4.17.tar.gz"
+  sha256 "a93ab316ca0176901822873dba4bc286d3a5cf86e6a853d3edb7a51ecc96a91c"
 
   bottle do
     cellar :any_skip_relocation
