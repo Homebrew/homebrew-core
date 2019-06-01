@@ -1,8 +1,8 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.407-with-extensions-src.tgz"
-  sha256 "1840b51a0b93f40b4d6076af996ee46396428d8dbaf7ba1d847abff9cb1463e5"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.427-with-extensions-src.tgz"
+  sha256 "068abcbc20965cbfa4e14c138cbfbcd0d311874ac2fdde384a580ac774f40e26"
 
   bottle do
     cellar :any_skip_relocation
