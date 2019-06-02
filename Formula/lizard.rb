@@ -6,9 +6,9 @@ class Lizard < Formula
 
   bottle do
     cellar :any
-    sha256 "d6d2770f6c346dbb095dbcc69f6b1cf79613d94c1777f07ca3a79ca8883e4ab6" => :mojave
-    sha256 "9790144aee9e270729e23ed984748987805161a650f970d453b706ac950cd5a6" => :high_sierra
-    sha256 "2bd42482a27e4b9c4deeb61ff2d9e858161080ced6e54e69bbbc59da6df885c3" => :sierra
+    sha256 "adce9d789c2391a96697128d39f103fa0a23b3e462b7e7a2d22346ceeab74925" => :mojave
+    sha256 "c3266fb61fb88de0d7a9f3fb2ce53e3ca2708278c7c7064b2b61a4abf138708d" => :high_sierra
+    sha256 "928e2fce0d64f3a5c960684ddca781073cdd285fd5f00f61c05675d5cb617366" => :sierra
   end
 
   def install
