@@ -4,8 +4,6 @@ class Cjson < Formula
   url "https://github.com/DaveGamble/cJSON/archive/v1.7.12.tar.gz"
   sha256 "760687665ab41a5cff9c40b1053c19572bcdaadef1194e5cba1b5e6f824686e7"
 
-  bottle :unneeded
-
   depends_on "cmake" => :build
 
   def install
