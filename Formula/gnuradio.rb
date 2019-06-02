@@ -63,6 +63,12 @@ class Gnuradio < Formula
     sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
   end
 
+  # patch for boost 1.70.0, remove after next release
+  patch do
+    url "https://github.com/gnuradio/gnuradio/commit/6dc8229fd0dda25c054c2194ee2c9b28affe92d8.patch?full_index=1"
+    sha256 "9836235ea69b3d66b5cd4b2cdc89f80d010797d2bd59dc5c6631a96af921db8c"
+  end
+
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
 
