@@ -1,9 +1,8 @@
 class Gpsbabel < Formula
   desc "Converts/uploads GPS waypoints, tracks, and routes"
   homepage "https://www.gpsbabel.org/"
-  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_5_4.tar.gz"
-  sha256 "8cd740db0b92610abff71e942e8a987df58cd6ca5f25cca86e15f2b00e190704"
-  revision 2
+  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_6_0.tar.gz"
+  sha256 "ad56796f725dcdb7f52d9a9509d4922f11198c382fe10fc2d6c9efa8159f2090"
 
   bottle do
     sha256 "afa69a0f0729d4ba82d1f36edee585ed6dc88be4d36d4bd93d0c8512ee13ff11" => :mojave
@@ -13,18 +12,6 @@ class Gpsbabel < Formula
 
   depends_on "libusb"
   depends_on "qt"
-
-  # Fix build with Xcode 9, remove for next version
-  patch do
-    url "https://github.com/gpsbabel/gpsbabel/commit/b7365b93.patch?full_index=1"
-    sha256 "e949182def36fef99889e43ba4bc4d61e36d6b95badc74188a8cd3da5156d341"
-  end
-
-  # Upstream fix to build with Qt 5.10, remove for next version
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ca4c4730/gpsbabel/qt5.10.patch"
-    sha256 "09efe405f43ae26570d6b5fcb7c5bcc7e0c8bc9a9ad6700d3901bcdcc43c33cf"
-  end
 
   def install
     ENV.cxx11
