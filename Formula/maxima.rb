@@ -1,8 +1,8 @@
 class Maxima < Formula
   desc "Computer algebra system"
   homepage "https://maxima.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.42.2-source/maxima-5.42.2.tar.gz"
-  sha256 "167e11d6513a65c829a35f24d4ba539bcd0a82fc3dc7a6721e4f9f118c67b64d"
+  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.43.0-source/maxima-5.43.0.tar.gz"
+  sha256 "dcfda54511035276fd074ac736e97d41905171e43a5802bb820914c3c885ca77"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,6 +24,7 @@ class Maxima < Formula
                           "--enable-gettext",
                           "--enable-sbcl",
                           "--enable-sbcl-exec",
+                          "--with-emacs-prefix=#{share}/emacs/site-lisp/#{name}",
                           "--with-sbcl=#{Formula["sbcl"].opt_bin}/sbcl"
     system "make"
     system "make", "install"
