@@ -5,6 +5,13 @@ class Hey < Formula
     :tag      => "v0.1.2",
     :revision => "01803349acd49d756dafa2cb6ac5b5bfc141fc3b"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c65e3a95c59f8263d5f38a3e605ecdda801511095e54009aaaa2c362a1bfa07e" => :mojave
+    sha256 "8de8655664bfa9ad639e113db3b21d517b2bd35a7d6efa0796cc74eb594451a3" => :high_sierra
+    sha256 "901cfcb578352c650a3e7ecb77e5102effdea8e6c8bcd76e4b14021e57d3a189" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
