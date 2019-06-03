@@ -1,6 +1,6 @@
 class Php < Formula
   desc "General-purpose scripting language"
-  homepage "https://secure.php.net/"
+  homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.3.6.tar.xz"
   sha256 "fefc8967daa30ebc375b2ab2857f97da94ca81921b722ddac86b29e15c54a164"
 
