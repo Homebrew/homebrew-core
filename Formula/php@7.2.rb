@@ -1,6 +1,6 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
-  homepage "https://secure.php.net/"
+  homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.2.19.tar.xz"
   sha256 "4ffa2404a88d60e993a9fe69f829ebec3eb1e006de41b6048ce5e91bbeaa9282"
 
