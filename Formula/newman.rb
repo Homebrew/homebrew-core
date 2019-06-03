@@ -6,6 +6,13 @@ class Newman < Formula
   url "https://registry.npmjs.org/newman/-/newman-4.5.0.tgz"
   sha256 "6c6c19dc1a20baa6f353249079429259e951104326df0b9f00b46ec13d83c5ff"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "46b1901623023bce40aaf69d8079680218db434010ce28bf8f1ad0750cbe4093" => :mojave
+    sha256 "becc508308ef7620188e0e26f928eb0d7cb383434509d140554d3f3579f876d1" => :high_sierra
+    sha256 "4356f96ff121e334e6de32d74b35dc318c9a28a5938534b894c2a7d9a69d12fa" => :sierra
+  end
+
   depends_on "node"
 
   def install
