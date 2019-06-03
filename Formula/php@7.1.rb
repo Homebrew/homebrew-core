@@ -1,6 +1,6 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
-  homepage "https://secure.php.net/"
+  homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.1.30.tar.xz"
   sha256 "6310599811536dbe87e4bcf212bf93196bdfaff519d0c821e4c0068efd096a7c"
 
