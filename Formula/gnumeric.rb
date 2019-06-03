@@ -1,8 +1,8 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.44.tar.xz"
-  sha256 "60ea794bf3bffe54fe3d56305e487947d30c14b525fd7c8ad46d79c384498704"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.45.tar.xz"
+  sha256 "3098ada0a24effbde52b0074968a8dc03b7cf1c522e9e1b1186f48bb67a00d31"
 
   bottle do
     sha256 "c4abaf0d2aefc0019c9904f07e78fb368df1c1f77c29f72d0aa2328f4644fe04" => :mojave
@@ -24,11 +24,6 @@ class Gnumeric < Formula
     inreplace "component/Makefile.in",
               "GOFFICE_PLUGINS_DIR = @GOFFICE_PLUGINS_DIR@",
               "GOFFICE_PLUGINS_DIR = @libdir@/goffice/@GOFFICE_API_VER@/plugins/gnumeric"
-
-    # fixed in 1.12.45
-    inreplace "src/mathfunc.c",
-              "static const gnm_float sqrt_one_over_e = gnm_sqrt (1 / M_Egnum);",
-              "const gnm_float sqrt_one_over_e = gnm_sqrt (1 / M_Egnum);"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
