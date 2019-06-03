@@ -1,8 +1,8 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
   homepage "https://www.runatlantis.io/"
-  url "https://github.com/runatlantis/atlantis/archive/v0.8.0.tar.gz"
-  sha256 "5b53152f0eda41f4e5c2b9727e262dea35fb7da46fc0e0eb732956675f0bed8b"
+  url "https://github.com/runatlantis/atlantis/archive/v0.8.1.tar.gz"
+  sha256 "d163c9aa0d17be5e5b90fdc919a6aba881c1f24869dff30cbe1c112bcc2c2c9c"
   bottle do
     cellar :any_skip_relocation
     sha256 "6878ee7b1a4be1cd27f4a747b6f7aa7ff8f0297f8f66d876da679eed8882ab67" => :mojave
