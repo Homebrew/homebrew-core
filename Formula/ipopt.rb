@@ -5,6 +5,13 @@ class Ipopt < Formula
   sha256 "7baeb713ef8d1999bed397b938e9654b38ad536406634384455372dd7e4ed61f"
   head "https://github.com/coin-or/Ipopt.git"
 
+  bottle do
+    cellar :any
+    sha256 "f04b63cf90bfb1d868e3f71f849ad46337aacb13319a2fba145802c709f68b02" => :mojave
+    sha256 "06e669ed165b99e60cad6b244ef198b68dbb02d1a85682deecfb3447b099107c" => :high_sierra
+    sha256 "0124e013061dd0a98b29ae71a6be82a76c249b00e9c0b7fbfaf0a5aefa969fbd" => :sierra
+  end
+
   depends_on "gcc"
 
   resource "mumps" do
