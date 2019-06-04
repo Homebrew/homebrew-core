@@ -1,8 +1,8 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v0.18.0.tar.gz"
-  sha256 "2f71a4a11fa1388e4a459865520365396f8b6ebbad9d45df476fe60ee0de0415"
+  url "https://github.com/prometheus/node_exporter/archive/v0.18.1.tar.gz"
+  sha256 "9ddf187c462f2681ab4516410ada0e6f0f03097db6986686795559ea71a07694"
 
   bottle do
     cellar :any_skip_relocation
