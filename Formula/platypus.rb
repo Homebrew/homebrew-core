@@ -1,8 +1,8 @@
 class Platypus < Formula
   desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "https://sveinbjorn.org/platypus"
-  url "https://sveinbjorn.org/files/software/platypus/platypus5.2.src.zip"
-  sha256 "0c0201804e13c09a33fe95ba715ed995872d35d3cdfa2cb694cf378980ed4c08"
+  url "https://sveinbjorn.org/files/software/platypus/platypus5.3.src.zip"
+  sha256 "b5b707d4f664ab6f60eed545d49a7d38da7557ce8268cc4791886eee7b3ca571"
   head "https://github.com/sveinbjornt/Platypus.git"
 
   bottle do
@@ -20,10 +20,11 @@ class Platypus < Formula
                "-project", "Platypus.xcodeproj",
                "-target", "platypus",
                "-target", "ScriptExec",
+               "CODE_SIGN_IDENTITY=", "CODE_SIGNING_REQUIRED=NO",
                "clean",
                "install"
 
-    man1.install "CommandLineTool/man/platypus.1"
+    man1.install "CLT/man/platypus.1"
     bin.install "dst/platypus_clt" => "platypus"
 
     cd "build/UninstalledProducts/macosx/ScriptExec.app/Contents" do
