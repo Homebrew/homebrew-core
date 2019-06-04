@@ -16,7 +16,7 @@ class Zrepl < Formula
     ENV.prepend_create_path "PATH", gopath/"bin"    
     cd gopath/"src/github.com/zrepl/zrepl" do
       system "./lazy.sh",  "godep"
-      system "make", "ZREPL_VERSION=0.1.1"
+      system "make", "ZREPL_VERSION=#{version}"
       bin.install "artifacts/zrepl"
     end      
   end
