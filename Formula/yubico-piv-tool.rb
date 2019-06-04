@@ -1,8 +1,8 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-1.6.2.tar.gz"
-  sha256 "ea61bcd5c75471ed21903967d0121fb090aa4d325ec279a24633e3235fdf231b"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-1.7.0.tar.gz"
+  sha256 "b428527e4031453a637128077983e782e9fea25df98e95e0fc27819b2e82fd7f"
 
   bottle do
     cellar :any
