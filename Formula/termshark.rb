@@ -4,6 +4,13 @@ class Termshark < Formula
   url "https://github.com/gcla/termshark/archive/v1.0.0.tar.gz"
   sha256 "669bba0e8dd7df54ade6321a5c7d2ec20563ffd777f7b3b0394a11f88da64698"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "06a449ed080ff533561b6c3ff3e5b51e8650804c12d864ecec08d3e3c72cd043" => :mojave
+    sha256 "94801af9978952537bff7d6390c6d5591902ae14c3c0d6035a17077381c0bbfd" => :high_sierra
+    sha256 "5f25feb5a1b44c0e1adf1090a1ec7b6ce93b712b4732374ccd08ff016761291b" => :sierra
+  end
+
   depends_on "go" => :build
   depends_on "socat" => :test
   depends_on "wireshark"
