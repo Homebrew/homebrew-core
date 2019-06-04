@@ -1,10 +1,8 @@
 class Mksh < Formula
   desc "MirBSD Korn Shell"
   homepage "https://www.mirbsd.org/mksh.htm"
-  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R56c.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/mksh-56c.tgz"
-  version "56c"
-  sha256 "dd86ebc421215a7b44095dc13b056921ba81e61b9f6f4cdab08ca135d02afb77"
+  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R57.tgz"
+  sha256 "3d101154182d52ae54ef26e1360c95bc89c929d28859d378cc1c84f3439dbe75"
 
   bottle do
     cellar :any_skip_relocation
