@@ -65,8 +65,15 @@ class Zrepl < Formula
   EOS
   end
 
+  resource "sample_config" do
+    url "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
+    sha256 "f27b21716e6efdc208481a8f7399f35fd041183783e00c57f62b3a5520470c05"
+  end
+
   test do
-    system "wget", "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
-    assert_equal "", shell_output("#{bin}/zrepl configcheck --config local.yml")
+    resources.each do |r|
+      r.verify_download_integrity(r.fetch)
+      assert_equal "", shell_output("#{bin}/zrepl configcheck --config #{r.cached_download}")
+    end
   end
 end
