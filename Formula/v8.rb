@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.4.288.25.tar.gz"
-  sha256 "8dd79e891fbe6563d75d20956475a641dcbd21bf6c35ba769204167ca8a9080c"
+  url "https://github.com/v8/v8/archive/7.5.288.22.tar.gz"
+  sha256 "df12222ebdb9538f62434785ea246f1d27f198b5d674e0577dd1487ffe53b6e2"
 
   bottle do
     cellar :any
@@ -13,7 +13,6 @@ class V8 < Formula
   end
 
   depends_on "ninja" => :build
-  depends_on "python@2" => :build # GN require Python 2.7+
   depends_on "llvm" if MacOS.version < :mojave
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
@@ -23,7 +22,7 @@ class V8 < Formula
   # e.g.: https://github.com/v8/v8/blob/7.4.288.25/DEPS#L19 for the revision of build for v8 7.4.288.25
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "80892bfe019dc854c6acdbfbb7304cca63986d4f"
+      :revision => "a0b2e3b2708bcf81ec00ac1738b586bcc5e04eea"
   end
 
   resource "v8/third_party/jinja2" do
@@ -38,17 +37,17 @@ class V8 < Formula
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "efecb0bfa687cf87836494f5d62868485c00fb66"
+      :revision => "b617b277186e03b1065ac6d43912b1c4147c2982"
   end
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      :revision => "936ba8a963284a6b3737cf2f0474a7131073abee"
+      :revision => "ebb658ab38d1b23183458ed0430f5b11853a25a3"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "8c67416ccb4da42d817e7081ff83a2193b1aabe7"
+      :revision => "35f7e139f33f1ddbfdb68b65dda29aff430c3f6f"
   end
 
   resource "gn" do
