@@ -23,6 +23,9 @@ class Csound < Formula
   depends_on "portmidi"
   depends_on "stk"
 
+  conflicts_with "libextractor", :because => "both install `extract` binaries"
+  conflicts_with "pkcrack", :because => "both install `extract` binaries"
+
   def install
     inreplace "CMakeLists.txt",
       %r{^set\(CS_FRAMEWORK_DEST\s+"~/Library/Frameworks"\)$},
