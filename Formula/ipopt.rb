@@ -16,6 +16,7 @@ class Ipopt < Formula
 
   resource "mumps" do
     url "http://mumps.enseeiht.fr/MUMPS_5.1.2.tar.gz"
+    mirror "https://src.fedoraproject.org/lookaside/extras/MUMPS/MUMPS_5.1.2.tar.gz/sha512/38a63b14a8df835be68b5fa310b39aa1815799220d56c176e4005797800959e9e08c9a6bf11d308ab82ea40b6f34d36072cebe7c1de39e0c314eb138b93f1b74/MUMPS_5.1.2.tar.gz"
     sha256 "eb345cda145da9aea01b851d17e54e7eef08e16bfa148100ac1f7f046cd42ae9"
 
     # MUMPS does not provide a Makefile.inc customized for macOS.
