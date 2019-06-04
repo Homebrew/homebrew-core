@@ -1,8 +1,8 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://projects.coin-or.org/Ipopt/"
-  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.12.tgz"
-  sha256 "7baeb713ef8d1999bed397b938e9654b38ad536406634384455372dd7e4ed61f"
+  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
+  sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
@@ -13,14 +13,17 @@ class Ipopt < Formula
   end
 
   depends_on "gcc"
+  depends_on "openblas"
 
   resource "mumps" do
-    url "http://mumps.enseeiht.fr/MUMPS_5.1.2.tar.gz"
-    mirror "https://src.fedoraproject.org/lookaside/extras/MUMPS/MUMPS_5.1.2.tar.gz/sha512/38a63b14a8df835be68b5fa310b39aa1815799220d56c176e4005797800959e9e08c9a6bf11d308ab82ea40b6f34d36072cebe7c1de39e0c314eb138b93f1b74/MUMPS_5.1.2.tar.gz"
-    sha256 "eb345cda145da9aea01b851d17e54e7eef08e16bfa148100ac1f7f046cd42ae9"
+    url "http://mumps.enseeiht.fr/MUMPS_5.2.0.tar.gz"
+    sha256 "41f2c7cb20d69599fb47e2ad6f628f3798c429f49e72e757e70722680f70853f"
 
     # MUMPS does not provide a Makefile.inc customized for macOS.
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b/ipopt/mumps-makefile-inc-generic-seq.patch"
+      sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
+    end
   end
 
   def install
@@ -44,8 +47,9 @@ class Ipopt < Formula
       "--disable-silent-rules",
       "--enable-shared",
       "--prefix=#{prefix}",
+      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--with-mumps-incdir=#{buildpath}/mumps_include",
-      "--with-mumps-lib=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lpord",
+      "--with-mumps-lib=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
     ]
 
     system "./configure", *args
@@ -73,32 +77,3 @@ class Ipopt < Formula
     system "./a.out"
   end
 end
-
-__END__
-diff --git a/Make.inc/Makefile.inc.generic.SEQ b/Make.inc/Makefile.inc.generic.SEQ
-index bb27718..61ddf21 100644
---- a/Make.inc/Makefile.inc.generic.SEQ
-+++ b/Make.inc/Makefile.inc.generic.SEQ
-@@ -97 +97 @@ PLAT    =
--LIBEXT  = .a
-+LIBEXT  = .dylib
-@@ -103 +102,0 @@ RM      = /bin/rm -f
--CC      = cc
-@@ -105 +104 @@ CC      = cc
--FC      = f90
-+FC      = gfortran
-@@ -107 +106 @@ FC      = f90
--FL      = f90
-+FL      = $(FC)
-@@ -110 +109 @@ FL      = f90
--AR      = ar vr
-+AR      = $(FC) -dynamiclib -undefined dynamic_lookup -Wl,-install_name,@rpath/$(notdir $@) -o
-@@ -113,2 +112 @@ AR      = ar vr
--RANLIB  = ranlib
--#RANLIB  = echo
-+RANLIB  = echo
-@@ -146,2 +144,2 @@ CDEFS = -DAdd_
--OPTF    = -O
--OPTC    = -O -I.
-+OPTF    = -fPIC -O
-+OPTC    = -fPIC -O -I.
