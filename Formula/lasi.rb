@@ -3,7 +3,6 @@ class Lasi < Formula
   homepage "https://www.unifont.org/lasi/"
   url "https://downloads.sourceforge.net/project/lasi/lasi/1.1.3%20Source/libLASi-1.1.3.tar.gz"
   sha256 "5e5d2306f7d5a275949fb8f15e6d79087371e2a1caa0d8f00585029d1b47ba3b"
-  revision 1
   head "https://svn.code.sf.net/p/lasi/code/trunk"
 
   bottle do
