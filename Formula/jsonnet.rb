@@ -7,9 +7,10 @@ class Jsonnet < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c7cefbcbbe1ed4af8baab695587b240be856106a0c6063c9188d0d0000eeeb0" => :mojave
-    sha256 "98bb2a729723d9267ee2a82871cacb384a37a1d4ceaa455a54b26e2bea0840cd" => :high_sierra
-    sha256 "a553bc19d500681f4a97420bfc5d8dd79fc6b6262f15678b57c50851f69f102c" => :sierra
+    rebuild 1
+    sha256 "e485bd544c0a43cc82f7d36ad3927261c3b6985f041d15f9cc6ce801297d193e" => :mojave
+    sha256 "d4067225c401c1a6ccd83809edd2c6dc3ca1342a3fc891f0c750029b8c942a07" => :high_sierra
+    sha256 "0d0cb6e6051c492b82b83e9f78dbdc3d42c2d69cbedf050a98c23bcb7e8eb6ad" => :sierra
   end
 
   def install
