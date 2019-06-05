@@ -26,6 +26,7 @@ class Libical < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #define LIBICAL_GLIB_UNSTABLE_API 1
       #include <libical-glib/libical-glib.h>
       int main(int argc, char *argv[]) {
         ICalParser *parser = i_cal_parser_new();
@@ -33,8 +34,8 @@ class Libical < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lical-glib",
-           "-I#{Formula["glib"].opt_include}/glib-2.0",
-           "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
+                   "-I#{Formula["glib"].opt_include}/glib-2.0",
+                   "-I#{Formula["glib"].opt_lib}/glib-2.0/include"
     system "./test"
   end
 end
