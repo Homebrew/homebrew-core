@@ -11,12 +11,17 @@ class Modules < Formula
     sha256 "6c639f39e28ad98625f59540125fda9e86f4241ecdaa1d957b5f2ec413d014b0" => :sierra
   end
 
+  unless OS.mac?
+    depends_on "tcl-tk"
+  end
+
   def install
+    tcl = OS.mac? ? MacOS.sdk_path : Formula["tcl-tk"].opt_lib
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --datarootdir=#{share}
-      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
+      --with-tcl=#{tcl}
       --without-x
     ]
     system "./configure", *args
