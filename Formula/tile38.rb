@@ -7,9 +7,9 @@ class Tile38 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40527f80c283c6c709edc580722d90677b82a633dd2d47f237ef31da9a103c74" => :mojave
-    sha256 "477168f7089ba4ee84a97f9db4a2785938cb24432a4e75127e42eba09c6374ba" => :high_sierra
-    sha256 "6a6c693b0fa398859a46639d5afa1c47c0cf47e076f600016c3092ad85dd015a" => :sierra
+    sha256 "b2f04f1d5892c67b732c7e1b72222dbce04c4c17cc5e9b4f9e588640fe841e38" => :mojave
+    sha256 "c6a6c1adf6ff179dcdb9ad6fc28ab773d880fc081b26b3ee3c07c6278b2c96d7" => :high_sierra
+    sha256 "91d6657818cc72d7be3a778ef59325c271a795419ecf631031de81ba370d9767" => :sierra
   end
 
   depends_on "go" => :build
