@@ -3,7 +3,7 @@ class Cfengine < Formula
   homepage "https://cfengine.com/"
   url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.12.2.tar.gz"
   sha256 "0b583ca546e4ae1896e6390c1a0ef53e7673b6ca6a5597502e9d1ba35f02c2ea"
-  revision 2
+  revision 1
 
   bottle do
     sha256 "71f81ecc7298760f4505feeb0da87c3e590a43fbd01d1c96694f8b84cd8f8e44" => :mojave
