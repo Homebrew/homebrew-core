@@ -1,8 +1,8 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.14.3.tar.gz"
-  sha256 "30d8c68a72bb14274cbc54050d65a0d7ca2b2b5c9948f68a7c307d974ad129e1"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.15.0.tar.gz"
+  sha256 "102fb5499e51144e48d38b72cd064287874b08379b8806ae2c86b644cff62850"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
@@ -16,10 +16,15 @@ class NatsStreamingServer < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/nats-io"
-    ln_s buildpath, "src/github.com/nats-io/nats-streaming-server"
-    buildfile = buildpath/"src/github.com/nats-io/nats-streaming-server/nats-streaming-server.go"
-    system "go", "build", "-v", "-o", bin/"nats-streaming-server", buildfile
+    ENV["GO111MODULE"] = "on"
+
+    dir = buildpath/"src/github.com/nats-io/nats-streaming-server"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-o", bin/"nats-streaming-server"
+      prefix.install_metafiles
+    end
   end
 
   plist_options :manual => "nats-streaming-server"
