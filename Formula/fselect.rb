@@ -6,9 +6,9 @@ class Fselect < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fb1e30948137b37ce39712b96a8d547c6a0aab048eae470059536a57cf6abc8" => :mojave
-    sha256 "979315eb57ec9e90e15f56d6aa12c48f254c4be75c9ab6e7ebb6155926e0871e" => :high_sierra
-    sha256 "e8bffe196efa50a615d26993f97ba73c36ad3bcce380b5debe52d664992e4ec4" => :sierra
+    sha256 "e71b0b664a8c9f930793b70ecdca8c6b7d38dcc703a3edecb9ecd2c75b56e35f" => :mojave
+    sha256 "416e1e23f5013fb9e86f20544e5265128ea59a5bff0494a718ab056e6b174487" => :high_sierra
+    sha256 "0c183449a465c10a834897b18acc822b4c503e0daa316a438e926418208bf21c" => :sierra
   end
 
   depends_on "rust" => :build
