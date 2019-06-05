@@ -16,6 +16,7 @@ class Jsonnet < Formula
     ENV.cxx11
     system "make"
     bin.install "jsonnet"
+    bin.install "jsonnetfmt"
   end
 
   test do
