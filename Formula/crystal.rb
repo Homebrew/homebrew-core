@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.28.0.tar.gz"
-    sha256 "4206f57c6345454504ec4cd8cbd1b9354b9be29fae4cdcdd173f4a28cc13b102"
+    url "https://github.com/crystal-lang/crystal/archive/0.29.0.tar.gz"
+    sha256 "c2265b2a904ded282751f59a3bd0367072058eee1cf51ebe0af03a572f8e19b9"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -51,9 +51,9 @@ class Crystal < Formula
   end
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.27.2/crystal-0.27.2-1-darwin-x86_64.tar.gz"
-    version "0.27.2-1"
-    sha256 "2fcd11a3c3d12176004c13aa90d8ca15acde7d1ffa9a82cbaadcd526984a8691"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.28.0/crystal-0.28.0-1-darwin-x86_64.tar.gz"
+    version "0.28.0-1"
+    sha256 "f3ba24c297a99382d749344f319947f807da03371240e373d5c3d13117d4a113"
   end
 
   def install
@@ -76,15 +76,7 @@ class Crystal < Formula
       system "make"
     end
 
-    # TODO: in 0.29.0 this can be replaced with CRYSTAL_LIBRARY_PATH
-    #       in order to build the compiler binary with a static libgc.a
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath
-    (buildpath/"gc.pc").write <<~EOS
-      Name: bdwgc
-      Description:
-      Version: 8.0.4+mt
-      Libs: #{buildpath/"gc"}/.libs/libgc.a
-    EOS
+    ENV.prepend_path "CRYSTAL_LIBRARY_PATH", buildpath/"gc/.libs"
 
     # Build crystal
     (buildpath/".build").mkpath
