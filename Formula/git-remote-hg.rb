@@ -3,8 +3,8 @@ class GitRemoteHg < Formula
 
   desc "Transparent bidirectional bridge between Git and Mercurial"
   homepage "https://github.com/felipec/git-remote-hg"
-  url "https://github.com/felipec/git-remote-hg/archive/v0.3.tar.gz"
-  sha256 "2dc889b641d72f5a73c4c7d5df3b8ea788e75a7ce80f5884a7a8d2e099287dce"
+  url "https://github.com/felipec/git-remote-hg/archive/v0.4.tar.gz"
+  sha256 "916072d134cde65b7ffa7d1da1acaabb0f29b65c017d0560e907e7a94063d1b1"
   head "https://github.com/felipec/git-remote-hg.git"
 
   bottle do
