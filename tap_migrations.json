@@ -19,6 +19,7 @@
   "horndis": "homebrew/cask",
   "inkscape": "homebrew/cask",
   "jsl": "homebrew/cask",
+  "k6": "homebrew/core",
   "kdiff3": "homebrew/cask",
   "keybase": "homebrew/cask",
   "meld": "homebrew/cask",
