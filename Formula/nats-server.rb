@@ -1,9 +1,9 @@
-class Gnatsd < Formula
+class NatsServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v1.4.1.tar.gz"
-  sha256 "1d319ec9466d5b4d56b8dc0c059bbb50942a8e988c3dcc155271476c3ae629a1"
-  head "https://github.com/nats-io/gnatsd.git"
+  url "https://github.com/nats-io/nats-server/archive/v2.0.0.tar.gz"
+  sha256 "e74e9b79c89d24e19aa4d755be02f57e63eefb501c053b7a9bfd373246370b47"
+  head "https://github.com/nats-io/nats-server.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,12 +16,14 @@ class Gnatsd < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "off"
     mkdir_p "src/github.com/nats-io"
-    ln_s buildpath, "src/github.com/nats-io/gnatsd"
-    system "go", "build", "-o", bin/"gnatsd", "main.go"
+    ln_s buildpath, "src/github.com/nats-io/nats-server"
+    buildfile = buildpath/"src/github.com/nats-io/nats-server/main.go"
+    system "go", "build", "-v", "-o", bin/"nats-server", buildfile
   end
 
-  plist_options :manual => "gnatsd"
+  plist_options :manual => "nats-server"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -32,7 +34,7 @@ class Gnatsd < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/gnatsd</string>
+          <string>#{opt_bin}/nats-server</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -43,7 +45,7 @@ class Gnatsd < Formula
 
   test do
     pid = fork do
-      exec bin/"gnatsd",
+      exec bin/"nats-server",
            "--port=8085",
            "--pid=#{testpath}/pid",
            "--log=#{testpath}/log"
