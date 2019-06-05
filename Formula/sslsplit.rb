@@ -7,10 +7,10 @@ class Sslsplit < Formula
 
   bottle do
     cellar :any
-    sha256 "71e977bcad186b97a787fee8a9eb1be8a9358436301ed4f3a2c815d99b58bc0c" => :mojave
-    sha256 "b91c12d10cf84faa52564da27a7cafa9d3daadfb0d957e10f45155e607322e1b" => :high_sierra
-    sha256 "f739a780837ce81ec5664a0fc83da5b8889b45e686f30eda81b22a279bb19022" => :sierra
-    sha256 "9ec2a8e64aace6cb71390916b05f49f8b94eab5c59df7f94a0e3b902c585cf55" => :el_capitan
+    rebuild 1
+    sha256 "122bb47cf3919a2eaf21043b619bca7a113a748530b5f3e595837d23b2d06b97" => :mojave
+    sha256 "6dcff342c797595ffc790931b31db9d3148b25342d1aca6e7d165711f973991e" => :high_sierra
+    sha256 "b9ea20390d6cd65afc1ee751c80f1f2326de9400491fac1dcb9f59170acb2168" => :sierra
   end
 
   depends_on "check" => :build
