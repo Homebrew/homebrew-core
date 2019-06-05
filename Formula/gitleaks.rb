@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v1.24.0.tar.gz"
-  sha256 "6ba812be47976ca49bc2f5ab888c44ef41b824dd20fa9be5687f4ff6d185c2b1"
+  url "https://github.com/zricethezav/gitleaks/archive/v2.0.0.tar.gz"
+  sha256 "85a5c98dedeb4e85e07eb18247b63318aa266ef3046c2022eac949cc6f254da0"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,17 +11,18 @@ class Gitleaks < Formula
     sha256 "3f33e0cef69f8b154fb447986f3add4193f4bb746b31e046a4158fc041f975bb" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
-    dir = buildpath/"src/github.com/zricethezav/gitleaks"
+    ENV["GO111MODULE"] = "on"
+
+    dir = buildpath/"github.com/zricethezav/gitleaks"
     dir.install buildpath.children
+
     cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "install"
+      system "go", "build", "-o", bin/"gitleaks"
+      prefix.install_metafiles
     end
   end
 
