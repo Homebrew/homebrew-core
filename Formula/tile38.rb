@@ -1,8 +1,8 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
-  url "https://github.com/tidwall/tile38/archive/1.17.0.tar.gz"
-  sha256 "48452951254ddbc8d0da1cf1db954bddcbab2a5abc8a35bf99ef247feef273d2"
+  url "https://github.com/tidwall/tile38/archive/1.17.1.tar.gz"
+  sha256 "a621091ddca8e07d2f1d1cb4d2a4898d59b5c1abb32767d9d573aa3249f23004"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
