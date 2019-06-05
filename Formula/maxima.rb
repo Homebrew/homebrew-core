@@ -24,6 +24,7 @@ class Maxima < Formula
                           "--enable-gettext",
                           "--enable-sbcl",
                           "--enable-sbcl-exec",
+                          "--with-emacs-prefix=#{share}/emacs/site-lisp/#{name}",
                           "--with-sbcl=#{Formula["sbcl"].opt_bin}/sbcl"
     system "make"
     system "make", "install"
