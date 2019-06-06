@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.28.0.tar.gz"
-    sha256 "4206f57c6345454504ec4cd8cbd1b9354b9be29fae4cdcdd173f4a28cc13b102"
+    url "https://github.com/crystal-lang/crystal/archive/0.29.0.tar.gz"
+    sha256 "c2265b2a904ded282751f59a3bd0367072058eee1cf51ebe0af03a572f8e19b9"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
