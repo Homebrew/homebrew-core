@@ -3,6 +3,7 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2019.06.03.00.tar.gz"
   sha256 "a8b6ea626cabcc210700d5d0389985ffc7ab9f96433386322b4cfd3df9b9eabd"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -31,12 +32,6 @@ class Folly < Formula
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
-
-  # patch for pclmul compiler flags to fix mojave build
-  patch do
-    url "https://github.com/facebook/folly/commit/964ca3c4979f72115ebfec58056e968a69d5942c.diff?full_index=1"
-    sha256 "b719dd8783f655f0d98cd0e2339ef66753a8d2503c82d334456a86763b0b889f"
-  end
 
   def install
     mkdir "_build" do
