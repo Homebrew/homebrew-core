@@ -3,6 +3,7 @@ class Icecream < Formula
   homepage "https://en.opensuse.org/Icecream"
   url "https://github.com/icecc/icecream/archive/1.2.tar.gz"
   sha256 "12d4132e5aacf6907877b691a8ac09e3e2f704ca016c49bc5eb566fc9185f544"
+  revision 1
 
   bottle do
     sha256 "b87ca590dee1a7dcb5bc3d33e649a3a2c174e9901ab9b26900410adcd846fb0a" => :mojave
@@ -15,6 +16,14 @@ class Icecream < Formula
   depends_on "docbook2x" => :build
   depends_on "libtool" => :build
   depends_on "lzo"
+
+  # Backport https://github.com/icecc/icecream/pull/467
+  # Total memory was not correctly detected on macOS, resulting in a hard limit of 100MB
+  # being set. Remove in next stable release.
+  patch do
+    url "https://github.com/icecc/icecream/commit/1af3a23521cfd7dc1a067625f311ebc5d4f34a08.patch?full_index=1"
+    sha256 "a21b05bc18dfff8e29d0d0f6f7acdfc2fcfe3a7daaf7646340bc51cf28186445"
+  end
 
   def install
     args = %W[
@@ -52,7 +61,6 @@ class Icecream < Formula
         <key>ProgramArguments</key>
         <array>
         <string>#{sbin}/iceccd</string>
-        <string>-d</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -71,7 +79,6 @@ class Icecream < Formula
         <key>ProgramArguments</key>
         <array>
         <string>#{sbin}/icecc-scheduler</string>
-        <string>-d</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
