@@ -1,9 +1,9 @@
 class Gengetopt < Formula
   desc "Generate C code to parse command-line arguments via getopt_long"
   homepage "https://www.gnu.org/software/gengetopt/"
-  url "https://ftp.gnu.org/gnu/gengetopt/gengetopt-2.22.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.22.6.tar.gz"
-  sha256 "30b05a88604d71ef2a42a2ef26cd26df242b41f5b011ad03083143a31d9b01f7"
+  url "https://ftp.gnu.org/gnu/gengetopt/gengetopt-2.23.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.23.tar.xz"
+  sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
   bottle do
     cellar :any_skip_relocation
