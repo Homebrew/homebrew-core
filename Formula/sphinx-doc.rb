@@ -27,8 +27,8 @@ class SphinxDoc < Formula
   end
 
   resource "Babel" do
-    url "https://files.pythonhosted.org/packages/be/cc/9c981b249a455fa0c76338966325fc70b7265521bad641bf2932f77712f4/Babel-2.6.0.tar.gz"
-    sha256 "8cba50f48c529ca3fa18cf81fa9403be176d374ac4d60738b839122dfaaa3d23"
+    url "https://files.pythonhosted.org/packages/bd/78/9fb975cbb3f4b136de2cd4b5e5ce4a3341169ebf4c6c03630996d05428f1/Babel-2.7.0.tar.gz"
+    sha256 "e86135ae101e31e2c8ec20a4e0c5220f4eed12487d5cf3f78be7e98d3a57fc28"
   end
 
   resource "certifi" do
@@ -67,8 +67,8 @@ class SphinxDoc < Formula
   end
 
   resource "numpydoc" do
-    url "https://files.pythonhosted.org/packages/95/a8/b4706a6270f0475541c5c1ee3373c7a3b793936ec1f517f1a1dab4f896c0/numpydoc-0.8.0.tar.gz"
-    sha256 "61f4bf030937b60daa3262e421775838c945dcdd671f37b69e8e4854c7eb5ffd"
+    url "https://files.pythonhosted.org/packages/6a/f3/7cfe4c616e4b9fe05540256cc9c6661c052c8a4cec2915732793b36e1843/numpydoc-0.9.1.tar.gz"
+    sha256 "e08f8ee92933e324ff347771da15e498dbf0bc6295ed15003872b34654a0a627"
   end
 
   resource "packaging" do
@@ -77,8 +77,8 @@ class SphinxDoc < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/64/69/413708eaf3a64a6abb8972644e0f20891a55e621c6759e2c3f3891e05d63/Pygments-2.3.1.tar.gz"
-    sha256 "5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a"
+    url "https://files.pythonhosted.org/packages/7e/ae/26808275fc76bf2832deb10d3a3ed3107bc4de01b85dcccbe525f2cd6d1e/Pygments-2.4.2.tar.gz"
+    sha256 "881c4c157e45f30af185c1ffe8d549d48ac9127433f2c380c24b84572ad66297"
   end
 
   resource "pyparsing" do
@@ -97,8 +97,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "six" do
@@ -147,8 +147,8 @@ class SphinxDoc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
+    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
   end
 
   def install
