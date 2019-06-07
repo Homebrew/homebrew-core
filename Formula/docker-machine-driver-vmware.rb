@@ -5,6 +5,13 @@ class DockerMachineDriverVmware < Formula
     :tag      => "v0.1.1",
     :revision => "cd992887ede19ae63e030c63dda5593f19ed569c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "df81e5c14ec3961d53f6490a165a17b8ceda29beba747ee659b57d82a9468e26" => :mojave
+    sha256 "e65553889741f8c077de12706314e9f95805d673b186d1d545617515d7ab4a03" => :high_sierra
+    sha256 "4901f8daf5bc087b0b4bb64a2798696604e618b8d11433b6fa851dd90fd1b77f" => :sierra
+  end
+
   depends_on "go" => :build
   depends_on "docker-machine"
 
