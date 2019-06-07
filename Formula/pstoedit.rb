@@ -17,6 +17,8 @@ class Pstoedit < Formula
   depends_on "plotutils"
 
   def install
+    ENV.cxx11
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
