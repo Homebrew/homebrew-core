@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.4.6.tar.gz"
-  sha256 "b4bc2bf8a1331d228532247efbe7e85a9b53e3486d8e48f48c801e0f51a09c67"
+  url "https://download.arangodb.com/Source/ArangoDB-3.4.6-1.tar.gz"
+  sha256 "b64da42e823217918ea8e9f317dec94b656e8553685f6cfb11d8038aa889687f"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
@@ -24,7 +24,7 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "f8bfbd849ae7d52feb35a96d4c836710651413e5"
+      :revision => "1e8c10c8669495a6996cc8063b9956f3e99127bc"
   end
 
   def install
@@ -35,7 +35,7 @@ class Arangodb < Formula
       system "make", "deps"
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.4 -X main.projectBuild=#{commit}",
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.5 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
