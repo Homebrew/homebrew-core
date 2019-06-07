@@ -41,11 +41,6 @@ class Csound < Formula
       system "cmake", "..", *args
       system "make", "install"
 
-      macho = MachO.open("lib_jcsound6.jnilib")
-      macho.change_install_name("@rpath/libcsnd6.6.0.dylib", "#{opt_prefix}/lib/libcsnd6.dylib")
-      macho.change_install_name("@rpath/CsoundLib64.framework/Versions/6.0/CsoundLib64", "#{opt_prefix}/Frameworks/CsoundLib64.framework/CsoundLib64")
-      macho.write!
-
       libexec.install "csnd6.jar", "lib_jcsound6.jnilib"
     end
 
