@@ -1,9 +1,9 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.3.tar.gz"
-  sha256 "329ee02fe6c3d101b6b30a7b6fb97ddf6e82b28844306771fa9dd8845108fa0b"
+  url "https://www.mpich.org/static/downloads/3.3.1/mpich-3.3.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-3.3.1.tar.gz"
+  sha256 "fe551ef29c8eea8978f679484441ed8bb1d943f6ad25b63c235d4b9243d551e5"
   revision 1
 
   bottle do
@@ -14,7 +14,7 @@ class Mpich < Formula
   end
 
   head do
-    url "http://git.mpich.org/mpich.git"
+    url "https://github.com/pmodels/mpich.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
