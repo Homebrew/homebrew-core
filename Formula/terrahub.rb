@@ -3,8 +3,8 @@ require "language/node"
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
-  url "https://registry.npmjs.org/terrahub/-/terrahub-0.2.73.tgz"
-  sha256 "50faf0d4f3253085a69c0013994b94b0d753f08f100a9af1fb704adea3acbb78"
+  url "https://registry.npmjs.org/terrahub/-/terrahub-0.2.74.tgz"
+  sha256 "5206b8c9d7aeb5924719b67450ec0d2724905749c7e6968973908f00fc1562f3"
 
   bottle do
     cellar :any_skip_relocation
