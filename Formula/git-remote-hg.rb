@@ -3,18 +3,15 @@ class GitRemoteHg < Formula
 
   desc "Transparent bidirectional bridge between Git and Mercurial"
   homepage "https://github.com/felipec/git-remote-hg"
-  url "https://github.com/felipec/git-remote-hg/archive/v0.3.tar.gz"
-  sha256 "2dc889b641d72f5a73c4c7d5df3b8ea788e75a7ce80f5884a7a8d2e099287dce"
+  url "https://github.com/felipec/git-remote-hg/archive/v0.4.tar.gz"
+  sha256 "916072d134cde65b7ffa7d1da1acaabb0f29b65c017d0560e907e7a94063d1b1"
   head "https://github.com/felipec/git-remote-hg.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5810736967117d027cedda70bb65493b5b5614bb08c30196c545a95f7f2164d6" => :mojave
-    sha256 "3c3a3ba464469298a0e1fb01bb85954f91e1baca5c6863e8bbd2455bac8e741e" => :high_sierra
-    sha256 "f0b8d090aaf5e8aa4b63418efcc8a0e6fc1fe7cafc39bee6a8bc85abd8c106db" => :sierra
-    sha256 "6af3e5642dbe91d832b035baf74d199cbda4af7bdb39b0a0d09d336098fa4693" => :el_capitan
-    sha256 "45529e66698b9505e61c718d43f46c99dc31ef2b37802939e17d391ede5ae912" => :yosemite
+    sha256 "d31145dbac316f9c7540d75dd6aafbcc4a2e075ec9c021efd41b4c087c186c1d" => :mojave
+    sha256 "cae74b1c19b7f028810a213128de4ae3b33c909930ff25e76209bfbd65b9bbb7" => :high_sierra
+    sha256 "d21a60283d278cd8e4fb3d5c76622edf49b64a19b300dbb5f71c91f967eed610" => :sierra
   end
 
   depends_on "mercurial"

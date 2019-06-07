@@ -2,14 +2,14 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.0.5.tar.xz"
-  sha256 "6aecb7f67c136768692fb3c33a54196186c6c4fcafab7973516a355e1a54f831"
+  url "https://mesa.freedesktop.org/archive/mesa-19.0.6.tar.xz"
+  sha256 "2db2f2fcaa4048b16e066fad76b8a93944f7d06d329972b0f5fd5ce692ce3d24"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
-    sha256 "efa8c34d469c87a1cf775271e2839b7e21fe198efa38afbf71b2711b289d0ac5" => :mojave
-    sha256 "0b7eb4c0197bb6134d340e3d35012850bff440588f5cc5ffcf38693a3d241ced" => :high_sierra
-    sha256 "efc8b5d1bcd0accaa79bd122cd0330b1c4d6e4e95207560ad7dd1f9a1a5309aa" => :sierra
+    sha256 "ca896e70d599bde9f1d0adb997c9a190491b82b05ce8acfbc558091075249518" => :mojave
+    sha256 "ec5e8a7b524021ae9846cf829ef5b330b872a24a4853bc392bbd68b95c151094" => :high_sierra
+    sha256 "4f4db5db1b72b5af824abe76e061e69c2d63263e989e93407ffc5924c381ac34" => :sierra
   end
 
   depends_on "meson-internal" => :build

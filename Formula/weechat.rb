@@ -1,15 +1,14 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.4.tar.xz"
-  sha256 "86d626c58d666ca58ef4762ff60c24c89f4632d95ed401773d5584043d865c73"
-  revision 2
+  url "https://weechat.org/files/src/weechat-2.5.tar.xz"
+  sha256 "52c87775c3ff9714a62cfa5b7e13e2fa59bf32829fe083781c1d9c7f1c2d4c27"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "ea68e23e98b564aea6b709f5f603654e0ac49a88478188862f9c404495b2dd89" => :mojave
-    sha256 "30f05d569a9ee7e3d4669b2c9963227d2d8d699458d75a45d958f0144eaa1ad0" => :high_sierra
-    sha256 "f1e0507ef73e304543e62344b6590f03520f94b3a9eb9faf946471717a17a09f" => :sierra
+    sha256 "dfb5a3f45ac3055766b966c82c0dcd0f8dc5352f517407c66ba48070ffff0a89" => :mojave
+    sha256 "e3405b2ce24bca258f8772ebc9eb16098d3d8f289c3e12f8111b7b9c2bf12d5c" => :high_sierra
+    sha256 "ba3cc256a23111edb399b374b2ec828f177db1ca1c4fdf6c4e2151f9a1ca87db" => :sierra
   end
 
   depends_on "asciidoctor" => :build

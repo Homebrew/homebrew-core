@@ -1,21 +1,23 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.9/gdcm-2.8.9.tar.gz"
-  sha256 "a2da88b7b3cbf9e76a9df3e89d06d057cca9ce54fc62fb059e04f47bf056b727"
+  url "https://github.com/malaterre/GDCM/archive/v3.0.0.tar.gz"
+  sha256 "3de524690102bfa3e9c3a81ff3f17733138183f76b7a5f7d072b20024a255680"
 
   bottle do
-    sha256 "2b35bf311cd1fc39e0fc1b73e7dfe665eb252a5dfc9e5c0c9895bfd62d852b80" => :mojave
-    sha256 "1f87e9ab9d895d9d165aa3f50ee925ad122dffcc42d741ed9ebda4149b976bce" => :high_sierra
-    sha256 "3b8d6d994433e18654c7d1ca23238b6f09f171da8ace355b0ee93902bcec37a5" => :sierra
+    sha256 "214d4be15b09fe8657cd0a8ec4fb5356bce7d8b96948f60eee5f1989eaa15c59" => :mojave
+    sha256 "21fc5ac113f00a5485c39cc8d5a93b33a194ad773038f5ef31321153b4438b9a" => :high_sierra
+    sha256 "abee457c7b024fa8a8b935b4c282d6835ff2ba158144fa8c6f2f9c1671287fc6" => :sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl"
   depends_on "python"
+  depends_on "vtk"
 
   def install
     ENV.cxx11
@@ -25,12 +27,13 @@ class Gdcm < Formula
     python_executable = Utils.popen_read("python3 -c 'import sys;print(sys.executable)'").chomp
 
     args = std_cmake_args + %W[
-      -DGDCM_BUILD_APPLICATIONS=ON
+      -GNinja
+      -DGDCM_BUILD_APPLICATIONS=OFF
       -DGDCM_BUILD_SHARED_LIBS=ON
       -DGDCM_BUILD_TESTING=OFF
       -DGDCM_BUILD_EXAMPLES=OFF
       -DGDCM_BUILD_DOCBOOK_MANPAGES=OFF
-      -DGDCM_USE_VTK=OFF
+      -DGDCM_USE_VTK=ON
       -DGDCM_USE_SYSTEM_OPENJPEG=ON
       -DGDCM_USE_SYSTEM_OPENSSL=ON
       -DGDCM_WRAP_PYTHON=ON
@@ -45,7 +48,8 @@ class Gdcm < Formula
       ENV.append "LDFLAGS", "-undefined dynamic_lookup"
 
       system "cmake", "..", *args
-      system "make", "install"
+      system "ninja"
+      system "ninja", "install"
     end
   end
 
@@ -59,8 +63,8 @@ class Gdcm < Formula
       }
     EOS
 
-    system ENV.cxx, "-isystem", "#{include}/gdcm-2.8", "-o", "test.cxx.o", "-c", "test.cxx"
-    system ENV.cxx, "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
+    system ENV.cxx, "-std=c++11", "-isystem", "#{include}/gdcm-3.0", "-o", "test.cxx.o", "-c", "test.cxx"
+    system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
     system "python3", "-c", "import gdcm"

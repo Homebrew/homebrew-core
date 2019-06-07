@@ -3,14 +3,14 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-    :tag      => "stable-2.3.1",
-    :revision => "32825a2a95dcadc5f533eb394627495003e92609"
+    :tag      => "stable-2.3.2",
+    :revision => "da0bc760fb8490c04bd739e212c98b6431e6e415"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9649c8b96b629618363dc581abbd4149dcefceb05d2d21dad46d482597e1bc4b" => :mojave
-    sha256 "f2171d8142e5d6f23b8e0c20abd0f529229a0fc7418a81e3d9b51ac6aac1f30d" => :high_sierra
-    sha256 "78ee9b1b3fa583116c74e58a627bdd009d9d44ca74f0ace32aeaf4c7f863fbe7" => :sierra
+    sha256 "3ecf328937f1dc57f4ddad3bd832bc2dd3d2680a5ad35d89925c6ba8fe248835" => :mojave
+    sha256 "c4b201f7d2e790582754e448d3316085242dfd5613c8d6cbbdd17b6dd311702c" => :high_sierra
+    sha256 "6c1b3780a189c4d62f5c4471bd6715f492f4fe4862460137bb9f4feb236b6386" => :sierra
   end
 
   depends_on "go" => :build
