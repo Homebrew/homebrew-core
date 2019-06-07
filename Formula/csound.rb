@@ -12,11 +12,11 @@ class Csound < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on :java => [:build, :test]
   depends_on "python" => [:build, :test]
   depends_on "python@2" => [:build, :test]
   depends_on "swig" => :build
   depends_on "fltk"
-  depends_on :java
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
