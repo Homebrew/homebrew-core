@@ -2,8 +2,8 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.7.0",
-    :revision => "5265bd7cb1f86af99b01d73c537d52a50df95fe2"
+    :tag      => "v0.8.0",
+    :revision => "d60bdb6350f2583e35d020f6cebb6aa30262fbcc"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,28 +26,24 @@ class Deno < Formula
   end
 
   def install
-    # Build gn from source, move it to the expected location and add it to the PATH
+    # Build gn from source (used as a build tool here)
     (buildpath/"gn").install resource("gn")
     cd "gn" do
       system "python", "build/gen.py"
       system "ninja", "-C", "out/", "gn"
     end
-    (buildpath/"third_party/v8/buildtools/mac").install buildpath/"gn/out/gn"
-    ENV.prepend_path "PATH", buildpath/"third_party/v8/buildtools/mac"
 
-    # GN args for building a release build with homebrew clang / llvm
-    gn_args = {
-      :clang_base_path   => "\"#{Formula["llvm"].prefix}\"",
-      :is_debug          => false,
-      :is_official_build => true,
-      :symbol_level      => 0,
-    }
-    gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
+    # env args for building a release build with our clang, ninja and gn
     ENV["DENO_BUILD_MODE"] = "release"
+    ENV["DENO_BUILD_ARGS"] = %W[
+      clang_base_path="#{Formula["llvm"].prefix}"
+      clang_use_chrome_plugins=false
+    ].join(" ")
+    ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
+    ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
 
-    # Build with the homebrew provided gn and ninja
-    system "gn", "gen", "--args=#{gn_args_string}", "target/release"
-    system "ninja", "-j", ENV.make_jobs, "-C", "target/release", "-v", "deno"
+    system "python", "tools/setup.py", "--no-binary-download"
+    system "python", "tools/build.py", "--release"
 
     bin.install "target/release/deno"
   end
