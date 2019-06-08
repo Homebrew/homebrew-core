@@ -1,29 +1,34 @@
-class ScalaAT210 < Formula
+class ScalaAT212 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.10.7/scala-2.10.7.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.10.7/scala-2.10.7.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.10.7.tgz"
-  sha256 "9283119916f6bb7714e076a2840ccf22d58819b355228ed1591ae6f76929f111"
+  url "https://downloads.lightbend.com/scala/2.12.8/scala-2.12.8.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.8.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.8/scala-2.12.8.tgz"
+  sha256 "440ea00c818fd88c5261dd85889711a9d1f7e6a39caa475fcf0583ab57db80a3"
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     rm_f Dir["bin/*.bat"]
     doc.install Dir["doc/*"]
     share.install "man"
     libexec.install "bin", "lib"
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.install_symlink Dir["#{libexec}/bin/*"]
 
     # Set up an IntelliJ compatible symlink farm in 'idea'
     idea = prefix/"idea"
     idea.install_symlink libexec/"src", libexec/"lib"
     idea.install_symlink doc => "doc"
+  end
+
+  def caveats; <<~EOS
+    To use with IntelliJ, set the Scala home to:
+      #{opt_prefix}/idea
+  EOS
   end
 
   test do
