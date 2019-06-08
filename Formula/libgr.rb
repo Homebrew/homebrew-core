@@ -11,6 +11,7 @@ class Libgr < Formula
   end
 
   depends_on "freeglut" => :build
+  depends_on "pkg-config" => :build
   depends_on :xcode => :build
   depends_on "cairo"
 
