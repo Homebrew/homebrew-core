@@ -6,9 +6,9 @@ class Prototool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9bc1c30bd135e81727a5d5100642b9058249df8ee769f03c9b73b9606102fddf" => :mojave
-    sha256 "a9abc015d833eb5e37e8c34e8d319d1c937bec4ccd48b1d1eae2217a26596f35" => :high_sierra
-    sha256 "55ff608e70bab8fd4e185c2219aa9e8737475b10462fbe76275856272379d84f" => :sierra
+    sha256 "23b854b6cfca6861ec7ecaffb2f139955f6e26d4f0e017f4c95ea8be43a3530f" => :mojave
+    sha256 "5cdf73fb1d93146474a4b6b4c6355a982c9bfb37e60cc2bf3e1e3751830c4947" => :high_sierra
+    sha256 "ba508b667a020c183e8bb3e0225bd70e2d4a8af52b5633725e8ebad8c9e28e12" => :sierra
   end
 
   depends_on "go" => :build
