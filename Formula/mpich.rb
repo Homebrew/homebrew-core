@@ -4,7 +4,6 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.3.1/mpich-3.3.1.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.3.1.tar.gz"
   sha256 "fe551ef29c8eea8978f679484441ed8bb1d943f6ad25b63c235d4b9243d551e5"
-  revision 1
 
   bottle do
     cellar :any
