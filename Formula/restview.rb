@@ -1,15 +1,14 @@
 class Restview < Formula
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://github.com/mgedmin/restview/archive/2.9.1.tar.gz"
-  sha256 "a229119f7730c85ec75e4372c4cf69f9d846381ac4bdbc8ed672302a80c116d2"
-  revision 1
+  url "https://github.com/mgedmin/restview/archive/2.9.2.tar.gz"
+  sha256 "155a5744111d3d1f9e7903f4445ff41c04b42c0be29705f57fb98b3d33b283bd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f921ce885b343dae99d1e76b7d26fb1c4aaf6561040533b36389c79cf7e4c982" => :mojave
-    sha256 "f8133cfdbcbf588cf0625ab3bedcd760e27da652913139b4c163d18a002730a7" => :high_sierra
-    sha256 "de0d55f13c376469abd7f21dfdaa29d3c794673091324dc446b9334e0be884d1" => :sierra
+    sha256 "20b1b86940e4cf58ddc5f8f8ea59a34b29379aa73ad77b4fb0985b25720a35ac" => :mojave
+    sha256 "0e97c65a7f872f32ecbe3a156ad4626258e872c71a53ef8700c7cb1049e83e10" => :high_sierra
+    sha256 "59ede18c81cfedc9d2a730dd7459a874de1a0518c0471439fb31063973e4265e" => :sierra
   end
 
   depends_on "python"

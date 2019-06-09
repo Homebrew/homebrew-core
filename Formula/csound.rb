@@ -3,22 +3,28 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.12.2.tar.gz"
   sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "90be0b3b8bd7e174b9e08eac56a9e76780e95be8f1a0025fb82e75eff67e741b" => :mojave
-    sha256 "f97c2e61a573ddeb770f0718ffe28167deba0358c58f2c96c5d45351f0d4a6e7" => :high_sierra
-    sha256 "c7ffe61743dadae44f72e1d1707637d17da2721e6134b443964e3a76091e62a7" => :sierra
+    sha256 "0b391ad5c63f24dff9f82b95545c2868f917ae1beadfea5dc4a1e4011b98f610" => :mojave
+    sha256 "9f63f9c43fb7a3c48c7ea94b67a45149de337b6da6d8561b1cca039ca0320d08" => :high_sierra
+    sha256 "3f003ad77d5abbc304cb60f16cf6d1fed60058f540d83f16be146e12d791f332" => :sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "python" => [:build, :test]
+  depends_on "python@2" => [:build, :test]
   depends_on "fltk"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on "numpy"
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "stk"
+
+  conflicts_with "libextractor", :because => "both install `extract` binaries"
+  conflicts_with "pkcrack", :because => "both install `extract` binaries"
 
   def install
     inreplace "CMakeLists.txt",
@@ -36,9 +42,24 @@ class Csound < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
-
-      include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
     end
+
+    include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
+
+    libexec.install "#{buildpath}/interfaces/ctcsound.py"
+
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
+      (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
+        import site; site.addsitedir('#{libexec}')
+      EOS
+    end
+  end
+
+  def caveats; <<~EOS
+    To use the Python bindings, you may need to add to your .bash_profile:
+      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_prefix}/Frameworks"
+  EOS
   end
 
   test do
@@ -68,5 +89,10 @@ class Csound < Formula
     assert_equal "hello, world\n", stdout
     assert_match /^rtaudio:/, stderr
     assert_match /^rtmidi:/, stderr
+
+    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+
+    system "python2", "-c", "import ctcsound"
+    system "python3", "-c", "import ctcsound"
   end
 end

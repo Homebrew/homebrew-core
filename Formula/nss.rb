@@ -6,9 +6,10 @@ class Nss < Formula
 
   bottle do
     cellar :any
-    sha256 "dc1de35954b16b59b5f7839451b519e629877af6a10d1d0edeccc2fcbb8a07aa" => :mojave
-    sha256 "9db06579132e91d670c4128f583e69849427e8e7e02f74609dc2b9b8e4d0e560" => :high_sierra
-    sha256 "c6d4e00ad36d5cc0dd60d324ce2b9d497404fe5b1d07c639c5c32f7777229fe3" => :sierra
+    rebuild 1
+    sha256 "c3e7d1441531e733eee9010f033917ad51f395dc93b59cba7b88956567d9147c" => :mojave
+    sha256 "357575ee06b79a9a090e857ebdcb620fd76ee7b048bf4a812d8e1139312f2245" => :high_sierra
+    sha256 "4b687429ee708062bdfe5ca240c1be468417ce8f572322311252c7d36e1ad3d5" => :sierra
   end
 
   keg_only <<~EOS
@@ -26,6 +27,7 @@ class Nss < Formula
 
     args = %W[
       BUILD_OPT=1
+      NSS_ALLOW_SSLKEYLOGFILE=1
       NSS_USE_SYSTEM_SQLITE=1
       NSPR_INCLUDE_DIR=#{Formula["nspr"].opt_include}/nspr
       NSPR_LIB_DIR=#{Formula["nspr"].opt_lib}

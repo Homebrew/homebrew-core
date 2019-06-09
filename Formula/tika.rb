@@ -1,16 +1,16 @@
 class Tika < Formula
   desc "Content analysis toolkit"
   homepage "https://tika.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-app-1.20.jar"
-  sha256 "0101e805555efd65bf1878276a8790fa51e9c7e89d979daa137b9fc8bf8cbd58"
+  url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-app-1.21.jar"
+  sha256 "0d5f8174942450ab0eaf9f07b286b8ac2c3f3734e69e5fb72fd5be5be8b4e433"
 
   bottle :unneeded
 
   depends_on :java => "1.7+"
 
   resource "server" do
-    url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-server-1.20.jar"
-    sha256 "d80ad0f5f3b8d1b58a9ff9c43c6ad7c1c736ef0d9c63ee7e8d83e948aff2d274"
+    url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-server-1.21.jar"
+    sha256 "27b2d50470f690c20fab960aa1927973a0db40972e2899f60113e7d2631d349f"
   end
 
   def install

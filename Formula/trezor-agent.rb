@@ -3,15 +3,14 @@ class TrezorAgent < Formula
 
   desc "Hardware-based SSH/GPG agent"
   homepage "https://github.com/romanz/trezor-agent"
-  url "https://files.pythonhosted.org/packages/16/0f/077ff482453b92ad78736fe63cdb8050351f0fefa734eb0d0c4ebcbae4e0/trezor_agent-0.9.3.tar.gz"
-  sha256 "0c1ef62903534d8b01260dbd6304780e278bc83e0bc21f6a83beee76e48e1580"
+  url "https://files.pythonhosted.org/packages/61/33/eb639bced493984170e1ec3cf149b06b9f4cd05886f667a3eb0e1f94396b/trezor_agent-0.10.0.tar.gz"
+  sha256 "e82bf000c1178b1a7612f2a90487eb34c6234d2edb15dc8e310ad875d8298690"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83db41f5d78c10f82264245ff79a9444184b21be1e569445c1e687dc1a0f1bc9" => :mojave
-    sha256 "a025733214bbc2e5cef5210c230282096f00138b4357c11c0f4e330725ac73e1" => :high_sierra
-    sha256 "5e8dcfdcbd5b1793caa2962af7973027d0ab173d93d832e6c10010b7b7631b83" => :sierra
-    sha256 "5b49057445da916a9802cc03e40586e1c6795a3d184f3d65bf022d85fb967f32" => :el_capitan
+    sha256 "5b60ef8874e77323f2d1a61355f17d35b32f4c0c7b166e837aabfc9da1614236" => :mojave
+    sha256 "26ffb353ec45ef5427ddb03f2425510ce9a43af1248f966780920fa0d24164fe" => :high_sierra
+    sha256 "a28f6f5d0717a5eb459b09a3a3bb464cfca9e70d3dfefd08dbf8b7554ba6c91a" => :sierra
   end
 
   depends_on "libusb"
@@ -48,8 +47,13 @@ class TrezorAgent < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+  end
+
+  resource "construct" do
+    url "https://files.pythonhosted.org/packages/19/c0/f054941fa33d14378de66d2c0477d31f7ad97aa2e298a5771a7b20bc2039/construct-2.9.45.tar.gz"
+    sha256 "2271a0efd0798679dea825ff47e22a4c550456a5db0ba8baa82f7eae0af0118c"
   end
 
   resource "docutils" do
@@ -78,8 +82,8 @@ class TrezorAgent < Formula
   end
 
   resource "libagent" do
-    url "https://files.pythonhosted.org/packages/dc/77/e9c300e04dd449e726ebc153c15aff18c38b7dbb1704f985f4ddb881d6f8/libagent-0.12.0.tar.gz"
-    sha256 "55af1ad2a6c95aef1fc5588c2002c9e54edbb14e248776b64d00628235ceda3e"
+    url "https://files.pythonhosted.org/packages/9b/13/5e3e78890a66be778f448998368d7a17be704358a2036788a1480fe73f1c/libagent-0.13.1.tar.gz"
+    sha256 "b9afa0851f668612702fcd648cee47af4dc7cfe4f86d4c4a84b1a6b4a4960b41"
   end
 
   resource "libusb1" do
@@ -138,8 +142,13 @@ class TrezorAgent < Formula
   end
 
   resource "trezor" do
-    url "https://files.pythonhosted.org/packages/4e/98/b59ad74f5511154981e423b58b0bd03bc05d537ad120ee235dbaa10e37ea/trezor-0.10.2.tar.gz"
-    sha256 "4dba4d5c53d3ca22884d79fb4aa68905fb8353a5da5f96c734645d8cf537138d"
+    url "https://files.pythonhosted.org/packages/88/9e/9b84a35c3709cda7b35a211dc9617f38740eb2d3a46a20a1087efb795302/trezor-0.11.3.tar.gz"
+    sha256 "c79a500e90d003073c8060d319dceb042caaba9472f13990c77ed37d04a82108"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/fa/aa/229f5c82d17d10d4ef318b5c22a8626a1c78fc97f80d3307035cf696681b/typing_extensions-3.7.2.tar.gz"
+    sha256 "fb2cd053238d33a8ec939190f30cfd736c00653a85a2919415cecf7dc3d9da71"
   end
 
   resource "urllib3" do

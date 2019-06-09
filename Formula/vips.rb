@@ -1,18 +1,17 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.7.4/vips-8.7.4.tar.gz"
-  sha256 "ce7518a8f31b1d29a09b3d7c88e9852a5a2dcb3ee1501524ab477e433383f205"
-  revision 2
+  url "https://github.com/libvips/libvips/releases/download/v8.8.0/vips-8.8.0.tar.gz"
+  sha256 "8e78b451adfe59288bded74c9ec6b8c5eb0574ecbba7a0352de4f34266e021b0"
 
   bottle do
-    sha256 "692e5f23a3aa7d99cee8c703781e7f2857fa35586677576dd487d3c7ef37b2ca" => :mojave
-    sha256 "e44d8afef77da76bc6aede109bdc28b378c72ba8f04505e7b675330760bce30b" => :high_sierra
-    sha256 "9c56b78629089148a227a81816dfed7b94bbd2d4a016ea5c5bfbd50dde52ab10" => :sierra
+    sha256 "cf4409d66e6006768d4f44ac4b84949c1eb514379e6a2f9504ec80f3907e37cc" => :mojave
+    sha256 "4efc956661bffbb3e3cfab387fff034beb5d13b412f900d8fb6dd17410988fa7" => :high_sierra
+    sha256 "f05f3262a88ec63f1a609fe22f1001431620601437c64822d41e68b617f23141" => :sierra
   end
 
-  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "cfitsio"
   depends_on "fftw"
   depends_on "fontconfig"
   depends_on "gettext"
@@ -22,6 +21,8 @@ class Vips < Formula
   depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
+  depends_on "libheif"
+  depends_on "libmatio"
   depends_on "libpng"
   depends_on "librsvg"
   depends_on "libtiff"

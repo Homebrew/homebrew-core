@@ -1,14 +1,14 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.5.tar.gz"
-  sha256 "057e8a50f0e86c118ea5cfa52cdc78061c6919945d16f381dcb9be0c3537b373"
+  url "https://github.com/nicolasff/webdis/archive/0.1.6.tar.gz"
+  sha256 "fba3c52e3cef467005b74c948b1b6a3ad38324a60b2163718182e687c5ef252c"
 
   bottle do
     cellar :any
-    sha256 "020842ccb0b317dc21db55f817adb70f15b89626b797652da2ebe9b0b1df67f6" => :mojave
-    sha256 "028cebcaa8b89112db22d1495e51c7fc7cbed593961f3f010dba126162d4a5cd" => :high_sierra
-    sha256 "f1be754483b0357ab70ad90ffe9d95d70ddbdbd80e818e3519389bbd9990db1b" => :sierra
+    sha256 "818f49b927b88a96fa120e5dd400866bd54ef71328b437f99b3e6a01423a2d00" => :mojave
+    sha256 "9663e5b97037750b84b2572511ae4cfd7bfb17b46513b114deeee583a2b8b41d" => :high_sierra
+    sha256 "0d92954fd4c3cee5ddb82db0db2aa85a2e9d7f6a6ef550295d5f498b2640d214" => :sierra
   end
 
   depends_on "libevent"

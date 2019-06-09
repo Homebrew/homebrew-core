@@ -1,14 +1,14 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.5.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.5.tar.gz"
-  sha256 "c01ba9d05bf1ce7352373a529a7e7c7efc6ad9006c85651ffbc941dd03403af6"
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.6.tar.gz"
+  sha256 "a0dc30361195594f0bf08a2a2b4906222a36e3ec8936056abe808184ec513ef1"
 
   bottle do
-    sha256 "086213ef133468e2b97c4d0cd65b919751127b86bac79633de0f4134b2393d53" => :mojave
-    sha256 "9025ac552ffa4ec245af7d6db38a95eadb3876ff28146ba8dea4a954648d9798" => :high_sierra
-    sha256 "b7447a61f03f813b4b862c7b0d7bc51007ff0e514107036f0dbdc2b67b852bcb" => :sierra
+    sha256 "d1e191fc899b56957fe5b81ead95466cb8332025226ca8c98e23171f45eb6cb0" => :mojave
+    sha256 "e5971d7a4667cf9780fa723e92519524c3c60a2210db74ca57b91b8d94486978" => :high_sierra
+    sha256 "79b96a7b7d055a1ff58735fcba664e35b5ca38d50d1ddb78685c8d1d002a8278" => :sierra
   end
 
   depends_on "gnutls"

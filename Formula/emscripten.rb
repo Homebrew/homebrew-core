@@ -3,25 +3,25 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.38.31.tar.gz"
-    sha256 "c87e42cb6a104094e7daf2b7e61ac835f83674ac0168f533455838a1129cc764"
+    url "https://github.com/emscripten-core/emscripten/archive/1.38.32.tar.gz"
+    sha256 "5316ece4c1d4985ba52c085851cd31dd7c0bb958256a518b6095285b9b8764a2"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.38.31.tar.gz"
-      sha256 "99b584da1a8a418ebf2fa642eedf88ceccb5e12b3f5da555939f216135ccbe21"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.38.32.tar.gz"
+      sha256 "dd40db854f2e777ced36c5723fe85f56d98227bfab23bf3b7161a8458f008704"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.38.31.tar.gz"
-      sha256 "e06cd0fc650468186e9e722830498ad0f1258e08e9c22b0be02863b31ee1ecbb"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.38.32.tar.gz"
+      sha256 "8efe76f26e73d2a0a5f479ca4f379a85b833480c7d5bb90e43f676630c78949f"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "29b738f70d1d06c1852e566a409d8d61c686a892d78cfd826f262bb2fe1c0e00" => :mojave
-    sha256 "629a9c79afb451aa896fff16d59e8083ab66702cb93542a3e4509daf5df273e6" => :high_sierra
-    sha256 "bb381a56890dc7d721423a99f2bedaa169bbc5ea7b25fb1ac7a2e181292c86f6" => :sierra
+    sha256 "9bb1f2155fcd3f9364425dd83321712d3848c2305c4dc2b5cc9996b42e4076db" => :mojave
+    sha256 "2e3d96006f328b7753e42f8d119369e1afc983fe339fe501435a87362e66f0c5" => :high_sierra
+    sha256 "efc6ad25da4f744bfbf19bd17464fb847f136bc9e56db3f69e6457f674c0357e" => :sierra
   end
 
   head do

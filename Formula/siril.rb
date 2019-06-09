@@ -1,15 +1,14 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
-  url "https://free-astro.org/download/siril-0.9.10.tar.bz2"
-  sha256 "caf9800a442bbe3991e820ffc66f41b453c6866f510e2934d236788c78f5be29"
-  revision 2
+  url "https://free-astro.org/download/siril-0.9.11.tar.bz2"
+  sha256 "d30e40eed82af9d8e4392c5d888047b1a87a1705514444da3f319845b0652349"
   head "https://gitlab.com/free-astro/siril.git"
 
   bottle do
-    sha256 "8cf5fbff67b489598115f131d8085d7721a22c82850fdf942bf15e5dafccc34b" => :mojave
-    sha256 "af0df6135e247a89506a25ba79532e2a9f478de23243ac66ec44c212372fa45a" => :high_sierra
-    sha256 "9d657c61fa37492720051e64e11e857b5edab6e79dc5b85427b9dd191005f6d8" => :sierra
+    sha256 "90a76745925dc03b623cd469659f4dc29126d8f830640bcafbf61ca7ea515f0d" => :mojave
+    sha256 "a45d0a8022008cffeb832fe57e79403b666cd464c7436d5b02fc61bd5833073e" => :high_sierra
+    sha256 "0a5a144f620e2e08919d84e7effe4e54dfbf57d76cdf1c00e6cdd6009119b403" => :sierra
   end
 
   depends_on "autoconf" => :build

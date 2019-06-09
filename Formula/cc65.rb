@@ -1,15 +1,14 @@
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
-  url "https://github.com/cc65/cc65/archive/V2.17.tar.gz"
-  sha256 "73b89634655bfc6cef9aa0b8950f19657a902ee5ef0c045886e418bb116d2eac"
+  url "https://github.com/cc65/cc65/archive/V2.18.tar.gz"
+  sha256 "d14a22fb87c7bcbecd8a83d5362d5d317b19c6ce2433421f2512f28293a6eaab"
   head "https://github.com/cc65/cc65.git"
 
   bottle do
-    sha256 "d8238bad77a894edec5e5caefd7ae6c738177a04455024a7c2cb3d44db3a4d85" => :mojave
-    sha256 "12c9533c600dda022dc121f51f668648cd89a98e407e02aeb2119c21d8e8cc54" => :high_sierra
-    sha256 "f470bfeec0cc01b3da7656945e401815a852f2d6fbca5197f9dd41dc3391a539" => :sierra
-    sha256 "46e8dc043981d55e0b62e77cd12dae35b1ab13b3164f1510010e73bbe8ee76a9" => :el_capitan
+    sha256 "a84e72ecee825a41a9614a7563df24418d5173ff13ff767adf2a924e28b00fcb" => :mojave
+    sha256 "2fecec53d0f65fc2ae409fc29516207cf11377e6726574087da4f06502e10770" => :high_sierra
+    sha256 "e4bf2981ea6489e414bf2166f6e591612b2e589aa30a3beaab1fd0d7a2ca1207" => :sierra
   end
 
   conflicts_with "grc", :because => "both install `grc` binaries"

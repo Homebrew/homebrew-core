@@ -1,15 +1,16 @@
 class Xmake < Formula
   desc "A cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/archive/v2.2.5.tar.gz"
-  sha256 "1c7ce3da87c03ce9d6be20b67561421039865c8de87fc4db1f94d934c22aacf4"
+  url "https://github.com/xmake-io/xmake/archive/v2.2.6.tar.gz"
+  sha256 "558a43b70d90503ba2e1a11af10d5f93772102850ee6790201fa329d174342f0"
+  revision 1
   head "https://github.com/xmake-io/xmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7eea5a9cde1b7cbdca8f46daee0f3048b4a7d72ee22857112ef03d43457dda47" => :mojave
-    sha256 "701bb421654f265f08375a0cacba25cc21cedb0b2c82980dfdf6395354a79ee2" => :high_sierra
-    sha256 "4a9a563d5eefaaac6933f0fbfa72ed5ed904da591fc9f77dd914be5f147745ab" => :sierra
+    sha256 "d3732e8eef1dfdc404cfc69942267fd1182f0cd28e9c7bf2721990ab47429196" => :mojave
+    sha256 "f5c3032c525369138221bce9c0681bf394f2cce872437a534385b206baee22fd" => :high_sierra
+    sha256 "2c1ad958fc1377b3af8ee2b97bd24863ca19a294eb3e821c28ad0b52fbed4bdf" => :sierra
   end
 
   def install

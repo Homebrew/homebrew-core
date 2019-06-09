@@ -64,6 +64,7 @@
   "gloo-ctl": "glooctl",
   "gmp4": "gmp@4",
   "gmt4": "gmt@4",
+  "gnatsd": "nats-server",
   "gnome-icon-theme": "adwaita-icon-theme",
   "gnupg2": "gnupg",
   "gnuplot4": "gnuplot@4",

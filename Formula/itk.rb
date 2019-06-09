@@ -3,12 +3,13 @@ class Itk < Formula
   homepage "https://www.itk.org/"
   url "https://downloads.sourceforge.net/project/itk/itk/4.13/InsightToolkit-4.13.2.tar.gz"
   sha256 "d8760b279de20497c432e7cdf97ed349277da1ae435be1f6f0f00fbe8d4938c1"
+  revision 1
   head "https://itk.org/ITK.git"
 
   bottle do
-    sha256 "6069552ee5bb62a741001cfee2ce34db7e9a570f2b6ad889e8dac0d419f64b1c" => :mojave
-    sha256 "57d4e9d5a539f13d7d20ccef575cc2b0fd661d554ef0c8fe0abeaec6c716f874" => :high_sierra
-    sha256 "f529daedd5321cd722b400203cb6eaa7bf9b43cf2cbe74eac258414c9e97f349" => :sierra
+    sha256 "043c8bb2431ca4ecb4f8e392afe98c2f6fce5688e80525356ad412fb0aa7af6e" => :mojave
+    sha256 "c0f6268306bd86bf562d0cb28566483967e11bdfc18ca098394c0837de331fb7" => :high_sierra
+    sha256 "24390090a8109b2c50ecf1c51ce3cc168c1b4722f281aa8976642a6ba9d3b367" => :sierra
   end
 
   depends_on "cmake" => :build

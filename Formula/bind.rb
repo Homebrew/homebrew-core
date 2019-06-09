@@ -1,14 +1,23 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
+
+  # BIND releases with even minor version numbers (9.14.x, 9.16.x, etc) are
+  # stable. Odd-numbered minor versions are for testing, and can be unstable
+  # or buggy. They are not suitable for general deployment. We have to use
+  # "version_scheme" because someone upgraded to 9.15.0, and required a
+  # downgrade.
+
   url "https://ftp.isc.org/isc/bind/9.14.2/bind-9.14.2.tar.gz"
   sha256 "0e4027573726502ec038db3973a086c02508671723a4845e21da1769a5c27f0c"
+  version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "16baf3972eed50dfab4111603b4d141a81bcee2aef1d57cdd6ed271e2276305f" => :mojave
-    sha256 "b86e73a083c48f92463d50623ed21aa9ffb24bf7cf8d0109deaaf2666529237d" => :high_sierra
-    sha256 "008a428f5e5e061c4a122c8dc8d86eb65b2e5473817f08c132f4d05e973e47ff" => :sierra
+    rebuild 1
+    sha256 "75e97826712016961944c098961dff5601ac2f84b7ab5512ab22cae7fe529261" => :mojave
+    sha256 "c7afd80dc93e390e705a4f6541ff126a47f64a654c889c8c85e5e46b421459a9" => :high_sierra
+    sha256 "cb982dcbb3a8dce38306e8f994a9604c2829a9f5401ea2df62e1e343df7e4143" => :sierra
   end
 
   depends_on "json-c"

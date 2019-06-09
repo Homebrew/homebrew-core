@@ -2,15 +2,15 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag      => "2.1.0",
-      :revision => "a036bd817d35ff1c354c644804dc588fb7c41476"
+      :tag      => "2.5.0",
+      :revision => "bf3ddf656eb5c01b5d9abefc8fd6d93c5bd452aa"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9960ef9eb77e0e98e136cbb90de2704c533f6238373a0acc0aaf11c9d66e7454" => :mojave
-    sha256 "e1500abaed4f0db1aae20b00766eb1634bcaea6a2c0c0c8ee9860f95799e89c1" => :high_sierra
-    sha256 "460dd8e306588c106283b108cddcc9097095e12ef6f53808515d7b0255a9b8fe" => :sierra
+    sha256 "cf26eb59ee103939923cf2230adb5ec1d522f354de2ef53dc309eea4b355344b" => :mojave
+    sha256 "b69f32e1bf65fda15a11b6b686018db1ad76ae57200249b7be1759ea88801881" => :high_sierra
+    sha256 "be769703edf80e9d4f553dac83bcf3d6a766564badb791b1b3de84ce53c21abb" => :sierra
   end
 
   depends_on "gnupg" => :build
@@ -18,12 +18,12 @@ class SyncGateway < Formula
 
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        :revision => "935b93fb9bf367510eece7db8ee3e383b101c36d"
+        :revision => "b97d193baafa7343cc869e2b48d3bffec46a0c31"
   end
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
-    repo_cache = HOMEBREW_CACHE/"repo_cache/#{name}/.repo"
+    repo_cache = buildpath/"repo_cache/#{name}/.repo"
     repo_cache.mkpath
 
     (buildpath/"depot_tools").install resource("depot_tools")
@@ -44,6 +44,7 @@ class SyncGateway < Formula
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
       cp manifest, ".repo/manifest.xml"
       system "repo", "sync"
+      ENV["SG_EDITION"] = "CE"
       system "sh", "build.sh", "-v"
       mv "godeps/bin", prefix
     end

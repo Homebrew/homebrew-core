@@ -3,15 +3,14 @@ class Fobis < Formula
 
   desc "KISS build tool for automaticaly building modern Fortran projects"
   homepage "https://github.com/szaghi/FoBiS"
-  url "https://files.pythonhosted.org/packages/2f/7e/dd1bf258ea12f28b38f7416fec75792307bb624a939e255eec261e01fa89/FoBiS.py-2.9.3.tar.gz"
-  sha256 "ea3d064039fb08f690e86b66dbb12616a41304eaaf6caa2fa9f84b71bb27bdbf"
-  revision 1
+  url "https://files.pythonhosted.org/packages/7a/49/9ccbc08da74f0c37901b07e00aa8e6419895c45723b80119994d89a72eec/FoBiS.py-2.9.5.tar.gz"
+  sha256 "0f27bad2c662d2df666ede8bfdd9b1f3fb41e293cb7008da388c52efef060335"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2c2ad4f9320ea0017b34356fc36d23a2b3f87d39e5fd44e0c9918b152144d89" => :mojave
-    sha256 "34f1802723d27f435fd2ed72fceb75fbda38d350efc227753d05a53f2c876b7a" => :high_sierra
-    sha256 "38cda93369dddfd8f52f43271f4d0eea5b78506a4b74265a16ec5e09c60ca532" => :sierra
+    sha256 "7bbf823ceabbd79717f3fe748771f64c6a81f6f9f3a3fbacfa5febad8374011a" => :mojave
+    sha256 "6ea243c05063c86081b365812f719943838497f666849590276554ea2039fb31" => :high_sierra
+    sha256 "5e40a0c3bef0e4ae83cbb4eb25f72aa0d98a6e54a5515897ca82ad25fd055892" => :sierra
   end
 
   depends_on "gcc" # for gfortran

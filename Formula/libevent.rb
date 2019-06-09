@@ -1,16 +1,14 @@
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "https://libevent.org/"
-  url "https://github.com/libevent/libevent/archive/release-2.1.8-stable.tar.gz"
-  sha256 "316ddb401745ac5d222d7c529ef1eada12f58f6376a66c1118eee803cb70f83d"
+  url "https://github.com/libevent/libevent/archive/release-2.1.10-stable.tar.gz"
+  sha256 "52c9db0bc5b148f146192aa517db0762b2a5b3060ccc63b2c470982ec72b9a79"
 
   bottle do
     cellar :any
-    sha256 "9ab81f4ca9902042f7ea95d02bf36394c5cdc11d715b7f928badc9cf5724ca8b" => :mojave
-    sha256 "61a8cf2df6d58f79678fad0f798b6a9d368245097f908e2f911f25cb3f7916cf" => :high_sierra
-    sha256 "cdd11d67b5f49b94cf3fbfd24753f84082957e3d55680e2b5979eec19091e694" => :sierra
-    sha256 "136a93a91c3724d0403b0d43d0b9a4bf6b857278c4ebb7c7585ef70a19b0964c" => :el_capitan
-    sha256 "ef703db1b4cbdab35b89aabe80c225dd9b7a2c3ea14b1eae681478c5b9df15fe" => :yosemite
+    sha256 "3f43999f92de5174fa646e00cb0998801af4865b0274ebf6c4de5d6df372c4be" => :mojave
+    sha256 "50ee308d22d52de4f3b0ac5e5288f5a083cbca31cd59186cb05d9e293edada71" => :high_sierra
+    sha256 "a3cf44a7ec1d8ea39853079a9a28a0acc4082c7beea02200dcba7e124ec6c9a4" => :sierra
   end
 
   depends_on "autoconf" => :build

@@ -2,16 +2,15 @@ class Sassc < Formula
   desc "Wrapper around libsass that helps to create command-line apps"
   homepage "https://github.com/sass/sassc"
   url "https://github.com/sass/sassc.git",
-      :tag      => "3.5.0",
-      :revision => "aa6d5c635ea8faf44d542a23aaf85d27e5777d48"
+      :tag      => "3.6.0",
+      :revision => "3f84e2358019dab2fdba5fe1fc0ecff23aa24608"
   head "https://github.com/sass/sassc.git"
 
   bottle do
     cellar :any
-    sha256 "0776912423914ce74e8451f0b66004cae6f2e00a8c40e4a35f77fdbe0d036b72" => :mojave
-    sha256 "efda15371cdf37716f508cbbbc7512bd4db103cbdd25a0a5b27ae74e6f5a4705" => :high_sierra
-    sha256 "8160ead69c6f3e7665cb474e719cc244412c37335013e4d98bf10bfdfcff6a32" => :sierra
-    sha256 "32edbfd6543029224ea742a23f0bac7f675a9aa8e7a0511cee09561518591854" => :el_capitan
+    sha256 "f28ea6ff8afd720d1a06c3d73ae87fa4381f24c3bd23ed288a2d4631bb2c993c" => :mojave
+    sha256 "3940b89a275abb05f4dc41d7cb5c2676726b2e9aaf696cc18ea761419d441e0d" => :high_sierra
+    sha256 "82e99be7bcdb01ab32c731c70a134af662dbe54de1ca183effd0face986ba13c" => :sierra
   end
 
   depends_on "autoconf" => :build

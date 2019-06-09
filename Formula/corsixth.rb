@@ -1,15 +1,14 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.62.tar.gz"
-  sha256 "b219270310255493c881a09bb4a5569f34a72cdaf3c3be920c1036a2450317ce"
-  revision 1
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.63.tar.gz"
+  sha256 "9016ce0a22e0e800937970a91b48aaf536fc901c98d3edd1e11bf97590523d81"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
-    sha256 "7413ac7dede05494ee291e80463be88f29dcebf25009eae92f9fb0be5c8a78af" => :mojave
-    sha256 "acdcc5bb9c0e5df2eae64c22686dd150d214c88c2ddde2783ec850032057c77b" => :high_sierra
-    sha256 "c4204489b0b2a1b33fd925e762b27e4efc6af3ffc2c0dbfa17a49f6b207ff4fc" => :sierra
+    sha256 "42ffa795dfc4749f31e753c224fd8f7ce1373631fb0f231db0ea8990d2eda064" => :mojave
+    sha256 "6af1f1845c4a56747cd4663ef0774f976b57a9954f7b1524da2b268bf819ea4c" => :high_sierra
+    sha256 "2dd1c75f87d4dda6a2becebd48109dcf0b4b28bae903e5fa54db913557bacbde" => :sierra
   end
 
   depends_on "cmake" => :build

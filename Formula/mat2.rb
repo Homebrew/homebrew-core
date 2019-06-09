@@ -1,14 +1,14 @@
 class Mat2 < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://0xacab.org/jvoisin/mat2"
-  url "https://0xacab.org/jvoisin/mat2/-/archive/0.8.0/mat2-0.8.0.tar.gz"
-  sha256 "64b627eaafa1894e7516713c589055eccb1d71b7936b21a80e29877fbd7c2c34"
+  url "https://0xacab.org/jvoisin/mat2/-/archive/0.9.0/mat2-0.9.0.tar.gz"
+  sha256 "cc2265458dda0b65f488d4d97c4e1b9f99feda88398fc146e844cbd3a357d2af"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "632dcf019937de534b22d72b9f634a0acdcc95583a8d62f89220ce90b691ad56" => :mojave
-    sha256 "632dcf019937de534b22d72b9f634a0acdcc95583a8d62f89220ce90b691ad56" => :high_sierra
-    sha256 "328051b9d1c085ee8fafa5894d4b13a2a7c2a8cc54bf7e90fb8c8210a1cab9dd" => :sierra
+    sha256 "470fd51397533523d45b551280fc01ad7ae364ef052e4f0553981fa36fd6cc8e" => :mojave
+    sha256 "470fd51397533523d45b551280fc01ad7ae364ef052e4f0553981fa36fd6cc8e" => :high_sierra
+    sha256 "071c6610fec37271928aefb32c831b102769d1482067b7ac4734556f8c062d9a" => :sierra
   end
 
   depends_on "exiftool"

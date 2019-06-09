@@ -1,36 +1,29 @@
-require "language/go"
-
 class Websocketd < Formula
   desc "WebSockets the Unix way"
   homepage "http://websocketd.com"
-  url "https://github.com/joewalnes/websocketd/archive/v0.3.0.tar.gz"
-  sha256 "f59fefdf79d6b99140027b3c58ca77d59bb3c1fa2f15969d7239538b04042b3d"
+  url "https://github.com/joewalnes/websocketd/archive/v0.3.1.tar.gz"
+  sha256 "323700908ca7fe7b69cb2cc492b4746c4cd3449e49fbab15a4b3a5eccf8757f4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e060ae07f4fcb9cfc4ff0eb8c3bfdd11135966957f4d2dcb84de0f4fbe15de2" => :mojave
-    sha256 "69523ab9efd2f2b8f595b4ae4d282f6af64fbbe24fd3b16b7011210b8d1ea87b" => :high_sierra
-    sha256 "38ebd8e10260501352e81966e3bba46bf00d38e00b408f763ef8042a418099e3" => :sierra
-    sha256 "eec1080e0a40bf336ea48950c1c21e0ab50e038ee46874cb59bd6b16791309a3" => :el_capitan
+    sha256 "a0ad536184c0f12c3c65710be453e810eda0ffa3b0109a56f69b364c05439703" => :mojave
+    sha256 "a2b5e17e00e1c74b52cf0d44ba802bc6e0eb450e950530cedd7cef38e83437ca" => :high_sierra
+    sha256 "5200608539895835b8faa52b886fe9181c23e94c560c4ef9f2f6afe842de3626" => :sierra
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/gorilla/websocket" do
-    url "https://github.com/gorilla/websocket.git",
-        :revision => "cdedf21e585dae942951e34d6defc3215b4280fa"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
 
-    mkdir_p buildpath/"src/github.com/joewalnes/"
-    ln_sf buildpath, buildpath/"src/github.com/joewalnes/websocketd"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd",
-                          "main.go", "config.go", "help.go", "version.go"
-    man1.install "release/websocketd.man" => "websocketd.1"
+    src = buildpath/"src/github.com/joewalnes/websocketd"
+    src.install buildpath.children
+    src.cd do
+      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd"
+      man1.install "release/websocketd.man" => "websocketd.1"
+      prefix.install_metafiles
+    end
   end
 
   test do

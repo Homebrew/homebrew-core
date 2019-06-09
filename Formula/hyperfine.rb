@@ -1,14 +1,14 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/v1.5.0.tar.gz"
-  sha256 "d5183611348e696e579dda846cee92b7b78c8ef18c00bfb9b0a62d0a63034823"
+  url "https://github.com/sharkdp/hyperfine/archive/v1.6.0.tar.gz"
+  sha256 "0cb251453147421c0c807587123e733b32346b9756c8594018c637ec374a63f4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a120be15174ce48b26ebd55204e218bb333e5375d826d930b9f5a9bfcd69f828" => :mojave
-    sha256 "106336d918cc080a62b7217fb6e997aa37f1a4e626c5bb0d98c463d667d63ac9" => :high_sierra
-    sha256 "c10178095d445c0db49b611d0ef6b7c83fbd18ef15c8d0ef0bec8dd2104a4236" => :sierra
+    sha256 "ae46a59b81f0c2d89955d2c2f4add6c1aba0c1beceb59076a6b1a356ccbd6572" => :mojave
+    sha256 "b972f3144fa116ae1698e8479ab6cc76ab9fc2a907423e8bd88ad260425b6e06" => :high_sierra
+    sha256 "dc3dd6d6a5d5c5001f66690f54fe0ba416ce2e9cafc6a914108d859d866af502" => :sierra
   end
 
   depends_on "rust" => :build

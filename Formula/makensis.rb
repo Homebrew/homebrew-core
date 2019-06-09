@@ -6,9 +6,10 @@ class Makensis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cdfcc5744bbb90c33f679f119ecd2d5addd507e52c785d3be61d9bf60d6f6f4c" => :mojave
-    sha256 "e05324ab124f4bc0b64167b4e4f8f0fe83345a4f2eba5d473b4174fafaa3c987" => :high_sierra
-    sha256 "3e87e127f96c88d107943966681d71230232ba522d4d64d7398850383a0ab61f" => :sierra
+    rebuild 1
+    sha256 "4d74d5767848cf13e60ae11251566cbc19e5312f72322bad0865bf72a16160eb" => :mojave
+    sha256 "6acbda155df5231abf442fbbed4048eb5f3aa670d529aec16a75c947b2ec6a74" => :high_sierra
+    sha256 "d7fedae5d77ab31ec576b808296c72cf4cd53007021c11f937bbcd024c236822" => :sierra
   end
 
   depends_on "mingw-w64" => :build
@@ -28,6 +29,7 @@ class Makensis < Formula
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
       "STRIP=0",
       "VERSION=#{version}",
+      "NSIS_MAX_STRLEN=8192",
     ]
     system "scons", "makensis", *args
     bin.install "build/urelease/makensis/makensis"

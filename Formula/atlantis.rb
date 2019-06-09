@@ -1,13 +1,13 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
-  homepage "https://www.runatlantis.io"
-  url "https://github.com/runatlantis/atlantis/archive/v0.7.2.tar.gz"
-  sha256 "ecb0068f6ee1cacc4710b4f77e67b88e5d6b5d1dfae3bf6ce480980c93efa50d"
+  homepage "https://www.runatlantis.io/"
+  url "https://github.com/runatlantis/atlantis/archive/v0.8.1.tar.gz"
+  sha256 "d163c9aa0d17be5e5b90fdc919a6aba881c1f24869dff30cbe1c112bcc2c2c9c"
   bottle do
     cellar :any_skip_relocation
-    sha256 "65719df4c6b009754dd81ab0c730f279bf9466b01d726ac7ad4bdec59150eb3a" => :mojave
-    sha256 "ea999c714a9a4397e1eac09a825425fe33d86bad1cc3c6b8dbb1ff53b83d05d7" => :high_sierra
-    sha256 "f00a0840390ab8732f067fd82564dc2045d743d69b29e2604bf5d83fd5716109" => :sierra
+    sha256 "4741a62ab71b3dfaea9179a02473f862053c4f70e420fe07af9ba2b1090fdd14" => :mojave
+    sha256 "9ec735c2241e6ef1e0e06d567e561d368d81263b701cb6212e6eb9a670c742c2" => :high_sierra
+    sha256 "1f4819870b0473b2508727ea0da9b3304291debbba2491b55a0e4a011c719c55" => :sierra
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class Atlantis < Formula
     port = 4141
     loglevel = "info"
     gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-whitelist INVALID"
-    command = bin/"atlantis server --atlantis-url http://in.va.lid --port #{port} #{gh_args} --log-level #{loglevel}"
+    command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
     pid = Process.spawn(command)
     system "sleep", "5"
     output = `curl -vk# 'http://localhost:#{port}/' 2>&1`

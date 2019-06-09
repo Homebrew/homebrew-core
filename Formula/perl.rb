@@ -1,15 +1,14 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.28.1.tar.gz"
-  sha256 "3ebf85fe65df2ee165b22596540b7d5d42f84d4b72d84834f74e2e0b8956c347"
+  url "https://www.cpan.org/src/5.0/perl-5.30.0.tar.gz"
+  sha256 "851213c754d98ccff042caa40ba7a796b2cee88c5325f121be5cbb61bbf975f2"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    rebuild 2
-    sha256 "6f9c6519a6c95eb3212abde423688fa01d3d56be0c424f9e6e8bed7b59dfe014" => :mojave
-    sha256 "b04e2b8a5158c6405558e8408d901c7c1899eda8950202f1dfddd6efd7cfa043" => :high_sierra
-    sha256 "8099f37b2521864a095eb06dc5cde02805421a78ddda95fafe3fc538a3ef3553" => :sierra
+    sha256 "c0d17d9af9a950c65c7ac39f5d5bcdc2932ab281455107a5c55d1eda7d792f0d" => :mojave
+    sha256 "8529587433c3bf6985dd92d39808c01d9d421eeef8e25dc5b2921729d253c346" => :high_sierra
+    sha256 "086995758ea8f80844c3acb75ac8c177421560b382d22f63d128668f31918b0e" => :sierra
   end
 
   # Prevent site_perl directories from being removed
@@ -35,19 +34,8 @@ class Perl < Formula
 
     system "./Configure", *args
 
-    # macOS's SIP feature prevents DYLD_LIBRARY_PATH from being passed to child
-    # processes, which causes the `make test` step to fail.
-    # https://rt.perl.org/Ticket/Display.html?id=126706
-    # https://github.com/Homebrew/legacy-homebrew/issues/41716
-    # As of perl 5.28.0 `make` fails, too, so work around it with a symlink.
-    # Reported 25 Jun 2018 https://rt.perl.org/Ticket/Display.html?id=133306
-    (lib/"perl5/#{version}/darwin-thread-multi-2level/CORE").install_symlink buildpath/"libperl.dylib"
-
     system "make"
     system "make", "test"
-
-    # Remove the symlink so the library actually gets installed.
-    rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib"
 
     system "make", "install"
   end

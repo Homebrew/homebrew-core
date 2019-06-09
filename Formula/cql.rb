@@ -7,9 +7,10 @@ class Cql < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9160d14a8823811ca48eb4830ef5043d8ff5cff01a4d373639ee8925ffa5b4de" => :mojave
-    sha256 "2b5ab50d30ee8c7211f0e5b7d03adc23c2ba5960f0114ea0b58d7248d5655b29" => :high_sierra
-    sha256 "72605d4e88deb15555c67b23a665d501d7cf74d8389fde3c0403050450ad3934" => :sierra
+    rebuild 1
+    sha256 "086bb25611e44b4be4be46a5c24aed455bea5056aac6e57433ab8271eaa0e3e5" => :mojave
+    sha256 "8e474e34760146fbda7a5ccfdd860f9e2af675dc215968b4d4e7f638e73535fb" => :high_sierra
+    sha256 "7b98338722de466394c51433c72860cd1abc1d81af4b4ef217364b887df70006" => :sierra
   end
 
   depends_on "go" => :build
@@ -26,11 +27,13 @@ class Cql < Formula
     system "go", "build", "-tags", "sqlite_omit_load_extension",
       "-ldflags", ldflags, "-o", "bin/cql", "github.com/CovenantSQL/CovenantSQL/cmd/cql"
     bin.install "bin/cql"
+    bash_completion.install "bin/completion/cql-completion.bash"
+    zsh_completion.install "bin/completion/_cql"
   end
 
   test do
     testconf = testpath/"confgen"
-    system bin/"cql", "generate", testconf, "config"
+    system bin/"cql", "generate", testconf
     assert_predicate testconf/"private.key", :exist?
     assert_predicate testconf/"config.yaml", :exist?
   end

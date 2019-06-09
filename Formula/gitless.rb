@@ -3,15 +3,14 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/sdg-mit/gitless/archive/v0.8.6.tar.gz"
-  sha256 "e1d009bf9d7c89428d7029394cc85a0d91bd2af73f019508ddc92c98faeed8e5"
-  revision 3
+  url "https://github.com/sdg-mit/gitless/archive/v0.8.8.tar.gz"
+  sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
 
   bottle do
     cellar :any
-    sha256 "c37600221f89482e7167270ec255c882973e5309ab2e9fbdf812e54570429b89" => :mojave
-    sha256 "09ed368b3a211cb3ca26a73cdfa3e48c622332aad591e661e74303dce77ebf8a" => :high_sierra
-    sha256 "7aad838cdb15a8426a2e112821e1d4a3af2c4d9fcf88e37047561cc27b652db1" => :sierra
+    sha256 "e2f00096c61e77b180ad02bca5e3b2b29229be5a4087944a3d8101d2d09c3a71" => :mojave
+    sha256 "081a966710b3bd71d96d8cfae396336d4f7428381b6e0ee5df9a9e3790e9df66" => :high_sierra
+    sha256 "e8581191307efba77a4998667e9e787f638490873e14f80128b79d44b3ba7eb2" => :sierra
   end
 
   depends_on "libgit2"
@@ -38,8 +37,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
-    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
+    url "https://files.pythonhosted.org/packages/4c/64/88c2a4eb2d22ca1982b364f41ff5da42d61de791d7eb68140e7f8f7eb721/pygit2-0.28.2.tar.gz"
+    sha256 "4d8c3fbbf2e5793a9984681a94e6ac2f1bc91a92cbac762dbdfbea296b917f86"
   end
 
   resource "sh" do
@@ -50,12 +49,6 @@ class Gitless < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
-  end
-
-  # restores compatibility with recent pygit2 releases (0.27.1+)
-  patch do
-    url "https://github.com/sdg-mit/gitless/commit/4eb3a971d1d7d63fa359b60812a5a5df8b8a72db.patch?full_index=1"
-    sha256 "6b75c448f9a93e814610cb20b8dca4a85c89ee9f11181f03604923c040d67aa6"
   end
 
   def install
