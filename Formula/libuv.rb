@@ -1,15 +1,15 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.28.0.tar.gz"
-  sha256 "9ab338062e5b73bd4a05b7fcb77a0745c925c0be9118e0946434946a262cdad5"
+  url "https://github.com/libuv/libuv/archive/v1.29.1.tar.gz"
+  sha256 "bdde1140087ce97080ea323c3598553ece00a24ae63ac568be78bef3e97f3e25"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "9d11b111edd4ed4ea2b9c042b16495d5a29a1ef3d447ef1bb1742eb2eb25f8e7" => :mojave
-    sha256 "afce13c14b3ae0be1208c4e5a11aec1a28d253e15c14b1e3980b4ef142015929" => :high_sierra
-    sha256 "32fcc872a7d73641c41d2dbe72b3a734ed556846f59f98940d02de44a63cf15f" => :sierra
+    sha256 "50ac7e35a1e24eb57a1c8f8dca043414a9c0aa6b5ec583450f4dcf187a8b6d87" => :mojave
+    sha256 "4d074a93926e295143807145b37aa6c5af26449ad3479d0814827a6c302f5223" => :high_sierra
+    sha256 "e85b188d6ea3c0d4e43f16f87d304bf90eda77ef3269dfd11bfba201185e4660" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -21,9 +21,6 @@ class Libuv < Formula
   def install
     # This isn't yet handled by the make install process sadly.
     cd "docs" do
-      # `app.info()` was deprecated on Jan 4, 2017 (sphinx-doc/sphinx#3267),
-      # and removed as of Sphinx 2.0.0. https://github.com/libuv/libuv/pull/2265
-      inreplace "src/sphinx-plugins/manpage.py", "app.info('Initializing manpage plugin')", ""
       system "make", "man"
       system "make", "singlehtml"
       man1.install "build/man/libuv.1"

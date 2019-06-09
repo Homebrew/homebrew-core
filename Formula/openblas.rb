@@ -3,13 +3,14 @@ class Openblas < Formula
   homepage "https://www.openblas.net/"
   url "https://github.com/xianyi/OpenBLAS/archive/v0.3.6.tar.gz"
   sha256 "e64c8fe083832ffbc1459ab6c72f71d53afd3b36e8497c922a15a06b72e9002f"
+  revision 1
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "c7717658d2801da03bfd1a6d83016bec1beacc62baa02ab3d321f566250b88a3" => :mojave
-    sha256 "b9c3a1c6ac196fd5c254049a50f5762a8fd643a289e70514bb76bbbbcec947f2" => :high_sierra
-    sha256 "0731e35071ceeed6a59570d1965a52ae0450445db6c461c8db3245ebbff5455a" => :sierra
+    sha256 "ce1788eedcf1776fcad04ae78cb81e7141e7db07762dafb44118c9cfb7748de0" => :mojave
+    sha256 "50d5f9b0eae2a5b3c97c4a5adb23cd9d7a8e78c2dee9b7a8ea789185aed64b1e" => :high_sierra
+    sha256 "54d4bd0bd7115090d40200f59ff71d36e60dc3a03bc4538a01050891137c7e7f" => :sierra
   end
 
   keg_only :provided_by_macos,

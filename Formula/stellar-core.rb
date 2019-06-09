@@ -2,15 +2,15 @@ class StellarCore < Formula
   desc "The backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      :tag      => "v10.3.0",
-      :revision => "de204d718a4603fba2c36d79a7cccad415dd1597"
+      :tag      => "v11.1.0",
+      :revision => "324c1bd61b0e9bada63e0d696d799421b00a7950"
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
     cellar :any
-    sha256 "f7ee7ab3bdc5d6af649d6353096515a745368af0ec63bb4871423a2fa7150ac6" => :mojave
-    sha256 "86ece26af68a770a246f2d9216cafde9e9dadb898863a85a77424f779db3674f" => :high_sierra
-    sha256 "2f30560c708c16a8b70fef75c378cd6f36d0c3840dfec0bea1f7217cbb81c683" => :sierra
+    sha256 "c1473918971a04861605c718abe38686d16b0ba4ec508766792354abc90cf128" => :mojave
+    sha256 "ce9b538a413cc7b36734b5e59723359f1e610e6ac54dfe59b5626c88f8f851ca" => :high_sierra
+    sha256 "859222f7f6df9135ef4c833c7bd7f377273f31183fb5fa50193f91f1fdae43b0" => :sierra
   end
 
   depends_on "autoconf" => :build

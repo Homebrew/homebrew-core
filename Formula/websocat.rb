@@ -1,13 +1,14 @@
 class Websocat < Formula
   desc "Command-line client for WebSockets"
   homepage "https://github.com/vi/websocat"
-  url "https://github.com/vi/websocat/archive/v1.2.0.tar.gz"
-  sha256 "e1a6021770c9ae5b364eaa74b7435f259c5d84bf5c7210cab7f0c775fa2158a5"
+  url "https://github.com/vi/websocat/archive/v1.4.0.tar.gz"
+  sha256 "bf4efd28da077856ddb6ad8d05a4c9419c505825512cc9e47a06a63793694eb8"
 
   bottle do
-    sha256 "e828460237de4ad4607fec9e703037f349e9e70b5437fb0bd7744aa779a971b4" => :mojave
-    sha256 "b8ba671d1582b57bdc9b4f691e68221179ebf6d50b1c3b3c259a6451c185ad47" => :high_sierra
-    sha256 "2561c8003b59997794008f409290fc719906437baf001494d48b31967ef4184c" => :sierra
+    cellar :any_skip_relocation
+    sha256 "623dc7846122af9e51e163a4de9ff10bc89b47c15eacf58b8f6f9d39f528efde" => :mojave
+    sha256 "e6557924fd0c2b6502425045bb85aa20a939beee8741111763f61420b4e6c17b" => :high_sierra
+    sha256 "486878ca9cf0a9efae2e70e9af2013aa5ff882d2e172afc58bfeeb5de3b0b4f1" => :sierra
   end
 
   depends_on "pkg-config" => :build

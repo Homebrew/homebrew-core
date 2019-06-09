@@ -1,15 +1,14 @@
 class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
-  url "https://github.com/operator-framework/operator-sdk/archive/v0.7.0.tar.gz"
-  sha256 "19c1fd70e4ca1242667552dc6a087bfeb2e019fffcfdbe2d7295475a7596126c"
+  url "https://github.com/operator-framework/operator-sdk.git", :tag => "v0.8.1"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c0d960f2fd7300a238abbd28cba72ac3a4cbec900aa409848f38714de20fe1f4" => :mojave
-    sha256 "9f4b02edeec0566630e98de58bf08172d4ef2ffb9316c01917b094730f4fe16a" => :high_sierra
-    sha256 "b214d20ecac6cf3c8e20d7e2d99026385bde40d652863a7480c9199f2d2b2ef1" => :sierra
+    sha256 "9f11a93f335489bd5ed27b3e296ea947e772efebfc434fa96af9fc567603277f" => :mojave
+    sha256 "11f706a313d0af27e25e816abd89e94fabc022f00f88f36c420d4d35829c3ecb" => :high_sierra
+    sha256 "13d461d6b758400847271eeeb681a61417dce9ac5734ac9fc90db41647c567f8" => :sierra
   end
 
   depends_on "dep"
@@ -39,6 +38,7 @@ class OperatorSdk < Formula
 
   test do
     ENV["GOPATH"] = testpath
+    ENV["GO111MODULE"] = "on"
     dir = testpath/"src/example.com/test-operator"
     dir.mkpath
 

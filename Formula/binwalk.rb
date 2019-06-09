@@ -3,13 +3,14 @@ class Binwalk < Formula
   homepage "https://github.com/ReFirmLabs/binwalk"
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.1.1.tar.gz"
   sha256 "1b70a5b03489d29f60fef18008a2164974234874faab48a4f47ec53d461d284a"
-  revision 6
+  revision 7
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
-    sha256 "17b4cc76bf3e112f76d41bef4e87fba61fffc978f62e252a17f609a3fe9c006f" => :mojave
-    sha256 "d9456458ea694cc82774c881b5b0cd7779c512ca995a2e57b2f72829d75f33e3" => :high_sierra
-    sha256 "2eedae96bc9295d3729cf897967be3408d4496a86a4e11173bc64d220382e946" => :sierra
+    cellar :any
+    sha256 "6b5e5e6d141f39f0660b0f99c26b9d9fd46fa91aa4dd58f8c30c4c1fd4fbbabe" => :mojave
+    sha256 "956a8472894cb45f180ff7ed215e1ee1d32f970f45645e472e0d3678478714bf" => :high_sierra
+    sha256 "2d3a67d85512443840a04e351b9488a3454f2164beb2151772abcca0185a604d" => :sierra
   end
 
   depends_on "swig" => :build

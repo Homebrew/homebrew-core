@@ -1,15 +1,14 @@
 class Bedops < Formula
   desc "Set and statistical operations on genomic data of arbitrary scale"
   homepage "https://github.com/bedops/bedops"
-  url "https://github.com/bedops/bedops/archive/v2.4.35.tar.gz"
-  sha256 "da0265cf55ef5094834318f1ea4763d7a3ce52a6900e74f532dd7d3088c191fa"
+  url "https://github.com/bedops/bedops/archive/v2.4.36.tar.gz"
+  sha256 "a08e1178ca093102be139977b48f36f9cae5898b04b8d15757f97cb3ee2dd155"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e881bf7969bf3d763f6e1bbe56041779ec32aeb10a193c7922ed84697f99191b" => :mojave
-    sha256 "d505812bddf22f9c7b912c5cd7b0f7a5f197bf2fa318ec67c38d899cbc5eaefd" => :high_sierra
-    sha256 "3944dbf5ed3a6c2ff825099cdf3d65e0f8aad2de67604ce0523a0468a8832894" => :sierra
-    sha256 "a860bbe9e2aa2d5289aa0d960bb01212841f71732eb1e913c8364de46f62708c" => :el_capitan
+    sha256 "900e95a62f87acc85744c231c3b1d1d2bec6c3979996a21254ac8cc2f9e45dd6" => :mojave
+    sha256 "8d42fe26ff4f6175c1914d9c54f4b90ba608b64c84c1bb586f4dcaaa64b300f9" => :high_sierra
+    sha256 "5e39a435a55e7f5533df7dea6ace8d25586260ebad117be88ad10d9bf85fd235" => :sierra
   end
 
   def install

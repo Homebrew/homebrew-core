@@ -1,17 +1,14 @@
 class Sdl2Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://www.libsdl.org/projects/SDL_ttf/"
-  url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz"
-  sha256 "34db5e20bcf64e7071fe9ae25acaa7d72bdc4f11ab3ce59acc768ab62fe39276"
+  url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz"
+  sha256 "a9eceb1ad88c1f1545cd7bd28e7cbc0b2c14191d40238f531a15b01b1b22cd33"
 
   bottle do
     cellar :any
-    sha256 "f7b460020055a498bb642c7f774f282c517f5423cc1c238e565dbeab53ec7329" => :mojave
-    sha256 "a132a5656ba547e19361adab1e49ed84c2d3e379496058e8b39ebc676c77e2cc" => :high_sierra
-    sha256 "6420d0ad3f91d4683441a23323e347fa3116a5e484d810d896ac7a484a599e82" => :sierra
-    sha256 "29e62db1a48f1cd9142c04d4a734298f30c8924b32eaa914a6aaef574d4a6f01" => :el_capitan
-    sha256 "557067e99848b4b8a61c805eeb545c6ec66184b7fc2718dc3dd50bd551b0b324" => :yosemite
-    sha256 "3b2dafa7edea6a2173c9ae17bb6a1cc5137a9004ffc44b6443bc885456adbb1b" => :mavericks
+    sha256 "b69ec46685ef188e9776592355447ec566a9f21979e7cb1cf24e9ce2d34e5383" => :mojave
+    sha256 "c16d01a44651ad3976b32dc34a6e9b002627c9b10742be62cf341db841cd700f" => :high_sierra
+    sha256 "c56396c440997b65897427479e84bc07ac4efb0b796aebe223ffc61b07b16b0e" => :sierra
   end
 
   depends_on "pkg-config" => :build

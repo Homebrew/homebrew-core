@@ -1,8 +1,8 @@
 class AppEnginePython < Formula
   desc "Google App Engine"
   homepage "https://cloud.google.com/appengine/docs"
-  url "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.70.zip"
-  sha256 "3675197df810f104bbbee0e97b1ab776ba2ebff8b99f241bd4c2c125c8ebdaa1"
+  url "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.85.zip"
+  sha256 "a6f9ec29d0ea17a3be9092ed0ad462b53e846b26d79ccff03f1acfb158f5ea60"
 
   bottle :unneeded
 

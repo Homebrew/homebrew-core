@@ -1,14 +1,13 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
   homepage "https://www.gnome-db.org/"
-  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.8.tar.xz"
-  sha256 "e2876d987c00783ac3c1358e9da52794ac26f557e262194fcba60ac88bafa445"
-  revision 2
+  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
+  sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
 
   bottle do
-    sha256 "082aaf92e18ea5644d48a16ec18fd0d1d19efa7118ec17fdeca106cf8fd4379b" => :mojave
-    sha256 "1eced12e9536d31c56e32cf7d3734f872e7e187160ac9ba51a3a53f1b260c254" => :high_sierra
-    sha256 "4ce20eab3e051395f5717c176d6e79d00bd3ba8a2ee2e507c5559adb0245ebdd" => :sierra
+    sha256 "0eef60c3caf722f54a6930f425b4579439145fa418640ac03fe949ebd0d14ce9" => :mojave
+    sha256 "bd5ae9ab6d59032a00f92d0abfde3fc36920da2dd04312eb35c07e53102d276c" => :high_sierra
+    sha256 "b6a6663b434c84ed92deae11a8784082954ec1096741940108df43bed2775ad0" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

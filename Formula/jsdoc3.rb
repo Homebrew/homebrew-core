@@ -2,26 +2,22 @@ require "language/node"
 
 class Jsdoc3 < Formula
   desc "API documentation generator for JavaScript"
-  homepage "http://usejsdoc.org/"
-  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.5.5.tgz"
-  sha256 "f80dd27d77c4b6110cc4c548c2c026eee7df6c86df2bb047e2a6c30594bba088"
+  homepage "https://jsdoc.app/"
+  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.6.2.tgz"
+  sha256 "8fcb467c7095e9b2dc5771212ffd98978cf54c355ea8b60ac28db7eb73b1de3a"
   head "https://github.com/jsdoc3/jsdoc.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "970d55e99b1a144509611b0adaaf1ddf383428525c39bd801f1eb5dd298d515e" => :mojave
-    sha256 "1396c869bd6e91209c5d41902dcd5a5a2018b4f80746d726db606aad98b4cc32" => :high_sierra
-    sha256 "9d1b8234b82fcc7839015e3b08364a1a5aa3e431fbcf717f58c777cd43cebb07" => :sierra
+    sha256 "a3dbe47d0b9c325e1688a7b96691119beee2f65c16a15eda674b7a4ee17251af" => :mojave
+    sha256 "9c7edd88f94bbbb7f302cd0da115aed76ccca398ef374d09a446de678f005bec" => :high_sierra
+    sha256 "4083d0193dd4fd7055e2232e14303751dec9f5b664dd543f7986c149c9eba8d5" => :sierra
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    inreplace libexec/"lib/node_modules/jsdoc/node_modules/requizzle/lib/requizzle.js",
-      "if (lookupPaths[0] === targetPath && lookupPaths[1].length === 0) {",
-      "if (lookupPaths == null || lookupPaths[0] === targetPath && lookupPaths[1].length === 0) {"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

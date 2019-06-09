@@ -4,21 +4,21 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.28.1.tgz"
-  sha256 "d319e4a0c24baf2daf5efa195bcc13daf5dcd5346b0803e44bcfd3ea14c7745e"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.32.2.tgz"
+  sha256 "6aacb0208e3ee47f61ec944e67f5a9facca6e65602492f1f345061a2854c83e2"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "6a1e3f5ff141ca9a21142673c3c02204804114e52641a8e9fafd5216550ee349" => :mojave
-    sha256 "9e21021cb905b24cd1a393469e838ec7f5e1aa2e353b2f7758410005cbd7e519" => :high_sierra
-    sha256 "8bf6eb79ffc211ef3a03238b363e7245fac0e35ae90cd89123f0e2a773a4b9e1" => :sierra
+    sha256 "8c4cbf10a53cdcd958bbedcbee4b3c02cba6dd67835fe5af1aeea266e7d2e422" => :mojave
+    sha256 "f0cf000a57f103049820f1e71a59473d88c7195cc0da360f6f8b4ab2edf48c60" => :high_sierra
+    sha256 "fc98ee09b592aa8a862d7ed8b6f92cb43b3570346ef13bbbe3baf39622702e94" => :sierra
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-3.1.2.tgz"
-    sha256 "135962a43cdec4d24f68925c32e4daea600d6433d7b8fb912a9709a65712411e"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-3.3.2.tgz"
+    sha256 "dcb31e31e1ffe79e97d51782a38459785f2ded99bc15467ffe35f9ac33146df4"
   end
 
   def install

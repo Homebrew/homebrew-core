@@ -3,12 +3,12 @@ class Eccodes < Formula
   homepage "https://confluence.ecmwf.int/display/ECC"
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.12.0-Source.tar.gz"
   sha256 "f75ae5ce9e543622e8e40c3037619f8d9e6542c902933adb371bac82aee91367"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "25e190988d76a375f1b60bfcede286ae59b5c6aeed3212b0097a2297cab81125" => :mojave
-    sha256 "47b7c4aba9d4004726243e875778553430b00692c1ff7530e015591ff50a2b13" => :high_sierra
-    sha256 "2af2351f9391cb6849aac21ef3a841e1f65465fe334c303a69b07fea8f8d31eb" => :sierra
+    sha256 "5e06fab2d6e9bf162d09de8e3c487d33843575316e865ea0bf20eddb8a5ecca6" => :mojave
+    sha256 "37cf436e3db67327716b1189225bfa2c3328da6d8964592a6772a45e21252b55" => :high_sierra
+    sha256 "b17fa8c8024bd8e0f64338e342d1ace4276112dfc47c63041e868841ca440aa9" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,8 @@ class Eccodes < Formula
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
-      system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON", *std_cmake_args
+      system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON",
+                            "-DENABLE_PYTHON=OFF", *std_cmake_args
       system "make", "install"
     end
   end

@@ -1,15 +1,15 @@
 class Crc32c < Formula
   desc "CRC32C implementation with CPU-specific acceleration"
   homepage "https://github.com/google/crc32c"
-  url "https://github.com/google/crc32c/archive/1.0.7.tar.gz"
-  sha256 "dddcf4b883eb08574b23b46baac5f6b0373343e21e6b45140ed1f46059fce1a7"
+  url "https://github.com/google/crc32c/archive/1.1.0.tar.gz"
+  sha256 "49de137bf1c2eb6268d5122674f7dd1524b9148ba65c7b85c5ae4b9be104a25a"
   head "https://github.com/google/crc32c.git"
 
   bottle do
     cellar :any
-    sha256 "280f1403560b15c47c7a329a3669c31a07fd79c4875cba6a5e9a1165ad20954a" => :mojave
-    sha256 "6a23ba0acf485b27659e8e7058609551c218d6af53f583b0a911b6e8f3c5cde1" => :high_sierra
-    sha256 "2dc0253cc78c964e53f91ac533a8f8c42b1516b94611f2de32270f6bb4193399" => :sierra
+    sha256 "af325a8d3249cd237a34492d33c6c84cc7c058b9baede77e1499beb09789ee3d" => :mojave
+    sha256 "bf99febb71f1928b3fddc01c509a53ad1e10d0f5ee64fb561b54729e8482465e" => :high_sierra
+    sha256 "8f3c05aba98d9142e5fc1e38b1c0467f50dd6c51f03d53b0aa41566a8a7723f5" => :sierra
   end
 
   depends_on "cmake" => :build

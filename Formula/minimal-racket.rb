@@ -1,14 +1,14 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/7.2/racket-minimal-7.2-src-builtpkgs.tgz"
-  sha256 "dd75401824b877964b70d8b475b05f424721f72015f41d5ae6c508b60dab3ad5"
+  url "https://mirror.racket-lang.org/installers/7.3/racket-minimal-7.3-src-builtpkgs.tgz"
+  sha256 "40286b2de8aaeed70d2dbebcbbb89f1be55be00fd55f4522635b7a51a58d6dc2"
 
   bottle do
     cellar :any
-    sha256 "ab2fab8e8e2363ed71b7720d82642993a1aaac3ba2dc50155da932b2f990224f" => :mojave
-    sha256 "fbd8113cd50ee9bb0621ff1a0b23f8f9863c5ecebb548a7b09a9ad338d5f25c3" => :high_sierra
-    sha256 "4820d0e8e2b784d65aa1f512e96e8f64746a25f07e04c0a2a5970cbb241213b6" => :sierra
+    sha256 "54682774edc9d7818bb3f13b24b782c351876c2f44573a1d5c0b042d1b17c5c9" => :mojave
+    sha256 "b88127d2552cf2d11ade45f6e7deffd871cd27c1bf5937dae571dc8ba931c98b" => :high_sierra
+    sha256 "e76979bfea6f2c0549e4393af622a6d73b174b6323320d253873022643bab4c2" => :sierra
   end
 
   # these two files are amended when (un)installing packages

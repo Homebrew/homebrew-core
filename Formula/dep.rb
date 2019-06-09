@@ -2,15 +2,15 @@ class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
   url "https://github.com/golang/dep.git",
-      :tag      => "v0.5.1",
-      :revision => "faa6189302b8a862e5612d332ff3755c19784749"
+      :tag      => "v0.5.3",
+      :revision => "192eb4499a075a59ab6c191a9ba9dac9445625e4"
   head "https://github.com/golang/dep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ae2b134e3ae0db5f49767820b8a29ba302a3e850be0febb108ceccdb6dbc2a4" => :mojave
-    sha256 "185d8734c3009053c1b7eca70e61e2749ca83fe3573257a95e4c7f173f8eacd8" => :high_sierra
-    sha256 "596d056ca96c9d4fd992f16362f78f64526a3034112e775ee3912f26ab5d4158" => :sierra
+    sha256 "4708bad2967b388d3f828d555f43692ba767c45ee388263f5451317b98a6d7e6" => :mojave
+    sha256 "939b4de062495a176b8b9fa16a415140f1c152c28cfa375ee6b09bc46fcc6b26" => :high_sierra
+    sha256 "ef957bf4f72b37a5ce0355895781e50797cba663b200b02d18cd7b2c749b6712" => :sierra
   end
 
   depends_on "go"

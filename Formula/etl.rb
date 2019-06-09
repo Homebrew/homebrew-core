@@ -1,17 +1,14 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "https://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/ETL-0.04.19.tar.gz"
-  sha256 "ba944c1a07fd321488f9d034467931b8ba9e48454abef502a633ff4835380c1c"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/ETL-1.2.2.tar.gz"
+  sha256 "0dc19c5a6c9e964054ca3af6dacd6ab0c198d78071cfab2aebac178afe454d8b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27f07c7c05a3b86b5e5a55238fb5400ed15c4d3ba1a23b7759346dda9317c428" => :mojave
-    sha256 "2ed5639481b7ab8003063620f6714b4372d1cb8229e2b8369153906024b9c95f" => :high_sierra
-    sha256 "7275d40af2ee9e99feec8a04a9296b1167b24ca8f7125a875d08c13b4913e81b" => :sierra
-    sha256 "10244415e0dbf71f94c7585595632a09773a49dbc5bf5ac8de7e062f29c7f2b4" => :el_capitan
-    sha256 "29198ad9d848f2ff79b224a5467da1fb22a474de5ffc3e287196fd3822a45178" => :yosemite
-    sha256 "024271929c1e3de9d4c4e256a932fa9525395f7421fc174e7010251ab9a4b37e" => :mavericks
+    sha256 "b775dfeb3634c3b4ff3828239250394328b5c971e472cb775a0590d94bcdc6f8" => :mojave
+    sha256 "b775dfeb3634c3b4ff3828239250394328b5c971e472cb775a0590d94bcdc6f8" => :high_sierra
+    sha256 "507d4f4b35d0e075869446600e36e0f9f382014e99bf16a07d77f2c256cbc594" => :sierra
   end
 
   def install

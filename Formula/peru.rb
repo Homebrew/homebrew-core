@@ -3,15 +3,14 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/8e/db/ad9aa0e58bffc4f6f306d40608a7a755777ef283c28dee5a4c6a4dc47cad/peru-1.1.4.tar.gz"
-  sha256 "d899e1376009f7f95d220863ea79ca51712cd4bf769fff48973c239bf54e56d4"
+  url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
+  sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b8144cf1a442b8a90136e27491ae79713ff1785581af483d90f5114edf7f463" => :mojave
-    sha256 "e100f5fc856b9a9812fcc8d4cdda97c9bba3881e5e512e55b84ea64daa0d847c" => :high_sierra
-    sha256 "9dcd787fdc76ac4c11144e03ffa34cf2ed1b6faaf431d837be10fb3af29fbd5e" => :sierra
-    sha256 "bd08d3f6a70996f70e5074f839d14995cfa81cb08f677fd0e705df7b89045ec1" => :el_capitan
+    sha256 "eb1e744ad4162d35a84ea7e2eb53450bcad6acf803dc874093b96e3c81f85c3f" => :mojave
+    sha256 "785a37bcc0a2d972b62946d989226eb35d72896439c27c4ce8c34fa3c65b6e91" => :high_sierra
+    sha256 "2344e0f5c3f03c8aab73eec642082f4a5913cbda9370483689b1cc154648666d" => :sierra
   end
 
   depends_on "python"

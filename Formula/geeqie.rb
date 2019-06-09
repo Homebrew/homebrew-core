@@ -9,12 +9,12 @@ class Geeqie < Formula
       :tag      => "v1.4",
       :revision => "7c9b41e7c9be8cfc9b4f0a2459c0a1e0e4aaea5b",
       :shallow  => false
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "1ec3ae6207e019a06e6e23eaa25e05a7e6025a557ff96e5f06620011d1598d90" => :mojave
-    sha256 "d53cf22c02464a067ea414a2877692df268dd6ddb194fb13e5041fb8e38694c2" => :high_sierra
-    sha256 "d2c89edebb2249fa1b035ffc8b200485117e75b19d28fa3e7389ac910282bc5c" => :sierra
+    sha256 "75b33a9960e789726d0f18872afe1a75a63bf4c0d25d250a22b0ffd5f0d3de34" => :mojave
+    sha256 "028bf0b7c84969f4e5d2172deb13407904cfa878fce673767268625b825501f6" => :high_sierra
+    sha256 "c5dfe4a3af57167f2058175beb434db98acc796e21c7c3775e52f88a87d13228" => :sierra
   end
 
   depends_on "autoconf" => :build

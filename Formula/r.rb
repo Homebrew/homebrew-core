@@ -3,12 +3,12 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz"
   sha256 "36fcac3e452666158e62459c6fc810adc247c7109ed71c5b6c3ad5fc2bf57509"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cc0bcd96d5baf4e79e5e719f8378ee53336cd2d2e1d389e9d01ada6c75fb8f16" => :mojave
-    sha256 "5bbacfd1b67f1e35a133fcdad48c6e4bb4d4ea2d52522e1cdd8538a0d37f17a7" => :high_sierra
-    sha256 "df39c323a3e7a97758a2f4a606c2411abd9ceed108eddd88a8e86345fd1f9d26" => :sierra
+    sha256 "97a94e973e7e47203e0892f175c6da61e4ec210e17472458067c04a0f605c59b" => :mojave
+    sha256 "e214d025cc499062c8f7eafdcb8cd82b75dcef7aa2b3d181bf0d87f7eb506bde" => :high_sierra
+    sha256 "345978973e9d942bfd23d1ba583ced2cfde65aff52fc8a400ea74b278aa5ca58" => :sierra
   end
 
   depends_on "pkg-config" => :build

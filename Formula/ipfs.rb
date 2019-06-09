@@ -2,15 +2,15 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      :tag      => "v0.4.20",
-      :revision => "8efc82534f74916b3416b7f10e4daac8ff1e95c9"
+      :tag      => "v0.4.21",
+      :revision => "8ca278f45f56124ba6d25b0761d0ca0d5147b28b"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ded3070262a29b67ae5793665728e998aaa0f3b9be92cc0a5b9a5f020493164a" => :mojave
-    sha256 "051958731368a985c9b78fd30c70c0ca1880fe50a24135a49a389b9760de1eef" => :high_sierra
-    sha256 "6b6ba9d2f2528a81ef3af055c726df76eca519089f3c0ac57c7375f85beda442" => :sierra
+    sha256 "a9cb4206ba035a1c3c3c1305b322f9932130aeec51702b4f3022ad99fc3d81a2" => :mojave
+    sha256 "e0f97b3f77a88b02d24a5af8290353e5bccbb669a3ce57cfd98f0e86cdeef075" => :high_sierra
+    sha256 "3f7f02bca8ac1de69057ded24aa2b57459215aee91c0e47262a60f262dcb6353" => :sierra
   end
 
   depends_on "go" => :build

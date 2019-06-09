@@ -3,13 +3,13 @@ class Lysp < Formula
   homepage "http://www.piumarta.com/software/lysp/"
   url "http://www.piumarta.com/software/lysp/lysp-1.1.tar.gz"
   sha256 "436a8401f8a5cc4f32108838ac89c0d132ec727239d6023b9b67468485509641"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "99bd15715cd65de82889f6c7f563d3f145d04798431d769b23d3324168ddf972" => :high_sierra
-    sha256 "97eabed80564a307382737f30beca307f6284501256aa1a0e512b0de3b3b575e" => :sierra
-    sha256 "f713d6325db524edd51c628c7dad5e321078e7252540290a2d9f36999d35da71" => :el_capitan
+    sha256 "9f1474a3af4c8255f59b3da2b8cdba1fca9819be77413f97454024055b6e5084" => :mojave
+    sha256 "e7d9ebdee682743b97380db43b485f61fcd1e16cdd947644d0c28b3421be5cb6" => :high_sierra
+    sha256 "72050185e961e163ac4c722929db03b73a6889d572ca95166134970fa27702ab" => :sierra
   end
 
   depends_on "bdw-gc"

@@ -1,30 +1,17 @@
 class Gpsbabel < Formula
   desc "Converts/uploads GPS waypoints, tracks, and routes"
   homepage "https://www.gpsbabel.org/"
-  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_5_4.tar.gz"
-  sha256 "8cd740db0b92610abff71e942e8a987df58cd6ca5f25cca86e15f2b00e190704"
-  revision 2
+  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_6_0.tar.gz"
+  sha256 "ad56796f725dcdb7f52d9a9509d4922f11198c382fe10fc2d6c9efa8159f2090"
 
   bottle do
-    sha256 "afa69a0f0729d4ba82d1f36edee585ed6dc88be4d36d4bd93d0c8512ee13ff11" => :mojave
-    sha256 "4c3f17308d3d81e9a3ca96fd278e30a0cf927642a82cdb76a46ca649a6d9bb6f" => :high_sierra
-    sha256 "be91d28547a74b5a5e5564ee9b6bc5fe2c54dc2a62afd992ca00a4e0836e5dfb" => :sierra
+    sha256 "0d5fa17f760e4ff0ebf88bf4b461c1fba6498278edd57ab77caee7576f5c4609" => :mojave
+    sha256 "e147b5217a57fdf32a8073f53718e6423f227e967f9d495cb3a0bc38b5e2ad3a" => :high_sierra
+    sha256 "e982a298816049c9094762699799f238cfc8d7804cf5d72f6816ebd0e8aa414e" => :sierra
   end
 
   depends_on "libusb"
   depends_on "qt"
-
-  # Fix build with Xcode 9, remove for next version
-  patch do
-    url "https://github.com/gpsbabel/gpsbabel/commit/b7365b93.patch?full_index=1"
-    sha256 "e949182def36fef99889e43ba4bc4d61e36d6b95badc74188a8cd3da5156d341"
-  end
-
-  # Upstream fix to build with Qt 5.10, remove for next version
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ca4c4730/gpsbabel/qt5.10.patch"
-    sha256 "09efe405f43ae26570d6b5fcb7c5bcc7e0c8bc9a9ad6700d3901bcdcc43c33cf"
-  end
 
   def install
     ENV.cxx11

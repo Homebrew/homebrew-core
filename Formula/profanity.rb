@@ -2,12 +2,14 @@ class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
   url "http://www.profanity.im/profanity-0.6.0.tar.gz"
-  sha256 "51b0932924a391656423af0d85f14dde049ac1e94214f948849d37df1c2759c4"
+  # checksum change reported upstream at https://github.com/profanity-im/profanity/issues/1094
+  sha256 "f1b2773b79eb294297686f3913e9489c20effae5e3a335c8956db18f6ee2f660"
+  revision 1
 
   bottle do
-    sha256 "6c5d08457285bf82bf9a0b40dd98d0fbf69b558c7e53d53cfb4a23df7f698fe5" => :mojave
-    sha256 "ecea4e8185066366a4474c0d2e001bc308ffcd11f2e6c03d3620c1eea1e214e3" => :high_sierra
-    sha256 "cfddb383475bd23916318bbb433133a7e5c8d7ad84a19d002013e88bcdce0af2" => :sierra
+    sha256 "e5249cc2d5a6382f385ed3986485942db175c41a96c261cbbc88992fc18b11b1" => :mojave
+    sha256 "bf44c79e3907a1fd4d6c2b40759a680b31163d4f63bbcb0d9ebb4a56a2702c7e" => :high_sierra
+    sha256 "2b7c7f7fe0f7348191dabb78964dfbb4ec1b2cb4ede5a09c36449918930b1604" => :sierra
   end
 
   head do
@@ -26,7 +28,6 @@ class Profanity < Formula
   depends_on "libotr"
   depends_on "libstrophe"
   depends_on "openssl"
-  depends_on "ossp-uuid"
   depends_on "readline"
   depends_on "terminal-notifier"
 

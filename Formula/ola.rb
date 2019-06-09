@@ -3,12 +3,12 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
   sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "a8bd1491e4534a97ae5d31be6a25dda95d5513696e23931846f70d823f32d06b" => :mojave
-    sha256 "0d2cd27e4c0de1896ff237a3334d1a69efb396b1fc9e2ce36f4ecaa46b8fbf00" => :high_sierra
-    sha256 "516b9937272a72a646b2eefb6457bf2eadc125e75140ed6632d2e59fc1677c1c" => :sierra
+    sha256 "2912f40950ff9f15ecab6c2fe637b12e92596bf70f969dc386350b18cd2b851c" => :mojave
+    sha256 "79416500da0abb87d235b048033d080f6f7ad8f5e660ec9109f47c9015c37692" => :high_sierra
+    sha256 "2e469d457018a7620dc14b29856471b2406c740702078c6db77544072995b016" => :sierra
   end
 
   head do
@@ -23,7 +23,7 @@ class Ola < Formula
   depends_on "liblo"
   depends_on "libmicrohttpd"
   depends_on "libusb"
-  depends_on "ossp-uuid"
+  depends_on "numpy"
   depends_on "protobuf@3.1"
   depends_on "python@2" # protobuf@3.1 does not support Python 3
 

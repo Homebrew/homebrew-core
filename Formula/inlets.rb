@@ -2,14 +2,14 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/alexellis/inlets"
   url "https://github.com/alexellis/inlets.git",
-      :tag      => "0.6.3",
-      :revision => "01b26ba23791041121e4996609c96cfa4e25bf64"
+      :tag      => "2.1.0",
+      :revision => "c23f6993892a1b4e398e8acf61e3dc7bfcb7c6ed"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bbd500cc363dd5607b75330673963a41280ff2550fef6b24925f0106f305dba" => :mojave
-    sha256 "daaf2c48df4e934b1c45a7ef4ab5f2163c95490269282dd75fccc5af12ad6ba2" => :high_sierra
-    sha256 "b6523aa01bbf450a4f4879b84a47debc8675a61981079c74bde79085dbbc7e0c" => :sierra
+    sha256 "f36a039f4d97ec6cae1aba8a5ae6a5668a3f1e2a9396a2cfa0abfad911d68e4a" => :mojave
+    sha256 "493df8865a9548712b824ca241631e43affcb5526e1a8b91fc45e85e27acae49" => :high_sierra
+    sha256 "ebef63a47bc27736fce3fdd52d34ae5c3db585f06494f85550de9fa16904981d" => :sierra
   end
 
   depends_on "go" => :build
@@ -27,85 +27,66 @@ class Inlets < Formula
     end
   end
 
+  def cleanup(name, pid)
+    puts "Tearing down #{name} on PID #{pid}"
+    Process.kill("TERM", pid)
+    Process.wait(pid)
+  end
+
+  MOCK_RESPONSE = "INLETS OK".freeze
+
   test do
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    upstream_server = TCPServer.new(0)
+    upstream_port = upstream_server.addr[1]
+    remote_server = TCPServer.new(0)
+    remote_port = remote_server.addr[1]
+    upstream_server.close
+    remote_server.close
 
-    puts "Listening on: #{port}"
+    puts "Starting mock server on: localhost:#{upstream_port}"
 
-    (testpath/"ws_server.rb").write <<~EOS
-      require "socket"
-      require "digest/sha1"
+    (testpath/"mock_upstream_server.rb").write <<~EOS
+      require 'socket'
 
-      server = TCPServer.new("127.0.0.1", #{port})
-      websocket_port = server.addr[1]
+      server = TCPServer.new('localhost', #{upstream_port})
 
       loop do
         socket = server.accept
-        puts 'Incoming Request'
+        request = socket.gets
+        STDERR.puts request
 
-        http_request = ""
-        while (line = socket.gets) && (line != "\\r\\n")
-          http_request += line
+        response = "OK\\n"
+        shutdown = false
+
+        if request.include? "inlets-test"
+          response = "#{MOCK_RESPONSE}\\n"
+          shutdown = true
         end
 
-        if matches = http_request.match(/^Sec-WebSocket-Key: (\\S+)/)
-          websocket_key = matches[1]
-          puts "Websocket handshake detected with key: \#\{websocket_key\}"
-        else
-          puts "Ignoring non-websocket connection"
-          next
-        end
+        socket.print "HTTP/1.1 200 OK\\r\\n" +
+                    "Content-Type: text/plain\\r\\n" +
+                    "Content-Length: \#\{response.bytesize\}\\r\\n" +
+                    "Connection: close\\r\\n"
 
-        response_key = Digest::SHA1.base64digest([websocket_key, "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"].join)
-        puts "Responding to handshake with key: \#\{response_key\}"
+        socket.print "\\r\\n"
+        socket.print response
+        socket.close
 
-        response = "HTTP/1.1 101 Switching Protocols\\n" +
-        "Upgrade: websocket\\n" +
-        "Connection: Upgrade\\n" +
-        "Sec-WebSocket-Accept: \#\{response_key\}\\n" +
-        "\\n"
-
-        socket.write response
-
-        puts 'Handshake completed. Starting to parse the websocket frame.'
-
-        count = 0
-        loop do
-          count += 1
-          first_byte = socket.getbyte
-          fin = first_byte & 0b10000000
-          opcode = first_byte & 0b00001111
-
-          second_byte = socket.getbyte
-          is_masked = second_byte & 0b10000000
-          payload_size = second_byte & 0b01111111
-
-          keys = socket.read(4).bytes
-
-          # Ping Message - see rfc6455
-          if opcode == 9
-            puts 'Received Ping'
-            puts 'Sending Pong'
-            output = [0b10001010, 0, ""]
-            socket.write output.pack("CCA0")
-          end
-
-          # Exit after 2 ping-pongs
-          if count == 2
-            puts 'Exiting websocket server'
-            exit 0
-          end
+        if shutdown
+          puts "Exiting test server"
+          exit 0
         end
       end
     EOS
 
-    pid = fork do
-      exec "ruby ws_server.rb"
+    mock_upstream_server_pid = fork do
+      exec "ruby mock_upstream_server.rb"
     end
 
     begin
+      require "uri"
+      require "net/http"
+
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
 
@@ -114,19 +95,34 @@ class Inlets < Formula
       assert_match /\s#{commit}$/, inlets_version
       assert_match /\s#{version}$/, inlets_version
 
-      # Client websocket ping-pong test
-      sleep 3 # wait for server to start
-      output = shell_output("#{bin}/inlets client -r 127.0.0.1:#{port} -u http://127.0.0.1:8080 -p 1s 2>&1")
-      assert_match %r{\sUpstream:  => http://127.0.0.1:8080$}, output
-      assert_match %r{\sconnecting to ws://127\.0\.0\.1:#{port}/tunnel with ping=1s$}, output
-      assert_match /\sPing duration: 1.000000s$/, output
-      assert_match /\sConnected to websocket: 127.0.0.1/, output
+      # Client/Server e2e test
+      # This test involves establishing a client-server inlets tunnel on the
+      # remote_port, running a mock server on the upstream_port and then
+      # testing that we can hit the mock server upstream_port via the tunnel remote_port
+      puts "Waiting for mock server"
+      sleep 3
+      server_pid = fork do
+        puts "Starting inlets server with port #{remote_port}"
+        exec "#{bin}/inlets server --port #{remote_port}"
+      end
 
-      ping_ping_count = output.scan(/PongHandler\. Extend deadline/).size
-      assert_equal ping_ping_count, 2
+      client_pid = fork do
+        puts "Starting inlets client with remote localhost:#{remote_port}, upstream localhost:#{upstream_port}"
+        exec "#{bin}/inlets client --remote localhost:#{remote_port} --upstream localhost:#{upstream_port}"
+      end
+
+      puts "Waiting for inlets websocket tunnel"
+      sleep 3
+
+      uri = URI("http://localhost:#{remote_port}/inlets-test")
+      puts "Querying upstream endpoint via inlets remote: #{uri}"
+      response = Net::HTTP.get_response(uri)
+      assert_match MOCK_RESPONSE, response.body
+      assert_equal response.code, "200"
     ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+      cleanup("Mock Server", mock_upstream_server_pid)
+      cleanup("Inlets Server", server_pid)
+      cleanup("Inlets Client", client_pid)
     end
   end
 end

@@ -13,7 +13,7 @@ class Src < Formula
   end
 
   head do
-    url "git://thyrsus.com/repositories/src.git"
+    url "https://gitlab.com/esr/src.git"
     depends_on "asciidoc" => :build
   end
 

@@ -1,14 +1,15 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.10.0.tar.gz"
-  sha256 "54dd396e8f20d44c6032a32339f45eab46a69b6134e74a704f8d4a27c18ddc3e"
+  url "https://github.com/sharkdp/bat/archive/v0.11.0.tar.gz"
+  sha256 "bb4e39efadfab71c0c929a92b82dac58deacfe2a4eb527d4256ac0634e042ed2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36855c4b2616e0ef2fda032a1afc71f6be5abb6dee6c38376072cab1fd2b7e4f" => :mojave
-    sha256 "8a661ac036f0419b2959386eda537decb58b6bd614bd95bf7baeabed2287263d" => :high_sierra
-    sha256 "4a64a65453b1301cb01a784d8f5f1857f6904b7963032756a948ba79efc2bf51" => :sierra
+    sha256 "1a71e9fb381211afc6f4b6abbf6444ac3966808b97a7c4a4dd884c0fbf615f28" => :mojave
+    sha256 "1591c3cceb6dfb4849558a8cbedb2cbfb08e66a67f567e5f9285bc4273b43ca6" => :high_sierra
+    sha256 "b7cda190b1d08d0482c612200c48a402993fd79d4c1c56037161799d4b982912" => :sierra
   end
 
   depends_on "rust" => :build
@@ -17,6 +18,7 @@ class Bat < Formula
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
+    fish_completion.install "assets/completions/bat.fish"
   end
 
   test do

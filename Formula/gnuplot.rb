@@ -1,15 +1,13 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.6/gnuplot-5.2.6.tar.gz"
-  sha256 "35dd8f013139e31b3028fac280ee12d4b1346d9bb5c501586d1b5a04ae7a94ee"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.7/gnuplot-5.2.7.tar.gz"
+  sha256 "97fe503ff3b2e356fe2ae32203fc7fd2cf9cef1f46b60fe46dc501a228b9f4ed"
 
   bottle do
-    rebuild 1
-    sha256 "47903eca8637b8de9b803932795fe9dec4a45df4ea8ab61c51e2692501edce03" => :mojave
-    sha256 "24a6c735fb69f8f7f016cf4ecadbe8d11022523c9d7160ef03160f41bf117aa7" => :high_sierra
-    sha256 "5ef8fe2bebfcc2232f8ee414f0ce0c6b13482e212938d041dc55db7ea139eb10" => :sierra
+    sha256 "898bad3f2b5161f8d76dc5b5534d11c0cf4daddf34ab6e7653ca7ca43302adee" => :mojave
+    sha256 "b9f2ff9e6fcab512608d1e534051993d23c6ed98dcc6c0dd053b6aa5f6023ee0" => :high_sierra
+    sha256 "7089dbaa82335746fe44f60d3b4d522d7f68b56370676ad44236742654127980" => :sierra
   end
 
   head do

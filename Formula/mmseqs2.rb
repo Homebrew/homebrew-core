@@ -1,15 +1,15 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/8-fac81.tar.gz"
-  version "8-fac81"
-  sha256 "035d1c9a5fcfae50bc2d201f177722bd79d95d3ba32342972baa7b142b52aa82"
+  url "https://github.com/soedinglab/MMseqs2/archive/9-d36de.tar.gz"
+  version "9-d36de"
+  sha256 "2890a748b38ed1a04d98c2197b11bac6b50c1329313b6218ba2f53aeb6c5e874"
 
   bottle do
     cellar :any
-    sha256 "cd9a945c1a551b09cfa43b7a7fa367eac46bce268c497e641c084b9f5cbd43f1" => :mojave
-    sha256 "a0970621b620f8de23d29fe97157b07855353d69ae406d8b20a8931e78b45c3a" => :high_sierra
-    sha256 "2f489d61340919ba9e0fea9b3e1f6df909e2d93bcb44e5332f6a8574feb7cf94" => :sierra
+    sha256 "681f2f8d6ff749a72eff0f8d05a8bcf840941c8146ef26e976e78de65564a440" => :mojave
+    sha256 "61c186285e1aeef7720fd770f870a452d1ec74fb8fefbf64ec043181fee0aa98" => :high_sierra
+    sha256 "71909089e3daab335064614f58e8d2882132fa9c45e99a5e64fbbe250d40b267" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -21,20 +21,13 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "a4f660d1bbf5e71438d03e09fa4ca036ceb18128"
+        :revision => "00ba0be0690f5b883697bd1dbcb9e0f4b3c18bca"
   end
 
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
     args << "-DHAVE_SSE4_1=1"
-
-    # Workaround for issue introduced in macOS 10.14 SDK
-    # SDK uses _Atomic in ucred.h which current g++ does not support
-    # __APPLE_API_STRICT_CONFORMANCE makes sysctl.h not include apis like ucred.h
-    # and thus we dont fail compilation anymore
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864
-    args << "-DCMAKE_CXX_FLAGS=-D__APPLE_API_STRICT_CONFORMANCE"
 
     system "cmake", ".", *args
     system "make", "install"

@@ -1,14 +1,14 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.5/sleuthkit-4.6.5.tar.gz"
-  sha256 "674da80818ed667b2dcc70e58ca329b90bda791dc32d2eaabf2efcf6f07f05c4"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.6/sleuthkit-4.6.6.tar.gz"
+  sha256 "cfc9cd1e777ec2d13f0422cba4583d0279315e406e2e37cbb153b3d07faf11c6"
 
   bottle do
     cellar :any
-    sha256 "01a7a2766ade79e43d163c03f2c580cdc463221d90f000178ea6a82cdee92134" => :mojave
-    sha256 "66d9be8a0042223bea0db051e5a9412a485e8ef800411d160caba7eb57d073f0" => :high_sierra
-    sha256 "4cfb4188da9952d9f25c8aaed5170b82904e8eb4f4bec748adb4b64502b05ac8" => :sierra
+    sha256 "bfbdb6c56045f3d156cff38715348d31689e85af228297460449c5cacac2240d" => :mojave
+    sha256 "35582862b81d7885aa26b7888e41c462f943e3938b2a7752e072e47e91eac106" => :high_sierra
+    sha256 "f9d09d2168a61bc4ecd679b694c8e0d6d0609786199aca994968bd2b8d3c2f7f" => :sierra
   end
 
   depends_on "ant" => :build

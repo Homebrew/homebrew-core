@@ -3,15 +3,14 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v4.1.tar.gz"
-  sha256 "a66a423f837c4daed1b4a4084fc58ee6e37ec58f42b9edd2d61c7af0e3d4f343"
+  url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
+  sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "22d85e59ee35cabc36f9d4da53ac954d3daaf3c9e56abf5d172f74c764627656" => :mojave
-    sha256 "eee1781899dd35719c61d0fdaa4ca5d3b8051a0f5706e8ec4e331df4ca3aa26e" => :high_sierra
-    sha256 "9110ee0dd4bdabd429499383bed74aa53b3ede2636c2691a0f1a3b2b233cd438" => :sierra
+    sha256 "0af777ba94a4c830808ef8107ed97636e7ae2cf6a6b69a63403bdbe5f0f1d0b6" => :mojave
+    sha256 "d7895d98cc003535022ccc3795bc7ae18ee438a8c1989af912d7d6c7f010ffd9" => :high_sierra
+    sha256 "2d4aa8647d31246d9152770fe786e31ed153c6437c10e0a8abbb661318eaa03e" => :sierra
   end
 
   depends_on "openssl"

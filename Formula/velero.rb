@@ -1,15 +1,14 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/heptio/velero"
-  url "https://github.com/heptio/velero/archive/v0.11.0.tar.gz"
-  sha256 "366f4c1ed5800dbdddefa60ed88bdd82b406b69b76a214b1d7108997a2f973ac"
-  revision 1
+  url "https://github.com/heptio/velero/archive/v1.0.0.tar.gz"
+  sha256 "5720f0f08b0320b2f3cbc9df58d98668270cae06ace00c49dcb0cb1eebff7edd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf306dd8b4823d6650dfe27f08f1c5b78c24d306bfbb4629f5df3f0933336ad6" => :mojave
-    sha256 "642258fee6c8f83019c7fe9ce9d1b87b99c4e5dd8401a6fbb1554725ab74dcaa" => :high_sierra
-    sha256 "4b93e561d1f5d20a5e3d64d8c1c9c9d314098c0969e62fd42e74595e46ce4929" => :sierra
+    sha256 "05177d006b69e56fd04457380e461ab2a4d666374ff3ca9378aa4e31d7f2c1ca" => :mojave
+    sha256 "1625c1559141096d44a6e5dcf6fa5db70f97a19f590139c2f4dd9412452dc4e7" => :high_sierra
+    sha256 "5d46e4176b0cb13195150030980e36a7e8a6b15f90f0fd56a9f471b27597ef5c" => :sierra
   end
 
   depends_on "go" => :build
@@ -22,7 +21,7 @@ class Velero < Formula
     cd dir do
       system "go", "build", "-o", bin/"velero", "-installsuffix", "static",
                    "-ldflags",
-                   "-X github.com/heptio/velero/pkg/buildinfo.Version=#{version}",
+                   "-X github.com/heptio/velero/pkg/buildinfo.Version=v#{version}",
                    "./cmd/velero"
 
       # Install bash completion
@@ -40,7 +39,7 @@ class Velero < Formula
   test do
     output = shell_output("#{bin}/velero 2>&1")
     assert_match "Velero is a tool for managing disaster recovery", output
-    assert_match "Version: #{version}", shell_output("#{bin}/velero version --client-only 2>&1")
+    assert_match "Version: v#{version}", shell_output("#{bin}/velero version --client-only 2>&1")
     system bin/"velero", "client", "config", "set", "TEST=value"
     assert_match "value", shell_output("#{bin}/velero client config get 2>&1")
   end

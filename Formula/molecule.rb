@@ -3,16 +3,14 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/aa/0f/dc6393eed9588e477a23488fbd23efd40246fcc64815179db6c8c892f554/molecule-1.25.1.tar.gz"
-  sha256 "aeafd3a6c5a0de707308006dcf727883c9daf4446d18d9e68eb97659c51ebbb0"
-  revision 3
+  url "https://files.pythonhosted.org/packages/8d/51/a691f91a829e0be54c8d898ece232c723936faa408496e8ac87f32846bea/molecule-2.20.1.tar.gz"
+  sha256 "621797c54299775f284bbb010d5bb9be485500eecaaa14a476cbc0df285d0da7"
 
   bottle do
     cellar :any
-    sha256 "611a1f11773ca1d3fd9885229d70b134acf0108261b2ef8e740b29e6915c6957" => :mojave
-    sha256 "0f1161a2923864cbf310eb621d2c45a58881816efdeb0fcc8d0b61382d2027cc" => :high_sierra
-    sha256 "62d26f320c2305f7f3cd968dc88a457ee1e1ad1105cbad56142b775d37a25970" => :sierra
-    sha256 "162908de7b790f51095e8399129ad985a9ecfbe99b25a4c8ed633bf104d4fbd5" => :el_capitan
+    sha256 "7cc899cf58130d90b57c43fc72be9ca5ea69fb835207ab05fda9afe47c67c233" => :mojave
+    sha256 "8bbd4af792ef879170fe14dc84e95058375e691c7406e4c5db66a5f51796e32f" => :high_sierra
+    sha256 "cc88e57b2c2b35257999ec5b815e6312cdc853104f790436845c6dba38ef9c16" => :sierra
   end
 
   depends_on "openssl"
@@ -34,8 +32,8 @@ class Molecule < Formula
   end
 
   resource "anyconfig" do
-    url "https://files.pythonhosted.org/packages/1a/c4/4aeb05181b0c9ab9f3bb0846dec5cccfa392dc3c593593bc2642749c1897/anyconfig-0.7.0.tar.gz"
-    sha256 "b972257f81770c0f535917cd8a61a74542180d3a86290b30155e0912cc7a3558"
+    url "https://files.pythonhosted.org/packages/20/48/f6db52d5ca39904a53dbbd7a8fc45757a24ba387249c247c524b3847c4e6/anyconfig-0.9.9.tar.gz"
+    sha256 "621b0b5f08efd2e375596b50f79943200d90f0397fed55cf0d2f5f484e005e9d"
   end
 
   resource "arrow" do
@@ -58,6 +56,11 @@ class Molecule < Formula
     sha256 "359501dfc9d40632edc9fac890e19542db1a287bbcfa58175b66658392018061"
   end
 
+  resource "cerberus" do
+    url "https://files.pythonhosted.org/packages/c9/0e/f78e23b778c2234972d364d0f8bea2de0a09f450f65d3f05ce091dd0f104/Cerberus-1.3.1.tar.gz"
+    sha256 "0be48fc0dc84f83202a5309c0aa17cd5393e70731a1698a50d118b762fbe6875"
+  end
+
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
     sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
@@ -76,6 +79,11 @@ class Molecule < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
     sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+  end
+
+  resource "click_completion" do
+    url "https://files.pythonhosted.org/packages/77/fd/2d7ec2b86cd4d487abf0b13dce58e98413096c45b9645470be0cb8de6ff2/click-completion-0.5.1.tar.gz"
+    sha256 "78072eecd5e25ea0d25ceaf99cd5f22aa2667d67231ae0819deab9b1ff3456fb"
   end
 
   resource "colorama" do
@@ -213,6 +221,11 @@ class Molecule < Formula
     sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
   end
 
+  resource "python-gilt/" do
+    url "https://files.pythonhosted.org/packages/01/18/01d7e1c159db5094ab04140ec66a4003db3622d843845dd706662b73f352/python-gilt-1.2.1.tar.gz"
+    sha256 "e23a45a6905e6bb7aec3ff7652b48309933a6991fad4546d9e793ac7e0513f8a"
+  end
+
   resource "python-vagrant" do
     url "https://files.pythonhosted.org/packages/bb/c6/0a6d22ae1782f261fc4274ea9385b85bf792129d7126575ec2a71d8aea18/python-vagrant-0.5.15.tar.gz"
     sha256 "af9a8a9802d382d45dbea96aa3cfbe77c6e6ad65b3fe7b7c799d41ab988179c6"
@@ -233,6 +246,11 @@ class Molecule < Formula
     sha256 "979928ca113cade663bb1a0ff710e3eb9147596cf28a7ee4c04f9d85804f7b9f"
   end
 
+  resource "shellingham" do
+    url "https://files.pythonhosted.org/packages/1b/82/52b4facd501d1cdfee1f2b3aa6092dc0ee6c07baf78692f9035adb1357da/shellingham-1.3.1.tar.gz"
+    sha256 "985b23bbd1feae47ca6a6365eacd314d93d95a8a16f8f346945074c28fe6f3e0"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
@@ -246,6 +264,11 @@ class Molecule < Formula
   resource "testinfra" do
     url "https://files.pythonhosted.org/packages/3b/04/d7a9a2d9fc8708f7fe09ff9c2317f4e1f8b771491f147c53abfd3a43c5fd/testinfra-1.6.3.tar.gz"
     sha256 "a68a0ce06e2d480da8d6aa3d85325e9eee1419a401053166a036d1f331f944af"
+  end
+
+  resource "tree-format" do
+    url "https://files.pythonhosted.org/packages/0d/91/8d860c75c3e70e6bbec7b898b5f753bf5da404be9296e245034360759645/tree-format-0.1.2.tar.gz"
+    sha256 "a538523aa78ae7a4b10003b04f3e1b37708e0e089d99c9d3b9e1c71384c9a7f9"
   end
 
   resource "urllib3" do
@@ -263,6 +286,11 @@ class Molecule < Formula
     sha256 "9e0d51c9387cb7e9f28b7edb549e6a03da758f7784f991eb4397d7f7808c57fd"
   end
 
+  resource "yamllint" do
+    url "https://files.pythonhosted.org/packages/47/79/5abf604a4ad4b74c12a4f47d1ef166a6702a4d86cb6dccc07d5996969dfb/yamllint-1.15.0.tar.gz"
+    sha256 "8f25759997acb42e52b96bf3af0b4b942e6516b51198bebd3402640102006af7"
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
     virtualenv_install_with_resources
@@ -270,9 +298,9 @@ class Molecule < Formula
 
   test do
     # Test the Vagrant driver
-    system bin/"molecule", "init", "--role", "foo-vagrant", "--driver", "vagrant", "--verifier", "testinfra"
-    assert_predicate testpath/"foo-vagrant/molecule.yml", :exist?, "Failed to create 'foo-vagrant/molecule.yml' file!"
-    assert_predicate testpath/"foo-vagrant/tests/test_default.py", :exist?, "Failed to create 'foo-vagrant/tests/test_default.py' file!"
+    system bin/"molecule", "init", "role", "--role-name", "foo-vagrant", "--driver-name", "vagrant", "--verifier-name", "testinfra"
+    assert_predicate testpath/"foo-vagrant/molecule/default/molecule.yml", :exist?, "Failed to create 'foo-vagrant/molecule/default/molecule.yml' file!"
+    assert_predicate testpath/"foo-vagrant/molecule/default/tests/test_default.py", :exist?, "Failed to create 'foo-vagrant/molecule/default/tests/test_default.py' file!"
     cd "foo-vagrant" do
       system bin/"molecule", "list"
     end

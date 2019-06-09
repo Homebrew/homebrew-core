@@ -1,15 +1,14 @@
 class Mdk < Formula
   desc "GNU MIX development kit"
   homepage "https://www.gnu.org/software/mdk/mdk.html"
-  url "https://ftp.gnu.org/gnu/mdk/v1.2.9/mdk-1.2.9.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mdk/v1.2.9/mdk-1.2.9.tar.gz"
-  sha256 "6c265ddd7436925208513b155e7955e5a88c158cddda72c32714ccf5f3e74430"
-  revision 4
+  url "https://ftp.gnu.org/gnu/mdk/v1.2.10/mdk-1.2.10.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mdk/v1.2.10/mdk-1.2.10.tar.gz"
+  sha256 "b0f4323a607a3346769499b00fdd6d4748af5a61dd8a24511867ef5d96c08ce7"
 
   bottle do
-    sha256 "a13810f7246ea0adcd01a507c97e5041d64aae92cafcc2a6d26eeafbd5b8732b" => :mojave
-    sha256 "17b4bb66066acdc77836431aa0aa57d456aceaa097a1758ea7495d52bca49809" => :high_sierra
-    sha256 "0021a786577ff2eb6b220939a19e0a80f0f8546022d8c35eccb719e72bff2378" => :sierra
+    sha256 "906b2b508a0fccb27e86679b6a319598a9ed54f1407fe82d7d8f869cd217dd47" => :mojave
+    sha256 "527f41bede7e5d517736044f1e7382882610f50364e91cb46ac6beacac53a67b" => :high_sierra
+    sha256 "5db2d875c0ef2d23a91bff4bdcc7c40fc6ea82cb25d469d7a3665f53ffe8f483" => :sierra
   end
 
   depends_on "intltool" => :build

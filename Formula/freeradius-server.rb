@@ -1,14 +1,14 @@
 class FreeradiusServer < Formula
   desc "High-performance and highly configurable RADIUS server"
   homepage "https://freeradius.org/"
-  url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_18.tar.gz"
-  sha256 "c6802e3ec675b1cf59c850b0f01ed088e2983c5c4daa7f64cc22be4e6ad13ae5"
+  url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_19.tar.gz"
+  sha256 "34c50ac47a683b13eae1a02f2d0263c0bd51a83f01b99c02c5fe25df07a1ee77"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   bottle do
-    sha256 "d1c7435e989a36eccd350d10060e7166b279dbdcdab4f6c6f3fcd2456871536d" => :mojave
-    sha256 "28129f8061b40d0d0890489d7ccafb648c640483602d2849aaa19379ed0b4955" => :high_sierra
-    sha256 "2ca7b26cb4de48e14bc4bd85f23c0913319f2c2234c32fde7f124d21c9ea575e" => :sierra
+    sha256 "536c79ce65f77982ceab1f8ec47e023e46d8b78a9035f4229af5a0aed1a8f4ca" => :mojave
+    sha256 "e52023a7bb402838658a7a3705fae8c5b58de339cba710a590045eb13a706652" => :high_sierra
+    sha256 "da36b7c93a9e2c4b3fc58fa319fe47287c5e0eb2d6dfa702d9f95fc6424f9bff" => :sierra
   end
 
   depends_on "openssl"

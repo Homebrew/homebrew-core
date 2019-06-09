@@ -3,11 +3,12 @@ class Wget < Formula
   homepage "https://www.gnu.org/software/wget/"
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz"
   sha256 "31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e"
+  revision 1
 
   bottle do
-    sha256 "cfe40dfe41b8da402e74e2ec6a0ca03ff2bd998824188af6e9eacd300d1cc226" => :mojave
-    sha256 "fef738f888e306166489396a2aaf7f0d7cc3257eef97e0d18a62d75e6e6ae440" => :high_sierra
-    sha256 "c2a5d0e2dd91659d491805c7c50723db552abf49e59f39e99eebe08656c858fe" => :sierra
+    sha256 "96a58c26308afae033e6d6325e7af3f20618b4ca84f2d265ba3ca16a5eae7e65" => :mojave
+    sha256 "8ec2c004992bc9b836a84b560b9c93fe2d46f13c27aac246ab3b72379dfe5c34" => :high_sierra
+    sha256 "cb786d5bf247dc71c57081dfbdbb0762ea31e695954cdb02d75c3e34bc3d1188" => :sierra
   end
 
   head do

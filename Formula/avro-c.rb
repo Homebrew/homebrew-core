@@ -1,15 +1,13 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.2/c/avro-c-1.8.2.tar.gz"
-  sha256 "4639982b2b8fbd91fc7128fef672207129c959bb7900dd64b077ce4206edf10e"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.9.0/c/avro-c-1.9.0.tar.gz"
+  sha256 "80568644384828b7f926efe76965907c8fff0c49e02301bfe8b2cb7965fa08b2"
 
   bottle do
-    sha256 "072eff37263bbd6dfa941cb350ffd2ea7ee6e23e948547f8c9c6f3b58e162211" => :mojave
-    sha256 "845eb5220229a26d3acd435beb093301207850787827a84db0d55455357f18dd" => :high_sierra
-    sha256 "442b64624539b8454693b961ac9b455f2ad956c1119cb16e49c65498caeb1e81" => :sierra
-    sha256 "6282882c11af83fe568776fa45c11c5140dec413a6cd4efff9e28b2ffc35713c" => :el_capitan
+    sha256 "72fbe9c22be502351d5dcffcb37a97c754f3bb3057742bf31b185b0a0f1d5eb4" => :mojave
+    sha256 "6a8b708a052cd04ffb7135b4d69b0f6b6a60ac83dc071622dfaf241f26998c79" => :high_sierra
+    sha256 "e194efdbbebb86f6f553b039251165fa87646a4e21d29916560f6ce73ef8281b" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,6 +1,6 @@
 class ZeldaRothSe < Formula
   desc "Zelda Return of the Hylian SE"
-  homepage "http://www.solarus-games.org/games/zelda-return-of-the-hylian-se/"
+  homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-return-of-the-hylian-se"
   head "https://github.com/christopho/zelda_roth_se.git"
 
   stable do

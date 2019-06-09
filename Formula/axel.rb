@@ -1,17 +1,18 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/archive/v2.16.1.tar.gz"
-  sha256 "64529add74df3db828f704b42d4ec3fcdacb8142c84f051f9213637c337e706c"
+  url "https://github.com/axel-download-accelerator/axel/archive/v2.17.3.tar.gz"
+  sha256 "13cc30194a2d52cdb87b0deca6e472ac75fbb2d8af72d554ba3936f1e2a416a7"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
-    sha256 "adeae5381b5f2af22d603fbb6fac26db979bba83594ed3a3df1f37111052242d" => :mojave
-    sha256 "2cf88b747ac4b3e70e20248993abbfc4e00ada9acbab151f8df333901394ca23" => :high_sierra
-    sha256 "509b1d7f66f4cd73750f6aa67e6cf081d53b358d78c2b7a489d9854b76042c84" => :sierra
+    sha256 "ee8290a5bebdc8dd004a01dc7ab79ddce852bc4ac116d2628eccd0233c6145a1" => :mojave
+    sha256 "5653614b55d9ed7e0340ddf16bfea60934af1146d403eed4f7d54a3a7ab58501" => :high_sierra
+    sha256 "7210f4ac81aa0689a2471ca5989bd03525bac13133ba25ebed7b234883cefd42" => :sierra
   end
 
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"

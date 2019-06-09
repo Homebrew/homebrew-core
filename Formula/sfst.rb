@@ -1,7 +1,7 @@
 class Sfst < Formula
   desc "Toolbox for morphological analysers and other FST-based tools"
-  homepage "http://www.cis.uni-muenchen.de/~schmid/tools/SFST/"
-  url "http://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.4.7d.tar.gz"
+  homepage "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/"
+  url "https://www.cis.uni-muenchen.de/~schmid/tools/SFST/data/SFST-1.4.7d.tar.gz"
   sha256 "5a13c6a45298197216a6299eb6cdf96595d2036572bb518b9e1c1893cb1a6d5f"
 
   bottle do

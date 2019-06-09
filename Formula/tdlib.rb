@@ -1,14 +1,14 @@
 class Tdlib < Formula
   desc "Cross-platform library for building Telegram clients"
   homepage "https://core.telegram.org/tdlib"
-  url "https://github.com/tdlib/td/archive/v1.3.0.tar.gz"
-  sha256 "2953fe75027ac531248b359123aa4812666377ac874c1db506fa74176f2d2338"
+  url "https://github.com/tdlib/td/archive/v1.4.0.tar.gz"
+  sha256 "673e3b5d362edaed6bb016d2e674540644d66ded68556f32dfec0d5e1544532c"
 
   bottle do
     cellar :any
-    sha256 "b4814dca4a43f82588ce6fbe98aba1aea02b030a979deb68b42c4330c69ad282" => :mojave
-    sha256 "45114d88ad51f18337f09debc02165757349811c1022dd0849ef1adf74a9d40f" => :high_sierra
-    sha256 "e5fec3448dccf46ab20db066d2699cdfb79beb62592f57ff59f7520ed02103ec" => :sierra
+    sha256 "43d05fa9669a385041355dc2589b3c79c0e4eb865f2c4ce684c3cf9bfa1a90ad" => :mojave
+    sha256 "2045c65dbb9580bd1c6c3dcd648596f6fe0fdaf12eebf661e594892c5bb2e17c" => :high_sierra
+    sha256 "9d96510be1b5d37b9775cc039eabebf6b62e66b26f1259e841a5be1f223d9957" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,28 +1,21 @@
 class Cracklib < Formula
   desc "LibCrack password checking library"
   homepage "https://github.com/cracklib/cracklib"
-  url "https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz"
-  sha256 "17cf76943de272fd579ed831a1fd85339b393f8d00bf9e0d17c91e972f583343"
+  url "https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2"
+  sha256 "fe82098509e4d60377b998662facf058dc405864a8947956718857dbb4bc35e6"
 
   bottle do
-    rebuild 1
-    sha256 "a21962259717ab187dc477310b0e68b28449135839312f7c632f0e46414efcf1" => :mojave
-    sha256 "52c1e0acde52e27553ca3884dba490596ebc4a45019181bbb355ed9bad50e778" => :high_sierra
-    sha256 "e2cfe716fb290d4dd26558290707596146e15ca8da510b38897c128f961779b6" => :sierra
-    sha256 "12665f56731ad7a8c56143d5f263b99e7a8484cbb0e2f22b955978f63e724138" => :el_capitan
+    cellar :any
+    sha256 "5ec5d327b820cae5b28440d88557669c83b6035adde41858c753a822df203bff" => :mojave
+    sha256 "9e73ad02d623bc310e908ee1e4d29e44bfc6c0a0d83dbaf96486986361942262" => :high_sierra
+    sha256 "2345643d79e6c5abdf7dffe54f2a04862cd396f948454b69270a511816274ea7" => :sierra
   end
 
   depends_on "gettext"
 
   resource "cracklib-words" do
-    url "https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-words-2.9.6.bz2"
-    sha256 "460307bb9b46dfd5068d62178285ac2f70279e64b968972fe96f5ed07adc1a77"
-  end
-
-  # Upstream commit from 25 Aug 2016 "Apply patch to fix CVE-2016-6318"
-  patch :p2 do
-    url "https://github.com/cracklib/cracklib/commit/47e5dec.patch?full_index=1"
-    sha256 "7b3604d503208365951038b04990eef24b8ef90ce845fd84e2d2ab88a9a4f56b"
+    url "https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-words-2.9.7.bz2"
+    sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
   end
 
   def install

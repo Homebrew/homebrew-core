@@ -1,15 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2019.03.18.00.tar.gz"
-  sha256 "45b47d5d0ee5652bcb87bde6b03cf5a3232b04b3750056831b9e72ea4e1871db"
-  revision 2
+  url "https://github.com/facebook/folly/archive/v2019.06.03.00.tar.gz"
+  sha256 "a8b6ea626cabcc210700d5d0389985ffc7ab9f96433386322b4cfd3df9b9eabd"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "34403daae605becd5da491a2354f903498bbc9309e5b7e8847ecc83fe310f9ad" => :mojave
-    sha256 "f86f5dffe2a308e6b9ad5a46da71cc5e015fe5eb76fc914ca111c745c7d0908a" => :high_sierra
+    sha256 "3dcb1509a2781403663158660ffe7417d6624424aa21fb05217fcbc5d1c6dde5" => :mojave
+    sha256 "0d1631bb0285b77cbcfbacbecf7c4239bce34479b5ce69b9ddeabcea73023ab2" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -40,16 +39,10 @@ class Folly < Formula
   end
 
   def install
-    ENV.cxx11
-
     mkdir "_build" do
       args = std_cmake_args + %w[
         -DFOLLY_USE_JEMALLOC=OFF
       ]
-
-      # Upstream issue 10 Jun 2018 "Build fails on macOS Sierra"
-      # See https://github.com/facebook/folly/issues/864
-      args << "-DCOMPILER_HAS_F_ALIGNED_NEW=OFF" if MacOS.version == :sierra
 
       system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make"
@@ -75,7 +68,7 @@ class Folly < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cc", "-I#{include}", "-L#{lib}",
+    system ENV.cxx, "-std=c++14", "test.cc", "-I#{include}", "-L#{lib}",
                     "-lfolly", "-o", "test"
     system "./test"
   end

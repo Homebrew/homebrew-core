@@ -1,26 +1,11 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
-  revision 2
   head "https://anongit.kde.org/qca.git"
 
   stable do
-    url "https://github.com/KDE/qca/archive/v2.1.3.tar.gz"
-    sha256 "a5135ffb0250a40e9c361eb10cd3fe28293f0cf4e5c69d3761481eafd7968067"
-
-    # upstream fixes for macOS building (remove on 2.2.0 upgrade)
-    patch do
-      url "https://github.com/KDE/qca/commit/7ba0ee591e0f50a7e7b532f9eb7e500e7da784fb.diff?full_index=1"
-      sha256 "3f6c8a8bbd246556c690142c209a34973981be66e46fee991a456fb2e8b66d72"
-    end
-    patch do
-      url "https://github.com/KDE/qca/commit/b435c1b87b14ac2d2de9f83e586bfd6d8c2a755e.diff?full_index=1"
-      sha256 "9ea01ad6b21282ff62b18ac02588f7106b75056ab8379dff3fdfcff13a6c122f"
-    end
-    patch do
-      url "https://github.com/KDE/qca/commit/f4b2eb0ced5310f3c43398eb1f03e0c065e08a82.diff?full_index=1"
-      sha256 "d6c27ebfd8fec5284e4a0a39faf62e44764be5baff08141bd7f4da6d0b9f438d"
-    end
+    url "https://github.com/KDE/qca/archive/v2.2.1.tar.gz"
+    sha256 "c67fc0fa8ae6cb3d0ba0fbd8fca8ee8e4c5061b99f1fd685fd7d9800cef17f6b"
 
     # use major version for framework, instead of full version
     # see: https://github.com/KDE/qca/pull/3
@@ -31,10 +16,9 @@ class Qca < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 "2bb9c83e54cd7ffef77b7111c1163ce2aa2efe450aab7be62c4ba4f8968f2bfc" => :mojave
-    sha256 "ec20d95d269615e6ab276c21866b54ecd13fcaf33d543e47b8b9f45362f4d801" => :high_sierra
-    sha256 "23eeb0c71865eaa6e5c29311480bbdcf2a80aa9c818853e8b7155b5a97689fb1" => :sierra
+    sha256 "56923c31aaa91a00f6692f135e8f5889182b770d08800f90f0ae685a6edd5b4a" => :mojave
+    sha256 "df6120a7a524c85100ff94912a364903d4eeae0529ab1a24a0e72aa66f52dfa7" => :high_sierra
+    sha256 "1a498fc1f967cf8290d4d0748d7d003442047f5358bb368c4e41d49681799f5d" => :sierra
   end
 
   depends_on "cmake" => :build

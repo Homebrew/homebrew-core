@@ -3,12 +3,13 @@ class Abyss < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
   url "https://github.com/bcgsc/abyss/releases/download/2.1.5/abyss-2.1.5.tar.gz"
   sha256 "65bfc8241e6ff5adf7601ae4ae93a75e3db86d6bff5d593c75aaff7f0ef41757"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9899d03cf2714ffc25adcac83e4b424c03022b6896c3112f49d01f585b0d3a7c" => :mojave
-    sha256 "3c358f580990e5edb642524dc83d7cf82cff1788649ef2584dd8e9113d9f7821" => :high_sierra
-    sha256 "56097dc4da0f6700dface6d4a36b5064b3401f2ba7b874cc61736f4a06047cdf" => :sierra
+    sha256 "b3b0b70dd3911e0a94689f1ff4c0066a77f1698d6644e948a70b6cc073d2bcae" => :mojave
+    sha256 "465013b8098487135b82083d9a73562d27dd856a1a9707d9a7946032e9828e02" => :high_sierra
+    sha256 "7202018eb50f51b0fc6c5ae76339e7dd2ae712f4a2dcc71e8dff9eb812878b54" => :sierra
   end
 
   head do

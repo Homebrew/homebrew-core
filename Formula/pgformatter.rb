@@ -1,14 +1,14 @@
 class Pgformatter < Formula
   desc "PostgreSQL syntax beautifier"
   homepage "https://sqlformat.darold.net/"
-  url "https://github.com/darold/pgFormatter/archive/v3.3.tar.gz"
-  sha256 "f56ff7d7b8d59e85ac325a4b954d98b6aeae8369da74970f7948c7f4a1448ffa"
+  url "https://github.com/darold/pgFormatter/archive/v4.0.tar.gz"
+  sha256 "2816d08655a554785fc55ccd299ad9613930872b7170df766d5da32dec47ce31"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f93a3e3df7309520df02fb29f5ff386f52a6f081b6fec33e66d6ffa928b5e875" => :mojave
-    sha256 "812ff63ece606b2edf98ae23afc75f00ea2ffd59f49eb67e6fd59d11000222ef" => :high_sierra
-    sha256 "812ff63ece606b2edf98ae23afc75f00ea2ffd59f49eb67e6fd59d11000222ef" => :sierra
+    sha256 "d0cfc5513c412218952a4efafc8b044fd254ed7236170598c7d928d6a183e48f" => :mojave
+    sha256 "bced76b0fe3ecd889dd517396585f6683e8fd250698dc69361677114b16b0880" => :high_sierra
+    sha256 "aeada48f43efd49f1796b457d8993060f4f6e87ba38ad2b7f38a9d3f47ba9def" => :sierra
   end
 
   def install

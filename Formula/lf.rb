@@ -1,25 +1,24 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r11.tar.gz"
-  sha256 "9b325380b42584b15cf15758d0cc43f23cc697e81546520efe73e7bde8501906"
+  url "https://github.com/gokcehan/lf/archive/r12.tar.gz"
+  sha256 "8a3ca71dd18ca01f34a08573049c5f9f4302b5c7a998443d2b0855792fdca7f2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "425a8acdb00954e4a13b82cc7090c5d37233b9ee119bea72353633575df956ba" => :mojave
-    sha256 "57153e2bdd744e2f81998ec60ae2ce97aaa315d65887efb20ab8d664584a3543" => :high_sierra
-    sha256 "cce56f87a135cb5d184fd92419062ab0913b6d8a647a02492cbbcc674f354d98" => :sierra
+    sha256 "cb80b454e19c4a3c9022924fa03c838b4084fc8b73d8b69e5708f81bc97903ae" => :mojave
+    sha256 "34230d8e1e260dac0f02984f4c63074ffb9e5d05b47bd1c29fc63c4d9b95488a" => :high_sierra
+    sha256 "a3123479fc02341f27de6137452254d2fe88f9553aa64c997d3331f06600a255" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
     ENV["version"] = version
     (buildpath/"src/github.com/gokcehan/lf").install buildpath.children
     cd "src/github.com/gokcehan/lf" do
-      system "dep", "ensure", "-vendor-only"
       system "./gen/build.sh", "-o", bin/"lf"
       prefix.install_metafiles
     end

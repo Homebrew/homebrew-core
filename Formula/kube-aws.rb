@@ -1,6 +1,6 @@
 class KubeAws < Formula
-  desc "CoreOS Kubernetes on AWS"
-  homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
+  desc "A command-line tool to declaratively manage Kubernetes clusters on AWS"
+  homepage "https://kubernetes-incubator.github.io/kube-aws/"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
       :tag      => "v0.12.3",
       :revision => "99cfc470a46e6c3c0121675ab41c01841849c077"

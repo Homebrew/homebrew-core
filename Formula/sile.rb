@@ -33,6 +33,7 @@ class Sile < Formula
 
   resource "lpeg" do
     url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.1.tar.gz"
+    mirror "https://mirror.sobukus.de/files/grimoire/lua-forge/lpeg-1.0.1.tar.gz"
     sha256 "62d9f7a9ea3c1f215c77e0cadd8534c6ad9af0fb711c3f89188a8891c72f026b"
   end
 

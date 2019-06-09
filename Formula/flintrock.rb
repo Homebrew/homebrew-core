@@ -3,15 +3,14 @@ class Flintrock < Formula
 
   desc "Tool for launching Apache Spark clusters"
   homepage "https://github.com/nchammas/flintrock"
-  url "https://files.pythonhosted.org/packages/50/2b/615976ae41ae0060fbacb17c19030f6410e126c17ac93e1082bb8ac4429f/Flintrock-0.10.0.tar.gz"
-  sha256 "8a0b52b460567b1f5600ac3dd2fc35e632c7b39fcbc4eba74ebc64b707f496ac"
+  url "https://files.pythonhosted.org/packages/82/2e/c2aa7e8a98b03632f789e15854ee9716d6b3aef31580950458285819be95/Flintrock-0.11.0.tar.gz"
+  sha256 "f203a5558acc5fc7d8fd6efefaf6f0b90625c9d9c938521cdecc44bc684b3605"
 
   bottle do
     cellar :any
-    sha256 "2076c3d08a2d0cdc15445427392c0e80774798b309a2c7cea31ced6c07a4008b" => :mojave
-    sha256 "638d8137ef5a7b8ae3826ac1b2b2380cbac80f3104ee7b1ae4130c84a36ec149" => :high_sierra
-    sha256 "638dee7d896476b045d230763c5daf1b5988389399ffbcdd23c43608453e63db" => :sierra
-    sha256 "2068d78272c7cd9df7527c13139f62816b4af4acd4a916b32c157f4101cf447e" => :el_capitan
+    sha256 "4e751759576f7e080179569f30da1959b3bcf962262dbd2da3c28eb7af957c97" => :mojave
+    sha256 "d16f396f143d138ed1d8ccba3762af7edcdc49568ac917e71309e9b7900d4381" => :high_sierra
+    sha256 "ac2b26f81c53a18e63b7168bfe717db79a223717c5c1209f775b66f0461e54fd" => :sierra
   end
 
   depends_on "python"
@@ -27,13 +26,13 @@ class Flintrock < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/4f/28/1642a25573c8ffbdcec0ceb09cf5d941f5bc2a0be71179a5d2220e1df3e0/boto3-1.7.58.tar.gz"
-    sha256 "ce462e7505c03c3e6708ce6f264ac43d478886082af703ff69c502592df5d4f3"
+    url "https://files.pythonhosted.org/packages/0d/2d/1d1fdb432082b0cca309be1c7bae847f7f951dcc48cd7fd03a7e0cf98990/boto3-1.9.57.tar.gz"
+    sha256 "0a0c0f0859a2be56b23823f8c1d50abf3c89d7d4d054019f24de69eeee9ad75c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e5/7b/4f0d1613f33b32a8ad8f65c7973a389244e0aecd209db761f5d51291ebc4/botocore-1.10.58.tar.gz"
-    sha256 "e0e6b6d1fdbce81c28151136ee919d2cdeee13041559710cd5c93d7e4035a455"
+    url "https://files.pythonhosted.org/packages/d9/53/cfb5634ded1c72f06bad0718ae13e3cd4116cdc12a198a6d8deb255a6315/botocore-1.12.57.tar.gz"
+    sha256 "9dac7753d81e8a725b9a169fd63b43d2a3caeceb51de3fafd5e5bd10e25589cb"
   end
 
   resource "cffi" do
@@ -42,8 +41,8 @@ class Flintrock < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
   end
 
   resource "cryptography" do
@@ -67,8 +66,8 @@ class Flintrock < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/29/65/83181630befb17cd1370a6abb9a87957947a43c2332216e5975353f61d64/paramiko-2.4.1.tar.gz"
-    sha256 "33e36775a6c71790ba7692a73f948b329cf9295a72b0102144b031114bd2a4f3"
+    url "https://files.pythonhosted.org/packages/a4/57/86681372e7a8d642718cadeef38ead1c24c4a1af21ae852642bf974e37c7/paramiko-2.4.2.tar.gz"
+    sha256 "a8975a7df3560c9f1e2b43dc54ebd40fd00a7017392ca5445ce7df409f900fcb"
   end
 
   resource "pyasn1" do
@@ -106,10 +105,12 @@ class Flintrock < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  def install
-    # Python 3.7 compat
-    inreplace "setup.py", "PyYAML == 3.12", "PyYAML == 3.13"
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
+    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+  end
 
+  def install
     virtualenv_install_with_resources
   end
 

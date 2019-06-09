@@ -1,14 +1,15 @@
 class Serve < Formula
   desc "Static http server anywhere you need one"
   homepage "https://github.com/syntaqx/serve"
-  url "https://github.com/syntaqx/serve/archive/v0.3.0.tar.gz"
-  sha256 "6bdedf3e3a83ad23cd867c480d32a9f1a91e4e7a289f81579ee4ff308c12d3eb"
+  url "https://github.com/syntaqx/serve/archive/v0.4.0.tar.gz"
+  sha256 "5329738cc72bcee9c7d327981e256369c623257f7f9bd282592deafccacee6f1"
+  head "https://github.com/syntaqx/serve.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9fe1762cda8205639c0a5dc717c940847d2e2cef2aa59ece09294de3d78a1605" => :mojave
-    sha256 "ea14b31d9f2264d6cb52e760713412009a9ee2a90e9c36b460e2658b4e26ac53" => :high_sierra
-    sha256 "f901ff85f818ae1bb852cd0f0a12ca41e2d9c427410f1af35701216f50dcb6fd" => :sierra
+    sha256 "a339885f14479144ebe771f5caba2239290d89926a1a8bbbaa56751b9ef62f8f" => :mojave
+    sha256 "2b1474e49ed747c67fde6ed65e404da4c4e4d2f39190995241e10e62a99cca17" => :high_sierra
+    sha256 "c23f691164cbd2f96630d273215f300e1e05ad99427b63e830db52c01eb9ac08" => :sierra
   end
 
   depends_on "go" => :build

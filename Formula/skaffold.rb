@@ -2,15 +2,15 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://github.com/GoogleContainerTools/skaffold"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      :tag      => "v0.28.0",
-      :revision => "2b6143bb6d185de9b9fbf2eaa981c8e7acff7339"
+      :tag      => "v0.31.0",
+      :revision => "9935f9ecd68b50759d4180d7319e7fd43428fe3d"
   head "https://github.com/GoogleContainerTools/skaffold.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad440b6b3a1a995274307dea6d8a9a62ea7e57f8122ba66b5dac03e51bbe0039" => :mojave
-    sha256 "3933f4b4bccae4a00eb92da7a256dab05f2075cdffb055de24385748ed4a348b" => :high_sierra
-    sha256 "c915a9fbead266ee1df106227949a046a7524812df81672317cba32e3cbd67a2" => :sierra
+    sha256 "d2926e45d671833869a8adc5b51c605b364eefc59f5b17f2aafa40468bbd6915" => :mojave
+    sha256 "9e96315bad3fe73845a268cfa56d94bab8eb2a2c88994d24bdad5f02f358d16c" => :high_sierra
+    sha256 "8f1578b6cca66e4e205a9667669bf2b35db0aaf64a48cd17e5aba0cefec610a5" => :sierra
   end
 
   depends_on "go" => :build

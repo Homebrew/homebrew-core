@@ -3,14 +3,13 @@ class Lapack < Formula
   homepage "https://www.netlib.org/lapack/"
   url "https://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
   sha256 "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
-  revision 1
+  revision 2
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
-    sha256 "5cd0dfbb4814bbecda514adbc4a4fd900b3a29fd6bed13357c817a4669557fea" => :mojave
-    sha256 "fc5162e536ab2909d5232e09c78ac5257d51c8effbb6ed586e9fa5fe98b3b7d9" => :high_sierra
-    sha256 "a4257ee255778776eda1eb8b89ba27f424e99200310e277859c5df086159f58a" => :sierra
-    sha256 "e11fa8f2435edc1d9e992c59c0168a24c4402d717288d721e0b2fa4f2819f899" => :el_capitan
+    sha256 "fa78953406938636ce45034e192d7611db5f72fbe46a934a2b4072ab2bb3a289" => :mojave
+    sha256 "7de1e297afb68bcbcf867b5b996934e5f5d2278bbf28e95ea8c953cb3f74b0f7" => :high_sierra
+    sha256 "76c5a310ea6e8a78650ab8518a57745b2aac13a93d31a95b66f23181c63c2a24" => :sierra
   end
 
   keg_only :provided_by_macos

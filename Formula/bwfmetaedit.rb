@@ -1,15 +1,15 @@
 class Bwfmetaedit < Formula
   desc "Tool for embedding, validating, and exporting BWF file metadata"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.7/BWFMetaEdit_CLI_1.3.7_GNU_FromSource.tar.bz2"
-  version "1.3.7"
-  sha256 "15bce139edfa03adb63235803b2817205b5abea3f69643afae3da71d3298ad2d"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.8/BWFMetaEdit_CLI_1.3.8_GNU_FromSource.tar.bz2"
+  version "1.3.8"
+  sha256 "58bab975d5cd5860246acad7260b07404f9cb453fc2f4acdd35ab4f5cf1d0d5b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e258954081e5d8c34c3421bb825274f7f2e75a3ba907a9daa742735c8779d4d6" => :mojave
-    sha256 "d4b195aef2be90ae4b9e37145637d35131748ab92b2b48a65e2f5e0ec5652fc4" => :high_sierra
-    sha256 "d3f0d70d2b6a54d2f9c2aa00ce4bf304df76419eb6c0acd09efb709ad8c85564" => :sierra
+    sha256 "84b882f74d83bb3e15132b2b702f8264ac865f043136c5b69a11a07fa9ce13be" => :mojave
+    sha256 "0201e1bf51774f427210f28d27235c45e472571f76d3c82f840dc5c41cf47dd5" => :high_sierra
+    sha256 "0d6fa85b0695eac0516072c1c736a63e671c7621ab8f56c82b787bcf167c3081" => :sierra
   end
 
   def install

@@ -1,16 +1,15 @@
 class Physfs < Formula
   desc "Library to provide abstract access to various archives"
   homepage "https://icculus.org/physfs/"
-  url "https://icculus.org/physfs/downloads/physfs-3.0.1.tar.bz2"
-  sha256 "b77b9f853168d9636a44f75fca372b363106f52d789d18a2f776397bf117f2f1"
+  url "https://icculus.org/physfs/downloads/physfs-3.0.2.tar.bz2"
+  sha256 "304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863"
   head "https://hg.icculus.org/icculus/physfs/", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "4b2cf49af5b93bb1d0a0670ceccae84cb26c77a51c4e8230dd792c9da4dc0962" => :mojave
-    sha256 "03128f703af35b557fe9e6792dc93dec7b520e7d38a86b782cfdc5e00f850a71" => :high_sierra
-    sha256 "9549999aa9862efb9f59fd0448eef8bdfb458cef44367bad6a4fe436584e1977" => :sierra
-    sha256 "a8b9f8b640dc1aca30c1505fd738474f71f6122d86216bdaa33e4e3135d97367" => :el_capitan
+    sha256 "cb97a3a17728f3173d4c19fde495cffbddce965bbf6015e45882e3c27f267cf3" => :mojave
+    sha256 "296927566472c976a578f89c4bd6bf0f518427a53d586499a8e202896d469ee3" => :high_sierra
+    sha256 "6742501c33943dcdab748b3c2188cf6292f462b82896da001cdbcfbbcc01e489" => :sierra
   end
 
   depends_on "cmake" => :build

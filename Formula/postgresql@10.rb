@@ -1,14 +1,13 @@
 class PostgresqlAT10 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2"
-  sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
-  revision 2
+  url "https://ftp.postgresql.org/pub/source/v10.8/postgresql-10.8.tar.bz2"
+  sha256 "b198c2aadf1d68308127a0f5b51dbe798958ffe60dd999134f6495c489afcd5d"
 
   bottle do
-    sha256 "5967e87fa3e33b7781e8dfa5bc9282eb0d16c32c90a07ff887433ea0da2aa6c1" => :mojave
-    sha256 "8693516c57090705569392ce17c057ee405b3f2bcb3627790b6e8ae73b4242ae" => :high_sierra
-    sha256 "e30ef18d7c638aa1efac6c526b5e90532b3ec5652160c374dda5289109227053" => :sierra
+    sha256 "a9e0184e704f0daad597f3961a022283950dc0ac97fe090076181b5eb674abd5" => :mojave
+    sha256 "66c67566231b1548ed1e6fdf742e516a3d7d8fc085da9cba927b6b63e58c9537" => :high_sierra
+    sha256 "563c65449790d295825827ff4c3d671f9036ae261edd93ce88e5ff8c8bdbf9c7" => :sierra
   end
 
   keg_only :versioned_formula
