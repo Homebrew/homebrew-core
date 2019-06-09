@@ -1,8 +1,9 @@
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
-  url "https://github.com/goreleaser/goreleaser/archive/v0.109.0.tar.gz"
-  sha256 "ec48ff424ce1b35144f0fbad22e74029bfe657b3582309a0a198ff74f34afa96"
+  url "https://github.com/goreleaser/goreleaser.git",
+      :tag      => "v0.109.0",
+      :revision => "7ee486fc9b58171e70eec99ecdbeac4c99cc82d0"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,7 +24,7 @@ class Goreleaser < Formula
     cd dir do
       system "go", "mod", "vendor"
       system "go", "build", "-ldflags",
-                   "-s -w -X main.version=#{version} -X main.builtBy=homebrew",
+                   "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
                    "-o", bin/"goreleaser"
       prefix.install_metafiles
     end
