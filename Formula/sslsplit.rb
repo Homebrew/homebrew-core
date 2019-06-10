@@ -28,27 +28,14 @@ class Sslsplit < Formula
   end
 
   test do
-    pid_webrick = fork do
-      exec "ruby", "-rwebrick", "-e",
-           "s = WEBrick::HTTPServer.new(:Port => 8000); " \
-           's.mount_proc("/") {|_,res| res.body = "sslsplit test"}; ' \
-           "s.start"
-    end
-    pid_sslsplit = fork do
-      exec "#{bin}/sslsplit", "-P", "http", "127.0.0.1", "8080",
-                                            "127.0.0.1", "8000"
-    end
-    sleep 1
-    # Workaround to kill all processes from sslsplit
-    pid_sslsplit_child = `pgrep -P #{pid_sslsplit}`.to_i
+    require "socket"
 
-    begin
-      assert_equal "sslsplit test",
-                   shell_output("curl -s http://localhost:8080/test")
-    ensure
-      Process.kill 9, pid_sslsplit_child
-      Process.kill 9, pid_webrick
-      Process.wait pid_webrick
-    end
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    cmd = "#{bin}/sslsplit -D http 0.0.0.0 #{port} www.roe.ch 80"
+    output = pipe_output("(#{cmd} & PID=$! && sleep 3 ; kill $PID) 2>&1")
+    assert_match "Starting main event loop", output
   end
 end
