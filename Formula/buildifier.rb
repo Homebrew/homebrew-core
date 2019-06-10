@@ -2,8 +2,8 @@ class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
   url "https://github.com/bazelbuild/buildtools.git",
-      :tag      => "0.22.0",
-      :revision => "55b64c3d2ddfb57f06477c1d94ef477419c96bd6"
+      :tag      => "0.26.0",
+      :revision => "eb1a85ca787f0f5f94ba66f41ee66fdfd4c49b70"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Buildifier < Formula
   depends_on "bazel" => :build
 
   def install
-    system "bazel", "build", "--workspace_status_command=#{buildpath}/status.sh", "buildifier:buildifier"
+    system "bazel", "build", "--workspace_status_command=#{buildpath}/status.py", "buildifier:buildifier"
     bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
 
