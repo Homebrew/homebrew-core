@@ -1,9 +1,8 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.1.1/irssi-1.1.1.tar.xz"
-  sha256 "784807e7a1ba25212347f03e4287cff9d0659f076edfb2c6b20928021d75a1bf"
-  revision 1
+  url "https://github.com/irssi/irssi/releases/download/1.2.0/irssi-1.2.0.tar.xz"
+  sha256 "1643fca1d8b35e5a5d7b715c9c889e1e9cdb7e578e06487901ea959e6ab3ebe5"
 
   bottle do
     sha256 "ca5e86cee8f481f3a442ee91030236c16346f47dffe880526e4e6f1058cadb68" => :mojave
@@ -24,6 +23,8 @@ class Irssi < Formula
   depends_on "openssl"
 
   def install
+    ENV.delete "HOMEBREW_SDKROOT" if MacOS.version == :high_sierra
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -42,9 +43,6 @@ class Irssi < Formula
       system "./autogen.sh", *args
     end
 
-    # https://github.com/irssi/irssi/pull/927
-    inreplace "configure", "^DUIfm", "^DUIifm"
-
     system "./configure", *args
     # "make" and "make install" must be done separately on some systems
     system "make"
@@ -60,6 +58,8 @@ class Irssi < Formula
     # This is not how you'd use Perl with Irssi but it is enough to be
     # sure the Perl element didn't fail to compile, which is needed
     # because upstream treats Perl build failures as non-fatal.
+    # To debug a Perl problem copy the following test at the end of the install
+    # block to surface the relevant information from the build warnings.
     ENV["PERL5LIB"] = lib/"perl5/site_perl"
     system "perl", "-e", "use Irssi"
   end
