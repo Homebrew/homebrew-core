@@ -1,8 +1,8 @@
 class Anyenv < Formula
   desc "All in one for **env"
   homepage "https://anyenv.github.io/"
-  url "https://github.com/anyenv/anyenv/archive/v1.1.0.tar.gz"
-  sha256 "43d51b31b4efccc52cd48290d565d33ee8ef9fc9dbcf635909481744e9898617"
+  url "https://github.com/anyenv/anyenv/archive/v1.1.1.tar.gz"
+  sha256 "d7f386f74d5fd40ded51b4e83f05490493fc6b63d22eb3d502836020548b0137"
 
   bottle do
     cellar :any_skip_relocation
