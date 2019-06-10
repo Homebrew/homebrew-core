@@ -6,9 +6,9 @@ class Anyenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f36c96fb9dce2d36e6d67aaf1aa8fc846983333b101816ff6a78ae5b68135a08" => :mojave
-    sha256 "f36c96fb9dce2d36e6d67aaf1aa8fc846983333b101816ff6a78ae5b68135a08" => :high_sierra
-    sha256 "021fa6c226fdd920311d5fb871dd8befe70690b14bd2e03365059f0a011973f8" => :sierra
+    sha256 "0bc3795db6ae8df4151de4fb15be7122a7c0c416d4bc553976e61b23cb9e3c61" => :mojave
+    sha256 "0bc3795db6ae8df4151de4fb15be7122a7c0c416d4bc553976e61b23cb9e3c61" => :high_sierra
+    sha256 "c4073892fe99575a1f23eb24714392f098c2980eaaf465a9a8641d955da08306" => :sierra
   end
 
   def install
