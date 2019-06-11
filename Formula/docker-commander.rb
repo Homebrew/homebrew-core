@@ -19,6 +19,33 @@ class DockerCommander < Formula
   end
 
   test do
-    system "#{bin}/docker-commander", "-v"
+    assert_equal version, shell_output("#{bin}/docker-commander -v")
+
+    (testpath/"config.yml").write <<-EOS
+      ubuntu: &ubuntu
+        connect:
+          from_image: ubuntu
+
+      config:
+        - name: group 1
+          config:
+
+            - name: command 1
+              exec:
+                <<: *ubuntu
+                cmd: ls -lah
+
+        - name: group 2
+          config:
+            - name: command 2
+              exec:
+                <<: *ubuntu
+                cmd: ls -lah /var
+    EOS
+
+    # Test parsing configuration.
+    # If configuration parsed - GUI will return error, since brew can't launch docker-commander GUI
+    output = shell_output("#{bin}/docker-commander -c=#{testpath}/config.yml 2>&1", 2)
+    assert_match "error while reading terminfo data", output
   end
 end
