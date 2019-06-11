@@ -5,8 +5,8 @@ class Hlint < Formula
 
   desc "Haskell source code suggestions"
   homepage "https://github.com/ndmitchell/hlint"
-  url "https://hackage.haskell.org/package/hlint-2.1.23/hlint-2.1.23.tar.gz"
-  sha256 "12400517c248edfc6ae0088599c80f2e37b45c8796d638a4e75c7c6a9b125bc3"
+  url "https://hackage.haskell.org/package/hlint-2.1.24/hlint-2.1.24.tar.gz"
+  sha256 "0668d12a145de3795ede61aace46e300bad9fc4d8eb127e8e9d9d0f3d0f31875"
   head "https://github.com/ndmitchell/hlint.git"
 
   bottle do
