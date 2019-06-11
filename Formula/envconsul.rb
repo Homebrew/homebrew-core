@@ -1,9 +1,8 @@
 class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
-  url "https://github.com/hashicorp/envconsul/archive/v0.7.3.tar.gz"
-  sha256 "7152d73818c3faceac831c6ffae6e01c2f3a6372976409d9d084130ffcea35f4"
-  revision 1
+  url "https://github.com/hashicorp/envconsul/archive/v0.8.0.tar.gz"
+  sha256 "f324eb8840a16254e73c6feb41195640490a9e2bb2d811b5652313cb528bf368"
 
   bottle do
     cellar :any_skip_relocation
