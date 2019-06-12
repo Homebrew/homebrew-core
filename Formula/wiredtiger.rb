@@ -15,7 +15,7 @@ class Wiredtiger < Formula
 
   def install
     system "./configure", "--with-builtins=snappy,zlib",
-                          "--with-python",
+                          "--enable-python",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
