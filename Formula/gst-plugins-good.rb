@@ -6,6 +6,7 @@ class GstPluginsGood < Formula
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz"
     sha256 "654adef33380d604112f702c2927574cfc285e31307b79e584113858838bb0fd"
   end
+  revision 1
 
   bottle do
     sha256 "d1b38ed639a608b9bd95d5065615638edf196904fe4aab2f31be82c9bfadbb46" => :mojave
