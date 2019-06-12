@@ -35,6 +35,7 @@ class GstPluginsGood < Formula
   depends_on "orc"
   depends_on "speex"
   depends_on "taglib"
+  depends_on "gtk+3"
 
   def install
     args = %W[
