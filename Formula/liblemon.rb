@@ -1,32 +1,34 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://www.rubydoc.info/github/Homebrew/brew/master/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Liblemon < Formula
   desc "Library for Efficient Modeling and Optimization in Networks"
   homepage "http://lemon.cs.elte.hu"
   url "http://lemon.cs.elte.hu/pub/sources/lemon-1.3.1.tar.gz"
   sha256 "71b7c725f4c0b4a8ccb92eb87b208701586cf7a96156ebd821ca3ed855bad3c8"
   depends_on "cmake" => :build
-  # patch the preflow algorithm, see https://lemon.cs.elte.hu/trac/lemon/ticket/608
   patch :DATA
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
-    # Remove unrecognized options if warned by configure
     system "cmake", ".", *std_cmake_args
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make", "install"
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test liblemon`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <lemon/list_graph.h>
+      using namespace std;
+      using namespace lemon;
+      int main()
+      {
+        ListDigraph g;
+        ListDigraph::Node u = g.addNode();
+        ListDigraph::Node v = g.addNode();
+        ListDigraph::Arc  a = g.addArc(u, v);
+        cout << countNodes(g) << ','
+             << countArcs(g) << endl;
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-o", "test"
+    assert_equal %w[2,1], shell_output("./test").split
   end
 end
 __END__
