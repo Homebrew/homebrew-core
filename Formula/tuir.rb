@@ -3,7 +3,7 @@ class Tuir < Formula
 
   desc "Command-line Reddit client"
   homepage "https://gitlab.com/ajak/tuir"
-  url "https://gitlab.com/ajak/tuir/-/archive/master/tuir-master.tar.gz"
+  url "https://gitlab.com/ajak/tuir/-/archive/v1.28.1/tuir-v1.28.1.tar.gz"
   version "1.28.1"
   sha256 "975d8cca39797eb604023d916370d2195fde363f397101a00f2927888be9eea5"
 
