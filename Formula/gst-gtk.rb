@@ -1,5 +1,5 @@
 class GstGtk < Formula
-  desc "GStreamer plugins (well-supported, under the LGPL)"
+  desc "GStreamer gtk+3 plugin (fork of gst-plugins-good)"
   homepage "https://gstreamer.freedesktop.org/"
 
   stable do
