@@ -4,8 +4,7 @@ class Tuir < Formula
   desc "Command-line Reddit client"
   homepage "https://gitlab.com/ajak/tuir"
   url "https://gitlab.com/ajak/tuir/-/archive/v1.28.1/tuir-v1.28.1.tar.gz"
-  version "1.28.1"
-  sha256 "975d8cca39797eb604023d916370d2195fde363f397101a00f2927888be9eea5"
+  sha256 "a0ca434873a9f9258cd9b0868190bd4b64350b0eefb3eb90f185f984f02fd1cf"
 
   depends_on "python"
 
