@@ -29,6 +29,7 @@ class Scrcpy < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
                       "--buildtype=release",
+                      "-Dportable=false",
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
                       ".."
 
