@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag      => "v3.7.2",
-      :revision => "a51fe9153a981102a9b2f901395673cdefa06570"
+      :tag      => "v3.7.3",
+      :revision => "3be51cfc310d7d7ffac7b11e3c058f1c240347fa"
 
   bottle do
     cellar :any_skip_relocation
