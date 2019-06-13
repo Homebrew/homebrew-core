@@ -1,14 +1,13 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
+  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
+  sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
   stable do
-    patch do # uriparser/uriparser#67, required to run tests.
+    patch do # uriparser/uriparser#67, required to run tests. Will be integrated in next release
       url "https://github.com/uriparser/uriparser/commit/f870e6c68696a6018702caa5c8a2feba9b0f99fa.diff"
       sha256 "3976c3726661fb4963f79c7d042661db719ef63084f4e55b328570e8ec875dc6"
     end
-      
-    url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
-    sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
   end
 
   bottle do
