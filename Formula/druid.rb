@@ -1,6 +1,6 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
-  homepage "http://druid.io"
+  homepage "https://druid.apache.org/"
   url "http://static.druid.io/artifacts/releases/druid-0.12.3-bin.tar.gz"
   sha256 "807581d54fa4c5a90eec2a230e2a7fc4c6daf18eb8136009bf36a775d793d6f6"
 
