@@ -24,6 +24,10 @@ class Icu4c < Formula
       --with-library-bits=64
     ]
 
+    # Works around an issue detecting /usr/bin/python3
+    # https://github.com/Homebrew/homebrew-core/pull/40962
+    args << "ac_cv_prog_PYTHON=/usr/bin/python"
+
     cd "source" do
       system "./configure", *args
       system "make"
