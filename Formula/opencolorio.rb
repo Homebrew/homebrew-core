@@ -1,6 +1,6 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
-  homepage "http://opencolorio.org/"
+  homepage "https://opencolorio.org/"
   url "https://github.com/imageworks/OpenColorIO/archive/v1.1.1.tar.gz"
   sha256 "c9b5b9def907e1dafb29e37336b702fff22cc6306d445a13b1621b8a754c14c8"
   head "https://github.com/imageworks/OpenColorIO.git"
@@ -35,11 +35,11 @@ class Opencolorio < Formula
         #{HOMEBREW_PREFIX}/share/ocio/setup_ocio.sh
 
       Alternatively the documentation describes what env-variables need set:
-        http://opencolorio.org/installation.html#environment-variables
+        https://opencolorio.org/installation.html#environment-variables
 
       You will require a config for OCIO to be useful. Sample configuration files
       and reference images can be found at:
-        http://opencolorio.org/downloads.html
+        https://opencolorio.org/downloads.html
     EOS
   end
 
