@@ -6,9 +6,9 @@ class Rbspy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd790f4162891858c6dd0c701cbe5ac57e6a675ed6ebac5f7d15b34d34d14538" => :mojave
-    sha256 "c725b8ecbbf3f862b90c74e1d1fa2ba15b34efd39a63bdd55c063f0e883a983f" => :high_sierra
-    sha256 "057cfc99fa9b11f60a22abd6dbc54c4764d9af78e291971174e0f42cf9c76eb0" => :sierra
+    sha256 "a769053490388b2b5b590f3ce771b68d98a46f6f83ffa02c401204090e5b8875" => :mojave
+    sha256 "240294bfa209b35ab6042c462e8175827fdabf3a31fc0b30ab81b641821edb98" => :high_sierra
+    sha256 "d225f71ddae976b2083898f119d1c3e812b8c0ca82055d9543a6e4031f8b3470" => :sierra
   end
 
   depends_on "rust" => :build
