@@ -8,7 +8,7 @@ class Uriparser < Formula
     sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
     patch do # uriparser/uriparser#67, required to run tests. Will be integrated in next release
       url "https://github.com/uriparser/uriparser/commit/f870e6c68696a6018702caa5c8a2feba9b0f99fa.diff?full_index=1"
-      sha256 "3976c3726661fb4963f79c7d042661db719ef63084f4e55b328570e8ec875dc6"
+      sha256 "c609224fc996b6231781e1beba4424c2237fc5e49e2de049b344d926db0630f7"
     end
   end
 
