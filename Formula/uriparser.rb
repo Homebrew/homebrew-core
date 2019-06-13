@@ -1,11 +1,13 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
-  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
-  sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
+  head "https://github.com/uriparser/uriparser.git"
+  
   stable do
+    url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
+    sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
     patch do # uriparser/uriparser#67, required to run tests. Will be integrated in next release
-      url "https://github.com/uriparser/uriparser/commit/f870e6c68696a6018702caa5c8a2feba9b0f99fa.diff"
+      url "https://github.com/uriparser/uriparser/commit/f870e6c68696a6018702caa5c8a2feba9b0f99fa.diff?full_index=1"
       sha256 "3976c3726661fb4963f79c7d042661db719ef63084f4e55b328570e8ec875dc6"
     end
   end
@@ -16,8 +18,6 @@ class Uriparser < Formula
     sha256 "aecf626254251f0f3eecca369bf8cda28f530a14bdf2bb493063a8eb78b402bc" => :high_sierra
     sha256 "0657e76e94b481bc0b859ba68b8e31d460dce44e7ec3fcc573cb5bfd6bb89839" => :sierra
   end
-
-  head "https://github.com/uriparser/uriparser.git"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -51,18 +51,3 @@ class Uriparser < Formula
     assert_equal expected, shell_output("#{bin}/uriparse https://brew.sh").chomp
   end
 end
-
-__END__
-diff --git a/test/MemoryManagerSuite.cpp b/test/MemoryManagerSuite.cpp
-index 85f498b..4cda664 100644
---- a/test/MemoryManagerSuite.cpp
-+++ b/test/MemoryManagerSuite.cpp
-@@ -19,6 +19,8 @@
-  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-  */
-
-+#undef NDEBUG  // because we rely on assert(3) further down
-+
- #include <cassert>
- #include <cerrno>
- #include <cstring>  // memcpy
