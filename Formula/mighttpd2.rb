@@ -10,9 +10,9 @@ class Mighttpd2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "121f2b0b496d2ebed1eb141e225e6c708c110463334e88d3f0ae03f8e1f0864e" => :mojave
-    sha256 "ffb3a6449fa17c79ebbeec0e27f94506d00ef840eb3549e09c96730bcd91abb1" => :high_sierra
-    sha256 "24d9423146d9c85960de6db87eace6081b3d3385b9f0c9110afe63d2e9e34a7e" => :sierra
+    sha256 "feb0e395dd90bbf9650f9a551a70f6953e1fcc16016a61ee38d212717d19c202" => :mojave
+    sha256 "418c720124aaa01f2f2552d314041acf13f97b5afa53e4320660a5710430c6f8" => :high_sierra
+    sha256 "6afe11e98e8245d8a2b1e199b3052829898e37a3fb01614eedcdedfd10533dfa" => :sierra
   end
 
   depends_on "cabal-install" => :build
