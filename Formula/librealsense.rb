@@ -1,15 +1,15 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v2.22.0.tar.gz"
-  sha256 "bdaaedc72546ccd24e004bba83a44b165f0ba571f88ccb53574b92eacce66f2d"
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.23.0.tar.gz"
+  sha256 "40d6c8a465eeb6802a40b79c708300328da55ca4d3d2578ec3be534d1ae7e829"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
     cellar :any
-    sha256 "112a229f6b6431227de26ff907f765e235631f120f3e054b5ff213a83f0ce17d" => :mojave
-    sha256 "4dec7e2a33a6e009243c27546bd710967fdaf8a89e48f0789ff69a1cfcecd85f" => :high_sierra
-    sha256 "4460ec5ffa6f6fdb86c35d70727a618977ee888ffeb74818c4544cf68ec3b25a" => :sierra
+    sha256 "eecd6aef888909312b971d128869f74f6e1b82ffc04d93e14661448ae075634e" => :mojave
+    sha256 "201347e6ae34a1dfa0dbec0723859609a8f68472c97f4b91bacba75fc13a9cbb" => :high_sierra
+    sha256 "93df45a1dbd14dc3ba68f25bdb55526fcd60d64776b7671398e1f0302d6d57df" => :sierra
   end
 
   depends_on "cmake" => :build
