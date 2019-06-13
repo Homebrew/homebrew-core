@@ -7,7 +7,7 @@ class AppuniteCache < Formula
       :shallow  => false
   head "https://git.appunite.com/szymon.mrozek/appunite-cache.git", :shallow => false
 
-  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => ["10.2", :build]
   depends_on "libressl"
 
   def install
