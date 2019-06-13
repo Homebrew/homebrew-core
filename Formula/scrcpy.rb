@@ -5,9 +5,9 @@ class Scrcpy < Formula
   sha256 "905fe62e2825310eeb77187f8974763c3ae2f08ca1f649bcaf4721f1fd14a764"
 
   bottle do
-    sha256 "a231a2a6bad01684a2a2cc9564825c44f6ec240b88c6f51813387bf65885a7de" => :mojave
-    sha256 "c9bf05f3397b7f0b3306dd16b6fb3808293ff20b6f15cfa4afd4b8e55eea5185" => :high_sierra
-    sha256 "4ee897a33bdfa7b88522e6b3abeb27c8330de739cd64de869eda546045402c98" => :sierra
+    sha256 "6b3c73d844f2e03884494b5ef35ae61e954d61deaabee3dc2c6890ea59f2c8d9" => :mojave
+    sha256 "3ede1d5379b523fa49bafded248216359461d5f469f31f487317dd6b975fe2d4" => :high_sierra
+    sha256 "894321121f744ff2e39557ebd913a6ba208f6f61eeb3578e8e61854091b63992" => :sierra
   end
 
   depends_on "meson" => :build
