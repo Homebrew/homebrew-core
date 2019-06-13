@@ -14,7 +14,7 @@ class AppuniteCache < Formula
     system "make", "prefix_install", "PREFIX=#{prefix}"
   end
 
-  test
+  test do
     system bin/"appunite-cache", "verify-credentials"
   end
 end
