@@ -23,6 +23,13 @@ class Node < Formula
     sha256 "d6194c36bf612f1b2a6fbe351a7cb6f44dfb9a87a1d5336b1303dc1c07e87276"
   end
 
+  # Fixes detecting Apple clang 11.
+  # This is an upstream patch and will be in the next release.
+  patch do
+    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
+    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
+  end
+
   def install
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
