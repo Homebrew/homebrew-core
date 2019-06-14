@@ -3,7 +3,7 @@ class Libdazzle < Formula
   homepage "https://gitlab.gnome.org/GNOME/libdazzle"
   url "https://download.gnome.org/sources/libdazzle/3.32/libdazzle-3.32.2.tar.xz"
   sha256 "413f8dfb8706760e0c649e2994bd10524ac0736601dd03ad2036293bed3bf141"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
