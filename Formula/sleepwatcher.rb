@@ -1,8 +1,8 @@
 class Sleepwatcher < Formula
   desc "Monitors sleep, wakeup, and idleness of a Mac"
   homepage "https://www.bernhard-baehr.de/"
-  url "https://www.bernhard-baehr.de/sleepwatcher_2.2.tgz"
-  sha256 "c04ac1c49e2b5785ed5d5c375854c9c0b9e959affa46adab57985e4123e8b6be"
+  url "https://www.bernhard-baehr.de/sleepwatcher_2.2.1.tgz"
+  sha256 "4bf1656702167871141fbc119a844d1363d89994e1a67027f0e773023ae9643e"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,12 +18,12 @@ class Sleepwatcher < Formula
     # Adjust Makefile to build native binary only
     inreplace "sources/Makefile" do |s|
       s.gsub! /^(CFLAGS)_PPC.*$/, "\\1 = #{ENV.cflags} -prebind"
-      s.gsub! /^(CFLAGS_X86)/, "#\\1"
+      s.gsub! /^(CFLAGS_I386|CFLAGS_X86_64)/, "#\\1"
       s.change_make_var! "BINDIR", "$(PREFIX)/sbin"
       s.change_make_var! "MANDIR", "$(PREFIX)/share/man"
-      s.gsub! /^(.*?)CFLAGS_PPC(.*?)[.]ppc/, "\\1CFLAGS\\2"
-      s.gsub! /^(.*?CFLAGS_X86.*?[.]x86)/, "#\\1"
-      s.gsub! /^(\t(lipo|rm).*?[.](ppc|x86))/, "#\\1"
+      s.gsub! /^(.*?)CFLAGS_I386(.*?)[.]i386/, "\\1CFLAGS\\2"
+      s.gsub! /^(.*?CFLAGS_X86_64.*?[.]x86_64)/, "#\\1"
+      s.gsub! /^(\t(lipo|rm).*?[.](i386|x86_64))/, "#\\1"
       s.gsub! "-o root -g wheel", ""
     end
 
