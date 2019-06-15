@@ -2,8 +2,8 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.8.0",
-    :revision => "d60bdb6350f2583e35d020f6cebb6aa30262fbcc"
+    :tag      => "v0.9.0",
+    :revision => "7b06aa37342c021f9f1fac99125847d134e67001"
 
   bottle do
     cellar :any_skip_relocation
