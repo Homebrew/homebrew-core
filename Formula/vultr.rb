@@ -1,15 +1,15 @@
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/v2.0.0.tar.gz"
-  sha256 "bc57516c73a2ec5565ec09b6c5fe18f82a35501f70beb423391c55d0c4b98592"
+  url "https://github.com/JamesClonk/vultr/archive/v2.0.1.tar.gz"
+  sha256 "928f6c3caf8149f836a609ec43a3d031f0206a8cba095e026535c33c390c1157"
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd7df17a5c5a6e655ceac39c6e78e432b270d65f7bacd8c61c4e296e8e455171" => :mojave
-    sha256 "774bd75bdaea3db4479d9db76f9fdf02a3d6a53502f20c58f1d79790c407a7f8" => :high_sierra
-    sha256 "f63560fb4b5d0d784804036262822519a5fed6a33822257e7ffe21e5b307a81a" => :sierra
+    sha256 "af7d3754f0136c4ed3f0067920c0351931df48f487457ba6f12741e745e636e4" => :mojave
+    sha256 "9384a5df861603c74301e8500d70c170f806348fbfdf5117b1c6d91bed7d26d2" => :high_sierra
+    sha256 "a49908fc98bd2c2e2322e1d9511352ece67dbedc02879c71811d82b7c9bdaa3e" => :sierra
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://wildfly.org/"
-  url "https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.tar.gz"
-  sha256 "65ec8881c073e1fda0be293037eb7c8d19b38d6e57f83044086d39dc40a26385"
+  url "https://download.jboss.org/wildfly/17.0.0.Final/wildfly-17.0.0.Final.tar.gz"
+  sha256 "8bc5a67a24661d44da9bcf0bdd84fd28f7f51fa3dcafe4b29523cef6836d9870"
 
   bottle :unneeded
 
@@ -60,5 +60,29 @@ class WildflyAs < Formula
   test do
     ENV["JBOSS_HOME"] = opt_libexec
     system "#{opt_libexec}/bin/standalone.sh --version | grep #{version}"
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    pidfile = testpath/"pidfile"
+    ENV["LAUNCH_JBOSS_IN_BACKGROUND"] = "true"
+    ENV["JBOSS_PIDFILE"] = pidfile
+
+    mkdir testpath/"standalone"
+    mkdir testpath/"standalone/deployments"
+    cp_r libexec/"standalone/configuration", testpath/"standalone"
+    fork do
+      exec opt_libexec/"bin/standalone.sh", "--server-config=standalone.xml", "-Djboss.http.port=#{port}", "-Djboss.server.base.dir=#{testpath}/standalone"
+    end
+    sleep 10
+
+    begin
+      system "curl", "-X", "GET", "localhost:#{port}/"
+      output = shell_output("curl -s -X GET localhost:#{port}")
+      assert_match "Welcome to WildFly", output
+    ensure
+      Process.kill "SIGTERM", pidfile.read.to_i
+    end
   end
 end

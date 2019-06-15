@@ -1,15 +1,14 @@
 class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
-  url "https://github.com/hashicorp/envconsul/archive/v0.7.3.tar.gz"
-  sha256 "7152d73818c3faceac831c6ffae6e01c2f3a6372976409d9d084130ffcea35f4"
-  revision 1
+  url "https://github.com/hashicorp/envconsul/archive/v0.8.0.tar.gz"
+  sha256 "f324eb8840a16254e73c6feb41195640490a9e2bb2d811b5652313cb528bf368"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d1562d58c5d242d2dce65cf8ea611531cb2f26d10cc1a86ae226554152e7727" => :mojave
-    sha256 "41dc101f3ba5ecf98360e770b96f147811f9fc5d4a748ebe3a19f46dad102b9d" => :high_sierra
-    sha256 "beda6aec1024ba24a35c671881c4640295bbf7c82796bf7a470b006a4562a460" => :sierra
+    sha256 "c9cfc3f576580bd6e394c78785dec30f099fdf4bd6f9651356532c686ef881eb" => :mojave
+    sha256 "fd5335ba1720e02e7eb513ee5c3ea202e112ee3bb6d802229967128180ea75b4" => :high_sierra
+    sha256 "8b5b47937348c433759370d36217a06581691b5392f9576302f6c62a75e62163" => :sierra
   end
 
   depends_on "go" => :build

@@ -7,9 +7,10 @@ class Subversion < Formula
   revision 2
 
   bottle do
-    sha256 "9ed05fd47cd67c093e9f8deded631d6f3aa4ca82aaefe1c8416b5fc3498b244c" => :mojave
-    sha256 "ea2f1734644faea80ac6ad24a6214c000c3b0b755200912a1e5291c97c62af14" => :high_sierra
-    sha256 "10ca0f0f5e4c3534542b79ae57c46b264223b6d18e8987e367f7f0a8b2f30c6c" => :sierra
+    rebuild 1
+    sha256 "f99b4392f0acebf4e61a5b8747d19fdae652add9b910f060ed1a8a95f9d0ad2c" => :mojave
+    sha256 "dea97ac9eec8be1aa78cf4e8670c0c21db55fff756778e2b31021a508fb86707" => :high_sierra
+    sha256 "ed8c961d325cba194b76059a6f498bbc1af89375f1b10e3e98117f2d0b43b1b4" => :sierra
   end
 
   head do
@@ -23,7 +24,7 @@ class Subversion < Formula
   depends_on :java => ["1.8+", :build]
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
-  depends_on "swig" => :build
+  depends_on "swig@3" => :build # https://issues.apache.org/jira/browse/SVN-4818
   depends_on "apr"
   depends_on "apr-util"
 

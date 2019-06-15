@@ -1,13 +1,13 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.8.tar.gz"
-  sha256 "1d4b53573554a60fa46b6b40685dbe6c8474bc451ecbe803e2f2ec9724b48a01"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.9.tar.gz"
+  sha256 "905fe62e2825310eeb77187f8974763c3ae2f08ca1f649bcaf4721f1fd14a764"
 
   bottle do
-    sha256 "a231a2a6bad01684a2a2cc9564825c44f6ec240b88c6f51813387bf65885a7de" => :mojave
-    sha256 "c9bf05f3397b7f0b3306dd16b6fb3808293ff20b6f15cfa4afd4b8e55eea5185" => :high_sierra
-    sha256 "4ee897a33bdfa7b88522e6b3abeb27c8330de739cd64de869eda546045402c98" => :sierra
+    sha256 "6b3c73d844f2e03884494b5ef35ae61e954d61deaabee3dc2c6890ea59f2c8d9" => :mojave
+    sha256 "3ede1d5379b523fa49bafded248216359461d5f469f31f487317dd6b975fe2d4" => :high_sierra
+    sha256 "894321121f744ff2e39557ebd913a6ba208f6f61eeb3578e8e61854091b63992" => :sierra
   end
 
   depends_on "meson" => :build
@@ -17,10 +17,15 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.8/scrcpy-server-v1.8.jar"
-    sha256 "839055ef905903bf98ead1b9b8a127fe402b39ad657a81f9a914b2dbcb2ce5c0"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.9/scrcpy-server-v1.9.jar"
+    sha256 "ad7e539f100e48259b646f26982bc63e0a60a81ac87ae135e242855bef69bd1a"
   end
 
+  # include the commit that fixes non portable build
+  patch do
+    url "https://github.com/Genymobile/scrcpy/commit/bcd0a876f7bf52642330410812a6b7100cdeda91.patch?full_index=1"
+    sha256 "86444cd3e26b73cf1c48e442c7aeabc748140b3422c860ac7ebbb05a374c1405"
+  end
   def install
     r = resource("prebuilt-server")
     r.verify_download_integrity(r.fetch)
@@ -30,6 +35,7 @@ class Scrcpy < Formula
       system "meson", "--prefix=#{prefix}",
                       "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
+                      "-Dportable=false",
                       ".."
 
       system "ninja", "install"
