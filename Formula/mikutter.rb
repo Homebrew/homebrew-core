@@ -197,7 +197,7 @@ class Mikutter < Formula
   def install
     (lib/"mikutter/vendor").mkpath
     resources.each do |r|
-      r.verify_download_integrity(r.fetch)
+      r.fetch
       system("gem", "install", r.cached_download, "--no-document",
              "--install-dir", "#{lib}/mikutter/vendor")
     end
