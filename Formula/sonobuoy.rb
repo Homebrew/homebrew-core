@@ -2,7 +2,7 @@ class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/heptio/sonobuoy"
   url "https://github.com/heptio/sonobuoy/archive/v0.14.3.tar.gz"
-  sha256 "94727a3e82f1a89d1933b6724861829b113202063fdd738f0ab6456a27530a4a"
+  sha256 "298b50faf073d2304682b1f8f712877d6c676b4fdf536fed947ff115c633e1fd"
 
   bottle do
     cellar :any_skip_relocation
