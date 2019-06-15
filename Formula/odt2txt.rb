@@ -25,7 +25,7 @@ class Odt2txt < Formula
 
   test do
     resources.each do |r|
-      r.verify_download_integrity(r.fetch)
+      r.fetch
       system "#{bin}/odt2txt", r.cached_download
     end
   end
