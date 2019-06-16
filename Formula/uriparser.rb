@@ -23,18 +23,8 @@ class Uriparser < Formula
 
   conflicts_with "libkml", :because => "both install `liburiparser.dylib`"
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
-  end
-
   def install
-    (buildpath/"gtest").install resource("gtest")
-    (buildpath/"gtest/googletest").cd do
-      system "cmake", "."
-      system "make"
-    end
-    system "cmake", ".", "-DGTEST_ROOT=#{buildpath}/gtest/googletest", "-DURIPARSER_BUILD_DOCS=OFF", *std_cmake_args
+    system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF", "-DURIPARSER_BUILD_DOCS=OFF", *std_cmake_args
     system "make"
     system "make", "install"
   end
