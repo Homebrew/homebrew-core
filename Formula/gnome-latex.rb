@@ -3,6 +3,7 @@ class GnomeLatex < Formula
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
   url "https://download.gnome.org/sources/gnome-latex/3.32/gnome-latex-3.32.0.tar.xz"
   sha256 "0f069c7b4c6754255a1c7e3e3b050925d8076f55458526a30ab59e0a7d52acc9"
+  revision 1
 
   bottle do
     sha256 "d705dbc64afb4344d195d7c20c5a035312f2fd02b224581ecb8908c81b93e1b3" => :mojave
