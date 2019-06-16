@@ -3,6 +3,7 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.30/gnome-builder-3.30.3.tar.xz"
   sha256 "9998f3d41d9526fdbf274cae712fafe7b79d0b9d1dd5739c6c2141e5e5550686"
+  revision 1
 
   bottle do
     sha256 "eeb68ecf6f35a40767d940658e90943bc40368d71b53b23ff5775948ef2122ce" => :mojave
