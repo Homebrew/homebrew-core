@@ -7,8 +7,8 @@ class GstValidate < Formula
     sha256 "9331ae48a173a048243539730cc7a88607777762dea4aebbc3ab55981e68d6c9"
 
     patch :p2 do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-devtools/commit/751a6d756c0f7c3a721a235ced74fec17f038185.patch"
-      sha256 "c34335e6647fa8ecf7e9406666cf817a4810619208282d27be7f213d95dd98f1"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-devtools/commit/751a6d75.diff"
+      sha256 "53d3ea9d3167ca6f278046f40dfbf16279df307864d5d37ac4c18a5d7dabbe2e"
     end
   end
 
