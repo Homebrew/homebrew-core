@@ -2,7 +2,7 @@ class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
   head "https://github.com/uriparser/uriparser.git"
-  
+
   stable do
     url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
     sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
@@ -20,7 +20,6 @@ class Uriparser < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
 
   conflicts_with "libkml", :because => "both install `liburiparser.dylib`"
 
