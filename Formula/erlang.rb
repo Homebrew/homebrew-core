@@ -16,7 +16,7 @@ class Erlang < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
   resource "man" do
@@ -50,7 +50,7 @@ class Erlang < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
       --enable-darwin-64bit
     ]
