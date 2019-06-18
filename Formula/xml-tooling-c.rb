@@ -14,7 +14,7 @@ class XmlToolingC < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "log4shib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "xerces-c"
   depends_on "xml-security-c"
 
@@ -28,14 +28,14 @@ class XmlToolingC < Formula
     ENV.O2 # Os breaks the build
     ENV.cxx11
 
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl@1.1"].opt_lib}/pkgconfig"
 
     resource("curl").stage do
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}/curl",
-                            "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                            "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                             "--with-ca-bundle=#{etc}/openssl/cert.pem",
                             "--with-ca-path=#{etc}/openssl/certs",
                             "--without-libssh2",
