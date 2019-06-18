@@ -13,7 +13,7 @@ class BerkeleyDb < Formula
     sha256 "97c14eb14e088be83ea8d090b7adcb05cbdcd4c545a64fa5681dcd6ff4de017c" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # BerkeleyDB dislikes parallel builds
