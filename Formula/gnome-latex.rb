@@ -6,9 +6,9 @@ class GnomeLatex < Formula
   revision 1
 
   bottle do
-    sha256 "d705dbc64afb4344d195d7c20c5a035312f2fd02b224581ecb8908c81b93e1b3" => :mojave
-    sha256 "4e837c5609bb266565c0389ebf2e3a165a479c4c6e95821b3c8c957fe38121c8" => :high_sierra
-    sha256 "c91420786faeb6ad497f5705edce6575412d6b3f9ff3628a3d5a994b95519f9f" => :sierra
+    sha256 "db8d7dc4b428f3fdfe3fb1397856808619c38297ae65306fdaf671bbae40811d" => :mojave
+    sha256 "3a0f41f3af768caa2e15633cf1ccce5d3c7119253d914cb4381abe8c0cd3762c" => :high_sierra
+    sha256 "908c445ffb71d1907a8a5e0eed94953ba8f61d8ed6222313364a7418c562eab7" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
