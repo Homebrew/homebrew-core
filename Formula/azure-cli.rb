@@ -15,7 +15,7 @@ class AzureCli < Formula
     sha256 "3c574905df61dcfb1885622cbcca46c0a3073246617a97d3fa758b63223a3967" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "adal" do
