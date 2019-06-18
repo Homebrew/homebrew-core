@@ -14,7 +14,7 @@ class Cnats < Formula
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", "-DNATS_INSTALL_PREFIX=#{prefix}",
