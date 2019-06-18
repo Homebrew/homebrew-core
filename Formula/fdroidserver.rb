@@ -17,7 +17,7 @@ class Fdroidserver < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "s3cmd"
   depends_on "webp"
