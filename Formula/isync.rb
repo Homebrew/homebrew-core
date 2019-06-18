@@ -20,7 +20,7 @@ class Isync < Formula
   end
 
   depends_on "berkeley-db"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh" if build.head?
