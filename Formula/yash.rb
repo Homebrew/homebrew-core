@@ -7,10 +7,9 @@ class Yash < Formula
   revision 1
 
   bottle do
-    sha256 "a80b7e4adc5bb6bbfdb85ad01c761889026617455eb686eca20849c26bfbc159" => :mojave
-    sha256 "8ceb88372ff9dbf2461994e646b7743c3fb927115fbd540fdd8a163a9c929916" => :high_sierra
-    sha256 "3b13c76147e4835eeff1b1794eb534deedaf6e787d3871a233f8dd34b9003fe9" => :sierra
-    sha256 "9fc6669b72248884e4274f695b9188745e5ae8fac359862373efa9a6f98b7469" => :el_capitan
+    sha256 "21b9fe172294391e52d14a6def4196d7348555a2567077090ee858175dd953ee" => :mojave
+    sha256 "01618cb1cf1c5c93500769c5b456d59094dc1502aaa75dd38cd318b68eecef9e" => :high_sierra
+    sha256 "0617778d65554225c7fff2baa26b6cffa872669cf490744bc63f8a990b655551" => :sierra
   end
 
   depends_on "gettext"
