@@ -19,7 +19,7 @@ class Mongodb < Formula
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   resource "Cheetah" do
@@ -56,8 +56,8 @@ class Mongodb < Formula
         s.gsub! "$(git describe)", version.to_s
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
-      ENV["CPATH"] = Formula["openssl"].opt_include
-      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["CPATH"] = Formula["openssl@1.1"].opt_include
+      ENV["LIBRARY_PATH"] = Formula["openssl@1.1"].opt_lib
       ENV["GOROOT"] = Formula["go"].opt_libexec
       system "./build.sh", "ssl"
     end
@@ -75,8 +75,8 @@ class Mongodb < Formula
       --disable-warnings-as-errors
       --use-new-tools
       --ssl
-      CCFLAGS=-I#{Formula["openssl"].opt_include}
-      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
+      CCFLAGS=-I#{Formula["openssl@1.1"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl@1.1"].opt_lib}
     ]
 
     system "scons", "install", *args
