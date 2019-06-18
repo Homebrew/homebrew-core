@@ -22,7 +22,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh" unless build.stable?
@@ -32,7 +32,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-erlang
       --without-haskell
       --without-java
