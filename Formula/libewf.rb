@@ -23,7 +23,7 @@ class Libewf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     if build.head?
