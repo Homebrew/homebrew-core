@@ -15,7 +15,7 @@ class RobotFramework < Formula
     sha256 "ba925cb302cbe1de3a6ad12c270a433c3de3e4cc81083a384337135c91e629fb" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on :x11
 
