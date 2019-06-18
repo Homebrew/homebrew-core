@@ -6,9 +6,9 @@ class Stunnel < Formula
 
   bottle do
     cellar :any
-    sha256 "780ad13c8840c901bd55be4ba458b7d1b141fe85238d1a44630fc000784c1f62" => :mojave
-    sha256 "f0fa1e2a4060ef934111f8df69e25a44d9c75da8ac4f23c1ee4e1dbf4ca0965f" => :high_sierra
-    sha256 "9e7ba85c3523fd30535d698ba966de7efffc89007a973575cc88a03701d6483b" => :sierra
+    sha256 "623b9cdd613b09b6132fa71dff934ef6f10eaa8b6987dd888f1b812d93121dad" => :mojave
+    sha256 "db28fd5e17bcfcdeae84001b8c095ce7855eda2df5067e4f50344eadc5197ed4" => :high_sierra
+    sha256 "219126b7a64b1ea9042549aac7db5f621b78efbbcce5857e67472e77289ef4c8" => :sierra
   end
 
   depends_on "openssl"
