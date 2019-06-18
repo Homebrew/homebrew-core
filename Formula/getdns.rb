@@ -21,7 +21,7 @@ class Getdns < Formula
 
   depends_on "libevent"
   depends_on "libidn"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unbound"
 
   def install
@@ -32,7 +32,7 @@ class Getdns < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--with-libevent",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-trust-anchor=#{etc}/getdns-root.key",
                           "--without-stubby"
     system "make"
