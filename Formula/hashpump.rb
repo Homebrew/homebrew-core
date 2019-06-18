@@ -12,7 +12,7 @@ class Hashpump < Formula
     sha256 "ca23c693b5c3d7786cbbe385b540e5e0aec7267c7e378d4b7e3ca88d6b3847b4" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   # Remove on next release
