@@ -6,12 +6,12 @@ class Mill < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     libexec.install Dir["*"].shift => "mill"
     chmod 0555, libexec/"mill"
-    (bin/"mill").write_env_script libexec/"mill", Language::Java.java_home_env("1.8")
+    (bin/"mill").write_env_script libexec/"mill", Language::Java.java_home_env("1.8+")
   end
 
   test do
