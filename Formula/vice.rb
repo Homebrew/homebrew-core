@@ -3,7 +3,7 @@ class Vice < Formula
   homepage "https://vice-emu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.3.tar.gz"
   sha256 "1a55b38cc988165b077808c07c52a779d181270b28c14b5c9abf4e569137431d"
-  revision 1
+  revision 2
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   bottle do
@@ -24,6 +24,7 @@ class Vice < Formula
   depends_on "gtk+3" if build.head?
   depends_on "jpeg"
   depends_on "lame"
+  depends_on "libnet"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libvorbis"
