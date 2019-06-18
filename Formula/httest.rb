@@ -17,7 +17,7 @@ class Httest < Formula
   depends_on "apr-util"
   depends_on "lua@5.1"
   depends_on "nghttp2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "spidermonkey"
 
