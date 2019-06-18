@@ -137,7 +137,7 @@ class Pypy3 < Formula
       install-scripts=#{scripts_folder}
     EOS
 
-    %w[appdirs pyparsing six packaging setuptools pip].each do |pkg|
+    %w[appdirs six packaging setuptools pyparsing pip].each do |pkg|
       resource(pkg).stage do
         system bin/"pypy3", "-s", "setup.py", "install", "--force", "--verbose"
       end
