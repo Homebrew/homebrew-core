@@ -18,7 +18,7 @@ class Ooniprobe < Formula
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
   depends_on "tor"
 
