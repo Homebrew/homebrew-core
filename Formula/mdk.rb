@@ -7,9 +7,9 @@ class Mdk < Formula
   revision 1
 
   bottle do
-    sha256 "906b2b508a0fccb27e86679b6a319598a9ed54f1407fe82d7d8f869cd217dd47" => :mojave
-    sha256 "527f41bede7e5d517736044f1e7382882610f50364e91cb46ac6beacac53a67b" => :high_sierra
-    sha256 "5db2d875c0ef2d23a91bff4bdcc7c40fc6ea82cb25d469d7a3665f53ffe8f483" => :sierra
+    sha256 "6d9fee5bb70d9423735a441343d8db3c827b495ef1e66c82929fc1048f21231c" => :mojave
+    sha256 "250dbb25d43d7e6c6e92096cc679dd62c4025194e4c9d80f084bf9307ac3c71b" => :high_sierra
+    sha256 "fdf93789019c0c275ab52e509fc0a3d43048aba6caba3258822451f0126a17ba" => :sierra
   end
 
   depends_on "intltool" => :build
