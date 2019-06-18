@@ -6,9 +6,9 @@ class Gtkspell3 < Formula
   revision 1
 
   bottle do
-    sha256 "8649edc45b2ac203946b689fbeb11a5624e17d0f9dbcbad0e7f767a5835a1e78" => :mojave
-    sha256 "9f4f62410af27e84a4cec1f05b4f3017e9712f40f0d937041b89c29cf2a1dcd0" => :high_sierra
-    sha256 "2cf46aa9544572a29d3278fd3420582171e239f2731ade416e00d0521a883f9b" => :sierra
+    sha256 "e294b992a0abc19bd52c7fc98ff1678b1f2d57e8485304e2b8f638f1a6f09f3c" => :mojave
+    sha256 "a7c88c59ad22392e808a51d0accb44e533e493c497ff6b292ef4252026fc27d0" => :high_sierra
+    sha256 "ef883e893d4ae98e3dafdb3f32776c21dc4402813be5e58e6c65e52b05b0079f" => :sierra
   end
 
   depends_on "autoconf" => :build
