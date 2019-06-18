@@ -6,9 +6,9 @@ class Gitg < Formula
   revision 1
 
   bottle do
-    sha256 "c152ad16c15139b04e8d5edc92d0aa7e1a41ac2a1956b287d591753305d7f655" => :mojave
-    sha256 "9c0188adb7a461a90b944fd63fa9ead36e85ca85e89e26b8b289c899b725b99d" => :high_sierra
-    sha256 "53d0a0e410b1e3bc3734d2ee73d658c73ab3eaf62179e2b0bbe21cdca90056d7" => :sierra
+    sha256 "0a7fe76e7d11f34813f5378c4e0f9e47654168094fcac8e35efc37b99015e22e" => :mojave
+    sha256 "a150a053c87b14abd56be214710b14793ee98a235d84c3debb32d75d2c926216" => :high_sierra
+    sha256 "f0744c93db256a192fbfd2ac35fa4be8ac85c0cd58ad7d3376d567e22ab0f64d" => :sierra
   end
 
   depends_on "intltool" => :build
