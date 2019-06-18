@@ -6,13 +6,9 @@ class CenterIm < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "f75ad82d6a94767e1db97ff86a1a9e7fd97b53bdfbda02281f7732ec960d6bd6" => :mojave
-    sha256 "800a4ecf2a11219b619134a85ba492b8256a48d3363135f711da9ca8aab34139" => :high_sierra
-    sha256 "5f7c56eb5b9cc982df5a17c5cd043ac4968de36e396c219e0f544e9e34e46669" => :sierra
-    sha256 "315556554c3e5b972b0d99145fd6d0971837c2bbd981b849ca89e7a9c069335b" => :el_capitan
-    sha256 "5a51f0130fcd601aeed50ae6f66008aaa0ec96f6ac3e7bc828b627f04b46b9f2" => :yosemite
-    sha256 "673992c76745d9509dd32e71c964946018584db447b37d02a21f332b508c619d" => :mavericks
+    sha256 "5c14b19ccd64db831e4735cc9953c488508580eed3aa31cb9cf2c0a41500c0ed" => :mojave
+    sha256 "3049256c74134774c758b8280c6ddec473bf477aa814b3a7cd38eef2211564a3" => :high_sierra
+    sha256 "1971218f1e76b32626a79ce47046395e78024f500e7a20a52c15d9c2b399c3ac" => :sierra
   end
 
   depends_on "pkg-config" => :build
