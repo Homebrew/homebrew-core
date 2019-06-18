@@ -6,10 +6,9 @@ class Clutter < Formula
   revision 2
 
   bottle do
-    sha256 "87e40791a3825261a8b37eb2e159f0b32bbd9be6aacb3bb288df0b39b1c4d1b1" => :mojave
-    sha256 "cd1bad834964168854f060603548fb495a629cbf98a119050cb1ff2a4ef41b67" => :high_sierra
-    sha256 "feebbe98a8c3cc1ad25202719451b4e9db64c145583ea1bd3b0d540e23cc8bf6" => :sierra
-    sha256 "fe6f945a3aac285dd0f21d1bdf0e4da08ac179c7cde03198af98c69166ccce6e" => :el_capitan
+    sha256 "6ad87e98bc82cc5c96a92bb761e77ecf1c8c868fd1afa992e213b885b353bcc0" => :mojave
+    sha256 "ec50bd371aa38b9af9551ee0d6fc406add0046047cac4f35fffd0786b3b98cc9" => :high_sierra
+    sha256 "7342cda3cd82ebf6e1ec6f07c5d474ad12b98a05db5c12893ce08e7a63cb8f52" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
