@@ -7,11 +7,9 @@ class Oscats < Formula
 
   bottle do
     cellar :any
-    sha256 "fc842d8a322fd65af377cfb8399368b993ce86a7586c71a5ddfd2b22459655c6" => :mojave
-    sha256 "0af1c79f43a2d2fd2fe4582477d9d9789b96d9bbb33c2adaa128c70dd7f838ad" => :high_sierra
-    sha256 "756f81c2343a64876be9485bb046cca78030151e7f46e606ce9b68ffa07db63b" => :sierra
-    sha256 "ebc36ad36c4943030c7ee58eec176461f93a2a02f8a5d6484239c0968ad94e51" => :el_capitan
-    sha256 "e83b19660fe00ed2c05e228646a931ad3837dafd74855921da25009833d5f387" => :yosemite
+    sha256 "bd3ef9a463ae0804e2c6a1594bf8db92d46fb25638be69523c85333c1790e304" => :mojave
+    sha256 "834912e7d371c1c054f41484eb2a171e0d39e8b44aaff909ec4d5326ff22eb7e" => :high_sierra
+    sha256 "983ae6aab63fcff7e6361a053ab71d30ac30f0009aac8c99eb51400b719316d2" => :sierra
   end
 
   depends_on "pkg-config" => :build
