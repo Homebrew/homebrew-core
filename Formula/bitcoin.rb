@@ -25,7 +25,7 @@ class Bitcoin < Formula
   depends_on "boost"
   depends_on "libevent"
   depends_on "miniupnpc"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zeromq"
 
   def install
