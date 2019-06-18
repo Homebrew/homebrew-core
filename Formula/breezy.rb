@@ -14,7 +14,7 @@ class Breezy < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "configobj" do
