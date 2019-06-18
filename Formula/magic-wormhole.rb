@@ -14,7 +14,7 @@ class MagicWormhole < Formula
   end
 
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "Automat" do
