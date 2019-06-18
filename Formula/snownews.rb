@@ -6,10 +6,9 @@ class Snownews < Formula
   revision 1
 
   bottle do
-    sha256 "7c6a6ef9e934c27639eda4b7cc1e47225bdf9f5fc6533e129454a72595024c8c" => :mojave
-    sha256 "192c7a039cfc5d4f8041982da9a0b0510745e8680754aea64202440c8ace9d6b" => :high_sierra
-    sha256 "bfa3d3dbdd0ffbb197163bbf35bcb9d033bbad76a478533e546697dff24addb6" => :sierra
-    sha256 "4ba563f80e1a79532136538595e36bd1f802fcc396515cad3dccb5f7dfcd21e2" => :el_capitan
+    sha256 "3a89fb71e6e5a5aecc6dc3eaa1e13e88a3d7f5a6525bb92f367b6e064de8a930" => :mojave
+    sha256 "bd80fc41d335b08d8fa9d1a318c1bcfc89493f39d9fad1c4135d2f763ef16a41" => :high_sierra
+    sha256 "c2e3fdc0f474a67399f3fcf6934d97b7194209e2a97aab348768edd5b30c74e1" => :sierra
   end
 
   depends_on "gettext"
