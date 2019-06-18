@@ -14,7 +14,7 @@ class Pgcli < Formula
   end
 
   depends_on "libpq"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "backports.csv" do
