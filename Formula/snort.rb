@@ -17,11 +17,11 @@ class Snort < Formula
   depends_on "libpcap"
   depends_on "luajit"
   depends_on "nghttp2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     libpcap = Formula["libpcap"]
 
     args = %W[
