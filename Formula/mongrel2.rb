@@ -1,18 +1,9 @@
 class Mongrel2 < Formula
   desc "Application, language, and network architecture agnostic web server"
   homepage "https://mongrel2.org/"
+  url "https://github.com/mongrel2/mongrel2/releases/download/v1.12.2/mongrel2-v1.12.2.tar.bz2"
+  sha256 "3bffeae198c37a1efc9c12f77d5f1eb61cdf62b35d661babc2527dd030aa7d8f"
   head "https://github.com/mongrel2/mongrel2.git", :branch => "develop"
-
-  stable do
-    url "https://github.com/mongrel2/mongrel2/releases/download/v1.12.2/mongrel2-v1.12.2.tar.bz2"
-    sha256 "3bffeae198c37a1efc9c12f77d5f1eb61cdf62b35d661babc2527dd030aa7d8f"
-
-    # ensure unit tests work on 1.11.0. remove after next release
-    patch do
-      url "https://github.com/mongrel2/mongrel2/commit/7cb8532e2ecc341d77885764b372a363fbc72eff.patch?full_index=1"
-      sha256 "fa7be14bf1df8ec3ab8ae164bde8eb703e9e2665645aa627baae2f08c072db9a"
-    end
-  end
 
   bottle do
     cellar :any
