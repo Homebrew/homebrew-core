@@ -6,9 +6,10 @@ class TemplateGlib < Formula
   revision 1
 
   bottle do
-    sha256 "b18d42b4c4daf6dcde10845985cc4ddb0096cfcf74ffee2e603eaccbdfd7b6ce" => :mojave
-    sha256 "b22dddf08ab8804afbcd88f5b1a8d01a6dac1cea92be628242be5a6ed3e84835" => :high_sierra
-    sha256 "2423e3880ba98aeb5591aaafd01a75c0de527b0a0bc85f8916532c3f0aeaf228" => :sierra
+    cellar :any
+    sha256 "0889af1b50baf0c74ff0541f24c5a8c284a9d45fef95666d7bf6f0f7fe58c454" => :mojave
+    sha256 "c238f40b45213d1bfee2816e5bcf67e7bb7ed9237d27c0c68d73b9a3c61c6f00" => :high_sierra
+    sha256 "84c70944f3df8018d970e7ae8719ae7184a85d33355bbea196aaf099eb5d4e4c" => :sierra
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
