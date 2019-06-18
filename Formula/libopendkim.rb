@@ -11,7 +11,7 @@ class Libopendkim < Formula
     sha256 "5d2163990816a1af9420fc096d3579febb819582053faf133424d689ad5e190c" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unbound"
 
   def install
@@ -22,7 +22,7 @@ class Libopendkim < Formula
                           "--prefix=#{prefix}",
                           "--disable-filter",
                           "--with-unbound=#{Formula["unbound"].opt_prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
