@@ -21,7 +21,7 @@ class MongodbAT36 < Formula
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   resource "Cheetah" do
@@ -60,8 +60,8 @@ class MongodbAT36 < Formula
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
 
-      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
-      ENV["CPATH"] = Formula["openssl"].opt_include
+      ENV["LIBRARY_PATH"] = Formula["openssl@1.1"].opt_lib
+      ENV["CPATH"] = Formula["openssl@1.1"].opt_include
 
       system "./build.sh", "ssl"
     end
@@ -78,8 +78,8 @@ class MongodbAT36 < Formula
       CXX=#{ENV.cxx}
       CCFLAGS=-mmacosx-version-min=#{MacOS.version}
       LINKFLAGS=-mmacosx-version-min=#{MacOS.version}
-      CCFLAGS=-I#{Formula["openssl"].opt_include}
-      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
+      CCFLAGS=-I#{Formula["openssl@1.1"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl@1.1"].opt_lib}
     ]
 
     args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
