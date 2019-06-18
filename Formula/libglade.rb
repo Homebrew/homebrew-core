@@ -6,10 +6,9 @@ class Libglade < Formula
   revision 4
 
   bottle do
-    sha256 "75df12d8db6a8ce9595704c743dc778d69f34af7db74228f0c7a4d4af61d2e1b" => :mojave
-    sha256 "2639d4af6b770ed782d7080b2b6105a0190eae1d8fdfd8076cdf3d89862b9364" => :high_sierra
-    sha256 "a26aa0e778ef074f9ba9726945297885fbfd49acab0ab392096990964e844fed" => :sierra
-    sha256 "057e25800e73c6233f353ed97ae4f7dfe1ca1f5eada9858d6527e03d4632ba87" => :el_capitan
+    sha256 "08b0055c32830a1af896041fbedfa9edc8bd6e2d70d0bf600b13495408978f8f" => :mojave
+    sha256 "fbb11944fbd2e2ac64d0215e9887b20ed85309880ff78f2755a8ed3d9369c131" => :high_sierra
+    sha256 "81103372f3f554685388e8f2f7547594a630bd99c238f8b37c252ec144eb4fea" => :sierra
   end
 
   depends_on "pkg-config" => :build
