@@ -7,10 +7,8 @@ class Fceux < Formula
 
   bottle do
     cellar :any
-    sha256 "5c0c3d6c59e39e053a1d64605f57a9e05fce54f62c8b9778ffb4103708842f23" => :mojave
-    sha256 "b075151a3db5a502f98f6ee8b5fcbd5ffa05064a88c786c99fa9fa908b85eacf" => :high_sierra
-    sha256 "4102c16cb5f5412d36cdcc52f739c98c2f457be7a8d4f0a55aa6f973eeb8c39d" => :sierra
-    sha256 "013d1b9b126426b76e814b56a5424281c348333e6a6e69db87cf603362c25397" => :el_capitan
+    sha256 "dc3c25ea5a685c59eced0d705e43ef72cdd42e3cf21cdb48c0ca02ebd2494a64" => :mojave
+    sha256 "86dcccdeb382c68cb9b00393780def76257b27d14b897caffd044ae0f2afba10" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
