@@ -15,7 +15,7 @@ class Fabric < Formula
     sha256 "218820b9b06ec728987e5e2ab49e4acec9541e9244788970181bd1cbb04bd203" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
