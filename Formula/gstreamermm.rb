@@ -7,9 +7,9 @@ class Gstreamermm < Formula
 
   bottle do
     cellar :any
-    sha256 "057dab43a92f1a810807b2a3613059105fac49a468dbc5ef2e3801fd5900ed8c" => :mojave
-    sha256 "ce39e629796d8b384a421c51a84ccaec05f8b80ddfb8d21cfef14e0895d21b49" => :high_sierra
-    sha256 "fda9d96c0de22891676ba67f0fe1c7589cc3a1789972d143af8c4197ab555af7" => :sierra
+    sha256 "2477c98837a5e26cf74c8482d847a8ccde8e0b3354d6941b87bf2fcd1911cd16" => :mojave
+    sha256 "5c02f827f121ed130a8b5f4c83e2d2e611781d7d83fb7ed4df283e07fbd76920" => :high_sierra
+    sha256 "29914feb073d9a28dfc89277ef46bec045eab722e690104139518284516cbbf0" => :sierra
   end
 
   depends_on "pkg-config" => :build
