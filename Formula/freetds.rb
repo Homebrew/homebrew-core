@@ -20,7 +20,7 @@ class Freetds < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
 
   def install
@@ -30,7 +30,7 @@ class Freetds < Formula
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide
