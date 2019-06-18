@@ -14,7 +14,7 @@ class Libzdb < Formula
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "postgresql"
   depends_on "sqlite"
 
