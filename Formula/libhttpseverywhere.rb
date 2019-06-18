@@ -3,7 +3,7 @@ class Libhttpseverywhere < Formula
   homepage "https://github.com/gnome/libhttpseverywhere"
   url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.3.tar.xz"
   sha256 "1c006f5633842a2b131c1cf644ab929556fc27968a60da55c00955bd4934b6ca"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -23,6 +23,13 @@ class Libhttpseverywhere < Formula
   depends_on "libarchive"
   depends_on "libgee"
   depends_on "libsoup"
+
+  # see https://gitlab.gnome.org/GNOME/libhttpseverywhere/issues/1
+  # remove when next version is released
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libhttpseverywhere/commit/6da08ef1ade9ea267cecf14dd5cb2c3e6e5e50cb.patch"
+    sha256 "eeb4f672c6cee3db6f7ba0f0798e37be68f1d3d6d8e22fb0ec21e7ca768356c3"
+  end
 
   def install
     mkdir "build" do
