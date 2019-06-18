@@ -6,9 +6,9 @@ class GtkMacIntegration < Formula
   revision 1
 
   bottle do
-    sha256 "bc2988431033aac212a91ebf5f24cb4186fa754392a394a0a18b21e37e82546b" => :mojave
-    sha256 "48784429c9f1a8edde39c21ed4fdc7aca9fa7163a02b66d9dc2e998b45e7dbb5" => :high_sierra
-    sha256 "708be6c171f2a5b0291350e9670efd03e4df32f9e1e743fa2d9531e7c1d85d77" => :sierra
+    sha256 "1fe1cc1a17b9eed04d3a0df4f76c872e6e681c383f314db924af81aff7209423" => :mojave
+    sha256 "fe5a8f4c578ae74f06deb0a3a2c5c8b9f62c4b014dbfada15a58b9039a2a2e6d" => :high_sierra
+    sha256 "aa0fb1b405e8b5377669a21fbce2d3774826a013623e6f5b19d982465776603b" => :sierra
   end
 
   head do
