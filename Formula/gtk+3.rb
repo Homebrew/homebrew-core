@@ -1,9 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.8.tar.xz"
-  sha256 "666962de9b9768fe9ca785b0e2f42c8b9db3868a12fa9b356b167238d70ac799"
-  revision 1
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.9.tar.xz"
+  sha256 "577eb0270d9adf2eb2aa4b03f9c7873fadb20cf265194d0139570f738493e635"
 
   bottle do
     sha256 "edac993e207db84a31c9fd892988de688466e978698271ccd76f36eba4c8fd7a" => :mojave
@@ -11,7 +10,10 @@ class Gtkx3 < Formula
     sha256 "2f7e4f731770289190e46f540f8fd06d7215093f869b3a891b35a154653d944d" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "gdk-pixbuf"
@@ -33,6 +35,7 @@ class Gtkx3 < Formula
       --disable-x11-backend
     ]
 
+    system "autoreconf", "-fi"
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install
     bin.mkpath
