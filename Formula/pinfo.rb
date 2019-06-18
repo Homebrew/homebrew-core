@@ -6,9 +6,9 @@ class Pinfo < Formula
   revision 1
 
   bottle do
-    sha256 "e9b037201877468b88b7b86587977c5672f8ae4623faa0ed24db088b48618013" => :mojave
-    sha256 "b8affb96e7d903da0fc32d873e19fad7a71a18bebb1ad514898eb2f05aa6a69d" => :high_sierra
-    sha256 "e9e911c12b6fc6bcc46ec460848d4a927a3276b44d197790fbf491784008bfb1" => :sierra
+    sha256 "b81b1202add75d938802681618f5bf95dd245e03ff80f5f0ca67a5ba8b7bfb84" => :mojave
+    sha256 "84edf6ec00f570004abc6f3d0335196b513a4a52e589919ca1e70c35b31525cc" => :high_sierra
+    sha256 "9b8e3d359081d68626f86cab8b048926b6471f8ca1be8e47ca8625e22da5021f" => :sierra
   end
 
   depends_on "autoconf" => :build
