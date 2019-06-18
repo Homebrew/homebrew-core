@@ -6,9 +6,9 @@ class Mednafen < Formula
   revision 1
 
   bottle do
-    sha256 "da5af9ae42a2b43ad3a5ce16cf16e8431540ca40cab4ef265a2dd8e1681106aa" => :mojave
-    sha256 "288d8e4dd7ee68a50f5b18d245bdea6ace0b4b443ac243148d171f68a1d1715e" => :high_sierra
-    sha256 "d0ce5c4a7cbcc62fd8fcc0dd47014db47374ceba78eeea8240c1d211ca2bcae6" => :sierra
+    sha256 "8f21a00e4bc5c3bf8d053f393c2fe5aedb3225259bce7846297d36e3ce25c144" => :mojave
+    sha256 "912f607423d94da528b1b1c6b8dd26ff97f1bec992e7b3a99fbd5eed9830a5eb" => :high_sierra
+    sha256 "dcba8476cd955867380598cfb9cd064a6832103d339ea53a71d8c41bd51093f5" => :sierra
   end
 
   depends_on "pkg-config" => :build
