@@ -16,7 +16,7 @@ class Rtmpdump < Formula
     sha256 "f4c8dbdf3f8a04626a7975abf96eccd5e494a3f6a795b2035c6d418bfbe8079d" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "flvstreamer", :because => "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
