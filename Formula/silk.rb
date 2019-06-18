@@ -6,9 +6,9 @@ class Silk < Formula
   revision 1
 
   bottle do
-    sha256 "d42adafb75701fcc754c256a89a1c585ae0a4770c09c76b0f0d4d1789f576a1e" => :mojave
-    sha256 "96eefe797189de74e82d10e9988416878a57ee3c1264dab6cf8476b25b55fe11" => :high_sierra
-    sha256 "a7ade89a1b415e08676dd8f8d0d69494d3b6346406fdca200e9388c99f3e61f0" => :sierra
+    sha256 "5bc6286c86c29a9e3004e5023796a7c5dcbc43951541a290f9433f141dd8e207" => :mojave
+    sha256 "a678ade8fabca1d56a30053aea11beeeb7daa6e4e1e75bd7a88ee8adc4608a3f" => :high_sierra
+    sha256 "c60a4cca87007b777dc4d18343475e0cacb5a5e92c4b81e345542283465910e7" => :sierra
   end
 
   depends_on "pkg-config" => :build
