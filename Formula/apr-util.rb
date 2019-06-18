@@ -15,14 +15,14 @@ class AprUtil < Formula
   keg_only :provided_by_macos, "Apple's CLT package contains apr"
 
   depends_on "apr"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Install in libexec otherwise it pollutes lib with a .exp file.
     system "./configure", "--prefix=#{libexec}",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-crypto",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
