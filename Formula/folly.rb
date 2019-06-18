@@ -23,7 +23,7 @@ class Folly < Formula
   # https://github.com/facebook/folly/issues/966
   depends_on :macos => :high_sierra
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
