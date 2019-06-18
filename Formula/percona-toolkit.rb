@@ -13,7 +13,7 @@ class PerconaToolkit < Formula
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave
