@@ -6,9 +6,10 @@ class Lablgtk < Formula
   revision 4
 
   bottle do
-    sha256 "e1de84a04e013f1e02a6e72397bc3d0a51f972661260e232c64bdab1e6f5fa34" => :mojave
-    sha256 "1edc1b76a28384340a571a9238a22ebe65abd569defc1346ab0ba923305b8733" => :high_sierra
-    sha256 "dbdeb42914d089ba2844d92de8802714b5c31fb82dbe2f1f2bb96da49776dea2" => :sierra
+    cellar :any
+    sha256 "a31b98b22cc8de04806dbcb1c05832b6b2a8c45e930477c034474c77e9f2a661" => :mojave
+    sha256 "5fda248f045a1c7a966ee4152cea66ee70caf4c64c545e872bb2ba872938a0e8" => :high_sierra
+    sha256 "fe6e01af945294226b247dda8cd1691b63759ffd142f32112725d43d4679368b" => :sierra
   end
 
   depends_on "camlp4" => :build
