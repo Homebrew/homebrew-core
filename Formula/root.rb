@@ -35,7 +35,7 @@ class Root < Formula
   # https://github.com/Homebrew/brew/issues/5068
   depends_on "libxml2" if MacOS.version >= :mojave
   depends_on "lz4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python"
   depends_on "tbb"
