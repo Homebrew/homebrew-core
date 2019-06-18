@@ -16,7 +16,7 @@ class Rpm < Formula
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua@5.1"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
   depends_on "xz"
