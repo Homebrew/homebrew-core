@@ -14,7 +14,7 @@ class Mosquitto < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libwebsockets"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON"
