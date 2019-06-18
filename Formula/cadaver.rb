@@ -16,7 +16,7 @@ class Cadaver < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "neon"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # enable build with the latest neon
@@ -25,7 +25,7 @@ class Cadaver < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl"].opt_prefix}",
+                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-neon=#{Formula["neon"].opt_prefix}"
     system "make", "-C", "lib/intl"
     system "make", "install"
