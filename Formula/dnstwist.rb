@@ -3,8 +3,8 @@ class Dnstwist < Formula
 
   desc "Test domains for typo squatting, phishing and corporate espionage"
   homepage "https://github.com/elceef/dnstwist"
-  url "https://github.com/elceef/dnstwist/archive/20190518.tar.gz"
-  sha256 "1210a2e481e4b0412e36e091301601c56175ed452ce95035031fb2b80da47bc1"
+  url "https://github.com/elceef/dnstwist/archive/20190619.tar.gz"
+  sha256 "234e69bf8b6696db627dcde6b5f058c014745e1bf98c0531e75b7912c844348f"
 
   bottle do
     cellar :any
@@ -53,8 +53,8 @@ class Dnstwist < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz"
-    sha256 "ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "six" do
@@ -73,8 +73,8 @@ class Dnstwist < Formula
   end
 
   resource "whois" do
-    url "https://files.pythonhosted.org/packages/13/e8/656817674977bb7dd1dcee5e779daa10df65eca3dad65a018b0614bf2ac9/whois-0.7.tar.gz"
-    sha256 "788ba4fa4986d06351c1572f63ef1576d26f3cd5ecf5d999934421540c87021c"
+    url "https://files.pythonhosted.org/packages/5a/b0/c08d2d3dcd35f10ddf51b072c471872a1f426025045eb361feeac5c7e5a6/whois-0.8.tar.gz"
+    sha256 "078298e68dee9ba0d6a2bc58a6987d9f4151e09ae0ea3b4c8c8d3dac0e7a709b"
   end
 
   def install
@@ -82,9 +82,6 @@ class Dnstwist < Formula
 
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
-
-    # Replace shebang with virtualenv python
-    inreplace "dnstwist.py", "#!/usr/bin/env python", "#!#{libexec}/bin/python3"
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
     (libexec/"bin/database").install "database/GeoIP.dat", "database/effective_tld_names.dat"
