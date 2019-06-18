@@ -15,7 +15,7 @@ class Credstash < Formula
     sha256 "c19c7338c9de8fba9712aa61e9ab038f6077665bf388cb82584c1b8cc54c1067" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
