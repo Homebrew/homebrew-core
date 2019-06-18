@@ -13,7 +13,7 @@ class Pwntools < Formula
     sha256 "91d82535a5683cc31032453f0a7214b1c2ff8580be30286bea2344709b99a8e0" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
 
   if Tab.for_name("moreutils").with?("errno")
