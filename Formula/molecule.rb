@@ -13,7 +13,7 @@ class Molecule < Formula
     sha256 "cc88e57b2c2b35257999ec5b815e6312cdc853104f790436845c6dba38ef9c16" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   # Collect requirements from:
