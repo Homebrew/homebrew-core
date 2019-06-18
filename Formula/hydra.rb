@@ -15,15 +15,15 @@ class Hydra < Formula
   depends_on "pkg-config" => :build
   depends_on "libssh"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "configure" do |s|
       # Link against our OpenSSL
       # https://github.com/vanhauser-thc/thc-hydra/issues/80
-      s.gsub! "/opt/local/lib", Formula["openssl"].opt_lib
-      s.gsub! "/opt/local/*ssl", Formula["openssl"].opt_lib
-      s.gsub! "/opt/*ssl/include", Formula["openssl"].opt_include
+      s.gsub! "/opt/local/lib", Formula["openssl@1.1"].opt_lib
+      s.gsub! "/opt/local/*ssl", Formula["openssl@1.1"].opt_lib
+      s.gsub! "/opt/*ssl/include", Formula["openssl@1.1"].opt_include
       # Avoid opportunistic linking of subversion
       s.gsub! "libsvn", "oh_no_you_dont"
     end
