@@ -13,7 +13,7 @@ class Buku < Formula
     sha256 "2d4aa8647d31246d9152770fe786e31ed153c6437c10e0a8abbb661318eaa03e" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
