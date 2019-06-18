@@ -18,7 +18,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "libgcrypt"
   depends_on "libgee"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
