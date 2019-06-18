@@ -15,7 +15,7 @@ class Osc < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1" # For M2Crypto
   depends_on "python@2"
 
   resource "pycurl" do
@@ -42,7 +42,7 @@ class Osc < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }
@@ -50,7 +50,7 @@ class Osc < Formula
     resource("M2Crypto").stage do
       inreplace "setup.py" do |s|
         s.gsub! "self.openssl = '/usr'",
-                "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+                "self.openssl = '#{Formula["openssl@1.1"].opt_prefix}'"
         s.gsub! "platform.system() == \"Linux\"",
                 "platform.system() == \"Darwin\" or \\0"
       end
