@@ -18,7 +18,7 @@ class Mydumper < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   # This patch allows cmake to find .dylib shared libs in macOS. A bug report has
