@@ -7,10 +7,9 @@ class Pdf2htmlex < Formula
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "44c53a6568f7ccf89f3c2ee6ecb9b68e852b98ac3e8aac394815b03a42bbc07d" => :mojave
-    sha256 "316df8e38b0533e5c7ebbd3b120fe4e5d2957f7d7de92ccc0dbe75c72d1285b6" => :high_sierra
-    sha256 "e02628e81215b1e9fea902f9b353e6f8ea93f1eda7e385f886cee95e39627d20" => :sierra
-    sha256 "5c72b64128d75ce84c0158f6c90c8e710c299de71f593a5b15868c006c5396fb" => :el_capitan
+    sha256 "ed3b2014900a813cc67fc580949cfbc2b7525b6bfd652df656d5b03252d0c10e" => :mojave
+    sha256 "a06598399b408551a1d952d864c7d36d8989988f18c411c80062084bf8df76ba" => :high_sierra
+    sha256 "ec3c20e86bf3b265454d5886f884787348db0c4f1670ba721287ed7d62b08fff" => :sierra
   end
 
   depends_on "autoconf" => :build # for fontforge
