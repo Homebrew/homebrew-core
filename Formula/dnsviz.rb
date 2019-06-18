@@ -17,7 +17,7 @@ class Dnsviz < Formula
   depends_on "bind" => :test
   depends_on "graphviz"
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   resource "dnspython" do
@@ -43,7 +43,7 @@ class Dnsviz < Formula
   def install
     venv = virtualenv_create(libexec)
     resource("m2crypto").stage do
-      system libexec/"bin/python", "setup.py", "build_ext", "--openssl=#{Formula["openssl"].opt_prefix}", "install"
+      system libexec/"bin/python", "setup.py", "build_ext", "--openssl=#{Formula["openssl@1.1"].opt_prefix}", "install"
     end
     venv.pip_install resources.reject { |r| r.name == "m2crypto" }
     system libexec/"bin/python", "setup.py", "build"
