@@ -6,12 +6,10 @@ class Pms < Formula
   revision 1
 
   bottle do
-    sha256 "9526998c8cbe888fcf0b494d4d717b3b8cc9501b5f559c719274dd1de75d2d1a" => :mojave
-    sha256 "6a7b2229b39104ec96032e9e893514fa8a61b18a52106729332c22d8aba8a065" => :high_sierra
-    sha256 "8d96a7dafe25504a4bf927b94119265f6dfd0459aaaed9d1867601aa24ed8728" => :sierra
-    sha256 "65b6bfe7e5eca6e7f073e4f9c3fc7c46df538c91010059781369bacbc628256b" => :el_capitan
-    sha256 "4093093ca7be2f6aaee5f50d3185323df4fcea2ed389f29615a1b79fb3648be4" => :yosemite
-    sha256 "2f7dd91d357ac34393e55d7de6ffca2b21a64adfa084a6b6dd5c5aa43caed170" => :mavericks
+    cellar :any
+    sha256 "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30" => :mojave
+    sha256 "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638" => :high_sierra
+    sha256 "fa90afc92fc9d1e57a9a0a74dc63d3ec5ba92f1430caf5cad8fa54362b0da298" => :sierra
   end
 
   depends_on "pkg-config" => :build
