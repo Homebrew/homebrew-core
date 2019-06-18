@@ -16,7 +16,7 @@ class Ykman < Formula
 
   depends_on "swig" => :build
   depends_on "libusb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "ykpers"
 
