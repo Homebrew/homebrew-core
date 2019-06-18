@@ -25,7 +25,7 @@ class Osquery < Formula
   depends_on "lldpd"
   # osquery only supports macOS 10.12 and above. Do not remove this.
   depends_on :macos => :sierra
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
