@@ -28,7 +28,7 @@ class CurlOpenssl < Formula
   depends_on "libssh2"
   depends_on "nghttp2"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "rtmpdump"
 
   def install
@@ -40,14 +40,14 @@ class CurlOpenssl < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-ares=#{Formula["c-ares"].opt_prefix}
-      --with-ca-bundle=#{etc}/openssl/cert.pem
-      --with-ca-path=#{etc}/openssl/certs
+      --with-ca-bundle=#{etc}/openssl@1.1/cert.pem
+      --with-ca-path=#{etc}/openssl@1.1/certs
       --with-gssapi
       --with-libidn2
       --with-libmetalink
       --with-librtmp
       --with-libssh2
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args
