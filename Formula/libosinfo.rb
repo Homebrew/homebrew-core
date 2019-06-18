@@ -6,9 +6,9 @@ class Libosinfo < Formula
   revision 1
 
   bottle do
-    sha256 "1e389f8641db3e8337190292693fcb2acf6f3c486a9a26ed94ceb4f1ab0fed92" => :mojave
-    sha256 "767409ed525bd928fa89442845ba3e20fcaff718fef2bc6f892c47b07b6b6996" => :high_sierra
-    sha256 "1a030c4d1e8aa908c957a0f70083b32df30cfe826ca2511ea672fea51d670659" => :sierra
+    sha256 "1d028a79be8109c00e46e4339861c4fbb6e503ffce646a5057613c0b0777da58" => :mojave
+    sha256 "b3d146798995b0a5878b26201e9dc2833759b229a55c8b34003dadd5791c9dd9" => :high_sierra
+    sha256 "0fc8647922adcb43897a9d44f8c4ce606ce58eaba460139ea108c4eb63fb6a6c" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
