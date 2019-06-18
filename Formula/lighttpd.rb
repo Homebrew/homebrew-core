@@ -15,7 +15,7 @@ class Lighttpd < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
