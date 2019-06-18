@@ -18,7 +18,7 @@ class Salt < Formula
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1" # For M2Crypto
   depends_on "python"
   depends_on "zeromq"
 
@@ -126,7 +126,7 @@ class Salt < Formula
   end
 
   def install
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
     virtualenv_install_with_resources
     prefix.install libexec/"share" # man pages
