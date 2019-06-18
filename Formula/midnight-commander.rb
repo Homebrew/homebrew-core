@@ -14,7 +14,7 @@ class MidnightCommander < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libssh2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "s-lang"
 
   conflicts_with "minio-mc", :because => "Both install a `mc` binary"
