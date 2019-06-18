@@ -6,10 +6,9 @@ class Cairo < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "02c2a4e524b593da3f1e34b2df114bf23381a1f4bd1a3df3c84aa224ca18b379" => :mojave
-    sha256 "3a1709a306210370535adc75410f62f215b82b8ee3fff74b93b1410f95956ace" => :high_sierra
-    sha256 "aeb90d76636b11f64b4cd5236e4efa1a4bb0a6e72651b1cd127e6c8680b646bc" => :sierra
+    sha256 "fcda779381271541f623470a74b8b0164f1e83c9154b7b7f4ed23038aac3f5d6" => :mojave
+    sha256 "e9d0d9800f39390a379a2a8b86ab2222c6e21b03fe8b08a3ca6c493c2577255d" => :high_sierra
+    sha256 "77b1e651611de729ee08eb29037b8909e67603f3ab420a54ece1a893d4d449f5" => :sierra
   end
 
   head do
