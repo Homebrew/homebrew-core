@@ -18,7 +18,7 @@ class Tarsnap < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
