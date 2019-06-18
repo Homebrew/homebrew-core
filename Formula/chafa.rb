@@ -7,9 +7,9 @@ class Chafa < Formula
 
   bottle do
     cellar :any
-    sha256 "21473001e0cad95603414f9cd242d408f37c3fd805f8283ba004becf2e5745be" => :mojave
-    sha256 "12c49e4749823ad7e1acc8fbf4c7b8c30d59a7beceb10af83b909ed3848712db" => :high_sierra
-    sha256 "1eafdaf63d64ef0e1a86f4c86f101efcc078cd270b3a10b47934617ac1bd625f" => :sierra
+    sha256 "aaa7a1a6515a936e426de959cd5e12912f8ad8a4c496faa4f66e4a91ed8d3e20" => :mojave
+    sha256 "0de874867a7fbb31bec2270bbb66ce09388287350a5ba047642ae0dfbfcd3b2e" => :high_sierra
+    sha256 "b03b539cfcce1e802639c4ba5770ea63eaeff7bb8724b2eede19ba1edeb814c6" => :sierra
   end
 
   depends_on "pkg-config" => :build
