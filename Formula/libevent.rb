@@ -16,7 +16,7 @@ class Libevent < Formula
   depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "pincaster",
     :because => "both install `event_rpcgen.py` binaries"
