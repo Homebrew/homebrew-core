@@ -14,7 +14,7 @@ class Tor < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "libscrypt"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -23,7 +23,7 @@ class Tor < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{Formula["openssl"].opt_prefix}
+      --with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args
