@@ -6,9 +6,9 @@ class Nano < Formula
   revision 1
 
   bottle do
-    sha256 "c60bcaca918c69ed39f552fde9c271bfb2409cc63ce2f3ddf1b4e302d01a8eaa" => :mojave
-    sha256 "d601f2fc6cbfc61ee0346cca60a538d6782b9a97992fe879ab148d0e47a2df52" => :high_sierra
-    sha256 "01da439fc484b0935b10d3f29f55d2af29d511b90695491a25179437cc1572dd" => :sierra
+    sha256 "a9fe516b43923e6a4214880e585444a5cc85fae01a7ea3635c134edea758235d" => :mojave
+    sha256 "f59cab3a05fe138f2d04ca967e51a40cf78f397f4fc89719f498580b86559d5d" => :high_sierra
+    sha256 "df3ab79f5a15e849597930370c7c0c71baf107142f0a6a0a4aae78b2f761d80e" => :sierra
   end
 
   depends_on "pkg-config" => :build
