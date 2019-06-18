@@ -8,9 +8,9 @@ class Sdcv < Formula
   head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
-    sha256 "8284b957b698321f81c7dec19e07a97422f75a5c06b1842216443535024c7c98" => :mojave
-    sha256 "ab5c72c084c63e3346ec1f55a9faa9e199d455e5c9cc75bf83ae8e92bfbe9518" => :high_sierra
-    sha256 "c30525f5718a726954d88fb28c3fce7a951c0e4f2af34ddf8ab87cbd81ecf046" => :sierra
+    sha256 "d40dc4d63326ca5268f5b1d75a8a64ecc0081fe6e35d6279ee937774b39cfb33" => :mojave
+    sha256 "322ec61f8ae7914f8a8f5da7fac01ef0ee69aa9f9844e1c876168f9fdf54887a" => :high_sierra
+    sha256 "e0aa6779b49ae274e5a9da62a12caceaf2149b587d96ce051bd5c7d735c81fa4" => :sierra
   end
 
   depends_on "cmake" => :build
