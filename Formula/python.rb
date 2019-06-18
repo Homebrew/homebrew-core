@@ -24,7 +24,7 @@ class Python < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
@@ -65,7 +65,7 @@ class Python < Formula
       --enable-loadable-sqlite-extensions
       --without-ensurepip
       --with-dtrace
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
@@ -223,9 +223,9 @@ class Python < Formula
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include,
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
                     Formula["sqlite"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib,
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
                     Formula["sqlite"].opt_lib]
 
     cfg = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
