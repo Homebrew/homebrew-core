@@ -11,7 +11,7 @@ class Socat < Formula
     sha256 "c17ddaf91194b3b06845c63f9d38f364612a5bbee315ff716eccd3b89a543bc2" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # patch for type conflict, sent upstream
