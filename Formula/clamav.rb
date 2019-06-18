@@ -20,7 +20,7 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "yara"
 
@@ -36,7 +36,7 @@ class Clamav < Formula
       --disable-zlib-vcheck
       --enable-llvm=no
       --with-libjson=#{Formula["json-c"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre"].opt_prefix}
       --with-zlib=#{MacOS.sdk_path_if_needed}/usr
     ]
