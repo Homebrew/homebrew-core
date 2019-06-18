@@ -18,7 +18,7 @@ class SubversionAT18 < Formula
   depends_on "scons" => :build # For Serf
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "openssl" # For Serf
+  depends_on "openssl@1.1" # For Serf
   depends_on "sqlite" # build against Homebrew version for consistency
 
   resource "serf" do
@@ -49,7 +49,7 @@ class SubversionAT18 < Formula
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-                OPENSSL=#{Formula["openssl"].opt_prefix}]
+                OPENSSL=#{Formula["openssl@1.1"].opt_prefix}]
 
       if MacOS.version >= :sierra || !MacOS::CLT.installed?
         args << "APR=#{Formula["apr"].opt_prefix}"
