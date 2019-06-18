@@ -16,7 +16,7 @@ class MysqlConnectorCxx < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", *std_cmake_args
