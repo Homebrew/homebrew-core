@@ -6,11 +6,9 @@ class Flex < Formula
   revision 1
 
   bottle do
-    sha256 "f326d68bc795592b3211e0ab7401222cdfe4f510cd5d3e5fd364678ae8cba2b2" => :mojave
-    sha256 "0abf12786daea0fb1be796e24f41163f41943eb3dfb7ba71e4c09f1821083c11" => :high_sierra
-    sha256 "89fb9ae2ac9be0f60706f40379cdfa51ced78f1638ac8729bc0074e4fcde70cf" => :sierra
-    sha256 "95c2da56e5487b53ee4afe3ed52a7f59ffe86df4508768b3e48ef042d66e6cc1" => :el_capitan
-    sha256 "c8aaca29a77a6b3e2383f7d80b12eccbbf131162e5157a4a320117d4c564a4bf" => :yosemite
+    sha256 "2051ed8f0de322732b111f2cc82069e82f6dfd4d839e6d098bbebcd7f92220e6" => :mojave
+    sha256 "9c224c27a3d40a53b6f778a6b825f8b4f14654080b144e50f1bec9cc608c757d" => :high_sierra
+    sha256 "a958106ee0895b21c7577478b847ecdbc601ce6a723543c5da455bfe0eee5f8f" => :sierra
   end
 
   head do
