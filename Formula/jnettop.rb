@@ -7,10 +7,9 @@ class Jnettop < Formula
 
   bottle do
     cellar :any
-    sha256 "a98f66b183e2eadaea198bf62ceb8da42c044943152617089aa942b5bf9b55b5" => :mojave
-    sha256 "080fb7eb6cdc86c32d899a99acef5f509c35204b794bd920f19c31ed5887727a" => :high_sierra
-    sha256 "90ebc909ac301d2ec5c9595581c796a15200e0f8439f353148bff0b214aafb26" => :sierra
-    sha256 "d5e07a56ee0fc93972f31dc878558d9d4348a4a3dd4e9b06a8c858008541657b" => :el_capitan
+    sha256 "6eb9456614d3079057d6d5964735b89a53401183d53075b79733872f24368683" => :mojave
+    sha256 "be86a7a7c8aab464c991770e0eeb3cfda793543709527f872467a83dab06efdf" => :high_sierra
+    sha256 "8b1d0bf0ad20377e7b6760a033c1c215e36ea8a4e2bfd89f785a5b7079ad9f9a" => :sierra
   end
 
   depends_on "pkg-config" => :build
