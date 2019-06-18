@@ -1,5 +1,5 @@
 class Sleepwatcher < Formula
-  desc "Monitors sleep, wakeup, and idleness of a Mac. 64-bit as of v2.2.1"
+  desc "Monitors sleep, wakeup, and idleness of a Mac"
   homepage "https://www.bernhard-baehr.de/"
   url "https://www.bernhard-baehr.de/sleepwatcher_2.2.1.tgz"
   sha256 "4bf1656702167871141fbc119a844d1363d89994e1a67027f0e773023ae9643e"
