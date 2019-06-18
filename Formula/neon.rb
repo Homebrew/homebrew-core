@@ -15,7 +15,7 @@ class Neon < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Configure switch unconditionally adds the -no-cpp-precomp switch
   # to CPPFLAGS, which is an obsolete Apple-only switch that breaks
@@ -30,7 +30,7 @@ class Neon < Formula
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl"].opt_prefix}"
+                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 end
