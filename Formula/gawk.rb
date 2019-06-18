@@ -7,9 +7,9 @@ class Gawk < Formula
   revision 1
 
   bottle do
-    sha256 "0eb61cf2dc448b97f4f27054db3a3580482aae8c77a9fa5008844361f4c591c8" => :mojave
-    sha256 "8b935dbbfcc134e9f546399fc16ec87c446a30a3de59621e1b40dcefa78a97f8" => :high_sierra
-    sha256 "e4cf8406600238bcf9c0cfecc98a7d82f96720ea7f13855fa5dd4efc43936356" => :sierra
+    sha256 "47559c1ecaa9ee95cac1f7ae5c2a56c16e206c4f1b0bf1b25d6c0ee5ad8f5ac3" => :mojave
+    sha256 "1871a29927d77bc704a088ab5750af3ad56c08ae4762c8faafca1a39b0be0bac" => :high_sierra
+    sha256 "d0ea7024988dc4c6d43e3bf65b48640fcb67160bddbfd3bb08888be642bfeeff" => :sierra
   end
 
   depends_on "gettext"
