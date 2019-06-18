@@ -7,10 +7,9 @@ class Libgee < Formula
 
   bottle do
     cellar :any
-    sha256 "8bda00ec686771f7d42a63085b9e11c93202cc9b90adbbc5f61a699666c99db8" => :mojave
-    sha256 "d4afb1bbccfd61b0a106595356d5f571a0df6a5fb0fd5e378c8321a46e152c1b" => :high_sierra
-    sha256 "b70794b96ce5d21dc3dac66f4e0e63177d7507c723d78a786110dc502d7777e1" => :sierra
-    sha256 "7602f76b0667a7dd1527c01285274c2cca24d5e638b9a0c4a90cbc004d5e097e" => :el_capitan
+    sha256 "4653b354ea0d94644d7513ec272cd32a19f6a62d24e1a9459513c562e77cd015" => :mojave
+    sha256 "98cceed95e7149d47d582970872896150aca66dda0f26915785dc24ce58de5b0" => :high_sierra
+    sha256 "cd38211f0a12c738e8537e94aeca8dfe992062ed3e9d44cc2a15148a57eefd6c" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
