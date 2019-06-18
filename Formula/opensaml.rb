@@ -14,7 +14,7 @@ class Opensaml < Formula
 
   depends_on "pkg-config" => :build
   depends_on "log4shib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
