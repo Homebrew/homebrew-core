@@ -6,10 +6,9 @@ class Prefixsuffix < Formula
   revision 2
 
   bottle do
-    sha256 "87b5aed4fa1e4dd94b2d5f296d47078cd3f177e0c68bc7b16e285f2b8c40b83c" => :mojave
-    sha256 "0a0937d3ebef51cf2c39007ea99e31f75490c07f7b6b441f64f7a87bbda54a7c" => :high_sierra
-    sha256 "68a7a15fe3b8ea30c1f09e90dfbf8d95348367f74e497b9c1b31ac1795e71211" => :sierra
-    sha256 "48cc4b33c63c410b4d5827f689ccf6ea59608deee4735f84edea90c2ddc394f1" => :el_capitan
+    sha256 "3541b46101d2fe9e164a741f37b24261b78b4eceaff0e13e407c55b144dd068f" => :mojave
+    sha256 "62955320e97bcb4f636ca0e0b880678619fe90a43309f311aa60991f2ff0a21f" => :high_sierra
+    sha256 "632a0e87e234f5285a99072c1927affe8ab5efe438493035f472f652d8a951fe" => :sierra
   end
 
   depends_on "intltool" => :build
