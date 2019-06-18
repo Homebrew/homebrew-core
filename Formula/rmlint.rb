@@ -7,10 +7,9 @@ class Rmlint < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "80bcba0458b5d698083d163c9830b1337ed34784a38e89c0d7df637ecdf30a45" => :mojave
-    sha256 "fc3dff4f420008d8d29fb70d82bb8c28326e7d94ae58655e1a8e0c766f2735eb" => :high_sierra
-    sha256 "1ecbb17a04c9a141761d60cb0bf80e6a4df9fdc60cb96be9dc6a8e27222984d3" => :sierra
+    sha256 "552eeef7ab480b1a69fb3edbf9b7f05d7a267c732821ecc157f4faa422cee68b" => :mojave
+    sha256 "8ea97a4b0511e8284ec45c4f9fdc8e52a1a7166c432ca572b42ac8c1e51c3c30" => :high_sierra
+    sha256 "dc10a001e94ed01f24d6b7c60eabb981f3c04dabef0943090b5f77fcb0f136ae" => :sierra
   end
 
   depends_on "gettext" => :build
