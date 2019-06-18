@@ -6,10 +6,10 @@ class Lasso < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "31119ff64238c34da8eb2298515d03cdb827ff18b98e390a2d0b175fdd1efc97" => :mojave
-    sha256 "17750cf628c0c32d293d94b3089c604c58911f66fb86858b6254489c90b92def" => :high_sierra
-    sha256 "0fc96b1acc751d7de14e4f390f3f5c4ef00299493f51594546858d579d503b02" => :sierra
+    cellar :any
+    sha256 "977cc96a183d5c6f28c43bcae666a2d4eccb58fd3c2efa1a4698db044f24d876" => :mojave
+    sha256 "5d5ad0e555f97aad53bd57ba9ee6c737ae7d7b8ecf640247b5c03a77970c1b30" => :high_sierra
+    sha256 "c19b194e42fd805269e2bda37cdd0c775c85edd3f9fada69d4fd04e4f0df8249" => :sierra
   end
 
   depends_on "pkg-config" => :build
