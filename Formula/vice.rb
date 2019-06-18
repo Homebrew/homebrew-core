@@ -7,10 +7,9 @@ class Vice < Formula
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   bottle do
-    rebuild 1
-    sha256 "29be4c43c338b9f7d627a2dc33e1780c667b1f17149f9c606e4445f4275de3d1" => :mojave
-    sha256 "1fe973b99f548b1511562e3e74fc0ad73bbce959357030d9a67c7b7fe2027c10" => :high_sierra
-    sha256 "a75fe0b1bacc3d934c017cd415dc0610c70dde9d3e0a1a26eea5d449086e757f" => :sierra
+    sha256 "b0ef45d4c1658cd3aa7b42b71ec1d2e5f30abd4f0e0fa7703adb2690e2af22a5" => :mojave
+    sha256 "7329a08c140b193c56d6225a37b8627d10e5a972dbe982d0eb581d2105d75b89" => :high_sierra
+    sha256 "9bbf231068988591d65da218577efeb757d747f36d43c70a28bdbe22bad9b4ac" => :sierra
   end
 
   depends_on "pkg-config" => :build
