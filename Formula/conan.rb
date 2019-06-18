@@ -16,7 +16,7 @@ class Conan < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libffi"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   def install
