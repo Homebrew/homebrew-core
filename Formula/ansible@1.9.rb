@@ -17,7 +17,7 @@ class AnsibleAT19 < Formula
   keg_only :versioned_formula
 
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
 
   #
