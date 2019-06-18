@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v2.0.3",
-      :revision => "a6f65144121d1955266b0cd836ce954c04122dc8"
+      :tag      => "v2.1.0",
+      :revision => "af67c893d87c5fb8200f8a3edac7fdafd61ec0bd"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
@@ -17,26 +17,26 @@ class Kustomize < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "0"
+    ENV["GO111MODULE"] = "on"
 
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
-    tag = Utils.popen_read("git", "describe", "--tags").strip
-    dir = buildpath/"src/sigs.k8s.io/kustomize"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+
+    dir = buildpath/"src/kubernetes-sigs/kustomize"
+    dir.install buildpath.children
+
     cd dir do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{tag}
+        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{version}
         -X sigs.k8s.io/kustomize/pkg/commands/misc.gitCommit=#{revision}
         -X sigs.k8s.io/kustomize/pkg/commands/misc.buildDate=#{Time.now.iso8601}
       ]
-      system "go", "install", "-ldflags", ldflags.join(" ")
-      bin.install buildpath/"bin/kustomize"
+      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize", "cmd/kustomize/main.go"
       prefix.install_metafiles
     end
   end
 
   test do
-    assert_match "KustomizeVersion:v#{version}", shell_output("#{bin}/kustomize version")
+    assert_match version.to_s, shell_output("#{bin}/kustomize version")
 
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
