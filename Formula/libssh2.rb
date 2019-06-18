@@ -19,7 +19,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -30,7 +30,7 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./buildconf" if build.head?
