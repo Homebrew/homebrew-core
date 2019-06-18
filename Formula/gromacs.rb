@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2019.1.tar.gz"
-  sha256 "b2c37ed2fcd0e64c4efcabdc8ee581143986527192e6e647a197c76d9c4583ec"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2019.3.tar.gz"
+  sha256 "4211a598bf3b7aca2b14ad991448947da9032566f13239b1a05a2d4824357573"
 
   bottle do
     sha256 "94d33c3b2aab69176bb9ae38225a4486f8e648e775628046cc376d6110f70c64" => :mojave
@@ -12,16 +12,25 @@ class Gromacs < Formula
 
   depends_on "cmake" => :build
   depends_on "fftw"
-  depends_on "gsl"
+  depends_on "gcc" # for OpenMP
 
   def install
+    # Non-executable GMXRC files should be installed in DATADIR
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
                                         "CMAKE_INSTALL_DATADIR"
+    # fix an error on detecting CPU. see https://redmine.gromacs.org/issues/2927
+    inreplace "cmake/gmxDetectCpu.cmake",
+              "\"${GCC_INLINE_ASM_DEFINE} -I${PROJECT_SOURCE_DIR}/src -DGMX_CPUINFO_STANDALONE ${GMX_STDLIB_CXX_FLAGS} -DGMX_TARGET_X86=${GMX_TARGET_X86_VALUE}\")",
+              "${GCC_INLINE_ASM_DEFINE} -I${PROJECT_SOURCE_DIR}/src -DGMX_CPUINFO_STANDALONE ${GMX_STDLIB_CXX_FLAGS} -DGMX_TARGET_X86=${GMX_TARGET_X86_VALUE})"
+
+    args = std_cmake_args + %w[
+      -DCMAKE_C_COMPILER=gcc-9
+      -DCMAKE_CXX_COMPILER=g++-9
+    ]
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGMX_GSL=ON"
-      system "make"
-      ENV.deparallelize { system "make", "install" }
+      system "cmake", "..", *args
+      system "make", "install"
     end
 
     bash_completion.install "build/scripts/GMXRC" => "gromacs-completion.bash"
