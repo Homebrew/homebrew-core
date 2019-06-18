@@ -14,7 +14,7 @@ class AppscaleTools < Formula
   end
 
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
   depends_on "ssh-copy-id"
 
