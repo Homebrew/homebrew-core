@@ -7,9 +7,9 @@ class GstPython < Formula
 
   bottle do
     cellar :any
-    sha256 "abdd01bbce6825ff606f081afed46c9336bd8111a823de2ff996facabab08084" => :mojave
-    sha256 "f70c8f3ce2ca28e53b656be45f2b6b44a5571c766be934fc1721023e1c7e262d" => :high_sierra
-    sha256 "17a78814a48272ec9bfe41d8248fb804d4b2aabe82f9f8d3e59d35b50dac14aa" => :sierra
+    sha256 "3c01256256633e213ed88caa8067b01d71bc7a4d1b71face8453cefc927ebfd7" => :mojave
+    sha256 "5dbda1bf3a3fdd4b01ab87c64a7cd32485ede364627e0e8bcce1b7cc0e5338be" => :high_sierra
+    sha256 "f45160f9d7be6b81b1fa9f6f603bc6c2dcbb32232975136890ab10b72f7eb704" => :sierra
   end
 
   depends_on "gst-plugins-base"
