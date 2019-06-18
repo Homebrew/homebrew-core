@@ -7,9 +7,9 @@ class Encfs < Formula
   head "https://github.com/vgough/encfs.git"
 
   bottle do
-    sha256 "fc9ed25a624d2605345f42cf88a64ef68827d62f0d69ec178afe2aa9eeb91dfb" => :mojave
-    sha256 "852027d9c80ef4e87f6d11e3523690c9901b12a3e0f657fef3ef35ad23b6a0ef" => :high_sierra
-    sha256 "b5bf937680319c60a4d15bcefa7556009129351d7a8f9a3a5bf97475167e958d" => :sierra
+    sha256 "b520ccb48e5c8f9652c9a297123eb174308b55114007de33c5fb90b2a9b2e4b4" => :mojave
+    sha256 "45dcc64c557931df5c0c288de0a0417fc7a6689e203b496423ef6e4bcff54e58" => :high_sierra
+    sha256 "3b7cc4337ea5f9f1b5e4ab54dd60373e943a94ac95bf7c8aa0af059a1561f364" => :sierra
   end
 
   depends_on "cmake" => :build
