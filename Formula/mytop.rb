@@ -15,7 +15,7 @@ class Mytop < Formula
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "mariadb", :because => "both install `mytop` binaries"
 
