@@ -6,9 +6,9 @@ class Libsecret < Formula
   revision 1
 
   bottle do
-    sha256 "2a7841ebb35b24339e28543b80f73113774dc297dac8e5b6c072cb0602eb3515" => :mojave
-    sha256 "6c761141ef146223b516a600c99fa75bb4863e60b09aa6b65da4bb19df3109c3" => :high_sierra
-    sha256 "a3c6bc66b02a4e4f4a554705e4dcc0e6fbc670f0fa71f485dbb2e6c9392b049f" => :sierra
+    sha256 "f02c03a067909f48cffe0cd83b61f967e2518db5500ab6c917aa88a209d129a9" => :mojave
+    sha256 "690a8c4095fcb4889fd42bda0b41b9fe90f6ae2321c1734b260a06be1739d973" => :high_sierra
+    sha256 "fd948d17fd859278100d5b5fbd4b843d7ea294e642ee3706f583ca32d4d2c8af" => :sierra
   end
 
   depends_on "docbook-xsl" => :build
