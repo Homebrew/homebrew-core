@@ -19,7 +19,7 @@ class Psqlodbc < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "postgresql"
   depends_on "unixodbc"
 
