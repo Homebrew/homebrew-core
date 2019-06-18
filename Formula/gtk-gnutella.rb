@@ -6,9 +6,9 @@ class GtkGnutella < Formula
   revision 1
 
   bottle do
-    sha256 "66c1799f73b1edfaea5d5b0947a464cdefce1c8fa279e2442a4ad8800da41236" => :mojave
-    sha256 "14bc32efbbb688ec25578bee79f8b76e9bc78df6b5b3755bd5b2c7d7436447f3" => :high_sierra
-    sha256 "2fa0fdbaaad5549074b6642dbb30e27fe59a465f26cbdb3319b20e76cc7e7dc5" => :sierra
+    sha256 "1414404b1a91d09a17d64f12382d4a0ce71a06081322eb27afb05ab9fa58f07e" => :mojave
+    sha256 "42bbb5ab94942025676daee8c9be4b140eb1a324e96330f992bfdf7473db8eec" => :high_sierra
+    sha256 "61f53035fe11324c64b19410dca984bedfea8874dcf931422aa4c6c66b437b0b" => :sierra
   end
 
   depends_on "pkg-config" => :build
