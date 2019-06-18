@@ -13,7 +13,7 @@ class Mktorrent < Formula
     sha256 "d0f3f1d677e34044abcd712163c01008b56391d665daad15911acd446255c88a" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "USE_PTHREADS=1", "USE_OPENSSL=1", "USE_LONG_OPTIONS=1"
