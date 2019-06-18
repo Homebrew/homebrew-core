@@ -8,8 +8,9 @@ class Mikutter < Formula
 
   bottle do
     cellar :any
-    sha256 "4a8aa04ecd17a2dc05ea6f054a2b3c3eb89a136f4cdaac5b6b7b53618a575a45" => :high_sierra
-    sha256 "751719c0e67cdbe962d5907306817ae985bb20eda9dc30f4cd2c82b0c005b03e" => :sierra
+    rebuild 1
+    sha256 "b6f2eaa31fe4b1cdd04781e262060eec1a6c70c9c409fc104c27339c891b943d" => :high_sierra
+    sha256 "a54a6a8d1df9c33eb645824ad215d16c4f89f53132e8d4626ddb9128f22bb139" => :sierra
   end
 
   depends_on "gobject-introspection"
