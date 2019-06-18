@@ -13,7 +13,7 @@ class Mycli < Formula
     sha256 "fd8e661d206956f4f68b082fdd26718d07ebbc4d94749391f5c4c766b1c79906" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
