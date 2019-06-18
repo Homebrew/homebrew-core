@@ -6,9 +6,9 @@ class GstRtspServer < Formula
   revision 1
 
   bottle do
-    sha256 "6e1c3a9e72278a70e1bdb8d433c508e72cc497df0566f798c8fab122cd53bdd2" => :mojave
-    sha256 "cb3343decf877ca2919ca699f22fb3c91bbc05470f246f1e73809637f8770360" => :high_sierra
-    sha256 "e6524315263aee002d3697c6af2c7d5479ec145764406ea1f0438416f6e5ab81" => :sierra
+    sha256 "7a433267d032d4b9aa6442667c72e087f48c6d02fbaebc4a4d4be5ec187869a6" => :mojave
+    sha256 "d51a7ead1e504a0e69ccc0ab3054c3dee365a81ab2ae3f60a0f7e9c035643afd" => :high_sierra
+    sha256 "1b153a152874ea95e22b56a688f771ca794aec212fa81e3ad688ca36dd336a50" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
