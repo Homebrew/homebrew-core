@@ -6,9 +6,9 @@ class Gwyddion < Formula
   revision 2
 
   bottle do
-    sha256 "597581e3f8c8e43c6150827f1f0c3074f06f4d0595537757b7905b2bb26242cf" => :mojave
-    sha256 "be2d3e499b4bf6dc87f915b842ffb97d6f9e4832bdda3b8f94daa5b34893cc4f" => :high_sierra
-    sha256 "cae1d9b483784aa36d0dc945a8c5f61138738a21add614aec4ba036ffbd4a48f" => :sierra
+    sha256 "dbccea794476114bb4168aec4b0d5a896bc3246f133e2eb681fe3ecf5186817b" => :mojave
+    sha256 "bcf497148c882f37cf36d1a52224d8b612c6ac9c40429fd42956ca062565c91f" => :high_sierra
+    sha256 "82ecd6b14b1f2261a58844a3fe23563b1ec6d66dcdb292d100c28d3d5c576d34" => :sierra
   end
 
   depends_on "pkg-config" => :build
