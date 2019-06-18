@@ -7,9 +7,9 @@ class Rpm < Formula
   version_scheme 1
 
   bottle do
-    sha256 "b1e3f6fbb8babb6105789236727be4e0e08c25a77f87f458a032235d72986675" => :mojave
-    sha256 "c8b3cf5d5c0de09cf18617c8c096f07354a7a6ac5db6c17a887e09272d5ec08f" => :high_sierra
-    sha256 "8d023b2d929fafbf627ebc906fb68e88a494b67887063cacb7fa30cddf6bbc5d" => :sierra
+    sha256 "d0791b00825bb510c08496cd0462675db9192d06e3217d3f153f48f3b48b7466" => :mojave
+    sha256 "3f088e6c6e74f7a6433e20bd44c340194067149ab6c0101203c956f68468cbe5" => :high_sierra
+    sha256 "e7cca669fcf31871594e17ad794758e2546289349775bf7594f7f483ef8f5a31" => :sierra
   end
 
   depends_on "berkeley-db"
