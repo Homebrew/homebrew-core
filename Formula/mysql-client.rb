@@ -16,7 +16,7 @@ class MysqlClient < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # https://bugs.mysql.com/bug.php?id=87348
