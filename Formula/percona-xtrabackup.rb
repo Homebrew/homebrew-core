@@ -15,7 +15,7 @@ class PerconaXtrabackup < Formula
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "percona-server",
     :because => "both install lib/plugin/keyring_vault.so"
