@@ -14,7 +14,7 @@ class Httpd < Formula
   depends_on "apr-util"
   depends_on "brotli"
   depends_on "nghttp2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
@@ -61,7 +61,7 @@ class Httpd < Formula
                           "--with-libxml2=#{MacOS.sdk_path_if_needed}/usr",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
                           "--with-z=#{MacOS.sdk_path_if_needed}/usr",
                           "--disable-lua",
