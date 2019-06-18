@@ -1,9 +1,8 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.14.tar.xz"
-  sha256 "0a84e2791bfe3077cf22ee1784c805d5bb550803dffe56a39aa3690a38061372"
-  revision 1
+  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.16.tar.xz"
+  sha256 "fa6bdab67c0e0490302b38f00c27b4959735c3ec8aef7a88327adb1407654464"
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
 
   bottle do
@@ -22,5 +21,17 @@ class Libmpdclient < Formula
     system "meson", "--prefix=#{prefix}", ".", "output"
     system "ninja", "-C", "output"
     system "ninja", "-C", "output", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <mpd/client.h>
+      int main() {
+        mpd_connection_new(NULL, 0, 30000);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lmpdclient", "-o", "test"
+    system "./test"
   end
 end
