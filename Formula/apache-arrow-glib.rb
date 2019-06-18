@@ -6,9 +6,9 @@ class ApacheArrowGlib < Formula
   revision 1
 
   bottle do
-    sha256 "ec0c08a84ad0d172d4db2981b1f1e511b8f7eab7de12ef75c2cbcad1a1599872" => :mojave
-    sha256 "4d4b5983b16adb5bf50b6c07b08b752ff90e5e6c2223165543b0c2d05e00ddbb" => :high_sierra
-    sha256 "9a0e6a53881bd60ae0a12b5b51aa7c4c9f575480ccdcea54484e8711c644c9f2" => :sierra
+    sha256 "6a64d3850798a8a5e3965e6bf3df536f03e97970446ce0c7835ba10109ecc444" => :mojave
+    sha256 "db4551ed97ad3036790c5febdadf3c5ec1fcb9b02fb41566257bc9ebaa6d10cf" => :high_sierra
+    sha256 "53c97c51f0b1db14099cccb85a99e037f7f729c5bc9b4618dd78c93789a1079b" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
