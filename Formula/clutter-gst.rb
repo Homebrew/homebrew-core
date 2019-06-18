@@ -6,9 +6,9 @@ class ClutterGst < Formula
   revision 1
 
   bottle do
-    sha256 "4ea9ed8a60919e1971e10623a59c9e43a110c3dcf06bc80b643244fbf2fecce0" => :mojave
-    sha256 "0b75349dfc8507b63397f4e8465e90c1ae8d4828b3b140477c3f56b559520d15" => :high_sierra
-    sha256 "8b8200f4f41d56c0de1e2f809a4fcb4ee52e7cc428826c82fa8b2fc1eb299232" => :sierra
+    sha256 "ed86847903fb6542b093ec2191c04759b5b9d2c834c8cab60d3720e69bf0d011" => :mojave
+    sha256 "dcad44664ecc097a4dc257bab6592c23ef5a93f5d700000b5e7926b0e5ae06cc" => :high_sierra
+    sha256 "061d9fea808bc32e34172b2dba8af8b7ef69d1fa5558e136605b15e7b15cf0d5" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
