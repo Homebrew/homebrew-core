@@ -8,9 +8,9 @@ class SimpleTiles < Formula
 
   bottle do
     cellar :any
-    sha256 "534495aa55a155e966e512eefcaaf92fd1470ed7ba502e62af65e499ea2a5cc3" => :mojave
-    sha256 "bd9b80665391530cdff177d3429dbee819cc6edd82d7cc7c902bad60799bf6ba" => :high_sierra
-    sha256 "38237594664d1b0ecdd66f71d46b730ba2f005efd03c3d18a5ac46d092b3e205" => :sierra
+    sha256 "af4f54116a7cde66cca38c63382ba0ef0bffd8e60c96ce90129bc26988dff8eb" => :mojave
+    sha256 "f8b247eaa74faacc9d7f82f5e4e9fd1ecc380249df3fc16f84981b5d4eb2738b" => :high_sierra
+    sha256 "e59a10664a5c6f4bd6377cbb3a96fd9b206ad3210331e5edae3017a3f4da1201" => :sierra
   end
 
   depends_on "pkg-config" => :build
