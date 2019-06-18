@@ -21,7 +21,7 @@ class Groonga < Formula
   depends_on "mecab"
   depends_on "mecab-ipadic"
   depends_on "msgpack"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   link_overwrite "lib/groonga/plugins/normalizers/"
