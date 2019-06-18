@@ -34,6 +34,19 @@ class Harfbuzz < Formula
     sha256 "9535d35dab9e002963eef56757c46881f6b3d3b27db24eefcc80929781856c77"
   end
 
+  # Fixes building on clang with -Wextra-semi-stmt.
+  # Both patches are in master, should be in the next release.
+  # https://github.com/harfbuzz/harfbuzz/pull/1783
+  patch do
+    url "https://github.com/harfbuzz/harfbuzz/commit/10bac21bb5b25cf20c2198934e99e444625dfd97.patch?full_index=1"
+    sha256 "7392a5cf71d922105a978e7074f918d20ade6c4e83f864d73b6f12d50ffeefd6"
+  end
+
+  patch do
+    url "https://github.com/harfbuzz/harfbuzz/commit/e710888188ff3285a162c25c89d886d9535d9f02.patch?full_index=1"
+    sha256 "eaf09af93510f2d13d640d44da3a055b7f08fe5b9d48ef9f4ef2a3adfdbc8b07"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
