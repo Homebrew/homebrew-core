@@ -8,9 +8,10 @@ class Gabedit < Formula
 
   bottle do
     cellar :any
-    sha256 "0f506d27f166bbc01901ce42d739c302e4b1b911107900ac37fb002ac0a17a27" => :mojave
-    sha256 "dcc74794b5cd1467bf6c7dbea9ca75428bd6ba5fc93b79ba298d440c7b3ab13b" => :high_sierra
-    sha256 "628cfbf2a48abddac869ec2a5073677ba80123860a66591cba6102ff268811eb" => :sierra
+    rebuild 1
+    sha256 "c8bd86798356203a2e554310149b51299c2221827a030fd74763c9237996fc9f" => :mojave
+    sha256 "83b205bd7a01eb782a9346f048c3c2e217ba4dc425f620853a4da066563e6b5c" => :high_sierra
+    sha256 "72d3d9bda815ffda49197241c46139686fbc0a4b2c9aeab2dce258573e5ea17b" => :sierra
   end
 
   depends_on "pkg-config" => :build
