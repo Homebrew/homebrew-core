@@ -7,9 +7,9 @@ class GstLibav < Formula
 
   bottle do
     cellar :any
-    sha256 "26d30fd768a52b9b6a3457e9fc7ce2e35b2ec2a27f964cc8779571da45d000b6" => :mojave
-    sha256 "f325110a27be402f5ceed2d8cb97e65f9fcabb416de76c963bd1117a39c8e58d" => :high_sierra
-    sha256 "03b43b9dca807383104fdbecbc2b8a56a58a559b5f5187f453a907a64269d4f1" => :sierra
+    sha256 "969c90d0656db2918c2145a448e80ae2208625eac38abd5bd4bdefe38c8f5b74" => :mojave
+    sha256 "df7916f16f58397ac58836cb30517f5cdb52dd9f71a7dc14528c845a3be04a92" => :high_sierra
+    sha256 "51c7ad3bc047c8261321f6d74ac64cb362e995d96ae55cfc9586bec8980774fc" => :sierra
   end
 
   head do
