@@ -7,10 +7,9 @@ class Ghex < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "15cfe34d49bf84016e783add666298473e546af509589b689af65bd866e294a5" => :mojave
-    sha256 "cd309a461d6e472c27709919220cac62bdddbf8f8efc767e7924df205006b64b" => :high_sierra
-    sha256 "95015010fd216769d84c5651a8c58fc80fd799d3ad35a9178022dece741def31" => :sierra
+    sha256 "39352f77879498636fdf4608dab0f0be9f20624119708f108ddd60f693f2bb7b" => :mojave
+    sha256 "66a8ac3f9fe5e576b37ea8667a2ab648345c27f87cba7d97c2d7587d9120b8c6" => :high_sierra
+    sha256 "60134118c841bae367be5977359d19a48d08ec0d7e08286f19631f5c5de38fad" => :sierra
   end
 
   depends_on "intltool" => :build
