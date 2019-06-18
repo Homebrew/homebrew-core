@@ -15,7 +15,7 @@ class Gdcm < Formula
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "openjpeg"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "vtk"
 
