@@ -6,9 +6,9 @@ class Cgit < Formula
   revision 1
 
   bottle do
-    sha256 "fd47d6d609f90119f930c5b63efcba5c47efc6be390459576751d558f82f3d32" => :mojave
-    sha256 "99191e176752e4f4d2069ed941c0efdd0927463b011ebc1c6f0cd9d6cac26331" => :high_sierra
-    sha256 "f60bf2a6028c022202ae9df8053a89e67be606a07a7ce630b89dbeddb2c6022d" => :sierra
+    sha256 "a91a991f45e27fdcf8fe8c78d5c593ef5f5598d2e03fcdead1788fd2100579d9" => :mojave
+    sha256 "469844bcf142e0ed79e5643d8d9f21eff8c46d96efb701f03f4910cee3bd1f5b" => :high_sierra
+    sha256 "88198633738f9c2d8801d5bd704f05beda1ec3980fcd345753b0c01558736e6b" => :sierra
   end
 
   depends_on "gettext"
