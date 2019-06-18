@@ -17,7 +17,7 @@ class Sslsplit < Formula
   depends_on "libevent"
   depends_on "libnet"
   depends_on "libpcap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Work around https://github.com/droe/sslsplit/issues/251
