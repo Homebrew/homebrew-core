@@ -7,9 +7,9 @@ class MonoLibgdiplus < Formula
 
   bottle do
     cellar :any
-    sha256 "a80e3d006e89a68dde0afd33baadcbceb926a13d0cb6e5ffd64e03b69e86e1cf" => :mojave
-    sha256 "bae3c4daa8fcdb0be761bfc4a157a3c6a7772f6657bc306367bf7916330f8936" => :high_sierra
-    sha256 "287b8373b94918f28d93f1177be7d6958650277108fd1a08b957c676c0a4f7a9" => :sierra
+    sha256 "3bf2cb84c29f3adc952220837cfb160b65ab3950c90abec406bc2534c346a7a2" => :mojave
+    sha256 "50821931ec368541e13b4dd04da11f17f4a77b2feebdbf6f424f3d518fbacad7" => :high_sierra
+    sha256 "331ea1c86eb7873af94626b4d90f6b3aa4ca9ad1627b066643be19c46981a4c8" => :sierra
   end
 
   depends_on "autoconf" => :build
