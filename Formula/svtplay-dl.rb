@@ -13,7 +13,7 @@ class SvtplayDl < Formula
     sha256 "b73aadf29b0db1d2eee80d9659c1c51651911a18363a1104ff4995ee48520034" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "rtmpdump"
 
