@@ -33,6 +33,14 @@ class GoAT19 < Formula
     sha256 "771b67df44e3d5d5d7c01ea4a0d1693032bc880ea4f16cf82c1bacb42bfd9b10"
   end
 
+  # Prevents Go from building malformed binaries. Fixed upstream, should
+  # be in a future release.
+  # https://github.com/golang/go/issues/32673
+  patch do
+    url "https://github.com/golang/go/commit/26954bde4443c4bfbfe7608f35584b6b810f3f2c.patch?full_index=1"
+    sha256 "25a361bd4aa1155be06e2239c1974aa9c59f971210f19e16a3b7b576b9d4f677"
+  end
+
   def install
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
