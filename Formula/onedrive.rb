@@ -6,8 +6,7 @@ class Onedrive < Formula
 
   depends_on "ldc" => :build
   depends_on "pkg-config" => :build
-  depends_on "curl-openssl"
-  depends_on "sqlite"
+  depends_on "libnotify"
 
   def install
     ENV["DC"] = "ldc2"
