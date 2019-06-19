@@ -4,6 +4,12 @@ class MariadbAT103 < Formula
   url "https://downloads.mariadb.org/f/mariadb-10.3.16/source/mariadb-10.3.16.tar.gz"
   sha256 "39e9723eaf620afd99b0925b2c2a5a50a89110ba50040adf14cce7cf89e5e21b"
 
+  bottle do
+    sha256 "d8f2f82a4d210481595defcaf814656c8dc9a3cf2be007ea907ea24501994c84" => :mojave
+    sha256 "fddf0b25b61966bc059c1861491ba4ab209450b7a073888df8df183fa20d77b6" => :high_sierra
+    sha256 "e042378d7348833c6de65b8db933620360258f86e6ae78f4e359a4ad92204b70" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
