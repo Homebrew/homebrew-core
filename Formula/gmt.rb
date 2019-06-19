@@ -14,10 +14,8 @@ class Gmt < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "gdal"
-  depends_on "graphicsmagick"
   depends_on "netcdf"
   depends_on "pcre"
 
