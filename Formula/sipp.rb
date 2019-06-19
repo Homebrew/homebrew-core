@@ -1,8 +1,8 @@
 class Sipp < Formula
   desc "Traffic generator for the SIP protocol"
   homepage "https://sipp.sourceforge.io/"
-  url "https://github.com/SIPp/sipp/releases/download/v3.5.2/sipp-3.5.2.tar.gz"
-  sha256 "875fc2dc2e46064aa8af576a26166b45e8a0ae22ec2ae0481baf197931c59609"
+  url "https://github.com/SIPp/sipp/releases/download/v3.6.0/sipp-3.6.0.tar.gz"
+  sha256 "e47e7b11fec0769cf76b30623a66390333bdb20323c66043ca535460858fa1bb"
 
   bottle do
     cellar :any_skip_relocation
