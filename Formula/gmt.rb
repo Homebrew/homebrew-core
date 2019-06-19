@@ -6,7 +6,6 @@ class Gmt < Formula
   # mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.5-src.tar.xz"
   # mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.xz"
   sha256 "ce26639d9b24286169ebd608f7e1621941359a6a3a88a4378b7cf5fceac00b52"
-  revision 4
 
   bottle do
     sha256 "e4378f5c77d0809935ba901fadcf0ac449cf68213d91345a8837a58c7d3a4c0f" => :mojave
