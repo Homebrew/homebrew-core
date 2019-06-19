@@ -1,19 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 1
-
-  stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
-    sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
-
-    # CVE-2019-6116 https://bugs.chromium.org/p/project-zero/issues/detail?id=1729
-    patch do
-      url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/0001-Bug700317-Address-.force-operators-exposure.tgz"
-      sha256 "54ab7d8f8007259c27fd4f11fd12f5ef0dbf6fe570da30b9335edec7deb3fa25"
-      apply "0001-Bug700317-Address-.force-operators-exposure.patch"
-    end
-  end
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostpdl-9.27.tar.gz"
+  sha256 "9e089546624296bf4aca14c2adcb0762b323ca77ae14176d21127b749baac8d6"
 
   bottle do
     sha256 "746bbd395ce189a451c237893042f06737fa0d5fc19ba4ea631722d7ac00aa37" => :mojave
@@ -58,6 +47,12 @@ class Ghostscript < Formula
     else
       system "./configure", *args
     end
+
+    # Fix for shared library bug https://bugs.ghostscript.com/show_bug.cgi?id=701211
+    # Can be removed in next version, and possibly replaced by passing
+    # --enable-gpdl to configure
+    inreplace "Makefile", "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET)",
+                          "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET) $(GPDL_TARGET)"
 
     # Install binaries and libraries
     system "make", "install"
