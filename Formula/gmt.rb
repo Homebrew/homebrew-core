@@ -1,11 +1,10 @@
 class Gmt < Formula
-  desc "Tools for processing and displaying xy and xyz datasets"
-  homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.5-src.tar.gz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.5-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.xz"
-  sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
-  revision 5
+  desc "Tools for manipulating and plotting geographic and Cartesian data"
+  homepage "https://www.generic-mapping-tools.org"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-6.0.0-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
+  sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
 
   bottle do
     sha256 "868d98dc2e20a1cff4fde9fefa4875c1fc521a00a98e160d42a710941de9d1e3" => :catalina
@@ -51,7 +50,7 @@ class Gmt < Formula
       -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
       -DPCRE_ROOT=#{Formula["pcre"].opt_prefix}
       -DFLOCK:BOOL=TRUE
-      -DGMT_INSTALL_MODULE_LINKS:BOOL=TRUE
+      -DGMT_INSTALL_MODULE_LINKS:BOOL=FALSE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE
       -DLICENSE_RESTRICTED:BOOL=FALSE
     ]
@@ -62,8 +61,20 @@ class Gmt < Formula
     end
   end
 
+  def caveats; <<~EOS
+    GMT needs Ghostscript for the 'psconvert' command to convert PostScript files
+    to other formats. To use 'psconvert', please 'brew install ghostscript'.
+
+    GMT needs FFmpeg for the 'movie' command to make movies in MP4 or WebM format.
+    If you need this feature, please 'brew install ffmpeg'.
+
+    GMT needs GraphicsMagick for the 'movie' command to make animated GIFs.
+    If you need this feature, please 'brew install graphicsmagick'.
+  EOS
+  end
+
   test do
-    system "#{bin}/pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
+    system "#{bin}/gmt pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
     assert_predicate testpath/"test.ps", :exist?
   end
 end
