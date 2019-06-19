@@ -25,6 +25,12 @@ class Asdf < Formula
     libexec.install "bin/private"
     prefix.install Dir["*"]
   end
+  
+  def caveats
+    <<-EOS
+      You need to add `source $(brew --prefix asdf)/asdf.sh` to your shell profile to have access to shims.
+    EOS
+  end
 
   test do
     output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
