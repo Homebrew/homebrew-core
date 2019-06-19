@@ -13,10 +13,8 @@ class Parallel < Formula
     sha256 "f82c897d474f83defa00f9d47c3f02ee26bb8e662b8b29595313c2504134068d" => :sierra
   end
 
-  if Tab.for_name("moreutils").with?("parallel")
-    conflicts_with "moreutils",
-      :because => "both install a `parallel` executable."
-  end
+  conflicts_with "moreutils",
+    :because => "both install a `parallel` executable."
 
   def install
     system "./configure", "--prefix=#{prefix}"
