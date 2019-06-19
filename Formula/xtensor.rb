@@ -1,6 +1,6 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
-  homepage "http://quantstack.net/xtensor"
+  homepage "https://quantstack.net/xtensor"
   url "https://github.com/QuantStack/xtensor/archive/0.19.4.tar.gz"
   sha256 "ea0ed42ac27888f4e4acaf99367fbef714373fa586f204e8bc22b8e5335ecf06"
 
