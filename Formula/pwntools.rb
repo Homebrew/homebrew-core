@@ -16,9 +16,7 @@ class Pwntools < Formula
   depends_on "openssl"
   depends_on "python@2" # does not support Python 3
 
-  if Tab.for_name("moreutils").with?("errno")
-    conflicts_with "moreutils", :because => "Both install `errno` binaries"
-  end
+  conflicts_with "moreutils", :because => "Both install `errno` binaries"
 
   def install
     venv = virtualenv_create(libexec)
