@@ -24,6 +24,12 @@ class Irrlicht < Formula
       "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
       "[NSApp setDelegate:(id<NSApplicationDelegate>)"
 
+    # Fix "error: ZLIB_VERNUM != PNG_ZLIB_VERNUM" on Mojave (picking up system zlib)
+    # Reported 21 Oct 2018 https://sourceforge.net/p/irrlicht/bugs/442/
+    inreplace "source/Irrlicht/libpng/pngpriv.h",
+      "#  error ZLIB_VERNUM != PNG_ZLIB_VERNUM \\",
+      "#  warning ZLIB_VERNUM != PNG_ZLIB_VERNUM \\"
+
     xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
                "-configuration", "Release",
                "-target", "libIrrlicht.a",
