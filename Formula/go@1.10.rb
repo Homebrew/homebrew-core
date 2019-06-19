@@ -25,6 +25,14 @@ class GoAT110 < Formula
     sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
   end
 
+  # Prevents Go from building malformed binaries. Fixed upstream, should
+  # be in a future release.
+  # https://github.com/golang/go/issues/32673
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b8d26872202f4efc9797a51265b868f7ebc0d03a/go%401.10/dwarf_segments.patch"
+    sha256 "7bdf34196f5e8f7de705670e6199cf7dc22835f9a188af3e319aed60f7398ff6"
+  end
+
   def install
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
