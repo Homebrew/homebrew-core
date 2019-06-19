@@ -7,9 +7,10 @@ class Harfbuzz < Formula
 
   bottle do
     cellar :any
-    sha256 "11a93b1bdd447c17b0dae47c03f29b9244168e4a6add2a45051e9a805e979534" => :mojave
-    sha256 "ba88b18a661d1f6b4fdb35c0fe82f6c6782ea39b26c23197f923001ec1cdb8b3" => :high_sierra
-    sha256 "cb521d1047e509c5ca6093d3aae656a9ddb534f1a0aee7ab22ec599edfdad499" => :sierra
+    rebuild 1
+    sha256 "2b9d512265903c00e8afc23fadec665c2c31ac40a098e66a9202b0d29385e053" => :mojave
+    sha256 "b4e38cc65ed3c09bede46872aa30f438cf724aec98d600fe681ca5b3e734856e" => :high_sierra
+    sha256 "c510e2101e0e89eee99742b37b8d6a237668dd176473376d5b225bbbeaf02687" => :sierra
   end
 
   head do
