@@ -1,5 +1,5 @@
 class Gmt < Formula
-  desc "Tools for processing and displaying xy and xyz datasets"
+  desc "Tools for manipulating geographic and Cartesian data and creating plots, maps, and 3D views"
   homepage "https://gmt.soest.hawaii.edu/"
   url "https://github.com/GenericMappingTools/gmt/releases/download/6.0.0rc1/gmt-6.0.0rc1-src.tar.xz"
   # url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.5-src.tar.gz"
