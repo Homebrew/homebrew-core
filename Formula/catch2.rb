@@ -6,9 +6,9 @@ class Catch2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb349052b01bb04b3ab5a1adde84a72962d1ded5d11c36b96fbf205037bf6a9e" => :mojave
-    sha256 "cb349052b01bb04b3ab5a1adde84a72962d1ded5d11c36b96fbf205037bf6a9e" => :high_sierra
-    sha256 "768dab4bae91fb9729d61322217b08a2ebc972fe0c797b0a6017121a9ef0799e" => :sierra
+    sha256 "3955ab8de6b6a282ab9c1ba76f28c6d3899bda3c8d00d16a966cdfebebde7eb3" => :mojave
+    sha256 "3955ab8de6b6a282ab9c1ba76f28c6d3899bda3c8d00d16a966cdfebebde7eb3" => :high_sierra
+    sha256 "a2662b0e5a0a1f30193314f94f4bbe9b42dec30a3c8fc3ffeeb706d4d1a65604" => :sierra
   end
 
   depends_on "cmake" => :build
