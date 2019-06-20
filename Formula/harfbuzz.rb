@@ -1,9 +1,8 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.1.tar.xz"
-  sha256 "6d4834579abd5f7ab3861c085b4c55129f78b27fe47961fd96769d3704f6719e"
-  revision 1
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.2.tar.xz"
+  sha256 "7c8fcf9a2bbe3df5ed9650060d89f9b7cfd40ec5729671447ace8b0505527e8b"
 
   bottle do
     cellar :any
@@ -33,19 +32,6 @@ class Harfbuzz < Formula
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
     sha256 "9535d35dab9e002963eef56757c46881f6b3d3b27db24eefcc80929781856c77"
-  end
-
-  # Fixes building on clang with -Wextra-semi-stmt.
-  # Both patches are in master, should be in the next release.
-  # https://github.com/harfbuzz/harfbuzz/pull/1783
-  patch do
-    url "https://github.com/harfbuzz/harfbuzz/commit/10bac21bb5b25cf20c2198934e99e444625dfd97.patch?full_index=1"
-    sha256 "7392a5cf71d922105a978e7074f918d20ade6c4e83f864d73b6f12d50ffeefd6"
-  end
-
-  patch do
-    url "https://github.com/harfbuzz/harfbuzz/commit/e710888188ff3285a162c25c89d886d9535d9f02.patch?full_index=1"
-    sha256 "eaf09af93510f2d13d640d44da3a055b7f08fe5b9d48ef9f4ef2a3adfdbc8b07"
   end
 
   def install
