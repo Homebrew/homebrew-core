@@ -1,9 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.28.4.tar.gz"
-  sha256 "bab1cabb0542ce2bd4b41a15b84a8d81c8dc3332162705ded6f311dd898656ca"
-  revision 1
+  url "https://notmuchmail.org/releases/notmuch-0.29.1.tar.xz"
+  sha256 "9846fc8e32d415cee41f6644581a4de7b0d2e6bc98e1ba86db918f061fcfe365"
   head "https://git.notmuchmail.org/git/notmuch", :using => :git
 
   bottle do
@@ -20,7 +19,7 @@ class Notmuch < Formula
   depends_on "emacs"
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
@@ -42,7 +41,7 @@ class Notmuch < Formula
     system "make", "V=1", "install"
 
     cd "bindings/python" do
-      system "python2.7", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
