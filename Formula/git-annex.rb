@@ -25,13 +25,7 @@ class GitAnnex < Formula
   depends_on "xdot"
 
   def install
-    # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
-    # This is already resolved in aws 0.20 but we can't move to 0.20 until
-    # esqueleto 2.6.0 ships. See https://github.com/bitemyapp/esqueleto/issues/88
-    # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
-    install_cabal_package "--constraint", "http-conduit<2.3",
-                          "--constraint", "network<2.7.0.1",
-                          :using => ["alex", "happy", "c2hs"],
+    install_cabal_package :using => ["alex", "happy", "c2hs"],
                           :flags => ["s3", "webapp"]
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
