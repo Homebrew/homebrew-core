@@ -6,6 +6,8 @@ class GmtAT5 < Formula
   mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.xz"
   sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
 
+  keg_only :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gdal"
