@@ -6,9 +6,9 @@ class AngleGrinder < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f0bf9cc2953e28d9befb2d3645b08630b08372cfa36159116e0273a4ce1198de" => :mojave
-    sha256 "dea7e6e77b0220f1d99b5b803cc57909cce80c1c6f4cf5f6919fafb2244d801f" => :high_sierra
-    sha256 "e5371927492fb36f8b08479cf06de365b53c38252bc3e25f1c3858636d003b6d" => :sierra
+    sha256 "611182aac3e9b302c52a9eef87a6ba55c8c85a265f2536e50c068b89a244284c" => :mojave
+    sha256 "b30df8efbef0edb76b6d62403e8d9aafe1ea7ee1c3f1424fdd5ead66ca875e14" => :high_sierra
+    sha256 "ef68b55b8b5e0b29fc72aca0a3665aa608fd6b9c76c99010805924ced6a6ce39" => :sierra
   end
 
   depends_on "rust" => :build
