@@ -5,6 +5,7 @@ class Triton < Formula
   homepage "https://www.npmjs.com/package/triton"
   url "https://registry.npmjs.org/triton/-/triton-7.1.1.tgz"
   sha256 "24a1f697ee71451893f108dba9e4a5a7830cefe22028d98b504b3d2fe65ab2fe"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +19,7 @@ class Triton < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+    (bash_completion/"triton").write `#{bin}/triton completion`
   end
 
   test do
