@@ -5,6 +5,13 @@ class Cxxopts < Formula
   sha256 "95f524c6615a2067e935e02ef74b013b17efa339df0a3c9db3e91fc0afbaf269"
   head "https://github.com/jarro2783/cxxopts.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0d93d263719727fd6844488a3e2c46207634ded0bcec26157b471327ca581e7e" => :mojave
+    sha256 "0d93d263719727fd6844488a3e2c46207634ded0bcec26157b471327ca581e7e" => :high_sierra
+    sha256 "c90e201b7a4dbc127b20db001d16870910707bd8023040bed8614b2b60123acc" => :sierra
+  end
+
   depends_on "cmake" => :build
 
   def install
