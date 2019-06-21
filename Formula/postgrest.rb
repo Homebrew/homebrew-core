@@ -6,8 +6,8 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/v0.5.0.0.tar.gz"
-  sha256 "cfc9a6477d0f087051f654a0a7070804db388ed3c97e4e68d7d286e82d5be4b8"
+  url "https://github.com/PostgREST/postgrest/archive/v6.0.0.tar.gz"
+  sha256 "161095014ccb8bb744849ae8dad8c95b9de2ac6ddf3bcb09bbd6ec7e1fe541e7"
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
@@ -18,16 +18,8 @@ class Postgrest < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "postgresql"
-
-  # Fix build failure with protolude 0.2.2 and hasql-transaction 0.6
-  # Upstream PR 14 May 2018 "postgrest.cabal: fix constraints on protolude and
-  # hasql-transaction"
-  patch do
-    url "https://github.com/PostgREST/postgrest/pull/1111.patch?full_index=1"
-    sha256 "c740da96fb0dfb4a920d9f5091ec34fafcf9d8fe53b4eadda3cbdc80b02d09cd"
-  end
 
   def install
     install_cabal_package :using => ["happy"]
