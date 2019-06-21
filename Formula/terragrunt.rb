@@ -14,7 +14,7 @@ class Terragrunt < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "terraform"
+  depends_on "terraform" => :optional
 
   def install
     ENV["GOPATH"] = buildpath
@@ -23,6 +23,23 @@ class Terragrunt < Formula
       system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=v#{version}"
     end
+  end
+
+  def caveats
+    <<~EOS
+      Terraform dependency is marked as optional so it will not create conflicts
+      with tfenv users. You can install the current Terraform version by issuing
+      the following command:
+
+        brew install terragrunt --with-terraform
+
+      If you want to use specific Terraform version (which is recommended) you
+      can use tfenv. 
+      
+      Without locking Terraform version (if you have more than one machine 
+      running Terraform modules) you may have problems with state files which are
+      always not backwards compatible.
+    EOS
   end
 
   test do

@@ -7,8 +7,6 @@ class Tfenv < Formula
 
   bottle :unneeded
 
-  conflicts_with "terraform", :because => "tfenv symlinks terraform binaries"
-
   def install
     prefix.install ["bin", "libexec"]
   end
