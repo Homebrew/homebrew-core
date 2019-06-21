@@ -12,9 +12,9 @@ class Postgrest < Formula
 
   bottle do
     cellar :any
-    sha256 "ea1508ab22eaffe64955cbdd76647854e289d9ed3b6172e0fdd1a220fe2e6815" => :high_sierra
-    sha256 "fba956125442f3db5548fce364269c98b599ed5c762992941c4461c9c60ca693" => :sierra
-    sha256 "bfea24b8036f2bd5a81271cada5248f96ff0bc8ecf88492b4240cf77187b99e2" => :el_capitan
+    sha256 "203a53be5ca17df60658df5a9b7b288339cb585ff3af90b67dce84419f4e2809" => :mojave
+    sha256 "060cffafd12f00623bda0941f6ddd5f121ee602bcb8db0ee17c37b6b6da06754" => :high_sierra
+    sha256 "08f7f10f551a8aae1ab220036b56e74db5516d196bf719dc72dc46690b2c9a62" => :sierra
   end
 
   depends_on "cabal-install" => :build
