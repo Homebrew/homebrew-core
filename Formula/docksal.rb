@@ -12,12 +12,10 @@ class Docksal < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
-      VirtualBox can be installed via `brew cask install virtualbox`
-      Docker can be installed via `brew cask install docker`
-      For Sandbox Server support run: `echo 'CI=1' >> ~/.docksal/docksal.env`
-      For Katacoda mode support run: `echo 'KATACODA=1' >> ~/.docksal/docksal.env`
-    EOS
+    s = "VirtualBox can be installed via `brew cask install virtualbox`\n"
+    s += "Docker can be installed via `brew cask install docker`\n"
+    s += "For Sandbox Server support run: `echo 'CI=1' >> ~/.docksal/docksal.env`\n"
+    s += "For Katacoda mode support run: `echo 'KATACODA=1' >> ~/.docksal/docksal.env`\n"
     s
   end
 
