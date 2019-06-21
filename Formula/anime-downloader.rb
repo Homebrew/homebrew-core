@@ -7,6 +7,13 @@ class AnimeDownloader < Formula
   sha256 "5908263efebd535089b9a856ae3855171a30accec49b827ff4e71245d5115757"
   head "https://github.com/vn-ki/anime-downloader.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7c96ae6febab9a4d08e87cdfd855a810dfc3ef61468c31316cb9adf4875824b8" => :mojave
+    sha256 "bd762ab1b394ac0d40c2fc37333ef0a4154698a35f23b79c135dc83c1f8b8995" => :high_sierra
+    sha256 "66157db34cf3573cb1aba38f36718b53afcc5542764736bdfb7f975812e65b45" => :sierra
+  end
+
   depends_on "node"
   depends_on "python"
 
