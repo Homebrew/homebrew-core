@@ -1,8 +1,11 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
-  url "https://github.com/VowpalWabbit/vowpal_wabbit/archive/8.7.0.tar.gz"
-  sha256 "e41d30ed347c7700aa1a5db368c98775d4d8cfe74c123cc03ca285033b7dbbe1"
+  # pull from git tag to get submodules
+  url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
+    :tag      => "8.7.0",
+    :revision => "e63abfb6d76d8df9060ecd932dbb3d81216fe338"
+  head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
     cellar :any
@@ -12,23 +15,24 @@ class VowpalWabbit < Formula
     sha256 "23598d455b5a62bdf8f65df7b266b07be980738cfe69f664e5f1cb110ec72cf1" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "boost"
 
   def install
     ENV.cxx11
-    ENV["AC_PATH"] = "#{HOMEBREW_PREFIX}/share"
-    system "./autogen.sh", "--prefix=#{prefix}",
-                           "--with-boost=#{Formula["boost"].opt_prefix}"
-    system "make"
-    system "make", "install"
+    # The project provides a Makefile, but it is a basic wrapper around cmake
+    # that does not accept *std_cmake_args.
+    # The following should be equivalent, while supporting Homebrew's standard args.
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DBUILD_TESTS=OFF"
+      system "make", "install"
+    end
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"new_version"
     rm bin/"vw-validate.html"
     rm bin/"release.ps1"
+    rm bin/"clang-format"
   end
 
   test do
