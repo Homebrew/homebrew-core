@@ -5,6 +5,7 @@ class Minio < Formula
       :tag      => "RELEASE.2019-06-19T18-24-42Z",
       :revision => "43e0ef4248e45e4ba404dc9781abd008005f53b2"
   version "20190619182442"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -63,7 +64,7 @@ class Minio < Formula
             <string>#{opt_bin}/minio</string>
             <string>server</string>
             <string>--config-dir=#{etc}/minio</string>
-            <string>--address :9000</string>
+            <string>--address=:9000</string>
             <string>#{var}/minio</string>
           </array>
           <key>RunAtLoad</key>
@@ -73,9 +74,9 @@ class Minio < Formula
           <key>WorkingDirectory</key>
           <string>#{HOMEBREW_PREFIX}</string>
           <key>StandardErrorPath</key>
-          <string>#{var}/log/minio/output.log</string>
+          <string>#{var}/log/minio.log</string>
           <key>StandardOutPath</key>
-          <string>#{var}/log/minio/output.log</string>
+          <string>#{var}/log/minio.log</string>
           <key>RunAtLoad</key>
           <true/>
         </dict>
