@@ -10,10 +10,10 @@ class Cxxopts < Formula
   def install
     ENV.cxx11
 
-    mkdir "cxxopts-build" do
-      args = std_cmake_args
-      args << "-DCXXOPTS_BUILD_EXAMPLES=OFF" << "-DCXXOPTS_BUILD_TESTS=OFF" << ".."
-      system "cmake", *args
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args,
+                            "-DCXXOPTS_BUILD_EXAMPLES=OFF",
+                            "-DCXXOPTS_BUILD_TESTS=OFF"
       system "make", "install"
     end
   end
