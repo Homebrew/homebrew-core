@@ -27,7 +27,7 @@ class Libmpdclient < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <mpd/client.h>
       int main() {
-	mpd_connection_new(NULL, 0, 30000);
+        mpd_connection_new(NULL, 0, 30000);
         return 0;
       }
     EOS
