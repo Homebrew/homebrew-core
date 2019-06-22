@@ -13,17 +13,16 @@ class Gpgme < Formula
     sha256 "aa37cabf40063adf1a99a2e56858144d1811d656f3448bc652d8d69a42a80398" => :sierra
   end
 
-  depends_on "cmake" => :test
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => [:build, :test]
+  depends_on "qt" => [:build, :test]
   depends_on "swig" => :build
   depends_on "cmake" => :test
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
-  depends_on "qt" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",
