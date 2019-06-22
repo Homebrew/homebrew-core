@@ -8,11 +8,9 @@ class Teleconsole < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f51cf4866e3e7955dadc31e6a73c30fd99566c110674394d34dfdefc042453c" => :mojave
-    sha256 "a00b04aeb2e57c8ae3cca20632033bb2a60e1c3ec242497bee4a14240e5276a5" => :high_sierra
-    sha256 "77f2ea18e72c3662cdc3a9b204752b4d18ee65df2a4d9b47d53b31a7440a5109" => :sierra
-    sha256 "d7b7e6dd7c164f7145532f14fae09909651c4f997e75c8b8b2f5b98b9512a117" => :el_capitan
-    sha256 "7e2997cfe314a0b08332bfc6c4611707f8c97aa80ba92bc74a6ce3d2abc9c159" => :yosemite
+    sha256 "4a5a767d1097e9e8580e3d3ad77d01b8b840ef622092983d713333ed90d2db0d" => :mojave
+    sha256 "d53e81606f1e85b59bd3ee364e006989187f5cce884b33fb77b104b931a7e3c5" => :high_sierra
+    sha256 "c74fa8ac5e92c39a3f0d869b9e8bd44d32ab67ed0748b5548a0700287dfbe817" => :sierra
   end
 
   depends_on "go" => :build
