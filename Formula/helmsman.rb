@@ -5,6 +5,13 @@ class Helmsman < Formula
     :tag      => "v1.9.1",
     :revision => "2df5cca073e34c966e807727d29a4b2046e52c48"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a6fc8f01511faf89bfc796df2d40931ea2f44c468f6fa18e56f2dca552cba795" => :mojave
+    sha256 "c382f8695d831c403a9ba21dbcdcd2674dc12ef0c102ac24c56f33b2d3ebe471" => :high_sierra
+    sha256 "8e9f8641bacf5e96ee3ed36e57fc12552d91f1d0e18f5660ecbd671358894d71" => :sierra
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "kubernetes-cli"
