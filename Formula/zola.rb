@@ -6,9 +6,9 @@ class Zola < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "449421b70b760ee6e5751522886afcdd0bdb8dc547835c051fccfdd67c39070a" => :mojave
-    sha256 "b6b45e72dd6379adc3f745693171baa659d1e5b0799eebc0d918ce58d376e5cb" => :high_sierra
-    sha256 "57dbc00aa4b53f65362803f8bca98cd9e6059aa3f9ba8477fc26810d05a806f9" => :sierra
+    sha256 "d3a24de59191ce4b88524939a4c9b6010f2421d4c9e4fa4d6872adb6ec47d29f" => :mojave
+    sha256 "e3f5eea15eac1b2850a3841afdd45419a5befe99684bcaad36c90abbd6d0a3e7" => :high_sierra
+    sha256 "8b1034cc9fa42dca6e4c892f283a092150097562a949254e7247c0ff98a0bf1e" => :sierra
   end
 
   depends_on "cmake" => :build
