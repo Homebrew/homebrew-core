@@ -23,7 +23,7 @@ class Gpgme < Formula
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
-  depends_on "qt"
+  depends_on "qt" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",
