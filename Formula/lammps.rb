@@ -1,13 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://lammps.sandia.gov/tars/lammps-12Dec18.tar.gz"
+  url "https://lammps.sandia.gov/tars/lammps-5Jun19.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2018-12-12"
-  sha256 "8bcb3bf757e76ed80e0659edb4aa0adee1a80522372d9a817597ac693c074abb"
-  revision 1
+  version "2019-06-05"
+  sha256 "5356c51cbc11e0e0e1b5947b772c1520b5008f347e5f4d59003a71ec5aaf72ec"
 
   bottle do
     cellar :any
@@ -16,9 +15,11 @@ class Lammps < Formula
     sha256 "0b3b2e59c0f77fa303284d588c96321c20ec09f26372f15234efeaab9a758462" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "jpeg"
+  depends_on "kim-api"
   depends_on "libpng"
   depends_on "open-mpi"
 
@@ -30,7 +31,7 @@ class Lammps < Formula
 
         # Disable some packages for which we do not have dependencies, that are
         # deprecated or require too much configuration.
-        %w[gpu kim kokkos latte mscg meam message mpiio poems reax voronoi].each do |package|
+        %w[gpu kokkos latte mscg message mpiio poems voronoi].each do |package|
           system "make", "no-#{package}"
         end
 
