@@ -3,8 +3,8 @@ class Rtv < Formula
 
   desc "Command-line Reddit client"
   homepage "https://github.com/michael-lazar/rtv"
-  url "https://github.com/michael-lazar/rtv/archive/v1.26.0.tar.gz"
-  sha256 "1e3c20fdbda2a1f1b584194a36895d8e42aba527b2e9fa7be8ff7fd79c8bee85"
+  url "https://github.com/michael-lazar/rtv/archive/v1.27.0.tar.gz"
+  sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
