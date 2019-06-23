@@ -1,8 +1,8 @@
 class Rdesktop < Formula
   desc "UNIX client for connecting to Windows Remote Desktop Services"
   homepage "https://www.rdesktop.org/"
-  url "https://github.com/rdesktop/rdesktop/releases/download/v1.8.5/rdesktop-1.8.5.tar.gz"
-  sha256 "f0211077c3685ff79ba0396d31d5cd3587c6dd0febcbb20be364b7890f6eca95"
+  url "https://github.com/rdesktop/rdesktop/releases/download/v1.8.6/rdesktop-1.8.6.tar.gz"
+  sha256 "4131c5cc3d6a2e1a6515180502093c2b1b94cc8c34dd3f86aa8b3475399634ef"
 
   bottle do
     sha256 "8fae9c9a25c022dc0d6c492cc7bbfa3c8c18995a44444a00403d51e3d9c17091" => :mojave
