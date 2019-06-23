@@ -12,17 +12,23 @@ class Pari < Formula
 
   depends_on "gmp"
   depends_on "readline"
-  depends_on :x11
 
   def install
     readline = Formula["readline"].opt_prefix
     gmp = Formula["gmp"].opt_prefix
     system "./Configure", "--prefix=#{prefix}",
                           "--with-gmp=#{gmp}",
-                          "--with-readline=#{readline}"
+                          "--with-readline=#{readline}",
+                          "--graphic=ps"
     # make needs to be done in two steps
     system "make", "all"
     system "make", "install"
+  end
+
+  def caveats; <<~EOS
+    If you need the graphical plotting functions you need to install X11 with:
+      brew cask install xquartz
+  EOS
   end
 
   test do
