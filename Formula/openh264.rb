@@ -1,8 +1,8 @@
 class Openh264 < Formula
   desc "H.264 codec from Cisco"
   homepage "https://www.openh264.org/"
-  url "https://github.com/cisco/openh264/archive/v1.8.0.tar.gz"
-  sha256 "08670017fd0bb36594f14197f60bebea27b895511251c7c64df6cd33fc667d34"
+  url "https://github.com/cisco/openh264/archive/v2.0.0.tar.gz"
+  sha256 "73c35f80cc487560d11ecabb6d31ad828bd2f59d412f9cd726cc26bfaf4561fd"
   head "https://github.com/cisco/openh264.git"
 
   bottle do
