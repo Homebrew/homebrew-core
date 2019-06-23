@@ -7,10 +7,9 @@ class FluidSynth < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "096098def104dbd267e2bf16c6afa0298df4e40372d14310617e9bdadcdc6913" => :mojave
-    sha256 "404d3ba14185d4593d269270591c6978203365790ff014b643e732a518784ffa" => :high_sierra
-    sha256 "b9e8f11bdde68b9f0264154b95ef58d4ced5949ba1d71c1bef6f25403b23c33d" => :sierra
+    sha256 "0dad5a2972f67dbb9d9b8a1b44474e2c54991a5e3dce18cb0baaa2712023f70c" => :mojave
+    sha256 "7733d5ba43ad6d8424375fdd174c4c30e137a29d91fb6d0db90f0531f30b9967" => :high_sierra
+    sha256 "a3285524c60d898d66435e6c0ac5e6b0a86081ffa9c364bfd7139d8f4b4f7a2a" => :sierra
   end
 
   depends_on "cmake" => :build
