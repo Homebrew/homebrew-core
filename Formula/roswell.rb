@@ -6,9 +6,9 @@ class Roswell < Formula
   head "https://github.com/roswell/roswell.git"
 
   bottle do
-    sha256 "5babd0d5d5e10437c5e79531ba6ad8f3fe7be0b88514dea1b51cc802c2e1e5d2" => :mojave
-    sha256 "66b1b19ae94930f2500c13370dc0ca37bc4e40cd7ae9a9fec09b585eb8074eee" => :high_sierra
-    sha256 "be29a1ebe5b562918c90bdb22b98bab6b9a75a7d7f4d641ceb2a18710e1f8f41" => :sierra
+    sha256 "cc5b74c9ce4fde3e2d1dd76ef65f35fafed700b5848091573da1a55d81be361d" => :mojave
+    sha256 "2674280c02e733f3fb7e832b092abd57c76cbe11124d293ab2365aa53ed48ff9" => :high_sierra
+    sha256 "931ef56a79ab46c6aae0f8d0c6d8ad92f5f282d0164903a55970927d1991b939" => :sierra
   end
 
   depends_on "autoconf" => :build
