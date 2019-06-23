@@ -5,8 +5,8 @@ class PinboardNotesBackup < Formula
 
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.3.tar.gz"
-  sha256 "bc3ab1a8a3d92fcbda86dd8b4756b035be89e1e5b50bdd61f998b67c89243ae3"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.4.tar.gz"
+  sha256 "f402418a005a8c7e4ba980ded37ed35530edd896a0f57a8c50cc39add7432704"
   head "https://github.com/bdesham/pinboard-notes-backup.git"
 
   bottle do
@@ -19,15 +19,18 @@ class PinboardNotesBackup < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "pandoc" => :build
 
   def install
     install_cabal_package
+    system "./make_man_page"
+    man1.install "pnbackup.1"
   end
 
   # A real test would require hard-coding someone's Pinboard API key here
   test do
     assert_match "TOKEN", shell_output("#{bin}/pnbackup Notes.sqlite 2>&1", 1)
     output = shell_output("#{bin}/pnbackup -t token Notes.sqlite 2>&1", 1)
-    assert_match "statusCode = 500", output
+    assert_match "HTTP 500 response", output
   end
 end
