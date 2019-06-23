@@ -1,9 +1,8 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "http://www.fluidsynth.org"
-  url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.4.tar.gz"
-  sha256 "2c065de87e9c9ba0311ebf2f4828a4fd76f1f5cc7d1d93dd80d7a048d7d2a76c"
-  revision 1
+  url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.5.tar.gz"
+  sha256 "69b244512883491e7e66b4d0151c61a0d6d867d4d2828c732563be0f78abcc51"
   head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
