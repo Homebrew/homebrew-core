@@ -3,8 +3,8 @@ class GitFlowAvh < Formula
   homepage "https://github.com/petervanderdoes/gitflow-avh"
 
   stable do
-    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.12.2.tar.gz"
-    sha256 "9f9345e151fef8fb1049122f9fe5b02af7ec207a2bbfa98700b8940159280c46"
+    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.12.3.tar.gz"
+    sha256 "54e9fd81aa1aa8215c865503dc6377da205653c784d6c97baad3dafd20728e06"
 
     resource "completion" do
       url "https://github.com/petervanderdoes/git-flow-completion/archive/0.6.0.tar.gz"
