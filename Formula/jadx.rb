@@ -26,6 +26,8 @@ class Jadx < Formula
     else
       libexec.install Dir["*"]
     end
+    system "chmod +x #{prefix}/libexec/bin/jadx"
+    system "chmod +x #{prefix}/libexec/bin/jadx-gui"
     bin.install_symlink libexec/"bin/jadx"
     bin.install_symlink libexec/"bin/jadx-gui"
   end
