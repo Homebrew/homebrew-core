@@ -34,7 +34,7 @@ class Ack < Formula
       (bin/"ack").write_env_script("#{libexec}/ack", :PERL5LIB => ENV["PERL5LIB"])
       man1.install "blib/man1/ack.1"
     else
-      bin.install "ack-#{version.to_s.tr("-", "_")}-single-file" => "ack"
+      bin.install "ack-v#{version.to_s.tr("-", "_")}" => "ack"
       system "pod2man", "#{bin}/ack", "ack.1"
       man1.install "ack.1"
     end
