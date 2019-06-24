@@ -3,6 +3,7 @@ class Dartsim < Formula
   homepage "https://dartsim.github.io/"
   url "https://github.com/dartsim/dart/archive/v6.9.1.tar.gz"
   sha256 "9e2954aaf2d4538a7e4aab5188f1061c3e216c8c0b72483c2d0b9e814525acd1"
+  revision 1
 
   bottle do
     sha256 "c76c8d2091d354b5df945de4dcac72e77334163fa74b412e6693b7c0ec94c2a0" => :mojave
@@ -18,6 +19,7 @@ class Dartsim < Formula
   depends_on "eigen"
   depends_on "fcl"
   depends_on "flann"
+  depends_on "ipopt"
   depends_on "libccd"
   depends_on "nlopt"
   depends_on "ode"
