@@ -6,9 +6,9 @@ class OcamlNum < Formula
 
   bottle do
     cellar :any
-    sha256 "27261ae37ce2f1ac1645899cffda5b2d38df183e97c5c52185a3a906773c297b" => :mojave
-    sha256 "22918db71143a26ec137101bb349c5313e670fa9a4a54cac9060d2ff16bd379b" => :high_sierra
-    sha256 "27e235c6b11adf22cea6e68a932b51882f4d17eaaa7983b05d4489081378b207" => :sierra
+    sha256 "2317af1d75ad805c6b2726c513ef4530a4ad271ff2157e880c8b67a346e49b7f" => :mojave
+    sha256 "6d49be0f58ef3b784c4871268c96c50504c8f9639b5fe3df780f3f25dfeae17c" => :high_sierra
+    sha256 "d4039e61c189ff9752476b85529fc285d1ed01210290ed1282e0958b411650dd" => :sierra
   end
 
   depends_on "ocaml-findlib" => :build
