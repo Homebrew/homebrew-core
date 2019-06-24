@@ -1,9 +1,8 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/v1.1.tar.gz"
-  sha256 "04ac85f6465b9b2bf99e814ddc798a25bcadb3cca2667b74c1af02b6356893f6"
-  revision 4
+  url "https://github.com/ocaml/num/archive/v1.2.tar.gz"
+  sha256 "c5023104925ff4a79746509d4d85294d8aafa98da6733e768ae53da0355453de"
 
   bottle do
     cellar :any
