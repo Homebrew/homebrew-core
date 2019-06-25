@@ -8,9 +8,9 @@ class Cql < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f629558de28e0fee43be602f0fd8984adc083198d813a94dc8dd87c91f2015e1" => :mojave
-    sha256 "1c3f6ed32148cb851663e7799610f85b6f94ae31b3703258fd971cc7dcdd63d5" => :high_sierra
-    sha256 "5dea26e91da9ce55e0adb1397eb695d47b6e0d678e5afab435a58381836a1aad" => :sierra
+    sha256 "ee386d3bf77d29254e8d48a152f71a37bad70784c2a0cc08a2b8bb67b751acef" => :mojave
+    sha256 "524cbeeb80f87cb5696499be3bb6acc8e441f219ac2faf579ef5171351d07c9e" => :high_sierra
+    sha256 "c6dd8729b303196f045265da497765099cb5900a3ce2edbbaf93c16a6f401a55" => :sierra
   end
 
   depends_on "go" => :build
