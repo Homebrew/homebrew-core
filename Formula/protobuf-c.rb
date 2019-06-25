@@ -14,14 +14,6 @@ class ProtobufC < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf"
 
-  # Fix "error: no type named 'Reflection' in 'google::protobuf::Message'"
-  # See https://github.com/protobuf-c/protobuf-c/pull/342
-  # and https://github.com/protobuf-c/protobuf-c/issues/356
-  patch do
-    url "https://github.com/protobuf-c/protobuf-c/pull/342.patch?full_index=1"
-    sha256 "7890af8343be67ac73ab0307ed56ce351004d64dbddef6e53acd3b4ad22aa7e5"
-  end
-
   def install
     ENV.cxx11
 
