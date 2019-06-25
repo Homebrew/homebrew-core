@@ -23,10 +23,7 @@ class Sonobuoy < Formula
     (buildpath/"src/github.com/heptio/sonobuoy").install buildpath.children
 
     cd "src/github.com/heptio/sonobuoy" do
-      system "go", "build", "-o", bin/"sonobuoy", "-installsuffix", "static",
-                   "-ldflags",
-                   "-s -w -X github.com/heptio/sonobuoy/pkg/buildinfo.Version=#{version}",
-                   "./"
+      system "make", "native"
       prefix.install_metafiles
     end
   end
