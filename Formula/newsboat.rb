@@ -1,9 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.15/newsboat-2.15.tar.xz"
-  sha256 "da68ce93c02dda908a471ef8994bb3c668f060eb6046d486c3f05649c6650db7"
-  revision 1
+  url "https://newsboat.org/releases/2.16.1/newsboat-2.16.1.tar.xz"
+  sha256 "4023c817b36fc08a3191283eec2c7161949c0727633f60ad837e11c599d3ad53"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
@@ -21,7 +20,13 @@ class Newsboat < Formula
   depends_on "libstfl"
 
   def install
+    gettext = Formula["gettext"]
+
+    ENV["GETTEXT_BIN_DIR"] = gettext.opt_bin.to_s
+    ENV["GETTEXT_LIB_DIR"] = gettext.lib.to_s
+    ENV["GETTEXT_INCLUDE_DIR"] = gettext.include.to_s
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     system "make", "install", "prefix=#{prefix}"
   end
 
