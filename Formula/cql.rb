@@ -3,6 +3,7 @@ class Cql < Formula
   homepage "https://covenantsql.io"
   url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.7.0.tar.gz"
   sha256 "552832e7ff8586170e47d1c3aa6f526e366c6b804bb3fa37a08f87f112bcfb7c"
+  revision 1
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
   bottle do
@@ -16,10 +17,10 @@ class Cql < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CQLVERSION"] = "v0.6.0"
+    ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
     mkdir_p "src/github.com/CovenantSQL"
-    ldflags = "-X main.version=v0.6.0 " \
+    ldflags = "-X main.version=v#{version} " \
       "-X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C " \
       "-X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y"
     ln_s buildpath, "src/github.com/CovenantSQL/CovenantSQL"
