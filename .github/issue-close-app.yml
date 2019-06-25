@@ -2,7 +2,7 @@
 comment: |
   Whoops, it looks like you created an issue without filling out the checklist and providing all the needed information from one of the issue templates: <https://github.com/Homebrew/homebrew-core/issues/new/choose>
 
-  As we need all this information to help you we're closing this issue. If you add the necessary information to this issue (don't create a new one, please) then this issue may be reopened.
+  As we need all this information to help you we're closing this issue. If you add the necessary information to this issue (**don't create a new or duplicate issue, please**) and comment to let us know, a Homebrew maintainer will check it out when they get the chance. If it's deemed to be a valid issue then this issue may be reopened.
 
   Sorry!
 issueConfigs:
