@@ -3,6 +3,7 @@ class Pijul < Formula
   homepage "https://pijul.org"
   url "https://pijul.org/releases/pijul-0.12.0.tar.gz"
   sha256 "987820fa2a6fe92a9f516f5e9b41ad59a597973e72cb0c7a44ca0f38e741a7e6"
+  revision 1
 
   bottle do
     cellar :any
