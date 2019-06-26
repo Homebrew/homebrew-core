@@ -1,8 +1,8 @@
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://github.com/tsl0922/ttyd"
-  url "https://github.com/tsl0922/ttyd/archive/1.4.4.tar.gz"
-  sha256 "b910a33ddaa474c369991ba345187a8a2f4aa420389083671ba3a6c305a491d6"
+  url "https://github.com/tsl0922/ttyd/archive/1.5.0.tar.gz"
+  sha256 "ae35d570e179f9a0e1b9f78485f5014450a1a87f982ff6933db9cda22f989d07"
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
@@ -19,8 +19,9 @@ class Ttyd < Formula
   depends_on "openssl"
 
   def install
-    cmake_args = std_cmake_args + ["-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"]
-    system "cmake", ".", *cmake_args
+    system "cmake", ".",
+                    *std_cmake_args,
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
   end
 
