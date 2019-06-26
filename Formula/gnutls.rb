@@ -4,6 +4,7 @@ class Gnutls < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.8.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.8.tar.xz"
   sha256 "aa81944e5635de981171772857e72be231a7e0f559ae0292d2737de475383e83"
+  revision 1
 
   bottle do
     sha256 "6679cf795332813d1e41778272f3e8283dc13435c637a1f3b94c98956b490c93" => :mojave
