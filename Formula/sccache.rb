@@ -6,10 +6,10 @@ class Sccache < Formula
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
-    cellar :any
-    sha256 "34dbac945a8df83497f5aae52a3bd915a280e5b12e1b3928b8d9001c04a43695" => :mojave
-    sha256 "f9d8d617558c29f78dc3631f4e7b32071d7cac8aa65d6de0a9b72fc42b0554cf" => :high_sierra
-    sha256 "e40cd1d872fe3b16f81160ad0cb6426e9dbbe0204513bd3f1ca1421119f64166" => :sierra
+    cellar :any_skip_relocation
+    sha256 "ba0c41eb45d18039db95d7c31c5d35cf1e5eb66ccce1a2694cfebab21bc6c414" => :mojave
+    sha256 "831d5bc1937a834d0f7ae710e3a1178dd1dbcd21215987afc37a7fb745981ef2" => :high_sierra
+    sha256 "5d32a0135b93eda3bb44afe10776203ddc0809850303dbf4efaf3f5785d2dc8d" => :sierra
   end
 
   depends_on "rust" => :build
