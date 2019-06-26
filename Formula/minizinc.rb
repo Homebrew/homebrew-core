@@ -1,8 +1,8 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.2.3.tar.gz"
-  sha256 "1af08932adb9c965677b7f0a2aa8cff474b1e251f6295ff13c1444fd7a34b2df"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.3.0.tar.gz"
+  sha256 "7aa04296c8c7b985906b0c550dec70822b8ff176aaf5a728a97e94673844b8e0"
   head "https://github.com/MiniZinc/libminizinc.git", :branch => "develop"
 
   bottle do
@@ -23,6 +23,6 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", share/"examples/functions/warehouses.mzn"
+    system bin/"mzn2doc", share/"minizinc/std/all_different.mzn"
   end
 end
