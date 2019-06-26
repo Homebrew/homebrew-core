@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.16.00.source.tar.gz"
-  version "6.16.00"
-  sha256 "2a45055c6091adaa72b977c512f84da8ef92723c30837c7e2643eecc9c5ce4d8"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.18.00.source.tar.gz"
+  version "6.18.00"
+  sha256 "e6698d6cfe585f186490b667163db65e7d1b92a2447658d77fa831096383ea71"
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -56,20 +55,11 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
-    # Fix issue with ROOT 6.12-6.16 on a case-insensitive filesystem
-    # with /usr/local/include included before /usr/local/include/root
-    # Will be fixed in 6.16.02
-    # See https://trac.macports.org/ticket/57007
-    inreplace "core/base/inc/RConfig.h",
-              "<ROOT/RConfig.h>",
-              "\"ROOT/RConfig.h\""
-
     py_exe = Utils.popen_read("which python3").strip
     py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
     py_inc = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
 
     args = std_cmake_args + %W[
-      -Dcxx11=OFF
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{py_exe}
@@ -95,14 +85,8 @@ class Root < Formula
       -Dxrootd=ON
     ]
 
-    # This will become -DCMAKE_CXX_STANDARD=14 (or 17) in ROOT 6.18
-    if MacOS.version < :mojave
-      args << "-Dcxx14=ON"
-      args << "-Dcxx17=OFF"
-    else
-      args << "-Dcxx14=OFF"
-      args << "-Dcxx17=ON"
-    end
+    cxx_version = (MacOS.version < :mojave) ? 14 : 17
+    args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
     mkdir "builddir" do
       system "cmake", "..", *args
