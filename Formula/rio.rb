@@ -25,7 +25,7 @@ class Rio < Formula
     version_output = shell_output("#{bin}/rio --version 2>&1")
     assert_match "rio version v#{version}", version_output
 
-    run_output = shell_output("env KUBECONFIG=#{testpath}/non-existing-kubecfg #{bin}/rio install 2>&1", result = 1)
+    run_output = shell_output("env KUBECONFIG=#{testpath}/non-existing-kubecfg #{bin}/rio install 2>&1", 1)
     assert_match "can't contact Kubernetes cluster. Please make sure your cluster is accessable", run_output
   end
 end
