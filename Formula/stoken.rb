@@ -3,6 +3,7 @@ class Stoken < Formula
   homepage "https://stoken.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/stoken/stoken-0.92.tar.gz"
   sha256 "aa2b481b058e4caf068f7e747a2dcf5772bcbf278a4f89bc9efcbf82bcc9ef5a"
+  revision 1
 
   bottle do
     cellar :any
