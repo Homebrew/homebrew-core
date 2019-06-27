@@ -1,9 +1,8 @@
 class DatetimeFortran < Formula
   desc "Fortran time and date manipulation library"
   homepage "https://github.com/wavebitscientific/datetime-fortran"
-  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.6.0/datetime-fortran-1.6.0.tar.gz"
-  sha256 "e46c583bca42e520a05180984315495495da4949267fc155e359524c2bf31e9a"
-  revision 3
+  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.6.1/datetime-fortran-1.6.1.tar.gz"
+  sha256 "a503319209c6b9abe2fd0dc46f3b0d096154ac6edad9a106270f82aef6d248c0"
 
   bottle do
     cellar :any_skip_relocation
