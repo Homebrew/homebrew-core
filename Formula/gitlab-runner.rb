@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag      => "v12.0.0",
-      :revision => "6946bae7d492f32e6dd5242bdedba98abda1b629"
+      :tag      => "v12.0.1",
+      :revision => "0e5417a3db61d25367e4951ac0d2ef9242509796"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
