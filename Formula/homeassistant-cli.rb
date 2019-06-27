@@ -3,8 +3,9 @@ class HomeassistantCli < Formula
 
   desc "Command-line utility for Home Assistant"
   homepage "https://github.com/home-assistant/home-assistant-cli"
-  url "https://files.pythonhosted.org/packages/41/f4/5dd6269230d3db661c9650e78ad523009a4c123a5c3941381b166806d838/homeassistant-cli-0.6.0.tar.gz"
-  sha256 "244a2378a56fe347a93abb13fde9b8be7276d9b327965f666284bd90b193587a"
+  url "https://files.pythonhosted.org/packages/0b/af/29fc89f540ee90cb34eed902c7a9d28f5f256707b0cb70656088b8be8628/homeassistant-cli-0.7.0.tar.gz"
+  sha256 "a38d4669201ac2afa71b6578a220bf4d6d59131263b278d51ebd1479677f6baf"
+  head "https://github.com/home-assistant/home-assistant-cli.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -91,8 +92,8 @@ class HomeassistantCli < Formula
   end
 
   resource "netdisco" do
-    url "https://files.pythonhosted.org/packages/51/a2/46b1b4e969ebd824cc55200e75b091faa19df2d5c378851122980a9fae71/netdisco-2.3.0.tar.gz"
-    sha256 "2571fc094f3bf8c60be211e90474515f565f3ef1c92e857176daab8577493a3b"
+    url "https://files.pythonhosted.org/packages/ae/73/2a60ac3292203ac75528b1ae9a475fac6fff690e906cbc13e744701b2436/netdisco-2.6.0.tar.gz"
+    sha256 "2b3aca14a1807712a053f11fd80dc251dd821ee4899aefece515287981817762"
   end
 
   resource "ply" do
@@ -111,8 +112,8 @@ class HomeassistantCli < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/ec/51a1d35e9bea5ff8eece29fa5e03ad14da29f89f9d71cc82f2a58c87f2eb/regex-2019.02.20.tar.gz"
-    sha256 "466e63d7ad7c7df7b4808e9a3bf9cdb4a1b1e734889f92a58369df2f2da02dd6"
+    url "https://files.pythonhosted.org/packages/11/d9/e37129676d508adf833fb3e3c3fbcb4e5a10183cf45b6c7edbaa57b4a1f2/regex-2019.04.14.tar.gz"
+    sha256 "d56ce4c7b1a189094b9bee3b81c4aeb3f1ba3e375e91627ec8561b6ab483d0a8"
   end
 
   resource "requests" do
@@ -121,8 +122,8 @@ class HomeassistantCli < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/83/78/cd935d417da1e02e80c43c5bdfcd9729caf299acd60d32a92c1b53ac363a/ruamel.yaml-0.15.88.tar.gz"
-    sha256 "ac56193c47a31c9efa151064a9e921865cdad0f7a991d229e7197e12fe8e0cd7"
+    url "https://files.pythonhosted.org/packages/24/f1/1adcf396711d3c9c30b67a5c850cfb64afbccd41d7d85adf87732e4b156f/ruamel.yaml-0.15.94.tar.gz"
+    sha256 "0939bcb399ad037ef903d74ccf2f8a074f06683bc89133ad19305067d34487c8"
   end
 
   resource "six" do
