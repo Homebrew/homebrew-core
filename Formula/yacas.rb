@@ -1,8 +1,8 @@
 class Yacas < Formula
   desc "General purpose computer algebra system"
   homepage "https://www.yacas.org/"
-  url "https://github.com/grzegorzmazur/yacas/archive/v1.6.1.tar.gz"
-  sha256 "6b94394f705bed70a9d104967073efd6c23e9eb1a832805c4d805ef875555ae5"
+  url "https://github.com/grzegorzmazur/yacas/archive/v1.7.0.tar.gz"
+  sha256 "3e56980ca34d527cf1e2d5394e2078313d1a5605559ded3f9997ed8b29325313"
 
   bottle do
     cellar :any
