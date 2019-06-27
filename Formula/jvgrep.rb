@@ -3,8 +3,8 @@ require "language/go"
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
-  url "https://github.com/mattn/jvgrep/archive/v5.6.0.tar.gz"
-  sha256 "9d74f885c70bad15034cafb7210a5b2e1be299a5e41387bb9550471e5c52e0ea"
+  url "https://github.com/mattn/jvgrep/archive/v5.7.0.tar.gz"
+  sha256 "acd390950f91693b289b4e16d3a48e5e96f3521fdd60db6a363ff7aebd6ab506"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
