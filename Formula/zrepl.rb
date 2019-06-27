@@ -7,13 +7,19 @@ class Zrepl < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
+
+  resource "sample_config" do
+    url "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
+    sha256 "f27b21716e6efdc208481a8f7399f35fd041183783e00c57f62b3a5520470c05"
+  end
+
   def install
     contents = Dir["{*,.git,.gitignore}"]
     gopath = buildpath/"gopath"
     (gopath/"src/github.com/zrepl/zrepl").install contents
 
     ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"    
+    ENV.prepend_create_path "PATH", gopath/"bin"
     cd gopath/"src/github.com/zrepl/zrepl" do
       system "dep", "ensure", "-v", "-vendor-only"
       system "go", "build", "-o", "'$GOPATH/bin/stringer'", "./vendor/golang.org/x/tools/cmd/stringer"
@@ -23,7 +29,7 @@ class Zrepl < Formula
       system "go", "build", "-o", "'$GOPATH/bin/golangci-lint'", "./vendor/github.com/golangci/golangci-lint/cmd/golangci-lint"
       system "make", "ZREPL_VERSION=#{version}"
       bin.install "artifacts/zrepl"
-    end      
+    end
   end
 
   def post_install
@@ -68,11 +74,6 @@ class Zrepl < Formula
       </dict>
     </plist>
   EOS
-  end
-
-  resource "sample_config" do
-    url "https://raw.githubusercontent.com/zrepl/zrepl/master/config/samples/local.yml"
-    sha256 "f27b21716e6efdc208481a8f7399f35fd041183783e00c57f62b3a5520470c05"
   end
 
   test do
