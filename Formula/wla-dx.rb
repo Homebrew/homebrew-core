@@ -1,8 +1,8 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v9.7.tar.gz"
-  sha256 "22d544ab9f596df7f4141c26bec9735de790213d22e18d11c9b4bd12253e1420"
+  url "https://github.com/vhelin/wla-dx/archive/v9.8.tar.gz"
+  sha256 "5acc4ba687bdc5ff0473e9481f19caa3295c775ae41fcbe17a943b9242f5e573"
 
   bottle do
     cellar :any_skip_relocation
