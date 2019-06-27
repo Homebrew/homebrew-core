@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.4.0/node-v12.4.0.tar.gz"
-  sha256 "cf39befb8ea486363cac6f297d8f451fd0d5dd8ad21dca51e9c2ea86b242baa0"
+  url "https://nodejs.org/dist/v12.5.0/node-v12.5.0.tar.gz"
+  sha256 "3bdae2fdd8f176de2b3225d073847cff9c8ea4374b2f5ed17b07d87ace64a029"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -22,13 +22,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-6.9.0.tgz"
     sha256 "d6194c36bf612f1b2a6fbe351a7cb6f44dfb9a87a1d5336b1303dc1c07e87276"
-  end
-
-  # Fixes detecting Apple clang 11.
-  # This is an upstream patch and will be in the next release.
-  patch do
-    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
-    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
   end
 
   def install
