@@ -19,6 +19,7 @@ class Cryptol < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "z3"
+  uses_from_macos "ncurses"
 
   def install
     install_cabal_package :using => ["alex", "happy"]
