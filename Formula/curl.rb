@@ -22,6 +22,7 @@ class Curl < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
+  uses_from_macos "openssl"
 
   def install
     system "./buildconf" if build.head?
