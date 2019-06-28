@@ -13,6 +13,7 @@ class Fossil < Formula
   end
 
   depends_on "openssl"
+  uses_from_macos "zlib"
 
   def install
     args = [
