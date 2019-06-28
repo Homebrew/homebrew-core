@@ -23,6 +23,6 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", share/"examples/functions/warehouses.mzn"
+    system bin/"mzn2doc", share/"minizinc/std/all_different.mzn"
   end
 end
