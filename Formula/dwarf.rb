@@ -14,6 +14,7 @@ class Dwarf < Formula
 
   depends_on "flex"
   depends_on "readline"
+  uses_from_macos "bison"
 
   def install
     %w[src/libdwarf.c doc/dwarf.man doc/xdwarf.man.html].each do |f|
