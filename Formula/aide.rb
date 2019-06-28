@@ -20,6 +20,7 @@ class Aide < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "pcre"
+  uses_from_macos "curl"
 
   def install
     system "sh", "./autogen.sh" if build.head?
