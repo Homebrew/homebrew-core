@@ -15,6 +15,7 @@ class Assimp < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  uses_from_macos "zlib"
 
   # Fix "unzip.c:150:11: error: unknown type name 'z_crc_t'"
   # Upstream PR from 12 Dec 2017 "unzip: fix build with older zlib"
