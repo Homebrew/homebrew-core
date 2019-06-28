@@ -15,6 +15,7 @@ class AvroC < Formula
   depends_on "jansson"
   depends_on "snappy"
   depends_on "xz"
+  uses_from_macos "zlib"
 
   def install
     system "cmake", ".", *std_cmake_args
