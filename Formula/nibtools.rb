@@ -7,6 +7,7 @@ class Nibtools < Formula
 
   depends_on "cc65" => :build
   depends_on "opencbm" => :build
+  depends_on "opencbm"
 
   def install
     system "make", "-f", "GNU/Makefile", "linux"
