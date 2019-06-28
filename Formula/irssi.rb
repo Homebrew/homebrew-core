@@ -21,6 +21,7 @@ class Irssi < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "openssl"
+  uses_from_macos "perl"
 
   def install
     ENV.delete "HOMEBREW_SDKROOT" if MacOS.version == :high_sierra
