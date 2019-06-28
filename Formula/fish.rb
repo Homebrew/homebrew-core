@@ -19,6 +19,7 @@ class Fish < Formula
 
   depends_on "cmake" => :build
   depends_on "pcre2"
+  uses_from_macos "ncurses"
 
   def install
     # In Homebrew's 'superenv' sed's path will be incompatible, so
