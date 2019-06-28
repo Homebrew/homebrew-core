@@ -13,9 +13,7 @@ class Packer < Formula
     sha256 "41fecd6ec48dd132f17506477b8d94150188893c9deeab6e21acda763cc4df9a" => :sierra
   end
 
-  depends_on "coreutils" => :build
   depends_on "go" => :build
-  depends_on "govendor" => :build
   depends_on "gox" => :build
 
   def install
@@ -32,7 +30,7 @@ class Packer < Formula
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get -u github.com/mna/pigeon", ""
         s.gsub! "go get golang.org/x/tools/cmd/goimports", ""
-        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
+        s.gsub! "go get github.com/alvaroloes/enumer", ""
       end
 
       (buildpath/"bin").mkpath
