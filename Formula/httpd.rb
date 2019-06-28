@@ -16,6 +16,7 @@ class Httpd < Formula
   depends_on "nghttp2"
   depends_on "openssl"
   depends_on "pcre"
+  uses_from_macos "zlib"
 
   def install
     # fixup prefix references in favour of opt_prefix references
