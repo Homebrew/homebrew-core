@@ -21,6 +21,7 @@ class Augeas < Formula
 
   depends_on "pkg-config" => :build
   depends_on "readline"
+  uses_from_macos "libxml2"
 
   def install
     args = %W[--disable-debug --disable-dependency-tracking --prefix=#{prefix}]
