@@ -2,15 +2,15 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-7.0.0.30869.tar.gz"
-  sha256 "112e289ebf43f5e40cbbc5d20ea80cd7a4c258a7112cf00046e3364d46b6ba1a"
+  url "https://dist.duck.sh/duck-src-7.0.1.30930.tar.gz"
+  sha256 "74201740d460abc7d433760ab3f098617a58ba53fd86708a42bb4007555a269e"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
     cellar :any
-    sha256 "5505276789ace34e6e0319035bc450ee5835b0135b1a24fb01cdf3e2c3ffc6ce" => :mojave
-    sha256 "a2bcdcd8ffceb369657085ac18f0aaff6f0b3b39b61fec9ec99989acd6bb87ac" => :high_sierra
-    sha256 "c6124ce5f82f8926c7456d902c73cb37e1c677cadde454bf9d7822e6ad88df1f" => :sierra
+    sha256 "a2a83a7291f7b2b7586b2c2c5649ed3321cba4c7cc8fb252b69a8770c855c636" => :mojave
+    sha256 "388d82803b50744b08c8eea45bcff40e09778701ddcc66caf180547721a1cdd3" => :high_sierra
+    sha256 "484a072e0026e40f7489856955ac26fe47718e6620e3101d4e2ae95b8d706834" => :sierra
   end
 
   depends_on "ant" => :build

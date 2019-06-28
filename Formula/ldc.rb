@@ -1,14 +1,14 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.15.0/ldc-1.15.0-src.tar.gz"
-  sha256 "d7e0e0cf332542c42e3b6570d391b0f05d5a81a812297efcdadccf8fb0f0cee2"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.16.0/ldc-1.16.0-src.tar.gz"
+  sha256 "426d9d0dc65b7d3d739809c9c8bf022177aeaa8e65999be7145e052be3357302"
   head "https://github.com/ldc-developers/ldc.git", :shallow => false
 
   bottle do
-    sha256 "6bc71f5b6f5e3c2d5b3ad60ab26aaeef04650de55d1c6993ab7d3cfbb2ec06aa" => :mojave
-    sha256 "11a25fb3aa6eb44e0d120e1b777141f0095a811b15042bae41621123800fce52" => :high_sierra
-    sha256 "ec4cc70ece5daaad1992b5dbe0f8b06a5762bc959fc726960e1225e355c775fd" => :sierra
+    sha256 "186e5e333a7044155f6438a6bca858470c406583b8e54aa825bc7e72226234d7" => :mojave
+    sha256 "0f418f14ddaf03a0ab5d5bc1ab4034484e073c9291fcb62626df2476e0804599" => :high_sierra
+    sha256 "306afccff0146d5421d42488e728fe610c9c62366f3a65bf67abc701427005fc" => :sierra
   end
 
   depends_on "cmake" => :build

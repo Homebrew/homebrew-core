@@ -3,23 +3,24 @@ class Cql < Formula
   homepage "https://covenantsql.io"
   url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.7.0.tar.gz"
   sha256 "552832e7ff8586170e47d1c3aa6f526e366c6b804bb3fa37a08f87f112bcfb7c"
+  revision 1
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f629558de28e0fee43be602f0fd8984adc083198d813a94dc8dd87c91f2015e1" => :mojave
-    sha256 "1c3f6ed32148cb851663e7799610f85b6f94ae31b3703258fd971cc7dcdd63d5" => :high_sierra
-    sha256 "5dea26e91da9ce55e0adb1397eb695d47b6e0d678e5afab435a58381836a1aad" => :sierra
+    sha256 "ee386d3bf77d29254e8d48a152f71a37bad70784c2a0cc08a2b8bb67b751acef" => :mojave
+    sha256 "524cbeeb80f87cb5696499be3bb6acc8e441f219ac2faf579ef5171351d07c9e" => :high_sierra
+    sha256 "c6dd8729b303196f045265da497765099cb5900a3ce2edbbaf93c16a6f401a55" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CQLVERSION"] = "v0.6.0"
+    ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
     mkdir_p "src/github.com/CovenantSQL"
-    ldflags = "-X main.version=v0.6.0 " \
+    ldflags = "-X main.version=v#{version} " \
       "-X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C " \
       "-X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y"
     ln_s buildpath, "src/github.com/CovenantSQL/CovenantSQL"

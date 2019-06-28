@@ -6,10 +6,10 @@ class GoAT111 < Formula
   sha256 "a96da1425dcbec094736033a8a416316547f8100ab4b72c31d4824d761d3e133"
 
   bottle do
-    rebuild 1
-    sha256 "8e9422aa0f6f116cb74eef7a56f1ad9ebdf89af440bb53bbc817ce1e71b3be1d" => :mojave
-    sha256 "29f2a0e76752d6b7cbbe4712420a8a826fb3081eafbe965cc502dbcfd153afa8" => :high_sierra
-    sha256 "77b1bb722d714efd96a7ca9f29959363447053c64a83264ae63a6ea4a171f486" => :sierra
+    rebuild 2
+    sha256 "7d444e90e02df64ca6763686ec4d5f101b6773e63ad29a3d21b396fcbe2a52e5" => :mojave
+    sha256 "4c4f77da4340781b2b950be37d612fa2ba45b41d8999ecb76166da80e11622a2" => :high_sierra
+    sha256 "65f35010e6ad1cf6fbf642e8cbac49b9d24e82d2fa8d3d78e0ade383a5000699" => :sierra
   end
 
   keg_only :versioned_formula
@@ -34,6 +34,16 @@ class GoAT111 < Formula
   patch do
     url "https://github.com/golang/go/commit/26954bde4443c4bfbfe7608f35584b6b810f3f2c.patch?full_index=1"
     sha256 "25a361bd4aa1155be06e2239c1974aa9c59f971210f19e16a3b7b576b9d4f677"
+  end
+
+  patch do
+    url "https://github.com/golang/go/commit/0fe1986a72ea578390d4909988a1d7cb3a687544.patch?full_index=1"
+    sha256 "320c11208313fc74e0bba7f323791416e5316451b109c440f56be361df8306ea"
+  end
+
+  patch do
+    url "https://github.com/golang/go/commit/3f1422c799edb143303c86c0e875d44c3612df64.patch?full_index=1"
+    sha256 "d071f0415cd2712cbed373682c4a84661147df1aabf38bbc0f3179532a988a4f"
   end
 
   def install

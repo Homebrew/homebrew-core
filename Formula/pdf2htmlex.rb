@@ -3,13 +3,13 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 21
+  revision 22
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "ed3b2014900a813cc67fc580949cfbc2b7525b6bfd652df656d5b03252d0c10e" => :mojave
-    sha256 "a06598399b408551a1d952d864c7d36d8989988f18c411c80062084bf8df76ba" => :high_sierra
-    sha256 "ec3c20e86bf3b265454d5886f884787348db0c4f1670ba721287ed7d62b08fff" => :sierra
+    sha256 "a668d32544101f61f3ca1c4c76f7b2342c91827c63615e129f07781a3aef00d6" => :mojave
+    sha256 "41ef0b1e152aa0e15a3934a9f3143818c05b5a46ceb44196f9425c398ab877e2" => :high_sierra
+    sha256 "194a3c710b1408a83ab49a8aea30fb7e1189502766c3d4804f4737fcace2d957" => :sierra
   end
 
   depends_on "autoconf" => :build # for fontforge
@@ -66,6 +66,8 @@ class Pdf2htmlex < Formula
                             "--without-libzmq",
                             "--without-x",
                             "--without-iconv",
+                            "--without-libspiro",
+                            "--without-libuninameslist",
                             "--disable-python-scripting",
                             "--disable-python-extension"
       system "make"
