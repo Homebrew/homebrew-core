@@ -14,6 +14,8 @@ class Ghi < Formula
     sha256 "d2b59c4b0326bd4d4b2de6da0310e1d5228cc63d57adb9eb37c5f5c5a9471131" => :el_capitan
   end
 
+  uses_from_macos "ruby"
+
   resource "multi_json" do
     url "https://rubygems.org/gems/multi_json-1.12.1.gem"
     sha256 "b387722b0a31fff619a2682c7011affb5a13fed2cce240c75c5d6ca3e910ecf2"
