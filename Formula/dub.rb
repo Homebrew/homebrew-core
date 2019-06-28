@@ -15,6 +15,7 @@ class Dub < Formula
 
   depends_on "dmd" => :build
   depends_on "pkg-config"
+  uses_from_macos "curl"
 
   def install
     ENV["GITVER"] = version.to_s
