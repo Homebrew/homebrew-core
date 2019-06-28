@@ -13,6 +13,7 @@ class Fzf < Formula
   end
 
   depends_on "go" => :build
+  uses_from_macos "ncurses"
 
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
