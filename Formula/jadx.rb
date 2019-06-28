@@ -2,7 +2,7 @@ class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
   url "https://github.com/skylot/jadx/releases/download/v1.0.0/jadx-1.0.0.zip"
-  sha256 "65f5a4a40303b5af10441e34351880fa3b0c4c9a1839f62c314a9b1d5fefca85"
+  sha256 "a1d9e9fb1bd3552b03241609c8a2b07ffd97e92e1d8d508fac24fe530a73d60f"
 
   head do
     url "https://github.com/skylot/jadx.git"
@@ -26,8 +26,6 @@ class Jadx < Formula
     else
       libexec.install Dir["*"]
     end
-    system "chmod +x #{libexec}/bin/jadx"
-    system "chmod +x #{libexec}/bin/jadx-gui"
     bin.install_symlink libexec/"bin/jadx"
     bin.install_symlink libexec/"bin/jadx-gui"
   end
