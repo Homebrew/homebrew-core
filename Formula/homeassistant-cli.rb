@@ -9,9 +9,9 @@ class HomeassistantCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61fe83139d46911dd5bc9305a2bd6fdf29494c6b7ad62036062de67235c39b40" => :mojave
-    sha256 "d1dcda25d06a7bbaaf8d83a33762dd3443dd53b91c535ba7d9beccaa005ba99f" => :high_sierra
-    sha256 "e23acd857945c7c6237ad159f3082390bed2e71be73bca0437298fd7c6a5c808" => :sierra
+    sha256 "c1e4141d363384a6dcfb6e8aa22f4ed4e20ff1e9316b1f47943a28b8d6a10de2" => :mojave
+    sha256 "eee6ff7e4320c30be768800e091af51169c6c36f3d1259388404a5f4f3cfda71" => :high_sierra
+    sha256 "6b7f4e3c4f5a62e8f73674b684de7a0062b6c0c216dfc8c864740310bf23d2d4" => :sierra
   end
 
   depends_on "python"
