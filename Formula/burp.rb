@@ -33,6 +33,7 @@ class Burp < Formula
   depends_on "pkg-config" => :build
   depends_on "librsync"
   depends_on "openssl"
+  uses_from_macos "zlib"
 
   def install
     resource("uthash").stage do
