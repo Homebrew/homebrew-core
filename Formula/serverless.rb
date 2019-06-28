@@ -3,8 +3,8 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://serverless.com"
-  url "https://github.com/serverless/serverless/archive/v1.46.0.tar.gz"
-  sha256 "ccee87472e15dd705b23ed97aab34ebe22ddf48727ed237b17789609bb29743a"
+  url "https://github.com/serverless/serverless/archive/v1.46.1.tar.gz"
+  sha256 "308191f8819fc65e42a8543f0f273014d3a62f2d4645d1621e418b97b698ade7"
 
   bottle do
     cellar :any_skip_relocation
