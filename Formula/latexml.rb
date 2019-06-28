@@ -7,9 +7,9 @@ class Latexml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3a5d8f45fdb180e01020f6197a9a07737f81eab6934d949b92f5b711f35041d" => :mojave
-    sha256 "5fed67a74a9966182e7f998a2184541d517a56e1293be12612b0a14b3380cb17" => :high_sierra
-    sha256 "405cb6dee92b6c535e03a4841b3961e96bfb259cdfdf2909f1743d4ff2d479df" => :sierra
+    sha256 "e7c78acf6bb580fdb949777719972a806c1d7d349d9e826b338572bedde6cf5c" => :mojave
+    sha256 "388dbf99df85e55879cccfa48eed9b6ef362d13f3ffe83dbfd09b1e7fb12fa1f" => :high_sierra
+    sha256 "b911ac9897012edcc7c32d96785e4ca3830ce8cbddff78da0942263c7fb0d0bb" => :sierra
   end
 
   resource "Image::Size" do
