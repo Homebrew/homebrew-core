@@ -25,6 +25,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
+  uses_from_macos "libxml2"
 
   def install
     ENV["PYTHON_CFLAGS"] = `python3-config --cflags`.chomp
