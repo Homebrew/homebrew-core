@@ -13,6 +13,8 @@ class Bazaar < Formula
     sha256 "6d1409dc49d838c0209bc59ebeb4ec5b70c5c1caef3b27b97f0ebedd6d8ff515" => :el_capitan
   end
 
+  uses_from_macos "python@2"
+
   # CVE-2017-14176
   # https://bugs.launchpad.net/brz/+bug/1710979
   patch do
