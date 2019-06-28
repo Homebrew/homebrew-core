@@ -3,7 +3,7 @@ class Gammu < Formula
   homepage "https://wammu.eu/gammu/"
   url "https://dl.cihar.com/gammu/releases/gammu-1.40.0.tar.xz"
   sha256 "a760a3520d9f3a16a4ed73cefaabdbd86125bec73c6fa056ca3f0a4be8478dd6"
-  revision 1
+  revision 2
   head "https://github.com/gammu/gammu.git"
 
   bottle do
@@ -17,6 +17,8 @@ class Gammu < Formula
   depends_on "openssl"
 
   def install
+    # Disable opportunistic linking against Postgres
+    inreplace "CMakeLists.txt", "macro_optional_find_package (Postgres)", ""
     mkdir "build" do
       system "cmake", "..", "-DBASH_COMPLETION_COMPLETIONSDIR:PATH=#{bash_completion}", *std_cmake_args
       system "make", "install"
