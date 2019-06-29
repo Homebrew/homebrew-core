@@ -6,9 +6,9 @@ class Uhd < Formula
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "15571aae1178160273c3a308e70cd701ecb7f77ae1ca79a7a54252098979f9c4" => :mojave
-    sha256 "4e949556c55a874d52e039ee1bcada2f61482ffc7d99eb17f54b0f1db93d6af2" => :high_sierra
-    sha256 "a8201e5fcd76f434863f8b67b8e74e80d4c34db0add402d9d97d3945cbc5af13" => :sierra
+    sha256 "fd131dbc43c309c4f1ec23c6c7940c31eb60f0e6ff05d1a0ad65aa03d0630ce3" => :mojave
+    sha256 "0aa1e0de9fbff3ed4068342542e49e90c5d5ed85107d67235a8c083c645ddb6a" => :high_sierra
+    sha256 "449cf96866e67ec63207dbcc4d67d2d5b87282511ceada9a2fcb22974d512908" => :sierra
   end
 
   depends_on "cmake" => :build
