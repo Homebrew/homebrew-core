@@ -1,9 +1,8 @@
 class Libzdb < Formula
   desc "Database connection pool library"
   homepage "https://tildeslash.com/libzdb/"
-  url "https://tildeslash.com/libzdb/dist/libzdb-3.1.tar.gz"
-  sha256 "0f01abb1b01d1a1f4ab9b55ad3ba445d203fc3b4757abdf53e1d85e2b7b42695"
-  revision 6
+  url "https://tildeslash.com/libzdb/dist/libzdb-3.2.tar.gz"
+  sha256 "005ddf4b29c6db622e16303298c2f914dfd82590111cea7cfd09b4acf46cf4f2"
 
   bottle do
     cellar :any
@@ -13,6 +12,7 @@ class Libzdb < Formula
     sha256 "051d58c0f1b5f39bebf8966311553f8be784daf7693e2b6960030aa791586803" => :el_capitan
   end
 
+  depends_on :macos => :high_sierra # C++ 17 is required
   depends_on "mysql-client"
   depends_on "openssl"
   depends_on "postgresql"
