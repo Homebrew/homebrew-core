@@ -5,9 +5,9 @@ class Opensubdiv < Formula
   sha256 "d932b292f83371c7518960b2135c7a5b931efb43cdd8720e0b27268a698973e4"
 
   bottle do
-    sha256 "bcd84fb95f1ce06d8073e1ea0ebbc0f7ff6399af21b4249e012edbab1bdb528b" => :mojave
-    sha256 "edd23b3384f3efeb0aaeccf672d082cd727d73b4fc3d1adb6d1762f064966509" => :high_sierra
-    sha256 "5230aab2724b2a0deac3b39adaa8a79092974f11ab0a90ffd5bc0bf785ccbc95" => :sierra
+    sha256 "ff26ccfc7953b18c7117db84a8f73dfbc10511d9b49b90ff143b743970cb3e01" => :mojave
+    sha256 "13f2a6fe7993bb82da70c2a249c634c5526cbf29cf7bdaf844d52476b1f06c61" => :high_sierra
+    sha256 "dc5485a6f2df692a6c64e88cac96b98fc4fc8c85de3aa7517410190133433ace" => :sierra
   end
 
   depends_on "cmake" => :build
