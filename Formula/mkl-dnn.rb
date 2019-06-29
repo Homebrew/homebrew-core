@@ -1,8 +1,8 @@
 class MklDnn < Formula
   desc "Intel Math Kernel Library for Deep Neural Networks"
   homepage "https://01.org/mkl-dnn"
-  url "https://github.com/intel/mkl-dnn/archive/v0.19.tar.gz"
-  sha256 "ba39da6adb263df05c4ca2a120295641fc97be75b588922e4274cb628dbe1dcd"
+  url "https://github.com/intel/mkl-dnn/archive/v0.20.tar.gz"
+  sha256 "52e111fefbf5a38e36f7bae7646860f7cbc985eba0725768f3fee8cdb31a9977"
 
   bottle do
     cellar :any
