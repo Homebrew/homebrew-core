@@ -24,14 +24,11 @@ class JohnJumbo < Formula
 
   def install
     cd "src" do
-      system "./configure", "--disable-native-tests", "--disable-native-macro"
+      system "./configure", "--disable-native-tests", "--disable-native-march"
       system "make", "clean"
       system "make", "-s", "CC=#{ENV.cc}"
     end
 
-    # Remove the symlink and install the real file
-    rm "README"
-    prefix.install "doc/README"
     doc.install Dir["doc/*"]
 
     # Only symlink the main binary into bin
@@ -40,9 +37,6 @@ class JohnJumbo < Formula
 
     bash_completion.install share/"john/john.bash_completion" => "john.bash"
     zsh_completion.install share/"john/john.zsh_completion" => "_john"
-
-    # Source code defaults to "john.ini", so rename
-    mv share/"john/john.conf", share/"john/john.ini"
   end
 
   test do
