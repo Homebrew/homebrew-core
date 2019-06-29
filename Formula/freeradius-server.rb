@@ -13,6 +13,7 @@ class FreeradiusServer < Formula
 
   depends_on "openssl"
   depends_on "talloc"
+  uses_from_macos "perl"
 
   def install
     ENV.deparallelize

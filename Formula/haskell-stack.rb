@@ -17,6 +17,7 @@ class HaskellStack < Formula
   end
 
   depends_on "cabal-install" => :build
+  uses_from_macos "zlib"
 
   # Stack requires stack to build itself. Yep.
   resource "bootstrap-stack" do

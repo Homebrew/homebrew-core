@@ -12,6 +12,8 @@ class Cdk < Formula
     sha256 "fc9f42aad5f855408583a604ab54f8241c85464f5a7e44492452904aab55dfb4" => :sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-ncurses"
     system "make", "install"

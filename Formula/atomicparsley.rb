@@ -17,6 +17,7 @@ class Atomicparsley < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  uses_from_macos "zlib"
 
   # Fix Xcode 9 pointer warnings
   # https://bitbucket.org/wez/atomicparsley/issues/52/xcode-9-build-failure

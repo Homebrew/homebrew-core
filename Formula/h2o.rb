@@ -14,6 +14,7 @@ class H2o < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  uses_from_macos "zlib"
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046

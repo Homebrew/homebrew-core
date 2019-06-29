@@ -11,6 +11,8 @@ class Ccache < Formula
     sha256 "b41e0434efa91fa46caae563d5866fcfee17915c52a8983b8c898d59a5646440" => :sierra
   end
 
+  uses_from_macos "zlib"
+
   head do
     url "https://github.com/ccache/ccache.git"
 

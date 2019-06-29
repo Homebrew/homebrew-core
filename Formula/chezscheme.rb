@@ -12,6 +12,7 @@ class Chezscheme < Formula
   end
 
   depends_on :x11 => :build
+  uses_from_macos "ncurses"
 
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime

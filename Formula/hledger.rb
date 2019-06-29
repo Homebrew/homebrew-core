@@ -14,8 +14,10 @@ class Hledger < Formula
     sha256 "5150a38fc8378410ca9b7b9d2fca755ccc7fe0eef6805fc07650fd836460a0bb" => :high_sierra
     sha256 "60422bb49e6e62f26780cec246007cfa38dc8fcb33c6718591e7f7e72fb44c2a" => :sierra
   end
+
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  uses_from_macos "ncurses"
 
   resource "hledger_web" do
     url "https://hackage.haskell.org/package/hledger-web-1.14.1/hledger-web-1.14.1.tar.gz"

@@ -13,6 +13,7 @@ class CabalInstall < Formula
   end
 
   depends_on "ghc"
+  uses_from_macos "zlib"
 
   def install
     cd "cabal-install" if build.head?

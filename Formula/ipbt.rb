@@ -13,6 +13,8 @@ class Ipbt < Formula
     sha256 "81dfccfb83c374d509ab37f7ad4cf8cc0d40bfb3b47e45d9d05ea3880e3d03aa" => :sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"

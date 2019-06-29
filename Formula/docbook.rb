@@ -13,6 +13,8 @@ class Docbook < Formula
     sha256 "6ac70ee56739ffbe8d99e18164bc42d8d0df9ce62cc2a5c55be4b65cd74092aa" => :el_capitan
   end
 
+  uses_from_macos "libxml2"
+
   resource "xml412" do
     url "https://docbook.org/xml/4.1.2/docbkx412.zip"
     sha256 "30f0644064e0ea71751438251940b1431f46acada814a062870f486c772e7772"
