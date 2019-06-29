@@ -1,8 +1,8 @@
 class Gearsystem < Formula
-  desc "Sega Master System / Game Gear emulator"
+  desc "Sega Master System / Game Gear / SG-1000 emulator"
   homepage "https://github.com/drhelius/Gearsystem"
-  url "https://github.com/drhelius/Gearsystem/archive/gearsystem-2.5.1.tar.gz"
-  sha256 "bf834bddeb2a2d814229531eb302f64c0ea913af88cb7be508cac4b5e490790d"
+  url "https://github.com/drhelius/Gearsystem/archive/gearsystem-2.6.1.tar.gz"
+  sha256 "d7b0116e1a1cf6780bec4279e699dfbe9c4dd8d789f504aff1057b9fab079f47"
   head "https://github.com/drhelius/Gearsystem.git"
 
   bottle do
@@ -26,5 +26,9 @@ class Gearsystem < Formula
       prefix.install "Gearsystem.app"
       bin.write_exec_script "#{prefix}/Gearsystem.app/Contents/MacOS/Gearsystem"
     end
+  end
+
+  test do
+    assert_match "GEARSYSTEM", shell_output("#{bin}/gearsystem -v")
   end
 end
