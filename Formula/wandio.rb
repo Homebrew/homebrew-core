@@ -6,10 +6,9 @@ class Wandio < Formula
 
   bottle do
     cellar :any
-    sha256 "9964682cfb6e23baace99a67c86e821e1af876639abdc8da2f547a9af22cd1b2" => :mojave
-    sha256 "758e3f124fa77a0c52431746e7a75da699c6717697662f696a70381050e0aa66" => :high_sierra
-    sha256 "e0c976e9684b3cd990c21bc50fdb6c6bbc3a4bd77f0641e26f8741e0783fd999" => :sierra
-    sha256 "921de26a27560963d4b4c92ce7e7afa852ad7e1a949184933245d8404a48f1ed" => :el_capitan
+    sha256 "b93140bc27721caa21e6612e5db65aec98cc2fdd730a275470482fa500d2a15e" => :mojave
+    sha256 "f096ae75294cee9c3a46121b6d304895689a10c782159b8ceb1cc159a815cc3c" => :high_sierra
+    sha256 "1a534de6c950b57a640e2394f82d5b17acb8400ca010aa89a202cf9d9dc2c417" => :sierra
   end
 
   def install
