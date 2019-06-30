@@ -1,8 +1,8 @@
 class Libmatroska < Formula
   desc "Extensible, open standard container format for audio/video"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.5.0.tar.xz"
-  sha256 "f0efdc1827fa8012a16d764a45ed84d544d92a2027113245f522f5e1f713ad1e"
+  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.5.2.tar.xz"
+  sha256 "0ac6debfbf781d47f001b830aaf9be9dfbcefd13bcfb80ca5efc1c04b4a3c962"
   head "https://github.com/Matroska-Org/libmatroska.git"
 
   bottle do
