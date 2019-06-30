@@ -1,8 +1,8 @@
 class SpiceProtocol < Formula
   desc "Headers for SPICE protocol"
   homepage "https://www.spice-space.org/"
-  url "https://www.spice-space.org/download/releases/spice-protocol-0.12.15.tar.bz2"
-  sha256 "8b4db23baa4b1337a50d049d9bf43f932331dd95f204836c0ce46c4962306419"
+  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.0.tar.bz2"
+  sha256 "b6a4aa1ca32668790b45a494bbd000e9d05797b391d5a5d4b91adf1118216eac"
 
   bottle do
     cellar :any_skip_relocation
