@@ -3,6 +3,7 @@ class Maxima < Formula
   homepage "https://maxima.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.43.0-source/maxima-5.43.0.tar.gz"
   sha256 "dcfda54511035276fd074ac736e97d41905171e43a5802bb820914c3c885ca77"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
