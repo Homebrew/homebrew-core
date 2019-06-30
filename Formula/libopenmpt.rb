@@ -7,9 +7,9 @@ class Libopenmpt < Formula
 
   bottle do
     cellar :any
-    sha256 "350b5a1325a663e4e474e52f228facaf36e6b9d4741f90805a4a14f30579dd21" => :mojave
-    sha256 "6ae059b6571dd64edb2266c3d8710741a5361afdf2579d15726d31d4ce597035" => :high_sierra
-    sha256 "2a378d7eaa4cd075a7585d9b1a300bd0ea3fa78de1e1674dab973d26cae2a4a0" => :sierra
+    sha256 "f296fa5f01c9ab73cc3b3049c9765eec534a0dfe08add146181ea2fff9f7ecd8" => :mojave
+    sha256 "8707e9a0a3c6bec10bbc8ce1de14ecb12f22223c132b23450ca57df30ea5ea9b" => :high_sierra
+    sha256 "1720cd6b810d487716a4580175764ee2ffe01ed31381e74b376d06ee25d2ef1b" => :sierra
   end
 
   depends_on "pkg-config" => :build
