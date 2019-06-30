@@ -7,9 +7,9 @@ class Libebml < Formula
 
   bottle do
     cellar :any
-    sha256 "98c762c686a8565ee45a71b7e779f5021eabdd1bafa62ad1e70b723a5ebdcdb0" => :mojave
-    sha256 "edd3178663b28140e2ab39ebb91d8fbfd484842fdbd7648ae38c622040737b37" => :high_sierra
-    sha256 "446ff193f844a84320328b9e675fb1a3dade456031d800a00684f3c24b99a99a" => :sierra
+    sha256 "ac543015948d0f4068ffc45c24ae09129ebaef9971d5301ffe43787f3146e4f2" => :mojave
+    sha256 "bf005e877a8b7abdef3fc39c5964ad202ab6797ab1467c3209bc947ac4cdf70a" => :high_sierra
+    sha256 "60249b3b2a0d6b4c18bd5ee8eb9a475b5a8622c5919b0e22962ce2232b691728" => :sierra
   end
 
   depends_on "cmake" => :build
