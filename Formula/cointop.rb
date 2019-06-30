@@ -6,9 +6,9 @@ class Cointop < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d6efecc205d31652ade02f5b9592d315f123404590bd750aba03899badc6876" => :mojave
-    sha256 "6542ce62ca384dc07865b6c5c8c8246c1cb18e6f8bab35e49d93158ab062badd" => :high_sierra
-    sha256 "352118f8541323b3fadb6137fbb874aaea727b3bc92aa28d9b91530111047f47" => :sierra
+    sha256 "647a7c2bd33f1e9097cdab9dbecca9413951fcc4a395f866c40f6f266913eee0" => :mojave
+    sha256 "3a3a6ef482c9ec6bc44fcc48ac4fb91f9e19ae6779091759511d38dc012a357b" => :high_sierra
+    sha256 "328df631ce386e54a84be745a93fe29e5b749cd43e53f990488b26288d439b6d" => :sierra
   end
 
   depends_on "go" => :build
