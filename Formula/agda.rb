@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.0.1/Agda-2.6.0.1.tar.gz"
@@ -12,8 +13,8 @@ class Agda < Formula
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :tag      => "v1.0.1",
-          :revision => "442abf2b3418d4d488381a2f8ca4e99bbf8cfc8e"
+          :tag      => "v1.1",
+          :revision => "dffb8023a63e7e66a90a8664752245971a915e66"
     end
   end
 
