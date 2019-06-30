@@ -1,9 +1,11 @@
 class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.22.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/libsvm-3.22.tar.gz"
-  sha256 "6d81c67d3b13073eb5a25aa77188f141b242ec328518fad95367ede253d0a77d"
+
+  # Upstream deletes old downloads, so we need to mirror it ourselves
+  url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.23.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/libsvm-3.23.tar.gz"
+  sha256 "257aed630dc0a0163e12cb2a80aea9c7dc988e55f28d69c945a38b9433c0ea4a"
 
   bottle do
     cellar :any
