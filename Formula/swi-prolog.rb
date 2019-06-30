@@ -1,9 +1,8 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
-  sha256 "abb81b55ac5f2c90997c0005b1f15b74ed046638b64e784840a139fe21d0a735"
-  revision 2
+  url "https://www.swi-prolog.org/download/stable/src/swipl-8.0.3.tar.gz"
+  sha256 "cee59c0a477c8166d722703f6e52f962028f3ac43a5f41240ecb45dbdbe2d6ae"
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
