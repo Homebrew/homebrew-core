@@ -6,10 +6,9 @@ class UserspaceRcu < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9a563f49d9a758f7f04b2aae28b1af9f83639f6f5ffa72b60530e6fd22e8ab63" => :mojave
-    sha256 "c30de049c48f01c4d112f7cccf09b264ca212c12d8f26a4c25d365f63a165909" => :high_sierra
-    sha256 "4a3935774671539cb2087954f8729a06f06b9d5402a9b24f9ecea29daa6d3b64" => :sierra
+    sha256 "2b70670f8a4a37cfd7a60a3a5c46908556ec7fb78f9992dbe73f022154c601fe" => :mojave
+    sha256 "c1923cecf3ed76e60ac2980a703817789dbc82315aec3fd84d49b528ce28da80" => :high_sierra
+    sha256 "70f936b43372e4596cdfa543f1b3a42aa01a4d8ca93fe2a38e0b8e6994aa65de" => :sierra
   end
 
   def install
