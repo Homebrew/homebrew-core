@@ -3,7 +3,7 @@ class Mapnik < Formula
   homepage "https://mapnik.org/"
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.22/mapnik-v3.0.22.tar.bz2"
   sha256 "930612ad9e604b6a29b9cea1bc1de85cf7cf2b2b8211f57ec8b6b94463128ab9"
-  revision 1
+  revision 2
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
@@ -13,7 +13,9 @@ class Mapnik < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  # Does not build with 1.70
+  # https://github.com/mapnik/mapnik/issues/4041
+  depends_on "boost@1.60"
   depends_on "cairo"
   depends_on "freetype"
   depends_on "gdal"
@@ -33,11 +35,7 @@ class Mapnik < Formula
     # encountered when trying to detect boost regex in configure
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
 
-    # Use Proj 6.0.0 compatibility headers
-    # https://github.com/mapnik/mapnik/issues/4036
-    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
-
-    boost = Formula["boost"].opt_prefix
+    boost = Formula["boost@1.60"].opt_prefix
     freetype = Formula["freetype"].opt_prefix
     harfbuzz = Formula["harfbuzz"].opt_prefix
     icu = Formula["icu4c"].opt_prefix
@@ -46,6 +44,9 @@ class Mapnik < Formula
     libtiff = Formula["libtiff"].opt_prefix
     proj = Formula["proj"].opt_prefix
     webp = Formula["webp"].opt_prefix
+
+    # Use Proj 6.0.0 compatibility headers with CUSTOM_DEFINES
+    # https://github.com/mapnik/mapnik/issues/4036
 
     args = %W[
       CC=#{ENV.cc}
@@ -70,6 +71,7 @@ class Mapnik < Formula
       PNG_LIBS=#{libpng}/lib
       PROJ_INCLUDES=#{proj}/include
       PROJ_LIBS=#{proj}/lib
+      CUSTOM_DEFINES=-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H
       TIFF_INCLUDES=#{libtiff}/include
       TIFF_LIBS=#{libtiff}/lib
       WEBP_INCLUDES=#{webp}/include
