@@ -18,8 +18,8 @@ class Unzip < Formula
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-22.debian.tar.xz"
-    sha256 "f3c80c1e3917d59cb2fe72f0431159c919f2df7fc96f5b539c91cc96fc02ecfa"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-23.debian.tar.xz"
+    sha256 "c8b5d256aca6b24b36e92270856b6947401bd4107c883b78a6fcf8afec6f54aa"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
