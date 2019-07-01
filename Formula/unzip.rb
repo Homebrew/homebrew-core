@@ -4,7 +4,7 @@ class Unzip < Formula
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
@@ -42,6 +42,7 @@ class Unzip < Formula
       patches/18-cve-2014-9913-unzip-buffer-overflow.patch
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
       patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
+      patches/21-fix-warning-messages-on-big-files.patch
     ]
   end
 
