@@ -25,8 +25,8 @@ class Neovim < Formula
     end
 
     resource "luv" do
-      url "https://github.com/luvit/luv/releases/download/1.29.1-2/luv-1.29.1-2.tar.gz"
-      sha256 "866e6c82f3eb4ae73222b835c7621d1b8f6b4271b5cee8dd00729338cfef9d47"
+      url "https://github.com/luvit/luv/releases/download/1.30.0-0/luv-1.30.0-0.tar.gz"
+      sha256 "5cc75a012bfa9a5a1543d0167952676474f31c2d7fd8d450b56d8929dbebb5ef"
     end
   end
 
