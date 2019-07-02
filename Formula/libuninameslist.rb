@@ -6,9 +6,9 @@ class Libuninameslist < Formula
 
   bottle do
     cellar :any
-    sha256 "ba55ae3ceca9253f6e4fa9030652dc918b1c2a527356b913a66c8bd3234596ec" => :mojave
-    sha256 "510029411344ac2f58c485e14ad640eb92dff84b88c8b8d58b9578b81ab2b2d2" => :high_sierra
-    sha256 "4c30d7f3afa2bfeaf0e315a701944e5b8185a2dbc2e655ce52c76ee1cb6b8151" => :sierra
+    sha256 "e74e645c00f59f1e570f82516c537a2bbfa9c55817687bca5a71390f7ada12dd" => :mojave
+    sha256 "52274b73bc63e0cf06e394b08595e644e5ac1d220da90e00e6fbde18c1459dc1" => :high_sierra
+    sha256 "4a77333f42e0c1acff273a95a750ba5800a9376cf7d1954c2761b93b95901329" => :sierra
   end
 
   head do
