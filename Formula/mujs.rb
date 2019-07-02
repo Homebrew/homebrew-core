@@ -3,8 +3,8 @@ class Mujs < Formula
   homepage "https://www.mujs.com/"
   # use tag not tarball so the version in the pkg-config file isn't blank
   url "https://github.com/ccxvii/mujs.git",
-      :tag      => "1.0.5",
-      :revision => "7448a82448aa4eff952a4fdb836f197b844e3d1d"
+      :tag      => "1.0.6",
+      :revision => "14dc9355bd71818cf01c1c690c1c91a0978ea9b8"
   head "https://github.com/ccxvii/mujs.git"
 
   bottle do
