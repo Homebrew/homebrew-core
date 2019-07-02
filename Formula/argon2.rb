@@ -13,9 +13,9 @@ class Argon2 < Formula
   end
 
   def install
-    system "make", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     system "make", "test"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     doc.install "argon2-specs.pdf"
   end
 
