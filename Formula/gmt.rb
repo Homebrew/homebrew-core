@@ -1,11 +1,11 @@
 class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org"
-  url "https://github.com/GenericMappingTools/gmt/releases/download/6.0.0rc1/gmt-6.0.0rc1-src.tar.xz"
+  url "https://github.com/GenericMappingTools/gmt/releases/download/6.0.0rc2/gmt-6.0.0rc2-src.tar.xz"
   # url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.5-src.tar.gz"
   # mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.5-src.tar.xz"
   # mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.xz"
-  sha256 "ce26639d9b24286169ebd608f7e1621941359a6a3a88a4378b7cf5fceac00b52"
+  sha256 "515a50f9f8df05c23e87fe2eafc021f85db48ca710009c05d5162470639d5206"
 
   bottle do
     sha256 "e4378f5c77d0809935ba901fadcf0ac449cf68213d91345a8837a58c7d3a4c0f" => :mojave
