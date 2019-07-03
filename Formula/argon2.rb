@@ -7,6 +7,7 @@ class Argon2 < Formula
 
   bottle do
     cellar :any
+    rebuild 1
     sha256 "da0c88fc168a19ebaf26d4f1289b88ef35bc837412846d5bbd144ed22dee4059" => :mojave
     sha256 "7edff048989954edc68bc53d37d447a868dd5cc2c9f32af6644a839b0ab65659" => :high_sierra
     sha256 "a19f433693c3e3778a9163c36bb8296725ae2a8dd1cdd2f69d0d63f7e05383ef" => :sierra
