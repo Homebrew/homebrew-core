@@ -165,6 +165,6 @@ class AwsGoogleAuth < Formula
   end
 
   test do
-    assert_match "aws-google-auth #{version}", shell_output("#{bin}/aws-google-auth --version 2>&1")
+    assert_match /Invalid username or password/, shell_output("echo 'foobar' | #{bin}/aws-google-auth -u foo -I C01111111 -S 111111111111 2>&1", 1)
   end
 end
