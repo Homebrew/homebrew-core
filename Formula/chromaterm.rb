@@ -5,7 +5,7 @@ class Chromaterm < Formula
   sha256 "9e7d3b5884357fbb7b89b307769652a61358b45849215fd8484255c3f98f9203"
 
   depends_on "cmake" => :build
-  depends_on "pcre2" => :build
+  depends_on "pcre2"
 
   def install
     Dir.chdir "src/"
