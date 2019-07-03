@@ -6,9 +6,9 @@ class Kubeprod < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c157b9b679acc777bd8f9e57fdeb482bfe0d9fa623b4c8d73bfd1259b7ecc7c9" => :mojave
-    sha256 "b6a040666abd4fc431ba204bc0f0de607120b9a4d3c75d5d773b26f4338fc12b" => :high_sierra
-    sha256 "8f3d8ce9e6328cc7e75f288f8a509664c72e9bbd94d1a5b85bdc2151d5ef05d6" => :sierra
+    sha256 "f3852b0cda86dea52d921b20ac901e5b652ce58900ab09d1be40e11fd68cc24a" => :mojave
+    sha256 "df62b2babd18f9817887c642aa999bdb13a307c6c01517558faf57e382e1e986" => :high_sierra
+    sha256 "8f43bb6a265a3200f7c57f3de66cfd0d528dffe29dffbbea3cffcd2a02ec746d" => :sierra
   end
 
   depends_on "go" => :build
