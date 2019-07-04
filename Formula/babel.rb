@@ -4,8 +4,8 @@ require "json"
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/@babel/core/-/core-7.4.5.tgz"
-  sha256 "23950a9e697f5efee8dae8e6d7855f0dd22885c40a5243df1c0fd5b0b522f0e6"
+  url "https://registry.npmjs.org/@babel/core/-/core-7.5.0.tgz"
+  sha256 "7553359b069af04e376f42a96907a92c71009493090031518915e04ae8791ea4"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +17,8 @@ class Babel < Formula
   depends_on "node"
 
   resource "babel-cli" do
-    url "https://registry.npmjs.org/@babel/cli/-/cli-7.4.4.tgz"
-    sha256 "aa6b4c8d5564e44f68e0ac1198e8a13ae641fcd9af3119e38538e34a691f1dbb"
+    url "https://registry.npmjs.org/@babel/cli/-/cli-7.5.0.tgz"
+    sha256 "4aef1a5285e29a1c0fb98231fd63496f7c6da7ee161b5b6d5c970f4a8fd3e122"
   end
 
   def install
