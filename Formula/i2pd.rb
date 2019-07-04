@@ -6,9 +6,9 @@ class I2pd < Formula
 
   bottle do
     cellar :any
-    sha256 "05777cb3f61fdb348a0e4e83af0550721994d31ac67255c9fb940651d074881c" => :mojave
-    sha256 "484982a69dd10251ed669e6e6d896240d890b3138e23550e872ef1fdf427fcd1" => :high_sierra
-    sha256 "a40b82bfd60d267dbdd2e0be1a3704bdf3cfba492f0af3fa5a6a28386ba62a8e" => :sierra
+    sha256 "4f957cdb584fecc7bf784907e3d1fda748b3f569ebb27dccd7ef0fa05e94338f" => :mojave
+    sha256 "2af6275111a01bef1222752e19da18afc7228970341327e3011b10d33d324a43" => :high_sierra
+    sha256 "3b4dd22e69bf5a702dc5f64c79dfa1e1f7b59f4a9f84a76cd847b5c5f25676f6" => :sierra
   end
 
   depends_on "boost"
