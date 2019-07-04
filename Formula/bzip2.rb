@@ -1,6 +1,6 @@
 class Bzip2 < Formula
   desc "Freely available high-quality data compressor"
-  homepage "https://en.wikipedia.org/wiki/Bzip2"
+  homepage "https://sourceware.org/bzip2/"
   url "https://sourceware.org/pub/bzip2/bzip2-1.0.7.tar.gz"
   sha256 "e768a87c5b1a79511499beb41500bcc4caf203726fff46a6f5f9ad27fe08ab2b"
 
