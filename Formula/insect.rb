@@ -3,8 +3,8 @@ require "language/node"
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://insect.sh/"
-  url "https://registry.npmjs.org/insect/-/insect-5.0.0.tgz"
-  sha256 "dcd4030a46a189885c4b1a192eae5e288f49c61436609fc8a0375d5e8ae5ee19"
+  url "https://registry.npmjs.org/insect/-/insect-5.2.0.tgz"
+  sha256 "858c8b9ca7172946315840103117b719f7325ce172d63c492538900ce17725a0"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,9 @@ class Insect < Formula
     sha256 "b2e300f21233fd253f3fc51bea665d23750cad12de32c7f1730ca3841c7b1455" => :yosemite
   end
 
+  depends_on "bower" => :build
+  depends_on "pulp" => :build
+  depends_on "purescript" => :build
   depends_on "node"
 
   def install
