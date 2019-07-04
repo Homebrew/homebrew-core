@@ -1,10 +1,8 @@
 class Bzip2 < Formula
   desc "Freely available high-quality data compressor"
-  homepage "https://en.wikipedia.org/wiki/Bzip2"
-  url "https://ftp.osuosl.org/pub/clfs/conglomeration/bzip2/bzip2-1.0.6.tar.gz"
-  mirror "https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz"
-  sha256 "a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd"
-  revision 1
+  homepage "https://sourceware.org/bzip2/"
+  url "https://sourceware.org/pub/bzip2/bzip2-1.0.7.tar.gz"
+  sha256 "e768a87c5b1a79511499beb41500bcc4caf203726fff46a6f5f9ad27fe08ab2b"
 
   bottle do
     cellar :any_skip_relocation
