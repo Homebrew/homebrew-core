@@ -6,11 +6,9 @@ class Bzip2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3376ceeaaacba0847d3e2a38569080606c8ea3b5d7596467abeef0dff74118d0" => :mojave
-    sha256 "197655415959a8e856f5926ebbae88715b8aef68fa8612aaf0bfe7e1c96723bf" => :high_sierra
-    sha256 "8911d7904862dc4930d024d0459390c510566241015bc06ec97f9e3fbb869101" => :sierra
-    sha256 "a22f768ce625a56cc2f4b3c7f08f4b1ba30f79865b786dc4c57a97f672badff4" => :el_capitan
-    sha256 "1468f967e8a35954509a8beb40bd29b60b730db158054aeddadc7586890737e8" => :yosemite
+    sha256 "0e2b2fd73f5cc63d50278b89a66da9313b058e43a5621a9a61c204b908f3af18" => :mojave
+    sha256 "0c791995ffa600c0f5d2d6566619ceffd309fee6f45b867bb0823e5812dc9425" => :high_sierra
+    sha256 "48ba103cc8c92c4f63f0ff8557368d73625e767908accd69ac830df840b8561a" => :sierra
   end
 
   keg_only :provided_by_macos
