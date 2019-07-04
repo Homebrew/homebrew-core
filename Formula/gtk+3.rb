@@ -10,10 +10,11 @@ class Gtkx3 < Formula
     sha256 "e1c6700e09e739477dfc8a9d1f72d3ddb4647ace643752b1eeb1b61024adba99" => :sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "docbook" => :build
+  depends_on "docbook-xsl" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "gdk-pixbuf"
@@ -23,30 +24,38 @@ class Gtkx3 < Formula
   depends_on "libepoxy"
   depends_on "pango"
 
+  # submitted upstream as https://gitlab.gnome.org/GNOME/gtk/merge_requests/983
+  patch :DATA
+
   def install
     args = %W[
-      --enable-debug=minimal
-      --disable-dependency-tracking
       --prefix=#{prefix}
-      --disable-glibtest
-      --enable-introspection=yes
-      --disable-schemas-compile
-      --enable-quartz-backend
-      --disable-x11-backend
+      -Dx11_backend=false
+      -Dquartz_backend=true
+      -Dgtk_doc=false
+      -Dman=true
+      -Dintrospection=true
     ]
 
-    system "autoreconf", "-fi"
-    system "./configure", *args
-    # necessary to avoid gtk-update-icon-cache not being found during make install
-    bin.mkpath
-    ENV.prepend_path "PATH", bin
-    system "make", "install"
+    # ensure that we don't run the meson post install script
+    ENV["DESTDIR"] = "/"
+
+    # Find our docbook catalog
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
+
     # Prevent a conflict between this and Gtk+2
     mv bin/"gtk-update-icon-cache", bin/"gtk3-update-icon-cache"
   end
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
+    system bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
@@ -110,3 +119,28 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/libgail-util/meson.build b/libgail-util/meson.build
+index 90fe93c..82c8aa1 100644
+--- a/libgail-util/meson.build
++++ b/libgail-util/meson.build
+@@ -28,4 +28,5 @@ libgailutil = shared_library('gailutil-3',
+                                '-DGTK_DISABLE_DEPRECATED',
+                              ] + common_cflags,
+                              link_args: gailutil_link_args,
++                             darwin_versions: ['1', '1.0'],
+                              install: true)
+diff --git a/meson.build b/meson.build
+index c6f43d5..0f818ee 100644
+--- a/meson.build
++++ b/meson.build
+@@ -121,7 +121,8 @@ else
+   gail_library_version = '0.0.0'
+ endif
+
+-gtk_osxversions = [(100 * gtk_minor_version) + 1, '@0@.@1@.0'.format((100 * gtk_minor_version) + 1, gtk_micro_version)]
++osx_current = gtk_binary_age - gtk_interface_age + 1
++gtk_osxversions = [osx_current, '@0@.@1@.0'.format(osx_current, gtk_interface_age)]
+
+ gtk_api_version = '@0@.0'.format(gtk_major_version)
