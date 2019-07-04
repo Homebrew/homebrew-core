@@ -1,5 +1,5 @@
 class Gitfit < Formula
-  desc "Git extensions to provide high-level repository operations for  Git Feature Branch Workflow."
+  desc "Git extensions to provide high-level repository operations for Git Feature Branch Workflow."
   homepage "https://cjpatoilo.com/gitfit"
   url "https://github.com/cjpatoilo/gitfit/archive/v0.5.3.zip"
   sha256 "4b8fe1e7a451d140462ea983408859160ec0bff35055f484cb1656c078ba04f5"
