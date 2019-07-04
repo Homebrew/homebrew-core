@@ -6,9 +6,9 @@ class Oxipng < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8f8e682147291929ef495846f8bd5c965b2618846e3f538767c1d58cefb1e6b" => :mojave
-    sha256 "9e0d074376b2d2a7e07268442e73290030f7e2b997e1b22f5578c780a181cd83" => :high_sierra
-    sha256 "eeaea2846f35f079899e7085efd0cffca1370062652f0ac4963631dafae5b9a5" => :sierra
+    sha256 "83f39a695788d36e81ba308da53403aa7b160bad1895be20970a9f5feeba6ab0" => :mojave
+    sha256 "4137060ab6b019b98c1f9f5f9dc357062563f9639add33798b52e1bddf733aa7" => :high_sierra
+    sha256 "629c0ba06af7be85b205bd89c0430b2bbaf4200cab77ac86fc73ec7e824cbabe" => :sierra
   end
 
   depends_on "rust" => :build
