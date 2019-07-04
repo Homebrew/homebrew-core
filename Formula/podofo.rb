@@ -7,9 +7,9 @@ class Podofo < Formula
 
   bottle do
     cellar :any
-    sha256 "477345ac9e2bc7bf70307dca70b1ea3e08fc1138736adc497781ee784030966c" => :mojave
-    sha256 "0b66eafa989073b3ee0abe52f2524714fcf1155592f20633dbbb9fe92f9d1382" => :high_sierra
-    sha256 "eb20ecc8daabf8742a368ed32ada7d47fea2c79ff964aae026bb7f40687b5029" => :sierra
+    sha256 "5ab849109138f399e5a5b7bda343fbcabc85fd2e4ef9608db0b78d1de2a1c1aa" => :mojave
+    sha256 "7500b8f573a61302121539044a3a03e53eca0ee436d0dc07a128320d40ea0b0e" => :high_sierra
+    sha256 "7b79283ecf4203779495d5be9e48ec338d369638aa2ff0462fb67337a7c69a2c" => :sierra
   end
 
   depends_on "cmake" => :build
