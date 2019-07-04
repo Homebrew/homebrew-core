@@ -52,6 +52,7 @@ class Libagar < Formula
       -L#{Formula["sdl"].opt_lib}
       -L#{Formula["freetype"].opt_lib}
       -L#{Formula["libpng"].opt_lib}
+      -L#{Formula["jpeg"].opt_lib}
       -lag_core
       -lag_gui
       -lSDLmain
