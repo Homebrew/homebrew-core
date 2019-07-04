@@ -1,8 +1,8 @@
 class Kotlin < Formula
   desc "Statically typed programming language for the JVM"
   homepage "https://kotlinlang.org/"
-  url "https://github.com/JetBrains/kotlin/releases/download/v1.3.40/kotlin-compiler-1.3.40.zip"
-  sha256 "48c0b1041b07b96dd9851388beade8f3c545263de94566b10f0ab4700ee8c392"
+  url "https://github.com/JetBrains/kotlin/releases/download/v1.3.41/kotlin-compiler-1.3.41.zip"
+  sha256 "c44ab6866895606e408b60934ebe45d4befcbc33ea0e4ea73c4b3b89ad770132"
 
   bottle :unneeded
 
