@@ -1,7 +1,7 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 4
+  revision 5
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz"
@@ -43,6 +43,7 @@ class GstPluginsGood < Formula
       --prefix=#{prefix}
       --disable-gtk-doc
       --disable-goom
+      --disable-lame
       --with-default-videosink=ximagesink
       --disable-debug
       --disable-dependency-tracking
