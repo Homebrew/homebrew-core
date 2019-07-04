@@ -3,6 +3,7 @@ class Podofo < Formula
   homepage "https://podofo.sourceforge.io"
   url "https://downloads.sourceforge.net/podofo/podofo-0.9.6.tar.gz"
   sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
+  revision 1
 
   bottle do
     cellar :any
@@ -29,6 +30,8 @@ class Podofo < Formula
 
   def install
     args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_CppUnit=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_LUA=ON
       -DPODOFO_BUILD_SHARED:BOOL=ON
