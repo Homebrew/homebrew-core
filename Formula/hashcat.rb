@@ -87,7 +87,7 @@ class Hashcat < Formula
     cmd = binary + " -m " + hash_type + " -a " + attack_mode + additional_args + " " + hash_file + " " + dict1 + " " + dict2
 
     # suppress STDERR output
-    #cmd += " 2>/dev/null"
+    # cmd += " 2>/dev/null"
 
     assert_equal "#{hash}:#{pass}", shell_output(cmd).strip
 
