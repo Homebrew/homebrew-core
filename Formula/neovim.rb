@@ -1,11 +1,10 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  revision 2
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.3.7.tar.gz"
-    sha256 "4c0f1b839ef2c8cfee63eb2a072324accf4f0c0badd2fbd087d3e7a12d538bca"
+    url "https://github.com/neovim/neovim/archive/v0.3.8.tar.gz"
+    sha256 "953e134568d824dad7cbf32ee3114951732f9a750c462e430e6b593f418af76c"
 
     depends_on "jemalloc"
   end
