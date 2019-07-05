@@ -1,9 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
-  sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.14.0/apache-arrow-0.14.0.tar.gz"
+  sha256 "71e668e1901a06211d3f7ab6b6c7cb80ab1c81bb0d22885be42b74782e953470"
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -16,11 +15,17 @@ class ApacheArrow < Formula
   depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "brotli"
+  depends_on "double-conversion"
   depends_on "flatbuffers"
+  depends_on "glog"
+  depends_on "grpc"
   depends_on "lz4"
   depends_on "numpy"
+  depends_on "openssl"
   depends_on "protobuf"
   depends_on "python"
+  depends_on "rapidjson"
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
@@ -28,19 +33,14 @@ class ApacheArrow < Formula
   def install
     ENV.cxx11
     args = %W[
+      -DARROW_FLIGHT=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
-      -DLZ4_HOME=#{Formula["lz4"].prefix}
-      -DPROTOBUF_HOME=#{Formula["protobuf"].prefix}
       -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
-      -DSNAPPY_HOME=#{Formula["snappy"].prefix}
-      -DTHRIFT_HOME=#{Formula["thrift"].prefix}
-      -DZSTD_HOME=#{Formula["zstd"].prefix}
     ]
 
     mkdir "build"
