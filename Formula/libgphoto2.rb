@@ -5,9 +5,9 @@ class Libgphoto2 < Formula
   sha256 "d8af23364aa40fd8607f7e073df74e7ace05582f4ba13f1724d12d3c97e8852d"
 
   bottle do
-    sha256 "40c6940be0084a5a5abfad2f5213ea738038db424199caa3ef2b4866494125b7" => :mojave
-    sha256 "fa391a414d685195eac9e1b70a8e4682b7a633eb43e70ac9f1ff2ca7f52ce5d1" => :high_sierra
-    sha256 "e527d28dcc0a31f39ed20360d2a3f0a7068090f6f6c7b89d267107449ce6b523" => :sierra
+    sha256 "b758f4caa384721d7593bec1314dd9e05fa05f69a74e7edd702dc3e9fabb4377" => :mojave
+    sha256 "efb624c0e1495dce73b72b24868a5fab80836aa162b37951c2ad04eba093b5c5" => :high_sierra
+    sha256 "21dc9f114533994fbeedd7893a8c40b2ec42f2a46bd14d2c40d463e397e9c69b" => :sierra
   end
 
   head do
