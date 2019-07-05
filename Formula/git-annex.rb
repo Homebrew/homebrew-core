@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20190615/git-annex-7.20190615.tar.gz"
-  sha256 "f8c21ec290ea7a6bac7333196639735dd42332b860481a8c0e95ea9924c4c5d8"
+  url "https://hackage.haskell.org/package/git-annex-7.20190626/git-annex-7.20190626.tar.gz"
+  sha256 "9b0e8b0ae2f29d4f731f76f25cb57d4cc7d45f8f2a22d836c70c100b85e45ef6"
   head "git://git-annex.branchable.com/"
 
   bottle do
