@@ -1,8 +1,8 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-1.18.tar.gz"
-  sha256 "d7193592b9e7445fa5cbe8af7d3b39982f165ee8fc58041ff41f509b37c687d5"
+  url "https://humdi.net/vnstat/vnstat-2.2.tar.gz"
+  sha256 "c60a7bc35e0247b0d2e628d8fc39427f2482e844c2c7b9cdbfc814463310e02c"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
@@ -84,6 +84,6 @@ class Vnstat < Formula
       Process.kill "SIGINT", stat.pid
       Process.wait stat.pid
     end
-    assert_match "Info: Monitoring:", stat.read
+    assert_match "Info: Monitoring", stat.read
   end
 end
