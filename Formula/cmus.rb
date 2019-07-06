@@ -13,6 +13,7 @@ class Cmus < Formula
 
   depends_on "pkg-config" => :build
   depends_on "faad2"
+  depends_on "ffmpeg"
   depends_on "flac"
   depends_on "libao"
   depends_on "libcue"
