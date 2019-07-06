@@ -3,6 +3,7 @@ class Cmus < Formula
   homepage "https://cmus.github.io/"
   url "https://github.com/cmus/cmus/archive/v2.8.0.tar.gz"
   sha256 "756ce2c6241b2104dc19097488225de559ac1802a175be0233cfb6fbc02f3bd2"
+  revision 1
   head "https://github.com/cmus/cmus.git"
 
   bottle do
@@ -20,6 +21,7 @@ class Cmus < Formula
   depends_on "libvorbis"
   depends_on "mad"
   depends_on "mp4v2"
+  depends_on "opusfile"
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}"
