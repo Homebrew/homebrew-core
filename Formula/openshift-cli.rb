@@ -5,6 +5,7 @@ class OpenshiftCli < Formula
       :tag      => "v4.1.0",
       :revision => "b4261e07eda19d9c42aa9d1c748c34f8cba09168",
       :shallow  => false
+  revision 1
   head "https://github.com/openshift/origin.git",
       :shallow  => false
 
@@ -25,17 +26,31 @@ class OpenshiftCli < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v"
+      # make target is changing in >v4.1; remove this if statement when next
+      # bumping stable version
+      if build.stable?
+        system "make", "all", "WHAT=cmd/oc"
+      else
+        system "make", "all", "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
+      end
 
       bin.install "_output/local/bin/darwin/amd64/oc"
-      bin.install_symlink "oc" => "oadm"
 
-      bash_completion.install Dir["contrib/completions/bash/*"]
+      prefix.install_metafiles
+
+      bash_completion.install "contrib/completions/bash/oc"
+      zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
     end
   end
 
   test do
-    assert_match /v#{version}/, shell_output("#{bin}/oc version")
-    assert_match /v#{version}/, shell_output("#{bin}/oadm version")
+    version_output = shell_output("#{bin}/oc version --client 2>&1")
+    assert_match "GitTreeState:\"clean\"", version_output
+    if build.stable?
+      assert_match "GitVersion:\"v#{version}", version_output
+      assert_match stable.instance_variable_get(:@resource)
+                         .instance_variable_get(:@specs)[:revision].slice(0, 9),
+                   version_output
+    end
   end
 end
