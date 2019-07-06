@@ -3,6 +3,7 @@ class Sysdig < Formula
   homepage "https://www.sysdig.org/"
   url "https://github.com/draios/sysdig/archive/0.24.2.tar.gz"
   sha256 "cd925afd2fb0a26728611666e017d480afd49158c2d70714c7461a97c8820807"
+  revision 1
 
   bottle do
     sha256 "f3eebe7276e7a1b5a579f6a095bcdad61c5c6429ada950e5d9abbf2660c59232" => :mojave
