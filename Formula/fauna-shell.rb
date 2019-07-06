@@ -3,8 +3,8 @@ require "language/node"
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.9.2.tgz"
-  sha256 "3fa3e83fab7bc1625b38616b8254a313216b41815bcdaeaabb21b485d8144f0d"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.9.5.tgz"
+  sha256 "d2cc2b766bef57d4fc24564242eac59ee4ff152c908ba6a8d7b7762f8a2fc3b1"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,9 +24,9 @@ class FaunaShell < Formula
     output = shell_output("#{bin}/fauna list-endpoints 2>&1", 1)
     assert_match "No endpoints defined", output
 
-    pipe_output("#{bin}/fauna add-endpoint https://endpoint1:8443", "secret\nendpoint1\n")
+    pipe_output("#{bin}/fauna add-endpoint https://db.fauna.com:443", "your_fauna_secret\nfauna_endpoint\n")
 
     output = shell_output("#{bin}/fauna list-endpoints")
-    assert_equal "endpoint1 *\n", output
+    assert_equal "fauna_endpoint *\n", output
   end
 end
