@@ -3,8 +3,8 @@ class Termtosvg < Formula
 
   desc "Record terminal sessions as SVG animations"
   homepage "https://nbedos.github.io/termtosvg"
-  url "https://github.com/nbedos/termtosvg/archive/0.8.0.tar.gz"
-  sha256 "be2ec97841249cea02483fe761d903cae5f8a0b15887d5d0f106a01b5ac53c54"
+  url "https://github.com/nbedos/termtosvg/archive/0.9.0.tar.gz"
+  sha256 "156d92b3a186d075bf42677135053dc28460f097de45c9388f31911b3e8b17b2"
 
   bottle do
     cellar :any_skip_relocation
