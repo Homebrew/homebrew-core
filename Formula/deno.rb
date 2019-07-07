@@ -2,8 +2,8 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.10.0",
-    :revision => "c56df45355c8e68eabbfa62021e7ca7484115c0b"
+    :tag      => "v0.11.0",
+    :revision => "92ac616708cb067a1b895283913c5ecd25c6d873"
 
   bottle do
     cellar :any_skip_relocation
@@ -46,6 +46,12 @@ class Deno < Formula
     system "python", "tools/build.py", "--release"
 
     bin.install "target/release/deno"
+
+    # Install bash and zsh completion
+    output = Utils.popen_read("#{bin}/deno completions bash")
+    (bash_completion/"deno").write output
+    output = Utils.popen_read("#{bin}/deno completions zsh")
+    (zsh_completion/"_deno").write output
   end
 
   test do
