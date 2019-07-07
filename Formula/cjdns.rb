@@ -1,8 +1,8 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v20.2.tar.gz"
-  sha256 "b114f4e89c971d2c288e3d8265396248a37134895b0e0468bf55030de84b4d2a"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v20.3.tar.gz"
+  sha256 "e8ca2cc5d5ba71e39a702299106dd2a965005703284cec91b3e94691cdce6f65"
   head "https://github.com/cjdelisle/cjdns.git"
 
   bottle do
@@ -19,9 +19,13 @@ class Cjdns < Formula
     system "./do"
     bin.install "cjdroute"
     (pkgshare/"test").install "build_darwin/test_testcjdroute_c" => "cjdroute_test"
+    rm_f "build_darwin/test_testcjdroute_c"
+    (pkgshare/"test").install "build_darwin"
   end
 
   test do
-    system "#{pkgshare}/test/cjdroute_test", "all"
+    cp_r pkgshare/"test/cjdroute_test", testpath
+    cp_r pkgshare/"test/build_darwin", testpath
+    system "./cjdroute_test", "all"
   end
 end
