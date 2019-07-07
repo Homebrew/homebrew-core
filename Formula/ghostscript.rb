@@ -3,6 +3,7 @@ class Ghostscript < Formula
   homepage "https://www.ghostscript.com/"
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostpdl-9.27.tar.gz"
   sha256 "9e089546624296bf4aca14c2adcb0762b323ca77ae14176d21127b749baac8d6"
+  revision 1
 
   bottle do
     sha256 "4ba703a1dc6cdc5f41ef354afd5073ec83fd26eb2683973c34da36159bc1dd2e" => :mojave
@@ -26,6 +27,12 @@ class Ghostscript < Formula
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
+  end
+
+  # Patch upstream Bug 700952 (https://bugs.ghostscript.com/show_bug.cgi?id=700988) in ghostscript 9.27
+  patch do
+    url "http://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=06c920713e11"
+    sha256 "15db61d2ca230df92e3b40d717e6baa475b13aa5583c08074f57f2c6f74018cc"
   end
 
   patch :DATA # Uncomment macOS-specific make vars
