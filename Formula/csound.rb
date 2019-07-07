@@ -1,9 +1,8 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.12.2.tar.gz"
-  sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
-  revision 2
+  url "https://github.com/csound/csound/archive/6.13.tar.gz"
+  sha256 "6118ffc1ee04eaeffe7483afc3d48190d93d0e97b51e25f0f3d71e44293827d6"
 
   bottle do
     sha256 "0b391ad5c63f24dff9f82b95545c2868f917ae1beadfea5dc4a1e4011b98f610" => :mojave
@@ -28,7 +27,7 @@ class Csound < Formula
 
   def install
     inreplace "CMakeLists.txt",
-      %r{^set\(CS_FRAMEWORK_DEST\s+"~/Library/Frameworks"\)$},
+      %r{^set\(CS_FRAMEWORK_DEST\s+"~\/Library\/Frameworks" CACHE PATH "Csound framework path"\)$},
       "set(CS_FRAMEWORK_DEST \"#{frameworks}\")"
 
     args = std_cmake_args + %W[
