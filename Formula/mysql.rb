@@ -145,6 +145,10 @@ class Mysql < Formula
       <true/>
       <key>WorkingDirectory</key>
       <string>#{datadir}</string>
+      <key>StandardOutPath</key>
+      <string>/tmp/homebrew.mxcl.mysql.stdout.log</string>
+      <key>StandardErrorPath</key>
+      <string>/tmp/homebrew.mxcl.mysql.stderr.log</string>
     </dict>
     </plist>
   EOS
