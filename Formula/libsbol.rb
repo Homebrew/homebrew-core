@@ -1,9 +1,8 @@
 class Libsbol < Formula
   desc "Read and write files in the Synthetic Biology Open Language (SBOL)"
   homepage "https://synbiodex.github.io/libSBOL"
-  url "https://github.com/SynBioDex/libSBOL/archive/v2.3.0.0.tar.gz"
-  sha256 "a8092390b5df1d3dc8df7b403ec4757c55039ccec40ca8088150e27a4a00c41b"
-  revision 1
+  url "https://github.com/SynBioDex/libSBOL/archive/v2.3.2.tar.gz"
+  sha256 "c85de13b35dec40c920ff8a848a91c86af6f7c7ee77ed3c750f414bbbbb53924"
 
   bottle do
     cellar :any
@@ -18,6 +17,9 @@ class Libsbol < Formula
   depends_on "raptor"
 
   def install
+    # upstream issue: https://github.com/SynBioDex/libSBOL/issues/215
+    inreplace "source/CMakeLists.txt", "measure.h", "measurement.h"
+
     system "cmake", ".", "-DCMAKE_CXX_FLAGS=-I/System/Library/Frameworks/Python.framework/Headers",
                          "-DSBOL_BUILD_SHARED=TRUE",
                          "-DSBOL_BUILD_STATIC=FALSE",
