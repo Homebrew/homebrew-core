@@ -8,9 +8,9 @@ class CfnLint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aba2e6c39e3379c9a27e96f5ce97909ac8be6f18b5c9e0e1ee8a1bc1c7eb8ea5" => :mojave
-    sha256 "e1926ce69f0c53aa4db644b5539ecec6c85be99c5e2244d415726c225b072b08" => :high_sierra
-    sha256 "d586a6e01ff3a6ee5a3c1720e69fb307c21e14bb23070393b1ea08f47a4525d7" => :sierra
+    sha256 "874df6ba984368f39d0a5a59cb8b45b873c245ab3976efc3813fd7136f5bb0f7" => :mojave
+    sha256 "cf9691f853598da6fdab081d623d09f18373b2c67401479290c3359289bf03db" => :high_sierra
+    sha256 "a5469cc031c5625324c168c1085f79328e73f4d3c85d467d1030572bf50832fa" => :sierra
   end
 
   depends_on "python"
