@@ -5,9 +5,9 @@ class Gxml < Formula
   sha256 "bac5bc82c39423c1dbbfd89235f4a9b03b69cfcd3188905359ce81747b6400ed"
 
   bottle do
-    sha256 "e0dbd9c87c53fea3379755c9bb71f414b66caaccd6f47d5ec8519d065c650ea0" => :mojave
-    sha256 "f4dedbc90249a2f6dfdb9de0dc43732e047bcd1f3eaa279dcac6ec1f99eb959f" => :high_sierra
-    sha256 "e523b1e5d2dbacf8c39f56ec57c02662d5699d43394e110c2cecdc8d5376c720" => :sierra
+    sha256 "b9bb621d776f10dc1c3a9bde25964bd26847bf49cdee49ada1c0407f5fb14dbb" => :mojave
+    sha256 "4253e9a1bd9ce221e2287e5d53d39342c65fd06aa63028aa56effae2514854b4" => :high_sierra
+    sha256 "47042a94c013db905170cc0c373b8f7000d77e9c75d2d17dbacad6cd658e6b56" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
