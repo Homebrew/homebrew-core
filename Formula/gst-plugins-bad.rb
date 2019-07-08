@@ -3,7 +3,7 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz"
   sha256 "22139de35626ada6090bdfa3423b27b7fc15a0198331d25c95e6b12cb1072b05"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "22cad057848653fed6dbbe94f95d13d158fd4bca5b0168f3a06c30bdb96a2225" => :mojave
@@ -27,9 +27,11 @@ class GstPluginsBad < Formula
   depends_on "gst-plugins-base"
   depends_on "jpeg"
   depends_on "libmms"
+  depends_on "libnice"
   depends_on "openssl"
   depends_on "opus"
   depends_on "orc"
+  depends_on "srtp"
 
   def install
     args = %W[
