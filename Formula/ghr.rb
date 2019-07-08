@@ -6,9 +6,9 @@ class Ghr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1cb38dd46fc38adda97cee26f0ae38d0defa2aa3eedaf3a4517d3ca304cd9448" => :mojave
-    sha256 "33a8801ddcfb493a72775f62e1500e376afe0eec6087499be80c85001cbebe9a" => :high_sierra
-    sha256 "659559bd0e30b2164ac4440a77a87861bdd8a5f6de9d938a3b43e9a0910fc7af" => :sierra
+    sha256 "2930c3d3530bbe764251ca49f95e046bf879f547f53204dd2897030d04eb95a5" => :mojave
+    sha256 "6fa326ecfc938188215160eb8808a927430c91171279248a42b45f6926f35826" => :high_sierra
+    sha256 "bc391b72bfb16a2669fd79126b8844a4a7293bf04eab44bb562acb76335d54d9" => :sierra
   end
 
   depends_on "dep" => :build
