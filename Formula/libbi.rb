@@ -1,9 +1,8 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
-  url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
-  sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
-  revision 3
+  url "https://github.com/lawmurray/LibBi/archive/1.4.5.tar.gz"
+  sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
@@ -137,7 +136,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
+    system "#{bin}/libbi", "sample", "@test.conf"
     assert_predicate testpath/"test.nc", :exist?
   end
 end
