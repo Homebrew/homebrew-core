@@ -3,6 +3,7 @@ class Mono < Formula
   homepage "https://www.mono-project.com/"
   url "https://download.mono-project.com/sources/mono/mono-5.20.1.19.tar.bz2"
   sha256 "0574b61efb9bfc3364211d03d87a12c91dc7b03e8d6242cd4d8d953ef145d468"
+  revision 1
 
   bottle do
     sha256 "08e012d25c888d0b0f40ef7757ba929ad48421c8ba5c8f4f66dc7d0d15c6f49d" => :mojave
@@ -41,10 +42,8 @@ class Mono < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-nls=no",
-                          "--build=x86_64-apple-darwin"
+                          "--enable-nls=no"
     system "make"
     system "make", "install"
     # mono-gdb.py and mono-sgen-gdb.py are meant to be loaded by gdb, not to be
