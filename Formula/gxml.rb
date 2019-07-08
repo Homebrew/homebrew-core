@@ -1,8 +1,8 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.18/gxml-0.18.0.tar.xz"
-  sha256 "5760933fc4c48d13d54f101271d4872fbf3082ab2ef202b14bbb64202fcf05eb"
+  url "https://download.gnome.org/sources/gxml/0.18/gxml-0.18.1.tar.xz"
+  sha256 "bac5bc82c39423c1dbbfd89235f4a9b03b69cfcd3188905359ce81747b6400ed"
 
   bottle do
     sha256 "e0dbd9c87c53fea3379755c9bb71f414b66caaccd6f47d5ec8519d065c650ea0" => :mojave
@@ -11,8 +11,8 @@ class Gxml < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
@@ -20,24 +20,11 @@ class Gxml < Formula
   depends_on "libxml2"
 
   def install
-    # ensures that the gobject-introspection files remain within the keg
-    inreplace "gxml/Makefile.in" do |s|
-      s.gsub! "@HAVE_INTROSPECTION_TRUE@girdir = $(INTROSPECTION_GIRDIR)",
-              "@HAVE_INTROSPECTION_TRUE@girdir = $(datadir)/gir-1.0"
-      s.gsub! "@HAVE_INTROSPECTION_TRUE@typelibdir = $(INTROSPECTION_TYPELIBDIR)",
-              "@HAVE_INTROSPECTION_TRUE@typelibdir = $(libdir)/girepository-1.0"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Dintrospection=true", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
-    system "make", "install"
-  end
-
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
   end
 
   test do
@@ -58,7 +45,7 @@ class Gxml < Formula
       -I#{libxml2.opt_include}/libxml2
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gxml-0.16
+      -I#{include}/gxml-0.18
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
@@ -70,7 +57,7 @@ class Gxml < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgxml-0.16
+      -lgxml-0.18
       -lintl
       -lxml2
     ]
