@@ -26,7 +26,6 @@ class ApacheArrow < Formula
   depends_on "protobuf"
   depends_on "python"
   depends_on "rapidjson"
-  depends_on "re2"
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
