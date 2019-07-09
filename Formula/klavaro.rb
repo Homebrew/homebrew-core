@@ -1,9 +1,8 @@
 class Klavaro < Formula
   desc "Free touch typing tutor program"
   homepage "https://klavaro.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.05.tar.bz2"
-  sha256 "fe82c6c108a3c40ab97902a8874c6d10fd891b4ff1accce757e5cba0e361dd10"
-  revision 2
+  url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.09.tar.bz2"
+  sha256 "9983e501563a4d05e429700a2bd5bb078ac43b2f0d4014864e3cac42e0a1f589"
 
   bottle do
     sha256 "e7e5581d3c799500af68003a23c4c1235b24e86e1500b68ea9698977d1e03f96" => :mojave
