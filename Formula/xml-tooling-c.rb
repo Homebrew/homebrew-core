@@ -1,9 +1,8 @@
 class XmlToolingC < Formula
   desc "Provides a higher level interface to XML processing"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
-  url "https://shibboleth.net/downloads/c++-opensaml/3.0.0/xmltooling-3.0.2.tar.bz2"
-  sha256 "5709cf30c9d7cfc786599ac2433653fac8cc64d425781068af86019c8ce8d689"
-  revision 4
+  url "https://shibboleth.net/downloads/c++-opensaml/3.0.1/xmltooling-3.0.4.tar.bz2"
+  sha256 "bb87febe730f97fc58f6f6b6782d7ab89bf240944dd6e5f1c1d9681254bb9a88"
 
   bottle do
     sha256 "c71643dd020081cd500bb47c4011b20874dd7868f6180bc496fbf30a81bb67d7" => :mojave
@@ -19,13 +18,12 @@ class XmlToolingC < Formula
   depends_on "xml-security-c"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.62.0.tar.bz2"
-    mirror "https://curl.askapache.com/download/curl-7.62.0.tar.bz2"
-    sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
+    url "https://curl.haxx.se/download/curl-7.65.1.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.65.1.tar.bz2"
+    sha256 "cbd36df60c49e461011b4f3064cff1184bdc9969a55e9608bf5cadec4686e3f7"
   end
 
   def install
-    ENV.O2 # Os breaks the build
     ENV.cxx11
 
     ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
