@@ -1,9 +1,8 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.0.2/shibboleth-sp-3.0.2.tar.bz2"
-  sha256 "7aab399aeaf39145c60e1713dbc29a65f618e9eca84505f5ed03cee63e3f31a3"
-  revision 4
+  url "https://shibboleth.net/downloads/service-provider/3.0.4/shibboleth-sp-3.0.4.tar.bz2"
+  sha256 "f5dc0fd028b74db4aaae76b59ec98e8a719c38cfe0f1d722feb2d5e0b9880cff"
 
   bottle do
     sha256 "d594a58a8f28666a09dafa0fd3a9f204d069e14a8b89235d7eacc16019f7b2d3" => :mojave
@@ -26,7 +25,6 @@ class ShibbolethSp < Formula
   depends_on "xml-tooling-c"
 
   def install
-    ENV.O2 # Os breaks the build
     ENV.cxx11
     args = %W[
       --disable-debug
