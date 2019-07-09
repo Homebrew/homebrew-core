@@ -1,9 +1,9 @@
 class GnuApl < Formula
   desc "GNU implementation of the programming language APL"
   homepage "https://www.gnu.org/software/apl/"
-  url "https://ftp.gnu.org/gnu/apl/apl-1.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/apl/apl-1.7.tar.gz"
-  sha256 "8ff6e28256d7a3cdfa9dc6025e3905312310b27a43645ef5d617fd4a5b43b81f"
+  url "https://ftp.gnu.org/gnu/apl/apl-1.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/apl/apl-1.8.tar.gz"
+  sha256 "144f4c858a0d430ce8f28be90a35920dd8e0951e56976cb80b55053fa0d8bbcb"
 
   bottle do
     rebuild 1
@@ -27,6 +27,7 @@ class GnuApl < Formula
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+    ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
 
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
