@@ -1,8 +1,8 @@
 class JfrogCliGo < Formula
   desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/jfrog/jfrog-cli-go"
-  url "https://github.com/JFrog/jfrog-cli-go/archive/1.26.1.tar.gz"
-  sha256 "b092d4133c3f84a9565dfcc0defb05dfc941653e11ebde17ad1f819dae0b3461"
+  url "https://github.com/JFrog/jfrog-cli-go/archive/1.26.2.tar.gz"
+  sha256 "9940a9537e7bd2bb93e0c8be63c134cc595ce6efd33830587b3e4ec9ad71395e"
 
   bottle do
     cellar :any_skip_relocation
