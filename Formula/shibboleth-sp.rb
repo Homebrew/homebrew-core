@@ -5,9 +5,9 @@ class ShibbolethSp < Formula
   sha256 "f5dc0fd028b74db4aaae76b59ec98e8a719c38cfe0f1d722feb2d5e0b9880cff"
 
   bottle do
-    sha256 "d594a58a8f28666a09dafa0fd3a9f204d069e14a8b89235d7eacc16019f7b2d3" => :mojave
-    sha256 "f3c5a41017aefec816c7c00f74eca77712d5e3e9e6491dc8cf5c94ef22568e4a" => :high_sierra
-    sha256 "c98845a91f1be9a54e2c9ee1f464c68ad2989340fd6fd934b851dda696658262" => :sierra
+    sha256 "64559609abe14bfcd7eaf64a488e3a09f3683839cd8e72a4beef8ac8cdaa0cf7" => :mojave
+    sha256 "83dd6896a3eddece8d326f23ec3a0fa6cd2ab7d5352edb8dea990cc7884aeb2a" => :high_sierra
+    sha256 "674653bf05123b59d2bf8c8c895249640ce968b2c414fc3c52c05d4f344eab9f" => :sierra
   end
 
   depends_on "apr" => :build
