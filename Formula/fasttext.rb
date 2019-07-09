@@ -1,8 +1,8 @@
 class Fasttext < Formula
   desc "Library for fast text representation and classification"
   homepage "https://fasttext.cc"
-  url "https://github.com/facebookresearch/fastText/archive/v0.2.0.tar.gz"
-  sha256 "71d24ffec9fcc4364554ecac2b3308d834178c903d16d090aa6be9ea6b8e480c"
+  url "https://github.com/facebookresearch/fastText/archive/v0.9.1.tar.gz"
+  sha256 "254ace2fc8dc3bea0fc6ad4897a221eb85c1e9adfa61d130b43398193ca1f061"
   head "https://github.com/facebookresearch/fastText.git"
 
   bottle do
