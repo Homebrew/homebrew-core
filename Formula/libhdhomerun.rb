@@ -6,10 +6,9 @@ class Libhdhomerun < Formula
 
   bottle do
     cellar :any
-    sha256 "075154089fdd7f720badda9269c652048ec0db52ddafd9d281a20ee3776bdf33" => :mojave
-    sha256 "05449be9e4782745ca9853e24ee07614a74eaf8fa62b0eb8d1540af4f1cafa98" => :high_sierra
-    sha256 "75ef974d3f15f7c48019536c2f7b13959c6b133b52196d6d54afa00665495380" => :sierra
-    sha256 "0e6a5b4eadff2d39e56fc84d9c105eebb262396acdf1f1452206e7ca64a94589" => :el_capitan
+    sha256 "9a82dc21efebb0bafb6313e4f29f6aaa3a142347fd5e5e7ba7350433e2531722" => :mojave
+    sha256 "f3a120a52ef9e9399395c6a4a91098b73ea8e4a8889e21b4646283011534fea8" => :high_sierra
+    sha256 "47d1adc4fcbf5218c074d27a8db604a4f2ab4e5f3d5f14e023497e9cad5b49b4" => :sierra
   end
 
   def install
