@@ -7,9 +7,9 @@ class AtomistCli < Formula
   sha256 "0c00e070c8525df747676ea30241c772631c622664b26146f313fe1019778adb"
 
   bottle do
-    sha256 "53839d45fbee5a05b8a307e8f8ec534cb48c70f6bc8fbf88edbd8b0857de8df0" => :mojave
-    sha256 "41d2c6679f6cefcc8431f9fed5ea17bcbd8e68fc19df505fe659b717c8fa5713" => :high_sierra
-    sha256 "d521a720034d0ab0d02fa090df4c2b852d120a8ef02366a84c077c3ef9b72abe" => :sierra
+    sha256 "d97ef831aabff6973eac7b8cb4e8897d2f9fe3d8e4018caa5f1c8967b31b2578" => :mojave
+    sha256 "e2f4ddb68c20300ff2b813d4ca5837d07461128a76464e454ed2bdb7299e8bfa" => :high_sierra
+    sha256 "ba75cca5cecc972f32c8e83da84c81f1c5de55a4f258d47c90c13ccdfa3966b5" => :sierra
   end
 
   depends_on "node"
