@@ -6,9 +6,9 @@ class Hwloc < Formula
 
   bottle do
     cellar :any
-    sha256 "d290f5193bf9455ce1789b13ddabaf5aa38d1a72da98bc5fe063caf7390427e9" => :mojave
-    sha256 "db1830961ee0aa952607ea8ac23226a584e0e0202ea4f2b9f2ac2499f5e2cd6f" => :high_sierra
-    sha256 "ca80d65cb76a981a41fd347abda2ddfa8f2a9b44ec7cf3f90a551acc8f0e490b" => :sierra
+    sha256 "471cf1870f1719d87422e9a66488bb98b9e9bcb6af3c8482ccf2c8d3dad66997" => :mojave
+    sha256 "f57cbfaa45150def690a473468909743ea38dda08166977bde552b3c3fe5704e" => :high_sierra
+    sha256 "0b13e2d51c3644d0dc8febe826d1ab845f15bc5f32f0bb08f7f1b7c95dfbd9ef" => :sierra
   end
 
   head do
