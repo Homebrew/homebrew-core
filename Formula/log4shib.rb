@@ -6,12 +6,9 @@ class Log4shib < Formula
 
   bottle do
     cellar :any
-    sha256 "d1296027b5fa1dea806bcb628389585b01cc811ab83ef569f046cb97e40febc7" => :mojave
-    sha256 "e8579b422326aafe0c42e8658ea8bdc83a7659724dcaf052e8c84a88cc6feb9f" => :high_sierra
-    sha256 "cc682d3389900e2d87ab5236add6141228f6e9a77c0d686450d641257772eb35" => :sierra
-    sha256 "469e66a59e1f3ccf2607a77a4198b6f5fb80d100b00ec7228cd165ca13624323" => :el_capitan
-    sha256 "4bc1071029e6c9cb46d8ab05079ae9d8dc148df73009db99c4e94dfaab74fe4c" => :yosemite
-    sha256 "0d3d2c95cac3b915a3278ea14550eaedd8e12aea205d7833a7266f4121e56a45" => :mavericks
+    sha256 "db9aa2c4c1f5f562177d7ab8f772d3634af17ad321866da25da81986c2806941" => :mojave
+    sha256 "6a84a5b1db0fa9fef6e23f906543bde2496e5400f498c8de6b64cab2b191eeda" => :high_sierra
+    sha256 "79197ed691693493ffc4b44dd5450b60c9c6cc97919302ae058c9e9af5cd10f6" => :sierra
   end
 
   def install
