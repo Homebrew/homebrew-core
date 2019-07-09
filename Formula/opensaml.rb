@@ -6,10 +6,9 @@ class Opensaml < Formula
 
   bottle do
     cellar :any
-    sha256 "14d2c6a9825c4bb74b9708fee49cfe4466537918bbd913d795b4f66256721996" => :mojave
-    sha256 "a243122e77ac69b74e01e69201b8bcaab5499b9b6859bfa11f7dd5e6e5bd5da9" => :high_sierra
-    sha256 "5287589b2ee6abc84823ea9e39fff2352b790876df6a4cea1251358926738476" => :sierra
-    sha256 "2134b9b9be0a181807065f905a874639d2fb780e50628cb6c365e889e65faf32" => :el_capitan
+    sha256 "2e3de9a9fae0e0a3b661e2ca51998d24e7b184752a8864168d1aafdb77e87e9e" => :mojave
+    sha256 "1bc086d8190a91f9362b3243ce06cbd35afd81cc3302c22ebd14e50126b74986" => :high_sierra
+    sha256 "86a90e8db72e4fe9cca64f073240f2e458e3a1019d47b9f014ef950c5d92b057" => :sierra
   end
 
   depends_on "pkg-config" => :build
