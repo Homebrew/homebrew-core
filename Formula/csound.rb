@@ -3,6 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.tar.gz"
   sha256 "6118ffc1ee04eaeffe7483afc3d48190d93d0e97b51e25f0f3d71e44293827d6"
+  revision 1
 
   bottle do
     sha256 "5a2380000f04fa02589d37040c1771a0e07b7a7a944f8355c38b58cb9a06229f" => :mojave
@@ -14,6 +15,7 @@ class Csound < Formula
   depends_on "python" => [:build, :test]
   depends_on "python@2" => [:build, :test]
   depends_on "fltk"
+  depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -26,16 +28,12 @@ class Csound < Formula
   conflicts_with "pkcrack", :because => "both install `extract` binaries"
 
   def install
-    inreplace "CMakeLists.txt",
-      %r{^set\(CS_FRAMEWORK_DEST\s+"~\/Library\/Frameworks" CACHE PATH "Csound framework path"\)$},
-      "set(CS_FRAMEWORK_DEST \"#{frameworks}\")"
-
     args = std_cmake_args + %W[
-      -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
+      -DCS_FRAMEWORK_DEST:PATH=#{frameworks}
     ]
 
     mkdir "build" do
@@ -65,6 +63,7 @@ class Csound < Formula
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
       FLrun
+      giFluidEngineNumber fluidEngine
       pyinit
       instr 1
           pyruni "from __future__ import print_function; print('hello, world')"
