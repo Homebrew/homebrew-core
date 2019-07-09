@@ -1,8 +1,8 @@
 class Opensaml < Formula
   desc "Library for Security Assertion Markup Language"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
-  url "https://shibboleth.net/downloads/c++-opensaml/3.0.0/opensaml-3.0.0.tar.bz2"
-  sha256 "a9cb72e41cc9d1af08a3d7c7843410eb41d4e97d88d516db7f0e2da1243e296e"
+  url "https://shibboleth.net/downloads/c++-opensaml/3.0.1/opensaml-3.0.1.tar.bz2"
+  sha256 "80c1672929e3bfc3233e5a995517bc678c479ad925f0cdf9cacffaa7c786cc29"
 
   bottle do
     cellar :any
