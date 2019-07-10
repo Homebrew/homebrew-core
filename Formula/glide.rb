@@ -1,8 +1,8 @@
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/v0.13.2.tar.gz"
-  sha256 "0886851af2437b161d47b279a32bef426577e7bec3f5acdadebe34549aae8270"
+  url "https://github.com/Masterminds/glide/archive/v0.13.3.tar.gz"
+  sha256 "817dad2f25303d835789c889bf2fac5e141ad2442b9f75da7b164650f0de3fee"
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
