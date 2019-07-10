@@ -6,9 +6,9 @@ class Chakra < Formula
 
   bottle do
     cellar :any
-    sha256 "66dde4dd0794a2fefbf3e625af5ac6ef1b13eca5cfb70e19b5917673d4c33799" => :mojave
-    sha256 "d5e0084b59ad3ebda6f6af78d3dab1a80937060be8a9f44e08f5a42af4503074" => :high_sierra
-    sha256 "e5d67c34beaba88116995356a0516b797ac1b08b5ad612bed3502834805e42b3" => :sierra
+    sha256 "a408ee40c043aa315de36d7783eab010cad12897309380ae5bcaf54225f6d8c5" => :mojave
+    sha256 "cb7b188d2b809d2ba5c445b5f3d94521a3c986a5e8f95ab4c135c892893a921c" => :high_sierra
+    sha256 "485c67b6124d543389230f0b7224cb9fce27f5abfc063f315f74ec094244491a" => :sierra
   end
 
   depends_on "cmake" => :build
