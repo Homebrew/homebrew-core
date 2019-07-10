@@ -6,9 +6,9 @@ class Openconnect < Formula
   sha256 "908cff9b1ce266b6bb7f969a7f62723543ab94719ba3c95a150fe3894cbc9ef2"
 
   bottle do
-    sha256 "81adb07bc57b21684c538aca1c9c7c747ad0512f0ca422b61b0d527bd86945e6" => :mojave
-    sha256 "e83422d30ea3df9b7c967ae937a2bbc67d5fd7dceced990626a01121276f8dcc" => :high_sierra
-    sha256 "b00cc6e2c7db877e0244d71c1182cbd00859fd5cb6ed669ede57ad91d930ffe7" => :sierra
+    sha256 "a9c47c6f30be70320aa1d86ba6c449cd5d60d5d6c2335ceb3c14ca35b064cc69" => :mojave
+    sha256 "70b3fc3ec62a6b91567325fcb0c14906e1cd739de8334202bf9765dab96537be" => :high_sierra
+    sha256 "5cd4f699bddb17caeec819f0415a6a378046fcdd8343178f4aa8324ee541b173" => :sierra
   end
 
   head do
