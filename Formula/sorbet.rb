@@ -12,6 +12,10 @@ class Sorbet < Formula
   depends_on :xcode => :build
 
   def install
+    if MacOS.version < "10.14"
+      odie "MacOS 10.14 is required to build Sorbet."
+    end
+
     system "bazel", "build", "//main:sorbet", "--config=release-mac", "--verbose_failures"
     bin.install "bazel-bin/main/sorbet"
   end
