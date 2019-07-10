@@ -12,11 +12,11 @@ class Sorbet < Formula
   depends_on :xcode => :build
 
   def install
-    system "bazel", "build", "//main:sorbet", "--config=release-mac"
+    system "bazel", "build", "//main:sorbet", "--config=release-mac", "--verbose_failures"
     bin.install "bazel-bin/main/sorbet"
   end
 
   test do
-    system "bazel", "test", "//...", "--config=dbg"
+    assert_equal "", shell_output("#{bin}/sorbet -e '1 + 1'").chomp
   end
 end
