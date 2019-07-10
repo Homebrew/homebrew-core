@@ -1,7 +1,7 @@
 class Dosbox < Formula
   desc "DOS Emulator"
   homepage "https://www.dosbox.com/"
-  url "https://downloads.sourceforge.net/projects/dosbox/files/dosbox/0.74-3/dosbox-0.74-3.tar.gz"
+  url "https://downloads.sourceforge.net/project/dosbox/dosbox/0.74-3/dosbox-0.74-3.tar.gz"
   sha256 "c0d13dd7ed2ed363b68de615475781e891cd582e8162b5c3669137502222260a"
 
   bottle do
