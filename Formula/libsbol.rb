@@ -41,8 +41,10 @@ class Libsbol < Formula
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11",
                     "-I/System/Library/Frameworks/Python.framework/Headers",
                     "-I#{Formula["raptor"].opt_include}/raptor2",
-                    "-I#{include}", "-L#{lib}", "-ljsoncpp", "-lcurl",
-                    "-lraptor2", "-lsbol"
+                    "-I#{include}", "-L#{lib}",
+                    "-L#{Formula["jsoncpp"].opt_lib}",
+                    "-L#{Formula["raptor"].opt_lib}",
+                    "-ljsoncpp", "-lcurl", "-lraptor2", "-lsbol"
     system "./test"
   end
 end
