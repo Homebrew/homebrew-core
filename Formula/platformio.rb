@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/dc/19/b92d62fdb3937f9f46ed833e27005923949a960fa3fe78185d4f3549bd09/platformio-3.6.7.tar.gz"
-  sha256 "eb698b93bfc06010a2a210aacadc5d08efd4f05fe5494eaf171ef54618cead36"
+  url "https://files.pythonhosted.org/packages/c6/a3/43c6cc37584d055e81d86c67239bbbc9d54e5fce3bef345185ab925171ef/platformio-4.0.0.tar.gz"
+  sha256 "d37a4022349e1d2eb7babe94fbc62b196b87e94eb43785304f365d06bb74c195"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,16 +13,16 @@ class Platformio < Formula
     sha256 "15d1add995b55416e0d42dad9e884e099416a14650e975e90ec91ff6a418a5bf" => :sierra
   end
 
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/32/4e/ed046324d5ec980c252987c1dca191e001b9f06ceffaebf037eef469937c/bottle-0.12.16.tar.gz"
-    sha256 "9c310da61e7df2b6ac257d8a90811899ccb3a9743e77e947101072a2e3186726"
+    url "https://files.pythonhosted.org/packages/c4/a5/6bf41779860e9b526772e1b3b31a65a22bd97535572988d16028c5ab617d/bottle-0.12.17.tar.gz"
+    sha256 "e9eaa412a60cc3d42ceb42f58d15864d9ed1b92e9d630b8130c871c5bb16107c"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
-    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
+    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
+    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
   end
 
   resource "chardet" do
@@ -31,8 +31,8 @@ class Platformio < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b7/34/a496632c4fb6c1ee76efedf77bb8d28b29363d839953d95095b12defe791/click-5.1.tar.gz"
-    sha256 "678c98275431fad324275dec63791e4a17558b40e5a110e20a82866139a85a5a"
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
   end
 
   resource "colorama" do
@@ -51,8 +51,8 @@ class Platformio < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "semantic_version" do
@@ -61,8 +61,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fd/fa/b21f4f03176463a6cccdb612a5ff71b927e5224e83483012747c12fc5d62/urllib3-1.24.2.tar.gz"
-    sha256 "9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
+    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
   end
 
   def install
