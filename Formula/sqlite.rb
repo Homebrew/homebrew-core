@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz"
-  version "3.28.0"
-  sha256 "d61b5286f062adfce5125eaf544d495300656908e61fca143517afcc0a89b7c3"
+  url "https://sqlite.org/2019/sqlite-autoconf-3290000.tar.gz"
+  version "3.29.0"
+  sha256 "8e7c1e2950b5b04c5944a981cb31fffbf9d2ddda939d536838ebc854481afd5b"
 
   bottle do
     cellar :any
@@ -31,6 +31,7 @@ class Sqlite < Formula
       --enable-dynamic-extensions
       --enable-readline
       --disable-editline
+      --enable-session
     ]
 
     system "./configure", *args
