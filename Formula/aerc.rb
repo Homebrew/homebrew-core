@@ -24,9 +24,10 @@ class Aerc < Formula
     inreplace "contrib/plaintext.py", "/usr/bin/env python3", "#{libexec}/bin/python3"
     inreplace "contrib/hldiff.py", "/usr/bin/env python3", "#{libexec}/bin/python3"
 
-    system "make", "LDFLAGS=", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
+
   test do
     # TODO: aerc doesn't support any flags. Add simple test when `aerc --version` is available
     system "true"
