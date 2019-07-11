@@ -31,7 +31,7 @@ class Uhd < Formula
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON3=ON"
+      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON3=ON", "-DENABLE_STATIC_LIBS=ON"
       system "make"
       system "make", "test"
       system "make", "install"
