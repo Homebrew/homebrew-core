@@ -1,9 +1,9 @@
 class Hqx < Formula
   desc "Magnification filter designed for pixel art"
-  homepage "https://code.google.com/archive/p/hqx/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hqx/hqx-1.1.tar.gz"
-  sha256 "cc18f571fb4bc325317892e39ecd5711c4901831926bc93296de9ebb7b2f317b"
-  revision 2
+  homepage "https://github.com/grom358/hqx"
+  url "https://github.com/grom358/hqx.git",
+      :tag      => "v1.2",
+      :revision => "124c9399fa136fb0f743417ca27dfa2ca2860c2d"
 
   bottle do
     cellar :any
@@ -14,10 +14,15 @@ class Hqx < Formula
     sha256 "82f3574ae2e08ed7312d22b751b94be4783eccb2166fc1e45cc25ae90a7e5046" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "devil"
 
   def install
     ENV.deparallelize
+    system "autoreconf", "-iv"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
