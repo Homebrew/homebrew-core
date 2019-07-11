@@ -1,8 +1,8 @@
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://people.freebsd.org/~abe/"
-  url "https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.bz2"
-  sha256 "c9da946a525fbf82ff80090b6d1879c38df090556f3fe0e6d782cb44172450a3"
+  url "https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz"
+  sha256 "3df912bd966fc24dc73ddea3e36a61d79270b21b085936a4caabca56e5b486a2"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,28 +12,27 @@ class Lsof < Formula
     sha256 "59c8c1a9455e3f10c8d6326bab49ab33a85c3cfa702627aa4ba2dd9600cc7d72" => :el_capitan
   end
 
+  keg_only :provided_by_macos
+
   def install
-    system "tar", "xf", "lsof_#{version}_src.tar"
-    cd "lsof_#{version}_src" do
-      inreplace "dialects/darwin/libproc/dfile.c",
-                "#extern\tstruct pff_tab\tPgf_tab[];", "extern\tstruct pff_tab\tPgf_tab[];"
+    ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    ENV["LSOF_CC"] = ENV.cc
+    ENV["LSOF_CCV"] = ENV.cxx
 
-      ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    # Source hardcodes full header paths at /usr/include
+    inreplace %w[
+      dialects/darwin/kmem/dlsof.h
+      dialects/darwin/kmem/machine.h
+      dialects/darwin/libproc/machine.h
+    ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
 
-      # Source hardcodes full header paths at /usr/include
-      inreplace %w[
-        dialects/darwin/kmem/dlsof.h
-        dialects/darwin/kmem/machine.h
-        dialects/darwin/libproc/machine.h
-      ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+    mv "00README", "README"
+    system "./Configure", "-n", "darwin"
 
-      mv "00README", "README"
-      system "./Configure", "-n", "darwin"
-      system "make"
-      bin.install "lsof"
-      man8.install "lsof.8"
-      prefix.install_metafiles
-    end
+    system "make"
+    bin.install "lsof"
+    man8.install "lsof.8"
+    prefix.install_metafiles
   end
 
   test do
