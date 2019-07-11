@@ -1,8 +1,8 @@
 class Tag < Formula
   desc "Manipulate and query tags on Mavericks files"
   homepage "https://github.com/jdberry/tag/"
-  url "https://github.com/jdberry/tag/archive/v0.9.tar.gz"
-  sha256 "ec2e3df36e18d4bd17f8fea34c1c5b9311e23d220e4ad64fc55505aa4c4b552a"
+  url "https://github.com/jdberry/tag/archive/v0.10.tar.gz"
+  sha256 "5ab057d3e3f0dbb5c3be3970ffd90f69af4cb6201c18c1cbaa23ef367e5b071e"
   head "https://github.com/jdberry/tag.git"
 
   bottle do
