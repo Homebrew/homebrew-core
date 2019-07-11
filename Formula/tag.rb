@@ -13,8 +13,7 @@ class Tag < Formula
   end
 
   def install
-    system "make"
-    bin.install "bin/tag"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
