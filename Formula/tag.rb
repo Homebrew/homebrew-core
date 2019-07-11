@@ -1,8 +1,9 @@
 class Tag < Formula
-  desc "Manipulate and query tags on Mavericks files"
+  desc "Manipulate and query tags on macOS files"
   homepage "https://github.com/jdberry/tag/"
   url "https://github.com/jdberry/tag/archive/v0.10.tar.gz"
   sha256 "5ab057d3e3f0dbb5c3be3970ffd90f69af4cb6201c18c1cbaa23ef367e5b071e"
+  revision 1
   head "https://github.com/jdberry/tag.git"
 
   bottle do
@@ -13,8 +14,7 @@ class Tag < Formula
   end
 
   def install
-    system "make"
-    bin.install "bin/tag"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
