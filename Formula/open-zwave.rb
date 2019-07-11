@@ -5,12 +5,9 @@ class OpenZwave < Formula
   sha256 "3b11dffa7608359c8c848451863e0287e17f5f101aeee7c2e89b7dc16f87050b"
 
   bottle do
-    sha256 "cf06f87e2f334038f09897ed3bc91aba37e037bd3a2a8850b81ec58d4b3bad45" => :mojave
-    sha256 "ee97a2cce9fed3f63fb917e09e448f35815eff5120ebae16711777be4796d5c0" => :high_sierra
-    sha256 "68502b64e9fb7031f9fc5fe4fa7e6714fd5e5ab93d467169e7e47e90c322ff64" => :sierra
-    sha256 "4bf1d8a8ba3fcf4ee39df9bfe09017d3a432047e5e6bf0dce6f6e612ad174b95" => :el_capitan
-    sha256 "9ceb267d8fb564daefb535f65ac71f426535f7552b9feffcb3638793f0c40810" => :yosemite
-    sha256 "753eb6cb76dd0c170c1e84285a702fb9fb49c76aa8d59970ecea2160938f0bba" => :mavericks
+    sha256 "3558f07a0fc5c7fc44546e1a2cf7b51df88769d3d10e3d72861134ddb418bc07" => :mojave
+    sha256 "2148dac1b2414919ee8dace92213b83d84aa329f42e32d0c5f2ca2304c91a70b" => :high_sierra
+    sha256 "4804ba898c7c3527b7cbd7a0f7ce8d5358f00c96fe176f3365b6f25e5f5a2bdd" => :sierra
   end
 
   depends_on "doxygen" => :build
