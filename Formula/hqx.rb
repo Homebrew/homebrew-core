@@ -7,11 +7,9 @@ class Hqx < Formula
 
   bottle do
     cellar :any
-    sha256 "1a1f91371ce5bc0455725379f796243029016a1e866a71ff395d8f8a4e301481" => :mojave
-    sha256 "5a548a5e9b16d78b7f913c4b6fece78202b13e416962a9a5a965c3e2d27461a8" => :high_sierra
-    sha256 "7e58bc40ff9214f1b074595ac85c842ebafe676c6f3db42e3e0712c77c3377f4" => :sierra
-    sha256 "6bf8b3b1b203ae43cc833480c8b395776d1369a38bb78fe2b47034ff8a8a0645" => :el_capitan
-    sha256 "82f3574ae2e08ed7312d22b751b94be4783eccb2166fc1e45cc25ae90a7e5046" => :yosemite
+    sha256 "557085364f580e05f98df85ba471d686563820c1cf4b890c8c577ea1a1ac6e27" => :mojave
+    sha256 "efdbc80364955ad0c66fe7729d298affb7644a72ee780012ad99f506088aedf9" => :high_sierra
+    sha256 "2925d0405549e466e967124d8192e88a27a83b8b4619e88e9b5b1a109eb4e7ac" => :sierra
   end
 
   depends_on "autoconf" => :build
