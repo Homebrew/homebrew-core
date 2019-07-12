@@ -14,7 +14,7 @@ class MarathonSwift < Formula
   depends_on :xcode => ["9.3", :build]
 
   def install
-    system "swift", "package", "--disable-sandbox", "update"
+    # system "swift", "package", "--disable-sandbox", "update"
     system "swift", "build", "-c", "release", "--disable-sandbox"
 
     system "make", "install_bin", "PREFIX=#{prefix}"
