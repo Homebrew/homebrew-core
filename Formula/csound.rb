@@ -1,8 +1,8 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.13.tar.gz"
-  sha256 "6118ffc1ee04eaeffe7483afc3d48190d93d0e97b51e25f0f3d71e44293827d6"
+  url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
+  sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
   revision 1
 
   bottle do
