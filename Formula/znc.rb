@@ -1,9 +1,8 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.7.1.tar.gz"
-  sha256 "44cfea7158ea05dc2547c7c6bc22371e66c869def90351de0ab90a9c200d39c4"
-  revision 2
+  url "https://znc.in/releases/archive/znc-1.7.4.tar.gz"
+  sha256 "b1a32921a8e6d79ee6c5900c8d07293026966db7c05aaac48984231befc49b71"
 
   bottle do
     sha256 "4ebcf80b5a6c2224597d16f4b3500645df250946a0ae989a1b7e28eebd150372" => :mojave
