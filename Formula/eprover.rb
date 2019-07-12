@@ -1,8 +1,8 @@
 class Eprover < Formula
   desc "Theorem prover for full first-order logic with equality"
   homepage "https://eprover.org/"
-  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.2/E.tgz"
-  sha256 "2c2c45a57e69daa571307a89746228194f0144a5884741f2d487823f1fbf3022"
+  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.3/E.tgz"
+  sha256 "5366d2de77e6856250e26a967642389e81a6f823caedccaf5022a09242aceb96"
 
   bottle do
     cellar :any_skip_relocation
