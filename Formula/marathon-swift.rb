@@ -11,18 +11,11 @@ class MarathonSwift < Formula
     sha256 "80fc6f4b1ff33081f4b27091ea42901c3921e00f6ffc3a2017662e6905e562df" => :sierra
   end
 
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.3", :build]
 
   def install
-    if MacOS::Xcode.version >= "9.0"
-      system "swift", "package", "--disable-sandbox", "update"
-      system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib",
-             "--disable-sandbox"
-    else
-      ENV.delete("CC") # https://bugs.swift.org/browse/SR-3151
-      system "swift", "package", "update"
-      system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib"
-    end
+    system "swift", "package", "--disable-sandbox", "update"
+    system "swift", "build", "-c", "release", "--disable-sandbox"
 
     system "make", "install_bin", "PREFIX=#{prefix}"
   end
