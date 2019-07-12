@@ -4,6 +4,7 @@ class Tag < Formula
   url "https://github.com/jdberry/tag/archive/v0.10.tar.gz"
   sha256 "5ab057d3e3f0dbb5c3be3970ffd90f69af4cb6201c18c1cbaa23ef367e5b071e"
   head "https://github.com/jdberry/tag.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
