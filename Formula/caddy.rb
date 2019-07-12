@@ -1,9 +1,9 @@
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.11.5.tar.gz"
-  sha256 "ab2dc210bc7089fa7d041e702663e592b480945aa99f14b348090091103b7ec5"
-  head "https://github.com/mholt/caddy.git"
+  url "https://github.com/caddyserver/caddy/archive/v1.0.1.tar.gz"
+  sha256 "7cbd80c798a0db4195381f730f5409680c6e1239fbc06295b90b34f666a05692"
+  head "https://github.com/caddyserver/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,16 +15,15 @@ class Caddy < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = "amd64"
 
-    (buildpath/"src/github.com/mholt").mkpath
-    ln_s buildpath, "src/github.com/mholt/caddy"
+    (buildpath/"src/github.com/caddyserver").mkpath
+    ln_s buildpath, "src/github.com/caddyserver/caddy"
 
     system "go", "build", "-ldflags",
-           "-X github.com/mholt/caddy/caddy/caddymain.gitTag=#{version}",
-           "-o", bin/"caddy", "github.com/mholt/caddy/caddy"
+           "-X github.com/caddyserver/caddy/caddy/caddymain.gitTag=#{version}",
+           "-o", bin/"caddy", "github.com/caddyserver/caddy/caddy"
   end
 
   plist_options :manual => "caddy -conf #{HOMEBREW_PREFIX}/etc/Caddyfile"
