@@ -5,10 +5,9 @@ class Ghex < Formula
   sha256 "c2d9c191ff5bce836618779865bee4059db81a3a0dff38bda3cc7a9e729637c0"
 
   bottle do
-    cellar :any
-    sha256 "39352f77879498636fdf4608dab0f0be9f20624119708f108ddd60f693f2bb7b" => :mojave
-    sha256 "66a8ac3f9fe5e576b37ea8667a2ab648345c27f87cba7d97c2d7587d9120b8c6" => :high_sierra
-    sha256 "60134118c841bae367be5977359d19a48d08ec0d7e08286f19631f5c5de38fad" => :sierra
+    sha256 "9d0fe884daed1d4bf11ba5b0077173a80536e13a09adede2c9a9e18a9e02f5ac" => :mojave
+    sha256 "7f9066271e3ee3d2674a443b0a71fa84464ebd9dfe131b4b2e0eed2303dcdff8" => :high_sierra
+    sha256 "e763d7c9f93d4f0d766b08cd0b9f881645dbba03b8e82a7de5ebdad5e8df9e47" => :sierra
   end
 
   depends_on "itstool" => :build
