@@ -6,9 +6,9 @@ class Dynamips < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85e18d94efbaf681c8898e238c7716ea6f46ff417d4af91b9b2de4ada7eb1e8d" => :mojave
-    sha256 "097cef7949649e074d481a3cef05cbe79e9b3c8c79d012bcb4b06bf167ac05e6" => :high_sierra
-    sha256 "996275cdfb63a9edc1b0621c6bdd6c9f8b80219d0991390b1a9cc951d29e62d0" => :sierra
+    sha256 "db5398464afdb11af6f26cd4780f6e688bed0f35c9fea8f8308f11991987a037" => :mojave
+    sha256 "cb9bf6eebd6a7987976e0e2543a807e1b0f16698a1c71eb64e7da56f320fd425" => :high_sierra
+    sha256 "08b44502cd3b052592f11f5b75453fabd51fdcfe1a311405c4b7329a701dc424" => :sierra
   end
 
   depends_on "cmake" => :build
