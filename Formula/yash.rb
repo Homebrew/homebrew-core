@@ -6,9 +6,9 @@ class Yash < Formula
   sha256 "f46294d77c5a646405db20a6dc3d16bc1ed109b061b2a508081ce483153c1e8d"
 
   bottle do
-    sha256 "21b9fe172294391e52d14a6def4196d7348555a2567077090ee858175dd953ee" => :mojave
-    sha256 "01618cb1cf1c5c93500769c5b456d59094dc1502aaa75dd38cd318b68eecef9e" => :high_sierra
-    sha256 "0617778d65554225c7fff2baa26b6cffa872669cf490744bc63f8a990b655551" => :sierra
+    sha256 "78fbbc947f0cbe7484acc442be951dd47941358220bc4abf75f2e466b746efde" => :mojave
+    sha256 "ff5e85274a16fedb468c62ce09866ca475f6c651f0fd139b46847e07f4c120a6" => :high_sierra
+    sha256 "29e2875a5ea150b0517006280265ed2a11da8cb9c050b1b1c34777f2a90b3e22" => :sierra
   end
 
   depends_on "gettext"
