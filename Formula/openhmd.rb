@@ -1,8 +1,8 @@
 class Openhmd < Formula
   desc "Free and open source API and drivers for immersive technology"
   homepage "http://openhmd.net"
-  url "https://github.com/OpenHMD/OpenHMD/archive/0.2.0.tar.gz"
-  sha256 "b5be787229d7c7c5cb763cec6207f9814b0bb993c68842ef0a390184ca25380d"
+  url "https://github.com/OpenHMD/OpenHMD/archive/0.3.0.tar.gz"
+  sha256 "ec5c97ab456046a8aef3cde6d59e474603af398f1d064a66e364fe3c0b26a0fa"
   head "https://github.com/OpenHMD/OpenHMD.git"
 
   bottle do
