@@ -7,11 +7,9 @@ class Openhmd < Formula
 
   bottle do
     cellar :any
-    sha256 "c6d79d0429f6bfb707bb5dc66063cbab9f7c73bea1df216fab89be6c224ac524" => :mojave
-    sha256 "6349f9d4cef043dfddb77db21d939c81b53ca831dd39282a07e328c691981b88" => :high_sierra
-    sha256 "999945d3e8003410777939f746f8f460c767ab2824dc2d1de3ab24af532daf0d" => :sierra
-    sha256 "0e94a1356e5f6f0fb4079e16f431aae23003fa00c3ccaa8add9d5dd382b89b34" => :el_capitan
-    sha256 "71e356cdd47df73193ec52341d4bc252237e48b8bad182d695fbeb74a3ed41ed" => :yosemite
+    sha256 "796c1a6f06715aa8a3304cca0083378d5fe2a1006b55da8727938922b5408c8d" => :mojave
+    sha256 "1c54727de5836916bca42065d0ed53f0a796d07ec6866408a69213c94b151092" => :high_sierra
+    sha256 "97f5dff1e77b6b615544ed6611aa6d8c3395e3c6dc759c4576084d87a4e976ad" => :sierra
   end
 
   depends_on "autoconf" => :build
