@@ -3,6 +3,7 @@ class Dbus < Formula
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.13.12.tar.xz"
+  mirror "https://cdn-aws.deb.debian.org/debian/pool/main/d/dbus/dbus_1.13.12.orig.tar.xz"
   sha256 "7588649b56dd257c6a5f85a8c45aa2dfdf9e99f4de3983710f452081ca43eca6"
 
   bottle do
