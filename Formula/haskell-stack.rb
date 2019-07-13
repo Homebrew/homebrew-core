@@ -5,8 +5,8 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v2.1.1.tar.gz"
-  sha256 "10c0119456748b189724ee42dea093c324d101487c3d75d57eb625675bb57424"
+  url "https://github.com/commercialhaskell/stack/archive/v2.1.3.tar.gz"
+  sha256 "6a5b07e06585133bd385632c610f38d0c225a887e1ccb697ab09fec387838976"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
@@ -21,8 +21,8 @@ class HaskellStack < Formula
 
   # Stack requires stack to build itself. Yep.
   resource "bootstrap-stack" do
-    url "https://github.com/commercialhaskell/stack/releases/download/v2.1.1/stack-2.1.1-osx-x86_64.tar.gz"
-    sha256 "f4af329419fb6ee9655b22db04d72a35a5a225e78bdcc605d78334a72c8c2332"
+    url "https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-osx-x86_64.tar.gz"
+    sha256 "84b05b9cdb280fbc4b3d5fe23d1fc82a468956c917e16af7eeeabec5e5815d9f"
   end
 
   # Stack has very specific GHC requirements.
