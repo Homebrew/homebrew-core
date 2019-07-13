@@ -6,7 +6,7 @@ class Exa < Formula
   head "https://github.com/ogham/exa.git"
 
   bottle do
-    rebuild 1
+    cellar :any_skip_relocation
     sha256 "b401bbba34d24a248b9a91d43caa383130ed2dd1b50f15cb2329fc0b1ca3e72a" => :mojave
     sha256 "f06c486a62647baef664ef2c83e9437a1b38d125f59bed2a15b6262ce6bc91bb" => :high_sierra
     sha256 "a04e116ccd0751fa1d1ef21d3118d263387bfb54eebf73a01d827d90712003ad" => :sierra
