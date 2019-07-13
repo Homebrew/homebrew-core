@@ -1,7 +1,9 @@
 class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
-  url "https://github.com/operator-framework/operator-sdk.git", :tag => "v0.8.1"
+  url "https://github.com/operator-framework/operator-sdk.git",
+      :tag      => "v0.9.0",
+      :revision => "560208dc998de497bbf59fea1b63426aec430934"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
@@ -11,18 +13,18 @@ class OperatorSdk < Formula
     sha256 "13d461d6b758400847271eeeb681a61417dce9ac5734ac9fc90db41647c567f8" => :sierra
   end
 
-  depends_on "dep"
   depends_on "go"
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/operator-framework/operator-sdk"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    ENV["GO111MODULE"] = "on"
 
-    cd dir do
+    src = buildpath/"src/github.com/operator-framework/operator-sdk"
+    src.install buildpath.children
+    src.cd do
       # Make binary
-      system "make", "install"
-      bin.install buildpath/"bin/operator-sdk"
+      system "make", "build/operator-sdk-#{stable.specs[:tag]}-x86_64-apple-darwin"
+      bin.install "build/operator-sdk-v0.9.0-x86_64-apple-darwin" => "operator-sdk"
 
       # Install bash completion
       output = Utils.popen_read("#{bin}/operator-sdk completion bash")
@@ -41,10 +43,9 @@ class OperatorSdk < Formula
     ENV["GO111MODULE"] = "on"
     dir = testpath/"src/example.com/test-operator"
     dir.mkpath
-
-    cd dir do
+    cd testpath/"src" do
       # Create a new, blank operator framework
-      system "#{bin}/operator-sdk", "new", "test"
+      system "#{bin}/operator-sdk", "new", "test", "--skip-validation"
     end
   end
 end
