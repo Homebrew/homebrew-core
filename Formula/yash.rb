@@ -2,9 +2,8 @@ class Yash < Formula
   desc "Yet another shell: a POSIX-compliant command-line shell"
   homepage "https://yash.osdn.jp/"
   # Canonical: https://osdn.net/dl/yash/yash-*
-  url "https://dotsrc.dl.osdn.net/osdn/yash/69353/yash-2.47.tar.xz"
-  sha256 "931f2e7451d8b1eca2a98caeef7eda0527d96376f9f2c9bec90bc5938e39992e"
-  revision 1
+  url "https://dotsrc.dl.osdn.net/osdn/yash/70439/yash-2.48.tar.xz"
+  sha256 "f46294d77c5a646405db20a6dc3d16bc1ed109b061b2a508081ce483153c1e8d"
 
   bottle do
     sha256 "21b9fe172294391e52d14a6def4196d7348555a2567077090ee858175dd953ee" => :mojave
