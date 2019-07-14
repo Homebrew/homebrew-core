@@ -6,9 +6,9 @@ class Mpop < Formula
 
   bottle do
     cellar :any
-    sha256 "4eebe9be39b640d427b2504e1e1bdf38d697f5d13d9cd8d841689a09988c6d63" => :mojave
-    sha256 "4119dbed882b706bf1fbeee25ea2c7d7badc7c6fe17969619149b9d4467da726" => :high_sierra
-    sha256 "ceb8b967d93722e93986063d56ec6aa381b5919131eab333c577d725241d6a40" => :sierra
+    sha256 "f9961fbcc89cd345b57313ef8feb9b758af024cfd9536e052680d53467c48c43" => :mojave
+    sha256 "5699bec2d56ed2d5a6d78b3acc0c8040d65edc237e0bca79316d5c7997a77bb1" => :high_sierra
+    sha256 "9b567c18d9d4bbd384bb144daefbc2f0d670bfa41f156ef95567988f23ffcc23" => :sierra
   end
 
   depends_on "pkg-config" => :build
