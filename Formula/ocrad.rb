@@ -1,9 +1,9 @@
 class Ocrad < Formula
   desc "Optical character recognition (OCR) program"
   homepage "https://www.gnu.org/software/ocrad/"
-  url "https://ftp.gnu.org/gnu/ocrad/ocrad-0.26.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ocrad/ocrad-0.26.tar.lz"
-  sha256 "c383d37869baa0990d38d38836d4d567e9e2862aa0cd704868b62dafeac18e3c"
+  url "https://ftp.gnu.org/gnu/ocrad/ocrad-0.27.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ocrad/ocrad-0.27.tar.lz"
+  sha256 "a9bfe67e9a040907aff5640dca56392476b6a89e48e37dc94ba846c5b6733b36"
 
   bottle do
     cellar :any_skip_relocation
