@@ -6,9 +6,9 @@ class Websocat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "623dc7846122af9e51e163a4de9ff10bc89b47c15eacf58b8f6f9d39f528efde" => :mojave
-    sha256 "e6557924fd0c2b6502425045bb85aa20a939beee8741111763f61420b4e6c17b" => :high_sierra
-    sha256 "486878ca9cf0a9efae2e70e9af2013aa5ff882d2e172afc58bfeeb5de3b0b4f1" => :sierra
+    sha256 "2743255efe843f83405fa0920983ae1b8968d82af9106850592719101676fa09" => :mojave
+    sha256 "ebb4062bf94cb09166f903355f1be7f64b4b83d6f13bd3a4500677874f64ccbe" => :high_sierra
+    sha256 "187f0c39b94240605d65257815b59020a00e9ca7e7bb8e9e3fb726918429aa41" => :sierra
   end
 
   depends_on "pkg-config" => :build
