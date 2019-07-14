@@ -5,9 +5,9 @@ class Nickle < Formula
   sha256 "ba785eaa352264d638168bf88abacf2e36aa32b881805bc8181b4f3dc26a74d5"
 
   bottle do
-    sha256 "0f2df376f4844e68bff024867233a87bb81e72bf7596a396c25d957976c25179" => :mojave
-    sha256 "b10a7bab81cafce5c1f21a9b52eba9f69944c0d1e8104415bf6efc478676546b" => :high_sierra
-    sha256 "e1e8b1026149286d819e57a5e674eb51d5b50f31f243ce06004824162e258ded" => :sierra
+    sha256 "262e7e8d0b52db18b4b0b1a4a7321426de89d9f38187c65d65ab74c27c509fe4" => :mojave
+    sha256 "ff770368cd5b75b94e0e899319f7280656b1d7c6f1b66690785291b03c10896d" => :high_sierra
+    sha256 "7f984d10d78fb536976ef1ec1c88d0870d40b2eab603c5ca84e80d898ec02f7e" => :sierra
   end
 
   depends_on "readline"
