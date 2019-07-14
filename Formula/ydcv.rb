@@ -3,8 +3,8 @@ class Ydcv < Formula
 
   desc "YouDao Console Version"
   homepage "https://github.com/felixonmars/ydcv"
-  url "https://github.com/felixonmars/ydcv/archive/0.6.2.tar.gz"
-  sha256 "45a237fba401771c5ad8455938e6cf360beab24655a4961db368eb2fbbbfb546"
+  url "https://github.com/felixonmars/ydcv/archive/0.7.tar.gz"
+  sha256 "03dd5de36ea8fce3170e678e63fc3694e2718b22bc5e1526e3e07f5c36ec9aa0"
 
   bottle do
     cellar :any_skip_relocation
