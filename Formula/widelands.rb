@@ -3,7 +3,6 @@ class Widelands < Formula
   homepage "https://www.widelands.org/"
   url "https://launchpad.net/widelands/build20/build20/+download/widelands-build20.tar.bz2"
   sha256 "38594d98c74f357d4c31dd8ee2b056bfe921f42935935af915d11b792677bcb2"
-  revision 17
 
   bottle do
     sha256 "c6c4f61af7e80fd92a7f5ef4e256f4395d120ded75d9561963bed95ebfde0dce" => :mojave
@@ -25,9 +24,6 @@ class Widelands < Formula
   depends_on "sdl2_ttf"
 
   def install
-    # icu4c 61.1 compatability
-    ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
-
     ENV.cxx11
     mkdir "build" do
       system "cmake", "..",
