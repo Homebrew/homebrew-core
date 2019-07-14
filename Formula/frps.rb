@@ -2,8 +2,8 @@ class Frps < Formula
   desc "Server app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      :tag      => "v0.27.0",
-      :revision => "95444ea46b40ca4b7f636a66530f48e8b68969bf"
+      :tag      => "v0.27.1",
+      :revision => "e611c44dea69b54b010f370e040fe5fef97fd9e6"
 
   bottle do
     cellar :any_skip_relocation
