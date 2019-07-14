@@ -1,8 +1,8 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20180203.tar.gz"
-  sha256 "19aa89e8ec0221b937b9279e0d4897b3016e0ce80858d03600d3e80cd7daa907"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20190203.tar.gz"
+  sha256 "e526f1659ae321f45b997c0245acecbf9c4cf2122b025ab8db1090f1b9804f5e"
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
@@ -12,11 +12,11 @@ class Pioneer < Formula
     sha256 "eb188ce5b4aff9025a664e4276f64fba3521b581eb1f13df610b83ae924ddf5d" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "assimp"
   depends_on "freetype"
+  depends_on "glew"
   depends_on "libpng"
   depends_on "libsigc++"
   depends_on "libvorbis"
@@ -25,18 +25,15 @@ class Pioneer < Formula
 
   def install
     ENV.cxx11
-    ENV["PIONEER_DATA_DIR"] = "#{pkgshare}/data"
 
-    system "./bootstrap"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-version=#{version}"
+    # Set PROJECT_VERSION to be the date of release, not the build date
+    inreplace "CMakeLists.txt", "string(TIMESTAMP PROJECT_VERSION \"\%Y\%m\%d\")", "set(PROJECT_VERSION #{version})"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    assert_equal "#{name} #{version}", shell_output("#{bin}/pioneer -v 2>&1").chomp
-    assert_equal "modelcompiler #{version}", shell_output("#{bin}/modelcompiler -v 2>&1").chomp
+    assert_match "#{name} #{version}", shell_output("#{bin}/pioneer -v 2>&1").chomp
+    assert_match "modelcompiler #{version}", shell_output("#{bin}/modelcompiler -v 2>&1").chomp
   end
 end
