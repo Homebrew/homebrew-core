@@ -1,8 +1,8 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.3.1/sshguard-2.3.1.tar.gz"
-  sha256 "769055e26df78f4bca34c9a7acf265dfa224c055b33ced47f53d55bf659d20a2"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.0/sshguard-2.4.0.tar.gz"
+  sha256 "065ca4091b3a96802714b560dbbc3d9f0e67574e99e2b6e8857aa1027d17d6c0"
   version_scheme 1
 
   bottle do
