@@ -3,6 +3,7 @@ class Vips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/releases/download/v8.8.1/vips-8.8.1.tar.gz"
   sha256 "a0ee255a2a1ebfea5b2dff2a780824d7157a78c010d7ddd531279aacefbf2539"
+  revision 1
 
   bottle do
     sha256 "90736385728be69c24fbb99e2ac5904212ab622af3c2cf53d833cab7233a86c3" => :mojave
