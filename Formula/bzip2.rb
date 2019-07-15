@@ -1,8 +1,8 @@
 class Bzip2 < Formula
   desc "Freely available high-quality data compressor"
   homepage "https://sourceware.org/bzip2/"
-  url "https://sourceware.org/pub/bzip2/bzip2-1.0.7.tar.gz"
-  sha256 "e768a87c5b1a79511499beb41500bcc4caf203726fff46a6f5f9ad27fe08ab2b"
+  url "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
+  sha256 "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
 
   bottle do
     cellar :any_skip_relocation
