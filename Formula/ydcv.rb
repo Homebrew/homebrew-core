@@ -23,7 +23,11 @@ class Ydcv < Formula
   end
 
   test do
-    assert_match "hello", shell_output("#{bin}/ydcv 你好")
-    assert_match "你好", shell_output("#{bin}/ydcv hello")
+    system "#{bin}/ydcv", "--help"
+  end
+
+  def caveats; <<~EOS
+    You need to add a config for API Key, read more at https://github.com/felixonmars/ydcv
+  EOS
   end
 end
