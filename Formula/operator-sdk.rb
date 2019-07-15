@@ -1,28 +1,30 @@
 class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
-  url "https://github.com/operator-framework/operator-sdk.git", :tag => "v0.8.1"
+  url "https://github.com/operator-framework/operator-sdk.git",
+      :tag      => "v0.9.0",
+      :revision => "560208dc998de497bbf59fea1b63426aec430934"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f11a93f335489bd5ed27b3e296ea947e772efebfc434fa96af9fc567603277f" => :mojave
-    sha256 "11f706a313d0af27e25e816abd89e94fabc022f00f88f36c420d4d35829c3ecb" => :high_sierra
-    sha256 "13d461d6b758400847271eeeb681a61417dce9ac5734ac9fc90db41647c567f8" => :sierra
+    sha256 "33202cb5bc7c7b3cd1346dc3a1f1ed982eb8676e5a073d21096af80d5a81efcd" => :mojave
+    sha256 "d62d8575f0644820dad5b3fb0f3268d99e9cdc79f11c3ed8726d2d19ed807ae8" => :high_sierra
+    sha256 "2b29884d4da7b99a7bb242621a3cf460b979a130041289b7062b8b8ea6dee9a2" => :sierra
   end
 
-  depends_on "dep"
   depends_on "go"
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/operator-framework/operator-sdk"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    ENV["GO111MODULE"] = "on"
 
-    cd dir do
+    src = buildpath/"src/github.com/operator-framework/operator-sdk"
+    src.install buildpath.children
+    src.cd do
       # Make binary
-      system "make", "install"
-      bin.install buildpath/"bin/operator-sdk"
+      system "make", "build/operator-sdk-#{stable.specs[:tag]}-x86_64-apple-darwin"
+      bin.install "build/operator-sdk-v0.9.0-x86_64-apple-darwin" => "operator-sdk"
 
       # Install bash completion
       output = Utils.popen_read("#{bin}/operator-sdk completion bash")
@@ -41,10 +43,9 @@ class OperatorSdk < Formula
     ENV["GO111MODULE"] = "on"
     dir = testpath/"src/example.com/test-operator"
     dir.mkpath
-
-    cd dir do
+    cd testpath/"src" do
       # Create a new, blank operator framework
-      system "#{bin}/operator-sdk", "new", "test"
+      system "#{bin}/operator-sdk", "new", "test", "--skip-validation"
     end
   end
 end

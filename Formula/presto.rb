@@ -62,7 +62,7 @@ class Presto < Formula
   end
 
   def caveats; <<~EOS
-    Add connectors to #{libexec}/etc/catalog/. See:
+    Add connectors to #{opt_libexec}/etc/catalog/. See:
     https://prestodb.io/docs/current/connector.html
   EOS
   end
