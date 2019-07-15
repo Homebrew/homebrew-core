@@ -6,10 +6,10 @@ class Exa < Formula
   head "https://github.com/ogham/exa.git"
 
   bottle do
-    rebuild 1
-    sha256 "b401bbba34d24a248b9a91d43caa383130ed2dd1b50f15cb2329fc0b1ca3e72a" => :mojave
-    sha256 "f06c486a62647baef664ef2c83e9437a1b38d125f59bed2a15b6262ce6bc91bb" => :high_sierra
-    sha256 "a04e116ccd0751fa1d1ef21d3118d263387bfb54eebf73a01d827d90712003ad" => :sierra
+    cellar :any_skip_relocation
+    sha256 "bc80009ad845d914c08e6de1c39c97e0f4f180ef4f077b3ef1957cab519d6743" => :mojave
+    sha256 "7382b758899c756f94c4c99440f71075945d333e302e53139e423fb1798c852e" => :high_sierra
+    sha256 "9499359da5f5fffbd8b22c8cb8e78f0fdf99594c4d2b06e7ba58eb21afbcb582" => :sierra
   end
 
   depends_on "cmake" => :build
