@@ -5,9 +5,9 @@ class Suil < Formula
   sha256 "a1e9899012790eef8867b5475853d76689b246cca88a99ac0d379a6c0d85c72b"
 
   bottle do
-    sha256 "944c05e6ea4310151bc71ba51a5dc6348935bdf8f32c0207a7f0ff72228dc8ac" => :mojave
-    sha256 "e6a553d61128f83423ee8fa0148591374896361458a770070124296bc3a233d0" => :high_sierra
-    sha256 "598d8ef20cb58feaae68ab3aff70d0fa36492245961f0997cb408aa52937428a" => :sierra
+    sha256 "5edd9d88d7fbac6909430c73ffdcdf1ea3bc8ed7ccad2ffe5e132a256fb92a3b" => :mojave
+    sha256 "7cd481bd8924581cb61e3fcfd9fd6811d898c6b2dc18aae80007dc75e11a7671" => :high_sierra
+    sha256 "22ad8a4f9858b90574bd1f1e9028d37a37003a4e5b211baa3a2f400dedc65e38" => :sierra
   end
 
   depends_on "pkg-config" => :build
