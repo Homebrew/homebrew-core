@@ -6,9 +6,9 @@ class Newt < Formula
 
   bottle do
     cellar :any
-    sha256 "5affacd83b0c8584976235ae16a96c5264db5fbe45ed15f618f1da2562a9eb6c" => :mojave
-    sha256 "ec087d9023c820072ed8ecd769304ae66d993b9c445949feb020446cee6b3fe2" => :high_sierra
-    sha256 "9c5c1376d3346f0417303d9af608c1f2dbded3dd43fe9cc2405117cb412de567" => :sierra
+    sha256 "2b902ecc6fc52b2f2681eb23e4eb568684a018deeada88e5a920952de8cc1080" => :mojave
+    sha256 "7a88cbe033eb207df57a6410f19339975a672e331c073e3ee79e467652c8753c" => :high_sierra
+    sha256 "4d82531bb783ba5e3f8a64150582e61b2fd4a9fb8be96d0bee88fa3bbe0dc3c3" => :sierra
   end
 
   depends_on "gettext"
