@@ -2,8 +2,8 @@ class Whalebrew < Formula
   desc "Homebrew, but with Docker images"
   homepage "https://github.com/whalebrew/whalebrew"
   url "https://github.com/whalebrew/whalebrew.git",
-    :tag      => "0.2.2",
-    :revision => "eef2cdc8483cc740752cf1a698dd9e349f1b1a49"
+    :tag      => "0.2.3",
+    :revision => "7b371f6e0fa414e61761359441268b61c8a741ff"
   head "https://github.com/whalebrew/whalebrew.git"
 
   bottle do
