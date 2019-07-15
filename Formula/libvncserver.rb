@@ -4,6 +4,13 @@ class Libvncserver < Formula
   url "https://github.com/LibVNC/libvncserver/archive/LibVNCServer-0.9.12.tar.gz"
   sha256 "33cbbb4e15bb390f723c311b323cef4a43bcf781984f92d92adda3243a116136"
 
+  bottle do
+    cellar :any
+    sha256 "eb46c752190ababd6214df10185386988e6bf7822264c7f3cf0fd8a82a8ee920" => :mojave
+    sha256 "5488af95ef114b62f63a389d35988bb74c4ee31673d1226c1b7818ad0dfed75e" => :high_sierra
+    sha256 "0780be062ffd9d420539a01b23cd591cef537d4d3256294574812ca5593b342e" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "jpeg-turbo"
   depends_on "libgcrypt"
