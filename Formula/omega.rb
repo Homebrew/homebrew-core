@@ -1,9 +1,9 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.3/xapian-omega-1.4.3.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/x/xapian-omega/xapian-omega_1.4.3.orig.tar.xz"
-  sha256 "2eea0344a0703ba379d845b86d08a9c2e9faf0deb21834d9ea6939b712c6216e"
+  url "https://oligarchy.co.uk/xapian/1.4.11/xapian-omega-1.4.11.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/x/xapian-omega/xapian-omega_1.4.11.orig.tar.xz"
+  sha256 "b030c6f15f52bab4ced428720ba3a6508c8281b8001172cbf1643db1e95e71ed"
 
   bottle do
     sha256 "0aff76c67bcf3033e2ea54a794d93b85531154be66bf88f1b9cb1c5869337ecb" => :mojave
