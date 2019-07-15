@@ -5,9 +5,9 @@ class Proj < Formula
   sha256 "5cf0a2360a28b5d724c53edbb87f3f3b14fd96001265411ac4e56f369e2d503f"
 
   bottle do
-    sha256 "63be7d4fa4555300a5b64fa243f1b22597ae0622b0eaa88397919dd102dc83e1" => :mojave
-    sha256 "baa0d9bbe0f5a22baaa29c4dfff3cadfbd070bb3072fc401217f7f9bf130d95f" => :high_sierra
-    sha256 "df7076eda0eb6e27a90ccd3db0746ca42072154e20e1a054301af66ae32d1a34" => :sierra
+    sha256 "b5cbc7ea8e58284242ccaa71dd1d9ef4e84c30d965f98baf286245c8b11f1431" => :mojave
+    sha256 "5363f27eed45aede3a420654cfe9a7f5e60b637ce360413902eea1d7cfcee9cf" => :high_sierra
+    sha256 "078d1bc208a22094df90231ef95d1afea9b04a40ddf8a25a9e48d778e4a91079" => :sierra
   end
 
   head do
