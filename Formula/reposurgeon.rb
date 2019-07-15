@@ -2,8 +2,8 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag      => "3.45",
-      :revision => "4c1ba2dbb9f0bb4f985d54b5483210a9474f9610"
+      :tag      => "3.46",
+      :revision => "0966b8347055ab604c823f0c483c2952564e0c09"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
@@ -20,7 +20,6 @@ class Reposurgeon < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    inreplace "src/isatty/isatty.go", "syscall.TCGETS", "syscall.TIOCGETA"
     system "make", "install", "prefix=#{prefix}"
     elisp.install "reposurgeon-mode.el"
   end
