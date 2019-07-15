@@ -5,11 +5,12 @@ class Gitmoji < Formula
   homepage "https://gitmoji.carloscuesta.me"
   url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-1.9.3.tgz"
   sha256 "0db7e36e06f758f00750d17cce379c775f889a777b7b960af9043f3a0c0d5c2e"
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "809f082f95b3ba8a3fb85557313556e94e6e730f6bf27bfb590ae96e7f431140" => :mojave
-    sha256 "9f254dfce3f33088a04924771633cc724dae7686ee80ae9ddd3c13542da2a614" => :high_sierra
-    sha256 "9bfb1c3478817213c023ed69a644dfd0446662f6045f0e34a383e3b91126c2dd" => :sierra
+    sha256 "0d5422f5826853668f7569f0432802002121310d1366bbe242eba10597748880" => :mojave
+    sha256 "1af7d249877bd94bb7621ba548662e2efdb1ca1609913ffc0b905681f15ae755" => :high_sierra
+    sha256 "4a7776ff24ba52035f0514af5e1c5847ff287f313214d36edf93580182eb1cbe" => :sierra
   end
 
   depends_on "node"
