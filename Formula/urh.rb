@@ -6,11 +6,9 @@ class Urh < Formula
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "6c3adad798551c02d0f032bb4aa605ee9aa5fe6e3bc1545b66d2314f34645712" => :mojave
-    sha256 "02b56d2752c2e3f972c24cf08ef6d516ffd5f82b191834e27be1e61f369b6f32" => :high_sierra
-    sha256 "26a380a8bc363c10c56ce1aaf7662c876f67700b80c02b64390ed84c1d6565fe" => :sierra
+    sha256 "4ef2733ddee16187ff01b36360f8c12eb8545ff2a94b8d50ffc0878886b5a940" => :mojave
+    sha256 "8fdb578600dd9a5269ec672be31c1117382a835c4d1ec99436279b1a73c34b70" => :high_sierra
+    sha256 "11d835aeb877b1ea197ef0e5fcae5c4bf33bddfd041e4bcdb7178385df474e59" => :sierra
   end
 
   depends_on "pkg-config" => :build
