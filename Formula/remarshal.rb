@@ -3,8 +3,8 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/dbohdan/remarshal"
-  url "https://github.com/dbohdan/remarshal/archive/v0.9.0.tar.gz"
-  sha256 "e763cd57f4418a537c9a4e219e43bc5153303a2041af673fda682a3767fc0d5d"
+  url "https://github.com/dbohdan/remarshal/archive/v0.10.0.tar.gz"
+  sha256 "7566a6426859785dd3b9fd276d281a67ecc8b09088b0affc1b128fe8c58302c2"
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
@@ -17,8 +17,8 @@ class Remarshal < Formula
   depends_on "python"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+    url "https://files.pythonhosted.org/packages/a3/65/837fefac7475963d1eccf4aa684c23b95aa6c1d033a2c5965ccb11e22623/PyYAML-5.1.1.tar.gz"
+    sha256 "b4bb4d3f5e232425e25dda21c070ce05168a786ac9eda43768ab7f3ac2770955"
   end
 
   resource "pytoml" do
@@ -27,13 +27,13 @@ class Remarshal < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/0e/01/68747933e8d12263d41ce08119620d9a7e5eb72c876a3442257f74490da0/python-dateutil-2.7.5.tar.gz"
-    sha256 "88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
+    url "https://files.pythonhosted.org/packages/ad/99/5b2e99737edeb28c71bcbec5b5dda19d0d9ef3ca3e92e3e925e7c0bb364c/python-dateutil-2.8.0.tar.gz"
+    sha256 "c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install
