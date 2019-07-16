@@ -10,10 +10,10 @@ class Vala < Formula
     sha256 "cc70774b22fe76c7020ea69f5c6029ead766b8a3d929699c77437b3fa3762569" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "graphviz"
-  depends_on "pkg-config"
 
   def install
     system "./configure", "--disable-dependency-tracking",
