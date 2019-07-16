@@ -1,8 +1,8 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "https://downloads.sourceforge.net/project/x3270/x3270/3.6ga5/suite3270-3.6ga5-src.tgz"
-  sha256 "bebd0770e23a87997fe1d2353e4f1473aabe461fdddedccbb41fd241e8b5b424"
+  url "https://downloads.sourceforge.net/project/x3270/x3270/3.6ga8/suite3270-3.6ga8-src.tgz"
+  sha256 "a174114ba42fd1644e39adc532d893da8c40692cf46fd5ef02bb83d5704c66bf"
 
   bottle do
     sha256 "910ce0d5e1b99a3bf06f74da9a73bca06478e2b18a719b1b9b7d2f45d50eeda4" => :mojave
@@ -11,7 +11,7 @@ class X3270 < Formula
     sha256 "c82c4f5ceb379a44acab4592f3d1d9cd05d499541b806397bd656e2152474815" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "readline"
 
   def install
     args = %W[
