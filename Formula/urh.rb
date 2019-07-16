@@ -1,9 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/81/29/8ffecf5a0d99bef5a4463fd9dbea537e119562737aaac10b1997da135d5d/urh-2.2.3.tar.gz"
-  sha256 "9867398e94b1c05a227fa2a5765cfbf7fda6327600a2e50f612988063d05ee1d"
-  revision 3
+  url "https://files.pythonhosted.org/packages/df/f9/b58b2c73c32ea153926049819bca96c3da85725b915a81d5ae810d649cc4/urh-2.7.3.tar.gz"
+  sha256 "dabb10db83134baf1b31c32d683480db752cecb43bcb35b8bd319870dfb81997"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -22,26 +21,21 @@ class Urh < Formula
   depends_on "zeromq"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/d2/12/8ef44cede251b93322e8503fd6e1b25a0249fa498bebec191a5a06adbe51/Cython-0.28.4.tar.gz"
-    sha256 "76ac2b08d3d956d77b574bb43cbf1d37bd58b9d50c04ba281303e695854ebc46"
+    url "https://files.pythonhosted.org/packages/5b/5b/6cba7123a089c4174f944dd05ea7984c8d908aba8746a99f2340dde8662f/Cython-0.29.12.tar.gz"
+    sha256 "20da832a5e9a8e93d1e1eb64650258956723940968eb585506531719b55b804f"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/51/9e/0f8f5423ce28c9109807024f7bdde776ed0b1161de20b408875de7e030c3/psutil-5.4.6.tar.gz"
-    sha256 "686e5a35fe4c0acc25f3466c32e716f2d498aaae7b7edc03e2305b682226bcf6"
+    url "https://files.pythonhosted.org/packages/1c/ca/5b8c1fe032a458c2c4bcbe509d1401dca9dda35c7fc46b36bb81c2834740/psutil-5.6.3.tar.gz"
+    sha256 "863a85c1c0a5103a12c05a35e59d336e1d665747e531256e061213e2e90f63f3"
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/aa/fd/f2e65a05558ff8b58b71404efc79c2b03cef922667260e1d703896597b93/pyzmq-17.1.0.tar.gz"
-    sha256 "2199f753a230e26aec5238b0518b036780708a4c887d4944519681a920b9dee4"
+    url "https://files.pythonhosted.org/packages/a8/5e/7e4ed045fc1fb7667de4975fe8b6ab6b358b16bcc59e8349c9bd092931b6/pyzmq-18.0.2.tar.gz"
+    sha256 "31a11d37ac73107363b47e14c94547dbfc6a550029c3fe0530be443199026fc2"
   end
 
   def install
-    # Workaround for https://github.com/Homebrew/brew/issues/932
-    ENV.delete "PYTHONPATH"
-    # suppress urh warning about needing to recompile the c++ extensions
-    inreplace "src/urh/main.py", "GENERATE_UI = True", "GENERATE_UI = False"
-
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
