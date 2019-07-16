@@ -3,8 +3,8 @@ class Pcl < Formula
   homepage "http://www.pointclouds.org/"
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.9.1.tar.gz"
   sha256 "0add34d53cd27f8c468a59b8e931a636ad3174b60581c0387abb98a9fc9cddb6"
-  revision 4
   head "https://github.com/PointCloudLibrary/pcl.git"
+  revision 5
 
   bottle do
     rebuild 1
