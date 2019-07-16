@@ -30,12 +30,12 @@ class Tectonic < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
-    pkgshare.install "tests"
   end
 
   test do
-    system bin/"tectonic", "-o", testpath, pkgshare/"tests/xenia/paper.tex"
-    assert_predicate testpath/"paper.pdf", :exist?, "Failed to create paper.pdf"
-    assert_match "PDF document", shell_output("file paper.pdf")
+    (testpath/"test.tex").write 'Hello, World!\bye'
+    system bin/"tectonic", "-o", testpath, "--format", "plain", testpath/"test.tex"
+    assert_predicate testpath/"test.pdf", :exist?, "Failed to create test.pdf"
+    assert_match "PDF document", shell_output("file test.pdf")
   end
 end
