@@ -1,8 +1,8 @@
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "https://stella-emu.github.io/"
-  url "https://github.com/stella-emu/stella/releases/download/5.1.3/stella-5.1.3-src.tar.xz"
-  sha256 "e074317c25e5d4cabec4558909d301c3a7654ad620863f05d342244fe6bdfe0a"
+  url "https://github.com/stella-emu/stella/releases/download/6.0.1/stella-6.0.1-src.tar.xz"
+  sha256 "d611f98bb35ed9eacfb63826b12b4e8b67b874a2a87019d4bdaf1e7f4724c40d"
   head "https://github.com/stella-emu/stella.git"
 
   bottle do
@@ -20,7 +20,7 @@ class Stella < Formula
   def install
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]
-    cd "src/macosx" do
+    cd "src/macos" do
       inreplace "stella.xcodeproj/project.pbxproj" do |s|
         s.gsub! %r{(\w{24} \/\* SDL2\.framework)}, '//\1'
         s.gsub! %r{(\w{24} \/\* png)}, '//\1'
