@@ -14,7 +14,7 @@ class Rsyslog < Formula
   depends_on "libestr"
 
   resource "libfastjson" do
-    url "http://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
+    url "https://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
     sha256 "3544c757668b4a257825b3cbc26f800f59ef3c1ff2a260f40f96b48ab1d59e07"
   end
 
