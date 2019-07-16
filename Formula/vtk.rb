@@ -5,6 +5,7 @@ class Vtk < Formula
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   revision 2
   head "https://github.com/Kitware/VTK.git"
+  revision 1
 
   bottle do
     sha256 "198879d7b096a0783949664f76eb462db1b40ac0b6323ac064ae0f238a0dcedb" => :mojave
