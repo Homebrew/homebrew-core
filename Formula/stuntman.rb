@@ -7,11 +7,9 @@ class Stuntman < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8580792523ebe1f30693558294d64fd77526c44362f91298bf8dac265349d057" => :mojave
-    sha256 "4b634566e1b841ab54c3732b032648731cbb00a15f071143be080c1f11121d54" => :high_sierra
-    sha256 "1d16a7d994f57dbac8b7d2496ac3346f9c753f3d09ec0760b213cabaf92ab403" => :sierra
-    sha256 "2d3187c4be196200c5007849e56abbd2ea10f30567977feda55455897a5b6061" => :el_capitan
-    sha256 "4f1011c0cdd34060150d50889a0ed100ee449c5ea5621c4fee8262741b1816af" => :yosemite
+    sha256 "b14ec536bd7f490701c5106a0f4e438892c68054d6a048cac320da0e2e9e41e1" => :mojave
+    sha256 "e6a85d92caccf0c1de31c2c24a54bd431cc220ee64b1ed3facbba7b53891b16e" => :high_sierra
+    sha256 "dfa3e7ce02e11c079ba07194d848ef98d889230b0cfad42c88a78614a22d109d" => :sierra
   end
 
   depends_on "boost" => :build
