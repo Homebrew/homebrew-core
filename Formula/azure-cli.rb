@@ -3,9 +3,9 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/18a95ccb145bad4bdea075eebf83b13547564328"
-  version "2.0.68"
-  sha256 "0a46b0e470cd59af990edd635affd1a18a123491d167a29ec20192be683dae4f"
+  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/0317304991945c18773853f969ea8b8828643732"
+  version "2.0.69"
+  sha256 "3ee55bd1d1ca54cccc708d38e1d28bee68b92a548144b3d2041b9f69a4a068e6"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -19,8 +19,8 @@ class AzureCli < Formula
   depends_on "python"
 
   resource "adal" do
-    url "https://files.pythonhosted.org/packages/82/43/a1e4b7368eec9653660ee91f023af36056028cea97e3550f85866a0c3f2f/adal-1.2.1.tar.gz"
-    sha256 "b6edd095be66561382bdaa59d40b04490e93149fb3b7fa44c1fa5504eed5b8b9"
+    url "https://files.pythonhosted.org/packages/75/e2/c44b5e8d99544a2e21aace5f8390c6f3dbf8a952f0453779075ffafafc80/adal-1.2.2.tar.gz"
+    sha256 "5a7f1e037c6290c6d7609cab33a9e5e988c2fbec5c51d1c4c649ee3faff37eaf"
   end
 
   resource "antlr4-python3-runtime" do
@@ -44,8 +44,8 @@ class AzureCli < Formula
   end
 
   resource "azure-batch" do
-    url "https://files.pythonhosted.org/packages/d9/d6/dcf2c9c23b3b31afd92cd45e715c7609f9676caabbd81183cc94b67ed503/azure-batch-6.0.1.zip"
-    sha256 "d5b0de3db0058cd69baf30e059874094abf865e24ccd82e3cd25f3a48b9676d1"
+    url "https://files.pythonhosted.org/packages/c1/0d/d553558095e3aacc0b3a14bf3459e449da54944f7b864217247d8f421e6b/azure-batch-7.0.0.zip"
+    sha256 "1225f142176a1cbc8330d0367009da41a2f7d3c3fd070fa4f80890bf9a6c15e1"
   end
 
   resource "azure-common" do
@@ -81,6 +81,11 @@ class AzureCli < Formula
   resource "azure-mgmt-advisor" do
     url "https://files.pythonhosted.org/packages/f2/fb/bca29d83a2062c7d977742189195d669fd5983017fddb464c90f07adaac0/azure-mgmt-advisor-2.0.1.zip"
     sha256 "1929d6d5ba49d055fdc806e981b93cf75ea42ba35f78222aaf42d8dcf29d4ef3"
+  end
+
+  resource "azure-mgmt-appconfiguration" do
+    url "https://files.pythonhosted.org/packages/87/39/f0bb67adf846b703b0a3bbef22a82c178745300418267b029aa430ca2e2f/azure-mgmt-appconfiguration-0.1.0.zip"
+    sha256 "2ff66c9aa1946ab5b604f98af550df0fda05d05ee9106f61ec2db7b357064e7c"
   end
 
   resource "azure-mgmt-applicationinsights" do
@@ -139,8 +144,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerregistry" do
-    url "https://files.pythonhosted.org/packages/f7/10/624004d9f9a3e6c9dbe83a2d606b0bc7eb5c2e06a023d7caa0fb5a25d348/azure-mgmt-containerregistry-3.0.0rc2.zip"
-    sha256 "3939c6a8adfca7a0b2a843a94f4492ab6d698abf375b02a63f95164143d9ca62"
+    url "https://files.pythonhosted.org/packages/2d/76/82a01a10a579639a95d224c51aac3cc5993bb6113ccad70df4a50d78b4c0/azure-mgmt-containerregistry-3.0.0rc4.zip"
+    sha256 "040038ed83e17fdedd72a1633684ce0e16ae32f2c8ab1bb17848c4238f125efe"
   end
 
   resource "azure-mgmt-containerservice" do
@@ -239,8 +244,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-managedservices" do
-    url "https://files.pythonhosted.org/packages/d0/d7/649c3ed5b03f1eb31a8110aa9a38df9e6e2e29e4d84e534415a6ed4a8d81/azure-mgmt-managedservices-0.1.0.zip"
-    sha256 "4498c73975a67ae700e5a9c9397f8572185a527b681f3ba01c9e1e82c0840ec0"
+    url "https://files.pythonhosted.org/packages/f8/db/faab14079c628202d771a2bc33016326de6d194d1460fd8e531a59664371/azure-mgmt-managedservices-1.0.0.zip"
+    sha256 "fed8399fc6773aada37c1d0496a46f59410d77c9494d0ca5967c531c3376ad19"
   end
 
   resource "azure-mgmt-managementgroups" do
@@ -271,6 +276,11 @@ class AzureCli < Formula
   resource "azure-mgmt-msi" do
     url "https://files.pythonhosted.org/packages/da/6f/60f92469f93e2820949f967b8c722fe0c04f03e4cc9a6332ffaf5e9f405b/azure-mgmt-msi-0.2.0.zip"
     sha256 "8622bc9a164169a0113728ebe7fd43a88189708ce6e10d4507247d6907987167"
+  end
+
+  resource "azure-mgmt-netapp" do
+    url "https://files.pythonhosted.org/packages/a6/3e/e3b6303ed7b3c35b0606a6489c263894bd070d08d6a81b259b779b7227b4/azure-mgmt-netapp-0.4.0.zip"
+    sha256 "3fd4b43a03a3745bd88224f49eae696befdd61574e31a7bf1438ded85af34a52"
   end
 
   resource "azure-mgmt-network" do
@@ -359,13 +369,13 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-sqlvirtualmachine" do
-    url "https://files.pythonhosted.org/packages/cc/52/2239d1931a2f2776c5f2327b21ffe620edb52ef4b7a00852ec161bee9a11/azure-mgmt-sqlvirtualmachine-0.3.0.zip"
-    sha256 "8de993db9b0bdd964cdeefc68b99b5ab9e95109c0aacb3b65d574a5efae0b63e"
+    url "https://files.pythonhosted.org/packages/c1/3c/317e8717336e963dcb40997803a5790ae465738cdc56ac72129c4458dbcc/azure-mgmt-sqlvirtualmachine-0.4.0.zip"
+    sha256 "95718425df713e87700e21207f2695ea26b91fe2ddd89918ca7c76bfe58cb5cb"
   end
 
   resource "azure-mgmt-storage" do
-    url "https://files.pythonhosted.org/packages/d1/95/eb5efd39682b1e761323668c282bb1c4071fb4dd057cab9d11015de7ebe7/azure-mgmt-storage-3.3.0.zip"
-    sha256 "06faa7033a17ecd5127cab476a7cd79d5fe7b68e332c8e8e8303a20c9157cecd"
+    url "https://files.pythonhosted.org/packages/c8/7d/d80e4909bff34a9229a9095ea75fc9287d3da92b1316b723fa1194c807f4/azure-mgmt-storage-4.0.0.zip"
+    sha256 "fbed7ccd0d1567a0b201784c477b128a90434b1bf8ecd13179c376253418adcf"
   end
 
   resource "azure-mgmt-trafficmanager" do
@@ -453,6 +463,11 @@ class AzureCli < Formula
     sha256 "2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8"
   end
 
+  resource "javaproperties" do
+    url "https://files.pythonhosted.org/packages/db/43/58b89453727acdcf07298fe0f037e45b3988e5dcc78af5dce6881d0d2c5e/javaproperties-0.5.1.tar.gz"
+    sha256 "2b0237b054af4d24c74f54734b7d997ca040209a1820e96fb4a82625f7bd40cf"
+  end
+
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/93/ea/d884a06f8c7f9b7afbc8138b762e80479fb17aedbbe2b06515a12de9378d/Jinja2-2.10.1.tar.gz"
     sha256 "065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013"
@@ -463,14 +478,19 @@ class AzureCli < Formula
     sha256 "bde2aef6f44302dfb30320115b17d030798de8c4110e28d5cf6cf91a7a31074c"
   end
 
+  resource "jsondiff" do
+    url "https://files.pythonhosted.org/packages/64/5c/2b4b0ae4d42cb1b0b1a89ab1c4d9fe02c72461e33a5d02009aa700574943/jsondiff-1.2.0.tar.gz"
+    sha256 "34941bc431d10aa15828afe1cbb644977a114e75eef6cc74fb58951312326303"
+  end
+
   resource "keyring" do
     url "https://files.pythonhosted.org/packages/69/91/5a9d1769ed7e25083649e87977686423aebed3516112557f4cafd73c9f95/keyring-19.0.2.tar.gz"
     sha256 "1b74595f7439e4581a11d4f9a12790ac34addce64ca389c86272ff465f5e0b90"
   end
 
   resource "knack" do
-    url "https://files.pythonhosted.org/packages/99/96/6828ea10e99c043ad691ac0b4f24bc5c5d1464804606631a8cc266494514/knack-0.6.2.tar.gz"
-    sha256 "281ea8475178089ac730442a874413e1c40a5e7bd7d4107e4e6aef2a6a92bdcf"
+    url "https://files.pythonhosted.org/packages/ef/a7/12ce7ee160923677d15f1d85f60a2615c848e3157d5dd7f99494ef5328f6/knack-0.6.3.tar.gz"
+    sha256 "b1ac92669641b902e1aef97138666a21b8852f65d83cbde03eb9ddebf82ce121"
   end
 
   resource "MarkupSafe" do
@@ -494,8 +514,8 @@ class AzureCli < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/ec/90/882f43232719f2ebfbdbe8b7c57fc9642a25b3df30cb70a3701ea22622de/oauthlib-3.0.1.tar.gz"
-    sha256 "0ce32c5d989a1827e3f1148f98b9085ed2370fc939bf524c9c851d8714797298"
+    url "https://files.pythonhosted.org/packages/6a/cf/f1a44998f36c62a7a9e51145101428299be27b1e3a411adfd6fd87589889/oauthlib-3.0.2.tar.gz"
+    sha256 "b4d99ae8ccfb7d33ba9591b59355c64eef5241534aa3da2e4c0435346b84bc8e"
   end
 
   resource "paramiko" do
@@ -504,8 +524,8 @@ class AzureCli < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/a3/5b/c0aecb9523b4f9961e0edea791926f5e544379e0765867048e51fb8e72c7/pbr-5.3.1.tar.gz"
-    sha256 "9181e2a34d80f07a359ff1d0504fad3a47e00e1cf2c475b0aa7dcb030af54c40"
+    url "https://files.pythonhosted.org/packages/a4/f4/e0bc4f0310465df47da56df4bd4d46907e62fc430f9afccd69644e150d52/pbr-5.4.0.tar.gz"
+    sha256 "36ebd78196e8c9588c972f5571230a059ff83783fabbbbedecc07be263ccd7e6"
   end
 
   resource "portalocker" do
