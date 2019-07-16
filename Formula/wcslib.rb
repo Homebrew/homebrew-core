@@ -6,9 +6,9 @@ class Wcslib < Formula
 
   bottle do
     cellar :any
-    sha256 "791f633e087db6056f23904df39a7b0489a7c18c2fea5e3e25c71bf7365518e1" => :mojave
-    sha256 "313a28f2170b0622ea7f72fe4371894be0ffb79663541bfeb5ed51c6a02571df" => :high_sierra
-    sha256 "98ce5c443e70f687b3754f7ab01fca8248ab760d76145da546a46132e67bd7de" => :sierra
+    sha256 "5e88e55e09a2bec804e8052ea6257abb899ee0a9e42995694634ca8a4fb3e662" => :mojave
+    sha256 "56fd6ceb75754b0840d80af9c3d902e6188aa4b5eb5100ddaecd765219c9cd6a" => :high_sierra
+    sha256 "e3c3a0f23f756f045cc9dbafeeed7a7df4d0b2c84c241f74ac6a8496921ab0f5" => :sierra
   end
 
   depends_on "cfitsio"
