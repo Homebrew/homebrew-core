@@ -7,11 +7,9 @@ class Vmtouch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "854bd4ab9a30fbb09adea336b29660bae8cb1b56811d4023822008172736b7de" => :mojave
-    sha256 "94cbb48095dbd350e29591f055d01789df27991deda9419d42138641e7386274" => :high_sierra
-    sha256 "036d04749746169bd38c71e8637b235edd6ac8b1cc007a884e094a3004ce1933" => :sierra
-    sha256 "fa1dd70ebdef2556d84315c28c693f5de9f18ee4b545205a030d1216af58a34a" => :el_capitan
-    sha256 "e1e4bd20e994a155ea892305cf6c87aac9206bea4a94b2a59439e836ce15a10a" => :yosemite
+    sha256 "020d4e624a448e4e1b9a6e26b8f506bd65ab789ae1c0f23f25beda78b09bc6dd" => :mojave
+    sha256 "edb14ca1ff4cbd4ab535ca9099ea113a36e280ddaf2957a65bdef10f4a7a1b88" => :high_sierra
+    sha256 "7359ed3256886940e6fb1883141c495d5b3e6ab28130ed16553e0f6ab57ac3db" => :sierra
   end
 
   # Upstream change broke macOS support in 1.3.1, patch submitted upstream and accepted.
