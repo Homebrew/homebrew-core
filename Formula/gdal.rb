@@ -1,9 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.4.1/gdal-2.4.1.tar.xz"
-  sha256 "fd51b4900b2fc49b98d8714f55fc8a78ebfd07218357f93fb796791115a5a1ad"
-  revision 1
+  url "https://download.osgeo.org/gdal/2.4.2/gdal-2.4.2.tar.xz"
+  sha256 "dcc132e469c5eb76fa4aaff238d32e45a5d947dc5b6c801a123b70045b618e0c"
 
   bottle do
     sha256 "c8d273221eef1ea1943d3052a720ce127345b1fd676512c520d6ce52e26a14b1" => :mojave
@@ -101,9 +100,7 @@ class Gdal < Formula
       "--without-libgrass",
       "--without-mysql",
       "--without-perl",
-      "--without-php",
       "--without-python",
-      "--without-ruby",
 
       # Unsupported backends are either proprietary or have no compatible version
       # in Homebrew. Podofo is disabled because Poppler provides the same
@@ -122,7 +119,6 @@ class Gdal < Formula
       "--without-msg",
       "--without-oci",
       "--without-ingres",
-      "--without-dwgdirect",
       "--without-idb",
       "--without-sde",
       "--without-podofo",
@@ -131,6 +127,7 @@ class Gdal < Formula
     ]
 
     # Work around "error: no member named 'signbit' in the global namespace"
+    # Remove once support for macOS 10.12 Sierra is dropped
     if DevelopmentTools.clang_build_version >= 900
       ENV.delete "SDKROOT"
       ENV.delete "HOMEBREW_SDKROOT"
@@ -140,13 +137,12 @@ class Gdal < Formula
     system "make"
     system "make", "install"
 
-    if build.stable? # GDAL 2.3 handles Python differently
-      cd "swig/python" do
-        system "python3", *Language::Python.setup_install_args(prefix)
-        system "python2", *Language::Python.setup_install_args(prefix)
-      end
-      bin.install Dir["swig/python/scripts/*.py"]
+    # Build Python bindings
+    cd "swig/python" do
+      system "python3", *Language::Python.setup_install_args(prefix)
+      system "python2", *Language::Python.setup_install_args(prefix)
     end
+    bin.install Dir["swig/python/scripts/*.py"]
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
@@ -159,9 +155,7 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
-    if build.stable? # GDAL 2.3 handles Python differently
-      system "python3", "-c", "import gdal"
-      system "python2", "-c", "import gdal"
-    end
+    system "python3", "-c", "import gdal"
+    system "python2", "-c", "import gdal"
   end
 end
