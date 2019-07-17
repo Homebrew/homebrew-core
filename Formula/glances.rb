@@ -1,8 +1,8 @@
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://github.com/nicolargo/glances/archive/v3.1.0.tar.gz"
-  sha256 "56e67aee5960ecb575a7277e87b06d305ec87d2108f65860d13d9111d320bdf5"
+  url "https://github.com/nicolargo/glances/archive/v3.1.1.tar.gz"
+  sha256 "2fd826d39ed77bcc3656dfff15b4cb3613de9caae0f8e26bd578913110e189fb"
 
   bottle do
     cellar :any_skip_relocation
@@ -56,6 +56,11 @@ class Glances < Formula
   resource "elasticsearch" do
     url "https://files.pythonhosted.org/packages/25/77/b832ef9e90664d9462fcb10b2840ba86e20a9399f3e7fcc2c8ab5d6c2220/elasticsearch-7.0.0.tar.gz"
     sha256 "cf6cf834b6d0172dac5e704c398a11d1917cf61f15d32b79b1ddad4cd673c4b1"
+  end
+
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/90/52/e20466b85000a181e1e144fd8305caf2cf475e2f9674e797b222f8105f5f/future-0.17.1.tar.gz"
+    sha256 "67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
   end
 
   resource "idna" do
@@ -124,8 +129,8 @@ class Glances < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2f/b8/11ec5006d2ec2998cb68349b8d1317c24c284cf918ecd6729739388e4c56/psutil-5.6.1.tar.gz"
-    sha256 "fa0a570e0a30b9dd618bffbece590ae15726b47f9f1eaf7518dfb35f4d7dcd21"
+    url "https://files.pythonhosted.org/packages/1c/ca/5b8c1fe032a458c2c4bcbe509d1401dca9dda35c7fc46b36bb81c2834740/psutil-5.6.3.tar.gz"
+    sha256 "863a85c1c0a5103a12c05a35e59d336e1d665747e531256e061213e2e90f63f3"
   end
 
   resource "py-cpuinfo" do
