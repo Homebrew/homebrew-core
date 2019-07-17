@@ -1,8 +1,8 @@
 class KimApi < Formula
   desc "The Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.0.2.txz"
-  sha256 "26e7cf91066692f316b8ba1548ccb7152bf56aad75902bce2338cff53e74e63d"
+  url "https://s3.openkim.org/kim-api/kim-api-2.1.1.txz"
+  sha256 "25c4e83c6caa83a1c4ad480b430f1926fb44813b64f548fdaedc45e310b5f6b9"
 
   bottle do
     sha256 "eca745c93c6948fa76bfe18e98069d5ceb54abf959a1900efaf1a2ecc4c07c9f" => :mojave
@@ -21,12 +21,13 @@ class KimApi < Formula
     args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
     # adjust directories for system collection
     args << "-DKIM_API_SYSTEM_MODEL_DRIVERS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/model-drivers"
-    args << "-DKIM_API_SYSTEM_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/models"
+    args << "-DKIM_API_SYSTEM_PORTABLE_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/portable-models"
     args << "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models"
     system "cmake", ".", *args
     system "make"
     system "make", "docs"
     system "make", "install"
+    zsh_completion.install "#{prefix}/etc/zsh_completion.d/kim-api-collections-management.zsh" => "_kim-api-collections-management"
   end
 
   test do
