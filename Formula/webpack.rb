@@ -9,9 +9,9 @@ class Webpack < Formula
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "a315fdee6ea7b52f0c9ddb7c888264422339b7ad57036f25f1fc30743f882391" => :mojave
-    sha256 "8128342740c54d3febe9caca910bb2423845f6b66b15168a43b54bf532072855" => :high_sierra
-    sha256 "2c95bca88e81976654b5a5e5d66aa0ef83be0166752b0a36c8f1a96caf4da791" => :sierra
+    sha256 "2ba6a626fa0e3a44f2926765a4b9525d5c603c53d0744d0c1b5884f82f8e7c10" => :mojave
+    sha256 "1f4100857abb2c897655256edc7b373dcd27a83efd65ff861c22d953f1d28b3f" => :high_sierra
+    sha256 "f6b9e80369a01ff28922f422b2a6268351cbfc67dfca8803cce43c3a90cf8175" => :sierra
   end
 
   depends_on "node"
