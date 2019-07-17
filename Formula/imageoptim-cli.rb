@@ -3,8 +3,8 @@ require "language/node"
 class ImageoptimCli < Formula
   desc "CLI for ImageOptim, ImageAlpha and JPEGmini"
   homepage "https://jamiemason.github.io/ImageOptim-CLI/"
-  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.3.7.tar.gz"
-  sha256 "9037f0ac44805c6c562ec509c89aea737f5625e749c500423320349519bb215d"
+  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.3.9.tar.gz"
+  sha256 "caf4ebfa64bd5ffd52e3d542b70a329be9225a926606188bd7451c2dfb2f23cc"
 
   bottle do
     cellar :any_skip_relocation
