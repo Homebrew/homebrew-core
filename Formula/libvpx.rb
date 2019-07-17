@@ -21,6 +21,7 @@ class Libvpx < Formula
       --disable-examples
       --disable-unit-tests
       --enable-pic
+      --enable-vp9-highbitdepth
     ]
 
     # https://bugs.chromium.org/p/webm/issues/detail?id=1475
