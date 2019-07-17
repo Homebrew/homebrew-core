@@ -6,12 +6,10 @@ class Direvent < Formula
   sha256 "239822cdda9ecbbbc41a69181b34505b2d3badd4df5367e765a0ceb002883b55"
 
   bottle do
-    sha256 "1218acf77df6b8002615b9ee3d66f586aa9b3fcba9ee28cef01d77f1c94dbe5d" => :mojave
-    sha256 "4600ba9633193fa0fd4c7f726ac21b3aed197cfeadf80e3457f45d53568dd12c" => :high_sierra
-    sha256 "9bc340296e903dd37848907cd76ce5a67c74e78076ef615ff824617ff0d37db8" => :sierra
-    sha256 "0d9c0063931a3dc02e5c24742bfb85fc173b3bec6f31771507aa1b48c892138d" => :el_capitan
-    sha256 "0158e3fe5a0401cb87ef6b2cad4915887f22ce6ffcbf93a2f19c7a659be1f0a7" => :yosemite
-    sha256 "7f8fc5e86deb4b518645bf10772183d100389c2e9bbf9b7f2c1559276d1fcbf0" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "0e9d14d7340a3031305913d1a506f17ebedfaae4b6da0c340d23f754de3fc4c7" => :mojave
+    sha256 "b1893330b8cd3c41bfcfb1a5a919bf887febf17b9e5067d428d31169c8218295" => :high_sierra
+    sha256 "6b04f666ccddc5f843e2dae19ee9af577390e9f1642b284237e5055885fb9864" => :sierra
   end
 
   def install
