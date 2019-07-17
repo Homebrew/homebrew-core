@@ -1,8 +1,8 @@
 class KimApi < Formula
   desc "The Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.0.2.txz"
-  sha256 "26e7cf91066692f316b8ba1548ccb7152bf56aad75902bce2338cff53e74e63d"
+  url "https://s3.openkim.org/kim-api/kim-api-2.1.0.txz"
+  sha256 "d6b154b31b288ec0a5643db176950ed71f1ca83a146af210a1d5d01cce8ce958"
 
   bottle do
     sha256 "eca745c93c6948fa76bfe18e98069d5ceb54abf959a1900efaf1a2ecc4c07c9f" => :mojave
@@ -21,7 +21,7 @@ class KimApi < Formula
     args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
     # adjust directories for system collection
     args << "-DKIM_API_SYSTEM_MODEL_DRIVERS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/model-drivers"
-    args << "-DKIM_API_SYSTEM_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/models"
+    args << "-DKIM_API_SYSTEM_PORTABLE_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/portable-models"
     args << "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models"
     system "cmake", ".", *args
     system "make"
