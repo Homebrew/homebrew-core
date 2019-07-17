@@ -1,9 +1,9 @@
 class Stow < Formula
   desc "Organize software neatly under a single directory tree (e.g. /usr/local)"
   homepage "https://www.gnu.org/software/stow/"
-  url "https://ftp.gnu.org/gnu/stow/stow-2.2.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/stow/stow-2.2.2.tar.gz"
-  sha256 "e2f77649301b215b9adbc2f074523bedebad366812690b9dc94457af5cf273df"
+  url "https://ftp.gnu.org/gnu/stow/stow-2.3.0.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/stow/stow-2.3.0.tar.bz2"
+  sha256 "65c7c7eb8ba7ce18b50543bacc5d0a7fc5a886f2be233cf1edca8fcef940d6ba"
 
   bottle do
     cellar :any_skip_relocation
