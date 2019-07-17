@@ -1,9 +1,9 @@
 class Libstatgrab < Formula
   desc "Provides cross-platform access to statistics about the system"
   homepage "https://www.i-scream.org/libstatgrab/"
-  url "https://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz"
-  mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz"
-  sha256 "03e9328e4857c2c9dcc1b0347724ae4cd741a72ee11acc991784e8ef45b7f1ab"
+  url "https://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz"
+  mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz"
+  sha256 "5bf1906aff9ffc3eeacf32567270f4d819055d8386d98b9c8c05519012d5a196"
 
   bottle do
     cellar :any
