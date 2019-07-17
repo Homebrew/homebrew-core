@@ -4,6 +4,7 @@ class Docker < Formula
   url "https://github.com/docker/docker-ce.git",
       :tag      => "v19.03.2",
       :revision => "6a30dfca03664a0b6bf0646a7d389ee7d0318e6e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +14,7 @@ class Docker < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-md2man" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -27,6 +29,12 @@ class Docker < Formula
                  "-X \"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\""]
       system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
              "github.com/docker/cli/cmd/docker"
+
+      Pathname.glob("man/*.[1-8].md") do |md|
+        section = md.to_s[/\.(\d+)\.md\Z/, 1]
+        (man/"man#{section}").mkpath
+        system "go-md2man", "-in=#{md}", "-out=#{man/"man#{section}"/md.stem}"
+      end
 
       bash_completion.install "contrib/completion/bash/docker"
       fish_completion.install "contrib/completion/fish/docker.fish"
