@@ -1,9 +1,8 @@
 class Pngxx < Formula
   desc "C++ wrapper for libpng library"
   homepage "https://www.nongnu.org/pngpp/"
-  url "https://savannah.nongnu.org/download/pngpp/png++-0.2.5.tar.gz"
-  sha256 "339fa2dff2cdd117efb43768cb272745faef4d02705b5e0e840537a2c1467b72"
-  revision 1
+  url "https://download.savannah.gnu.org/releases/pngpp/png++-0.2.9.tar.gz"
+  sha256 "abbc6a0565122b6c402d61743451830b4faee6ece454601c5711e1c1b4238791"
 
   bottle do
     cellar :any_skip_relocation
