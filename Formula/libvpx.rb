@@ -7,9 +7,9 @@ class Libvpx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8acc007976c337e0ea107c07e984c7924516b1ce70fe7a862af480de0998cb96" => :mojave
-    sha256 "4afe71bb1bf3e449e9ed854f04fbed14338be71a2f60122c09f37da8faa9d1ef" => :high_sierra
-    sha256 "bc0817cc35d2437b579572842bcfdfb846a26a241986b801b86d5ec52bf2cf51" => :sierra
+    sha256 "b171a1cd0acd98ef77d5ecb1ff2949ded7b8e513cc076ab42cfbe9bf26f3d5be" => :mojave
+    sha256 "519728a547408f2b0414d09555794310198d5eaf7f2eb7571995eedd18fae1f4" => :high_sierra
+    sha256 "23e177ec26593170c6a9e2d3e2f665e56124d8495cf36f822b5860e5bce3691f" => :sierra
   end
 
   depends_on "yasm" => :build
