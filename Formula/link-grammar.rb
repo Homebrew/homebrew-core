@@ -1,8 +1,8 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.5.1/link-grammar-5.5.1.tar.gz"
-  sha256 "ce8934e3be937611e3dff4e2b61a2675380752ad6815b63336ebac917d9013f5"
+  url "https://www.abisource.com/downloads/link-grammar/5.6.2/link-grammar-5.6.2.tar.gz"
+  sha256 "333c29abdcb6f3b90aff4d24889d11174d45b7cc1960816a257eecd6679186c9"
 
   bottle do
     sha256 "550961c684c2ff78765d558024d180cdfc044ff22655f242746ca7b4987b6c2a" => :mojave
@@ -23,6 +23,12 @@ class LinkGrammar < Formula
     inreplace "bindings/python/Makefile.am",
       "$(PYTHON2_LDFLAGS) -module -no-undefined",
       "$(PYTHON2_LDFLAGS) -module"
+    inreplace "bindings/java/build.xml.in",
+      "<property name=\"source\" value=\"1.6\"/>",
+      "<property name=\"source\" value=\"1.7\"/>"
+    inreplace "bindings/java/build.xml.in",
+      "<property name=\"target\" value=\"1.6\"/>",
+      "<property name=\"target\" value=\"1.7\"/>"
     system "autoreconf", "-fiv"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
