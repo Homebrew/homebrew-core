@@ -7,9 +7,9 @@ class Elixir < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "467fcbfb7c28e7b40adab41729b5733bc8f61fe5aa9fea389c008d3e036d1047" => :mojave
-    sha256 "e22afbaaf607ed36f09c9781af6d2a0681500f6f1f8a28b9d30074640f2ee9cc" => :high_sierra
-    sha256 "da201f12e4f419afb3c3a617eee2a07fc57ba349fd70f881ce1cf7f0a7ff5c63" => :sierra
+    sha256 "0653df1147c419a95501e9150dced476455ea346e16e929610462a55f0588459" => :mojave
+    sha256 "0b7621209b77bfc665227fe434853d2cc70dfc852a9aaed485e382d70e8ff52a" => :high_sierra
+    sha256 "7c2eeb5ef4932424d20bd549c3beb597fa5121116683e5f40880dcb43391d726" => :sierra
   end
 
   depends_on "erlang"
