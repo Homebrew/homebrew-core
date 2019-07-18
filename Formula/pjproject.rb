@@ -1,8 +1,8 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
-  url "https://www.pjsip.org/release/2.7.2/pjproject-2.7.2.tar.bz2"
-  sha256 "9c2c828abab7626edf18e04b041ef274bfaa86f99adf2c25ff56f1509e813772"
+  url "https://www.pjsip.org/release/2.9/pjproject-2.9.tar.bz2"
+  sha256 "d185ef7855c8ec07191dde92f54b65a7a4b7a6f7bf8c46f7af35ceeb1da2a636"
   head "https://svn.pjsip.org/repos/pjproject/trunk"
 
   bottle do
@@ -13,6 +13,7 @@ class Pjproject < Formula
     sha256 "52a55c49ef0d0d53abf447fd060e7eaf8bd1d10c8f6b419582c5e453634d5b61" => :el_capitan
   end
 
+  depends_on :macos => :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
   depends_on "openssl"
 
   def install
