@@ -6,7 +6,10 @@ class Uriparser < Formula
   stable do
     url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.3/uriparser-0.9.3.tar.bz2"
     sha256 "28af4adb05e811192ab5f04566bebc5ebf1c30d9ec19138f944963d52419e28f"
-    patch do # uriparser/uriparser#67, required to run tests. Will be integrated in next release
+
+    # Upstream fix, will be integrated in next release
+    # https://github.com/uriparser/uriparser/issues/67
+    patch do
       url "https://github.com/uriparser/uriparser/commit/f870e6c68696a6018702caa5c8a2feba9b0f99fa.diff?full_index=1"
       sha256 "c609224fc996b6231781e1beba4424c2237fc5e49e2de049b344d926db0630f7"
     end
