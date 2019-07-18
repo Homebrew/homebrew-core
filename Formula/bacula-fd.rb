@@ -5,9 +5,9 @@ class BaculaFd < Formula
   sha256 "0fe37a02ca768a720099d0d03509c364aff2390c05544d663f4819f8e7fc20be"
 
   bottle do
-    sha256 "e44148506fe45be0d0af0d63c7373492422a4de571a667dc40f3ad48ef9a510c" => :mojave
-    sha256 "5089ce4adb3949e99787afe92172b214170193c66032135b12f3477f9e89674b" => :high_sierra
-    sha256 "278520eb714f64ab33b41bbab1b04eba647ad84df1a73b6aedc7291a25cf4542" => :sierra
+    sha256 "e517896c2e4313eaec9cd15bee61376b3b8b74559acfcd304a9e59a8ede502d2" => :mojave
+    sha256 "58bd57bd2febf5d0bf2f19ffa3c9854d7f8c9c95a9793eb386372da75b87a4ba" => :high_sierra
+    sha256 "7c992aa6372bc82318c58b7b50f5a2c5bc6162ced7c1723755749a45912a4852" => :sierra
   end
 
   depends_on "openssl"
