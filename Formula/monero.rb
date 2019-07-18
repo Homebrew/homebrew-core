@@ -2,8 +2,8 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag      => "v0.14.1.0",
-      :revision => "29a505d1c1cfd3baa7d3a0c4433db8d7b043e341"
+      :tag      => "v0.14.1.1",
+      :revision => "da8ffdfff073dab0477cfe909138f9af9e569f79"
 
   bottle do
     cellar :any
