@@ -3,8 +3,8 @@ require "language/node"
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-2.11.27.tgz"
-  sha256 "a14fc30192fa2d4c609240b6287e09d13a41011bf649e020c82a82ea207c6113"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-2.11.29.tgz"
+  sha256 "6b013642a5a9ba86e930363f99ff650c470fea2598a1f2df9f0b28f1e1f28757"
   head "https://github.com/netlify/cli.git"
 
   bottle do
