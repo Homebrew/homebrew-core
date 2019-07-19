@@ -6,10 +6,10 @@ class Freediameter < Formula
   head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
-    sha256 "312ad5669b92df173d95b51326ae8b21c9860202ad4b2dd3215f16714b851676" => :mojave
-    sha256 "c57d61c9ddb1a1cef706b043d3be28ad4ab94eb7e9bbd0c9952f392074fafc31" => :high_sierra
-    sha256 "0b444785c639b55365e67092f5ff4997c2cba3ad72f37aaaaf7cf4a2eb88b758" => :sierra
-    sha256 "ae4a0a662111c28c542ba2b15f2ff5f0d6955dd62c474b7216f12bda8a54041c" => :el_capitan
+    cellar :any
+    sha256 "aacb7d5749e234dd8937365b3b493b593a4fc1be5d70c9aed95596b8b238f46d" => :mojave
+    sha256 "e194caf5035629cf10d8872e0c21ca86b8b4f4ae6665ce2d4a424ee2ea5794fb" => :high_sierra
+    sha256 "0f1a491d96a02003555ee8101b6e8d25e580bc8416bb1cdb4f877950dd0a3986" => :sierra
   end
 
   depends_on "cmake" => :build
