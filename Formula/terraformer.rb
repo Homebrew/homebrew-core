@@ -2,8 +2,8 @@ class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.7.5",
-    :revision => "7ad90c5847b94e276aaaf93f271be1cb8b186a28"
+    :tag      => "0.7.6",
+    :revision => "abca7f948bc7b82282646682d620b67bd264b889"
 
   bottle do
     cellar :any_skip_relocation
@@ -34,6 +34,6 @@ class Terraformer < Formula
     assert_match help_output.to_s, shell_output("#{bin}/terraformer -h")
 
     import_error = "aaa"
-    assert_match import_error.to_s, shell_output("#{bin}/terraformer import google --resources=gcs --zone=europe-west1-a --projects=aaa 2>&1", 1)
+    assert_match import_error.to_s, shell_output("#{bin}/terraformer import google --resources=gcs --projects=aaa 2>&1", 1)
   end
 end
