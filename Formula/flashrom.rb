@@ -7,10 +7,9 @@ class Flashrom < Formula
 
   bottle do
     cellar :any
-    sha256 "268fed961b0db79dd20c9d7d0618d80a2b8fb8b81d19b31911bac5b61b89f557" => :mojave
-    sha256 "9b52a8eed203c15987554132d532210c22e97f9a0eab02d842830c7339b544b7" => :high_sierra
-    sha256 "ae6bb14a2a03c1a44515702f01c06e49e2526e831f0fd7e7cee3761a9bdfb6cd" => :sierra
-    sha256 "7a41ea01cb4dfa262082f96f8a20eeccb45117aee72f806643a9783d92b247ef" => :el_capitan
+    sha256 "1878ea1416cf64c84393b0701473e571432cc709368c88ce72b20eb5e9185805" => :mojave
+    sha256 "a08518e33d4bb2cf514441a654d0986ba19afd9e05cf7b7949aa09a5fb167d50" => :high_sierra
+    sha256 "556848f98ccc1e0ff82a15dea1aef4f2a9376be54a0e7ae6149780aba8e8e2d3" => :sierra
   end
 
   depends_on "pkg-config" => :build
