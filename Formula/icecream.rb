@@ -37,27 +37,25 @@ class Icecream < Formula
     system "./configure", *args
     system "make", "install"
 
-    (prefix/"org.opensuse.icecc.plist").write iceccd_plist
-    (prefix/"org.opensuse.icecc-scheduler.plist").write scheduler_plist
+    # Manually install scheduler property list
+    (prefix/"#{plist_name}-scheduler.plist").write scheduler_plist
   end
 
   def caveats; <<~EOS
     To override the toolset with icecc, add to your path:
       #{opt_libexec}/icecc/bin
-
-    To have launchd start the icecc daemon at login:
-      cp #{opt_prefix}/org.opensuse.icecc.plist ~/Library/LaunchAgents/
-      launchctl load -w ~/Library/LaunchAgents/org.opensuse.icecc.plist
   EOS
   end
 
-  def iceccd_plist; <<~EOS
+  plist_options :manual => "iceccd"
+
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>Icecc Daemon</string>
+        <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
         <string>#{sbin}/iceccd</string>
@@ -75,7 +73,7 @@ class Icecream < Formula
     <plist version="1.0">
     <dict>
         <key>Label</key>
-        <string>Icecc Scheduler</string>
+        <string>#{plist_name}-scheduler</string>
         <key>ProgramArguments</key>
         <array>
         <string>#{sbin}/icecc-scheduler</string>
