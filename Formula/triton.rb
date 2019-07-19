@@ -3,9 +3,8 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-7.1.1.tgz"
-  sha256 "24a1f697ee71451893f108dba9e4a5a7830cefe22028d98b504b3d2fe65ab2fe"
-  revision 1
+  url "https://registry.npmjs.org/triton/-/triton-7.3.0.tgz"
+  sha256 "727cca955e6ccecee141296642ff600527a9ab746281a175244fd02a3bf31102"
 
   bottle do
     cellar :any_skip_relocation
