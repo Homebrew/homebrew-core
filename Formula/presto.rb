@@ -1,16 +1,16 @@
 class Presto < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.221/presto-server-0.221.tar.gz"
-  sha256 "0cf8bab3cbc2c253d80d0440292e16eec8ea0f21f0899aed1273bd45d0f0593d"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.222/presto-server-0.222.tar.gz"
+  sha256 "39b61e100c332c16b3190d31faccfb85fa1ccb1a9926ba3a25dfbf1af68c8ce4"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.221/presto-cli-0.221-executable.jar"
-    sha256 "329c983d460a5fe885a407331fbe46b7991664b851804a2acda6193c2e94297b"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.222/presto-cli-0.222-executable.jar"
+    sha256 "731397ebe97413f402fb92bcd87dd9639f0844a5dfe52d6dcc69eb4c221362a5"
   end
 
   def install
@@ -95,6 +95,6 @@ class Presto < Formula
 
   test do
     system bin/"presto-server", "run", "--help"
-    assert_equal "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
+    assert_match "Presto CLI #{version}", shell_output("#{bin}/presto --version").chomp
   end
 end
