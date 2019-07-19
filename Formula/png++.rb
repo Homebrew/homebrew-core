@@ -7,9 +7,9 @@ class Pngxx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa03e888c8eff093815be8b459671194c292af6bfbc247210c42aed349b142f5" => :mojave
-    sha256 "fa03e888c8eff093815be8b459671194c292af6bfbc247210c42aed349b142f5" => :high_sierra
-    sha256 "bed85536ebfec14b98b056e874d116527f154eff2b77024aee52fc407d66791f" => :sierra
+    sha256 "5226334e7e4140d95289b8a56d6c5f9c1eb92f499889fc36f79d14b41528d466" => :mojave
+    sha256 "5226334e7e4140d95289b8a56d6c5f9c1eb92f499889fc36f79d14b41528d466" => :high_sierra
+    sha256 "8e47f0497587c61a45e78c0e75345304bc860ba56e1a272f87b2e1017dc87eef" => :sierra
   end
 
   depends_on "libpng"
