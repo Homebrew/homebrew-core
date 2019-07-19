@@ -1,8 +1,8 @@
 class Flawfinder < Formula
   desc "Examines code and reports possible security weaknesses"
   homepage "https://www.dwheeler.com/flawfinder/"
-  url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.6.tar.gz"
-  sha256 "d33caeb94fc7ab80b75d2a7a871cb6e3f70e50fb835984e8b4d56e19ede143fc"
+  url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.10.tar.gz"
+  sha256 "f1dcb1ec3e35685e46a8512137b8062daa1d0327900177998a405feab608adeb"
   head "https://git.code.sf.net/p/flawfinder/code.git"
 
   bottle do
