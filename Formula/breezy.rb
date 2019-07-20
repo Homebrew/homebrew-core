@@ -3,8 +3,8 @@ class Breezy < Formula
 
   desc "Version control system implemented in Python with multi-format support"
   homepage "https://www.breezy-vcs.org"
-  url "https://files.pythonhosted.org/packages/f6/8a/f5aab26e6769907afda49a79e19dfa187a9f84797d9147ee6e35b52d97b9/breezy-3.0.0.tar.gz"
-  sha256 "d5723a7a3fcaa827bf2731c20df5240d7063c7728b2db3a5d58bc90f6257f878"
+  url "https://files.pythonhosted.org/packages/40/1d/b653f9646b738a47d8e61bcd5a2509fdd874484c5ea141f900de973bb2b4/breezy-3.0.1.tar.gz"
+  sha256 "a118276a1eb8948f30c3f043f7e7a1c20d4e8bb1e0044005d524e0a53f3ca3cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,8 +23,8 @@ class Breezy < Formula
   end
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/f0/f8/7f406aac4c6919d5a4ce16509bbe059cd256e9ad94bae5ccac14094b7c51/Cython-0.29.1.tar.gz"
-    sha256 "18ab7646985a97e02cee72e1ddba2e732d4931d4e1732494ff30c5aa084bfb97"
+    url "https://files.pythonhosted.org/packages/5b/5b/6cba7123a089c4174f944dd05ea7984c8d908aba8746a99f2340dde8662f/Cython-0.29.12.tar.gz"
+    sha256 "20da832a5e9a8e93d1e1eb64650258956723940968eb585506531719b55b804f"
   end
 
   resource "dulwich" do
@@ -33,8 +33,8 @@ class Breezy < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/a4/57/86681372e7a8d642718cadeef38ead1c24c4a1af21ae852642bf974e37c7/paramiko-2.4.2.tar.gz"
-    sha256 "a8975a7df3560c9f1e2b43dc54ebd40fd00a7017392ca5445ce7df409f900fcb"
+    url "https://files.pythonhosted.org/packages/54/68/dde7919279d4ecdd1607a7eb425a2874ccd49a73a5a71f8aa4f0102d3eb8/paramiko-2.6.0.tar.gz"
+    sha256 "f4b2edfa0d226b70bd4ca31ea7e389325990283da23465d572ed1f70a7583041"
   end
 
   resource "pycrypto" do
@@ -48,8 +48,8 @@ class Breezy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
+    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
   end
 
   def install
