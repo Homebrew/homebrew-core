@@ -18,8 +18,8 @@ class Mesos < Formula
   depends_on "python@2"
   depends_on "subversion"
 
-  conflicts_with "nanopb-generator",
-    :because => "they depend on an incompatible version of protobuf"
+  conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
+  conflicts_with "rapidjson", :because => "mesos installs a copy of rapidjson headers"
 
   if DevelopmentTools.clang_build_version >= 802 # does not affect < Xcode 8.3
     # _scheduler.so segfault when Mesos is built with Xcode 8.3.2
