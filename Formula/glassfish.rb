@@ -1,7 +1,7 @@
 class Glassfish < Formula
   desc "Open Source Jakarta EE Platform Implementation"
   homepage "https://eclipse-ee4j.github.io/glassfish/"
-  url "https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip&mirror_id=518"i
+  url "https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip&mirror_id=518"
   sha256 "26f3fa6463d24c5ed3956e4cab24a97e834ca37d7a23d341aadaa78d9e0093ce"
 
   bottle :unneeded
