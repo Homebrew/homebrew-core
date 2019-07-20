@@ -9,7 +9,7 @@ class Pokerstove < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "-DCMAKE_BUILD_TYPE=Release", ".."
+      system "cmake", "..", *std_cmake_args
       system "make"
       bin.install "bin/ps-eval"
       bin.install "bin/ps-lut"
