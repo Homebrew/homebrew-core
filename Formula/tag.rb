@@ -8,9 +8,9 @@ class Tag < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f471e0448fd685efb6c6a3148089717925b8546ce93985d8d67ad0daabc7577" => :mojave
-    sha256 "22d6aa5d82d61f6e09cda52b11e404e95006a3103c0a44a71f7cb33a63f90df3" => :high_sierra
-    sha256 "1d0743d0202d7d1f1df2ce2eeeb635e6c5554d0e313e51ea92798d6522f99467" => :sierra
+    sha256 "ee5dbe68476b6ae900b92486f3dc3c7a9755296c1fee54a75cd64c7d6af66763" => :mojave
+    sha256 "5801c9fac7b1a4bad52f02fd8a09b64050ebc52515bd96115153c7049bd4619f" => :high_sierra
+    sha256 "5711ce58bd5b224252f1869f84f937c6bca0775bf4c86a6a1168418c1218dc98" => :sierra
   end
 
   def install
