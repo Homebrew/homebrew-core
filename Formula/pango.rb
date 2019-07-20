@@ -3,7 +3,7 @@ class Pango < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.4.tar.xz"
   sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "00b769ae7c76db06f9828398023c60597b11f33410b9f5b7c3f321b34fb7e0a9" => :mojave
@@ -27,6 +27,12 @@ class Pango < Formula
   depends_on "fribidi"
   depends_on "glib"
   depends_on "harfbuzz"
+
+  # Remove once Pango 1.44 is released, https://gitlab.gnome.org/GNOME/pango/merge_requests/54
+  patch do
+    url "https://gitlab.gnome.org/GNOME/pango/commit/589af368.diff"
+    sha256 "5a7ee3ae8915637d0c9a694e5d3045cec75f475c7e603ce800a8ec602665278f"
+  end
 
   def install
     system "./autogen.sh" if build.head?
