@@ -7,6 +7,13 @@ class AwsGoogleAuth < Formula
   sha256 "5d35d08620662d22c6097d23930a79c04440ade1b41ad77973a1cf7d6b339a6d"
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
+  bottle do
+    cellar :any
+    sha256 "c8eafe67f3c87662ce666662034f60e33d097a73db4690956c9dc5fed2c2ccc9" => :mojave
+    sha256 "1b469bad767410e68273f05f772bd650fea973b8ef903cd613f1d17a36751496" => :high_sierra
+    sha256 "d8ac70bdf567756ff67d25dbbc2e411f4375bffb1cd814e8c9da3ad3169caa11" => :sierra
+  end
+
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "python"
