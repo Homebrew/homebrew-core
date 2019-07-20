@@ -3,8 +3,8 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://github.com/usit-gd/zabbix-cli/"
-  url "https://github.com/usit-gd/zabbix-cli/archive/2.0.1.tar.gz"
-  sha256 "237e4ec82f8e070ebd69d6f2df6cecd086663320c67e7afbab39ebb6460ea132"
+  url "https://github.com/usit-gd/zabbix-cli/archive/2.1.1.tar.gz"
+  sha256 "1f58b1374dc9e2711bab5d78740ab17fa81dc89aca14e7ea75c10631e6e81227"
   head "https://github.com/usit-gd/zabbix-cli.git"
 
   bottle do
