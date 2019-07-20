@@ -1,8 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.2.1.tar.gz"
-  sha256 "c073e391e681625eb8c7f308a5940435f8e2ec53f615b4e259625024e270dc5c"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.0.tar.gz"
+  sha256 "f9f1a0de7df51094b9edab03de88f3370a2821a48d74a274f781642db5497a0a"
 
   bottle do
     cellar :any
@@ -11,6 +11,7 @@ class Dnsperf < Formula
     sha256 "0a41577c6848154de2562bd8a78c88a018a8279feb517a7c67139b1d6c2f2c1d" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "bind"
   depends_on "libxml2"
 
