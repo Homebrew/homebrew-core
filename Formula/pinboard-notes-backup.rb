@@ -5,8 +5,8 @@ class PinboardNotesBackup < Formula
 
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.4.tar.gz"
-  sha256 "f402418a005a8c7e4ba980ded37ed35530edd896a0f57a8c50cc39add7432704"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.4.1.tar.gz"
+  sha256 "c21d87f19bba59bb51ff7f7715a33a4a33ced20971f4881fd371ab3070a4b106"
   head "https://github.com/bdesham/pinboard-notes-backup.git"
 
   bottle do
@@ -18,12 +18,10 @@ class PinboardNotesBackup < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "pandoc" => :build
 
   def install
     install_cabal_package
-    system "./make_man_page"
-    man1.install "pnbackup.1"
+    man1.install "man/pnbackup.1"
   end
 
   # A real test would require hard-coding someone's Pinboard API key here
