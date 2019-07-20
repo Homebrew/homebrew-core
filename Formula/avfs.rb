@@ -5,9 +5,9 @@ class Avfs < Formula
   sha256 "a7f3734f5be1a76aab710fb49a004b60bb802ccbd32394a731b18ed6011333a7"
 
   bottle do
-    sha256 "f7b1f3a2a166a4418f6f27707dae144391f6ee2db5fe6029a2369d8de6d2093d" => :mojave
-    sha256 "782ac0bc73deff3843c7af2b05e4b82cd99c8062c41014100ca1b2d56a5f5b53" => :high_sierra
-    sha256 "810afba90280d2aaef31560b9d0776cce882fc549e9c0575ba9777bd626687b7" => :sierra
+    sha256 "3aa296ad227248a43fcb7723c0f5c9779662ee3abc8b1e6477c0271a1e50c6fe" => :mojave
+    sha256 "bcde7798b2fff699e68237479e4a106323becee2028d47080e82f0769b792120" => :high_sierra
+    sha256 "bed10bc8e692380a485c14719e42dc6ba386cc756acb471f7b5e65a3428f0d68" => :sierra
   end
 
   depends_on "pkg-config" => :build
