@@ -1,8 +1,8 @@
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
   homepage "https://www.uni-due.de/~be0001/subnetcalc/"
-  url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.9.tar.gz"
-  sha256 "dce27b53857625fdec0409b6534f89eb573d19cc2928ef6d81845902a759cbe9"
+  url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.11.tar.gz"
+  sha256 "19f18676c2e1f4559061f48e2f3378d8aad3f095822ad26e0e809ee46e684974"
   head "https://github.com/dreibh/subnetcalc.git"
 
   bottle do
