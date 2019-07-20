@@ -1,9 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://www.itk.org/"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.13/InsightToolkit-4.13.2.tar.gz"
-  sha256 "d8760b279de20497c432e7cdf97ed349277da1ae435be1f6f0f00fbe8d4938c1"
-  revision 1
+  url "https://downloads.sourceforge.net/project/itk/itk/5.0/InsightToolkit-5.0.0.tar.gz"
+  sha256 "6ef73c8972e775632e4022a3a3158eacd039f095bb660d235b0affb9a9282b38"
   head "https://itk.org/ITK.git"
 
   bottle do
@@ -20,13 +19,6 @@ class Itk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "vtk"
-
-  # Patch needed to install MINC's cmake files into #{lib}/cmake not #{lib}
-  # PR Submitted to ITK upstream: https://github.com/InsightSoftwareConsortium/ITK/pull/754
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/itk/4.13.2-MINC-cmake-files-location.patch"
-    sha256 "7ec6a55e83109332d636298e7339793ec338969211533467ff0fbfb7c1c27883"
-  end
 
   def install
     args = std_cmake_args + %W[
