@@ -1,8 +1,8 @@
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avf/avfs/1.0.6/avfs-1.0.6.tar.bz2"
-  sha256 "4c1a3a776a01ce7a5b74d66c955269162304edd8c18489fb2186ef728f4be3c3"
+  url "https://downloads.sourceforge.net/project/avf/avfs/1.1.0/avfs-1.1.0.tar.bz2"
+  sha256 "a7f3734f5be1a76aab710fb49a004b60bb802ccbd32394a731b18ed6011333a7"
 
   bottle do
     sha256 "f7b1f3a2a166a4418f6f27707dae144391f6ee2db5fe6029a2369d8de6d2093d" => :mojave
@@ -15,10 +15,6 @@ class Avfs < Formula
   depends_on "openssl"
   depends_on :osxfuse
   depends_on "xz"
-
-  # Fix scripts to work on Mac OS X.
-  # Nothing the patch fixes has been changed in 1.0.2, so still necessary.
-  patch :DATA
 
   def install
     args = %W[
@@ -39,36 +35,3 @@ class Avfs < Formula
     system bin/"avfsd", "--version"
   end
 end
-
-__END__
-diff --git i/scripts/mountavfs w/scripts/mountavfs
-index 5722dcd..a35e633 100755
---- i/scripts/mountavfs
-+++ w/scripts/mountavfs
-@@ -14,7 +14,7 @@ else
-     MntDir=${HOME}/.avfs
- fi
-
--grep -qE "avfsd ${MntDir}" /proc/mounts || {
-+grep -qE "avfsd.*${MntDir}" < <(mount) || {
-    if [ ! -e "$MntDir" ]; then
-       mkdir -p "$MntDir"
-    fi
-diff --git i/scripts/umountavfs w/scripts/umountavfs
-index 09dc629..a242c21 100644
---- i/scripts/umountavfs
-+++ w/scripts/umountavfs
-@@ -14,11 +14,11 @@ else
-     MntDir="${HOME}/.avfs"
- fi
-
--grep -qE "${MntDir}.*avfsd" /proc/mounts && {
-+grep -qE "avfsd.*${MntDir}" < <(mount) && {
-    echo unMounting AVFS on $MntDir...
-    if type -p fusermount > /dev/null 2>&1 ; then
-       fusermount -u -z "$MntDir"
-    else
--      umount -l "$MntDir"
-+      umount "$MntDir"
-    fi
- }
