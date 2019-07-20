@@ -1,8 +1,8 @@
 class Vttest < Formula
   desc "Test compatibility of VT100-compatible terminals"
   homepage "https://invisible-island.net/vttest/"
-  url "https://invisible-mirror.net/archives/vttest/vttest-20140305.tgz"
-  sha256 "0168aa34061d4470a68b0dd0781a2a9e2bbfb1493e540c99f615b867a11cbf83"
+  url "https://invisible-mirror.net/archives/vttest/vttest-20190710.tgz"
+  sha256 "048b4078003c588ad2ee3202468576df7dee16914df0f663fc6dd5bb49526303"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,6 +21,6 @@ class Vttest < Formula
   end
 
   test do
-    assert_predicate bin/"vttest", :exist?
+    assert_match version.to_s, shell_output(bin/"vttest -V")
   end
 end
