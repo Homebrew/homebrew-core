@@ -3,6 +3,7 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.10.tar.xz"
   sha256 "35a8f107e2b90fda217f014c0c15cb20a6a66678f6fd7e36556d469372c01b03"
+  revision 1
 
   bottle do
     sha256 "dc8c9676ce9cd2402af362425dd03d20c400058098d3f77d61420b4510d5d788" => :mojave
@@ -25,7 +26,16 @@ class Gtkx3 < Formula
   depends_on "pango"
 
   # submitted upstream as https://gitlab.gnome.org/GNOME/gtk/merge_requests/983
-  patch :DATA
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/commit/7331a764.diff"
+    sha256 "0ae9d4c08938ff28f99a0b432337d5966dea4f98e91356af88ddce6de63dde79"
+  end
+
+  # submitted upstream as https://gitlab.gnome.org/GNOME/gtk/merge_requests/1004
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/commit/fdcd0ec0.diff"
+    sha256 "9089a6dc047306eeb9162d532fb9f92b41aaa265040a3604457e99bd18a364be"
+  end
 
   def install
     args = %W[
@@ -119,28 +129,3 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/libgail-util/meson.build b/libgail-util/meson.build
-index 90fe93c..82c8aa1 100644
---- a/libgail-util/meson.build
-+++ b/libgail-util/meson.build
-@@ -28,4 +28,5 @@ libgailutil = shared_library('gailutil-3',
-                                '-DGTK_DISABLE_DEPRECATED',
-                              ] + common_cflags,
-                              link_args: gailutil_link_args,
-+                             darwin_versions: ['1', '1.0'],
-                              install: true)
-diff --git a/meson.build b/meson.build
-index c6f43d5..0f818ee 100644
---- a/meson.build
-+++ b/meson.build
-@@ -121,7 +121,8 @@ else
-   gail_library_version = '0.0.0'
- endif
-
--gtk_osxversions = [(100 * gtk_minor_version) + 1, '@0@.@1@.0'.format((100 * gtk_minor_version) + 1, gtk_micro_version)]
-+osx_current = gtk_binary_age - gtk_interface_age + 1
-+gtk_osxversions = [osx_current, '@0@.@1@.0'.format(osx_current, gtk_interface_age)]
-
- gtk_api_version = '@0@.0'.format(gtk_major_version)
