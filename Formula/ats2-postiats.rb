@@ -1,8 +1,8 @@
 class Ats2Postiats < Formula
   desc "Programming language with formal specification features"
   homepage "http://www.ats-lang.org/"
-  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.3.12/ATS2-Postiats-0.3.12.tgz"
-  sha256 "63eb02b225a11752745e8f08691140ed764288ab4ceda3710670cde24835b0d8"
+  url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.3.13/ATS2-Postiats-0.3.13.tgz"
+  sha256 "0056ff5bfa55c9b9831dce004e7b1b9e7a98d56a9d8ae49d827f9fd0ef823c23"
 
   bottle do
     cellar :any
