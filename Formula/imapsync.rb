@@ -78,6 +78,22 @@ class Imapsync < Formula
     sha256 "0786319d3a3a8bae5d727939244bf17e140b714f52734d5e9f627203e4cf3e3b"
   end
 
+  # Test dependencies
+  resource "Digest::HMAC_SHA1" do
+    url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Digest-HMAC-1.03.tar.gz"
+    sha256 "3bc72c6d3ff144d73aefb90e9a78d33612d58cf1cd1631ecfb8985ba96da4a59"
+  end
+
+  resource "IO::Socket::INET6" do
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz"
+    sha256 "85e020fa179284125fc1d08e60a9022af3ec1271077fe14b133c1785cdbf1ebb"
+  end
+
+  resource "Socket6" do
+    url "https://cpan.metacpan.org/authors/id/U/UM/UMEMOTO/Socket6-0.29.tar.gz"
+    sha256 "468915fa3a04dcf6574fc957eff495915e24569434970c91ee8e4e1459fc9114"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
