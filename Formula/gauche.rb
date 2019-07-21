@@ -5,9 +5,9 @@ class Gauche < Formula
   sha256 "3eb30d1051d8b48999fe46511c9f6983057735312c9832b7db13f9db140db74b"
 
   bottle do
-    sha256 "c04f0c743c998cd8c63483c9f4d47311e9df465144390dc8d6db266499f9aaf5" => :mojave
-    sha256 "7aa642136a7d5be56e21b2ffa424d0f0dbf09f1f4789733f2fd73bb551212ace" => :high_sierra
-    sha256 "9aa6541d4840bfcb1c5b62a4f66c2c9a071cbeb03d7913798dc6e86261ea29f6" => :sierra
+    sha256 "fec8c41780f5f89c39e772acc479816e95b29e7a2d0720a175339c1402d7d6a1" => :mojave
+    sha256 "602e9ee61ab977a245282184c1148d1bbbbd74b8298ece34a55143888299c0db" => :high_sierra
+    sha256 "50f5e28b01a2c73be91a0bd64a5069d0965901544186d41150b94ec736b1eadd" => :sierra
   end
 
   # Fix build on macOS (and other libressl-based systems).
