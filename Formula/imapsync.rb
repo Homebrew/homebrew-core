@@ -23,6 +23,11 @@ class Imapsync < Formula
     sha256 "ae19a0b58dc1b3cded9ba9cfb109288d8973d474c0b4bfd28b27cf60e8ca6ee4"
   end
 
+  resource "File::Tail" do
+    url "https://cpan.metacpan.org/authors/id/M/MG/MGRABNAR/File-Tail-1.3.tar.gz"
+    sha256 "26d09f81836e43eae40028d5283fe5620fe6fe6278bf3eb8eb600c48ec34afc7"
+  end
+
   resource "Authen::NTLM" do
     url "https://cpan.metacpan.org/authors/id/N/NB/NBEBOUT/NTLM-1.09.tar.gz"
     sha256 "c823e30cda76bc15636e584302c960e2b5eeef9517c2448f7454498893151f85"
