@@ -8,9 +8,9 @@ class Yapf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "67911f42c81041f0d536ca48fec3aaeacaed7dae99c62729c8eb6d35760a8c7e" => :mojave
-    sha256 "2c886ed4aafbd5052a3d1221c282de5c7a5aa927dd3ba5bed2bc3ec29ac8946b" => :high_sierra
-    sha256 "cc84f98a4cdfd183c2ba7b86ce21612e063d22d2574559474dfeaa64281f8d03" => :sierra
+    sha256 "c8de7e9be2a3c5c8a09501199d4beea2accbd5a62471a6def5495899b8facc33" => :mojave
+    sha256 "a819475f27f0182bfee9ae5c3a63fb60af1119c78fbea7509954fb1fe035986a" => :high_sierra
+    sha256 "c5be10b759aaa579aeafb7b6a0d941aced581d9ab5428198ea588f367c37809b" => :sierra
   end
 
   depends_on "python"
