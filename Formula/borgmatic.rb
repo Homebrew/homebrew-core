@@ -47,13 +47,6 @@ class Borgmatic < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    At runtime, borg must be accessible from your PATH.
-    You can install borg from Homebrew Cask:
-      brew cask install borgbackup
-  EOS
-  end
-
   test do
     borg = (testpath/"borg")
     config_path = testpath/"config.yml"
