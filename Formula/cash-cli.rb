@@ -3,8 +3,8 @@ require "language/node"
 class CashCli < Formula
   desc "Exchange Currency Rates using your terminal"
   homepage "https://github.com/xxczaki/cash-cli"
-  url "https://registry.npmjs.org/cash-cli/-/cash-cli-3.0.0.tgz"
-  sha256 "35990d2763a62bc08cb1f8c2aa0730b4463d41c84483cb40514ed418d3dc4283"
+  url "https://registry.npmjs.org/cash-cli/-/cash-cli-3.1.2.tgz"
+  sha256 "8c9875d60fc4d3b5cb1a9dda182b53c42b4ccb574f83317e51e9f608e1106fe3"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,6 +21,6 @@ class CashCli < Formula
   end
 
   test do
-    assert_match "Saved API key to", shell_output("#{bin}/cash --key foo")
+    assert_match "Saved API key to", shell_output("#{bin}/cash --key 11111111111111111111111111111111")
   end
 end
