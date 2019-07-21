@@ -1,8 +1,8 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2019-07-09.tar.xz"
-  sha256 "350c1cd9dd318ad75e15c9991121c80b85c2ef873716a8900f811554017cd564"
+  url "https://bellard.org/quickjs/quickjs-2019-07-21.tar.xz"
+  sha256 "a906bed24c57dc9501b84a5bb4514f7eac58db82b721116ec5abe868490e53cc"
 
   bottle do
     sha256 "989215f264fc3240904342524457b923da278d6edd53e8fb44dad1f370b4e64f" => :mojave
@@ -11,12 +11,12 @@ class Quickjs < Formula
   end
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "prefix=#{prefix}", "CONFIG_M32="
   end
 
   test do
-    output = shell_output("#{bin}/qjs -e 'console.log(\"hello\");'").strip
-    assert_equal "hello", output
+    output = shell_output("#{bin}/qjs --eval 'const js=\"JS\"; console.log(`Q${js}${(7 + 35)}`);'").strip
+    assert_match /^QJS42/, output
 
     path = testpath/"test.js"
     path.write "console.log('hello');"
