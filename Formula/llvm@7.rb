@@ -1,8 +1,8 @@
 class LlvmAT7 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://releases.llvm.org/7.0.1/llvm-7.0.1.src.tar.xz"
-  sha256 "a38dfc4db47102ec79dcc2aa61e93722c5f6f06f0a961073bd84b78fb949419b"
+  url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
+  sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
 
   bottle do
     cellar :any
@@ -25,43 +25,43 @@ class LlvmAT7 < Formula
   depends_on "libffi"
 
   resource "clang" do
-    url "https://releases.llvm.org/7.0.1/cfe-7.0.1.src.tar.xz"
-    sha256 "a45b62dde5d7d5fdcdfa876b0af92f164d434b06e9e89b5d0b1cbc65dfe3f418"
+    url "https://releases.llvm.org/7.1.0/cfe-7.1.0.src.tar.xz"
+    sha256 "e97dc472aae52197a4d5e0185eb8f9e04d7575d2dc2b12194ddc768e0f8a846d"
   end
 
   resource "clang-extra-tools" do
-    url "https://releases.llvm.org/7.0.1/clang-tools-extra-7.0.1.src.tar.xz"
-    sha256 "4c93c7d2bb07923a8b272da3ef7914438080aeb693725f4fc5c19cd0e2613bed"
+    url "https://releases.llvm.org/7.1.0/clang-tools-extra-7.1.0.src.tar.xz"
+    sha256 "1ce0042c48ecea839ce67b87e9739cf18e7a5c2b3b9a36d177d00979609b6451"
   end
 
   resource "compiler-rt" do
-    url "https://releases.llvm.org/7.0.1/compiler-rt-7.0.1.src.tar.xz"
-    sha256 "782edfc119ee172f169c91dd79f2c964fb6b248bd9b73523149030ed505bbe18"
+    url "https://releases.llvm.org/7.1.0/compiler-rt-7.1.0.src.tar.xz"
+    sha256 "057bdac0581215b5ceb39edfd5bbef9eb79578f16a8908349f3066251fba88d8"
   end
 
   resource "libcxx" do
-    url "https://releases.llvm.org/7.0.1/libcxx-7.0.1.src.tar.xz"
-    sha256 "020002618b319dc2a8ba1f2cba88b8cc6a209005ed8ad29f9de0c562c6ebb9f1"
+    url "https://releases.llvm.org/7.1.0/libcxx-7.1.0.src.tar.xz"
+    sha256 "4442b408eaea3c1e4aa2cf21da38aba9f0856b4b522b1c3d555c3251af62b04e"
   end
 
   resource "libunwind" do
-    url "https://releases.llvm.org/7.0.1/libunwind-7.0.1.src.tar.xz"
-    sha256 "89c852991dfd9279dbca9d5ac10b53c67ad7d0f54bbab7156e9f057a978b5912"
+    url "https://releases.llvm.org/7.1.0/libunwind-7.1.0.src.tar.xz"
+    sha256 "174a7fc9eb7422c8ea96993649be0f80ca5937f3fe000c40c3d15b1074d7ad0c"
   end
 
   resource "lld" do
-    url "https://releases.llvm.org/7.0.1/lld-7.0.1.src.tar.xz"
-    sha256 "8869aab2dd2d8e00d69943352d3166d159d7eae2615f66a684f4a0999fc74031"
+    url "https://releases.llvm.org/7.1.0/lld-7.1.0.src.tar.xz"
+    sha256 "a10f274a0a09408eaf9c088dec6fb2254f7d641221437763c94546cbfe595867"
   end
 
   resource "openmp" do
-    url "https://releases.llvm.org/7.0.1/openmp-7.0.1.src.tar.xz"
-    sha256 "bf16b78a678da67d68405214ec7ee59d86a15f599855806192a75dcfca9b0d0c"
+    url "https://releases.llvm.org/7.1.0/openmp-7.1.0.src.tar.xz"
+    sha256 "1ee73aa1eef4ef7f75c96b24bf02445440602064c0074891ca5344a63f1fe5b5"
   end
 
   resource "polly" do
-    url "https://releases.llvm.org/7.0.1/polly-7.0.1.src.tar.xz"
-    sha256 "1bf146842a09336b9c88d2d76c2d117484e5fad78786821718653d1a9d57fb71"
+    url "https://releases.llvm.org/7.1.0/polly-7.1.0.src.tar.xz"
+    sha256 "305454f72db5e30def3f48e2dc56ce62f9c52c3b9278b8f357a093a588b6139b"
   end
 
   def install
