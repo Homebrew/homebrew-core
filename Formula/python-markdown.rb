@@ -6,9 +6,9 @@ class PythonMarkdown < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "923867169d4ade0ee1db1ad297587fc5f8f2067c5cb1610ea96d2f50d9fe0025" => :mojave
-    sha256 "06ed36407b1575cfd06f0252bdf1d6985ed338491c9737803827a1a6cd3e5998" => :high_sierra
-    sha256 "06ed36407b1575cfd06f0252bdf1d6985ed338491c9737803827a1a6cd3e5998" => :sierra
+    sha256 "997125a0155bbebdc066d74272cfb4d7be2ebe1299204b1626db52d2a35ccd21" => :mojave
+    sha256 "997125a0155bbebdc066d74272cfb4d7be2ebe1299204b1626db52d2a35ccd21" => :high_sierra
+    sha256 "db626ba3ff3da1197a29fb621d15400790acf7e11d3adf9a5c022361f6554f3b" => :sierra
   end
 
   depends_on "python"
