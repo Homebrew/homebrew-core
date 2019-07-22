@@ -6,11 +6,9 @@ class OpenJtalk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f71eb4d92a5bba718ac8c7e7a16f54c65651819db3b17a99d5701cafa12e596c" => :mojave
-    sha256 "6acdf89723494c61c4118b157b283b2eb9579846b34b6168908132750a4f99c8" => :high_sierra
-    sha256 "a472664a3ab3edb6fe9198aeecfc8c4881cf62298c09eec9dce78ad04a591f5c" => :sierra
-    sha256 "1f688549f09842e4513ee93386e747fc5b819239a808c0b6de08e74f41619f37" => :el_capitan
-    sha256 "ebcd63c3814851c22a8e536791a8ece8fd7b77a9dd77856b0aec705eab82e0b0" => :yosemite
+    sha256 "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913" => :mojave
+    sha256 "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18" => :high_sierra
+    sha256 "b015d173b77980d0da3a8eedad02fdff95ac919c790917ba9cb197db91207235" => :sierra
   end
 
   resource "hts_engine API" do
