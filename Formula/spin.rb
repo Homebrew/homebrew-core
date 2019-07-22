@@ -6,9 +6,9 @@ class Spin < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc68606f55b50ce72635956696ef717dd0451f91c64fcae20d6cd346f3220871" => :mojave
-    sha256 "4748d5e21c7498ef2abfb5984980dee23ce7a3ff3130a6b13ffb9dffe1f75177" => :high_sierra
-    sha256 "e1fd8d4855d41b00b2495adddb07933c6c460776b854f85dbe790e75aebb6fb6" => :sierra
+    sha256 "92ea7a4b20e4d8409df68c717caddc537c0cfb578040f4eb6b48846e64aeef08" => :mojave
+    sha256 "ab5249a0e58f7ee677defc10bd187c6ef5ee3ddc5eb5cf0ba4747b222ccb7ed8" => :high_sierra
+    sha256 "82e328f8c23068ad8dc2f722cf6872e0dfab0e68eb1b10813f1aaa6d0c667caf" => :sierra
   end
 
   def install
