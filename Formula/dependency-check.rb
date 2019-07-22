@@ -1,8 +1,8 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://www.owasp.org/index.php/OWASP_Dependency_Check"
-  url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.1.1-release.zip"
-  sha256 "a914dca1a17bed0cc45b5665dab1f344cf34df7a9a1b006c42c4fb9a1fb6c702"
+  url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.2.0-release.zip"
+  sha256 "1dd2523e83bd4309f2181cba6d28ad9f1833da517a8aaeb2a9b4463ff95de720"
 
   bottle :unneeded
 
@@ -22,7 +22,7 @@ class DependencyCheck < Formula
 
     (etc/"dependencycheck").mkpath
     jar = "dependency-check-core-#{version}.jar"
-    corejar = libexec/"repo/org/owasp/dependency-check-core/#{version}/#{jar}"
+    corejar = libexec/"lib/#{jar}"
     system "unzip", "-o", corejar, "dependencycheck.properties", "-d", libexec/"etc"
     (etc/"dependencycheck").install_symlink libexec/"etc/dependencycheck.properties"
   end
