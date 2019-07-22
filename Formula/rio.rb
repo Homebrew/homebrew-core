@@ -26,6 +26,6 @@ class Rio < Formula
     assert_match "rio version v#{version}", version_output
 
     run_output = shell_output("env KUBECONFIG=#{testpath}/non-existing-kubecfg #{bin}/rio install 2>&1", 1)
-    assert_match "can't contact Kubernetes cluster. Please make sure your cluster is accessable", run_output
+    assert_match "Get http://localhost:8080/api/v1/nodes: dial tcp [::1]:8080: connect: connection refuse", run_output
   end
 end
