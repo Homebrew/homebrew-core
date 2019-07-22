@@ -1,9 +1,8 @@
 class OpenJtalk < Formula
   desc "Japanese text-to-speech system"
   homepage "https://open-jtalk.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.10/open_jtalk-1.10.tar.gz"
-  sha256 "5b77ee729e546ca6a22d0b08cda0923fb4225fa782b26c2511b66cc644c14b7d"
-  revision 1
+  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.11/open_jtalk-1.11.tar.gz"
+  sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,8 +24,8 @@ class OpenJtalk < Formula
   end
 
   resource "mei" do
-    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.7/MMDAgent_Example-1.7.zip"
-    sha256 "5b560e8c23c5acaf67688e6e25788db2c0bb230aff0635b7c75a82a87c7f6dba"
+    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.8/MMDAgent_Example-1.8.zip"
+    sha256 "f702f2109a07dca103c7b9a5123a25c6dda038f0d7fcc899ff0281d07e873a63"
   end
 
   def install
@@ -39,12 +38,6 @@ class OpenJtalk < Formula
                           "--with-hts-engine-library-path=#{lib}",
                           "--with-charset=UTF-8",
                           "--prefix=#{prefix}"
-
-    if MacOS.version == :mavericks
-      inreplace "config.status", "-finput-charset=UTF-8 -fexec-charset=UTF-8", ""
-      # https://sourceforge.net/p/open-jtalk/mailman/message/33404251/
-    end
-
     system "make", "install"
 
     resource("voice").stage do
