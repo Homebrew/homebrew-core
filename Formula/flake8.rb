@@ -3,8 +3,8 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.7/flake8-3.7.7.tar.bz2"
-  sha256 "536b9bda5101ab0604217ce9846828ab6b24e958bc23e9b52abeb531fa47a73a"
+  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.8/flake8-3.7.8.tar.bz2"
+  sha256 "c379edcba8b53cc119ac782ecb75c35571bfa440248821a1e1a8b012b289c43c"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
@@ -32,8 +32,8 @@ class Flake8 < Formula
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/48/6d/7bfd617b21292397e10e24af4cf42947a359b0c425b66f194cf5d14b1444/pyflakes-2.1.0.tar.gz"
-    sha256 "5e8c00e30c464c99e0b501dc160b13a14af7f27d4dffb529c556e30a159e231d"
+    url "https://files.pythonhosted.org/packages/52/64/87303747635c2988fcaef18af54bfdec925b6ea3b80bcd28aaca5ba41c9e/pyflakes-2.1.1.tar.gz"
+    sha256 "d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"
   end
 
   def install
@@ -53,7 +53,7 @@ class Flake8 < Formula
 
   test do
     xy = Language::Python.major_minor_version "python3"
-    # flake8 version 3.6.0 will fail this test with `E203` warnings.
+    # flake8 version 3.7.8 will fail this test with `E203` warnings.
     # Adding `E203` to the list of ignores makes the test pass.
     # Remove the customized ignore list once the problem is fixed upstream.
     system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
