@@ -1,9 +1,8 @@
 class Spin < Formula
   desc "The efficient verification tool of multi-threaded software"
   homepage "https://spinroot.com/spin/whatispin.html"
-  url "https://spinroot.com/spin/Src/spin649.tar.gz"
-  version "6.4.9"
-  sha256 "94eee2e854dc07b4e74f8e810ea3ff798678e8180db3c8df25d73a8fc7e4671d"
+  url "https://github.com/nimble-code/Spin/archive/version-6.5.0.tar.gz"
+  sha256 "7bd764793621940b7e69eef8210c82c75ccee7745f24927f221d228260505333"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,14 +12,11 @@ class Spin < Formula
   end
 
   def install
-    ENV.deparallelize
-
-    cd "Src#{version}" do
+    cd "Src" do
       system "make"
       bin.install "spin"
     end
 
-    bin.install "iSpin/ispin.tcl" => "ispin"
     man1.install "Man/spin.1"
   end
 
