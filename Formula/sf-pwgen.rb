@@ -1,8 +1,8 @@
 class SfPwgen < Formula
   desc "Generate passwords using SecurityFoundation framework"
   homepage "https://github.com/anders/pwgen/"
-  url "https://github.com/anders/pwgen/archive/v1.4.tar.gz"
-  sha256 "1f4c7f514426305be2e1b893a586310d579e500e033938800afd2c98fedb84d9"
+  url "https://github.com/anders/pwgen/archive/1.5.tar.gz"
+  sha256 "e1f1d575638f216c82c2d1e9b52181d1d43fd05e7169db1d6f9f5d8a2247b475"
   head "https://github.com/anders/pwgen.git"
 
   bottle do
