@@ -1,8 +1,8 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/7.1/OpenMesh-7.1.tar.bz2"
-  sha256 "71cd5eb25893b0369ac766bb8305a525ffbb39b7f796d2878c7f9b8e0827cbac"
+  url "https://www.openmesh.org/media/Releases/8.0/OpenMesh-8.0.tar.bz2"
+  sha256 "f3311232d3611847c523bd4792ce8700f7ec81e9e1ff2a4bdda18eac70577d33"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
@@ -67,6 +67,7 @@ class OpenMesh < Formula
       -L#{lib}
       -lOpenMeshCore
       -lOpenMeshTools
+      --std=c++11
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
