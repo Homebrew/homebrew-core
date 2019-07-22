@@ -5,9 +5,10 @@ class Ser2net < Formula
   sha256 "02f5dd0abbef5a17b80836b0de1ef0588e257106fb5e269b86822bfd001dc862"
 
   bottle do
-    sha256 "36da05b58e05873eec72b04da6bb5e719d26814d8820927bc8684ac680f67587" => :mojave
-    sha256 "4533ef4f7200f9fe786332af987740b6db93e9e24b298b32909d9387eb168b3a" => :high_sierra
-    sha256 "e14422b545c872c363edc5618c61a2d5772838c54d521c3b2688ac88ed2596d0" => :sierra
+    cellar :any_skip_relocation
+    sha256 "83435a03046d3e3db9461ae4dcf9357f6809290bf91560f2f3d722cac22ee6ce" => :mojave
+    sha256 "9be8a962e23275a1400a60f94b5e98fc311cf9c917320b5c03d13edcebe40f67" => :high_sierra
+    sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
   end
 
   depends_on :macos => :sierra # needs clock_gettime
