@@ -1,8 +1,8 @@
 class Vitetris < Formula
   desc "Terminal-based Tetris clone"
   homepage "https://www.victornils.net/tetris/"
-  url "https://www.victornils.net/tetris/vitetris-0.57.tar.gz"
-  sha256 "0c9fa6c8b16e2f8968f65e16a87f1bcd39b827d510c6efb0771f0400ab91cdc2"
+  url "https://github.com/vicgeralds/vitetris/archive/v0.58.0.tar.gz"
+  sha256 "e7e7cb74bb814b9fec80fe4ede3c3f04134d8217d630e092a097238248d604f9"
 
   bottle do
     cellar :any_skip_relocation
