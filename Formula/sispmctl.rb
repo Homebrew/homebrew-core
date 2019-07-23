@@ -5,10 +5,9 @@ class Sispmctl < Formula
   sha256 "bf5177e085cb0168e18e4cfb69645c3095da149ed46f5659d6e757bde3548e40"
 
   bottle do
-    sha256 "cec81af9b77fc4c08d7530aac3aea21f0dcf85ae192428803815c80dc3b30e3a" => :mojave
-    sha256 "3ad48ee1db3c177b4f93bedfa6163b0dafa96cfb1b1f349dc5d9682e78d67d98" => :high_sierra
-    sha256 "c4e130a2484f40a4803e1eccac3c0411fde2c881b64a0220a60dede14bf9fdf7" => :sierra
-    sha256 "4082f505586a99a70dc76516e505ca83d15d794a7c87a87629089d1c50ca44b9" => :el_capitan
+    sha256 "a0e38f978bac7b89863fa074e677a98201de43873640ec84e75d79fe09d82d3e" => :mojave
+    sha256 "8c6cd9f2630f34134abe1e2818a3c3d84562fcd08572b7657dd30cf47baadb2c" => :high_sierra
+    sha256 "03fac970edbcefa83cd75573a1c82a8d4b1dbd9d531c56aa6ad5367f80057e21" => :sierra
   end
 
   depends_on "pkg-config" => :build
