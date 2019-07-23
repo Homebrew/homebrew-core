@@ -19,8 +19,7 @@ class Crush < Formula
     doc.install [ "copyright", "license.txt" ]
 
     # Delete files installed elsewhere from #{pkgshare}
-    pkgshare.rm_rf [ "Install", "Documentation" ]
-	pkgshare.rm_f [ "copyright", "license" ]
+    system "rm", "-rf", "Install", "Documentation", "copyright", "license"
 
     # Copy the rest of the distro into its final location in #{prefix}/share/crush
     pkgshare.install Dir["*"]
