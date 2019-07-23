@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.05.7.tar.gz"
-  sha256 "06da51b6032dd5941b6ef09f8d7705f7c0a14b8dc7d0065f571369df9c339b7a"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.07.0.tar.gz"
+  sha256 "16237f22cf76ecb9159e536bbb121e89ac5ad043843a5f32aaac74f0b409c658"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
@@ -34,6 +34,6 @@ class Wxmaxima < Formula
   end
 
   test do
-    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1", 255)
+    assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1")
   end
 end
