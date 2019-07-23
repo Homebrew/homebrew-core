@@ -3,8 +3,8 @@ class Remarshal < Formula
 
   desc "Convert between TOML, YAML and JSON"
   homepage "https://github.com/dbohdan/remarshal"
-  url "https://github.com/dbohdan/remarshal/archive/v0.10.0.tar.gz"
-  sha256 "7566a6426859785dd3b9fd276d281a67ecc8b09088b0affc1b128fe8c58302c2"
+  url "https://github.com/dbohdan/remarshal/archive/v0.11.2.tar.gz"
+  sha256 "3f383e48f59722a4d93ef2b5e417b6a8c152f382a1faad416099ffcde5c87a66"
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
@@ -22,8 +22,8 @@ class Remarshal < Formula
   end
 
   resource "pytoml" do
-    url "https://files.pythonhosted.org/packages/35/35/da1123673c54b6d701453fcd20f751d6a1fae43339b3993ae458875576e4/pytoml-0.1.20.tar.gz"
-    sha256 "ca2d0cb127c938b8b76a9a0d0f855cf930c1d50cc3a0af6d3595b566519a1013"
+    url "https://files.pythonhosted.org/packages/f4/ba/98ee2054a2d7b8bebd367d442e089489250b6dc2aee558b000e961467212/pytoml-0.1.21.tar.gz"
+    sha256 "8eecf7c8d0adcff3b375b09fe403407aa9b645c499e5ab8cac670ac4a35f61e7"
   end
 
   resource "python-dateutil" do
@@ -36,10 +36,15 @@ class Remarshal < Formula
     sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
+  resource "u-msgpack-python" do
+    url "https://files.pythonhosted.org/packages/d4/6b/b2deb0763305a2de35c4d125bfede7b0e414b7c18fb43011b554b9ce1832/u-msgpack-python-2.5.1.tar.gz"
+    sha256 "6c02a0654a5e11f8fad532ed634109ed49cdc929f7b972848773e4e0ce52f30c"
+  end
+
   def install
     virtualenv_install_with_resources
 
-    ["toml", "yaml", "json"].permutation(2).each do |informat, outformat|
+    %w[toml yaml json msgpack].permutation(2).each do |informat, outformat|
       bin.install_symlink "remarshal" => "#{informat}2#{outformat}"
     end
   end
@@ -64,5 +69,6 @@ class Remarshal < Formula
     assert_equal toml, pipe_output("#{bin}/yaml2toml", yaml)
     assert_equal json, pipe_output("#{bin}/remarshal -if=toml -of=json", toml).chomp
     assert_equal json, pipe_output("#{bin}/toml2json", toml).chomp
+    assert_equal pipe_output("#{bin}/remarshal -if=yaml -of=msgpack", yaml), pipe_output("#{bin}/remarshal -if=json -of=msgpack", json)
   end
 end
