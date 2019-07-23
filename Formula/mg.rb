@@ -1,8 +1,9 @@
 class Mg < Formula
-  desc "Small Emacs-like editor from OpenBSD"
+  desc "Small Emacs-like editor"
   homepage "https://github.com/ibara/mg"
   url "https://github.com/ibara/mg/releases/download/mg-6.5/mg-6.5.tar.gz"
   sha256 "3e4bb4582c8d1a72fb798bc320a9eede04f41e7e72a1421193174b1a6fc43cd8"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
