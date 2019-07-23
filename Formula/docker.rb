@@ -4,6 +4,7 @@ class Docker < Formula
   url "https://github.com/docker/docker-ce.git",
       :tag      => "v19.03.0",
       :revision => "aeac9490dc54c1d48b3d7ae9a46f5a19b78dcd3a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,10 +22,10 @@ class Docker < Formula
     cd dir do
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
-      ldflags = ["-X \"github.com/docker/cli/cli.BuildTime=#{build_time}\"",
-                 "-X github.com/docker/cli/cli.GitCommit=#{commit}",
-                 "-X github.com/docker/cli/cli.Version=#{version}",
-                 "-X \"github.com/docker/cli/cli.PlatformName=Docker Engine - Community\""]
+      ldflags = ["-X \"github.com/docker/cli/cli/version.BuildTime=#{build_time}\"",
+                 "-X github.com/docker/cli/cli/version.GitCommit=#{commit}",
+                 "-X github.com/docker/cli/cli/version.Version=#{version}",
+                 "-X \"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\""]
       system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
              "github.com/docker/cli/cmd/docker"
 
@@ -35,6 +36,7 @@ class Docker < Formula
   end
 
   test do
-    system "#{bin}/docker", "--version"
+    assert_match "Docker version #{version}", shell_output("#{bin}/docker --version")
+    assert_match "ERROR: Cannot connect to the Docker daemon", shell_output("#{bin}/docker info", 1)
   end
 end
