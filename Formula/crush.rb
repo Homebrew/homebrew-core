@@ -4,6 +4,8 @@ class Crush < Formula
   url "https://github.com/attipaci/crush/releases/download/2.50-1/crush-2.50-1.tar.gz"
   sha256 "e5c95d0dd2fa99a865ae04d6fe8260070cd8507f1cdcce6ad14aef35fba7963f"
 
+  bottle :unneeded
+
   depends_on ":java" => "1.8+"		# Any formula providing a java >= 1.8.0
   depends_on "gnuplot" => :recommended
 
@@ -18,17 +20,17 @@ class Crush < Formula
 	doc.install "license.txt"
 
 	# Delete the installer files from #{prefix} (they are no longer needed)
-	system "rm", "-rf", "#{pkgshare}/Install"
+	pkgshare.rm_rf "Install"
 
 	# Delete the empty Documentation directory...
-	system "rm", "-rf", "#{pkgshare}/Documentation"
+	pkgshare.rm_rf "Documentation"
 
 	# Delete the duplicate license and copyright
-	system "rm", "-f", "#{pkgshare}/copyright"
-	system "rm", "-f", "#{pkgshare}/license.txt"
+	pkgshare.rm_rf "copyright"
+	pkgshare.rm_rf "license.txt"
 
 	# Copy the rest of the distro into its final location in #{prefix}/share/crush
-	pkgshare.install Dir["./*"]
+	pkgshare.install Dir["*"]
 
 	# Create symlinks to the executables in #{bin} 
 	bin.install_symlink "#{pkgshare}/crush"
@@ -42,9 +44,6 @@ class Crush < Formula
   end
 
   test do
-	assert_predicate "#{bin}/crush", :exist?
-	assert_predicate "#{bin}/imagetool", :exist?
-	assert_predicate "#{bin}/show", :exist?
 	system "#{bin}/crush"
   end
 end
