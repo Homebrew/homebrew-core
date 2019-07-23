@@ -6,9 +6,9 @@ class H3 < Formula
 
   bottle do
     cellar :any
-    sha256 "e9b15fa66f8e00bccc736e16d8826d892b8f063a22b4f843d77e9a414ac59fa9" => :mojave
-    sha256 "0ca81a5f775f7db015c8810f5ba41600ab750cce909dbb95a162fa66c75f6ce8" => :high_sierra
-    sha256 "96b45bc089d9a784575659704c06fa38f5bef322dca3f7528e2afbc20c9120c9" => :sierra
+    sha256 "d16ae178de9da08bafc054d99334ed906b0636a595ea825fb8d001bd24826e18" => :mojave
+    sha256 "a7b8019bd60ed630389e01a344e30ae21aec35ca39c8e734e78f5fdaf6b0a891" => :high_sierra
+    sha256 "b13a08358eba6b6c70056b16ab20823379af5bdb3bf23f5bac0ecbab1dabf13a" => :sierra
   end
 
   depends_on "cmake" => :build
