@@ -16,13 +16,19 @@ class Netdata < Formula
   depends_on "openssl" if MacOS.version <= :sierra
 
   def install
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
+                          "--libexecdir=#{libexec}",
+                          "--with-math",
+                          "--with-zlib",
+                          "--with-user=netdata",
                           "UUID_CFLAGS=-I/usr/include",
                           "UUID_LIBS=-lc"
+    system "make", "clean"
     system "make", "install"
 
     (etc/"netdata").install "system/netdata.conf"
