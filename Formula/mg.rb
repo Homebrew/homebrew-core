@@ -1,10 +1,9 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
-  # https://devio.us/~bcallah/mg/ is temporarily offline
   homepage "https://github.com/ibara/mg"
-  # https://devio.us/~bcallah/mg/mg-20180421.tar.gz is temporarily offline
-  url "https://dl.bintray.com/homebrew/mirror/mg-20180421.tar.gz"
-  sha256 "11215613a360cf72ff16c2b241ea4e71b4b80b2be32c62a770c1969599e663b2"
+  url "https://github.com/ibara/mg/releases/download/mg-6.5/mg-6.5.tar.gz"
+  sha256 "3e4bb4582c8d1a72fb798bc320a9eede04f41e7e72a1421193174b1a6fc43cd8"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +12,6 @@ class Mg < Formula
     sha256 "e8df146cd84a6d153066c1c5398fb0846dace0529d090dbb063624f46556fb00" => :sierra
     sha256 "f0ea843971bc8cdabbfdfbc663b7ef0d89c8b1d37b5eb303bfcebf83ff6d97a7" => :el_capitan
   end
-
-  depends_on :macos => :yosemite # older versions don't support fstatat(2)
 
   def install
     system "./configure", "--prefix=#{prefix}",
