@@ -7,43 +7,35 @@ class Crush < Formula
   bottle :unneeded
 
   depends_on ":java" => "1.8+"		# Any formula providing a java >= 1.8.0
-  depends_on "gnuplot" => :recommended
+  #depends_on "gnuplot" => :recommended
 
   def install
-	# ENV.deparallelize  # if your formula fails when building in parallel
+    # ENV.deparallelize  # if your formula fails when building in parallel
 
-	# Install the various bits and pieces to their proper locations
-	share.install Dir["Install/posix/share/*"]
-	man.install Dir["Install/posix/man/*"]
-	doc.install Dir["Documentation/*"]
-	doc.install "copyright"
-	doc.install "license.txt"
+    # Install the various bits and pieces to their proper locations
+    share.install Dir["Install/posix/share/*"]
+    man.install Dir["Install/posix/man/*"]
+    doc.install Dir["Documentation/*"]
+    doc.install [ "copyright", "license.txt" ]
 
-	# Delete the installer files from #{prefix} (they are no longer needed)
-	pkgshare.rm_rf "Install"
+    # Delete files installed elsewhere from #{pkgshare}
+    pkgshare.rm_rf [ "Install", "Documentation", "copyright", "license" ]
 
-	# Delete the empty Documentation directory...
-	pkgshare.rm_rf "Documentation"
+    # Copy the rest of the distro into its final location in #{prefix}/share/crush
+    pkgshare.install Dir["*"]
 
-	# Delete the duplicate license and copyright
-	pkgshare.rm_rf "copyright"
-	pkgshare.rm_rf "license.txt"
-
-	# Copy the rest of the distro into its final location in #{prefix}/share/crush
-	pkgshare.install Dir["*"]
-
-	# Create symlinks to the executables in #{bin} 
-	bin.install_symlink "#{pkgshare}/crush"
-	bin.install_symlink "#{pkgshare}/coadd"
-	bin.install_symlink "#{pkgshare}/detect"
-	bin.install_symlink "#{pkgshare}/esorename"
-	bin.install_symlink "#{pkgshare}/histogram"
-	bin.install_symlink "#{pkgshare}/difftool"
-	bin.install_symlink "#{pkgshare}/imagetool"
-	bin.install_symlink "#{pkgshare}/show"
+    # Create symlinks to the executables in #{bin} 
+    bin.install_symlink "#{pkgshare}/crush"
+    bin.install_symlink "#{pkgshare}/coadd"
+    bin.install_symlink "#{pkgshare}/detect"
+    bin.install_symlink "#{pkgshare}/esorename"
+    bin.install_symlink "#{pkgshare}/histogram"
+    bin.install_symlink "#{pkgshare}/difftool"
+    bin.install_symlink "#{pkgshare}/imagetool"
+    bin.install_symlink "#{pkgshare}/show"
   end
 
   test do
-	system "#{bin}/crush"
+    system "#{bin}/crush"
   end
 end
