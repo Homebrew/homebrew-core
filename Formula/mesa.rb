@@ -2,8 +2,8 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.1.2.tar.xz"
-  sha256 "813a144ea8ebefb7b48b6733f3f603855b0f61268d86cc1cc26a6b4be908fcfd"
+  url "https://mesa.freedesktop.org/archive/mesa-19.1.3.tar.xz"
+  sha256 "845460b2225d15c15d4a9743dec798ff0b7396b533011d43e774e67f7825b7e0"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
