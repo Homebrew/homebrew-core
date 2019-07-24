@@ -1,8 +1,8 @@
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
   homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.2/libmaa-1.4.2.tar.gz"
-  sha256 "63de331c97a40efe8b64534fee4b7b7df161645b92636572ad248b0f13abc0db"
+  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.4/libmaa-1.4.4.tar.gz"
+  sha256 "fbd739e8467c4b7213594b172cfe3059443127313f8365224aa9c269498869e2"
 
   bottle do
     cellar :any
@@ -16,9 +16,93 @@ class Libmaa < Formula
   depends_on "mk-configure" => :build
 
   def install
-    # not parallel safe, errors surrounding generated arggram.c
-    # https://github.com/cheusov/libmaa/issues/2
-    ENV.deparallelize
     system "mkcmake", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      /* basetest.c -- Test base64 and base26 numbers
+       * Created: Sun Nov 10 11:51:11 1996 by faith@dict.org
+       * Copyright 1996, 2002 Rickard E. Faith (faith@dict.org)
+       * Copyright 2002-2008 Aleksey Cheusov (vle@gmx.net)
+       *
+       * Permission is hereby granted, free of charge, to any person obtaining
+       * a copy of this software and associated documentation files (the
+       * "Software"), to deal in the Software without restriction, including
+       * without limitation the rights to use, copy, modify, merge, publish,
+       * distribute, sublicense, and/or sell copies of the Software, and to
+       * permit persons to whom the Software is furnished to do so, subject to
+       * the following conditions:
+       *
+       * The above copyright notice and this permission notice shall be
+       * included in all copies or substantial portions of the Software.
+       *
+       * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+       * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+       * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+       * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+       * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+       * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+       * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+       *
+       */
+
+      #include <maa.h>
+
+      int main( int argc, char **argv )
+      {
+         long int   i;
+         const char *result;
+         long int   limit = 0xffff;
+
+         if (argc == 2) limit = strtol( argv[1], NULL, 0 );
+
+         for (i = 0; i < limit; i++) {
+            result = b26_encode( i );
+            if (i != b26_decode( result )) {
+         printf( "%s => %ld != %ld\\n", result, b26_decode( result ), i );
+            }
+            if (i < 100) {
+         result = b26_encode( 0 );
+         if (0 != b26_decode( result )) {
+            printf( "%s => %ld != %ld (cache problem)\\n",
+              result, b26_decode( result ), 0L );
+         }
+         result = b26_encode( i );
+         if (i != b26_decode( result )) {
+            printf( "%s => %ld != %ld (cache problem)\\n",
+              result, b64_decode( result ), i );
+         }
+            }
+            if (i < 10 || !(i % (limit/10)))
+         printf( "%ld = %s (base26)\\n", i, result );
+         }
+
+         for (i = 0; i < limit; i++) {
+            result = b64_encode( i );
+            if (i != b64_decode( result )) {
+         printf( "%s => %ld != %ld\\n", result, b64_decode( result ), i );
+            }
+            if (i < 100) {
+         result = b64_encode( 0 );
+         if (0 != b64_decode( result )) {
+            printf( "%s => %ld != %ld (cache problem)\\n",
+              result, b64_decode( result ), 0L );
+         }
+         result = b64_encode( i );
+         if (i != b64_decode( result )) {
+            printf( "%s => %ld != %ld (cache problem)\\n",
+              result, b64_decode( result ), i );
+         }
+            }
+            if (i < 10 || !(i % (limit/10)))
+         printf( "%ld = %s (base64)\\n", i, result );
+         }
+
+         return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmaa", "-o", "test"
+    system "./test"
   end
 end
