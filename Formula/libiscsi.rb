@@ -1,9 +1,8 @@
 class Libiscsi < Formula
   desc "Client library and utilities for iscsi"
   homepage "https://github.com/sahlberg/libiscsi"
-  url "https://sites.google.com/site/libiscsitarballs/libiscsitarballs/libiscsi-1.18.0.tar.gz"
-  sha256 "367ad1514d1640e4e72ca6754275ec226650a128ca108f61a86d766c94d63d23"
-  revision 1
+  url "https://github.com/sahlberg/libiscsi/archive/1.19.0.tar.gz"
+  sha256 "c7848ac722c8361d5064654bc6e926c2be61ef11dd3875020a63931836d806df"
   head "https://github.com/sahlberg/libiscsi.git"
 
   bottle do
@@ -28,7 +27,7 @@ class Libiscsi < Formula
   end
 
   test do
-    system bin/"iscsi-ls", "--usage"
+    system bin/"iscsi-ls", "--help"
     system bin/"iscsi-test-cu", "--list"
   end
 end
