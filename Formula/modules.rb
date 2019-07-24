@@ -1,8 +1,8 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.2.3/modules-4.2.3.tar.bz2"
-  sha256 "83a4afdd3784278cb86aa3fbf82bcda8fea46b12fae616d865cfe7e8d357e4ac"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.2.5/modules-4.2.5.tar.bz2"
+  sha256 "f9f898d489d18fb1a9637a15e7c036a75549b3a8b3716cd70c2dff1c80ef53c8"
 
   bottle do
     cellar :any_skip_relocation
