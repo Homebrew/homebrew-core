@@ -3,8 +3,8 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://github.com/lra/mackup/archive/0.8.24.tar.gz"
-  sha256 "2da9bdd60e0be3724d58c6874b573fe8f4ef5438cb209201607f093a016b73d5"
+  url "https://github.com/lra/mackup/archive/0.8.25.tar.gz"
+  sha256 "13e68bde2dee8033a292d820a724d42bcb9e0ba21a7844111a95b440d3b1903b"
   head "https://github.com/lra/mackup.git"
 
   bottle do
@@ -22,8 +22,8 @@ class Mackup < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install
