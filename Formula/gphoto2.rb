@@ -1,9 +1,8 @@
 class Gphoto2 < Formula
   desc "Command-line interface to libgphoto2"
   homepage "http://www.gphoto.org/"
-  url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.20/gphoto2-2.5.20.tar.bz2"
-  sha256 "a36f03b50a8f040f185cbc757f957f03dc05a9210907199e6919ef3f970248f6"
-  revision 1
+  url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.23/gphoto2-2.5.23.tar.bz2"
+  sha256 "df87092100e7766c9d0a4323217c91908a9c891c0d3670ebf40b76903be458d1"
 
   bottle do
     cellar :any
