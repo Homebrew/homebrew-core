@@ -1,8 +1,8 @@
 class Wandio < Formula
   desc "Transparently read from and write to zip, bzip2, lzma or zstd archives"
   homepage "https://research.wand.net.nz/software/libwandio.php"
-  url "https://research.wand.net.nz/software/wandio/wandio-4.2.1.tar.gz"
-  sha256 "c00cdbb01351ae2edbd0c8279aafd73bbdc1f89fdabc4e258504822a984f8b5a"
+  url "https://research.wand.net.nz/software/wandio/wandio-4.2.2.tar.gz"
+  sha256 "1196f3a4fc36cc886e71dcd13f542d3648dad989dbe53bc81ec35da19cc8fbbc"
 
   bottle do
     cellar :any
@@ -12,8 +12,7 @@ class Wandio < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--with-http",
+    system "./configure", "--with-http",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -21,6 +20,7 @@ class Wandio < Formula
   end
 
   test do
-    system "#{bin}/wandiocat", "-h"
+    system "#{bin}/wandiocat", "-z", "9", "-Z", "gzip", "-o", "test.gz", test_fixtures("test.png"), test_fixtures("test.pdf")
+    assert_predicate testpath/"test.gz", :exist?
   end
 end
