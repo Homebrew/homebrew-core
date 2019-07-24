@@ -6,10 +6,9 @@ class Libmaa < Formula
 
   bottle do
     cellar :any
-    sha256 "2ae8769884345cc2a05bf3f3f67e7af2135f6b8d803b5ceb65ee6b0a8311ccce" => :mojave
-    sha256 "ae189018a85ecc0e5686072f7e3882d648fc3ee341374fcf82174a7dc6af1eb9" => :high_sierra
-    sha256 "84345113a91bb76b150714d7e8349d855fc86f0d6073e4fa04be43f1454ac2b9" => :sierra
-    sha256 "3b774421fc6a80b592605911e67cdd6cc558d2a92b9d23304eb00225e3820e50" => :el_capitan
+    sha256 "a56c7ab86ee8c313db35d4e79afae1b3692861342d38285131df70b45c6de7bb" => :mojave
+    sha256 "38ce8dcaa6938bc3395b1d77a6024b72ddea32f1cbeea4cb5f3cfabc432149ee" => :high_sierra
+    sha256 "c224bcb3cbf442e4f6f01bae2ec3487877b81af0e93b6bb8cb16ad2f6012a1b6" => :sierra
   end
 
   depends_on "bmake" => :build
