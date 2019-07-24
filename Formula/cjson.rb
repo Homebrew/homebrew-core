@@ -14,7 +14,8 @@ class Cjson < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-DENABLE_CJSON_UTILS=On", "-DENABLE_CJSON_TEST=Off", ".",
+    system "cmake", "-DENABLE_CJSON_UTILS=On", "-DENABLE_CJSON_TEST=Off",
+                    "-DBUILD_SHARED_AND_STATIC_LIBS=On", ".",
                     *std_cmake_args
     system "make", "install"
   end
