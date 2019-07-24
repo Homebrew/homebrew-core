@@ -5,6 +5,7 @@ class Proftpd < Formula
   mirror "https://fossies.org/linux/misc/proftpd-1.3.6.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6.tar.gz"
   sha256 "91ef74b143495d5ff97c4d4770c6804072a8c8eb1ad1ecc8cc541b40e152ecaf"
+  revision 1
 
   bottle do
     sha256 "bf1b06c934ef7810d111125069f992382f0744ecfbdfcdea02e8f7b1ed4774d3" => :mojave
@@ -12,6 +13,17 @@ class Proftpd < Formula
     sha256 "ff7d5535f7aeb76aab782bdfb534ae22b3109840228c0c93ad6e7dcfecb56f5f" => :sierra
     sha256 "4ac3a9a6ab8a21e05d82fefae042d7b94e920d5f3d172485202364b489d9d629" => :el_capitan
     sha256 "ebf19b0218a7e3897457f91c6721a59ef897329db3f49461415b56168361a2d8" => :yosemite
+  end
+
+  # Patch CVE-2019-12815. The fix for this CVE did not result in a new release.
+  # This patch has been backported into the 1.3.6 branch. Remove patch on next release.
+  # Additional information:
+  # https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12815
+  # http://bugs.proftpd.org/show_bug.cgi?id=4372
+  # https://github.com/proftpd/proftpd/pull/816
+  patch do
+    url "https://github.com/proftpd/proftpd/commit/d19dd64161936d70c0a1544bd2c8e90850f4b7ae.patch?full_index=1"
+    sha256 "c4c54a0dec446ee940dc1267e64d502374e0735355005bbfe67c46bdb12d203a"
   end
 
   def install
