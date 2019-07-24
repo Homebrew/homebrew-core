@@ -6,9 +6,9 @@ class Modules < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6704ca06536aaa7b15d6f4b7a44a697e5e264585d0725f9a7a2add96699e420e" => :mojave
-    sha256 "d3f08b74c54724430e0bf0b9bbbff9c1eeb1c22b98b14c9d4d3221c8ae2d4161" => :high_sierra
-    sha256 "6c639f39e28ad98625f59540125fda9e86f4241ecdaa1d957b5f2ec413d014b0" => :sierra
+    sha256 "ca75f7d31f9698e69d0f89d7b99474dba36c73c67fc698f29e8af78a18d92cbb" => :mojave
+    sha256 "8d3e5a0ebb734938a32fd734e49c8bc258c64a753327a312a1a5a8d78bc2f4b6" => :high_sierra
+    sha256 "9b402a25481669f3d92d900249dc8741ef5bce5d6ad8b64a9e8efa342572e814" => :sierra
   end
 
   def install
