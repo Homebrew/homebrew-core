@@ -8,11 +8,9 @@ class Proftpd < Formula
   revision 1
 
   bottle do
-    sha256 "bf1b06c934ef7810d111125069f992382f0744ecfbdfcdea02e8f7b1ed4774d3" => :mojave
-    sha256 "58c448066f5eeb96a68b8b5727e0f83ae83857aeec7a2354c501b5f6a6405cf8" => :high_sierra
-    sha256 "ff7d5535f7aeb76aab782bdfb534ae22b3109840228c0c93ad6e7dcfecb56f5f" => :sierra
-    sha256 "4ac3a9a6ab8a21e05d82fefae042d7b94e920d5f3d172485202364b489d9d629" => :el_capitan
-    sha256 "ebf19b0218a7e3897457f91c6721a59ef897329db3f49461415b56168361a2d8" => :yosemite
+    sha256 "d8e913133feffb5e1e669991f345ca04e014501833af51cc67527d99a53b72df" => :mojave
+    sha256 "654875de19ba33e14985e88c24fbd54a27877966cb26177bfbffd89286a2f2b2" => :high_sierra
+    sha256 "5bbb5075bd0e1091feb88f5a57172d2c5ee1e31caa5c5f6e92009f7da1cffcce" => :sierra
   end
 
   # Patch CVE-2019-12815. The fix for this CVE did not result in a new release.
