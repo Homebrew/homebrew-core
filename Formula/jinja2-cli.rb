@@ -8,9 +8,9 @@ class Jinja2Cli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34211b3c0dd4cd265c4f48fff89af75ebeeb2c8e8af6fb0d1b7efda1dd3d5a21" => :mojave
-    sha256 "e9df149e4f974b5a54d6591332d205bc706a2115601691ae7fa6d358e7e74291" => :high_sierra
-    sha256 "cbd8c8763e194f661b58550e2d3602d21f70e8957a338d5f29982b312acbfe25" => :sierra
+    sha256 "5b5aaccddf9b6c0c41800d2dbb9f8891a51b5e258e9c99f97ac65bd19ee2c4c9" => :mojave
+    sha256 "1ca18e3fa85ad192c8bb96dd1b0d060fb9a2cbbdaf12875fe66196eab077aee5" => :high_sierra
+    sha256 "bae549938d2954d8ffb3de7add885df8dbfcd020f65356fdc08cf2bd029c409e" => :sierra
   end
 
   depends_on "python"
