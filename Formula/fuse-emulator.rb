@@ -1,9 +1,8 @@
 class FuseEmulator < Formula
   desc "Free Unix Spectrum Emulator"
   homepage "https://fuse-emulator.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.5.6/fuse-1.5.6.tar.gz"
-  sha256 "cb0e1f8e7c15a57710bcd7a844bd954134d28f169870c3633f59fa32bfc38037"
-  revision 1
+  url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.5.7/fuse-1.5.7.tar.gz"
+  sha256 "f0e2583f2642cdc3b2a737910d24e289d46e4f7e151805e3b0827024b2b45e4d"
 
   bottle do
     sha256 "02077e1c85ad805fee01eb56b64d40aabdcb6775609bfcaa699379ebde518c5a" => :mojave
