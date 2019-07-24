@@ -7,9 +7,9 @@ class Schismtracker < Formula
 
   bottle do
     cellar :any
-    sha256 "411fee4b921f6c447dd5a7202188b57d72ed87ae54787affd28bccf3f525f7c4" => :mojave
-    sha256 "57cbd8ab22799f39305a611dbc40f79eb9c089327e8146d0b81edb1e0e3249d5" => :high_sierra
-    sha256 "3af0c48a5d0a9124e1c7e6b4b064fbdf090b57c646064b4231c2f65e232a37fa" => :sierra
+    sha256 "c776a31733b0aad70b62c48af809103f7dfeccff344a7491accabf6ba527197c" => :mojave
+    sha256 "9012b01447bb794326aa267a6292d24bff37d0c7dd201f8f425e493c66cc71b8" => :high_sierra
+    sha256 "b175bdb621979de4eaa7fb6b9ed6fab75a0d1eec271467ff6171f9749409fe1f" => :sierra
   end
 
   depends_on "autoconf" => :build
