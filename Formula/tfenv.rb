@@ -10,7 +10,7 @@ class Tfenv < Formula
   conflicts_with "terraform", :because => "tfenv symlinks terraform binaries"
 
   def install
-    prefix.install ["bin", "libexec"]
+    prefix.install ["bin", "libexec", "share"]
   end
 
   test do
