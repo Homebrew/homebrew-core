@@ -15,6 +15,7 @@ class Benthos < Formula
     src.cd do
       system "make", "VERSION=#{version}"
       bin.install "target/bin/benthos"
+      prefix.install_metafiles
     end
   end
 
