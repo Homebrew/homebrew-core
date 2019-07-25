@@ -1,6 +1,6 @@
 class Inadyn < Formula
   desc "Dynamic DNS client with IPv4, IPv6, and SSL/TLS support"
-  homepage "http://troglobit.com/projects/inadyn/"
+  homepage "https://troglobit.com/projects/inadyn/"
   url "https://github.com/troglobit/inadyn/releases/download/v2.5/inadyn-2.5.tar.gz"
   sha256 "f7faf0be4f0b4bfa1acc811189a9ed0a58bc367e48ea31c283920a2ef27cdc40"
 
