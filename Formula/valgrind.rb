@@ -3,9 +3,9 @@ class Valgrind < Formula
   homepage "http://www.valgrind.org/"
 
   stable do
-    url "https://sourceware.org/pub/valgrind/valgrind-3.14.0.tar.bz2"
-    mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.14.0.tar.bz2"
-    sha256 "037c11bfefd477cc6e9ebe8f193bb237fe397f7ce791b4a4ce3fa1c6a520baa5"
+    url "https://sourceware.org/pub/valgrind/valgrind-3.15.0.tar.bz2"
+    mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.15.0.tar.bz2"
+    sha256 "417c7a9da8f60dd05698b3a7bc6002e4ef996f14c13f0ff96679a16873e78ab1"
 
     depends_on :maximum_macos => :high_sierra
   end
