@@ -4,7 +4,7 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/ncview--2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 9
+  revision 10
 
   bottle do
     sha256 "49b0560fad1302ab92d5e259c62d893deb80ef5703e970e2e4ff982d7e4f6b8b" => :mojave
@@ -12,6 +12,7 @@ class Ncview < Formula
     sha256 "fd1c64e7a79c0793bd89f0d2a5dedc9f08972cfcb26929abc49dbddc4ac6be0b" => :sierra
   end
 
+  depends_on "libpng"
   depends_on "netcdf"
   depends_on "udunits"
   depends_on :x11
