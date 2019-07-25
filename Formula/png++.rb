@@ -1,9 +1,8 @@
 class Pngxx < Formula
   desc "C++ wrapper for libpng library"
   homepage "https://www.nongnu.org/pngpp/"
-  url "https://download.savannah.gnu.org/releases/pngpp/png++-0.2.9.tar.gz"
-  sha256 "abbc6a0565122b6c402d61743451830b4faee6ece454601c5711e1c1b4238791"
-  revision 1
+  url "https://download.savannah.gnu.org/releases/pngpp/png++-0.2.10.tar.gz"
+  sha256 "998af216ab16ebb88543fbaa2dbb9175855e944775b66f2996fc945c8444eee1"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +12,6 @@ class Pngxx < Formula
   end
 
   depends_on "libpng"
-
-  # Issues with GNU strerror_r being used because Darwin libc does not define _POSIX_C_SOURCE
-  patch :DATA
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
@@ -35,17 +31,3 @@ class Pngxx < Formula
     system "./test"
   end
 end
-
-__END__
-diff -Naur png++-0.2.9-orig/error.hpp png++-0.2.9/error.hpp
---- png++-0.2.9-orig/error.hpp	2015-10-25 15:42:45.000000000 -0400
-+++ png++-0.2.9/error.hpp	2019-07-18 12:24:10.000000000 -0400
-@@ -100,7 +100,7 @@
-             strerror_s(buf, ERRBUF_SIZE, errnum);
-             return std::string(buf);
- #else
--#if (_POSIX_C_SOURCE >= 200112L || _XOPEN_SOURCE >= 600) && !_GNU_SOURCE
-+#if ((_POSIX_C_SOURCE >= 200112L || _XOPEN_SOURCE >= 600) && !_GNU_SOURCE) || (!__GLIBC__)
-             strerror_r(errnum, buf, ERRBUF_SIZE);
-             return std::string(buf);
- #else
