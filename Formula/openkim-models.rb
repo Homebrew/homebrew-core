@@ -5,9 +5,9 @@ class OpenkimModels < Formula
   sha256 "50338084ece92ec0fb13b0bbdf357b5d7450e26068ba501f23c315f814befc26"
 
   bottle do
-    sha256 "5df2dd7cafd40fa451fb1cd12df7b32f1de2fbde7d8f5de4c64fd5cd63b72ce5" => :mojave
-    sha256 "38f72e300dec247950382a5ea5c88950fb5832ef591c28aa49747109efc20576" => :high_sierra
-    sha256 "f98efcd8602275d5831503dbb319de6b0189776c54612808c3ec53776ba9ccee" => :sierra
+    sha256 "b722a8aa05f31f23d32f46381f20a3a3353dadd1f993f2a3c1b4b43739b55acf" => :mojave
+    sha256 "c146912a215949046161e5a54176aa45c66bf5babf3774b1af5a5084b0b4de77" => :high_sierra
+    sha256 "2a5b50566f16c975c9933ec6af6e3517f2f5ddb4a06265cd1369679077e6db4c" => :sierra
   end
 
   depends_on "cmake" => :build
