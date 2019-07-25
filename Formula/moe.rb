@@ -1,9 +1,9 @@
 class Moe < Formula
   desc "Console text editor for ISO-8859 and ASCII"
   homepage "https://www.gnu.org/software/moe/moe.html"
-  url "https://ftp.gnu.org/gnu/moe/moe-1.9.tar.lz"
-  mirror "https://ftpmirror.gnu.org/moe/moe-1.9.tar.lz"
-  sha256 "18919e9ffae08f34d8beb3a26fc5a595614e0aff34866e79420ca81881ff4ef3"
+  url "https://ftp.gnu.org/gnu/moe/moe-1.10.tar.lz"
+  mirror "https://ftpmirror.gnu.org/moe/moe-1.10.tar.lz"
+  sha256 "8cfd44ab5623ed4185ee53962b879fd9bdd18eab47bf5dd9bdb8271f1bf7d53b"
 
   bottle do
     rebuild 1
@@ -14,11 +14,6 @@ class Moe < Formula
   end
 
   def install
-    # Fix compilation bug with Xcode 9
-    # https://lists.gnu.org/archive/html/bug-moe/2017-10/msg00000.html
-    inreplace "window_vector.cc", "{ year_string.insert( 0U, 1,",
-                                  "{ year_string.insert( 0U, 1U,"
-
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
