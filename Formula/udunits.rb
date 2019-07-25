@@ -1,9 +1,8 @@
 class Udunits < Formula
   desc "Unidata unit conversion library"
   homepage "https://www.unidata.ucar.edu/software/udunits/"
-  url "ftp://ftp.unidata.ucar.edu/pub/udunits/udunits-2.2.26.tar.gz"
-  mirror "https://fossies.org/linux/privat/udunits-2.2.26.tar.gz"
-  sha256 "368f4869c9c7d50d2920fa8c58654124e9ed0d8d2a8c714a9d7fdadc08c7356d"
+  url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.6.tar.gz"
+  sha256 "74fd7fb3764ce2821870fa93e66671b7069a0c971513bf1904c6b053a4a55ed1"
 
   bottle do
     sha256 "5d06e98f43d762c488ee32fdafcd11c6a1ba1e1527fb176cd2558a465701bfc1" => :mojave
@@ -12,11 +11,13 @@ class Udunits < Formula
     sha256 "5fbd4d1d36e471bc71720b61a1d4a76b363e115fc71b74208fc5284883087bda" => :el_capitan
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
