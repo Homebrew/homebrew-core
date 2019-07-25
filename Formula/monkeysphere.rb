@@ -1,8 +1,8 @@
 class Monkeysphere < Formula
   desc "Use the OpenPGP web of trust to verify ssh connections"
   homepage "https://web.monkeysphere.info/"
-  url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.41.orig.tar.gz"
-  sha256 "911a2f1622ddb81151b0f41cf569ccf2154d10a09b2f446dbe98fac7279fe74b"
+  url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
+  sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
@@ -15,14 +15,15 @@ class Monkeysphere < Formula
   end
 
   depends_on "gnu-sed" => :build
+  depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "openssl"
 
   resource "Crypt::OpenSSL::Bignum" do
-    url "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.06.tar.gz"
-    sha256 "c7ccafa9108524b9a6f63bf4ac3377f9d7e978fee7b83c430af7e74c5fcbdf17"
+    url "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz"
+    sha256 "234e72fb8396d45527e6fd45e43759c5c3f3a208cf8f29e6a22161a996fd42dc"
   end
 
   def install
