@@ -1,9 +1,8 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.11.5.tar.gz"
-  sha256 "98e0355ff0627bf88112b3b92a7522e98c0ae6071fc45efda5a33daed28199b3"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.11.6.tar.gz"
+  sha256 "f8a07063b1e0890a1386fed2313a967f58f5495c075a25725aba200469c857bf"
 
   bottle do
     cellar :any
