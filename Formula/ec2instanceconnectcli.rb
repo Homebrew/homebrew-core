@@ -2,7 +2,7 @@ class Ec2instanceconnectcli < Formula
   include Language::Python::Virtualenv
 
   desc "AWS EC2 Instance Connect CLI"
-  homepage "https://aws.amazon.com/cli/"
+  homepage "https://github.com/aws/aws-ec2-instance-connect-cli"
   url "https://files.pythonhosted.org/packages/0c/7b/2dbd14b2caf0d834f781ef982bb4b22884245c44af0ebb6ccc5a7019fd3a/ec2instanceconnectcli-1.0.0.tar.gz"
   sha256 "dc818c78d51a475a97d502db0221962e3c42af66900a63d7da69d3d68af29de8"
 
