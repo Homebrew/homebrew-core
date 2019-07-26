@@ -1,8 +1,8 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
-  homepage "https://github.com/nats-io/cnats"
-  url "https://github.com/nats-io/cnats/archive/v1.8.0.tar.gz"
-  sha256 "aea6b1266ff7f169caeaa0f2b5efaf6081256a9ec17c38de417fdde36dddc4fd"
+  homepage "https://github.com/nats-io/nats.c"
+  url "https://github.com/nats-io/nats.c/archive/v2.0.0.tar.gz"
+  sha256 "e10beeb623fc5dadd0673269674331f7b35d19e52ff32d14ceac981b3c701587"
 
   bottle do
     cellar :any
@@ -15,9 +15,10 @@ class Cnats < Formula
   depends_on "libevent"
   depends_on "libuv"
   depends_on "openssl"
+  depends_on "protobuf-c"
 
   def install
-    system "cmake", ".", "-DNATS_INSTALL_PREFIX=#{prefix}",
+    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX=#{prefix}",
                          "-DBUILD_TESTING=OFF", *std_cmake_args
     system "make", "install"
   end
