@@ -1,0 +1,29 @@
+class RipgrepAll < Formula
+  desc "Wrapper around ripgrep that adds multiple rich file types"
+  homepage "https://github.com/phiresky/ripgrep-all"
+  url "https://github.com/phiresky/ripgrep-all/archive/0.9.2.tar.gz"
+  sha256 "bce3dc00ca63e174795875ac31ed7c1610ae4f7510d9f3357c68d4c10d5d65e4"
+  head "https://github.com/phiresky/ripgrep-all.git"
+
+  depends_on "rust" => :build
+  depends_on "ripgrep"
+  depends_on "ffmpeg" => :optional
+  depends_on "pandoc" => :optional
+  depends_on "poppler" => :optional
+  depends_on "tesseract" => :optional
+
+  def install
+    system "cargo", "install", "--root", prefix, "--path", "."
+  end
+
+  test do
+    tempfile = testpath / "file.txt"
+
+    tempfile.write("Hello World")
+    system "zip", "-r", "archive.zip", tempfile
+    tempfile.delete
+
+    assert_match /Hello World/,
+      shell_output("#{bin}/rga 'Hello World' #{testpath}")
+  end
+end
