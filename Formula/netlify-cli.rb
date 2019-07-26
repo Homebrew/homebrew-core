@@ -8,9 +8,10 @@ class NetlifyCli < Formula
   head "https://github.com/netlify/cli.git"
 
   bottle do
-    sha256 "f4945a19015555b2695df0d1a0ad7fde050d4458bf98ce24ef9e12992e7e395b" => :mojave
-    sha256 "c8394955186dbc9ad6b92c1c77216a9d2676c932b21e8a6136874734af4c8409" => :high_sierra
-    sha256 "e761a191a6da6cc01cb06fbc74c01af01648583ee163b5e0b410b5bb1ed67769" => :sierra
+    cellar :any_skip_relocation
+    sha256 "2a50416fda601fd34062dd7c21d72af12850e5eb52444409a7a530849540476e" => :mojave
+    sha256 "5371f681c39bd5f4b2e41b69847effbcfab911a24439ad488bd383b5a8011a10" => :high_sierra
+    sha256 "017b1da36e8278246b39f9a8a07c2701c012b1e3a280679e4cc07cb94d316f54" => :sierra
   end
 
   depends_on "node"
