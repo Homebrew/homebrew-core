@@ -3,8 +3,8 @@ class Redo < Formula
 
   desc "Implements djb's redo: an alternative to make(1)"
   homepage "https://github.com/apenwarr/redo"
-  url "https://github.com/apenwarr/redo/archive/redo-0.41.tar.gz"
-  sha256 "b7c6411185c58d05bafd0dabeb1f45873bc9bb87f7749705964792fa3fb9fedc"
+  url "https://github.com/apenwarr/redo/archive/redo-0.42.tar.gz"
+  sha256 "c98379cf6c91544534b2c76929c13337acc013d5a7015deb01492a63b1339f3c"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,21 +16,13 @@ class Redo < Formula
   depends_on "python@2"
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/51/3f/92f9d2f4a1d5da51e7808a469ab40c6cfdf3ba1013f56abb1f46677a655c/Markdown-3.1.tar.gz"
-    sha256 "fc4a6f69a656b8d858d7503bda633f4dd63c2d70cf80abdc6eafa64c4ae8c250"
+    url "https://files.pythonhosted.org/packages/ac/df/0ae25a9fd5bb528fe3c65af7143708160aa3b47970d5272003a1ad5c03c6/Markdown-3.1.1.tar.gz"
+    sha256 "2e50876bcdd74517e7b71f3e7a76102050edec255b3983403f1a63e7c8a41e7a"
   end
 
   resource "BeautifulSoup" do
     url "https://files.pythonhosted.org/packages/1e/ee/295988deca1a5a7accd783d0dfe14524867e31abb05b6c0eeceee49c759d/BeautifulSoup-3.2.1.tar.gz"
     sha256 "6a8cb4401111e011b579c8c52a51cdab970041cc543814bbd9577a4529fe1cdb"
-  end
-
-  # This patch fixes an issue where redo doesn't work without a controlling
-  # terminal. Merged upstream at https://github.com/apenwarr/redo/pull/27 so
-  # it's likely to be included in the next release.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/redo/0.41-upstream-pr-27-tty-issue.patch"
-    sha256 "43459a9c17937d2771ccb7e58756a71911d22c9c160b63e0dd9ee82aa1756ccd"
   end
 
   def install
