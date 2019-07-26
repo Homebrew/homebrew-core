@@ -8,9 +8,9 @@ class Redo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "532a64d89cc11baddad9a66e1189e04fdf0492a6b9c20e0af29e19276b8d7f32" => :mojave
-    sha256 "e880f5d183e42b05c78a4d6aa6e273cad1a89df0d7d34a71774b04c39b3f6a6c" => :high_sierra
-    sha256 "7705a8883c4d314aab6369a57336729274211b7bd7bd4707bde7b3776f880ef3" => :sierra
+    sha256 "847db9d0cb26a07a0a65ff478141006ba9f83cc242e99bb4010537015d2f5002" => :mojave
+    sha256 "6bb0d9320b7e2b5d0092ee825cd74a3d81175563d8a562af5e3bf941e0828a4a" => :high_sierra
+    sha256 "f4088a0ae5895759a6969b5bcbe670c024871b6edba1eccb635f8ef9dcfd82ce" => :sierra
   end
 
   depends_on "python@2"
