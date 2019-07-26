@@ -13,8 +13,11 @@ class Yaf < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "glib"
   depends_on "libfixbuf"
+  depends_on "libtool"
+  depends_on "pcre"
 
   def install
     system "./configure", "--disable-dependency-tracking",
