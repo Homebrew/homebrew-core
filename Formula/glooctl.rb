@@ -2,8 +2,8 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://gloo.solo.io"
   url "https://github.com/solo-io/gloo.git",
-      :tag      => "v0.18.1",
-      :revision => "aefee536462bcba729d60a7d351fc37591578a84"
+      :tag      => "v0.18.2",
+      :revision => "8a7d8e832c262df2a2f08a6eb4686b499d65871f"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do
