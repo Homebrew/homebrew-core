@@ -6,9 +6,9 @@ class Dnsperf < Formula
 
   bottle do
     cellar :any
-    sha256 "253eb944b3e0d302b166f41a35219cd46f35ff7781caa62a790b251a5851ae08" => :mojave
-    sha256 "2c6821d0479ed73fddb44e5071357abc103a48074cea46142e30d68e1ecdc5b2" => :high_sierra
-    sha256 "90e1a31d325769c4c5fdedd31795f3d6d922bfb8b03deae953093762861e585e" => :sierra
+    sha256 "efac588a5d624d19ea80cca7c8f5faa656bf8ad378caf11404308b398befb569" => :mojave
+    sha256 "b99bb0c80bf2dd235d3458b73b46604140198f99ed2f431c23fc490a27e28d10" => :high_sierra
+    sha256 "8ff4200b94c788ef485b6df61bb5fd8873684d7aee5e01635e0ce6ad732f44e9" => :sierra
   end
 
   depends_on "pkg-config" => :build
