@@ -1,8 +1,8 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.2.3.tar.gz"
-  sha256 "7dec9fa9ff98c09e2e371b1d721327ba23935de5ac8c8145d4e8caf715978350"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.2.4.tar.gz"
+  sha256 "5b6590c82cd5f6cbfe09e89ce52622208f5d4b24e021fce7646204b417bd1d2e"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
@@ -18,8 +18,8 @@ class Offlineimap < Formula
   depends_on "python@2" # does not support Python 3
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install
