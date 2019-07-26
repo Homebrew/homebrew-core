@@ -1,8 +1,8 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/pub/videolan/libbluray/1.1.1/libbluray-1.1.1.tar.bz2"
-  sha256 "106478a17c8bcac8c7b4174e7432b2bad5a1e6dd2926c4224791fd4669472338"
+  url "https://download.videolan.org/pub/videolan/libbluray/1.1.2/libbluray-1.1.2.tar.bz2"
+  sha256 "a3dd452239b100dc9da0d01b30e1692693e2a332a7d29917bf84bb10ea7c0b42"
 
   bottle do
     cellar :any
