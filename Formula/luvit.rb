@@ -1,8 +1,8 @@
 class Luvit < Formula
   desc "Asynchronous I/O for Lua"
   homepage "https://luvit.io"
-  url "https://github.com/luvit/luvit/archive/2.15.0.tar.gz"
-  sha256 "1a4a57d7d01f86e0c9cee3bcf113e2f7c2a666955d000fce8a1c40b8b83093c3"
+  url "https://github.com/luvit/luvit/archive/2.16.0.tar.gz"
+  sha256 "3cbd5136da6dba4ccfaee86357255c39b5fafa5fffa62d7d793514fa4dca1a79"
   head "https://github.com/luvit/luvit.git"
 
   bottle do
@@ -25,6 +25,6 @@ class Luvit < Formula
   end
 
   test do
-    system bin/"luvit", "--cflags", "--libs"
+    assert_equal "Hello World\n", shell_output("#{bin}/luvit -e 'print(\"Hello World\")'")
   end
 end
