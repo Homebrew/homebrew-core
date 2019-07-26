@@ -1,8 +1,8 @@
 class Btparse < Formula
   desc "BibTeX utility libraries"
-  homepage "https://www.gerg.ca/software/btOOL/"
-  url "https://www.gerg.ca/software/btOOL/btparse-0.34.tar.gz"
-  sha256 "e8e2b6ae5de85d1c6f0dc52e8210aec51faebeee6a6ddc9bd975b110cec62698"
+  homepage "https://metacpan.org/pod/distribution/Text-BibTeX/btparse/doc/btparse.pod"
+  url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/btparse/btparse-0.35.tar.gz"
+  sha256 "631bf1b79dfd4c83377b416a12c349fe88ee37448dc82e41424b2f364a99477b"
 
   bottle do
     cellar :any
