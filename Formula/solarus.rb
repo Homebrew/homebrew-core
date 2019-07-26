@@ -1,19 +1,9 @@
 class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
+  url "https://www.solarus-games.org/downloads/solarus/solarus-1.6.0-src.tar.gz"
+  sha256 "d800fdf388f860732f2d40c8dd635c34fd1c452857f75bf9b3a421e3ef5ee751"
   head "https://github.com/christopho/solarus.git"
-
-  stable do
-    url "https://www.solarus-games.org/downloads/solarus/solarus-1.5.3-src.tar.gz"
-    sha256 "7608f3bdc7baef36e95db5e4fa4c8c5be0a3f436c50c53ab72d70a92aa44cc1c"
-
-    # Upstream patch for build issue, remove in next version
-    # https://github.com/solarus-games/solarus/issues/1084
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e6a26f3d/solarus/config.patch"
-      sha256 "7bb5c39dd97eca215a22a28dffe23dfac364252f7ff8221e5d76ae40d037be76"
-    end
-  end
 
   bottle do
     cellar :any
@@ -36,7 +26,12 @@ class Solarus < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DSOLARUS_GUI=OFF", *std_cmake_args
+      ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
+      system "cmake", "..",
+                      "-DSOLARUS_GUI=OFF",
+                      "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
+                      "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
+                      *std_cmake_args
       system "make", "install"
     end
   end
