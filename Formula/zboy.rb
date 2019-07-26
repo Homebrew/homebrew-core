@@ -1,8 +1,8 @@
 class Zboy < Formula
   desc "GameBoy emulator"
   homepage "https://zboy.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/zboy/zBoy%20v0.60/zboy-0.60.tar.gz"
-  sha256 "f81e61433a5b74c61ab84cac33da598deb03e49699f3d65dcb983151a6f1c749"
+  url "https://downloads.sourceforge.net/project/zboy/zBoy%20v0.70/zboy-0.70.tar.gz"
+  sha256 "55cd235fba759eb888e508f463e12bfa7ffc0336bd93c581477463612d6ef4ba"
   head "https://svn.code.sf.net/p/zboy/code/trunk"
 
   bottle do
