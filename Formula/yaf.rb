@@ -7,9 +7,10 @@ class Yaf < Formula
 
   bottle do
     cellar :any
-    sha256 "45d3e8977a0fa168a7b6aff0111be670b21fe587f9f36141a9868513c5d8fb64" => :mojave
-    sha256 "b414c3c8f71e4add024f22adc69ea30b2fb0ff67c6c4c7a7e89715f2c80cabe0" => :high_sierra
-    sha256 "416ffc51d3f526210e3843d3d7f79557900ebe345b2cf099edbb6e77353da8e0" => :sierra
+    rebuild 1
+    sha256 "7395026369a9b4b30f6614ab98baa1d810de2af29511b635b3ba2ad5a3d82289" => :mojave
+    sha256 "3e4ba45a90c4a47bcb4edc7dd9d9bf227d8b70af3989368bbf6cc4b006d2a9f7" => :high_sierra
+    sha256 "f9f45a164b81d2b4d4ef3b45664faa81d8317039cee93b69a1f4dc2d55786068" => :sierra
   end
 
   depends_on "pkg-config" => :build
