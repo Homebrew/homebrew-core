@@ -7,11 +7,9 @@ class ZeldaRothSe < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9f77d702fa6c412eec4b5d1c602ae1bc0ca05d01421d792110057bd79e53742" => :mojave
-    sha256 "8b76f5c62bca90258a3e0c3d930551befe9fdd0f0814d1f2026f32dae1027998" => :high_sierra
-    sha256 "2db05a8f1209a0f039c6bea92ffefb362d94497bc9f659e8057eca1539fc132e" => :sierra
-    sha256 "7aa852ad416766a72aad6b254f86f21a53bd67df29f20b7eaa612ba709f8c0cd" => :el_capitan
-    sha256 "069a42db0b88121a77233d3860a5191af80ad335270cc4723b1bb4ef1c48ccc3" => :yosemite
+    sha256 "b474938504c1a9ac9a9f5374a6a4aa01196e0c31cf2d09fbd4c0452fc1d6900f" => :mojave
+    sha256 "d8b2f8842d8ecd958f169c2f8b388fcb63859fd63a23de40ba86b0d622517c7e" => :high_sierra
+    sha256 "d837cba79ce9aeea303d195a6122ec9dd213331e9ab9e25bb031cf1a4fd11424" => :sierra
   end
 
   depends_on "cmake" => :build
