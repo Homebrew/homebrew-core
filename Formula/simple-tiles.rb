@@ -38,6 +38,7 @@ class SimpleTiles < Formula
            "-I#{Formula["gdal"].opt_include}",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "test.c", "-o", "test"
     system testpath/"test"
