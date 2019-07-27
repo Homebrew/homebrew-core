@@ -45,6 +45,7 @@ class Gtkmm3 < Formula
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
@@ -71,6 +72,7 @@ class Gtkmm3 < Formula
       -I#{gtkx3.opt_include}
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{gtkx3.opt_include}/gtk-3.0/unix-print
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gdkmm-3.0
       -I#{include}/gtkmm-3.0
       -I#{libepoxy.opt_include}
