@@ -3,8 +3,8 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/d6/1d/7c18855e2bf7e4da52fc62f486c1c5166b21470e87925b28dba35aac7b20/ipython-7.6.1.tar.gz"
-  sha256 "11067ab11d98b1e6c7f0993506f7a5f8a91af420f7e82be6575fcb7a6ca372a0"
+  url "https://files.pythonhosted.org/packages/6c/dd/dd19a446528a6b10b1e322303916a28b73820e76f1c93c2580f05557210d/ipython-7.7.0.tar.gz"
+  sha256 "1d3a1692921e932751bc1a1f7bb96dc38671eeefdc66ed33ee4cbc57e92a410e"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -95,11 +95,6 @@ class Ipython < Formula
   resource "pyzmq" do
     url "https://files.pythonhosted.org/packages/a8/5e/7e4ed045fc1fb7667de4975fe8b6ab6b358b16bcc59e8349c9bd092931b6/pyzmq-18.0.2.tar.gz"
     sha256 "31a11d37ac73107363b47e14c94547dbfc6a550029c3fe0530be443199026fc2"
-  end
-
-  resource "simplegeneric" do
-    url "https://files.pythonhosted.org/packages/3d/57/4d9c9e3ae9a255cd4e1106bb57e24056d3d0709fc01b2e3e345898e49d5b/simplegeneric-0.8.1.zip"
-    sha256 "dc972e06094b9af5b855b3df4a646395e43d1c9d0d39ed345b7393560d0b9173"
   end
 
   resource "six" do
