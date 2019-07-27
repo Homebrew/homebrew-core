@@ -1,9 +1,8 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/archive/v2.17.3.tar.gz"
-  sha256 "13cc30194a2d52cdb87b0deca6e472ac75fbb2d8af72d554ba3936f1e2a416a7"
-  revision 1
+  url "https://github.com/axel-download-accelerator/axel/archive/v2.17.5.tar.gz"
+  sha256 "e5af145dae09d1addd03aaf15b9180dd49ea2bd9e898ef26b43e64b6d2bc5aaf"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
@@ -25,7 +24,7 @@ class Axel < Formula
     # https://github.com/axel-download-accelerator/axel/pull/196
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
 
-    system "./autogen.sh"
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
