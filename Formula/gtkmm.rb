@@ -46,6 +46,7 @@ class Gtkmm < Formula
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
     pango = Formula["pango"]
@@ -70,6 +71,7 @@ class Gtkmm < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_include}/gtk-unix-print-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gdkmm-2.4
       -I#{include}/gtkmm-2.4
       -I#{libpng.opt_include}/libpng16
