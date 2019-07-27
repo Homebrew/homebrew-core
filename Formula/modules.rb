@@ -5,10 +5,10 @@ class Modules < Formula
   sha256 "3a33ab5ca9f43b12491896859bb812721c5dc4bd7500fce35a51a802760cec49"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ca75f7d31f9698e69d0f89d7b99474dba36c73c67fc698f29e8af78a18d92cbb" => :mojave
-    sha256 "8d3e5a0ebb734938a32fd734e49c8bc258c64a753327a312a1a5a8d78bc2f4b6" => :high_sierra
-    sha256 "9b402a25481669f3d92d900249dc8741ef5bce5d6ad8b64a9e8efa342572e814" => :sierra
+    cellar :any
+    sha256 "3f9ade73ad63d8d66cbb15e65668ed365c97ca7e43c01c0888aeeda469a5860c" => :mojave
+    sha256 "e7eb38927dd127c48712b2a8f97a0e63877c3b7c31a70ff3e928a97ff9d5051c" => :high_sierra
+    sha256 "c7352c28ef997d528026f2f2a28263ae56ba7000bcded5b5809f45eb446597ea" => :sierra
   end
 
   def install
