@@ -1,9 +1,8 @@
 class Ode < Formula
   desc "Simulating articulated rigid body dynamics"
   homepage "https://www.ode.org/"
-  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.15.2.tar.gz"
-  sha256 "2eaebb9f8b7642815e46227956ca223806f666acd11e31708bd030028cf72bac"
-  revision 1
+  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.tar.gz"
+  sha256 "4ba3b76f9c1314160de483b3db92b0569242a07452cbb25b368e75deb3cabf27"
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
