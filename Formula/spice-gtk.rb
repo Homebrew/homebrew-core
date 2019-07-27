@@ -82,6 +82,7 @@ class SpiceGtk < Formula
                    "-I#{Formula["glib"].include}/glib-2.0",
                    "-I#{Formula["glib"].lib}/glib-2.0/include",
                    "-I#{Formula["gtk+3"].include}/gtk-3.0",
+                   "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
                    "-I#{Formula["pango"].include}/pango-1.0",
                    "-I#{Formula["spice-protocol"].include}/spice-1",
                    "-I#{include}/spice-client-glib-2.0",
