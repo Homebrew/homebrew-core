@@ -1,8 +1,8 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.29.0.tar.gz"
-  sha256 "9e20afeaf46343633fc93f995a15a62acd01b42943050c7c282381e4a0144241"
+  url "https://github.com/ponylang/ponyc/archive/0.30.0.tar.gz"
+  sha256 "9f78f4e7cd7965d46818db84a2ab4d3f5891ba10f16bcb189496238f503e6009"
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
@@ -21,10 +21,8 @@ class Ponyc < Formula
     satisfy { DevelopmentTools.clang_build_version >= 800 }
   end
 
-  depends_on "libressl"
   depends_on "llvm@7"
   depends_on :macos => :yosemite
-  depends_on "pcre2"
 
   def install
     ENV.cxx11
