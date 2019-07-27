@@ -77,6 +77,7 @@ class Gedit < Formula
     gobject_introspection = Formula["gobject-introspection"]
     gtkx3 = Formula["gtk+3"]
     gtksourceview4 = Formula["gtksourceview4"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libpeas = Formula["libpeas"]
@@ -96,6 +97,7 @@ class Gedit < Formula
       -I#{gobject_introspection.opt_include}/gobject-introspection-1.0
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gedit-3.14
       -I#{libepoxy.opt_include}
       -I#{libffi.opt_lib}/libffi-3.0.13/include
