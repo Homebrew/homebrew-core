@@ -45,6 +45,7 @@ class Gtksourceviewmm3 < Formula
     gtkx3 = Formula["gtk+3"]
     gtkmm3 = Formula["gtkmm3"]
     gtksourceview3 = Formula["gtksourceview3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
@@ -75,6 +76,7 @@ class Gtksourceviewmm3 < Formula
       -I#{gtksourceview3.opt_include}/gtksourceview-3.0
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{gtkx3.opt_include}/gtk-3.0/unix-print
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtksourceviewmm-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
