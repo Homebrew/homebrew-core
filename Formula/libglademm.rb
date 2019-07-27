@@ -49,6 +49,7 @@ class Libglademm < Formula
     glibmm = Formula["glibmm"]
     gtkx = Formula["gtk+"]
     gtkmm = Formula["gtkmm"]
+    harfbuzz = Formula["harfbuzz"]
     libglade = Formula["libglade"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
@@ -78,6 +79,7 @@ class Libglademm < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_include}/gtk-unix-print-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libglademm-2.4
       -I#{libglade.opt_include}/libglade-2.0
       -I#{libpng.opt_include}/libpng16
