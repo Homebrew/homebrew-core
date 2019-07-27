@@ -74,6 +74,7 @@ class Gtkx3 < Formula
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -88,6 +89,7 @@ class Gtkx3 < Formula
       -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}
       -I#{include}/gtk-3.0
       -I#{libepoxy.opt_include}
