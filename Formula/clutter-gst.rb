@@ -52,6 +52,7 @@ class ClutterGst < Formula
     glib = Formula["glib"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
+    harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -70,6 +71,7 @@ class ClutterGst < Formula
       -I#{gst_plugins_base.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_lib}/gstreamer-1.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-gst-3.0
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libpng.opt_include}/libpng16
