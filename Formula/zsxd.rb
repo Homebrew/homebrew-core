@@ -1,9 +1,9 @@
 class Zsxd < Formula
   desc "Zelda Mystery of Solarus XD"
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-mystery-of-solarus-xd"
-  url "https://github.com/christopho/zsxd/archive/zsxd-1.11.0.tar.gz"
-  sha256 "4c6e744ecc5b7e123f5e085ed993e8234cbef8046d2717d16121a2b711e0ccde"
-  head "https://github.com/christopho/zsxd.git"
+  url "https://gitlab.com/solarus-games/zsxd/-/archive/zsxd-1.12.0/zsxd-zsxd-1.12.0.tar.bz2"
+  sha256 "6b36650fb6d7ba6763115875dbb48afa6796a4175dd7198e5e9a4dd5aeae73a1"
+  head "https://gitlab.com/solarus-games/zsxd.git"
 
   bottle do
     cellar :any_skip_relocation
