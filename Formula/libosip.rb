@@ -1,9 +1,9 @@
 class Libosip < Formula
   desc "Implementation of the eXosip2 stack"
   homepage "https://www.gnu.org/software/osip/"
-  url "https://ftp.gnu.org/gnu/osip/libosip2-5.0.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.0.0.tar.gz"
-  sha256 "18a13c954f7297978e7bf1a0cdadde7c531e519d61a045dae304e054f3b2df03"
+  url "https://ftp.gnu.org/gnu/osip/libosip2-5.1.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.1.0.tar.gz"
+  sha256 "40573a997a656f967b2b5ebafbd36d7f1d4a4634abcf312643854057d061f145"
 
   bottle do
     cellar :any
@@ -18,5 +18,22 @@ class Libosip < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <sys/time.h>
+      #include <osip2/osip.h>
+
+      int main() {
+          osip_t *osip;
+          int i = osip_init(&osip);
+          if (i != 0)
+            return -1;
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-losip2", "-o", "test"
+    system "./test"
   end
 end
