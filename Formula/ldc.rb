@@ -3,6 +3,7 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
   url "https://github.com/ldc-developers/ldc/releases/download/v1.16.0/ldc-1.16.0-src.tar.gz"
   sha256 "426d9d0dc65b7d3d739809c9c8bf022177aeaa8e65999be7145e052be3357302"
+  revision 1
   head "https://github.com/ldc-developers/ldc.git", :shallow => false
 
   bottle do
@@ -16,9 +17,9 @@ class Ldc < Formula
   depends_on "llvm"
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.12.0/ldc2-1.12.0-osx-x86_64.tar.xz"
-    version "1.12.0"
-    sha256 "a946e658aaff1eed80bffeb4d69b572f259368fac44673731781f6d487dea3cd"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.16.0/ldc2-1.16.0-osx-x86_64.tar.xz"
+    version "1.16.0"
+    sha256 "78876a76e50e67f5944dcef25744186bf86bd9414fb75e9ab8099a1b7582f5e2"
   end
 
   def install
