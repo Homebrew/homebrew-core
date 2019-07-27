@@ -15,9 +15,10 @@ class Cnats < Formula
   depends_on "libevent"
   depends_on "libuv"
   depends_on "openssl"
+  depends_on "protobuf-c"
 
   def install
-    system "cmake", ".", "-DNATS_INSTALL_PREFIX=#{prefix}",
+    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX=#{prefix}",
                          "-DBUILD_TESTING=OFF", *std_cmake_args
     system "make", "install"
   end
