@@ -1,18 +1,9 @@
 class ZeldaRothSe < Formula
   desc "Zelda Return of the Hylian SE"
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-return-of-the-hylian-se"
-  head "https://github.com/christopho/zelda_roth_se.git"
-
-  stable do
-    url "https://github.com/christopho/zelda_roth_se/archive/v1.1.0.tar.gz"
-    sha256 "95baf3ce96372b1ce78d9af8ee9723840474ac8fc51e87eb54cc35777d68f5a8"
-
-    # Support SOLARUS_INSTALL_DATADIR variable for CMake
-    patch do
-      url "https://github.com/christopho/zelda_roth_se/commit/e9b5bd907f5b50b17d65ebe2fa50760d322c537c.diff?full_index=1"
-      sha256 "061b93efdd16c450f7c3483e690099d96280250b159336439ab0da0ad5c2e13d"
-    end
-  end
+  url "https://gitlab.com/solarus-games/zelda-roth-se/-/archive/v1.2.0/zelda-roth-se-v1.2.0.tar.bz2"
+  sha256 "27fd5c5be969437eecdc1e8472284f74c7e2d977b7e06c4c395046f6761782e8"
+  head "https://gitlab.com/solarus-games/zelda-roth-se.git"
 
   bottle do
     cellar :any_skip_relocation
