@@ -1,9 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-2.0.7.tar.gz"
-  sha256 "3abe7e09c9d4e17e357c31c3cb856aea1fa7f79ab24f1fbe0bd46fd8fbd8c769"
-  revision 2
+  url "https://github.com/OpenImageIO/oiio/archive/Release-2.0.9.tar.gz"
+  sha256 "0cc7f8db831482ada4f7c7f97859eb4db6b0fc3626100f94a89053da1e1a8615"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -32,9 +31,8 @@ class Openimageio < Formula
   depends_on "webp"
 
   def install
-    # -DUSE_OPENSSL=OFF can be removed in 1.9, see
-    # https://github.com/Homebrew/homebrew-core/pull/22522#issuecomment-364831533
     args = std_cmake_args + %w[
+      -DCCACHE_FOUND=
       -DEMBEDPLUGINS=ON
       -DUSE_FIELD3D=OFF
       -DUSE_JPEGTURBO=OFF
@@ -42,7 +40,6 @@ class Openimageio < Formula
       -DUSE_OPENCV=OFF
       -DUSE_OPENGL=OFF
       -DUSE_OPENJPEG=OFF
-      -DUSE_OPENSSL=OFF
       -DUSE_PTEX=OFF
       -DUSE_QT=OFF
     ]
