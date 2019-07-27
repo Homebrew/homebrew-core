@@ -50,6 +50,7 @@ class OsmGpsMap < Formula
     glib = Formula["glib"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     pango = Formula["pango"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
@@ -58,6 +59,7 @@ class OsmGpsMap < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{pango.opt_include}/pango-1.0
       -I#{include}/osmgpsmap-1.0
       -D_REENTRANT
