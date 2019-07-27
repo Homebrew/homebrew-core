@@ -45,6 +45,7 @@ class Gtksourceviewmm < Formula
     gtkx = Formula["gtk+"]
     gtkmm = Formula["gtkmm"]
     gtksourceview = Formula["gtksourceview"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++"]
     pango = Formula["pango"]
@@ -74,6 +75,7 @@ class Gtksourceviewmm < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_include}/gtk-unix-print-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtksourceviewmm-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{libsigcxx.opt_include}/sigc++-2.0
