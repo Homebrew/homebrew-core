@@ -1,9 +1,9 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.2/pcb2gcode-1.3.2.tar.gz"
-  sha256 "c4135cd3981c4a5d6baffa81b7f8e890ae29776107b0d1938b744a8dfebdbc63"
-  revision 5
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.0.0.tar.gz"
+  sha256 "3b7e8cdc58852294d95b0ed705933f528a9e56428863490f5a27f22153cd713e"
+  head "https://github.com/pcb2gcode/pcb2gcode.git"
 
   bottle do
     cellar :any
@@ -12,17 +12,14 @@ class Pcb2gcode < Formula
     sha256 "c6151a82f67278db67fe5b479c6c4f5ae78a4e62b0a2eb92db8376117f094b06" => :sierra
   end
 
-  head do
-    url "https://github.com/pcb2gcode/pcb2gcode.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  # Release 2.0.0 doesn't include an autoreconfed tarball
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gerbv"
   depends_on "gtkmm"
+  depends_on "librsvg"
 
   # Upstream maintainer claims that the geometry library from boost >= 1.67
   # is severely broken. Remove the vendoring once fixed.
@@ -72,7 +69,7 @@ class Pcb2gcode < Formula
       system "./b2", *args
     end
 
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
