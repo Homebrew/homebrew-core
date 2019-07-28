@@ -5,9 +5,9 @@ class SNail < Formula
   sha256 "f0e3275274c93f3756fba6c58ca53f05b9fa2f89badb8678608b372d93ea510c"
 
   bottle do
-    sha256 "4949c96b5a87abcda782eb8033922e4d7feeaa834b339f3fef486bf9b66ffbcd" => :mojave
-    sha256 "7e1320caa4b15e0f3515c18a1633816af1a3fa1fd91b8c2728a7c5d904125787" => :high_sierra
-    sha256 "85fc1cc3611245e8da770c28a1d8a3137ed639d08b60c845a892c76eb89d922d" => :sierra
+    sha256 "085d62a87a43193342aa119102e4b9fa21b657291dfdb85c33fd3ae86c925366" => :mojave
+    sha256 "7fb3dab8b51b774594041bb9d3fc3aca7e201d434ccdf3d8c105f31b0fec596e" => :high_sierra
+    sha256 "8bcf3df7d55e3542cc4abdfb6c2dc3000a0db1a3a68086eca6f3f742e02104f9" => :sierra
   end
 
   depends_on "awk" => :build
