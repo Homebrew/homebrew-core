@@ -3,7 +3,7 @@ class P7zip < Formula
   homepage "https://p7zip.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/p7zip/p7zip/16.02/p7zip_16.02_src_all.tar.bz2"
   sha256 "5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +18,11 @@ class P7zip < Formula
     sha256 "fab0be1764efdbde1804072f1daa833de4e11ea65f718ad141a592404162643c"
     apply "patches/12-CVE-2016-9296.patch",
           "patches/13-CVE-2017-17969.patch"
+  end
+
+  patch :p4 do
+    url "https://github.com/aonez/Keka/files/2940620/15-Enhanced-encryption-strength.patch.zip"
+    sha256 "838dd2175c3112dc34193e99b8414d1dc1b2b20b861bdde0df2b32dbf59d1ce4"
   end
 
   def install
