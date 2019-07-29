@@ -5,9 +5,9 @@ class Homebank < Formula
   sha256 "8eedbe4246477935bd3882c1a628d7fd6036f6467be998c2558bdf4b39b0eb5f"
 
   bottle do
-    sha256 "08ccd3d0a38a63e644bfcb48cc9e0d3b66dbe5a42e77edd817a2b1602112cc34" => :mojave
-    sha256 "89fdc06aceed277f7a502b47dd279ab092f68ac19b2fc6260719ba82b3f48fa2" => :high_sierra
-    sha256 "8ae8f4df0676d99f3f49c356def441b4b4522f9a8bf030b0d7fc3c8b56e92bbe" => :sierra
+    sha256 "7235b69f24196c27772a251da502207f92861b16df5baa35bdac5844f5799f40" => :mojave
+    sha256 "0338cfd9bc1ba58e7d5a41bc70366c436c45d9a7c63249b6775a8feb0a5bbc6a" => :high_sierra
+    sha256 "f813a76ef9f5d030b04f27b5dc00b3028d5d8cf265e7589569911e2f23ac840c" => :sierra
   end
 
   depends_on "intltool" => :build
