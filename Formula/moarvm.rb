@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
-  url "https://moarvm.org/releases/MoarVM-2019.03.tar.gz"
-  sha256 "24b00e5228894fa6f70e9caa73114e5c6ec3686b6305e6e463807a93f70ffc04"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2019.07.1/MoarVM-2019.07.1.tar.gz"
+  sha256 "253c945ee6b589ede6949b8e77814542befcbc326190e18ef549634db4955988"
 
   bottle do
     sha256 "704a22721fb2a0d96d90903cdd4a6dd9c6da63ed1be33f466d26ffe5380d4024" => :mojave
@@ -15,9 +15,9 @@ class Moarvm < Formula
   depends_on "libtommath"
   depends_on "libuv"
 
-  resource("nqp-2019.03") do
-    url "https://github.com/perl6/nqp/archive/2019.03.tar.gz"
-    sha256 "5f226de8f0567f34797fd1d5eeed1ebf85bbd91f39608f917f48081dd3bf6863"
+  resource("nqp-2019.07.1") do
+    url "https://github.com/perl6/nqp/releases/download/2019.07.1/nqp-2019.07.1.tar.gz"
+    sha256 "7324e5b84903c5063303a3c9fb6205bdf5f071c9778cc695ea746e7d41b12224"
   end
 
   def install
@@ -38,7 +38,7 @@ class Moarvm < Formula
   end
 
   test do
-    testpath.install resource("nqp-2019.03")
+    testpath.install resource("nqp-2019.07.1")
     out = Dir.chdir("src/vm/moar/stage0") do
       shell_output("#{bin}/moar nqp.moarvm -e 'for (0,1,2,3,4,5,6,7,8,9) { print($_) }'")
     end
