@@ -5,8 +5,8 @@ class DhallJson < Formula
 
   desc "Dhall to JSON compiler and a Dhall to YAML compiler"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-json"
-  url "https://hackage.haskell.org/package/dhall-json-1.3.0/dhall-json-1.3.0.tar.gz"
-  sha256 "f1cab9ae9a93559cb66c38626a1a4c968d60f12795ac0a9755994e053518d19c"
+  url "https://hackage.haskell.org/package/dhall-json-1.4.0/dhall-json-1.4.0.tar.gz"
+  sha256 "31832fd8bdcf27ebea805143f62eb570970bf42cdd93cec73fdeb81c6a38ab4f"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
