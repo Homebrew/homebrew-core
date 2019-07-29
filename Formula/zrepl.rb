@@ -57,9 +57,8 @@ class Zrepl < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/zrepl daemon</string>
-          <string>--connectTimeout=120</string>
-          <string>--logto=#{var}/log/zrepl/zrepl.log</string>
+          <string>#{opt_bin}/zrepl</string>
+		      <string>daemon</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
