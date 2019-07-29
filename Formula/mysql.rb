@@ -92,6 +92,7 @@ class Mysql < Formula
       [mysqld]
       # Only allow connections from localhost
       bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
     EOS
     etc.install "my.cnf"
   end
