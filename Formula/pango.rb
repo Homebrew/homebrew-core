@@ -1,8 +1,8 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.0.tar.xz"
-  sha256 "004fffebb2ab4f89b375f4720c54b285d569526969ba791dfa20757a7f2f1d1b"
+  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.1.tar.xz"
+  sha256 "07fab549d383cae6d4715eaf853903433328d6e3618e7307bdedb4995f3bfe5f"
 
   bottle do
     sha256 "00b769ae7c76db06f9828398023c60597b11f33410b9f5b7c3f321b34fb7e0a9" => :mojave
@@ -23,9 +23,6 @@ class Pango < Formula
   depends_on "fribidi"
   depends_on "glib"
   depends_on "harfbuzz"
-
-  # submitted upstream as https://gitlab.gnome.org/GNOME/pango/merge_requests/105
-  patch :DATA
 
   def install
     mkdir "build" do
@@ -89,19 +86,3 @@ class Pango < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 8c41381c..8680e56f 100644
---- a/meson.build
-+++ b/meson.build
-@@ -42,7 +42,8 @@ pango_conf.set('PANGO_VERSION_MICRO', pango_micro_version)
- # Maintain version scheme with libtool
- pango_soversion = 0
- pango_libversion = '@0@.@1@.@2@'.format(pango_soversion, (pango_binary_age - pango_interface_age), pango_interface_age)
--pango_osxversion = pango_binary_age + 1
-+osx_current = pango_binary_age - pango_interface_age + 1
-+pango_osxversion = [osx_current, '@0@.@1@.0'.format(osx_current, pango_interface_age)]
-
- cc = meson.get_compiler('c')
- host_system = host_machine.system()
