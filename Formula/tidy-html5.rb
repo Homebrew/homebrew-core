@@ -1,8 +1,8 @@
 class TidyHtml5 < Formula
   desc "Granddaddy of HTML tools, with support for modern standards"
   homepage "https://www.html-tidy.org/"
-  url "https://github.com/htacg/tidy-html5/archive/5.6.0.tar.gz"
-  sha256 "08a63bba3d9e7618d1570b4ecd6a7daa83c8e18a41c82455b6308bc11fe34958"
+  url "https://github.com/htacg/tidy-html5/archive/5.7.28.tar.gz"
+  sha256 "5caa2c769204f506e24ea4986a45abe23f71d14f0fe968314f20065f342ffdba"
   head "https://github.com/htacg/tidy-html5.git", :branch => "next"
 
   bottle do
