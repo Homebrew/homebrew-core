@@ -1,8 +1,8 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
   homepage "https://github.com/watchexec/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/1.10.2.tar.gz"
-  sha256 "ecc00e43ff2b3404ebecf9f6d0c7115f46905de07df31b573281fe4d58169869"
+  url "https://github.com/watchexec/watchexec/archive/1.10.3.tar.gz"
+  sha256 "2bbef078d3937764cfb063c6520eae5117eddb5cfd15efabc39a69fc69b9989e"
 
   bottle do
     cellar :any_skip_relocation
