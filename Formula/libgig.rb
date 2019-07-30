@@ -1,8 +1,8 @@
 class Libgig < Formula
   desc "Library for Gigasampler and DLS (Downloadable Sounds) Level 1/2 files"
   homepage "https://www.linuxsampler.org/libgig/"
-  url "https://download.linuxsampler.org/packages/libgig-4.1.0.tar.bz2"
-  sha256 "06a280278a323963042acdf13b092644cceb43ef367fcbb9ca7bbedff132bd0b"
+  url "https://download.linuxsampler.org/packages/libgig-4.2.0.tar.bz2"
+  sha256 "16229a46138b101eb9eda042c66d2cd652b1b3c9925a7d9577d52f2282f745ff"
 
   bottle do
     cellar :any
@@ -16,11 +16,6 @@ class Libgig < Formula
   depends_on "libsndfile"
 
   def install
-    # parallel make does not work, fixed in next version (4.0.0)
-    ENV.deparallelize
-    # link with CoreFoundation, default in next version (4.0.0)
-    ENV.append "LDFLAGS", "-framework CoreFoundation"
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
