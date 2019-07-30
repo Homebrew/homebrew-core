@@ -11,6 +11,7 @@ class PassOtp < Formula
     sha256 "4b123f03ae8a1237e7b04731d3d39e66e9acf031924f757becf889c8b12f1efc" => :sierra
   end
 
+  depends_on "gnupg" => :test
   depends_on "oath-toolkit"
   depends_on "pass"
 
