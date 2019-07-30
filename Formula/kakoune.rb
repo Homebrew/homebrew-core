@@ -1,8 +1,8 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2019.01.20/kakoune-2019.01.20.tar.bz2"
-  sha256 "991103a227be00ca1b10ad575fd6c749fa4c99eb19763971c7b1e113e299b995"
+  url "https://github.com/mawww/kakoune/releases/download/v2019.07.01/kakoune-2019.07.01.tar.bz2"
+  sha256 "8cf978499000bd71a78736eaee5663bd996f53c4e610c62a9bd97502a3ed6fd3"
   head "https://github.com/mawww/kakoune.git"
 
   bottle do
@@ -14,15 +14,8 @@ class Kakoune < Formula
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on :macos => :high_sierra # needs C++17
   depends_on "ncurses"
-
-  if MacOS.version <= :el_capitan
-    depends_on "gcc"
-    fails_with :clang do
-      build 800
-      cause "New C++ features"
-    end
-  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
