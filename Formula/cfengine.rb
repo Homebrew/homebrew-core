@@ -1,8 +1,9 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.14.0.tar.gz"
-  sha256 "738d9ade96817c26123046281b6dc8d3c325a2f0f3662e9b23a8e572a4cf4267"
+  url "https://github.com/cfengine/core/archive/3.14.0-2.tar.gz"
+  version "3.14.0-2"
+  sha256 "7e11ec3d188240d71725a24504c5b7680004481fe596d7d895c8bee364e75b6d"
 
   bottle do
     sha256 "b3fb31ea7b58615a30f7ebb57c97d41ce61968d4e953d98698f680e9de443115" => :mojave
