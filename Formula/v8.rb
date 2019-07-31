@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.5.288.30.tar.gz"
-  sha256 "29ea4776f841392a062ac9a4705f7d6d4505baa4dae7789138cb2aba31290e7c"
+  url "https://github.com/v8/v8/archive/7.6.303.27.tar.gz"
+  sha256 "e3fb2270c3ca277fa3e7ef6bd45f4d00eb7111bfd1ac440997bba2ef02ae0262"
 
   bottle do
     cellar :any
@@ -19,10 +19,31 @@ class V8 < Formula
   depends_on :macos => :el_capitan
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g.: https://github.com/v8/v8/blob/7.4.288.25/DEPS#L19 for the revision of build for v8 7.4.288.25
+  # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
+  resource "gn" do
+    url "https://gn.googlesource.com/gn.git",
+      :revision => "81ee1967d3fcbc829bac1c005c3da59739c88df9"
+  end
+
+  # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "a0b2e3b2708bcf81ec00ac1738b586bcc5e04eea"
+      :revision => "4cebfa34c79bcfbce6a3f55d1b4f7628bb70ea8a"
+  end
+
+  resource "v8/third_party/icu" do
+    url "https://chromium.googlesource.com/chromium/deps/icu.git",
+      :revision => "64e5d7d43a1ff205e3787ab6150bbc1a1837332b"
+  end
+
+  resource "v8/base/trace_event/common" do
+    url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
+      :revision => "cfe8887fa6ac3170e23a68949930e28d4705a16f"
+  end
+
+  resource "v8/third_party/googletest/src" do
+    url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
+      :revision => "f71fb4f9a912ec945401cc49a287a759b6131026"
   end
 
   resource "v8/third_party/jinja2" do
@@ -33,26 +54,6 @@ class V8 < Formula
   resource "v8/third_party/markupsafe" do
     url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
       :revision => "8f45f5cfa0009d2a70589bcda0349b8cb2b72783"
-  end
-
-  resource "v8/third_party/googletest/src" do
-    url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "b617b277186e03b1065ac6d43912b1c4147c2982"
-  end
-
-  resource "v8/base/trace_event/common" do
-    url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      :revision => "ebb658ab38d1b23183458ed0430f5b11853a25a3"
-  end
-
-  resource "v8/third_party/icu" do
-    url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "35f7e139f33f1ddbfdb68b65dda29aff430c3f6f"
-  end
-
-  resource "gn" do
-    url "https://gn.googlesource.com/gn.git",
-      :revision => "64b846c96daeb3eaf08e26d8a84d8451c6cb712b"
   end
 
   def install
