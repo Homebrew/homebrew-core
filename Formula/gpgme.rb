@@ -11,13 +11,8 @@ class Gpgme < Formula
     sha256 "e25704cd86fc95fc9e630c0631729eb8315d8c7d27dc45abd0b08fd6d2d6937f" => :sierra
   end
 
-  depends_on "doxygen" => :build
-  depends_on "graphviz" => :build
-  depends_on "pkg-config" => :build
   depends_on "python" => [:build, :test]
-  depends_on "qt" => [:build, :test]
   depends_on "swig" => :build
-  depends_on "cmake" => :test
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
@@ -38,7 +33,5 @@ class Gpgme < Formula
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
     system "python2.7", "-c", "import gpg; print gpg.version.versionstr"
     system "python3", "-c", "import gpg; print(gpg.version.versionstr)"
-    (testpath/"CMakeLists.txt").write("find_package(QGpgme REQUIRED)")
-    system "cmake", ".", "-Wno-dev"
   end
 end
