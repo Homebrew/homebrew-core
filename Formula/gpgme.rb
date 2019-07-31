@@ -15,7 +15,6 @@ class Gpgme < Formula
   depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => [:build, :test]
-  depends_on "qt" => :optional
   depends_on "swig" => :build
   depends_on "cmake" => :test
   depends_on "gnupg"
@@ -38,7 +37,6 @@ class Gpgme < Formula
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
     system "python2.7", "-c", "import gpg; print gpg.version.versionstr"
     system "python3", "-c", "import gpg; print(gpg.version.versionstr)"
-    (testpath/"CMakeLists.txt").write("find_package(QGpgme REQUIRED)")
     system "cmake", ".", "-Wno-dev"
   end
 end
