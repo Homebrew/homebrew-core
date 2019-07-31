@@ -7,9 +7,9 @@ class K6 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7bf3b04410bacde97e906860addced0403d96a4c0fcab8efcec811c4a0bf9da3" => :mojave
-    sha256 "0a59d836290c7b499dfa5718dcbf05559f6fdc9b287a737bbfecf0bdb6dc3c6e" => :high_sierra
-    sha256 "3c32a857ca8b388bc4715bf73a3f661a500d25795c6b213012beb8c6bab657f4" => :sierra
+    sha256 "ec47aa43e5d83dd4ac5bb114ebe79bef61ae58e731dfd47406628a2ce25705e4" => :mojave
+    sha256 "d52262f96a05ef960fb44f4d46713cecb99d3d32443a0ac5a216d990ad39064c" => :high_sierra
+    sha256 "05f67008016aa9296a77ed1cead0e6dffd56ff0d1259fcda3bd958346c16be6b" => :sierra
   end
 
   depends_on "dep" => :build
