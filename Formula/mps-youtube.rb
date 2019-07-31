@@ -24,8 +24,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/69/e9/c96133c3b4874d9b682e918aa1e030a482a866f2b61ba9e985e47d08fffb/youtube_dl-2019.6.21.tar.gz"
-    sha256 "a64ffda79f467c81877d5452d775ebf858b43853ff7ce8644be3a80ebf3f9ea9"
+    url "https://files.pythonhosted.org/packages/25/fa/92097e9d95470ac12211b6f63744d159f473952ad01e9dd869edc62fb42d/youtube_dl-2019.7.30.tar.gz"
+    sha256 "41ee1e4247ed3810d9730c54b25ebe4ca19c1ca7373e3de05a3dc8e8884ca475"
   end
 
   def install
