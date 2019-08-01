@@ -6,9 +6,9 @@ class Libu2fHost < Formula
 
   bottle do
     cellar :any
-    sha256 "d33c41a856bcbdb1bd10b8c33bfe3e2066ca8aa488ccd6e6d62a237cf1f56a90" => :mojave
-    sha256 "7e2a76534a120e51729bd5587825f3d586fcad4ffa26c71c800cb3d959734389" => :high_sierra
-    sha256 "86d8f610d34ba53dba98377fd5b7550082e340ee94b2ca4e25d0d662ed64136b" => :sierra
+    sha256 "de1df148c237465d9211d31f885845c44332a797b577f96d231461e822da8194" => :mojave
+    sha256 "29ed5c81b0310b148b65e377d5197311edbada65dfe84d6ab193b701fd982af4" => :high_sierra
+    sha256 "5ee537e748bb3c59aa28c640c656acb25680d37c34933684453a256921ab3f51" => :sierra
   end
 
   depends_on "pkg-config" => :build
