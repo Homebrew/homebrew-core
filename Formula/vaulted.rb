@@ -7,9 +7,9 @@ class Vaulted < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da19f0ae3296cd695dced87aa93828c96754570427842880a286397d5de30c50" => :mojave
-    sha256 "5c027f23bd0a0d9b30a8392ad40e86a72ea57700d4a8a8a16d51973085b2d6b5" => :high_sierra
-    sha256 "e81be3ea83b9716e53e9e981aa87da08a9bfcc8555f11eaf602fd6e36b56beae" => :sierra
+    sha256 "a16cebc3c61049267dd44d486a3735fbe8e349fcbc8474954b9f9cfbb0389890" => :mojave
+    sha256 "3320d39ed310b8dea78f5b632b92b5a8c27096103010781ea580d5d9acb84a49" => :high_sierra
+    sha256 "ec7c5caa96c6d0f962f74115bf0adebf68fd670b657cdaddb77fc4a8d45c2081" => :sierra
   end
 
   depends_on "go" => :build
