@@ -6,9 +6,9 @@ class Mafft < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "444919693de650796a35685050a73a7a82f55c40a3a4b308c4168f3a0f6f460a" => :mojave
-    sha256 "576f4d1f41f38e35e056b6636c3cfe02aa02201fc91f35e203c91d5e01f36cee" => :high_sierra
-    sha256 "bc8ad1455186bdc677206d67da93024483358bea588e440a4a515cdfaf8b7e76" => :sierra
+    sha256 "8286d20021c84330602546f9bc7d12f3440b62cf4e41c53188ec4409608a759e" => :mojave
+    sha256 "b7a38f20fb6fc2d10845b6605962cedc1f2dd952fd46bb420a13203b2873e632" => :high_sierra
+    sha256 "39fe0fcdb27d0a2e358c3c9ea41d6f07bd169f228943bc37a1b3186f67833513" => :sierra
   end
 
   def install
