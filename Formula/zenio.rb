@@ -1,8 +1,8 @@
 class Zenio < Formula
   desc "CLI Zenio Tool"
   homepage "https://dev.zenio.co"
-  url "https://dev.zenio.co/cli/download/zenio-0.8.1.tar"
-  sha256 "8838c70497d0d4e99365c32a7a197f90f2d3e67a8b1cab5e5a6ebac4f6d1bc92"
+  url "https://zenio.co/cli/download/distributions/v0.8.5/zenio-0.8.5.tar"
+  sha256 "0c30ab42cdc2298cc38ce52e492f7e001e8e68ee3ab71ce4f46229a5e8f3b35f"
 
   depends_on :java => "8"
 
