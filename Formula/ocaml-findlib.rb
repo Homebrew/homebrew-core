@@ -1,8 +1,8 @@
 class OcamlFindlib < Formula
   desc "OCaml library manager"
   homepage "http://projects.camlcity.org/projects/findlib.html"
-  url "http://download.camlcity.org/download/findlib-1.8.0.tar.gz"
-  sha256 "2b7b7d6d65bb0f3f8a2c51c63c02b0bcf1fea4c23513f866140dc7dc24fe27ad"
+  url "http://download.camlcity.org/download/findlib-1.8.1.tar.gz"
+  sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
 
   bottle do
     sha256 "6399780e078bca007730b218f4561ef4a513ba2296230aca2bcd9b6cfc75ea98" => :mojave
@@ -14,9 +14,6 @@ class OcamlFindlib < Formula
   depends_on "ocaml"
 
   def install
-    # See https://gitlab.camlcity.org/gerd/lib-findlib/merge_requests/8
-    ENV.deparallelize
-
     system "./configure", "-bindir", bin,
                           "-mandir", man,
                           "-sitelib", lib/"ocaml",
