@@ -1,9 +1,9 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2019-07-01.tar.gz"
-  version "20190701"
-  sha256 "de6c3ee49b2cecdfd2936af18d6947db36726590e566b5915db3746784c55745"
+  url "https://github.com/google/re2/archive/2019-08-01.tar.gz"
+  version "20190801"
+  sha256 "38bc0426ee15b5ed67957017fd18201965df0721327be13f60496f2b356e3e01"
   head "https://github.com/google/re2.git"
 
   bottle do
