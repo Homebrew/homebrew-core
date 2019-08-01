@@ -5,7 +5,7 @@ class WifiPass < Formula
   sha256 "c315d03693d707c47ba58e32f3bf9aaf0aa17f799b3838f68a1aa4f77ea9a5cc"
   head "https://github.com/DaFuqtor/wifi-pass.git"
 
-  depends_on "qrencode" => :recommended
+  depends_on "qrencode"
 
   def install
     bin.install "wifi-pass.sh" => "wifi-pass"
