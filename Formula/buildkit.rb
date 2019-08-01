@@ -6,9 +6,9 @@ class Buildkit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "51cd71cd4ec5055cd2fce2495667838074984254f320703176e62498e6b2ecdb" => :mojave
-    sha256 "c2cdc467de461d6a5f6b8ca3e79bfcb3e505d90a9834ddc76f49fe4b586fed8b" => :high_sierra
-    sha256 "230e2dd29a73debf18c9d172c765a8af93acd9aa14e12312e5fc6add5ab84589" => :sierra
+    sha256 "8899246f742da7662fd76e8d1f0bef9c6fbf987b069dfd874377b247937cdff9" => :mojave
+    sha256 "09793da8f770c03cd85965f76fad5422c207c56ea64fdbaf908d89c310d7cdad" => :high_sierra
+    sha256 "a243c194d9262c6e564b7c8e5f22aad0e57fa43f8de32b81ae243da1ebfa025a" => :sierra
   end
 
   depends_on "go" => :build
