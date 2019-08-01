@@ -7,9 +7,9 @@ class DroneCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5d1dd6aba158729e8b160c9e81f36cdc99793119203ce4722301cc784d50fdf" => :mojave
-    sha256 "f50eabb263db692a49d1f630bfa5dda5aecfb86873b5ad3ff9264048e8bb6113" => :high_sierra
-    sha256 "5d4cc05f72098cbcf63adaf2041cc2f0be9bba74ba663fe703b0e8fa72954b6f" => :sierra
+    sha256 "93e10a2deb01cfffbcb2e1912c9f3ae5acad176ffef865452b9cb4ec14d08dd5" => :mojave
+    sha256 "57310b464cdb63d6eb63d522b743ed339b10308d4fc72ffe758e6d987bd6af50" => :high_sierra
+    sha256 "9aa164f7eaf7867ecf1f40a69379028f730c2bce606cb33e2e9975145a610a80" => :sierra
   end
 
   depends_on "dep" => :build
