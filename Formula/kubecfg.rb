@@ -6,9 +6,9 @@ class Kubecfg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84bed4c9638a762c15b0bf5a9709c49a9f89acf81dd57710832ae41c83c44253" => :mojave
-    sha256 "56b59e971880081f820355b3661a32058f584d54cd0044b686724c5ca2c56e43" => :high_sierra
-    sha256 "646b089ef7e817b954d541ea65c7226a2be3a2e9d55678e49ac30575b9eaa314" => :sierra
+    sha256 "80246b85adeb76d233ad84a6c8097bf23670aa058871aafd5e64b83da0b5fd08" => :mojave
+    sha256 "8e3046f1ad845339a61a232e0d6b0a13aeaaaf1ba3d7d2280791aa703dde4994" => :high_sierra
+    sha256 "3b20d5ee37cc4d4f78679c3a0eb4d4cfa8ee48efcb10600b263bca39356a6e4a" => :sierra
   end
 
   depends_on "go" => :build
