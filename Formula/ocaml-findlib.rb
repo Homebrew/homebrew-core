@@ -5,10 +5,9 @@ class OcamlFindlib < Formula
   sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
 
   bottle do
-    sha256 "6399780e078bca007730b218f4561ef4a513ba2296230aca2bcd9b6cfc75ea98" => :mojave
-    sha256 "8c2e25008b18bde6fdbefacf85397ecd93a2b916d98c1e1954532509abbfd756" => :high_sierra
-    sha256 "16682aa54745337c9aaae81fdd22000831c2b85b021250c6d4112fb94ab918a1" => :sierra
-    sha256 "22b0228a6a116a7f22728b763c4d3e80b30b246a110fe726c5c572dde2d1073b" => :el_capitan
+    sha256 "b59570c74713f43320a8990e0dcc0943952b21d5aa838efc9adcfe13c3ec505c" => :mojave
+    sha256 "5a7461260e9ec4d164c85524d6103d95c11a4f94d55485acce6ba93fb315c436" => :high_sierra
+    sha256 "adf4b6c159dc2f73504eb613c2080fc9fcc44c6e6f59e948edbc5db0a9905bf9" => :sierra
   end
 
   depends_on "ocaml"
