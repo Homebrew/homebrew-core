@@ -3,6 +3,7 @@ class WifiPass < Formula
   homepage "https://wifi-pass.ru"
   url "https://github.com/DaFuqtor/wifi-pass/archive/0.2.7.tar.gz"
   head "https://github.com/DaFuqtor/wifi-pass.git"
+  sha256 "c315d03693d707c47ba58e32f3bf9aaf0aa17f799b3838f68a1aa4f77ea9a5cc"
 
   depends_on "qrencode" => :recommended
 
