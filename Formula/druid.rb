@@ -1,8 +1,8 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "https://druid.apache.org/"
-  url "http://static.druid.io/artifacts/releases/druid-0.12.3-bin.tar.gz"
-  sha256 "807581d54fa4c5a90eec2a230e2a7fc4c6daf18eb8136009bf36a775d793d6f6"
+  url "https://www.apache.org/dyn/closer.cgi?path=/incubator/druid/0.15.0-incubating/apache-druid-0.15.0-incubating-bin.tar.gz"
+  sha256 "d0097be55216b3c9a7f954b134af70d4d643f63a4b514430df015b45400e7e89"
 
   bottle :unneeded
 
