@@ -11,8 +11,7 @@ class Sourcery < Formula
     sha256 "8e030ca0e08585b2c58db2504da93631a754dd38331615d12350ac8a1873ca33" => :high_sierra
   end
 
-  depends_on :xcode => ["10.0", :build]
-  depends_on :xcode => "6.0"
+  depends_on :xcode => "10.2"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", "-target", "-Xswiftc", "x86_64-apple-macosx10.11"
