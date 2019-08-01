@@ -1,7 +1,9 @@
 class Stolon < Formula
   desc "Cloud native PostgreSQL manager for high availability"
   homepage "https://github.com/sorintlab/stolon"
-  url "https://github.com/sorintlab/stolon.git", :tag => "v0.13.0"
+  url "https://github.com/sorintlab/stolon.git",
+    :tag      => "v0.14.0",
+    :revision => "48f9ace3ab7cb21179a43d05c328b02b17f31489"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,19 +32,12 @@ class Stolon < Formula
       exec "consul", "agent", "-dev"
     end
     sleep 2
-    run_output = shell_output("#{bin}/stolonctl version 2>&1")
-    assert_match "stolonctl version v0.13.0", run_output
-    run_output = shell_output("#{bin}/stolonctl status --cluster-name test --store-backend consul 2>&1", 1)
-    assert_match "=== Active sentinels ===\n\nNo active sentinels\n\n=== Active proxies ===\n\nNo active proxies\nnil cluster data: <nil>\n", run_output
 
-    run_output = shell_output("#{bin}/stolon-keeper --version 2>&1")
-    assert_match "stolon-keeper version v0.13.0", run_output
-
-    run_output = shell_output("#{bin}/stolon-sentinel --version 2>&1")
-    assert_match "stolon-sentinel version v0.13.0", run_output
-
-    run_output = shell_output("#{bin}/stolon-proxy --version 2>&1")
-    assert_match "stolon-proxy version v0.13.0", run_output
+    assert_match "stolonctl version v#{version}", shell_output("#{bin}/stolonctl version 2>&1")
+    assert_match "nil cluster data: <nil>", shell_output("#{bin}/stolonctl status --cluster-name test --store-backend consul 2>&1", 1)
+    assert_match "stolon-keeper version v#{version}", shell_output("#{bin}/stolon-keeper --version 2>&1")
+    assert_match "stolon-sentinel version v#{version}", shell_output("#{bin}/stolon-sentinel --version 2>&1")
+    assert_match "stolon-proxy version v#{version}", shell_output("#{bin}/stolon-proxy --version 2>&1")
 
     Process.kill("TERM", pid)
     Process.wait(pid)
