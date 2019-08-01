@@ -10,9 +10,9 @@ class AzureCli < Formula
 
   bottle do
     cellar :any
-    sha256 "6a3875d9699437e084e07c69e93f3feac14a13a610bc2492299701b52202122e" => :mojave
-    sha256 "4c185ab202053db6a8a6044d87c3f54bc53a0e2ce5f13804099a5f2a4c1277fc" => :high_sierra
-    sha256 "b37d81b8d1f37d20873c8ef15fbae0f847e71c5aae6de263698cb697bac97428" => :sierra
+    sha256 "5835f1da919d7a38fe3199c45496c1a020514381716d0c39e93b6487acfdc144" => :mojave
+    sha256 "39aa18da5509277ef19ff8936e90084684aa73285cc546c262cd061ce7ba3170" => :high_sierra
+    sha256 "341abb4a72222b0b9e0153598884ed830efb438cab39030bb7fdecad85a98435" => :sierra
   end
 
   depends_on "openssl"
