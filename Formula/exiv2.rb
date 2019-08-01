@@ -1,9 +1,8 @@
 class Exiv2 < Formula
   desc "EXIF and IPTC metadata manipulation library and tools"
   homepage "https://www.exiv2.org/"
-  url "https://www.exiv2.org/builds/exiv2-0.27.1-Source.tar.gz"
-  sha256 "f125286980fd1bcb28e188c02a93946951c61e10784720be2301b661a65b3081"
-  revision 1
+  url "https://www.exiv2.org/builds/exiv2-0.27.2-Source.tar.gz"
+  sha256 "2652f56b912711327baff6dc0c90960818211cf7ab79bb5e1eb59320b78d153f"
   head "https://github.com/Exiv2/exiv2.git"
 
   bottle do
