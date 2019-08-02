@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
-  url "https://github.com/kubernetes/kops/archive/1.12.2.tar.gz"
-  sha256 "e453bfd39a8bd079a14cf8d8c1b22d1429ccd4f5701b55f3612528263aeb97e6"
+  url "https://github.com/kubernetes/kops/archive/1.13.0.tar.gz"
+  sha256 "d34ce916d72792c9c896c4c776c5e22e49c58c97fb2d9ae197fd93ecded88196"
   head "https://github.com/kubernetes/kops.git"
 
   bottle do
