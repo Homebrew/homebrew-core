@@ -3,7 +3,7 @@ class Nylon < Formula
   homepage "https://github.com/smeinecke/nylon"
   url "https://monkey.org/~marius/nylon/nylon-1.21.tar.gz"
   sha256 "34c132b005c025c1a5079aae9210855c80f50dc51dde719298e1113ad73408a4"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "81bb68359ab8969a66c60b467890e9be12a1d003844d7a76f85ca2b4c3c47ea9" => :mojave
