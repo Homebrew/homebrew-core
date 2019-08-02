@@ -3,6 +3,7 @@ class Memcached < Formula
   homepage "https://memcached.org/"
   url "https://www.memcached.org/files/memcached-1.5.16.tar.gz"
   sha256 "45a22c890dc1edb27db567fb4c9c25b91bfd578477c08c5fb10dca93cc62cc5a"
+  revision 1
 
   bottle do
     cellar :any
