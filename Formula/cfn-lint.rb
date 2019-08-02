@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.22.4.tar.gz"
-  sha256 "2dad6953375b29d37809af05fcb7a69a63a551fd4017ffa6d7d6e54b7f4f43fd"
+  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.23.1.tar.gz"
+  sha256 "d57b869c8b80e9879466accf2f1337a75aaa9514fc97280d1330fa37861d144c"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,18 +21,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/dd/79/d4eabac6f1c39d2502f241f0473b4854d713d8e745c53ae557476a8027d1/aws-sam-translator-1.12.0.tar.gz"
-    sha256 "4f6c4a0b8f416c9336be8465f7e252560738308cfb2fa840d5e77257b5608945"
+    url "https://files.pythonhosted.org/packages/58/f8/797395aebdecbff6d7b2b8a655292c62c321054c933ebe12f808c34e6aab/aws-sam-translator-1.13.0.tar.gz"
+    sha256 "6966b45dc444de3ced673164889e8cf0ac001c947cfac6030527cd38e2e40071"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/21/c8/59b3c1e3482a2167c5bd610df006ca934145bd3148706ebc06594d9f29a9/boto3-1.9.178.tar.gz"
-    sha256 "29cc84e5a12f6476f909710373ebc294f37217baf33b50b6acd7f67aee3bb384"
+    url "https://files.pythonhosted.org/packages/1f/23/d8eb13eb604210bb9100d1e3b18ed0f28053be039d7de63cf0d93f355f62/boto3-1.9.199.tar.gz"
+    sha256 "68e9eba6f846cf8e01973ec565afdb1adfb9612b531c15bb5c5524394db4df5b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/bc/fb/50b7d2cd4663bcf85ab8b649c738b01a544e7577663e59fa71bb998367bf/botocore-1.12.178.tar.gz"
-    sha256 "6b5a42cd6267467bf6a7d6ca9452385dd984b7b402b4a1e2a9c42e2a3d311edd"
+    url "https://files.pythonhosted.org/packages/7a/46/c8fe2a0be79705539742ab9ff6a0a5d4ba8b55c7103ee546c769d3d1da70/botocore-1.12.199.tar.gz"
+    sha256 "25d87047241b7b775443570c0e790ca952f9f7491d4d6472430a4b006383a257"
   end
 
   resource "certifi" do
@@ -61,8 +61,8 @@ class CfnLint < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/9a/7d/bcf203d81939420e1aaf7478a3efce1efb8ccb4d047a33cb85d7f96d775e/jsonpatch-1.23.tar.gz"
-    sha256 "49f29cab70e9068db3b1dc6b656cbe2ee4edf7dfe9bf5a0055f17a4b6804a4b9"
+    url "https://files.pythonhosted.org/packages/30/ac/9b6478a560627e4310130a9e35c31a9f4d650704bbd03946e77c73abcf6c/jsonpatch-1.24.tar.gz"
+    sha256 "cbb72f8bf35260628aea6b508a107245f757d1ec839a19c34349985e2c05645a"
   end
 
   resource "jsonpointer" do
@@ -71,13 +71,13 @@ class CfnLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/1f/7f/a020327823b9c405ee6f85ab3053ff171e10801b19cfe55c78bb0b3810e7/jsonschema-3.0.1.tar.gz"
-    sha256 "0c0a81564f181de3212efa2d17de1910f8732fa1b71c42266d983cd74304e20d"
+    url "https://files.pythonhosted.org/packages/92/d2/8768983d6e4bb1478ea08e7bc186304f47b99c22bfd711caa8e9becb0361/jsonschema-3.0.2.tar.gz"
+    sha256 "8d4a2b7b6c2237e0199c8ea1a6d3e05bf118e289ae2b9d7ba444182a2959560d"
   end
 
   resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/68/0b/f514e76b4e074386b60cfc6c8c2d75ca615b81e415417ccf3fac80ae0bf6/pyrsistent-0.15.2.tar.gz"
-    sha256 "16692ee739d42cf5e39cef8d27649a8c1fdb7aa99887098f1460057c5eb75c3a"
+    url "https://files.pythonhosted.org/packages/b9/66/b2638d96a2d128b168d0dba60fdc77b7800a9b4a5340cefcc5fc4eae6295/pyrsistent-0.15.4.tar.gz"
+    sha256 "34b47fa169d6006b32e99d4b3c4031f155e6e68ebcc107d6454852e8e0ee6533"
   end
 
   resource "python-dateutil" do
@@ -86,8 +86,8 @@ class CfnLint < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/a3/65/837fefac7475963d1eccf4aa684c23b95aa6c1d033a2c5965ccb11e22623/PyYAML-5.1.1.tar.gz"
-    sha256 "b4bb4d3f5e232425e25dda21c070ce05168a786ac9eda43768ab7f3ac2770955"
+    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
+    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
   end
 
   resource "requests" do
