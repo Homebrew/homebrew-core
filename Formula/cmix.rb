@@ -7,9 +7,9 @@ class Cmix < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d0853a7359422d21f3fa77d0130f979cb88a36418be3f767d59f10958403100" => :mojave
-    sha256 "7b9b9850f26bc23078d4a4321d129e4e82f14db885d1609b9ac916047170b106" => :high_sierra
-    sha256 "da16b7d8acc398c4ac59f89dc27f2ae1d4ba4391c8c8bbd3e841c236f201e497" => :sierra
+    sha256 "448fa06555b59d6a0541d1e36ff9eac14e05775fd2ef119e860a305368b800ec" => :mojave
+    sha256 "6e1bc1de5f3c36e6fcda7874b8fbd18938aedbdbce94039763302f9643964a0a" => :high_sierra
+    sha256 "3dc97bda2656e2b2ffccb50915f9a981513fff5a8f90af2a1c5521afe52568d0" => :sierra
   end
 
   def install
