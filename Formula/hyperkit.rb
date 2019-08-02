@@ -6,9 +6,9 @@ class Hyperkit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68579196620aeffc75c52fb4f1ddbdbb51921f728543162497619b9c45923b9b" => :mojave
-    sha256 "70853fb874cf2cc543cef3553249dab46ae7a1aaba1be85540b741099e272c95" => :high_sierra
-    sha256 "30c1b9ad729b7ca22ed6bf12368720ccc1bfb0aa2c592b0c25eba7a17650f749" => :sierra
+    sha256 "a4948f7efd6aa82761aaff223f06418c4ab88ffc23dd3200dbeb244300ec01a3" => :mojave
+    sha256 "b3dc58b0f7a0b23c423873931df44b5fd44bd36d87484d65a57d19f679e73b1c" => :high_sierra
+    sha256 "67bfb33daa2a4c3c492d16e9c9a4811042f656e5c59f8f87c72902ef3ee3269e" => :sierra
   end
 
   depends_on "aspcud" => :build
