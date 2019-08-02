@@ -3,7 +3,7 @@ class CrystalIcr < Formula
   homepage "https://github.com/crystal-community/icr"
   url "https://github.com/crystal-community/icr/archive/v0.6.0.tar.gz"
   sha256 "970d5ecbde6bb370c8178339db42e7812b7a2f3a5db3eec868cc18c19523c0ea"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "91e9a61aa1b45edb14bb8a9a382fc047d67e83cf6afa8448302bad7b4af3a335" => :mojave
@@ -12,7 +12,9 @@ class CrystalIcr < Formula
   end
 
   depends_on "crystal"
-  depends_on "readline"
+  depends_on "libevent"
+  depends_on "libyaml"
+  depends_on "openssl"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
