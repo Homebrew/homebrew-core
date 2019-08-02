@@ -3,6 +3,7 @@ class Webdis < Formula
   homepage "https://webd.is/"
   url "https://github.com/nicolasff/webdis/archive/0.1.7.tar.gz"
   sha256 "932e8b2d75ea6093759c4f9a228c34de664a1d41c2ef3aaa57fa61cdc38024a2"
+  revision 1
 
   bottle do
     cellar :any
