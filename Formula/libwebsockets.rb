@@ -3,6 +3,7 @@ class Libwebsockets < Formula
   homepage "https://libwebsockets.org"
   url "https://github.com/warmcat/libwebsockets/archive/v3.1.0.tar.gz"
   sha256 "db948be74c78fc13f1f1a55e76707d7baae3a1c8f62b625f639e8f2736298324"
+  revision 1
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
