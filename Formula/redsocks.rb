@@ -3,7 +3,7 @@ class Redsocks < Formula
   homepage "https://darkk.net.ru/redsocks/"
   url "https://github.com/darkk/redsocks/archive/release-0.4.tar.gz"
   sha256 "618cf9e8cd98082db31f4fde6450eace656fba8cd6b87aa4565512640d341045"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
