@@ -1,9 +1,8 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.5.0.tar.gz"
-  sha256 "bf692567983478c92bde78d454c18d6196abb032b5a77f430b09a7ef92ec6089"
-  revision 1
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.6.0.tar.gz"
+  sha256 "3c385c1cceb46301fdc79115e7b28e3df7aa26fafce0a787a60132a86a1990c7"
 
   bottle do
     sha256 "1d028a79be8109c00e46e4339861c4fbb6e503ffce646a5057613c0b0777da58" => :mojave
@@ -22,9 +21,6 @@ class Libosinfo < Formula
   def install
     # avoid wget dependency
     inreplace "Makefile.in", "wget -q -O", "curl -o"
-
-    # sh lives at /bin/sh on macOS, not /usr/bin/sh
-    inreplace "build-aux/install-sh", "#!/usr/bin/sh", "#!/bin/sh"
 
     args = %W[
       --prefix=#{prefix}
