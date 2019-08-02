@@ -3,6 +3,7 @@ class Ttyd < Formula
   homepage "https://github.com/tsl0922/ttyd"
   url "https://github.com/tsl0922/ttyd/archive/1.5.1.tar.gz"
   sha256 "817d33d59834f9a76af99f689339722fc1ec9f3c46c9a324665b91cb44d79ee8"
+  revision 1
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
@@ -15,6 +16,8 @@ class Ttyd < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "libevent"
+  depends_on "libuv"
   depends_on "libwebsockets"
   depends_on "openssl"
 
