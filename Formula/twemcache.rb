@@ -3,6 +3,7 @@ class Twemcache < Formula
   homepage "https://github.com/twitter/twemcache"
   url "https://github.com/twitter/twemcache/archive/v2.6.3.tar.gz"
   sha256 "ab05927f7d930b7935790450172187afedca742ee7963d5db1e62164e7f4c92b"
+  revision 1
   head "https://github.com/twitter/twemcache.git"
 
   bottle do
