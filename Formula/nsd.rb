@@ -3,6 +3,7 @@ class Nsd < Formula
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
   url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.2.1.tar.gz"
   sha256 "d17c0ea3968cb0eb2be79f2f83eb299b7bfcc554b784007616eed6ece828871f"
+  revision 1
 
   bottle do
     sha256 "3250e2ea3d7df98039a3919486f16c0bb99e5a422d8bea10026d6bbe4a753ce6" => :mojave
