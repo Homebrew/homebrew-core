@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-9.600.4.tar.xz"
-  sha256 "7dadb6deea48c53417fd82035a8f1f25c04c925e5b3300acd198a359994af0be"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-9.600.5.tar.xz"
+  sha256 "dd9cd664282f2c3483af194ceedc2fba8559e0d20f8782c640fd6f3ac7cac2bf"
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Armadillo < Formula
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "hdf5"
-  depends_on "superlu"
+  depends_on "szip"
 
   def install
     system "cmake", ".", "-DDETECT_HDF5=ON", *std_cmake_args
