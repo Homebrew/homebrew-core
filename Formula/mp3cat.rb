@@ -6,12 +6,9 @@ class Mp3cat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0539db62bf14db5f54b37385bdd621192bcb699fb69a0ef1d2fc3f1135714f48" => :mojave
-    sha256 "f958c3e6b1dccfad12daec5c0692af405cd97342871ac76615a542ba17ee2de3" => :high_sierra
-    sha256 "4ae83c8ee5219135c9ca52b16b8e103b8c9f67c12cdf60e6584353f39276ed7c" => :sierra
-    sha256 "c582f29c5c3c05697e4805b75209dbab5797d6a3c62de5b4d21972250bc8d2e9" => :el_capitan
-    sha256 "a70d1a1a379c4813f57c32284f13348e36302a61d0c933c2a4fb19342c43be1f" => :yosemite
-    sha256 "43053bea923c17bd7a31532cdcaedfcb3681a04aa1b0b66e33defc41c7e00629" => :mavericks
+    sha256 "e075f29990e6b5222d3e82ed27de698bed42257097e9bd59f0d60f64ea7ae46b" => :mojave
+    sha256 "91152cced755097c42117c72e71f3db9023716e2e9befd1e8a6630fd225e3cea" => :high_sierra
+    sha256 "3954ad75806e1948a4e69efb74fb2e86a4920c7e6b61537ca48f696289ca998a" => :sierra
   end
 
   def install
