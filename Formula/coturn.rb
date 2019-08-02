@@ -3,6 +3,7 @@ class Coturn < Formula
   homepage "https://github.com/coturn/coturn"
   url "http://turnserver.open-sys.org/downloads/v4.5.1.1/turnserver-4.5.1.1.tar.gz"
   sha256 "e020ce90ea0301213451d37099185ff25d93f97fa0f2b48bf21b2946fc3696a4"
+  revision 1
 
   bottle do
     sha256 "0965e2d618dc990376fe852dc24c748a789c320381c3d935f8f557ce30df9304" => :mojave
