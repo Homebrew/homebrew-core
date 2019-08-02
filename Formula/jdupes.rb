@@ -6,9 +6,9 @@ class Jdupes < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca9779c954693349118bf199c870c172a949ffda3b9089ff39de8acca91fa254" => :mojave
-    sha256 "a43f89cbb3841755161ecc125d78f9d54a378536eeee8f81832ca29794ae3b2a" => :high_sierra
-    sha256 "0f72269d74ce573b6ae1296f91f70450ffecd01ec640c4b8f7e3adb06bc4a8f1" => :sierra
+    sha256 "5914122e74633a5d22c16102e0ffbf43c6a5d5903ecc75d41b050339af913b96" => :mojave
+    sha256 "f2132c6e2a0a1402a0dcc0205efc2ae80fcc1e70508f1910db3113de0d64ce1d" => :high_sierra
+    sha256 "95ce9083f5ee6dabdaae7ac9165b51231aa8df5240452f3eaec9c172064082cc" => :sierra
   end
 
   def install
