@@ -1,9 +1,9 @@
 class Cmix < Formula
   desc "Data compression program with high compression ratio"
   homepage "https://www.byronknoll.com/cmix.html"
-  url "https://github.com/byronknoll/cmix/archive/v17.tar.gz"
-  version "17.0.0"
-  sha256 "31af51dd0be70c9c3c724911b60a46c11860e9fabb59860d541c869966a84c46"
+  url "https://github.com/byronknoll/cmix/archive/v18.tar.gz"
+  version "18.0.0"
+  sha256 "2f0272186a8ff693146d0d8070ad4d9687461a486805ab91d727891df316498d"
 
   bottle do
     cellar :any_skip_relocation
