@@ -3,7 +3,7 @@ class Grok < Formula
   homepage "https://github.com/jordansissel/grok"
   url "https://github.com/jordansissel/grok/archive/v0.9.2.tar.gz"
   sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
-  revision 1
+  revision 2
   head "https://github.com/jordansissel/grok.git"
 
   bottle do
