@@ -3,6 +3,7 @@ class Fstrm < Formula
   homepage "https://github.com/farsightsec/fstrm"
   url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.5.0.tar.gz"
   sha256 "10ee7792a86face1d2271dc591652ab8c7af6976883887c69fdb11f10da135fc"
+  revision 1
 
   bottle do
     cellar :any
