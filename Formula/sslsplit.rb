@@ -3,6 +3,7 @@ class Sslsplit < Formula
   homepage "https://www.roe.ch/SSLsplit"
   url "https://github.com/droe/sslsplit/archive/0.5.4.tar.gz"
   sha256 "3338256598c0a8af6cc564609f3bce75cf2a9d74c32583bf96253a2ea0ef29fe"
+  revision 1
   head "https://github.com/droe/sslsplit.git", :branch => "develop"
 
   bottle do
