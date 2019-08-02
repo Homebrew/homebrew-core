@@ -6,9 +6,9 @@ class Libimagequant < Formula
 
   bottle do
     cellar :any
-    sha256 "1768d6878f969fd4cbbdf6830c782f7e3b887b4d8beca4bb68f9c1c34d122261" => :mojave
-    sha256 "94d0ba08c80540ccb2c1ceb9cc1f3789552009c9d434a269653dc3ee20694320" => :high_sierra
-    sha256 "251d006da27a04ed67b840128aee8cce82aa0a8845d6732123cb7ce5ae8dee22" => :sierra
+    sha256 "a9a44c0f9814c80901275cd445a1f486baef051995f705a892f86e996b5b77e5" => :mojave
+    sha256 "df578637695ae03e889b50b95403bf09911a94c6cec655042d949a6b139e5ee0" => :high_sierra
+    sha256 "dffe189a48b03eae632e79f1970786b6c4f41525e5ed9e9c5ca5239fbcf05d30" => :sierra
   end
 
   def install
