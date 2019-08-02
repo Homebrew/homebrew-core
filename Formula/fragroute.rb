@@ -4,7 +4,7 @@ class Fragroute < Formula
   url "https://www.monkey.org/~dugsong/fragroute/fragroute-1.2.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.wiretapped.net/pub/security/packet-construction/fragroute-1.2.tar.gz"
   sha256 "6899a61ecacba3bb400a65b51b3c0f76d4e591dbf976fba0389434a29efc2003"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
