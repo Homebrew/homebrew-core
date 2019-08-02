@@ -4,6 +4,7 @@ class Tor < Formula
   url "https://www.torproject.org/dist/tor-0.4.0.5.tar.gz"
   mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.0.5.tar.gz"
   sha256 "b5a2cbf0dcd3f1df2675dbd5ec10bbe6f8ae995c41b68cebe2bc95bffc90696e"
+  revision 1
 
   bottle do
     sha256 "b48b0db02211c743921d73017107ec254d2a2814f35a413462f1f97c7d89f6a0" => :mojave
