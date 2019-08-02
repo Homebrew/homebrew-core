@@ -3,6 +3,7 @@ class Transmission < Formula
   homepage "https://www.transmissionbt.com/"
   url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
   sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
+  revision 1
 
   bottle do
     rebuild 1
