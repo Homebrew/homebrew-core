@@ -2,8 +2,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.4.1",
-      :revision => "0bb38f438570dc0b3b1253169b0de0f4a2be6801"
+      :tag      => "v1.4.2",
+      :revision => "deb133452d38a0e3e71851e05a2af23cc2cc062e"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
@@ -32,7 +32,7 @@ class Packer < Formula
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get -u github.com/mna/pigeon", ""
         s.gsub! "go get golang.org/x/tools/cmd/goimports", ""
-        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
+        s.gsub! "go get github.com/alvaroloes/enumer", ""
       end
 
       (buildpath/"bin").mkpath
