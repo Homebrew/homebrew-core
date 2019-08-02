@@ -3,6 +3,7 @@ class Remctl < Formula
   homepage "https://www.eyrie.org/~eagle/software/remctl/"
   url "https://archives.eyrie.org/software/kerberos/remctl-3.15.tar.xz"
   sha256 "873c9fbba51ff721acb666e927f58f4407f08eb79f53b5a058801f5f404f4db2"
+  revision 1
 
   bottle do
     sha256 "f2497816a9b4f36e804de521937b994292369f2c28099430cbc81e00ecfd8f45" => :mojave
