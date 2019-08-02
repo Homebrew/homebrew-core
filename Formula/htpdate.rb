@@ -6,12 +6,8 @@ class Htpdate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8116eeebe02e935b9d2421f53b7a01ef16bf58b03ca57002389600d0f306c089" => :mojave
-    sha256 "2814f0254b6e9398fe30003348f9f0b455b25c20c42ced875d1dad5d22feadaf" => :high_sierra
-    sha256 "c5490cb23845604c332f2e5536639d7cb87ecc75fc3b6f8e0f8e799fc959a320" => :sierra
-    sha256 "fbdf082a4cbde49e5a9e5ea28f8f9c76e634d1f4fc79397e70e55306947c37b8" => :el_capitan
-    sha256 "56073fc56009dac7f807d436f09732bf4e659d2374bb6a61646dc7f94740daa0" => :yosemite
-    sha256 "973fb72128a9fe5e0c4c1aaaf9671b4ea706bc98ba5f96ecd10a2dae46049e57" => :mavericks
+    sha256 "d47cbbcdf265b8997e5d496851e5d30d010723950616c09cc1881830967a34cb" => :mojave
+    sha256 "6c0525a59ea4312ade6e748dc4dab10798a918b1b978f0234637a95688f734f7" => :high_sierra
   end
 
   depends_on :macos => :high_sierra # needs <sys/timex.h>
