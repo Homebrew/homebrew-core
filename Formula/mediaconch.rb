@@ -4,6 +4,7 @@ class Mediaconch < Formula
   url "https://mediaarea.net/download/binary/mediaconch/18.03.2/MediaConch_CLI_18.03.2_GNU_FromSource.tar.bz2"
   version "18.03.2"
   sha256 "8f8f31f1c3eb55449799ebb2031ef373934a0a9826ce6c2b2bdd32dacbf5ec4c"
+  revision 1
 
   bottle do
     cellar :any
