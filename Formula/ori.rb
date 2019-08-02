@@ -3,6 +3,7 @@ class Ori < Formula
   homepage "http://ori.scs.stanford.edu/"
   url "https://bitbucket.org/orifs/ori/downloads/ori-0.8.2.tar.xz"
   sha256 "a9b12ac23beaf259aa830addea11b519d16068f38c479f916b2747644194672c"
+  revision 1
 
   bottle do
     cellar :any
