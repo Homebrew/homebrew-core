@@ -3,7 +3,7 @@ class Gearman < Formula
   homepage "http://gearman.org/"
   url "https://github.com/gearman/gearmand/releases/download/1.1.18/gearmand-1.1.18.tar.gz"
   sha256 "d789fa24996075a64c5af5fd2adef10b13f77d71f7d44edd68db482b349c962c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
