@@ -28,6 +28,13 @@ class BashCompletion < Formula
   # Backports (a variant of) an upstream patch to fix man completion.
   patch :DATA
 
+  # Backports ssh_config Include directive parsing for ssh hostname tab
+  # completion
+  patch :p0 do
+    url "https://gist.githubusercontent.com/timvisher/93444e4ca4e1ad9cc2eb90c1d71294e3/raw/2277a816bfeead13744244cb9d906422ad0d442b/ssh_config_include_1.3_homebrew_backport.patch"
+    sha256 "b9f899d3ed61213ae102ec379cd226cb8aacb756ebd238aa293144975fb2713d"
+  end
+
   def install
     inreplace "bash_completion" do |s|
       s.gsub! "/etc/bash_completion", etc/"bash_completion"
