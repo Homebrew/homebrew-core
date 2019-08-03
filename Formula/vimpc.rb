@@ -1,9 +1,9 @@
 class Vimpc < Formula
   desc "Ncurses based mpd client with vi like key bindings"
   homepage "https://sourceforge.net/projects/vimpc/"
-  url "https://downloads.sourceforge.net/project/vimpc/Release%200.09.1/vimpc-0.09.1.tar.gz"
-  sha256 "082fa9974e01bf563335ebf950b2f9bc129c0d05c0c15499f7827e8418306031"
-  revision 1
+  url "https://github.com/boysetsfrog/vimpc/archive/v0.09.2.tar.gz"
+  sha256 "caa772f984e35b1c2fbe0349bc9068fc00c17bcfcc0c596f818fa894cac035ce"
+  head "https://github.com/boysetsfrog/vimpc.git"
 
   bottle do
     sha256 "8309ae13a377c616044dc14b47c0b086773742070ca2fa9ad1aaca19101d4b80" => :mojave
@@ -13,21 +13,16 @@ class Vimpc < Formula
     sha256 "2cdc5fc0899ac53a35ae1e1ee99eb0e282750277a407699d37afe419068ffce3" => :yosemite
   end
 
-  head do
-    url "https://github.com/boysetsfrog/vimpc.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libmpdclient"
   depends_on "pcre"
   depends_on "taglib"
 
   def install
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
