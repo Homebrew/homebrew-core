@@ -20,6 +20,8 @@ class Unison < Formula
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
     system "make", "UISTYLE=text"
     bin.install "src/unison"
+    bin.install "src/unison-fsmonitor"
+    bin.install "src/fsmonitor.py"
     prefix.install_metafiles "src"
   end
 
