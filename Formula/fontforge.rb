@@ -1,9 +1,8 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20190413/fontforge-20190413.tar.gz"
-  sha256 "6762a045aba3d6ff1a7b856ae2e1e900a08a8925ccac5ebf24de91692b206617"
-  revision 2
+  url "https://github.com/fontforge/fontforge/releases/download/20190801/fontforge-20190801.tar.gz"
+  sha256 "d92075ca783c97dc68433b1ed629b9054a4b4c74ac64c54ced7f691540f70852"
 
   bottle do
     cellar :any
@@ -13,11 +12,12 @@ class Fontforge < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => [:build, :test]
   depends_on "cairo"
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gettext"
   depends_on "giflib"
+  depends_on "glib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libspiro"
@@ -25,6 +25,8 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
+  depends_on "python"
+  depends_on "readline"
   uses_from_macos "libxml2"
 
   def install
