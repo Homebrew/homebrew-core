@@ -7,11 +7,10 @@ class Fragroute < Formula
   revision 1
 
   bottle do
-    sha256 "79fcf3e14e1efa3a35fe8c0107ceb3830f4a7c4d6ea33b183b70530ba2e0b0e5" => :mojave
-    sha256 "65ea82f265aeb3018b59f1c24630ad2e88fc8d3c678579f4e83be4f339005450" => :high_sierra
-    sha256 "54e5062ef504ba660fa5bbc67a562c7fd9a80fbca511cf37c10ca65d135cefe7" => :sierra
-    sha256 "d9a4634cf2e7759caed69fee95f5f0044e4365cbaaf308a2f5abddfa46f4bec1" => :el_capitan
-    sha256 "7c1fc2c4a43e91a22b2e999d071424c5b57243820e2293cc4106e4b68ded0323" => :yosemite
+    rebuild 1
+    sha256 "d75cd70289425f638b6d3ad95d036d2afd2a504f27edf2d45ee221b4a1f027e8" => :mojave
+    sha256 "a52b1134ffa977cfbf33a07996dd75ff596a3a46a8b5f4b368c2a1d25a9ac779" => :high_sierra
+    sha256 "a98a1d9477394a5f06f8c1b91f0e90ef0a1cb53cd09263ba332928e032012e63" => :sierra
   end
 
   depends_on "libdnet"
