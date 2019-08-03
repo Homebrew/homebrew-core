@@ -7,8 +7,10 @@ class Gearman < Formula
 
   bottle do
     cellar :any
-    sha256 "a29334389cd7ca1245ee0a914959bd3472ae3562b2e4b2f92e44f0ec70d02022" => :mojave
-    sha256 "1d069b8eca915e388207d735c45f143b139f801eedd302b6c690d1f8e4aaee30" => :sierra
+    rebuild 1
+    sha256 "a0cae64dc8b1b70d54708449d99c5d9c324f8c7d97538b3002b274642194a85b" => :mojave
+    sha256 "315175137a42b0b64e0c1cafae2cfa34c281aebcded7d68f7cc65a2c7f2ef8f4" => :high_sierra
+    sha256 "0bf5f499a1dc9a968662b7811251f4cef8912988da44c6fe4e09dbf3a503ce63" => :sierra
   end
 
   depends_on "pkg-config" => :build
