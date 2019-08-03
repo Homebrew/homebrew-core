@@ -5,6 +5,13 @@ class JingTrang < Formula
       :tag      => "V20181222",
       :revision => "a3ec4cd650f48ec00189578f314fbe94893cd92d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "041409b5ddb20a932c66d390b06fde4d25f89373f1d386b28e4e592686cc3ed9" => :mojave
+    sha256 "c73af2f82d10dd5a7e11818c41ac687b52f4c6128157323e211ab499dc22eaa5" => :high_sierra
+    sha256 "da34fcbed6b7c8700f3384a83224c20bb47cff05c6ff0ff2a7cdaaa3b89792c4" => :sierra
+  end
+
   depends_on "ant" => :build
   depends_on :java => "1.8"
 
