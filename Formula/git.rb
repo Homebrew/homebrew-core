@@ -149,6 +149,32 @@ class Git < Formula
       \thelper = osxkeychain
     EOS
     etc.install "gitconfig"
+
+    # Create a git-gui Wish wrapper that prefers the homebrew version of tlc-tk
+    # https://github.com/Homebrew/homebrew-core/issues/36390
+    gitgui_dir = share/"git-gui/lib/Git Gui.app/Contents/MacOS/"
+    mv gitgui_dir/"Wish", gitgui_dir/"Wish.broken"
+    (gitgui_dir/"Wish").write <<~EOS
+      #!/bin/sh
+      # Wrapper to invoke homebrew tcl-tk "wish" command instead of the version shipped
+      # with macOS. See https://github.com/Homebrew/homebrew-core/issues/36390
+      homebrew_wish=$(brew --prefix)/opt/tcl-tk/bin/wish
+      # Note: calling brew --prefix tcl-tk takes 600ms so we use brew --prefix
+      # since it takes 50ms. This is noticeably faster when running "git gui".
+      # homebrew_wish=$(brew --prefix tcl-tk)/bin/wish
+      if [ -x "$homebrew_wish" ]; then
+        echo "Using homebrew version of tcl-tk to run git-gui."
+        # Note: using an absolute path to wish does not work for some reason
+        # and we have to invoke the binary in the Contents/MacOS directory.
+        ln -sfn "$homebrew_wish" "${0}.homebrew"
+        exec "${0}.homebrew" "$@"
+      else
+        echo "WARNING: git-gui does not work correctly with the default macOS tcl-tk."
+        echo "Please install the homebrew version of tcl-tk to use git-gui."
+        exec "${0}.broken" "$@"
+      fi
+    EOS
+    (gitgui_dir/"Wish").chmod 0755
   end
 
   test do
