@@ -176,6 +176,11 @@ class Php < Formula
     inreplace "php.ini-development", /; ?openssl\.capath=/,
       "openssl.capath = \"#{HOMEBREW_PREFIX}/etc/openssl/certs\""
 
+    # php 7.3 known bug
+    # SO discussion: https://stackoverflow.com/a/53709484/791609
+    # bug report: https://bugs.php.net/bug.php?id=77260
+    inreplace "php.ini-development", ";pcre.jit=1", "pcre.jit=0"
+
     config_files = {
       "php.ini-development"   => "php.ini",
       "sapi/fpm/php-fpm.conf" => "php-fpm.conf",
