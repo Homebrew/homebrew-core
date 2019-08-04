@@ -32,7 +32,7 @@ class Packer < Formula
         s.gsub! "go get github.com/mitchellh/gox", ""
         s.gsub! "go get -u github.com/mna/pigeon", ""
         s.gsub! "go get golang.org/x/tools/cmd/goimports", ""
-        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
+        s.gsub! "go get github.com/alvaroloes/enumer", ""
       end
 
       (buildpath/"bin").mkpath
