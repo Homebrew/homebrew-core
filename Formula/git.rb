@@ -76,9 +76,37 @@ class Git < Formula
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
     end
 
+    git_core = libexec/"git-core"
+    # By setting TKFRAMEWORK to a non-existent directory we ensure that
+    # the git makefiles don't install a .app for git-gui
+    # We also tell git to use a wrapper script for wish instead of the
+    # broken system-provided wish.
+    # See https://github.com/Homebrew/homebrew-core/issues/36390
+    args += %W[
+      TKFRAMEWORK="/we/do/not/want/to/install/a/.app/for/git-gui"
+      TCLTK_PATH=#{git_core/"git-wish-wrapper"}
+    ]
+
     system "make", "install", *args
 
-    git_core = libexec/"git-core"
+    # Create the wrapper for Wish that prefers the homebrew version of tlc-tk
+    (git_core/"git-wish-wrapper").write <<~EOS
+      #!/bin/sh
+      # Wrapper to invoke homebrew tcl-tk "wish" command instead of the version shipped
+      # with macOS. See https://github.com/Homebrew/homebrew-core/issues/36390
+      homebrew_wish=$(brew --prefix)/opt/tcl-tk/bin/wish
+      # Note: calling brew --prefix tcl-tk takes 600ms so we use brew --prefix
+      # since it only takes 50ms. This is noticeably speeds up running "git gui".
+      # homebrew_wish=$(brew --prefix tcl-tk)/bin/wish
+      if [ -x "$homebrew_wish" ]; then
+        exec "$homebrew_wish" "$@"
+      else
+        echo "WARNING: git-gui does not work correctly with the default macOS tcl-tk."
+        echo "Please install the homebrew version of tcl-tk to use git-gui."
+        exec "wish" "$@"
+      fi
+    EOS
+    (git_core/"git-wish-wrapper").chmod 0755
 
     # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
