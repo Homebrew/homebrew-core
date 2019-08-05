@@ -6,9 +6,9 @@ class Skopeo < Formula
 
   bottle do
     cellar :any
-    sha256 "5211bd47806c18d992f612cce09dc8ac656af6736893144bd6c48c4ede00a989" => :mojave
-    sha256 "e236f824cbcb8f80033535aa3fc29ac3f3430d4cccd1c2b7343780abc6636daf" => :high_sierra
-    sha256 "7e84ae32ef6ea92ab7e09d4aeeed6f6425ade7f8e509c9a972dca3c37ff91ca8" => :sierra
+    sha256 "440a3c2544571dca44df029d903c75ef92e9cdfe31d67b36f721d52934596a42" => :mojave
+    sha256 "ff2ddfc7084e6ef15c973b4ac0e63ce3b4f9ae61effa62a061e470126f3bdd78" => :high_sierra
+    sha256 "5e96313a0b8729fd42de2914eaa1ef2cc6777b93c4ac5173356d82e903539380" => :sierra
   end
 
   depends_on "go" => :build
