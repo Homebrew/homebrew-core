@@ -6,9 +6,9 @@ class Highlight < Formula
   head "https://gitlab.com/saalen/highlight.git"
 
   bottle do
-    sha256 "73750c1713102910c732b2e7c0ac54974efad2f01849ad82f817ba34718766ce" => :mojave
-    sha256 "fb77c226417840a773fe11ffb2112bdf5283704965cae188e8b05d29586692f8" => :high_sierra
-    sha256 "1fcddca7deb63f3b1f6cc7233c78ebeb4e847f7ee83678733eda819bd4925b4b" => :sierra
+    sha256 "7c2f411a48a4aee3ca2b8cfa02c3cf6ec574815d82b3767bd1c722d5a055bacf" => :mojave
+    sha256 "a3dedbf3f369a275ded3e54f1458aa9e13dc7102d935e025e7d80ade891daa82" => :high_sierra
+    sha256 "73e3a17e0dda8ef2ac8f409209eec76bd4dae9a0af3dc4dd92f9bc09d6b9f4d0" => :sierra
   end
 
   depends_on "boost" => :build
