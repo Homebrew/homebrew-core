@@ -6,9 +6,10 @@ class Vte < Formula
   revision 4
 
   bottle do
-    sha256 "970e3a7f50240656be1c1ab6b9c7feb0e810712ce8ca72ec5ea6202c845661f2" => :mojave
-    sha256 "315ddf424e92e44f061b0abf3e76d28eb0fcca269892b284b5e7bdb0759c084f" => :high_sierra
-    sha256 "e0c6d478e7b46ace61c6a29a7389de8e13618e744575004a0a895a2b80be3e3c" => :sierra
+    rebuild 1
+    sha256 "320ff58d9e751660a0f6feea056915df5b1266d43ee4223e4622bc07da0dcf24" => :mojave
+    sha256 "f8ed141e63dea2c9bbb68e974571a574bda1330d32575c10c792de5e0ea4ffea" => :high_sierra
+    sha256 "f84c4aa751a6c63962cc8c1a30cd1fcc3938652b259f51e252b20763fe4a9ef8" => :sierra
   end
 
   depends_on "intltool" => :build
