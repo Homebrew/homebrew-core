@@ -9,9 +9,10 @@ class Gtkx < Formula
   end
 
   bottle do
-    sha256 "c1dfc21c162b50a0e798d9d78ff06b0d2959b6ceccf1fb4b84ef437bab154fd4" => :mojave
-    sha256 "32c0ff64cc6a4b525dd6a999fd25326683350c467d06d4d79407012023f3b810" => :high_sierra
-    sha256 "ab31f7caa87f7e96b95fb273caa21bb9cc32ee44228f971cb5e3d09dd9847a1a" => :sierra
+    rebuild 1
+    sha256 "cec64106c085533a58f8d436f029b2d7199a14cd15af9ece086814396ba48b0e" => :mojave
+    sha256 "30ce8d0a4062200196f8d802ae75769d8e05d530c338619d290704c46a7d317b" => :high_sierra
+    sha256 "a1324b85f6749111c3eb598c6d3ed231eaa8281b60fc2eb13d48a5f342da3efc" => :sierra
   end
 
   head do
