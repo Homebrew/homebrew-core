@@ -14,9 +14,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "5d7671dcca978752ac7ac98af0ae59bf83fc8e0a6c0f32b53237a6503ad838c3" => :mojave
-    sha256 "d7b80a23bac412d1afe337333a2487f258466d8f53061becef6bedceccc49500" => :high_sierra
-    sha256 "3fe13bbfbd2a5e50bd8ec536c0c263a25542923494344a6304f85febc90608f8" => :sierra
+    sha256 "ac0546fa966cd4176d2c576695d7fcbea19c5bc9e8cd3e6dbfb2a75bf7733bc0" => :mojave
+    sha256 "09738d66de81fbce00369059c6ae923d7ecf4af3b6485dbbda406a1a9ef2729f" => :high_sierra
+    sha256 "2df6377ed86114d1fd5821430d2835ba91fccdafbf593c3a95099e7f66d95547" => :sierra
   end
 
   head do
