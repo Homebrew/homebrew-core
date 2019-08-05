@@ -2,8 +2,8 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag      => "v0.20.1",
-      :revision => "668c77b30f6ddcb5c80856dbec6f16b86f1b7023"
+      :tag      => "v0.21.0",
+      :revision => "05c6b650cd48d79d5aae4a603ae24c24ff61098c"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
@@ -16,9 +16,11 @@ class ConsulTemplate < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
+
     dir = buildpath/"src/github.com/hashicorp/consul-template"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
