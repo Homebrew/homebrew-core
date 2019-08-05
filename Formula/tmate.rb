@@ -7,10 +7,9 @@ class Tmate < Formula
 
   bottle do
     cellar :any
-    sha256 "788ab394a785b79e997e8324b0973cf70ef5d214d4c2427869b36c032d77d45b" => :mojave
-    sha256 "9f6b37c2a0011b255d3a5c39e0bf653e8271d4f8cfc4306bc615ddf77946b442" => :high_sierra
-    sha256 "a3a692cff9eba1a68eef998577050169da2eb3930e9e12902a33c689ed904548" => :sierra
-    sha256 "95dac4cc5d9fc02d7a7d832d471b4911b52e97ced0ab98e902c84d33ee54dc7c" => :el_capitan
+    sha256 "92f51ef9496b1877391c008ae7f3a6a5a072ad2c0e5e52b2cebc85d9b98d9235" => :mojave
+    sha256 "fe9d988b1e3dbf7f3b2e1beecfdbc5ff25d2331118399331b1477f5b0f0efbb4" => :high_sierra
+    sha256 "75df441f4152ecb8f0e04276d7ecc1b2d348503efab8cda5296c2f02c6f38248" => :sierra
   end
 
   depends_on "autoconf" => :build
