@@ -6,9 +6,10 @@ class OsmGpsMap < Formula
   revision 2
 
   bottle do
-    sha256 "d3c08a9f0ea0bc4bfca2b44154af6197a981af685aff94d0f1c104732c4fa1a2" => :mojave
-    sha256 "7ff942b7e7c828122f55da09a654981a705ec46500e4d5f178d2400b18645a99" => :high_sierra
-    sha256 "a162b95d7811b797b07ccb5d8afbad6bb833b93faf034fc200378ad775c14a5f" => :sierra
+    rebuild 1
+    sha256 "75ada3ff3540c6131b2c0b47d3010441b29e9b5ea59aeebbd105be02dd2f1698" => :mojave
+    sha256 "ce1ad0e093f2d8fd590a6c98cf941e1ed2be529d7f1a8ea7a0bad6ad86af7c3d" => :high_sierra
+    sha256 "c6000d9f544b5661d5ca6740914e6b8f6cb4b79b12261e598e88e0763929fb58" => :sierra
   end
 
   head do
