@@ -1,8 +1,8 @@
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
-  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20190724.tgz"
-  sha256 "38c0855b3f59281a44ff15bfa2150070d89daa3a4e2cda1139f6399eeeeca924"
+  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20190728.tgz"
+  sha256 "e5eb0eaaef9cae8c822887bd998e33c2c3b94ebadd37b4f6aba018c0194a2a87"
 
   bottle do
     cellar :any_skip_relocation
