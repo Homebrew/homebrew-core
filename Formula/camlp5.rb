@@ -1,10 +1,9 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel707.tar.gz"
-  version "7.07"
-  sha256 "a2c493b833b217adf94d2000eb19015b990c4e441beb35cf36b1d33ed2351991"
-  revision 1
+  url "https://github.com/camlp5/camlp5/archive/rel708.tar.gz"
+  version "7.08"
+  sha256 "46e67d8e36e5e4558c414f0b569532a33d3a12d7120ffdc474a6b3da1bfff163"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
