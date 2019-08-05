@@ -1,8 +1,8 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v2.5.tar.gz"
-  sha256 "3636f172a024de5c12420a80dbe3d006d42b5e0a17e70a527963c864af22655c"
+  url "https://github.com/jarun/nnn/archive/v2.6.tar.gz"
+  sha256 "17fd3e517308e41065594ffe8dcde348b4d10dea4240699f4708337db48b3e25"
   head "https://github.com/jarun/nnn.git"
 
   bottle do
@@ -17,9 +17,9 @@ class Nnn < Formula
   def install
     system "make", "install", "PREFIX=#{prefix}"
 
-    bash_completion.install "scripts/auto-completion/bash/nnn-completion.bash"
-    zsh_completion.install "scripts/auto-completion/zsh/_nnn"
-    fish_completion.install "scripts/auto-completion/fish/nnn.fish"
+    bash_completion.install "misc/auto-completion/bash/nnn-completion.bash"
+    zsh_completion.install "misc/auto-completion/zsh/_nnn"
+    fish_completion.install "misc/auto-completion/fish/nnn.fish"
   end
 
   test do
