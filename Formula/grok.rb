@@ -8,11 +8,9 @@ class Grok < Formula
 
   bottle do
     cellar :any
-    sha256 "0bce12fe9d96cc621b4ca8879ad8b4b2444de1ba86df62feb342dbed316f594d" => :mojave
-    sha256 "88a6de27e9f3d8d53eb1d26ce202eaa08f66ea6587a41356ca62e205aef65345" => :high_sierra
-    sha256 "18f3b7612397f4956e9013b37aecd55f47b0896edf3bdc7f4dc6833a8dcc54b0" => :sierra
-    sha256 "0c494fb95ba85d3ab1dd9092165a22e0737c60c17035ce030efcb142990df0a0" => :el_capitan
-    sha256 "f933ebf3d1fffbcc2512cdb32ef405d55ba6a9de1919eaf2f66e437e2dd34570" => :yosemite
+    sha256 "b78cf21dd67826d14d99188e631ff1c431913744d91089c4cefd9b3c9e9d9a46" => :mojave
+    sha256 "41889afb55bfcf1d8b41eda76ef2272d29225f4cc4a5690bd409198417d7cf98" => :high_sierra
+    sha256 "32dc46849684918dad9ca9005ca43b092de84b16a0837049146948379301b1fa" => :sierra
   end
 
   depends_on "libevent"
