@@ -7,11 +7,9 @@ class Redsocks < Formula
 
   bottle do
     cellar :any
-    sha256 "1b67d9a87cd77d247cb92ed210394d0fbdb91ac38b4c149f9c165e7c35030114" => :mojave
-    sha256 "d0e52f2f1ceb50e6edb7f524a7bb62c7df2eaec870dffa7626dada91f25a5f9f" => :high_sierra
-    sha256 "ccfba64129d3e3a01b1bba7d18564e7b1ac174ce4b7a1c41424e2985d7a97523" => :sierra
-    sha256 "5d9e3f0dcc812146c27c7916052605be3f08b4be45682ccda27a9ab0dc97f574" => :el_capitan
-    sha256 "5d017a684dd4810da302823e4122ac8f43808a87c618fd24667b5b89d6b812b3" => :yosemite
+    sha256 "0da35f33e9faaf37c59043a5f20d1e4a89f5b543644332b856a525183f31fe96" => :mojave
+    sha256 "4f8630032cb62bc1cc9f318a837ea0f42964704e2310115696766c8a51f8b5f2" => :high_sierra
+    sha256 "9b528c2ce745b2402d15073e7da4fb62789789caa70e5373946ae1699f663b8b" => :sierra
   end
 
   depends_on "libevent"
