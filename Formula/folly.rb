@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2019.07.22.00.tar.gz"
-  sha256 "0d895a10ea297fc8b1a95b6f64b882de6556a0f7ba92f239ea46f0a60944f647"
+  url "https://github.com/facebook/folly/archive/v2019.07.29.00.tar.gz"
+  sha256 "7496e5641ebbae3c7a64d4ae3cbbf78a0bd14f91844a1755d28f9fb5e0d3537b"
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -27,10 +27,6 @@ class Folly < Formula
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
-
-  # Known issue upstream. They're working on it:
-  # https://github.com/facebook/folly/pull/445
-  fails_with :gcc => "6"
 
   def install
     mkdir "_build" do
