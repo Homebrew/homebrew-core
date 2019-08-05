@@ -8,11 +8,9 @@ class Ocproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "f4af1432c292f21479bb598a61fc9d37bd9b0a592e3b2fd09584535918391533" => :mojave
-    sha256 "5671c31a3b0392b5c4c9ea21644c4cbeb430e78dc9f24c28622e9a47ec7e3324" => :high_sierra
-    sha256 "cb12a1bc3320c0ca5580a44256f5a627f1d74ad59a315cc3cf7aa87846a30243" => :sierra
-    sha256 "d3f9801c5f0ffa066bdd6e00006488a6e69144beb9385f1bd70467684f50130c" => :el_capitan
-    sha256 "15393addc83cc3da3a88fa62e80e2e149a85c627fdd1a4320be6f47b5b74f10f" => :yosemite
+    sha256 "786f0c42a3d282b78d8dc2fa18c36e46707451f4ac848e9af7dd82ab31b40f6d" => :mojave
+    sha256 "0cd70ac67ebd419b869ad4dd70c6cd1217248c8e7b7a57d3a7c8e15c7d2f7dfc" => :high_sierra
+    sha256 "8e33eae007c082ec9b6787210096a4e20992151a7b2c5f345941f68c478ae0e2" => :sierra
   end
 
   depends_on "autoconf" => :build
