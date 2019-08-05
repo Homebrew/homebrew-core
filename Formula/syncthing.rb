@@ -2,8 +2,8 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-      :tag      => "v1.2.0",
-      :revision => "20eab36a33284695ab59f492926e1f6042522a64"
+      :tag      => "v1.2.1",
+      :revision => "d0c36971523d72dc1619b405891929e745809400"
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
