@@ -6,9 +6,9 @@ class Coturn < Formula
   revision 1
 
   bottle do
-    sha256 "0965e2d618dc990376fe852dc24c748a789c320381c3d935f8f557ce30df9304" => :mojave
-    sha256 "64d8d65360234067a875bc90db41ab69127641f847c1450a2f0cc71869de20a1" => :high_sierra
-    sha256 "9813765ffeb2d1dbb8738a8695ef34473fadec04307561791856de68feea7e03" => :sierra
+    sha256 "40ae9111624e581b825f1fb3a7701512f1b8bf86d26ca17c59e5e9d673cd3270" => :mojave
+    sha256 "d332b25b9dadedce62e40bf10d10d82784bdfb049ca7936b9db2fc8ef6110e17" => :high_sierra
+    sha256 "2b2ef532930f01cf3b5a2deb3d22e0f706e19febfb60dd8e5ef270f6a2000d12" => :sierra
   end
 
   depends_on "libevent"
