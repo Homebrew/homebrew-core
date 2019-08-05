@@ -7,9 +7,9 @@ class Fstrm < Formula
 
   bottle do
     cellar :any
-    sha256 "3dd80be760c39df81e083f3e7b1a8fd00d65aada1d3bb43bb2af66fc1ab47bcf" => :mojave
-    sha256 "b6e66ea781aba5fc3b2aafb0b895d5e8ac24f57de5fbc99d32c0947b36fd4e6d" => :high_sierra
-    sha256 "0525efc611c5006c41ba7ab1355479b4078298fa21739cee38225df35aa91d56" => :sierra
+    sha256 "4359da87e49dfec39cc7eebed229674ae8c250803a67c9a89eaa0fa0e4d64a05" => :mojave
+    sha256 "a38b141706f100183e174cff8ad5f671a15d1df2091d9d920b734bf677636075" => :high_sierra
+    sha256 "8a099ab2ee34e901c0349119aa03f380c81f9b55f320e4fa48ed7015f5e4cc49" => :sierra
   end
 
   head do
