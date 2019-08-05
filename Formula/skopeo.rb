@@ -1,8 +1,8 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/v0.1.37.tar.gz"
-  sha256 "49c0c1b2c2f32422d3230f827ae405fc554fb34af41a54e59b2121ac1500505d"
+  url "https://github.com/containers/skopeo/archive/v0.1.38.tar.gz"
+  sha256 "104ceb9c582dc5c3a49dd1752c4c326bba03f2f801596f089372e831f48ed705"
 
   bottle do
     cellar :any
@@ -15,7 +15,6 @@ class Skopeo < Formula
   depends_on "gpgme"
 
   def install
-    ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containers/skopeo").install buildpath.children
     cd "src/github.com/containers/skopeo" do
       system "make", "binary-local"
