@@ -9,9 +9,9 @@ class YouGet < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a16d5cb1e0159d4750f1453cbe0814c3eeba309bc6906df426a9dc995e8a82a" => :mojave
-    sha256 "36211043db5029d7c4ed660c2d3f4bb28c35e2820af18c186039411b35594c6e" => :high_sierra
-    sha256 "1363ba0e4b13eccfaf8c63462cf54541a4efb83ea11eaaac195ef8175a6b7271" => :sierra
+    sha256 "db4087dcf0cfac3cbbe2e5d504518879c9bf33d61ccddae74cd9deaf5f2566fd" => :mojave
+    sha256 "c3932441462ac191c90a72c83f85fa60661321f42eb7c11ba9c476077ccb9396" => :high_sierra
+    sha256 "468a25dfa726d5a08dfd24d471444398aa70f2fcd2b3cac5a3530c92397af27a" => :sierra
   end
 
   depends_on "python"
