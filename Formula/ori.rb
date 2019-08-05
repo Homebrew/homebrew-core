@@ -7,9 +7,9 @@ class Ori < Formula
 
   bottle do
     cellar :any
-    sha256 "2937393d4e11d7b6cff0f93e2ff4e9dff2357b705547efdee1bd7b653b8e1b66" => :mojave
-    sha256 "9f56ea8889aa6d5e7f7bf205b1d67e26fb25929eee6e524aeb72dbbfcaec4aab" => :high_sierra
-    sha256 "bdaaa086155ab57411b5b35547623f04f847eaca4478b0aebd8455f3b3d18fe2" => :sierra
+    sha256 "0a281c044b4fb7daa4bb1a63cacc4b95b7723ef9b8fe9a1b2a5d9e596347336b" => :mojave
+    sha256 "967376d424f8e64e4658b789beec7913db66918824454dd7082642495b19b57e" => :high_sierra
+    sha256 "04595e1ffa77c8f81e0c8f9b62aeebefff42d214600e6b34ce147276d0d99bbc" => :sierra
   end
 
   depends_on "pkg-config" => :build
