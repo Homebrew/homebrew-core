@@ -6,10 +6,10 @@ class Remctl < Formula
   revision 1
 
   bottle do
-    sha256 "f2497816a9b4f36e804de521937b994292369f2c28099430cbc81e00ecfd8f45" => :mojave
-    sha256 "699be918b80d41c46ec8aabb4e04219123fec8beb60f1169c33b8a14ef7e24c1" => :high_sierra
-    sha256 "3dfefe916442dcae4f049f56673ce735ee84b931423b184f4d7fab770d7a5f39" => :sierra
-    sha256 "301065db3a4020b2237268eee8709a639d33dac24b21a3294641f7d9beef0ab0" => :el_capitan
+    cellar :any
+    sha256 "d5e08fbf392f82c5742a1118e015f9e621e9b0b788b501c0a679215f29819490" => :mojave
+    sha256 "2d742860ccb08ab27df64eb318e424a1d5d8432ebf60a77fb623cfe844413a31" => :high_sierra
+    sha256 "d344cfccbaf89d8d8612692ba44521b5fa1d19a4e0e13b14e6efd12e7ef35442" => :sierra
   end
 
   depends_on "libevent"
