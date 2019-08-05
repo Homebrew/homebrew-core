@@ -6,9 +6,10 @@ class Gdl < Formula
   revision 2
 
   bottle do
-    sha256 "af0d11124591e6e5fb5116056fd84354c9f2be9d14ef495824f283ab4baa3f84" => :mojave
-    sha256 "27bc7f007ba88dcee4f033b5e14e5953387c2b230f07368144eda39b6cc495c4" => :high_sierra
-    sha256 "992c577cc64f1bbd16b630ad34d8e48a156d95a5323941798e5d4e4a868af3e0" => :sierra
+    rebuild 1
+    sha256 "1a2e3b9fad14c8cdc47fbdf4ef7d232e1278c9921906da3b0458ae7f18e8370e" => :mojave
+    sha256 "6546a306e177da91fa227b130e8e26a721b5ec1abe61a825f203795cc4bf04b1" => :high_sierra
+    sha256 "6857bc228637ed35ee70f505d3e2881c73c4c85ff6da47d3b5e92bde89b9252e" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
