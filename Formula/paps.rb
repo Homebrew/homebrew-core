@@ -32,6 +32,6 @@ class Paps < Formula
   test do
     system bin/"paps", pkgshare/"examples/small-hello.utf8", "-o", "paps.ps"
     assert_predicate testpath/"paps.ps", :exist?
-    assert_match "Ch\\340o", (testpath/"paps.ps").read
+    assert_match "%!PS-Adobe-3.0", (testpath/"paps.ps").read
   end
 end
