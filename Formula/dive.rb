@@ -7,9 +7,10 @@ class Dive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "47366221b4f7e6ebdc7c89f6dd620e9615154aef174d4e1e55fd93007c991dea" => :mojave
-    sha256 "f2a31f3886bb3ebb8fd834f5712882b3fedcb2fb16e590b0be2b13eda3f3294b" => :high_sierra
-    sha256 "f1fa1a7e1c7082e513977ea1d9974aaa0263fa3abe3b8db5156de71e2287aafb" => :sierra
+    rebuild 1
+    sha256 "d8e19fe2565174d6d2a7b2b247aa1f62a63ca7394856c218878115619ef6c439" => :mojave
+    sha256 "b207a956d663539670ed7dec54a5543a20720dabc926b22326751af106af4194" => :high_sierra
+    sha256 "34f300558c0794d99d71823cfe87ad8c3b0e3ef84e59f64cee0a5af860711b51" => :sierra
   end
 
   depends_on "go" => :build
