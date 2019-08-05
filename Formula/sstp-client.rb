@@ -6,10 +6,9 @@ class SstpClient < Formula
   revision 1
 
   bottle do
-    sha256 "361a2e8e315b16b5444338c13e11db2d0b78bb8ad0f73de18526d164f87b237e" => :mojave
-    sha256 "f910157864b32a5cd004366b0e8ee6cefd09b0edd36afb89d751ede34e27df96" => :high_sierra
-    sha256 "1bbbe9f5558b4757f8244064144106b0bda636c2adcc3da734634895b960ff68" => :sierra
-    sha256 "c4b0b6b1ebc16783d22327173bfe1e90bd5fd329786a613422c858fc352672eb" => :el_capitan
+    sha256 "7999babf31a04719940d1c54c4ab4275b15963ef997a29b5f0e867246b778eb6" => :mojave
+    sha256 "ddc52b9c61688c727dd3a44fce16c9c5cbc99ab0e2d029421457c9f2f5a91e0e" => :high_sierra
+    sha256 "53e794c8990933a514c95ec3fb8bab4164c8027e2dfc5dbd23a356fdaf3dfa44" => :sierra
   end
 
   depends_on "pkg-config" => :build
