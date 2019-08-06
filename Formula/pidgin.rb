@@ -3,7 +3,7 @@ class Pidgin < Formula
   homepage "https://pidgin.im/"
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.13.0/pidgin-2.13.0.tar.bz2"
   sha256 "2747150c6f711146bddd333c496870bfd55058bab22ffb7e4eb784018ec46d8f"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
@@ -29,6 +29,11 @@ class Pidgin < Formula
   resource "pidgin-otr" do
     url "https://otr.cypherpunks.ca/pidgin-otr-4.0.2.tar.gz"
     sha256 "f4b59eef4a94b1d29dbe0c106dd00cdc630e47f18619fc754e5afbf5724ebac4"
+  end
+
+  resource "purple-add-prefix" do
+    url "https://github.com/kgraefe/purple-add-prefix/releases/download/v1.0/addprefix-1.0.tar.gz"
+    sha256 "d3d71cfdb375ec877a223b49c88c6dac27891ab9c0cd00d1a32a8aecfe3bb281"
   end
 
   def install
@@ -61,6 +66,10 @@ class Pidgin < Formula
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
+    end
+
+    resource("purple-add-prefix").stage do
+      system "make", "install", "ADD_PREFIX=#{HOMEBREW_PREFIX}"
     end
   end
 
