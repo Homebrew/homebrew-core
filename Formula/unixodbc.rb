@@ -13,6 +13,7 @@ class Unixodbc < Formula
 
   depends_on "libtool"
 
+  conflicts_with "libiodbc", :because => "both install 'odbcinst.h' header"
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   def install
