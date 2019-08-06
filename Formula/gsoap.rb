@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.88.zip"
-  sha256 "effbf8a4533917b9eb3aa0e79db13573ef52e768158f5b4eb93d49b0c5cb2fa8"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.89.zip"
+  sha256 "d9b10ca2611b00932fab98cbf67b514ddad24f22cbbda91d9d68ea45821c54f2"
 
   bottle do
     sha256 "cd9df48d85986e99251ea10ea4e77f5610b8b7929ab44eb2388b8d0cd5b49821" => :mojave
@@ -16,7 +16,7 @@ class Gsoap < Formula
   def install
     # Contacted upstream by email and been told this should be fixed by 2.8.37,
     # it is due to the compilation of symbol2.c and soapcpp2_yacc.h not being
-    # ordered correctly in parallel. However, issue persists as of 2.8.88.
+    # ordered correctly in parallel. However, issue persists as of 2.8.89.
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
     system "make"
