@@ -7,9 +7,9 @@ class Gpsim < Formula
 
   bottle do
     cellar :any
-    sha256 "b23f55ef987950a2ce33fa689285df2cb52c0c1a312be6444d2b1f85133c3592" => :mojave
-    sha256 "88f1632b32bdf93cde134af323bd3fb6baf948d6d37cf85209faed9c32a39ab2" => :high_sierra
-    sha256 "9a921c9394e0ed524f8f2fd8ec4a1433decce6fcf342a8da6d5e30c04885ffed" => :sierra
+    sha256 "00c585480ada4e552a32ee3f0e11bc68142ce4f6671eeb14badc51007d07be9f" => :mojave
+    sha256 "612ce9c2f03a5c6464aee9b9bdcd6884e434e457f515bbbc2adceb8417f1c6d1" => :high_sierra
+    sha256 "5a366b0dccfe1ff92aaed6d29f9bd5ca66806471b17e8941206e985f6bd8817a" => :sierra
   end
 
   depends_on "gputils" => :build
