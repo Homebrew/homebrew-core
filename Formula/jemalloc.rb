@@ -1,8 +1,8 @@
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
   homepage "http://jemalloc.net/"
-  url "https://github.com/jemalloc/jemalloc/releases/download/5.2.0/jemalloc-5.2.0.tar.bz2"
-  sha256 "74be9f44a60d2a99398e706baa921e4efde82bf8fd16e5c0643c375c5851e3b4"
+  url "https://github.com/jemalloc/jemalloc/releases/download/5.2.1/jemalloc-5.2.1.tar.bz2"
+  sha256 "34330e5ce276099e2e8950d9335db5a875689a4c6a56751ef3b1d8c537f887f6"
 
   bottle do
     cellar :any
