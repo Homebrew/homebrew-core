@@ -8,9 +8,9 @@ class Mtr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b137ed40e6196bb62c8b2be59f28af343158d3e519f90df68e67d02b36e77e62" => :mojave
-    sha256 "b5ca93ad60fb8c02abf439ce6de67209aa4bee842b609cd30e99ecd19fae2589" => :high_sierra
-    sha256 "9dc3aed9968b410bb895471a9f8630e4685c9c70ab606f64d97b70ca8772fadd" => :sierra
+    sha256 "897b799ceac2677da540387c4015d4f520f59bf9965bcf1b5b1e9dd706bf3778" => :mojave
+    sha256 "b0348961fef4e2b805434587d69cd6f2caecc3ed2c21873211635e6a875a4562" => :high_sierra
+    sha256 "cffaaf2cacad93387e7f32bcbb38e8dd1be2d2615774baa96ed320021e564011" => :sierra
   end
 
   depends_on "autoconf" => :build
