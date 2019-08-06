@@ -1,8 +1,8 @@
 class Libiodbc < Formula
   desc "Database connectivity layer based on ODBC. (alternative to unixodbc)"
   homepage "http://www.iodbc.org/dataspace/iodbc/wiki/iODBC/"
-  url "https://downloads.sourceforge.net/project/iodbc/iodbc/3.52.12/libiodbc-3.52.12.tar.gz"
-  sha256 "51c5ff3a7d9a54202486cb77a3514e0e379a135beefcd5d12b96d1901f9dfb62"
+  url "https://github.com/openlink/iODBC/archive/v3.52.13.tar.gz"
+  sha256 "4bf67fc6d4d237a4db19b292b5dd255ee09a0b2daa4e4058cf3a918bc5102135"
 
   bottle do
     cellar :any
@@ -17,6 +17,8 @@ class Libiodbc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  conflicts_with "unixodbc", :because => "both install 'odbcinst.h' header"
 
   def install
     system "./autogen.sh"
