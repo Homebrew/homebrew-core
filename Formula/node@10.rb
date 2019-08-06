@@ -17,6 +17,12 @@ class NodeAT10 < Formula
   depends_on "python@2" => :build
   depends_on "icu4c"
 
+  # Fixes detecting Apple clang 11.
+  patch do
+    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
+    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
