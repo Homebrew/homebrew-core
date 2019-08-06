@@ -1,8 +1,8 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.20.tar.gz"
-  sha256 "3eeb789630ad79605499af48b3b49fe3c95a047f4d0d8527650a0be46bab3fda"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.21.tar.gz"
+  sha256 "c56243060366c45befe36fcf598271e1d4eae484020507b51f4c5fe126835633"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Ucloud < Formula
     dir = buildpath/"src/github.com/ucloud/ucloud-cli"
     dir.install buildpath.children
     cd dir do
-      system "go", "build", "-o", bin/"ucloud"
+      system "go", "build", "-mod=vendor", "-o", bin/"ucloud"
       prefix.install_metafiles
     end
   end
