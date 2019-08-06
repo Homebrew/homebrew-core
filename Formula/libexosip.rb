@@ -1,9 +1,8 @@
 class Libexosip < Formula
   desc "Toolkit for eXosip2"
-  homepage "https://www.antisip.com/category/osip-and-exosip-toolkit"
-  url "https://download.savannah.gnu.org/releases/exosip/libeXosip2-4.1.0.tar.gz"
-  sha256 "3c77713b783f239e3bdda0cc96816a544c41b2c96fa740a20ed322762752969d"
-  revision 1
+  homepage "https://savannah.nongnu.org/projects/exosip"
+  url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.1.0.tar.gz"
+  sha256 "41107e5bd6dca50899b7381f7f68bfd9ae8df584c534c8a4c9ca668b66a88a4b"
 
   bottle do
     cellar :any
@@ -15,6 +14,7 @@ class Libexosip < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "c-ares"
   depends_on "libosip"
   depends_on "openssl"
 
@@ -27,5 +27,37 @@ class Libexosip < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <netinet/in.h>
+      #include <eXosip2/eXosip.h>
+
+      int main() {
+          struct eXosip_t *ctx;
+          int i;
+          int port = 35060;
+
+          ctx = eXosip_malloc();
+          if (ctx == NULL)
+              return -1;
+
+          i = eXosip_init(ctx);
+          if (i != 0)
+              return -1;
+
+          i = eXosip_listen_addr(ctx, IPPROTO_UDP, NULL, port, AF_INET, 0);
+          if (i != 0) {
+              eXosip_quit(ctx);
+              fprintf(stderr, "could not initialize transport layer\\n");
+              return -1;
+          }
+
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-leXosip2", "-o", "test"
+    system "./test"
   end
 end
