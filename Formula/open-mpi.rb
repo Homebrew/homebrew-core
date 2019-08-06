@@ -19,6 +19,7 @@ class OpenMpi < Formula
   end
 
   depends_on "gcc"
+  depends_on "hwloc"
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
