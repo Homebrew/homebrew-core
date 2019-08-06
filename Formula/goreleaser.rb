@@ -2,8 +2,8 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.113.1",
-      :revision => "7871c58ac2b054da7ef6e10b394346ddab3a6765"
+      :tag      => "v0.114.0",
+      :revision => "ab0e755a71afff0f13c5237f896ad86c8633a912"
 
   bottle do
     cellar :any_skip_relocation
@@ -32,7 +32,7 @@ class Goreleaser < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/goreleaser -v 2>&1")
-    assert_match "config created", shell_output("#{bin}/goreleaser init 2>&1")
+    assert_match "config created", shell_output("#{bin}/goreleaser init --config=.goreleaser.yml 2>&1")
     assert_predicate testpath/".goreleaser.yml", :exist?
   end
 end
