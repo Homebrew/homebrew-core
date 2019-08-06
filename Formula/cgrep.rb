@@ -11,9 +11,9 @@ class Cgrep < Formula
 
   bottle do
     cellar :any
-    sha256 "b030a59a21df9915712bd26ce07b6432153fd6bb4eade27d9b7dcf4b5914258f" => :mojave
-    sha256 "a20cf59639012dcc241fa03944d4761f25bc44d1ba3787a734c2c536ddc02c80" => :high_sierra
-    sha256 "a13e9cfb33930c0569befd0fdfa70e38b523b526e98847a6adfa8e137461c791" => :sierra
+    sha256 "014a53fae554cce2187c4ba1ed579dd8cec03d65158e9150bd7d02b36501707c" => :mojave
+    sha256 "4e2e5c6fdc026151899b1055300e7b7a09f016a41f8a9a1baebcbff4e0728565" => :high_sierra
+    sha256 "8800dd76abc3faf39de9920a73e4f779a7624676b303d13bc6ed84188b0567f2" => :sierra
   end
 
   depends_on "cabal-install" => :build
