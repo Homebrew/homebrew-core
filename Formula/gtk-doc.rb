@@ -1,9 +1,8 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.30/gtk-doc-1.30.tar.xz"
-  sha256 "a4f6448eb838ccd30d76a33b1fd095f81aea361f03b12c7b23df181d21b7069e"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-doc/1.31/gtk-doc-1.31.tar.xz"
+  sha256 "a51687956d0377ac70904d03fdc73c9e116589b4a01453fa92162442b3657011"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,8 +22,8 @@ class GtkDoc < Formula
   uses_from_macos "libxslt"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/1d/55/55cd82a72af652d71eb14f318e2d12d2fd14ded43d6fd105e50ed395198c/Pygments-2.4.0.tar.gz"
-    sha256 "31cba6ffb739f099a85e243eff8cb717089fdd3c7300767d9fc34cb8e1b065f5"
+    url "https://files.pythonhosted.org/packages/7e/ae/26808275fc76bf2832deb10d3a3ed3107bc4de01b85dcccbe525f2cd6d1e/Pygments-2.4.2.tar.gz"
+    sha256 "881c4c157e45f30af185c1ffe8d549d48ac9127433f2c380c24b84572ad66297"
   end
 
   def install
