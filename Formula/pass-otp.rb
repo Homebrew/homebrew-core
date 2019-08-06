@@ -6,9 +6,10 @@ class PassOtp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74b97a3e1331e84067eee707a6242d30e9f215befc563e79b86102f6995ce374" => :mojave
-    sha256 "4b123f03ae8a1237e7b04731d3d39e66e9acf031924f757becf889c8b12f1efc" => :high_sierra
-    sha256 "4b123f03ae8a1237e7b04731d3d39e66e9acf031924f757becf889c8b12f1efc" => :sierra
+    rebuild 1
+    sha256 "4fd5893adc28693cf5b532d0ad1d469d58842e355d676cb3371c4832ed1e7a0c" => :mojave
+    sha256 "4fd5893adc28693cf5b532d0ad1d469d58842e355d676cb3371c4832ed1e7a0c" => :high_sierra
+    sha256 "bd30d129efb90973ffa102df943b0b3f07c47f28cb70027bec07a75d66bfd145" => :sierra
   end
 
   depends_on "gnupg" => :test
