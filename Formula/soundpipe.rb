@@ -21,7 +21,7 @@ class Soundpipe < Formula
 
   test do
     system ENV.cc, "#{pkgshare}/examples/ex_osc.c", "-o", "test", "-L#{lib}",
-                   "-L#{lib}", "-lsndfile", "-lsoundpipe"
+                   "-L#{Formula["libsndfile"].lib}", "-lsndfile", "-lsoundpipe"
     system "./test"
     assert_predicate testpath/"test.wav", :exist?
   end
