@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.0.0.313.tar.xz"
-  sha256 "a946e91d7da3f90b5e7cbbdf27adfa2f57ddb09b199dfc4d6d3bc05eb0690c50"
+  url "https://download.mono-project.com/sources/mono/mono-6.0.0.319.tar.xz"
+  sha256 "6b4c80b88bf7688178797bfecc681e3dbc4c6810413c97d6f3c476061a8d261a"
 
   bottle do
     sha256 "b83227fcc5ce3f812e79a4763ffe1c7eef32712fbfdac1dfa144bd4d9d94e82c" => :mojave
