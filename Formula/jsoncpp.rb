@@ -12,19 +12,15 @@ class Jsoncpp < Formula
     sha256 "5b4f345172c39853765b57eb0c7a706454031cf3a6da1c00a2b3d61244b20ada" => :sierra
   end
 
-  depends_on "cmake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    ENV.cxx11
-
-    system "cmake", ".", *std_cmake_args,
-                         "-DBUILD_STATIC_LIBS=ON",
-                         "-DBUILD_SHARED_LIBS=ON",
-                         "-DJSONCPP_WITH_CMAKE_PACKAGE=ON",
-                         "-DJSONCPP_WITH_TESTS=OFF",
-                         "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF",
-                         "-DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
