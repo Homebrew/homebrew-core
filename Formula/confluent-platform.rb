@@ -22,13 +22,10 @@ class ConfluentPlatform < Formula
     prefix.install "etc"
     prefix.install "share"
 
-    resource("confluent-cli") do  
-      cp 
-    end
   end
 
-  #test do
-  #  system "#{bin}/confluent", "current"
-  #  assert_match "schema-registry", shell_output("#{bin}/confluent list")
-  # end
+  test do
+    system "#{bin}/kafka-broker-api-versions", "--version"
+    assert_match "5.3.0", shell_output("#{bin}/kafka-broker-api-versions --version")
+  end
 end
