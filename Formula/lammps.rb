@@ -9,9 +9,9 @@ class Lammps < Formula
   sha256 "4e8342b97441deb76c2fddd8a4fd23beb718cb0910779d98e334026391ed3961"
 
   bottle do
-    sha256 "9a51a6be88e4bcf537a41218ba4a72445296fe33dabd129d8854abb57e46a6f2" => :mojave
-    sha256 "7ad3bb298ac43d45271f6fbdce0736d0bdce78ac26eb2ee4d7e23272e2a37261" => :high_sierra
-    sha256 "f8aa11709ff6a3533b8da8cdb3b8e67376c18cde785321e06d78a35fff70a202" => :sierra
+    sha256 "e14fbf9e68b16804c9d86f525e92190010c580c479263eaf194ff1e23dd877b1" => :mojave
+    sha256 "eebae98d9606af15a5281f07843ea41aeb94974a52f0023e9734aab3db430406" => :high_sierra
+    sha256 "cd52cb03b501cb8d65f0dcf8baf3857dc13e2a2206016ef559bf5ff3eba31e1d" => :sierra
   end
 
   depends_on "pkg-config" => :build
