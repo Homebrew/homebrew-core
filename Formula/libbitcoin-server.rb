@@ -1,9 +1,8 @@
 class LibbitcoinServer < Formula
   desc "Bitcoin Full Node and Query Server"
   homepage "https://github.com/libbitcoin/libbitcoin-server"
-  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
-  sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
-  revision 5
+  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.6.0.tar.gz"
+  sha256 "7280e6995f2a2123356e8ee6a5913f4a5fa6d0fd473ff2277145e55ba7104920"
 
   bottle do
     sha256 "dc1af32b76dda9995708b067822b99663980d89128a02522fa5c48b6a48a7b20" => :mojave
