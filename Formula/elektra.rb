@@ -6,9 +6,9 @@ class Elektra < Formula
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
-    sha256 "37e844cb59c8fc378e232ac0a86d053a6a7a65b797672565907f86dfdde1647b" => :mojave
-    sha256 "b8b31fdbd8f73df0671eed8bd348bef1eea631ce310f0c10037d61a40090ce2c" => :high_sierra
-    sha256 "141d0e2788c329dd27801cf1245cabe3893d898139996c75997519338a42acb8" => :sierra
+    sha256 "6cd6b9560e5e51985af452fb2869dd03b4079b25b60b77dbe48a302b521cdbe2" => :mojave
+    sha256 "3feaa48d0d4c1d0ba1ceb5e98ddda094f4cf3f64ffbb3c4d6809e827a6de1e84" => :high_sierra
+    sha256 "963f9f7d9bea4fc866cc08cbae06e6fe473075f5afe2a2167aa9fbfbfde83d7e" => :sierra
   end
 
   depends_on "cmake" => :build
