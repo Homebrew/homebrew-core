@@ -1,9 +1,8 @@
 class LibbitcoinExplorer < Formula
   desc "Bitcoin command-line tool"
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
-  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.5.0.tar.gz"
-  sha256 "630cffd577c0d10345b44ce8160f4604519b0ca69bf201f524f104c207b930aa"
-  revision 6
+  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.6.0.tar.gz"
+  sha256 "20c8ccc30b090309bee2b13a4b07f17ae6b16421dac804423f034c32dc1c518c"
 
   bottle do
     sha256 "8a44eea6fbfb1b45d06cba1a54aa9560e0d12f0e6e265b91642588173a873186" => :mojave
