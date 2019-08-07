@@ -1,9 +1,8 @@
 class Vit < Formula
   desc "Front-end for Task Warrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://taskwarrior.org/download/vit-1.2.tar.gz"
-  sha256 "a78dee573130c8d6bc92cf60fafac0abc78dd2109acfba587cb0ae202ea5bbd0"
-  revision 1
+  url "https://github.com/scottkosty/vit/archive/v1.3.tar.gz"
+  sha256 "a53021cfbcc1b1a492f630650e7e798d2361beb312d33ee15840e8209c8414c9"
   head "https://github.com/scottkosty/vit.git"
 
   bottle do
@@ -19,8 +18,8 @@ class Vit < Formula
   depends_on "task"
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.31.tgz"
-    sha256 "7bb4623ac97125c85e25f9fbf980103da7ca51c029f704f0aa129b7a2e50a27a"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.36.tar.gz"
+    sha256 "a414795ba031c5918c70279fe534fee594a96ec4b0c78f44ce453090796add64"
   end
 
   def install
