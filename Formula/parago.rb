@@ -9,12 +9,17 @@ class Parago < Formula
     inreplace "bin/pgo", /^CLIENT_HOME=/, "export pgo_OCLIF_CLIENT_HOME=#{lib/"client"}\nCLIENT_HOME="
     libexec.install Dir["*"]
     bin.install_symlink libexec/"bin/pgo"
-    bin.install_symlink libexec/"bin/parago"
 
   end
 
+  def caveat; <<~EOS
+    
+    To begin using Parago, please run `pgo setup`.
+
+  EOS
+  end
+  
   test do
     system bin/"pgo", "version"
-    system bin/"parago", "version"
   end
 end
