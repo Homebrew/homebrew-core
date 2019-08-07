@@ -3,6 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
+  revision 1
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -76,14 +77,16 @@ class Vtk < Formula
     end
 
     # Avoid hard-coding Python's Cellar paths
-    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first,
-      Formula["python"].prefix.realpath,
-      Formula["python"].opt_prefix
+    Dir["#{lib}/cmake/**/{vtkPython,VTKTargets}.cmake"].each do |file|
+      inreplace file,
+                Formula["python"].prefix.realpath,
+                Formula["python"].opt_prefix
+    end
 
     # Avoid hard-coding HDF5's Cellar path
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
-      Formula["hdf5"].prefix.realpath,
-      Formula["hdf5"].opt_prefix
+              Formula["hdf5"].prefix.realpath,
+              Formula["hdf5"].opt_prefix
   end
 
   test do
