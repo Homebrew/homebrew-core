@@ -1,8 +1,8 @@
 class LibbitcoinConsensus < Formula
   desc "Bitcoin Consensus Library (optional)"
   homepage "https://github.com/libbitcoin/libbitcoin-consensus"
-  url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.5.0.tar.gz"
-  sha256 "bb29761d4275a9c993151707557008b23572a3d9adecc0e36a3075cfb101dd1e"
+  url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.6.0.tar.gz"
+  sha256 "5d343eee6525e2e6b5403aa0e9196e7b4c7cd20d97c2b8ef92497fdcbbe59602"
 
   bottle do
     cellar :any
