@@ -1,8 +1,9 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "http://yaws.hyber.org/download/yaws-2.0.6.tar.gz"
-  sha256 "69f96f8b9bb574b129b0f258fb8437fdfd8369d55aabc2b5a94f577dde49d00e"
+  url "https://github.com/klacke/yaws/archive/yaws-2.0.7.tar.gz"
+  sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
+  head "https://github.com/klacke/yaws.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,14 +13,9 @@ class Yaws < Formula
     sha256 "f04163aed1bfe0397bc639d9903f80de457ca4391789049fc13e4f8a6410c798" => :el_capitan
   end
 
-  head do
-    url "https://github.com/klacke/yaws.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "erlang@20"
 
   # the default config expects these folders to exist
@@ -28,7 +24,7 @@ class Yaws < Formula
   skip_clean "lib/yaws/examples/include"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}",
                           # Ensure pam headers are found on Xcode-only installs
                           "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security"
