@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      :tag      => "v0.9.0",
-      :revision => "560208dc998de497bbf59fea1b63426aec430934"
+      :tag      => "v0.10.0",
+      :revision => "ff80b17737a6a0aade663e4827e8af3ab5a21170"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
@@ -24,7 +24,7 @@ class OperatorSdk < Formula
     src.cd do
       # Make binary
       system "make", "build/operator-sdk-#{stable.specs[:tag]}-x86_64-apple-darwin"
-      bin.install "build/operator-sdk-v0.9.0-x86_64-apple-darwin" => "operator-sdk"
+      bin.install "build/operator-sdk-v0.10.0-x86_64-apple-darwin" => "operator-sdk"
 
       # Install bash completion
       output = Utils.popen_read("#{bin}/operator-sdk completion bash")
