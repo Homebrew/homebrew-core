@@ -1,4 +1,4 @@
-class ConfluentOss < Formula
+class ConfluentPlatform < Formula
   desc "Developer-optimized distribution of Apache Kafka"
   homepage "https://www.confluent.io/product/confluent-open-source/"
   url "https://packages.confluent.io/archive/5.2/confluent-5.2.1-2.12.tar.gz"
