@@ -32,6 +32,7 @@
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
   "commonmark": "cmark",
+  "confluent-oss": "confluent-platform",
   "cppformat": "fmt",
   "crystal-lang": "crystal",
   "cv": "progress",
