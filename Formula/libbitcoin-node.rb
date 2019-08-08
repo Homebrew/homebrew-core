@@ -5,9 +5,9 @@ class LibbitcoinNode < Formula
   sha256 "3803e8dcf70dd1e7043e98bb4a78e9f2007288297f0046c5ed43c7a75058dcb5"
 
   bottle do
-    sha256 "0f3a23b96c5570cc03b4d71bc636a37d8dd53835420c9f5eb96edb450ae4db0c" => :mojave
-    sha256 "76a8bef739ddb8edc5697a4c9c07f829bcf0419b2d1996889c622aec13205fa8" => :high_sierra
-    sha256 "d14706768a979df53bd14025e8d52a0f33eea8344d8e545c96df5954cb3b2a17" => :sierra
+    sha256 "168268e2f8f832fe1dca3b911c4b3e553bc028504107f60e682833b23f0547ed" => :mojave
+    sha256 "5be74517e2cca30a4224b6b1f2f50e20f8c55c09eb2d82e0a8c10a8e08ce822d" => :high_sierra
+    sha256 "e8e1cc3be334b9cc10502d54243299f07b349a2314e692e68a0a351e9c4c3b52" => :sierra
   end
 
   depends_on "autoconf" => :build
