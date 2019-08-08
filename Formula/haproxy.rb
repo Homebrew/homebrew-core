@@ -1,8 +1,8 @@
 class Haproxy < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/2.0/src/haproxy-2.0.3.tar.gz"
-  sha256 "aac1ff3e5079997985b6560f46bf265447d0cd841f11c4d77f15942c9fe4b770"
+  url "https://www.haproxy.org/download/2.0/src/haproxy-2.0.4.tar.gz"
+  sha256 "e2680696032c8b957cd26fd948fff239d2cfc17b00964e6d2dc5adf8155fcef1"
 
   bottle do
     cellar :any
