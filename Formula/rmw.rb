@@ -5,8 +5,6 @@ class Rmw < Formula
   sha256 "60750279980b450df5b62f12a7c7153584b41acba7bdb4ecf96def043d50f71a"
   head "https://github.com/theimpossibleastronaut/rmw.git"
 
-  depends_on "ncurses"
-
   def install
     system "./configure", "--enable-debug=no",
                           "--disable-dependency-tracking",
