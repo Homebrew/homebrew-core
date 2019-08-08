@@ -7,9 +7,9 @@ class Frpc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8a2dbdf194183d1162037c303b5ff96f24208cd1bf0bc469fb56307727e6653e" => :mojave
-    sha256 "d59c414fb8b072d0891543ba203d4df619b2a5614b362d6d1cc6ca28c5f86340" => :high_sierra
-    sha256 "e36b6b3fc1e9cf00e97a73d6506bedbe25d1a897c0cac471992d32a0e5f3bae6" => :sierra
+    sha256 "6e9672d935e1de69d03f375c2a1ba60b76d3123db77d15baf71a4630a05bab9c" => :mojave
+    sha256 "5394a93db3dec5fded0021719900bc7222c08e16a4d09e26ee11b7e36384a198" => :high_sierra
+    sha256 "23a81e2b560d2fcfbe86ad3398f9e70ceac12009b5c0cc7483774b9fa6143998" => :sierra
   end
 
   depends_on "go" => :build
