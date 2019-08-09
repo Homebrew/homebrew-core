@@ -20,7 +20,7 @@ class OpencvAT2 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "numpy"
+  depends_on "numpy@1.16"
   depends_on "openexr"
   depends_on "python@2" # does not support Python 3
 
