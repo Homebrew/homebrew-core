@@ -19,6 +19,21 @@ class Starship < Formula
     system "cargo", "install", "--root", prefix, "--path", "."
   end
 
+  def caveats; <<~EOS
+    Please follow the steps for your shell to complete the installation:
+
+    - Bash / Zsh
+      Add the following to the end of ~/.bashrc or ~/.zshrc:
+
+        eval "$(starship init $0)"
+
+    - Fish
+      Add the following to the end of  ~/.config/fish/config.fish:
+
+        eval (starship init fish)
+  EOS
+  end
+
   test do
     ENV["STARSHIP_CONFIG"] = ""
     assert_equal "[1;32m➜[0m ", shell_output("#{bin}/starship module char")
