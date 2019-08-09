@@ -2,8 +2,8 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.13.0",
-    :revision => "b3541c38f5672ffb4a29d66dca19d88b9ecae478"
+    :tag      => "v0.14.0",
+    :revision => "83d5362f1d7d8589b862de57912135067a8278c7"
 
   bottle do
     cellar :any_skip_relocation
@@ -38,6 +38,7 @@ class Deno < Formula
     ENV["DENO_BUILD_ARGS"] = %W[
       clang_base_path="#{Formula["llvm"].prefix}"
       clang_use_chrome_plugins=false
+      mac_deployment_target="#{MacOS.version}"
     ].join(" ")
     ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
