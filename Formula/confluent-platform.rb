@@ -1,9 +1,9 @@
 class ConfluentPlatform < Formula
   desc "Developer-optimized distribution of Apache Kafka"
-  homepage "https://www.confluent.io/product/confluent-open-source/"
-  url "https://packages.confluent.io/archive/5.2/confluent-5.2.1-2.12.tar.gz"
-  version "5.2.1"
-  sha256 "11fdcc557aca782e87352ed6e655c37c71fb7b3a003796ee956970b01dedbbb1"
+  homepage "https://www.confluent.io/product/confluent-platform/"
+  url "https://packages.confluent.io/archive/5.3/confluent-5.3.0-2.12.tar.gz"
+  version "5.3.0"
+  sha256 "b7e21e09fcbdd5f6695352b0e308ef276acd8d54041440e4f66545370ca69191"
 
   bottle :unneeded
 
@@ -19,7 +19,7 @@ class ConfluentPlatform < Formula
   end
 
   test do
-    system "#{bin}/confluent", "current"
-    assert_match "schema-registry", shell_output("#{bin}/confluent list")
+    system "#{bin}/kafka-broker-api-versions", "--version"
+    assert_match "5.3.0", shell_output("#{bin}/kafka-broker-api-versions --version")
   end
 end
