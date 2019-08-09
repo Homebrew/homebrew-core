@@ -47,6 +47,6 @@ class OpenapiGenerator < Formula
               200:
                 description: OK
     EOS
-    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "openapi"
+    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "openapi", "-o" "./"
   end
 end
