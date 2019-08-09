@@ -6,8 +6,8 @@ class ElmFormat < Formula
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag      => "0.8.1",
-      :revision => "e3f9eb711f05a460557ddae2530802c15ee94d90"
+      :tag      => "0.8.2",
+      :revision => "ab3627cce01e5556b3fe8c2b5e3d92b80bfc74af"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
@@ -20,7 +20,19 @@ class ElmFormat < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
+  def build_elm_format_conf
+    <<~EOS
+      module Build_elm_format where
+
+      gitDescribe :: String
+      gitDescribe = "#{version}"
+    EOS
+  end
+
   def install
+    defaults = buildpath/"generated/Build_elm_format.hs"
+    defaults.write(build_elm_format_conf)
+
     (buildpath/"elm-format").install Dir["*"]
 
     cabal_sandbox do
