@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.6.303.27.tar.gz"
-  sha256 "e3fb2270c3ca277fa3e7ef6bd45f4d00eb7111bfd1ac440997bba2ef02ae0262"
+  url "https://github.com/v8/v8/archive/7.6.303.29.tar.gz"
+  sha256 "7aa3df4384b24af65d36f701643c325887cfb236f21c35536961e72a0f2d200c"
 
   bottle do
     cellar :any
