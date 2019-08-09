@@ -24,6 +24,11 @@ class Mtr < Formula
   end
 
   def install
+    # Fix UNKNOWN version reported by `mtr --version`.
+    inreplace "configure.ac",
+              "m4_esyscmd([build-aux/git-version-gen .tarball-version])",
+              version.to_s
+
     # We need to add this because nameserver8_compat.h has been removed in Snow Leopard
     ENV["LIBS"] = "-lresolv"
     args = %W[
