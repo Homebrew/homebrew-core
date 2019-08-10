@@ -5,9 +5,10 @@ class Tealdeer < Formula
   sha256 "5cf286059b823501d05da445b9b7a609ec2da91d711d990df76397f79d800c52"
 
   bottle do
-    sha256 "788e57ff6bf20cb0c43513d1b3ecd444ce4c880e5504a7865b47f01ec53a68db" => :mojave
-    sha256 "a8de8c1172dee32c86825b24cc1a85e24265d535ee150c553ab023d9abef1a74" => :high_sierra
-    sha256 "957602ffd92a10f6928efa1674e49301058878aaf62f961c5c2d4b4b27e14dae" => :sierra
+    cellar :any_skip_relocation
+    sha256 "964fd2fb421a2454648d1be9d2ce8fbab00fedca36a7e964f5da516406638aee" => :mojave
+    sha256 "ff092cd4796f47c7d62bccddc8f64d1afb18e94366568880187b8be0bb142974" => :high_sierra
+    sha256 "e6a03bd85487c6d11f7558e30bd736fe96527803798c21beecf3ee4069c0f855" => :sierra
   end
 
   depends_on "rust" => :build
