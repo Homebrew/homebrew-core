@@ -4,7 +4,7 @@ class Unzip < Formula
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +16,10 @@ class Unzip < Formula
   keg_only :provided_by_macos
 
   # Upstream is unmaintained so we use the Debian patchset:
-  # https://packages.debian.org/sid/unzip
+  # https://packages.debian.org/buster/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-23.debian.tar.xz"
-    sha256 "c8b5d256aca6b24b36e92270856b6947401bd4107c883b78a6fcf8afec6f54aa"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-25.debian.tar.xz"
+    sha256 "0783e4d11d755cb43904e3f59a60dbb92ee9c6b08ac54d86bc61f9848216f37b"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
@@ -42,6 +42,9 @@ class Unzip < Formula
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
       patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
       patches/21-fix-warning-messages-on-big-files.patch
+      patches/22-cve-2019-13232-fix-bug-in-undefer-input.patch
+      patches/23-cve-2019-13232-zip-bomb-with-overlapped-entries.patch
+      patches/24-cve-2019-13232-do-not-raise-alert-for-misplaced-central-directory.patch
     ]
   end
 
