@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-3.15.tar.gz"
-  sha256 "e93cbdae3873d993e32d2d2b85ff51de9085ebd464631c83242442e97574c4e6"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-3.16.tar.gz"
+  sha256 "8fc9ba8b7eaa992d5747fd88740fb6933dca9e17e9ec4fe9d038eefc7ead6293"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Lxc < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
 
-    ln_s buildpath/"dist/src", buildpath/"src"
+    ln_s buildpath/"_dist/src", buildpath/"src"
     system "go", "install", "-v", "github.com/lxc/lxd/lxc"
   end
 
