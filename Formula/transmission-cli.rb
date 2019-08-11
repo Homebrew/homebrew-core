@@ -1,4 +1,4 @@
-class Transmission < Formula
+class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
   url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
