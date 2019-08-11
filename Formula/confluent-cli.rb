@@ -14,6 +14,7 @@ class ConfluentCli < Formula
 
   def caveats; <<~EOS
     Pass --path /usr/local/bin flag to the command confluent local
+    example: confluent --path /usr/local/bin local start
       or 
     set environment variable CONFLUENT_HOME to /usr/local/bin 
     export CONFLUENT_HOME = /usr/local/bin
