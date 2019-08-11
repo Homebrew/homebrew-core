@@ -1,8 +1,8 @@
 class Zsxd < Formula
   desc "Zelda Mystery of Solarus XD"
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-mystery-of-solarus-xd"
-  url "https://gitlab.com/solarus-games/zsxd/-/archive/zsxd-1.12.0/zsxd-zsxd-1.12.0.tar.bz2"
-  sha256 "6b36650fb6d7ba6763115875dbb48afa6796a4175dd7198e5e9a4dd5aeae73a1"
+  url "https://gitlab.com/solarus-games/zsxd/-/archive/v1.12.1/zsxd-v1.12.1.tar.bz2"
+  sha256 "436c8d2860de1e947c049ed30a271d8a7c86eaaf5c889cd10b29444e1893579e"
   head "https://gitlab.com/solarus-games/zsxd.git"
 
   bottle do
