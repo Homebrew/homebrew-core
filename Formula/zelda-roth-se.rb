@@ -1,8 +1,8 @@
 class ZeldaRothSe < Formula
   desc "Zelda Return of the Hylian SE"
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-return-of-the-hylian-se"
-  url "https://gitlab.com/solarus-games/zelda-roth-se/-/archive/v1.2.0/zelda-roth-se-v1.2.0.tar.bz2"
-  sha256 "27fd5c5be969437eecdc1e8472284f74c7e2d977b7e06c4c395046f6761782e8"
+  url "https://gitlab.com/solarus-games/zelda-roth-se/-/archive/v1.2.1/zelda-roth-se-v1.2.1.tar.bz2"
+  sha256 "1cff44fe97eab1327a0c0d11107ca10ea983a652c4780487f00f2660a6ab23c0"
   head "https://gitlab.com/solarus-games/zelda-roth-se.git"
 
   bottle do
