@@ -1,8 +1,8 @@
 class Pagmo < Formula
   desc "Scientific library for massively parallel optimization"
   homepage "https://esa.github.io/pagmo2/"
-  url "https://github.com/esa/pagmo2/archive/v2.10.tar.gz"
-  sha256 "2fa95e2b464ddeadb9fc09bd314081293f02a1b6abc11c0b05064729a077227c"
+  url "https://github.com/esa/pagmo2/archive/v2.11.1.tar.gz"
+  sha256 "a87fc77efe3db9daa4426ed129eafd3a2db1c140e3a73216dcbf3aa7fb1dbb98"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,7 @@ class Pagmo < Formula
   depends_on "boost"
   depends_on "eigen"
   depends_on "nlopt"
+  depends_on "tbb"
 
   def install
     ENV.cxx11
@@ -61,8 +62,8 @@ class Pagmo < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
-                    "-I#{include}", "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lpagmo",
+                    "-std=c++11", "-o", "test"
     system "./test"
   end
 end
