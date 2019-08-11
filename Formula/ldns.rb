@@ -5,10 +5,10 @@ class Ldns < Formula
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
 
   bottle do
-    sha256 "62e817640791c4f6e6f3f99ed3621cdc62033772094a7fe9365813de0ab26c9e" => :mojave
-    sha256 "59e16e20f7ec9324f2f0381eaa626788dc61f1a7acad8360d648ce9627669f3c" => :high_sierra
-    sha256 "f696aa117920984beb08f77884fb6cc919d48f737f2684a6dd754ef76e069346" => :sierra
-    sha256 "4022d01b29df2ea81bd8f722c1b1883d718e7804e8c950cdc539c0e7046eb146" => :el_capitan
+    cellar :any
+    sha256 "faa2291cda47e96003c8f9703f580252e9f794608019aa22a60bb71c1ea9dfbb" => :mojave
+    sha256 "dbe318c3a0be2a59e3b71f48d2d13319ff6e8a47507f548aed6f73779f42ddb6" => :high_sierra
+    sha256 "49f6436feb4baafbecf4db384f0bbd7d9a597511df8dcf1195739f18c7a02642" => :sierra
   end
 
   depends_on "swig" => :build
