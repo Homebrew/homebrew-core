@@ -1,8 +1,8 @@
 class Jsvc < Formula
   desc "Wrapper to launch Java applications as daemons"
   homepage "https://commons.apache.org/daemon/jsvc.html"
-  url "https://www.apache.org/dyn/closer.cgi?path=commons/daemon/source/commons-daemon-1.1.0-native-src.tar.gz"
-  sha256 "11962bc602619fd2eeb840f74a8c63cc1055221f0cc385a1fa906e758d39888d"
+  url "https://www.apache.org/dyn/closer.cgi?path=commons/daemon/source/commons-daemon-1.2.0-native-src.tar.gz"
+  sha256 "13c8d9b27d38ae1ced1fb37743239035cd1add74a8ef20bfce38386fc0b4a243"
 
   bottle do
     cellar :any_skip_relocation
