@@ -3,8 +3,8 @@ class Infer < Formula
   homepage "https://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
-      :tag      => "v0.15.0",
-      :revision => "8bda23fadcc51c6ed38a4c3a75be25a266e8f7b4"
+      :tag      => "v0.17.0",
+      :revision => "99464c01da5809e7159ed1a75ef10f60d34506a4"
 
   bottle do
     cellar :any
@@ -16,8 +16,10 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on :java => ["1.7+", :build]
+  depends_on "gmp" => :build
+  depends_on :java => ["1.7+", :build, :test]
   depends_on "libtool" => :build
+  depends_on "mpfr" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
@@ -38,24 +40,62 @@ class Infer < Formula
     ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --without-fcp-clang"
 
     llvm_args = %w[
-      -DLLVM_INCLUDE_DOCS=OFF
-      -DLLVM_INSTALL_UTILS=OFF
-      -DLLVM_TARGETS_TO_BUILD=all
+      -DCMAKE_BUILD_TYPE=Release
+      -DCMAKE_C_FLAGS=#{ENV.cflags}
+      -DCMAKE_CXX_FLAGS=#{ENV.cppflags}
+      -DCMAKE_INSTALL_PREFIX=#{prefix}
+      -DCMAKE_SHARED_LINKER_FLAGS=#{ENV.ldflags}
       -DLIBOMP_ARCH=x86_64
-      -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
-      -DLLVM_BUILD_LLVM_DYLIB=ON
+      -DLLVM_BUILD_EXTERNAL_COMPILER_RT=On
+      -DLLVM_BUILD_LLVM_DYLIB=On
+      -DLLVM_ENABLE_ASSERTIONS=Off
+      -DLLVM_ENABLE_EH=On
+      -DLLVM_ENABLE_LIBCXX=On
+      -DLLVM_ENABLE_RTTI=On
+      -DLLVM_INCLUDE_DOCS=Off
+      -DLLVM_INSTALL_UTILS=Off
+      -DLLVM_TARGETS_TO_BUILD=all
     ]
 
-    system "opam", "init", "--no-setup"
-    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION_DEFAULT=\"([^\"]+)\"/)[1]
-    ocaml_version_number = ocaml_version.split("+", 2)[0]
-    inreplace "#{opamroot}/compilers/#{ocaml_version_number}/#{ocaml_version}/#{ocaml_version}.comp",
-      '["./configure"', '["./configure" "-no-graph"'
-    # so that `infer --version` reports a release version number
-    inreplace "infer/src/base/Version.ml.in", "let is_release = is_yes \"@IS_RELEASE_TREE@\"", "let is_release = true"
     inreplace "facebook-clang-plugins/clang/setup.sh", "CMAKE_ARGS=(", "CMAKE_ARGS=(\n  " + llvm_args.join("\n  ")
+
+    # so that `infer --version` reports a release version number
+    inreplace "infer/src/base/Version.ml.in", "@IS_RELEASE_TREE@", "yes"
+
+    # setup opam (disable opam sandboxing, since it will otherwise fail inside homebrew sandbox)
+    # disabling sandboxing inside a sandboxed environment is necessary as of opam 2.0
+    inreplace "build-infer.sh", "--no-setup", "--no-setup --disable-sandboxing"
+    # prefer system bins configuring opam dependency mlgmpidl (needs to use system clang+ranlib+libtool)
+    # if some homebrew versions of these mix with system tools, it can break compilation
+    inreplace "build-infer.sh", "opam install", "PATH=/usr/bin:$PATH\n    opam install"
+
+    pathfix_lines = [
+      "export SDKROOT=#{MacOS.sdk_path}",
+      "eval $(opam env)",
+    ]
+
+    # need to set sdkroot for clang to see certain system headers
+    inreplace "build-infer.sh", "./configure $INFER_CONFIGURE_OPTS", pathfix_lines.join("\n") + "\n./configure $INFER_CONFIGURE_OPTS"
+
     system "./build-infer.sh", "all", "--yes"
-    system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
+    system "opam", "config", "exec", "--", "make", "install"
+
+    # opam switches contain lots of files for end-user usage
+    # much can be removed if all we need is a package
+    opam_switch = File.read("build-infer.sh").match(/INFER_OPAM_DEFAULT_SWITCH=\"([^\"]+)\"/)[1]
+    cd libexec/"opam" do
+      # remove everything but the opam switch used for infer
+      rm_rf Dir["*"] - [opam_switch.to_s]
+
+      # remove everything in the switch but the dylibs infer needs during runtime
+      cd opam_switch.to_s do
+        rm_rf Dir["*"] - ["share"]
+
+        cd "share" do
+          rm_rf Dir["*"] - ["apron", "elina"]
+        end
+      end
+    end
   end
 
   test do
