@@ -1,5 +1,5 @@
 class ConfluentCli < Formula
-  desc "Confluent command line interface (CLI) to administer a development Confluent Platform environment"
+  desc "Confluent command-line interface (CLI)"
   homepage "https://docs.confluent.io/current/cli/index.html"
   url "https://s3-us-west-2.amazonaws.com/confluent.cloud/confluent-cli/archives/latest/confluent_latest_darwin_amd64.tar.gz"
   version "0.141.0"
@@ -15,8 +15,7 @@ class ConfluentCli < Formula
   def caveats; <<~EOS
     Pass --path /usr/local/bin flag to the command confluent local
     example: confluent --path /usr/local/bin local start
-      or 
-    set environment variable CONFLUENT_HOME to /usr/local/bin 
+    set environment variable CONFLUENT_HOME to /usr/local/bin
     export CONFLUENT_HOME = /usr/local/bin
   EOS
   end
