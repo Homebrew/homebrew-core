@@ -6,9 +6,9 @@ class VulkanHeaders < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e9816dfc20a5981323c37357614083a636584d69fe4a39a8c95f8e0bd064040" => :mojave
-    sha256 "9e9816dfc20a5981323c37357614083a636584d69fe4a39a8c95f8e0bd064040" => :high_sierra
-    sha256 "c53dbf2e014b68cf69d108c7d0e2b6adefb64147bebc205665d8c76a68b00542" => :sierra
+    sha256 "13118ad8d079784e600a54d86d6e78375976158f8dbc75a8ae6de30a4c2c7acc" => :mojave
+    sha256 "13118ad8d079784e600a54d86d6e78375976158f8dbc75a8ae6de30a4c2c7acc" => :high_sierra
+    sha256 "0a2baf09b44d870ff9c8dbd7a3725d0876c70aa7f44f8fcffa9ece713121faa1" => :sierra
   end
 
   depends_on "cmake" => :build
