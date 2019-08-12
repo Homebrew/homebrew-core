@@ -1,9 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz"
-  sha256 "159e4b599f8af4612e70b666600a3139541f8bacc18124daf2cbe8d1b934f29f"
-  revision 1
+  url "https://www.kernel.org/pub/software/scm/git/git-2.22.1.tar.xz"
+  sha256 "4ce1f93ab77847e9a9d565ee7c94ceadb80ea7d477fe68123f2329f8d4937824"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -21,13 +20,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.22.0.tar.xz"
-    sha256 "5c7e010abfca5ff2eabf3616bf7216609cfb93dbc12b7c4e13f4ae3e539dbc79"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.22.1.tar.xz"
+    sha256 "9c02dd40a2f544c142e08a91b89b7f7d4c6a11d8659ca7a17dd4fc894d0ee00f"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.22.0.tar.xz"
-    sha256 "4e2cfda33d8e86812bfcdb907478d1144412ce472c32edd0219b3c0201c7ee3a"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.22.1.tar.xz"
+    sha256 "8610b4f0d13e26fe0aa4aa913f8c15eb0b361611a1fcd3a5452552f4d2c6779f"
   end
 
   resource "Net::SMTP::SSL" do
