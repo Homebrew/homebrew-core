@@ -1,11 +1,10 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.30.0.tar.gz"
-    sha256 "fc884970089e382344540676a9c5aa4f369c9a0f45d1858e079b4ce26878164a"
+    url "https://github.com/crystal-lang/crystal/archive/0.30.1.tar.gz"
+    sha256 "0ffc00fa54929c2533bc0bcb89e0b001dd3abc470ccc87e3576047a5cdafc062"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -92,7 +91,10 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+      system buildpath/"bin/crystal", "build",
+                                      "-o", buildpath/".build/shards",
+                                      "src/shards.cr",
+                                      "--release", "--no-debug"
 
       man1.install "man/shards.1"
       man5.install "man/shard.yml.5"
