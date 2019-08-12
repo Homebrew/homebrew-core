@@ -1,8 +1,8 @@
 class Drafter < Formula
   desc "Native C/C++ API Blueprint Parser"
   homepage "https://apiblueprint.org/"
-  url "https://github.com/apiaryio/drafter/releases/download/v3.2.7/drafter-v3.2.7.tar.gz"
-  sha256 "a2b7061e2524804f153ac2e80f6367ae65dfcd367f4ee406eddecc6303f7f7ef"
+  url "https://github.com/apiaryio/drafter/releases/download/v4.0.0/drafter-4.0.0.tar.gz"
+  sha256 "f284cddf24c321947f85c21e5b27500e876f0181d91eda7d96b3350b48533139"
   head "https://github.com/apiaryio/drafter.git"
 
   bottle do
@@ -16,14 +16,9 @@ class Drafter < Formula
   depends_on "cmake" => :build
 
   def install
-    if build.head?
-      system "cmake", ".", *std_cmake_args
-      system "make"
-      system "make", "install"
-    else
-      system "./configure"
-      system "make", "install", "DESTDIR=#{prefix}"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "drafter", "drafter-cli"
+    system "make", "install"
   end
 
   test do
