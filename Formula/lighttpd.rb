@@ -13,6 +13,7 @@ class Lighttpd < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "lua" => :build
   depends_on "pkg-config" => :build
   depends_on "openldap"
   depends_on "openssl"
@@ -47,6 +48,7 @@ class Lighttpd < Formula
       --with-ldap
       --with-zlib
       --with-bzip2
+      --with-lua
     ]
 
     # autogen must be run, otherwise prebuilt configure may complain
