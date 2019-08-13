@@ -1,7 +1,7 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries"
-  homepage "https://github.com/kshvmdn/fsql"
-  url "https://github.com/kshvmdn/fsql/archive/v0.3.1.tar.gz"
+  homepage "https://github.com/kashav/fsql"
+  url "https://github.com/kashav/fsql/archive/v0.3.1.tar.gz"
   sha256 "b88110426a60aa2c48f7b4e52e117a899d43d1bba2614346b729234cd4bd9184"
 
   bottle do
@@ -17,8 +17,7 @@ class Fsql < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/kshvmdn").mkpath
-    ln_s buildpath, buildpath/"src/github.com/kshvmdn/fsql"
+    (buildpath/"src/github.com/kshvmdn/fsql").install buildpath.children
     system "go", "build", "-o", bin/"fsql", "github.com/kshvmdn/fsql/cmd/fsql"
   end
 
