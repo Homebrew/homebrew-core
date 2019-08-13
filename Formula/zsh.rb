@@ -62,6 +62,17 @@ class Zsh < Formula
     end
   end
 
+  def caveats; <<~EOS
+    You will need to add:
+      #{bin}/zsh
+    to /etc/shells.
+
+    Then run:
+      chsh -s #{bin}/zsh
+    to make zsh your default shell.
+  EOS
+  end
+
   test do
     assert_equal "homebrew", shell_output("#{bin}/zsh -c 'echo homebrew'").chomp
     system bin/"zsh", "-c", "printf -v hello -- '%s'"
