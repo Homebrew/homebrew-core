@@ -8,9 +8,9 @@ class Triton < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cec8c5ebe508525b39178c239c9c1c864d66df5f6a2a740f65ad2a866ab08b82" => :mojave
-    sha256 "c1f1527f5e2dedc3132c6841add67437fb1dfe6f41538a2894aa0ca31e304d76" => :high_sierra
-    sha256 "ab746681920c2818b117eb33e792f75edfcec916f40300aff0327171538f764c" => :sierra
+    sha256 "658ed62a7f9bbe5ab80c452dd05e351758f3b3400c311161a999d14881e1f1b4" => :mojave
+    sha256 "e2b50996b096bc1fba5fc8f69d2df77a15091d5f3a30c99974e79688bbeb8e8a" => :high_sierra
+    sha256 "5a8b6f24246025699cf3ab0f96467bf3b0a85c0b635264e03970b2c5474d0edb" => :sierra
   end
 
   depends_on "node"
