@@ -49,6 +49,8 @@ class Pidgin < Formula
       --without-x
     ]
 
+    ENV["ac_cv_func_perl_run"] = "yes" if MacOS.version == :high_sierra
+
     system "./configure", *args
     system "make", "install"
 
