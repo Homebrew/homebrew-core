@@ -17,7 +17,7 @@ class GitAnnex < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
   depends_on "libmagic"
@@ -29,8 +29,8 @@ class GitAnnex < Formula
     # This is already resolved in aws 0.20 but we can't move to 0.20 until
     # esqueleto 2.6.0 ships. See https://github.com/bitemyapp/esqueleto/issues/88
     # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
-    install_cabal_package "--constraint", "http-conduit<2.3",
-                          "--constraint", "network<2.7.0.1",
+    install_cabal_package "--constraint", "http-conduit>=2.3",
+                          "--constraint", "network>=2.6.3.0",
                           :using => ["alex", "happy", "c2hs"],
                           :flags => ["s3", "webapp"]
     bin.install_symlink "git-annex" => "git-annex-shell"
