@@ -1,9 +1,9 @@
 class Gdrive < Formula
   desc "Google Drive CLI Client"
-  homepage "https://github.com/prasmussen/gdrive"
-  url "https://github.com/prasmussen/gdrive/archive/2.1.0.tar.gz"
+  homepage "https://github.com/gdrive-org/gdrive"
+  url "https://github.com/gdrive-org/gdrive/archive/2.1.0.tar.gz"
   sha256 "a1ea624e913e258596ea6340c8818a90c21962b0a75cf005e49a0f72f2077b2e"
-  head "https://github.com/prasmussen/gdrive.git"
+  head "https://github.com/gdrive-org/gdrive.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,11 +18,13 @@ class Gdrive < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/prasmussen/"
-    ln_sf buildpath, buildpath/"src/github.com/prasmussen/gdrive"
-    system "go", "build", "-o", "gdrive", "."
-    bin.install "gdrive"
-    doc.install "README.md"
+
+    dir = buildpath/"src/github.com/prasmussen/gdrive"
+    dir.install buildpath.children
+    dir.cd do
+      system "go", "build", "-o", bin/"gdrive", "."
+      doc.install "README.md"
+    end
   end
 
   test do
