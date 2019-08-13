@@ -7,11 +7,10 @@ class Gdrive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "be226948f3fe5607a3411403a2ed641edcb7cce170d3ae02720c7dc58313e941" => :mojave
-    sha256 "f0971622df162e07eadb14f3aa2947edb088c05791fc2931d6cc3ee93e6bd9a3" => :high_sierra
-    sha256 "49e6aafb46c7267d013c4c45edaf24da14b184e53e841ebb825a87f545ce13b9" => :sierra
-    sha256 "fd217d3f50e967972eccef6b4d0fd537b9f7c0c0b230fa83ff6ac9ee94a77ea5" => :el_capitan
+    rebuild 3
+    sha256 "e26ef4bec660913f42aa735c28f58393912d2d0293bf98a351fa2b27a1baee01" => :mojave
+    sha256 "8fc5917762cd0b7622d35053931b41315606be97ba38ae34c9a67bf7ff87a1d3" => :high_sierra
+    sha256 "b03e82ba9bb723b7f6225607b3127b9d515f0d79271f76b375b74324aecfb057" => :sierra
   end
 
   depends_on "go" => :build
