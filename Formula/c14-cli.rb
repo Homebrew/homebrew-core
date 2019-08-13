@@ -7,10 +7,10 @@ class C14Cli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3eed580ea37aefbc419ec97a233f07c79549c4a155d7bf4c4809c5034380c24f" => :mojave
-    sha256 "4001f6779bdc27b3e3587e3a0502e65d94f78a6f108efd714b96c2d865bb592d" => :high_sierra
-    sha256 "a146090fbcacb6982155419c4f8e38d9ccb8fa6283c5d2611ccf30ea1960ed84" => :sierra
-    sha256 "399d93ad762d178607ca3da8d766cc4716ac33968c058a849f080d68dea634d7" => :el_capitan
+    rebuild 1
+    sha256 "9547e5c45d10d48de2ff95aabef2cb6d446fbd6f3b706df90d72adf2a363d96b" => :mojave
+    sha256 "43107ba495420cf65ab7b3a4f04c1a62de77594ed318e06aba3101213191e694" => :high_sierra
+    sha256 "6129daf1900d717da72f13909af71af2bf0d29325f798c02bcf4a68b1bd8edb3" => :sierra
   end
 
   depends_on "go" => :build
