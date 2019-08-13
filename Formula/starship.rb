@@ -1,8 +1,8 @@
 class Starship < Formula
   desc "The cross-shell prompt for astronauts"
   homepage "https://github.com/starship/starship"
-  url "https://github.com/starship/starship/archive/v0.7.0.tar.gz"
-  sha256 "7f769adae13cc0b0410c0835d78d1286af0192f6fd264de98f980ff31548f4fb"
+  url "https://github.com/starship/starship/archive/v0.9.1.tar.gz"
+  sha256 "fad2f87b253b352a97e1252e16e0a76c7785708d7f585798d28493f6eddef557"
   head "https://github.com/starship/starship.git"
 
   bottle do
@@ -21,6 +21,6 @@ class Starship < Formula
 
   test do
     ENV["STARSHIP_CONFIG"] = ""
-    assert_equal "[1;32m➜[0m ", shell_output("#{bin}/starship module char")
+    assert_equal "[1;32m➜[0m ", shell_output("#{bin}/starship module character")
   end
 end
