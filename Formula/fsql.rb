@@ -6,11 +6,10 @@ class Fsql < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0636179071fe651a255182679921c1a9f7229e50a519005f65df74703c9500a2" => :mojave
-    sha256 "9ac3de9b635d87b572c9dbc7d206105bab93768f2bdc081756477cea1340ff69" => :high_sierra
-    sha256 "ef29b4aeaeb30416b1969391049f557c3c7edc5b818d41c1693f2f73639b42af" => :sierra
-    sha256 "7cd4ee8016d85649bd0bbdc4ea24ab571d022d5e62b5f8e0d90d7ee6bbd4dd52" => :el_capitan
-    sha256 "627a98cf5a27228b7f471b90925dbdc9734c9697c147f37767ae9572838dd984" => :yosemite
+    rebuild 1
+    sha256 "7cb63d8939e7af0391938aea8a138daccbaddce50b42802d32e510772e004b9a" => :mojave
+    sha256 "7b4353a346425e4db5d14419c4dbacf6038606778a7ce2b98ddd0fdb7c2ca233" => :high_sierra
+    sha256 "f651c7c2dad44ee6b6f32aa699df223bd427421990f2c2c170d0928b1a31ef87" => :sierra
   end
 
   depends_on "go" => :build
