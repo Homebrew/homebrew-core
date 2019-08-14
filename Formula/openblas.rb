@@ -1,9 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.6.tar.gz"
-  sha256 "e64c8fe083832ffbc1459ab6c72f71d53afd3b36e8497c922a15a06b72e9002f"
-  revision 1
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.7.tar.gz"
+  sha256 "bde136122cef3dd6efe2de1c6f65c10955bbb0cc01a520c2342f5287c28f9379"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
