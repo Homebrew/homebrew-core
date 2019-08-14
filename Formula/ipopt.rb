@@ -3,7 +3,7 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
-  revision 1
+  revision 2
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
@@ -18,8 +18,8 @@ class Ipopt < Formula
   depends_on "openblas"
 
   resource "mumps" do
-    url "http://mumps.enseeiht.fr/MUMPS_5.2.0.tar.gz"
-    sha256 "41f2c7cb20d69599fb47e2ad6f628f3798c429f49e72e757e70722680f70853f"
+    url "http://mumps.enseeiht.fr/MUMPS_5.2.1.tar.gz"
+    sha256 "d988fc34dfc8f5eee0533e361052a972aa69cc39ab193e7f987178d24981744a"
 
     # MUMPS does not provide a Makefile.inc customized for macOS.
     patch do
