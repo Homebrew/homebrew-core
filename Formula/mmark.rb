@@ -1,14 +1,14 @@
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.miek.nl/"
-  url "https://github.com/mmarkdown/mmark/archive/v2.0.46.tar.gz"
-  sha256 "fa64a7321ff8cc531a0caa36af2a72057c5bebd634b623407b9d6415e7184003"
+  url "https://github.com/mmarkdown/mmark/archive/v2.0.48.tar.gz"
+  sha256 "aea7221f4acbe1bed224690c7bda85896ba89fa448e7619df9856c5cb1228fce"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64668c943a366014740e8fb017fc7e6735454c1ba8d0314f8f618725d8d8a531" => :mojave
-    sha256 "a77f99cc9523aeef1d1c0b55dccd094e5afa81e32444339a00432ef2c0029fce" => :high_sierra
-    sha256 "13b0d3608fb714ebcd8fa34f5534e687921b24af764fd3348e7a9fc5f03b8491" => :sierra
+    sha256 "f81c76050c205deaf9a2378d447ee2321ea22042ff4a0364d67af41d64c30e62" => :mojave
+    sha256 "8f3d90d4b75894cf9a976c767ef6d6a729b9148ca6e2a86248edc0868c9bb5ae" => :high_sierra
+    sha256 "0ef2e9b31ab20f16f85aebf91ede6d935db66966f4f2d20146cc918d7ef48188" => :sierra
   end
 
   depends_on "go" => :build

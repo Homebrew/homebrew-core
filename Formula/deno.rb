@@ -2,14 +2,14 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.14.0",
-    :revision => "83d5362f1d7d8589b862de57912135067a8278c7"
+    :tag      => "v0.15.0",
+    :revision => "58f0e9b9b1b53ca486ef38ae662b98cbde839248"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e2e967422d2c8b24ac4d4d4742d80e99355cd019954b57d3ff3f5fffa085765" => :mojave
-    sha256 "ffb56f0d5b484fe0efdb2d837e18adfd12d38f23c35322c3ab0dac2c2b7fa7f9" => :high_sierra
-    sha256 "dc19254bace232ee1d6986d9f8c052f90849d146cdcc704b8562670357566dcf" => :sierra
+    sha256 "ea41466b5e1472ad47eb3b6feb91453ff923b7a0d79b55dc93412514c677fbaa" => :mojave
+    sha256 "2ce2e8d758fb93715a904dc9170f56b98949b7d03cc3c273925499979922c576" => :high_sierra
+    sha256 "73aed6aab2ddc5b6f8f50a81ad312efe677dd52731ab1820382c53ddf7b6f9da" => :sierra
   end
 
   depends_on "llvm" => :build
