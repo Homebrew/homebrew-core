@@ -3,6 +3,7 @@ class PetscComplex < Formula
   homepage "https://www.mcs.anl.gov/petsc/"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.11.3.tar.gz"
   sha256 "8bee4a5ad37af85938ae755be182dcea255888b4f8b3d976bedc57e959280622"
+  revision 1
 
   bottle do
     sha256 "c70dd12b2c8b3b19c27f5b458e98cfe54d839db48b8a98418ad58f866a678b8d" => :mojave
