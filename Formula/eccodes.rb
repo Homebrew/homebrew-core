@@ -5,9 +5,9 @@ class Eccodes < Formula
   sha256 "158021539a85ca597075f4a534117721ea51f5ddea44b5ec27519d553c980f8d"
 
   bottle do
-    sha256 "08db3f50d225f9e82683f1916defc358b01485b248cde14051a803564cd79187" => :mojave
-    sha256 "44e40d8a2a4d8512cd7082a02b7a31639a36fda30e6bf187d4f290e1be2090e3" => :high_sierra
-    sha256 "526f8d2f4d85ec8c8d79ba2dfeebb38e49e46cfec8c23b017ed0d0b6a8cc2724" => :sierra
+    sha256 "e2176627399b50a2ff590e4bc4eb46992eac5535e5bc3614d6c6e52a8fbe781c" => :mojave
+    sha256 "80af243cbb5b7c42529ef8d4efa783f57b8d9e8f4dad7367842715c922aec4a5" => :high_sierra
+    sha256 "2a16c2a52726f0164f2c70f9ba56e0ebd8ed5738e0990ec085f07e65a08af7ea" => :sierra
   end
 
   depends_on "cmake" => :build
