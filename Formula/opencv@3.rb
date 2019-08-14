@@ -3,7 +3,7 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "70a892b1550d5db5a793e512ab3f9744c03377003874d914a69d44c868bb2939" => :mojave
