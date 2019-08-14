@@ -52,12 +52,6 @@ class Bash < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    In order to use this build of bash as your login shell,
-    it must be added to /etc/shells.
-  EOS
-  end
-
   test do
     assert_equal "hello", shell_output("#{bin}/bash -c \"echo -n hello\"")
   end
