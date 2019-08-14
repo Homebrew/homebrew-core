@@ -5,10 +5,9 @@ class H2o < Formula
   sha256 "f8cbc1b530d85ff098f6efc2c3fdbc5e29baffb30614caac59d5c710f7bda201"
 
   bottle do
-    sha256 "0810858740e6e248344e472d6b2ae7e78d831542da78f72a7e7eb2c870f83f80" => :mojave
-    sha256 "8aa6209db25f8ae5bd584ddda2d189245a927a060ddc50d24a4273f26f384ee7" => :high_sierra
-    sha256 "108be952a5875616441024a213e34eef7799d9e9cd16ff13d3fa44187c40384b" => :sierra
-    sha256 "828eb276e4173b6c89fe4cc36bc8e253960f678dcebf36e1f9424087582f085b" => :el_capitan
+    sha256 "214df20969a0f0abd19a22cb946af49193cb86cada2d711ffa388a75d9d6d1dc" => :mojave
+    sha256 "30e116e634addb2aaf210d1e48bd159dc969b4e296ba239cadc4db21fbfe63c2" => :high_sierra
+    sha256 "10fd1e59a9d66102c44ae4239588efc0c4ffb3b5abd5feb434b768a3212de22d" => :sierra
   end
 
   depends_on "cmake" => :build
