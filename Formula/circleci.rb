@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.5725",
-      :revision => "b0a23c0d9b21c826716115571e701106926e8f8e"
+      :tag      => "v0.1.5810",
+      :revision => "ac0d85fe5e85c0e49441c3803944614877f9ab77"
 
   bottle do
     cellar :any_skip_relocation
