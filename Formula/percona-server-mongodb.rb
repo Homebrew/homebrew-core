@@ -1,8 +1,8 @@
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.12-3.2/source/tarball/percona-server-mongodb-3.6.12-3.2.tar.gz"
-  version "3.6.12-3.2"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.13-3.3/source/tarball/percona-server-mongodb-3.6.13-3.3.tar.gz"
+  version "3.6.13-3.3"
   sha256 "5e9e7e166181dbeee1afe221311be62203c4287d413b41334f0eb8e6e561b247"
 
   bottle do
