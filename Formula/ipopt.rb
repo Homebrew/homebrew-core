@@ -3,6 +3,7 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
+  revision 1
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
@@ -12,6 +13,7 @@ class Ipopt < Formula
     sha256 "d12d4f3546ab13a397c0c2e9c7420a73449463d2145c79c76d389eff2e1d1459" => :sierra
   end
 
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gcc"
   depends_on "openblas"
 
@@ -72,8 +74,8 @@ class Ipopt < Formula
         return 0;
       }
     EOS
-
-    system ENV.cxx, "test.cpp", "-I#{include}/coin", "-L#{lib}", "-lipopt"
+    pkg_config_flags = `pkg-config --cflags --libs ipopt`.chomp.split
+    system ENV.cxx, "test.cpp", *pkg_config_flags
     system "./a.out"
   end
 end
