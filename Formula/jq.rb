@@ -27,6 +27,7 @@ class Jq < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-maintainer-mode",
+                          "--disable-docs",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
