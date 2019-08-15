@@ -5,9 +5,9 @@ class Cgdb < Formula
   sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
 
   bottle do
-    sha256 "61bf2feb99d9f787ca7f31054732161fbce069e7bb2d586bc498021890de625e" => :mojave
-    sha256 "5d7640abe0c061f425b299202885c1540352efacf7a0be63dda9047965ec1cb1" => :high_sierra
-    sha256 "ae319df2221718b4b69238cc8b73e201350b4a8260d0c4b6ac7e1608cb4669d6" => :sierra
+    sha256 "8f361fcad59ddf4825f4d42b516a099ba75bfffc0b885d42aeb875dbd1b2a1d4" => :mojave
+    sha256 "9ab4c0a880cb71903094929b04eada3c279a48ddb00b651a8a93d55cd523d380" => :high_sierra
+    sha256 "db6c63b20e2185ecaaf3ddef92d1ff052f0b0322c727f3f0429ef0d38ac9d269" => :sierra
   end
 
   head do
