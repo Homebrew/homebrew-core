@@ -1,9 +1,8 @@
 class Cgdb < Formula
   desc "Curses-based interface to the GNU Debugger"
   homepage "https://cgdb.github.io/"
-  url "https://cgdb.me/files/cgdb-0.7.0.tar.gz"
-  sha256 "bf7a9264668db3f9342591b08b2cc3bbb08e235ba2372877b4650b70c6fb5423"
-  revision 1
+  url "https://cgdb.me/files/cgdb-0.7.1.tar.gz"
+  sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
 
   bottle do
     sha256 "61bf2feb99d9f787ca7f31054732161fbce069e7bb2d586bc498021890de625e" => :mojave
