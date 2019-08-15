@@ -6,9 +6,9 @@ class I386ElfGcc < Formula
   sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
 
   bottle do
-    sha256 "7bba4fe1be422ebca2f77295fbc1495760fa9c3d2dbb5f1e60d952c1e55977dc" => :mojave
-    sha256 "7b30f2ad594a15be1fa40778934561ba0c96ba9db5c088fbe29f7d4e678f3ccf" => :high_sierra
-    sha256 "fbeddaec29190f54fb2e42aa0508f22d4491b76197f65b81b5e2b5ca70fc8f85" => :sierra
+    sha256 "9c07c54353f96455a4c2a9c5c3468a2b39770917f6555f56e9cd3c953df5bdb8" => :mojave
+    sha256 "5ee8e21a5a3490d19c0c5dc947144786862d3e182fb51f89be66fd1cc1eb0427" => :high_sierra
+    sha256 "601dbae559327522ea705c0c7b92fc3dcf5280873d350b9e29913563261a73a1" => :sierra
   end
 
   depends_on "gmp"
