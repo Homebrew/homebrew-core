@@ -30,7 +30,7 @@ class Gnutls < Formula
   # This patch has been merged upstream and this issue should be fixed in the 3.6.10 release.
   patch do
     url "https://gitlab.com/gnutls/gnutls/commit/ef80617d1e17e0878a909baad62a75ba265c0e00.patch"
-    sha256 "3b1634fa348c0f0064e43f3fb673e30a5e46f2b51cd6cd0d4a0cbf326e71c90e"
+    sha256 "34480b13120e2167060795060b6738c26622c341498cf6303b17b143642b14cd"
   end
 
   def install
