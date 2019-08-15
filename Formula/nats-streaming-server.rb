@@ -1,8 +1,8 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.15.1.tar.gz"
-  sha256 "d2c2fba9efb7a0c6c2706a2ec1ccd19cb8b3dc0441cb35c71d851d60917f5091"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.16.0.tar.gz"
+  sha256 "e3221dc68673d20d1a43ceaa271b97dbd2f78e1f2816e87bf7bd8b684cb9eff9"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
