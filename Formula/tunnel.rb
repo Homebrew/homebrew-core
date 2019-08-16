@@ -1,8 +1,8 @@
 class Tunnel < Formula
-  desc "Expose local servers to internet securely"
-  homepage "https://labstack.com/docs/tunnel"
-  url "https://github.com/labstack/tunnel-client/archive/v0.2.12.tar.gz"
-  sha256 "939ce5a0485c945b8e92eb99a29ae0a12ec46a66e59cef44ad9af2dbe2371163"
+  desc "Expose local servers to the internet securely"
+  homepage "https://tunnel.labstack.com/docs"
+  url "https://github.com/labstack/tunnel-client/archive/v0.3.0.tar.gz"
+  sha256 "7488a90395239232ab2702e42f3be614277087ececcfda27b63eba73ed62d4de"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +22,7 @@ class Tunnel < Formula
     begin
       pid = fork do
         $stdout.reopen("#{testpath}/out", "w")
-        exec bin/"tunnel", "8080"
+        exec bin/"tunnel", "start", "8080"
       end
       sleep 5
       assert_match "labstack.me", (testpath/"out").read
