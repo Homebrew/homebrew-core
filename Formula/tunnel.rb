@@ -1,8 +1,8 @@
 class Tunnel < Formula
-  desc "Expose local servers to internet securely"
-  homepage "https://labstack.com/docs/tunnel"
-  url "https://github.com/labstack/tunnel-client/archive/v0.2.12.tar.gz"
-  sha256 "939ce5a0485c945b8e92eb99a29ae0a12ec46a66e59cef44ad9af2dbe2371163"
+  desc "Expose local servers to the internet securely"
+  homepage "https://tunnel.labstack.com/docs"
+  url "https://github.com/labstack/tunnel-client/archive/v0.3.1.tar.gz"
+  sha256 "de67f55a6374443a5bea20b4da996bb08be79c19628b8bfd4fac79012d0c03cd"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,11 +21,11 @@ class Tunnel < Formula
   test do
     begin
       pid = fork do
-        $stdout.reopen("#{testpath}/out", "w")
-        exec bin/"tunnel", "8080"
+        system bin/"tunnel", "start", "8080"
+        system bin/"tunnel", "kill"
       end
       sleep 5
-      assert_match "labstack.me", (testpath/"out").read
+      assert_predicate testpath/".tunnel/daemon.log", :exist?
     ensure
       Process.kill("HUP", pid)
     end
