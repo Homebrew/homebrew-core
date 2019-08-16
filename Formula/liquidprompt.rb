@@ -1,8 +1,8 @@
 class Liquidprompt < Formula
   desc "Adaptive prompt for bash and zsh shells"
   homepage "https://github.com/nojhan/liquidprompt"
-  url "https://github.com/nojhan/liquidprompt/archive/eda83efe4e0044f880370ed5e92aa7e3fdbef971.zip"
-  sha256 "a8684ee8157f78e8e4d982b51fc1ade0100ddbdfe4eeb7158e0ab1c45b020a17"
+  url "https://github.com/nojhan/liquidprompt/archive/eda83efe4e0044f880370ed5e92aa7e3fdbef971.tar.gz"
+  sha256 "ed4715bebe2ef573a244a49780ab6809403b25645a4b16cc30cac6b71cdaf25c"
   head "https://github.com/nojhan/liquidprompt.git", :branch => "master"
 
   bottle :unneeded
