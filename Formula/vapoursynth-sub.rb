@@ -1,8 +1,8 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R46.tar.gz"
-  sha256 "e0b6e538cc54a021935e89a88c5fdae23c018873413501785c80b343c455fe7f"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R47.2.tar.gz"
+  sha256 "8ce4553f9fc5e5bbfb26ec9c0c5bf94be307530f947424c713ef67bc8a6d22b2"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
