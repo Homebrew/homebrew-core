@@ -24,14 +24,14 @@ class Axel < Formula
     # https://github.com/axel-download-accelerator/axel/pull/196
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
 
-    ENV["GETTEXT"] = "/usr/local/opt/gettext"
-    ENV["OPENSSL"] = "/usr/local/opt/openssl"
-    ENV["LIBRARY_PATH"] = "#{ENV["GETTEXT"]}/lib"
-    ENV["CPATH"] = "#{ENV["OPENSSL"]}/include:#{ENV["GETTEXT"]}/include"
-    ENV["PKG_CONFIG_PATH"] = "#{ENV["OPENSSL"]}/lib/pkgconfig"
-    ENV["PATH"] = "#{GETTEXT}/bin:#{ENV["PATH"]}"
+    gettext = Formula["gettext"]
+    openssl = Formula["openssl"]
+    ENV["LIBRARY_PATH"] = "#{gettext.lib}"
+    ENV["CPATH"] = "#{gettext.include}:#{openssl.include]}"
+    ENV["PKG_CONFIG_PATH"] = "#{gettext.lib}/pkgconfig"
+    ENV["PATH"] = "#{gettext.opt_bin}:#{ENV["PATH"]}"
 
-    system "autoreconf", "-fiv", "-I#{GETTEXT}/share/aclocal/"
+    system "autoreconf", "-fiv", "-I#{gettext.share}/aclocal/"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
