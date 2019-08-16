@@ -7,9 +7,9 @@ class Hugo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "885f875849bcd54737ca9ddfc2eaaf88eff0b6d16c534893f471324a6ca5f531" => :mojave
-    sha256 "6b878a8c88f97f638cce7ba4beda514339a3d5601ede8c98b47b0e1e2a50e995" => :high_sierra
-    sha256 "04d5c5dd611b2a0a68d56f9b182b7d791451622d72254fd743d4476de9ab91b6" => :sierra
+    sha256 "45f6a7d06e2e689bedf9f67b09671f0d7e1850d479a43bc066df072f90ab04a9" => :mojave
+    sha256 "5032cec9ba066fee4f771d773ec27017323807feb0ffd1739050f310e73cdc20" => :high_sierra
+    sha256 "03f31645e73a1645bbd67500c01c28c0dd9e962128f896359da52d9ad6880970" => :sierra
   end
 
   depends_on "go" => :build
