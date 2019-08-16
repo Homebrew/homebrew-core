@@ -1,11 +1,11 @@
 require "open3"
 
 class Riff < Formula
-  desc "Function As A Service on top of Knative, riff is for functions"
+  desc "Function As A Service on top of Kubernetes, riff is for functions"
   homepage "https://www.projectriff.io/"
-  url "https://github.com/projectriff/riff.git",
-      :tag      => "v0.3.1",
-      :revision => "1ff6c6d7a708e52eb6843e89f9a618fcbfebbb9f"
+  url "https://github.com/projectriff/cli.git",
+      :tag      => "v0.4.0",
+      :revision => "d1b042f4247d8eb01ee0b9e984926028a2844fe8"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,10 +25,10 @@ class Riff < Formula
   end
 
   test do
-    stdout, stderr, status = Open3.capture3("#{bin}/riff --kubeconfig not-a-kube-config-file service list")
+    stdout, stderr, status = Open3.capture3("#{bin}/riff --kube-config not-a-kube-config-file doctor")
 
     assert_equal false, status.success?
-    assert_match "List service resources", stdout
-    assert_match "Error: stat not-a-kube-config-file: no such file or directory", stderr
+    assert_equal "", stdout
+    assert_match "panic: stat not-a-kube-config-file: no such file or directory", stderr
   end
 end
