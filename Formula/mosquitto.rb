@@ -7,9 +7,9 @@ class Mosquitto < Formula
 
   bottle do
     cellar :any
-    sha256 "ee7ebb0c2856e08df1db5c2455575fea84aa25710965676fe9e3e2c0e4777eef" => :mojave
-    sha256 "f8dc15b6782c07b424c821226345b94301e389f393de0d57f12f7f4c546dc6a2" => :high_sierra
-    sha256 "5daf8b4e735bcd9fbcd3e3455274c5319ebefaefc27e8ec68f18ff7164568539" => :sierra
+    sha256 "af872a69b14e4afb695e0a1b3b5cbab1c173745786f8ca50b96c97fa69a3bdf3" => :mojave
+    sha256 "b6aa2771c20eb913832555dac11f82ba2708cd6d635726c763a759e4db05db6d" => :high_sierra
+    sha256 "44f0b813a9e12316a893c933e5c86dc30433a89b580f781c89f4f0db35adfd4a" => :sierra
   end
 
   depends_on "cmake" => :build
