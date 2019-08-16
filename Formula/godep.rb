@@ -8,9 +8,9 @@ class Godep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d2cca1226865f0cc490a2d753867607decfe5b1a0e1d3cc9bb181196011e8187" => :mojave
-    sha256 "45ba8469add2ecd775189c72548b20dc14fe6e69f6e71477002bdea702e86ea1" => :high_sierra
-    sha256 "7c7afd5f5e1a69146fee7ffb53b75290cd28b956c1b5dc2fbd1df2e0994fd2cb" => :sierra
+    sha256 "13c3191ef822e56e6a6975ed6061ed6379176418a4f7ee014dadae018d913f95" => :mojave
+    sha256 "56a4648cd8de53522720fda9b9fdb1848b00f58847605f80823b78366b1aa691" => :high_sierra
+    sha256 "4f6e219a90f2f345923af70757aa15632fe5f7ce0347d1212dc215ec75ce7197" => :sierra
   end
 
   depends_on "go"
