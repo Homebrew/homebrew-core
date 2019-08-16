@@ -3,6 +3,7 @@ class Mosquitto < Formula
   homepage "https://mosquitto.org/"
   url "https://mosquitto.org/files/source/mosquitto-1.6.4.tar.gz"
   sha256 "a3d5822c249f6a6e13311b1b09eff6807ea01608a5a77934e1769842e9d146ef"
+  revision 1
 
   bottle do
     cellar :any
