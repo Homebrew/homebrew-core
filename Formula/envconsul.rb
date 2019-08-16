@@ -1,8 +1,9 @@
 class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
-  url "https://github.com/hashicorp/envconsul/archive/v0.8.0.tar.gz"
-  sha256 "f324eb8840a16254e73c6feb41195640490a9e2bb2d811b5652313cb528bf368"
+  url "https://github.com/hashicorp/envconsul.git",
+    :tag      => "v0.9.0",
+    :revision => "d14ed8fe00c38009eca840d89896af1a70060ae1"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,9 +16,13 @@ class Envconsul < Formula
   depends_on "consul" => :test
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/hashicorp/envconsul").install buildpath.children
-    cd "src/github.com/hashicorp/envconsul" do
+
+    dir = buildpath/"src/github.com/hashicorp/envconsul"
+    dir.install buildpath.children
+
+    cd dir do
       system "go", "build", "-o", bin/"envconsul"
       prefix.install_metafiles
     end
