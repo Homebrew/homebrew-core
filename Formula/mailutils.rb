@@ -6,9 +6,9 @@ class Mailutils < Formula
   sha256 "e95920d23b5ded11479d2aded795e7f8f94e02c88e05198e9093f23b45eb04fa"
 
   bottle do
-    sha256 "d1e191fc899b56957fe5b81ead95466cb8332025226ca8c98e23171f45eb6cb0" => :mojave
-    sha256 "e5971d7a4667cf9780fa723e92519524c3c60a2210db74ca57b91b8d94486978" => :high_sierra
-    sha256 "79b96a7b7d055a1ff58735fcba664e35b5ca38d50d1ddb78685c8d1d002a8278" => :sierra
+    sha256 "be6e0c786604ac1cd9ad074ab3d957fce8aa875b04f171bf01173da5669b03f6" => :mojave
+    sha256 "b0a45ec764015639c065186fe1074300035f0a3d2458162048899222fbf32652" => :high_sierra
+    sha256 "8555d63a0d240ffd3948076f266aa3b88c2197e2becab0f463918facb8501f2f" => :sierra
   end
 
   depends_on "gnutls"
