@@ -2,8 +2,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.4.2",
-      :revision => "deb133452d38a0e3e71851e05a2af23cc2cc062e"
+      :tag      => "v1.4.3",
+      :revision => "613d8ef6ab6f8182039e2d430497f5f6457d6a42"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
@@ -15,7 +15,6 @@ class Packer < Formula
 
   depends_on "coreutils" => :build
   depends_on "go" => :build
-  depends_on "govendor" => :build
   depends_on "gox" => :build
 
   def install
