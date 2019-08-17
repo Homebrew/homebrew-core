@@ -29,12 +29,12 @@ class Axel < Formula
     ENV["PATH"] = "#{gettext.opt_bin}:#{ENV["PATH"]}"
 
     system "autoreconf", "-fiv", "-I#{gettext.share}/aclocal/"
-    system "-I#{gettext.include} -I#{openssl.include}", \
-              "-L#{gettext.lib}", \
-              "./configure",
+    system "./configure",
               "--disable-dependency-tracking",
               "--prefix=#{prefix}",
-              "--sysconfdir=#{etc}"
+              "--sysconfdir=#{etc}",
+              "-I#{gettext.include} -I#{openssl.include}",
+              "-L#{gettext.lib}
     system "make", "install"
   end
 
