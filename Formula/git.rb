@@ -6,9 +6,9 @@ class Git < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "dd3baee97f3c126ecf3e1e4a1b476134623ad86aaee8b3ee70a0d831092fa27a" => :mojave
-    sha256 "ce22c58c96421af2d936b7d115644df9baf93c0fb3e16503c11e84b19f7fdbb4" => :high_sierra
-    sha256 "a45a5a9a513f1df63b49273896717f09497fa3f67e82600bdc0accc7e76ebae4" => :sierra
+    sha256 "c32304092f99c0c296fe210bcaf2a16a50ba4d670faa170fc78e6f950c19def0" => :mojave
+    sha256 "bae26a253f14434ab6b7dda559a4c0f353e727084bc4b0f389a6aa136b9d4216" => :high_sierra
+    sha256 "3215c678f328fd01d3b942ff8d83fa77d0e3f886d3a69334f8082d3ec133ebf2" => :sierra
   end
 
   depends_on "gettext"
