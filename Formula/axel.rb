@@ -34,7 +34,7 @@ class Axel < Formula
               "--prefix=#{prefix}",
               "--sysconfdir=#{etc}",
               "-I#{gettext.include} -I#{openssl.include}",
-              "-L#{gettext.lib}
+              "-L#{gettext.lib}"
     system "make", "install"
   end
 
