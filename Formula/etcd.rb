@@ -1,8 +1,9 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
-  url "https://github.com/etcd-io/etcd/archive/v3.3.13.tar.gz"
-  sha256 "02df2eb25d67dafc355d19a91791f686fcf59b04cea46110c3a11fcd5e365100"
+  url "https://github.com/etcd-io/etcd.git",
+    :tag      => "v3.3.14",
+    :revision => "5cf5d88a18aeaf31afd8a29f495bb4e70ee13997"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
@@ -15,12 +16,17 @@ class Etcd < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/etcd-io"
-    ln_s buildpath, "src/github.com/etcd-io/etcd"
-    system "./build"
-    bin.install "bin/etcd"
-    bin.install "bin/etcdctl"
+
+    dir = buildpath/"src/github.com/etcd-io/etcd"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
+      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl"
+      prefix.install_metafiles
+    end
   end
 
   plist_options :manual => "etcd"
