@@ -1,8 +1,8 @@
 class KimApi < Formula
   desc "The Knowledgebase of Interatomic Models (KIM) API"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/kim-api/kim-api-2.1.2.txz"
-  sha256 "16c7dd362cf95288b6288e1a76caf8baef652eb2cf8af500a5eb4767ba2fe80c"
+  url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
+  sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
 
   bottle do
     sha256 "5a1c01f149cad15cfeb545aef0d918212df00ad323243363ec6750287f7cf35a" => :mojave
