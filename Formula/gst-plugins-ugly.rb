@@ -24,7 +24,6 @@ class GstPluginsUgly < Formula
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "jpeg"
-  depends_on "lame"
   depends_on "libmms"
   depends_on "libshout"
   depends_on "libvorbis"
