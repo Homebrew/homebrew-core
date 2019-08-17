@@ -7,9 +7,9 @@ class N < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b4a345240f8eb66b3ab9ee26691650d81e867b82ca7131b585918dbea0d94eeb" => :mojave
-    sha256 "b4a345240f8eb66b3ab9ee26691650d81e867b82ca7131b585918dbea0d94eeb" => :high_sierra
-    sha256 "7416bdf89bbea0fc4fc89b60906f150fb9537a123f1120893ebd2bba15ab1f4e" => :sierra
+    sha256 "c7ea632ef13d4274c6c8b817b1d58cfeef6d73e2f86e2e87a8fee3c24fb68ce4" => :mojave
+    sha256 "c7ea632ef13d4274c6c8b817b1d58cfeef6d73e2f86e2e87a8fee3c24fb68ce4" => :high_sierra
+    sha256 "0391c6eb2cbee5ba7e66b0e6e18fb4c57f8aecb978ad891a0179823df45e84af" => :sierra
   end
 
   def install
