@@ -15,6 +15,7 @@ class Ispc < Formula
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "llvm@4"
+  depends_on "python"
 
   def install
     # The standard include paths for clang supplied by the llvm@4 formula do not include
