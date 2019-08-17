@@ -30,6 +30,7 @@ class GstPluginsGood < Formula
   depends_on "gst-plugins-base"
   depends_on "gtk+3"
   depends_on "jpeg"
+  depends_on "lame"
   depends_on "libpng"
   depends_on "libshout"
   depends_on "libsoup"
@@ -43,7 +44,6 @@ class GstPluginsGood < Formula
       --prefix=#{prefix}
       --disable-gtk-doc
       --disable-goom
-      --disable-lame
       --with-default-videosink=ximagesink
       --disable-debug
       --disable-dependency-tracking
