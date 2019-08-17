@@ -27,14 +27,14 @@ class Axel < Formula
     gettext = Formula["gettext"]
     openssl = Formula["openssl"]
     ENV["PATH"] = "#{gettext.opt_bin}:#{ENV["PATH"]}"
+    ENV.prepend "CPPFLAGS", "-I#{gettext.include} -I#{openssl.include}"
+    ENV.prepend "LDFLAGS", "-L#{gettext.lib}"
 
     system "autoreconf", "-fiv", "-I#{gettext.share}/aclocal/"
     system "./configure",
               "--disable-dependency-tracking",
               "--prefix=#{prefix}",
-              "--sysconfdir=#{etc}",
-              "-I#{gettext.include} -I#{openssl.include}",
-              "-L#{gettext.lib}"
+              "--sysconfdir=#{etc}"
     system "make", "install"
   end
 
