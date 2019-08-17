@@ -40,7 +40,7 @@ class Qemu < Formula
       --disable-bsd-user
       --disable-guest-agent
       --enable-curses
-      --enable-libssh2
+      --enable-libssh
       --enable-vde
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --enable-cocoa
