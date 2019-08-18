@@ -15,6 +15,7 @@ class Squashfs < Formula
   depends_on "lz4"
   depends_on "lzo"
   depends_on "xz"
+  depends_on "zstd"
 
   # Patch necessary to emulate the sigtimedwait process otherwise we get build failures
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
@@ -24,9 +25,16 @@ class Squashfs < Formula
     sha256 "276763d01ec675793ddb0ae293fbe82cbf96235ade0258d767b6a225a84bc75f"
   end
 
+  # ZSTd support
+  patch do
+    url "https://raw.githubusercontent.com/lunatic-cat/homebrew-tap/680daa95f7d52736314dee3cfceae7e094f7befa/patches/0006-squashfs-tools-Add-zstd-support.patch"
+    sha256 "2fe7958af8e51aa27dac89c4a24e76a738634c11166362c65c43fe7e2cacecce"
+  end
+
   def install
     args = %W[
       EXTRA_CFLAGS=-std=gnu89
+      ZSTD_SUPPORT=1
       LZ4_SUPPORT=1
       LZMA_XZ_SUPPORT=1
       LZO_DIR=#{Formula["lzo"].opt_prefix}
