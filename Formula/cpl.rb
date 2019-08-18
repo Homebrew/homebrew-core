@@ -3,6 +3,7 @@ class Cpl < Formula
   homepage "https://www.eso.org/sci/software/cpl/index.html"
   url "ftp://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.1.2.tar.gz"
   sha256 "b6d20752420e2333e86d9a08c24a08057351a9fef97c32f5894e63fbfece463a"
+  revision 1
 
   bottle do
     cellar :any
