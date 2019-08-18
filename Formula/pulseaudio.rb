@@ -80,9 +80,9 @@ class Pulseaudio < Formula
         <string>--verbose</string>
       </array>
       <key>StandardErrorPath</key>
-      <string>#{ENV["HOME"]}/Library/Logs/pulseaudio.log</string>
+      <string>#{home}/Library/Logs/pulseaudio.log</string>
       <key>StandardOutPath</key>
-      <string>#{ENV["HOME"]}/Library/Logs/pulseaudio.log</string>
+      <string>#{home}/Library/Logs/pulseaudio.log</string>
     </dict>
     </plist>
   EOS
