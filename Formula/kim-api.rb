@@ -5,9 +5,9 @@ class KimApi < Formula
   sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
 
   bottle do
-    sha256 "5a1c01f149cad15cfeb545aef0d918212df00ad323243363ec6750287f7cf35a" => :mojave
-    sha256 "e9e5469c3e41d45e450903bcece7c1dbcc419ac2b8f720088d254f38dd6fe99b" => :high_sierra
-    sha256 "421cc4147e8d28823f512a4aee7c0859f0d300bb8942bc9dbb1435a71a93663e" => :sierra
+    sha256 "f652b6fac2383753b53c16f22b4cd64ca96adaf5b61906e8a51d893fb453588a" => :mojave
+    sha256 "05e8711131862fa14cc38277d33694be33d488bbcb5efc9e59a54c67ca1df2ea" => :high_sierra
+    sha256 "31502a90222cdeffb15c7b1ad820fcae8780c6db807634e23917bd182691c0ee" => :sierra
   end
 
   depends_on "cmake" => :build
