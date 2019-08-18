@@ -7,9 +7,9 @@ class Cpl < Formula
 
   bottle do
     cellar :any
-    sha256 "bfb20baa3483ad598490b108a371618ab18dbd6925194829c06fb8979b91d352" => :mojave
-    sha256 "2a2647bae1b99c1158b52ee220ccd3705d487efaf9978a3f60e57d48c8b1a6fe" => :high_sierra
-    sha256 "204ca58175cd8afd0ce0419bd9e82afcdba625772c97cd1142c438cddb3dd867" => :sierra
+    sha256 "bc075ecea64ebf2596b76e7d22da34d7fbcf931b0be73178295dc6e60c07fe71" => :mojave
+    sha256 "35c344b9fe12a202c5993050832d68a0621a1578eddc5b57da16237c30c481b6" => :high_sierra
+    sha256 "61a2907e35bc4e8ebe4d72a82c526b1d40c495d0f9525283c3ec3e56718057f5" => :sierra
   end
 
   depends_on "cfitsio"
