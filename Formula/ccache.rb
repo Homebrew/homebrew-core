@@ -1,8 +1,8 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7.2/ccache-3.7.2.tar.xz"
-  sha256 "a5da0008512ff9e882097acaffb3616fae98ec25827167bb4bd1e4acf0b66793"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.3/ccache-3.7.3.tar.xz"
+  sha256 "73d2ec69fcf4fd3b956304036974a779b443d88882b69c5d81b62b5dc8630e04"
 
   bottle do
     cellar :any_skip_relocation
