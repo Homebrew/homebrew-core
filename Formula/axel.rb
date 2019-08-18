@@ -35,7 +35,9 @@ class Axel < Formula
               "--disable-dependency-tracking",
               "--prefix=#{prefix}",
               "--sysconfdir=#{etc}"
-    system "make", "install"
+
+    system "make", "axel"
+
   end
 
   test do
