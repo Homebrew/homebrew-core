@@ -59,13 +59,30 @@ class Pulseaudio < Formula
     <dict>
       <key>Label</key>
       <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/pulseaudio</string>
-        <string>--start</string>
-      </array>
       <key>RunAtLoad</key>
       <true/>
+      <key>KeepAlive</key>
+      <dict>
+        <key>OtherJobActive</key>
+        <dict>
+          <key>com.apple.audio.coreaudiod</key>
+          <true/>
+        </dict>
+        <key>OtherJobEnabled</key>
+        <dict>
+          <key>com.apple.audio.coreaudiod</key>
+          <true/>
+        </dict>
+      </dict>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{bin}/pulseaudio</string>
+        <string>--verbose</string>
+      </array>
+      <key>StandardErrorPath</key>
+      <string>#{ENV["HOME"]}/Library/Logs/pulseaudio.log</string>
+      <key>StandardOutPath</key>
+      <string>#{ENV["HOME"]}/Library/Logs/pulseaudio.log</string>
     </dict>
     </plist>
   EOS
