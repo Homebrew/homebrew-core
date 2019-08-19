@@ -2,8 +2,8 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-    :tag      => "v3.3.14",
-    :revision => "5cf5d88a18aeaf31afd8a29f495bb4e70ee13997"
+    :tag      => "v3.3.15",
+    :revision => "94745a4eed0425653b3b4275a208d38babceeaec"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
@@ -23,8 +23,8 @@ class Etcd < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
-      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl"
+      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
+      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl"
       prefix.install_metafiles
     end
   end
