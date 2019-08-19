@@ -1,8 +1,8 @@
 class Arping < Formula
   desc "Utility to check whether MAC addresses are already taken on a LAN"
   homepage "https://github.com/ThomasHabets/arping"
-  url "https://github.com/ThomasHabets/arping/archive/arping-2.19.tar.gz"
-  sha256 "b1477892e19687a99fa4fb42e147d7478d96d0d3fc78ca4faade6392452414db"
+  url "https://github.com/ThomasHabets/arping/archive/arping-2.20.tar.gz"
+  sha256 "2543d433d6047a208331749c39ac3b2e0c8a743e135435d61fd1665dc3e228d1"
 
   bottle do
     cellar :any
