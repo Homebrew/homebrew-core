@@ -1,8 +1,8 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "https://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.15.1.tar.gz"
-  sha256 "4c0fe0146aee20423d9526e88f205fe442257fdf26df19225e2bde6084bad0ef"
+  url "https://github.com/osmcode/libosmium/archive/v2.15.2.tar.gz"
+  sha256 "be53024e16946ce49ff787f3ce569aa5710010236db68f971433ac6a10318a46"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +15,8 @@ class Libosmium < Formula
   depends_on "cmake" => :build
 
   resource "protozero" do
-    url "https://github.com/mapbox/protozero/archive/v1.6.3.tar.gz"
-    sha256 "c5d3c71f5fb56d867ff0536e55cd7a3f2eb0d09f6ebbf636b0fde4f0e12552f5"
+    url "https://github.com/mapbox/protozero/archive/v1.6.8.tar.gz"
+    sha256 "019a0f3789ad29d7e717cf2e0a7475b36dc180508867fb47e8c519885b431706"
   end
 
   def install
