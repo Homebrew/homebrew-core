@@ -1,14 +1,14 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7.2/ccache-3.7.2.tar.xz"
-  sha256 "a5da0008512ff9e882097acaffb3616fae98ec25827167bb4bd1e4acf0b66793"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.3/ccache-3.7.3.tar.xz"
+  sha256 "73d2ec69fcf4fd3b956304036974a779b443d88882b69c5d81b62b5dc8630e04"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43a6256824d3c8f59139a010b20a569f704ace86dcb4171fd11be7bc5bacf214" => :mojave
-    sha256 "680f292f08db227ef7053da2ad880315f2f1c5e55798a7d40b1d9d7bbfb20da4" => :high_sierra
-    sha256 "b5d25752a7dcfb3e198058cd545800739b750e050d3d55a2e380ed162b696773" => :sierra
+    sha256 "00038228be92080be6988be1985d162a7a8dd2998b70bf0c3aecc1e64825128d" => :mojave
+    sha256 "7ff35f6af9eb5fc0fc68df77e9add9dda704018cac33edc8b2cbcf38c5081e18" => :high_sierra
+    sha256 "0a62568bea792d47789fff1af01122842af8e4856ac0021d8386ae5fb59fa6bc" => :sierra
   end
 
   uses_from_macos "zlib"

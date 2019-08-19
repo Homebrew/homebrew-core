@@ -3,13 +3,14 @@ class Ttyd < Formula
   homepage "https://tsl0922.github.io/ttyd/"
   url "https://github.com/tsl0922/ttyd/archive/1.5.2.tar.gz"
   sha256 "b5b62ec2ce08add0173e6d1dfdd879e55f02f9490043e89f389981a62e87d376"
+  revision 1
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
     cellar :any
-    sha256 "7e45c24f3146519cfc50dee0c88b79d3f990dc883607d3736b92bf54e61f556c" => :mojave
-    sha256 "b06844f79f440bdd9ad490b167d98633bc68a8ffdc94297ebbd89634017f189f" => :high_sierra
-    sha256 "ff1bc58472594657ccbd57aeb7efbc84b896a255d475013d9897081c62220028" => :sierra
+    sha256 "aa188ee7b47b2a6e82ad9f28c735ebfbda9507a2890d009a2814d9191bcb05b5" => :mojave
+    sha256 "1234caf20914cda657ded88df7ebb8766f02558ff2647d2e72c6782d07f5dcde" => :high_sierra
+    sha256 "5142dee54d8eeffcae84537122fece72015657eadfb9994216d8ea6cdfa86b52" => :sierra
   end
 
   depends_on "cmake" => :build

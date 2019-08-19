@@ -2,20 +2,19 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.4.2",
-      :revision => "deb133452d38a0e3e71851e05a2af23cc2cc062e"
+      :tag      => "v1.4.3",
+      :revision => "613d8ef6ab6f8182039e2d430497f5f6457d6a42"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3525d4ed1a2054c6af4f3d744da888b6b55fa7ce1d6f864ed0acf8faed0e790" => :mojave
-    sha256 "32b756e971cef6d9ae817e0ff6683541f41653ef0791177e7cae00d6317bf30e" => :high_sierra
-    sha256 "3dbb55ae83123e1d7a6d7b710248a855693c9feb10f79abd57ca7b68cb23eb6d" => :sierra
+    sha256 "809870fa11060b2cc68e054022ce6a386bb4c149192da7f1b200d9de76495dd1" => :mojave
+    sha256 "c024a681b73e730e7c8f1803916d6c49aee118f4229f35e77a2219dde0c7c81d" => :high_sierra
+    sha256 "100a4a7e772119db8624f06db30659e2ace88981e68307f1b9a82473c6913c3b" => :sierra
   end
 
   depends_on "coreutils" => :build
   depends_on "go" => :build
-  depends_on "govendor" => :build
   depends_on "gox" => :build
 
   def install

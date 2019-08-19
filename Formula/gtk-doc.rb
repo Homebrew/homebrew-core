@@ -1,14 +1,14 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.31/gtk-doc-1.31.tar.xz"
-  sha256 "a51687956d0377ac70904d03fdc73c9e116589b4a01453fa92162442b3657011"
+  url "https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz"
+  sha256 "de0ef034fb17cb21ab0c635ec730d19746bce52984a6706e7bbec6fb5e0b907c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b643ff2a91cb4390732e534e4a91fd0e386369795eb7f6e6d0d836ea4757474" => :mojave
-    sha256 "5b643ff2a91cb4390732e534e4a91fd0e386369795eb7f6e6d0d836ea4757474" => :high_sierra
-    sha256 "725eeac0024ce2c6ced11066fe1efc1fa3f7a8ffedb6cd92d77e83fdb00a1d47" => :sierra
+    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :mojave
+    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :high_sierra
+    sha256 "62a6648f580ec06ba130accd90bb5bf178780d84fc338b98f05acf59e67423e1" => :sierra
   end
 
   depends_on "itstool" => :build
