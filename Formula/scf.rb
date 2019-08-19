@@ -3,8 +3,8 @@ class Scf < Formula
 
   desc "Tencent serverless cloud function commnad line tools"
   homepage "https://github.com/tencentyun/scfcli"
-  url "https://files.pythonhosted.org/packages/57/1b/4f4480174c770b7b5e9455b0f06e85e947832a62959d172140aba1b97608/scf-0.1.9.tar.gz"
-  sha256 "511696d4132b8b68e50bfe93523ed0c7df79968fd3776c504859da460e0c1544"
+  url "https://files.pythonhosted.org/packages/d7/a1/250296045dbfdb45dc471df4c5e6b2cadf0941de978118c0a419313565a6/scf-0.1.10.tar.gz"
+  sha256 "1faee43a12c83617dc7dc602e74fb65e99b45229f29460f27596b26ca8378edd"
 
   depends_on "python"
 
@@ -66,11 +66,6 @@ class Scf < Formula
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/1f/7f/a020327823b9c405ee6f85ab3053ff171e10801b19cfe55c78bb0b3810e7/jsonschema-3.0.1.tar.gz"
     sha256 "0c0a81564f181de3212efa2d17de1910f8732fa1b71c42266d983cd74304e20d"
-  end
-
-  resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
-    sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
   end
 
   resource "colorama" do
