@@ -3,8 +3,8 @@ class Trafficserver < Formula
   homepage "https://trafficserver.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.6.tar.bz2"
-    sha256 "82d49c40369e18a462a31e8a72c313b6b587a499e60fbf65d3e31165d59c28c5"
+    url "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.7.tar.bz2"
+    sha256 "285d39fe76887f26579216365de75f64ed799f75d0c20726e2a74bd8f9c38b65"
   end
 
   bottle do
