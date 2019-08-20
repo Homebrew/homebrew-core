@@ -17,42 +17,42 @@ class Tomcat < Formula
     libexec.install Dir["*"]
 
     (bin/"catalina").write <<~'EOS'
-    #!/bin/sh
+      #!/bin/sh
 
-    export CATALINA_HOME="$(brew --prefix tomcat)/libexec"
-    export CATALINA_BASE="$(brew --prefix)/var/tomcat"
+      export CATALINA_HOME="$(brew --prefix tomcat)/libexec"
+      export CATALINA_BASE="${CATALINA_BASE:-$(brew --prefix)/var/tomcat}"
 
-    catalina_init() {
-      if [ ! -e "$CATALINA_BASE/conf" ]; then
-        mkdir -p "$CATALINA_BASE"
-        cp -r "$CATALINA_HOME/conf" "$CATALINA_BASE/"
-      fi
-
-      if [ ! -e "$CATALINA_BASE/conf/Catalina/localhost/" ]; then
-        mkdir -p "$CATALINA_BASE/conf/Catalina/localhost/"
-      fi
-
-      for app in "$CATALINA_HOME/webapps"/*/; do
-        app_name=$(basename "$app")
-        context_file="$CATALINA_BASE/conf/Catalina/localhost/${app_name/ROOT/tomcat}.xml"
-
-        if [ ! -e "$context_file" ]; then
-          if [ -e "$app/META-INF/context.xml" ]; then
-            cp "$app/META-INF/context.xml" "$context_file"
-            sed -i "s,<Context,<Context docBase=\"\${catalina.home}/webapps/${app_name}\"," "$context_file"
-          else
-            printf '<?xml version="1.0" encoding="UTF-8"?>\n<Context docBase="${catalina.home}/webapps/%s" />\n' \
-              "${app_name}" > "$context_file"
-          fi
+      catalina_init() {
+        if [ ! -e "$CATALINA_BASE/conf" ]; then
+          mkdir -p "$CATALINA_BASE"
+          cp -r "$CATALINA_HOME/conf" "$CATALINA_BASE/"
         fi
-      done
-    }
 
-    if [ ! -e "$CATALINA_BASE" ]; then
-      catalina_init
-    fi
+        if [ ! -e "$CATALINA_BASE/conf/Catalina/localhost/" ]; then
+          mkdir -p "$CATALINA_BASE/conf/Catalina/localhost/"
+        fi
 
-    "$CATALINA_HOME/bin/catalina.sh" "$@"
+        for app in "$CATALINA_HOME/webapps"/*/; do
+          app_name=$(basename "$app")
+          context_file="$CATALINA_BASE/conf/Catalina/localhost/${app_name/ROOT/tomcat}.xml"
+
+          if [ ! -e "$context_file" ]; then
+            if [ -e "$app/META-INF/context.xml" ]; then
+              cp "$app/META-INF/context.xml" "$context_file"
+              sed -i "s,<Context,<Context docBase=\"\${catalina.home}/webapps/${app_name}\"," "$context_file"
+            else
+              printf '<?xml version="1.0" encoding="UTF-8"?>\n<Context docBase="${catalina.home}/webapps/%s" />\n' \
+                "${app_name}" > "$context_file"
+            fi
+          fi
+        done
+      }
+
+      if [ ! -e "$CATALINA_BASE" ]; then
+        catalina_init
+      fi
+
+      "$CATALINA_HOME/bin/catalina.sh" "$@"
     EOS
   end
 
