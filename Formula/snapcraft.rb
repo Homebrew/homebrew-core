@@ -66,6 +66,11 @@ class Snapcraft < Formula
     sha256 "c58390b0d191db948fc9ab681f07fdfce2a573cd012356bada47d56795d00ee2"
   end
 
+  resource "pbr" do
+    url "https://files.pythonhosted.org/packages/81/80/1df9176f9021c588155d0c7a86f1e963cec77fefa31934bc380acb0dbd5e/pbr-5.4.2.tar.gz"
+    sha256 "9b321c204a88d8ab5082699469f52cc94c5da45c51f114113d01b3d993c24cdf"
+  end
+
   resource "petname" do
     url "https://files.pythonhosted.org/packages/b8/6c/3b5c55a6632771b6a3ffc46ebb1d01bd7d2ca7ce3b44ebfd3c6ceeb9a6f6/petname-2.2.tar.gz"
     sha256 "be1da50a6aa01e39840e9a4b79b527a333b256733cb681f52669c08df7819ace"
