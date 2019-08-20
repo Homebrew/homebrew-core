@@ -2,8 +2,8 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.19.1",
-    :revision => "45da40e4c9ffe35a3c0501f580edc8a5182c9546"
+    :tag      => "v0.20.0",
+    :revision => "8a274f840924b6fea016d38be729379cb2ffe3d9"
 
   bottle do
     cellar :any_skip_relocation
