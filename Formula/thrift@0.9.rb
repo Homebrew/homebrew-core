@@ -42,7 +42,6 @@ class ThriftAT09 < Formula
 
     # Fix `aclocal-1.14: command not found` issue
     inreplace "aclocal.m4", "am__api_version='1.14'", "am__api_version='1.15'"
-    inreplace "configure", "am__api_version='1.14'", "am__api_version='1.15'"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
