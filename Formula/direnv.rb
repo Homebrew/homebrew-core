@@ -22,7 +22,11 @@ class Direnv < Formula
       prefix.install_metafiles
     end
   end
-
+  
+  def caveats
+    "Follow the instructions at https://direnv.net/docs/hook.md to hook direnv to your shell"
+  end
+  
   test do
     system bin/"direnv", "status"
   end
