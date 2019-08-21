@@ -6,9 +6,10 @@ class Vte3 < Formula
   revision 1
 
   bottle do
-    sha256 "5f95a2868399cfed57a274fb1c34b94a37b3f65acfbf69be91caa4ecf7f000eb" => :mojave
-    sha256 "a3ba9d025f4afb611adafd0d1ad9eb32c0e0deeed1d4b8babb48c5f2b77d456e" => :high_sierra
-    sha256 "029e3cf074b3bb73ef55c0e56079bf2d6c53b5926e2118967e271756b57d60f0" => :sierra
+    rebuild 1
+    sha256 "bf5a39f6cd2016c5ee2fe17daf110d874bf99c739e6f467a1a352420d54ddfa2" => :mojave
+    sha256 "60a3dc28399e956b427e1f5bf2ab141d04ed5fe28a9224efe03d51e6d0f78b3f" => :high_sierra
+    sha256 "294cdcc36012ac9246973fe5bdfbd94ed27907c943f906712cea6325e59a74d4" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -53,6 +54,7 @@ class Vte3 < Formula
     glib = Formula["glib"]
     gnutls = Formula["gnutls"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     libtasn1 = Formula["libtasn1"]
@@ -71,6 +73,7 @@ class Vte3 < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gnutls.opt_include}
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/vte-2.91
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16

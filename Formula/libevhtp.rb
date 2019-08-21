@@ -3,12 +3,13 @@ class Libevhtp < Formula
   homepage "https://criticalstack.com/"
   url "https://github.com/criticalstack/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "916fe12982a34b35481418e162137670873951bca1f39cf6235560777ca99f67" => :mojave
-    sha256 "f16d78564abe1a2b163832ef1449b4e2acab610ef118979c0c5933dd5a3b3f62" => :high_sierra
-    sha256 "0aef17632623cb4c15f9bed34272a95b478b25b770290f3d70c523e8efadb545" => :sierra
+    sha256 "12ffad8cd440ff172308978d6e1f169617abd8ab47a6c925cfc409fb5a357e63" => :mojave
+    sha256 "49c3fcac653776ff92bbe0a88e9d0baff3f0165a3dead2dca7edff2ef4d95bf1" => :high_sierra
+    sha256 "20b1117731ed49e6bef3d0b3208f49306c0d8074754b89c84af2f788e32f1ff6" => :sierra
   end
 
   depends_on "cmake" => :build

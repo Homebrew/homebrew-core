@@ -1,14 +1,15 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.6.3.tar.gz"
-  sha256 "9ef5cc75f4fe31d7bf50654ddf4728ad9e1ae2e5609a4b42ecbbcb4a209ed17e"
+  url "https://mosquitto.org/files/source/mosquitto-1.6.4.tar.gz"
+  sha256 "a3d5822c249f6a6e13311b1b09eff6807ea01608a5a77934e1769842e9d146ef"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ef415ddf4eca59f687fe4e91c3671beaf8141b085588f4ac00b02b0b88e17ce0" => :mojave
-    sha256 "6b4ed8a6a1ec532108ce48ba04a43136d3e437a01f6cfb0f9b8f5392f5dd91ad" => :high_sierra
-    sha256 "3f53c35e1ad61e77f1b9b44deac85139445a5259b45a3aa1c0f758e8b8253ae4" => :sierra
+    sha256 "af872a69b14e4afb695e0a1b3b5cbab1c173745786f8ca50b96c97fa69a3bdf3" => :mojave
+    sha256 "b6aa2771c20eb913832555dac11f82ba2708cd6d635726c763a759e4db05db6d" => :high_sierra
+    sha256 "44f0b813a9e12316a893c933e5c86dc30433a89b580f781c89f4f0db35adfd4a" => :sierra
   end
 
   depends_on "cmake" => :build

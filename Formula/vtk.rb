@@ -3,12 +3,13 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
+  revision 1
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "6048bdb469ac541f9714b278c697427afd9d8ac30b0263b307871c1877c94933" => :mojave
-    sha256 "2964017670fb49e932b0aaa7c263d872bcb579facc83f898e4aba4d1069eb512" => :high_sierra
-    sha256 "a0388d85d98c235ed9f93e8f89272442c34682c24c262a9bae9a99d1acc6546f" => :sierra
+    sha256 "b1e9c6822831e2776719f201ff67bbb9f8f1a7eeb6c5f51b7a76ccb3d08827ad" => :mojave
+    sha256 "8d99a67e56b753dd97b12d70d85dcabf6e73db84f9f63f740a85ff8f6ec0ff36" => :high_sierra
+    sha256 "d164b9b67b799fa93540f6fd80cc1d91941e190f2dc4a17176ccbd5ddfeae3d2" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -76,14 +77,16 @@ class Vtk < Formula
     end
 
     # Avoid hard-coding Python's Cellar paths
-    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first,
-      Formula["python"].prefix.realpath,
-      Formula["python"].opt_prefix
+    Dir["#{lib}/cmake/**/{vtkPython,VTKTargets}.cmake"].each do |file|
+      inreplace file,
+                Formula["python"].prefix.realpath,
+                Formula["python"].opt_prefix
+    end
 
     # Avoid hard-coding HDF5's Cellar path
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
-      Formula["hdf5"].prefix.realpath,
-      Formula["hdf5"].opt_prefix
+              Formula["hdf5"].prefix.realpath,
+              Formula["hdf5"].opt_prefix
   end
 
   test do

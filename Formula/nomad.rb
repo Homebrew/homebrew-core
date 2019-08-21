@@ -1,18 +1,18 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.9.3.tar.gz"
-  sha256 "65ae3d7c7c88f9a344f88c2444356662eaa16683d0033bf9fbff691633f4e6fe"
+  url "https://github.com/hashicorp/nomad/archive/v0.9.4.tar.gz"
+  sha256 "46c7998a82a45e82db87b4f4575aa48dd3d5fc0acc9d69ac3536785622867058"
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a963e2ee68ed698964f5202e8eaab4f16df84ab873fcaf7088b4c80ae0d4ad34" => :mojave
-    sha256 "26a0421bc6becf42a5aab763b38ed24a6cff40e47b1d05adc1e7240e2a8e6fe0" => :high_sierra
-    sha256 "306a1bb527389fcdf094968fa5ba85ddec00886e428ef7a128f98702835a6a94" => :sierra
+    sha256 "6710cbb7689e2c25e21124c81c68f44ef96aa02d3bd89d3c6c26cf957429087c" => :mojave
+    sha256 "65c0c8f530ec5e595b83da0031be82cfc1a4dec6980db1ae87e07b80f595a245" => :high_sierra
+    sha256 "4f0a898c7c20acd8f928079d609b63e5445a81264131d57b49ebd9d542a85d89" => :sierra
   end
 
-  depends_on "go@1.11" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

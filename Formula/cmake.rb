@@ -1,15 +1,15 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5.tar.gz"
-  sha256 "505ae49ebe3c63c595fa5f814975d8b72848447ee13b6613b0f8b96ebda18c06"
+  url "https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz"
+  sha256 "539088cb29a68e6d6a8fba5c00951e5e5b1a92c68fa38a83e1ed2f355933f768"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c421f98d773951dc9cdb0888e01262e65243c1c19c05e6126293c30e835f912" => :mojave
-    sha256 "301e78f6aad3a0072abb17ca0661618d8091235cee3de5b2bca730f5c5030769" => :high_sierra
-    sha256 "5e052f843afebb90e17d44ae00257dc8781661f5af7d9c6f6dacdb789c14b790" => :sierra
+    sha256 "76de3a5828825352b3b05951df73aea22ddd27fe158d43b8b1e36c51d0641d55" => :mojave
+    sha256 "6a8651cbbc0a0c68076a8c7c4f247897caf63ad20be63af3c9e3becc00541a27" => :high_sierra
+    sha256 "e1a16c84cc6cc08eb2abc6590ec31b0c50a3375de104fe53066d1603f3c2aee3" => :sierra
   end
 
   depends_on "sphinx-doc" => :build

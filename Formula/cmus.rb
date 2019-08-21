@@ -3,23 +3,24 @@ class Cmus < Formula
   homepage "https://cmus.github.io/"
   url "https://github.com/cmus/cmus/archive/v2.8.0.tar.gz"
   sha256 "756ce2c6241b2104dc19097488225de559ac1802a175be0233cfb6fbc02f3bd2"
+  revision 1
   head "https://github.com/cmus/cmus.git"
 
   bottle do
-    sha256 "41ac6ce47d99a7762dd224b5b92f156c18b88d9907626b648b80df95e45d9ccc" => :mojave
-    sha256 "8a8846a36f4eac433548d0351ef52fe3b1b8dfb072d03dc51cd81dd61f5991d9" => :high_sierra
-    sha256 "47f63ee376d18f45dbaa047960c6769669b852167bcc0bea82f7de93336ce474" => :sierra
+    sha256 "947c5455a55f02ebe1e73e3235568a08fc12f1dd997a28126e63f2870d12effb" => :mojave
+    sha256 "78634cac6ac5312fad50c2018626abc36b1882e676d605dae4dff6c49d2163c2" => :high_sierra
+    sha256 "29096641762614b528f5077100d98a3572d6404523ece6a36c6ca12f30f10d07" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "faad2"
   depends_on "flac"
-  depends_on "libao"
   depends_on "libcue"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "mad"
   depends_on "mp4v2"
+  depends_on "opusfile"
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}"

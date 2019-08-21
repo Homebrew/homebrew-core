@@ -1,15 +1,14 @@
 class Pdfcrack < Formula
   desc "PDF files password cracker"
   homepage "https://pdfcrack.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pdfcrack/pdfcrack/pdfcrack-0.16/pdfcrack-0.16.tar.gz"
-  sha256 "7865b203074ccfd5c612c8ce00c46ffcb4fabaa26154ce9304dfc668c7cb73ef"
+  url "https://downloads.sourceforge.net/project/pdfcrack/pdfcrack/pdfcrack-0.17/pdfcrack-0.17.tar.gz"
+  sha256 "561bb1ee21005b6a9cf09771571836de6625ad6c52822b08eaf33b9f32ef0e96"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "536c58b929d56ecd58787a99806ba35eb77c6d84e685c768ac340a2565868538" => :mojave
-    sha256 "267ea30516a748d4e47e36608dbac86b4447ce1f27b96c8333f7866a1787128d" => :high_sierra
-    sha256 "aa99f4d2cdf38a95b2ce720875c446a83a15f4b912d09e6b70e41caa5e95cf55" => :sierra
-    sha256 "56e86ec915cc0f470b12a7f5ce22afb12d03a79bc99285a71503fbea1769204d" => :el_capitan
+    sha256 "a90c034da71cc7aab72ea89c9693c73294258d33eff99449494a47824f7f74cd" => :mojave
+    sha256 "5b04e434a4a7f19cda66fc9fd85d06af7911c6a8541da9b256d0286b2e4a3ef8" => :high_sierra
+    sha256 "e62512a0ab06aef14644bfe289e9e22ec579c17f64767346ccd4562a389211ca" => :sierra
   end
 
   def install

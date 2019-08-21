@@ -1,26 +1,31 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
-  sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.14.1/apache-arrow-0.14.1.tar.gz"
+  sha256 "9948ddb6d4798b51552d0dca3252dd6e3a7d0f9702714fc6f5a1b59397ce1d28"
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "6aa00e8691bb50792063fabf779654c84779191c61e535f673bdcce23f6ab5c9" => :mojave
-    sha256 "b1e94f45e5784bac3dd5d7e91cc9b528b327ef04414aee50e3e0e2f3a1a95cde" => :high_sierra
-    sha256 "edb8034cb655983af33466bf7b8347af2761e36be3ff9324c1f69b62ebea717b" => :sierra
+    sha256 "cb9b62e236c4d138c3ad06671818c0f1a81ddd97bb5ef9fecc8c449d5f8aee86" => :mojave
+    sha256 "8afda2fb6023553c4c4e2ba4ad3a87e9411e2283905fd3fca0ec7e4ddb3cf612" => :high_sierra
+    sha256 "b5d11576669485b771d2fab149d499b41ec9d0fcda55d7f4ec98716e1e2f5c08" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "brotli"
+  depends_on "double-conversion"
   depends_on "flatbuffers"
+  depends_on "glog"
+  depends_on "grpc"
   depends_on "lz4"
   depends_on "numpy"
+  depends_on "openssl"
   depends_on "protobuf"
   depends_on "python"
+  depends_on "rapidjson"
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
@@ -28,19 +33,14 @@ class ApacheArrow < Formula
   def install
     ENV.cxx11
     args = %W[
+      -DARROW_FLIGHT=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
-      -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
-      -DLZ4_HOME=#{Formula["lz4"].prefix}
-      -DPROTOBUF_HOME=#{Formula["protobuf"].prefix}
       -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
-      -DSNAPPY_HOME=#{Formula["snappy"].prefix}
-      -DTHRIFT_HOME=#{Formula["thrift"].prefix}
-      -DZSTD_HOME=#{Formula["zstd"].prefix}
     ]
 
     mkdir "build"

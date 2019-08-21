@@ -1,14 +1,13 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.12.0-Source.tar.gz"
-  sha256 "f75ae5ce9e543622e8e40c3037619f8d9e6542c902933adb371bac82aee91367"
-  revision 1
+  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.13.1-Source.tar.gz"
+  sha256 "158021539a85ca597075f4a534117721ea51f5ddea44b5ec27519d553c980f8d"
 
   bottle do
-    sha256 "5e06fab2d6e9bf162d09de8e3c487d33843575316e865ea0bf20eddb8a5ecca6" => :mojave
-    sha256 "37cf436e3db67327716b1189225bfa2c3328da6d8964592a6772a45e21252b55" => :high_sierra
-    sha256 "b17fa8c8024bd8e0f64338e342d1ace4276112dfc47c63041e868841ca440aa9" => :sierra
+    sha256 "e2176627399b50a2ff590e4bc4eb46992eac5535e5bc3614d6c6e52a8fbe781c" => :mojave
+    sha256 "80af243cbb5b7c42529ef8d4efa783f57b8d9e8f4dad7367842715c922aec4a5" => :high_sierra
+    sha256 "2a16c2a52726f0164f2c70f9ba56e0ebd8ed5738e0990ec085f07e65a08af7ea" => :sierra
   end
 
   depends_on "cmake" => :build

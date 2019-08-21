@@ -1,15 +1,15 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.3.tar.xz"
-  sha256 "0c3020452880581a8face91595b239198078645e7d7184273b8bcc7758beb63d"
+  url "https://ffmpeg.org/releases/ffmpeg-4.1.4.tar.xz"
+  sha256 "f1f049a82fcfbf156564e73a3935d7e750891fab2abf302e735104fd4050a7e1"
   revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "ddfb58dd5432eed657d9ecda3b4c2f06eb523815e9e7f339b1f05d1048f89d40" => :mojave
-    sha256 "41dd2796b2c3136faf6d5b20e1f7774db2c21a916c1b9d752e1ea4c92ff32f22" => :high_sierra
-    sha256 "3904c3b313c0a53349b2bd3a0e27b503b5448f81b319c313ee48ef80492bf5dd" => :sierra
+    sha256 "1fff696effdf5cdea3feb1b2d022018c6dfe47b71de640a46adc4631cdeccf1e" => :mojave
+    sha256 "d8e05c780e5e97dd8c4502e7cd31d0dc1d9e21734c22674deadab07609255339" => :high_sierra
+    sha256 "df8763246c89635363a965811f322e8fa253dc3a39f0b5812024f3a79027ff7a" => :sierra
   end
 
   depends_on "nasm" => :build
@@ -48,7 +48,6 @@ class Ffmpeg < Formula
       --enable-shared
       --enable-pthreads
       --enable-version3
-      --enable-hardcoded-tables
       --enable-avresample
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}

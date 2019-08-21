@@ -1,26 +1,22 @@
 class Vit < Formula
   desc "Front-end for Task Warrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://taskwarrior.org/download/vit-1.2.tar.gz"
-  sha256 "a78dee573130c8d6bc92cf60fafac0abc78dd2109acfba587cb0ae202ea5bbd0"
-  revision 1
+  url "https://github.com/scottkosty/vit/archive/v1.3.tar.gz"
+  sha256 "a53021cfbcc1b1a492f630650e7e798d2361beb312d33ee15840e8209c8414c9"
   head "https://github.com/scottkosty/vit.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab438fe55ae7d9fa33079d907a9fd432a9a4c094a9eaf3257592cf1aeadbe8a8" => :mojave
-    sha256 "d2ffe07bc8ede58d12bcb7401db8f3086eaba071f57b3ec4ce377e0ad18e4d3d" => :high_sierra
-    sha256 "26c2d6376f2c94d32d11972dbd061e5d4ef1edd31c889a084558339494c34b5b" => :sierra
-    sha256 "148f01bcfe731892cbfbc63eb9e8d95fded12f07c2d56a7429f8ddea27207f51" => :el_capitan
-    sha256 "e91023aac9f44f67570d248255fc61ed614091fdfafb16003b49064d90866d91" => :yosemite
-    sha256 "3f7e65dd15708aaf63ed1d3d3bc948cd020371b35c4537a1366d34a94181767e" => :mavericks
+    sha256 "dabf6d97c4af518bad19d873777ead55122b44656eaf49735966f900c225cbac" => :mojave
+    sha256 "ac57f8e4f66af27f973736de36a02ba7e2f08cc4b729a904e8fe960b2ed30341" => :high_sierra
+    sha256 "7b41d373de2b877ec5b91b47e36b694ea3e966822e77697948e91861dd52725c" => :sierra
   end
 
   depends_on "task"
 
   resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.31.tgz"
-    sha256 "7bb4623ac97125c85e25f9fbf980103da7ca51c029f704f0aa129b7a2e50a27a"
+    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.36.tar.gz"
+    sha256 "a414795ba031c5918c70279fe534fee594a96ec4b0c78f44ce453090796add64"
   end
 
   def install

@@ -3,11 +3,12 @@ class Sysdig < Formula
   homepage "https://www.sysdig.org/"
   url "https://github.com/draios/sysdig/archive/0.24.2.tar.gz"
   sha256 "cd925afd2fb0a26728611666e017d480afd49158c2d70714c7461a97c8820807"
+  revision 2
 
   bottle do
-    sha256 "f3eebe7276e7a1b5a579f6a095bcdad61c5c6429ada950e5d9abbf2660c59232" => :mojave
-    sha256 "dd3b00038c5d3d6efaf2c1bc0faa2595f47337d849f1728dd063aa24db96ce16" => :high_sierra
-    sha256 "42a2aa84a58542e09f47734e12af3986b0c4be83b1d362c48322c585e4aab87d" => :sierra
+    sha256 "2215153dba5310024a0bfa81894f24eb34b5613769d10c07618dc3ad00533359" => :mojave
+    sha256 "8c6c628f2bc3cacdb979f7e5cb831aea7ee353a06bf355cbb61b3bafa4b31f9d" => :high_sierra
+    sha256 "94763f814ca9a9937700a4fe51b0e1394b50e9c0939472d2704aef59f8c38f44" => :sierra
   end
 
   depends_on "cmake" => :build

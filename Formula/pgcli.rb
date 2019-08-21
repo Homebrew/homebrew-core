@@ -8,9 +8,10 @@ class Pgcli < Formula
 
   bottle do
     cellar :any
-    sha256 "c71dfb32746fb2f6738070b082ffb8693fe90c28bc8c969d3a2438b575bcba14" => :mojave
-    sha256 "8888f2a5aa2e8677c9a981b84ed98ec8bb828cc13fec4026ea7646e3a49b57a9" => :high_sierra
-    sha256 "e4e631f17d32e34340047d371ebd25a543b9fa4551662f3b810492d2fbec7589" => :sierra
+    rebuild 1
+    sha256 "010770d9e189903a7841747d59db337d89d468f83d17b8a9940e9332814ff01a" => :mojave
+    sha256 "76f8ff6b2643a3cc0962944eda6357e9060928f49003d7692e6c030f555a5108" => :high_sierra
+    sha256 "23b33d5aa915a9b883589e6d1913da54dcab4b6e96bd41b660fa468c45319244" => :sierra
   end
 
   depends_on "libpq"
@@ -23,8 +24,8 @@ class Pgcli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/e6/6a/5e0e8011a9ae7807de2ea455da57cec381d04f8219f9a2a8f3b171ac3885/cli_helpers-1.2.0.tar.gz"
-    sha256 "d211192b4d5a61de0020c516213ba67bbf1662ccd8c0624e6696dedb1a9d3e5d"
+    url "https://files.pythonhosted.org/packages/43/36/ba00975df9d393c0ccc3b1bf1610227bc4c4d611a5c69249b57be8ba6253/cli_helpers-1.2.1.tar.gz"
+    sha256 "98db22eaa86827d99ee6af9f5f3923142d04df256425204530842b032849a165"
   end
 
   resource "Click" do

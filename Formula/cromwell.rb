@@ -1,8 +1,8 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/43//cromwell-43.jar"
-  sha256 "1bf452e1343b224f80292548d308e4335dac9b5f2edf349572fee4764697fc5f"
+  url "https://github.com/broadinstitute/cromwell/releases/download/45//cromwell-45.jar"
+  sha256 "aeb4962c93689e1e3d6d1a2271d4be5a2d8b2d954ec3cbd05298c7d5e126fbbf"
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
@@ -14,8 +14,8 @@ class Cromwell < Formula
   depends_on :java => "1.8+"
 
   resource "womtool" do
-    url "https://github.com/broadinstitute/cromwell/releases/download/43//womtool-43.jar"
-    sha256 "97f37b86e343523aa0ee5786d2d5db3dbd4cd89eea4b2ef4da56b7c6fb689cc6"
+    url "https://github.com/broadinstitute/cromwell/releases/download/45//womtool-45.jar"
+    sha256 "3e30066f848bf365ffe81eeb9ed17686f71fb8c529c6743000fbec852442ea0f"
   end
 
   def install

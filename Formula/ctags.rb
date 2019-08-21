@@ -115,3 +115,14 @@ diff -ur a/ctags-5.8/read.h b/ctags-5.8/read.h
  
  /*
  *   FUNCTION PROTOTYPES
+--- a/ctags-5.8/general.h	2007-05-02 23:21:08.000000000 -0400
++++ b/ctags-5.8/general.h	2019-07-18 19:09:43.000000000 -0400
+@@ -56,7 +56,7 @@
+ /*  This is a helpful internal feature of later versions (> 2.7) of GCC
+  *  to prevent warnings about unused variables.
+  */
+-#if (__GNUC__ > 2  ||  (__GNUC__ == 2  &&  __GNUC_MINOR__ >= 7)) && !defined (__GNUG__)
++#if 0
+ # define __unused__  __attribute__((unused))
+ # define __printf__(s,f)  __attribute__((format (printf, s, f)))
+ #else

@@ -3,6 +3,7 @@ class Luarocks < Formula
   homepage "https://luarocks.org/"
   url "https://luarocks.org/releases/luarocks-3.1.3.tar.gz"
   sha256 "c573435f495aac159e34eaa0a3847172a2298eb6295fcdc35d565f9f9b990513"
+  head "https://github.com/luarocks/luarocks.git"
 
   bottle do
     cellar :any_skip_relocation

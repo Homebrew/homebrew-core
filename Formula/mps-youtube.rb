@@ -9,10 +9,10 @@ class MpsYoutube < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "97d97b734d3371938920e2d1b3a5e180a58c29441b376a2bfa9d2a3c52aef220" => :mojave
-    sha256 "7a358b9c265b5db8ad8367bdeb42e6b4b3f0164f66db91a80119b83c3a459016" => :high_sierra
-    sha256 "ecda06ebd06fda0260cf4e97490ff41c53ed070bd97c5ad61f4d52775813f0c2" => :sierra
+    rebuild 2
+    sha256 "95a20b9908255c78a3020339a93c99b3cbd0439ab07be12f26cd7e175d09ba73" => :mojave
+    sha256 "03bb33b5d74a5ca53ce0452ce240cdc4421250ca1ead5bc68d3de55f1f971299" => :high_sierra
+    sha256 "005b035e7ff507b035febadd63ebc5168aacafd5a2d165e2263dff246f2cdb3f" => :sierra
   end
 
   depends_on "mpv"
@@ -24,8 +24,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/69/e9/c96133c3b4874d9b682e918aa1e030a482a866f2b61ba9e985e47d08fffb/youtube_dl-2019.6.21.tar.gz"
-    sha256 "a64ffda79f467c81877d5452d775ebf858b43853ff7ce8644be3a80ebf3f9ea9"
+    url "https://files.pythonhosted.org/packages/25/fa/92097e9d95470ac12211b6f63744d159f473952ad01e9dd869edc62fb42d/youtube_dl-2019.7.30.tar.gz"
+    sha256 "41ee1e4247ed3810d9730c54b25ebe4ca19c1ca7373e3de05a3dc8e8884ca475"
   end
 
   def install

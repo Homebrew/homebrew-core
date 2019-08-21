@@ -1,26 +1,22 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.42/pango-1.42.4.tar.xz"
-  sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
-  revision 2
+  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.5.tar.xz"
+  sha256 "8527dfcbeedb4390149b6f94620c0fa64e26046ab85042c2a7556438847d7fc1"
 
   bottle do
-    sha256 "00b769ae7c76db06f9828398023c60597b11f33410b9f5b7c3f321b34fb7e0a9" => :mojave
-    sha256 "6d9f9ce407e6847a262eeea81f3bd93237f0ed4648d885a97c1409d95d26d892" => :high_sierra
-    sha256 "d400c90576eebb989be229742fc0fbdeb91c27e14bd98af94c05a84d2bcd7ca9" => :sierra
+    sha256 "2fe8b4ea2f121d442e89e6885dcf3e41cff9519868f8275d869469159ffdd2c7" => :mojave
+    sha256 "a89e20c88f279d676a912553c3147b028c84e011e35445db30cdb1bd67301ade" => :high_sierra
+    sha256 "53f81ee177e77858d921670acce9af01df1e773c1885568813da0d2f2d4609cc" => :sierra
   end
 
   head do
     url "https://gitlab.gnome.org/GNOME/pango.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -29,17 +25,15 @@ class Pango < Formula
   depends_on "harfbuzz"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-html-dir=#{share}/doc",
-                          "--enable-introspection=yes",
-                          "--enable-static",
-                          "--without-xft"
-
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}",
+                      "-Ddefault_library=both",
+                      "-Dintrospection=true",
+                      "-Duse_fontconfig=true",
+                      ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
@@ -62,6 +56,7 @@ class Pango < Formula
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pixman = Formula["pixman"]
     flags = %W[
@@ -71,6 +66,7 @@ class Pango < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/pango-1.0
       -I#{libpng.opt_include}/libpng16
       -I#{pixman.opt_include}/pixman-1

@@ -1,13 +1,13 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.9.tar.gz"
-  sha256 "905fe62e2825310eeb77187f8974763c3ae2f08ca1f649bcaf4721f1fd14a764"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.10.tar.gz"
+  sha256 "71bd3b01f26233d73b91c0953ce004bd3195bcfd0c83b76c269094fb06e5ffa5"
 
   bottle do
-    sha256 "6b3c73d844f2e03884494b5ef35ae61e954d61deaabee3dc2c6890ea59f2c8d9" => :mojave
-    sha256 "3ede1d5379b523fa49bafded248216359461d5f469f31f487317dd6b975fe2d4" => :high_sierra
-    sha256 "894321121f744ff2e39557ebd913a6ba208f6f61eeb3578e8e61854091b63992" => :sierra
+    sha256 "3424b91b362905cb2140fde701a4a89107d9ea65919d5b9b04f22b136400fe5c" => :mojave
+    sha256 "5a82192ee21b66b11f726db20857f386ba75ece9fae6796363ff02f604a53dd6" => :high_sierra
+    sha256 "ddf29ffdf4e935f86de8a2ee5ff2c434a1472414624f48cf71aefc62557e0b03" => :sierra
   end
 
   depends_on "meson" => :build
@@ -17,15 +17,16 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.9/scrcpy-server-v1.9.jar"
-    sha256 "ad7e539f100e48259b646f26982bc63e0a60a81ac87ae135e242855bef69bd1a"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.10/scrcpy-server-v1.10.jar"
+    sha256 "cbeb1a4e046f1392c1dc73c3ccffd7f86dec4636b505556ea20929687a119390"
   end
 
-  # include the commit that fixes non portable build
+  # fix build (https://github.com/Genymobile/scrcpy/pull/695)
   patch do
-    url "https://github.com/Genymobile/scrcpy/commit/bcd0a876f7bf52642330410812a6b7100cdeda91.patch?full_index=1"
-    sha256 "86444cd3e26b73cf1c48e442c7aeabc748140b3422c860ac7ebbb05a374c1405"
+    url "https://github.com/Genymobile/scrcpy/commit/c05056343b56be65ae887f8b7ead61a8072622b9.patch?full_index=1"
+    sha256 "dc6019d262884b9d925c7b6c5f9cad56f73f12ecc6291d052764b658e56c0fb4"
   end
+
   def install
     r = resource("prebuilt-server")
     r.fetch
@@ -35,7 +36,6 @@ class Scrcpy < Formula
       system "meson", "--prefix=#{prefix}",
                       "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
-                      "-Dportable=false",
                       ".."
 
       system "ninja", "install"

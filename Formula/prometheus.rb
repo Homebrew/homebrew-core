@@ -1,14 +1,14 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.10.0.tar.gz"
-  sha256 "0362f4aa2fb44cc2c572df140da742bdf99fe9f338157a83f6634694fd693000"
+  url "https://github.com/prometheus/prometheus/archive/v2.12.0.tar.gz"
+  sha256 "9bd9ae6df02777a9ba3f6f544338865861decabd02054aa64975449bd6009e5a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d2a7005356b329c5fab1aa0bbb13034e139ddd73439302cedfa9c9cb5e99c5a" => :mojave
-    sha256 "039d4dd438004103a8f18d3537d9aff3ec95f62e3479053fc5269110aebdf848" => :high_sierra
-    sha256 "47f498051efb821140af097766e5676ab42b07d5c7e672cb27a09fe88f207801" => :sierra
+    sha256 "576c8daa947cbb029bd0a57bd666fea97ebfed0945bc4afd5a007ad7554b92bb" => :mojave
+    sha256 "be0fb9eef73865a0f173685132a78e1171ebeaffbcc678e4bf9b03a5d34a74ae" => :high_sierra
+    sha256 "9ff3e8c550b0d343dc2714c710e1e8e7495608f6058acfd533cfd8c022474a45" => :sierra
   end
 
   depends_on "go" => :build

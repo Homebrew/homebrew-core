@@ -1,13 +1,13 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v4/squid-4.5.tar.xz"
-  sha256 "553edf76d6ee9a1627af9c2be7be850c14cd6836170b3d6c1393fd700d44ccc5"
+  url "http://www.squid-cache.org/Versions/v4/squid-4.8.tar.xz"
+  sha256 "78cdb324d93341d36d09d5f791060f6e8aaa5ff3179f7c949cd910d023a86210"
 
   bottle do
-    sha256 "dc48028ff57b2a850792a9009bfc0d10acdebdeb6153680df1bc659f10c25718" => :mojave
-    sha256 "4c10e05a05409468cb46c3f488d943ba5e50213928a53b4324d46502f8f8ec83" => :high_sierra
-    sha256 "954bc51b342e278f3192fc136694414d035a39f322e94f1afa8d04ab528b4549" => :sierra
+    sha256 "ac56304ff9094551025952da4883eb7ea48ec4be7eb6cd6baa1033ad5b464587" => :mojave
+    sha256 "13c5b1b1ad8f2af56eadeeeed20054a9bf85357c00be6815cf38caab76f66ef7" => :high_sierra
+    sha256 "c4cd78e4b38786fc7fa42ba2276e1bf9f09b01face3f4532042bec2d856c3b21" => :sierra
   end
 
   head do
@@ -76,11 +76,18 @@ class Squid < Formula
   end
 
   test do
-    # This test should start squid and then check it runs correctly.
-    # However currently dies under the sandbox and "Current Directory"
-    # seems to be set hard on HOMEBREW_PREFIX/var/cache/squid.
-    # https://github.com/Homebrew/homebrew/pull/44348#issuecomment-143477353
-    # If you can fix this, please submit a PR. Thank you!
     assert_match version.to_s, shell_output("#{sbin}/squid -v")
+
+    pid = fork do
+      exec "#{sbin}/squid"
+    end
+    sleep 2
+
+    begin
+      system "#{sbin}/squid", "-k", "check"
+    ensure
+      exec "#{sbin}/squid -k interrupt"
+      Process.wait(pid)
+    end
   end
 end

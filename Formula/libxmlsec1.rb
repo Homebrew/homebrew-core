@@ -1,14 +1,14 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.27.tar.gz"
-  sha256 "97d756bad8e92588e6997d2227797eaa900d05e34a426829b149f65d87118eb6"
+  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.28.tar.gz"
+  sha256 "13eec4811ea30e3f0e16a734d1dbf7f9d246a71d540b48d143a07b489f6222d4"
 
   bottle do
     cellar :any
-    sha256 "a39a51783697765844661aded4f26ba2a0b023f4b92ac943c88bd0c67c0d84d1" => :mojave
-    sha256 "45c34967fd10f163a23cea398b1902bfda48d7b9095da27e9f34bd319c2ad94e" => :high_sierra
-    sha256 "5f40fa6dd23646f140e4472e1e12a364757c446e9453db7bcddd8618abd45b05" => :sierra
+    sha256 "c5894adb31925cc79a1632f0123dae9ee7155ac0c2b6666a6afa068284611ef8" => :mojave
+    sha256 "2aa79d5b42e74146c3c53aa33a19142ac3cb832e7194ebb6edf5fbb1fc5e9ab7" => :high_sierra
+    sha256 "a98e9523ebc87e22cd08d0fa42dbcd6ed9c26d78043b0fc6615c9f109e27fb22" => :sierra
   end
 
   depends_on "pkg-config" => :build

@@ -1,15 +1,15 @@
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20190517.tar.xz"
-  sha256 "6877d431847df0afd514e753eed8571bc7e85069b837bc8472b5186fbb004e78"
+  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20190805.tar.xz"
+  sha256 "2f56d2c4ebc3e50d581e92c046ebf3c884c703c4d5b3b484e45f55e50c0034da"
   head "https://git.zx2c4.com/wireguard-go", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c00aa32912204b9197742ba84a2d96402d49e66fba03df1417ff4bdf177038f" => :mojave
-    sha256 "faaedaff2e6101eed4766f8d7fac6026e8d5413dfe853f3fe7f2abd0fc66a831" => :high_sierra
-    sha256 "3f78a474cdcc13fa156857482bf8d52a2e59672efb139b3797fcbe55e1b2d43a" => :sierra
+    sha256 "fc2a6f0a2fe597d4ea294c939bed54cc0d06b2fdbb42cac9ea5016027a536417" => :mojave
+    sha256 "9d396bc706919f476f85140f50bb05c092b9d49bf9a9fdac5c5936a65e956a60" => :high_sierra
+    sha256 "579a9a2ac5a5c9c522aaf0ae76d8c4729e0bea99bdeed6e7b6eef787fb1b1881" => :sierra
   end
 
   depends_on "go" => :build

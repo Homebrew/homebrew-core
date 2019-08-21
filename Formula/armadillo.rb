@@ -1,21 +1,21 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-9.500.2.tar.xz"
-  sha256 "0b1a3e07a6ae4d98c69dd3a6a84262574c88e491c9215147236ee5bf957fd79e"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-9.600.5.tar.xz"
+  sha256 "dd9cd664282f2c3483af194ceedc2fba8559e0d20f8782c640fd6f3ac7cac2bf"
 
   bottle do
     cellar :any
-    sha256 "052d50d7318d8b4462b58f5479b0b084ed3cd58503449a81c5ba440b619d5d18" => :mojave
-    sha256 "9cfb21290505346c6c4d46e2b8fdc08c0486c28cf7f21d2d4484c01ef13beaa6" => :high_sierra
-    sha256 "b79c766fd85e98ab71b47eba55d1b3e4c6a918bc695afa5d480c623bbaef6c7d" => :sierra
+    sha256 "949aa8bf87d391b864bb050ad9ac299299ecec1c9ba2b2287f75d5a993e11de2" => :mojave
+    sha256 "1d51a244eefc6156f6cdd77566ddd34aad5b40ca33a7a052862901f77844597f" => :high_sierra
+    sha256 "65eedfb5fa1ab9e71a09adf43f3954993603e2d49e5b697197b4cedfaa43d5ce" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "hdf5"
-  depends_on "superlu"
+  depends_on "szip"
 
   def install
     system "cmake", ".", "-DDETECT_HDF5=ON", *std_cmake_args

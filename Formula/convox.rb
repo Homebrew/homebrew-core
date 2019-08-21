@@ -1,14 +1,14 @@
 class Convox < Formula
   desc "Command-line interface for the Rack PaaS on AWS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20190704045851.tar.gz"
-  sha256 "494683c90e26f8027b93e24076bb59d6bf69786606b026e214e202852012f637"
+  url "https://github.com/convox/rack/archive/20190808190811.tar.gz"
+  sha256 "f2c6f4dadea44dd79714e4e8d34993a7010607c4cd3284f5ae23d10014ffaead"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f73516cb3d41cd32dcdfdb6ffac6209a64744f6bb046eef6c4cd58fe49368ed" => :mojave
-    sha256 "3a63c32aa98b90a288b66f57ee9a5ad4720b32d9f111147c4d2855b84bef73e0" => :high_sierra
-    sha256 "d59157cd6ca04ecc83795cc2d05f4786fc97e90a0081c899eb006c8f106f0a09" => :sierra
+    sha256 "e6f8e907a3bf74d07a1cc5c0763a7d91e8c1db8e75ca0b5fb963b1c1eb9a5ca9" => :mojave
+    sha256 "3198731aba7624070995b9992e7518f5ea995461c285302fde87d8d609a4a4b1" => :high_sierra
+    sha256 "7c0b74a22dc21ee190a0e321a2f30b9bb2da97042852ea8ddb4c8eb2ab3566ce" => :sierra
   end
 
   depends_on "go" => :build

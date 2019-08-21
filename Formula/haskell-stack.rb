@@ -5,15 +5,15 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/v2.1.1.tar.gz"
-  sha256 "10c0119456748b189724ee42dea093c324d101487c3d75d57eb625675bb57424"
+  url "https://github.com/commercialhaskell/stack/archive/v2.1.3.tar.gz"
+  sha256 "6a5b07e06585133bd385632c610f38d0c225a887e1ccb697ab09fec387838976"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3645df648aaf9fbd701523e7df4ad9dbb8268cdf5dc17f2dce2c7548e21e52e5" => :mojave
-    sha256 "f8cb22836da5319f162654c4b288b1a4984ddaa30d766874e4d2bbedfd026f56" => :high_sierra
-    sha256 "5e04d6ebfc4790fb30167305fa2fdfc983af1a75d0e8706616e3d9c124e1febb" => :sierra
+    sha256 "0a1a1e67c0884e8c4d9fae16e006ae77bb1658bf07a02f408cca6d0f75a497d1" => :mojave
+    sha256 "43a526d7665e5c77a42bc31c86673731cb18f9dd57b7c55c8015270e5f0bbf68" => :high_sierra
+    sha256 "c31f96e6b957ef560cd360a772bf9caa2100d053ce0873de12916e9e49e6866b" => :sierra
   end
 
   depends_on "cabal-install" => :build
@@ -21,8 +21,8 @@ class HaskellStack < Formula
 
   # Stack requires stack to build itself. Yep.
   resource "bootstrap-stack" do
-    url "https://github.com/commercialhaskell/stack/releases/download/v2.1.1/stack-2.1.1-osx-x86_64.tar.gz"
-    sha256 "f4af329419fb6ee9655b22db04d72a35a5a225e78bdcc605d78334a72c8c2332"
+    url "https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-osx-x86_64.tar.gz"
+    sha256 "84b05b9cdb280fbc4b3d5fe23d1fc82a468956c917e16af7eeeabec5e5815d9f"
   end
 
   # Stack has very specific GHC requirements.

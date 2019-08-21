@@ -4,14 +4,14 @@ class Sip < Formula
   url "https://dl.bintray.com/homebrew/mirror/sip-4.19.8.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.8/sip-4.19.8.tar.gz"
   sha256 "7eaf7a2ea7d4d38a56dd6d2506574464bddf7cf284c960801679942377c297bc"
-  revision 11
+  revision 12
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6590c0f0e1e0b58333adbcb56354248389db9dbec3d6a3bfd6e02c4a20a89031" => :mojave
-    sha256 "546eb0374f78a0071c2bd3c5fb8cf98504535ba5ad74554ad6af0017ab3369de" => :high_sierra
-    sha256 "8c7a0a48d80dc991c875e6078b850b8cabca6b81374a7c8f699e5cdec744e98c" => :sierra
+    sha256 "6e71708515bb6b3b7956ac076058dbf4d2eeae470dace9563dbe9f313479a9b7" => :mojave
+    sha256 "c3b58c31be4c2014bb082731f25148ec65dce923d2499f72dc8eddcc95afa661" => :high_sierra
+    sha256 "d223031f11bfedd3247236109ce5bc0b7ff9a7e0672d44b4a4d1a129393d505c" => :sierra
   end
 
   depends_on "python"

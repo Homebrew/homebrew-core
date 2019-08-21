@@ -5,12 +5,13 @@ class SphinxDoc < Formula
   homepage "https://www.sphinx-doc.org/"
   url "https://files.pythonhosted.org/packages/89/1e/64c77163706556b647f99d67b42fced9d39ae6b1b86673965a2cd28037b5/Sphinx-2.1.2.tar.gz"
   sha256 "f9a79e746b87921cabc3baa375199c6076d1270cee53915dbd24fdbeaaacc427"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d81f64ebb8c8508cef16a3d6b495b08675cfcd115d00b01370f88a2de7010001" => :mojave
-    sha256 "638277bad82c40e9596bbe967408b4adff56fb870951cd55a017129330a2947a" => :high_sierra
-    sha256 "5f942cb42d709479f026b2bb4f2a602fdc0b17135da7f7839c4d328d506c2374" => :sierra
+    sha256 "e4bd825fb464c545a58e8e0c8f1b6cea3ec362a77080bdea1f0fd3008da07f76" => :mojave
+    sha256 "df928bcfb18b5b587161aa3ed476d2a3ce3701e032fb89bd001ea5e460fda892" => :high_sierra
+    sha256 "a681c31b072a2372e991251e23efe5476c6bcbdd7dce75a55f53d33571111557" => :sierra
   end
 
   keg_only <<~EOS
@@ -139,11 +140,6 @@ class SphinxDoc < Formula
   resource "sphinxcontrib-serializinghtml" do
     url "https://files.pythonhosted.org/packages/cd/cc/fd7d17cfae18e5a92564bb899bc05e13260d7a633f3cffdaad4e5f3ce46a/sphinxcontrib-serializinghtml-1.1.3.tar.gz"
     sha256 "c0efb33f8052c04fd7a26c0a07f1678e8512e0faec19f4aa8f2473a8b81d5227"
-  end
-
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
-    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
   resource "urllib3" do

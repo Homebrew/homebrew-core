@@ -27,15 +27,6 @@ class S3fs < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Be aware that s3fs has some caveats concerning S3 "directories"
-    that have been created by other tools. See the following issue for
-    details:
-
-      https://code.google.com/p/s3fs/issues/detail?id=73
-  EOS
-  end
-
   test do
     system "#{bin}/s3fs", "--version"
   end

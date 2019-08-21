@@ -1,30 +1,20 @@
 class Jhead < Formula
   desc "Extract Digicam setting info from EXIF JPEG headers"
   homepage "http://www.sentex.net/~mwandel/jhead/"
-  url "http://www.sentex.net/~mwandel/jhead/jhead-3.00.tar.gz"
-  sha256 "88cc01da018e242fe2e05db73f91b6288106858dd70f27506c4989a575d2895e"
-  revision 1
+  url "http://www.sentex.net/~mwandel/jhead/jhead-3.03.tar.gz"
+  sha256 "82194e0128d9141038f82fadcb5845391ca3021d61bc00815078601619f6c0c2"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ad487e3a5d82f1b37c2018c5dceb001080cc058c21226db1b784a42705bb427f" => :mojave
-    sha256 "91644d47cff25c954cba7ccaa0c243dcbde63e626e9e749571042952d8ab3337" => :high_sierra
-    sha256 "1adb1ef54417bdf4bd235ab907e4c198508bc2cebadcb8602cdec7809bb9e3a6" => :sierra
-    sha256 "6a15b6b97fae6971752afbd05aa07e94ccebf1b216c9e36a2ba7bbf6523482bc" => :el_capitan
-    sha256 "b1d517e2de29ae9a906636f4ed18c99aa459b221d1bff65fc497f6e86eae53ba" => :yosemite
+    sha256 "1fdaa2ab0e5066688f1d3ff80821447f0957f95ba37c4c1c8d8f40b6d3a38ee9" => :mojave
+    sha256 "d62f1ed9f99df061893021df1f5dc8928e52eb6ac73cfe47b41cf50bc2369f49" => :high_sierra
+    sha256 "b5af56763e92712207332e51208c918b71c1b46985cb9df44eb1d8a30f59348f" => :sierra
   end
 
   # Patch to provide a proper install target to the Makefile. The patch has
   # been submitted upstream through email. We need to carry this patch until
   # upstream decides to incorporate it.
   patch :DATA
-
-  patch do
-    url "https://deb.debian.org/debian/pool/main/j/jhead/jhead_3.00-4.debian.tar.xz"
-    sha256 "d2553bb7e7e47c33fa1136841e4b5bfbad6b92edce1dcad639ab5d74ace606aa"
-    apply "patches/31_CVE-2016-3822"
-  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

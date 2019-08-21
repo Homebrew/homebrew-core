@@ -1,16 +1,16 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/v1.2.12.tar.gz"
-  sha256 "9bfcf0508296af1c6df51720c1f6817f5c0c2e7efa3d0b7c34732b9e3136c965"
+  url "https://github.com/pyenv/pyenv/archive/v1.2.13.tar.gz"
+  sha256 "ebf9899f70cb04a6a6bf9835c37d9d7e4ed7dadb22dd8123b19d6d790a13fffe"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
   bottle do
     cellar :any
-    sha256 "328765d7bfe1c36a25274b5a985b3e64300f06d13495e248275b92e4502d6da3" => :mojave
-    sha256 "f0bc9bf9a8a36bec4804ad39c8eb000cddb0df14c99c4548bd1e1d6647e71091" => :high_sierra
-    sha256 "64ef6e621e9592d48f7a56b9559b3f69231017a91d3b834f1f1daa263712cbd1" => :sierra
+    sha256 "f3ea4fa71c2ff552a0e4922c9ab77ac236dbf6a6789006d2c49d0aa248af734a" => :mojave
+    sha256 "7d5808b4d49d6e6dfab88a215f5f51a7b2fda3a84a604025240707470baa2e53" => :high_sierra
+    sha256 "959f0d8ccdd3bff759a0a7bb1f9201c8b06e437508271f14f418f83194f939fe" => :sierra
   end
 
   depends_on "autoconf"

@@ -1,14 +1,14 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-3.14.tar.gz"
-  sha256 "409e4758cbeb43b098d0265c4ce05aeeac5ae73f8914ceb1006e6a6d89fe1fe5"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-3.16.tar.gz"
+  sha256 "8fc9ba8b7eaa992d5747fd88740fb6933dca9e17e9ec4fe9d038eefc7ead6293"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "584554ff9d7f3f45be5a35a9c9124b64737fa4811e17309e69899ec39a9cf8b4" => :mojave
-    sha256 "ebe04c7a0737c03274df4d3401a87f787b2eaa9c4aa11bf9914c63e8b7d5cb76" => :high_sierra
-    sha256 "c38f57e82708e676edb0028b681ce3965152418569416c8441a96acdbca09d0b" => :sierra
+    sha256 "c1fcb65f7bc13d5b74c491e84f33fd473a5664e1236d74d34c1e5222650edc22" => :mojave
+    sha256 "991777719a9e6240585fc66845369eee33e8ff39847e4387ffa97d2a5d15568d" => :high_sierra
+    sha256 "efe217633404befa0e7619813233a4da91b793019fb8ecd227a08e39fc0d904d" => :sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +17,7 @@ class Lxc < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
 
-    ln_s buildpath/"dist/src", buildpath/"src"
+    ln_s buildpath/"_dist/src", buildpath/"src"
     system "go", "install", "-v", "github.com/lxc/lxd/lxc"
   end
 

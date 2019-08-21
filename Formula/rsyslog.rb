@@ -1,20 +1,20 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.1904.0.tar.gz"
-  sha256 "7098b459dfc3f8bfc35d5b114c56e7945614ba76efa4e513b1db9c38b0ff9c3d"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.1907.0.tar.gz"
+  sha256 "eb27535ece93174ef6b551c88467d2c9cd826b62479625bb881a53d50b079fb5"
 
   bottle do
-    sha256 "c93d27bc72d47aaef94867e31a69f074884ce89d2c6daf37c38b0393577f789d" => :mojave
-    sha256 "273f6dbbdb52f45c8ae89cbc16991c0d72b2fd0f6692d3d7c2832ff7e54af3fb" => :high_sierra
-    sha256 "acf3962a074bead096f5bf44a254345e766a15c41c745126162b8163947bcca9" => :sierra
+    sha256 "fc47145544f0bb9638221efb94b84b1ffd6e503a3fe130b411cf731c8407607d" => :mojave
+    sha256 "abe97bac1c29596ff223ab4c3aa02a11ad5aa09c87c60279f47194c86ae79669" => :high_sierra
+    sha256 "2bd341f178a5823fa144da75c8f48e450627bac5b7e27ff9215705f1cac5d755" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libestr"
 
   resource "libfastjson" do
-    url "http://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
+    url "https://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
     sha256 "3544c757668b4a257825b3cbc26f800f59ef3c1ff2a260f40f96b48ab1d59e07"
   end
 

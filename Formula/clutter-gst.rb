@@ -6,9 +6,10 @@ class ClutterGst < Formula
   revision 1
 
   bottle do
-    sha256 "ed86847903fb6542b093ec2191c04759b5b9d2c834c8cab60d3720e69bf0d011" => :mojave
-    sha256 "dcad44664ecc097a4dc257bab6592c23ef5a93f5d700000b5e7926b0e5ae06cc" => :high_sierra
-    sha256 "061d9fea808bc32e34172b2dba8af8b7ef69d1fa5558e136605b15e7b15cf0d5" => :sierra
+    rebuild 1
+    sha256 "3c4dcfd6b9b95d1f0a96e33d23060225c322224e21e4501c8e2b5a6ef32a9ebe" => :mojave
+    sha256 "b60c1d84cf2f4e9cf931d10ce759d4b21f08a7a2288dd81cbab78854d3a767a2" => :high_sierra
+    sha256 "fb997fb8ac4fcafd52690d64c12dfcd7776630ce717521c7cc0ce7d44ae3b8f7" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -52,6 +53,7 @@ class ClutterGst < Formula
     glib = Formula["glib"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
+    harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -70,6 +72,7 @@ class ClutterGst < Formula
       -I#{gst_plugins_base.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_lib}/gstreamer-1.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-gst-3.0
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libpng.opt_include}/libpng16

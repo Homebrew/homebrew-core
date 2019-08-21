@@ -1,14 +1,14 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.8.0/vips-8.8.0.tar.gz"
-  sha256 "8e78b451adfe59288bded74c9ec6b8c5eb0574ecbba7a0352de4f34266e021b0"
+  url "https://github.com/libvips/libvips/releases/download/v8.8.1/vips-8.8.1.tar.gz"
+  sha256 "a0ee255a2a1ebfea5b2dff2a780824d7157a78c010d7ddd531279aacefbf2539"
   revision 1
 
   bottle do
-    sha256 "75e6bd18a991e1623f45c5a878f9a570e47a099af1c5f1cd14c0d9ac94cfccdd" => :mojave
-    sha256 "bbc0e3fbdfce90115bb1548f99f34cda0ba1cbeca8d152254466f69a35d5aa3c" => :high_sierra
-    sha256 "bf4018db4352ab35b76b73a6cff297f452eeea543675d433202b3f208f1adf87" => :sierra
+    sha256 "0d4c5fe25f0baf4d94bc8f84e846514aa73a310dd63d591eeeda509c3a83b287" => :mojave
+    sha256 "1d5ddbaf2899261128844630dbdd70e99a9e5f491d836a38b00588b016bdb378" => :high_sierra
+    sha256 "80dce1b45641295a092cedf88b4a7c122dee42bcbde810ecc1a24ed18edad96f" => :sierra
   end
 
   depends_on "pkg-config" => :build

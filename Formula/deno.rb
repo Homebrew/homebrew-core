@@ -2,14 +2,14 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.10.0",
-    :revision => "c56df45355c8e68eabbfa62021e7ca7484115c0b"
+    :tag      => "v0.15.0",
+    :revision => "58f0e9b9b1b53ca486ef38ae662b98cbde839248"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "71fd3db3ed4b2e466c419fa943334463ea93442948320199149dbae829a6af3e" => :mojave
-    sha256 "9bb71c7166da2844b75a51391413530bfd2b0bf57351207e1245220cf6a03362" => :high_sierra
-    sha256 "aa4d94c0be47a94610a060e35904db41e574221d0bf7ce65dc49832f1eada50f" => :sierra
+    sha256 "ea41466b5e1472ad47eb3b6feb91453ff923b7a0d79b55dc93412514c677fbaa" => :mojave
+    sha256 "2ce2e8d758fb93715a904dc9170f56b98949b7d03cc3c273925499979922c576" => :high_sierra
+    sha256 "73aed6aab2ddc5b6f8f50a81ad312efe677dd52731ab1820382c53ddf7b6f9da" => :sierra
   end
 
   depends_on "llvm" => :build
@@ -22,7 +22,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "64b846c96daeb3eaf08e26d8a84d8451c6cb712b"
+      :revision => "81ee1967d3fcbc829bac1c005c3da59739c88df9"
   end
 
   def install
@@ -38,6 +38,7 @@ class Deno < Formula
     ENV["DENO_BUILD_ARGS"] = %W[
       clang_base_path="#{Formula["llvm"].prefix}"
       clang_use_chrome_plugins=false
+      mac_deployment_target="#{MacOS.version}"
     ].join(" ")
     ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
@@ -46,6 +47,12 @@ class Deno < Formula
     system "python", "tools/build.py", "--release"
 
     bin.install "target/release/deno"
+
+    # Install bash and zsh completion
+    output = Utils.popen_read("#{bin}/deno completions bash")
+    (bash_completion/"deno").write output
+    output = Utils.popen_read("#{bin}/deno completions zsh")
+    (zsh_completion/"_deno").write output
   end
 
   test do

@@ -3,13 +3,13 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-2.0.0.tgz"
-  sha256 "d0c919816e559dbbcb0005128778d6ed200ecf399e78a170bbf8ad3f376336f0"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.0.tgz"
+  sha256 "beb26d0dd4cacdf09042a997c68a30d61577dc920936462669188fe4a74c3581"
 
   bottle do
-    sha256 "84f8a548ba1770f3e7535efcde3b9016c522f4f9827f34d0814c2ed7239317db" => :mojave
-    sha256 "bf18e0b5f1bd4731665f61704a7c3efa19758165289cf67ea39be7ded32a306c" => :high_sierra
-    sha256 "7ab2e3c2bae5ce609ee8e4c1dcce18286fef13c2cce22068319c894d17d538a6" => :sierra
+    sha256 "763b25ec1afb357d3164ebb14f8fcd587faff15161f89b075ca5be496c4a9116" => :mojave
+    sha256 "d06fbde070d023361b5d4ad0469c9f8fa765c55273ea9ad365796f41386a5329" => :high_sierra
+    sha256 "329f669b198a61a071a67a5fd6ee896b5168be8a67bf12cdf913338d730af2c0" => :sierra
   end
 
   depends_on "node"
