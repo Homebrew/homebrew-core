@@ -1,8 +1,8 @@
 class Roswell < Formula
   desc "Lisp installer and launcher for major environments"
   homepage "https://github.com/roswell/roswell"
-  url "https://github.com/roswell/roswell/archive/v19.06.10.100.tar.gz"
-  sha256 "1423e3c22d323dd794e4dc8e61d615eb298bc1f0570e9a2236dcfaea49c42392"
+  url "https://github.com/roswell/roswell/archive/v19.08.10.101.tar.gz"
+  sha256 "0f80277ac1609b8865c54856130d9fd7e8f099988e720367f6ef6448cd47b2b6"
   head "https://github.com/roswell/roswell.git"
 
   bottle do
