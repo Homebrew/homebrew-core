@@ -6,9 +6,9 @@ class PetscComplex < Formula
   revision 1
 
   bottle do
-    sha256 "c70dd12b2c8b3b19c27f5b458e98cfe54d839db48b8a98418ad58f866a678b8d" => :mojave
-    sha256 "a03bd437afefea39a50cd723a4cc12a502eec8eae156be6e8ac9be9c5f228948" => :high_sierra
-    sha256 "48de6e22992586a02b383561e4de77f7f40c8d2423f79b748b9ef932dec2b473" => :sierra
+    sha256 "a9b36192ab5650e69478cd351b082c6a011d60f9ea812915a6fae36d89ed61d1" => :mojave
+    sha256 "970f3eea8d34b5e8646c81780f211c397a161d11b51c65574e48a09ccb9dc6b7" => :high_sierra
+    sha256 "e8d605ae0771ecb8b6f18eea49344741efb615dd81937ad53eb4744d0411bee8" => :sierra
   end
 
   depends_on "hdf5"
