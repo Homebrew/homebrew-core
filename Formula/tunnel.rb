@@ -19,15 +19,8 @@ class Tunnel < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        system bin/"tunnel", "start", "8080"
-        system bin/"tunnel", "kill"
-      end
-      sleep 5
-      assert_predicate testpath/".tunnel/daemon.log", :exist?
-    ensure
-      Process.kill("HUP", pid)
-    end
+    system bin/"tunnel", "start", "8080"
+    system bin/"tunnel", "kill"
+    assert_predicate testpath/".tunnel/daemon.log", :exist?
   end
 end
