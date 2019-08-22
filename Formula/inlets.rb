@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/alexellis/inlets"
   url "https://github.com/alexellis/inlets.git",
-      :tag      => "2.2.0",
-      :revision => "2f5e458d062e55dda9f08109f7b2c3c6919fcdf9"
+      :tag      => "2.3.1",
+      :revision => "32012d6a4b0686f395f77e4231d4d56650c5816e"
 
   bottle do
     cellar :any_skip_relocation
@@ -91,7 +91,7 @@ class Inlets < Formula
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
 
       # Basic --version test
-      inlets_version = shell_output("#{bin}/inlets --version")
+      inlets_version = shell_output("#{bin}/inlets version")
       assert_match /\s#{commit}$/, inlets_version
       assert_match /\s#{version}$/, inlets_version
 
