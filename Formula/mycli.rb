@@ -8,9 +8,9 @@ class Mycli < Formula
 
   bottle do
     cellar :any
-    sha256 "ae78954c0d800bee80081111223a79f7d11b8b3da85aad4eeda7943431c29174" => :mojave
-    sha256 "8e47206d93d7c6fafc19c9870a8978558216fc735c5b81e1a299aae641ff2c0f" => :high_sierra
-    sha256 "b6ce263663a9a5a9aed941ddc79933be27a1fd54759c2dcb22159b6bfec87353" => :sierra
+    sha256 "1e00109d6e68aff3552e170ebcb1b4cf1bc5283cb0810fce6555bb8365c797b9" => :mojave
+    sha256 "68c76e2b2a7cbb81fd8ec2a610ed744fa6cd3563e799e60a84004d8a7c9da144" => :high_sierra
+    sha256 "20f2f2af26ba71afafa6e1c8616a3961b5c62f33ea5f6368a0eb45fbca569ba3" => :sierra
   end
 
   depends_on "openssl"
