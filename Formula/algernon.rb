@@ -2,8 +2,8 @@ class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon.git",
-      :tag      => "1.12.4",
-      :revision => "fd4412ebb5a233b34073a9cebebf131ab7ee6433"
+      :tag      => "1.12.5",
+      :revision => "206912d922bb8ab96e23708d1cf222d572741ebe"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
