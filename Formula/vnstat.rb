@@ -1,20 +1,20 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.3.tar.gz"
-  sha256 "280af973a7c54b84ef254c69808a9ef2ff894d80ac0b2d584fa5e68e5b3a1a8d"
+  url "https://humdi.net/vnstat/vnstat-2.4.tar.gz"
+  sha256 "a0955999abd56d5463d257ffdccc9b1e9ad9ea504de81e64ba4c197f1245abaa"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
-    sha256 "75753132d2c405b02081fd333466eddebd38890fdeecbb1dd6c9d00c0a89386c" => :mojave
-    sha256 "e479a0f83b06c39ed1a70c879720e7841d4b898780855348a5ce3367d06551ff" => :high_sierra
-    sha256 "d1b7656b8974ccbb497035219462afe8297c4ed11dc3b052860c3fe984486985" => :sierra
+    sha256 "28ca5fc572b83efdeb8f186debb37e7d21c0255b26273cc970d45d1aca6346c6" => :mojave
+    sha256 "2ba06d6af371f3ee26e98357db8d58849c15ed5bc8536e71b5796927805ad92d" => :high_sierra
+    sha256 "b3fba4ea86b675bdab6147eeb51b705be074203d4974d0b7f09221b1ad2b0a41" => :sierra
   end
 
   depends_on "gd"
 
   def install
-    inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.1 man/vnstati.1
+    inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|
       s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", false
       s.gsub! "/var/", "#{var}/", false
