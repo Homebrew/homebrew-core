@@ -3,8 +3,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://bit.dev"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.2.4.tgz"
-  sha256 "29f80b4a7ec4dd7ce52a62133ee40431c34648b90cf9821b68692a69b488de6a"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.2.5.tgz"
+  sha256 "32a593f4f4e6c7463e57c65517a859f3b792cdc27068a89ee61dbd17bf882e7f"
   head "https://github.com/teambit/bit.git"
 
   bottle do
