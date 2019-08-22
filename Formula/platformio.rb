@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/c6/a3/43c6cc37584d055e81d86c67239bbbc9d54e5fce3bef345185ab925171ef/platformio-4.0.0.tar.gz"
-  sha256 "d37a4022349e1d2eb7babe94fbc62b196b87e94eb43785304f365d06bb74c195"
+  url "https://files.pythonhosted.org/packages/ad/6b/6d42601da0d25db0eb0f6fbbc17eee34b1cc87c481a62b76e4c24c9046c9/platformio-4.0.1.tar.gz"
+  sha256 "461c30b170ed83b5f9327e40b0428ef8c661b67724483f43771fa8e31f99b78a"
 
   bottle do
     cellar :any_skip_relocation
@@ -58,6 +58,11 @@ class Platformio < Formula
   resource "semantic_version" do
     url "https://files.pythonhosted.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz"
     sha256 "2a4328680073e9b243667b201119772aefc5fc63ae32398d6afafff07c4f54c0"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/c2/fd/202954b3f0eb896c53b7b6f07390851b1fd2ca84aa95880d7ae4f434c4ac/tabulate-0.8.3.tar.gz"
+    sha256 "8af07a39377cee1103a5c8b3330a421c2d99b9141e9cc5ddd2e3263fea416943"
   end
 
   resource "urllib3" do
