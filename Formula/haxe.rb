@@ -17,7 +17,7 @@ class Haxe < Formula
     url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
     depends_on "aspcud" => :build
-    depends_on "opam@2.0" => :build
+    depends_on "opam" => ["2.0", :build]
     depends_on "pkg-config" => :build
   end
 
