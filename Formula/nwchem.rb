@@ -8,9 +8,9 @@ class Nwchem < Formula
 
   bottle do
     cellar :any
-    sha256 "225aaa9593d6433e0715aa208a81ed26185c2f9d6fef870a92efd3fbede026ee" => :mojave
-    sha256 "298f0d842f8abf790675ae8499770124a1bc95be8aa75e6c0a8a9f15beb58590" => :high_sierra
-    sha256 "48a06e4c8fa18a7a49f4560ac1cc12dd509f32a06123b6937a368d7df93dc472" => :sierra
+    sha256 "43743133c9d7b8de119238ce698424328cda01b4e3e798f3939333bea108b21f" => :mojave
+    sha256 "731ada93191900a657aab3bf378059b36ce1b4bda36f4faff2e32940ec517f48" => :high_sierra
+    sha256 "2c10b964c143063de0b9513e5c036a31fd3742cdcd66073ee79729146554d929" => :sierra
   end
 
   depends_on "gcc" # for gfortran
