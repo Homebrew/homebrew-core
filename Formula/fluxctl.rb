@@ -7,9 +7,9 @@ class Fluxctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b2a19fc14d45169f175f93a5d5e762ecb78fdd4d13794765faf345b7c7d0ded" => :mojave
-    sha256 "159fc5af0c491782310a0529752f1d74e4be5b211c39aa53fcc8ebf2a35b4c00" => :high_sierra
-    sha256 "65964967af0f6d9e4ff86c9734148324a2204e7675f1cfa584bb86008fc3a228" => :sierra
+    sha256 "bf532fd7ae98a29cfdaf7526eddb9c9fab77352886fd4567b8bac2f46153984b" => :mojave
+    sha256 "599dda77e105893524eb24e38fc746b658a61ed0f26300dc50b0518309762370" => :high_sierra
+    sha256 "cd116996459352561b5545f241b499c7ee76f4c2799160bf8b44fa51ceadf1db" => :sierra
   end
 
   depends_on "go" => :build
