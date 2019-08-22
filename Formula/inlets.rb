@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/alexellis/inlets"
   url "https://github.com/alexellis/inlets.git",
-      :tag      => "2.2.0",
-      :revision => "2f5e458d062e55dda9f08109f7b2c3c6919fcdf9"
+      :tag      => "2.3.0",
+      :revision => "fae3ea6395f70d310659cea0b3ec2f25d2c655c8"
 
   bottle do
     cellar :any_skip_relocation
