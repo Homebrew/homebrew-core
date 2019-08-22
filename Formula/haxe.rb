@@ -37,7 +37,7 @@ class Haxe < Formula
       Dir.mktmpdir("opamroot") do |opamroot|
         ENV["OPAMROOT"] = opamroot
         ENV["OPAMYES"] = "1"
-        system "opam", "init", "--no-setup"
+        system "opam", "init", "--no-setup", "--disable-sandboxing"
         system "opam", "config", "exec", "--",
                "opam", "pin", "add", "haxe", buildpath, "--no-action"
         system "opam", "config", "exec", "--",
