@@ -1,9 +1,9 @@
 class KubernetesServiceCatalogClient < Formula
   desc "Consume Services in k8s using the OSB API"
   homepage "https://svc-cat.io/"
-  url "https://github.com/kubernetes-incubator/service-catalog.git",
-      :tag      => "v0.2.1",
-      :revision => "6c6a49d216a67e368c397b849b831c251f6762be"
+  url "https://github.com/kubernetes-sigs/service-catalog.git",
+      :tag      => "v0.2.2",
+      :revision => "f3e67cc3e70d266e643d391e43b1bdd31cdad448"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,13 +18,13 @@ class KubernetesServiceCatalogClient < Formula
     ENV["GOPATH"] = buildpath
     ENV["NO_DOCKER"] = "1"
 
-    dir = buildpath/"src/github.com/kubernetes-incubator/service-catalog"
+    dir = buildpath/"src/github.com/kubernetes-sigs/service-catalog"
     dir.install buildpath.children
 
     cd dir do
       ldflags = %W[
         -s -w -X
-        github.com/kubernetes-incubator/service-catalog/pkg.VERSION=v#{version}
+        github.com/kubernetes-sigs/service-catalog/pkg.VERSION=v#{version}
       ]
       system "go", "build", "-ldflags", ldflags.join(" "), "-o",
              bin/"svcat", "./cmd/svcat"
