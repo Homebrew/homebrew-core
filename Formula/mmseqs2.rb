@@ -1,9 +1,9 @@
 class Mmseqs2 < Formula
-  desc "Software suite for very fast protein sequence search and clustering"
-  homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/9-d36de.tar.gz"
-  version "9-d36de"
-  sha256 "2890a748b38ed1a04d98c2197b11bac6b50c1329313b6218ba2f53aeb6c5e874"
+  desc "Software suite for very fast sequence search and clustering"
+  homepage "https://mmseqs.com/"
+  url "https://github.com/soedinglab/MMseqs2/archive/10-6d92c.tar.gz"
+  version "10-6d92c"
+  sha256 "62415e545706adc6e9e6689d34902f405ab5e5c67c8c7562bdd9dd4da2088697"
 
   bottle do
     cellar :any
@@ -21,7 +21,7 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "00ba0be0690f5b883697bd1dbcb9e0f4b3c18bca"
+        :revision => "03da86a5c553d00c8d4484e9fbd8d68ef14e1169"
   end
 
   def install
