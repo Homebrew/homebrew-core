@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.4.7.tar.gz"
-  sha256 "4775030dd0640a7f84256ac0403e63d6236cb59e5d3d42bfd36e4d9ba545524b"
+  url "https://download.arangodb.com/Source/ArangoDB-3.5.0.tar.gz"
+  sha256 "b81e30da4249f72b8daa88584cd05388c86ab12eb3185f6558a774e8db5dc9ab"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
@@ -24,7 +24,7 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "1e8c10c8669495a6996cc8063b9956f3e99127bc"
+      :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
   end
 
   def install
@@ -35,7 +35,7 @@ class Arangodb < Formula
       system "make", "deps"
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.5 -X main.projectBuild=#{commit}",
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.12 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
@@ -51,6 +51,7 @@ class Arangodb < Formula
         -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
+        -DUSE_JEMALLOC=Off
       ]
 
       if ENV.compiler == "gcc-6"
