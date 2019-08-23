@@ -3,8 +3,8 @@ class Credstash < Formula
 
   desc "Little utility for managing credentials in the cloud"
   homepage "https://github.com/fugue/credstash"
-  url "https://github.com/fugue/credstash/archive/v1.16.0.tar.gz"
-  sha256 "2df373675613b4d7b22a8c40ed782b6ced6797c66548a45608992dbf4f0c98a3"
+  url "https://github.com/fugue/credstash/archive/v1.16.1.tar.gz"
+  sha256 "96d74c8ee5d05e42a91ec815829b5ea41dd14c6046f563e274e37f1df14b0cbc"
   head "https://github.com/fugue/credstash.git"
 
   bottle do
@@ -23,13 +23,13 @@ class Credstash < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/48/7a/d2ec8dcef4e2e0c830f9b30580c1d99fb4556d4c6abc259ade30304e8e4e/boto3-1.9.196.tar.gz"
-    sha256 "f80634723c7fb94daa4ef3a9706d6d9552a5da6c2329327cd86884c76cf6e95f"
+    url "https://files.pythonhosted.org/packages/58/ad/f4c35bdfb1883cded97b116907d2b1bf4b2630f5c00be212e9705492b64b/boto3-1.9.215.tar.gz"
+    sha256 "47132bfc3061091b03cdf24c11f083641cd5686feccdb14cabab62d25297185f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2a/22/3d22a1d53c28b9de14002bf1621ada74ad581f72c953ace5280986a4fdb3/botocore-1.12.196.tar.gz"
-    sha256 "ef4028943ccab0459086a07e1d6492601e39b440761a325686047981165bbd80"
+    url "https://files.pythonhosted.org/packages/7a/8d/d2fbede12968ec952ce2130ac53c75625c0d43cb3f66b7be890c21245de4/botocore-1.12.215.tar.gz"
+    sha256 "ae74ede86f5fd3e3c5cb63f066c9dbb21df12af79ceeb068e1bcb04b076dbb78"
   end
 
   resource "cffi" do
@@ -43,8 +43,8 @@ class Credstash < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
-    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
+    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
   end
 
   resource "jmespath" do
