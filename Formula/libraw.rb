@@ -1,8 +1,8 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.19.4.tar.gz"
-  sha256 "13c51cc5d679c36aed9c7db9a9673180e939a822e9d55b5bc28dd73113ff961f"
+  url "https://www.libraw.org/data/LibRaw-0.19.5.tar.gz"
+  sha256 "40a262d7cc71702711a0faec106118ee004f86c86cc228281d12d16da03e02f5"
 
   bottle do
     cellar :any
