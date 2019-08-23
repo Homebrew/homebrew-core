@@ -7,9 +7,9 @@ class Poco < Formula
 
   bottle do
     cellar :any
-    sha256 "801f6600a2cc20bb56bc3cb5478a662a5f8bbaa2604111577756cc3cfe3084ef" => :mojave
-    sha256 "3131a03aebd67fe8c3375bb748b88ecf835c201d5c74eb3b37c8575599316047" => :high_sierra
-    sha256 "0b3f369a1358adc74b3249df74bc1f6e8b3a58b4493169dc1c387ceecb1278b2" => :sierra
+    sha256 "b8938eb20ed962a8f8b7222c0250d16392793ebd2f74a6fe23027f20e2a9f0ed" => :mojave
+    sha256 "1ef5e8720ffac82cfe0a8af98977a8d8ab63f157e17b2e499ad36c6e56d5e2d5" => :high_sierra
+    sha256 "7f4d42ffd2cb13ff0172d8f438b9f770d1bfea75a004baa3031991d0e1a56767" => :sierra
   end
 
   depends_on "cmake" => :build
