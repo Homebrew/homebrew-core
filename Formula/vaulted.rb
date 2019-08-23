@@ -1,8 +1,8 @@
 class Vaulted < Formula
   desc "Allows the secure storage and execution of environments"
   homepage "https://github.com/miquella/vaulted"
-  url "https://github.com/miquella/vaulted/archive/v2.4.0.tar.gz"
-  sha256 "ff29e705ee4bada70c6ce4f8a943dca71e9a3acd4390fcd9c9739b1c06b99411"
+  url "https://github.com/miquella/vaulted/archive/v2.4.1.tar.gz"
+  sha256 "babb2d076476ba477d545da1291918bb73e96668409c9b966c28ad20890c0eb9"
   head "https://github.com/miquella/vaulted.git"
 
   bottle do
