@@ -6,9 +6,9 @@ class Pdfcrack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a90c034da71cc7aab72ea89c9693c73294258d33eff99449494a47824f7f74cd" => :mojave
-    sha256 "5b04e434a4a7f19cda66fc9fd85d06af7911c6a8541da9b256d0286b2e4a3ef8" => :high_sierra
-    sha256 "e62512a0ab06aef14644bfe289e9e22ec579c17f64767346ccd4562a389211ca" => :sierra
+    sha256 "02521002ff10a9cd937464143ca29065288c3a3e6f1f27c0ef4e663af5ce8a73" => :mojave
+    sha256 "516cf147a20751bf6c76871fcb471fbab770949b18e3f417bf97ba3a4ce44207" => :high_sierra
+    sha256 "0eab853d75f86a085fcf3f93681d795dab857012701fe85ddbe598b9e12dbfbd" => :sierra
   end
 
   def install
