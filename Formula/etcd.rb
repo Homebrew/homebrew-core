@@ -24,7 +24,7 @@ class Etcd < Formula
 
     cd dir do
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl"
+      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl", "etcdctl/main.go"
       prefix.install_metafiles
     end
   end
@@ -57,6 +57,8 @@ class Etcd < Formula
   end
 
   test do
+    ENV["ETCDCTL_API"] = "3"
+
     begin
       test_string = "Hello from brew test!"
       etcd_pid = fork do
@@ -69,6 +71,9 @@ class Etcd < Formula
       curl_output = shell_output("curl --silent -L #{etcd_uri}")
       response_hash = JSON.parse(curl_output)
       assert_match(test_string, response_hash.fetch("node").fetch("value"))
+
+      assert_equal "OK\n", shell_output("#{bin}/etcdctl put foo bar")
+      assert_equal "foo\nbar\n", shell_output("#{bin}/etcdctl get foo 2>&1")
     ensure
       # clean up the etcd process before we leave
       Process.kill("HUP", etcd_pid)
