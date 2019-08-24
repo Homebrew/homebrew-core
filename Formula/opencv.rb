@@ -13,6 +13,7 @@ class Opencv < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
