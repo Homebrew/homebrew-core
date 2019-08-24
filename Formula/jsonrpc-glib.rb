@@ -3,6 +3,7 @@ class JsonrpcGlib < Formula
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
   url "https://download.gnome.org/sources/jsonrpc-glib/3.32/jsonrpc-glib-3.32.0.tar.xz"
   sha256 "bc60aa36c8bdc9c701ad490508445633a9f3973ae0bd5bdd0633d5f6ffeea6eb"
+  revision 1
 
   bottle do
     sha256 "04cca91e37582e34e6c67edc5c6582899a137ba5b36c5b9be1ac7878746bd748" => :mojave
