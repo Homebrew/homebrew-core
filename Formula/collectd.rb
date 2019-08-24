@@ -6,9 +6,9 @@ class Collectd < Formula
   revision 2
 
   bottle do
-    sha256 "e30440912eb0052a02e7b160341aefeba4dcb005da755f1e4efefa98f2cb3ade" => :mojave
-    sha256 "71d2679f01bb058d0393525b530be6e4e0410253847f3aa26161eb3467c5a95d" => :high_sierra
-    sha256 "e8efa9f8b211b4d2de31b0e7789ce19dcfe10c59ec4c745fa511ca110f009bac" => :sierra
+    sha256 "e34c38202af11c490bc896a9f98a6c9aeadf31d8f5e5401cfa55e96864afd1be" => :mojave
+    sha256 "1ca2e990edc1871be07d25c87c641d1f6494830fc33894411280d7e8263618a7" => :high_sierra
+    sha256 "e0d01ccb0ccc6933d01291ac0c68969e7fe734a308e33497bbef5965df170c07" => :sierra
   end
 
   head do
