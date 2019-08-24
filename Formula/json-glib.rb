@@ -3,7 +3,7 @@ class JsonGlib < Formula
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
   url "https://download.gnome.org/sources/json-glib/1.4/json-glib-1.4.4.tar.xz"
   sha256 "720c5f4379513dc11fd97dc75336eb0c0d3338c53128044d9fabec4374f4bc47"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "223b5472cc71a1eea8efc818d66fa8e6ff05a4aff45d60d4deccba54f82d39dd" => :mojave
@@ -16,8 +16,6 @@ class JsonGlib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-
-  patch :DATA
 
   def install
     ENV.refurbish_args
@@ -59,24 +57,3 @@ class JsonGlib < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index cee6389..50808cf 100644
---- a/meson.build
-+++ b/meson.build
-@@ -145,14 +145,6 @@ if host_system == 'linux'
-   endforeach
- endif
-
--# Maintain compatibility with autotools
--if host_system == 'darwin'
--  common_ldflags += [
--    '-compatibility_version 1',
--    '-current_version @0@.@1@'.format(json_binary_age - json_interface_age, json_interface_age),
--  ]
--endif
--
- root_dir = include_directories('.')
-
- gnome = import('gnome')
