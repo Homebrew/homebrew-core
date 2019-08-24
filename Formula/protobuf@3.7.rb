@@ -5,6 +5,13 @@ class ProtobufAT37 < Formula
       :tag      => "v3.7.1",
       :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
 
+  bottle do
+    cellar :any
+    sha256 "1f70d592ce075a0df8d0dedb054d66cc52c0b943ffe37f8e098c582a493b67c0" => :mojave
+    sha256 "71e32bb6962208745b80f93015e42d71529ec6dae4e0eecf3ab9ab4d03d143e7" => :high_sierra
+    sha256 "50ffdb0ccc43278d4e93aa375bec8b6fa4aabcc9ece84ba85b605ff124f26650" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
