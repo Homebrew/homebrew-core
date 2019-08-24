@@ -6,6 +6,12 @@ class Kubebuilder < Formula
       :revision => "b31cc5d96dbc91749eb49c2cf600bd951a46d4bd"
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ae9ae8bf951b3309b17de6a07b9f8ad70fd6e28cf78ab6dffc70cef3a9698568" => :mojave
+    sha256 "a0c168e5d27277331877642f0fc5e320847e4b441a342c5c2a2f56ea24dc26e2" => :high_sierra
+  end
+
   depends_on "git-lfs" => :build
   depends_on "go"
 
