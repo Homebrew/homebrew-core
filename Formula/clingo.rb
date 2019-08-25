@@ -1,8 +1,8 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.3.0.tar.gz"
-  sha256 "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
+  url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
+  sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
 
   bottle do
     sha256 "7d5361d6a0eeae3dd864ca98abcca889c6020d3e6b00158065d2a22bb07ef247" => :mojave
