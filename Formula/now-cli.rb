@@ -6,6 +6,13 @@ class NowCli < Formula
   url "https://registry.npmjs.org/now/-/now-16.1.2.tgz"
   sha256 "c4e2c599e99918b2e7cf1e71ae4ff06888264fb13d6656c4c0407e3608575bfc"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "457ef16dba6645113a5d732b7a7f7e7c9b9e9350a215aa9e8fe57cbe255affcd" => :mojave
+    sha256 "33f697ab7963497b1c75e98276ba75a9fe90eb3df2612d1aa4435ba1db32bb7c" => :high_sierra
+    sha256 "d663d46344af392335d8e6161e75fb837d00af0eb450f35350bd58341ec17304" => :sierra
+  end
+
   depends_on "node"
 
   def install
