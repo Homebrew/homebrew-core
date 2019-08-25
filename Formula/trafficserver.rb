@@ -8,9 +8,9 @@ class Trafficserver < Formula
   end
 
   bottle do
-    sha256 "d897fd2ad8c55e5982ad2a3293180c5baca6d12ff355df8fff88f3f4c26bf730" => :mojave
-    sha256 "8798c321ad6b052eab2a8ee3be53c65230a5748b71343012d4116e04cf5cbe3e" => :high_sierra
-    sha256 "e4406ff29b744c822d7e6661efdda7e04f08afe8b111a31d07c1bce05daa1732" => :sierra
+    sha256 "99fea0b9b69af76353be25f2d2659244d19493e2483b53bd22fe927d635e2cc6" => :mojave
+    sha256 "fce9444f8c2c54fba610a7c99fa92b344670d5c0736e75f7247edbcfef732e71" => :high_sierra
+    sha256 "13b6982bb901448df6d5deefe680e908aa623347f5dba5922d86d144d0cd28c8" => :sierra
   end
 
   head do
