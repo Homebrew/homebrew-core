@@ -61,7 +61,7 @@ class Druid < Formula
   end
 
   test do
-    ENV["DRUID_CONF_DIR"] = libexec/"conf-quickstart/druid"
+    ENV["DRUID_CONF_DIR"] = libexec/"conf/druid/single-server/micro-quickstart"
     ENV["DRUID_LOG_DIR"] = testpath
     ENV["DRUID_PID_DIR"] = testpath
 
