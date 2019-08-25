@@ -5,6 +5,13 @@ class Nushell < Formula
   sha256 "5bce8cdb33a6580ff15214322bc66945c0b4d93375056865ad30e0415fece3de"
   head "https://github.com/nushell/nushell.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d84b8d315ba2383f90c542689bbfb1def9a24939cda2b5e372961c294b04e0af" => :mojave
+    sha256 "751306b30dd9e6c43ca7a1f472d7b6a5b963faf420251addcea8724ca91b4ba6" => :high_sierra
+    sha256 "1741fd6332cf1125c1d5eecc9076545041d4ec64ccced6a394fbdf2679bf28b0" => :sierra
+  end
+
   depends_on "openssl"
 
   # Nu requires features from Rust 1.39 to build, so we can't use Homebrew's
