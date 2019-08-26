@@ -5,6 +5,13 @@ class PdftkJava < Formula
   sha256 "bcc19573cd2cc316f8bd2039f01dd1b3b717405a25c58db589bde198bc63068b"
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cbaf90d501a0ca441d45eba5266edabe36f5ebd1301a23a11a81d9aa64ed041a" => :mojave
+    sha256 "1ebd86b0815dd2a8ba53e929aa80b413b1c86bc4f1a3777b9ea9cd72eb0f9860" => :high_sierra
+    sha256 "9044faaabd52938e8430ac00c96b4ba9fa8afde35f3919fcc05575631381dd21" => :sierra
+  end
+
   depends_on "gradle" => :build
   depends_on :java => "1.7+"
 
