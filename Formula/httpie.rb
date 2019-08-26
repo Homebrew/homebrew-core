@@ -3,8 +3,8 @@ class Httpie < Formula
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.org/"
-  url "https://files.pythonhosted.org/packages/09/8d/581ef7bd9a09dc30b621638a4fa805a2073bbfb45fa06ed37f998f172419/httpie-1.0.2.tar.gz"
-  sha256 "fc676c85febdf3d80abc1ef6fa71ec3764d8b838806a7ae4e55e5e5aa014a2ab"
+  url "https://files.pythonhosted.org/packages/d5/a4/ab61c1dbfdef33c7b7f5f7df0d79eb5cd55a106601a4acc17f983f320b4a/httpie-1.0.3.tar.gz"
+  sha256 "6d1b6e21da7d3ec030ae95536d4032c1129bdaf9de4adc72c596b87e5f646e80"
   head "https://github.com/jakubroztocil/httpie.git"
 
   bottle do
@@ -50,6 +50,12 @@ class Httpie < Formula
   resource "PySocks" do
     url "https://files.pythonhosted.org/packages/53/12/6bf1d764f128636cef7408e8156b7235b150ea31650d0260969215bb8e7d/PySocks-1.6.8.tar.gz"
     sha256 "3fe52c55890a248676fd69dc9e3c4e811718b777834bcaab7a8125cf9deac672"
+  end
+
+  # this patch can be removed later as PR has been merged
+  patch do
+    url "https://github.com/jakubroztocil/httpie/commit/d8a69a0c2fa859df4849876ea5bea5eaeb7fd09e.patch?full_index=1"
+    sha256 "b9f58014e3851509e09a1a01cf3d14f63a562ca6168438da71a46eef392c660b"
   end
 
   def install
