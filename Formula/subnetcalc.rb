@@ -6,10 +6,10 @@ class Subnetcalc < Formula
   head "https://github.com/dreibh/subnetcalc.git"
 
   bottle do
-    cellar :any
-    sha256 "5ac3863b8d71a7e6da719f1574e4d02da387ec3a71716cf7db30504c8f49a6ed" => :mojave
-    sha256 "4c64ad7c4ad2988b5b695e032676b334e6c91d7fae30aa9aa753d0a624a67617" => :high_sierra
-    sha256 "533a4e4166f993e791baf729e420fc7fb26b1cc4353b05d2d8d64edb36b36181" => :sierra
+    cellar :any_skip_relocation
+    sha256 "cb1f6dd2854ca7d6049d8c7336ba4ac5537b3927057753f2ca36a58f8bee842f" => :mojave
+    sha256 "ff67b614cd174896b3ad818df3b98aedd8741bb7d9345c12fec9946f1c3ad022" => :high_sierra
+    sha256 "43aa559cbf9c1253bc95a0fda1a9036b2c7b334b38a0bfae95091f1502f61a35" => :sierra
   end
 
   depends_on "cmake" => :build
