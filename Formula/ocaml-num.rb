@@ -3,6 +3,7 @@ class OcamlNum < Formula
   homepage "https://github.com/ocaml/num"
   url "https://github.com/ocaml/num/archive/v1.2.tar.gz"
   sha256 "c5023104925ff4a79746509d4d85294d8aafa98da6733e768ae53da0355453de"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,8 +22,8 @@ class OcamlNum < Formula
     cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
 
     # install in #{lib}/ocaml not #{HOMEBREW_PREFIX}/lib/ocaml
-    inreplace lib/"ocaml/Makefile.config", /^PREFIX=#{HOMEBREW_PREFIX}$/,
-                                           "PREFIX=#{prefix}"
+    inreplace lib/"ocaml/Makefile.config", /^prefix=#{HOMEBREW_PREFIX}$/,
+                                           "prefix=#{prefix}"
 
     system "make"
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
