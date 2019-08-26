@@ -1,10 +1,9 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "http://www.clifford.at/yosys/"
-  url "https://github.com/cliffordwolf/yosys/archive/yosys-0.8.tar.gz"
-  sha256 "07760fe732003585b26d97f9e02bcddf242ff7fc33dbd415446ac7c70e85c66f"
-  revision 1
-  head "https://github.com/cliffordwolf/yosys.git"
+  url "https://github.com/YosysHQ/yosys/archive/yosys-0.9.tar.gz"
+  sha256 "f2e31371f9cf1b36cb4f57b23fd6eb849adc7d935dcf49f3c905aa5136382c2f"
+  head "https://github.com/YosysHQ/yosys.git"
 
   bottle do
     sha256 "e856f06c564a5689254e50572f09d0326c7273221060cce6649b3383a9c3daa2" => :mojave
