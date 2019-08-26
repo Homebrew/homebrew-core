@@ -16,6 +16,6 @@ class EnvkeySource < Formula
 
   test do
     output = shell_output("#{bin}/envkey-source").chomp
-    assert_match "echo 'error: ENVKEY invalid'; false", output
+    assert_match "echo 'error: ENVKEY missing.'; false", output
   end
 end
