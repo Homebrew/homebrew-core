@@ -65,7 +65,7 @@ class Zrepl < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/zrepl</string>
-		      <string>daemon</string>
+          <string>daemon</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
