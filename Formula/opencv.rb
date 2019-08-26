@@ -5,10 +5,9 @@ class Opencv < Formula
   sha256 "5de5d96bdfb9dad6e6061d70f47a0a91cee96bb35afb9afb9ecb3d43e243d217"
 
   bottle do
-    rebuild 1
-    sha256 "3b03d5c7d9b03287656626a937189e998572f21c04227803fc37a8f81eeeeadb" => :mojave
-    sha256 "d06107193fe9439d2d407d59526882cca2622cf0c6290bd68ad13de7b8ce3693" => :high_sierra
-    sha256 "0013841f9a126c8b45ca4f7101e91b321f2741f37517f8dc455652de5cbe1516" => :sierra
+    sha256 "af576f40cf58dcb301fbed604b2155580f3df2c3d1c46c359780aca80bbbeac5" => :mojave
+    sha256 "d06c83236e2726bff8dfe5c947b65dcb9cdf22c7df3976a06de8c35bfc3d4898" => :high_sierra
+    sha256 "92c778ddf8b5b93b2d6954f5aca9bcfe5cf41992fcdb83f00d5e7f7c7f31e587" => :sierra
   end
 
   depends_on "cmake" => :build
