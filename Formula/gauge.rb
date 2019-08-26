@@ -1,8 +1,8 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v1.0.5.tar.gz"
-  sha256 "45087c236df5a16ff7b3ca3cc9c0a448cd304e8557ba9ccb9ebd22aee2b09124"
+  url "https://github.com/getgauge/gauge/archive/v1.0.6.tar.gz"
+  sha256 "89b47749ef134e57295849e89a10fadf577e05aeb690e9db013c39e9c59b1f5d"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
