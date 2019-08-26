@@ -5,8 +5,8 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-src.tar.xz"
-  sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
+  url "https://downloads.haskell.org/ghc/8.8.1/ghc-8.8.1-src.tar.xz"
+  sha256 "908a83d9b814da74585de9d39687189e6260ec3848131f9d9236cab8a123721a"
 
   bottle do
     sha256 "ab7cfe45159057538fcde888c14ccf19b0154ac6e0e2d9bd92727c5a0b7734d5" => :mojave
@@ -15,15 +15,15 @@ class Ghc < Formula
   end
 
   head do
-    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.6"
+    url "https://gitlab.haskell.org/ghc/ghc.git", :branch => "ghc-8.8"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-2.4.0.0/cabal-install-2.4.0.0.tar.gz"
-      sha256 "1329e9564b736b0cfba76d396204d95569f080e7c54fe355b6d9618e3aa0bef6"
+      url "https://hackage.haskell.org/package/cabal-install-3.0.0.0/cabal-install-3.0.0.0.tar.gz"
+      sha256 "a432a7853afe96c0fd80f434bd80274601331d8c46b628cd19a0d8e96212aaf1"
     end
   end
 
@@ -37,12 +37,17 @@ class Ghc < Formula
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_6_5.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
+  # Need to use 8.6.5 to build 8.8.1 because of
+  # https://gitlab.haskell.org/ghc/ghc/issues/17146
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-apple-darwin.tar.xz"
-    sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
+    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
+    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
   end
+
+  # workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
+  patch :DATA
 
   def install
     ENV["CC"] = ENV.cc
@@ -121,3 +126,25 @@ class Ghc < Formula
     system "#{bin}/runghc", testpath/"hello.hs"
   end
 end
+__END__
+diff --git a/configure b/configure
+index e00a480..6db08ee 100755
+--- a/configure
++++ b/configure
+@@ -11525,6 +11525,8 @@ fi;
+ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $fptools_cv_alex_version" >&5
+ $as_echo "$fptools_cv_alex_version" >&6; }
++if test ! -f compiler/cmm/CmmLex.hs || test ! -f compiler/parser/Lexer.hs
++then
+ fp_version1=$fptools_cv_alex_version; fp_version2=3.1.7
+ fp_save_IFS=$IFS; IFS='.'
+ while test x"$fp_version1" != x || test x"$fp_version2" != x
+@@ -11548,6 +11550,7 @@ IFS=$fp_save_IFS
+ if test "$fp_num1" -lt "$fp_num2"; then :
+   as_fn_error $? "Alex version 3.1.7 or later is required to compile GHC." "$LINENO" 5
+ fi
++fi
+ AlexVersion=$fptools_cv_alex_version;
+ 
+ 
