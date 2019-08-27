@@ -11,22 +11,8 @@ class Pokerstove < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
-      bin.install "bin/ps-eval"
-      bin.install "bin/ps-lut"
-      bin.install "bin/ps-colex"
-      bin.install "bin/penum_tests"
-      bin.install "bin/peval_tests"
-      bin.install "bin/util_tests"
+      bin.install Dir["bin/*"]
     end
-  end
-
-  def caveats; <<~EOS
-    To run:
-          ps-eval acas
-          ps-eval AcAs Kh4d --board 5c8s9h
-          ps-eval --game l 7c5c4c3c2c
-      for more info, visit https://github.com/andrewprock/pokerstove
-  EOS
   end
 
   test do
