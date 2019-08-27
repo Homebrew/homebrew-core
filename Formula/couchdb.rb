@@ -45,6 +45,17 @@ class Couchdb < Formula
 COUCHDB_BIN_DIR=$(canonical_readlink $0)'
   end
 
+  def caveats; <<~EOS
+    If your upgrade from version 1.7.2_1 then your old database path is "/usr/local/var/lib/couchdb".
+
+    The database path of this installation: #{var}/couchdb/data".
+
+    If you want to migrate your data from 1.x to 2.x then follow this guide:
+    https://docs.couchdb.org/en/stable/install/upgrading.html
+
+  EOS
+  end
+
   plist_options :manual => "couchdb"
 
   def plist; <<~EOS
@@ -64,17 +75,6 @@ COUCHDB_BIN_DIR=$(canonical_readlink $0)'
       <true/>
     </dict>
     </plist>
-  EOS
-  end
-
-  def caveats; <<~EOS
-    If your upgrade from version 1.7.2_1 then your old database path is "/usr/local/var/lib/couchdb".
-
-    The database path of this installation: #{var}/couchdb/data".
-
-    If you want to migrate your data from 1.x to 2.x then follow this guide:
-    https://docs.couchdb.org/en/stable/install/upgrading.html
-
   EOS
   end
 
