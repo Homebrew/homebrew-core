@@ -1,8 +1,8 @@
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://github.com/nicolargo/glances/archive/v3.1.1.tar.gz"
-  sha256 "2fd826d39ed77bcc3656dfff15b4cb3613de9caae0f8e26bd578913110e189fb"
+  url "https://github.com/nicolargo/glances/archive/v3.1.2.tar.gz"
+  sha256 "adda21ceaff7a04b18b0f71f2dbfcc1647bd0aa888d12f61f1e03f4f60216a12"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,18 +19,18 @@ class Glances < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/32/4e/ed046324d5ec980c252987c1dca191e001b9f06ceffaebf037eef469937c/bottle-0.12.16.tar.gz"
-    sha256 "9c310da61e7df2b6ac257d8a90811899ccb3a9743e77e947101072a2e3186726"
+    url "https://files.pythonhosted.org/packages/c4/a5/6bf41779860e9b526772e1b3b31a65a22bd97535572988d16028c5ab617d/bottle-0.12.17.tar.gz"
+    sha256 "e9eaa412a60cc3d42ceb42f58d15864d9ed1b92e9d630b8130c871c5bb16107c"
   end
 
   resource "cassandra-driver" do
-    url "https://files.pythonhosted.org/packages/28/1b/9edce1aaac85e7955e5a4eef2674294107640cc6cd5b7831926fc43a41b8/cassandra-driver-3.17.0.tar.gz"
-    sha256 "6d42e11fd5879f12b1600e4c0f604e4432f472d030e80176b833c99c9cf989fc"
+    url "https://files.pythonhosted.org/packages/1c/fe/e4df42a3e864b6b7b2c7f6050b66cafc7fba8b46da0dfb9d51867e171a77/cassandra-driver-3.19.0.tar.gz"
+    sha256 "a97271736cb5de8496c91b5e1195e2641866dfbc14d594708e49b0d4f4f7c9ef"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
-    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
+    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
+    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
   end
 
   resource "chardet" do
@@ -44,23 +44,23 @@ class Glances < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/4b/79/4206ea568bd0d134cd7cb6022dd60bea06ffdb8b5564288ca428fd3aeb0d/docker-3.7.2.tar.gz"
-    sha256 "c456ded5420af5860441219ff8e51cdec531d65f4a9e948ccd4133e063b72f50"
-  end
-
-  resource "docker-pycreds" do
-    url "https://files.pythonhosted.org/packages/c5/e6/d1f6c00b7221e2d7c4b470132c931325c8b22c51ca62417e300f5ce16009/docker-pycreds-0.4.0.tar.gz"
-    sha256 "6ce3270bcaf404cc4c3e27e4b6c70d3521deae82fb508767870fdbf772d584d4"
+    url "https://files.pythonhosted.org/packages/6a/81/425eb2011e53b20e5245489ff02f27d434b165746831daf26f755402fa6c/docker-4.0.2.tar.gz"
+    sha256 "cc5b2e94af6a2b1e1ed9d7dcbdc77eff56c36081757baf9ada6e878ea0213164"
   end
 
   resource "elasticsearch" do
-    url "https://files.pythonhosted.org/packages/25/77/b832ef9e90664d9462fcb10b2840ba86e20a9399f3e7fcc2c8ab5d6c2220/elasticsearch-7.0.0.tar.gz"
-    sha256 "cf6cf834b6d0172dac5e704c398a11d1917cf61f15d32b79b1ddad4cd673c4b1"
+    url "https://files.pythonhosted.org/packages/d9/df/e18cab31af03e4b692d5cd49721d1aba26b07192829a3f8be6a511e75df2/elasticsearch-7.0.4.tar.gz"
+    sha256 "d9eda8d9696f55d7d394ade625a262985d7af762c0b9305b73d421dace41c4e7"
   end
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/90/52/e20466b85000a181e1e144fd8305caf2cf475e2f9674e797b222f8105f5f/future-0.17.1.tar.gz"
     sha256 "67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
+  end
+
+  resource "Glances" do
+    url "https://files.pythonhosted.org/packages/99/db/46c306997e4fc220f967716124fe6200ae88f0a82b9ce386886cb720d146/Glances-3.1.2.tar.gz"
+    sha256 "733a30ee580d062759640a3ce9d7f5798b80c24e6dbf8f96269227bed7256894"
   end
 
   resource "idna" do
@@ -74,8 +74,8 @@ class Glances < Formula
   end
 
   resource "influxdb" do
-    url "https://files.pythonhosted.org/packages/03/5e/d528d463bca6ff7fb9441df22d65890e39ebbb503e550c1030eef0863e52/influxdb-5.2.2.tar.gz"
-    sha256 "afeff28953a91b4ea1aebf9b5b8258a4488d0e49e2471db15ea43fd2c8533143"
+    url "https://files.pythonhosted.org/packages/d2/0d/351a346886ecbe61211cbfcad8ac73f99f5a9bf526916631c5668dbad601/influxdb-5.2.3.tar.gz"
+    sha256 "30276c7e04bf7659424c733b239ba2f0804d7a1f3c59ec5dd3f88c56176c8d36"
   end
 
   resource "kafka-python" do
@@ -104,8 +104,8 @@ class Glances < Formula
   end
 
   resource "pika" do
-    url "https://files.pythonhosted.org/packages/ca/82/bb0e6c255575cbd8f57a8bd47aa2f29a2aa24f1363408abccd0690a3a244/pika-1.0.1.tar.gz"
-    sha256 "5ba83d3daffccb92788d24facdab62a3db6aa03b8a6d709b03dc792d35c0dfe8"
+    url "https://files.pythonhosted.org/packages/8c/6d/a526ad96ffb8aa0d3ab7e8660eb1c9fc964a02e7624112d70e4b63fb2bb7/pika-1.1.0.tar.gz"
+    sha256 "9fa76ba4b65034b878b2b8de90ff8660a59d925b087c5bb88f8fdbb4b64a1dbf"
   end
 
   resource "ply" do
@@ -119,13 +119,13 @@ class Glances < Formula
   end
 
   resource "prometheus_client" do
-    url "https://files.pythonhosted.org/packages/4c/bd/b42db3ec90ffc6be805aad09c1cea4bb13a620d0cd4b21aaa44d13541d71/prometheus_client-0.6.0.tar.gz"
-    sha256 "1b38b958750f66f208bcd9ab92a633c0c994d8859c831f7abc1f46724fcee490"
+    url "https://files.pythonhosted.org/packages/b3/23/41a5a24b502d35a4ad50a5bb7202a5e1d9a0364d0c12f56db3dbf7aca76d/prometheus_client-0.7.1.tar.gz"
+    sha256 "71cd24a2b3eb335cb800c7159f423df1bd4dcd5171b234be15e3f31ec9f622da"
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/cf/72/8c1ed9148ded82adbb76c30f958c6d456a2abc08f092b62a586bdf973b80/protobuf-3.7.1.tar.gz"
-    sha256 "21e395d7959551e759d604940a115c51c6347d90a475c9baf471a1a86b5604a9"
+    url "https://files.pythonhosted.org/packages/6d/54/12c5c92ffab546538ea5b544c6afbfcce333fd47e99c1198e24a8efdef1f/protobuf-3.9.1.tar.gz"
+    sha256 "d831b047bd69becaf64019a47179eb22118a50dd008340655266a906c69c6417"
   end
 
   resource "psutil" do
@@ -139,13 +139,13 @@ class Glances < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/46/60/b7e32f6ff481b8a1f6c8f02b0fd9b693d1c92ddd2efb038ec050d99a7245/pyasn1-0.4.5.tar.gz"
-    sha256 "da2420fe13a9452d8ae97a0e478adde1dee153b11ba832a95b223a2ba01c10f7"
+    url "https://files.pythonhosted.org/packages/e3/12/dfffc84b783e280e942409d6b651fe4a5a746433c34589da7362db2c99c6/pyasn1-0.4.6.tar.gz"
+    sha256 "b773d5c9196ffbc3a1e13bdf909d446cad80a039aa3340bcad72f395b76ebc86"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/05/86/92b303bc4ed00451401e99e90003d5361fb054b9af9af2490b1b44caeaef/pycryptodomex-3.8.1.tar.gz"
-    sha256 "9251b3f6254d4274caa21b79bd432bf07afa3567c6f02f11861659fb6245139a"
+    url "https://files.pythonhosted.org/packages/e4/90/a01cafbbad7466491e3a630bf1d734294a32ff1b10e7429e9a4e8478669e/pycryptodomex-3.9.0.tar.gz"
+    sha256 "8b604f4fa1de456d6d19771b01c2823675a75a2c60e51a6b738f71fdfe865370"
   end
 
   resource "pygal" do
@@ -164,8 +164,8 @@ class Glances < Formula
   end
 
   resource "pysnmp" do
-    url "https://files.pythonhosted.org/packages/37/0b/881859e98e05fefee3625637a1e87cb2ba8c550613c5ccb29910ad0efe66/pysnmp-4.4.9.tar.gz"
-    sha256 "d5d1e59780126e963dd92e25993b783295734e71bef181f602e51f7393260441"
+    url "https://files.pythonhosted.org/packages/95/e4/f4c4da5d54e984a28a26dae1cbf6695e154cfd0dbc420d7f8d12b1e62719/pysnmp-4.4.11.tar.gz"
+    sha256 "fe8bde566baea42e467ad55db028935cb3ac7243733b58ba25b1aa5b08f8fbec"
   end
 
   resource "pystache" do
@@ -179,18 +179,18 @@ class Glances < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/df/d5/3e3ff673e8f3096921b3f1b79ce04b832e0100b4741573154b72b756a681/pytz-2019.1.tar.gz"
-    sha256 "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"
+    url "https://files.pythonhosted.org/packages/27/c0/fbd352ca76050952a03db776d241959d5a2ee1abddfeb9e2a53fdb489be4/pytz-2019.2.tar.gz"
+    sha256 "26c0b32e437e54a18161324a2fca3c4b9846b74a8dccddd843113109e1116b32"
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/f8/48/5416696b9f2eacc7d1f9fe3a7187ad54d769e09585ec0b59c137ab5c7575/pyzmq-18.0.1.tar.gz"
-    sha256 "8b319805f6f7c907b101c864c3ca6cefc9db8ce0791356f180b1b644c7347e4c"
+    url "https://files.pythonhosted.org/packages/7a/d2/1eb3a994374802b352d4911f3317313a5b4ea786bc830cc5e343dad9b06d/pyzmq-18.1.0.tar.gz"
+    sha256 "93f44739db69234c013a16990e43db1aa0af3cf5a4b8b377d028ff24515fbeb3"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "scandir" do
@@ -209,8 +209,8 @@ class Glances < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fd/fa/b21f4f03176463a6cccdb612a5ff71b927e5224e83483012747c12fc5d62/urllib3-1.24.2.tar.gz"
-    sha256 "9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
+    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
   end
 
   resource "websocket_client" do
@@ -224,8 +224,13 @@ class Glances < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/9a/a3/9e4bb6a8e5f807c1a817168c9985f9d3975725a71ae77eb47ce1db66ada7/zeroconf-0.21.3.tar.gz"
-    sha256 "5b52dfdf4e665d98a17bf9aa50dea7a8c98e25f972d9c1d7660e2b978a1f5713"
+    url "https://files.pythonhosted.org/packages/d7/25/8bbdd4857820e0cdc380c7e0c3543dc01a55247a1d831c712571783e74ec/zeroconf-0.23.0.tar.gz"
+    sha256 "e0c333b967c48f8b2e5cc94a1d4d28893023fb06dfd797ee384a94cdd1d0eef5"
+  end
+
+  resource "bernhard" do
+    url "https://files.pythonhosted.org/packages/51/d4/b2701097f9062321262c4d4e3488fdf127887502b2619e8fd1ae13955a36/bernhard-0.2.6.tar.gz"
+    sha256 "7efafa3ae1221a465fcbd74c4f78e5ad4a1841b9fa70c95eb38ba103a71bdb9b"
   end
 
   def install
@@ -250,7 +255,7 @@ class Glances < Formula
     begin
       read, write = IO.pipe
       pid = fork do
-        exec bin/"glances", "-q", "--export", "csv", "--export-csv", "/dev/stdout", :out => write
+        exec bin/"glances", "-q", "--export", "csv", "--export-csv-file", "/dev/stdout", :out => write
       end
       header = read.gets
       assert_match "timestamp", header
