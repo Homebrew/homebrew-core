@@ -3,8 +3,8 @@ require "language/node"
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-7.2.4.tgz"
-  sha256 "2ca5f537ce67ec70fcd1547d989e90d8ff5ea42832f1a9f774e9ec42a92be65e"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-7.3.0.tgz"
+  sha256 "9d354518bccc0f025fb9fc44c162ebc68fd8a32b62ff25f23cf3ac5ea5bf4cd3"
   head "https://github.com/firebase/firebase-tools.git"
 
   bottle do
