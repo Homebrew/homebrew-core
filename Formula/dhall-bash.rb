@@ -5,8 +5,8 @@ class DhallBash < Formula
 
   desc "Compile Dhall to Bash"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
-  url "https://hackage.haskell.org/package/dhall-bash-1.0.21/dhall-bash-1.0.21.tar.gz"
-  sha256 "2801d68cba9682a493b7ff54e3773aa262c59db7e37174fcd7a6faa033073b1b"
+  url "https://hackage.haskell.org/package/dhall-bash-1.0.22/dhall-bash-1.0.22.tar.gz"
+  sha256 "f2148c390613edc90fad8ddb3598d6e0bd8b1fcd91c135b9fd200d85dc70ace3"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
