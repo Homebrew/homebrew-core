@@ -3,9 +3,9 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/7c5d8e10a7b4da6a248b6a49bc6306a471f7c720"
-  version "2.0.71"
-  sha256 "a6080b4dd5fb2758c505973dbb335a0f32747cd8751632f6c301102f26a11b78"
+  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/e9394410222c396c435f4f833da31b387c0789a6"
+  version "2.0.72"
+  sha256 "a5f1c67cf5180a2f6fd195d6dcec429ef1f98384053c85bb118da0fd2306a08c"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -59,8 +59,8 @@ class AzureCli < Formula
   end
 
   resource "azure-datalake-store" do
-    url "https://files.pythonhosted.org/packages/8e/83/b04a6a31bb57fe35acafb2e7170d33df6504396cb1de716275c056155b6d/azure-datalake-store-0.0.46.tar.gz"
-    sha256 "5bc560ee108a1824e03ab926fbe5302b84c1e8d5742fa3a31e4cc0733ab58543"
+    url "https://files.pythonhosted.org/packages/0f/70/ebeb2e6cf56e97b6dde998b2dd221aef8f5218cd822042d9b29acd376a06/azure-datalake-store-0.0.47.tar.gz"
+    sha256 "55bcbec99a35a52ea291518dadfd94c3b645e66d05ce927228289b93979ad3a5"
   end
 
   resource "azure-functions-devops-build" do
@@ -81,6 +81,11 @@ class AzureCli < Formula
   resource "azure-mgmt-advisor" do
     url "https://files.pythonhosted.org/packages/f2/fb/bca29d83a2062c7d977742189195d669fd5983017fddb464c90f07adaac0/azure-mgmt-advisor-2.0.1.zip"
     sha256 "1929d6d5ba49d055fdc806e981b93cf75ea42ba35f78222aaf42d8dcf29d4ef3"
+  end
+
+  resource "azure-mgmt-apimanagement" do
+    url "https://files.pythonhosted.org/packages/ec/bf/8b960e78095793b60f4c56e0f9979436250e22e12fca95344a319f1a593e/azure-mgmt-apimanagement-0.1.0.zip"
+    sha256 "5d45d3438c6a11bae6bb8d4d5173cdb44b85683695f9f3433f22f45aecc47819"
   end
 
   resource "azure-mgmt-appconfiguration" do
@@ -284,8 +289,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-network" do
-    url "https://files.pythonhosted.org/packages/d9/a7/bbb2a532a35ada24a8909668942c80a15668e74701d6f866bdced3ec9aa2/azure-mgmt-network-3.0.0.zip"
-    sha256 "7b7f4759c367da33be631e63320daa6663575d092c04891fef531dff6f4be516"
+    url "https://files.pythonhosted.org/packages/fe/78/315a8d6435f284c03863c1727ab7941fe8ddeb4708b6e94c45bea11a4dfb/azure-mgmt-network-4.0.0.zip"
+    sha256 "a939667af360e6c8cff6bce3038f3692de8e7382684a7e2fc05909585fb45440"
   end
 
   resource "azure-mgmt-nspkg" do
@@ -359,8 +364,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-signalr" do
-    url "https://files.pythonhosted.org/packages/b7/ee/cb621d6d744d15bda56b4026cee078bfc14c47aa5b770b68f46b89b74e98/azure-mgmt-signalr-0.1.1.zip"
-    sha256 "8a6266a59a5c69102e274806ccad3ac74b06fd2c226e16426bbe248fc2174903"
+    url "https://files.pythonhosted.org/packages/6b/70/26d29a7a31a4c95ac2de05358c2beec0c033033de23bc0ef6452af3fb626/azure-mgmt-signalr-0.3.0.zip"
+    sha256 "0a6c876434f1a51bfbf1c4cea3f7167329f4ea86c12ba8ce8123d8f4b9896221"
   end
 
   resource "azure-mgmt-sql" do
@@ -484,8 +489,8 @@ class AzureCli < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/69/91/5a9d1769ed7e25083649e87977686423aebed3516112557f4cafd73c9f95/keyring-19.0.2.tar.gz"
-    sha256 "1b74595f7439e4581a11d4f9a12790ac34addce64ca389c86272ff465f5e0b90"
+    url "https://files.pythonhosted.org/packages/4a/7f/b1d1cda98ddd88e63945e5e1dccd0e4407ce1ebf01a1b259030ad91f1b91/keyring-19.1.0.tar.gz"
+    sha256 "6a445aec3ac9e7d1f9b17ac0a1ccf2110334f7a49eacced3f74d0ea07975d98d"
   end
 
   resource "knack" do
