@@ -3,6 +3,7 @@ class AmqpCpp < Formula
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
   url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.1.5.tar.gz"
   sha256 "9840c7fb17bb0c0b601d269e528b7f9cac5ec008dcf8d66bef22434423b468aa"
+  revision 1
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
@@ -13,7 +14,7 @@ class AmqpCpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
