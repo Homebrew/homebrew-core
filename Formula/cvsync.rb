@@ -12,7 +12,7 @@ class Cvsync < Formula
     sha256 "f76f09e679c8bfe1454cc0602fe38c119ec94af456716ead97add4244f2eb2b0" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV["PREFIX"] = prefix
