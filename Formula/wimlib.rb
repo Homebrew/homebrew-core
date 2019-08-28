@@ -12,7 +12,7 @@ class Wimlib < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # fuse requires librt, unavailable on OSX
