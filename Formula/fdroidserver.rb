@@ -3,8 +3,8 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/99/64/1f792ebc44c5b2b51fc3bb1503a8408f5bb242e42e22342d48d99b1551a6/fdroidserver-1.1.4.tar.gz"
-  sha256 "03263755ba41658f6ee066c7e36ea9b30cf88d6d9d1e8856924f4ea50e1dfcb8"
+  url "https://files.pythonhosted.org/packages/46/bd/9ad49a599625c838da94b39d98d9dc00427e12c2962aeab11865d01ed95a/fdroidserver-1.1.5.tar.gz"
+  sha256 "14291cde4c663328a70e22305769171a79caefea2f1148d1628cb3cda8938fba"
 
   bottle do
     cellar :any
@@ -97,11 +97,6 @@ class Fdroidserver < Formula
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
   end
 
-  resource "ddt" do
-    url "https://files.pythonhosted.org/packages/6c/1e/6f33404c73f2ea97b9e44f6115cfc4a2e43b5d303cb288be427f8e194d72/ddt-1.2.1.tar.gz"
-    sha256 "d13e6af8f36238e89d00f4ebccf2bda4f6d1878be560a6600689e42077e164e3"
-  end
-
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/ba/19/1119fe7b1e49b9c8a9f154c930060f37074ea2e8f9f6558efc2eeaa417a2/decorator-4.4.0.tar.gz"
     sha256 "86156361c50488b84a3f148056ea716ca587df2f0de1d34750d35c21312725de"
@@ -133,8 +128,8 @@ class Fdroidserver < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/07/3a/6174cc68e6961d21949f61013a84c38563f69685749c39b4b14ff979fdbe/GitPython-3.0.1.tar.gz"
-    sha256 "73aa7b59e58dd3435121421c33c284e5ef51bc7b2f4373e1a1e4cc06e9c928ec"
+    url "https://files.pythonhosted.org/packages/51/46/993beca52f3b609d148071e129235b866626eeb6056f2faffb41d9d727a7/GitPython-3.0.2.tar.gz"
+    sha256 "d2f4945f8260f6981d724f5957bc076398ada55cb5d25aaee10108bcdc894100"
   end
 
   resource "idna" do
@@ -183,8 +178,8 @@ class Fdroidserver < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/da/32/1b8f2bb5fb50e4db68543eb85ce37b9fa6660cd05b58bddfafafa7ed62da/numpy-1.17.0.zip"
-    sha256 "951fefe2fb73f84c620bec4e001e80a80ddaa1b84dce244ded7f1e0cbe0ed34a"
+    url "https://files.pythonhosted.org/packages/cb/79/96df883cd6df0c86cb010e6f4ff790b7a30a45016a9509c94ea72c8695cd/numpy-1.17.1.zip"
+    sha256 "f11331530f0eff69a758d62c2461cd98cdc2eae0147279d8fc86e0464eb7e8ca"
   end
 
   resource "oauthlib" do
@@ -293,8 +288,8 @@ class Fdroidserver < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/bd/37/d8255e5069f65d9fabb4fec974d47f2ac34e6c63d0a4027cb28e491dd358/ruamel.yaml-0.16.4.tar.gz"
-    sha256 "8fa2ca602fef5d4eed9da2f49e22a04ac6d1e1a5c673bf8f65fbd0529ac2cb6c"
+    url "https://files.pythonhosted.org/packages/de/76/cf97d739365eff258e2af0457a150bf2818f3eaa460328610eafeed0894a/ruamel.yaml-0.16.5.tar.gz"
+    sha256 "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
   end
 
   resource "ruamel.yaml.clib" do
