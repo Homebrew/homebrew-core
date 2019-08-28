@@ -21,6 +21,11 @@ class Pgbouncer < Formula
     ln_s "../install-sh", "doc/install-sh"
     system "make", "install"
     bin.install "etc/mkauth.py"
+    inreplace "etc/pgbouncer.ini" do |s|
+      s.gsub! /logfile = .*/, "logfile = #{var}/log/pgbouncer.log"
+      s.gsub! /pidfile = .*/, "pidfile = #{var}/run/pgbouncer.pid"
+      s.gsub! /auth_file = .*/, "auth_file = #{etc}/userlist.txt"
+    end
     etc.install %w[etc/pgbouncer.ini etc/userlist.txt]
   end
 
