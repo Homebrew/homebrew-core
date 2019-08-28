@@ -3,7 +3,7 @@ class Ftimes < Formula
   homepage "https://ftimes.sourceforge.io/FTimes/index.shtml"
   url "https://downloads.sourceforge.net/project/ftimes/ftimes/3.11.0/ftimes-3.11.0.tgz"
   sha256 "70178e80c4ea7a8ce65404dd85a4bf5958a78f6a60c48f1fd06f78741c200f64"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c1bb56c6edc25e981dcb14f8463a0d5d75f0c59dbf0715f71bd62a7102d46612" => :mojave
@@ -14,13 +14,13 @@ class Ftimes < Formula
     sha256 "214b8092f738542005f77d146cc6b85ee69f2f100469dc6e2b78b5f2f0b5c132" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-server-prefix=#{var}/ftimes"
 
