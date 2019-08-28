@@ -3,6 +3,7 @@ class Fq < Formula
   homepage "https://github.com/circonus-labs/fq"
   url "https://github.com/circonus-labs/fq/archive/v0.11.0.tar.gz"
   sha256 "cdfb490cfa6ae5f526203a966228a85a9cc7d9c1698cf45fdf17718d8a765122"
+  revision 1
   head "https://github.com/circonus-labs/fq.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Fq < Formula
 
   depends_on "concurrencykit"
   depends_on "jlog"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "Makefile", "/usr/lib/dtrace", "#{lib}/dtrace"
