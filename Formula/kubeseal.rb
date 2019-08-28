@@ -6,9 +6,9 @@ class Kubeseal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "482f557b305c7b1fd04c88669cbc0554dd2efc977102e768db8568a3749e8cab" => :mojave
-    sha256 "273c76c618cc8edc4d1b3d0ff368db14a0dcc508c1b290884791c40a3d6477b0" => :high_sierra
-    sha256 "51ad37b12b4d322e3052a0a28d5185c860cde82641c3636e25cec3a8c8a374ac" => :sierra
+    sha256 "bcfdef6641eaa034c2e3d10b817c32de6922a3940670935dde21683a1fde24fb" => :mojave
+    sha256 "e2fd4d9cfb635a885ac90f7203ebe12b7913fd0e81e0db704bfb2d426ed9b763" => :high_sierra
+    sha256 "3088194f8810b868b551a29699c513cdd3a5fe96a9249b4cc9236812bb89fff7" => :sierra
   end
 
   depends_on "go" => :build
