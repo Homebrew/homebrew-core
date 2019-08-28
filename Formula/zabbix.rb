@@ -10,7 +10,7 @@ class Zabbix < Formula
     sha256 "db1aaa5e4614747bc2a07fb921719e24ea606538249b79374008ec08284d156a" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def brewed_or_shipped(db_config)
@@ -28,7 +28,7 @@ class Zabbix < Formula
       --enable-agent
       --with-iconv=#{sdk}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
