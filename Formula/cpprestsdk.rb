@@ -5,6 +5,7 @@ class Cpprestsdk < Formula
   url "https://github.com/Microsoft/cpprestsdk.git",
       :tag      => "v2.10.14",
       :revision => "6f602bee67b088a299d7901534af3bce6334ab38"
+  revision 1
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
@@ -16,7 +17,7 @@ class Cpprestsdk < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Fix for boost 1.70.0 https://github.com/microsoft/cpprestsdk/issues/1054
   # From websocketpp pull request https://github.com/zaphoyd/websocketpp/pull/814
@@ -38,8 +39,8 @@ class Cpprestsdk < Formula
     EOS
     flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
              "-I#{Formula["boost"].include}",
-             "-I#{Formula["openssl"].include}", "-L#{lib}",
-             "-L#{Formula["openssl"].lib}", "-L#{Formula["boost"].lib}",
+             "-I#{Formula["openssl@1.1"].include}", "-L#{lib}",
+             "-L#{Formula["openssl@1.1"].lib}", "-L#{Formula["boost"].lib}",
              "-lssl", "-lcrypto", "-lboost_random", "-lboost_chrono",
              "-lboost_thread-mt", "-lboost_system-mt", "-lboost_regex",
              "-lboost_filesystem", "-lcpprest"] + ENV.cflags.to_s.split
