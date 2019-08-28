@@ -3,7 +3,7 @@ class Axel < Formula
   homepage "https://github.com/eribertomota/axel"
   url "https://github.com/axel-download-accelerator/axel/archive/v2.17.3.tar.gz"
   sha256 "13cc30194a2d52cdb87b0deca6e472ac75fbb2d8af72d554ba3936f1e2a416a7"
-  revision 1
+  revision 2
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Axel < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Fixes the macOS build by esuring some _POSIX_C_SOURCE
