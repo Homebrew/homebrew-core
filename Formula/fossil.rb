@@ -3,6 +3,7 @@ class Fossil < Formula
   homepage "https://www.fossil-scm.org/"
   url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.9.tar.gz"
   sha256 "1cb2ada92d43e3e7e008fe77f5e743d301c7ea34d4c36c42f255f873e73d8b4f"
+  revision 1
   head "https://www.fossil-scm.org/", :using => :fossil
 
   bottle do
@@ -12,7 +13,7 @@ class Fossil < Formula
     sha256 "31eccca72e7ca53b48b66ecedcd883a50af41e1f355a34ae229f39fe79120632" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
   def install
