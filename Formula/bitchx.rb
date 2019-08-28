@@ -13,7 +13,7 @@ class Bitchx < Formula
     sha256 "494fd5d6084f70158e82d49a067439770935d5aeeb6223d1c229a27e6f7f9e8f" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # OpenSSL 1.1 support in next version (1.2.2)
 
   def install
     plugins = %w[acro aim arcfour amp autocycle blowfish cavlink encrypt
