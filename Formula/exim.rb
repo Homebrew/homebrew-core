@@ -3,6 +3,7 @@ class Exim < Formula
   homepage "https://exim.org"
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.92.1.tar.xz"
   sha256 "2c64a871dd7ac464c14df8eb0dcf5cf766b46fff5af0316aaa4bf0268dde24b4"
+  revision 1
 
   bottle do
     sha256 "9ca6d89272f0de541e605e0b1ac08a9fb4561f2292090f09f2c1d08a8ced3e56" => :mojave
@@ -11,7 +12,7 @@ class Exim < Formula
   end
 
   depends_on "berkeley-db@4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
