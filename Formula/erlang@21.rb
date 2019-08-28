@@ -4,6 +4,7 @@ class ErlangAT21 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-21.3.8.6.tar.gz"
   sha256 "7d96d11143b8ad71448acc0427c2c34756712aa2972d9aaa6d100f87f29918c6"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class ErlangAT21 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
   resource "man" do
@@ -51,7 +52,7 @@ class ErlangAT21 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
       --enable-darwin-64bit
     ]
