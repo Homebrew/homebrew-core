@@ -12,13 +12,9 @@ class Pgbouncer < Formula
     sha256 "ec357f9ba0bd22a1f34b0ce1d9174376ba4aedf43904318430cd109f076a4188" => :sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "xmlto" => :build
   depends_on "libevent"
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
     system "./configure", "--disable-debug",
                           "--with-libevent=#{HOMEBREW_PREFIX}",
                           "--prefix=#{prefix}"
