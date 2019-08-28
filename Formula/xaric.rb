@@ -14,12 +14,12 @@ class Xaric < Formula
     sha256 "3b8f2a6b837e43ff57ef626b4d46142562c1eda120ac5889124eab11d8b46b86" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
