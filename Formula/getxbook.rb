@@ -3,6 +3,7 @@ class Getxbook < Formula
   homepage "https://njw.name/getxbook"
   url "https://njw.name/getxbook/getxbook-1.2.tar.xz"
   sha256 "7a4b1636ecb6dace814b818d9ff6a68167799b81ac6fc4dca1485efd48cf1c46"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Getxbook < Formula
     sha256 "5a3715317211d006cf7be4f0f2b86955be586790461c9d0e27f0202fa8851f65" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
