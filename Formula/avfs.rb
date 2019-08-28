@@ -3,6 +3,7 @@ class Avfs < Formula
   homepage "https://avf.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/avf/avfs/1.1.1/avfs-1.1.1.tar.bz2"
   sha256 "c83eef7f8676db6fed0a18373c433e0ff55af1651246303ebe1181e8ef8bbf3b"
+  revision 1
 
   bottle do
     sha256 "80e240dd2ddab63987b7da1e3a641f5736838e5c648db37e349358aa28bff1c0" => :mojave
@@ -12,7 +13,7 @@ class Avfs < Formula
 
   depends_on "pkg-config" => :build
   depends_on :macos => :sierra # needs clock_gettime
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
   depends_on "xz"
 
@@ -24,7 +25,7 @@ class Avfs < Formula
       --disable-silent-rules
       --enable-fuse
       --enable-library
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args
