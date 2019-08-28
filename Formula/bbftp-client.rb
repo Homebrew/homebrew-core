@@ -7,12 +7,9 @@ class BbftpClient < Formula
   revision 2
 
   bottle do
-    sha256 "3870e56ecb6d593bddd4fee86e931392e689d1ce24a9f0de5953c379e5b218dd" => :mojave
-    sha256 "e95d1e5e6ea17e93d635f900d0ee4517587b9ea076fb2f6c8eaa96bae8e002e1" => :high_sierra
-    sha256 "027138bf779c95260fe90d543c9c5767c32c8f7c1afeb4c6ad872ecfdffc0a9b" => :sierra
-    sha256 "d813b37a04edcd071198dacd750fbac54fa3cd692fb7dda774aae88c5b8a2d9f" => :el_capitan
-    sha256 "d1b3299d2308aac2881b5049e55e912e871e98fe44a4d3586ad6afc4a565d2e6" => :yosemite
-    sha256 "8619a2f08f735d7e2387ba67ca53bf6f503f37835db08b127033d5c66019688d" => :mavericks
+    sha256 "6c2934f5a33b59be8421730ee9a7ec92abb339e8d1825f6e561bad8fd607e23c" => :mojave
+    sha256 "b4fca3a4abc73dfdec803221add551ded24fd1ceb7b14d682a283fde20d4740d" => :high_sierra
+    sha256 "a1582472acced4bb8462ee707314365b2103adfb42efc0624d3cfa9c6f378e6a" => :sierra
   end
 
   depends_on "openssl" # no OpenSSL 1.1 support
