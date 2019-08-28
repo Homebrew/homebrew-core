@@ -54,7 +54,6 @@ class Pgbouncer < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/pgbouncer</string>
-          <string>-d</string>
           <string>-q</string>
           <string>#{etc}/pgbouncer.ini</string>
         </array>
