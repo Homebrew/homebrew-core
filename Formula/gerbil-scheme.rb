@@ -3,7 +3,7 @@ class GerbilScheme < Formula
   homepage "https://cons.io"
   url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
   sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "7d98740f145b601a509b460303f989fe3e2429ac01b40cb517268e91594abcc9" => :mojave
@@ -15,7 +15,7 @@ class GerbilScheme < Formula
   depends_on "leveldb"
   depends_on "libyaml"
   depends_on "lmdb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     bins = %w[
