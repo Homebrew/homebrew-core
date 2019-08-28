@@ -3,7 +3,7 @@ class Httping < Formula
   homepage "https://www.vanheusden.com/httping/"
   url "https://www.vanheusden.com/httping/httping-2.5.tgz"
   sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
-  revision 1
+  revision 2
   head "https://github.com/flok99/httping.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Httping < Formula
   end
 
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Reported upstream, see: https://github.com/Homebrew/homebrew/pull/28653
