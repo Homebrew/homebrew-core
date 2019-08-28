@@ -3,6 +3,7 @@ class GitCrypt < Formula
   homepage "https://www.agwa.name/projects/git-crypt/"
   url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz"
   sha256 "6d30fcd99442d50f4b3c8d554067ff1d980cdf9f3120ee774131172dba98fd6f"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class GitCrypt < Formula
     sha256 "e456ffd793629abea8debdcb761ff73ff2dcfe60493a298f763d238822add437" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make"
