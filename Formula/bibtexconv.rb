@@ -3,6 +3,7 @@ class Bibtexconv < Formula
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
   url "https://www.uni-due.de/~be0001/bibtexconv/download/bibtexconv-1.1.13.tar.gz"
   sha256 "90d9a65ef6cbb9e61197a54c292105981b5a3528268f76eb61067112332f4538"
+  revision 1
   head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
@@ -13,11 +14,11 @@ class Bibtexconv < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", *std_cmake_args,
-                    "-DCRYPTO_LIBRARY=#{Formula["openssl"].opt_lib}/libcrypto.dylib"
+                    "-DCRYPTO_LIBRARY=#{Formula["openssl@1.1"].opt_lib}/libcrypto.dylib"
     system "make", "install"
   end
 
