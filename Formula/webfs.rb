@@ -1,6 +1,6 @@
 class Webfs < Formula
   desc "HTTP server for purely static content"
-  homepage "https://linux.bytesex.org/misc/webfs.html"
+  homepage "http://linux.bytesex.org/misc/webfs.html"
   url "https://www.kraxel.org/releases/webfs/webfs-1.21.tar.gz"
   sha256 "98c1cb93473df08e166e848e549f86402e94a2f727366925b1c54ab31064a62a"
   revision 1
@@ -15,7 +15,7 @@ class Webfs < Formula
     sha256 "79c670478aeb8f97d702a5112fde2dab07c92145ea836c12bfdf9a1acfca4232" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0518a6d1/webfs/patch-ls.c"
