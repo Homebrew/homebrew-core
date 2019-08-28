@@ -6,10 +6,9 @@ class BareosClient < Formula
   revision 1
 
   bottle do
-    sha256 "01f5bffbfc61c4727bd33e1ac7a3fac8141dcd912c926ef1334727eb44ca703b" => :mojave
-    sha256 "960cf9d487fd3d121e32a3c36e33770022088033bde312464c0b279f01f8b9a8" => :high_sierra
-    sha256 "dd6c16847877563bf2efe7d590ece4f03ebeec9725016a0ffbb1927522dec29c" => :sierra
-    sha256 "396b873eb5b9a55611ce2f8342547d2dc452f636e01acca5323db0dcb92c3a0b" => :el_capitan
+    sha256 "d597282300909ac572b5047abc5a1840a5cdbac7a0dd3bc57e97cb5ab2e29c6d" => :mojave
+    sha256 "b8b3ba172f69be5c28656466d8225e4d4a02175e419666c205d98a6440323c28" => :high_sierra
+    sha256 "f4cb5ceaa5c0795aca38e6ced82cff2bee7c3ccfd6b83e7b49f161818e5c0e28" => :sierra
   end
 
   depends_on "openssl@1.1"
