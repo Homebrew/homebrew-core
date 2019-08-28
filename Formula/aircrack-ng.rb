@@ -3,6 +3,7 @@ class AircrackNg < Formula
   homepage "https://aircrack-ng.org/"
   url "https://download.aircrack-ng.org/aircrack-ng-1.5.2.tar.gz"
   sha256 "9e592fe7658046220e0ac0a6d05c4026903f3077b248893e0056ccbe4ee88241"
+  revision 1
 
   bottle do
     sha256 "6aaae61586ea0f80f466e1eaa3740ff64cb5a68d457ee248c6561339778246bf" => :mojave
@@ -14,7 +15,7 @@ class AircrackNg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "sqlite"
 
