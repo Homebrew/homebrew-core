@@ -16,7 +16,7 @@ class Web100clt < Formula
 
   depends_on "i2util"
   depends_on "jansson"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # fixes issue with new default secure strlcpy/strlcat functions in 10.9
   # https://github.com/ndt-project/ndt/issues/106
@@ -30,7 +30,7 @@ class Web100clt < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
 
     # we only want to build the web100clt client so we need
     # to change to the src directory before installing.
