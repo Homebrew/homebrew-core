@@ -3,7 +3,7 @@ class Btpd < Formula
   homepage "https://github.com/btpd/btpd"
   url "https://github.com/downloads/btpd/btpd/btpd-0.16.tar.gz"
   sha256 "296bdb718eaba9ca938bee56f0976622006c956980ab7fc7a339530d88f51eb8"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Btpd < Formula
     sha256 "62a5bcf9db33b7b543053ce0a7d6ce4ed1fdfc43c9fca2500adc289c8bf34dc8" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
