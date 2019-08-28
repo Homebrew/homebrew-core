@@ -12,7 +12,7 @@ class Asdf < Formula
   depends_on "coreutils"
   depends_on "libtool"
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "unixodbc"
 
