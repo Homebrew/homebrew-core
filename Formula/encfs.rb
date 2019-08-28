@@ -3,7 +3,7 @@ class Encfs < Formula
   homepage "https://vgough.github.io/encfs/"
   url "https://github.com/vgough/encfs/archive/v1.9.5.tar.gz"
   sha256 "4709f05395ccbad6c0a5b40a4619d60aafe3473b1a79bafb3aa700b1f756fd63"
-  revision 2
+  revision 3
   head "https://github.com/vgough/encfs.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Encfs < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
 
   def install
