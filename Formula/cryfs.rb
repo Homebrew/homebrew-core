@@ -18,7 +18,7 @@ class Cryfs < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libomp"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
 
   def install
