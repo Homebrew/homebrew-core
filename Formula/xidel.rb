@@ -13,7 +13,7 @@ class Xidel < Formula
   end
 
   depends_on "fpc"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     cd "programs/internet/xidel" do
