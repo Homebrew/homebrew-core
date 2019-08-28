@@ -14,10 +14,12 @@ class Fetchmail < Formula
     sha256 "44c0f861ca7a8bf1af2bd5c1007a48e397bba3c8dfeb7c3a3cc5299dd1cb7c66" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-ssl=#{Formula["openssl"].opt_prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
   end
 
