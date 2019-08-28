@@ -3,6 +3,7 @@ class Botan < Formula
   homepage "https://botan.randombit.net/"
   url "https://botan.randombit.net/releases/Botan-2.11.0.tar.xz"
   sha256 "f7874da2aeb8c018fd77df40b2137879bf90b66f5589490c991e83fb3e8094be"
+  revision 1
   head "https://github.com/randombit/botan.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Botan < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
