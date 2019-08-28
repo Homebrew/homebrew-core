@@ -6,9 +6,9 @@ class AircrackNg < Formula
   revision 1
 
   bottle do
-    sha256 "6aaae61586ea0f80f466e1eaa3740ff64cb5a68d457ee248c6561339778246bf" => :mojave
-    sha256 "795dfb0d851b602176fa1a68383afee62f6860fdbd868b515cbf7cf4fe010b7c" => :high_sierra
-    sha256 "e8302d2bb87a615d341dc907cf4a8e8f87f9fd560a28246a5b4a37230abe9d7b" => :sierra
+    sha256 "772e69403efdced2c6482abb1d118bb848d5d033156f64d6d5807e4205028399" => :mojave
+    sha256 "ef9b3527b33cfdff40e21e8b678921dfbd411d0be586b5fede62a039a0d50d1f" => :high_sierra
+    sha256 "620b3b925934f2a9fdeee038d9f00983c413ae098a65d26552bb61b4411c434c" => :sierra
   end
 
   depends_on "autoconf" => :build
