@@ -4,6 +4,7 @@ class Alpine < Formula
   url "https://ftp.osuosl.org/pub/blfs/conglomeration/alpine/alpine-2.21.tar.xz"
   mirror "https://fossies.org/linux/misc/alpine-2.21.tar.xz"
   sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
+  revision 1
 
   bottle do
     rebuild 1
@@ -14,15 +15,15 @@ class Alpine < Formula
     sha256 "5b57214d7c4603dea4081f4aa8edee42c148a7daad1ed1fd881d4fb01a28d778" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.deparallelize
 
     args = %W[
       --disable-debug
-      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
-      --with-ssl-certs-dir=#{etc}/openssl
+      --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ssl-certs-dir=#{etc}/openssl@1.1
       --prefix=#{prefix}
       --with-passfile=.pine-passfile
     ]
