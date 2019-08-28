@@ -5,6 +5,7 @@ class Httrack < Formula
   # link to download.httrack.com will break on next HTTrack update.
   url "https://mirror.httrack.com/historical/httrack-3.49.2.tar.gz"
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
+  revision 1
 
   bottle do
     sha256 "8542fa3b1a4badf7290315b4174d5026c81e79c5add75432176bb5385f6a1e5e" => :mojave
@@ -14,7 +15,7 @@ class Httrack < Formula
     sha256 "e07658fd32a00001eb85c18b159eea17e2014142e8e56c7d1e07ecbb5774be95" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.deparallelize
