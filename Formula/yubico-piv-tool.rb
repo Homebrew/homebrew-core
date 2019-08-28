@@ -13,7 +13,7 @@ class YubicoPivTool < Formula
 
   depends_on "check" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
