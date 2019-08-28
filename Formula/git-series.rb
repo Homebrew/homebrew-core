@@ -5,11 +5,11 @@ class GitSeries < Formula
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
 
   bottle do
-    rebuild 1
-    sha256 "530a8604bce82c2b2ea08123873fc3ac29b0f1c4805a59aa876ff8a04668b057" => :mojave
-    sha256 "f22eb16a878279e6613c26c92348d48e5c3aa9916bb9598589857d9bcc7596da" => :high_sierra
-    sha256 "602d435ffa40726db60f3bd69bd7d1e6eacc51f587daeb4afb022e3b147068a3" => :sierra
-    sha256 "3365e4bad3de55810eb4b8fa8788c19b7d56f2a28bc76b0a03601c1d9a37cd0c" => :el_capitan
+    cellar :any
+    rebuild 2
+    sha256 "401554128853730d876ecf8248fc86b8c41a908edb8f9a836a3c19f8c6cd3421" => :mojave
+    sha256 "f26bb5c64bb4120cc82a0d5153076ecfa88f2ad2fac05e7e30c96af136a08570" => :high_sierra
+    sha256 "e2beea7828daabe90b8f0ee18471956680d86db2052296d42c8fa0abf6f48b11" => :sierra
   end
 
   depends_on "cmake" => :build
