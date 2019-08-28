@@ -14,7 +14,7 @@ class BulkExtractor < Formula
   end
 
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     system "./configure", "--disable-dependency-tracking",
