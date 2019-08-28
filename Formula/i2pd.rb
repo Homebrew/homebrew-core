@@ -1,8 +1,8 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.27.0.tar.gz"
-  sha256 "46aa20760c85e3c5bf79229cd86b75a4c7e163271d400d0f104913d64cb8e093"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.28.0.tar.gz"
+  sha256 "181327edc7cf5b3c25ee51ecc518a4da90fa9e421eca2107996791038a514a21"
 
   bottle do
     cellar :any
