@@ -4,6 +4,7 @@ class Bigloo < Formula
   url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
   version "4.3e"
   sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
+  revision 1
 
   bottle do
     sha256 "d034117c6d060275241be0e0e1043782a04f8dd30f14bea3c7d26a6a7e6feb35" => :mojave
@@ -16,7 +17,7 @@ class Bigloo < Formula
   depends_on "libtool" => :build
 
   depends_on "gmp"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
