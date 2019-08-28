@@ -3,6 +3,7 @@ class Dmg2img < Formula
   homepage "http://vu1tur.eu.org/tools/"
   url "http://vu1tur.eu.org/tools/dmg2img-1.6.7.tar.gz"
   sha256 "02aea6d05c5b810074913b954296ddffaa43497ed720ac0a671da4791ec4d018"
+
   bottle do
     cellar :any
     sha256 "c7989c8d06b954b4d9601e5d550d1767ac0b26d48db71160dfa63bcc2135e0e1" => :mojave
@@ -10,7 +11,7 @@ class Dmg2img < Formula
     sha256 "d106c5d7e6b759ccceabda3d54ebc633ed5367f9d9fdfeff752ab1f8574a7ffe" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     system "make"
