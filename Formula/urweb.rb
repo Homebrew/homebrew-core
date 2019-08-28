@@ -15,14 +15,14 @@ class Urweb < Formula
   depends_on "libtool" => :build
   depends_on "mlton" => :build
   depends_on "gmp"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --prefix=#{prefix}
       SITELISP=$prefix/share/emacs/site-lisp/urweb
     ]
