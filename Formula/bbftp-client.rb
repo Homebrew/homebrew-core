@@ -4,7 +4,7 @@ class BbftpClient < Formula
   url "https://software.in2p3.fr/bbftp/dist/bbftp-client-3.2.1.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/bbftp-client-3.2.1.tar.gz"
   sha256 "4000009804d90926ad3c0e770099874084fb49013e8b0770b82678462304456d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3870e56ecb6d593bddd4fee86e931392e689d1ce24a9f0de5953c379e5b218dd" => :mojave
@@ -15,7 +15,7 @@ class BbftpClient < Formula
     sha256 "8619a2f08f735d7e2387ba67ca53bf6f503f37835db08b127033d5c66019688d" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     # Fix ntohll errors; reported 14 Jan 2015.
@@ -23,7 +23,8 @@ class BbftpClient < Formula
 
     cd "bbftpc" do
       system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                            "--with-ssl=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}"
+                            "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                            "--prefix=#{prefix}"
       system "make", "install"
     end
   end
