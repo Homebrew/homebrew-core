@@ -7,12 +7,9 @@ class Alpine < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "df710f2b8178a350e992b53f1ceeda2a2624bacadbf3a5d1d237f6efce66cf76" => :mojave
-    sha256 "86c4bb588e6c99a856b665d7643cf8ad699c9add68f7301db804085533480cd8" => :high_sierra
-    sha256 "8d0c2b6cd5b91cb904f1ddebe8b5ba27f1c2db50fe26db9a40a8131943abe2b5" => :sierra
-    sha256 "a3385e12f96372323504cf50f32b7a045a24e90d0b767ed9be98fdf705d4d65b" => :el_capitan
-    sha256 "5b57214d7c4603dea4081f4aa8edee42c148a7daad1ed1fd881d4fb01a28d778" => :yosemite
+    sha256 "63000d10c5caaffa13d36c1c9d798cb421389d796391ee2cab33f586a53f59cc" => :mojave
+    sha256 "cca98c8f35a89f926ca47d88e1b2a1b845233518962a80fa71d6427e9007364d" => :high_sierra
+    sha256 "c60a2e6a4d4de41dfd17a37497fb24eae9b8c07ce7e55fa1726765b6ddac20d6" => :sierra
   end
 
   depends_on "openssl@1.1"
