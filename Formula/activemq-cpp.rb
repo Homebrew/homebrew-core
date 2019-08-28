@@ -3,6 +3,7 @@ class ActivemqCpp < Formula
   homepage "https://activemq.apache.org/cms/index.html"
   url "https://www.apache.org/dyn/closer.cgi?path=activemq/activemq-cpp/3.9.5/activemq-cpp-library-3.9.5-src.tar.bz2"
   sha256 "6bd794818ae5b5567dbdaeb30f0508cc7d03808a4b04e0d24695b2501ba70c15"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class ActivemqCpp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "apr"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}"
