@@ -4,7 +4,7 @@ class Amap < Formula
   url "https://www.thc.org/releases/amap-5.4.tar.gz"
   mirror "https://downloads.sourceforge.net/project/slackbuildsdirectlinks/amap/amap-5.4.tar.gz"
   sha256 "a75ea58de75034de6b10b0de0065ec88e32f9e9af11c7d69edbffc4da9a5b059"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -16,11 +16,11 @@ class Amap < Formula
     sha256 "18d4464b634e7aec9fefc45079dd97d0867b956ee71f189dc7f0393e77f7dba7" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Last release was 2011 & there's nowhere supported to report this.
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     inreplace "configure" do |s|
       s.gsub! 'SSL_IPATH=""', "SSL_IPATH=\"#{openssl.opt_include}/openssl\""
       s.gsub! 'SSL_PATH=""', "SSL_PATH=\"#{openssl.opt_lib}\""
@@ -37,7 +37,7 @@ class Amap < Formula
   end
 
   test do
-    openssl_linked = MachO::Tools.dylibs("#{bin}/amap").any? { |d| d.include? Formula["openssl"].opt_lib.to_s }
+    openssl_linked = MachO::Tools.dylibs("#{bin}/amap").any? { |d| d.include? Formula["openssl@1.1"].opt_lib.to_s }
     assert openssl_linked
     # We can do more than this, but unsure how polite it is to port-scan
     # someone's domain every time this goes through CI.
