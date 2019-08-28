@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      :tag      => "v0.5.0",
-      :revision => "1f8019bc9208c5ddf3c59561570f654888369746"
+      :revision => "14eae293bf84956f371bfac50628e15b73751940"
+  version "0.5.0"
 
   depends_on "cmake" => :build
   depends_on "python" => :build
