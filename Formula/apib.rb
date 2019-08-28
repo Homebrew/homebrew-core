@@ -3,7 +3,7 @@ class Apib < Formula
   homepage "https://github.com/apigee/apib"
   url "https://github.com/apigee/apib/archive/APIB_1_0.tar.gz"
   sha256 "1592e55c01f2f9bc8085b39f09c49cd7b786b6fb6d02441ca665eef262e7b87e"
-  revision 1
+  revision 2
   head "https://github.com/apigee/apib.git"
 
   bottle do
@@ -17,7 +17,8 @@ class Apib < Formula
   end
 
   depends_on "apr"
-  depends_on "openssl"
+  depends_on "apr-util"
+  depends_on "openssl@1.1"
 
   def install
     # Upstream hardcodes finding apr in /usr/include. When CLT is not present
