@@ -3,7 +3,7 @@ class AzureStorageCpp < Formula
   homepage "https://azure.github.io/azure-storage-cpp"
   url "https://github.com/Azure/azure-storage-cpp/archive/v6.1.0.tar.gz"
   sha256 "a0b6107372125f756783bf6e5d57d24e2c8330a4941f4c72e8ddcf13c31618ed"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class AzureStorageCpp < Formula
   depends_on "boost"
   depends_on "cpprestsdk"
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # patch submitted upstream at https://github.com/Azure/azure-storage-cpp/pull/261
   patch :DATA
@@ -45,11 +45,11 @@ class AzureStorageCpp < Formula
     EOS
     flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
              "-I#{Formula["boost"].include}",
-             "-I#{Formula["openssl"].include}",
+             "-I#{Formula["openssl@1.1"].include}",
              "-I#{Formula["cpprestsdk"].include}",
              "-L#{Formula["boost"].lib}",
              "-L#{Formula["cpprestsdk"].lib}",
-             "-L#{Formula["openssl"].lib}",
+             "-L#{Formula["openssl@1.1"].lib}",
              "-L#{lib}",
              "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"] + ENV.cflags.to_s.split
     system ENV.cxx, "-o", "test_azurestoragecpp", "test.cpp", *flags
