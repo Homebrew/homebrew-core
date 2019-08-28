@@ -13,7 +13,7 @@ class Cppcms < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
