@@ -3,6 +3,7 @@ class Heimdal < Formula
   homepage "https://www.h5l.org"
   url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.6.0/heimdal-7.6.0.tar.gz"
   sha256 "afb996e27e722f51bf4d9e8d1d51e47cd10bfa1a41a84106af926e5639a52e4d"
+  revision 1
 
   bottle do
     sha256 "1897773e72a05fa2c8f22a81f90abb0775e5aa68d7468308bb9caffe80557b53" => :mojave
@@ -12,7 +13,7 @@ class Heimdal < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz"
