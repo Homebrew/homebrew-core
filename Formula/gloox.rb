@@ -3,6 +3,7 @@ class Gloox < Formula
   homepage "https://camaya.net/gloox/"
   url "https://camaya.net/download/gloox-1.0.22.tar.bz2"
   sha256 "4ade1b14848ccfcd89a505a4fff05116c24f13cef8d02fab0ade2717117ec964"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,13 +14,13 @@ class Gloox < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-zlib",
                           "--disable-debug",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
