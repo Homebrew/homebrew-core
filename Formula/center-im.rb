@@ -13,7 +13,7 @@ class CenterIm < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Fix build with clang; 4.22.10 is an outdated release and 5.0 is a rewrite,
   # so this is not reported upstream
@@ -28,7 +28,7 @@ class CenterIm < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-msn",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
 
     # /bin/gawk does not exist on macOS
