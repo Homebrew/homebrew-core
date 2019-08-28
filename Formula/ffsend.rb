@@ -20,6 +20,10 @@ class Ffsend < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
+
+    bash_completion.install "contrib/completions/ffsend.bash"
+    fish_completion.install "contrib/completions/ffsend.fish"
+    zsh_completion.install "contrib/completions/_ffsend"
   end
 
   test do
