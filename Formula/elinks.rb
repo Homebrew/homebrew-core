@@ -23,7 +23,7 @@ class Elinks < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     ENV.deparallelize
