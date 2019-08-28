@@ -11,7 +11,7 @@ class Cfengine < Formula
   end
 
   depends_on "lmdb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   resource "masterfiles" do
