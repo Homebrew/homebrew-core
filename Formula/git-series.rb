@@ -15,8 +15,13 @@ class GitSeries < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "libssh2"
+  depends_on "openssl"
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    # https://crates.io/crates/openssl#manual-configuration
+    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
   end
