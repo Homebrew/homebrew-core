@@ -3,6 +3,7 @@ class Dcmtk < Formula
   homepage "https://dicom.offis.de/dcmtk.php.en"
   url "https://dicom.offis.de/download/dcmtk/dcmtk364/dcmtk-3.6.4.tar.gz"
   sha256 "a93ff354fae091689a0740a1000cde7d4378fdf733aef9287a70d7091efa42c0"
+  revision 1
   head "https://git.dcmtk.org/dcmtk.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Dcmtk < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "libxml2"
 
   def install
