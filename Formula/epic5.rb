@@ -4,6 +4,7 @@ class Epic5 < Formula
   url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-2.1.1.tar.xz"
   mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.1.1.tar.xz"
   sha256 "81e18b5f6aa32c5c4b5d01d4cd94e3124b538e3ba42cf7dbb74a6f1f5081f9df"
+  revision 1
   head "http://git.epicsol.org/epic5.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Epic5 < Formula
     sha256 "db98c71f129c0d8bf7d012cc35e5627a6a623db2909153bbebca71b0c19b507e" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
@@ -20,7 +21,7 @@ class Epic5 < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-ipv6",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make"
     system "make", "test"
     system "make", "install"
