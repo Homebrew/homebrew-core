@@ -3,7 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
-  revision 1
+  revision 2
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -25,12 +25,8 @@ class Vtk < Formula
   depends_on "qt"
 
   def install
-    python_executable = `which python3`.strip
-    python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
-    python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
-    python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
-    py_site_packages = "#{lib}/#{python_version}/site-packages"
-
+    pyver = Language::Python.major_minor_version "python3"
+    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -50,37 +46,21 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_TIFF=ON
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
-      -DPYTHON_EXECUTABLE='#{python_executable}'
-      -DPYTHON_INCLUDE_DIR='#{python_include}'
-      -DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'
+      -DVTK_PYTHON_VERSION=3
+      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m
+      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{pyver}.dylib
+      -DVTK_PYTHON_SITE_PACKAGES_SUFFIX=#{lib}/python3/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
       -DVTK_WRAP_PYTHON_SIP=ON
       -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
 
-    # CMake picks up the system's python dylib, even if we have a brewed one.
-    if File.exist? "#{python_prefix}/Python"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
-    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
-    else
-      odie "No libpythonX.Y.{dylib|a} file found!"
-    end
-
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
       system "make", "install"
-    end
-
-    # Avoid hard-coding Python's Cellar paths
-    Dir["#{lib}/cmake/**/{vtkPython,VTKTargets}.cmake"].each do |file|
-      inreplace file,
-                Formula["python"].prefix.realpath,
-                Formula["python"].opt_prefix
     end
 
     # Avoid hard-coding HDF5's Cellar path
