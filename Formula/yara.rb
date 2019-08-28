@@ -17,7 +17,7 @@ class Yara < Formula
   depends_on "libtool" => :build
   depends_on "jansson"
   depends_on "libmagic"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh"
