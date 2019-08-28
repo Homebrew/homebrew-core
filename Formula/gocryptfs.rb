@@ -4,6 +4,7 @@ class Gocryptfs < Formula
   url "https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_src-deps.tar.gz"
   version "1.7"
   sha256 "2d1a2cfd072d554a28ee6e6807474b00ac710fb1aaf7aa81f3d8e94e80f6a703"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Gocryptfs < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
 
   def install
