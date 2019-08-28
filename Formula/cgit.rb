@@ -12,7 +12,7 @@ class Cgit < Formula
   end
 
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # git version is mandated by cgit: see GIT_VER variable in Makefile
   # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2#n17
