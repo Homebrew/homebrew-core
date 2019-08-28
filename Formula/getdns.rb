@@ -3,7 +3,7 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-5-2/getdns-1.5.2.tar.gz"
   sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -21,7 +21,7 @@ class Getdns < Formula
   end
 
   depends_on "libevent"
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on "openssl"
   depends_on "unbound"
 
