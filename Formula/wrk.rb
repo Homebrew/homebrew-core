@@ -13,7 +13,7 @@ class Wrk < Formula
     sha256 "8aece2b0e05cfce8f9e1bc408bc043c8340e999cb175c2396ec94d9a8ead2221" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "wrk-trello", :because => "both install `wrk` binaries"
 
