@@ -3,6 +3,7 @@ class BareosClient < Formula
   homepage "https://www.bareos.org/"
   url "https://github.com/bareos/bareos/archive/Release/17.2.7.tar.gz"
   sha256 "99a5f907e3422532c783ee254dcf5c737d2b1b53522c00924d3e1009289d2fd2"
+  revision 1
 
   bottle do
     sha256 "01f5bffbfc61c4727bd33e1ac7a3fac8141dcd912c926ef1334727eb44ca703b" => :mojave
@@ -11,7 +12,7 @@ class BareosClient < Formula
     sha256 "396b873eb5b9a55611ce2f8342547d2dc452f636e01acca5323db0dcb92c3a0b" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   conflicts_with "bacula-fd",
