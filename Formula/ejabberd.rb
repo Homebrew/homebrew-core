@@ -3,6 +3,7 @@ class Ejabberd < Formula
   homepage "https://www.ejabberd.im"
   url "https://www.process-one.net/downloads/ejabberd/19.05/ejabberd-19.05.tgz"
   sha256 "f03c672bfd3c151a16615f685d1bd340df1f33d9bd30bc0fd56c0173c4649fd1"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,7 +22,7 @@ class Ejabberd < Formula
   depends_on "erlang"
   depends_on "gd"
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"
