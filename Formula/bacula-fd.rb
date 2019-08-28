@@ -3,6 +3,7 @@ class BaculaFd < Formula
   homepage "https://www.bacula.org/"
   url "https://downloads.sourceforge.net/project/bacula/bacula/9.4.4/bacula-9.4.4.tar.gz"
   sha256 "0fe37a02ca768a720099d0d03509c364aff2390c05544d663f4819f8e7fc20be"
+  revision 1
 
   bottle do
     sha256 "e517896c2e4313eaec9cd15bee61376b3b8b74559acfcd304a9e59a8ede502d2" => :mojave
@@ -10,7 +11,7 @@ class BaculaFd < Formula
     sha256 "7c992aa6372bc82318c58b7b50f5a2c5bc6162ced7c1723755749a45912a4852" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   conflicts_with "bareos-client",
