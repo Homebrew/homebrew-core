@@ -3,6 +3,7 @@ class Gsoap < Formula
   homepage "https://www.genivia.com/products.html"
   url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.89.zip"
   sha256 "d9b10ca2611b00932fab98cbf67b514ddad24f22cbbda91d9d68ea45821c54f2"
+  revision 1
 
   bottle do
     sha256 "c3ff1fa1f2475b6d2be36e5a1458e8afe9a97fdf8b01136e924279710ac00fd3" => :mojave
@@ -11,7 +12,7 @@ class Gsoap < Formula
   end
 
   depends_on "autoconf" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Contacted upstream by email and been told this should be fixed by 2.8.37,
