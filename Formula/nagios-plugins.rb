@@ -3,6 +3,7 @@ class NagiosPlugins < Formula
   homepage "https://www.nagios-plugins.org/"
   url "https://www.nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz"
   sha256 "647c0ba4583d891c965fc29b77c4ccfeccc21f409fdf259cb8af52cb39c21e18"
+  revision 1
 
   bottle do
     sha256 "27cfda8fe9e205ff63eda487821e13d93b19900838b4ad0ebd73a86fc8c7224b" => :mojave
@@ -12,7 +13,7 @@ class NagiosPlugins < Formula
     sha256 "1fcf4d4934fe7f7793fb78d13f17f948d46a19600e02881b22695f736f327e65" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "monitoring-plugins", :because => "monitoring-plugins ships their plugins to the same folder."
 
@@ -21,7 +22,7 @@ class NagiosPlugins < Formula
       --disable-dependency-tracking
       --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args
