@@ -7,10 +7,9 @@ class Getxbook < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e41dd2cae656b3dc6d0fd3b40a4f5b1a4abf3201810a4b4ede48a4b5be1c57f6" => :mojave
-    sha256 "22e0f30ddca62fe58ef3e8c85cbd9c2c0d56af80752650680fd80c6653de3cad" => :high_sierra
-    sha256 "5a3715317211d006cf7be4f0f2b86955be586790461c9d0e27f0202fa8851f65" => :sierra
+    sha256 "68f7f76c607807315d1e8305830eaa94d04e1c87f1ea1382fb00bd7ec74f2886" => :mojave
+    sha256 "dce13d6e7d9f5f0eb79064858dca9dc3d62b274ba1f07b2ceaca3bf06e4effed" => :high_sierra
+    sha256 "d4b7500ecfbcf0b0d4ff905b01589a546aa53da5c1c465878305c8b6ee2c363c" => :sierra
   end
 
   depends_on "openssl@1.1"
