@@ -3,6 +3,7 @@ class Strongswan < Formula
   homepage "https://www.strongswan.org"
   url "https://download.strongswan.org/strongswan-5.8.0.tar.bz2"
   sha256 "15b1e10c7dd6253ab5d791fe9b9cb84624e24c118aecd9b90251b4e60daa0933"
+  revision 1
 
   bottle do
     sha256 "b7ecdc25dcb364981e83f6aed2d115f054d61321ebe6c7c61754456fe0744302" => :mojave
@@ -21,7 +22,7 @@ class Strongswan < Formula
     depends_on "pkg-config" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
