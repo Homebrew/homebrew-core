@@ -3,6 +3,7 @@ class Mongoose < Formula
   homepage "https://github.com/cesanta/mongoose"
   url "https://github.com/cesanta/mongoose/archive/6.15.tar.gz"
   sha256 "ed9b44690f9660d25562e45472d486c086bcc916bf49f39f22e0a90444d44454"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Mongoose < Formula
     sha256 "2df8b1fd42b06fab2579ba49bb82722a4cbbaf982b26bdbda428eca12ea26d1d" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "suite-sparse", :because => "suite-sparse vendors libmongoose.dylib"
 
