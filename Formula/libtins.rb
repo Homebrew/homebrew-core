@@ -8,9 +8,9 @@ class Libtins < Formula
 
   bottle do
     cellar :any
-    sha256 "41eb18ba89ba9c6257b15343a3dc2bef338935fe62d917bcae33ed439dee88c7" => :mojave
-    sha256 "8a72071c4c6b5a396b3eedd3a40dc7dd558cdeadda21f9233f968ffa55aff134" => :high_sierra
-    sha256 "ccaa57c2fb78a1344033d3d571ac95dd44c34cd2cee7e98f1594766e45d573ad" => :sierra
+    sha256 "024927515d79136857d24cde994b1165813a6924163dec87e1171dcf1088431f" => :mojave
+    sha256 "acd621b885b5d2e090e2065733cea3e4dcb3c635c42e02c1fc8c0a44148777d0" => :high_sierra
+    sha256 "9709befe28f8aeb4052be1304fe642f2d10701a0ef1ac11392239c4081b0e424" => :sierra
   end
 
   depends_on "cmake" => :build
