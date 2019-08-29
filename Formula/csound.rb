@@ -1,8 +1,8 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.13.tar.gz"
-  sha256 "6118ffc1ee04eaeffe7483afc3d48190d93d0e97b51e25f0f3d71e44293827d6"
+  url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
+  sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
 
   bottle do
     sha256 "5a2380000f04fa02589d37040c1771a0e07b7a7a944f8355c38b58cb9a06229f" => :mojave
@@ -12,7 +12,6 @@ class Csound < Formula
 
   depends_on "cmake" => :build
   depends_on "python" => [:build, :test]
-  depends_on "python@2" => [:build, :test]
   depends_on "fltk"
   depends_on "liblo"
   depends_on "libsamplerate"
@@ -47,12 +46,10 @@ class Csound < Formula
 
     libexec.install "#{buildpath}/interfaces/ctcsound.py"
 
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
-        import site; site.addsitedir('#{libexec}')
-      EOS
-    end
+    version = Language::Python.major_minor_version "python3"
+    (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
+      import site; site.addsitedir('#{libexec}')
+    EOS
   end
 
   def caveats; <<~EOS
@@ -91,7 +88,6 @@ class Csound < Formula
 
     ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
 
-    system "python2", "-c", "import ctcsound"
     system "python3", "-c", "import ctcsound"
   end
 end
