@@ -6,9 +6,9 @@ class H2o < Formula
   revision 1
 
   bottle do
-    sha256 "214df20969a0f0abd19a22cb946af49193cb86cada2d711ffa388a75d9d6d1dc" => :mojave
-    sha256 "30e116e634addb2aaf210d1e48bd159dc969b4e296ba239cadc4db21fbfe63c2" => :high_sierra
-    sha256 "10fd1e59a9d66102c44ae4239588efc0c4ffb3b5abd5feb434b768a3212de22d" => :sierra
+    sha256 "4f8f5c326d24dcfc95faf48849ae89721f1e19a407968cfa67efbc99dba33f76" => :mojave
+    sha256 "80eac6a05ba27ce57142ad1a9211495fa3b044433623438b6319109e2852eb55" => :high_sierra
+    sha256 "049e412820e6495cfb0906101cb00cea928543583cfc1b6986e0a52d1d215d0c" => :sierra
   end
 
   depends_on "cmake" => :build
