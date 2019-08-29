@@ -8,9 +8,9 @@ class Mupdf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6cb774dd8ded94ffd17aef311157a9cfcec3952eacd87bdbf8e3c3475fd7b6c8" => :mojave
-    sha256 "4b9193501ccd098036558168b3c587e1d82cb6b094817f783708938195793cbd" => :high_sierra
-    sha256 "2ba0dee72242bc80ef22288dc6fe3df890d262cb4b36c808ee9a529111f098e5" => :sierra
+    sha256 "fb6b298d8e7d01948271e6c91f00a82c2c26217ea528ecfebcfc7e16c19a598a" => :mojave
+    sha256 "0058023a86332af7cc136f8d0763e832bd4fda72f6d22220ec2847407b2a21ca" => :high_sierra
+    sha256 "eea95ab5ecb7a3c406c3c27c477a0440d8ed65f0db7ece2538905a6f42e7bcbc" => :sierra
   end
 
   depends_on "openssl@1.1"
