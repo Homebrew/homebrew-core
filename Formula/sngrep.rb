@@ -3,6 +3,7 @@ class Sngrep < Formula
   homepage "https://github.com/irontec/sngrep"
   url "https://github.com/irontec/sngrep/archive/v1.4.6.tar.gz"
   sha256 "638d6557dc68db401b07d73b2e7f8276800281f021fe0c942992566d6b59a48a"
+  revision 1
 
   bottle do
     sha256 "3715ca732df699b3165f4410cc4939e7d13502204b76ae31e6d31acd29efcd91" => :mojave
@@ -13,7 +14,7 @@ class Sngrep < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh"
@@ -21,7 +22,7 @@ class Sngrep < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
