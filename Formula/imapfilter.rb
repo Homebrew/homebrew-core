@@ -3,6 +3,7 @@ class Imapfilter < Formula
   homepage "https://github.com/lefcha/imapfilter/"
   url "https://github.com/lefcha/imapfilter/archive/v2.6.12.tar.gz"
   sha256 "764a68c737e555d7b164644a4c491fd66cffb93d6077d58f502b94e1a022a884"
+  revision 1
 
   bottle do
     sha256 "76348929d317ef0efeeb551c56e8902e12ce84ee4d1ef543df046d4e8884c6c6" => :mojave
@@ -11,7 +12,7 @@ class Imapfilter < Formula
   end
 
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
