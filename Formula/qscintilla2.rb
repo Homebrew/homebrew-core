@@ -3,7 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.4/QScintilla_gpl-2.10.4.tar.gz"
   sha256 "0353e694a67081e2ecdd7c80e1a848cf79a36dbba78b2afa36009482149b022d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,6 @@ class Qscintilla2 < Formula
 
   depends_on "pyqt"
   depends_on "python"
-  depends_on "python@2"
   depends_on "qt"
   depends_on "sip"
 
@@ -46,23 +45,23 @@ class Qscintilla2 < Formula
     ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
     cd "Python" do
-      Language::Python.each_python(build) do |python, version|
-        (share/"sip").mkpath
-        system python, "configure.py", "-o", lib, "-n", include,
-                       "--apidir=#{prefix}/qsci",
-                       "--destdir=#{lib}/python#{version}/site-packages/PyQt5",
-                       "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
-                       "--qsci-sipdir=#{share}/sip",
-                       "--qsci-incdir=#{include}",
-                       "--qsci-libdir=#{lib}",
-                       "--pyqt=PyQt5",
-                       "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
-                       "--sip-incdir=#{Formula["sip"].opt_include}",
-                       "--spec=#{spec}"
-        system "make"
-        system "make", "install"
-        system "make", "clean"
-      end
+      (share/"sip").mkpath
+      version = Language::Python.major_minor_version "python3"
+      pydir = "#{lib}/python#{version}/site-packages/PyQt5"
+      system "python3", "configure.py", "-o", lib, "-n", include,
+                        "--apidir=#{prefix}/qsci",
+                        "--destdir=#{pydir}",
+                        "--stubsdir=#{pydir}",
+                        "--qsci-sipdir=#{share}/sip",
+                        "--qsci-incdir=#{include}",
+                        "--qsci-libdir=#{lib}",
+                        "--pyqt=PyQt5",
+                        "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
+                        "--sip-incdir=#{Formula["sip"].opt_include}",
+                        "--spec=#{spec}"
+      system "make"
+      system "make", "install"
+      system "make", "clean"
     end
   end
 
@@ -71,8 +70,7 @@ class Qscintilla2 < Formula
       import PyQt5.Qsci
       assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS
-    Language::Python.each_python(build) do |python, _version|
-      system python, "test.py"
-    end
+
+    system "python3", "test.py"
   end
 end
