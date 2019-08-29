@@ -3,6 +3,7 @@ class Nushell < Formula
   homepage "https://www.nushell.sh"
   url "https://github.com/nushell/nushell/archive/0.2.0.tar.gz"
   sha256 "5bce8cdb33a6580ff15214322bc66945c0b4d93375056865ad30e0415fece3de"
+  revision 1
   head "https://github.com/nushell/nushell.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Nushell < Formula
     sha256 "1741fd6332cf1125c1d5eecc9076545041d4ec64ccced6a394fbdf2679bf28b0" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Nu requires features from Rust 1.39 to build, so we can't use Homebrew's
   # Rust; picking a known-good Rust nightly release to use instead.
