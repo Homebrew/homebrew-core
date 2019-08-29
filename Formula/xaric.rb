@@ -5,13 +5,10 @@ class Xaric < Formula
   sha256 "fd8cd677e2403e44ff525eac7c239cd8d64b7448aaf56a1272d1b0c53df1140c"
 
   bottle do
-    rebuild 1
-    sha256 "80e5230b07073263a0e38e537c823adda12735240c49e18d206b17cd1471cd4f" => :mojave
-    sha256 "c9071a891ade585a6ce04f759ba8fa95ef786126071f1cd9f80863f1c295aed6" => :high_sierra
-    sha256 "e3d4b5dd228aee7f9f81801e7696543983efb5df0239048adb035d984046f95d" => :sierra
-    sha256 "9ddfb8878904f92a7281f5611a11b72b81ebed0ef6ac7af9c10588cb717b9317" => :el_capitan
-    sha256 "f29d234ec8065f976ce8f14e21374871e5b8b2d092a26ad163d9cac32988bb9b" => :yosemite
-    sha256 "3b8f2a6b837e43ff57ef626b4d46142562c1eda120ac5889124eab11d8b46b86" => :mavericks
+    rebuild 2
+    sha256 "31cc50542222e8ceae4b46887441fdd73be022bab481cfa205d2aae558c0d95b" => :mojave
+    sha256 "ba6e8b473868db28ea7d83417f1b4a5b4ccc6ed5b126653da6b1a3407d4b54fc" => :high_sierra
+    sha256 "7a4074ad4ca9ed3950fb4badb76ae4ec9a7c9228fd65a7a4d7d8b89296af8d3b" => :sierra
   end
 
   depends_on "openssl@1.1"
