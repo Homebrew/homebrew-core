@@ -3,6 +3,7 @@ class Stunnel < Formula
   homepage "https://www.stunnel.org/"
   url "https://www.stunnel.org/downloads/stunnel-5.55.tar.gz"
   sha256 "90de69f41c58342549e74c82503555a6426961b29af3ed92f878192727074c62"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Stunnel < Formula
     sha256 "219126b7a64b1ea9042549aac7db5f621b78efbbcce5857e67472e77289ef4c8" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -22,7 +23,7 @@ class Stunnel < Formula
                           "--mandir=#{man}",
                           "--disable-libwrap",
                           "--disable-systemd",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
 
     # This programmatically recreates pem creation used in the tools Makefile
@@ -32,7 +33,7 @@ class Stunnel < Formula
                 openssl.cnf -out stunnel.pem -keyout stunnel.pem -sha256 -subj
                 /C=PL/ST=Mazovia\ Province/L=Warsaw/O=Stunnel\ Developers/OU=Provisional\ CA/CN=localhost/]
       system "dd", "if=/dev/urandom", "of=stunnel.rnd", "bs=256", "count=1"
-      system "#{Formula["openssl"].opt_bin}/openssl", *args
+      system "#{Formula["openssl@1.1"].opt_bin}/openssl", *args
       chmod 0600, "stunnel.pem"
       (etc/"stunnel").install "stunnel.pem"
     end
