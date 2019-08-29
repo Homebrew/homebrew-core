@@ -3,7 +3,7 @@ class Sphinx < Formula
   homepage "https://sphinxsearch.com/"
   url "https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
-  revision 2
+  revision 3
   head "https://github.com/sphinxsearch/sphinx.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Sphinx < Formula
   end
 
   depends_on "mysql"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
