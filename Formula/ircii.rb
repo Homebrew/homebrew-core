@@ -7,9 +7,9 @@ class Ircii < Formula
   revision 1
 
   bottle do
-    sha256 "426446f6f4752f66e58ccad00f395cbf24e3b88d155c87d9c89ca38b23e84c13" => :mojave
-    sha256 "71e73a226d88f78d1afbaa0b4231cf9e7e1d3998c4b0e556dd0ec80fed24dc07" => :high_sierra
-    sha256 "c54e77fcada6cf345612a063ee199fc2504306275c5bec5344989599d3cd16ef" => :sierra
+    sha256 "95424df7e321088386df0d493fdc9a29c0f1955201ce0ce6ba9640a6c9678a9e" => :mojave
+    sha256 "ff375e444386f89ee0ae5f3aa3b6f38bfaa8818c3cd2db8065669f8a0f7d0165" => :high_sierra
+    sha256 "d0739ce549eb581ca3bb13de8c3aa164657235814e3c1edb2a050fde5dbf24f2" => :sierra
   end
 
   depends_on "openssl@1.1"
