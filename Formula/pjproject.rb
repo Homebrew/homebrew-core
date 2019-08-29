@@ -3,6 +3,7 @@ class Pjproject < Formula
   homepage "https://www.pjsip.org/"
   url "https://www.pjsip.org/release/2.9/pjproject-2.9.tar.bz2"
   sha256 "d185ef7855c8ec07191dde92f54b65a7a4b7a6f7bf8c46f7af35ceeb1da2a636"
+  revision 1
   head "https://svn.pjsip.org/repos/pjproject/trunk"
 
   bottle do
@@ -12,7 +13,7 @@ class Pjproject < Formula
   end
 
   depends_on :macos => :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}"
