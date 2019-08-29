@@ -4,6 +4,7 @@ class Ircii < Formula
   url "https://ircii.warped.com/ircii-20190117.tar.bz2"
   mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20190117.orig.tar.bz2"
   sha256 "10316f0a3723e4ce3d67fd5a7df10e6bcf30dd0750fb96d5437cacb16b0e9617"
+  revision 1
 
   bottle do
     sha256 "426446f6f4752f66e58ccad00f395cbf24e3b88d155c87d9c89ca38b23e84c13" => :mojave
@@ -11,7 +12,7 @@ class Ircii < Formula
     sha256 "c54e77fcada6cf345612a063ee199fc2504306275c5bec5344989599d3cd16ef" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.append "LIBS", "-liconv"
