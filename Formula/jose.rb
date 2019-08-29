@@ -3,6 +3,7 @@ class Jose < Formula
   homepage "https://github.com/latchset/jose"
   url "https://github.com/latchset/jose/releases/download/v10/jose-10.tar.bz2"
   sha256 "5c9cdcfb535c4d9f781393d7530521c72b1dd81caa9934cab6dd752cc7efcd72"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Jose < Formula
 
   depends_on "pkg-config" => :build
   depends_on "jansson"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
