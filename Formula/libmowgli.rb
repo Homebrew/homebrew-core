@@ -3,6 +3,7 @@ class Libmowgli < Formula
   homepage "https://github.com/atheme/libmowgli-2"
   url "https://github.com/atheme/libmowgli-2/archive/v2.1.3.tar.gz"
   sha256 "b7faab2fb9f46366a52b51443054a2ed4ecdd04774c65754bf807c5e9bdda477"
+  revision 1
   head "https://github.com/atheme/libmowgli-2.git"
 
   bottle do
@@ -13,11 +14,11 @@ class Libmowgli < Formula
     sha256 "12835d9124733d3308ef989381a22fcc36b19862fccda3433877d96b3d9ff087" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make"
     system "make", "install"
   end
