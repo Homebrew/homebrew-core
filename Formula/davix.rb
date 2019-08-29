@@ -1,11 +1,11 @@
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://dmc.web.cern.ch/projects/davix/home"
-  url "https://github.com/cern-it-sdc-id/davix.git",
-      :tag      => "R_0_7_3",
-      :revision => "c8063b741a602c6b693084987228cac65e2fde5b"
-  version "0.7.3"
-  head "https://github.com/cern-it-sdc-id/davix.git"
+  url "https://github.com/cern-fts/davix.git",
+      :tag      => "R_0_7_5",
+      :revision => "4b04a98027ff5ce94e18e3b110420f1ff912a32c"
+  version "0.7.5"
+  head "https://github.com/cern-fts/davix.git"
 
   bottle do
     cellar :any
@@ -22,6 +22,7 @@ class Davix < Formula
   def install
     ENV.libcxx
 
+    cp "release.cmake", "version.cmake"
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
