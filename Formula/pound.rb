@@ -3,6 +3,7 @@ class Pound < Formula
   homepage "http://www.apsis.ch/pound"
   url "http://www.apsis.ch/pound/Pound-2.8.tgz"
   sha256 "a7fd8690de0fd390615e79fd0f4bfd56a544b8ef97dd6659c07ecd3207480c25"
+  revision 1
 
   bottle do
     sha256 "3ac2ac693cb4fdaceec7bd76f53194b52547385d583c798021973b40f9ab951f" => :mojave
@@ -12,7 +13,7 @@ class Pound < Formula
   end
 
   depends_on "gperftools"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
