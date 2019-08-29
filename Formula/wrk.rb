@@ -7,10 +7,10 @@ class Wrk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "bf22b23f21ae787e2a114f0138519710f5f1e3069ba7480c5c1c0217cac62873" => :mojave
-    sha256 "1366e8330c9013002d43984b4a80dfc16e73fa23b91b72eb0c8ee2df512628e1" => :high_sierra
-    sha256 "8aece2b0e05cfce8f9e1bc408bc043c8340e999cb175c2396ec94d9a8ead2221" => :sierra
+    rebuild 2
+    sha256 "65f16f71cfb120d12f0f993044db92b767c728274aa046917bee7ad4deacfd3e" => :mojave
+    sha256 "ccc1cc4303847b70f940b765a9229476e7018328fbf202c02a00d9a13c63919e" => :high_sierra
+    sha256 "82fd1323ac999e23107dcd1cdae9635ff047afd15532f42f8cb4e82dad0db257" => :sierra
   end
 
   depends_on "openssl@1.1"
