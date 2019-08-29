@@ -3,6 +3,7 @@ class Sipsak < Formula
   homepage "https://github.com/nils-ohlmeier/sipsak/"
   url "https://github.com/nils-ohlmeier/sipsak/releases/download/0.9.7/sipsak-0.9.7.tar.gz"
   sha256 "e07f32e692381d9db404d75868218b553e0aba414d35efc96d13024533a53f0f"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Sipsak < Formula
     sha256 "28b6d28bfdc537cea588ebe947a0e98833c052e0eaac31b2a672d23e121894ce" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
