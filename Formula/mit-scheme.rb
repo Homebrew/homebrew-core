@@ -7,12 +7,8 @@ class MitScheme < Formula
   revision 2
 
   bottle do
-    rebuild 2
-    sha256 "482da1493fa7dc5d4e1b5aebf3a53ea95cdd080066aa8a4fcab2051d5ab50d86" => :mojave
-    sha256 "715a8d56b6b6b0debe6aac7e968c369555b210863da6f7514999307c9df348a8" => :high_sierra
-    sha256 "6b7a6ecec12a5a856b795ce634c0ceb8e87714f9cdd272a912e312c3bc5cb9d4" => :sierra
-    sha256 "23df7103a75311ba33fed035413892b73f1e724e1df5b63bd677709d29bfdb92" => :el_capitan
-    sha256 "be2b340bb25c87141bae94010e4f6ec0234ac3c237e66ffbdb5ae98e2cb7462f" => :yosemite
+    sha256 "fdfd6d6c6565b5f5f34a50203ee9c661e2126eb23d181b228ef1caf32591d43a" => :mojave
+    sha256 "272a286e40ee02cf625f41f25ba020b87ec07a2da277d1e8b6ca083266595aee" => :high_sierra
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
