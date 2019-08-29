@@ -6,9 +6,9 @@ class MysqlAT57 < Formula
   revision 1
 
   bottle do
-    sha256 "e232cc9150f4f8d65ce5e24e010fa09ea3da90029bfd98036258d4370f75e798" => :mojave
-    sha256 "06cf9ace933daeec9cf6a9e6f80d0346c763fa2927959655e043a6c1e260f535" => :high_sierra
-    sha256 "ba9c076ee5c1d8fc8d4c80305c3e9fd78ba7c850e65e0a33fd7e3726472f84da" => :sierra
+    sha256 "5ec3269f57853b0c0fb29e061bcdf19abda846184349feeebbcda40eeab3da53" => :mojave
+    sha256 "8abbdfbf92902212472e72c257ab5f05afe4bdd4fbde69a5959c4f490394961c" => :high_sierra
+    sha256 "e322e2672bbb839b59fdfb50f5784c350fb5175a816142602ce034c22abdab9a" => :sierra
   end
 
   keg_only :versioned_formula
