@@ -3,6 +3,7 @@ class Mupdf < Formula
   homepage "https://mupdf.com/"
   url "https://mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.xz"
   sha256 "565036cf7f140139c3033f0934b72e1885ac7e881994b7919e15d7bee3f8ac4e"
+  revision 1
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Mupdf < Formula
     sha256 "2ba0dee72242bc80ef22288dc6fe3df890d262cb4b36c808ee9a529111f098e5" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :x11
 
   conflicts_with "mupdf-tools",
