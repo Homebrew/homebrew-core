@@ -1,8 +1,8 @@
 class Ncrack < Formula
   desc "Network authentication cracking tool"
   homepage "https://nmap.org/ncrack/"
-  url "https://github.com/nmap/ncrack/archive/v0.6.0.tar.gz"
-  sha256 "676a323b1e9066193461f25e31445262bae495fde7dfcaf56555c3056dae24cc"
+  url "https://github.com/nmap/ncrack/archive/0.7.tar.gz"
+  sha256 "f3f971cd677c4a0c0668cb369002c581d305050b3b0411e18dd3cb9cc270d14a"
   head "https://github.com/nmap/ncrack.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Ncrack < Formula
     sha256 "1ca0625ada66ae28f5bc488ecc7ca246d68711ab6b314c4f6998ab47ccba1ec0" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
