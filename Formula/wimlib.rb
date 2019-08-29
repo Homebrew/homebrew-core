@@ -6,9 +6,10 @@ class Wimlib < Formula
 
   bottle do
     cellar :any
-    sha256 "7666d8a3fff2f085ebc38c8dd1df247bb858627c2045c28f6228498f898ccac4" => :mojave
-    sha256 "5dd208d387537a4b1688fb350cd94046d467ce4e00e41f4545ff1df665cb2ca4" => :high_sierra
-    sha256 "616767314d918a7e566c2c663bdb4d814baa8dde884e193b61932766bee5c150" => :sierra
+    rebuild 1
+    sha256 "7969f20ce9f26b7435b4242fb241c2527848581469be0cad09a3f5de77b11a05" => :mojave
+    sha256 "33a3397f536e339ca4177d3639b55e223040883af9d5afbbb47cc3e9b1bb87e9" => :high_sierra
+    sha256 "66a39e7eaa96a26f988a0c6eba0ad614ca449b0bb5688ebd70830f8863da5244" => :sierra
   end
 
   depends_on "pkg-config" => :build
