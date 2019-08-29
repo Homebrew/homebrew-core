@@ -5,9 +5,10 @@ class Urweb < Formula
   sha256 "211793601c3ba958f45b81c30035cf5e3c236650e23bdf4503dc6074fc143e12"
 
   bottle do
-    sha256 "231256636387c96e61448be2afa84936a0a91f5096ac955695e92f6b29c5d7af" => :mojave
-    sha256 "e3af81b278f7b8b530241a69007a91af6cf45e648c15537be5dc3c9078ed3eed" => :high_sierra
-    sha256 "3b22d7d19cf6a6abadd99ba668b06460bb3c4aab8fc9fc6043c438bbe2939290" => :sierra
+    rebuild 1
+    sha256 "229ca69ebdea39e502031c08c9823bda5dc1dd37cd7dcaef00efea29439ac6a7" => :mojave
+    sha256 "7667e5b9837ff7ef824540ac5301e5bdc555a0edd4bc431c9b23d82e1a6c2d17" => :high_sierra
+    sha256 "c06a916a0b775eaf2a183ddace6ca55ca8098338f672925b43a721871af588d4" => :sierra
   end
 
   depends_on "autoconf" => :build
