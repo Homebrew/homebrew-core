@@ -3,6 +3,7 @@ class Opensc < Formula
   homepage "https://github.com/OpenSC/OpenSC/wiki"
   url "https://github.com/OpenSC/OpenSC/releases/download/0.19.0/opensc-0.19.0.tar.gz"
   sha256 "2c5a0e4df9027635290b9c0f3addbbf0d651db5ddb0ab789cb0e978f02fd5826"
+  revision 1
   head "https://github.com/OpenSC/OpenSC.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Opensc < Formula
   depends_on "docbook-xsl" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
