@@ -7,9 +7,9 @@ class Libjwt < Formula
 
   bottle do
     cellar :any
-    sha256 "e8cab6f4cfbd8208a3acf42e7d30962b3361bfec08d9d534750755106e8ef892" => :mojave
-    sha256 "e9d9049b9927e7f35795270f6d0eb8fff04f81995c715428f99e00049601e680" => :high_sierra
-    sha256 "0c77af65c6831d7ba809c63a8f4fbea92844f4fec0aadbaa753828383901088e" => :sierra
+    sha256 "09af2428fecdde174257dc12590d41e3bb0363a10ef5e773a6d5da2b06f7a412" => :mojave
+    sha256 "a9f50bb30bb9fef67695d76f539656a34cbe027c436b95a17c3837d9754036a5" => :high_sierra
+    sha256 "63c68eeea0ee1d61b60c9e3df66a7d0881688be1075d9fbe955cd7a4191f0d91" => :sierra
   end
 
   depends_on "autoconf" => :build
