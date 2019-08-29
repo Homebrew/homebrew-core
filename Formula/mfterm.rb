@@ -3,6 +3,7 @@ class Mfterm < Formula
   homepage "https://github.com/4ZM/mfterm"
   url "https://github.com/4ZM/mfterm/releases/download/v1.0.7/mfterm-1.0.7.tar.gz"
   sha256 "b6bb74a7ec1f12314dee42973eb5f458055b66b1b41316ae0c5380292b86b248"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,11 +23,11 @@ class Mfterm < Formula
 
   depends_on "libnfc"
   depends_on "libusb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
 
     if build.head?
       chmod 0755, "./autogen.sh"
