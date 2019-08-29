@@ -14,7 +14,7 @@ class MysqlAT55 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def datadir
     var/"mysql"
