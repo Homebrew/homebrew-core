@@ -4,6 +4,7 @@ class Nopoll < Formula
   url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.6.b400.tar.gz"
   version "0.4.6.b400"
   sha256 "7f1b20f1d0525f30cdd2a4fc386d328b4cf98c6d11cef51fe62cd9491ba19ad9"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Nopoll < Formula
     sha256 "266e0d329c27be6a5c9a202b0dd7c6745d7962be606321b9172c0a57b77b91b8" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
