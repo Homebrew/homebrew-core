@@ -8,7 +8,7 @@ class RubyBuild < Formula
   bottle :unneeded
 
   depends_on "autoconf"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkg-config"
 
   def install
