@@ -3,6 +3,7 @@ class Miniserve < Formula
   homepage "https://github.com/svenstaro/miniserve"
   url "https://github.com/svenstaro/miniserve/archive/v0.5.0.tar.gz"
   sha256 "5b7c91bdf35e1a17ca006efa0354712301886c5c50952a2162401aef77faced0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +12,7 @@ class Miniserve < Formula
     sha256 "b21ba4b456e9f97d37c6fe667a6fdfb6d40c6b345c8f2a9baf0f85eb9cc39d98" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Miniserve requires a known-good Rust nightly release to use.
   resource "rust-nightly" do
