@@ -14,7 +14,7 @@ class MysqlCluster < Formula
 
   depends_on "cmake" => :build
   depends_on :java => "1.8"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   conflicts_with "memcached", :because => "both install `bin/memcached`"
   conflicts_with "mysql", "mariadb", "percona-server",
