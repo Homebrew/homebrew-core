@@ -3,6 +3,7 @@ class S2geometry < Formula
   homepage "https://github.com/google/s2geometry.git"
   url "https://github.com/google/s2geometry/archive/v0.9.0.tar.gz"
   sha256 "54c09b653f68929e8929bffa60ea568e26f3b4a51e1b1734f5c3c037f1d89062"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class S2geometry < Formula
 
   depends_on "cmake" => :build
   depends_on "glog" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
@@ -21,7 +22,7 @@ class S2geometry < Formula
   end
 
   def install
-    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     (buildpath/"gtest").install resource "gtest"
     (buildpath/"gtest/googletest").cd do
