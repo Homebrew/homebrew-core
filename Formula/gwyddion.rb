@@ -1,9 +1,8 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.53/gwyddion-2.53.tar.gz"
-  sha256 "d142569adc4d523e51ca53cbff19414576facb774e5f4dad88b6ec475972f081"
-  revision 2
+  url "http://gwyddion.net/download/2.54/gwyddion-2.54.tar.gz"
+  sha256 "4809f8709adb18aecff9dc0271832fd9840f02d4bc0e69d25c59d745f05cf81d"
 
   bottle do
     sha256 "dbccea794476114bb4168aec4b0d5a896bc3246f133e2eb681fe3ecf5186817b" => :mojave
@@ -21,13 +20,6 @@ class Gwyddion < Formula
   depends_on "minizip"
   depends_on "pygtk"
   depends_on "python@2"
-
-  # Fixes problem with finding resource files in version 2.53.
-  # <https://sourceforge.net/p/gwyddion/mailman/message/36604431/>
-  patch do
-    url "http://gwyddion.net/download/2.53/gwyddion-2.53-ensure-osx-basedir.patch"
-    sha256 "17e5282d7add1e1af0d530885dbe501e29869340ba6d77879bf67e7a9f860990"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
