@@ -3,6 +3,7 @@ class Nmap < Formula
   homepage "https://nmap.org/"
   url "https://nmap.org/dist/nmap-7.80.tar.bz2"
   sha256 "fcfa5a0e42099e12e4bf7a68ebe6fde05553383a682e816a7ec9256ab4773faa"
+  revision 1
   head "https://svn.nmap.org/nmap/"
 
   bottle do
@@ -11,7 +12,7 @@ class Nmap < Formula
     sha256 "e06900a582cdbacfb201d38d72b906f882871bcf30d776f0192cc540a6902f5a" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 
@@ -22,7 +23,7 @@ class Nmap < Formula
       --prefix=#{prefix}
       --with-libpcre=included
       --with-liblua=included
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-nmap-update
       --disable-universal
       --without-zenmap
