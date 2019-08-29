@@ -23,7 +23,7 @@ class Nut < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   conflicts_with "rhino", :because => "both install `rhino` binaries"
 
