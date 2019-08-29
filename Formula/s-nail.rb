@@ -3,6 +3,7 @@ class SNail < Formula
   homepage "https://www.sdaoden.eu/code.html"
   url "https://www.sdaoden.eu/downloads/s-nail-14.9.15.tar.gz"
   sha256 "4c4bb1dae0fd6edabf1d268ac6a476de9aab3c15b4bbe2141549a11dbf2bae73"
+  revision 1
 
   bottle do
     sha256 "430e096643d36fb5a237c20e26969cc5d378b843ac9bc7fef327caa9668966d8" => :mojave
@@ -12,12 +13,12 @@ class SNail < Formula
 
   depends_on "awk" => :build
   depends_on "libidn"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{Formula["openssl"].opt_include}",
-                   "LDFLAGS=-L#{Formula["openssl"].opt_lib}",
+                   "C_INCLUDE_PATH=#{Formula["openssl@1.1"].opt_include}",
+                   "LDFLAGS=-L#{Formula["openssl@1.1"].opt_lib}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"
