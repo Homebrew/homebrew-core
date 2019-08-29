@@ -8,14 +8,14 @@ class Testssl < Formula
 
   bottle :unneeded
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     bin.install "testssl.sh"
     man1.install "doc/testssl.1"
     prefix.install "etc"
     env = {
-      :PATH                => "#{Formula["openssl"].opt_bin}:$PATH",
+      :PATH                => "#{Formula["openssl@1.1"].opt_bin}:$PATH",
       :TESTSSL_INSTALL_DIR => prefix,
     }
     bin.env_script_all_files(libexec/"bin", env)
