@@ -4,6 +4,7 @@ class Openrct2 < Formula
   url "https://github.com/OpenRCT2/OpenRCT2.git",
       :tag      => "v0.2.3",
       :revision => "ac7a1ebf71566afb093befcb8293406c1a4025b4"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
@@ -20,7 +21,7 @@ class Openrct2 < Formula
   depends_on "libpng"
   depends_on "libzip"
   depends_on :macos => :high_sierra # "missing: Threads_FOUND" on Sierra
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
   depends_on "speexdsp"
