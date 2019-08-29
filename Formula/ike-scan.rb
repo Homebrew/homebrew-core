@@ -3,6 +3,7 @@ class IkeScan < Formula
   homepage "https://github.com/royhills/ike-scan"
   url "https://github.com/royhills/ike-scan/archive/1.9.4.tar.gz"
   sha256 "2865014185c129ac443beb7bf80f3c5eb93adb504cd307c5b6709199abf7c121"
+  revision 1
 
   head "https://github.com/royhills/ike-scan.git"
 
@@ -15,14 +16,14 @@ class IkeScan < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
