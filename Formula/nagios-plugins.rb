@@ -38,6 +38,6 @@ class NagiosPlugins < Formula
 
   test do
     output = shell_output("#{sbin}/check_dns -H 8.8.8.8 -t 3")
-    assert_match "google-public-dns", output
+    assert_match "DNS OK", output
   end
 end

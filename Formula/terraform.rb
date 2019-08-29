@@ -1,15 +1,15 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.6.tar.gz"
-  sha256 "df108a45f5ba2658eed844c3a6647117324c99770e06cbd549b26dd7c20ee623"
+  url "https://github.com/hashicorp/terraform/archive/v0.12.7.tar.gz"
+  sha256 "1c4b04e219de9325b3c018679004795fd90c4f5148c6249ff43b156e35f58d56"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2c010edc387fd2d6e53ebfa1add9045b451118306a380141d19d443b4efa430" => :mojave
-    sha256 "5c8b5d15497450d4ebaf39fa3942abeb8355e0e461206e9de208e50a9d7c287f" => :high_sierra
-    sha256 "314af7f013e35c71e31ce15e702e5c8581cc53b97052b1316ec187a899f10305" => :sierra
+    sha256 "a93f20602d705daee74a8eaefc92d7d2a919c230acdf7c268df8794807e1c52b" => :mojave
+    sha256 "12ea96748af0772c0027ced78225bc0d1a8704578d1116e29aa4f5acf0f3bb41" => :high_sierra
+    sha256 "ddc69e0a9b3f7403d835fa19e8b9253ca4521b05e2781aad5a6e44426f6456fd" => :sierra
   end
 
   depends_on "go" => :build

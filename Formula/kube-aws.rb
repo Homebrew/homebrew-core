@@ -2,15 +2,15 @@ class KubeAws < Formula
   desc "Command-line tool to declaratively manage Kubernetes clusters on AWS"
   homepage "https://kubernetes-incubator.github.io/kube-aws/"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
-      :tag      => "v0.12.5",
-      :revision => "1556cc00b507400bafae7bfd4e37e565a7c83a5d"
+      :tag      => "v0.14.1",
+      :revision => "34342f7153e7a6f601438026174d4d68e8f9eda5"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0a6d5bc9c145746655b840ef39a2a7a4166de0f167fbb537d3edd8ade11ccd50" => :mojave
-    sha256 "a9f2d01352a82b6e59a859b5cf37e0d708ef2e0ae818f13e70dd3562e53d46d3" => :high_sierra
-    sha256 "29683ca32f02a7dd8a7c8cdb738f5cad8214c324904e6ac155d3c983485ed6e0" => :sierra
+    sha256 "18e2da3a952fb04a061d0765cb1f183f7399a6360723ed8e408b56b4ef2069a7" => :mojave
+    sha256 "469566a099c761183a7d40a9c7d47691bc210c30f2cbe93c4b40d791d9cc8d11" => :high_sierra
+    sha256 "61dfb1788f25c19227b55a8019e574fd7bf7e99366b4567f5fa33694c4d5abc4" => :sierra
   end
 
   depends_on "go" => :build

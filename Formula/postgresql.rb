@@ -1,14 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.4/postgresql-11.4.tar.bz2"
-  sha256 "02802ddffd1590805beddd1e464dd28a46a41a5f1e1df04bab4f46663195cc8b"
+  url "https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2"
+  sha256 "7fdf23060bfc715144cbf2696cf05b0fa284ad3eb21f0c378591c6bca99ad180"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "50b37d75b65cbc3e5ef025c1a061d4008de18e07aaa5b12eca77433c8e7e2141" => :mojave
-    sha256 "0dd22aae8ca8bdfb290fc3de98eedea7d6e984d863e4c06ec9cd952c5415f3e4" => :high_sierra
-    sha256 "da29f897940ba9c3f193518a16927de8d4f7acabc383619a45fe378384c265c4" => :sierra
+    sha256 "fb07943cee2493f3bfaf94773f36b4ffbd635d0d38008587222a6f722f2a1c3e" => :mojave
+    sha256 "553298bb9502d8dea410190ff1ffbbdbed123c2d654014e0c6f5509332f0272d" => :high_sierra
+    sha256 "e11d6a1255b1c4f52e9014d13c2bc8be502ccd795e3275365344c810ef548880" => :sierra
   end
 
   depends_on "pkg-config" => :build

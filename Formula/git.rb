@@ -1,14 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.22.1.tar.xz"
-  sha256 "4ce1f93ab77847e9a9d565ee7c94ceadb80ea7d477fe68123f2329f8d4937824"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz"
+  sha256 "234fa05b6839e92dc300b2dd78c92ec9c0c8d439f65e1d430a7034f60af16067"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "dd3baee97f3c126ecf3e1e4a1b476134623ad86aaee8b3ee70a0d831092fa27a" => :mojave
-    sha256 "ce22c58c96421af2d936b7d115644df9baf93c0fb3e16503c11e84b19f7fdbb4" => :high_sierra
-    sha256 "a45a5a9a513f1df63b49273896717f09497fa3f67e82600bdc0accc7e76ebae4" => :sierra
+    sha256 "c32304092f99c0c296fe210bcaf2a16a50ba4d670faa170fc78e6f950c19def0" => :mojave
+    sha256 "bae26a253f14434ab6b7dda559a4c0f353e727084bc4b0f389a6aa136b9d4216" => :high_sierra
+    sha256 "3215c678f328fd01d3b942ff8d83fa77d0e3f886d3a69334f8082d3ec133ebf2" => :sierra
   end
 
   depends_on "gettext"
@@ -20,13 +20,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.22.1.tar.xz"
-    sha256 "9c02dd40a2f544c142e08a91b89b7f7d4c6a11d8659ca7a17dd4fc894d0ee00f"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.23.0.tar.xz"
+    sha256 "b7959afd19554aeaaa455c88eeed2c164854391f13319bd3fa7df2577c57ddc8"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.22.1.tar.xz"
-    sha256 "8610b4f0d13e26fe0aa4aa913f8c15eb0b361611a1fcd3a5452552f4d2c6779f"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.23.0.tar.xz"
+    sha256 "9558433f68ff4229bd55e84c4d26b74e5d3518ab0ec30186253b090ea887946a"
   end
 
   resource "Net::SMTP::SSL" do

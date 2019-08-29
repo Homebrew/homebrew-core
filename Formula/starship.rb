@@ -1,15 +1,15 @@
 class Starship < Formula
   desc "The cross-shell prompt for astronauts"
-  homepage "https://github.com/starship/starship"
-  url "https://github.com/starship/starship/archive/v0.9.1.tar.gz"
-  sha256 "fad2f87b253b352a97e1252e16e0a76c7785708d7f585798d28493f6eddef557"
+  homepage "https://starship.rs"
+  url "https://github.com/starship/starship/archive/v0.13.1.tar.gz"
+  sha256 "990b0e418224900824179bc6c8fca89566696be79d68b8af191da107b7414f46"
   head "https://github.com/starship/starship.git"
 
   bottle do
     cellar :any
-    sha256 "ed28daf8b052340bbd6f7878f2de69c4cf3c73cd0f4c0effddc1d15eb8d68b6a" => :mojave
-    sha256 "a29dd96ad7b264023d5e0ff057c8227fe0c3b0ec4f7e011c821153a17b166519" => :high_sierra
-    sha256 "7ce07ba7d4292b0d5c465661ca6a09f9306465bdbca58de74070ca982c78d36e" => :sierra
+    sha256 "a441c5a285a227aea20ff14f5c017407841bb8b64fc30371b040c60cb7069d66" => :mojave
+    sha256 "9a0987c1546bb719b84666879bfcad351b00ad6797958e369ca407f0adde65e3" => :high_sierra
+    sha256 "4d49733275f26e3db85cd66cbe76d3653514bb255ecfcaa82504839bf9085084" => :sierra
   end
 
   depends_on "rust" => :build
@@ -21,6 +21,6 @@ class Starship < Formula
 
   test do
     ENV["STARSHIP_CONFIG"] = ""
-    assert_equal "[1;32m➜[0m ", shell_output("#{bin}/starship module character")
+    assert_equal "[1;32m❯[0m ", shell_output("#{bin}/starship module character")
   end
 end

@@ -3,14 +3,14 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/b7/be/7c43566ef1967ea806a2002151534ce82e8bce2f55c96a843bcd148c3b31/fdroidserver-1.1.2.tar.gz"
-  sha256 "97b83f38b4a351b3d2fff1c2abd4fbe0b88f990d984e18f0c04345ad39be28b4"
+  url "https://files.pythonhosted.org/packages/46/bd/9ad49a599625c838da94b39d98d9dc00427e12c2962aeab11865d01ed95a/fdroidserver-1.1.5.tar.gz"
+  sha256 "14291cde4c663328a70e22305769171a79caefea2f1148d1628cb3cda8938fba"
 
   bottle do
     cellar :any
-    sha256 "1b52808fbf5ab5ff4e75b388b5fc7b4defce6a2d747eb7d96a735c305b7e5d78" => :mojave
-    sha256 "92859b4e1ed0d748e80b14af94742106fff2df9ce25367bd8c7d717b18876b22" => :high_sierra
-    sha256 "2b3cba2414f2f0f081522ab7e72e82d74d41b0a2e241f9e2015cd9bf22a6bff7" => :sierra
+    sha256 "ace1c567ea6225df905233a8bdb7bc3e3043e47c628c017e8a07e15d89483767" => :mojave
+    sha256 "aeb7069b13cbc39425fc01596564f920c22e63451b68f8d355c0d0b747fbcd3b" => :high_sierra
+    sha256 "01424778113516b5a71d3b0f0ec6d9bc57b28f36d5e887cc72f3b5b89b7df7da" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -128,8 +128,8 @@ class Fdroidserver < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/e8/81/5f5149d20fca4bde4ecae4239166043355dc6c6daa42fa7f863de012b965/GitPython-2.1.13.tar.gz"
-    sha256 "c15c55ff890cd3a6a8330059e80885410a328f645551b55a91d858bfb3eb2573"
+    url "https://files.pythonhosted.org/packages/51/46/993beca52f3b609d148071e129235b866626eeb6056f2faffb41d9d727a7/GitPython-3.0.2.tar.gz"
+    sha256 "d2f4945f8260f6981d724f5957bc076398ada55cb5d25aaee10108bcdc894100"
   end
 
   resource "idna" do
@@ -148,8 +148,8 @@ class Fdroidserver < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/0f/f9/2fd9da09a29c0b7db05c7f152651c5c54a4ef0549b6bc9be82f3019f7da5/jedi-0.14.1.tar.gz"
-    sha256 "53c850f1a7d3cfcd306cc513e2450a54bdf5cacd7604b74e42dd1f0758eaaf36"
+    url "https://files.pythonhosted.org/packages/85/03/cd5a6e44a5753b4d539288d9d1f9645caac889c17dd2950292a8818f86b2/jedi-0.15.1.tar.gz"
+    sha256 "ba859c74fa3c966a22f2aeebe1b74ee27e2a462f56d3f5f7ca4a59af61bfe42e"
   end
 
   resource "kiwisolver" do
@@ -158,8 +158,8 @@ class Fdroidserver < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e1/f5/5eb3b491958dcfdcfa5daae3c655ab59276bc216ca015e44743c9c220e9e/lxml-4.4.0.tar.gz"
-    sha256 "3b57dc5ed7b6a7d852c961f2389ca99404c2b59fd2088baec6fbaca02f688be4"
+    url "https://files.pythonhosted.org/packages/c4/43/3f1e7d742e2a7925be180b6af5e0f67d38de2f37560365ac1a0b9a04c015/lxml-4.4.1.tar.gz"
+    sha256 "c81cb40bff373ab7a7446d6bbca0190bccc5be3448b47b51d729e37799bb5692"
   end
 
   resource "matplotlib" do
@@ -178,8 +178,8 @@ class Fdroidserver < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/da/32/1b8f2bb5fb50e4db68543eb85ce37b9fa6660cd05b58bddfafafa7ed62da/numpy-1.17.0.zip"
-    sha256 "951fefe2fb73f84c620bec4e001e80a80ddaa1b84dce244ded7f1e0cbe0ed34a"
+    url "https://files.pythonhosted.org/packages/cb/79/96df883cd6df0c86cb010e6f4ff790b7a30a45016a9509c94ea72c8695cd/numpy-1.17.1.zip"
+    sha256 "f11331530f0eff69a758d62c2461cd98cdc2eae0147279d8fc86e0464eb7e8ca"
   end
 
   resource "oauthlib" do
@@ -288,8 +288,8 @@ class Fdroidserver < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/fd/f4/0a9044336f9ae455749a9e1ce6a7c8d6a47551f7eeddb8e9ea574d25b75c/ruamel.yaml-0.16.1.tar.gz"
-    sha256 "547aeab5c51c93bc750ed2a320c1559b605bde3aa569216aa75fd91d8a1c4623"
+    url "https://files.pythonhosted.org/packages/de/76/cf97d739365eff258e2af0457a150bf2818f3eaa460328610eafeed0894a/ruamel.yaml-0.16.5.tar.gz"
+    sha256 "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
   end
 
   resource "ruamel.yaml.clib" do
