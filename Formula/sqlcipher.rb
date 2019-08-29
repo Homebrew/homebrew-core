@@ -3,6 +3,7 @@ class Sqlcipher < Formula
   homepage "https://www.zetetic.net/sqlcipher/"
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.2.0.tar.gz"
   sha256 "105c1b813f848da038c03647a8bfc9d42fb46865e6aaf4edfd46ff3b18cdccfc"
+  revision 1
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
@@ -12,13 +13,13 @@ class Sqlcipher < Formula
     sha256 "6b84524fa20fc0d6e9ff0c15242760cfb5516bd50042fa4d79ea49ce93c62d55" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --enable-tempstore=yes
-      --with-crypto-lib=#{Formula["openssl"].opt_prefix}
+      --with-crypto-lib=#{Formula["openssl@1.1"].opt_prefix}
       --enable-load-extension
       --disable-tcl
     ]
