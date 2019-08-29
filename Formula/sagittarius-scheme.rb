@@ -1,8 +1,8 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
-  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.4.tar.gz"
-  sha256 "0a8fd767c19c7d784448b68c03a241ebacba5bbcd177c0cbda0164807d9ef7f2"
+  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.6.tar.gz"
+  sha256 "b946b168fca70f84d922bcfa2125e2e64ad5fb8cf67e4204deb43dd2dcdedb0e"
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class SagittariusScheme < Formula
   depends_on "cmake" => :build
   depends_on "bdw-gc"
   depends_on "libffi"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", *std_cmake_args
