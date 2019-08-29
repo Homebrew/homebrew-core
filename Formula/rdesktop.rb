@@ -3,6 +3,7 @@ class Rdesktop < Formula
   homepage "https://www.rdesktop.org/"
   url "https://github.com/rdesktop/rdesktop/releases/download/v1.8.6/rdesktop-1.8.6.tar.gz"
   sha256 "4131c5cc3d6a2e1a6515180502093c2b1b94cc8c34dd3f86aa8b3475399634ef"
+  revision 1
 
   bottle do
     sha256 "502610835305f8ad03ffaff82d4ed349ec999680e79835225c1053124cb6b628" => :mojave
@@ -10,7 +11,7 @@ class Rdesktop < Formula
     sha256 "e8a895ce49ccf9df4b41f557a53dedf055eec20f14c17d24351750b816695d45" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :x11
 
   # Note: The patch below is meant to remove the reference to the
@@ -23,7 +24,7 @@ class Rdesktop < Formula
       --prefix=#{prefix}
       --disable-credssp
       --enable-smartcard
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --x-includes=#{MacOS::X11.include}
       --x-libraries=#{MacOS::X11.lib}
     ]
