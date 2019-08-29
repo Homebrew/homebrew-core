@@ -4,6 +4,7 @@ class Ophcrack < Formula
   url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.8.0/ophcrack-3.8.0.tar.bz2"
   mirror "https://deb.debian.org/debian/pool/main/o/ophcrack/ophcrack_3.8.0.orig.tar.bz2"
   sha256 "048a6df57983a3a5a31ac7c4ec12df16aa49e652a29676d93d4ef959d50aeee0"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,12 +14,12 @@ class Ophcrack < Formula
     sha256 "cdc8ef23e5f78936b3c3840a18a6ea2fcee63cb3ba16ff2037d995221e0ae7cf" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-gui",
-                          "--with-libssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-libssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
