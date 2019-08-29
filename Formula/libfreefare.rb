@@ -7,10 +7,9 @@ class Libfreefare < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "953fe3418c5992478db9870f2b8dbf40d47e232ac893b914abf0ed22d5b2e135" => :mojave
-    sha256 "745df5e971fa587181aedac8a82a534b7a7a882db37214f41a11abcfb7f346ea" => :high_sierra
-    sha256 "db7b9483be4a65d146fdba8211c8280c65eacb1d7537b1f149a2ef10433598ae" => :sierra
+    sha256 "cb3dedfc77ded9e44680a7c7f68ab9fc20d7cb2042bde58494968f011354eb74" => :mojave
+    sha256 "d3d40b88ac6049ea3eb2f3afc96dee6608425bd46526b5e15f264c9b9c8fba99" => :high_sierra
+    sha256 "4f75161d80be443a364a7d594dd9c627d6c253edbb856241dff1f9b73af3fec3" => :sierra
   end
 
   depends_on "pkg-config" => :build
