@@ -8,9 +8,9 @@ class IkeScan < Formula
   head "https://github.com/royhills/ike-scan.git"
 
   bottle do
-    sha256 "d6deea8b99eb570833d63feb09776a3fc1584ce83f78808fe0730aec8cacc467" => :mojave
-    sha256 "67c79247795879dc39dee4f7264f9665e5fa5fb4b5e75a9f153d1dffa1cc88ce" => :high_sierra
-    sha256 "49efb4387beb1f0edcba655b845f74b802e4b2f4fb3b57028b59fa3b44717e74" => :sierra
+    sha256 "684cd449c88f873dec2719d9423f42732006631b923aec133c5c2a447895b241" => :mojave
+    sha256 "9be05676d382198f99911601aa83008e5a27371669728c4d70cc98e9564bd2f3" => :high_sierra
+    sha256 "cd6e8435040dd728e6dbd62c161d0c6b48d19e0f5fe69ce9bef48991cccb91f1" => :sierra
   end
 
   depends_on "autoconf" => :build
