@@ -4,7 +4,7 @@ class MitScheme < Formula
   url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
   sha256 "4f6a16f9c7d4b4b7bb3aa53ef523cad39b54ae1eaa3ab3205930b6a87759b170"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -19,7 +19,7 @@ class MitScheme < Formula
   # Dies on "configure: error: SIZEOF_CHAR is not 1" without Xcode.
   # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
   depends_on :xcode => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Setting -march=native, which is what --build-from-source does, can fail
