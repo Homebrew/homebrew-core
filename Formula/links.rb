@@ -3,6 +3,7 @@ class Links < Formula
   homepage "http://links.twibright.com/"
   url "http://links.twibright.com/download/links-2.19.tar.bz2"
   sha256 "70758c7dd9bb70f045407900e0a90f1114947fce832c2f9bdefd5c0158089a0a"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Links < Formula
   depends_on "jpeg"
   depends_on "librsvg"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -23,7 +24,7 @@ class Links < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-lzma
     ]
 
