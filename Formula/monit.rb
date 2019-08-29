@@ -3,6 +3,7 @@ class Monit < Formula
   homepage "https://mmonit.com/monit/"
   url "https://mmonit.com/monit/dist/monit-5.26.0.tar.gz"
   sha256 "87fc4568a3af9a2be89040efb169e3a2e47b262f99e78d5ddde99dd89f02f3c2"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,13 +12,13 @@ class Monit < Formula
     sha256 "a4ec2fe5a66764c4135ad8332206a9f4eedf384f0f48aa8bccf8bbe4ec5713c7" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
     pkgshare.install "monitrc"
   end
