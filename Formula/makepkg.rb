@@ -4,6 +4,7 @@ class Makepkg < Formula
   url "https://projects.archlinux.org/git/pacman.git",
       :tag      => "v5.0.2",
       :revision => "0c633c27eaeab2a9d30efb01199579896ccf63c9"
+  revision 1
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
@@ -28,7 +29,7 @@ class Makepkg < Formula
   # Regression due to https://git.archlinux.org/pacman.git/commit/?id=16718a21
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
   depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
