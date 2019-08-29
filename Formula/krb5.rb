@@ -6,9 +6,9 @@ class Krb5 < Formula
   revision 1
 
   bottle do
-    sha256 "a73183fac51592371795af726b991893db251dbacbcad5e9b0c2f1eb41dd1f62" => :mojave
-    sha256 "beaa308f53f9586fa64a07cb62cc8b349365be3169ec08c9cf669ad3445dcfc7" => :high_sierra
-    sha256 "375b6f6caf39eb186368e949b864d84d75f0af792ef31c3b8de59e3669ba645f" => :sierra
+    sha256 "f879534f9d242bcfe8f788854db6b80d08dfa5b8a77aea0e2309824e4b66d3e9" => :mojave
+    sha256 "11a94abdbe1f318c5c60eb6abfbeb8cf20b80625c16472e9fd70869f85111433" => :high_sierra
+    sha256 "b2016e6c49deebe1f581a17fc0c00ccee982f8740b2d37a9bcff28ff4c91c33b" => :sierra
   end
 
   keg_only :provided_by_macos
