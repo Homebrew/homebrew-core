@@ -3,6 +3,7 @@ class Scrypt < Formula
   homepage "https://www.tarsnap.com/scrypt.html"
   url "https://www.tarsnap.com/scrypt/scrypt-1.2.1.tgz"
   sha256 "4621f5e7da2f802e20850436219370092e9fcda93bd598f6d4236cce33f4c577"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,7 +21,7 @@ class Scrypt < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "autoreconf", "-fvi" if build.head?
