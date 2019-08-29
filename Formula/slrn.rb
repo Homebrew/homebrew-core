@@ -3,6 +3,7 @@ class Slrn < Formula
   homepage "https://slrn.sourceforge.io/"
   url "https://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2"
   sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
+  revision 1
   head "git://git.jedsoft.org/git/slrn.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Slrn < Formula
     sha256 "06d71ffeb008854c63eeadf6f45633cf692e648490cb20c2ba5f3229cc3dc808" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "s-lang"
 
   def install
@@ -23,7 +24,7 @@ class Slrn < Formula
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     system "make", "all", "slrnpull"
