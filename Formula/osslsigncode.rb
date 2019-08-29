@@ -19,7 +19,7 @@ class Osslsigncode < Formula
 
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     system "autoreconf", "-ivf" if build.head?
