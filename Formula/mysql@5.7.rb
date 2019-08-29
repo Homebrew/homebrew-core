@@ -3,6 +3,7 @@ class MysqlAT57 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.27.tar.gz"
   sha256 "036ab46a8a1216cfc1e87374bd1cba12e2208c02cf328a31851be7e1c7f57a2b"
+  revision 1
 
   bottle do
     sha256 "e232cc9150f4f8d65ce5e24e010fa09ea3da90029bfd98036258d4370f75e798" => :mojave
@@ -14,7 +15,7 @@ class MysqlAT57 < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def datadir
     var/"mysql"
