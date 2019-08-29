@@ -4,7 +4,7 @@ class Pyqt < Formula
   url "https://dl.bintray.com/homebrew/mirror/pyqt-5.10.1.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.10.1/PyQt5_gpl-5.10.1.tar.gz"
   sha256 "9932e971e825ece4ea08f84ad95017837fa8f3f29c6b0496985fa1093661e9ef"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,6 @@ class Pyqt < Formula
   end
 
   depends_on "python"
-  depends_on "python@2"
   depends_on "qt"
   depends_on "sip"
 
@@ -27,45 +26,41 @@ class Pyqt < Formula
   end
 
   def install
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      args = ["--confirm-license",
-              "--bindir=#{bin}",
-              "--destdir=#{lib}/python#{version}/site-packages",
-              "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
-              "--sipdir=#{share}/sip/Qt5",
-              # sip.h could not be found automatically
-              "--sip-incdir=#{Formula["sip"].opt_include}",
-              "--qmake=#{Formula["qt"].bin}/qmake",
-              # Force deployment target to avoid libc++ issues
-              "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
-              "--qml-plugindir=#{pkgshare}/plugins",
-              "--verbose"]
+    version = Language::Python.major_minor_version "python3"
+    args = ["--confirm-license",
+            "--bindir=#{bin}",
+            "--destdir=#{lib}/python#{version}/site-packages",
+            "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
+            "--sipdir=#{share}/sip/Qt5",
+            # sip.h could not be found automatically
+            "--sip-incdir=#{Formula["sip"].opt_include}",
+            "--qmake=#{Formula["qt"].bin}/qmake",
+            # Force deployment target to avoid libc++ issues
+            "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+            "--qml-plugindir=#{pkgshare}/plugins",
+            "--verbose"]
 
-      system python, "configure.py", *args
-      system "make"
-      system "make", "install"
-      system "make", "clean"
-    end
+    system "python3", "configure.py", *args
+    system "make"
+    system "make", "install"
+    system "make", "clean"
   end
 
   test do
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
 
-    ["python2", "python3"].each do |python|
-      system python, "-c", "import PyQt5"
-      %w[
-        Gui
-        Location
-        Multimedia
-        Network
-        Quick
-        Svg
-        WebEngineWidgets
-        Widgets
-        Xml
-      ].each { |mod| system python, "-c", "import PyQt5.Qt#{mod}" }
-    end
+    system "python3", "-c", "import PyQt5"
+    %w[
+      Gui
+      Location
+      Multimedia
+      Network
+      Quick
+      Svg
+      WebEngineWidgets
+      Widgets
+      Xml
+    ].each { |mod| system "python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end
