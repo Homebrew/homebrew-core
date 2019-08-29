@@ -3,6 +3,7 @@ class Stuntman < Formula
   homepage "http://www.stunprotocol.org/"
   url "http://www.stunprotocol.org/stunserver-1.2.15.tgz"
   sha256 "321f796a7cd4e4e56a0d344a53a6a96d9731df5966816e9b46f3aa6dcc26210f"
+  revision 1
   head "https://github.com/jselbie/stunserver.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Stuntman < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make"
