@@ -14,7 +14,7 @@ class Proxytunnel < Formula
 
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   # Remove for > 1.9.1
   # Remove conflicting strlcpy/strlcat declarations
