@@ -6,12 +6,9 @@ class Gtmess < Formula
   revision 2
 
   bottle do
-    sha256 "1b9066159f2dbd90cb0ef92ac93a27b5a7e165100a7cbb1cb27e691eefbe409a" => :mojave
-    sha256 "534bb2994bffd6e852a0219999ed41286a042f739ce6664bbf1748f369606094" => :high_sierra
-    sha256 "40b3eaee60f25bfcc08c6f6c613fa20c3498b471915712c096513b06895710c8" => :sierra
-    sha256 "4e13b036917a9a793db1feaf3a3b79b4815f75ed4924963c8cc0ef8a114ced1d" => :el_capitan
-    sha256 "a9afe5b901bd068aa32834df9eca85e3f63ef510ecbb8854cd8bdc8e1b6eb66d" => :yosemite
-    sha256 "894f4d6e076d77a83aaeb05d6eac7f21551f7de9864b391aaf710613693bdb1c" => :mavericks
+    sha256 "9b5e2ecdb133c3a069305f572ec6d172dfaf10371459e44cc84574b08d2db19c" => :mojave
+    sha256 "90d1a2aeab88db7022e64335d101d2a10a045a3b8d6c443381ade99b2c13e2d1" => :high_sierra
+    sha256 "e8568ea56b4f24521472ae51b4f00bcd704791ec1bcbd6a8a250c7a1e2c43c04" => :sierra
   end
 
   head do
