@@ -5,11 +5,10 @@ class MysqlCluster < Formula
   sha256 "c40551603a9aacc4db96416be7f15700af6039a2247b83c2dce637c793cb10d8"
 
   bottle do
-    sha256 "2cebf38ab91fdd6caf24a7f30effea193d4d5a0596adf78172f5971dce8f3cec" => :mojave
-    sha256 "a45135631bc0a4af03386ff3d812b1375dcd6f1cfc609b19bbdcf67dd676396a" => :high_sierra
-    sha256 "91bf3e3613e86df1f8fec9785d236a9ecffe72bc0e8fbe81e1c5961f77052f48" => :sierra
-    sha256 "84a754a7f71e34ee076774027930bbd7667961e2ecf82724a56d3b73b5eeac76" => :el_capitan
-    sha256 "29692861b897e6b013d01396bd0cea9541b109a7d691007ddb67a64de91d0a44" => :yosemite
+    rebuild 1
+    sha256 "c674f96367eada920fa37cf53d8ed2ec599989c4962b224b71e43143d719ee2d" => :mojave
+    sha256 "5aeccf907d65e780dcf4272a48f13556307713338cad5eb34394c5f688461889" => :high_sierra
+    sha256 "64d695dea06e09721948a623c2891876c4f3ba49cec6ffc1f1a08739a513babe" => :sierra
   end
 
   depends_on "cmake" => :build
