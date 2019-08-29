@@ -3,6 +3,7 @@ class Nmh < Formula
   homepage "https://www.nongnu.org/nmh/"
   url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.1.tar.gz"
   sha256 "f1fb94bbf7d95fcd43277c7cfda55633a047187f57afc6c1bb9321852bd07c11"
+  revision 1
 
   bottle do
     sha256 "b0d273ecd1a67ddf6504e5aac8771bbc1b60bdea653c0635067e059eb4881507" => :mojave
@@ -17,7 +18,7 @@ class Nmh < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "w3m"
 
   def install
