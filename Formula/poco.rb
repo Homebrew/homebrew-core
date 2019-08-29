@@ -3,6 +3,7 @@ class Poco < Formula
   homepage "https://pocoproject.org/"
   url "https://pocoproject.org/releases/poco-1.9.3/poco-1.9.3-all.tar.gz"
   sha256 "583c464cb2a85a1b0d1bded22875a929eabca54b1575124b114dc4f7e573aa68"
+  revision 1
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
@@ -13,7 +14,7 @@ class Poco < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
