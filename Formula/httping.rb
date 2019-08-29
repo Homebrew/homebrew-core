@@ -8,9 +8,9 @@ class Httping < Formula
 
   bottle do
     cellar :any
-    sha256 "f328421637732811f7c15d5a8c7d33cc9bdf415a95cb795197914287a539001b" => :mojave
-    sha256 "876b72e65eda11adf593340ca26d71cf8df798e0673ab2a1c5cd3451bef90e6a" => :high_sierra
-    sha256 "e72f17a2e9cd1a77330984b9037e9feba6abd3fd4d45a041b93a0e81a3439a81" => :sierra
+    sha256 "2314efd3b919b759290b7ead8dea99c50b11860f7aadb8fd4f9c7e0e7cc92e5e" => :mojave
+    sha256 "8df0f98d479c72a20ca2b353a06c9c1bf071cceed53774c737f41caf27238fc1" => :high_sierra
+    sha256 "9d0b6368e6fa4e2b4fb618c7ba3893a5b3b47471b366305026ee75b44d6ce91e" => :sierra
   end
 
   depends_on "gettext"
