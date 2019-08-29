@@ -7,10 +7,9 @@ class Jose < Formula
 
   bottle do
     cellar :any
-    sha256 "50f8497d1d0327f756b04018d37cb9b7b623abb9ff7809085d7e9c2ae2bf1e8d" => :mojave
-    sha256 "9b4f2fa1305f31524b044a6ded2581e31eda203996061a6e9e57f64688883b9d" => :high_sierra
-    sha256 "8961c873e24e87730465ec0efcfa6190e9359d76e708d1a68aa49df1bb3da827" => :sierra
-    sha256 "b527c51d08dc44eff7005a75eaaa5e5d89fe950a0bd55eec8929431c94877826" => :el_capitan
+    sha256 "358a06afd49f1390ca917969dbb434a75a91bd0de3d8ac981d3eab969670cfe2" => :mojave
+    sha256 "7a84bdaece281b98dc4a7b0a7fbf05976297126966d14ee2862e007521cdd4ea" => :high_sierra
+    sha256 "1669bf780ac07ee9a7d216185139aaa6e5c44add352e6da25f02c079694e7ad1" => :sierra
   end
 
   depends_on "pkg-config" => :build
