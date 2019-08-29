@@ -4,6 +4,7 @@ class Ldid < Formula
   url "https://git.saurik.com/ldid.git",
       :tag      => "v1.2.1",
       :revision => "e4b7adc1e02c9f0e16cc9ae2841192b386f6d4ea"
+  revision 1
   head "https://git.saurik.com/ldid.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Ldid < Formula
     sha256 "fda9d5608ad5e6446ed8fd7b3135d8407fc44b88f628dd4c19391738bd57bf6c" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "make.sh" do |s|
