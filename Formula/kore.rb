@@ -3,6 +3,7 @@ class Kore < Formula
   homepage "https://kore.io/"
   url "https://kore.io/releases/kore-3.3.1.tar.gz"
   sha256 "c80d7a817883e631adf9eb5271b4ffa6ebb06c2e2fca40ce6c3c75638c08b67a"
+  revision 1
   head "https://github.com/jorisvink/kore.git"
 
   bottle do
@@ -13,16 +14,16 @@ class Kore < Formula
 
   depends_on :macos => :sierra # needs clock_gettime
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure make finds our OpenSSL when Homebrew isn't in /usr/local.
     # Current Makefile hardcodes paths for default MacPorts/Homebrew.
-    ENV.prepend "CFLAGS", "-I#{Formula["openssl"].opt_include}"
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
+    ENV.prepend "CFLAGS", "-I#{Formula["openssl@1.1"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
     # Also hardcoded paths in src/cli.c at compile.
     inreplace "src/cli.c", "/usr/local/opt/openssl/include",
-                            Formula["openssl"].opt_include
+                            Formula["openssl@1.1"].opt_include
 
     system "make", "PREFIX=#{prefix}", "TASKS=1"
     system "make", "install", "PREFIX=#{prefix}"
