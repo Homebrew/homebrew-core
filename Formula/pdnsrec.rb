@@ -3,6 +3,7 @@ class Pdnsrec < Formula
   homepage "https://www.powerdns.com/recursor.html"
   url "https://downloads.powerdns.com/releases/pdns-recursor-4.2.0.tar.bz2"
   sha256 "f03c72c1816fdcc645cc539d8c16721d2ec294feac9b5179e78c3db311b7c2c2"
+  revision 1
 
   bottle do
     sha256 "71057462df37d088432c13d44b4dc8f4dbdd5a8217e2fefd04043c1cdf5c5ffd" => :mojave
@@ -14,7 +15,7 @@ class Pdnsrec < Formula
   depends_on "boost"
   depends_on "gcc" if DevelopmentTools.clang_build_version == 600
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   fails_with :clang do
     build 600
@@ -29,7 +30,7 @@ class Pdnsrec < Formula
       --sysconfdir=#{etc}/powerdns
       --disable-silent-rules
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-libcrypto=#{Formula["openssl"].opt_prefix}
+      --with-libcrypto=#{Formula["openssl@1.1"].opt_prefix}
       --with-lua
       --without-net-snmp
     ]
