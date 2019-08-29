@@ -6,11 +6,10 @@ class MonitoringPlugins < Formula
   revision 1
 
   bottle do
-    sha256 "ad0ac72a226d385a990b6fba5836431136945aff4cc4b1a1d57c17457843f104" => :mojave
-    sha256 "39310e6fcfee83275afc1ceab922e4f2a8c72306bf54af49aed986c658175a82" => :high_sierra
-    sha256 "426c87771bcb45bbc92755ea4b05ee213863423554c8bb21b9e2fdfd5e32e959" => :sierra
-    sha256 "d531079a00f1dae22309918b9fbbd3250873b5869001f14af1d221d5bb7b021b" => :el_capitan
-    sha256 "b3d0549fc51c3948743b16eb5bc52a0a7f8af6cf6ad6c05b3056fa947661a6da" => :yosemite
+    cellar :any
+    sha256 "3aa775909751c2a826325b07f0a9b77df5160af6bacfa4f8cb082e635045c620" => :mojave
+    sha256 "81f794e4736584eba6ecfc32b6c79b877579b3841e66b9f70754f98c499a5098" => :high_sierra
+    sha256 "0fa42fdf9687faa06a7566322cf9014d06040338e5a988da6aef130b15e2953a" => :sierra
   end
 
   depends_on "openssl@1.1"
