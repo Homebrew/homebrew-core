@@ -2,8 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
-      :tag      => "v1.6.20",
-      :revision => "987c9b9a2a2e389becf4f390feb9eb14c77e2371"
+      :tag      => "v1.10",
+      :revision => "f9990221e6094886066ec2bf9685648135bd405a"
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
@@ -19,10 +19,14 @@ class Freeswitch < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "ffmpeg"
   depends_on "jpeg"
+  depends_on "ldns"
+  depends_on "libpq"
   depends_on "libsndfile"
+  depends_on "libtiff"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "pcre"
   depends_on "speex"
@@ -87,16 +91,7 @@ class Freeswitch < Formula
   #------------------------ End sound file resources --------------------------
 
   def install
-    ENV["ac_cv_lib_lzma_lzma_code"] = "no" # prevent opportunistic linkage to xz
-
-    # avoid a dependency on ldns to prevent OpenSSL version conflicts
-    inreplace "build/modules.conf.in", "applications/mod_enum",
-                                       "#applications/mod_enum"
-
     system "./bootstrap.sh", "-j"
-
-    # tiff will fail to find OpenGL unless told not to use X
-    inreplace "libs/tiff-4.0.2/configure.gnu", "--with-pic", "--with-pic --without-x"
 
     system "./configure", "--disable-dependency-tracking",
                           "--enable-shared",
