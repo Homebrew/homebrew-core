@@ -3,6 +3,7 @@ class Luvit < Formula
   homepage "https://luvit.io"
   url "https://github.com/luvit/luvit/archive/2.16.0.tar.gz"
   sha256 "3cbd5136da6dba4ccfaee86357255c39b5fafa5fffa62d7d793514fa4dca1a79"
+  revision 1
   head "https://github.com/luvit/luvit.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Luvit < Formula
 
   depends_on "pkg-config" => :build
   depends_on "luajit"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV["USE_SYSTEM_SSL"] = "1"
