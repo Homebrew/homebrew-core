@@ -3,6 +3,7 @@ class QpidProton < Formula
   homepage "https://qpid.apache.org/proton/"
   url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.29.0/qpid-proton-0.29.0.tar.gz"
   sha256 "7dfee950e40f3bd89edf1b1d41874fe129ba25ea3068300aa2578ddc67680bef"
+  revision 1
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git"
 
   bottle do
@@ -14,7 +15,7 @@ class QpidProton < Formula
 
   depends_on "cmake" => :build
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     mkdir "build" do
