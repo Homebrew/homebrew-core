@@ -1,6 +1,7 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
+  revision 1
   head "https://anongit.kde.org/qca.git"
 
   stable do
@@ -23,7 +24,7 @@ class Qca < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl" # qca-ossl plugin
+  depends_on "openssl@1.1" # qca-ossl plugin
   depends_on "qt"
 
   def install
