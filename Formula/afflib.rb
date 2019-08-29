@@ -3,6 +3,7 @@ class Afflib < Formula
   homepage "https://github.com/sshock/AFFLIBv3"
   url "https://github.com/sshock/AFFLIBv3/archive/v3.7.18.tar.gz"
   sha256 "5481cd5d8dbacd39d0c531a68ae8afcca3160c808770d66dcbf5e9b5be3e8199"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,8 +17,7 @@ class Afflib < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  # Python 3 error filed upstream: https://github.com/sshock/AFFLIBv3/issues/35
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   def install
     args = %w[
