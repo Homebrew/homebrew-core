@@ -3,6 +3,7 @@ class Monetdb < Formula
   homepage "https://www.monetdb.org/"
   url "https://www.monetdb.org/downloads/sources/Apr2019/MonetDB-11.33.3.tar.xz"
   sha256 "f69e7312a77407bef2d970e6d8edfc0ca687d5b31c6b4714bd9132fa468a12e9"
+  revision 1
 
   bottle do
     sha256 "98754982eb7de2da55d57923901c2b4e888cba24045a63bdf362fb343dbdc8dc" => :mojave
@@ -21,7 +22,7 @@ class Monetdb < Formula
 
   depends_on "libatomic_ops" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit
 
