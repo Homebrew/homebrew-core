@@ -16,7 +16,7 @@ class ErlangAT17 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "wxmac"
 
@@ -63,7 +63,7 @@ class ErlangAT17 < Formula
       --enable-threads
       --enable-sctp
       --enable-dynamic-ssl-lib
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-hipe
       --enable-shared-zlib
       --enable-smp-support
