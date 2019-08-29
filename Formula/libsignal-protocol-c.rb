@@ -7,10 +7,9 @@ class LibsignalProtocolC < Formula
 
   bottle do
     cellar :any
-    sha256 "69afb86abbe0263768b3cafb3db403b3c3cf628505787c262d3d6a40825a412f" => :mojave
-    sha256 "f54d11652709ff3e48e527ba37008e6d6191ac5f5f51bc4fd1fc2559cc33e2ed" => :high_sierra
-    sha256 "55f3e5bc44e5c3dfd1463c44f218318a27ff2293c4de12ed39a5c5b266ba52a3" => :sierra
-    sha256 "99ba5d67f62c5b54e3f91a02151c797d0d676f975694806eeb2ab8c1d191a512" => :el_capitan
+    sha256 "7035841cf73621a131ee048066d83c8bc76603b87169849f88ce465244673540" => :mojave
+    sha256 "1d81242623d2f2ed761f324dee57a5604ec9fb70cc8ac7c604c92619f93010c2" => :high_sierra
+    sha256 "777f53a6b2b73a010e602f29d0d67f43cc5aa100db82629c66b17ee9b79fc830" => :sierra
   end
 
   depends_on "cmake" => :build
