@@ -3,6 +3,7 @@ class Ssldump < Formula
   homepage "https://ssldump.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ssldump/ssldump/0.9b3/ssldump-0.9b3.tar.gz"
   sha256 "6422c16718d27c270bbcfcc1272c4f9bd3c0799c351f1d6dd54fdc162afdab1e"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Ssldump < Formula
     sha256 "61b20e42893e904872f075064323366aa29e05fc3bab4a2d09265e6e05189532" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # reorder include files
   # https://sourceforge.net/p/ssldump/bugs/40/
