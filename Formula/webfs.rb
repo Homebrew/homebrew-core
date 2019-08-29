@@ -7,12 +7,10 @@ class Webfs < Formula
 
   bottle do
     cellar :any
-    sha256 "867fbe1f213380efb695d89fe6d4cc3e5197d2d303b3d70da72a45814aacc669" => :mojave
-    sha256 "bd713d90ce0e67a1cddf2b3274ddc7467e4b7b5c8ad8b80382e5c0c955c383c3" => :high_sierra
-    sha256 "cbdc088ed6befb87ecda08bf4a23a9eff3bf3d61932d98aa1f8441bb1c0fd3b5" => :sierra
-    sha256 "63755af9ac88711d4eb2e80016ef541ed40a1422f2fb2de3ded5c72b362cb39e" => :el_capitan
-    sha256 "51985bfb7ca68d15261a296886cf0c6b317d870bc79aadf881429101b9a11e09" => :yosemite
-    sha256 "79c670478aeb8f97d702a5112fde2dab07c92145ea836c12bfdf9a1acfca4232" => :mavericks
+    rebuild 1
+    sha256 "f561f9dac64cd43165eefd01619d54042507a4f9a1d572c621e17229b63ec045" => :mojave
+    sha256 "52608c9f1bd5d7e7fceec24bff51ca67e0739b1c83ae2676c6ca161fdfaaa4d7" => :high_sierra
+    sha256 "9e678532e4546e4fabb9a96b9eb141769e00e330e15c9e5b453001141448c9fb" => :sierra
   end
 
   depends_on "openssl@1.1"
