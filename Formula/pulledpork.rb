@@ -3,7 +3,7 @@ class Pulledpork < Formula
   homepage "https://github.com/shirkdog/pulledpork"
   url "https://github.com/shirkdog/pulledpork/archive/v0.7.3.tar.gz"
   sha256 "48c66dc9abb7545186d4fba497263c1d1b247c0ea7f0953db4d515e7898461a2"
-  revision 1
+  revision 2
   head "https://github.com/shirkdog/pulledpork.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Pulledpork < Formula
     sha256 "ba233cd6ace4db24faf5dd0b36523ef4d53ac1c92ba2f5ef54040883f07daf5f" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "Switch" do
     url "https://cpan.metacpan.org/authors/id/C/CH/CHORNY/Switch-2.17.tar.gz"
