@@ -4,6 +4,7 @@ class Ngircd < Formula
   url "https://ngircd.barton.de/pub/ngircd/ngircd-25.tar.gz"
   mirror "https://ngircd.sourceforge.io/pub/ngircd/ngircd-25.tar.gz"
   sha256 "51915780519bae43da3798807e3bed60d887e4eaa728354aa6bb61cdbcda49ba"
+  revision 1
 
   bottle do
     sha256 "d73567d2f8a5282f0043b9ae86bc3742f3a31769c6659b05f5e689648f9f7c53" => :mojave
@@ -12,7 +13,7 @@ class Ngircd < Formula
   end
 
   depends_on "libident"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
