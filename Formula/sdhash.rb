@@ -3,7 +3,7 @@ class Sdhash < Formula
   homepage "http://roussev.net/sdhash/sdhash.html"
   url "http://roussev.net/sdhash/releases/packages/sdhash-3.1.tar.gz"
   sha256 "b991d38533d02ae56e0c7aeb230f844e45a39f2867f70fab30002cfa34ba449c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Sdhash < Formula
     sha256 "bb4951185ede8233e4dccb48fa0da53a812e1af61dac9babbdf41e781b78a1e9" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "Makefile" do |s|
