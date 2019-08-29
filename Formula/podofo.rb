@@ -3,7 +3,7 @@ class Podofo < Formula
   homepage "https://podofo.sourceforge.io"
   url "https://downloads.sourceforge.net/podofo/podofo-0.9.6.tar.gz"
   sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Podofo < Formula
   depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Upstream commit to fix cmake 3.12.0 build issue, remove in >= 0.9.7
   # https://sourceforge.net/p/podofo/tickets/24/
