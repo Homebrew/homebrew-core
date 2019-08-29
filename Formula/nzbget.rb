@@ -3,6 +3,7 @@ class Nzbget < Formula
   homepage "https://nzbget.net/"
   url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
   sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
+  revision 1
   head "https://github.com/nzbget/nzbget.git", :branch => "develop"
 
   bottle do
@@ -13,7 +14,7 @@ class Nzbget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gcc" if MacOS.version == :mavericks
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
