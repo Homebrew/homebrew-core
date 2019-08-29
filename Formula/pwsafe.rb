@@ -3,7 +3,7 @@ class Pwsafe < Formula
   homepage "https://github.com/nsd20463/pwsafe"
   url "https://src.fedoraproject.org/repo/pkgs/pwsafe/pwsafe-0.2.0.tar.gz/4bb36538a2772ecbf1a542bc7d4746c0/pwsafe-0.2.0.tar.gz"
   sha256 "61e91dc5114fe014a49afabd574eda5ff49b36c81a6d492c03fcb10ba6af47b7"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Pwsafe < Formula
     sha256 "a0c772ed64270de75bba371d2c4292f898127c08e68adc4edd6bfc35cf769854" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # A password database for testing is provided upstream. How nice!
