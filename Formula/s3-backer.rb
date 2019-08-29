@@ -3,6 +3,7 @@ class S3Backer < Formula
   homepage "https://github.com/archiecobbs/s3backer"
   url "https://archie-public.s3.amazonaws.com/s3backer/s3backer-1.5.2.tar.gz"
   sha256 "e6dfbd15bddbef9bbb6d014377d61a1c3561b4831a85c92772bd8ab0efd55ce9"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class S3Backer < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
 
   def install
