@@ -20,7 +20,7 @@ class ThriftAT09 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     args = %w[
