@@ -14,11 +14,9 @@ class Pev < Formula
   end
 
   bottle do
-    sha256 "dbc6f431e9f70bbbf582e07bcbd9cd852413d57adbd213573ec2b4c0ca3c19bb" => :mojave
-    sha256 "9f7b8ec7a8796b91524d7fdb5e9913db5afdd220f1fadbbc5a2e32ab7a994e8c" => :high_sierra
-    sha256 "c995e2ccdc4fde4e2e1beaa3039421ef8e77cdbe0ec00f1af50d7ba551d2c695" => :sierra
-    sha256 "ec81bb70fec6dd27f249a575194c62db766b2e31349224d503ecb1cbf2603c37" => :el_capitan
-    sha256 "1013086fe324f7b6147181762541d89dcf4837bd29bd89756d7df23c26fad1f2" => :yosemite
+    sha256 "e4d191b795eebb97ee0bb6a3122bf45f1c2f05c7b192381e712d96d71cd4ffb0" => :mojave
+    sha256 "70c993e146e9d78b9d8d129f06c4a67071f110d286d87fccf1132a7022833a1b" => :high_sierra
+    sha256 "228fda2113236b984e337abf64064684c2e14c8e73eb62367ad1bc5cbe43215b" => :sierra
   end
 
   depends_on "openssl@1.1"
