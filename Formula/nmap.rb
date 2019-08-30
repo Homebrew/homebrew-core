@@ -7,9 +7,9 @@ class Nmap < Formula
   head "https://svn.nmap.org/nmap/"
 
   bottle do
-    sha256 "aeee2490ad36fd69eef721804739973058c87284d2882da621529ec55d7c4b4c" => :mojave
-    sha256 "14f1bf9bd3f84f5008f4a3005f3f6f245c4c23162f4b935c9afa90610f34e0cb" => :high_sierra
-    sha256 "e06900a582cdbacfb201d38d72b906f882871bcf30d776f0192cc540a6902f5a" => :sierra
+    sha256 "bc12b9340cf3c23ac9f5a4eb6102884baf556b2347f46c3971600b91fb081125" => :mojave
+    sha256 "3cbc937428a7db08be8fa106b3a70ffad16f4a4d80808d2113490dd9ab60786c" => :high_sierra
+    sha256 "afa1fde2e44927ccb36447a0ce1dde08927ae67fd789afeb3883a95bd61edbc4" => :sierra
   end
 
   depends_on "openssl@1.1"
