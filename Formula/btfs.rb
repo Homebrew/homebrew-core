@@ -7,9 +7,9 @@ class Btfs < Formula
 
   bottle do
     cellar :any
-    sha256 "f968ed2760568d58d6bf17a197e156f373831f118275ff4693a4e69bc4406d50" => :mojave
-    sha256 "25b15a99efc6f97d2b1805e55d247fec99fc6ce951e7316543177fb426898094" => :high_sierra
-    sha256 "0b8f732f89c7e5cda2de3c0c5f873ad0bc8a7bc2caf4902c5265d2de81f4d4e8" => :sierra
+    sha256 "7b3b691544cdf1fc4d7a88f5ca5b2bc630d636b79e65391eceda02015ed817a6" => :mojave
+    sha256 "dab4673f1e3f5b5b3f0200e9ac252e5124bcb4702fe52735da85eec9d8dea26e" => :high_sierra
+    sha256 "457c198406251b965f3fff02f8910dbfb30988210a0ff6e7e2fb5b1c8d4ea601" => :sierra
   end
 
   depends_on "autoconf" => :build
