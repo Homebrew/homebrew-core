@@ -13,7 +13,7 @@ class Skipfish < Formula
   end
 
   depends_on "libidn"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "pcre"
 
   def install
