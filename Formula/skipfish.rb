@@ -6,10 +6,10 @@ class Skipfish < Formula
   revision 2
 
   bottle do
-    sha256 "58930fa4ed6c9bb930b3e502826e674f6ef9d75c4cf9648d443326e46f09f77d" => :mojave
-    sha256 "1acea16d96d52ba66c14f3194fb1c7d63f570e3f1ce5828458d28ddbc75d7d77" => :high_sierra
-    sha256 "e3e89e094313db04248263b0a6d9901ea47254215219046b01c048584ee98f4d" => :sierra
-    sha256 "60db8bcf08796a72afa621516767d0d0120a4ad305c6b8793b492f20b4679a71" => :el_capitan
+    rebuild 1
+    sha256 "89109163ad7ff8d82869add5523737ea41704b330f3f4b0ddf9ee3f25ca562dd" => :mojave
+    sha256 "b67e901534789b2e4438b4736dbcb7ca21d25e4aa3210869ff6e84eaca0f4c34" => :high_sierra
+    sha256 "821c75cf8c8455482f47ae910bb867ceaac0546ca5af022efe9705e1d0c9830e" => :sierra
   end
 
   depends_on "libidn"
