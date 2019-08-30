@@ -13,7 +13,7 @@ class Sphinx < Formula
     sha256 "848eb3db1c267231d5bff8bd8e6cc5b24fcef37acd977dd9be93c0716c6fdde2" => :sierra
   end
 
-  depends_on "mysql"
+  depends_on "mysql@5.7"
   depends_on "openssl@1.1"
 
   resource "stemmer" do
