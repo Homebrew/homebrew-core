@@ -3,6 +3,7 @@ class Libtrace < Formula
   homepage "https://research.wand.net.nz/software/libtrace.php"
   url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.9.tar.bz2"
   sha256 "90f7e317aaa1b93f8b9f17e82ca3b0c7da99d066dbf770ae8de384a402a2218e"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Libtrace < Formula
     sha256 "9724fd0450f1e8c2319c4c45a6e04eec76d15825dffee5f1a353eb1adbe8190e" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "wandio"
 
   resource "8021x.pcap" do
