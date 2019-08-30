@@ -3,6 +3,7 @@ class Starship < Formula
   homepage "https://starship.rs"
   url "https://github.com/starship/starship/archive/v0.13.1.tar.gz"
   sha256 "990b0e418224900824179bc6c8fca89566696be79d68b8af191da107b7414f46"
+  revision 1
   head "https://github.com/starship/starship.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Starship < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
