@@ -7,12 +7,9 @@ class Sdhash < Formula
 
   bottle do
     cellar :any
-    sha256 "549cf5be7d1381bfbc50ec60df79e6b4c81530048b13361670e423ced30e5f51" => :mojave
-    sha256 "822f7023148600c0aea00998188d9c0248dfef471971639d65b2b61fa59add83" => :high_sierra
-    sha256 "631f73908ec240b075fb08484b0e0742759290fbf7d5ffce3db6c8e7dca2355c" => :sierra
-    sha256 "f42674a03668b9187d618b457240de90e676bcb311fa1946b5a236685fbf2860" => :el_capitan
-    sha256 "97b9d8bd401ec5976b17794da9b907433c18a839c9360fa574d51ea19de245bf" => :yosemite
-    sha256 "bb4951185ede8233e4dccb48fa0da53a812e1af61dac9babbdf41e781b78a1e9" => :mavericks
+    sha256 "ff3ebba92126bd9ac537d4c6b7b0e818ca1318eb41fe410d9cbbbf7efde68ac2" => :mojave
+    sha256 "81064cc409fb71b361a4be539ccf8d014dc5adf0186d666d00025d2109ff5168" => :high_sierra
+    sha256 "3d019e14266847dcfa7fa27f69ffa4aea25cc78a2ff62c1883a2a8c74fa02116" => :sierra
   end
 
   depends_on "openssl@1.1"
