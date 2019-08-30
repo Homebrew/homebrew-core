@@ -5,7 +5,7 @@ class Openssh < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz"
   version "8.0p1"
   sha256 "bd943879e69498e8031eb6b7f44d08cdc37d59a7ab689aa0b437320c3481fd68"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d2333b9e917101b03d970338ab7c620903be966f5c7b5a6a6b97e1848cf3ba0b" => :mojave
@@ -18,7 +18,7 @@ class Openssh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ldns"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-209.50.1/com.openssh.sshd.sb"
@@ -50,7 +50,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
+      --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args
