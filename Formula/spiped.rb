@@ -7,11 +7,9 @@ class Spiped < Formula
 
   bottle do
     cellar :any
-    sha256 "4cf975e7272d99897109b7a5b2cca741d46e9b34d877c6be13a140920d8b8901" => :mojave
-    sha256 "f2008c86b377357db0888b384029b54ee9573d73e891ec322018b80dc499d165" => :high_sierra
-    sha256 "53e5ec39c188fed1d8a762904988490dd6a73f34f6bfcef986063a34a804cd6a" => :sierra
-    sha256 "3597aef864440d96505a2445348060926cbab9b2ea44af4ee61094e4bc419d4e" => :el_capitan
-    sha256 "d61db0a6cf96273e9564fcd3208ff5836840b0369e0a9c269c79904d9f1d3ab6" => :yosemite
+    sha256 "3b395a73b22765da7859db5c5bb39291b6e748b29d52174be4944dedecf8e5f2" => :mojave
+    sha256 "dfe6aac663c1f2196eb20aa617e576bdec5775a8426d0860848be734a9b2b86d" => :high_sierra
+    sha256 "39af54b67bbd4b6dd9d35bcd7d6a36cef8e9ebc936116ca60ab189f0a2127b4b" => :sierra
   end
 
   depends_on "bsdmake" => :build
