@@ -1,8 +1,8 @@
 class Cubelib < Formula
   desc "Cube, is a performance report explorer for Scalasca and Score-P"
   homepage "https://scalasca.org/software/cube-4.x/download.html"
-  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.4/dist/cubelib-4.4.3.tar.gz"
-  sha256 "bcd4fa81a5ba37194e590a5d7c3e6c44b448f5e156a175837b77c21206847a8d"
+  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.4/dist/cubelib-4.4.4.tar.gz"
+  sha256 "adb8216ee3b7701383884417374e7ff946edb30e56640307c65465187dca7512"
 
   bottle do
     sha256 "130ce4f4c660f6f6fb56fcfe2908f76f0dd9de46687c358957b5892a524b9fdf" => :mojave
