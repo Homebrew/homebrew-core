@@ -2,14 +2,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.6.303.27.tar.gz"
-  sha256 "e3fb2270c3ca277fa3e7ef6bd45f4d00eb7111bfd1ac440997bba2ef02ae0262"
+  url "https://github.com/v8/v8/archive/7.6.303.29.tar.gz"
+  sha256 "7aa3df4384b24af65d36f701643c325887cfb236f21c35536961e72a0f2d200c"
 
   bottle do
     cellar :any
-    sha256 "343f710bd3207e9d1412273398fe57954d69b8e0762f2db084731908d1500afb" => :mojave
-    sha256 "a6a84cfceeaf66326cc3d60537022bd4d7126ba9395e3f4950bf7d1dc93f6619" => :high_sierra
-    sha256 "c1d7839ad02a1db3b5839cddacc0f68b2382577083e57697f450796a1b86261b" => :sierra
+    sha256 "2f33a0ff33a19aa354bd7a1339edcbc330374344cdd134591f22973b68e14423" => :mojave
+    sha256 "f399ec7616bd237fdd960b7cf4b85e6d51a774a7a7b97ab83544e486c6f89f83" => :high_sierra
+    sha256 "22f76a7b16c732d30261e6fc9b2be7711298103c6bb67d6004acd54b9140df1c" => :sierra
   end
 
   depends_on "ninja" => :build

@@ -1,18 +1,18 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.1.0.tar.gz"
-  sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
-  revision 2
+  url "https://github.com/opencv/opencv/archive/4.1.1.tar.gz"
+  sha256 "5de5d96bdfb9dad6e6061d70f47a0a91cee96bb35afb9afb9ecb3d43e243d217"
 
   bottle do
-    sha256 "3be6de71c28077e5279ffb0104729b0cef1267f81908e6ea0fb404fb81d913e6" => :mojave
-    sha256 "ac383a5029e4ebec4a0695d8e27c95afc449609de3cc83840f9e11ec64f0b4d9" => :high_sierra
-    sha256 "7f134df27e2f8a0ea59273bbb2cae3ce9e6070fa02cd5e125e650a3968f5af0d" => :sierra
+    sha256 "af576f40cf58dcb301fbed604b2155580f3df2c3d1c46c359780aca80bbbeac5" => :mojave
+    sha256 "d06c83236e2726bff8dfe5c947b65dcb9cdf22c7df3976a06de8c35bfc3d4898" => :high_sierra
+    sha256 "92c778ddf8b5b93b2d6954f5aca9bcfe5cf41992fcdb83f00d5e7f7c7f31e587" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
@@ -27,13 +27,8 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.1.0.tar.gz"
-    sha256 "e7d775cc0b87b04308823ca518b11b34cc12907a59af4ccdaf64419c1ba5e682"
-  end
-
-  patch do
-    url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
-    sha256 "c48a6a769f364e6f61bc99cf47a6e664c85246c9fcd4a201afc408158fc4f1ef"
+    url "https://github.com/opencv/opencv_contrib/archive/4.1.1.tar.gz"
+    sha256 "9f85d380758498d800fec26307e389620cde8b1a2e86ab51cddc5200fbe37102"
   end
 
   def install

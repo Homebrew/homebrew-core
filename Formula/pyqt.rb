@@ -4,18 +4,16 @@ class Pyqt < Formula
   url "https://dl.bintray.com/homebrew/mirror/pyqt-5.10.1.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.10.1/PyQt5_gpl-5.10.1.tar.gz"
   sha256 "9932e971e825ece4ea08f84ad95017837fa8f3f29c6b0496985fa1093661e9ef"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "c941b19b803f11da31ec2cd93550a7b70b1ef919868890abf37b8d6d8e9dc089" => :mojave
-    sha256 "cdbf71cc3b3c6b372787dc402f3c5ce48e17167d69349af7f8fd7fbd08b5286b" => :high_sierra
-    sha256 "7f300676f7d52223129dc4e5080db09aa639ab5b92ca27a3424655ca438a0bf4" => :sierra
+    sha256 "2e2535d179edae8c6097337432c8f7f4b3ef674fde3bb44cf1ef2545f28b296d" => :mojave
+    sha256 "814c28f94e026eb94186b787a45cf1e82f59f1d9ba15c70c0950f5c70cf894d1" => :high_sierra
+    sha256 "e225e01bcf22a4246548148b102c7cef0aaa9ffd9e8ac7f6419b7b964baf25db" => :sierra
   end
 
   depends_on "python"
-  depends_on "python@2"
   depends_on "qt"
   depends_on "sip"
 
@@ -27,45 +25,41 @@ class Pyqt < Formula
   end
 
   def install
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      args = ["--confirm-license",
-              "--bindir=#{bin}",
-              "--destdir=#{lib}/python#{version}/site-packages",
-              "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
-              "--sipdir=#{share}/sip/Qt5",
-              # sip.h could not be found automatically
-              "--sip-incdir=#{Formula["sip"].opt_include}",
-              "--qmake=#{Formula["qt"].bin}/qmake",
-              # Force deployment target to avoid libc++ issues
-              "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
-              "--qml-plugindir=#{pkgshare}/plugins",
-              "--verbose"]
+    version = Language::Python.major_minor_version "python3"
+    args = ["--confirm-license",
+            "--bindir=#{bin}",
+            "--destdir=#{lib}/python#{version}/site-packages",
+            "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
+            "--sipdir=#{share}/sip/Qt5",
+            # sip.h could not be found automatically
+            "--sip-incdir=#{Formula["sip"].opt_include}",
+            "--qmake=#{Formula["qt"].bin}/qmake",
+            # Force deployment target to avoid libc++ issues
+            "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+            "--qml-plugindir=#{pkgshare}/plugins",
+            "--verbose"]
 
-      system python, "configure.py", *args
-      system "make"
-      system "make", "install"
-      system "make", "clean"
-    end
+    system "python3", "configure.py", *args
+    system "make"
+    system "make", "install"
+    system "make", "clean"
   end
 
   test do
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
 
-    ["python2", "python3"].each do |python|
-      system python, "-c", "import PyQt5"
-      %w[
-        Gui
-        Location
-        Multimedia
-        Network
-        Quick
-        Svg
-        WebEngineWidgets
-        Widgets
-        Xml
-      ].each { |mod| system python, "-c", "import PyQt5.Qt#{mod}" }
-    end
+    system "python3", "-c", "import PyQt5"
+    %w[
+      Gui
+      Location
+      Multimedia
+      Network
+      Quick
+      Svg
+      WebEngineWidgets
+      Widgets
+      Xml
+    ].each { |mod| system "python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end

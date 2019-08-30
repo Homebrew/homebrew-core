@@ -1,15 +1,14 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://github.com/sahib/rmlint"
-  url "https://github.com/sahib/rmlint/archive/v2.8.0.tar.gz"
-  sha256 "196bb595ac4d3d1a76ed62542b7895bda1cea47f0f77483286b2dfc8fc797253"
-  revision 1
+  url "https://github.com/sahib/rmlint/archive/v2.9.0.tar.gz"
+  sha256 "a2d26863e0018efad60f0b1123e7cffd8ef764c8fb574a7987a49260e4e51c8f"
 
   bottle do
     cellar :any
-    sha256 "552eeef7ab480b1a69fb3edbf9b7f05d7a267c732821ecc157f4faa422cee68b" => :mojave
-    sha256 "8ea97a4b0511e8284ec45c4f9fdc8e52a1a7166c432ca572b42ac8c1e51c3c30" => :high_sierra
-    sha256 "dc10a001e94ed01f24d6b7c60eabb981f3c04dabef0943090b5f77fcb0f136ae" => :sierra
+    sha256 "155767f2b4bc9d03e965f56e2dd6b9b8bd2cde55fb6fb553ce05a00fad35bd2a" => :mojave
+    sha256 "9a05ea7f81263a7e2c0c6f2770b80ca942c92887906741dc3b8faba1d7a41d10" => :high_sierra
+    sha256 "3c0e9d07bd06e4e9785dc54ccee7a7d0cdd2a95b2fe6a7ff0e12f66e1bbc0a6d" => :sierra
   end
 
   depends_on "gettext" => :build

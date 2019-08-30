@@ -1,14 +1,15 @@
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
-  url "https://github.com/timvisee/ffsend/archive/v0.2.49.tar.gz"
-  sha256 "3f39dd5f8be525904f4486228fcd51c7f3c0263e23eba096d6f6ceb71e6d73f5"
+  url "https://github.com/timvisee/ffsend/archive/v0.2.50.tar.gz"
+  sha256 "1fe6ea615f116060c9d4147250a3c5774527e98e3dadc089afdec51a0883163e"
 
   bottle do
     cellar :any
-    sha256 "cf6ae121b94b7f763f99673ee10500db66eb39bba0ca981a16cd4b80884f52d9" => :mojave
-    sha256 "ec0150c21cac10d09741bf35302909566d3b3a5c303d90ab5d05811c25333da3" => :high_sierra
-    sha256 "18399268fdd5c49619e641037b398eef3a3e14211f44af86e784d729e2d68a09" => :sierra
+    rebuild 1
+    sha256 "6cf0ae6d9625a786bb5d9e3c3e6ee37d825c4c7b9261abdc37c16b94c582bf57" => :mojave
+    sha256 "e128bf0040e6f9e69e139c6d24378b3a7bff87188d73214b8ccfd185462d51be" => :high_sierra
+    sha256 "461cbca1722730dbb8ff1401bdf98f354a67162788e1fd6c948c2630d5b3cc53" => :sierra
   end
 
   depends_on "rust" => :build
@@ -20,6 +21,10 @@ class Ffsend < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
+
+    bash_completion.install "contrib/completions/ffsend.bash"
+    fish_completion.install "contrib/completions/ffsend.fish"
+    zsh_completion.install "contrib/completions/_ffsend"
   end
 
   test do

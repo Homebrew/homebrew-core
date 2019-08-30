@@ -1,13 +1,13 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.3.tar.xz"
-  sha256 "290bb100ca5c7025ec3f97332eaf783b76ba1f444110f06ac5ee3285e3e5aece"
+  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.5.tar.xz"
+  sha256 "8527dfcbeedb4390149b6f94620c0fa64e26046ab85042c2a7556438847d7fc1"
 
   bottle do
-    sha256 "bbe2356a992aeb8ee3eabc6f324b977064ab2a1e55f6790868e195e5e0ed9e38" => :mojave
-    sha256 "825221fbc32395b761a76db33c75e56c114a51708af01d475b295f7fd37c3148" => :high_sierra
-    sha256 "500e9db4d0136d28d513acf860c5cbaaae3bd03f92c1899b4bdcf28bd3abd8dd" => :sierra
+    sha256 "2fe8b4ea2f121d442e89e6885dcf3e41cff9519868f8275d869469159ffdd2c7" => :mojave
+    sha256 "a89e20c88f279d676a912553c3147b028c84e011e35445db30cdb1bd67301ade" => :high_sierra
+    sha256 "53f81ee177e77858d921670acce9af01df1e773c1885568813da0d2f2d4609cc" => :sierra
   end
 
   head do

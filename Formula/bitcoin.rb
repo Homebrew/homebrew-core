@@ -1,15 +1,14 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.18.0/bitcoin-0.18.0.tar.gz"
-  sha256 "5e4e6890e07b620a93fdb24605dae2bb53e8435b2a93d37558e1db1913df405f"
-  revision 2
+  url "https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1.tar.gz"
+  sha256 "5c7d93f15579e37aa2d1dc79e8f5ac675f59045fceddf604ae0f1550eb03bf96"
 
   bottle do
     cellar :any
-    sha256 "a1d26b53e9679edce713f49e5dea9111d2e1d39199289015d37e7f619cb6a73c" => :mojave
-    sha256 "a4adb816347500c678a9162a688def0c206925ec073f626efef73d1011222d20" => :high_sierra
-    sha256 "2e106d619d2db6e106063a2bbd9c3e17d8dc5943776ee9e5e2d7641f59e8e353" => :sierra
+    sha256 "063b0d3e9d9255f0d2bba8e0b0f6c756b82431eecd5f64f81605a8dd557d64c1" => :mojave
+    sha256 "215f6607ec341cdedddcdc08b57dea742ce052fbf2f76eb8a0419ed0b34ce631" => :high_sierra
+    sha256 "7f252ae994a21a147c1c95b39e3b7616eca914012731efff710b3a89d8e1bc8e" => :sierra
   end
 
   head do

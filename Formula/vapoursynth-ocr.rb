@@ -1,15 +1,15 @@
 class VapoursynthOcr < Formula
   desc "VapourSynth filters - Tesseract OCR filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R46.tar.gz"
-  sha256 "e0b6e538cc54a021935e89a88c5fdae23c018873413501785c80b343c455fe7f"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R47.2.tar.gz"
+  sha256 "8ce4553f9fc5e5bbfb26ec9c0c5bf94be307530f947424c713ef67bc8a6d22b2"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "e426560984862430199351fa15aa602f6c66088a182236fcc861062562b61876" => :mojave
-    sha256 "ec3b4bdfd2124dac280fc882db961f8008c71d719f0abf383111e8bdb75c535a" => :high_sierra
-    sha256 "4bf2ab368fbe6a11d2e5a870093fab3215d69625cebb2f9103ef30fb9feeb155" => :sierra
+    sha256 "711b7cd653960c7a5bdca03cf61f65762263f5f671d31643f07855b081830f39" => :mojave
+    sha256 "13674a1418e1d94518e8bfc800929c6e48cddd021c8329277e61599e05393255" => :high_sierra
+    sha256 "f65b3c9f3e67840a1217956994cb4e58be18d3058a2731d7e2701b2e763efede" => :sierra
   end
 
   depends_on "autoconf" => :build

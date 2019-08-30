@@ -1,11 +1,10 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.30.0.tar.gz"
-    sha256 "fc884970089e382344540676a9c5aa4f369c9a0f45d1858e079b4ce26878164a"
+    url "https://github.com/crystal-lang/crystal/archive/0.30.1.tar.gz"
+    sha256 "0ffc00fa54929c2533bc0bcb89e0b001dd3abc470ccc87e3576047a5cdafc062"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -14,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "ac0546fa966cd4176d2c576695d7fcbea19c5bc9e8cd3e6dbfb2a75bf7733bc0" => :mojave
-    sha256 "09738d66de81fbce00369059c6ae923d7ecf4af3b6485dbbda406a1a9ef2729f" => :high_sierra
-    sha256 "2df6377ed86114d1fd5821430d2835ba91fccdafbf593c3a95099e7f66d95547" => :sierra
+    sha256 "3e6d1c482c1d4128b7298e63219ae1ea311d4575c3f0f6791b44e60ce7f7d2d6" => :mojave
+    sha256 "3a2a303378a72dccc017092c6aed04de81b3f8bf56b654b568f9e2fa56c16a7a" => :high_sierra
+    sha256 "b810c431c44ab0ca75af43d461ed21706065eac5c2a9ab95ff491a745db0e464" => :sierra
   end
 
   head do
@@ -92,7 +91,10 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+      system buildpath/"bin/crystal", "build",
+                                      "-o", buildpath/".build/shards",
+                                      "src/shards.cr",
+                                      "--release", "--no-debug"
 
       man1.install "man/shards.1"
       man5.install "man/shard.yml.5"

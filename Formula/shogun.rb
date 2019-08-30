@@ -1,14 +1,16 @@
 class Shogun < Formula
   desc "Large scale machine learning toolbox"
   homepage "https://www.shogun-toolbox.org/"
-  url "https://www.shogun-toolbox.org/archives/shogun/releases/6.1/sources/shogun-6.1.3.tar.bz2"
+  url "https://github.com/shogun-toolbox/shogun.git",
+      :tag      => "shogun_6.1.4",
+      :revision => "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
-  revision 5
+  revision 1
 
   bottle do
-    sha256 "3158c1d5951a23e542749a3dea2d6e8c03bbd19a933aaddc0d5486a98cebddfc" => :mojave
-    sha256 "53d96f0be033c8ce7c8ff3109469b2ada7ab627bb33820f501525b553f0fdf75" => :high_sierra
-    sha256 "79cce50d58895d20c9e2f11eb16461ae72318d9f7de69df86e755c1f10d3f294" => :sierra
+    sha256 "6a4a62ba08a3c4f2c43c318927a00821d355eec87e124ade3c3cb5169597e7f7" => :mojave
+    sha256 "83f3f05e6c9972c1ff5abef9ac2fd70cd3c86a69752a1d4c6e25b4f864bcc10a" => :high_sierra
+    sha256 "3e32a4bec7fa7c1de1b08cf5128f68d337f9bc8a230a3ce59a40d7b02bf9e87a" => :sierra
   end
 
   depends_on "cmake" => :build

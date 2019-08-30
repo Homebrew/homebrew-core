@@ -3,14 +3,14 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/c6/a3/43c6cc37584d055e81d86c67239bbbc9d54e5fce3bef345185ab925171ef/platformio-4.0.0.tar.gz"
-  sha256 "d37a4022349e1d2eb7babe94fbc62b196b87e94eb43785304f365d06bb74c195"
+  url "https://files.pythonhosted.org/packages/42/d7/0e39cc113f65a068d6244e50a3cc208e28cfb282e4af9b0fa9fac17b71b6/platformio-4.0.2.tar.gz"
+  sha256 "fae891efde665fb6376f80d32ab8a29672041602694d6bad6d12bcd95df76602"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a17e5018ca6eeddd55a66205f9880d8d709669622bc64f0c493a0568242f2b9c" => :mojave
-    sha256 "c438da22f342950cbd8f9ffe9b847909a56b21ade49bf4a8c48437c8d4847cd0" => :high_sierra
-    sha256 "9f1e8bd1a22b5c51f69a9c47ffc2eba510e46dcd038a6a30216de24e9bf72706" => :sierra
+    sha256 "bbea17596e90ce133f01e0b068eda1fc0cbc8c851c896017eaea28f366a6eeee" => :mojave
+    sha256 "b1e43b1476534a7036da257aa4caf763d3959ef2349e32a1547fbae6b81b8cdc" => :high_sierra
+    sha256 "ef8a5c36ada209da16f3f49d072e2752cddcc8a187c47ec441b067df73ee19bf" => :sierra
   end
 
   depends_on "python"
@@ -58,6 +58,11 @@ class Platformio < Formula
   resource "semantic_version" do
     url "https://files.pythonhosted.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz"
     sha256 "2a4328680073e9b243667b201119772aefc5fc63ae32398d6afafff07c4f54c0"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/c2/fd/202954b3f0eb896c53b7b6f07390851b1fd2ca84aa95880d7ae4f434c4ac/tabulate-0.8.3.tar.gz"
+    sha256 "8af07a39377cee1103a5c8b3330a421c2d99b9141e9cc5ddd2e3263fea416943"
   end
 
   resource "urllib3" do

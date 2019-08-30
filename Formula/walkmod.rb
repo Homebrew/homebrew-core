@@ -1,6 +1,6 @@
 class Walkmod < Formula
   desc "Java-based open source tool to apply and share code conventions"
-  homepage "http://www.walkmod.com"
+  homepage "https://walkmod.com/"
   url "https://bitbucket.org/rpau/walkmod/downloads/walkmod-3.0.0-installer.zip"
   sha256 "7d83564b8b11ce02b5a0924e552a8f006524003a03749e5fe901c937cff3d544"
 

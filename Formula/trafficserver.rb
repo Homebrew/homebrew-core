@@ -3,14 +3,14 @@ class Trafficserver < Formula
   homepage "https://trafficserver.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.6.tar.bz2"
-    sha256 "82d49c40369e18a462a31e8a72c313b6b587a499e60fbf65d3e31165d59c28c5"
+    url "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.8.tar.bz2"
+    sha256 "577bd6856612cebfc7c9ab3153a56a331ea6563cb750eb9fec88ac8896d6b60e"
   end
 
   bottle do
-    sha256 "bfda74b82efb9a8ce40f25ee273d7ee5bd73aca8094b4f7675b6acd6210ed3ae" => :mojave
-    sha256 "14a4af89777094bd327c00e7012dca641f007465972001480e18c20cc2ca21f9" => :high_sierra
-    sha256 "e59d06b71f0f8b75f21a7edd9136723f908ea4735e8df87d0303687ccd07d72c" => :sierra
+    sha256 "99fea0b9b69af76353be25f2d2659244d19493e2483b53bd22fe927d635e2cc6" => :mojave
+    sha256 "fce9444f8c2c54fba610a7c99fa92b344670d5c0736e75f7247edbcfef732e71" => :high_sierra
+    sha256 "13b6982bb901448df6d5deefe680e908aa623347f5dba5922d86d144d0cd28c8" => :sierra
   end
 
   head do
