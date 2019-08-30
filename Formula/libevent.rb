@@ -18,9 +18,6 @@ class Libevent < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
-  conflicts_with "pincaster",
-    :because => "both install `event_rpcgen.py` binaries"
-
   def install
     inreplace "Doxyfile", /GENERATE_MAN\s*=\s*NO/, "GENERATE_MAN = YES"
     system "./autogen.sh"
