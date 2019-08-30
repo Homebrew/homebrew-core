@@ -3,7 +3,7 @@ class Passenger < Formula
   homepage "https://www.phusionpassenger.com/"
   url "https://github.com/phusion/passenger/releases/download/release-6.0.2/passenger-6.0.2.tar.gz"
   sha256 "56b2273312e6dc9880f6ba83e381583b8759085a0b41338b782c9575d58346bc"
-  revision 6
+  revision 7
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
@@ -15,7 +15,7 @@ class Passenger < Formula
 
   # to build nginx module
   depends_on "nginx" => [:build, :test]
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   patch do
@@ -28,8 +28,8 @@ class Passenger < Formula
     ENV.delete("SDKROOT")
 
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
-      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
-      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl@1.1"].opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl@1.1"].opt_lib}"
     end
 
     system "rake", "apache2"
