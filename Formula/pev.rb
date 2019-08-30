@@ -6,13 +6,6 @@ class Pev < Formula
   revision 1
   head "https://github.com/merces/pev.git"
 
-  # Upstream fix for compatibility with OpenSSL 1.1
-  # https://github.com/merces/pev/pull/104
-  patch do
-    url "https://github.com/merces/pev/commit/53eb494b.diff?full_index=1"
-    sha256 "66eeadd149716597dfa4ecb6dc9c021cb6ab910aa4002b7730c822dd5c8ea654"
-  end
-
   bottle do
     sha256 "e4d191b795eebb97ee0bb6a3122bf45f1c2f05c7b192381e712d96d71cd4ffb0" => :mojave
     sha256 "70c993e146e9d78b9d8d129f06c4a67071f110d286d87fccf1132a7022833a1b" => :high_sierra
@@ -21,6 +14,13 @@ class Pev < Formula
 
   depends_on "openssl@1.1"
   depends_on "pcre"
+
+  # Upstream fix for compatibility with OpenSSL 1.1
+  # https://github.com/merces/pev/pull/104
+  patch do
+    url "https://github.com/merces/pev/commit/53eb494b.diff?full_index=1"
+    sha256 "66eeadd149716597dfa4ecb6dc9c021cb6ab910aa4002b7730c822dd5c8ea654"
+  end
 
   def install
     ENV.deparallelize
