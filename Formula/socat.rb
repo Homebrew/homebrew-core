@@ -3,6 +3,7 @@ class Socat < Formula
   homepage "http://www.dest-unreach.org/socat/"
   url "http://www.dest-unreach.org/socat/download/socat-1.7.3.3.tar.gz"
   sha256 "8cc0eaee73e646001c64adaab3e496ed20d4d729aaaf939df2a761e99c674372"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Socat < Formula
     sha256 "c17ddaf91194b3b06845c63f9d38f364612a5bbee315ff716eccd3b89a543bc2" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # patch for type conflict, sent upstream
