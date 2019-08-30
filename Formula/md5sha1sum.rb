@@ -4,6 +4,7 @@ class Md5sha1sum < Formula
   url "http://microbrew.org/tools/md5sha1sum/md5sha1sum-0.9.5.tar.gz"
   mirror "https://mirrorservice.org/sites/distfiles.macports.org/md5sha1sum/md5sha1sum-0.9.5.tar.gz"
   sha256 "2fe6b4846cb3e343ed4e361d1fd98fdca6e6bf88e0bba5b767b0fdc5b299f37b"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,10 +17,10 @@ class Md5sha1sum < Formula
     sha256 "ea565d1739e48e43d36d46a86772e6159fef7c98260aa5d82404f3d2ffea81ef" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     ENV["SSLINCPATH"] = openssl.opt_include
     ENV["SSLLIBPATH"] = openssl.opt_lib
 
