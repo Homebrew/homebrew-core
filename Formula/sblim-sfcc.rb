@@ -6,12 +6,10 @@ class SblimSfcc < Formula
   revision 1
 
   bottle do
-    sha256 "e4f4705965c06672a0143381756c57445df47afb3873eafd1669b338796ba118" => :mojave
-    sha256 "f13c6b2ff6cd3556066cf8638332b70edb816cde52795d4461ec831d4af42a94" => :high_sierra
-    sha256 "38bcd42d05b8c3852bb886a40809fdec6ffd455fcc28673f85558d63d7ef89d7" => :sierra
-    sha256 "09bb716962c8e89312fc17448dbe600b27537cfec933e9792b2b988c91a10aed" => :el_capitan
-    sha256 "6d2ececce1f13c1b74ee7497f6a2319408fcf14e0c48660056fafc3216f9b23b" => :yosemite
-    sha256 "0a121e50395af8c870c05108a67bcc9019c754fe0ca7eb5bd5efd2638fcac416" => :mavericks
+    cellar :any
+    sha256 "ff61a006626a9a36dafb474f352d798805b1a44adba341d8422bd0820eaae1ab" => :mojave
+    sha256 "0ee558ce892d6e04acfe7ca2408a96e2837c7c858e71f6047b3a57a15b75ece0" => :high_sierra
+    sha256 "2e1eea4bbad906293b2c48a27a09fd76d665ab0c9259ef49fcd81f4783fbb67c" => :sierra
   end
 
   depends_on "autoconf" => :build
