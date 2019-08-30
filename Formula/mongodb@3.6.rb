@@ -106,6 +106,17 @@ class MongodbAT36 < Formula
       bindIp: 127.0.0.1
   EOS
   end
+  
+  def caveats; <<~EOS
+    This is an outdated version of MongoDB and newer versions will not
+    be added to Homebrew as the Server Side Pulic License is not
+    considered an open source license by Homebrew.
+
+    MongoDB maintains an official Homebrew tap with updated versions
+    of that can be found here:
+      https://github.com/mongodb/homebrew-brew
+  EOS
+  end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mongodb@3.6/bin/mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
 
