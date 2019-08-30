@@ -5,6 +5,7 @@ class TclTk < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.9-src.tar.gz"
   version "8.6.9"
   sha256 "ad0cd2de2c87b9ba8086b43957a0de3eb2eb565c7159d5f53ccbba3feb915f4e"
+  revision 1
 
   bottle do
     rebuild 1
@@ -16,7 +17,7 @@ class TclTk < Formula
   keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "critcl" do
     url "https://github.com/andreas-kupries/critcl/archive/3.1.17.tar.gz"
@@ -93,7 +94,10 @@ class TclTk < Formula
     end
 
     resource("tcltls").stage do
-      system "./configure", "--with-ssl=openssl", "--with-openssl-dir=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "./configure", "--with-ssl=openssl",
+                            "--with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}",
+                            "--prefix=#{prefix}",
+                            "--mandir=#{man}"
       system "make", "install"
     end
   end
