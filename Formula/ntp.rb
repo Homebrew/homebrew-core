@@ -8,9 +8,9 @@ class Ntp < Formula
 
   bottle do
     cellar :any
-    sha256 "7f30a4c684195c6540cbc43ade3f0a96724853289cc39106d5bd86379a3d1f11" => :mojave
-    sha256 "c3f0905c8580acc1b6a8db811733ad6f87e49118c702b591591fa30555fcaa4c" => :high_sierra
-    sha256 "48c96f99d19135f055b15066a49a44a1e1560c1da0aa1cfaa8c81df782d86d77" => :sierra
+    sha256 "88daac89608fccbee91081426b81aa0cf274df656d4f3bba9104c6622a2da070" => :mojave
+    sha256 "25c4bb04713cbddea1e629a3e22994af48d04cbb89e3f91fe47533c343fa5ea9" => :high_sierra
+    sha256 "c89c2be95d8c98771e28df90d361f1f969a3bc132ecad472d812ae31e6ebef91" => :sierra
   end
 
   depends_on "openssl@1.1"
