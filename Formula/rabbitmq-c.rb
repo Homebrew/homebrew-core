@@ -3,6 +3,7 @@ class RabbitmqC < Formula
   homepage "https://github.com/alanxz/rabbitmq-c"
   url "https://github.com/alanxz/rabbitmq-c/archive/v0.9.0.tar.gz"
   sha256 "316c0d156452b488124806911a62e0c2aa8a546d38fc8324719cd29aaa493024"
+  revision 1
   head "https://github.com/alanxz/rabbitmq-c.git"
 
   bottle do
@@ -15,7 +16,7 @@ class RabbitmqC < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "popt"
 
   def install
