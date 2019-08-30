@@ -3,6 +3,7 @@ class Libslax < Formula
   homepage "http://www.libslax.org/"
   url "https://github.com/Juniper/libslax/releases/download/0.22.0/libslax-0.22.0.tar.gz"
   sha256 "a32fb437a160666d88d9a9ae04ee6a880ea75f1f0e1e9a5a01ce1c8fbded6dfe"
+  revision 1
 
   bottle do
     sha256 "0d3ba0fdd3bde7b42ca4246cffe14e34064a75a9eb719e6a5b986101e05aa670" => :mojave
@@ -20,13 +21,13 @@ class Libslax < Formula
   end
 
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "genometools", :because => "both install `bin/gt`"
 
   def install
     # configure remembers "-lcrypto" but not the link path.
-    ENV.append "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
 
     if MacOS.version == :sierra || MacOS.version == :el_capitan
       ENV["SDKROOT"] = MacOS.sdk_path
