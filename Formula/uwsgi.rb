@@ -1,6 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
+  revision 1
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -22,7 +23,7 @@ class Uwsgi < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@2"
   depends_on "yajl"
@@ -42,7 +43,7 @@ class Uwsgi < Formula
     end
 
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
