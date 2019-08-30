@@ -3,7 +3,7 @@ class Ttyd < Formula
   homepage "https://tsl0922.github.io/ttyd/"
   url "https://github.com/tsl0922/ttyd/archive/1.5.2.tar.gz"
   sha256 "b5b62ec2ce08add0173e6d1dfdd879e55f02f9490043e89f389981a62e87d376"
-  revision 1
+  revision 2
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
@@ -19,12 +19,12 @@ class Ttyd < Formula
   depends_on "libevent"
   depends_on "libuv"
   depends_on "libwebsockets"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".",
                     *std_cmake_args,
-                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
