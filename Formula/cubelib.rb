@@ -5,9 +5,9 @@ class Cubelib < Formula
   sha256 "adb8216ee3b7701383884417374e7ff946edb30e56640307c65465187dca7512"
 
   bottle do
-    sha256 "130ce4f4c660f6f6fb56fcfe2908f76f0dd9de46687c358957b5892a524b9fdf" => :mojave
-    sha256 "7f6bd7863a9d8b18ead409bfd6b32454c2dbec3dfec1cc9fd904b772a72d7ba8" => :high_sierra
-    sha256 "584e847088b6183941ebbcdc7719e8f285879d1f3f76ebc9723a9a0e1b21a404" => :sierra
+    sha256 "32d073bd808bd78c9fb4c679403bdd5045ca05798e620c52032e298a6eccf0f7" => :mojave
+    sha256 "fba71475f80f96489fdc8d92785d9f64e3aebfead18c86380358a59bc66b8492" => :high_sierra
+    sha256 "c64ad810675deb24b48111582b455df0d62738a267c991ca985bf139168f9313" => :sierra
   end
 
   def install
