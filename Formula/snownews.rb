@@ -12,7 +12,7 @@ class Snownews < Formula
   end
 
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
