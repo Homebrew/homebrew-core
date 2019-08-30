@@ -3,6 +3,7 @@ class Nagios < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.5/nagios-4.4.5.tar.gz"
   sha256 "bf69e2d2fae218694585677472d355ba676120cbd024164281e635dc467c391d"
+  revision 1
 
   bottle do
     sha256 "676bab09790305f664681fcca95f430ac73cce4ef64f4aa8589da623288f93cb" => :mojave
