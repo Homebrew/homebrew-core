@@ -2,8 +2,8 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-    :tag      => "v3.3.15",
-    :revision => "94745a4eed0425653b3b4275a208d38babceeaec"
+    :tag      => "v3.4.0",
+    :revision => "898bd1351fcf6e0ebce8d7c8bbbbf3f3e42aa42c"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
@@ -58,15 +58,18 @@ class Etcd < Formula
   end
 
   test do
-    ENV["ETCDCTL_API"] = "3"
-
     begin
       test_string = "Hello from brew test!"
       etcd_pid = fork do
-        exec bin/"etcd", "--force-new-cluster", "--data-dir=#{testpath}"
+        exec bin/"etcd",
+          "--enable-v2", # enable etcd v2 client support
+          "--force-new-cluster",
+          "--logger=zap", # default logger (`capnslog`) to be deprecated in v3.5
+          "--data-dir=#{testpath}"
       end
       # sleep to let etcd get its wits about it
       sleep 10
+
       etcd_uri = "http://127.0.0.1:2379/v2/keys/brew_test"
       system "curl", "--silent", "-L", etcd_uri, "-XPUT", "-d", "value=#{test_string}"
       curl_output = shell_output("curl --silent -L #{etcd_uri}")
