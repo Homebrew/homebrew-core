@@ -8,10 +8,9 @@ class Nopoll < Formula
 
   bottle do
     cellar :any
-    sha256 "1bee7669f14e9edea6c8d91f1cf9935c72e2c70202dcd4de840e0c36f68541cf" => :mojave
-    sha256 "4a3c7a4f2657685b3de1b6700625e8e61087219c3b51868ee45e3ac0924b5eae" => :high_sierra
-    sha256 "7695ccb4788ae836ca8e476f0d0f70216cca693e3f014c288edee90c18cb1df5" => :sierra
-    sha256 "266e0d329c27be6a5c9a202b0dd7c6745d7962be606321b9172c0a57b77b91b8" => :el_capitan
+    sha256 "dcd358fc9a1f1e106aae15d59b1190956f0ac4e7f52673d24833edca3c1146cb" => :mojave
+    sha256 "16bde638c91fd329d946b5854cd44291cbf516af2888e7880c5fa47dcb777936" => :high_sierra
+    sha256 "dd12a792cc0cb95a56cce2037d22b4c1141b85da48d2c511f6495914351ce2f0" => :sierra
   end
 
   depends_on "openssl@1.1"
