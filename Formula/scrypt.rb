@@ -7,11 +7,9 @@ class Scrypt < Formula
 
   bottle do
     cellar :any
-    sha256 "dbe434d01b09f02e1cc7fee6e163acd87d70270aecc355907fbf99dbc98fd59c" => :mojave
-    sha256 "fa929a235e8b07184fd77a35fb38d0ce08e4d627130057144ba40873b355702d" => :high_sierra
-    sha256 "d2f0f0170d78fae63833094fbdcb920489c9e04fb4579a0b82ca527ebd7bb12f" => :sierra
-    sha256 "2028c6a6a14d6753deae95d35d94c75cfcc64633ed69b3fea7f9da7a47d079b1" => :el_capitan
-    sha256 "15c52d5c143e002bd5dec4bb70020f0ff05f66a85067e187e1a08b0d04f3b9f5" => :yosemite
+    sha256 "6e4b8113c28d5f49e1b0b3b42c5db49228157ae7554fd9564a73c8015e96b62c" => :mojave
+    sha256 "e1fb4bd2c12f70cd0d1427d42a9696744529d26bf5db5b1c2151f039e529075c" => :high_sierra
+    sha256 "f07e1a167f4c789fc0cd159d2bc48d4394b9d14c7ce870cc10fd706dfef68c57" => :sierra
   end
 
   head do
