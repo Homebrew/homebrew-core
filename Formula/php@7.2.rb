@@ -1,8 +1,8 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.2.21.tar.xz"
-  sha256 "de06aff019d8f5079115795bd7d8eedd4cd03daecb62d58abb18f492dd995c95"
+  url "https://www.php.net/distributions/php-7.2.22.tar.xz"
+  sha256 "eb597fcf8dc0a6211a42a6346de4f63ee166829a6df6d8ed767fe14be8d1c3a3"
 
   bottle do
     sha256 "6a07fcc8b165c657053329613b38d6838bd3a7aa31a9b55b56813ae121cae2a5" => :mojave
