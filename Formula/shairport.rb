@@ -8,11 +8,9 @@ class Shairport < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "75a04ae35accc05373f970e293114567b3c6459cd3a22c4e5370f1031da2c42f" => :mojave
-    sha256 "1fe3430874b5895dd8452ce4e688b6476ecfa3e61e2da66ee7edd7bd1c6b6df8" => :high_sierra
-    sha256 "813a45b8e0dbc38efa55577f752a076169d0ff24a8d24a1c29426af78a47a591" => :sierra
-    sha256 "506a28dff863f2a8e17058fead36c037e580f448faa68a459d2b739a756e1c13" => :el_capitan
+    sha256 "af28167bdd30a30511476472429673db781b9234cd4c8225a2ed3f10b869588c" => :mojave
+    sha256 "c819c407c218e35129dde1d00a0bb78e5cc85cf69cc0920f87f5a3f690e2cab5" => :high_sierra
+    sha256 "f3449bbbd695f608673ecf618c55f5d41ac8edad59772888a128185b23395b7b" => :sierra
   end
 
   depends_on "pkg-config" => :build
