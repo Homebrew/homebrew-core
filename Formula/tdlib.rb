@@ -3,6 +3,7 @@ class Tdlib < Formula
   homepage "https://core.telegram.org/tdlib"
   url "https://github.com/tdlib/td/archive/v1.4.0.tar.gz"
   sha256 "673e3b5d362edaed6bb016d2e674540644d66ded68556f32dfec0d5e1544532c"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Tdlib < Formula
 
   depends_on "cmake" => :build
   depends_on "gperf"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
