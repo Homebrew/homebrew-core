@@ -6,9 +6,9 @@ class Nmh < Formula
   revision 1
 
   bottle do
-    sha256 "b0d273ecd1a67ddf6504e5aac8771bbc1b60bdea653c0635067e059eb4881507" => :mojave
-    sha256 "4d2e05b5a522f7c394b0bcb064f48ce28b55b0a73ffe1c2ff33cc3f568167e25" => :high_sierra
-    sha256 "de7b1a7e8ab420a918dfce7dd64eeb23fd3a1fcc158bf7525ebc1bee97fad759" => :sierra
+    sha256 "9c53df993c2f8f0dd45dea112d082d7cfc67efd34e58be2f62d95bfb44d3c9b7" => :mojave
+    sha256 "f46c5ca5a87081a9a8f7f454e0cb36de543dff666ac0ba8e1bcb867a2f7e7763" => :high_sierra
+    sha256 "8b70320e7046fc756ba490a44d5f7923a0e45db4f645dc02f80c19823eefa823" => :sierra
   end
 
   head do
