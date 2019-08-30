@@ -7,12 +7,10 @@ class Slowhttptest < Formula
 
   bottle do
     cellar :any
-    sha256 "3843a8f52b50da1fe95a0772f260a904416ad4678fa03d4918f1bc0bbb18e990" => :mojave
-    sha256 "8444fd4b1d9504ed908dc5049af4c3ed5f0a271db15d1de5f42b2413413d74bc" => :high_sierra
-    sha256 "3d196594ae9da5c8852b2010d6c6e581896f973e06d7f5f2bd48a9ae36b63141" => :sierra
-    sha256 "34cf5108ef284fcc23d91d0ee83358623935ffce718f0783912e7b5af05eab8e" => :el_capitan
-    sha256 "bb7b09c1ac0489afab54737925d869bb67d2754bdec08969879be4d8ed2ee4aa" => :yosemite
-    sha256 "45bad60bd26ee4d81a0888658bbc86890331b76a2e8fa071f63e4da8062599fe" => :mavericks
+    rebuild 1
+    sha256 "b84fca08c90ba37dac5cbd4ae65167e123afdb5227d0436ed1a730adf0e66cb9" => :mojave
+    sha256 "481816cb9bea3e72408030b2d537cc3900f2b48695b0fc7eba0c4bc4d43ecd25" => :high_sierra
+    sha256 "91b6302e0725b70d6eb6fb56ff8a8a9e6f7daff71b8de5a01e9c3a1062381db7" => :sierra
   end
 
   depends_on "openssl" # no OpenSSL 1.1 support
