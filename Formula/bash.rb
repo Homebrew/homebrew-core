@@ -10,7 +10,7 @@ class Bash < Formula
     mirror "https://gnu.cu.be/bash/bash-5.0.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-5.0.tar.gz"
     sha256 "b4a80f2ac66170b2913efbfb9f2594f1f76c7b1afd11f799e22035d63077fb4d"
-    version "5.0.9"
+    version "5.0.11"
 
     %w[
       001 f2fe9e1f0faddf14ab9bfa88d450a75e5d028fedafad23b88716bd657c737289
@@ -22,6 +22,8 @@ class Bash < Formula
       007 17b41e7ee3673d8887dd25992417a398677533ab8827938aa41fad70df19af9b
       008 eec64588622a82a5029b2776e218a75a3640bef4953f09d6ee1f4199670ad7e3
       009 ed3ca21767303fc3de93934aa524c2e920787c506b601cc40a4897d4b094d903
+      010 d6fbc325f0b5dc54ddbe8ee43020bced8bd589ddffea59d128db14b2e52a8a11
+      011 2c4de332b91eaf797abbbd6c79709690b5cbd48b12e8dfe748096dbd7bf474ea
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-5.0-patches/bash50-#{p}"
