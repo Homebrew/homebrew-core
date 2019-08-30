@@ -8,9 +8,9 @@ class Nushell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d84b8d315ba2383f90c542689bbfb1def9a24939cda2b5e372961c294b04e0af" => :mojave
-    sha256 "751306b30dd9e6c43ca7a1f472d7b6a5b963faf420251addcea8724ca91b4ba6" => :high_sierra
-    sha256 "1741fd6332cf1125c1d5eecc9076545041d4ec64ccced6a394fbdf2679bf28b0" => :sierra
+    sha256 "78e24987e5f9697452966b7476733d2125319faf9b9ee746c023769e3cdd92a4" => :mojave
+    sha256 "3e06fbbb3fde18b3ebb2d1e6282a5b0b2eacbc9f29f0703db95c0173514bb13c" => :high_sierra
+    sha256 "8a7835a0ac11682f9f4a95ec92db6617252bb3bb2295996a812f28b47af19002" => :sierra
   end
 
   depends_on "openssl@1.1"
