@@ -1,6 +1,7 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
+  revision 1
 
   stable do
     url "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.8.tar.bz2"
@@ -26,7 +27,7 @@ class Trafficserver < Formula
     end
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
@@ -41,7 +42,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules
