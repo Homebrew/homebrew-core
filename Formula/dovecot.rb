@@ -5,9 +5,9 @@ class Dovecot < Formula
   sha256 "666ce084760a47e601d49a9be3c7993c48789d332631e8dfb45f443b367b1260"
 
   bottle do
-    sha256 "5f6864970f9c0be8da979524702ad2e2a5a86026cf2c0c07c0fdefbe1ad45fff" => :mojave
-    sha256 "1a72b93cc016d90d0333cb733d86c8b74d7a96f4e5f8891a4cf4a53f40d41e28" => :high_sierra
-    sha256 "c421718aee9dc6a6959a451b7d6203f5ad79e9c24527e4c94c769fd76b18ed71" => :sierra
+    sha256 "6ffa465af013882828655b0c290b83611b172787299b6dbe064198819fd16f57" => :mojave
+    sha256 "a4e7c81233500b6d60f0c26f2208d6d8db3a17f206143a35e3d534cb5ea53dc4" => :high_sierra
+    sha256 "aef15a20ff625341dc46236388ec310ece8fc6592623341ee71956c1efe4e577" => :sierra
   end
 
   depends_on "openssl@1.1"
