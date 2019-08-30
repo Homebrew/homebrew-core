@@ -7,9 +7,9 @@ class Ldns < Formula
 
   bottle do
     cellar :any
-    sha256 "faa2291cda47e96003c8f9703f580252e9f794608019aa22a60bb71c1ea9dfbb" => :mojave
-    sha256 "dbe318c3a0be2a59e3b71f48d2d13319ff6e8a47507f548aed6f73779f42ddb6" => :high_sierra
-    sha256 "49f6436feb4baafbecf4db384f0bbd7d9a597511df8dcf1195739f18c7a02642" => :sierra
+    sha256 "4658a9bdae49915184e10be212a19f11504ca731e66ad8a118a6cb80838a555b" => :mojave
+    sha256 "2f2ee1ff4f7c6513b9c59fcee2d36b44e0421d238cbecbd6c6ed8f5801ba1803" => :high_sierra
+    sha256 "e4fe44eec5ae7b987b264cdbb64a02a7e53a25d1203edc44cb820cd7cc93093c" => :sierra
   end
 
   depends_on "swig" => :build
