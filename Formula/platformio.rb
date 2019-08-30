@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/42/d7/0e39cc113f65a068d6244e50a3cc208e28cfb282e4af9b0fa9fac17b71b6/platformio-4.0.2.tar.gz"
-  sha256 "fae891efde665fb6376f80d32ab8a29672041602694d6bad6d12bcd95df76602"
+  url "https://files.pythonhosted.org/packages/5d/59/2ba54e3f2ae8435997acbd0d0ff31993a7041a8b11515e0b5cc846a71ca4/platformio-4.0.3.tar.gz"
+  sha256 "0b19569d18d4098880b651c06dbf2ef23411a3d6c3da36a2b5950fe871523b50"
 
   bottle do
     cellar :any_skip_relocation
@@ -55,9 +55,9 @@ class Platformio < Formula
     sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
-  resource "semantic_version" do
-    url "https://files.pythonhosted.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz"
-    sha256 "2a4328680073e9b243667b201119772aefc5fc63ae32398d6afafff07c4f54c0"
+  resource "semantic-version" do
+    url "https://files.pythonhosted.org/packages/68/69/99b0fcc0b9107339760090a0cfa4f7ca36b72cba0854a56c88cc71c40111/semantic_version-2.8.1.tar.gz"
+    sha256 "192d4c0fce55643e05af0e49ca47d06608acf2dac2145bb26339fce16abfd6d2"
   end
 
   resource "tabulate" do
