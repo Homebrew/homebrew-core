@@ -3,6 +3,7 @@ class Nrpe < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nrpe-3.x/nrpe-3.2.1.tar.gz"
   sha256 "8ad2d1846ab9011fdd2942b8fc0c99dfad9a97e57f4a3e6e394a4ead99c0f1f0"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Nrpe < Formula
   end
 
   depends_on "nagios-plugins"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     user  = `id -un`.chomp
@@ -27,9 +28,9 @@ class Nrpe < Formula
                           "--with-nrpe-group=#{group}",
                           "--with-nagios-user=#{user}",
                           "--with-nagios-group=#{group}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           # Set both or it still looks for /usr/lib
-                          "--with-ssl-lib=#{Formula["openssl"].opt_lib}",
+                          "--with-ssl-lib=#{Formula["openssl@1.1"].opt_lib}",
                           "--enable-ssl",
                           "--enable-command-args"
 
