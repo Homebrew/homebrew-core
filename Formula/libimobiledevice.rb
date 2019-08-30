@@ -3,7 +3,7 @@ class Libimobiledevice < Formula
   homepage "https://www.libimobiledevice.org/"
   url "https://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2"
   sha256 "786b0de0875053bf61b5531a86ae8119e320edab724fc62fe2150cc931f11037"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -24,7 +24,7 @@ class Libimobiledevice < Formula
   depends_on "pkg-config" => :build
   depends_on "libplist"
   depends_on "libtasn1"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "usbmuxd"
 
   def install
