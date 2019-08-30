@@ -3,6 +3,7 @@ class Wdc < Formula
   homepage "https://designerror.github.io/webdav-client-cpp"
   url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.1.tar.gz"
   sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Wdc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pugixml"
 
   def install
@@ -46,7 +47,7 @@ class Wdc < Formula
       }
     EOS
     pugixml = Formula["pugixml"]
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     system ENV.cc, "test.cpp", "-o", "test", "-lcurl", "-lstdc++", "-std=c++11",
                    "-L#{lib}", "-lwdc", "-I#{include}",
                    "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
