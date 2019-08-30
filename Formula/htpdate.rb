@@ -1,8 +1,8 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "http://www.vervest.org/htp/"
-  url "http://www.vervest.org/htp/archive/c/htpdate-1.2.1.tar.xz"
-  sha256 "186c69509ba68178e2894cb8900e240bb688870ec25de2ac4676724e1e1d1cbf"
+  url "http://www.vervest.org/htp/archive/c/htpdate-1.2.2.tar.xz"
+  sha256 "5f1f959877852abb3153fa407e8532161a7abe916aa635796ef93f8e4119f955"
 
   bottle do
     cellar :any_skip_relocation
