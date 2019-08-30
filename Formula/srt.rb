@@ -3,6 +3,7 @@ class Srt < Formula
   homepage "https://www.srtalliance.org/"
   url "https://github.com/Haivision/srt/archive/v1.3.4.tar.gz"
   sha256 "d3ddf3ad89eb93a4dbf44046775eb63e04780cc536781490d65321d78d4b19de"
+  revision 1
   head "https://github.com/Haivision/srt.git"
 
   bottle do
@@ -14,10 +15,10 @@ class Srt < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     system "cmake", ".", "-DWITH_OPENSSL_INCLUDEDIR=#{openssl.opt_include}",
                          "-DWITH_OPENSSL_LIBDIR=#{openssl.opt_lib}",
                          *std_cmake_args
