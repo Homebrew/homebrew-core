@@ -5,6 +5,7 @@ class Nginx < Formula
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
   url "https://nginx.org/download/nginx-1.17.3.tar.gz"
   sha256 "3b84fe1c2cf9ca22fde370e486a9ab16b6427df1b6ea62cdb61978c9f34d0f3c"
+  revision 1
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
@@ -13,7 +14,7 @@ class Nginx < Formula
     sha256 "df0a9c49710c88ff6f740a1e80c7bdd6a63f1565e8f0763cb1059fbe726ec0e2" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
@@ -27,7 +28,7 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     pcre = Formula["pcre"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"
