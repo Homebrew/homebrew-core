@@ -15,7 +15,7 @@ class Slowhttptest < Formula
     sha256 "45bad60bd26ee4d81a0888658bbc86890331b76a2e8fa071f63e4da8062599fe" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
