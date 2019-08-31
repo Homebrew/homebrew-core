@@ -4,6 +4,7 @@ class Wtfutil < Formula
   url "https://github.com/wtfutil/wtf.git",
     :tag      => "v0.21.0",
     :revision => "2612194f464b93dd06c17e299dfef54b8be45471"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -23,12 +24,15 @@ class Wtfutil < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "go", "build", "-o", bin/"wtfutil"
+      commit = `git rev-parse HEAD`.chomp
+      system "go", "build", "-o", "wtfutil", "-ldflags", "-X main.version=#{version} -X main.commit=#{commit}"
+      bin.install "wtfutil"
       prefix.install_metafiles
     end
   end
 
   test do
+    assert_equal version, shell_output("#{bin}/wtfutil -v").strip
     testconfig = testpath/"config.yml"
     testconfig.write <<~EOS
       wtf:
