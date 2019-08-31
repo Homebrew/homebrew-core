@@ -7,9 +7,9 @@ class Tdlib < Formula
 
   bottle do
     cellar :any
-    sha256 "43d05fa9669a385041355dc2589b3c79c0e4eb865f2c4ce684c3cf9bfa1a90ad" => :mojave
-    sha256 "2045c65dbb9580bd1c6c3dcd648596f6fe0fdaf12eebf661e594892c5bb2e17c" => :high_sierra
-    sha256 "9d96510be1b5d37b9775cc039eabebf6b62e66b26f1259e841a5be1f223d9957" => :sierra
+    sha256 "356bbe803158ff34cc20d2610b3e560f21ca87060d9a67daca00373573a29d61" => :mojave
+    sha256 "99f59ff5456490402e8391839594bb49b3ca259124415810d33ca8eba38cc77c" => :high_sierra
+    sha256 "88f7e8b198a63903fcdb11422199032471400e409d1ffab270b613edb5bbaf6a" => :sierra
   end
 
   depends_on "cmake" => :build
