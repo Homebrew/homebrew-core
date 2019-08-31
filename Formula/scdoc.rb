@@ -1,8 +1,8 @@
 class Scdoc < Formula
   desc "Small man page generator"
   homepage "https://git.sr.ht/~sircmpwn/scdoc/"
-  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.9.6.tar.gz"
-  sha256 "89a5f2294b4b72ee1d20b8a478d16bee1f96b6202bfeedb6df76c27881ed5928"
+  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.9.7.tar.gz"
+  sha256 "7e0ef0b2fdbe40d66461b1b2900aadd889a2d91eaecd2505e85fabf6db003779"
 
   bottle do
     cellar :any_skip_relocation
