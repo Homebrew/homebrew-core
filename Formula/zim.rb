@@ -1,8 +1,8 @@
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "https://zim-wiki.org/"
-  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.71.1.tar.gz"
-  sha256 "ff100188a0b7204b415394d849b91954970449ee81fc99e4aea49b347a0a2112"
+  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.72.0.tar.gz"
+  sha256 "6d619613d6f5d25ddabd03a07629be0bfcd58bfeeb7314497dc04d1aeb7c6d67"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
@@ -39,6 +39,9 @@ class Zim < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["LANG"] = "en_US.UTF-8"
+
     system "#{bin}/zim", "--version"
   end
 end
