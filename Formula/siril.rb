@@ -3,7 +3,7 @@ class Siril < Formula
   homepage "https://www.siril.org"
   url "https://free-astro.org/download/siril-0.9.11.tar.bz2"
   sha256 "d30e40eed82af9d8e4392c5d888047b1a87a1705514444da3f319845b0652349"
-  revision 1
+  revision 2
   head "https://gitlab.com/free-astro/siril.git"
 
   bottle do
