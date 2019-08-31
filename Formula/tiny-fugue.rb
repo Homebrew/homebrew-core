@@ -7,13 +7,9 @@ class TinyFugue < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "65a9e5f9d8ad9890474161ba55b5ebc73f46398a2145c800d506bc975e5b995b" => :mojave
-    sha256 "870605dd7981a86165e8af6c79e18b5ac556bd5f933a46ff6ef000be50a87714" => :high_sierra
-    sha256 "f4df3ef186829f13f9f4d5512faf3e65e01eaf14aefd42b0f6895aded918fe79" => :sierra
-    sha256 "8b87d1b3de3a1ed16b2c587897c1716b00d011d152476ecdaa922a1406f2846a" => :el_capitan
-    sha256 "fbc2ca2d91d2a3bb3df752a98306f7f7f04756870019eb7f72df06a68efa632e" => :yosemite
-    sha256 "0d7db7bf7a3744de5cb572c013da516e98b5d6ed911a2f3bf4e0a028a160fd04" => :mavericks
+    sha256 "2196e7b32acfb7604f19b8734d5425b32650ff1154f6c327313b8d18c52ffda1" => :mojave
+    sha256 "32fcc0d6629da120ee1698b6185aaea0387519861182a4d6f10e6c67e9455405" => :high_sierra
+    sha256 "cbdc761189ce2c20a0a00b2ba2bfe930d0b149ea932dda7c562fa36d6b199e7e" => :sierra
   end
 
   depends_on "libnet"
