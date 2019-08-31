@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz"
-  sha256 "313612c4776a305393454c874ef590d8acf84c9ffa648717731dfe902284ff8f"
+  url "https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz"
+  sha256 "491fec9e89f1372f02a0ab66579aa2e9d63cac5178dfa672c204c88e693a908b"
 
   bottle do
     cellar :any
@@ -12,13 +12,6 @@ class Logrotate < Formula
   end
 
   depends_on "popt"
-
-  # https://github.com/logrotate/logrotate/issues/241 "macOS timer functions"
-  # Should be safe to remove on > 3.15.0 release
-  patch do
-    url "https://github.com/logrotate/logrotate/commit/0d805ce.patch?full_index=1"
-    sha256 "a374fb6354c517da9a229373241db4802c549c05d7822462b905f0262a316be0"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
