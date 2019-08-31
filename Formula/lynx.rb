@@ -4,6 +4,7 @@ class Lynx < Formula
   url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2"
   version "2.8.9rel.1"
   sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
+  revision 1
 
   bottle do
     sha256 "61c9bfb70ad4c2b036f7c471b5e23502625b20ea835e13e42fc42743536f93e2" => :mojave
@@ -12,7 +13,7 @@ class Lynx < Formula
     sha256 "2240132091626d4577ec75e0e24ffba4052d13534ce8bf28f766b3b255d0286d" => :el_capitan
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -22,7 +23,7 @@ class Lynx < Formula
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--enable-ipv6"
     system "make", "install"
   end
