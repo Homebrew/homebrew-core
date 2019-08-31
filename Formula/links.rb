@@ -6,9 +6,9 @@ class Links < Formula
 
   bottle do
     cellar :any
-    sha256 "92a5a7e13256630bdcb5292005b03a99712c1096aaff56c6e6685f63116bafa2" => :mojave
-    sha256 "f5bef932d1d066d0b0a33471a2e9a2ab6bea524366d8220f76b146f0f46a68b3" => :high_sierra
-    sha256 "02b4c4a9f6495448e653242ddae98a0fbd482af3918c3dcd5f548337fb609e2f" => :sierra
+    sha256 "187e68bd2c25a81e2b383cb5ba1f8d633ded7fffb7bfe42984dc0ccf2a170467" => :mojave
+    sha256 "b360bbfcbfed62643ac781c7f90d93bcfaea694f99ee27061f46b1ee7e006af0" => :high_sierra
+    sha256 "3577ede16b0d1d591205841a9ed7044fa831eae9992830b5d4c066847fc92dce" => :sierra
   end
 
   depends_on "pkg-config" => :build
