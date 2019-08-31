@@ -3,7 +3,7 @@ class SofiaSip < Formula
   homepage "https://sofia-sip.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sofia-sip/sofia-sip/1.12.11/sofia-sip-1.12.11.tar.gz"
   sha256 "2b01bc2e1826e00d1f7f57d29a2854b15fd5fe24695e47a14a735d195dd37c81"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class SofiaSip < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
