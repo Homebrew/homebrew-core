@@ -3,6 +3,7 @@ class Asio < Formula
   homepage "https://think-async.com/Asio"
   url "https://downloads.sourceforge.net/project/asio/asio/1.12.2%20%28Stable%29/asio-1.12.2.tar.bz2"
   sha256 "4e27dcb37456ba707570334b91f4798721111ed67b69915685eac141895779aa"
+  revision 1
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
@@ -14,8 +15,7 @@ class Asio < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
