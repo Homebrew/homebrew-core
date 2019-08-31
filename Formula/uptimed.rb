@@ -1,8 +1,8 @@
 class Uptimed < Formula
   desc "Utility to track your highest uptimes"
   homepage "https://github.com/rpodgorny/uptimed/"
-  url "https://github.com/rpodgorny/uptimed/archive/v0.4.1.tar.gz"
-  sha256 "01b16519bbdd3b99c97a09e910b74e4dceb5eea74e3ab20b6c90c76c8cb55905"
+  url "https://github.com/rpodgorny/uptimed/archive/v0.4.2.tar.gz"
+  sha256 "5f803eccc1247b4a22171de4670a896e05adb9a82f018facda1b2cc5b19dbc97"
 
   bottle do
     sha256 "607e02ebcebdeb8413890a529bc3b2a74e886dc8ba530b87be890519e8c3a8f4" => :mojave
