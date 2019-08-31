@@ -49,11 +49,6 @@ class Ctags < Formula
       emacs provides an executable `ctags` that would conflict with the
       executable of the same name that ctags provides. To prevent this,
       Homebrew removes the emacs `ctags` and its manpage before linking.
-
-      However, if you install emacs with the `--keep-ctags` option, then
-      the `ctags` emacs provides will not be removed. In that case, you
-      won't be able to install ctags successfully. It will build but not
-      link.
     EOS
   end
 
