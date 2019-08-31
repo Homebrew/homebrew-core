@@ -4,7 +4,7 @@ class Ldapvi < Formula
   url "http://www.lichteblau.com/download/ldapvi-1.7.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Ldapvi < Formula
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
   depends_on "gettext"
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "popt"
   depends_on "readline"
 
