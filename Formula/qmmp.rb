@@ -6,9 +6,9 @@ class Qmmp < Formula
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.3/"
 
   bottle do
-    sha256 "d1353a062520dc70411c0bfff5f36c9f76ed48ebb50f9e7add744504fe3bd697" => :mojave
-    sha256 "e10cdedfcb52eb2e9aef4a6b567b26074bb158d198ca316c01cb24be6ace1666" => :high_sierra
-    sha256 "daf215ab47999253201918524c85ab08c288291e55ed725e0ebfd35c47401d64" => :sierra
+    sha256 "08ed79c3a818a9f9552c92f1413f6058dd4d9ca01aa46a66f29a5bedbaa15d87" => :mojave
+    sha256 "f38af2c80e8e6e1c68f2fb9d7765f3a0978d901e7355b1568c865885e7a36fe4" => :high_sierra
+    sha256 "ddb1cc7eeecc93daecb2982c53080836f817fb596a338927f9a13213c6b0b6c5" => :sierra
   end
 
   depends_on "cmake" => :build
