@@ -5,10 +5,10 @@ class Uptimed < Formula
   sha256 "5f803eccc1247b4a22171de4670a896e05adb9a82f018facda1b2cc5b19dbc97"
 
   bottle do
-    sha256 "607e02ebcebdeb8413890a529bc3b2a74e886dc8ba530b87be890519e8c3a8f4" => :mojave
-    sha256 "7dda8cf4cbda86ba76db57c3352b916726da78640e656c49edf5c8b63441a817" => :high_sierra
-    sha256 "01e1e14e4af2adc149ef379042fbb223fd9ce27fbc7f2b0e4711088c90bf9dd1" => :sierra
-    sha256 "9b0d74450aa29f5fbbc1f6d2749b9d35c9af37e4594c88b53bb4c950a7c4c73b" => :el_capitan
+    cellar :any
+    sha256 "ed7ff6b62654f5514d2657f07ed2dc83d5046a2219eb651b6423609fac961f28" => :mojave
+    sha256 "128fb7d767fc12e12917cbc761a942158f0fd75a5a9e209508670287cb5d00ed" => :high_sierra
+    sha256 "195a89c67e7e09ba690f1cfc8fd91ce07d0623ca9b5da4f2fc70dc7f1f81c9a7" => :sierra
   end
 
   depends_on "autoconf" => :build
