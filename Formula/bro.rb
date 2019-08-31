@@ -3,6 +3,7 @@ class Bro < Formula
   homepage "https://www.bro.org"
   url "https://www.bro.org/downloads/bro-2.6.2.tar.gz"
   sha256 "6df6876f3f7b1dd8afeb3d5f88bfb9269f52d5d796258c4414bdd91aa2eac0a6"
+  revision 1
   head "https://github.com/bro/bro.git"
 
   bottle do
@@ -15,11 +16,11 @@ class Bro < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "geoip"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--localstatedir=#{var}",
                           "--conf-files-dir=#{etc}"
     system "make", "install"
