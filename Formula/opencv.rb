@@ -3,6 +3,7 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.1.1.tar.gz"
   sha256 "5de5d96bdfb9dad6e6061d70f47a0a91cee96bb35afb9afb9ecb3d43e243d217"
+  revision 1
 
   bottle do
     sha256 "af576f40cf58dcb301fbed604b2155580f3df2c3d1c46c359780aca80bbbeac5" => :mojave
@@ -23,7 +24,6 @@ class Opencv < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "python"
-  depends_on "python@2"
   depends_on "tbb"
 
   resource "contrib" do
@@ -33,15 +33,11 @@ class Opencv < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py2_prefix = `python2-config --prefix`.chomp
-    py2_lib = "#{py2_prefix}/lib"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -75,11 +71,8 @@ class Opencv < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DBUILD_opencv_python2=ON
+      -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
@@ -123,9 +116,7 @@ class Opencv < Formula
                     "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python2.7", "python3"].each do |python|
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
-      assert_equal version.to_s, output.chomp
-    end
+    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    assert_equal version.to_s, output.chomp
   end
 end
