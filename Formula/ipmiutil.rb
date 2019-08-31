@@ -14,7 +14,7 @@ class Ipmiutil < Formula
     sha256 "b1372295d77f7d211372bb496c856778369397fea35db58aba7262ad157e191e" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   conflicts_with "renameutils", :because => "both install `icmd` binaries"
 
