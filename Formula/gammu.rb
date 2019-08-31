@@ -3,7 +3,7 @@ class Gammu < Formula
   homepage "https://wammu.eu/gammu/"
   url "https://dl.cihar.com/gammu/releases/gammu-1.40.0.tar.xz"
   sha256 "a760a3520d9f3a16a4ed73cefaabdbd86125bec73c6fa056ca3f0a4be8478dd6"
-  revision 2
+  revision 3
   head "https://github.com/gammu/gammu.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Gammu < Formula
 
   depends_on "cmake" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Disable opportunistic linking against Postgres
