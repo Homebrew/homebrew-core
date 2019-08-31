@@ -20,7 +20,7 @@ class RubyAT20 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "readline"
 
   def api_version
