@@ -7,10 +7,9 @@ class Rename < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5955aab33b5eb7ac76fb48870451f110caf8057cf76550bebf095f10fff38080" => :mojave
-    sha256 "b40d758f416765733e0071705fae180c62c63058b350c379b9f36da9da98fad1" => :high_sierra
-    sha256 "b40d758f416765733e0071705fae180c62c63058b350c379b9f36da9da98fad1" => :sierra
-    sha256 "b40d758f416765733e0071705fae180c62c63058b350c379b9f36da9da98fad1" => :el_capitan
+    sha256 "13c919a8edd4935b7e5462a172b8336c0425a627f76fd3aa72c652c35ea233cc" => :mojave
+    sha256 "86b4b8a450b749f6fd84d86334d2d9f3a1c57fa3832f6e69d602369b4c6e5300" => :high_sierra
+    sha256 "ed4a9403e533b143f8f1ee307035b28c995a13970c64ed7646719e12688ec7a0" => :sierra
   end
 
   conflicts_with "util-linux", :because => "both install `rename` binaries"
