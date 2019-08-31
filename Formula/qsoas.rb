@@ -3,6 +3,7 @@ class Qsoas < Formula
   homepage "http://bip.cnrs-mrs.fr/bip06/qsoas/"
   url "http://bip.cnrs-mrs.fr/bip06/qsoas/downloads/qsoas-2.2.0.tar.gz"
   sha256 "acefcbb4286a6e0bf96353f924115d04a77d241962ceda890508bca19ee3b4f6"
+  revision 1
 
   bottle do
     sha256 "95be99b152857cd84d23c847d66ec90ed5dbccb245032aeaa63f9cb1c000c72f" => :mojave
