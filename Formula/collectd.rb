@@ -3,7 +3,7 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.9.0.tar.bz2"
   sha256 "7b220f8898a061f6e7f29a8c16697d1a198277f813da69474a67911097c0626b"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "e34c38202af11c490bc896a9f98a6c9aeadf31d8f5e5401cfa55e96864afd1be" => :mojave
