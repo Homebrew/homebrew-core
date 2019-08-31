@@ -3,6 +3,7 @@ class Mktorrent < Formula
   homepage "https://mktorrent.sourceforge.io/"
   url "https://github.com/Rudde/mktorrent/archive/v1.1.tar.gz"
   sha256 "d0f47500192605d01b5a2569c605e51ed319f557d24cfcbcb23a26d51d6138c9"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Mktorrent < Formula
     sha256 "d0f3f1d677e34044abcd712163c01008b56391d665daad15911acd446255c88a" => :yosemite
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "USE_PTHREADS=1", "USE_OPENSSL=1", "USE_LONG_OPTIONS=1"
