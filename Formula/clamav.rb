@@ -2,7 +2,9 @@ class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.101.4.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.101.4.tar.gz"
   sha256 "0bf094f0919d158a578421d66bc2569c8c8181233ba162bb51722f98c802bccd"
+  revision 1
 
   bottle do
     sha256 "f64dacdcdd643b5b0b1d1cd3ed65da7da2234c8166832d6824732ec8f82ec05a" => :mojave
@@ -20,7 +22,7 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "yara"
 
@@ -36,7 +38,7 @@ class Clamav < Formula
       --disable-zlib-vcheck
       --enable-llvm=no
       --with-libjson=#{Formula["json-c"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre"].opt_prefix}
       --with-zlib=#{MacOS.sdk_path_if_needed}/usr
     ]
