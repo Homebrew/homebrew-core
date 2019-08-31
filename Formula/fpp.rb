@@ -7,7 +7,7 @@ class Fpp < Formula
 
   bottle :unneeded
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     # we need to copy the bash file and source python files
