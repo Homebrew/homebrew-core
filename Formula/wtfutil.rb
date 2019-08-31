@@ -32,7 +32,7 @@ class Wtfutil < Formula
   end
 
   test do
-    assert_equal version, shell_output("#{bin}/wtfutil -v").strip
+    assert_equal version.to_s, shell_output("#{bin}/wtfutil -v").strip
     testconfig = testpath/"config.yml"
     testconfig.write <<~EOS
       wtf:
