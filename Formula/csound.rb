@@ -3,6 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
+  revision 1
 
   bottle do
     rebuild 1
@@ -14,6 +15,7 @@ class Csound < Formula
   depends_on "cmake" => :build
   depends_on "python" => [:build, :test]
   depends_on "fltk"
+  depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -27,7 +29,6 @@ class Csound < Formula
 
   def install
     args = std_cmake_args + %W[
-      -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
@@ -60,6 +61,7 @@ class Csound < Formula
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
       FLrun
+      giFluidEngineNumber fluidEngine
       pyinit
       instr 1
           pyruni "from __future__ import print_function; print('hello, world')"
