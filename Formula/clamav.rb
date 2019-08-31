@@ -7,9 +7,9 @@ class Clamav < Formula
   revision 1
 
   bottle do
-    sha256 "f64dacdcdd643b5b0b1d1cd3ed65da7da2234c8166832d6824732ec8f82ec05a" => :mojave
-    sha256 "03d75f551dd0f8e8294813c8e4d9f8788f91442136b4b161a4fdd8a64bd95824" => :high_sierra
-    sha256 "476100c9a34665b941e0f9c5e716394e8bc975a2298cc98fbf903a89ed6c8fd4" => :sierra
+    sha256 "59d485f311b59e93d6ce9fe7b6b3fa1904824477c19e7b88aec15580d0a07243" => :mojave
+    sha256 "b80e34e7b4b25dc39c374d99aa8344cdaf0e942ab1607095b921d2600485531a" => :high_sierra
+    sha256 "65598589702e4b7c8efe2189f41dc19f9771ce8fe8386440e6923a15235d664c" => :sierra
   end
 
   head do
