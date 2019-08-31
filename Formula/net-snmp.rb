@@ -3,6 +3,7 @@ class NetSnmp < Formula
   homepage "http://www.net-snmp.org/"
   url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.8/net-snmp-5.8.tar.gz"
   sha256 "b2fc3500840ebe532734c4786b0da4ef0a5f67e51ef4c86b3345d697e4976adf"
+  revision 1
 
   bottle do
     sha256 "09d497fa5910198db3a3834d097df9f1069b8f211cb38b57b9ac78738fad9272" => :mojave
@@ -13,7 +14,7 @@ class NetSnmp < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # https://sourceforge.net/p/net-snmp/bugs/2504/
@@ -35,7 +36,7 @@ class NetSnmp < Formula
       --without-kmem-usage
       --disable-embedded-perl
       --without-perl-modules
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args
