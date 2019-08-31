@@ -3,6 +3,7 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
+  revision 1
 
   bottle do
     sha256 "4f3163fb50a273e93a19b7136f1235517da5450d610c7d304591060f447eb93e" => :mojave
@@ -13,7 +14,7 @@ class GlibOpenssl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.
