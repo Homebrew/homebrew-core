@@ -5,9 +5,10 @@ class Csound < Formula
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
 
   bottle do
-    sha256 "9bea923e26f957d157db576607b488c5770c5f762bd6b99060c1a7a0a5c3ae1b" => :mojave
-    sha256 "a0d426d54f2858fd2907398a12bb19aa2cc6e507b1cf1235f53fc700b8663a60" => :high_sierra
-    sha256 "a75a5810563ad5dfc9d02c8159c105963590317e01b41e271ff4e10a1bdeac9d" => :sierra
+    rebuild 1
+    sha256 "4a0fa1f8ec2917537b85cda49a81f13bbb1bf06315e7087a113695a200193928" => :mojave
+    sha256 "d93d96c20dad0262733005467dec26780a30c0feda98b63dd45715ae2736e0dd" => :high_sierra
+    sha256 "915e0516480fcdaf2dfe0d2ae636b7249fc68740e928d525bda3adbb4b2c0722" => :sierra
   end
 
   depends_on "cmake" => :build
