@@ -3,9 +3,18 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftp.gnu.org/gnu/readline/readline-8.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
-  version "8.0.0"
+  version "8.0.1"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
-  revision 1
+
+  %w[
+    001 d8e5e98933cf5756f862243c0601cb69d3667bb33f2c7b751fe4e40b2c3fd069
+  ].each_slice(2) do |p, checksum|
+    patch :p0 do
+      url "https://ftp.gnu.org/gnu/readline/readline-8.0-patches/readline80-#{p}"
+      mirror "https://ftpmirror.gnu.org/readline/readline-8.0-patches/readline80-#{p}"
+      sha256 checksum
+    end
+  end
 
   bottle do
     cellar :any
