@@ -24,7 +24,7 @@ class Httperf < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     system "autoreconf", "-fvi" if build.head?
