@@ -3,7 +3,7 @@ class Sile < Formula
   homepage "http://www.sile-typesetter.org/"
   url "https://github.com/simoncozens/sile/releases/download/v0.9.5.1/sile-0.9.5.1.tar.bz2"
   sha256 "60cdcc4509971973feab352dfc1a86217cc1fdb12d56823f04d863afef92003a"
-  revision 1
+  revision 2
 
   head "https://github.com/simoncozens/sile.git"
 
@@ -28,7 +28,7 @@ class Sile < Formula
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zlib"
 
   resource "lpeg" do
@@ -72,11 +72,11 @@ class Sile < Formula
         if r.name == "lua-zlib"
           # https://github.com/brimworks/lua-zlib/commit/08d6251700965
           mv "lua-zlib-1.1-0.rockspec", "lua-zlib-1.2-0.rockspec"
-          system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}", "ZLIB_DIR=/usr/local/opt/zlib"
+          system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}", "ZLIB_DIR=#{Formula["zlib"].opt_prefix}"
         elsif r.name == "luaexpat"
-          system "luarocks", "build", r.name, "--tree=#{luapath}", "EXPAT_DIR=/usr/local/opt/expat"
+          system "luarocks", "build", r.name, "--tree=#{luapath}", "EXPAT_DIR=#{Formula["expat"].opt_prefix}"
         elsif r.name == "luasec"
-          system "luarocks", "build", r.name, "--tree=#{luapath}", "OPENSSL_DIR=/usr/local/opt/openssl"
+          system "luarocks", "build", r.name, "--tree=#{luapath}", "OPENSSL_DIR=#{Formula["openssl@1.1"].opt_prefix}"
         else
           system "luarocks", "build", r.name, "--tree=#{luapath}"
         end
