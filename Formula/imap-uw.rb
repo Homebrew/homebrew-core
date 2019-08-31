@@ -9,12 +9,10 @@ class ImapUw < Formula
 
   bottle do
     cellar :any
-    sha256 "bb9446cab178fccde6425322a2d6acb68e9cf5c5231fd81c86218dbcc491a5e5" => :mojave
-    sha256 "b051874130e8c65f442ff4fdb9875ec981da9f73e24ba0e1577bb23f4c379d8d" => :high_sierra
-    sha256 "714de61f534fb8f9264183a96b527868ffee4e568f10b2ad5c283276896ffa2f" => :sierra
-    sha256 "2b9f5cbd682299610f20f1fda87c5d5c63b378ec071be2ed4889276bed53f0b4" => :el_capitan
-    sha256 "001a10201375e639d4dbb4c8cba174ef02b19b89ba8e71ce2e2182610b6f120d" => :yosemite
-    sha256 "f91d54e0b6f2f5c0ba371e68298dafe178ecd4ac23222dd0de982ba95643ded4" => :mavericks
+    rebuild 1
+    sha256 "b6275d53e2c85dd5aa31b348399f7b42a14bf6dae39ada3226890cec76c7e415" => :mojave
+    sha256 "e2ac5fb24b426f4eb49b0c9d21f77b8780c2ef51f86e1bc985a287de79b2a957" => :high_sierra
+    sha256 "1652476ceea4500fb67cc6f0dc86ead889c7113c93cc98dbf0025d1c2d24a9b0" => :sierra
   end
 
   depends_on "openssl" # no OpenSSL 1.1 support
