@@ -3,6 +3,7 @@ class ShairportSync < Formula
   homepage "https://github.com/mikebrady/shairport-sync"
   url "https://github.com/mikebrady/shairport-sync/archive/3.2.2.tar.gz"
   sha256 "4f1ee142b887842727ae0c310e21c83ea2386518e841a25c7ddb015d08b54eba"
+  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
@@ -18,7 +19,7 @@ class ShairportSync < Formula
   depends_on "libconfig"
   depends_on "libdaemon"
   depends_on "libsoxr"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "popt"
 
   def install
