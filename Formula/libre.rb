@@ -3,6 +3,7 @@ class Libre < Formula
   homepage "http://www.creytiv.com"
   url "http://www.creytiv.com/pub/re-0.6.0.tar.gz"
   sha256 "0e97bcb5cc8f84d6920aa78de24c7d4bf271c5ddefbb650848e0db50afe98131"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Libre < Formula
     sha256 "290fdbf6dd3a1b2064d00badb610ee1af38d1c070f38a72a54ec5a02ba3b4b2f" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "SYSROOT=#{MacOS.sdk_path}/usr", "install", "PREFIX=#{prefix}"
