@@ -3,6 +3,7 @@ class RubyAT25 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.5.tar.xz"
   sha256 "9bf6370aaa82c284f193264cc7ca56f202171c32367deceb3599a4f354175d7d"
+  revision 1
 
   bottle do
     sha256 "20a67fddfb2c1c1b61a54a1efaae5208fbadf8a1cfc6ea0f229ee36da6ba1ef4" => :mojave
@@ -14,7 +15,7 @@ class RubyAT25 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def api_version
@@ -29,7 +30,7 @@ class RubyAT25 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
