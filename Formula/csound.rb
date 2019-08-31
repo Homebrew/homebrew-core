@@ -25,16 +25,13 @@ class Csound < Formula
   conflicts_with "pkcrack", :because => "both install `extract` binaries"
 
   def install
-    inreplace "CMakeLists.txt",
-      %r{^set\(CS_FRAMEWORK_DEST\s+"~\/Library\/Frameworks" CACHE PATH "Csound framework path"\)$},
-      "set(CS_FRAMEWORK_DEST \"#{frameworks}\")"
-
     args = std_cmake_args + %W[
       -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
+      -DCS_FRAMEWORK_DEST:PATH=#{frameworks}
     ]
 
     mkdir "build" do
