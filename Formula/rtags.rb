@@ -4,6 +4,7 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag      => "v2.33",
       :revision => "a5fa0951c92b4e5423d4ce95adafdca6ea30f254"
+  revision 1
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Rtags < Formula
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
