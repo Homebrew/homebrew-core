@@ -3,6 +3,7 @@ class Znc < Formula
   homepage "https://wiki.znc.in/ZNC"
   url "https://znc.in/releases/archive/znc-1.7.4.tar.gz"
   sha256 "b1a32921a8e6d79ee6c5900c8d07293026966db7c05aaac48984231befc49b71"
+  revision 1
 
   bottle do
     sha256 "fb0f39471e6ff4f4a421e29a11374046f047e209187944d9451761238bc05300" => :mojave
@@ -20,7 +21,7 @@ class Znc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   def install
