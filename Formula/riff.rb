@@ -9,9 +9,9 @@ class Riff < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ef5559484851d1f28cd7f56b5cf0d88195378f3c9133001a0364445c5481877" => :mojave
-    sha256 "0e8406d6c8bfd1ff1626b7205b81cbcb23684ba500eb83532b67401de2bf70d7" => :high_sierra
-    sha256 "b68904bdb3b97e33541de373a7add5783400145f417e42561cae8dff74cd05ef" => :sierra
+    sha256 "ebe82f4eb5de8ec1f5047f7f69514cb69296040006fd1730e1e0eb097655186e" => :mojave
+    sha256 "fde0709788f1f8ee61d9a9cc9759029b4fd43b3a4d30bda206d36e54ef644750" => :high_sierra
+    sha256 "51e7e1cbb9df115a3e169c7419ce1361b2050d3c2d4d564d69a177593fad3486" => :sierra
   end
 
   depends_on "go" => :build
