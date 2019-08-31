@@ -3,7 +3,7 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "834e7c5a597ad6aae95af9eb45eee848990f242d43deb8346896abb6e902a40e" => :mojave
@@ -23,7 +23,6 @@ class OpencvAT3 < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "python"
-  depends_on "python@2"
   depends_on "tbb"
 
   resource "contrib" do
@@ -38,15 +37,11 @@ class OpencvAT3 < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py2_prefix = `python2-config --prefix`.chomp
-    py2_lib = "#{py2_prefix}/lib"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -79,11 +74,8 @@ class OpencvAT3 < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DBUILD_opencv_python2=ON
+      -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
@@ -118,10 +110,9 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python2.7", "python3.7"].each do |python|
-      ENV["PYTHONPATH"] = lib/python/"site-packages"
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
-      assert_equal version.to_s, output.chomp
-    end
+    py3_version = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = lib/"python#{py3_version}/site-packages"
+    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    assert_equal version.to_s, output.chomp
   end
 end
