@@ -7,9 +7,9 @@ class Zsxd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e57932a91c610939d8557bd37b4e7c21ca17d09570e855f0dda090a2fa8ee1e6" => :mojave
-    sha256 "ebfcb1fdadd493874292f6924f0c012f09bb8ea3d84a7c89790cb798848d05ad" => :high_sierra
-    sha256 "688c1aa54d1b058546fe3b63e13c70817fa92f7ac75e44f5b3fd6f15a7e9e6b1" => :sierra
+    sha256 "ed58fdb900b1753c2f446c19db2b2db180ef38cdc215fb08dc2b1625b5a80c69" => :mojave
+    sha256 "518c8710ac28e8c3349ae5f4b02c6984d369ad1d3c6187e3d88789a9daf67673" => :high_sierra
+    sha256 "51c732cdd79fb5fe9ac41c15b83e50edd3fef7e680a26fb4cd04df6c1386289c" => :sierra
   end
 
   depends_on "cmake" => :build
