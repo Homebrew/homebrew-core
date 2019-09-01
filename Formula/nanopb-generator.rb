@@ -12,7 +12,7 @@ class NanopbGenerator < Formula
   end
 
   depends_on "protobuf"
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "mesos",
     :because => "they depend on an incompatible version of protobuf"
@@ -21,7 +21,7 @@ class NanopbGenerator < Formula
     cd "generator" do
       system "make", "-C", "proto"
       inreplace "nanopb_generator.py", %r{^#!/usr/bin/env python$},
-                                       "#!/usr/bin/python"
+                                       "#!/usr/bin/env python3"
       libexec.install "nanopb_generator.py", "protoc-gen-nanopb", "proto"
       bin.install_symlink libexec/"protoc-gen-nanopb", libexec/"nanopb_generator.py"
     end
