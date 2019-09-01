@@ -3,7 +3,7 @@ class Vgmstream < Formula
   homepage "https://hcs64.com/vgmstream.html"
   url "https://github.com/losnoco/vgmstream/archive/r1050-2441-gd64c3872.tar.gz"
   version "r1050-2441-gd64c3872"
-  sha256 "74abd4a7c8aa43423c20576b065ba94ed0ec3db356b0c0722fee618d231eb3b8"
+  sha256 "e1d7dfbf65b9b58ebb8c3c3792f8d7a04de55c03e5292e5ac68de5e60c65587b"
   head "https://github.com/kode54/vgmstream.git"
   revision 1
 
