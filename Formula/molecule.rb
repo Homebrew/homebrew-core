@@ -5,6 +5,7 @@ class Molecule < Formula
   homepage "https://molecule.readthedocs.io"
   url "https://files.pythonhosted.org/packages/8d/51/a691f91a829e0be54c8d898ece232c723936faa408496e8ac87f32846bea/molecule-2.20.1.tar.gz"
   sha256 "621797c54299775f284bbb010d5bb9be485500eecaaa14a476cbc0df285d0da7"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Molecule < Formula
     sha256 "cc88e57b2c2b35257999ec5b815e6312cdc853104f790436845c6dba38ef9c16" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   # Collect requirements from:
