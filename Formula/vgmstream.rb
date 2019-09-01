@@ -5,7 +5,6 @@ class Vgmstream < Formula
   version "r1050-2441-gd64c3872"
   sha256 "e1d7dfbf65b9b58ebb8c3c3792f8d7a04de55c03e5292e5ac68de5e60c65587b"
   head "https://github.com/kode54/vgmstream.git"
-  revision 1
 
   bottle do
     cellar :any
