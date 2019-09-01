@@ -8,10 +8,9 @@ class Pkcs11Helper < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4bf7e16dffead843a4158c7d5d17faaa2e4bcc1c7cde292e8faffff4cec8de47" => :mojave
-    sha256 "321866c8bf6dc4ba2cd670971e71b87e49b6c6f5d039b3c765b1af3cf1b4926c" => :high_sierra
-    sha256 "87e74dd0bff5614912c69b8c071096b804ebe82003dcc9e92c15cc73bdce86cb" => :sierra
+    sha256 "c1f7cd0ecece3f42d6e26888f4bc2dadbf8276f5ddbbafc566515abb19494a9f" => :mojave
+    sha256 "847249ed020552d1cd72935407e19b47d1b421e6d2c61761587af9598ac84afb" => :high_sierra
+    sha256 "7e4e2e52985c686dbd0cde59940c59741129694adddfbd64308f5fccfc35e055" => :sierra
   end
 
   depends_on "autoconf" => :build
