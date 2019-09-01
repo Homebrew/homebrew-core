@@ -6,12 +6,10 @@ class EnginePkcs11 < Formula
 
   bottle do
     cellar :any
-    sha256 "ab9088639272a437ed4e2e4bbbd017f7ac2a3e9e010e23255afcbd0ac90c9005" => :mojave
-    sha256 "d6aae033f4a43482334c5446b0dc5b21d04492135f8a73bdf10318696667867c" => :high_sierra
-    sha256 "8fc6fe2cf14c79223c4930c825e4b42435fe87a6c20b87a1e03ad13702eb3d55" => :sierra
-    sha256 "cd24061981fd0cd78e5c82d92c0ef686e2c8eea8a54e49339bf0606b51566b12" => :el_capitan
-    sha256 "af4873db45f9cec2e7dec281f646addeaac288a6ddf349fd731a8ea2e5809957" => :yosemite
-    sha256 "c8fda4c457231986703ffae42ef0033eb6afd05ed891d7b7ede2c38f14dd1105" => :mavericks
+    rebuild 1
+    sha256 "56eaaffee53413b6e08cd6827773d45384cfa6de5cc9ef850bee99f93a9d42a2" => :mojave
+    sha256 "4470e2808bbb7da8f3f1a16d8567d335b9bf1b5e2554608df3670a73b26a67af" => :high_sierra
+    sha256 "072026206d634b15d76a5784358116b159aeadd9208ceac8e927d2fbb9b29bcf" => :sierra
   end
 
   head do
