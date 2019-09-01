@@ -7,12 +7,10 @@ class Irods < Formula
 
   bottle do
     cellar :any
-    sha256 "7a193087877972f11192698db37cbeb220f2e9a167210a85520ac132f0ff3e8c" => :mojave
-    sha256 "5ca48b1240e083236086127b0f8d5fdd64ad3bcf023ced6c684d04945b8555a1" => :high_sierra
-    sha256 "22a5e9bf24a034976491b65af9b36c4311afa16612f072655c556fba7285112b" => :sierra
-    sha256 "510a0c5691702971c670c57c9ed11c5ca9371139b50c623cc950c0f8391a9737" => :el_capitan
-    sha256 "490adc71118dc93c087aa685ddb873c3670575c679c834adc0a95c0b013772bc" => :yosemite
-    sha256 "5d77816c581d12c4c30eb247e9b4a05f096347aa42ff4c069fa9aeff94678f87" => :mavericks
+    rebuild 1
+    sha256 "e813a4cf5f735101c687a61781acc3e0340c0955ae9fa4d91ba14b49de1831cd" => :mojave
+    sha256 "cac5382129bb016d59c27f47a6e947ad76448727671b6852d6667154bcf673b0" => :high_sierra
+    sha256 "780af7affdcd352f2efdd03e3e801ad48d2daf757986b1ac876bdcfcbc9801af" => :sierra
   end
 
   depends_on "openssl" # no OpenSSL 1.1 support
