@@ -4,6 +4,7 @@ class ErlangAT20 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-20.3.8.22.tar.gz"
   sha256 "d2c36130938659a63d8de094c3d4f8a1d3ea33d4d993d0723ba9c745df2a2753"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class ErlangAT20 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "wxmac"
 
   resource "man" do
@@ -52,7 +53,7 @@ class ErlangAT20 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
       --enable-darwin-64bit
     ]
