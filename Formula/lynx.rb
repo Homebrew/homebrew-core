@@ -7,10 +7,9 @@ class Lynx < Formula
   revision 1
 
   bottle do
-    sha256 "61c9bfb70ad4c2b036f7c471b5e23502625b20ea835e13e42fc42743536f93e2" => :mojave
-    sha256 "efd1ec304b8f8c76c840b09abc0ca564c7c393bc33e0f572ff8979086ea81a73" => :high_sierra
-    sha256 "14c607d4f273ab4f6974bea3d8b2892eaaa919c48d6ea4637b5e97759c9365d1" => :sierra
-    sha256 "2240132091626d4577ec75e0e24ffba4052d13534ce8bf28f766b3b255d0286d" => :el_capitan
+    sha256 "3b4c3a636d19106a2fea571889a4159fd49b82fbd2694c206d4851b15281fddd" => :mojave
+    sha256 "68eb083eff0962b83dc121e9194d430d4e9c2eb7d559cb998ba992da9b566479" => :high_sierra
+    sha256 "b8ee13323a4e8760f21a82da3b579d3373e282398ff7efe56c7ec8ae9cb0d064" => :sierra
   end
 
   depends_on "openssl@1.1"
