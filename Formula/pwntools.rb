@@ -5,6 +5,7 @@ class Pwntools < Formula
   homepage "https://github.com/Gallopsled/pwntools"
   url "https://github.com/Gallopsled/pwntools/archive/3.12.2.tar.gz"
   sha256 "8e048b514ee449b4c76f4eba1b4fcd48fdefd1bf04ae4c62b44e984923d2e979"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Pwntools < Formula
     sha256 "91d82535a5683cc31032453f0a7214b1c2ff8580be30286bea2344709b99a8e0" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
 
   conflicts_with "moreutils", :because => "Both install `errno` binaries"
