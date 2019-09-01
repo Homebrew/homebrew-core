@@ -5,6 +5,7 @@ class Breezy < Formula
   homepage "https://www.breezy-vcs.org"
   url "https://files.pythonhosted.org/packages/40/1d/b653f9646b738a47d8e61bcd5a2509fdd874484c5ea141f900de973bb2b4/breezy-3.0.1.tar.gz"
   sha256 "a118276a1eb8948f30c3f043f7e7a1c20d4e8bb1e0044005d524e0a53f3ca3cb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Breezy < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "configobj" do
