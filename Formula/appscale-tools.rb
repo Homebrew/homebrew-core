@@ -3,6 +3,7 @@ class AppscaleTools < Formula
   homepage "https://github.com/AppScale/appscale-tools"
   url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
   sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
+  revision 1
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
@@ -14,7 +15,7 @@ class AppscaleTools < Formula
   end
 
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
   depends_on "ssh-copy-id"
 
