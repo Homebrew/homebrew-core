@@ -4,6 +4,7 @@ class Openvpn < Formula
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz"
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.7.tar.xz"
   sha256 "a42f53570f669eaf10af68e98d65b531015ff9e12be7a62d9269ea684652f648"
+  revision 1
 
   bottle do
     sha256 "9384beaf449f98580c6217c2c94924076b44de0a7084ba918c86b817c05de371" => :mojave
@@ -18,7 +19,7 @@ class Openvpn < Formula
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkcs11-helper"
 
   def install
