@@ -3,7 +3,7 @@ class AnsibleAT19 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-1.9.6.tar.gz"
   sha256 "50773781b1e76f2885bbeb2351a97cf1c6a29239d3e073da939a104e7e81ee5d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class AnsibleAT19 < Formula
   keg_only :versioned_formula
 
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
 
   #
