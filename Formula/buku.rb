@@ -9,9 +9,9 @@ class Buku < Formula
 
   bottle do
     cellar :any
-    sha256 "0af777ba94a4c830808ef8107ed97636e7ae2cf6a6b69a63403bdbe5f0f1d0b6" => :mojave
-    sha256 "d7895d98cc003535022ccc3795bc7ae18ee438a8c1989af912d7d6c7f010ffd9" => :high_sierra
-    sha256 "2d4aa8647d31246d9152770fe786e31ed153c6437c10e0a8abbb661318eaa03e" => :sierra
+    sha256 "4d967af6718f0da6ae76412a9c4c9d756e8a5d6e1c9b1d5e276e9e56d36357cd" => :mojave
+    sha256 "fa52aab1b64d26a7120a227db71b2e32c90512191e64fe709ed63493e913b34a" => :high_sierra
+    sha256 "a946efe8e1d35cf8934f7f33dcebf905a8e8d6d66702f469d1929cfb291475df" => :sierra
   end
 
   depends_on "openssl@1.1"
