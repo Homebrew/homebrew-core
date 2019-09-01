@@ -1,9 +1,9 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
-  url "https://github.com/kode54/vgmstream/archive/r1040.tar.gz"
-  version "r1040"
-  sha256 "0ff6534a4049b27b01caf209811b87b1bfe445f94e141a5fe601f2dae9d03c89"
+  url "https://github.com/losnoco/vgmstream/archive/r1050-2441-gd64c3872.tar.gz"
+  version "r1050-2441-gd64c3872"
+  sha256 "e1d7dfbf65b9b58ebb8c3c3792f8d7a04de55c03e5292e5ac68de5e60c65587b"
   head "https://github.com/kode54/vgmstream.git"
 
   bottle do
@@ -15,18 +15,19 @@ class Vgmstream < Formula
     sha256 "980226be71f7ba16f71e7cd4ba53a4160c03cf9308036d014538b1feb8285d08" => :el_capitan
   end
 
+  depends_on "libao"
   depends_on "libvorbis"
   depends_on "mpg123"
 
   def install
-    cd "test" do
-      system "make"
-      bin.install "test" => "vgmstream"
-      lib.install "../src/libvgmstream.a"
-    end
+    system "make", "vgmstream_cli"
+    system "make", "vgmstream123"
+    bin.install "cli/vgmstream-cli"
+    bin.install "cli/vgmstream123"
+    lib.install "src/libvgmstream.a"
   end
 
   test do
-    assert_match "decode", shell_output("#{bin}/vgmstream 2>&1", 1)
+    assert_match "decode", shell_output("#{bin}/vgmstream-cli 2>&1", 1)
   end
 end
