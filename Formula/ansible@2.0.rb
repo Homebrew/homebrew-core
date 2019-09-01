@@ -3,7 +3,7 @@ class AnsibleAT20 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
   sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -18,7 +18,7 @@ class AnsibleAT20 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
 
   #
