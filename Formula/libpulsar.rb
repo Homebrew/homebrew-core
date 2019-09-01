@@ -3,7 +3,7 @@ class Libpulsar < Formula
   homepage "https://pulsar.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.4.0/apache-pulsar-2.4.0-src.tar.gz"
   sha256 "b4666cade20f7e7c01b9050813a3975d4e0fba36f0ab058e39e41b30e029dc05"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -21,6 +21,12 @@ class Libpulsar < Formula
 
   def install
     cd "pulsar-client-cpp" do
+      # Stop opportunistic linking to snappy
+      # Broken in 2.4.0
+      inreplace "CMakeLists.txt",
+                "HAS_SNAPPY 1",
+                "HAS_SNAPPY 0"
+
       system "cmake", ".", *std_cmake_args,
                       "-DBUILD_TESTS=OFF",
                       "-DBUILD_PYTHON_WRAPPER=OFF",
