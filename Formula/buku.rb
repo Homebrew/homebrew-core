@@ -5,6 +5,7 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
   sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Buku < Formula
     sha256 "2d4aa8647d31246d9152770fe786e31ed153c6437c10e0a8abbb661318eaa03e" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
