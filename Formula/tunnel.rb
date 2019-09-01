@@ -2,7 +2,7 @@ class Tunnel < Formula
   desc "Expose local servers to the internet securely"
   homepage "https://tunnel.labstack.com/docs"
   url "https://github.com/labstack/tunnel-client/archive/v0.4.0.tar.gz"
-  sha256 "3c88b74b60646569269641bd66b9f3f22d5196ef22049d724a821a41b61edcca"
+  sha256 "a428133da9d20aafd17fa3a3f067a0ad9add62852a5e76a8c6c9f675730c86d6"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,6 @@ class Tunnel < Formula
   end
 
   test do
-    system bin/"tunnel", "connect", "8080"
-    system bin/"tunnel", "daemon", "stop"
-    assert_predicate testpath/".tunnel/daemon.log", :exist?
+    system bin/"tunnel", "ping"
   end
 end
