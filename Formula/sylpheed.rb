@@ -3,7 +3,7 @@ class Sylpheed < Formula
   homepage "https://sylpheed.sraoss.jp/en/"
   url "https://sylpheed.sraoss.jp/sylpheed/v3.7/sylpheed-3.7.0.tar.bz2"
   sha256 "eb23e6bda2c02095dfb0130668cf7c75d1f256904e3a7337815b4da5cb72eb04"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "0c7cdaa8f1cb2ea0ccd8e2728ecf6066c3a67b71446ebd79821b51e38460d4df" => :mojave
@@ -14,7 +14,7 @@ class Sylpheed < Formula
   depends_on "pkg-config" => :build
   depends_on "gpgme"
   depends_on "gtk+"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
