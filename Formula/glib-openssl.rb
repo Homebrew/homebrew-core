@@ -6,10 +6,9 @@ class GlibOpenssl < Formula
   revision 1
 
   bottle do
-    sha256 "4f3163fb50a273e93a19b7136f1235517da5450d610c7d304591060f447eb93e" => :mojave
-    sha256 "7e79387127349d9976e104c0580b0efaf836865e15ede603232ecd5b80f3edb8" => :high_sierra
-    sha256 "2c6f6a96f2643fdfdc772c460ca7e9ec08783bf02f89a6312a02624dbba1a82a" => :sierra
-    sha256 "5f808a52d9c9fcebeb8143701c0e4dae92260f7c1233795069972b80718ac841" => :el_capitan
+    sha256 "171ff3da6a7005ed1ea4b7a91c4c5e9e40d2734f16fcb5f59a6e1e61121e0b96" => :mojave
+    sha256 "d1e80772b47e7a091ec67ac2d109c38bffdb7ab3b1c7ca0e66b8d021174abdba" => :high_sierra
+    sha256 "364b2a93210cae83e7b59798dbda1459ff35d26477e814ec5a9630b14b7340c7" => :sierra
   end
 
   depends_on "pkg-config" => :build
