@@ -8,13 +8,9 @@ class Dylibbundler < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4a5ee8ce4167301c5af472a253d615a67cdb276b58f961ef031845c3ec41fae7" => :mojave
-    sha256 "54e0ca248e9030351699e9ff31ed02dfe280a9dd97e1446966d0c81b14f644ee" => :high_sierra
-    sha256 "3d3297c9884ca982ce3a2ef9d31a53a1f96390268d0d9b378e3a954e0ad74996" => :sierra
-    sha256 "5dff018e62a9787871e45f4ae976358cfc3f7f85972a0aa0d4e039f97d4b8e0f" => :el_capitan
-    sha256 "eee9c829e932d8d25ded1e249bbf372ebfa0c9911dd3adc11a642184ecb6a6b7" => :yosemite
-    sha256 "49c1600c49ff7b10bdae8dc7351496680a9a4fb434ce6cd7393d10008506393e" => :mavericks
+    sha256 "f2554553b0c00165394e41ade50712f490331d7bf084792abc2cb4f12ae1164e" => :mojave
+    sha256 "60b4e47bfbb3450f6901e6c104d37530940e9cc22abacaacbe37eb4539b820c6" => :high_sierra
+    sha256 "c8f470a6e3c0c5eaf632dd384f5098f0e59f60ab2c873482424f7c6729a4fe07" => :sierra
   end
 
   def install
