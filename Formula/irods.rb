@@ -15,7 +15,7 @@ class Irods < Formula
     sha256 "5d77816c581d12c4c30eb247e9b4a05f096347aa42ff4c069fa9aeff94678f87" => :mavericks
   end
 
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   conflicts_with "sleuthkit", :because => "both install `ils`"
   conflicts_with "renameutils",
