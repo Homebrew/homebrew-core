@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "cf136af722d787200955b6e5f11843532f2a1fcbbbe9d056a85b3d1f7e398d9f" => :mojave
@@ -12,6 +12,7 @@ class Csound < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "eigen" => :build
   depends_on "python" => [:build, :test]
   depends_on "fltk"
   depends_on "fluid-synth"
@@ -60,12 +61,13 @@ class Csound < Formula
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
       FLrun
-      giFluidEngineNumber fluidEngine
+      gi_fluidEngineNumber fluidEngine
       pyinit
       instr 1
+          a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           pyruni "from __future__ import print_function; print('hello, world')"
-          aSignal STKPlucked 440, 1
-          out aSignal
+          a_signal STKPlucked 440, 1
+          out a_signal
       endin
     EOS
 
