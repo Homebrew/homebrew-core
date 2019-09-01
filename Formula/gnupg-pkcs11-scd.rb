@@ -3,6 +3,7 @@ class GnupgPkcs11Scd < Formula
   homepage "https://gnupg-pkcs11.sourceforge.io"
   url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.9.2/gnupg-pkcs11-scd-0.9.2.tar.bz2"
   sha256 "fddd798f8b5f9f960d2a7f6961b00ef7b49b00e8bf069c113a4d42b5e44fd0d5"
+  revision 1
 
   bottle do
     cellar :any
