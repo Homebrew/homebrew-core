@@ -4,6 +4,7 @@ class Owfs < Formula
   url "https://github.com/owfs/owfs/releases/download/v3.2p3/owfs-3.2p3.tar.gz"
   version "3.2p3"
   sha256 "b8d33eba57d4a2f6c8a11ff23f233e3248bd75a42c8219b058a888846edd8717"
+  revision 1
 
   bottle do
     cellar :any
