@@ -16,6 +16,11 @@ class Qsoas < Formula
   depends_on "mruby"
   depends_on "qt"
 
+  patch do
+    url "https://github.com/fourmond/QSoas/compare/2.2.0...release.diff?full_index=1"
+    sha256 "06b122580b6da169730ded812290eb53e1a6ff36d6c20ab9930c3e50b7a79b60"
+  end
+
   def install
     gsl = Formula["gsl"].opt_prefix
     mruby = Formula["mruby"].opt_prefix
