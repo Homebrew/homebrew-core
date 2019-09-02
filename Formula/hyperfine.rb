@@ -1,8 +1,8 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/v1.6.0.tar.gz"
-  sha256 "0cb251453147421c0c807587123e733b32346b9756c8594018c637ec374a63f4"
+  url "https://github.com/sharkdp/hyperfine/archive/v1.7.0.tar.gz"
+  sha256 "d936aab473775e76c3a749828054e3f7d42e3909e8b0f56f99ecf6aa169a9bd3"
 
   bottle do
     cellar :any_skip_relocation
