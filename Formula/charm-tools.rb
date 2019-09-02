@@ -9,10 +9,8 @@ class CharmTools < Formula
 
   bottle do
     cellar :any
-    sha256 "276a8198e27a384e9d45392f485f184170cc324586740e046c6b55a44539a559" => :mojave
-    sha256 "68365eeb6730d2d7645a791c7d60206d733f19d56c16deb31e5b42cc0378bc28" => :high_sierra
-    sha256 "4dc6ab436414c0ffd0c07601bec4240b2907c090b7a7a300c5ec6bc49e960a01" => :sierra
-    sha256 "11a6747479a401661fcd32e6233e581ec0f065a0fc737ee3da163c23d73bb00d" => :el_capitan
+    sha256 "7ccf3c793d17f96c10f0d26163dfec3ad4f36412d928dae06bd7b6f05d27f1c9" => :mojave
+    sha256 "f2bdd6b536bfc6fa805404118fa36a8f03e1fddd0e206adfe37e556f19f34e9b" => :high_sierra
   end
 
   depends_on "charm"
