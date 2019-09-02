@@ -55,8 +55,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/d2/33/281d4bc2c83d44e39541b5e724cea75d5c64664c78386f64fe60dbee548b/pikepdf-1.6.2.tar.gz"
-    sha256 "3f0d0144c49a64e48f238d2fde97156e550c700750d064567444826c7f292bf4"
+    url "https://files.pythonhosted.org/packages/fa/6d/92c192646d473b3a4aaa9eed1f1da0af7fcbe86a71bc8d8e816b90be00b6/pikepdf-1.6.3.tar.gz"
+    sha256 "550bb6d09f037732c51397dbcf8b1326cbb96b33060ca7a7c1a13674dde4ded9"
   end
 
   resource "Pillow" do
