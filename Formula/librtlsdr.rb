@@ -1,5 +1,5 @@
 class Librtlsdr < Formula
-  desc "Use Realtek DVT-T dongles as a cheap SDR"
+  desc "Use Realtek DVB-T dongles as a cheap SDR"
   homepage "https://osmocom.org/projects/rtl-sdr/wiki"
   url "https://github.com/steve-m/librtlsdr/archive/0.6.0.tar.gz"
   sha256 "80a5155f3505bca8f1b808f8414d7dcd7c459b662a1cde84d3a2629a6e72ae55"
