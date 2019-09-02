@@ -1,8 +1,8 @@
 class DcosCli < Formula
   desc "The DC/OS command-line interface"
-  homepage "https://docs.mesosphere.com/latest/cli/"
-  url "https://github.com/dcos/dcos-cli/archive/0.8.0.tar.gz"
-  sha256 "bc6f3ab1e399c8b26c72839ac8c8304290913450c70ee69335acd8459de30e5c"
+  homepage "https://docs.d2iq.com/mesosphere/dcos/latest/cli"
+  url "https://github.com/dcos/dcos-cli/archive/1.0.0.tar.gz"
+  sha256 "04326b1feae6844cc893029c5d86588f8a796d200edd0f03e8c4a57dae733552"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class DcosCli < Formula
     ENV["GOPATH"] = buildpath
     ENV["NO_DOCKER"] = "1"
 
-    ENV["VERSION"] = "0.8.0"
+    ENV["VERSION"] = "1.0.0"
 
     bin_path = buildpath/"src/github.com/dcos/dcos-cli"
 
@@ -30,6 +30,6 @@ class DcosCli < Formula
 
   test do
     run_output = shell_output("#{bin}/dcos --version 2>&1")
-    assert_match "dcoscli.version=0.8.0", run_output
+    assert_match "dcoscli.version=1.0.0", run_output
   end
 end
