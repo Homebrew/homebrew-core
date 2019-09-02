@@ -3,6 +3,7 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.5.tar.xz"
   sha256 "52c87775c3ff9714a62cfa5b7e13e2fa59bf32829fe083781c1d9c7f1c2d4c27"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
@@ -21,7 +22,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "ruby" if MacOS.version <= :sierra
 
   def install
