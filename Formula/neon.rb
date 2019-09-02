@@ -4,6 +4,7 @@ class Neon < Formula
   url "https://mirrorservice.org/sites/distfiles.macports.org/neon/neon-0.30.2.tar.gz"
   mirror "https://fossies.org/linux/www/neon-0.30.2.tar.gz"
   sha256 "db0bd8cdec329b48f53a6f00199c92d5ba40b0f015b153718d1b15d3d967fbca"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Neon < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Configure switch unconditionally adds the -no-cpp-precomp switch
   # to CPPFLAGS, which is an obsolete Apple-only switch that breaks
@@ -30,7 +31,7 @@ class Neon < Formula
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl"].opt_prefix}"
+                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 end
