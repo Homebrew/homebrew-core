@@ -19,7 +19,7 @@ class Gwyddion < Formula
   depends_on "libxml2"
   depends_on "minizip"
   depends_on "pygtk"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     system "./configure", "--disable-dependency-tracking",
