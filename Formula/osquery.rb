@@ -3,7 +3,7 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Osquery < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
@@ -99,15 +99,16 @@ class Osquery < Formula
     # Set the version
     ENV["OSQUERY_BUILD_VERSION"] = version
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python#{xy}/site-packages"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
-        system "python", "setup.py", "install",
-                                 "--prefix=#{buildpath}/third-party/python/",
-                                 "--single-version-externally-managed",
-                                 "--record=installed.txt"
+        system "python3", "setup.py", "install",
+                          "--prefix=#{buildpath}/third-party/python/",
+                          "--single-version-externally-managed",
+                          "--record=installed.txt"
       end
     end
 
