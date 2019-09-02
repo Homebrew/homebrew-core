@@ -2,7 +2,8 @@ class LibbitcoinNode < Formula
   desc "Bitcoin Full Node"
   homepage "https://github.com/libbitcoin/libbitcoin-node"
   url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.6.0.tar.gz"
-  sha256 "3803e8dcf70dd1e7043e98bb4a78e9f2007288297f0046c5ed43c7a75058dcb5"
+  sha256 "9556ee8aab91e893db1cf343883034571153b206ffbbce3e3133c97e6ee4693b"
+  revision 1
 
   bottle do
     sha256 "168268e2f8f832fe1dca3b911c4b3e553bc028504107f60e682833b23f0547ed" => :mojave
