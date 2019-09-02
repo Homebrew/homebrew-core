@@ -2,7 +2,8 @@ class LibbitcoinNetwork < Formula
   desc "Bitcoin P2P Network Library"
   homepage "https://github.com/libbitcoin/libbitcoin-network"
   url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.6.0.tar.gz"
-  sha256 "4e85194d9d035eea8ca1c8088b367342bc230473d019ef9756a59da97c2c500d"
+  sha256 "68d36577d44f7319280c446a5327a072eb20749dfa859c0e1ac768304c9dd93a"
+  revision 1
 
   bottle do
     cellar :any
