@@ -7,11 +7,9 @@ class AnsibleAT19 < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "c40717022760a47f23abbb8b14d24870feeebdd0ad498e870a0608e4790d3778" => :mojave
-    sha256 "4aa3ddfdea9746060e685a1f19b67af567bc9d49a54b0b92071f88c4336a2998" => :high_sierra
-    sha256 "258006e587e914736e541de070d22c14017b704ec51ae4b3b34313945b492f3e" => :sierra
-    sha256 "e43f2279aa5e0ce3ceba08743ac4d375d7b1ebe20984b7446c435eb41c935e23" => :el_capitan
+    sha256 "39be5f232f845670c3988725342b2f61de765ee219b5c9c7091f94005263031d" => :mojave
+    sha256 "8c38121f4a59a967a209003d78aeca4f8111cbc8bb1fb955f41a3440516f6ee4" => :high_sierra
+    sha256 "2891a0f41fb4ea4de49250701f60dc7aaccdfd3ed80189f70628d9ded6fa3803" => :sierra
   end
 
   keg_only :versioned_formula
