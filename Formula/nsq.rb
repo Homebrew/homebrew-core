@@ -1,8 +1,8 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
-  url "https://github.com/nsqio/nsq/archive/v1.1.0.tar.gz"
-  sha256 "85cb15cc9a7b50e779bc8e76309cff9bf555b2f925c2c8abe81d28d690fb1940"
+  url "https://github.com/nsqio/nsq/archive/v1.2.0.tar.gz"
+  sha256 "98e24d748550f01dd8775e5e40f3ae657f5b513f875a15081cdcdc567b745480"
   head "https://github.com/nsqio/nsq.git"
 
   bottle do
@@ -13,14 +13,14 @@ class Nsq < Formula
     sha256 "02225f180c8e5ebc9d5e0ecd30c0875738b10904143c031a07709a6661362243" => :el_capitan
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
     (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
     cd "src/github.com/nsqio/nsq" do
-      system "dep", "ensure", "--vendor-only"
       system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
       prefix.install_metafiles
     end
@@ -86,10 +86,10 @@ class Nsq < Formula
       assert_match "test", dat
       assert_match version.to_s, dat
     ensure
-      Process.kill(9, lookupd)
-      Process.kill(9, d)
-      Process.kill(9, admin)
-      Process.kill(9, to_file)
+      Process.kill(15, lookupd)
+      Process.kill(15, d)
+      Process.kill(15, admin)
+      Process.kill(15, to_file)
       Process.wait lookupd
       Process.wait d
       Process.wait admin
