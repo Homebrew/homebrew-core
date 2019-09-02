@@ -3,7 +3,6 @@ class Joshua < Formula
   homepage "https://joshua.incubator.apache.org/"
   url "https://cs.jhu.edu/~post/files/joshua-6.0.5.tgz"
   sha256 "972116a74468389e89da018dd985f1ed1005b92401907881a14bdcc1be8bd98a"
-  head "https://git-wip-us.apache.org/repos/asf/incubator-joshua.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,19 +15,13 @@ class Joshua < Formula
     sha256 "176fa47a6a2722fb5b6bf1e2efba8da32bab6355f3d844424a817882ed7b3a8e" => :mavericks
   end
 
-  depends_on "ant" => :build
-  depends_on "boost" => :build
-  depends_on "md5sha1sum" => :build
-  depends_on "python@2" => :build
   depends_on :java
 
   def install
     rm Dir["lib/*.{gr,tar.gz}"]
     rm_rf "lib/README"
     rm_rf "bin/.gitignore"
-    head do
-      system "ant"
-    end
+
     libexec.install Dir["*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
     inreplace "#{bin}/joshua-decoder", "JOSHUA\=$(dirname $0)/..", "#JOSHUA\=$(dirname $0)/.."
