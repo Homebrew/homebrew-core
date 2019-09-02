@@ -7,8 +7,6 @@ class Sqlmap < Formula
 
   bottle :unneeded
 
-  depends_on "python@2"
-
   def install
     libexec.install Dir["*"]
 
