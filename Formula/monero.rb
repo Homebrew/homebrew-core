@@ -4,6 +4,7 @@ class Monero < Formula
   url "https://github.com/monero-project/monero.git",
       :tag      => "v0.14.1.2",
       :revision => "8f0aedfa1ad7090ff1580cdce55b152fcb5655c0"
+  revision 1
 
   bottle do
     cellar :any
