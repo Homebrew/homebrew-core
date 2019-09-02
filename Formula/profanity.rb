@@ -1,10 +1,8 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
-  url "http://www.profanity.im/profanity-0.6.0.tar.gz"
-  # checksum change reported upstream at https://github.com/profanity-im/profanity/issues/1094
-  sha256 "f1b2773b79eb294297686f3913e9489c20effae5e3a335c8956db18f6ee2f660"
-  revision 2
+  url "https://profanity-im.github.io/profanity-0.7.0.tar.gz"
+  sha256 "f1eb99be01683d41b891b0f997f4c873c9bb87b0b6b8400b7fccb8e553d514bb"
 
   bottle do
     sha256 "57d4299cc773dedb5a01221b414e97be579f025f50d8355bc965ae1750f9726b" => :mojave
