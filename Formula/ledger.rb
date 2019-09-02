@@ -3,7 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.3.tar.gz"
   sha256 "b248c91d65c7a101b9d6226025f2b4bf3dabe94c0c49ab6d51ce84a22a39622b"
-  revision 1
+  revision 2
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -32,6 +32,7 @@ class Ledger < Formula
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
       -DUSE_PYTHON27_COMPONENT=1
+      -DBoost_NO_BOOST_CMAKE=ON
     ]
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
