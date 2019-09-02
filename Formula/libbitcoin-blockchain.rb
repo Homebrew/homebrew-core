@@ -2,7 +2,8 @@ class LibbitcoinBlockchain < Formula
   desc "Bitcoin Blockchain Library"
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
   url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.6.0.tar.gz"
-  sha256 "d0cd036a1ec10063e9eb6fe4b198b0acecbbda73aa78c7d314f924866907ff0a"
+  sha256 "18c52ebda4148ab9e6dec62ee8c2d7826b60868f82710f21e40ff0131bc659e0"
+  revision 1
 
   bottle do
     cellar :any
