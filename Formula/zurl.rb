@@ -12,13 +12,13 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :test
+  depends_on "python" => :test
   depends_on "qt"
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/1e/f9/d0675409c11d11e549e3da000901cfaabd848da117390ee00030e14bfdb6/pyzmq-16.0.3.tar.gz"
-    sha256 "8a883824147523c0fe76d247dd58994c1c28ef07f1cc5dde595a4fd1c28f2580"
+    url "https://files.pythonhosted.org/packages/7a/d2/1eb3a994374802b352d4911f3317313a5b4ea786bc830cc5e343dad9b06d/pyzmq-18.1.0.tar.gz"
+    sha256 "93f44739db69234c013a16990e43db1aa0af3cf5a4b8b377d028ff24515fbeb3"
   end
 
   def install
@@ -33,7 +33,7 @@ class Zurl < Formula
     ipcfile = testpath/"zurl-req"
     runfile = testpath/"test.py"
 
-    resource("pyzmq").stage { system "python", *Language::Python.setup_install_args(testpath/"vendor") }
+    resource("pyzmq").stage { system "python3", *Language::Python.setup_install_args(testpath/"vendor") }
 
     conffile.write(<<~EOS,
       [General]
@@ -46,13 +46,13 @@ class Zurl < Formula
     runfile.write(<<~EOS,
       import json
       import threading
-      from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+      from http.server import BaseHTTPRequestHandler, HTTPServer
       import zmq
       class TestHandler(BaseHTTPRequestHandler):
         def do_GET(self):
           self.send_response(200)
           self.end_headers()
-          self.wfile.write('test response\\n')
+          self.wfile.write(b'test response\\n')
       port = None
       def server_worker(c):
         global port
@@ -76,7 +76,7 @@ class Zurl < Formula
       sock = ctx.socket(zmq.REQ)
       sock.connect('ipc://#{ipcfile}')
       req = {'id': '1', 'method': 'GET', 'uri': 'http://localhost:%d/test' % port}
-      sock.send('J' + json.dumps(req))
+      sock.send_string('J' + json.dumps(req))
       poller = zmq.Poller()
       poller.register(sock, zmq.POLLIN)
       socks = dict(poller.poll(15000))
@@ -92,8 +92,9 @@ class Zurl < Formula
     end
 
     begin
-      ENV["PYTHONPATH"] = testpath/"vendor/lib/python2.7/site-packages"
-      system "python", runfile
+      xy = Language::Python.major_minor_version "python3"
+      ENV["PYTHONPATH"] = testpath/"vendor/lib/python#{xy}/site-packages"
+      system "python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
