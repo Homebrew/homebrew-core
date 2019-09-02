@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "958c93d41713bb2fc943c22f22c1ad947a72336b27a1ee41afb9426e0696b565" => :mojave
@@ -16,6 +16,7 @@ class Csound < Formula
   depends_on "python" => [:build, :test]
   depends_on "fltk"
   depends_on "fluid-synth"
+  depends_on "jack"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -87,8 +88,10 @@ class Csound < Formula
     assert_match /^rtaudio:/, stderr
     assert_match /^rtmidi:/, stderr
 
-    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+    (testpath/"jack.orc").write "JackoInfo"
+    system "#{bin}/csound", "--orc", "--syntax-check-only", "jack.orc"
 
+    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
     system "python3", "-c", "import ctcsound"
   end
 end
