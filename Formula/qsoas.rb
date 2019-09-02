@@ -6,10 +6,10 @@ class Qsoas < Formula
   revision 1
 
   bottle do
-    sha256 "95be99b152857cd84d23c847d66ec90ed5dbccb245032aeaa63f9cb1c000c72f" => :mojave
-    sha256 "2864c431780caeff59926d6c51d2a5a925814b33d172b03065f8713d2b9d49ee" => :high_sierra
-    sha256 "8fd2e6ddb2224a9b00218572dc9e6f74ae45df730e468250b8674cf116975471" => :sierra
-    sha256 "34be95fb5a3919dad8d41579e1822bd9ba46a553c96b4f8f90268ef3491e228a" => :el_capitan
+    cellar :any
+    sha256 "001b054635b8e50373f9e3cb2e0b377f558662697f096fdb388c2e3fa066d54d" => :mojave
+    sha256 "51791b6babc31ea8852e7e5c5c607cd961af8513ef35dd0a04a56766ed0f1200" => :high_sierra
+    sha256 "bbc71d9440e401a3bfd52f164b709c08c5d11300cdcef056728ca8dd08435d38" => :sierra
   end
 
   depends_on "gsl"
