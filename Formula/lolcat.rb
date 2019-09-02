@@ -7,9 +7,9 @@ class Lolcat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "15cbe2be50b9d21d6876528e771a0d91dc66e5e970b1f128025f2a53fc134c56" => :mojave
-    sha256 "a5dc24837ef3c7f374d8e005b1a0a152eecdb723289b64bc512fe7a9b081cfe9" => :high_sierra
-    sha256 "bb74410996733b99dd265124e5a4868047650b68784024f78e23b73d4396b39c" => :sierra
+    sha256 "4732ed711ccd6e3d32c9614daca439dea84644a132f8b3dac3d0a52cd26d3b7d" => :mojave
+    sha256 "ca82ef3c4b46099bfd3e2e0ad6290fdcde71286db588b4a66069a762cac947ee" => :high_sierra
+    sha256 "ebfb0e8ded22cc1eb717a7ba73087cdb0beb5f0447f6642648a2e864736b9c1b" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
