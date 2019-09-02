@@ -3,6 +3,7 @@ class Libftdi < Formula
   homepage "https://www.intra2net.com/en/developer/libftdi"
   url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2"
   sha256 "ec36fb49080f834690c24008328a5ef42d3cf584ef4060f3a35aa4681cb31b74"
+  revision 1
 
   bottle do
     cellar :any
