@@ -16,9 +16,9 @@ class Gpac < Formula
 
   bottle do
     cellar :any
-    sha256 "f2c2011bf39b446799dc060821df0947997583f2ec4793488aa98964fe6d6cb5" => :mojave
-    sha256 "817c6ab9614c89b887bd2887faa03e1aaa505cf25861c9ca4c53e598b56b5396" => :high_sierra
-    sha256 "d1860839d41ed5922e40c1f2b1ff6215083cfaba19d9751db985541b2cf475b8" => :sierra
+    sha256 "e524e50f08bcb03f3c8af5313f517bd51382a0cf830aa632499834e1f396514e" => :mojave
+    sha256 "3cc7442693e7173b95ae2b7cd5ed8eb4e89a7e5859284d1f12f21a181e8d2bdf" => :high_sierra
+    sha256 "0f2a6e4e1a24d9754b71062cbe86c871db8a98915933a819bfee8e0e68baf4c7" => :sierra
   end
 
   depends_on "pkg-config" => :build
