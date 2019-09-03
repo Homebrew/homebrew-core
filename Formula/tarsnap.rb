@@ -6,11 +6,10 @@ class Tarsnap < Formula
   revision 1
 
   bottle do
-    sha256 "6e5bd7f2ba58872d43896d92ac1bf1d9f42f2cddc16dc1c374d7353b8d55a82d" => :mojave
-    sha256 "b152754ed7ef385e4fd816fbf24571322479757c083ce889134903d4b88e0232" => :high_sierra
-    sha256 "7d4da94d575085b3f2c2066ae5b0e83edd589d0238d065fb0f9ba68d916c3868" => :sierra
-    sha256 "6c4ff5911171f779b85bda69f07eb7a561ec0911517fe3a48b2cb917c1ff4f92" => :el_capitan
-    sha256 "6cc300ce4d0db123d225b9b2ff1d28625061440484932a9c572282de785d4819" => :yosemite
+    cellar :any
+    sha256 "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02" => :mojave
+    sha256 "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d" => :high_sierra
+    sha256 "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930" => :sierra
   end
 
   head do
