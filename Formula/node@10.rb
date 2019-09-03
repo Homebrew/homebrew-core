@@ -14,7 +14,7 @@ class NodeAT10 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python@2" => :build # does not support Python 3
   depends_on "icu4c"
 
   # Fixes detecting Apple clang 11.
