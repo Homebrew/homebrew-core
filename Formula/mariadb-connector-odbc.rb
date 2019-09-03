@@ -2,7 +2,9 @@ class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://downloads.mariadb.org/connector-odbc/"
   url "https://downloads.mariadb.org/f/connector-odbc-3.0.2/mariadb-connector-odbc-3.0.2-ga-src.tar.gz"
+  mirror "http://archive.mariadb.org/connector-odbc-3.0.2/mariadb-connector-odbc-3.0.2-ga-src.tar.gz"
   sha256 "eba4fbda21ae9d50c94d2cd152f0ec14dde3989522f41ef7d22aa0948882ff93"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,13 +16,13 @@ class MariadbConnectorOdbc < Formula
 
   depends_on "cmake" => :build
   depends_on "mariadb-connector-c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
 
   def install
     system "cmake", ".", "-DMARIADB_FOUND=1",
                          "-DWITH_OPENSSL=1",
-                         "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl"].opt_include}",
+                         "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl@1.1"].opt_include}",
                          *std_cmake_args
     system "make", "install"
   end
