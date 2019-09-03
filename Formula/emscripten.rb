@@ -1,6 +1,7 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://kripken.github.io/emscripten-site/"
+  revision 1
 
   stable do
     url "https://github.com/emscripten-core/emscripten/archive/1.38.42.tar.gz"
@@ -38,17 +39,11 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "yuicompressor"
 
   def install
     ENV.cxx11
-    # rewrite hardcoded paths from system python to homebrew python
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`
-    python2_shebang_files = python2_shebangs.lines.sort.uniq
-    python2_shebang_files.map! { |f| Pathname(f.chomp) }
-    python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^#!/usr/bin/python2?$}, "#!#{Formula["python@2"].opt_bin}/python2"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git
