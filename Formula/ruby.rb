@@ -3,6 +3,7 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz"
   sha256 "df593cd4c017de19adf5d0154b8391bb057cef1b72ecdd4a8ee30d3235c65f09"
+  revision 1
 
   bottle do
     sha256 "7a99f669b62f0a3eb5888afde49732ac33f11c7a0d020bac9a573e87e2533291" => :mojave
@@ -19,7 +20,7 @@ class Ruby < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # Should be updated only when Ruby is updated (if an update is available).
@@ -44,7 +45,7 @@ class Ruby < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
