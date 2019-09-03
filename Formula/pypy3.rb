@@ -3,6 +3,7 @@ class Pypy3 < Formula
   homepage "https://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.1.1-src.tar.bz2"
   sha256 "6a3ef876e3691a54f4cff045028ec3be94ab9beb2e99f051b83175302c1899a8"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Pypy3 < Formula
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
   depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "xz"
 
