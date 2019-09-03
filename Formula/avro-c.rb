@@ -5,9 +5,9 @@ class AvroC < Formula
   sha256 "7df7bc1e13ce7180f0438ed05ab6642b5b2b6df91f30b927b470e25a78e04642"
 
   bottle do
-    sha256 "72fbe9c22be502351d5dcffcb37a97c754f3bb3057742bf31b185b0a0f1d5eb4" => :mojave
-    sha256 "6a8b708a052cd04ffb7135b4d69b0f6b6a60ac83dc071622dfaf241f26998c79" => :high_sierra
-    sha256 "e194efdbbebb86f6f553b039251165fa87646a4e21d29916560f6ce73ef8281b" => :sierra
+    sha256 "35aa07886a5188fc42edf2c4dd473857420f9e2ab8b981c4ebd08fabbbe32455" => :mojave
+    sha256 "4ab18f360192adcd9900308820cb06b706d12b997a07b7f2fa6bf1366a91c477" => :high_sierra
+    sha256 "0e24c43c6b2d1c356fdb135f0d94afaaf1274c922f7e58abf4c51581925da572" => :sierra
   end
 
   depends_on "cmake" => :build
