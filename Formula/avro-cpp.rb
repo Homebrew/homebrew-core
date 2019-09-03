@@ -6,9 +6,9 @@ class AvroCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "8fcc26c4a11b256e76b7a9db4115bb5e00fffe8d0b44d07d5e52caf8812317a9" => :mojave
-    sha256 "702007c9685e8c9c09ecb3a3b24f4a234e8c152de713a01b54f8c7357f57c754" => :high_sierra
-    sha256 "61f017da24e1b5da7a67d57f24ce5be6fe6c7c7336b32a181c3eaf359724bd93" => :sierra
+    sha256 "c1a6da3aea6266e910ffefb7a533f87fbfcca1d60e332a912fe5fc5e9d2cbaff" => :mojave
+    sha256 "c448552e93e0de5f880ac1894b1deaa33596b33c63f554fbb17fca78f87d47b2" => :high_sierra
+    sha256 "3219656e529aea6eb7b8c8f66c1e6bbcec3a6be82c54c0da008dd0cf8c0e5094" => :sierra
   end
 
   depends_on "cmake" => :build
