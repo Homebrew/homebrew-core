@@ -3,6 +3,7 @@ class Tarsnap < Formula
   homepage "https://www.tarsnap.com/"
   url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
   sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
+  revision 1
 
   bottle do
     sha256 "6e5bd7f2ba58872d43896d92ac1bf1d9f42f2cddc16dc1c374d7353b8d55a82d" => :mojave
@@ -18,7 +19,7 @@ class Tarsnap < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
