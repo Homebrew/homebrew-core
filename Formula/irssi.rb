@@ -1,9 +1,8 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.2.1/irssi-1.2.1.tar.xz"
-  sha256 "5466a1ed9612cfa707d9a37d60b29d027b4ac7d83c74ceb1a410e2b59edba92c"
-  revision 1
+  url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
+  sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
 
   bottle do
     sha256 "515d731ba57b70dd50db71e6f58527d5540afb94c7ecc6ed28f0b779fd1242ee" => :mojave
