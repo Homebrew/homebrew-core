@@ -15,7 +15,8 @@ class AppscaleTools < Formula
 
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@2"
+  # Uses SOAPPy, which does not support Python 3
+  depends_on "python@2" # does not support Python 3
   depends_on "ssh-copy-id"
 
   resource "retrying" do
