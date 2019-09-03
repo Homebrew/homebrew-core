@@ -1,8 +1,8 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.88.tar.gz"
-  sha256 "4aace0420d6aaa900b84b3329c5173c2294e251d2e24d8cba6e38254333dde3f"
+  url "https://github.com/danmar/cppcheck/archive/1.89.tar.gz"
+  sha256 "37452d378825c7bd78116b4d7073df795fa732207d371ad5348287f811755783"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
@@ -16,13 +16,13 @@ class Cppcheck < Formula
   def install
     ENV.cxx11
 
-    system "make", "HAVE_RULES=yes", "CFGDIR=#{prefix}/cfg"
+    system "make", "HAVE_RULES=yes", "FILESDIR=#{prefix}/cfg"
 
-    # CFGDIR is relative to the prefix for install, don't add #{prefix}.
-    system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "CFGDIR=/cfg", "install"
+    # FILESDIR is relative to the prefix for install, don't add #{prefix}.
+    system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "FILESDIR=/cfg", "install"
 
     # Move the python addons to the cppcheck pkgshare folder
-    (pkgshare/"addons").install Dir.glob(bin/"*.py")
+    (pkgshare/"addons").install Dir.glob("addons/*.py")
   end
 
   test do
