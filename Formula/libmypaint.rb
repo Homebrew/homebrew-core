@@ -1,9 +1,8 @@
 class Libmypaint < Formula
   desc "MyPaint brush engine library"
   homepage "https://github.com/mypaint/libmypaint/wiki"
-  url "https://github.com/mypaint/libmypaint/releases/download/v1.3.0/libmypaint-1.3.0.tar.xz"
-  sha256 "6a07d9d57fea60f68d218a953ce91b168975a003db24de6ac01ad69dcc94a671"
-  revision 2
+  url "https://github.com/mypaint/libmypaint/releases/download/v1.4.0/libmypaint-1.4.0.tar.xz"
+  sha256 "59d13b14c6aca0497095f29ee7228ca2499a923ba8e1dd718a2f2ecb45a9cbff"
 
   bottle do
     cellar :any
