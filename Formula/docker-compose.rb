@@ -5,6 +5,7 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
   url "https://github.com/docker/compose/archive/1.24.1.tar.gz"
   sha256 "63a0e0d3819ff77aebd3d5ea30f77b36475ed522c4dabed2eb10636e35aa9370"
+  revision 1
   head "https://github.com/docker/compose.git"
 
   bottle do
