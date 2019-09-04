@@ -2,8 +2,8 @@ class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://github.com/gruntwork-io/terragrunt"
   url "https://github.com/gruntwork-io/terragrunt.git",
-    :tag      => "v0.19.22",
-    :revision => "56c45d9ef940399a9ddf67c7a9f8cb5f57b3e0cd"
+    :tag      => "v0.19.23",
+    :revision => "10a3eb1a1dd20427391f167b4471a31460acf393"
 
   bottle do
     cellar :any_skip_relocation
