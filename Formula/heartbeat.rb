@@ -16,7 +16,7 @@ class Heartbeat < Formula
   end
 
   depends_on "go" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
@@ -27,10 +27,11 @@ class Heartbeat < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
     resource("virtualenv").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
