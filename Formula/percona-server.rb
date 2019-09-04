@@ -3,6 +3,7 @@ class PerconaServer < Formula
   homepage "https://www.percona.com"
   url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.13-4/source/tarball/percona-server-8.0.13-4.tar.gz"
   sha256 "0a42a0e51e3c27fa1fb2eb3e8d057a33e3ef77691f651b92b5ba6c9fe2890b9b"
+  revision 1
 
   bottle do
     sha256 "f4caccf7602504cf3c7049f34ef0863c84d42e328c18f240d3ca803f13f231e7" => :mojave
@@ -21,7 +22,7 @@ class PerconaServer < Formula
   # Needs at least Clang 3.3, which shipped alongside Lion.
   # Note: MySQL themselves don't support anything below Sierra.
   depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "mariadb", "mysql", "mysql-cluster",
     :because => "percona, mariadb, and mysql install the same binaries."
