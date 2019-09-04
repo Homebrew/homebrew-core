@@ -3,7 +3,7 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
@@ -25,7 +25,7 @@ class Osquery < Formula
   depends_on "lldpd"
   # osquery only supports macOS 10.12 and above. Do not remove this.
   depends_on :macos => :sierra
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
@@ -63,6 +63,10 @@ class Osquery < Formula
     url "https://github.com/facebook/osquery/commit/130b3b3324e2.diff?full_index=1"
     sha256 "46bce0c62f1a8f0df506855049991e6fceb6d1cc4e1113a2f657e76b5c5bdd14"
   end
+
+  # Patch for compatibility with OpenSSL 1.1
+  # submitted upstream: https://github.com/osquery/osquery/issues/5755
+  patch :DATA
 
   def install
     ENV.cxx11
@@ -140,3 +144,67 @@ class Osquery < Formula
     assert_match "platform_info", shell_output("#{bin}/osqueryi -L")
   end
 end
+__END__
+diff -pur osquery-3.3.2/osquery/tables/system/darwin/certificates.mm osquery-3.3.2-fixed/osquery/tables/system/darwin/certificates.mm
+--- osquery-3.3.2/osquery/tables/system/darwin/certificates.mm	2018-10-29 22:24:29.000000000 +0100
++++ osquery-3.3.2-fixed/osquery/tables/system/darwin/certificates.mm	2019-09-07 16:25:24.000000000 +0200
+@@ -20,6 +20,7 @@ namespace tables {
+
+ void genCertificate(X509* cert, const std::string& path, QueryData& results) {
+   Row r;
++  const ASN1_OCTET_STRING *s;
+
+   // Generate the common name and subject.
+   // They are very similar OpenSSL API accessors so save some logic and
+@@ -42,13 +43,11 @@ void genCertificate(X509* cert, const st
+   // so it should be called before others.
+   r["ca"] = (CertificateIsCA(cert)) ? INTEGER(1) : INTEGER(0);
+   r["self_signed"] = (CertificateIsSelfSigned(cert)) ? INTEGER(1) : INTEGER(0);
+-  r["key_usage"] = genKeyUsage(cert->ex_kusage);
+-  r["authority_key_id"] =
+-      (cert->akid && cert->akid->keyid)
+-          ? genKIDProperty(cert->akid->keyid->data, cert->akid->keyid->length)
+-          : "";
+-  r["subject_key_id"] =
+-      (cert->skid) ? genKIDProperty(cert->skid->data, cert->skid->length) : "";
++  r["key_usage"] = genKeyUsage(X509_get_key_usage(cert));
++  s = X509_get0_authority_key_id(cert);
++  r["authority_key_id"] = s ? genKIDProperty(s->data, s->length) : "";
++  s = X509_get0_subject_key_id(cert);
++  r["subject_key_id"] = s ? genKIDProperty(s->data, s->length) : "";
+
+   r["serial"] = genSerialForCertificate(cert);
+
+diff -pur osquery-3.3.2/osquery/tables/system/darwin/keychain_utils.cpp osquery-3.3.2-fixed/osquery/tables/system/darwin/keychain_utils.cpp
+--- osquery-3.3.2/osquery/tables/system/darwin/keychain_utils.cpp	2018-10-29 22:24:29.000000000 +0100
++++ osquery-3.3.2-fixed/osquery/tables/system/darwin/keychain_utils.cpp	2019-09-07 17:03:59.000000000 +0200
+@@ -84,7 +84,10 @@ void genAlgorithmProperties(X509* cert,
+                             std::string& sig,
+                             std::string& size) {
+   int nid = 0;
+-  nid = OBJ_obj2nid(cert->cert_info->key->algor->algorithm);
++  ASN1_OBJECT *ppkalg;
++  X509_PUBKEY *pubkey = X509_get_X509_PUBKEY(cert);
++  X509_PUBKEY_get0_param(&ppkalg, NULL, NULL, NULL, pubkey);
++  nid = OBJ_obj2nid(ppkalg);
+   if (nid != NID_undef) {
+     key = std::string(OBJ_nid2ln(nid));
+
+@@ -101,7 +104,7 @@ void genAlgorithmProperties(X509* cert,
+       // The EVP_size for EC keys returns the maximum buffer for storing the
+       // key data, it does not indicate the size/strength of the curve.
+       if (nid == NID_X9_62_id_ecPublicKey) {
+-        const EC_KEY* ec_pkey = pkey->pkey.ec;
++        const EC_KEY* ec_pkey = EVP_PKEY_get0_EC_KEY(pkey);
+         const EC_GROUP* ec_pkey_group = nullptr;
+         ec_pkey_group = EC_KEY_get0_group(ec_pkey);
+         int curve_nid = 0;
+@@ -114,7 +117,7 @@ void genAlgorithmProperties(X509* cert,
+     EVP_PKEY_free(pkey);
+   }
+
+-  nid = OBJ_obj2nid(cert->cert_info->signature->algorithm);
++  nid = OBJ_obj2nid(X509_get0_tbs_sigalg(cert)->algorithm);
+   if (nid != NID_undef) {
+     sig = std::string(OBJ_nid2ln(nid));
+   }
