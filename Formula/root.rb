@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.18.00.source.tar.gz"
   version "6.18.00"
   sha256 "e6698d6cfe585f186490b667163db65e7d1b92a2447658d77fa831096383ea71"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -35,7 +35,7 @@ class Root < Formula
   # https://github.com/Homebrew/brew/issues/5068
   depends_on "libxml2" if MacOS.version >= :mojave
   depends_on "lz4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python"
   depends_on "tbb"
