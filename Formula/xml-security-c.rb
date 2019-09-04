@@ -4,6 +4,7 @@ class XmlSecurityC < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=/santuario/c-library/xml-security-c-2.0.2.tar.bz2"
   mirror "https://archive.apache.org/dist/santuario/c-library/xml-security-c-2.0.2.tar.bz2"
   sha256 "39e963ab4da477b7bda058f06db37228664c68fe68902d86e334614dd06e046b"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,14 +14,14 @@ class XmlSecurityC < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "xerces-c"
 
   def install
     ENV.cxx11
 
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
