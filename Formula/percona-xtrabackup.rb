@@ -3,6 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
   sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
+  revision 1
 
   bottle do
     sha256 "480e5ee70d642c0afbd2b28a043526b216fab5d3ab6971b6f170e9e6875b7498" => :mojave
@@ -15,7 +16,7 @@ class PerconaXtrabackup < Formula
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "percona-server",
     :because => "both install lib/plugin/keyring_vault.so"
