@@ -3,7 +3,7 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "171ff3da6a7005ed1ea4b7a91c4c5e9e40d2734f16fcb5f59a6e1e61121e0b96" => :mojave
