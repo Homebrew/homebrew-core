@@ -5,6 +5,7 @@ class Credstash < Formula
   homepage "https://github.com/fugue/credstash"
   url "https://github.com/fugue/credstash/archive/v1.16.1.tar.gz"
   sha256 "96d74c8ee5d05e42a91ec815829b5ea41dd14c6046f563e274e37f1df14b0cbc"
+  revision 1
   head "https://github.com/fugue/credstash.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Credstash < Formula
     sha256 "32f76c32a0c65699546528f07b6a9c7c633c9963e743eb2c93f8ac52eec3edc4" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
