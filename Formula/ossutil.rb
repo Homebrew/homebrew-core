@@ -1,8 +1,8 @@
 require "language/go"
 
 class Ossutil < Formula
-  desc "A user friendly command line tool to access AliCloud OSS."
-  homepage "http://oss.aliyun.com"
+  desc "a user friendly command-line tool to access AliCloud OSS"
+  homepage "https://www.aliyun.com/product/oss"
   url "https://github.com/aliyun/ossutil.git",
       :tag      => "v1.6.6",
       :revision => "70f26cd844d77a4cb90a4260d282d127d73d8061"
@@ -53,7 +53,6 @@ class Ossutil < Formula
     (buildpath/"src/github.com/aliyun").mkpath
     ln_s buildpath, buildpath/"src/github.com/aliyun/ossutil"
     system "go", "build", "-o", bin/"ossutil", "github.com/aliyun/ossutil"
-
   end
 
   test do
