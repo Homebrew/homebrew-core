@@ -3,6 +3,7 @@ class Sysbench < Formula
   homepage "https://github.com/akopytov/sysbench"
   url "https://github.com/akopytov/sysbench/archive/1.0.17.tar.gz"
   sha256 "9bcad62eaf473510f5184f33cc41f1e07c2640c8810ae9eebe25ba27ba04df5d"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,7 @@ class Sysbench < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
