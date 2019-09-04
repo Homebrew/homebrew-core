@@ -3,6 +3,7 @@ class Thrift < Formula
   homepage "https://thrift.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.12.0/thrift-0.12.0.tar.gz"
   sha256 "c336099532b765a6815173f62df0ed897528a9d551837d627c1f87fadad90428"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh" unless build.stable?
@@ -32,7 +33,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-erlang
       --without-haskell
       --without-java
