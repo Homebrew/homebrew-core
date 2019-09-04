@@ -3,6 +3,7 @@ class ShibbolethSp < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
   url "https://shibboleth.net/downloads/service-provider/3.0.4/shibboleth-sp-3.0.4.tar.bz2"
   sha256 "f5dc0fd028b74db4aaae76b59ec98e8a719c38cfe0f1d722feb2d5e0b9880cff"
+  revision 1
 
   bottle do
     sha256 "64559609abe14bfcd7eaf64a488e3a09f3683839cd8e72a4beef8ac8cdaa0cf7" => :mojave
@@ -18,7 +19,7 @@ class ShibbolethSp < Formula
   depends_on "log4shib"
   depends_on :macos => :yosemite
   depends_on "opensaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "xerces-c"
   depends_on "xml-security-c"
