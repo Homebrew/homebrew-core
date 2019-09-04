@@ -3,6 +3,7 @@ class Efl < Formula
   homepage "https://www.enlightenment.org"
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.22.3.tar.xz"
   sha256 "7e7a4199b1e90d400dab2491db6032f8e0b26bab65ec19c9f8a97a82394331c8"
+  revision 1
 
   bottle do
     sha256 "cc41782d191ea7e577fe4995866554f34830d84fde096a855596370c55e5e829" => :mojave
@@ -28,7 +29,7 @@ class Efl < Formula
   depends_on "libspectre"
   depends_on "libtiff"
   depends_on "luajit"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
