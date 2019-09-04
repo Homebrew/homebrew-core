@@ -3,6 +3,7 @@ class Monkeysphere < Formula
   homepage "https://web.monkeysphere.info/"
   url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
   sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
+  revision 1
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
@@ -17,7 +18,7 @@ class Monkeysphere < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "Crypt::OpenSSL::Bignum" do
     url "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz"
