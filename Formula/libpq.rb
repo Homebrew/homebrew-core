@@ -3,6 +3,7 @@ class Libpq < Formula
   homepage "https://www.postgresql.org/docs/11/static/libpq.html"
   url "https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2"
   sha256 "7fdf23060bfc715144cbf2696cf05b0fa284ad3eb21f0c378591c6bca99ad180"
+  revision 1
 
   bottle do
     sha256 "1a907a4d7efd94e4a144eed844ba3ba9960bcf9be91b4487b162a88c51a47859" => :mojave
@@ -12,7 +13,7 @@ class Libpq < Formula
 
   keg_only "conflicts with postgres formula"
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
