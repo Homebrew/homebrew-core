@@ -5,6 +5,7 @@ class RobotFramework < Formula
   homepage "https://robotframework.org/"
   url "https://github.com/robotframework/robotframework/archive/v3.1.2.tar.gz"
   sha256 "1a8769bc40d334814b3eeb1dc945624c292f210fb4f2ff033a21cba4e9360864"
+  revision 1
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
@@ -14,7 +15,7 @@ class RobotFramework < Formula
     sha256 "9b17cfe5d7da89b2b1eae1bb0909fed39eee10a7a3803cfda667f6ed5f98da24" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on :x11
 
