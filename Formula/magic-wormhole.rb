@@ -5,6 +5,7 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/77/15/9438290bab8146efc0213f7c3d9645d9bc5a2e885e4049477e7432e40336/magic-wormhole-0.11.2.tar.gz"
   sha256 "ae79667bdbb39fba7d315e36718db383651b45421813366cfaceb069e222d905"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class MagicWormhole < Formula
   end
 
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "Automat" do
