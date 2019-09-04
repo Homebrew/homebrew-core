@@ -1,8 +1,8 @@
 class Bedtools < Formula
   desc "Tools for genome arithmetic (set theory on the genome)"
   homepage "https://github.com/arq5x/bedtools2"
-  url "https://github.com/arq5x/bedtools2/archive/v2.28.0.tar.gz"
-  sha256 "0f3e5990b5713388531de699d43d195f1535a5772d832acfd47baa151a3a7e59"
+  url "https://github.com/arq5x/bedtools2/archive/v2.29.0.tar.gz"
+  sha256 "8a13b7ec93a2dc960616268d8009f6061bec5a32b8a38d5734f80e851bb8ed1e"
 
   bottle do
     cellar :any
@@ -16,7 +16,6 @@ class Bedtools < Formula
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"
-    prefix.install "RELEASE_HISTORY"
   end
 
   test do
