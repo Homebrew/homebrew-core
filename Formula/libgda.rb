@@ -3,7 +3,7 @@ class Libgda < Formula
   homepage "https://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
   sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -20,7 +20,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "libgcrypt"
   depends_on "libgee"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
