@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/e9394410222c396c435f4f833da31b387c0789a6"
   version "2.0.72"
   sha256 "a5f1c67cf5180a2f6fd195d6dcec429ef1f98384053c85bb118da0fd2306a08c"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -15,7 +16,7 @@ class AzureCli < Formula
     sha256 "6d6fda51f07aa9c78c6789f783043261145b29233a5db6b42661d702a2159b98" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "adal" do
