@@ -17,7 +17,7 @@ class Davix < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.libcxx
