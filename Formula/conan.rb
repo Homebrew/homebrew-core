@@ -5,6 +5,7 @@ class Conan < Formula
   homepage "https://github.com/conan-io/conan"
   url "https://github.com/conan-io/conan/archive/1.18.2.tar.gz"
   sha256 "5e53bd4e1db4581502b1e327840a458c830d2322b1b9d20630212e061d706390"
+  revision 1
   head "https://github.com/conan-io/conan.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Conan < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libffi"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   def install
