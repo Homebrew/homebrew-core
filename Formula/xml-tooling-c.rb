@@ -3,6 +3,7 @@ class XmlToolingC < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
   url "https://shibboleth.net/downloads/c++-opensaml/3.0.1/xmltooling-3.0.4.tar.bz2"
   sha256 "bb87febe730f97fc58f6f6b6782d7ab89bf240944dd6e5f1c1d9681254bb9a88"
+  revision 1
 
   bottle do
     sha256 "17fb30e25e030285cc3d0b345a05285bd8d8bc64ba5878b3cbdb2302cd64e020" => :mojave
@@ -13,7 +14,7 @@ class XmlToolingC < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "log4shib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "xerces-c"
   depends_on "xml-security-c"
 
@@ -26,14 +27,14 @@ class XmlToolingC < Formula
   def install
     ENV.cxx11
 
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl"].opt_lib}/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{Formula["openssl@1.1"].opt_lib}/pkgconfig"
 
     resource("curl").stage do
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}/curl",
-                            "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                            "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                             "--with-ca-bundle=#{etc}/openssl/cert.pem",
                             "--with-ca-path=#{etc}/openssl/certs",
                             "--without-libssh2",
