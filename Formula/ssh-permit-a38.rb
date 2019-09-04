@@ -3,6 +3,7 @@ class SshPermitA38 < Formula
   homepage "https://github.com/ierror/ssh-permit-a38"
   url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
   sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
+  revision 1
 
   bottle do
     sha256 "79aa6e33c91a8cb2dd5c2f30277bc17b26b877010cf07a49ca212e2882085c2b" => :mojave
@@ -13,12 +14,12 @@ class SshPermitA38 < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
   end
