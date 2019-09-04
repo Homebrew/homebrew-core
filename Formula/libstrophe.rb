@@ -3,6 +3,7 @@ class Libstrophe < Formula
   homepage "http://strophe.im/libstrophe/"
   url "https://github.com/strophe/libstrophe/archive/0.9.2.tar.gz"
   sha256 "158145bc1565a5fd0bbd7f57e3e15d768e58b8a460897ab5918a5a689d67ae6f"
+  revision 1
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Libstrophe < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh"
