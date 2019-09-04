@@ -3,6 +3,7 @@ class Libwebsockets < Formula
   homepage "https://libwebsockets.org"
   url "https://github.com/warmcat/libwebsockets/archive/v3.2.0.tar.gz"
   sha256 "5e731c536a20d9c03ae611631db073f05cd77bf0906a8c30d2a13638d4c8c667"
+  revision 1
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Libwebsockets < Formula
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", *std_cmake_args,
@@ -44,7 +45,7 @@ class Libwebsockets < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{Formula["openssl"].opt_prefix}/include", "-L#{lib}", "-lwebsockets", "-o", "test"
+    system ENV.cc, "test.c", "-I#{Formula["openssl@1.1"].opt_prefix}/include", "-L#{lib}", "-lwebsockets", "-o", "test"
     system "./test"
   end
 end
