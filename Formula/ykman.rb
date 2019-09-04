@@ -5,6 +5,7 @@ class Ykman < Formula
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.0.tar.gz"
   sha256 "0137acd30cffa60421dde8277b3bb0c5d5e2179d36df0d190de6faf7eec76359"
+  revision 1
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Ykman < Formula
 
   depends_on "swig" => :build
   depends_on "libusb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "ykpers"
 
