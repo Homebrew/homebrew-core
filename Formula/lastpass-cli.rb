@@ -3,6 +3,7 @@ class LastpassCli < Formula
   homepage "https://github.com/lastpass/lastpass-cli"
   url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.3/lastpass-cli-1.3.3.tar.gz"
   sha256 "b94f591627e06c9fed3bc38007b1adc6ea77127e17c7175c85d497096768671b"
+  revision 1
   head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
@@ -18,7 +19,7 @@ class LastpassCli < Formula
   depends_on "pkg-config" => :build
   # Avoid crashes on Mojave's version of libcurl (https://github.com/lastpass/lastpass-cli/issues/427)
   depends_on "curl" if MacOS.version >= :mojave
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pinentry"
 
   def install
