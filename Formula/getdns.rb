@@ -3,7 +3,7 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-5-2/getdns-1.5.2.tar.gz"
   sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -22,7 +22,7 @@ class Getdns < Formula
 
   depends_on "libevent"
   depends_on "libidn2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unbound"
 
   def install
@@ -33,7 +33,7 @@ class Getdns < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--with-libevent",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-trust-anchor=#{etc}/getdns-root.key",
                           "--without-stubby"
     system "make"
