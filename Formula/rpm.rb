@@ -3,7 +3,7 @@ class Rpm < Formula
   homepage "https://rpm.org/"
   url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.2.1.tar.bz2"
   sha256 "1139c24b7372f89c0a697096bf9809be70ba55e006c23ff47305c1849d98acda"
-  revision 1
+  revision 2
   version_scheme 1
 
   bottle do
@@ -18,7 +18,7 @@ class Rpm < Formula
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua@5.1"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
   depends_on "xz"
