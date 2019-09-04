@@ -3,7 +3,7 @@ class Neomutt < Formula
   homepage "https://neomutt.org/"
   url "https://github.com/neomutt/neomutt/archive/neomutt-20180716.tar.gz"
   sha256 "bd89826980b493ba312228c9c14ffe2403e268571aea6008c6dc7ed3848de200"
-  revision 1
+  revision 2
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Neomutt < Formula
   depends_on "libidn"
   depends_on "lmdb"
   depends_on "notmuch"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
 
   def install
@@ -31,7 +31,7 @@ class Neomutt < Formula
                           "--notmuch",
                           "--sasl",
                           "--tokyocabinet",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-ui=ncurses"
     system "make", "install"
   end
