@@ -17,6 +17,10 @@ class OperatorSdk < Formula
   depends_on "go"
 
   def install
+    # TODO: Do not set GOROOT. This is a fix for failing tests when compiled with Go 1.13.
+    # See https://github.com/Homebrew/homebrew-core/pull/43820.
+    ENV["GOROOT"] = Formula["go"].opt_libexec
+
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
 
