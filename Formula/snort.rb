@@ -4,6 +4,7 @@ class Snort < Formula
   url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
   mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
   sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,11 +19,11 @@ class Snort < Formula
   depends_on "libpcap"
   depends_on "luajit"
   depends_on "nghttp2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     libpcap = Formula["libpcap"]
 
     args = %W[
