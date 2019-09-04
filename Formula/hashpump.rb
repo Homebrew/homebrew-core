@@ -3,7 +3,7 @@ class Hashpump < Formula
   homepage "https://github.com/bwall/HashPump"
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Hashpump < Formula
     sha256 "ca23c693b5c3d7786cbbe385b540e5e0aec7267c7e378d4b7e3ca88d6b3847b4" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   # Remove on next release
