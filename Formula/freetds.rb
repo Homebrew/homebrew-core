@@ -3,6 +3,7 @@ class Freetds < Formula
   homepage "https://www.freetds.org/"
   url "https://www.freetds.org/files/stable/freetds-1.1.15.tar.gz"
   sha256 "ebeb9060bcfe54f13ab0fbf8cb72ac95cc6cefbe728a30247516d55334d66a03"
+  revision 1
 
   bottle do
     sha256 "abb170ce9f2ac43e53a6e32a1d282551e58f73c161353db26039644b01a8453d" => :mojave
@@ -20,7 +21,7 @@ class Freetds < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
   uses_from_macos "readline"
 
@@ -31,7 +32,7 @@ class Freetds < Formula
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide
