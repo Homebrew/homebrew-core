@@ -3,7 +3,7 @@ class Gkrellm < Formula
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
   url "http://gkrellm.srcbox.net/releases/gkrellm-2.3.11.tar.bz2"
   sha256 "1ee0643ed9ed99f88c1504c89d9ccb20780cf29319c904b68e80a8e7c8678c06"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3b86db152211ed9f214f5dad4253e48d98374dbe6bfa1f83eb6d64da1088185b" => :mojave
