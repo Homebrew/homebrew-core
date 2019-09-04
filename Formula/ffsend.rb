@@ -3,6 +3,7 @@ class Ffsend < Formula
   homepage "https://gitlab.com/timvisee/ffsend"
   url "https://github.com/timvisee/ffsend/archive/v0.2.50.tar.gz"
   sha256 "1fe6ea615f116060c9d4147250a3c5774527e98e3dadc089afdec51a0883163e"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,12 +14,12 @@ class Ffsend < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://docs.rs/openssl/0.10.19/openssl/#manual
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
 
