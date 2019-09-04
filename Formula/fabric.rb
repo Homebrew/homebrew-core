@@ -5,6 +5,7 @@ class Fabric < Formula
   homepage "https://www.fabfile.org/"
   url "https://github.com/fabric/fabric/archive/2.5.0.tar.gz"
   sha256 "4b3f4c79bcc372de575e7756b50c89373ce1acb8565902a5e406b5e78c41389c"
+  revision 1
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Fabric < Formula
     sha256 "07cf0556c6e5b8593ab9839afaee77794aac3353770201aae9cefa219c759155" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
