@@ -3,6 +3,7 @@ class Groonga < Formula
   homepage "http://groonga.org/"
   url "https://packages.groonga.org/source/groonga/groonga-9.0.7.tar.gz"
   sha256 "d8e5c49fd55889ca0bc447decb606723a910769af8ab312936e16043cd4560c8"
+  revision 1
 
   bottle do
     sha256 "0f46c560a90c2a52f55810086063e7c86bc60bec04e43657a65716af28f34cfd" => :mojave
@@ -21,7 +22,7 @@ class Groonga < Formula
   depends_on "mecab"
   depends_on "mecab-ipadic"
   depends_on "msgpack"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   link_overwrite "lib/groonga/plugins/normalizers/"
