@@ -3,7 +3,7 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.14.1/apache-arrow-0.14.1.tar.gz"
   sha256 "9948ddb6d4798b51552d0dca3252dd6e3a7d0f9702714fc6f5a1b59397ce1d28"
-  revision 1
+  revision 2
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -23,7 +23,7 @@ class ApacheArrow < Formula
   depends_on "grpc"
   depends_on "lz4"
   depends_on "numpy"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "python"
   depends_on "rapidjson"
