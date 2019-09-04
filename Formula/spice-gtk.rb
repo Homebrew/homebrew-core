@@ -3,7 +3,7 @@ class SpiceGtk < Formula
   homepage "https://www.spice-space.org"
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.37.tar.bz2"
   sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3647ef369e2b0127fb99ab5913bb78036b2a81826f3959cbf4e6cd6f34d85fd3" => :mojave
@@ -36,7 +36,7 @@ class SpiceGtk < Formula
   depends_on "json-glib"
   depends_on "libusb"
   depends_on "lz4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "pango"
   depends_on "pixman"
