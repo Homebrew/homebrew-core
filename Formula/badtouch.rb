@@ -3,6 +3,7 @@ class Badtouch < Formula
   homepage "https://github.com/kpcyrd/badtouch"
   url "https://github.com/kpcyrd/badtouch/archive/v0.7.0.tar.gz"
   sha256 "d49eb11825ab56245f82f0958a89ea69edf558c1bd142afba2d4408dc9d20fbb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,12 +13,12 @@ class Badtouch < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "docs/badtouch.1"
