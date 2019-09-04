@@ -3,6 +3,7 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://github.com/malaterre/GDCM/archive/v3.0.1.tar.gz"
   sha256 "f1ee8ebda7a465281abada329b4dbca6e036a42ead6ad58070ff4f94da7819d9"
+  revision 1
 
   bottle do
     sha256 "02acc5b9d928de052b0a1ea8ce06c0184ad573d86797694f408d83c185d43624" => :mojave
@@ -28,7 +29,7 @@ class Gdcm < Formula
 
     args = std_cmake_args + %W[
       -GNinja
-      -DGDCM_BUILD_APPLICATIONS=OFF
+      -DGDCM_BUILD_APPLICATIONS=ON
       -DGDCM_BUILD_SHARED_LIBS=ON
       -DGDCM_BUILD_TESTING=OFF
       -DGDCM_BUILD_EXAMPLES=OFF
