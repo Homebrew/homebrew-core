@@ -3,6 +3,7 @@ class SwiProlog < Formula
   homepage "https://www.swi-prolog.org/"
   url "https://www.swi-prolog.org/download/stable/src/swipl-8.0.3.tar.gz"
   sha256 "cee59c0a477c8166d722703f6e52f962028f3ac43a5f41240ecb45dbdbe2d6ae"
+  revision 1
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
@@ -18,7 +19,7 @@ class SwiProlog < Formula
   depends_on "jpeg"
   depends_on "libarchive"
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"
