@@ -5,6 +5,7 @@ class SvtplayDl < Formula
   homepage "https://svtplay-dl.se/"
   url "https://files.pythonhosted.org/packages/65/32/ec0bace91cc59001f75043611cc5693ee716e226e318c5143fe729c07994/svtplay-dl-2.2.tar.gz"
   sha256 "5c21675a54ca1690e1ab19a116ba922818129e1994bb7379c084df2b03e287f0"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class SvtplayDl < Formula
     sha256 "6964649a72a2b6de7e2d64850982f8c06a700c186abaa1f3a2d691c4f3259498" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "six" do
