@@ -3,7 +3,9 @@ class MysqlClient < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   # Pinned at `5.7.*`
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.23.tar.gz"
+  mirror "https://cdn.mysql.com/archives/mysql-5.7/mysql-boost-5.7.23.tar.gz"
   sha256 "d05700ec5c1c6dae9311059dc1713206c29597f09dbd237bf0679b3c6438e87a"
+  revision 1
 
   bottle do
     sha256 "39470cf4e34f770eebda0c89249f90c18a84e6ef03d33ee464db90c0049d74aa" => :mojave
@@ -16,7 +18,7 @@ class MysqlClient < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # https://bugs.mysql.com/bug.php?id=87348
