@@ -4,7 +4,7 @@ class Libewf < Formula
   url "https://deb.debian.org/debian/pool/main/libe/libewf/libewf_20140608.orig.tar.gz"
   version "20140608"
   sha256 "d14030ce6122727935fbd676d0876808da1e112721f3cb108564a4d9bf73da71"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -23,7 +23,7 @@ class Libewf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     if build.head?
