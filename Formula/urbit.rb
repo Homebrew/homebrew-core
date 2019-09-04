@@ -18,7 +18,7 @@ class Urbit < Formula
   depends_on "gmp"
   depends_on "libsigsegv"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./scripts/build"
