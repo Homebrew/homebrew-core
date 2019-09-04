@@ -3,6 +3,7 @@ class Libssh2 < Formula
   homepage "https://libssh2.org/"
   url "https://libssh2.org/download/libssh2-1.9.0.tar.gz"
   sha256 "d5fb8bd563305fd1074dda90bd053fb2d29fc4bce048d182f96eaa466dfadafd"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,7 +20,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -30,7 +31,7 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./buildconf" if build.head?
