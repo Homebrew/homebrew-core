@@ -4,7 +4,7 @@ class Xmount < Formula
   url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
       :tag      => "v0.7.6",
       :revision => "d0f67c46632a69ff1b608e90ed2fba8344ab7f3d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3cbc70ba1ced45797f95030b0509b0b2e3b2ad6d85cd1f4acdc362651d5e6ade" => :mojave
@@ -17,11 +17,11 @@ class Xmount < Formula
   depends_on "pkg-config" => :build
   depends_on "afflib"
   depends_on "libewf"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
 
     Dir.chdir "trunk" do
       system "cmake", ".", *std_cmake_args
