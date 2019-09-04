@@ -3,7 +3,7 @@ class AprUtil < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.6.1.tar.bz2"
   sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e4927892e16a3c9cf0d037c1777a6e5728fef2f5abfbc0af3d0d444e9d6a1d2b" => :mojave
@@ -15,14 +15,14 @@ class AprUtil < Formula
   keg_only :provided_by_macos, "Apple's CLT package contains apr"
 
   depends_on "apr"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Install in libexec otherwise it pollutes lib with a .exp file.
     system "./configure", "--prefix=#{libexec}",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-crypto",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
