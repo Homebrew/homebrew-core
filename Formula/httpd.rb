@@ -3,6 +3,7 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/httpd/httpd-2.4.41.tar.bz2"
   sha256 "133d48298fe5315ae9366a0ec66282fa4040efa5d566174481077ade7d18ea40"
+  revision 1
 
   bottle do
     sha256 "69fa9c4f5ac1da302f5784353ca75fe9d20d09d62308f9dd12565c427c5bb7e1" => :mojave
@@ -14,7 +15,7 @@ class Httpd < Formula
   depends_on "apr-util"
   depends_on "brotli"
   depends_on "nghttp2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   uses_from_macos "zlib"
 
@@ -62,7 +63,7 @@ class Httpd < Formula
                           "--with-libxml2=#{MacOS.sdk_path_if_needed}/usr",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
                           "--with-z=#{MacOS.sdk_path_if_needed}/usr",
                           "--disable-lua",
