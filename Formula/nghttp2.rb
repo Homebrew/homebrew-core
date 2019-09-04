@@ -3,6 +3,7 @@ class Nghttp2 < Formula
   homepage "https://nghttp2.org/"
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.39.2/nghttp2-1.39.2.tar.xz"
   sha256 "a2d216450abd2beaf4e200c168957968e89d602ca4119338b9d7ab059fd4ce8b"
+  revision 1
 
   bottle do
     sha256 "6d1d1e137cdb97927bb16ebdd26436b0ac7dfcb07bf8d095f1b122a2936113b2" => :mojave
@@ -26,7 +27,7 @@ class Nghttp2 < Formula
   depends_on "jemalloc"
   depends_on "libev"
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
