@@ -3,6 +3,7 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.12.0.tar.gz"
   sha256 "f56d51b2c33a9c03f1b9d4fc5f7480f1c2104ef1e8f04def84a16f35d0bc42f6"
+  revision 1
   head "https://github.com/innotop/innotop.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Innotop < Formula
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.636.tar.gz"
