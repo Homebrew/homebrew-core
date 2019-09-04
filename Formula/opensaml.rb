@@ -3,6 +3,7 @@ class Opensaml < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
   url "https://shibboleth.net/downloads/c++-opensaml/3.0.1/opensaml-3.0.1.tar.bz2"
   sha256 "80c1672929e3bfc3233e5a995517bc678c479ad925f0cdf9cacffaa7c786cc29"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Opensaml < Formula
 
   depends_on "pkg-config" => :build
   depends_on "log4shib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "xerces-c"
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
