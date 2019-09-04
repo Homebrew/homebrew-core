@@ -3,6 +3,7 @@ class Bitcoin < Formula
   homepage "https://bitcoin.org/"
   url "https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1.tar.gz"
   sha256 "5c7d93f15579e37aa2d1dc79e8f5ac675f59045fceddf604ae0f1550eb03bf96"
+  revision 1
 
   bottle do
     cellar :any
@@ -24,7 +25,7 @@ class Bitcoin < Formula
   depends_on "boost"
   depends_on "libevent"
   depends_on "miniupnpc"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zeromq"
 
   def install
