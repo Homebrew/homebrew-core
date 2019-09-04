@@ -3,7 +3,7 @@ class SstpClient < Formula
   homepage "https://sstp-client.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.12.tar.gz"
   sha256 "487eb406579689803ce0397f6102b18641e4572ac7bc9b9e5f3027c84dcf67ff"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7999babf31a04719940d1c54c4ab4275b15963ef997a29b5f0e867246b778eb6" => :mojave
@@ -13,7 +13,7 @@ class SstpClient < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
