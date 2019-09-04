@@ -3,6 +3,7 @@ class Opusfile < Formula
   homepage "https://www.opus-codec.org/"
   url "https://archive.mozilla.org/pub/opus/opusfile-0.11.tar.gz"
   sha256 "74ce9b6cf4da103133e7b5c95df810ceb7195471e1162ed57af415fabf5603bf"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,7 +21,7 @@ class Opusfile < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libogg"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "opus"
 
   resource "music_48kbps.opus" do
