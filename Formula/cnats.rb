@@ -3,6 +3,7 @@ class Cnats < Formula
   homepage "https://github.com/nats-io/nats.c"
   url "https://github.com/nats-io/nats.c/archive/v2.0.0.tar.gz"
   sha256 "e10beeb623fc5dadd0673269674331f7b35d19e52ff32d14ceac981b3c701587"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Cnats < Formula
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf-c"
 
   def install
