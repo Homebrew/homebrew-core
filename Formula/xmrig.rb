@@ -3,6 +3,7 @@ class Xmrig < Formula
   homepage "https://github.com/xmrig/xmrig"
   url "https://github.com/xmrig/xmrig/archive/v2.14.4.tar.gz"
   sha256 "7e827ece5df61ab1e23dda40940ad2f7946dc006fced86836aed3a26dcdc185e"
+  revision 1
   head "https://github.com/xmrig/xmrig.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Xmrig < Formula
   depends_on "cmake" => :build
   depends_on "libmicrohttpd"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     mkdir "build" do
