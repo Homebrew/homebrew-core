@@ -3,6 +3,7 @@ class GitSeries < Formula
   homepage "https://github.com/git-series/git-series"
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,12 +16,12 @@ class GitSeries < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "libssh2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
