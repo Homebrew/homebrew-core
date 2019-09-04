@@ -3,6 +3,7 @@ class Pulseaudio < Formula
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
   url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz"
   sha256 "809668ffc296043779c984f53461c2b3987a45b7a25eb2f0a1d11d9f23ba4055"
+  revision 1
 
   bottle do
     sha256 "d4e3317b4dbe4a94da0d4214dd283a905ad9a6cf0af6350cf8c7fdeca9178b41" => :mojave
@@ -25,7 +26,7 @@ class Pulseaudio < Formula
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libtool"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "speexdsp"
 
   def install
