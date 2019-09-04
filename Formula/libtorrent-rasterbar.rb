@@ -36,6 +36,8 @@ class LibtorrentRasterbar < Formula
       --with-boost-python=boost_python37-mt
       PYTHON=python3
     ]
+    
+    ENV.append "LDFLAGS", "-framework SystemConfiguration -framework CoreFoundation"
 
     if build.head?
       system "./bootstrap.sh", *args
