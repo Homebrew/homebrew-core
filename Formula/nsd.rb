@@ -3,6 +3,7 @@ class Nsd < Formula
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
   url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.2.2.tar.gz"
   sha256 "83b333940a25fe6d453bcac6ea39edfa244612a879117c4a624c97eb250246fb"
+  revision 1
 
   bottle do
     sha256 "97578f2f42dcfc6a342f9915c5507c68ac39c88869654d54764699ec382d3f61" => :mojave
@@ -11,14 +12,14 @@ class Nsd < Formula
   end
 
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--with-libevent=#{Formula["libevent"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 
