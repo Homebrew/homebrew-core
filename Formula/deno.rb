@@ -2,8 +2,8 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.16.0",
-    :revision => "0809b06a3938868f364f1343b0de4d5d9686495d"
+    :tag      => "v0.17.0",
+    :revision => "82588ec09c199683cff88097e1b90649497239c7"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,6 @@ class Deno < Formula
 
   depends_on "llvm" => :build
   depends_on "ninja" => :build
-  depends_on "node" => :build
   depends_on "rust" => :build
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
