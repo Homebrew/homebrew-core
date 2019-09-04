@@ -1,7 +1,7 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  revision 2
+  revision 3
   head "https://github.com/facebook/watchman.git"
 
   stable do
@@ -26,7 +26,7 @@ class Watchman < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python"
 
