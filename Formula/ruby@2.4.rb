@@ -38,6 +38,7 @@ class RubyAT24 < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 
