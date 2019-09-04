@@ -5,6 +5,7 @@ class Termius < Formula
   homepage "https://termius.com"
   url "https://github.com/Crystalnix/termius-cli/archive/v1.2.12.tar.gz"
   sha256 "89be6d35e5c4918c0d9e3f2410620d3a84c7108e52c2c87cfa6166c5612e08ee"
+  revision 1
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "master"
 
   bottle do
@@ -15,7 +16,7 @@ class Termius < Formula
   end
 
   depends_on "bash-completion"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "zsh-completions"
 
