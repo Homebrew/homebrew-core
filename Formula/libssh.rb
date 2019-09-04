@@ -3,6 +3,7 @@ class Libssh < Formula
   homepage "https://www.libssh.org/"
   url "https://www.libssh.org/files/0.9/libssh-0.9.0.tar.xz"
   sha256 "25303c2995e663cd169fdd902bae88106f48242d7e96311d74f812023482c7a5"
+  revision 1
   head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Libssh < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     mkdir "build" do
