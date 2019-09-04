@@ -3,6 +3,7 @@ class PhpAT71 < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.1.32.tar.xz"
   sha256 "7f38b5bdaae3184d325a8c70e86c010afcc33651d15faafe277a0db6d2ea2741"
+  revision 1
 
   bottle do
     sha256 "259211e717623dbeff89538c715c6e54f4bd1435c6fd26bef0399427831601ea" => :mojave
@@ -32,7 +33,7 @@ class PhpAT71 < Formula
   depends_on "libzip"
   depends_on "mcrypt"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -144,7 +145,7 @@ class PhpAT71 < Formula
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
