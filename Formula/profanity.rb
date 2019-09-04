@@ -3,6 +3,7 @@ class Profanity < Formula
   homepage "http://www.profanity.im/"
   url "https://profanity-im.github.io/profanity-0.7.0.tar.gz"
   sha256 "f1eb99be01683d41b891b0f997f4c873c9bb87b0b6b8400b7fccb8e553d514bb"
+  revision 1
 
   bottle do
     sha256 "aa0bb43ad03a8592b35f5ac3fb1caadfcd31c72943e86415be89880e97910368" => :mojave
@@ -25,7 +26,7 @@ class Profanity < Formula
   depends_on "gpgme"
   depends_on "libotr"
   depends_on "libstrophe"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "terminal-notifier"
 
