@@ -6,9 +6,9 @@ class MariadbAT100 < Formula
   revision 1
 
   bottle do
-    sha256 "a7f0c2b6a8331ec16fd99041ca36a21b2d549f8348bbf5741243f79b81c47891" => :mojave
-    sha256 "a583dc308eda30c397b5254a7c2bb1d89607081daac6c272e515e74e1899d3d2" => :high_sierra
-    sha256 "31510d6ab60ab73fafc8e079303e755d1a10a0860104236a7a4a84dce8062224" => :sierra
+    sha256 "f47bb89afee0eeff749247dc36c22a0755956b9aa3feb1d2b5050be516e7625a" => :mojave
+    sha256 "503f383f9a006ac25ea458b63e996c0fc5b25335fdcfe96ed76c4004ed4da30a" => :high_sierra
+    sha256 "e5a2cd7bd8c641d95ec73a8a02a5387d568d061ac2b09829ef651080a66cbc76" => :sierra
   end
 
   keg_only :versioned_formula
