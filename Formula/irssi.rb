@@ -3,6 +3,7 @@ class Irssi < Formula
   homepage "https://irssi.org/"
   url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
   sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
+  revision 1
 
   bottle do
     sha256 "c8dda1f1cd62fc666406f3db68a9a34cd16ce4acce1082db45d7b575af5860be" => :mojave
