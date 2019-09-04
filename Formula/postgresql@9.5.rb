@@ -3,6 +3,7 @@ class PostgresqlAT95 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.5.19/postgresql-9.5.19.tar.bz2"
   sha256 "960caa26612bca8a3791d1c0bdc5c6d24b3d15841becb617470424edbc5e1bb3"
+  revision 1
 
   bottle do
     sha256 "732da5d671bb3dc143615916e2d24222d09b4486f30b15763cebcd28d956e9ed" => :mojave
@@ -12,12 +13,12 @@ class PostgresqlAT95 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
