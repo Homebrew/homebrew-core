@@ -3,6 +3,7 @@ class Libdap < Formula
   homepage "https://www.opendap.org/"
   url "https://www.opendap.org/pub/source/libdap-3.20.4.tar.gz"
   sha256 "b16812c6ea3b01e5a02a54285af94a7dd57db929a6e92b964d642534f48b8474"
+  revision 1
 
   bottle do
     sha256 "a38c881902d2996093520bf04f7c714a3a71c9f1ec42e06f932b81ce7f206891" => :mojave
@@ -21,7 +22,7 @@ class Libdap < Formula
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libxml2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
