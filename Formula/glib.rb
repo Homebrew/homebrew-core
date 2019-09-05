@@ -1,8 +1,8 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.7.tar.xz"
-  sha256 "8b12c0af569afd3b71200556ad751bad4cf4bf7bc4b5f880638459a42ca86310"
+  url "https://download.gnome.org/sources/glib/2.62/glib-2.62.0.tar.xz"
+  sha256 "6c257205a0a343b662c9961a58bb4ba1f1e31c82f5c6b909ec741194abc3da10"
 
   bottle do
     sha256 "c4c2341c6b4ea34bbf83e246c0957c6a54b3ce795456e3c7f7eea4c9616af3a3" => :mojave
@@ -19,6 +19,8 @@ class Glib < Formula
   depends_on "python"
   uses_from_macos "util-linux" # for libmount.so
 
+  patch :DATA
+
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
@@ -33,7 +35,7 @@ class Glib < Formula
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
-      -Diconv=native
+      -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
       -Ddtrace=false
@@ -88,3 +90,24 @@ class Glib < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gmodule/meson.build b/gmodule/meson.build
+index d38ad2d..5fce96d 100644
+--- a/gmodule/meson.build
++++ b/gmodule/meson.build
+@@ -13,12 +13,12 @@ if host_system == 'windows'
+ # dlopen() filepath must be of the form /path/libname.a(libname.so)
+ elif host_system == 'aix'
+   g_module_impl = 'G_MODULE_IMPL_AR'
++elif have_dlopen_dlsym
++  g_module_impl = 'G_MODULE_IMPL_DL'
+ # NSLinkModule (dyld) in system libraries (Darwin)
+ elif cc.has_function('NSLinkModule')
+   g_module_impl = 'G_MODULE_IMPL_DYLD'
+   g_module_need_uscore = 1
+-elif have_dlopen_dlsym
+-  g_module_impl = 'G_MODULE_IMPL_DL'
+ endif
+
+ # additional checks for G_MODULE_IMPL_DL
