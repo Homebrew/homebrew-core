@@ -1,7 +1,7 @@
 require "language/go"
 
 class Ossutil < Formula
-  desc "a user friendly command-line tool to access AliCloud OSS"
+  desc "User friendly command-line tool to access AliCloud OSS"
   homepage "https://www.aliyun.com/product/oss"
   url "https://github.com/aliyun/ossutil.git",
       :tag      => "v1.6.6",
@@ -41,7 +41,7 @@ class Ossutil < Formula
   end
 
   go_resource "golang.org/x/time" do
-    url "https://go.googlesource.com/time.git",
+    url "https://go.googlesource.com/time",
         :revision => "9d24e82272b4f38b78bc8cff74fa936d31ccd8ef"
   end
 
