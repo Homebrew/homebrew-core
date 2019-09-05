@@ -7,9 +7,9 @@ class AskCli < Formula
   sha256 "b3f1e788b47a4891af853ad22e3cdeceb9e6a5ad0b906c6bf8130ecfa36eb222"
 
   bottle do
-    sha256 "822a7e9a865b291fe9f28658e82d3c55d1de71bc0cc3558829a82569a3140a52" => :mojave
-    sha256 "33ebd7ff28cb29dbc3ba539fc841bbfea1de96448639160dde304f8ceec66940" => :high_sierra
-    sha256 "8ebd3432104aa0e615a312317cf7b10a6317704f224f70c40e9e5503462da512" => :sierra
+    sha256 "2f440563a65cfbcdd60a7d28ada7a8079651fdb422d122ff47e104d5817960f4" => :mojave
+    sha256 "bbad430cf73c83e782babd17a01d2d1e06c813a6d1fd8b7bc5d5cf02c6731f36" => :high_sierra
+    sha256 "ac3abc0cf961d0d1d9f53afc382ca270b911f6df8a844258b57dd87d4135ee0d" => :sierra
   end
 
   depends_on "node"
