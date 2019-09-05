@@ -5,7 +5,7 @@ class Salt < Formula
   homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/41/d4/7f6d6bb139506741771ff9feb8429d5a5ed860de9ab5a358e771e8cc3b76/salt-2019.2.0.tar.gz"
   sha256 "5695bb2b3fa288bcfc0e3b93d9449afd75220bd8f0deefb5e7fc03af381df6cd"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -18,7 +18,7 @@ class Salt < Formula
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1" # For M2Crypto
   depends_on "python"
   depends_on "zeromq"
 
@@ -126,7 +126,7 @@ class Salt < Formula
   end
 
   def install
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
     virtualenv_install_with_resources
     prefix.install libexec/"share" # man pages
