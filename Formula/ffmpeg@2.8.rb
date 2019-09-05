@@ -3,7 +3,7 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "05f5658fe5858ab38c6bf263ede586b398632ff720e0757a02eadb268d820cd7" => :mojave
