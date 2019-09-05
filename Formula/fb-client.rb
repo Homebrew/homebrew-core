@@ -3,6 +3,7 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.0.4.tar.gz"
   sha256 "330c9593afd2b2480162786992d0bfb71be25faf105f3c24c71d514b58ee0cd3"
+  revision 1
   head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
