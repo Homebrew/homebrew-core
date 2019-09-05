@@ -3,7 +3,7 @@ class Gtksourceviewmm < Formula
   homepage "https://developer.gnome.org/gtksourceviewmm/"
   url "https://download.gnome.org/sources/gtksourceviewmm/2.10/gtksourceviewmm-2.10.3.tar.xz"
   sha256 "0000df1b582d7be2e412020c5d748f21c0e6e5074c6b2ca8529985e70479375b"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -48,7 +48,7 @@ class Gtksourceviewmm < Formula
     gtksourceview = Formula["gtksourceview"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]
