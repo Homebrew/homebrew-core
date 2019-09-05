@@ -3,7 +3,7 @@ class Atkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.0.tar.xz"
   sha256 "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -36,7 +36,7 @@ class Atkmm < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{gettext.opt_include}
