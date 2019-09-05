@@ -7,9 +7,10 @@ class Gts < Formula
 
   bottle do
     cellar :any
-    sha256 "1f5d162ee2b4237538730e1eccbb1c93c672c90cbdd3f4573bec42a17527a589" => :mojave
-    sha256 "2e3ee18b1ffbac383d231b84f2a1ca05a5e2f973b47c2f935cc61b5e401640f6" => :high_sierra
-    sha256 "9f758e1d3ada0eb39655180b004a2f7d43ccae274ac5cb7c71ccd1e59b36edc0" => :sierra
+    rebuild 1
+    sha256 "59aa61dfb703ff1c0cea21d248acf8d9a426115155f1f2ec1e5a1db6f71e66b4" => :mojave
+    sha256 "41a917173c363d9cf94e72bcfb58cabc874bf44fc265d3ca4d9a0fbd979ad8ad" => :high_sierra
+    sha256 "b35a110b45532e59b9f19e361984359e8bf92823b496f885eafdcbc134b18b17" => :sierra
   end
 
   depends_on "pkg-config" => :build
