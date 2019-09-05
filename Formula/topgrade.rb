@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v2.8.0.tar.gz"
-  sha256 "a1c125ddf5f43ecb1c53a7a4b8853f6b31cdf193cf4d4f64070ee224089c8ed2"
+  url "https://github.com/r-darwish/topgrade/archive/v3.0.0.tar.gz"
+  sha256 "3000febe4f52091db3a057188c805a3f03d25a2ab8babfa8a2af93d94c1afed4"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +18,18 @@ class Topgrade < Formula
   end
 
   test do
+    # Configuraton path details: https://github.com/r-darwish/topgrade/blob/master/README.md#configuration-path
+    # Sample config file: https://github.com/r-darwish/topgrade/blob/master/config.example.toml
+    (testpath/"Library/Preferences/topgrade.toml").write <<~EOS
+      # Additional git repositories to pull
+      #git_repos = [
+      #    "~/src/*/",
+      #    "~/.config/something"
+      #]
+    EOS
+
+    assert_match version.to_s, shell_output("#{bin}/topgrade --version")
+
     output = shell_output("#{bin}/topgrade -n")
     assert_match "Dry running: #{HOMEBREW_PREFIX}/bin/brew upgrade", output
     assert_not_match /\sSelf update\s/, output
