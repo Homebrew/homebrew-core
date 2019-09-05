@@ -3,7 +3,7 @@ class Valabind < Formula
   homepage "https://github.com/radare/valabind"
   url "https://github.com/radare/valabind/archive/1.7.1.tar.gz"
   sha256 "b463b18419de656e218855a2f30a71051f03a9c4540254b4ceaea475fb79102e"
-  revision 2
+  revision 3
   head "https://github.com/radare/valabind.git"
 
   bottle do
