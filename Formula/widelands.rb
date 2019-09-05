@@ -6,9 +6,9 @@ class Widelands < Formula
   revision 1
 
   bottle do
-    sha256 "767eaff867480bb4c46a058ef496f7a95db60ce76e1c834d94355c1347ea82d0" => :mojave
-    sha256 "59a4e1002c6ff42326febad081428ca17323c38acb433433b715af3a0d5b817a" => :high_sierra
-    sha256 "38b7a80a82fa1a50d2458c5434909480b636db991a65d001ab2130793ffad991" => :sierra
+    sha256 "5f239a934442ca0adbf853a8d7d2761670a42aa04b4f6202092928ced39c120e" => :mojave
+    sha256 "02115536245a5dedb60d63df253f1658ddb25af43351625c250ad1b399ca785c" => :high_sierra
+    sha256 "5fa23f3fae36a92627f5e2b687a684a7888afa867074350a5ad2bee90edc4d02" => :sierra
   end
 
   depends_on "cmake" => :build
