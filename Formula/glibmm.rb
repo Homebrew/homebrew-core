@@ -3,7 +3,7 @@ class Glibmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/glibmm/2.60/glibmm-2.60.0.tar.xz"
   sha256 "a3a1b1c9805479a16c0018acd84b3bfff23a122aee9e3c5013bb81231aeef2bc"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Glibmm < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
 
   def install
     ENV.cxx11
@@ -35,7 +35,7 @@ class Glibmm < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
