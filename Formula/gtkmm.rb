@@ -3,7 +3,7 @@ class Gtkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz"
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -18,7 +18,7 @@ class Gtkmm < Formula
   depends_on "cairomm"
   depends_on "glibmm"
   depends_on "gtk+"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
   depends_on "pangomm"
 
   def install
@@ -49,7 +49,7 @@ class Gtkmm < Formula
     gtkx = Formula["gtk+"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]
