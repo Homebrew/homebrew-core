@@ -2,8 +2,8 @@ class AppuniteCache < Formula
   desc "AppUnite cache dependencies on S3 storage!"
   homepage "https://git.appunite.com/szymon.mrozek/appunite-cache"
   url "https://git.appunite.com/szymon.mrozek/appunite-cache.git",
-      :tag      => "1.0.7",
-      :revision => "d7521a87c8c3aa95575df93c5d6b6af5966020a4",
+      :tag      => "1.0.8",
+      :revision => "901fe1e71c02d62934bed865f95cd15a048f74c2",
       :shallow  => false
   head "https://git.appunite.com/szymon.mrozek/appunite-cache.git", :shallow => false
 
