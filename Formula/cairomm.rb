@@ -3,6 +3,7 @@ class Cairomm < Formula
   homepage "https://cairographics.org/cairomm/"
   url "https://cairographics.org/releases/cairomm-1.12.2.tar.gz"
   sha256 "45c47fd4d0aa77464a75cdca011143fea3ef795c4753f6e860057da5fb8bd599"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,7 @@ class Cairomm < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "libpng"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
 
   def install
     ENV.cxx11
@@ -42,7 +43,7 @@ class Cairomm < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pixman = Formula["pixman"]
     flags = %W[
       -I#{cairo.opt_include}/cairo
