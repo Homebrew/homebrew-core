@@ -6,9 +6,9 @@ class Bedtools < Formula
 
   bottle do
     cellar :any
-    sha256 "6c9819a00f8d56e97500c0eef57a3363fd18c4439ce18ac66c5b0d6638b1bd88" => :mojave
-    sha256 "e1a7e656b89c764f9331a1924ef4b6113769051a260fb76c2a1eee8b4a39cf84" => :high_sierra
-    sha256 "61677f8ce990c4b17ee07fdb9e4d78e2655253a1301f156ef0ad5698e77a37b3" => :sierra
+    sha256 "3e30f5e4d1ef7184dec191d9c5ecf3d2575a8fd63195819f49207f37aa6c6c78" => :mojave
+    sha256 "7f95922a3ce9210eb0ad5fee569032f5ce10147b97eef07061d193322e9d6ac7" => :high_sierra
+    sha256 "281b63ca90868adecb3cdc2c1cf5e56761ad7e63aced8c35012320c9389b42c2" => :sierra
   end
 
   depends_on "xz"
