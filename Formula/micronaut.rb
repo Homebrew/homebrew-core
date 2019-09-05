@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-core/releases/download/v1.2.0/micronaut-1.2.0.zip"
-  sha256 "e349615499436919008ed936f1844e3816847ba14cabb47eec8b42c3c74415ea"
+  url "https://github.com/micronaut-projects/micronaut-core/releases/download/v1.2.1/micronaut-1.2.1.zip"
+  sha256 "1493511d92fcf8c26849c25dab8e79b63a24ff05fc943dc3945c1d3529fb8751"
 
   bottle :unneeded
 
