@@ -3,6 +3,7 @@ class Subversion < Formula
   homepage "https://subversion.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.2.tar.bz2"
   sha256 "3bd0b5c8e4c5175263dc9a92fd9aef94ce917e80af034f26fe5c45fde7e0f771"
+  revision 1
 
   bottle do
     sha256 "1e4473037a759517eba689e659078fe57efc5c5df3f43346f1274cd9ac592c31" => :mojave
@@ -29,7 +30,7 @@ class Subversion < Formula
   # gettext, lz4, perl, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
-  depends_on "openssl" # For Serf
+  depends_on "openssl@1.1" # For Serf
   depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
@@ -57,7 +58,7 @@ class Subversion < Formula
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-        OPENSSL=#{Formula["openssl"].opt_prefix}
+        OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
