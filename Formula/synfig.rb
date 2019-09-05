@@ -3,7 +3,7 @@ class Synfig < Formula
   homepage "https://synfig.org/"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/synfig-1.2.2.tar.gz"
   sha256 "5f5f7b33483041165f9a63fe4d95eb815971c7444569e574206f6964e83cc2ef"
-  revision 1
+  revision 2
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
@@ -21,7 +21,7 @@ class Synfig < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "libpng"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
   depends_on "libtool"
   depends_on "libxml++"
   depends_on "mlt"
@@ -57,7 +57,7 @@ class Synfig < Formula
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     libxmlxx = Formula["libxml++"]
     mlt = Formula["mlt"]
     pango = Formula["pango"]
