@@ -7,9 +7,9 @@ class CucumberCpp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6deb96212f76f8d2fa02b415ec0f14b9438ff5c9584a1ce59674f48d10a19d4" => :mojave
-    sha256 "2c167d9c65e65a6e96b551a2f55afdf07d5c1627019a8f04abe6bdf3e67d0a82" => :high_sierra
-    sha256 "3bc759450c0db471c504545c176a9e69df29426a479779debae4c2a9b3ee0d7a" => :sierra
+    sha256 "d89be4fb4e823bc33463728ec21e9b87a917bb5280469d85b16d55adc9b9ea05" => :mojave
+    sha256 "e7dfbf7237b801a4337608b708bef04e6271a27f4d1a3cb99273ce986657956d" => :high_sierra
+    sha256 "4dd3ef1e73c533952f3ba8399bc5edeec223ff31478c80595ed9e9e9140fb2f8" => :sierra
   end
 
   depends_on "cmake" => :build
