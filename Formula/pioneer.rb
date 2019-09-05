@@ -3,6 +3,7 @@ class Pioneer < Formula
   homepage "https://pioneerspacesim.net/"
   url "https://github.com/pioneerspacesim/pioneer/archive/20190203.tar.gz"
   sha256 "e526f1659ae321f45b997c0245acecbf9c4cf2122b025ab8db1090f1b9804f5e"
+  revision 1
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Pioneer < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_image"
