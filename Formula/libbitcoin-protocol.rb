@@ -7,9 +7,9 @@ class LibbitcoinProtocol < Formula
 
   bottle do
     cellar :any
-    sha256 "8d65c20524c08d390117e733ee88225bd324f66d5bf0b08e401062cf2785d5dc" => :mojave
-    sha256 "491b213a911931ff3a1df05fd078526d86344127695ea9666672f42021f189e0" => :high_sierra
-    sha256 "bffd35d9c52f56cf2bfd59d18a258acc2fbafdfa19d605ad8715ce02d76ea471" => :sierra
+    sha256 "e7dad4f664f27dc5fe89df604daf5e55289133fc99a7a67303869216ab9848fe" => :mojave
+    sha256 "aa121e23ea64bdcedfefeecc296fda96b9c3025cef17227d5b8fa2a7f2867abc" => :high_sierra
+    sha256 "a3fc6e2486cc3f5bdc6fd45c3fac16ab2b6a282e0128bd29904ddcadb937b11f" => :sierra
   end
 
   depends_on "autoconf" => :build
