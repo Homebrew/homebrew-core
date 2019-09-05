@@ -3,7 +3,7 @@ class Doitlive < Formula
   homepage "https://doitlive.readthedocs.io/en/latest/"
   url "https://files.pythonhosted.org/packages/e5/d9/4ce969d98f521c253ec3b15a0c759104a01061ac90fb9d8636b015bcb4ea/doitlive-4.3.0.tar.gz"
   sha256 "4cb1030e082d8649f10a61d599d3ff3bcad7f775e08f0e68ee06882e06d0190f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
