@@ -3,6 +3,7 @@ class Libvoikko < Formula
   homepage "https://voikko.puimula.org/"
   url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.2.tar.gz"
   sha256 "f13c59825f36152f388cd96f638e447744199775277f4e6bcd0b9483f0eebeca"
+  revision 1
 
   bottle do
     cellar :any
