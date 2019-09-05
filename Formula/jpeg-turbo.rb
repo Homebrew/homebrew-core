@@ -1,8 +1,8 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.0.2/libjpeg-turbo-2.0.2.tar.gz"
-  sha256 "acb8599fe5399af114287ee5907aea4456f8f2c1cc96d26c28aebfdf5ee82fed"
+  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.0.3/libjpeg-turbo-2.0.3.tar.gz"
+  sha256 "4246de500544d4ee408ee57048aa4aadc6f165fc17f141da87669f20ed3241b7"
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
   bottle do
