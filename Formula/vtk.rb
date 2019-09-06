@@ -3,7 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
-  revision 2
+  revision 3
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -50,7 +50,7 @@ class Vtk < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
       -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m
       -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{pyver}.dylib
-      -DVTK_PYTHON_SITE_PACKAGES_SUFFIX=#{lib}/python3/site-packages
+      -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
       -DVTK_WRAP_PYTHON_SIP=ON
