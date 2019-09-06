@@ -1,15 +1,15 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://github.com/esnet/iperf/archive/3.6.tar.gz"
-  sha256 "1ad23f70a8eb4b892a3cbb247cafa956e0f5c7d8b8601b1d9c8031c2a806f23f"
+  url "https://github.com/esnet/iperf/archive/3.7.tar.gz"
+  sha256 "c349924a777e8f0a70612b765e26b8b94cc4a97cc21a80ed260f65e9823c8fc5"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d6a381921181af24ea39ea794ec5cf10fa212d7895c64d80c87f32f8ea863be1" => :mojave
-    sha256 "73d711b5d84ff8f9e7a5f627f347d2c3d9917a646334505333442db64f3896e6" => :high_sierra
-    sha256 "c5b5f9c38d7ae79b42cccfd1f7e5e0d4dd3f4586b6d655d319d4e3790040e55e" => :sierra
-    sha256 "e9ec78eacf763a0b5e5ede66ca6caf5f56fa7df1fd07ad8e679808b933c88894" => :el_capitan
+    sha256 "8ac59ee41772cc626b683fd52b5647bfcf947d3fc8f5bc3672b2e37a7b05d71e" => :mojave
+    sha256 "3f5bd19f55d0635ce7ff229d404076513c374a30865b24b43b9094aae0453c25" => :high_sierra
+    sha256 "f50d4b377603451b62e60b8cb25e0bcb2cc808ba02f3474af1e922d22ec2ddc3" => :sierra
   end
 
   head do
@@ -20,12 +20,12 @@ class Iperf3 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
   end

@@ -1,17 +1,15 @@
 class Zsdx < Formula
   desc "Zelda Mystery of Solarus DX"
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-mystery-of-solarus-dx"
-  url "https://github.com/christopho/zsdx/archive/zsdx-1.11.0.tar.gz"
-  sha256 "05a5d220bbf2439c9da2e71cd9d104240878123fff5bc702e2405d6d0712f0dc"
-  head "https://github.com/christopho/zsdx.git"
+  url "https://gitlab.com/solarus-games/zsdx/-/archive/v1.12.2/zsdx-v1.12.2.tar.bz2"
+  sha256 "a4d4cc9b41a4d52375e984f546cfe75736f604bc3ad194f6df1658ab6215c04f"
+  head "https://gitlab.com/solarus-games/zsdx.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "171880db143d1dd276088e7842503cb2eaa3573b696e77a72a20a5f3863ef9fa" => :mojave
-    sha256 "0460af05acc1c8beeceb5a6058ac0ad2cb27f423d43a87fb45aaf5b737c49f7b" => :high_sierra
-    sha256 "2787c78e1b24669a1befa354724f77b6a86abf2aade492fe211c296482855cf8" => :sierra
-    sha256 "2a1132ca3dc96d98332d99e1a37b1d2f46206fdad88066f96fedcfbf796452b3" => :el_capitan
-    sha256 "c9fd0e90a1cf311d30a3e5b961e15a2e8a5a2400b1d985fc4f8c4591cca051d4" => :yosemite
+    sha256 "28a4b74aa6765859d5c8f6c48535a62d99b43171e8181fb416956be949ff17d7" => :mojave
+    sha256 "0a391ad24a16fbd568173f3a90b81b8799d29ccff3814bcab6ae8a5944021c40" => :high_sierra
+    sha256 "7f35b4009ccadc1d6f16135e18854c2d9e5ac29fc2fc05ec0d3a54f1f27de4d6" => :sierra
   end
 
   depends_on "cmake" => :build

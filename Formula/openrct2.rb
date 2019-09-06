@@ -2,16 +2,15 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      :tag      => "v0.2.2",
-      :revision => "298c9f5238fe2ead4c319dd0699cdebf9fe390cb"
+      :tag      => "v0.2.3",
+      :revision => "ac7a1ebf71566afb093befcb8293406c1a4025b4"
   revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f76c186cae0be1210c037d9f5b9d1b63f5fbec4bbe94b47c26772df8d7aa4731" => :mojave
-    sha256 "6654e7450f6845b60fffd511393fb037b06aa00b2b6ccf57cb35d37bf3953377" => :high_sierra
+    sha256 "20b9a691444ad32d3f501188e1202ad4213236470e9fd17c2dc1775bf52dec37" => :mojave
+    sha256 "87841d042bf53166e2fc275178fa2c781d557e1473a0723b81f67040442e478f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,7 +21,7 @@ class Openrct2 < Formula
   depends_on "libpng"
   depends_on "libzip"
   depends_on :macos => :high_sierra # "missing: Threads_FOUND" on Sierra
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
   depends_on "speexdsp"

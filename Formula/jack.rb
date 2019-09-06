@@ -20,6 +20,8 @@ class Jack < Formula
     sha256 "ee93da9885f06dde0f305fca2d5af6d6213c2133466ca93857a87ffb731ce43f" => :el_capitan
   end
 
+  uses_from_macos "util-linux"
+
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"

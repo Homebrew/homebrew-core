@@ -1,24 +1,24 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://lammps.sandia.gov/tars/lammps-12Dec18.tar.gz"
+  url "https://lammps.sandia.gov/tars/lammps-7Aug19.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2018-12-12"
-  sha256 "8bcb3bf757e76ed80e0659edb4aa0adee1a80522372d9a817597ac693c074abb"
-  revision 1
+  version "2019-08-07"
+  sha256 "4e8342b97441deb76c2fddd8a4fd23beb718cb0910779d98e334026391ed3961"
 
   bottle do
-    cellar :any
-    sha256 "557437acfc2a0167b9ff5613b209c44aaff0de827b144b720b032600e7b63fe7" => :mojave
-    sha256 "97a80b7024e8e798e293f981d45a1f6b361ee0db83c8e6bb1d9570a5ba25911e" => :high_sierra
-    sha256 "0b3b2e59c0f77fa303284d588c96321c20ec09f26372f15234efeaab9a758462" => :sierra
+    sha256 "e14fbf9e68b16804c9d86f525e92190010c580c479263eaf194ff1e23dd877b1" => :mojave
+    sha256 "eebae98d9606af15a5281f07843ea41aeb94974a52f0023e9734aab3db430406" => :high_sierra
+    sha256 "cd52cb03b501cb8d65f0dcf8baf3857dc13e2a2206016ef559bf5ff3eba31e1d" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "jpeg"
+  depends_on "kim-api"
   depends_on "libpng"
   depends_on "open-mpi"
 
@@ -30,7 +30,7 @@ class Lammps < Formula
 
         # Disable some packages for which we do not have dependencies, that are
         # deprecated or require too much configuration.
-        %w[gpu kim kokkos latte mscg meam message mpiio poems reax voronoi].each do |package|
+        %w[gpu kokkos latte mscg message mpiio poems voronoi].each do |package|
           system "make", "no-#{package}"
         end
 

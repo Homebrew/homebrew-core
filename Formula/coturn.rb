@@ -3,11 +3,13 @@ class Coturn < Formula
   homepage "https://github.com/coturn/coturn"
   url "http://turnserver.open-sys.org/downloads/v4.5.1.1/turnserver-4.5.1.1.tar.gz"
   sha256 "e020ce90ea0301213451d37099185ff25d93f97fa0f2b48bf21b2946fc3696a4"
+  revision 1
 
   bottle do
-    sha256 "0965e2d618dc990376fe852dc24c748a789c320381c3d935f8f557ce30df9304" => :mojave
-    sha256 "64d8d65360234067a875bc90db41ab69127641f847c1450a2f0cc71869de20a1" => :high_sierra
-    sha256 "9813765ffeb2d1dbb8738a8695ef34473fadec04307561791856de68feea7e03" => :sierra
+    rebuild 1
+    sha256 "ea728a3a9a8e41d7d8cc4c932fc7c51c574cbb544cba65b26c50e504bb190462" => :mojave
+    sha256 "7b90560c6b587da74172abb913f2ef3a2913b0031cce27938f535e3993d60a99" => :high_sierra
+    sha256 "5e626ead563c9e282041b7b9bee70d24a8beab8fa227ef336d80cd6858e7635a" => :sierra
   end
 
   depends_on "libevent"

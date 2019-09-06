@@ -1,14 +1,14 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v3.4.3.tar.gz"
-  sha256 "92fad4467e0af343dbf3d003da09bd2df6a1350f46fcc569ca33648593d78f25"
+  url "https://github.com/uber/h3/archive/v3.6.0.tar.gz"
+  sha256 "0f07d477d057c8b34263a8e173d86fe7b5ca3d6f35be81e5f4db886b81281d9a"
 
   bottle do
     cellar :any
-    sha256 "9cd1586815a262bea8824259fd798a666d663ae55ffcb296aabce7ce88edc5da" => :mojave
-    sha256 "3ba50df38ac5776ff06f46c39e4161bb0a41802f2b4207d4c13a34dab2a850e5" => :high_sierra
-    sha256 "ed8cb040305b7a87a7283e9298b8c30d6562d8342795dc7a70442c3ebf72628a" => :sierra
+    sha256 "2dc693483b0d80f03d1ea20713cfe03b45ea88de2e694d0965009127c13f5f40" => :mojave
+    sha256 "a18b465ee41ebb5ac788d909f4680a93e03881fdca515d8506d036d4ad825b36" => :high_sierra
+    sha256 "0ebd3445e13d8a4e9d8aaac7b281a30214a2573b06e65d05cdc74ba234bbe7a0" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -21,7 +21,7 @@ class H3 < Formula
   end
 
   test do
-    result = pipe_output("#{bin}/geoToH3 10", "40.689167 -74.044444")
+    result = pipe_output("#{bin}/geoToH3 -r 10 --lat 40.689167 --lon -74.044444")
     assert_equal "8a2a1072b59ffff", result.chomp
   end
 end

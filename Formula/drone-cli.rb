@@ -2,14 +2,14 @@ class DroneCli < Formula
   desc "Drone CLI"
   homepage "https://drone.io"
   url "https://github.com/drone/drone-cli.git",
-    :tag      => "v1.1.1",
-    :revision => "b796291a8a07a0300696ee3944418236751788e1"
+    :tag      => "v1.1.4",
+    :revision => "a47e1c3f1bbd296828299e36d95155ca79a39775"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c45a40ac12130a4dc15a6bcb41a33674b532736b5e30494f196e6c1dd0b5f38d" => :mojave
-    sha256 "7c30b8d8e8b257501d55e478fab4b9ef7601cc04f26c83b5d89e34f7e0f5a038" => :high_sierra
-    sha256 "7acd0eab3d379a33206e17d9c99386d9412ac38d65aeb871b7a6c426a3cf559f" => :sierra
+    sha256 "93e10a2deb01cfffbcb2e1912c9f3ae5acad176ffef865452b9cb4ec14d08dd5" => :mojave
+    sha256 "57310b464cdb63d6eb63d522b743ed339b10308d4fc72ffe758e6d987bd6af50" => :high_sierra
+    sha256 "9aa164f7eaf7867ecf1f40a69379028f730c2bce606cb33e2e9975145a610a80" => :sierra
   end
 
   depends_on "dep" => :build

@@ -1,14 +1,13 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.1.1/irssi-1.1.1.tar.xz"
-  sha256 "784807e7a1ba25212347f03e4287cff9d0659f076edfb2c6b20928021d75a1bf"
-  revision 1
+  url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
+  sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
 
   bottle do
-    sha256 "ca5e86cee8f481f3a442ee91030236c16346f47dffe880526e4e6f1058cadb68" => :mojave
-    sha256 "0657e4d22b2265a3862d3ca53b0c822403cb6a23b70f49c148fb068483629320" => :high_sierra
-    sha256 "8fdd719eb442ac3e2c2ebcd097bd606682661b7830b116559f4c55164dbe6a68" => :sierra
+    sha256 "c8dda1f1cd62fc666406f3db68a9a34cd16ce4acce1082db45d7b575af5860be" => :mojave
+    sha256 "de978c2c68c4254d5fea004006201743cfcf686c76a56cba62ab72a7bf0d9936" => :high_sierra
+    sha256 "b0ea780071ba74669e4f31db648ca4b5de95d3372cb0fc73d41a90e2b6c6947a" => :sierra
   end
 
   head do
@@ -21,9 +20,12 @@ class Irssi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  uses_from_macos "perl"
 
   def install
+    ENV.delete "HOMEBREW_SDKROOT" if MacOS.version == :high_sierra
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -42,9 +44,6 @@ class Irssi < Formula
       system "./autogen.sh", *args
     end
 
-    # https://github.com/irssi/irssi/pull/927
-    inreplace "configure", "^DUIfm", "^DUIifm"
-
     system "./configure", *args
     # "make" and "make install" must be done separately on some systems
     system "make"
@@ -60,6 +59,8 @@ class Irssi < Formula
     # This is not how you'd use Perl with Irssi but it is enough to be
     # sure the Perl element didn't fail to compile, which is needed
     # because upstream treats Perl build failures as non-fatal.
+    # To debug a Perl problem copy the following test at the end of the install
+    # block to surface the relevant information from the build warnings.
     ENV["PERL5LIB"] = lib/"perl5/site_perl"
     system "perl", "-e", "use Irssi"
   end

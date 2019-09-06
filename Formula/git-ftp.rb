@@ -14,6 +14,7 @@ class GitFtp < Formula
 
   depends_on "pandoc" => :build
   depends_on "libssh2"
+  uses_from_macos "zlib"
 
   resource "curl" do
     url "https://curl.haxx.se/download/curl-7.62.0.tar.bz2"

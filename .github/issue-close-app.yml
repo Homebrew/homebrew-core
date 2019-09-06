@@ -1,10 +1,10 @@
 # Comment that will be sent if an issue is judged to be closed
 comment: |
-  From the issue template:
+  Whoops, it looks like you created an issue without filling out the checklist and providing all the needed information from one of the issue templates: <https://github.com/Homebrew/homebrew-core/issues/new/choose>
 
-  > **Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.**
+  As we need all this information to help you we're closing this issue. If you add the necessary information to this issue (**don't create a new or duplicate issue, please**) and comment to let us know, a Homebrew maintainer will check it out when they get the chance. If it's deemed to be a valid issue then this issue may be reopened.
 
-  If you add the necessary information to this issue (don't create a new one, please) then this issue may be reopened.
+  Sorry!
 issueConfigs:
 # There can be several configs for different kind of issues.
 - content:

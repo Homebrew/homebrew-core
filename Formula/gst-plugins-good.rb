@@ -1,7 +1,7 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 3
+  revision 6
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz"
@@ -9,9 +9,9 @@ class GstPluginsGood < Formula
   end
 
   bottle do
-    sha256 "a9dc8aef05b51b314f41943c64169040dc9429ac6ff2820e5fb027b139d69bf7" => :mojave
-    sha256 "0d9d3043eed877bba628888bdc4ed60c89b0157514fb41966937ab84c412597c" => :high_sierra
-    sha256 "f67edc267783cb9fa6dac9cbe74295a1c11cf849aa91c89ea0631eb17312e360" => :sierra
+    sha256 "54ff6c2f4e4e30903c3f693aa223296c64dfdc01ecf31cb30186ba2e975685ed" => :mojave
+    sha256 "05a9864e361947f54e874403faa55292c51b442b2d8b295dfb73906b343e9f75" => :high_sierra
+    sha256 "543dbd099f654d33d4315dab032d746b313f7d139f6414c06e09caf0f9d466f7" => :sierra
   end
 
   head do
@@ -30,6 +30,7 @@ class GstPluginsGood < Formula
   depends_on "gst-plugins-base"
   depends_on "gtk+3"
   depends_on "jpeg"
+  depends_on "lame"
   depends_on "libpng"
   depends_on "libshout"
   depends_on "libsoup"

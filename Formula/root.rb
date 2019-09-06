@@ -1,16 +1,16 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.16.00.source.tar.gz"
-  version "6.16.00"
-  sha256 "2a45055c6091adaa72b977c512f84da8ef92723c30837c7e2643eecc9c5ce4d8"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.18.00.source.tar.gz"
+  version "6.18.00"
+  sha256 "e6698d6cfe585f186490b667163db65e7d1b92a2447658d77fa831096383ea71"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "2558ee66fabed50042b220de1c44dd76f1abf5d51189d87b9683344cadabf37f" => :mojave
-    sha256 "f58e215c3d48c84c82292765888c70075d3bec7cfd31b95fb23c0bca05e7c68a" => :high_sierra
-    sha256 "912c3a161650b00341b96007ebd614dccecf7fe3cb2bf97612ed801eae660156" => :sierra
+    sha256 "20dcef07cef4e3c56288065d6e9845a1774a51f605ac7d323cd82217f9505607" => :mojave
+    sha256 "5a4adf496f7ac8745dbdaf8e653e8780275f750e79ab613f08e48288a142283d" => :high_sierra
+    sha256 "3c9a1046d93e1ac087534d59e298dec75c24235cc52bec6fe12c20f3fedfbff2" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
@@ -56,20 +56,11 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
-    # Fix issue with ROOT 6.12-6.16 on a case-insensitive filesystem
-    # with /usr/local/include included before /usr/local/include/root
-    # Will be fixed in 6.16.02
-    # See https://trac.macports.org/ticket/57007
-    inreplace "core/base/inc/RConfig.h",
-              "<ROOT/RConfig.h>",
-              "\"ROOT/RConfig.h\""
-
     py_exe = Utils.popen_read("which python3").strip
     py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
     py_inc = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
 
     args = std_cmake_args + %W[
-      -Dcxx11=OFF
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DPYTHON_EXECUTABLE=#{py_exe}
@@ -95,14 +86,8 @@ class Root < Formula
       -Dxrootd=ON
     ]
 
-    # This will become -DCMAKE_CXX_STANDARD=14 (or 17) in ROOT 6.18
-    if MacOS.version < :mojave
-      args << "-Dcxx14=ON"
-      args << "-Dcxx17=OFF"
-    else
-      args << "-Dcxx14=OFF"
-      args << "-Dcxx17=ON"
-    end
+    cxx_version = (MacOS.version < :mojave) ? 14 : 17
+    args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
 
     mkdir "builddir" do
       system "cmake", "..", *args

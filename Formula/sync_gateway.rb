@@ -2,15 +2,15 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag      => "2.5.0",
-      :revision => "bf3ddf656eb5c01b5d9abefc8fd6d93c5bd452aa"
+      :tag      => "2.5.1",
+      :revision => "3f5ce5d498359d819dec9a2ebed09ff2d1be0713"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cf26eb59ee103939923cf2230adb5ec1d522f354de2ef53dc309eea4b355344b" => :mojave
-    sha256 "b69f32e1bf65fda15a11b6b686018db1ad76ae57200249b7be1759ea88801881" => :high_sierra
-    sha256 "be769703edf80e9d4f553dac83bcf3d6a766564badb791b1b3de84ce53c21abb" => :sierra
+    sha256 "7e848bdae7f2dc81c70016d80b446a55f7c865f8c189ffe6d6943b836412804d" => :mojave
+    sha256 "2a38ccc7de9c64feb6b1dc46e9c9d4d3aa61b6eab4b0cf0102391dc4a01e7718" => :high_sierra
+    sha256 "e36bbf9170b6f23618bca5cfd0b1c35b90b043efecbcea3f1e010a46ccfa96b3" => :sierra
   end
 
   depends_on "gnupg" => :build

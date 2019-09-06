@@ -2,11 +2,11 @@ class Legit < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line interface for Git, optimized for workflow simplicity"
-  homepage "https://www.git-legit.org/"
+  homepage "https://frostming.github.io/legit/"
   url "https://files.pythonhosted.org/packages/44/72/a086485566cf7b5ff7b6858b7dc144c76323e021d88f455ceacd5a6c02fd/legit-1.0.1.tar.gz"
   sha256 "e71c2dd4139afc0e4b8c2d1b5ab1265ad930e2cc8e4d6badf92923cee4e5baff"
   revision 1
-  head "https://github.com/kennethreitz/legit.git", :branch => "develop"
+  head "https://github.com/frostming/legit.git", :branch => "master"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,13 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
-  revision 7
+  revision 9
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "ba3188bb21d5dd894b7ef824fd5cea7d2e8a27a844387ce7901b0fe8831c5c9e" => :mojave
-    sha256 "9b03ea3191853d19b648a40015276df2acf9b9f41b9149f126a33d614667798a" => :high_sierra
-    sha256 "28933336791e5aa42620fdcac1660d6cb8d2cbc59192b51fa67523fd3e989fd0" => :sierra
+    sha256 "cc4ac0868aa007d57749f3baf89ec2102bd4d45548c1ab556365b89fda140b23" => :mojave
+    sha256 "e09af2fcfabfd1421f3b5bba5c6b9778ee87dcbf1dd79b1185ca673dad351ab0" => :high_sierra
+    sha256 "3f4527cc5370e051ab78e1dbd2b64bf003934c0e5aae67a467e75f370f0eeff1" => :sierra
   end
 
   depends_on "cmake" => :build

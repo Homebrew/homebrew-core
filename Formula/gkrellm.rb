@@ -1,14 +1,14 @@
 class Gkrellm < Formula
   desc "Extensible GTK system monitoring application"
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
-  url "http://gkrellm.srcbox.net/releases/gkrellm-2.3.10.tar.bz2"
-  sha256 "8b9ec8baadcd5830c6aff04ba86dc9ed317a15c1c3787440bd1e680fb2fcd766"
-  revision 2
+  url "http://gkrellm.srcbox.net/releases/gkrellm-2.3.11.tar.bz2"
+  sha256 "1ee0643ed9ed99f88c1504c89d9ccb20780cf29319c904b68e80a8e7c8678c06"
+  revision 1
 
   bottle do
-    sha256 "79acf87da145a4e76c0bbee42ce637c4816773df1e78a595d5e7b9e6604b95ea" => :mojave
-    sha256 "8099b25d57c72ab6c7b49b2dbbfed617dac32007ad62bfc3cda5f1db5e75e1a5" => :high_sierra
-    sha256 "80da7966c004a81c4eb6bbfcd3f2f99be679d3cf66ffe1d0b1e6a39255509f2a" => :sierra
+    sha256 "3b86db152211ed9f214f5dad4253e48d98374dbe6bfa1f83eb6d64da1088185b" => :mojave
+    sha256 "9dedbb84cb896a7b2210068d7930a83351388b45ca07443e628f58753f51fb7a" => :high_sierra
+    sha256 "ebfc3b5e027f4c577d2b5383a0930c91656e7fa108fc35f6a21800b87ef9220c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +20,7 @@ class Gkrellm < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pango"
 
   def install

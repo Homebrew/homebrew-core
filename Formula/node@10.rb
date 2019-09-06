@@ -1,21 +1,27 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.16.0/node-v10.16.0.tar.gz"
-  sha256 "d00f1ffdb0a7413eaaf3afc393fb652ea713db135dcd3ccf6809370a07395713"
+  url "https://nodejs.org/dist/v10.16.3/node-v10.16.3.tar.gz"
+  sha256 "db5a5e03a815b84a1266a4b48bb6a6d887175705f84fd2472f0d28e5e305a1f8"
 
   bottle do
     cellar :any
-    sha256 "7b0ea520752c4b4577744b53af7a93b486b5a9d9081d71ab0a8289b2e6223e22" => :mojave
-    sha256 "d598385086c33d21b9d28ed8ca4f4a6e3665a7a2c17d9aa244b13ca17d171176" => :high_sierra
-    sha256 "3e5cf6e87814fdbca8ecbe300ae2b3e7a3ca586d5de35716f975fa499aa657e6" => :sierra
+    sha256 "39b1a9fd71a615d690203b57588be046e838250af15cbe00d1f8a5e9dd60f02b" => :mojave
+    sha256 "4716d08e4a8f6b1b52555563a11cb190b6f9e273dd5834f73ea9022eb219ca4d" => :high_sierra
+    sha256 "0b7d09d24666d72a2985eb92e2ab3e997946928399bed368ccdbd0a12a9551df" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python@2" => :build # does not support Python 3
   depends_on "icu4c"
+
+  # Fixes detecting Apple clang 11.
+  patch do
+    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
+    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"

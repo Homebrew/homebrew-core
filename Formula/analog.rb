@@ -19,6 +19,7 @@ class Analog < Formula
   depends_on "gd"
   depends_on "jpeg"
   depends_on "libpng"
+  uses_from_macos "zlib"
 
   def install
     system "make", "CC=#{ENV.cc}",

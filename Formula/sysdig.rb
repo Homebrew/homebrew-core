@@ -1,18 +1,19 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://www.sysdig.org/"
-  url "https://github.com/draios/sysdig/archive/0.24.2.tar.gz"
-  sha256 "cd925afd2fb0a26728611666e017d480afd49158c2d70714c7461a97c8820807"
+  url "https://github.com/draios/sysdig/archive/0.26.2.tar.gz"
+  sha256 "6f4f5b7b187c3774b6c374c1728b3f905ac18a945bde15151dcfb24c79abb441"
 
   bottle do
-    sha256 "f3eebe7276e7a1b5a579f6a095bcdad61c5c6429ada950e5d9abbf2660c59232" => :mojave
-    sha256 "dd3b00038c5d3d6efaf2c1bc0faa2595f47337d849f1728dd063aa24db96ce16" => :high_sierra
-    sha256 "42a2aa84a58542e09f47734e12af3986b0c4be83b1d362c48322c585e4aab87d" => :sierra
+    sha256 "88ea4aa2330d02ad848eabdfb32579a6571fcebaa9834ee51a1375ca2e5ae244" => :mojave
+    sha256 "22fce688d02c2cc853e6d95eb46fd54bd0b200f33329fea922196f11c15d4d87" => :high_sierra
+    sha256 "05ae33eeda66600860e14490ee51a1b57848915f45aa6714fa42eb202be8927c" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "jsoncpp"
   depends_on "luajit"
+  depends_on "tbb"
 
   # More info on https://gist.github.com/juniorz/9986999
   resource "sample_file" do
@@ -25,6 +26,7 @@ class Sysdig < Formula
       system "cmake", "..", "-DSYSDIG_VERSION=#{version}",
                             "-DUSE_BUNDLED_DEPS=OFF",
                             *std_cmake_args
+      system "make"
       system "make", "install"
     end
 

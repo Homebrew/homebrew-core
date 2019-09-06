@@ -1,14 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2019.06.17.00.tar.gz"
-  sha256 "dc7ee18b24521a842fc5f7166d44b3db7246354ba4b22aa58b6a2444bb6cae6b"
+  url "https://github.com/facebook/folly/archive/v2019.08.26.00.tar.gz"
+  sha256 "e8f2416da41dafdc1936147793e397d99e690dabd5098cb6d81415d91493c2e2"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "eedccf1f8b6c8c4964ba3d34b54d0c19548e294ade86f2f787ea3c2d97708534" => :mojave
-    sha256 "5225faa9f9b6836d0d1830c8e0fbf1d38aa971f8d799f420791228349c9b509c" => :high_sierra
+    sha256 "9b110b7ab03ab5064b47fcde2d72f40a0d653d5058be578d3c23070808fe6abd" => :mojave
+    sha256 "555fba11f6a4352ce7e288f2c2a30c4833adcca38ae46700560b2bb71f24a553" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -27,10 +27,6 @@ class Folly < Formula
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
-
-  # Known issue upstream. They're working on it:
-  # https://github.com/facebook/folly/pull/445
-  fails_with :gcc => "6"
 
   def install
     mkdir "_build" do

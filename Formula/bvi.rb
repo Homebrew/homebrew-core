@@ -13,6 +13,8 @@ class Bvi < Formula
     sha256 "7ec90f6665011faa3f1715cf6cc855270a536993633d8a4600cdb0492db16686" => :mavericks
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"

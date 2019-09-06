@@ -3,19 +3,19 @@ class Passenger < Formula
   homepage "https://www.phusionpassenger.com/"
   url "https://github.com/phusion/passenger/releases/download/release-6.0.2/passenger-6.0.2.tar.gz"
   sha256 "56b2273312e6dc9880f6ba83e381583b8759085a0b41338b782c9575d58346bc"
-  revision 3
+  revision 7
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
     cellar :any
-    sha256 "c628404ff6090cf9812650918f2d4ad1eefe074dda5185792f049823c37319e0" => :mojave
-    sha256 "12d3982f1f364d9778465f431070dacf795f1e55a9b52b2b884eba2eea8d266b" => :high_sierra
-    sha256 "90690b939cfb2dd7e40f735012a3703d878973b4df0174211ba0c946a6885ff5" => :sierra
+    sha256 "9c5a6e65454d6adb05a02f263e9c76f2264816fda695cd8f621ab289d28a199b" => :mojave
+    sha256 "378224ef2b27b4a819b1159cbdc5e83d859acf4b07c749f8d307e845771ce74c" => :high_sierra
+    sha256 "4ffe0276f21b7df46681a243135b9b714156c0434696bf6ebfc542b9d4d0eda2" => :sierra
   end
 
   # to build nginx module
   depends_on "nginx" => [:build, :test]
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   patch do
@@ -28,8 +28,8 @@ class Passenger < Formula
     ENV.delete("SDKROOT")
 
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
-      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl"].opt_include}"
-      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl@1.1"].opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl@1.1"].opt_lib}"
     end
 
     system "rake", "apache2"

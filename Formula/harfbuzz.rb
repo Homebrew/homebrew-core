@@ -1,16 +1,14 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.1.tar.xz"
-  sha256 "6d4834579abd5f7ab3861c085b4c55129f78b27fe47961fd96769d3704f6719e"
-  revision 1
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.1.tar.xz"
+  sha256 "c651fb3faaa338aeb280726837c2384064cdc17ef40539228d88a1260960844f"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "2b9d512265903c00e8afc23fadec665c2c31ac40a098e66a9202b0d29385e053" => :mojave
-    sha256 "b4e38cc65ed3c09bede46872aa30f438cf724aec98d600fe681ca5b3e734856e" => :high_sierra
-    sha256 "c510e2101e0e89eee99742b37b8d6a237668dd176473376d5b225bbbeaf02687" => :sierra
+    sha256 "e413fa2b3eca6c721c53d95c4fb1917ab1f1d8f3a9dec1a004cce498856cedf8" => :mojave
+    sha256 "965e727a00d95872555bddab546a684a5cfec72879f44d2e89d55442fd9b9e73" => :high_sierra
+    sha256 "ea2c08348b1f5c929c30918a90fa1688eab618c689c53ab244f0e4b8bbd129e3" => :sierra
   end
 
   head do
@@ -33,19 +31,6 @@ class Harfbuzz < Formula
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
     sha256 "9535d35dab9e002963eef56757c46881f6b3d3b27db24eefcc80929781856c77"
-  end
-
-  # Fixes building on clang with -Wextra-semi-stmt.
-  # Both patches are in master, should be in the next release.
-  # https://github.com/harfbuzz/harfbuzz/pull/1783
-  patch do
-    url "https://github.com/harfbuzz/harfbuzz/commit/10bac21bb5b25cf20c2198934e99e444625dfd97.patch?full_index=1"
-    sha256 "7392a5cf71d922105a978e7074f918d20ade6c4e83f864d73b6f12d50ffeefd6"
-  end
-
-  patch do
-    url "https://github.com/harfbuzz/harfbuzz/commit/e710888188ff3285a162c25c89d886d9535d9f02.patch?full_index=1"
-    sha256 "eaf09af93510f2d13d640d44da3a055b7f08fe5b9d48ef9f4ef2a3adfdbc8b07"
   end
 
   def install

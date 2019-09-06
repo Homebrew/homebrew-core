@@ -11,6 +11,8 @@ class Cscope < Formula
     sha256 "7eef899511b0d7eb0d6a35acf677d9b19f89528aae0272d5c414bbafbe5daaaf" => :sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"

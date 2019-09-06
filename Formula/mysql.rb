@@ -1,13 +1,14 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.16.tar.gz"
-  sha256 "7c936aa7bc9f4c462b24bade2e9abe1b3a6869ea19c46e78ec0a9b2a87a3d17f"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.17.tar.gz"
+  sha256 "d44231316ce30a1d1189125ceed86d3388409778e17d0e3b9a060f532463e29a"
+  revision 1
 
   bottle do
-    sha256 "65e6629740ca75ceaae575b4cc68f2cf133619d08cdcd4cb2dee9737ce5fad3a" => :mojave
-    sha256 "cd3e3fcba5c6c4bd74a0dfd2fc4643328e070752c9a9b80597eec2d7d5699bef" => :high_sierra
-    sha256 "8927a950ff12ced1b0293ab1afea5bf774ade87b916449a450cf6c150e07435b" => :sierra
+    sha256 "07c53f2a0373372d2f613d604b9c17aceedd1a3990a995fc14d0df46abae563f" => :mojave
+    sha256 "f93c8e214715af6c4a67890377783ab6191cbf0142b41975fb6a3eb53a7cc0f6" => :high_sierra
+    sha256 "ba03dc26a70a862640766a46eb18de55cece34966c4e8f63dbf64e780882c6ea" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,7 @@ class Mysql < Formula
   # Note: MySQL themselves don't support anything below Sierra.
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."

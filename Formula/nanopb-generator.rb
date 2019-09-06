@@ -6,13 +6,14 @@ class NanopbGenerator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa46a4150df33670da03c430f0159b8481d10872b2786e8a177cb76170029db5" => :mojave
-    sha256 "fa46a4150df33670da03c430f0159b8481d10872b2786e8a177cb76170029db5" => :high_sierra
-    sha256 "f9073ddbdcffb922e3f0137fe04d52ce9a4ce5a937fd9408c14a6e31665d8489" => :sierra
+    rebuild 1
+    sha256 "123cf8fa083b7e6b9f1fb88cea514f033c84c91f752ca42958ec4fd4454c711c" => :mojave
+    sha256 "123cf8fa083b7e6b9f1fb88cea514f033c84c91f752ca42958ec4fd4454c711c" => :high_sierra
+    sha256 "567a81ac28895cad3de84172d0a8898d7ddbfbb2dd05a510af72c3466fce3b13" => :sierra
   end
 
   depends_on "protobuf"
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "mesos",
     :because => "they depend on an incompatible version of protobuf"
@@ -21,7 +22,7 @@ class NanopbGenerator < Formula
     cd "generator" do
       system "make", "-C", "proto"
       inreplace "nanopb_generator.py", %r{^#!/usr/bin/env python$},
-                                       "#!/usr/bin/python"
+                                       "#!/usr/bin/env python3"
       libexec.install "nanopb_generator.py", "protoc-gen-nanopb", "proto"
       bin.install_symlink libexec/"protoc-gen-nanopb", libexec/"nanopb_generator.py"
     end

@@ -1,14 +1,14 @@
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "https://libevent.org/"
-  url "https://github.com/libevent/libevent/archive/release-2.1.10-stable.tar.gz"
-  sha256 "52c9db0bc5b148f146192aa517db0762b2a5b3060ccc63b2c470982ec72b9a79"
+  url "https://github.com/libevent/libevent/archive/release-2.1.11-stable.tar.gz"
+  sha256 "229393ab2bf0dc94694f21836846b424f3532585bac3468738b7bf752c03901e"
 
   bottle do
     cellar :any
-    sha256 "3f43999f92de5174fa646e00cb0998801af4865b0274ebf6c4de5d6df372c4be" => :mojave
-    sha256 "50ee308d22d52de4f3b0ac5e5288f5a083cbca31cd59186cb05d9e293edada71" => :high_sierra
-    sha256 "a3cf44a7ec1d8ea39853079a9a28a0acc4082c7beea02200dcba7e124ec6c9a4" => :sierra
+    sha256 "0a8ab56e634a686654b83cfa5a94ea7a388bc19149372fceea54663cbad029f9" => :mojave
+    sha256 "44db0195483e874f8c8fc7ed4bb6e6f82bf31b17536859fdf2189dcedf70ca1e" => :high_sierra
+    sha256 "61c7fa8f31268fa382b5bdc99d37f5d463aa673e661db562458dc34d599be75c" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -17,9 +17,6 @@ class Libevent < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-
-  conflicts_with "pincaster",
-    :because => "both install `event_rpcgen.py` binaries"
 
   def install
     inreplace "Doxyfile", /GENERATE_MAN\s*=\s*NO/, "GENERATE_MAN = YES"
@@ -31,6 +28,7 @@ class Libevent < Formula
     system "make", "install"
     system "make", "doxygen"
     man3.install Dir["doxygen/man/man3/*.3"]
+    doc.install Dir["doxygen/html/*"]
   end
 
   test do

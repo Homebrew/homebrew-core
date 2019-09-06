@@ -17,6 +17,7 @@ class Clucene < Formula
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "zlib"
 
   # Portability fixes for 10.9+
   # Upstream ticket: https://sourceforge.net/p/clucene/bugs/219/

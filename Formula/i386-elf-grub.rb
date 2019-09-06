@@ -1,13 +1,13 @@
 class I386ElfGrub < Formula
   desc "GNU GRUB 2 for i386-elf"
   homepage "https://www.gnu.org/software/grub/"
-  url "https://ftp.gnu.org/gnu/grub/grub-2.02.tar.xz"
-  sha256 "810b3798d316394f94096ec2797909dbf23c858e48f7b3830826b8daa06b7b0f"
+  url "https://ftp.gnu.org/gnu/grub/grub-2.04.tar.xz"
+  sha256 "e5292496995ad42dabe843a0192cf2a2c502e7ffcc7479398232b10a472df77d"
 
   bottle do
-    sha256 "e83a6a8d1db4953ef70948e357b46570cddfb4158e82428faa0824946a539be0" => :mojave
-    sha256 "1f8657576755199211411b28e9c8ccba6cdb51fa02ab63479a33561c9e26d195" => :high_sierra
-    sha256 "9bbce3ac0fc16ed8bcdd1e57190483eb70d81e308d8d4e95733b81bef62319ba" => :sierra
+    sha256 "00be811dfc11c92ba89e6383ec1afb621b5f92e01d744e0c51bb07c459cecdd4" => :mojave
+    sha256 "14d011e73fe7ea1272ec3ddb229b29fdc86c20fbbb59fb9bc6bbf3bfd34f830f" => :high_sierra
+    sha256 "6631f2c897378798fb03472e306d4ae6d6ac44c2e4e629599b06978b4ed1ce19" => :sierra
   end
 
   depends_on "i386-elf-binutils" => :build
@@ -29,6 +29,13 @@ class I386ElfGrub < Formula
                              "TARGET_STRIP=i386-elf-strip",
                              "TARGET_NM=i386-elf-nm",
                              "TARGET_RANLIB=i386-elf-ranlib"
+
+      # ../grub-core/osdep/generic/blocklist.c:62:67: error: use of undeclared identifier 'FILE_TYPE_NO_DECOMPRESS';
+      # did you mean 'GRUB_FILE_TYPE_NO_DECOMPRESS'?
+      #
+      # Upstream issue has been reported at https://www.mail-archive.com/grub-devel@gnu.org/msg29007.html
+      inreplace buildpath/"grub-core/osdep/generic/blocklist.c", "FILE_TYPE_NO_DECOMPRESS", "GRUB_FILE_TYPE_NO_DECOMPRESS"
+
       system "make"
       system "make", "install"
     end

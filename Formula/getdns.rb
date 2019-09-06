@@ -3,12 +3,13 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-5-2/getdns-1.5.2.tar.gz"
   sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "c293ffbb7cf95d03a0aaefe3192528e1ac48a45b178dbe7221c36cba3eef3193" => :mojave
-    sha256 "a1e16166536523e0a38364c3a3734c3283ecfd45836f30bf2f3f134f75987306" => :high_sierra
-    sha256 "014023b37aaa7099c05c21667733b9272285251f099c393c21f5e609fa0be7f0" => :sierra
+    sha256 "27bea6f7711aa783163a2ffd47c4873c93d672dc1cbdbd7f01b385661d11744d" => :mojave
+    sha256 "766ae31c35d1a5ffef4e9f5d265836cf8fe598faf92e171e060a88e312b4c8da" => :high_sierra
+    sha256 "29d0abb2070668dbeee55839b16556cdd0f65d66d5fe06835a1cbed322811566" => :sierra
   end
 
   head do
@@ -20,7 +21,7 @@ class Getdns < Formula
   end
 
   depends_on "libevent"
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on "openssl"
   depends_on "unbound"
 

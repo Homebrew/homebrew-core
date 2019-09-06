@@ -1,14 +1,14 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.7.1.tar.gz"
-  sha256 "44cfea7158ea05dc2547c7c6bc22371e66c869def90351de0ab90a9c200d39c4"
-  revision 2
+  url "https://znc.in/releases/archive/znc-1.7.4.tar.gz"
+  sha256 "b1a32921a8e6d79ee6c5900c8d07293026966db7c05aaac48984231befc49b71"
+  revision 1
 
   bottle do
-    sha256 "4ebcf80b5a6c2224597d16f4b3500645df250946a0ae989a1b7e28eebd150372" => :mojave
-    sha256 "da5bd2ef4dccba1baa83a963059232956d808e17bb93ed68625b7c225eb5af4c" => :high_sierra
-    sha256 "4fbe9ac08b9fe2d1ad85fd86a73c3cdd37b93ad2b1f673e786e0fc7089822adb" => :sierra
+    sha256 "3aaefd4d68030bc5e7f651ecaf414bfe701a2294fda43a244732921834ad9ff3" => :mojave
+    sha256 "c297cde86d71718149a2079775b73202b66b1af11836d0fd3f01f697a7f48040" => :high_sierra
+    sha256 "e78e9e043b87ce016dea804c3234ca4ecf3b0919ca3b910b60a9d331d8c5efb2" => :sierra
   end
 
   head do
@@ -21,7 +21,7 @@ class Znc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   def install

@@ -1,17 +1,18 @@
 class Haproxy < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/1.9/src/haproxy-1.9.6.tar.gz"
-  sha256 "0837c35e2914d40f685740487886e86b1b16132b81ecb60a3be66cf9a6f19bef"
+  url "https://www.haproxy.org/download/2.0/src/haproxy-2.0.5.tar.gz"
+  sha256 "3f2e0d40af66dd6df1dc2f6055d3de106ba62836d77b4c2e497a82a4bdbc5422"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "cbed29b535b9f3c9d790e8a8ea0176e57516fcb197cc13607d33bb140d1f8bcc" => :mojave
-    sha256 "36a814f97eaaffce2e4b4f1c2db216e81086f775465a598ae7aab4077d874e3e" => :high_sierra
-    sha256 "2010bbc8206237a4490bfe94d79ba5fd88e6bf66010deb2982e557bb69264f49" => :sierra
+    sha256 "f656d34d07291a6738c647c9fdc07019ceeadeed3841c81d9604442bd527880e" => :mojave
+    sha256 "6b2d7abae3dc8ccbd2d997d9966bd2086f37d38e3948456271c54b103c7ef5b8" => :high_sierra
+    sha256 "93820d418a650dae699163f547940cb9c116287a385cc4fce54bf4f1651498b3" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install

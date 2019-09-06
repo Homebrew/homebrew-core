@@ -1,16 +1,15 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://salsa.debian.org/iso-codes-team/iso-codes"
-  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.2.orig.tar.xz"
-  sha256 "2b7f66c81808ac52e1ed0efe4ce8ae8e43309eedcc411f94f71a3f603cc21f42"
-  revision 1
+  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.3.orig.tar.xz"
+  sha256 "643eb83b2d714e8650ed7112706968d057bf5b101ba71c8ef219e20f1737b141"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a85d3ffaa71d35872da9c4ce021ec92986a447f3e3b4e7a1a23306be9239b4b0" => :mojave
-    sha256 "a85d3ffaa71d35872da9c4ce021ec92986a447f3e3b4e7a1a23306be9239b4b0" => :high_sierra
-    sha256 "240191588d2e014bfe26550e1151cdaa2f364a8e4859f2d39b17ed91507fe2a3" => :sierra
+    sha256 "c1d9e330b513c6eb3ecbd853425a933e21087fc17aef2eb37d06c81966014f55" => :mojave
+    sha256 "c1d9e330b513c6eb3ecbd853425a933e21087fc17aef2eb37d06c81966014f55" => :high_sierra
+    sha256 "da551b41f832e5cdbad7be94dddbae3bc55a48bf8656681413576f07e5aaac6e" => :sierra
   end
 
   depends_on "gettext" => :build

@@ -1,24 +1,14 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostpdl-9.27.tar.gz"
+  sha256 "9e089546624296bf4aca14c2adcb0762b323ca77ae14176d21127b749baac8d6"
   revision 1
 
-  stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
-    sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
-
-    # CVE-2019-6116 https://bugs.chromium.org/p/project-zero/issues/detail?id=1729
-    patch do
-      url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/0001-Bug700317-Address-.force-operators-exposure.tgz"
-      sha256 "54ab7d8f8007259c27fd4f11fd12f5ef0dbf6fe570da30b9335edec7deb3fa25"
-      apply "0001-Bug700317-Address-.force-operators-exposure.patch"
-    end
-  end
-
   bottle do
-    sha256 "746bbd395ce189a451c237893042f06737fa0d5fc19ba4ea631722d7ac00aa37" => :mojave
-    sha256 "6300074457a9e86e463aabeea75e95ff22ca15c94e7796a9520f8efbf125b1db" => :high_sierra
-    sha256 "319173da1daa8d383d7eb6922d9a131df8d407ea7ca239d03daa2054bf7f245b" => :sierra
+    sha256 "4bb192d7d0f38dd990f9d042e0e39002a1d762685f13d670fbab368bf5ca411e" => :mojave
+    sha256 "882e895e24244985a47bad1db7f4d86d8bcbebb5aafa532bde393554a2e3815f" => :high_sierra
+    sha256 "55b5a12f39605e29c6faddeca9ae366b8fda8ee44ef24d0ebe34dcad803f012a" => :sierra
   end
 
   head do
@@ -37,6 +27,12 @@ class Ghostscript < Formula
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
+  end
+
+  # Patch upstream Bug 700952 (https://bugs.ghostscript.com/show_bug.cgi?id=700988) in ghostscript 9.27
+  patch do
+    url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=06c920713e11"
+    sha256 "15db61d2ca230df92e3b40d717e6baa475b13aa5583c08074f57f2c6f74018cc"
   end
 
   patch :DATA # Uncomment macOS-specific make vars
@@ -58,6 +54,12 @@ class Ghostscript < Formula
     else
       system "./configure", *args
     end
+
+    # Fix for shared library bug https://bugs.ghostscript.com/show_bug.cgi?id=701211
+    # Can be removed in next version, and possibly replaced by passing
+    # --enable-gpdl to configure
+    inreplace "Makefile", "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET)",
+                          "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET) $(GPDL_TARGET)"
 
     # Install binaries and libraries
     system "make", "install"

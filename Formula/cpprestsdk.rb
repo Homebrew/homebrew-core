@@ -3,21 +3,21 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   # pull from git tag to get submodules
   url "https://github.com/Microsoft/cpprestsdk.git",
-      :tag      => "v2.10.13",
-      :revision => "9d8f544001cb74544de6dc8c565592f7e2626d6e"
+      :tag      => "v2.10.14",
+      :revision => "6f602bee67b088a299d7901534af3bce6334ab38"
   revision 1
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "8d14e863ea36550868ac1e0097562f607915ae80c134551a118529a6c219c986" => :mojave
-    sha256 "2a3938661f2cef5d05c3a04670a7c04b38440f747fba9df3c470816031e76a19" => :high_sierra
-    sha256 "c7eb3060a715eed0380aa2c8c1ce9adffe8d253a31584f721de2e8a22f6eb32c" => :sierra
+    sha256 "2b8117876aa647899436583bfed1008ae58c1cab42e8f9bf8a486672fcf50293" => :mojave
+    sha256 "e662c92e6525fc3ca1f68bff3fea5d8c789e9e0dddec494ec25736d958cdd5ad" => :high_sierra
+    sha256 "c68b6d8dbdbfc14d223cde0c310384994ed113ad0f5a688391e245d94f580703" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Fix for boost 1.70.0 https://github.com/microsoft/cpprestsdk/issues/1054
   # From websocketpp pull request https://github.com/zaphoyd/websocketpp/pull/814
@@ -39,8 +39,8 @@ class Cpprestsdk < Formula
     EOS
     flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
              "-I#{Formula["boost"].include}",
-             "-I#{Formula["openssl"].include}", "-L#{lib}",
-             "-L#{Formula["openssl"].lib}", "-L#{Formula["boost"].lib}",
+             "-I#{Formula["openssl@1.1"].include}", "-L#{lib}",
+             "-L#{Formula["openssl@1.1"].lib}", "-L#{Formula["boost"].lib}",
              "-lssl", "-lcrypto", "-lboost_random", "-lboost_chrono",
              "-lboost_thread-mt", "-lboost_system-mt", "-lboost_regex",
              "-lboost_filesystem", "-lcpprest"] + ENV.cflags.to_s.split

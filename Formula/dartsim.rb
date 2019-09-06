@@ -1,13 +1,14 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.9.0.tar.gz"
-  sha256 "8351c3fe53bd5251235d28ce15cc2796e529125b7990e49a715f4f567021aaed"
+  url "https://github.com/dartsim/dart/archive/v6.9.1.tar.gz"
+  sha256 "9e2954aaf2d4538a7e4aab5188f1061c3e216c8c0b72483c2d0b9e814525acd1"
+  revision 1
 
   bottle do
-    sha256 "37df8adbabfd3f9675eb484de13c8a04285e0dc8628b6ebcde76f856f6b65810" => :mojave
-    sha256 "3acde88f851ff977d4bbcdfe9c5671bc3b213cd184e22e10ef0b2b7305f873ee" => :high_sierra
-    sha256 "8b9c430cc7530aabef01cdfb756a398bf82c42b020a84ef1ed70f8689a4e345f" => :sierra
+    sha256 "0f7eb772042921988f1e140c4e3e0a37d4b5a81b390711daf3220427b6f57465" => :mojave
+    sha256 "a0c2059ce68df576f10d76f86ff4354218ceefb0b0af5ef71b5501ccb956d9d6" => :high_sierra
+    sha256 "12ed3cfc2cb8767317fe3473a988ad5177c0a41c95bea85bf15e4fbf5aea12b9" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -18,6 +19,7 @@ class Dartsim < Formula
   depends_on "eigen"
   depends_on "fcl"
   depends_on "flann"
+  depends_on "ipopt"
   depends_on "libccd"
   depends_on "nlopt"
   depends_on "ode"

@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.20.1.19.tar.bz2"
-  sha256 "0574b61efb9bfc3364211d03d87a12c91dc7b03e8d6242cd4d8d953ef145d468"
+  url "https://download.mono-project.com/sources/mono/mono-6.0.0.327.tar.xz"
+  sha256 "f51184ce4b90c93fc2bf5ca02775dd2a1ea023e056089d286ea72f1c68586442"
 
   bottle do
-    sha256 "08e012d25c888d0b0f40ef7757ba929ad48421c8ba5c8f4f66dc7d0d15c6f49d" => :mojave
-    sha256 "da81cb09be8a4b53c9b9e297ae23836c7818feb9ba919dbc02e333e820ea85bc" => :high_sierra
-    sha256 "bbacf1812a2f1d55ab6c15784c813554882af83d0a95211c4a4cbf948f7d0541" => :sierra
+    sha256 "b2da46ffec4b51b716908903433ae04cfb6f7a626745dce205ce26e511f02fbd" => :mojave
+    sha256 "26652980662197005c982deebd4cf27882658a0c2079145758e30149ee6bfdf4" => :high_sierra
+    sha256 "304d1622726b78599de8be3eb4b8c5cd49782987925a5d02573e6c29bd5bdbdc" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -36,15 +36,13 @@ class Mono < Formula
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        :revision => "804bde742bdf9d65c7ceb672a3d5400c0c22e628"
+        :revision => "ad9c9926a76e3db0d2b878a24d44446d73640d19"
   end
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-nls=no",
-                          "--build=x86_64-apple-darwin"
+                          "--enable-nls=no"
     system "make"
     system "make", "install"
     # mono-gdb.py and mono-sgen-gdb.py are meant to be loaded by gdb, not to be
@@ -56,7 +54,7 @@ class Mono < Formula
 
     # Next build msbuild
     resource("msbuild").stage do
-      system "./build.sh", "-hostType", "mono", "-configuration", "Release", "-skipTests"
+      system "./eng/cibuild_bootstrapped_msbuild.sh", "--host_type", "mono", "--configuration", "Release", "--skip_tests"
       system "./artifacts/mono-msbuild/msbuild", "mono/build/install.proj",
              "/p:MonoInstallPrefix=#{prefix}", "/p:Configuration=Release-MONO",
              "/p:IgnoreDiffFailure=true"

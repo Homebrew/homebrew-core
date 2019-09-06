@@ -2,15 +2,15 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v2.1.0",
-      :revision => "af67c893d87c5fb8200f8a3edac7fdafd61ec0bd"
+      :tag      => "v3.1.0",
+      :revision => "95f3303493fdea243ae83b767978092396169baf"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd50a743957a1b3f15b6ebd887f0f7c39f248d6b9d75f6182e960a4e5e1715b2" => :mojave
-    sha256 "80e464ef646f293212bcace956de93804c9556ac45697bb7f5bf75a276261fc9" => :high_sierra
-    sha256 "2c7ede4c483f6072a35d098778e32dba19550f93d8268c49c9210222daca08e7" => :sierra
+    sha256 "97c15af6d0afc923da020d31f533edf398e151af4e928e0877c9c7f125e53df3" => :mojave
+    sha256 "8d63266a1f00c964a6b636e4646bba2f222cfab1577f6b2e01bcebb74b657688" => :high_sierra
+    sha256 "717113a3fe710bc7b3dc05a5dce085e9a26ac48fda590ae333581c2472150468" => :sierra
   end
 
   depends_on "go" => :build
@@ -23,12 +23,11 @@ class Kustomize < Formula
 
     dir = buildpath/"src/kubernetes-sigs/kustomize"
     dir.install buildpath.children
-
-    cd dir do
+    dir.cd do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{version}
-        -X sigs.k8s.io/kustomize/pkg/commands/misc.gitCommit=#{revision}
-        -X sigs.k8s.io/kustomize/pkg/commands/misc.buildDate=#{Time.now.iso8601}
+        -s -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.kustomizeVersion=#{version}
+        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.buildDate=#{Time.now.iso8601}
       ]
       system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize", "cmd/kustomize/main.go"
       prefix.install_metafiles
@@ -41,7 +40,7 @@ class Kustomize < Formula
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
       - service.yaml
-      patches:
+      patchesStrategicMerge:
       - patch.yaml
     EOS
     (testpath/"patch.yaml").write <<~EOS

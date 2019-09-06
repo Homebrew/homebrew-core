@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "https://packages.groonga.org/source/groonga/groonga-9.0.1.tar.gz"
-  sha256 "f1b14f0fd62ca7da550c11e164edcbcac7d83de75474cc4d3a6574adf2733507"
+  url "https://packages.groonga.org/source/groonga/groonga-9.0.7.tar.gz"
+  sha256 "d8e5c49fd55889ca0bc447decb606723a910769af8ab312936e16043cd4560c8"
 
   bottle do
-    sha256 "d06113460207d261b1c6c77cc12ba7b529105c5a99ba9f38cea72457d25be114" => :mojave
-    sha256 "20657333b9417de0c301ce9f32c22bcd52ec52a97254e3cede37981e7275f86b" => :high_sierra
-    sha256 "32042baca858b0a712c102233a85591e2e585dceb82b286aed56209ae671f51f" => :sierra
+    sha256 "0f46c560a90c2a52f55810086063e7c86bc60bec04e43657a65716af28f34cfd" => :mojave
+    sha256 "3b5c1d34bff216d3d91463f3bf3292dfc7c3998908d7a4c21218b3d1bdf41ae1" => :high_sierra
+    sha256 "ce457869e72a9e44ba18183e75539e9e2cd0b0bcaf131320716563fd1d7db5b8" => :sierra
   end
 
   head do

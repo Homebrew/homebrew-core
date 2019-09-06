@@ -3,12 +3,12 @@ class NordugridArc < Formula
   homepage "http://www.nordugrid.org/"
   url "https://download.nordugrid.org/packages/nordugrid-arc/releases/5.0.2/src/nordugrid-arc-5.0.2.tar.gz"
   sha256 "d7306d91b544eeba571ede341e43760997c46d4ccdacc8b785c64f594780a9d1"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f7f27bc22a9827be21f14f6e492278c948c553a47efcf5cefb5895af4bb05616" => :mojave
-    sha256 "7abc43a61b0991b0b740a135b985f4a3e64ccdfaf5d28ed5f82bb2e72f8aaf72" => :high_sierra
-    sha256 "daa0941045bb504b1c72adf8f995cc91535b29782baffe7322504c845bde646b" => :sierra
+    sha256 "704be50cf28cb6ef2a40fb4782ff7160783d596de153fdf89057389f5d93ed5d" => :mojave
+    sha256 "565c47f4c87148efae86339739dde4af9c4204febdc9d6310da8eb506ae104f9" => :high_sierra
+    sha256 "509ea260ebc19b65357d6afdd8fc303bb1ec6073633faba390fe64419d0939d0" => :sierra
   end
 
   depends_on "pkg-config" => :build

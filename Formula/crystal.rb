@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.29.0.tar.gz"
-    sha256 "c2265b2a904ded282751f59a3bd0367072058eee1cf51ebe0af03a572f8e19b9"
+    url "https://github.com/crystal-lang/crystal/archive/0.30.1.tar.gz"
+    sha256 "0ffc00fa54929c2533bc0bcb89e0b001dd3abc470ccc87e3576047a5cdafc062"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "87ad47db7f211cc64fa79a847f23ef3850da2792f8c4d673b0c16fca9be769ce" => :mojave
-    sha256 "cfa194da34d0cf847f6d3ce19603e7d8f8502c3cf93ec6975df59247f2f1e252" => :high_sierra
-    sha256 "50982b8eee0c4ee85539e0cddd51425a54572af1bf50b7ac7dcf691bb62c0996" => :sierra
+    sha256 "3e6d1c482c1d4128b7298e63219ae1ea311d4575c3f0f6791b44e60ce7f7d2d6" => :mojave
+    sha256 "3a2a303378a72dccc017092c6aed04de81b3f8bf56b654b568f9e2fa56c16a7a" => :high_sierra
+    sha256 "b810c431c44ab0ca75af43d461ed21706065eac5c2a9ab95ff491a745db0e464" => :sierra
   end
 
   head do
@@ -34,7 +34,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@6"
+  depends_on "llvm"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -51,9 +51,9 @@ class Crystal < Formula
   end
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.28.0/crystal-0.28.0-1-darwin-x86_64.tar.gz"
-    version "0.28.0-1"
-    sha256 "f3ba24c297a99382d749344f319947f807da03371240e373d5c3d13117d4a113"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.29.0/crystal-0.29.0-1-darwin-x86_64.tar.gz"
+    version "0.29.0-1"
+    sha256 "6de700d88dc0486c0d56e4d5c6852dc675256aa6f2c571ed8e4b15e0fc72a0b9"
   end
 
   def install
@@ -91,7 +91,13 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+      system buildpath/"bin/crystal", "build",
+                                      "-o", buildpath/".build/shards",
+                                      "src/shards.cr",
+                                      "--release", "--no-debug"
+
+      man1.install "man/shards.1"
+      man5.install "man/shard.yml.5"
     end
 
     bin.install ".build/shards"
@@ -101,6 +107,8 @@ class Crystal < Formula
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
+
+    man1.install "man/crystal.1"
   end
 
   test do

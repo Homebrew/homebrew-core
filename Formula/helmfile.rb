@@ -1,18 +1,25 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.79.0.tar.gz"
-  sha256 "5fecebb6cc036170bf8aa0b3fc0f79a4a5cc250c496b502c329f49a0ebbc479c"
+  url "https://github.com/roboll/helmfile/archive/v0.82.0.tar.gz"
+  sha256 "68a69b7a3ed999c2699d672fb0a152f18703298a5edc982d338590c140c2d64a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "33b0fde8e74886cd513a0172111020e1a9af9c53c53d34b8487827f5cf089e68" => :mojave
-    sha256 "6c52bcefacdd30f2ff846612336ade84bf3d71579012c7d0be4f991dead1eae8" => :high_sierra
-    sha256 "0809588e4c209b83ae4e8bf0948dca3676bbde1a07fbff8bf3ffc3db064145bf" => :sierra
+    sha256 "fe205fc05566e17c9ccdb85d96810b84d7ac98a9abfef74cc8bbe889295d9038" => :mojave
+    sha256 "30c4f0a85ea6548c00db30237baf1e6668d1a0a76412e0d4f97e4b70b651e7e8" => :high_sierra
+    sha256 "0544a40faaa1ed5724168c2ee9ca46164c700ca6dd8cf31b07ed56b748591411" => :sierra
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-helm"
+
+  # See https://github.com/roboll/helmfile/issues/834
+  # Remove this patch in the next version.
+  patch do
+    url "https://github.com/roboll/helmfile/commit/1823bb1e5b159dfd8198704722d63ec6db40b4ee.patch?full_index=1"
+    sha256 "4d37b12b9565d45c2c885277b54cf8c799263dbbd8d2d165f13da095dc38dfe6"
+  end
 
   def install
     ENV["GOPATH"] = buildpath

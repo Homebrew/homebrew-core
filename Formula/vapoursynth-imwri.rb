@@ -1,15 +1,15 @@
 class VapoursynthImwri < Formula
   desc "VapourSynth filters - ImageMagick HDRI writer/reader"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R45.1.tar.gz"
-  sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R47.2.tar.gz"
+  sha256 "8ce4553f9fc5e5bbfb26ec9c0c5bf94be307530f947424c713ef67bc8a6d22b2"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "4b74c31f8c292a7151a85a8bcfcd187ab78c5e29dcae3b953a57bd4658c24727" => :mojave
-    sha256 "9f3984dc4b3fc382a9cadbced0676b975035807f3c4bfc945bc2aa353e08bc10" => :high_sierra
-    sha256 "429d80c42d846d6693148d2354e50bcc1ec86b8466a69f531a4f37fd8fc7d7f2" => :sierra
+    sha256 "9a38930b60fdad8781f39e4daed3fb41425180b14e430ba2fa392ea4fd12326c" => :mojave
+    sha256 "5b15ff78ec77412e2d646d9f627b10d60c55da4d5a0d30c5ceaab2fae1be5380" => :high_sierra
+    sha256 "152ac072c27212c8de5bd8a6910a0bfdaa1c3ebd3d46c3e068792251a3a8ed10" => :sierra
   end
 
   depends_on "autoconf" => :build

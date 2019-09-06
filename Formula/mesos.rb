@@ -1,14 +1,14 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.8.0/mesos-1.8.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.8.0/mesos-1.8.0.tar.gz"
-  sha256 "b63f201cf68f5f170e48d8a047c7cfdb23d54cd1c75e76f661cf63d2ce55b634"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
+  sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
 
   bottle do
-    sha256 "2fe68eecb5bb478158517b7b96fa5ae605ef804fdc05b7080f9361321b3e493c" => :mojave
-    sha256 "219fdc95f2c38918842eb2e9d717b36833b6ac0085b40b17d0ba3f68540a1160" => :high_sierra
-    sha256 "176156470cab7138df681db6c0b92f92742fd288971fe790911f28e7217fde81" => :sierra
+    sha256 "f3ad80347eda8b915ad3d10da9a5ed6c7d27c0cc489d05a9a87741c1e8b03ad3" => :mojave
+    sha256 "7159fdf18c7d074c0c78b0f840317c77414da66e7b559180f4e3c88ddedf90d3" => :high_sierra
+    sha256 "545a5649305fb8bcc6b6d9827f760a68436a3fe1b433a6eeca0a2b92bcddb36e" => :sierra
   end
 
   depends_on "maven" => :build
@@ -18,8 +18,8 @@ class Mesos < Formula
   depends_on "python@2"
   depends_on "subversion"
 
-  conflicts_with "nanopb-generator",
-    :because => "they depend on an incompatible version of protobuf"
+  conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
+  conflicts_with "rapidjson", :because => "mesos installs a copy of rapidjson headers"
 
   if DevelopmentTools.clang_build_version >= 802 # does not affect < Xcode 8.3
     # _scheduler.so segfault when Mesos is built with Xcode 8.3.2

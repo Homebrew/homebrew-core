@@ -3,14 +3,14 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/release-3.0/s3ql-3.0.tar.bz2"
-  sha256 "ef69fd20f5d89ba815dc0ad95c34351478f46299bc9ed9e2da2224af34d9b314"
+  url "https://github.com/s3ql/s3ql/releases/download/release-3.2/s3ql-3.2.tar.bz2"
+  sha256 "07e93368a52e96a93e1fdc4a66d1a0d845f8808f6d8fbb4aab14e1c824ce67c6"
 
   bottle do
     cellar :any
-    sha256 "346c0ccaf0f9d52c2734b8c1116623f154b621c3b7330c4af283042092a0aed4" => :mojave
-    sha256 "7a4f72d3da9d50f1049665cedad42cb323a4844e312ffb2837221e6a9dcc0816" => :high_sierra
-    sha256 "f5018386e55a05dc119ee0763c18771854c9a924f55d4fe451402a6ee4583f8c" => :sierra
+    sha256 "f158d1f719d9938f809f02bb75d6142234018cf68bad96f70803829188eceb48" => :mojave
+    sha256 "2b898a41cadd099417bacb68c8a83f17ace3011c36f9aa02276616b06db083c4" => :high_sierra
+    sha256 "7f34e24972bedafa368ec0fab96ac01c16bc80a0390f593c86561d854039ffd1" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,13 +18,13 @@ class S3ql < Formula
   depends_on "python"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
-    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
+    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
+    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
+    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
   end
 
   resource "idna" do
@@ -38,13 +38,13 @@ class S3ql < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/07/ca/bc827c5e55918ad223d59d299fff92f3563476c3b00d0a9157d9c0217449/cryptography-2.6.1.tar.gz"
-    sha256 "26c821cbeb683facb966045e2064303029d572a87ee69ca5a1bf54bf55f93ca6"
+    url "https://files.pythonhosted.org/packages/c2/95/f43d02315f4ec074219c6e3124a87eba1d2d12196c2767fadfdc07a83884/cryptography-2.7.tar.gz"
+    sha256 "e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/64/7c/27367b38e6cc3e1f49f193deb761fe75cda9f95da37b67b422e62281fcac/cffi-1.12.2.tar.gz"
-    sha256 "e113878a446c6228669144ae8a56e268c91b7f1fafae927adc4879d9849e0ea7"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "pycparser" do
@@ -63,13 +63,13 @@ class S3ql < Formula
   end
 
   resource "defusedxml" do
-    url "https://files.pythonhosted.org/packages/74/ba/4ba4e89e21b5a2e267d80736ea674609a0a33cc4435a6d748ef04f1f9374/defusedxml-0.5.0.tar.gz"
-    sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
+    url "https://files.pythonhosted.org/packages/a4/5f/f8aa58ca0cf01cbcee728abc9d88bfeb74e95e6cb4334cfd5bed5673ea77/defusedxml-0.6.0.tar.gz"
+    sha256 "f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "apsw" do
@@ -78,13 +78,53 @@ class S3ql < Formula
   end
 
   resource "dugong" do
-    url "https://files.pythonhosted.org/packages/0f/d0/610ab91de47d3fbfb17be139b5040cd90904201963e63f3c44311cbc8388/dugong-3.7.4.tar.bz2"
-    sha256 "ed9fa32b126dc5b3c257bf9f3e9f679a2ef0cc56e0fcd857024d4bb3229f69b9"
+    url "https://files.pythonhosted.org/packages/db/68/74767cc13b9e7cfa9705fc9cf3b272e55350de8cd4a73c98508a95d9a52c/dugong-3.7.5.tar.bz2"
+    sha256 "d0d07606282230fd9832f2de647e4cb46882c227883e6a12a8ff811ac46d7283"
   end
 
   resource "llfuse" do
     url "https://files.pythonhosted.org/packages/75/b4/5248459ec0e7e1608814915479cb13e5baf89034b572e3d74d5c9219dd31/llfuse-1.3.6.tar.bz2"
     sha256 "31a267f7ec542b0cd62e0f1268e1880fdabf3f418ec9447def99acfa6eff2ec9"
+  end
+
+  resource "oauthlib" do
+    url "https://files.pythonhosted.org/packages/6a/cf/f1a44998f36c62a7a9e51145101428299be27b1e3a411adfd6fd87589889/oauthlib-3.0.2.tar.gz"
+    sha256 "b4d99ae8ccfb7d33ba9591b59355c64eef5241534aa3da2e4c0435346b84bc8e"
+  end
+
+  resource "cachetools" do
+    url "https://files.pythonhosted.org/packages/ae/37/7fd45996b19200e0cb2027a0b6bef4636951c4ea111bfad36c71287247f6/cachetools-3.1.1.tar.gz"
+    sha256 "8ea2d3ce97850f31e4a08b0e2b5e6c34997d7216a9d2c98e0f3978630d4da69a"
+  end
+
+  resource "requests-oauthlib" do
+    url "https://files.pythonhosted.org/packages/de/a2/f55312dfe2f7a344d0d4044fdfae12ac8a24169dc668bd55f72b27090c32/requests-oauthlib-1.2.0.tar.gz"
+    sha256 "bd6533330e8748e94bf0b214775fed487d309b8b8fe823dc45641ebcd9a32f57"
+  end
+
+  resource "rsa" do
+    url "https://files.pythonhosted.org/packages/cb/d0/8f99b91432a60ca4b1cd478fd0bdf28c1901c58e3a9f14f4ba3dba86b57f/rsa-4.0.tar.gz"
+    sha256 "1a836406405730121ae9823e19c6e806c62bbad73f890574fff50efa4122c487"
+  end
+
+  resource "pyasn1-modules" do
+    url "https://files.pythonhosted.org/packages/ec/0b/69620cb04a016e4a1e8e352e8a42717862129b574b3479adb2358a1f12f7/pyasn1-modules-0.2.5.tar.gz"
+    sha256 "ef721f68f7951fab9b0404d42590f479e30d9005daccb1699b0a51bb4177db96"
+  end
+
+  resource "pyasn1" do
+    url "https://files.pythonhosted.org/packages/46/60/b7e32f6ff481b8a1f6c8f02b0fd9b693d1c92ddd2efb038ec050d99a7245/pyasn1-0.4.5.tar.gz"
+    sha256 "da2420fe13a9452d8ae97a0e478adde1dee153b11ba832a95b223a2ba01c10f7"
+  end
+
+  resource "google-auth" do
+    url "https://files.pythonhosted.org/packages/ef/77/eb1d3288dbe2ba6f4fe50b9bb41770bac514cd2eb91466b56d44a99e2f8d/google-auth-1.6.3.tar.gz"
+    sha256 "0f7c6a64927d34c1a474da92cfc59e552a5d3b940d3266606c6a28b72888b9e4"
+  end
+
+  resource "google-auth-oauthlib" do
+    url "https://files.pythonhosted.org/packages/1b/81/ab7bd0a5286277b37e25da5577a4c8d0085ebbe82784e4f08c4d6ac767ee/google-auth-oauthlib-0.4.0.tar.gz"
+    sha256 "6a8b0072048940d1f41c23c03576867e577e826fec140a1c7e148ec486e083ba"
   end
 
   def install

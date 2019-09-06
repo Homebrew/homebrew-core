@@ -1,26 +1,15 @@
 class ZeldaRothSe < Formula
   desc "Zelda Return of the Hylian SE"
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-return-of-the-hylian-se"
-  head "https://github.com/christopho/zelda_roth_se.git"
-
-  stable do
-    url "https://github.com/christopho/zelda_roth_se/archive/v1.1.0.tar.gz"
-    sha256 "95baf3ce96372b1ce78d9af8ee9723840474ac8fc51e87eb54cc35777d68f5a8"
-
-    # Support SOLARUS_INSTALL_DATADIR variable for CMake
-    patch do
-      url "https://github.com/christopho/zelda_roth_se/commit/e9b5bd907f5b50b17d65ebe2fa50760d322c537c.diff?full_index=1"
-      sha256 "061b93efdd16c450f7c3483e690099d96280250b159336439ab0da0ad5c2e13d"
-    end
-  end
+  url "https://gitlab.com/solarus-games/zelda-roth-se/-/archive/v1.2.1/zelda-roth-se-v1.2.1.tar.bz2"
+  sha256 "1cff44fe97eab1327a0c0d11107ca10ea983a652c4780487f00f2660a6ab23c0"
+  head "https://gitlab.com/solarus-games/zelda-roth-se.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9f77d702fa6c412eec4b5d1c602ae1bc0ca05d01421d792110057bd79e53742" => :mojave
-    sha256 "8b76f5c62bca90258a3e0c3d930551befe9fdd0f0814d1f2026f32dae1027998" => :high_sierra
-    sha256 "2db05a8f1209a0f039c6bea92ffefb362d94497bc9f659e8057eca1539fc132e" => :sierra
-    sha256 "7aa852ad416766a72aad6b254f86f21a53bd67df29f20b7eaa612ba709f8c0cd" => :el_capitan
-    sha256 "069a42db0b88121a77233d3860a5191af80ad335270cc4723b1bb4ef1c48ccc3" => :yosemite
+    sha256 "5e2654f4d71bd00cb4d8fdd46666d079d78f2831e453cae55cc0e4edab0ed64a" => :mojave
+    sha256 "ebd84dd4b4d7941f1a77cb5fa577185394f3d4bf99e64815a72b5c03389997e9" => :high_sierra
+    sha256 "19f8989a85c20f77b4b2126e68af6c94221a863347c2327f009239c0536cce09" => :sierra
   end
 
   depends_on "cmake" => :build

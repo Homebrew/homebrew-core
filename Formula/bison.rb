@@ -11,6 +11,8 @@ class Bison < Formula
     sha256 "606a6ec0b5fa0adaa07ba8cdcb2c99e40d3b6c9a690d324f1688e5a832c2452b" => :sierra
   end
 
+  uses_from_macos "m4"
+
   keg_only :provided_by_macos, "some formulae require a newer version of bison"
 
   def install

@@ -2,14 +2,15 @@ class ErlangAT21 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.3.8.3.tar.gz"
-  sha256 "58e6e823ce0aa06a36d3dc0caa8b1df6475dc051a6e19f465924ae41a8c3e594"
+  url "https://github.com/erlang/otp/archive/OTP-21.3.8.6.tar.gz"
+  sha256 "7d96d11143b8ad71448acc0427c2c34756712aa2972d9aaa6d100f87f29918c6"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "365e8d5237a3aff96a611a27a21fc424b489b2045177f2bd8093d0a94887a0ec" => :mojave
-    sha256 "4e3dcd498b535aa04d447b932287dc01d0e5002f6c8930da9ffb4c77086ec11f" => :high_sierra
-    sha256 "cb65d5dd1c2799b423b8a57eea404902b36f47a7fcc230a7c4cd7010ebd9925e" => :sierra
+    sha256 "f732d5fd9fa777892f830de91b82506b07848fdc4a08d37016dd4f54d8e910be" => :mojave
+    sha256 "1eae10e8e2701f7da2c933c2b136cf6e5f9564007a41364574835cc5c7f65043" => :high_sierra
+    sha256 "9f27267e896b026e32eec00e97a70c09ec057746ad8d8ae1f3d05553eb9fea55" => :sierra
   end
 
   keg_only :versioned_formula
@@ -17,7 +18,7 @@ class ErlangAT21 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
   resource "man" do
@@ -51,7 +52,7 @@ class ErlangAT21 < Formula
       --enable-smp-support
       --enable-threads
       --enable-wx
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
       --enable-darwin-64bit
     ]

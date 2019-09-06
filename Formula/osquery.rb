@@ -3,18 +3,18 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 4
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "47f491ca2a096b1f1478672389293ed506b3bd7e08b07ec9d54fc3e697039713" => :mojave
-    sha256 "206baf23f17ca77db064c5576e655874055fa00312ec3e87d7e6ccb21c6cae3e" => :high_sierra
-    sha256 "27aa7591cff131398915cd954798a4c304a5f327f5af311bb5b63d7ef4ee9445" => :sierra
+    sha256 "22cda8cee5185a984276aff7c021f2277f7fe0a2beae640c259954fad19b812d" => :mojave
+    sha256 "c25d1d5c72f8955617a93491f55af9fa307aa7533ac9405cf8004ce0a8cd2c13" => :high_sierra
+    sha256 "abaae603c1e1c59c5c70fc798bedf2520521c63aa7c4652b87a4b796d885e86d" => :sierra
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
@@ -99,15 +99,16 @@ class Osquery < Formula
     # Set the version
     ENV["OSQUERY_BUILD_VERSION"] = version
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python#{xy}/site-packages"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
-        system "python", "setup.py", "install",
-                                 "--prefix=#{buildpath}/third-party/python/",
-                                 "--single-version-externally-managed",
-                                 "--record=installed.txt"
+        system "python3", "setup.py", "install",
+                          "--prefix=#{buildpath}/third-party/python/",
+                          "--single-version-externally-managed",
+                          "--record=installed.txt"
       end
     end
 

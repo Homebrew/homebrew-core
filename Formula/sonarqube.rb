@@ -1,12 +1,12 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.7.zip"
-  sha256 "f3171f0662c6383003f9f9f517111b849e7cdb29706cbea465e8a8f911fd719f"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
+  sha256 "67f3ccae79245397480b0947d7a0b5661dc650b87f368b39365044ebcc88ada0"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on :java => "11+"
 
   conflicts_with "sonarqube-lts", :because => "both install the same binaries"
 

@@ -1,17 +1,18 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.14.tar.gz"
-  sha256 "f11d2fb23eec08ee5d95da600649177b9bdcf9eaa6be407d997b174e271e4d78"
+  url "https://github.com/cesanta/mongoose/archive/6.15.tar.gz"
+  sha256 "ed9b44690f9660d25562e45472d486c086bcc916bf49f39f22e0a90444d44454"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d26995b756965ae3b9e62dfe7cdef465d3b24a795c4c2a89dcd215c69adbab30" => :mojave
-    sha256 "27987f00f07c5515c89aab7c38830ce3b0ea191215e065b1608e1db115ad4904" => :high_sierra
-    sha256 "42d51c600cc16d6bceeb0dbd68310cf572b05c2bea83bc1eb42d50e7a3a561e9" => :sierra
+    sha256 "b5030cf46705161bfedb5c7ab2381fdd6e5fae5fff949b88192890baebcb6799" => :mojave
+    sha256 "ee6d527c83cc3ceeaab865b57e252fa586ff688f7ad621d8f888f0099abdc620" => :high_sierra
+    sha256 "f8804407c6e9db55ff09309fefd98559564de2827d0240c7f26b6aa9d559c30c" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "suite-sparse", :because => "suite-sparse vendors libmongoose.dylib"
 

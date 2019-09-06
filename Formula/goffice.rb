@@ -6,9 +6,10 @@ class Goffice < Formula
   revision 1
 
   bottle do
-    sha256 "7ce5144ecb512469e8638204656c332466569bb434975605067b876af1c7ece9" => :mojave
-    sha256 "eb2968d535961e4edcc0483f339ff83dddf24dab6da6fd7ff9ed2d5d1865afdd" => :high_sierra
-    sha256 "44a154844f42b75cfdb38ca864ca2170d547bbbd0125b3d0e75cea67e0ef5fad" => :sierra
+    rebuild 1
+    sha256 "ef4fe6945eb74bf39513711481785decbab630b8760bae2e40a0534636bfaf5d" => :mojave
+    sha256 "a1796ae0a11115cce4756e7739d466189bf4a94d8b31a51a8d9fbbb5cbe988d8" => :high_sierra
+    sha256 "a341815ae858d429a418c0a567b0dc204827cd196b5064326d83af40d6d5cb65" => :sierra
   end
 
   head do
@@ -30,6 +31,7 @@ class Goffice < Formula
   depends_on "librsvg"
   depends_on "pango"
   depends_on "pcre"
+  uses_from_macos "libxslt"
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
@@ -56,6 +58,7 @@ class Goffice < Formula
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
            "-I#{MacOS.sdk_path}/usr/include/libxml2",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",

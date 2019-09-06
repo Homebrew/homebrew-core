@@ -2,15 +2,15 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.8.0",
-      :revision => "a558885e6002072a0bd14a97620690947af07c5f"
+      :tag      => "v6.8.2",
+      :revision => "f027fad862817a52175b9ad2663e5126b9bad428"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3fdff7a6902b5375ca284cefd35bf6a6457159a6029930094f5d17f432fe587e" => :mojave
-    sha256 "cab66df34a0e03f581b55ea13df0da6953e3cddd02f38649f7469d8be5121d03" => :high_sierra
-    sha256 "cc2a52019f0d73cb8f5f243ad75da3235643d1a5eb77108ff3b227bd08707944" => :sierra
+    sha256 "7a2c8d25f188d3d6c0127b52ccf261ea924f865e0d1b1417dd3a6d727d1828b9" => :mojave
+    sha256 "e9554d0a464711f10572baccca5ad887d48f558aea119ed65f87c69b726e1378" => :high_sierra
+    sha256 "d5a78f410e3455924a9922c2b2fea0b46d4d809def59141fe6ede8aaff949345" => :sierra
   end
 
   resource "node" do

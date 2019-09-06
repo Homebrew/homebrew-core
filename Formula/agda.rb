@@ -5,22 +5,23 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
+  revision 1
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.0/Agda-2.6.0.tar.gz"
-    sha256 "bf71bc634a9fe40d717aae76b5b160dfd13a06365615e7822043e5d476c06fb8"
+    url "https://hackage.haskell.org/package/Agda-2.6.0.1/Agda-2.6.0.1.tar.gz"
+    sha256 "7bb88a9cd4a556259907ccc71d54e2acc9d3e9ce05486ffdc83f721c7c06c0e8"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :tag      => "v1.0.1",
-          :revision => "442abf2b3418d4d488381a2f8ca4e99bbf8cfc8e"
+          :tag      => "v1.1",
+          :revision => "dffb8023a63e7e66a90a8664752245971a915e66"
     end
   end
 
   bottle do
-    sha256 "33438627ea54c158323b499f5cff0acb0fcdb1498ed46709254182d3926c99a8" => :mojave
-    sha256 "8e41acf29ecb3319d8ef00b77de952cfccafef87bf705bc32c1837073ce62acb" => :high_sierra
-    sha256 "a49f81d7e0f49023a23067d0e496e2a387258d91820f23838f2ef804bea86714" => :sierra
+    sha256 "2baa8f12e01c319b627c0638fb507ab17e413836f8baf0eb8fc97f9fd6093e32" => :mojave
+    sha256 "9cd4769e7bb29ff52854efcdbba60a52efc69ac97c938667ae0aa424f11ea4e6" => :high_sierra
+    sha256 "9504f8bc0bf5fa728f97411307458945c8b29a6927e998794bcab8ca4506be1c" => :sierra
   end
 
   head do
@@ -34,6 +35,7 @@ class Agda < Formula
   depends_on "cabal-install" => [:build, :test]
   depends_on "emacs"
   depends_on "ghc"
+  uses_from_macos "zlib"
 
   def install
     # install Agda core

@@ -3,14 +3,14 @@ class Pqiv < Formula
   homepage "https://github.com/phillipberndt/pqiv"
   url "https://github.com/phillipberndt/pqiv/archive/2.11.tar.gz"
   sha256 "ea1f8b6bcb58dee19e2d8168ef4efd01e222c653eabbd3109aad57a870cc8c9b"
-  revision 1
+  revision 2
   head "https://github.com/phillipberndt/pqiv.git"
 
   bottle do
     cellar :any
-    sha256 "4d653add742b4a25773c2d0e951e67c5000e0c82f121f2680c68bdab91d95f10" => :mojave
-    sha256 "07caf0286e9986943857af749783ea5330d7f757a9446d4c1da4edb8816a3a2a" => :high_sierra
-    sha256 "90f6112ccb462622258370e158c86af8888fc97869358e8c0e3a7b7ac39c22a9" => :sierra
+    sha256 "bb14b782c2af2a0422f75e80031672850cda3773a36eec14b052a5595e504470" => :mojave
+    sha256 "0cd96ff6e0946717110e360e8efa167a63bafc3f4b51a868da638c45861426e0" => :high_sierra
+    sha256 "0c07189268c9dbe3060751957ff33a6c0c396aef103198c57565a74e440cab09" => :sierra
   end
 
   depends_on "pkg-config" => :build

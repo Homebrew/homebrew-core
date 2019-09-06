@@ -1,22 +1,20 @@
 class Parallel < Formula
   desc "Shell command parallelization utility"
   homepage "https://savannah.gnu.org/projects/parallel/"
-  url "https://ftp.gnu.org/gnu/parallel/parallel-20190522.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/parallel/parallel-20190522.tar.bz2"
-  sha256 "5bc60a65902102eb080690cd4cf168bc99f74a467ee9c7ff98ea0dbd3c4f7f78"
+  url "https://ftp.gnu.org/gnu/parallel/parallel-20190822.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/parallel/parallel-20190822.tar.bz2"
+  sha256 "77eaf5b58830c23e9607ced9e8a916ac4e17f40cfc86f224289df1e6505023d6"
   head "https://git.savannah.gnu.org/git/parallel.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db9c56f3e2d8603975441b7b45acea082919309b2a8d92e9eafbd96b03b8d13f" => :mojave
-    sha256 "db9c56f3e2d8603975441b7b45acea082919309b2a8d92e9eafbd96b03b8d13f" => :high_sierra
-    sha256 "f82c897d474f83defa00f9d47c3f02ee26bb8e662b8b29595313c2504134068d" => :sierra
+    sha256 "135d9358b6973501afd0e99f21975bc581c48b363bdda47c7046a068cecea5f5" => :mojave
+    sha256 "135d9358b6973501afd0e99f21975bc581c48b363bdda47c7046a068cecea5f5" => :high_sierra
+    sha256 "822abbf5e774573f03b31a844f2de1b79530e2f7bd98b12095f5d09f9f56c3b4" => :sierra
   end
 
-  if Tab.for_name("moreutils").with?("parallel")
-    conflicts_with "moreutils",
-      :because => "both install a `parallel` executable."
-  end
+  conflicts_with "moreutils",
+    :because => "both install a `parallel` executable."
 
   def install
     system "./configure", "--prefix=#{prefix}"
