@@ -6,7 +6,7 @@ class Libpulsar < Formula
 
   bottle do
     cellar :any
-    sha256 "229f907ec33a5f53e21cadbbb554c6c14d1df7a4a9a99ec8158554221016a84d" => :mojave
+    sha256 "290ddc98bdf6ff8d4d527a4bb7051e5b38c577768870bde489967fe15c16e7ef" => :mojave
     sha256 "466c594c18229bba03e518486775fd74d07b8ef649b5d73fcb634b1d57f7e6b1" => :high_sierra
     sha256 "3497d6d90de0bf9e5d5d81fcc8e8f1fd1c081873aa4affba59bc6be360dba564" => :sierra
   end
