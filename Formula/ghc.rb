@@ -44,6 +44,8 @@ class Ghc < Formula
     sha256 "38c8917b47c31bedf58c9305dfca3abe198d8d35570366f0773c4e2948bd8abe"
   end
 
+  patch :DATA
+
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
@@ -121,3 +123,25 @@ class Ghc < Formula
     system "#{bin}/runghc", testpath/"hello.hs"
   end
 end
+__END__
+diff --git a/configure b/configure
+index e00a480..6db08ee 100755
+--- a/configure
++++ b/configure
+@@ -11525,6 +11525,8 @@ fi;
+ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $fptools_cv_alex_version" >&5
+ $as_echo "$fptools_cv_alex_version" >&6; }
++if test ! -f compiler/cmm/CmmLex.hs || test ! -f compiler/parser/Lexer.hs
++then
+ fp_version1=$fptools_cv_alex_version; fp_version2=3.1.7
+ fp_save_IFS=$IFS; IFS='.'
+ while test x"$fp_version1" != x || test x"$fp_version2" != x
+@@ -11548,6 +11550,7 @@ IFS=$fp_save_IFS
+ if test "$fp_num1" -lt "$fp_num2"; then :
+   as_fn_error $? "Alex version 3.1.7 or later is required to compile GHC." "$LINENO" 5
+ fi
++fi
+ AlexVersion=$fptools_cv_alex_version;
+ 
+ 
