@@ -1,8 +1,8 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.19/libsecret-0.19.0.tar.xz"
-  sha256 "8049b09a4e737911aa647e50aee3d06b5db7aa902608ca43a0dd10d83e1d67f9"
+  url "https://download.gnome.org/sources/libsecret/0.19/libsecret-0.19.1.tar.xz"
+  sha256 "8583e10179456ae2c83075d95455f156dc08db6278b32bf4bd61819335a30e3a"
 
   bottle do
     sha256 "d820f4d77a163ac2fe6c6a23aeaeb12e6aced8f79eb2882738669fd8b7ad6e27" => :mojave
