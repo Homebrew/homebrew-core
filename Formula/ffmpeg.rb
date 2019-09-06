@@ -3,6 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.2.tar.bz2"
   sha256 "306bde5f411e9ee04352d1d3de41bd3de986e42e2af2a4c44052dce1ada26fb8"
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -86,6 +87,7 @@ class Ffmpeg < Formula
 
     system "./configure", *args
     system "make", "install"
+    chmod 555, bin/"python/*"
 
     # Build and install additional FFmpeg tools
     system "make", "alltools"
