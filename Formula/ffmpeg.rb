@@ -91,9 +91,9 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
-    chmod 755, bin/"python"
-    chmod 555, bin/"python/convert.py"
-    chmod 555, bin/"python/convert_from_tensorflow.py"
+    chmod 0755, bin/"python"
+    chmod 0755, bin/"python/convert.py"
+    chmod 0755, bin/"python/convert_from_tensorflow.py"
   end
 
   test do
