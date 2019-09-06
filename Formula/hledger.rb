@@ -5,8 +5,8 @@ class Hledger < Formula
 
   desc "Command-line accounting tool"
   homepage "https://hledger.org/"
-  url "https://hackage.haskell.org/package/hledger-1.15.1/hledger-1.15.1.tar.gz"
-  sha256 "c9be087b72735411554bc058178a4b084a48d5ab2a18bce259c40ead6d331866"
+  url "https://hackage.haskell.org/package/hledger-1.15.2/hledger-1.15.2.tar.gz"
+  sha256 "3d62b1c948ed9bf826a1250098d20c22b3de876993f3089a9ee4a6505091b79a"
 
   bottle do
     cellar :any_skip_relocation
