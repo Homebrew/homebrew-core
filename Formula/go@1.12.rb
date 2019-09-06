@@ -5,6 +5,12 @@ class GoAT112 < Formula
   mirror "https://fossies.org/linux/misc/go1.12.9.src.tar.gz"
   sha256 "ab0e56ed9c4732a653ed22e232652709afbf573e710f56a07f7fdeca578d62fc"
 
+  bottle do
+    sha256 "59f2dd4de08fe6eeb06462f4446ffff877b6f5395c2860296fff2838f71bba50" => :mojave
+    sha256 "6652d4f496ea4491114c4d1b5ab72665d5104b3184727e1cd567d9ecec6b9434" => :high_sierra
+    sha256 "046eba8cd9c18147caf9ad2e956872bef33ba6140e161b76f0ab1bb8acbe6ddd" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on :macos => :yosemite
