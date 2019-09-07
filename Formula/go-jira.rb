@@ -1,8 +1,8 @@
 class GoJira < Formula
   desc "Simple jira command-line client in Go"
-  homepage "https://github.com/Netflix-Skunkworks/go-jira"
-  url "https://github.com/Netflix-Skunkworks/go-jira/archive/v1.0.20.tar.gz"
-  sha256 "0adf6d68e4a0700578706d9707dab633db8ee336151ce4232de93c7332459c45"
+  homepage "https://github.com/go-jira/jira"
+  url "https://github.com/go-jira/jira/archive/v1.0.20.tar.gz"
+  sha256 "50425c5c19d0eddbaf9b8b76f17942f79880f2df311c0786011d85eb21b7765a"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,7 +30,7 @@ class GoJira < Formula
     template_dir = testpath/".jira.d/templates/"
 
     files = Dir.entries(template_dir)
-    # not an exhaustive list, see https://github.com/Netflix-Skunkworks/go-jira/blob/4d74554300fa7e5e660cc935a92e89f8b71012ea/jiracli/templates.go#L239
+    # not an exhaustive list, see https://github.com/go-jira/jira/blob/4d74554300fa7e5e660cc935a92e89f8b71012ea/jiracli/templates.go#L239
     expected_templates = %w[comment components create edit issuetypes list view worklog debug]
 
     assert_equal([], expected_templates - files)
