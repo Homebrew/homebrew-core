@@ -6,9 +6,9 @@ class Dialog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b13955830b83cb96b1ed1a5fe837bed18b445beda97c11d6d900bfc561177347" => :mojave
-    sha256 "61d4452a033133dfb6f0c5b9504e9cf759be742766efbf24c287001294c005ce" => :high_sierra
-    sha256 "512670cf32f5ef5e24568963be9571330b3ccead0042678e6d6bd76fd4844de8" => :sierra
+    sha256 "47d5c4ac5913ff36ec7b8d4aa2d4fa2206ba4408dbdf5a24d7faac324e4264f7" => :mojave
+    sha256 "d47c369a985ab8761cbdb3ceda72ed9d059557b206252f36b31830c1dab8f462" => :high_sierra
+    sha256 "20fc5cc9a9ea20a873d3143cd629ebff9cac22fd14fef6f6f46c6bb0febeadf9" => :sierra
   end
 
   uses_from_macos "ncurses"
