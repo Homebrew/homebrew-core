@@ -52,13 +52,13 @@ class Postgis < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    bin.install Dir["stage/**/bin/*"]
-    lib.install Dir["stage/**/lib/*"]
-    include.install Dir["stage/**/include/*"]
-    (doc/"postgresql/extension").install Dir["stage/**/share/doc/postgresql/extension/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
-    pkgshare.install Dir["stage/**/contrib/postgis-*/*"]
-    (share/"postgis_topology").install Dir["stage/**/contrib/postgis_topology-*/*"]
+    bin.install dir("stage/**/bin/*")
+    lib.install dir("stage/**/lib/*")
+    include.install dir("stage/**/include/*")
+    (doc/"postgresql/extension").install dir("stage/**/share/doc/postgresql/extension/*")
+    (share/"postgresql/extension").install dir("stage/**/share/postgresql/extension/*")
+    pkgshare.install dir("stage/**/contrib/postgis-*/*")
+    (share/"postgis_topology").install dir("stage/**/contrib/postgis_topology-*/*")
 
     # Extension scripts
     bin.install %w[
@@ -72,7 +72,13 @@ class Postgis < Formula
       utils/test_joinestimation.pl
     ]
 
-    man1.install Dir["doc/**/*.1"]
+    man1.install dir("doc/**/*.1")
+  end
+
+  def dir(pattern)
+    Dir.glob(pattern, File::FNM_DOTMATCH).reject do |path|
+      path.end_with?("/.", "/..")
+    end
   end
 
   test do
