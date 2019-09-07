@@ -3,6 +3,7 @@ class Nss < Formula
   homepage "https://developer.mozilla.org/docs/NSS"
   url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_46_RTM/src/nss-3.46.tar.gz"
   sha256 "6b699649d285602ba258a4b0957cb841eafc94eff5735a9da8da0adbb9a10cef"
+  revision 1
 
   bottle do
     cellar :any
@@ -10,13 +11,6 @@ class Nss < Formula
     sha256 "f1d570fd77ab0f27b255e43cb75c7907de8d1f103ef6b78bdc609f7f9d027eb4" => :high_sierra
     sha256 "0bb073e2c3ef371bf83e8a1f3ca12b1e67676e25701fd0eb3fad147200c46377" => :sierra
   end
-
-  keg_only <<~EOS
-    Firefox can pick this up instead of the built-in library, resulting in
-    random crashes without meaningful explanation.
-
-    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details
-  EOS
 
   depends_on "nspr"
 
