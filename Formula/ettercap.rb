@@ -20,6 +20,10 @@ class Ettercap < Formula
   depends_on "pcre"
 
   def install
+    # Work around a CMake bug affecting harfbuzz headers and pango
+    # https://gitlab.kitware.com/cmake/cmake/issues/19531
+    ENV.append_to_cflags "-I#{Formula["harfbuzz"].opt_include}/harfbuzz"
+
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
       -DENABLE_CURSES=ON
