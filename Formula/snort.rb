@@ -2,6 +2,7 @@ class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
   url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
+  mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
   sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
 
   bottle do
