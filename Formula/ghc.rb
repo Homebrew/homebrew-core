@@ -45,7 +45,7 @@ class Ghc < Formula
     url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
     sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
   end
-  
+
   # workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
   patch :DATA
 
