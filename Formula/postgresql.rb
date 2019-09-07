@@ -17,9 +17,6 @@ class Postgresql < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  conflicts_with "postgres-xc",
-    :because => "postgresql and postgres-xc install the same binaries."
-
   def install
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
