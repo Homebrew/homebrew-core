@@ -1,8 +1,8 @@
 class Dtc < Formula
   desc "Device tree compiler"
   homepage "https://www.devicetree.org/"
-  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.5.0.tar.xz"
-  sha256 "c672e443c9f7e39f5a7c8e602da6777f9ad55ad70de87de300a43828c8050172"
+  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.5.1.tar.xz"
+  sha256 "660b74039690fc37013660544d09191834efb58503c73c555c5513ba75ab031f"
 
   bottle do
     cellar :any
@@ -14,9 +14,9 @@ class Dtc < Formula
   depends_on "pkg-config" => :build
 
   def install
+    inreplace "libfdt/Makefile.libfdt", "libfdt.$(SHAREDLIB_EXT).1", "libfdt.1.$(SHAREDLIB_EXT)"
     system "make", "NO_PYTHON=1"
     system "make", "NO_PYTHON=1", "DESTDIR=#{prefix}", "PREFIX=", "install"
-    mv lib/"libfdt.dylib.1", lib/"libfdt.1.dylib"
   end
 
   test do
