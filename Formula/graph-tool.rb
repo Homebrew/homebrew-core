@@ -8,7 +8,7 @@ class GraphTool < Formula
   revision 1
 
   bottle do
-    sha256 "0d76deae45f5596c67e72c05963870e2d17d72cefdd2c71338a0f9688a018ee7" => :mojave
+    sha256 "1f996b31dfb36bd8cb6a0e8162df27820fdebadd76f8d6650e6b09f5f61576e1" => :mojave
   end
 
   depends_on "pkg-config" => :build
