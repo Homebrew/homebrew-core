@@ -8,8 +8,8 @@ class Mame < Formula
 
   bottle do
     cellar :any
-    sha256 "b266c6f9776dd6bd353c3178ca7b1a4d71b90ac27a15c59ab70ca809ab15532a" => :mojave
-    sha256 "cbf835049a86bd42048face097cff5bc08072b59281a4618f0d10d5011ea5a58" => :high_sierra
+    sha256 "bc00188e9a9e54b5f30aea268f17bb09eda37f516b0342277edf2c80e56e34b4" => :mojave
+    sha256 "6c8e6c4331e707599e2b20ab501e7dacdace488514d7efd59b392254296536dc" => :high_sierra
   end
 
   depends_on "asio" => :build
