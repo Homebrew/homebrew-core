@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.2.tar.gz"
-  sha256 "ad432fcb0321f7fb1d73356f9cce5a28170fbda63466228e5d2be9673249a9ec"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.5.tar.gz"
+  sha256 "d1ed009444aece20044744679e74057ac46f3eeeca59a8330def6f2f309558e9"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
