@@ -1,8 +1,8 @@
 class Rethinkdb < Formula
   desc "The open-source database for the realtime web"
   homepage "https://www.rethinkdb.com/"
-  url "https://download.rethinkdb.com/dist/rethinkdb-2.3.6.tgz"
-  sha256 "c42159666910ad01be295a57caf8839ec3a89227d8919be5418e3aa1f0a3dc28"
+  url "https://github.com/rethinkdb/rethinkdb/archive/v2.3.7.tar.gz"
+  sha256 "5ef549e302dc59510e7aafef83313409f8a065950c3895f24539bfd3c1a1012b"
 
   bottle do
     cellar :any
@@ -14,26 +14,14 @@ class Rethinkdb < Formula
   end
 
   depends_on "boost" => :build
-
-  depends_on "openssl"
-
-  # Fix error with Xcode 9, patch merged upstream:
-  # https://github.com/rethinkdb/rethinkdb/pull/6450
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/fb00ee376a/rethinkdb/xcode9.patch"
-      sha256 "abd50d91a247ee7de988020dd9d405a3d4cd93edb2875b7d5822ba0f513f85a0"
-    end
-  end
+  depends_on "node" => :build
+  depends_on "openssl@1.1"
 
   def install
-    args = ["--prefix=#{prefix}"]
-
     # rethinkdb requires that protobuf be linked against libc++
     # but brew's protobuf is sometimes linked against libstdc++
-    args += ["--fetch", "protobuf"]
+    system "./configure", "--prefix=#{prefix}", "--fetch", "protobuf"
 
-    system "./configure", *args
     system "make"
     system "make", "install-osx"
 
