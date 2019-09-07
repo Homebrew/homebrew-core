@@ -1,10 +1,9 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.2.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.2.orig.tar.gz"
-  sha256 "96dedbddb12d375edb45a144a926a3ba1e3e138d6598b18e7d79f2ae6de9e500"
-  revision 1
+  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.3.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.3.orig.tar.gz"
+  sha256 "86bd45e7e12d1bc8772c3cdd394e68a9feccb2a6d14aaf7dae0773b7274368ef"
 
   bottle do
     sha256 "22e4b636b8a68f5b2738c619e5d8093af32a58ee818b2c594de14e5a4b9234c8" => :mojave
