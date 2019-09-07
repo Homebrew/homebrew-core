@@ -13,7 +13,7 @@ class MysqlConnectorC < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   conflicts_with "mysql", "mariadb", "percona-server",
     :because => "both install MySQL client libraries"
