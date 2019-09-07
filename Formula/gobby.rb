@@ -7,9 +7,9 @@ class Gobby < Formula
   head "https://github.com/gobby/gobby"
 
   bottle do
-    sha256 "b9509f4b93991026ed5e7a6c05858b2e9a82c0f5b2dfa9eb5e41678a6ede2402" => :mojave
-    sha256 "8ab2cf88ce693663ac49494dd0c36536389fe9e136ff59ad085c3aa386155b93" => :high_sierra
-    sha256 "53acc1a62333d50117be930770ee09bf4b15893837c51b5de4f723f312b9d763" => :sierra
+    sha256 "1df49cd1dfdf83a2be9410580e236a1d5f53c00d10422a0cc477f5fa0ab19caf" => :mojave
+    sha256 "8c668399bc39b26879cab9e3fe62275ce7075083f740e92243475cd9588b9036" => :high_sierra
+    sha256 "9d44cf7da6a4864a88eff1ec9d191bbfdb7c7cc2cb41cc5e52285102fa310c91" => :sierra
   end
 
   depends_on "intltool" => :build
