@@ -6,10 +6,9 @@ class SpiceGtk < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "5736161aeb1b653c4a3a312fa3bf0a9ffef97e8a3aea6be10617ee71eb266f77" => :mojave
-    sha256 "808b3bb364871b2e554572c1e03f0502cde1657aa52afedd989696463d5aa6e8" => :high_sierra
-    sha256 "8a672ee5e162b35952196baf247a0723c8ee106ef3d0dd82dadcef5ac6b05c4b" => :sierra
+    sha256 "3647ef369e2b0127fb99ab5913bb78036b2a81826f3959cbf4e6cd6f34d85fd3" => :mojave
+    sha256 "38267e5848baca8df9eb7672cd4b6bef6864535f652d5c57db98e7bd795ab696" => :high_sierra
+    sha256 "97908bc3c4a2c2884a9f5b04a5ec3a205e56d09b7a26420a50523d0342fbe458" => :sierra
   end
 
   depends_on "autoconf" => :build
