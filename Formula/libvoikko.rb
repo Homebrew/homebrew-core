@@ -7,9 +7,9 @@ class Libvoikko < Formula
 
   bottle do
     cellar :any
-    sha256 "5620d97e8cc678f3b3d587c4b823c97973728270e3d7ca9bc271ede33460adfc" => :mojave
-    sha256 "d1364046f46fd563531bf49ea5e323bfa587dc52690d44a426761523ad0ca969" => :high_sierra
-    sha256 "cf6af0c8bd59eb76d42ab774f2b8492f10e6346f5d13203adaea2a2482c913d9" => :sierra
+    sha256 "00d30a497ca4a6887f88cdefdd459fed0ca503a3b485d3586660767b0be885c5" => :mojave
+    sha256 "af7ed79bbb228c0b422c0956d4ec4acf95a7832482b835c900501bb77b8aebb6" => :high_sierra
+    sha256 "91b08ddb3f25562420d1b135cf5dd026698c27d5c0dbd4fc5dc5000e6585e932" => :sierra
   end
 
   depends_on "foma" => :build
