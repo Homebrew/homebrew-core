@@ -37,13 +37,16 @@ class Ghc < Formula
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_8_1.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_6_5.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
+  # Need to use 8.6.5 to build 8.8.1 because of
+  # https://gitlab.haskell.org/ghc/ghc/issues/17146
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.8.1/ghc-8.8.1-x86_64-apple-darwin.tar.xz"
-    sha256 "38c8917b47c31bedf58c9305dfca3abe198d8d35570366f0773c4e2948bd8abe"
+    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
+    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
   end
-
+  
+  # workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
   patch :DATA
 
   def install
