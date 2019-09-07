@@ -16,5 +16,6 @@ class BpmTools < Formula
   def install
     system "make"
     bin.install "bpm"
+    bin.install "bpm-tag"
   end
 end
