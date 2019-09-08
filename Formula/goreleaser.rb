@@ -14,6 +14,13 @@ class Goreleaser < Formula
 
   depends_on "go" => :build
 
+
+  # Allow to build with go1.13 or with go1.11 and go1.12 with GOPROXY enable.
+  patch do
+    url "https://github.com/goreleaser/goreleaser/pull/1138.patch?full_index=1"
+    sha256 "b552b6081285a135bf562eed0852c42405b53ec4b6b277597d470b3e7a30fb2f"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
