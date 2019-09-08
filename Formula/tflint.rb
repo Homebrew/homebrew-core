@@ -2,8 +2,8 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.10.3",
-    :revision => "1ba6a7adf3128ebe4449f063519b22a821b462f1"
+    :tag      => "v0.11.0",
+    :revision => "fcadf139601782ece3d735fd859283723797c70d"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
@@ -34,6 +34,10 @@ class Tflint < Formula
         region = "${var.aws_region}"
       }
     EOS
-    assert_match "Awesome! Your code is following the best practices :)", shell_output("#{bin}/tflint test.tf")
+
+    # tflint returns exitstatus: 0 (no issues), 2 (errors occured), 3 (no errors but issues found)
+    assert_match "", shell_output("#{bin}/tflint test.tf")
+    assert_equal 0, $CHILD_STATUS.exitstatus
+    assert_match version.to_s, shell_output("#{bin}/tflint --version")
   end
 end
