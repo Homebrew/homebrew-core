@@ -52,13 +52,13 @@ class Postgis < Formula
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"
 
-    bin.install Dir["stage/**/bin/*"]
-    lib.install Dir["stage/**/lib/*"]
+    bin.install Dir["stage/#{HOMEBREW_PREFIX}/**/bin/*"]
+    lib.install Dir["stage/**/lib/*", "stage/#{HOMEBREW_PREFIX}/**/lib/*"]
     include.install Dir["stage/**/include/*"]
-    (doc/"postgresql/extension").install Dir["stage/**/share/doc/postgresql/extension/*"]
-    (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
-    pkgshare.install Dir["stage/**/contrib/postgis-*/*"]
-    (share/"postgis_topology").install Dir["stage/**/contrib/postgis_topology-*/*"]
+    (doc/"postgresql/extension").install Dir["stage/#{HOMEBREW_PREFIX}/**/share/doc/postgresql/extension/*"]
+    (share/"postgresql/extension").install Dir["stage/#{HOMEBREW_PREFIX}/**/share/postgresql/extension/*"]
+    pkgshare.install Dir["stage/#{HOMEBREW_PREFIX}/**/contrib/postgis-*/*"]
+    (share/"postgis_topology").install Dir["stage/#{HOMEBREW_PREFIX}/**/contrib/postgis_topology-*/*"]
 
     # Extension scripts
     bin.install %w[
