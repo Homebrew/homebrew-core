@@ -15,6 +15,12 @@ class Minio < Formula
 
   depends_on "go" => :build
 
+  # Should be removed in the next release
+  patch do
+    url "https://github.com/minio/minio/commit/67b22bfe585386f713616de301ca3d9201056fab.patch?full_index=1"
+    sha256 "be31ca76c282d12b7ed19aca9f638673e8db51baca14704a80e369117a1e76f9"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
