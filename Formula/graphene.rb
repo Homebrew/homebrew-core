@@ -6,9 +6,9 @@ class Graphene < Formula
 
   bottle do
     cellar :any
-    sha256 "14955a68031fdc7e48a9f0b6438a59fec32495bf5a4afa21173977027146a376" => :mojave
-    sha256 "ce298f614ae9c0bacb0a0d7856db30ad25ff27bfc2f8bb18193a08d8ad83fd2f" => :high_sierra
-    sha256 "2647d2925ca5a6f5da5375e7b8b4fc6080248ea2c576cc8914376a8c05076fb0" => :sierra
+    sha256 "3d50bdcd26cee560b210108fa71abbea9cc5e747ea733fa327d23835ed2f78fb" => :mojave
+    sha256 "d5d25240fa183463100d935d5500a54a82a80d09c60b5066093ad5b34c9dd0b9" => :high_sierra
+    sha256 "faedb0110f39db296ce897ee2b043ce10a24317e2a70f2c533b3cb33ca0c2f46" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
