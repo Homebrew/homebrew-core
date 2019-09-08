@@ -6,9 +6,9 @@ class SwaggerCodegenAT2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "933369f09633b52e4ed6f667b15963d85f869c71065912d8f7a8e3f8d640f4aa" => :mojave
-    sha256 "497a8f2045d6fb210135f5a02e423dca1eeca36521fad4cb7f0ecc384c08d5b3" => :high_sierra
-    sha256 "b9fc346c29076314f5baf75b9ce8b9f7cdfa90aa40bfcdaab2fc48d63b64d765" => :sierra
+    sha256 "e6d1b2fc744c3c124ee55b7d2198dee4d3e3c20dad9f8ba94b3ca7c19cb9f04a" => :mojave
+    sha256 "bd0465bf9ea0d3538b8bd6d226cb9696c8de952243fb374291ac90b722ac1c1d" => :high_sierra
+    sha256 "13e305c8dbf7f6a56de187da9d1267bed96b678c03f0fe10a3e547ddd95a3e9d" => :sierra
   end
 
   keg_only :versioned_formula
