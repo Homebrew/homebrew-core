@@ -1,8 +1,8 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.8/graphene-1.8.6.tar.xz"
-  sha256 "82a07f188d34eb69df4b087b5e1d66e918475f59f7e62fb0308e2c91432a712f"
+  url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.0.tar.xz"
+  sha256 "406d97f51dd4ca61e91f84666a00c3e976d3e667cd248b76d92fdb35ce876499"
 
   bottle do
     cellar :any
@@ -17,9 +17,6 @@ class Graphene < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "glib"
-
-  # patch submitted upstream at https://github.com/ebassi/graphene/pull/146
-  patch :DATA
 
   def install
     mkdir "build" do
@@ -53,46 +50,3 @@ class Graphene < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 67e3ad0..b045a54 100644
---- a/meson.build
-+++ b/meson.build
-@@ -35,7 +35,11 @@ graphene_binary_age = 100 * graphene_minor_version + graphene_micro_version
-
- # Maintain compatibility with the previous libtool versioning
- soversion = 0
--libversion = '@0@.@1@.@2@'.format(soversion, graphene_binary_age - graphene_interface_age, graphene_interface_age)
-+current = graphene_binary_age - graphene_interface_age
-+revision = graphene_interface_age
-+libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
-+
-+darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, revision)]
-
- # Paths
- graphene_prefix = get_option('prefix')
-@@ -117,11 +121,6 @@ if host_system == 'linux'
-   common_ldflags += cc.get_supported_link_arguments(ldflags)
- endif
-
--# Maintain compatibility with Autotools on macOS
--if host_system == 'darwin'
--  common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
--endif
--
- # Required dependencies
- mathlib = cc.find_library('m', required: false)
- threadlib = dependency('threads')
-diff --git a/src/meson.build b/src/meson.build
-index 0d3970f..942c188 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -112,6 +112,7 @@ libgraphene = library(
-   sources: sources + simd_sources + private_headers,
-   version: libversion,
-   soversion: soversion,
-+  darwin_versions: darwin_versions,
-   install: true,
-   dependencies: [ mathlib, threadlib ] + platform_deps,
-   c_args: extra_args + common_cflags + debug_flags + [
