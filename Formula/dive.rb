@@ -2,8 +2,8 @@ class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
   url "https://github.com/wagoodman/dive.git",
-    :tag      => "v0.7.2",
-    :revision => "09296c0214c4cc7477fe53bc79c54805899c6d19"
+    :tag      => "v0.8.1",
+    :revision => "f2ea8b503d3cb06d1be611dcb32f0ef6b161b511"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,12 @@ class Dive < Formula
   end
 
   depends_on "go" => :build
+
+  # Remove this patch in the next version.
+  patch do
+    url "https://github.com/wagoodman/dive/commit/f48715d4c536fdaf0ec57277f2677e4ed8076ad3.patch?full_index=1"
+    sha256 "e13be53a71bca7e5393f7a1cdbbcb2691470be9227e384dc7c97b2bb1b49a40c"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -36,7 +42,6 @@ class Dive < Formula
     EOS
 
     assert_match "dive #{version}", shell_output("#{bin}/dive version")
-
     assert_match "Building image", shell_output("CI=true #{bin}/dive build .", 1)
   end
 end
