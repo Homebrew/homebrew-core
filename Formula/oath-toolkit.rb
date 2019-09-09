@@ -4,6 +4,7 @@ class OathToolkit < Formula
   url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.2.tar.gz"
   mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.2.tar.gz"
   sha256 "b03446fa4b549af5ebe4d35d7aba51163442d255660558cd861ebce536824aa0"
+  revision 1
 
   bottle do
     rebuild 1
