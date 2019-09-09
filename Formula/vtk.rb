@@ -69,16 +69,6 @@ class Vtk < Formula
               Formula["hdf5"].opt_prefix
   end
 
-  def caveats
-    xy = "#{Formula["python"].version.to_s.slice(/(3\.\d)/) || "3.7"}"
-    <<~EOS
-      In order import vtk using python, it will be necessary to append PYTHONPATH:
-
-         export PYTHONPATH=$PYTHONPATH:#{prefix}/lib/python#{xy}/site-packages
-
-    EOS
-  end
-
   test do
     vtk_include = Dir[opt_include/"vtk-*"].first
     major, minor = vtk_include.match(/.*-(.*)$/)[1].split(".")
