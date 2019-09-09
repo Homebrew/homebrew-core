@@ -8,8 +8,8 @@ class Folly < Formula
 
   bottle do
     cellar :any
-    sha256 "627c9d852efe9826ea4b3e62cbcd2b6ef217bfd52a19773b52dbf8e8e65df944" => :mojave
-    sha256 "af1614b967628bf96b8c778a37f3db6a7a65c82c6bc58095486dd370e57db301" => :high_sierra
+    sha256 "63c9c7d36666f1b11eed17aae20108d5ba734c003641d818de064f4b407ebfe4" => :mojave
+    sha256 "0bd62e87486c90ca0fcfe7c878510ff2845f0169e6922c20ef0589fae40bf2a0" => :high_sierra
   end
 
   depends_on "cmake" => :build
