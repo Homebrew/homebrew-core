@@ -6,10 +6,9 @@ class Libp11 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "59aee42f309784ab654dd2e3f12d8a798fa8185f23b593c72f6f417ff9f61309" => :mojave
-    sha256 "97524b39308ef2aeaa077b826e6147a3f4837c14aca2b3cd7d3d27a7210636fd" => :high_sierra
-    sha256 "38a10dffaa0946c78fc0896b85475871290bff3b866bbce66d8689a0ad2a7500" => :sierra
+    sha256 "299c595c75da2c84b3dfd6212658a7366cea9f5a13a279cc018ff824e00aef3e" => :mojave
+    sha256 "9396b3dafa8e7c8a4e7f85aa2cd2a13a7cc94786cf3f99cf2a4707e2e40b3d2b" => :high_sierra
+    sha256 "a4cefbde247f06a16d5aa14b7fbc04f1ae67f3b3caa2653d1311681deea2ad55" => :sierra
   end
 
   head do
