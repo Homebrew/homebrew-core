@@ -10,9 +10,9 @@ class Credstash < Formula
 
   bottle do
     cellar :any
-    sha256 "6649947cbee43fff2a4f4246105a668d7e208e559470a4222f05c2a4fa9c1ce3" => :mojave
-    sha256 "b4e493b443f20caeaaf07d3e669813b5b228caf05aec59e633ff11d2b1bdd8e1" => :high_sierra
-    sha256 "32f76c32a0c65699546528f07b6a9c7c633c9963e743eb2c93f8ac52eec3edc4" => :sierra
+    sha256 "48fc98a878e8385ca166b664643d93a6b4b7de876d31978e15a72ad21a29fac1" => :mojave
+    sha256 "57ba8a75c3dc7a65ce0fd845e742e279dad80859f9ffd1f70c74d430da18aece" => :high_sierra
+    sha256 "992049cf4fe54d541120e0d439777456b6b3aa2081c9226138ed50cd9b787ee1" => :sierra
   end
 
   depends_on "openssl@1.1"
