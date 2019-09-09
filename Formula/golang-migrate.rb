@@ -6,9 +6,9 @@ class GolangMigrate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b44c220f57f18d8c36810b5564dfc00b249834fd2556d32fc4e418dbb4c0ca6" => :mojave
-    sha256 "7b8c8206b4e0b1125c4fdcaa2b49c3dffb9aa1df79eb53be61ee49ebf5aed0fb" => :high_sierra
-    sha256 "4735974f1742bffd40f8d7e541c41935f51dbf971b80c8e5d3eb4aef4a044d94" => :sierra
+    sha256 "c1ae85a775502701537eb83a9d0dd99cb2631c288150a0be07ee473ab8e8d7dc" => :mojave
+    sha256 "88db878600fa2e513341891e02dec3f53c00dff31ef93f5c0be3993f0ed09509" => :high_sierra
+    sha256 "5a4df4044ef4e67a1aca08f13ee1afa43bf569f335a0a5609b6592648812c3ea" => :sierra
   end
 
   depends_on "go" => :build
