@@ -8,9 +8,9 @@ class Isync < Formula
 
   bottle do
     cellar :any
-    sha256 "5a60a0829dd79fca912b684cdf4994559e064253f64021e5d9bc40a1aaf1d3c5" => :mojave
-    sha256 "5c8d8dd87e072f15decb68c491f50c18450e3d7e8a55211a443b0f22126de115" => :high_sierra
-    sha256 "e07239359fe1f1f6b62a1c86d4f38b56e0715195b1e881a292903be17895bf6d" => :sierra
+    sha256 "7863e1861cc119853fadc35ff6afe7f13bf1e420f22b70e77d0bb32997943329" => :mojave
+    sha256 "2da1bd2fef7c6eb9af331a0536e02df8dd0bc9b0fc42eb534ec8499a87f8c197" => :high_sierra
+    sha256 "a19f503aa9490146a19a4197e8e0190cffad685c7fdba0582544c44ee96f1fe5" => :sierra
   end
 
   depends_on "autoconf" => :build
