@@ -3,6 +3,7 @@ class YelpTools < Formula
   homepage "https://github.com/GNOME/yelp-tools"
   url "https://download.gnome.org/sources/yelp-tools/3.32/yelp-tools-3.32.2.tar.xz"
   sha256 "183856b5ed0b0bb2c05dd1204af023946ed436943e35e789afb0295e5e71e8f9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -23,12 +24,13 @@ class YelpTools < Formula
   depends_on "gtk+3"
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz"
-    sha256 "cac31bc150545d6aa0de15dce04560cbf591008d17a783a1d1d9cdd47b147f04"
+    url "https://download.gnome.org/sources/yelp-xsl/3.34/yelp-xsl-3.34.0.tar.xz"
+    sha256 "e8063aee67d1df634f3d062f1c28130b2dabb3c0c66396b1af90388f34e14ee2"
   end
 
   def install
     resource("yelp-xsl").stage do
+      system "autoreconf", "-fi"
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
