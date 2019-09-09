@@ -7,9 +7,9 @@ class Hashpump < Formula
 
   bottle do
     cellar :any
-    sha256 "7d66b2aeb0e9cd16362173d78d4291e5b4095a00f56b6a41fb67ba4fb6ee9e78" => :mojave
-    sha256 "880a577b7b664a653797e8be8d3dacde7050786c9bdda08758f43e62b5f4cc82" => :high_sierra
-    sha256 "ca23c693b5c3d7786cbbe385b540e5e0aec7267c7e378d4b7e3ca88d6b3847b4" => :sierra
+    sha256 "ddd00b7f11649d0ad36bdc9bfa724daee15e135687a1d71c5f043aa758b15399" => :mojave
+    sha256 "dd22c32a8a2c4ade6b45e573b61d09d91f56c60a74c7fd9265fb75e8dc60be5f" => :high_sierra
+    sha256 "91dd089a608636170ad9ba63f5095f254773d510e0eaf48735aa35c3cf6d9bf2" => :sierra
   end
 
   depends_on "openssl@1.1"
