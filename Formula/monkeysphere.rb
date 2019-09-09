@@ -8,9 +8,9 @@ class Monkeysphere < Formula
 
   bottle do
     cellar :any
-    sha256 "61b9425d289423b64a68363b1ac2b152fc622a793cb40e150241f08b9a498428" => :mojave
-    sha256 "0c9f5f886595332443a7e4b7c8b9774a27ef7933b090953d8cf87cbf03fb32d4" => :high_sierra
-    sha256 "2664e994707e98c5c01e51706879b31a2837cccf8fe33a3e1f45b8ce3be2610f" => :sierra
+    sha256 "d5c8badc7a3296cd5150f3520a0abf61aa4a683a43d121961b412ff619aaa4d1" => :mojave
+    sha256 "5928a7723f50b5ce5c505571570a6bb82823f6faf0133ab2f9b0f2757a9b68fc" => :high_sierra
+    sha256 "f1bbf185764cd974016f73e4a6d037cec60a83b57c3a3314797aa8aa60edf1bb" => :sierra
   end
 
   depends_on "gnu-sed" => :build
