@@ -6,9 +6,10 @@ class Libopendkim < Formula
   revision 2
 
   bottle do
-    sha256 "b144ac9d9fe9a2ba8a298001df5beacde4ed6461dbcdda089d462ddf8314c35a" => :mojave
-    sha256 "c44483297476334acbfa979c81902b01528fd5c7a429e699764899512e687fbc" => :high_sierra
-    sha256 "5d2163990816a1af9420fc096d3579febb819582053faf133424d689ad5e190c" => :sierra
+    cellar :any
+    sha256 "76268e02f90b0931a9fd8d2ae933d334c2efb9ee34dc85c77d8eecc25b48c68b" => :mojave
+    sha256 "e5d79e2cd539dff2a02ac91b171b23c0c36d7d012d2a3d21af1cbd732c2ee58a" => :high_sierra
+    sha256 "33a66999fc2479cd6d0d27d2189ed34125e2510afb7afe0c97cdb08ed67efc95" => :sierra
   end
 
   depends_on "autoconf" => :build
