@@ -7,9 +7,10 @@ class Urbit < Formula
       :revision => "e8416596fb7c47e343b49ea5ec12c2a095873c2f"
 
   bottle do
-    sha256 "1cbb718456918a091972483794905eb36e6454ec695738420e1aea65ed294da9" => :mojave
-    sha256 "c40b7ee58aca46f70991a0dff2e3713896c5a618ff91f005915151fd43ad80fc" => :high_sierra
-    sha256 "8a8ca40b3158ab02edbbea34893a3e482ad8e2435b2ba20a92ea346ff70a0640" => :sierra
+    rebuild 1
+    sha256 "276c35fb585e1c359f46b96240795208dee6019b4e589777dfa4354970d879fe" => :mojave
+    sha256 "ee4b4668c9d3e1e18ac3df46bf8ab1b87b12d2ada63f85af0f5013abb0c6416e" => :high_sierra
+    sha256 "7fcc589b3b5deb3fac7e6be5398679555b30a3be897cb336cb8c005249fb3548" => :sierra
   end
 
   depends_on "meson" => :build
