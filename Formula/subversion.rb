@@ -25,6 +25,7 @@ class Subversion < Formula
   depends_on "swig@3" => :build # https://issues.apache.org/jira/browse/SVN-4818
   depends_on "apr"
   depends_on "apr-util"
+  depends_on "libmagic"
 
   # build against Homebrew versions of
   # gettext, lz4, perl, sqlite and utf8proc for consistency
@@ -34,7 +35,6 @@ class Subversion < Formula
   depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
-  depends_on "libmagic"
 
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
