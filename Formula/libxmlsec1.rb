@@ -7,9 +7,9 @@ class Libxmlsec1 < Formula
 
   bottle do
     cellar :any
-    sha256 "c5894adb31925cc79a1632f0123dae9ee7155ac0c2b6666a6afa068284611ef8" => :mojave
-    sha256 "2aa79d5b42e74146c3c53aa33a19142ac3cb832e7194ebb6edf5fbb1fc5e9ab7" => :high_sierra
-    sha256 "a98e9523ebc87e22cd08d0fa42dbcd6ed9c26d78043b0fc6615c9f109e27fb22" => :sierra
+    sha256 "c9cc625bf2b00cdaa9ed8d59e873dfe0928931b6e62392a877d5a437757b3c5c" => :mojave
+    sha256 "7ebacb8f7c89a0c8828cf721ba7385b3f0d7561549daaa0941b9a3a15186bc57" => :high_sierra
+    sha256 "cec2b227a01fe451566ce854f94e187ec8f7e045a0ca570bc927bb58d3407a72" => :sierra
   end
 
   depends_on "pkg-config" => :build
