@@ -8,9 +8,9 @@ class Root < Formula
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "20dcef07cef4e3c56288065d6e9845a1774a51f605ac7d323cd82217f9505607" => :mojave
-    sha256 "5a4adf496f7ac8745dbdaf8e653e8780275f750e79ab613f08e48288a142283d" => :high_sierra
-    sha256 "3c9a1046d93e1ac087534d59e298dec75c24235cc52bec6fe12c20f3fedfbff2" => :sierra
+    sha256 "5c95c2c5bb25a35efc7ab1704355aff9b0c181837157af3a0afbdfe957aeba58" => :mojave
+    sha256 "61dda0a31669b05ad547f2bd21658bcb4a37a094bf76df6726b4086b8997fecb" => :high_sierra
+    sha256 "f8d9a772ee2fc944625a596218b1c4884682b4c70fe2af1061999bd8aa15eb9b" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
