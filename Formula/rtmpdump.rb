@@ -9,12 +9,9 @@ class Rtmpdump < Formula
 
   bottle do
     cellar :any
-    sha256 "e7c562912842233146c49e8510cf5a6024d098ee41202cabe1e25805c32c1ed1" => :mojave
-    sha256 "29e7fd835f6a5bc724d953bab6d06fa6e22f860ebc7b74f9b14a948fb0081c77" => :high_sierra
-    sha256 "2d3310f9a53bdf34ca144e9c58febe74f80253ac518a4c350471ca65591b7f1c" => :sierra
-    sha256 "f05e64f75ae79fcfe021be7b39112ea3aac53d8d1ca22bfaa658bbf161c84675" => :el_capitan
-    sha256 "c7a1bb0f9b2f7c194533a42ade11086fcb03a8bfaf76d479ae22ca4b0d107f20" => :yosemite
-    sha256 "f4c8dbdf3f8a04626a7975abf96eccd5e494a3f6a795b2035c6d418bfbe8079d" => :mavericks
+    sha256 "97cf25d61d474c2115f6448940f924324d630b60776396398662b1368b4544da" => :mojave
+    sha256 "7e95dc18fc03a6c1f19385e1507448f23e2e570c9b3ad60bd3fbc05c65295fb8" => :high_sierra
+    sha256 "2118d007922d98ae71169be417106f594636e6ff979611b9e51dd2cf09c002b7" => :sierra
   end
 
   depends_on "openssl@1.1"
