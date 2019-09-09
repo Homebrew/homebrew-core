@@ -14,9 +14,9 @@ class BashSnippets < Formula
 
   test do
     output = shell_output("#{bin}/weather Paramus").lines.first.chomp
-    assert_equal "Weather report: Paramus, United States of America", output
+    assert_equal "Weather report: Paramus", output
     output = shell_output("#{bin}/qrify This is a test")
     assert_match "████ ▄▄▄▄▄ █▀ █▀▄█ ▄▄▄▄▄ ████", output
-    assert_match "AAPL stock info", shell_output("#{bin}/stocks Apple")
+    assert_match "Apple Inc. -- Stock Information", shell_output("#{bin}/stocks Apple")
   end
 end
