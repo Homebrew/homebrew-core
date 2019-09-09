@@ -6,9 +6,10 @@ class Sylpheed < Formula
   revision 3
 
   bottle do
-    sha256 "3089d6d9d46182e38a15c19b4632d2bf34399c16afb9e243e32dec7d93de4232" => :mojave
-    sha256 "f1c42b8305375ac7a145d0c36c0d0b4d30d75ff7e4d6a226dd9c82d41ae19ee5" => :high_sierra
-    sha256 "7d58f64fbbd0f0ab47bfbbd2f17b3d1997b4ca93e90bc3fb6875f119a4602b7b" => :sierra
+    rebuild 1
+    sha256 "744efdd95f6dc3152ab39da781d5cc9ef81a5caa7310097b00a903e1e595e188" => :mojave
+    sha256 "0ec10e9ba748c3ce1bbb2502b8f9736fcdd1c72d492fdf4c58e2e3c0f6442f4b" => :high_sierra
+    sha256 "df7c4f2ede961688c72b588cb4e08702603caf19ad08d2c00721e95c9a503716" => :sierra
   end
 
   depends_on "pkg-config" => :build
