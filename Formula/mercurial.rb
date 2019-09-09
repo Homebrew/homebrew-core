@@ -5,6 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://www.mercurial-scm.org/release/mercurial-5.1.1.tar.gz"
   sha256 "35fc8ba5e0379c1b3affa2757e83fb0509e8ac314cbd9f1fd133cf265d16e49f"
+  revision 1
 
   bottle do
     sha256 "770eaa4d03031bd6dce43e1463a4b6d07eb69a7a62d04260476edc64b0e6d228" => :mojave
@@ -12,17 +13,17 @@ class Mercurial < Formula
     sha256 "a77e18986dacb95a667d8ba36bc2a38fabfb16fb32b273e1952363c72ae77d4e" => :sierra
   end
 
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+    ENV["HGPYTHON3"] = "1"
 
-    system "make", "PREFIX=#{prefix}", "install-bin"
+    system "make", "PREFIX=#{prefix}", "PYTHON=python3", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", \
-             "HG=#{bin}/hg"
+      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg",
+                     "HG=#{bin}/hg"
       bin.install "chg"
     end
 
