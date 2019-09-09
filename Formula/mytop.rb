@@ -8,10 +8,9 @@ class Mytop < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "873b88c76650758b49e1749e35c765b5179ffd371ab489f146b35da1e3620029" => :mojave
-    sha256 "8d64c44dcfccde35179d48a1698f0108df3c621e68ee7f8716a6d6db35cc1448" => :high_sierra
-    sha256 "26a4812e17d0285a28176d8bd735e06a1196a794c7cefb4837f7ab9a9ed4272d" => :sierra
+    sha256 "dc6eb11ecde1b19856bee11e61a04a6d28b67c341043ac6bf21e15f750aec836" => :mojave
+    sha256 "78f2298b2724d094921eac4909c175cdd07bf46a9096ed5b697ef22034c89f7a" => :high_sierra
+    sha256 "4cdb2985bb26fefac0b41da8d686bd6b4e56fcce52f3ca7ef572016f1f01d40f" => :sierra
   end
 
   depends_on "mysql-client"
