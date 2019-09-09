@@ -49,6 +49,7 @@ class CurlOpenssl < Formula
       --with-librtmp
       --with-libssh2
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --without-libpsl
     ]
 
     system "./configure", *args
