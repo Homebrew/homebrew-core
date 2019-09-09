@@ -15,7 +15,6 @@ class Libdnet < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@2" # does not support Python 3
 
   def install
     # autoreconf to get '.dylib' extension on shared lib
@@ -24,8 +23,7 @@ class Libdnet < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--with-python"
+                          "--mandir=#{man}"
     system "make", "install"
   end
 
