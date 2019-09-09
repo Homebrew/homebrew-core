@@ -6,9 +6,9 @@ class Libvmaf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc89bbb7fcb608885a7aae6578e54fa728f8cba9ca85d921f58234e9b9b66d61" => :mojave
-    sha256 "72d6656003d3b9c2965ef4873b849a104d5d475c8ca38194e0dd86aef5103c04" => :high_sierra
-    sha256 "afe11e0c4f0235cdf8151f36cf26a7ec15f188323a70d6184f0a89bd5af08686" => :sierra
+    sha256 "1a11bb8c22c5ffbf56f2963c2cfc82dd4ff9615595d5f870dc4f005dbd323e7b" => :mojave
+    sha256 "2480b6f5f5ff58acf9d1c732db8b2a04e408d082a53590bdad15d203e02aa791" => :high_sierra
+    sha256 "c5b2cbf13a844a4591e2f1dbf7d20266715130802ba3b030f45e9471da994e86" => :sierra
   end
 
   def install
