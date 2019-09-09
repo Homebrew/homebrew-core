@@ -8,10 +8,9 @@ class MysqlClient < Formula
   revision 1
 
   bottle do
-    sha256 "39470cf4e34f770eebda0c89249f90c18a84e6ef03d33ee464db90c0049d74aa" => :mojave
-    sha256 "8b73614068a82ed9f82f19e52fdd621adcd4d017fc3767703f216cbf7b00e60e" => :high_sierra
-    sha256 "8e3637ada6ee42d7e224809eab698e814befde0f164e276f7f91f1664f7460b2" => :sierra
-    sha256 "84a90d2d3f24f9270bf4d41eef99741a1ba16c65148672411e9ee9a676551c21" => :el_capitan
+    sha256 "dc94d17faeea3a03f85299a8e93cd359dfff5fdff3576e50992506485f3029e2" => :mojave
+    sha256 "cf37146a2e2144eef78e38f5893a6fdfddab2c95dd398666e0150a2621779645" => :high_sierra
+    sha256 "663331c48538a961d42ea69a11555bc3f37f1f5b3e9a9e8f305ecbe490528b73" => :sierra
   end
 
   keg_only "conflicts with mysql"
