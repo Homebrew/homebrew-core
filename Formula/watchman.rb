@@ -16,9 +16,9 @@ class Watchman < Formula
   end
 
   bottle do
-    sha256 "fd932d78fec199bbd71e7f192eb16deb728d0d7aeb26127fd0827221de2d92cb" => :mojave
-    sha256 "83e3c11bdb57ba39b51c4d9e17fb38638f541a17343be51106f7409df17c7bf3" => :high_sierra
-    sha256 "a6ae3a7240b6427a44a032fa2d1d23743bdcc4a8cf3ee80276eac895028b470b" => :sierra
+    sha256 "a9b3039561abdde021ba080ee1e37984f7f56184476a4ffee1db476561f92d83" => :mojave
+    sha256 "158a3dcce76f01446c9264a6f623a1c6be339118760ce61d88a9d38e2676ad45" => :high_sierra
+    sha256 "013faefc9001613c58680e5626b36fe943ca943649882054fbfbefccf4796415" => :sierra
   end
 
   depends_on "autoconf" => :build
