@@ -41,8 +41,8 @@ class CurlOpenssl < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-ares=#{Formula["c-ares"].opt_prefix}
-      --with-ca-bundle=#{etc}/openssl/cert.pem
-      --with-ca-path=#{etc}/openssl/certs
+      --with-ca-bundle=#{etc}/openssl@1.1/cert.pem
+      --with-ca-path=#{etc}/openssl@1.1/certs
       --with-gssapi
       --with-libidn2
       --with-libmetalink
