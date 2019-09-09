@@ -3,6 +3,7 @@ class Netdata < Formula
   homepage "https://my-netdata.io/"
   url "https://github.com/netdata/netdata/releases/download/v1.16.0/netdata-v1.16.0.tar.gz"
   sha256 "d62ae89c7b9e93d40feca6edd26b77c6e27e17caa2f90a50a1a7a677f6cc8b4f"
+  revision 1
 
   bottle do
     rebuild 1
@@ -14,7 +15,7 @@ class Netdata < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl" if MacOS.version <= :sierra
+  depends_on "openssl@1.1" if MacOS.version <= :sierra
 
   def install
     system "autoreconf", "-ivf"
