@@ -7,9 +7,9 @@ class Libcouchbase < Formula
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
-    sha256 "89a3065f7e41407d79703eb0a313f64e274d42ff4d277f90cce8f446759cd1c4" => :mojave
-    sha256 "ea6d826f48e152b7b351d5e480c4f83c1c5fe58bdb7b59bfbdfde0542d9da181" => :high_sierra
-    sha256 "517d728c9f0a2ed832f26f9fc47f04e7816c79cad861c7852813007b9a213fca" => :sierra
+    sha256 "d64d1c9f894607fb415fc4dcc6a3427d25b71c02b7221ef8ac5641cce5708f6a" => :mojave
+    sha256 "ff48754e705a19a22299d926370d66cab9fd20b5183c0d9b17f9946f02acb98b" => :high_sierra
+    sha256 "7fd2d6def666fd2005f97f8da75d1dc34eb7c5098e8d513e097e1a6878458238" => :sierra
   end
 
   depends_on "cmake" => :build
