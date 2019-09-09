@@ -3,6 +3,7 @@ class Libxmlsec1 < Formula
   homepage "https://www.aleksey.com/xmlsec/"
   url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.28.tar.gz"
   sha256 "13eec4811ea30e3f0e16a734d1dbf7f9d246a71d540b48d143a07b489f6222d4"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Libxmlsec1 < Formula
   depends_on "gnutls" # Yes, it wants both ssl/tls variations
   depends_on "libgcrypt"
   depends_on "libxml2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Add HOMEBREW_PREFIX/lib to dl load path
   patch :DATA
@@ -25,7 +26,7 @@ class Libxmlsec1 < Formula
             "--prefix=#{prefix}",
             "--disable-crypto-dl",
             "--disable-apps-crypto-dl",
-            "--with-openssl=#{Formula["openssl"].opt_prefix}"]
+            "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"]
 
     system "./configure", *args
     system "make", "install"
