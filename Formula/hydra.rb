@@ -8,9 +8,9 @@ class Hydra < Formula
 
   bottle do
     cellar :any
-    sha256 "7c5982a29e085723482af4e20852f243542f83d8b4f7c2f697c5522442a8e9d9" => :mojave
-    sha256 "bb88b58e028a3b2498da0eaae5fa1030cce8103336fc90ce813ebdd7a77f933f" => :high_sierra
-    sha256 "e2cf5b672b4f6328ce24264e5f0f17c5d78de9711878bc0bc9e1d1fe34efd916" => :sierra
+    sha256 "d32c31d03f85bb4322958d87f03b00ffd7e00e28267ed024aed077251f5cc87d" => :mojave
+    sha256 "2a385cbc51aed18dbe041893ebd019501143dab7c8a9afaed32b8690cdcee9b2" => :high_sierra
+    sha256 "56765a66963c8867d3e47998eaa97db2d1558b24475e4779b3f5f3f7e9eb6f4c" => :sierra
   end
 
   depends_on "pkg-config" => :build
