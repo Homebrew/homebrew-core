@@ -7,9 +7,9 @@ class Libevhtp < Formula
 
   bottle do
     cellar :any
-    sha256 "12ffad8cd440ff172308978d6e1f169617abd8ab47a6c925cfc409fb5a357e63" => :mojave
-    sha256 "49c3fcac653776ff92bbe0a88e9d0baff3f0165a3dead2dca7edff2ef4d95bf1" => :high_sierra
-    sha256 "20b1117731ed49e6bef3d0b3208f49306c0d8074754b89c84af2f788e32f1ff6" => :sierra
+    sha256 "1c9eac0e309c108015f1cd45de5e1de60a962dbe7d8ad702ceec92ca09b1a733" => :mojave
+    sha256 "f78dc220333d1a20a11243c11cc8e212e75487b6a01fabe02c2d2a18d779b9c2" => :high_sierra
+    sha256 "a27afd7497a33479dc608320cb8ad7641c83c9c85b736037aa228e1c98c0a71d" => :sierra
   end
 
   depends_on "cmake" => :build
