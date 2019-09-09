@@ -3,7 +3,7 @@ class Lasso < Formula
   homepage "https://lasso.entrouvert.org/"
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.0.tar.gz"
   sha256 "146bff7a25166467d960003346cbc3291f3f29067e305cb82ebb12354c7d0acf"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Lasso < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
