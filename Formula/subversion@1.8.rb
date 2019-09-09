@@ -7,10 +7,9 @@ class SubversionAT18 < Formula
   revision 1
 
   bottle do
-    sha256 "8f940fc03a334713836d6ed93f748fe573fc51dc5468dd575e14d7a614a4fb0a" => :mojave
-    sha256 "3a4e79dead2f4d209e06fe631903ed870610ddfc9ac091ec7d734f5025d0642e" => :high_sierra
-    sha256 "a3d73ecc8eddacfe764f5a83d5215220b7d3100d694c17ac3bed68089984e863" => :sierra
-    sha256 "0a39c347943ac7f025af06571378987e5d69805ab45cafd38215b5929a5a3722" => :el_capitan
+    cellar :any
+    sha256 "1276ffcfc75f585c19835c68f97702ce8ffeafcabb42f7a514d7fbf0591ef2cd" => :mojave
+    sha256 "47b6166a5092c8eff0d132b9bea06f0e6d15683f4230ec83111018546f319765" => :sierra
   end
 
   keg_only :versioned_formula
