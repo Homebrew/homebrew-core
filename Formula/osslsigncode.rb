@@ -1,8 +1,8 @@
 class Osslsigncode < Formula
-  desc "Authenticode signing of PE(EXE/SYS/DLL/etc), CAB and MSI files"
-  homepage "https://sourceforge.net/projects/osslsigncode/"
-  url "https://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz"
-  sha256 "f9a8cdb38b9c309326764ebc937cba1523a3a751a7ab05df3ecc99d18ae466c9"
+  desc "OpenSSL based Authenticode signing for PE/MSI/Java CAB files"
+  homepage "https://github.com/mtrojnar/osslsigncode"
+  url "https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz"
+  sha256 "5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f"
 
   bottle do
     cellar :any
@@ -12,17 +12,14 @@ class Osslsigncode < Formula
     sha256 "1fcfa6be97026cd27145c79289c10c19ab123bd50ff682ed57236475368dd5cb" => :sierra
   end
 
-  head do
-    url "https://git.code.sf.net/p/osslsigncode/osslsigncode.git"
-    depends_on "automake" => :build
-  end
-
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   def install
-    system "autoreconf", "-ivf" if build.head?
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
