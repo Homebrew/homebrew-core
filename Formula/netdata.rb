@@ -5,9 +5,9 @@ class Netdata < Formula
   sha256 "c6278ef7a0885422053b6acc596f65d117c32e45a342cc6f2414d3e29add3d25"
 
   bottle do
-    sha256 "5b0878294799c32f90033e569eee29ec05f7db896405139a24cc25bcebdda058" => :mojave
-    sha256 "4cb0ad5a23839660f20a86b5bf364132a757d9306c3169b4fd3f3b074f8e91fb" => :high_sierra
-    sha256 "182375cd13d10d1ae85c58ead0d1a87a274f2ad723a455bcd8b65c5564fa5cab" => :sierra
+    sha256 "e9040b10b7c12c399bf3251dff36eb86dd50fdf7a9e92b7211fb6621b2754c56" => :mojave
+    sha256 "5071140754f4b4a6814bf37cb656ad48bea2f4c5a18fc808e490a0d2acf506f4" => :high_sierra
+    sha256 "d4c48c0cca02fc6835683f33b8f1bf447ef60bf6abbd2b384f34df19ec2fd7b1" => :sierra
   end
 
   depends_on "autoconf" => :build
