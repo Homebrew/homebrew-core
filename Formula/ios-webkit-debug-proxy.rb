@@ -8,9 +8,9 @@ class IosWebkitDebugProxy < Formula
 
   bottle do
     cellar :any
-    sha256 "0a8516877b50c17ddffc7d9e80702f3221aa33ef88ca1cceb4eddeada198d37f" => :mojave
-    sha256 "a84067180c1c839f8d17d1d530f46a7c4ea753b5acf96005960c0ecb147512dd" => :high_sierra
-    sha256 "4d8d1545d4555b6787d42037e3cf84cf5d046dff82f52a850b85ba8cab955867" => :sierra
+    sha256 "1aadb8bdcb8d9f3026f20fdbae563d01d889964a94a46995ebbdf70446f3d4a7" => :mojave
+    sha256 "b2ebcf8d4009ec190ca13f9fdf6dfc212b3db6cd2fe36cdc16b89054f25d1afa" => :high_sierra
+    sha256 "a41fac7294b52cb9742d8cb04ed36a182b0bfabd41342529862b9896a3538a55" => :sierra
   end
 
   depends_on "autoconf" => :build
