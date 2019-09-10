@@ -3,6 +3,7 @@ class Slowhttptest < Formula
   homepage "https://github.com/shekyan/slowhttptest"
   url "https://github.com/shekyan/slowhttptest/archive/v1.7.tar.gz"
   sha256 "9fd3ce4b0a7dda2e96210b1e438c0c8ec924a13e6699410ac8530224b29cfb8e"
+  revision 1
   head "https://github.com/shekyan/slowhttptest.git"
 
   bottle do
@@ -13,9 +14,13 @@ class Slowhttptest < Formula
     sha256 "91b6302e0725b70d6eb6fb56ff8a8a9e6f7daff71b8de5a01e9c3a1062381db7" => :sierra
   end
 
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   def install
+    # Patch for OpenSSL 1.1 compatibility, submitted upstream
+    # https://github.com/shekyan/slowhttptest/pull/53
+    inreplace "configure", "SSL_library_init", "SSL_new"
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
