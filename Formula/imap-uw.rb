@@ -6,6 +6,7 @@ class ImapUw < Formula
   url "https://mirrorservice.org/sites/ftp.cac.washington.edu/imap/imap-2007f.tar.gz"
   mirror "https://fossies.org/linux/misc/old/imap-2007f.tar.gz"
   sha256 "53e15a2b5c1bc80161d42e9f69792a3fa18332b7b771910131004eb520004a28"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,15 +16,27 @@ class ImapUw < Formula
     sha256 "1652476ceea4500fb67cc6f0dc86ead889c7113c93cc98dbf0025d1c2d24a9b0" => :sierra
   end
 
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
+
+  # Two patches below are from Debian, to fix OpenSSL 1.1 compatibility
+  # https://salsa.debian.org/holmgren/uw-imap/tree/master/debian/patches
+  patch do
+    url "https://salsa.debian.org/holmgren/uw-imap/raw/master/debian/patches/1006_openssl1.1_autoverify.patch"
+    sha256 "7c41c4aec4f25546c998593a09386bbb1d6c526ba7d6f65e3f55a17c20644d0a"
+  end
+
+  patch do
+    url "https://salsa.debian.org/holmgren/uw-imap/raw/master/debian/patches/2014_openssl1.1.1_sni.patch"
+    sha256 "9db45ba5462292acd04793ac9fa856e332b37506f1e0991960136dff170a2cd3"
+  end
 
   def install
     ENV.deparallelize
     inreplace "Makefile" do |s|
       s.gsub! "SSLINCLUDE=/usr/include/openssl",
-              "SSLINCLUDE=#{Formula["openssl"].opt_include}/openssl"
+              "SSLINCLUDE=#{Formula["openssl@1.1"].opt_include}/openssl"
       s.gsub! "SSLLIB=/usr/lib",
-              "SSLLIB=#{Formula["openssl"].opt_lib}"
+              "SSLLIB=#{Formula["openssl@1.1"].opt_lib}"
       s.gsub! "-DMAC_OSX_KLUDGE=1", ""
     end
     inreplace "src/osdep/unix/ssl_unix.c", "#include <x509v3.h>\n#include <ssl.h>",
