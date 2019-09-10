@@ -6,10 +6,9 @@ class Elinks < Formula
   revision 3
 
   bottle do
-    rebuild 3
-    sha256 "16c9911afafae0c541fc2e004db9dd6666c8f4401aaeb26c25875d8de2082f99" => :mojave
-    sha256 "d467cc8c41448e3e2a88b4796eb318bc9dabb30c46ec9b73db023ca83fcbee9b" => :high_sierra
-    sha256 "4b9ce9f2668471292e159b1e2c2590f71b783c1d6debfa73c92dadbc96b57fba" => :sierra
+    sha256 "c1e209a98cb195ea9f51ed8ba4b9ef8b17cee7f1ee93b63030ef179838b50d60" => :mojave
+    sha256 "b0bd21790f66c11ddb5c503f4cf7e1a6818773f96419933d50ee232b59768316" => :high_sierra
+    sha256 "bf7827c2f19bd07b4614e2e593e165adaef19bec0c88ce69d41dae81cdd5f591" => :sierra
   end
 
   head do
