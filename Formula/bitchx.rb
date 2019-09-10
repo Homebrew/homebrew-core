@@ -6,10 +6,9 @@ class Bitchx < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "a54b24df15570ceb3e8e62717c98941b0b0b4e4066c191053029abfaa6f0b39c" => :mojave
-    sha256 "799186d1028a2ea88f40cc0e6653658202c70d721b73ca2f1f673258d3388d63" => :high_sierra
-    sha256 "c97728febe95f8ce82a9bef839d811ba751ce323ae6005bac51b7b123cd47790" => :sierra
+    sha256 "52939d589b5697402b6b5c658ab065651ac1943e8c7c7c9798aca5f76790be00" => :mojave
+    sha256 "0a021e6d01b7f7d4ee9d048459ab7367b48da791896b2edeb96e270b196ff202" => :high_sierra
+    sha256 "0c9e7fcf39a8fb0c80f867495cf1d6776fbe4aec6010a1986edbca820ed7a6f0" => :sierra
   end
 
   depends_on "openssl@1.1"
