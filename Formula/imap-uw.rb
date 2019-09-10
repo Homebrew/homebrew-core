@@ -10,10 +10,8 @@ class ImapUw < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b6275d53e2c85dd5aa31b348399f7b42a14bf6dae39ada3226890cec76c7e415" => :mojave
-    sha256 "e2ac5fb24b426f4eb49b0c9d21f77b8780c2ef51f86e1bc985a287de79b2a957" => :high_sierra
-    sha256 "1652476ceea4500fb67cc6f0dc86ead889c7113c93cc98dbf0025d1c2d24a9b0" => :sierra
+    sha256 "19d971ab778840ba44c24c3eef1316d1c65e6e0b6e1540933ad051c77ee745e0" => :mojave
+    sha256 "8c1c4d2cbbd6df372f258d7cc95b040db4f3c759c8928cfbde7c54da4fa6a426" => :sierra
   end
 
   depends_on "openssl@1.1"
