@@ -6,10 +6,9 @@ class Atk < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "bef1913879e18e1ebb1374cea9099b469e627c143db1af84eb4ff952c0aa416a" => :mojave
-    sha256 "a9c3a88fe56e0f9a881ec1d0256f20cfe79e6ff7a1bb181aae34a369d52e76b5" => :high_sierra
-    sha256 "019ecba02c40d705a0479ec5ba997561faaad827f019d12e3f51030db2eb328b" => :sierra
+    sha256 "481a81e57b58fd84251bd10a364433c5558802084f2dc4e459515b27703c6abb" => :mojave
+    sha256 "f80df2351f0b557484f7eb7c3b6dbd34e73dfdedd07a8cf0f1fd56be155f615f" => :high_sierra
+    sha256 "ec44e1cc0f0c110579b3e2a339bff88a9455f187cadd4cac3eec420cf2347ffe" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
