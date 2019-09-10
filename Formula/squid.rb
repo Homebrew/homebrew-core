@@ -3,6 +3,7 @@ class Squid < Formula
   homepage "http://www.squid-cache.org/"
   url "http://www.squid-cache.org/Versions/v4/squid-4.8.tar.xz"
   sha256 "78cdb324d93341d36d09d5f791060f6e8aaa5ff3179f7c949cd910d023a86210"
+  revision 1
 
   bottle do
     sha256 "ac56304ff9094551025952da4883eb7ea48ec4be7eb6cd6baa1033ad5b464587" => :mojave
@@ -18,11 +19,15 @@ class Squid < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
     ENV.append "LDFLAGS", "-lresolv"
+
+    # Patch for detection of OpenSSL 1.1, submitted upstream
+    # https://github.com/squid-cache/squid/pull/470
+    inreplace "configure", "SSL_library_init", "SSL_CTX_new"
 
     # For --disable-eui, see:
     # http://www.squid-cache.org/mail-archive/squid-users/201304/0040.html
