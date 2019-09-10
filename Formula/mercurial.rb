@@ -5,7 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://www.mercurial-scm.org/release/mercurial-5.1.1.tar.gz"
   sha256 "35fc8ba5e0379c1b3affa2757e83fb0509e8ac314cbd9f1fd133cf265d16e49f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5210f4a25ed713ea61c85dd969b3847cbfc39e5be6f69ecc2dae7b3f23272f10" => :mojave
@@ -13,12 +13,14 @@ class Mercurial < Formula
     sha256 "ee5a63ff8d2d121bdb69c56bddf49c2ec9cb08ae0d04f1043aec010e647261e6" => :sierra
   end
 
-  depends_on "python"
+  # See discussion at https://github.com/Homebrew/homebrew-core/pull/44095
+  # plans for Python 3 migration
+  depends_on "python@2"
 
   def install
-    ENV["HGPYTHON3"] = "1"
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
-    system "make", "PREFIX=#{prefix}", "PYTHON=python3", "install-bin"
+    system "make", "PREFIX=#{prefix}", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
