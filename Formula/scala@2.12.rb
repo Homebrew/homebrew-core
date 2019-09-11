@@ -1,10 +1,10 @@
 class ScalaAT212 < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.12.9/scala-2.12.9.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.12.9.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.12.9/scala-2.12.9.tgz"
-  sha256 "5e9f044f579b60215f144ba21878c9abef3b9541b37b34c1744c436861eef672"
+  url "https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.12.10.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.12.10/scala-2.12.10.tgz"
+  sha256 "3b12bda3300fedd91f64fc7f9165fd45c58328b1b760af24ca6ffe92e3b0656a"
 
   bottle :unneeded
 
