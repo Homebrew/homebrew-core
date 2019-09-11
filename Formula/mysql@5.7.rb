@@ -1,20 +1,21 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.25.tar.gz"
-  sha256 "354c427c8679c6a4774f60723ea211e54b4383307764d240940f960d110bf5cf"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.27.tar.gz"
+  sha256 "036ab46a8a1216cfc1e87374bd1cba12e2208c02cf328a31851be7e1c7f57a2b"
+  revision 1
 
   bottle do
-    sha256 "408e41e6b7db830398597db177df21ea28b55d37921e8a6a16d23e6f5e2333f7" => :mojave
-    sha256 "beb1712b9abc67079edec5bea5e3bcc93feb0fbee145d2f6b9a64d68de8f1187" => :high_sierra
-    sha256 "8f871039263343d57926723c8f593f52f741b39fe24230dce1d33a5afb0714d5" => :sierra
+    sha256 "5ec3269f57853b0c0fb29e061bcdf19abda846184349feeebbcda40eeab3da53" => :mojave
+    sha256 "8abbdfbf92902212472e72c257ab5f05afe4bdd4fbde69a5959c4f490394961c" => :high_sierra
+    sha256 "e322e2672bbb839b59fdfb50f5784c350fb5175a816142602ce034c22abdab9a" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def datadir
     var/"mysql"

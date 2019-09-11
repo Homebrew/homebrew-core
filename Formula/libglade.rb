@@ -3,13 +3,13 @@ class Libglade < Formula
   homepage "https://glade.gnome.org"
   url "https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.gz"
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "75df12d8db6a8ce9595704c743dc778d69f34af7db74228f0c7a4d4af61d2e1b" => :mojave
-    sha256 "2639d4af6b770ed782d7080b2b6105a0190eae1d8fdfd8076cdf3d89862b9364" => :high_sierra
-    sha256 "a26aa0e778ef074f9ba9726945297885fbfd49acab0ab392096990964e844fed" => :sierra
-    sha256 "057e25800e73c6233f353ed97ae4f7dfe1ca1f5eada9858d6527e03d4632ba87" => :el_capitan
+    rebuild 1
+    sha256 "3fdb8055e888e22f7054432b185aad35a20c0d48b3c07c97429cab2b7a0bd3cc" => :mojave
+    sha256 "fd198334f49180de53d5bde9406e17aa4e3051ee5c421defdab9dbb0f3a1e681" => :high_sierra
+    sha256 "019f499d6ca86f279d5bfec74bf71ffe11a89bb6bc70f6901b7074e14885132c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -40,6 +40,7 @@ class Libglade < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -54,6 +55,7 @@ class Libglade < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libglade-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

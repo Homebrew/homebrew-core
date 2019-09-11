@@ -12,6 +12,8 @@ class Bwa < Formula
     sha256 "bee09d138e9d8f45c12d6c99b48a3e6891b6e4d3f5c6a6847bfeaa28afc2f362" => :el_capitan
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "make"
 

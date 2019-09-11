@@ -5,13 +5,13 @@ class Graphviz < Formula
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/graphviz/graphviz-2.40.1.tar.gz"
   mirror "https://fossies.org/linux/misc/graphviz-2.40.1.tar.gz"
   sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
+  revision 1
   version_scheme 1
 
   bottle do
-    rebuild 2
-    sha256 "554a0f729bf393301fb3fd796d771a63c51871d6aaf498a7af6c7f98a64979bd" => :mojave
-    sha256 "769e9c92c5e08e803b54d2940df74aeb7202e5bc5019eb602d36116ea7cddcf3" => :high_sierra
-    sha256 "4267fe0d22373837bc22dfca35e8a925ed660e3b403b76af791a30fc074130c9" => :sierra
+    sha256 "c3e2b2f06d1a2190405ccb16cde3cbddb8bf0be080fb84448a0c43f473eef39f" => :mojave
+    sha256 "2972d06c626e9a7d39c06d0376b1b425cae55d0e5d5a56d6f1440783d7e76890" => :high_sierra
+    sha256 "3336446bf3ad335583744a88549b19a0bae2fd427270863476c2590a575ff021" => :sierra
   end
 
   head do

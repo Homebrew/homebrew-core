@@ -4,13 +4,13 @@ class Nwchem < Formula
   url "https://github.com/nwchemgit/nwchem/releases/download/6.8.1-release/nwchem-6.8.1-release.revision-v6.8-133-ge032219-src.2018-06-14.tar.bz2"
   version "6.8.1"
   sha256 "23ce8241a5977a93d8224f66433851c81a08ad58a4c551858ae031485b095ab7"
-  revision 5
+  revision 8
 
   bottle do
     cellar :any
-    sha256 "a74b97dbefbfc29ee2d7581c5618dafc4a3f2ecae1ffa9444b46d1c71bc90dad" => :mojave
-    sha256 "705b1083b329faab191103ad4eb8161a74c357369fa512f620689ea2506d5e5e" => :high_sierra
-    sha256 "da929866f7182fc4e21a267406557d16639cd024b57c51a4e79ec43b9d02c47b" => :sierra
+    sha256 "43743133c9d7b8de119238ce698424328cda01b4e3e798f3939333bea108b21f" => :mojave
+    sha256 "731ada93191900a657aab3bf378059b36ce1b4bda36f4faff2e32940ec517f48" => :high_sierra
+    sha256 "2c10b964c143063de0b9513e5c036a31fd3742cdcd66073ee79729146554d929" => :sierra
   end
 
   depends_on "gcc" # for gfortran
@@ -64,7 +64,7 @@ class Nwchem < Formula
       ENV["NWCHEM_TOP"] = pkgshare
       ENV["NWCHEM_TARGET"] = "MACX64"
       ENV["NWCHEM_EXECUTABLE"] = "#{bin}/nwchem"
-      system "./runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
+      system "./runtests.mpi.unix", "procs", "0", "dft_he2+", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
     end
   end
 end

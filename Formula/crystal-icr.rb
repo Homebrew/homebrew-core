@@ -3,16 +3,18 @@ class CrystalIcr < Formula
   homepage "https://github.com/crystal-community/icr"
   url "https://github.com/crystal-community/icr/archive/v0.6.0.tar.gz"
   sha256 "970d5ecbde6bb370c8178339db42e7812b7a2f3a5db3eec868cc18c19523c0ea"
-  revision 1
+  revision 4
 
   bottle do
-    sha256 "b623200d377ee356c083db16c9a27b5f8b4a49439d308291de3e866d06229fcf" => :mojave
-    sha256 "fb253d4602327a09a5828fda371fa0bc318f79ffd96163926de5f19f338c675b" => :high_sierra
-    sha256 "45aed3c4edbb7d3ae2d93c093a3bafe9296760693a1fe02d28180e20bd2feecc" => :sierra
+    sha256 "bc19b1b359cd9f78137fd11199a87856d727eb6769a38ae8e009613296188fca" => :mojave
+    sha256 "69a0f31e9738fc6eb89364f507e0867b249614845a0b5d734955e29096c8903d" => :high_sierra
+    sha256 "1bd7c503764108164362adfa4530de7629f19293ea1c9052dc5da77dca0b52c0" => :sierra
   end
 
   depends_on "crystal"
-  depends_on "readline"
+  depends_on "libevent"
+  depends_on "libyaml"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

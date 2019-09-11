@@ -1,13 +1,14 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.2.tar.xz"
-  sha256 "91fcde77eea8e6206d775a48ac58450afe4883af1a42e5b358320beb33a445fa"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz"
+  sha256 "df593cd4c017de19adf5d0154b8391bb057cef1b72ecdd4a8ee30d3235c65f09"
+  revision 2
 
   bottle do
-    sha256 "0370836f4107a976de5fa84a333faec65f65866bedf3bb11b4732333f933497d" => :mojave
-    sha256 "1fb93f70c550192484dcd1b41926903c5b087dfae5002f375e8e9e10cc89037d" => :high_sierra
-    sha256 "dc2fa36b6646401b745eb5593c188f9012b1ef031aaa04271051581c018560e8" => :sierra
+    sha256 "77bed3b9c96c9ece896a92d93c42e4b1e4f1b307bfd3803a8a48b2f44bca7383" => :mojave
+    sha256 "130eecb8561af78e5c5291d00b30eb0a620808300be537448a17c46cd5b13ec9" => :high_sierra
+    sha256 "69ae584b1a7213f9a148617dd602facc20c8f40f2a651ca80cc3f37537558d4a" => :sierra
   end
 
   head do
@@ -19,7 +20,7 @@ class Ruby < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # Should be updated only when Ruby is updated (if an update is available).
@@ -44,7 +45,7 @@ class Ruby < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -52,6 +53,7 @@ class Ruby < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

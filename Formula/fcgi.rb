@@ -19,7 +19,7 @@ class Fcgi < Formula
 
   # Fixes "dyld: Symbol not found: _environ"
   # Affects programs linking this library. Reported at
-  # http://mailman.fastcgi.com/pipermail/fastcgi-developers/2009-January/000152.html
+  # https://fastcgi-developers.fastcgi.narkive.com/Kowew8bW/patch-for-symbol-not-found-environ-on-mac-os-x
   # https://trac.macports.org/browser/trunk/dports/www/fcgi/files/patch-libfcgi-fcgi_stdio.c.diff
   patch :DATA
 

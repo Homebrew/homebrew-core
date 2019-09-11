@@ -3,55 +3,60 @@ class Llvm < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/8.0.0/llvm-8.0.0.src.tar.xz"
-    sha256 "8872be1b12c61450cacc82b3d153eab02be2546ef34fa3580ed14137bb26224c"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
+    sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
 
     resource "clang" do
-      url "https://releases.llvm.org/8.0.0/cfe-8.0.0.src.tar.xz"
-      sha256 "084c115aab0084e63b23eee8c233abb6739c399e29966eaeccfc6e088e0b736b"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/cfe-8.0.1.src.tar.xz"
+      sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/8.0.0/clang-tools-extra-8.0.0.src.tar.xz"
-      sha256 "4f00122be408a7482f2004bcf215720d2b88cf8dc78b824abb225da8ad359d4b"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/clang-tools-extra-8.0.1.src.tar.xz"
+      sha256 "187179b617e4f07bb605cc215da0527e64990b4a7dd5cbcc452a16b64e02c3e1"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/8.0.0/compiler-rt-8.0.0.src.tar.xz"
-      sha256 "b435c7474f459e71b2831f1a4e3f1d21203cb9c0172e94e9d9b69f50354f21b1"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/compiler-rt-8.0.1.src.tar.xz"
+      sha256 "11828fb4823387d820c6715b25f6b2405e60837d12a7469e7a8882911c721837"
     end
 
     resource "libcxx" do
-      url "https://releases.llvm.org/8.0.0/libcxx-8.0.0.src.tar.xz"
-      sha256 "c2902675e7c84324fb2c1e45489220f250ede016cc3117186785d9dc291f9de2"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/libcxx-8.0.1.src.tar.xz"
+      sha256 "7f0652c86a0307a250b5741ab6e82bb10766fb6f2b5a5602a63f30337e629b78"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/8.0.0/libunwind-8.0.0.src.tar.xz"
-      sha256 "ff243a669c9cef2e2537e4f697d6fb47764ea91949016f2d643cb5d8286df660"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/libunwind-8.0.1.src.tar.xz"
+      sha256 "1870161dda3172c63e632c1f60624564e1eb0f9233cfa8f040748ca5ff630f6e"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/8.0.0/lld-8.0.0.src.tar.xz"
-      sha256 "9caec8ec922e32ffa130f0fb08e4c5a242d7e68ce757631e425e9eba2e1a6e37"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/lld-8.0.1.src.tar.xz"
+      sha256 "9fba1e94249bd7913e8a6c3aadcb308b76c8c3d83c5ce36c99c3f34d73873d88"
+    end
+
+    resource "lldb" do
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/lldb-8.0.1.src.tar.xz"
+      sha256 "e8a79baa6d11dd0650ab4a1b479f699dfad82af627cbbcd49fa6f2dc14e131d7"
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
-      sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/openmp-8.0.1.src.tar.xz"
+      sha256 "3e85dd3cad41117b7c89a41de72f2e6aa756ea7b4ef63bb10dcddf8561a7722c"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/8.0.0/polly-8.0.0.src.tar.xz"
-      sha256 "e3f5a3d6794ef8233af302c45ceb464b74cdc369c1ac735b6b381b21e4d89df4"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/polly-8.0.1.src.tar.xz"
+      sha256 "e8a1f7e8af238b32ce39ab5de1f3317a2e3f7d71a8b1b8bbacbd481ac76fd2d1"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "28494073b3d20b22668ca82af68fef01c59708547acec2f6b86ff5e3e152e8dc" => :mojave
-    sha256 "a2bf6ec0b51b56541c40d31ec7677b700764850e93f29474f54333b96355bc0d" => :high_sierra
-    sha256 "b827b266bcbca04ea70b362b452aa0c903403e14847665c0ce59b6b11273a21f" => :sierra
+    sha256 "8017a53698fb2daf1ee34842baf27fe205ccf24292bd5a3afe4af9654aab29f2" => :mojave
+    sha256 "ebe23525722afbd8b06744e9ad021cb9cd41ad3167c5fd3c4ea18e2c69767481" => :high_sierra
+    sha256 "f1046344d20c85c40554e9378a4f3aaab2c2c6ceb707e0201462c2fd56fe05be" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -87,6 +92,10 @@ class Llvm < Formula
       url "https://git.llvm.org/git/lld.git"
     end
 
+    resource "lldb" do
+      url "https://git.llvm.org/git/lldb.git"
+    end
+
     resource "openmp" do
       url "https://git.llvm.org/git/openmp.git"
     end
@@ -102,6 +111,7 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
+  depends_on "swig" if MacOS.version >= :lion
 
   def install
     # Apple's libstdc++ is too old to build LLVM
@@ -113,6 +123,7 @@ class Llvm < Formula
     (buildpath/"projects/libcxx").install resource("libcxx")
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/lldb").install resource("lldb")
     (buildpath/"tools/polly").install resource("polly")
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
@@ -140,6 +151,9 @@ class Llvm < Formula
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
+      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
+      -DLLDB_DISABLE_PYTHON=1
+      -DLIBOMP_INSTALL_ALIASES=OFF
     ]
 
     mkdir "build" do

@@ -3,12 +3,13 @@ class Doitlive < Formula
   homepage "https://doitlive.readthedocs.io/en/latest/"
   url "https://files.pythonhosted.org/packages/e5/d9/4ce969d98f521c253ec3b15a0c759104a01061ac90fb9d8636b015bcb4ea/doitlive-4.3.0.tar.gz"
   sha256 "4cb1030e082d8649f10a61d599d3ff3bcad7f775e08f0e68ee06882e06d0190f"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cc5e281b32a18c299b4112b69bcd056363132451572db782695d8a92a987c627" => :mojave
-    sha256 "2ca684dac1ca64f4b4bc06681a58afccb3ee8bcb71b888a002ef349c2f53e263" => :high_sierra
-    sha256 "01814089517122d0a7e28bce53f01dfb7f1d5788cd503d1e2d38d10ea6fc5bcb" => :sierra
+    sha256 "235dcd551986f6fcaa2e9bc0bcbddfa631219cbf1b9ed0bdf692087e48ee20d2" => :mojave
+    sha256 "d0e4f3e10a4c12cbb9f01f67858b53317ed52a91370d3df3a27ac0bf688280d7" => :high_sierra
+    sha256 "59c58d804d10fa88962ab485ecff1d058f68359ee7687bd029318928eeebf8a8" => :sierra
   end
 
   depends_on "python"

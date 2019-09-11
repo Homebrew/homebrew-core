@@ -1,15 +1,15 @@
 class JdnssecTools < Formula
   desc "Java command-line tools for DNSSEC"
   homepage "https://github.com/dblacka/jdnssec-tools"
-  url "https://github.com/dblacka/jdnssec-tools/releases/download/0.14/jdnssec-tools-0.14.tar.gz"
-  sha256 "96dfe5465452713c07461a8744f166e6f0e199e2236c3a5fe02f17b49438885c"
+  url "https://github.com/dblacka/jdnssec-tools/releases/download/v0.15/jdnssec-tools-0.15.tar.gz"
+  sha256 "1d4905652639b8b23084366eb2e2b33d5f534bf29fbf9b4becbf9e29f9b39fdf"
   head "https://github.com/dblacka/jdnssec-tools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b8a45ea05860a46efc3e1329fe8058901b11158163ba8729c9273e272f41d14" => :mojave
-    sha256 "29a2267ef3939779a8e52781f7aefdca4b47fc01d42801ecad931fa4d14c9d11" => :high_sierra
-    sha256 "29a2267ef3939779a8e52781f7aefdca4b47fc01d42801ecad931fa4d14c9d11" => :sierra
+    sha256 "205de8199d55a964c7b5ea022831bd9cfeb9270884d7c485ab05f8e6980374dd" => :mojave
+    sha256 "205de8199d55a964c7b5ea022831bd9cfeb9270884d7c485ab05f8e6980374dd" => :high_sierra
+    sha256 "d2aea3d9cdc3379cb6ef21e581d3a92775b0af7d82306a826b106959345b1771" => :sierra
   end
 
   depends_on :java

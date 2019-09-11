@@ -1,38 +1,34 @@
 require "open3"
 
 class Riff < Formula
-  desc "Function As A Service on top of Knative, riff is for functions"
+  desc "Function As A Service on top of Kubernetes, riff is for functions"
   homepage "https://www.projectriff.io/"
-  url "https://github.com/projectriff/riff.git",
-      :tag      => "v0.2.0",
-      :revision => "1ae190ff3c7edf4b375ee935f746ebfd1d8eaf5c"
+  url "https://github.com/projectriff/cli.git",
+      :tag      => "v0.4.0",
+      :revision => "d1b042f4247d8eb01ee0b9e984926028a2844fe8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "325694273e94fa659ef043da822687080048aed91ea560b54222539c08d3a39e" => :mojave
-    sha256 "e306adf4f271b2d4174defcd8b0feb58da47904d4fc29846ca160ad399d2f895" => :high_sierra
-    sha256 "6f1e171d2a60d05539fb10172625653039c787a8476198cab79a6638bdec3ad6" => :sierra
+    sha256 "ebe82f4eb5de8ec1f5047f7f69514cb69296040006fd1730e1e0eb097655186e" => :mojave
+    sha256 "fde0709788f1f8ee61d9a9cc9759029b4fd43b3a4d30bda206d36e54ef644750" => :high_sierra
+    sha256 "51e7e1cbb9df115a3e169c7419ce1361b2050d3c2d4d564d69a177593fad3486" => :sierra
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
   def install
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitattributes,.gitignore,.travis.yml}"]
-    (buildpath/"src/github.com/projectriff/riff").install contents
-
-    cd "src/github.com/projectriff/riff" do
+    cd buildpath do
       system "make", "build"
       bin.install "riff"
     end
   end
 
   test do
-    stdout, stderr, status = Open3.capture3("#{bin}/riff --kubeconfig not-a-kube-config-file channel list")
+    stdout, stderr, status = Open3.capture3("#{bin}/riff --kube-config not-a-kube-config-file doctor")
 
     assert_equal false, status.success?
-    assert_match "List channels", stdout
-    assert_match "Error: stat not-a-kube-config-file: no such file or directory", stderr
+    assert_equal "", stdout
+    assert_match "panic: stat not-a-kube-config-file: no such file or directory", stderr
   end
 end

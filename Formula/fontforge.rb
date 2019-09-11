@@ -1,21 +1,23 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20190317/fontforge-20190317.tar.gz"
-  sha256 "b711adec0da9ee490bbc2698b33e6630150931e08e826d1b63eb3131d85db8b5"
+  url "https://github.com/fontforge/fontforge/releases/download/20190801/fontforge-20190801.tar.gz"
+  sha256 "d92075ca783c97dc68433b1ed629b9054a4b4c74ac64c54ced7f691540f70852"
 
   bottle do
     cellar :any
-    sha256 "881917282849e10c9dc746e280e8891ee201d195f4044fd42527d3504b4c5f03" => :mojave
-    sha256 "29dbbd01fcac434e21142ef14f2ed270f9debaef657788b8daab30310f1aa587" => :high_sierra
-    sha256 "7a3b998f17b60acba7df784f84a3b9090af7270648a34e9f18b3863ba4c487f7" => :sierra
+    sha256 "1f9682e52b812f5b365ba32e7447afa6dfbffb0aa15b6f4687acd050638174e0" => :mojave
+    sha256 "e96f5fb275b708c9387e5968d7d97692221cd8b76805f65719601125bb7e6f6b" => :high_sierra
+    sha256 "5dedc46d7f5e9278e644318a50132cb4050f129c922aeed7b290bcb42c7aeb32" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gettext"
   depends_on "giflib"
+  depends_on "glib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libspiro"
@@ -23,13 +25,16 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@2"
+  depends_on "python"
+  depends_on "readline"
+  uses_from_macos "libxml2"
 
   def install
-    ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
-    ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
+    ENV["PYTHON_CFLAGS"] = `python3-config --cflags`.chomp
+    ENV["PYTHON_LIBS"] = `python3-config --ldflags`.chomp
 
     system "./configure", "--prefix=#{prefix}",
+                          "--enable-python-scripting=3",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--without-x"
@@ -60,8 +65,8 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    xy = Language::Python.major_minor_version "python"
+    xy = Language::Python.major_minor_version "python3"
     ENV.append_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system "python", "-c", "import fontforge; fontforge.font()"
+    system "python3", "-c", "import fontforge; fontforge.font()"
   end
 end

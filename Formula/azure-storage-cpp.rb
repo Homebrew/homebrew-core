@@ -1,23 +1,25 @@
 class AzureStorageCpp < Formula
   desc "Microsoft Azure Storage Client Library for C++"
   homepage "https://azure.github.io/azure-storage-cpp"
-  url "https://github.com/Azure/azure-storage-cpp/archive/v6.0.0.tar.gz"
-  sha256 "3ec43349b741e0d8619e5510901a0abe8832da83167c74275b2e79544d105956"
-  revision 1
+  url "https://github.com/Azure/azure-storage-cpp/archive/v6.1.0.tar.gz"
+  sha256 "a0b6107372125f756783bf6e5d57d24e2c8330a4941f4c72e8ddcf13c31618ed"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "67d8e17e425da6eca509d52b5ebd7977e0481c9831af05dfa7b9d6872d1679eb" => :mojave
-    sha256 "eb91ca1c57bf23e33f80e1f90bde5254dfd21ed134b9e2f4c8bf71edcd5d4a5d" => :high_sierra
-    sha256 "6c0fc630ba5250923846dfcd2b91672962297f823866d21a047c80f771a81671" => :sierra
+    sha256 "541d3b592a79f2b512bfb1bc9b5fe2b48f8ae4743e079297a405e918c781c480" => :mojave
+    sha256 "d2aa03ecacd88103758a20cac1347c4d95e35eb02201133bc9d971a07d510296" => :high_sierra
+    sha256 "e7baae44142163f5ee87e68b940fbaa8c5aa5bf3e953602555a138d7c446d186" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cpprestsdk"
   depends_on "gettext"
-  depends_on "openssl"
-  depends_on "ossp-uuid"
+  depends_on "openssl@1.1"
+
+  # patch submitted upstream at https://github.com/Azure/azure-storage-cpp/pull/261
+  patch :DATA
 
   def install
     system "cmake", "Microsoft.WindowsAzure.Storage",
@@ -43,14 +45,45 @@ class AzureStorageCpp < Formula
     EOS
     flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
              "-I#{Formula["boost"].include}",
-             "-I#{Formula["openssl"].include}",
+             "-I#{Formula["openssl@1.1"].include}",
              "-I#{Formula["cpprestsdk"].include}",
              "-L#{Formula["boost"].lib}",
              "-L#{Formula["cpprestsdk"].lib}",
-             "-L#{Formula["openssl"].lib}",
+             "-L#{Formula["openssl@1.1"].lib}",
              "-L#{lib}",
              "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"] + ENV.cflags.to_s.split
     system ENV.cxx, "-o", "test_azurestoragecpp", "test.cpp", *flags
     system "./test_azurestoragecpp"
   end
 end
+
+__END__
+diff --git a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
+index 9171f8c..a427288 100644
+--- a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
++++ b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
+@@ -63,6 +63,12 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
+       /usr/freeware/lib64
+   )
+
++  if (APPLE)
++    if (NOT UUID_LIBRARY)
++      set(UUID_LIBRARY  "")
++    endif (NOT UUID_LIBRARY)
++  endif (APPLE)
++
+   find_library(UUID_LIBRARY_DEBUG
+     NAMES
+       uuidd
+@@ -88,9 +94,9 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
+   set(UUID_INCLUDE_DIRS ${UUID_INCLUDE_DIR})
+   set(UUID_LIBRARIES ${UUID_LIBRARY})
+
+-  if (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
++  if (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
+      set(UUID_FOUND TRUE)
+-  endif (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
++  endif (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
+
+   if (UUID_FOUND)
+     if (NOT UUID_FIND_QUIETLY)

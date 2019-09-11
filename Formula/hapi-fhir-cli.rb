@@ -1,15 +1,15 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
-  homepage "http://hapifhir.io/doc_cli.html"
-  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.7.0/hapi-fhir-3.7.0-cli.zip"
-  sha256 "600ae4857b59176981d7d37e9affc2f2e8eecdb30b6b886b0bac1a1b5ee30156"
+  homepage "https://hapifhir.io/doc_cli.html"
+  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v4.0.0/hapi-fhir-4.0.0-cli.zip"
+  sha256 "fdba98e9ddc295030f9c14bf083fa764a2706adf3f88788d7a021c77c318ca55"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
   resource "test_resource" do
-    url "https://github.com/jamesagnew/hapi-fhir/raw/v3.6.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
+    url "https://github.com/jamesagnew/hapi-fhir/raw/v4.0.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
     sha256 "4eacf47eccec800ffd2ca23b704c70d71bc840aeb755912ffb8596562a0a0f5e"
   end
 

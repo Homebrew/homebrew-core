@@ -3,13 +3,13 @@ class Cutter < Formula
   homepage "https://cutter.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cutter/cutter/1.2.6/cutter-1.2.6.tar.gz"
   sha256 "459becce78ec4c568f4f5a5e20c73ea36be283bf955f4a252e8491b634339065"
+  revision 1
   head "https://github.com/clear-code/cutter.git"
 
   bottle do
-    sha256 "467273fc313c512fb5de5a24a060feb86a8f5a87339c0402888512569f09c2c1" => :mojave
-    sha256 "565dd12a8b27f69e53a556ad02a448bb18648990a481e004920710a439a892c7" => :high_sierra
-    sha256 "ac8c646277a7b623f23ed44aba41c75d52c22d26ed7e0f01759baf9026a9e323" => :sierra
-    sha256 "10fdffef5ec4b8983db6547225491720d17cfbcdcbd34b9524facd9f48da04b6" => :el_capitan
+    sha256 "2c69a7d83b9776729939f829fc7b025eb44a012e41643cd9a7a8cbde9d274d09" => :mojave
+    sha256 "560d2c76c2603bb947095653e6f13db90cf9fe2b09f44cafdf063244fe4c4ec4" => :high_sierra
+    sha256 "3226b680ed29260aa73024751635b45cf9bb9baa4f7e5e50b379591e837a0b8a" => :sierra
   end
 
   depends_on "intltool" => :build

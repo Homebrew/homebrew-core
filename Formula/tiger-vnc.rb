@@ -3,13 +3,12 @@ class TigerVnc < Formula
   homepage "https://tigervnc.org/"
   url "https://github.com/TigerVNC/tigervnc/archive/v1.9.0.tar.gz"
   sha256 "f15ced8500ec56356c3bf271f52e58ed83729118361c7103eab64a618441f740"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "a048d592b84fae525742e746550892c20319af975bf01b2ca87a975a7abfae86" => :mojave
-    sha256 "1040513ec177df5275b41b8b1dda64126a6e88327771803600e5635b2983505f" => :high_sierra
-    sha256 "dca94ec794ece0340d127104ad373a185535317b130c96863f69c9a2c00e1ccd" => :sierra
+    sha256 "00d679d7a5302a288803e304852d641454270fb61ad86f29468b6628d098766b" => :mojave
+    sha256 "8bc6fd944ac4ddb423a0164b2adf3d0733ce0b7461e53835cdf9d8f3ef1a27cf" => :high_sierra
+    sha256 "7c5b8f1a5e52f4bb76ef40a3904aaac50f052dbd9661b6429e86f492a120bb02" => :sierra
   end
 
   depends_on "cmake" => :build

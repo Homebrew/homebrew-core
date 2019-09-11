@@ -3,11 +3,13 @@ class GtkMacIntegration < Formula
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
   url "https://download.gnome.org/sources/gtk-mac-integration/2.1/gtk-mac-integration-2.1.3.tar.xz"
   sha256 "d5f72302daad1f517932194d72967a32e72ed8177cfa38aaf64f0a80564ce454"
+  revision 1
 
   bottle do
-    sha256 "bc2988431033aac212a91ebf5f24cb4186fa754392a394a0a18b21e37e82546b" => :mojave
-    sha256 "48784429c9f1a8edde39c21ed4fdc7aca9fa7163a02b66d9dc2e998b45e7dbb5" => :high_sierra
-    sha256 "708be6c171f2a5b0291350e9670efd03e4df32f9e1e743fa2d9531e7c1d85d77" => :sierra
+    rebuild 1
+    sha256 "d7010a189ed7804e809272ed03653c447a47d7089d607b231e55e03364d9de72" => :mojave
+    sha256 "b1e21af9dd7adb39ebd7cff86511823f008c6bca4a94aa3a1206399e51615b48" => :high_sierra
+    sha256 "3f044bcdddb689d0bba32e771f71340be36a5ad036209089b4606a5ed7e515e7" => :sierra
   end
 
   head do
@@ -62,6 +64,7 @@ class GtkMacIntegration < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -76,6 +79,7 @@ class GtkMacIntegration < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtkmacintegration
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

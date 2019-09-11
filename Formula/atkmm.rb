@@ -3,12 +3,13 @@ class Atkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.0.tar.xz"
   sha256 "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "f332838475850cc497c531395162d2e37582448e15f04c86a05f27f582e0cf96" => :mojave
-    sha256 "cc71c5e0c4ee2ba05c2ae7be9746599ce194eadbe48a039fc784eaa9895b2ede" => :high_sierra
-    sha256 "d273495ffec79f6f3353edffddce8ef0e14ff57afa1d561d6bde9cce20fed18b" => :sierra
+    sha256 "41fa55c1a359635acac27990de9ef7d4c84c6e45f43b54b4fecd0c85010d5ed0" => :mojave
+    sha256 "cc4325eb5abdb8248ea4d4ec36f5ab37abfce03459034c700b92cfaa757392e8" => :high_sierra
+    sha256 "918691593ee2144c7aae041f3f83a3f961af0408329b69907a893669f267f5b1" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -35,7 +36,7 @@ class Atkmm < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{gettext.opt_include}

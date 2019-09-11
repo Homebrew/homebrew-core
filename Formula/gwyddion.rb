@@ -1,14 +1,13 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.53/gwyddion-2.53.tar.gz"
-  sha256 "d142569adc4d523e51ca53cbff19414576facb774e5f4dad88b6ec475972f081"
-  revision 1
+  url "http://gwyddion.net/download/2.54/gwyddion-2.54.tar.gz"
+  sha256 "4809f8709adb18aecff9dc0271832fd9840f02d4bc0e69d25c59d745f05cf81d"
 
   bottle do
-    sha256 "597581e3f8c8e43c6150827f1f0c3074f06f4d0595537757b7905b2bb26242cf" => :mojave
-    sha256 "be2d3e499b4bf6dc87f915b842ffb97d6f9e4832bdda3b8f94daa5b34893cc4f" => :high_sierra
-    sha256 "cae1d9b483784aa36d0dc945a8c5f61138738a21add614aec4ba036ffbd4a48f" => :sierra
+    sha256 "70e7fac78dd42c0d19cbdf80d07e1553f1c14e9b319a3a9f88aaac99c9a56d8b" => :mojave
+    sha256 "81e115edc3f1a97601629b5d4ab26cf3134d3b322c4688dc228acec5aad84452" => :high_sierra
+    sha256 "adfad7a2851c71f604a9a3efe6b284f18e4cfc60d167538a93d86876d6af400e" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,14 +19,7 @@ class Gwyddion < Formula
   depends_on "libxml2"
   depends_on "minizip"
   depends_on "pygtk"
-  depends_on "python@2"
-
-  # Fixes problem with finding resource files in version 2.53.
-  # <https://sourceforge.net/p/gwyddion/mailman/message/36604431/>
-  patch do
-    url "http://gwyddion.net/download/2.53/gwyddion-2.53-ensure-osx-basedir.patch"
-    sha256 "17e5282d7add1e1af0d530885dbe501e29869340ba6d77879bf67e7a9f860990"
-  end
+  depends_on "python@2" # does not support Python 3
 
   def install
     system "./configure", "--disable-dependency-tracking",

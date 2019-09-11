@@ -3,14 +3,12 @@ class Libmp3splt < Formula
   homepage "https://mp3splt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mp3splt/libmp3splt/0.9.2/libmp3splt-0.9.2.tar.gz"
   sha256 "30eed64fce58cb379b7cc6a0d8e545579cb99d0f0f31eb00b9acc8aaa1b035dc"
+  revision 1
 
   bottle do
-    sha256 "bd099b1f7f07b73c0ba90a0d506a5c169f9197abc3c0c2d787725f3c36262e94" => :mojave
-    sha256 "08c048a165564eab43d0ec34f837309eec4bc5fd9f63ef80177c1d2da72c1d47" => :high_sierra
-    sha256 "e513672ee4682c1f722e710d4446fc2721325875acb65ccaaee0e5de113cb82b" => :sierra
-    sha256 "587226a840b162aeef70cc8022bdbcd61218e1be6dd1b98418774f3f48405072" => :el_capitan
-    sha256 "47d3aaeee6d237273e8457666cd2717e1264742ae776d541c40a203e1b82003f" => :yosemite
-    sha256 "0bac13f95cb16925fe28cd1d662bec10a66c93bf9b27c2c9533ab38b7a1f38a2" => :mavericks
+    sha256 "d929bb92be95a49b808d087be5e88100bc23c423100da1afd86422cf0ed3d6cb" => :mojave
+    sha256 "71eb2ec5137acc03b95dbfdfadbb88c6bade2cb1548cce2655876971e346707a" => :high_sierra
+    sha256 "805407189fbd468b036493996832e387395380a2fbda743cafac78876632abf9" => :sierra
   end
 
   depends_on "pkg-config" => :build

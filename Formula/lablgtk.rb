@@ -1,14 +1,14 @@
 class Lablgtk < Formula
   desc "Objective Caml interface to gtk+"
   homepage "http://lablgtk.forge.ocamlcore.org"
-  url "https://forge.ocamlcore.org/frs/download.php/1726/lablgtk-2.18.6.tar.gz"
-  sha256 "4ddca243066418e2a88ac49ebf2d846fac4b667b1b1753efadd078ae777368f8"
-  revision 3
+  url "https://github.com/garrigue/lablgtk/releases/download/lablgtk2188/lablgtk-2.18.8.tar.gz"
+  sha256 "91f59bafd07989ea00080f4fd65512ce339878c7117bf5116bad3b93b64d4de3"
 
   bottle do
-    sha256 "e1de84a04e013f1e02a6e72397bc3d0a51f972661260e232c64bdab1e6f5fa34" => :mojave
-    sha256 "1edc1b76a28384340a571a9238a22ebe65abd569defc1346ab0ba923305b8733" => :high_sierra
-    sha256 "dbdeb42914d089ba2844d92de8802714b5c31fb82dbe2f1f2bb96da49776dea2" => :sierra
+    cellar :any
+    sha256 "82085a0b5c56b374b21170eef91f44ff7d5244dd26774a6e1f2c571f795ea539" => :mojave
+    sha256 "752b24da7c440b036a47a32eb5342f588bb92017e9ba1d6a3416a54c9722a0ef" => :high_sierra
+    sha256 "d67fbd9ba41211acbc4948a5dcbae98459cde16dc94211786e8c359f1f7158b1" => :sierra
   end
 
   depends_on "camlp4" => :build

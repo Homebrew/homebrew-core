@@ -1,15 +1,16 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.3.tar.gz"
-  sha256 "21e012fd6d651777784a9d6809ad812c1ca84b4757d20f94dd2d4391c8e9d485"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.5.tar.gz"
+  sha256 "5d3f71609b908910249a1bcdcb20c5e94f0cbea6418dc9f1d36ec2f41bed80a7"
+  revision 1
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
   bottle do
     cellar :any
-    sha256 "c16647d7595ca6e09c09a6e6d4c7399326d88b1c1da5697a2ace225730550486" => :mojave
-    sha256 "30ed9c9006d712cf6b550966978006323505840fff8522449664733d72f9600b" => :high_sierra
-    sha256 "deb979ca5f8df37e7323f8d0169e51f0fb4781936e15e9f7135811e1fe6f152e" => :sierra
+    sha256 "1aadb8bdcb8d9f3026f20fdbae563d01d889964a94a46995ebbdf70446f3d4a7" => :mojave
+    sha256 "b2ebcf8d4009ec190ca13f9fdf6dfc212b3db6cd2fe36cdc16b89054f25d1afa" => :high_sierra
+    sha256 "a41fac7294b52cb9742d8cb04ed36a182b0bfabd41342529862b9896a3538a55" => :sierra
   end
 
   depends_on "autoconf" => :build

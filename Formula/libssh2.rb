@@ -1,14 +1,15 @@
 class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
   homepage "https://libssh2.org/"
-  url "https://libssh2.org/download/libssh2-1.8.2.tar.gz"
-  sha256 "088307d9f6b6c4b8c13f34602e8ff65d21c2dc4d55284dfe15d502c4ee190d67"
+  url "https://libssh2.org/download/libssh2-1.9.0.tar.gz"
+  sha256 "d5fb8bd563305fd1074dda90bd053fb2d29fc4bce048d182f96eaa466dfadafd"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f5fc8699b496fb79f4f0537dbb3ecb3e74489c6f70dfdbbb7257e2f260f40f84" => :mojave
-    sha256 "f551d52103201ca189afaa06372323e958f6cb3dad8fd896cccc0b8a25fd0504" => :high_sierra
-    sha256 "d7cd9032e591b7e3f5b39653ea437d81a4c54888ff471c635c3113ec2acef973" => :sierra
+    sha256 "327c56ad6a54894e5ef9aa3019d2444d32f1d0fba80925940100e517dd3109c9" => :mojave
+    sha256 "ee29f44ef6fb59242fc7ee1747f02df2287722af4a45319289c9ee224367ba06" => :high_sierra
+    sha256 "769fbbdc4e67b8de15c269f66a6efe86c5b0195df56e7e46b44377a572800efa" => :sierra
   end
 
   head do
@@ -19,7 +20,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -30,7 +31,7 @@ class Libssh2 < Formula
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./buildconf" if build.head?

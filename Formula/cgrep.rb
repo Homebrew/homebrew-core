@@ -5,16 +5,15 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.27.tar.gz"
-  sha256 "1c623478e1b93a43eb1f151d20fa1096439a84b6ce7024bb9856f10c6ffeca59"
+  url "https://github.com/awgn/cgrep/archive/v6.6.30.tar.gz"
+  sha256 "b7aefe2d5b0abc1fb8143fe1e6faed636e2b4eb5198ad1d1f7f6db5121a37da3"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
     cellar :any
-    sha256 "a5a9e0f032374564c3c4636c2aef31dc41c5a0b441a69356bfdc4db27d30e934" => :mojave
-    sha256 "d5c98ba9f21a7946ca53394fc66f7145593a8d33427e4d0867b73f2342dbe5af" => :high_sierra
-    sha256 "8fc2929f882103c18dae410dcf66f667d4c32dae6dd13a9c7b0ae0c87c980ef9" => :sierra
-    sha256 "a3570fdcf951b804efe6994162af327c2984650e3d1fe4a1a54e3a473af8630a" => :el_capitan
+    sha256 "c48bd1796c39325751ad3b5526c3d0a1c657c1611c7c5178a1571b4d2f2c68a0" => :mojave
+    sha256 "b5d1fe2cf3084d6639216f9073b079f415339599d41a8784b8018fb425828033" => :high_sierra
+    sha256 "602d854d141b6a449d27afa47b6de20f917d6b361eac9a43c5937c2b5a548d47" => :sierra
   end
 
   depends_on "cabal-install" => :build

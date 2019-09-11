@@ -21,7 +21,7 @@ class ReactNativeCli < Formula
   end
 
   test do
-    output = shell_output("#{bin}/react-native init test")
+    output = shell_output("#{bin}/react-native init test --version=react-native@0.59.x")
     assert_match "Run instructions for Android", output
   end
 end

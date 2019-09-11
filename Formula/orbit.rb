@@ -3,14 +3,11 @@ class Orbit < Formula
   homepage "https://projects.gnome.org/ORBit2"
   url "https://download.gnome.org/sources/ORBit2/2.14/ORBit2-2.14.19.tar.bz2"
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
+  revision 1
 
   bottle do
-    sha256 "a70cbcdfb9d4350141ed258c4f61e0b16dddbf9bc9ce2658dfad9609a4ab3b22" => :mojave
-    sha256 "4d44dbf8d5a6dcfabcbf71a0f42fb0a3f961cd7beae541f3dd657789065269c2" => :high_sierra
-    sha256 "a267317818996e273fdd78837bc6e18709f273a31c21ca7dae7f09d1c634637f" => :sierra
-    sha256 "11bb24fb06daef1ccea017470e23e56706c24265a4f7551a14d99e4f88121781" => :el_capitan
-    sha256 "adf8c93736bee9ceede9f65ae9e4d6d10529a085315ec522bfd661a7b6fcd94a" => :yosemite
-    sha256 "ae04763dcb6ea680fba27e49b01235d65204cd9240a871b429095fa414fda4fb" => :mavericks
+    sha256 "eac54e39ca245af7863d5cdc89bc0aace7043fe61673075452e559a680062043" => :mojave
+    sha256 "c3157060c685ebb73cfdc51acf0ce3ab62f549302c976d220136aa5fa8123a0c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

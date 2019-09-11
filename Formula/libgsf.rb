@@ -1,13 +1,14 @@
 class Libgsf < Formula
   desc "I/O abstraction library for dealing with structured file formats"
   homepage "https://developer.gnome.org/gsf/"
-  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.45.tar.xz"
-  sha256 "5cbc2c0f1dc44d202fa0c6e3a51e9f17b0c2deb8711ba650432bfde3180b69fa"
+  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.46.tar.xz"
+  sha256 "ea36959b1421fc8e72caa222f30ec3234d0ed95990e2bf28943a85f33eadad2d"
+  revision 1
 
   bottle do
-    sha256 "ee188e921ec4d409d508350e7095f9eec3477c18ba8f32ebb08a50cf8cf84770" => :mojave
-    sha256 "1ee24dd553a23a8c561b538dae961bb8556f4fc2f4c62adb941d601340beb4b9" => :high_sierra
-    sha256 "694c1e3bdac79f19203dc6d9f9eb6f19721119d34908d7b5ad50725f443d6e3f" => :sierra
+    sha256 "e4ce2838b44594d27c99dac9d17ad1f7d2752bd7cf33d514fce0a54e94542efe" => :mojave
+    sha256 "8016acb38bd84a9d659a2c938b52e84128a242e54bf0c44236da9d875ae5de92" => :high_sierra
+    sha256 "7534eb511218574e344d0c5ebc4ebdb110e6c476d6a2936277f9d584b88f765a" => :sierra
   end
 
   head do

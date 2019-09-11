@@ -1,15 +1,14 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.28/gtk-doc-1.28.tar.xz"
-  sha256 "911e29e302252c96128965ee1f4067d5431a88e00ad1023a8bc1d6b922af5715"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz"
+  sha256 "de0ef034fb17cb21ab0c635ec730d19746bce52984a6706e7bbec6fb5e0b907c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef4993d2b5b8c9abcb3b587fae71a6b26641d834a271f7edf333a545b32b2611" => :mojave
-    sha256 "147ce0fadb0bdebfd1f13e8539c785f67c577b4cc143c21ee599a52f4aa1af33" => :high_sierra
-    sha256 "147ce0fadb0bdebfd1f13e8539c785f67c577b4cc143c21ee599a52f4aa1af33" => :sierra
+    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :mojave
+    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :high_sierra
+    sha256 "62a6648f580ec06ba130accd90bb5bf178780d84fc338b98f05acf59e67423e1" => :sierra
   end
 
   depends_on "itstool" => :build
@@ -20,16 +19,17 @@ class GtkDoc < Formula
   depends_on "libxml2"
   depends_on "python"
   depends_on "source-highlight"
+  uses_from_macos "libxslt"
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/7e/ae/26808275fc76bf2832deb10d3a3ed3107bc4de01b85dcccbe525f2cd6d1e/Pygments-2.4.2.tar.gz"
+    sha256 "881c4c157e45f30af185c1ffe8d549d48ac9127433f2c380c24b84572ad66297"
   end
 
   def install
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resource("six").stage do
+    resource("Pygments").stage do
       system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 

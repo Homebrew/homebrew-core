@@ -1,16 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v2.1.5.src.tgz"
-  version "2.1.5"
-  sha256 "f6cb86baab6077aac0b6d8eee5603015cc68521aa1b089c4dde58413d29fab2d"
+  url "https://binaries.cockroachdb.com/cockroach-v19.1.4.src.tgz"
+  version "19.1.4"
+  sha256 "d819167dc109b566511cb6cef9aadc8c4f07b1be6a8b3108f4bbd14808d21faf"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83c9371766f1cb9431d6e39cf7dd803a43de02f4a8ff7db27d0a1200c4a790fc" => :mojave
-    sha256 "836a94224b0cec5739fa0510f57ca57a4fe166a82004c87eb63868f628ac5536" => :high_sierra
-    sha256 "aa84f03bf8917754983b839a284b0f271cd1844aaf2e29eb239ea258df68a7fe" => :sierra
+    sha256 "82d20462ca26fcdaad2c4639582bc3cbb10fee2ca9fb63d1944648dc9fdf461a" => :mojave
+    sha256 "247cea9630fdc06c497c42ccf6290b601870eaac96a14ec91a993e87bbf5acb1" => :high_sierra
+    sha256 "f55c8f203ff3c49312641f81d7a15c4f3bcc02c5a5585981574b11161eeda62d" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -88,6 +88,15 @@ class Cockroach < Formula
         id,balance
         1,1000.50
       EOS
+    rescue => e
+      # If an error occurs, attempt to print out any messages from the
+      # server.
+      begin
+        $stderr.puts "server messages:", File.read("start.out")
+      rescue
+        $stderr.puts "unable to load messages from start.out"
+      end
+      raise e
     ensure
       system "#{bin}/cockroach", "quit", "--insecure"
     end

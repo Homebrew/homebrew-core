@@ -3,6 +3,7 @@ class Kakoune < Formula
   homepage "https://github.com/mawww/kakoune"
   url "https://github.com/mawww/kakoune/releases/download/v2019.01.20/kakoune-2019.01.20.tar.bz2"
   sha256 "991103a227be00ca1b10ad575fd6c749fa4c99eb19763971c7b1e113e299b995"
+  head "https://github.com/mawww/kakoune.git"
 
   bottle do
     cellar :any

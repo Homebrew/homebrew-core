@@ -1,14 +1,15 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-5-1/getdns-1.5.1.tar.gz"
-  sha256 "5686e61100599c309ce03535f9899a5a3d94a82cc08d10718e2cd73ad3dc28af"
+  url "https://getdnsapi.net/releases/getdns-1-5-2/getdns-1.5.2.tar.gz"
+  sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "cd82c6893f6ffddff97633386d9c11b119dfc9af710b824614f3e4c2fd112a2d" => :mojave
-    sha256 "9725f66c91e85bfc751414212a6b554db02129902db9c3bc33f53c9e47d001a1" => :high_sierra
-    sha256 "5c338b509bd578da7149338ea382dfbd12fcbcfd3b36819436dc09cc3cd67492" => :sierra
+    sha256 "c7cde9c6422419585abaf6b30b14d1213ee728d6298527689714f61e1003dfcd" => :mojave
+    sha256 "b105523ee31c31dd16484babf53659e82a2950f095f5949d811733b481f1d84b" => :high_sierra
+    sha256 "aab96082494eadf2d8806211a3597fdd3356938181e39b8c77a6146a8767ce97" => :sierra
   end
 
   head do
@@ -20,8 +21,8 @@ class Getdns < Formula
   end
 
   depends_on "libevent"
-  depends_on "libidn"
-  depends_on "openssl"
+  depends_on "libidn2"
+  depends_on "openssl@1.1"
   depends_on "unbound"
 
   def install
@@ -32,7 +33,7 @@ class Getdns < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--with-libevent",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-trust-anchor=#{etc}/getdns-root.key",
                           "--without-stubby"
     system "make"

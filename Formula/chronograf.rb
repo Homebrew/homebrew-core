@@ -3,15 +3,15 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.7.9.tar.gz"
-  sha256 "d95e1956e64c4811fc83c0f3e0254e9569ffcd7ab97986930993b76721eabeae"
+  url "https://github.com/influxdata/chronograf/archive/1.7.14.tar.gz"
+  sha256 "245479b691e2ad484717778562ce9e0c21b1d769e7d748335d1c5f41cd677d4c"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b824a76291e11846ada7f0d20d9818426766bdab6cbef37e99f8104267f4cd87" => :mojave
-    sha256 "154f9af890a101473d6bafb9244be24dbcda16ffc530ce5a31fd542a017cc9c7" => :high_sierra
-    sha256 "289c221fb243d0a694b4743fca2b267ec6dc6de0707bad4b0fb7772671fd96b3" => :sierra
+    sha256 "f3115535c7d986495c81b71b9b0f0e718d9cc4319fb6ed6d3fe38f559f820768" => :mojave
+    sha256 "a5c6e5b3dcfd0896e51b2c80606ea0127079cf0f1f42385d6bff4dcf5496019c" => :high_sierra
+    sha256 "4e54046b3218fac9e81fa7b28b621e83ccec7e025e9a546f2686e62fc1c19478" => :sierra
   end
 
   depends_on "go" => :build
@@ -27,10 +27,10 @@ class Chronograf < Formula
     chronograf_path = buildpath/"src/github.com/influxdata/chronograf"
     chronograf_path.install buildpath.children
 
-    # fixes yarn + upath@1.0.4 incompatibility, remove once upath is upgraded to 1.0.5+
-    Pathname.new("#{ENV["HOME"]}/.yarnrc").write("ignore-engines true\n")
-
     cd chronograf_path do
+      cd "ui" do # fix node 12 compatibility
+        system "yarn", "upgrade", "parcel@1.11.0", "node-sass@4.12.0"
+      end
       system "make", "dep"
       system "make", ".jssrc"
       system "make", "chronograf"
@@ -75,7 +75,7 @@ class Chronograf < Formula
       pid = fork do
         exec "#{bin}/chronograf"
       end
-      sleep 1
+      sleep 3
       output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
       sleep 1
       assert_match %r{/chronograf/v1/layouts}, output

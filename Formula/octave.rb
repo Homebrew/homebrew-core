@@ -4,11 +4,12 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-5.1.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-5.1.0.tar.xz"
   sha256 "87b4df6dfa28b1f8028f69659f7a1cabd50adfb81e1e02212ff22c863a29454e"
+  revision 6
 
   bottle do
-    sha256 "dd428970e2ad65bb84d5f34777b3fe262ebcca08a5fe44a4d2677714fb7469cc" => :mojave
-    sha256 "aa72c60193e946659cc11bea9bb2c67ecd0e833782607b29a5235bc37ceafc02" => :high_sierra
-    sha256 "e277a4cc58273d65d927fa827b3e6852ca6771a905c8786f53b62bbe7e613746" => :sierra
+    sha256 "c278bf8ca43532aab61e97fbdb199b92469df24954b8f8eb32cf14e420072ba0" => :mojave
+    sha256 "5014b5f992725e269c50aa855e3c71cec76a271c5fd616f5762e8d86e683c0c9" => :high_sierra
+    sha256 "52233264b4b5fa844a6779721f97145aa0389a22b73eac3bb5489875b0a934da" => :sierra
   end
 
   head do
@@ -23,7 +24,7 @@ class Octave < Formula
 
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on :java => ["1.6+", :build]
+  depends_on :java => ["1.7+", :build]
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -41,6 +42,7 @@ class Octave < Formula
   depends_on "hdf5"
   depends_on "libsndfile"
   depends_on "libtool"
+  depends_on "openblas"
   depends_on "pcre"
   depends_on "portaudio"
   depends_on "pstoedit"
@@ -51,10 +53,17 @@ class Octave < Formula
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
-  depends_on "veclibfort"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
+
+  # Octave fails to build due to error with java. See also
+  # https://github.com/Homebrew/homebrew-core/issues/39848
+  # Patch submitted upstream at: https://savannah.gnu.org/patch/index.php?9806
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/octave/5.1.0-java-version.patch"
+    sha256 "7ea1e9b410a759fa136d153fb8482ecfc3425a39bfe71c1e71b3ff0f7d9a0b54"
+  end
 
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
@@ -84,12 +93,12 @@ class Octave < Formula
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
                           "--with-x=no",
-                          "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
+                          "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
                           "--with-portaudio",
                           "--with-sndfile"
     system "make", "all"
 
-    # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
+    # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change
     inreplace "src/mkoctfile.cc" do |s|
       s.gsub! Formula["fftw"].prefix.realpath, Formula["fftw"].opt_prefix
       s.gsub! Formula["gcc"].prefix.realpath, Formula["gcc"].opt_prefix
@@ -104,7 +113,7 @@ class Octave < Formula
 
   test do
     system bin/"octave", "--eval", "(22/7 - pi)/pi"
-    # This is supposed to crash octave if there is a problem with veclibfort
+    # This is supposed to crash octave if there is a problem with BLAS
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
   end
 end

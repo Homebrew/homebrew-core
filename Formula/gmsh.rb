@@ -1,15 +1,15 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
-  url "https://gmsh.info/src/gmsh-4.2.3-source.tgz"
-  sha256 "58a8c8828b66e77680b52feb8a91fb4790d0a93906e411f3bfa1928864e52858"
+  url "https://gmsh.info/src/gmsh-4.4.1-source.tgz"
+  sha256 "853c6438fc4e4b765206e66a514b09182c56377bb4b73f1d0d26eda7eb8af0dc"
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     cellar :any
-    sha256 "a07f8f04a788c6a444a700800b7d353a41e3b20b5e67ab086fafd23cbe62649f" => :mojave
-    sha256 "0c4a368ac3bb8c72e4f2a2e44bac79daadb2828447165e0ed2e49db0133a7b1f" => :high_sierra
-    sha256 "b7d6e26fb366e4aee94027f8983235610ff2063b3a72102284fae17b2bda47d2" => :sierra
+    sha256 "8586fcd94e5952a8ca25b7972b29c941972e880f06afe6167e521af3c318f0fe" => :mojave
+    sha256 "165aebed189e664d7e57d17944dc44cc7c18e77e64afbb0b0ad454a659bbb701" => :high_sierra
+    sha256 "ad60f546a45254ec1c51693d551cca3eb313ff10e1ccef10f876582db99cf47d" => :sierra
   end
 
   depends_on "cmake" => :build

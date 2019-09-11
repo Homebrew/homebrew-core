@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/releases/download/v0.6.2/signal-cli-0.6.2.tar.gz"
-  sha256 "d917507211b3419e271674df7f03c8189921e2e78a389479a612847ddc8f1614"
+  url "https://github.com/AsamK/signal-cli/releases/download/v0.6.3/signal-cli-0.6.3.tar.gz"
+  sha256 "a9b48055444a118a2a500d5782245bb378a80832114fca9bb0bd76cfb48b6dbf"
 
   bottle :unneeded
 

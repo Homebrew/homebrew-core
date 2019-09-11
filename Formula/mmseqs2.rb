@@ -1,15 +1,15 @@
 class Mmseqs2 < Formula
-  desc "Software suite for very fast protein sequence search and clustering"
-  homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/8-fac81.tar.gz"
-  version "8-fac81"
-  sha256 "035d1c9a5fcfae50bc2d201f177722bd79d95d3ba32342972baa7b142b52aa82"
+  desc "Software suite for very fast sequence search and clustering"
+  homepage "https://mmseqs.com/"
+  url "https://github.com/soedinglab/MMseqs2/archive/10-6d92c.tar.gz"
+  version "10-6d92c"
+  sha256 "62415e545706adc6e9e6689d34902f405ab5e5c67c8c7562bdd9dd4da2088697"
 
   bottle do
     cellar :any
-    sha256 "cd9a945c1a551b09cfa43b7a7fa367eac46bce268c497e641c084b9f5cbd43f1" => :mojave
-    sha256 "a0970621b620f8de23d29fe97157b07855353d69ae406d8b20a8931e78b45c3a" => :high_sierra
-    sha256 "2f489d61340919ba9e0fea9b3e1f6df909e2d93bcb44e5332f6a8574feb7cf94" => :sierra
+    sha256 "813552b3664a81c0ec2e6ef973acc7d1cb5fdacdc02ddaff4787366ef81b7827" => :mojave
+    sha256 "e229477bb366685e7725abb8a7ecfef9d74652266aa2761a7bfdc6b2bc20c39c" => :high_sierra
+    sha256 "3fdb5ce1ace58238f4011df2f1f437fdc25031012b6a2e1a95c158a12b2acc3d" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -21,20 +21,13 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "a4f660d1bbf5e71438d03e09fa4ca036ceb18128"
+        :revision => "03da86a5c553d00c8d4484e9fbd8d68ef14e1169"
   end
 
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
     args << "-DHAVE_SSE4_1=1"
-
-    # Workaround for issue introduced in macOS 10.14 SDK
-    # SDK uses _Atomic in ucred.h which current g++ does not support
-    # __APPLE_API_STRICT_CONFORMANCE makes sysctl.h not include apis like ucred.h
-    # and thus we dont fail compilation anymore
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864
-    args << "-DCMAKE_CXX_FLAGS=-D__APPLE_API_STRICT_CONFORMANCE"
 
     system "cmake", ".", *args
     system "make", "install"

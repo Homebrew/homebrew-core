@@ -1,15 +1,14 @@
 class Zlog < Formula
   desc "High-performance C logging library"
   homepage "https://github.com/HardySimpson/zlog"
-  url "https://github.com/HardySimpson/zlog/archive/1.2.12.tar.gz"
-  sha256 "9c6014a3f74d136c70255539beba11f30e1d3617d07ce7ea917b35f3e52bac20"
+  url "https://github.com/HardySimpson/zlog/archive/1.2.14.tar.gz"
+  sha256 "05a6533e32f313eeaf134a761481a5cbc586c5dc85ba9ee6771c7458daaeb031"
 
   bottle do
     cellar :any
-    sha256 "10b13197cf780ee263ce305b1d48bb005231110601d7d1e4a3c3e4d1e2e38598" => :mojave
-    sha256 "8c69d89489366fc6fbb92af4f89ed34dd82e44aea0587591998a52dc2d43392b" => :high_sierra
-    sha256 "88179deeaf4acb8638c155acc887661da3eb191e05b23ecd6c64757ffaedb6d9" => :sierra
-    sha256 "c18ad86b3c5f8721f18a1090e6d372564a89ac972d1cfaa8a6819c5ecaec25ee" => :el_capitan
+    sha256 "53397021c310a023186a827e409f89579dcc9e4a2476aa692c8fc999ebed5365" => :mojave
+    sha256 "0947510004f20981a16c25a95fb680826f56d884cc48a05c775179bc5bd17f82" => :high_sierra
+    sha256 "ac9057902240d755b3e57c3cc599dec9e1aa769a2bb83b07576d24f73fbe6ecf" => :sierra
   end
 
   def install

@@ -14,6 +14,7 @@ about: Submit an issue so we can investigate
 - [ ] if `brew gist-logs` didn't work: ran `brew config` and `brew doctor` and included their output with your issue?
 
 To help us debug your issue please explain:
+
 - What you were trying to do (and why)
 - What happened (include command output)
 - What you expected to happen

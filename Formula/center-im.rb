@@ -3,21 +3,18 @@ class CenterIm < Formula
   homepage "https://www.centerim.org/index.php/Main_Page"
   url "https://www.centerim.org/download/releases/centerim-4.22.10.tar.gz"
   sha256 "93ce15eb9c834a4939b5aa0846d5c6023ec2953214daf8dc26c85ceaa4413f6e"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
-    sha256 "f75ad82d6a94767e1db97ff86a1a9e7fd97b53bdfbda02281f7732ec960d6bd6" => :mojave
-    sha256 "800a4ecf2a11219b619134a85ba492b8256a48d3363135f711da9ca8aab34139" => :high_sierra
-    sha256 "5f7c56eb5b9cc982df5a17c5cd043ac4968de36e396c219e0f544e9e34e46669" => :sierra
-    sha256 "315556554c3e5b972b0d99145fd6d0971837c2bbd981b849ca89e7a9c069335b" => :el_capitan
-    sha256 "5a51f0130fcd601aeed50ae6f66008aaa0ec96f6ac3e7bc828b627f04b46b9f2" => :yosemite
-    sha256 "673992c76745d9509dd32e71c964946018584db447b37d02a21f332b508c619d" => :mavericks
+    sha256 "42a8b8f09b9530139c5d9eaf7c83a435962c61631eea00a13bf70a670044c7a2" => :mojave
+    sha256 "9b40fc34ba5177765f01bdd821bec40377f44828421509491d90fb7a329ba400" => :high_sierra
+    sha256 "7e9f2db21d3ceec8ad7d3a59e5bf600d5d145aa0a88f676d803c1feea307f687" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Fix build with clang; 4.22.10 is an outdated release and 5.0 is a rewrite,
   # so this is not reported upstream
@@ -32,7 +29,7 @@ class CenterIm < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-msn",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
 
     # /bin/gawk does not exist on macOS

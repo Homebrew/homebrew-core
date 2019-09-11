@@ -1,19 +1,18 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
-  url "https://marlam.de/mpop/releases/mpop-1.2.8.tar.xz"
-  sha256 "16c3794507673bb1e6e8a9231787594155f32e5c68a901368045cf458f6a79ea"
+  url "https://marlam.de/mpop/releases/mpop-1.4.5.tar.xz"
+  sha256 "5b69723b216d4330b93af81b487952e5897dcde782e3be65a4e79c87e420c7d4"
 
   bottle do
     cellar :any
-    sha256 "b2594cbd367ac7c922b279764df9f51ce8684218cd800509dc1a0c13c35a7b25" => :mojave
-    sha256 "648cdecc606fd477c7949a81b0c4dd4d83ea4e37fb44fa046562563b29653bcd" => :high_sierra
-    sha256 "4f059bd22ca42847af9e0a109d1753d50a9dc08dc2241e6efb009d5589919bff" => :sierra
-    sha256 "4a11baf2addbf2be8122ea578cea50ebacaabb0f5ba60565b5d42c58c9e889b5" => :el_capitan
+    sha256 "f9961fbcc89cd345b57313ef8feb9b758af024cfd9536e052680d53467c48c43" => :mojave
+    sha256 "5699bec2d56ed2d5a6d78b3acc0c8040d65edc237e0bca79316d5c7997a77bb1" => :high_sierra
+    sha256 "9b567c18d9d4bbd384bb144daefbc2f0d670bfa41f156ef95567988f23ffcc23" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "gnutls"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"

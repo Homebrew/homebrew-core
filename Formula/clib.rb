@@ -14,6 +14,8 @@ class Clib < Formula
     sha256 "ea221a1093f4bdb63209c30fc29a888ae5312baa9f50f1bc8c5b56dac75cbb46" => :yosemite
   end
 
+  uses_from_macos "curl"
+
   def install
     ENV["PREFIX"] = prefix
     system "make", "install"

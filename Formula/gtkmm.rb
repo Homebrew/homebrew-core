@@ -3,14 +3,13 @@ class Gtkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz"
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "1994188ab39bcf326732e29f87126bb92f7c6e48a34ee418706009bc94b5873f" => :mojave
-    sha256 "b8f94d6c328554f7cbcc5da15963e54f332b00351dac1f10186737f3057080db" => :high_sierra
-    sha256 "8502c0c9aa545a8fc5184c4f6343278482e955a848813152700f8773988f8878" => :sierra
-    sha256 "bc5bf8829fd780791602522cc9570aa7287bf700c84af50d580dc35b352ce891" => :el_capitan
+    sha256 "bfa9c862a46b1ca66466e30ba6dfcb74bf69a345089aba76f6620f6aa28b69dc" => :mojave
+    sha256 "160a917c60ae9f41117f297a3bc8933fffb0084edccb6113fc7510798ad01d3e" => :high_sierra
+    sha256 "d525d513745bb81d43bcd3b43fc7067f64a8425640c9e1a959e94bd2c7d4eee9" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,7 +17,7 @@ class Gtkmm < Formula
   depends_on "cairomm"
   depends_on "glibmm"
   depends_on "gtk+"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
   depends_on "pangomm"
 
   def install
@@ -47,8 +46,9 @@ class Gtkmm < Formula
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]
@@ -71,6 +71,7 @@ class Gtkmm < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_include}/gtk-unix-print-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gdkmm-2.4
       -I#{include}/gtkmm-2.4
       -I#{libpng.opt_include}/libpng16

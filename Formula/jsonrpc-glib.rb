@@ -1,13 +1,14 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.32/jsonrpc-glib-3.32.0.tar.xz"
-  sha256 "bc60aa36c8bdc9c701ad490508445633a9f3973ae0bd5bdd0633d5f6ffeea6eb"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.34/jsonrpc-glib-3.34.0.tar.xz"
+  sha256 "d1ceb24b503e49e7bfe6e44630c03abc65f2d047a68271eb62e332b13be90548"
 
   bottle do
-    sha256 "04cca91e37582e34e6c67edc5c6582899a137ba5b36c5b9be1ac7878746bd748" => :mojave
-    sha256 "12b38863599f606ac861abcdcb1f1042a0242ccb8a4f69e7f612924422381e18" => :high_sierra
-    sha256 "25613b83e25e71ba162b96337bd394d01e48d57895ff0e8ec45e0a7b929bb2f1" => :sierra
+    cellar :any
+    sha256 "42081e5890e3bfe1be1d29bc08d2ca9376d9e2493c0a7f1828497e59ffa8cc54" => :mojave
+    sha256 "7fc3931e31121ca0f83710193591bc1ffe2fed9c9300aedead32db047b39e940" => :high_sierra
+    sha256 "b47f0d67cfe99c39b1d789aabcc4e19384afc7477273687b46e359064f79fa32" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,19 +20,12 @@ class JsonrpcGlib < Formula
   depends_on "glib"
   depends_on "json-glib"
 
-  # submitted upstream as https://gitlab.gnome.org/GNOME/jsonrpc-glib/merge_requests/5
-  patch :DATA
-
   def install
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", "-Dwith_vapi=true", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
-
-    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/Jsonrpc-1.0.gir", "@rpath", lib.to_s
-    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Jsonrpc-1.0.typelib", share/"gir-1.0/Jsonrpc-1.0.gir"
   end
 
   test do
@@ -73,39 +67,3 @@ class JsonrpcGlib < Formula
     system "./test"
   end
 end
-__END__
-diff --git a/meson.build b/meson.build
-index e949308..cb98d63 100644
---- a/meson.build
-+++ b/meson.build
-@@ -26,6 +26,8 @@ current = jsonrpc_glib_version_minor * 100 + jsonrpc_glib_version_micro - jsonrp
- revision = jsonrpc_glib_interface_age
- libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
-
-+darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, revision)]
-+
- config_h = configuration_data()
- config_h.set_quoted('GETTEXT_PACKAGE', 'libjsonrpc_glib')
- config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-diff --git a/src/meson.build b/src/meson.build
-index 3366e96..83fe506 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -52,11 +52,12 @@ libjsonrpc_glib = library(
-   'jsonrpc-glib-' + apiversion,
-   libjsonrpc_glib_sources,
-
--        c_args: hidden_visibility_args + release_args,
--  dependencies: libjsonrpc_glib_deps,
--     soversion: soversion,
--       version: libversion,
--       install: true,
-+         c_args: hidden_visibility_args + release_args,
-+   dependencies: libjsonrpc_glib_deps,
-+      soversion: soversion,
-+        version: libversion,
-+darwin_versions: darwin_versions,
-+        install: true,
- )
-
- libjsonrpc_glib_dep = declare_dependency(

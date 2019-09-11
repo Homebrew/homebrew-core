@@ -3,13 +3,13 @@ class Hunspell < Formula
   homepage "https://hunspell.github.io"
   url "https://github.com/hunspell/hunspell/archive/v1.7.0.tar.gz"
   sha256 "bb27b86eb910a8285407cf3ca33b62643a02798cf2eef468c0a74f6c3ee6bc8a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4424ad936c0d45d85afa0e0fbe610346cf0e3bddc96c88ff7efbef0f01528ffa" => :mojave
-    sha256 "aa31c8817d44d1b5842837bdaeb3daa48c2cee384a683590c51577c080dc08b4" => :high_sierra
-    sha256 "8e0b13ca0558d71f0edb45cc68560eec84873743b8697da739ee6119a3d9fcae" => :sierra
+    sha256 "30927ed74597ba96c52ec0c1e9380aaaadee2adadf2e17414e1b494bfd8066b3" => :mojave
+    sha256 "4ada0a39e041b9e6676b4cd68e95c6523725043088f3555d1cac1216c8f91944" => :high_sierra
+    sha256 "65b1d0fc54a0de1fc7e8520aaee4dbe192a2f441757002c7b305b0fb93e3e341" => :sierra
   end
 
   depends_on "autoconf" => :build

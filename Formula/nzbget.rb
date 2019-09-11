@@ -1,20 +1,20 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v20.0/nzbget-20.0-src.tar.gz"
-  sha256 "04dc36d432549c33d55145ecd95cc4309b3ab4a7731a1a03d954de389eacd06f"
+  url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
+  sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
+  revision 1
   head "https://github.com/nzbget/nzbget.git", :branch => "develop"
 
   bottle do
-    sha256 "6e9bb7d0fa4a14eba43d78cca17a4f8a24be119481ec3b1b4f017ebae99dedeb" => :mojave
-    sha256 "e28994fadf8cb1c81dd90de7cec9427f2fb7cf2e26b26a5844f8931b58549d37" => :high_sierra
-    sha256 "ac695e943c123fd8220c22ab9b164ec4f38aabc608f0b06d6415b85985991011" => :sierra
-    sha256 "90cce93915e5013766ea3f1a6ad071e33891752e053773e95c2a847e56869320" => :el_capitan
+    sha256 "1d69e26d929d2a1be4824ea8c2134d543033462302bc5527269d5ca7b1b2c575" => :mojave
+    sha256 "862bd9889d1590b8e3f600419f2bbf84f1ea7582ed55c58eccc024382d6db245" => :high_sierra
+    sha256 "2e174f6c4df74ef3cd5decca500963db0c99d71553da624693ec4e9d085a0a56" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gcc" if MacOS.version == :mavericks
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11

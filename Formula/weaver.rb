@@ -1,16 +1,15 @@
 class Weaver < Formula
   desc "Command-line tool for Weaver"
   homepage "https://github.com/scribd/Weaver"
-  url "https://github.com/scribd/Weaver/archive/0.12.2.tar.gz"
-  sha256 "63df2ed56df046fe0fca904e0a560840286282e46c149c7023d863e4bd0cdbc5"
+  url "https://github.com/scribd/Weaver/archive/0.12.3.tar.gz"
+  sha256 "638a08e996ac1fc5b8d945870a4f8af7548a9c59f8b2164c4f766f049a512033"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27672bcc5f5609d0826a637fd3be2d8a2022199cd3682dc49969cc8544d71f65" => :mojave
-    sha256 "b1629b78af3f48d23d914a3ebaba27cd04824bb2db2ff5f97732ef5136611141" => :high_sierra
+    sha256 "8158b3c36bb668c361660b7d433779faf10f3eb8038528b5f26cda4f4966e238" => :mojave
   end
 
-  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => ["10.2", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

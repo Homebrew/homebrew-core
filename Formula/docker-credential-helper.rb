@@ -1,16 +1,15 @@
 class DockerCredentialHelper < Formula
   desc "macOS Credential Helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/v0.6.1.tar.gz"
-  sha256 "9b36ae15d5bceaaf3496b80413acafa6325c633af3ae211ce10724dfa7046883"
+  url "https://github.com/docker/docker-credential-helpers/archive/v0.6.3.tar.gz"
+  sha256 "441684cf1d2434aa1024aa2f8455e11502c44858e93ea171b19caa656dd2b2e2"
   head "https://github.com/docker/docker-credential-helpers.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f9af0fc7921719967f8a27eecc6fb809c9806c6bebb218354c301b0943d2b36" => :mojave
-    sha256 "fdf91bb6156de8ca87959c94720bbe2538e6a6811b2c6a88442fb086c223ed8b" => :high_sierra
-    sha256 "793b4ec299189e18db3b564816fd5dcfcb023a816b5fd8e13c9a1764146265fe" => :sierra
-    sha256 "0bd7b22e7f3e0c399a686b56d07caf308ad56f46c9bc718266e998681ef7d7a9" => :el_capitan
+    sha256 "a4553f6ca40dd3c012a0ddc910b7ceb4b819ee89d1366613c9205f356f5a2a69" => :mojave
+    sha256 "71b6622a61da363350ca6065c5683a7a157b4ec404c8e11f66752ac2f0e09063" => :high_sierra
+    sha256 "3810d91647e6385bb9d57da3c800d1107603551285a94643f0d530bb63821a2d" => :sierra
   end
 
   depends_on "go" => :build

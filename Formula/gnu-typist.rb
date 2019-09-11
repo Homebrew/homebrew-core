@@ -4,14 +4,12 @@ class GnuTypist < Formula
   url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.9.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.9.5.tar.xz"
   sha256 "c13af40b12479f8219ffa6c66020618c0ce305ad305590fde02d2c20eb9cf977"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "3cc13439bb4afad581022e52c5827e2cc081565bc83f2c8f47c11b21c8ad2751" => :mojave
-    sha256 "79367e864781c4a9fe5b25e737e99bdcae8c7b11a2198459d72775120495c2c3" => :high_sierra
-    sha256 "014e293ce1ed514fe95e6fce4cbedefdc876a51b6d38a740183b8ce959899e5a" => :sierra
-    sha256 "75fcb398d3997d6d9357bb6cf5638d2e10e469ce114b344865d37112754cc7af" => :el_capitan
-    sha256 "285c918d6b2240e294e6b192aff25de0f0383f9ac645d8883e04e3443e52b674" => :yosemite
+    sha256 "9f0fcdd42b9a041408b132882778db2eb479749a7169b82f2caf1f4fd486b599" => :mojave
+    sha256 "72503afd4efafe7a8485ea22332819937008263976a6f5f5b42818565d59edbf" => :high_sierra
+    sha256 "d32708d6e8a640101ac618ceac23be6b9d1a6a4caa127c5fd12a44b4e57c09e9" => :sierra
   end
 
   depends_on "gettext"

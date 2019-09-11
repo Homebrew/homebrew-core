@@ -1,17 +1,15 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.8.4.tar.gz"
-  sha256 "5a18fe616c2a30b56e5b2f5b9f03f405cdf2435711517ff70b076a01396ef601"
-  revision 2
+  url "https://github.com/Z3Prover/z3/archive/Z3-4.8.5.tar.gz"
+  sha256 "4e8e232887ddfa643adb6a30dcd3743cb2fa6591735fbd302b49f7028cdc0363"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c40462a152d29d1a17828b42fe5aba6a6584d955ff668f95a77e2bbfeb4d9827" => :mojave
-    sha256 "9f4ea1d8faf70a2510eeb93648c378067efd1b7b26e31dd26d4454eb5c503392" => :high_sierra
-    sha256 "9930015dd6c3a7c18aca7284aa145ea2b9b37c5297c650ab8584912c56593a35" => :sierra
+    sha256 "67c0f04c418426399348b07a60523b56551fb379a82caa5e9b1645d4ac5dea65" => :mojave
+    sha256 "0379fcfacb4a0ceafb670855924604609c056b3bedbc6c7191bd937898026ef7" => :high_sierra
+    sha256 "6b58192eab08a5e4da344c2811f448ea0bb148d84dfdf3d3729df76bbc468825" => :sierra
   end
 
   depends_on "python"

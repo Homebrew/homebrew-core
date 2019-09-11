@@ -3,22 +3,19 @@ class SofiaSip < Formula
   homepage "https://sofia-sip.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sofia-sip/sofia-sip/1.12.11/sofia-sip-1.12.11.tar.gz"
   sha256 "2b01bc2e1826e00d1f7f57d29a2854b15fd5fe24695e47a14a735d195dd37c81"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "037c3d84ea7df66ffc6cf04dc503200d238cb39df80ad0f086d57e78205f22a6" => :mojave
-    sha256 "215b6a55868352c1ce67741e1cbede118813b0b1d12a56ba7425114a9bbb56d3" => :high_sierra
-    sha256 "ddbaf0fc570bd632c520057effc396a1f5e5cc48930644559ca9cafd9cd25360" => :sierra
-    sha256 "2e78cc40330c53363fb1dddc0568464001b46944628283e26811e4e6ccae28fe" => :el_capitan
-    sha256 "e2f9ede8ce51b2074659a1fcf576d83031c9037aafd3c39f75330e8e7cb236a5" => :yosemite
-    sha256 "1e68620530a8dda00d795bdf92f7c564174eefde5d7e703839de2e080bd89ea4" => :mavericks
+    sha256 "a92c49f6a27cf0fa4912d7e9a77c61b6e93d78686a758e8cd599f93b93e574cf" => :mojave
+    sha256 "dcb694f4f51bfbf58a23e39a97b75ac03eb140d3d25cfb735d9c97a38d25f203" => :high_sierra
+    sha256 "eba667bc978220cf4bdf3497d37127dc3b8da9257d0eed8dfb36fa7e739dc7da" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -5,43 +5,54 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.9.3/stack-1.9.3-sdist-1.tar.gz"
-  version "1.9.3"
-  sha256 "14e06a71bf6fafbb2d468f83c70fd4e9490395207d6530ab7b9fc056f8972a46"
+  url "https://github.com/commercialhaskell/stack/archive/v2.1.3.tar.gz"
+  sha256 "6a5b07e06585133bd385632c610f38d0c225a887e1ccb697ab09fec387838976"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e77734678c0a9bb402373a53e1c67663cfd5160f8dd2be3e3a16a569ae5a9a48" => :mojave
-    sha256 "ce65fc3575740104c9a99bd8797ac10e8724d8d36c80326251343ed68ab965c0" => :high_sierra
-    sha256 "3c278a54d4e0d829ab89f018e49d1e69721034a51b56af1435738a5b20e9f5b8" => :sierra
+    sha256 "0a1a1e67c0884e8c4d9fae16e006ae77bb1658bf07a02f408cca6d0f75a497d1" => :mojave
+    sha256 "43a526d7665e5c77a42bc31c86673731cb18f9dd57b7c55c8015270e5f0bbf68" => :high_sierra
+    sha256 "c31f96e6b957ef560cd360a772bf9caa2100d053ce0873de12916e9e49e6866b" => :sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  uses_from_macos "zlib"
 
-  # Build using a stack config that matches the default Homebrew version of GHC
-  resource "stack_lts_12_yaml" do
-    url "https://raw.githubusercontent.com/commercialhaskell/stack/v1.9.3/stack-lts-12.yaml"
-    version "1.9.3"
-    sha256 "0b4fb72f7c08c96ca853e865036e743cbdc84265dd5d5c4cf5154d305cd680de"
+  # Stack requires stack to build itself. Yep.
+  resource "bootstrap-stack" do
+    url "https://github.com/commercialhaskell/stack/releases/download/v2.1.3/stack-2.1.3-osx-x86_64.tar.gz"
+    sha256 "84b05b9cdb280fbc4b3d5fe23d1fc82a468956c917e16af7eeeabec5e5815d9f"
+  end
+
+  # Stack has very specific GHC requirements.
+  # For 2.1.1, it requires 8.4.4.
+  resource "bootstrap-ghc" do
+    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-apple-darwin.tar.xz"
+    sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
   end
 
   def install
-    buildpath.install resource("stack_lts_12_yaml")
+    (buildpath/"bootstrap-stack").install resource("bootstrap-stack")
+    ENV.append_path "PATH", "#{buildpath}/bootstrap-stack"
+
+    resource("bootstrap-ghc").stage do
+      binary = buildpath/"bootstrap-ghc"
+
+      system "./configure", "--prefix=#{binary}"
+      ENV.deparallelize { system "make", "install" }
+
+      ENV.prepend_path "PATH", binary/"bin"
+    end
 
     cabal_sandbox do
-      cabal_install "happy"
-
-      cabal_install
-
       # Let `stack` handle its own parallelization
       # Prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
       jobs = ENV.make_jobs
       ENV.deparallelize
 
       system "stack", "-j#{jobs}", "--stack-yaml=stack-lts-12.yaml",
-             "--system-ghc", "--no-install-ghc", "setup"
+             "--system-ghc", "--no-install-ghc", "build"
       system "stack", "-j#{jobs}", "--stack-yaml=stack-lts-12.yaml",
              "--system-ghc", "--no-install-ghc", "--local-bin-path=#{bin}",
              "install"

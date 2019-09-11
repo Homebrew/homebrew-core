@@ -1,18 +1,19 @@
 class PureFtpd < Formula
   desc "Secure and efficient FTP server"
   homepage "https://www.pureftpd.org/"
-  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.47.tar.gz"
-  sha256 "4740c316f5df879a2d68464489fb9b8b90113fe7dce58e2cdd2054a4768f27ad"
+  url "https://download.pureftpd.org/pub/pure-ftpd/releases/pure-ftpd-1.0.49.tar.gz"
+  sha256 "767bf458c70b24f80c0bb7a1bbc89823399e75a0a7da141d30051a2b8cc892a5"
+  revision 1
 
   bottle do
-    sha256 "f848669051fc9f2dcd98373a5c2c12029c3f59cc4cebae13bb246164650c0fa3" => :mojave
-    sha256 "3ee0ae276bad11f6459e2a866f96f7618a12b8625e69dd1d2b3fbcb3c7f3d3fe" => :high_sierra
-    sha256 "fcde5497abd815c560b9b8dc1bcb40d1018e378e16fcbc04cb942d244a64c972" => :sierra
-    sha256 "db8752838fcba745378a65f79c40ee8e573f50cd648d48b23b47b813dfb5cba1" => :el_capitan
+    cellar :any
+    sha256 "e3a63b9af91de3c29eef40a76d7962cdf8623a8e8992aeb67bdf3948293c450d" => :mojave
+    sha256 "a6a9549f3d8bde87cf01210e9fa29b403ed258246a7928d195a57f0c5ace6988" => :high_sierra
+    sha256 "11dfcec52ae727128c8201a4779fc7feea1d547fe86989a621d4ba339f70de92" => :sierra
   end
 
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[

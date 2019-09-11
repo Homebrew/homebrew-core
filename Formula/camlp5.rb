@@ -1,16 +1,16 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel707.tar.gz"
-  version "7.07"
-  sha256 "a2c493b833b217adf94d2000eb19015b990c4e441beb35cf36b1d33ed2351991"
+  url "https://github.com/camlp5/camlp5/archive/rel708.tar.gz"
+  version "7.08"
+  sha256 "46e67d8e36e5e4558c414f0b569532a33d3a12d7120ffdc474a6b3da1bfff163"
   revision 1
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "bc41d8d05b58ea18887f802e63037dc77aacb77014fbd37f375459cf198b1a02" => :mojave
-    sha256 "46b26065975d0d1e8769ca94425792146c142d1f92658ac33ce14840e56c55d1" => :high_sierra
-    sha256 "048042a01ab67acb0aad31a5d8c9647b497a13fa3299f8cd85e3bcb664f52566" => :sierra
+    sha256 "6d8f3f5e9339b778a05059d63e2a8d3b7351252a5efe41cbc2c5ab67e0b6b98f" => :mojave
+    sha256 "ade9b0f64be248782b2e04b3ef28e5ae4459f13dd96141bc38f401f4fb342054" => :high_sierra
+    sha256 "21ac12d7eb072cd484524db8e31b616e515667597a87b0cc3abbd1dd81d75d06" => :sierra
   end
 
   depends_on "ocaml"

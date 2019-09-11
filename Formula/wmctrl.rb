@@ -3,14 +3,13 @@ class Wmctrl < Formula
   homepage "https://sites.google.com/site/tstyblo/wmctrl"
   url "https://sites.google.com/site/tstyblo/wmctrl/wmctrl-1.07.tar.gz"
   sha256 "d78a1efdb62f18674298ad039c5cbdb1edb6e8e149bb3a8e3a01a4750aa3cca9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6e8a03f71ac01f44545a25687de39e859b7d540e4d150b77497f09c08a95d9b0" => :mojave
-    sha256 "b799fe4295b063ef09600bd8dbd8a8da4b7a5b047221d1c3ba67da672bff8f12" => :high_sierra
-    sha256 "968c76a341ff4ef21ebe8f850e4de4301adaefd8ff8402b3373c80255adecbc7" => :sierra
-    sha256 "bc752b0214893066214d649b108d69b08b50729f029581b332e93780525ee204" => :el_capitan
-    sha256 "0bc70cf2f7d8c90401364d8c1f9533423034941bfc375f60991c0940ae562e5b" => :yosemite
+    sha256 "2223922cda28d81580d85d01fa697284102d10226df76d57660bd92093fd46c5" => :mojave
+    sha256 "59b55236fd42a64f6ccc8587a5580a25afd330a137b62e7258568042e8b1b525" => :high_sierra
+    sha256 "cbdb379f9b1264847f74c0ea01e0a5412645b442d3c069708bfbe209b845b873" => :sierra
   end
 
   depends_on "pkg-config" => :build

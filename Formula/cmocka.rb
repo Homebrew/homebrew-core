@@ -1,15 +1,15 @@
 class Cmocka < Formula
   desc "Unit testing framework for C"
   homepage "https://cmocka.org/"
-  url "https://cmocka.org/files/1.1/cmocka-1.1.3.tar.xz"
-  sha256 "43eabcf72a9c80e3d03f7c8a1c04e408c18d2db5121eb058a3ef732a9dfabfaf"
+  url "https://cmocka.org/files/1.1/cmocka-1.1.5.tar.xz"
+  sha256 "f0ccd8242d55e2fd74b16ba518359151f6f8383ff8aef4976e48393f77bba8b6"
   head "https://git.cryptomilk.org/projects/cmocka.git"
 
   bottle do
     cellar :any
-    sha256 "4f2dda00b968d99edbd3bd2aa3143ea7dd2ff37972f7e607cb4063ac059684c6" => :mojave
-    sha256 "d304c4817bc9efe26cf406ce282ded888b4364be6d0752ddb3012542ae384a52" => :high_sierra
-    sha256 "d888978c74742f86fee309289e99b9eaa379cf5c9c2692ad668021e5fa3213a4" => :sierra
+    sha256 "a05bfdbe08b08dc01db59d0c2c724b2a58c4f9e12c260dc5865e27dd456e7771" => :mojave
+    sha256 "c4fc9fe8a73b23206c0db8907c2f67dea482d689afea18c5e746556aff8098b5" => :high_sierra
+    sha256 "a8d32491c7cfd1670be11c022faa07619d7821a4328fb034e76f225933b5c4dc" => :sierra
   end
 
   depends_on "cmake" => :build

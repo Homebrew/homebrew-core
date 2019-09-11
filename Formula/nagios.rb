@@ -1,14 +1,13 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.2/nagios-4.4.2.tar.gz"
-  sha256 "3418923f326aa86dc8c84cfd0df788fa495a90d772f8071acf40fdbef0736853"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.5/nagios-4.4.5.tar.gz"
+  sha256 "bf69e2d2fae218694585677472d355ba676120cbd024164281e635dc467c391d"
 
   bottle do
-    sha256 "9d36b9cbf38eb6eba90297622401db6a0e9d7d1f1ad183b4bb2f2cdf91702a13" => :mojave
-    sha256 "0abc72531983bb73c1bf18ff524c3eda9dd011ef3010a4cecf9350169b8a4208" => :high_sierra
-    sha256 "289f19421ed2ca7f36b159fcaffb9167400da75f427d34f682419c8cede08726" => :sierra
-    sha256 "584570d4e0cd38b238fcd53b84fe70035dd664ba56e349d598f5a6bc3e6b63e2" => :el_capitan
+    sha256 "676bab09790305f664681fcca95f430ac73cce4ef64f4aa8589da623288f93cb" => :mojave
+    sha256 "86f5e4b1a684a663e5ad8ef29a733e69c9a71a54aaadf4ea3e6abcc21100c89c" => :high_sierra
+    sha256 "721ea7aef1cd9d18fdf804a4af417822133acf2fb464c58d006049f9f4c37e9b" => :sierra
   end
 
   depends_on "gd"

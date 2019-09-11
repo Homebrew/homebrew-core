@@ -3,12 +3,13 @@ class Vte < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz"
   sha256 "86cf0b81aa023fa93ed415653d51c96767f20b2d7334c893caba71e42654b0ae"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "c682b2e0f5d85ecdd540103eb6e4173366c21015d7e2436c91fe3ea6ad86e7e5" => :mojave
-    sha256 "9aaea1688c308591953ffe31e2ee3c2f9d20bfdbd4b2625d314343d693272787" => :high_sierra
-    sha256 "63e1ce4a882d6d61764e53aef409c8ce8bbc24a9bd7a1a5a5573b43f135e17d1" => :sierra
+    rebuild 1
+    sha256 "320ff58d9e751660a0f6feea056915df5b1266d43ee4223e4622bc07da0dcf24" => :mojave
+    sha256 "f8ed141e63dea2c9bbb68e974571a574bda1330d32575c10c792de5e0ea4ffea" => :high_sierra
+    sha256 "f84c4aa751a6c63962cc8c1a30cd1fcc3938652b259f51e252b20763fe4a9ef8" => :sierra
   end
 
   depends_on "intltool" => :build
@@ -53,6 +54,7 @@ class Vte < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -68,6 +70,7 @@ class Vte < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/vte-0.0
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

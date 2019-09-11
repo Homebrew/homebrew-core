@@ -1,13 +1,14 @@
 class Libdazzle < Formula
   desc "GNOME companion library to GObject and Gtk+"
   homepage "https://gitlab.gnome.org/GNOME/libdazzle"
-  url "https://download.gnome.org/sources/libdazzle/3.32/libdazzle-3.32.0.tar.xz"
-  sha256 "949ed80bcef8a7816a8f281e0c4389e654a1dfa1912226fe4a0d290e023b28d6"
+  url "https://download.gnome.org/sources/libdazzle/3.34/libdazzle-3.34.0.tar.xz"
+  sha256 "8d8524bcb2acd6bda0fb3efe96f0bf3e8860ca18eed1fc55dc1c27756b49637c"
 
   bottle do
-    sha256 "49bc4d85d120c7e8b7e7a5d0f6ebcd5659277f69d8689ee2ee254b107d2d67f6" => :mojave
-    sha256 "f9073d4d24e516af6bfba1fe36f36f2eaafd6c283fdb0b47b7bbf45adf0850bf" => :high_sierra
-    sha256 "904dcdd8c24471ab8d63651f6e358023d262f172ce99447eeedfb3b490ad3f88" => :sierra
+    cellar :any
+    sha256 "659df8d399e3ff0e90a550544b6813c43bad88e255dc32e9b7f3b65084a5e30a" => :mojave
+    sha256 "09c75b49bd517178b665d55123e4c3c49897f7b0e79a5d2ac5efb6292a354583" => :high_sierra
+    sha256 "4882455bb709917b7ef5f8e39b563a12d42067ba3699ead4811e58d8ca2f1966" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -15,22 +16,16 @@ class Libdazzle < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "gtk+3"
 
-  # submitted upstream as https://gitlab.gnome.org/GNOME/libdazzle/merge_requests/30
-  patch :DATA
-
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=false", ".."
+      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=true", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
-
-    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/Dazzle-1.0.gir", "@rpath", lib.to_s
-    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Dazzle-1.0.typelib", share/"gir-1.0/Dazzle-1.0.gir"
   end
 
   test do
@@ -106,40 +101,3 @@ class Libdazzle < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index e468303..c0b7538 100644
---- a/meson.build
-+++ b/meson.build
-@@ -1,7 +1,7 @@
- project('libdazzle', 'c',
-           version: '3.32.0',
-           license: 'GPLv3+',
--    meson_version: '>= 0.47.2',
-+    meson_version: '>= 0.48.0',
-   default_options: [ 'warning_level=1', 'buildtype=debugoptimized', 'c_std=gnu11' ],
- )
-
-@@ -26,6 +26,8 @@ current = dazzle_version_minor * 100 + dazzle_version_micro - dazzle_interface_a
- revision = dazzle_interface_age
- libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
-
-+darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, revision)]
-+
- config_h = configuration_data()
- config_h.set_quoted('GETTEXT_PACKAGE', 'libdazzle')
- config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-diff --git a/src/meson.build b/src/meson.build
-index 111b7e5..d263b86 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -100,7 +100,7 @@ endif
- libdazzle = shared_library(
-   'dazzle-' + apiversion,
-   libdazzle_sources,
--
-+      darwin_versions: darwin_versions,
-             soversion: 0,
-                c_args: libdazzle_args + release_args,
-          dependencies: libdazzle_deps,

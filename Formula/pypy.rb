@@ -1,15 +1,16 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.0-src.tar.bz2"
-  sha256 "84ce5bc2867b224e2516ef431d78c6908d0182bc89444f7c1ef707443763754f"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-src.tar.bz2"
+  sha256 "5f06bede6d71dce8dfbfe797aab26c8e35cb990e16b826914652dc093ad74451"
+  revision 1
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "e336ac7f63484ca17a06ccf36d8041b5b01fb1b78c0254dd29180c65cce9ec96" => :mojave
-    sha256 "8306ce9444a1a3c7268b69644f5a49a9077b9bd5334269c618373ec7dba44002" => :high_sierra
-    sha256 "6891bf253e0cb77f10a70151ad5ffc6c08453a4535f15c4710db8ea3fd6a8c11" => :sierra
+    sha256 "14c8cec024030a5c28748a0783e4e7c6dfcc31b81dfbed4cd53eb0ea0b382aa6" => :mojave
+    sha256 "d2c8f92fcbd771cb919d92a8aac14970d26c7cd3d41965dcf8507c5195fd00c7" => :high_sierra
+    sha256 "90fc694ab3be9590e0aaf3a2c77042978c2b93776b94f6e8ba5df7d849f250f3" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,23 +19,23 @@ class Pypy < Formula
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
   depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"
-    version "6.0.0"
-    sha256 "d7dc443e6bb9a45212e8d8f5a63e9f6ce23f1d88c50709efea1c75b76c8bc186"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-osx64.tar.bz2"
+    version "7.0.0"
+    sha256 "e7ecb029d9c7a59388838fc4820a50a2f5bee6536010031060e3dfa882730dc8"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1a/04/d6f1159feaccdfc508517dba1929eb93a2854de729fa68da9d5c6b48fa00/setuptools-39.2.0.zip"
-    sha256 "f7cddbb5f5c640311eb00eab6e849f7701fa70bf6a183fc8a2c33dd1d1672fb2"
+    url "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-41.0.1.zip"
+    sha256 "a222d126f5471598053c9a77f4b5d4f26eaa1f150ad6e01dcf1a42e185d05613"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
-    sha256 "f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68"
+    url "https://files.pythonhosted.org/packages/source/p/pip/pip-19.1.1.tar.gz"
+    sha256 "44d3d7d3d30a1eb65c7e5ff1173cdf8f7467850605ac7cc3707b6064bddd0958"
   end
 
   def install

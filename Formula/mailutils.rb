@@ -1,15 +1,14 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.4.tar.gz"
-  sha256 "a3e83b1450222ffdbc7fa42e7171d530fcd568b6871158a489d86840ae130df7"
-  revision 1
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.7.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.7.tar.gz"
+  sha256 "e95920d23b5ded11479d2aded795e7f8f94e02c88e05198e9093f23b45eb04fa"
 
   bottle do
-    sha256 "4534b7279eebc00daa33748b5dd13ca515f85027c7179620395d7f29245f03ee" => :mojave
-    sha256 "fb9d692e4cca9b19fc8a58f3db09d1f69b52876209b20a678bf8a82405b81456" => :high_sierra
-    sha256 "7f55d036e19237423f2a1d2cbf5e9415d10a97f10d462ed00ecfb157248a31a8" => :sierra
+    sha256 "be6e0c786604ac1cd9ad074ab3d957fce8aa875b04f171bf01173da5669b03f6" => :mojave
+    sha256 "b0a45ec764015639c065186fe1074300035f0a3d2458162048899222fbf32652" => :high_sierra
+    sha256 "8555d63a0d240ffd3948076f266aa3b88c2197e2becab0f463918facb8501f2f" => :sierra
   end
 
   depends_on "gnutls"
@@ -17,9 +16,24 @@ class Mailutils < Formula
   depends_on "libtool"
   depends_on "readline"
 
+  # Patch to fix build error:
+  #
+  #   duplicate symbol _status in:
+  #       .libs/dotmail.o
+  #       .libs/message.o
+  #   ld: 2 duplicate symbols for architecture x86_64
+  #
+  # Patch has been accepted upstream, remove on next release
+  patch do
+    url "https://git.savannah.gnu.org/cgit/mailutils.git/patch/?id=b696daa86b51a38841e4c39bce0a46eaac2f1db4"
+    sha256 "919c89d05ae88c33ff715b14fd47733960eb8f633835f3ca6f1867995a51e5a5"
+  end
+
   def install
     system "./configure", "--disable-mh",
                           "--prefix=#{prefix}",
+                          "--without-fribidi",
+                          "--without-gdbm",
                           "--without-guile",
                           "--without-tokyocabinet"
     system "make", "PYTHON_LIBS=-undefined dynamic_lookup", "install"

@@ -1,14 +1,15 @@
 class Libnice < Formula
   desc "GLib ICE implementation"
   homepage "https://wiki.freedesktop.org/nice/"
-  url "https://nice.freedesktop.org/releases/libnice-0.1.15.tar.gz"
-  sha256 "f7280f3f58f594409c719a03009aa819c599078b410796f408251277807587da"
+  url "https://nice.freedesktop.org/releases/libnice-0.1.16.tar.gz"
+  sha256 "06b678066f94dde595a4291588ed27acd085ee73775b8c4e8399e28c01eeefdf"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7ad4af0b7d763700cadd513c9e7a0aded9bc29638ecff250b7fb3897157bd3ac" => :mojave
-    sha256 "3873699688e7d9cc866dbbf7c4ad9a2f09f1c7ec86e548c25570d2435113f76c" => :high_sierra
-    sha256 "33228c4e83ecc832b6ccf49e641d1cc186c362f256ec407f867b6ee8b3baffcb" => :sierra
+    sha256 "a5ef1e08fe29a17e47670e854e946b15c7c4c62bab5638df797fd315863b5bdb" => :mojave
+    sha256 "2c27b6b47ed04298c57ef98e1e639cd29ba98e634a7be954fc7d4ed06c96f82b" => :high_sierra
+    sha256 "d0c005749a7f6c923e1e704a92229c40cae62d3f20ddc60c999557a3c5e09a5a" => :sierra
   end
 
   depends_on "pkg-config" => :build

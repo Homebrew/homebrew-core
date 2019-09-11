@@ -1,8 +1,8 @@
 class ChromeExport < Formula
   desc "Convert Chrome’s bookmarks and history to HTML bookmarks files"
   homepage "https://github.com/bdesham/chrome-export"
-  url "https://github.com/bdesham/chrome-export/archive/v2.0.1.tar.gz"
-  sha256 "9ba4b5b5c4881785bb6840a434cd3f1ce553c6e37fad0c5be1ac3533ef94f269"
+  url "https://github.com/bdesham/chrome-export/archive/v2.0.2.tar.gz"
+  sha256 "41b667b407bc745a57105cc7969ec80cd5e50d67e1cce73cf995c2689d306e97"
   revision 1
 
   bottle :unneeded
@@ -10,6 +10,8 @@ class ChromeExport < Formula
   def install
     bin.install "export-chrome-bookmarks"
     bin.install "export-chrome-history"
+    man1.install "man_pages/export-chrome-bookmarks.1"
+    man1.install "man_pages/export-chrome-history.1"
     pkgshare.install "test"
   end
 

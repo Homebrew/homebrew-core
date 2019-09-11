@@ -2,27 +2,30 @@ class Volt < Formula
   desc "Meta-level vim package manager"
   homepage "https://github.com/vim-volt/volt"
   url "https://github.com/vim-volt/volt.git",
-    :tag      => "v0.3.5a",
-    :revision => "dd1a16c77faf9887408744b146efc2d0bfdf500c"
+    :tag      => "v0.3.7",
+    :revision => "e604467d8b440c89793b2e113cd241915e431bf9"
   head "https://github.com/vim-volt/volt.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bef81710d05a2defe04b4890f5ac9a8dd42c143994756b72e6ab7ceaa30e08e6" => :mojave
-    sha256 "cfe9f4dd24c96516de480a5d498b93f7b94740284b2ffb59219c5d632b915ad5" => :high_sierra
-    sha256 "b503cbf438b2e4ec9f72339672970fd92ead4a74965b0f5ffb6ca8120cdf71d7" => :sierra
+    sha256 "9db9e940c124e8e655cdd84b7d143f526535c588ebd6503acb3960143d08f905" => :mojave
+    sha256 "7fd8887efcdc3a9816b2dea510c2e3ba218e0e719390841d3b0b416fde53378e" => :high_sierra
+    sha256 "4edc3f1130757ddbf0a7b3c018825f68f2ecb24417f3afc3fd54b532e8c72c46" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    mkdir_p buildpath/"src/github.com/vim-volt"
-    ln_s buildpath, buildpath/"src/github.com/vim-volt/volt"
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
+    (buildpath/"src/github.com/vim-volt/volt").install buildpath.children
+    cd "src/github.com/vim-volt/volt" do
+      system "go", "build", "-o", bin/"volt"
+      prefix.install_metafiles
 
-    system "make", "BIN_DIR=#{bin}"
-
-    bash_completion.install "_contrib/completion/bash" => "volt"
+      bash_completion.install "_contrib/completion/bash" => "volt"
+      zsh_completion.install "_contrib/completion/zsh" => "_volt"
+      cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
+    end
   end
 
   test do

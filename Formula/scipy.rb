@@ -1,15 +1,16 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/a9/b4/5598a706697d1e2929eaf7fe68898ef4bea76e4950b9efbe1ef396b8813a/scipy-1.2.1.tar.gz"
-  sha256 "e085d1babcb419bbe58e2e805ac61924dac4ca45a07c9fa081144739e500aa3c"
+  url "https://files.pythonhosted.org/packages/cb/97/361c8c6ceb3eb765371a702ea873ff2fe112fa40073e7d2b8199db8eb56e/scipy-1.3.0.tar.gz"
+  sha256 "c3bb4bd2aca82fb498247deeac12265921fe231502a6bc6edea3ee7fe6c40a7a"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
     cellar :any
-    sha256 "c0e0115fcfba8706f9411916c3bbf728b893f301aa37228fd3201f5088e99d90" => :mojave
-    sha256 "ceae4d7348278883b08fa0d1033437bf01710ac43c968b438f5e2bb1f83dcde9" => :high_sierra
-    sha256 "72d3937d639e31e73c79b7c72f0ab686d0fde6a5dd88ceb2b36df1ba6251a2e1" => :sierra
+    sha256 "952cee660434c8d413e10e0c3b35e742389ac5ca4cf5143a85ee9b52f8efbdf5" => :mojave
+    sha256 "d7c2eadab99795a7399357baa46214580287082dda88baf04316b1df0a9d1757" => :high_sierra
+    sha256 "b4451f5eacb2e3e53aa891911dfc0b0069461a9396422b1cdfae13d2444142bb" => :sierra
   end
 
   depends_on "swig" => :build
@@ -17,7 +18,6 @@ class Scipy < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "python"
-  depends_on "python@2"
 
   cxxstdlib_check :skip
 
@@ -38,13 +38,11 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
-      ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-      system python, "setup.py", "build", "--fcompiler=gnu95"
-      system python, *Language::Python.setup_install_args(prefix)
-    end
+    version = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
+    system "python3", "setup.py", "build", "--fcompiler=gnu95"
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems
@@ -66,8 +64,6 @@ class Scipy < Formula
   end
 
   test do
-    ["python2", "python3"].each do |python|
-      system python, "-c", "import scipy"
-    end
+    system "python3", "-c", "import scipy"
   end
 end

@@ -1,17 +1,16 @@
 class Camlp4 < Formula
   desc "Tool to write extensible parsers in OCaml"
   homepage "https://github.com/ocaml/camlp4"
-  url "https://github.com/ocaml/camlp4/archive/4.07+1.tar.gz"
-  version "4.07+1"
-  sha256 "ecdb8963063f41b387412317685f79823a26b3f53744f0472058991876877090"
+  url "https://github.com/ocaml/camlp4/archive/4.08+1.tar.gz"
+  version "4.08+1"
+  sha256 "655cd3bdcafbf8435877f60f4b47dd2eb69feef5afd8881291ef01ba12bd9d88"
   head "https://github.com/ocaml/camlp4.git", :branch => "trunk"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83245cd4c3c676b924ca2e50a22e3ce2691fe8222b57ceb20a668e61cedf2134" => :mojave
-    sha256 "a54248473ee2730cd7a78f204bf98067ddda11aeafaebbe5c2842021ae766f43" => :high_sierra
-    sha256 "fa95192b50365b2b75ea025aa99b9f9bbaf5c1362c612d1eac1b4eebee012dc5" => :sierra
-    sha256 "bf8b4e53abfca6f7721315d0f898406cd3dcbafc02675f582dd6fb9d08c1cf82" => :el_capitan
+    sha256 "0eeb91e592213855883d9387bbcb2a034250df388f5f3499210cc5aed60267c8" => :mojave
+    sha256 "9fa35bb3cefc703afab585f87687df22a3542a7c076966693c5c8a663a3220d3" => :high_sierra
+    sha256 "e39318a0bc39b66821eb35ac0a706f61754d2c27355bfe7da5a68a7bff05243c" => :sierra
   end
 
   depends_on "ocaml"
@@ -35,5 +34,8 @@ class Camlp4 < Formula
                             "foo.ml", "-o", testpath/"foo.ml.out"
     assert_equal "type t = [ Homebrew | Rocks ];",
                  (testpath/"foo.ml.out").read.strip
+
+    (testpath/"try_camlp4.ml").write "open Camlp4"
+    system "ocamlc", "-c", "-I", "#{HOMEBREW_PREFIX}/lib/ocaml/camlp4", "-o", testpath/"try_camlp4.cmo", testpath/"try_camlp4.ml"
   end
 end

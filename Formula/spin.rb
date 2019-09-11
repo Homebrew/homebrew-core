@@ -1,27 +1,22 @@
 class Spin < Formula
   desc "The efficient verification tool of multi-threaded software"
   homepage "https://spinroot.com/spin/whatispin.html"
-  url "https://spinroot.com/spin/Src/spin648.tar.gz"
-  version "6.4.8"
-  sha256 "0035bb114157a759e047c7f94ede0a3d7149003893914c9bbdff45e074ab6ae7"
+  url "https://github.com/nimble-code/Spin/archive/version-6.5.0.tar.gz"
+  sha256 "7bd764793621940b7e69eef8210c82c75ccee7745f24927f221d228260505333"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e4e65759c869d3b4964139b731725f4b6aba48ee722f5ed8824f92a8b097b77" => :mojave
-    sha256 "11dcb2192a287c7bdbdbf7109add8ffb9c33161b12b4342c9feef21fd16269d1" => :high_sierra
-    sha256 "5d881e899d308eee2c72c19050d61f70c53b439d7cb5b188dd6e104345a6fa35" => :sierra
-    sha256 "f64e72a5667316b47f32d7c1af206a7735708bbbb1a02e7d6d752d1e7e63b3ad" => :el_capitan
+    sha256 "92ea7a4b20e4d8409df68c717caddc537c0cfb578040f4eb6b48846e64aeef08" => :mojave
+    sha256 "ab5249a0e58f7ee677defc10bd187c6ef5ee3ddc5eb5cf0ba4747b222ccb7ed8" => :high_sierra
+    sha256 "82e328f8c23068ad8dc2f722cf6872e0dfab0e68eb1b10813f1aaa6d0c667caf" => :sierra
   end
 
   def install
-    ENV.deparallelize
-
-    cd "Src#{version}" do
+    cd "Src" do
       system "make"
       bin.install "spin"
     end
 
-    bin.install "iSpin/ispin.tcl" => "ispin"
     man1.install "Man/spin.1"
   end
 

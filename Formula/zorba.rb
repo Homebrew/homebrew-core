@@ -3,12 +3,12 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
-  revision 9
+  revision 10
 
   bottle do
-    sha256 "cb24e884cb56af293bf9b10e7280aff091e72540d6d67d610674bcd0c5dfcdd9" => :mojave
-    sha256 "35316a8148a7c4b89be1b2acbfc891541cdd994d535764db5ad88b858b99f8b0" => :high_sierra
-    sha256 "167fd942d96909452d63be186c76b0f2c9b8d575b9afcb896b6d7ba15c4af798" => :sierra
+    sha256 "55376a15e18dff204a8c5699749249d880e18823f9c6bc33c1331eb83e13ba3f" => :mojave
+    sha256 "4fed67773a58207a2ead212f4250ea74febf4bd4ba114f9f5092a7cc5face43b" => :high_sierra
+    sha256 "d2bbe83eaf99a61e496b6fd923c4ae0ff809af4fc2557170d84293a3607db46f" => :sierra
   end
 
   depends_on "cmake" => :build

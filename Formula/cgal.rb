@@ -3,12 +3,13 @@ class Cgal < Formula
   homepage "https://www.cgal.org/"
   url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.14/CGAL-4.14.tar.xz"
   sha256 "59464b1eaee892f2223ba570a7642892c999e29524ab102a6efd7c29c94a29f7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8987fe56d173560be950ee0bbe77c5a7a5015b743c1111cb5136946b86af92e1" => :mojave
-    sha256 "9ebc1fcc1954264abed37bb40cff0d64f6290b03effa0d95e4b579c9710a4f59" => :high_sierra
-    sha256 "13eb7618b3f053926d6f88e4d701a12bc4792b1aabad0f822b1af9c1a51ea242" => :sierra
+    sha256 "b565fe6648ad045b90c9be41c536e77fcedccc3680062a29940181df78a061f2" => :mojave
+    sha256 "a8349e42e0d2882724631abd62f95ae84b028ca2354e37f83dde2bbdcb64c1f1" => :high_sierra
+    sha256 "0695534a43bc5be0234d0d4184dccadd79197ad442a2e72773a7bf4b08e0376f" => :sierra
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,6 +27,7 @@ class Cgal < Formula
       -DWITH_CGAL_Qt5=OFF
       -DWITH_CGAL_ImageIO=OFF
     ]
+
     system "cmake", ".", *args
     system "make", "install"
   end

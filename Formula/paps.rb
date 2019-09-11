@@ -3,13 +3,14 @@ class Paps < Formula
   homepage "https://github.com/dov/paps"
   url "https://github.com/dov/paps/archive/0.7.0.tar.gz"
   sha256 "7a18e8096944a21e0d9fcfb389770d1e7672ba90569180cb5d45984914cedb13"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d83539a5f07741571e46050c7fe444cd62ff0c8c51909a26e193e2abdd5ecd41" => :mojave
-    sha256 "b5599742d6b369366a9bc00f42d6f3513cfb9c670bf6199222b7580c19c1706b" => :high_sierra
-    sha256 "985afbb83ca67f6190f299ac8d22d929cc4b2bd12173954dab8d0ab4e7e485ef" => :sierra
-    sha256 "4164c3d56b5b572d38f8f30d852e56a541b587f67c063213133842421302390b" => :el_capitan
+    rebuild 1
+    sha256 "11af35b3ae704752dac73a0e5978fb8b02d58f49ec6969800cc974aa22c5b3ff" => :mojave
+    sha256 "3b5b4451a527df6fc25bc6671fba73ce636e6040890984aa8fc7d466e9570b52" => :high_sierra
+    sha256 "0748d3857e30ea718419eda80c160c8cc4167deee1711c660d106a3a38a5095b" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -32,6 +33,6 @@ class Paps < Formula
   test do
     system bin/"paps", pkgshare/"examples/small-hello.utf8", "-o", "paps.ps"
     assert_predicate testpath/"paps.ps", :exist?
-    assert_match "Ch\\340o", (testpath/"paps.ps").read
+    assert_match "%!PS-Adobe-3.0", (testpath/"paps.ps").read
   end
 end

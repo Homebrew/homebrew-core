@@ -1,8 +1,8 @@
 class Vfuse < Formula
   desc "Convert bootable DMG images for use in VMware Fusion"
   homepage "https://github.com/chilcote/vfuse"
-  url "https://github.com/chilcote/vfuse/archive/2.0.9.tar.gz"
-  sha256 "527a6f620387e8ad278fb3c1fa329155f6b23215cf8902c4ba51ce4d48560aaa"
+  url "https://github.com/chilcote/vfuse/archive/2.2.3.tar.gz"
+  sha256 "862f8a98f27a1e40b97a1d9853ca63cf4d8b8b924963226e3fa459bffd053ccf"
 
   bottle :unneeded
 

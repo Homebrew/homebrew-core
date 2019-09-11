@@ -3,14 +3,13 @@ class Pygtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/pygtksourceview.html"
   url "https://download.gnome.org/sources/pygtksourceview/2.10/pygtksourceview-2.10.1.tar.bz2"
   sha256 "b4b47c5aeb67a26141cb03663091dfdf5c15c8a8aae4d69c46a6a943ca4c5974"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "7d4a804d4870770f76675099c50749c9582f739393948b02a71ae72be223eb53" => :mojave
-    sha256 "403e577aada95260735e2c8d5764f780cc7f064e2a1916f279845be8cb0342f7" => :high_sierra
-    sha256 "3d85551378f74ecbab39ab028dde5e1542fc473a9a9baba3413fa53edfe6f2d5" => :sierra
-    sha256 "566425ceba6539e9a40d1024fd036de26ba9d0f81961d556a931208ebfc6abe5" => :el_capitan
+    sha256 "ae2e401de44821e4ef5b3e3120ac5a5f686b760b4d52cfadb835b32ef76186c4" => :mojave
+    sha256 "1c08c4751e80ff7c9957de906a6c14331867a8aede0960d5a9c9d341951f1cdb" => :high_sierra
+    sha256 "bd2fa334ba5a8767e8153fbfd711bc498c300123407d36a287855195f6349cd1" => :sierra
   end
 
   depends_on "pkg-config" => :build

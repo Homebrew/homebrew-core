@@ -4,13 +4,12 @@ class Dc3dd < Formula
   url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip",
       :using => :nounzip
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "91be6d42e350b7af3ae449044fd7ab6d5a78253e8e217578b90065c99a5b15f4" => :mojave
-    sha256 "42eadd524bba6cd7f4d4898f209aafd3aca03522d2dad45af7ede5262dbbb009" => :high_sierra
-    sha256 "bf191ae1f00552deaf5c966367cfca182d98ab6e84e284d06be62da8f517f2eb" => :sierra
+    sha256 "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e" => :mojave
+    sha256 "b906b2d7009282e22eb97a1ad07982f3e4545fa4791cb2bc2eaf1e0c101ebaed" => :high_sierra
+    sha256 "581af2165e8c666a92060e8354107cd0b27ada0143b4e0f5416b1d76739f45b7" => :sierra
   end
 
   depends_on "gettext"

@@ -3,11 +3,12 @@ class Gucharmap < Formula
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
   url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
   sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
+  revision 1
 
   bottle do
-    sha256 "9bb1d5a9b175c4297aad6e9bbcf4c205939ee10988c5f331ec3d18ba0910f1bf" => :mojave
-    sha256 "8afb998c47ced996ec89d5820d629c8dd479023f2f80d525227878f1f67eeb57" => :high_sierra
-    sha256 "ad46ff5cef59ac214eb3badf906823d8948c6817a68bcb48ac08f04fe083ea4c" => :sierra
+    sha256 "9c965568b01c23bb6ef12d997fa2f7335298ac6cba1acfb1ca0680b85a93e198" => :mojave
+    sha256 "644ffd53ce114c7790c97183807812121fb681aeb308303dcedbb5c2a889c5de" => :high_sierra
+    sha256 "b939644d0bb0ea2f732242acd4bca679a538dd18c8bd2d9ef23cdb37afb5043f" => :sierra
   end
 
   depends_on "coreutils" => :build

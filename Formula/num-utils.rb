@@ -2,7 +2,7 @@ class NumUtils < Formula
   desc "Programs for dealing with numbers from the command-line"
   homepage "https://suso.suso.org/programs/num-utils/"
   url "https://suso.suso.org/programs/num-utils/downloads/num-utils-0.5.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/n/num-utils/num-utils_0.5.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/n/num-utils/num-utils_0.5.orig.tar.gz"
   sha256 "03592760fc7844492163b14ddc9bb4e4d6526e17b468b5317b4a702ea7f6c64e"
 
   bottle do

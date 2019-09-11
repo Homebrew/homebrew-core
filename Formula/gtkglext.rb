@@ -3,15 +3,14 @@ class Gtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "362e95437d50277dc336134b91259349cff48bad7e29e5a703c1aea77ab4c73c" => :mojave
-    sha256 "273c2ef65c3757736c30a0179c051fe293da12e11d1c26e735d9d0968c8a6296" => :high_sierra
-    sha256 "06c59b81c678523054566cb101bac3170fed61c74e1a8beadd25e32ea62de4e2" => :sierra
-    sha256 "1bfd5206621c55215c249f86971be17f9de6385ff08141a53797931e621e507c" => :el_capitan
-    sha256 "bbc371cd59e3955e3bf31f37df5dfe56e977c3552d01596f0e93f252d80430e0" => :yosemite
+    rebuild 1
+    sha256 "47e6df4903aa0d42f746daad8e0069e6136468cb7e43ca19aa244ca375347c6c" => :mojave
+    sha256 "032ee12c02c6b7cd99a5fcd13ec0d34218ce2201d7e326f33154b9123b7f18df" => :high_sierra
+    sha256 "c4a324a42081a1fe90112ec887f5a1d8b0bd5284453e4b01ae357332fbd69de7" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -100,6 +99,7 @@ class Gtkglext < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -114,6 +114,7 @@ class Gtkglext < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtkglext-1.0
       -I#{libpng.opt_include}/libpng16
       -I#{lib}/gtkglext-1.0/include

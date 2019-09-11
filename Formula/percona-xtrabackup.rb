@@ -1,14 +1,14 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.12/source/tarball/percona-xtrabackup-2.4.12.tar.gz"
-  sha256 "de02cfd5bde96ddbf50339ef3a4646004dde52239698df45c19ed3e8ee40738e"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
+  sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "ef5bf99911e8cd49c218154b34ab0f66f257b518888ec5b8bb21104b3f761422" => :mojave
-    sha256 "0d78f86e1768a845f703b4fd5a2cef722f382c6f7bfef2725933d5af02ed19ba" => :high_sierra
-    sha256 "fd664421defce224cee2753357b80521aaa6db4aaf5769fd026037db9b767104" => :sierra
+    sha256 "5c79a9667f73328988698067ccd98044c65b047d6334e4ecfbf6ea1f218a2494" => :mojave
+    sha256 "9e30e4ca82c4e36117a083f59f8326d7e3b5ce8b9f962ac3f036b8de24d50163" => :high_sierra
+    sha256 "872f44972f4f7701cc22730987eb5b81efb7691160ee7e4989fbcc25988ea1ae" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -16,7 +16,7 @@ class PerconaXtrabackup < Formula
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "percona-server",
     :because => "both install lib/plugin/keyring_vault.so"
@@ -42,6 +42,7 @@ class PerconaXtrabackup < Formula
       -DCOMPILATION_COMMENT=Homebrew
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
+      -DCMAKE_CXX_FLAGS="-DBOOST_NO_CXX11_HDR_ARRAY"
     ]
 
     # macOS has this value empty by default.

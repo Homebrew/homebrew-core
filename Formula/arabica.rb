@@ -20,6 +20,7 @@ class Arabica < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "boost"
+  uses_from_macos "expat"
 
   def install
     system "autoreconf", "-fvi"

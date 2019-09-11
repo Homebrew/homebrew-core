@@ -3,14 +3,13 @@ class Libgnomecanvas < Formula
   homepage "https://developer.gnome.org/libgnomecanvas/2.30/"
   url "https://download.gnome.org/sources/libgnomecanvas/2.30/libgnomecanvas-2.30.3.tar.bz2"
   sha256 "859b78e08489fce4d5c15c676fec1cd79782f115f516e8ad8bed6abcb8dedd40"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "45cf95b18206ce16aecc6d642d7fe453b3f03a2dd50a2fdfcfb574cf3e428239" => :mojave
-    sha256 "91610f96cef0504b4be9fb6355cac9f628867cc3bb6b8833aaad48c583f47dea" => :high_sierra
-    sha256 "ed520a02e7ea3cd0bcd48dba1ed262d89921bd5f5518c1d672f43a833c6bd758" => :sierra
-    sha256 "b1a71d30655833a45b35af8770181fbe3f5df7e66d1b08f491900d5e875acfef" => :el_capitan
+    sha256 "9ccb81e0493aa409725fe76ae345d5910be9ea3c782e4d9a46c24c42b0537150" => :mojave
+    sha256 "3c4443a3944a6834a107e2752c95174b49c83c3213be2ac3df319bfd900c22e6" => :high_sierra
+    sha256 "9b2e28d2331f1c24d8b320cc6509e5da3e3c748fac44d078e1f95c6c701b7b10" => :sierra
   end
 
   depends_on "intltool" => :build

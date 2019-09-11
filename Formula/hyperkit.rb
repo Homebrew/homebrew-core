@@ -1,19 +1,20 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20180403.tar.gz"
-  sha256 "e2739b034f20d9437696de48ace42600f55b7213292ec255032b2ef55f508297"
+  url "https://github.com/moby/hyperkit/archive/v0.20190802.tar.gz"
+  sha256 "747e20f47167f7a03d31691503027eff5d5df0d10d7821be3f18ab8d3dccbbfa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "575873fb7533d317e1044a2332d30c29eeef4d92653c2c16e780940e3695b32a" => :mojave
-    sha256 "7a720e8737ac10ca41fb6db08e382eb40d87430a088891af694ce333e99d66ce" => :high_sierra
-    sha256 "f4422d832468f23c3b845546205179edd61c4bb9a4c38ae39dd46018684f4a43" => :sierra
+    sha256 "a4948f7efd6aa82761aaff223f06418c4ab88ffc23dd3200dbeb244300ec01a3" => :mojave
+    sha256 "b3dc58b0f7a0b23c423873931df44b5fd44bd36d87484d65a57d19f679e73b1c" => :high_sierra
+    sha256 "67bfb33daa2a4c3c492d16e9c9a4811042f656e5c59f8f87c72902ef3ee3269e" => :sierra
   end
 
   depends_on "aspcud" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on :x11 => :build
   depends_on :xcode => ["9.0", :build]
 
   depends_on "libev"
@@ -24,7 +25,7 @@ class Hyperkit < Formula
   end
 
   def install
-    system "opam", "init", "--no-setup"
+    system "opam", "init", "--disable-sandboxing", "--no-setup"
     opam_dir = "#{buildpath}/.brew_home/.opam"
     ENV["CAML_LD_LIBRARY_PATH"] = "#{opam_dir}/system/lib/stublibs:#{Formula["ocaml"].opt_lib}/ocaml/stublibs"
     ENV["OPAMUTF8MSGS"] = "1"
@@ -32,15 +33,12 @@ class Hyperkit < Formula
     ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
     ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
 
-    inreplace "#{opam_dir}/compilers/4.05.0/4.05.0/4.05.0.comp",
-      '["./configure"', '["./configure" "-no-graph"' # Avoid X11
-
-    ENV.deparallelize { system "opam", "switch", "4.05.0" }
+    ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.07.1" }
 
     system "opam", "config", "exec", "--",
-           "opam", "install", "-y", "uri", "qcow", "conduit.1.0.0", "lwt.3.1.0",
-           "qcow-tool", "mirage-block-unix.2.9.0", "conf-libev", "logs", "fmt",
-           "mirage-unix", "prometheus-app"
+           "opam", "install", "-y", "uri.1.9.7", "qcow.0.10.4", "conduit.1.0.0", "lwt.3.1.0",
+           "qcow-tool.0.10.5", "mirage-block-unix.2.9.0", "conf-libev.4-11", "logs.0.6.3", "fmt.0.8.6",
+           "mirage-unix.3.2.0", "prometheus-app.0.5", "cstruct-lwt.3.2.1"
 
     args = []
     args << "GIT_VERSION=#{version}"

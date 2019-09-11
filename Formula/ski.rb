@@ -14,7 +14,7 @@ class Ski < Formula
   end
 
   head do
-    url "git://thyrsus.com/repositories/ski.git"
+    url "https://gitlab.com/esr/ski.git"
     depends_on "xmlto" => :build
   end
 

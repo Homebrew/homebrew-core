@@ -3,13 +3,13 @@ class Libswiften < Formula
   homepage "https://swift.im/swiften"
   url "https://swift.im/downloads/releases/swift-4.0/swift-4.0.tar.gz"
   sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "822a8010f7ec2bf10e19eb45970729fd3676086b01980881b4a88b5f881d33c2" => :mojave
-    sha256 "bcdb2fec93af1b9bc7e3c914e0c0bb9530b3869a4fe8a54572468f48107bc945" => :high_sierra
-    sha256 "aeac54677158c71e559b0db7f85895ce5e2b54f2b0a0e566638c568848f2fe1f" => :sierra
+    sha256 "489821c365b23676ac84c6f9ecc2157edaebd6d0025fa75b5f5e972078dead88" => :mojave
+    sha256 "3ec7dc4286e4651d14188794f22d4d89fa1284b999c7134416abcdd02d880744" => :high_sierra
+    sha256 "07e2d9467520a4c814e15b5328bec8b989449284161c66e120b036f09eed8d14" => :sierra
   end
 
   depends_on "scons" => :build

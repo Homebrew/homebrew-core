@@ -1,17 +1,17 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
+  revision 1
 
   stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.4.tar.bz2"
-    sha256 "1c5213f8565574ec8a66e08529fd20060c1b9a6cd9b803ba9bbb3b9847651b53"
+    url "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.8.tar.bz2"
+    sha256 "577bd6856612cebfc7c9ab3153a56a331ea6563cb750eb9fec88ac8896d6b60e"
   end
 
   bottle do
-    rebuild 1
-    sha256 "5fb5f9e4d0e7bc111c22d094de568ec45373400fa0e4189a751f4602afc0e533" => :mojave
-    sha256 "cd1e05ee174b9fa8c4aed38819649a5013d9390d90d607cd56705577bd0a16b2" => :high_sierra
-    sha256 "c7a1bb274aea0e1129ab7fb29106b47142b5dd62fc1a840722468b0e0f615c3a" => :sierra
+    sha256 "f61f5039f2f95352901da604b2fd084f750d05392fe08361c16f25956dc283c8" => :mojave
+    sha256 "5278c8763c7a11450b32f102ac061c1e0aa139f0cdff2a3514366382f5b1f305" => :high_sierra
+    sha256 "b759425afcd28e4fb7f81e1d6f15319b38830dd5ed7c74ed64c6cc3ee5cbe480" => :sierra
   end
 
   head do
@@ -27,7 +27,7 @@ class Trafficserver < Formula
     end
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
@@ -42,7 +42,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules

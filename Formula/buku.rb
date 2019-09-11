@@ -3,18 +3,18 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v4.1.tar.gz"
-  sha256 "a66a423f837c4daed1b4a4084fc58ee6e37ec58f42b9edd2d61c7af0e3d4f343"
+  url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
+  sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "22d85e59ee35cabc36f9d4da53ac954d3daaf3c9e56abf5d172f74c764627656" => :mojave
-    sha256 "eee1781899dd35719c61d0fdaa4ca5d3b8051a0f5706e8ec4e331df4ca3aa26e" => :high_sierra
-    sha256 "9110ee0dd4bdabd429499383bed74aa53b3ede2636c2691a0f1a3b2b233cd438" => :sierra
+    sha256 "4d967af6718f0da6ae76412a9c4c9d756e8a5d6e1c9b1d5e276e9e56d36357cd" => :mojave
+    sha256 "fa52aab1b64d26a7120a227db71b2e32c90512191e64fe709ed63493e913b34a" => :high_sierra
+    sha256 "a946efe8e1d35cf8934f7f33dcebf905a8e8d6d66702f469d1929cfb291475df" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do

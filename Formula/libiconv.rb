@@ -1,17 +1,15 @@
 class Libiconv < Formula
   desc "Conversion library"
   homepage "https://www.gnu.org/software/libiconv/"
-  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.15.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.15.tar.gz"
-  sha256 "ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178"
+  url "https://ftp.gnu.org/gnu/libiconv/libiconv-1.16.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libiconv/libiconv-1.16.tar.gz"
+  sha256 "e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"
 
   bottle do
     cellar :any
-    sha256 "e6e824f8f346ff3199168aca022fe0dae9f00a1d8d3ecba5fb855a9b29767588" => :mojave
-    sha256 "2e16b57017ea3f5c34a57ea7fe39f2aa22db73452eb438d67eb43a4ba8d5bc9d" => :high_sierra
-    sha256 "53766c5e51bc8e63b0e4c03bae4bcd22d414882eb484a4b55cb3ebe735e20a09" => :sierra
-    sha256 "1b7a98758ed53e484768a99cfdd0941bad8393ffce23d0f9650bbeff945da1f0" => :el_capitan
-    sha256 "19eb1ef341c6f45c08347bfb8d24e50d666a269523753862fa9a7a62691c0199" => :yosemite
+    sha256 "7638dd8e2d511a2ce14c6c420762ce7fdbae6a34158e25015c3ffd88de2dd19b" => :mojave
+    sha256 "0f7f5728be3b7fc082a62df5e38cf1f1f9dc540e95f0c3479788cc2e2dee7294" => :high_sierra
+    sha256 "2c40a7b0486b9394f5f4cb6304179527421b68c965c49d961cf2703205da93e1" => :sierra
   end
 
   keg_only :provided_by_macos

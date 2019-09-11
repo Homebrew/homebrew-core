@@ -3,14 +3,13 @@ class Utimer < Formula
   homepage "https://launchpad.net/utimer"
   url "https://launchpad.net/utimer/0.4/0.4/+download/utimer-0.4.tar.gz"
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
+  revision 1
 
   bottle do
-    sha256 "c81c54c3cf3a208bffc2971136b48339a0d86ae78ec0843b1d62e4342621b0bd" => :mojave
-    sha256 "5b16fba957c604780f67e530d2d6d794072087a1efd8c9926b45a7bcfb81033f" => :high_sierra
-    sha256 "83857df76553031baf373cf3c8d0124d5d7424bd9d42b2860e7fec530e6e91ca" => :sierra
-    sha256 "d7a0ec14fe3d04b314cb0c6c9e5d70b6f72d2de02e4e3227039919551eb118a6" => :el_capitan
-    sha256 "6009a679cfedeecb55dbdf0e952bc2b09a7c292f8aba5d6e861072139e2a8a23" => :yosemite
-    sha256 "a1841baa5d50002615efb07d07d5049e5965c06099e120f71654eec83dd4f1a3" => :mavericks
+    cellar :any
+    sha256 "01a5bce5e1e818932e0870eaed8586a23f3a6ca24504011005fc03d86992f63e" => :mojave
+    sha256 "ef1faac8b5226cad7b83369c5139a370543316fd43102f7a8ccd15ab63f4fe6e" => :high_sierra
+    sha256 "a2bb9673b9b7909dcb080f52ea6480d2d89f3ae0fdff3c599e17587ebce406e1" => :sierra
   end
 
   depends_on "intltool" => :build

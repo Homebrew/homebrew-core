@@ -3,14 +3,13 @@ class Sshfs < Formula
   homepage "https://osxfuse.github.io/"
   url "https://github.com/libfuse/sshfs/releases/download/sshfs-2.10/sshfs-2.10.tar.gz"
   sha256 "70845dde2d70606aa207db5edfe878e266f9c193f1956dd10ba1b7e9a3c8d101"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e4c05b69dfe45387aa294ca3fa675cf487db6c99b795859730ec6900fa61ec46" => :mojave
-    sha256 "283859a4868df7d91fc4a6fcef6ddc590957a661f833fbf81da25f6f2c72a585" => :high_sierra
-    sha256 "534fc64f25ee6757e4fd802988deee9d2df8f1c38604d36c525a12a67b1d23fa" => :sierra
-    sha256 "27c5e0d7f9bed4219c12267bd459fbd25a143abf0a9e3f5fa12fd0b587f10007" => :el_capitan
-    sha256 "61c578fbd666a6c2b5b452a7429e3fd5a64da153652d428386c41b4ebb6e30fa" => :yosemite
+    sha256 "95ebaeb9f9416c60c6700597888a55fe6bb40b5c9f9559b6db5239872e326d14" => :mojave
+    sha256 "9da72b32e4f155744f73cb71481519676dda245ba28d2cf63067a68902a478e6" => :high_sierra
+    sha256 "a969b8cd9fd220281abd651a689892760ec16a09cf8253d1ca5a05eedb20f801" => :sierra
   end
 
   depends_on "autoconf" => :build

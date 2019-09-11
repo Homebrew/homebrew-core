@@ -14,6 +14,7 @@ class Pkcrack < Formula
     sha256 "47f2ffa2e27f0dc5e6df45de7335e316a8ea83288153b274ae5d8e11c7157055" => :yosemite
   end
 
+  conflicts_with "csound", :because => "both install `extract` binaries"
   conflicts_with "libextractor", :because => "both install `extract` binaries"
 
   def install

@@ -3,13 +3,13 @@ class Clutter < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.2.tar.xz"
   sha256 "e7233314983055e9018f94f56882e29e7fc34d8d35de030789fdcd9b2d0e2e56"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "87e40791a3825261a8b37eb2e159f0b32bbd9be6aacb3bb288df0b39b1c4d1b1" => :mojave
-    sha256 "cd1bad834964168854f060603548fb495a629cbf98a119050cb1ff2a4ef41b67" => :high_sierra
-    sha256 "feebbe98a8c3cc1ad25202719451b4e9db64c145583ea1bd3b0d540e23cc8bf6" => :sierra
-    sha256 "fe6f945a3aac285dd0f21d1bdf0e4da08ac179c7cde03198af98c69166ccce6e" => :el_capitan
+    rebuild 1
+    sha256 "d0db7076ac2f6b676018c9a92123de1099c7900d56039922cdc89e2389a9031d" => :mojave
+    sha256 "3f628a4d8a13d6703f770323cac942541eafa9418507b3cd7466f0918bedce8b" => :high_sierra
+    sha256 "ee8780db0d069682fd246a88bff1695f42c02f4900fa6eb8a8e3ce986a0674bc" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -57,6 +57,7 @@ class Clutter < Formula
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -70,6 +71,7 @@ class Clutter < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-1.0
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libpng.opt_include}/libpng16

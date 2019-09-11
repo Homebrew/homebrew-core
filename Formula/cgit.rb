@@ -3,15 +3,17 @@ class Cgit < Formula
   homepage "https://git.zx2c4.com/cgit/"
   url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.1.tar.xz"
   sha256 "3c547c146340fb16d4134326e7524bfb28ffa681284f1e3914bde1c27a9182bf"
+  revision 1
 
   bottle do
-    sha256 "fd47d6d609f90119f930c5b63efcba5c47efc6be390459576751d558f82f3d32" => :mojave
-    sha256 "99191e176752e4f4d2069ed941c0efdd0927463b011ebc1c6f0cd9d6cac26331" => :high_sierra
-    sha256 "f60bf2a6028c022202ae9df8053a89e67be606a07a7ce630b89dbeddb2c6022d" => :sierra
+    rebuild 1
+    sha256 "0a8124c41a3e891d8ac8a9dc9391a1048deecb3b82a785d604bbf1d59125b010" => :mojave
+    sha256 "b5dd8fcf3e81b7d320ea39d9de0b7a3b20b6522978e01f2527e14845d80454c4" => :high_sierra
+    sha256 "7b21a1dd7536c3354280089b4521fa64e36c2d177303bf5f9ea7994b77a25f2d" => :sierra
   end
 
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # git version is mandated by cgit: see GIT_VER variable in Makefile
   # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2#n17

@@ -1,15 +1,15 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.6.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.6.tar.xz"
-  sha256 "4f6434fa541cc9e363434ea71a16a62cf2615fb2f16af5b38f43ab5939998c26"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.7.tar.xz"
+  sha256 "a42f53570f669eaf10af68e98d65b531015ff9e12be7a62d9269ea684652f648"
+  revision 1
 
   bottle do
-    sha256 "66f2838be95b48d8198f41d083d2400653bbc3d9f4d26235cc77ac79eb1d4e20" => :mojave
-    sha256 "47aff9000b9a23736bec4d1a58cafa8eb1511ffc85043b5eee2124735f073cd2" => :high_sierra
-    sha256 "9e23d0e6089f209c7bbac93594107741a1418bd71e65f4047355d1b1b2c71917" => :sierra
-    sha256 "6fd9609026d5f56b688f15856f19a5774f868262251cb1c8b6599a11c41a2fa1" => :el_capitan
+    sha256 "b19cc37d3a60d37e935e517dd7c34dd1c9474be22139835f1c21d2e6c86896eb" => :mojave
+    sha256 "de0cb2e72fc0faaf91aa210e79524648d2e17fc61938ea1c50cb94ad8105b0c2" => :high_sierra
+    sha256 "8f596b79f4c8c21ac2f003a395c8643794f86cdaff517bfed0476364fdbccc38" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -19,28 +19,10 @@ class Openvpn < Formula
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
-
-  resource "pkcs11-helper" do
-    url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.22/pkcs11-helper-1.22.tar.bz2"
-    sha256 "fbc15f5ffd5af0200ff2f756cb4388494e0fb00b4f2b186712dce6c48484a942"
-  end
+  depends_on "openssl@1.1"
+  depends_on "pkcs11-helper"
 
   def install
-    vendor = buildpath/"brew_vendor"
-
-    resource("pkcs11-helper").stage do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--prefix=#{vendor}/pkcs11-helper",
-                            "--disable-threading",
-                            "--disable-slotevent",
-                            "--disable-shared"
-      system "make", "install"
-    end
-
-    ENV.prepend_path "PKG_CONFIG_PATH", vendor/"pkcs11-helper/lib/pkgconfig"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

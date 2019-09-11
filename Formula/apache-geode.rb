@@ -1,12 +1,13 @@
 class ApacheGeode < Formula
   desc "In-memory Data Grid for fast transactional data processing"
   homepage "https://geode.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=geode/1.8.0/apache-geode-1.8.0.tgz"
-  sha256 "58edc41edac4eabd899322b73a24727eac41f6253274c2ce7d0a82227121ae3e"
+  url "https://www.apache.org/dyn/closer.cgi?path=geode/1.9.1/apache-geode-1.9.1.tgz"
+  mirror "https://archive.apache.org/dist/geode/1.9.1/apache-geode-1.9.1.tgz"
+  sha256 "4243c1361fc7dec3f77801ec164b43c2fcda8526972516033e1dec5b0b2d544d"
 
   bottle :unneeded
 
-  # Geode does not work with Java 1.9 (see https://issues.apache.org/jira/browse/GEODE-3)
+  # Geode should not be compiled on Java 9+ yet (see https://issues.apache.org/jira/browse/GEODE-3)
   depends_on :java => "1.8"
 
   def install

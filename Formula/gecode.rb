@@ -1,14 +1,14 @@
 class Gecode < Formula
   desc "Toolkit for developing constraint-based systems and applications"
   homepage "https://www.gecode.org/"
-  url "https://github.com/Gecode/gecode/archive/release-6.1.1.tar.gz"
-  sha256 "093e9fc6e5efa47341ec777af3550ded5c25542389d1f35b1dad58179c03cb92"
+  url "https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz"
+  sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
 
   bottle do
     cellar :any
-    sha256 "55dc34638cfe4faff6aad6557f8e1b17260b1cad6dbd3961acccd118cc84cc89" => :mojave
-    sha256 "9122a38fc2a9f87303785b73c9a74237c6f990e9e53804cbf88c84e970689c09" => :high_sierra
-    sha256 "42080622f8be3f4168089faccc155d26786e3bc52b9e427c1239bfb35e135e52" => :sierra
+    sha256 "525b7649d716a0ccb5f47f29e93a07f1677cbe531c9c978656b04826ad1cb678" => :mojave
+    sha256 "763d0d5da64075f5f64c3b7aee49a604680c266b1b6e4eeb8ffcfdb9e0d9ca0d" => :high_sierra
+    sha256 "1bb46e60636f1431cc5bf4b9aed1a2f038da1fef0eaeb1c3130a9252924efd54" => :sierra
   end
 
   def install

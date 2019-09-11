@@ -1,17 +1,17 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.92.tar.xz"
-  sha256 "6ac9e62b484e78951c7c0517d1229ad7619a7eea70ca3b38b8ef430b28ef1d62"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.92.2.tar.xz"
+  sha256 "01d7ae481d03ff408f8e54fd9b250324ea5ddabc83b1db32917c7f27a096a654"
 
   bottle do
-    sha256 "8370282b83e93c81ec78198a12d3c0261f98303ec7fa730aaafae52e96847eaa" => :mojave
-    sha256 "97f12d055fb4b124d5886a6a0243612012361ba2bd66b730dfd2d03c368d5ee4" => :high_sierra
-    sha256 "5256d1ca71f3b0f2c30f356b71d936360c3cff489450959e5bd7527d0b3aee71" => :sierra
+    sha256 "78da462df3f48a298776cb9a249ac8f546ec469ad60f05f22780a62c700cf967" => :mojave
+    sha256 "dcd596124892bc5605d083c534bd9a7a574dddd733e73a0d8996edcb1598b3b5" => :high_sierra
+    sha256 "8c46e773d58dfcd43adede1a8636a73c23bfe5191bd33d3427ec1df735a6b89c" => :sierra
   end
 
   depends_on "berkeley-db@4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install

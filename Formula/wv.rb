@@ -3,14 +3,12 @@ class Wv < Formula
   homepage "https://wvware.sourceforge.io/"
   url "https://abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz"
   sha256 "4c730d3b325c0785450dd3a043eeb53e1518598c4f41f155558385dd2635c19d"
+  revision 1
 
   bottle do
-    sha256 "ccef7d779d4138475c9eea9d0e1e6174787c79f6ab244327b86a40c76c1a7acc" => :mojave
-    sha256 "66081b31ef3906844afa215ad038f80b353bd49bb36f075c0fd5ce4951cd68cd" => :high_sierra
-    sha256 "b9ae25d64690436f441057dfa9aa3789deed460c743b3444642eefff761c76f5" => :sierra
-    sha256 "9b9e70a5e3bb7e6d29c5af4eed803a7fcbe31df03deafaf35cba1cfc949f35fa" => :el_capitan
-    sha256 "9924b96a1c67c774976b40de2083717a833d4dcaf801fba100f98677af01051c" => :yosemite
-    sha256 "5076c41e62ea86c638b482904ca0e30cffb2cbd3eb3acfe7b105cb4b28766838" => :mavericks
+    sha256 "e3b62df7fad6fefbd233abc45ede4f9705b447df51433e0129a82d98dc321811" => :mojave
+    sha256 "470ecfe6b84e931d4c4363b8274a04d42b2e2c3b6c5f50bc12b55a7fda6f5acb" => :high_sierra
+    sha256 "7df867080d9b2edb57780c5f971a4a22d01c301aff70c1af7a6ce13385828908" => :sierra
   end
 
   depends_on "pkg-config" => :build

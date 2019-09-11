@@ -3,17 +3,19 @@
 class Nethack < Formula
   desc "Single-player roguelike video game"
   homepage "https://www.nethack.org/"
-  url "https://www.nethack.org/download/3.6.1/nethack-361-src.tgz"
-  version "3.6.1"
-  sha256 "4b8cbf1cc3ad9f6b9bae892d44a9c63106d44782a210906162a7c3be65040ab6"
-  head "https://git.code.sf.net/p/nethack/NetHack.git", :branch => "NetHack-3.6.1"
+  url "https://www.nethack.org/download/3.6.2/nethack-362-src.tgz"
+  version "3.6.2"
+  sha256 "fbd00ada6a4ee347ecd4a350a5b2995b4b4ab5dcc63881b3bc4485b0479ddb1d"
+  revision 1
+  head "https://git.code.sf.net/p/nethack/NetHack.git", :branch => "NetHack-3.6.2"
 
   bottle do
-    sha256 "a6edc4d29cc966b69a6ebc87048d4a27475465a9c1a251908edf45718da02ef5" => :mojave
-    sha256 "a57fbc5bdea2350dc989315ca1366da7778496421fd1962ceca266897754b2cf" => :high_sierra
-    sha256 "57db6043731411211c6de280e66c98394f0b13db000f26749afb243bf0211289" => :sierra
-    sha256 "fe8264cd2c58b19c58b4192f1eb74fe8e44f503885a300ef1cba71c402abe4d3" => :el_capitan
+    sha256 "029b30c74691c4e207f0dbd0dcfb7643dfac8cfacc29d2aabaa9b3a728946c95" => :mojave
+    sha256 "15b49603100056b2b81fd90eae869934aeacc197e26cf97937fbaf1d446c9ba9" => :high_sierra
+    sha256 "4afdeae7f562cbcbab4d1ac7f68cd1d534a987b3521e2507bb4a81ccd44fc6bc" => :sierra
   end
+
+  uses_from_macos "ncurses"
 
   # Don't remove save folder
   skip_clean "libexec/save"
@@ -24,26 +26,20 @@ class Nethack < Formula
 
     # Generate makefiles for OS X
     cd "sys/unix" do
-      if MacOS.version >= :yosemite
-        hintfile = "macosx10.10"
+      if MacOS.version >= :mojave
+        hintfile = "macosx10.14"
       else
-        hintfile = "macosx10.7"
+        hintfile = "macosx10.10"
       end
 
-      inreplace "hints/#{hintfile}",
-                /^HACKDIR=.*/,
-                "HACKDIR=#{libexec}"
+      # Enable wizard mode for all users
+      inreplace "sysconf", /^WIZARDS=.*/, "WIZARDS=*"
 
       system "sh", "setup.sh", "hints/#{hintfile}"
     end
 
-    # Enable wizard mode for all users
-    inreplace "sys/unix/sysconf",
-      /^WIZARDS=.*/,
-      "WIZARDS=*"
-
-    # Make the game
-    system "make", "install"
+    # Make the game with curses
+    system "make", "install", "HACKDIR=#{libexec}", "WANT_WIN_CURSES=1"
     bin.install "src/nethack"
     (libexec+"save").mkpath
 
@@ -53,5 +49,9 @@ class Nethack < Formula
     # These need to be group-writable in multi-user situations
     chmod "g+w", libexec
     chmod "g+w", libexec+"save"
+  end
+
+  test do
+    system "#{bin}/nethack", "-s"
   end
 end

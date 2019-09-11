@@ -1,14 +1,14 @@
 class Lsd < Formula
   desc "Clone of ls with colorful output, file type icons, and more"
   homepage "https://github.com/Peltoche/lsd"
-  url "https://github.com/Peltoche/lsd/archive/0.14.0.tar.gz"
-  sha256 "ac30347c0a1826c37f5f2629a3bd12a4c1cec42428ea15d0d86d56841eaf6998"
+  url "https://github.com/Peltoche/lsd/archive/0.16.0.tar.gz"
+  sha256 "e2406748d78431a1c03bdd2404a204a006c19905d926e41a36587b93a791e003"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "28412d1195f68fcd90498378d36b727fc5a266f95b9ce56ca941e6d40081b738" => :mojave
-    sha256 "414b5fe9e809e3641b7930ce900e744c9407f062d962327508b092fb3359b982" => :high_sierra
-    sha256 "cbae4e055f8a92d1513da4f65f91dde6b7e2e9ca94729f959973e89187d5cae4" => :sierra
+    sha256 "9cf1be00bfe0f3f7d0142dd1d1f4118be58415f7a8444ff194a5f919a3dd03c9" => :mojave
+    sha256 "1017f694172dec6120c2d49277268ee21f417a363c55a880541c1119bd82fc4e" => :high_sierra
+    sha256 "93be9faa9b2a58a509f7d53a78ce1950bc3a770a13cffdc0980a329b97f14a5f" => :sierra
   end
 
   depends_on "rust" => :build

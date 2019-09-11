@@ -3,15 +3,12 @@ class Libiptcdata < Formula
   homepage "https://libiptcdata.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libiptcdata/libiptcdata/1.0.4/libiptcdata-1.0.4.tar.gz"
   sha256 "79f63b8ce71ee45cefd34efbb66e39a22101443f4060809b8fc29c5eebdcee0e"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "dcd03624950eb47746659ac044f32735c45ebc89a8d8c457bb6db47dcda8f955" => :mojave
-    sha256 "711d2412e24e7cfa0e519e60c7205e46d544d480892988dbb6e2c6039dc653f1" => :high_sierra
-    sha256 "d87011cbe7d98af0df3210ee1a01aaf35da267d9894b095ba031911a980d8c4e" => :sierra
-    sha256 "37747abe5597a40dec5a741919eaa46bedc42472bb909b9a09c4a200e5d592d4" => :el_capitan
-    sha256 "14f6b3a649e0d944768e5e3a1e4d44e1efd0389fdeaa5740993b10ee7a42c718" => :yosemite
-    sha256 "e88aff2cc7949c8c05608811f894bd6816d797eeffe74f35118168168512738c" => :mavericks
+    sha256 "78dc7bb6b1e5bcccc1c0c9ef158b8d423f782aa455b1b10c3eebb29de6e7fa58" => :mojave
+    sha256 "62f4a032075fbf0b9a43ef474b784bae7c47d503483bdc2e09e851c5568345e3" => :high_sierra
+    sha256 "0a9cd6e750e496cd4eb9797ac34d3659c8dc2bb6977020def1edb2ee60711a39" => :sierra
   end
 
   depends_on "gettext"

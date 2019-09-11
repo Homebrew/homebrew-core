@@ -1,16 +1,14 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
-  homepage "https://www.ctan.org/pkg/latex2html"
-  url "http://mirrors.ctan.org/support/latex2html/latex2html-2018.tar.gz"
-  mirror "https://ftp.gnome.org/mirror/CTAN/support/latex2html/latex2html-2018.tar.gz"
-  sha256 "09e37526d169e77c266c23122348998a0841c3d50866e45ff2550128157ad4e2"
-  revision 1
+  homepage "https://www.latex2html.org"
+  url "https://github.com/latex2html/latex2html/archive/v2019.2.tar.gz"
+  sha256 "a76066632ebe416c770a2ce345d670da846e9f3d89632d6acd6e57fa6b4e264a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "921724f29095fc6b3d89a1ed379c330f4f5fab7c29c4665e418b00621aa17a05" => :mojave
-    sha256 "1f53664898fb8df9884c207f5b5f7042e3c47069c4e48a519289251fe1c59f2a" => :high_sierra
-    sha256 "f4863e230cbd2838bd135e6a806a1fccc0453f033b65e26906f5a164eede7fce" => :sierra
+    sha256 "f6dee60d59252f2f582eb9c7f44f8b69809c649a362014d73f228a5f7c450f81" => :mojave
+    sha256 "5761ce11f487165b9ad54777b0702b88d8c8c18d2ac099f5ea8391102a055695" => :high_sierra
+    sha256 "b6e2c087c2aec7650e4157c35b7e5e40b82b4bc606aa93a8e04031c99b1b144a" => :sierra
   end
 
   depends_on "ghostscript"

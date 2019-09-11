@@ -3,13 +3,13 @@ class Libpst < Formula
   homepage "https://www.five-ten-sg.com/libpst/"
   url "https://www.five-ten-sg.com/libpst/packages/libpst-0.6.72.tar.gz"
   sha256 "8a19d891eb077091c507d98ed8e2d24b7f48b3e82743bcce2b00a12040f5d507"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "382d2a508b95f2b391141c778ef6a9629efa85bf4bed34d843b550b3b2729db0" => :mojave
-    sha256 "3d8f0a101e022d7061e7765c7a07033e84d4685648bd3256a832db0937fe7333" => :high_sierra
-    sha256 "8b65a4b37e63351f5991a8a6582aaaf93d26c81b820096da06a98da2b7a43394" => :sierra
+    sha256 "713575b82c8c6121fb24b6e81f3db9c97269ce36b7437bf627005aca52adbd0c" => :mojave
+    sha256 "53d20866aae36d6c27f70b87ca5ebdc95fce3812c0f7867ace75195851cb9255" => :high_sierra
+    sha256 "ba6f9f3cc335802c9dd31f7098c71c06adcc014ac4de0f821cd823956a6839fc" => :sierra
   end
 
   depends_on "pkg-config" => :build

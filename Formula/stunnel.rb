@@ -1,18 +1,18 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.50.tar.gz"
-  mirror "https://www.usenix.org.uk/mirrors/stunnel/stunnel-5.50.tar.gz"
-  sha256 "951d92502908b852a297bd9308568f7c36598670b84286d3e05d4a3a550c0149"
+  url "https://www.stunnel.org/downloads/stunnel-5.55.tar.gz"
+  sha256 "90de69f41c58342549e74c82503555a6426961b29af3ed92f878192727074c62"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e0fb492f1f33313f9b826df1c215b3e9249838ca6b86fc0f16ad82a06aa360ff" => :mojave
-    sha256 "992e36736d37859b9554a2c31ad76ed48d2ab112f1d93c440f1302cf6ce560fe" => :high_sierra
-    sha256 "ce75cbd34d1aa2d22faadbc78666e8663c6b5a629ccd76f1e7a343486aea95d8" => :sierra
+    sha256 "fafa5e38414ab12177298f5b77a4371edfd8602409477b9b0007da2b1b1cf88e" => :mojave
+    sha256 "b47a1919e1b97f074635d8779304aed0e4a10357b5a4e8a2d012628f2072a613" => :high_sierra
+    sha256 "a5f0c738c84803bc42de720998b0328e50c294d4dd62d9880754c56c39d9a7eb" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -23,7 +23,7 @@ class Stunnel < Formula
                           "--mandir=#{man}",
                           "--disable-libwrap",
                           "--disable-systemd",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
 
     # This programmatically recreates pem creation used in the tools Makefile
@@ -33,7 +33,7 @@ class Stunnel < Formula
                 openssl.cnf -out stunnel.pem -keyout stunnel.pem -sha256 -subj
                 /C=PL/ST=Mazovia\ Province/L=Warsaw/O=Stunnel\ Developers/OU=Provisional\ CA/CN=localhost/]
       system "dd", "if=/dev/urandom", "of=stunnel.rnd", "bs=256", "count=1"
-      system "#{Formula["openssl"].opt_bin}/openssl", *args
+      system "#{Formula["openssl@1.1"].opt_bin}/openssl", *args
       chmod 0600, "stunnel.pem"
       (etc/"stunnel").install "stunnel.pem"
     end

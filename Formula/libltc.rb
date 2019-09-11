@@ -1,16 +1,14 @@
 class Libltc < Formula
   desc "POSIX-C Library for handling Linear/Logitudinal Time Code (LTC)"
   homepage "https://x42.github.io/libltc/"
-  url "https://github.com/x42/libltc/releases/download/v1.3.0/libltc-1.3.0.tar.gz"
-  sha256 "aab1de052bc61fbac6ea66d88f04e95b7d5faa1ef297b95ea6a1a548c87dee5c"
+  url "https://github.com/x42/libltc/releases/download/v1.3.1/libltc-1.3.1.tar.gz"
+  sha256 "50e63eb3b767151bc0159a3cc5d426d03a42fd69029bc9b3b7c346555f4b709c"
 
   bottle do
     cellar :any
-    sha256 "28d1c8f3eefb0397ee41e69bbdfef98088e1995cab468ebf8c5a6acbc55d21cf" => :mojave
-    sha256 "ede5ce5a9de5f89bc42c9201da577af1249415435cbab06b5abcb51577ef6902" => :high_sierra
-    sha256 "5ce9e5d2072877c2d7ba32260047aa900b0918a796bd07ecc069c098d0763a6c" => :sierra
-    sha256 "39c5b5eae78f0abb51a5ac965f9e3f89bf831861ca88347b170f4fd4a9562b6e" => :el_capitan
-    sha256 "9e42898755bb3312b42cd61a28e658288a3282801d401f771cfb6236ba4a08aa" => :yosemite
+    sha256 "aecfd413335e0981c5ac452bc0b81bee57d3a4e5974237f5b6a64aae734369cf" => :mojave
+    sha256 "30f7ddada1d191c63214d44d9acec4862e71bca2ee67368c8546ec7240f65a9a" => :high_sierra
+    sha256 "1c51db3447916e208601775d43fb248bdc76f3b29b6f309ccc74eddc0a11c9c6" => :sierra
   end
 
   def install

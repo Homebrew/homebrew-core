@@ -4,12 +4,12 @@ class SubversionAT18 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.19.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
+  revision 1
 
   bottle do
-    sha256 "8f940fc03a334713836d6ed93f748fe573fc51dc5468dd575e14d7a614a4fb0a" => :mojave
-    sha256 "3a4e79dead2f4d209e06fe631903ed870610ddfc9ac091ec7d734f5025d0642e" => :high_sierra
-    sha256 "a3d73ecc8eddacfe764f5a83d5215220b7d3100d694c17ac3bed68089984e863" => :sierra
-    sha256 "0a39c347943ac7f025af06571378987e5d69805ab45cafd38215b5929a5a3722" => :el_capitan
+    cellar :any
+    sha256 "1276ffcfc75f585c19835c68f97702ce8ffeafcabb42f7a514d7fbf0591ef2cd" => :mojave
+    sha256 "47b6166a5092c8eff0d132b9bea06f0e6d15683f4230ec83111018546f319765" => :sierra
   end
 
   keg_only :versioned_formula
@@ -18,7 +18,7 @@ class SubversionAT18 < Formula
   depends_on "scons" => :build # For Serf
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "openssl" # For Serf
+  depends_on "openssl@1.1" # For Serf
   depends_on "sqlite" # build against Homebrew version for consistency
 
   resource "serf" do
@@ -49,7 +49,7 @@ class SubversionAT18 < Formula
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-                OPENSSL=#{Formula["openssl"].opt_prefix}]
+                OPENSSL=#{Formula["openssl@1.1"].opt_prefix}]
 
       if MacOS.version >= :sierra || !MacOS::CLT.installed?
         args << "APR=#{Formula["apr"].opt_prefix}"

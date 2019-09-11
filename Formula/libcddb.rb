@@ -3,14 +3,13 @@ class Libcddb < Formula
   homepage "https://libcddb.sourceforge.io/"
   url "https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2"
   sha256 "35ce0ee1741ea38def304ddfe84a958901413aa829698357f0bee5bb8f0a223b"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "fd4deef19baf21adb361af69392b1f33921d84e0fb4fbd268e08f5abcf3d0a30" => :mojave
-    sha256 "94d7f528e8a973b10e501b390e5bd1c7173b2b63cbcaec311975ab70fba5dc36" => :high_sierra
-    sha256 "05158c1d03538f29cb8f4bd932925efaceba92eb87a748538deb25977b5f3238" => :sierra
-    sha256 "bf7769869336f10b416971cef25252e3afd93a791c4d96ce5d4e134f449a8991" => :el_capitan
+    sha256 "2eb96af074a3f8dc8babf689481d9be863c0e79445499a473f94c57773381983" => :mojave
+    sha256 "f6f41c88a20822be86c07ce27b0f426d3c34d4d420c77d35ff457291c7ad3ada" => :high_sierra
+    sha256 "bc93037789abf90bd060a9f6f27af23b2fabb7980c43f5d4a93835469442466a" => :sierra
   end
 
   depends_on "pkg-config" => :build

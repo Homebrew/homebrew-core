@@ -3,12 +3,12 @@ class Pioneers < Formula
   homepage "https://pio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.5.tar.gz"
   sha256 "3ee1415e7c48dc144fbdb99105a6ef8a818e67ed34e9d0f8e01224c3636cef0c"
+  revision 1
 
   bottle do
-    sha256 "5fb252c345552e1d485f2dbc833cf47bf37037a0c71856c02fa05d2ec6a37f21" => :mojave
-    sha256 "e65fd2300b96f0339eb72d955b7a44c3d941d1275828a9f9a2fcfb31fe5f5f3b" => :high_sierra
-    sha256 "b93d58fda500c7774afe281663c69e09b846d59e5e8c44481195bbf715a39387" => :sierra
-    sha256 "e366345048bf9d0ea67815050233846432d6bb8ef15bb5efd92e78e2a2384d1e" => :el_capitan
+    sha256 "6dc8e606ea4f6264f662d0516cb67bbf04f661adab74406f34d4b908faf1c91a" => :mojave
+    sha256 "a7e66d500a9a0787038c1449da19471f451e350d35a1a4035e84144820c2c8df" => :high_sierra
+    sha256 "b58b5deb27c32495b244527947330028e1d69b1000b6453727dab16ff7572b09" => :sierra
   end
 
   depends_on "intltool" => :build

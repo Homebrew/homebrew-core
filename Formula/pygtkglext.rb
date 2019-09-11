@@ -3,14 +3,13 @@ class Pygtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/download.html#pygtkglext"
   url "https://download.gnome.org/sources/pygtkglext/1.1/pygtkglext-1.1.0.tar.gz"
   sha256 "9712c04c60bf6ee7d05e0c6a6672040095c2ea803a1546af6dfde562dc0178a3"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "43b3818d1812269ac6897d843ac35da5a1358744681f93997fc47dd9b40b39b1" => :mojave
-    sha256 "6b23a741936e9c1642777211397fc59e5e41fa4f34d45c85aad8dd1810ac2aca" => :high_sierra
-    sha256 "9ca36d2fbeedb1f45c3151c93df3a827d66f7596f2a91b11de72e7edc830cf98" => :sierra
-    sha256 "2d16fc485d3e86ae0d879261984fd2a0cd7725964939a10487ae51e1876716d3" => :el_capitan
+    sha256 "c6422a1ab0ad17e577f18c415e04e3ad3c980647da2bf74e23c0b7d98258012d" => :mojave
+    sha256 "25c1190335a16ed62b8a7ef09342fbda936e30d4e318c713e97dff1a344847ed" => :high_sierra
+    sha256 "62ef8746895c3695f1b22d60b2dcd9c9654b2108ed1f23d257684bd22e5b1b2d" => :sierra
   end
 
   depends_on "pkg-config" => :build

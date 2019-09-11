@@ -3,13 +3,14 @@ class Duc < Formula
   homepage "https://duc.zevv.nl/"
   url "https://github.com/zevv/duc/releases/download/1.4.4/duc-1.4.4.tar.gz"
   sha256 "f4e7483dbeca4e26b003548f9f850b84ce8859bba90da89c55a7a147636ba922"
+  revision 1
   head "https://github.com/zevv/duc.git"
 
   bottle do
     cellar :any
-    sha256 "30af4be0a1a79ff03c09a550fe3a53fdce4c9e0ff99bd157ceec57648b740da7" => :mojave
-    sha256 "3bd2b3086bc7646eea0d0d688f692ecaad61a0bb9f1795dfe41b5ef7d282ca35" => :high_sierra
-    sha256 "d05ea4b58cb7e668444b1494cc78b1c00e4e7c2c6ddd3e8f5791411d75f2e03a" => :sierra
+    sha256 "a6482213346ed6dfb26066b3442722a856cb8348d6123aecfe72929251e6b20a" => :mojave
+    sha256 "d74b95c03260c0b14fd85e296835047bd88dbbc2f4fd0d62dc3a43409178c18c" => :high_sierra
+    sha256 "9bde89536984080777e870473934584417fb4c34a0e44074b08a07a5db1a98d2" => :sierra
   end
 
   depends_on "pkg-config" => :build

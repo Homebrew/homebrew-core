@@ -3,13 +3,13 @@ class Skktools < Formula
   homepage "https://github.com/skk-dev/skktools"
   url "https://deb.debian.org/debian/pool/main/s/skktools/skktools_1.3.4.orig.tar.gz"
   sha256 "84cc5d3344362372e0dfe93a84790a193d93730178401a96248961ef161f2168"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "91ade660cdcd83bdda5d2aaa2c1f0c8904f03c9f4055ee53e7861964acd00082" => :mojave
-    sha256 "ba33dffb6c11d2c0994f0248a324e6662dda598e3a90dffc06de2a256eb91f3e" => :high_sierra
-    sha256 "2a067c0d5f053faeaf0c2b3f6d32d26306164e08a5f95ad4d25c562f5308f931" => :sierra
-    sha256 "90d7201d2e94c37a526005541256485e81e1b5cdba51fd751d6255bcbc1d8069" => :el_capitan
+    sha256 "e3e3033a8f0d05939c9ebe2ab73cff7377351a36b8276337c920026c27d0a127" => :mojave
+    sha256 "65826868e8d1ca3d310ebc14e2aadc281b09751220e3310643b4e2aa4ab9ee68" => :high_sierra
+    sha256 "b190a2b730f1604ac76725e99c5fd9927ed5a7cbba905291f017b77fee1e3c85" => :sierra
   end
 
   depends_on "pkg-config" => :build

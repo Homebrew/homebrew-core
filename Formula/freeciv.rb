@@ -3,12 +3,12 @@ class Freeciv < Formula
   homepage "https://freeciv.wikia.com/"
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.0/freeciv-2.6.0.tar.bz2"
   sha256 "7c20399198d6c7d846fed9a69b02e01134ae5340a3ae0f99d1e38063ade6c999"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "32d6fc9dc78b0d190493ee48ee7c02b14aaff9bea3aef3625047dea14e515d37" => :mojave
-    sha256 "f64cbbe1927f3625b07bb6ebc808ece1cc862063cf79ff944daa931f4f225590" => :high_sierra
-    sha256 "ec8ad3415d098e391fcb677208d96cef04811a5273777cdfff6d53bd70319c72" => :sierra
+    sha256 "e1846824dd58a21076dcd3dcc92538d21ab0571c3e21dc13a39850194a192976" => :mojave
+    sha256 "3896454c21b30406c48d25877a7deed3aeee943219c976ac62ea9f7825d7903f" => :high_sierra
+    sha256 "dc55a50e4055b42302630bc6471eda4ac8c5fc6be45bed562824126901918765" => :sierra
   end
 
   head do

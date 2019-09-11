@@ -1,14 +1,14 @@
 class Leveldb < Formula
   desc "Key-value storage library with ordered mapping"
   homepage "https://github.com/google/leveldb/"
-  url "https://github.com/google/leveldb/archive/1.21.tar.gz"
-  sha256 "e0fbd238047b9e82ec26a2b808f826b60e12b4fcb5d1a18c7b3d6edf357b4026"
+  url "https://github.com/google/leveldb/archive/1.22.tar.gz"
+  sha256 "55423cac9e3306f4a9502c738a001e4a339d1a38ffbee7572d4a07d5d63949b2"
 
   bottle do
     cellar :any
-    sha256 "207163a92d342b49859dadedc6c1dd521818291021320296842b96c596b09a78" => :mojave
-    sha256 "25edbb2764d6e1fe3bd2f77abac191e94c088cda24540e218788672a88086df7" => :high_sierra
-    sha256 "0c03715dd2161d3860552d660e06cf9a276bb8b412c332bfdb0449ea34030799" => :sierra
+    sha256 "22e4a129bedd5030525f749a5b5ec978bf6da0a9b0625fe829da482a5ab85755" => :mojave
+    sha256 "b1cf697cad28caac418d2e0ef49bc90863f389402185d3cc0f1f7079516d02c2" => :high_sierra
+    sha256 "810dbeba5e3f7d72d4772b9eff4d9022a1240c0abc6235afbd343c199741e6f7" => :sierra
   end
 
   depends_on "cmake" => :build

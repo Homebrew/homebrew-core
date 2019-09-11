@@ -11,6 +11,8 @@ class Dhex < Formula
     sha256 "b83e63ad0f1e2910e1f2495903ac4077aa5caaabe8cb2702094f42c3921c7a9c" => :sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     inreplace "Makefile", "$(DESTDIR)/man", "$(DESTDIR)/share/man"
     bin.mkpath

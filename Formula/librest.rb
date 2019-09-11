@@ -3,13 +3,12 @@ class Librest < Formula
   homepage "https://wiki.gnome.org/Projects/Librest"
   url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "395cfe3524a16bb5f6b11501b5abaa58091498af73cf6fa44b900e16f8cfd0e4" => :mojave
-    sha256 "677a14fd8dde39e068cc8bb4fe771619a13bdde7e92903756ecb056b79ee69e7" => :high_sierra
-    sha256 "79fed6ba59358147b84ee7f793df20542e21c1537f3b7a1ff0572296d5503e20" => :sierra
-    sha256 "5333e6b41033827ec7db0fedb3510fe4ab442cd53180c5cd1ebc613b4e1b3bfc" => :el_capitan
+    sha256 "47fd3f7eeb5c4c540fa9972fce471caaba2fd5006c90ee70b51bc42badd29c67" => :mojave
+    sha256 "c8b2c713c6dbbcb18f2b41e4efb97341303406860eb72ac606691a1c67b6e275" => :high_sierra
+    sha256 "26b2a7f163a2adb2cec329f83cd6046a2199c26ca38c191e5c20f813851b7a29" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

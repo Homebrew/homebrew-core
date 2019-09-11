@@ -1,15 +1,15 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://proxy.binaries.openttd.org/openttd-releases/1.9.0/openttd-1.9.0-source.tar.xz"
-  sha256 "45fded554d973328496f6e01b0769d7b8b64048a8fe2cf252242194c08ea7419"
+  url "https://proxy.binaries.openttd.org/openttd-releases/1.9.2/openttd-1.9.2-source.tar.xz"
+  sha256 "f9ff8c255145a1dd617798a9413179cc740a0cc91709455990880a15eeb7564a"
   head "https://github.com/OpenTTD/OpenTTD.git"
 
   bottle do
     cellar :any
-    sha256 "0c947600e90fc2bba15f9a04a394c7ae9df6c211d51e9b2e7de380b7e8c8d8c5" => :mojave
-    sha256 "b631bb5a53e7e8b132cc81fadf25d5f451bcbf90d7086df0f7649e6ef0120cd5" => :high_sierra
-    sha256 "b68d5c01aec086999fd2a5236855046e82f9b0044589ec3d6c6ae4abfd8f8533" => :sierra
+    sha256 "18f24bc13bde3fae66402913986427ffbe776b06f69945774151743a3eb76217" => :mojave
+    sha256 "25aba766f22b2f496d00fdeef048918a023ad40bb256e78482b8ec91ea2945b0" => :high_sierra
+    sha256 "7ad2e997c2e07d5f37d166f49955b259517594bf1ddf4895512047bef185f45e" => :sierra
   end
 
   depends_on "pkg-config" => :build

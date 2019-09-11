@@ -1,15 +1,14 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "https://www.openvdb.org/"
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
-  sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
-  revision 1
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.1.0.tar.gz"
+  sha256 "d8803214c245cf0ca14a2c30cd215b183147c03c888c59fc642f213f98b4d68f"
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
-    sha256 "25c6873c89871ee1200bf7fdc594f5a49d93a7a9e4e3ce5d53dc3bbea690a1a1" => :mojave
-    sha256 "1e61d2ab95f4cab9bf2bf7dc77ffae151b585fe982b5122bbd314ceba1cf13bd" => :high_sierra
-    sha256 "356f08b2d1ad0b157a7e408641a72cab3aed98adc00539c1c6a8aa7eed38a905" => :sierra
+    sha256 "824eb62607171e0a64e2182ca3e260d6ad51a03489988ee4385780155c835fe2" => :mojave
+    sha256 "06c542cfbc9368c084fbd74fc3db3fbb4439203733113a0e6fdb9683799917ff" => :high_sierra
+    sha256 "14748a3c7f65514485089905f9f5082fd74c3ca64795dab843308303865dcc60" => :sierra
   end
 
   depends_on "doxygen" => :build

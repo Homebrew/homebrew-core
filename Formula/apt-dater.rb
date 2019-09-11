@@ -3,13 +3,13 @@ class AptDater < Formula
   homepage "https://github.com/DE-IBH/apt-dater"
   url "https://github.com/DE-IBH/apt-dater/archive/v1.0.4.tar.gz"
   sha256 "a4bd5f70a199b844a34a3b4c4677ea56780c055db7c557ff5bd8f2772378a4d6"
+  revision 1
   version_scheme 1
 
   bottle do
-    rebuild 1
-    sha256 "c0511a22aa94d42d26e1d314e13f87375bf57d4fbe1fb8ca3532ab250e751d4d" => :mojave
-    sha256 "b8766c0ad1bf2a0fbb50a9bf062c53aacb98855307732e9df866651f13be3aa9" => :high_sierra
-    sha256 "7c90d33ef6d7c577506997b998fa286f9f54fb0acf47a3590e653fcecc840a14" => :sierra
+    sha256 "d736fdabb393e90e6895b9d5694cc0a78f592bd363483e7e935d044fd0331d41" => :mojave
+    sha256 "f6b5f606925ac38d24ef56fc52e93c3f5a4e8f1ab2d687ebb376c78d4f91f366" => :high_sierra
+    sha256 "66d81a3bf524ab635a34803119837ef26704011b2d362ab7f41aba0d40b54ea3" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,6 +18,7 @@ class AptDater < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
+  uses_from_macos "libxml2"
 
   def install
     system "autoreconf", "-ivf"

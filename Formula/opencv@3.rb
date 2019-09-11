@@ -3,11 +3,12 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
+  revision 5
 
   bottle do
-    sha256 "18209065db7e487bd9bdcb576eb0be29f8cbfd8532619b7248c3c54329eb865b" => :mojave
-    sha256 "37dfc81ebac9af7b5b0a0429bada4e67608c29b3e79da9520e2a33889c26b838" => :high_sierra
-    sha256 "c949f08c50e83542e9b46dd19cfb890bf619837ca76a3c658e250d333e61f9c0" => :sierra
+    sha256 "c756342fb0ef243c0d232166b7641b6b58e390514eba0bfb8d0d8420ad9ac95a" => :mojave
+    sha256 "b228cb56fd572d4000f99f68ade23b6bac49f89c02bccd041b8ff992f27263d4" => :high_sierra
+    sha256 "8651d5bbdebfb87f5d194f8a23102b6b6921eb47f11496318362347c82f35eb0" => :sierra
   end
 
   keg_only :versioned_formula
@@ -22,7 +23,6 @@ class OpencvAT3 < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "python"
-  depends_on "python@2"
   depends_on "tbb"
 
   resource "contrib" do
@@ -30,17 +30,18 @@ class OpencvAT3 < Formula
     sha256 "8f73d029887c726fed89c69a2b0fcb1d098099fcd81c1070e1af3b452669fbe2"
   end
 
+  patch do
+    url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
+    sha256 "c48a6a769f364e6f61bc99cf47a6e664c85246c9fcd4a201afc408158fc4f1ef"
+  end
+
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py2_prefix = `python2-config --prefix`.chomp
-    py2_lib = "#{py2_prefix}/lib"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -73,11 +74,8 @@ class OpencvAT3 < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DBUILD_opencv_python2=ON
+      -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
@@ -112,10 +110,9 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python2.7", "python3.7"].each do |python|
-      ENV["PYTHONPATH"] = lib/python/"site-packages"
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
-      assert_equal version.to_s, output.chomp
-    end
+    py3_version = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = lib/"python#{py3_version}/site-packages"
+    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    assert_equal version.to_s, output.chomp
   end
 end

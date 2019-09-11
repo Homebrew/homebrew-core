@@ -1,19 +1,17 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
-  sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
-  revision 1
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.34/util-linux-2.34.tar.xz"
+  sha256 "743f9d0c7252b6db246b659c1e1ce0bd45d8d4508b4dfa427bbb4a3e9b9f62b5"
 
   bottle do
     cellar :any
-    sha256 "977cf2845acc9cdcbcf1b7e92d9c0af0066c5d0cc17df307a123c13180a64e62" => :mojave
-    sha256 "d551dad77ab8c533bab98d5bd91291db1f296564336d59d600f0ce75496a9d08" => :high_sierra
-    sha256 "aeef9c88dd7ea82ac3f71b6f3793b2316b76ee59a8e01cc56f6316efa4e1346c" => :sierra
-    sha256 "f3040a39ad4ffb9eabd9446843dfc3b66df01b3264c875dc68e7339636830357" => :el_capitan
+    sha256 "3fb25026099ea42c1c54b80cad6bbdf9bf09b0e0e967ca4690698d0d2d379483" => :mojave
+    sha256 "7d7e421229cbf8b0ac5fbe1f0ffc7d18a3e0ce9dc09090bd346f676111cc2bb7" => :high_sierra
+    sha256 "1c0c0011db6ecf47a6ad673c38878b5265ce82f6aba4b6bf7d4733d4513b6c7a" => :sierra
   end
 
-  conflicts_with "rename", :because => "both install `rename` binaries"
+  keg_only "macOS provides the uuid.h header"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -22,7 +20,7 @@ class UtilLinux < Formula
                           "--disable-ipcs",        # does not build on macOS
                           "--disable-ipcrm",       # does not build on macOS
                           "--disable-wall",        # already comes with macOS
-                          "--disable-libuuid",     # conflicts with ossp-uuid
+                          "--enable-libuuid",      # conflicts with ossp-uuid
                           "--disable-libsmartcols" # macOS already ships 'column'
 
     system "make", "install"

@@ -3,19 +3,20 @@ class Osc < Formula
 
   desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.164.2.tar.gz"
-  sha256 "b2050735311278c011ff194bf78b389eef469ad918ac02fc5b520d2882b71ad4"
+  url "https://github.com/openSUSE/osc/archive/0.165.2.tar.gz"
+  sha256 "56c0819cd49d18c99561bd5af6f8fcfbf71ae1f56b3efbf34c81d0dfcd70606c"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "a7bb103b302fddaf49ca78f17a3652d7a21dbdfce97774caf266841fee839fb8" => :mojave
-    sha256 "54cb5f3b2687197239e516c424f58111205fd4c17d74ef2be57d4d60525388aa" => :high_sierra
-    sha256 "2f577e5cbcacf1b81e1f5e41a979eeab518eb1459a373ffef73aa0405e5ba494" => :sierra
+    sha256 "421e4df99f7b0ba5d0de94997044f371373ae267ad4f9e7958f45f143bce5d4b" => :mojave
+    sha256 "4f79dde31c2bc61d87f5d82b588ed7f6c02ff26cd816e4811f87c6fec764b109" => :high_sierra
+    sha256 "2abd032fe1c24461b9b65a9d53f80786909d2039aec1b1ea84734fe47b47f099" => :sierra
   end
 
   depends_on "swig" => :build
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1" # For M2Crypto
   depends_on "python@2"
 
   resource "pycurl" do
@@ -42,7 +43,7 @@ class Osc < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }
@@ -50,7 +51,7 @@ class Osc < Formula
     resource("M2Crypto").stage do
       inreplace "setup.py" do |s|
         s.gsub! "self.openssl = '/usr'",
-                "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+                "self.openssl = '#{Formula["openssl@1.1"].opt_prefix}'"
         s.gsub! "platform.system() == \"Linux\"",
                 "platform.system() == \"Darwin\" or \\0"
       end

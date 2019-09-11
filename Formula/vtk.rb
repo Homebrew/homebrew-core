@@ -1,15 +1,15 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.2.tar.gz"
-  sha256 "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
-  revision 3
+  url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
+  sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
+  revision 2
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "bfdec9cd62e663602dab123763c3cd78ceefa77cc42bdffa95749c224c34ff75" => :mojave
-    sha256 "b2d6092296d7ef4ed9f226766ee926458db158eac5ea5e523d27adf6fa9cec54" => :high_sierra
-    sha256 "7c01576efb1b78069e6dca1cacab30a9fcf855966a1885ef5810076f4c476c7c" => :sierra
+    sha256 "198879d7b096a0783949664f76eb462db1b40ac0b6323ac064ae0f238a0dcedb" => :mojave
+    sha256 "8dc3e1b37f503b3230ba978a8900d705cd9856aec8930e3c7dee4f99522b5ac1" => :high_sierra
+    sha256 "8153de359561ed7a47248f99441d47fd09256f68be100cea06939219f9668637" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -25,12 +25,8 @@ class Vtk < Formula
   depends_on "qt"
 
   def install
-    python_executable = `which python3`.strip
-    python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
-    python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
-    python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
-    py_site_packages = "#{lib}/#{python_version}/site-packages"
-
+    pyver = Language::Python.major_minor_version "python3"
+    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -50,25 +46,16 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_TIFF=ON
       -DVTK_USE_SYSTEM_ZLIB=ON
       -DVTK_WRAP_PYTHON=ON
-      -DPYTHON_EXECUTABLE='#{python_executable}'
-      -DPYTHON_INCLUDE_DIR='#{python_include}'
-      -DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'
+      -DVTK_PYTHON_VERSION=3
+      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m
+      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{pyver}.dylib
+      -DVTK_PYTHON_SITE_PACKAGES_SUFFIX=#{lib}/python3/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
       -DVTK_WRAP_PYTHON_SIP=ON
       -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
-
-    # CMake picks up the system's python dylib, even if we have a brewed one.
-    if File.exist? "#{python_prefix}/Python"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
-    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-    elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
-    else
-      odie "No libpythonX.Y.{dylib|a} file found!"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -76,15 +63,10 @@ class Vtk < Formula
       system "make", "install"
     end
 
-    # Avoid hard-coding Python's Cellar paths
-    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first,
-      Formula["python"].prefix.realpath,
-      Formula["python"].opt_prefix
-
     # Avoid hard-coding HDF5's Cellar path
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
-      Formula["hdf5"].prefix.realpath,
-      Formula["hdf5"].opt_prefix
+              Formula["hdf5"].prefix.realpath,
+              Formula["hdf5"].opt_prefix
   end
 
   test do

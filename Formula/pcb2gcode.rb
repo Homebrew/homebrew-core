@@ -1,29 +1,26 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.2/pcb2gcode-1.3.2.tar.gz"
-  sha256 "c4135cd3981c4a5d6baffa81b7f8e890ae29776107b0d1938b744a8dfebdbc63"
-  revision 4
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.0.0.tar.gz"
+  sha256 "3b7e8cdc58852294d95b0ed705933f528a9e56428863490f5a27f22153cd713e"
+  revision 1
+  head "https://github.com/pcb2gcode/pcb2gcode.git"
 
   bottle do
     cellar :any
-    sha256 "1461210908fa8c399a4cb0b45b734b3f5b73fc7a3a5af95d1e24d350d503569b" => :mojave
-    sha256 "0fc767ddeae68a0fa5274bdf756021b9cdb26b6b0ab0cbc5abc6edea5c0843fc" => :high_sierra
-    sha256 "1cff2417d1bfa373a0d3af179177837bda345b81ddc8bbf9c16d5bd4dd370b25" => :sierra
-    sha256 "47cce5c85523d623639e542e096e7571fe40906ae0e5345bd35200f575933950" => :el_capitan
+    sha256 "e22d8eba9bdecf87719ee96fe8f7c4d2f02dc9d92f73304da07fe126f3ef05dc" => :mojave
+    sha256 "aa37eb099526a7acee7efd4f6e62a7522d162c1ef1c5abc2cb7e3afe25f2cd47" => :high_sierra
+    sha256 "434bd10eebb50332d8d20181285165c0aee158738de660549c32e3a0c4820086" => :sierra
   end
 
-  head do
-    url "https://github.com/pcb2gcode/pcb2gcode.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  # Release 2.0.0 doesn't include an autoreconfed tarball
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gerbv"
   depends_on "gtkmm"
+  depends_on "librsvg"
 
   # Upstream maintainer claims that the geometry library from boost >= 1.67
   # is severely broken. Remove the vendoring once fixed.
@@ -73,7 +70,7 @@ class Pcb2gcode < Formula
       system "./b2", *args
     end
 
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",

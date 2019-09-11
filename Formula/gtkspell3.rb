@@ -3,11 +3,13 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.10/gtkspell3-3.0.10.tar.xz"
   sha256 "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
+  revision 1
 
   bottle do
-    sha256 "8649edc45b2ac203946b689fbeb11a5624e17d0f9dbcbad0e7f767a5835a1e78" => :mojave
-    sha256 "9f4f62410af27e84a4cec1f05b4f3017e9712f40f0d937041b89c29cf2a1dcd0" => :high_sierra
-    sha256 "2cf46aa9544572a29d3278fd3420582171e239f2731ade416e00d0521a883f9b" => :sierra
+    rebuild 1
+    sha256 "72058aac10dc67a621514f4eb341b0a3c803755935915d77aef815f8d4c1845b" => :mojave
+    sha256 "9c986007e2fc1c21b827700ef8630b147598c170445da5bdbb714c1f8a472a73" => :high_sierra
+    sha256 "3bda502ee3a1a491fba935ad79b7651e55bf65b903b85d55c3761943e4ef433c" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -47,6 +49,7 @@ class Gtkspell3 < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -63,6 +66,7 @@ class Gtkspell3 < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtkspell-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16

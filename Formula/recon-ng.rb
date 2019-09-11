@@ -3,14 +3,14 @@ class ReconNg < Formula
 
   desc "Web Reconnaissance Framework"
   homepage "https://bitbucket.org/LaNMaSteR53/recon-ng"
-  url "https://bitbucket.org/LaNMaSteR53/recon-ng/get/v4.9.4.tar.gz"
-  sha256 "f443616351fb9dd119a870b637bdf7be0fb3a9fac6eb5a640b9d5414a63d2160"
+  url "https://bitbucket.org/LaNMaSteR53/recon-ng/get/v4.9.6.tar.gz"
+  sha256 "0192a9882bb9800f2177fcdb31cda8031bbc3895db9fe4a0966ebdd771b66915"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18b3feb82b8eea90e49856c098ca66ea10f957eaaeae1ff7813eccbeb1265996" => :mojave
-    sha256 "d23885588e18d5b47d7175f37d03de1aaef5818fb548d42c00e922339602b182" => :high_sierra
-    sha256 "9cc593ac5d73a9b995a419bf37632ff375f206aab63a6415409f18ce151c36b9" => :sierra
+    sha256 "cc15ed1f3df302f56e265086bef3605644c5ef54b9b74a96c824f1f04f75210f" => :mojave
+    sha256 "6c91d9d22ee6325bdecf8e7b54a4c12db28c5dbc660b8be2794f08ae9c81d9c7" => :high_sierra
+    sha256 "eb34c9aeab620bbc24b7eb14524fc03000a494df266818f45a8a07bfe4e01221" => :sierra
   end
 
   # Dependency "mechanize" only support Python 2
@@ -23,13 +23,13 @@ class ReconNg < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
-    sha256 "40f563e1f7a7b80dc5a4e76ad75c23da53d62f1e15e6e517293b04e1f84ead7c"
+    url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
+    sha256 "36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01"
   end
 
   resource "Flask" do
-    url "https://files.pythonhosted.org/packages/4b/12/c1fbf4971fda0e4de05565694c9f0c92646223cff53f15b6eb248a310a62/Flask-1.0.2.tar.gz"
-    sha256 "2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48"
+    url "https://files.pythonhosted.org/packages/e9/96/8f6d83828a77306a119e12b215a7b0637c955b408fb1c161311a6891b958/Flask-1.0.3.tar.gz"
+    sha256 "ad7c6d841e64296b962296c2c2dabc6543752985727af86a975072dea984b6f3"
   end
 
   resource "jsonrpclib" do
@@ -38,13 +38,13 @@ class ReconNg < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/4b/20/ddf5eb3bd5c57582d2b4652b4bbcf8da301bdfe5d805cb94e805f4d7464d/lxml-4.2.5.tar.gz"
-    sha256 "36720698c29e7a9626a0dc802ef8885f8f0239bfd1689628ecd459a061f2807f"
+    url "https://files.pythonhosted.org/packages/da/b5/d3e0d22649c63e92cb0902847da9ae155c1e801178ab5d272308f35f726e/lxml-4.3.4.tar.gz"
+    sha256 "3ce1c49d4b4a7bc75fb12acb3a6247bb7a91fe420542e6d671ba9187d12a12c2"
   end
 
   resource "mechanize" do
-    url "https://files.pythonhosted.org/packages/ef/be/4c433dfa7703c0fa81ca3a88afe74b2b9e2b23e664479a4913ecefe7f8ca/mechanize-0.3.7.tar.gz"
-    sha256 "ee66e1a6af790898894dd0318914ced413d94f46a54f881eb337081ff9702cd2"
+    url "https://files.pythonhosted.org/packages/79/6b/c256ffe2abd560a2857bd66131e01ddfb4b123510a0100a495ded8f191cc/mechanize-0.4.2.tar.gz"
+    sha256 "b680ca1b4fabe5ef52024d120f40b8e2ed7d175ed4d67225d2c477dac7c7a58b"
   end
 
   resource "olefile" do
@@ -68,8 +68,8 @@ class ReconNg < Formula
   end
 
   resource "XlsxWriter" do
-    url "https://files.pythonhosted.org/packages/0c/08/69581af3c4807d2b8bac47251c80343161b9f315a7f91fb703aa865302d9/XlsxWriter-1.1.2.tar.gz"
-    sha256 "ae22658a0fc5b9e875fa97c213d1ffd617d86dc49bf08be99ebdac814db7bf36"
+    url "https://files.pythonhosted.org/packages/39/2f/9018f9980416afaef326c2399c2c583f292cfb4a15f0b67059f4c0f9aa99/XlsxWriter-1.1.8.tar.gz"
+    sha256 "5ec6aa71f6ae4b6298376d8b6a56ca9cdcb8b80323a444212226447aed4fa10f"
   end
 
   def install

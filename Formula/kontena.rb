@@ -159,7 +159,7 @@ class Kontena < Formula
                "--no-document", "--norc", "--install-dir", libexec
       else
         resources.each do |r|
-          r.verify_download_integrity(r.fetch)
+          r.fetch
           system "gem", "install", r.cached_download, "--ignore-dependencies",
                  "--no-document", "--norc", "--install-dir", libexec
         end

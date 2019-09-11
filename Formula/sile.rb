@@ -3,14 +3,14 @@ class Sile < Formula
   homepage "http://www.sile-typesetter.org/"
   url "https://github.com/simoncozens/sile/releases/download/v0.9.5.1/sile-0.9.5.1.tar.bz2"
   sha256 "60cdcc4509971973feab352dfc1a86217cc1fdb12d56823f04d863afef92003a"
+  revision 2
 
   head "https://github.com/simoncozens/sile.git"
 
   bottle do
-    cellar :any
-    sha256 "f966c2b80512713a9713f7ed16a6ae4e22d23d6f5844fd6cb279e7630a407f39" => :mojave
-    sha256 "f058ac6422c8461beb8a5f6ba84c8413e8f0cbc51d6d31706ea9888f4465124e" => :high_sierra
-    sha256 "3e4c53dd7d45b1846014a14d5f6e9e85c4753b0a8da934e1827fdb0a3e8426ed" => :sierra
+    sha256 "d9476a518d1380d8695e89dee9a411ecaa70da180ad908ec0863fa475308b339" => :mojave
+    sha256 "21bd41acfcf1353d89a7c2b2ae474c2de74d3cf727cea20a0f72d8b09cf085ba" => :high_sierra
+    sha256 "5bcd03efcdfa816afd808617c5b8c579a59554500b726eed5d75a89c4fb126dc" => :sierra
   end
 
   if build.head?
@@ -27,11 +27,12 @@ class Sile < Formula
   depends_on "icu4c"
   depends_on "libpng"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zlib"
 
   resource "lpeg" do
     url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.1.tar.gz"
+    mirror "https://mirror.sobukus.de/files/grimoire/lua-forge/lpeg-1.0.1.tar.gz"
     sha256 "62d9f7a9ea3c1f215c77e0cadd8534c6ad9af0fb711c3f89188a8891c72f026b"
   end
 
@@ -70,11 +71,11 @@ class Sile < Formula
         if r.name == "lua-zlib"
           # https://github.com/brimworks/lua-zlib/commit/08d6251700965
           mv "lua-zlib-1.1-0.rockspec", "lua-zlib-1.2-0.rockspec"
-          system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}", "ZLIB_DIR=/usr/local/opt/zlib"
+          system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}", "ZLIB_DIR=#{Formula["zlib"].opt_prefix}"
         elsif r.name == "luaexpat"
-          system "luarocks", "build", r.name, "--tree=#{luapath}", "EXPAT_DIR=/usr/local/opt/expat"
+          system "luarocks", "build", r.name, "--tree=#{luapath}", "EXPAT_DIR=#{Formula["expat"].opt_prefix}"
         elsif r.name == "luasec"
-          system "luarocks", "build", r.name, "--tree=#{luapath}", "OPENSSL_DIR=/usr/local/opt/openssl"
+          system "luarocks", "build", r.name, "--tree=#{luapath}", "OPENSSL_DIR=#{Formula["openssl@1.1"].opt_prefix}"
         else
           system "luarocks", "build", r.name, "--tree=#{luapath}"
         end

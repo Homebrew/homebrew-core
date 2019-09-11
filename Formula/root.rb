@@ -1,15 +1,16 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.16.00.source.tar.gz"
-  version "6.16.00"
-  sha256 "2a45055c6091adaa72b977c512f84da8ef92723c30837c7e2643eecc9c5ce4d8"
+  url "https://root.cern.ch/download/root_v6.18.00.source.tar.gz"
+  version "6.18.00"
+  sha256 "e6698d6cfe585f186490b667163db65e7d1b92a2447658d77fa831096383ea71"
+  revision 2
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "b4654cd7f0f7e0190d311e6b3b7734a1cd247b01c5a6f233c8916929ad151bdc" => :mojave
-    sha256 "fa4c773cdcdf4f4705fd2f0f5009e2dc4e89f8927dd0ebba9c356e0e53f83d8b" => :high_sierra
-    sha256 "91142b7de7f49991589cb6f2ca1a0f55857fc11314ccaf8f70c0fea1b26709e8" => :sierra
+    sha256 "5c95c2c5bb25a35efc7ab1704355aff9b0c181837157af3a0afbdfe957aeba58" => :mojave
+    sha256 "61dda0a31669b05ad547f2bd21658bcb4a37a094bf76df6726b4086b8997fecb" => :high_sierra
+    sha256 "f8d9a772ee2fc944625a596218b1c4884682b4c70fe2af1061999bd8aa15eb9b" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
@@ -34,7 +35,7 @@ class Root < Formula
   # https://github.com/Homebrew/brew/issues/5068
   depends_on "libxml2" if MacOS.version >= :mojave
   depends_on "lz4"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python"
   depends_on "tbb"
@@ -85,6 +86,9 @@ class Root < Formula
       -Dxrootd=ON
     ]
 
+    cxx_version = (MacOS.version < :mojave) ? 14 : 17
+    args << "-DCMAKE_CXX_STANDARD=#{cxx_version}"
+
     mkdir "builddir" do
       system "cmake", "..", *args
 
@@ -114,6 +118,8 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
+    For fish users:
+      . #{HOMEBREW_PREFIX}/bin/thisroot.fish
   EOS
   end
 
@@ -124,15 +130,38 @@ class Root < Formula
         std::cout << "Hello, world!" << std::endl;
       }
     EOS
-    (testpath/"test.bash").write <<~EOS
+
+    # Test ROOT command line mode
+    system "#{bin}/root", "-b", "-l", "-q", "-e", "gSystem->LoadAllLibraries(); 0"
+
+    # Test ROOT executable
+    (testpath/"test_root.bash").write <<~EOS
       . #{bin}/thisroot.sh
       root -l -b -n -q test.C
     EOS
     assert_equal "\nProcessing test.C...\nHello, world!\n",
-                 shell_output("/bin/bash test.bash")
+                 shell_output("/bin/bash test_root.bash")
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <TString.h>
+      int main() {
+        std::cout << TString("Hello, world!") << std::endl;
+        return 0;
+      }
+    EOS
+
+    # Test linking
+    (testpath/"test_compile.bash").write <<~EOS
+      . #{bin}/thisroot.sh
+      $(root-config --cxx) $(root-config --cflags) $(root-config --libs) $(root-config --ldflags) test.cpp
+      ./a.out
+    EOS
+    assert_equal "Hello, world!\n",
+                 shell_output("/bin/bash test_compile.bash")
 
     # Test Python module
     ENV["PYTHONPATH"] = lib/"root"
-    system "python3", "-c", "import ROOT"
+    system "python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end

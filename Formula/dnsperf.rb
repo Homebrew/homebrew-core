@@ -1,16 +1,19 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.2.1.tar.gz"
-  sha256 "c073e391e681625eb8c7f308a5940435f8e2ec53f615b4e259625024e270dc5c"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.1.tar.gz"
+  sha256 "ffefdc4610943c645b181d26843842d4890721d4da09ebb19aa7c8a5b7effd8a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "22f01884926cf1d2424e9a75cde834cd99e6b100cefad5248246e2bc1fdee51d" => :mojave
-    sha256 "463016f4de498c5b1e0ce603cb3cbc04106579992fe3973d638f33dc744c8cfd" => :high_sierra
-    sha256 "0a41577c6848154de2562bd8a78c88a018a8279feb517a7c67139b1d6c2f2c1d" => :sierra
+    rebuild 1
+    sha256 "fc3550c76cf87091bbee3fa47a61970c9f0c862e8beb4ac9702636d3541a1b88" => :mojave
+    sha256 "25020eee136ad0faf63126440c93dcc87dd35be1e951cd595247b65e51ed2d39" => :high_sierra
+    sha256 "6be4c1270899b5af3526547f7e0edb5a79ac16ca634bab93af3edb6901b9cd6b" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "bind"
   depends_on "libxml2"
 

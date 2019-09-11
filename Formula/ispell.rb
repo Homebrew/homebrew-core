@@ -14,6 +14,8 @@ class Ispell < Formula
     sha256 "f1ee90dcc76682d17c2b758d2a896493448753acc0e556e9b0c8bf7ec0f552df" => :mavericks
   end
 
+  uses_from_macos "ncurses"
+
   def install
     ENV.deparallelize
 

@@ -1,16 +1,15 @@
 class Libevent < Formula
   desc "Asynchronous event library"
   homepage "https://libevent.org/"
-  url "https://github.com/libevent/libevent/archive/release-2.1.8-stable.tar.gz"
-  sha256 "316ddb401745ac5d222d7c529ef1eada12f58f6376a66c1118eee803cb70f83d"
+  url "https://github.com/libevent/libevent/archive/release-2.1.11-stable.tar.gz"
+  sha256 "229393ab2bf0dc94694f21836846b424f3532585bac3468738b7bf752c03901e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9ab81f4ca9902042f7ea95d02bf36394c5cdc11d715b7f928badc9cf5724ca8b" => :mojave
-    sha256 "61a8cf2df6d58f79678fad0f798b6a9d368245097f908e2f911f25cb3f7916cf" => :high_sierra
-    sha256 "cdd11d67b5f49b94cf3fbfd24753f84082957e3d55680e2b5979eec19091e694" => :sierra
-    sha256 "136a93a91c3724d0403b0d43d0b9a4bf6b857278c4ebb7c7585ef70a19b0964c" => :el_capitan
-    sha256 "ef703db1b4cbdab35b89aabe80c225dd9b7a2c3ea14b1eae681478c5b9df15fe" => :yosemite
+    sha256 "1e14fc34baae0b65cac6d7c75bc5ed0ccb1f6bbaa30c8f0f8477ab8ba85fb3c5" => :mojave
+    sha256 "89df3b053409a11d520e9ca88aed17221416c60c5799ec51813f8c2c7e3536de" => :high_sierra
+    sha256 "a9bddcb861a3464a0e9111926e4cb8d932ad860540f571edb74d448ef5a54811" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,10 +17,7 @@ class Libevent < Formula
   depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
-
-  conflicts_with "pincaster",
-    :because => "both install `event_rpcgen.py` binaries"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "Doxyfile", /GENERATE_MAN\s*=\s*NO/, "GENERATE_MAN = YES"
@@ -33,6 +29,7 @@ class Libevent < Formula
     system "make", "install"
     system "make", "doxygen"
     man3.install Dir["doxygen/man/man3/*.3"]
+    doc.install Dir["doxygen/html/*"]
   end
 
   test do

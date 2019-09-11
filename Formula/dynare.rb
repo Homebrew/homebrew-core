@@ -1,15 +1,15 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
-  url "https://www.dynare.org/release/source/dynare-4.5.6.tar.xz"
-  sha256 "a4ff0ee5892a044d169ead2778e96fefcf617535fab28d25b977d8d008c7fe87"
-  revision 4
+  url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
+  sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "1582b64c56b2072c05d56817fd4eae46cdd8af8b068ed5233c11827166b68d97" => :mojave
-    sha256 "54bb675a63274f4b43d37d9e971c5b64f8ef1b9007da9fe87ffc550e972ea34e" => :high_sierra
-    sha256 "24082892e87b29f3f068dfff6de0a268b3eee331cd1d7f6095c2c2d4c3ce61ee" => :sierra
+    sha256 "5e6191e5e862f1729e47a53a0261d40430d91089cdb8626afbc5b5d7a18651d9" => :mojave
+    sha256 "4780fb158ec635c5b1761d16949e4ebd435a32b2bd6de087d65da9747b3617fe" => :high_sierra
+    sha256 "cf0c471675a8684df712ba9278bae7ab982ecc0f20ac6e3962ecadfe56021211" => :sierra
   end
 
   head do
@@ -30,8 +30,8 @@ class Dynare < Formula
   depends_on "libmatio"
   depends_on "metis"
   depends_on "octave"
+  depends_on "openblas"
   depends_on "suite-sparse"
-  depends_on "veclibfort"
 
   resource "slicot" do
     url "https://deb.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"

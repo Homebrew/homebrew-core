@@ -1,7 +1,7 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
-  revision 3
+  revision 4
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
@@ -21,9 +21,10 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 "b468d1d55b04540d7c78c8dd3c7fc5b79dbb5d178e6913971caa5b01df811a88" => :mojave
-    sha256 "c0cf9254b9e1d1d75a472974a015ccacb2422fb382fce94ca1b01943c6db63db" => :high_sierra
-    sha256 "7e24705acfe930547d0f6a6562239dc012c33809fc36328a3a841998d11fa505" => :sierra
+    rebuild 1
+    sha256 "a3cc36beec2b0456f1cc2e5640bf127867820ae574a7a4b3a417bbc8cd5ce1d8" => :mojave
+    sha256 "4cc10fd5a8a28cf497c637a90ee4af7f835aa7d8e46cab02de1073a49d143699" => :high_sierra
+    sha256 "effe340c0314c54baf2aab58ce010e16e720f75fe199bac6acbf895ceb4fc28e" => :sierra
   end
 
   head do

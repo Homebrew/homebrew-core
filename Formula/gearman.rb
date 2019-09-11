@@ -3,12 +3,13 @@ class Gearman < Formula
   homepage "http://gearman.org/"
   url "https://github.com/gearman/gearmand/releases/download/1.1.18/gearmand-1.1.18.tar.gz"
   sha256 "d789fa24996075a64c5af5fd2adef10b13f77d71f7d44edd68db482b349c962c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "a29334389cd7ca1245ee0a914959bd3472ae3562b2e4b2f92e44f0ec70d02022" => :mojave
-    sha256 "1d069b8eca915e388207d735c45f143b139f801eedd302b6c690d1f8e4aaee30" => :sierra
+    sha256 "d0226cfe46fee9b0535bf3dfea5863b6e5ec1c0cf66eddccbbd454fd73528b88" => :mojave
+    sha256 "2d4db5d0d036abffa27ad4784070085930931c7d99a21e9fb0540df1b8925138" => :high_sierra
+    sha256 "526eabfea887f09b568c7b791fa0e73b272802b166f6ed2fc928f0fd0c4a8fc5" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +21,10 @@ class Gearman < Formula
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
-    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+    if MacOS.version == :high_sierra
+      ENV.delete("HOMEBREW_SDKROOT")
+      ENV.delete("SDKROOT")
+    end
 
     # https://bugs.launchpad.net/gearmand/+bug/1368926
     Dir["tests/**/*.cc", "libtest/main.cc"].each do |test_file|

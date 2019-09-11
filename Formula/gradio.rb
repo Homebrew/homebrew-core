@@ -3,11 +3,12 @@ class Gradio < Formula
   homepage "https://github.com/haecker-felix/Gradio"
   url "https://github.com/haecker-felix/Gradio/archive/v7.2.tar.gz"
   sha256 "5a85d7d4afb1424e46c935114b268e4a65de2629d60f48eccd75d67ff4b113d2"
+  revision 1
 
   bottle do
-    sha256 "6dbf39c1065e7b56c72d503e873fa09f1ae7e39d4954b0c535709a9b7011ed30" => :mojave
-    sha256 "3d0c607e60a10c4d4cf747582a2a9e31c4e79cc6da43f8203bfd3394e2d82588" => :high_sierra
-    sha256 "3538e5558fcda654089ae4db90a1ce7fe9c59d4e8bbd8ca9324f925ae1f316cb" => :sierra
+    sha256 "fc72163c4714998d62ff4e51494e81fa6462677d99cb496a75f2b3c7fda0e5e3" => :mojave
+    sha256 "bc283cabff48ef33c8236e5bf308955fb06eae498f4c1633e6d50ac1ac29f029" => :high_sierra
+    sha256 "0681cb3d462521ea07ae53cc57ad83af345150916ea4302f0d9a2266ae93d746" => :sierra
   end
 
   depends_on "meson" => :build

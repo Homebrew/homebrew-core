@@ -2,35 +2,55 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-      :tag      => "v3.11.0",
-      :revision => "0cbc58b117403b9d9169dbafdfac59ef104bb997",
+      :tag      => "v4.1.0",
+      :revision => "b4261e07eda19d9c42aa9d1c748c34f8cba09168",
       :shallow  => false
-  head "https://github.com/openshift/origin.git"
+  revision 1
+  head "https://github.com/openshift/origin.git",
+      :shallow  => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c5799c73ddfc6f3f88b96ea9e61c76210a3c9ec8c8196c487811a25833873d1" => :mojave
-    sha256 "9ac46b2e32e8802fe54f00843d7edc8d2ad70de5934fd38290e8dff46955302e" => :high_sierra
-    sha256 "9a9273ba88209e9011c33571cdd06ad7fa1cee5aec66f5453b450723863cc894" => :sierra
+    sha256 "e565ddf932f76f4638e2fcf6ae85a76b4c528d000df4dc8f8ae35ee77c860adb" => :mojave
+    sha256 "4e8426318d66ff09d71200bbef8154d0ba965c7ae67a6f23b18a94bf59d05b3f" => :high_sierra
+    sha256 "3fb7f73cdb5b933e3e05b5724ac09dddef5c6d133c7474900cb8e47321f225f6" => :sierra
   end
 
+  depends_on "coreutils" => :build
   depends_on "go" => :build
   depends_on "socat"
 
   def install
-    # this is necessary to avoid having the version marked as dirty
-    (buildpath/".git/info/exclude").atomic_write "/.brew_home"
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/openshift/origin"
+    dir.install buildpath.children - [buildpath/".brew_home"]
 
-    system "make", "all", "WHAT=cmd/oc", "GOFLAGS=-v", "OS_OUTPUT_GOPATH=1"
+    cd dir do
+      # make target is changing in >v4.1; remove this if statement when next
+      # bumping stable version
+      if build.stable?
+        system "make", "all", "WHAT=cmd/oc"
+      else
+        system "make", "all", "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
+      end
 
-    bin.install "_output/local/bin/darwin/amd64/oc"
-    bin.install_symlink "oc" => "oadm"
+      bin.install "_output/local/bin/darwin/amd64/oc"
 
-    bash_completion.install Dir["contrib/completions/bash/*"]
+      prefix.install_metafiles
+
+      bash_completion.install "contrib/completions/bash/oc"
+      zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
+    end
   end
 
   test do
-    assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
-    assert_match /^oc v#{version}/, shell_output("#{bin}/oadm version")
+    version_output = shell_output("#{bin}/oc version --client 2>&1")
+    assert_match "GitTreeState:\"clean\"", version_output
+    if build.stable?
+      assert_match "GitVersion:\"v#{version}", version_output
+      assert_match stable.instance_variable_get(:@resource)
+                         .instance_variable_get(:@specs)[:revision].slice(0, 9),
+                   version_output
+    end
   end
 end

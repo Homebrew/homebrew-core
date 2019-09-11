@@ -1,15 +1,15 @@
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
-  url "https://github.com/AlDanial/cloc/releases/download/1.80/cloc-1.80.tar.gz"
-  sha256 "082f53530eee3f9ee84ec449eca59a77ff114250cd7daf9519679537b5b21d67"
+  url "https://github.com/AlDanial/cloc/archive/1.82.tar.gz"
+  sha256 "7ab390f3a4888d9b78df420bff586326b53e3f7fc0e0c9ff9b160d076ca85a17"
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bfab4c34974f66e6f48442cfc06fb9421547ab9c53aceddce2ddda408e77ffbd" => :mojave
-    sha256 "6f0f297361bcaaba9b0924ab4a7401932cd8b208cc06587bc6c0881bb58935a3" => :high_sierra
-    sha256 "9651d13839bda437d0cd39e8a07e6f6688957525c049565d40d01287ae7185c9" => :sierra
+    sha256 "661f3c3b8eb7e0a348e36b5b1b7aebf2b579eec5ae078e7f2d2c64ab302a3644" => :mojave
+    sha256 "15a38a7a5172213f2c1577a0aef34260203d5e0c25d38c6a4a2252990a9c9414" => :high_sierra
+    sha256 "7e7622a28e8b32af41a292174a2f1ac8aef6e7f6a4735fefa7a3c83f7a11dd65" => :sierra
   end
 
   resource "Regexp::Common" do

@@ -21,6 +21,7 @@ class Gconf < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "orbit"
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

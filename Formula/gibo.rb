@@ -1,8 +1,8 @@
 class Gibo < Formula
   desc "Access GitHub's .gitignore boilerplates"
   homepage "https://github.com/simonwhitaker/gibo"
-  url "https://github.com/simonwhitaker/gibo/archive/2.1.2.tar.gz"
-  sha256 "6b4ca4d4717527a462b9ebeb30e3c137b8f1f41e33026eb85b37539b926cb48e"
+  url "https://github.com/simonwhitaker/gibo/archive/2.2.3.tar.gz"
+  sha256 "022132cc0d98c7c4a8002c34940cca0c56fd993c1391df4e43f7e3b7517cd63a"
 
   bottle :unneeded
 

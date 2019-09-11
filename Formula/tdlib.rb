@@ -1,19 +1,20 @@
 class Tdlib < Formula
   desc "Cross-platform library for building Telegram clients"
   homepage "https://core.telegram.org/tdlib"
-  url "https://github.com/tdlib/td/archive/v1.3.0.tar.gz"
-  sha256 "2953fe75027ac531248b359123aa4812666377ac874c1db506fa74176f2d2338"
+  url "https://github.com/tdlib/td/archive/v1.4.0.tar.gz"
+  sha256 "673e3b5d362edaed6bb016d2e674540644d66ded68556f32dfec0d5e1544532c"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b4814dca4a43f82588ce6fbe98aba1aea02b030a979deb68b42c4330c69ad282" => :mojave
-    sha256 "45114d88ad51f18337f09debc02165757349811c1022dd0849ef1adf74a9d40f" => :high_sierra
-    sha256 "e5fec3448dccf46ab20db066d2699cdfb79beb62592f57ff59f7520ed02103ec" => :sierra
+    sha256 "356bbe803158ff34cc20d2610b3e560f21ca87060d9a67daca00373573a29d61" => :mojave
+    sha256 "99f59ff5456490402e8391839594bb49b3ca259124415810d33ca8eba38cc77c" => :high_sierra
+    sha256 "88f7e8b198a63903fcdb11422199032471400e409d1ffab270b613edb5bbaf6a" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "gperf"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install

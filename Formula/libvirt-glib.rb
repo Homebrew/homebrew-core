@@ -3,11 +3,12 @@ class LibvirtGlib < Formula
   homepage "https://libvirt.org/"
   url "https://libvirt.org/sources/glib/libvirt-glib-2.0.0.tar.gz"
   sha256 "94e8c410c67501303d3b32ca8ce2c36edf898511ec4de9b7f29cd35d274b3d6a"
+  revision 1
 
   bottle do
-    sha256 "712a3bdbb396b15d73fd842cb7042db78aeb3c2c3f60bf38101f4082f8e70d00" => :mojave
-    sha256 "fbb9aa27837e6207508c346f6be03bfa80cae82317f41fda8061535207ab9f21" => :high_sierra
-    sha256 "79e0178f530a2df9140749b34079497c856327c9126eaf0628043375c1172ac0" => :sierra
+    sha256 "7b6665ce900145b71afcc3e77821b8292072de84662a8e0588ff9c416adce946" => :mojave
+    sha256 "49573b3aa06fbc8ccf8ef3ebf40ffc6550b74d3592b58e336d11e3dc0d654a60" => :high_sierra
+    sha256 "c98664ee49b401f61b05984f7bc5a992cb91aeecd744beae3bf5f38857b42af8" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

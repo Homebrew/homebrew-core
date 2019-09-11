@@ -1,15 +1,15 @@
 class Glm < Formula
   desc "C++ mathematics library for graphics software"
   homepage "https://glm.g-truc.net/"
-  url "https://github.com/g-truc/glm/releases/download/0.9.9.4/glm-0.9.9.4.zip"
-  sha256 "972b8c319ff1b96eeac19c63563176f138527ebf6fa5110b8eac5fe23f5e7d9f"
+  url "https://github.com/g-truc/glm/releases/download/0.9.9.5/glm-0.9.9.5.zip"
+  sha256 "4fe34860ce69156f63eea6c3d84c91cadfc330353cf275ff394aef4e163cafee"
   head "https://github.com/g-truc/glm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ba51243f0276e651ec43f6edd4f8f9aa48e8a6445faa61c8ba4b7b38f4c52d8" => :mojave
-    sha256 "84551dca48f057289cfda741cbc16972f95a4a9a7c732ca38418ca58c50f332b" => :high_sierra
-    sha256 "6d528c84ff11e13a550de7384c93f56db90392c9c431c30495bd04774e63490a" => :sierra
+    sha256 "12ad0bff26df5739227bb1f2865c064b46a1e21faa07e77f19c2be4e2abd8182" => :mojave
+    sha256 "534081b8d1624708d52a12d75a31b47372c1711c56057b658c0dbf5fa67306c0" => :high_sierra
+    sha256 "b7185a79a24187a43750f740ac07686ef144182eb8006ca0deadbbf4dc037584" => :sierra
   end
 
   depends_on "cmake" => :build

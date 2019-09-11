@@ -1,32 +1,36 @@
 class YelpTools < Formula
   desc "Tools that help create and edit Mallard or DocBook documentation"
   homepage "https://github.com/GNOME/yelp-tools"
-  url "https://download.gnome.org/sources/yelp-tools/3.32/yelp-tools-3.32.0.tar.xz"
-  sha256 "bfdd40d10d837d1a170c7fe70b3436d30e6698db809d5be459ea0f7fbb69ee0c"
+  url "https://download.gnome.org/sources/yelp-tools/3.32/yelp-tools-3.32.2.tar.xz"
+  sha256 "183856b5ed0b0bb2c05dd1204af023946ed436943e35e789afb0295e5e71e8f9"
   revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f47c6d9828e28b9135d7b99c7d5ecab1dd44b247a05e849abd1c02edbdfa38f" => :mojave
-    sha256 "1ccfac8c04c1049d1f03c538bc43a525874c8db74298e8c67025dab2910015c8" => :high_sierra
-    sha256 "e3aa9c7a280f00c63e91c385807155b3c50ac7a6877db4d2420fd35b3acfcd8c" => :sierra
+    sha256 "eaa2cd04e93ccbb9a549f0c54592e4937e51fc074e78673bd5d82a71d826234b" => :mojave
+    sha256 "eaa2cd04e93ccbb9a549f0c54592e4937e51fc074e78673bd5d82a71d826234b" => :high_sierra
+    sha256 "4ca84a03cda695aa70e06c160c65c1961eaef0315b6ff8e42747df421703f6b1" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "libtool" => :build
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz"
-    sha256 "cac31bc150545d6aa0de15dce04560cbf591008d17a783a1d1d9cdd47b147f04"
+    url "https://download.gnome.org/sources/yelp-xsl/3.34/yelp-xsl-3.34.0.tar.xz"
+    sha256 "e8063aee67d1df634f3d062f1c28130b2dabb3c0c66396b1af90388f34e14ee2"
   end
 
   def install
     resource("yelp-xsl").stage do
+      system "autoreconf", "-fi"
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
@@ -35,6 +39,7 @@ class YelpTools < Formula
       ENV.append_path "PKG_CONFIG_PATH", "#{share}/pkgconfig"
     end
 
+    system "autoreconf", "-fi"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

@@ -1,6 +1,6 @@
 class Libnfc < Formula
   desc "Low level NFC SDK and Programmers API"
-  homepage "http://nfc-tools.org"
+  homepage "https://github.com/nfc-tools/libnfc"
   url "https://bintray.com/artifact/download/nfc-tools/sources/libnfc-1.7.1.tar.bz2"
   sha256 "945e74d8e27683f9b8a6f6e529557b305d120df347a960a6a7ead6cb388f4072"
 
@@ -13,10 +13,19 @@ class Libnfc < Formula
     sha256 "cabb3f773d92c2cd95af437d6f4c567529229b26b82d568af1c89ec50b674f59" => :mavericks
   end
 
+  head do
+    url "https://github.com/nfc-tools/libnfc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
 
   def install
+    system "autoreconf", "-vfi" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--enable-serial-autoprobe",
                           "--with-drivers=all"

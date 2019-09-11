@@ -2,14 +2,14 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      :tag      => "v18.09.4",
-      :revision => "d14af54266dfeb55872100e28d14231b1baafe85"
+      :tag      => "v19.03.2",
+      :revision => "6a30dfca03664a0b6bf0646a7d389ee7d0318e6e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ddd6a5d7a186fdba4ab5af2be313d57d796cef2d6b8ebd1396d8a86b49086af" => :mojave
-    sha256 "48cb06562764012acfe5336036e5d2ded9ac56e3682df16580658ca4917bf502" => :high_sierra
-    sha256 "fcf79e61ee5a9998bfd6e1927ef8e86b96f639349e309bb91d0aa2cdc1920edf" => :sierra
+    sha256 "dbdb1baac89c7d805a9e2b16f953e4061532d47ca799c92c56ab8ea875243223" => :mojave
+    sha256 "ced62153aa5eb2286bf549714c1d1d566073d2be263cc57215fb8c612b50c3ad" => :high_sierra
+    sha256 "2515073942282f7ce158e415925d68ca39dbded266ca21cff9333ad3ea83ed1b" => :sierra
   end
 
   depends_on "go" => :build
@@ -21,10 +21,10 @@ class Docker < Formula
     cd dir do
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
-      ldflags = ["-X \"github.com/docker/cli/cli.BuildTime=#{build_time}\"",
-                 "-X github.com/docker/cli/cli.GitCommit=#{commit}",
-                 "-X github.com/docker/cli/cli.Version=#{version}",
-                 "-X \"github.com/docker/cli/cli.PlatformName=Docker Engine - Community\""]
+      ldflags = ["-X \"github.com/docker/cli/cli/version.BuildTime=#{build_time}\"",
+                 "-X github.com/docker/cli/cli/version.GitCommit=#{commit}",
+                 "-X github.com/docker/cli/cli/version.Version=#{version}",
+                 "-X \"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\""]
       system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
              "github.com/docker/cli/cmd/docker"
 
@@ -35,6 +35,7 @@ class Docker < Formula
   end
 
   test do
-    system "#{bin}/docker", "--version"
+    assert_match "Docker version #{version}", shell_output("#{bin}/docker --version")
+    assert_match "ERROR: Cannot connect to the Docker daemon", shell_output("#{bin}/docker info", 1)
   end
 end

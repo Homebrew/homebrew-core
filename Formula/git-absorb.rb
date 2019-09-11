@@ -1,14 +1,14 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/0.3.0.tar.gz"
-  sha256 "94d540a7febd37cd74e95e7cab71ee3514df020989208ce3fe83560699072730"
+  url "https://github.com/tummychow/git-absorb/archive/0.5.0.tar.gz"
+  sha256 "c4ef4fa28222773d695aab7711abbfac7e81c35a37eafe45f79d045516df28b1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eb30a21fcd537f59c44e16da4a39df10830fed394d58b3b4e51a2da4cf65cc62" => :mojave
-    sha256 "47b15af4840774370a83de7b5df11b3295b1da0586dbe8959c05925fa220c0a9" => :high_sierra
-    sha256 "701549ab63e18acc2524e5d857813fff8f3dadb34a45ead1ccc127b840fe9281" => :sierra
+    sha256 "4a8e3e6fa101306c8d99bf95634a7fbe08fcb80d46742161b972e9f5ab1031b5" => :mojave
+    sha256 "6723320cdbcef35818dc58ce6e0fcd3be87606ae59fc355d9179e5690bc90540" => :high_sierra
+    sha256 "d51c5da6ae0c17b416d0fb2bf1f043c7d0e3cb8535a47dc0afea56ef96a50f1f" => :sierra
   end
 
   depends_on "rust" => :build

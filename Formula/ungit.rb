@@ -3,14 +3,15 @@ require "language/node"
 class Ungit < Formula
   desc "The easiest way to use git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.4.42.tgz"
-  sha256 "df7b3fb075c3352ba56174a6ce5f92371fa33218ca4e01375b2f95030c4d34bb"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.4.46.tgz"
+  sha256 "cbb177f1f45276894daa1d2580535c29b8adeaedc5c0dfc2af9ec3e9cd2813f7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6d5eb23138d38e0568495dfdde0b82b27a112ddfd5c8d0f23ae492f3dfee57d2" => :mojave
-    sha256 "27aa59d9bb0f5c1d0cc2e4f7db89eeb9b7da106b87d3b487873e48295ce53a88" => :high_sierra
-    sha256 "9a818f694c16da122a2617a50fd8ac85c16b800261c2b270a98cca6ae5c66c66" => :sierra
+    rebuild 1
+    sha256 "107c230eec3615678b6640184c5156236850de4ff3b82b19ca559f92f65a54d9" => :mojave
+    sha256 "a7e0c6abeb515541ef76cdeea81e516f628be258cc1cc55876f25f07566c0aa1" => :high_sierra
+    sha256 "773b35dec90a13ba957acad35b882321e2e747e4671006fc81f63c5a8c7af163" => :sierra
   end
 
   depends_on "node"
@@ -27,7 +28,7 @@ class Ungit < Formula
       pid = fork do
         exec bin/"ungit", "--no-launchBrowser", "--autoShutdownTimeout", "5000" # give it an idle timeout to make it exit
       end
-      sleep 3
+      sleep 5
       assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:8448/")).at_css("title").text
     ensure
       Process.kill("TERM", pid)

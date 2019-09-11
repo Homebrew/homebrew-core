@@ -1,15 +1,15 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.13.1.0.tar.gz"
-  sha256 "16fb265b9611ff51ea229058824661c04db935cf88fde17af9cb66a8b9299bd5"
-  revision 1
+  url "https://github.com/EttusResearch/uhd/archive/v3.14.1.0.tar.gz"
+  sha256 "8fc1ad70d80f7f69a30c957fee218ef8767cfd5a0ee4f0830e506f2b22e5b923"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "019e463662322a2468f01524cda377e75f3071ffe57fff7a08011877a3415a01" => :mojave
-    sha256 "0b377e3732cdbf3c60bdccc61d4cf9fe35ef9db8523c8112f635037a40dbaa06" => :high_sierra
-    sha256 "0a939217bd4b1d772df4c75c5651b49bb01557102eac56695e6d9bd925df280c" => :sierra
+    rebuild 1
+    sha256 "e863c8d13b724e3173450439dfe83c4445494bd2273ae805ca358f8a28836082" => :mojave
+    sha256 "a3936c62d3b079197e9f3cbf12cf6fb7aeeaacc99e477424f541462a06830921" => :high_sierra
+    sha256 "aa90d30bc003ef14116d2aed08ea159276ad0bb414e553eca95d7f86e8dd072d" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -23,12 +23,6 @@ class Uhd < Formula
     sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
   end
 
-  # fix build for boost 1.69
-  patch do
-    url "https://github.com/EttusResearch/uhd/commit/5c012cad7858cadcaa85ec295080f3c8b21fdee0.patch?full_index=1"
-    sha256 "30192c65d63a45bc1510cf65d0538da5e3d2e74fe247588eda18058196da3863"
-  end
-
   def install
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
@@ -38,7 +32,7 @@ class Uhd < Formula
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON3=ON"
+      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON3=ON", "-DENABLE_STATIC_LIBS=ON"
       system "make"
       system "make", "test"
       system "make", "install"

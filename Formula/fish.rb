@@ -19,6 +19,7 @@ class Fish < Formula
 
   depends_on "cmake" => :build
   depends_on "pcre2"
+  uses_from_macos "ncurses"
 
   def install
     # In Homebrew's 'superenv' sed's path will be incompatible, so
@@ -37,17 +38,6 @@ class Fish < Formula
     (pkgshare/"vendor_functions.d").mkpath
     (pkgshare/"vendor_completions.d").mkpath
     (pkgshare/"vendor_conf.d").mkpath
-  end
-
-  def caveats; <<~EOS
-    You will need to add:
-      #{HOMEBREW_PREFIX}/bin/fish
-    to /etc/shells.
-
-    Then run:
-      chsh -s #{HOMEBREW_PREFIX}/bin/fish
-    to make fish your default shell.
-  EOS
   end
 
   test do

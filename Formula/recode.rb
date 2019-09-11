@@ -3,15 +3,12 @@ class Recode < Formula
   homepage "https://github.com/pinard/Recode"
   url "https://github.com/pinard/Recode/archive/v3.7-beta2.tar.gz"
   sha256 "72c3c0abcfe2887b83a8f27853a9df75d7e94a9ebacb152892cc4f25108e2144"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "4deb2f8480290e89de9b611eb139b7bd93d4279b776ca53ef32f31017d023d61" => :mojave
-    sha256 "ca77219ffb6960de21caf333f31faa43de430a0e9f784624324a7c0581ce567d" => :high_sierra
-    sha256 "15572a6826a49109bd64fd9b50eace8259a7563f9e6ffdbf5112ed742a256c79" => :sierra
-    sha256 "1aaa7262ed6614a56e2bc17ac4b518903b62eb582d6aeab45f7845b38dee224e" => :el_capitan
-    sha256 "8518f350264f5cdadfb26c49487f82f9c159307f26d10230daf415d1495607f4" => :yosemite
-    sha256 "81fb3b36d647c6dd83f9fb65bf657b73b65d551a16dcd7e9552ff70f5a1394dc" => :mavericks
+    sha256 "541408c872b2c16e999cb6f74fc94e8c340dfb1e2eb3a89aa21d3f118554219d" => :mojave
+    sha256 "65d9921e28f36fe7a0755d1cab44e4c2d2e5752ab25ed6c35cc7ee9e9072aee3" => :high_sierra
+    sha256 "d8d1838e5484c1bbdde1a1f4f57907a601ee32b6577c3c9364dde06e095a5605" => :sierra
   end
 
   depends_on "libtool" => :build

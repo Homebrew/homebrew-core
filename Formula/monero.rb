@@ -2,22 +2,23 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag      => "v0.14.0.2",
-      :revision => "6cadbdcd2d952433db3c2422511ed4d13b2cc824"
+      :tag      => "v0.14.1.2",
+      :revision => "8f0aedfa1ad7090ff1580cdce55b152fcb5655c0"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "02a31124feedd3dd840367ae9d6cccd0c800a83a0ea9284854b750ae1e2006d5" => :mojave
-    sha256 "733ae2e0521db05cf07f4907125da164ee4adc6f3e7c4772ddbf1bf007250a07" => :high_sierra
-    sha256 "8ec50fe41fda424f00d147852689b50e0a8e9f72d7be1f9a45483864c4978d65" => :sierra
+    rebuild 1
+    sha256 "66645be8b44348dccf1772f32a25aa4d20f7c0f1d70d94143f97031099912c1b" => :mojave
+    sha256 "35d6e058a89875c99bb16ceb1c0452c5da5df0c99c8d247933fac4b62f998f73" => :high_sierra
+    sha256 "cd796d88fab23f151cdf7a959935629e072f7295ea1a5a05ac7d859306f64717" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"

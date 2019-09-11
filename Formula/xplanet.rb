@@ -3,14 +3,12 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "08b96065da38ab4b0783d6b49cdba670276690a1024557ec3d1aff2de475c3b0" => :mojave
-    sha256 "bd4d0b8ed3bf33f6c6da0b43574fb08d054603d0b36b228a87d1ae070274ac7c" => :high_sierra
-    sha256 "eedbdc803d69fa1635e763eafa90ffd071b537e994a5fbdbe9eb84e69c0fc645" => :sierra
-    sha256 "6d37f0965bc1b1f1aa438fec8ea9e57a096681336dba25dc880f25cb752f3910" => :el_capitan
-    sha256 "4c0e0c1b025079129f808e85d3d5e76280799929fa6e9d119000e94283769a8d" => :yosemite
+    sha256 "786a7ce7564b15a7b24b6bbe9db363ac96ba44a0dc432e487f4ce5926f8abb95" => :mojave
+    sha256 "3f2d8620a26cc9e524be24d91db203337f4e1daad7b5db61c74207f26daf1298" => :high_sierra
+    sha256 "959cdbb77423ca2a305981370a087736941ae2767a3cbfbd0483f24b97049ca5" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -40,10 +38,9 @@ class Xplanet < Formula
                           "--with-aqua",
                           "--without-cspice",
                           "--without-cygwin",
-                          "--without-gif",
-                          "--without-jpeg",
-                          "--without-libpng",
-                          "--without-libtiff",
+                          "--with-gif",
+                          "--with-jpeg",
+                          "--with-libtiff",
                           "--without-pango",
                           "--without-pnm",
                           "--without-x",
@@ -52,7 +49,11 @@ class Xplanet < Formula
     system "make", "install"
   end
 
+  # Test all the supported image formats, jpg, png, gif and tiff, as well as the -num_times 2 patch
   test do
-    system "#{bin}/xplanet", "-geometry", "4096x2160", "-projection", "mercator", "-gmtlabel", "-num_times", "1", "-output", "#{testpath}/xp-test.png"
+    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
   end
 end

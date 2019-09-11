@@ -1,14 +1,14 @@
 class Chicken < Formula
   desc "Compiler for the Scheme programming language"
   homepage "https://www.call-cc.org/"
-  url "https://code.call-cc.org/releases/5.0.0/chicken-5.0.0.tar.gz"
-  sha256 "a8b94bb94c5d6a4348cedd75dc334ac80924bcd9a7a7a3d6af5121e57ef66595"
+  url "https://code.call-cc.org/releases/5.1.0/chicken-5.1.0.tar.gz"
+  sha256 "5c1101a8d8faabfd500ad69101e0c7c8bd826c68970f89c270640470e7b84b4b"
   head "https://code.call-cc.org/git/chicken-core.git"
 
   bottle do
-    sha256 "eee1a269507e626190797aa7768d581aca9cd83e21313f91ffde0139fd629009" => :mojave
-    sha256 "aea05c909bd9f831daa2fcdc9c3f04a09aab0bb5634afd8162034504da6a5801" => :high_sierra
-    sha256 "2083f2b685d91839bee340267d65713b3aa4024fed2b987fc3f51798910aef20" => :sierra
+    sha256 "f08f36b85d0a45fae786647581714722d8aaff881ce57f0504548fe1b7c76a5b" => :mojave
+    sha256 "7700eba9ea0485079f542114f81109f6951908aba573b3aafa020574614bf700" => :high_sierra
+    sha256 "7c79e7ec3d377cf3cc4aacae7c997859d6d11d8e081d609d3423b4cffcb48e22" => :sierra
   end
 
   def install

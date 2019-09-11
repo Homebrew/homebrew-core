@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.27.2.tar.gz"
-    sha256 "d2fe8a025668b143e8ff70b3cd407765140ed10e52523dd08253139f9322171b"
+    url "https://github.com/crystal-lang/crystal/archive/0.30.1.tar.gz"
+    sha256 "0ffc00fa54929c2533bc0bcb89e0b001dd3abc470ccc87e3576047a5cdafc062"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,10 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "d2af850ac6832460a4f88d9788cd205412a73e5f0807e27b61b7bb3c39c2f0cd" => :mojave
-    sha256 "1274def6adff3b374aa5a4eeba12ac1664e3cd1405036c288834cd7ad2599071" => :high_sierra
-    sha256 "02804838a14b4c196ea615d3813cad05d912d09d85a4920a894e2e1ef9ed5bf1" => :sierra
+    sha256 "3e6d1c482c1d4128b7298e63219ae1ea311d4575c3f0f6791b44e60ce7f7d2d6" => :mojave
+    sha256 "3a2a303378a72dccc017092c6aed04de81b3f8bf56b654b568f9e2fa56c16a7a" => :high_sierra
+    sha256 "b810c431c44ab0ca75af43d461ed21706065eac5c2a9ab95ff491a745db0e464" => :sierra
   end
 
   head do
@@ -27,19 +26,34 @@ class Crystal < Formula
     end
   end
 
+  depends_on "autoconf"      => :build # for building bdw-gc
+  depends_on "automake"      => :build # for building bdw-gc
   depends_on "libatomic_ops" => :build # for building bdw-gc
-  depends_on "bdw-gc"
+  depends_on "libtool"       => :build # for building bdw-gc
+
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@6"
+  depends_on "llvm"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
+  # Crystal uses an extended version of bdw-gc to handle multi-threading
+  resource "bdw-gc" do
+    url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
+    sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
+
+    # extension to handle multi-threading
+    patch :p1 do
+      url "https://raw.githubusercontent.com/crystal-lang/distribution-scripts/ab683792f34c60159f0e697adf792ff5b0fcbf91/linux/files/feature-thread-stackbottom.patch"
+      sha256 "acbae8cfe10e3efac403a629490cfd05e809554d23e9c3a88acddbb66f8ef7e0"
+    end
+  end
+
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.27.1/crystal-0.27.1-1-darwin-x86_64.tar.gz"
-    version "0.27.1-1"
-    sha256 "f5102f34b6801a1bae3afe66fb6da15308cc304c3a9fba5799f4379c1e3010b1"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.29.0/crystal-0.29.0-1-darwin-x86_64.tar.gz"
+    version "0.29.0-1"
+    sha256 "6de700d88dc0486c0d56e4d5c6852dc675256aa6f2c571ed8e4b15e0fc72a0b9"
   end
 
   def install
@@ -50,11 +64,23 @@ class Crystal < Formula
     end
 
     ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:lib"
+    ENV["CRYSTAL_CONFIG_LIBRARY_PATH"] = prefix/"embedded/lib"
     ENV.append_path "PATH", "boot/bin"
 
-    system "make", "deps"
-    (buildpath/".build").mkpath
+    resource("bdw-gc").stage(buildpath/"gc")
+    cd(buildpath/"gc") do
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--disable-shared",
+                            "--enable-large-config"
+      system "make"
+    end
 
+    ENV.prepend_path "CRYSTAL_LIBRARY_PATH", buildpath/"gc/.libs"
+
+    # Build crystal
+    (buildpath/".build").mkpath
+    system "make", "deps"
     system "bin/crystal", "build",
                           "-D", "without_openssl",
                           "-D", "without_zlib",
@@ -63,15 +89,26 @@ class Crystal < Formula
                           "src/compiler/crystal.cr",
                           "--release", "--no-debug"
 
+    # Build shards
     resource("shards").stage do
-      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+      system buildpath/"bin/crystal", "build",
+                                      "-o", buildpath/".build/shards",
+                                      "src/shards.cr",
+                                      "--release", "--no-debug"
+
+      man1.install "man/shards.1"
+      man5.install "man/shard.yml.5"
     end
 
     bin.install ".build/shards"
     bin.install ".build/crystal"
     prefix.install "src"
+    (prefix/"embedded/lib").install "#{buildpath/"gc"}/.libs/libgc.a"
+
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
+
+    man1.install "man/crystal.1"
   end
 
   test do

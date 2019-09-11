@@ -1,14 +1,14 @@
 class Libvmaf < Formula
   desc "Perceptual video quality assessment based on multi-method fusion"
   homepage "https://github.com/Netflix/vmaf"
-  url "https://github.com/Netflix/vmaf/archive/v1.3.13.tar.gz"
-  sha256 "926ed538c7d7ae3a36064b87a34094a9d2bee20f7e51a64f8bb275f6c44a8ae3"
+  url "https://github.com/Netflix/vmaf/archive/v1.3.15.tar.gz"
+  sha256 "43bbb484102c4d976da4a10d896fb9a11838c8aa809e9c017d5b3edb225b528d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0510aafdf0857bc58d0930d879175b68f2e59f00b6471275f8702b915128eb8f" => :mojave
-    sha256 "70aeff87f9552fed4f74e8ff3e5eab66cc552d79f5e679dc81219588bd47093a" => :high_sierra
-    sha256 "bb58cd00f9322f038edeff95df70710115d2f45528f84324f99ef0bae1238b77" => :sierra
+    sha256 "1a11bb8c22c5ffbf56f2963c2cfc82dd4ff9615595d5f870dc4f005dbd323e7b" => :mojave
+    sha256 "2480b6f5f5ff58acf9d1c732db8b2a04e408d082a53590bdad15d203e02aa791" => :high_sierra
+    sha256 "c5b2cbf13a844a4591e2f1dbf7d20266715130802ba3b030f45e9471da994e86" => :sierra
   end
 
   def install

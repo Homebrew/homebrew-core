@@ -3,13 +3,12 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 4
+  revision 6
 
   bottle do
-    rebuild 1
-    sha256 "5d98294c8ba9abc1050279d483cd5732322eea149b55bb91cc5ea1004315c39e" => :mojave
-    sha256 "37b37ddee29f08d13d01d0f22a595897848be7f3910ec98f10e273e73bd816e1" => :high_sierra
-    sha256 "770fb7817b355d58757e899413ad5f0f24cf255a69e707959225a4ffb52b8b7f" => :sierra
+    sha256 "4489956c30377a7ec5ba0aa921b7221b58d76aca4adcdbddbcf27335719f71ee" => :mojave
+    sha256 "b8c8fa3a62ee49c9cf3d9232b17cd88de157ed56cbaa48e05a6058153dce16bc" => :high_sierra
+    sha256 "1e9ae3004d70334f7b181a7e126f49008a0b0db7e62519078bbc8bd30530485e" => :sierra
   end
 
   keg_only :versioned_formula

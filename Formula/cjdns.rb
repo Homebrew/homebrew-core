@@ -1,16 +1,15 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v20.2.tar.gz"
-  sha256 "b114f4e89c971d2c288e3d8265396248a37134895b0e0468bf55030de84b4d2a"
+  url "https://github.com/cjdelisle/cjdns/archive/cjdns-v20.3.tar.gz"
+  sha256 "e8ca2cc5d5ba71e39a702299106dd2a965005703284cec91b3e94691cdce6f65"
   head "https://github.com/cjdelisle/cjdns.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62b8418625dc9550f4eded4ee1c7062b8c5d85da97aacd6899fff13578d3a836" => :mojave
-    sha256 "5e516be5ce8d028803865ce5ea136ccc671250424f560efbd6ab1454976ff42d" => :high_sierra
-    sha256 "0bd392fc17fb41ad9004458c0098df2dc165accf5c9d676efe21373c22f857db" => :sierra
-    sha256 "095639122e0a992531834d8c1b77113386064fa6214eabf06a0716d3ee678291" => :el_capitan
+    sha256 "0d19900f4469f6da94b225a6b5bf54fce7adebfd8178b78934e1c9331108a921" => :mojave
+    sha256 "f04a38f22e48d0b8690a3937c22576fbd058a4eb7ff5d9df83a558760b98132e" => :high_sierra
+    sha256 "0d9b022ddd9920848a51e46a0ae67f46c81d911b384b093768d74a2adc0d044a" => :sierra
   end
 
   depends_on "node" => :build
@@ -19,9 +18,13 @@ class Cjdns < Formula
     system "./do"
     bin.install "cjdroute"
     (pkgshare/"test").install "build_darwin/test_testcjdroute_c" => "cjdroute_test"
+    rm_f "build_darwin/test_testcjdroute_c"
+    (pkgshare/"test").install "build_darwin"
   end
 
   test do
-    system "#{pkgshare}/test/cjdroute_test", "all"
+    cp_r pkgshare/"test/cjdroute_test", testpath
+    cp_r pkgshare/"test/build_darwin", testpath
+    system "./cjdroute_test", "all"
   end
 end

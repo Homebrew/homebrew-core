@@ -1,15 +1,13 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.2/c/avro-c-1.8.2.tar.gz"
-  sha256 "4639982b2b8fbd91fc7128fef672207129c959bb7900dd64b077ce4206edf10e"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.9.1/c/avro-c-1.9.1.tar.gz"
+  sha256 "7df7bc1e13ce7180f0438ed05ab6642b5b2b6df91f30b927b470e25a78e04642"
 
   bottle do
-    sha256 "072eff37263bbd6dfa941cb350ffd2ea7ee6e23e948547f8c9c6f3b58e162211" => :mojave
-    sha256 "845eb5220229a26d3acd435beb093301207850787827a84db0d55455357f18dd" => :high_sierra
-    sha256 "442b64624539b8454693b961ac9b455f2ad956c1119cb16e49c65498caeb1e81" => :sierra
-    sha256 "6282882c11af83fe568776fa45c11c5140dec413a6cd4efff9e28b2ffc35713c" => :el_capitan
+    sha256 "35aa07886a5188fc42edf2c4dd473857420f9e2ab8b981c4ebd08fabbbe32455" => :mojave
+    sha256 "4ab18f360192adcd9900308820cb06b706d12b997a07b7f2fa6bf1366a91c477" => :high_sierra
+    sha256 "0e24c43c6b2d1c356fdb135f0d94afaaf1274c922f7e58abf4c51581925da572" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -17,6 +15,7 @@ class AvroC < Formula
   depends_on "jansson"
   depends_on "snappy"
   depends_on "xz"
+  uses_from_macos "zlib"
 
   def install
     system "cmake", ".", *std_cmake_args

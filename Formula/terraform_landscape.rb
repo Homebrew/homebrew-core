@@ -46,7 +46,7 @@ class TerraformLandscape < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.verify_download_integrity(r.fetch)
+      r.fetch
       system "gem", "install", r.cached_download, "--no-document",
                     "--ignore-dependencies", "--install-dir", libexec
     end

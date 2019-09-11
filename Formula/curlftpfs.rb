@@ -3,15 +3,14 @@ class Curlftpfs < Formula
   homepage "https://curlftpfs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/curlftpfs/curlftpfs/0.9.2/curlftpfs-0.9.2.tar.gz"
   sha256 "4eb44739c7078ba0edde177bdd266c4cfb7c621075f47f64c85a06b12b3c6958"
+  revision 1
   head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", :using => :cvs
 
   bottle do
     cellar :any
-    sha256 "a04c06fd0dfa0af43f5fc8fe267842a4458689ff497530dee8c719b651afe271" => :mojave
-    sha256 "96a8dfe5202c586e8e338b59cf546c22e4dd481d7ba14e4f0d601ffb438e0ef9" => :high_sierra
-    sha256 "44f2aecc6d790eff800e1e38b5f28e9fb5cf17b9a1adf6daaf23d42196796e8c" => :sierra
-    sha256 "21b0fc7553f564b464b4158deaf22beeae6d2791786b6eb9af0f16de854b8009" => :el_capitan
-    sha256 "4d610ca926b0698aa25633af0fa5ad1e9352de396f16c7f26e9beff682d4020f" => :yosemite
+    sha256 "b4f74999789cdb534784428530110421a256adc2b276ed8f372c8498e31719a0" => :mojave
+    sha256 "edb3da0b0ccc3b5b3004096f89174786ad75838b82b6c6b621855291744147f1" => :high_sierra
+    sha256 "5734dbff6e2a7c18232d08d22fe64e19610f32b07e48b276996df759baaef407" => :sierra
   end
 
   depends_on "autoconf" => :build

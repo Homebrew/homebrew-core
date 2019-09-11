@@ -3,13 +3,13 @@ class OsmGpsMap < Formula
   homepage "https://nzjrs.github.com/osm-gps-map/"
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "3fc5e8704885ee52388758422a586fe36f67f0bb88f260107d8d51ddaee69131" => :mojave
-    sha256 "9b4ff596f15ef4dd79f8a52869ce0f0dc4e104c827f79dd223c3ff3c60631c5c" => :high_sierra
-    sha256 "5303392a0018ff176e67b844d1808834500c1b0ac8dd5362ad5f2a70939d1bc2" => :sierra
-    sha256 "05bc6efb9676e68162e553bfe41f7467e5f7d8da85cb9cfda5256bf5a79ff884" => :el_capitan
+    rebuild 1
+    sha256 "75ada3ff3540c6131b2c0b47d3010441b29e9b5ea59aeebbd105be02dd2f1698" => :mojave
+    sha256 "ce1ad0e093f2d8fd590a6c98cf941e1ed2be529d7f1a8ea7a0bad6ad86af7c3d" => :high_sierra
+    sha256 "c6000d9f544b5661d5ca6740914e6b8f6cb4b79b12261e598e88e0763929fb58" => :sierra
   end
 
   head do
@@ -51,6 +51,7 @@ class OsmGpsMap < Formula
     glib = Formula["glib"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     pango = Formula["pango"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
@@ -59,6 +60,7 @@ class OsmGpsMap < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{pango.opt_include}/pango-1.0
       -I#{include}/osmgpsmap-1.0
       -D_REENTRANT

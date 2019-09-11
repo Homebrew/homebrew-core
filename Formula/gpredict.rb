@@ -3,13 +3,12 @@ class Gpredict < Formula
   homepage "http://gpredict.oz9aec.net/"
   url "https://github.com/csete/gpredict/releases/download/v2.2.1/gpredict-2.2.1.tar.bz2"
   sha256 "e759c4bae0b17b202a7c0f8281ff016f819b502780d3e77b46fe8767e7498e43"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "400c62dd8752cdb30a94167fcd70d935fe45e724d0639a734ab2b4bf2ebd46f4" => :mojave
-    sha256 "06a86999dd0aef8b9b48a6d2331f61cd402820cf9538933c9b0e1b3582a6a919" => :high_sierra
-    sha256 "4dcd55867a496978ba69a96690e331610c944ed7f22a4561e7cca141ba4aad15" => :sierra
-    sha256 "24336d811bd9568792d69f4a13d71e4184fd5ccd9282615e2a8a1277616dae32" => :el_capitan
+    sha256 "952941a2ecdb5f75805888dfd020acce48c4f1b29a9c2e3ec8742d35fcd9c829" => :mojave
+    sha256 "189249444c490bc7984506a3d041de1d057fff671ff774871f549f6b32efa042" => :high_sierra
+    sha256 "9a0a4b0e63b3b1f84830f508d60ee3fc5b5fd0b9a5731241873168baa88209cf" => :sierra
   end
 
   depends_on "intltool" => :build

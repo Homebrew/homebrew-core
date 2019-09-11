@@ -1,14 +1,13 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://deb.debian.org/debian/pool/main/g/grib-api/grib-api_1.27.0.orig.tar.xz"
-  sha256 "81078fb9946c38cd292c4eaa50f0acf0093f709a247e83493b3181955177ba09"
-  revision 1
+  url "https://deb.debian.org/debian/pool/main/g/grib-api/grib-api_1.28.0.orig.tar.xz"
+  sha256 "6afd09feede94faf353b71caa2567b985ab214331d58e8c3f303ea01f387777d"
 
   bottle do
-    sha256 "437fe07006a50a5111d757ce44441d1b1c2a0f26399c7a0bd6e1842d9ebc624e" => :mojave
-    sha256 "f67e6242e60d5359dc5d05705c00b95df89f8783fe8704b0d59e4f5118664981" => :high_sierra
-    sha256 "0b950cbf4e4fbc91e1c034a6fc6aacdebe57caa3b79ece787e4e93105e7b8959" => :sierra
+    sha256 "c47b2b6a977a73b010707e6190d0dde94499615913f88ef7eb4aedc4804768d0" => :mojave
+    sha256 "1a0749fb9fa2f5b66ab7230920806f3dddcfb1a7b0cd3cd090e506c3f7e0e9af" => :high_sierra
+    sha256 "e556a07e1d8a1ef6bd7f4c5f0c3770ffab42c897b3213d05d65e3ec9b386912b" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,14 +1,14 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.32/pygobject-3.32.0.tar.xz"
-  sha256 "83f4d7e59fde6bc6b0d39c5e5208574802f759bc525a4cb8e7265dfcba45ef29"
+  url "https://download.gnome.org/sources/pygobject/3.34/pygobject-3.34.0.tar.xz"
+  sha256 "87e2c9aa785f352ef111dcc5f63df9b85cf6e05e52ff04f803ffbebdacf5271a"
 
   bottle do
     cellar :any
-    sha256 "592c5c45eb5e6001d87faa4a287c9fcadc296a91024eee7da39f318f8940409c" => :mojave
-    sha256 "9022c03bcfdb461d23733b4ec04fcf7d470d3cb64c6aa847b8c795992f3977c6" => :high_sierra
-    sha256 "d645dba8e9857d2059e60209d72db20d5efa486869a4321dadb1fd11cfa8c8ee" => :sierra
+    sha256 "10abeaee530ca25b234c317adf3d46524beb878ede16d7100322c1c1aded878d" => :mojave
+    sha256 "be14c63aab1bdc4bb3abd6078c5dce50c5fea09f5bf71b2425bee33bee038242" => :high_sierra
+    sha256 "1a7b76f2f40d02ca4c5ddfc8ded2f8f2362f900493e243b2b08ec856b0d42c48" => :sierra
   end
 
   depends_on "meson" => :build
@@ -18,25 +18,15 @@ class Pygobject3 < Formula
   depends_on "py2cairo"
   depends_on "py3cairo"
   depends_on "python"
-  depends_on "python@2"
 
   def install
-    mkdir "buildpy2" do
-      system "meson", "--prefix=#{prefix}",
-                      "-Dpycairo=true",
-                      "-Dpython=python2.7",
-                      ".."
-      system "ninja", "-v"
-      system "ninja", "install"
-    end
-
     mkdir "buildpy3" do
       system "meson", "--prefix=#{prefix}",
                       "-Dpycairo=true",
                       "-Dpython=python3",
                       ".."
       system "ninja", "-v"
-      system "ninja", "install"
+      system "ninja", "install", "-v"
     end
   end
 
@@ -48,14 +38,9 @@ class Pygobject3 < Formula
       from gi.repository import GLib
       assert(31 == GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
     EOS
-    pythons = [
-      Formula["python@2"].opt_bin/"python2",
-      Formula["python"].opt_bin/"python3",
-    ]
-    pythons.each do |python|
-      pyversion = Language::Python.major_minor_version(python)
-      ENV.prepend_path "PYTHONPATH", lib/"python#{pyversion}/site-packages"
-      system python, "test.py"
-    end
+
+    pyversion = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{pyversion}/site-packages"
+    system "python3", "test.py"
   end
 end

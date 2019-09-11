@@ -1,13 +1,14 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.1.tar.xz"
-  sha256 "1c2218ed71230dd2c550ca4fd3dab53e2f2831d38982c213575f34e48d68e980"
+  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.2.tar.xz"
+  sha256 "28ed5ff00d6faf1dc885c4252a538e43ff3f614fcf6a0f20c3b63604295d3c02"
 
   bottle do
-    sha256 "1f63c8bc5337d9980092cea606643de4a6eb5a83c66f42a6a4024993708f280f" => :mojave
-    sha256 "b18ba359bd311435ac620e6324c9346c7321d43845682a7f36e51727184de253" => :high_sierra
-    sha256 "dc4eb632ae023cded082d2fd53108100b2730c7eb2ff8e351de3545e0423e3d6" => :sierra
+    rebuild 1
+    sha256 "ca2baee1404a6ed57b383f8e7db30a3996ec30a7d037c51b2ba6c3279b1469fa" => :mojave
+    sha256 "1ca19968b2fa7a1f652a7175f98a2a02c4c0a1f5ef0893cdc4c20940bb973573" => :high_sierra
+    sha256 "2d146f273cdb420e70f45983e1c9ed5aa1f3647ffd991708d94e3bc9e2809fd8" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -27,10 +28,6 @@ class Libgweather < Formula
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
-
-    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/GWeather-3.0.gir", "@rpath", lib.to_s
-    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/GWeather-3.0.typelib", share/"gir-1.0/GWeather-3.0.gir"
   end
 
   def post_install
@@ -55,6 +52,7 @@ class Libgweather < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -71,6 +69,7 @@ class Libgweather < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgweather-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16

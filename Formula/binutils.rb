@@ -11,6 +11,8 @@ class Binutils < Formula
     sha256 "7fabb9b6e95bbc156469a765189e153917adb9b8fbdc24a7662f42b4995ba825" => :sierra
   end
 
+  uses_from_macos "zlib"
+
   keg_only :provided_by_macos,
            "because Apple provides the same tools and binutils is poorly supported on macOS"
 

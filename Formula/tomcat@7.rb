@@ -1,9 +1,8 @@
 class TomcatAT7 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.93/bin/apache-tomcat-7.0.93.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.93/bin/apache-tomcat-7.0.93.tar.gz"
-  sha256 "72026b62f9bf8f83413b3e1275646e4cc5e6fc559fce4c5637557c1d9a47154c"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.96/bin/apache-tomcat-7.0.96.tar.gz"
+  sha256 "42e34e357766ec5bb86006f1d6cbbe1f192fee81087664fa9c4a3c027e5448f3"
 
   bottle :unneeded
 

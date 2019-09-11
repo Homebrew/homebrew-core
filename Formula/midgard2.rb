@@ -3,15 +3,12 @@ class Midgard2 < Formula
   homepage "http://www.midgard-project.org/"
   url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
   sha256 "7c1d17e061df8f3b39fd8944ab97ab7220219b470f7874e74471702d2caca2cb"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "2172742db4d9b9a311cce2d5d96a31ddaa3b924361b5e524ab1c841cf0a3f8fa" => :mojave
-    sha256 "c441435a2ea2a9c9ec76b066e9d03ff2bf49d3bd6484f1a61308a77ef4f536bb" => :high_sierra
-    sha256 "5c522e6151422dcc32f28f276f8315b66aab03c8147ea85f8f4b5f1700a664d2" => :sierra
-    sha256 "e9c17c300e476ee15ca5d3ccc34c70715da56a8e7be41a7e0638d3dfbbf49113" => :el_capitan
-    sha256 "b1d949df0056f3855adfdd4542825fbffa13043e4666516662b3e69f81c24e2b" => :yosemite
-    sha256 "8cb700e06f34ca0a08745d42f53dc2b451eb7a739105dda3aade4db2b03a9a3f" => :mavericks
+    sha256 "d37c0fefe73ad6e8360585d80e26e11f7e1f5735fdf8382f0c3795f95fa93d68" => :mojave
+    sha256 "08df9e1d7487d38c8174047aa9d0620bc1f430f23602acba90c2ec9978a3fdd9" => :high_sierra
+    sha256 "2aec9cbfb7a432a4ad73157831b9d5f6573ae4b85141410040cb0f053435541a" => :sierra
   end
 
   head do

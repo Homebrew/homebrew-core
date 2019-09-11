@@ -3,12 +3,12 @@ class Redshift < Formula
   homepage "http://jonls.dk/redshift/"
   url "https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz"
   sha256 "d2f8c5300e3ce2a84fe6584d2f1483aa9eadc668ab1951b2c2b8a03ece3a22ba"
+  revision 1
 
   bottle do
-    sha256 "d1f71d1f7dc5d5f22c220087a9fde5d159928540b54c02803e37cbc3bfc37e5d" => :mojave
-    sha256 "39794fc0af4bae10ccfa98921acb933c414dbb858e25515dfbff38659d7b8b77" => :high_sierra
-    sha256 "30ff6fd3a0bb4d73bd9c3855467fe9b0cf78c8f084083e103ef702587fba98cc" => :sierra
-    sha256 "365aba46b3ea942d56749f405633093fc7e774bc4b27acefdc5ed0a87bdd4d67" => :el_capitan
+    sha256 "197ca4060616fbb79a6e64b93760f60ef581d5d76f838ab099b97076e3e569fe" => :mojave
+    sha256 "f07311c326eb8c2310d509ffbcb5424d7783a1b0b675d47ac32026116086a39d" => :high_sierra
+    sha256 "89ab02396a2d3694923f8496217a5d5a47c1cc35e167205cf4bb74033de92ab3" => :sierra
   end
 
   head do

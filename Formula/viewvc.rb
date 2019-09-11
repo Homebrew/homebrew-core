@@ -1,16 +1,14 @@
 class Viewvc < Formula
   desc "Browser interface for CVS and Subversion repositories"
   homepage "http://www.viewvc.org"
-  url "https://github.com/viewvc/viewvc/releases/download/1.1.26/viewvc-1.1.26.tar.gz"
-  sha256 "9d718237df7fc04d511302812c0bec0363cf6b8334ab796953a764c2de426e43"
-  revision 1
+  url "https://github.com/viewvc/viewvc/releases/download/1.1.27/viewvc-1.1.27.tar.gz"
+  sha256 "f5def1dda61568b468c608a0805fe73c15c2073b263cb5395de96ad3218973a0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d9768a4c14c2c7cf7a8318b1b5ed4b6a2e74702b1018402e6e454e2df05bc0f1" => :mojave
-    sha256 "dd3b0a77e2eb08bbec7f5a0b14744f2dcc7894d4da9702d1e489e901c8e9a4f0" => :high_sierra
-    sha256 "dd3b0a77e2eb08bbec7f5a0b14744f2dcc7894d4da9702d1e489e901c8e9a4f0" => :sierra
-    sha256 "dd3b0a77e2eb08bbec7f5a0b14744f2dcc7894d4da9702d1e489e901c8e9a4f0" => :el_capitan
+    sha256 "a42a0ce05dbc1e36a8a1a75e4b16fe22a5c7501c54f0459283c1d112aedd3644" => :mojave
+    sha256 "a42a0ce05dbc1e36a8a1a75e4b16fe22a5c7501c54f0459283c1d112aedd3644" => :high_sierra
+    sha256 "abc850e402813a1208bfff6f59b82ed8bc695d3e192b72cbb9873f50a1200c30" => :sierra
   end
 
   depends_on "subversion"

@@ -3,14 +3,13 @@ class Gbdfed < Formula
   homepage "http://sofia.nmsu.edu/~mleisher/Software/gbdfed/"
   url "http://sofia.nmsu.edu/~mleisher/Software/gbdfed/gbdfed-1.6.tar.gz"
   sha256 "8042575d23a55a3c38192e67fcb5eafd8f7aa8d723012c374acb2e0a36022943"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "16029c834d4dffd8ce32cbf58c50d77818b27eb598cab70913c8e3765ac02472" => :mojave
-    sha256 "5b4319ca75f1018403e0d2cc8db794d18b317d0cfee6270e6400fa2e4fb9b87f" => :high_sierra
-    sha256 "14cb0338597a0c954308d2011a422239005d6ab36f80f2488d71972932bc1d3d" => :sierra
-    sha256 "621e5fb3c02c63cff8490b7d104d397b19b9512bdab94217d07f7f5319de1159" => :el_capitan
+    sha256 "00b2376a043f6e90d777bc9e5805d84da21c046f446c4dcd649b482a01cbc6cf" => :mojave
+    sha256 "945fc3ffa7573224e7a387e6dec353ca7f3b46829f3e3728774a97c26fb0923a" => :high_sierra
+    sha256 "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5" => :sierra
   end
 
   depends_on "pkg-config" => :build

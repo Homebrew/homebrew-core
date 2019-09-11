@@ -1,14 +1,14 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/pub/videolan/libbluray/1.1.0/libbluray-1.1.0.tar.bz2"
-  sha256 "e6a600d26ad3453a168dbb144f041134e954b541b44a9a5aa213d1c7d8c3fe83"
+  url "https://download.videolan.org/pub/videolan/libbluray/1.1.2/libbluray-1.1.2.tar.bz2"
+  sha256 "a3dd452239b100dc9da0d01b30e1692693e2a332a7d29917bf84bb10ea7c0b42"
 
   bottle do
     cellar :any
-    sha256 "2a792020fb9ba1c34daff300c932f6c3f8e1d433d52d67b9bf1143f19bada252" => :mojave
-    sha256 "8b599cef00d9de78d8be6ddfe1e108a0724858d79456d9e380fefd58a1e61019" => :high_sierra
-    sha256 "c7b8ef28582e06c42e94aae97949c15bfca637a9fd3f263880831a320c002216" => :sierra
+    sha256 "25de56ece940908d1be482b234b5c6fc5ec2bc8d24aaf9c75d67718ea5770605" => :mojave
+    sha256 "152dd759f3c3170eecf59f095c6b8dde3a9fc8dcf317846b50fbd85644bc3296" => :high_sierra
+    sha256 "de230a76a5a163cf704b150ebcb2c1347bb64a41c5f68b0487ae83dbf48c13ac" => :sierra
   end
 
   head do

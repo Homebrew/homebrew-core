@@ -3,14 +3,13 @@ class Loudmouth < Formula
   homepage "https://mcabber.com"
   url "https://mcabber.com/files/loudmouth/loudmouth-1.5.3.tar.bz2"
   sha256 "54329415cb1bacb783c20f5f1f975de4fc460165d0d8a1e3b789367b5f69d32c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b361c56b41bf7248fa3b12893856ef54bb3b06f895c2667ffc51c83a5ce44bff" => :mojave
-    sha256 "0ae2fce2fd5edcea19ecf80cbcc4f12ab203e92f85c8c28f9444f11fc34df37c" => :high_sierra
-    sha256 "778b6156e5d99748a1e4a2e45683cdea3c08295ad6dbaccf64cd23eea0f952ed" => :sierra
-    sha256 "92264a248d2b8b7c02e4ab60cd64430869fac7ce5a09a49154c6b2ed3659223a" => :el_capitan
+    sha256 "43052aa18cefe00338ba03fe866badd2b2f17cb6766ae2a1203bdcd54cf2ca6b" => :mojave
+    sha256 "28635ff511d03492181d4b2c9f4cfe5b65600f512bc4ed8dc02611ff1c4b1b56" => :high_sierra
+    sha256 "72854a1ff4e2492f0b90d1f435c523ae3801e1ea60d65e033909043081004db0" => :sierra
   end
 
   head do

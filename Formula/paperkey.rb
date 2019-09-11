@@ -1,15 +1,14 @@
 class Paperkey < Formula
   desc "Extract just secret information out of OpenPGP secret keys"
   homepage "https://www.jabberwocky.com/software/paperkey/"
-  url "https://www.jabberwocky.com/software/paperkey/paperkey-1.5.tar.gz"
-  sha256 "c4737943083ce92e41faf13c27a9d608105b6285c0840dfb684a7ee294142ddf"
+  url "https://www.jabberwocky.com/software/paperkey/paperkey-1.6.tar.gz"
+  sha256 "a245fd13271a8d2afa03dde979af3a29eb3d4ebb1fbcad4a9b52cf67a27d05f7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b6d8cc4b86c7a9a5f7185cb8113aed57670c1754701dc2afb6f419775dda29a1" => :mojave
-    sha256 "a541e2c254870a1e53049a478dd7067537a7d3e9ededad8123fd7d9f7c48f576" => :high_sierra
-    sha256 "9c96b3110a0af3abb54d19f6fb73b60bbcf1868e5343ba69fde37d7abbd5714c" => :sierra
-    sha256 "e98cb1a1b43ec005129d6346a7d6df00bcc50ce12366bb741581f448f9321d59" => :el_capitan
+    sha256 "894ef3339013be6574f736e316c61cbf54fbc3dcac358df14f1d54b1d7387854" => :mojave
+    sha256 "82e49c6aa559a349ce73521a90881acb74a540de03d355ad7461c177d00bb8e8" => :high_sierra
+    sha256 "fecd3e866173f93ddd6d89e91f2850d29c10e8edf27bb969a95de581ec382c56" => :sierra
   end
 
   resource "secret.gpg" do

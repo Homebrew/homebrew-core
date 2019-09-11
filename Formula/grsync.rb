@@ -3,13 +3,12 @@ class Grsync < Formula
   homepage "http://www.opbyte.it/grsync/"
   url "https://downloads.sourceforge.net/project/grsync/grsync-1.2.6.tar.gz"
   sha256 "66d5acea5e6767d6ed2082e1c6e250fe809cb1e797cbbee5c8e8a2d28a895619"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f4f062368eb98e973ed137c8f01ab04b626871b5d37a1a2453ae631352236f2f" => :mojave
-    sha256 "8bf6f5db117d7f86ec7962263479fc465a27c68efe5967b31b663ee5a52b75ea" => :high_sierra
-    sha256 "d79f87af06cd936248834e04bd87006f3839fbb70b48f195f84b600fdf65f4ef" => :sierra
-    sha256 "b47c5cd30b84d999349e938281966586697485ff23bbe8af96e18977653c94a4" => :el_capitan
+    sha256 "8645e9089cb1045704be43d8c7351b26ced5823331bc0ab7bf94eadfa22c50af" => :mojave
+    sha256 "a37529e54d8e00d5a2400fc3ae0e5ccf06d4c84d5e36afc38233859f57f76117" => :high_sierra
+    sha256 "a186fcf380ae3b1a73223b9591a8ccd9174a3fee91dae8e445da2dae98d6da71" => :sierra
   end
 
   depends_on "intltool" => :build

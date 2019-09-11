@@ -3,11 +3,13 @@ class Wget < Formula
   homepage "https://www.gnu.org/software/wget/"
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz"
   sha256 "31cccfc6630528db1c8e3a06f6decf2a370060b982841cfab2b8677400a5092e"
+  revision 1
 
   bottle do
-    sha256 "cfe40dfe41b8da402e74e2ec6a0ca03ff2bd998824188af6e9eacd300d1cc226" => :mojave
-    sha256 "fef738f888e306166489396a2aaf7f0d7cc3257eef97e0d18a62d75e6e6ae440" => :high_sierra
-    sha256 "c2a5d0e2dd91659d491805c7c50723db552abf49e59f39e99eebe08656c858fe" => :sierra
+    rebuild 1
+    sha256 "9ff925f814c5ef6f742d4a5680da53944ce5165aa79a7266db74432a5a1d00fe" => :mojave
+    sha256 "48a7a42ed210a9511d2672479b8ccbc281f7716cad73d8c951f982317ffa8d5e" => :high_sierra
+    sha256 "1af50b43be5defd0be4d82fd6605a212b8c59e15be9fe56a11f888bc41971627" => :sierra
   end
 
   head do
@@ -21,14 +23,14 @@ class Wget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}",
+                          "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
                           "--disable-debug",
                           "--disable-pcre",
                           "--disable-pcre2",

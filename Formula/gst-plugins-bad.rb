@@ -1,14 +1,14 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz"
-  sha256 "910b4e0e2e897e8b6d06767af1779d70057c309f67292f485ff988d087aa0de5"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz"
+  sha256 "22139de35626ada6090bdfa3423b27b7fc15a0198331d25c95e6b12cb1072b05"
+  revision 3
 
   bottle do
-    rebuild 3
-    sha256 "20a22729d937fa2609c8327a83f94a0870877cf8a5e90e827fe4cc2930d366d2" => :mojave
-    sha256 "c3963a1dd84baf45a4d5de9a7880a12b130651301e49f701295127ad684c367c" => :high_sierra
-    sha256 "3c774ef811e97cbd5a619e3e9aa9db3522747d687c1aa4acc4ea778c3e4fd9a8" => :sierra
+    sha256 "dcc9b2b679eba0b0adf27de786097c7b04e714c427d42181a6a99b15dd5a8501" => :mojave
+    sha256 "37dd16faf8e17102be625a6063402fc691347452687e622a3139c1915c3a14c4" => :high_sierra
+    sha256 "2bea9e514634fc7943ea1184c86765449974f1ce74281553fc254a054ef4a670" => :sierra
   end
 
   head do
@@ -27,9 +27,11 @@ class GstPluginsBad < Formula
   depends_on "gst-plugins-base"
   depends_on "jpeg"
   depends_on "libmms"
-  depends_on "openssl"
+  depends_on "libnice"
+  depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "orc"
+  depends_on "srtp"
 
   def install
     args = %W[

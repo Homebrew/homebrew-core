@@ -1,15 +1,14 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftp.gnu.org/gnu/units/units-2.18.tar.gz"
-  mirror "https://ftpmirror.gnu.org/units/units-2.18.tar.gz"
-  sha256 "64959c231c280ceb4f3e6ae6a19b918247b6174833f7f1894704c444869c4678"
-  revision 1
+  url "https://ftp.gnu.org/gnu/units/units-2.19.tar.gz"
+  mirror "https://ftpmirror.gnu.org/units/units-2.19.tar.gz"
+  sha256 "4262136bdfc152b63ff5a9b93a7d80ce18b5e8bebdcffddc932dda769e306556"
 
   bottle do
-    sha256 "d851d3123b6d3c7aa070bd54e7c93afdc4c489c9ee5e40dc181173eafe3e64ef" => :mojave
-    sha256 "5c3cd6c3c935208569b90f5747870d550337b447a155c651258c1eea91729978" => :high_sierra
-    sha256 "0479216ddee013129a2d365d7f8167acf54be841299d7c0b57c0f76d48500992" => :sierra
+    sha256 "ea90fe5d92832bd8491f3adcb5f01c67cd12eba112485f8e03b252909a019a68" => :mojave
+    sha256 "43db4b67478cb35f0639fb616f4c4cf04c717a61dafe56c9d36adda921b90da0" => :high_sierra
+    sha256 "5704a3d37c2790c482bbefc4290f3ffd589ab071e400f2e9610b267ea0f5a3dd" => :sierra
   end
 
   depends_on "readline"

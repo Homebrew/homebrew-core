@@ -3,14 +3,13 @@ class Pygtk < Formula
   homepage "http://www.pygtk.org/"
   url "https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2"
   sha256 "cd1c1ea265bd63ff669e92a2d3c2a88eb26bcd9e5363e0f82c896e649f206912"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "6aa04785bcbf9c1e79a268b27263ce61dbfa64cb21023c426b70ead3b6671689" => :mojave
-    sha256 "228a919cbba58afc99747e9b5dc6d01013ef8463de2ede5d81c20103afccbb9f" => :high_sierra
-    sha256 "fce76d2bf1e1748ac110aede98a622e5f8b737390a3a5e22f56872834b73c033" => :sierra
-    sha256 "fd1cef5484267e02971c4daa1eda42e3a66c77786923b0f76b496007282b10a1" => :el_capitan
+    sha256 "4b7adc63c58467d417789307672f8e269bda9189e893e3962547dbcde0e3c52e" => :mojave
+    sha256 "e999cf9dbfe2cbed2aa8106acfa5e7a357c421146c1ae4b8de7d47e9b87b72a4" => :high_sierra
+    sha256 "73871fa751d38f41bf54d09531764ed05c2a3f8a5b8dfd54f34c26a7638965b2" => :sierra
   end
 
   depends_on "pkg-config" => :build

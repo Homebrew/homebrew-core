@@ -3,14 +3,24 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftp.gnu.org/gnu/readline/readline-8.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
-  version "8.0.0"
+  version "8.0.1"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
+
+  %w[
+    001 d8e5e98933cf5756f862243c0601cb69d3667bb33f2c7b751fe4e40b2c3fd069
+  ].each_slice(2) do |p, checksum|
+    patch :p0 do
+      url "https://ftp.gnu.org/gnu/readline/readline-8.0-patches/readline80-#{p}"
+      mirror "https://ftpmirror.gnu.org/readline/readline-8.0-patches/readline80-#{p}"
+      sha256 checksum
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "9b698b215a371ae394a4fa9137b019472c649c77ea389b6bdf2d9104cfe4a56c" => :mojave
-    sha256 "9f5c4da065626612770b0176f5eca537b4443cfb004c12e08a5b421f755e3c64" => :high_sierra
-    sha256 "8cd1c5d78f8731f935f38b15c95ab714c3ef9c1c2268239743e406230fd73d0e" => :sierra
+    sha256 "3c754391e9d243835811d128771ca0f1a565024100fd2c2871534353d46aaf0e" => :mojave
+    sha256 "ae341a036139a92a47396aabc773ffcf40a17fc388aaadf0147f688c72ece987" => :high_sierra
+    sha256 "f234d1ff8148bf08b0ac31e661f2e96b5c6e64df26a45d2392056c9077f964af" => :sierra
   end
 
   keg_only :shadowed_by_macos, <<~EOS
@@ -21,6 +31,10 @@ class Readline < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
+    # There is no termcap.pc in the base system, so we have to comment out
+    # the corresponding Requires.private line otherwise pkg-config will
+    # consider the readline module unusable
+    inreplace "readline.pc", /^(Requires.private: .*)$/, "# \\1"
     system "make", "install"
   end
 

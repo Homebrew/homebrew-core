@@ -3,16 +3,17 @@ class Snownews < Formula
   homepage "https://github.com/kouya/snownews"
   url "https://github.com/kouya/snownews/archive/v1.5.13.tar.gz"
   sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
+  revision 1
 
   bottle do
-    sha256 "7c6a6ef9e934c27639eda4b7cc1e47225bdf9f5fc6533e129454a72595024c8c" => :mojave
-    sha256 "192c7a039cfc5d4f8041982da9a0b0510745e8680754aea64202440c8ace9d6b" => :high_sierra
-    sha256 "bfa3d3dbdd0ffbb197163bbf35bcb9d033bbad76a478533e546697dff24addb6" => :sierra
-    sha256 "4ba563f80e1a79532136538595e36bd1f802fcc396515cad3dccb5f7dfcd21e2" => :el_capitan
+    rebuild 1
+    sha256 "3971c56d4b11dce284c01eac7b2c27a1f39b282056b2348587845af8098aca64" => :mojave
+    sha256 "dff9318381ed26526315a52edb7e5de362db958cadd1c7c774256ddf9160bb99" => :high_sierra
+    sha256 "099b010a3f16d1e32fabaa8351bf0a3ac13eb6b3aec802d05af83b4fee4545dd" => :sierra
   end
 
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and

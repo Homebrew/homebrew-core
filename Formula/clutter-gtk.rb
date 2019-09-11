@@ -3,13 +3,13 @@ class ClutterGtk < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz"
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "6e59404c7b4172bfb03b701bd7090dd3c9e917a1f3013e5669a05704369add8a" => :mojave
-    sha256 "20e4d6eafb36559b56406f5e26e8989d7d636945cabe9f6d4aa29a1661e46500" => :high_sierra
-    sha256 "2b0b873bc1f679f76216ee07ebc79fa0dffb8a0be3f7239868141f342e2a700e" => :sierra
-    sha256 "ce3e5e2f2a6107b17b521812fe7ab985e8d6e1cf57b8a3aa84a19cb760809e16" => :el_capitan
+    rebuild 1
+    sha256 "65756716ba9f5a25ccd8126ad3c1afbab809bc435694eca0368a0eb7f6381bd1" => :mojave
+    sha256 "3dd604c9e1e1c4d1102c2408de6dbc769c564062bb00f44ade7bc8179bd9cab4" => :high_sierra
+    sha256 "d71287e41c241c194a97dddd3e096c9f458811a5008d69cd39c07ebb6a770ca5" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -52,6 +52,7 @@ class ClutterGtk < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
@@ -70,6 +71,7 @@ class ClutterGtk < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-gtk-1.0
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libepoxy.opt_include}

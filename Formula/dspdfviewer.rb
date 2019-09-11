@@ -3,14 +3,13 @@ class Dspdfviewer < Formula
   homepage "https://dspdfviewer.danny-edel.de/"
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
-  revision 7
+  revision 8
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
-    sha256 "cb04143b607d08b7d290fd7b6e757a0fd753e7e8f6eb92dafbab10ae384b942c" => :mojave
-    sha256 "4f605633dbfd654c220f050a72491a2e0299a2f45278f8a8921a87c1bb5f7e12" => :high_sierra
-    sha256 "06661dd7f74c31354a0412641bfda4304f1f8ef88c50b0010fad5dced05dd3ed" => :sierra
-    sha256 "dcfddcc1fc9c96c8f8e8f82be38aa06f346ab3ae23d12f1bf2b29dd7be1057cd" => :el_capitan
+    sha256 "f6063bf108432e891c5ec13665cde11d30498e99cf4d130236b78ea3a894c32c" => :mojave
+    sha256 "93406709c843244b5c55b9f6167d67290899ac1aaa32bd32faa530fab66daae9" => :high_sierra
+    sha256 "ec6ea81aaa5e037a27803b830a6bb8c7100b003a0095dec2dd3b1e217d1a6a30" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,15 +1,16 @@
 class LastpassCli < Formula
   desc "LastPass command-line interface tool"
   homepage "https://github.com/lastpass/lastpass-cli"
-  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.2/lastpass-cli-1.3.2.tar.gz"
-  sha256 "515093bd9777051596f8b0f5e55d4d47bf7154570d2d9ad71347cb1e9d7b1ef9"
+  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.3/lastpass-cli-1.3.3.tar.gz"
+  sha256 "b94f591627e06c9fed3bc38007b1adc6ea77127e17c7175c85d497096768671b"
+  revision 1
   head "https://github.com/lastpass/lastpass-cli.git"
 
   bottle do
     cellar :any
-    sha256 "644f34d11c0776baada68ada57ce19e1c2a4ed030b668baa3223821829300e01" => :mojave
-    sha256 "95a6d678d7ba3f065f3e45dadee09e359a96a20f572e91b5ff8d8441e97e087e" => :high_sierra
-    sha256 "c6db5831f35cfd51c116fddb7ada509fd36a893da36ff4be1d5a2fa4b433ca30" => :sierra
+    sha256 "8a1c246c726005c64ef6d6d6df0bc655d61a778b34b3fbc111abf62e1a19f767" => :mojave
+    sha256 "1f320751deeb9f9728e7e10b00905ea518e8b014409f62d421264028e4bf0386" => :high_sierra
+    sha256 "33ae545123e7f4582c7e085e66521b5d9c0e7a38868033a21d0d4e10cf25c209" => :sierra
   end
 
   depends_on "asciidoc" => :build
@@ -18,7 +19,7 @@ class LastpassCli < Formula
   depends_on "pkg-config" => :build
   # Avoid crashes on Mojave's version of libcurl (https://github.com/lastpass/lastpass-cli/issues/427)
   depends_on "curl" if MacOS.version >= :mojave
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pinentry"
 
   def install

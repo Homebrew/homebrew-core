@@ -3,11 +3,12 @@ class Freedink < Formula
   homepage "https://www.gnu.org/software/freedink/"
   url "https://ftp.gnu.org/gnu/freedink/freedink-109.6.tar.gz"
   sha256 "5e0b35ac8f46d7bb87e656efd5f9c7c2ac1a6c519a908fc5b581e52657981002"
+  revision 1
 
   bottle do
-    sha256 "bd306ccb62b03ef425a8fc8e57f9a7b3fe848be849898ce52f2323fb3cc0ceb6" => :mojave
-    sha256 "41d9d33884a5be4191d5b04b2688a28ed1c5800d481c6fec739f759ca7bc1378" => :high_sierra
-    sha256 "785187db7fff66ffd8951938fb08752d01b747a3f782d8e551ad271ecd28796a" => :sierra
+    sha256 "088aec509cd68e17a4a591f6d010fc297d7b3e6d9a60244984ba99da6e6a7051" => :mojave
+    sha256 "319225a173f440b80b4956035a146b778cb373c65da3ea2cbd4b616a8e33a58e" => :high_sierra
+    sha256 "2e76b5e2ac8037e07b879dc2f24549ba09f8bc12c873bfd896f8e7b3222d04e3" => :sierra
   end
 
   depends_on "glm" => :build

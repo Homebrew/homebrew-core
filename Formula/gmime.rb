@@ -3,11 +3,12 @@ class Gmime < Formula
   homepage "https://spruce.sourceforge.io/gmime/"
   url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.3.tar.xz"
   sha256 "6a0875eeb552ab447dd54853a68ced62217d863631048737dd97eaa2713e7311"
+  revision 1
 
   bottle do
-    sha256 "26dc02bb2c06eff3a4295cec5877568c6094e11f40cf38aff16c25a1b2ddfcd3" => :mojave
-    sha256 "056637f08f6bad4727245daf1edb7d8a87bc2c2ca46950b3d3881b39e850056b" => :high_sierra
-    sha256 "1dfa791ca0aeeb1b32f1315d84ea2e68f5a65a2c686acc1d1d6a3b97663f57d4" => :sierra
+    sha256 "86f83fccbecf84898a0778444db42631d58080c25798aeffc4c0be69ca4fb62f" => :mojave
+    sha256 "d9bc49e393232e82fa89b1997f7dc0100550b6ae1663c1fb14aee306cabde160" => :high_sierra
+    sha256 "d1787c5e917185e39de52d19cef9524912ec9d2adec4b6b129a8787c623be021" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

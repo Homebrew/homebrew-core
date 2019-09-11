@@ -3,18 +3,17 @@
 #  - https://wiki.winehq.org/Gecko
 #  - https://wiki.winehq.org/Mono
 # with `GECKO_VERSION` and `MONO_VERSION`, as in:
-#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-3.0:/dlls/appwiz.cpl/addons.c
+#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-4.0:/dlls/appwiz.cpl/addons.c
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  url "https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.tar.xz"
-  sha256 "6736cdee95b2b8bb021ec0c19497ed8cad5ae2c8bfdb7ab5dc687ff92a480d4d"
-  revision 1
+  url "https://dl.winehq.org/wine/source/4.0/wine-4.0.2.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.2.tar.xz"
+  sha256 "994050692f8417ee206daafa5fc0ff810cc9392ffda1786ac0f0fb0cf74dbd74"
   head "https://source.winehq.org/git/wine.git"
 
   bottle do
-    sha256 "587859c8be3a3254044f4e1d6c6b6d407fb5768eb99551c48b6a4ed4863b6f59" => :sierra
+    sha256 "4105b551360afb40edf2c286cc7c6e0f723d62a0f273625c7e17c05b00d947f3" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -43,9 +42,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
-    sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
+    url "https://www.openssl.org/source/openssl-1.0.2s.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2s.tar.gz"
+    sha256 "cabd5c9492825ce5bd23f3c3aeed6a97f8142f606d893df216411f07d1abab96"
   end
 
   resource "libtool" do
@@ -73,15 +72,15 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz"
-    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.36/libpng-1.6.36.tar.xz"
-    sha256 "eceb924c1fa6b79172fdfd008d335f0e59172a86a66481e09d4089df872aa319"
+    url "https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz"
+    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.37/libpng-1.6.37.tar.xz"
+    sha256 "505e70834d35383537b6491e7ae8641f1a4bed1876dbfe361201fc80868d88ca"
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
-    sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.10.1/freetype-2.10.1.tar.xz"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.1.tar.xz"
+    sha256 "16dbfa488a21fe827dc27eaf708f42f7aa3bb997d745d31a19781628c36ba26f"
   end
 
   resource "libusb" do
@@ -91,8 +90,8 @@ class Wine < Formula
   end
 
   resource "webp" do
-    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.2.tar.gz"
-    sha256 "3d47b48c40ed6476e8047b2ddb81d93835e0ca1b8d3e8c679afbb3004dd564b1"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz"
+    sha256 "e20a07865c8697bba00aebccc6f54912d6bc333bb4d604e6b07491c1a226b34f"
   end
 
   resource "fontconfig" do
@@ -108,8 +107,8 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.20/libgphoto2-2.5.20.tar.bz2"
-    sha256 "e10ff0140e2e5dddaf6c6d9d933ab6f8c0bc66fdf7445b1ef2ca9f4d96e68b0f"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.23/libgphoto2-2.5.23.tar.bz2"
+    sha256 "d8af23364aa40fd8607f7e073df74e7ace05582f4ba13f1724d12d3c97e8852d"
   end
 
   resource "net-snmp" do
@@ -118,15 +117,14 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://deb.debian.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
-    mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
-    sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
+    url "https://gitlab.com/sane-project/backends/uploads/9e718daff347826f4cfe21126c8d5091/sane-backends-1.0.28.tar.gz"
+    sha256 "31260f3f72d82ac1661c62c5a4468410b89fb2b4a811dabbfcc0350c1346de03"
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.10/mpg123-1.25.10.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.25.10.tar.bz2"
-    sha256 "6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.12/mpg123-1.25.12.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.12.tar.bz2"
+    sha256 "1ffec7c9683dfb86ea9040d6a53d6ea819ecdda215df347f79def08f1fe731d1"
   end
 
   def openssl_arch_args
@@ -375,6 +373,10 @@ class Wine < Formula
 
       resource("sane-backends").stage do
         save_env do
+          # malloc lives in malloc/malloc.h instead of just malloc.h on macOS.
+          # Merge request opened upstream: https://gitlab.com/sane-project/backends/merge_requests/90
+          inreplace "backend/ricoh2_buffer.c", "#include <malloc.h>", "#include <malloc/malloc.h>"
+
           system "./configure", "--disable-dependency-tracking",
                                 "--prefix=#{libexec}",
                                 "--localstatedir=#{var}",
@@ -382,11 +384,6 @@ class Wine < Formula
                                 "--enable-local-backends",
                                 "--with-usb=yes",
                                 *depflags
-          # Remove for > 1.0.27
-          # Workaround for bug in Makefile.am described here:
-          # https://lists.alioth.debian.org/pipermail/sane-devel/2017-August/035576.html.
-          # Fixed in https://anonscm.debian.org/cgit/sane/sane-backends.git/commit/?id=519ff57
-          system "make"
           system "make", "install"
         end
       end

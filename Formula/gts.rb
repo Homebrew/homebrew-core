@@ -3,15 +3,14 @@ class Gts < Formula
   homepage "https://gts.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gts/gts/0.7.6/gts-0.7.6.tar.gz"
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b06c43a504c4eb51317113e7c2849250bce0110be6ec9c7df832ae0d8e8e4771" => :mojave
-    sha256 "d52dda8d2163b4116aa2bbfd9ea87cf468e58933059529f18089e7b82dfdeb95" => :high_sierra
-    sha256 "00e18cd7e72fe3d9c2dbb4610d1bb6c2a7653b8831bd3b4b15dd8c2736ee62db" => :sierra
-    sha256 "c958735937a398843e9a2b2cc1a1b9bc5305834de4257f1715a12dcc84b25f75" => :el_capitan
-    sha256 "1c6b31293f1db0384813fc935d0e9649e41fd46440363caf32da363d27328fd7" => :yosemite
-    sha256 "b6e2ce541c5b4b46076843076c6842723a896afa36619cfab8155194795c9817" => :mavericks
+    rebuild 1
+    sha256 "59aa61dfb703ff1c0cea21d248acf8d9a426115155f1f2ec1e5a1db6f71e66b4" => :mojave
+    sha256 "41a917173c363d9cf94e72bcfb58cabc874bf44fc265d3ca4d9a0fbd979ad8ad" => :high_sierra
+    sha256 "b35a110b45532e59b9f19e361984359e8bf92823b496f885eafdcbc134b18b17" => :sierra
   end
 
   depends_on "pkg-config" => :build

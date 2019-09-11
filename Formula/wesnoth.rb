@@ -3,13 +3,13 @@ class Wesnoth < Formula
   homepage "https://www.wesnoth.org/"
   url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
   sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-  revision 9
+  revision 10
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
-    sha256 "6769f6bf00f1cdc322306309ec61292934069268e54f046fffadd9ed7b32a1a9" => :mojave
-    sha256 "8dd31558084552d40010d6972294c9c4c5f36e858e5ad6295ce907b8c8118e25" => :high_sierra
-    sha256 "d5a18a191a86809322685525857ffc206cd28eff10cf1af25d38836c08263762" => :sierra
+    sha256 "2edf0d0aefea381bb679a1530ad07029ba01c0fbf28ac61ca84e229b07263c64" => :mojave
+    sha256 "13978002d0394113986b5afd21a521dbbe20dde151c43cff0765b3513e9238ec" => :high_sierra
+    sha256 "48457b031fc7b69e86ac34f912031957cf53f76f1b6767f3a22f0b4f1071c3f5" => :sierra
   end
 
   depends_on "gettext" => :build

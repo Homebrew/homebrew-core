@@ -1,16 +1,14 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-3.1.0.tar.xz"
-  sha256 "6a0508df079a0a33c2487ca936a56c12122f105b8a96a44374704bef6c69abfc"
-  revision 1
+  url "https://download.qemu.org/qemu-4.1.0.tar.xz"
+  sha256 "656e60218689bdeec69903087fd7582d5d3e72238d02f4481d8dc6d79fd909c6"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    rebuild 1
-    sha256 "dd7cb5e2b5d7fc3738c72f1e8fe47ee2fd335223b1ec4694749800b6ba87d552" => :mojave
-    sha256 "86cad762d521c4170c0af2fa2932e0d123db2838097895e155f49f12525eb90a" => :high_sierra
-    sha256 "ff6d0904a871d605aefda6cd0574a0ccfb09b758cca832d347ff843eb52f97fd" => :sierra
+    sha256 "3b35079b1729b9b1bd58087794ccd9d40848b69d22a601c12b451791709298d6" => :mojave
+    sha256 "0ef458cc2c387f8bbb2bdbd0e4d6e2a21574eb735c1621ad8e0cd3e094288298" => :high_sierra
+    sha256 "68d05c70584e722c8109682ddc041a6271e0c36d102c7d3f55553ba3b4f39480" => :sierra
   end
 
   depends_on "libtool" => :build
@@ -19,8 +17,9 @@ class Qemu < Formula
   depends_on "gnutls"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "libssh2"
+  depends_on "libssh"
   depends_on "libusb"
+  depends_on "lzo"
   depends_on "ncurses"
   depends_on "pixman"
   depends_on "vde"
@@ -41,7 +40,7 @@ class Qemu < Formula
       --disable-bsd-user
       --disable-guest-agent
       --enable-curses
-      --enable-libssh2
+      --enable-libssh
       --enable-vde
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --enable-cocoa

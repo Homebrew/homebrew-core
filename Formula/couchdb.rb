@@ -4,11 +4,12 @@ class Couchdb < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
   mirror "https://archive.apache.org/dist/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
   sha256 "7b7c0db046ded544a587a8935d495610dd10f01a9cae3cd42cf88c5ae40bc431"
+  revision 1
 
   bottle do
-    sha256 "8868d7714bfdbee9c6e3b975e4d807a8a77312d020a4e9a7d93e890e4f0565e1" => :mojave
-    sha256 "cc974d6fcbc24dc639c48e4a4a2942016553a4f3a188241af835946b34328ea8" => :high_sierra
-    sha256 "f0f136585526e769370a82935cfb574392f6a25e2cf16dacf2c1cb2703c45e7f" => :sierra
+    sha256 "3418496d83e41753b9c27beef215728342da499fd3e0881ca2830377aefe36e0" => :mojave
+    sha256 "ad409da6a2a7fd3fe27d3b2bedec565e15d197fe82e9607924c9441a7954b7d5" => :high_sierra
+    sha256 "d06ec7cd12e85e87126a4cb1b28f28b9d8fcda789f3aa62431c68731b14fd1f9" => :sierra
   end
 
   head do

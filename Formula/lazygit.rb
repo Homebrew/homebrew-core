@@ -1,14 +1,14 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.7.2.tar.gz"
-  sha256 "d0be7a4ef6b5946fc10808d17439962d914782e7b47977d79370b595eada2493"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.8.1.tar.gz"
+  sha256 "274ba05573b38cccc56cb63053eec0972535979b95f1f30b6ca318d991f2c14c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "88e9e481164fea96aa885292f0dc64b5f6d392b660bdb3a2c8c5807daf5ccadb" => :mojave
-    sha256 "b4eb79e9501602e20e2a438650fc622d11814310be03987ca7f48fed1585f2e7" => :high_sierra
-    sha256 "48966c29484af44cbe369798b6bcff81fa8e2902c848153d9f962664150a10c4" => :sierra
+    sha256 "c496b0eb15a8125667fa0a3c894825c3f7bd15153bf6d73c2396cad5e6af0346" => :mojave
+    sha256 "347b4d71a314a38e4574ca61c3014d0cb037e93f413df07c80cfce289f577ee4" => :high_sierra
+    sha256 "216fece43e1dc34031bfd2bed23fcb26b9a62e8052ff961295d1823ed5062559" => :sierra
   end
 
   depends_on "go" => :build
@@ -24,7 +24,7 @@ class Lazygit < Formula
     cd bin_path do
       # Install the compiled binary into Homebrew's `bin` - a pre-existing
       # global variable
-      system "go", "build", "-ldflags", "-X main.version=0.7.2 -X main.buildSource=homebrew", "-o", bin/"lazygit", "."
+      system "go", "build", "-ldflags", "-X main.version=0.8 -X main.buildSource=homebrew", "-o", bin/"lazygit", "."
     end
   end
 

@@ -3,15 +3,13 @@ class Cf4ocl < Formula
   homepage "https://fakenmc.github.io/cf4ocl/"
   url "https://github.com/fakenmc/cf4ocl/archive/v2.1.0.tar.gz"
   sha256 "662c2cc4e035da3e0663be54efaab1c7fedc637955a563a85c332ac195d72cfa"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "24da666d72883cf284895400ef6ac4ae3629213e771b230107e92b6fe31c77bd" => :mojave
-    sha256 "85c9806ab00b5d3bf3165bc8efb5e4fe663cc4ebeed840910dc716753a77f05e" => :high_sierra
-    sha256 "5dbbea6e4ea10e6087b197c4779c6907229a9e44639b3c4672f46a8e0bf6ccc8" => :sierra
-    sha256 "b8846c70badd3c21ce06a77b4693b86a4c95b7010da10a8aa219957b63d45862" => :el_capitan
-    sha256 "996ae5013abe7b7cd028425e3a4d8a27aef854a1a4f086480b3626b83f629b99" => :yosemite
-    sha256 "fdb0ae96786ea4b8079b0dadad53a9f497b754f52c312958fa09523aa3a0e856" => :mavericks
+    sha256 "bac407173815fb9bed500a83fb8c2cac4c599a4b1c35a6a619adbfa746817162" => :mojave
+    sha256 "d5903425babf74b3f3af6b4aebf7e0c583bf0729d15799b4a99208141ca80b5a" => :high_sierra
+    sha256 "dfbd0e6e303f7f8ff286e38b98562cbf9b18ac880070fcfa19240b0b9c8d4a2a" => :sierra
   end
 
   depends_on "cmake" => :build

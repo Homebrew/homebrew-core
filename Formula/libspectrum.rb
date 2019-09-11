@@ -3,13 +3,13 @@ class Libspectrum < Formula
   homepage "https://fuse-emulator.sourceforge.io/libspectrum.php"
   url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.4.4/libspectrum-1.4.4.tar.gz"
   sha256 "fdfb2b2bad17bcfc98c098deaebf2a9811824b08d525172436d5eb134c9780b1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3a04dbf9a6c776ad1a80b69019f273456b743af711dc93332e70418fadbc6ed2" => :mojave
-    sha256 "585a96b481bea5c5f15c4251134351a0a37fbc458b244514f7917f9451080d5a" => :high_sierra
-    sha256 "a2107f7b764dea5b1726e7275f1810019420edaf144c8b451a3b8d70d253f5de" => :sierra
-    sha256 "ca3aa9fb750d786bfbf2b9e74c8503d84459eee48b57bbb58a0359f0cff57b0c" => :el_capitan
+    sha256 "c4e70d37db34db4b4ab5ced6cb72e7860a2b362f107628a4c5a157428028a0b6" => :mojave
+    sha256 "42b63148fa851319db8dc6fe70c7895c84a64c6071f05a0791f87b08ce1c55a1" => :high_sierra
+    sha256 "185c851d42b802b2b021ef00afac4e1f07a6ab6bd29d3b5ca4c7bef65f4b8cc9" => :sierra
   end
 
   head do

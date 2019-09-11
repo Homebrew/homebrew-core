@@ -3,13 +3,12 @@ class Aqbanking < Formula
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
   url "https://www.aquamaniac.de/sites/download/download.php?package=03&release=217&file=02&dummy=aqbanking-5.7.8.tar.gz"
   sha256 "16f86e4cc49a9eaaa8dfe3206607e627873208bce45a70030c3caea9b5afc768"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "153049e5417652e7dbf7ea864751552faf1eb0d4fd5abcdf1f67208bb6c1ef04" => :mojave
-    sha256 "454fb80632eebfc602c32f417dfd761b83a3fb7a047a6a74e8c05bec00c6f930" => :high_sierra
-    sha256 "76d2ae1f5935d4e4ffd666a8f84ba612d83a1e1777d17f7c76bee3d8aa3a98dc" => :sierra
-    sha256 "a0a0d87e3aa8fc53f5e2fef317be081c30be7472ef2e2fda9b64d4ea3fd21357" => :el_capitan
+    sha256 "fca5661e400db442c537f388edf23a736893a876823e204a3c64426be12b4ad2" => :mojave
+    sha256 "ba373481808a424c6a5bfeafc93c66e50c004c75073ac8d05a7107cbd04038fd" => :high_sierra
+    sha256 "f0290967ff94ac559223b3f624b7c902525f41d88ca41d6e2feb8021a877ef08" => :sierra
   end
 
   head do

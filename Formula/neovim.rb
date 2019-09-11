@@ -1,22 +1,38 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.3.4.tar.gz"
-  sha256 "a641108bdebfaf319844ed46b1bf35d6f7c30ef5aeadeb29ba06e19c3274bc0e"
-  head "https://github.com/neovim/neovim.git"
+
+  stable do
+    url "https://github.com/neovim/neovim/archive/v0.3.8.tar.gz"
+    sha256 "953e134568d824dad7cbf32ee3114951732f9a750c462e430e6b593f418af76c"
+
+    depends_on "jemalloc"
+  end
 
   bottle do
-    sha256 "7bb939377f5438ca9147f57bbcabaf9695f7b8aa6f88394f29462936c830b5ed" => :mojave
-    sha256 "f31dbf1ac5d69a44e14ba1ae71d9d3f806408b9006f9fd77cef346fc83c0019c" => :high_sierra
-    sha256 "ff0888eb750258eb907cf8982c114a11b63a5ae7adade5e517013f40faf9054d" => :sierra
+    sha256 "6cfd2fa392a29729a4bf46764efddc5462189d555d5c4910f960af2438ecf4a4" => :mojave
+    sha256 "97b6c3dc5dda485bd195650be9e060304e2a03ed2c62bdedf643876971726657" => :high_sierra
+    sha256 "3c46065de77aaa929da89748bbf3fe584fe6ef8d9d9919267c7a5bba3f2a345b" => :sierra
+  end
+
+  head do
+    url "https://github.com/neovim/neovim.git"
+
+    resource "lua-compat-5.3" do
+      url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.7.tar.gz"
+      sha256 "bec3a23114a3d9b3218038309657f0f506ad10dfbc03bb54e91da7e5ffdba0a2"
+    end
+
+    resource "luv" do
+      url "https://github.com/luvit/luv/releases/download/1.30.0-0/luv-1.30.0-0.tar.gz"
+      sha256 "5cc75a012bfa9a5a1543d0167952676474f31c2d7fd8d450b56d8929dbebb5ef"
+    end
   end
 
   depends_on "cmake" => :build
-  depends_on "lua@5.1" => :build
   depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "jemalloc"
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
@@ -24,105 +40,19 @@ class Neovim < Formula
   depends_on "msgpack"
   depends_on "unibilium"
 
-  resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock"
-    sha256 "149be31e0155c4694f77ea7264d9b398dd134eca0d00ff03358d91a6cfb2ea9d"
-  end
-
   resource "mpack" do
     url "https://github.com/libmpack/libmpack-lua/releases/download/1.0.7/libmpack-lua-1.0.7.tar.gz"
     sha256 "68565484a3441d316bd51bed1cacd542b7f84b1ecfd37a8bd18dd0f1a20887e8"
   end
 
+  resource "lpeg" do
+    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.2-1.src.rock"
+    sha256 "e0d0d687897f06588558168eeb1902ac41a11edd1b58f1aa61b99d0ea0abbfbc"
+  end
+
   resource "inspect" do
     url "https://luarocks.org/manifests/kikito/inspect-3.1.1-0.src.rock"
     sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
-  end
-
-  resource "luabitop-rockspec" do
-    url "https://luarocks.org/manifests/luarocks/luabitop-1.0.2-3.rockspec"
-    sha256 "8cc12ebd2919b08765fef9f8738d2277204e8c6a7578e8e7f1abf6054380c21f"
-  end
-
-  resource "luabitop" do
-    url "https://github.com/LuaDist/luabitop/archive/1.0.2.tar.gz"
-    sha256 "d5f2ada780397e9bf8f885b811abdb4f86b7e7e7ee827e744efcf672882f4398"
-  end
-
-  resource "luafilesystem" do
-    url "https://luarocks.org/luafilesystem-1.7.0-2.src.rock"
-    sha256 "65e6d437e577a1d6cd509b6cd224d2cb9501d58d32a72cafbd4fd3f911681576"
-  end
-
-  resource "penlight" do
-    url "https://stevedonovan.github.io/files/penlight-1.5.4.zip"
-    sha256 "1855dca3c05b348034df6a8c8784c35a0209e12d21fc4b5c9db84d7383480e8d"
-  end
-
-  resource "lua_cliargs" do
-    url "https://luarocks.org/lua_cliargs-3.0-1.src.rock"
-    sha256 "d165b627b11dc83a11270d7d51760e5b714e3fd2388733c32af53e9b63bf27d4"
-  end
-
-  resource "lua-term" do
-    url "https://github.com/hoelzro/lua-term/archive/0.07.tar.gz"
-    sha256 "c1a1d0c57107147ea02878a50b768d1c3c13aca2769b026c5bb7a84119607f30"
-  end
-
-  resource "luasystem" do
-    url "https://luarocks.org/luasystem-0.2.1-0.src.rock"
-    sha256 "d1c706d48efc7279d33f5ea123acb4d27e2ee93e364bedbe07f2c9c8d0ad3d24"
-  end
-
-  resource "dkjson" do
-    url "https://luarocks.org/dkjson-2.5-2.src.rock"
-    sha256 "0391ebe73cfcee7d6b3d5dd5098e185c2103118e644688484beea665f15fc9e3"
-  end
-
-  resource "say" do
-    url "https://github.com/Olivine-Labs/say/archive/v1.3-1.tar.gz"
-    version "1.3-1"
-    sha256 "23e8cd378bb4ab1693279100a785acb2246418e3570b7de7d995b5847b3507ca"
-  end
-
-  resource "luassert" do
-    url "https://github.com/Olivine-Labs/luassert/archive/v1.7.10.tar.gz"
-    sha256 "f9f8347727c2a4aa8af30d88a0de0314f04cd681b60430e24f6ec0ed393e12e1"
-  end
-
-  resource "mediator_lua" do
-    url "https://github.com/Olivine-Labs/mediator_lua/archive/v1.1.2-0.tar.gz"
-    version "1.1.2-0"
-    sha256 "faf5859fd2081be4e9e4fb8873a2dc65f7eff3fd93d6dd14da65f8e123fcff9b"
-  end
-
-  resource "busted" do
-    url "https://github.com/Olivine-Labs/busted/archive/v2.0.rc12-1.tar.gz"
-    version "2.0.rc12-1"
-    sha256 "c44286468babcc38e90f036d25471ab92f19a8a0a68482e0c45a9cfaeb1c0e35"
-  end
-
-  resource "luacheck" do
-    url "https://luarocks.org/manifests/mpeterv/luacheck-0.21.2-1.src.rock"
-    version "0.21.2-1"
-    sha256 "c9e9b3bf1610e382043c6348417864541327108da92290a3be454c40be439953"
-  end
-
-  resource "luv" do
-    url "https://luarocks.org/luv-1.9.1-1.src.rock"
-    sha256 "d72db8321d8b3be925e1c14e6c13081466d1c31420f600154ab5c77fe6974fac"
-  end
-
-  resource "coxpcall" do
-    url "https://luarocks.org/coxpcall-1.17.0-1.src.rock"
-    version "1.17.0-1"
-    sha256 "11feb07f08927c39b0b93e8c0bbaf15433f86155cba4820a31a09f4754ab3258"
-  end
-
-  resource "nvim-client" do
-    url "https://github.com/neovim/lua-client/archive/0.1.0-1.tar.gz"
-    version "0.1.0-1"
-    sha256 "d2254c70eab7e7b6d7dc07caffe06f1015897fc09fdfa4b33f0b3745e6b0d03c"
   end
 
   def install
@@ -132,44 +62,13 @@ class Neovim < Formula
 
     ENV.prepend_path "LUA_PATH", "#{buildpath}/deps-build/share/lua/5.1/?.lua"
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
-    lua_path = "--lua-dir=#{Formula["lua@5.1"].opt_prefix}"
+    lua_path = "--lua-dir=#{Formula["luajit"].opt_prefix}"
 
     cd "deps-build" do
-      # penlight depends on luafilesystem
-      cd "build/src/luafilesystem" do
-        output = Utils.popen_read("luarocks", "unpack", lua_path, "luafilesystem-1.7.0-2.src.rock", "--tree=#{buildpath}/deps-build")
-        unpack_dir = output.split("\n")[-2]
-        cd unpack_dir do
-          system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
-        end
-      end
-
-      # busted depends on penlight
-      cd "build/src/penlight" do
-        system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
-      end
-
-      cp "build/src/luabitop-rockspec/luabitop-1.0.2-3.rockspec", "build/src/luabitop/"
-      cd "build/src/luabitop/" do
-        system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
-      end
-
       %w[
-        lpeg/lpeg-1.0.1-1.src.rock
         mpack/mpack-1.0.7-0.rockspec
+        lpeg/lpeg-1.0.2-1.src.rock
         inspect/inspect-3.1.1-0.src.rock
-        lua_cliargs/lua_cliargs-3.0-1.src.rock
-        lua-term/lua-term-0.7-1.rockspec
-        luasystem/luasystem-0.2.1-0.src.rock
-        dkjson/dkjson-2.5-2.src.rock
-        say/say-1.3-1.rockspec
-        luassert/luassert-1.7.10-0.rockspec
-        mediator_lua/mediator_lua-1.1.2-0.rockspec
-        busted/busted-2.0.rc12-1.rockspec
-        luacheck/luacheck-0.21.2-1.src.rock
-        luv/luv-1.9.1-1.src.rock
-        coxpcall/coxpcall-1.17.0-1.src.rock
-        nvim-client/nvim-client-0.1.0-1.rockspec
       ].each do |rock|
         dir, rock = rock.split("/")
         cd "build/src/#{dir}" do
@@ -181,12 +80,32 @@ class Neovim < Formula
         end
       end
 
-      system "cmake", "../third-party", "-DUSE_BUNDLED=OFF", *std_cmake_args
-      system "make"
+      if build.head?
+        cd "build/src/luv" do
+          cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
+          cmake_args += %W[
+            -DCMAKE_INSTALL_PREFIX=#{buildpath}/deps-build
+            -DLUA_BUILD_TYPE=System
+            -DWITH_SHARED_LIBUV=ON
+            -DBUILD_SHARED_LIBS=OFF
+            -DBUILD_MODULE=OFF
+            -DLUA_COMPAT53_DIR=#{buildpath}/deps-build/build/src/lua-compat-5.3
+          ]
+          system "cmake", ".", *cmake_args
+          system "make", "install"
+        end
+      end
     end
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      cmake_args = std_cmake_args
+      if build.head?
+        cmake_args += %W[
+          -DLIBLUV_INCLUDE_DIR=#{buildpath}/deps-build/include
+          -DLIBLUV_LIBRARY=#{buildpath}/deps-build/lib/libluv.a
+        ]
+      end
+      system "cmake", "..", *cmake_args
       system "make", "install"
     end
   end

@@ -3,12 +3,13 @@ class Tcpflow < Formula
   homepage "https://github.com/simsong/tcpflow"
   url "https://digitalcorpora.org/downloads/tcpflow/tcpflow-1.5.0.tar.gz"
   sha256 "20abe3353a49a13dcde17ad318d839df6312aa6e958203ea710b37bede33d988"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8929b11e0613406e66dae23cb27d38c0dbaf7606fb95cf404e18090a998cac95" => :mojave
-    sha256 "0aadaae80b60771c86b712aee5cc13b0bcca0757698fce835384d992dc3a6a41" => :high_sierra
-    sha256 "25254b1669a0e7d3ad0507c2ab233b5024203eaaad968c7c09aa4b91a6403f0a" => :sierra
+    sha256 "ae7eb58e5d805e61b4fc79165574796bf59d2172977579b8716c2ea95631aa42" => :mojave
+    sha256 "3b29b20c24395a16a17236a89a5b4ff1121ae2227af79717517b02825a4a7dd7" => :high_sierra
+    sha256 "881535a6ab635522f3a64aa9b568ee9fc67476f4636236f17d2828c02518b8bf" => :sierra
   end
 
   head do
@@ -19,7 +20,7 @@ class Tcpflow < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "bash", "./bootstrap.sh" if build.head?

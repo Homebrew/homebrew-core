@@ -3,12 +3,13 @@ class E2fsprogs < Formula
   homepage "https://e2fsprogs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.44.5/e2fsprogs-1.44.5.tar.gz"
   sha256 "2e211fae27ef74d5af4a4e40b10b8df7f87c655933bd171aab4889bfc4e6d1cc"
+  revision 1
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   bottle do
-    sha256 "0ef8e27e92e924346955f86ec8a0598983cd23226e49e929475989dc429d4916" => :mojave
-    sha256 "9b82575ce0bb29f17f515bd64162b1ed979d53a52a2ad9f9031bd73ceb2dc633" => :high_sierra
-    sha256 "658ec8e200559bc15381397eab5e4a2b54acc85a9cc6743949bc501855e9157e" => :sierra
+    sha256 "8bfa7f8116eabc2422696487b228493ddcc2991699a3158de30d6dba6c10ef73" => :mojave
+    sha256 "f0850aaef4670664e086d9a30568f5a50b5da21bf27d03b8e26478d44b2436f7" => :high_sierra
+    sha256 "70bfe479fd8e5769780ad9b408739653c8b4ef94d4752c9b65ebe134c2b03eb4" => :sierra
   end
 
   keg_only "this installs several executables which shadow macOS system commands"

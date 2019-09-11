@@ -1,6 +1,6 @@
 class Libagar < Formula
   desc "Cross-platform GUI toolkit"
-  homepage "http://libagar.org/"
+  homepage "https://libagar.org/"
   url "http://stable.hypertriton.com/agar/agar-1.5.0.tar.gz"
   sha256 "82342ded342c578141984befe9318f3d376176e5f427ae3278f8985f26663c00"
   revision 1
@@ -52,6 +52,7 @@ class Libagar < Formula
       -L#{Formula["sdl"].opt_lib}
       -L#{Formula["freetype"].opt_lib}
       -L#{Formula["libpng"].opt_lib}
+      -L#{Formula["jpeg"].opt_lib}
       -lag_core
       -lag_gui
       -lSDLmain

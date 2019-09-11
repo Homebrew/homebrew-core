@@ -1,16 +1,14 @@
 class Mpdscribble < Formula
   desc "Last.fm reporting client for mpd"
-  homepage "https://mpd.wikia.com/wiki/Client:Mpdscribble"
+  homepage "https://www.musicpd.org/clients/mpdscribble/"
   url "https://www.musicpd.org/download/mpdscribble/0.22/mpdscribble-0.22.tar.gz"
   sha256 "ff882d02bd830bdcbccfe3c3c9b0d32f4f98d9becdb68dc3135f7480465f1e38"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "306e807a9e6169f58968af9f7d6067a03ec632ffe5267150f940fa628e28dfba" => :mojave
-    sha256 "0bb89c4d9cac0bd82f40cc7c7907fa150efb1de05ab7da21e7c7d70a6ebb8602" => :high_sierra
-    sha256 "0e487444754917082060745ab958e70b1718ea7d1bdd24bc52dbd9823060c114" => :sierra
-    sha256 "3dee2dae7ae29bb1a92db5af951740801be7d7204ac6addad6016e8ec07e9fda" => :el_capitan
-    sha256 "93d9066107f752b0c18910c5aac8f6f86beaa03cba627fffd6337dda44cf16f9" => :yosemite
+    sha256 "f6c7e1d2b4f6112ae2b0548e0571580f4f671789e81eb799efc92ac236cd2d0b" => :mojave
+    sha256 "68c6dcdc89b8cbdd8b8c5fea0822cfdb883874b390cb5a9a69192880a3b03838" => :high_sierra
+    sha256 "bfc893a2fe7e712bfc17f83aeb7e5f9cf46d260f3d5756cd499a6a6100c1feec" => :sierra
   end
 
   depends_on "pkg-config" => :build

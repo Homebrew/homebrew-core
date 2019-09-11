@@ -1,14 +1,14 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
   homepage "https://www.gnome-db.org/"
-  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.8.tar.xz"
-  sha256 "e2876d987c00783ac3c1358e9da52794ac26f557e262194fcba60ac88bafa445"
+  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
+  sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
   revision 2
 
   bottle do
-    sha256 "082aaf92e18ea5644d48a16ec18fd0d1d19efa7118ec17fdeca106cf8fd4379b" => :mojave
-    sha256 "1eced12e9536d31c56e32cf7d3734f872e7e187160ac9ba51a3a53f1b260c254" => :high_sierra
-    sha256 "4ce20eab3e051395f5717c176d6e79d00bd3ba8a2ee2e507c5559adb0245ebdd" => :sierra
+    sha256 "42e417224880411d28719e1e72d5dc455a7f5af416acd178af7c6ad44b484a28" => :mojave
+    sha256 "dbdaf5dee8343c6824d5c987f4e12a4fc861373f3747a24b5687c5a0b413e623" => :high_sierra
+    sha256 "92409ba0caf79679d279e44a7ed619ccf76d52bddcf49d4f8ce2efb6b5baffc0" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,7 +19,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "libgcrypt"
   depends_on "libgee"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install

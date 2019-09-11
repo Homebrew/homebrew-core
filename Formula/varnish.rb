@@ -1,17 +1,19 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.1.0.tgz"
-  sha256 "161b92519801240886a55cc27484efc995dde1ad4703d9afd49fa8f32656e27d"
+  url "https://varnish-cache.org/_downloads/varnish-6.2.1.tgz"
+  sha256 "f28e05d292c8fcd0e62c9fbbf1c9058368d8ad5ecf5476b57fab80eb06df0e97"
 
   bottle do
-    sha256 "ba4d03d0208cd64feef54afa139f644eb9ec5c48e4117b4009108a29fcb8aeb7" => :mojave
-    sha256 "e29fef5fe3a17fae5b3b8ad51aebf667fea87148b6f5deb0e99531018391532f" => :high_sierra
-    sha256 "e860417f4e718652728f00584f4552054d3d6a7cd8c6064dc570311ba0e4f2ea" => :sierra
+    sha256 "46718aa773b4b6e5b411924ebcc4fe44c566e82e7c403475c5ae7ef86c6adfa2" => :mojave
+    sha256 "03dc5e8253b0443799c20bf896e77fb62291c8acc5b8aa8aa47061b616adbbfe" => :high_sierra
+    sha256 "f35336eb0d2cc2b0cf132ce0a8c057dd49a96c327780057567221fe189ee7bb4" => :sierra
   end
 
   depends_on "docutils" => :build
+  depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre"
 

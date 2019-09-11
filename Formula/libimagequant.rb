@@ -1,14 +1,14 @@
 class Libimagequant < Formula
   desc "Palette quantization library extracted from pnquant2"
   homepage "https://pngquant.org/lib/"
-  url "https://github.com/ImageOptim/libimagequant/archive/2.12.2.tar.gz"
-  sha256 "23ccecb4898ec17474914cfd2fbc4684425f7fd249117f2f1e3f3ba0bf8159e6"
+  url "https://github.com/ImageOptim/libimagequant/archive/2.12.5.tar.gz"
+  sha256 "9dc07f3bf6efaf03241fd514e62108be484a373871e2e02c117e6efb49d26293"
 
   bottle do
     cellar :any
-    sha256 "c919e2e35b45ac254ef89f7814008e0853ebbb3c7667fd59faeba48053229381" => :mojave
-    sha256 "6d9b45f1f14578e535629c34e4c00e02c17bb1c458497643862bc31ee1733482" => :high_sierra
-    sha256 "6ac28acc45709423a85a8741ac36c4a54981de3545ca070c0672ab95aecf776a" => :sierra
+    sha256 "a9a44c0f9814c80901275cd445a1f486baef051995f705a892f86e996b5b77e5" => :mojave
+    sha256 "df578637695ae03e889b50b95403bf09911a94c6cec655042d949a6b139e5ee0" => :high_sierra
+    sha256 "dffe189a48b03eae632e79f1970786b6c4f41525e5ed9e9c5ca5239fbcf05d30" => :sierra
   end
 
   def install

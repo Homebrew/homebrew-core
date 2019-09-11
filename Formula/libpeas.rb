@@ -1,42 +1,51 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://developer.gnome.org/libpeas/stable/"
-  url "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz"
-  sha256 "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
-  revision 2
+  url "https://download.gnome.org/sources/libpeas/1.24/libpeas-1.24.0.tar.xz"
+  sha256 "0b9a00138c129a663de3eef5569b00ace03ce31d345f7af783768e9f35c8e6f9"
 
   bottle do
-    rebuild 1
-    sha256 "eb2c9c93ae2f61d692ed967754a535c2f98d8c7b96a5cb4762acbb4d222a165d" => :mojave
-    sha256 "0b4c9d85b0bf36dc9898947b3440d170a7176f5d0cced1ab3ef1e791c7ca58ea" => :high_sierra
-    sha256 "4d3e2f1ca6ecd6ffcfa5e496a4bc98e965293de85631c2e6d5a4f2636adbfe9f" => :sierra
+    sha256 "7246dd3f3c2c93911607c1014f8197c412a8af1cf8d5da09ae7c9b48fffea170" => :mojave
+    sha256 "cf2080f0de201ba6ccffac5a5e3a7e190c834404042a36050751fe572da0f9ff" => :high_sierra
+    sha256 "ca5cf053b9b12849838edfb89451da7ca468c215f66ae7233ed5e99199c0860e" => :sierra
   end
 
-  depends_on "gettext" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
   depends_on "python"
 
+  # patch submitted upstream as https://gitlab.gnome.org/GNOME/libpeas/merge_requests/15
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libpeas/commit/8500981.diff"
+    sha256 "61650bdca802631a67556edf8306e53e4b6d632fcb614ca9e3b397b02ef36092"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libpeas/commit/bd80538.diff"
+    sha256 "4c0a7cd4f9147450e4d163493d6ed050056dd4c2dbc666ef30e9fe60d936f0bd"
+  end
+
   def install
     args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
       --prefix=#{prefix}
-      --enable-gtk
-      --enable-python3
-      --disable-python2
+      -Dpython3=true
+      -Dintrospection=true
+      -Dvapi=true
+      -Dwidgetry=true
+      -Ddemos=false
     ]
 
-    xy = Language::Python.major_minor_version "python3"
-    py3_lib = Formula["python"].opt_frameworks/"Python.framework/Versions/#{xy}/lib"
-    ENV.append "LDFLAGS", "-L#{py3_lib}"
-
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

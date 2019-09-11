@@ -2,19 +2,19 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag      => "3.44",
-      :revision => "f37fa1aa8e3235bb4c64cbcd9e85a6907b4dea50"
+      :tag      => "3.46",
+      :revision => "0966b8347055ab604c823f0c483c2952564e0c09"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9666a908f723015481c74de2aa895ff09f55a8a66cda57317c681593d0cf87f2" => :mojave
-    sha256 "8dae663f9138b383b4fdbe1f8a66b87cbb05f518ae929441ff46707b5bade762" => :high_sierra
-    sha256 "2dc5be9011fa4d7aad8f5ecc6ff125876a61769341d15661f93513e5603a8733" => :sierra
-    sha256 "d0ff9f9c06bd124bc9e8dc31bf59eaae1a28b124234d4b359ad719144cdff9ab" => :el_capitan
+    sha256 "78c5b14781272ab3bb7faf43cb1229e99ce09589dba6d0e0c2baff4a8fa8b60a" => :mojave
+    sha256 "3acbcc4e23c832fcbe70030a682956fbd36d42898b8f0afc02cf2bdc9334b14e" => :high_sierra
+    sha256 "c4c3cbaa9428773df404fb1676a23d152b24f012b6508c4aac4f9475ff787aa9" => :sierra
   end
 
   depends_on "asciidoc" => :build
+  depends_on "go" => :build
   depends_on "xmlto" => :build
   depends_on "pypy"
 

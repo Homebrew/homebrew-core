@@ -1,23 +1,25 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.2.tar.gz"
-  sha256 "6ba9f66540ea58fc2c17f175265f9ed76d74a8432eeac1182b74ebf4f2cd3414"
+  url "https://tar.goaccess.io/goaccess-1.3.tar.gz"
+  sha256 "8c775c5c24bf85a933fd6f1249004847342d6542aa533e4ec02aaf7be41d7b9b"
   revision 1
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
-    sha256 "97d3bd323111361a0c0790dd9f1a3d50a96941e0c0f53d0f09bb8cea9d7c2807" => :mojave
-    sha256 "fbab9c91c705da72e58919231feac0949f2a557185a884686f189d24e25d3908" => :high_sierra
-    sha256 "a6dfa226d34a108be47db6ba5e1515b50b25e7ded1af71145dd43c2d6dcbd688" => :sierra
+    sha256 "1e6c45b187083c3e39a477309439cfec74e8a255ac83e7f444d26fb707f0654f" => :mojave
+    sha256 "724e69d15a0b7736af661e69a4a7b247489ecd53cd8b26d64d8ed591aeea69bc" => :high_sierra
+    sha256 "8c120ad2ff8e1f105b7cdb0812e5613ec6abec8f75d27260b21a1dfc913036a8" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext"
   depends_on "libmaxminddb"
   depends_on "tokyo-cabinet"
 
   def install
+    ENV.append_path "PATH", Formula["gettext"].bin
     system "autoreconf", "-vfi"
 
     args = %W[
@@ -27,6 +29,7 @@ class Goaccess < Formula
       --enable-utf8
       --enable-tcb=btree
       --enable-geoip=mmdb
+      --with-libintl-prefix=#{Formula["gettext"].opt_prefix}
     ]
 
     system "./configure", *args

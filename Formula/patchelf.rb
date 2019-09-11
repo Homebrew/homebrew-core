@@ -1,15 +1,14 @@
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
   homepage "https://nixos.org/patchelf.html"
-  url "https://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.gz"
-  sha256 "f2aa40a6148cb3b0ca807a1bf836b081793e55ec9e5540a5356d800132be7e0a"
+  url "https://nixos.org/releases/patchelf/patchelf-0.10/patchelf-0.10.tar.gz"
+  sha256 "b2deabce05c34ce98558c0efb965f209de592197b2c88e930298d740ead09019"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f079a1cb7d49867669704e55758484b3098b9f8ec6cc3600611ea43d5ff7b3cc" => :mojave
-    sha256 "c97defd1aa773a8b3a36ce9941f860bd0d4348c47beb97e2c59e43c096234fd6" => :high_sierra
-    sha256 "8994925b02e7d2ce043df104ceb64b959543e1a869dd126b02c00f0f6a20bfd0" => :sierra
-    sha256 "38c85e00a1dc54d103713d04a0d458c55cf3f2618d2a7848f5750f66068206d2" => :el_capitan
+    sha256 "8f57b65d6a11bfe332e7663b144c0e4e9842291c2b0a4055bd10794b2911dac4" => :mojave
+    sha256 "98e221be1ce346f4c33bee1fc87b7dba33aafcc88c98ac061e04a69c9c9e9584" => :high_sierra
+    sha256 "2504614537c2837d9668389349586730c38b93a632175e1cf80568b0650eb5aa" => :sierra
   end
 
   resource "hellworld" do

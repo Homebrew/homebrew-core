@@ -1,9 +1,9 @@
 class PhpCsFixer < Formula
   desc "Tool to automatically fix PHP coding standards issues"
   homepage "https://cs.sensiolabs.org/"
-  url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.14.0/php-cs-fixer.phar"
-  version "2.14.0"
-  sha256 "8171ade74ef392405e28fc2fd338a9770929872d7f1dc8e8f78d0a182a5ce52a"
+  url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.15.3/php-cs-fixer.phar"
+  version "2.15.3"
+  sha256 "8c94ede44b66560c3867ed10ce42ec8e4eb8ce0bf7511a0802ad9963864f6c41"
 
   bottle :unneeded
 

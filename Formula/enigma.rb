@@ -3,13 +3,13 @@ class Enigma < Formula
   homepage "https://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "6253830e625b924de2bde6a32272c458bdf6da871669844a65cd794ac4b1c48c" => :mojave
-    sha256 "d00d19d13e31219622722d1a04221a7e2d3384e3e20461f485748fe459e70992" => :high_sierra
-    sha256 "091ff76622615f2f0b032f575cb26818b89e00c218339941002258f4b9671593" => :sierra
-    sha256 "69f1d58856a1ba69f930e3926e8d797bfbd75036b767f29ba4e8e81c50a09095" => :el_capitan
+    cellar :any
+    sha256 "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231" => :mojave
+    sha256 "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15" => :high_sierra
+    sha256 "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3" => :sierra
   end
 
   head do

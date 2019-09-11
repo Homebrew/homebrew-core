@@ -1,23 +1,26 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://releases.llvm.org/7.0.0/openmp-7.0.0.src.tar.xz"
-  sha256 "30662b632f5556c59ee9215c1309f61de50b3ea8e89dcc28ba9a9494bba238ff"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/openmp-8.0.1.src.tar.xz"
+  sha256 "3e85dd3cad41117b7c89a41de72f2e6aa756ea7b4ef63bb10dcddf8561a7722c"
 
   bottle do
     cellar :any
-    sha256 "c8788028105e9ec32e29bcdba8c7b550c2afd96b3f0a7bd0d6b6136a8729174a" => :mojave
-    sha256 "24072de1910b63d6047685bafc3e44e5d65686d04555a5239fc6d0410fb4eed2" => :high_sierra
-    sha256 "2aad5e93e8c4548fd66a70782f1a9e1dbdb662a6497a267d317f297f73ea22aa" => :sierra
+    sha256 "d069252a4b6ab3e09be573be43233887446a1f49bf6b9f0b8c6752c650ffc1c4" => :mojave
+    sha256 "aea4ed170e1fbb524397ea0dfb4033be9fac6d00619320f9b3a60880df7493f7" => :high_sierra
+    sha256 "7bf1bce14309673ce873e152a5a3dd717a1a192b34e7fd8fdfd25560e8b16e6e" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on :macos => :yosemite
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
+    # libgomp alias which can conflict with GCC's libgomp.
+    system "cmake", ".", *std_cmake_args, "-DLIBOMP_INSTALL_ALIASES=OFF"
     system "make", "install"
-    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args
+    system "cmake", ".", "-DLIBOMP_ENABLE_SHARED=OFF", *std_cmake_args,
+                         "-DLIBOMP_INSTALL_ALIASES=OFF"
     system "make", "install"
   end
 
