@@ -1,9 +1,8 @@
 class Sslsplit < Formula
   desc "Man-in-the-middle attacks against SSL encrypted network connections"
   homepage "https://www.roe.ch/SSLsplit"
-  url "https://github.com/droe/sslsplit/archive/0.5.4.tar.gz"
-  sha256 "3338256598c0a8af6cc564609f3bce75cf2a9d74c32583bf96253a2ea0ef29fe"
-  revision 2
+  url "https://github.com/droe/sslsplit/archive/0.5.5.tar.gz"
+  sha256 "3a6b9caa3552c9139ea5c9841d4bf24d47764f14b1b04b7aae7fa2697641080b"
   head "https://github.com/droe/sslsplit.git", :branch => "develop"
 
   bottle do
@@ -21,9 +20,6 @@ class Sslsplit < Formula
   depends_on "openssl@1.1"
 
   def install
-    # Work around https://github.com/droe/sslsplit/issues/251
-    inreplace "GNUmakefile", "$(DESTDIR)/var/", "$(DESTDIR)$(PREFIX)/var/"
-
     system "make", "test"
     system "make", "install", "PREFIX=#{prefix}"
   end
