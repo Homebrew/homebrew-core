@@ -5,10 +5,6 @@ class Vlang < Formula
   sha256 "3f3407a78aca7fc3b42a3fc1f1d2b9724c1e4c71fbd5d37ff12976cd2305cec1"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
     system "make", "v symlink"
   end
 
