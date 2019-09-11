@@ -3,7 +3,7 @@ class AprUtil < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.6.1.tar.bz2"
   sha256 "d3e12f7b6ad12687572a3a39475545a072608f4ba03a6ce8a3778f607dd0035b"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 1
@@ -22,7 +22,9 @@ class AprUtil < Formula
     system "./configure", "--prefix=#{libexec}",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-crypto",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--without-pgsql"
+
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
