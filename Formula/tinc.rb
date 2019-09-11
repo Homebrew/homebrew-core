@@ -6,9 +6,9 @@ class Tinc < Formula
 
   bottle do
     cellar :any
-    sha256 "ebbeab098fdaa5cb99c82e3dfe070b9b937e3fcd0bc2bf359065baa3724a21cc" => :mojave
-    sha256 "69cb1d5d79d864dcccf9780f155717149b543aad9fb20169dfb512444a2d58c0" => :high_sierra
-    sha256 "ed42273ffbc0b26357b8f70fc5af4a9f089d19978ef0d391f2bdbba50aa97178" => :sierra
+    sha256 "ba34dc41517f617c4d61d61e2f76cbafd9b75aa5edacc894e5b24e97cfb269f5" => :mojave
+    sha256 "a5ec2ae5f1e6252f80f33158bb0a1140e29764ed1f2e8754dcedf50e4fb49290" => :high_sierra
+    sha256 "923b15d1dcd7aafbb566f83edc9cced61b13379e857243bbe28b2755270b542d" => :sierra
   end
 
   depends_on "lzo"
