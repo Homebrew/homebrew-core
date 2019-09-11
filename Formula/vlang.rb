@@ -6,7 +6,6 @@ class Vlang < Formula
 
   def install
     system "make"
-    system "sudo v symlink"
   end
 
   test do
