@@ -1,8 +1,11 @@
 class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
-  url "https://github.com/bitnami-labs/sealed-secrets/archive/v0.8.3.tar.gz"
+  url "https://github.com/bitnami-labs/sealed-secrets.git",
+      :tag      => "v0.8.3",
+      :revision => "ec80fcecfe8b29cb13535c242337d79b18a14072"
   sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,14 +17,18 @@ class Kubeseal < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    kubesealpath = buildpath/"src/github.com/bitnami-labs/sealed-secrets"
-    kubesealpath.install Dir["*"]
-    system "make", "-C", kubesealpath, "kubeseal"
-    bin.install kubesealpath/"kubeseal"
+    cd buildpath do
+      system "make", "kubeseal"
+      bin.install "kubeseal"
+    end
   end
 
   test do
+    # ensure build reports the (git tag) version
+    output = shell_output("#{bin}/kubeseal --version")
+    assert_equal "kubeseal version: v0.8.3", output.strip
+
+    # ensure kubeseal can seal secrets
     secretyaml = [
       "apiVersion: v1",
       "kind: Secret",
