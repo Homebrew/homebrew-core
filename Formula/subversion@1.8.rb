@@ -8,8 +8,9 @@ class SubversionAT18 < Formula
 
   bottle do
     cellar :any
-    sha256 "1276ffcfc75f585c19835c68f97702ce8ffeafcabb42f7a514d7fbf0591ef2cd" => :mojave
-    sha256 "47b6166a5092c8eff0d132b9bea06f0e6d15683f4230ec83111018546f319765" => :sierra
+    rebuild 1
+    sha256 "f1ddeb0830e05709298f49b05131297e079a20cdf115a57d84e8c336b2c97aca" => :mojave
+    sha256 "4f5837d367ff776070c2d0a1a20a17a14fb56ec5296a00969c5fd5914888da02" => :sierra
   end
 
   keg_only :versioned_formula
