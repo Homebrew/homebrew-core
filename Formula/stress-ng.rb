@@ -1,8 +1,8 @@
 class StressNg < Formula
   desc "Stress test a computer system in various selectable ways"
   homepage "https://kernel.ubuntu.com/~cking/stress-ng/"
-  url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/stress-ng-0.10.02.tar.xz"
-  sha256 "35eead6070401d725ce2c71fb3fe913860ee76454761eb6e851220097e570d80"
+  url "https://kernel.ubuntu.com/~cking/tarballs/stress-ng/stress-ng-0.10.04.tar.xz"
+  sha256 "20d48abce288bdbb2fac1446fa1ed4eed3509196a3c44f815245f33a6e8531c3"
 
   bottle do
     cellar :any_skip_relocation
