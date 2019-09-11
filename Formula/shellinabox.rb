@@ -3,6 +3,7 @@ class Shellinabox < Formula
   homepage "https://github.com/shellinabox/shellinabox"
   url "https://github.com/shellinabox/shellinabox/archive/v2.20.tar.gz"
   sha256 "27a5ec6c3439f87aee238c47cc56e7357a6249e5ca9ed0f044f0057ef389d81e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,13 @@ class Shellinabox < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
+
+  # Upstream (Debian) patch for OpenSSL 1.1 compatibility
+  patch do
+    url "https://github.com/shellinabox/shellinabox/pull/467.diff?full_index=1"
+    sha256 "3962166490c5769e450e46d40f577bf4042ac593440944f701fd64ee50d607d8"
+  end
 
   def install
     system "autoreconf", "-fiv"
