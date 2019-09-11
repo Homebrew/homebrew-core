@@ -4,7 +4,7 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag      => "v2.33",
       :revision => "a5fa0951c92b4e5423d4ce95adafdca6ea30f254"
-  revision 1
+  revision 2
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
