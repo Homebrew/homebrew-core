@@ -1,8 +1,8 @@
 class Noti < Formula
   desc "Trigger notifications when a process completes"
   homepage "https://github.com/variadico/noti"
-  url "https://github.com/variadico/noti/archive/3.2.0.tar.gz"
-  sha256 "76766deecbd5ed37a9e1af0aa1d79f81e2ed2f2272394f0e980e1cc4036535a8"
+  url "https://github.com/variadico/noti/archive/3.3.0.tar.gz"
+  sha256 "494e1a83897bfa9123c8292d0b8501b779b5d31b7f43923b8c48543a5404eb7a"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,12 +14,14 @@ class Noti < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
+    ENV["GOFLAGS"] = "-mod=vendor"
     ENV["GOPATH"] = buildpath
 
-    notipath = buildpath/"src/github.com/variadico/noti"
-    notipath.install Dir["*"]
+    src = buildpath/"src/github.com/variadico/noti"
+    src.install buildpath.children
 
-    cd "src/github.com/variadico/noti/cmd/noti" do
+    cd src.join("cmd/noti") do
       system "go", "build"
       bin.install "noti"
       prefix.install_metafiles
