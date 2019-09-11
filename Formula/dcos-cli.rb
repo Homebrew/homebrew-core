@@ -6,9 +6,9 @@ class DcosCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0df34df0b29917746d708c815df4b83ef9aa312f3edc668aaefcb76d7b280c4b" => :mojave
-    sha256 "7a062db21c67f105dce39f30b256219f587a6d063349d8731e8dfb780489ad43" => :high_sierra
-    sha256 "a4be783cdf1e23318de0fc547467c7955267f8e21486134e567e3492beb243ca" => :sierra
+    sha256 "d2a341cace761a125074a43b726ae8870dc13ae7c56181a034386480ca95a6eb" => :mojave
+    sha256 "b301d70712db5fef0e290b75ce8f4011f2e47379d4ac2f79501f5b7d1949ec95" => :high_sierra
+    sha256 "0bfaa7d808a3df6e90e28d9d9f7be12cba925c9abdcf6272545e95cdd291579a" => :sierra
   end
 
   depends_on "go" => :build
