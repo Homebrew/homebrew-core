@@ -1,8 +1,8 @@
 class DcosCli < Formula
   desc "The DC/OS command-line interface"
   homepage "https://docs.d2iq.com/mesosphere/dcos/latest/cli"
-  url "https://github.com/dcos/dcos-cli/archive/1.0.0.tar.gz"
-  sha256 "04326b1feae6844cc893029c5d86588f8a796d200edd0f03e8c4a57dae733552"
+  url "https://github.com/dcos/dcos-cli/archive/1.0.1.tar.gz"
+  sha256 "717aaf1e6c54f4fe383a0b6a5faec334954ce6581ab0b86a87704e0e9e89ea2b"
 
   bottle do
     cellar :any_skip_relocation
