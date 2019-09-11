@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag      => "v3.8.2",
-      :revision => "4059ecd47bc6523050e3b0190b819f2254fca4f0"
+      :tag      => "v3.9.0",
+      :revision => "ab93db3bc81fe069e3a6cce521f1956870adfb88"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,19 +12,19 @@ class Calicoctl < Formula
     sha256 "3fd44a7fdf7f54cf8bcc711254c698762643f13fd79c79becc5eae326830467d" => :sierra
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+
     dir = buildpath/"src/github.com/projectcalico/calicoctl"
     dir.install buildpath.children
+
     cd dir do
-      system "glide", "install", "-strip-vendor"
       commands = "github.com/projectcalico/calicoctl/calicoctl/commands"
       ldflags = "-X #{commands}.VERSION=#{stable.specs[:tag]} -X #{commands}.GIT_REVISION=#{stable.specs[:revision][0, 8]} -s -w"
-      system "go", "build", "-v", "-o", "dist/calicoctl-darwin-amd64", "-ldflags", ldflags, "./calicoctl/calicoctl.go"
+      system "go", "build", "-v", "-o", "dist/calicoctl-darwin-amd64", "-ldflags", ldflags, "calicoctl/calicoctl.go"
       bin.install "dist/calicoctl-darwin-amd64" => "calicoctl"
       prefix.install_metafiles
     end
