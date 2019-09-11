@@ -7,9 +7,8 @@ class Shellinabox < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0fb5d5bf2e9370f9826ad3326c6c5116837d062346e5526b81ad6bf34b465b3f" => :mojave
-    sha256 "6258d7d019bb81204ba0159c3b483bace0137502cc9a5a9dff9f2a5bcf0b4409" => :sierra
+    sha256 "be4a272fb621880a3357ec3661eb9e455c965200bcaa338a07a1610a651c9f3a" => :mojave
+    sha256 "941b62ffa692c9b233ed65803a4572d0012cd925971abd1e529d256566dcc05a" => :sierra
   end
 
   depends_on "autoconf" => :build
