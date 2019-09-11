@@ -14,7 +14,7 @@ class K3d < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "BINDIR='#{bin}'", "GIT_TAG='#{version}'", "build"
+    system "make", "BINDIR='#{bin}'", "GIT_TAG='v#{version}'", "build"
   end
 
   test do
