@@ -2,8 +2,8 @@ class Virgil < Formula
   desc "CLI tool to manage your Virgil account and applications"
   homepage "https://github.com/VirgilSecurity/virgil-cli"
   url "https://github.com/VirgilSecurity/virgil-cli.git",
-     :tag      => "v5.1.1",
-     :revision => "b914b8a6bd707f220a83656e8c8e4c3995300417"
+     :tag      => "v5.1.2",
+     :revision => "c5cc5011b753a7149c7003f9c041e430d59b6efd"
   head "https://github.com/VirgilSecurity/virgil-cli.git"
 
   bottle do
