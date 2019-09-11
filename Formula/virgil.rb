@@ -8,9 +8,9 @@ class Virgil < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55a17c873e46a627d1ad226beaf1e58470a7e34dfc726eb6413be426cbc41c72" => :mojave
-    sha256 "96d75814d4c565dcb06917309e8eda6bfdc63a352a1b4abc5906fc600be44e2e" => :high_sierra
-    sha256 "e1b21946eaadf0c7a9fb1bf222fa8c24ac078052d29ed3c41215735ae367c80f" => :sierra
+    sha256 "733507479075cd10daff920074a761b8521d006c112ee1706b4d1f08f1655e3c" => :mojave
+    sha256 "dce39bf7b99b204ccd9722e1756e7c7c6814969ddcbc6046f19d43daf12d6861" => :high_sierra
+    sha256 "037bb056392f96e1690d04f644818dbcdf983000062bfc02abe1088abf5efab3" => :sierra
   end
 
   depends_on "dep" => :build
