@@ -1,8 +1,8 @@
 class AdwaitaIconTheme < Formula
   desc "Icons for the GNOME project"
   homepage "https://developer.gnome.org"
-  url "https://download.gnome.org/sources/adwaita-icon-theme/3.32/adwaita-icon-theme-3.32.0.tar.xz"
-  sha256 "698db6e407bb987baec736c6a30216dfc0317e3ca2403c7adf3a5aa46c193286"
+  url "https://download.gnome.org/sources/adwaita-icon-theme/3.34/adwaita-icon-theme-3.34.0.tar.xz"
+  sha256 "40b7e91f8263552b64d0f9beff33150291b086618ce498c71bf10035e48c7c7f"
 
   bottle do
     cellar :any_skip_relocation
