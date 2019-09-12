@@ -1,9 +1,9 @@
 class SLang < Formula
   desc "Library for creating multi-platform software"
   homepage "https://www.jedsoft.org/slang/"
-  url "https://www.jedsoft.org/releases/slang/slang-2.3.1a.tar.bz2"
-  mirror "https://src.fedoraproject.org/repo/pkgs/slang/slang-2.3.1a.tar.bz2/sha512/e7236a189081ebcbaf4e7f0506671226a4d46aede8826e1a558f1a2f57bcbe3ad58eadeabe2df99cd3d8bacb4c93749996bcbce4f51d338fc9396e0f945933e7/slang-2.3.1a.tar.bz2"
-  sha256 "54f0c3007fde918039c058965dffdfd6c5aec0bad0f4227192cc486021f08c36"
+  url "https://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2"
+  mirror "https://src.fedoraproject.org/repo/pkgs/slang/slang-2.3.2.tar.bz2/sha512/35cdfe8af66dac62ee89cca60fa87ddbd02cae63b30d5c0e3786e77b1893c45697ace4ac7e82d9832b8a9ac342560bc35997674846c5022341481013e76f74b5/slang-2.3.2.tar.bz2"
+  sha256 "fc9e3b0fc4f67c3c1f6d43c90c16a5c42d117b8e28457c5b46831b8b5d3ae31a"
 
   bottle do
     rebuild 1
