@@ -2,14 +2,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.6.303.27.tar.gz"
-  sha256 "e3fb2270c3ca277fa3e7ef6bd45f4d00eb7111bfd1ac440997bba2ef02ae0262"
+  url "https://github.com/v8/v8/archive/7.7.299.11.tar.gz"
+  sha256 "03d8abac7b5cb427b1d29085d82bf3a9f8030cc39cbc6f8528518053075adbbc"
 
   bottle do
     cellar :any
-    sha256 "343f710bd3207e9d1412273398fe57954d69b8e0762f2db084731908d1500afb" => :mojave
-    sha256 "a6a84cfceeaf66326cc3d60537022bd4d7126ba9395e3f4950bf7d1dc93f6619" => :high_sierra
-    sha256 "c1d7839ad02a1db3b5839cddacc0f68b2382577083e57697f450796a1b86261b" => :sierra
+    sha256 "37ddfeec0f0405ca375e23b25351cb91a014a53d86c28f35adb9ea7ca86ea97f" => :mojave
+    sha256 "8963019a39391ea1f93d143ee2d62986536b810729c700276b049d93b18a5efd" => :high_sierra
+    sha256 "3dc8186f25a9efd9b5aef9e69943053bb98d3600d8de3f536f8035a2c87e2c93" => :sierra
   end
 
   depends_on "ninja" => :build
@@ -22,18 +22,18 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "81ee1967d3fcbc829bac1c005c3da59739c88df9"
+      :revision => "972ed755f8e6d31cae9ba15fcd08136ae1a7886f"
   end
 
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "4cebfa34c79bcfbce6a3f55d1b4f7628bb70ea8a"
+      :revision => "1e5d7d692f816af8136c738b79fe9e8dde8057f6"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "64e5d7d43a1ff205e3787ab6150bbc1a1837332b"
+      :revision => "fd97d4326fac6da84452b2d5fe75ff0949368dab"
   end
 
   resource "v8/base/trace_event/common" do
@@ -43,7 +43,7 @@ class V8 < Formula
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "f71fb4f9a912ec945401cc49a287a759b6131026"
+      :revision => "6077f444da944d96d311d358d761164261f1cdd0"
   end
 
   resource "v8/third_party/jinja2" do

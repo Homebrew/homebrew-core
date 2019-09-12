@@ -12,7 +12,7 @@ class Pound < Formula
   end
 
   depends_on "gperftools"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "pcre"
 
   def install

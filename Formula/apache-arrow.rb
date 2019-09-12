@@ -3,13 +3,14 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.14.1/apache-arrow-0.14.1.tar.gz"
   sha256 "9948ddb6d4798b51552d0dca3252dd6e3a7d0f9702714fc6f5a1b59397ce1d28"
+  revision 2
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "cb9b62e236c4d138c3ad06671818c0f1a81ddd97bb5ef9fecc8c449d5f8aee86" => :mojave
-    sha256 "8afda2fb6023553c4c4e2ba4ad3a87e9411e2283905fd3fca0ec7e4ddb3cf612" => :high_sierra
-    sha256 "b5d11576669485b771d2fab149d499b41ec9d0fcda55d7f4ec98716e1e2f5c08" => :sierra
+    sha256 "bcbd2bb7b4285c38fcced5a4cd848419812508866ea163b9df9cbccae0f486f6" => :mojave
+    sha256 "308112366abc1a134355a2dfe3b5a3405b81c771c01a1af518baacf1ec88f447" => :high_sierra
+    sha256 "9968981aa780eef9d6b092ef2654697bb5c5ff9f90e1d96a64435ecbe83f9809" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +23,7 @@ class ApacheArrow < Formula
   depends_on "grpc"
   depends_on "lz4"
   depends_on "numpy"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "python"
   depends_on "rapidjson"

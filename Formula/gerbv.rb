@@ -7,9 +7,10 @@ class Gerbv < Formula
   revision 3
 
   bottle do
-    sha256 "34b29ea7ae1073e76ad788cd18e097a17cd2f6170c2ef42083cee734f0edc519" => :mojave
-    sha256 "5c896a465570050929fcffe4f228363c2ac3640b11cd1b04652148f42f574653" => :high_sierra
-    sha256 "fecfee4875619437dd6c374ffcfd91d04169f58dca0804b35960c0be3ec52737" => :sierra
+    rebuild 1
+    sha256 "5d7737b4a05390618fb4fcf160a5ea5cfd60213d7f50955d308dbce80f9d0078" => :mojave
+    sha256 "0b845b8689b8554177d6074e71857caa81a077a28558be1b39984cd1c9728db6" => :high_sierra
+    sha256 "67f3cdf2addd6a071683e04dbdd6b5d75fc34737bf45cc3f9a8d94a8f590ce3f" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -44,6 +45,7 @@ class Gerbv < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -58,6 +60,7 @@ class Gerbv < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gerbv-2.6.0
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

@@ -4,20 +4,20 @@ class Ldapvi < Formula
   url "http://www.lichteblau.com/download/ldapvi-1.7.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
-  revision 5
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "2d177af900ed225911352960cdf476ccf65332ad050cccd2b6e0c09140a8c2c6" => :mojave
-    sha256 "6e44a95d3b12eee487d954ba8ce2437323bd8f27d7412d9dd10b735e59ab3cd9" => :high_sierra
-    sha256 "1b05d9923cf1ee88a7c259151de2029393b0f1980b94411a049003726d9bd2f8" => :sierra
+    sha256 "b227a947ef652d2f335f7ccc7a1334efa2db1fc3a3a6666b35e91310c17548f0" => :mojave
+    sha256 "4da9e2cc356624f5b6ad3e6b1c36e934329d80f385d31ac712693d4e8734a4c1" => :high_sierra
+    sha256 "e6babe3042fee412c0ad7cf89dd95a13d2530d9cd8f6d02c7380bae408ed0040" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
   depends_on "gettext"
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "popt"
   depends_on "readline"
 

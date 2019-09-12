@@ -3,13 +3,13 @@ class Libxmlxx3 < Formula
   homepage "https://libxmlplusplus.sourceforge.io/"
   url "https://download.gnome.org/sources/libxml++/3.0/libxml++-3.0.1.tar.xz"
   sha256 "19dc8d21751806c015179bc0b83f978e65c878724501bfc0b6c1bcead29971a6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "2f563b8c980f12df2385325b7ecccac966f47489495932673672121a1192a6ec" => :mojave
-    sha256 "f8e8332576bf7d6aac9b7fc2886c8420d8cca63e4bed65a9bb2c9e9dc7e99c53" => :high_sierra
-    sha256 "5bfae5d473f94b8296438b341e7ed0b5b6bfe55c3934eaf3be19b0a764a4c72c" => :sierra
+    sha256 "e28337e04206928b26c1ef1b0e01e17611fae0c71f2aff3446cfbba00d3271d0" => :mojave
+    sha256 "a454a9d800341cbed2a10d89dbce4a633036dfad4965cac8b4eab36fd77133b7" => :high_sierra
+    sha256 "1f3337b717075e6391dcfb784025fe911d044145ce136f38218ff27ed2d2955e" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -37,7 +37,7 @@ class Libxmlxx3 < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     glibmm = Formula["glibmm"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0

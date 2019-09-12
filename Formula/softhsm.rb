@@ -3,14 +3,15 @@ class Softhsm < Formula
   homepage "https://www.opendnssec.org/softhsm/"
   url "https://dist.opendnssec.org/source/softhsm-2.5.0.tar.gz"
   sha256 "92aa56cf45e25892326e98b851c44de9cac8559e208720e579bf8e2cd1c132b2"
+  revision 1
 
   bottle do
-    sha256 "08706b58638ef1705eb815a68e98d1a7cb84881b947dec37fbcfedf3ed7e33c6" => :mojave
-    sha256 "e19ba4dd4666be95b69981a798814108b11ca706b20e479990feee05babe7014" => :high_sierra
-    sha256 "5e69215d66ff6210d6c100e673194140c45d356bd810f5061d6e123cbba9a63c" => :sierra
+    sha256 "ba2efed59b5064868a7198dc51aa9be15070bf34ef3c09d8de40c64c7c9bad5e" => :mojave
+    sha256 "45fcd165092f402571d77d28ec07e7b16ac4b257b72f87a29174ac614f89336e" => :high_sierra
+    sha256 "d42f52da6397f57e84da014d62411d7b4fe7afe69dff63947c53054d6f66de6c" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -19,7 +20,8 @@ class Softhsm < Formula
                           "--sysconfdir=#{etc}/softhsm",
                           "--localstatedir=#{var}",
                           "--with-crypto-backend=openssl",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--disable-gost"
     system "make", "install"
   end
 

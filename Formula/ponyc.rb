@@ -1,15 +1,15 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.30.0.tar.gz"
-  sha256 "9f78f4e7cd7965d46818db84a2ab4d3f5891ba10f16bcb189496238f503e6009"
+  url "https://github.com/ponylang/ponyc/archive/0.31.0.tar.gz"
+  sha256 "74bb8ccbfc4201e14a2f66502033397d63179f073be04ee366a66d329dd56778"
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
     cellar :any
-    sha256 "1e31b7a35c59af6641c7efe49f9b2d1cb171410c3d5afbe75fe0a559c5f5987d" => :mojave
-    sha256 "eb7677788987281f1f2032b59ef4cd5e5fa01896e79b346638bdb6fe8a8480e7" => :high_sierra
-    sha256 "3edc0fc29683d3e6d1143c73ac0508d8beba49a499268d876b2cc8671d1959d7" => :sierra
+    sha256 "655afafb64d7b0b4cdeb03dd4c4d630ce9a2492c3939562eec9024c75182ced1" => :mojave
+    sha256 "94ba5d35ffe02c3034c213b12ed5f6db2c1782f06e5d4ff812e0b83b50f8f558" => :high_sierra
+    sha256 "847c0653e378ed949248256d459896c875a8d652279769dd88dc1ebb996850c8" => :sierra
   end
 
   # https://github.com/ponylang/ponyc/issues/1274

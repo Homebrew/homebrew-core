@@ -1,13 +1,14 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.2.20.tar.xz"
-  sha256 "eff09da83e235c2ba25c85deea1d4f663bd71d50fd51ad11e1acebe26d733494"
+  url "https://www.php.net/distributions/php-7.2.22.tar.xz"
+  sha256 "eb597fcf8dc0a6211a42a6346de4f63ee166829a6df6d8ed767fe14be8d1c3a3"
+  revision 1
 
   bottle do
-    sha256 "0e2c39da16d572ebed3edc551a45de9d3fa9f82c95b8da780149f8d0ba65e548" => :mojave
-    sha256 "e3a1a04ce70ca3af97fda7d1cc9e1ae58eb1c0a43b449ccda9fa44a077b3b19e" => :high_sierra
-    sha256 "aaa88c888a35d6067841067be9b643985a677d4377d42644c04bbc298f907af1" => :sierra
+    sha256 "abbcd1c105f315daa497b36bf45c57aaa8d53ce1dcd6b9de5deaebdadcba7fa7" => :mojave
+    sha256 "aefa6b2c2c330300df716fc601c36d7ad91f996a8b081f84e066071b3c263488" => :high_sierra
+    sha256 "753f7296d0d490c10b27d3e9e200da22b6d316f02ec3b4807e8e1a0c665aaaf5" => :sierra
   end
 
   keg_only :versioned_formula
@@ -32,7 +33,7 @@ class PhpAT72 < Formula
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -144,7 +145,7 @@ class PhpAT72 < Formula
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd

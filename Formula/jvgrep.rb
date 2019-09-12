@@ -3,15 +3,15 @@ require "language/go"
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
-  url "https://github.com/mattn/jvgrep/archive/v5.7.0.tar.gz"
-  sha256 "acd390950f91693b289b4e16d3a48e5e96f3521fdd60db6a363ff7aebd6ab506"
+  url "https://github.com/mattn/jvgrep/archive/v5.8.1.tar.gz"
+  sha256 "128cca9ab2fbf3451560558f990b9bf821981dddaa1d47026bd4e71a3d07f25b"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b8f71a3d59dab1504e2669a521c915db536a1abad78376e6117db3cd1cfd9bb" => :mojave
-    sha256 "8c4d2303e126c9ced3ebc2d66534f23739b88bef019540d502146d1f62d62ebe" => :high_sierra
-    sha256 "c550ceee87b9c7139b966ae4879ea5e1e3996b86410b2456619b667d7052830e" => :sierra
+    sha256 "b3379c1f00e90881fb0e5d4f684cd62208065e0339f13d810480a2d4c7f45455" => :mojave
+    sha256 "2bde2644eb0412fb14bc974926756e8cc5da2b7e9eec55af8a16dbae5a5ef9bc" => :high_sierra
+    sha256 "c0ad60bf13a602161c77c1d1140ffc22c8c08680fc7ec3d47914b0f8159c5b93" => :sierra
   end
 
   depends_on "go" => :build

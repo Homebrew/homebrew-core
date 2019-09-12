@@ -1,6 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
+  revision 1
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -16,13 +17,13 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "2b4a00ce8b1bd66a8f125b7f6ac0169e37fea829b2ee5b279a8d981d484111c3" => :mojave
-    sha256 "1a18e3eea2adb4f211e7d89be7ff8f69456cb5e59511726348801959b5d6a14a" => :high_sierra
-    sha256 "2e57630830c09cfaa1a5b802163592a9267b8c66e4389c0d4f445de43215a26a" => :sierra
+    sha256 "fa0a1738cc9fafdae2e03e7c9092f98d8873ee1ec0dbe0f6935c75e7ee7c954e" => :mojave
+    sha256 "562237e2f56cea601ba029b32c435a38247441a8188e37ee26543647bf940b7c" => :high_sierra
+    sha256 "80e82901e28914acedd3101a37559b82edebc37c1e5371b5876c4ff32f84cadc" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@2"
   depends_on "yajl"
@@ -42,7 +43,7 @@ class Uwsgi < Formula
     end
 
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 

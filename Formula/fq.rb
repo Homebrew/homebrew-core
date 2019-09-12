@@ -3,17 +3,18 @@ class Fq < Formula
   homepage "https://github.com/circonus-labs/fq"
   url "https://github.com/circonus-labs/fq/archive/v0.11.0.tar.gz"
   sha256 "cdfb490cfa6ae5f526203a966228a85a9cc7d9c1698cf45fdf17718d8a765122"
+  revision 1
   head "https://github.com/circonus-labs/fq.git"
 
   bottle do
-    sha256 "35f644c9d13c56248a1f2d6edc8fed00d7282648793aa51108e6c98728874cad" => :mojave
-    sha256 "7d456eec116cebaa3c6357b047d8c853d64d2441ba267790cad476ca6dd15dae" => :high_sierra
-    sha256 "2a9fab74e2470c21a17812dfca5015d5ee34a5519427a96ec96db8bec3c5d818" => :sierra
+    sha256 "1416630a8b706eef3660396cc12560c4ef15e1010cc95b4aaacea4106b114e2b" => :mojave
+    sha256 "98135cb0b96af80606046f54f103ebdca60baf9e3379b120c1cca07aa604322f" => :high_sierra
+    sha256 "8c6527e326a7477574c5321800895a64fb3753bdfb57f14ebb9f9ebb652803ae" => :sierra
   end
 
   depends_on "concurrencykit"
   depends_on "jlog"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "Makefile", "/usr/lib/dtrace", "#{lib}/dtrace"

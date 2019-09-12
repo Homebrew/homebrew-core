@@ -1,13 +1,15 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.101.2.tar.gz"
-  sha256 "0a12ebdf6ff7a74c0bde2bdc2b55cae33449e6dd953ec90824a9e01291277634"
+  url "https://www.clamav.net/downloads/production/clamav-0.101.4.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.101.4.tar.gz"
+  sha256 "0bf094f0919d158a578421d66bc2569c8c8181233ba162bb51722f98c802bccd"
+  revision 1
 
   bottle do
-    sha256 "1056117fca7f6f1c1e1bee530ba8b8e54791a96dddf6472836d2e6af31554d3e" => :mojave
-    sha256 "09c5da032cd80c38a7041d4a6372f37f7b0136cdd93116cac1ab0438ae4d5b93" => :high_sierra
-    sha256 "a30c568e36a1a74c31c85bc7b37909734e10d5089f4ffe6aa3821b0b712b94a1" => :sierra
+    sha256 "59d485f311b59e93d6ce9fe7b6b3fa1904824477c19e7b88aec15580d0a07243" => :mojave
+    sha256 "b80e34e7b4b25dc39c374d99aa8344cdaf0e942ab1607095b921d2600485531a" => :high_sierra
+    sha256 "65598589702e4b7c8efe2189f41dc19f9771ce8fe8386440e6923a15235d664c" => :sierra
   end
 
   head do
@@ -20,7 +22,7 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "yara"
 
@@ -36,7 +38,7 @@ class Clamav < Formula
       --disable-zlib-vcheck
       --enable-llvm=no
       --with-libjson=#{Formula["json-c"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre"].opt_prefix}
       --with-zlib=#{MacOS.sdk_path_if_needed}/usr
     ]

@@ -3,11 +3,12 @@ class ShibbolethSp < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
   url "https://shibboleth.net/downloads/service-provider/3.0.4/shibboleth-sp-3.0.4.tar.bz2"
   sha256 "f5dc0fd028b74db4aaae76b59ec98e8a719c38cfe0f1d722feb2d5e0b9880cff"
+  revision 1
 
   bottle do
-    sha256 "64559609abe14bfcd7eaf64a488e3a09f3683839cd8e72a4beef8ac8cdaa0cf7" => :mojave
-    sha256 "83dd6896a3eddece8d326f23ec3a0fa6cd2ab7d5352edb8dea990cc7884aeb2a" => :high_sierra
-    sha256 "674653bf05123b59d2bf8c8c895249640ce968b2c414fc3c52c05d4f344eab9f" => :sierra
+    sha256 "c33a3c184c06a96b534f9a74aa82bac8d2964c2f0d07b5173fb623f6ff37c358" => :mojave
+    sha256 "3a8fb2a044be87d4cdcffdc93d450f37a59a03dc5037fe50cddf49c849a3be4b" => :high_sierra
+    sha256 "3d142046caca2ffa2ad494efb3de5c445ec69361e7feaec3ba457a6b82dc1455" => :sierra
   end
 
   depends_on "apr" => :build
@@ -18,7 +19,7 @@ class ShibbolethSp < Formula
   depends_on "log4shib"
   depends_on :macos => :yosemite
   depends_on "opensaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
   depends_on "xerces-c"
   depends_on "xml-security-c"

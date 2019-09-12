@@ -3,13 +3,13 @@ class Libglademm < Formula
   homepage "https://gnome.org"
   url "https://download.gnome.org/sources/libglademm/2.6/libglademm-2.6.7.tar.bz2"
   sha256 "38543c15acf727434341cc08c2b003d24f36abc22380937707fc2c5c687a2bc3"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "d44421169eb0c8945890c8b6a3958f25104e05c04fdedcce2c5fe2bb0138a1ba" => :mojave
-    sha256 "385fe65cc63fa3f62bdb523577ddacd7d23b33ca584dcc52c0938fba70eb0b1e" => :high_sierra
-    sha256 "3046897c9657be7bb240b148afa5904dce9afddcae54583c532e76cb132ec2cf" => :sierra
+    sha256 "7198c6996d64bbe6a06380c23d010f0c9a949e3220c8a3dcb785fba0ceb22c33" => :mojave
+    sha256 "4daab6726178c96ac56452716422004dd4fcdfbaef22b85d99f9ddc317c88ea1" => :high_sierra
+    sha256 "6f7c8cbd127f333df690910aa8aa3561989679719bebbfb9d1d4c41a9821d57c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -49,9 +49,10 @@ class Libglademm < Formula
     glibmm = Formula["glibmm"]
     gtkx = Formula["gtk+"]
     gtkmm = Formula["gtkmm"]
+    harfbuzz = Formula["harfbuzz"]
     libglade = Formula["libglade"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]
@@ -78,6 +79,7 @@ class Libglademm < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_include}/gtk-unix-print-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libglademm-2.4
       -I#{libglade.opt_include}/libglade-2.0
       -I#{libpng.opt_include}/libpng16

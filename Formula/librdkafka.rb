@@ -3,19 +3,20 @@ class Librdkafka < Formula
   homepage "https://github.com/edenhill/librdkafka"
   url "https://github.com/edenhill/librdkafka/archive/v1.1.0.tar.gz"
   sha256 "123b47404c16bcde194b4bd1221c21fdce832ad12912bd8074f88f64b2b86f2b"
+  revision 1
   head "https://github.com/edenhill/librdkafka.git"
 
   bottle do
     cellar :any
-    sha256 "70d894cd4ec83c789df7697c333134dd4282d60a236b4fdc82dedf986860bb42" => :mojave
-    sha256 "b4ef9db2570d96ccb2f7f78e1d5086370cc002b9834ad42d9c9b126ffcde3d7e" => :high_sierra
-    sha256 "74aa62a9ae1e4193c7f12d732b0ecce9f636f0e6af80bfa8dd97e63ab9a934a7" => :sierra
+    sha256 "d9054304a3d34f8d19123111b8c06fe4a08b98880ad7d91a73be3117816f75e5" => :mojave
+    sha256 "aaffaa86f082a49b2f09ab62ff46480416ca6da5976fe34585642ad80b94a0d2" => :high_sierra
+    sha256 "a5c4c7ff0d046cd794fc99c2b5d1ccca3576090ebf61e5c47279007c8e1a1178" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zstd"
 
   def install

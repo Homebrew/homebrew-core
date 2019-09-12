@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.10.tar.xz"
-  sha256 "35a8f107e2b90fda217f014c0c15cb20a6a66678f6fd7e36556d469372c01b03"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.11.tar.xz"
+  sha256 "dba7658d0a2e1bfad8260f5210ca02988f233d1d86edacb95eceed7eca982895"
 
   bottle do
-    sha256 "dc8c9676ce9cd2402af362425dd03d20c400058098d3f77d61420b4510d5d788" => :mojave
-    sha256 "1ccb1e4e084b885eaf4421703851f8cd976f15ffb859b6411c14976057482d68" => :high_sierra
-    sha256 "bf91ae621743ae3219fc3fad195a798252a8bc9b6346655ab7c483ee27d38f77" => :sierra
+    sha256 "c2c7fcdc5d8be7691a66cd17ed88589f5d8c2fc17e6c5c119fd78f54dc57e8fd" => :mojave
+    sha256 "7e1a7ce05294c6eaecdceb457169fe09f6821061efd9d6dd18879516876b8acf" => :high_sierra
+    sha256 "680b254667a32e784ce478d0f79d8044974a5bacf1fc08b7cc5eb82325c9fade" => :sierra
   end
 
   depends_on "docbook" => :build
@@ -23,9 +23,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
-
-  # submitted upstream as https://gitlab.gnome.org/GNOME/gtk/merge_requests/983
-  patch :DATA
 
   def install
     args = %W[
@@ -74,6 +71,7 @@ class Gtkx3 < Formula
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -88,6 +86,7 @@ class Gtkx3 < Formula
       -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}
       -I#{include}/gtk-3.0
       -I#{libepoxy.opt_include}
@@ -119,28 +118,3 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/libgail-util/meson.build b/libgail-util/meson.build
-index 90fe93c..82c8aa1 100644
---- a/libgail-util/meson.build
-+++ b/libgail-util/meson.build
-@@ -28,4 +28,5 @@ libgailutil = shared_library('gailutil-3',
-                                '-DGTK_DISABLE_DEPRECATED',
-                              ] + common_cflags,
-                              link_args: gailutil_link_args,
-+                             darwin_versions: ['1', '1.0'],
-                              install: true)
-diff --git a/meson.build b/meson.build
-index c6f43d5..0f818ee 100644
---- a/meson.build
-+++ b/meson.build
-@@ -121,7 +121,8 @@ else
-   gail_library_version = '0.0.0'
- endif
-
--gtk_osxversions = [(100 * gtk_minor_version) + 1, '@0@.@1@.0'.format((100 * gtk_minor_version) + 1, gtk_micro_version)]
-+osx_current = gtk_binary_age - gtk_interface_age + 1
-+gtk_osxversions = [osx_current, '@0@.@1@.0'.format(osx_current, gtk_interface_age)]
-
- gtk_api_version = '@0@.0'.format(gtk_major_version)

@@ -1,23 +1,24 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.14.tar.gz"
-  sha256 "f0e3275274c93f3756fba6c58ca53f05b9fa2f89badb8678608b372d93ea510c"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.15.tar.gz"
+  sha256 "4c4bb1dae0fd6edabf1d268ac6a476de9aab3c15b4bbe2141549a11dbf2bae73"
+  revision 1
 
   bottle do
-    sha256 "085d62a87a43193342aa119102e4b9fa21b657291dfdb85c33fd3ae86c925366" => :mojave
-    sha256 "7fb3dab8b51b774594041bb9d3fc3aca7e201d434ccdf3d8c105f31b0fec596e" => :high_sierra
-    sha256 "8bcf3df7d55e3542cc4abdfb6c2dc3000a0db1a3a68086eca6f3f742e02104f9" => :sierra
+    sha256 "a5d0e4ee44f0effe6ea9b12fc319a6dd4e985f3fbb58e5f085b543b67d74d470" => :mojave
+    sha256 "41a29df9514b5bc54604f7060e29dcaee590f7f3ed99e5c68b8628e736e75087" => :high_sierra
+    sha256 "13a5ac322c72e3a2439a13e7cf287cd8a7f58351072ef225a48775f9c048c9cf" => :sierra
   end
 
   depends_on "awk" => :build
   depends_on "libidn"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{Formula["openssl"].opt_include}",
-                   "LDFLAGS=-L#{Formula["openssl"].opt_lib}",
+                   "C_INCLUDE_PATH=#{Formula["openssl@1.1"].opt_include}",
+                   "LDFLAGS=-L#{Formula["openssl@1.1"].opt_lib}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"

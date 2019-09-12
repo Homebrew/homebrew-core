@@ -3,12 +3,13 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
   sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "f7c495b7015a86f61cbc44c5788912d919e5bdd70b13160b0a94e4d07f892f69" => :mojave
-    sha256 "6660708bc834553df9cda635ea590ad5e30112af7aa522e33c78b4655105901b" => :high_sierra
-    sha256 "ecd525d18b89900646a4bbe161760830ad84ad2c9d4ca3afcb9f8855a692c5f1" => :sierra
+    rebuild 1
+    sha256 "322c39684795f8eaf9e8f342528ecc119aa65566db10963272b975e9c6f31018" => :mojave
+    sha256 "c2a5846928bb13ccf83513f1db65ed79f8499d75cb51da655f8fb4f49ac787bd" => :high_sierra
+    sha256 "ff6a8d0b903ddbd716a33ee4669f80d12bcaa59eb11862614efaf92092c68d41" => :sierra
   end
 
   head do
@@ -19,6 +20,7 @@ class OpenMpi < Formula
   end
 
   depends_on "gcc"
+  depends_on "hwloc"
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"

@@ -5,20 +5,20 @@ class Salt < Formula
   homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/41/d4/7f6d6bb139506741771ff9feb8429d5a5ed860de9ab5a358e771e8cc3b76/salt-2019.2.0.tar.gz"
   sha256 "5695bb2b3fa288bcfc0e3b93d9449afd75220bd8f0deefb5e7fc03af381df6cd"
-  revision 1
+  revision 2
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "34e1a591055346fe0d3a34e7d857fde0cd8e4ea6abded8e13500282f0993c340" => :mojave
-    sha256 "f7e521f883eca1584d91317e0afb0dd0f410fb0190cb3db05f13030d6732ba6d" => :high_sierra
-    sha256 "88885219ee763a48ca9f8684849201615d975d852271dd4cda90c47f24b35096" => :sierra
+    sha256 "64c8da5920118335230872e10b46418db9f9caa7595285b2f6b81f93b4d6009e" => :mojave
+    sha256 "c6e821626b70eae46678760a1bd1a18a93c1096c75a45e1ac0373ae5ede1c0d3" => :high_sierra
+    sha256 "a41e449f834d810361631c6e9b4a9de28077b57041d76d57c8a9effe9935fdf1" => :sierra
   end
 
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1" # For M2Crypto
   depends_on "python"
   depends_on "zeromq"
 
@@ -126,7 +126,7 @@ class Salt < Formula
   end
 
   def install
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
     virtualenv_install_with_resources
     prefix.install libexec/"share" # man pages
