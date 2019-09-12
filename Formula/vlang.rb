@@ -31,7 +31,7 @@ class Vlang < Formula
     assert_match "run               Build and execute a V program. You can add arguments after the file name.", help_output
     assert_match "build module      Compile a module into an object file.", help_output
 
-    # run tests and test output
+    # run tests CLI command
     test_output = shell_output("#{bin}/v test v")
     assert_match "compiler/tests/enum_test.v OK", test_output
     assert_match "compiler/tests/msvc_test.v OK", test_output
