@@ -23,7 +23,7 @@ class Mysql < Formula
 
   depends_on "openssl@1.1"
 
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
+  conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"
