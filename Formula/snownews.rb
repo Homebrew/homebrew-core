@@ -1,9 +1,8 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
   homepage "https://github.com/kouya/snownews"
-  url "https://github.com/kouya/snownews/archive/v1.5.13.tar.gz"
-  sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
-  revision 1
+  url "https://github.com/kouya/snownews/archive/1.6.10.tar.gz"
+  sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
 
   bottle do
     rebuild 1
@@ -12,8 +11,10 @@ class Snownews < Formula
     sha256 "099b010a3f16d1e32fabaa8351bf0a3ac13eb6b3aec802d05af83b4fee4545dd" => :sierra
   end
 
+  depends_on "coreutils" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "ncurses"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
@@ -26,6 +27,11 @@ class Snownews < Formula
 
     # Must supply -lz because configure relies on "xml2-config --libs"
     # for it, which doesn't work on OS X prior to 10.11
-    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz", "CC=#{ENV.cc}"
+    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz",
+           "CC=#{ENV.cc}", "INSTALL=ginstall"
+  end
+
+  test do
+    system bin/"snownews -V"
   end
 end
