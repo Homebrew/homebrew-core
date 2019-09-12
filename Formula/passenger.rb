@@ -1,9 +1,8 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.2/passenger-6.0.2.tar.gz"
-  sha256 "56b2273312e6dc9880f6ba83e381583b8759085a0b41338b782c9575d58346bc"
-  revision 7
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.3/passenger-6.0.3.tar.gz"
+  sha256 "ee5de4165a8b9ea379b215b6570155b623e59a7ccd2755f98a23444df12e2dad"
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
@@ -17,11 +16,6 @@ class Passenger < Formula
   depends_on "nginx" => [:build, :test]
   depends_on "openssl@1.1"
   depends_on "pcre"
-
-  patch do
-    url "https://github.com/phusion/passenger/commit/09df7df0.patch?full_index=1"
-    sha256 "397707a788029f4abac4780d2e04ddba37ec9285b44c9d3e4ff0c91c5121d2b7"
-  end
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
