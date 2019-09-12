@@ -5,18 +5,18 @@ class Cadaver < Formula
   mirror "https://src.fedoraproject.org/repo/pkgs/cadaver/cadaver-0.23.3.tar.gz/502ecd601e467f8b16056d2acca39a6f/cadaver-0.23.3.tar.gz"
   mirror "https://web.archive.org/web/20170629224036/www.webdav.org/cadaver/cadaver-0.23.3.tar.gz"
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "9cfb44c7817e5d2b60810f4a2cde5210f984e8c43a692cbaf6d71863065f62bc" => :mojave
-    sha256 "a0d1b9b93dbcdb2e1892c6b71da549e3e287b64a0384636abb442167347c1509" => :high_sierra
-    sha256 "f2d16706e3af2ac5dcd2133655ca56fd0c881550b60d2a8d7e74d9966702fc68" => :sierra
+    sha256 "57ebca208464b812e3bbb1df71e68369227d29005a15c990087f7de761007458" => :mojave
+    sha256 "d828c3a7454ea82ec5e575aebc3f57911ee3f08e45ed64ae1293026fc0ee8380" => :high_sierra
+    sha256 "2a80f1355db0d31d395596ab4941565af8f3d6dda36952c834e2ebeaadb9d65b" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "neon"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # enable build with the latest neon
@@ -25,7 +25,7 @@ class Cadaver < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl"].opt_prefix}",
+                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-neon=#{Formula["neon"].opt_prefix}"
     system "make", "-C", "lib/intl"
     system "make", "install"

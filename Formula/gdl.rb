@@ -1,14 +1,13 @@
 class Gdl < Formula
   desc "GNOME Docking Library provides docking features for GTK+ 3"
   homepage "https://developer.gnome.org/gdl/"
-  url "https://download.gnome.org/sources/gdl/3.28/gdl-3.28.0.tar.xz"
-  sha256 "52cc98ecc105148467b3b2b4e0d27ae484b1b6710d53413f771ed07ef1b737b6"
-  revision 2
+  url "https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz"
+  sha256 "858b30f0cdce4c4cb3e8365a7d54ce57c388beff38ea583be5449bc78dda8d02"
 
   bottle do
-    sha256 "af0d11124591e6e5fb5116056fd84354c9f2be9d14ef495824f283ab4baa3f84" => :mojave
-    sha256 "27bc7f007ba88dcee4f033b5e14e5953387c2b230f07368144eda39b6cc495c4" => :high_sierra
-    sha256 "992c577cc64f1bbd16b630ad34d8e48a156d95a5323941798e5d4e4a868af3e0" => :sierra
+    sha256 "2a931ec68e689029a798a72717316160a32655b405fc3a117d47e641644450a8" => :mojave
+    sha256 "8b2d2347a08a3ec9d4561aaaaec3d21629774ff026894dee5bbf5fa722e5113f" => :high_sierra
+    sha256 "2c12ceb0de4cef7dca42d70c1b18762224c8b19bbf854f262b35ac45e71e32e8" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -42,6 +41,7 @@ class Gdl < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -57,6 +57,7 @@ class Gdl < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgdl-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16

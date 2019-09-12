@@ -3,13 +3,12 @@ class Libgda < Formula
   homepage "https://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.9.tar.xz"
   sha256 "59caed8ca72b1ac6437c9844f0677f8a296d52cfd1c0049116026abfb1d87d9b"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "07b04e77c649dc8c3e8af1eb1137356384c571933f2cb11f2c65f9892083d4b6" => :mojave
-    sha256 "0b49c8dfcc3ed6795a38b4fbefb54423dadcf2344b65ce1f154e3fa948112511" => :high_sierra
-    sha256 "684c85fad37d67323593150e75d06b7a08c038ec7c814f67cf1f72b7ca92c2fc" => :sierra
+    sha256 "42e417224880411d28719e1e72d5dc455a7f5af416acd178af7c6ad44b484a28" => :mojave
+    sha256 "dbdaf5dee8343c6824d5c987f4e12a4fc861373f3747a24b5687c5a0b413e623" => :high_sierra
+    sha256 "92409ba0caf79679d279e44a7ed619ccf76d52bddcf49d4f8ce2efb6b5baffc0" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -20,7 +19,7 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "libgcrypt"
   depends_on "libgee"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install

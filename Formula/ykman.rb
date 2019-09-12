@@ -3,20 +3,21 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-2.1.1.tar.gz"
-  sha256 "3adc107539dda43cf0d1d7f9c649e2fb6252e7d5b14782d79f091893cdfcacca"
+  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.0.tar.gz"
+  sha256 "0137acd30cffa60421dde8277b3bb0c5d5e2179d36df0d190de6faf7eec76359"
+  revision 1
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
     cellar :any
-    sha256 "055e25be3727d09d5ec16b96fd1ef552c0093c0425f5279fae684c0ef22b6f4a" => :mojave
-    sha256 "c4d2e505ba05d388fa879accbb6a033e896ac858305020284a929748a4649fdf" => :high_sierra
-    sha256 "b3fe1500d829128b6739e68bf1bc3a716aafe20c41b363bc5321e30a36f63c6a" => :sierra
+    sha256 "bbcdddf68a76536a6579fc903a32595bdc51ac369a6bdf9562d768bb5aa5f354" => :mojave
+    sha256 "e415bd795d6b7f43c673ea14f5c61beb6309ad18e0d9de30b84fd03f65afaa2a" => :high_sierra
+    sha256 "7e943215909e0c4f0d98aba219be77ce4c1e921fd42b12781a3ddeaefba16e07" => :sierra
   end
 
   depends_on "swig" => :build
   depends_on "libusb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "ykpers"
 
@@ -41,8 +42,8 @@ class Ykman < Formula
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/10/37/c75c78221a5adc0b2ae1500afea82cff0287b98e7577850ed765894a1857/fido2-0.6.0.tar.gz"
-    sha256 "7541edad31967d23f5006ffeccc54536ab9934dd981d65d29620d9dfb54566bf"
+    url "https://files.pythonhosted.org/packages/53/35/cc293d0157ff7a9836ba36e45bd99a4a98883fd3f2dc451e463510764f6c/fido2-0.7.0.tar.gz"
+    sha256 "47b02852780849bb4bb698b9727d61970ee77a83eb25715fe7c6235ebd648d87"
   end
 
   resource "idna" do
@@ -66,8 +67,8 @@ class Ykman < Formula
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/a9/00/a7cc393234db5c9aafb8305c22c4470c794b5b43c28adf6a80ebeb3b5a2d/pyscard-1.9.8.tar.gz"
-    sha256 "f59dc7ee467b210094e64c923e1c7f5e8e9501a672fc0c8f2cd958153e00d095"
+    url "https://files.pythonhosted.org/packages/ed/dd/c575bb75122c250cbed3f70440cb8e25582bf991855bb4eb27371fb8d962/pyscard-1.9.9.tar.gz"
+    sha256 "e6bde541990183858740793806b1c7f4e798670519ae4c96145f35d5d7944c20"
   end
 
   resource "pyusb" do

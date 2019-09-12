@@ -1,19 +1,20 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.9.2/poco-1.9.2-all.tar.gz"
-  sha256 "6dfffb805741d9fe8ca1d0aa4cbeff571585e6f7ac0bb84ebeff50f40def6b4a"
+  url "https://pocoproject.org/releases/poco-1.9.3/poco-1.9.3-all.tar.gz"
+  sha256 "583c464cb2a85a1b0d1bded22875a929eabca54b1575124b114dc4f7e573aa68"
+  revision 1
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "801f6600a2cc20bb56bc3cb5478a662a5f8bbaa2604111577756cc3cfe3084ef" => :mojave
-    sha256 "3131a03aebd67fe8c3375bb748b88ecf835c201d5c74eb3b37c8575599316047" => :high_sierra
-    sha256 "0b3f369a1358adc74b3249df74bc1f6e8b3a58b4493169dc1c387ceecb1278b2" => :sierra
+    sha256 "b1d99b95f5db087fd940730f1a18b10150678222545becc5930b1d82b4fa8291" => :mojave
+    sha256 "e81534b6338bf2ee789a34c58947f460a30f02df717bf88b6cfd2045424646e5" => :high_sierra
+    sha256 "c4c316c9c37ec16007d688e2fadda3c9b704914d63a8cbbbb98fd686ccc5b7d6" => :sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11

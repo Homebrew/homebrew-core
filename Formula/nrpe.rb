@@ -3,17 +3,17 @@ class Nrpe < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nrpe-3.x/nrpe-3.2.1.tar.gz"
   sha256 "8ad2d1846ab9011fdd2942b8fc0c99dfad9a97e57f4a3e6e394a4ead99c0f1f0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d17a16f0cac16d2c1e075df0834a6c77e4a3489339185e0dc645250597f69cbf" => :mojave
-    sha256 "98eb09fe948052448134155aad5cc16892f9cffeba075cfc9afeb38219047806" => :high_sierra
-    sha256 "d589496fa3b62e1425f93ebf928234bcfec81cf342837e7b741c9def56ea3e28" => :sierra
-    sha256 "50cafb3e1545d93f0ad248a2696b83b90fa3fbb6e5afc731d72779ddab0bf6a0" => :el_capitan
+    sha256 "a65af28fa352864ee67b72738bb9fe47abb5f64262d33b70efa7255185e949f8" => :mojave
+    sha256 "31e77a6c2e085e82c213891a276b81e8a0fa4b76784c1af4b3776ca75ed70dc8" => :high_sierra
+    sha256 "233269462b763c22db4a2bacc0d8bafd0dc2657d30d2d704b97e631729b2c7e2" => :sierra
   end
 
   depends_on "nagios-plugins"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     user  = `id -un`.chomp
@@ -27,9 +27,9 @@ class Nrpe < Formula
                           "--with-nrpe-group=#{group}",
                           "--with-nagios-user=#{user}",
                           "--with-nagios-group=#{group}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           # Set both or it still looks for /usr/lib
-                          "--with-ssl-lib=#{Formula["openssl"].opt_lib}",
+                          "--with-ssl-lib=#{Formula["openssl@1.1"].opt_lib}",
                           "--enable-ssl",
                           "--enable-command-args"
 

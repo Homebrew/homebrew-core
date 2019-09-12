@@ -1,14 +1,15 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.1.30.tar.xz"
-  sha256 "6310599811536dbe87e4bcf212bf93196bdfaff519d0c821e4c0068efd096a7c"
+  url "https://www.php.net/distributions/php-7.1.32.tar.xz"
+  sha256 "7f38b5bdaae3184d325a8c70e86c010afcc33651d15faafe277a0db6d2ea2741"
   revision 1
 
   bottle do
-    sha256 "936e79104f3ca3902b4aeebacb4142c3f83eca348e06d8de94109d64ec9c64ee" => :mojave
-    sha256 "e87e8c02a02abb7d04ab6f56818bf439e6321de46e4f87394a1f650f0494cb5c" => :high_sierra
-    sha256 "2e7ffd5eeb53b609bacb9fd248ca2488cdc0f4941b755e87abf3e5bece42be7b" => :sierra
+    rebuild 1
+    sha256 "eee748c9de420bdebba844c8364834b6b1be5c4e12d66bfa315de49dd064c99c" => :mojave
+    sha256 "19bc894b7ad2b4ee1099ed0333c8672dd35d6b273af7fb5d4b8b493da44defa8" => :high_sierra
+    sha256 "406cf59e1fd26ef594adc9ae4c43765013eaaba8434abcb7065568461e966e82" => :sierra
   end
 
   keg_only :versioned_formula
@@ -33,7 +34,7 @@ class PhpAT71 < Formula
   depends_on "libzip"
   depends_on "mcrypt"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -145,7 +146,7 @@ class PhpAT71 < Formula
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}

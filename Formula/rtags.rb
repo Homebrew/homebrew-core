@@ -4,19 +4,20 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag      => "v2.33",
       :revision => "a5fa0951c92b4e5423d4ce95adafdca6ea30f254"
+  revision 2
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
     cellar :any
-    sha256 "268358f195112476b4d405462967f12d8805410afce148ad9dd91ea3018842e0" => :mojave
-    sha256 "895869971d3f3c151c43a7899c8dfa08bb75e522849f2fd1e3bd9997cb91143f" => :high_sierra
-    sha256 "abeaa815f65130760f2f268eb9239f73a69a8966d4159e3d1246c134ba24e1cb" => :sierra
+    sha256 "8499bfca6f3896c57209ffd87ce5f5e119cb212a29397db616eb6153ecd1f547" => :mojave
+    sha256 "4ffd9ecd605d8edf1200fc89f5523c07292b37b5f15fedfea11bba85df863d15" => :high_sierra
+    sha256 "35de25f4ae00b335384443a959eeb5b0ec02af0f459f53e425e3a838fed4f3de" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi

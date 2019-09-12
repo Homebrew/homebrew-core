@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.12.7.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.12.7.src.tar.gz"
-    sha256 "95e8447d6f04b8d6a62de1726defbb20ab203208ee167ed15f83d7978ce43b13"
+    url "https://dl.google.com/go/go1.13.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.13.src.tar.gz"
+    sha256 "3fc0b8b6101d42efd7da1da3029c0a13f22079c0c37ef9730209d8ec665bf122"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -15,9 +15,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "928077a68d8e259606b9be2d21e17f66c4b530ffc79cb7797ecac65bd6d01272" => :mojave
-    sha256 "5c213b1f724f744b401d8e61e6f44a018f749b78fea69b62374409df6ded2db4" => :high_sierra
-    sha256 "66d2555e97854cbeb7ec1e4d0c92bf699530a519378a6bf7765b2cc8b72c9282" => :sierra
+    sha256 "8573f3564e58cfaf54bd6274d41f259a8f510fbc08c49a56ca3e534586314014" => :mojave
+    sha256 "012e3abe4a383df19188799abf2d4f7a8a258ff7ccb28bc0038261a37306b67c" => :high_sierra
+    sha256 "a20cf6c8416d98712c4715b2aa88b37d2217f3c668c3d5152d6067585f924646" => :sierra
   end
 
   head do

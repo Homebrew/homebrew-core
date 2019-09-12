@@ -1,16 +1,17 @@
 class TrezorAgent < Formula
   include Language::Python::Virtualenv
 
-  desc "Hardware-based SSH/GPG agent"
+  desc "Hardware SSH/GPG agent for Trezor, Keepkey & Ledger"
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/61/33/eb639bced493984170e1ec3cf149b06b9f4cd05886f667a3eb0e1f94396b/trezor_agent-0.10.0.tar.gz"
   sha256 "e82bf000c1178b1a7612f2a90487eb34c6234d2edb15dc8e310ad875d8298690"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b60ef8874e77323f2d1a61355f17d35b32f4c0c7b166e837aabfc9da1614236" => :mojave
-    sha256 "26ffb353ec45ef5427ddb03f2425510ce9a43af1248f966780920fa0d24164fe" => :high_sierra
-    sha256 "a28f6f5d0717a5eb459b09a3a3bb464cfca9e70d3dfefd08dbf8b7554ba6c91a" => :sierra
+    rebuild 1
+    sha256 "ebab61a0624369d7c1a0704b683a11403fdd88eb38e89bb2b1d4391679d29974" => :mojave
+    sha256 "18fc1f52a8727b8296c18d1187df0a65898a7e53dc08edc64a09a8d3631e3009" => :high_sierra
+    sha256 "a2094afbbae63c2fcead69c854581720ccf878557ae6346fbb24457772c0e47b" => :sierra
   end
 
   depends_on "libusb"
@@ -79,6 +80,16 @@ class TrezorAgent < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
     sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
+  end
+
+  resource "keepkey-agent" do
+    url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
+    sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
+  end
+
+  resource "ledger-agent" do
+    url "https://files.pythonhosted.org/packages/a3/c9/ac7546d6168662af356493231ca8818bdf8ffd05238a68fe5085fd9e6358/ledger_agent-0.9.0.tar.gz"
+    sha256 "2265ba9c6a4594ff798fe480856ea36bfe6d8ae7ba2190b74f9666510530f20f"
   end
 
   resource "libagent" do

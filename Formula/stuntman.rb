@@ -3,17 +3,18 @@ class Stuntman < Formula
   homepage "http://www.stunprotocol.org/"
   url "http://www.stunprotocol.org/stunserver-1.2.15.tgz"
   sha256 "321f796a7cd4e4e56a0d344a53a6a96d9731df5966816e9b46f3aa6dcc26210f"
+  revision 1
   head "https://github.com/jselbie/stunserver.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b14ec536bd7f490701c5106a0f4e438892c68054d6a048cac320da0e2e9e41e1" => :mojave
-    sha256 "e6a85d92caccf0c1de31c2c24a54bd431cc220ee64b1ed3facbba7b53891b16e" => :high_sierra
-    sha256 "dfa3e7ce02e11c079ba07194d848ef98d889230b0cfad42c88a78614a22d109d" => :sierra
+    sha256 "87375257e1d4c3964587b59ef34a1800e9e9b7e6028a506a22b8cd695f39bf42" => :mojave
+    sha256 "b5541fc2478ed4b97cdc5cf97ddbcbc4d76255b0ba9e834666c548612e9b758d" => :high_sierra
+    sha256 "51f40332e70148118ca22eb7f393c002188e73fb59c82a44c689430f86b2bf7f" => :sierra
   end
 
   depends_on "boost" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make"

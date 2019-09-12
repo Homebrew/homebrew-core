@@ -3,20 +3,21 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.36.0.tar.gz"
-  sha256 "3fcd439a41a642f62b3e4b13d9765da89881ab8bd2766e1917ba7db128e66553"
+  url "https://github.com/certbot/certbot/archive/v0.37.1.tar.gz"
+  sha256 "db59585195929ca6af03dfee5ecc9b12bcac2bd42f9ed50c8de5a5165e1258e3"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "6f21c0e623ac7a7cad6c14018020fa61eb7c3afbebec9cc1341a0b08c38b7a01" => :mojave
-    sha256 "68d68b6fe3e53045251fb42aafff8aa6bd3124e224563d9b12e152bbc80c7a51" => :high_sierra
-    sha256 "7f131e409232ec7da81ff6b3406e487880374e8f8ee6b94a1274158fd192a5c8" => :sierra
+    sha256 "485361348d807b03eaca0b3810719b0ddfa8fd57f7440425ac8e24d2432cd2bc" => :mojave
+    sha256 "c8b3993be09d6ec620c92c15ff1fc51b3ef13b47d12e3e19f3c7f02c434db8ca" => :high_sierra
+    sha256 "d7fee8f7a558d9d9963e5aa37ba6046973d3adaf70f762e6f8c3856f80b2df9b" => :sierra
   end
 
   depends_on "augeas"
   depends_on "dialog"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
@@ -80,8 +81,8 @@ class Certbot < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/a4/f4/e0bc4f0310465df47da56df4bd4d46907e62fc430f9afccd69644e150d52/pbr-5.4.0.tar.gz"
-    sha256 "36ebd78196e8c9588c972f5571230a059ff83783fabbbbedecc07be263ccd7e6"
+    url "https://files.pythonhosted.org/packages/81/80/1df9176f9021c588155d0c7a86f1e963cec77fefa31934bc380acb0dbd5e/pbr-5.4.2.tar.gz"
+    sha256 "9b321c204a88d8ab5082699469f52cc94c5da45c51f114113d01b3d993c24cdf"
   end
 
   resource "pycparser" do
@@ -95,8 +96,8 @@ class Certbot < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
-    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+    url "https://files.pythonhosted.org/packages/7e/24/eaa8d7003aee23eda270099eeec754d7bf4399f75c6a011ef948304f66a2/pyparsing-2.4.2.tar.gz"
+    sha256 "6f98a7b9397e206d78cc01df10131398f1c8b8510a2f4d97d9abd82e1aacdd80"
   end
 
   resource "pyRFC3339" do
@@ -110,8 +111,8 @@ class Certbot < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/df/d5/3e3ff673e8f3096921b3f1b79ce04b832e0100b4741573154b72b756a681/pytz-2019.1.tar.gz"
-    sha256 "d747dd3d23d77ef44c6a3526e274af6efeb0a6f1afd5a69ba4d5be4098c8e141"
+    url "https://files.pythonhosted.org/packages/27/c0/fbd352ca76050952a03db776d241959d5a2ee1abddfeb9e2a53fdb489be4/pytz-2019.2.tar.gz"
+    sha256 "26c0b32e437e54a18161324a2fca3c4b9846b74a8dccddd843113109e1116b32"
   end
 
   resource "requests" do
@@ -140,8 +141,8 @@ class Certbot < Formula
   end
 
   resource "zope.deferredimport" do
-    url "https://files.pythonhosted.org/packages/88/dd/b6024072643d2321aac68b4157108c64da2a7d97e61e7c98349e7c61fb3e/zope.deferredimport-4.3.tar.gz"
-    sha256 "2ddef5a7ecfff132a2dd796253366ecf9748a446e30f1a0b3a636aec9d9c05c5"
+    url "https://files.pythonhosted.org/packages/b9/74/6eb2dcf013fac35d086abef2435b5a6621435c2b0c166ef5b63a1b51e91d/zope.deferredimport-4.3.1.tar.gz"
+    sha256 "57b2345e7b5eef47efcd4f634ff16c93e4265de3dcf325afc7315ade48d909e1"
   end
 
   resource "zope.deprecation" do
@@ -165,8 +166,8 @@ class Certbot < Formula
   end
 
   resource "zope.proxy" do
-    url "https://files.pythonhosted.org/packages/7c/f5/e9ed65cdf8c93d24d7512ef89e21b241bc9ae75d90bc8608cc142f4c26f9/zope.proxy-4.3.1.tar.gz"
-    sha256 "563c2454b2d0f23bca54d2e0e4d781149b7b06cb5df67e253ca3620f37202dd2"
+    url "https://files.pythonhosted.org/packages/a3/7b/ada37e2c9ba5ba6b23ef8b0f090fd08fabd06e15450c41dca4799349a2dd/zope.proxy-4.3.2.tar.gz"
+    sha256 "ab6d6975d9c51c13cac828ff03168de21fb562b0664c59bcdc4a4b10f39a5b17"
   end
 
   def install

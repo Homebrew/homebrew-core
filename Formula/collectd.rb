@@ -3,12 +3,13 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.9.0.tar.bz2"
   sha256 "7b220f8898a061f6e7f29a8c16697d1a198277f813da69474a67911097c0626b"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "e30440912eb0052a02e7b160341aefeba4dcb005da755f1e4efefa98f2cb3ade" => :mojave
-    sha256 "71d2679f01bb058d0393525b530be6e4e0410253847f3aa26161eb3467c5a95d" => :high_sierra
-    sha256 "e8efa9f8b211b4d2de31b0e7789ce19dcfe10c59ec4c745fa511ca110f009bac" => :sierra
+    rebuild 1
+    sha256 "bafe26077fc69f75b20fe505bf892277c8195d4e21ddba0a9f4464324d353280" => :mojave
+    sha256 "f7f4298b9f642212247047431a3ad61f2b2aebb4715ddd4492b8f3893a535936" => :high_sierra
+    sha256 "94bba540b5b976511a514cf0c55e9c8c0e6eb119a1e1416e42035b1da5710f13" => :sierra
   end
 
   head do

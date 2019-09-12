@@ -2,20 +2,20 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.1.3.tar.xz"
-  sha256 "845460b2225d15c15d4a9743dec798ff0b7396b533011d43e774e67f7825b7e0"
+  url "https://mesa.freedesktop.org/archive/mesa-19.1.6.tar.xz"
+  sha256 "2a369b7b48545c6486e7e44913ad022daca097c8bd937bf30dcf3f17a94d3496"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
-    sha256 "fa882a4fbbba5b9a9994a23c6e1edec6d14b129ab9b35fe6fc9c38089461820e" => :mojave
-    sha256 "ff9e2acbd6330751e0eb48e7727b27975183495304f81d3a5f4ac0999ea67212" => :high_sierra
-    sha256 "1a46a5db7835297a1a1153a81e25872bddd25d1ea1f8b6144ce44e285f6e633e" => :sierra
+    sha256 "ef25cf821c214582eeec75cd03991d098b5790a3e19b059cf4a5d43cbd2289cd" => :mojave
+    sha256 "ffe41171c82ba942b2a77738d2cefad7bd9aa30d1df8344949783640aa427be1" => :high_sierra
+    sha256 "57b563661a5e56ed538a29cf73fe26a51d94b26d5a240d0fabedb6807d42f588" => :sierra
   end
 
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
   depends_on "freeglut" => :test
   depends_on "expat"
   depends_on "gettext"
@@ -32,10 +32,11 @@ class Mesa < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
     resource("Mako").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
     resource("gears.c").stage(pkgshare.to_s)

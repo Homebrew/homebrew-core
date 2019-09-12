@@ -3,13 +3,14 @@ class Monkeysphere < Formula
   homepage "https://web.monkeysphere.info/"
   url "https://deb.debian.org/debian/pool/main/m/monkeysphere/monkeysphere_0.44.orig.tar.gz"
   sha256 "6ac6979fa1a4a0332cbea39e408b9f981452d092ff2b14ed3549be94918707aa"
+  revision 1
   head "git://git.monkeysphere.info/monkeysphere"
 
   bottle do
     cellar :any
-    sha256 "61b9425d289423b64a68363b1ac2b152fc622a793cb40e150241f08b9a498428" => :mojave
-    sha256 "0c9f5f886595332443a7e4b7c8b9774a27ef7933b090953d8cf87cbf03fb32d4" => :high_sierra
-    sha256 "2664e994707e98c5c01e51706879b31a2837cccf8fe33a3e1f45b8ce3be2610f" => :sierra
+    sha256 "d5c8badc7a3296cd5150f3520a0abf61aa4a683a43d121961b412ff619aaa4d1" => :mojave
+    sha256 "5928a7723f50b5ce5c505571570a6bb82823f6faf0133ab2f9b0f2757a9b68fc" => :high_sierra
+    sha256 "f1bbf185764cd974016f73e4a6d037cec60a83b57c3a3314797aa8aa60edf1bb" => :sierra
   end
 
   depends_on "gnu-sed" => :build
@@ -17,7 +18,7 @@ class Monkeysphere < Formula
   depends_on "libassuan"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "Crypt::OpenSSL::Bignum" do
     url "https://cpan.metacpan.org/authors/id/K/KM/KMX/Crypt-OpenSSL-Bignum-0.09.tar.gz"

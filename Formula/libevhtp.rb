@@ -3,18 +3,19 @@ class Libevhtp < Formula
   homepage "https://criticalstack.com/"
   url "https://github.com/criticalstack/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "916fe12982a34b35481418e162137670873951bca1f39cf6235560777ca99f67" => :mojave
-    sha256 "f16d78564abe1a2b163832ef1449b4e2acab610ef118979c0c5933dd5a3b3f62" => :high_sierra
-    sha256 "0aef17632623cb4c15f9bed34272a95b478b25b770290f3d70c523e8efadb545" => :sierra
+    sha256 "1c9eac0e309c108015f1cd45de5e1de60a962dbe7d8ad702ceec92ca09b1a733" => :mojave
+    sha256 "f78dc220333d1a20a11243c11cc8e212e75487b6a01fabe02c2d2a18d779b9c2" => :high_sierra
+    sha256 "a27afd7497a33479dc608320cb8ad7641c83c9c85b736037aa228e1c98c0a71d" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", "-DEVHTP_BUILD_SHARED=ON",
@@ -44,9 +45,9 @@ class Libevhtp < Formula
 
     system ENV.cc, "test.c",
                    "-I#{include}",
-                   "-I#{Formula["openssl"].opt_include}",
+                   "-I#{Formula["openssl@1.1"].opt_include}",
                    "-I#{Formula["libevent"].opt_include}",
-                   "-L#{Formula["openssl"].opt_lib}",
+                   "-L#{Formula["openssl@1.1"].opt_lib}",
                    "-L#{Formula["libevent"].opt_lib}",
                    "-L#{lib}",
                    "-levhtp",

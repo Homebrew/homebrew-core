@@ -1,6 +1,6 @@
 class Libnfc < Formula
   desc "Low level NFC SDK and Programmers API"
-  homepage "http://nfc-tools.org"
+  homepage "https://github.com/nfc-tools/libnfc"
   url "https://bintray.com/artifact/download/nfc-tools/sources/libnfc-1.7.1.tar.bz2"
   sha256 "945e74d8e27683f9b8a6f6e529557b305d120df347a960a6a7ead6cb388f4072"
 

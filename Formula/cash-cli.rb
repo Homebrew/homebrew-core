@@ -1,16 +1,16 @@
 require "language/node"
 
 class CashCli < Formula
-  desc "Exchange Currency Rates using your terminal"
+  desc "Convert currency rates directly from your terminal"
   homepage "https://github.com/xxczaki/cash-cli"
-  url "https://registry.npmjs.org/cash-cli/-/cash-cli-3.2.0.tgz"
-  sha256 "a7f24628e8c8f61db3502c96296f1ea3e631a1725e212a932a38d2901ccfa452"
+  url "https://registry.npmjs.org/cash-cli/-/cash-cli-4.0.0.tgz"
+  sha256 "c8b1d437305bc4c492cb9b85bb1b91edb5cc74fa91bd007616746c6258dae6c5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a28d5d5256bf0edc64fcb828490563fbeeb305632301198a9519481d438de866" => :mojave
-    sha256 "d4f5ac27528cbc05e6ae13f240d5d63780667eb5f94409fce8a93e9f9581dcb9" => :high_sierra
-    sha256 "9db9b06dd134c170cd8466eb60a60fd76664b4252a813988afedaa2396a32217" => :sierra
+    sha256 "c78661062dbc6e913d0f69f45af80af1f9967e50fe1eca86a95337ab16fac7ea" => :mojave
+    sha256 "6b8215de6daf01c61e48bd46465be7ad9b400d4ec5ab514f5167bee787d6fa48" => :high_sierra
+    sha256 "5941317cef9b92097c4b45df1e94b7b8d08e708d9813508ab3f42f55068541d3" => :sierra
   end
 
   depends_on "node"
@@ -21,6 +21,6 @@ class CashCli < Formula
   end
 
   test do
-    assert_match "Saved API key to", shell_output("#{bin}/cash --key 11111111111111111111111111111111")
+    assert_match "Conversion of USD 100", shell_output("#{bin}/cash 100 USD PLN CHF")
   end
 end

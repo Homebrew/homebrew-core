@@ -1,17 +1,20 @@
 class Pyvim < Formula
+  include Language::Python::Virtualenv
+
   desc "Pure Python Vim clone"
   homepage "https://github.com/jonathanslenders/pyvim"
   url "https://files.pythonhosted.org/packages/6e/85/47543120e478ddc5d31e447a7fed1fe4ac81cbb066ca623a2cc54f685dff/pyvim-2.0.24.tar.gz"
   sha256 "27b8f244bebc49cf375b10d16046df24438798208d7eaf199e3d04babf08cc6f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d16e6f1ae6a099f156cae70c82679db03c031f09687b5770e2aebd65c0f90a28" => :mojave
-    sha256 "d16e6f1ae6a099f156cae70c82679db03c031f09687b5770e2aebd65c0f90a28" => :high_sierra
-    sha256 "86c5565d6bbcacc9aa3e70ac444dea5f96a12a0a112d21ded55f06ed8797ece2" => :sierra
+    sha256 "db64f72516e0e11c230fab541f11d2707d9bb0d1069292a0435f462a54440bfc" => :mojave
+    sha256 "cc567ddff18dbcf58edc1a7578bfe1ff9228d84f22dfbd231d0b8b2b92ae366d" => :high_sierra
+    sha256 "b8626e91ddbbf8abaf02755765dc0228160e0a65faabb963a60352a03e9a6ac8" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -44,16 +47,7 @@ class Pyvim < Formula
   end
 
   def install
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec)
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

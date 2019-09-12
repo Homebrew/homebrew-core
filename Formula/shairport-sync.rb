@@ -1,14 +1,14 @@
 class ShairportSync < Formula
   desc "AirTunes emulator that adds multi-room capability"
   homepage "https://github.com/mikebrady/shairport-sync"
-  url "https://github.com/mikebrady/shairport-sync/archive/3.2.2.tar.gz"
-  sha256 "4f1ee142b887842727ae0c310e21c83ea2386518e841a25c7ddb015d08b54eba"
+  url "https://github.com/mikebrady/shairport-sync/archive/3.3.2.tar.gz"
+  sha256 "a8f580fa8eb71172f6237c0cdbf23287b27f41f5399f5addf8cd0115a47a4b2b"
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
-    sha256 "7dc8276b51f1ef0ef4cf38c27228d46e80678425626783efc0e71646b8a6c60f" => :mojave
-    sha256 "8ed5e98d394f2dc6136abbbc15ecdc27a471244ef2c67c69558fbf9c3fae77ed" => :high_sierra
-    sha256 "72a828bd11b9c6a28d0c4b3c90e92ded0c4ee4ba5aa095f06a22362e5c78212d" => :sierra
+    sha256 "a866ca2d84b4c21ab43bcef5a5fa96b56d92ff15530d4263bb05eef74ccb7202" => :mojave
+    sha256 "ff2f3c05b3c94b0ae0d2f7a7cbabbfaa8171e7fd4f97cb0e7dd9c90aedc97a3d" => :high_sierra
+    sha256 "10638bbb76575d535e8cce1aa1b57801baa576acf2e79d687c9aa244baac1b85" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,7 +18,7 @@ class ShairportSync < Formula
   depends_on "libconfig"
   depends_on "libdaemon"
   depends_on "libsoxr"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "popt"
 
   def install
@@ -45,7 +45,7 @@ class ShairportSync < Formula
   end
 
   test do
-    output = shell_output("#{bin}/shairport-sync -V", 1)
-    assert_match "OpenSSL-ao-stdout-pipe-soxr-metadata", output
+    output = shell_output("#{bin}/shairport-sync -V")
+    assert_match "OpenSSL-dns_sd-ao-stdout-pipe-soxr-metadata", output
   end
 end

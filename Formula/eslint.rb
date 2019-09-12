@@ -3,14 +3,14 @@ require "language/node"
 class Eslint < Formula
   desc "AST-based pattern checker for JavaScript"
   homepage "https://eslint.org"
-  url "https://registry.npmjs.org/eslint/-/eslint-6.1.0.tgz"
-  sha256 "3ee88df148b40720c2fe2b1e1c3fa90b2eb2a512902c48897df7a905115608c1"
+  url "https://registry.npmjs.org/eslint/-/eslint-6.3.0.tgz"
+  sha256 "1933b81983d4348b7acf6c5ab756aa412b68504bc3c4aac929ea78e8b215e7f5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "515bf308de15a20874bfa0234c5de79ae8bc78bbba9189015f08f260a37ea9f3" => :mojave
-    sha256 "23c51a24aa1dd926b42183ba58372fcfc2092190638c245ec5a59e6cd8922c40" => :high_sierra
-    sha256 "162adf54fcd1407b9b7c9370042f8b0096498f922a65fecb2e2154e738b811e9" => :sierra
+    sha256 "df1bc15ab4914b3536a45ddfce04698cce420269fc6e74ab0e1ae5bfe86eec14" => :mojave
+    sha256 "64d36c9e958fcb63283e4c0058d747387585d2b4257ce69d0747ce0a2c943156" => :high_sierra
+    sha256 "130652b3e2e9b2272f5233d84a6ea80b0586af818f4d69baac4d60bed3511734" => :sierra
   end
 
   depends_on "node"
