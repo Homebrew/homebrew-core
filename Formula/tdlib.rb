@@ -1,9 +1,8 @@
 class Tdlib < Formula
   desc "Cross-platform library for building Telegram clients"
   homepage "https://core.telegram.org/tdlib"
-  url "https://github.com/tdlib/td/archive/v1.4.0.tar.gz"
-  sha256 "673e3b5d362edaed6bb016d2e674540644d66ded68556f32dfec0d5e1544532c"
-  revision 1
+  url "https://github.com/tdlib/td/archive/v1.5.0.tar.gz"
+  sha256 "ecd30f0261eebbdaa68741bc7e2120fa492c129cb62e2773ab95cc2a789db60e"
 
   bottle do
     cellar :any
