@@ -8,9 +8,9 @@ class Duplicity < Formula
 
   bottle do
     cellar :any
-    sha256 "5b81246561c26406cb8e8f88957f665713f1ecd1408b5f557e512ba89f0006ca" => :mojave
-    sha256 "19b53b02d498b9a395dc9101ba7fa19840b98ed2202291da3104b1465bf5a51e" => :high_sierra
-    sha256 "3682bfc8269d7300d2761ba49595755f5c691d516dba7cf4fd020933c20da2e3" => :sierra
+    sha256 "652a2842bc4bce4e34996a9c9e0d055f3c6feef9cc9cf4232b7a50c288618a10" => :mojave
+    sha256 "b492b3a0c4b667a8f3a502817905d0a42cc00797551c5cb7689a86da978bd98b" => :high_sierra
+    sha256 "42f4e7ff49845d13aa54249d0027da1955a3bf3717c7587a01043c032c156af8" => :sierra
   end
 
   depends_on "gnupg"
