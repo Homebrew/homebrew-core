@@ -5,6 +5,13 @@ class GoMd2man < Formula
       :tag      => "v1.0.10",
       :revision => "7762f7e404f8416dfa1d9bb6a8c192aa9acb4d19"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "45c38555805dbe39ebcbb59d460c078300667aedbcd7e1111214f6a1d73dd8fe" => :mojave
+    sha256 "077c724400c1b838da675ec52405d3fa348409f1a399616cbf3fd6997d48ae2a" => :high_sierra
+    sha256 "ab4c25dbac6acb5f6a40c46edbe116a2cbf6435fb4281699caa9c2db5c24757d" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
