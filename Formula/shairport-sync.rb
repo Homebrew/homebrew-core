@@ -1,9 +1,8 @@
 class ShairportSync < Formula
   desc "AirTunes emulator that adds multi-room capability"
   homepage "https://github.com/mikebrady/shairport-sync"
-  url "https://github.com/mikebrady/shairport-sync/archive/3.2.2.tar.gz"
-  sha256 "4f1ee142b887842727ae0c310e21c83ea2386518e841a25c7ddb015d08b54eba"
-  revision 1
+  url "https://github.com/mikebrady/shairport-sync/archive/3.3.2.tar.gz"
+  sha256 "a8f580fa8eb71172f6237c0cdbf23287b27f41f5399f5addf8cd0115a47a4b2b"
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
@@ -46,7 +45,7 @@ class ShairportSync < Formula
   end
 
   test do
-    output = shell_output("#{bin}/shairport-sync -V", 1)
-    assert_match "OpenSSL-ao-stdout-pipe-soxr-metadata", output
+    output = shell_output("#{bin}/shairport-sync -V")
+    assert_match "OpenSSL-dns_sd-ao-stdout-pipe-soxr-metadata", output
   end
 end
