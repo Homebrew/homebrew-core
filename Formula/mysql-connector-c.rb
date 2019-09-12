@@ -17,8 +17,6 @@ class MysqlConnectorC < Formula
 
   conflicts_with "mysql", "mariadb", "percona-server",
     :because => "both install MySQL client libraries"
-  conflicts_with "mysql-cluster",
-    :because => "both install `bin/my_print_defaults`"
 
   def install
     system "cmake", ".", "-DWITH_SSL=system", *std_cmake_args
