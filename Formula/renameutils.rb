@@ -16,7 +16,6 @@ class Renameutils < Formula
   depends_on "readline" # Use instead of system libedit
 
   conflicts_with "ipmiutil", :because => "both install `icmd` binaries"
-  conflicts_with "irods", :because => "both install `icp` and `imv` binaries"
 
   # Use the GNU versions of certain system utilities. See:
   # https://trac.macports.org/ticket/24525
