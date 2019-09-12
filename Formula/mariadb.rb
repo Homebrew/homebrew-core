@@ -14,7 +14,7 @@ class Mariadb < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "mysql", "mysql-cluster", "percona-server",
+  conflicts_with "mysql", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"
