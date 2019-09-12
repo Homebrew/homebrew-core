@@ -3,7 +3,7 @@ class Sshfs < Formula
   homepage "https://osxfuse.github.io/"
   url "https://github.com/libfuse/sshfs/releases/download/sshfs-2.10/sshfs-2.10.tar.gz"
   sha256 "70845dde2d70606aa207db5edfe878e266f9c193f1956dd10ba1b7e9a3c8d101"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -18,6 +18,16 @@ class Sshfs < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on :osxfuse
+
+  # Apply patch that clears one remaining roadblock that prevented setting
+  # a custom I/O buffer size on macOS. With this patch in place, it's
+  # recommended to use e.g. `-o iosize=1048576` (or other, reasonable value)
+  # when lauching `sshfs`, for improved performance.
+  # See also: https://github.com/libfuse/sshfs/issues/11
+  patch do
+    url "https://github.com/libfuse/sshfs/commit/667cf34622e2e873db776791df275c7a582d6295.diff?full_index=1"
+    sha256 "6a121d58a94cf0efebbfa217d62aa4d9915a8e6573ae2c086170ff9d9fc09456"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
