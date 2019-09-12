@@ -5,10 +5,9 @@ class Snownews < Formula
   sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
 
   bottle do
-    rebuild 1
-    sha256 "3971c56d4b11dce284c01eac7b2c27a1f39b282056b2348587845af8098aca64" => :mojave
-    sha256 "dff9318381ed26526315a52edb7e5de362db958cadd1c7c774256ddf9160bb99" => :high_sierra
-    sha256 "099b010a3f16d1e32fabaa8351bf0a3ac13eb6b3aec802d05af83b4fee4545dd" => :sierra
+    sha256 "db1d20c1468867a2eeb77b521fdfac4e167393797506afd6bbd603fb40c435bf" => :mojave
+    sha256 "0e1eed435b2c94a95e35ee89c3b68be6cfa9867d75dc9fbb46b19a66ff6da915" => :high_sierra
+    sha256 "6437a67fb63f92f3c4d57b69505cb5146e2d7325da0d6fd73b57ac0f1461c807" => :sierra
   end
 
   depends_on "coreutils" => :build
