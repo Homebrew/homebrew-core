@@ -7,9 +7,9 @@ class Sshfs < Formula
 
   bottle do
     cellar :any
-    sha256 "95ebaeb9f9416c60c6700597888a55fe6bb40b5c9f9559b6db5239872e326d14" => :mojave
-    sha256 "9da72b32e4f155744f73cb71481519676dda245ba28d2cf63067a68902a478e6" => :high_sierra
-    sha256 "a969b8cd9fd220281abd651a689892760ec16a09cf8253d1ca5a05eedb20f801" => :sierra
+    sha256 "5f69267c0f1f2489989e108919d66210e058423d0d1f1661812c0194b164619c" => :mojave
+    sha256 "58d222f37622b399352f16eaf823d3e564445d9e951629e965281ac31de5ef4a" => :high_sierra
+    sha256 "dc4a7f24c2cbebd7c35891200b043d737ba6586a28992708ef849ffedff7bb01" => :sierra
   end
 
   depends_on "autoconf" => :build
