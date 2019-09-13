@@ -17,7 +17,8 @@ class Libtcod < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
 
-  conflicts_with "libzip", :because => "both install `zip.h` header"
+  conflicts_with "libzip", "minizip2",
+    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
     cd "build/autotools" do
