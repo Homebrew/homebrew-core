@@ -4,6 +4,13 @@ class Minizip2 < Formula
   url "https://github.com/nmoinvaz/minizip/archive/2.8.9.tar.gz"
   sha256 "ad0ab096e325ada77f4c75770ffcb03e3540e4c373e36ee22bb1d47b2b98c36d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c3e526e7c1d3a135d3b2ed02b4f41ed2aa07adde0ca7b32a1ddcc87e9f9f5ecd" => :mojave
+    sha256 "937fee9e2b22cd01cc36f042f3e5ae11ace7df1f40ceec7af3d77053c87a0fe1" => :high_sierra
+    sha256 "650410384cd941f2b0326e3d9ae0123b17dfca30bf2224a07f2a387bd65ddc29" => :sierra
+  end
+
   depends_on "cmake" => :build
 
   conflicts_with "minizip",
