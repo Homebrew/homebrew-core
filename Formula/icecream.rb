@@ -1,9 +1,8 @@
 class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
-  url "https://github.com/icecc/icecream/archive/1.2.tar.gz"
-  sha256 "12d4132e5aacf6907877b691a8ac09e3e2f704ca016c49bc5eb566fc9185f544"
-  revision 1
+  url "https://github.com/icecc/icecream/archive/1.3.tar.gz"
+  sha256 "5e147544dcc557ae6f0b13246aa1445f0f244f010de8e137053078275613bd00"
 
   bottle do
     sha256 "2118015d81859d3149fcc2ca0cc46f3c33962196763926296adf13eb3e8f6872" => :mojave
@@ -15,15 +14,9 @@ class Icecream < Formula
   depends_on "automake" => :build
   depends_on "docbook2x" => :build
   depends_on "libtool" => :build
+  depends_on "libarchive"
   depends_on "lzo"
-
-  # Backport https://github.com/icecc/icecream/pull/467
-  # Total memory was not correctly detected on macOS, resulting in a hard limit of 100MB
-  # being set. Remove in next stable release.
-  patch do
-    url "https://github.com/icecc/icecream/commit/1af3a23521cfd7dc1a067625f311ebc5d4f34a08.patch?full_index=1"
-    sha256 "a21b05bc18dfff8e29d0d0f6f7acdfc2fcfe3a7daaf7646340bc51cf28186445"
-  end
+  depends_on "zstd"
 
   def install
     args = %W[
