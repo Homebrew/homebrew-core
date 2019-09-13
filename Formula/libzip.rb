@@ -12,7 +12,8 @@ class Libzip < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "libtcod", :because => "both install `zip.h` header"
+  conflicts_with "libtcod", "minizip2",
+    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
     system "cmake", ".", *std_cmake_args
