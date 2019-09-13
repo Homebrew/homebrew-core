@@ -5,8 +5,8 @@ class Dhall < Formula
 
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.25.0/dhall-1.25.0.tar.gz"
-  sha256 "10604f648af61bd5ea784769cfe2ff1518a32e7e4e22615e9cbe6fae1ce91835"
+  url "https://hackage.haskell.org/package/dhall-1.26.0/dhall-1.26.0.tar.gz"
+  sha256 "f2d0b4a1e274fbc5684922be49c43333b063880db57458e78de2bebd9afb68ca"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Dhall < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
 
   def install
     install_cabal_package
