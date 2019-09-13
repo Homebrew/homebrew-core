@@ -3,8 +3,8 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-8.3.3.tgz"
-  sha256 "02d589a62632797c2309ca4788b0bed7fade526e897ca692e3cf9aef7d9e9ff7"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-8.3.4.tgz"
+  sha256 "1a2ade7d09f51bb3cd85004174f846535ba5879ef7bb14def17f41070f071698"
 
   bottle do
     cellar :any_skip_relocation
