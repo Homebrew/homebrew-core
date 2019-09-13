@@ -1,9 +1,8 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz"
-  sha256 "18b2f0fe07ed0d6f81951a5fd5ece44de9c8aeb4dc5bb20d4f595f6cc6bd403e"
-  revision 1
+  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/5349e18c86eb96eee258a5c1f19122d0/shared-mime-info-1.13.1.tar.xz"
+  sha256 "6ea80a5bc7b20598f3b0f9f92942fdb4322245b79d7ed3c3ee18816fcb472cae"
 
   bottle do
     cellar :any
@@ -20,6 +19,7 @@ class SharedMimeInfo < Formula
   end
 
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
