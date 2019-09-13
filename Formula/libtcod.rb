@@ -6,9 +6,10 @@ class Libtcod < Formula
 
   bottle do
     cellar :any
-    sha256 "6376b266e1523c732e6465d50b988c8d7964e567f8ba27eeedb585217c1f1d87" => :mojave
-    sha256 "40ec101abf6440dfcea154c4c57af89a0ec813cf99f810156e6bb53e27d22d14" => :high_sierra
-    sha256 "ee03cac48e6b29dcf7c84860436ee61105fad31888d81791f4f519773e0d73b9" => :sierra
+    rebuild 1
+    sha256 "4ed64942b836e3bbfe50fa3eb97eeb66acd4d0d1aa7fe253126c2b5b6353d6c8" => :mojave
+    sha256 "961e7dee0e97894c62d382e6ab2454d14cb77a7a3d20ead0fbd965b825957ca4" => :high_sierra
+    sha256 "cf96ee73d811071c9ee411e884d9cd8276f1dcbbd121d9d42284ead55a1dcb6b" => :sierra
   end
 
   depends_on "autoconf" => :build
