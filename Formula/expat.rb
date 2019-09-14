@@ -1,8 +1,9 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://github.com/libexpat/libexpat/releases/download/R_2_2_7/expat-2.2.7.tar.xz"
-  sha256 "30e3f40acf9a8fdbd5c379bdcc8d1178a1d9af306de29fc8ece922bc4c57bef8"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_2_8/expat-2.2.8.tar.xz"
+  sha256 "61caa81a49d858afb2031c7b1a25c97174e7f2009aa1ec4e1ffad2316b91779b"
+  head "https://github.com/libexpat/libexpat.git"
 
   bottle do
     cellar :any
@@ -11,23 +12,21 @@ class Expat < Formula
     sha256 "b7522b1e884f5705fd0a7051fcbf7360c2521857ad6783b886761fdae0057ebe" => :sierra
   end
 
-  head do
-    url "https://github.com/libexpat/libexpat.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "docbook2x" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "docbook2x" => :build
+  depends_on "libtool" => :build
 
   keg_only :provided_by_macos
 
   def install
-    cd "expat" if build.head?
-    system "autoreconf", "-fiv" if build.head?
-    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
-    args << "--with-docbook" if build.head?
-    system "./configure", *args
-    system "make", "install"
+    cd "expat" do
+      system "autoreconf", "-fiv"
+      args = ["--prefix=#{prefix}", "--mandir=#{man}"]
+      args << "--with-docbook"
+      system "./configure", *args
+      system "make", "install"
+    end
   end
 
   test do
