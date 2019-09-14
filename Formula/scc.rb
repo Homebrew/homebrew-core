@@ -4,6 +4,13 @@ class Scc < Formula
   url "https://github.com/boyter/scc/archive/v2.7.0.tar.gz"
   sha256 "16238df60bef3f2a758e0516c9bec3ed24e2dcb29386ad2c183eef44d7f1db67"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6fdd19186df39437aaa7ecfad24b15da2f5c708142c75d42b28fe292dcecbfa3" => :mojave
+    sha256 "4366f48f5f594af091e5f2a77fe91d038259554d1efc7965cf6afa27060c060c" => :high_sierra
+    sha256 "ac1885a3b3451bdc910d641b558ef29e911e9e89b845e50eb67f64a001476c92" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
