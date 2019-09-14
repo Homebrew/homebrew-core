@@ -7,9 +7,9 @@ class Srt < Formula
 
   bottle do
     cellar :any
-    sha256 "775311e52cde0937eb3d2082b080ea023673bedf65c044fdad67b1740e7f5fa6" => :mojave
-    sha256 "3d8ec15e6670482c6ced3d98cd6dfc4726318d9b4d1b37d2ea00692e01a1b778" => :high_sierra
-    sha256 "5b305e2360bb7ec1f0d6e6154b42d5dbc0face555e9e7182aac6be7def0dca77" => :sierra
+    sha256 "f0c82082de31196e38d8d9b93dd991ec57ed020b50739d447e27496555575f01" => :mojave
+    sha256 "cb53f2eb06f79bdb840af4396220303c4c9279c9bea90076fe13f23949dff89a" => :high_sierra
+    sha256 "6075ef4880615220e11550c6bf60d87ee426eaaac0bb4e65e1f6a65a34ad1f55" => :sierra
   end
 
   depends_on "cmake" => :build
