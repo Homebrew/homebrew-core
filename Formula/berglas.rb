@@ -17,11 +17,8 @@ class Berglas < Formula
   end
 
   test do
-    output = shell_output("#{bin}/berglas 2>&1")
-    assert_match "berglas is a CLI tool to reading, writing, and deleting secrets", output
     assert_match "#{version}\n", shell_output("#{bin}/berglas --version 2>&1")
-    out = `#{bin}/berglas list homebrewtest 2>&1`
-    assert_match "failed to create kms client: google: could not find default credentials.", out
-    assert_equal 60, $CHILD_STATUS.exitstatus
+    out = shell_output("#{bin}/berglas list homebrewtest 2>&1", 60)
+    assert_match "could not find default credentials.", out
   end
 end
