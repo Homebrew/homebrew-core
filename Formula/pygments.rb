@@ -8,6 +8,13 @@ class Pygments < Formula
 
   head "https://bitbucket.org/birkenfeld/pygments-main", :using => :hg
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "778197007f7c9dda3f9121d7ee3aa0014002665b40dae5dae14e07f504162062" => :mojave
+    sha256 "ab35a224a347be5ad296ac3ee12e69e917ca34f7f47a7ef948aa81ca1d40e710" => :high_sierra
+    sha256 "931c35edfec89042b2fc1c97256055060dd92fc60c699a883a204caf66930bae" => :sierra
+  end
+
   depends_on "python"
 
   def install
