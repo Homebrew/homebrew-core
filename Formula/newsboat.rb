@@ -18,6 +18,7 @@ class Newsboat < Formula
   depends_on "gettext"
   depends_on "json-c"
   depends_on "libstfl"
+  uses_from_macos "libxml2"
 
   def install
     gettext = Formula["gettext"]
