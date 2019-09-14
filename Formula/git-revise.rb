@@ -7,6 +7,13 @@ class GitRevise < Formula
   sha256 "217b1bb9a3b34d0c7e7544b516a9eed5bc061b9bafd3a97bc7edfd83ea54c0d6"
   head "https://github.com/mystor/git-revise.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "97160063eb1ec4736cff67cbcb58985fc449f170c7c436d38fc62890a91477d5" => :mojave
+    sha256 "3deb5e0b5b76ad96eda2ecf22e3a629a5e60501e071bfc5e8c79040a4e818797" => :high_sierra
+    sha256 "e5fa8f56b824a9c23fb4e7cdadb69c62d4c447f28da635ca175ca7628cb12f5b" => :sierra
+  end
+
   depends_on "python"
 
   def install
