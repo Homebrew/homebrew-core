@@ -14,15 +14,8 @@ class Kakoune < Formula
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on :macos => :high_sierra # needs C++17
   depends_on "ncurses"
-
-  if MacOS.version <= :el_capitan
-    depends_on "gcc"
-    fails_with :clang do
-      build 800
-      cause "New C++ features"
-    end
-  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
