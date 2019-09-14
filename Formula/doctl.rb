@@ -1,8 +1,8 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.30.0.tar.gz"
-  sha256 "a7174919e0571a590076faa494b6dd7b251f4b27450c89a4bb285a3f2db2a125"
+  url "https://github.com/digitalocean/doctl/archive/v1.31.2.tar.gz"
+  sha256 "08b571db5f4b67c875b787014aad469b6355804be7406d714ea945816a039bb1"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
