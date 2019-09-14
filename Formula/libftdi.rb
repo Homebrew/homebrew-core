@@ -7,10 +7,9 @@ class Libftdi < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "196d095a5381b46c318b9bfba33e9c219b99c9d56d5059ca047acd957132c746" => :mojave
-    sha256 "7fe432b58790def951944e5731cf4f1f8939d6b3e7c68390bed12106d16c52d0" => :high_sierra
-    sha256 "86c84e08da72a016f132fe314f1fec7450e28fae18468d77669961831f6ee246" => :sierra
+    sha256 "1ab6dc2e9827ee83b319996ab3e90d10b4dbeb8b474ef06649832b00b857223a" => :mojave
+    sha256 "111b0b0e9798795eebe44154610bfe022b288c2461a63d8c7f1656c148eba568" => :high_sierra
+    sha256 "f4e880f83165a30696f49be0915ff22dbd1b27f1c04a903f9bcec49b9985c4c4" => :sierra
   end
 
   depends_on "cmake" => :build
