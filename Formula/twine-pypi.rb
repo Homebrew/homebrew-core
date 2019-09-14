@@ -3,8 +3,8 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://files.pythonhosted.org/packages/e1/af/4f5bfaa8e9c0ddce229b058a4ebdc11a6e05e9c2e51b854d1d0e8f764d09/twine-1.13.0.tar.gz"
-  sha256 "d6c29c933ecfc74e9b1d9fa13aa1f87c5d5770e119f5a4ce032092f0ff5b14dc"
+  url "https://files.pythonhosted.org/packages/37/39/861f2fc7e5598234606b4ec65086152c5e42d7cec92e4dbba10d8de14fcd/twine-1.14.0.tar.gz"
+  sha256 "e37d5a73d77b095b85314dde807bfb85b580b5b9d137f5b21332f4636990d97a"
   head "https://github.com/pypa/twine.git"
 
   bottle do
@@ -22,8 +22,8 @@ class TwinePypi < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
   resource "cffi" do
@@ -42,8 +42,8 @@ class TwinePypi < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
-    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
+    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
   end
 
   resource "future" do
@@ -92,8 +92,8 @@ class TwinePypi < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/d0/0a/50a145091ce0c02db89d0342a59327c1ddeee206ef2991f09158d4e52406/tqdm-4.32.2.tar.gz"
-    sha256 "25d4c0ea02a305a688e7e9c2cdc8f862f989ef2a4701ab28ee963295f5b109ab"
+    url "https://files.pythonhosted.org/packages/d0/10/54a72929d8b042965180f01cbf0701b5377c5cce0148c552807d195d8d0b/tqdm-4.35.0.tar.gz"
+    sha256 "1be3e4e3198f2d0e47b928e9d9a8ec1b63525db29095cec1467f4c5a4ea8ebf9"
   end
 
   resource "urllib3" do
