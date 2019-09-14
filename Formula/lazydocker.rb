@@ -15,16 +15,8 @@ class Lazydocker < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/jesseduffield/lazydocker"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"lazydocker"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=vendor", "-o", bin/"lazydocker",
+      "-ldflags", "-X main.version=#{version} -X main.buildSource=homebrew"
   end
 
   test do
