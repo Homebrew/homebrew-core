@@ -4,6 +4,13 @@ class Lightgbm < Formula
   url "https://github.com/microsoft/LightGBM/archive/v2.2.3.tar.gz"
   sha256 "4a6414e808b343a784f0ee805ac723c094488f9e9a951dd3f709dc31ffb4ea4c"
 
+  bottle do
+    cellar :any
+    sha256 "6b0e9080fcf9489c9163e793a03b0f9c26e9c4a6edea02170462ccff675a814b" => :mojave
+    sha256 "a7627eb122264e31f54b32d1fe29559ef77cd0a67e6c532ebda098cf6a477abc" => :high_sierra
+    sha256 "d8c8e257d9115cbfd61dd45f58faa72d98556367a9ae78f1562a729f35be3cee" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "libomp"
 
