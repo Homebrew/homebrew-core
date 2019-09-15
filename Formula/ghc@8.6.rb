@@ -8,6 +8,12 @@ class GhcAT86 < Formula
   url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-src.tar.xz"
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
 
+  bottle do
+    sha256 "0aaed7d9ff0734d21611b8987796238e60288c87435eac3a834464471f3c14e0" => :mojave
+    sha256 "5af541eb9720ef526d3ac96a5f81b36ad21983c845ff228c79687ea1f2d4013a" => :high_sierra
+    sha256 "34a9a1e3a59b2adec9ab6cab93f36fcf459e8ed2dc90b845aca6245c703d66c2" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "python" => :build
