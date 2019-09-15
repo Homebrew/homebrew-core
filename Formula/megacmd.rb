@@ -1,8 +1,8 @@
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
-  url "https://github.com/t3rm1n4l/megacmd/archive/0.015.tar.gz"
-  sha256 "7c8e7ea1732351a044f4c6568629f3bb91ca40cd4937736dc53b074495b1a7f5"
+  url "https://github.com/t3rm1n4l/megacmd/archive/0.016.tar.gz"
+  sha256 "def4cda692860c85529c8de9b0bdb8624a30f57d265f7e70994fc212e5da7e40"
   head "https://github.com/t3rm1n4l/megacmd.git"
 
   bottle do
