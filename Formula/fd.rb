@@ -1,8 +1,8 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v7.3.0.tar.gz"
-  sha256 "fbd48cc83c90a0ab09fc3bbe865708a3a528876a99f8304a17d07af7fb378170"
+  url "https://github.com/sharkdp/fd/archive/v7.4.0.tar.gz"
+  sha256 "33570ba65e7f8b438746cb92bb9bc4a6030b482a0d50db37c830c4e315877537"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
