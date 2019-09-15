@@ -6,9 +6,9 @@ class Geoipupdate < Formula
   head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
-    sha256 "5c96cc7a1cbcfeb9e717b3072796a24054891ef05c9f73e987ff6e2d7a3375dc" => :mojave
-    sha256 "98a7b033d8c21618a767d5d138addcb033e01cd3aeafd4607197d89e971274cc" => :high_sierra
-    sha256 "f692fb91552ecef316cab9713e63155b5053628f3a9d4d791d439ba62d23978f" => :sierra
+    sha256 "508412ba6097dc729084f988db31d39c758ec871ccc4226a9e2f54a7a4c3f823" => :mojave
+    sha256 "9f824749df004fc0838df8959ec22583e7cbc81c7a220b986f515c491189ba29" => :high_sierra
+    sha256 "ca7fc732a639645d3b737b1a3bbb47e91e24cd1cf1606ed9b3e218b33bcd45a5" => :sierra
   end
 
   depends_on "go" => :build
