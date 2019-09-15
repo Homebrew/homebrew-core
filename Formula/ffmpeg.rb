@@ -1,9 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.4.tar.xz"
-  sha256 "f1f049a82fcfbf156564e73a3935d7e750891fab2abf302e735104fd4050a7e1"
-  revision 2
+  url "https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz"
+  sha256 "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -25,6 +24,7 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libbluray"
   depends_on "libsoxr"
+  depends_on "libvidstab"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
@@ -63,6 +63,7 @@ class Ffmpeg < Formula
       --enable-libsnappy
       --enable-libtesseract
       --enable-libtheora
+      --enable-libvidstab
       --enable-libvorbis
       --enable-libvpx
       --enable-libx264
@@ -91,6 +92,9 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
+
+    # Fix for Non-executables that were installed to bin/
+    mv bin/"python", pkgshare/"python", :force => true
   end
 
   test do
