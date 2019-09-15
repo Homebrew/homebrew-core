@@ -1,8 +1,8 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.4.1.tar.gz"
-  sha256 "41e118471f11d91147490561b3bc52228a9ffc2a293e8e03717d674a0e312a9c"
+  url "https://github.com/rizsotto/Bear/archive/2.4.2.tar.gz"
+  sha256 "e80c0d622a8192a1ec0c0efa139e5767c6c4b1defe1c75fc99cf680c6d1816c0"
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
@@ -16,7 +16,10 @@ class Bear < Formula
   depends_on "python"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+    ]
+    system "cmake", ".", *args
     system "make", "install"
   end
 
