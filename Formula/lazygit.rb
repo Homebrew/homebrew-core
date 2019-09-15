@@ -6,9 +6,9 @@ class Lazygit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c496b0eb15a8125667fa0a3c894825c3f7bd15153bf6d73c2396cad5e6af0346" => :mojave
-    sha256 "347b4d71a314a38e4574ca61c3014d0cb037e93f413df07c80cfce289f577ee4" => :high_sierra
-    sha256 "216fece43e1dc34031bfd2bed23fcb26b9a62e8052ff961295d1823ed5062559" => :sierra
+    sha256 "04317d3625563735d60f8e7d7871693da99867ef463b09072209a377c32e14ac" => :mojave
+    sha256 "f6c93c2b35b269a83811cf10bf8a58ad5af108806777a0c6e489329621432721" => :high_sierra
+    sha256 "31308b34df92ff5ec10195e117729ff475fabce00fbd0ed64c01d68198b221d9" => :sierra
   end
 
   depends_on "go" => :build
