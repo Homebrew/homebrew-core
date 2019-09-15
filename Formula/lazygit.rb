@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.8.1.tar.gz"
-  sha256 "274ba05573b38cccc56cb63053eec0972535979b95f1f30b6ca318d991f2c14c"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.8.2.tar.gz"
+  sha256 "aaaa4cb789d387a08eb46ca95159561cdb4a2f4e70315ce68ed61bbd30fe24ee"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,19 +13,9 @@ class Lazygit < Formula
 
   depends_on "go" => :build
 
-  # adapted from https://kevin.burke.dev/kevin/install-homebrew-go/
   def install
-    ENV["GOPATH"] = buildpath
-
-    bin_path = buildpath/"src/github.com/jesseduffield/lazygit"
-    # Copy all files from their current location (GOPATH root)
-    # to $GOPATH/src/github.com/jesseduffield/lazygit
-    bin_path.install Dir["*"]
-    cd bin_path do
-      # Install the compiled binary into Homebrew's `bin` - a pre-existing
-      # global variable
-      system "go", "build", "-ldflags", "-X main.version=0.8 -X main.buildSource=homebrew", "-o", bin/"lazygit", "."
-    end
+    system "go", "build", "-mod=vendor", "-o", bin/"lazygit",
+      "-ldflags", "-X main.version=#{version} -X main.buildSource=homebrew"
   end
 
   # lazygit is a terminal GUI, but it can be run in 'client mode' for example to write to git's todo file
