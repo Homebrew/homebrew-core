@@ -5,6 +5,13 @@ class Broot < Formula
   sha256 "a799b0fba07593648ebef2fc4bc58d9f623d81d539686251ef842ef6ba874e2a"
   head "https://github.com/Canop/broot.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "db65c17012c29364338f863b760c6e883ccb49c9b2e323ed9d568256773b8b4d" => :mojave
+    sha256 "3be541539303e45e6528f6fd766f293a06baffa4116004901b8d0b3d5dedacd5" => :high_sierra
+    sha256 "a59a99308ca35e72fd682910b01c13d46834d45e0531195d58bb47aa54e35554" => :sierra
+  end
+
   depends_on "rust" => :build
 
   def install
