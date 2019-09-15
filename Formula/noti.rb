@@ -14,18 +14,9 @@ class Noti < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOFLAGS"] = "-mod=vendor"
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/variadico/noti"
-    src.install buildpath.children
-
-    cd src.join("cmd/noti") do
-      system "go", "build"
-      bin.install "noti"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=vendor", "-o", "#{bin}/noti", "cmd/noti/main.go"
+    man1.install "docs/man/noti.1"
+    man5.install "docs/man/noti.yaml.5"
   end
 
   test do
