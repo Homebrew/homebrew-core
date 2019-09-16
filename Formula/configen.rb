@@ -1,8 +1,8 @@
 class Configen < Formula
   desc "Configuration file code generator for use in Xcode projects"
   homepage "https://github.com/theappbusiness/ConfigGenerator"
-  url "https://github.com/theappbusiness/ConfigGenerator/archive/v1.0.3.tar.gz"
-  sha256 "aebf6f519b6b399c0cf2e1a5f27bf0fda0f68c71b336f432a4780479604cddcc"
+  url "https://github.com/theappbusiness/ConfigGenerator/archive/1.1.0.tar.gz"
+  sha256 "3bd03adbd82cd94a610b07fbc3e9fb8e5aca35f938c891fa69db9eec9411331b"
   head "https://github.com/theappbusiness/ConfigGenerator.git"
 
   bottle do
