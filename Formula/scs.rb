@@ -4,6 +4,13 @@ class Scs < Formula
   url "https://github.com/cvxgrp/scs/archive/2.1.1.tar.gz"
   sha256 "0e20b91e8caf744b84aa985ba4e98cc7235ee33612b2bad2bf31ea5ad4e07d93"
 
+  bottle do
+    cellar :any
+    sha256 "790a8b317c31bed14703a624c2c10ac21d6b5a79e49a9602cf17d4fcfda0206a" => :mojave
+    sha256 "972212da980f70df69900f0af8115022cf12eb1dbad0c74a2c65b83b9c22daba" => :high_sierra
+    sha256 "9c4f346e1a76e4951c6eb12324e40f08a3b52671872401091d01e456d715455f" => :sierra
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "test/data/small_random_socp"
