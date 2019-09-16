@@ -4,6 +4,13 @@ class Coinutils < Formula
   url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.2.tar.gz"
   sha256 "30c7f6c84dbb9f6e4fe5bbe4015ed15e2d1402146f8354cfc50c34d8735a49b1"
 
+  bottle do
+    cellar :any
+    sha256 "f04c7cacc5bc07a72a74006e365852d3320bbb12ff45dfee7a0c0cdd081f0783" => :mojave
+    sha256 "5d10180ac9ea677a134c16f52dc4a4a51df0fb29c224e33784f106c67b2e0d85" => :high_sierra
+    sha256 "7b13f124f38742ff92f9c487abaefe008f947ce00fd59582f8add1a15a4a32ae" => :sierra
+  end
+
   depends_on "pkg-config" => :build
   depends_on "openblas"
 
