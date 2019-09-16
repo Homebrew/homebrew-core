@@ -7,9 +7,9 @@ class Libvterm < Formula
 
   bottle do
     cellar :any
-    sha256 "1498cd7e2569ad6fae59210a748c6ff099e2414bf526f2928273dd6ba3fe9651" => :mojave
-    sha256 "2bab7bdb6033188210ab47cd7802f7617b8dc93f84b776ef1627360dde3d8884" => :high_sierra
-    sha256 "80c31b8a19c9fba971a64f3a5058d4db2bcfc12508c296058546d088182347b5" => :sierra
+    sha256 "eca96b4e33236df8805d8fa53641e2a91e01ad49370bf492a9b2db327115f6bd" => :mojave
+    sha256 "90ce34a766b2a67d2d7a47929e3bbcbac8645a7bee74ab33119e6db49b1ef903" => :high_sierra
+    sha256 "6bd97ffe3d76adaa2f8b968af5201e8325b97b40d70ee4340c9606b6c8ff4e9e" => :sierra
   end
 
   depends_on "libtool" => :build
