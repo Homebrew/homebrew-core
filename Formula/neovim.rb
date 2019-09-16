@@ -1,32 +1,14 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-
-  stable do
-    url "https://github.com/neovim/neovim/archive/v0.3.8.tar.gz"
-    sha256 "953e134568d824dad7cbf32ee3114951732f9a750c462e430e6b593f418af76c"
-
-    depends_on "jemalloc"
-  end
+  url "https://github.com/neovim/neovim/archive/v0.4.2.tar.gz"
+  sha256 "9f874d3d2a74f33b931db62adebe28f8d2ec116270d1e13998b58a73348b6e56"
+  head "https://github.com/neovim/neovim.git"
 
   bottle do
     sha256 "6cfd2fa392a29729a4bf46764efddc5462189d555d5c4910f960af2438ecf4a4" => :mojave
     sha256 "97b6c3dc5dda485bd195650be9e060304e2a03ed2c62bdedf643876971726657" => :high_sierra
     sha256 "3c46065de77aaa929da89748bbf3fe584fe6ef8d9d9919267c7a5bba3f2a345b" => :sierra
-  end
-
-  head do
-    url "https://github.com/neovim/neovim.git"
-
-    resource "lua-compat-5.3" do
-      url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.7.tar.gz"
-      sha256 "bec3a23114a3d9b3218038309657f0f506ad10dfbc03bb54e91da7e5ffdba0a2"
-    end
-
-    resource "luv" do
-      url "https://github.com/luvit/luv/releases/download/1.30.0-0/luv-1.30.0-0.tar.gz"
-      sha256 "5cc75a012bfa9a5a1543d0167952676474f31c2d7fd8d450b56d8929dbebb5ef"
-    end
   end
 
   depends_on "cmake" => :build
@@ -55,6 +37,16 @@ class Neovim < Formula
     sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
   end
 
+  resource "lua-compat-5.3" do
+    url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.7.tar.gz"
+    sha256 "bec3a23114a3d9b3218038309657f0f506ad10dfbc03bb54e91da7e5ffdba0a2"
+  end
+
+  resource "luv" do
+    url "https://github.com/luvit/luv/releases/download/1.30.0-0/luv-1.30.0-0.tar.gz"
+    sha256 "5cc75a012bfa9a5a1543d0167952676474f31c2d7fd8d450b56d8929dbebb5ef"
+  end
+
   def install
     resources.each do |r|
       r.stage(buildpath/"deps-build/build/src/#{r.name}")
@@ -80,31 +72,27 @@ class Neovim < Formula
         end
       end
 
-      if build.head?
-        cd "build/src/luv" do
-          cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-          cmake_args += %W[
-            -DCMAKE_INSTALL_PREFIX=#{buildpath}/deps-build
-            -DLUA_BUILD_TYPE=System
-            -DWITH_SHARED_LIBUV=ON
-            -DBUILD_SHARED_LIBS=OFF
-            -DBUILD_MODULE=OFF
-            -DLUA_COMPAT53_DIR=#{buildpath}/deps-build/build/src/lua-compat-5.3
-          ]
-          system "cmake", ".", *cmake_args
-          system "make", "install"
-        end
+      cd "build/src/luv" do
+        cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
+        cmake_args += %W[
+          -DCMAKE_INSTALL_PREFIX=#{buildpath}/deps-build
+          -DLUA_BUILD_TYPE=System
+          -DWITH_SHARED_LIBUV=ON
+          -DBUILD_SHARED_LIBS=OFF
+          -DBUILD_MODULE=OFF
+          -DLUA_COMPAT53_DIR=#{buildpath}/deps-build/build/src/lua-compat-5.3
+        ]
+        system "cmake", ".", *cmake_args
+        system "make", "install"
       end
     end
 
     mkdir "build" do
       cmake_args = std_cmake_args
-      if build.head?
-        cmake_args += %W[
-          -DLIBLUV_INCLUDE_DIR=#{buildpath}/deps-build/include
-          -DLIBLUV_LIBRARY=#{buildpath}/deps-build/lib/libluv.a
-        ]
-      end
+      cmake_args += %W[
+        -DLIBLUV_INCLUDE_DIR=#{buildpath}/deps-build/include
+        -DLIBLUV_LIBRARY=#{buildpath}/deps-build/lib/libluv.a
+      ]
       system "cmake", "..", *cmake_args
       system "make", "install"
     end
