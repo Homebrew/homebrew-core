@@ -13,7 +13,7 @@ class JohnJumbo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   conflicts_with "john", :because => "both install the same binaries"
 
@@ -29,12 +29,22 @@ class JohnJumbo < Formula
     sha256 "c246b7a4b06436810dee66d324fa550c5f6bc2dabcb09a2f5f7836c6633a549a"
   end
 
+  # Fixed setup of openssl@1.1 over series of patches
+  # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4101
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/pull/4101.diff?full_index=1"
+    sha256 "c21ba72b1267752c8fe70b6f48baf6a36bf4f4796a58e5b2f5998a3a42f96126"
+  end
+
   def install
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE=1"
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_EXEC='\"#{share}/john\"'"
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_HOME='\"#{share}/john\"'"
 
     ENV.append "CFLAGS", "-mno-sse4.1" unless MacOS.version.requires_sse4?
+
+    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@1.1"].opt_lib}"
+    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@1.1"].opt_include}"
 
     cd "src" do
       system "./configure", "--disable-native-tests"
