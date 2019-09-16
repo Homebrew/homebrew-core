@@ -4,8 +4,8 @@ class Kubeseal < Formula
   url "https://github.com/bitnami-labs/sealed-secrets.git",
       :tag      => "v0.8.3",
       :revision => "ec80fcecfe8b29cb13535c242337d79b18a14072"
-  revision 1
   sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
