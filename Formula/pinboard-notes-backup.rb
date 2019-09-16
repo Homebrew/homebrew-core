@@ -16,11 +16,14 @@ class PinboardNotesBackup < Formula
     sha256 "b5673dd192867c0a38dfc9443d1272b42bc303d3561949ce3157ea7300e2aeb6" => :sierra
   end
 
-  depends_on "cabal-install" => :build
+  depends_on "haskell-stack" => :build
   depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system("stack setup")
+    system("stack --no-terminal build --no-run-benchmarks --pedantic")
+    system("stack sdist")
+    bin.install "$(stack path --local-install-root)/bin/pnbackup"
     man1.install "man/pnbackup.1"
   end
 
