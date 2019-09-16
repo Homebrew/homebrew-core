@@ -6,9 +6,10 @@ class JohnJumbo < Formula
   sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
 
   bottle do
-    sha256 "bebd822ea6b92a99e9376f972b24d47f870f123f87d173446f1f1614a766c1d5" => :mojave
-    sha256 "b927a6a9536228b744e7bb45b8248624bf334ebcbefb337ee7e5450a87954bb0" => :high_sierra
-    sha256 "73de9893b76f924973e03c3cb3f89030da701918965601aea20537a17efc1b15" => :sierra
+    rebuild 1
+    sha256 "51f7b265d83da1db5c2a34e77d2f376e1fa7730ecde5c9cfcda181ccab084f8e" => :mojave
+    sha256 "0719a701b7280ccd2bd1e2f834ffb6518d183f80c5df2afcb956f374e6d032c3" => :high_sierra
+    sha256 "6349fe1f1c0524382ab6ed36a4ceeb795c67cacb310688e2759cf33efab82609" => :sierra
   end
 
   depends_on "pkg-config" => :build
