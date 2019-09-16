@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "bc1ee99a636b4bd41f5908437f28dd0d29c5b17a0bdb8738d0abcc46177775a8" => :mojave
@@ -14,7 +14,9 @@ class Csound < Formula
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
+  depends_on :java => [:build, :test]
   depends_on "python" => [:build, :test]
+  depends_on "swig" => :build
   depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
@@ -49,7 +51,6 @@ class Csound < Formula
     args = std_cmake_args + %W[
       -DABLETON_LINK_HOME=#{buildpath}/ableton
       -DBUILD_ABLETON_LINK_OPCODES=ON
-      -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
@@ -62,6 +63,8 @@ class Csound < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
+
+      libexec.install "csnd6.jar", "lib_jcsound6.jnilib"
     end
 
     include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
@@ -75,8 +78,14 @@ class Csound < Formula
   end
 
   def caveats; <<~EOS
-    To use the Python bindings, you may need to add to your .bash_profile:
+    To use the Java and Python bindings, you may need to add to your .bash_profile:
       export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_prefix}/Frameworks"
+
+    To use the Java bindings, you may also need to add to your .bash_profile:
+      export CLASSPATH='#{opt_prefix}/libexec/csnd6.jar:.'
+    and link the native shared library into your Java Extensions folder:
+      mkdir -p ~/Library/Java/Extensions
+      ln -s '#{opt_prefix}/libexec/lib_jcsound6.jnilib' ~/Library/Java/Extensions
   EOS
   end
 
@@ -127,7 +136,21 @@ class Csound < Formula
     EOS
     system "#{bin}/csound", "wii.orc", "test.sco"
 
+    (testpath/"test.java").write <<~EOS
+      import csnd6.*;
+      public class test {
+          public static void main(String args[]) {
+              csnd6.csoundInitialize(csnd6.CSOUNDINIT_NO_ATEXIT | csnd6.CSOUNDINIT_NO_SIGNAL_HANDLER);
+          }
+      }
+    EOS
+    ENV["CLASSPATH"] = "#{opt_prefix}/libexec/csnd6.jar:."
+    system "javac", "test.java"
+
     ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+
+    system "java -Djava.library.path='#{opt_prefix}/libexec' test"
+
     system "python3", "-c", "import ctcsound"
   end
 end
