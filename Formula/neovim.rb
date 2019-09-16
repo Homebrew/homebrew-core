@@ -3,8 +3,9 @@ class Neovim < Formula
   homepage "https://neovim.io/"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.3.8.tar.gz"
-    sha256 "953e134568d824dad7cbf32ee3114951732f9a750c462e430e6b593f418af76c"
+    url "https://github.com/neovim/neovim/releases/download/v0.4.2/nvim-macos.tar.gz"
+    version "0.4.2"
+    sha256 "c228bfbc0f9c070c2a8b5c50162d6bd4de5dcc9ae860c426c4abc35c780e0d49"
 
     depends_on "jemalloc"
   end
