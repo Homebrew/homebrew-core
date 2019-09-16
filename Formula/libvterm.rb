@@ -1,8 +1,9 @@
 class Libvterm < Formula
   desc "C99 library which implements a VT220 or xterm terminal emulator"
   homepage "http://www.leonerd.org.uk/code/libvterm/"
-  url "http://www.leonerd.org.uk/code/libvterm/libvterm-0+bzr726.tar.gz"
-  sha256 "6344eca01c02e2270348b79e033c1e0957028dbcd76bc784e8106bea9ec3029d"
+  url "http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.tar.gz"
+  sha256 "e419c58ea71e392c9084cb872ae75bc2d07177d859b8efe9702243de36949ddd"
+  version_scheme 1
 
   bottle do
     cellar :any
