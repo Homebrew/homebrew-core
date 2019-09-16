@@ -47,9 +47,8 @@ class Exult < Formula
   end
 
   def caveats; <<~EOS
-    Note that this includes only the game engine; you will need to supply your own
-    own legal copy of the Ultima 7 game files. Try here (amazon.com):
-      https://bit.ly/8JzovU
+    This formula only includes the game engine; you will need to supply your own
+    own legal copy of the Ultima 7 game files for the software to fully function.
 
     Update audio settings accordingly with configuration file:
       ~/Library/Preferences/exult.cfg
