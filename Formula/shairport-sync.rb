@@ -3,6 +3,7 @@ class ShairportSync < Formula
   homepage "https://github.com/mikebrady/shairport-sync"
   url "https://github.com/mikebrady/shairport-sync/archive/3.3.2.tar.gz"
   sha256 "a8f580fa8eb71172f6237c0cdbf23287b27f41f5399f5addf8cd0115a47a4b2b"
+  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
@@ -20,6 +21,7 @@ class ShairportSync < Formula
   depends_on "libsoxr"
   depends_on "openssl@1.1"
   depends_on "popt"
+  depends_on "pulseaudio"
 
   def install
     system "autoreconf", "-fvi"
@@ -29,6 +31,7 @@ class ShairportSync < Formula
       --with-dns_sd
       --with-ao
       --with-stdout
+      --with-pa
       --with-pipe
       --with-soxr
       --with-metadata
@@ -46,6 +49,6 @@ class ShairportSync < Formula
 
   test do
     output = shell_output("#{bin}/shairport-sync -V")
-    assert_match "OpenSSL-dns_sd-ao-stdout-pipe-soxr-metadata", output
+    assert_match "OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
   end
 end
