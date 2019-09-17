@@ -1,8 +1,8 @@
 class Ghr < Formula
   desc "Upload multiple artifacts to GitHub Release in parallel"
   homepage "https://tcnksm.github.io/ghr"
-  url "https://github.com/tcnksm/ghr/archive/v0.12.2.tar.gz"
-  sha256 "982d090add119b336bb70edb1c394c9ea835135708fa66d754d5159dcbe8c467"
+  url "https://github.com/tcnksm/ghr/archive/v0.13.0.tar.gz"
+  sha256 "53933c6436187f573128903701ce74ac341793e892d3c2f57c822c0ce3c49e11"
 
   bottle do
     cellar :any_skip_relocation
