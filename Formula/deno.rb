@@ -4,6 +4,7 @@ class Deno < Formula
   url "https://github.com/denoland/deno.git",
     :tag      => "v0.18.0",
     :revision => "7e3296dad92cee2e8b77baedfbeca38aa297928e"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,9 +13,9 @@ class Deno < Formula
     sha256 "a63d4e45131199cd9f851a5b36f441346d175d93b2d6ed02ccf8c713081da5fc" => :sierra
   end
 
+  depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
-  depends_on "llvm"
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
   depends_on :macos => :el_capitan
@@ -34,6 +35,7 @@ class Deno < Formula
 
     # env args for building a release build with our clang, ninja and gn
     ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
+    # workaround to add back support for Sierra in v8 7.9
     ENV["FORCE_MAC_SDK_MIN"] = "10.12"
     # remove treat_warnings_as_errors with llvm@9
     ENV["DENO_BUILD_ARGS"] = %W[
@@ -42,8 +44,9 @@ class Deno < Formula
       mac_deployment_target="#{MacOS.version}"
       treat_warnings_as_errors=false
     ].join(" ")
-    ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
+    # link against system libc++ instead of the one from llvm (avoiding a runtime dep here)
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     cd "cli" do
       system "cargo", "install", "-vv", "--root", prefix, "--path", "."
