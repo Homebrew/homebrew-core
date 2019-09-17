@@ -15,7 +15,7 @@ class MpsYoutube < Formula
     sha256 "7f36b80873313012b07beaf26bb35fadd3ee7f8a1f1070646faa6aa622f34a09" => :sierra
   end
 
-  depends_on "mpv"
+  depends_on "mplayer"
   depends_on "python"
 
   resource "pafy" do
@@ -36,6 +36,13 @@ class MpsYoutube < Formula
     end
 
     venv.pip_install_and_link buildpath
+  end
+
+  def caveats
+    <<~EOS
+      Install the optional mpv app with Homebrew Cask:
+        brew cask install mpv
+    EOS
   end
 
   test do
