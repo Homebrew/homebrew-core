@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.8.2/vips-8.8.2.tar.gz"
-  sha256 "aba3f97d60c344c5d40ffcec524460e378dab939f873ec5d155bbc510a4fbd5d"
+  url "https://github.com/libvips/libvips/releases/download/v8.8.3/vips-8.8.3.tar.gz"
+  sha256 "c5e4dd5a5c6a777c129037d19ca606769b3f1d405fcc9c8eeda906a61491f790"
 
   bottle do
     sha256 "e6eac2ce68bbc05b07a9a6ba0752d7580a347214d482085b7524571206c40a4b" => :mojave
