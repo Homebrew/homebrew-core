@@ -21,6 +21,7 @@
   "jsl": "homebrew/cask",
   "keybase": "homebrew/cask",
   "meld": "homebrew/cask",
+  "mpv": "homebrew/cask",
   "osxfuse": "homebrew/cask",
   "phantomjs": "homebrew/cask",
   "quassel": "homebrew/cask",
