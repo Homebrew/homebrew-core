@@ -14,10 +14,13 @@ class Kafkacat < Formula
 
   depends_on "librdkafka"
   depends_on "yajl"
+  depends_on "avro-c"
+  depends_on "serdes"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-json"
+                          "--enable-json",
+                          "--enable-avro"
     system "make"
     system "make", "install"
   end
