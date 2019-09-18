@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag      => "v1.15.3",
-      :revision => "2d3c76f9091b6bec110a5e63777c332469e0cba2"
+      :tag      => "v1.16.0",
+      :revision => "2bd9643cee5b3b3a5ecbd3af49d09018f0773c77"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -13,7 +13,7 @@ class KubernetesCli < Formula
     sha256 "8c3f292cf2b7fc52968d8b47581cbbdcc40bfd853c477b833dcb6fc155429e9f" => :sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
 
   def install
     ENV["GOPATH"] = buildpath
