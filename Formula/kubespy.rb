@@ -7,9 +7,9 @@ class Kubespy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3fff5273f5719aa828347b1d1b825874faac7989f240326ecf1ade567c1f47f" => :mojave
-    sha256 "1f08465867b5108de94ec3e8bc68beb1af8af1300a3bcff246eff662c9d92c65" => :high_sierra
-    sha256 "236a51cb10fd31ecd508ca2deb18c770edc9f850d9a3b30d85c737251269deba" => :sierra
+    sha256 "0bf331c5f6599d6529db49070e5a98f97f9c46a6683094c6a182438c6323c428" => :mojave
+    sha256 "9919ac7b83faf8683989239d68d92ed626ef8665fd5bf4c4e52b6a0163614766" => :high_sierra
+    sha256 "f6e255dfd78c4a77e64fdbb6b9ee25acbb3c3f8686e8f18e2bd404a1d6577a8c" => :sierra
   end
 
   depends_on "go" => :build
