@@ -62,6 +62,7 @@ class Pulseaudio < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/pulseaudio</string>
+        <string>--exit-idle-time=-1</string>
         <string>--verbose</string>
       </array>
       <key>RunAtLoad</key>
