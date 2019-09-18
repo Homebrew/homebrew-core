@@ -1,8 +1,8 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v2.12/mxml-2.12.tar.gz"
-  sha256 "6bfb53baa1176e916855bd3b6d592fd5b962c3c259aacdb5670d90c57ce4034f"
+  url "https://github.com/michaelrsweet/mxml/releases/download/v3.1/mxml-3.1.tar.gz"
+  sha256 "1ac8d252f62f9dc2b2004518c70d2da313bdfcd92b8350e215f46064a34b52fc"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
@@ -25,11 +25,26 @@ class Libmxml < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      int testfunc(char *string)
+      #include <mxml.h>
+
+      int main()
       {
-        return string ? string[0] : 0;
+        FILE *fp;
+        mxml_node_t *tree;
+
+        fp = fopen("test.xml", "r");
+        tree = mxmlLoadFile(NULL, fp, MXML_OPAQUE_CALLBACK);
+        fclose(fp);
       }
     EOS
-    assert_match /testfunc/, shell_output("#{bin}/mxmldoc test.c")
+
+    (testpath/"test.xml").write <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <test>
+        <text>I'm an XML document.</text>
+      </test>
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmxml", "-o", "test"
+    system "./test"
   end
 end
