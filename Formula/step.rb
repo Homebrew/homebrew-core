@@ -6,9 +6,9 @@ class Step < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c3dfcadabcb80413c514c40456a4a7c3d6e76e0b0b30df73747e056e9589b66" => :mojave
-    sha256 "fe86c3995d280d2738fe746eb27b327e5416db79e04335086231a33e6b57cd3c" => :high_sierra
-    sha256 "266594c69b51fd094ce4e49bd74e720c91507f6e246288bb5cd10733ce3a059e" => :sierra
+    sha256 "e172ffcfaaac82eba961e16d570f8e8dfada697b7912f0924036771fc09076b0" => :mojave
+    sha256 "f44bb7f1c87e6880ead044c7e13e74dbaa28d6dfc24f9ea302418ab60ab43e30" => :high_sierra
+    sha256 "9e0360f7e906895e0274682d0cd28e4d8060ae796aa3874fdda689bbc29149ac" => :sierra
   end
 
   depends_on "dep" => :build
