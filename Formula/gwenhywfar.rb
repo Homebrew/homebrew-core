@@ -5,9 +5,9 @@ class Gwenhywfar < Formula
   sha256 "0f4fd92351c8a11f053aa482fc5c459499db3dc78dd8bb469e878890ef3d3270"
 
   bottle do
-    sha256 "605edc60c3ce3b79933d80491db2d64ded5dc27acd93be50cb445f14a720ba10" => :mojave
-    sha256 "f738c100042894d7601927ab47d2b5eb81abf461693a16026b87e60b6b757952" => :high_sierra
-    sha256 "f0df3064284d1157147958c9c875a45702cd67e20f69fc3869444360816a55b4" => :sierra
+    sha256 "43fbdfc140f948cac62e00c6468b310856797b3bd732e8e7db2dee4983ec2787" => :mojave
+    sha256 "b14e191f6863b0bd133367cd1e5e22a0785550edbf3637930b5d16ec2a83ecd9" => :high_sierra
+    sha256 "a006e0b29c726b480bcdcfc40192d776c7ce2e8e44196122d7aabf3884857c5f" => :sierra
   end
 
   depends_on "pkg-config" => :build
