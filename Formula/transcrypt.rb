@@ -26,6 +26,6 @@ class Transcrypt < Formula
     system "git", "commit", "--message", "Add encrypted version of file"
 
     assert_equal `git show HEAD:sensitive_file --no-textconv`.chomp,
-                 "U2FsdGVkX1/BC5TmOtJ9kCgCq4EmYX0crGU7mAIhDEA="
+                 "U2FsdGVkX198ELlOY60n2ekOK1DiMCLS1dRs53RGBeU="
   end
 end
