@@ -1,9 +1,8 @@
 class Kahip < Formula
   desc "Karlsruhe High Quality Partitioning"
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
-  url "https://github.com/schulzchristian/KaHIP/archive/v2.11.tar.gz"
-  sha256 "9351902b9e1c53b16ac7c3ba499a8f52348cae945c5cfc00e82c2c68302e1dca"
-  revision 1
+  url "https://algo2.iti.kit.edu/schulz/software_releases/KaHIP_2.12.tar.gz"
+  sha256 "b91abdbf9420e2691ed73cea999630e38dfaf0e03157c7a690a998564c652aac"
 
   bottle do
     cellar :any
