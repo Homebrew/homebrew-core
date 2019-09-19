@@ -12,10 +12,9 @@ class Kafkacat < Formula
     sha256 "e09845976996cd838656e0065309e06f65e8446e1f0eb01f471bda2da36553ed" => :sierra
   end
 
-  depends_on "librdkafka"
-  depends_on "yajl"
   depends_on "avro-c"
-  depends_on "serdes"
+  depends_on "libserdes"
+  depends_on "yajl"
 
   def install
     system "./configure", "--prefix=#{prefix}",
