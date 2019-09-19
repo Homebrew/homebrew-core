@@ -15,6 +15,8 @@ class Snownews < Formula
   depends_on "gettext"
   depends_on "ncurses"
 
+  uses_from_macos "libxml2"
+
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
