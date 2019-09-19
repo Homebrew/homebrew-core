@@ -6,9 +6,9 @@ class Glibmm < Formula
 
   bottle do
     cellar :any
-    sha256 "e321342c5a43d421c778b97e7dda0b30133476a3211b0b4c5e61148ae733c69d" => :mojave
-    sha256 "e9713aec5729397fc20d3fdfb60e22b0995933d3f40e5f1b2e250ed4bc4af99a" => :high_sierra
-    sha256 "683e932b17f12dc36ace56990825670a976bbb4a35a24fed7ef885b822512a09" => :sierra
+    sha256 "161bab6c21bb5137f9c4603b0f6873cc3a8b30bfbfcdf49bb30812d070ebdfb1" => :mojave
+    sha256 "df7fe42bb76f0b9ca5b9e17a1dfde4419d8c99a92e11a3c1237be1d9e6795449" => :high_sierra
+    sha256 "f658b7bdcf4888b849b06d10c0c9686a8f624ceefec5579921f265f561d0076f" => :sierra
   end
 
   depends_on "pkg-config" => :build
