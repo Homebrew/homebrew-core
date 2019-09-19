@@ -9,7 +9,6 @@ class Libserdes < Formula
   end
 
   depends_on "avro-c"
-  depends_on "curl"
   depends_on "librdkafka"
 
   def install
