@@ -1,8 +1,8 @@
 class Libserdes < Formula
-  desc "Schema-based serializer/deserializer C/C++ library for Avro and Confluent Schema Registry"
+  desc "Schema-based ser/deserializer library for Avro & Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
   url "https://github.com/confluentinc/libserdes.git",
-  :tag      => "v5.3.1"
+  :tag => "v5.3.1"
 
   bottle do
     cellar :any
