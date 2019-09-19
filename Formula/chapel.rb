@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.19.0/chapel-1.19.0.tar.gz"
-  sha256 "c2b68a20d87cc382c2f73dd1ecc6a4f42fb2f590b0b10fbc577382dd35c9e9bd"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.20.0/chapel-1.20.0.tar.gz"
+  sha256 "08bc86df13e4ad56d0447f52628b0f8e36b0476db4e19a90eeb2bd5f260baece"
 
   bottle do
     sha256 "566175e438251b20ede1a382c3bf9adf6190a0795ddadbd424fa0e359ef587f8" => :mojave
