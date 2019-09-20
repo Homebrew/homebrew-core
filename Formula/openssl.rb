@@ -10,9 +10,9 @@ class Openssl < Formula
   sha256 "14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc"
 
   bottle do
-    sha256 "c4a762d719c2be74ac686f1aafabb32f3c5d5ff3a98935c4925a1ddb9c750ee1" => :mojave
-    sha256 "b72b8d9e582713d909936d7236542b366f07d800f8ec0eaa2d487a95c4e93bd9" => :high_sierra
-    sha256 "e556bbb8902700cd3cb896e0635ccb517feb4e1266911840c4b3c9e9cd044f7e" => :sierra
+    sha256 "9874b2baf00f845355b163cb63b5c98a94a5cf7c08cda1d19876899b11b585c6" => :mojave
+    sha256 "20fa4d39cbc0ba091aed2ce72a4404e87c3bc323243ab3f92ccfd75c48cbe132" => :high_sierra
+    sha256 "bdbc44c56f63f27ab4dc12583b7f46a6485500f2a583dc8c9b848c4063f58927" => :sierra
   end
 
   keg_only :provided_by_macos,
