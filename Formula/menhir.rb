@@ -3,6 +3,7 @@ class Menhir < Formula
   homepage "http://cristal.inria.fr/~fpottier/menhir"
   url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20190626/menhir-20190626.tar.bz2"
   sha256 "27639743c1a7ba7cdeed3e8045bc28bf162475d2a99255aaf73da56c3e5fd28d"
+  revision 1
 
   bottle do
     sha256 "143bf23dead44014da531f0a5a80f79053d38ab9edba73dbf7f7c2daa2657174" => :mojave
