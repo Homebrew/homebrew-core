@@ -33,6 +33,7 @@ class GstPluginsBad < Formula
   depends_on "opus"
   depends_on "orc"
   depends_on "srtp"
+  depends_on "rtmpdump"
 
   def install
     args = %W[
