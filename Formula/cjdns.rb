@@ -7,9 +7,9 @@ class Cjdns < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d19900f4469f6da94b225a6b5bf54fce7adebfd8178b78934e1c9331108a921" => :mojave
-    sha256 "f04a38f22e48d0b8690a3937c22576fbd058a4eb7ff5d9df83a558760b98132e" => :high_sierra
-    sha256 "0d9b022ddd9920848a51e46a0ae67f46c81d911b384b093768d74a2adc0d044a" => :sierra
+    sha256 "38cfee60488cf26592588ee1b62f77df9e430d82d4596cc69728d4a1cc134cae" => :mojave
+    sha256 "7d1b80dfd3e061d76febf4bcd68f23ec9f0dbb4ed5a85e0ccc856434ac7c31f9" => :high_sierra
+    sha256 "9bb1b9a52248c090e939ae865a838374143e2895a59f5157b93aacb22c7a223e" => :sierra
   end
 
   depends_on "node" => :build
