@@ -5,6 +5,7 @@ class Overcommit < Formula
   sha256 "6bf60311211efdd036abe14d62cd314226f99d6c0676810e79df555a72bc9ac3"
 
   depends_on "ruby"
+  depends_on "git" => :test
 
   resource "childprocess" do
     url "https://rubygems.org/downloads/childprocess-1.0.1.gem"
@@ -27,5 +28,12 @@ class Overcommit < Formula
     system "gem", "install", "--ignore-dependencies", "overcommit-#{version}.gem"
     bin.install libexec/"bin/overcommit"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+  end
+
+  test do
+    system "git", "init"
+    system "overcommit", "--install"
+
+    assert File.file?(".overcommit.yml")
   end
 end
