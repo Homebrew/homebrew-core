@@ -7,9 +7,9 @@ class Librdkafka < Formula
 
   bottle do
     cellar :any
-    sha256 "d9054304a3d34f8d19123111b8c06fe4a08b98880ad7d91a73be3117816f75e5" => :mojave
-    sha256 "aaffaa86f082a49b2f09ab62ff46480416ca6da5976fe34585642ad80b94a0d2" => :high_sierra
-    sha256 "a5c4c7ff0d046cd794fc99c2b5d1ccca3576090ebf61e5c47279007c8e1a1178" => :sierra
+    sha256 "094ffea67a23f1005396cc714e245e6a81e97fcbe5b53b5d0a3016370cfbe6a2" => :mojave
+    sha256 "69752ecf88756de2f69b4c394892601bd9b0fc786a122d7b09a5c1ac0c4830f9" => :high_sierra
+    sha256 "1a84e92592eb2914e8ed18fe328f0b1d54a4c448419a67a9eaeaadfd1957e600" => :sierra
   end
 
   depends_on "pkg-config" => :build
