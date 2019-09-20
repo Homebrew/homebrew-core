@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://github.com/vmware/octant"
   url "https://github.com/vmware/octant.git",
-      :tag      => "v0.6.0",
-      :revision => "a14f6a25a9d1cfa369652f0d237954122f680ca3"
+      :tag      => "v0.7.0",
+      :revision => "632f678f1706ad6ce3e725e30f3d267d7231b136"
   head "https://github.com/vmware/octant.git"
 
   bottle do
