@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.26.tar.gz"
-  sha256 "435c457f9f577d84ae1fd763e2bd3548d84f84c50cd2c88f664fba259cd5d71a"
+  url "http://www.catb.org/~esr/src/src-1.27.tar.gz"
+  sha256 "7d587db28dbdaf644b9aaf6b1bb63d067e7db9410042ef76fdf492023d9bc41c"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,8 +27,10 @@ class Src < Formula
   end
 
   test do
+    require "pty"
     (testpath/"test.txt").write "foo"
-    system "#{bin}/src", "commit", "-m", "hello", "test.txt"
-    system "#{bin}/src", "status", "test.txt"
+    PTY.spawn("sh", "-c", "#{bin}/src commit -m hello test.txt; #{bin}/src status test.txt") do |r, _w, _pid|
+      assert_match /^=\s*test.txt/, r.read
+    end
   end
 end
