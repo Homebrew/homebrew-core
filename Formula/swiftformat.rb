@@ -3,6 +3,7 @@ class Swiftformat < Formula
   homepage "https://github.com/nicklockwood/SwiftFormat"
   url "https://github.com/nicklockwood/SwiftFormat/archive/0.40.12.tar.gz"
   sha256 "2ce84e9b6985235acb3225ab2a741c3a6e08917b92b7c769203d094dc6009b0b"
+  revision 1
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
   bottle do
