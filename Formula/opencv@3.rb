@@ -3,7 +3,7 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "c756342fb0ef243c0d232166b7641b6b58e390514eba0bfb8d0d8420ad9ac95a" => :mojave
@@ -15,8 +15,11 @@ class OpencvAT3 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
+  depends_on "gflags"
+  depends_on "glog"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
