@@ -5,6 +5,7 @@ class Serverless < Formula
   homepage "https://serverless.com"
   url "https://github.com/serverless/serverless/archive/v1.52.2.tar.gz"
   sha256 "7f08b4f48421a40f43535c1656d78a5776fdc5aecb9f6395ce639ea9ecc9d9c6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
