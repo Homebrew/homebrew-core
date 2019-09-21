@@ -3,6 +3,7 @@ class Step < Formula
   homepage "https://smallstep.com"
   url "https://github.com/smallstep/cli/releases/download/v0.13.2/step-cli_0.13.2.tar.gz"
   sha256 "40e576ef9ced97d4bc24b5a85c0b1de14b5984e22837fc9918efde39754beeb6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
