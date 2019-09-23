@@ -8,7 +8,7 @@ class Navi < Formula
 
   def install
     libexec.install Dir["*"]
-    bin.write_exec_script (libexec/"navi")
+    bin.write_exec_script(libexec/"navi")
   end
 
   test do
