@@ -1,10 +1,9 @@
 class Reop < Formula
   desc "Encrypted keypair management"
-  homepage "https://web.archive.org/web/20170706070539/www.tedunangst.com/flak/post/reop"
-  url "https://web.archive.org/web/20170706070539/www.tedunangst.com/flak/files/reop-2.1.0.tgz"
-  mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.0.tgz"
-  sha256 "e429c7ff47f130bd465eaa0c23a1783b476bc484d32793592b54a568b55e49af"
-  revision 3
+  homepage "https://flak.tedunangst.com/post/reop"
+  url "https://flak.tedunangst.com/files/reop-2.1.1.tgz"
+  mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.1.tgz"
+  sha256 "fa8ae058c51efec5bde39fab15b4275e6394d9ab1dd2190ffdba3cf9983fdcac"
 
   bottle do
     cellar :any
