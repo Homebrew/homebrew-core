@@ -1,8 +1,8 @@
 class Diskus < Formula
   desc "Minimal, fast alternative to 'du -sh'"
   homepage "https://github.com/sharkdp/diskus"
-  url "https://github.com/sharkdp/diskus/archive/v0.5.0.tar.gz"
-  sha256 "90d785f3f24899a6adcc497846f29112812a887c8042d0657d6b258d5a5352bc"
+  url "https://github.com/sharkdp/diskus/archive/v0.6.0.tar.gz"
+  sha256 "661687edefa3218833677660a38ccd4e2a3c45c4a66055c5bfa4667358b97500"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +20,6 @@ class Diskus < Formula
   test do
     (testpath/"test.txt").write("Hello World")
     output = shell_output("#{bin}/diskus #{testpath}/test.txt")
-    assert_match /(\d+) B \(\1 bytes\)/, output
+    assert_match /4096/, output
   end
 end
