@@ -5,6 +5,13 @@ class AwsCdk < Formula
   homepage "https://github.com/aws/aws-cdk"
   url "https://registry.npmjs.org/aws-cdk/-/aws-cdk-1.7.0.tgz"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0568e563f000a16b78d7d6c665c3e25d10cdd86442551ea486985f91177efba9" => :mojave
+    sha256 "9d69a052320a14f897936257f5bf379057515789a4c6339deb469aee30fb5fde" => :high_sierra
+    sha256 "aad1cd993aa1c27ed773fa7f573512bb1828de63813c822d5a6c66b91ecda033" => :sierra
+  end
+
   depends_on "node"
 
   def install
