@@ -1,8 +1,8 @@
 class RangeV3 < Formula
-  desc "Experimental range library for C++11/14/17"
+  desc "Experimental range library for C++14/17/20"
   homepage "https://ericniebler.github.io/range-v3/"
-  url "https://github.com/ericniebler/range-v3/archive/0.5.0.tar.gz"
-  sha256 "32e30b3be042246030f31d40394115b751431d9d2b4e0f6d58834b2fd5594280"
+  url "https://github.com/ericniebler/range-v3/archive/0.9.1.tar.gz"
+  sha256 "2b5b442d572b5978ea51c650adfaf0796f39f326404d09b83d846e04f571876b"
 
   bottle do
     cellar :any_skip_relocation
@@ -35,7 +35,7 @@ class RangeV3 < Formula
         std::cout << std::endl;
       }
     EOS
-    system ENV.cc, "-std=c++11", "-stdlib=libc++", "-lc++",
+    system ENV.cc, "-std=c++14", "-stdlib=libc++", "-lc++",
                    "-o", "test", "test.cpp"
     assert_equal "h e l l o \n", shell_output("./test")
   end
