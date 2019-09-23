@@ -1,8 +1,8 @@
 class Certstrap < Formula
   desc "Tools to bootstrap CAs, certificate requests, and signed certificates"
   homepage "https://github.com/square/certstrap"
-  url "https://github.com/square/certstrap/archive/v1.1.1.tar.gz"
-  sha256 "412ba90a4a48d535682f3c7529191cd30cd7a731e57065dcf4242155cec49d5e"
+  url "https://github.com/square/certstrap/archive/v1.2.0.tar.gz"
+  sha256 "0eebcc515ca1a3e945d0460386829c0cdd61e67c536ec858baa07986cb5e64f8"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +15,16 @@ class Certstrap < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/square").mkpath
-    ln_s buildpath, "src/github.com/square/certstrap"
-    system "go", "build", "-o", bin/"certstrap"
+
+    dir = buildpath/"src/github.com/square/certstrap"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"certstrap"
+      prefix.install_metafiles
+    end
   end
 
   test do
