@@ -7,10 +7,9 @@ class Reop < Formula
 
   bottle do
     cellar :any
-    sha256 "bde75b5da1a958623875e6b05c1d208ea22b712549164a37c7e68f9ee2d5aadf" => :mojave
-    sha256 "e83e45b44f322b38e9476623d7a2e595b593a8499e06c94dd1124a10d59c0d49" => :high_sierra
-    sha256 "8c0d3dd8ebe6732ec4d7820da74e12d7dc6b57ab79548063b1619213dbe79c19" => :sierra
-    sha256 "a0d7ad0c9059426b6400b9294d27a7672789da0cabe051faf11b46b1121684d0" => :el_capitan
+    sha256 "ef7c8dc250f93b18a84fc4b22006f1b5c59b34bf5d3fd3caa07da03184a0cf61" => :mojave
+    sha256 "e0f5cdb5c8b3af4919afa8b442eba703dec9ef9f5b7a25cbe56440e6c646d3b2" => :high_sierra
+    sha256 "1fdb2fd33a36c6cc57971c3399e2536ee2548acfde8761f0536cee33b2f61354" => :sierra
   end
 
   depends_on "libsodium"
