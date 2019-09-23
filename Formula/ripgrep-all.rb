@@ -13,13 +13,10 @@ class RipgrepAll < Formula
   end
 
   test do
-    tempfile = testpath / "file.txt"
+    (testpath/"file.txt").write("Hello World")
+    system "zip", "archive.zip", "file.txt"
 
-    tempfile.write("Hello World")
-    system "zip", "-r", "archive.zip", tempfile
-    tempfile.delete
-
-    assert_match /Hello World/,
-      shell_output("#{bin}/rga 'Hello World' #{testpath}")
+    output = shell_output("#{bin}/rga 'Hello World' #{testpath}")
+    assert_match "Hello World", output
   end
 end
