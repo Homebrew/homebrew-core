@@ -1,8 +1,8 @@
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
-  url "https://radare.mikelloc.com/get/3.6.0/radare2-3.6.0.tar.gz"
-  sha256 "21f3aa7573bd229d15c56322ecae12b4597bf6db4831a91224c8f86b2cd0bad0"
+  url "https://radare.mikelloc.com/get/3.9.0/radare2-3.9.0.tar.gz"
+  sha256 "0b912c69fe4e00e6f0c67c5cc547ad3afcf316fc426d0b9c1fe6c3c768e9b6f5"
   head "https://github.com/radare/radare2.git"
 
   bottle do
@@ -12,6 +12,8 @@ class Radare2 < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-arch #{MacOS.preferred_arch}"
+    ENV.append "LDFLAGS", "-arch #{MacOS.preferred_arch}"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
