@@ -7,9 +7,9 @@ class Geant4 < Formula
 
   bottle do
     cellar :any
-    sha256 "268255d7e0af6a6dfb1305eed9f3a838a44fe9ef67ef465b510a60893de8f571" => :mojave
-    sha256 "7ed35e045f2ea368fce0ee929406187b230ea608ec2328e539b82c25e878f09b" => :high_sierra
-    sha256 "c3e542d8f1ff4561437e31b8aae44fe00e922d613bfaaa56611e7392f897c22c" => :sierra
+    sha256 "ff910f3a7b5d6b3c371534183d300b12ba3041a52bb3ae65e9724e726f73986b" => :mojave
+    sha256 "61afcd42a08f3faad4ea26a0ebd24d6e71d83747bd3f189ccf614425736910dd" => :high_sierra
+    sha256 "39dfed47c21318131cdb76fa383c527073199846b54985e2f2e65c46b05203e4" => :sierra
   end
 
   depends_on "cmake" => [:build, :test]
