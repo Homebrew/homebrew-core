@@ -6,10 +6,9 @@ class Geographiclib < Formula
 
   bottle do
     cellar :any
-    sha256 "a97fd12c98b8aa7d6bb7187a7bcb87a5728cbc8d09cdfbec8a890a50539ba02a" => :mojave
-    sha256 "69f55b7d549bf61aa3867cd5451a3df11ca71f823c5baef79631ed9edfc32417" => :high_sierra
-    sha256 "d583748cacffdef26dca690a0f8e87d02166ce7ef1907e9bbf282f7e0c099b1c" => :sierra
-    sha256 "a730f21ffa4e9503f15d8b3ecd51c846cac5e79581ef5ec86297c4c10739e4a3" => :el_capitan
+    sha256 "5c7c3e1686f06107ea12cffeffae30e22c63a199b1b36ba5a68dcfad812277b9" => :mojave
+    sha256 "65dd48aba3d3697283c608f46ec262cdf99bf1f08db2a599bb191962609dcd4b" => :high_sierra
+    sha256 "cb19d70deee081b876d7c004f0bea3d903a54897f5bc56cb5d3009faafc05659" => :sierra
   end
 
   depends_on "cmake" => :build
