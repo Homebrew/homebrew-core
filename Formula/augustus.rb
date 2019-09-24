@@ -1,8 +1,8 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "http://bioinf.uni-greifswald.de/augustus/"
-  url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.2.tar.gz"
-  sha256 "989a95fe3a83d62af4d323a9727d11b2c566adcf4d789d5d86d7b842d83e7671"
+  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
+  sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   bottle do
