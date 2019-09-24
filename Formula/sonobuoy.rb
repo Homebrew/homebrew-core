@@ -1,8 +1,8 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/heptio/sonobuoy"
-  url "https://github.com/heptio/sonobuoy/archive/v0.15.3.tar.gz"
-  sha256 "4b224f16f320dbd66994087e408597f4d3d9b685390def030112fae957e86168"
+  url "https://github.com/heptio/sonobuoy/archive/v0.15.4.tar.gz"
+  sha256 "2209477533c600e02c94d367feeb8bdb95e4c83251d072e1e471766552d6b648"
 
   bottle do
     cellar :any_skip_relocation
@@ -35,8 +35,10 @@ class Sonobuoy < Formula
     output = shell_output("#{bin}/sonobuoy 2>&1")
     assert_match "Sonobuoy is an introspective kubernetes component that generates reports on cluster conformance", output
     assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")
-    output = shell_output("#{bin}/sonobuoy gen --kube-conformance-image-version=v1.12 2>&1")
-    assert_match "name: heptio-sonobuoy", output
+
+    output = shell_output("#{bin}/sonobuoy gen --kube-conformance-image-version=v1.14 2>&1")
+    assert_match "name: sonobuoy", output
+
     output = shell_output("#{bin}/sonobuoy e2e --show=all " + resource("sonobuoyresults").cached_download + " 2>&1")
     assert_match "all tests", output
   end
