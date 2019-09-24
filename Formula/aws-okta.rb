@@ -1,8 +1,8 @@
 class AwsOkta < Formula
   desc "Authenticate with AWS using your Okta credentials"
   homepage "https://github.com/segmentio/aws-okta"
-  url "https://github.com/segmentio/aws-okta/archive/v0.23.2.tar.gz"
-  sha256 "65c88c95d2546a6766a742fa55987435153844f251de043097361da6cca3c16a"
+  url "https://github.com/segmentio/aws-okta/archive/v0.24.0.tar.gz"
+  sha256 "c7a60f5f8c20c88ab8dbcb4f3e1efe7615d7c8c118163b5728845885b3a4feb7"
 
   bottle do
     cellar :any_skip_relocation
