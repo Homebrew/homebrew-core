@@ -1,9 +1,8 @@
 class Wsk < Formula
   desc "OpenWhisk Command-Line Interface (CLI)"
   homepage "https://openwhisk.apache.org/"
-  url "https://github.com/apache/incubator-openwhisk-cli/archive/0.10.0-incubating.tar.gz"
-  version "0.10.0-incubating"
-  sha256 "0f0052ea85b10aea8902d4ccb9393fd523b96d5b2477b1c38d486366edc9535c"
+  url "https://github.com/apache/openwhisk-cli/archive/1.0.0.tar.gz"
+  sha256 "31e6fceaa3ae51be7b93d308eb0b68c891277f904c17cf6496e51062f1655332"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +17,7 @@ class Wsk < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/apache/incubator-openwhisk-cli"
+    dir = buildpath/"src/github.com/apache/openwhisk-cli"
     dir.install buildpath.children
     cd dir do
       system "go-bindata", "-pkg", "wski18n", "-o",
