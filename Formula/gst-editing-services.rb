@@ -1,9 +1,8 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.16.0.tar.xz"
-  sha256 "82a3faefb2b0d91e134fd02cddeee718b7846a07cbf0127fed7aa03e25495ad1"
-  revision 1
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.16.1.tar.xz"
+  sha256 "c884878f9e6ddac96e4f174654d12fe52e3d48eaaec27a80767c0d56cb2f6780"
 
   bottle do
     sha256 "5ebd13bc464225a29a9a0855eafdc3ef87afc60a159fcab3fa581da42d96128f" => :mojave
