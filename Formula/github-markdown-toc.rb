@@ -15,7 +15,6 @@ class GithubMarkdownToc < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     dir = buildpath/"src/github.com/ekalinin/github-markdown-toc.go"
     dir.install buildpath.children
     cd dir do
