@@ -17,7 +17,6 @@ class Circleci < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
     dir.install buildpath.children
