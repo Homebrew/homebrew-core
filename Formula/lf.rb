@@ -15,7 +15,6 @@ class Lf < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     ENV["version"] = version
     (buildpath/"src/github.com/gokcehan/lf").install buildpath.children
     cd "src/github.com/gokcehan/lf" do
