@@ -56,7 +56,6 @@ class Go < Formula
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/golang.org/x/tools").install resource("gotools")
     cd "src/golang.org/x/tools/cmd/godoc/" do
