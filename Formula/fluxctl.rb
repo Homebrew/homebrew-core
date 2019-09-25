@@ -16,7 +16,6 @@ class Fluxctl < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/weaveworks/flux"
     dir.install buildpath.children
