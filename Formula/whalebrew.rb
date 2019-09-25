@@ -16,7 +16,6 @@ class Whalebrew < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     system "go", "build", "-o", bin/"whalebrew", "."
   end
 
