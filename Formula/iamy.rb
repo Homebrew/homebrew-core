@@ -17,7 +17,6 @@ class Iamy < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     src = buildpath/"src/github.com/99designs/iamy"
     src.install buildpath.children
     src.cd do
