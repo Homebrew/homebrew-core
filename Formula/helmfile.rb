@@ -16,7 +16,6 @@ class Helmfile < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     (buildpath/"src/github.com/roboll/helmfile").install buildpath.children
     cd "src/github.com/roboll/helmfile" do
