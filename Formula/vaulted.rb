@@ -15,7 +15,6 @@ class Vaulted < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     system "go", "build", "-o", bin/"vaulted", "."
     man1.install Dir["doc/man/vaulted*.1"]
   end
