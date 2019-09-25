@@ -17,7 +17,6 @@ class Kustomize < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
 
