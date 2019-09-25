@@ -15,7 +15,6 @@ class Armor < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     armorpath = buildpath/"src/github.com/labstack/armor"
     armorpath.install buildpath.children
