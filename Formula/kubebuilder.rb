@@ -16,7 +16,6 @@ class Kubebuilder < Formula
   depends_on "go"
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/sigs.k8s.io/kubebuilder"
     dir.install buildpath.children - [buildpath/".brew_home"]
@@ -30,7 +29,6 @@ class Kubebuilder < Formula
   end
 
   test do
-    ENV["GO111MODULE"] = "on"
     system "#{bin}/kubebuilder", "init",
       "--repo=github.com/example/example-repo", "--domain=example.com",
       "--license=apache2", "--owner='The Example authors'", "--fetch-deps=false"
