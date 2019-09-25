@@ -17,7 +17,6 @@ class ProtocGenGo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "off"
     (buildpath/"src/github.com/golang/protobuf").install buildpath.children
     system "go", "install", "github.com/golang/protobuf/protoc-gen-go"
     bin.install buildpath/"bin/protoc-gen-go"
