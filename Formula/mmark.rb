@@ -20,7 +20,6 @@ class Mmark < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     (buildpath/"src/github.com/mmarkdown/mmark").install buildpath.children
     cd "src/github.com/mmarkdown/mmark" do
