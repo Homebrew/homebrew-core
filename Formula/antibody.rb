@@ -15,7 +15,6 @@ class Antibody < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/antibody/antibody"
     dir.install buildpath.children
