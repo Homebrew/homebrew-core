@@ -22,7 +22,6 @@ class Terraformer < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/GoogleCloudPlatform/terraformer"
     dir.install buildpath.children
