@@ -22,7 +22,6 @@ class OperatorSdk < Formula
     ENV["GOROOT"] = Formula["go"].opt_libexec
 
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/operator-framework/operator-sdk"
     dir.install buildpath.children - [buildpath/".brew_home"]
@@ -44,9 +43,6 @@ class OperatorSdk < Formula
   end
 
   test do
-    # Use go modules when generating an operator
-    ENV["GO111MODULE"] = "on"
-
     # Use the offical golang module cache to prevent network flakes and allow
     # this test to complete before timing out.
     ENV["GOPROXY"] = "https://proxy.golang.org"
