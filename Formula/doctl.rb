@@ -15,7 +15,6 @@ class Doctl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     doctl_version = version.to_s.split(/\./)
