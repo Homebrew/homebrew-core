@@ -5,10 +5,9 @@ class GstPluginsUgly < Formula
   sha256 "4bf913b2ca5195ac3b53b5e3ade2dc7c45d2258507552ddc850c5fa425968a1d"
 
   bottle do
-    rebuild 1
-    sha256 "d61a54c074e563f514f059689458d42929d6ffd19792d53cc1e02944dc4c9c86" => :mojave
-    sha256 "3fb3fe752386d5ac0aad12fdaaa7f28bba2637c32407a382fccc569cb03433ce" => :high_sierra
-    sha256 "800581491a681c457a5be6046c3d3d8965cfbbe93e74deccd8523a5381c85e06" => :sierra
+    sha256 "013482b8c2b286e9f97b61d6aed9a64f954f158d6b93f8cb7e054974a83b9b8a" => :mojave
+    sha256 "28c1bf0e8f8c83eec65d49ce829bb37c821c48f76c287aa6f3f19daba5e077eb" => :high_sierra
+    sha256 "35ad1217120377f824ba83b318e1bac892ff42529c514ae0eed3badd43a3c5e1" => :sierra
   end
 
   head do
