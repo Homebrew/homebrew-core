@@ -17,7 +17,6 @@ class Traefik < Formula
   depends_on "go-bindata" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containous/traefik").install buildpath.children
 
