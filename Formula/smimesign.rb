@@ -15,7 +15,6 @@ class Smimesign < Formula
   depends_on :macos => :sierra
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/github/smimesign").install buildpath.children
 
