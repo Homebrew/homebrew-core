@@ -14,7 +14,6 @@ class JfrogCliGo < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     src = buildpath/"src/github.com/jfrog/jfrog-cli-go"
