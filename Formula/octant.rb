@@ -19,7 +19,6 @@ class Octant < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     ENV["GOFLAGS"] = "-mod=vendor"
 
     dir = buildpath/"src/github.com/vmware/octant"
