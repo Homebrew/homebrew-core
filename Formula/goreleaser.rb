@@ -22,7 +22,6 @@ class Goreleaser < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/goreleaser/goreleaser"
     dir.install buildpath.children
