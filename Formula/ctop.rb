@@ -17,7 +17,6 @@ class Ctop < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     src = buildpath/"src/github.com/bcicen/ctop"
     src.install buildpath.children
     src.cd do
