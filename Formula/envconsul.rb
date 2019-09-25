@@ -16,7 +16,6 @@ class Envconsul < Formula
   depends_on "consul" => :test
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     dir = buildpath/"src/github.com/hashicorp/envconsul"
