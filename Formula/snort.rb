@@ -5,7 +5,6 @@ class Snort < Formula
   url "https://www.snort.org/downloads/snort/snort-2.9.14.1.tar.gz"
   sha256 "2472989da3aace000d1ea5931ece68f8e5cc0c511e272d65182113a2481e822d"
 
-
   bottle do
     cellar :any
     rebuild 1
