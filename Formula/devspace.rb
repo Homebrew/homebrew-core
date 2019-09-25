@@ -17,7 +17,6 @@ class Devspace < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/devspace-cloud/devspace"
     dir.install buildpath.children
