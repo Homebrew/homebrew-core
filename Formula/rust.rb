@@ -1,6 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz"
@@ -22,9 +23,9 @@ class Rust < Formula
 
   bottle do
     cellar :any
-    sha256 "dd5acd94eb02d76f5c28af69db79d1472810e7c3deff122d0b0ca1a5c42f8fda" => :mojave
-    sha256 "f0cf50148128940446a607ed5e880fa82003fc488d4c99dfd63d002876872e08" => :high_sierra
-    sha256 "a37576d2e8cb2696f8360ebceb49b5792654e22ae945d21e15fa403c3d6b7d3d" => :sierra
+    sha256 "2ad99aa268bf571c91105da674810e0680a3e76d418e10c03b54584b0be8de58" => :mojave
+    sha256 "4d6789db13ac445ed199666aed1fda37fc9f4aa9b82aa7ee2015a05a17b48552" => :high_sierra
+    sha256 "a377119eb42735fe2654d0be3ff931a4df487762be927ae9e68894522166128d" => :sierra
   end
 
   head do
@@ -41,7 +42,7 @@ class Rust < Formula
 
   depends_on "cmake" => :build
   depends_on "libssh2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkg-config"
 
   resource "cargobootstrap" do
@@ -57,7 +58,7 @@ class Rust < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     # Fix build failure for cmake v0.1.24 "error: internal compiler error:
     # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for

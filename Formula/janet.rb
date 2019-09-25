@@ -1,15 +1,15 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/v1.2.0.tar.gz"
-  sha256 "e824ee2da7dffab10bb7ce28917b57a82df82eebf713ad2bbb74ed7be36bd4f4"
+  url "https://github.com/janet-lang/janet/archive/v1.3.1.tar.gz"
+  sha256 "f14de9e2e1db5707e48a15f4262f4ce8c9ff99b2b3abc59ea6a1493d54bd4ed4"
   head "https://github.com/janet-lang/janet.git"
 
   bottle do
     cellar :any
-    sha256 "28e93cf80bead32ff813985048d2eb072e77ba22bc1580842bb33d2e12141673" => :mojave
-    sha256 "77664d1cab39143e70cf9ddecd9e6ffbd79ff7fc750226d4d3d6a291a8a7b47f" => :high_sierra
-    sha256 "ce350380ae23cab8bc40a9672d67bb0a52889faa11a57910c44edae4306e2847" => :sierra
+    sha256 "d31807cbba33a8b71b691ba3e4c40c937aa0a71a67964b167a6f6427416f1dd6" => :mojave
+    sha256 "289857d4a051e52bb8cb701baa611cd5265812828ef23c82dd27aadef6312f6a" => :high_sierra
+    sha256 "1d8d9e05632191158c25d3495c5ca5148239741b4d4e801c6964238c4d0e5ec6" => :sierra
   end
 
   depends_on "meson" => :build

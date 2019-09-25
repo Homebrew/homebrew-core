@@ -2,14 +2,14 @@ class Frpc < Formula
   desc "Client app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      :tag      => "v0.28.2",
-      :revision => "134a46c00b59a641dc89ab9265ea73d2d7aa6ff2"
+      :tag      => "v0.29.0",
+      :revision => "e62d9a52429f54dee8df1c42f2d4bad7a267b05d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa062db1085b9e11ebbdd4baf03ce7bef56d2168c2288423f4ae28f2ea1e8001" => :mojave
-    sha256 "31f8e5af275e4ab92edda4626b9de6f353130ccc5659b25a6426005dce67f3d4" => :high_sierra
-    sha256 "0eef7db9939953bbc54c10d146f91882a280016addea3b0f65d6a79de05dc809" => :sierra
+    sha256 "2ed284c0f7f2c864672071fec6995264b3057e4a77c310bf27216e10e34f6293" => :mojave
+    sha256 "6fa70559da5b933edb589755a0c07d33b8c6b6794737356b7a8e9f3dba89f9a8" => :high_sierra
+    sha256 "9130a28e18506a287e41c58b82e50f94fc6b706e2e2a94ed028ec0c17bb296b6" => :sierra
   end
 
   depends_on "go" => :build

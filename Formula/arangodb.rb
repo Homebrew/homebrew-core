@@ -1,20 +1,21 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.4.7.tar.gz"
-  sha256 "4775030dd0640a7f84256ac0403e63d6236cb59e5d3d42bfd36e4d9ba545524b"
+  url "https://download.arangodb.com/Source/ArangoDB-3.5.0.tar.gz"
+  sha256 "b81e30da4249f72b8daa88584cd05388c86ab12eb3185f6558a774e8db5dc9ab"
+  revision 1
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
-    sha256 "23ad200e20d181e21993d2f3721be8ea6c7c177289eeba407e7a784740a6ed3b" => :mojave
-    sha256 "5b919fd78d0115a35510b87fd4b652a2af71ba8704f42a29ba151201d6f5e61d" => :high_sierra
-    sha256 "545e7f811927874b6767132c933c05374147d40e78d7d7285b85706f12791ef3" => :sierra
+    sha256 "c5f3e3fbe5d695597bf20a95e8c2ffdb6e8b74bee6ef3fd7989555ac8f9d718b" => :mojave
+    sha256 "e8053c9157efe620fe7d2660993ac7f929a9a914e2a5bc758f52d5c80de9fe84" => :high_sierra
+    sha256 "431fb46ca96833c6c097b3e132a3210afb8bc954d2106a823099731733bcc220" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87665
   fails_with :gcc => "7"
@@ -24,7 +25,7 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "1e8c10c8669495a6996cc8063b9956f3e99127bc"
+      :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
   end
 
   def install
@@ -35,7 +36,7 @@ class Arangodb < Formula
       system "make", "deps"
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.5 -X main.projectBuild=#{commit}",
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.12 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
@@ -51,6 +52,7 @@ class Arangodb < Formula
         -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
+        -DUSE_JEMALLOC=Off
       ]
 
       if ENV.compiler == "gcc-6"

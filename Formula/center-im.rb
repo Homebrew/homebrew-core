@@ -6,14 +6,15 @@ class CenterIm < Formula
   revision 2
 
   bottle do
-    sha256 "5c14b19ccd64db831e4735cc9953c488508580eed3aa31cb9cf2c0a41500c0ed" => :mojave
-    sha256 "3049256c74134774c758b8280c6ddec473bf477aa814b3a7cd38eef2211564a3" => :high_sierra
-    sha256 "1971218f1e76b32626a79ce47046395e78024f500e7a20a52c15d9c2b399c3ac" => :sierra
+    rebuild 1
+    sha256 "42a8b8f09b9530139c5d9eaf7c83a435962c61631eea00a13bf70a670044c7a2" => :mojave
+    sha256 "9b40fc34ba5177765f01bdd821bec40377f44828421509491d90fb7a329ba400" => :high_sierra
+    sha256 "7e9f2db21d3ceec8ad7d3a59e5bf600d5d145aa0a88f676d803c1feea307f687" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Fix build with clang; 4.22.10 is an outdated release and 5.0 is a rewrite,
   # so this is not reported upstream
@@ -28,7 +29,7 @@ class CenterIm < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-msn",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
 
     # /bin/gawk does not exist on macOS

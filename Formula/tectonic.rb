@@ -3,14 +3,13 @@ class Tectonic < Formula
   homepage "https://tectonic-typesetting.github.io/"
   url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.11.tar.gz"
   sha256 "e700dc691dfd092adfe098b716992136343ddfac5eaabb1e8cfae4e63f8454c7"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "db042190cb7aa26b8a926f36310968960fbd01ed34700df6e5a4ac00bd26fd32" => :mojave
-    sha256 "1b35ff73005abc5627a4149d97b1259e7dcc222484bfc089fd8205d9efb9fb25" => :high_sierra
-    sha256 "53068153d241239bc41f6b8a667bf03ee2e723621fdbadc2d35f62f250919011" => :sierra
+    sha256 "9902c83484f4b8aa3b3fca5bc72cee473bbf0b9928ea8f3267943c18f15801f7" => :mojave
+    sha256 "003ba188e0a2b531726552ef85b9ace546fe0d7ce99a7f369f5377a97bb37186" => :high_sierra
+    sha256 "f6bee609fb6dc3433a5e9c28fec1fc575f6d9703e8c031fa439e5e9e1cb7f42a" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +19,7 @@ class Tectonic < Formula
   depends_on "harfbuzz"
   depends_on "icu4c"
   depends_on "libpng"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
@@ -28,7 +27,7 @@ class Tectonic < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
   end

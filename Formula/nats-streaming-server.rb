@@ -1,15 +1,15 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.16.0.tar.gz"
-  sha256 "e3221dc68673d20d1a43ceaa271b97dbd2f78e1f2816e87bf7bd8b684cb9eff9"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.16.2.tar.gz"
+  sha256 "af39a9269bba110dc61cfa1bf6114efdba79e88ecd31639be43e5ca724afdf58"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "37dc7461e5b5fb347548410e5ba2479bf6f89886d1f0b9c991784abb69f507a0" => :mojave
-    sha256 "722b081da815e0070adf00dab8b335f831b6180bda48f8929b42715b43841ec4" => :high_sierra
-    sha256 "f95b6fa842ec150353f613d07e2fdd7345e1eecdb5ad2ffdded5c05e8d150a00" => :sierra
+    sha256 "9f430d70010e052480bde5f073efe69b828da2ca1411aaa2a0f813bf7398bcdd" => :mojave
+    sha256 "4acdd612b1d990dd4f91deb2a157d768678d84fe2da844151c9df00df76722a2" => :high_sierra
+    sha256 "cccd977ede44ad42685bcd359d7937dc87bb114f1e41d203cdfdd728d15750fe" => :sierra
   end
 
   depends_on "go" => :build

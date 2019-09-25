@@ -1,15 +1,15 @@
 class Datamash < Formula
   desc "Tool to perform numerical, textual & statistical operations"
   homepage "https://www.gnu.org/software/datamash"
-  url "https://ftp.gnu.org/gnu/datamash/datamash-1.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.4.tar.gz"
-  sha256 "fa44dd2d5456bcb94ef49dfc6cfe62c83fd53ac435119a85d34e6812f6e6472a"
+  url "https://ftp.gnu.org/gnu/datamash/datamash-1.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/datamash/datamash-1.5.tar.gz"
+  sha256 "226249d5fe54024f96404798778f45963a3041714229d4225cd5d9acdaba21ad"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6df5d507e7486fd57449ff0a7c53fe7dda265c27ffbc3becef14fc7ecb5b0a2" => :mojave
-    sha256 "10bf8d835e2cc4401875db546d0336563f259fb9fc5cae86e58d91ede2cff943" => :high_sierra
-    sha256 "35bf3994eb36de7e6f7c9e7010322c58aeb44e42676060c5b28d92f97789dfab" => :sierra
+    sha256 "d98153d8fa86c50c12ad70c039ed1ab47ca23d8c2753ce1a4c3ffc4181456505" => :mojave
+    sha256 "e1f5e1d8108457c23975a13ad65e4e2bff0d4df29009ffc403d69ae70f905a81" => :high_sierra
+    sha256 "a99606bdfa15ba2c30a266aca1de086b2c15a470e4cdb1c9a8eb6ba4e978c738" => :sierra
   end
 
   head do

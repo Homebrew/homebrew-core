@@ -3,7 +3,6 @@ class Nudoku < Formula
   homepage "https://jubalh.github.io/nudoku/"
   url "https://github.com/jubalh/nudoku/archive/1.0.0.tar.gz"
   sha256 "80fb9996c28642920951c20cfd5ca6e370d75240255bc6f11067ae68b6e44eca"
-  head "https://github.com/jubalh/nudoku.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +10,12 @@ class Nudoku < Formula
     sha256 "b6a14adadee0fb01f92397a5fdc31189492468e3d87875bed408ca41824d09b4" => :high_sierra
     sha256 "d4cea1e1c0f97655feb301910aa70c65a223959ba39a8493f31ca1a614eec175" => :sierra
     sha256 "8f4cd53a9cd87ac8b9b1b48a986329708134608e3ff4423e8f449e1a6c81d6f1" => :el_capitan
+  end
+
+  head do
+    url "https://github.com/jubalh/nudoku.git"
+
+    depends_on "gettext" => :build
   end
 
   depends_on "autoconf" => :build

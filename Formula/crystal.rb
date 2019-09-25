@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.30.1.tar.gz"
-    sha256 "0ffc00fa54929c2533bc0bcb89e0b001dd3abc470ccc87e3576047a5cdafc062"
+    url "https://github.com/crystal-lang/crystal/archive/0.31.0.tar.gz"
+    sha256 "483ffcdce30b98f89b8c6cf6e48c62652cd0450205f609e04721a37997c32486"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "3e6d1c482c1d4128b7298e63219ae1ea311d4575c3f0f6791b44e60ce7f7d2d6" => :mojave
-    sha256 "3a2a303378a72dccc017092c6aed04de81b3f8bf56b654b568f9e2fa56c16a7a" => :high_sierra
-    sha256 "b810c431c44ab0ca75af43d461ed21706065eac5c2a9ab95ff491a745db0e464" => :sierra
+    sha256 "0985bc1dbfecf3397c9e23d944517cd4b173431a55f832e3007378cf0fe58d70" => :mojave
+    sha256 "2a47675643701fc315d2078cc29505525e4162369bfb5bd02873e10e207c0248" => :high_sierra
+    sha256 "2ebd7647bf64cf7bcb91ede465a09479cefd5d0192d676284bcb5d0632a33dcd" => :sierra
   end
 
   head do
@@ -51,9 +51,9 @@ class Crystal < Formula
   end
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.29.0/crystal-0.29.0-1-darwin-x86_64.tar.gz"
-    version "0.29.0-1"
-    sha256 "6de700d88dc0486c0d56e4d5c6852dc675256aa6f2c571ed8e4b15e0fc72a0b9"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-darwin-x86_64.tar.gz"
+    version "0.30.1-1"
+    sha256 "ffc3ee9124367a2dcd76f9b4c2bf8df083ba8fce506aaf0e3c6bfad738257adc"
   end
 
   def install

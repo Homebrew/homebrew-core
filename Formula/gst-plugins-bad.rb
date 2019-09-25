@@ -3,12 +3,13 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz"
   sha256 "22139de35626ada6090bdfa3423b27b7fc15a0198331d25c95e6b12cb1072b05"
-  revision 2
+  revision 4
 
   bottle do
-    sha256 "4fbc64ef9c2971f113d0eebe1b71c2486177809bfd9bb6bc643c6506a0f00685" => :mojave
-    sha256 "500abc96426a01fea66df85a2654e11101b63719f137a62beead873200fafb15" => :high_sierra
-    sha256 "bfb30eca3d04c91d48f182b486b2a7a0ce716698230216c08f409f3d8a0cf4b0" => :sierra
+    rebuild 2
+    sha256 "29dacf9790bace3224f8d61bedf9d96b6ce81f7a120d259d549e8a7115030999" => :mojave
+    sha256 "7113e11a3fcafb67a01958fb53e974062058aa1fc1a4cdf04d8884fde74bb56d" => :high_sierra
+    sha256 "a6589f358aa43f67d2e5839b3c54a0c4c5ffd3eaa50bbf737328356490c93980" => :sierra
   end
 
   head do
@@ -28,9 +29,10 @@ class GstPluginsBad < Formula
   depends_on "jpeg"
   depends_on "libmms"
   depends_on "libnice"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "opus"
   depends_on "orc"
+  depends_on "rtmpdump"
   depends_on "srtp"
 
   def install

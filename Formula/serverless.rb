@@ -3,14 +3,14 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://serverless.com"
-  url "https://github.com/serverless/serverless/archive/v1.50.0.tar.gz"
-  sha256 "6cfb0cb9e61f8c7f6b8fcab9ac8e94f9cac82f6438fc05f1b978b5b25f8af75c"
+  url "https://github.com/serverless/serverless/archive/v1.52.2.tar.gz"
+  sha256 "7f08b4f48421a40f43535c1656d78a5776fdc5aecb9f6395ce639ea9ecc9d9c6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b040bef663ea655345552d1bc179ec36422a0bbd07b19e7bb41eef4039e025ab" => :mojave
-    sha256 "592767e884692dc326bd0464c051c2d934364e6a956b5d2c8ab86542d7f566c8" => :high_sierra
-    sha256 "3e0f8cc07b0d99466d45266fcfc2840ca4d6315b9c8d9503bb79f17fe51e850e" => :sierra
+    sha256 "62bf07cef000c84557e8cd9b7daa51ae086880dc07d2478c6ec36b62bd82a6fd" => :mojave
+    sha256 "1d3cc177af94eb5cb6053440e6d9de073a1b3b04913969d62cd8f5308eca04e4" => :high_sierra
+    sha256 "36be924ec5e3bf097710c539abdc372092d4595d11d4b0cbc76e8730248c14e1" => :sierra
   end
 
   depends_on "node"

@@ -1,12 +1,13 @@
 class SshAudit < Formula
   desc "SSH server auditing"
-  homepage "https://github.com/arthepsy/ssh-audit"
-  url "https://github.com/arthepsy/ssh-audit/archive/v1.7.0.tar.gz"
-  sha256 "cba29cc19ec2932e4f43c720b2c49a7d179219e23482476aeb472f7463713b68"
-  revision 1
-  head "https://github.com/arthepsy/ssh-audit.git"
+  homepage "https://github.com/jtesta/ssh-audit"
+  url "https://github.com/jtesta/ssh-audit/releases/download/v2.0.0/ssh-audit-v2.0.0.tar.gz"
+  sha256 "9ae7db82c343fc2d3af20994e750fbe69da8bed7ecde14e3fd8607d23b758c75"
+  head "https://github.com/jtesta/ssh-audit.git"
 
   bottle :unneeded
+
+  depends_on "python"
 
   def install
     bin.install "ssh-audit.py" => "ssh-audit"

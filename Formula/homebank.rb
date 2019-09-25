@@ -1,13 +1,13 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.2.7.tar.gz"
-  sha256 "8eedbe4246477935bd3882c1a628d7fd6036f6467be998c2558bdf4b39b0eb5f"
+  url "http://homebank.free.fr/public/homebank-5.2.8.tar.gz"
+  sha256 "fe98a3585a23ed66695a96b9162dbf1872f4fd78c01471019b60786476bc558d"
 
   bottle do
-    sha256 "7235b69f24196c27772a251da502207f92861b16df5baa35bdac5844f5799f40" => :mojave
-    sha256 "0338cfd9bc1ba58e7d5a41bc70366c436c45d9a7c63249b6775a8feb0a5bbc6a" => :high_sierra
-    sha256 "f813a76ef9f5d030b04f27b5dc00b3028d5d8cf265e7589569911e2f23ac840c" => :sierra
+    sha256 "720811ca34532edca14d9f57ac96743c96ea437f322badba59f34f21995f8743" => :mojave
+    sha256 "00508ac30105e87b4710aa394348a0b7404bcd0806e1c421472df9a4be3baff2" => :high_sierra
+    sha256 "645c65fca78a4e3f2818a79ca450b833901f00e8b142d7a709f2a3ffb1d88791" => :sierra
   end
 
   depends_on "intltool" => :build

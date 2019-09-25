@@ -3,13 +3,13 @@ class Libgnomecanvasmm < Formula
   homepage "https://launchpad.net/libgnomecanvasmm"
   url "https://download.gnome.org/sources/libgnomecanvasmm/2.26/libgnomecanvasmm-2.26.0.tar.bz2"
   sha256 "996577f97f459a574919e15ba7fee6af8cda38a87a98289e9a4f54752d83e918"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "88c00468cdc18236468e2d401caeff8df465f33ae4013380f06c9a1c01902d68" => :mojave
-    sha256 "c9eb2ed414ca840daf04c39026c174ed0b7355fee682a82ffbdccd1f691e9695" => :high_sierra
-    sha256 "0dd4edd12b1d966b6432fd44d9ce06de008b2d71070592fcc16ad83919257bee" => :sierra
+    sha256 "cbb72a9f16194a63a21980edb7eb4c770a72ca4774a82c1e25b3ac2beecc99f5" => :mojave
+    sha256 "cf11cecd2caa375fe050597099fd572725ef154b33d9e9756f129d8b2085fa62" => :high_sierra
+    sha256 "91af30097a9c61e83ff6ce5f1bf6a689a15614d807c498717d9c74bba82361ea" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -47,7 +47,7 @@ class Libgnomecanvasmm < Formula
     libart = Formula["libart"]
     libgnomecanvas = Formula["libgnomecanvas"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]

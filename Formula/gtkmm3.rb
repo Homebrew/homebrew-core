@@ -3,14 +3,13 @@ class Gtkmm3 < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz"
   sha256 "ddfe42ed2458a20a34de252854bcf4b52d3f0c671c045f56b42aa27c7542d2fd"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "409f78d7839955440528daa58d4468745ed82ecfb14b5a6e03aeabe3855fdf37" => :mojave
-    sha256 "9e352e1867a3e138341d8079f7e291d78f17078bc2c577d0e46f0dd86083f9c7" => :high_sierra
-    sha256 "a27610e8384cb69e401e582934b63810c4aef60940e689a27fbc7c3652ef26d8" => :sierra
+    sha256 "f77e0cdb78cbe61bf8cf72f3de4f5ce4e880c90e1a4a902f7cccc89ebf12eaf6" => :mojave
+    sha256 "ecd9c5f37110f83b2cc2dc210682ec67664d17844e39849bf9208da03fdf59c6" => :high_sierra
+    sha256 "249def5e5b740cd7287fc29540b3323282ff9ea48da125354053d81d875ca97e" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -49,7 +48,7 @@ class Gtkmm3 < Formula
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]

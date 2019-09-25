@@ -5,12 +5,12 @@ class Openssh < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz"
   version "8.0p1"
   sha256 "bd943879e69498e8031eb6b7f44d08cdc37d59a7ab689aa0b437320c3481fd68"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "d2333b9e917101b03d970338ab7c620903be966f5c7b5a6a6b97e1848cf3ba0b" => :mojave
-    sha256 "bd09879e5cc55acd89a0603f90db1ebd5a21a4f39bff61032a7fba611e1a7f83" => :high_sierra
-    sha256 "cd1da9859d89fefc15be75371acce4ed780d44652a2747ca3e6dc87bcbcc953f" => :sierra
+    sha256 "0b7cd9be11683b47e0274c9409f0378c8d24b2c5e668a45f84f9f79d5e115e4e" => :mojave
+    sha256 "039f3ec0c77a782856680181e0cb34733bfe3b1cede8b24e6194bd1696c457b7" => :high_sierra
+    sha256 "a5d5795b777a608d13905fc443b5c526f1a0b3368e6e1d5f98fa7380ef26e701" => :sierra
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -18,7 +18,7 @@ class Openssh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ldns"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-209.50.1/com.openssh.sshd.sb"
@@ -50,7 +50,7 @@ class Openssh < Formula
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{Formula["openssl"].opt_prefix}
+      --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args

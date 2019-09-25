@@ -16,7 +16,7 @@ class BzrFastimport < Formula
   end
 
   depends_on "bazaar"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "python-fastimport" do
     url "https://launchpad.net/python-fastimport/trunk/0.9.2/+download/python-fastimport-0.9.2.tar.gz"

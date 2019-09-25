@@ -3,12 +3,13 @@ class Thrift < Formula
   homepage "https://thrift.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.12.0/thrift-0.12.0.tar.gz"
   sha256 "c336099532b765a6815173f62df0ed897528a9d551837d627c1f87fadad90428"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "84321af08a88b55fb203083d5653cf2daf7815dbaa3093deb38af952c65e749b" => :mojave
-    sha256 "51a0d9888ed9ca351ad0668632f0ec920c7509bfb9fa7bca5e0f446fbf3358a2" => :high_sierra
-    sha256 "3a04020ea21057e390d0abba6e78a1396e78a0b1d415dde61acb456d3833055f" => :sierra
+    sha256 "ead278adf991ed6056b97806f5a7815f76340492d00b39801c863e907826a2ec" => :mojave
+    sha256 "f2a1fcbee158d5478f786a1ff7667c65061e15f8a0ebecdbc69e748c184cc8ef" => :high_sierra
+    sha256 "3b554722d5011a8aa1906046d4d65b3482a121baf36c737aca4de1d270171e42" => :sierra
   end
 
   head do
@@ -22,7 +23,7 @@ class Thrift < Formula
 
   depends_on "bison" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap.sh" unless build.stable?
@@ -32,7 +33,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-erlang
       --without-haskell
       --without-java

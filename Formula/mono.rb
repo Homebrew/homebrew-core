@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-6.0.0.319.tar.xz"
-  sha256 "6b4c80b88bf7688178797bfecc681e3dbc4c6810413c97d6f3c476061a8d261a"
+  url "https://download.mono-project.com/sources/mono/mono-6.0.0.334.tar.xz"
+  sha256 "7b54157578f578487ee6c056c6f1802be8f567d9de39fcd66c0adb892936fe6b"
 
   bottle do
-    sha256 "827625acd51ffa917590a201af22792e97349020a2d4a0f1e7c5079d8df7a09b" => :mojave
-    sha256 "3e37aef77afd05f9f4746ea6fa7416ffb91a97d096e4f460b8c3f8c0c3c97422" => :high_sierra
-    sha256 "84bb8d28194e1f271ea7f546c758c3eb61a50a9c686c2ee692a596d3d4d887a8" => :sierra
+    sha256 "bd7f98336bd8c30282696b0fde575672c15a8a807e3bc58201e2b31913b37502" => :mojave
+    sha256 "51781e59988b452db410855477fce7d5125b9642eb9671b3e9004002ef6f3727" => :high_sierra
+    sha256 "d5ed2baddd0b3599b1c2d943824d588148634e1c858f6c5cb673a828d388e2c9" => :sierra
   end
 
   depends_on "cmake" => :build

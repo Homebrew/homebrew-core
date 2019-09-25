@@ -2,19 +2,19 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.15.0",
-    :revision => "58f0e9b9b1b53ca486ef38ae662b98cbde839248"
+    :tag      => "v0.18.0",
+    :revision => "7e3296dad92cee2e8b77baedfbeca38aa297928e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea41466b5e1472ad47eb3b6feb91453ff923b7a0d79b55dc93412514c677fbaa" => :mojave
-    sha256 "2ce2e8d758fb93715a904dc9170f56b98949b7d03cc3c273925499979922c576" => :high_sierra
-    sha256 "73aed6aab2ddc5b6f8f50a81ad312efe677dd52731ab1820382c53ddf7b6f9da" => :sierra
+    sha256 "da632790017b854b83979e669540a9838f2e6fc90a774f8949cdad7ac1c58252" => :mojave
+    sha256 "29e0d32f4cdd1eccedbf99c1d34e32a122bbf52bd1fe26117b36828914e5446d" => :high_sierra
+    sha256 "f4342bd032162474583c14caf29f0cb9fd72bc62059604397b3fb362c999ce38" => :sierra
   end
 
   depends_on "llvm" => :build
   depends_on "ninja" => :build
-  depends_on "node" => :build
   depends_on "rust" => :build
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
@@ -22,7 +22,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "81ee1967d3fcbc829bac1c005c3da59739c88df9"
+      :revision => "972ed755f8e6d31cae9ba15fcd08136ae1a7886f"
   end
 
   def install
@@ -34,19 +34,23 @@ class Deno < Formula
     end
 
     # env args for building a release build with our clang, ninja and gn
-    ENV["DENO_BUILD_MODE"] = "release"
+    ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
+    # workaround to add back support for Sierra in v8 7.9
+    ENV["FORCE_MAC_SDK_MIN"] = "10.12"
+    # remove treat_warnings_as_errors with llvm@9
     ENV["DENO_BUILD_ARGS"] = %W[
       clang_base_path="#{Formula["llvm"].prefix}"
       clang_use_chrome_plugins=false
       mac_deployment_target="#{MacOS.version}"
+      treat_warnings_as_errors=false
     ].join(" ")
-    ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
+    # link against system libc++ instead of the one from llvm (avoiding a runtime dep here)
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
-    system "python", "tools/setup.py", "--no-binary-download"
-    system "python", "tools/build.py", "--release"
-
-    bin.install "target/release/deno"
+    cd "cli" do
+      system "cargo", "install", "-vv", "--root", prefix, "--path", "."
+    end
 
     # Install bash and zsh completion
     output = Utils.popen_read("#{bin}/deno completions bash")

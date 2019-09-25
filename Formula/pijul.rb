@@ -3,6 +3,7 @@ class Pijul < Formula
   homepage "https://pijul.org"
   url "https://pijul.org/releases/pijul-0.12.0.tar.gz"
   sha256 "987820fa2a6fe92a9f516f5e9b41ad59a597973e72cb0c7a44ca0f38e741a7e6"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,12 +16,12 @@ class Pijul < Formula
   depends_on "rust" => :build
   depends_on "libsodium"
   depends_on "nettle"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     cd "pijul" do
       system "cargo", "install", "--root", prefix, "--path", "."

@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.10.tar.xz"
-  sha256 "35a8f107e2b90fda217f014c0c15cb20a6a66678f6fd7e36556d469372c01b03"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.11.tar.xz"
+  sha256 "dba7658d0a2e1bfad8260f5210ca02988f233d1d86edacb95eceed7eca982895"
 
   bottle do
-    rebuild 1
-    sha256 "be7b0bfd6eaa422782f917cd04da0597ce78ad641f308b81a83d40bf2f84525b" => :mojave
-    sha256 "314cad88a39d23cfeeabdb88719270212670241a039b43f878a0da8cfbc39509" => :high_sierra
-    sha256 "25e799864b304a77d88794a1498568960386e5b0d69522638cf5984453b1b95a" => :sierra
+    sha256 "c2c7fcdc5d8be7691a66cd17ed88589f5d8c2fc17e6c5c119fd78f54dc57e8fd" => :mojave
+    sha256 "7e1a7ce05294c6eaecdceb457169fe09f6821061efd9d6dd18879516876b8acf" => :high_sierra
+    sha256 "680b254667a32e784ce478d0f79d8044974a5bacf1fc08b7cc5eb82325c9fade" => :sierra
   end
 
   depends_on "docbook" => :build
@@ -24,9 +23,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
-
-  # submitted upstream as https://gitlab.gnome.org/GNOME/gtk/merge_requests/983
-  patch :DATA
 
   def install
     args = %W[
@@ -122,28 +118,3 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/libgail-util/meson.build b/libgail-util/meson.build
-index 90fe93c..82c8aa1 100644
---- a/libgail-util/meson.build
-+++ b/libgail-util/meson.build
-@@ -28,4 +28,5 @@ libgailutil = shared_library('gailutil-3',
-                                '-DGTK_DISABLE_DEPRECATED',
-                              ] + common_cflags,
-                              link_args: gailutil_link_args,
-+                             darwin_versions: ['1', '1.0'],
-                              install: true)
-diff --git a/meson.build b/meson.build
-index c6f43d5..0f818ee 100644
---- a/meson.build
-+++ b/meson.build
-@@ -121,7 +121,8 @@ else
-   gail_library_version = '0.0.0'
- endif
-
--gtk_osxversions = [(100 * gtk_minor_version) + 1, '@0@.@1@.0'.format((100 * gtk_minor_version) + 1, gtk_micro_version)]
-+osx_current = gtk_binary_age - gtk_interface_age + 1
-+gtk_osxversions = [osx_current, '@0@.@1@.0'.format(osx_current, gtk_interface_age)]
-
- gtk_api_version = '@0@.0'.format(gtk_major_version)

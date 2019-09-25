@@ -3,14 +3,13 @@ class Libglademm < Formula
   homepage "https://gnome.org"
   url "https://download.gnome.org/sources/libglademm/2.6/libglademm-2.6.7.tar.bz2"
   sha256 "38543c15acf727434341cc08c2b003d24f36abc22380937707fc2c5c687a2bc3"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "de2c231f5f9eedfda11ba24decf249ccc5eb49247eb9ade7ceb9f4c36bac299d" => :mojave
-    sha256 "faed1572be2da3f2da0b160b7e7d467cb0bff4023fc283eaa9e6e11c51298d48" => :high_sierra
-    sha256 "70dc2b00a8ad92fbb307e584ede97c8f4515af198a8dcee10b3a2b4a7d992def" => :sierra
+    sha256 "7198c6996d64bbe6a06380c23d010f0c9a949e3220c8a3dcb785fba0ceb22c33" => :mojave
+    sha256 "4daab6726178c96ac56452716422004dd4fcdfbaef22b85d99f9ddc317c88ea1" => :high_sierra
+    sha256 "6f7c8cbd127f333df690910aa8aa3561989679719bebbfb9d1d4c41a9821d57c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -53,7 +52,7 @@ class Libglademm < Formula
     harfbuzz = Formula["harfbuzz"]
     libglade = Formula["libglade"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]

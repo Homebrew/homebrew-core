@@ -1,22 +1,16 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_45_RTM/src/nss-3.45.tar.gz"
-  sha256 "112f05223d1fde902c170966bfc6f011b24a838be16969b110ecf2bb7bc24e8b"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_46_RTM/src/nss-3.46.tar.gz"
+  sha256 "6b699649d285602ba258a4b0957cb841eafc94eff5735a9da8da0adbb9a10cef"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d7550e6473e4f4eddb358f50946d924a808bcfb073d91a096a43ba88df653013" => :mojave
-    sha256 "eaca757302d6a7a40327b9c6bf7d1b214cfc1fece19e11d4e3720c9bb8513ee0" => :high_sierra
-    sha256 "ff15bcaf5979efba4828c2f58a708823fcca426a59cb70f8c38d233c1cfd05bd" => :sierra
+    sha256 "d695d9640c058b292d1d109345d840f51ea6c18f894500750178e8c0f8c27264" => :mojave
+    sha256 "5bdba8a61eb2e7899e50070372367357a52868ba91d13a1797235994142bdb45" => :high_sierra
+    sha256 "a9102f547a4bc47346caa3b598e626f951d4bc71f8c3f2eb4b3116ac151fc341" => :sierra
   end
-
-  keg_only <<~EOS
-    Firefox can pick this up instead of the built-in library, resulting in
-    random crashes without meaningful explanation.
-
-    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details
-  EOS
 
   depends_on "nspr"
 
