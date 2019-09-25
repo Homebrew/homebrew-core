@@ -15,7 +15,6 @@ class Wtfutil < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     ENV["GOPROXY"] = "https://gocenter.io"
 
