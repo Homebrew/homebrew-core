@@ -22,7 +22,6 @@ class Dive < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/wagoodman/dive"
     dir.install buildpath.children
