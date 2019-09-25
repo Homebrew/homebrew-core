@@ -15,7 +15,6 @@ class Aurora < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     aurorapath = buildpath/"src/github.com/xuri/aurora"
     aurorapath.install buildpath.children
