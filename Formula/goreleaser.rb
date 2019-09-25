@@ -2,17 +2,23 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.115.0",
-      :revision => "23e275e94686de62e4444cc34f087255656be1e2"
+      :tag      => "v0.118.1",
+      :revision => "eb1a122199bc2917ffa21bb8a41f38485a14824e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "01ffb4749db95719cfad5e852367b419e38db1761ad5e246cab0e7e84efcb882" => :mojave
-    sha256 "9f51e78e69f69dac9069c7862f96c46fd6d02c1c7798add9cbd639f4efaeb8de" => :high_sierra
-    sha256 "dda37d8ad35ce196fb67d5aadcde1b5c60c499ddaf2b736e03171cd2b3355fcc" => :sierra
+    sha256 "5d0658cef5938131e7518fca46711a8f45c9c96f669772ee293360d7f2f038a8" => :mojave
+    sha256 "a916f6eed95efd14d22e2545390228145466bc6a00c5357d6f26d72dbe286492" => :high_sierra
+    sha256 "10dd4c19547ab2f8936f744033a42234f8d06f8315d3daaf6bf1b4182659011f" => :sierra
   end
 
   depends_on "go" => :build
+
+  # Should be removed in the next release
+  patch do
+    url "https://github.com/goreleaser/goreleaser/pull/1154.patch?full_index=1"
+    sha256 "a68a0c56938136b419e13138a91e008d30be90195e2fcef4b9337637b50f56bf"
+  end
 
   def install
     ENV["GOPATH"] = buildpath

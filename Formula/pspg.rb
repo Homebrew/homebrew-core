@@ -1,15 +1,15 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/1.6.8.tar.gz"
-  sha256 "f2488ec0b600752a4896fe50ce8e5bde08e0e79af38fd86b7935cdb1240e2c9f"
+  url "https://github.com/okbob/pspg/archive/2.0.3.tar.gz"
+  sha256 "7378e342c72670c1c3b70bf2ed3c8ae49407c7e77926b37b4a65c31cc1d5c248"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
     cellar :any
-    sha256 "4a83a7740eaa0f2ed066f433c602e15b59987d7d97accf3606a2ac622c04cc19" => :mojave
-    sha256 "f17fcd5fe499357203143ea2648f0f297d2216c193d4caf6ead6851ace54811e" => :high_sierra
-    sha256 "5ef975b422421e2c840242531d4395a2b6ed531a742b68b01da8b37d9849cc39" => :sierra
+    sha256 "9135882d539c94520b999e8f7f1d34bbcbb938f95f11b2e3ca4dac52fbb888df" => :mojave
+    sha256 "2ea8ab2c662ba3da129431912dbdbe57b68b698107477c6d17a333662445a993" => :high_sierra
+    sha256 "a2697cf16b13c7623af2c3c54c8c7f61d8f9e8585e801b51076e555080c8921c" => :sierra
   end
 
   depends_on "ncurses"

@@ -3,14 +3,14 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/c6/a3/43c6cc37584d055e81d86c67239bbbc9d54e5fce3bef345185ab925171ef/platformio-4.0.0.tar.gz"
-  sha256 "d37a4022349e1d2eb7babe94fbc62b196b87e94eb43785304f365d06bb74c195"
+  url "https://files.pythonhosted.org/packages/5d/59/2ba54e3f2ae8435997acbd0d0ff31993a7041a8b11515e0b5cc846a71ca4/platformio-4.0.3.tar.gz"
+  sha256 "0b19569d18d4098880b651c06dbf2ef23411a3d6c3da36a2b5950fe871523b50"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a17e5018ca6eeddd55a66205f9880d8d709669622bc64f0c493a0568242f2b9c" => :mojave
-    sha256 "c438da22f342950cbd8f9ffe9b847909a56b21ade49bf4a8c48437c8d4847cd0" => :high_sierra
-    sha256 "9f1e8bd1a22b5c51f69a9c47ffc2eba510e46dcd038a6a30216de24e9bf72706" => :sierra
+    sha256 "6677f58d58d4b35881e5276f28e6f6cba00cb24023ff3030ced307b160df936f" => :mojave
+    sha256 "2002d274935ccc1a9ea748ec3111157a8021f61352bf8624c201c8c3324fc0a0" => :high_sierra
+    sha256 "a05065a61b9dfb6f8f96c857b5a6c31c3e056b9e0b10c7f060ca6ac2414c1d2e" => :sierra
   end
 
   depends_on "python"
@@ -55,9 +55,14 @@ class Platformio < Formula
     sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
-  resource "semantic_version" do
-    url "https://files.pythonhosted.org/packages/72/83/f76958017f3094b072d8e3a72d25c3ed65f754cc607fdb6a7b33d84ab1d5/semantic_version-2.6.0.tar.gz"
-    sha256 "2a4328680073e9b243667b201119772aefc5fc63ae32398d6afafff07c4f54c0"
+  resource "semantic-version" do
+    url "https://files.pythonhosted.org/packages/68/69/99b0fcc0b9107339760090a0cfa4f7ca36b72cba0854a56c88cc71c40111/semantic_version-2.8.1.tar.gz"
+    sha256 "192d4c0fce55643e05af0e49ca47d06608acf2dac2145bb26339fce16abfd6d2"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/c2/fd/202954b3f0eb896c53b7b6f07390851b1fd2ca84aa95880d7ae4f434c4ac/tabulate-0.8.3.tar.gz"
+    sha256 "8af07a39377cee1103a5c8b3330a421c2d99b9141e9cc5ddd2e3263fea416943"
   end
 
   resource "urllib3" do

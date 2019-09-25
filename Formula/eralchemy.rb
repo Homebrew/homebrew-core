@@ -5,18 +5,18 @@ class Eralchemy < Formula
   homepage "https://github.com/Alexis-benoist/eralchemy"
   url "https://files.pythonhosted.org/packages/87/40/07b58c29406ad9cc8747e567e3e37dd74c0a8756130ad8fd3a4d71c796e3/ERAlchemy-1.2.10.tar.gz"
   sha256 "be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "320e7effb4ad462af7bf6a0e2d64268a0b4b70fde13a790acba135f9c5d84cb6" => :mojave
-    sha256 "621719b08e3abedd44a67d7b95b3ea4bab6640d5fb0ca8c00cf6df0cf3e09d39" => :high_sierra
-    sha256 "fa18d8b468d21350b688e44afd453a0af15d62eeb763009ea31c0b0473ac75e8" => :sierra
+    sha256 "7a0b31108c3a7efe0f8662168d178869e2b4e5f0bfe4913c04d8b9f04558b258" => :mojave
+    sha256 "ce898fdfe7beabeaaaad38459168d3de64ccaca1980bd37936e354efdd24e02c" => :high_sierra
+    sha256 "14a0226d77bdadcdfb8b39166e697b4647a43ba819893ceb0cb590e3b405626a" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "graphviz"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "pygraphviz" do

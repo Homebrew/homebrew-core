@@ -1,14 +1,14 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "https://github.com/axboe/fio"
-  url "https://github.com/axboe/fio/archive/fio-3.15.tar.gz"
-  sha256 "c0c0e40e770abcd5ab013af4bd8b16dfa83645145871063939db2a14270e2545"
+  url "https://github.com/axboe/fio/archive/fio-3.16.tar.gz"
+  sha256 "c7731a9e831581bab7104da9ea60c9f44e594438dbe95dff26726ca0285e7b93"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1116adcef2bd9c6d6b34411204869d22a32d9b1345cc057d7bcddda25a5fcb95" => :mojave
-    sha256 "4ef16a70bb44172f46b13b0238401b397514b612ab093049ca2160efd84973f1" => :high_sierra
-    sha256 "d8deeeb178958d1811c15b1263553de705e14943c311aa673fb337bf8787c9b7" => :sierra
+    sha256 "6d184581dc68669bc1fcf2b6436d5d856bf50bcdf95b6a058467ec6e2dfd61a2" => :mojave
+    sha256 "9d1f05f9bc6a04d81a88c05284344250e21446679243d5c9fccfcd4d51f85002" => :high_sierra
+    sha256 "e41a6a72db927e9952d7025f1a64d8b5678a3f1d283570207110c1ddd766d467" => :sierra
   end
 
   def install

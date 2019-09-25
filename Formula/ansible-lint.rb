@@ -5,17 +5,18 @@ class AnsibleLint < Formula
   homepage "https://github.com/ansible/ansible-lint/"
   url "https://files.pythonhosted.org/packages/e6/16/31f3244635b37474bbff4ac88afc916cfc24baf44766f8bcc8deeede187c/ansible-lint-4.1.0.tar.gz"
   sha256 "9430ea6e654ba4bf5b9c6921efc040f46cda9c4fd2896a99ff71d21037bcb123"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "dce161a12378bc4547475713949d944db73205d09a92c872a287f2c2ebde8c2a" => :mojave
-    sha256 "535f98f3d0893a7b90f1c2d162044e50ab622816c25fd8302dc980d04d593938" => :high_sierra
-    sha256 "b7ab3ba6c038900a46ad6698e65984e855a9d5b824e916e2c7df36f4d60276f8" => :sierra
+    sha256 "f4a3067deca119edfe145174b9fe52986a8041194d68e9dc831ef34b062f7441" => :mojave
+    sha256 "19b294718857a5174846d73010bba5357eb76aaf4fb871e29e31503a457ab3de" => :high_sierra
+    sha256 "2454aba2e49efdfb5aa250c5896763af083519c5fa25578a90740d47c2425704" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "ansible" do

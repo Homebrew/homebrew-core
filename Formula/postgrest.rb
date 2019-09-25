@@ -6,15 +6,15 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/v6.0.0.tar.gz"
-  sha256 "161095014ccb8bb744849ae8dad8c95b9de2ac6ddf3bcb09bbd6ec7e1fe541e7"
+  url "https://github.com/PostgREST/postgrest/archive/v6.0.2.tar.gz"
+  sha256 "8355719e6c6bdf03a93204c5bcf2246521e0ffc02694b2cebfc576d4eae9a0c9"
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
     cellar :any
-    sha256 "203a53be5ca17df60658df5a9b7b288339cb585ff3af90b67dce84419f4e2809" => :mojave
-    sha256 "060cffafd12f00623bda0941f6ddd5f121ee602bcb8db0ee17c37b6b6da06754" => :high_sierra
-    sha256 "08f7f10f551a8aae1ab220036b56e74db5516d196bf719dc72dc46690b2c9a62" => :sierra
+    sha256 "fc0ed59614a15faba14a43cb2034c0f13429347a092f82ec88e06f4f013067bc" => :mojave
+    sha256 "c3f2b71886b7a2f609f78d3f0ac756a016533674520c778586cac3242063b225" => :high_sierra
+    sha256 "151e3406cd3b46b327bf745f99d9e0cf1f7c8208590a54d576ee0672a6f8c8ba" => :sierra
   end
 
   depends_on "cabal-install" => :build

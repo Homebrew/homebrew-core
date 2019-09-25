@@ -2,29 +2,22 @@ class Lazydocker < Formula
   desc "The lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
-      :tag      => "v0.7",
-      :revision => "2b6a4b02e5d56547c589dc071ecbef9efe4b20c9"
+      :tag      => "v0.7.4",
+      :revision => "c8adaa920a8e0fe0cc172868a3811e643661f19e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9c5e85a792f4808beaecdad4e4022bd64af6988594a6b10765591d897742599" => :mojave
-    sha256 "c6b6e912f30ea2c75860fc210d2fc16bc8b900955ecbaf7c113e30e63e78cc8a" => :high_sierra
-    sha256 "e626c18457d25c667e79a89d1d59af29bf79bd7b19b9034d1a6451a905a3c6b2" => :sierra
+    rebuild 1
+    sha256 "7e6904339596de03b73b9a7e9fd4fcb99bc3e17e7188de4305d0367af09094aa" => :mojave
+    sha256 "41f35cdbf18a012b7160ec10164ce66d4aedba2d9601f34d3cf0e93afa569528" => :high_sierra
+    sha256 "cc0ea7892e0615a0e6d8b02573334cb3759cafd9abf81c2cb55fbddb68979f44" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/jesseduffield/lazydocker"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"lazydocker"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=vendor", "-o", bin/"lazydocker",
+      "-ldflags", "-X main.version=#{version} -X main.buildSource=homebrew"
   end
 
   test do

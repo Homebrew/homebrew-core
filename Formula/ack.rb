@@ -1,8 +1,8 @@
 class Ack < Formula
   desc "Search tool like grep, but optimized for programmers"
   homepage "https://beyondgrep.com/"
-  url "https://beyondgrep.com/ack-v3.0.2"
-  sha256 "8e49c66019af3a5bf5bce23c005231b2980e93889aa047ee54d857a75ab4a062"
+  url "https://beyondgrep.com/ack-v3.1.1"
+  sha256 "2d7f87caf20a42770fec7956cf939100f8741bb3409d138d21f2d9f51d0beb7c"
 
   head do
     url "https://github.com/beyondgrep/ack3.git", :branch => "dev"

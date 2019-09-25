@@ -1,42 +1,46 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://cdn.mysql.com/Downloads/Connector-C++/mysql-connector-c++-1.1.9.tar.gz"
-  sha256 "3e31847a69a4e5c113b7c483731317ec4533858e3195d3a85026a0e2f509d2e4"
-  revision 2
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.17-src.tar.gz"
+  sha256 "69de69f373a7c5ddf291c15c52af83d634e0b900cb1204eddb3834836afe7dbe"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4fb493a07a4f86fa178bb4b879048395774d9b8787575dfd0b582420a3c44960" => :mojave
-    sha256 "03e1e94df2c84a0540e306e6b9f1a121957eb18d7571be8b503c792f32def44f" => :high_sierra
-    sha256 "251a3651e8d6d0d38488e5b18c25ff29b41b3caf0103ae578e1cc31625b9b947" => :sierra
-    sha256 "bc45340a1bc8e4484cf8e06c25bc475cb455ed12d79c6265d47ecb724ee97c3d" => :el_capitan
+    sha256 "46b923ef7c8e958719228f76134a6205d3ad597d0f4d85dc6842fb1f2ed14d40" => :mojave
+    sha256 "0eb28a81c15aa1b5d860a9655f9b99b8dfb2733b3d3e9d0f1c155e85eb916b0c" => :high_sierra
+    sha256 "76973ed4a3a1f6f858696fd919ab60d188e0f91daac9e4899df3bbfabbae4620" => :sierra
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args,
+                    "-DINSTALL_LIB_DIR=lib"
     system "make", "install"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <cppconn/driver.h>
-      int main(void) {
-        try {
-          sql::Driver *driver = get_driver_instance();
-        } catch (sql::SQLException &e) {
-          return 1;
-        }
+      #include <iostream>
+      #include <mysqlx/xdevapi.h>
+      int main(void)
+      try {
+        ::mysqlx::Session sess("mysqlx://root@127.0.0.1");
+        return 1;
+      }
+      catch (const mysqlx::Error &err)
+      {
+        ::std::cout <<"ERROR: " << err << ::std::endl;
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client"].opt_include}",
-                    "-L#{lib}", "-lmysqlcppconn", "-o", "test"
-    system "./test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}",
+                    "-L#{lib}", "-lmysqlcppconn8", "-o", "test"
+    output = shell_output("./test")
+    assert_match "Connection refused", output
   end
 end

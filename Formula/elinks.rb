@@ -3,16 +3,12 @@ class Elinks < Formula
   homepage "http://elinks.or.cz/"
   url "http://elinks.or.cz/download/elinks-0.11.7.tar.bz2"
   sha256 "456db6f704c591b1298b0cd80105f459ff8a1fc07a0ec1156a36c4da6f898979"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 2
-    sha256 "71d93bb50f6efde14a06a424cfb6e1aa23d807d670c38b8fa8c2230019d965d4" => :mojave
-    sha256 "d553514bfafe12ba7a964c4ebeab97d52b389ec1b6746b594802893d3fa088ae" => :high_sierra
-    sha256 "52a68836064a6f3ca484e212f4a160cfd16329767fe56cb924a8360441408485" => :sierra
-    sha256 "b59da2e745cd4882f3e4e848bb4473ec97f110eb06df9c9fe442a7c39cf6e141" => :el_capitan
-    sha256 "d6412d12d0adabd9da112e49baecf351b0a0307d138d22c605fa3826107107fe" => :yosemite
-    sha256 "3bb5385dd074a8963bb3fc9111ea6a318d2594380cc8eda4921cb4a910393578" => :mavericks
+    sha256 "c1e209a98cb195ea9f51ed8ba4b9ef8b17cee7f1ee93b63030ef179838b50d60" => :mojave
+    sha256 "b0bd21790f66c11ddb5c503f4cf7e1a6818773f96419933d50ee232b59768316" => :high_sierra
+    sha256 "bf7827c2f19bd07b4614e2e593e165adaef19bec0c88ce69d41dae81cdd5f591" => :sierra
   end
 
   head do
@@ -23,13 +19,26 @@ class Elinks < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+
+  # Two patches for compatibility with OpenSSL 1.1, from FreeBSD:
+  # https://www.freshports.org/www/elinks/
+  patch :p0 do
+    url "https://reviews.freebsd.org/file/data/mhvwibmet2v2udg4zxej/PHID-FILE-t5ovwhj2ffidzafayfj7/patch-src_network_ssl_socket.c"
+    sha256 "a4f199f6ce48989743d585b80a47bc6e0ff7a4fa8113d120e2732a3ffa4f58cc"
+  end
+
+  patch :p0 do
+    url "https://reviews.freebsd.org/file/data/gnlzo63jiq6hqudtanmv/PHID-FILE-3mj6cioca2hw4bpk76i5/patch-src_network_ssl_ssl.c"
+    sha256 "45c140d5db26fc0d98f4d715f5f355e56c12f8009a8dd9bf20b05812a886c348"
+  end
 
   def install
     ENV.deparallelize
     ENV.delete("LD")
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--without-spidermonkey",
+    system "./configure", "--prefix=#{prefix}",
+                          "--without-spidermonkey",
                           "--enable-256-colors"
     system "make", "install"
   end

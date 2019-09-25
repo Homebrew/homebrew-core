@@ -4,14 +4,13 @@ class Makepkg < Formula
   url "https://projects.archlinux.org/git/pacman.git",
       :tag      => "v5.0.2",
       :revision => "0c633c27eaeab2a9d30efb01199579896ccf63c9"
+  revision 1
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
-    rebuild 1
-    sha256 "1398f956766797a114160ee7cbdacab54caac3f0a64871a8bc47385b067682e7" => :mojave
-    sha256 "de52e9169d747dadc908bccae5484a9c08ec0565ec712c0a5546581faa3683be" => :high_sierra
-    sha256 "ed7bc7d8bb37a50a44f0de2f9567c27b2aa246edd1d73d843399509a4046665a" => :sierra
-    sha256 "dc351b9774df4854446ad8cabc1222871d3074b2240a2cbef5e96acfd5bd67ed" => :el_capitan
+    sha256 "d6609f75988babfe82d73c7dd85874092fcacfd24fae84bf6bfdec8262ab4279" => :mojave
+    sha256 "b8c32c0be56ad6c19d8838c7f27aff105ccd03602bd9357206724efdc6f0c270" => :high_sierra
+    sha256 "70ffabbc97bdd9dc1567bd18c7c39151870717835988e3d3fb4ffa7f46c564ca" => :sierra
   end
 
   depends_on "asciidoc" => :build
@@ -28,7 +27,7 @@ class Makepkg < Formula
   # Regression due to https://git.archlinux.org/pacman.git/commit/?id=16718a21
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
   depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

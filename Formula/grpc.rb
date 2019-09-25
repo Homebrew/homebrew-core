@@ -3,12 +3,14 @@ class Grpc < Formula
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc/archive/v1.23.0.tar.gz"
   sha256 "f56ced18740895b943418fa29575a65cc2396ccfa3159fa40d318ef5f59471f9"
+  revision 2
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "24aa985f2ef86519aa59e402feab941d3faad2c753bf9bff9a5e9660fdb7f091" => :mojave
-    sha256 "12df00876152589994a1adb38e13721b6a3c1e24ad7e5307ded80732d30aa1b1" => :high_sierra
-    sha256 "b59cbf48f9165846dedcd51629a13f3b473a7c7053eccdfadc25c802958b3d1b" => :sierra
+    rebuild 1
+    sha256 "4fef8b89eb38cb92d5195efeed653cc1a50ca4ca2f3253b47b4bdcbcbd31bcbe" => :mojave
+    sha256 "b78d057cb6c7c925bb153a324e409a02629650942fe2149c7bc80155b03698b0" => :high_sierra
+    sha256 "992a0173702a02cb70f2044a11c173fd3c7517c91824c81e1bbe029bac6c2395" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -16,7 +18,7 @@ class Grpc < Formula
   depends_on "libtool" => :build
   depends_on "c-ares"
   depends_on "gflags"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf"
 
   resource "gtest" do

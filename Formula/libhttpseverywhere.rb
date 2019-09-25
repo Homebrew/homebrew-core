@@ -26,8 +26,8 @@ class Libhttpseverywhere < Formula
   # see https://gitlab.gnome.org/GNOME/libhttpseverywhere/issues/1
   # remove when next version is released
   patch do
-    url "https://gitlab.gnome.org/GNOME/libhttpseverywhere/commit/6da08ef1ade9ea267cecf14dd5cb2c3e6e5e50cb.patch"
-    sha256 "eeb4f672c6cee3db6f7ba0f0798e37be68f1d3d6d8e22fb0ec21e7ca768356c3"
+    url "https://gitlab.gnome.org/GNOME/libhttpseverywhere/commit/6da08ef1ade9ea267cecf14dd5cb2c3e6e5e50cb.diff"
+    sha256 "e5499c290c5b48b243f67763a2c710acc5bd52b90541eb8da3f8b24b516f7430"
   end
 
   def install

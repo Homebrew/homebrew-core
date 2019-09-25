@@ -3,19 +3,20 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz"
   sha256 "234fa05b6839e92dc300b2dd78c92ec9c0c8d439f65e1d430a7034f60af16067"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "c32304092f99c0c296fe210bcaf2a16a50ba4d670faa170fc78e6f950c19def0" => :mojave
-    sha256 "bae26a253f14434ab6b7dda559a4c0f353e727084bc4b0f389a6aa136b9d4216" => :high_sierra
-    sha256 "3215c678f328fd01d3b942ff8d83fa77d0e3f886d3a69334f8082d3ec133ebf2" => :sierra
+    sha256 "846c80d096bd49662e34de8144e73b2df017a3acb35a15942429e111951ba343" => :mojave
+    sha256 "123e7a9eb96d58ebd1100880018e5f99626bb99e751d99fc62a4183d926a4988" => :high_sierra
+    sha256 "95b84a677d97a9c522ec0e89cde3967a21c795b47181bf6ba20002f1962dd73c" => :sierra
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
   if MacOS.version < :yosemite
-    depends_on "openssl"
+    depends_on "openssl@1.1"
     depends_on "curl"
   end
 
@@ -69,7 +70,7 @@ class Git < Formula
     ]
 
     if MacOS.version < :yosemite
-      openssl_prefix = Formula["openssl"].opt_prefix
+      openssl_prefix = Formula["openssl@1.1"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]

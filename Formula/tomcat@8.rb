@@ -1,8 +1,8 @@
 class TomcatAT8 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.43/bin/apache-tomcat-8.5.43.tar.gz"
-  sha256 "5352ab0cc4b6e71caf9161da8c4316e9cd8691bc9f5ac3e8d8b3d259ca2bae03"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.46/bin/apache-tomcat-8.5.46.tar.gz"
+  sha256 "adbab85f95662bada9330a4ac4d2e89250444b19bf09c17eda608717a895b136"
 
   bottle :unneeded
 

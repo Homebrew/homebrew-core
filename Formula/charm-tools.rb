@@ -5,20 +5,19 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/99/4d/16d7398fe5eefc602a8870fb3e93597aabe681b0f1497749148695cba4a1/charm-tools-2.2.3.tar.gz"
   sha256 "ea659f59041cb3dff0be862d657830591e656a9a259931064edab7477875245b"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "276a8198e27a384e9d45392f485f184170cc324586740e046c6b55a44539a559" => :mojave
-    sha256 "68365eeb6730d2d7645a791c7d60206d733f19d56c16deb31e5b42cc0378bc28" => :high_sierra
-    sha256 "4dc6ab436414c0ffd0c07601bec4240b2907c090b7a7a300c5ec6bc49e960a01" => :sierra
-    sha256 "11a6747479a401661fcd32e6233e581ec0f065a0fc737ee3da163c23d73bb00d" => :el_capitan
+    rebuild 1
+    sha256 "4dfbd895dfce317a0e03c0871fe5e1816c76468e36939ddbb664fd7d86bf0f0e" => :mojave
+    sha256 "6f15e053e7c0f5f3f3c71e03615ffeb92e32de743a22899ddfc53c82f940faea" => :high_sierra
   end
 
   depends_on "charm"
   depends_on "libyaml"
   depends_on "mercurial"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   # Additionally include ndg-httpsclient for requests[security]

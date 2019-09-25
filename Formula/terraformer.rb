@@ -2,17 +2,23 @@ class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.7.8",
-    :revision => "cf2f97dc3b2d6a7944a081512ddc6e5a60e921db"
+    :tag      => "0.7.9",
+    :revision => "44622c926810d5dc82a348c1c9bbc59e936dcd39"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f0518f194b5764185d21123ab37dba7aefbb9d9d1faecbd263a0cf98a723cd7e" => :mojave
-    sha256 "6d5f4ea9abec8a0d2a593a6ffac87e7fa150aba8a5b72b17ff818620a0a81ef3" => :high_sierra
-    sha256 "01288b1442e74e4a5b052961d482809ac372362d6c08209e95254eedb89a9e31" => :sierra
+    sha256 "761ebe37fe50cdb9093650133de13c07d7374ce1ac147fd19e609a021c570b39" => :mojave
+    sha256 "c5aff73f555acce0028b63802ad57beef5fa7b0d4c37a644953df0326cdeea29" => :high_sierra
+    sha256 "b67f37bcf1e45c987eac0bc068596bde728959bbd4302601faa38fe9e6e6d4e0" => :sierra
   end
 
   depends_on "go" => :build
+
+  # Should be removed in the next release
+  patch do
+    url "https://github.com/GoogleCloudPlatform/terraformer/pull/179/commits/75b3b4620d18c1ef7ac4ee3e0fa7062f0535fa48.patch?full_index=1"
+    sha256 "b75e9d4e63c1601fe769a15f973cd9517d18bdef5b430c280bf2c57f2d5a3b0f"
+  end
 
   def install
     ENV["GOPATH"] = buildpath

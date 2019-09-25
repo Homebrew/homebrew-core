@@ -1,14 +1,14 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.16.0/ldc-1.16.0-src.tar.gz"
-  sha256 "426d9d0dc65b7d3d739809c9c8bf022177aeaa8e65999be7145e052be3357302"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc-1.17.0-src.tar.gz"
+  sha256 "6a2fa91a53d954361832591488241c92adb497842069077425d73c9b9d2c4fa9"
   head "https://github.com/ldc-developers/ldc.git", :shallow => false
 
   bottle do
-    sha256 "186e5e333a7044155f6438a6bca858470c406583b8e54aa825bc7e72226234d7" => :mojave
-    sha256 "0f418f14ddaf03a0ab5d5bc1ab4034484e073c9291fcb62626df2476e0804599" => :high_sierra
-    sha256 "306afccff0146d5421d42488e728fe610c9c62366f3a65bf67abc701427005fc" => :sierra
+    sha256 "d1a3c150b95503558ef83d8e6dfdad818fa550b97333368178e402ab13cc02fc" => :mojave
+    sha256 "ae7b85fa800d95dcc8815dfafd5716b0d3cf47134d2fc536a2796db8cee11f28" => :high_sierra
+    sha256 "f48a3181863ba8a69c56459512a15fb1f0fcc153250d3cba5374c173a3627d31" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -16,9 +16,9 @@ class Ldc < Formula
   depends_on "llvm"
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.12.0/ldc2-1.12.0-osx-x86_64.tar.xz"
-    version "1.12.0"
-    sha256 "a946e658aaff1eed80bffeb4d69b572f259368fac44673731781f6d487dea3cd"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc2-1.17.0-osx-x86_64.tar.xz"
+    version "1.17.0"
+    sha256 "fb1fe4e6edba4a8ac590e24abccdd034f11fa11a1bbe4c0f3cdb6083ba069825"
   end
 
   def install
