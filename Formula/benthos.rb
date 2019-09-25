@@ -15,7 +15,6 @@ class Benthos < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     src = buildpath/"src/github.com/Jeffail/benthos"
     src.install buildpath.children
