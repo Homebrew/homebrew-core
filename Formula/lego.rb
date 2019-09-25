@@ -15,7 +15,6 @@ class Lego < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     dir = buildpath/"src/github.com/go-acme/lego"
