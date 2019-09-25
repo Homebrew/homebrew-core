@@ -16,7 +16,6 @@ class Syncthing < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     src = buildpath/"src/github.com/syncthing/syncthing"
