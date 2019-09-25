@@ -13,6 +13,6 @@ class ArduinoCli < Formula
   end
 
   test do
-    arduino-cli
+    system "#{bin}/arduino-cli" 
   end
 end
