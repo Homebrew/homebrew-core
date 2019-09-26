@@ -12,7 +12,7 @@ class Sourcekitten < Formula
     sha256 "1fe36777fca4f223cc0c7acacfcc0c948c81582f0e2c08ec94d419c024b29d27" => :high_sierra
   end
 
-  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => ["10.2", :build]
   depends_on :xcode => "6.0"
 
   def install
