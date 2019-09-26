@@ -3,15 +3,16 @@ class Igv < Formula
   homepage "https://www.broadinstitute.org/software/igv"
   url "https://data.broadinstitute.org/igv/projects/downloads/2.5/IGV_2.5.3.zip"
   sha256 "d33f6e20aaf5158770c6154953b8b3df89ced0f9416b399502864d3ccd44f22a"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on :java
 
   def install
     inreplace "igv.sh", /^prefix=.*/, "prefix=#{libexec}"
-    libexec.install "igv.sh", "lib"
-    (bin/"igv").write_env_script libexec/"igv.sh", Language::Java.java_home_env("1.8")
+    libexec.install "igv.args", "igv.sh", "lib"
+    (bin/"igv").write_env_script libexec/"igv.sh", Language::Java.java_home_env
   end
 
   test do
