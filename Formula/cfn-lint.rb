@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.24.1.tar.gz"
-  sha256 "c2fed29d0cf8d023d96b5a5baf029193e570210d6a8869d68341499cef08ed8a"
+  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.24.3.tar.gz"
+  sha256 "8eb134f1f7fb89f6f1330deb52a945a6453df2843f069e6079033999565a766e"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,23 +21,23 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/58/f8/797395aebdecbff6d7b2b8a655292c62c321054c933ebe12f808c34e6aab/aws-sam-translator-1.13.0.tar.gz"
-    sha256 "6966b45dc444de3ced673164889e8cf0ac001c947cfac6030527cd38e2e40071"
+    url "https://files.pythonhosted.org/packages/9e/48/2d3cf2acbac9a3761e8427e7cc02ed28640c06cf62d35341f5f98ab5c8ea/aws-sam-translator-1.14.0.tar.gz"
+    sha256 "3c615bff465fcf6a7990b9f84d002d55c75cd3e52d98e727d24959756ab0f0b1"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1f/23/d8eb13eb604210bb9100d1e3b18ed0f28053be039d7de63cf0d93f355f62/boto3-1.9.199.tar.gz"
-    sha256 "68e9eba6f846cf8e01973ec565afdb1adfb9612b531c15bb5c5524394db4df5b"
+    url "https://files.pythonhosted.org/packages/d0/1d/f8c53e023ef980d1292967a19cad94f7db97b23376b021d9f8d838ca61d7/boto3-1.9.238.tar.gz"
+    sha256 "2fc1c407a5ab08cfcf54eb4171d85c523bd27019ab890de257d018af2770f71d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7a/46/c8fe2a0be79705539742ab9ff6a0a5d4ba8b55c7103ee546c769d3d1da70/botocore-1.12.199.tar.gz"
-    sha256 "25d87047241b7b775443570c0e790ca952f9f7491d4d6472430a4b006383a257"
+    url "https://files.pythonhosted.org/packages/ed/45/a22db7510cff4037395787c23b2acde75529785b93850eaecbed99cb9902/botocore-1.12.238.tar.gz"
+    sha256 "6ec3297b87d3e2c4d88b009f91061aaecdb2ceef6d9be9386394571353909adb"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
   resource "chardet" do
@@ -46,8 +46,8 @@ class CfnLint < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
-    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
+    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
   end
 
   resource "idna" do
@@ -106,8 +106,8 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
   end
 
   def install
