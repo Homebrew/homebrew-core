@@ -15,7 +15,7 @@ class Ant < Formula
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.3.1-bin.tar.gz"
+    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.4.0-bin.tar.gz"
     sha256 "ed1d281cb66dedb89611019168071fe22a50ff325253e2c453dc00423905cf9d"
   end
 
