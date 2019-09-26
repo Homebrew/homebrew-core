@@ -10,12 +10,16 @@ class Igv < Formula
   depends_on :java
 
   def install
-    inreplace "igv.sh", /^prefix=.*/, "prefix=#{libexec}"
-    libexec.install "igv.args", "igv.sh", "lib"
-    (bin/"igv").write_env_script libexec/"igv.sh", Language::Java.java_home_env
+    inreplace ["igv.sh", "igvtools"], /^prefix=.*/, "prefix=#{libexec}"
+    inreplace "igvtools", "@igv.args", '@"${prefix}/igv.args"'
+    bin.install "igv.sh" => "igv"
+    bin.install "igvtools"
+    libexec.install "igv.args", "lib"
+    bin.env_script_all_files libexec, Language::Java.java_home_env
   end
 
   test do
+    assert_match "Usage:", shell_output("#{bin}/igvtools")
     assert_match "org/broad/igv/ui/IGV.class", shell_output("jar tf #{libexec}/lib/igv.jar")
     # Fails on Jenkins with Unhandled exception: java.awt.HeadlessException
     unless ENV["CI"]
