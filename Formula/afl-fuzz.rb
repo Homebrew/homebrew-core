@@ -1,8 +1,8 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "https://github.com/google/AFL"
-  url "https://github.com/google/AFL/archive/v2.55b.tar.gz"
-  sha256 "ca96fa6fac76f1ee104762cc9313be37a398f936f2b0e8a9f66e94244ae6babc"
+  url "https://github.com/google/AFL/archive/v2.56b.tar.gz"
+  sha256 "1d4a372e49af02fbcef0dc3ac436d03adff577afc2b6245c783744609d9cdd22"
 
   bottle do
     sha256 "486079e79c19bff03bf1f9ff12aa85de32fe470669c16ff1fc13ad3303ec0da1" => :mojave
