@@ -1,4 +1,5 @@
 class Pssh < Formula
+  include Language::Python::Virtualenv
   desc "Parallel versions of OpenSSH and related tools"
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
@@ -14,17 +15,17 @@ class Pssh < Formula
     sha256 "62595390d018a9a953928cf6adf8e9299b92f00c3846d74757a18437abbc5f27" => :mavericks
   end
 
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   conflicts_with "putty", :because => "both install `pscp` binaries"
 
   def install
-    ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
+    # Fixes import error with python3, see https://github.com/lilydjwg/pssh/issues/70
+    # fixed in master, should be removed for versions > 2.3.1
+    inreplace "psshlib/cli.py", "import version", "from psshlib import version"
 
-    system "python", "setup.py", "install", "--prefix=#{prefix}",
-                                 "--install-data=#{share}"
-
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do
