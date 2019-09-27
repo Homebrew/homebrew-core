@@ -10,12 +10,12 @@ class Ant < Formula
   depends_on :java => "1.8+"
 
   resource "ivy" do
-    url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
+    url "https://github.com/apache/ant-ivy/archive/2.4.0.tar.gz"
     sha256 "7a3d13a80b69d71608191463dfc2a74fff8ef638ce0208e70d54d28ba9785ee9"
   end
 
   resource "bcel" do
-    url "https://www.apache.org/dyn/closer.cgi?path=commons/bcel/binaries/bcel-6.4.0-bin.tar.gz"
+    url "https://github.com/apache/commons-bcel/archive/commons-bcel-6.3.1.tar.gz"
     sha256 "ed1d281cb66dedb89611019168071fe22a50ff325253e2c453dc00423905cf9d"
   end
 
