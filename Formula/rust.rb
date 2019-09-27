@@ -1,16 +1,15 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz"
-    sha256 "120e7020d065499cc6b28759ff04153bfdc2ac9b5adeb252331a4eb87cbe38c3"
+    url "https://static.rust-lang.org/dist/rustc-1.38.0-src.tar.gz"
+    sha256 "644263ca7c7106f8ee8fcde6bb16910d246b30668a74be20b8c7e0e9f4a52d80"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.38.0",
-          :revision => "9edd089168f8795b3890bc3daf5b99f03e9f8765"
+          :tag      => "0.39.0",
+          :revision => "23ef9a4ef8a96d09b1fd67b2f4e023f416bb1ff1"
     end
 
     resource "racer" do
@@ -48,8 +47,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2019-07-04/cargo-0.37.0-x86_64-apple-darwin.tar.gz"
-    sha256 "1378e7a0fba0b66dd4d7b621313c149a0d7a76a526ee24c7c1249390e82f9dda"
+    url "https://static.rust-lang.org/dist/2019-09-26/cargo-0.39.0-x86_64-apple-darwin.tar.gz"
+    sha256 "107af82e268dfe7dbb35908ab0dfd96d0356c3750520612f1add1ecb8ecbc535"
   end
 
   def install
