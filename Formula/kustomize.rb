@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v3.2.0",
-      :revision => "a3103f1e62ddb5b696daa3fd359bb6f2e8333b49"
+      :tag      => "kustomize/v3.2.1",
+      :revision => "d89b448c745937f0cf1936162f26a5aac688f840"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
@@ -22,13 +22,13 @@ class Kustomize < Formula
 
     dir = buildpath/"src/kubernetes-sigs/kustomize"
     dir.install buildpath.children
-    dir.cd do
+    cd dir/"kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.kustomizeVersion=#{version}
-        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.gitCommit=#{revision}
-        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.buildDate=#{Time.now.iso8601}
+        -s -X sigs.k8s.io/kustomize/kustomize/v3/provenance.version=#{version}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.buildDate=#{Time.now.iso8601}
       ]
-      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize", "cmd/kustomize/main.go"
+      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
       prefix.install_metafiles
     end
   end
