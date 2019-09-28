@@ -6,6 +6,7 @@ class Lzo < Formula
 
   bottle do
     cellar :any
+    sha256 "c8f55ba0de85273c1851136f47b89f43ba3cce9cbf0ba9f2bba7db311544a000" => :catalina
     sha256 "84f4e3223c03375b0be93bd87be98f512e092621b4f6b4216e3da7210c56ddad" => :mojave
     sha256 "2420aac02d4765ecfd5e9b4d05402f42416c438e8bbaa43dca19e03ecff2a670" => :high_sierra
     sha256 "26969f416ec79374e074f8434d6b7eece891fcbc8bee386e9bbd6d418149bc52" => :sierra
