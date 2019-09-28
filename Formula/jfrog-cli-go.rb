@@ -1,8 +1,8 @@
 class JfrogCliGo < Formula
   desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/jfrog/jfrog-cli"
-  url "https://github.com/JFrog/jfrog-cli-go/archive/1.29.0.tar.gz"
-  sha256 "00a8849c63a6e4387f24864c43b4af2e745d5ce4567cd2a2d74dc1be9891308a"
+  url "https://github.com/jfrog/jfrog-cli/archive/1.29.1.tar.gz"
+  sha256 "2cd2e26088505b45dfb3b4e0a60a6aae90eca38dad124ecfe832b143b08a4dec"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class JfrogCliGo < Formula
   def install
     ENV["GOPATH"] = buildpath
 
-    src = buildpath/"src/github.com/jfrog/jfrog-cli-go"
+    src = buildpath/"src/github.com/jfrog/jfrog-cli"
     src.install buildpath.children
     src.cd do
       system "go", "run", "./python/addresources.go"
