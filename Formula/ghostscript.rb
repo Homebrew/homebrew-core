@@ -6,6 +6,7 @@ class Ghostscript < Formula
   revision 1
 
   bottle do
+    sha256 "9d0eeacca30a4c80b31b983364dde5278aefdf95247ffe54a7217fba6cfeb56c" => :catalina
     sha256 "4bb192d7d0f38dd990f9d042e0e39002a1d762685f13d670fbab368bf5ca411e" => :mojave
     sha256 "882e895e24244985a47bad1db7f4d86d8bcbebb5aafa532bde393554a2e3815f" => :high_sierra
     sha256 "55b5a12f39605e29c6faddeca9ae366b8fda8ee44ef24d0ebe34dcad803f012a" => :sierra
