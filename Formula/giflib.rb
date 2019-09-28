@@ -7,6 +7,7 @@ class Giflib < Formula
 
   bottle do
     cellar :any
+    sha256 "b928306b53fa61057ba9bd7515b705c7dad9138b2c524e66313fa12dca507497" => :catalina
     sha256 "8b928fd9ce46279d60a9ac73f795f3e068cc1478fcae4aabc8f7231d972820ec" => :mojave
     sha256 "0c9517138125951ae8fd38f026aa970bb877f1ae7564e47863cdf64a2adebb2e" => :high_sierra
     sha256 "a298e371464c6bcbe67c5f0c8b23de398980ad3a5ac3e8507f0ee29fef0c9e13" => :sierra
