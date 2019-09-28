@@ -1,9 +1,8 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.2.22.tar.xz"
-  sha256 "eb597fcf8dc0a6211a42a6346de4f63ee166829a6df6d8ed767fe14be8d1c3a3"
-  revision 1
+  url "https://www.php.net/distributions/php-7.2.23.tar.xz"
+  sha256 "74e045ec8ff26290db6a3688826dcdf43b87bc509e508e9cb76dab742804ca14"
 
   bottle do
     rebuild 1
