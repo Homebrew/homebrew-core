@@ -7,6 +7,7 @@ class Libssh2 < Formula
 
   bottle do
     cellar :any
+    sha256 "2c4dcf8149663f9a133deac5bc42ce308d1ced90227cac391ca30b0ab2d381f9" => :catalina
     sha256 "327c56ad6a54894e5ef9aa3019d2444d32f1d0fba80925940100e517dd3109c9" => :mojave
     sha256 "ee29f44ef6fb59242fc7ee1747f02df2287722af4a45319289c9ee224367ba06" => :high_sierra
     sha256 "769fbbdc4e67b8de15c269f66a6efe86c5b0195df56e7e46b44377a572800efa" => :sierra
