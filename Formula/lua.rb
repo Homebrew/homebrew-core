@@ -7,6 +7,7 @@ class Lua < Formula
 
   bottle do
     cellar :any
+    sha256 "56169dfd607a4e873d7b5ad619a179375b8b69007cfb527316865dbdcfe7f493" => :catalina
     sha256 "f045a6bc17caa285b9201e2e34c69903cf45ddb4190a5012143eb9f2cb789434" => :mojave
     sha256 "fcf36c0a4785ed9f515a1a18d8e158ad806c8ff92a5359959fbfa1b84bc52454" => :high_sierra
     sha256 "17947facfc289e35fc19a1c4091f4d26387bdc254150df75e0aa95d881e58135" => :sierra
