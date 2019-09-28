@@ -7,6 +7,7 @@ class Libplist < Formula
 
   bottle do
     cellar :any
+    sha256 "d5231efe6aebc645cfce3322d0cb732a6ac1f9ae9d7347b832d4e0da1ab4dc31" => :catalina
     sha256 "dc0f0c66bcc89a91e635364158077b303d259ba5ac485726072d6abaae7219b3" => :mojave
     sha256 "2139142c8404729b61bf4c97d479abbf4f5bca5a6d34c188a393ff871831afb7" => :high_sierra
     sha256 "4edadbe0762df848bca097da6f8aa147471b6bca80da86a740cede8241e84030" => :sierra
