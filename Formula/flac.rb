@@ -6,6 +6,7 @@ class Flac < Formula
 
   bottle do
     cellar :any
+    sha256 "c33809e09990a272cff9d0aae609eab10f605bae909b6d4c14e5af5096e3b0c9" => :catalina
     sha256 "ef7f0557e79c99a79814f4ed29120719eea153f12b774a207e19d9b61658660f" => :mojave
     sha256 "bd5a61be6c9f3b75f5012f56b2db4bf351d991675dd8f6ddb18c74e7c985d0fb" => :high_sierra
     sha256 "aa3dc4ddf9802576ea7f3ef73bf7276c54720de3378c7b4d0a708707644c2089" => :sierra
