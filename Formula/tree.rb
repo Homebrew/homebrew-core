@@ -6,6 +6,7 @@ class Tree < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "18f7984bdbab22251e9fc3c7832dbace5c7f7a77e8d63717bb0078385e2bf255" => :catalina
     sha256 "7152288c457dd893de50fa9d6ac9a8599748564e1b3586eec8eff7057089051a" => :mojave
     sha256 "107d965994381d34e90b58a62f1c306c1b8a698db2696cdd905ba65c801ecc3b" => :high_sierra
     sha256 "07d980571469a0cc699c69a8726eee338f782ba61c041e58f01ddb2924d08aeb" => :sierra
