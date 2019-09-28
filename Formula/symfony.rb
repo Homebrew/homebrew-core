@@ -13,7 +13,6 @@ class Symfony < Formula
   end
 
   test do
-    symfony new testpath/"test_project"
-    assert_predicate testpath/"test_project", :exist?
+    assert_match /2017-2019 Symfony SAS/, shell_output("symfony -v").strip
   end
 end
