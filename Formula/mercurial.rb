@@ -8,6 +8,7 @@ class Mercurial < Formula
   revision 2
 
   bottle do
+    sha256 "515fe5a3c00988d5069a69ccc9d059277156b91683ad0c6c7e86fa568f2c9b0f" => :catalina
     sha256 "e4fcf22b36669ca85e582121d7365e8d94f4504d7b48dfd518a93e4dbf659646" => :mojave
     sha256 "127344d5ead0a8fbd4cabbfafd7fca4dd4f85f45f260b76e500538c7fd0d05bc" => :high_sierra
     sha256 "9b9f8f096a65d37f2899e7133fb76d64a25be52100883ebd3b7805facc18a757" => :sierra
