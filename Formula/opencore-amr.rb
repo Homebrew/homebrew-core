@@ -6,6 +6,7 @@ class OpencoreAmr < Formula
 
   bottle do
     cellar :any
+    sha256 "424d294d95aa7539842f1c2402a0be6ba558fa22680a0f5681998b12cf45a152" => :catalina
     sha256 "816d5463797b6412fd8944b98ab79d766dcf886b9eb37d83778fb7648d995603" => :mojave
     sha256 "5f5f7853d97b957abb8671af372bd3a4a13191ccd135799cbad44aa3c66034ec" => :high_sierra
     sha256 "2b6378d4427dc88bac7e01d2614dd100535f1d78b1e6b81560e3a074e1d5a770" => :sierra
