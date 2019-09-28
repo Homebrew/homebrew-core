@@ -6,6 +6,7 @@ class Unixodbc < Formula
 
   bottle do
     rebuild 1
+    sha256 "03ba378d971af98d07652f978548ffacb4c155ba11dd36af9d46af36e2d5674b" => :catalina
     sha256 "d9f30688c0639d73b9e3a4b4b94d3679b2762e2cf0bff6b2ad64fcd175cc30ca" => :mojave
     sha256 "0b30b166c0e6bbd9df375a018d0f2a80b944617230b15531093d20eb015971e6" => :high_sierra
     sha256 "44407c41dc2c5cc58fcd2c254fa54ede75e7782b82567f4f1ba421d357203105" => :sierra
