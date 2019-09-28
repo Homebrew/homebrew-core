@@ -2,8 +2,8 @@ class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.7.9",
-    :revision => "44622c926810d5dc82a348c1c9bbc59e936dcd39"
+    :tag      => "0.8",
+    :revision => "1604c897bf7c3ec2ca7c70c93453609070cd5d2b"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,6 @@ class Terraformer < Formula
   end
 
   depends_on "go" => :build
-
-  # Should be removed in the next release
-  patch do
-    url "https://github.com/GoogleCloudPlatform/terraformer/pull/179/commits/75b3b4620d18c1ef7ac4ee3e0fa7062f0535fa48.patch?full_index=1"
-    sha256 "b75e9d4e63c1601fe769a15f973cd9517d18bdef5b430c280bf2c57f2d5a3b0f"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
