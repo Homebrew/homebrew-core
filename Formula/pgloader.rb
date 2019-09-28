@@ -3,6 +3,7 @@ class Pgloader < Formula
   homepage "https://github.com/dimitri/pgloader"
   url "https://github.com/dimitri/pgloader/archive/v3.6.1.tar.gz"
   sha256 "6fa94f2e8e9c94c5f7700c02b61b97a17092bd87b3b77b3d84a06a1fb98b09fa"
+  revision 1
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
@@ -14,6 +15,7 @@ class Pgloader < Formula
   depends_on "buildapp" => :build
   depends_on "sphinx-doc" => :build
   depends_on "freetds"
+  depends_on "openssl@1.1"
   depends_on "postgresql"
   depends_on "sbcl"
 
