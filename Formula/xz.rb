@@ -9,6 +9,7 @@ class Xz < Formula
 
   bottle do
     cellar :any
+    sha256 "5aa90b77d5e772dacd38146bbb7ff2fa43f210e3779def2c0f16cbdae8589aa3" => :catalina
     sha256 "010667293df282c8bceede3bcd36953dd57c56cef608d09a5b50694ab7d4b96b" => :mojave
     sha256 "e7be50f4ee00e35887f3957263334eb3baba59e8c061919060f9259351be6880" => :high_sierra
     sha256 "bcc71ee69e2c43bf56b9c9ece5a53dc3439652f355620a25b020f794cd447fb7" => :sierra
