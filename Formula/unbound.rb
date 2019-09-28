@@ -19,6 +19,8 @@ class Unbound < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --enable-tfo-client
+      --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-event-api
