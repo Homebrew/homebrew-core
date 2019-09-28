@@ -2,8 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
   url "https://github.com/istio/istio.git",
-      :tag      => "1.3.0",
-      :revision => "c2bd59595ce699b31d0f931885f023028ff7902b"
+      :tag      => "1.3.1",
+      :revision => "12c4d01552363362b49fce86f83b847b308b9b0d"
 
   bottle do
     cellar :any_skip_relocation
