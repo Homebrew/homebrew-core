@@ -6,6 +6,7 @@ class Libdap < Formula
   revision 1
 
   bottle do
+    sha256 "885ab8323b0791007c05f597cc88adf2df0456588a80cfc164d312d4cfaa3d31" => :catalina
     sha256 "264911ff0609114fb283ff064eae32fca1cb652d4e51c38ba14bdeab20a358fe" => :mojave
     sha256 "d3b7cad46e5ece64f04065bb47fe27528ec1c3845588a0ddb3d8c50fb29948ad" => :high_sierra
     sha256 "33da2c630d4bd6eba319e3cfafc4e9095bb8f236bd65f14a845ff797f3fe140b" => :sierra
