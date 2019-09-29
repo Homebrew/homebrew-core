@@ -7,6 +7,7 @@ class Rlwrap < Formula
   head "https://github.com/hanslub42/rlwrap.git"
 
   bottle do
+    sha256 "d4a2ef8e6f2c143c9156ed301d9b835b74b8e1c8bb232feb7fd8494e5262441c" => :catalina
     sha256 "1bd82e889c7f88df7b45b31201d563d7185c362c7a5d3814b5474d295de65f22" => :mojave
     sha256 "d8d5c5402f1b0041bc26c2161b2822cfd025e93674a7a5dc0046185d5870181d" => :high_sierra
     sha256 "3dd6233bbef1327553b5bd92d070c4d7bd24f5414628c1c367c4c3ad6f1acc76" => :sierra
