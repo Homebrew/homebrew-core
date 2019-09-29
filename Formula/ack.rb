@@ -16,6 +16,7 @@ class Ack < Formula
   bottle :unneeded
 
   def install
+    puts "testing"
     if build.head?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       ENV.prepend_path "PERL5LIB", libexec/"lib"
