@@ -14,12 +14,6 @@ class Terraformer < Formula
 
   depends_on "go" => :build
 
-  # Should be removed in the next release
-  patch do
-    url "https://github.com/GoogleCloudPlatform/terraformer/pull/179/commits/75b3b4620d18c1ef7ac4ee3e0fa7062f0535fa48.patch?full_index=1"
-    sha256 "b75e9d4e63c1601fe769a15f973cd9517d18bdef5b430c280bf2c57f2d5a3b0f"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
 
