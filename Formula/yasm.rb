@@ -8,6 +8,7 @@ class Yasm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ff96362c2fe7e8a4608471d479ae5eefb44d81d318ddad204900118be444c65d" => :catalina
     sha256 "a3b57d242cdd13967472fbb5badd774d677428b6f730438d18fd153920dd3620" => :mojave
     sha256 "aa12e2f4b22a402405553706681d5c6bde592a1958a7c1e2594a365c29834625" => :high_sierra
     sha256 "49aa187cc261f03269c7036f1c39d6ff58d6748a25b247a0c51f8f3ecbf032cd" => :sierra
