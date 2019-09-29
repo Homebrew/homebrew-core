@@ -7,9 +7,9 @@ class Terraformer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "761ebe37fe50cdb9093650133de13c07d7374ce1ac147fd19e609a021c570b39" => :mojave
-    sha256 "c5aff73f555acce0028b63802ad57beef5fa7b0d4c37a644953df0326cdeea29" => :high_sierra
-    sha256 "b67f37bcf1e45c987eac0bc068596bde728959bbd4302601faa38fe9e6e6d4e0" => :sierra
+    sha256 "fb641e815893d3b6e20f851f06ce232df1bc4fdb70bc1e449cbfa09500cf41af" => :catalina
+    sha256 "c248ce5f7923118066ad2588567d8787f549a7a0a846f9c8e0e770201e699e33" => :mojave
+    sha256 "403e29ef50b4dfe8ccc12e78b1ccdb1d5cdb0e142bd68dc63f470093a0423306" => :high_sierra
   end
 
   depends_on "go" => :build
