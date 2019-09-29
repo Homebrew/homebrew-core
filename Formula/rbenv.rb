@@ -7,6 +7,7 @@ class Rbenv < Formula
 
   bottle do
     cellar :any
+    sha256 "503ed6d818502f00f031b9f49461934e252b9bfba2876e90a326fc27bb1052d6" => :catalina
     sha256 "d1019098dee8d037587069398e5ad04e6d736f834dc44ae73943bec46b10b260" => :mojave
     sha256 "b5984102794a9d39388ca1f6ec77965aeea29b971cc00cb5af8ede8ee6c926d6" => :high_sierra
     sha256 "873175a851e5aa4f5b3438072030b945c252f08a9a07760c64dc045e2cce4724" => :sierra
