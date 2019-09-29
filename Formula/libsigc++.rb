@@ -6,6 +6,7 @@ class Libsigcxx < Formula
 
   bottle do
     cellar :any
+    sha256 "1b22b26529168f83d74cef10cd9839b774e701e7929d174edcf3b3b4f50c3272" => :catalina
     sha256 "34d97436f679f9ed9d76a1878d87b29eab692b487cb24aa2b18ba34e6856ab25" => :mojave
     sha256 "ea4710c4dee791bf3109ed28b2cf1d17deb07811f334fc8ff462aafdcf222fc4" => :high_sierra
   end
