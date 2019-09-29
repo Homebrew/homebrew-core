@@ -1,8 +1,8 @@
 class Hadoop < Formula
   desc "Framework for distributed processing of large data sets"
   homepage "https://hadoop.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz"
-  sha256 "1c02ccc60a09c63a48dc4234ffd3aed1b75e5a1f2b49d60927eda114b93dd31a"
+  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz"
+  sha256 "f66a3a4115b8f16c1077d1a198a06854dbef0e4233291712ed08d0a10629ed37"
 
   bottle :unneeded
 
