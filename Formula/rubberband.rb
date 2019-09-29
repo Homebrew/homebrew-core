@@ -8,6 +8,7 @@ class Rubberband < Formula
 
   bottle do
     cellar :any
+    sha256 "fb34979b7ddd85883800f6bb3822202e15baab0f18781cb6deaf64482bf0c894" => :catalina
     sha256 "e100d79a7c55a6ba5642d0ce9e005971bdab26e8b7a0cdec011e21db19ccd767" => :mojave
     sha256 "7dd91b6d0baee3f08704fb8dae4ced59725ef23a921dbf00c4db3a39f2119c63" => :high_sierra
     sha256 "3fead448ab4b7e72a624cf85e82b0d1965ea8be224b95f43a24f56c248b9ec1e" => :sierra
