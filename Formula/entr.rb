@@ -1,8 +1,8 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "http://entrproject.org/"
-  url "http://entrproject.org/code/entr-4.2.tar.gz"
-  sha256 "27300215df0aab8b773002da25c7bf60681d8c392f5d5702946c46798e9b5d70"
+  url "http://entrproject.org/code/entr-4.3.tar.gz"
+  sha256 "b081c1dbdac7723e91f6d528a0d736f90cb2fb1458888aa3b446699d9d26235a"
 
   bottle do
     cellar :any_skip_relocation
