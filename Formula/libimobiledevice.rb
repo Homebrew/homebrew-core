@@ -22,6 +22,7 @@ class Libimobiledevice < Formula
 
   bottle do
     cellar :any
+    sha256 "1412c130876a6a5a4e29363991a579efb588e19833389c008d7a6333b678e8be" => :catalina
     sha256 "99d1470015cf12ab07eeface014ca53393f6e45d9e3c08fb83f0bc8b46ecf62a" => :mojave
     sha256 "304bec377d90ced3021162970eb92e73e991c985a7cc62861423656c5d0a1174" => :high_sierra
     sha256 "7dbc19fb30bec28477e82ee91162ade399f3434c4c75637f7f3f7e6e8b02bf8b" => :sierra
