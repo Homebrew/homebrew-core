@@ -31,6 +31,5 @@ class Fvm < Formula
   test do
     output = pipe_output("#{prefix}/init.sh 2>&1")
     assert_no_match /No such file or directory/, output
-    assert_no_match /fvm: command not found/, output
   end
 end
