@@ -8,6 +8,7 @@ class Exiftool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "23599ec369c3e5b97ee3c3c314dbe1df8cbf5c6378913c983592bba333b357a9" => :catalina
     sha256 "f8e418e2e6de7b5ad3168d168acd9a6b22ca72601a8ae85cb4d520740c31edea" => :mojave
     sha256 "80224d63006a3021eaa8bcfef0fe50cd827d929f68bc46037d8b114cf17e5c3b" => :high_sierra
     sha256 "cc67cc87944eb5b722b8f52a01a3ec6a65d3ee04d46be9938d0a3bfd9d0eaac9" => :sierra
