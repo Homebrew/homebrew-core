@@ -3,8 +3,8 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://github.com/fonttools/fonttools/releases/download/4.0.1/fonttools-4.0.1.zip"
-  sha256 "839e6315eccf6f4eb3d690f1448206e26db66491fe69e27bc1f34cd1c98372d1"
+  url "https://github.com/fonttools/fonttools/releases/download/4.0.2/fonttools-4.0.2.zip"
+  sha256 "bb9bf6b5b4ded33e0d9f823e5ae2e1fa643af4d614915660abe3853a9a6931cd"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
@@ -21,7 +21,7 @@ class Fonttools < Formula
   end
 
   test do
-    cp "/Library/Fonts/Arial.ttf", testpath
-    system bin/"ttx", "Arial.ttf"
+    cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
+    system bin/"ttx", "ZapfDingbats.ttf"
   end
 end
