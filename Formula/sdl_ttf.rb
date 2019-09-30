@@ -7,6 +7,7 @@ class SdlTtf < Formula
 
   bottle do
     cellar :any
+    sha256 "66d8be19ddde69b3b260b50e23a4a9f63d22c3343f3d2be530a062b6e00bf690" => :catalina
     sha256 "09d3328d31341d4c76fa07e42480b283ee8f7ddb6518128e871debb84410521e" => :mojave
     sha256 "544d9fe4053cf2a83f9c34b91773518b8bffefeea6337f5d293f6064c3260972" => :high_sierra
     sha256 "22972859bc6ab2f2a6fd8a4cf5394e647336e4b83d982b02e7015ceb7799e59a" => :sierra
