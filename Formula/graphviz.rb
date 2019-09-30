@@ -9,6 +9,7 @@ class Graphviz < Formula
   version_scheme 1
 
   bottle do
+    sha256 "9cce10295f139ee106efb2ea147a2ddfe96f3e01019881d4378d1a5f67086ae5" => :catalina
     sha256 "c3e2b2f06d1a2190405ccb16cde3cbddb8bf0be080fb84448a0c43f473eef39f" => :mojave
     sha256 "2972d06c626e9a7d39c06d0376b1b425cae55d0e5d5a56d6f1440783d7e76890" => :high_sierra
     sha256 "3336446bf3ad335583744a88549b19a0bae2fd427270863476c2590a575ff021" => :sierra
