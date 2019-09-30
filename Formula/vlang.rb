@@ -11,11 +11,9 @@ class Vlang < Formula
   end
 
   test do
-    # test version CLI command
     version_output = shell_output("#{bin}/v -v")
     assert_match version.to_s, version_output
 
-    # run tests CLI command
     assert_match "OK", shell_output("#{bin}/v test v")
   end
 end
