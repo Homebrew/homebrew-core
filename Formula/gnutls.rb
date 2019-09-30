@@ -1,9 +1,9 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz"
-  sha256 "4331fca55817ecdd74450b908a6c29b4f05bb24dd13144c6284aa34d872e1fcb"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz"
+  sha256 "b1f3ca67673b05b746a961acf2243eaae0ffe658b6a6494265c648e7c7812293"
 
   bottle do
     sha256 "ec60767592a242b948d3ed0b240f911d09f351ff42a0d1b9a0036af3a97ce86f" => :catalina
@@ -22,17 +22,6 @@ class Gnutls < Formula
   depends_on "nettle"
   depends_on "p11-kit"
   depends_on "unbound"
-
-  # Patch for build error on Sierra:
-  #   Undefined symbols for architecture x86_64:
-  #     "___get_cpuid_count", referenced from:
-  #     _register_x86_crypto in libaccelerated.a(x86-common.o)
-  #
-  # This patch has been merged upstream and this issue should be fixed in the 3.6.10 release.
-  patch do
-    url "https://gitlab.com/gnutls/gnutls/commit/ef80617d1e17e0878a909baad62a75ba265c0e00.diff"
-    sha256 "aa8b92375e3bced3f81fe8a820d5dabaa68cac332aed097d45be01080f517460"
-  end
 
   def install
     args = %W[
