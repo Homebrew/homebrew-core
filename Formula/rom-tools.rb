@@ -8,8 +8,9 @@ class RomTools < Formula
 
   bottle do
     cellar :any
-    sha256 "dc3d8adcba3fc3c8041001245388c163bac23a71f6160f51a8d92a5ae3c06f75" => :mojave
-    sha256 "2eb1466c524ee31d0fcc343214c3703a2696c080ca4f9f4df1a89662dbccdc5c" => :high_sierra
+    sha256 "c2119c4add026c7154759dcd79d6057ffeb599843a1a11832a8aa4136d41a172" => :catalina
+    sha256 "a715c098f78e564c50777c3ea83b464565c99d46c89e0d03adf18cae46dfa9c5" => :mojave
+    sha256 "4468edf1f627a01f45182883420fae3e2de480851f74aedb6637ecef566fcc6c" => :high_sierra
   end
 
   depends_on "asio" => :build
