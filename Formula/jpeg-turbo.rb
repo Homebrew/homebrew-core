@@ -6,6 +6,7 @@ class JpegTurbo < Formula
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
   bottle do
+    sha256 "22d6d0bcf913245cea1541440dcd79519b81953057eb028113f62d416d4f0d1b" => :catalina
     sha256 "dfc1db83aeb51510ee7fe2243d168f9a2a8898b65176f4c07282e2781cfdbbeb" => :mojave
     sha256 "ca326419069792b324e956a325190f0ad1425fc86174e36a5315d3781be6c41c" => :high_sierra
     sha256 "8b587585e4dd98b09ee49fbab70868d2874710506850ad7762f59c44a78c48fd" => :sierra
