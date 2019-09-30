@@ -7,9 +7,9 @@ class Gosu < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5050a4ef5819e867ef2622bce1feb80c35298e2902919c05637da510920c3936" => :mojave
-    sha256 "68b43c58b7ef52e59d752c8adc945b9702040b4b516ac6797d1b55a199724084" => :high_sierra
-    sha256 "8500d4aa760f6a63f135125fe1a05240ca993747c2274d2cc40df7be5e5af9c6" => :sierra
+    sha256 "0ea77190343c4ca60f3e07485e6bf53c508d154da74e59513ab3c47f809de6d2" => :catalina
+    sha256 "b19609d890ddbf73a957475fd75f95e6cb7aa44d3ed9926a9a98be871f805687" => :mojave
+    sha256 "f8dd37026105b216b0252fb4118c3761576f55379a31f6ddb985b06d33d46d73" => :high_sierra
   end
 
   depends_on "maven" => :build
