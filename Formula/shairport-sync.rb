@@ -27,6 +27,7 @@ class ShairportSync < Formula
     system "autoreconf", "-fvi"
     args = %W[
       --with-os=darwin
+      --with-libdaemon
       --with-ssl=openssl
       --with-dns_sd
       --with-ao
@@ -49,6 +50,6 @@ class ShairportSync < Formula
 
   test do
     output = shell_output("#{bin}/shairport-sync -V")
-    assert_match "OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
+    assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
   end
 end
