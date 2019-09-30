@@ -8,6 +8,7 @@ class Openssh < Formula
   revision 2
 
   bottle do
+    sha256 "37ea71baac410e3a1f2e3b2ea67965f756c5352005ca425904ae49a1b0bb7aeb" => :catalina
     sha256 "0b7cd9be11683b47e0274c9409f0378c8d24b2c5e668a45f84f9f79d5e115e4e" => :mojave
     sha256 "039f3ec0c77a782856680181e0cb34733bfe3b1cede8b24e6194bd1696c457b7" => :high_sierra
     sha256 "a5d5795b777a608d13905fc443b5c526f1a0b3368e6e1d5f98fa7380ef26e701" => :sierra
