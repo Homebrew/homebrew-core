@@ -31,6 +31,8 @@ class Wget < Formula
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
+                          # Work around a gnulib issue with macOS Catalina
+                          "gl_cv_func_ftello_works=yes",
                           "--disable-debug",
                           "--disable-pcre",
                           "--disable-pcre2",
