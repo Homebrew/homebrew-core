@@ -1,11 +1,10 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  revision 1
 
   stable do
-    url "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.8.tar.bz2"
-    sha256 "577bd6856612cebfc7c9ab3153a56a331ea6563cb750eb9fec88ac8896d6b60e"
+    url "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.5.tar.bz2"
+    sha256 "8ede46ef4b7961b0f53dc3418985f30569725c671ea9e6626dc8bbf0ca46544f"
   end
 
   bottle do
