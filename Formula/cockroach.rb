@@ -1,9 +1,9 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v19.1.4.src.tgz"
-  version "19.1.4"
-  sha256 "d819167dc109b566511cb6cef9aadc8c4f07b1be6a8b3108f4bbd14808d21faf"
+  url "https://binaries.cockroachdb.com/cockroach-v19.1.5.src.tgz"
+  version "19.1.5"
+  sha256 "1e3329a56e5a1729ed3ac4ff0a97943163325dd4825e8c7c8c1d9fd57bfddfde"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
@@ -24,6 +24,38 @@ class Cockroach < Formula
     # that causes it to loop infinitely when trying to build cockroach. Use
     # the more up-to-date make that Homebrew provides.
     ENV.prepend_path "PATH", Formula["make"].opt_libexec/"gnubin"
+
+    # Patch the CXX_FLAGS used to build rocksdb as a workaround for the issue fixed by
+    # https://github.com/facebook/rocksdb/pull/5779. Furthermore on 10.14 (Mojave) and
+    # later we also allow defaulted-function-delete as a workaround for
+    # https://github.com/facebook/rocksdb/pull/5095.
+    if MacOS.version < "10.14"
+      patch = <<~PATCH
+        253c253
+        <     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+        ---
+        >     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wno-error=shadow")
+      PATCH
+    else
+      patch = <<~PATCH
+        253c253
+        <     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+        ---
+        >     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wno-error=shadow -Wno-error=defaulted-function-deleted")
+      PATCH
+    end
+    patchfile = Tempfile.new("patch")
+    begin
+      patchfile.write(patch)
+      patchfile.close
+      system "patch", "src/github.com/cockroachdb/cockroach/c-deps/rocksdb/CMakeLists.txt", patchfile.path
+    ensure
+      patchfile.unlink
+    end
+
+    # Ensure that go modules are not used as cockroachdb does not support them.
+    ENV["GO111MODULE"] = "off"
+
     # Build only the OSS components
     system "make", "buildoss"
     system "make", "install", "prefix=#{prefix}", "BUILDTYPE=release"
@@ -40,6 +72,10 @@ class Cockroach < Formula
     mode and may expose data publicly in e.g. a DNS rebinding attack. To run
     CockroachDB securely, please see:
       #{Formatter.url("https://www.cockroachlabs.com/docs/secure-a-cluster.html")}
+
+    Due to a license change, the cockroach package in homebrew-core will no
+    longer be updated when CockroachDB 19.2 is released. Please switch to
+    https://github.com/cockroachdb/homebrew-tap instead.
   EOS
   end
 
