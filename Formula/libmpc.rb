@@ -6,6 +6,7 @@ class Libmpc < Formula
 
   bottle do
     cellar :any
+    sha256 "b9491bbc04d1e52dfb8311dc9aa0081fd3041cb6b2f6b59a4104d712d341979d" => :catalina
     sha256 "1cb3a09238830d45d64a87f520f06122d24a020403fac1800c831d15c605282e" => :mojave
     sha256 "3b28ec506ab53ef5f3163e87fb72ae735b7f91ee2fc20fe184cf1241481b72a5" => :high_sierra
     sha256 "18d620a1612bc51b1fbd1b3b62c9c73766b90549c746740c5a27d2ab1ec5ede7" => :sierra
