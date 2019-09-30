@@ -6,9 +6,9 @@ class Grpcurl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16ee49a0ac440459465ab04e793c1d858f536f52379e93f250b0612350f5506b" => :mojave
-    sha256 "29f092ad345a777fbc9577dc65adcc96b88e8021ddcf141d0429cb7dfa17414b" => :high_sierra
-    sha256 "f30206d5bf254f592d434db330092af6362dc7e12aaf1a628b7a2d79e2c05e5e" => :sierra
+    sha256 "8dc4195a050588d6a9ef9825a2c70e0dba4d5c6c1178c9d2689ea3a93d5c166b" => :catalina
+    sha256 "130085a5a3429f642b65659504ea47767271ecbb98a8b8e0c0eb60925894114e" => :mojave
+    sha256 "cf3e2d3ea747ee2dd39ab6d94111864cac2b9a990e53416055697f165e93782b" => :high_sierra
   end
 
   depends_on "go" => :build
