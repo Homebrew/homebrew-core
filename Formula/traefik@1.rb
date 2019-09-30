@@ -5,6 +5,13 @@ class TraefikAT1 < Formula
   version "1.7.17"
   sha256 "e47a984e41aba3b6f9c4950fbf35614a82e1594b4a956465d1ff469bd4b6dd2c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5b639ae42193a3f4e7b69473a61a6b8bf5e945134a4017f4c847b738bb3f7326" => :catalina
+    sha256 "8df14a3386e9413dcbe41a3b77175723c5f522c9f99da59dbbe72f2aa7fe585f" => :mojave
+    sha256 "4b920e2f3a890295177f2a4219226b0eaf339eb2da272b215117f66aa20ecc36" => :high_sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "go" => :build
