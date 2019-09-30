@@ -7,6 +7,7 @@ class Mpfr < Formula
 
   bottle do
     cellar :any
+    sha256 "140d29bfee0c8cf356fbb5391465f781df559e6076988de3ea8bcfd812f3c5bd" => :catalina
     sha256 "cfce7ab866e98360c9364cd924da620ae7936d3a224d686aacc209c2107d19aa" => :mojave
     sha256 "bf5d21e7e8e549f7e8d07791a90f44a487f4c7151897b7c64d02928b5bd73520" => :high_sierra
     sha256 "4fb1860a481e24c70eefc8e5782030612840f1bb8f50586ca76a4c6c53629deb" => :sierra
