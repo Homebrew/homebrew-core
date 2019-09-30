@@ -7,6 +7,7 @@ class Qhull < Formula
 
   bottle do
     cellar :any
+    sha256 "7205c2c6fc4694ffc46099af316070ec383b99f2af1cde1ca9d9e0f23b7b5428" => :catalina
     sha256 "33b41bad4871bd781b91ca4c418a1b5c94dc29f676288bd8f41b5ae8c302b329" => :mojave
     sha256 "91d7e43f955fb4d9513d588e4f56a6b6c6101e9a9e0f6ed73c63a045bd4b8c25" => :high_sierra
     sha256 "2b0192507bef8e077cae894ee59a2a25b490170cc1be64413caa1ac6e48da86d" => :sierra
