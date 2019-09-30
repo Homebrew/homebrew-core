@@ -20,6 +20,8 @@ class Gettext < Formula
                           "--disable-debug",
                           "--prefix=#{prefix}",
                           "--with-included-gettext",
+                          # Work around a gnulib issue with macOS Catalina
+                          "gl_cv_func_ftello_works=yes",
                           "--with-included-glib",
                           "--with-included-libcroco",
                           "--with-included-libunistring",
