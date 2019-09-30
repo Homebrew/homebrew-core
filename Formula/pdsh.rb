@@ -21,7 +21,9 @@ class Pdsh < Formula
       --with-nodeupdown
       --with-readline
       --with-ssh
-      --without-dshgroups
+      --with-dshgroups
+      --with-netgroup
+      --with-slurm
       --without-rsh
       --without-xcpu
     ]
