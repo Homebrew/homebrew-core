@@ -7,6 +7,7 @@ class Libxslt < Formula
 
   bottle do
     cellar :any
+    sha256 "314e277e592dbf365edb6f170660778f0f928feb35749fce71a15555db9c7a0f" => :catalina
     sha256 "b59277228944c681b1f4df31b3b93c7dd410789a4c8e1b88a4f76bf82eead82c" => :mojave
     sha256 "ccc359c1c9471d16cb5a2a92b042d97d9f25bc2e7869841277c7db6323ad93fa" => :high_sierra
     sha256 "09151f46c7766d9a944bfce4fa5217c54e904f94324b6b3a1e9842ec4b688312" => :sierra
