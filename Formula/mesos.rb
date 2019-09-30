@@ -1,9 +1,9 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
-  sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.9.0/mesos-1.9.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.9.0/mesos-1.9.0.tar.gz"
+  sha256 "7a7ec5ea3dac9fe6cd8369437c57b5edd526a89627e02584009967c06a64a6b9"
 
   bottle do
     sha256 "f3ad80347eda8b915ad3d10da9a5ed6c7d27c0cc489d05a9a87741c1e8b03ad3" => :mojave
@@ -11,11 +11,14 @@ class Mesos < Formula
     sha256 "545a5649305fb8bcc6b6d9827f760a68436a3fe1b433a6eeca0a2b92bcddb36e" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on :java => "1.8"
 
-  depends_on "python@2"
+  depends_on "python"
   depends_on "subversion"
 
   conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
