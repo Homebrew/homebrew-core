@@ -8,6 +8,7 @@ class Veclibfort < Formula
 
   bottle do
     cellar :any
+    sha256 "493d5c54e0b7b5ce3eca692e9809ca0c0f4d64da6d60a12f187490110717a356" => :catalina
     sha256 "cfc57cf7c918e03eca808df69b322b150802aeee21bfafcd3906d52cdf4d8598" => :mojave
     sha256 "482b9bd9210a7b32c30e4536d77529110f7a85399c83efd370f2612e9dd60d65" => :high_sierra
     sha256 "f655ad9b96a1e13a17dd757a598608850634ccc04fb52436e3f838f588ffe157" => :sierra
