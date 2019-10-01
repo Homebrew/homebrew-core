@@ -24,8 +24,8 @@ class BdwGc < Formula
 
   patch do
     # Required for v8.0.4. Support for green threads.
-    url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch"
-    sha256 "784ade9fe1c2668db77a3c08cd195cd7701331bdf8c9d160038cfce099b77e37"
+    url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
+    sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
   end
 
   def install
