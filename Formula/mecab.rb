@@ -7,6 +7,7 @@ class Mecab < Formula
 
   bottle do
     rebuild 3
+    sha256 "dba6306bcd5ddb9a824cb366b5432a036889440f2253634c99410fbb0abe0047" => :catalina
     sha256 "ef261d203140305ca8c9e4b7311c61176a17325df9454610d3eb33a312c4d3c5" => :mojave
     sha256 "d48340df17075e4a6237ffb87306a42566f8eabb736c546d790586266758f387" => :high_sierra
     sha256 "d98686ec62189de50f6ed5b7e682d59b90239c8dfd08cf32fd23543466586232" => :sierra
