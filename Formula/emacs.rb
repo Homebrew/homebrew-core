@@ -6,6 +6,7 @@ class Emacs < Formula
   sha256 "4d90e6751ad8967822c6e092db07466b9d383ef1653feb2f95c93e7de66d3485"
 
   bottle do
+    sha256 "9ab33f4386ca5f7326a8c28da1324556ec990f682a7ca88641203da0b42dbdae" => :catalina
     sha256 "8162a26246de7db44c53ea0d0ef0a806140318d19c69e8e5e33aa88ce7e823a8" => :mojave
     sha256 "6a2629b6deddf99f81abb1990ecd6c87f0242a0eecbb6b6c2e4c3540e421d4c4" => :high_sierra
     sha256 "2a47477e71766d7dd6b16c29ad5ba71817ed80d06212e3261ef3c776e7e9f5a2" => :sierra
