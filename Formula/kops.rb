@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
-  url "https://github.com/kubernetes/kops/archive/1.13.2.tar.gz"
-  sha256 "2e15d3f182b1a3651897240136fd36b55ec424f5285cd62587b0ba31d1adda7c"
+  url "https://github.com/kubernetes/kops/archive/1.14.0.tar.gz"
+  sha256 "d2f73b093ba47f7d3997b59e0d6965179872a825d8f98d9dd04587c4f7a04a40"
   head "https://github.com/kubernetes/kops.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Kops < Formula
     sha256 "4ef87c718100f66b224e260278f3b13b287fa693dcd75726c9cac4e69d88f1f9" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
   depends_on "kubernetes-cli"
 
   def install
