@@ -7,9 +7,10 @@ class GnuTar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62ef2c92bf090b1ada1b8434034be21ac4534e9ab81388516191b7cecd6c095a" => :mojave
-    sha256 "440e9a400c184e76bff84b0b634b1a103231409735c4f7885404d9619ca96c43" => :high_sierra
-    sha256 "d245b143eae5179554fca39cdaf37e928e85df8956087d43c5ec0ac968f6c0e8" => :sierra
+    rebuild 1
+    sha256 "158cb67ea9e02435d671013b4d0d7369822758d9f7ff400ce2512a03f2f7f4e4" => :catalina
+    sha256 "1034894e78bb22b0fcf0c8114666d4dc3eb82345a5ca83797ca3bda367d998ac" => :mojave
+    sha256 "3771cead286229786d9d92a7697bc6e0de576ec9cae1f881017884ceb3e24f17" => :high_sierra
   end
 
   head do
