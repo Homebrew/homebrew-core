@@ -6,6 +6,7 @@ class Unibilium < Formula
 
   bottle do
     cellar :any
+    sha256 "fb0335f25d2848a8dc1eb0911292905c76bb97e98bf349fc6afefe7752164fd1" => :catalina
     sha256 "3886afa29fecdbf2051ae6a92fac638bd27b6edafb75b199e50c0fc6fbf18266" => :mojave
     sha256 "5c29d645cd3e0ad950a7054c73b89cb76114b369476eb8bca26587c38571861d" => :high_sierra
     sha256 "15338d452e5e09e7b8f3bedd6d557d735d06bfbc53204487d11b6c225a04ad71" => :sierra
