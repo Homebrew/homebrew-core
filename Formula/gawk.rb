@@ -19,7 +19,9 @@ class Gawk < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--without-libsigsegv-prefix"
+                          "--without-libsigsegv-prefix",
+                          "gl_cv_func_ftello_works=yes" # Work around a gnulib issue with macOS Catalina
+
     system "make"
     system "make", "check"
     system "make", "install"
