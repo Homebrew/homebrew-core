@@ -7,6 +7,7 @@ class Subversion < Formula
 
   bottle do
     rebuild 1
+    sha256 "8b6f9a588d09d642d8384fa3d331c8d6d1951af7c07dd98af2f6c1bc413ba80d" => :catalina
     sha256 "645a3295fda5daaa6e640180e3a14bd67ae995623b2b217111aa7e9f01359382" => :mojave
     sha256 "d84a139907231b750f9defd9e6e4e08357e6892ae99f93297eedc318059efca6" => :high_sierra
     sha256 "682ed0a48848860718baed5b975ef985628431765f5fef53d9ac4f39bb8e5320" => :sierra
