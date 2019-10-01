@@ -8,8 +8,7 @@ class ApacheGeode < Formula
 
   bottle :unneeded
 
-  # Geode should not be compiled on Java 9+ yet (see https://issues.apache.org/jira/browse/GEODE-3)
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     rm_f "bin/gfsh.bat"
