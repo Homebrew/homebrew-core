@@ -7,6 +7,7 @@ class Qrupdate < Formula
 
   bottle do
     cellar :any
+    sha256 "e275c1facc9afebb6884c4dff4fce18c2ddd7be138502971fcfcf81ab36caab2" => :catalina
     sha256 "e509deee8107d09eaff0e02cbe38bbe27abfb5bed32b3766be83207fccc00320" => :mojave
     sha256 "743423a355fe7fcd2e43f3056829227d3d957f717b08d956d9cee1902bbbaafc" => :high_sierra
     sha256 "835f8dbf0f30b16079b35eba39ad788dfdb3834bf6ab9acdcc8d2083f9199b5c" => :sierra
