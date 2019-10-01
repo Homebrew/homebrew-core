@@ -7,6 +7,7 @@ class Xmlto < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "0343fee2df7057a42c9b401757e5c192f1e90e7c4a8b2c14c5df155a7e4346c9" => :catalina
     sha256 "95e53e70ba98917fc455d3e602d7e610f9d3df41564714eef77eb9c7ad858972" => :mojave
     sha256 "924329e251704206fb5fecafbe78d0445e014d401f5184ea3b5f2f9c6ae8adc6" => :high_sierra
     sha256 "e6c35d8216b36e13a890d839296f51989d58fbf6e35666ee161dcae6f1e5fcd3" => :sierra
