@@ -7,6 +7,7 @@ class Mysql < Formula
 
   bottle do
     rebuild 1
+    sha256 "9d71bf544e21bdb7700adbfe79c78e53697270fb36bf2e2915569547d7675074" => :catalina
     sha256 "70aec9c2a7bbb594550f764cc5b5ee7054626e0357f00bac6ba70d50a7aaa01b" => :mojave
     sha256 "a911fc0ea9cc01add22a74bb3970a5252c83386cc343a96e38d131825a84f4d2" => :high_sierra
     sha256 "6497d9398ea676068cf68d06f3d8d7cd1f1b07609a726d26ad04b7052c0df0ad" => :sierra
