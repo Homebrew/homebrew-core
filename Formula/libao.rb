@@ -7,6 +7,7 @@ class Libao < Formula
 
   bottle do
     rebuild 1
+    sha256 "ad257da0feb811f46a6f7594e83a5a278960e50147c623f6dbab9d326ea7cffa" => :catalina
     sha256 "68e4c903f9da763a466dbec546a50d6d835045879b37dc0e5ad6ca0edd7cb6ae" => :mojave
     sha256 "5ab0149864a6dd0955bc782d4f67dd1c6d1343fcc2ce6983bf4cb3b4ec11d9b1" => :high_sierra
     sha256 "91d709008100b42cc05e28b835155432ab61beee1a8b8337eff5fe0266cba1a1" => :sierra
