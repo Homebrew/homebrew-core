@@ -7,6 +7,7 @@ class MidnightCommander < Formula
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
+    sha256 "a09791d4752c87a4f02c9d45d418f282ebeab30089641ef0d0ec6d7390449815" => :catalina
     sha256 "f0a68c97b763f0287815a5aa09d001cf813595e3a9d4ba5ae5c25095adb666ce" => :mojave
     sha256 "a0c72e44f505ccb864b2b301a05cdec10580a26b195f574a46f0e552cf97e993" => :high_sierra
     sha256 "1d7f48e1c2834f4bb2a3dadc0df433eec646fe31bf1817e44fa9a16dc91ee941" => :sierra
