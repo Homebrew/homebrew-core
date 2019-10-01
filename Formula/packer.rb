@@ -2,8 +2,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.4.3",
-      :revision => "613d8ef6ab6f8182039e2d430497f5f6457d6a42"
+      :tag      => "v1.4.4",
+      :revision => "17d4e5494784739adad472058b98361a1b7083b6"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
@@ -15,7 +15,6 @@ class Packer < Formula
 
   depends_on "coreutils" => :build
   depends_on "go" => :build
-  depends_on "gox" => :build
 
   def install
     ENV["XC_OS"] = "darwin"
@@ -26,14 +25,6 @@ class Packer < Formula
     packerpath.install Dir["{*,.git}"]
 
     cd packerpath do
-      # Avoid running `go get`
-      inreplace "Makefile" do |s|
-        s.gsub! "go get github.com/mitchellh/gox", ""
-        s.gsub! "go get -u github.com/mna/pigeon", ""
-        s.gsub! "go get golang.org/x/tools/cmd/goimports", ""
-        s.gsub! "go get github.com/alvaroloes/enumer", ""
-      end
-
       (buildpath/"bin").mkpath
       if build.head?
         system "make", "bin"
