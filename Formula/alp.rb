@@ -5,6 +5,13 @@ class Alp < Formula
   sha256 "7206f60efcca9a4f149d6abdcaf806f290fcf16237b1f7528e40628c37816449"
   head "https://github.com/tkuchiki/alp.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d91156919ee7610c89861004fed15b93d3f62ce5b6d3a3d24051f107d00803d2" => :catalina
+    sha256 "d35149bd21dab1056af1fb2357c955751b127e286c5839f02418c779fe3d69c3" => :mojave
+    sha256 "6dc7bec08da0e6c2e54f761f5a8fa2532fbdf384f592b3aa78ca7cecbd000645" => :high_sierra
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
 
