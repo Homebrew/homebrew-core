@@ -46,10 +46,16 @@ class Ghc < Formula
     sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
   end
 
-  # workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
+  # Two patches:
+  #  - configure: workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
+  #  - rts/Linker.c: Fix for Catalina compatibility https://gitlab.haskell.org/ghc/ghc/issues/17353
   patch :DATA
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
@@ -148,3 +154,25 @@ index e00a480..6db08ee 100755
  AlexVersion=$fptools_cv_alex_version;
  
  
+diff -pur a/rts/Linker.c b/rts/Linker.c
+--- a/rts/Linker.c	2019-08-25 21:03:36.000000000 +0900
++++ b/rts/Linker.c	2019-11-05 11:09:06.000000000 +0900
+@@ -192,7 +192,7 @@ int ocTryLoad( ObjectCode* oc );
+  *
+  * MAP_32BIT not available on OpenBSD/amd64
+  */
+-#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT)
++#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT) && !defined(__APPLE__)
+ #define TRY_MAP_32BIT MAP_32BIT
+ #else
+ #define TRY_MAP_32BIT 0
+@@ -214,7 +214,7 @@ int ocTryLoad( ObjectCode* oc );
+  */
+ #if !defined(ALWAYS_PIC) && defined(x86_64_HOST_ARCH)
+ 
+-#if defined(MAP_32BIT)
++#if defined(MAP_32BIT) && !defined(__APPLE__)
+ // Try to use MAP_32BIT
+ #define MMAP_32BIT_BASE_DEFAULT 0
+ #else
+
