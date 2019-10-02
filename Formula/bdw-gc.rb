@@ -3,7 +3,6 @@ class BdwGc < Formula
   homepage "https://www.hboehm.info/gc/"
   url "https://github.com/ivmai/bdwgc/releases/download/v8.0.4/gc-8.0.4.tar.gz"
   sha256 "436a0ddc67b1ac0b0405b61a9675bca9e075c8156f4debd1d06f3a56c7cd289d"
-  revision 1
 
   bottle do
     cellar :any
@@ -21,12 +20,6 @@ class BdwGc < Formula
 
   depends_on "libatomic_ops" => :build
   depends_on "pkg-config" => :build
-
-  patch do
-    # Required for v8.0.4. Support for green threads.
-    url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
-    sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
-  end
 
   def install
     system "./autogen.sh" if build.head?
