@@ -5,9 +5,9 @@ class Quickjs < Formula
   sha256 "ae4395d3f45045f920069e6c203ddb3fc3e549ce8fa3c429e696880cff010575"
 
   bottle do
-    sha256 "eaa671e1f694b764ac1f99c60cbbcc884c5d731002bfc02354de2d815a65789b" => :mojave
-    sha256 "5cbd7324e870cba1ce4430771a293c27a1ddfa8398ea086a33a8c670490da866" => :high_sierra
-    sha256 "cc06fc61838d40ee13af262f8979821e1c72a85a950510755b587108dc98a863" => :sierra
+    sha256 "c54904d3ef1234828336a25974be158e9749912a53b1fb5bb18f6d6313d0ae0b" => :catalina
+    sha256 "a069333872b286a1b581c8149c79bf108c53c7497aed8593a4f04016ecc9291c" => :mojave
+    sha256 "395d76691e37c5103a33ea9e028eb46bc15c8b0a1ed7f9dcfecbb65d32ce7003" => :high_sierra
   end
 
   def install
