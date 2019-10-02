@@ -6,6 +6,13 @@ class LibtensorflowAT1 < Formula
   url "https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz"
   sha256 "aa2a6a1daafa3af66807cfe0bc77bfe1144a9a53df9a96bab52e3e575b3047ed"
 
+  bottle do
+    cellar :any
+    sha256 "4d61e319358885f1c6c8c032ad0f932cdf58fa8a123569236100e26612d9a72b" => :catalina
+    sha256 "4d61e319358885f1c6c8c032ad0f932cdf58fa8a123569236100e26612d9a72b" => :mojave
+    sha256 "140a9c31737c91e350f9867f34986d8f74ba4307afd9c15413f137e84aae38f2" => :high_sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "bazel" => :build
