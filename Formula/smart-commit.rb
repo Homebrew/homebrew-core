@@ -1,4 +1,3 @@
-
 class SmartCommit < Formula
   desc "Commit with current branch name"
   homepage "https://github.com/sbimochan/smart-commit"
@@ -10,12 +9,11 @@ class SmartCommit < Formula
   end
 
   test do
-    output =
     system "mkdir test_repo; cd test_repo"
-    system "git init"
-    system "git checkout -b EF-123"
-    system "touch testfile.md"
-    system "git add ."
+    system "git", "init"
+    system "git", "checkout", " -b", "EF-123"
+    touch "testfile.md"
+    system "git", "add", "."
     output = shell_output("#{bin}/commit 'Add test file'")
     assert_match "EF-123: Add test file", output
   end
