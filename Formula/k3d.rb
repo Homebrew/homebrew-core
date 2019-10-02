@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
-  url "https://github.com/rancher/k3d/archive/v1.3.1.tar.gz"
-  sha256 "5f421f933191e1ee997131235118a2d0873a04053d47e52583cd17a573f89b82"
+  url "https://github.com/rancher/k3d/archive/v1.3.2.tar.gz"
+  sha256 "c6f31d99a47f62f76e276f2ca5801602c95aec8969b263a8784589ead90a378c"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,12 +15,20 @@ class K3d < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "BINDIR='#{bin}'", "GIT_TAG='v#{version}'", "build"
+    ENV["GO111MODULE"] = "on"
+    ENV["GOPATH"] = buildpath
+
+    dir = buildpath/"src/github.com/rancher/k3d"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"k3d"
+      prefix.install_metafiles
+    end
   end
 
   test do
-    system "#{bin}/k3d", "-v"
-    assert_match "Checking docker...",
-                 shell_output("#{bin}/k3d ct 2>&1", 1)
+    assert_match "k3d version dev", shell_output("#{bin}/k3d -v")
+    assert_match "Checking docker...", shell_output("#{bin}/k3d ct 2>&1", 1)
   end
 end
