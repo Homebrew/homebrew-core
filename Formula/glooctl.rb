@@ -32,8 +32,11 @@ class Glooctl < Formula
     run_output = shell_output("#{bin}/glooctl 2>&1")
     assert_match "glooctl is the unified CLI for Gloo.", run_output
 
-    version_output = shell_output("#{bin}/glooctl --version 2>&1")
-    assert_match "glooctl community edition version #{version}", version_output
+    version_output = shell_output("#{bin}/glooctl version 2>&1")
+    assert_match "Client: {\"version\":\"#{version}\"}", version_output
+
+    version_output = shell_output("#{bin}/glooctl version 2>&1")
+    assert_match "Server: version undefined", version_output
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
     status_output = shell_output("#{bin}/glooctl get proxy 2>&1", 1)
