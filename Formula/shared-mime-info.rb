@@ -1,8 +1,8 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/5349e18c86eb96eee258a5c1f19122d0/shared-mime-info-1.13.1.tar.xz"
-  sha256 "6ea80a5bc7b20598f3b0f9f92942fdb4322245b79d7ed3c3ee18816fcb472cae"
+  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/aee9ae9646cbef724bbb1bd2ba146556/shared-mime-info-1.14.tar.xz"
+  sha256 "c573e9cae423669878b990e5e4790bc924119841f482b36a25fd751147f44a26"
 
   bottle do
     cellar :any
