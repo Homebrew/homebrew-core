@@ -16,7 +16,10 @@ class Bear < Formula
   depends_on "python"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+    ]
+    system "cmake", ".", *args
     system "make", "install"
   end
 
