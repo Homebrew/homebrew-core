@@ -3,7 +3,7 @@ class Field3d < Formula
   homepage "https://sites.google.com/site/field3d/"
   url "https://github.com/imageworks/Field3D/archive/v1.7.2.tar.gz"
   sha256 "8f7c33ecb4489ed626455cf3998d911a079b4f137f86814d9c37c5765bf4b020"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
@@ -18,7 +18,15 @@ class Field3d < Formula
   depends_on "hdf5"
   depends_on "ilmbase"
 
+  # Append C++11 flag to CXXFLAGS
+  # https://github.com/imageworks/Field3D/pull/97
+  patch do
+    url "https://github.com/imageworks/Field3D/pull/97.diff?full_index=1"
+    sha256 "a2fdd2a1d10fbf62c0ee67a6e1a63919dad8aa509004401d60de939315779288"
+  end
+
   def install
+    ENV.cxx11
     system "scons"
     include.install Dir["install/**/**/release/include/*"]
     lib.install Dir["install/**/**/release/lib/*"]
@@ -27,7 +35,7 @@ class Field3d < Formula
   end
 
   test do
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lField3D",
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lField3D",
            "-I#{Formula["boost"].opt_include}",
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",
