@@ -3,7 +3,7 @@ class Tmux < Formula
   homepage "https://tmux.github.io/"
   url "https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz"
   sha256 "839d167a4517a6bffa6b6074e89a9a8630547b2dea2086f1fad15af12ab23b25"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -28,6 +28,17 @@ class Tmux < Formula
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
     sha256 "05e79fc1ecb27637dc9d6a52c315b8f207cf010cdcee9928805525076c9020ae"
+  end
+
+  # Backport tmux server crash fix in sitations when
+  # main-horizontal layout contains splits that are overflowing text
+  #
+  # Ref: https://github.com/tmux/tmux/issues/1811
+  #
+  # To be removed upon formula bump to 3.0
+  patch do
+    url "https://github.com/tmux/tmux/commit/38b8a198bac62c16d351c54ed83ead29a2e0ecc8.patch?full_index=1"
+    sha256 "06cea85b4d081fbd52b083d390d51433e11c6c1955d1d66c2ffa20b247ad2c8a"
   end
 
   def install
