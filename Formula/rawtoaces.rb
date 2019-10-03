@@ -3,7 +3,7 @@ class Rawtoaces < Formula
   homepage "https://github.com/ampas/rawtoaces"
   url "https://github.com/ampas/rawtoaces/archive/v1.0.tar.gz"
   sha256 "9d15e7e30c4fe97baedfdafb5fddf95534eee26392002b23e81649bbe6e501e9"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "4f2fef8030ff9f13f7df562996dfb18fead52c082d9c8746278ba4badd486d7d" => :catalina
@@ -20,6 +20,7 @@ class Rawtoaces < Formula
   depends_on "libraw"
 
   def install
+    ENV.cxx11
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
