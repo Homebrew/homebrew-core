@@ -1,9 +1,8 @@
 class Atkmm < Formula
   desc "Official C++ interface for the ATK accessibility toolkit library"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.0.tar.xz"
-  sha256 "4c4cfc917fd42d3879ce997b463428d6982affa0fb660cafcc0bc2d9afcedd3a"
-  revision 2
+  url "https://github.com/GNOME/atkmm/releases/tag/2.29.1"
+  sha256 "3a859dd3206edadb0db8cdf845653e1378371f33e10a9d4f15b56b6473327bf0"
 
   bottle do
     cellar :any
