@@ -1,61 +1,56 @@
 class Gnuradio < Formula
+  include Language::Python::Virtualenv
+
   desc "SDK providing the signal processing runtime and processing blocks"
   homepage "https://gnuradio.org/"
-  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
-  sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
-  revision 10
+  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.8.0.0.tar.gz"
+  sha256 "3a9c90111f22f2f6f30450731dc671ad28ce824fc1a7bc8ea0783da9b95a7092"
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "f36fef90f0118a04b3f7cdddf109d99388e01ccdf0375224aa753bc68318bac9" => :catalina
-    sha256 "215229e531d21fe319f7d5a861e4d567b5acbcad6775c8d7dd3389d535950c4a" => :mojave
-    sha256 "774f51b9cb123e9ad9b4560802099c5050447855c931454d4473f107e818223e" => :high_sierra
+    sha256 "cc4ac0868aa007d57749f3baf89ec2102bd4d45548c1ab556365b89fda140b23" => :mojave
+    sha256 "e09af2fcfabfd1421f3b5bba5c6b9778ee87dcbf1dd79b1185ca673dad351ab0" => :high_sierra
+    sha256 "3f4527cc5370e051ab78e1dbd2b64bf003934c0e5aae67a467e75f370f0eeff1" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "swig" => :build
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
-  depends_on "numpy@1.16"
+  depends_on "gtk+3"
+  depends_on "log4cpp"
+  depends_on "numpy"
   depends_on "portaudio"
-  depends_on "python@2"
+  depends_on "pygobject3"
+  depends_on "pygtk"
+  depends_on "pyqt"
+  depends_on "python"
+  depends_on "qt"
+  depends_on "qwt"
   depends_on "uhd"
   depends_on "zeromq"
 
-  # cheetah starts here
-  resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
-    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
-  end
-
   resource "Cheetah" do
-    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
-    sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
-  end
-  # cheetah ends here
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/54/a6/43be8cf1cc23e3fa208cab04ba2f9c3b7af0233aab32af6b5089122b44cd/lxml-4.2.3.tar.gz"
-    sha256 "622f7e40faef13d232fb52003661f2764ce6cdef3edb0a59af7c1559e4cc36d1"
-  end
-
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
-    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
+    url "https://files.pythonhosted.org/packages/4e/72/e6a7d92279e3551db1b68fd336fd7a6e3d2f2ec742bf486486e6150d77d2/Cheetah3-3.2.4.tar.gz"
+    sha256 "caabb9c22961a3413ac85cd1e5525ec9ca80daeba6555f4f60802b6c256e252b"
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
-    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+    url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
+    sha256 "a36919599a9b7dc5d86a7a8988f23a9a3a3d083070023bab23d64f7f1d1e0a4b"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
+    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
   end
 
   resource "cppzmq" do
@@ -63,34 +58,31 @@ class Gnuradio < Formula
     sha256 "964031c0944f913933f55ad1610938105a6657a69d1ac5a6dd50e16a679104d5"
   end
 
-  # patch for boost 1.70.0, remove after next release
-  patch do
-    url "https://github.com/gnuradio/gnuradio/commit/6dc8229fd0dda25c054c2194ee2c9b28affe92d8.patch?full_index=1"
-    sha256 "9836235ea69b3d66b5cd4b2cdc89f80d010797d2bd59dc5c6631a96af921db8c"
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+  end
+
+  resource "click-plugins" do
+    url "https://files.pythonhosted.org/packages/5f/1d/45434f64ed749540af821fd7e42b8e4d23ac04b1eda7c26613288d6cd8a8/click-plugins-1.1.1.tar.gz"
+    sha256 "46ab999744a9d831159c3411bb0c79346d94a444df9a3a3742e9ed63645f264b"
   end
 
   def install
-    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    ENV.cxx11
 
-    ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
+    ENV.prepend_path "PATH", "#{Formula["qt"].opt_bin}"
+
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
-    %w[Markdown Cheetah MarkupSafe Mako six].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
+    venv_root = libexec/"venv"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", "#{venv_root}/lib/python#{xy}/site-packages"
 
-    begin
-      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+    venv = virtualenv_create(venv_root, 'python3')
 
-      resource("lxml").stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    ensure
-      ENV.delete("SDKROOT")
+    %w[Mako six Cheetah PyYAML click click-plugins].each do |r|
+      venv.pip_install resource(r)
     end
 
     resource("cppzmq").stage include.to_s
@@ -98,14 +90,20 @@ class Gnuradio < Formula
     args = std_cmake_args + %W[
       -DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d
       -DGR_PREFSDIR=#{etc}/gnuradio/conf.d
+      -DPYTHON_EXECUTABLE=#{venv_root}/bin/python
+      -DPYTHON_VERSION_MAJOR=3
+      -DQWT_LIBRARIES=#{Formula["qwt"].opt_lib}/qwt.framework/qwt
+      -DQWT_INCLUDE_DIRS=#{Formula["qwt"].opt_lib}/qwt.framework/Headers
+      -DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}
+      -DQT_BINARY_DIR=#{Formula["qt"].opt_bin}
       -DENABLE_DEFAULT=OFF
     ]
 
     enabled = %w[GR_ANALOG GR_FFT VOLK GR_FILTER GNURADIO_RUNTIME
-                 GR_BLOCKS GR_PAGER GR_NOAA GR_CHANNELS GR_AUDIO
-                 GR_FCD GR_VOCODER GR_FEC GR_DIGITAL GR_DTV GR_ATSC
-                 GR_TRELLIS GR_ZEROMQ GR_WAVELET GR_UHD DOXYGEN SPHINX
-                 PYTHON GR_UTILS]
+                 GR_BLOCKS GR_CHANNELS GR_AUDIO GR_VOCODER GR_FEC
+                 GR_DIGITAL GR_DTV GR_TRELLIS GR_ZEROMQ GR_MODTOOL
+                 GR_WAVELET GR_UHD PYTHON GR_UTILS GR_CTRLPORT GRC
+                 GR_QTGUI]
     enabled.each do |c|
       args << "-DENABLE_#{c}=ON"
     end
@@ -116,8 +114,14 @@ class Gnuradio < Formula
       system "make", "install"
     end
 
+    mv Dir[lib/"python#{xy}/dist-packages/*"], lib/"python#{xy}/site-packages/"
+    rm_rf lib/"python#{xy}/dist-packages"
+
+    site_packages = lib/"python#{xy}/site-packages"
+    pth_contents = "import site; site.addsitedir('#{site_packages}')\n"
+    (venv_root/"lib/python#{xy}/site-packages/homebrew-gnuradio.pth").write pth_contents
+
     rm bin.children.reject(&:executable?)
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
@@ -153,9 +157,10 @@ class Gnuradio < Formula
         top.run();
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"].opt_lib}",
+    system ENV.cxx, "-std=c++11", "-L#{lib}", "-L#{Formula["boost"].opt_lib}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-lboost_system", testpath/"test.c++", "-o", testpath/"test"
+           "-lboost_system", "-L#{Formula["log4cpp"].opt_lib}", "-llog4cpp",
+           testpath/"test.c++", "-o", testpath/"test"
     system "./test"
 
     (testpath/"test.py").write <<~EOS
@@ -182,16 +187,6 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system "python2.7", testpath/"test.py"
-
-    cd testpath do
-      system "#{bin}/gr_modtool", "newmod", "test"
-
-      cd "gr-test" do
-        system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
-               "python", "-y", "--argument-list=''", "--add-python-qa",
-               "--copyright=brew"
-      end
-    end
+    system "python3", testpath/"test.py"
   end
 end
