@@ -1,8 +1,8 @@
 class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
-  url "https://github.com/SimonKagstrom/kcov/archive/v36.tar.gz"
-  sha256 "29ccdde3bd44f14e0d7c88d709e1e5ff9b448e735538ae45ee08b73c19a2ea0b"
+  url "https://github.com/SimonKagstrom/kcov/archive/v37.tar.gz"
+  sha256 "a136e3dddf850a8b006509f49cc75383cd44662169e9fec996ec8cc616824dcc"
   head "https://github.com/SimonKagstrom/kcov.git"
 
   bottle do
@@ -14,6 +14,7 @@ class Kcov < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
 
   def install
     mkdir "build" do
