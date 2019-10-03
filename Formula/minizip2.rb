@@ -1,8 +1,8 @@
 class Minizip2 < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/nmoinvaz/minizip"
-  url "https://github.com/nmoinvaz/minizip/archive/2.8.9.tar.gz"
-  sha256 "ad0ab096e325ada77f4c75770ffcb03e3540e4c373e36ee22bb1d47b2b98c36d"
+  url "https://github.com/nmoinvaz/minizip/archive/2.9.0.tar.gz"
+  sha256 "d9501b1048064855222a42264ce773eebc29bbad5bcadbbeb22db2c3e65ae447"
 
   bottle do
     cellar :any_skip_relocation
