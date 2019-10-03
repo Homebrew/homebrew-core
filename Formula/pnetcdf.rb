@@ -4,6 +4,12 @@ class Pnetcdf < Formula
   url "https://parallel-netcdf.github.io/Release/pnetcdf-1.11.2.tar.gz"
   sha256 "d2c18601b364c35b5acb0a0b46cd6e14cae456e0eb854e5c789cf65f3cd6a2a7"
 
+  bottle do
+    sha256 "239d0fd91972dfae7429806a40f286deecaa7e4ce960c7aa7ccecc6e99fe97c0" => :catalina
+    sha256 "73b60ef9536af78adbe654dcc49da037b27cc8ce373f36543c6da1b1a1bbaaa9" => :mojave
+    sha256 "f03941617d9d7260497e1f89079eb7ca4c98fbd36d5bfcfa62d298e6790d6350" => :high_sierra
+  end
+
   depends_on "gcc"
   depends_on "open-mpi"
 
