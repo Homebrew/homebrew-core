@@ -16,8 +16,8 @@ class Sphinx < Formula
   depends_on "openssl@1.1"
 
   resource "stemmer" do
-    url "https://github.com/snowballstem/snowball.git",
-        :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
+    url "https://github.com/snowballstem/snowball/archive/v2.0.0.tar.gz"
+    sha256 "f047a33f3bcaf12f3ab06ce3f1237a911e21a510035dca9016f9140f4041b006"
   end
 
   def install
