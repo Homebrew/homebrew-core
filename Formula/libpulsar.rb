@@ -3,6 +3,7 @@ class Libpulsar < Formula
   homepage "https://pulsar.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.4.1/apache-pulsar-2.4.1-src.tar.gz"
   sha256 "6fb764b0d15506884905b781cfd2f678ad6a819f2c8d60cc34f78966b4676d40"
+  revision 1
 
   bottle do
     cellar :any
