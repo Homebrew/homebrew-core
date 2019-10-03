@@ -7,10 +7,9 @@ class Node < Formula
 
   bottle do
     cellar :any
-    sha256 "e681e3e9cf08ed07da671a9ddb2c04e9f9cca0751080c19b6446b713a36855f1" => :catalina
-    sha256 "e230187b694d98b4419de13f66b56a13d0330226b6125d341c2170b364714de7" => :mojave
-    sha256 "e4ad2465c13b8ecd669f4d9e34ff4ca62aa2a2b3ac3b4f79d181c3becc13b470" => :high_sierra
-    sha256 "c310d9d4924f813c3b4ff2d2d5c5ed10e8b11c7a5e08a176a007fba0061b21cf" => :sierra
+    sha256 "30ee7e81c7142603dd5fc0d90659f633cd5e4a0a7f1382aa6cd2b3620c58f329" => :catalina
+    sha256 "2c55bc818349816cd336dcf9abf85d3a84aaede346e4da4f2459a7efa1590902" => :mojave
+    sha256 "b3323bf82459e14ed097bef9e25322ce1d55d1cb9a10674e39031eae0259a79d" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
