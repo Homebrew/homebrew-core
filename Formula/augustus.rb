@@ -7,10 +7,9 @@ class Augustus < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4d052d58f6a1432deabdb529c83774017cc51456e780fd0dc79d127db2593366" => :mojave
-    sha256 "54dfd9c7cb44e36d126ac9d1febe79192a5c9fa71e11b9e5bb9a3b6aa14ed3bf" => :high_sierra
-    sha256 "a6fdc891239b33bea15d9f3f87992e5bf37a9b82ef683e662331617c1ac3c980" => :sierra
+    sha256 "397da54388ec9d56ee891b021fe313e0e4cfa2e46e80ef177ddd6d24723abec3" => :catalina
+    sha256 "67298cd2aa811dfa953f8d0c9019df12fe2f7aec6cd35ebf1cf27e38fb39e858" => :mojave
+    sha256 "030d9fced4d6863a77e5058f145e2d13560ef0b9aedd1cb01e96c593c9e3cbc6" => :high_sierra
   end
 
   depends_on "boost" => :build
