@@ -6,9 +6,9 @@ class Ne < Formula
   head "https://github.com/vigna/ne.git"
 
   bottle do
-    sha256 "cb22f87c5d36b2071dbf02a62ef29e43776ecd3717ab1583e0f4543d8eaa6a69" => :mojave
-    sha256 "a1037e0ec9e8bcfdc3182dcbf328472f73b341c52d4a67d287ae544b254b3b72" => :high_sierra
-    sha256 "0b7140758a418d16e65e16f580a531adc72749932975953c081405a0187c8713" => :sierra
+    sha256 "b2e63b8951fddb36962eb804a710c507c145e86df8e050ab9e50210002e99b59" => :catalina
+    sha256 "198266ab4d3dc24c0f5a4e877f9c4a8add816c11aabfe770549df188b54765a7" => :mojave
+    sha256 "97401cdccd3bc86869c6d3208a4cd2044aad1cc11e25fa3369904eece174207e" => :high_sierra
   end
 
   depends_on "texinfo" => :build
