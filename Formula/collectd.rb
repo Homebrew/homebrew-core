@@ -3,7 +3,7 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.9.0.tar.bz2"
   sha256 "7b220f8898a061f6e7f29a8c16697d1a198277f813da69474a67911097c0626b"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
