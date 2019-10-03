@@ -12,7 +12,7 @@ class Grafana < Formula
     sha256 "415466f8ad6ceb8ad5ad4dcddd25e2a1d9171c3bc2dbe5e05abbe5996ce9bf7b" => :sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
   depends_on "node@10" => :build
   depends_on "yarn" => :build
 
@@ -21,7 +21,7 @@ class Grafana < Formula
     grafana_path = buildpath/"src/github.com/grafana/grafana"
     grafana_path.install buildpath.children
 
-    cd grafana_path do
+    cd grafana_path do      
       system "go", "run", "build.go", "build"
 
       system "yarn", "install", "--ignore-engines"
