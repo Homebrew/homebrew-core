@@ -3,7 +3,7 @@ class Ctl < Formula
   homepage "https://github.com/ampas/CTL"
   url "https://github.com/ampas/CTL/archive/ctl-1.5.2.tar.gz"
   sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "0ad490aa788bd360a656878b50d31d3a943932072ab51c8b87a01ccfae9f8548" => :catalina
@@ -23,7 +23,13 @@ class Ctl < Formula
     sha256 "119c2410403d16d1ecfe88bc687c16a0a5645f91824eec8de2d996d1248a06fd"
   end
 
+  patch do
+    url "https://github.com/ampas/CTL/pull/74.diff?full_index=1"
+    sha256 "0c261caf34f14a097811ceb82fc1d9aa29bc6c4861921361e6eb1b4fe5f8ebae"
+  end
+
   def install
+    ENV.cxx11
     ENV.delete "CTL_MODULE_PATH"
 
     mkdir "build" do
