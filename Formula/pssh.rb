@@ -7,12 +7,10 @@ class Pssh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c1fd4fa8d8ecf0d14653822cba442d183a8a2d79b016ecab5c54e565c6972ed2" => :mojave
-    sha256 "ce781e0051a5a1855088a25df9eeb828b7a4bbbdafff90b2713c557acba2b19d" => :high_sierra
-    sha256 "b4a9f92943bcfb34d5230d90658176ef5fe3a304f3abe48a1aad5fbda38c8efb" => :sierra
-    sha256 "b13dcf5091ba493f21cd44c9ef43d028a4e23627b7b855ab4d299f0d543037a1" => :el_capitan
-    sha256 "16f3c0b42cd3bfabea6a22a39b62299de53e1fb894b72da0c12574f25a09963a" => :yosemite
-    sha256 "62595390d018a9a953928cf6adf8e9299b92f00c3846d74757a18437abbc5f27" => :mavericks
+    rebuild 1
+    sha256 "37ba25ad7e68af9c2b5e855fbc6bac62df503b0f2c19a3c768ed753b8bdf9a66" => :catalina
+    sha256 "f629be84f06086697723f5c81bcdddb86fcf97712663062e909b8921c4ab6793" => :mojave
+    sha256 "f6defeaef5356d64010c322358bb1d66769352db4b1d61c1a47f123075cf288c" => :high_sierra
   end
 
   depends_on "python"
