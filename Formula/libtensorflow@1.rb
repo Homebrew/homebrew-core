@@ -3,8 +3,8 @@ class LibtensorflowAT1 < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz"
-  sha256 "aa2a6a1daafa3af66807cfe0bc77bfe1144a9a53df9a96bab52e3e575b3047ed"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz"
+  sha256 "a5d49c00a175a61da7431a9b289747d62339be9cf37600330ad63b611f7f5dc9"
 
   bottle do
     cellar :any
@@ -18,13 +18,6 @@ class LibtensorflowAT1 < Formula
   depends_on "bazel" => :build
   depends_on :java => ["1.8", :build]
   depends_on "python" => :build
-
-  # Upgrade protobuf to 3.8.0
-  # The custom commit contains a fix to make protobuf.bzl compatible with Bazel 0.26 or later version.
-  patch do
-    url "https://github.com/tensorflow/tensorflow/commit/508f76b1d9925304cedd56d51480ec380636cb82.diff?full_index=1"
-    sha256 "89f09f266ee56ee583cfffb8b4ce9333f181f497f7e04a672a68a8b611d21270"
-  end
 
   def install
     venv_root = "#{buildpath}/venv"
@@ -56,12 +49,18 @@ class LibtensorflowAT1 < Formula
     ENV["TF_CONFIGURE_IOS"] = "0"
     system "./configure"
 
-    system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow.so"
+    bazel_compatibility_flags = %w[
+      --noincompatible_remove_legacy_whole_archive
+    ]
+    system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt", "--copt=-march=native", *bazel_compatibility_flags, "tensorflow:libtensorflow.so"
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
     (include/"tensorflow/c").install %w[
       tensorflow/c/c_api.h
       tensorflow/c/c_api_experimental.h
       tensorflow/c/tf_attrtype.h
+      tensorflow/c/tf_datatype.h
+      tensorflow/c/tf_status.h
+      tensorflow/c/tf_tensor.h
     ]
 
     (lib/"pkgconfig/tensorflow.pc").write <<~EOS
