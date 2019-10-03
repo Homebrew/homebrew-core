@@ -1,9 +1,8 @@
 class Peg < Formula
   desc "Program to perform pattern matching on text"
-  homepage "https://web.archive.org/web/20190403044205/piumarta.com/software/peg/"
-  # Canonical URL not reachable:
-  # http://piumarta.com/software/peg/peg-0.1.18.tar.gz
-  url "https://deb.debian.org/debian/pool/main/p/peg/peg_0.1.18.orig.tar.gz"
+  homepage "https://www.piumarta.com/software/peg/"
+  url "https://www.piumarta.com/software/peg/peg-0.1.18.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/p/peg/peg_0.1.18.orig.tar.gz"
   sha256 "20193bdd673fc7487a38937e297fff08aa73751b633a086ac28c3b34890f9084"
 
   bottle do
