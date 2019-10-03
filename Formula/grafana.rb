@@ -21,7 +21,7 @@ class Grafana < Formula
     grafana_path = buildpath/"src/github.com/grafana/grafana"
     grafana_path.install buildpath.children
 
-    cd grafana_path do      
+    cd grafana_path do
       system "go", "run", "build.go", "build"
 
       system "yarn", "install", "--ignore-engines"
