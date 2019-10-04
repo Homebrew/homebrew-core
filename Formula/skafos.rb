@@ -1,8 +1,9 @@
 class Skafos < Formula
   desc "CLI for the Metis Machine A.I. and machine learning deployment platform"
-  homepage "https://metismachine.com/"
+  homepage "https://skafos.ai/"
   url "https://github.com/MetisMachine/skafos/archive/1.7.7.tar.gz"
   sha256 "42eecd6094126f1e4febf94541c4b640f2b4ed39829af2686cd83a60fafcd994"
+  revision 1
 
   bottle do
     cellar :any
@@ -42,6 +43,6 @@ class Skafos < Formula
         eof
       }
     EOS
-    assert_match "Invalid email or password", shell_output("expect -f test.exp")
+    assert_match "Please enter email", shell_output("expect -f test.exp")
   end
 end
