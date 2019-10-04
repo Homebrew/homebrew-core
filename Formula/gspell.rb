@@ -3,7 +3,7 @@ class Gspell < Formula
   homepage "https://wiki.gnome.org/Projects/gspell"
   url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.2.tar.xz"
   sha256 "bb9195c3a95bacf556d0203e9691f7489e0d3bc5ae1e5a440c89b2f2435d3ed6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "144c6a377b07222a18188dbf119bfb9318acb88b87912dce1ae9e4d723e3be0b" => :catalina
