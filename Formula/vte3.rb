@@ -3,6 +3,7 @@ class Vte3 < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.58/vte-0.58.0.tar.xz"
   sha256 "0705571d81f74e60d8dbeb5bf3658bfc6c3d84cf27a67a30ee7de6a693fadb45"
+  revision 1
 
   bottle do
     sha256 "b9ada53ae71f433fdcb37868222776aa963709ef990f1108624f50a03631d40c" => :mojave
