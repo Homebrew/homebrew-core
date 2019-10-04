@@ -4,6 +4,7 @@ class Camlp4 < Formula
   url "https://github.com/ocaml/camlp4/archive/4.08+1.tar.gz"
   version "4.08+1"
   sha256 "655cd3bdcafbf8435877f60f4b47dd2eb69feef5afd8881291ef01ba12bd9d88"
+  revision 1
   head "https://github.com/ocaml/camlp4.git", :branch => "trunk"
 
   bottle do
