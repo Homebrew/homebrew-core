@@ -6,6 +6,7 @@ class Libcaca < Formula
   mirror "https://fossies.org/linux/privat/libcaca-0.99.beta19.tar.gz"
   version "0.99b19"
   sha256 "128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d3772f4"
+  revision 1
 
   bottle do
     cellar :any
@@ -27,6 +28,7 @@ class Libcaca < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "imlib2"
 
   def install
     system "./bootstrap" if build.head?
