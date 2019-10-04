@@ -4,6 +4,13 @@ class NumpyAT116 < Formula
   url "https://files.pythonhosted.org/packages/d3/4b/f9f4b96c0b1ba43d28a5bdc4b64f0b9d3fbcf31313a51bc766942866a7c7/numpy-1.16.4.zip"
   sha256 "7242be12a58fec245ee9734e625964b97cf7e3f2f7d016603f9e56660ce479c7"
 
+  bottle do
+    cellar :any
+    sha256 "7a6e4d2862b296c4dbdce11618396ff5c13da4aa84e4747fcf0a07efff508ad7" => :catalina
+    sha256 "1efacb12d68f80b3bb431f3ccf0ee161c096b29253b2777a0ed407f38f966342" => :mojave
+    sha256 "8f4597ef83483db4104b5172f5312f5ce946826fb6bd5eceeb0d2ec156526774" => :high_sierra
+  end
+
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
   depends_on "python@2"
