@@ -79,11 +79,10 @@ class Ffmpeg < Formula
       --enable-libopenjpeg
       --enable-librtmp
       --enable-libspeex
+      --enable-libsoxr
       --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
-      --enable-libaom
-      --enable-libsoxr
     ]
 
     system "./configure", *args
