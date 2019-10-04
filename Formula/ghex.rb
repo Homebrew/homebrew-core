@@ -3,6 +3,7 @@ class Ghex < Formula
   homepage "https://wiki.gnome.org/Apps/Ghex"
   url "https://download.gnome.org/sources/ghex/3.18/ghex-3.18.4.tar.xz"
   sha256 "c2d9c191ff5bce836618779865bee4059db81a3a0dff38bda3cc7a9e729637c0"
+  revision 1
 
   bottle do
     sha256 "9d0fe884daed1d4bf11ba5b0077173a80536e13a09adede2c9a9e18a9e02f5ac" => :mojave
