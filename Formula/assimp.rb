@@ -1,8 +1,8 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "http://www.assimp.org"
-  url "https://github.com/assimp/assimp/archive/v4.1.0.tar.gz"
-  sha256 "3520b1e9793b93a2ca3b797199e16f40d61762617e072f2d525fad70f9678a71"
+  url "https://github.com/assimp/assimp/archive/v5.0.0.tar.gz"
+  sha256 "b0110a91650d6bb4000e3d5c2185bf77b0ff0a2e7a284bc2c4af81b33988b63c"
   head "https://github.com/assimp/assimp.git"
 
   bottle do
