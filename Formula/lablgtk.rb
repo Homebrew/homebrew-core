@@ -3,6 +3,7 @@ class Lablgtk < Formula
   homepage "http://lablgtk.forge.ocamlcore.org"
   url "https://github.com/garrigue/lablgtk/releases/download/lablgtk2188/lablgtk-2.18.8.tar.gz"
   sha256 "91f59bafd07989ea00080f4fd65512ce339878c7117bf5116bad3b93b64d4de3"
+  revision 1
 
   bottle do
     cellar :any
