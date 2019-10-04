@@ -17,8 +17,7 @@ class KymaCli < Formula
     cd bin_path do
       system "dep", "ensure", "-vendor-only"
       system "make", "build-darwin"
-      bin.install "bin/kyma-darwin"
-      mv bin/"kyma-darwin", bin/"kyma"
+      bin.install "bin/kyma-darwin" => "kyma"
     end
   end
 
