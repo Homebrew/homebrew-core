@@ -3,7 +3,7 @@ class Gsmartcontrol < Formula
   homepage "https://gsmartcontrol.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gsmartcontrol/1.1.3/gsmartcontrol-1.1.3.tar.bz2"
   sha256 "b64f62cffa4430a90b6d06cd52ebadd5bcf39d548df581e67dfb275a673b12a9"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "eb50b0e19db7f772ed264f5a52b1eb786b7680c921e2fb9495fd8aa584a8bc42" => :mojave
