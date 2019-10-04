@@ -3,7 +3,7 @@ class Pioneer < Formula
   homepage "https://pioneerspacesim.net/"
   url "https://github.com/pioneerspacesim/pioneer/archive/20190203.tar.gz"
   sha256 "e526f1659ae321f45b997c0245acecbf9c4cf2122b025ab8db1090f1b9804f5e"
-  revision 1
+  revision 2
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
