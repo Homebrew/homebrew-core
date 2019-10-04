@@ -7,10 +7,9 @@ class Cmake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "711bd637c114496bd9fce6ec7c8cbc2efab3441b9b56402c472376772b3fa241" => :catalina
-    sha256 "df769c8be61785860e5c60870d522c0504eeb08b229a0d35800c6594038a9485" => :mojave
-    sha256 "2e0ab82d0d7dcfb7fb06b8d47582edbd39224c4e0d0f95fda085edad39b56771" => :high_sierra
-    sha256 "b723f970d0b6d44a673340525c157c2e52c42e9ea352a5c25fc5e1a84b9865a8" => :sierra
+    sha256 "46d8b2170e1bc872f5d4548a730bd7829347189aa8c50843343ff2f0e4e356e4" => :catalina
+    sha256 "ee48d9b4a0d925dcb73e300500a155497ef3d6a982cc42ded4f4f5b9d68b76c4" => :mojave
+    sha256 "4981614f03a1bbf77147f2b5cb2e6f42439e6c41c7e947b0072d8f0401fef749" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
