@@ -3,6 +3,7 @@ class Baobab < Formula
   homepage "https://wiki.gnome.org/Apps/Baobab"
   url "https://download.gnome.org/sources/baobab/3.34/baobab-3.34.0.tar.xz"
   sha256 "46ebd9466da6a68c340653e9095f1e905b6fac79305879a9e644634f7da98607"
+  revision 1
 
   bottle do
     sha256 "5d067135c6485d32ab4bf69cf70471e2f3e97b7ebe085ca530437bcdaad6e646" => :mojave
