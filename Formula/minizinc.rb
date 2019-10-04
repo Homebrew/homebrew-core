@@ -1,8 +1,8 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.3.0.tar.gz"
-  sha256 "7aa04296c8c7b985906b0c550dec70822b8ff176aaf5a728a97e94673844b8e0"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.3.2.tar.gz"
+  sha256 "d07ebc1a2214d5fb7de3714e2b0ee7db5e1cb7d155bf88a134d141d1eb4995c2"
   head "https://github.com/MiniZinc/libminizinc.git", :branch => "develop"
 
   bottle do
