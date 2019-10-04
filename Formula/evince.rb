@@ -3,6 +3,7 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.34/evince-3.34.0.tar.xz"
   sha256 "3297d16d2d1426f72ea090749ba72424d08eb133fbe4101e52a0b84999ad2a51"
+  revision 1
 
   bottle do
     sha256 "3279cb4627a767dcdd489501b6b263da6f5658e36856c0607bc517f96e55e60b" => :catalina
