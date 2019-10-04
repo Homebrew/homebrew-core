@@ -3,7 +3,7 @@ class GnomeLatex < Formula
   homepage "https://wiki.gnome.org/Apps/GNOME-LaTeX"
   url "https://download.gnome.org/sources/gnome-latex/3.32/gnome-latex-3.32.0.tar.xz"
   sha256 "0f069c7b4c6754255a1c7e3e3b050925d8076f55458526a30ab59e0a7d52acc9"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
