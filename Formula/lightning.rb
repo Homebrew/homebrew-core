@@ -1,9 +1,9 @@
 class Lightning < Formula
   desc "Generates assembly language code at run-time"
   homepage "https://www.gnu.org/software/lightning/"
-  url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.2.tar.gz"
-  sha256 "9b289ed1c977602f9282da507db2e980dcfb5207ee8bd2501536a6852a157a69"
+  url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.3.tar.gz"
+  sha256 "ed856b866dc6f68678dc1151579118fab1c65fad687cf847fc2d94ca045efdc9"
 
   bottle do
     cellar :any
