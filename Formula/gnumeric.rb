@@ -3,7 +3,7 @@ class Gnumeric < Formula
   homepage "https://projects.gnome.org/gnumeric/"
   url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.45.tar.xz"
   sha256 "3098ada0a24effbde52b0074968a8dc03b7cf1c522e9e1b1186f48bb67a00d31"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "0ccbc934389445c103643232c5e00e8a9261b81833dbf6d46a3017f8e1827563" => :mojave
