@@ -3,7 +3,7 @@ class SpiceGtk < Formula
   homepage "https://www.spice-space.org"
   url "https://www.spice-space.org/download/gtk/spice-gtk-0.37.tar.bz2"
   sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "fd00027b025a99586e4c63accd9b3a9278dfb923b8f9eedebe56aa68241072cb" => :mojave
