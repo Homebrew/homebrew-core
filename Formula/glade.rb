@@ -3,7 +3,7 @@ class Glade < Formula
   homepage "https://glade.gnome.org/"
   url "https://download.gnome.org/sources/glade/3.22/glade-3.22.1.tar.xz"
   sha256 "dff89a2ef2eaf000ff2a46979978d03cb9202cb04668e01d0ea5c5bb5547e39a"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "7673984e0276bfecaf1788b749444ae81bfcfe19a7511989ecf2d946cb78fa05" => :mojave
