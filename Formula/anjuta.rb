@@ -6,9 +6,9 @@ class Anjuta < Formula
   revision 1
 
   bottle do
-    sha256 "66bc5d99d0c5ab823e283c01cc0c7af5294bb095f20bdb99e9b775bc408968c7" => :mojave
-    sha256 "939d047893f21a25ef7d79915dc18ff2ee62462fdf830a417bdf57a105826656" => :high_sierra
-    sha256 "6ed200a7ee0a39f773117c5d69d60255a11004152f3f56d7f8ff8a819b15f156" => :sierra
+    sha256 "b9394ffec202e2a073a98433fdb71a7f4f0855df6d579a6c719e82f2edd7a645" => :catalina
+    sha256 "d1f1cf5e9930dba037b4c010b5470defc006e669d1e209bc1554f6086e139fb9" => :mojave
+    sha256 "455139ca29653f310b2bc98a42501d0b0a1c1a0205b4ff21a16f7972b509aa95" => :high_sierra
   end
 
   depends_on "intltool" => :build
