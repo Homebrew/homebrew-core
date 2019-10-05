@@ -6,9 +6,9 @@ class Klavaro < Formula
   revision 1
 
   bottle do
-    sha256 "2a9619dd4f1c5bfe4bfb3506acd5f1ccd88a9db52961e633e37bba1bc53e4cec" => :mojave
-    sha256 "d6cee4035c5d75253bab252217f795e1d2af5a8fcc248982fe909505c88792ea" => :high_sierra
-    sha256 "5e99e56d3b855b9c6c6104622e32762008be3394a3008afbfe734b1d69aef522" => :sierra
+    sha256 "2ba4e6a15b27a690ff12f07439e998a6b861c2abc888d6dbfb5b7f8e38294137" => :catalina
+    sha256 "be732fb8cb7241aaa250e040c9eee11e27c36023e11993b447746c0fefbeb302" => :mojave
+    sha256 "633f7968ade19e794298386ca5939eee7c3800d5a1c9123c7ebc435ed32f6bb2" => :high_sierra
   end
 
   depends_on "intltool" => :build
