@@ -6,9 +6,9 @@ class GupnpTools < Formula
   revision 2
 
   bottle do
-    sha256 "61f6fd355a0551a96b78450ee9dafe27635f339a7c8d856fe373bd1999588f5b" => :mojave
-    sha256 "d0bebb0e02a67b3727584cc7e84a4b6f1bb0eabe26784eb049ff1c7795c896c8" => :high_sierra
-    sha256 "a7e187a099a1b0770d976778e941ec0318ba72628f9d2120b5ffde1120719b0a" => :sierra
+    sha256 "c2430f90cd6283cad1c2d72d678243c197c4fea78d4955f5525d3c966d765a04" => :catalina
+    sha256 "2c4d3b3bac6ef674218933479ae5840093f974165322543762333537b944613c" => :mojave
+    sha256 "47567b08fad94669cf398aceb7c75245b806721ede6938dd961156781d1a848e" => :high_sierra
   end
 
   depends_on "meson" => :build
