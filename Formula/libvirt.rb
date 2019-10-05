@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.7.0.tar.xz"
-  sha256 "7e91f23574c73f0da8812917922d45af1044dbe31d2526aa34e2ff29bfef62e0"
+  url "https://libvirt.org/sources/libvirt-5.8.0.tar.xz"
+  sha256 "e23328289b18bdedc1e966f6c26402b2983149c660ed8bd52cda6feab0c20c55"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -40,6 +40,9 @@ class Libvirt < Formula
     ]
 
     args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
+
+    # Work around a gnulib issue with macOS Catalina
+    args << "gl_cv_func_ftello_works=yes"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
