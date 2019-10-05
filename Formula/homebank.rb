@@ -6,9 +6,9 @@ class Homebank < Formula
   revision 1
 
   bottle do
-    sha256 "720811ca34532edca14d9f57ac96743c96ea437f322badba59f34f21995f8743" => :mojave
-    sha256 "00508ac30105e87b4710aa394348a0b7404bcd0806e1c421472df9a4be3baff2" => :high_sierra
-    sha256 "645c65fca78a4e3f2818a79ca450b833901f00e8b142d7a709f2a3ffb1d88791" => :sierra
+    sha256 "4db7d01578a8588f38d2f481830e662b11039bde595c9958e51839d5a4471360" => :catalina
+    sha256 "f6f16efea946ceac7d430f3aef7177454c11b759cc64433ef140b3e209dbb8b7" => :mojave
+    sha256 "4ea21bb9617242f762aee8f92d152b21408c8908a4a7f1e0c7a79fb83bfd6888" => :high_sierra
   end
 
   depends_on "intltool" => :build
