@@ -6,9 +6,9 @@ class Tepl < Formula
   revision 3
 
   bottle do
-    sha256 "8fe47776f7a5ee9e20b6357d4688ae59781d097bdbe085df944c1bf09d5f9bb6" => :mojave
-    sha256 "a39f1c7cfa89b42040af44ba7b96332eab504d52395399096eda16c8b04f6307" => :high_sierra
-    sha256 "dbc039c916631a5c5b5db30a96484ee9728b5275915fd42a5c7362534ef34524" => :sierra
+    sha256 "f4694d4b2cab35b0b3ae9ab137ca1c7dc5c7204a105adcbc2f1228ebfebbe70e" => :catalina
+    sha256 "c24080049d2ce5a95ac93458444538712169653ee3f73b7d58fa26f22c3e5430" => :mojave
+    sha256 "1a07d0162bdcbae050dfed5529a1e28ab8fbb3054fb6fb6a6f76ce7e0cbe2323" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
