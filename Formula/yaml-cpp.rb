@@ -5,10 +5,10 @@ class YamlCpp < Formula
   sha256 "77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed"
 
   bottle do
-    cellar :any
-    sha256 "0ce658deb59e0d2fc5268fbc4f02923770b5be7867ab10e2d2bba339d71bd593" => :mojave
-    sha256 "cbcedc236b8ec1dbd389de60327e59fc546cf116cccd5d7d5da786fe52a4e7c0" => :high_sierra
-    sha256 "b332f87fbdda1324e819dd9e4c4f388b58e9c19159b97afe92b2992a17add1b9" => :sierra
+    cellar :any_skip_relocation
+    sha256 "e359e13c2fc0564c7500572af0a711d0a9f8b6655f0ab9d214d644ccc855ff68" => :catalina
+    sha256 "1e43334e4896703dda18ca52e76b4ec8bf850fb253d2553f7a9598b426d81773" => :mojave
+    sha256 "b4b5fc6d5d29494aa10d9ac75de1514afeda044ef736c5b1bc7953d1ad7162ca" => :high_sierra
   end
 
   depends_on "cmake" => :build
