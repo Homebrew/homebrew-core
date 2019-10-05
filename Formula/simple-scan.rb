@@ -3,6 +3,7 @@ class SimpleScan < Formula
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
   url "https://download.gnome.org/sources/simple-scan/3.34/simple-scan-3.34.0.tar.xz"
   sha256 "7378bb9d891f956df232eb85bda59b9551be9578bc209bff40fed47d21cfb8bb"
+  revision 1
 
   bottle do
     sha256 "e2a2737218f4cb859bbd5aef5897e44aa385316197ec2f87cd511ae349119569" => :mojave
@@ -21,6 +22,13 @@ class SimpleScan < Formula
   depends_on "libgusb"
   depends_on "sane-backends"
   depends_on "webp"
+
+  # fixes vala compiler error
+  # see https://gitlab.gnome.org/GNOME/simple-scan/merge_requests/27
+  patch do
+    url "https://gitlab.gnome.org/GNOME/simple-scan/commit/47d35324.diff"
+    sha256 "d32ba584a5d9d2f2e13d12bde9e185d28234983f9f7d0a7275924fedf62dd405"
+  end
 
   def install
     ENV["DESTDIR"] = "/"
