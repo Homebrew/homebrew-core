@@ -6,9 +6,9 @@ class Amtk < Formula
   revision 1
 
   bottle do
-    sha256 "9f33a4487787d124aedc94f4c19e59558d97782383100aa385c628d8f2148b6e" => :mojave
-    sha256 "7698d596007d0d86b4ad672915cff4d1b6ec1fd2abcd931e3f5b7f17f40e196c" => :high_sierra
-    sha256 "e3780ab44f49105445ff6e5f3cbf048f1e7572c1327068d92ba5d81de62f7ecf" => :sierra
+    sha256 "4da9a0f86b3e577452a283a366c9a09463be362bd720e968514d3e7b569ff8a5" => :catalina
+    sha256 "b922ae2f4338a2407d26949a28c8376430d4b0bdceafce18d4214339543bebca" => :mojave
+    sha256 "6f2f867c84a1e7ac2e4f55b058ad148f7f545de0afc3bfd6341898cc079a6455" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
