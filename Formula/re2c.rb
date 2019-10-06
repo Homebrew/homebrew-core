@@ -5,6 +5,7 @@ class Re2c < Formula
   sha256 "1a4cd706b5b966aeffd78e3cf8b24239470ded30551e813610f9cd1a4e01b817"
 
   bottle do
+    sha256 "628da2992f2fdc6ac4ab38b6fdbcef1a52b4e8ccca3ee31735e97b05000baf52" => :catalina
     sha256 "2d9f14907212e68580afa38eae450c8c0a9157169a1fd00e6faf27f872134433" => :mojave
     sha256 "3a39e5869772c6774b53c22e59d5e4fd195349962aedcf65731cd6eb0cb54e9d" => :high_sierra
     sha256 "20d4035575168abd66a65bfda9e93efa4d2aae6ef6597f1bd66ffa3028151dff" => :sierra
