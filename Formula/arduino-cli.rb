@@ -11,7 +11,7 @@ class ArduinoCli < Formula
     url "https://github.com/arduino/arduino-cli/releases/download/0.5.0-showports/arduino-cli_0.5.0-showports_Linux_64bit.tar.gz"
     sha256 "e11c08ccba2d198019f905f6aadab1225d92e6718b2c8269887d2b62c6a49482"
   end
-  
+
   depends_on "go"
 
   def install
@@ -28,7 +28,7 @@ class ArduinoCli < Formula
   end
 
   test do
-    system "#{bin}/arduino-cli", "sketch", "new", "test_sketch" 
+    system "#{bin}/arduino-cli", "sketch", "new", "test_sketch"
     assert File.directory?("#{testpath}/test_sketch")
   end
 end
