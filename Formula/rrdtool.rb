@@ -7,6 +7,7 @@ class Rrdtool < Formula
 
   bottle do
     cellar :any
+    sha256 "fdf30d365db065b6b6a7b7d48d86122dde11d1f0ef4a8fc0d5447b4b78e3511b" => :catalina
     sha256 "7b3548ea861690d6507de212fe55808c9120424b6b9c73a5fc9ac960b252685a" => :mojave
     sha256 "a93a0f09da257b0e9fd429727ad1d7afbfe8ca8b19aaa299f77f6719954b8432" => :high_sierra
     sha256 "42323cefde415bf4d129f4a619f1a40acc517f6cfa52a584aadf286c6cf72f9d" => :sierra
