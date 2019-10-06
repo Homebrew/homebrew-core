@@ -7,6 +7,7 @@ class PhpAT71 < Formula
 
   bottle do
     rebuild 2
+    sha256 "475dc74b9c377f8807203e472bcb9f0a5faf7c57363ca593febb6b857bfc08fc" => :catalina
     sha256 "7054277af50d12d1cd09b700f2b8f87c6db638a13fcc01febcac5ae28561119d" => :mojave
     sha256 "37d389c401968f03b196fbea50c467b1a7b57d6b47787ad42468b390d8167464" => :high_sierra
     sha256 "0ab2a40e7cd7aaee82bb25042501ff60f20ca4570564db21ce694d0ce50a6835" => :sierra
