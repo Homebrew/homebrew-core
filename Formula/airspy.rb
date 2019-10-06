@@ -6,6 +6,7 @@ class Airspy < Formula
   head "https://github.com/airspy/airspyone_host.git"
 
   bottle do
+    sha256 "17cb281bc432bcb77c33c38be4550be3a786225252b99d69db7a003daf74ef8b" => :catalina
     sha256 "d593672c7c08aff7b0056aa06171129b9fba717837de653dfb96b26ec78d6553" => :mojave
     sha256 "44736e1193e3f63fca0c984ac4f594d1ad11a83a810898103652f69af2bce63f" => :high_sierra
     sha256 "bfc1393f3efe5b58016fbee40a4048e7c7246203cb72b02261da1045941bcd4f" => :sierra
