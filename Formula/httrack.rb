@@ -8,6 +8,7 @@ class Httrack < Formula
   revision 1
 
   bottle do
+    sha256 "291ab06b376233166dd833422801d0a7be6f06cdabdc568656ec64ad3adc5fe8" => :catalina
     sha256 "6e0d2265e15d103a37b6b594f7f10c85af82012f1e3c1e25fc436e7430502b2c" => :mojave
     sha256 "612d8c3f9ee15fd7c4f42dbca3c5e3b58e968d626aa15f916f85c8cdb44ea31f" => :high_sierra
     sha256 "842d48bdb72573623a478a97a2c2abcafe34fb4b0443229216e35d30552dd27f" => :sierra
