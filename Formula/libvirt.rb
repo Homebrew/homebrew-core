@@ -41,6 +41,9 @@ class Libvirt < Formula
 
     args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
 
+    # Work around a gnulib issue with macOS Catalina
+    args << "gl_cv_func_ftello_works=yes"
+
     system "./autogen.sh" if build.head?
     system "./configure", *args
 
