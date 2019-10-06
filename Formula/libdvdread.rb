@@ -6,6 +6,7 @@ class Libdvdread < Formula
 
   bottle do
     cellar :any
+    sha256 "cffe78e773764ebc2067a03fa875681acad0258c7cda6a6f989b0117853a9462" => :catalina
     sha256 "3919d408e59a7b7b50a22e088d347d78e0e5c1a2cf4c9d557210954a0aba9311" => :mojave
     sha256 "71d7adc722864315fcf72d6011b7932e5a038562585ec92ac1adcd7c22bfbcf2" => :high_sierra
     sha256 "e061208a45c20034ca9ef9a49f6b49881dc178e426bb65134c9b61eb285abc71" => :sierra
