@@ -9,6 +9,7 @@ class OperatorSdk < Formula
 
   bottle do
     rebuild 1
+    sha256 "e2c3a4caef99d2ca79f1472ce461eec0cc6007e6123b6a66ccab92fa56f9d173" => :catalina
     sha256 "367dd7a981cb77114e40b25bfb413c862b9931cf90bf5cbccdad60cc32165eae" => :mojave
     sha256 "91a932437b54fbc5e8730a84a21c2cc865e6ad81c23cd25f5b3a592aaf1a1976" => :high_sierra
     sha256 "60b8a7947caf489ce3429d87991905fc781b67fa5b552bd8b662abefdbe2bde4" => :sierra
