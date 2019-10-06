@@ -1,21 +1,21 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
+  url "https://github.com/arduino/arduino-cli/archive/0.5.0-showports.tar.gz"
   version "0.5.0-showports"
+  sha256 "96373b59e004f277474eb5a11e2a585633976c9939056b833e65e670e7393e77"
   bottle :unneeded
-
-  if OS.mac?
-    url "https://github.com/arduino/arduino-cli/releases/download/0.5.0-showports/arduino-cli_0.5.0-showports_macOS_64bit.tar.gz"
-    sha256 "645cf1c8bc1100cc1d1f8082314aeafba0b81a9d2266cadf5a1d86c177adf038"
-  elsif OS.linux?
-    url "https://github.com/arduino/arduino-cli/releases/download/0.5.0-showports/arduino-cli_0.5.0-showports_Linux_64bit.tar.gz"
-    sha256 "e11c08ccba2d198019f905f6aadab1225d92e6718b2c8269887d2b62c6a49482"
-  end
 
   depends_on "go"
 
   def install
-    bin.install "arduino-cli"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/arduino/arduino-cli").install buildpath.children
+
+    cd "src/github.com/arduino/arduino-cli" do
+      system "go", "build", "-o", bin/"arduino-cli"
+      prefix.install_metafiles
+    end
   end
 
   def caveats; <<~EOS
