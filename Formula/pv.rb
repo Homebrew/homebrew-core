@@ -6,6 +6,7 @@ class Pv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a5a43d38f36d54dd3e01d70ab6faa68af3ddc7cb80302f02945d1344eee7b7d4" => :catalina
     sha256 "790e86acba53eecbff8e20753df00ef139dbc686d0dac27062d57c0a47eaac76" => :mojave
     sha256 "4beeaa40f09a609c2706a945ec04b2b6a156efc0befe9dc571ec426f3a152cba" => :high_sierra
     sha256 "231a659ee3aca5a6f474bc058ed02a0a5f2c366d04c8c56043d310644c46e393" => :sierra
