@@ -6,10 +6,11 @@ class Libsmi < Formula
   sha256 "f21accdadb1bb328ea3f8a13fc34d715baac6e2db66065898346322c725754d3"
 
   bottle do
-    sha256 "55de35adc48be4dcba48f6f088841491168de0e7f88e768d2448274c5d81daba" => :mojave
-    sha256 "8c1bba9799c48d5b977dafbbd31a61722cb0aea36c478720cbd67a240b3d42cc" => :high_sierra
-    sha256 "92f1085c6337464387892efd275acf3b0eba9947a07ff353d4b02e16f912bce4" => :sierra
-    sha256 "bf050ac873b082e36bfb280cd2325c00bc679b54be6ece47d0bfd1135ae7a872" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "1a25b44883bb95940e789ec6395dfa796ec44fd4e0d9ae1ee81a4119fe70ac14" => :catalina
+    sha256 "507d7f52bd7be5c1cc3170831de43e3ebd5a4312b6eda5d795d7519437016246" => :mojave
+    sha256 "25a31cf7557ddfc1174a932b904d6c96bda4f3c733caf8258edbdef376e99544" => :high_sierra
   end
 
   def install
