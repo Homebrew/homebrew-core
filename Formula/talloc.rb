@@ -6,6 +6,7 @@ class Talloc < Formula
 
   bottle do
     cellar :any
+    sha256 "df14ec77e221af8b085b1d1031681e4a2223f447b8a5a543ce6864f73bb01e1c" => :catalina
     sha256 "11f688236046b8f2175be93f0d53faadddd8782acae480117ccc8544f3b04f88" => :mojave
     sha256 "2b173d2591652195f1005dace58eee6f43fe7f82410a67887dbe807293727f5b" => :high_sierra
     sha256 "1966ae9b4a5614cb15e6579211b8dc6440ef7e86c312b000637e959e2c89bd86" => :sierra
