@@ -6,6 +6,7 @@ class Rdesktop < Formula
   revision 1
 
   bottle do
+    sha256 "748c0fe4a854917a3403b084c9ce0843515f7ac9e522619d6f880f3a55c01908" => :catalina
     sha256 "c319fc2fceca931b83d5b05f6e2d9c1ae4687a277b1c71e4e5cb73e424759ef8" => :mojave
     sha256 "92a663dd356df68f0b86ec58e1f3f07d242aa6c66fda7c90dc41330b793f2c4d" => :high_sierra
     sha256 "c3514986d81f0b8c9e4e37e2dc6648ce4978d814dff3c5e187a9ead35fdadf0d" => :sierra
