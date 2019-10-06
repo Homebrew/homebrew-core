@@ -25,6 +25,7 @@ class Iperf3 < Formula
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
+                          "--disable-profiling",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
