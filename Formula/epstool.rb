@@ -7,6 +7,7 @@ class Epstool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c4c73d7a9d89779c9b7bba39531f0c7605caabb5dc17dc390f5a440719ec4e7f" => :catalina
     sha256 "99cd88b7e087c3f55b3a0fc49ef08901a9e79745191e5ce551f268148a011dd1" => :mojave
     sha256 "4e41615a63d60d963029768b0618d43e29142e5495fb693a7f5844d2cb6f0d6b" => :high_sierra
     sha256 "d53d1f3d353d0f68f52b87603a67ca97942fb714f766a54636c142550568cbd0" => :sierra
