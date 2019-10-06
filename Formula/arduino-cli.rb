@@ -28,7 +28,7 @@ class ArduinoCli < Formula
   end
 
   test do
-    system "#{bin}/arduino-cli", "sketch", "test_sketch" 
-    assert File.file?("#{testpath}/test_sketch.ino")
+    system "#{bin}/arduino-cli", "sketch", "new", "test_sketch" 
+    assert File.directory?("#{testpath}/test_sketch")
   end
 end
