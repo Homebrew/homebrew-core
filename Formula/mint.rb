@@ -6,6 +6,7 @@ class Mint < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "222269e6e53604eaf15cd8e728703c4dccc202e1502695e0c188b5742555ff83" => :catalina
     sha256 "7f35429cee3a119cec153464933146e380364a4006bf88dcd93103584e02ec3e" => :mojave
   end
 
