@@ -8,6 +8,7 @@ class Yamllint < Formula
 
   bottle do
     cellar :any
+    sha256 "531818e0a7071a2f879d9822a549dce239431ddd6d5e29a9dab45e85658fd34c" => :catalina
     sha256 "472299009d245cefd218755378caa5c43001efcbfae1c689c8f61388bb1f4b5c" => :mojave
     sha256 "53c8d9214d79642cd0dd15723efab24fa092bcd53816b535df94967400495379" => :high_sierra
     sha256 "8ac4e116780f39be2e27062da6c3398c5b8ea445bd607999a7906838b7d9a993" => :sierra
