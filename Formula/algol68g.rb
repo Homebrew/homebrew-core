@@ -5,6 +5,7 @@ class Algol68g < Formula
   sha256 "5823ccd0c18fe10a368a117cc3924748c4a5d0fe8dff0d9d818ff73c342565f0"
 
   bottle do
+    sha256 "fd6f6ade23d89f0f6579511bcc7468fc701ab384199364337ad0e45483ae8574" => :catalina
     sha256 "381a280f428418bbb2338bdbe6a3bd4881f5d857c0d6dc9274f850d67df73bfb" => :mojave
     sha256 "3354af424bfb01307305a9bdb60695db71f2aa43cacd750a62057c1f3aeb3cee" => :high_sierra
     sha256 "888a4d7dfa4d9379d09657fe3ff4d673238c9827dfbe443f8cacbd40a32c042e" => :sierra
