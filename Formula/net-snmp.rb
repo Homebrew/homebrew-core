@@ -22,6 +22,9 @@ class NetSnmp < Formula
     (buildpath/"include/net-snmp/system/darwin18.h").write <<~EOS
       #include <net-snmp/system/darwin17.h>
     EOS
+    (buildpath/"include/net-snmp/system/darwin19.h").write <<~EOS
+      #include <net-snmp/system/darwin17.h>
+    EOS
 
     args = %W[
       --disable-debugging
