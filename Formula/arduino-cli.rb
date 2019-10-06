@@ -1,7 +1,7 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
-  version "0.3.10-alpha.preview"
+  version "0.5.0-showports"
   bottle :unneeded
 
   if OS.mac?
