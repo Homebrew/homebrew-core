@@ -19,7 +19,10 @@ class Lftp < Formula
                           "--prefix=#{prefix}",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
-                          "--with-libidn=#{Formula["libidn"].opt_prefix}"
+                          "--with-libidn=#{Formula["libidn"].opt_prefix}",
+                          # Work around a gnulib issue with macOS Catalina
+                          "gl_cv_func_ftello_works=yes"
+
     system "make", "install"
   end
 
