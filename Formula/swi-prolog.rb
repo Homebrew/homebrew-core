@@ -7,6 +7,7 @@ class SwiProlog < Formula
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
+    sha256 "7c4d1bfaa974db039bdd7ec219d22206b63833b4c2a2d078db52c8f6742031ce" => :catalina
     sha256 "587beb4ccaa5e7fb85d1c4465487fb315e4ef168a30ad674c614d8c0ba84ca6b" => :mojave
     sha256 "fff29cb6a95e692fb68bda037ccef83164a91e550e784d643446f777a9cb8ccc" => :high_sierra
     sha256 "3cbd050f46aef41c733b56ab49dc081c6bd39ad67c79d3a24381a01291c8a1ad" => :sierra
