@@ -1,8 +1,9 @@
 class ApacheArrowGlib < Formula
   desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.14.1/apache-arrow-0.14.1.tar.gz"
-  sha256 "9948ddb6d4798b51552d0dca3252dd6e3a7d0f9702714fc6f5a1b59397ce1d28"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.15.0/apache-arrow-0.15.0.tar.gz"
+  sha256 "d1072d8c4bf9166949f4b722a89350a88b7c8912f51642a5d52283448acdfd58"
+  head "https://github.com/apache/arrow.git"
 
   bottle do
     sha256 "d6ff545cd34ba76d19e8d5cf4658d8d7487d2f8ee0560c529012b4d5941815d2" => :mojave
