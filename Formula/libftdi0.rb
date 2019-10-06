@@ -7,6 +7,7 @@ class Libftdi0 < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "064e2f32a4a8959f2a489611c931beac426f509a8299bbcdd03871b1d5f5859e" => :catalina
     sha256 "c3238e8f4458ead2c663c8d5b48e2052d3ee606b75278a9839546fd2e6c7de49" => :mojave
     sha256 "ef988a7e074542fb5df2c8e803b19e9d20b8602e3899833b10d6cdf862b4c5be" => :high_sierra
     sha256 "f89e79f5eb94d55e130dcc55deca87f1241b386bf45070dda52c2c22707ead15" => :sierra
