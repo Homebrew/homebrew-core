@@ -7,6 +7,7 @@ class Libmodplug < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "62cb39e81cea4111f72a3f594ac78557f6f6992ae964321632fda16a16c97bd2" => :catalina
     sha256 "67ea2db6931cc6f60ed71f09cfab02cb22d2781d2e5bbb96ff0ef6a22ebb1c83" => :mojave
     sha256 "3f46eca3704d441ba8133d71bd283e8d24cff61e8b903fff720b78932185f9bf" => :high_sierra
     sha256 "fc88a11e82b19a1a0aa4ada0ed3468147464d3414c3e9dffda9cea139b195c9d" => :sierra
