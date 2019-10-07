@@ -5,9 +5,9 @@ class Evince < Formula
   sha256 "85e407cde396147b249120d816c7715fb6df191ca561cf65ff3554a5d67626df"
 
   bottle do
-    sha256 "74452e248358bd45211011c77ec0103dd3c136293c01b87cb657c5b95d8ba651" => :catalina
-    sha256 "0bc52bf882f3f853871f31e01dbba7d3af03c3b6d58143e0e428323d929a59f2" => :mojave
-    sha256 "7c76bdef7f3f9960068d9055da070f1255329526be49ad2565a75a68c097409d" => :high_sierra
+    sha256 "ec80b495d915bc1da1945edce4e536f4c5c3605bc8fe56fba5f30bf73c17a6f4" => :catalina
+    sha256 "d581609b8afebc6c99df941827b62ee33a62323b5fa3148c27ad2b44c15b0f10" => :mojave
+    sha256 "4016435f10a7203b7bccc3f2b6c8417ee2269c3c8e5668779aefedeba2f60704" => :high_sierra
   end
 
   depends_on "appstream-glib" => :build
