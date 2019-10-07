@@ -7,6 +7,7 @@ class Libre < Formula
 
   bottle do
     cellar :any
+    sha256 "2e46b710895d1039ba40a177d2b2716b00d8653fdd57716d267e79703b25589f" => :catalina
     sha256 "137fa333c3dc08e8e6f156c81ec6734eea2049f11a48ef24dfb9cf104813240a" => :mojave
     sha256 "f04fcd625ccec1dabdd048a7cfe9148ca7ede4d52aad756ebd91e65ff637834b" => :high_sierra
     sha256 "d44460ba46fbe86f7aa1dc66c3a81fb4d047c0ab90184820112ecbfbf5c9955b" => :sierra
