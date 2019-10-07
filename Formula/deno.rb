@@ -2,8 +2,8 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.19.0",
-    :revision => "3892cf59018acd71dd4bc1099d747bd683cd4118"
+    :tag      => "v0.20.0",
+    :revision => "a4b27db21a10f9913460c054c98fce59f3dd157d"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,11 +30,6 @@ class Deno < Formula
       system "python", "build/gen.py"
       system "ninja", "-C", "out/", "gn"
     end
-
-    # workaround for xcode-select --print-path pointing to CLT
-    inreplace "core/libdeno/build/config/mac/mac_sdk.gni",
-              "\"--print_bin_path\",",
-              "\"--print_bin_path\", \"--developer_dir\", \"#{MacOS::Xcode.bundle_path}\""
 
     # env args for building a release build with our clang, ninja and gn
     ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
