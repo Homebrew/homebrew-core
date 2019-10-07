@@ -5,6 +5,8 @@ class PostgresqlAT11 < Formula
   sha256 "7fdf23060bfc715144cbf2696cf05b0fa284ad3eb21f0c378591c6bca99ad180"
   head "https://github.com/postgres/postgres.git"
 
+  keg_only :versioned_formula
+
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
