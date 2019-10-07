@@ -16,6 +16,7 @@ class Gpac < Formula
 
   bottle do
     cellar :any
+    sha256 "4fc891e2da6330b285fa451d8ef381a584ce6db88775b236dfea9be15ca5ec94" => :catalina
     sha256 "e524e50f08bcb03f3c8af5313f517bd51382a0cf830aa632499834e1f396514e" => :mojave
     sha256 "3cc7442693e7173b95ae2b7cd5ed8eb4e89a7e5859284d1f12f21a181e8d2bdf" => :high_sierra
     sha256 "0f2a6e4e1a24d9754b71062cbe86c871db8a98915933a819bfee8e0e68baf4c7" => :sierra
