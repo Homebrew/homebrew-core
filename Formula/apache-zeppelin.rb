@@ -1,11 +1,13 @@
 class ApacheZeppelin < Formula
   desc "Web-based notebook that enables interactive data analytics"
   homepage "https://zeppelin.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.8.1/zeppelin-0.8.1-bin-all.tgz"
-  sha256 "e54cd9be1ea77f7494101f25a0ac10dadd4d9341757f298dfc5c703023671db2"
+  url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-all.tgz"
+  sha256 "96e7af24a4bdcd43acc1f5bf6acf21922d0e3acf0ecc7d922267b11b33bb7feb"
   head "https://github.com/apache/zeppelin.git"
 
   bottle :unneeded
+
+  depends_on :java
 
   def install
     rm_f Dir["bin/*.cmd"]
