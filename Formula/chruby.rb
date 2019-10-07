@@ -7,6 +7,7 @@ class Chruby < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "004f825f798a41ffb3c9576aa3b77e7b8cef227287725818f5d3f1a779b12de6" => :catalina
     sha256 "4b3e7d6e76cd5d914b0bb4871a0a0f33c9b997a9c579ca4450191c87c3dc4f53" => :mojave
     sha256 "d59074fe39429eb9979acd0e81e6b9a142aa73595971cee42ab91bbe850c6105" => :high_sierra
     sha256 "17dc507695fed71749b5a58152d652bb7b92a4574f200b631a39f5f004e86cca" => :sierra
