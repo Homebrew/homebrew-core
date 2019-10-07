@@ -6,6 +6,7 @@ class Nlopt < Formula
   head "https://github.com/stevengj/nlopt.git"
 
   bottle do
+    sha256 "50af59975dda1e54eb42a6d8b9d12177a6aa04ab6949044fbe2fa54d0ddd7181" => :catalina
     sha256 "7a81f1b9a7f5f60d805ce298d1f97b974126a7db3be54bd7471e09de5256f248" => :mojave
     sha256 "232738c4999669c84b8c0c1414a5a89847329c6a9492d8f74f5940f0803688e9" => :high_sierra
     sha256 "00464736f9872cd6a67ee005ba85c1536219e973855c8fa81c46f1515e1409f9" => :sierra
