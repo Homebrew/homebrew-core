@@ -1,8 +1,8 @@
-class Tarantool < Formula
-  desc "In-memory database and Lua application server (1.10.4 LTS)"
+class TarantoolAT23 < Formula
+  desc "In-memory database and Lua application server (2.3 Development version)"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.10/src/tarantool-1.10.4.1.tar.gz"
-  sha256 "dc99562840512151beca46d5618e6659b61e0749a99345750b14702f59a868fb"
+  url "http://download.tarantool.org/tarantool/2.3/src/tarantool-2.3.0.1.tar.gz"
+  sha256 "e1f7a204dfa15506e6b34185d2f4ba0a4ca52eedef21eb85671b288027009885"
 
   depends_on "cmake" => :build
   depends_on "autoconf"
@@ -23,7 +23,7 @@ class Tarantool < Formula
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
     args << "-DENABLE_DIST=ON"
-    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
     args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
     args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"

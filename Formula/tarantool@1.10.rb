@@ -1,4 +1,4 @@
-class Tarantool < Formula
+class TarantoolAT110 < Formula
   desc "In-memory database and Lua application server (1.10.4 LTS)"
   homepage "https://tarantool.org/"
   url "https://download.tarantool.org/tarantool/1.10/src/tarantool-1.10.4.1.tar.gz"
@@ -23,7 +23,7 @@ class Tarantool < Formula
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
     args << "-DENABLE_DIST=ON"
-    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
     args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
     args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"
