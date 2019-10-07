@@ -12,7 +12,6 @@ class Mariadb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl@1.1"
 
   conflicts_with "mysql", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries"
@@ -41,7 +40,7 @@ class Mariadb < Formula
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DWITH_PCRE=bundled
       -DWITH_READLINE=yes
-      -DWITH_SSL=yes
+      -DWITH_SSL=bundled
       -DWITH_UNIT_TESTS=OFF
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
