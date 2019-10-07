@@ -6,6 +6,7 @@ class OcamlFindlib < Formula
   revision 1
 
   bottle do
+    sha256 "189959142af331c08649a31d1020082762538a235ad681768430252d0a7f6cbc" => :catalina
     sha256 "5ec568fa31ecdd6a558d800426b51246b1937ba118e2c48b46088387f10912aa" => :mojave
     sha256 "8cef2b27dc8edbaa90015a374a5c2f8ad82fbe124560d1fb277b1c9049fe517e" => :high_sierra
     sha256 "a9c6bbb24e9c0208d185fb118087c5618fa75ce4f001e3516295cbf7050ffc84" => :sierra
