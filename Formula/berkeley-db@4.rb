@@ -7,6 +7,7 @@ class BerkeleyDbAT4 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "dd3b7576ecc1a56ebf51c5104eba8fd129d26efd6cd47adeeeb1ec203bbab712" => :catalina
     sha256 "cb0243107a7db2e935f10533d1e9b34f12681861125e208463b240572b86507d" => :mojave
     sha256 "03f1fc49446d69741f764d7e7388a6006fc5cdb2a0a710b1389b5b662b25e9b7" => :high_sierra
     sha256 "93b2d7980cba62914bcce0a631a8f28212a17e2cfdce1f41db3d47ec3da37fde" => :sierra
