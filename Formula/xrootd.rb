@@ -1,9 +1,8 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "http://xrootd.org"
-  url "http://xrootd.org/download/v4.10.0/xrootd-4.10.0.tar.gz"
-  sha256 "f07f85e27d72e9e8ff124173c7b53619aed8fcd36f9d6234c33f8f7fd511995b"
-  revision 1
+  url "http://xrootd.org/download/v4.10.1/xrootd-4.10.1.tar.gz"
+  sha256 "ad14174796328e0b62f13505862c8cd1b12842ec4b5f807b0efb3bfaac7a760d"
   head "https://github.com/xrootd/xrootd.git"
 
   bottle do
