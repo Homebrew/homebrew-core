@@ -16,6 +16,7 @@ class Termius < Formula
   end
 
   depends_on "bash-completion"
+  depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python"
   depends_on "zsh-completions"
