@@ -1,9 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.3.tar.gz"
-  sha256 "1b55dd9170e4bfb327fb644de7bbf7f0541701149dff3adf1b63ffa785f16dfa"
-  revision 1
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.4.tar.gz"
+  sha256 "3d3e25fb224025f0e732c7970e5676f53fd1764c16d6a01be073a13e42954bb0"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
