@@ -1,9 +1,8 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0.tar.xz"
-  sha256 "3a44a802631606e138a9e172a3e9f5bcbaac43ce2895c1d8e2b46f30487e77a3"
-  revision 1
+  url "https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
+  sha256 "1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd"
 
   bottle do
     cellar :any
@@ -18,10 +17,7 @@ class Aria2 < Formula
   depends_on "libssh2"
 
   def install
-    # Fix "error: use of undeclared identifier 'make_unique'"
-    # Reported upstream 15 May 2018 https://github.com/aria2/aria2/issues/1198
-    inreplace "src/bignum.h", "make_unique", "std::make_unique"
-    inreplace "configure", "-std=c++11", "-std=c++14"
+    ENV.cxx11
 
     args = %W[
       --disable-dependency-tracking
