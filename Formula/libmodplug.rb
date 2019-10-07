@@ -56,7 +56,7 @@ class Libmodplug < Formula
       #include <sstream>
 
       int main() {
-        std::ifstream in("downloads.php");
+        std::ifstream in("2ND_PM.S3M");
         std::stringstream buffer;
         buffer << in.rdbuf();
         int length = buffer.tellp();
