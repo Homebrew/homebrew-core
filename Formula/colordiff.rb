@@ -7,6 +7,7 @@ class Colordiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8f3ca0480df2c98a43cba77638ca31d85a2450d6a536e3531f65345f42b07e53" => :catalina
     sha256 "63483bb1f9e86ffb85de6c7bfaba178da41e2f4577e58efd3d893d8b66263101" => :mojave
     sha256 "1b381f5726976016f7996abd414eb24b19bfd63dcc7a8a628e51ca4e3507b4d1" => :high_sierra
     sha256 "c4d57d0ae142725bd320600864843ce040457c7652a3e403e1c65a6e53b42afd" => :sierra
