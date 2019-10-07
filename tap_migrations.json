@@ -25,6 +25,7 @@
   "osxfuse": "homebrew/cask",
   "phantomjs": "homebrew/cask",
   "quassel": "homebrew/cask",
+  "schismtracker": "homebrew/cask/schism-tracker",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "tuntap": "homebrew/cask"
 }
