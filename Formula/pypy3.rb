@@ -7,6 +7,7 @@ class Pypy3 < Formula
 
   bottle do
     cellar :any
+    sha256 "8814a893b19a253dd6011aeb32cd43e59cbe5544dc9148b125a30771c6949c49" => :catalina
     sha256 "dbd52537433f8b6d404cf00833c8cef781c1b0cedf796f947a6a25a4fb903202" => :mojave
     sha256 "098b9db01196378f0e715954667eff767f043e0382312887b59d8364c2d55bd7" => :high_sierra
     sha256 "d34911b42981909f71a7b0cbe2fe50bc4896e7b3cb1a00b8be01da600b2f1ab3" => :sierra
