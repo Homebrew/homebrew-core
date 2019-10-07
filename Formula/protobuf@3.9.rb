@@ -1,4 +1,4 @@
-class Protobuf < Formula
+class ProtobufAT39 < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
@@ -65,7 +65,7 @@ class Protobuf < Formula
         string name = 4;
       }
       message Test {
-        repeated TestCase case = 1;
+        repeated TestCase cases = 1;
       }
     EOS
     (testpath/"test.proto").write testdata
