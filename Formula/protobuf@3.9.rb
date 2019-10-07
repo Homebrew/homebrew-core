@@ -4,7 +4,7 @@ class ProtobufAT39 < Formula
   url "https://github.com/protocolbuffers/protobuf.git",
       :tag      => "v3.9.2",
       :revision => "52b2447247f535663ac1c292e088b4b27d2910ef"
-  head "https://github.com/protocolbuffers/protobuf.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,6 +12,8 @@ class ProtobufAT39 < Formula
     sha256 "9220693213ecdf0e22c9d965715509cbebfe34289f07d511468c69045b3f33a0" => :high_sierra
     sha256 "a3b58b755c7a238b8b9525d1c91ef4233c9f031a7236d7a9c7d8e8da86d178a3" => :sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
