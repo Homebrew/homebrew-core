@@ -1,9 +1,8 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/3.34/simple-scan-3.34.0.tar.xz"
-  sha256 "7378bb9d891f956df232eb85bda59b9551be9578bc209bff40fed47d21cfb8bb"
-  revision 1
+  url "https://download.gnome.org/sources/simple-scan/3.34/simple-scan-3.34.1.tar.xz"
+  sha256 "d827fec3383a565724136b6fda543a94c8f8f161782ac6edf9e91ed6fad49f3e"
 
   bottle do
     sha256 "f7ed7cc755f1ea1584992c7f80f2c1b9c7df40fea51d0f69e09f007508e4be3a" => :catalina
@@ -22,13 +21,6 @@ class SimpleScan < Formula
   depends_on "libgusb"
   depends_on "sane-backends"
   depends_on "webp"
-
-  # fixes vala compiler error
-  # see https://gitlab.gnome.org/GNOME/simple-scan/merge_requests/27
-  patch do
-    url "https://gitlab.gnome.org/GNOME/simple-scan/commit/47d35324.diff"
-    sha256 "d32ba584a5d9d2f2e13d12bde9e185d28234983f9f7d0a7275924fedf62dd405"
-  end
 
   def install
     ENV["DESTDIR"] = "/"
