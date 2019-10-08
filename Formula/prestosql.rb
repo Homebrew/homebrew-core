@@ -1,53 +1,54 @@
-class Prestodb < Formula
+class Prestosql < Formula
   desc "Distributed SQL query engine for big data"
-  homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.227/presto-server-0.227.tar.gz"
-  sha256 "2c3d16fc16fc01ad9e79cbb1fd3a6978b5aea70fdc4c6c0a0319ba9f27e9462b"
+  homepage "https://prestosql.io"
+  url "https://search.maven.org/remotecontent?filepath=io/prestosql/presto-server/323/presto-server-323.tar.gz"
+  sha256 "739065bd99b6802e32fba07bbdbc2857f241d3b636a20cfcc72a7d5eb592538c"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
-  conflicts_with "prestosql", :because => "both install `presto` and `presto-server` binaries"
+  conflicts_with "prestodb", :because => "both install `presto` and `presto-server` binaries"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.227/presto-cli-0.227-executable.jar"
-    sha256 "e7b889a84cbad4dc7fc2f920e37d831cffcbb6bfd67c2f0878d6a5f6cfee02dc"
+    url "https://search.maven.org/remotecontent?filepath=io/prestosql/presto-cli/323/presto-cli-323-executable.jar"
+    sha256 "acbe498cf0e15911184747398e60132a34d65efb74391494a3db99765aa0d153"
   end
 
   def install
     libexec.install Dir["*"]
 
     (libexec/"etc/node.properties").write <<~EOS
-      node.environment=production
-      node.id=ffffffff-ffff-ffff-ffff-ffffffffffff
+      node.environment=dev
+      node.id=dev
       node.data-dir=#{var}/presto/data
     EOS
 
     (libexec/"etc/jvm.config").write <<~EOS
-      -server
-      -Xmx16G
       -XX:+UseG1GC
       -XX:G1HeapRegionSize=32M
-      -XX:+UseGCOverheadLimit
       -XX:+ExplicitGCInvokesConcurrent
-      -XX:+HeapDumpOnOutOfMemoryError
       -XX:+ExitOnOutOfMemoryError
+      -Djdk.attach.allowAttachSelf=true
     EOS
 
     (libexec/"etc/config.properties").write <<~EOS
       coordinator=true
       node-scheduler.include-coordinator=true
       http-server.http.port=8080
-      query.max-memory=5GB
+      query.max-memory=1GB
       query.max-memory-per-node=1GB
       discovery-server.enabled=true
       discovery.uri=http://localhost:8080
     EOS
 
-    (libexec/"etc/log.properties").write "com.facebook.presto=INFO"
+    (libexec/"etc/log.properties").write <<~EOS
+      io.prestosql=INFO
+    EOS
 
-    (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
+    (libexec/"etc/catalog/jmx.properties").write <<~EOS
+      connector.name=jmx
+    EOS
 
     (bin/"presto-server").write <<~EOS
       #!/bin/bash
@@ -65,7 +66,7 @@ class Prestodb < Formula
 
   def caveats; <<~EOS
     Add connectors to #{opt_libexec}/etc/catalog/. See:
-    https://prestodb.io/docs/current/connector.html
+    https://prestosql.io/docs/current/connector.html
   EOS
   end
 
