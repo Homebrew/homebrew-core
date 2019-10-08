@@ -16,13 +16,8 @@ class ArduinoCli < Formula
   depends_on "go" => :build
   
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/arduino/arduino-cli").install buildpath.children
-    cd "src/github.com/arduino/arduino-cli" do
     commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
     system "go", "build", "-ldflags", "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} -X github.com/arduino/arduino-cli/version.commit=#{commit}", "-o", bin/"arduino-cli"
-    prefix.install_metafiles
-      end
   end
 
   test do
