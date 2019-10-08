@@ -18,6 +18,7 @@ class Tcptraceroute < Formula
 
   bottle do
     cellar :any
+    sha256 "9cfef78a5c463879ead4822dd364d65edf1161f2d09722954c69ae2a427167d7" => :catalina
     sha256 "27fb840b747841e42dddb71edf57b29a3bae93380bc9f53c19b07fb9307e603b" => :mojave
     sha256 "d8093c6d5e3cc0738753df38332f303704de764942000130be13ee351a32255a" => :high_sierra
     sha256 "dd1916233cb76a06e925884f9a1b8e681a181ae3699e0cd7086c5cd8d0c85f43" => :sierra

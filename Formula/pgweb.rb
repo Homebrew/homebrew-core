@@ -1,14 +1,14 @@
 class Pgweb < Formula
   desc "Web-based PostgreSQL database browser"
   homepage "https://sosedoff.github.io/pgweb/"
-  url "https://github.com/sosedoff/pgweb/archive/v0.11.3.tar.gz"
-  sha256 "6d9606ce5c609e774781f588e5802108abb6355f706b6245e26906521799d9e2"
+  url "https://github.com/sosedoff/pgweb/archive/v0.11.4.tar.gz"
+  sha256 "1dc101abc31bc349a38b746b98835572498049d06b8be9938c795f89bbeac936"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8e7024aaee40bb2141b7ce7d3b03c161d938f744fbe8a8a50049cc80cf37ba3" => :mojave
-    sha256 "56e54c598658c4cbc9e42104661bfb2cd36ac9c076aa4febae944f68eea60a9b" => :high_sierra
-    sha256 "8184607026c1f3179f379b0c7d4050e4b3cba53e3aa9afdb906ae3b645663516" => :sierra
+    sha256 "ce25f236df051d88022bdfa279d31eea35ea283fe50d73da64837e785d74b79c" => :catalina
+    sha256 "a073f7b5f18ac4da86a16da5bbdb5e378691eb7f2167c8d6632d5f5e274f6f11" => :mojave
+    sha256 "d2835f43238673d6df1fecdfa8a6688a808c6ecb1d2574f21966ab3cd4d8812f" => :high_sierra
   end
 
   depends_on "go" => :build

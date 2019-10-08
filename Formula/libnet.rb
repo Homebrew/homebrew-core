@@ -7,6 +7,7 @@ class Libnet < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "426becf4736494f39a32fae71916ad8ed2784c9a1f14d2a6b963d8f1c7ae2f9f" => :catalina
     sha256 "acafac211b84c80292796e6ee62f0ab92ef047a771b0e76ad31b359cbaa7b936" => :mojave
     sha256 "2adca799087317fa0c93f750239e8be5a746fc0369bd6e7bbb6bc2d79ebe5f5d" => :high_sierra
     sha256 "2b31af371d3516aae63436e1c12b40f474fd69b1126e6d75bed9d4853fbd4ffc" => :sierra

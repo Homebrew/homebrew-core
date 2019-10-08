@@ -4,17 +4,18 @@ class Gocryptfs < Formula
   url "https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_src-deps.tar.gz"
   version "1.7"
   sha256 "2d1a2cfd072d554a28ee6e6807474b00ac710fb1aaf7aa81f3d8e94e80f6a703"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8d6983f1264b86e94e945a5e9577c5b79cb7488d4e8cbd717d6fa0c705d5e5e0" => :mojave
-    sha256 "f5e8c9ef52adee8a36f8d3068426db475ad5c836d4119ad96ca33df19c69b774" => :high_sierra
-    sha256 "32490efe5a1080007c61c664eb952c5114c717162547ce32fcffb823abe700e1" => :sierra
+    sha256 "056808f747a020493deb6c1674a2ef3b74d2c116e4a9844b0f07c60ebe4b9f4f" => :mojave
+    sha256 "121eb6af40d9129140da6a7b5869df71e1a79f97249dbff2a835ca27983649d4" => :high_sierra
+    sha256 "0a0af541c0496ea3ccf548aadaa57f6352c4ba19920c3635c53840d0f257853f" => :sierra
   end
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :osxfuse
 
   def install

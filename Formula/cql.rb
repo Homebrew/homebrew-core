@@ -1,16 +1,15 @@
 class Cql < Formula
   desc "Decentralized SQL database with blockchain features"
   homepage "https://covenantsql.io"
-  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.7.0.tar.gz"
-  sha256 "552832e7ff8586170e47d1c3aa6f526e366c6b804bb3fa37a08f87f112bcfb7c"
-  revision 1
+  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.0.tar.gz"
+  sha256 "fc63d9bc296b037c8a8fd1984bc6e4156d0c73d9948dfa8654a954f904ad1f4a"
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee386d3bf77d29254e8d48a152f71a37bad70784c2a0cc08a2b8bb67b751acef" => :mojave
-    sha256 "524cbeeb80f87cb5696499be3bb6acc8e441f219ac2faf579ef5171351d07c9e" => :high_sierra
-    sha256 "c6dd8729b303196f045265da497765099cb5900a3ce2edbbaf93c16a6f401a55" => :sierra
+    sha256 "49533c8489134ec2059062f52cdcbcc09eec2b51c0732bfd7920a16c99eeabf5" => :mojave
+    sha256 "fc13d8162b67116b9542e055a6ae6772a2c48a000c594baf2a799a74b4ca5edc" => :high_sierra
+    sha256 "fa82fc3f35356e8ea6278117c185e0cba469d80fbaca38d25f5adfdc96e4c910" => :sierra
   end
 
   depends_on "go" => :build

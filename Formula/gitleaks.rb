@@ -15,7 +15,6 @@ class Gitleaks < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"github.com/zricethezav/gitleaks"
     dir.install buildpath.children

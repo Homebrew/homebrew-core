@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.12.7.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.12.7.src.tar.gz"
-    sha256 "95e8447d6f04b8d6a62de1726defbb20ab203208ee167ed15f83d7978ce43b13"
+    url "https://dl.google.com/go/go1.13.1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.13.1.src.tar.gz"
+    sha256 "81f154e69544b9fa92b1475ff5f11e64270260d46e7e36c34aafc8bc96209358"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -15,9 +15,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "928077a68d8e259606b9be2d21e17f66c4b530ffc79cb7797ecac65bd6d01272" => :mojave
-    sha256 "5c213b1f724f744b401d8e61e6f44a018f749b78fea69b62374409df6ded2db4" => :high_sierra
-    sha256 "66d2555e97854cbeb7ec1e4d0c92bf699530a519378a6bf7765b2cc8b72c9282" => :sierra
+    sha256 "359757bdc1fb20cbc8025685fd7cd91bb45e2277e73c043014c30d2744c72e6f" => :catalina
+    sha256 "77887193657770ff7ae524ddfef468a3063f4f6a6d38d80391c0c50d0d168b09" => :mojave
+    sha256 "4366c42dfa310d00bc749043228e4fb41dd073186ce3d33b426cb69bf40480d5" => :high_sierra
   end
 
   head do
@@ -56,7 +56,6 @@ class Go < Formula
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/golang.org/x/tools").install resource("gotools")
     cd "src/golang.org/x/tools/cmd/godoc/" do

@@ -6,9 +6,11 @@ class Libglade < Formula
   revision 4
 
   bottle do
-    sha256 "08b0055c32830a1af896041fbedfa9edc8bd6e2d70d0bf600b13495408978f8f" => :mojave
-    sha256 "fbb11944fbd2e2ac64d0215e9887b20ed85309880ff78f2755a8ed3d9369c131" => :high_sierra
-    sha256 "81103372f3f554685388e8f2f7547594a630bd99c238f8b37c252ec144eb4fea" => :sierra
+    rebuild 1
+    sha256 "f87fe8b63946d78fd43586ef25fbd108d9f81fda2089a66f40cbdc0216601f8e" => :catalina
+    sha256 "3fdb8055e888e22f7054432b185aad35a20c0d48b3c07c97429cab2b7a0bd3cc" => :mojave
+    sha256 "fd198334f49180de53d5bde9406e17aa4e3051ee5c421defdab9dbb0f3a1e681" => :high_sierra
+    sha256 "019f499d6ca86f279d5bfec74bf71ffe11a89bb6bc70f6901b7074e14885132c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -39,6 +41,7 @@ class Libglade < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -53,6 +56,7 @@ class Libglade < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libglade-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

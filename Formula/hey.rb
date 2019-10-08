@@ -16,7 +16,6 @@ class Hey < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/rakyll/hey"
     dir.install buildpath.children

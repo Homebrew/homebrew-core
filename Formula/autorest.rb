@@ -3,14 +3,14 @@ require "language/node"
 class Autorest < Formula
   desc "Swagger (OpenAPI) Specification code generator"
   homepage "https://github.com/Azure/autorest"
-  url "https://registry.npmjs.org/autorest/-/autorest-3.0.5228.tgz"
-  sha256 "cdd69ca16a2223c7a3a2cfdc64d3a32183c181fcec77d824f3da82a255406f99"
+  url "https://registry.npmjs.org/autorest/-/autorest-3.0.5231.tgz"
+  sha256 "85408c578269e5f049a73d1ac288a076d560103b2257afd4eda27ef8ab1a23b4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d9849ec2158acec5686aeea1bc90c6a687969b2346646faaa1b64a44434b33e" => :mojave
-    sha256 "5163c05a4319d665b03f14518d389a53132ff02aec758e8b7bc9ecc35dce5aa0" => :high_sierra
-    sha256 "fc52802572953cecf95d0f9a0d9294fdd3bb429cf7003bbd13820d637ac23676" => :sierra
+    sha256 "a72d5b53d1f21808a82669db04af966810c3d674ee62c89dfd3e3fb40f212e98" => :mojave
+    sha256 "61f7cad35d9f06d88c663eec5dac5b77535c4d98a6d8a45eede24d8996f2db39" => :high_sierra
+    sha256 "1c22864679672ac81c6636af29f1b49c2d77e12fd9a699da4a5a93204de83d98" => :sierra
   end
 
   depends_on "node"

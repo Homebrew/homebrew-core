@@ -3,13 +3,14 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "https://computation.llnl.gov/projects/sundials/download/sundials-4.1.0.tar.gz"
   sha256 "280de1c27b2360170a6f46cb3799b2aee9dff3bddbafc8b08c291a47ab258aa5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "f4c847a59ffa3fc65c5d4945bde6f645ac4779803b9956f44847a691cf3b728d" => :mojave
-    sha256 "cf0ee67d67435830aa71cb4c00aafbd38d80c15bf9c8516855a8073cbcef3d39" => :high_sierra
-    sha256 "c1d776dedb69a256c061141b7aac4d0d1e611c0a8f36d0f530b7e1ce7983d431" => :sierra
+    sha256 "de1b2b9fa513d372b7f53a9354b1d0ff4675b6055f9bf0d42a4dad0a693064ac" => :catalina
+    sha256 "da83304cfc31d4b07693b64271dcceb940446616551aaf3ccd82945be923116c" => :mojave
+    sha256 "15e9971b298bfaf56193a982e161e3011f7af31717486343892a1186f56466d3" => :high_sierra
+    sha256 "93bdbe8c2cef3dbd89358a3c92ad19f4ed51e9060dafb2d04196c4333ebd8da3" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,14 +1,14 @@
 class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
-  url "https://github.com/moby/buildkit/archive/v0.6.0.tar.gz"
-  sha256 "ba00debd8ca7ab27a65553b32ae092ce7a5e058fff2d5d3679da07332041b368"
+  url "https://github.com/moby/buildkit/archive/v0.6.2.tar.gz"
+  sha256 "1eaf2c85c20d8da283e48548954484883354df66c6a4c2dc87bba7514a7ba99e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8899246f742da7662fd76e8d1f0bef9c6fbf987b069dfd874377b247937cdff9" => :mojave
-    sha256 "09793da8f770c03cd85965f76fad5422c207c56ea64fdbaf908d89c310d7cdad" => :high_sierra
-    sha256 "a243c194d9262c6e564b7c8e5f22aad0e57fa43f8de32b81ae243da1ebfa025a" => :sierra
+    sha256 "2919c138a4e31b0559dbbe6e8726a97b2b85e8c4385372eb037a7261b0330c5d" => :catalina
+    sha256 "8b2ab85aad03d95ab7b3ed555ff7b7aa0622ccec01ddfc4b0040b3b3eabc3f4f" => :mojave
+    sha256 "0b46243086892d27bc10c58eb8d3a193e614f38da65b58b25b2038382135d2db" => :high_sierra
   end
 
   depends_on "go" => :build

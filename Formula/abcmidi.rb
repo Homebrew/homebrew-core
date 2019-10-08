@@ -1,14 +1,14 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://www.ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2019.07.12.zip"
-  sha256 "847b9bac1dd03eaed65e4cb22d968dde3772ecaa952b73cf6b9b349902c011a6"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2019.08.11.zip"
+  sha256 "e59d790174f4aa77d49715fca820d9fb9bc084221ad06342c873ef12f2389595"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "468d1296783b623ef2b74a613248da5a002c8221d0f31319fc70b706398dda46" => :mojave
-    sha256 "56fd716ec9e04731d19538d81ea3eb01d6b691641aa289ad25a0eb8a01cd2ad8" => :high_sierra
-    sha256 "1e69da1dc3e193b462d70ad8fad0ac84bc140bd74eeb7e88ed547cbf530c2b2f" => :sierra
+    sha256 "c5b2c7b01900c7ee02a81257c0674e7eab3ae75b4432b77b9ce073b9644f558f" => :mojave
+    sha256 "6f851692f9ca0cf6f5897e51a7768b3bf80087d926d523c1f8130e2c7d6892d0" => :high_sierra
+    sha256 "975bf064439a37387cfe266f4d9c7673e9d08ac87a3958108fb23ad96d3c87cc" => :sierra
   end
 
   def install

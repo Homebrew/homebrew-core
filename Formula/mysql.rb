@@ -3,11 +3,14 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.17.tar.gz"
   sha256 "d44231316ce30a1d1189125ceed86d3388409778e17d0e3b9a060f532463e29a"
+  revision 1
 
   bottle do
-    sha256 "10cf5cf9a3d69d003df6d3e199077c86355a23bfbcec4a78c228a665bf138e02" => :mojave
-    sha256 "5dba41b81a061cd6bcf957098c1b56dc17c5d05722ddd0f67b60a9658fb2ec87" => :high_sierra
-    sha256 "6118beb2342ec03ade285293a78fcdec5829d1527a09cc01bd0f043c999603f1" => :sierra
+    rebuild 1
+    sha256 "9d71bf544e21bdb7700adbfe79c78e53697270fb36bf2e2915569547d7675074" => :catalina
+    sha256 "70aec9c2a7bbb594550f764cc5b5ee7054626e0357f00bac6ba70d50a7aaa01b" => :mojave
+    sha256 "a911fc0ea9cc01add22a74bb3970a5252c83386cc343a96e38d131825a84f4d2" => :high_sierra
+    sha256 "6497d9398ea676068cf68d06f3d8d7cd1f1b07609a726d26ad04b7052c0df0ad" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -20,9 +23,9 @@ class Mysql < Formula
   # Note: MySQL themselves don't support anything below Sierra.
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
+  conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"
@@ -91,6 +94,7 @@ class Mysql < Formula
       [mysqld]
       # Only allow connections from localhost
       bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
     EOS
     etc.install "my.cnf"
   end

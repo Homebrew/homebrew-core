@@ -1,15 +1,16 @@
 class N < Formula
   desc "Node version management"
   homepage "https://github.com/tj/n"
-  url "https://github.com/tj/n/archive/v5.0.2.tar.gz"
-  sha256 "c8fa32cf291df33c008096bb9a583f7d389e50c21238a4c6f39a2f427c37aaa7"
+  url "https://github.com/tj/n/archive/v6.0.1.tar.gz"
+  sha256 "7d8549df30120d164cda7cd7725bf99075a8945853d030a6cf3f8a33d2e02c96"
   head "https://github.com/tj/n.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b4a345240f8eb66b3ab9ee26691650d81e867b82ca7131b585918dbea0d94eeb" => :mojave
-    sha256 "b4a345240f8eb66b3ab9ee26691650d81e867b82ca7131b585918dbea0d94eeb" => :high_sierra
-    sha256 "7416bdf89bbea0fc4fc89b60906f150fb9537a123f1120893ebd2bba15ab1f4e" => :sierra
+    sha256 "fae35ec49fd4c30cbd39ab0c8ef30641806ee2e563164d4f045b3886ed68daf3" => :catalina
+    sha256 "ee6193354f35d6580c47f6adacf09a44967cb3e72d0d0e776f0c1c91f8815d51" => :mojave
+    sha256 "ee6193354f35d6580c47f6adacf09a44967cb3e72d0d0e776f0c1c91f8815d51" => :high_sierra
+    sha256 "4534817a20e0083d220ef5bc6707e4693e84025b12375cbba0d7ec86e972a3d1" => :sierra
   end
 
   def install

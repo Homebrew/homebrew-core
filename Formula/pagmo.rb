@@ -1,20 +1,21 @@
 class Pagmo < Formula
   desc "Scientific library for massively parallel optimization"
   homepage "https://esa.github.io/pagmo2/"
-  url "https://github.com/esa/pagmo2/archive/v2.10.tar.gz"
-  sha256 "2fa95e2b464ddeadb9fc09bd314081293f02a1b6abc11c0b05064729a077227c"
+  url "https://github.com/esa/pagmo2/archive/v2.11.1.tar.gz"
+  sha256 "a87fc77efe3db9daa4426ed129eafd3a2db1c140e3a73216dcbf3aa7fb1dbb98"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "11a158a55b100b182c49807d68d5400ca55d98011535b4d923f1ee232f58a9b0" => :mojave
-    sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :high_sierra
-    sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :sierra
+    cellar :any
+    sha256 "02fe68f7d8a12007da8332ff1f330f15351ebd420378dab3e045a9e9528e81a7" => :mojave
+    sha256 "164b46f53de3be68ade6060eaf5725181c6aea20434922f2cfa1917e0553a536" => :high_sierra
+    sha256 "03b75c41bc2f08cf8e8afa18390064dbc2c41100ce860d989328e3856956653d" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
   depends_on "nlopt"
+  depends_on "tbb"
 
   def install
     ENV.cxx11
@@ -61,8 +62,8 @@ class Pagmo < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
-                    "-I#{include}", "-std=c++11", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lpagmo",
+                    "-std=c++11", "-o", "test"
     system "./test"
   end
 end

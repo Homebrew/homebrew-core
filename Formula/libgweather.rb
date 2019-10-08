@@ -3,11 +3,12 @@ class Libgweather < Formula
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
   url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.2.tar.xz"
   sha256 "28ed5ff00d6faf1dc885c4252a538e43ff3f614fcf6a0f20c3b63604295d3c02"
+  revision 1
 
   bottle do
-    sha256 "7e5facb2174f2143a409a87388be5eb02c0e30afd2d896d0574508275d21cacd" => :mojave
-    sha256 "6ae13716e41bc017c35d61f97c31b54b78b8255b54fe95478d6790fbd6d0ad9d" => :high_sierra
-    sha256 "69a9b57aa71675fec8ba7e379ac3bf1dc0bc6d62c0f23d74bfcd7d5d724bb7ae" => :sierra
+    sha256 "9f5e3e46636b1f0fbb2ddf83e45cd1f272a02433e2e25a3b0b4ab6841c40de28" => :catalina
+    sha256 "79624e2e5d703be2c1c0689e0d957932af1c883af8404b6142f52d939c697272" => :mojave
+    sha256 "ca837949f0fdbe0d860f220af4e29902398a82f20a40f4a5281089050eceb78a" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -51,6 +52,7 @@ class Libgweather < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -67,6 +69,7 @@ class Libgweather < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgweather-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16

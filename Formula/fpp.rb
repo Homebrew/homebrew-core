@@ -1,13 +1,13 @@
 class Fpp < Formula
   desc "CLI program that accepts piped input and presents files for selection"
   homepage "https://facebook.github.io/PathPicker/"
-  url "https://github.com/facebook/PathPicker/releases/download/0.7.2/fpp.0.7.2.tar.gz"
-  sha256 "bf49a971a3af710aafcd0adf1084df556dd94476d71bbe39eb058f5970ec4378"
+  url "https://github.com/facebook/PathPicker/releases/download/0.9.2/fpp.0.9.2.tar.gz"
+  sha256 "f2b233b1e18bdafb1cd1728305e926aabe217406e65091f1e58589e6157e1952"
   head "https://github.com/facebook/pathpicker.git"
 
   bottle :unneeded
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     # we need to copy the bash file and source python files

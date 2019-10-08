@@ -6,6 +6,7 @@ class Aspell < Formula
   sha256 "5ca8fc8cb0370cc6c9eb5b64c6d1bc5d57b3750dbf17887726c3407d833b70e4"
 
   bottle do
+    sha256 "4535d64f94f069233dedb62fba1d26977b90ecef08a8fff03a76a9a0d66b05b7" => :catalina
     sha256 "f71bf9b9cb6abb31a0c4a4976f7a58deaa14e7973642134c990502ca27eb93d4" => :mojave
     sha256 "2a70b927766a45bcd47ed6080892cc8448c37a629259c2bded10ab739e52a01e" => :high_sierra
     sha256 "9729877ac32cd2396fb570391dd148d482396246e3f698433cf2c1a3f5e606d2" => :sierra

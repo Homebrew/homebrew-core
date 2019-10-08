@@ -3,15 +3,14 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://files.pythonhosted.org/packages/ff/9c/07776f4f192a3bb454221ef00cc865fbbbd5d5285d134b36b6aa1890d91d/snapcraft-3.3.tar.gz"
-  sha256 "6a1d57ce540da099b4aea4def7ec2bc121e4e5fae6036c46ff537f491c765dfc"
+  url "https://github.com/snapcore/snapcraft/archive/3.8.tar.gz"
+  sha256 "0430418d771caff48cd740e1317467cd00e846e04eb62651ae985a147a37b4ec"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7f2e7c11294808b0a40fb5bede00d5657659f26e81862180d0247ac007ea3555" => :mojave
-    sha256 "931add50ea23ff3d8df90ebe4ff54aca44bef42639622986afe50381027339a9" => :high_sierra
-    sha256 "84f7efc03691619546d0437086c96b12d9b1bcc95398b17a795844c91181f840" => :sierra
+    sha256 "0ff03cbd17caa708024170c44e47fe280dac4b947c3738e47c6dd96e90321d43" => :mojave
+    sha256 "b5b5a5aa345198d048625e01ec94929e79152a041171ee2d45153837df1488d7" => :high_sierra
+    sha256 "17953b952330538bac77d8cde3db6df2b4f508044df3d04d6dacff6497280c51" => :sierra
   end
 
   depends_on "libsodium"
@@ -37,8 +36,8 @@ class Snapcraft < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
   end
 
   resource "configparser" do
@@ -64,6 +63,11 @@ class Snapcraft < Formula
   resource "libnacl" do
     url "https://files.pythonhosted.org/packages/ef/4a/5756e25deb82b690982547f8ed61fbc1008e6931b49f8f3a0b6ad8866b10/libnacl-1.5.2.tar.gz"
     sha256 "c58390b0d191db948fc9ab681f07fdfce2a573cd012356bada47d56795d00ee2"
+  end
+
+  resource "pbr" do
+    url "https://files.pythonhosted.org/packages/81/80/1df9176f9021c588155d0c7a86f1e963cec77fefa31934bc380acb0dbd5e/pbr-5.4.2.tar.gz"
+    sha256 "9b321c204a88d8ab5082699469f52cc94c5da45c51f114113d01b3d993c24cdf"
   end
 
   resource "petname" do

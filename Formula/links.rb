@@ -1,21 +1,22 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.19.tar.bz2"
-  sha256 "70758c7dd9bb70f045407900e0a90f1114947fce832c2f9bdefd5c0158089a0a"
+  url "http://links.twibright.com/download/links-2.20.1.tar.bz2"
+  sha256 "bb28a72cb72ca275742ef79e92ba468f0707863366bff2704b0ff6ce52790405"
 
   bottle do
     cellar :any
-    sha256 "05eec8b900896aa68276828e3f03dc9d3877250e7a678ebde34a5cd9282027d4" => :mojave
-    sha256 "09445c5dbb1365ea992ef378721bff650e3633fd00355893d68a5d6d26a4bb1b" => :high_sierra
-    sha256 "7855d152526f394ee3e4b09a9dc4b9443f1c79c4738504a05df814248a844c28" => :sierra
+    sha256 "02e54327ff6086906bc9d1e499298f52ae5032b2e68f625541a9151cf23dcee5" => :catalina
+    sha256 "66ed3179fd7e8e439d3c19b5e11a9903a16ac994baef6aa3b6595e697ebce14d" => :mojave
+    sha256 "89b10181d05992aead0afb46a818c9fa3c1218b215146efe864574c877c84545" => :high_sierra
+    sha256 "aa2902faaaff12df4013e05c7cd85ff09be788378729091fc0cf140a18c060c2" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "librsvg"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -23,7 +24,7 @@ class Links < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-lzma
     ]
 

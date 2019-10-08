@@ -3,18 +3,20 @@ class RubyAT25 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.5.tar.xz"
   sha256 "9bf6370aaa82c284f193264cc7ca56f202171c32367deceb3599a4f354175d7d"
+  revision 1
 
   bottle do
-    sha256 "20a67fddfb2c1c1b61a54a1efaae5208fbadf8a1cfc6ea0f229ee36da6ba1ef4" => :mojave
-    sha256 "9a387e433bc212d73fddfd6d0a713d371a2049eaa5f7333de558b18e1ef34d8e" => :high_sierra
-    sha256 "d9df512914a600095d67df1e64cbda6b8bab02e6f5fd3e64879fd31303819384" => :sierra
+    rebuild 1
+    sha256 "6dd94a282abc4f72881be6ff47f5d31bc2e124d0a49635bb9219ea0755b67cfc" => :mojave
+    sha256 "0dcec628a71f19d52c82b3097d347e341003e241076958dff0a7b19fef007248" => :high_sierra
+    sha256 "c36de0e091c626debd7bfefc6b69e1b8a18533231ad740e638c8a138ee8c259c" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def api_version
@@ -29,7 +31,7 @@ class RubyAT25 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -37,6 +39,7 @@ class RubyAT25 < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

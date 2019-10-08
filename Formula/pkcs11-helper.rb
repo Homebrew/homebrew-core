@@ -3,21 +3,22 @@ class Pkcs11Helper < Formula
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
   url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.25.1/pkcs11-helper-1.25.1.tar.bz2"
   sha256 "10dd8a1dbcf41ece051fdc3e9642b8c8111fe2c524cb966c0870ef3413c75a77"
+  revision 1
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4bf7e16dffead843a4158c7d5d17faaa2e4bcc1c7cde292e8faffff4cec8de47" => :mojave
-    sha256 "321866c8bf6dc4ba2cd670971e71b87e49b6c6f5d039b3c765b1af3cf1b4926c" => :high_sierra
-    sha256 "87e74dd0bff5614912c69b8c071096b804ebe82003dcc9e92c15cc73bdce86cb" => :sierra
+    sha256 "7bfe86fac0370ae0e6e10f9b5dff360e6aef757aa23f9484d4027be8a7490b25" => :catalina
+    sha256 "c1f7cd0ecece3f42d6e26888f4bc2dadbf8276f5ddbbafc566515abb19494a9f" => :mojave
+    sha256 "847249ed020552d1cd72935407e19b47d1b421e6d2c61761587af9598ac84afb" => :high_sierra
+    sha256 "7e4e2e52985c686dbd0cde59940c59741129694adddfbd64308f5fccfc35e055" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[

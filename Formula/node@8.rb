@@ -1,20 +1,21 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.16.0/node-v8.16.0.tar.xz"
-  sha256 "3515e8e01568a5dc4dff3d91a76ebc6724f5fa2fbb58b4b0c5da7b178a2f7340"
+  url "https://nodejs.org/dist/v8.16.1/node-v8.16.1.tar.xz"
+  sha256 "d8c190acdf2d967faf49c22df883d31a8d4e249d67852dae3c2d8a0f756b0512"
 
   bottle do
     cellar :any
-    sha256 "db34802888005a1fea191c94506db90a0f9e9cafa977b67646f1c7d1c8410cd5" => :mojave
-    sha256 "2a2843b99c78bf29e693c71cec059683c524cfe6faca4cc1771610288d07c017" => :high_sierra
-    sha256 "f2c7b5e6d499a0859c6bb4abe1320266e9fb726492050406a555c9762f5bbacd" => :sierra
+    sha256 "34856378c511c39f44b0fa34013f07715dbb42e400e9e6535fc01b64e35dc574" => :catalina
+    sha256 "08c4cc937e3df04daab65273f91c8d6bde901a91b3ae80267d2053417362acdd" => :mojave
+    sha256 "5db101e2f01b24f1c6bf49163a8e8707f02f20465f488a1512ef5929f2c54951" => :high_sierra
+    sha256 "b466c0a2ef2b7e955af959de8da61f81a8234eafc7d73b1b077c76013e01e15e" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python@2" => :build # does not support Python 3
   depends_on "icu4c"
 
   def install

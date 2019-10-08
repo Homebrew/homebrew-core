@@ -3,13 +3,14 @@ class Gstreamermm < Formula
   homepage "https://gstreamer.freedesktop.org/bindings/cplusplus.html"
   url "https://download.gnome.org/sources/gstreamermm/1.10/gstreamermm-1.10.0.tar.xz"
   sha256 "be58fe9ef7d7e392568ec85e80a84f4730adbf91fb0355ff7d7c616675ea8d60"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "2477c98837a5e26cf74c8482d847a8ccde8e0b3354d6941b87bf2fcd1911cd16" => :mojave
-    sha256 "5c02f827f121ed130a8b5f4c83e2d2e611781d7d83fb7ed4df283e07fbd76920" => :high_sierra
-    sha256 "29914feb073d9a28dfc89277ef46bec045eab722e690104139518284516cbbf0" => :sierra
+    sha256 "2cd58f367c293ee4b19caddbc97ffb3be2fffb0382e0c0908bd4c2e604912ad7" => :catalina
+    sha256 "8249cddb44016172a38348a0d1f1092d07fe3848b0bbb0f2b964213305bc6be4" => :mojave
+    sha256 "fee76c2e868cd7f21a0953a53144ef5ee8a07960a1873cb0db84933baa471cfd" => :high_sierra
+    sha256 "c1fcf19c49b4cb0674bfb7deeb51c403093b53d0a03c5f3819d7905131f64a4e" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -40,7 +41,7 @@ class Gstreamermm < Formula
     glibmm = Formula["glibmm"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0

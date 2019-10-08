@@ -1,14 +1,14 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.3.0.tar.gz"
-  sha256 "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
+  url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
+  sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
 
   bottle do
-    sha256 "7d5361d6a0eeae3dd864ca98abcca889c6020d3e6b00158065d2a22bb07ef247" => :mojave
-    sha256 "3e86b87aafa82aec26e952283c53f64a4856a7e7baae383c75f76e48fdea36ad" => :high_sierra
-    sha256 "2c5f76428bc4b2ee00588770b95de5793a7cd3aac22cdbf211e48df4c260f3fb" => :sierra
-    sha256 "29f93ed547c63e8881840cf9dd6b68b154cbff5436a002ddc584f16789e44fc3" => :el_capitan
+    sha256 "768f983bdeb5b7ec3c2aa69b4df169d67df7ec9b0b3f666da4c0be2df84d106a" => :catalina
+    sha256 "15877a90707bbe5e0c2d32511c53dac3eeda520ffa60ed65c85e5d6ee92be40c" => :mojave
+    sha256 "c00105678551dd53f4ee59922422bdb9efd6691223daf132f26d8d8a4cc0bdfb" => :high_sierra
+    sha256 "7a0478cea53e35f02d1f007690150263bbe0febccbdec892a5e83146ac79137f" => :sierra
   end
 
   depends_on "cmake" => :build

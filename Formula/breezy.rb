@@ -5,16 +5,17 @@ class Breezy < Formula
   homepage "https://www.breezy-vcs.org"
   url "https://files.pythonhosted.org/packages/40/1d/b653f9646b738a47d8e61bcd5a2509fdd874484c5ea141f900de973bb2b4/breezy-3.0.1.tar.gz"
   sha256 "a118276a1eb8948f30c3f043f7e7a1c20d4e8bb1e0044005d524e0a53f3ca3cb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "00918e00399cb3a0d6b44853188813aa6f83d9bf7cfd77fb00497676e8b51345" => :mojave
-    sha256 "284712ef6477ee70cc9227dd14c30dc00dd486a1c8e3e1c8eaf5c246715edaf9" => :high_sierra
-    sha256 "fb5016b13d3d3499d3799cac27b8245eb60e06a3fb292f8e67269c52c07d5a35" => :sierra
+    sha256 "ccf8ebdf6a6a1537f0951ec06ee12da2de9d7ade253020b19c446faeebf0b156" => :mojave
+    sha256 "c58047e03d6f82ba03d604018530a8c292da2b985bdc2c1f54257748159b3c9b" => :high_sierra
+    sha256 "65185192205eaabf4f253495aeff20409c8e2658cb471c6b1da6678374558473" => :sierra
   end
 
   depends_on "gettext" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "configobj" do

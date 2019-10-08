@@ -1,15 +1,15 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.18.0/bitcoin-0.18.0.tar.gz"
-  sha256 "5e4e6890e07b620a93fdb24605dae2bb53e8435b2a93d37558e1db1913df405f"
-  revision 2
+  url "https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1.tar.gz"
+  sha256 "5c7d93f15579e37aa2d1dc79e8f5ac675f59045fceddf604ae0f1550eb03bf96"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a1d26b53e9679edce713f49e5dea9111d2e1d39199289015d37e7f619cb6a73c" => :mojave
-    sha256 "a4adb816347500c678a9162a688def0c206925ec073f626efef73d1011222d20" => :high_sierra
-    sha256 "2e106d619d2db6e106063a2bbd9c3e17d8dc5943776ee9e5e2d7641f59e8e353" => :sierra
+    sha256 "5ef81b850e854e55d8f833c60f85c687757dce42b40270d361e6ba01ce9a37a7" => :mojave
+    sha256 "8650b24c3dba1bb87c8fcf1516e013f4a5390b5b79ebbcd6f97e57bad20a194a" => :high_sierra
+    sha256 "40f30ab7c8fe3eef9e90929cdaba441035f22e45fe7d3360ce653b55d8b2d40d" => :sierra
   end
 
   head do
@@ -25,7 +25,7 @@ class Bitcoin < Formula
   depends_on "boost"
   depends_on "libevent"
   depends_on "miniupnpc"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zeromq"
 
   def install

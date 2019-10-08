@@ -1,24 +1,21 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/devopsfaith/krakend-ce/archive/0.9.0.tar.gz"
-  sha256 "8d6938af3483c909b0762ab44998f09812632081045bebc33b707c85b3985a00"
+  url "https://github.com/devopsfaith/krakend-ce/archive/1.0.0.tar.gz"
+  sha256 "7626cb961c820e4b3b851a4cbd6d5d976288216891591c1be3a0c21d32477199"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7dd2278ffff7ddf5a88988a3ea5180df6da93c7189e673de995cace1948c7bd9" => :mojave
-    sha256 "7cd76dbba92ea6011ef3ff439d51d19a7dddb9e1c64bf339cd78b2acb34e560c" => :high_sierra
-    sha256 "da0d6975c2b58afceb078f2281d0e266398bb360af3db008fb267db56cdbf72b" => :sierra
+    sha256 "2169f9552692bdf17a81705929f8d4fda02a61d409107d7a06820ed96c1b5315" => :catalina
+    sha256 "f2af9a4f455794c0ed9ab63fb85da708b8f76f2aff154c6c6cdb204589ac80a0" => :mojave
+    sha256 "431731a0c27ed6a2dc4b6ef0be3bb73c97153bfd8190d9c62a7cb4a88cf12cc2" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/devopsfaith/krakend-ce").install buildpath.children
     cd "src/github.com/devopsfaith/krakend-ce" do
-      system "make", "deps"
       system "make", "build"
       bin.install "krakend"
       prefix.install_metafiles

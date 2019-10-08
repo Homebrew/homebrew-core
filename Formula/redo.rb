@@ -13,7 +13,7 @@ class Redo < Formula
     sha256 "f4088a0ae5895759a6969b5bcbe670c024871b6edba1eccb635f8ef9dcfd82ce" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "Markdown" do
     url "https://files.pythonhosted.org/packages/ac/df/0ae25a9fd5bb528fe3c65af7143708160aa3b47970d5272003a1ad5c03c6/Markdown-3.1.1.tar.gz"

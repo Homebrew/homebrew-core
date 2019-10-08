@@ -5,18 +5,19 @@ class TclTk < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.9-src.tar.gz"
   version "8.6.9"
   sha256 "ad0cd2de2c87b9ba8086b43957a0de3eb2eb565c7159d5f53ccbba3feb915f4e"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "26ee537a07be3494a321daeee3a1e3fa29c3564cd7fc3f7261dfa2526be82634" => :mojave
-    sha256 "167f661c580c6e7d63157e4ba260ff656f8475f16b27b67e10817f84c56e1875" => :high_sierra
-    sha256 "8295728ef8d97edad4415fb59f00ff91381120515058650473b8f2297c67401e" => :sierra
+    sha256 "81f916db62265c867422966ffc500b2aaf58a5e79df27a5f1fc2870d0f7051e8" => :catalina
+    sha256 "4c12908cbfbcfd23e6b3c93d6ca3b9a691d302d4d02b39a9e07dfbce391ff094" => :mojave
+    sha256 "387d25e7b5ba5a24fed6f7db7153e2c5ce8f068ab1c8bcac4fd6f60043ee0c3f" => :high_sierra
+    sha256 "c602f2d305bc7eeac5915b9676bc513c52b7e270cb131bf504edde1b70046587" => :sierra
   end
 
   keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "critcl" do
     url "https://github.com/andreas-kupries/critcl/archive/3.1.17.tar.gz"
@@ -93,7 +94,10 @@ class TclTk < Formula
     end
 
     resource("tcltls").stage do
-      system "./configure", "--with-ssl=openssl", "--with-openssl-dir=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "./configure", "--with-ssl=openssl",
+                            "--with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}",
+                            "--prefix=#{prefix}",
+                            "--mandir=#{man}"
       system "make", "install"
     end
   end

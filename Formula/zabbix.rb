@@ -1,16 +1,17 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.2.5/zabbix-4.2.5.tar.gz"
-  sha256 "4dba94cc8c5f1d97b596e636ff9346c3bdea59ac04a97f1236a6d5e69d72ab8c"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.2.6/zabbix-4.2.6.tar.gz"
+  sha256 "646b1f29a768e3123a00a9afadf382b4d0dfd54e20fb31023f0d6da066da0864"
 
   bottle do
-    sha256 "45016995bf5cc7b467b3cf4e6fc823c14147ea519603cceed2db5a5d3f0bad78" => :mojave
-    sha256 "fe552ae2a51647d12ff59fa2ab6b1d55e5ec40d35df0e9f20da8f06ec97cf94a" => :high_sierra
-    sha256 "f2348569154a5b7872e1a6a747380ffaefd2135e0a843929af9472abc0a69381" => :sierra
+    rebuild 1
+    sha256 "b8015f092ec6b236f052bbebe88e2b0fe18aef20699fc3a3cae7daefcc47e795" => :mojave
+    sha256 "79c267b41df839e7765fdfc4a8ab8a0145273189d8819ff090eeae17ce3c08cc" => :high_sierra
+    sha256 "1c8f1ee03c0bb7488b1d9affebe991bc49a7a8f47c24e15a674f7fc9d1e483fa" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def brewed_or_shipped(db_config)
@@ -28,7 +29,7 @@ class Zabbix < Formula
       --enable-agent
       --with-iconv=#{sdk}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"

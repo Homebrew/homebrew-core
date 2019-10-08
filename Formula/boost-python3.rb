@@ -1,16 +1,16 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2"
-  sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
+  sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "df5614e51cd271c477ac5a614a196180637c22f9c88b38b05c23e28a46db2c25" => :mojave
-    sha256 "fc247eaaa4e2cbe16f3acf5d88485f795fee38872fdcab2bbb0012340c5e4c30" => :high_sierra
-    sha256 "d1ff523535c6e1fafe64007fbe835c1432ac86ab1e5779b12288f9c4d57506b3" => :sierra
+    sha256 "df8408fcf0b39d564ad7e7b926255becc52f00c87db0655c37000f50632ad231" => :catalina
+    sha256 "030715604eb213ac9154c7e8e60f189d52f839fc87a580416c7e6088722d7e1a" => :mojave
+    sha256 "ec1ebb266260e7f488caccb09c2ae87af5b7d2c1b137033bc7d365165d14eeef" => :high_sierra
+    sha256 "66cfacedfd90dd4b88d5d3f990c3f81bf314417376380ed8d9b9d464e4f5a884" => :sierra
   end
 
   depends_on "boost"
@@ -23,16 +23,16 @@ class BoostPython3 < Formula
 
   def install
     # "layout" should be synchronized with boost
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged-1.66",
-            # --no-cmake-config should be dropped if possible in next version
-            "--no-cmake-config",
-            "--user-config=user-config.jam",
-            "threading=multi,single",
-            "link=shared,static"]
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged-1.66
+      --user-config=user-config.jam
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.

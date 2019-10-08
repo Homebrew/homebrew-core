@@ -4,11 +4,12 @@ class Singular < Formula
   url "https://service.mathematik.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-1-2/singular-4.1.2p1.tar.gz"
   version "4.1.2p1"
   sha256 "b520809ce061059081a973d4a3b102b05863d49c20565d03f638ba5146296d4f"
+  revision 1
 
   bottle do
-    sha256 "20523ce9de4f5b0785093b9feffcbc7f80b011aca893e83ea80d5896e2300892" => :mojave
-    sha256 "c23b5d7053a5f1ff939b20bd43fa29e8a2381c884d58b1e03f3e0a089d5f352b" => :high_sierra
-    sha256 "ae11ffa3c011fc42916658e246a2d1d1a3f54ea8c7a181327265ba0585ac4e0a" => :sierra
+    sha256 "642e7dc5dd1dbf7e7f74559265d1eaaaa2f88fee0aa2c4254bd4d8eaec58b8db" => :mojave
+    sha256 "924c9b50467e4c1fa804b9ee1ca47c6694ba8cbb7cc7c7aebbde32ea3c5ff9b7" => :high_sierra
+    sha256 "3b471a2db284f9451f4fdce18dba1eb65dd6823da9859281be3e01f86c0470ac" => :sierra
   end
 
   head do

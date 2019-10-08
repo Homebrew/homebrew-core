@@ -3,11 +3,13 @@ class OcamlFindlib < Formula
   homepage "http://projects.camlcity.org/projects/findlib.html"
   url "http://download.camlcity.org/download/findlib-1.8.1.tar.gz"
   sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
+  revision 1
 
   bottle do
-    sha256 "b59570c74713f43320a8990e0dcc0943952b21d5aa838efc9adcfe13c3ec505c" => :mojave
-    sha256 "5a7461260e9ec4d164c85524d6103d95c11a4f94d55485acce6ba93fb315c436" => :high_sierra
-    sha256 "adf4b6c159dc2f73504eb613c2080fc9fcc44c6e6f59e948edbc5db0a9905bf9" => :sierra
+    rebuild 1
+    sha256 "2a3c79c6edf1956bf90c7884e6ee6cdf09ccc55ca8786c5c788b66e158ad5e70" => :catalina
+    sha256 "cf2039ac10218c3ba103ae2755493607643a60d0b56c4328ce064e8c72d7f86d" => :mojave
+    sha256 "edd8dbf4b6366bd6c046a34747c8926bbc6e91b1b38fd50efaf3d13de9134ecb" => :high_sierra
   end
 
   depends_on "ocaml"
@@ -22,6 +24,9 @@ class OcamlFindlib < Formula
     system "make", "opt"
     inreplace "findlib.conf", prefix, HOMEBREW_PREFIX
     system "make", "install"
+
+    # Avoid conflict with ocaml-num package
+    rm_rf Dir[lib/"ocaml/num", lib/"ocaml/num-top"]
   end
 
   test do

@@ -3,14 +3,16 @@ class Rdesktop < Formula
   homepage "https://www.rdesktop.org/"
   url "https://github.com/rdesktop/rdesktop/releases/download/v1.8.6/rdesktop-1.8.6.tar.gz"
   sha256 "4131c5cc3d6a2e1a6515180502093c2b1b94cc8c34dd3f86aa8b3475399634ef"
+  revision 1
 
   bottle do
-    sha256 "502610835305f8ad03ffaff82d4ed349ec999680e79835225c1053124cb6b628" => :mojave
-    sha256 "86b656a23bae94a0eb4769f69afe491bc6b620320c450679a1f32250a89f5edb" => :high_sierra
-    sha256 "e8a895ce49ccf9df4b41f557a53dedf055eec20f14c17d24351750b816695d45" => :sierra
+    sha256 "748c0fe4a854917a3403b084c9ce0843515f7ac9e522619d6f880f3a55c01908" => :catalina
+    sha256 "c319fc2fceca931b83d5b05f6e2d9c1ae4687a277b1c71e4e5cb73e424759ef8" => :mojave
+    sha256 "92a663dd356df68f0b86ec58e1f3f07d242aa6c66fda7c90dc41330b793f2c4d" => :high_sierra
+    sha256 "c3514986d81f0b8c9e4e37e2dc6648ce4978d814dff3c5e187a9ead35fdadf0d" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on :x11
 
   # Note: The patch below is meant to remove the reference to the
@@ -23,7 +25,7 @@ class Rdesktop < Formula
       --prefix=#{prefix}
       --disable-credssp
       --enable-smartcard
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --x-includes=#{MacOS::X11.include}
       --x-libraries=#{MacOS::X11.lib}
     ]

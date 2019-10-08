@@ -1,26 +1,24 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
-  url "https://github.com/nsqio/nsq/archive/v1.1.0.tar.gz"
-  sha256 "85cb15cc9a7b50e779bc8e76309cff9bf555b2f925c2c8abe81d28d690fb1940"
+  url "https://github.com/nsqio/nsq/archive/v1.2.0.tar.gz"
+  sha256 "98e24d748550f01dd8775e5e40f3ae657f5b513f875a15081cdcdc567b745480"
   head "https://github.com/nsqio/nsq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2fa867147f43fa78509dc153f725c5e3325a1a268500811db2dfe5d90db6b823" => :mojave
-    sha256 "ff5ee1076510935d467a359172c57a487f5c4fa50537c28643f60b6254d60348" => :high_sierra
-    sha256 "e06823b1c505fff73402522d13a74f386106987c96c83dcccb0b8e68e169449a" => :sierra
-    sha256 "02225f180c8e5ebc9d5e0ecd30c0875738b10904143c031a07709a6661362243" => :el_capitan
+    sha256 "dfff1005e1c48d1669aafb79cb903ade485ceb9ebbb748d8a6f85f9f71a6ce7b" => :mojave
+    sha256 "54c31bf18fcb185ca5a4dd0192ed846df8d5e6dccf5564d99252d3960555fe11" => :high_sierra
+    sha256 "bcfcd2d5b6ef1bb767631be70ee5aa72bd5987ba3cc75df1043b24aaa08eac8e" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+
     (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
     cd "src/github.com/nsqio/nsq" do
-      system "dep", "ensure", "--vendor-only"
       system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
       prefix.install_metafiles
     end
@@ -86,10 +84,10 @@ class Nsq < Formula
       assert_match "test", dat
       assert_match version.to_s, dat
     ensure
-      Process.kill(9, lookupd)
-      Process.kill(9, d)
-      Process.kill(9, admin)
-      Process.kill(9, to_file)
+      Process.kill(15, lookupd)
+      Process.kill(15, d)
+      Process.kill(15, admin)
+      Process.kill(15, to_file)
       Process.wait lookupd
       Process.wait d
       Process.wait admin

@@ -7,6 +7,7 @@ class Srtp < Formula
 
   bottle do
     cellar :any
+    sha256 "3597d91b40e400b75ec89a2b003030e57e9415a33ddd0e26ca6f09763c867ecc" => :catalina
     sha256 "4460696066b2fff80cd18081a69cf8647f88138e11bf9610c5dbc5cbd3002c92" => :mojave
     sha256 "bcb274922744410710c235ae65707c4c30bab6d96c1273c00f1d59fc7691bb88" => :high_sierra
     sha256 "5186bfcb8ad18ae451beb7e6d14c146b4a8240ba93868e761de4c2a3a5af81d6" => :sierra

@@ -3,12 +3,13 @@ class Ettercap < Formula
   homepage "https://ettercap.github.io/ettercap/"
   url "https://github.com/Ettercap/ettercap/archive/v0.8.3.tar.gz"
   sha256 "d561a554562e447f4d7387a9878ba745e1aa8c4690cc4e9faaa779cfdaa61fbb"
+  revision 2
   head "https://github.com/Ettercap/ettercap.git"
 
   bottle do
-    sha256 "664e169c1fa33c383ae8f3b874927764d8ada4302d8e65ea8b43f6eedb8e0638" => :mojave
-    sha256 "f93268dc6dadd2523a6146addfa5f6df9bf2603190c9e18fdcbc4e9e116793ba" => :high_sierra
-    sha256 "6e9571eaebd4730cbfa5be6a44791c2a0b715470f0c86750879ad9ab48650306" => :sierra
+    sha256 "b4a9470528f89b21eeec6c8d4a5b36043e0277780f780a28bcd512e167b7345a" => :catalina
+    sha256 "899edd3a4fc1994b43e40c4b3b8627c2782a7dff27510a9e9cda829743714548" => :mojave
+    sha256 "c125a9e33ad530738bc63e3558991f7aabec1135708db08913afa9453dd01c07" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,10 +17,14 @@ class Ettercap < Formula
   depends_on "gtk+3"
   depends_on "libnet"
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
+    # Work around a CMake bug affecting harfbuzz headers and pango
+    # https://gitlab.kitware.com/cmake/cmake/issues/19531
+    ENV.append_to_cflags "-I#{Formula["harfbuzz"].opt_include}/harfbuzz"
+
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
       -DENABLE_CURSES=ON

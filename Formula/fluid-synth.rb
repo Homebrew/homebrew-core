@@ -1,15 +1,15 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "http://www.fluidsynth.org"
-  url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.5.tar.gz"
-  sha256 "69b244512883491e7e66b4d0151c61a0d6d867d4d2828c732563be0f78abcc51"
+  url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.7.tar.gz"
+  sha256 "b68876d24c7fb34575ffa389bcfe8e61a24f1cf1da8ec6c3b2053efde98d0320"
   head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
     cellar :any
-    sha256 "0dad5a2972f67dbb9d9b8a1b44474e2c54991a5e3dce18cb0baaa2712023f70c" => :mojave
-    sha256 "7733d5ba43ad6d8424375fdd174c4c30e137a29d91fb6d0db90f0531f30b9967" => :high_sierra
-    sha256 "a3285524c60d898d66435e6c0ac5e6b0a86081ffa9c364bfd7139d8f4b4f7a2a" => :sierra
+    sha256 "36d935d2d9d1b95708a72b25c4e52cdb81fcb17a54826e3e60c83f819198223d" => :catalina
+    sha256 "79d936e1d1627aa456768e4098ed76d69ed061d7ee94d7c025ea281a374d6bc6" => :mojave
+    sha256 "34ef2f21934a46616faea0c805089725d7d62187f3c8c77733a08fc53b905a4c" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -1,15 +1,16 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
-  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.3.0.tar.gz"
-  sha256 "90e69713d8c454da5a95a839aea5d97d8d03d00cc1f667c4bdfca03f640f963d"
+  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-5.4.0.tar.gz"
+  sha256 "374dd136696c653e34ef3212dc8ab5b61d9a67a6791d5ec4841efb838e94dbd1"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "cd8f66c3e7358c6bb81f9e7975663283c605d057838bf74edafa21d5a9f55401" => :mojave
-    sha256 "f3c2906bb5685a2c1a1c2702ec902b21dcbb41867a0962a8b161201a999200d2" => :high_sierra
-    sha256 "f13c29af22afc7aef47694422b6c87f14a2645975e32789c72496fb96d2b1537" => :sierra
+    sha256 "fa9c71a837ee76076e15999c61117ca76098c2eacf907326dc7fd361d7f14d15" => :catalina
+    sha256 "084ddd8dce513563655e5669735e04c98d6bd943733cafbc5d95e1f8e8e008d8" => :mojave
+    sha256 "8b35538d0cf72b43c7be15a3d4ab2f1daa66dc05990f7d5237fc9f91d6d4e05f" => :high_sierra
+    sha256 "c318dd0df8749f62f14b16d3e256fdbaf242338be99ecc9434cf7e316545b651" => :sierra
   end
 
   depends_on "cmake" => :build

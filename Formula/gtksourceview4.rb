@@ -1,29 +1,38 @@
 class Gtksourceview4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz"
-  sha256 "c431eb234dc83c7819e58f77dd2af973252c7750da1c9d125ddc94268f94f675"
+  url "https://download.gnome.org/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz"
+  sha256 "9ddb914aef70a29a66acd93b4f762d5681202e44094d2d6370e51c9e389e689a"
   revision 1
 
   bottle do
-    sha256 "3fd1cc803389eee7a3d75fb6e483c1337ad5cc8d487738bd2c717c0da8176d90" => :mojave
-    sha256 "2f3e31a3325393c9851a86d044d7150fc8b7cd517d9c21c6d010f74f9e6d8322" => :high_sierra
-    sha256 "7a1c751a9fd241c1bab1533f4a433b6bd2b0123df408288eb27c5b70c67bf32f" => :sierra
+    sha256 "6cd8a161e089c7f2b37688bfb882cf303f7d8ca828b3995a9563376e4fd2beb0" => :catalina
+    sha256 "611a6c5aa42071174d2cb5d24691bcdfd8c3d5cd04e9eee0cd0749e13236a093" => :mojave
+    sha256 "d8f1ec0bea4affe7983bd13af677a98bc820432697f036172f2c9d7def8b7347" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "gettext"
   depends_on "gtk+3"
 
+  # submitted upstream as https://gitlab.gnome.org/GNOME/gtksourceview/merge_requests/61
+  patch :DATA
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-vala=yes",
-                          "--enable-gobject-introspection=yes"
-    system "make", "install"
+    args = %W[
+      --prefix=#{prefix}
+      -Dgir=true
+      -Dvapi=true
+    ]
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
@@ -44,6 +53,7 @@ class Gtksourceview4 < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -59,6 +69,7 @@ class Gtksourceview4 < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtksourceview-4
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
@@ -91,3 +102,40 @@ class Gtksourceview4 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gtksourceview/meson.build b/gtksourceview/meson.build
+index 14603ffe..82a28d2b 100644
+--- a/gtksourceview/meson.build
++++ b/gtksourceview/meson.build
+@@ -248,6 +248,7 @@ if cc.get_id() == 'msvc'
+ else
+   gtksource_lib = shared_library(package_string, gtksource_res,
+                   version: lib_version,
++          darwin_versions: lib_osx_version,
+       include_directories: gtksourceview_include_dirs,
+              dependencies: gtksource_deps,
+                link_whole: gtksource_libs,
+diff --git a/meson.build b/meson.build
+index 78c2fc59..ef3d5d6b 100644
+--- a/meson.build
++++ b/meson.build
+@@ -21,10 +21,14 @@ version_micro = version_arr[2].to_int()
+ api_version = '4'
+
+ lib_version = '0.0.0'
+-lib_version_arr = version.split('.')
+-lib_version_major = version_arr[0].to_int()
+-lib_version_minor = version_arr[1].to_int()
+-lib_version_micro = version_arr[2].to_int()
++lib_version_arr = lib_version.split('.')
++lib_version_major = lib_version_arr[0].to_int()
++lib_version_minor = lib_version_arr[1].to_int()
++lib_version_micro = lib_version_arr[2].to_int()
++
++osx_current = lib_version_minor + 1
++lib_osx_version = [osx_current, '@0@.@1@'.format(osx_current, lib_version_micro)]
++
+
+ package_name = meson.project_name()
+ package_string = '@0@-@1@'.format(package_name, api_version)

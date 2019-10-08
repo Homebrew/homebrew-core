@@ -5,19 +5,20 @@ class Dnsviz < Formula
   homepage "https://github.com/dnsviz/dnsviz/"
   url "https://github.com/dnsviz/dnsviz/releases/download/v0.8.2/dnsviz-0.8.2.tar.gz"
   sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f55b130eee33b503ea3b4c88ba34c952ae58a070c632fdac326962199c9ef5b6" => :mojave
-    sha256 "6324be158374f9b93e287ada9dfe33c2aef01b05a4bacc78fea47719f69d2db9" => :high_sierra
-    sha256 "08325b100e560aad351b72002e7828b713f3f39e003e2a3eaa2a6cc7d4797e62" => :sierra
+    sha256 "9afe5ee751dcc69d8a75f35a54b72c872851d72ab3a6b1156a4dba16b502c4c5" => :mojave
+    sha256 "91addf642665b5301d585d372ba924d8ba24b41d73ce7a32c049490bc8b98b44" => :high_sierra
+    sha256 "65fedd8f6979802ffcc356688e52abc01b39704cfe76e3c344e8b04e0a0990d5" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "bind" => :test
   depends_on "graphviz"
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   resource "dnspython" do
@@ -31,8 +32,8 @@ class Dnsviz < Formula
   end
 
   resource "m2crypto" do
-    url "https://files.pythonhosted.org/packages/17/2b/f551dbff0f7b70746568c6546efccca128fe8651be7ad915b99e1bae15cf/M2Crypto-0.32.0.tar.gz"
-    sha256 "29c9c6fa6abdeb4156b8e0342c30028c5ee68055b60aa21c88abfb1d85fea325"
+    url "https://files.pythonhosted.org/packages/01/bd/a41491718f9e2bebab015c42b5be7071c6695acfa301e3fc0480bfd6a15b/M2Crypto-0.27.0.tar.gz"
+    sha256 "82317459d653322d6b37f122ce916dc91ddcd9d1b814847497ac796c4549dd68"
   end
 
   resource "typing" do
@@ -43,7 +44,7 @@ class Dnsviz < Formula
   def install
     venv = virtualenv_create(libexec)
     resource("m2crypto").stage do
-      system libexec/"bin/python", "setup.py", "build_ext", "--openssl=#{Formula["openssl"].opt_prefix}", "install"
+      system libexec/"bin/python", "setup.py", "build_ext", "--openssl=#{Formula["openssl@1.1"].opt_prefix}", "install"
     end
     venv.pip_install resources.reject { |r| r.name == "m2crypto" }
     system libexec/"bin/python", "setup.py", "build"

@@ -3,17 +3,18 @@ class DuoUnix < Formula
   homepage "https://www.duosecurity.com/docs/duounix"
   url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.2.tar.gz"
   sha256 "e1ec2f43036ba639743d631f308419c9a88618a93d4038bf40a9cdeef89ca6db"
+  revision 1
 
   bottle do
-    sha256 "006db27f7e6d2370e6a5e318c5c5eb0105c1dd5092c0fe397b0c9196d7298432" => :mojave
-    sha256 "c77151aad876b68e731ac2f63ea6ca661f95e0e1e603a0c081f0d7a6d5c110c2" => :high_sierra
-    sha256 "dcd51390cdf902d90e1c9f21b67f4a38a4b470d4bd8b7e1190c40d0df6641377" => :sierra
+    sha256 "210721657888ee878f11a03497a9e5d8823410c4d0099b9aa33d03af4cce3b6e" => :mojave
+    sha256 "bb736a12e115653d1eafb88221825101110cd9399e347241668027cf44b5ba44" => :high_sierra
+    sha256 "dea30d4a4b5e20534aef3fca59001c58bed00dfd892adf458f9c417e73dee000" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap"
@@ -22,7 +23,7 @@ class DuoUnix < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--includedir=#{include}/duo",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pam=#{lib}/pam/"
     system "make", "install"
   end

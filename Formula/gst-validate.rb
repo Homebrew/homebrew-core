@@ -1,22 +1,16 @@
 class GstValidate < Formula
   desc "Tools to validate GstElements from GStreamer"
   homepage "https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
-  revision 1
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.16.0.tar.xz"
-    sha256 "9331ae48a173a048243539730cc7a88607777762dea4aebbc3ab55981e68d6c9"
-
-    patch :p2 do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-devtools/commit/751a6d75.diff"
-      sha256 "53d3ea9d3167ca6f278046f40dfbf16279df307864d5d37ac4c18a5d7dabbe2e"
-    end
+    url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.16.1.tar.xz"
+    sha256 "7f079b9b2a127604b98e297037dc8847ef50f4ce2b508aa2df0cac5b77562899"
   end
 
   bottle do
-    sha256 "4395064df7154ff0b449fa945ca6b4c9cbd396244281fbdcb3690bb2269d8336" => :mojave
-    sha256 "eef3a2838bf24464ceae20018adaca5b297d6380974d953effc8e1f3d36dad4b" => :high_sierra
-    sha256 "b74fed8b124d45aa4d257f54ea3a1ae38ac892d383f39d4a50ac8c72848c0e7b" => :sierra
+    sha256 "adc145563618a2c2e71bc4fb5673431e9fc96a952487c1cc2aec8c70a1890170" => :mojave
+    sha256 "f548f74c7824cb1bbc9324f8884a6e257d6c5d4da3cb1bed8291eb4809d10b63" => :high_sierra
+    sha256 "bf8c76f74c7c0b447e04efc6d07a068bbf1fc22e34da4b449a3f464336fad706" => :sierra
   end
 
   head do

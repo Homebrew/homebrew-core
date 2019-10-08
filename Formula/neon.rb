@@ -4,18 +4,18 @@ class Neon < Formula
   url "https://mirrorservice.org/sites/distfiles.macports.org/neon/neon-0.30.2.tar.gz"
   mirror "https://fossies.org/linux/www/neon-0.30.2.tar.gz"
   sha256 "db0bd8cdec329b48f53a6f00199c92d5ba40b0f015b153718d1b15d3d967fbca"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "804369c05d5d506da25ffeed64b7c7bbc136e9d9d685a788233937df898f5f10" => :mojave
-    sha256 "6866235177ca4c311257547ca644e50a5011d5bb60ef3631cfb42a01a0fb7df9" => :high_sierra
-    sha256 "6f44e5c1db3418612bf871f9551acef119162eac40585f045f02d2612ade356e" => :sierra
-    sha256 "2aafd9bf8e7fb42d8cce9b6a7467e8beccc11931b824766e341a8d72331e0c48" => :el_capitan
-    sha256 "7348fcda6d13a8cba37a98b7ac6c9876a2ffa037714954872832d390c5a475d7" => :yosemite
+    sha256 "d87da64331ca21f48fa61b518e701654781008d46c5ca33840a34c41dda4a9e2" => :catalina
+    sha256 "4c264a2164f7bb4f080a701b4fcc31c2bba54031ad574f25c33931abf7f205f0" => :mojave
+    sha256 "96799d3568d37f8c2da6333d4bccaa23fa13e75d6ef1e75f993f18c53e525306" => :high_sierra
+    sha256 "5f173cc83a291cb756046e94f09eb4031d5ec316988a757a6b5e2a92c310037d" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Configure switch unconditionally adds the -no-cpp-precomp switch
   # to CPPFLAGS, which is an obsolete Apple-only switch that breaks
@@ -30,7 +30,7 @@ class Neon < Formula
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{Formula["openssl"].opt_prefix}"
+                          "--with-libs=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 end

@@ -7,13 +7,14 @@
 # Please see https://github.com/Homebrew/homebrew/pull/22043 for more info
 class Jack < Formula
   desc "Audio Connection Kit"
-  homepage "http://jackaudio.org"
-  url "http://jackaudio.org/downloads/jack-audio-connection-kit-0.125.0.tar.gz"
+  homepage "https://jackaudio.org/"
+  url "https://jackaudio.org/downloads/jack-audio-connection-kit-0.125.0.tar.gz"
   sha256 "3517b5bff82139a76b2b66fe2fd9a3b34b6e594c184f95a988524c575b11d444"
   revision 3
 
   bottle do
     rebuild 1
+    sha256 "ea3f34608e62df9bbafcbed6f4e3dd150370b6d987a344e9999cf0b215edc64e" => :catalina
     sha256 "0df230c0f3646fb29ed5ff3041c810f92220d6ce012ace2e5c001f3d7eb05298" => :mojave
     sha256 "fd05eff6fde13c465c68d03bdd1f66f25e6e4b630348ed19cb2966f71a724601" => :high_sierra
     sha256 "651fef8ee2b8b844006b41c23c89a787664a76fb2614f9c6b47a8827adee091d" => :sierra

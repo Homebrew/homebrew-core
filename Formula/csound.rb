@@ -1,19 +1,25 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.13.tar.gz"
-  sha256 "6118ffc1ee04eaeffe7483afc3d48190d93d0e97b51e25f0f3d71e44293827d6"
+  url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
+  sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
+  revision 3
 
   bottle do
-    sha256 "5a2380000f04fa02589d37040c1771a0e07b7a7a944f8355c38b58cb9a06229f" => :mojave
-    sha256 "8ed2bd5343532cbc960c78b71371ca0001e1ab58dc46842da4f3779e95a6251a" => :high_sierra
-    sha256 "3ab51690536f2f030a8da2948cd2104f83b12fa2bf6acbcdeff7074b3c84bef7" => :sierra
+    sha256 "bc1ee99a636b4bd41f5908437f28dd0d29c5b17a0bdb8738d0abcc46177775a8" => :mojave
+    sha256 "034fad8c4492004feed3e8517ea02800095baa484a781786224d79aeb16b1920" => :high_sierra
+    sha256 "3183ded30b94c6a53a31797973ea11e3a79f376a599b0b30910b4d5d80cd9eb8" => :sierra
   end
 
+  depends_on "asio" => :build
   depends_on "cmake" => :build
+  depends_on "eigen" => :build
   depends_on "python" => [:build, :test]
-  depends_on "python@2" => [:build, :test]
+  depends_on "faust"
   depends_on "fltk"
+  depends_on "fluid-synth"
+  depends_on "hdf5"
+  depends_on "jack"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -21,21 +27,36 @@ class Csound < Formula
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "stk"
+  depends_on "wiiuse"
 
   conflicts_with "libextractor", :because => "both install `extract` binaries"
   conflicts_with "pkcrack", :because => "both install `extract` binaries"
 
+  resource "ableton-link" do
+    url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
+    sha256 "2716e916a9dd9445b2a4de1f2325da818b7f097ec7004d453c83b10205167100"
+  end
+
+  resource "getfem" do
+    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.3.tar.gz"
+    sha256 "9d10a1379fca69b769c610c0ee93f97d3dcb236d25af9ae4cadd38adf2361749"
+  end
+
   def install
-    inreplace "CMakeLists.txt",
-      %r{^set\(CS_FRAMEWORK_DEST\s+"~\/Library\/Frameworks" CACHE PATH "Csound framework path"\)$},
-      "set(CS_FRAMEWORK_DEST \"#{frameworks}\")"
+    resource("ableton-link").stage { cp_r "include/ableton", buildpath }
+    resource("getfem").stage { cp_r "src/gmm", buildpath }
 
     args = std_cmake_args + %W[
-      -DBUILD_FLUID_OPCODES=OFF
+      -DABLETON_LINK_HOME=#{buildpath}/ableton
+      -DBUILD_ABLETON_LINK_OPCODES=ON
       -DBUILD_JAVA_INTERFACE=OFF
+      -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
+      -DBUILD_WEBSOCKET_OPCODE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
+      -DCS_FRAMEWORK_DEST:PATH=#{frameworks}
+      -DGMM_INCLUDE_DIR=#{buildpath}/gmm
     ]
 
     mkdir "build" do
@@ -47,12 +68,10 @@ class Csound < Formula
 
     libexec.install "#{buildpath}/interfaces/ctcsound.py"
 
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
-        import site; site.addsitedir('#{libexec}')
-      EOS
-    end
+    version = Language::Python.major_minor_version "python3"
+    (lib/"python#{version}/site-packages/homebrew-csound.pth").write <<~EOS
+      import site; site.addsitedir('#{libexec}')
+    EOS
   end
 
   def caveats; <<~EOS
@@ -64,12 +83,18 @@ class Csound < Formula
   test do
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
+      gi_peer link_create
+      gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
+      gi_fluidEngineNumber fluidEngine
+      gi_realVector la_i_vr_create 1
       pyinit
       instr 1
+          a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           pyruni "from __future__ import print_function; print('hello, world')"
-          aSignal STKPlucked 440, 1
-          out aSignal
+          a_signal STKPlucked 440, 1
+          hdf5write "test.h5", a_signal
+          out a_signal
       endin
     EOS
 
@@ -89,9 +114,20 @@ class Csound < Formula
     assert_match /^rtaudio:/, stderr
     assert_match /^rtmidi:/, stderr
 
-    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+    assert_predicate testpath/"test.aif", :exist?
+    assert_predicate testpath/"test.h5", :exist?
 
-    system "python2", "-c", "import ctcsound"
+    (testpath/"jacko.orc").write "JackoInfo"
+    system "#{bin}/csound", "--orc", "--syntax-check-only", "jacko.orc"
+
+    (testpath/"wii.orc").write <<~EOS
+      instr 1
+          i_success wiiconnect 1, 1
+      endin
+    EOS
+    system "#{bin}/csound", "wii.orc", "test.sco"
+
+    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
     system "python3", "-c", "import ctcsound"
   end
 end

@@ -3,12 +3,12 @@ class Gsmartcontrol < Formula
   homepage "https://gsmartcontrol.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gsmartcontrol/1.1.3/gsmartcontrol-1.1.3.tar.bz2"
   sha256 "b64f62cffa4430a90b6d06cd52ebadd5bcf39d548df581e67dfb275a673b12a9"
-  revision 2
+  revision 4
 
   bottle do
-    sha256 "c0813f12d106a9440f82a3086fc750f313b2ef9ba38f2c61c561e726a239dbb9" => :mojave
-    sha256 "11590c5d12f15d6e219c19c735f547fa138f643095dea94f1261decd4da6f8f3" => :high_sierra
-    sha256 "aaf430dfa25548fbfbfe3bc94d00ce042ba5cd0d6bd7703809945006b1293fd7" => :sierra
+    sha256 "556220452f97694f3645f359d2dec863134dfcfb4295143fc96752c26a5fcb17" => :catalina
+    sha256 "69c420e26e619dd25f064703cf27058dee4a55df67240576b599444041baebc8" => :mojave
+    sha256 "5a1c7102e0fd7cfb20d2dc895ce82a24117fe8137f47ec357fa5df6ec14d1ee0" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

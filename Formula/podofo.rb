@@ -3,13 +3,14 @@ class Podofo < Formula
   homepage "https://podofo.sourceforge.io"
   url "https://downloads.sourceforge.net/podofo/podofo-0.9.6.tar.gz"
   sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "5ab849109138f399e5a5b7bda343fbcabc85fd2e4ef9608db0b78d1de2a1c1aa" => :mojave
-    sha256 "7500b8f573a61302121539044a3a03e53eca0ee436d0dc07a128320d40ea0b0e" => :high_sierra
-    sha256 "7b79283ecf4203779495d5be9e48ec338d369638aa2ff0462fb67337a7c69a2c" => :sierra
+    sha256 "f3a0b9f5f93e268e1b8233bc1af041d26a89bb6f9e66ea0da0ef745b0454dc1d" => :catalina
+    sha256 "2ad60f4e4acd3fa9d1da1dcfeb7381696f126915bbea881d4bec9bb2cfd4fbab" => :mojave
+    sha256 "00db9c24295276fa24909d417f2790105bccc990c23f80ffa906210ab70e5af8" => :high_sierra
+    sha256 "30d51bd12657b4fe2defbe157c8dfea4c804318f13fa1f15011ebefaa7dec016" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -19,7 +20,7 @@ class Podofo < Formula
   depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Upstream commit to fix cmake 3.12.0 build issue, remove in >= 0.9.7
   # https://sourceforge.net/p/podofo/tickets/24/

@@ -6,6 +6,7 @@ class SpiceProtocol < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d01a1bbb28cf04e4d311dc70319a24bc20d190c67942ee015f9fd414bb693897" => :catalina
     sha256 "58938d9e32325c87b6b1f9d32cfe3129c5aa15de719f48aa69e83b1ab1e9af06" => :mojave
     sha256 "58938d9e32325c87b6b1f9d32cfe3129c5aa15de719f48aa69e83b1ab1e9af06" => :high_sierra
     sha256 "f24ec0961c7927c406ff0e86ee78be7c94f7269e0ff0d3c0839136fa43cf03e2" => :sierra

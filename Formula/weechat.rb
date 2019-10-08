@@ -1,14 +1,14 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.5.tar.xz"
-  sha256 "52c87775c3ff9714a62cfa5b7e13e2fa59bf32829fe083781c1d9c7f1c2d4c27"
+  url "https://weechat.org/files/src/weechat-2.6.tar.xz"
+  sha256 "fa9e3130e7afdfb6eff1b7892caac3efdd38a442f9989ca8c061eced2c755148"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "dfb5a3f45ac3055766b966c82c0dcd0f8dc5352f517407c66ba48070ffff0a89" => :mojave
-    sha256 "e3405b2ce24bca258f8772ebc9eb16098d3d8f289c3e12f8111b7b9c2bf12d5c" => :high_sierra
-    sha256 "ba3cc256a23111edb399b374b2ec828f177db1ca1c4fdf6c4e2151f9a1ca87db" => :sierra
+    sha256 "b394f94725481ffb20c88325947f66da4e8d8e3106d3b41c49431915fc297aa0" => :mojave
+    sha256 "1cd660bf3084ddbbe4c1fcebd38f484265e13072d153ad895dd4498d652b3953" => :high_sierra
+    sha256 "769a4ce55cee49db0fcf430201d4a94b077adeeb83901f231e2481c9034a9749" => :sierra
   end
 
   depends_on "asciidoctor" => :build
@@ -21,7 +21,7 @@ class Weechat < Formula
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "ruby" if MacOS.version <= :sierra
 
   def install

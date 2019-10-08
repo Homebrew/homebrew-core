@@ -1,13 +1,15 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.20.3.tar.gz"
-  sha256 "29961922b53f62e9d4eb34d1d50ddc23a24100664f97b71f42561fa5588ccc58"
+  url "https://www.opendap.org/pub/source/libdap-3.20.4.tar.gz"
+  sha256 "b16812c6ea3b01e5a02a54285af94a7dd57db929a6e92b964d642534f48b8474"
+  revision 1
 
   bottle do
-    sha256 "d2f5c13913633acafe8c090b9ff94ad3f9eae5d7699be4707da57f15524fc530" => :mojave
-    sha256 "15bf626100714d66c1691db44574295b5f257b1f0e3df025ac3f7c12c2526697" => :high_sierra
-    sha256 "ccb2d18958ed0115c1e1294e1c13d1c4afed8090a88efd0a6c6ff023bb697093" => :sierra
+    sha256 "885ab8323b0791007c05f597cc88adf2df0456588a80cfc164d312d4cfaa3d31" => :catalina
+    sha256 "264911ff0609114fb283ff064eae32fca1cb652d4e51c38ba14bdeab20a358fe" => :mojave
+    sha256 "d3b7cad46e5ece64f04065bb47fe27528ec1c3845588a0ddb3d8c50fb29948ad" => :high_sierra
+    sha256 "33da2c630d4bd6eba319e3cfafc4e9095bb8f236bd65f14a845ff797f3fe140b" => :sierra
   end
 
   head do
@@ -21,7 +23,7 @@ class Libdap < Formula
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libxml2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[

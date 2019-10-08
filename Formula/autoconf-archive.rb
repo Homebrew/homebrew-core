@@ -7,6 +7,7 @@ class AutoconfArchive < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f793582f781bede0afc9b807ceaefe811114fb2248cf7fb87d770b8ded1bfdff" => :catalina
     sha256 "37d5baf229236e25cc249934f6e052f3c99fe2b2c0fbf799c35e3b46ae861520" => :mojave
     sha256 "37d5baf229236e25cc249934f6e052f3c99fe2b2c0fbf799c35e3b46ae861520" => :high_sierra
     sha256 "73d531bc05f0eb0e5bb6ced9782bd2920157d89fd72ab42ee2e81b36f783fe98" => :sierra

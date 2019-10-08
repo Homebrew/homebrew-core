@@ -6,9 +6,11 @@ class Gtksourceview < Formula
   revision 4
 
   bottle do
-    sha256 "9370eb21569cf53d43593c7a07ed9694195622e46c6acb30e78848aa726ddf97" => :mojave
-    sha256 "9af07449473fb9355a5e28ab39c667bd32746fce27837c88338d5493461bf1ab" => :high_sierra
-    sha256 "8b1bb29b9d1fa1dda49752ac616b039a0b2eef6e03f443dd861a63201615ce87" => :sierra
+    rebuild 1
+    sha256 "c17eddcfc4490429a25b8c2ebd5dd32ac430e8bb26230698910bde85d2b48af6" => :catalina
+    sha256 "240b0c4807eb0920d9e349898f637d1070eaff855a06ae8389e2894d359c3096" => :mojave
+    sha256 "ac6289f22ae87186413936732cba3aaaf9b8d15ff4b71c574bf6c874bb6d1df4" => :high_sierra
+    sha256 "eb5679608c0d4b848640218761d6978a7b1a914721b31e648d92ed8b5968bf85" => :sierra
   end
 
   depends_on "intltool" => :build
@@ -47,6 +49,7 @@ class Gtksourceview < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -61,6 +64,7 @@ class Gtksourceview < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtksourceview-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

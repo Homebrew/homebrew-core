@@ -3,12 +3,12 @@ class Goffice < Formula
   homepage "https://developer.gnome.org/goffice/"
   url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.45.tar.xz"
   sha256 "702ba567e9ec0bbdd9b1a8161cd24648b4868d57a6cb89128f13c125f6f31947"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "7ce5144ecb512469e8638204656c332466569bb434975605067b876af1c7ece9" => :mojave
-    sha256 "eb2968d535961e4edcc0483f339ff83dddf24dab6da6fd7ff9ed2d5d1865afdd" => :high_sierra
-    sha256 "44a154844f42b75cfdb38ca864ca2170d547bbbd0125b3d0e75cea67e0ef5fad" => :sierra
+    sha256 "73f03c21d7a54de03036261ed6da4b362bc0be1ef26f7f66898b8708e67b238c" => :catalina
+    sha256 "ecedd906f35ea37bcc54a5832d9ef7c11b2f833cd2999b809426b90d82053f59" => :mojave
+    sha256 "c692381c13217c7033954e075a643dec876f7d9d754802573f6fe88826adc7ff" => :high_sierra
   end
 
   head do
@@ -57,6 +57,7 @@ class Goffice < Formula
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
            "-I#{MacOS.sdk_path}/usr/include/libxml2",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",

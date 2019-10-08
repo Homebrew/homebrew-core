@@ -19,12 +19,13 @@
   "horndis": "homebrew/cask",
   "inkscape": "homebrew/cask",
   "jsl": "homebrew/cask",
-  "kdiff3": "homebrew/cask",
   "keybase": "homebrew/cask",
   "meld": "homebrew/cask",
+  "mpv": "homebrew/cask",
   "osxfuse": "homebrew/cask",
   "phantomjs": "homebrew/cask",
   "quassel": "homebrew/cask",
+  "schismtracker": "homebrew/cask/schism-tracker",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "tuntap": "homebrew/cask"
 }

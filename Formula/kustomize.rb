@@ -2,34 +2,33 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v3.1.0",
-      :revision => "95f3303493fdea243ae83b767978092396169baf"
+      :tag      => "kustomize/v3.2.1",
+      :revision => "d89b448c745937f0cf1936162f26a5aac688f840"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97c15af6d0afc923da020d31f533edf398e151af4e928e0877c9c7f125e53df3" => :mojave
-    sha256 "8d63266a1f00c964a6b636e4646bba2f222cfab1577f6b2e01bcebb74b657688" => :high_sierra
-    sha256 "717113a3fe710bc7b3dc05a5dce085e9a26ac48fda590ae333581c2472150468" => :sierra
+    sha256 "1e47325d5013a7b05ea444099d3ccd746cd957e17915bd1b54c0187ad02d6d78" => :catalina
+    sha256 "a56bc3f26d7526f95467fee01d19da8f8efbe1c795180dff92d2d796f3eb098e" => :mojave
+    sha256 "382e90f81114ee7b082c2a211b6d9c380c1a8db5f658d3e5e6fe57ecabe8c746" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
 
     dir = buildpath/"src/kubernetes-sigs/kustomize"
     dir.install buildpath.children
-    dir.cd do
+    cd dir/"kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.kustomizeVersion=#{version}
-        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.gitCommit=#{revision}
-        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.buildDate=#{Time.now.iso8601}
+        -s -X sigs.k8s.io/kustomize/kustomize/v3/provenance.version=#{version}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.buildDate=#{Time.now.iso8601}
       ]
-      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize", "cmd/kustomize/main.go"
+      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
       prefix.install_metafiles
     end
   end

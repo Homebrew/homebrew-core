@@ -1,15 +1,15 @@
 class LibbitcoinConsensus < Formula
   desc "Bitcoin Consensus Library (optional)"
   homepage "https://github.com/libbitcoin/libbitcoin-consensus"
-  url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.5.0.tar.gz"
-  sha256 "bb29761d4275a9c993151707557008b23572a3d9adecc0e36a3075cfb101dd1e"
+  url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.6.0.tar.gz"
+  sha256 "a4252f40910fcb61da14cf8028bf3824125bacb0fc251491c9bb4e2818065fca"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3e84a8b81167e6cbf98cbba5fcd6f40741758704e9acec422b7399604449b74b" => :mojave
-    sha256 "36e607d57dcf9347cedede744be5461c8c9e866047d4b31942987110153c9bfe" => :high_sierra
-    sha256 "0ed7771f106cd05c2413b9da72013f168077dc8f6a21d5a01806c715d038e680" => :sierra
-    sha256 "1306b0c9f124e71aeaa22825c0d0f13c49d747ad762ea1fc6a8ea0853d47c4c7" => :el_capitan
+    sha256 "fdc8742a5540f9503709a7f1e271b11551e297e915b081ad34f3f6a4290061bb" => :mojave
+    sha256 "a186bf54816ed738b5f491df36f781728a84b1dd7fdf8aedd101231e7f03c20b" => :high_sierra
+    sha256 "3d7714fde2d05817a98a42dc42da248fac643a9e645b2251d597b4155d7dd28b" => :sierra
   end
 
   depends_on "autoconf" => :build

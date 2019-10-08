@@ -1,33 +1,34 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz"
-  sha256 "159e4b599f8af4612e70b666600a3139541f8bacc18124daf2cbe8d1b934f29f"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz"
+  sha256 "234fa05b6839e92dc300b2dd78c92ec9c0c8d439f65e1d430a7034f60af16067"
   revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "38ce7760cf405112350d7f734db435b488ba224d437698c7a93cb8972f016660" => :mojave
-    sha256 "3363c946daf5f249083b7a146294dae7f89d64eadf591635d570c8da7553c522" => :high_sierra
-    sha256 "d40515ee220ae0a3f9992094873e9273c0065abc43bc703628e1feacdd83a9e0" => :sierra
+    sha256 "cb74c5f3a0e89f7415e9846f96e2d4502284281bd0d2c87a0517e57d9c242cb9" => :catalina
+    sha256 "846c80d096bd49662e34de8144e73b2df017a3acb35a15942429e111951ba343" => :mojave
+    sha256 "123e7a9eb96d58ebd1100880018e5f99626bb99e751d99fc62a4183d926a4988" => :high_sierra
+    sha256 "95b84a677d97a9c522ec0e89cde3967a21c795b47181bf6ba20002f1962dd73c" => :sierra
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
   if MacOS.version < :yosemite
-    depends_on "openssl"
+    depends_on "openssl@1.1"
     depends_on "curl"
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.22.0.tar.xz"
-    sha256 "5c7e010abfca5ff2eabf3616bf7216609cfb93dbc12b7c4e13f4ae3e539dbc79"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.23.0.tar.xz"
+    sha256 "b7959afd19554aeaaa455c88eeed2c164854391f13319bd3fa7df2577c57ddc8"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.22.0.tar.xz"
-    sha256 "4e2cfda33d8e86812bfcdb907478d1144412ce472c32edd0219b3c0201c7ee3a"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.23.0.tar.xz"
+    sha256 "9558433f68ff4229bd55e84c4d26b74e5d3518ab0ec30186253b090ea887946a"
   end
 
   resource "Net::SMTP::SSL" do
@@ -70,7 +71,7 @@ class Git < Formula
     ]
 
     if MacOS.version < :yosemite
-      openssl_prefix = Formula["openssl"].opt_prefix
+      openssl_prefix = Formula["openssl@1.1"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]

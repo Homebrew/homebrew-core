@@ -1,15 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.4.tar.xz"
-  sha256 "f1f049a82fcfbf156564e73a3935d7e750891fab2abf302e735104fd4050a7e1"
-  revision 1
+  url "https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz"
+  sha256 "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "1fff696effdf5cdea3feb1b2d022018c6dfe47b71de640a46adc4631cdeccf1e" => :mojave
-    sha256 "d8e05c780e5e97dd8c4502e7cd31d0dc1d9e21734c22674deadab07609255339" => :high_sierra
-    sha256 "df8763246c89635363a965811f322e8fa253dc3a39f0b5812024f3a79027ff7a" => :sierra
+    sha256 "0d380384008e32fb185e62a5a27e2b1b685984c374d350e1f2f9d80526d227b3" => :mojave
+    sha256 "8fc9ab04aa9044e788fcbb92cc5bcc97387e51170f66d595ae2dc05bb247a968" => :high_sierra
+    sha256 "8d175180edf22fbf8ac525a094bd0f130122558ded1c85f8153991ce13e720c4" => :sierra
   end
 
   depends_on "nasm" => :build
@@ -25,6 +24,7 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libbluray"
   depends_on "libsoxr"
+  depends_on "libvidstab"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
@@ -63,6 +63,7 @@ class Ffmpeg < Formula
       --enable-libsnappy
       --enable-libtesseract
       --enable-libtheora
+      --enable-libvidstab
       --enable-libvorbis
       --enable-libvpx
       --enable-libx264
@@ -78,11 +79,10 @@ class Ffmpeg < Formula
       --enable-libopenjpeg
       --enable-librtmp
       --enable-libspeex
+      --enable-libsoxr
       --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
-      --enable-libaom
-      --enable-libsoxr
     ]
 
     system "./configure", *args
@@ -91,6 +91,9 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
+
+    # Fix for Non-executables that were installed to bin/
+    mv bin/"python", pkgshare/"python", :force => true
   end
 
   test do

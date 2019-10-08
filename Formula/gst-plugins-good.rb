@@ -1,17 +1,17 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 5
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz"
-    sha256 "654adef33380d604112f702c2927574cfc285e31307b79e584113858838bb0fd"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.1.tar.xz"
+    sha256 "9fbabe69018fcec707df0b71150168776040cde6c1a26bb5a82a136755fa8f1f"
   end
 
   bottle do
-    sha256 "9d0d545c7781c85fe2dee7c4084ccb85caa2894a5c07f453f7f8b7de84c477b5" => :mojave
-    sha256 "057a58645277bfc71782c42c9c270efad4a3930c4dc7f238df9e9ff38be6b700" => :high_sierra
-    sha256 "027773fa78494d0075a2113556b7b6f3f326b232411e1c7950c76f2737d13bde" => :sierra
+    sha256 "070e2e81a5b6020655a6ca7ccd2d23a4f07769a4b6b63ef82560a91a79ca681d" => :catalina
+    sha256 "673f6063b41897bc8459c1bab7645c8d1b5bd2fd0d76487377bae0aea6515be5" => :mojave
+    sha256 "e5779ab58e4fc5c01bd5d0d0ed06cfe27ceee5777057a65170cdf09d4f0046b1" => :high_sierra
+    sha256 "53b2bd6a52bd0aab3f45a28023d0e973f120047614f18fc91520bf70943994cb" => :sierra
   end
 
   head do
@@ -30,6 +30,7 @@ class GstPluginsGood < Formula
   depends_on "gst-plugins-base"
   depends_on "gtk+3"
   depends_on "jpeg"
+  depends_on "lame"
   depends_on "libpng"
   depends_on "libshout"
   depends_on "libsoup"
@@ -43,7 +44,6 @@ class GstPluginsGood < Formula
       --prefix=#{prefix}
       --disable-gtk-doc
       --disable-goom
-      --disable-lame
       --with-default-videosink=ximagesink
       --disable-debug
       --disable-dependency-tracking

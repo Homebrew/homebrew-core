@@ -1,15 +1,14 @@
 class TemplateGlib < Formula
   desc "GNOME templating library for GLib"
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
-  url "https://download.gnome.org/sources/template-glib/3.32/template-glib-3.32.0.tar.xz"
-  sha256 "39a334f5db404fa8b225224766684f2f63f5ec4cf4e971cfc513f1db35e81fbc"
-  revision 1
+  url "https://download.gnome.org/sources/template-glib/3.34/template-glib-3.34.0.tar.xz"
+  sha256 "216bef6ac3607666b8ca72b936467f7020ce6421c02755c301d079576c9c3dfd"
 
   bottle do
     cellar :any
-    sha256 "0889af1b50baf0c74ff0541f24c5a8c284a9d45fef95666d7bf6f0f7fe58c454" => :mojave
-    sha256 "c238f40b45213d1bfee2816e5bcf67e7bb7ed9237d27c0c68d73b9a3c61c6f00" => :high_sierra
-    sha256 "84c70944f3df8018d970e7ae8719ae7184a85d33355bbea196aaf099eb5d4e4c" => :sierra
+    sha256 "7b1ce7351349998a110041c7f5bb48e1bd8512bb77102ac89179c183681c9b5a" => :mojave
+    sha256 "3fb5497b258da64fbf0332231b935b0dcd595f75cfb4d01ab3f488cc9a92968d" => :high_sierra
+    sha256 "b4e9c55c7a393777676af21e0b72bd5e6b036f2ed8bc79da225666f9dccab5ef" => :sierra
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
@@ -19,9 +18,6 @@ class TemplateGlib < Formula
   depends_on "python" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
-
-  # submitted upstream at https://gitlab.gnome.org/GNOME/template-glib/merge_requests/5
-  patch :DATA
 
   def install
     mkdir "build" do
@@ -67,38 +63,3 @@ class TemplateGlib < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 050c202..d705657 100644
---- a/meson.build
-+++ b/meson.build
-@@ -26,6 +26,8 @@ current = template_glib_version_minor * 100 + template_glib_version_micro - temp
- revision = template_glib_interface_age
- libversion = '@0@.@1@.@2@'.format(soversion, current, revision)
-
-+darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, revision)]
-+
- config_h = configuration_data()
- config_h.set_quoted('GETTEXT_PACKAGE', 'libtemplate_glib')
- config_h.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
-diff --git a/src/meson.build b/src/meson.build
-index 5adef72..b3eb57a 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -145,10 +145,11 @@ libtemplate_glib = library(
-   'template_glib-' + apiversion,
-   libtemplate_glib_sources,
-
--  dependencies: libtemplate_glib_deps,
--     soversion: soversion,
--       version: libversion,
--       install: true,
-+   dependencies: libtemplate_glib_deps,
-+      soversion: soversion,
-+        version: libversion,
-+darwin_versions: darwin_versions,
-+        install: true,
- )
-
- libtemplate_glib_dep = declare_dependency(

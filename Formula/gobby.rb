@@ -3,13 +3,13 @@ class Gobby < Formula
   homepage "https://gobby.github.io/"
   url "http://releases.0x539.de/gobby/gobby-0.5.0.tar.gz"
   sha256 "8ceb3598d27cfccdf9c9889b781c4c5c8e1731ca6beb183f5d4555644c06bd98"
-  revision 5
+  revision 7
   head "https://github.com/gobby/gobby"
 
   bottle do
-    sha256 "b9509f4b93991026ed5e7a6c05858b2e9a82c0f5b2dfa9eb5e41678a6ede2402" => :mojave
-    sha256 "8ab2cf88ce693663ac49494dd0c36536389fe9e136ff59ad085c3aa386155b93" => :high_sierra
-    sha256 "53acc1a62333d50117be930770ee09bf4b15893837c51b5de4f723f312b9d763" => :sierra
+    sha256 "7c07581eadd99f56234659ecfb77b710a01bda15a549e191f7b85fd28cea9a72" => :catalina
+    sha256 "18ff50e9a89c3adf2b00420158fe03a2aff057bd7200939efdec274c80490fa6" => :mojave
+    sha256 "a705fb9ad205268ff01a4cb23dce91f04dee41720f5ed7276106ac76cdb304c0" => :high_sierra
   end
 
   depends_on "intltool" => :build

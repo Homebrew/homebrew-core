@@ -5,13 +5,15 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
   url "https://github.com/docker/compose/archive/1.24.1.tar.gz"
   sha256 "63a0e0d3819ff77aebd3d5ea30f77b36475ed522c4dabed2eb10636e35aa9370"
+  revision 1
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "2f56cad8904c46f8f9825c9655d8941e8beb29a8ff189437f1c98c6e8a6eb58f" => :mojave
-    sha256 "c154b2827f6fb36782917479977243bc6e7b324f988f199a7630486131db092e" => :high_sierra
-    sha256 "7fb5e11ffc82fc335cf01975c4147402b193c05d19ecb7f17c000beb8304ada7" => :sierra
+    sha256 "ea81818e81c01527da9743b1c058d46fea7c1062956e970e78d1913a9f3c1a15" => :catalina
+    sha256 "9abfd3a6d2a68609e72f8bf38bf6ddf54a4ae791a63257ad6907079967bd9dae" => :mojave
+    sha256 "ee17fed45db4a209a1ed3c68e30ea395da7ad39cd14cd319944879eca89022c2" => :high_sierra
+    sha256 "4c49a9248f46799f22c8d5c90b55a077b543635dbe5f211685c071a83ed0980f" => :sierra
   end
 
   depends_on "libyaml"

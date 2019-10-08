@@ -3,25 +3,25 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.38.40.tar.gz"
-    sha256 "0b72324ff3e3360f64e0af93ccb062af1d3b5f0976abb9e9b35b044b78c73c8f"
+    url "https://github.com/emscripten-core/emscripten/archive/1.38.44.tar.gz"
+    sha256 "e6bf63595ca28beb4c0385062cd686f1b442d7faa8b3c717fb4cb872478b4660"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.38.37.tar.gz"
-      sha256 "c0328e7e25986878e7c087391768d2366895ab1bf45466bf41a1ad6c6dbdde7f"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.38.44.tar.gz"
+      sha256 "d066f36d1083e5d62e2a9fb24e162e506a6b359fc101c43aec22ba8b1a836a01"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.38.37.tar.gz"
-      sha256 "0007575eeba4625007e81dde07eae7fdac0a24b424cf99a1383fcc2bee43ab82"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.38.44.tar.gz"
+      sha256 "13aca52d91aba756f8e0610e4a4ebd8147369f4708c7542efdf8a4f96e52f2a1"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "4b0ce778387e539a825fbd8b086d7c810f218947d631a271406dca7460cc2408" => :mojave
-    sha256 "d7e2aa3e1c203c345279004912004b80d15c1f0f9cc66ba7c19a99306b754ebc" => :high_sierra
-    sha256 "5b712599c9276591af1b894502e198c47a3d63b02a4239abba01339ea28294cf" => :sierra
+    sha256 "4f8be86a67d0f1fc87c01c92dd0fe8112f1cd6c5b1ae210ac0528ce02ad36b8a" => :mojave
+    sha256 "3abedeaff354db116142227d55d93232210b073549ab26c33b7f8c97fe8e897b" => :high_sierra
+    sha256 "36d6ea5dd8eaff5b9f8adf9388bfc9bcab2d22b8b738a164378601e174cc9bca" => :sierra
   end
 
   head do
@@ -38,17 +38,11 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "yuicompressor"
 
   def install
     ENV.cxx11
-    # rewrite hardcoded paths from system python to homebrew python
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`
-    python2_shebang_files = python2_shebangs.lines.sort.uniq
-    python2_shebang_files.map! { |f| Pathname(f.chomp) }
-    python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^#!/usr/bin/python2?$}, "#!#{Formula["python@2"].opt_bin}/python2"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git

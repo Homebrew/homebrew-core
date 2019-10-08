@@ -3,13 +3,15 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.0.4.tar.gz"
   sha256 "330c9593afd2b2480162786992d0bfb71be25faf105f3c24c71d514b58ee0cd3"
+  revision 1
   head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
     cellar :any
-    sha256 "0df2e02a36972a4c16b24243151339b4c8399cfe660daa8a801f0b45d7e5c3a8" => :mojave
-    sha256 "d50151d01ab4583c3eacdf81cd03f662d0c535f13925eaeed4208ef2de9fbe6a" => :high_sierra
-    sha256 "5fec79ee26b07edfbfd05c8fd459b03bd4751e1256eb206951dafcbcee42dc7a" => :sierra
+    rebuild 1
+    sha256 "1e2a04de1b67cb39442f8ce50e852ca02b617d93697f3f87414ab5448a529bc4" => :mojave
+    sha256 "294e9014f93b9dfd3e31e2eafeec205bb92db28c2d6e2b59b3b113e240e8b277" => :high_sierra
+    sha256 "9fa4abfeef74367bdd1305181126bde6009b1cef6c5b6acdc8c878433270b920" => :sierra
   end
 
   depends_on "pkg-config" => :build

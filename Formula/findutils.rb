@@ -1,16 +1,16 @@
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
-  url "https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.6.0.tar.gz"
-  sha256 "ded4c9f73731cd48fec3b6bdaccce896473b6d8e337e9612e16cf1431bb1169d"
+  url "https://ftp.gnu.org/gnu/findutils/findutils-4.7.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.7.0.tar.xz"
+  sha256 "c5fefbdf9858f7e4feb86f036e1247a54c79fc2d8e4b7064d5aaa1f47dfa789a"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 4
-    sha256 "ec4451f43d744c9f9a891f5de2be83c88cfec2f3decb944e58cc6fada7f9f9cf" => :mojave
-    sha256 "a9ed3201327c741029789bab2c1fa6e1f1407ec47011b70afaf0f048620d8ea1" => :high_sierra
-    sha256 "af9bf8127ffd522fa0d5ed7f4d39b312c1a97b75d57ffe831bfcc805bab45880" => :sierra
+    sha256 "f9ba06f4d48275e8cab659450b05e77873e909f31104df450201a83d465ed1ca" => :catalina
+    sha256 "3c609b729a1dc859459282a856ff6c164cd8388e531dad4e58c8d4c7acb670fb" => :mojave
+    sha256 "996a9fe2b1829fdf7b7257bead0ef0c4315832e9ba21b149779abeb59dcbde30" => :high_sierra
+    sha256 "4b66ce398f2d5f5c65bf0b05fcc55334398e75cb965a17d781d7c3a15a4bba61" => :sierra
   end
 
   def install
@@ -29,6 +29,9 @@ class Findutils < Formula
       --disable-debug
       --program-prefix=g
     ]
+
+    # Work around a gnulib issue with macOS Catalina
+    args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
     system "make", "install"

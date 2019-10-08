@@ -1,8 +1,8 @@
 class Ballerina < Formula
-  desc "The flexible, powerful and beautiful programming language"
-  homepage "https://ballerina.io/"
-  url "https://product-dist.ballerina.io/downloads/0.991.0/ballerina-0.991.0.zip"
-  sha256 "be7d039c42e8882572f58c1f67e8dbf6e3c4ca719190a4e7da1405dd595ca66b"
+  desc "A Programming Language for Network Distributed Applications"
+  homepage "https://v1-0.ballerina.io"
+  url "https://product-dist.ballerina.io/downloads/1.0.1/jballerina-1.0.1.zip"
+  sha256 "fa1896f05b15b074877e498cf86b72370803ad350505e0ccef2f4b5d8b69be00"
 
   bottle :unneeded
 
@@ -30,7 +30,7 @@ class Ballerina < Formula
   test do
     (testpath/"helloWorld.bal").write <<~EOS
       import ballerina/io;
-      public function main(string... args) {
+      public function main() {
         io:println("Hello, World!");
       }
     EOS

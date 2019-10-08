@@ -3,19 +3,20 @@ class AppscaleTools < Formula
   homepage "https://github.com/AppScale/appscale-tools"
   url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
   sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
+  revision 1
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
     cellar :any
-    sha256 "4f41b03465b1dea26010f87ca4aae2685b58d50cc1139b17aed9b74da6e75fc7" => :mojave
-    sha256 "09504e42c3fa49bef72caec812e751b662a64bc9c82b8e6489fee22eeda5f5f2" => :high_sierra
-    sha256 "99ffa7564f5c791bff75392877e57c8ba513c95ab7ec98f18b3b68096faacf04" => :sierra
-    sha256 "fb7096134ec7fd4172c3906190f123f21d8cf9c336729c07271f792e926997d3" => :el_capitan
+    sha256 "152516bbbd74d6e356e70f2127f5856138291afcb2c5c8fb32356cf3827b2f5e" => :mojave
+    sha256 "2f3af2aec3c7270aea877868f28f6a7a2c783e74b44261523d255b409047689a" => :high_sierra
+    sha256 "e8eec8f0fef97aeb3cc2c6cf196712b44fd34d73c1292746aa3fa7ab75b8c0b8" => :sierra
   end
 
   depends_on "libyaml"
-  depends_on "openssl"
-  depends_on "python@2"
+  depends_on "openssl@1.1"
+  # Uses SOAPPy, which does not support Python 3
+  depends_on "python@2" # does not support Python 3
   depends_on "ssh-copy-id"
 
   resource "retrying" do

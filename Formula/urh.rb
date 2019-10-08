@@ -1,14 +1,14 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/df/f9/b58b2c73c32ea153926049819bca96c3da85725b915a81d5ae810d649cc4/urh-2.7.3.tar.gz"
-  sha256 "dabb10db83134baf1b31c32d683480db752cecb43bcb35b8bd319870dfb81997"
+  url "https://files.pythonhosted.org/packages/c8/b4/6603578b0fef672a450a77c20f2a50aa8e9985cb0e850cdea8862cf9fbd9/urh-2.7.5.tar.gz"
+  sha256 "201b226b90711eb72ce677a6f7ffd8afdf0c1051e2420ecefd26cd2345c31f0b"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "4ef2733ddee16187ff01b36360f8c12eb8545ff2a94b8d50ffc0878886b5a940" => :mojave
-    sha256 "8fdb578600dd9a5269ec672be31c1117382a835c4d1ec99436279b1a73c34b70" => :high_sierra
-    sha256 "11d835aeb877b1ea197ef0e5fcae5c4bf33bddfd041e4bcdb7178385df474e59" => :sierra
+    sha256 "5ee75ff223fae1a2065012e2fbaf9db2b7f59258a419e18aab71bd9e63a141fb" => :mojave
+    sha256 "0ad7b33c3f31d0f74f7ae26273208801141214c1aa5c67873b024f2738aeb1d4" => :high_sierra
+    sha256 "11f85229c1da58498f40cb31acbce183e6412859f73171e984356176bd4a54c6" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -19,8 +19,8 @@ class Urh < Formula
   depends_on "zeromq"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/5b/5b/6cba7123a089c4174f944dd05ea7984c8d908aba8746a99f2340dde8662f/Cython-0.29.12.tar.gz"
-    sha256 "20da832a5e9a8e93d1e1eb64650258956723940968eb585506531719b55b804f"
+    url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
+    sha256 "c29d069a4a30f472482343c866f7486731ad638ef9af92bfe5fca9c7323d638e"
   end
 
   resource "psutil" do
@@ -29,8 +29,8 @@ class Urh < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/a8/5e/7e4ed045fc1fb7667de4975fe8b6ab6b358b16bcc59e8349c9bd092931b6/pyzmq-18.0.2.tar.gz"
-    sha256 "31a11d37ac73107363b47e14c94547dbfc6a550029c3fe0530be443199026fc2"
+    url "https://files.pythonhosted.org/packages/7a/d2/1eb3a994374802b352d4911f3317313a5b4ea786bc830cc5e343dad9b06d/pyzmq-18.1.0.tar.gz"
+    sha256 "93f44739db69234c013a16990e43db1aa0af3cf5a4b8b377d028ff24515fbeb3"
   end
 
   def install

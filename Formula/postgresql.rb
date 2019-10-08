@@ -1,30 +1,29 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.4/postgresql-11.4.tar.bz2"
-  sha256 "02802ddffd1590805beddd1e464dd28a46a41a5f1e1df04bab4f46663195cc8b"
+  url "https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2"
+  sha256 "7fdf23060bfc715144cbf2696cf05b0fa284ad3eb21f0c378591c6bca99ad180"
+  revision 1
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "50b37d75b65cbc3e5ef025c1a061d4008de18e07aaa5b12eca77433c8e7e2141" => :mojave
-    sha256 "0dd22aae8ca8bdfb290fc3de98eedea7d6e984d863e4c06ec9cd952c5415f3e4" => :high_sierra
-    sha256 "da29f897940ba9c3f193518a16927de8d4f7acabc383619a45fe378384c265c4" => :sierra
+    sha256 "50c6402fe972adb5e0b14e6e62f80e8d5149b9ff2a03609ec57822f60ce60cbd" => :catalina
+    sha256 "463c6a192a0b6a5d1359b68db24003b2dac6895cdb86c827c41bf03fffd856d6" => :mojave
+    sha256 "eacea455385cab25b9692b5b2aed804f34fa409838ee90702fe01c793117d33c" => :high_sierra
+    sha256 "ae676cf5e076fd8f0b7395835e25f35e8d82f2660534749a3f45c1677cb8f7ba" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
-
-  conflicts_with "postgres-xc",
-    :because => "postgresql and postgres-xc install the same binaries."
 
   def install
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
     args = %W[
       --disable-debug

@@ -1,21 +1,20 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.26.3.tar.gz"
-  sha256 "d8a0f613ade919188e378fd72145f74d199df5d74fc5b5ef3f7437dbf46ac190"
+  url "https://github.com/digitalocean/doctl/archive/v1.32.3.tar.gz"
+  sha256 "e6e60c3bd6c3638a71e7be610c662344bca240194cc3de826e78a51739ca546d"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c28501122e0af9e26adedce68d2fd21a6a661cc48026a09bc493f5c9d1213c5" => :mojave
-    sha256 "d7e9bba9b06286477607c01dd6098d3bec55ee26844d456938813e027b1c6f9e" => :high_sierra
-    sha256 "657f62f0efb57020704137b0201530a217666443c4f0c419e88208cbc4f13b9e" => :sierra
+    sha256 "5466cd64e1e8927630df08c55385f227b823c7633e6b95ac140e746f4ada0552" => :catalina
+    sha256 "81d5c7d6d1b7adf883f3e027116320a09066419a0ff768c91c68c0ee8909c314" => :mojave
+    sha256 "aaf6b30417bc1a6c2351d26ab8ff603c780bfd846f648d6ac2963ef154dda3df" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     doctl_version = version.to_s.split(/\./)

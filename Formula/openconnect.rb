@@ -1,14 +1,15 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.03.tar.gz"
-  mirror "https://fossies.org/linux/privat/openconnect-8.03.tar.gz"
-  sha256 "908cff9b1ce266b6bb7f969a7f62723543ab94719ba3c95a150fe3894cbc9ef2"
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz"
+  mirror "https://fossies.org/linux/privat/openconnect-8.05.tar.gz"
+  sha256 "335c2952d0cb36822acb112eaaf5e3b4acffc6874985fb614fec0b76c4c12992"
 
   bottle do
-    sha256 "a9c47c6f30be70320aa1d86ba6c449cd5d60d5d6c2335ceb3c14ca35b064cc69" => :mojave
-    sha256 "70b3fc3ec62a6b91567325fcb0c14906e1cd739de8334202bf9765dab96537be" => :high_sierra
-    sha256 "5cd4f699bddb17caeec819f0415a6a378046fcdd8343178f4aa8324ee541b173" => :sierra
+    sha256 "75337e3ef5910b8236bddb38c949bdcb0b8032716f24a67ae0f05c5a563b86ed" => :catalina
+    sha256 "440a031dc0467ba3928fc2ab380e50c0c8b64042c109885856061f03f8bf5d86" => :mojave
+    sha256 "3a4cf289c1c8c57d5a83b2993791b1a64a5af25b655ba15ff70b9a8ddd9b8bbc" => :high_sierra
+    sha256 "ffd8c90ee9cc4d69f7f6efbeb57727b2e87c910b9920786ae9055d2177e8600c" => :sierra
   end
 
   head do

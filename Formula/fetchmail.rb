@@ -1,23 +1,22 @@
 class Fetchmail < Formula
   desc "Fetch mail from a POP, IMAP, ETRN, or ODMR-capable server"
   homepage "http://www.fetchmail.info/"
-  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.3/fetchmail-6.3.26.tar.xz"
-  sha256 "79b4c54cdbaf02c1a9a691d9948fcb1a77a1591a813e904283a8b614b757e850"
+  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.4/fetchmail-6.4.1.tar.xz"
+  sha256 "3f33f11dd08c3e8cc3e9d18eec686b1626d4818f4d5a72791507bbc4dce6a9a0"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3be3279ed30d08cdf4e533ec9ebad92398cea90a8f364851f82d5666b89bf25a" => :mojave
-    sha256 "8e037ee9a367c9c4a26d5491e4db84285390d0ef1949c30d56c0726706dab6de" => :high_sierra
-    sha256 "63692fabb3746b739ce3b81f2d1ce964ca4e74613ea63f307e734f90dbcea513" => :sierra
-    sha256 "663d68d69a865daa6311f70ed2412abe79affa23b8fd76b44eaca5d9735fba36" => :el_capitan
-    sha256 "44c0f861ca7a8bf1af2bd5c1007a48e397bba3c8dfeb7c3a3cc5299dd1cb7c66" => :yosemite
+    sha256 "65f33f39bb4f3acb16f8fe1cce6c988c2aa28350923aea2aafa9db1631516e15" => :catalina
+    sha256 "0d346ec2e1c1a4626846a5d2c9be1f21daa3aee32a7d5bc274ac060305ea9f31" => :mojave
+    sha256 "12cd02292c26a27e9ef75c1fd8728412bb611df883962860d2db82b02a1679ee" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-ssl=#{Formula["openssl"].opt_prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

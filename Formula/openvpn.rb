@@ -4,11 +4,13 @@ class Openvpn < Formula
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz"
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.7.tar.xz"
   sha256 "a42f53570f669eaf10af68e98d65b531015ff9e12be7a62d9269ea684652f648"
+  revision 1
 
   bottle do
-    sha256 "9384beaf449f98580c6217c2c94924076b44de0a7084ba918c86b817c05de371" => :mojave
-    sha256 "5c6954b8036350b73a4fe1cf0947254719c07026db8361a2bbe3f700b252adca" => :high_sierra
-    sha256 "e42e2481dd5199279200aff330bc27a21f7054cff37d36be656976f09bffbe86" => :sierra
+    sha256 "3cfae9f298ad28601667090d00cff92fc4e5c1ee9fa255046f4cd87d14bb6ee4" => :catalina
+    sha256 "b19cc37d3a60d37e935e517dd7c34dd1c9474be22139835f1c21d2e6c86896eb" => :mojave
+    sha256 "de0cb2e72fc0faaf91aa210e79524648d2e17fc61938ea1c50cb94ad8105b0c2" => :high_sierra
+    sha256 "8f596b79f4c8c21ac2f003a395c8643794f86cdaff517bfed0476364fdbccc38" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,7 +20,7 @@ class Openvpn < Formula
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkcs11-helper"
 
   def install

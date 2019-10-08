@@ -4,22 +4,23 @@ class Unzip < Formula
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb885bc3523609b17d0558b44b345f2e86fc0dfba3f3954d0dfd1d9126bcd554" => :mojave
-    sha256 "29cdc76b3bcfd65e657bb97852abdb974e7cca1ae5b79a60333eb8a762c001a6" => :high_sierra
-    sha256 "98352007308f516e0a93f0725293ed0e8b52ccbd03ee1bcc0ead5f345972dae4" => :sierra
+    sha256 "178cea56554b0e6b74856203340554c7615c6ed2e122059c78370e35c896f0ce" => :catalina
+    sha256 "f0b95f2d5c664f45686f3aa318384906014ed28939da28020d12138f025aaeb6" => :mojave
+    sha256 "6dd7d0862f5a8b954dd94b3c91378209e0086eec7c5be367af0d8c330bc099da" => :high_sierra
+    sha256 "f4d59c04a44f93a30a23ec403784c73f9c06db9b72f3277679f66b1870a94331" => :sierra
   end
 
   keg_only :provided_by_macos
 
   # Upstream is unmaintained so we use the Debian patchset:
-  # https://packages.debian.org/sid/unzip
+  # https://packages.debian.org/buster/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-23.debian.tar.xz"
-    sha256 "c8b5d256aca6b24b36e92270856b6947401bd4107c883b78a6fcf8afec6f54aa"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-25.debian.tar.xz"
+    sha256 "0783e4d11d755cb43904e3f59a60dbb92ee9c6b08ac54d86bc61f9848216f37b"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
@@ -42,6 +43,9 @@ class Unzip < Formula
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
       patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
       patches/21-fix-warning-messages-on-big-files.patch
+      patches/22-cve-2019-13232-fix-bug-in-undefer-input.patch
+      patches/23-cve-2019-13232-zip-bomb-with-overlapped-entries.patch
+      patches/24-cve-2019-13232-do-not-raise-alert-for-misplaced-central-directory.patch
     ]
   end
 

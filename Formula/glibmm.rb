@@ -1,20 +1,20 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.60/glibmm-2.60.0.tar.xz"
-  sha256 "a3a1b1c9805479a16c0018acd84b3bfff23a122aee9e3c5013bb81231aeef2bc"
-  revision 1
+  url "https://download.gnome.org/sources/glibmm/2.62/glibmm-2.62.0.tar.xz"
+  sha256 "36659f13cc73282392d1305858f3bbca46fbd1ce2f078cc9db8b9f79b2e93cfe"
 
   bottle do
     cellar :any
-    sha256 "976b138f9cb6d0456b93d41fd4fe288b72774bc4e1fca8ba028f18956463e139" => :mojave
-    sha256 "c68640ee525534c89c2e737760c375217588ddd29b30a71a3d68f7d2b412c827" => :high_sierra
-    sha256 "c186a363d1eb3608aaa4ec6cb368babbce60d96e3a6e224ecd00eafac475037d" => :sierra
+    sha256 "9dd137d8cee10a3604a20c0c5318db7e9fb68e49328727d4b712589c8293d1a7" => :catalina
+    sha256 "161bab6c21bb5137f9c4603b0f6873cc3a8b30bfbfcdf49bb30812d070ebdfb1" => :mojave
+    sha256 "df7fe42bb76f0b9ca5b9e17a1dfde4419d8c99a92e11a3c1237be1d9e6795449" => :high_sierra
+    sha256 "f658b7bdcf4888b849b06d10c0c9686a8f624ceefec5579921f265f561d0076f" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
 
   def install
     ENV.cxx11
@@ -35,7 +35,7 @@ class Glibmm < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0

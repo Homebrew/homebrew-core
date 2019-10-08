@@ -6,6 +6,7 @@ class Lv2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "46bf661246f48276cdffd3e7f0fc04b26776afd7ccb1fc8a14750f67e151e47a" => :catalina
     sha256 "5c5ae73974d83d50004207ad39161c5083d4246213c0140bded36d267a126a08" => :mojave
     sha256 "5c5ae73974d83d50004207ad39161c5083d4246213c0140bded36d267a126a08" => :high_sierra
     sha256 "b0f163fce66e26fefa0c1dc35db01662d5bacae2f96760e4e5b79b1ec383cfed" => :sierra

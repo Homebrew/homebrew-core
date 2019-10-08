@@ -3,21 +3,24 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
+  revision 2
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
     cellar :any
-    sha256 "7236024b1c9952f728d382515eb55fa5261097fe1aefac6802ef6a6b7bf27597" => :mojave
-    sha256 "32b9445a8cf5d73283d84ae3bb6a23004be92deda61187860edde166fb4fda2d" => :high_sierra
-    sha256 "d12d4f3546ab13a397c0c2e9c7420a73449463d2145c79c76d389eff2e1d1459" => :sierra
+    rebuild 1
+    sha256 "a35a50b9b0ad50c3e71a741c1ff21bfba5ea4e888886753285d48a0e378c971a" => :catalina
+    sha256 "20bbd4c2c55b7e235786030deb15a22bea1847c8557f69967c241681a3c685e8" => :mojave
+    sha256 "89500fa5621132bccfb09ab3cfc67ce6975700833c778bde1afdd8911c715b1a" => :high_sierra
   end
 
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gcc"
   depends_on "openblas"
 
   resource "mumps" do
-    url "http://mumps.enseeiht.fr/MUMPS_5.2.0.tar.gz"
-    sha256 "41f2c7cb20d69599fb47e2ad6f628f3798c429f49e72e757e70722680f70853f"
+    url "http://mumps.enseeiht.fr/MUMPS_5.2.1.tar.gz"
+    sha256 "d988fc34dfc8f5eee0533e361052a972aa69cc39ab193e7f987178d24981744a"
 
     # MUMPS does not provide a Makefile.inc customized for macOS.
     patch do
@@ -72,8 +75,8 @@ class Ipopt < Formula
         return 0;
       }
     EOS
-
-    system ENV.cxx, "test.cpp", "-I#{include}/coin", "-L#{lib}", "-lipopt"
+    pkg_config_flags = `pkg-config --cflags --libs ipopt`.chomp.split
+    system ENV.cxx, "test.cpp", *pkg_config_flags
     system "./a.out"
   end
 end

@@ -3,15 +3,15 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.1328.tar.gz"
-  sha256 "8df0c26d41c41975d0d8b7d73e64afe2d80d1f74e1fad264e8fae1eea5441a78"
+  url "https://github.com/soimort/you-get/archive/v0.4.1355.tar.gz"
+  sha256 "5e45c92de6d1ad2f5dd0a7491af6a695910cf72ca82b2c3ed0ce2520e6daabd8"
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db4087dcf0cfac3cbbe2e5d504518879c9bf33d61ccddae74cd9deaf5f2566fd" => :mojave
-    sha256 "c3932441462ac191c90a72c83f85fa60661321f42eb7c11ba9c476077ccb9396" => :high_sierra
-    sha256 "468a25dfa726d5a08dfd24d471444398aa70f2fcd2b3cac5a3530c92397af27a" => :sierra
+    sha256 "4e1051bc16a923d7fff256a1b998d0f2ec8c7d2a3232b6ab2723de60e3fa9217" => :catalina
+    sha256 "085cce1c4615c7b288dc1ff076bc30034684c1156317fc88e1157dae33aafabf" => :mojave
+    sha256 "24799a91b82cfbfcb7aa15a2a1e95cf46c89eb00b48b0f37581dec5afd417bb3" => :high_sierra
   end
 
   depends_on "python"

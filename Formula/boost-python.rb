@@ -1,30 +1,31 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2"
-  sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
+  url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
+  sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "bcbd397976693b28ef44efb7012dd4fdfe758f480630df98d7645349d1590260" => :mojave
-    sha256 "7e990bb5bf4cc95ce30c5c99b7cfbbfb765434675dca94cbf3b42796c94bc865" => :high_sierra
-    sha256 "6d2a7161aff7e404b815ba853dea4b30f2c4691b8181d997b384c7bc4f7ca5dd" => :sierra
+    sha256 "a417f98b320baf0eaad0c73f71cf93afad1c15ec270c648f6e8bf657ca936c44" => :catalina
+    sha256 "007c36bd83c74a8337de124730544b5ea145ddaed5708451d1fb0e1f8dfa75cb" => :mojave
+    sha256 "2851b897d46a0f84ad4561050804edc361b954c8987da71a0374aa3eab1c8966" => :high_sierra
+    sha256 "bbfedf505fa8c0068acba3bd2b6d45910fc6fc21ce7975f06d19412621e3ea87" => :sierra
   end
 
   depends_on "boost"
 
   def install
     # "layout" should be synchronized with boost
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged-1.66",
-            # --no-cmake-config should be dropped if possible in next version
-            "--no-cmake-config",
-            "threading=multi,single",
-            "link=shared,static"]
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged-1.66
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.

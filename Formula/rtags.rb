@@ -2,21 +2,21 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag      => "v2.33",
-      :revision => "a5fa0951c92b4e5423d4ce95adafdca6ea30f254"
+      :tag      => "v2.34",
+      :revision => "2723ce64f0e83e81ac4a49068fba2588701fdb11"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
     cellar :any
-    sha256 "268358f195112476b4d405462967f12d8805410afce148ad9dd91ea3018842e0" => :mojave
-    sha256 "895869971d3f3c151c43a7899c8dfa08bb75e522849f2fd1e3bd9997cb91143f" => :high_sierra
-    sha256 "abeaa815f65130760f2f268eb9239f73a69a8966d4159e3d1246c134ba24e1cb" => :sierra
+    sha256 "eecf7d02f14a70a7bf084ac4ca1b90069a5aafa1c8ce321a5c4a18bce480811e" => :mojave
+    sha256 "a6a0623ecedda03bf90e396e1c891ad2925dc2845810d55c3d145ab6bc410a28" => :high_sierra
+    sha256 "0c6d0ace0aba7ad795b4db67a658f3d2130e93b02bd22f459d54c5d852f3e9bd" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi

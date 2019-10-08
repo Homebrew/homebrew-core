@@ -1,13 +1,13 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.16.1/p11-kit-0.23.16.1.tar.gz"
-  sha256 "4b34e92ae36fa493e0d94366c767f06d5f9951e3d8581d10fd935d738db1574d"
+  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.18.1/p11-kit-0.23.18.1.tar.gz"
+  sha256 "34c3bd8c0050dd7c4e6228aecf0f168de0a1b34562ddbf74a1c70904c2523c6f"
 
   bottle do
-    sha256 "49ffd7c971e56e2ef825e7af091064c301ca616bbe9092cd5c46a20f917783cc" => :mojave
-    sha256 "350b021e34d17250e61890c699f10a125d243b7194924cc7df3224a2984bf281" => :high_sierra
-    sha256 "0abc56197c864a9554e8211f824461deb449f9d4f95fdc6f5890ff355d732f6a" => :sierra
+    sha256 "a96c1ed51ba62da76ee2e54203670927ecbfc8778b5a1ffaf1593727b48a86b5" => :catalina
+    sha256 "f199520dd64b5a625c5017831de90f4c92b9ec9209623abae292f817d529e0b1" => :mojave
+    sha256 "05548f0cce3d85d4cbff9f98559ea0b14977dc5803c3f2fa6aa1aa7eea306c1e" => :high_sierra
   end
 
   head do

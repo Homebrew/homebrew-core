@@ -3,11 +3,12 @@ class Pdns < Formula
   homepage "https://www.powerdns.com"
   url "https://downloads.powerdns.com/releases/pdns-4.1.11.tar.bz2"
   sha256 "754e4f0ce31118fef5dc470dc039e1f4e7b3ca6248074c9678a659508693b712"
+  revision 1
 
   bottle do
-    sha256 "0677f1d75aed7c3ed46a16d660f632a62e7cc4226b5737fba40b7969370a078a" => :mojave
-    sha256 "c970b240a950553ced9e62e34f16eaf972d499450785ef11059ace74e188b332" => :high_sierra
-    sha256 "5556b591e80de969ba0408a36a370b46e88c3a4e21ddf5f31a4df803a0b5d10d" => :sierra
+    sha256 "e9b851c9ce8248562bfa591aaa8313768643e7c3535744e491040d5939e1078e" => :mojave
+    sha256 "1f195fcf89c603691184c77841f8df250cb6ef205841feede230a41337203d77" => :high_sierra
+    sha256 "a0e77bc4f1d21eedef8f74cd1a669d700fddfbe35c950e207ceaf1868898e25b" => :sierra
   end
 
   head do
@@ -22,7 +23,7 @@ class Pdns < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
 
   def install
@@ -33,7 +34,7 @@ class Pdns < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-sqlite3
       --with-modules=gsqlite3
     ]

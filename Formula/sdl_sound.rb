@@ -8,6 +8,7 @@ class SdlSound < Formula
 
   bottle do
     cellar :any
+    sha256 "b8ac8b382c94d4a92032a8bc9c93d777fac1367851bd3df382089f747c347f05" => :catalina
     sha256 "3661daa8d14b8b8ab613a5fb449ad6b3f758739eb3b69700b23c0ccdc49068b6" => :mojave
     sha256 "c571e007bcbb022e6fd0042e506ce6cd47a26d814de06f348b13231fc95a1581" => :high_sierra
     sha256 "0e692b6c08600d6d7014fc582b5a351e8a4eea42ce95d231ef39a0c07c41c71b" => :sierra

@@ -5,15 +5,15 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-2.7.0/cryptol-2.7.0.tar.gz"
-  sha256 "46c6ba5d63c0cdf074e57ea07b09dc84751a6608a9a66e552ebe2b7a343ed393"
+  url "https://hackage.haskell.org/package/cryptol-2.8.0/cryptol-2.8.0.tar.gz"
+  sha256 "b061bf88de09de5034a3707960af01fbcc0425cdbff1085c50c00748df9910bb"
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c47c79277b44e3155acf83f2e9bbceeeaac0ffdf1faa511bf2468cf73b2ca441" => :mojave
-    sha256 "106a4ca34518a4a19695b96b5966c2016b8616a6c17e2d6d1413a4549840ca69" => :high_sierra
-    sha256 "b5966fba039bc47a91f7dd0aaea238dffae0e6417e34dbc8fa5ac517211b4487" => :sierra
+    sha256 "0aca3e2c29be5d4533e6114f0e7fd774173358f92d0f4e73903d0d536fb54160" => :mojave
+    sha256 "04d3178e67b8836a720d82dc3b88d1c69366aae6f0e7abdb9a1155b7dc31c28c" => :high_sierra
+    sha256 "3c3ffec1e47196b6c1767086fb9cc62e792546476cad5c6b92896eb45db13744" => :sierra
   end
 
   depends_on "cabal-install" => :build

@@ -1,21 +1,18 @@
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://dl.bintray.com/homebrew/mirror/sip-4.19.8.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.8/sip-4.19.8.tar.gz"
-  sha256 "7eaf7a2ea7d4d38a56dd6d2506574464bddf7cf284c960801679942377c297bc"
-  revision 12
+  url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.19/sip-4.19.19.tar.gz"
+  sha256 "5436b61a78f48c7e8078e93a6b59453ad33780f80c644e5f3af39f94be1ede44"
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6e71708515bb6b3b7956ac076058dbf4d2eeae470dace9563dbe9f313479a9b7" => :mojave
-    sha256 "c3b58c31be4c2014bb082731f25148ec65dce923d2499f72dc8eddcc95afa661" => :high_sierra
-    sha256 "d223031f11bfedd3247236109ce5bc0b7ff9a7e0672d44b4a4d1a129393d505c" => :sierra
+    sha256 "04b82f4b315825bed027034e67aa37681aaef39c870ddeeb2487185cf6994cb6" => :catalina
+    sha256 "cce03b4167471dd9770f812d42093c14fec5867d1f94b0045c3b88a1501acee1" => :mojave
+    sha256 "363ab9c38ddab620092fb64353b45267f757a02f9e568a8aa0c2c1b59d16090b" => :high_sierra
   end
 
   depends_on "python"
-  depends_on "python@2"
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
@@ -29,18 +26,16 @@ class Sip < Formula
       system "python", "build.py", "prepare"
     end
 
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      system python, "configure.py",
-                     "--deployment-target=#{MacOS.version}",
-                     "--destdir=#{lib}/python#{version}/site-packages",
-                     "--bindir=#{bin}",
-                     "--incdir=#{include}",
-                     "--sipdir=#{HOMEBREW_PREFIX}/share/sip"
-      system "make"
-      system "make", "install"
-      system "make", "clean"
-    end
+    version = Language::Python.major_minor_version "python3"
+    system "python3", "configure.py",
+                      "--deployment-target=#{MacOS.version}",
+                      "--destdir=#{lib}/python#{version}/site-packages",
+                      "--bindir=#{bin}",
+                      "--incdir=#{include}",
+                      "--sipdir=#{HOMEBREW_PREFIX}/share/sip"
+    system "make"
+    system "make", "install"
+    system "make", "clean"
   end
 
   def post_install
@@ -97,12 +92,10 @@ class Sip < Formula
                     "-o", "libtest.dylib", "test.cpp"
     system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
 
-    ["python2", "python3"].each do |python|
-      version = Language::Python.major_minor_version python
-      ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
-      system python, "generate.py"
-      system "make", "-j1", "clean", "all"
-      system python, "run.py"
-    end
+    version = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
+    system "python3", "generate.py"
+    system "make", "-j1", "clean", "all"
+    system "python3", "run.py"
   end
 end

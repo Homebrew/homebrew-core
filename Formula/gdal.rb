@@ -3,12 +3,13 @@ class Gdal < Formula
   homepage "https://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.4.2/gdal-2.4.2.tar.xz"
   sha256 "dcc132e469c5eb76fa4aaff238d32e45a5d947dc5b6c801a123b70045b618e0c"
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "d5c22422daaa242db7f026cbc64cdc7dca1c29dfc47a5af883ef1edc0806b494" => :mojave
-    sha256 "836db2a0af2c4257a73c3a3614f5e064843a2062e0a9f24f21103fee8f819ea0" => :high_sierra
-    sha256 "aca68496b74f23162379fefe2dd2d187dac1d129496b37920c456d41dc555db5" => :sierra
+    sha256 "a4a409e4e4008b8888b736017aaf8b304fc5eead7ec06b648d9d99ba1e04c7a5" => :catalina
+    sha256 "c7ad8cc7d44e6604063e85f3b6d68a2537b65805e2956ec5d690ee5d179cbb4f" => :mojave
+    sha256 "2a08d12b8b544f584cf38ba937e1a1f7cae65f2c346cbf661bf3cfdd67f95fbd" => :high_sierra
+    sha256 "b49c8f495cfcd520f7daf32b922bc91c66637d638216aaf83694f2bcb154d08d" => :sierra
   end
 
   head do
@@ -39,7 +40,6 @@ class Gdal < Formula
   depends_on "poppler"
   depends_on "proj"
   depends_on "python"
-  depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
   depends_on "webp"
@@ -143,7 +143,6 @@ class Gdal < Formula
     # Build Python bindings
     cd "swig/python" do
       system "python3", *Language::Python.setup_install_args(prefix)
-      system "python2", *Language::Python.setup_install_args(prefix)
     end
     bin.install Dir["swig/python/scripts/*.py"]
 
@@ -159,6 +158,5 @@ class Gdal < Formula
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
     system "python3", "-c", "import gdal"
-    system "python2", "-c", "import gdal"
   end
 end

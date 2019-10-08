@@ -1,8 +1,8 @@
 class OpenapiGenerator < Formula
   desc "Generate clients, server & docs from an OpenAPI spec (v2, v3)"
   homepage "https://openapi-generator.tech/"
-  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/4.0.3/openapi-generator-cli-4.0.3.jar"
-  sha256 "c5b1f9925740026b21929b1b86dff1a47c92d2b32bd56b64552fa028cc6a09f4"
+  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/4.1.3/openapi-generator-cli-4.1.3.jar"
+  sha256 "234cbbc5ec9b56e4b585199ec387b5ad3aefb3eda9424c30d35c849dd5950d2f"
 
   head do
     url "https://github.com/OpenAPITools/openapi-generator.git"
@@ -47,6 +47,6 @@ class OpenapiGenerator < Formula
               200:
                 description: OK
     EOS
-    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "openapi"
+    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "openapi", "-o", "./"
   end
 end

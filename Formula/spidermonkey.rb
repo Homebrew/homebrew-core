@@ -9,6 +9,7 @@ class Spidermonkey < Formula
 
   bottle do
     cellar :any
+    sha256 "747d9e19e27fbe0455e462c5cb1943d1120e02f05df6f964cf502b09db5975df" => :catalina
     sha256 "739fbe8aad9a04de987cdb95e2cabf30229a799f6de4c00a5cf6ce175e2e1390" => :mojave
     sha256 "6970c515131a108d7e4ce50e49e2623ca88def0fbe11ddec4a641ef7de7d1787" => :high_sierra
     sha256 "dbd3bdb0970f940628aacdb2e4db2984d3c4fdd1d6829a0b648db5a9b9229738" => :sierra

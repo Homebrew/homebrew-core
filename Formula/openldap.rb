@@ -3,16 +3,18 @@ class Openldap < Formula
   homepage "https://www.openldap.org/software/"
   url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.48.tgz"
   sha256 "d9523ffcab5cd14b709fcf3cb4d04e8bc76bb8970113255f372bc74954c6074d"
+  revision 1
 
   bottle do
-    sha256 "499b3170f9c9d1067cf2f5802f9b6337b7d51091e99f53a3ae2aeafa3af5141b" => :mojave
-    sha256 "1ab7693b26242606e6ffb4acdcb78636430b6a21571f04c4792de2659737f147" => :high_sierra
-    sha256 "4ca60e89149be5f28ae2ff2b4e78b491bed0f28c4fbe5f9a49585b73f78c4b39" => :sierra
+    sha256 "644e0ba997bdc81cddd8906cb7eee96bd44ed7e6ad4a586db6313f13e251b0e2" => :catalina
+    sha256 "9094f2a881c3ceebec82e0be185a684ffbed08b05ddca3d6a87c7b730021b351" => :mojave
+    sha256 "910f65142bf5df01cc618a8896b51b1cd925e162078afc599256232e2804eb71" => :high_sierra
+    sha256 "2f8144b9e6930366b005469d4cc33f57d80048d402a60b3c1f3bf4783139ddd0" => :sierra
   end
 
   keg_only :provided_by_macos
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[

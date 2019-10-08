@@ -3,15 +3,16 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R46.tar.gz"
-  sha256 "e0b6e538cc54a021935e89a88c5fdae23c018873413501785c80b343c455fe7f"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R47.2.tar.gz"
+  sha256 "8ce4553f9fc5e5bbfb26ec9c0c5bf94be307530f947424c713ef67bc8a6d22b2"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "b83e6f52e9d28bcc3a6ec60381572afc6944b1bee70dd98c2bf7df6539cb31d3" => :mojave
-    sha256 "ac77292baaaab9738700d405d38062c3aaacddb0e9178310bf0c2ab3ba78b2ae" => :high_sierra
-    sha256 "00d84652c2abb769faeccfd1dcfc15a800609ad563b0679cdd0b8e93c0780b23" => :sierra
+    sha256 "fe7f5b0167d3b2d5c441b4f1a1f62af7da63671cbe4b162e23ce72ccafec9a9f" => :catalina
+    sha256 "dd32c56e6a0e7b1cab9648e4c03f967dad7738b4d39861b992610b0954f24369" => :mojave
+    sha256 "00eb68a475c8ab46c5d6d10a7ee64280514b6caa0f84a0eb4369a665baf517d0" => :high_sierra
+    sha256 "2f16a946f0b5eb0c7e580c95f2dc89bb53f1e79841ad99db3c0c475a089cef1b" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,8 +26,8 @@ class Vapoursynth < Formula
   depends_on "zimg"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/5b/5b/6cba7123a089c4174f944dd05ea7984c8d908aba8746a99f2340dde8662f/Cython-0.29.12.tar.gz"
-    sha256 "20da832a5e9a8e93d1e1eb64650258956723940968eb585506531719b55b804f"
+    url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
+    sha256 "c29d069a4a30f472482343c866f7486731ad638ef9af92bfe5fca9c7323d638e"
   end
 
   def install

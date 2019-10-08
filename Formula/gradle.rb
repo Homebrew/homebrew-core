@@ -1,8 +1,8 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-5.5.1-all.zip"
-  sha256 "6c4276f97c9059ef4dfb06cc7325c43ed9b933ab04f032e9d9372e8589cb6faf"
+  url "https://services.gradle.org/distributions/gradle-5.6.2-all.zip"
+  sha256 "027fdd265d277bae65a0d349b6b8da02135b0b8e14ba891e26281fa877fe37a2"
 
   bottle :unneeded
 

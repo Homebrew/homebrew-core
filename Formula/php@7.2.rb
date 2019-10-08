@@ -1,13 +1,13 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.2.20.tar.xz"
-  sha256 "eff09da83e235c2ba25c85deea1d4f663bd71d50fd51ad11e1acebe26d733494"
+  url "https://www.php.net/distributions/php-7.2.23.tar.xz"
+  sha256 "74e045ec8ff26290db6a3688826dcdf43b87bc509e508e9cb76dab742804ca14"
 
   bottle do
-    sha256 "0e2c39da16d572ebed3edc551a45de9d3fa9f82c95b8da780149f8d0ba65e548" => :mojave
-    sha256 "e3a1a04ce70ca3af97fda7d1cc9e1ae58eb1c0a43b449ccda9fa44a077b3b19e" => :high_sierra
-    sha256 "aaa88c888a35d6067841067be9b643985a677d4377d42644c04bbc298f907af1" => :sierra
+    sha256 "41a7fcfa4f3b1f127d920e8c19d099d1933e2881f496621092f1ed28c74c7982" => :catalina
+    sha256 "b326850a31a4819aea906491947bc9184e2c32750144b909c16969961268e84c" => :mojave
+    sha256 "c520fa257132cc96057f7bac4c966ed0e1b8f78b32189c96bc6a41ddf561624c" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -32,7 +32,7 @@ class PhpAT72 < Formula
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -144,7 +144,7 @@ class PhpAT72 < Formula
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
@@ -178,9 +178,9 @@ class PhpAT72 < Formula
 
     # Use OpenSSL cert bundle
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{HOMEBREW_PREFIX}/etc/openssl/cert.pem\""
+      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{HOMEBREW_PREFIX}/etc/openssl/certs\""
+      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
 
     config_files = {
       "php.ini-development"   => "php.ini",

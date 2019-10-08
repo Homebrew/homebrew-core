@@ -18,7 +18,6 @@ class Termshark < Formula
   def install
     # Don't set GOPATH because we want to build using go modules to
     # ensure our dependencies are the ones specified in go.mod.
-    ENV["GO111MODULE"] = "on"
     mkdir_p buildpath
     ln_sf buildpath, buildpath/"termshark"
 

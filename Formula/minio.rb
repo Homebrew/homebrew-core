@@ -2,22 +2,21 @@ class Minio < Formula
   desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2019-08-01T22-18-54Z",
-      :revision => "c5ac901e8dac48d45079095a6bab04674872b28b"
-  version "20190801221854"
+      :tag      => "RELEASE.2019-10-02T21-19-38Z",
+      :revision => "90bfa6260a8ac83199d522ed4c8fe1097dbd5153"
+  version "20191002211938"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "893256ab08cefd9105a4d80b2609002a25506b608af92d4f0d88b4c739843fe2" => :mojave
-    sha256 "63737f12ee104dc846da10d94304b7691d86f38d7051e0c0d458e76b3d15e6d3" => :high_sierra
-    sha256 "aa2969021f88ed5fa3995daa177f33814ecbbcf8fd8d7dbadb63e4e1aa4cd482" => :sierra
+    sha256 "a3c06aa40a0338f8313294e99738201a7eb3ba35ea0c7e256a7fff5a62802a9e" => :catalina
+    sha256 "5ac5fff839ad066e7957f519b4a016f288cb382dc9890a24d58aabf428c0cf78" => :mojave
+    sha256 "3a2b1d0f5aa0e937bdf025d3941366acf0182ba14b3f18a438061478bdd1e0b3" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     src = buildpath/"src/github.com/minio/minio"
     src.install buildpath.children
     src.cd do

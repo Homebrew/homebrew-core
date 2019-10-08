@@ -7,6 +7,7 @@ class SdlRtf < Formula
 
   bottle do
     cellar :any
+    sha256 "ee09de7e32f0992acce56ab546fb0201d7b3903a51243548b590378cccc7e6f5" => :catalina
     sha256 "310bcc2756a0ba5dd9287af9159809c2519609830e07e4ef0773edfc51c8bda5" => :mojave
     sha256 "319fe65012c94d20675b0b3dc3c9e4df59838ccca7496b81a425bded94e3c9fc" => :high_sierra
     sha256 "c34abb198f384916d7b2a09a88c69cb84f29674031329bb7a1733e8a5ed39255" => :sierra

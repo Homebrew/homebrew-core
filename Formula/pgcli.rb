@@ -5,17 +5,17 @@ class Pgcli < Formula
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/5a/2a/9821c4a30d79fafdefeff7b071639b0968e1d54710430f2da16f8124fc37/pgcli-2.1.1.tar.gz"
   sha256 "84e0817a29c3cacaaaf85351422bdb90f230f2550e4af558c25536fd235ab6ca"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "010770d9e189903a7841747d59db337d89d468f83d17b8a9940e9332814ff01a" => :mojave
-    sha256 "76f8ff6b2643a3cc0962944eda6357e9060928f49003d7692e6c030f555a5108" => :high_sierra
-    sha256 "23b33d5aa915a9b883589e6d1913da54dcab4b6e96bd41b660fa468c45319244" => :sierra
+    sha256 "f6538e828aedada97d70c2c000720e8711dff8e0c4f7ee1de68dbc4195ae2201" => :mojave
+    sha256 "edf30e13dfaabef3d1b492c4909b5e0e5572db886b307278ae384a7c45bcf7bd" => :high_sierra
+    sha256 "61966f34869b2cb646c8ed98fe63a9f5bcc18527b7cff2385c5a84968c9e8717" => :sierra
   end
 
   depends_on "libpq"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "backports.csv" do

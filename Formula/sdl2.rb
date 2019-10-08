@@ -1,28 +1,18 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  revision 1
 
   stable do
-    url "https://libsdl.org/release/SDL2-2.0.9.tar.gz"
-    sha256 "255186dc676ecd0c1dbf10ec8a2cc5d6869b5079d8a38194c2aecdff54b324b1"
-
-    # Fixes an issue where some software is locked to
-    # ~50% the intended framerate.
-    # Patch should be in 2.0.10.
-    # https://github.com/Homebrew/homebrew-core/issues/36564
-    # https://bugzilla.libsdl.org/show_bug.cgi?id=4481
-    patch do
-      url "https://hg.libsdl.org/SDL/raw-rev/dcb6c57df2fc"
-      sha256 "bf8c15a876ea1b833a9c8a36d4ededc2eabe8371a1c857caaf35cdbdc400bc79"
-    end
+    url "https://libsdl.org/release/SDL2-2.0.10.tar.gz"
+    sha256 "b4656c13a1f0d0023ae2f4a9cf08ec92fffb464e0f24238337784159b8b91d57"
   end
 
   bottle do
     cellar :any
-    sha256 "73dc083fe09bef54cdd08d6e1d86fba67172bc7bda4886e410d3e72fe5ab1c32" => :mojave
-    sha256 "eb6b0eb77c69f111c67f48962699e5b237eab26c3a49f8f46bf59bfa241839ab" => :high_sierra
-    sha256 "0d441c1d1e113950119870f499995a8daf426b6be8a3ff29f4300d2bfb47076f" => :sierra
+    sha256 "dc47470e4dc13c7a0cf48330da2d4938695a5b60bf9d6ef31218f32a803ab48c" => :catalina
+    sha256 "ede7f2495e32fd7f1a1bee57db35542066993f7ad4d24bb4c2078a68b0856dfb" => :mojave
+    sha256 "e8e7c8484eaa791d312f9d77f626faad344f90db74bb93423ed2fc234c5f52a6" => :high_sierra
+    sha256 "67961a420c2a8632822f60f61710b95b1173b8b1c2ae05b5f92e4c9892cdc5b7" => :sierra
   end
 
   head do
@@ -31,13 +21,6 @@ class Sdl2 < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-  end
-
-  # Upstream commit to fix issue with library version numbers
-  # https://hg.libsdl.org/SDL/rev/d274fa9731b1
-  patch do
-    url "https://hg.libsdl.org/SDL/raw-diff/d274fa9731b1/build-scripts/ltmain.sh"
-    sha256 "9845d8f947dd5b809c1dedba711c878cf2a4644a570cd21a81b574e609eb986b"
   end
 
   def install

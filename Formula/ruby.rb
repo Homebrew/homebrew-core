@@ -1,13 +1,13 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.xz"
-  sha256 "11a83f85c03d3f0fc9b8a9b6cad1b2674f26c5aaa43ba858d4b0fcc2b54171e1"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
+  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
 
   bottle do
-    sha256 "56630571e08b65c422073d54458db4f338be7a707a572173f51e964fcc611f3c" => :mojave
-    sha256 "52face1cf238072f1964cb6ace624510008857c645dee162ad0b60a138b6c136" => :high_sierra
-    sha256 "e43742f0a29eff33122a484ee06d58b9ac236a7013fd972b1e4c47dc3acb9e82" => :sierra
+    sha256 "d89d215e43e85bdba4a7b6788147012aa8046c6478841164fffe7a71a329668d" => :catalina
+    sha256 "e30782df0575e8df1bc3c23da701644919099cc31f6b05b163cde847d116414c" => :mojave
+    sha256 "74f4f0ab096360f89651801e8e7361bbeb0dfdfea3fb912909b3a290116adc85" => :high_sierra
   end
 
   head do
@@ -19,15 +19,15 @@ class Ruby < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.0.3.tgz"
-    sha256 "be3a7abc31e91de667406e84cd15265b73fc502268a1dd09404214a49b4acb2c"
+    url "https://rubygems.org/rubygems/rubygems-3.0.6.tgz"
+    sha256 "fd6785ac24728bd5bf8f0883d197fe0cea4df37d485c5353c93fbe573b8941b1"
   end
 
   def api_version
@@ -44,7 +44,7 @@ class Ruby < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -52,6 +52,7 @@ class Ruby < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

@@ -3,17 +3,18 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
   sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
+  revision 1
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "d45ec073ce122e1907529323e0d1efb01b76a1dc8bbdf6d8cf9b9cb59afd8761" => :mojave
-    sha256 "c92ffd9b05232537d22150850394abd52cd349f5ee7240afa7a001b7aed421c4" => :high_sierra
-    sha256 "aa6bc63cdd8caa0c11aca6034aaf3e013432715923258cd4252d8794a03be951" => :sierra
+    sha256 "a4bad18fddbba29c052142b2f2ab78b4172915ec3ce6ccdd25f37e417d4e3b55" => :mojave
+    sha256 "9825bfde46b669fd79a189ce075d34b5654fdc1743c3cac0fd7366288db7a007" => :high_sierra
+    sha256 "86253e327592de79373eb010fc134dfdbc2e68ab2a222dbdb3ed176e65243cbd" => :sierra
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave

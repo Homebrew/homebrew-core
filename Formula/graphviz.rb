@@ -1,27 +1,20 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  # versioned URLs are missing upstream as of 16 Dec 2017
-  url "https://www.mirrorservice.org/sites/distfiles.macports.org/graphviz/graphviz-2.40.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/graphviz-2.40.1.tar.gz"
-  sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
-  revision 1
+  url "https://gitlab.com/graphviz/graphviz/-/archive/2.42.2/graphviz-2.42.2.tar.gz"
+  sha256 "b92a92bb16755b11875be9203a6216e5b827eb1d6cf8dda6824380457cd18c55"
   version_scheme 1
+  head "https://gitlab.com/graphviz/graphviz.git"
 
   bottle do
-    sha256 "c3e2b2f06d1a2190405ccb16cde3cbddb8bf0be080fb84448a0c43f473eef39f" => :mojave
-    sha256 "2972d06c626e9a7d39c06d0376b1b425cae55d0e5d5a56d6f1440783d7e76890" => :high_sierra
-    sha256 "3336446bf3ad335583744a88549b19a0bae2fd427270863476c2590a575ff021" => :sierra
+    sha256 "fd65173d4f2bf9b4412f42939acc10815ba8974f5cdac342a9afd619acc70829" => :catalina
+    sha256 "abf938b188d15e2bf1b7447635f1e13a46baaa00f0e38ea6e5122e603f6b491d" => :mojave
+    sha256 "df7bafeabe8c94cc513c394ba3fa587ae2b209a25fa42f1b507dfae67029f47d" => :high_sierra
   end
 
-  head do
-    url "https://gitlab.com/graphviz/graphviz.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "gts"
@@ -29,15 +22,6 @@ class Graphviz < Formula
   depends_on "libtool"
 
   def install
-    # Only needed when using superenv, which causes qfrexp and qldexp to be
-    # falsely detected as available. The problem is triggered by
-    #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
-    # during argument refurbishment of cflags.
-    # https://github.com/Homebrew/brew/blob/ab060c9/Library/Homebrew/shims/super/cc#L241
-    # https://github.com/Homebrew/legacy-homebrew/issues/14566
-    # Alternative fixes include using stdenv or using "xcrun make"
-    inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", "" unless build.head?
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -51,11 +35,7 @@ class Graphviz < Formula
       --with-gts
     ]
 
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "./autogen.sh", *args
     system "make", "install"
 
     (bin/"gvmap.sh").unlink

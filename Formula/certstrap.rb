@@ -1,24 +1,28 @@
 class Certstrap < Formula
   desc "Tools to bootstrap CAs, certificate requests, and signed certificates"
   homepage "https://github.com/square/certstrap"
-  url "https://github.com/square/certstrap/archive/v1.1.1.tar.gz"
-  sha256 "412ba90a4a48d535682f3c7529191cd30cd7a731e57065dcf4242155cec49d5e"
+  url "https://github.com/square/certstrap/archive/v1.2.0.tar.gz"
+  sha256 "0eebcc515ca1a3e945d0460386829c0cdd61e67c536ec858baa07986cb5e64f8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f9e9e2396f8399f8ac9aaea91179bded59b4aac7a2928ed3f5e615c84388e9c" => :mojave
-    sha256 "2151866d10f1ba703fbdc8b11632da00eb3588d4041be018721fcaf6278fec14" => :high_sierra
-    sha256 "58a68f5a88ff0dc4321aeac2aad21fef2edfa85564d6766d3a9149ceebb2cf4b" => :sierra
-    sha256 "dde1e9de937ea5cd7454bc7163a4fddd56ef75209edc7e6036121f57fa47fe23" => :el_capitan
+    sha256 "b7eb23b913b4f2bdb3d854a6e22f1b25c71018d369fffeec5a16b8df8eaf1fe8" => :mojave
+    sha256 "4dd108d82d046be8576b460d9a2878d593669fa5b11cd015c6aa1f9fc26134f3" => :high_sierra
+    sha256 "aa650a24795207c8860ba986e34f2d320a218b8ee414bd73a5390aaf25e6d214" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/square").mkpath
-    ln_s buildpath, "src/github.com/square/certstrap"
-    system "go", "build", "-o", bin/"certstrap"
+
+    dir = buildpath/"src/github.com/square/certstrap"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"certstrap"
+      prefix.install_metafiles
+    end
   end
 
   test do

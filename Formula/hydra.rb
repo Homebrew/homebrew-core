@@ -3,27 +3,29 @@ class Hydra < Formula
   homepage "https://github.com/vanhauser-thc/thc-hydra"
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.0.tar.gz"
   sha256 "56672e253c128abaa6fb19e77f6f59ba6a93762a9ba435505a009ef6d58e8d0e"
+  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
     cellar :any
-    sha256 "7c5982a29e085723482af4e20852f243542f83d8b4f7c2f697c5522442a8e9d9" => :mojave
-    sha256 "bb88b58e028a3b2498da0eaae5fa1030cce8103336fc90ce813ebdd7a77f933f" => :high_sierra
-    sha256 "e2cf5b672b4f6328ce24264e5f0f17c5d78de9711878bc0bc9e1d1fe34efd916" => :sierra
+    sha256 "8f03b04df2972530e5b8e08d776ee8629732cf41385936fd34570ef17630d33d" => :catalina
+    sha256 "d32c31d03f85bb4322958d87f03b00ffd7e00e28267ed024aed077251f5cc87d" => :mojave
+    sha256 "2a385cbc51aed18dbe041893ebd019501143dab7c8a9afaed32b8690cdcee9b2" => :high_sierra
+    sha256 "56765a66963c8867d3e47998eaa97db2d1558b24475e4779b3f5f3f7e9eb6f4c" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libssh"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     inreplace "configure" do |s|
       # Link against our OpenSSL
       # https://github.com/vanhauser-thc/thc-hydra/issues/80
-      s.gsub! "/opt/local/lib", Formula["openssl"].opt_lib
-      s.gsub! "/opt/local/*ssl", Formula["openssl"].opt_lib
-      s.gsub! "/opt/*ssl/include", Formula["openssl"].opt_include
+      s.gsub! "/opt/local/lib", Formula["openssl@1.1"].opt_lib
+      s.gsub! "/opt/local/*ssl", Formula["openssl@1.1"].opt_lib
+      s.gsub! "/opt/*ssl/include", Formula["openssl@1.1"].opt_include
       # Avoid opportunistic linking of subversion
       s.gsub! "libsvn", "oh_no_you_dont"
     end
