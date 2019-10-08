@@ -8,9 +8,9 @@ class Notifiers < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a63f035ec98db41ef133ed46ce5b18ab67f803ef0cb72addf8bf5e5b1057dceb" => :catalina
-    sha256 "c85158b60cfeccb3a3b99ad348b53ffd4fa3aed5d6edefce4315456a3ef762ea" => :mojave
-    sha256 "a3b4bad55ba728a3103672697fbffc026126771deb35b6922ca2b01bc977cfc9" => :high_sierra
+    sha256 "e863c98a0deef506c93b6947df3487570d3b6713968779de3971f8fb77c1517a" => :catalina
+    sha256 "e38c86c0923aa29d53a38095ae1162c1e64b30077666d08ffee9a5278adc8567" => :mojave
+    sha256 "991eb6cde6f98169be00a5ff9e9a6f5cc5d65e73e09d1a48e3c8ba3b5160cbea" => :high_sierra
   end
 
   depends_on "python"
