@@ -1,9 +1,8 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
   homepage "https://www.indexdata.com/metaproxy"
-  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.15.0.tar.gz"
-  sha256 "b43a9e4dd2c231442ea07af7a05e929cd6cae2921826f66d201397b838aa8aac"
-  revision 3
+  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.17.0.tar.gz"
+  sha256 "3bdd0b31d9d6165b13dc76c95827ba7310e1f6cad68bf4dbf81b67f866f078fe"
 
   bottle do
     cellar :any
@@ -15,12 +14,6 @@ class Metaproxy < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "yazpp"
-
-  # fix build for boost 1.69
-  patch do
-    url "https://github.com/indexdata/metaproxy/commit/186513e6205c6b0216e727907aa9e8d7b162f070.patch?full_index=1"
-    sha256 "69579e45d27de8243f7ea3d7d3d23ef954ba7949995f08c07f7f88e81601fb39"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
