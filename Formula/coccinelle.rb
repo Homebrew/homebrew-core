@@ -1,9 +1,8 @@
 class Coccinelle < Formula
   desc "Program matching and transformation engine for C code"
   homepage "http://coccinelle.lip6.fr/"
-  url "http://coccinelle.lip6.fr/distrib/coccinelle-1.0.6.tgz"
-  sha256 "8452ed265c209dae99cbb33b67bc7912e72f8bca1e24f33f1a88ba3d7985e909"
-  revision 1
+  url "http://coccinelle.lip6.fr/distrib/coccinelle-1.0.7.tar.gz"
+  sha256 "475e2bed5486023d19d9e0dec5e109b04b872a9917b62faf83ce3521676f728b"
 
   bottle do
     rebuild 1
