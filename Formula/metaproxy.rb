@@ -1,9 +1,8 @@
 class Metaproxy < Formula
   desc "Z39.50 proxy and router utilizing Yaz toolkit"
   homepage "https://www.indexdata.com/metaproxy"
-  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.15.0.tar.gz"
-  sha256 "b43a9e4dd2c231442ea07af7a05e929cd6cae2921826f66d201397b838aa8aac"
-  revision 3
+  url "http://ftp.indexdata.dk/pub/metaproxy/metaproxy-1.17.0.tar.gz"
+  sha256 "3bdd0b31d9d6165b13dc76c95827ba7310e1f6cad68bf4dbf81b67f866f078fe"
 
   bottle do
     cellar :any
