@@ -7,9 +7,9 @@ class Spdlog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a445742dd150bce375c1106b52ac73db032bb20b701f5beeecdf05621269818e" => :mojave
-    sha256 "941e1d69df2a1c7488c9031fc3ae600af3cc7e8e846c4e0702e6c1559412fe8d" => :high_sierra
-    sha256 "54d5e4fdcf522f0eb4cd2c45317df2c8bcf1271ea996774a721844a26e89760a" => :sierra
+    sha256 "1da1f6ec2838ec29dc3341ac3cdc7e91cb7e57e7c642d6a98d28e8b8be2cf18e" => :catalina
+    sha256 "d39eca268ff643b1cf421917e284750e5e2be84ef411663951e07aad89ce7cda" => :mojave
+    sha256 "eb009f8a8e0bfd684f1c482d9a692a6f3de043c792c8fa51100c55c9c7cb45cd" => :high_sierra
   end
 
   depends_on "cmake" => :build
