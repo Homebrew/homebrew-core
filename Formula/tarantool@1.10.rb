@@ -1,17 +1,10 @@
-class Tarantool < Formula
+class TarantoolAT110 < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://hb.bizmrg.com/tarantool_repo/2_1/sources/tarantool-2.1.2.1.tar.gz"
-  sha256 "1b651bef8badfa44767bbb88087be86f74c0af6b2a6828a8a0308b68c3d66ece"
-  version_scheme 1
-  head "https://github.com/tarantool/tarantool.git", :branch => "2.1", :shallow => false
+  url "https://download.tarantool.org/tarantool/1.10/src/tarantool-1.10.4.1.tar.gz"
+  sha256 "dc99562840512151beca46d5618e6659b61e0749a99345750b14702f59a868fb"
 
-  bottle do
-    cellar :any
-    sha256 "37cd09c82cb575c366ceb620d3faa91b0a2892a8bd57b172e56d6f2d4de2a8e1" => :mojave
-    sha256 "4708c57aa9b553f5186fd35ab880971f01d6a36ba77cddbc94b7cd8860b03218" => :high_sierra
-    sha256 "1acbde9f75d34721117bf08960b9975f88f73da9b6865008c9987a7521191ff7" => :sierra
-  end
+  keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "autoconf"
