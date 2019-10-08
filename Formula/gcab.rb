@@ -1,9 +1,8 @@
 class Gcab < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz"
-  sha256 "5a2d96fe7e69e42d363c31cf2370d7afa3bb69cec984d4128322ea40e62c100d"
-  revision 1
+  url "https://download.gnome.org/sources/gcab/1.3/gcab-1.3.tar.xz"
+  sha256 "10304cc8f6b550cf9f53fb3cebfb529c49394e982ef7e66e3fca9776c60a68e7"
 
   bottle do
     sha256 "b72ded95967c164253ee795435637e99dbe62202c82ad8a5730a5753a0f1a0af" => :mojave
@@ -12,20 +11,24 @@ class Gcab < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "vala" => :build
   depends_on "glib"
 
+  # patch submitted upstream as https://gitlab.gnome.org/GNOME/gcab/merge_requests/3
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gcab/commit/94dc0cacbd25ce6e9a33018ad63247602653afb6.diff"
+    sha256 "adf25894d7a0a1408982ce0c737a5b207782ac9a0a7eb89089333cfd0129308d"
+  end
+
   # work around ld not understanding --version-script argument
   # upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=708257
   patch :DATA
 
   def install
-    ENV.refurbish_args
-
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", "-Ddocs=false", ".."
       system "ninja"
