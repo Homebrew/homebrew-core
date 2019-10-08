@@ -5,9 +5,9 @@ class Gcab < Formula
   sha256 "10304cc8f6b550cf9f53fb3cebfb529c49394e982ef7e66e3fca9776c60a68e7"
 
   bottle do
-    sha256 "b72ded95967c164253ee795435637e99dbe62202c82ad8a5730a5753a0f1a0af" => :mojave
-    sha256 "49f8e335616b55f0c3ee19078b7a2fc58e0066fba206adc94be76107f6f843ed" => :high_sierra
-    sha256 "257cac0a43760726ec36ea892695236a787b50f29bd41f6db67225200a9478c7" => :sierra
+    sha256 "89ab0f14efac9b2daea83b157a2fa46d9ab20c02cb649d8527b021ca1dc3b387" => :catalina
+    sha256 "504b51791d61119bfc8a378cce00b2b1c7f9cf85bfc833ee75b74647aabe5e36" => :mojave
+    sha256 "b41c08852ef80aa118629092f66c4b3d465649e32756d6ecaf6588a6a88ad0b3" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
