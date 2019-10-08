@@ -1,8 +1,10 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
-  url "https://github.com/arduino/arduino-cli/archive/0.5.0.tar.gz"
-  sha256 "17832841c36a46a8cdf1f03c29843ab805721a11df6f5f1bdd82e1df43304717"
+  url "https://github.com/arduino/arduino-cli.git",
+     :tag      => "0.5.0",
+     :revision => "3be22875e27f220350d8ab5b13403d804acfd20b"
+  head "https://github.com/arduino/arduino-cli.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +16,8 @@ class ArduinoCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"arduino-cli"
+    commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
+    system "go", "build", "-ldflags", "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} -X github.com/arduino/arduino-cli/version.commit=#{commit}", "-o", bin/"arduino-cli"
   end
 
   test do
