@@ -153,6 +153,7 @@
   "postgresql94": "postgresql@9.4",
   "postgresql95": "postgresql@9.5",
   "ppl011": "ppl@0.11",
+  "presto": "prestodb",
   "protobuf250": "protobuf@2.5",
   "protobuf260": "protobuf@2.6",
   "pyqt5": "pyqt",
