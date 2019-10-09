@@ -6,6 +6,7 @@ class Siege < Formula
   revision 2
 
   bottle do
+    sha256 "6072653be5dfab7b9f5b2154f060daababdf65ebc3cb0a5bdb1cf9ff2b95e1b2" => :catalina
     sha256 "8a057346938d661b2a4b2cf6523da41a76bdc9a26b76953b3e301763f1b1c804" => :mojave
     sha256 "2313774da1f8716dd225cfe13b12808ad23af54ffa2d477dd90bdd7bef16380c" => :high_sierra
     sha256 "3ce11d6b7f693f0f3da024c7e8a1341d57b21d532bef16f414064300998fcedb" => :sierra
