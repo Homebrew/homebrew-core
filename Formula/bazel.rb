@@ -6,6 +6,7 @@ class Bazel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "df6e66290801867c1609d21d9ef6d2cbf591f9af6b4514aa1fcb5f33838dff62" => :catalina
     sha256 "5b9f050fef3158ff46730f101f26a578a68093b766a31d2fa1e3dfcfe06f8ff8" => :mojave
     sha256 "c74ff8a40009c4dc75b4fcc0a3d416a43b620a104e113c7bbfe73103d0bb1a01" => :high_sierra
     sha256 "6885343d1bab2fd93094a8a4fc07afd6ce2dba3a432409e8c5ebe9cf28cee8e1" => :sierra
