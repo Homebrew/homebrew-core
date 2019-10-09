@@ -6,6 +6,7 @@ class Log4shib < Formula
 
   bottle do
     cellar :any
+    sha256 "8bba779ac511127d2893aa7f90e08fea86e49d54a002363edac8396143b53fd2" => :catalina
     sha256 "db9aa2c4c1f5f562177d7ab8f772d3634af17ad321866da25da81986c2806941" => :mojave
     sha256 "6a84a5b1db0fa9fef6e23f906543bde2496e5400f498c8de6b64cab2b191eeda" => :high_sierra
     sha256 "79197ed691693493ffc4b44dd5450b60c9c6cc97919302ae058c9e9af5cd10f6" => :sierra
