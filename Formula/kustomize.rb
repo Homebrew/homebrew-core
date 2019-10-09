@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "kustomize/v3.2.1",
-      :revision => "d89b448c745937f0cf1936162f26a5aac688f840"
+      :tag      => "kustomize/v3.3.0",
+      :revision => "7050c6a7b692fdba6e831e63c7b83920ab03ad76"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
@@ -34,8 +34,6 @@ class Kustomize < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/kustomize version")
-
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
       - service.yaml
