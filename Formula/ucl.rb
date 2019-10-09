@@ -6,6 +6,7 @@ class Ucl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5de2305d5da25469e7bf27d2e776a6e22b20806940ad1dea16d18b39a1125f7e" => :catalina
     sha256 "b676bbfb2ff44a3ff71e96a11bc8ae86ea2466029faea800427196d3ece8261e" => :mojave
     sha256 "95bba447faa9e980720b780e1db69bf59e72f026a19a965bbb1b18f3de9230de" => :high_sierra
     sha256 "b2019331517fea2505cb2d25eebbdf6ceb9a45378525d0e36a096ea3c45ad9a8" => :sierra
