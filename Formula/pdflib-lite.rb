@@ -10,6 +10,7 @@ class PdflibLite < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "200edc8d498349fcebe26df1d692c4c8b7599055b6efadead3199356e9b750b8" => :catalina
     sha256 "67334e52d81135fa1c1fbc5ff4065b745087d2072955b052aac6fad79520f663" => :mojave
     sha256 "7a3783e63304556c7c93604449ac09718cca6ea4e2244ff5819edb2a5d99f8f7" => :high_sierra
     sha256 "466701d2cac2d101b470fbdb122ba3a8f4f9169fe6a28fc8846859d8f7cfafc8" => :sierra
