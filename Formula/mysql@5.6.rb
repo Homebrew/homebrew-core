@@ -6,6 +6,7 @@ class MysqlAT56 < Formula
 
   bottle do
     rebuild 1
+    sha256 "728049ae2e27bf7e63b29db84ad121f14d0a3d5a013469b0ddf1b8b68320188c" => :catalina
     sha256 "8d276249e7adf93c716505d9959c690db014693480b39b6392a9c8c63eb2fb8b" => :mojave
     sha256 "6c27bc8345b64ddc803ec14bc037576044d7a8132e4623f7f2e79c724b32a8e5" => :high_sierra
     sha256 "9e1c1a86dd2280eca9ef5b3101243cbd8709e4d9dc3e1353edb9eb4e9d06c8b4" => :sierra
