@@ -1,8 +1,8 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/2.68/libsoup-2.68.1.tar.xz"
-  sha256 "7f0323e53b8e797baa972dfe25adf3cc6ceff06f0a26235b6c5c7b91403fbf8d"
+  url "https://download.gnome.org/sources/libsoup/2.68/libsoup-2.68.2.tar.xz"
+  sha256 "51ad3001a946fe3bcf29b692dc9ffe05cdf702ea6ca0ee8c3099a99a2f4e3933"
 
   bottle do
     sha256 "d882f0bce9df60a460a82b061dfe0a0c66789e7780cb54f34f767ecf07e8b479" => :catalina
