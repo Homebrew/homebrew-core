@@ -6,7 +6,6 @@ class Fdm < Formula
 
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "pkg-config"
   depends_on "tdb"
 
   def install
