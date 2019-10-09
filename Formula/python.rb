@@ -3,7 +3,7 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz"
   sha256 "fb799134b868199930b75f26678f18932214042639cd52b16da7fd134cd9b13f"
-  revision 1
+  revision 2
   head "https://github.com/python/cpython.git"
 
   bottle do
