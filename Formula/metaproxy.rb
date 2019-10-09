@@ -15,12 +15,6 @@ class Metaproxy < Formula
   depends_on "boost"
   depends_on "yazpp"
 
-  # fix build for boost 1.69
-  patch do
-    url "https://github.com/indexdata/metaproxy/commit/186513e6205c6b0216e727907aa9e8d7b162f070.patch?full_index=1"
-    sha256 "69579e45d27de8243f7ea3d7d3d23ef954ba7949995f08c07f7f88e81601fb39"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
