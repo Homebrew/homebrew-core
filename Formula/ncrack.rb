@@ -6,6 +6,7 @@ class Ncrack < Formula
   head "https://github.com/nmap/ncrack.git"
 
   bottle do
+    sha256 "8b37ec44db091fce2d12844eb369f94adf96b21775da7265bd1aca9b9bdbc9f2" => :catalina
     sha256 "b323c29b588f397487e74ee9e7312a8344a4b4c728043cf825838a0e19c58c17" => :mojave
     sha256 "297c3ca427025e5e07a435e8c46f96846c10c88a3a19eaf432639d05c1e82d12" => :high_sierra
     sha256 "5f1be0ae0ed5b38dc19ff32b4b157b81929bbfa2e8ebf524f0406a5dca962fc2" => :sierra
