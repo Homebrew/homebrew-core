@@ -1,8 +1,8 @@
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.miek.nl/"
-  url "https://github.com/mmarkdown/mmark/archive/v2.1.1.tar.gz"
-  sha256 "c69bbeb263ca38c528016094fc299585fe8804db0c80f123c994cdec0c191716"
+  url "https://github.com/mmarkdown/mmark/archive/v2.2.0.tar.gz"
+  sha256 "8a7b278b93b737daf46554fa83b86538b1f6eee02f8508eb08581aa578531f02"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,8 @@ class Mmark < Formula
   depends_on "go" => :build
 
   resource "test" do
-    url "https://raw.githubusercontent.com/mmarkdown/mmark/v2.0.7/rfc/2100.md"
-    sha256 "2d220e566f8b6d18cf584290296c45892fe1a010c38d96fb52a342e3d0deda30"
+    url "https://raw.githubusercontent.com/mmarkdown/mmark/master/rfc/2100.md"
+    sha256 "0b5383917a0fbc0d2a4ef009d6ccd787444ce2e80c1ea06088cb96269ecf11f0"
   end
 
   def install
@@ -31,7 +31,7 @@ class Mmark < Formula
 
   test do
     resource("test").stage do
-      system "#{bin}/mmark", "-2", "-ast", "2100.md"
+      assert_match "The Naming of Hosts", shell_output("#{bin}/mmark -ast 2100.md")
     end
   end
 end
