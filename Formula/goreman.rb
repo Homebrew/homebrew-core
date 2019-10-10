@@ -1,8 +1,8 @@
 class Goreman < Formula
   desc "Foreman clone written in Go"
   homepage "https://github.com/mattn/goreman"
-  url "https://github.com/mattn/goreman/archive/v0.2.1.tar.gz"
-  sha256 "c1ef360fcc92688956bc7a18fae089d78754bd1dde22a89b27228ae5a840cc45"
+  url "https://github.com/mattn/goreman/archive/v0.3.0.tar.gz"
+  sha256 "80b439dc2d68e59003c5cb1739a8c2241be54ece36e8cb686e4db25bee9e141a"
 
   bottle do
     cellar :any_skip_relocation
