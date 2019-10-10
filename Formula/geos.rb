@@ -6,9 +6,9 @@ class Geos < Formula
 
   bottle do
     cellar :any
-    sha256 "ff40b1f3533d27f19ddc89ef3836f41f816b67bc492b52b592c49fab66f5f701" => :catalina
-    sha256 "ef713f51fa1a2bfada35f3cb002ee36dc4289b59487dc79e46a4ad9ce1236bc5" => :mojave
-    sha256 "309f427d5560709649390de757980e37dbedc7851f2f0e02d54fbcd2e2678080" => :high_sierra
+    sha256 "796dd5584ab4d12a520fc6b4425d2b85ad3979d114a14925b51d021e8379b263" => :catalina
+    sha256 "dbc37cb1275dd952d81063c99a6850866b00872fafee3891dbb38626ed6a5cef" => :mojave
+    sha256 "ddc40581ddb90eb111a4d745508aba760dfdae7adc533c517c1b27759009c4c0" => :high_sierra
   end
 
   depends_on "swig" => :build
