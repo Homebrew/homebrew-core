@@ -1,8 +1,8 @@
 class OpentracingCpp < Formula
   desc "OpenTracing API for C++"
   homepage "https://opentracing.io/"
-  url "https://github.com/opentracing/opentracing-cpp/archive/v1.5.1.tar.gz"
-  sha256 "015c4187f7a6426a2b5196f0ccd982aa87f010cf61f507ae3ce5c90523f92301"
+  url "https://github.com/opentracing/opentracing-cpp/archive/v1.6.0.tar.gz"
+  sha256 "5b170042da4d1c4c231df6594da120875429d5231e9baa5179822ee8d1054ac3"
 
   bottle do
     cellar :any
