@@ -3,6 +3,7 @@ class BoostPython3 < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
   sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -13,23 +14,18 @@ class BoostPython3 < Formula
     sha256 "66cfacedfd90dd4b88d5d3f990c3f81bf314417376380ed8d9b9d464e4f5a884" => :sierra
   end
 
+  depends_on "numpy" => :build
   depends_on "boost"
   depends_on "python"
-
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
-    sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
-  end
 
   def install
     # "layout" should be synchronized with boost
     args = %W[
-      --prefix=#{prefix}
-      --libdir=#{lib}
       -d2
       -j#{ENV.make_jobs}
       --layout=tagged-1.66
       --user-config=user-config.jam
+      install
       threading=multi,single
       link=shared,static
     ]
@@ -49,13 +45,6 @@ class BoostPython3 < Formula
     pyver = Language::Python.major_minor_version "python3"
     py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
-    numpy_site_packages = buildpath/"homebrew-numpy/lib/python#{pyver}/site-packages"
-    numpy_site_packages.mkpath
-    ENV["PYTHONPATH"] = numpy_site_packages
-    resource("numpy").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"homebrew-numpy")
-    end
-
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
       using darwin : : #{ENV.cxx} ;
@@ -69,10 +58,16 @@ class BoostPython3 < Formula
                              "--with-libraries=python", "--with-python=python3",
                              "--with-python-root=#{py_prefix}"
 
-    system "./b2", "--build-dir=build-python3", "--stagedir=stage-python3",
-                   "python=#{pyver}", *args
+    system "./b2", "--build-dir=build-python3",
+                   "--stagedir=stage-python3",
+                   "--libdir=install-python3/lib",
+                   "--prefix=install-python3",
+                   "python=#{pyver}",
+                   *args
 
-    lib.install Dir["stage-python3/lib/*py*"]
+    lib.install Dir["install-python3/lib/*.*"]
+    (lib/"cmake").install Dir["install-python3/lib/cmake/boost_python*"]
+    (lib/"cmake").install Dir["install-python3/lib/cmake/boost_numpy*"]
     doc.install Dir["libs/python/doc/*"]
   end
 
