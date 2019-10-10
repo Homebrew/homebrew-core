@@ -8,6 +8,7 @@ class Opencolorio < Formula
 
   bottle do
     cellar :any
+    sha256 "5f0934f3f79e043ed2e49307d251743ef74efeaf105ae45a6bd93fea62f4f28c" => :catalina
     sha256 "f21ad137b2e3536ed54e05909e3d9b4ee1da8ec2acbe97e7dc5e0bc696735b52" => :mojave
     sha256 "6aa5426be3f5d36134c981eda604f81a89e9c88ad1ff93fc164a9726031c50b0" => :high_sierra
     sha256 "6a75c5efd60a5b6a5fba4f8ee1dbd2fba1f262026240d0fb97650f561ec878b6" => :sierra
