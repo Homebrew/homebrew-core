@@ -1,8 +1,8 @@
 class Libbladerf < Formula
   desc "USB 3.0 Superspeed Software Defined Radio Source"
   homepage "https://nuand.com/"
-  url "https://github.com/Nuand/bladeRF/archive/2018.08.tar.gz"
-  sha256 "6288c230dad26e32236a4b60f0b14c129e6fa0ad91bcf1c40abe8789b352e51f"
+  url "https://github.com/Nuand/bladeRF/archive/2019.07.tar.gz"
+  sha256 "c7fb499a444429b9ef3250676f60b7d0d867933a16688d1676234d9d4fca26c2"
   head "https://github.com/Nuand/bladeRF.git"
 
   bottle do
