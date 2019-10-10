@@ -1,9 +1,8 @@
 class AzureStorageCpp < Formula
   desc "Microsoft Azure Storage Client Library for C++"
   homepage "https://azure.github.io/azure-storage-cpp"
-  url "https://github.com/Azure/azure-storage-cpp/archive/v6.1.0.tar.gz"
-  sha256 "a0b6107372125f756783bf6e5d57d24e2c8330a4941f4c72e8ddcf13c31618ed"
-  revision 2
+  url "https://github.com/Azure/azure-storage-cpp/archive/v7.0.0.tar.gz"
+  sha256 "2129511dcf40383de5ac643abf68cad4907b5cdbfe471c75ba264a83e3078dc7"
 
   bottle do
     cellar :any
