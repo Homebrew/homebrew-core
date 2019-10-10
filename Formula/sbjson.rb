@@ -1,8 +1,8 @@
 class Sbjson < Formula
   desc "JSON CLI parser & reformatter based on SBJson v5"
   homepage "https://github.com/stig/json-framework"
-  url "https://github.com/stig/json-framework/archive/v5.0.0.tar.gz"
-  sha256 "e803753a157db475c4b89bddc0f550a5fdd0fc1980428a81ca6116feb2fd52e1"
+  url "https://github.com/stig/json-framework/archive/v5.0.2.tar.gz"
+  sha256 "3d0162aca53a3305faff06f95bd4cabf15ab1ba95b9e422f87b5de0990c4c06b"
   head "https://github.com/stig/json-framework.git"
 
   bottle do
