@@ -6,6 +6,7 @@ class Antibody < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "213620404c46edd274afa7ce18505228639b6eff07206a9c5db791b9ae98f6a0" => :catalina
     sha256 "d85294b01d76ac4fae8c9ae9c331f4cd26d3c397a024f5edc2891b4a881fe6a8" => :mojave
     sha256 "140c847a4b90705e0b2c4e84ab4a3998e0800b646f79034420679a63644d9154" => :high_sierra
     sha256 "c7cbfedc71307426d7d83602be02d5f46f3ad8d53ec6c46cd6f26e07c226f641" => :sierra
