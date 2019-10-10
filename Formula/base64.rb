@@ -6,6 +6,7 @@ class Base64 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f883e1602433f3a921fd1892747d76cf4548f75ac2e572be9eb0cfe0ced7290c" => :catalina
     sha256 "790e40a7ee037b0b99cc63d2085b121893ba80dfb43465c380568e7bacf3f83a" => :mojave
     sha256 "c3a8113c031b07426e6eda7da7604db9308999f456eeca5f3f2d5c8d85ba3a0d" => :high_sierra
     sha256 "3cd13d14c225413a5bc3b24f8f5dab48c2a942b64bf9162ad3a8ea8320a74bd1" => :sierra
