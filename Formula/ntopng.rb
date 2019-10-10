@@ -14,6 +14,7 @@ class Ntopng < Formula
 
   bottle do
     rebuild 1
+    sha256 "7df3adf0ac7d3f5ea92fb4611c92fae5401fe9e29f1186f828deb47ef01d0f16" => :catalina
     sha256 "8eda47ae0274ebe3557e43b3f77dd03e5f2d817fb112c6bbe353e812b1545b8e" => :mojave
     sha256 "4a8f83d19c03888ef27a8c9d47f8612adc1ccfa02c2381048dd738e9146b0e73" => :high_sierra
     sha256 "f90a831a2a31441ab63d252c75ec4720ba32420d1b03963f3e013e7f1e79e13a" => :sierra
