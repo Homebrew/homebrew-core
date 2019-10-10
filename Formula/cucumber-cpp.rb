@@ -24,10 +24,6 @@ class CucumberCpp < Formula
       -DCUKE_DISABLE_BOOST_TEST=on
     ]
 
-    # Temporary fix for bad boost 1.70.0 / cmake interaction
-    # https://github.com/Homebrew/homebrew-core/pull/38890
-    args << "-DBoost_NO_BOOST_CMAKE=ON"
-
     system "cmake", ".", *args
     system "cmake", "--build", "."
     system "make", "install"
