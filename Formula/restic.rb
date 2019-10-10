@@ -3,6 +3,7 @@ class Restic < Formula
   homepage "https://restic.github.io/"
   url "https://github.com/restic/restic/archive/v0.9.5.tar.gz"
   sha256 "e22208e946ede07f56ef60c1c89de817b453967663ce4867628dff77761bd429"
+  revision 1
   head "https://github.com/restic/restic.git"
 
   bottle do
@@ -16,8 +17,9 @@ class Restic < Formula
 
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
+    ENV["CGO_ENABLED"] = "1"
 
-    system "go", "run", "build.go"
+    system "go", "run", "-mod=vendor", "build.go", "--enable-cgo"
 
     mkdir "completions"
     system "./restic", "generate", "--bash-completion", "completions/restic"
