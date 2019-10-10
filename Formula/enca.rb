@@ -6,6 +6,7 @@ class Enca < Formula
   head "https://github.com/nijel/enca.git"
 
   bottle do
+    sha256 "606385c50e1a4aae697fc9b6d48023013d1943929ede359b830fd7db42641bcf" => :catalina
     sha256 "6a9d4f53371b7ffd66f37f290a24b52c2014433d254f0856de68c99fbd8c6f1c" => :mojave
     sha256 "5cfee364a5cc91d945d331d980448745d8498703d6b30378bd11be541c5be51d" => :high_sierra
     sha256 "0920a4dd92de3f4d7725e6753a37d1cb5f2468063f4020def9167648ff21e046" => :sierra
