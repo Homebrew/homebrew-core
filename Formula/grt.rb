@@ -1,8 +1,8 @@
 class Grt < Formula
   desc "The Gesture Recognition Toolkit for real-time machine learning"
   homepage "https://nickgillian.com/grt/"
-  url "https://github.com/nickgillian/grt/archive/v0.0.1.tar.gz"
-  sha256 "56f90a9ffa8b2bf4e5831d39f9e1912879cf032efa667a5237b57f68800a2dda"
+  url "https://github.com/nickgillian/grt/archive/v0.2.4.tar.gz"
+  sha256 "55bcabe7a58916461dc4341758eff2a45bd5b236c263dfe6e58c176c1a7e1ac4"
 
   bottle do
     cellar :any
