@@ -1,8 +1,8 @@
 class Wiredtiger < Formula
   desc "High performance NoSQL extensible platform for data management"
   homepage "http://www.wiredtiger.com"
-  url "https://github.com/wiredtiger/wiredtiger/releases/download/3.2.0/wiredtiger-3.2.0.tar.bz2"
-  sha256 "c812d34ac542fdd2f5dc16e2f47ebc1eba09487f45e34fbae5a052a668931968"
+  url "https://github.com/wiredtiger/wiredtiger/releases/download/3.2.1/wiredtiger-3.2.1.tar.bz2"
+  sha256 "1a8b4fcd1abc22d8cbe483e1c33c0937a603d3d33ad24d0fca61233a5dc29592"
 
   bottle do
     cellar :any
