@@ -1,6 +1,7 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
+  revision 1
   head "https://git.videolan.org/git/x264.git"
 
   stable do
@@ -21,6 +22,10 @@ class X264 < Formula
   depends_on "nasm" => :build
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     args = %W[
       --prefix=#{prefix}
       --disable-lsmash
