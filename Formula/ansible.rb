@@ -5,6 +5,7 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.5.tar.gz"
   sha256 "8e9403e755ce8ef27b6066cdd7a4c567aa80ebe2fd90d0ff8efa0a725d246986"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -114,8 +115,8 @@ class Ansible < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "backports.ssl_match_hostname" do
@@ -593,6 +594,10 @@ class Ansible < Formula
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     # https://github.com/Homebrew/homebrew-core/issues/7197
     ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
