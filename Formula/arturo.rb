@@ -6,8 +6,10 @@ class Arturo < Formula
 
   depends_on "dmd" => :build
   depends_on "dub" => :build
-  depends_on "gtk+" => :build
   depends_on "bison" => :build
+  depends_on "libjpeg" => :build
+  depends_on "cairo" => :build
+  depends_on "gtk+3" => :build
 
   def install
     system "dub", "build", "--build=release", "--compiler=dmd"
