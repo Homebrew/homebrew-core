@@ -3,6 +3,7 @@ class BoostPython < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
   sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -18,11 +19,10 @@ class BoostPython < Formula
   def install
     # "layout" should be synchronized with boost
     args = %W[
-      --prefix=#{prefix}
-      --libdir=#{lib}
       -d2
       -j#{ENV.make_jobs}
       --layout=tagged-1.66
+      install
       threading=multi,single
       link=shared,static
     ]
@@ -39,11 +39,24 @@ class BoostPython < Formula
     system "./bootstrap.sh", "--prefix=#{prefix}", "--libdir=#{lib}",
                              "--with-libraries=python", "--with-python=python"
 
-    system "./b2", "--build-dir=build-python", "--stagedir=stage-python",
-                   "python=#{pyver}", *args
+    system "./b2", "--build-dir=build-python",
+                   "--stagedir=stage-python",
+                   "--libdir=install-python/lib",
+                   "--prefix=install-python",
+                   "python=#{pyver}",
+                   *args
 
+    lib.install Dir["install-python/lib/*.*"]
     lib.install Dir["stage-python/lib/*py*"]
     doc.install Dir["libs/python/doc/*"]
+  end
+
+  def caveats; <<~EOS
+    This formula provides Boost.Python for Python 2. Due to a
+    collision with boost-python3, the CMake Config files are not
+    available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
+    with CMake or switch to Python 3.
+  EOS
   end
 
   test do
