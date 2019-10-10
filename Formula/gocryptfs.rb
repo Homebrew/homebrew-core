@@ -1,10 +1,9 @@
 class Gocryptfs < Formula
   desc "Encrypted overlay filesystem written in Go"
   homepage "https://nuetzlich.net/gocryptfs/"
-  url "https://github.com/rfjakob/gocryptfs/releases/download/v1.7/gocryptfs_v1.7_src-deps.tar.gz"
-  version "1.7"
-  sha256 "2d1a2cfd072d554a28ee6e6807474b00ac710fb1aaf7aa81f3d8e94e80f6a703"
-  revision 1
+  url "https://github.com/rfjakob/gocryptfs/releases/download/v1.7.1/gocryptfs_v1.7.1_src-deps.tar.gz"
+  version "1.7.1"
+  sha256 "d3fc2c87b869025cd51e4abea030e58e7383197a7458f26bf99a71b224402bda"
 
   bottle do
     cellar :any
