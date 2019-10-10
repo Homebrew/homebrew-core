@@ -6,6 +6,7 @@ class Io < Formula
   head "https://github.com/stevedekorte/io.git"
 
   bottle do
+    sha256 "1dc9783722f9ea256f7f0dcb57032dee40692a78a31707eca025b52c8857772c" => :catalina
     sha256 "9e628fa0879d7d2e370ae5275393d1d52b578f6f10d3f005faf9d0360caf8851" => :mojave
     sha256 "686d5d23790b53c27765d49da0a74ec96ee949353b31646a0a92ee931270a23d" => :high_sierra
     sha256 "2d0e05344917ad3a1d322f2860030013315ceb7e8ae962cf6070d1ee8cc395d4" => :sierra
