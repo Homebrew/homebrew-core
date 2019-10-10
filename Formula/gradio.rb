@@ -1,9 +1,8 @@
 class Gradio < Formula
   desc "GTK3 app for finding and listening to internet radio stations"
   homepage "https://github.com/haecker-felix/Gradio"
-  url "https://github.com/haecker-felix/Gradio/archive/v7.2.tar.gz"
-  sha256 "5a85d7d4afb1424e46c935114b268e4a65de2629d60f48eccd75d67ff4b113d2"
-  revision 1
+  url "https://github.com/haecker-felix/Gradio/archive/v7.3.tar.gz"
+  sha256 "5c5afed83fceb9a9f8bc7414b8a200128b3317ccf1ed50a0e7321ca15cf19412"
 
   bottle do
     sha256 "fc72163c4714998d62ff4e51494e81fa6462677d99cb496a75f2b3c7fda0e5e3" => :mojave
