@@ -3,9 +3,8 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/release-3.2/s3ql-3.2.tar.bz2"
-  sha256 "07e93368a52e96a93e1fdc4a66d1a0d845f8808f6d8fbb4aab14e1c824ce67c6"
-  revision 1
+  url "https://github.com/s3ql/s3ql/releases/download/release-3.3/s3ql-3.3.tar.bz2"
+  sha256 "a4e5cde79af1915104756c4bcd8d119f3495b4238a53ac08bbdc5a05f0535c80"
 
   bottle do
     cellar :any
