@@ -1,9 +1,8 @@
 class Gpredict < Formula
   desc "Real-time satellite tracking/prediction application"
   homepage "http://gpredict.oz9aec.net/"
-  url "https://github.com/csete/gpredict/releases/download/v2.2.1/gpredict-2.2.1.tar.bz2"
-  sha256 "e759c4bae0b17b202a7c0f8281ff016f819b502780d3e77b46fe8767e7498e43"
-  revision 2
+  url "https://github.com/csete/gpredict/archive/v2.3.tar.gz"
+  sha256 "741c50337db45e6aac6e88ef076c346e9b4f2c30dfb62e00ca069d5549065234"
 
   bottle do
     sha256 "952941a2ecdb5f75805888dfd020acce48c4f1b29a9c2e3ec8742d35fcd9c829" => :mojave
