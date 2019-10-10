@@ -7,6 +7,7 @@ class Libharu < Formula
 
   bottle do
     cellar :any
+    sha256 "41becd02e09ddf3c566e69d7c8b2a0c52d571fb754ccff155d5e5d630d8eb64b" => :catalina
     sha256 "3ae8ecb2883c97e36e027d3ee6d81cf2aeaeccbf5e11616a4b06f2c229c74e35" => :mojave
     sha256 "70363d91450426724b94040b3fc5130d0e024fc13e08e5747cf47017fb94c76e" => :high_sierra
     sha256 "860cda2675feea36f82f4b8108927c6a0b1cabca5429c119f63557da11394f74" => :sierra
