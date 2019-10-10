@@ -14,7 +14,7 @@ class Arturo < Formula
   depends_on macos => [:high_sierra, :mojave]
 
   def install
-    system "dub", "build", "--build=release", "--compiler=dmd"
+    system "dub","build","--build=release","--compiler=dmd"
     bin.install "arturo"
   end
 
