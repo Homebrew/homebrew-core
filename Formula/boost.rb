@@ -39,8 +39,6 @@ class Boost < Formula
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 
     # layout should be synchronized with boost-python and boost-mpi
-    #
-    # --no-cmake-config should be dropped if possible in next version
     args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}
