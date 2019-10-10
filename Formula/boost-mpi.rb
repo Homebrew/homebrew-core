@@ -3,6 +3,7 @@ class BoostMpi < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
   sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -16,16 +17,15 @@ class BoostMpi < Formula
 
   def install
     # "layout" should be synchronized with boost
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged-1.66",
-            # --no-cmake-config should be dropped if possible in next version
-            "--no-cmake-config",
-            "--user-config=user-config.jam",
-            "threading=multi,single",
-            "link=shared,static"]
+    args = %W[
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged-1.66
+      --user-config=user-config.jam
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
@@ -41,9 +41,13 @@ class BoostMpi < Formula
 
     system "./bootstrap.sh", "--prefix=#{prefix}", "--libdir=#{lib}", "--with-libraries=mpi"
 
-    system "./b2", *args
+    system "./b2",
+           "--prefix=install-mpi",
+           "--libdir=install-mpi/lib",
+           *args
 
-    lib.install Dir["stage/lib/*mpi*"]
+    lib.install Dir["install-mpi/lib/*mpi*"]
+    (lib/"cmake").install Dir["install-mpi/lib/cmake/*mpi*"]
 
     # libboost_mpi links to libboost_serialization, which comes from the main boost formula
     boost = Formula["boost"]
