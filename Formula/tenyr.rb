@@ -1,8 +1,8 @@
 class Tenyr < Formula
   desc "32-bit computing environment (including simulated CPU)"
   homepage "http://tenyr.info/"
-  url "https://github.com/kulp/tenyr/archive/v0.9.6.tar.gz"
-  sha256 "04b92514927abfb5b7814a203bd296e8b528ae759c755402427db4cbc3ddbc47"
+  url "https://github.com/kulp/tenyr/archive/v0.9.7.tar.gz"
+  sha256 "f28e031acb14a0e4ff924479a0fd0087d9a15948a440f03b2dcf002723ccfdfa"
   head "https://github.com/kulp/tenyr.git", :branch => "develop"
 
   bottle do
