@@ -1,8 +1,8 @@
 class Stgit < Formula
   desc "Push/pop utility built on top of Git"
   homepage "https://github.com/ctmarinas/stgit"
-  url "https://github.com/ctmarinas/stgit/archive/v0.19.tar.gz"
-  sha256 "746f043c8a7caf5e675ef9d5c894a4a0a7d581ad4244747512f5efcccfbac5ff"
+  url "https://github.com/ctmarinas/stgit/archive/v0.20.tar.gz"
+  sha256 "87f590387d780db769d38f48afb052e3717ed88f9b60bd71c2c54d04e22b97e2"
   head "https://github.com/ctmarinas/stgit.git"
 
   bottle do
