@@ -1,8 +1,8 @@
 class Pdf2json < Formula
   desc "PDF to JSON and XML converter"
   homepage "https://github.com/flexpaper/pdf2json"
-  url "https://github.com/flexpaper/pdf2json/releases/download/v0.69/pdf2json-0.69.tar.gz"
-  sha256 "69394ef5d5d5504f7106e8b55e15bf491c48d906d611e6bc2e5952005a85b593"
+  url "https://github.com/flexpaper/pdf2json/archive/0.70.tar.gz"
+  sha256 "65d7c273c3dc003470ee61a429274b3612a0ee995e75dc32ad8dbdc9d03fbad1"
 
   bottle do
     sha256 "d04e13e9a3dcb0593b594575afbc67acc1c6e0bda8e2cefa85b2027fa97b2036" => :mojave
