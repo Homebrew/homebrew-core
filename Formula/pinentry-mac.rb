@@ -7,6 +7,7 @@ class PinentryMac < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "936dba5c3bdd8279e5380012645a349a6ef8c69d1cc9066f28f9c6fa6642fd64" => :catalina
     sha256 "6b2e8f260b2c9d2d7cd3f39516d7794656492cf7726a92a847aa86ba02d83179" => :mojave
     sha256 "aa7a00ec594541e43a74cf7ae16cb05317d5b73c7b6b6647ca349584280eaad7" => :high_sierra
     sha256 "3da6a88abbd4bb04eb2455d8e6998f4fc4db77c3f765d52b7eadf364e82aeaa7" => :sierra
