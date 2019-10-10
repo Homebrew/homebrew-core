@@ -649,6 +649,10 @@ class AzureCli < Formula
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 
