@@ -8,6 +8,7 @@ class Ntp < Formula
 
   bottle do
     cellar :any
+    sha256 "603fa07434d02e8562061076635bb1f4fb492a2c15feedd0cebb98066451947f" => :catalina
     sha256 "88daac89608fccbee91081426b81aa0cf274df656d4f3bba9104c6622a2da070" => :mojave
     sha256 "25c4bb04713cbddea1e629a3e22994af48d04cbb89e3f91fe47533c343fa5ea9" => :high_sierra
     sha256 "c89c2be95d8c98771e28df90d361f1f969a3bc132ecad472d812ae31e6ebef91" => :sierra
