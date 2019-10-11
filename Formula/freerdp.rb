@@ -26,6 +26,7 @@ class Freerdp < Formula
 
   bottle do
     rebuild 1
+    sha256 "2024d1074958c1de78287aa67d580a73727409a1dfe4f8cdd48d980ef456fd92" => :catalina
     sha256 "fbe93dacf9d752070395f904bbbad1fdfcf9c88fc11fa7bc232cf1d47e63ae3f" => :mojave
     sha256 "d5a590f4fd4af84251a575a34fa636a8e09c40e9b6795dc17243a32ecd0d3c67" => :high_sierra
     sha256 "9c9b013c4a2b9b2c7eb7542d1b0094b531b8ebed7b88542ff95b775cab0be52c" => :sierra
