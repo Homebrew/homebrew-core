@@ -7,10 +7,9 @@ class Tenyr < Formula
 
   bottle do
     cellar :any
-    sha256 "79f1f08181a4a3563a95e002068cde55db5dd83f1e67e4baa10937659d72bb97" => :mojave
-    sha256 "7ed5a7f7573c9970216c21dc1586fef1107ea97e20f143dd11ee41c6627d13b3" => :high_sierra
-    sha256 "0b734e40019ad537072b648526d08c6d34c669251ca5bb8b4c22a3c2bd3ea745" => :sierra
-    sha256 "1b09019bb0131b4ce6599612e55a828d22390757473c22dceab47aa30671fd1f" => :el_capitan
+    sha256 "e9b70722348ae97c9d4f08ac7b143fb4402be98feb48f9941f8ca1f4397a909d" => :catalina
+    sha256 "0386483bf004ccb772897cb304589089c41ba56c926ac751badc6744924178a5" => :mojave
+    sha256 "f04b6f86879c098dfd7e87a384a8fea3c0c30d1d6b50dfa1477295430bae1566" => :high_sierra
   end
 
   depends_on "bison" => :build # tenyr requires bison >= 2.5
