@@ -5,6 +5,7 @@ class Kytea < Formula
   sha256 "534a33d40c4dc5421f053c71a75695c377df737169f965573175df5d2cff9f46"
 
   bottle do
+    sha256 "927aac3d562cc2977f84670c850ab262a05a010bfe7e7f16aa0eb7d9532eae7b" => :catalina
     sha256 "57c8c3acf60417d44d7df27445d667dd03095f1afdad70aeb63cf68e0cbc64c0" => :mojave
     sha256 "bcdb450698d5065cf82b7726d6dc21381632c41352237dc547c05cc62e4b7e59" => :high_sierra
     sha256 "d29c61f74da5f4d88f09d8b540943599ce8b6e5062af88b7d5725ea84fb4c603" => :sierra
