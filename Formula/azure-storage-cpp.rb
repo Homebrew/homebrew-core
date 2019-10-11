@@ -17,9 +17,6 @@ class AzureStorageCpp < Formula
   depends_on "gettext"
   depends_on "openssl@1.1"
 
-  # patch submitted upstream at https://github.com/Azure/azure-storage-cpp/pull/261
-  patch :DATA
-
   def install
     system "cmake", "Microsoft.WindowsAzure.Storage",
                     "-DBUILD_SAMPLES=OFF",
@@ -55,34 +52,3 @@ class AzureStorageCpp < Formula
     system "./test_azurestoragecpp"
   end
 end
-
-__END__
-diff --git a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
-index 9171f8c..a427288 100644
---- a/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
-+++ b/Microsoft.WindowsAzure.Storage/cmake/Modules/FindUUID.cmake
-@@ -63,6 +63,12 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
-       /usr/freeware/lib64
-   )
-
-+  if (APPLE)
-+    if (NOT UUID_LIBRARY)
-+      set(UUID_LIBRARY  "")
-+    endif (NOT UUID_LIBRARY)
-+  endif (APPLE)
-+
-   find_library(UUID_LIBRARY_DEBUG
-     NAMES
-       uuidd
-@@ -88,9 +94,9 @@ else (UUID_LIBRARIES AND UUID_INCLUDE_DIRS)
-   set(UUID_INCLUDE_DIRS ${UUID_INCLUDE_DIR})
-   set(UUID_LIBRARIES ${UUID_LIBRARY})
-
--  if (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
-+  if (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
-      set(UUID_FOUND TRUE)
--  endif (UUID_INCLUDE_DIRS AND UUID_LIBRARIES)
-+  endif (UUID_INCLUDE_DIRS AND (APPLE OR UUID_LIBRARIES))
-
-   if (UUID_FOUND)
-     if (NOT UUID_FIND_QUIETLY)
