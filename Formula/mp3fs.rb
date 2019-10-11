@@ -6,6 +6,7 @@ class Mp3fs < Formula
 
   bottle do
     cellar :any
+    sha256 "b27c4b0bb7a006d730f0810301446e7db7586ecb7ab265ead9d7096540c8edc7" => :catalina
     sha256 "60af0fb41555221a11fcb9cce24afccd6f42e1427f51d9d6d832e713624cc09f" => :mojave
     sha256 "7eec592abb48a4e5acb0b77ba4138b0e2ce8c01817dadf9ace35cdbbcfdd5ea5" => :high_sierra
     sha256 "e711d5da3c4c5f838911938bf5a5e8b754ffacae41c8824caa1ea0576d194718" => :sierra
