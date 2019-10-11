@@ -7,6 +7,7 @@ class Trash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e845adfbc547dee3aff0bf9cd98c20ec2c52fadf92e9141be09c7fb86f5cdfb0" => :catalina
     sha256 "fa83a082a40fb46d6cdd954ad643c8be433bce1bb4f7f5e541d487cbdc2d920f" => :mojave
     sha256 "8ecc3fcedf8a31e799f04be6940850dcc6db11f2dc0f1db0fa3a3af1c49cac21" => :high_sierra
     sha256 "b30768556b816f51df0fc7d8016dec80d30a60c8402bf1238b9f9a68848677b1" => :sierra
