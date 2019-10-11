@@ -7,6 +7,7 @@ class MitScheme < Formula
   revision 2
 
   bottle do
+    sha256 "7c76aab44ca4bc0c5564fa77440b23d319bcdddc8be2b5793296ec1040d68a1f" => :catalina
     sha256 "fdfd6d6c6565b5f5f34a50203ee9c661e2126eb23d181b228ef1caf32591d43a" => :mojave
     sha256 "272a286e40ee02cf625f41f25ba020b87ec07a2da277d1e8b6ca083266595aee" => :high_sierra
   end
