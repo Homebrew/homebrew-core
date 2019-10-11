@@ -6,6 +6,7 @@ class Namazu < Formula
 
   bottle do
     rebuild 1
+    sha256 "36353c27b263366bddb893b1ea47ae52e9ea61b18abf068395883868725a5a0c" => :catalina
     sha256 "f6140424ff2a5a5bee20b4430036ce76bd66bf82705cd0a1fa52790caf617fea" => :mojave
     sha256 "15f536a0c9e3212af68689dc2202ae0d9a7634d161aa0ac3aa6d55977506f8da" => :high_sierra
     sha256 "2514d7e9209225e9f388feda1116c193ec98034952dd9c6b89bcaccafabedb1f" => :sierra
