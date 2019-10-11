@@ -6,6 +6,7 @@ class Pioneers < Formula
   revision 1
 
   bottle do
+    sha256 "6b991f3c68a368a205f15742f65273ab9aef56d06a5918a05a7312513f8c7dbf" => :catalina
     sha256 "6dc8e606ea4f6264f662d0516cb67bbf04f661adab74406f34d4b908faf1c91a" => :mojave
     sha256 "a7e66d500a9a0787038c1449da19471f451e350d35a1a4035e84144820c2c8df" => :high_sierra
     sha256 "b58b5deb27c32495b244527947330028e1d69b1000b6453727dab16ff7572b09" => :sierra
