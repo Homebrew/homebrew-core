@@ -8,6 +8,7 @@ class Stlink < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "71586a0e11d540bc26627bb0300df6a4a02e2dc95b5e81d19aa4a73514f88f40" => :catalina
     sha256 "65d735edcaf4fbc2d23d564a831309d43bedc1efaa9574b0e697f48256711df2" => :mojave
     sha256 "9640919d8abfe07ea06e0c208d13dba96988a99bf8ae6080afcc4c332f58b530" => :high_sierra
     sha256 "9662ae4fc8ff28f24ea2441a9629fbc66732f1c24d9bd71fca94cea4d16a5901" => :sierra
