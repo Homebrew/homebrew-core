@@ -5,9 +5,9 @@ class Gradio < Formula
   sha256 "5c5afed83fceb9a9f8bc7414b8a200128b3317ccf1ed50a0e7321ca15cf19412"
 
   bottle do
-    sha256 "fc72163c4714998d62ff4e51494e81fa6462677d99cb496a75f2b3c7fda0e5e3" => :mojave
-    sha256 "bc283cabff48ef33c8236e5bf308955fb06eae498f4c1633e6d50ac1ac29f029" => :high_sierra
-    sha256 "0681cb3d462521ea07ae53cc57ad83af345150916ea4302f0d9a2266ae93d746" => :sierra
+    sha256 "51fcbc324b7f1a95ce0b98c9382053d7f035db79f74f1d560f2a5452d2d081df" => :catalina
+    sha256 "7d4f0372797621d23eb0e85f6d5ed2ae884703b57960c1586c09687d9d1055eb" => :mojave
+    sha256 "5c3f745ad431c61ef3d19b4a2a03d6f24eb99dd47768178e6d1810edba4f12fa" => :high_sierra
   end
 
   depends_on "meson" => :build
