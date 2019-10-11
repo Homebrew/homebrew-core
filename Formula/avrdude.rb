@@ -7,6 +7,7 @@ class Avrdude < Formula
   revision 1
 
   bottle do
+    sha256 "d3f4c82170fa37bacd6e1bc3276ba27e7a8ed2ea781b101b7899e7602393a15b" => :catalina
     sha256 "65fe6de6f540eb1c6ad94d35c847f8a5921cc9059ff044d1bc78f68cc8b8334b" => :mojave
     sha256 "b0cb94b5c4f01fcc870f286bca293218c98fda23d76397db8a831272f7087038" => :high_sierra
     sha256 "e8e26af5565cd897867d4e6e71e66e6e946e1e21eb4e27d3cd49f199f088fc5d" => :sierra
