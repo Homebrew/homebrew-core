@@ -6,6 +6,7 @@ class Admesh < Formula
 
   bottle do
     cellar :any
+    sha256 "ba80cccacf84422f0a25105a3f26712c21c75f7cdde6c7ffd53ff0649873034e" => :catalina
     sha256 "7a02108366a0172922d15c13e21c365eb79db7bdca68abfcc1cb5110675b582e" => :mojave
     sha256 "bc978ecef1c37b4c2155c5327bc47908024fb4568f222bb5dd4b90af7e12a09b" => :high_sierra
     sha256 "3de4fbc48e0d5ca620bb5fa9cb20d18065fa00fa0c007109473bd495e17686d1" => :sierra
