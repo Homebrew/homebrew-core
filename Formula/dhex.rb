@@ -1,7 +1,7 @@
 class Dhex < Formula
   desc "Ncurses based advanced hex editor featuring diff mode and more"
-  homepage "http://www.dettus.net/dhex/"
-  url "http://www.dettus.net/dhex/dhex_0.69.tar.gz"
+  homepage "https://www.dettus.net/dhex/"
+  url "https://www.dettus.net/dhex/dhex_0.69.tar.gz"
   sha256 "52730bcd1cf16bd4dae0de42531be9a4057535ec61ca38c0804eb8246ea6c41b"
 
   bottle do
