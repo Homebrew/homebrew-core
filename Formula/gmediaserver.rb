@@ -6,6 +6,7 @@ class Gmediaserver < Formula
 
   bottle do
     cellar :any
+    sha256 "f1ecbfc7e59f534c6f1f34d70ef67e229f33a6ca231468f389c4494e6be9cfb3" => :catalina
     sha256 "3a25451b61e3d5ed403875d5fe8a3f89d0b54d363547aa41152685a97a50e894" => :mojave
     sha256 "cd8f227da2ad9c2a7ec11f42eb58d1d6f03c5afcd77c3876b699a187046e4610" => :high_sierra
     sha256 "6a0d8e909c5cd5cc23c4d3b76c0f5071fcee58123d9e243556bf8393ef01c70c" => :sierra
