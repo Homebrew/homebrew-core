@@ -6,6 +6,7 @@ class Gource < Formula
 
   bottle do
     rebuild 1
+    sha256 "6af5b890ecc507e13ac6720fb00d5e1bae3f1c4203cdcfa24ad9c96975a4b1e5" => :catalina
     sha256 "f7b1c895b7c202aae26d1396b2634082ede889eb5c9bf0b2d7758e52f88c924e" => :mojave
     sha256 "72e08ff92d3ac208ec5fcb9a6514ca0d47db160eb9cab604a236ea3a31a149de" => :high_sierra
     sha256 "de278ad81dfaa50d78f66b307044464b3db7741f02b5933ea1046347775674b8" => :sierra
