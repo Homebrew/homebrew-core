@@ -9,6 +9,7 @@ class JsonSpirit < Formula
 
   bottle do
     cellar :any
+    sha256 "31aaf302e4238b13797722028ac46a7deade1df4f042b46feb7d455cb05e4599" => :catalina
     sha256 "2cec376e843919e2f3693e73be0e3a2c6a6f3b283e503b51d42108c5471e8091" => :mojave
     sha256 "55299a7931b4bbbcf1ee5c576fe35283373279cc95b3b5126696ad5741f3d072" => :high_sierra
     sha256 "0dc2370a736a065b47f6f83f8ed292209fc978005a720de8653e32cc1c568cce" => :sierra
