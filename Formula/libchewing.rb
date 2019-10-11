@@ -5,12 +5,11 @@ class Libchewing < Formula
   sha256 "9708c63415fa6034435c0f38100e7d30d0e1bac927f67bec6dfeb3fef016172b"
 
   bottle do
-    sha256 "12587daf43f76f20ea5959322e97d6ed150783e660e2e076b413e420e8ed9ea4" => :mojave
-    sha256 "97cabdc8a613af7fddb5331b2c42b847143d4f526bd902cac708e50b2e72c523" => :high_sierra
-    sha256 "0904b10b3636020c7ce81d9917d92a56be5204bbd0aac60760bca8f009e4f07a" => :sierra
-    sha256 "88a9b836056148fe60b312550a1e7484bf9b53e8ffad3c16e98032862a3e38f2" => :el_capitan
-    sha256 "dafa1e3cfcea92190179e5627774df43a045bc7413b571d17576c43089d9dc57" => :yosemite
-    sha256 "a291dd35150e8fb3a170b743f5415191cdcc8559abf0179650765af341d98fcf" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "19b9c38b3036f5ad16c413135e5424c8174789129cafe3c488fecdaffa39f281" => :catalina
+    sha256 "b00710a74c619461b99eb3043b927248ccc0e2c2f3607683dfbcad61b82e4fe3" => :mojave
+    sha256 "c346c2dbf72ea2d97f88cc9fc694b61eccc7db44c38092e9d652a31612f60ef1" => :high_sierra
   end
 
   head do
