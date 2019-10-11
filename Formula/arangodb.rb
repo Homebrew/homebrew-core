@@ -1,9 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.5.0.tar.gz"
-  sha256 "b81e30da4249f72b8daa88584cd05388c86ab12eb3185f6558a774e8db5dc9ab"
-  revision 1
+  url "https://download.arangodb.com/Source/ArangoDB-3.5.1.tar.gz"
+  sha256 "4e648c0aff129a02dd0279303880603cd92dd27b81ef7c40dee3eded9102c1cb"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
@@ -12,9 +11,10 @@ class Arangodb < Formula
     sha256 "431fb46ca96833c6c097b3e132a3210afb8bc954d2106a823099731733bcc220" => :sierra
   end
 
+  depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on :macos => :yosemite
+  depends_on :macos => :mojave
   depends_on "openssl@1.1"
 
   # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87665
@@ -28,8 +28,11 @@ class Arangodb < Formula
       :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
   end
 
+  # fixed upstream in https://github.com/arangodb/arangodb/commit/55ca6c8660e0b373bae1840d61894a4202913cfa
+  patch :DATA
+
   def install
-    ENV.cxx11
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     resource("starter").stage do
       ENV.append "GOPATH", Dir.pwd + "/.gobuild"
@@ -45,14 +48,18 @@ class Arangodb < Formula
     mkdir "build" do
       args = std_cmake_args + %W[
         -DHOMEBREW=ON
-        -DUSE_OPTIMIZE_FOR_ARCHITECTURE=OFF
-        -DASM_OPTIMIZATIONS=OFF
-        -DCMAKE_INSTALL_DATADIR=#{share}
-        -DCMAKE_INSTALL_DATAROOTDIR=#{share}
-        -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
-        -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
+        -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        -DUSE_MAINTAINER_MODE=Off
         -DUSE_JEMALLOC=Off
+        -DCMAKE_SKIP_RPATH=On
+        -DOPENSSL_USE_STATIC_LIBS=On
+        -DCMAKE_LIBRARY_PATH=#{prefix}/opt/openssl@1.1/lib
+        -DOPENSSL_ROOT_DIR=#{prefix}/opt/openssl@1.1/lib
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
+        -DTARGET_ARCHITECTURE=nehalem
+        -DUSE_CATCH_TESTS=Off
+        -DUSE_GOOGLE_TESTS=Off
+        -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       ]
 
       if ENV.compiler == "gcc-6"
@@ -61,10 +68,6 @@ class Arangodb < Formula
 
       system "cmake", "..", *args
       system "make", "install"
-
-      %w[arangod arango-dfdb arangosh foxx-manager].each do |f|
-        inreplace etc/"arangodb3/#{f}.conf", pkgshare, opt_pkgshare
-      end
     end
   end
 
@@ -131,3 +134,19 @@ class Arangodb < Formula
     end
   end
 end
+
+__END__
+diff --git a/arangod/Graph/BreadthFirstEnumerator.h b/arangod/Graph/BreadthFirstEnumerator.h
+index 40fcf76472..66f50e9877 100644
+--- a/arangod/Graph/BreadthFirstEnumerator.h
++++ b/arangod/Graph/BreadthFirstEnumerator.h
+@@ -45,7 +45,7 @@ class BreadthFirstEnumerator final : public arangodb::traverser::PathEnumerator
+   struct PathStep {
+     size_t sourceIdx;
+     graph::EdgeDocumentToken edge;
+-    arangodb::velocypack::StringRef const vertex;
++    arangodb::velocypack::StringRef vertex;
+ 
+    public:
+     explicit PathStep(arangodb::velocypack::StringRef const vertex);
+
