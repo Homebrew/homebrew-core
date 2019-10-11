@@ -8,6 +8,7 @@ class Sslscan < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "788f9752e795f4ff95e1251a243a5829a6f9b40facbdca40e4819de5f9d7dc4c" => :catalina
     sha256 "8a8826da03dbbaa9ee89c8e6b95496c178f5a93d86468402fb6e432ebc7f2c68" => :mojave
     sha256 "e0735e75b58b7cb0ef72cc79089df545e0140e52bc206c1791ab979192251d22" => :high_sierra
     sha256 "4b00ee57ccf8dfbc890bbc7ca978dd4f310e7f73dfc022c78c33b69b9b3449dc" => :sierra
