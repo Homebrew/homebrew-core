@@ -6,11 +6,12 @@ class Osmcoastline < Formula
 
   depends_on "cmake" => :build
   depends_on "libosmium" => :build
-  depends_on "zlib"
   depends_on "gdal"
   depends_on "geos"
-  depends_on "sqlite"
   depends_on "libspatialite"
+
+  uses_from_macos "zlib"
+  uses_from_macos "sqlite"
 
   def install
     protozero = Formula["libosmium"].opt_libexec/"include"
