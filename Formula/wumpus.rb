@@ -6,6 +6,7 @@ class Wumpus < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f99f53b1d8ec9474947be066a7338daf6e8a20409137b7114358dcb3dfe388f0" => :catalina
     sha256 "e8e59a1fc042fdcaf087f8330b3c7083707892d8bed1f9317f5ab20777461576" => :mojave
     sha256 "5a1435e4545eea1ab436a0fba4844ac2236ea6e49e045f3b59d19adcff5de97c" => :high_sierra
     sha256 "fa693e01a17d31e9e5a5b51f27ea18b69e30f5613615c95ddb89c7dbc4bbe75d" => :sierra
