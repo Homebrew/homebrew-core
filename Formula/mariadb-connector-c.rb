@@ -6,6 +6,7 @@ class MariadbConnectorC < Formula
   revision 1
 
   bottle do
+    sha256 "85cd4eac75f693602a4cb4cd8b17cd26a71d3df3e147ba28f40e605fcd1cacb5" => :catalina
     sha256 "b64eb44ed34e785ccb71b71452d0a7073409ffb589c1b33fe49de6bc9a031820" => :mojave
     sha256 "50663d29b7cf483e8bbf554f329110c79939fdba54850c9e046d6460d992429f" => :high_sierra
     sha256 "98f0045250155bbf5cc2dd34771f76bb54544496a6b63ce2f61032f9cfd22a43" => :sierra
