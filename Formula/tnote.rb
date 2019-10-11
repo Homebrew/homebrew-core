@@ -7,6 +7,7 @@ class Tnote < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "e2a07cb0af64d0111a52360a6b04c883343898ad6df6a458a2616f75ab562126" => :catalina
     sha256 "54026c946cb475ed1e08617e78307d8f71afaf000fa8d9a92e75a21717694580" => :mojave
     sha256 "cba19ccd15645c46e579818a294817efe9a80421ae8768572406bf24b26912a2" => :high_sierra
     sha256 "cba19ccd15645c46e579818a294817efe9a80421ae8768572406bf24b26912a2" => :sierra
