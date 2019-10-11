@@ -6,6 +6,7 @@ class Mstch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cd7adf5ad11d8958ecf32613bc1b5ecd6c166eea4576175e02ef265b1cf800ee" => :catalina
     sha256 "c01c3c4afec3f7c29c4f26f93cce9516c4de3d9e070fd2b11c7419a04352d532" => :mojave
     sha256 "c7ff132ee06fc7abf10d5cc4d9acc5b48eee1f6c7ce1136d31998b12ee3e5631" => :high_sierra
     sha256 "95a01f3a3a5dc6619d44a7e3df98b1f886ddac249d2a84f17a49d7edcebca2be" => :sierra
