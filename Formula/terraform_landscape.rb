@@ -6,6 +6,7 @@ class TerraformLandscape < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8417c5aba41417a23a373127002cc4f7fc71de6fd037a0d9692bd04a131782d6" => :catalina
     sha256 "514ab58c4634a439faeac56e08511346b582e0094b2ffb981b837758ee0d2684" => :mojave
     sha256 "b271788171df1bc43fe3dff81806bbff64ab13796ea561e611e70817f4b74924" => :high_sierra
     sha256 "5e0989c7315c9d5542d1ebad9db288fc89d9bdfc828a4393a47ed22bb8cfa0f1" => :sierra
