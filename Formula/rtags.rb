@@ -8,6 +8,7 @@ class Rtags < Formula
 
   bottle do
     cellar :any
+    sha256 "3b73fd7b8c2a030aa2d6cbe8251c1233f75344b4c59395ca170e725d72209c84" => :catalina
     sha256 "eecf7d02f14a70a7bf084ac4ca1b90069a5aafa1c8ce321a5c4a18bce480811e" => :mojave
     sha256 "a6a0623ecedda03bf90e396e1c891ad2925dc2845810d55c3d145ab6bc410a28" => :high_sierra
     sha256 "0c6d0ace0aba7ad795b4db67a658f3d2130e93b02bd22f459d54c5d852f3e9bd" => :sierra
