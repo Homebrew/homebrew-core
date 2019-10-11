@@ -6,6 +6,7 @@ class Cconv < Formula
 
   bottle do
     cellar :any
+    sha256 "06b6bafaadcaa16329ba0cdeee7d11a13e94f126a4011b54253e31a1ea82108e" => :catalina
     sha256 "ffaf8b5cab0618e52cfedff14a5084cfe54e0b1b6480433e2ffb4beee8e47ec9" => :mojave
     sha256 "c4d197f979340a89d5a87e05eae6a39db38863f89b6ddda42f924472d87a5b0d" => :high_sierra
     sha256 "2e885b9571a8814f2b23b088f3f0d45f47b1fe762f040c3e66b1a81f84673646" => :sierra
