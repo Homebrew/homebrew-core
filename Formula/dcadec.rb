@@ -8,6 +8,7 @@ class Dcadec < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0622b87f5b7f7c71346443f12d5e3d6eabd02aa63dce433c7248d405a9fbc036" => :catalina
     sha256 "68b350a3ec6a1ab7384eac3341a03762e8233dec742c35f8dc2afc213b3db567" => :mojave
     sha256 "7f938bcd68b9078df3dc6e67d82e08beb55b10228a808d91543a6ed2d15a2002" => :high_sierra
     sha256 "7a51fb1bfa07f08c45176df419087429e9ffce945cbcd28d71e403c456762c74" => :sierra
