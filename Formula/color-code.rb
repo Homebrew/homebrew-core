@@ -7,6 +7,7 @@ class ColorCode < Formula
 
   bottle do
     cellar :any
+    sha256 "3e03afccc282a21468f748cefdbdbf3d577dc6f84e2ef40f9b00379e48e18dd3" => :catalina
     sha256 "5f2a2c56ba83fb2bddac500099a41121e89e1a029393b62e45c65e894ebd4863" => :mojave
     sha256 "d184a0b2db2fb9bff024968e3b13c53339599c9a51510c9e1e76ddc073b64834" => :high_sierra
     sha256 "761681dc9bcdb911c692d954ffde633471db71ea30ad9babad16237b734e7005" => :sierra
