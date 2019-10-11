@@ -7,6 +7,7 @@ class Libowfat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3f20940695f42a2c551a9e93d34e330ddf94906b43ad589cc0de037d4dd0de3f" => :catalina
     sha256 "86a90bda438ddf8d328a4377ae661911e830b42e4cfdd699d6712845e7dc75b1" => :mojave
     sha256 "43e3968245f33399038ffb25f48618be370cb8242f38ddc36170b76cfd0da3fe" => :high_sierra
     sha256 "4f719fe2a03651ecea7882464e5b8fd1f4f3b1e32a0f75f9e5cd9e66ad32a123" => :sierra
