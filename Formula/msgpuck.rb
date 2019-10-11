@@ -7,6 +7,7 @@ class Msgpuck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "01dbdca0333694d379bd7b209d52d8dd8e48f5416d9df441d43cdb29c2751738" => :catalina
     sha256 "0fedf815d4ba46d10e5fe7910cbcc06f1ea2906e40a4ef994ffd3aa04289c423" => :mojave
     sha256 "50197e08a5b55fbe804109ad01dfa815a6dde2b11b688d89a58154fed2d8d54f" => :high_sierra
     sha256 "6f4011d177bf2e42f94f853bc93283ada6c48df8fdb7269135def453e65e598d" => :sierra
