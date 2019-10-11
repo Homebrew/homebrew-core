@@ -2,8 +2,8 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.22.0",
-    :revision => "bb59d527eb5a60b2cefb8999972287742db729df"
+    :tag      => "v0.23.0",
+    :revision => "e98b15ca2cefddb285ad9d73b4fd2b35ca2c1d32"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,16 +16,8 @@ class Wtfutil < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GOPROXY"] = "https://gocenter.io"
-
-    dir = buildpath/"src/github.com/wtfutil/wtf"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"wtfutil"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-o", bin/"wtfutil"
   end
 
   test do
