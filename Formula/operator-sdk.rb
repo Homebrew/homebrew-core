@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      :tag      => "v0.10.1",
-      :revision => "872e7d997486bb587660fc8d6226eaab8b5c1087"
+      :tag      => "v0.11.0",
+      :revision => "39c65c36159a9c249e5f3c178205cc6e86c16f8d"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
@@ -47,7 +47,7 @@ class OperatorSdk < Formula
 
     if build.stable?
       version_output = shell_output("#{bin}/operator-sdk version")
-      assert_match "version: v#{version}", version_output
+      assert_match "version: \"v#{version}\"", version_output
       assert_match stable.specs[:revision], version_output
     end
 
