@@ -6,6 +6,7 @@ class Hyperfine < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d753b680a58114eb21c6c35cdc82d8ab65e8a232f08b131e617fbd0942fc7b45" => :catalina
     sha256 "1e594b60a9a42d58a48d257b4a3bfa9749ee49411109a8e0eadd1518e8765c46" => :mojave
     sha256 "3800230a38043d4e39d6e256c51ad8993d473e0c43aac1831278516c072b1f02" => :high_sierra
     sha256 "178a014e8792930ccf1114f035188e8a894c3688356257178e4bcec1dd008e49" => :sierra
