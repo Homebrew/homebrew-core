@@ -7,6 +7,7 @@ class Sphinx < Formula
   head "https://github.com/sphinxsearch/sphinx.git"
 
   bottle do
+    sha256 "a552209dfe78655a9aeb23f6052f4d92822b23fff6aa86927cdd2103baa522ce" => :catalina
     sha256 "94b90c69f874065f016d997d0116a5904fe08ac8971de6f853226beae7728d5f" => :mojave
     sha256 "b2ebd3519b509a3afae2a915fe9744f4ef880a2a650820322c54ac27a07a0573" => :high_sierra
     sha256 "848eb3db1c267231d5bff8bd8e6cc5b24fcef37acd977dd9be93c0716c6fdde2" => :sierra
