@@ -7,6 +7,7 @@ class Kakoune < Formula
 
   bottle do
     cellar :any
+    sha256 "0cd60b373efe3e4b89576295a374405c4a3819a945c091b18e18d18de316879c" => :catalina
     sha256 "7cc097196707ad5f212b825b66f9de7f128240295fa7ccd097314c5a1145b358" => :mojave
     sha256 "755433189f53b8a410ea4659e8d9c20b26c657c4983ebd882d297118856428db" => :high_sierra
   end
