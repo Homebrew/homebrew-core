@@ -6,9 +6,9 @@ class Osqp < Formula
 
   bottle do
     cellar :any
-    sha256 "02787f8c20cbfa8f8c36cdead8e7a14bc32512bce34cc4c3e7d8c4961e2c9c68" => :mojave
-    sha256 "563a972e1ba486955b23830bfa9c19772f73fa71cfbf7022dc846e0e55681243" => :high_sierra
-    sha256 "1f647ffcc9b71eac3f9db3d2221af3da0a5f31c06b90f731d4dcf2e015281df5" => :sierra
+    sha256 "50feea323216bf8cc5d8dda92264a9354d547b5076d4c3b37b75792d0ac14c3f" => :catalina
+    sha256 "99a2f2810fc34c0241c0bc4a7bc31704a5b1ccc8201d112735e75cda14bb4bca" => :mojave
+    sha256 "2f50e046d34b7556891c7351aeab94347d1404b4ac1dcb041c413c4fb42bf16d" => :high_sierra
   end
 
   depends_on "cmake" => [:build, :test]
