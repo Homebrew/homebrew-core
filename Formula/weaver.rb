@@ -6,6 +6,7 @@ class Weaver < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ee9b039b758ae1a7cdd182887b450c985ca37fb839ef9c486bda859af0df5f6c" => :catalina
     sha256 "8158b3c36bb668c361660b7d433779faf10f3eb8038528b5f26cda4f4966e238" => :mojave
   end
 
