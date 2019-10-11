@@ -6,10 +6,11 @@ class TarsnapGui < Formula
   head "https://github.com/Tarsnap/tarsnap-gui.git"
 
   bottle do
-    sha256 "c62f584809071d3dabf02cbf29d788b4f86e6fcd5996293d30377d26f141971d" => :mojave
-    sha256 "41217f384ad4c1702c2ba93d7f97c24b67294aa6331c9a16900455e3a997ca6c" => :high_sierra
-    sha256 "ba85a52b227ea1bb947f970e5f3926057b44560a3a562356558f7009535d31ab" => :sierra
-    sha256 "b0fa1979fa2cf1ee3b56e1060c7d9e5bcd4c9319104adfea4cf1fd279ae80518" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "34d641a2f477699fdbace87e2366ad998c012915f7e64315c90be60db07b5ae0" => :catalina
+    sha256 "5423a7d16f7c629fb65a3f4a9240ce388cffbeee214f40b12599abd56fe39df9" => :mojave
+    sha256 "d3e5e2aeee094f0e5944d68765965f2b9261cce026bafe45482a2b1e9abb1273" => :high_sierra
   end
 
   depends_on "qt"
