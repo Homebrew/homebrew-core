@@ -6,6 +6,7 @@ class Sloccount < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d3469469e7bd68ebb15f62d33d9562133c726790571f0d9d3d28fb1ad1bed8d4" => :catalina
     sha256 "4131346005c6344f672049de9b783fd67476c66e68d3881e9918f2a42904b48d" => :mojave
     sha256 "cb8c077fa71631f7a2d3a9041f5aeea519835cf18406398953aaa1f340d8b439" => :high_sierra
     sha256 "c6ae6d6442fc33e0aa5302fc99535ad79507067960226533a64e8332a1aaeaae" => :sierra
