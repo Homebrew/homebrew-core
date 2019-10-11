@@ -15,6 +15,7 @@ class Mpssh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "714e7b0e97a942f68885baefa599d97e143631154480d0246d04e21a49910acf" => :catalina
     sha256 "e37b5e479ba7f9ad86373e646c63485b55dd1381c2cbc130150e108886675b72" => :mojave
     sha256 "1057c47b866d50031a23a0bd244d3bc056b9f12a4d9bf0aeebc0ea292c484638" => :high_sierra
     sha256 "90d758a0f7accf0b63755c3de8100a880b500e732fc8924123ab2a1c7ce688f8" => :sierra
