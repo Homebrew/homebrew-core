@@ -7,6 +7,7 @@ class Dcmtk < Formula
   head "https://git.dcmtk.org/dcmtk.git"
 
   bottle do
+    sha256 "0a4d26f5da24a4ebca2774bae0a433d91aa12a528083569fc88e4040066a3617" => :catalina
     sha256 "d7c5cbc32fdd0c44228884512eb0cf8068d6b169165a822f6c57e61cb7d40bce" => :mojave
     sha256 "c8be648beb4178829963b0029153f6d0ab1be921a9cd472760e661b98f17d94e" => :high_sierra
     sha256 "292276fd0f5f5a8c0782e6e5fc0d35895600c9835ff634f7b16e6b92e534f72b" => :sierra
