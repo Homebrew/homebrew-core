@@ -6,6 +6,7 @@ class Traildb < Formula
 
   bottle do
     cellar :any
+    sha256 "d838c36b8e7fd566e034374e1fe05e5a2db41940229f7324fec53a2e7387db48" => :catalina
     sha256 "61992aff616c9e39b703e8b2c138f3997dd9ba7ec6c85eea711605327e221b1f" => :mojave
     sha256 "b383a6635462acd29d12473520ff1cf70920c429f0ed9a010cf2860bf7df3180" => :high_sierra
     sha256 "e84323b169f8a2d3ccadadb65d968c99265f37f581d9fe002c259b76b180776e" => :sierra
