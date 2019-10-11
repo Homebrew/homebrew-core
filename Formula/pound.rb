@@ -5,10 +5,11 @@ class Pound < Formula
   sha256 "a7fd8690de0fd390615e79fd0f4bfd56a544b8ef97dd6659c07ecd3207480c25"
 
   bottle do
-    sha256 "3ac2ac693cb4fdaceec7bd76f53194b52547385d583c798021973b40f9ab951f" => :mojave
-    sha256 "2b8c55bbd7d5fd6596766f186289cbb239789b50e1cc9854916107738cc216f6" => :high_sierra
-    sha256 "c39e63c7e5e173faf98a8be51df5ec7ea2d3347b912d62cd8b051955b3f75c91" => :sierra
-    sha256 "d16c3c0aba3eafe8f50bc4e79401a0ce3129519860d0b3bca8cdfd10023ff7b5" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "100b5b65c465f22a925c77479d86206ea964b6b3db03ef3590635b2659626b61" => :catalina
+    sha256 "9b2754f632d00c3467017b364d8797b901f648bf5ae482b0131a6792c2d65a19" => :mojave
+    sha256 "a2edd6090ff8e6fc56d116b1208fc9d45be9a824c4900f9ea702358b3c843b9b" => :high_sierra
   end
 
   depends_on "gperftools"
