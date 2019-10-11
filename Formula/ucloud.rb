@@ -1,8 +1,8 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.25.tar.gz"
-  sha256 "efe5d04d9326ed258d7a9f6f53d46e65e60cd8473094e6ff2e9a46a7d62ef28f"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.26.tar.gz"
+  sha256 "a1c170eb16ee0da4b8a7fa407af0486ed54394086f45dbb8bb374db7416c81fc"
 
   bottle do
     cellar :any_skip_relocation
