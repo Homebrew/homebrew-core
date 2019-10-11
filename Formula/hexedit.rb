@@ -7,6 +7,7 @@ class Hexedit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4b53f01b5dace2c4549295b110b6f8320e87beee63b06fd7276ed179017eab52" => :catalina
     sha256 "50d22aea785dda60c33b9e4e54640c44e64a0c6cab64b560a05a921bb6d078f2" => :mojave
     sha256 "9a6c6e290d26d793c2e2b85a1cc1ef0147ea70d957859228d5a363c8ebb3fb4f" => :high_sierra
     sha256 "c93767f4bec81f4d372d4af42a7505131f61ce4992b2549210aa464ee5b309ce" => :sierra
