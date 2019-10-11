@@ -6,9 +6,9 @@ class Pdfcpu < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f4351e012f4555f26d71d4cb3f4ee6891775e59d4d54af6f6281379d84f7fa8" => :mojave
-    sha256 "db507b177cd84c9d0b0d423d28793939a60f5e5f4b6bc4f7c850f4962e830fa6" => :high_sierra
-    sha256 "61c73c66edb2fa1d0a68143646362c507af5a1bfb3e15629f311ef23bc890bb9" => :sierra
+    sha256 "415443f104d02baa622d899eeee490937dbde9dd6eb9ea7b439c27830c6213e2" => :catalina
+    sha256 "e93767228f9a034e686e5687cfda91416139aa27eca3cd6fbc23773701c168bb" => :mojave
+    sha256 "b4c5b54a3b826aad673529fae0535b76dcff89c24247d2053c929c2712e8964d" => :high_sierra
   end
 
   depends_on "go" => :build
