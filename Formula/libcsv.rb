@@ -7,6 +7,7 @@ class Libcsv < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "e596efc37a1bf77cdbbab5fdc904e6ffa796f221b3ffa531f3ac24f56237d18a" => :catalina
     sha256 "ad3c84168c138aef88134f7666f870dcb17f8b779b5e5b54417515f7c9b740af" => :mojave
     sha256 "6946a6ff37a03f75d464cdc1229eb72251ae6b5d2726a658a016e39e862f0e33" => :high_sierra
     sha256 "6d89efd634be6551134f099e458225325d76d69f55ba37676a3ccf7bea6c4e59" => :sierra
