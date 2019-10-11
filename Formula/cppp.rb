@@ -6,6 +6,7 @@ class Cppp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "29ce2b3314eaecc5873039675e85efb132a5ebfa9aac743d1b327b60f66c1122" => :catalina
     sha256 "cee25209e4a2ef97d118eac091fa7d5cb6c4ba91329bd713b7ae998e92aaf3c3" => :mojave
     sha256 "93bc70ed7bfe05cf901c8cb8400253c0bce2d245cbb5f47698e8c81c81ed6a85" => :high_sierra
     sha256 "af58094ee1d80d6d09163b42755d827aa5b8be15b636a6ad087b334978ad2e38" => :sierra
