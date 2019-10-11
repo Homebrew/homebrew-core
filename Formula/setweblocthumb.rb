@@ -6,6 +6,7 @@ class Setweblocthumb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6849eb0b22ee09260daa9432881f66dbb97ef44b26e1d469ca11d316658ee4f2" => :catalina
     sha256 "95ec7fa6fc12d232f0ce75089ec987d91a922752578447a68e9170de743d5552" => :mojave
     sha256 "8d7536c3ba30dc46c4e3a0f2e4be411d3e8b06be939a5130c67d2094da0cef4e" => :high_sierra
     sha256 "563620905a209f198f30bbffc9177294b224cee3098719af6da8cfca74092157" => :sierra
