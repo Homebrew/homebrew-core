@@ -5,11 +5,10 @@ class Pdf2json < Formula
   sha256 "65d7c273c3dc003470ee61a429274b3612a0ee995e75dc32ad8dbdc9d03fbad1"
 
   bottle do
-    sha256 "d04e13e9a3dcb0593b594575afbc67acc1c6e0bda8e2cefa85b2027fa97b2036" => :mojave
-    sha256 "60d1c24f08283b8040f2e7e9154f7fcccaa415199fb77fefe843eebb74583019" => :high_sierra
-    sha256 "586c26331ad9becac719c803c71be519ea3684c28ab80db457e8f61df9485234" => :sierra
-    sha256 "92852d5246f34ed87340f347f8645c60e39f7cbd924c2e94cf199f4f9d42ddc6" => :el_capitan
-    sha256 "3c10495304bdf5d1c99127219e79d3693bfd8141c861596e791935472c59246c" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "ffcee90aedfc094b2339da1ea20d13533944e3cb504c83bf14c5a35e3c8fc6d3" => :catalina
+    sha256 "43e67dfa77c38eb32a4ae1b079c565752e567598596d8adaaa7d4f464eee7696" => :mojave
+    sha256 "82d6e789d9a698b1eca23ed91ef3ecc3a67db1faa4a1f530f2f1452484d8ca8b" => :high_sierra
   end
 
   def install
