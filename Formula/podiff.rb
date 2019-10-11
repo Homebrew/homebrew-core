@@ -6,6 +6,7 @@ class Podiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "34c82b7a2caa7d65bea883d10bf20dc29346a04c381c9e7bf4a38473916d079f" => :catalina
     sha256 "2a9b5cb91d5f6b36ea965f2d7bd85fd47c5719f3a9d9079cba7e5d2f6cd667c3" => :mojave
     sha256 "c862b6ec4c259c495879fd91dcb143e9768b2cbb12ae5e07506d63350e36cdbb" => :high_sierra
     sha256 "be964cc5259d37f0f4676d5e3a0fac77b42e4f3e7641c7579d47182e4f036e83" => :sierra
