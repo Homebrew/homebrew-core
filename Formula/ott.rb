@@ -7,6 +7,7 @@ class Ott < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2e9d2682f185656de583c42df9b99b3a23e1d167f7cfb366d97d74e9d728c9f9" => :catalina
     sha256 "a64451a61a2d6cb0d34e327459bdd789233d8acc2fd89673b931220a7780b869" => :mojave
     sha256 "d590c5c215ca73f47baceb8c851836c1e9ea0d78fcb6f253c02568c6db56a65d" => :high_sierra
     sha256 "d2132bd134e79d0e73a4b4ea6e23363f9b14ade49b550fa65b5744dc41c35fd9" => :sierra
