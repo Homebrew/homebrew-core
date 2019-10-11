@@ -6,6 +6,7 @@ class Acme < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2347f64662e48b99e1d200d9c9a1fa8442a4913c51fd87a4859ea70f7ddf23bd" => :catalina
     sha256 "529a7a699305f67a3443adcbd432a53690d314730401e970502222d2a2d7637b" => :mojave
     sha256 "95a02b54ddd935e3681b603617cdb428e3c0998697e83b5bacd231d0d662004f" => :high_sierra
     sha256 "3fea7e2943215c6e6ad2fa5be5e022d212b7fa55403a45f3b01a4bf5beba0061" => :sierra
