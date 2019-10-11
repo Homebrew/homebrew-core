@@ -6,6 +6,7 @@ class Markdown < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "35864422386d1390de813462b697b604813bc3a7caac7bf3fd172335e25b2a55" => :catalina
     sha256 "343d406a2a4838499afa96395733e0d61f91c725a4693e6c5b3c49293e5297e8" => :mojave
     sha256 "c7b43e96e9967731f9f9395152dca0d1535eb270a953aeccfe24dc99d3941f97" => :high_sierra
     sha256 "47715f7beb1f434a5d52e6977c7f6ad584be7b0d970dacb00ef5965bd162858d" => :sierra
