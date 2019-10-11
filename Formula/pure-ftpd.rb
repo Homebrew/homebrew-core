@@ -7,6 +7,7 @@ class PureFtpd < Formula
 
   bottle do
     cellar :any
+    sha256 "aa0a342b50ae3761120370fc0e6605241e03545441c472d778ef030239784454" => :catalina
     sha256 "e3a63b9af91de3c29eef40a76d7962cdf8623a8e8992aeb67bdf3948293c450d" => :mojave
     sha256 "a6a9549f3d8bde87cf01210e9fa29b403ed258246a7928d195a57f0c5ace6988" => :high_sierra
     sha256 "11dfcec52ae727128c8201a4779fc7feea1d547fe86989a621d4ba339f70de92" => :sierra
