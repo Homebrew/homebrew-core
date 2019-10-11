@@ -6,6 +6,7 @@ class Alac < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0cb8439e4028ea823fb442559c12365bae08499a142ad46d0c89f010f9eb7e5d" => :catalina
     sha256 "ffc34867982b3a942be2bfa1c9a561bc85270871b029c45a16fc11ffae899603" => :mojave
     sha256 "17bffb09018ddf7d96258b99860d75fb9a203037a356cb0f2e4c6c4520cdc4c3" => :high_sierra
     sha256 "3c833c71834ea65498c761d4fe444a26e97e107433de526ab55ad1fb0d36a2ba" => :sierra
