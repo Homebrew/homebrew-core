@@ -6,9 +6,9 @@ class GitlabGem < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d0f7b1518d26592e557922353fe108474ecb4b2d36110da9e09551c974841c4" => :mojave
-    sha256 "43d264c8b1f4a4a4f3a23833de9c529b72908d18675ecbc5cd618e1c0084e9bb" => :high_sierra
-    sha256 "6bef103c75ff1161642f6932ae1086d4b375c4aee773c3734fe50da1eb05a1d0" => :sierra
+    sha256 "0c9ab14dc657aa6ed5e546fc1669ef43de7877744aff96db2d191d9f02742ad8" => :catalina
+    sha256 "3674be8dfcebf52fcf079822ebdcfc1afa9783105edc25571006a5e6169e912d" => :mojave
+    sha256 "5ad1f4241fa031436247c4923446f9621a7e4af452d3c2a4c65ba6663416ec89" => :high_sierra
   end
 
   resource "httparty" do
