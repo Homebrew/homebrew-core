@@ -8,6 +8,7 @@ class Cquery < Formula
   head "https://github.com/cquery-project/cquery.git"
 
   bottle do
+    sha256 "8d2680e2397cbaa0a6c6cb2ffa00da5a10d3c2b89f5faeaa493c066417199e87" => :catalina
     sha256 "e35aabf6a4b2b0ac21c59b6e6121aa3bc8cc623ca7fe1bd763dd6430d3339eae" => :mojave
     sha256 "ee46fd2b279edc3b52df5ca9b84bdce404bb888f8a7d31e092b3fda33285a02b" => :high_sierra
     sha256 "ac3ad5aada30ca31d70f36e6e3ba76d96aa0e235ccdd62259a086578fe182b44" => :sierra
