@@ -6,6 +6,12 @@ class Io < Formula
   revision 1
   head "https://github.com/IoLanguage/io.git"
 
+  bottle do
+    sha256 "c4c862d20a8e4ddb1e6e588414a9e23ae2a17baa490e3beb621614aca7a8ca87" => :catalina
+    sha256 "48c37d6f30d8b01d391e7f4ef777b5087425d89a9df0077414769a59333db420" => :mojave
+    sha256 "a061482b97c1ada8eea9d658f13fe0cfbfa223d97762b51611c4cab2de4c0273" => :high_sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   uses_from_macos "libxml2"
