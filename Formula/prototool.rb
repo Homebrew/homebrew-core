@@ -1,8 +1,8 @@
 class Prototool < Formula
   desc "Your Swiss Army Knife for Protocol Buffers"
   homepage "https://github.com/uber/prototool"
-  url "https://github.com/uber/prototool/archive/v1.8.1.tar.gz"
-  sha256 "a8d402afeab2d9030378bafb9f913820654aebcbd0c35010c8a23e6b43268b0e"
+  url "https://github.com/uber/prototool/archive/v1.9.0.tar.gz"
+  sha256 "5f549c2c0c36f938b7d38d1fdec1deeb891ea10d534ee0e6a56ee7f9f746e89c"
 
   bottle do
     cellar :any_skip_relocation
