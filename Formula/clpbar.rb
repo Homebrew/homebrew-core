@@ -6,6 +6,7 @@ class Clpbar < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "86aefc9d1110a945b62a9dbd9d1efe2a1c4ebaade84ad56d00084857439914a8" => :catalina
     sha256 "6d00ea5044914b14d7e7c901eac63641085496b6fd474c9491e46109c6599709" => :mojave
     sha256 "eb3648e3cc14ab0712c6a71d3df6eab53bd66bad86a402df1716df3db09c0358" => :high_sierra
     sha256 "769dbb64e877ab1f52a496063bbfdac32911f38e6e25b4fc70a5cfe937923f5f" => :sierra
