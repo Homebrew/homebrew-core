@@ -7,6 +7,7 @@ class Cpptest < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "539bd0186d98d9c8ecc658e0d60b1a748ef5d2f9cd18226204a634f3b141c12a" => :catalina
     sha256 "9d91d78a8a3081d6ed690810ecb4bcf3bf3010874ba859e30c0c948f7ba30db9" => :mojave
     sha256 "bd7d2b0055d1de9cce94d3695aa7c160fbe3d0780e9650c73a7543bd5726162a" => :high_sierra
     sha256 "f243764e911fe4c056f782ebee8cd84316214d961b14322b4cedc92f60478d49" => :sierra
