@@ -6,6 +6,7 @@ class Ispell < Formula
   sha256 "5dc42e458635f218032d3ae929528e5587b1e7247564f0e9f9d77d5ccab7aec2"
 
   bottle do
+    sha256 "c4a726692b88e792bd82ee0b4cd527e8f69ab0a244f839486087e2b291947afe" => :catalina
     sha256 "5e4a1b0bd20714be296012b2b90c7bb92bfa01b997a4d4efccc369b9553a8eb8" => :mojave
     sha256 "67142ae321c800cc9f4941e8d4e665f195dad06cc483cde11d51fed7a0cde426" => :high_sierra
     sha256 "697a51b2d4e5d568ef18fdfe5943691a534145829522e3d4bb7d25f2f7978c9f" => :sierra
