@@ -6,6 +6,7 @@ class Libspnav < Formula
 
   bottle do
     cellar :any
+    sha256 "9d7234296b1bdb5c4dd0f1aa5855cca877d2eba7fa83812c34438e7cf401a3cf" => :catalina
     sha256 "a428a0b1037ff3dfd5a7ba2463f6ca96717e69be734627d8d7abd079f17fb7d5" => :mojave
     sha256 "d61c3082aef6a700ad02d553304add7bb6bb2541236a97cf0a571dcc88f67d16" => :high_sierra
     sha256 "55cf0552148451302bb50c04a843d8d3834ca95a38c79bf5270f20ac49f82d41" => :sierra
