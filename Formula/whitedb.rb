@@ -6,6 +6,7 @@ class Whitedb < Formula
 
   bottle do
     cellar :any
+    sha256 "9ec140c350c8233dcbd67def0607eb1cdb764fd3f14ac57ac3901eeeda554e0f" => :catalina
     sha256 "05673924ef2226616618002bcbcee6241db8f1ce34339ff38785fd4fe82cda43" => :mojave
     sha256 "3dc724386650bbbf608c4742d954c338e1927427e4c4f1a9c0d6255cc8deee5d" => :high_sierra
     sha256 "44639bc83668def2e81b68318dbdb5347f9262937ddb6cfdfd7303aae1ce05a6" => :sierra
