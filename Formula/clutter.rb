@@ -7,6 +7,7 @@ class Clutter < Formula
 
   bottle do
     rebuild 1
+    sha256 "a686f9b7d22b956a7ea438dac3cecff061a54281f2ae8b2c9a5a53b98e6609f9" => :catalina
     sha256 "d0db7076ac2f6b676018c9a92123de1099c7900d56039922cdc89e2389a9031d" => :mojave
     sha256 "3f628a4d8a13d6703f770323cac942541eafa9418507b3cd7466f0918bedce8b" => :high_sierra
     sha256 "ee8780db0d069682fd246a88bff1695f42c02f4900fa6eb8a8e3ce986a0674bc" => :sierra
