@@ -6,6 +6,7 @@ class Clens < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fef1ad76413e8e15683a4066276ed7f37f821edcbda4e6d648bd60e09a33a30d" => :catalina
     sha256 "3550adf8f1e9eb8e62ac6c64f3b3c8cae0fba0d0f958f6e6da99e74f4e4d5e19" => :mojave
     sha256 "e9dfe6e9228a928f9cb1a4048d92ec576be5f89f48408401b7f3020c1482a7c6" => :high_sierra
     sha256 "f034c79bf5a16265db249c673b2d2a3e6850676dba739adeb6e90394d8f77475" => :sierra
