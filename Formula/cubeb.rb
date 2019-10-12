@@ -7,6 +7,7 @@ class Cubeb < Formula
 
   bottle do
     cellar :any
+    sha256 "98061577ff4699c6d87158764616203f1bc758a858c88683fd7f7f10f90e74b5" => :catalina
     sha256 "d34baf923b56edec2ae8201857c55426584f35b47ef8e2e6577a38f684fbab75" => :mojave
     sha256 "618debffabe494dcde3e0d7e2231078df124ead8ee342886ab38ad7373f73e37" => :high_sierra
     sha256 "f89e89027370ea9da99f72f0af0529f9b63fbe31c434d3ccafdc7230664a41c2" => :sierra
