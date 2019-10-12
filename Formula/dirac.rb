@@ -9,6 +9,7 @@ class Dirac < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8c4a433f067fac458d219eaed956744d84cb9069334df82a3745e6f5f24aa686" => :catalina
     sha256 "c018586bbfdeb10487adc1c62bdd74138b9d11195064bd2a07d458a55d770a06" => :mojave
     sha256 "9413ec8e068d4c8e30d679a62af9779a09de385e2287acebacf9e5c56e80a50a" => :high_sierra
     sha256 "09b846fe4069e971ec6d10668d97ac599cb555e5799f3ba3076d0d088e1f78cf" => :sierra
