@@ -8,6 +8,7 @@ class Fdupes < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "461c8de0f269c38289159a5b41935a788955bff38fdc7c104108c9e3dfac22ea" => :catalina
     sha256 "69dcc3c64c3debb7f3b927e16fc6e7e2250c4c35db280a8fd97315fcc48628a4" => :mojave
     sha256 "2ca42f56f5b4e48a4a51cf9687108eb2ebbbf43ce610596d4420be1a68f1ec1b" => :high_sierra
     sha256 "4838e3104ea06e61d7acce5f482ff80bae1d634f29a1edd44e388b9f8c63f19b" => :sierra
