@@ -18,4 +18,8 @@ class Osmcoastline < Formula
     system "cmake", ".", "-DPROTOZERO_INCLUDE_DIR=#{protozero}", *std_cmake_args
     system "make", "install"
   end
+  
+  test do
+#     output = shell_output("#{bin}/runtest.sh")
+  end
 end
