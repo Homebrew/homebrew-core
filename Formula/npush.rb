@@ -7,6 +7,7 @@ class Npush < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fdb6d7cd95fa85086a4dc01edfb5859fcf65d2932c56d931d716814157f5449e" => :catalina
     sha256 "fb3618689797a95b8296a7b37f3c8f2e9cb29fdcbd9b2fc9ac9d585e46d6eab3" => :mojave
     sha256 "c3d40f8709487c01053f5ea09e35c047ae6bfede34d21e97703d38c9985d67b0" => :high_sierra
     sha256 "ce2f958ef8d766791137266e74b7c2cd0843755d080ecbbd6a7074bc7d035c19" => :sierra
