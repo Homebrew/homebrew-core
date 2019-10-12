@@ -1,8 +1,8 @@
 class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
-  url "https://github.com/aliyun/aliyun-cli/archive/v3.0.26.tar.gz"
-  sha256 "fd5f9e32b408414f822468879d5926f264ce1d019ae7ab7c8732f0da89af64ca"
+  url "https://github.com/aliyun/aliyun-cli/archive/v3.0.28.tar.gz"
+  sha256 "c68c830b68e777ee2a7228c4fd8827e71ac1fc9b1abac06fffc1d1a149a31724"
 
   bottle do
     cellar :any_skip_relocation
