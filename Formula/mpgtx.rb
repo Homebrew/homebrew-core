@@ -6,6 +6,7 @@ class Mpgtx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "116812d4c0401a6ceeae3bd8bd0bc3f4870c0cac7f9ec166ceb97f5279c10d32" => :catalina
     sha256 "40240b442f8d3c41f89a38da8055cbf30fc10a4ea8b4dd469903d19c424851ce" => :mojave
     sha256 "6a003e12c03f1cc24bd520e1cf153da02729b4d30e7bdffcba5cecf832c19238" => :high_sierra
     sha256 "70e1dfed0338fb8b8cda36ca05e05b8cd3fd456782db58408b18bbf2361f09aa" => :sierra
