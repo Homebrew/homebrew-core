@@ -37,7 +37,6 @@ class Moreutils < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     resource("Time::Duration").stage do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "--skipdeps"
