@@ -6,6 +6,7 @@ class CstoreFdw < Formula
 
   bottle do
     cellar :any
+    sha256 "a8b567b94b36717172703aaae7efdd9186c98f38019a46e5215ada8494e595ee" => :catalina
     sha256 "b6bc6b6fa4ee33cc7feb99c3048ef9111720bff5a4d9aafd46269dfe886e84a7" => :mojave
     sha256 "634bbe8703dec700f01becc6a83fce3aeb741cfcb6e3cc40527cc334b67f4bdf" => :high_sierra
     sha256 "947cd3c688305996b7b3a4159c0feab29efd5adaa0ae5548250ffdb3b8095bee" => :sierra
