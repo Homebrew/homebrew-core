@@ -1,8 +1,8 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.3.1/shadowsocks-libev-3.3.1.tar.gz"
-  sha256 "afd25ae5e737be385fa53364c66095c354277e98cf141b54beb2be93d9228f4f"
+  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.3.2/shadowsocks-libev-3.3.2.tar.gz"
+  sha256 "ce900a44245fa52cb871eb08278a8b857b6d4074bf7cf3ebf698b0aee0c54764"
 
   bottle do
     cellar :any
