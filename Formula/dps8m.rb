@@ -8,6 +8,7 @@ class Dps8m < Formula
 
   bottle do
     cellar :any
+    sha256 "32b101a68045897e808ab00e2d963b820bc6ab6acab96bdec6ef5752230eb952" => :catalina
     sha256 "b238a69a4da50c3b951981e5b3c6e4683aeea100acbd0dacf449e723422c649d" => :mojave
     sha256 "0c436100ea3f71f5e7fcb2a39ca6d6e08a4981b661117e6e8d18685df3c8d040" => :high_sierra
     sha256 "eab4df90e0f3573923e9baab97f0685d793a5ae200f167be8f99fc1ec957b60a" => :sierra
