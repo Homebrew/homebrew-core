@@ -6,6 +6,7 @@ class Genstats < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8201a8f52e58a092d639023f9232079d7f88f5f5d221947b15c867417537274b" => :catalina
     sha256 "821568c68faf33aa9045ccdcc6975d0f24f4faef8fc747275c5d8f8320d9ad55" => :mojave
     sha256 "7bea82f0ca1047f295bfd0f6ca348f0c07cd33b165bb5a9042c77f9cdc97907f" => :high_sierra
     sha256 "051dbb7c4f653b615b606d1fce15df9336a086e38428fcfdb2aee9f0057d8990" => :sierra
