@@ -7,6 +7,7 @@ class ObjcCodegenutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "24745ae53d47e15598835ee0538c3f121c48b31b21902b1fd3fab0a8c9886543" => :catalina
     sha256 "7a10354a20ef417eeb521c983f4714be063b68e6d74bec7ddf6f72b99d3cbfbe" => :mojave
     sha256 "118c03e858a60fa17c71fbc84fb5a8b9c5f778a0c68531e3df576e1d85d9c91a" => :high_sierra
     sha256 "d7b3d3d26970add3af78b0820f3ef8b5e0290f1b2114f5bf06acddcd8d6bdb34" => :sierra
