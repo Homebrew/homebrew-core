@@ -6,6 +6,7 @@ class MysqlUtilities < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9ffab9999299858c8a5c019d55e94b04a1babec5bd3ef96ac4694f49837bf3dc" => :catalina
     sha256 "793415e1d7e6deffe3f3dde70ff6262d41ad3661664df7906b8996cfaaa292a1" => :mojave
     sha256 "952e22b82a12919d9fb06d5aba5eb7e214b70c3b5d27e3ab1d219e19e2e01ec9" => :high_sierra
     sha256 "7166858aeafbd28075334ede9d60569a282ccd0a87dcf353cb6b56a40ae987c0" => :sierra
