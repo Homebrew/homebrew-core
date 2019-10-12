@@ -6,9 +6,9 @@ class Mmark < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "722c652fc047a14a6de337a5636846ab8fece9d1f8b55e66877169702a7f02fc" => :mojave
-    sha256 "7982ddd0e69261a3f8190fe8d7a85ef78c605a318b731820fb59e6b1344d349e" => :high_sierra
-    sha256 "cd438f924dd26baed2e423e23f66f194721b825c2f04c9e290d39ee7db651c90" => :sierra
+    sha256 "b502e75cb3bc36d562d342650766ef432b8823d7f14898ef57085fc9c939537f" => :catalina
+    sha256 "991527aa84e63ac9e1e0c3693c041339aed014f4441fb5c862b9ce9a4a32c419" => :mojave
+    sha256 "c3d57bbdd88cfdd3f212c68f73350afd5969b471d928f4ea6aa30d7545e2618d" => :high_sierra
   end
 
   depends_on "go" => :build
