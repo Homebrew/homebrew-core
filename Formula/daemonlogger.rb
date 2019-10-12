@@ -7,6 +7,7 @@ class Daemonlogger < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8f2af84c9d476a7bd11e30185794bf107a92ae32f92b84f38f5a629f368ad6c2" => :catalina
     sha256 "1cac9c8c17cd804206440d35ec88f49e8162ec102a4e561aa103f528b6d49382" => :mojave
     sha256 "04242956845e71d839b050dd765829a217268486eb625a481a3fae85bd577f0d" => :high_sierra
     sha256 "c3ac14ab04174e06129fc0a51d31ad992f3d11f362ecb1cf3803092b6c68b146" => :sierra
