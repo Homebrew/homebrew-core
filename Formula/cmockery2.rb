@@ -7,6 +7,7 @@ class Cmockery2 < Formula
 
   bottle do
     cellar :any
+    sha256 "dc794b321aa10ede37917259ba4491dc59271826f2921c5b652b1d67e744b961" => :catalina
     sha256 "a36cbb449fcca235226fcfa94439f2370f22d3d6f1986c710c1e640959f8a271" => :mojave
     sha256 "3651caa0ed8c5e2ec5dc0fe8932a53e20c2af28d3887161d1cdfe9c46fb9f220" => :high_sierra
     sha256 "661b4a8751a4dbe7e52b19cd9452d8b7dd61c929d73da27ac4fca5623a0dff6c" => :sierra
