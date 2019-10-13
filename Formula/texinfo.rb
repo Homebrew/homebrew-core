@@ -12,6 +12,8 @@ class Texinfo < Formula
     sha256 "00f00f4d5ab3a6ba46d90264df0c8e0117cb14e30398ca574b0b53b95226e687" => :sierra
   end
 
+  depends_on "gettext" if MacOS.version <= :high_sierra
+
   keg_only :provided_by_macos, <<~EOS
     software that uses TeX, such as lilypond and octave, require a newer
     version of these files
