@@ -7,6 +7,7 @@ class Aggregate < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3e22a340761b031b33e9f4a48f39edd98c18f7ea7c77abd02d95f816e7fe7245" => :catalina
     sha256 "231a7cce3160591eff39c8f70a9324dd0329a6a21355d49747c74308527cc946" => :mojave
     sha256 "6dc7626282f519003e1d559ac42a983f4a571494ac04e5b61858fdf16d1ca924" => :high_sierra
     sha256 "ebe7aa16c7cf36684463292995c60fdde12cdac889de551d8f85b89e6b77416c" => :sierra
