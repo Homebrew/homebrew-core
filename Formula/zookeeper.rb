@@ -1,8 +1,8 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz"
-  sha256 "7ced798e41d2027784b8fd55c908605ad5bd94a742d5dab2506be8f94770594d"
+  url "https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz"
+  sha256 "b14f7a0fece8bd34c7fffa46039e563ac5367607c612517aa7bd37306afbd1cd"
 
   bottle do
     cellar :any
