@@ -8,6 +8,7 @@ class Pipebench < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a7a63d8cdd084919304019c06290b7b808f637071c30f688219b47e2cc49f469" => :catalina
     sha256 "7489b10153744c61c74be048fb8c5d0acb4abae2f03437a0a633a312253c3345" => :mojave
     sha256 "9ece6aaf7dcf0e1dbdbba28979ffbb6384f1d69aee8d194db2e009994c655cf2" => :high_sierra
     sha256 "213e31962005a876277c6f8edd3c9cd8964c253496f7945d48aef7338c76277e" => :sierra
