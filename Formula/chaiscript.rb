@@ -7,6 +7,7 @@ class Chaiscript < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d8f971e8ca36046cb2ddfa59c4a39091bce3cb1178f2be35d4f5a7a98ec2c932" => :catalina
     sha256 "37f73c985ecbb3d1050f73c5020080fd6b8632780b3cacdc635c6198d9afd7d8" => :mojave
     sha256 "905850906c705182fe0c3011314d52b852585121f91c91a03ad20cc1b4a1a830" => :high_sierra
     sha256 "ce45ec71bbf6917d01c5d3ac872b31637189b90216848166ec91df5c65a82d07" => :sierra
