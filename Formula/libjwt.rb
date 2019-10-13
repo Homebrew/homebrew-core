@@ -1,9 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/archive/v1.10.2.tar.gz"
-  sha256 "618cda68df773f45eb43dd200afd384935c3a7cf85d1a9a53a7fadc1c899a40d"
-  revision 1
+  url "https://github.com/benmcollins/libjwt/archive/v1.11.0.tar.gz"
+  sha256 "61acfce6a514369c76ee1f2ffad74519ae91d5830fde478a253f69dcddb7b0af"
 
   bottle do
     cellar :any
