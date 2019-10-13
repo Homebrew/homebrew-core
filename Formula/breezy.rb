@@ -9,6 +9,7 @@ class Breezy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "de3c04df49c4285005ea98ad5eb5bd98be874bae139f070b5c6634170cad7b99" => :catalina
     sha256 "ccf8ebdf6a6a1537f0951ec06ee12da2de9d7ade253020b19c446faeebf0b156" => :mojave
     sha256 "c58047e03d6f82ba03d604018530a8c292da2b985bdc2c1f54257748159b3c9b" => :high_sierra
     sha256 "65185192205eaabf4f253495aeff20409c8e2658cb471c6b1da6678374558473" => :sierra
