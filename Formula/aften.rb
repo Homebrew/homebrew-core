@@ -6,6 +6,7 @@ class Aften < Formula
 
   bottle do
     cellar :any
+    sha256 "c1f3497bae95d7cd92f28b1a22d2dcfc06c0c7342c6c2993b6f564110f6e8f99" => :catalina
     sha256 "07e80303cd84483b9e86b880feb3885814644b115f161ad10582c6ce99cf192d" => :mojave
     sha256 "b1b8facf243da3872f4ddf2fbefb4879228cb5b390f883794b8b115d06e4c6a6" => :high_sierra
     sha256 "535ef47b08163c8d1d7a66ffda7d3f280c0569a74d9feedbcfc93cd3c55194ca" => :sierra
