@@ -17,15 +17,19 @@ class Openblas < Formula
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
   depends_on "gcc" # for gfortran
-  fails_with :clang
+  depends_on "libomp"
+
+  patch :DATA
 
   def install
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
     ENV["NO_AVX512"] = "1"
 
+    system "gfortran -dumpspecs | sed 's/gomp/omp/g' > specs"
+
     # Must call in two steps
-    system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
+    system "make", "CC=#{ENV.cc}", "FC=gfortran -specs=#{buildpath}/specs", "libs", "netlib", "shared"
     system "make", "PREFIX=#{prefix}", "install"
 
     lib.install_symlink "libopenblas.dylib" => "libblas.dylib"
@@ -59,3 +63,31 @@ class Openblas < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/Makefile.system b/Makefile.system
+index 09a648e4..25c978b3 100644
+--- a/Makefile.system
++++ b/Makefile.system
+@@ -479,7 +479,7 @@ CCOMMON_OPT    += -fopenmp
+ endif
+
+ ifeq ($(C_COMPILER), CLANG)
+-CCOMMON_OPT    += -fopenmp
++CCOMMON_OPT    += -Xpreprocessor -fopenmp -Xlinker -lomp
+ endif
+
+ ifeq ($(C_COMPILER), INTEL)
+diff --git a/c_check b/c_check
+index 271182c5..8012a10b 100644
+--- a/c_check
++++ b/c_check
+@@ -161,7 +161,7 @@ if ($compiler eq "OPEN64") {
+ }
+
+ if ($compiler eq "CLANG") {
+-    $openmp = "-fopenmp";
++    $openmp = "-Xpreprocessor -fopenmp -Xlinker -lomp";
+ }
+
+ if ($compiler eq "GCC" || $compiler eq "LSB") {
