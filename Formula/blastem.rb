@@ -8,6 +8,7 @@ class Blastem < Formula
 
   bottle do
     cellar :any
+    sha256 "af5456a241d99a468539fb3fb549a28001a8d7553e9514b8cdebdb4c8d03e0c9" => :catalina
     sha256 "4becc15b16ef0a6b58a731d7e78bb5dfdf3360cb4ccd3b86bb274d25c2ef6152" => :mojave
     sha256 "26b745117fe55e41fa2d3dfde89e6ea092983e3f2f09934bbcc46325a60f4b50" => :high_sierra
     sha256 "0c7a00d5ed0f16fa729be9f24b440a2f2ab21bbb6822bfc80e78d59c8f6f1092" => :sierra
