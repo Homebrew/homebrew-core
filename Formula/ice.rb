@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.2.tar.gz"
-  sha256 "e329a24abf94a4772a58a0fe61af4e707743a272c854552eef3d7833099f40f9"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.3.tar.gz"
+  sha256 "90d71f0c5e779aa6988cc77371fde6d25df33b14014f9ac7f6f29bfbfdd9a457"
 
   bottle do
     cellar :any
