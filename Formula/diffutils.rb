@@ -7,6 +7,7 @@ class Diffutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "25a2f5fcdfcdf2efa36b97841e45455950fe322e1c642d97a36abbb2662007cf" => :catalina
     sha256 "4ec2a5ef0ca889d6c449b31ed43c797a0656ff7a2acfd913d0f87d8f14248031" => :mojave
     sha256 "fe012f4e981c3df3b2d1b3eb2b77009991148e3bdc08dd974d6f6071108e8937" => :high_sierra
     sha256 "3a04e2e2de81458a8fc75482a97a02883a1cdf231ee340ce30d9a712d0475305" => :sierra
