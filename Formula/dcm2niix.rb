@@ -7,9 +7,9 @@ class Dcm2niix < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e33ffcbca3ef8e250e0fc380501084d90ac925ce2a7cc3c0ee728838db5b2b8e" => :mojave
-    sha256 "4a43d0bced2c0e5222734d88efefc35e8582d829677663899af63c67cf51ce4d" => :high_sierra
-    sha256 "a7c586cb051e2875b79893177b7e21bcc6d6aa37270963e62bbf7cbab5a955f7" => :sierra
+    sha256 "465e82682ce5746f969850e416aafd695076684f478ce03c615df0b40fc12ec5" => :catalina
+    sha256 "2120680975a3caf5e0453e7b233ac55cdfc2ea53bcfa4fde61cfbaf593c4b561" => :mojave
+    sha256 "82d4070c7a29a0e38f5c183ea894d0e5491f38fab1eb5b32e3eb430ac92f42b8" => :high_sierra
   end
 
   depends_on "cmake" => :build
