@@ -1,8 +1,9 @@
 class Nudoku < Formula
-  desc "ncurses based sudoku game"
+  desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/1.0.0.tar.gz"
-  sha256 "80fb9996c28642920951c20cfd5ca6e370d75240255bc6f11067ae68b6e44eca"
+  url "https://github.com/jubalh/nudoku/archive/2.0.0.tar.gz"
+  sha256 "44d3ec1ff34a010910ac7a92f6d84e8a7a4678a966999b7be27d224609ae54e1"
+  head "https://github.com/jubalh/nudoku.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,14 +13,9 @@ class Nudoku < Formula
     sha256 "8f4cd53a9cd87ac8b9b1b48a986329708134608e3ff4423e8f449e1a6c81d6f1" => :el_capitan
   end
 
-  head do
-    url "https://github.com/jubalh/nudoku.git"
-
-    depends_on "gettext" => :build
-  end
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext" => :build
 
   def install
     system "autoreconf", "-fiv"
