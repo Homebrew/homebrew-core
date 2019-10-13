@@ -4,8 +4,8 @@ class Gitup < Formula
   desc "Update multiple git repositories at once"
   homepage "https://github.com/earwig/git-repo-updater"
   url "https://github.com/earwig/git-repo-updater.git",
-      :tag      => "v0.5",
-      :revision => "ba5eec698999c36cb3d603ae46baa6f076b7b695"
+      :tag      => "v0.5.1",
+      :revision => "b502b2eaa46a6a10d9db228209f984bb235444a7"
 
   bottle do
     cellar :any_skip_relocation
