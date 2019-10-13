@@ -6,6 +6,7 @@ class Bcftools < Formula
   revision 1
 
   bottle do
+    sha256 "f70c090211ffc74530eeb79f2c96c7a6522d6da62629a07ec02959b1d3c0aff7" => :catalina
     sha256 "4305f9079357716f0aff1d93980c4f2e1e6a2b364fe393545284cf8b6701f3e7" => :mojave
     sha256 "46dc97038ccd6482801e6260a234f591115e7da598634a63442bacbd0c1f7700" => :high_sierra
     sha256 "f43e5a0e40dcec92d183b9014a1b06f3fb0452c81ee8c2b4ed159c84bafb5b62" => :sierra
