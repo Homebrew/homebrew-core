@@ -53,7 +53,7 @@ class Zookeeper < Formula
       system "autoreconf", "-fvi", "src/c"
     end
 
-    cd "src/c" do
+    cd "zookeeper-client/zookeeper-client-c" do
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
                             "--without-cppunit"
@@ -67,7 +67,7 @@ class Zookeeper < Formula
       libexec.install "bin", "src/contrib", "src/java/lib"
       libexec.install Dir["build/*.jar"]
     else
-      libexec.install "bin", "contrib", "lib"
+      libexec.install "bin", "zookeeper-contrib", "lib"
       libexec.install Dir["*.jar"]
     end
 
