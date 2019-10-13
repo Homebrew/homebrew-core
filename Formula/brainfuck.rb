@@ -7,6 +7,7 @@ class Brainfuck < Formula
 
   bottle do
     cellar :any
+    sha256 "bf49cdb2f3515c537a9ced6a5697be843489b2bf37b3ea732527077e96347f04" => :catalina
     sha256 "a9e9509e4f0cd5345ffeac741c3a74d5575e17c99ea53822dd77fd4f98687b57" => :mojave
     sha256 "cf3c31fcf7c4cf099b348d01e619d1791aa3a255199de80afbc637e331947abf" => :high_sierra
     sha256 "354bb3372301325b49bfd4bd9b53084061af3bc3a3d6375e1c4635297c0dd008" => :sierra
