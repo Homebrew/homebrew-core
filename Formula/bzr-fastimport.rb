@@ -7,6 +7,7 @@ class BzrFastimport < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b8d7ead1690a67dc56050009a5e599765c6219ca236fa4035d979686a3a14c5b" => :catalina
     sha256 "adb80d5f3694b382190564db1bf0f402dc4a63e5fc769846e79e61f258ff14ac" => :mojave
     sha256 "af2955ee5a026c4573dbeb4be897babf2f8d3805636765b982b48793b8143c60" => :high_sierra
     sha256 "420a665897be0a5e807a396720e51cb722b8ead02effee281d5843d56e3881be" => :sierra
