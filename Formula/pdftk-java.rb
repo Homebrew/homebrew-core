@@ -1,8 +1,8 @@
 class PdftkJava < Formula
   desc "Port of pdftk in java"
   homepage "https://gitlab.com/pdftk-java/pdftk"
-  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.0.7/pdftk-v3.0.7.tar.gz"
-  sha256 "6f7cb547076c54d1c500a9ff35ba677859cbca4b7b4d73dc14d167f81c00407c"
+  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.0.8/pdftk-v3.0.8.tar.gz"
+  sha256 "43415a906cde23e724a53ba2555f5a8fd262227ec35a33f9ab8ec3e89b1c54cd"
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
   bottle do
@@ -13,7 +13,7 @@ class PdftkJava < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     system "gradle", "shadowJar", "--no-daemon"
