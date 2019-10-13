@@ -7,6 +7,7 @@ class Bgpq3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "428a0dcb0af2876c03374236ee10b2385ab993dc54cc12e080198d7e552bbdea" => :catalina
     sha256 "a16c482aa8e1a821d6747b2871174109ccbcf407e5799794f6307303fcffafcb" => :mojave
     sha256 "2bf730bec0bca51bd9a3db7a3cd5e4bf36199717a8190db270a5f4751bb1a5e1" => :high_sierra
     sha256 "052fb1ae9a1546b13f865b25f4ff5879f4a7c77350d14720442fc6cd898d833d" => :sierra
