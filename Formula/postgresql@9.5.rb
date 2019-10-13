@@ -6,6 +6,7 @@ class PostgresqlAT95 < Formula
   revision 1
 
   bottle do
+    sha256 "29628327adfa7a60be419b3e66befbe64d7669f40d1d657e86521f32d2a4983f" => :catalina
     sha256 "b452721c1d4c4307da0531e4f21a20be3222c9e449f1f67ab3bf7a6203c1bf06" => :mojave
     sha256 "e165bf3d617cf38bb20a6319ae03d60f3a5b2ed73c06c9e9e75702462a515779" => :high_sierra
     sha256 "7e710fd52bedb37ffec44fa9b578da336b2d3ba59e13a4ab380c3a6f88cee645" => :sierra
