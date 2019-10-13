@@ -7,9 +7,9 @@ class Hypre < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07de8ac34f7afb5fe97c41bb24ca73a6b385730a39e5bfe92718629897385a29" => :mojave
-    sha256 "6213bb31523f76c05685fc48439db646cb78974b86b33e5e3184ca4cf626dd70" => :high_sierra
-    sha256 "9e2e9aeb32961d9269ee363cf4c19bf973aefebe63e36c6665026df9e1826a4f" => :sierra
+    sha256 "d6c976ea7fb7eaf275e2404e48f136d436c4e56a2fc0d49e4eb8db5b57708336" => :catalina
+    sha256 "b8ba54670957d9253dcf2f34ba968cef71cab123bfa6dc20be7befac0db4abde" => :mojave
+    sha256 "032e59eebde294d0222ea3ea619ce94af962d760eaa5bc2cf6d509e105012f17" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran
