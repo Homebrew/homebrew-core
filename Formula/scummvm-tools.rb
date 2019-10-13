@@ -6,10 +6,11 @@ class ScummvmTools < Formula
   head "https://github.com/scummvm/scummvm-tools.git"
 
   bottle do
-    sha256 "5914f77097fe7684e1a8718cbede0d994c9d52d400e6b47eff9c70d6d683e34d" => :mojave
-    sha256 "84313eb5337d2f3c37f9ad5c494da4b43546422f9428f33dcf9b0c2af54473b8" => :high_sierra
-    sha256 "5a9144ac0d1812d401ff76df988bac6bc681903bd94aad2b3f97a2e2279e9d73" => :sierra
-    sha256 "c68cf67ed07a34a4db800598a64b6eb293ac714da6706ef89e58ce9a13ecde99" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "773687d73dc41c05ecbf4e9bcce11fd6311d33dc4f62300fb0decf60b49e63b9" => :catalina
+    sha256 "16e3730addf75fffc00f8b8edb3a757d37e2d72f8b1c3907ed604ba37ac33bdf" => :mojave
+    sha256 "3611bd71703ccd21d188df42448ab64333ab640c54c2352446bd989d2f0ee05a" => :high_sierra
   end
 
   depends_on "boost"
