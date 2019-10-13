@@ -7,6 +7,7 @@ class Chafa < Formula
 
   bottle do
     cellar :any
+    sha256 "14410a807d87798ad31ebe34f2c4efe96e545b5d50b0c7d2991eda165d24ef8b" => :catalina
     sha256 "aaa7a1a6515a936e426de959cd5e12912f8ad8a4c496faa4f66e4a91ed8d3e20" => :mojave
     sha256 "0de874867a7fbb31bec2270bbb66ce09388287350a5ba047642ae0dfbfcd3b2e" => :high_sierra
     sha256 "b03b539cfcce1e802639c4ba5770ea63eaeff7bb8724b2eede19ba1edeb814c6" => :sierra
