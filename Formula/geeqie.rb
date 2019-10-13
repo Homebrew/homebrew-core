@@ -6,10 +6,9 @@ class Geeqie < Formula
   # Unfortunately this means that the tarball can't be used to build;
   # this is documented in the makefile.
   url "https://github.com/BestImageViewer/geeqie.git",
-      :tag      => "v1.4",
-      :revision => "7c9b41e7c9be8cfc9b4f0a2459c0a1e0e4aaea5b",
+      :tag      => "v1.5",
+      :revision => "c6b7830011b3d98aae2c9e17d6e019b414872680",
       :shallow  => false
-  revision 3
 
   bottle do
     sha256 "75b33a9960e789726d0f18872afe1a75a63bf4c0d25d250a22b0ffd5f0d3de34" => :mojave
@@ -34,21 +33,6 @@ class Geeqie < Formula
   depends_on "libtiff"
   depends_on "little-cms2"
   depends_on "pango"
-
-  # Fixes the build on OS X by assigning a value to a variable
-  # before passing to WEXITVALUE.
-  # https://github.com/BestImageViewer/geeqie/pull/589
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/9cacfd49be1db430d7a956132d6521e23fc85f77/geeqie/wexitstatus_fix.diff"
-    sha256 "00bad28d46aafaaed99965a5c054bf04679c100c6f4f13ee82cf83c2782de349"
-  end
-
-  # Fix build with exiv 0.27
-  # https://github.com/BestImageViewer/geeqie/pull/655
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9226ec07329457300c7af68986661f26f965436b/geeqie/exiv2_fix.diff?full_index=1"
-    sha256 "2627bbb3a338456a8d80eedb260931991e427b4a9c8dee093400632970dd68db"
-  end
 
   def install
     ENV["NOCONFIGURE"] = "yes"
