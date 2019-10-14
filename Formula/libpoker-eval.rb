@@ -8,6 +8,7 @@ class LibpokerEval < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "803f48db07d845ec9784792ed0fe5cdc86cb67e6632ed9f72dde75619481bf83" => :catalina
     sha256 "313ff85dd7ec513a95ee8846c657819fdadbebccf0bdce228f180305ee56a716" => :mojave
     sha256 "415934c921d4ccced5426f9aa807b0cf11da031cb2c973e17d506a9f740ac645" => :high_sierra
     sha256 "5216cd33d433fd9212ed14d6fffec593c7106226547c1555344604186e7aafc6" => :sierra
