@@ -8,6 +8,7 @@ class Ddd < Formula
 
   bottle do
     rebuild 1
+    sha256 "a2d1ceeadc2055223cea7c3e3776393dfc01bd0f2946ed82dda8226fe11ccb29" => :catalina
     sha256 "41917b105d1329eaa9421fe314e449fca4c9b9f27b5c4a2ad10d0dbb746a8cea" => :mojave
     sha256 "381ae07c96a67534b05a03ca72741d99aa3437a01c0fef603336ea218c470df9" => :high_sierra
     sha256 "af12e95b5b4326906236559a40f6715e896d164d5c18d9448384e0e22d089abf" => :sierra
