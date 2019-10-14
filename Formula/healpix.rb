@@ -4,6 +4,7 @@ class Healpix < Formula
   url "https://downloads.sourceforge.net/project/healpix/Healpix_3.50/Healpix_3.50_2018Dec10.tar.gz"
   version "3.50"
   sha256 "ec9378888ef8365f9a83fa82e3ef3b4e411ed6a63aca33b74a6917c05334bf4f"
+  revision 1
 
   bottle do
     cellar :any
