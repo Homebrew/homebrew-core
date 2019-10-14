@@ -6,6 +6,7 @@ class LibxdgBasedir < Formula
 
   bottle do
     cellar :any
+    sha256 "3d1776b30c96451960647fe4dbac15af5c6c2d85907731a54eeaf6456915a8a2" => :catalina
     sha256 "d737fa3c4f67f250dd7443702868bc4204cff2d05bc7bf0efe54e7efe64655fa" => :mojave
     sha256 "f5b940765c84d65ecd0baddcc03eab2bc612a090db48e6309b411f13e7a3c714" => :high_sierra
     sha256 "00953ec922b6ebac6e27b1f8e1139fcc1cc5b9f8312dc8d0ebe69778c884c1b7" => :sierra
