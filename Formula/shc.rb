@@ -7,6 +7,7 @@ class Shc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cdfc62c7d9bd39ed7e956066f8d55a189c58b185b6abf7e45b5d8c63a6abe2d5" => :catalina
     sha256 "ff3c55ef1d10c16066e97a20143dbd1e7781ceb9a2c5c8b46d140f6711bc79fa" => :mojave
     sha256 "c19f4586119be579006eace517045998138d83a17e2b5c8ec00ad73ea007b68c" => :high_sierra
     sha256 "6e1834ac7b4cc64ba972a59189512bb9ff9e0ec307df78f9e0fc1fee42378f6d" => :sierra
