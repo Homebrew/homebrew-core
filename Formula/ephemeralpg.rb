@@ -7,6 +7,7 @@ class Ephemeralpg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "57d9e48fa538af3fe7c01f0c4b0ff10cf6cc6f3f2827f31850cb61ff473e7fda" => :catalina
     sha256 "537dbb19980fce982e2859e14852d31fb5f4f91fc62ef062dab427890bf334ce" => :mojave
     sha256 "fa778995e1b3d3adb26a3ebd0a584376dd85e5239cdf8417643cb2984040bb6c" => :high_sierra
     sha256 "23c036094f518eb3d98539e410ea95bbe237bda31b205f3741fb46bb7d5e32c5" => :sierra
