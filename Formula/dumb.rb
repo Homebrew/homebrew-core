@@ -6,6 +6,7 @@ class Dumb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dbb9dbb86ec1c5ff1bc9da976fe3ec481888b4c3cd5cd8b10b6c803b83d934f2" => :catalina
     sha256 "e2956b48f246b68f98a5b39e81e371bd544d78b7bb0e97f5282cfc27e9b307cd" => :mojave
     sha256 "674db2be479a742057619122759da52683c74b724b3e318f2fc71a4fa6bd7287" => :high_sierra
     sha256 "04219fcc6bf6cd174cb5c2ddde4bfdbff266ed665e543c9948911e731d682dc9" => :sierra
