@@ -6,6 +6,7 @@ class Liblunar < Formula
   revision 1
 
   bottle do
+    sha256 "916da6f9232b56ff4ba94c1e3aa5457ca6a3a36ad19f91f63cf69fe6503ea7ea" => :catalina
     sha256 "b19be815304a6afc676a11269ca2c520a03e4aed778c4dee20aea063bca69ca8" => :mojave
     sha256 "ce86d50db89030c02c88df1b639fabc9e3c4657e2d954c07b56d4b1cf2bafdf3" => :high_sierra
     sha256 "29252d2fbfdfb582d46a728bd8272767dfa532eb90fedbb67a4b2116749dc657" => :sierra
