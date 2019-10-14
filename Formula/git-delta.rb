@@ -2,8 +2,8 @@ class GitDelta < Formula
   desc "Syntax-highlighting pager for git"
   homepage "https://github.com/dandavison/delta"
   url "https://github.com/dandavison/delta.git",
-    :tag     => "0.0.12",
-    :revison => "2ba73e32d57075bb8b34181752f977fcbadfe5f5"
+    :tag     => "0.0.13",
+    :revison => "c2360a90d75e2d574a5d89d3c608ee77748e6d37"
   head "https://github.com/dandavison/delta.git"
 
   bottle do
