@@ -7,6 +7,7 @@ class LibsignalProtocolC < Formula
 
   bottle do
     cellar :any
+    sha256 "df5462c2832b84eea5c37e636dfdc7346d51a9c95e49f3637b9080dde29ef96f" => :catalina
     sha256 "7035841cf73621a131ee048066d83c8bc76603b87169849f88ce465244673540" => :mojave
     sha256 "1d81242623d2f2ed761f324dee57a5604ec9fb70cc8ac7c604c92619f93010c2" => :high_sierra
     sha256 "777f53a6b2b73a010e602f29d0d67f43cc5aa100db82629c66b17ee9b79fc830" => :sierra
