@@ -6,6 +6,7 @@ class Libkeccak < Formula
 
   bottle do
     cellar :any
+    sha256 "a6c562298b9f840a535e67c4a1af2cd2cee7a64b148867dffbd5c43abe449fac" => :catalina
     sha256 "62bef7ab66b3080369802009fce876879f6a756fc6f2734de0e33a514fa8bf93" => :mojave
     sha256 "802c42ae842ebed113639b7e647da9eb09d8fddde91b9d2938652849f2543a06" => :high_sierra
     sha256 "0c505d90e236906a294afbd5989a79e503c4ae2afbfa3a8727ffb96969b4a6c9" => :sierra
