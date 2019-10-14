@@ -6,9 +6,9 @@ class Zookeeper < Formula
 
   bottle do
     cellar :any
-    sha256 "d1e4e7738cd147dceb3d91b32480c20ac5da27d129905f336ba51c0c01b8a476" => :mojave
-    sha256 "806ec4f5c3c63387ffa3d1934764b3ebedcacdeffaa26661ae203c71be7d707b" => :high_sierra
-    sha256 "ea14de526563c5a1d5edd84c40383c75bef5dcf135b80dbc54af14f8b70cc68f" => :sierra
+    sha256 "854225ed94e18cdf9a08b992a658e851d4c4d77d826e8ae243488e65b38af84c" => :catalina
+    sha256 "e4cc87d3dc3d2e406fbc262b0b98bea4b8ab2464ca17c24b98abc92a055a4454" => :mojave
+    sha256 "6eceba9bba26dce645d2357f4fdca321b13bafb540c501f9b36f335695b450b1" => :high_sierra
   end
 
   head do
