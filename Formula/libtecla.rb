@@ -6,6 +6,7 @@ class Libtecla < Formula
 
   bottle do
     cellar :any
+    sha256 "a6bbfa1cee4b62a03186d6fa1a153fceb2b3b9ae5cdf63411d6432c6251c753b" => :catalina
     sha256 "d39e8711f7a9a5a11433c7c92a2113a97f8846796f93fa7bca1281e06db2e3fe" => :mojave
     sha256 "dffae78362e21bf324ed651a2b80ff924b1bbec60916159863e66c7171072a9c" => :high_sierra
     sha256 "21cd696f6e79ae6401dd19f832ac24263f016a62c2d15ec31e25d515bbea5983" => :sierra
