@@ -6,6 +6,7 @@ class Mawk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "87a7675f30db2ec57146c6e40150ef20d1cee3107a450019c731ddd356f07ad0" => :catalina
     sha256 "990c18ba7b60182eca889c9765eaf3048d35e91b974b2cdfa8e614ae85435590" => :mojave
     sha256 "dd7af444d67e691a9c80fe4192aa8ec2ebfb61b768e4836ab848e5799b6bcef0" => :high_sierra
     sha256 "8cbc0e93a86f97c9227118cabdc7813e741e875d5e4841714504e0aeee22ee0a" => :sierra
