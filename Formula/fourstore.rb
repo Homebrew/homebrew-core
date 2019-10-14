@@ -6,6 +6,7 @@ class Fourstore < Formula
   revision 1
 
   bottle do
+    sha256 "e8414af069796d108f66d9676366de2cb6f82d4dbb694a7cbc8ede58e5c646ff" => :catalina
     sha256 "9743086b58984f5b97820b6c591edcbf551f60ae49c9f655c577f7ca50e3de23" => :mojave
     sha256 "abfb1051513308bda54e9e7a6c3e62dad74feafa46e6b739fb33405efb0153e4" => :high_sierra
     sha256 "7a89fcec9a355a501880289ab072d95219e760aad3102f9332a2e7310346155f" => :sierra
