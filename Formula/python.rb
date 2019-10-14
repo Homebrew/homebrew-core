@@ -1,8 +1,8 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tar.xz"
-  sha256 "e85a76ea9f3d6c485ec1780fca4e500725a4a7bbc63c78ebc44170de9b619d94"
+  url "https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz"
+  sha256 "b356244e13fb5491da890b35b13b2118c3122977c2cd825e3eb6e7d462030d84"
   head "https://github.com/python/cpython.git"
 
   bottle do
@@ -29,8 +29,8 @@ class Python < Formula
   depends_on "sqlite"
   depends_on "xz"
 
-  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"
-  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
+  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8"
+  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7", "bin/easy_install-3.8"
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/11/0a/7f13ef5cd932a107cd4c0f3ebc9d831d9b78e1a0e8c98a098ca17b1d7d97/setuptools-41.6.0.zip"
@@ -68,8 +68,6 @@ class Python < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    args << "--without-gcc" if ENV.compiler == :clang
-
     cflags   = []
     ldflags  = []
     cppflags = []
@@ -90,12 +88,12 @@ class Python < Formula
     # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
     inreplace "setup.py",
-      "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
+      "do_readline = self.compiler.find_library_file(self.lib_dirs, 'readline')",
       "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
-      s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+      s.gsub! "for d_ in self.inc_dirs + sqlite_inc_paths:",
               "for d_ in ['#{Formula["sqlite"].opt_include}']:"
     end
 
@@ -124,7 +122,7 @@ class Python < Formula
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
     # Prevent third-party packages from building against fragile Cellar paths
-    inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
+    inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py",
                   lib_cellar/"config*/Makefile",
                   frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
               prefix, opt_prefix
@@ -135,7 +133,7 @@ class Python < Formula
               "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
 
     # Fix for https://github.com/Homebrew/homebrew-core/issues/21212
-    inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py"],
+    inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
               %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
               "\\1'#{opt_prefix}/Frameworks/\\2'"
 
@@ -286,7 +284,7 @@ class Python < Formula
     if prefix.exist?
       xy = (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
     else
-      xy = version.to_s.slice(/(3\.\d)/) || "3.7"
+      xy = version.to_s.slice(/(3\.\d)/) || "3.8"
     end
     <<~EOS
       Python has been installed as
