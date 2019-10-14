@@ -6,6 +6,7 @@ class EmsFlasher < Formula
 
   bottle do
     cellar :any
+    sha256 "708f7bfd2d48d73df85cb8a90f183197e1ebcd3da3be013eedd2bf236d0eaddb" => :catalina
     sha256 "f14a792cca1e617dec44e6f11ec413aabbb027097f833ec3a70389bf02da37a5" => :mojave
     sha256 "188c1755cfe1e45fbfb7350e7fc9d546668438d3d0647c044a681eeef868d85e" => :high_sierra
     sha256 "51ac3640147a25c8cf9f1177c2f3c430fa3c6a95d75022544eea825b14934593" => :sierra
