@@ -7,6 +7,7 @@ class Alpine < Formula
   revision 1
 
   bottle do
+    sha256 "73d6ba0c5623c94d2434fbb7d64e232faff22ad4a2d0352f32bcf6e1c2b33d5b" => :catalina
     sha256 "63000d10c5caaffa13d36c1c9d798cb421389d796391ee2cab33f586a53f59cc" => :mojave
     sha256 "cca98c8f35a89f926ca47d88e1b2a1b845233518962a80fa71d6427e9007364d" => :high_sierra
     sha256 "c60a2e6a4d4de41dfd17a37497fb24eae9b8c07ce7e55fa1726765b6ddac20d6" => :sierra
