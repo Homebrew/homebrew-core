@@ -6,6 +6,7 @@ class Ftgl < Formula
 
   bottle do
     cellar :any
+    sha256 "0f982773db625daa78a1c18c9e67315ede8c52850586d47d9b7a41ffcac91730" => :catalina
     sha256 "17370dd65d19b49dd8ca9d49d0da5010e5c5d1346122c46e0eec0c98b010fb13" => :mojave
     sha256 "f6da52f5e9f06f984aad457058876e88b5b7053288f40c87a17d7d5749936cd6" => :high_sierra
     sha256 "946a9530f7eae5c8f2bc71dfc91b3a8138ae2228cd441fd7cf39f047b957ce47" => :sierra
