@@ -5,6 +5,7 @@ class Lerna < Formula
   homepage "https://lerna.js.org"
   url "https://registry.npmjs.org/lerna/-/lerna-3.17.0.tgz"
   sha256 "183e3e47217d81a9c539ba5878ec75c1d1d5b2c161225921b7cdd2a1de1297a2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
