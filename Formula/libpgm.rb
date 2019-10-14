@@ -8,6 +8,7 @@ class Libpgm < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "416f7e3ff857e0c20f20c7c4774403059bbd540d003f0a0a546e122c603f7be6" => :catalina
     sha256 "0adcd6a17bbd37e11d0858c9ec7174b51932f33eb19a727c931acf1d719ab292" => :mojave
     sha256 "cccc90b754683842714480dc0a099abd303426ab2b47fd9fd8d0172717d9bc17" => :high_sierra
     sha256 "e84427aa937687e77701f8b0834866c86e6d4916685c769c4900403307b624c5" => :sierra
