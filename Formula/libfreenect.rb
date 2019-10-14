@@ -7,6 +7,7 @@ class Libfreenect < Formula
 
   bottle do
     cellar :any
+    sha256 "9ed7f53cb3c825aeccfe1b86c4ca4e21dbae3f1625455d5d224394c2058827b5" => :catalina
     sha256 "fd159c9c9d104d79294673780a0a4086d58edb7fe53c33a6ec0f9daa94ef5495" => :mojave
     sha256 "1785eb110c7b3144bf80ad66e83125f4631655792134b673ca64a551cc31fc12" => :high_sierra
     sha256 "dcfd6d414d14d98f292e60d9a7000d479ce4562f83d34745ac63841bd9b40d2c" => :sierra
