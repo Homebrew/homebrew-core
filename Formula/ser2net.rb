@@ -6,6 +6,7 @@ class Ser2net < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "212684df3012508da810e7cd273f1418debf734aacb39949b54aca7b592b1a76" => :catalina
     sha256 "83435a03046d3e3db9461ae4dcf9357f6809290bf91560f2f3d722cac22ee6ce" => :mojave
     sha256 "9be8a962e23275a1400a60f94b5e98fc311cf9c917320b5c03d13edcebe40f67" => :high_sierra
     sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
