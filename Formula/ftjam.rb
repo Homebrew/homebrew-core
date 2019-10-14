@@ -6,6 +6,7 @@ class Ftjam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4440e1baa7919c2a6b7190b31f12067c20d1a532249bd22f842d84a821c3f8a8" => :catalina
     sha256 "039a1c54e4163cafd9e44b5efa4a3b9847a3375db5811b51db8557b5e92ba670" => :mojave
     sha256 "a91c9e777574a9e50d2bd7f53b5f357c6bda8a9e0de522bbddcd59af4a52c5d8" => :high_sierra
     sha256 "31e7d5357421066e2b58cab199a690691a8897e442e1472acdb3d0d829657670" => :sierra
