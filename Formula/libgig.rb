@@ -6,6 +6,7 @@ class Libgig < Formula
 
   bottle do
     cellar :any
+    sha256 "538a70194a691a8a8bd09095736f6aba4c6de6ed4f03bed512726372e41bd7a4" => :catalina
     sha256 "5b4c6358356d805ce317ed31014a8235fc79bad43a80b6c03deb63abe8bc1aac" => :mojave
     sha256 "050bb14b4914d0c08e2a8c192b5254ecb77f9239b8f516022260f5356a8ab947" => :high_sierra
     sha256 "6e7d4ee68ce41305b89c91b2c7e34eeb57f45c6ea5d991beb0e66aac76a5d458" => :sierra
