@@ -6,6 +6,7 @@ class Libsbol < Formula
 
   bottle do
     cellar :any
+    sha256 "91de3275d372246e8be0b73b323f070397de88a5f4d7b5308bd005eb01858972" => :catalina
     sha256 "146dd770ce84a2313c3cd1ebf3bbbb2c9c7035b90664130a8754cadb64a31ebe" => :mojave
     sha256 "c263df7dc7a32db5341987c3785183ad6fee9a4e2abcce7983ba84bc3ec1ac70" => :high_sierra
     sha256 "9a85aa1c4eb3f1b1913db75940956698d4085724c8838efa7709d46259429e35" => :sierra
