@@ -6,6 +6,7 @@ class Dhex < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d3f77d4f4b0f9899e74079753d754eb69296dfe5e44b6c2497c8680e0e941a23" => :catalina
     sha256 "2d6043ce881b7b407fa40691639c25c72d73a427fcdd39a56e0683f48b16b328" => :mojave
     sha256 "bfc2aa6c73ffff61a471b4dd8e183e493781a5c34baeddffc56fa89b0542a9bd" => :high_sierra
     sha256 "b83e63ad0f1e2910e1f2495903ac4077aa5caaabe8cb2702094f42c3921c7a9c" => :sierra
