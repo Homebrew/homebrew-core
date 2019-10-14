@@ -6,6 +6,7 @@ class Shivavg < Formula
 
   bottle do
     cellar :any
+    sha256 "b7c8f247b6db49cd1cabd2efd39d034c25d727f27bce09a329d9cc3c8e36a621" => :catalina
     sha256 "6ddd7a34be8f7650a001df8b4ad627d574ac2c14e71d239a5a263d1848b12149" => :mojave
     sha256 "bea07d86639a8d24f90324552ed1880fd6a162141a394338e0ad2a81a3abeb5f" => :high_sierra
     sha256 "f92bdb7b86632d7bf59d25259e26eece00e502759dd52adaac7495424290da4a" => :sierra
