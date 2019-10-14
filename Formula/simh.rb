@@ -7,6 +7,7 @@ class Simh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b78f11e370514c87d0db0e34c1775673abc9205e34661941f4a8d6b95ce00dfb" => :catalina
     sha256 "a5a7d3ca7f8a069f8cdd3b25fd1d976c32552c2104fc568894807954fb9a5dd4" => :mojave
     sha256 "47cb949cd8492242b06d6de3a0e61f618edf5313ed5adc3f85fe4e999c5757cc" => :high_sierra
     sha256 "eb9b2f1accc1e5d6804bf3ad340c40ab41d2365049c8a3aba1994d98321944d7" => :sierra
