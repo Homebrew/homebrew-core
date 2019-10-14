@@ -5,11 +5,9 @@ class Mysql < Formula
   sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
 
   bottle do
-    rebuild 1
-    sha256 "9d71bf544e21bdb7700adbfe79c78e53697270fb36bf2e2915569547d7675074" => :catalina
-    sha256 "70aec9c2a7bbb594550f764cc5b5ee7054626e0357f00bac6ba70d50a7aaa01b" => :mojave
-    sha256 "a911fc0ea9cc01add22a74bb3970a5252c83386cc343a96e38d131825a84f4d2" => :high_sierra
-    sha256 "6497d9398ea676068cf68d06f3d8d7cd1f1b07609a726d26ad04b7052c0df0ad" => :sierra
+    sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
+    sha256 "0bddb035ea8098a4eb0a9d76afae97a077f517bdb0592a4edae828a566470236" => :mojave
+    sha256 "85a4e9fedd5fa606eff74a72d0e8b9f2ce4dcbd7976e42deb6611eccc1db24ef" => :high_sierra
   end
 
   depends_on "cmake" => :build
