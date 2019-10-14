@@ -6,6 +6,7 @@ class ScmManager < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "521d84a5445594de2d018af2a9f0291ab0a8495e8fe878b56913ee92173a2241" => :catalina
     sha256 "d28ad275b745fb546973c9d451df374f994eaeade2d351732ab31a7141260372" => :mojave
     sha256 "42e177bd72cba3b27750308aeeaf8afa0ec8cc553b8a9acf1a02a6d5a698ce14" => :high_sierra
     sha256 "42e177bd72cba3b27750308aeeaf8afa0ec8cc553b8a9acf1a02a6d5a698ce14" => :sierra
