@@ -7,6 +7,7 @@ class Darkice < Formula
 
   bottle do
     cellar :any
+    sha256 "11c09659a5e54a2c66ef162946d4103b6c9677cdf4c91ff372448d06819692a9" => :catalina
     sha256 "a35885863f951a6660c82a09158195172df5e8e29b1c02005e8627275a38d080" => :mojave
     sha256 "e07c9c9beafe2a9fae19ae6570181ef838da42755b9d9677535f8410768c1e7e" => :high_sierra
     sha256 "f5acac754cda3888160930ff630d33d5a7f134e455b21ad21a40b41150e12f49" => :sierra
