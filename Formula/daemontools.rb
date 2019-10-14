@@ -7,6 +7,7 @@ class Daemontools < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "897ad92e7fcf9dd37a73dbb7113d5376d380351c505640535b4a5a38ac5e55cf" => :catalina
     sha256 "172b9445882bb8597d6956c6f84905294b4bb67080d126d73d365c46bd6d5c88" => :mojave
     sha256 "29250f6ce1afab2b4ded2fd87257af7cfe6b2f98ff86753d6040b8f76e5a0648" => :high_sierra
     sha256 "6a01bbd2d5ff12ef6ee8b21577b32828646a3a65bcfb99a62580e2017ec30c54" => :sierra
