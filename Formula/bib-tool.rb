@@ -5,11 +5,11 @@ class BibTool < Formula
   sha256 "5b6c4160975a926356e8e59d0e5c01ac2a7be337ecace2494918fc2a46d9d784"
 
   bottle do
-    sha256 "029ff0d913560a01dd20fa05f788feb8189660d7099be656c52ce829b89d9749" => :mojave
-    sha256 "dfd0882e8a92f9d883d838261ced3085f843b6faa439df00fa8988fc719c6946" => :high_sierra
-    sha256 "9611f8ab9db1f0ae2918bf22d3169a80eeacd0a4e457437b4b131c36e7687d41" => :sierra
-    sha256 "5f7813e70bfaa668da0b3f438237e0fef7628808c3b5cc56c26012e2cf54f09d" => :el_capitan
-    sha256 "39956f91c1332b2518841436655eeb828dd7562683e5bc1f55bc7a5e7c308c80" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "b09a0c04b6fdc9e70b3d83c6eb127ea4db163ee85938f26a4ad77070dc69d335" => :catalina
+    sha256 "bf35f661105cc65adb12ab58a17f722c7152a97bc7e83d2f9b8cc0e969390389" => :mojave
+    sha256 "b6b4a3254167a377d45193b39b3b9e90f678f43f0744b3ff622e5cd7b7ecf694" => :high_sierra
   end
 
   def install
