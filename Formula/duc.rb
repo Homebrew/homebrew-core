@@ -8,6 +8,7 @@ class Duc < Formula
 
   bottle do
     cellar :any
+    sha256 "0c6b9ba499943a6523e2618f7d9534892d5eb19250b1d250f9615d6692c64cb8" => :catalina
     sha256 "a6482213346ed6dfb26066b3442722a856cb8348d6123aecfe72929251e6b20a" => :mojave
     sha256 "d74b95c03260c0b14fd85e296835047bd88dbbc2f4fd0d62dc3a43409178c18c" => :high_sierra
     sha256 "9bde89536984080777e870473934584417fb4c34a0e44074b08a07a5db1a98d2" => :sierra
