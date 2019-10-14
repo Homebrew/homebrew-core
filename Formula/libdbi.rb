@@ -5,12 +5,11 @@ class Libdbi < Formula
   sha256 "dafb6cdca524c628df832b6dd0bf8fabceb103248edb21762c02d3068fca4503"
 
   bottle do
-    sha256 "7973069acb7729030c077efdd82e376d798725739180434b85798022c5f80daf" => :mojave
-    sha256 "bfbfbb4a406e11bc76f0bb590923fe2c9c5ecb8eee2ad59c115bf5d8fe9fc83b" => :high_sierra
-    sha256 "56bc34833d44be61b26fda170fd8c2eea6242d6cfc780869d9456dcee6fb9e41" => :sierra
-    sha256 "80593f395134244612e570445f7dafaede45632025f25a079d2978ea8ceced93" => :el_capitan
-    sha256 "fdc8341304e7a5b08f8baa86019c0b75d9bea99b7461f1eafc32f906a446b49a" => :yosemite
-    sha256 "105af923e45a1deb810224f39ecd138442943dfef193636414bf1394982c01ea" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "ce66e90000681c5f9174c3698ac4ceefd5d1be6ca4ffa574053f0705217c6837" => :catalina
+    sha256 "3aff10515535dc3f99dfa56644229daba74f719838d3e580754b3bbdc3c0429d" => :mojave
+    sha256 "eb3d8474601267d835b74b5a29944dc6d987486745dcfd17389be3a44b2c0175" => :high_sierra
   end
 
   def install
