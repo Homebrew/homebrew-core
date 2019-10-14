@@ -8,6 +8,7 @@ class Bonniexx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5cbcfb584a1cb5fca9b42bee4e0e61ee9496ca0290937a6e5909c4dbac1794f4" => :catalina
     sha256 "6547a5df668f438110419012a9437d2986751575473d03719e08de93466e99c7" => :mojave
     sha256 "2039ecd2ab2e7a9cef39e603558aa792942f50e27b5ee3054bd39a66a2ba30a3" => :high_sierra
     sha256 "3141753fc2d81aba9129baa76946cb4f2c4cef7ca634c30d86a4b284bfe6480a" => :sierra
