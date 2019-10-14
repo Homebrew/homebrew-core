@@ -6,6 +6,7 @@ class Libgadu < Formula
 
   bottle do
     cellar :any
+    sha256 "afe9b94a62b55c700f57d853d077be96a901b450faa7ff9585a43397cacf838a" => :catalina
     sha256 "394b7c3b78e1aa4f7960d7ffc62cefe91069a0e50b7442b62f68d2e68f5d01ad" => :mojave
     sha256 "65f828f98715efbb7bb351d47e11df0fd0279b8c060233138721c119abf0879f" => :high_sierra
     sha256 "4cf4bb4fa157bff6ce4e1fa58a79c372df6b0a00c5e5fd621f6396b3d55451e6" => :sierra
