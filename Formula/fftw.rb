@@ -3,7 +3,7 @@ class Fftw < Formula
   homepage "http://www.fftw.org"
   url "http://fftw.org/fftw-3.3.8.tar.gz"
   sha256 "6113262f6e92c5bd474f2875fa1b01054c4ad5040f6b0da7c03c98821d9ae303"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,11 +14,13 @@ class Fftw < Formula
   end
 
   depends_on "gcc"
+  depends_on "libomp"
   depends_on "open-mpi"
 
-  fails_with :clang
-
   def install
+    system "gfortran -dumpspecs | sed 's/gomp/omp/g' > specs"
+    inreplace "ltmain.sh", "|-fopenmp|-openmp|-mp|-xopenmp|-omp|-qsmp=*", ""
+
     args = [
       "--enable-shared",
       "--disable-debug",
@@ -27,6 +29,8 @@ class Fftw < Formula
       "--disable-dependency-tracking",
       "--enable-mpi",
       "--enable-openmp",
+      "ax_cv_c_openmp=-Xpreprocessor -fopenmp -Xlinker -lomp",
+      "FC=gfortran -specs=#{buildpath}/specs",
     ]
 
     # FFTW supports runtime detection of CPU capabilities, so it is safe to
