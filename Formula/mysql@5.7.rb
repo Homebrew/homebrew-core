@@ -1,9 +1,8 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.27.tar.gz"
-  sha256 "036ab46a8a1216cfc1e87374bd1cba12e2208c02cf328a31851be7e1c7f57a2b"
-  revision 1
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.28.tar.gz"
+  sha256 "f16399315212117c08f9bdf8a0d682728b2ce82d691bcfbf25a770f413b6f2da"
 
   bottle do
     sha256 "a5288b8b27c1d668bafa2f6f8813b69da1ddce893c7d9ca1cd8653224d44af04" => :catalina
