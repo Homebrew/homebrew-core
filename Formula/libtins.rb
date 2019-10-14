@@ -8,6 +8,7 @@ class Libtins < Formula
 
   bottle do
     cellar :any
+    sha256 "3f7acd9f9ad201779e53014a1f234fe2620bcc66715bc691adae0ec05ce7922a" => :catalina
     sha256 "024927515d79136857d24cde994b1165813a6924163dec87e1171dcf1088431f" => :mojave
     sha256 "acd621b885b5d2e090e2065733cea3e4dcb3c635c42e02c1fc8c0a44148777d0" => :high_sierra
     sha256 "9709befe28f8aeb4052be1304fe642f2d10701a0ef1ac11392239c4081b0e424" => :sierra
