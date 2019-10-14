@@ -6,6 +6,7 @@ class Dislocker < Formula
   revision 3
 
   bottle do
+    sha256 "888de7b4b0c814038fc5254ec8626c246f970393fbbedc2bfa50a62a4efc9e66" => :catalina
     sha256 "b3ea749c44b20b4b20a5a5e74079dd4c71b192db4e070f7d445b6a5eebdeadeb" => :mojave
     sha256 "9f591c911314d86b773311386f3ce327af3b9f01bb1d4539f07841380aa2249f" => :high_sierra
     sha256 "731f8224ccd50671c0b12795e3d95f5b96868d0d76373cc270c5d6fc1a86c6c4" => :sierra
