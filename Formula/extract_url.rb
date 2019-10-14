@@ -6,6 +6,7 @@ class ExtractUrl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f25df47b8114db594552372e4ee1f9bf7337ab14996429dda0981c93c74afcfe" => :catalina
     sha256 "e8061e3ca6f23c1ae9a042960d05b8ff23887a684c6b37cc831f17fdab4936de" => :mojave
     sha256 "2880b669c381e7c7a2420d71c673d68d988223dc63bad9f14b1c62495973f362" => :high_sierra
     sha256 "57b556a225f6ec03cee7166c1b4cbd2eb1c0eb2bd7819865bd9ed39620b81b68" => :sierra
