@@ -1,10 +1,16 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/isync/isync/1.3.1/isync-1.3.1.tar.gz"
-  sha256 "68cb4643d58152097f01c9b3abead7d7d4c9563183d72f3c2a31d22bc168f0ea"
   revision 1
   head "https://git.code.sf.net/p/isync/isync.git"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/isync/isync/1.3.1/isync-1.3.1.tar.gz"
+    sha256 "68cb4643d58152097f01c9b3abead7d7d4c9563183d72f3c2a31d22bc168f0ea"
+    # Patch to fix detection of OpenSSL 1.1
+    # https://sourceforge.net/p/isync/bugs/51/
+    patch :DATA
+  end
 
   bottle do
     cellar :any
@@ -18,10 +24,6 @@ class Isync < Formula
   depends_on "automake" => :build
   depends_on "berkeley-db"
   depends_on "openssl@1.1"
-
-  # Patch to fix detection of OpenSSL 1.1
-  # https://sourceforge.net/p/isync/bugs/51/
-  patch :DATA
 
   def install
     # Regenerated for HEAD, and because of our patch
