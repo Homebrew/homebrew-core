@@ -5,13 +5,11 @@ class Libdaemon < Formula
   sha256 "fd23eb5f6f986dcc7e708307355ba3289abe03cc381fc47a80bca4a50aa6b834"
 
   bottle do
-    rebuild 1
-    sha256 "385ec66344c5e84357e4e5caaf8441d914f3853cb60cd673c03b9521fa72647c" => :mojave
-    sha256 "ef99499ba07c5d7e633071441933000b7da731db8e1c884e89cc3b484487a696" => :high_sierra
-    sha256 "5a0acd70817e89a53d3c1855ab6f2d46911f1e5c284f05f187671fd4365879d1" => :sierra
-    sha256 "d37febee18ba355a3d536c50dec03c51cb9cabb43cc76859ee2a772f6545e9f3" => :el_capitan
-    sha256 "48de2498d199a800418e557b7fa70c5834094a60b76936d2541e0e242ffc25ec" => :yosemite
-    sha256 "107d695ff51e515e6b8eb1c619a51efea5006d2df8d0dc5b0d32873994b3f936" => :mavericks
+    cellar :any
+    rebuild 2
+    sha256 "ad96f0b0e09c3e0c178d3e903659d65ae34fea18365197924a4911c291d02531" => :catalina
+    sha256 "1fe52d810eca4471b4d285de02a09ea9e4b78d762f1a2a292d6da1eb10e9626d" => :mojave
+    sha256 "0933bb1dde0237f4079fefcd228ea644be36fbf814aa96762ebbae3537886558" => :high_sierra
   end
 
   def install
