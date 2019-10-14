@@ -6,6 +6,7 @@ class Cwlogs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b28a57d8b6d5801ccbbbb9227952f9bd67935a62a0ddcaefddec2650a5296eba" => :catalina
     sha256 "094c93934776870df7b417ea5099a604fd8312e1bfa67f27628fa73f2c5dc388" => :mojave
     sha256 "1c07bb31b455ea7e28f55854424b9fbcba9f9ab9e352f759377d7152b1b3c367" => :high_sierra
     sha256 "b3528646611cd4f462bafe83c25c84f551e191629a93a84b11c872f9e86b720f" => :sierra
