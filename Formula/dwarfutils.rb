@@ -7,6 +7,7 @@ class Dwarfutils < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "576775907c6b337e738942d0f0151a7fc8be7b9e5291f4e595d563b8655d4880" => :catalina
     sha256 "8887f39199612129dcf7af5afc5bd473be806c74fd862ff2e76f3a5c06103f58" => :mojave
     sha256 "b31bc53474ac561e418ef6c81add9ccb8e885f8f744493971fae29fddc887f45" => :high_sierra
     sha256 "f2909fb054f392f80318f7d621124c6bd5aee4e8637ad2d26f350d8b645ec5ef" => :sierra
