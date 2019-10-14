@@ -7,6 +7,7 @@ class Liboauth < Formula
 
   bottle do
     cellar :any
+    sha256 "1ce26c143029edc957263b3f7c64449c385a5b016e7adbfb1bf40018df08a319" => :catalina
     sha256 "2cc45826629d726ad5496c7d1ead73844d213f0862c981830645751ff0f678be" => :mojave
     sha256 "c1f049ca62762088244421339f848a5de1e5e388ced1d15463da00a9b0222784" => :high_sierra
     sha256 "d3a3ffc611c1d2047e2b56a632e7d4b4e5f4d0657483932fdcd4972455d28f60" => :sierra
