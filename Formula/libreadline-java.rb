@@ -7,6 +7,7 @@ class LibreadlineJava < Formula
 
   bottle do
     cellar :any
+    sha256 "5259a709b33cf833a2ceb22fc768b01651e3e55a35efeed7f540190f73beea4d" => :catalina
     sha256 "1a254f92d07e11b0a85bccc89a548f6eaff3ada1706056bb1af559a93b7d6665" => :mojave
     sha256 "f2fc9a1faf643600da0b9b3b0711ee3b9b3beabcfdb0121d9018b5a98dba8a8d" => :high_sierra
     sha256 "784fc9cb94f45ccaf91af932f35d6ac3570326914c4a4da866c9e34e173238a2" => :sierra
