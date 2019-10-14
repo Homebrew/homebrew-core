@@ -6,6 +6,7 @@ class Shellharden < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7d3933bd529531a8d9060b49a68b99e08820dd1a9952f7cc046aafdb4ebc49d0" => :catalina
     sha256 "edca629536f1b38bfb473dd98b2259726dba51fc448ea4e59e7a15359bc99fc3" => :mojave
     sha256 "41e43c80d63fe7a33d3d9f06741db902c0ab6fc26ed9bc5037f30295d43c8360" => :high_sierra
     sha256 "78a7c2a75348c1746c0d658b6e1070a4277934d534137642caf84871ac467596" => :sierra
