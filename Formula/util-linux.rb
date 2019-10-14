@@ -17,11 +17,10 @@ class UtilLinux < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-ipcs",        # does not build on macOS
-                          "--disable-ipcrm",       # does not build on macOS
-                          "--disable-wall",        # already comes with macOS
-                          "--enable-libuuid",      # conflicts with ossp-uuid
-                          "--disable-libsmartcols" # macOS already ships 'column'
+                          "--disable-ipcs",  # does not build on macOS
+                          "--disable-ipcrm", # does not build on macOS
+                          "--disable-wall",  # already comes with macOS
+                          "--enable-libuuid" # conflicts with ossp-uuid
 
     system "make", "install"
 
@@ -43,7 +42,16 @@ class UtilLinux < Formula
   end
 
   test do
-    out = shell_output("#{bin}/namei -lx /usr").split("\n")
-    assert_equal ["f: /usr", "Drwxr-xr-x root wheel /", "drwxr-xr-x root wheel usr"], out
+    stat  = File.stat "/usr"
+    owner = Etc.getpwuid(stat.uid).name
+    group = Etc.getgrgid(stat.gid).name
+
+    flags = ["x", "w", "r"] * 3
+    perms = flags.each_with_index.reduce("") do |sum, (flag, index)|
+      sum.insert 0, ((stat.mode & (2 ** index)).zero? ? "-" : flag)
+    end
+
+    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split(" ")
+    assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end
