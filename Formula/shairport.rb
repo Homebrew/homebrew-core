@@ -8,6 +8,7 @@ class Shairport < Formula
 
   bottle do
     cellar :any
+    sha256 "d385bd0045902de8acba7c41f7f1a1adfed5d9f13ea307af583de1b026ea0af0" => :catalina
     sha256 "af28167bdd30a30511476472429673db781b9234cd4c8225a2ed3f10b869588c" => :mojave
     sha256 "c819c407c218e35129dde1d00a0bb78e5cc85cf69cc0920f87f5a3f690e2cab5" => :high_sierra
     sha256 "f3449bbbd695f608673ecf618c55f5d41ac8edad59772888a128185b23395b7b" => :sierra
