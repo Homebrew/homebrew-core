@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20190912/git-annex-7.20190912.tar.gz"
-  sha256 "9b25fba7de61ce5f09e737873442cd5702d01908b10430343a5b8cce0add72a8"
+  url "https://hackage.haskell.org/package/git-annex-7.20191009/git-annex-7.20191009.tar.gz"
+  sha256 "8f3c6d45b0532edaf8102ae8f6b374abaab5e4b36988df7e404a8d95a8dccc83"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -31,6 +31,7 @@ class GitAnnex < Formula
     # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
     install_cabal_package "--constraint", "http-conduit>=2.3",
                           "--constraint", "network>=2.6.3.0",
+                          "--constraint", "persistent>=2.8.1&&<=2.9.2",
                           :using => ["alex", "happy", "c2hs"],
                           :flags => ["s3", "webapp"]
     bin.install_symlink "git-annex" => "git-annex-shell"
