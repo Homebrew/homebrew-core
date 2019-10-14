@@ -7,6 +7,7 @@ class Libbdplus < Formula
 
   bottle do
     cellar :any
+    sha256 "0f6679a9e46eebf5d7a37a7b09d77b57512774fb3766eb4a359a60de8997a0e0" => :catalina
     sha256 "d8f4b53ec0ea12bbc02b2962e94dfe5df98ef55005f10209f4fd40213a80f601" => :mojave
     sha256 "478e405b0f9687edcea3f651f4ec922a1bd12c12476c3aa14d1a35d0bb0362bb" => :high_sierra
     sha256 "8205ed5218393f7aa7f2035f089e91a417f13d73f4b7e3d46f3afc5073ce7e37" => :sierra
