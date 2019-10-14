@@ -8,6 +8,7 @@ class Sile < Formula
   head "https://github.com/simoncozens/sile.git"
 
   bottle do
+    sha256 "c2db86e0a1510c94d2d06365d2c31222948ea3b89b64c24ffc81451b0894ff71" => :catalina
     sha256 "d9476a518d1380d8695e89dee9a411ecaa70da180ad908ec0863fa475308b339" => :mojave
     sha256 "21bd41acfcf1353d89a7c2b2ae474c2de74d3cf727cea20a0f72d8b09cf085ba" => :high_sierra
     sha256 "5bcd03efcdfa816afd808617c5b8c579a59554500b726eed5d75a89c4fb126dc" => :sierra
