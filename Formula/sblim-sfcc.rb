@@ -7,6 +7,7 @@ class SblimSfcc < Formula
 
   bottle do
     cellar :any
+    sha256 "d20839c77aaa1c968981ca9af0e92bf1c7f600392ea5674971f532040dae518a" => :catalina
     sha256 "ff61a006626a9a36dafb474f352d798805b1a44adba341d8422bd0820eaae1ab" => :mojave
     sha256 "0ee558ce892d6e04acfe7ca2408a96e2837c7c858e71f6047b3a57a15b75ece0" => :high_sierra
     sha256 "2e1eea4bbad906293b2c48a27a09fd76d665ab0c9259ef49fcd81f4783fbb67c" => :sierra
