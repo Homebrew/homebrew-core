@@ -3,6 +3,7 @@ class Metis < Formula
   homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
   sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,10 +16,22 @@ class Metis < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libomp"
 
   def install
-    system "make", "config", "prefix=#{prefix}", "shared=1"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args + %W[
+        -DSHARED=ON
+        -DOPENMP=ON
+        -DGKLIB_PATH=#{buildpath}/GKlib
+        -DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -Xlinker\ -lomp
+        -DOpenMP_C_LIB_NAMES=omp
+        -DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -Xlinker\ -lomp
+        -DOpenMP_CXX_LIB_NAMES=omp
+        -DOpenMP_omp_LIBRARY=-lomp
+      ]
+      system "make", "install"
+    end
 
     pkgshare.install "graphs"
   end
