@@ -14,12 +14,15 @@ class GitDelta < Formula
   end
 
   depends_on "rust" => :build
-  uses_from_macos "llvm"
 
   conflicts_with "delta", :because => "both install a `delta` binary"
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    # `cargo install` produces binary that have problems running on Catalina
+    # rubocop:disable FormulaAudit/Text
+    system "cargo", "build", "--release", "--locked"
+    # rubocop:enable FormulaAudit/Text
+    bin.install "target/release/delta"
   end
 
   test do
