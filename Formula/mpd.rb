@@ -3,7 +3,6 @@ class Mpd < Formula
   homepage "https://www.musicpd.org/"
   url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.15.tar.xz"
   sha256 "4595adba2d8aa80b5a912bbb5185578abac3623ccc7e4897286993e4650a5022"
-  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
