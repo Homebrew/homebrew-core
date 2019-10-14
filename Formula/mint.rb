@@ -6,8 +6,8 @@ class Mint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "222269e6e53604eaf15cd8e728703c4dccc202e1502695e0c188b5742555ff83" => :catalina
-    sha256 "7f35429cee3a119cec153464933146e380364a4006bf88dcd93103584e02ec3e" => :mojave
+    sha256 "5a4a29792fcbe3b0ac6d3aac6831be90e639a3a9499a1cc377db09171f9e0938" => :catalina
+    sha256 "7e0479cb26857bff794200bc6fee56982c483af3a164d4605cf7cd9a53c67f5e" => :mojave
   end
 
   depends_on :xcode => ["10.2", :build]
