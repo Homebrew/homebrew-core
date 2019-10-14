@@ -6,6 +6,7 @@ class Sleepwatcher < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "45c9c42ac76f9e9f85b0dbc2cb2251fe74448322196ac0ba10b93c416121db2a" => :catalina
     sha256 "eb160c23f9d92aed8d4bdfa24607a5bb343ad65dd487cb7a8570ac479bd05dd7" => :mojave
     sha256 "2c050aa5845cdf24b06f17bc1b4191941e4cf57cf1092f17fe35fe0e7f28159a" => :high_sierra
     sha256 "0cecea617ee9334f717a2e2e0424b944dedcc7cd403776c1cf6ff67352b96f4c" => :sierra
