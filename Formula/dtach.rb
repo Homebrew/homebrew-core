@@ -6,6 +6,7 @@ class Dtach < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "67d1aed450f459a8883148d7ce9bf89cd98025232ae6ec061381297e54276e8c" => :catalina
     sha256 "8126575ec7b9f9a4e9ba092e8d2c706c7a162c6dd7678c8dbbdc42676aae7eb6" => :mojave
     sha256 "286aa27d4de791d50bb7c16c57682174a9fbfd73890e7f58fa2681f48dc12c75" => :high_sierra
     sha256 "f69d8585d47b722bee78bc189708d5348548a3ad68a4ff6cb91443624f4a3f0c" => :sierra
