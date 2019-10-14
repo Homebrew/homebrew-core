@@ -7,6 +7,7 @@ class Cxxopts < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "eac0f746cf84e2b1a88cba6da3686269b7f71d05492eec886cd36f388989cb6c" => :catalina
     sha256 "0d218ecd42f83ea5e0fac4c6d8e36d5acf555133c7d52fed9657107edffef917" => :mojave
     sha256 "0d218ecd42f83ea5e0fac4c6d8e36d5acf555133c7d52fed9657107edffef917" => :high_sierra
     sha256 "36f6ff18ae628891ca7d188c749fea2a097db1b9d83181bfd123ce09adddebb3" => :sierra
