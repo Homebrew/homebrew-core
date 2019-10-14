@@ -27,6 +27,7 @@ class Devil < Formula
 
   bottle do
     cellar :any
+    sha256 "8d4739b13ed6e20bc9f87c7f5e06ae2742df94386a80ebae30a9eddf1c70c140" => :catalina
     sha256 "222751818b34131dcc58e7832cd652e9684c2b957cd1430a87ce19d0dd33e449" => :mojave
     sha256 "7cb8354e26e1d30503c5f232f70c45fad049be1b1a341fa5cc99cb57741c4e61" => :high_sierra
     sha256 "25bd964db15fdfa4085b73bd1014044f36b877285db451089b4fa7928b02d555" => :sierra
