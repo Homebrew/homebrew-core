@@ -6,6 +6,7 @@ class Libgtop < Formula
   revision 1
 
   bottle do
+    sha256 "e0391a7a27f7a7f27806294b73a49eb23b60bba785bb4d147f39f6cc3bf2cf4c" => :catalina
     sha256 "207550dec06c9af31f523534a6ca65906b7e4c69ad6ec670969f98e00dcc8c2b" => :mojave
     sha256 "981a91a3221651bf94e922f8e29cd8be08527453a833ab8f69cb7dbf7d39ed0d" => :high_sierra
     sha256 "77db9c002217605f8bad346413fc8cc038109ddd65ba7e62e09d25d341e1023f" => :sierra
