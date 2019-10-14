@@ -5,6 +5,7 @@ class Detox < Formula
   sha256 "abfad90ee7d3e0fc53ce3b9da3253f9a800cdd92e3f8cc12a19394a7b1dcdbf8"
 
   bottle do
+    sha256 "2cc99380391d297e584a9404e9d34bb170de0a4d13604fe3f8022d387466f110" => :catalina
     sha256 "27f6c89ac907aa01aa0073b4244457a20441c0cb1871114763fdc0aba83fa096" => :mojave
     sha256 "133b073b5e24308a29cbc63c3a8a2ee02a46c23b66d76b61057f330ea075e558" => :high_sierra
     sha256 "0cc58044463abf09129c9d7a1c49df5ebb51f9d6e675233f8dce404aa6a6c69f" => :sierra
