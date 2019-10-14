@@ -1,8 +1,8 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.7.5.tar.gz"
-  sha256 "4fcc8bf44f775dbbbd6146713f6fbdc80f2d88e2e8b93767f62eb5d635a56739"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.6.tar.gz"
+  sha256 "2fb669d95e463fb54c3477076444e54c8ae900286dfe3ffa79d345072877fcce"
   head "https://github.com/google/cayley.git"
 
   bottle do
