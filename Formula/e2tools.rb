@@ -6,6 +6,7 @@ class E2tools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "816825094314cfb451c177fb3f3f6956f3918db125b043bdf6e19aa7c404dc36" => :catalina
     sha256 "bf9b142f5bb6ba58710bdc077a181ba8a0ac593a46d5f5c9ff2a50d69a43bd78" => :mojave
     sha256 "7a782af6e3883fe9badda9b579193be4068b71fc1c2c8530f6b207b30bd1f9c3" => :high_sierra
     sha256 "5818dc7acdcb57aa0945c79280e118cd630ec45d0c3b1997c791158bf5c807e1" => :sierra
