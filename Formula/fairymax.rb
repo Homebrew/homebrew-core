@@ -8,11 +8,11 @@ class Fairymax < Formula
   head "http://hgm.nubati.net/git/fairymax.git"
 
   bottle do
-    sha256 "6cfd303feede9a2a37279581a1981b028ba551ed9e5c151491623b16c1d915c7" => :mojave
-    sha256 "53deff51f5281ba65ea84597cc4827725871fa6ce1031cea529bb82cfd6ee3de" => :high_sierra
-    sha256 "95706f3f4968922cffae144d91e64d26a4c88026f228d555f144a4ad27c37007" => :sierra
-    sha256 "9a829afcded25d1e895e09e91e39ca44b4aa9a6fa97f5315e348228224765d7d" => :el_capitan
-    sha256 "b236b3da5f94128741b7ef25407f5a8a30158e108e9010736fee51df3f557195" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "0e308c9dd845afa291091336b0e92e44e8a38e59400b2801ed55c69ae36a3cfb" => :catalina
+    sha256 "41aa62f81177b236fe5555b0ed48ec704eef68850e4b9f9edf33a5ff76168a72" => :mojave
+    sha256 "513860ba4079904f6244eb1ab92ed8362be17080a871dab9711c75e7ee14e21a" => :high_sierra
   end
 
   def install
