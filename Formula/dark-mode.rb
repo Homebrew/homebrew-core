@@ -1,8 +1,8 @@
 class DarkMode < Formula
   desc "Control the macOS dark mode from the command-line"
   homepage "https://github.com/sindresorhus/dark-mode"
-  url "https://github.com/sindresorhus/dark-mode/archive/2.0.1.tar.gz"
-  sha256 "edea2a21e550194204bc54fe7f68d32dcc517138ac3b12cb17855e61c3260c68"
+  url "https://github.com/sindresorhus/dark-mode/archive/v3.0.0.tar.gz"
+  sha256 "c79eb0a96e179953a12f69ec3486b2d89751599c5f5e3cf72ff4def7fd49dcbb"
   head "https://github.com/sindresorhus/dark-mode.git"
 
   bottle do
@@ -14,7 +14,7 @@ class DarkMode < Formula
   end
 
   depends_on :xcode => :build
-  depends_on :macos => :el_capitan
+  depends_on :macos => :mojave
 
   def install
     system "./build"
