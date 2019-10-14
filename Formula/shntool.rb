@@ -7,6 +7,7 @@ class Shntool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9454d69f59139dd015c7c414fd387016ed192fde5c9772470d3110be98fc8229" => :catalina
     sha256 "3406dd2a363de42f9dab6d2e32e13b16357c6906ad552adb866c272f8dd1f5f2" => :mojave
     sha256 "54203e7c0cf7a257ecc3cec107b55afd14b98edc9b8713082fbf6282eb863e38" => :high_sierra
     sha256 "5548c0401df42faa7ade30e9c98656828864c3677836f72100aa80f4a92ff249" => :sierra
