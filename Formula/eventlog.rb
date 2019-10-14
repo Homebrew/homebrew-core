@@ -7,6 +7,7 @@ class Eventlog < Formula
 
   bottle do
     cellar :any
+    sha256 "1079bd68cd23354b25d7fc014a9e20e6c522b613de1106cd8e929c708c57512b" => :catalina
     sha256 "7b9117f49ce6fa552bbea8cd7e189c4ec1d9123d81ac5d459d4ca4f57331e429" => :mojave
     sha256 "be5272b1fb50fb84ba175d4acdbe0632d46444df4e93fb913a9e3ee3ba2d6d33" => :high_sierra
     sha256 "266c920dec2b898e620a5de1bdcbcc68c3b06663c8b4f8d155138ba989958b99" => :sierra
