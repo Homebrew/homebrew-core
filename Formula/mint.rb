@@ -1,8 +1,8 @@
 class Mint < Formula
   desc "Dependency manager that installs and runs Swift command-line tool packages"
   homepage "https://github.com/yonaskolb/Mint"
-  url "https://github.com/yonaskolb/Mint/archive/0.12.0.tar.gz"
-  sha256 "e828005ddeece33fbb857c808537807a844d4b9b86d1307985d6cac36b897014"
+  url "https://github.com/yonaskolb/Mint/archive/0.13.0.tar.gz"
+  sha256 "5a922ad89c7b9b3e1854507c342f36d8c8ba7a488a09114550fe06320208e5f9"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Mint < Formula
 
   test do
     # Test by showing the help scree
-    system "#{bin}/mint", "--help"
+    system "#{bin}/mint", "help"
     # Test showing list of installed tools
     system "#{bin}/mint", "list"
   end
