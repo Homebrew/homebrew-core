@@ -7,6 +7,7 @@ class Dnstop < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "61522feaa64c92d28044e88366555a6f816366671728d71e286960b83a176417" => :catalina
     sha256 "fc741283d3b21ab68de0972c733b38ac01c363a0588254c41ad19f5591f32bda" => :mojave
     sha256 "4d6b9a2f15e3165ccf63b67752cd4f0d21b128f64b5f22beb2c2b0657e082709" => :high_sierra
     sha256 "dc995c2857fdd5093ae753844ce5c45ed00bae59184528a184e0313b25882802" => :sierra
