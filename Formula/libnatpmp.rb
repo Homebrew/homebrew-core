@@ -6,6 +6,7 @@ class Libnatpmp < Formula
 
   bottle do
     cellar :any
+    sha256 "69bd0b362260f89b76113fbfec36235ec6265434c365d18790e8bb1a4988ae67" => :catalina
     sha256 "1f0e89186c04cd7c7ce9ba88bee87ae31be9c6f5b0ebbcee46f38876d90bfb78" => :mojave
     sha256 "04c286ebb17bf08728749e390dd9ccabf3fcc4b660ffe4b6f315dcf89012f15a" => :high_sierra
     sha256 "d1aaa97c827918f7d35d121399cb8f59b4442b94c3283a51b7931f0e008ff934" => :sierra
