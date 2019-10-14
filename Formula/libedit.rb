@@ -7,6 +7,7 @@ class Libedit < Formula
 
   bottle do
     cellar :any
+    sha256 "46e6433799898fe243615048d7af2edc137a817d02d27a11895e9f4b0981324b" => :catalina
     sha256 "c445caf1a4f1d47555f00505553b479c1638eb59e63ce7bcbd9cc03fd4b15e14" => :mojave
     sha256 "0b624516c27f8e3298eff0f2dbfd2e108bf6d428c6d7c057914665b26154b366" => :high_sierra
     sha256 "8ad985a00377f40928cb2653675da86542678baf2b625eb9861638b4c31878a8" => :sierra
