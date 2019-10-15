@@ -7,6 +7,7 @@ class Soundpipe < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "775700eaea684293798d3a52192c3b2a24eb2b4bfe9c95c639ff41f1d819bf93" => :catalina
     sha256 "b47b5666b487eafcbd58637c541fccdd671abc89036fe3401aafd79ea4f04493" => :mojave
     sha256 "e10ee9a2f4f97fc9c0ee91f9da5b5965ca04a147119e10237efb2eea1e162dc5" => :high_sierra
     sha256 "3975e1208784b80d78d9ad19b83836d1efe7b33d7e0e08d36c630863ee7a1a19" => :sierra
