@@ -78,11 +78,9 @@ class Sshguard < Formula
   test do
     require "pty"
     PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
-      begin
-        assert_equal "SSHGuard #{version}", r.read.strip
-      ensure
-        Process.wait pid
-      end
+      assert_equal "SSHGuard #{version}", r.read.strip
+    ensure
+      Process.wait pid
     end
   end
 end
