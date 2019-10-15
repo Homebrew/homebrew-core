@@ -26,13 +26,11 @@ class Webfs < Formula
   end
 
   test do
-    begin
-      pid = fork { exec bin/"webfsd", "-F" }
-      sleep 2
-      assert_match %r{webfs\/1.21}, shell_output("curl localhost:8000")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    pid = fork { exec bin/"webfsd", "-F" }
+    sleep 2
+    assert_match %r{webfs\/1.21}, shell_output("curl localhost:8000")
+  ensure
+    Process.kill("SIGINT", pid)
+    Process.wait(pid)
   end
 end
