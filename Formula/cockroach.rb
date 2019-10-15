@@ -109,32 +109,30 @@ class Cockroach < Formula
   end
 
   test do
+    # Redirect stdout and stderr to a file, or else  `brew test --verbose`
+    # will hang forever as it waits for stdout and stderr to close.
+    system "#{bin}/cockroach start --insecure --background &> start.out"
+    pipe_output("#{bin}/cockroach sql --insecure", <<~EOS)
+      CREATE DATABASE bank;
+      CREATE TABLE bank.accounts (id INT PRIMARY KEY, balance DECIMAL);
+      INSERT INTO bank.accounts VALUES (1, 1000.50);
+    EOS
+    output = pipe_output("#{bin}/cockroach sql --insecure --format=csv",
+      "SELECT * FROM bank.accounts;")
+    assert_equal <<~EOS, output
+      id,balance
+      1,1000.50
+    EOS
+  rescue => e
+    # If an error occurs, attempt to print out any messages from the
+    # server.
     begin
-      # Redirect stdout and stderr to a file, or else  `brew test --verbose`
-      # will hang forever as it waits for stdout and stderr to close.
-      system "#{bin}/cockroach start --insecure --background &> start.out"
-      pipe_output("#{bin}/cockroach sql --insecure", <<~EOS)
-        CREATE DATABASE bank;
-        CREATE TABLE bank.accounts (id INT PRIMARY KEY, balance DECIMAL);
-        INSERT INTO bank.accounts VALUES (1, 1000.50);
-      EOS
-      output = pipe_output("#{bin}/cockroach sql --insecure --format=csv",
-        "SELECT * FROM bank.accounts;")
-      assert_equal <<~EOS, output
-        id,balance
-        1,1000.50
-      EOS
-    rescue => e
-      # If an error occurs, attempt to print out any messages from the
-      # server.
-      begin
-        $stderr.puts "server messages:", File.read("start.out")
-      rescue
-        $stderr.puts "unable to load messages from start.out"
-      end
-      raise e
-    ensure
-      system "#{bin}/cockroach", "quit", "--insecure"
+      $stderr.puts "server messages:", File.read("start.out")
+    rescue
+      $stderr.puts "unable to load messages from start.out"
     end
+    raise e
+  ensure
+    system "#{bin}/cockroach", "quit", "--insecure"
   end
 end
