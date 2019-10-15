@@ -6,6 +6,7 @@ class Wiggle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1eeefae127f3a53c099d279ee815ae491537cae9067bd652cf77e251bd22314e" => :catalina
     sha256 "df5814acd5dac0b0acaa7b6f19234c44187f3d3026f31bf1785c54bf0471d4d1" => :mojave
     sha256 "e9b7905c9b7cf53030b67255642b58bdf671702783278409a7c6059eb88ed9b5" => :high_sierra
     sha256 "38ae96a5c3bb1ce68376f8e17ddf915fc7d667bbbd973db54a385085946da16b" => :sierra
