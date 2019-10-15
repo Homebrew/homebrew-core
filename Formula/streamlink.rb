@@ -3,6 +3,7 @@ class Streamlink < Formula
   homepage "https://streamlink.github.io/"
   url "https://github.com/streamlink/streamlink/releases/download/1.2.0/streamlink-1.2.0.tar.gz"
   sha256 "7aa6e02d914e29fe2e344afd185760b11e46a6a31f9d99f7f9dc87b808812992"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
