@@ -6,6 +6,7 @@ class Sparkey < Formula
 
   bottle do
     cellar :any
+    sha256 "275eb67094c4687a8bfa92a8edf68b7e8a34d8572b3503d41290158b470ac2ff" => :catalina
     sha256 "c2c88d318d112376f08a81dd3c38746b0843e1e0fe5c03d1545f7606db2561ba" => :mojave
     sha256 "619dd968f275dca8239cf39c7d4f6c571ca883190e84bf2246a45d4e5c944a81" => :high_sierra
     sha256 "e19c744556628667d81cfc40c792224b424f545fac1abfd76189d3f675478801" => :sierra
