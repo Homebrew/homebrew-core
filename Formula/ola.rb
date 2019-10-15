@@ -3,7 +3,7 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
   sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
-  revision 3
+  revision 4
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
@@ -30,8 +30,9 @@ class Ola < Formula
   end
 
   def install
-    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python3.7/site-packages/homebrew-protobuf.pth"
-    (buildpath/".brew_home/Library/Python/3.7/lib/python/site-packages").install_symlink protobuf_pth
+    xy = Language::Python.major_minor_version "python3"
+    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
+    (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
     args = %W[
       --disable-fatal-warnings
