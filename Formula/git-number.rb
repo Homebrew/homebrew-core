@@ -6,6 +6,7 @@ class GitNumber < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "662840b36a99f95902aee618faed6274d2cf9c6620b9c01855377d85d838eaad" => :catalina
     sha256 "2fc24b4bb5404f85fb6c359ac9b8c969846953176d8a01176c4e6ddba3067bc9" => :mojave
     sha256 "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f" => :high_sierra
     sha256 "d71548120a8d5d9db4b9b9ae71be947303c6a415e35380d0d8e36551765b827f" => :sierra
