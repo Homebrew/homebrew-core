@@ -5,6 +5,7 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-161.tar.gz"
   version "8.1-161"
   sha256 "e64959dc0b62bc23f481e42eccbe593d3606a241df334dcfabd28fdd8a769a29"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
