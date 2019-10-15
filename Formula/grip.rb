@@ -3,7 +3,7 @@ class Grip < Formula
   homepage "https://github.com/joeyespo/grip"
   url "https://files.pythonhosted.org/packages/3c/ea/2a475ed37e1b6476182e71223c98667f51704bdbc919608372b203c7ea04/grip-4.5.2.tar.gz"
   sha256 "048b7e5c738ed80bee345bd10840f27eb31687eb67132b40f2473dc1cf67aa0f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
