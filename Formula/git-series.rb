@@ -7,6 +7,7 @@ class GitSeries < Formula
 
   bottle do
     cellar :any
+    sha256 "2073a7838f6ba7f715bc056a1855e71ce4e2d800f6f3ecaaa455bd9d38372eab" => :catalina
     sha256 "bbad06cbdc7e4d275aa65b8ca0c7148583a35181200a3eefc4b48f691e195010" => :mojave
     sha256 "3a41df7702c89ca5d9cce8aaf667adb8aea8ac49e63962e73cded92ea765338f" => :high_sierra
     sha256 "76bc22f517e888f1090927a582ccbcf5f09493cc127cd00289008342ffb5a08a" => :sierra
