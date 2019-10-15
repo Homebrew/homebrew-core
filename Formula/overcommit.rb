@@ -35,7 +35,7 @@ class Overcommit < Formula
     system "git", "config", "user.email", "you@example.com"
     system "git", "config", "user.name", "Your Name"
     system "overcommit", "--install"
-    assert File.file?(".overcommit.yml")
+    assert_predicate testpath/".overcommit.yml", :exist?
 
     system "git", "add", "-A"
     system "git", "commit", "-m", "test"
