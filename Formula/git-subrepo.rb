@@ -7,6 +7,7 @@ class GitSubrepo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "140cae9bacff5e3b924a2cd1fd883bc54877755f1cb33d6842990ff4299907e1" => :catalina
     sha256 "1eb8d6ba0b5f819db7438497daa7b2067464a8b09b07afdb3109a145da99e494" => :mojave
     sha256 "ef78a20f6438aa9975c4aa8e65882b0f935e96f53d4e832e97fe3948d77e406e" => :high_sierra
     sha256 "ef78a20f6438aa9975c4aa8e65882b0f935e96f53d4e832e97fe3948d77e406e" => :sierra
