@@ -71,17 +71,15 @@ class Chronograf < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/chronograf"
-      end
-      sleep 3
-      output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
-      sleep 1
-      assert_match %r{/chronograf/v1/layouts}, output
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
+    pid = fork do
+      exec "#{bin}/chronograf"
     end
+    sleep 3
+    output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
+    sleep 1
+    assert_match %r{/chronograf/v1/layouts}, output
+  ensure
+    Process.kill("SIGINT", pid)
+    Process.wait(pid)
   end
 end
