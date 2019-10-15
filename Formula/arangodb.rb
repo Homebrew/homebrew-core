@@ -114,20 +114,18 @@ class Arangodb < Formula
               "--starter.mode", "single", "--starter.disable-ipv6",
               "--server.arangod", "#{sbin}/arangod",
               "--server.js-dir", "#{share}/arangodb3/js") do |r, _, pid|
-      begin
-        loop do
-          available = IO.select([r], [], [], 60)
-          assert_not_equal available, nil
+      loop do
+        available = IO.select([r], [], [], 60)
+        assert_not_equal available, nil
 
-          line = r.readline.strip
-          ohai line
+        line = r.readline.strip
+        ohai line
 
-          break if line.include?("Your single server can now be accessed")
-        end
-      ensure
-        Process.kill "SIGINT", pid
-        ohai "shuting down #{pid}"
+        break if line.include?("Your single server can now be accessed")
       end
+    ensure
+      Process.kill "SIGINT", pid
+      ohai "shuting down #{pid}"
     end
   end
 end
