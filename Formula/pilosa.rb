@@ -52,15 +52,13 @@ class Pilosa < Formula
   end
 
   test do
-    begin
-      server = fork do
-        exec "#{bin}/pilosa", "server"
-      end
-      sleep 0.5
-      assert_match("Welcome. Pilosa is running.", shell_output("curl localhost:10101"))
-    ensure
-      Process.kill "TERM", server
-      Process.wait server
+    server = fork do
+      exec "#{bin}/pilosa", "server"
     end
+    sleep 0.5
+    assert_match("Welcome. Pilosa is running.", shell_output("curl localhost:10101"))
+  ensure
+    Process.kill "TERM", server
+    Process.wait server
   end
 end
