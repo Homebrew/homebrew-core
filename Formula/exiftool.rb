@@ -3,8 +3,8 @@ class Exiftool < Formula
   homepage "https://www.sno.phy.queensu.ca/~phil/exiftool/index.html"
   # Ensure release is tagged production before submitting.
   # https://www.sno.phy.queensu.ca/~phil/exiftool/history.html
-  url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-11.59.tar.gz"
-  sha256 "07534906afa3ba20ae2e6746f0166a6706fe4eb53c1e2f799aa3380674b425e9"
+  url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-11.70.tar.gz"
+  sha256 "d745724ea3a4340d44b131351783b0bbe2b4f9d6d9d2707f4b9508f5f6071afc"
 
   bottle do
     cellar :any_skip_relocation
