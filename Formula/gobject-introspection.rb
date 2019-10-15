@@ -3,6 +3,7 @@ class GobjectIntrospection < Formula
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.62/gobject-introspection-1.62.0.tar.xz"
   sha256 "b1ee7ed257fdbc008702bdff0ff3e78a660e7e602efa8f211dc89b9d1e7d90a2"
+  revision 1
 
   bottle do
     sha256 "0617abce4097de602c1b3baf28619c963ce977051908ffc7f75067e75300d92c" => :catalina
