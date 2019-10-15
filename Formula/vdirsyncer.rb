@@ -6,6 +6,7 @@ class Vdirsyncer < Formula
   url "https://github.com/pimutils/vdirsyncer.git",
       :tag      => "0.16.7",
       :revision => "dcf5f701b7b5c21a8f4e8c80243db3e0baff1313"
+  revision 1
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
