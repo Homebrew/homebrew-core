@@ -7,6 +7,7 @@ class Vrpn < Formula
 
   bottle do
     cellar :any
+    sha256 "cecacf7a6918983b48197ab850b20e00a775a607f28b53e51ba49e89f550b2a6" => :catalina
     sha256 "5a3e1485fdbc883c3996fef9993ef1f3a0aa0e991c9610e82091663db412e471" => :mojave
     sha256 "9b9f4a31161dbc0a4a9ea0759122f0a3725a361dde0b5f1def9bab4e59de12e7" => :high_sierra
     sha256 "4e03c131adba54f74742151ee269d2d0c1716e307294679ed2366c0e6cb5fd41" => :sierra
