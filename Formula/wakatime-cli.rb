@@ -3,6 +3,7 @@ class WakatimeCli < Formula
   homepage "https://wakatime.com/"
   url "https://files.pythonhosted.org/packages/04/db/9917533f8fd503f636f8c5655d9055f2fbef6f90a12a0210b92994f6f823/wakatime-10.4.1.tar.gz"
   sha256 "8acef3ab83dbf9b5cc7592510b9dea1b75f20f4bdf60650329431b81e7f125a9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
