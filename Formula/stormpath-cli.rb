@@ -5,7 +5,7 @@ class StormpathCli < Formula
   homepage "https://github.com/stormpath/stormpath-cli"
   url "https://github.com/stormpath/stormpath-cli/archive/0.1.3.tar.gz"
   sha256 "e6ec75f781bc85ed7648c9df60c40d863f4cc2b091a90db6e63b36549fd25dba"
-  revision 1
+  revision 2
   head "https://github.com/stormpath/stormpath-cli.git"
 
   bottle do
@@ -31,6 +31,11 @@ class StormpathCli < Formula
   resource "cssselect" do
     url "https://files.pythonhosted.org/packages/52/ea/f31e1d2e9eb130fda2a631e22eac369dc644e8807345fbed5113f2d6f92b/cssselect-1.0.3.tar.gz"
     sha256 "066d8bc5229af09617e24b3ca4d52f1f9092d9e061931f4184cd572885c23204"
+  end
+
+  resource "distro" do
+    url "https://files.pythonhosted.org/packages/ca/e3/78443d739d7efeea86cbbe0216511d29b2f5ca8dbf51a6f2898432738987/distro-1.4.0.tar.gz"
+    sha256 "362dde65d846d23baee4b5c058c8586f219b5a54be1cf5fc6ff55c4578392f57"
   end
 
   resource "docopt" do
@@ -91,6 +96,9 @@ class StormpathCli < Formula
   resource "stormpath" do
     url "https://files.pythonhosted.org/packages/de/df/a50733a0ef701607ec0888d71d9b988031ab922889fcf0e06b2285a44f92/stormpath-2.5.5.tar.gz"
     sha256 "3a5c4f48f6a0de44d761ea2c521498719fa0f64f3497ef22f57473d745b8b8fc"
+
+    # Fix removed in Python 3.8 platform.linux_distribution
+    patch :p0, :DATA
   end
 
   resource "termcolor" do
@@ -114,3 +122,26 @@ class StormpathCli < Formula
     system bin/"stormpath", "--help"
   end
 end
+
+__END__
+--- stormpath/http.py    2019-10-26 18:38:52.000000000 +0100
++++ stormpath/http.py    2019-10-26 18:40:00.000000000 +0100
+@@ -15,7 +15,8 @@
+ # `_winreg` out of the standard library :(  This patch works by creating a stub
+ # replacement for it that won't error.
+ try:
+-    from platform import platform, mac_ver, win32_ver, linux_distribution, system
++    from platform import platform, mac_ver, win32_ver, system
++    from distro import linux_distribution
+ except ImportError:
+     win32_ver = lambda: ('', '', '', '')
+
+@@ -46,7 +47,7 @@
+
+     os_info = platform()
+     os_versions = {
+-        'Linux': "%s (%s)" % (linux_distribution()[0], os_info),
++        'Linux': "%s (%s)" % (linux_distribution(full_distribution_name=False)[0], os_info),
+         'Windows': "%s (%s)" % (win32_ver()[0], os_info),
+         'Darwin': "%s (%s)" % (mac_ver()[0], os_info),
+     }
