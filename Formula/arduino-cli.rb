@@ -18,7 +18,10 @@ class ArduinoCli < Formula
 
   def install
     commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-    system "go", "build", "-ldflags", "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} -X github.com/arduino/arduino-cli/version.commit=#{commit}", "-o", bin/"arduino-cli"
+    system "go", "build", "-ldflags",
+           "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} " \
+           "-X github.com/arduino/arduino-cli/version.commit=#{commit}",
+           "-o", bin/"arduino-cli"
   end
 
   test do
