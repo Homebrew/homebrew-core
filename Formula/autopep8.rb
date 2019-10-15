@@ -5,6 +5,7 @@ class Autopep8 < Formula
   homepage "https://github.com/hhatto/autopep8"
   url "https://files.pythonhosted.org/packages/45/f3/24b437da561b6af4840c871fbbda32889ca304fc1f7b6cc3ada8b09f394a/autopep8-1.4.4.tar.gz"
   sha256 "4d8eec30cc81bc5617dbf1218201d770dc35629363547f17577c61683ccfb3ee"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
