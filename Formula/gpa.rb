@@ -7,6 +7,7 @@ class Gpa < Formula
   revision 1
 
   bottle do
+    sha256 "296e517c02d381101befecef3700d17c12a9542dd0b105912f304846a7d54fb2" => :catalina
     sha256 "183d889ae94650931d7ed470ec643a9e5b02843e037a97de2669f2d48076e996" => :mojave
     sha256 "dc9d49486a627330931c0d2caeb6af4629e3871bdbff840ae33e5afb97c087ba" => :high_sierra
     sha256 "73e3e3c27b72b36ed733b01435dd4eb9538f036cf1a817d48a171e58b70de395" => :sierra
