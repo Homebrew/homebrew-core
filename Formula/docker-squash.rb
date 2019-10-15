@@ -3,6 +3,7 @@ class DockerSquash < Formula
   homepage "https://github.com/goldmann/docker-squash"
   url "https://github.com/goldmann/docker-squash/archive/1.0.8.tar.gz"
   sha256 "41638cb007d1a021656f8d30203fd94392d6f3e69afb9f960ee62a25db053384"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
