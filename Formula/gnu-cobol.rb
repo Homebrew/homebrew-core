@@ -6,6 +6,7 @@ class GnuCobol < Formula
   revision 1
 
   bottle do
+    sha256 "34522d58a12226af76cdcfec829945ef26face03a1b028e94d9cba90b106ad87" => :catalina
     sha256 "504014842e719e925712356bb311815d358486517cd5391d679730c1c079162f" => :mojave
     sha256 "3f1a9e81a977db52d0884546897928f6d2d903aa730298bf8ab5d75846afe20a" => :high_sierra
     sha256 "047bbc915d20c25913075b9a71b0bb4fedb0576c262c4a7084890ee6a608e4a0" => :sierra
