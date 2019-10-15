@@ -5,6 +5,7 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/a5/d2/e586d0c8397a5589fa62c85595655bf3d95cbc55c17e901fe8d802976b4f/todoman-3.5.0.tar.gz"
   sha256 "89032887051b164527b90cfb947eb5162dd8b8bb64d9abf1e906b8c86f933814"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
