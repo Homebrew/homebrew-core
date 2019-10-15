@@ -6,6 +6,7 @@ class Wv < Formula
   revision 1
 
   bottle do
+    sha256 "c617efb5a72bf2dbca4a3c85fdb59460ce6aaaf21b1f1db1e89f53ac3fc07224" => :catalina
     sha256 "e3b62df7fad6fefbd233abc45ede4f9705b447df51433e0129a82d98dc321811" => :mojave
     sha256 "470ecfe6b84e931d4c4363b8274a04d42b2e2c3b6c5f50bc12b55a7fda6f5acb" => :high_sierra
     sha256 "7df867080d9b2edb57780c5f971a4a22d01c301aff70c1af7a6ce13385828908" => :sierra
