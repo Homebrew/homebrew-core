@@ -29,7 +29,7 @@ class Mandoc < Formula
       "BINM_MAN=bsdman",
       "BINM_APROPOS=bsdapropos",
       "BINM_WHATIS=bsdwhatis",
-      "BINM_MAKEWHATIS=bsdmakewhatis",	# default is "makewhatis".
+      "BINM_MAKEWHATIS=bsdmakewhatis", # default is "makewhatis".
 
       # These are names for *section 7* pages only. Several other pages are
       # prefixed "mandoc_", similar to the "groff_" pages.
