@@ -5,6 +5,7 @@ class Yamllint < Formula
   homepage "https://github.com/adrienverge/yamllint"
   url "https://github.com/adrienverge/yamllint/archive/v1.18.0.tar.gz"
   sha256 "9cb686e484600fd4aa312e71920d3bbb70ff41ba358d57c557fede0a2bc2fe00"
+  revision 1
 
   bottle do
     cellar :any
