@@ -5,6 +5,7 @@ class Snakemake < Formula
   homepage "https://snakemake.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/73/d7/b43b9bdd06ad85a541840840a470a232cdf2445e0221beb75ea427c905e6/snakemake-5.7.4.tar.gz"
   sha256 "11f2f00c505d928b91332056667d49c96ed1694bf78e798ce27613948d44a2a2"
+  revision 1
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
@@ -14,6 +15,7 @@ class Snakemake < Formula
     sha256 "02a6b1abbfdada4d8c6ee2575c29c6a49ed56820d2f8a4f208bf47270b0cc824" => :high_sierra
   end
 
+  depends_on "cython" => :build
   depends_on "python"
 
   resource "appdirs" do
@@ -132,7 +134,15 @@ class Snakemake < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    resource("datrie").stage do
+      # https://github.com/pytries/datrie/issues/52#issuecomment-402892233
+      system "./update_c.sh"
+      system libexec/"bin/python", "setup.py", "build"
+      system libexec/"bin/python", "setup.py", "install"
+    end
+    venv.pip_install resources.reject { |r| r.name == "datrie" }
+    venv.pip_install_and_link buildpath
   end
 
   test do
