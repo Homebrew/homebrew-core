@@ -27,22 +27,20 @@ class Leaps < Formula
   end
 
   test do
-    begin
-      port = ":8080"
+    port = ":8080"
 
-      # Start the server in a fork
-      leaps_pid = fork do
-        exec "#{bin}/leaps", "-address", port
-      end
-
-      # Give the server some time to start serving
-      sleep(1)
-
-      # Check that the server is responding correctly
-      assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
-    ensure
-      # Stop the server gracefully
-      Process.kill("HUP", leaps_pid)
+    # Start the server in a fork
+    leaps_pid = fork do
+      exec "#{bin}/leaps", "-address", port
     end
+
+    # Give the server some time to start serving
+    sleep(1)
+
+    # Check that the server is responding correctly
+    assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
+  ensure
+    # Stop the server gracefully
+    Process.kill("HUP", leaps_pid)
   end
 end
