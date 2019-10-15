@@ -5,6 +5,7 @@ class JujuWait < Formula
   homepage "https://launchpad.net/juju-wait"
   url "https://files.pythonhosted.org/packages/4c/ee/1a4b3298afd01f276e37dbd3f8d5a42478fb049f08f6255ca2742f7aab9f/juju-wait-2.6.4.tar.gz"
   sha256 "c1dd38c2525fc26d1e89739f9a932aebfd2c1e238e96c980f26527522e7111bf"
+  revision 1
 
   bottle do
     cellar :any
