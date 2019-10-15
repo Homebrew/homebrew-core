@@ -3,9 +3,9 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/84d81aee7f5bfe0264561203429f4131960bc625"
-  version "2.0.74"
-  sha256 "872db23e34a0e5953d1b0fb06eeb05df4b4c7ef9845624f7d848d4ca559f860e"
+  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/6c14816c7d975795bc799e3df4620db8b6220187"
+  version "2.0.75"
+  sha256 "ffbf02f481b2e6e09861ebf2ea2283dd8cb2acfe628f0dc98a1807d040c5d04d"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -39,8 +39,8 @@ class AzureCli < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/d1/e2/c518f2bc5805668803ebf0659628b0e9d77ca981308c7e9e5564b30b8337/asn1crypto-1.0.1.tar.gz"
+    sha256 "0b199f211ae690df3db4fd6c1c4ff976497fb1da689193e368eedbadc53d9292"
   end
 
   resource "azure-batch" do
@@ -149,8 +149,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerregistry" do
-    url "https://files.pythonhosted.org/packages/6a/c0/c8e00d87a300b85711460704b5c16bee42af38185785886a36e765695512/azure-mgmt-containerregistry-3.0.0rc5.zip"
-    sha256 "899985f58c5f6390a02c8da04af5a7df877ee5ca6bd81ea256ecb0ec02ce1e56"
+    url "https://files.pythonhosted.org/packages/b7/a6/ed06bc74beaaeaa647f5032601904c04633f62a2a72d37aa245ca964945c/azure-mgmt-containerregistry-3.0.0rc6.zip"
+    sha256 "06c2d597875dc930d62435136f078c89ee5600fcfc7d5520d7547ecb4b1ad68a"
   end
 
   resource "azure-mgmt-containerservice" do
@@ -369,8 +369,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-sql" do
-    url "https://files.pythonhosted.org/packages/98/94/e448ea6c23049842824417e138c9f5d57af230e4ff7fda84dc669b157504/azure-mgmt-sql-0.12.0.zip"
-    sha256 "8399702e9d1836f3b040ce0c93d8dc089767d66edb9224a3b8a6c9ab7e8ff01f"
+    url "https://files.pythonhosted.org/packages/e8/f8/d8db1782190d813b9f175f2b0ede759096adad4e8e72c46634386f23dbca/azure-mgmt-sql-0.14.0.zip"
+    sha256 "74ef80fc07644c792926f09a88be9b3a6bdfd690b3c1b948627cbb42e40c3c81"
   end
 
   resource "azure-mgmt-sqlvirtualmachine" do
@@ -379,8 +379,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-storage" do
-    url "https://files.pythonhosted.org/packages/c8/7d/d80e4909bff34a9229a9095ea75fc9287d3da92b1316b723fa1194c807f4/azure-mgmt-storage-4.0.0.zip"
-    sha256 "fbed7ccd0d1567a0b201784c477b128a90434b1bf8ecd13179c376253418adcf"
+    url "https://files.pythonhosted.org/packages/33/d1/14e6a0183ebd8591d129188a34ddb4f42539ce0656aa67bc1aa63edee1b6/azure-mgmt-storage-4.2.0.zip"
+    sha256 "de16dc6441782752242f5f724cd533ed387d6a8ac42baf3215f97a7577714709"
   end
 
   resource "azure-mgmt-trafficmanager" do
@@ -474,8 +474,8 @@ class AzureCli < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/93/ea/d884a06f8c7f9b7afbc8138b762e80479fb17aedbbe2b06515a12de9378d/Jinja2-2.10.1.tar.gz"
-    sha256 "065c4f02ebe7f7cf559e49ee5a95fb800a9e4528727aec6f24402a5374c65013"
+    url "https://files.pythonhosted.org/packages/7b/db/1d037ccd626d05a7a47a1b81ea73775614af83c2b3e53d86a0bb41d8d799/Jinja2-2.10.3.tar.gz"
+    sha256 "9fe95f19286cfefaa917656583d020be14e7859c6b0252588391e47db34527de"
   end
 
   resource "jmespath" do
@@ -614,13 +614,13 @@ class AzureCli < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/c2/fd/202954b3f0eb896c53b7b6f07390851b1fd2ca84aa95880d7ae4f434c4ac/tabulate-0.8.3.tar.gz"
-    sha256 "8af07a39377cee1103a5c8b3330a421c2d99b9141e9cc5ddd2e3263fea416943"
+    url "https://files.pythonhosted.org/packages/66/d4/977fdd5186b7cdbb7c43a7aac7c5e4e0337a84cb802e154616f3cfc84563/tabulate-0.8.5.tar.gz"
+    sha256 "d0097023658d4dea848d6ae73af84532d1e86617ac0925d1adf1dd903985dac3"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/3c/31/aa26375d7028397ffa46765f91f5ccb087d37a99437b78259eb46f275f5b/urllib3-1.25.5.tar.gz"
-    sha256 "2f3eadfea5d92bc7899e75b5968410b749a054b492d5a6379c1344a1481bc2cb"
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
   end
 
   resource "vsts" do
