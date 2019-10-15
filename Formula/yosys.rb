@@ -6,6 +6,7 @@ class Yosys < Formula
   head "https://github.com/YosysHQ/yosys.git"
 
   bottle do
+    sha256 "0e66fd2b20dd12deb72912e6730bcaa6ca45f99743d2f6a5cfa0b6d92398a30a" => :catalina
     sha256 "f08231e871b392051da5e08d777c2ab06017718918825155ede2599512f63044" => :mojave
     sha256 "7affc089d87cd4df5bc4d482cf445572b8fbb056eb7629ea8a7439b972ccb085" => :high_sierra
     sha256 "910e842bc8d1337b978ea0f7b93f693a17ec12f93a1a3bac6a53306087d5c8b6" => :sierra
