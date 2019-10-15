@@ -6,11 +6,11 @@ class Greed < Formula
   head "https://gitlab.com/esr/greed.git"
 
   bottle do
-    sha256 "7cbb6b4c078a0261607e24971831dad5e21b6616f5d8adffe0bcaa4cb98f3339" => :mojave
-    sha256 "48e748cf4efb284edd099918a7d3015b4d01e50e868ac47ea2d0978cb3255773" => :high_sierra
-    sha256 "9778c36a897958eac89c32b7c4ef3fa790a2800e22c03262442530e09474da77" => :sierra
-    sha256 "99eef3acefdd2f116d3d3052f11efa9baf848aa4ba6452f07741a922d18779f5" => :el_capitan
-    sha256 "2a503ee5dbbf11e7d7627e6535cc4691bd5606d981b0bfc416c20bfe9f393013" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "64d0028754d683a8bbe1de0bb1a7319dcf6d8020c6d3624e58df5b5be3bf4e42" => :catalina
+    sha256 "9cba951e4fd73d29a1e4899a4f2a7d5f0158f6f5b6d02bb75837c7296530e65c" => :mojave
+    sha256 "9685dcc52ad08b19964cfb61f4fd0d9e28ec0d42cde2f112da4e9be1e1d15b5b" => :high_sierra
   end
 
   def install
