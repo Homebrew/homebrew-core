@@ -25,13 +25,11 @@ class Mrboom < Formula
   test do
     require "pty"
     PTY.spawn(bin/"mrboom", "-m") do |r, _w, pid|
-      begin
-        sleep 1
-        Process.kill "SIGINT", pid
-        assert_match "monster", r.read
-      ensure
-        Process.wait pid
-      end
+      sleep 1
+      Process.kill "SIGINT", pid
+      assert_match "monster", r.read
+    ensure
+      Process.wait pid
     end
   end
 end
