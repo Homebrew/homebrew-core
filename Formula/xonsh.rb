@@ -5,6 +5,7 @@ class Xonsh < Formula
   homepage "https://xon.sh/"
   url "https://github.com/xonsh/xonsh/archive/0.9.13.tar.gz"
   sha256 "21b9c81377c3be04bdf72f0eca2370a3c3ad7b050683362bc52ec84085cdebd2"
+  revision 1
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
