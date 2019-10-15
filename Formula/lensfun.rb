@@ -3,7 +3,7 @@ class Lensfun < Formula
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "51bfd4a5907768d1449902b4d6ab730563d21e0cf509379ea6dcf783351daf5a" => :catalina
