@@ -7,6 +7,7 @@ class Yafc < Formula
 
   bottle do
     cellar :any
+    sha256 "d1e3747b5fd33f86d395fd73a80a36d9113bd044e0ce6b44145f04b8f4b46775" => :catalina
     sha256 "3d78256e0dba7627da06cdcc45b6d4a070d7d1b533457d3af439840150e68aa2" => :mojave
     sha256 "882e689f69c445379a242d5591b286c7ec53fc0eca5402ed758038427404d8f7" => :high_sierra
     sha256 "ebb0f01446ebacf7f72930afd99393fa24efe2eb604405d377b8feca63472c6f" => :sierra
