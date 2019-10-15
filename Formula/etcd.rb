@@ -56,29 +56,27 @@ class Etcd < Formula
   end
 
   test do
-    begin
-      test_string = "Hello from brew test!"
-      etcd_pid = fork do
-        exec bin/"etcd",
-          "--enable-v2", # enable etcd v2 client support
-          "--force-new-cluster",
-          "--logger=zap", # default logger (`capnslog`) to be deprecated in v3.5
-          "--data-dir=#{testpath}"
-      end
-      # sleep to let etcd get its wits about it
-      sleep 10
-
-      etcd_uri = "http://127.0.0.1:2379/v2/keys/brew_test"
-      system "curl", "--silent", "-L", etcd_uri, "-XPUT", "-d", "value=#{test_string}"
-      curl_output = shell_output("curl --silent -L #{etcd_uri}")
-      response_hash = JSON.parse(curl_output)
-      assert_match(test_string, response_hash.fetch("node").fetch("value"))
-
-      assert_equal "OK\n", shell_output("#{bin}/etcdctl put foo bar")
-      assert_equal "foo\nbar\n", shell_output("#{bin}/etcdctl get foo 2>&1")
-    ensure
-      # clean up the etcd process before we leave
-      Process.kill("HUP", etcd_pid)
+    test_string = "Hello from brew test!"
+    etcd_pid = fork do
+      exec bin/"etcd",
+        "--enable-v2", # enable etcd v2 client support
+        "--force-new-cluster",
+        "--logger=zap", # default logger (`capnslog`) to be deprecated in v3.5
+        "--data-dir=#{testpath}"
     end
+    # sleep to let etcd get its wits about it
+    sleep 10
+
+    etcd_uri = "http://127.0.0.1:2379/v2/keys/brew_test"
+    system "curl", "--silent", "-L", etcd_uri, "-XPUT", "-d", "value=#{test_string}"
+    curl_output = shell_output("curl --silent -L #{etcd_uri}")
+    response_hash = JSON.parse(curl_output)
+    assert_match(test_string, response_hash.fetch("node").fetch("value"))
+
+    assert_equal "OK\n", shell_output("#{bin}/etcdctl put foo bar")
+    assert_equal "foo\nbar\n", shell_output("#{bin}/etcdctl get foo 2>&1")
+  ensure
+    # clean up the etcd process before we leave
+    Process.kill("HUP", etcd_pid)
   end
 end
