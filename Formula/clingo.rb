@@ -3,6 +3,7 @@ class Clingo < Formula
   homepage "https://potassco.org/"
   url "https://github.com/potassco/clingo/archive/v5.4.0.tar.gz"
   sha256 "e2de331ee0a6d254193aab5995338a621372517adcf91568092be8ac511c18f3"
+  revision 1
 
   bottle do
     sha256 "768f983bdeb5b7ec3c2aa69b4df169d67df7ec9b0b3f666da4c0be2df84d106a" => :catalina
@@ -23,6 +24,12 @@ class Clingo < Formula
   link_overwrite "bin/gringo"
   link_overwrite "bin/lpconvert"
   link_overwrite "bin/reify"
+
+  # Use 0 instead of nullptr for python's tp_print for Python 3.8
+  patch do
+    url "https://github.com/potassco/clingo/pull/167.patch?full_index=1"
+    sha256 "aa06c734c1cd26744999b3f89a904d7bb14ac9a0f61d627758cf952c47b9efba"
+  end
 
   def install
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
