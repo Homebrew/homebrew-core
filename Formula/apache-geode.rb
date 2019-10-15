@@ -18,12 +18,10 @@ class ApacheGeode < Formula
   end
 
   test do
-    begin
-      flags = "--dir #{testpath} --name=geode_locator_brew_test"
-      output = shell_output("#{bin}/gfsh start locator #{flags}")
-      assert_match "Cluster configuration service is up and running", output
-    ensure
-      quiet_system "pkill", "-9", "-f", "geode_locator_brew_test"
-    end
+    flags = "--dir #{testpath} --name=geode_locator_brew_test"
+    output = shell_output("#{bin}/gfsh start locator #{flags}")
+    assert_match "Cluster configuration service is up and running", output
+  ensure
+    quiet_system "pkill", "-9", "-f", "geode_locator_brew_test"
   end
 end
