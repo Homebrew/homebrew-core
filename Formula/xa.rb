@@ -6,6 +6,7 @@ class Xa < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0d0d90da2fd47164ebd040576077653818cde1596e6772b2a8dde81a139c974f" => :catalina
     sha256 "c158ac34c430221611c8fec3144c7b489ed65e99e459325a528e14a2cd727489" => :mojave
     sha256 "b9b214c757c86617774275ea57f8191e7ca46b21ce3f879387cce5e388eb285f" => :high_sierra
     sha256 "9a16e276c370a5afb7ae4379e10318660d15375a0baa86550c6f16e662559ee1" => :sierra
