@@ -3,6 +3,7 @@ class Mat2 < Formula
   homepage "https://0xacab.org/jvoisin/mat2"
   url "https://0xacab.org/jvoisin/mat2/-/archive/0.9.0/mat2-0.9.0.tar.gz"
   sha256 "cc2265458dda0b65f488d4d97c4e1b9f99feda88398fc146e844cbd3a357d2af"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
