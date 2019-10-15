@@ -5,6 +5,7 @@ class AnimeDownloader < Formula
   homepage "https://github.com/vn-ki/anime-downloader"
   url "https://github.com/vn-ki/anime-downloader/archive/4.0.1.tar.gz"
   sha256 "19656b9d5cb8d1a663f32174ac1ab528eec5b0341e7008114686294c67b1bcdb"
+  revision 1
   head "https://github.com/vn-ki/anime-downloader.git"
 
   bottle do
