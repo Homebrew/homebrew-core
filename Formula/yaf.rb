@@ -8,6 +8,7 @@ class Yaf < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "62355ef76633be429f5a281b1a357fa74d12e33ffaf5c2e38b0291442cb1f9fd" => :catalina
     sha256 "7395026369a9b4b30f6614ab98baa1d810de2af29511b635b3ba2ad5a3d82289" => :mojave
     sha256 "3e4ba45a90c4a47bcb4edc7dd9d9bf227d8b70af3989368bbf6cc4b006d2a9f7" => :high_sierra
     sha256 "f9f45a164b81d2b4d4ef3b45664faa81d8317039cee93b69a1f4dc2d55786068" => :sierra
