@@ -6,6 +6,7 @@ class Awscli < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.16.280.tar.gz"
   sha256 "117c4faf691b14d6c95d068414bb0bc4d8e98ef21d2cd6e9842e6b2ef09432c7"
+  revision 1
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
