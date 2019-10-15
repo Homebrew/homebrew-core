@@ -5,6 +5,7 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
   sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
@@ -24,8 +25,8 @@ class Passpie < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "rstr" do
@@ -43,6 +44,9 @@ class Passpie < Formula
     sha256 "7fc5bfc2439a0b379bd60638b517b52bcbf70220195b3f3245663cb8ad9dbcf0"
   end
 
+  # Bump PyYAML dependency for Python 3.8 compatibility
+  patch :p0, :DATA
+
   def install
     virtualenv_install_with_resources
   end
@@ -51,3 +55,16 @@ class Passpie < Formula
     system bin/"passpie", "--help"
   end
 end
+
+__END__
+--- setup.py	2018-04-25 01:04:18.000000000 +0100
++++ setup-new.py	2019-10-27 10:26:43.000000000 +0000
+@@ -24,7 +24,7 @@
+
+ requirements = [
+     'click==6.6',
+-    'PyYAML==3.11',
++    'PyYAML==3.13',
+     'tabulate==0.7.5',
+     'tinydb==3.2.1',
+     'rstr==2.2.4',
