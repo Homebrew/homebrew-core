@@ -5,7 +5,7 @@ class Jrnl < Formula
   homepage "https://jrnl.sh/"
   url "https://github.com/maebert/jrnl/archive/1.9.8.tar.gz"
   sha256 "ec9dcf01f67a2329218fcd090b56042379937b269ddbd8c0c64097636f012e63"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
