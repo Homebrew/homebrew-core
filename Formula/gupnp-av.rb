@@ -6,6 +6,7 @@ class GupnpAv < Formula
   revision 2
 
   bottle do
+    sha256 "6e0cf541932104a1259005b3d125d96c72c80e2dffc7d8d4b5ddb199c7bdd237" => :catalina
     sha256 "15f5c2ec832094d098ebbc52c1a327ce7e6125293180e7acc377bc7dcc3d5210" => :mojave
     sha256 "7149d11d69541003e8fc3b1d0da0b125b6dac5329db3017a735858363f31e78c" => :high_sierra
     sha256 "dc21d3e8e793fffde5b7b734be587f3a736f94f03f8bfa42ca5ae395be6081a3" => :sierra
