@@ -5,9 +5,11 @@ class Snapraid < Formula
   sha256 "d35ad92157936db3411e2cf7325665fc59e2d159204f9424895cfa9f33122af1"
 
   bottle do
-    sha256 "48610c70ee6cfa3ceb3724e19b0d6ca3f88bd552a57aa4a1b15b4c5da4170e7a" => :mojave
-    sha256 "a37ca63751fbe401c7239e4adff594d051e4eb9ceb11c4db594a927fc652e680" => :high_sierra
-    sha256 "e2ffd2c3da613bed66b2a14d682c90703b561b19101ff7f4dbf2864d2107e995" => :sierra
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "bcd8a45d4ec8daa99fd20faddf63ec0476239b02deba34755f158cf1e629299d" => :catalina
+    sha256 "44416f365e6c197fe9ba5381ef829d295cf65bbc953c666fb69a84c482c0a793" => :mojave
+    sha256 "2083e11d5d72fee5bc67bb71fca4686e27f49fe7ea837e9aaea0688c53ad7dc1" => :high_sierra
   end
 
   head do
