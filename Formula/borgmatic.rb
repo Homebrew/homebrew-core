@@ -5,6 +5,7 @@ class Borgmatic < Formula
   homepage "https://torsion.org/borgmatic/"
   url "https://github.com/witten/borgmatic/archive/1.4.0.tar.gz"
   sha256 "247f97a7366d6fa54e73ab1e5837c1666fef1c2c49f78288fbd5fc35ce3362f8"
+  revision 1
 
   bottle do
     cellar :any
