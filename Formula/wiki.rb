@@ -8,6 +8,7 @@ class Wiki < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "97fff58adf33b41ca00e4112ef099a76c333cf2fb501a85ce155a19284b47387" => :catalina
     sha256 "c2356b595d2c4b9a6ade9f569b0186de56c016121cb28c5e525353ad3b74c7c0" => :mojave
     sha256 "b659c9bc28a5468e61a7af026f20fe8a9233b852e1165e5d900755db68fa85f6" => :high_sierra
     sha256 "0f3302cb5063486d6cb1beb1a25c771b50c03f0318f05e7d3520b1a2d05a445b" => :sierra
