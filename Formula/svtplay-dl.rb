@@ -9,6 +9,7 @@ class SvtplayDl < Formula
 
   bottle do
     cellar :any
+    sha256 "5054addea38e1d56e24af0a912b4612baf5ecd0fe6645d204d1e21396ad82698" => :catalina
     sha256 "fe2d34b03008d6ddaee1dfe44addde500c339f22a236bc70b2e2f15b0b882f61" => :mojave
     sha256 "77486e2f0cca24896a9371d278dd14802d4c89cd8b7fb75d7b1e152f70de3e07" => :high_sierra
     sha256 "2c2897916c91781221e2954f1a896198f972137930d1c15cdf8a36d1df952725" => :sierra
