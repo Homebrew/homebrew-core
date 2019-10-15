@@ -5,6 +5,7 @@ class Sceptre < Formula
   homepage "https://sceptre.cloudreach.com"
   url "https://github.com/cloudreach/sceptre/archive/v2.1.5.tar.gz"
   sha256 "85b88159e1125992f0beb8c88188d795763395dbed34ad589e0fc6b0cdf2a882"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
