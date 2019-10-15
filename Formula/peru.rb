@@ -5,6 +5,7 @@ class Peru < Formula
   homepage "https://github.com/buildinspace/peru"
   url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
   sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
