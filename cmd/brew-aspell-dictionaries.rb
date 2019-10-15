@@ -12,8 +12,8 @@ languages   = {}
 
 URI.parse("#{dict_url}/0index.html").open do |content|
   content.each_line do |line|
-    break if %r{^</table} =~ line
-    next unless /^<tr><td><a/ =~ line
+    break if %r{^</table}.match?(line)
+    next unless /^<tr><td><a/.match?(line)
 
     fields = line.split('"')
     lang = fields[1]
@@ -31,7 +31,7 @@ resources = languages.map do |lang, path|
   r
 end
 
-resources.each {|r| r.fetch(verify_download_integrity: false)}
+resources.each { |r| r.fetch(verify_download_integrity: false) }
 
 resources.each do |r|
   puts <<-EOS
