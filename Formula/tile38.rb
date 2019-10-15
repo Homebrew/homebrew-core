@@ -69,16 +69,14 @@ class Tile38 < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/tile38-server", "-q"
-      end
-      sleep 2
-      json_output = shell_output("#{bin}/tile38-cli server")
-      tile38_server = JSON.parse(json_output)
-      assert_equal tile38_server["ok"], true
-    ensure
-      Process.kill("HUP", pid)
+    pid = fork do
+      exec "#{bin}/tile38-server", "-q"
     end
+    sleep 2
+    json_output = shell_output("#{bin}/tile38-cli server")
+    tile38_server = JSON.parse(json_output)
+    assert_equal tile38_server["ok"], true
+  ensure
+    Process.kill("HUP", pid)
   end
 end
