@@ -7,6 +7,7 @@ class GoAT110 < Formula
 
   bottle do
     rebuild 1
+    sha256 "463f46d45774a9c16406a8440e32ad0c66fc6d02e8efdd8bd089d43a2e1b0b19" => :catalina
     sha256 "74de45b702bd3fecae70ad1492ab48b90dbcd0526b5f212d067a9fb30d3142da" => :mojave
     sha256 "669a59bb6f7490fccdd4b116418e05f16c649ec4fc185b0cfa9e023346915fcd" => :high_sierra
     sha256 "b3cf0891e8bfd66a7b1904e44776957550637e8914326e6282d0290aea5a1d7f" => :sierra
