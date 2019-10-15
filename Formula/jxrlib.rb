@@ -26,7 +26,7 @@ class Jxrlib < Formula
   end
 
   test do
-    bmp = "Qk06AAAAAAAAADYAAAAoAAAAAQAAAAEAAAABABgAAAAAAAQAAADDDgAAww4AAAAAAAAAAAAA////AA==".unpack("m")[0]
+    bmp = "Qk06AAAAAAAAADYAAAAoAAAAAQAAAAEAAAABABgAAAAAAAQAAADDDgAAww4AAAAAAAAAAAAA////AA==".unpack1("m")
     infile  = "test.bmp"
     outfile = "test.jxr"
     File.open(infile, "wb") { |f| f.write bmp }
