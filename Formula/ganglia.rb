@@ -62,15 +62,13 @@ class Ganglia < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec bin/"gmetad", "--pid-file=#{testpath}/pid"
-      end
-      sleep 2
-      assert_predicate testpath/"pid", :exist?
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
+    pid = fork do
+      exec bin/"gmetad", "--pid-file=#{testpath}/pid"
     end
+    sleep 2
+    assert_predicate testpath/"pid", :exist?
+  ensure
+    Process.kill "TERM", pid
+    Process.wait pid
   end
 end
