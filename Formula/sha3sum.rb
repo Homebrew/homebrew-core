@@ -6,6 +6,7 @@ class Sha3sum < Formula
 
   bottle do
     cellar :any
+    sha256 "2a2d98b9289a0a98536d1d73e840fb88bd9ab430f44e914d00cf29a0879a3c72" => :catalina
     sha256 "261621253f9915637cb0e49ce33764bc7c7fa80ac54481ba897b9cfffcb82965" => :mojave
     sha256 "4042da1f6559af01943de4bca3c86b9b4b5729cae9a0cb5009b849870fb086b2" => :high_sierra
     sha256 "99c160dd3fab4dd776d940ec369b9d11e5948376755f12f8c0248a3f5ab8b223" => :sierra
