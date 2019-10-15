@@ -6,6 +6,7 @@ class Khal < Formula
   url "https://github.com/pimutils/khal.git",
       :tag      => "v0.10.1",
       :revision => "a6d7d62388d33459e85dfb5cf57a31c46f120769"
+  revision 1
   head "https://github.com/pimutils/khal.git"
 
   bottle do
