@@ -6,6 +6,7 @@ class Wiiuse < Formula
 
   bottle do
     cellar :any
+    sha256 "5464a5da078f37d0444521d04b95092aeec982cf41949328c8bfd4c5aea791a9" => :catalina
     sha256 "81f9c831744a302586fa3158fe29127aaeeac73e0d5c074425abda85ecf2f00c" => :mojave
     sha256 "1a6064dd68d05c22b3078371569eec25311ff222f795c2eb2dc71848089b3230" => :high_sierra
     sha256 "c14e2c7d0a576284818879a756b0da9dd0bf4d9c789d301b69afe3a0f7c9bc17" => :sierra
