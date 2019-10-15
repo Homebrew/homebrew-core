@@ -5,7 +5,7 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
   sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
-  revision 1
+  revision 2
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
