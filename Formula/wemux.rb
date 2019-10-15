@@ -6,11 +6,11 @@ class Wemux < Formula
   head "https://github.com/zolrath/wemux.git"
 
   bottle do
-    rebuild 2
-    sha256 "d2abdfef10f58397bd2432229ad301f75f1f2f615aca6151165c93822ed208be" => :mojave
-    sha256 "4da7fcb0ac46c071491e9c8a3946ae4515414b64a5513c75acde7d71650daa4d" => :high_sierra
-    sha256 "4da7fcb0ac46c071491e9c8a3946ae4515414b64a5513c75acde7d71650daa4d" => :sierra
-    sha256 "4da7fcb0ac46c071491e9c8a3946ae4515414b64a5513c75acde7d71650daa4d" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 3
+    sha256 "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6" => :catalina
+    sha256 "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6" => :mojave
+    sha256 "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6" => :high_sierra
   end
 
   depends_on "tmux"
