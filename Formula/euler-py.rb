@@ -3,7 +3,7 @@ class EulerPy < Formula
   homepage "https://github.com/iKevinY/EulerPy"
   url "https://github.com/iKevinY/EulerPy/archive/v1.3.0.tar.gz"
   sha256 "ffe2d74b5a0fbde84a96dfd39f1f899fc691e3585bf0d46ada976899038452e1"
-  revision 1
+  revision 2
   head "https://github.com/iKevinY/EulerPy.git"
 
   bottle do
