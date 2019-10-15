@@ -3,6 +3,7 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.6.tar.xz"
   sha256 "fa9e3130e7afdfb6eff1b7892caac3efdd38a442f9989ca8c061eced2c755148"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
@@ -24,6 +25,12 @@ class Weechat < Formula
   depends_on "perl"
   depends_on "python"
   depends_on "ruby" if MacOS.version <= :sierra
+
+  # Fix build for Python 3.8
+  patch do
+    url "https://github.com/weechat/weechat/pull/1421.patch?full_index=1"
+    sha256 "ff3b400fe9ee0157e3a91978b14e59bc4379c1289a3e7774a362ed97562b52f9"
+  end
 
   def install
     args = std_cmake_args + %W[
