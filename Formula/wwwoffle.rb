@@ -6,6 +6,7 @@ class Wwwoffle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5e01196bd5b95300b944ac6c5bd7cf10999a3ec9cb24f2f2a09b97b0256b87f9" => :catalina
     sha256 "503407c9e3e1cdfe8382b25e8709d5f92675ac04f7d9b42bb4ab08b02a6f5818" => :mojave
     sha256 "090085b4a39e90929744310494ef3157dfc77f7c2910047dfbdc75c75fe7c8f7" => :high_sierra
     sha256 "9310fffe992916bf09700c8d6fd018943a14c73c27f28e3c61548f56b7f301d2" => :sierra
