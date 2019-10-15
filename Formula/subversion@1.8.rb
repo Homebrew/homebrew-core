@@ -9,6 +9,7 @@ class SubversionAT18 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "d471619f345885cff74ff22c7c1783ff31d2a979471f8b55dba9851fd7872fdc" => :catalina
     sha256 "f1ddeb0830e05709298f49b05131297e079a20cdf115a57d84e8c336b2c97aca" => :mojave
     sha256 "4f5837d367ff776070c2d0a1a20a17a14fb56ec5296a00969c5fd5914888da02" => :sierra
   end
