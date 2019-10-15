@@ -5,6 +5,7 @@ class Suil < Formula
   sha256 "a1e9899012790eef8867b5475853d76689b246cca88a99ac0d379a6c0d85c72b"
 
   bottle do
+    sha256 "d47dfcab557ae99bf0d1fe6950f43a4fc83babbff35430beba7234fc78c9ad7e" => :catalina
     sha256 "5edd9d88d7fbac6909430c73ffdcdf1ea3bc8ed7ccad2ffe5e132a256fb92a3b" => :mojave
     sha256 "7cd481bd8924581cb61e3fcfd9fd6811d898c6b2dc18aae80007dc75e11a7671" => :high_sierra
     sha256 "22ad8a4f9858b90574bd1f1e9028d37a37003a4e5b211baa3a2f400dedc65e38" => :sierra
