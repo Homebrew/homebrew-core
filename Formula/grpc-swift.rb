@@ -7,6 +7,7 @@ class GrpcSwift < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "40d3fbbc0193fbc46f029c6c5795ea8bc0faaabe7ea14073a4dc9cb0c98f1c54" => :catalina
     sha256 "f8d66abf01b8b8573b58718a8999ab905619a2b677aa24050dab78e1cd1323de" => :mojave
     sha256 "a8abd068afd441640955a8399ebb07c63228716e6ecd7198258f9e4b92a22e4f" => :high_sierra
   end
