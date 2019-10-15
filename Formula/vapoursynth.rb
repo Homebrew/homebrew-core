@@ -5,6 +5,7 @@ class Vapoursynth < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R48.tar.gz"
   sha256 "3e98d134e16af894cf7040e4383e4ef753cafede34d5d77c42a2bb89790c50a8"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -37,7 +38,8 @@ class Vapoursynth < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-cython=#{buildpath}/cython/bin/cython",
                           "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth"
-    system "make", "install"
+    py_ldflags = `python3-config --ldflags --embed`.chomp
+    system "make", "install", "LDFLAGS=#{py_ldflags}"
     %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
       rm prefix/"vapoursynth/lib#{filter}.la"
     end
