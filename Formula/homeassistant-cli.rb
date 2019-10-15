@@ -5,6 +5,7 @@ class HomeassistantCli < Formula
   homepage "https://github.com/home-assistant/home-assistant-cli"
   url "https://files.pythonhosted.org/packages/0b/af/29fc89f540ee90cb34eed902c7a9d28f5f256707b0cb70656088b8be8628/homeassistant-cli-0.7.0.tar.gz"
   sha256 "a38d4669201ac2afa71b6578a220bf4d6d59131263b278d51ebd1479677f6baf"
+  revision 1
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
   bottle do
