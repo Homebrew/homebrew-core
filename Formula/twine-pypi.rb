@@ -5,6 +5,7 @@ class TwinePypi < Formula
   homepage "https://github.com/pypa/twine"
   url "https://files.pythonhosted.org/packages/91/82/32c68749d10ae30dd126699ee471b8885d9a9ae326a0f25dac42bb6a3f28/twine-2.0.0.tar.gz"
   sha256 "9fe7091715c7576df166df8ef6654e61bada39571783f2fd415bdcba867c6993"
+  revision 1
   head "https://github.com/pypa/twine.git"
 
   bottle do
