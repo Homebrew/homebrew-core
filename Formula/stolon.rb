@@ -7,6 +7,7 @@ class Stolon < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "51d6407392f8c4c13a12de0003f188bbb0f8fc02eed970d8cf62c7cf9d194cf5" => :catalina
     sha256 "4c9b9cfaf27f24e6011277f5a37ef9292ffeaa9bb53561b5223cd8796c071660" => :mojave
     sha256 "fcbe634904119d23eb304dfb3a96973eb60721a65163b782c919a2eebef60a8a" => :high_sierra
     sha256 "893841a3fbe74d09346c360f38c95c9e534a51604e9a9f834cd1fb86cfe3473c" => :sierra
