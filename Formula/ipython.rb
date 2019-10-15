@@ -5,6 +5,7 @@ class Ipython < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/89/60/acb98588d8eba96558e69d90fa54f9908b4e48f6492ff378697f0c2216e2/ipython-7.8.0.tar.gz"
   sha256 "dd76831f065f17bddd7eaa5c781f5ea32de5ef217592cf019e34043b56895aa1"
+  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
