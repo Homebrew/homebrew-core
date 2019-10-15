@@ -6,6 +6,7 @@ class Urdfdom < Formula
 
   bottle do
     cellar :any
+    sha256 "124c7475dc74116d0185194354dbe12ab0a383592a81c5617e62c4065155b7cd" => :catalina
     sha256 "263f8b75de2465c83b527ea27fe6fdc2687d14571114f575c433a3316f2b9524" => :mojave
     sha256 "736c863207d6de888b32645de4a68a32776e0011d115ca51feb98bf066e9493f" => :high_sierra
     sha256 "fe30973514c5c9f9a6484b98ae3b36ae98fc5b0bfdadf7d8cfcd889391f68a72" => :sierra
