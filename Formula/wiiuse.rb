@@ -33,7 +33,7 @@ class Wiiuse < Formula
         int wiimoteCount = 1;
         wiimote** wiimotes = wiiuse_init(wiimoteCount);
         wiiuse_cleanup(wiimotes, wiimoteCount);
-	return 0;
+        return 0;
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-l", "wiiuse", "-o", "test"
