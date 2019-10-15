@@ -5,6 +5,7 @@ class Bumpversion < Formula
   homepage "https://pypi.python.org/pypi/bumpversion"
   url "https://github.com/peritus/bumpversion/archive/v0.5.3.tar.gz"
   sha256 "97ac6efca7544853309b68efe92f113ab6bddb77ecbaefa5702a6183a30bcb33"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
