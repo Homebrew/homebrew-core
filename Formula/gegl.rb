@@ -6,6 +6,7 @@ class Gegl < Formula
   revision 2
 
   bottle do
+    sha256 "c85c022cbec147dc1c206c6efaaab0ad1cc9db52b90706a3e131b6918eed7f89" => :catalina
     sha256 "9a94a1bfa65fc2aab0076a2dc5bdd8f78607c735b6043c5ce8d9aad192e9818f" => :mojave
     sha256 "b12c213159d53df0bf6777fb81d13bb93ba90683da3142bb38d250d7dfc00d05" => :high_sierra
     sha256 "22fd034b398955586ff07868178a930858d428e1af957c1921260ff679fea672" => :sierra
