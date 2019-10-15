@@ -6,6 +6,7 @@ class Grap < Formula
   sha256 "906743cdccd029eee88a4a81718f9d0777149a3dc548672b3ef0ceaaf36a4ae0"
 
   bottle do
+    sha256 "4a5b7519a60732d2f40b4e973c8792a25b8e0127e51683ecd06a24494c2922e6" => :catalina
     sha256 "f37b04de6644a14268722c58ad626c7c3e6da8d7ca63c79cbc8d74b95016a51f" => :mojave
     sha256 "e823c876e7269bfc37bc302ed10a2d93ae7a4631f0464b983daea564ff7d97bb" => :high_sierra
     sha256 "4e4b22198d42beea1e531a6903f4085b67692e7da7bc1b7a3e51f42c235169d1" => :sierra
