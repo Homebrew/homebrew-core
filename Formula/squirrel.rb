@@ -8,6 +8,7 @@ class Squirrel < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "036b6172b0a11dde45cc6e28613a0db3a2aa1a7a44f220d1bd963a1903533a56" => :catalina
     sha256 "3080041c6bda4ffb009faea5924917586204cb004f9a01ac434ff86e0cdb1cd1" => :mojave
     sha256 "c57b21bbdcac5cbaf3d7319d64f08c150d16592138bdf1027e7032f579e10091" => :high_sierra
     sha256 "f4d3e6db56838a29cd7247f0933de64bb35a6dac581a9ade879205cbfc9d93f7" => :sierra
