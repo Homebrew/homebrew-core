@@ -5,6 +5,7 @@ class CfnLint < Formula
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
   url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.25.2.tar.gz"
   sha256 "2b27ca167e8eec387ac76681cdb96b4f6eaf0b13b0bc20d056abeddae8c5fbcc"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
