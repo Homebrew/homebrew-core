@@ -7,6 +7,7 @@ class GnuChess < Formula
   revision 1
 
   bottle do
+    sha256 "c974d47804b8d31d5291b7fa5aa7cc2b4caee43d9b92db9ac9e63713e7f4d4f7" => :catalina
     sha256 "38957b9b332c27f5952ff0f5cc38d08c58a6578ef358974fb1f7860a13d12f60" => :mojave
     sha256 "f66f7a33aa5d6901cdaa888ab0a5e8b6e0f49649dbbf86c7c3ff48568c0e0a89" => :high_sierra
     sha256 "17d6cd58b1c4157c70bb1417824ec96a161bae4f5ff1544f4d1044f03f0e95a0" => :sierra
