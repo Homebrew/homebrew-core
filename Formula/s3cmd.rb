@@ -3,7 +3,7 @@ class S3cmd < Formula
   homepage "https://s3tools.org/s3cmd"
   url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.2/s3cmd-2.0.2.tar.gz"
   sha256 "9f244c0c10d58d0ccacbba3aa977463e32491bdd9d95109e27b67e4d46c5bd52"
-  revision 1
+  revision 2
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
