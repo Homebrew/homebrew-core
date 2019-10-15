@@ -5,6 +5,7 @@ class AwsGoogleAuth < Formula
   homepage "https://github.com/cevoaustralia/aws-google-auth"
   url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.33.tar.gz"
   sha256 "775cc33ad17fdac73f07509edd981a4097308e347c19e2e7cda84ca3b93b1b92"
+  revision 1
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
   bottle do
