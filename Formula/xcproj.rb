@@ -7,6 +7,7 @@ class Xcproj < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "46aa93499933dd1599eb4d38ba2e5b8587092c08f8acb691b29a1ccee6a80b17" => :catalina
     sha256 "7efa30f2f581bbcc0962605710b1125965b6b8d13ca8e5fab8517adfe1c9334d" => :mojave
     sha256 "d34b031444c1122392afb789036d3197a0d333ae11447c819509f1f31de30c9f" => :high_sierra
     sha256 "f21fe7b203fbee383f502d66ac8471c7798d74dae7d4ad4491e933fcd1de22d5" => :sierra
