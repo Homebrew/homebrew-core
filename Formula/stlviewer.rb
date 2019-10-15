@@ -6,6 +6,7 @@ class Stlviewer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "569d6f8f9b92abd1eb1fa15db1204b7aee1297f8e8cd078eea42da4d26a62db6" => :catalina
     sha256 "9179139d7ebb44d3eb664f1a58df0003722a76315dd7211345671ca21b7a59a1" => :mojave
     sha256 "ce4cddb8ffed5a7154be0ce328b283805fc14a1a5769c911e1492a35c1b07a1c" => :high_sierra
     sha256 "9490714ae75aaa68e9c13f9b8d3a9cd87965d09167388d768f6299067774cc69" => :sierra
