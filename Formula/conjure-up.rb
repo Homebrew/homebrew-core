@@ -5,6 +5,7 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.6.9.tar.gz"
   sha256 "b5ebba187d27b3474b36acd715df015b198c0e5df8aefb32200ba4f3f3de17f4"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,6 +17,7 @@ class ConjureUp < Formula
   depends_on "jq"
   depends_on "juju"
   depends_on "juju-wait"
+  depends_on "libsodium"
   depends_on "libyaml"
   depends_on "pwgen"
   depends_on "python"
@@ -95,6 +97,12 @@ class ConjureUp < Formula
   resource "macaroonbakery" do
     url "https://files.pythonhosted.org/packages/d0/22/ca60ef57ad0ea904292daaa1cb0f1e991303667f70794a97674f4a3695fa/macaroonbakery-1.2.3.tar.gz"
     sha256 "bd27e7d2d98cb3dc1973d7b67b2a0c475fb005c0f9c35c04dbf9b272e98939ec"
+
+    # Fix removed in Python 3.8 platform.linux_distribution
+    patch do
+      url "https://github.com/go-macaroon-bakery/py-macaroon-bakery/pull/75.patch?full_index=1"
+      sha256 "70b36abee3f9d93afee7fb4d4cb9018370aad83f16a2ab7c5b5770aa1178be86"
+    end
   end
 
   resource "MarkupSafe" do
@@ -155,6 +163,9 @@ class ConjureUp < Formula
   resource "PyNaCl" do
     url "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"
     sha256 "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"
+
+    # Allow PyNaCl use libsodium 1.0.18: backport of https://github.com/pyca/pynacl/pull/541
+    patch :DATA
   end
 
   resource "pyRFC3339" do
@@ -247,6 +258,9 @@ class ConjureUp < Formula
     venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
     res = resources.map(&:name).to_set - ["cffi"]
 
+    # Use installed libsodium for PyNaCl
+    ENV["SODIUM_INSTALL"] = "system"
+
     res.each do |r|
       venv.pip_install resource(r)
     end
@@ -261,3 +275,23 @@ class ConjureUp < Formula
                      :exist?
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index 691291d60607c01f3f443700f22dfdbcc101b11a..3c61ae185b48a5f70be26d8f56083ac78574e036 100644
+--- a/setup.py
++++ b/setup.py
+@@ -138,12 +138,10 @@ def run(self):
+             if e.errno != errno.EEXIST:
+                 raise
+
+-        # Ensure all of our executanle files have their permission set
++        # Ensure all of our executable files have their permission set
+         for filename in [
+                 "src/libsodium/autogen.sh",
+                 "src/libsodium/compile",
+-                "src/libsodium/config.guess",
+-                "src/libsodium/config.sub",
+                 "src/libsodium/configure",
+                 "src/libsodium/depcomp",
+                 "src/libsodium/install-sh",
