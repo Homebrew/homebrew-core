@@ -3,7 +3,7 @@ class Biogeme < Formula
   homepage "https://biogeme.epfl.ch/"
   url "https://biogeme.epfl.ch/distrib/biogeme-2.6a.tar.gz"
   sha256 "f6de0ea12f83ed183f31a41b9a56d1ec7226d2305549fb89ea7b1de8273ede49"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
@@ -17,7 +17,9 @@ class Biogeme < Formula
   depends_on "python"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    py_libs = `python3-config --ldflags --embed`.chomp
+    py_includes = `python3-config --includes`.chomp
+    system "./configure", "--prefix=#{prefix}", "PYTHON_LIBS=#{py_libs}", "PYTHON_INCLUDES=#{py_includes}"
     system "make", "install"
   end
 
