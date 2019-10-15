@@ -5,6 +5,7 @@ class Internetarchive < Formula
   homepage "https://github.com/jjjake/internetarchive"
   url "https://files.pythonhosted.org/packages/f8/08/4317a2a43b1c7d48683a36438c0c0f77044ed61d71df9e2cc95345ab4999/internetarchive-1.8.5.tar.gz"
   sha256 "2e7477ed3fe43f1d09853b281c8034deafacf7ebc614ba80788c90ecdbf0c3d3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
