@@ -3,7 +3,7 @@ class BoostPython3 < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
   sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -49,7 +49,7 @@ class BoostPython3 < Formula
       using darwin : : #{ENV.cxx} ;
       using python : #{pyver}
                    : python3
-                   : #{py_prefix}/include/python#{pyver}m
+                   : #{py_prefix}/include/python#{pyver}
                    : #{py_prefix}/lib ;
     EOS
 
@@ -83,7 +83,7 @@ class BoostPython3 < Formula
     EOS
 
     pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
+    pylib = Utils.popen_read("python3-config --ldflags --embed").chomp.split(" ")
     pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
