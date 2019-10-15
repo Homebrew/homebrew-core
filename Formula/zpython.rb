@@ -26,11 +26,11 @@ class Zpython < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d7416844f4492de9a7301415e7cbaeadd12174a12adbdbc95d79cd078713636a" => :mojave
-    sha256 "383da8000738fdc3384760da9387755a39cab9a3949b728236b494e0c7b5edd4" => :high_sierra
-    sha256 "10c9bc1a96a21649687772eb3a1da85155e7d61918c6ba14bca3e838f86c716c" => :sierra
-    sha256 "6763da884b7a5bc7e8fa01e5888fa07be6fa7a1ecb1d271e6045c8445e91c8db" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "96e60fde74aced3f604a886899bc6ae81a428626d7b98f27c38b15eada389a0e" => :catalina
+    sha256 "0e46595052e37148376385290c0f0f9be7c6ee14bb958632fc264f830a9c8d74" => :mojave
+    sha256 "28224b9114bfc72a79f739a3ca62327a25c22f78d68b8bd6faa46960d21640a0" => :high_sierra
   end
 
   depends_on "autoconf" => :build
