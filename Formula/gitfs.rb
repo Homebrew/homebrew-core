@@ -5,7 +5,7 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 4
+  revision 5
   head "https://github.com/PressLabs/gitfs.git"
 
   bottle do
@@ -26,8 +26,8 @@ class Gitfs < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
-    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "fusepy" do
