@@ -6,6 +6,7 @@ class Gnuski < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7c58085b5ceb98168c728003d484e08410c837bde9b044ed5a5fa6f26796d9ab" => :catalina
     sha256 "4fe7b21e4b40ee72c7825c1e0330a958694b98529121385b78b7af9aff229d6d" => :mojave
     sha256 "6f15bd497951ea784e84b2ec888be83343ad1ad96eb6bab9ba343bff31246700" => :high_sierra
     sha256 "3874907a4ad715492c026d969ec3265dcd5f71424dde07a83aa1c21a1e36fa38" => :sierra
