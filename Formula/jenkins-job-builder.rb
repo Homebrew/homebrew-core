@@ -3,6 +3,7 @@ class JenkinsJobBuilder < Formula
   homepage "https://docs.openstack.org/infra/jenkins-job-builder/"
   url "https://files.pythonhosted.org/packages/72/bc/b509ad84e64e08d30ac5ca725c26fd4d311db578709c68b7168c2d88a19f/jenkins-job-builder-2.10.0.tar.gz"
   sha256 "cca981c5b97970394820bd53a3b2a408003c4993241f4f04385b423f14d8e84a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
