@@ -25,18 +25,16 @@ class Fsw < Formula
   end
 
   test do
-    begin
-      io = IO.popen("#{bin}/fsw test")
-      (testpath/"test").write("foo")
-      sleep 2
-      rm testpath/"test"
-      sleep 2
-      (testpath/"test").write("foo")
-      sleep 2
-      assert_equal File.expand_path("test"), io.gets.strip
-    ensure
-      Process.kill "INT", io.pid
-      Process.wait io.pid
-    end
+    io = IO.popen("#{bin}/fsw test")
+    (testpath/"test").write("foo")
+    sleep 2
+    rm testpath/"test"
+    sleep 2
+    (testpath/"test").write("foo")
+    sleep 2
+    assert_equal File.expand_path("test"), io.gets.strip
+  ensure
+    Process.kill "INT", io.pid
+    Process.wait io.pid
   end
 end
