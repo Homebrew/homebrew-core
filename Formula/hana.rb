@@ -7,6 +7,7 @@ class Hana < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e8206af143a0b9b727527dfce2864f485318cc74bd4ec4501ecab6c5243814d3" => :catalina
     sha256 "e3d3fe00a72dd5539b005a84efe3a02d38f56a55dbee0177d3a5415cb8fbcab3" => :mojave
     sha256 "e3d3fe00a72dd5539b005a84efe3a02d38f56a55dbee0177d3a5415cb8fbcab3" => :high_sierra
     sha256 "182be636044ecd0d1df1ffee2d97920a61b35546fe0e8f7e02453164db2456c8" => :sierra
