@@ -5,6 +5,7 @@ class Pyinstaller < Formula
   homepage "https://www.pyinstaller.org"
   url "https://files.pythonhosted.org/packages/e2/c9/0b44b2ea87ba36395483a672fddd07e6a9cb2b8d3c4a28d7ae76c7e7e1e5/PyInstaller-3.5.tar.gz"
   sha256 "ee7504022d1332a3324250faf2135ea56ac71fdb6309cff8cd235de26b1d0a96"
+  revision 1
 
   head "https://github.com/pyinstaller/pyinstaller.git", :branch => "develop"
 
@@ -41,6 +42,12 @@ class Pyinstaller < Formula
   resource "pefile" do
     url "https://files.pythonhosted.org/packages/ed/cc/157f20038a80b6a9988abc06c11a4959be8305a0d33b6d21a134127092d4/pefile-2018.8.8.tar.gz"
     sha256 "4c5b7e2de0c8cb6c504592167acf83115cbbde01fe4a507c16a1422850e86cd6"
+  end
+
+  # Fix strip_paths_in_code() for Python 3.8
+  patch do
+    url "https://github.com/pyinstaller/pyinstaller/pull/4440.patch?full_index=1"
+    sha256 "e7e21ba338e7245af063b13ee2f6e82fe064b831e81b524e0d28277084eaf211"
   end
 
   def install
