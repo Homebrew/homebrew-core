@@ -6,6 +6,7 @@ class GfComplete < Formula
 
   bottle do
     cellar :any
+    sha256 "72161cd13399401cc443fb99bd9e50bcf1030155268b326b05d861812d1a84de" => :catalina
     sha256 "6485d5f75f1d2ba75b3c1bac5a5d024cde64d7d96baf96c78eadc21199be4faf" => :mojave
     sha256 "d4049ea995b6cb143af5383a101d15df811f88ab3d2d4c21428db967898e1927" => :high_sierra
     sha256 "e6528a98b675a939a81a37ffd6f780c531a53dae8fc51eb8ec9277be1a363d37" => :sierra
