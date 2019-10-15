@@ -1,9 +1,8 @@
 class Kpcli < Formula
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.2.pl"
-  sha256 "615a1bae19ed0c132076a809b162a66ea0dc22c1d992a8c6e1f2e1aaedfae687"
-  revision 1
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.3.pl"
+  sha256 "04de984d6b79bdeb84689bf8eaa0e2e3aa8756b7cca9ffdf36e1a9d1c0f1cdfc"
 
   bottle do
     cellar :any
