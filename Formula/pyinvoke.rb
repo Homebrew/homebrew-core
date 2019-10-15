@@ -5,7 +5,7 @@ class Pyinvoke < Formula
   homepage "https://www.pyinvoke.org/"
   url "https://github.com/pyinvoke/invoke/archive/1.2.0.tar.gz"
   sha256 "266003d33a8b3a565268e33aa0f9767b9441cf1476a20258f929768ee5acd390"
-  revision 1
+  revision 2
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
