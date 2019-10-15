@@ -3,6 +3,7 @@ class Fades < Formula
   homepage "https://fades.readthedocs.org/"
   url "https://files.pythonhosted.org/packages/8b/9c/fd93dff7d8665b704c2f008009876118971df691f8e5bd662befdb8f574c/fades-8.1.tar.gz"
   sha256 "c9ba065b59e9b6a2ab6fb6f65cd71a17e9fc97f543d5c975a4f9841a51d49317"
+  revision 1
   head "https://github.com/PyAr/fades.git"
 
   bottle do
