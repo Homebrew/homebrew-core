@@ -6,6 +6,7 @@ class Unac < Formula
 
   bottle do
     cellar :any
+    sha256 "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152" => :catalina
     sha256 "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6" => :mojave
     sha256 "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8" => :high_sierra
     sha256 "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3" => :sierra
