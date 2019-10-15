@@ -5,6 +5,7 @@ class Mackup < Formula
   homepage "https://github.com/lra/mackup"
   url "https://github.com/lra/mackup/archive/0.8.27.tar.gz"
   sha256 "b7d84ea661de27b1d4664bb71e6ab52ef30c6ca180a67435c1d4dea073cb3e4c"
+  revision 1
   head "https://github.com/lra/mackup.git"
 
   bottle do
