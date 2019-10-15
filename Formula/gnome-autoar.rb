@@ -7,6 +7,7 @@ class GnomeAutoar < Formula
 
   bottle do
     cellar :any
+    sha256 "0d7698b746f7d95db0f74f8a9e52143e547b6f931f5879d1ee0ec5bddbb95dc9" => :catalina
     sha256 "d4eb4086335d897d68ee5a0d09947f500e18a93161429473d44d6cb81b962bf1" => :mojave
     sha256 "007d55df1aea731560ecef0221251db7285e6b4fdd5b266680e6e5e55a6c2074" => :high_sierra
     sha256 "0bf8f1ccb106a998b22d7f0da8636ba355a9f984d81b4282db04b021db2c9ce9" => :sierra
