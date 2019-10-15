@@ -3,6 +3,7 @@ class Binwalk < Formula
   homepage "https://github.com/ReFirmLabs/binwalk"
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
   sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
+  revision 1
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
