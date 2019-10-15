@@ -16,28 +16,26 @@ class ApacheZeppelin < Formula
   end
 
   test do
+    ENV["ZEPPELIN_LOG_DIR"] = "logs"
+    ENV["ZEPPELIN_PID_DIR"] = "pid"
+    ENV["ZEPPELIN_CONF_DIR"] = "#{testpath}/conf"
+    conf = testpath/"conf"
+    conf.mkdir
+    (conf/"zeppelin-env.sh").write <<~EOS
+      export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
+      export ZEPPELIN_PORT=9999
+      export ZEPPELIN_NOTEBOOK_DIR="#{testpath}/notebooks"
+      export ZEPPELIN_MEM="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
+    EOS
+    ln_s "#{libexec}/conf/log4j.properties", conf
+    ln_s "#{libexec}/conf/shiro.ini", conf
+    system "#{bin}/zeppelin-daemon.sh", "start"
     begin
-      ENV["ZEPPELIN_LOG_DIR"] = "logs"
-      ENV["ZEPPELIN_PID_DIR"] = "pid"
-      ENV["ZEPPELIN_CONF_DIR"] = "#{testpath}/conf"
-      conf = testpath/"conf"
-      conf.mkdir
-      (conf/"zeppelin-env.sh").write <<~EOS
-        export ZEPPELIN_WAR_TEMPDIR="#{testpath}/webapps"
-        export ZEPPELIN_PORT=9999
-        export ZEPPELIN_NOTEBOOK_DIR="#{testpath}/notebooks"
-        export ZEPPELIN_MEM="-Xms256m -Xmx1024m -XX:MaxPermSize=256m"
-      EOS
-      ln_s "#{libexec}/conf/log4j.properties", conf
-      ln_s "#{libexec}/conf/shiro.ini", conf
-      system "#{bin}/zeppelin-daemon.sh", "start"
-      begin
-        sleep 25
-        json_text = shell_output("curl -s http://localhost:9999/api/notebook/")
-        assert_equal JSON.parse(json_text)["status"], "OK"
-      ensure
-        system "#{bin}/zeppelin-daemon.sh", "stop"
-      end
+      sleep 25
+      json_text = shell_output("curl -s http://localhost:9999/api/notebook/")
+      assert_equal JSON.parse(json_text)["status"], "OK"
+    ensure
+      system "#{bin}/zeppelin-daemon.sh", "stop"
     end
   end
 end
