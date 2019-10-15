@@ -5,6 +5,7 @@ class ReconNg < Formula
   homepage "https://github.com/lanmaster53/recon-ng"
   url "https://github.com/lanmaster53/recon-ng/archive/v5.0.1.tar.gz"
   sha256 "a090caa5d2a380cf34a54e3759cdad2da5dc17a0eaaf88260721f6a60a4064ab"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
