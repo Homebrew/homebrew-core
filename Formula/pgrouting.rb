@@ -7,9 +7,9 @@ class Pgrouting < Formula
 
   bottle do
     cellar :any
-    sha256 "85edb8ec8ccb43f3e0cddfc3b4ffc6443522d927b464bd8ff6dd5afe201e0c34" => :mojave
-    sha256 "b0140e4ec6decdd5c58a1ef6d416f0cd939014dbb85542acc47ef1ea529ae023" => :high_sierra
-    sha256 "0dd2e113d7e38cddc3c7eaa10aa3c001cd7333fa705b872bbcf581de9e231954" => :sierra
+    sha256 "48dd77946a0d3b76109ecb2f9658ab3219d3461a08874953252d943a9e861bf5" => :catalina
+    sha256 "ca645cb009a3123f36f39fb74756ecef8c7af38a951eb7a5d66e079516f5018f" => :mojave
+    sha256 "49a30bbe0caab34403b0b5c45779b69cd3ec26d73a2e2c48ce71b4353b5ec8c6" => :high_sierra
   end
 
   depends_on "cmake" => :build
