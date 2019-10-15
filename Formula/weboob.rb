@@ -6,6 +6,7 @@ class Weboob < Formula
   url "https://git.weboob.org/weboob/weboob/uploads/007b56516cfeeea4d5c7e97fd3a1ba1f/weboob-1.5.tar.gz"
   mirror "https://files.pythonhosted.org/packages/a7/46/4f9c9786706ecc1c115fe7c94d8b5d121c5105ce964b65bae0b741742ba8/weboob-1.5.tar.gz"
   sha256 "7ac1851281a127182f8e8630853c8ab2e635a534928b35150b75d5d0e24b3fb1"
+  revision 1
 
   bottle do
     cellar :any
