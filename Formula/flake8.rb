@@ -5,6 +5,7 @@ class Flake8 < Formula
   homepage "http://flake8.pycqa.org/"
   url "https://gitlab.com/pycqa/flake8/-/archive/3.7.9/flake8-3.7.9.tar.bz2"
   sha256 "2fd4dfaaeb507e1bb5a598f76e61eca50d27930e550c215f73ed2e5454681c1e"
+  revision 1
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
