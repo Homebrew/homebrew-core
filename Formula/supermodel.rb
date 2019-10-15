@@ -7,6 +7,7 @@ class Supermodel < Formula
 
   bottle do
     rebuild 1
+    sha256 "16ce3b8995d5c9036111032cdbbde5dfc2fefc18c6f841e722242c9b791c92ac" => :catalina
     sha256 "85678e40606c4bff6ff454ec15bafd2ab317887b2fb48865433d8cb0cdae7a3a" => :mojave
     sha256 "83c0dbca7a5c28564eba4e7a73894746004aab5025071b350c3c47271fc42625" => :high_sierra
     sha256 "1203bb3d289e36e1ca15720dbcd4e63ffcf4fa4d09588cb4fb81092cb72399ec" => :sierra
