@@ -3,6 +3,7 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://files.pythonhosted.org/packages/df/20/2f147945396fa74b467d696e42aa55eb603d166490a8ebe4d79e54c793df/scipy-1.3.2.tar.gz"
   sha256 "a03939b431994289f39373c57bbe452974a7da724ae7f9620a1beee575434da4"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
