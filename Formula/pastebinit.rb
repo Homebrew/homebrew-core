@@ -3,7 +3,7 @@ class Pastebinit < Formula
   homepage "https://launchpad.net/pastebinit"
   url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
   sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,9 @@ class Pastebinit < Formula
 
   depends_on "docbook2x" => :build
   depends_on "python"
+
+  # Fix removed in Python 3.8 platform.linux_distribution
+  patch :p0, :DATA
 
   def install
     inreplace "pastebinit" do |s|
@@ -34,3 +37,18 @@ class Pastebinit < Formula
     assert_match "://paste.ubuntu.com/", url
   end
 end
+
+__END__
+--- pastebinit	2019-10-18 15:29:56.000000000 +0100
++++ pastebinit	2019-10-18 15:31:07.000000000 +0100
+@@ -38,8 +38,8 @@
+
+ # Now try to override it with a distributor pastebin
+ try:
+-    import platform
+-    release = platform.linux_distribution()[0].lower()
++    import distro
++    release = distro.linux_distribution(full_distribution_name=False)[0].lower()
+     if release == 'debian':
+         defaultPB = "paste.debian.net"
+     elif release == 'fedora':
