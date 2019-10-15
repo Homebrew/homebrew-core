@@ -5,6 +5,7 @@ class Termtosvg < Formula
   homepage "https://nbedos.github.io/termtosvg"
   url "https://github.com/nbedos/termtosvg/archive/1.0.0.tar.gz"
   sha256 "0de3f9faa6d288f0f95504303df08267116b316fa74923b04a589dc62200ff64"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
