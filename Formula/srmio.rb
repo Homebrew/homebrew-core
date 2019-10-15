@@ -7,6 +7,7 @@ class Srmio < Formula
 
   bottle do
     cellar :any
+    sha256 "f545c95e5fb1bbcdfc524ac0c6173ad3b95da632c68803cddb1423a0fa66d9be" => :catalina
     sha256 "68a96377224e3eaaae6bf5b2fd984d7cdbbf62a094a52671c2e260509577e8c9" => :mojave
     sha256 "5d46a88acdd891c6ab67c32215a80078946495949891c1181cc00abdda972800" => :high_sierra
     sha256 "9ca9c4a2d17c7f431b1ad9899ae97ea22ec44e24a9c0c60220638c0f31f9b2c4" => :sierra
