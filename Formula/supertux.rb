@@ -9,6 +9,7 @@ class Supertux < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "a3d50acf760264c99f3f2bb9e02bca8dbbadc2d4f2c3a7e9b9995316a22cfa3d" => :catalina
     sha256 "006225504f80952487eb62f66359ac5976248ec4de46f266915f41f543e4742a" => :mojave
     sha256 "66385b85ba64e6ce35f5d74e9c2304e73795b977b75f814ff4eeb55cbfccba0b" => :high_sierra
     sha256 "fbde2e2249a89401fd9893b095857b283c4a7a3a4ab9dec47b8c30d2030d0268" => :sierra
