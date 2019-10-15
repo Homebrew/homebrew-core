@@ -32,7 +32,7 @@ class Fontforge < Formula
 
   def install
     ENV["PYTHON_CFLAGS"] = `python3-config --cflags`.chomp
-    ENV["PYTHON_LIBS"] = `python3-config --ldflags`.chomp
+    ENV["PYTHON_LIBS"] = `python3-config --ldflags --embed`.chomp
 
     system "./configure", "--prefix=#{prefix}",
                           "--enable-python-scripting=3",
