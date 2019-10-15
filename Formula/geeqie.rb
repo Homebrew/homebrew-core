@@ -12,6 +12,7 @@ class Geeqie < Formula
   revision 3
 
   bottle do
+    sha256 "ef2ebcd4940ea2d0a9985aa5addc8dfd33b05e43d225dbe945fb887813ee00dd" => :catalina
     sha256 "75b33a9960e789726d0f18872afe1a75a63bf4c0d25d250a22b0ffd5f0d3de34" => :mojave
     sha256 "028bf0b7c84969f4e5d2172deb13407904cfa878fce673767268625b825501f6" => :high_sierra
     sha256 "c5dfe4a3af57167f2058175beb434db98acc796e21c7c3775e52f88a87d13228" => :sierra
