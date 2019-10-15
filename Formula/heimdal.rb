@@ -6,6 +6,7 @@ class Heimdal < Formula
   revision 1
 
   bottle do
+    sha256 "31f22d798ecf68a1b8c18dda1956a936faa3e2d647044492093af99dadf89e26" => :catalina
     sha256 "067b331e7e7122c431c4425eff6ce2a6c4f6e449bb77c17d8da702af271b7af6" => :mojave
     sha256 "0e224122ed2c8e5621b93acde3378b69d40567ca075c50b3d5c4f6ad3c783a7f" => :high_sierra
     sha256 "1ac3c2582de7d1562ecfd685893e599bee38f774b52ba568ea8e0925889fb63f" => :sierra
