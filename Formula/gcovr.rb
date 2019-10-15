@@ -3,6 +3,7 @@ class Gcovr < Formula
   homepage "https://gcovr.com/"
   url "https://github.com/gcovr/gcovr/archive/4.1.tar.gz"
   sha256 "1ad8042fd4dc4c355fd7e605d395eefa2a59b1677dfdc308e0ef00083e8b37ee"
+  revision 1
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
