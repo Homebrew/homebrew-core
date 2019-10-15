@@ -6,6 +6,7 @@ class Vitetris < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "17c380c39ba763e9559876cef2a6c5189947994aef7c0e6f3613e383f8f9e646" => :catalina
     sha256 "5cfebdcea81b5e7720d1941f3973b0b47c1fd510234b09f81e9098c1132c0b92" => :mojave
     sha256 "175da9ed672d62d7c5409d94f299a67ab8499020283a4ea1ca21f6efc6470809" => :high_sierra
     sha256 "6cb9f1f8d9492c7a652d32115ae488dd19282aa94261957115b50e97c74f06f4" => :sierra
