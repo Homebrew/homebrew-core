@@ -3,6 +3,7 @@ class Tvnamer < Formula
   homepage "https://github.com/dbr/tvnamer"
   url "https://files.pythonhosted.org/packages/ed/93/f8fbe119844c79ea488332b9ff43702be674332672ea84e9361321985fbd/tvnamer-2.5.tar.gz"
   sha256 "75e38454757c77060ad3782bd071682d6d316de86f9aec1c2042d236f93aec7b"
+  revision 1
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
