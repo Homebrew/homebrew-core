@@ -7,6 +7,7 @@ class Guetzli < Formula
 
   bottle do
     cellar :any
+    sha256 "14605bd3ba2aa89d0030d3935eb5ffa022712fc6eef43f969bc301beda218af6" => :catalina
     sha256 "1599d5e292f5ca4ade99ab2627d3a0d2a3450011317dff9d5a46d779af20b01a" => :mojave
     sha256 "1b3a1b5544b7a8c30553b2e8ac669d8e924d0164feb5355b0a7c2ef5807aca46" => :high_sierra
     sha256 "c059346fa601885f550b50752d6d1a23eced66388b18e1c1db5169a0951dcad6" => :sierra
