@@ -252,15 +252,13 @@ class Glances < Formula
   end
 
   test do
-    begin
-      read, write = IO.pipe
-      pid = fork do
-        exec bin/"glances", "-q", "--export", "csv", "--export-csv-file", "/dev/stdout", :out => write
-      end
-      header = read.gets
-      assert_match "timestamp", header
-    ensure
-      Process.kill("TERM", pid)
+    read, write = IO.pipe
+    pid = fork do
+      exec bin/"glances", "-q", "--export", "csv", "--export-csv-file", "/dev/stdout", :out => write
     end
+    header = read.gets
+    assert_match "timestamp", header
+  ensure
+    Process.kill("TERM", pid)
   end
 end
