@@ -60,39 +60,37 @@ class Nsq < Formula
   end
 
   test do
-    begin
-      lookupd = fork do
-        exec bin/"nsqlookupd"
-      end
-      sleep 2
-      d = fork do
-        exec bin/"nsqd", "--lookupd-tcp-address=127.0.0.1:4160"
-      end
-      sleep 2
-      admin = fork do
-        exec bin/"nsqadmin", "--lookupd-http-address=127.0.0.1:4161"
-      end
-      sleep 2
-      to_file = fork do
-        exec bin/"nsq_to_file", "--lookupd-http-address=127.0.0.1:4161",
-                                "--output-dir=#{testpath}",
-                                "--topic=test"
-      end
-      sleep 2
-      system "curl", "-d", "hello", "http://127.0.0.1:4151/pub?topic=test"
-      sleep 2
-      dat = File.read(Dir["*.dat"].first)
-      assert_match "test", dat
-      assert_match version.to_s, dat
-    ensure
-      Process.kill(15, lookupd)
-      Process.kill(15, d)
-      Process.kill(15, admin)
-      Process.kill(15, to_file)
-      Process.wait lookupd
-      Process.wait d
-      Process.wait admin
-      Process.wait to_file
+    lookupd = fork do
+      exec bin/"nsqlookupd"
     end
+    sleep 2
+    d = fork do
+      exec bin/"nsqd", "--lookupd-tcp-address=127.0.0.1:4160"
+    end
+    sleep 2
+    admin = fork do
+      exec bin/"nsqadmin", "--lookupd-http-address=127.0.0.1:4161"
+    end
+    sleep 2
+    to_file = fork do
+      exec bin/"nsq_to_file", "--lookupd-http-address=127.0.0.1:4161",
+                              "--output-dir=#{testpath}",
+                              "--topic=test"
+    end
+    sleep 2
+    system "curl", "-d", "hello", "http://127.0.0.1:4151/pub?topic=test"
+    sleep 2
+    dat = File.read(Dir["*.dat"].first)
+    assert_match "test", dat
+    assert_match version.to_s, dat
+  ensure
+    Process.kill(15, lookupd)
+    Process.kill(15, d)
+    Process.kill(15, admin)
+    Process.kill(15, to_file)
+    Process.wait lookupd
+    Process.wait d
+    Process.wait admin
+    Process.wait to_file
   end
 end
