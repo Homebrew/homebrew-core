@@ -29,7 +29,7 @@ class Gearman < Formula
 
     # https://bugs.launchpad.net/gearmand/+bug/1368926
     Dir["tests/**/*.cc", "libtest/main.cc"].each do |test_file|
-      next unless /std::unique_ptr/ =~ File.read(test_file)
+      next unless /std::unique_ptr/.match?(File.read(test_file))
 
       inreplace test_file, "std::unique_ptr", "std::auto_ptr"
     end
