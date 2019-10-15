@@ -3,7 +3,7 @@ class Livestreamer < Formula
   homepage "https://livestreamer.io/"
   url "https://files.pythonhosted.org/packages/ee/d6/efbe3456160a2c62e3dd841c5d9504d071c94449a819148bb038b50d862a/livestreamer-1.12.2.tar.gz"
   sha256 "ef3e743d0cabc27d8ad906c356e74370799e25ba46c94d3b8d585af77a258de0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
