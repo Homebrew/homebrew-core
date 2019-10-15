@@ -5,6 +5,7 @@ class Fonttools < Formula
   homepage "https://github.com/fonttools/fonttools"
   url "https://github.com/fonttools/fonttools/releases/download/4.1.0/fonttools-4.1.0.zip"
   sha256 "683d4bebf9a5976e3b7d46a64a90708f6fcf8e13cf770e5a0b0d258a02c11d76"
+  revision 1
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
