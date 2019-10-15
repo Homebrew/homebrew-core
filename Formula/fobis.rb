@@ -5,6 +5,7 @@ class Fobis < Formula
   homepage "https://github.com/szaghi/FoBiS"
   url "https://files.pythonhosted.org/packages/7a/49/9ccbc08da74f0c37901b07e00aa8e6419895c45723b80119994d89a72eec/FoBiS.py-2.9.5.tar.gz"
   sha256 "0f27bad2c662d2df666ede8bfdd9b1f3fb41e293cb7008da388c52efef060335"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
