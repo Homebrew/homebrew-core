@@ -6,6 +6,7 @@ class Wput < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "77703d5dfb1bde183ccc207ee5e3f14b1a677acc697806a2b16f00c56cc0595e" => :catalina
     sha256 "563c5204880172786cbbfc75dafa818e670ac5d1a67fdbe8bea1dd2588587eab" => :mojave
     sha256 "e01d35805cd00e8f4d9ba1ab989104d66dc4150648a2288f5f49eea5c17b5025" => :high_sierra
     sha256 "0a8c4296a3e14d8b420f65464293b000dd1bd2e33a802c92e1812f0c267d3f0f" => :sierra
