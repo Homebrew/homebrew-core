@@ -3,6 +3,7 @@ class Itstool < Formula
   homepage "http://itstool.org/"
   url "https://github.com/itstool/itstool/archive/2.0.6.tar.gz"
   sha256 "bda0b08e9a1db885c9d7d1545535e9814dd8931d5b8dd5ab4a47bd769d0130c6"
+  revision 1
   head "https://github.com/itstool/itstool.git"
 
   bottle do
