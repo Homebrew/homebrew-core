@@ -49,7 +49,7 @@ begin
   # https://www.postgresql.org/docs/10/static/pgupgrade.html
   ohai "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed}..."
 
-  if /#{name}\s+started/ =~ Utils.popen_read("brew", "services", "list")
+  if /#{name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
     system "brew", "services", "stop", name
     service_stopped = true
   elsif quiet_system "#{bin}/pg_ctl", "-D", datadir, "status"
