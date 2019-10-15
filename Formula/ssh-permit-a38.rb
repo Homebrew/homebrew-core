@@ -7,6 +7,7 @@ class SshPermitA38 < Formula
 
   bottle do
     cellar :any
+    sha256 "4de4d364ee99fdaa45d77d37c26dab88ccd70233172687722e269268c8a411da" => :catalina
     sha256 "ae34a5a46ef16528db572b93ed733a17f001bdbe23bcd07b6410c958e04d5186" => :mojave
     sha256 "4de9caa719a5c0a569fbb09fee2df9a0db5df4eaad8046cb05ad8258a641f419" => :high_sierra
     sha256 "31bfaaee0093524bbc33a809cac2ec4f6ff66d73aea13a9e4a3ae3a8c71b0fcd" => :sierra
