@@ -6,6 +6,7 @@ class Xplanet < Formula
   revision 3
 
   bottle do
+    sha256 "aceb0af3fffbec2688b79ed1ae4d9c3c4004d8f6d685fb3156799b416403595a" => :catalina
     sha256 "786a7ce7564b15a7b24b6bbe9db363ac96ba44a0dc432e487f4ce5926f8abb95" => :mojave
     sha256 "3f2d8620a26cc9e524be24d91db203337f4e1daad7b5db61c74207f26daf1298" => :high_sierra
     sha256 "959cdbb77423ca2a305981370a087736941ae2767a3cbfbd0483f24b97049ca5" => :sierra
