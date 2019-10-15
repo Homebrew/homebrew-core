@@ -5,7 +5,7 @@ class Credstash < Formula
   homepage "https://github.com/fugue/credstash"
   url "https://github.com/fugue/credstash/archive/v1.16.1.tar.gz"
   sha256 "96d74c8ee5d05e42a91ec815829b5ea41dd14c6046f563e274e37f1df14b0cbc"
-  revision 1
+  revision 2
   head "https://github.com/fugue/credstash.git"
 
   bottle do
