@@ -8,6 +8,7 @@ class GitIf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f87fdd2951218631adc744bc2c9f1d83f3230bc49256f45735fc2d611f49dcc8" => :catalina
     sha256 "37dc94c423003dedaf313ffa9343879ecb5d72f277a2f250100481cde240420e" => :mojave
     sha256 "bedbf580c8b073c7dfcd6bbb470aee7c14fb31d2c3ec54b4be8fd2cf8545e577" => :high_sierra
     sha256 "7c09116244a4c04a46337a0453d519523204233fc33d2d60c89c4b9469498380" => :sierra
