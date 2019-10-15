@@ -7,6 +7,7 @@ class Gearsystem < Formula
 
   bottle do
     cellar :any
+    sha256 "89195564029f07752a3595c53d7098d0d6dfe6cdac4ac22d0444fe3833cea9f1" => :catalina
     sha256 "0b54b3c432835b541b73c896cb654a0f83a6c1e8c6189f069a767ccec26413d9" => :mojave
     sha256 "7f2091b774263ebe599b8921e97af3d8cb1b5e1a8b899d8c1a335c9d3d5a73aa" => :high_sierra
     sha256 "9a8e8a8172a84416495b48f263582db3a10497db915b371ead261a0a94168839" => :sierra
