@@ -5,6 +5,7 @@ class Typespeed < Formula
   sha256 "5c860385ceed8a60f13217cc0192c4c2b4705c3e80f9866f7d72ff306eb72961"
 
   bottle do
+    sha256 "cff9da11f7441f1ff4db7cbfa57f0711ff0bbe08a80ee7067021c619bc01cb06" => :catalina
     sha256 "49c54c15fa8204ca5ae373f0a1995c01b7b6e24de0ab0af7d8081e9f3b229258" => :mojave
     sha256 "70fe987eeaabcf8e94996d56a478c1aac14781f2475337476ff2dc87543bb602" => :high_sierra
     sha256 "8c4af1a3e4e8c32eab5da01fc3b30604eaad86bf84f4a96af7878599c92a4a36" => :sierra
