@@ -7,6 +7,7 @@ class Rinetd < Formula
 
   bottle do
     rebuild 1
+    sha256 "d13c2114ebe94b503d90069ef1394894e4b8c02c151c7f87f67de6e19c385e1e" => :catalina
     sha256 "fe8636ee77c709a3a2df599058c59d7cdbaaa6505fa42e9bac143af95c0c835c" => :mojave
     sha256 "44750b361b999c09a17a2bc8c576585a790c42bee66abe4df191b7b0cafe304c" => :high_sierra
     sha256 "7a52fc5d01d83fd186626a6cff981e65da8943186973a4314efa2c561480325e" => :sierra
