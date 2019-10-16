@@ -6,6 +6,7 @@ class Tractorgen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b28ff1c764b92992d82e16d8ab283215101f3a3aeabcf9aa2d4a952451a779dc" => :catalina
     sha256 "0416b04f09a509f3912de4cac964fb96e2a54246f8ffb9d170d4f2bb16b6f959" => :mojave
     sha256 "936883746158534e9650a0b26f18e680eed527fb56f71ad51e5ec203d8f7f451" => :high_sierra
     sha256 "646d87ca0cb1a5ec93a8aa1ddaa1f28233347ca0a1f56e49c323809ec8295432" => :sierra
