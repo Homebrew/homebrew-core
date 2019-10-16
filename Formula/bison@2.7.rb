@@ -7,6 +7,7 @@ class BisonAT27 < Formula
   revision 1
 
   bottle do
+    sha256 "b9af668b0da3e89f4a2d7b7e4d42009965780d1f7cd1541df85f758c2b7af55a" => :catalina
     sha256 "125fdf2eb737cdb8a3e795234f8e1fb5ec477f8590c534f7895497a6af82e04b" => :mojave
     sha256 "ee0e758aa798809aaa3e94f1e3659c9d33497a577c25cfc03ecfe18c25862837" => :high_sierra
     sha256 "7f1f717becaf0a818b154d3706b88f6c61a102b4f909e030005aaa5433abc34e" => :sierra
