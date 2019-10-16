@@ -6,6 +6,7 @@ class Redshift < Formula
   revision 1
 
   bottle do
+    sha256 "b40870e8bcb3d28fdc6fa5a1d7c232939973e4a73a38029afd0bc6f86c199b51" => :catalina
     sha256 "197ca4060616fbb79a6e64b93760f60ef581d5d76f838ab099b97076e3e569fe" => :mojave
     sha256 "f07311c326eb8c2310d509ffbcb5424d7783a1b0b675d47ac32026116086a39d" => :high_sierra
     sha256 "89ab02396a2d3694923f8496217a5d5a47c1cc35e167205cf4bb74033de92ab3" => :sierra
