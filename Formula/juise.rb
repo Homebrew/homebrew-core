@@ -6,6 +6,7 @@ class Juise < Formula
   revision 1
 
   bottle do
+    sha256 "9858429b5a56e0ac0d5ed35e84c06d334252403d017b768ad585e4a6b6fd869b" => :catalina
     sha256 "022848ff83dab742bbc0c219638a176cb81393861307d48a665a16c2e6d8730a" => :mojave
     sha256 "a1f88b9f9f013eb751d3afcb3a681ff6a0996c818b38ab062e20adb083f7dc2f" => :high_sierra
   end
