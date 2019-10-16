@@ -4,6 +4,8 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
   sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
 
+  revision 1
+
   bottle do
     sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
     sha256 "0bddb035ea8098a4eb0a9d76afae97a077f517bdb0592a4edae828a566470236" => :mojave
@@ -21,6 +23,7 @@ class Mysql < Formula
   depends_on :macos => :yosemite
 
   depends_on "openssl@1.1"
+  depends_on "protobuf"
 
   conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
@@ -40,6 +43,9 @@ class Mysql < Formula
     var/"mysql"
   end
 
+  # Hack to disable legacy protobuf includes.
+  patch :DATA
+
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
@@ -57,6 +63,8 @@ class Mysql < Formula
       -DSYSCONFDIR=#{etc}
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
+      -DWITH_PROTOBUF=system
+      -DPROTOBUF_INCLUDE_DIRS=#{Formula["protobuf"].opt_include}
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
       -DWITH_EMBEDDED_SERVER=ON
@@ -170,3 +178,27 @@ class Mysql < Formula
     Process.wait(pid)
   end
 end
+
+__END__
+diff -urN a/plugin/x/client/mysqlxclient/xmessage.h b/plugin/x/client/mysqlxclient/xmessage.h
+--- a/plugin/x/client/mysqlxclient/xmessage.h	2019-09-20 18:30:51.000000000 +1000
++++ b/plugin/x/client/mysqlxclient/xmessage.h	2019-10-16 09:12:15.000000000 +1000
+@@ -36,7 +36,6 @@
+ #include <google/protobuf/repeated_field.h>
+ #include <google/protobuf/text_format.h>
+ #include <google/protobuf/wire_format_lite.h>
+-#include <google/protobuf/wire_format_lite_inl.h>
+ 
+ #ifdef USE_MYSQLX_FULL_PROTO
+ 
+diff -urN a/plugin/x/ngs/include/ngs/protocol/protocol_protobuf.h b/plugin/x/ngs/include/ngs/protocol/protocol_protobuf.h
+--- a/plugin/x/ngs/include/ngs/protocol/protocol_protobuf.h	2019-09-20 18:30:51.000000000 +1000
++++ b/plugin/x/ngs/include/ngs/protocol/protocol_protobuf.h	2019-10-16 09:11:27.000000000 +1000
+@@ -38,7 +38,6 @@
+ #include <google/protobuf/repeated_field.h>
+ #include <google/protobuf/text_format.h>
+ #include <google/protobuf/wire_format_lite.h>
+-#include <google/protobuf/wire_format_lite_inl.h>
+ 
+ #ifdef USE_MYSQLX_FULL_PROTO
+ #include "plugin/x/generated/protobuf/mysqlx.pb.h"
