@@ -1,9 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostpdl-9.27.tar.gz"
-  sha256 "9e089546624296bf4aca14c2adcb0762b323ca77ae14176d21127b749baac8d6"
-  revision 1
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostpdl-9.50.tar.gz"
+  sha256 "dd94c5a06c03c58b47b929d03260f491d4807eaf5be83abd283278927b11c9ee"
 
   bottle do
     sha256 "9d0eeacca30a4c80b31b983364dde5278aefdf95247ffe54a7217fba6cfeb56c" => :catalina
@@ -28,12 +27,6 @@ class Ghostscript < Formula
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
-  end
-
-  # Patch upstream Bug 700952 (https://bugs.ghostscript.com/show_bug.cgi?id=700988) in ghostscript 9.27
-  patch do
-    url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=06c920713e11"
-    sha256 "15db61d2ca230df92e3b40d717e6baa475b13aa5583c08074f57f2c6f74018cc"
   end
 
   patch :DATA # Uncomment macOS-specific make vars
@@ -84,8 +77,8 @@ index f50c09c00adb..8855133b400c 100644
 @@ -89,18 +89,33 @@ GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR
  # similar linkers it must containt the trailing "="
  # LDFLAGS_SO=-shared -Wl,$(LD_SET_DT_SONAME)$(LDFLAGS_SO_PREFIX)$(GS_SONAME_MAJOR)
- 
- 
+
+
  # MacOS X
 -#GS_SOEXT=dylib
 -#GS_SONAME=$(GS_SONAME_BASE).$(GS_SOEXT)
@@ -99,7 +92,7 @@ index f50c09c00adb..8855133b400c 100644
 -#LDFLAGS_SO_MAC=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
 +GS_LDFLAGS_SO=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
  #LDFLAGS_SO=-dynamiclib -install_name $(FRAMEWORK_NAME)
- 
+
 +PCL_SONAME=$(PCL_SONAME_BASE).$(GS_SOEXT)
 +PCL_SONAME_MAJOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
 +PCL_SONAME_MAJOR_MINOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
