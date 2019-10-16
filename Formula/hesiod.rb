@@ -6,10 +6,11 @@ class Hesiod < Formula
   revision 1
 
   bottle do
-    sha256 "4b2e392609aad28f223135fe351688d9b104517ba7574f0b9166a3159136f56f" => :mojave
-    sha256 "7eb0a5a6ef9a8c9ad568ab371ac8186499f7616265a86f8fc3d28c2ed5ce9cfe" => :high_sierra
-    sha256 "62ea1a19f382f4b07888c5bd286939e6fe055e6755ae7c702b16867a1854f40d" => :sierra
-    sha256 "71c59e1287dd90d1cef092e87f1e05ab408fbd85ca101b6093d1513a4d63ffdc" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "2e077b355ca0ed9f0bbadfc7b54ef681fc11f58c324ce19d3131fb61b99f15d2" => :catalina
+    sha256 "76748e285f22aed694c2933e4cd3a1469398ea254671755e6f89ad07e76b7f73" => :mojave
+    sha256 "de927a6526209db3673aa9e426d7e32f53b7a278798f07d6dc1c5069e816d09a" => :high_sierra
   end
 
   depends_on "autoconf" => :build
