@@ -6,6 +6,7 @@ class TemplateGlib < Formula
 
   bottle do
     cellar :any
+    sha256 "e4726ae46a752f7998b753bcf5e3238195a95c6077f461510dfc9e88f8baf02a" => :catalina
     sha256 "7b1ce7351349998a110041c7f5bb48e1bd8512bb77102ac89179c183681c9b5a" => :mojave
     sha256 "3fb5497b258da64fbf0332231b935b0dcd595f75cfb4d01ab3f488cc9a92968d" => :high_sierra
     sha256 "b4e9c55c7a393777676af21e0b72bd5e6b036f2ed8bc79da225666f9dccab5ef" => :sierra
