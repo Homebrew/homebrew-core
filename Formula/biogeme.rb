@@ -7,6 +7,7 @@ class Biogeme < Formula
 
   bottle do
     cellar :any
+    sha256 "78b929e88aa59e057b7c4cc65a17ae1f9d3a88f5a521ea3709d0c8c82f9aa097" => :catalina
     sha256 "669b97da46ec4e508169b764b6c801682f9282702ec6f17d32f9e4b7426cf8dc" => :mojave
     sha256 "b90e3f0d203a5ad33d2ad1f70e12503a93784bb4a97d78b284c0d4c746666ea5" => :high_sierra
     sha256 "cad38740685b800f07bece9dd13238b900427155697582fc689bd3eee42e8c38" => :sierra
