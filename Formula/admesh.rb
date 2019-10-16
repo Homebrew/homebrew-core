@@ -1,8 +1,8 @@
 class Admesh < Formula
   desc "Processes triangulated solid meshes"
   homepage "https://github.com/admesh/admesh"
-  url "https://github.com/admesh/admesh/releases/download/v0.98.3/admesh-0.98.3.tar.gz"
-  sha256 "b349c835383b6648fd159e528a530fdcb31aed95024d7a294280ac8096ec7624"
+  url "https://github.com/admesh/admesh/releases/download/v0.98.4/admesh-0.98.4.tar.gz"
+  sha256 "1c441591f2223034fed2fe536cf73e996062cac840423c3abe5342f898a819bb"
 
   bottle do
     cellar :any
