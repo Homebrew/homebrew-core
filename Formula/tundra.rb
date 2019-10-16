@@ -6,6 +6,7 @@ class Tundra < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "db24a99fecb494c1a14ee6a372a31dedd3a78b004b9a8202e827c50e8e528794" => :catalina
     sha256 "c0df5e3c6bfc993677832251cb21126a752d9c568a523d0a46cd4aa6fc4bdb88" => :mojave
     sha256 "c38d5302a7ce1685ce37c2c4a1d7284458b58368d5e001b00acad133903a532e" => :high_sierra
     sha256 "c25a23cb0b88587aea2e31261965af6b71c792cd04cb6b2366b5c5af9df20046" => :sierra
