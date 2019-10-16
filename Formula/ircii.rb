@@ -7,6 +7,7 @@ class Ircii < Formula
   revision 1
 
   bottle do
+    sha256 "fea5e21aa100bda1104f1d4947376e9af68be118caf89d8b9468b51cbd2059b4" => :catalina
     sha256 "95424df7e321088386df0d493fdc9a29c0f1955201ce0ce6ba9640a6c9678a9e" => :mojave
     sha256 "ff375e444386f89ee0ae5f3aa3b6f38bfaa8818c3cd2db8065669f8a0f7d0165" => :high_sierra
     sha256 "d0739ce549eb581ca3bb13de8c3aa164657235814e3c1edb2a050fde5dbf24f2" => :sierra
