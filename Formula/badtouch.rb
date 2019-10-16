@@ -7,6 +7,7 @@ class Badtouch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "910ba81efcccf7e5b1262ee8ca1b7ac2145a7cf8722b5e050d158d73f0cc47c7" => :catalina
     sha256 "c38c3d095c361bdefa7b36ca860dc49eefebdb0f7c4437d73ab4d7898a196b18" => :mojave
     sha256 "bbaa6687356e667f39dfe30e478e820d49ca65e3294902f8bde4f1d7c6432837" => :high_sierra
     sha256 "dd1fb28b935a06d05de233d28f4fae19f61856055cc0bf4071b4bbe59111e2c8" => :sierra
