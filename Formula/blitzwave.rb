@@ -6,6 +6,7 @@ class Blitzwave < Formula
 
   bottle do
     cellar :any
+    sha256 "c048a4c11493ddfd5222bbfd25934fe4e7981fb7d689eddaef38ac06fa0d5b2d" => :catalina
     sha256 "7bd4d442c43a1f5c2a6fbfbf77faa3d90096873a65d90317fa0dad223908b498" => :mojave
     sha256 "5ad4f6c2447b6efdad752ffc05c2d31be8ad1abbe0c6654f77f33141edaf300e" => :high_sierra
     sha256 "1722c7dfacc458ca54d05dcc06a5281bbe48935f66eaaf7374c2551ad50298a8" => :sierra
