@@ -6,6 +6,7 @@ class Toilet < Formula
   sha256 "89d4b530c394313cc3f3a4e07a7394fa82a6091f44df44dfcd0ebcb3300a81de"
 
   bottle do
+    sha256 "816162aa8f967f14e6db8f9b48024ef5119c04955575299e02fe88b2b0158ac6" => :catalina
     sha256 "27c9e1fe38ec012c5dd9199c8100d49c56e386c65c336a4fbcaaa25a9341cab2" => :mojave
     sha256 "dda87a313d7398dd3157ca74d752b3d364647fc56c3238fb5bd320fcc904ebd5" => :high_sierra
     sha256 "24008d251358aa73e7e597b203e360857fec5b88278e6ea6de08d4eef3865f80" => :sierra
