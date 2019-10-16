@@ -6,6 +6,7 @@ class Uggconv < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c1fc237ad27120a1804b37d765a47833d67bcd38cfa67be07aed808739021146" => :catalina
     sha256 "71b4a6ad5be4b5dbefe2c64dc17b6bcff00eedcf72070f4a22273ff1f0a392cd" => :mojave
     sha256 "ed41635e3235d763c9dcad68db2e390821af5a62ec6709fca8b9c5e9b5d0b995" => :high_sierra
     sha256 "a22594f94bf7baa1908bd1225f52f1db3dd01daa17f99038ecfbd60e22d12b5d" => :sierra
