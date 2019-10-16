@@ -5,6 +5,7 @@ class Hercules < Formula
   sha256 "890c57c558d58708e55828ae299245bd2763318acf53e456a48aac883ecfe67d"
 
   bottle do
+    sha256 "2ba0ca1b3ed54b5fa9e782cd1d8e225f58203e32b29b98af642932ed0fddbf1b" => :catalina
     sha256 "893e8854c92794377f2fc0b6cd96ad7f7ffd3d153a0a1678c6227468067d3696" => :mojave
     sha256 "f1feaf922ae9105c64ba207bc9e2d9b573ddcae8b6feaba501a6daf3068e9901" => :high_sierra
     sha256 "a9ca5fff16a7aa506e2067d7bad9bbb8c54ede7af0e1102150f5d385a7097e9d" => :sierra
