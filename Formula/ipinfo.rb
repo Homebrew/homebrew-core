@@ -6,6 +6,7 @@ class Ipinfo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b2202f465e419b0bc7e3667d75247cc37a46b49d9a4eb5f23f1f63cb361fd366" => :catalina
     sha256 "33fdb805793a8566f7f6adca7a1c3b7d0c67071fc846977bacf6629a8e63c9b2" => :mojave
     sha256 "c06a0c771b66def2758aad30e8331cc56f751478715e12b25b9e46d9b64090f9" => :high_sierra
     sha256 "255c10eb2f0f885ba301fa2977ae3c45b5f7117388739adb58ce4312515ff98f" => :sierra
