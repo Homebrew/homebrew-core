@@ -6,6 +6,7 @@ class InteractiveRebaseTool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "72acc2e7e61e446f465d09d70591f5c64ef2900d996e3a9c10faeb1665c2326e" => :catalina
     sha256 "e164819243e778c25f49adb1e0e9da7e1c94e2973a89c5df35188fe4eaf09567" => :mojave
     sha256 "24b07c849654699ac2ff0e827562fff88c947c45ca224440817ad580a9d91167" => :high_sierra
     sha256 "3d0f6aa7a3379829f3999eed234d303a22f81d1fa9b6fcb7aa070234c330246d" => :sierra
