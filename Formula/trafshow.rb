@@ -9,6 +9,7 @@ class Trafshow < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f976f69242af3e7c14acd6cc99f0f6b14c31f15793a090a9fa1b562662efbf2d" => :catalina
     sha256 "27f0fa0ce96139f6958efdd964b3ef4741d39a05f86ce33567eb622c55b10717" => :mojave
     sha256 "d7d2f4fc92f234fd9fda9ec65a03b37aaf43d40203682ee3821526bb18f1ad13" => :high_sierra
     sha256 "c6324418840429d76f53035ae9e013190b8190f75f9fc1eaa8100bc9e7df27f8" => :sierra
