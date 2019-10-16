@@ -8,6 +8,7 @@ class Khard < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2aa00e5a5fea9d9f70b02f24cedc15b6b5c3d8ca198b81db0b27062701bf81a2" => :catalina
     sha256 "26563dd5d8fa44f38db40ca188b03559857bb833961a1ca09f91e5c28e9ddb25" => :mojave
     sha256 "f0bc10e7097d36e96ee44e60218000edaa4379fff88b5e7ca8023eb1c5c23793" => :high_sierra
     sha256 "d82e1771c63601ec2a91158c1c64c9789e2292a9918be84c8bc3f386edb5fd89" => :sierra
