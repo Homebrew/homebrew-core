@@ -6,6 +6,7 @@ class Jove < Formula
   sha256 "9c9e202607f5972c382098d10b63c815ac01e578f432626c982e6aa65000c630"
 
   bottle do
+    sha256 "c232b6742b25b3ca53a7c5da2c2577d4bed34e244b2cf90a61e5a5a8ade20e7a" => :catalina
     sha256 "8ee0b5bfd6d4dab4b56551dc1bd5cf8b03909f833d90fb213be0c16babbb88af" => :mojave
     sha256 "852bb69e61f542d5741b4a442c72c8f72304468d0c1101c2843b1c272111a6d1" => :high_sierra
     sha256 "a4559511caca50cf08e01049dda2a35a9423b5c976bf0d930ba819afebc1387b" => :sierra
