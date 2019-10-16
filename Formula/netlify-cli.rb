@@ -9,9 +9,9 @@ class NetlifyCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d18449ad77b6f92d34ed3cddd9778cb9c6afea3ef6fa889eff2b875a75ff9be9" => :catalina
-    sha256 "e78937f5fd060b5bce1299515dfd7da6f591b675fc1b0fb68b631fb6cf51650c" => :mojave
-    sha256 "e738f2426c1090ad08ae99e693253883d1d09eb9245e4e76036b74d8956601a3" => :high_sierra
+    sha256 "16542c32b6913ddc89ba4c52ef24590f46642f3e3a58003f0a65cbd11b0dc79d" => :catalina
+    sha256 "dd4aebe938ae849e0275149875c4e647dc0bdbdf20d61b6563f0d20bc2220310" => :mojave
+    sha256 "9c07f86eab1963328d6eac735e7dbdc3973be1ceec6cf0d5d6ea39c0e9aa547d" => :high_sierra
   end
 
   depends_on "node"
