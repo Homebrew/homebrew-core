@@ -6,6 +6,7 @@ class Hardlink < Formula
 
   bottle do
     cellar :any
+    sha256 "f0b2171598c5eb9111c2923649f46e32a182af7bc5e5f6012f4f13178651e3ed" => :catalina
     sha256 "971dab4459ef06afd11cf2cf7c0ade1ee7bcf959e359938f83b2b8a7d86a7d17" => :mojave
     sha256 "4738a658357798d756d8a96f96d3700f387ae89d1db769b81675634e85018c19" => :high_sierra
     sha256 "56ac75c51db6d7e19efe41eef24aa6646cdc126a113f5aacadd5f80043efc0d5" => :sierra
