@@ -6,6 +6,7 @@ class Herrie < Formula
   revision 1
 
   bottle do
+    sha256 "ceb3bb01f7cc36c3d55d785ff6d06706708ce11e81bd9da29b4dcdaaa6476f9a" => :catalina
     sha256 "689038931cdc86fee22b0e4217bdb4eccc5c7591254c67300aade0637ae1dc5e" => :mojave
     sha256 "65631ae69a925bf48a3e4167807b13c36988db1bd1d4f7ed311356da39344c9a" => :high_sierra
     sha256 "f794117e72309d83bc947463032c262a7341d21eabc5099712016d0f078804f2" => :sierra
