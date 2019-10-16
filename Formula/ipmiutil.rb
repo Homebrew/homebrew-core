@@ -7,6 +7,7 @@ class Ipmiutil < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "57b2a63f6564de22edd0e314f188a6a6f850298954e7b31a9bcae60c497f9c58" => :catalina
     sha256 "83d9f7ccbc8950dcc3a653dc3f35ed742129d1eaaf547585bbc76b8d195eda64" => :mojave
     sha256 "a0119f2e672668e9792c2d6bd6cfedc4797612e4b2b98fa691b74f936b4198ee" => :high_sierra
     sha256 "8e136064d7075e847c87bc7f7e1e9bc583259f51205dd69ddafb0708fdff3f66" => :sierra
