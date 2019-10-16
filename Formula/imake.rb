@@ -6,6 +6,7 @@ class Imake < Formula
   revision 1
 
   bottle do
+    sha256 "1a574a4c8ceca83d91e73ab77b92c591443dab31822cda9f81e71bde30181a68" => :catalina
     sha256 "ac21eb715eb1287107b2ce1a17b1603f84621f763e7fcbbb9a570c5591afcd79" => :mojave
     sha256 "393c0d8de751664235eb1683351bf78dec4a65d731ffdff2afd544ad854b3ebb" => :high_sierra
     sha256 "3a08e1b5dc7b24286dc06a10ef792c09c7ce2b9f588418c180ee67d57bf2874f" => :sierra
