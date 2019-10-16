@@ -7,6 +7,7 @@ class Ktmpl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bce65a0392eac5a00c48aa703c8afaa66224588ac357363076278002a63b9c6d" => :catalina
     sha256 "4387bf621c411a8d59791a0bda3d83e6ee1279c71bee0738d2c5912319a8b77b" => :mojave
     sha256 "bd4b35069ade7f55ffe0fb1cd3f1b605cc0703b69b0a5dcea543a7e3f170a8f3" => :high_sierra
     sha256 "e3e22aa7c9144e4536e3c7417309f16c4af16aa28fd8e78642663258e21f6837" => :sierra
