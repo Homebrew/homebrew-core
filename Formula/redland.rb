@@ -6,6 +6,7 @@ class Redland < Formula
   revision 1
 
   bottle do
+    sha256 "f30068d691ac2748619a288912235236e905f672b1f80a974e95425c5f102a10" => :catalina
     sha256 "711bdaeff62854f878f02e8fab9782337ee87ebf7398757d7780eb3c8971310b" => :mojave
     sha256 "407f9f1bd2a8682684660826fce445077c33fe3e7f1bfb05e7c0e265e2edacfe" => :high_sierra
     sha256 "0ed03c897836946cbadf2e390bd25c79eeb6ad34ea1144ef69d8bf1dfbfaf2eb" => :sierra
