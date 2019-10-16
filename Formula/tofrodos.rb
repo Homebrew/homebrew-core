@@ -6,6 +6,7 @@ class Tofrodos < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "da493ab6311aa1363533c8958c93ab919bee5ba26dbdcfa6f0a5978a6e512d9d" => :catalina
     sha256 "07d0fcc1ef5c69866787c61fc3cabafe08f873c111c22974758f1c4beae41f99" => :mojave
     sha256 "083975a39eaa51713f2eda153276ac95d8dfc1f038d25c4826be1ddcd540855b" => :high_sierra
     sha256 "3d5363cda2170ce2fbcb7e03c84f715b62ead1e5646000dd06395f5677fd2269" => :sierra
