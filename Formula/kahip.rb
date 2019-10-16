@@ -6,6 +6,7 @@ class Kahip < Formula
 
   bottle do
     cellar :any
+    sha256 "970a6dbb933e2fae1f04cf06f73cbad53ebcecbee8c2434e2045d46d5cecd82b" => :catalina
     sha256 "3c59b856d2b908f55fe555621a1ad866a1e4e2cbc1e07d13bda116d33d9f1ddc" => :mojave
     sha256 "5872593fdd32749fc4d11bff597808732428137b869840f5db65e7ef408e393c" => :high_sierra
     sha256 "cb925202435f91a405717bd7f5f162d54bdab0bccbdb87eaa817324d331211b0" => :sierra
