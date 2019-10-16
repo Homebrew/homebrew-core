@@ -5,6 +5,7 @@ class Timidity < Formula
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
 
   bottle do
+    sha256 "3af812745e3ce97091362541143f4f019d39c30fba5adef4922bddd146671063" => :catalina
     sha256 "9fbf48450ffbdc5920914f0b1ba2b845504b0621b9bf76f3e21ec4cd0fe97da8" => :mojave
     sha256 "f8ce899eb5c5d67e78e713ec18bdc385ce388b43b425bd05bc9ebedf86be36ef" => :high_sierra
     sha256 "53406bf74847960d1c1871975a76175638e906225c28e40e0b930a557ceabb52" => :sierra
