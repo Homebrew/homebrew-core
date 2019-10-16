@@ -7,6 +7,7 @@ class Roundup < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ce6d6747b6a2fc94f05de03ddd4dd1c7a77764253a6f61163a24be1626f8b7be" => :catalina
     sha256 "5366c26e618d11f06bc85895b400a82fab81362e51dfa7dcf123fdb31aaafe75" => :mojave
     sha256 "5b8f8ba32ea5e4cf6d52e11f6b121f6ec0da11b1a0a281bf2de46431a1682f68" => :high_sierra
     sha256 "255515246130477d53aa39d0289b2840af33a937d7169a1dba297380d1eb02da" => :sierra
