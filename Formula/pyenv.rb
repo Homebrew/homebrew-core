@@ -9,9 +9,9 @@ class Pyenv < Formula
 
   bottle do
     cellar :any
-    sha256 "836873ee74686abdfd7912be9fc55de29f5b10b355330257da796d8919dd5720" => :catalina
-    sha256 "b4465f65f302ab62e847e96dcd8870a64febb0573cd0c9dd2b65952fbce0007b" => :mojave
-    sha256 "159f2ceaeb5fb37d8cc7d01999718f3386b527b6e4dbbe6f54233b4aa80c4adc" => :high_sierra
+    sha256 "b2378067acc0a2472e532e2628bf69814ab0bd243253bf056c6a637283393fe6" => :catalina
+    sha256 "5eabfc9dfb8ed38d566ef3ad42fd4a677a11b58cdbb74e7c715533bce7d15257" => :mojave
+    sha256 "ca3f33c0340ebc5c2118a009352b8a9dbf7f33b685d72c3516e15466e0127730" => :high_sierra
   end
 
   depends_on "autoconf"
