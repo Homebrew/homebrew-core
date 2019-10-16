@@ -8,6 +8,7 @@ class Hfsutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3f357724a46995df877e649f9ade4afb97b78e4e8cec503666a8423343d1589b" => :catalina
     sha256 "980dd894478cfc6b12f76b56dfd12996218af2ea7aa4a14503e11865364b2cab" => :mojave
     sha256 "1a0fd0b0ac3529aac6c79b1f3b15fbeefa2cf05838de439929b8c5c61d49c077" => :high_sierra
     sha256 "4b9c18851c1fd5ce7049946cb583d4f8336c29bd48c76690df707c768a2879fd" => :sierra
