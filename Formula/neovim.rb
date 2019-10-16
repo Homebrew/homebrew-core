@@ -21,6 +21,7 @@ class Neovim < Formula
   depends_on "luajit"
   depends_on "msgpack"
   depends_on "unibilium"
+  depends_on "utf8proc"
 
   resource "mpack" do
     url "https://github.com/libmpack/libmpack-lua/releases/download/1.0.7/libmpack-lua-1.0.7.tar.gz"
