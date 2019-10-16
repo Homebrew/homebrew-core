@@ -6,6 +6,7 @@ class RxvtUnicode < Formula
   revision 3
 
   bottle do
+    sha256 "d17b7410c97c5f95f1abbf7de7e49249995b23303696b8f7a2eed7c0924fe818" => :catalina
     sha256 "126bda5982eb1d785cdaf84ab108024d85c3904cc3039514f13e12ebb80652a9" => :mojave
     sha256 "01a97a5842a1507ae1e9c99d973811e300d0aac95b3fb744e8181918b6ac11eb" => :high_sierra
     sha256 "2946f3abe2481ad6e4f52be7a9e51259bcd0846f38602e74384343946479eb4a" => :sierra
