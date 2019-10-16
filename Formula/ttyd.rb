@@ -8,6 +8,7 @@ class Ttyd < Formula
 
   bottle do
     cellar :any
+    sha256 "591c0542fa73e8eb4615a3e84ce0230b92bd09eb502bcec028b3e9de08c0f405" => :catalina
     sha256 "01c301e0e4faf1a27f8964d46d311720dafe4d133b1848bbbd0eb747335c10ef" => :mojave
     sha256 "543808131b2d38d1bf1eafa7b547ffd9b141e9b264cad86aeb3f91a89a2373d8" => :high_sierra
     sha256 "a3c16fa7dfe029cad28bfe5fe79e063401e7ba08f6d1e7b59620aeae1f81f166" => :sierra
