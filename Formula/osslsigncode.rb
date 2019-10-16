@@ -3,6 +3,7 @@ class Osslsigncode < Formula
   homepage "https://github.com/mtrojnar/osslsigncode"
   url "https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz"
   sha256 "5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,11 +16,12 @@ class Osslsigncode < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libgsf"
   depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--with-gsf", "--prefix=#{prefix}"
     system "make", "install"
   end
 
