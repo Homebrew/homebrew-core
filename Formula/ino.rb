@@ -6,6 +6,7 @@ class Ino < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9bfeb0145a549ad057cf053eefdab08e20a517a29cb83e31acbb8330482fa0cd" => :catalina
     sha256 "cf60e506818d1add5939a547f5675bd6b2f2f7ff31af5eedde385f1dc4b1e954" => :mojave
     sha256 "cfd6fb6e8e05af32a75064404ed6217bcac47c9d7dfb1bd3c53bfd60fa2c4dd4" => :high_sierra
     sha256 "ba6d8a28197816999132d07732bf522e8b50f5c8030aba43b2fa48556c9c8115" => :sierra
