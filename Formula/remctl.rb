@@ -7,6 +7,7 @@ class Remctl < Formula
 
   bottle do
     cellar :any
+    sha256 "77e286b782b5720e57019b0a03c9c860e0f0a8273d38d06c946bb452a817cb18" => :catalina
     sha256 "d5e08fbf392f82c5742a1118e015f9e621e9b0b788b501c0a679215f29819490" => :mojave
     sha256 "2d742860ccb08ab27df64eb318e424a1d5d8432ebf60a77fb623cfe844413a31" => :high_sierra
     sha256 "d344cfccbaf89d8d8612692ba44521b5fa1d19a4e0e13b14e6efd12e7ef35442" => :sierra
