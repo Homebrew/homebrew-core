@@ -6,6 +6,7 @@ class Id3tool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ec3431bcd97a7852c292f72d45de19ad742a2e18bc8d6830ce5fc6e2351a8d29" => :catalina
     sha256 "053ce5a2222cac2bdecff1e97e73110af9cfbb199b77441ec5db19b4fc7ef1ae" => :mojave
     sha256 "c98d949a63b2d26f6cff9d63d24ecdfbd48196f58111a9a244ec7319d2ea7c21" => :high_sierra
     sha256 "2b7bcf184092881638221c606ae50879d02478bf9d433dc946f63dbe2e68368a" => :sierra
