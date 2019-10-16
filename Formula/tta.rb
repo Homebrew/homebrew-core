@@ -6,6 +6,7 @@ class Tta < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "af41c210ceddaa4957dc8bc4fec9dedb839157914c3d2d9fbb4bed63239cd9f1" => :catalina
     sha256 "898e75423e5f2a1f872b7ce2e2258db686f09ea04edf56555b15c113f04e9141" => :mojave
     sha256 "10ec40111e20f5168d67b02c52b464065e72fa48060c37a5fd86907062e8a997" => :high_sierra
     sha256 "7a3c44b675bbaf81041c7eeacef622fab8fe3abbc83329a927a1ed0034231b1f" => :sierra
