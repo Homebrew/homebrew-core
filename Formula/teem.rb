@@ -6,6 +6,7 @@ class Teem < Formula
   head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
   bottle do
+    sha256 "105f54c1cb830584bcf694756ab18eab2a7d9a67e3226699272c4449cc2f816e" => :catalina
     sha256 "439d02dd7f54d7f307b5984d00448a4e77309660e8f1c52e998ef9ea40fdcaa1" => :mojave
     sha256 "4cb2692b42e79880161879605c3990cd5d0c4fbb171c7ccd003bb9d6bb0fee09" => :high_sierra
     sha256 "31d19cd9e0e4c064fb743c41a286736503e61b1d5e4b81f29140fcebf2cde2c8" => :sierra
