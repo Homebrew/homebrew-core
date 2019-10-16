@@ -6,6 +6,7 @@ class Rig < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e75fa428f9833207c6fa53e005e32c8d3af48206e08ded637d9633c2af1e0643" => :catalina
     sha256 "8f311170956140550544c6a9e9b31068b61c5db52fefa2c92dd0ad565c0fc145" => :mojave
     sha256 "770e85dcfaeec7cf4e4799572b102bf436afc9f3d28eb828ef838b5a1e1a8152" => :high_sierra
     sha256 "fcc18ba335af01c00a5a7e7e41f6431192393d13eb374513ebe9b0b2a75ab0a0" => :sierra
