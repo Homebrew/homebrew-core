@@ -9,6 +9,7 @@ class Jsdoc3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "23a682cadd4cd7d6c89c34fe912cf11ccd8a2da14c8a87c3d6cb12db08b78b13" => :catalina
     sha256 "85f149b9eb5f0e49bff30e9af4a465c9dd768500c27061198225bbdc42e47315" => :mojave
     sha256 "91a544105a3ab68142b455117c91276ab5632ad80daa6cca34aa80800093213e" => :high_sierra
     sha256 "3c7eac58fecbcfb14c9d3d1c0a89ba065fb8f773fff6953a9a925c8b453e6e63" => :sierra
