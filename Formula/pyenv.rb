@@ -3,6 +3,8 @@ class Pyenv < Formula
   homepage "https://github.com/pyenv/pyenv"
   url "https://github.com/pyenv/pyenv/archive/v1.2.14.tar.gz"
   sha256 "3062c104b200d8c572d185b54e73a94bf66d5d46cc789717c372d2941c314a93"
+  revision 1
+  version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
   bottle do
