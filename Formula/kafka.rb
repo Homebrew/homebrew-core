@@ -6,6 +6,7 @@ class Kafka < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d38c73a5ab8e9589aa4773007d9df0757ca1773b071b02b8c5d031628098064f" => :catalina
     sha256 "1483beca512a1121491d8890290826e80f87d6630c37b15207db1d0cf39c805c" => :mojave
     sha256 "1483beca512a1121491d8890290826e80f87d6630c37b15207db1d0cf39c805c" => :high_sierra
     sha256 "84e51f5c33a35333e3da125076fa9f566e647ff9a555716ac478123a81d4186b" => :sierra
