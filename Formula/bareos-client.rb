@@ -6,6 +6,7 @@ class BareosClient < Formula
   revision 1
 
   bottle do
+    sha256 "7d69e52f214e7e5b8cf30e28ee49344165aea78837a4549b7699f01010b69dce" => :catalina
     sha256 "d597282300909ac572b5047abc5a1840a5cdbac7a0dd3bc57e97cb5ab2e29c6d" => :mojave
     sha256 "b8b3ba172f69be5c28656466d8225e4d4a02175e419666c205d98a6440323c28" => :high_sierra
     sha256 "f4cb5ceaa5c0795aca38e6ced82cff2bee7c3ccfd6b83e7b49f161818e5c0e28" => :sierra
