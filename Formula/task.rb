@@ -6,6 +6,7 @@ class Task < Formula
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", :branch => "2.6.0", :shallow => false
 
   bottle do
+    sha256 "24c80011867aa34766864a4bbac071493fb45c93bd3e08b3e9979b3ba4780fa2" => :catalina
     sha256 "bba98b6bdfb3f79f1434229d8ade4b0622119320353da0eb8fec39809d66947d" => :mojave
     sha256 "6a651be957b736bef14633efedef011a81c49ee37178eae4d8ef863549d7c584" => :high_sierra
     sha256 "d1cb582ab9ee211ec154690634b5988f8058ead31000c74d5cdfa949d319d0ed" => :sierra
