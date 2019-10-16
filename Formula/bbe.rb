@@ -6,6 +6,7 @@ class Bbe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "16ec8602703755894016b9ecd47ca9875a97c66ba259cdb8d7fa8902a17dd8d3" => :catalina
     sha256 "f1c5c6884c5e1740d5f649ac1caa4bb42df1a5ab6bba13970497f7c94454d346" => :mojave
     sha256 "95cef154264d814bcdb543da64b8947ed8219411c3da20d854f30bd0aeb1332a" => :high_sierra
     sha256 "4f533ae33e0c46a01bc11f1c8b99ef6baba62a376ddee1000de1fa199f18545a" => :sierra
