@@ -6,6 +6,7 @@ class Tcc < Formula
   revision 1
 
   bottle do
+    sha256 "68930891a8746b34b372ecfe43a6a042d0097414713c831353a095135d7b9569" => :catalina
     sha256 "ca8cd4827e72201cd5f368b5b74b9dead8554e0188b7ea63f81926d775d704e9" => :mojave
     sha256 "1ad7de1b974ca3e16668dec9cbef2accb29ecedb8f3f5819c06a2f77c8f3f2d1" => :high_sierra
     sha256 "c2949f3a99d1efb600137e4bb617ebd8a385697038f9cb8136c681033a7a636e" => :sierra
