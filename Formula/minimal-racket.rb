@@ -11,6 +11,11 @@ class MinimalRacket < Formula
     sha256 "e76979bfea6f2c0549e4393af622a6d73b174b6323320d253873022643bab4c2" => :sierra
   end
 
+  # needed to fix issue with a pragma in the macOS 10.15 headers
+  # see https://github.com/racket/racket/commit/27c1847ce8e77b4d0024c10a67ecd2316dbbda33
+  # TODO: remove me in the next release!
+  patch :DATA
+
   # these two files are amended when (un)installing packages
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
@@ -73,3 +78,50 @@ class MinimalRacket < Formula
     EOS
   end
 end
+__END__
+diff --git a/racket/collects/compiler/private/xform.rkt b/racket/collects/compiler/private/xform.rkt
+index 68fc0a6571..1a23cde8a2 100644
+--- a/collects/compiler/private/xform.rkt
++++ b/collects/compiler/private/xform.rkt
+@@ -495,7 +495,7 @@
+           (and precompiled-header
+                (open-input-file (change-extension precompiled-header #".e"))))
+         (define re:boring #rx#"^(?:(?:[ \t]*)|(?:# .*)|(?:#line .*)|(?:#pragma implementation.*)|(?:#pragma interface.*)|(?:#pragma once)|(?:#pragma warning.*)|(?:#ident.*))$")
+-        (define re:uninteresting #rx#"^(?:(?:[ \t]*)|(?:# .*)|(?:#line .*)|(?:#pragma implementation.*)|(?:#pragma interface.*)|(?:#pragma once)|(?:#pragma GCC diagnostic.*)|(?:#pragma warning.*)|(?:#ident.*))$")
++        (define re:uninteresting #rx#"^(?:(?:[ \t]*)|(?:# .*)|(?:#line .*)|(?:#pragma implementation.*)|(?:#pragma interface.*)|(?:#pragma once)|(?:#pragma (?:GCC|clang) diagnostic.*)|(?:#pragma warning.*)|(?:#ident.*))$")
+         (define (skip-to-interesting-line p)
+           (let ([l (read-bytes-line p 'any)])
+             (cond
+@@ -506,7 +506,7 @@
+         (when recorded-cpp-in
+           ;; Skip over common part:
+           (let loop ([lpos 1])
+-            (let ([pl (read-bytes-line recorded-cpp-in 'any)])
++            (let ([pl (skip-to-interesting-line recorded-cpp-in)])
+               (unless (eof-object? pl)
+                 (let ([l (skip-to-interesting-line (car cpp-process))])
+                   (unless (equal? pl l)
+@@ -4073,11 +4073,18 @@
+             (cond
+               [(null? e) (values (reverse result) null)]
+               [(pragma? (car e))
+-               (unless (null? result)
+-                 (error 'pragma "unexpected pragma: ~a at: ~a:~a"
+-                        (pragma-s (car e))
+-                        (pragma-file (car e)) (pragma-line (car e))))
+-               (values (list (car e)) (cdr e))]
++               (cond
++                 [(null? result)
++                  (values (list (car e)) (cdr e))]
++                 [(and (pair? (cdr e))
++                       (eq? semi (tok-n (cadr e))))
++                  ;; Swap order of pragma and terminating semicolon
++                  (values (reverse (cons (cadr e) result))
++                          (cons (car e) (cddr e)))]
++                 [else
++                  (error 'pragma "unexpected pragma: ~a at: ~a:~a"
++                         (pragma-s (car e))
++                         (pragma-file (car e)) (pragma-line (car e)))])]
+               [(compiler-pragma? e)
+                (unless (null? result)
+                  (error 'pragma "unexpected MSVC compiler pragma"))__END__
