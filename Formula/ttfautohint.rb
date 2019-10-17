@@ -37,8 +37,9 @@ class Ttfautohint < Formula
   end
 
   test do
-    cp "/Library/Fonts/Arial.ttf", testpath
-    system "#{bin}/ttfautohint", "Arial.ttf", "output.ttf"
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
+    cp "/Library/Fonts/#{font_name}", testpath
+    system "#{bin}/ttfautohint", font_name, "output.ttf"
     assert_predicate testpath/"output.ttf", :exist?
   end
 end
