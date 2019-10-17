@@ -6,6 +6,7 @@ class Pkgdiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cd5fb92603b642be4817bda4d829389cb6dfe040fddda33d2897aba8c04dd9d1" => :catalina
     sha256 "8de5a84d08a9bc063313a7319be93cbaba8b4e293e2604552e2771d9f9c93d81" => :mojave
     sha256 "28ed130d50f00ec5617be39a8bc627591d310d47e8023844b54f27fbf0daede8" => :high_sierra
     sha256 "fc92f55909e0499c1d0054100183567465603ac85fa9f8b20d5ab1d84e36ceae" => :sierra
