@@ -4,6 +4,8 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
   sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
 
+  revision 1
+
   bottle do
     sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
     sha256 "0bddb035ea8098a4eb0a9d76afae97a077f517bdb0592a4edae828a566470236" => :mojave
@@ -11,6 +13,11 @@ class Mysql < Formula
   end
 
   depends_on "cmake" => :build
+
+  # Until upstream updates their shipped protobuf, we need an older
+  # version to build. Can delete after resolution of:
+  # https://bugs.mysql.com/bug.php?id=97246
+  depends_on "protobuf@3.6" => :build
 
   # GCC is not supported either, so exclude for El Capitan.
   depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
@@ -57,6 +64,8 @@ class Mysql < Formula
       -DSYSCONFDIR=#{etc}
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
+      -DWITH_PROTOBUF=system
+      -DPROTOBUF_INCLUDE_DIRS=#{Formula["protobuf@3.6"].opt_include}
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
       -DWITH_EMBEDDED_SERVER=ON
