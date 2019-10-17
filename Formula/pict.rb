@@ -6,6 +6,7 @@ class Pict < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0310bc54de6de7c0901d59c6177129b4d1b989e839eb7ced09b01f41398b8355" => :catalina
     sha256 "ee531627e5fa6a0e8ba68aeb1e7bc5c420fb307bedccbc5b8aa248b73291a665" => :mojave
     sha256 "f6ebf8ee9bb2ff705de0f9975cc96a4284a127b093ece87b44643d83f5b636de" => :high_sierra
     sha256 "6ba3b37a9a8a0ce77430baddda0f57eebd71ad4adcf412c8f2f6b935073d7548" => :sierra
