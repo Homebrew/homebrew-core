@@ -5,6 +5,7 @@ class Openslp < Formula
   sha256 "924337a2a8e5be043ebaea2a78365c7427ac6e9cee24610a0780808b2ba7579b"
 
   bottle do
+    sha256 "fee6eb82ad60bf1446278498ff8860584dcd2192a7505f3c57eec2bab55f337f" => :catalina
     sha256 "948182086a86baa001d9b8864715c91d5d9b9ec76ba7c072667dc0d58e983d12" => :mojave
     sha256 "3a933a2c697a2b7a00d9b1f9cc3a58664c43c18f7b4ff3d99afa7bc11d721da5" => :high_sierra
     sha256 "fdd847dba24e5a96c30ccef98f0d035f39abc88617d779df627c132be5b648ae" => :sierra
