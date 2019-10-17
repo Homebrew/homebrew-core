@@ -7,6 +7,7 @@ class Pc6001vx < Formula
 
   bottle do
     cellar :any
+    sha256 "8743c365fa52afc7d5e2a29092bdcfbd0f7f9fdd5a5209ef575cd8f3e70434cc" => :catalina
     sha256 "86348c8928c6c7e8c09ab6db792f5b0393dac46e87d7ce1e531d369e47ec0ea4" => :mojave
     sha256 "19a0fe720094d0dd8a180ee8adf6d4511d1c51f73765bba1fc6fa61368cb4721" => :high_sierra
     sha256 "9bf00dc16e3c78425109ebe2a17170bb8c0341bb27c3875dc844af815b441b23" => :sierra
