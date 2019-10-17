@@ -8,6 +8,7 @@ class Pth < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "4e468eea8984b9eb265dcd2f1e10a12ec5827088986042cea278b24f1a4dc1d4" => :catalina
     sha256 "e7ed86c562756b07fcf9bb148c76f17c6cb4f3b02bf84ffe82285e3b279e7836" => :mojave
     sha256 "da4549f9e89a71478b47f4454f9a259dc3a56a109f24083ce8f4ea69b11ac9c5" => :high_sierra
     sha256 "583d6ae1681974c7461650151253c5a302f33fb16dae74b5546a4a693cec71d1" => :sierra
