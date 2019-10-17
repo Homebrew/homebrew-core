@@ -6,11 +6,11 @@ class Nsnake < Formula
   head "https://github.com/alexdantas/nSnake.git"
 
   bottle do
-    sha256 "dde29d2cb7a2c64d3127f54cdad662d466c73618cf658e8bdfd7773d480cd04c" => :mojave
-    sha256 "53160e1d77458a3116a8b65273bae7d515b9e1c817523a1f632ae357c835877b" => :high_sierra
-    sha256 "b1de1091630f4e16fc2e0767801034fc9e81618888035ab7dbc17bb3a0082d83" => :sierra
-    sha256 "ea456b15c9edb91530c56e0f0f1da78aef138eb4805cfd083a7fdf9e3579c36d" => :el_capitan
-    sha256 "bb902bc64d9028e4d2341eed665809c77e7e4bb6fb614309111962c1e46c8c17" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "6ff26e57639f58e6bc2bbd36c511d3c21cf0b5e818b270efb6ae14e542c780c0" => :catalina
+    sha256 "195e486eb84a9fa230bfa31558d6b3fb8ae6715ab444f3aead9c997a43f981d8" => :mojave
+    sha256 "5f8de3bf4148a6d9fdb32b5584e4aa5890c8f373ad5be36b17473e4d7c2f0a96" => :high_sierra
   end
 
   def install
