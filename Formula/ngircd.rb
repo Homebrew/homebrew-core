@@ -7,6 +7,7 @@ class Ngircd < Formula
   revision 1
 
   bottle do
+    sha256 "19f2aae10f51901688ab282af2a5227d82c36ae4a3013661a56d823aae1c3868" => :catalina
     sha256 "0fd70a8662655bd45398d69f5ea38304baa96b84bc44980ba4ad6eebb6246f24" => :mojave
     sha256 "a85e43607f7e2a52fed2187508d1dbcf8dae25dae9e4704d58a76f3c751032a0" => :high_sierra
     sha256 "48e83fcdd8462a77cd8855ff1ca69fe17e4f6796e465dc5a3784e4653f59db54" => :sierra
