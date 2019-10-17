@@ -3,6 +3,7 @@ class Gpgme < Formula
   homepage "https://www.gnupg.org/related_software/gpgme/"
   url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.1.tar.bz2"
   sha256 "c4e30b227682374c23cddc7fdb9324a99694d907e79242a25a4deeedb393be46"
+  revision 1
 
   bottle do
     cellar :any
