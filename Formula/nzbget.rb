@@ -7,6 +7,7 @@ class Nzbget < Formula
   head "https://github.com/nzbget/nzbget.git", :branch => "develop"
 
   bottle do
+    sha256 "d44d1a8dbd26f5cdb307c08f3294bd381ca79d51c48f51df98ae10a19272397e" => :catalina
     sha256 "1d69e26d929d2a1be4824ea8c2134d543033462302bc5527269d5ca7b1b2c575" => :mojave
     sha256 "862bd9889d1590b8e3f600419f2bbf84f1ea7582ed55c58eccc024382d6db245" => :high_sierra
     sha256 "2e174f6c4df74ef3cd5decca500963db0c99d71553da624693ec4e9d085a0a56" => :sierra
