@@ -6,6 +6,7 @@ class Pgdbf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ae8050a5d6a6f91f529a0985a5626981d22573094791274c7bc1759b2770c4c7" => :catalina
     sha256 "4a76ca05c6b73ea6fcf57d6699cbaf3e249c5e3b20990e51ab33d11bfbdd7d50" => :mojave
     sha256 "caf544eee09339bb34ab68a35880bc863bb13aa7943de98ef25680cb0182f901" => :high_sierra
     sha256 "7d0eabf3051e9cf450d985987f89cf0d70476b37202b3b5bdc84ec48e8cb670d" => :sierra
