@@ -6,6 +6,7 @@ class Aview < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad92a0e964ccbebe685edf9c595efd420475490d255caed072985cb128a8230b" => :catalina
     sha256 "fe70cf7dbd1d2e1473da3818b96d3a94d811e93d52ecbb6ecfc1c1e1ccb8b12a" => :mojave
     sha256 "4f5fa09318475fca46c584b52e5d5b845cd4d331df04744ca41d6789575b32ec" => :high_sierra
     sha256 "95cbb14a2a5cb4d8d11d9ca3621e81705df77f47d85f89383913e3a02da56041" => :sierra
