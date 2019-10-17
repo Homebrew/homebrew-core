@@ -1,9 +1,8 @@
 class Bogofilter < Formula
   desc "Mail filter via statistical analysis"
   homepage "https://bogofilter.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/bogofilter/bogofilter-1.2.4/bogofilter-1.2.4.tar.bz2"
-  sha256 "e10287a58d135feaea26880ce7d4b9fa2841fb114a2154bf7da8da98aab0a6b4"
-  revision 2
+  url "https://downloads.sourceforge.net/project/bogofilter/bogofilter-stable/bogofilter-1.2.5.tar.xz"
+  sha256 "3248a1373bff552c500834adbea4b6caee04224516ae581fb25a4c6a6dee89ea"
 
   bottle do
     sha256 "97a2da30e1c196c31eadbe5a3404258c79fdc9caed9b7c1daba9497442b02aee" => :mojave
