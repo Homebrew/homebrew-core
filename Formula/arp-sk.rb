@@ -7,6 +7,7 @@ class ArpSk < Formula
 
   bottle do
     cellar :any
+    sha256 "bb592675e2c4cef5e98570bc5aea9f7813a3a5cd9b54235d1b44019e3eda7251" => :catalina
     sha256 "b0c8b814c565ed44ce9bf1a52f9555fa6223d64a51bece46749a71403d1988fd" => :mojave
     sha256 "db71e1610feac13246511f6c67bbf224e20b49e9a130d76dc5ca3317fe755601" => :high_sierra
     sha256 "d933c37e26f227918a6e770dc3214a76f06ca79abbf1f646a6c00447ad9933ac" => :sierra
