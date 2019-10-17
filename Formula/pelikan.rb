@@ -7,6 +7,7 @@ class Pelikan < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "61441ad2aeeb6d14ab8fa6183944c1f4ab0733776e3f810ad17b80faf2f25faf" => :catalina
     sha256 "a313660eb003974995537cef07e391d3051218f7c65f3326c270b68f0855a59f" => :mojave
     sha256 "a80ae1b508d4eae75d03fc5ad07477039a50a37419681b2472af4f9dc5f240ea" => :high_sierra
     sha256 "37a675674b7ef33f07099029042f56c054f09b5d22400010d583fbfa41c0ce50" => :sierra
