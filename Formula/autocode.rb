@@ -9,6 +9,7 @@ class Autocode < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "451224479d19854f4f802b0ec63077080df91196917ad14d16e4a2308f247527" => :catalina
     sha256 "44742d0ccc3af3f27590445dbf2e89dffd8e684ff81521b5dc421449507879cd" => :mojave
     sha256 "a11f1fbbbf04052b9885a00abc88e7539a6c1992e35a62c6776df7ea32daf890" => :high_sierra
     sha256 "f369819b2f33327071a68455a14f66855286c7614977f06704f21c38e2df5f89" => :sierra
