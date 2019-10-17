@@ -1,9 +1,9 @@
 class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
-  homepage "https://github.com/alexellis/inlets"
-  url "https://github.com/alexellis/inlets.git",
-      :tag      => "2.5.0",
-      :revision => "9744ca87b0b0e4c32ce22aa102827d684f5ef792"
+  homepage "https://github.com/inlets/inlets"
+  url "https://github.com/inlets/inlets.git",
+      :tag      => "2.6.0",
+      :revision => "f505174ba97c1d14d8a171e8789a364e0493288a"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,11 @@ class Inlets < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/alexellis/inlets").install buildpath.children
-    cd "src/github.com/alexellis/inlets" do
+
+    dir = buildpath/"src/github.com/inlets/inlets"
+    dir.install buildpath.children
+
+    cd dir do
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
              "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
