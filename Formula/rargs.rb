@@ -5,9 +5,11 @@ class Rargs < Formula
   sha256 "ac6cf3a31ff5b55f86487fa3d3266edf8f562cc6b548d6e636daf373534388ad"
 
   bottle do
-    sha256 "a0dbb61d5792ecd452df10508bd5f77deaa3d4f9657323410e93bd8a51b869bd" => :mojave
-    sha256 "bb71f94543dbd9859c33cc5e83cbec86894ca8239dd44339774e2efd0f121268" => :high_sierra
-    sha256 "c935e7e27e93f058e1bfe01f199bce5329670e33a4771e06b0fa059144a07f3b" => :sierra
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "61300f0d8d770b58077ef97efdf5f50bf2f5df244cfc1dcd7c75d940948bdb0f" => :catalina
+    sha256 "eb92709c9127872b57c807c5a110329bea94cc43a6c6a030ff6fee6fe8240100" => :mojave
+    sha256 "7d5d38da14e10453dfac30d784f7bf4f7c75e7f188c7b3df556ebd5f2df8e76c" => :high_sierra
   end
 
   depends_on "rust" => :build
