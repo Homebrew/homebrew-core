@@ -6,10 +6,11 @@ class Pastebinit < Formula
   revision 1
 
   bottle do
-    sha256 "e9a0967af35772fecd4908ed2a8f5476def47e8f278b40f88f1e92d3a67cfc3d" => :mojave
-    sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :high_sierra
-    sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :sierra
-    sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "2557d85100d111cf43ac51892d6401096c4f353689e34d611342f5ddb4e7c9d2" => :catalina
+    sha256 "2557d85100d111cf43ac51892d6401096c4f353689e34d611342f5ddb4e7c9d2" => :mojave
+    sha256 "2557d85100d111cf43ac51892d6401096c4f353689e34d611342f5ddb4e7c9d2" => :high_sierra
   end
 
   depends_on "docbook2x" => :build
