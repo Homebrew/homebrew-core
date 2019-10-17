@@ -6,6 +6,7 @@ class Plustache < Formula
 
   bottle do
     cellar :any
+    sha256 "e3348a3114faa9ae6a989344d69a594e5cacaacd927b847213f75f97d399bce1" => :catalina
     sha256 "853b1c9c7d7f1c8cf8b7c6a1d0928a991b9c5646a326fe520d90a2cd28fc42dc" => :mojave
     sha256 "7be831bc5c4402d088a31cd3e3c55e9e0ae105d969eea9a676744b212bdbc446" => :high_sierra
     sha256 "5122ac5404ae416955c5f3b64b63bfd617a530e746194590d3779ae61710f281" => :sierra
