@@ -1,8 +1,8 @@
 class Bvi < Formula
   desc "Vi-like binary file (hex) editor"
   homepage "https://bvi.sourceforge.io"
-  url "https://downloads.sourceforge.net/bvi/bvi-1.4.0.src.tar.gz"
-  sha256 "015a3c2832c7c097d98a5527deef882119546287ba8f2a70c736227d764ef802"
+  url "https://downloads.sourceforge.net/bvi/bvi-1.4.1.src.tar.gz"
+  sha256 "3035255ca79e0464567d255baa5544f7794e2b7eb791dcc60cc339cf1aa01e28"
 
   bottle do
     sha256 "b4a33584800f48793b982b66ff91d0eab55f92c60846be9870b87c702542ed52" => :catalina
