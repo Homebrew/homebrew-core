@@ -4,6 +4,7 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf.git",
       :tag      => "v3.10.1",
       :revision => "d09d649aea36f02c03f8396ba39a8d4db8a607e4"
+  revision 1
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
