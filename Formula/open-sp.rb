@@ -6,6 +6,7 @@ class OpenSp < Formula
 
   bottle do
     rebuild 4
+    sha256 "ed66b34bcf33e9b7908ec466dd66db245b1a2556c2778705d14c99f73f5038f0" => :catalina
     sha256 "0c34e7815d7b7f654210102518787bf4c07e6ef811bae5167967747a99b762ab" => :mojave
     sha256 "41deb89bf8fd39c9d99eb171039a949fba4e82eb86d674d2584ae70a0e3ecc73" => :high_sierra
     sha256 "77f282ed97f428763c7952365353a6b915ff3315d7808db73a51e785961e989c" => :sierra
