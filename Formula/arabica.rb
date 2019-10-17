@@ -8,6 +8,7 @@ class Arabica < Formula
 
   bottle do
     cellar :any
+    sha256 "0397bc0d3f70d76ad381cc9b7325a83b471ea19812311bb7619675f7c3f54c91" => :catalina
     sha256 "448e31922f8c9b913ca5ca450599bfd631ed9781007cb7ff64fe69f14014cc27" => :mojave
     sha256 "0d3da860ba0b953abb9f70665cc73620ae2b0cd0570dacb55bfe8954ae0d58e7" => :high_sierra
     sha256 "6a08cb5b8af8d2034569451ad499260acebc610ab390383b20398fc10a6fb115" => :sierra
