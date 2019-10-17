@@ -8,6 +8,7 @@ class Analog < Formula
 
   bottle do
     rebuild 2
+    sha256 "bcfaa87aae0fd274b47855a212ee5d806a37f6c677582b0f2ddaf2f71fd29cb0" => :catalina
     sha256 "87337ab3f0049004b3b6e5bdcdb70c07f4a4cd457a917b7ec99e48650e3d560d" => :mojave
     sha256 "d6cf3bcc19b376b693cc27ccd0ebeafb80a05c783405a13ed0d24abd07368cb2" => :high_sierra
     sha256 "cb8cb25d3050dc3a08445987739c43b5fd7dad7a798342fb7538c016930a9978" => :sierra
