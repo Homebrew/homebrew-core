@@ -1,8 +1,8 @@
 class Potrace < Formula
   desc "Convert bitmaps to vector graphics"
   homepage "https://potrace.sourceforge.io/"
-  url "https://potrace.sourceforge.io/download/1.15/potrace-1.15.tar.gz"
-  sha256 "a9b33904ace328340c850a01458199e0064e03ccaaa731bc869a842b1b8d529d"
+  url "https://potrace.sourceforge.io/download/1.16/potrace-1.16.tar.gz"
+  sha256 "be8248a17dedd6ccbaab2fcc45835bb0502d062e40fbded3bc56028ce5eb7acc"
 
   bottle do
     cellar :any
