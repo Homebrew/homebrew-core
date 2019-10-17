@@ -6,6 +6,7 @@ class Pdns < Formula
   revision 1
 
   bottle do
+    sha256 "b2bd81b9baf0e20bf5f46857c9457e4fc30af8ef2d11fa88025c74fccbc712d2" => :catalina
     sha256 "e9b851c9ce8248562bfa591aaa8313768643e7c3535744e491040d5939e1078e" => :mojave
     sha256 "1f195fcf89c603691184c77841f8df250cb6ef205841feede230a41337203d77" => :high_sierra
     sha256 "a0e77bc4f1d21eedef8f74cd1a669d700fddfbe35c950e207ceaf1868898e25b" => :sierra
