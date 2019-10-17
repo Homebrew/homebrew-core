@@ -5,11 +5,11 @@ class Pdftohtml < Formula
   sha256 "277ec1c75231b0073a458b1bfa2f98b7a115f5565e53494822ec7f0bcd8d4655"
 
   bottle do
-    rebuild 1
-    sha256 "bce2abacc7dcc8f397e0d4f82538492bdc00b085124e9c4ec71cd087f13d0d1a" => :mojave
-    sha256 "082040145afee0addd7252e2042526113986eb251185923a0210333e6b5a3316" => :high_sierra
-    sha256 "22264623cdbc31cb0d24f1a7fa5afa22a7fbea71f420877ab921611ea9b5c983" => :sierra
-    sha256 "8ecdcb1b267387509e8efc6637f119c782a70c6d4326201e0e76f06eb29dbcc1" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "d8a6e5bb1d84ee766898543d77307b4a9a6e6f826ebe9cc48ce6db8bb24c8923" => :catalina
+    sha256 "c49245634c48c7c24501cfb848a98e4b6a281ff0cf89235bb7a7ce09619e66ad" => :mojave
+    sha256 "200be428031e013f58b792b092b56e74743d6362d747b0c883bb95269d7a5e72" => :high_sierra
   end
 
   conflicts_with "poppler", :because => "both install `pdftohtml` binaries"
