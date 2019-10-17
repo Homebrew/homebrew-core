@@ -6,6 +6,7 @@ class Postmark < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3c588393d3075f1943d481a1db03af3835997d104357108f0812bc4ade44686f" => :catalina
     sha256 "df5e68b280b40151c28cefb46a97605044af5c0e879f73a6d972676007aeffe6" => :mojave
     sha256 "0e7f59c257967fd72381d86fca353c88f4af9d4843c0aa9e3eb4f606a6619fc4" => :high_sierra
     sha256 "9d702b7bc49f646fd1623b316fd62c84ee6413e035a81e95866b0ca7240f100e" => :sierra
