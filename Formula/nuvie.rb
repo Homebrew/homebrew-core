@@ -5,11 +5,11 @@ class Nuvie < Formula
   sha256 "ff026f6d569d006d9fe954f44fdf0c2276dbf129b0fc5c0d4ef8dce01f0fc257"
 
   bottle do
-    sha256 "482181b9e3badb5e1c1d4b22176b7c2b48bc28cf3d96034291a8833fb9aecebf" => :mojave
-    sha256 "f6f5c6e9396e6a8920ce10765807c07c8aea1158b18807087ece931cbe428948" => :high_sierra
-    sha256 "036ab5e7a6b95f33f470c00124cc498012f38e650b830eca1d84082a7296a554" => :sierra
-    sha256 "bbf72ee5eeb816255999fc5c331bc70d6b4af3a7f639795f736b8f46e70b9790" => :el_capitan
-    sha256 "324dcf4a9f1ae523fd70fbbb1141f7cfe4245348d439c37dbe7a1520eb9e00d9" => :yosemite
+    cellar :any
+    rebuild 1
+    sha256 "286980f2c5b977f355d59bf2b10366b3c38613764b66707852e2934649089bc6" => :catalina
+    sha256 "b1cefbd62e4b350d330853e14f789cc0b137c19b434271d1837114e10a73b0ca" => :mojave
+    sha256 "f066beb078dd00f4b339ce25b7ff06dadd6ddf62283008ee149d2758c80e439b" => :high_sierra
   end
 
   head do
