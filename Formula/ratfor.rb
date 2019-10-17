@@ -7,6 +7,7 @@ class Ratfor < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e98f4edddd16530a9fed1092cac305336a8c3ef46389c8208278c3ff2337b4b7" => :catalina
     sha256 "1778a37f2498200cef410a1b208d1f21f591f909f13b566b139bb66f70734f88" => :mojave
     sha256 "4a9b3b69f2eadb0023747734a5b1145717d3d776742eb555c35ae20edd0e5d59" => :high_sierra
     sha256 "ab06a92daf0033b37df76b0a8f8b0191718017d1b7c629c1af82eca0117c8da2" => :sierra
