@@ -8,6 +8,7 @@ class Proftpd < Formula
   revision 1
 
   bottle do
+    sha256 "200fb8d376b7b9df6528444d4544824561ddb0ad1090acce6f851502b28327ed" => :catalina
     sha256 "d8e913133feffb5e1e669991f345ca04e014501833af51cc67527d99a53b72df" => :mojave
     sha256 "654875de19ba33e14985e88c24fbd54a27877966cb26177bfbffd89286a2f2b2" => :high_sierra
     sha256 "5bbb5075bd0e1091feb88f5a57172d2c5ee1e31caa5c5f6e92009f7da1cffcce" => :sierra
