@@ -8,6 +8,7 @@ class Piknik < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "4c8bce52891ea6547f5644108b72300405c27e84e539fde0fa60c25e69db7a8e" => :catalina
     sha256 "eee56739c24346b50d4fb7afa1285c87fbea135f3acd5fa90d1c2b9a81f84284" => :mojave
     sha256 "1209dc34580813c42b1075174e9f78e049f43449845c63aa3f033e761ecf0bd0" => :high_sierra
     sha256 "fffe6c2329ae0840061a464162703ec7cd26649cd985d1ff4de37315059b9357" => :sierra
