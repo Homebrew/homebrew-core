@@ -1,8 +1,8 @@
 class Libdvdread < Formula
   desc "C library for reading DVD-video images"
   homepage "https://www.videolan.org/developers/libdvdnav.html"
-  url "https://download.videolan.org/pub/videolan/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2"
-  sha256 "28ce4f0063883ca4d37dfd40a2f6685503d679bca7d88d58e04ee8112382d5bd"
+  url "https://download.videolan.org/pub/videolan/libdvdread/6.0.2/libdvdread-6.0.2.tar.bz2"
+  sha256 "f91401af213b219cdde24b46c50a57f29301feb7f965678f1d7ed4632cc6feb0"
 
   bottle do
     cellar :any
