@@ -6,6 +6,7 @@ class Profanity < Formula
   revision 1
 
   bottle do
+    sha256 "49f5899461484c5ac2f7417ea4392b5cdc9a6d8811900261533b22284e405e54" => :catalina
     sha256 "f22a03bebff8b2f665f43d53fb73f85d43c4527335df6a51e7600dbb0fb5828e" => :mojave
     sha256 "98a55ec40c11d1909d4651cf3263e20da2a698acee294a2ea1241cec140aae6b" => :high_sierra
     sha256 "f5ec5037194ddf9117317fed8f521129904b1d13cd24a3133267f13fb9c914eb" => :sierra
