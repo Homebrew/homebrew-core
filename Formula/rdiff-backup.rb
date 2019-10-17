@@ -8,6 +8,7 @@ class RdiffBackup < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "935ffcd8c7ba9579aaf0c640c30ff6b877ae862e5ca5083619c51200ab6847cc" => :catalina
     sha256 "76ac2c10776a2dcb230f07b95704c65522cae20865a9bf4e4772c86b94673bda" => :mojave
     sha256 "899687c88770af610d76f66f02da736a2a62ac4676f0f80796dbbae1d92bc47f" => :high_sierra
     sha256 "7dcf4c878ccafc113e5742c83214f946dd3a55b472e086a944e918bcee1cf2bd" => :sierra
