@@ -8,6 +8,7 @@ class Percol < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c9e13bc103fe32c8d78de04f547fd2be75d0564657e1f6e1f54bca846fc10ab7" => :catalina
     sha256 "43a0d42c2184fcc78ee6cb187c0bd4167133debe35be81d724bd3b2a26848de3" => :mojave
     sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :high_sierra
     sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :sierra
