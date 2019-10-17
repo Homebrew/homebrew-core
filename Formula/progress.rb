@@ -7,6 +7,7 @@ class Progress < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5e6838fa54395e52684173a620b565a847ce25c1945edeb26a190702a3b36e67" => :catalina
     sha256 "a8247f7d99f2bd201810ad887d2354fa72e79f8c14d4ab896b0e60861c52b3d9" => :mojave
     sha256 "30283abf5c811af72c62e3c2467479f7373ce176e3eb6ca940039ca77cb938e0" => :high_sierra
     sha256 "cdceba6fffdaca9563a5888452a4227f7e715547a2345c5ba36ff12945e8bfd2" => :sierra
