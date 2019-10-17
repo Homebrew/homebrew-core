@@ -7,6 +7,7 @@ class Offlineimap < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a3ac6876694a5c6201a84bed06215418ecac6f57505caec64f99d99fafc79d65" => :catalina
     sha256 "c9620b87d09719d7950203ec39e04b0ea4bb7a03cf169c3fa5596e0c53e7c177" => :mojave
     sha256 "c9620b87d09719d7950203ec39e04b0ea4bb7a03cf169c3fa5596e0c53e7c177" => :high_sierra
     sha256 "d56fbea8ca30549b4f5e3e5e294cae0dcf4363a08d7574d8b7e8abaa70f9ff17" => :sierra
