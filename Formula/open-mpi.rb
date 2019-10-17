@@ -1,9 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
-  sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
-  revision 2
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.bz2"
+  sha256 "900bf751be72eccf06de9d186f7b1c4b5c2fa9fa66458e53b77778dffdfe4057"
 
   bottle do
     rebuild 1
@@ -41,9 +40,6 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-
-    # Fixes an issue in 4.0.0, should be fixed in 4.0.1
-    args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args
