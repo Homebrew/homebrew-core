@@ -8,6 +8,7 @@ class Pngnq < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "f438c5d73e9dd9c3c36283aa9f8253168de30f52242955a803714350cc247c80" => :catalina
     sha256 "2287986066f131dbcac5ab97b033898a611b2b07348847ce5094f09bba06c7fa" => :mojave
     sha256 "258abdbd2805617e3c36c0926b3168e0632d3eafacba9e9b63c8e35dee6c28f7" => :high_sierra
     sha256 "0914104edfd7c6089ae4b053e5a57cf1b5a0d9bb476424ce654a923cafef651c" => :sierra
