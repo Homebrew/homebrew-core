@@ -4,7 +4,7 @@ class ProtobufAT37 < Formula
   url "https://github.com/protocolbuffers/protobuf.git",
       :tag      => "v3.7.1",
       :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
