@@ -9,6 +9,7 @@ class Psutils < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "c2aed2811e263c3e3abcf66eb27d6fdd1b622ca033fa2e3bf4e8095c733df08a" => :catalina
     sha256 "d2ba48c88116be774d989d71c791ef97f8eac3723e63a0924e08ea48f4b3ab39" => :mojave
     sha256 "d9408c8f70db105a621195339f357107d6f234c75be581b1ca8365d0e82e62c2" => :high_sierra
     sha256 "1319662888a509ceee3993bf17e7fb2f9dfaea5ce25c983c0bcda13283b5d612" => :sierra
