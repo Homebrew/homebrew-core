@@ -7,6 +7,7 @@ class Pillar < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "7f179f5550fbff69f3b7357d1a4edc15dfc7b16a76a9e7dd23df7f3ae4031593" => :catalina
     sha256 "f75ff57f647c404dbc95a7dc00330a5c9304d380437b7fd370795a1651fc3f7a" => :mojave
     sha256 "821dac9ddc56019fb7542a7ea77b33e6d3985a483a7f4d52482081389864d276" => :high_sierra
     sha256 "c84c1441dace68a35a68d280a3880ac4a62721480652474241b8d6a6b175742a" => :sierra
