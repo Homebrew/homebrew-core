@@ -7,6 +7,7 @@ class OneMl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1c4d1db695a05cbef697083d11a8f2852b7cbcd154fc10baee3cd621d8ded388" => :catalina
     sha256 "87fc6aab3a39f7cb615f979e08c7e61a0aba5c21b0838ca232dfca8ee2eb8fcc" => :mojave
     sha256 "5a2d9a7208f81348718cc0eb2870a13ffac837bceadc9a56a7f1ea19299285cf" => :high_sierra
     sha256 "97fd29ed2044756e418c6ae09c70796b112c5677d716c5032e7b77f002c3a658" => :sierra
