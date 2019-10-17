@@ -7,9 +7,9 @@ class Rke < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5834bc5553c7ac45fcbcba475f882493b296db8938981de8c2f736b255d32e39" => :catalina
-    sha256 "a89b8315003be091c6b492d875e1998c96097116ebbd7f4478336932cf814ca2" => :mojave
-    sha256 "8a9f96d046fa298eb50a677c1c08a02990726b69d4c0f324b9f001a0bd89df3e" => :high_sierra
+    sha256 "266553319dc1a7ee6812f2331f90a87035f84eda5a5164ca0bcd547b161d8651" => :catalina
+    sha256 "103ad00656e11c00a7f174ba2288ffc02d76c72281c49c534adf12d5d2e63b59" => :mojave
+    sha256 "ff2823f207fd985f4c9c3bf8bab5e72c01b78b78bc17fca0ee8b99a1ce93a7f8" => :high_sierra
   end
 
   depends_on "go" => :build
