@@ -6,6 +6,7 @@ class Nut < Formula
 
   bottle do
     rebuild 1
+    sha256 "42ea76f3d90654074d555b92a26af06586086658dd9fe32917b3fe91f611e370" => :catalina
     sha256 "521801a19b4cc0af4a7b1257c7cab01b8857ea54b1d93873f511abceaf8639f7" => :mojave
     sha256 "402d11c8de791487a264320826d4e71d27458f09adaaa275f00a620732c36137" => :high_sierra
     sha256 "f25e46baa1c36f3ffb09b4b1c9253b4bcc1ddd301c176af278a5f81a89f56859" => :sierra
