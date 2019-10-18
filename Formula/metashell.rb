@@ -6,6 +6,7 @@ class Metashell < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "792f1b46b5f17933b21ec7adb62cf0b6add03ef94e8a73e5e691e12e9aa85049" => :catalina
     sha256 "4629398ca4b1bf5cf7779b8d5c9e6f066ea5e96f66063c265f0b13e106a0cba0" => :mojave
     sha256 "05387acf4adf651aaa011d02f5a08ddf49725a550440cc7eb496c1112166852b" => :high_sierra
     sha256 "14fc35b7b932170333d8260b8bda881844ffc68870aeb1a120ebd74072ef900c" => :sierra
