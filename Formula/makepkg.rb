@@ -8,6 +8,7 @@ class Makepkg < Formula
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
+    sha256 "d57aacac971c91dc50c67e1549ace86763107a3dd2f29f3053f6b4517ef1097e" => :catalina
     sha256 "d6609f75988babfe82d73c7dd85874092fcacfd24fae84bf6bfdec8262ab4279" => :mojave
     sha256 "b8c32c0be56ad6c19d8838c7f27aff105ccd03602bd9357206724efdc6f0c270" => :high_sierra
     sha256 "70ffabbc97bdd9dc1567bd18c7c39151870717835988e3d3fb4ffa7f46c564ca" => :sierra
