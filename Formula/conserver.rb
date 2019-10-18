@@ -6,6 +6,7 @@ class Conserver < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0543221000d5bc2022b45939bdad3b736931b3a5dc7e15c47a78d18e5cca2395" => :catalina
     sha256 "cc5c46b8adeeb4eb949f8abeedee67fce87dd1b17677622963619a496b511289" => :mojave
     sha256 "45f059778b3e32bb6cdcba3f52bb4ad99d3c2271ef0adfb61fc28a0299d3d8a2" => :high_sierra
     sha256 "972900dc19aeb2beb11371bc9dba0c241c842328dd573d449535529dc5f560ad" => :sierra
