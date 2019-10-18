@@ -7,6 +7,7 @@ class Luit < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "7a5b7cd204c8ec9c898d5051638dfaaf390c7fd6401b44841a08136e6ae7538e" => :catalina
     sha256 "fd907214b6c2fc1bda914531c8c0971c34c63aaa3478ca3f0c21ddbeca1bc0f7" => :mojave
     sha256 "8c1e5b87146d2ea2682b473193942bc92bcd52422d391aa74fb585859da05091" => :high_sierra
     sha256 "a71855f672f1416741873a9ff816f8d15980bb0002429937cb85fd6a21b0fd4c" => :sierra
