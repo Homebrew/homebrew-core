@@ -6,6 +6,7 @@ class Clockywock < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5bc4dcd5f3b6d995d6245d3f67a55fb2b5bb6d604e9ad214bc687f4ca8d40bd8" => :catalina
     sha256 "3b3b0faab6694a2572ad18b332b0711d43a7bf73715d0826df0adeacef0c64ed" => :mojave
     sha256 "4d1b976443480421f6b666121b31b350d7881b26832a65f13866a81fda61aa9e" => :high_sierra
     sha256 "d25af48f1f063a64f514a632ffd1c017ba4dd2c0abc2b428489147247eb8cfaf" => :sierra
