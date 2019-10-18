@@ -6,6 +6,7 @@ class Md < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "919611448c8b0f207aa7c08ca3277b987623f7f17fe31a13c9bc0118f4c27f2b" => :catalina
     sha256 "a4d92767a1393d4eb0bf029d449e81b7c56ddacec1a7de5235ac5435a9b880e9" => :mojave
     sha256 "9ce0b54023eabc2b3aa46ee73ef3a36f1b0e5019b1d99cf822ae89c6840198a0" => :high_sierra
     sha256 "b4187ef160dfbdefabaa05abb5bc044560ccf27410dc92be160760ec1142279d" => :sierra
