@@ -7,6 +7,7 @@ class Lockrun < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8873fc021c96ed98f60c72b3a467aaa41f831c4c875e322efbb73343138ea829" => :catalina
     sha256 "0bacda6dd0fb9ab16f5a53191506132b338ce85e3367a0d150486a3c406ced5e" => :mojave
     sha256 "8e2764324f3709946ee1dc7b9c2135dca1e6c94b265d79fdb3f171809d88dfc4" => :high_sierra
     sha256 "5c37b3e9c3f55cfa50379c72fc00259bffa8d3d48688bcaaa44122805ffa4c3a" => :sierra
