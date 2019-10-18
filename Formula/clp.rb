@@ -6,6 +6,7 @@ class Clp < Formula
 
   bottle do
     cellar :any
+    sha256 "8fbdf09232ec254499190aa1ded5d7b1ef9afceee52152d06015e372693e0f0f" => :catalina
     sha256 "47405e6eaa81067d591c0b71bf2eca12e8e3452e74f4038142c5c79955924913" => :mojave
     sha256 "a4e37c5c28ccc68d31609142021b79f3ae6e88279a9cef7380e05c13fdfc3042" => :high_sierra
     sha256 "9ad0b39ec4c454bb43433099dcceb152a29418d5d33a4b8049155b4861940979" => :sierra
