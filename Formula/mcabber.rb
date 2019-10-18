@@ -6,6 +6,7 @@ class Mcabber < Formula
   revision 2
 
   bottle do
+    sha256 "4d9680b14dd136a5b1d70f47d8567fcfa7962eb044e43f2f987bb5797b71c74a" => :catalina
     sha256 "fe6ea0970c446bab941b3d4f0206e75673e112dff88c55b5ee429d18f0c9fd68" => :mojave
     sha256 "55b6b38bfe8d3b924f7eb9b707c3e72324e81d312dd589ec99e283aa567b7ba9" => :high_sierra
     sha256 "4be58f58cf92107259a4cc18cf17480dabbeeb130cfc6a182daca0bf76634ac5" => :sierra
