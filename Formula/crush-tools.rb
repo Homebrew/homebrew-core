@@ -6,6 +6,7 @@ class CrushTools < Formula
 
   bottle do
     cellar :any
+    sha256 "c5172b5ab0e1d85d0e1e87e0dc83b66b5ee8ffda0d86f85f586e4e8850268861" => :catalina
     sha256 "148684da73eef05ce20f602fdc2d0a9795afbdb6db9cd324c74860c6600ff835" => :mojave
     sha256 "729196f80c05c5e395c145752a7a54cc1488a6cf1767b43ed9f639c2f3f3c463" => :high_sierra
     sha256 "28286e04a7baf7790f446f2f474a74387e6c0282df70d89ade39c84187394ce4" => :sierra
