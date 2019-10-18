@@ -8,6 +8,7 @@ class Curlftpfs < Formula
 
   bottle do
     cellar :any
+    sha256 "2d3fea0aecd1856a956cedcf8ab992f217bd730371c6eb80900158c69f138aa8" => :catalina
     sha256 "b4f74999789cdb534784428530110421a256adc2b276ed8f372c8498e31719a0" => :mojave
     sha256 "edb3da0b0ccc3b5b3004096f89174786ad75838b82b6c6b621855291744147f1" => :high_sierra
     sha256 "5734dbff6e2a7c18232d08d22fe64e19610f32b07e48b276996df759baaef407" => :sierra
