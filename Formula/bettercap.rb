@@ -1,8 +1,8 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.25.tar.gz"
-  sha256 "955b29946774bb12a757006d5518bc20e7174092c5a37f771ab1cb8d21223b6a"
+  url "https://github.com/bettercap/bettercap/archive/v2.26.tar.gz"
+  sha256 "efa9d6a6c63d715c05a8898ff84bde8d9ded022296b14245a545a6161cc6f1f6"
 
   bottle do
     cellar :any
@@ -21,7 +21,6 @@ class Bettercap < Formula
     (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
 
     cd "src/github.com/bettercap/bettercap" do
-      system "dep", "ensure", "-vendor-only"
       system "make", "build"
       bin.install "bettercap"
       prefix.install_metafiles
