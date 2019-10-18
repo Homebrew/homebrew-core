@@ -6,6 +6,7 @@ class Lesspipe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3448d8488bccbd97cff740375ddec615718174c3e7097b9da24bb181300085e5" => :catalina
     sha256 "d4100c11c32401370733ea6a049e7016093fd51f41b1e62fca1f6cfeb70f3bf6" => :mojave
     sha256 "01c6ea7862d5b23ef49ce9c271e9cecf49c7ecd5372d9602b3ceb88b9171312b" => :high_sierra
     sha256 "f22864d81a8eb648fc4501665af743d285fcf0fa7c81edb21fd71f2593addedd" => :sierra
