@@ -10,6 +10,7 @@ class Logentries < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "32a3551be64328e06a5b238650196700c800a078c68a053b1c9970303d348b24" => :catalina
     sha256 "9d674746d2d9c704030bd420d5ae4a79576b783d6177c8708b158e47d1c7c527" => :mojave
     sha256 "e741b4fd97759da0deadf1e458c7522677c1b9181d304a45c65f7d1edbefd3ff" => :high_sierra
     sha256 "65698ef238e6ba9785f2bfed470e98a8f8c6004f5a1145c679c4cbd4a8df7a50" => :sierra
