@@ -6,6 +6,7 @@ class MsgpackTools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "901f0f7dadb40b70b20de05a699e5cd9ca37095f3ce9bb277aff3e4421219290" => :catalina
     sha256 "30f69cfbcfe93c148fec339d86775357cc804f50c58c42594708f7ae9abad226" => :mojave
     sha256 "9c12c496640b2913caa23147bdacffed803115e68607c56975bdab106b4b83b0" => :high_sierra
     sha256 "c576acc7e6078360a79bf7270336e0f3dc9012161e860681cbfe7f2de1313857" => :sierra
