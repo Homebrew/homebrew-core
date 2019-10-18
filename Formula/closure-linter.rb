@@ -8,6 +8,7 @@ class ClosureLinter < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "7ce3ceed4df70611ac9438005ed71c06e703d145ab0c38dfe22cf9046670a782" => :catalina
     sha256 "0c3cb911fb4d4597e7dc00b2cbea553a62477d9024cea8c457cfe515a8730f21" => :mojave
     sha256 "d44e482bf8061224657e04f76ac54d964fc04bbcc746dd3f38cd713d587242e9" => :high_sierra
     sha256 "d44e482bf8061224657e04f76ac54d964fc04bbcc746dd3f38cd713d587242e9" => :sierra
