@@ -5,6 +5,7 @@ class MoonBuggy < Formula
   sha256 "f8296f3fabd93aa0f83c247fbad7759effc49eba6ab5fdd7992f603d2d78e51a"
 
   bottle do
+    sha256 "65bae44959589316ec4762947051a3f737ea8545d0b93e696d0c251ef38285dc" => :catalina
     sha256 "d7baa37058fd1e08a0a9028a912288bde8c0699b50f7632ce792d19d52c9fa73" => :mojave
     sha256 "54948d0646240382661b765ab2253258946fb10b2974587d719b24a771172d91" => :high_sierra
     sha256 "fb2abda84d3e2b20f286caa036fadb9bfd6c4df151352a171385a54ca43acda9" => :sierra
