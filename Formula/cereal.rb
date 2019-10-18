@@ -7,6 +7,7 @@ class Cereal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6516d9b84ca4f0ca6140f1c3da3db1a4a8aad18c41e1b6b6412542d2f142955c" => :catalina
     sha256 "4edf85b9241c722b6938386d01edf3b6c8cc57060ffb38a9d5d70ef76273ab61" => :mojave
     sha256 "f7df56c0cb700d08a326948a052486c3899a0a38c0ede5af78b4d1d69a22fcf0" => :high_sierra
     sha256 "d0cf1bf42b9a95b861b96d456c528996e5918821b9f63e8d8dbf3bb44381378c" => :sierra
