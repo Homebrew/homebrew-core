@@ -8,6 +8,7 @@ class Metricbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "490f20199e5ca680a813a2558e8f44607f56c5eaf41326578f0823f4b67e93b1" => :catalina
     sha256 "814a1b8b607962ee5fb800634c2730b675ef24f87aace69f8691e23393cbddc4" => :mojave
     sha256 "0dd69a887222e12c41e5949d713a89702b5775962ffe23cfaf9283c20bedee28" => :high_sierra
     sha256 "33e9c767ac3a7a0e10009ba58166563ba13e41f77483f316cc3bf9231a731187" => :sierra
