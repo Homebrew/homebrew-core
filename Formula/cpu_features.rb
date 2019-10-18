@@ -6,6 +6,7 @@ class CpuFeatures < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cf7f7d47468e2c0cf321c22c86adb2c734920559b1a63553b1688ed0e4a39b73" => :catalina
     sha256 "b2736429ca74d23173266aab1d3ee6fea58ee963e0042391d803b26d322838d7" => :mojave
     sha256 "0d8119f02b609f5cfcac19177bd669668686c549bb138fbe2a0aa391df7dc838" => :high_sierra
     sha256 "d703ec98a4f4913ac50c872475e7c37e6c439326db607297fa14cd438e75f919" => :sierra
