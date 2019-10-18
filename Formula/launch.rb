@@ -7,6 +7,7 @@ class Launch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e6e543dda95bf0eea6d817e5df484f91493f84bc49bedf5d73420be8452f3f05" => :catalina
     sha256 "39473462b7b66e86f4d3abfef40f6b9314793ae6d621dba3ca61ccf9f06f1d0f" => :mojave
     sha256 "7ea743ebff2392770ebb7bd7ff0a420ad9a3f6bc50d1181df7518a5fe46a8000" => :high_sierra
     sha256 "4fa06c0d934752695a0c823c51569063b50f8826c7fb9cbd302f731b059e4225" => :sierra
