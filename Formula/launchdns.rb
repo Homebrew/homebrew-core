@@ -8,6 +8,7 @@ class Launchdns < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cfa7f2fc765e5f4137df7fbb3f212cb1a3822edeecc095a2e5c75901e82526e8" => :catalina
     sha256 "1572081e53a9b2234321ac9f4bb4f48507bbafcd781f29549907e7ded4873526" => :mojave
     sha256 "9379f60efc2a0984c79a3b59dab5093ca3fdaad89a8f697a7623abda15801293" => :high_sierra
     sha256 "ced5d6c6bdb3074c29dd65b244fc4325cc4799820d7dd38c6dedf04c2555f3cb" => :sierra
