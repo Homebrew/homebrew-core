@@ -6,6 +6,7 @@ class Mergelog < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "41acae4f1614c4ba0a3ea3e05bb88c150c930a07c50560df1d4bfc4a49c9bdf1" => :catalina
     sha256 "31d639e39928eee4373d5b18b619d168e02da3021e02d4d01e07209244d7712a" => :mojave
     sha256 "87f4253bd8e0d556dadfabcb376d4f138d6d07a5884c331074692b21cff16397" => :high_sierra
     sha256 "8f74bd002165acfb3009054be72f89794c11427194bb4bda229ea1c55fe0f4fb" => :sierra
