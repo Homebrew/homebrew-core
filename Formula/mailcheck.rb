@@ -6,6 +6,7 @@ class Mailcheck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "66fa586c21ec0cd9a842fcb99e8bbf822681c8858b864b14aa7d57ea89c47a99" => :catalina
     sha256 "7ea23945f9750c34d71ff05c5f41c0f5352e3eecaf1c7cf485d4f51096b9dd4e" => :mojave
     sha256 "c630704fee3dea86402e7486295a13601077bd991e45f23d3ac841c95a9c4474" => :high_sierra
     sha256 "8d33e3b08eef4dfaa7fa3d2c4e5f4a697cd2e5eb950c963f1f0845c0651da5ea" => :sierra
