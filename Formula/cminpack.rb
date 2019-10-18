@@ -7,6 +7,7 @@ class Cminpack < Formula
 
   bottle do
     cellar :any
+    sha256 "8fa220ed6b7167debda6509eeb504f95d01af9d7ca887ee6b0c632881f282cbb" => :catalina
     sha256 "414aa14e16da767cfb9559b5293f1bb46ca1e3c326905611e69fe59bd3e415d3" => :mojave
     sha256 "32a6b48cfe87b229bb1529a7c895762a5f3fa50b30703260ccca724c6af72a2a" => :high_sierra
     sha256 "16664c7714c7e4337d453cc709dcee658662b7b61735608a278d81314557a08f" => :sierra
