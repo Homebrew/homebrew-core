@@ -6,6 +6,7 @@ class Morse < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b97853e5c7a071e81c9fc7845f9467ebe00fab07fd0c738532230d3463d1826b" => :catalina
     sha256 "5fe911c0c4d71783759f9d8c4e6269c873a830d0511e0813edf7ec86f3c7f62f" => :mojave
     sha256 "fb58a8af73002f98fe7ff1274c1712eb4bf0cab8b08640d2836fc6951c5cb2e9" => :high_sierra
     sha256 "d779902b961e9ebbfa41b0906d8d41357232fd4da83a393e112cde87f5bcdcaa" => :sierra
