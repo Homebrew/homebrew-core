@@ -28,6 +28,7 @@ class Mysql < Formula
   depends_on :macos => :yosemite
 
   depends_on "openssl@1.1"
+  depends_on "protobuf"
 
   conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
