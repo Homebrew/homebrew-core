@@ -6,6 +6,7 @@ class CollectorSidecar < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a246ba4b742f4813ea11488b1b958806d0852af192381b686326d28339651014" => :catalina
     sha256 "c5df7e3fe89d27da283cba2d44c8d9bfd4edd686167b8d4acf0c6f0387154fef" => :mojave
     sha256 "267c985605ca057bff286bc111fc6ac84dfc0d4bb391da19c044ddef381c7a74" => :high_sierra
     sha256 "6e09f805d30b96d2650a6541fddbda8a55d6ef74d7de7e96c642df5d2cd7d18b" => :sierra
