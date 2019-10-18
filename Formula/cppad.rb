@@ -9,6 +9,7 @@ class Cppad < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "08a61ed522403b739b273f6db5f937ca7683d68d1fdb8e105875a3a5cb40b6c7" => :catalina
     sha256 "eae636ccddbcbef3cc751f7c4759ae004631e91eacbef1f050facd0c1b72bf47" => :mojave
     sha256 "eae636ccddbcbef3cc751f7c4759ae004631e91eacbef1f050facd0c1b72bf47" => :high_sierra
     sha256 "62a4325bd142603730bee7beb52af62fdb5a757895035fd51fc8f63ebec78648" => :sierra
