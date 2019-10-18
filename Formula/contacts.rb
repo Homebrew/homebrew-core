@@ -10,6 +10,7 @@ class Contacts < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "02f0086162efb3e8473f846252a6c4813e85a1bbf57a38e3420f20946eafa60f" => :catalina
     sha256 "ad45d22cee04997d286b7e07f19328cd59dcb3a335a6a93e5ed24a8b995080f1" => :mojave
     sha256 "27b7b256aa6f034b245c6cc1e6c7def038bbf183e73f94db942a220aa876ef0d" => :high_sierra
     sha256 "21bf2ec23b9f096ed09acd44dbd7c2cc59891c01a821a6695e58d69c54647c0e" => :sierra
