@@ -6,6 +6,7 @@ class ManDb < Formula
   revision 1
 
   bottle do
+    sha256 "7020922156beba59a49ce7d858f370d6fb1884ed2debaf8c57a09b4c37096a14" => :catalina
     sha256 "d068d781ba8482dd4e00b14d514e8bbaa30600ed286f0c422e09524e3e8a4247" => :mojave
     sha256 "4ee0fb987e13ced600fdbc6159e75f5303510e937d94ed78ccd0610eb8eac601" => :high_sierra
     sha256 "6054a6367980207aad35a40f0147e389e8f4db1691f42056111448389c61f23b" => :sierra
