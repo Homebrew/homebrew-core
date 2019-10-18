@@ -6,6 +6,7 @@ class Memtester < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8f2029ec6a035a7c0316410340114f6a954e3c423a08d928b956dd168bc271fe" => :catalina
     sha256 "03b5970aafd201b0959c2ea339a1aa0cc97895e63707f3a441a5c9e3af8e9ace" => :mojave
     sha256 "4c4e1dc949d00a6cd7728c5cc8502c81e2f7fb4bb6859bc3f87f6835928cbc70" => :high_sierra
     sha256 "46f00de9e84e9c3b57533c7b16ef6410add54f13bc9af39a39dcce37d4b78751" => :sierra
