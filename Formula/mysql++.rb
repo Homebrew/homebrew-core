@@ -6,6 +6,7 @@ class Mysqlxx < Formula
 
   bottle do
     cellar :any
+    sha256 "9fdde4d5d3add26f37cc3640cdf4b0687cda260c0467a51a9e9cf6c5d263e482" => :catalina
     sha256 "6e0bd5060ad63d2271d92b2ed4e8eacdabff05598c134f3506d436fa5a3f9b2a" => :mojave
     sha256 "1c0ca1caf7821bada3f3f3a31fb1dffc23695ea65dc4abf7641c4e42abea1431" => :high_sierra
     sha256 "e78c8f7ea89a07d3aa4ac5eaac2e48782c85b6ea2612fcfa5ba4a59f481933a4" => :sierra
