@@ -7,6 +7,7 @@ class Cppi < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "24e10e144f6a86bb893f886cb631b9f57a3c3073fc19a0829e512c87db465ef0" => :catalina
     sha256 "9091ecb45e38512cdeb73d92078d1ee9c7bd8e5bce9d1698da9a53e2ae3f8b3c" => :mojave
     sha256 "bc8253f982b219088603021d510a6e7ee6d692ff5f693da19b32d0431bc9c9b4" => :high_sierra
     sha256 "d4c044247ba8a12f1462089bfa22602547894f0a9081fce21c4800e192a526ae" => :sierra
