@@ -7,6 +7,7 @@ class Lsdvd < Formula
 
   bottle do
     cellar :any
+    sha256 "a309298a60340f74ceee2631375e4d982ddfe6446432631695de2f7f2bf06c12" => :catalina
     sha256 "dedcdf6af7a20307df4b86fd6dee6842031ecc99fcadfcb2691b2a36ecaa2ab6" => :mojave
     sha256 "9a413bfe449780947f185252ad35d6aad1fcee718e561f283ee12a7761267299" => :high_sierra
     sha256 "9ef88f96d637feeaf0b58d1160f0b2a19fd1531083916d89d1c7e09b1e68a1ab" => :sierra
