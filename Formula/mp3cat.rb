@@ -6,6 +6,7 @@ class Mp3cat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "07766f0495aa6c8566d8594a64f5004d1ad56f7e522f90cc1dcaf58001e7d2ab" => :catalina
     sha256 "e075f29990e6b5222d3e82ed27de698bed42257097e9bd59f0d60f64ea7ae46b" => :mojave
     sha256 "91152cced755097c42117c72e71f3db9023716e2e9befd1e8a6630fd225e3cea" => :high_sierra
     sha256 "3954ad75806e1948a4e69efb74fb2e86a4920c7e6b61537ca48f696289ca998a" => :sierra
