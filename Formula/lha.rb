@@ -8,6 +8,7 @@ class Lha < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "27d0090517f08c929e062ea580515f38297ac00ff403830bc78c2b85caea0447" => :catalina
     sha256 "2b5e8d256e2d232014ee9b4dc08a52188dc8e5369f61290f5cdb7381e78b3561" => :mojave
     sha256 "f1dac02888773ade3d6c35eeb69c6cb25e08bf91584ae66fec7a362f80583e78" => :high_sierra
     sha256 "450fa8188af44eef619302c402860dfd2debab864487424211fbbfa7ff065955" => :sierra
