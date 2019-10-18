@@ -6,6 +6,7 @@ class MariadbAT100 < Formula
   revision 1
 
   bottle do
+    sha256 "61dce8da7abdbbc2d7dd43374651d541a62a4df2c6a5439951a69726fcbc56f7" => :catalina
     sha256 "f47bb89afee0eeff749247dc36c22a0755956b9aa3feb1d2b5050be516e7625a" => :mojave
     sha256 "503f383f9a006ac25ea458b63e996c0fc5b25335fdcfe96ed76c4004ed4da30a" => :high_sierra
     sha256 "e5a2cd7bd8c641d95ec73a8a02a5387d568d061ac2b09829ef651080a66cbc76" => :sierra
