@@ -6,6 +6,7 @@ class Lrzip < Formula
 
   bottle do
     cellar :any
+    sha256 "15f270984b1591a12a87dc8698edb9be86df691f8081f204307a6176325a2b96" => :catalina
     sha256 "c4fd1cfc9b09ab7f175bd056865c8712f9e6310c918cd03cfdf6e30f283c8761" => :mojave
     sha256 "97797937ad456c0658fe24399dc757f30771e971647395fe1fefaa227f615fea" => :high_sierra
     sha256 "b0c60e0773da9cf70d3164f362b3b527a7a87acd10b632291055d58ca2da7cfc" => :sierra
