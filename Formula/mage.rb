@@ -8,6 +8,7 @@ class Mage < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4b908f4975776815efc1fb7e019ecec36a58e597575f1597fad536ad382c6fa3" => :catalina
     sha256 "ac88cd06d100522e8a7af513dd4169706c28f1742dfcf237bf1135836ab045a5" => :mojave
     sha256 "4cd5deec2b988ba21b372214ece919ea3cbb0e5bb7413ce7e372b21d34e3dbb1" => :high_sierra
     sha256 "568bb7334e6f30d467fdd6d136284dbda53e2ad70279e8f22f5ba99feffdbb34" => :sierra
