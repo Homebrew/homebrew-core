@@ -6,6 +6,7 @@ class Latex2html < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "91e4717349a40f64e24557adb2dd55b8cd14d996ddd1dda9e5b040317000a247" => :catalina
     sha256 "f6dee60d59252f2f582eb9c7f44f8b69809c649a362014d73f228a5f7c450f81" => :mojave
     sha256 "5761ce11f487165b9ad54777b0702b88d8c8c18d2ac099f5ea8391102a055695" => :high_sierra
     sha256 "b6e2c087c2aec7650e4157c35b7e5e40b82b4bc606aa93a8e04031c99b1b144a" => :sierra
