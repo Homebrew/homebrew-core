@@ -2,8 +2,8 @@ class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
   url "https://github.com/kyma-project/cli.git",
-      :tag      => "1.5.0",
-      :revision => "6c8148df282e0bd23a377e9e5eb250c33179a1ca"
+      :tag      => "1.6.0",
+      :revision => "1471ec088d7831cd3f461ec4ce710f19b85903c3"
   head "https://github.com/kyma-project/cli.git"
 
   bottle do
@@ -30,7 +30,7 @@ class KymaCli < Formula
 
   test do
     output = shell_output("#{bin}/kyma --help")
-    assert_match "Kyma CLI allows you to install and manage Kyma.", output
+    assert_match "Kyma is a flexible and easy way to connect and extend enterprise applications in a cloud-native world.", output
 
     output = shell_output("#{bin}/kyma version --client")
     assert_match "Kyma CLI version", output
