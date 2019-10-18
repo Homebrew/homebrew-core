@@ -14,8 +14,9 @@ class Batik < Formula
   end
 
   test do
-    system bin/"batik-ttf2svg", "/Library/Fonts/Webdings.ttf", "-autorange",
-           "-o", "Webdings.svg", "-testcard"
-    assert_match "abcdefghijklmnopqrstuvwxyz", File.read("Webdings.svg")
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
+    system bin/"batik-ttf2svg", "/Library/Fonts/#{font_name}", "-autorange",
+           "-o", "Arial.svg", "-testcard"
+    assert_match "abcdefghijklmnopqrstuvwxyz", File.read("Arial.svg")
   end
 end
