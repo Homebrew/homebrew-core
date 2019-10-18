@@ -16,6 +16,10 @@ class GitAbsorb < Formula
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
+
+    man_path = File.join(prefix, "share", "man", "man1")
+    mkdir_p man_path
+    cp "./Documentation/git-absorb.1", man_path
   end
 
   test do
