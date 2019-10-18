@@ -6,6 +6,7 @@ class Mpegdemux < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1fd3f22495cec5d802f73def919457122829cc617e0a7ca82a91d10e0ab8001f" => :catalina
     sha256 "daa143e087fe5d35e5deda8dd37637b54ba908ba34d050beb0b42b3697b1f67c" => :mojave
     sha256 "af6cd127b024079f9584533b143094cbcdb97693007eaffcb6f967942d471712" => :high_sierra
     sha256 "2a1bae657b91607e47b201f2d97749def3c771911208db70c278bf4a47f4fd7e" => :sierra
