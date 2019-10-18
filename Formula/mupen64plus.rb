@@ -7,6 +7,7 @@ class Mupen64plus < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "999b60faedf8eb2299f854991995c44b81898de85a73ca0568902e5b63641e42" => :catalina
     sha256 "c88a4d9a47cdcc6b995615d5fd4b061a7046ec72fac75560d79998b7abf60b78" => :mojave
     sha256 "4dc531259b558fe987eecd74d87afb70284d36ec4e0c3008de751b820f83e64b" => :high_sierra
     sha256 "28006559bb0cc624432b1a8b0a7dfd08e9a5a3d59d7dbaf5cde64ac29dc747d1" => :sierra
