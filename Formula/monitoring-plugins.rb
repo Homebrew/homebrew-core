@@ -7,6 +7,7 @@ class MonitoringPlugins < Formula
 
   bottle do
     cellar :any
+    sha256 "24ba799d36a93d5cde26e1e52616166881164cabddd6c1c14a19316a07eebd6b" => :catalina
     sha256 "3aa775909751c2a826325b07f0a9b77df5160af6bacfa4f8cb082e635045c620" => :mojave
     sha256 "81f794e4736584eba6ecfc32b6c79b877579b3841e66b9f70754f98c499a5098" => :high_sierra
     sha256 "0fa42fdf9687faa06a7566322cf9014d06040338e5a988da6aef130b15e2953a" => :sierra
