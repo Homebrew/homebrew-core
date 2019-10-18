@@ -7,6 +7,7 @@ class Cln < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "052785d04c9558d5768c38556a0ce2fbb60c74048adf4241984f8aa75a354ffb" => :catalina
     sha256 "fb15fc6efff1c2266f858dc081bb5d2d67e8e2ae2abc50a23883879fab343f22" => :mojave
     sha256 "8ba5137f3ca736e16650418d4ea075f0e2c85ea87d88824e68f367bf5c4216dd" => :high_sierra
     sha256 "da1f2677ac3df8180bfebd9fa59804610d4b3e0020adcc47ffe839ad831006e4" => :sierra
