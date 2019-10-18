@@ -7,6 +7,7 @@ class Cpulimit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7330907348c0a181c75b069dba7ee628e8c524c9bb9510487dbfd43730173db5" => :catalina
     sha256 "b9c7f99cbc62eb7c02b19c63a9b7e3f9186175707ff853a7107447fd7b2ee249" => :mojave
     sha256 "077ab8835a3b44ce77e3b8bf867633115b1d056046b232e49aeac96ac30e731c" => :high_sierra
     sha256 "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655" => :sierra
