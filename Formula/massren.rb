@@ -6,6 +6,7 @@ class Massren < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "501c6c8684475cb9c83e57917be164e86aeba079fe7ac4523be108b10f2ef545" => :catalina
     sha256 "b342e2efbfe3400787138da378787ec54e9c3bfc1930dfae203f4baa378e4535" => :mojave
     sha256 "99afbeedc3d8ab1e3cf8ca525ac22f1b02efefbfd75b145b342f773cea639be6" => :high_sierra
     sha256 "14874a768ef7f34aa638cdbd62aa32d2b07fc5c0e6668c86f6f080f172f0fe45" => :sierra
