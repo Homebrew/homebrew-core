@@ -7,6 +7,7 @@ class Configen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "76704af2cc733f86ba8d34fc07631c86747122a6ccaf6b364cb63ede5c3d2967" => :catalina
     sha256 "223e51be5329aa59259f47e86efb076ded7813351611145ce7705caaa3f8a526" => :mojave
     sha256 "70230a42b9feb0fc33a7c6331a1835bdc414f0f356cb705b0ee69645a624c087" => :high_sierra
     sha256 "ecc6949d99f9a8843f85450bac723d11e4efb9c65430d669e191a0aaf1d2c0e7" => :sierra
