@@ -7,6 +7,7 @@ class MongoCxxDriver < Formula
 
   bottle do
     cellar :any
+    sha256 "61721317d4ddc952dac80f683afb0615260105b8ba85a05aef3773e0a43ee23d" => :catalina
     sha256 "da2aacd94c60bbdd1c4f7b4c0103ac90857d41733f0d95666370a878539a9084" => :mojave
     sha256 "f08a8bc08e9320b81a2142b100a43cc40aa010040c01815f345f9556d45e7a41" => :high_sierra
     sha256 "98fec6ef3256c3955dd29fcfe825faf575f9d71f0f3061b65be62f2b558148ed" => :sierra
