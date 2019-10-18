@@ -8,6 +8,7 @@ class Cronolog < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "b1a14dc1d1d5b30969523a75ef785e81a46f1961851adae8cc63c828b89b03a9" => :catalina
     sha256 "c99140b690aae4c8e28b53ba787ed5aef53d3fbc867186aca47cab021068db40" => :mojave
     sha256 "47a40bdccb74cb45e3df9e73306162ecc7206c26760521c6a9d8760872769b6b" => :high_sierra
     sha256 "66ad5bfa0080775875d2b72cc2bbd66bc8ee8de7ca1d482217414ba5b805f977" => :sierra
