@@ -6,6 +6,7 @@ class LiquidDsp < Formula
 
   bottle do
     cellar :any
+    sha256 "1b1e21733e9789f6c1e3f8c3e5bb2076151f96a1f3602ed0e3905ad3ff45c18b" => :catalina
     sha256 "12702bbff57912c18a4f637df59da56054f8afcc11f96467341af3bd26ec0992" => :mojave
     sha256 "f0a6f6caba39b3e06a972aa89293161fa6d4d3759751709f40f2cc8d7ea3c913" => :high_sierra
     sha256 "10bca6603365aeefad410287fbf1657b6b2401544e2cc16f1f2ef6f9ffbe8bc9" => :sierra
