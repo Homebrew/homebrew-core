@@ -6,6 +6,7 @@ class Clblas < Formula
 
   bottle do
     cellar :any
+    sha256 "97d7206bae700bdba2b4f1c6570d7e772ab5ade56d82af61d98d75eebe764f72" => :catalina
     sha256 "de18e1f78894ad83aa80a1d2a6d21973d61507be13a657055bd19b1f11b80c0b" => :mojave
     sha256 "47e08f87365e11a57d2ffc2fb81a3cfcd8bd784c438c1e08e1fe4116fc774553" => :high_sierra
     sha256 "22a6cc8252ed5d431ccea7d51631f57bcee3876be7f65a0ac0fbaabfe09a9484" => :sierra
