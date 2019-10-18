@@ -6,6 +6,7 @@ class Curlpp < Formula
 
   bottle do
     cellar :any
+    sha256 "8497c5ce375090d76c17a9197a07f2f55019ec2704e78208306a4e545e67bd46" => :catalina
     sha256 "4a8dc2ab4cb65ed349477a0cced49ea3e6ee19aa49983313f8221bf2da303bf4" => :mojave
     sha256 "0e5f9adbb17bd9e725fbe7ec11ada7a6d73e4a8ffb2448570b6ed16ed9fd2701" => :high_sierra
     sha256 "0d721493b94879cdf25162903fd5d10299b5d8386942efb0969c470afeef6b35" => :sierra
