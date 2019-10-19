@@ -1,9 +1,9 @@
 class Aspell < Formula
   desc "Spell checker with better logic than ispell"
   homepage "http://aspell.net/"
-  url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.7.tar.gz"
-  sha256 "5ca8fc8cb0370cc6c9eb5b64c6d1bc5d57b3750dbf17887726c3407d833b70e4"
+  url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.8.tar.gz"
+  sha256 "f9b77e515334a751b2e60daab5db23499e26c9209f5e7b7443b05235ad0226f2"
 
   bottle do
     sha256 "4535d64f94f069233dedb62fba1d26977b90ecef08a8fff03a76a9a0d66b05b7" => :catalina
