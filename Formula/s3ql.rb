@@ -9,9 +9,9 @@ class S3ql < Formula
 
   bottle do
     cellar :any
-    sha256 "bd73c0f779f68e6eefcc00eee53dabc32e8dc2a27c90977f580675e61c9c4133" => :mojave
-    sha256 "b59f26784bd563fda983aa2922e3d33d3e8d50f020da1daf22f57e4ce33a5148" => :high_sierra
-    sha256 "c83f358cc5dcdc95e1e7cb483fb7745a569aed0225e1318b50a68f7a989a1d7d" => :sierra
+    sha256 "b1cf0cc6f0030b40a5a72957b2e72e22b2ef376c5a1d0eafbb043e0d96f0b2a2" => :catalina
+    sha256 "5a74716ba8803d6d7ae6996f7917c4c6a15ba6607a958426cce51f1362153f1b" => :mojave
+    sha256 "d82b7e6600bc768d9dcf9b4d4445ba42ee903f29462143fec1dbe84a5eaaa8bc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
