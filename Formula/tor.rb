@@ -1,10 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.1.5.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.1.5.tar.gz"
-  sha256 "a864e0b605fb933fcc167bf242eed4233949e8a1bf23ac8e0381b106cd920425"
-  revision 1
+  url "https://www.torproject.org/dist/tor-0.4.1.6.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.1.6.tar.gz"
+  sha256 "2a88524ce426079fb9b828bc1b789f2c8ade3ed53c130851102debc3518bed71"
 
   bottle do
     sha256 "8acf258f4b4dacd5c6d5c04996036081ed492f7dc6a82fa2b0dc91be78d3d1f3" => :catalina
