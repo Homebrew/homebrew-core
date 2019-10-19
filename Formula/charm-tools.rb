@@ -5,7 +5,7 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/99/4d/16d7398fe5eefc602a8870fb3e93597aabe681b0f1497749148695cba4a1/charm-tools-2.2.3.tar.gz"
   sha256 "ea659f59041cb3dff0be862d657830591e656a9a259931064edab7477875245b"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -42,8 +42,8 @@ class CharmTools < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
-    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "blessings" do
