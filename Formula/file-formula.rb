@@ -2,7 +2,7 @@
 class FileFormula < Formula
   desc "Utility to determine file types"
   homepage "https://www.darwinsys.com/file/"
-  url "http://ftp.astron.com/pub/file/file-5.37.tar.gz"
+  url "https://astron.com/pub/file/file-5.37.tar.gz"
   sha256 "e9c13967f7dd339a3c241b7710ba093560b9a33013491318e88e6b8b57bae07f"
   head "https://github.com/file/file.git"
 
