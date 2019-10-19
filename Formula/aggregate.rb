@@ -34,7 +34,7 @@ class Aggregate < Formula
   end
 
   test do
-    # Test case taken from here: http://horms.net/projects/aggregate/examples.shtml
+    # Test case taken from here: https://horms.net/projects/aggregate/examples.shtml
     test_input = <<~EOS
       10.0.0.0/19
       10.0.255.0/24
