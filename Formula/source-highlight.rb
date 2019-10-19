@@ -1,11 +1,9 @@
 class SourceHighlight < Formula
   desc "Source-code syntax highlighter"
   homepage "https://www.gnu.org/software/src-highlite/"
-  url "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/src-highlite/source-highlight-3.1.8.tar.gz"
-  mirror "https://fossies.org/linux/www/source-highlight-3.1.8.tar.gz"
-  sha256 "01336a7ea1d1ccc374201f7b81ffa94d0aecb33afc7d6903ebf9fbf33a55ada3"
-  revision 13
+  url "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/src-highlite/source-highlight-3.1.9.tar.gz"
+  sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
 
   bottle do
     sha256 "3f543911ca3cd1b2327299415578cb8906e0da69297196672647434d949c4177" => :catalina
