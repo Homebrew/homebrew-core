@@ -4,7 +4,7 @@ class Gcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
   sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
-  revision 1
+  revision 2
   head "https://gcc.gnu.org/git/gcc.git"
 
   bottle do
@@ -90,7 +90,7 @@ class Gcc < Formula
       elsif MacOS.version >= :mojave
         # System headers are no longer located in /usr/include
         args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
       end
 
       system "../configure", *args
