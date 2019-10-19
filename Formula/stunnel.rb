@@ -50,7 +50,30 @@ class Stunnel < Formula
 
       In your stunnel configuration, specify a SSL certificate with
       the "cert =" option for each service.
+
+      To use Stunnel with Homebrew services, make sure to set "foreground = yes" in
+      your Stunnel configuration.
     EOS
+  end
+
+  plist_options :manual => "stunnel"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/stunnel</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+    </dict>
+    </plist>
+  EOS
   end
 
   test do
