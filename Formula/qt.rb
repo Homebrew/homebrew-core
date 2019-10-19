@@ -24,6 +24,14 @@ class Qt < Formula
   depends_on :xcode => :build
   depends_on :macos => :sierra
 
+  # Fix QtWebEngine's chromium for Xcode 11 and macOS 10.15 SDK
+  # Upstream patch, remove in next version
+  # https://bugreports.qt.io/browse/QTBUG-78997
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9cc60b1e/qt/QTBUG-78997.diff"
+    sha256 "9834112eaca6b903709308ee690e0315472ae82d7d4488e3a38d307fe58b2ae7"
+  end
+
   def install
     args = %W[
       -verbose
