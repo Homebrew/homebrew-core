@@ -5,9 +5,9 @@ class Librsync < Formula
   sha256 "b5ab8e2092b82b7d7bb9c1dd52e6a77083a89f8ad9b9309da611f490d0b49a71"
 
   bottle do
-    sha256 "b9b3afb3ec1694152e3c0bd32044d3a6fedae7143837004ce3ebb6dd4350c4a5" => :catalina
-    sha256 "18e5e0e833f9ce29038c02bf88f08e05bb319d0e52b9a28da2f7dac5931076d6" => :mojave
-    sha256 "4e58b9ce861bd356f6626e7e8d2b0e6b80d4c0f54387c51adab6561a41c873a6" => :high_sierra
+    sha256 "232b2a47795d07f9265b92a056a929e1d34ebb6419e307b6bacff429b5868114" => :catalina
+    sha256 "e05a45cf32e871d343bbee800a48870c44fa0030d85850bd079bb0eb324cdc37" => :mojave
+    sha256 "a769c1226480c91ea14bebae631e12aa80b91fdad7983e9f9401c793027d9691" => :high_sierra
   end
 
   depends_on "cmake" => :build
