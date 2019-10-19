@@ -7,10 +7,11 @@ class Dfix < Formula
   head "https://github.com/dlang-community/dfix.git", :shallow => false
 
   bottle do
-    sha256 "f0e31bef3fb90648a84bd1ba54d87c9d1baff75bc0f6038987f19cfe31a1f610" => :mojave
-    sha256 "6469d400a0d8e44247410d3250bb53080e6822747252a68883e2bb9e03aeb282" => :high_sierra
-    sha256 "ff44843ec1e5040e1d2313f88610f27d7712f883c6b5f4030f24a9ad14dd4996" => :sierra
-    sha256 "dff56042492f091f6877bbb452608cebb3571dbf9302cd411a63222671507838" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "ff3b76977bcbfb5b7a04bbebb53a794cc522b64987f724fe5f8a8236812eb1f8" => :catalina
+    sha256 "24d234e206efa754f8bd900102720280d8efb1af6ec93059a467589acddca3ee" => :mojave
+    sha256 "13a2621737c198bd0540f507293a9b015a0ebe36cd3373589a69ec834a863d8d" => :high_sierra
   end
 
   depends_on "dmd" => :build
