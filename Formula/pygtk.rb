@@ -17,6 +17,7 @@ class Pygtk < Formula
   depends_on "atk"
   depends_on "glib"
   depends_on "gtk+"
+  depends_on "libglade"
   depends_on "py2cairo"
   depends_on "pygobject"
 
