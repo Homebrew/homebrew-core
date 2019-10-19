@@ -1,6 +1,6 @@
 class Ncview < Formula
   desc "Visual browser for netCDF format files"
-  homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
+  homepage "https://web.archive.org/web/20190806213507/meteora.ucsd.edu/~pierce/ncview_home_page.html"
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/ncview--2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
