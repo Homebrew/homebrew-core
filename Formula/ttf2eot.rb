@@ -19,8 +19,9 @@ class Ttf2eot < Formula
   end
 
   test do
-    cp "/Library/Fonts/Arial.ttf", testpath
-    system("#{bin}/ttf2eot < Arial.ttf > Arial.eot")
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
+    cp "/Library/Fonts/#{font_name}", testpath
+    system("#{bin}/ttf2eot < '#{font_name}' > Arial.eot")
     assert_predicate testpath/"Arial.eot", :exist?
   end
 end

@@ -18,7 +18,7 @@ class LcdfTypetools < Formula
   end
 
   test do
-    assert_match "STIXGeneral-Regular",
-      shell_output("#{bin}/otfinfo -p /Library/Fonts/STIXGeneral.otf")
+    font_name = (MacOS.version >= :catalina) ? "Arial\\ Unicode.ttf" : "Arial.ttf"
+    assert_include shell_output("#{bin}/otfinfo -p /Library/Fonts/#{font_name}"), "Arial"
   end
 end
