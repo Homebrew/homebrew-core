@@ -5,7 +5,7 @@ class Fabric < Formula
   homepage "https://www.fabfile.org/"
   url "https://github.com/fabric/fabric/archive/2.5.0.tar.gz"
   sha256 "4b3f4c79bcc372de575e7756b50c89373ce1acb8565902a5e406b5e78c41389c"
-  revision 1
+  revision 2
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -19,8 +19,8 @@ class Fabric < Formula
   depends_on "python"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "bcrypt" do
