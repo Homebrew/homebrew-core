@@ -1,9 +1,9 @@
 class StanfordNer < Formula
   desc "Stanford NLP Group's implementation of a Named Entity Recognizer"
   homepage "https://nlp.stanford.edu/software/CRF-NER.shtml"
-  url "https://nlp.stanford.edu/software/stanford-ner-2018-02-27.zip"
-  version "3.9.1"
-  sha256 "e37b0094040c95e98799d849a7be2f4967de6b786f0b07360d179756bd4dce95"
+  url "https://nlp.stanford.edu/software/stanford-ner-2018-10-16.zip"
+  version "3.9.2"
+  sha256 "fa737bc6d7ac01de6d13a4628b229b7eabae24c446bc616608b7aad04ed6c65a"
 
   bottle :unneeded
 
