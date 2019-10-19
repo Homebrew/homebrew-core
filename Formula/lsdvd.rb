@@ -7,10 +7,9 @@ class Lsdvd < Formula
 
   bottle do
     cellar :any
-    sha256 "a309298a60340f74ceee2631375e4d982ddfe6446432631695de2f7f2bf06c12" => :catalina
-    sha256 "dedcdf6af7a20307df4b86fd6dee6842031ecc99fcadfcb2691b2a36ecaa2ab6" => :mojave
-    sha256 "9a413bfe449780947f185252ad35d6aad1fcee718e561f283ee12a7761267299" => :high_sierra
-    sha256 "9ef88f96d637feeaf0b58d1160f0b2a19fd1531083916d89d1c7e09b1e68a1ab" => :sierra
+    sha256 "cf5b1b4f5291edca2f210f74f391a625c06ef930a00b769aee3cf46e8f2c217c" => :catalina
+    sha256 "0db26707f1960dd5354f14e4ad779ad4a29e3066b124e0b11af0a179b3a36256" => :mojave
+    sha256 "c106839fc9f9378eb0d72ada198a13e279d7ef5afd73bc8bcafd1e99566bf50e" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
