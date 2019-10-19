@@ -5,6 +5,7 @@ class Dxpy < Formula
   homepage "https://github.com/dnanexus/dx-toolkit"
   url "https://files.pythonhosted.org/packages/db/22/d542a468e3cc547160ac7046a66468365c87ea80126198efeacedc76bf77/dxpy-0.288.0.tar.gz"
   sha256 "a1f98e02f8cf30cbe818a424132d5e431f2e3c19a9755dc2d36ae7d91e4fe442"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,8 +22,8 @@ class Dxpy < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "backports.ssl_match_hostname" do
