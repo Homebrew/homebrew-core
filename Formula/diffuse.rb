@@ -7,6 +7,7 @@ class Diffuse < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "28e572be561daae5b123a5aa49600b15b69d9d19f6459d94546eeffe0a62937e" => :catalina
     sha256 "2d46d21ca9a0e4e744410d594fdc94a1aa37aa3ee30154b49a36cc071b21933a" => :mojave
     sha256 "e3e546b4693f94b65f72bb9026dce74bb904fa33aceb6385903a8753caaa28f7" => :high_sierra
     sha256 "e3e546b4693f94b65f72bb9026dce74bb904fa33aceb6385903a8753caaa28f7" => :sierra
