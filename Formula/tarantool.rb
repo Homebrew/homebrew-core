@@ -4,7 +4,7 @@ class Tarantool < Formula
   url "https://download.tarantool.org/tarantool/2.2/src/tarantool-2.2.1.1.tar.gz"
   sha256 "42c6c61b7d9a2444afd96e4f5e1828da18ea2637d1e9d61dc543436ae48dd87f"
   revision 1
-  head "https://github.com/tarantool/tarantool.git", :branch => "2.1", :shallow => false
+  head "https://github.com/tarantool/tarantool.git", :branch => "2.2", :shallow => false
 
   bottle do
     cellar :any
@@ -14,7 +14,10 @@ class Tarantool < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "autoconf"
+  depends_on "automake"
   depends_on "icu4c"
+  depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "readline"
 
