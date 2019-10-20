@@ -4,6 +4,13 @@ class Wal2json < Formula
   url "https://github.com/eulerto/wal2json/archive/wal2json_1_0.tar.gz"
   sha256 "d8c1b774bc2d41747ae4266280f798b26e8e72e8ea46a58b71764edb98cf2ef4"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6cb12fd590ee07b9332a7773aab25e11383b1be025c88793f87c9ee14cfda2de" => :catalina
+    sha256 "1d977057ae9d6ccd4591a971d955f6db12f14f5b0463e5769d133dbadda53192" => :mojave
+    sha256 "151da57db18a026d55b652c2bc15859289b93fcb7e20ac38aa2745d4785fb857" => :high_sierra
+  end
+
   depends_on "postgresql"
 
   def install
