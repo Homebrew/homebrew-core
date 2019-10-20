@@ -8,10 +8,9 @@ class Supervisor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2e538f406d031d64ac2c97747e645393376c28a9e06f71464d6cc9f3434caf8" => :catalina
-    sha256 "7d53548c12b1ec06a6bbbd5f8cd8082bccd8c3c48364809c2970d67543f64f79" => :mojave
-    sha256 "4e323805384ab0ccd6f3ef7d0e3c4329ae0f1edb9cd43d4ef45cbcec72b6a9fb" => :high_sierra
-    sha256 "f9ed5aff67f1fd79b0ced09c5d85a546eb2451c1d621a704c624215f201e1650" => :sierra
+    sha256 "e4036a376329fdfe172d0884353e8726063b9535ff79a76f46e04369e680b5ba" => :catalina
+    sha256 "3e51e9866e4793367df67e0e566cb33a8f018a899cfbb36654f1d8baa9be4bd4" => :mojave
+    sha256 "41fd027c40c5e5da953fc007999db6248046f45ea68e9b1c5a4525834e98f130" => :high_sierra
   end
 
   depends_on "python"
