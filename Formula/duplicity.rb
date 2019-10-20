@@ -5,6 +5,7 @@ class Duplicity < Formula
   homepage "https://launchpad.net/duplicity"
   url "https://launchpad.net/duplicity/0.8-series/0.8.06/+download/duplicity-0.8.06.tar.gz"
   sha256 "aee3450cfd41a4dc4fe7c832ae33a0e70f1b0f37197c754f429ce0e91cdd51a4"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,6 +16,7 @@ class Duplicity < Formula
 
   depends_on "gnupg"
   depends_on "librsync"
+  depends_on "libsodium"
   depends_on "openssl@1.1"
   depends_on "python"
 
@@ -181,6 +183,9 @@ class Duplicity < Formula
   resource "PyNaCl" do
     url "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"
     sha256 "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"
+
+    # Allow PyNaCl use libsodium 1.0.18: backport of https://github.com/pyca/pynacl/pull/541
+    patch :DATA
   end
 
   resource "python-dateutil" do
@@ -234,6 +239,9 @@ class Duplicity < Formula
   end
 
   def install
+    # Use installed libsodium for PyNaCl
+    ENV["SODIUM_INSTALL"] = "system"
+
     virtualenv_install_with_resources
     inreplace Dir[bin/"*"], %r{^#!/usr/bin/env python.*$},
                             "#!#{libexec}/bin/python"
@@ -274,3 +282,23 @@ class Duplicity < Formula
     end
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index 691291d60607c01f3f443700f22dfdbcc101b11a..3c61ae185b48a5f70be26d8f56083ac78574e036 100644
+--- a/setup.py
++++ b/setup.py
+@@ -138,12 +138,10 @@ def run(self):
+             if e.errno != errno.EEXIST:
+                 raise
+
+-        # Ensure all of our executanle files have their permission set
++        # Ensure all of our executable files have their permission set
+         for filename in [
+                 "src/libsodium/autogen.sh",
+                 "src/libsodium/compile",
+-                "src/libsodium/config.guess",
+-                "src/libsodium/config.sub",
+                 "src/libsodium/configure",
+                 "src/libsodium/depcomp",
+                 "src/libsodium/install-sh",
