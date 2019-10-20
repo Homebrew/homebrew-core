@@ -6,6 +6,13 @@ class Pylint < Formula
   url "https://files.pythonhosted.org/packages/ca/dc/6b85a88376ec32fc72e598e6ff20cd6d7741e4cb9a3dda173739e5459d7d/pylint-2.4.2.tar.gz"
   sha256 "7edbae11476c2182708063ac387a8f97c760d9cfe36a5ede0ca996f90cf346c8"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9accde32d77d78c5fb63ed6b0d7bec0af1f8aafbb3adb1f4b5e16ad870fb5e32" => :catalina
+    sha256 "73b8cc0825f38b34cfefa5739b2a43ad47ebbcae01c6f339c2ea35fa5ccaf653" => :mojave
+    sha256 "8723d320a90f2ddb47b6d5d9716263934aee4ff55acf89bf8038b11d540445a6" => :high_sierra
+  end
+
   depends_on "python"
 
   resource "astroid" do
