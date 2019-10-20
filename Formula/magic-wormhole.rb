@@ -5,7 +5,7 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/77/15/9438290bab8146efc0213f7c3d9645d9bc5a2e885e4049477e7432e40336/magic-wormhole-0.11.2.tar.gz"
   sha256 "ae79667bdbb39fba7d315e36718db383651b45421813366cfaceb069e222d905"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -19,8 +19,8 @@ class MagicWormhole < Formula
   depends_on "python"
 
   resource "Automat" do
-    url "https://files.pythonhosted.org/packages/4a/4f/64db3ffda8828cb0541fe949354615f39d02f596b4c33fb74863756fc565/Automat-0.7.0.tar.gz"
-    sha256 "cbd78b83fa2d81fe2a4d23d258e1661dd7493c9a50ee2f1a5b2cac61c1793b0e"
+    url "https://files.pythonhosted.org/packages/4c/9a/3052851fa3a888d1ff32f053fba424ed929b47383fb5327855fdf70018cd/Automat-0.8.0.tar.gz"
+    sha256 "269a09dfb063a3b078983f4976d83f0a0d3e6e7aaf8e27d8df1095e09dc4a484"
   end
 
   resource "PyHamcrest" do
@@ -31,6 +31,9 @@ class MagicWormhole < Formula
   resource "PyNaCl" do
     url "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"
     sha256 "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"
+
+    # Allow PyNaCl use libsodium 1.0.18: backport of https://github.com/pyca/pynacl/pull/541
+    patch :DATA
   end
 
   resource "Twisted" do
@@ -175,3 +178,23 @@ class MagicWormhole < Formula
     end
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index 691291d60607c01f3f443700f22dfdbcc101b11a..3c61ae185b48a5f70be26d8f56083ac78574e036 100644
+--- a/setup.py
++++ b/setup.py
+@@ -138,12 +138,10 @@ def run(self):
+             if e.errno != errno.EEXIST:
+                 raise
+
+-        # Ensure all of our executanle files have their permission set
++        # Ensure all of our executable files have their permission set
+         for filename in [
+                 "src/libsodium/autogen.sh",
+                 "src/libsodium/compile",
+-                "src/libsodium/config.guess",
+-                "src/libsodium/config.sub",
+                 "src/libsodium/configure",
+                 "src/libsodium/depcomp",
+                 "src/libsodium/install-sh",
