@@ -1,8 +1,8 @@
 class Xpdf < Formula
   desc "PDF viewer"
   homepage "https://www.xpdfreader.com/"
-  url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.01.01.tar.gz"
-  sha256 "ba550c7d3e4f73b1833cfcdcd9dbe39849dd0cd459b6774c4ecdfeca993204a4"
+  url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.02.tar.gz"
+  sha256 "52d51dc943b9614b8da66e8662b3031a3c82dc25bfc792eac6b438aa36d549a4"
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class Xpdf < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "qt"
 
