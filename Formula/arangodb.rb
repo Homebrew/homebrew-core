@@ -29,7 +29,10 @@ class Arangodb < Formula
   end
 
   # fixed upstream in https://github.com/arangodb/arangodb/commit/55ca6c8660e0b373bae1840d61894a4202913cfa
-  patch :DATA
+  patch do
+    url "https://github.com/arangodb/arangodb/commit/55ca6c86.diff?full_index=1"
+    sha256 "99f653d868360949ee6eb2d5fa380ded3f9a8941caba1ce7b97c88b6e4ae166d"
+  end
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
@@ -134,19 +137,3 @@ class Arangodb < Formula
     end
   end
 end
-
-__END__
-diff --git a/arangod/Graph/BreadthFirstEnumerator.h b/arangod/Graph/BreadthFirstEnumerator.h
-index 40fcf76472..66f50e9877 100644
---- a/arangod/Graph/BreadthFirstEnumerator.h
-+++ b/arangod/Graph/BreadthFirstEnumerator.h
-@@ -45,7 +45,7 @@ class BreadthFirstEnumerator final : public arangodb::traverser::PathEnumerator
-   struct PathStep {
-     size_t sourceIdx;
-     graph::EdgeDocumentToken edge;
--    arangodb::velocypack::StringRef const vertex;
-+    arangodb::velocypack::StringRef vertex;
- 
-    public:
-     explicit PathStep(arangodb::velocypack::StringRef const vertex);
-
