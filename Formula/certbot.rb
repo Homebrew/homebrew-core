@@ -5,6 +5,7 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.39.0.tar.gz"
   sha256 "af9fcea7b23cc64e67accfb54351b87a7c43897ae59fcd74459067d814d2f501"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
