@@ -6,6 +6,7 @@ class Pyside < Formula
   revision 1
 
   bottle do
+    sha256 "d488a210760567bf8cd40c4f16ff24d2a2d8fadd98d4d6d2fb25023452dfaa48" => :catalina
     sha256 "7f5196abed2367fe167bafee9d684855c458215f0459ecaa26e56f251f4ca482" => :mojave
     sha256 "9913e73b0df42cc6248a9a03bb40b3ded4fc35cf90b382455cc78835827ac74a" => :high_sierra
     sha256 "28a05e906f3957f748351d354d5df186b6c54d14184b044ea40db748cd0f3109" => :sierra
