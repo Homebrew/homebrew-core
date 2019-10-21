@@ -1,7 +1,7 @@
 class Aiccu < Formula
   desc "Automatic IPv6 Connectivity Client Utility"
   homepage "https://www.sixxs.net/tools/aiccu/"
-  url "https://deb.debian.org/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
+  url "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/aiccu/20070115-15.3ubuntu2/aiccu_20070115.orig.tar.gz"
   version "20070115"
   sha256 "d23cf50a16fa842242c97683c3c1c1089a7a4964e3eaba97ad1f17110fdfe3cc"
 
