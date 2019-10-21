@@ -32,7 +32,10 @@ class SubversionAT18 < Formula
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
   # Prevent linking into a Python Framework
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/subversion@1.8/1.8.16.patch"
+    sha256 "3d8bb24db773c713a1301986f71e018b7d0ff95425738964b575562841f8dc64"
+  end
 
   def install
     inreplace "Makefile.in",
@@ -120,51 +123,3 @@ class SubversionAT18 < Formula
     system "#{bin}/svnadmin", "verify", "test"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 445251b..6ff4332 100755
---- a/configure
-+++ b/configure
-@@ -25366,6 +25366,8 @@ fi
- SWIG_CPPFLAGS="$CPPFLAGS"
-
-   SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-no-cpp-precomp //'`
-+  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-F\/[^ ]* //'`
-+  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-isystem\/[^ ]* //'`
-
-
-
-diff --git a/subversion/bindings/swig/perl/native/Makefile.PL.in b/subversion/bindings/swig/perl/native/Makefile.PL.in
-index a60430b..bd9b017 100644
---- a/subversion/bindings/swig/perl/native/Makefile.PL.in
-+++ b/subversion/bindings/swig/perl/native/Makefile.PL.in
-@@ -76,10 +76,13 @@ my $apr_ldflags = '@SVN_APR_LIBS@'
-
- chomp $apr_shlib_path_var;
-
-+my $config_ccflags = $Config{ccflags};
-+$config_ccflags =~ s/-arch\s+\S+//g;
-+
- my %config = (
-     ABSTRACT => 'Perl bindings for Subversion',
-     DEFINE => $cppflags,
--    CCFLAGS => join(' ', $cflags, $Config{ccflags}),
-+    CCFLAGS => join(' ', $cflags, $config_ccflags),
-     INC  => join(' ', $includes, $cppflags,
-                  " -I$swig_srcdir/perl/libsvn_swig_perl",
-                  " -I$svnlib_srcdir/include",
-
-diff --git a/build/get-py-info.py b/build/get-py-info.py
-index 29a6c0a..dd1a5a8 100644
---- a/build/get-py-info.py
-+++ b/build/get-py-info.py
-@@ -83,7 +83,7 @@ def link_options():
-   options = sysconfig.get_config_var('LDSHARED').split()
-   fwdir = sysconfig.get_config_var('PYTHONFRAMEWORKDIR')
-
--  if fwdir and fwdir != "no-framework":
-+  if fwdir and fwdir != "no-framework" and sys.platform != 'darwin':
-
-     # Setup the framework prefix
-     fwprefix = sysconfig.get_config_var('PYTHONFRAMEWORKPREFIX')
