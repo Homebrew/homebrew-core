@@ -22,13 +22,21 @@ class K3d < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "go", "build", "-mod", "vendor", "-ldflags", '-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v0.9.1', "-o", bin/"k3d"
+      system "go", "build", \
+          "-mod", "vendor", \
+          "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v0.9.1", \
+          "-o", bin/"k3d"
       prefix.install_metafiles
     end
   end
 
   test do
-    assert_match "k3d version v#{version}", shell_output("#{bin}/k3d -v")
-    assert_match "Checking docker...", shell_output("#{bin}/k3d ct 2>&1", 1)
+    assert_match "k3d version v#{version}", shell_output("#{bin}/k3d --version")
+    code = if File.exist?("/var/run/docker.sock")
+      0
+    else
+      1
+    end
+    assert_match "Checking docker...", shell_output("#{bin}/k3d check-tools 2>&1", code)
   end
 end
