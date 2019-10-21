@@ -2,9 +2,9 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-157.tar.gz"
-  version "8.1-157"
-  sha256 "dbe7f4b19231989bb24f1e3e42f1372451974d8a224ba17498a103c325635e0a"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-159.tar.gz"
+  version "8.1-159"
+  sha256 "bd72e9b1815ab057e38beffa43672ddb82e046f2d4225b7301f48099669f5881"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -18,15 +18,14 @@ class Macvim < Formula
   depends_on "cscope"
   depends_on "lua"
   depends_on "python"
+  depends_on "ruby"
 
   conflicts_with "vim",
     :because => "vim and macvim both install vi* binaries"
 
   def install
     # Avoid issues finding Ruby headers
-    if MacOS.version == :sierra || MacOS.version == :yosemite
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT")
 
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
