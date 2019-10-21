@@ -26,7 +26,10 @@ class Mpg321 < Formula
   # Both patches have been reported upstream here:
   # https://sourceforge.net/p/mpg321/patches/20/
   # Remove these at: Unknown.  These have not been merged as of 0.3.2.
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/mpg321/0.3.2.patch"
+    sha256 "a856292a913d3d94b3389ae7b1020d662e85bd4557d1a9d1c8ebe517978e62a1"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -42,32 +45,3 @@ class Mpg321 < Formula
     system "#{bin}/mpg321", "--version"
   end
 end
-
-__END__
---- a/mpg321.h	2012-03-25 05:27:49.000000000 -0700
-+++ b/mpg321.h	2012-11-15 20:54:28.000000000 -0800
-@@ -290,7 +290,7 @@
- /* Shared total decoded frames */
- decoded_frames *Decoded_Frames;
- 
--#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)
-+#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED) || defined(__APPLE__)
- /* */
- #else
- union semun {
---- a/network.c	2012-03-25 05:27:49.000000000 -0700
-+++ b/network.c	2012-11-15 20:58:02.000000000 -0800
-@@ -50,6 +50,13 @@
- 
- #define IFVERB if(options.opt & MPG321_VERBOSE_PLAY)
- 
-+/* The following defines are needed to emulate the Linux interface on
-+ * BSD-based systems like FreeBSD and OS X */
-+#if !defined(IPV6_ADD_MEMBERSHIP) && defined(IPV6_JOIN_GROUP)
-+#define IPV6_ADD_MEMBERSHIP IPV6_JOIN_GROUP
-+#define IPV6_DROP_MEMBERSHIP IPV6_LEAVE_GROUP
-+#endif
-+
- int proxy_enable = 0;
- char *proxy_server;
- int auth_enable = 0;
