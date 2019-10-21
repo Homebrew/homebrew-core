@@ -21,7 +21,10 @@ class Ori < Formula
 
   # Patch adapted from upstream for OpenSSL 1.1 compatibility
   # https://bitbucket.org/orifs/ori/pull-requests/7/adjust-to-libssl-api-changes-from-10-to-11/diff
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/ori/openssl-1.1.diff"
+    sha256 "234448ebdf393723fb077960e66c3f5768c93989f9d169816f17600ef64e8219"
+  end
 
   def install
     system "scons", "BUILDTYPE=RELEASE"
@@ -32,57 +35,3 @@ class Ori < Formula
     system "#{bin}/ori"
   end
 end
-__END__
-diff -pur ori-0.8.2/liboriutil/key.cc ori-0.8.2-fixed/liboriutil/key.cc
---- ori-0.8.2/liboriutil/key.cc	2019-01-28 02:12:19.000000000 +0100
-+++ ori-0.8.2-fixed/liboriutil/key.cc	2019-09-07 10:01:36.000000000 +0200
-@@ -131,7 +131,7 @@ PublicKey::verify(const string &blob,
-                   const string &digest) const
- {
-     int err;
--    EVP_MD_CTX * ctx = new EVP_MD_CTX(); // XXX: openssl 1.1+ EVP_MD_CTX_new();
-+    EVP_MD_CTX * ctx = EVP_MD_CTX_new();
-     if (!ctx) {
-       throw system_error(ENOMEM, std::generic_category(), "Could not allocate EVP_MD_CTX");
-       return false;
-@@ -146,14 +146,14 @@ PublicKey::verify(const string &blob,
-     if (err != 1)
-     {
-         ERR_print_errors_fp(stderr);
--        delete ctx; // XXX: openssl 1.1+ EVP_MD_CTX_free(ctx);
-+        EVP_MD_CTX_free(ctx);
-         throw exception();
-         return false;
-     }
-
-     // Prepend 8-byte public key digest
-
--    delete ctx; // XXX: openssl 1.1+ EVP_MD_CTX_free(ctx);
-+    EVP_MD_CTX_free(ctx);
-     return true;
- }
-
-@@ -191,7 +191,7 @@ PrivateKey::sign(const string &blob) con
-     int err;
-     unsigned int sigLen = SIGBUF_LEN;
-     char sigBuf[SIGBUF_LEN];
--    EVP_MD_CTX * ctx = new EVP_MD_CTX(); // XXX: openssl 1.1+ EVP_MD_CTX_new();
-+    EVP_MD_CTX * ctx = EVP_MD_CTX_new();
-     if (!ctx) {
-       throw system_error(ENOMEM, std::generic_category(), "Could not allocate EVP_MD_CTX");
-     }
-@@ -202,13 +202,13 @@ PrivateKey::sign(const string &blob) con
-     if (err != 1)
-     {
-         ERR_print_errors_fp(stderr);
--        delete ctx; // XXX: openssl 1.1+ EVP_MD_CTX_free(ctx);
-+        EVP_MD_CTX_free(ctx);
-         throw exception();
-     }
-
-     // XXX: Prepend 8-byte public key digest
-
--    delete ctx; // XXX: openssl 1.1+ EVP_MD_CTX_free(ctx);
-+    EVP_MD_CTX_free(ctx);
-     return string().assign(sigBuf, sigLen);
- }
