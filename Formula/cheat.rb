@@ -1,11 +1,9 @@
 class Cheat < Formula
-  include Language::Python::Virtualenv
-
   desc "Create and view interactive cheat sheets for *nix commands"
-  homepage "https://github.com/chrisallenlane/cheat"
-  url "https://github.com/chrisallenlane/cheat/archive/2.3.1.tar.gz"
-  sha256 "f944612b1d1b97dbe87c6cc3c68932df983482f53a09b0446c318ee7399c865c"
-  head "https://github.com/chrisallenlane/cheat.git"
+  homepage "https://github.com/cheat/cheat"
+  url "https://github.com/cheat/cheat.git",
+    :tag      => "3.0.1",
+    :revision => "d19f0e1c5dcbef2d3852cff5d3f73ede1a204964"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,26 +13,31 @@ class Cheat < Formula
     sha256 "1d585e8e457dec3245644177ce4b8716df1edca9a39fe958ebbb96be8917175b" => :sierra
   end
 
-  depends_on "python"
+  depends_on "go" => :build
 
-  resource "docopt" do
-    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
-    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+  patch do
+    url "https://github.com/cheat/cheat/pull/486.patch?full_index=1"
+    sha256 "ea7839da450d1f59850c880a2c972ca284fff004a52bb9e5d83d95355ae53c25"
   end
 
   def install
-    virtualenv_install_with_resources
+    ENV["GOPATH"] = buildpath
 
-    bash_completion.install "cheat/autocompletion/cheat.bash"
-    zsh_completion.install "cheat/autocompletion/cheat.zsh" => "_cheat"
+    dir = buildpath/"src/github.com/cheat/cheat"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
+      prefix.install_metafiles
+    end
   end
 
   test do
-    system bin/"cheat", "tar"
+    assert_match version.to_s, shell_output("#{bin}/cheat --version")
+
+    output = shell_output("#{bin}/cheat --init 2>&1")
+    assert_match "editor: vim", output
+
+    assert_match "could not locate config file", shell_output("#{bin}/cheat tar 2>&1", 1)
   end
 end
