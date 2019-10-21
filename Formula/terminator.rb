@@ -11,7 +11,10 @@ class Terminator < Formula
     # Patch to fix cwd resolve issue for OS X / Darwin
     # See: https://bugs.launchpad.net/terminator/+bug/1261293
     # Should be fixed in next release after 0.98
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/terminator/0.98.patch"
+      sha256 "fe933cba5bbfa31c6fae887010c5c2298371c93f5b78a10d8d43341c3302abb7"
+    end
   end
 
   bottle do
@@ -47,31 +50,3 @@ class Terminator < Formula
     system "#{bin}/terminator", "--version"
   end
 end
-
-__END__
-diff --git a/terminatorlib/cwd.py b/terminatorlib/cwd.py
-index 7b17d84..e3bdbad 100755
---- a/terminatorlib/cwd.py
-+++ b/terminatorlib/cwd.py
-@@ -49,6 +49,11 @@ def get_pid_cwd():
-         func = sunos_get_pid_cwd
-     else:
-         dbg('Unable to determine a get_pid_cwd for OS: %s' % system)
-+        try:
-+            import psutil
-+            func = generic_cwd
-+        except (ImportError):
-+            dbg('psutil not found')
-
-     return(func)
-
-@@ -71,4 +76,9 @@ def sunos_get_pid_cwd(pid):
-     """Determine the cwd for a given PID on SunOS kernels"""
-     return(proc_get_pid_cwd(pid, '/proc/%s/path/cwd'))
-
-+def generic_cwd(pid):
-+    """Determine the cwd using psutil which also supports Darwin"""
-+    import psutil
-+    return psutil.Process(pid).as_dict()['cwd']
-+
- # vim: set expandtab ts=4 sw=4:
