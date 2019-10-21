@@ -16,7 +16,10 @@ class Colorsvn < Formula
     sha256 "2711d058fa4c892f350b6309a82f7eeb85455bc1b336afc75587c467121a553d" => :mavericks
   end
 
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/colorsvn/0.3.3.patch"
+    sha256 "2fa2c40e90c04971865894933346f43fc1d85b8b4ba4f1c615a0b7ab0fea6f0a"
+  end
 
   def install
     # `configure` uses `which` to find the `svn` binary that is then hard-coded
@@ -53,41 +56,3 @@ class Colorsvn < Formula
     assert_match /svn: E155007/, shell_output("#{bin}/colorsvn info 2>&1", 1)
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index 84a3d97..54c2f74 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -13,8 +13,6 @@ srcdir=@srcdir@
- mandir=@mandir@
- sysconfdir=@sysconfdir@
- 
--confdir=/etc
--
- CP=@CP@
- PERL=@PERL@
- RM=@RM@ -f
-@@ -36,10 +34,10 @@ colorsvn:
- install: colorsvn
- 	$(INSTALL) -d $(DESTDIR)$(bindir) && \
- 	$(INSTALL) -m 755 $(PACKAGE) $(DESTDIR)$(bindir)/$(PACKAGE) && \
--	$(INSTALL) -d $(DESTDIR)/$(confdir) && \
--	$(INSTALL) -m 644 $(CONFIGFILE) $(DESTDIR)/$(confdir)/$(CONFIGFILE) && \
--	$(INSTALL) -d $(DESTDIR)/$(confdir)/profile.d && \
--	$(INSTALL) -m 755 $(PROFFILE) $(DESTDIR)/$(confdir)/profile.d/$(PROFFILE) && \
-+	$(INSTALL) -d $(DESTDIR)/$(sysconfdir) && \
-+	$(INSTALL) -m 644 $(CONFIGFILE) $(DESTDIR)/$(sysconfdir)/$(CONFIGFILE) && \
-+	$(INSTALL) -d $(DESTDIR)/$(sysconfdir)/profile.d && \
-+	$(INSTALL) -m 755 $(PROFFILE) $(DESTDIR)/$(sysconfdir)/profile.d/$(PROFFILE) && \
- 	if [ -f $(srcdir)/colorsvn.1 ] ; then \
- 	    $(INSTALL) -d $(DESTDIR)$(mandir)/man1/ ; \
- 	    $(INSTALL) -m 644 $(srcdir)/colorsvn.1 $(DESTDIR)$(mandir)/man1/ ; \
-@@ -54,6 +52,6 @@ clean:
- 
- uninstall:
- 	$(RM) $(DESTDIR)$(bindir)/$(PACKAGE) && \
--	$(RM) $(DESTDIR)/$(confdir)/$(CONFIGFILE)  && \
--	$(RM) $(DESTDIR)/$(confdir)/profile.d/$(PROFFILE)
-+	$(RM) $(DESTDIR)/$(sysconfdir)/$(CONFIGFILE)  && \
-+	$(RM) $(DESTDIR)/$(sysconfdir)/profile.d/$(PROFFILE)
