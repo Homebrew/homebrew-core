@@ -1,8 +1,8 @@
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
-  url "https://github.com/boyter/scc/archive/v2.9.1.tar.gz"
-  sha256 "d0b984f2f51cf61420498b054992cd8e99dae78237d00466e5b85808c9b2cce9"
+  url "https://github.com/boyter/scc/archive/v2.10.0.tar.gz"
+  sha256 "cee0682bf8151964af534fdac07734595da9b264dc1119fa689d8fa2524bd708"
 
   bottle do
     cellar :any_skip_relocation
