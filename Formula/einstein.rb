@@ -19,7 +19,10 @@ class Einstein < Formula
   depends_on "sdl_ttf"
 
   # Fixes a cast error on compilation
-  patch :p0, :DATA
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/einstein/2.0.patch"
+    sha256 "c538ccb769c53aee4555ed6514c287444193290889853e1b53948a2cac7baf11"
+  end
 
   def install
     system "make"
@@ -28,41 +31,3 @@ class Einstein < Formula
     (pkgshare/"res").install "einstein.res"
   end
 end
-
-__END__
---- formatter.cpp
-+++ formatter.cpp
-@@ -58,7 +58,7 @@ Formatter::Formatter(unsigned char *data, int offset)
-             if ((c.type == INT_ARG) || (c.type == STRING_ARG) ||
-                     (c.type == FLOAT_ARG) || (c.type == DOUBLE_ARG))
-             {
--                int no = (int)c.data;
-+                int no = *((int*)(&c.data));
-                 args[no - 1] = c.type;
-             }
-         }
-@@ -135,7 +135,7 @@ std::wstring Formatter::format(std::vector<ArgValue*> &argValues) const
-
-             case STRING_ARG:
-             case INT_ARG:
--                no = (int)cmd->data - 1;
-+                no = *((int*)(&cmd->data)) - 1;
-                 if (no < (int)argValues.size())
-                     s += argValues[no]->format(cmd);
-                 break;
---- main.cpp
-+++ main.cpp
-@@ -61,13 +61,9 @@ static void loadResources(const std::wstring &selfPath)
- #ifdef WIN32
-     dirs.push_back(getStorage()->get(L"path", L"") + L"\\res");
- #else
--#ifdef __APPLE__
--    dirs.push_back(getResourcesPath(selfPath));
--#else
-     dirs.push_back(PREFIX L"/share/einstein/res");
-     dirs.push_back(fromMbcs(getenv("HOME")) + L"/.einstein/res");
- #endif
--#endif
-     dirs.push_back(L"res");
-     dirs.push_back(L".");
-     resources = new ResourcesCollection(dirs);
