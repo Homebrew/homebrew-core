@@ -26,7 +26,7 @@ class Osmcoastline < Formula
       n102 v1 x1.04 y1.04
       n103 v1 x1.01 y1.04
       w200 v1 Tnatural=coastline Nn100,n101,n102,n103,n100
-      EOS
-    system "#{bin}/osmcoastline -v -o output.db input.opl"
+    EOS
+    system "#{bin}/osmcoastline", "-v", "-o", "output.db", "input.opl"
   end
 end
