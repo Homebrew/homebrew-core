@@ -19,7 +19,10 @@ class Ekg2 < Formula
 
   # Fix the build on OS X 10.9+
   # bugs.ekg2.org/issues/152 [LOST LINK]
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/ekg2/0.3.1.patch"
+    sha256 "6efbb25e57581c56fe52cf7b70dbb9c91c9217525b402f0647db820df9a14daa"
+  end
 
   # Upstream commit, fix build against OpenSSL 1.1
   patch do
@@ -50,77 +53,3 @@ class Ekg2 < Formula
     system "#{bin}/ekg2", "--help"
   end
 end
-
-__END__
-diff --git a/compat/strlcat.c b/compat/strlcat.c
-index 6077d66..c1c1804 100644
---- a/compat/strlcat.c
-+++ b/compat/strlcat.c
-@@ -14,7 +14,7 @@
-  *  License along with this program; if not, write to the Free Software
-  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-  */
--
-+#ifndef strlcat
- #include <sys/types.h>
-
- size_t strlcat(char *dst, const char *src, size_t size)
-@@ -39,7 +39,7 @@ size_t strlcat(char *dst, const char *src, size_t size)
-
-	return dlen + j;
- }
--
-+#endif
- /*
-  * Local Variables:
-  * mode: c
-diff --git a/compat/strlcat.h b/compat/strlcat.h
-index cb91fcb..df8f4b0 100644
---- a/compat/strlcat.h
-+++ b/compat/strlcat.h
-@@ -1,7 +1,8 @@
-+#ifndef strlcat
- #include <sys/types.h>
-
- size_t strlcat(char *dst, const char *src, size_t size);
--
-+#endif
- /*
-  * Local Variables:
-  * mode: c
-diff --git a/compat/strlcpy.c b/compat/strlcpy.c
-index 31e41bd..4a40762 100644
---- a/compat/strlcpy.c
-+++ b/compat/strlcpy.c
-@@ -14,7 +14,7 @@
-  *  License along with this program; if not, write to the Free Software
-  *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-  */
--
-+#ifndef strlcpy
- #include <sys/types.h>
-
- size_t strlcpy(char *dst, const char *src, size_t size)
-@@ -32,7 +32,7 @@ size_t strlcpy(char *dst, const char *src, size_t size)
-
-	return i;
- }
--
-+#endif
- /*
-  * Local Variables:
-  * mode: c
-diff --git a/compat/strlcpy.h b/compat/strlcpy.h
-index 1c80e20..93340af 100644
---- a/compat/strlcpy.h
-+++ b/compat/strlcpy.h
-@@ -1,7 +1,8 @@
-+#ifndef strlcpy
- #include <sys/types.h>
-
- size_t strlcpy(char *dst, const char *src, size_t size);
--
-+#endif
- /*
-  * Local Variables:
-  * mode: c
