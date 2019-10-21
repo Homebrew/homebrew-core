@@ -17,7 +17,10 @@ class Pygobject < Formula
   depends_on "glib"
   depends_on "python@2"
 
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/pygobject/2.28.7.diff"
+    sha256 "ada3da43c84410cc165d8547ad3c7809435e09c9e8539882860d97cd1ce922b2"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -33,97 +36,3 @@ class Pygobject < Formula
     system Formula["python@2"].opt_bin/"python2.7", "-c", "import dsextras"
   end
 end
-
-__END__
-diff --git a/gio/unix-types.defs b/gio/unix-types.defs
-index ed1ed9f..3f51436 100644
---- a/gio/unix-types.defs
-+++ b/gio/unix-types.defs
-@@ -7,18 +7,6 @@
-   (gtype-id "G_TYPE_UNIX_CONNECTION")
- )
-
--(define-object DesktopAppInfo
--  (docstring
--  "DesktopAppInfo(desktop_id) -> gio.unix.DesktopAppInfo\n\n"
--  "gio.Unix.DesktopAppInfo is an implementation of gio.AppInfo\n"
--  "based on desktop files."
--  )
--  (in-module "giounix")
--  (parent "GObject")
--  (c-name "GDesktopAppInfo")
--  (gtype-id "G_TYPE_DESKTOP_APP_INFO")
--)
--
- (define-object FDMessage
-   (in-module "giounix")
-   (parent "GSocketControlMessage")
-diff --git a/gio/unix.defs b/gio/unix.defs
-index ff43ed6..4c28b92 100644
---- a/gio/unix.defs
-+++ b/gio/unix.defs
-@@ -32,52 +32,6 @@
-
-
-
--;; From gdesktopappinfo.h
--
--(define-function desktop_app_info_get_type
--  (c-name "g_desktop_app_info_get_type")
--  (return-type "GType")
--)
--
--(define-function desktop_app_info_new_from_filename
--  (c-name "g_desktop_app_info_new_from_filename")
--  (return-type "GDesktopAppInfo*")
--  (parameters
--    '("const-char*" "filename")
--  )
--)
--
--(define-function g_desktop_app_info_new_from_keyfile
--  (c-name "g_desktop_app_info_new_from_keyfile")
--  (return-type "GDesktopAppInfo*")
--  (parameters
--    '("GKeyFile*" "key_file")
--  )
--)
--
--(define-function desktop_app_info_new
--  (c-name "g_desktop_app_info_new")
--  (is-constructor-of "GDesktopAppInfo")
--  (return-type "GDesktopAppInfo*")
--  (parameters
--    '("const-char*" "desktop_id")
--  )
--)
--
--(define-method get_is_hidden
--  (of-object "GDesktopAppInfo")
--  (c-name "g_desktop_app_info_get_is_hidden")
--  (return-type "gboolean")
--)
--
--(define-function desktop_app_info_set_desktop_env
--  (c-name "g_desktop_app_info_set_desktop_env")
--  (return-type "none")
--  (parameters
--    '("const-char*" "desktop_env")
--  )
--)
--
-
-
- ;; From gunixfdmessage.h
-diff --git a/gio/unix.override b/gio/unix.override
-index aebc6fc..08e27e9 100644
---- a/gio/unix.override
-+++ b/gio/unix.override
-@@ -24,7 +24,6 @@ headers
- #define NO_IMPORT_PYGOBJECT
- #include <pygobject.h>
- #include <gio/gio.h>
--#include <gio/gdesktopappinfo.h>
- #include <gio/gunixinputstream.h>
- #include <gio/gunixmounts.h>
- #include <gio/gunixoutputstream.h>
