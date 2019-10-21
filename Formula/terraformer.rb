@@ -2,8 +2,8 @@ class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.8.3",
-    :revision => "126bc5d271d297c2613d014e39d66503fc43173d"
+    :tag      => "0.8.4",
+    :revision => "3df9db7f4811e89d2633e78c3fd4743ec0062d4f"
 
   bottle do
     cellar :any_skip_relocation
