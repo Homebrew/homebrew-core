@@ -5,7 +5,7 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/46/bd/9ad49a599625c838da94b39d98d9dc00427e12c2962aeab11865d01ed95a/fdroidserver-1.1.5.tar.gz"
   sha256 "14291cde4c663328a70e22305769171a79caefea2f1148d1628cb3cda8938fba"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -180,8 +180,8 @@ class Fdroidserver < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/cb/79/96df883cd6df0c86cb010e6f4ff790b7a30a45016a9509c94ea72c8695cd/numpy-1.17.1.zip"
-    sha256 "f11331530f0eff69a758d62c2461cd98cdc2eae0147279d8fc86e0464eb7e8ca"
+    url "https://files.pythonhosted.org/packages/ac/36/325b27ef698684c38b1fe2e546e2e7ef9cecd7037bcdb35c87efec4356af/numpy-1.17.2.zip"
+    sha256 "73615d3edc84dd7c4aeb212fa3748fb83217e00d201875a47327f55363cef2df"
   end
 
   resource "oauthlib" do
