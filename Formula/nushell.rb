@@ -31,6 +31,10 @@ class Nushell < Formula
   end
 
   test do
-    assert_equal "#{Dir.pwd}> 2\n#{Dir.pwd}> CTRL-D\n", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    (testpath/"get-json.nu").write <<~EOS
+      echo '{"foo": 1, "bar": "this very specific text"}' | from-json | get bar | echo $it
+      exit
+    EOS
+    assert_match " this very specific text\n", shell_output("#{bin}/nu < get-json.nu")
   end
 end
