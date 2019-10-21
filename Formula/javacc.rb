@@ -1,27 +1,27 @@
 class Javacc < Formula
-  desc "Java parser generator"
+  desc "The most popular parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/7.0.4.tar.gz"
-  sha256 "a6a2381dfae5fdfe7849b921c9950af594ff475b69fbc6e8568365c5734cf77c"
+  url "https://github.com/javacc/javacc/archive/7.0.5.tar.gz"
+  sha256 "d1502f8a7ed607de17427a1f33e490a33b0c2d5612879e812126bf95e7ed11f4"
 
   depends_on "ant" => :build
   depends_on :java
 
   def install
     system "ant"
-    libexec.install "target/javacc.jar"
-    doc.install Dir["www/doc/*"]
-    (share/"examples").install Dir["examples/*"]
+    (libexec/"lib").install "target/javacc-7.0.5.jar"
+    (libexec/"docs").install Dir["docs/*"]
+    (libexec/"examples").install Dir["examples/*"]
     %w[javacc jjdoc jjtree].each do |script|
       (bin/script).write <<~SH
         #!/bin/bash
-        exec java -classpath #{libexec/"javacc.jar"} #{script} "$@"
+        exec java -classpath #{libexec/"lib/javacc-7.0.5.jar"} #{script} "$@"
       SH
     end
   end
 
   test do
-    src_file = share/"examples/SimpleExamples/Simple1.jj"
+    src_file = libexec/"examples/SimpleExamples/Simple1.jj"
 
     output_file_stem = testpath/"Simple1"
 
