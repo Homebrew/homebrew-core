@@ -22,7 +22,10 @@ class Vip < Formula
   end
 
   # use awk and /var/tmp as temporary directory
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/vip/19971113.patch"
+    sha256 "96879c8d778f21b21aa27eb138424a82ffa8e8192b8cf15b2c4a5794908ef790"
+  end
 
   def install
     bin.install "vip"
@@ -31,30 +34,3 @@ class Vip < Formula
     end
   end
 end
-
-
-__END__
-diff --git a/vip b/vip
-index f150167..e517675 100644
---- a/vip
-+++ b/vip
-@@ -66,7 +66,7 @@ Usage:  $PROG [ -no ] [ command ]
- 			otherwise stdin is used;
- "
- 
--: ${TMPDIR:="/usr/tmp"}		# where temp. files go
-+: ${TMPDIR:="/var/tmp"}		# where temp. files go
- TEMP_FILE="$TMPDIR/$PROG.$$"	# temp. file to hold data to edit
- COMMAND="cat"			# default command to produce input
- DFLT_ED="vi"			# default editor
-@@ -81,6 +81,10 @@ case "$SYS" in
- 	;;
-   "HP-UX "*)
- 	AWK=awk
-+	;;
-+  "Darwin "*)
-+	AWK=awk
-+	;;
-   esac
- 
- #
