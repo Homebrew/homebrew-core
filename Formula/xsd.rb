@@ -29,7 +29,10 @@ class Xsd < Formula
   #    is no place to file a bug report upstream other than the xsd-users mailing
   #    list (xsd-users@codesynthesis.com). I have sent this patch there but have
   #    received no response (yet).
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/xsd/4.0.0.patch"
+    sha256 "55a15b7a16404e659060cc2487f198a76d96da7ec74e2c0fac9e38f24b151fa7"
+  end
 
   def install
     ENV.append "LDFLAGS", `pkg-config --libs --static xerces-c`.chomp
@@ -74,30 +77,3 @@ class Xsd < Formula
     system testpath/"xsdtest", instance
   end
 end
-
-__END__
-diff --git a/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx b/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx
-index fa48a9a..59994ae 100644
---- a/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx
-+++ b/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx
-@@ -2,6 +2,7 @@
- // copyright : Copyright (c) 2005-2014 Code Synthesis Tools CC
- // license   : GNU GPL v2 + exceptions; see accompanying LICENSE file
-
-+#include <iostream>
- #include <algorithm>
-
- #include <cutl/compiler/type-info.hxx>
-diff --git a/xsd/examples/cxx/tree/makefile b/xsd/examples/cxx/tree/makefile
-index 172195a..d8c8198 100644
---- a/xsd/examples/cxx/tree/makefile
-+++ b/xsd/examples/cxx/tree/makefile
-@@ -39,7 +39,7 @@ $(install): $(addprefix $(out_base)/,$(addsuffix /.install,$(all_examples)))
- $(dist): $(addprefix $(out_base)/,$(addsuffix /.dist,$(all_examples)))
-        $(call install-data,$(src_base)/README,$(dist_prefix)/$(path)/README)
-
--$(dist-win): export dirs := $(shell find $(src_base) -type d -exec test -f {}/driver.cxx ';' -printf '%P ')
-+$(dist-win): export dirs := $(shell find "$(src_base)" -type d -exec test -f {}/driver.cxx ';' -exec bash -c 'd="{}"; printf "%s " "${d#'"$(src_base)"'/}"' ";")
- $(dist-win): |$(out_root)/.dist-pre
- $(dist-win): $(addprefix $(out_base)/,$(addsuffix /.dist-win,$(all_examples)))
-        $(call install-data,$(src_base)/README,$(dist_prefix)/$(path)/README.txt)
