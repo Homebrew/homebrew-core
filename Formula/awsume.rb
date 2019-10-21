@@ -22,6 +22,7 @@ class Awsume < Formula
 
   test do
     assert_includes "4.0.0", shell_output("#{bin}/awsume -v")
-    shell_output(File.exist? { File.expand_path("~/.awsume/config.yaml") })
+    file_path = File.expand_path("~/.awsume/config.yaml")
+    shell_output(File.exist?(file_path))
   end
 end
