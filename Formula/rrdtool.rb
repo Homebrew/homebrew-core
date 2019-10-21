@@ -24,9 +24,6 @@ class Rrdtool < Formula
   depends_on "glib"
   depends_on "pango"
 
-  # Ha-ha, but sleeping is annoying when running configure a lot
-  patch :DATA
-
   def install
     # fatal error: 'ruby/config.h' file not found
     ENV.delete("SDKROOT")
@@ -57,28 +54,3 @@ class Rrdtool < Formula
     system "#{bin}/rrdtool", "dump", "temperature.rrd"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 266754d..d21ab33 100755
---- a/configure
-+++ b/configure
-@@ -23868,18 +23868,6 @@ $as_echo_n "checking in... " >&6; }
- { $as_echo "$as_me:${as_lineno-$LINENO}: result: and out again" >&5
- $as_echo "and out again" >&6; }
-
--echo $ECHO_N "ordering CD from http://tobi.oetiker.ch/wish $ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--echo $ECHO_N ".$ECHO_C" 1>&6
--sleep 1
--{ $as_echo "$as_me:${as_lineno-$LINENO}: result:  just kidding ;-)" >&5
--$as_echo " just kidding ;-)" >&6; }
- echo
- echo "----------------------------------------------------------------"
- echo "Config is DONE!"
