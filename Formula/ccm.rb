@@ -8,10 +8,9 @@ class Ccm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3627c714efdd2229e82ee9fa5b0c26f0c2144b6f2644f316aaa55ed0987798c4" => :catalina
-    sha256 "7459ea7995ce0dfe7289e55b0d4b78dca3a41909b2a067c908226da64df67051" => :mojave
-    sha256 "00bf2f352fc8ea1d34560c269db3d8674f7aacf73a691a26a959d3073127473c" => :high_sierra
-    sha256 "4888764eb18e9bb810507cce436275d9af23d81ed52d26b168ba23fd1d40c9a7" => :sierra
+    sha256 "14578e355dbabf14218cabce44f285c7bb31427d8b3a0ca6c0c3a929bc350447" => :catalina
+    sha256 "2bc849b79f2e9791e9b984015d3a2e67109d677265bb27b138dbb89baba9b0dd" => :mojave
+    sha256 "4955b2f65932e79c9c33103517bd9c147db22d6db9c38cc34b7c5e1a80dcb3ab" => :high_sierra
   end
 
   depends_on "python"
