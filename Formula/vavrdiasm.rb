@@ -20,7 +20,10 @@ class Vavrdiasm < Formula
   #   directories) flag. Switch to using `mkdir -p'.
   # - Make `PREFIX' overridable
   #   https://github.com/vsergeev/vavrdisasm/pull/2
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/vavrdiasm/3.1.patch"
+    sha256 "e10f261b26e610e3f522864217b53e7b38d270b5d218a67840a683e1cdc20893"
+  end
 
   def install
     ENV["PREFIX"] = prefix
@@ -50,26 +53,3 @@ class Vavrdiasm < Formula
     assert output[1].match(/ser\s+R17/).length == 1
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 3b61942..f1c94fc 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1,5 +1,5 @@
- PROGNAME = vavrdisasm
--PREFIX = /usr
-+PREFIX ?= /usr
- BINDIR = $(PREFIX)/bin
-
- ################################################################################
-@@ -35,7 +35,8 @@ test: $(PROGNAME)
- 	python2 crazy_test.py
-
- install: $(PROGNAME)
--	install -D -s -m 0755 $(PROGNAME) $(DESTDIR)$(BINDIR)/$(PROGNAME)
-+	mkdir -p $(DESTDIR)$(BINDIR)
-+	install -s -m 0755 $(PROGNAME) $(DESTDIR)$(BINDIR)/$(PROGNAME)
-
- uninstall:
- 	rm -f $(DESTDIR)$(BINDIR)/$(PROGNAME)
