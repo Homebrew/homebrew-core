@@ -10,7 +10,10 @@ class Gmtl < Formula
     # Build assumes that Python is a framework, which isn't always true. See:
     # https://sourceforge.net/p/ggt/bugs/22/
     # The SConstruct from gmtl's HEAD doesn't need to be patched
-    patch :DATA
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/gmtl/0.6.1.patch"
+      sha256 "9c469bd61f5ab14820fed5b2fde7d71cbcc3b547c4a7100147d4c092ed80572a"
+    end
   end
 
   bottle do
@@ -35,44 +38,3 @@ class Gmtl < Formula
     system "scons", "install", "prefix=#{prefix}"
   end
 end
-
-__END__
-diff --git a/SConstruct b/SConstruct
-index 8326a89..2eb7ff0 100644
---- a/SConstruct
-+++ b/SConstruct
-@@ -126,7 +126,9 @@ def BuildDarwinEnvironment():
-
-    exp = re.compile('^(.*)\/Python\.framework.*$')
-    m = exp.search(distutils.sysconfig.get_config_var('prefix'))
--   framework_opt = '-F' + m.group(1)
-+   framework_opt = None
-+   if m:
-+      framework_opt = '-F' + m.group(1)
-
-    CXX = os.environ.get("CXX", WhereIs('g++'))
-
-@@ -138,7 +140,10 @@ def BuildDarwinEnvironment():
-
-    LINK = CXX
-    CXXFLAGS = ['-ftemplate-depth-256', '-DBOOST_PYTHON_DYNAMIC_LIB',
--               '-Wall', framework_opt, '-pipe']
-+               '-Wall', '-pipe']
-+
-+   if framework_opt is not None:
-+      CXXFLAGS.append(framework_opt)
-
-    compiler_ver       = match_obj.group(1)
-    compiler_major_ver = int(match_obj.group(2))
-@@ -152,7 +157,10 @@ def BuildDarwinEnvironment():
-          CXXFLAGS += ['-Wno-long-double', '-no-cpp-precomp']
-
-    SHLIBSUFFIX = distutils.sysconfig.get_config_var('SO')
--   SHLINKFLAGS = ['-bundle', framework_opt, '-framework', 'Python']
-+   SHLINKFLAGS = ['-bundle']
-+
-+   if framework_opt is not None:
-+      SHLINKFLAGS.extend([framework_opt, '-framework', 'Python'])
-    LINKFLAGS = []
-
-    # Enable profiling?
