@@ -1,9 +1,8 @@
 class Unoconv < Formula
   desc "Convert between any document format supported by OpenOffice"
   homepage "http://dag.wiee.rs/home-made/unoconv/"
-  url "https://files.pythonhosted.org/packages/a2/b8/3131d20bfa2065e489edc7ca2dbfd66fd8d4fcbbde3476c76605a7e69269/unoconv-0.8.2.tar.gz"
-  sha256 "c7091a409384c05b3509b18be6c8d7059d26f491dfa78660ecdfbde3e72b03be"
-  revision 1
+  url "https://files.pythonhosted.org/packages/ab/40/b4cab1140087f3f07b2f6d7cb9ca1c14b9bdbb525d2d83a3b29c924fe9ae/unoconv-0.9.0.tar.gz"
+  sha256 "308ebfd98e67d898834876348b27caf41470cd853fbe2681cc7dacd8fd5e6031"
   head "https://github.com/dagwieers/unoconv.git"
 
   bottle do
@@ -23,5 +22,9 @@ class Unoconv < Formula
   def caveats; <<~EOS
     In order to use unoconv, a copy of LibreOffice between versions 3.6.0.1 - 4.3.x must be installed.
   EOS
+  end
+
+  test do
+    assert_match /office installation/, pipe_output("#{bin}/unoconv 2>&1")
   end
 end
