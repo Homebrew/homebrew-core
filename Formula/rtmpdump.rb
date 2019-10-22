@@ -5,7 +5,7 @@ class Rtmpdump < Formula
   version "2.4+20151223"
   sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
   revision 1
-  head "https://git.ffmpeg.org/rtmpdump", :shallow => false
+  head "https://git.ffmpeg.org/rtmpdump.git", :shallow => false
 
   bottle do
     cellar :any
