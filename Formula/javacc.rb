@@ -9,7 +9,7 @@ class Javacc < Formula
 
   def install
     system "ant"
-    (libexec/"lib").install "target/javacc-7.0.5.jar"
+    (libexec/"lib").install "target/javacc-#{version}.jar"
     (libexec/"docs").install Dir["docs/*"]
     (libexec/"examples").install Dir["examples/*"]
     %w[javacc jjdoc jjtree].each do |script|
