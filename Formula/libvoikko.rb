@@ -1,9 +1,8 @@
 class Libvoikko < Formula
   desc "Linguistic software and Finnish dictionary"
   homepage "https://voikko.puimula.org/"
-  url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.2.tar.gz"
-  sha256 "f13c59825f36152f388cd96f638e447744199775277f4e6bcd0b9483f0eebeca"
-  revision 1
+  url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.tar.gz"
+  sha256 "e843df002fcea2a90609d87e4d6c28f8a0e23332d3b42979ab1793e18f839307"
 
   bottle do
     cellar :any
@@ -18,8 +17,8 @@ class Libvoikko < Formula
   depends_on "hfstospell"
 
   resource "voikko-fi" do
-    url "https://www.puimula.org/voikko-sources/voikko-fi/voikko-fi-2.1.tar.gz"
-    sha256 "71a823120a35ade6f20eaa7d00db27ec7355aa46a45a5b1a4a1f687a42134496"
+    url "https://www.puimula.org/voikko-sources/voikko-fi/voikko-fi-2.3.tar.gz"
+    sha256 "37b7886a23cfbde472715ba1266e1a81e2a87c3f5ccce8ae23bd7b38bacdcec2"
   end
 
   def install
