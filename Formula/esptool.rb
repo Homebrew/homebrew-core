@@ -3,8 +3,8 @@ class Esptool < Formula
 
   desc "ESP8266 and ESP32 serial bootloader utility"
   homepage "https://github.com/espressif/esptool"
-  url "https://github.com/espressif/esptool/archive/v2.7.tar.gz"
-  sha256 "9d3c9f6bc1e2a619c207ef33920aa0c8251584489f68a777dbc381e19f9679fb"
+  url "https://github.com/espressif/esptool/archive/v2.8.tar.gz"
+  sha256 "f6187ab0467e05bff6ef4e777bde5ee8eb57a74154865d30491ebb42b228c617"
 
   bottle do
     cellar :any_skip_relocation
