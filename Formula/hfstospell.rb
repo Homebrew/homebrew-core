@@ -1,9 +1,8 @@
 class Hfstospell < Formula
   desc "Helsinki Finite-State Technology ospell"
   homepage "https://hfst.github.io/"
-  url "https://github.com/hfst/hfst-ospell/releases/download/v0.5.0/hfstospell-0.5.0.tar.gz"
-  sha256 "0fd2ad367f8a694c60742deaee9fcf1225e4921dd75549ef0aceca671ddfe1cd"
-  revision 6
+  url "https://github.com/hfst/hfst-ospell/archive/v0.5.1.tar.gz"
+  sha256 "3fede5a125dbc454598dbb445e68a15d176e1ba4b7c11074a3cc337dce8bf5be"
 
   bottle do
     cellar :any
