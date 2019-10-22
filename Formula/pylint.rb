@@ -5,6 +5,7 @@ class Pylint < Formula
   homepage "https://github.com/PyCQA/pylint"
   url "https://files.pythonhosted.org/packages/be/d8/334c1a5228bd300638147e62dce9c6966656fbee812b97cd0472b3eac09d/pylint-2.4.3.tar.gz"
   sha256 "856476331f3e26598017290fd65bebe81c960e806776f324093a46b76fb2d1c0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
