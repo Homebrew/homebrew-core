@@ -26,6 +26,6 @@ class Fdm < Formula
     EOS
     system "cat", testpath/"fdm.conf"
     system bin/"fdm", "-f", testpath/"fdm.conf", "cache", "add", testpath/"fdm.cache", "test"
-    assert_match /#{testpath}\/fdm.cache: 1 keys/, shell_output("#{bin}/fdm cache list #{testpath}/fdm.cache")
+    assert_match /#{testpath}\/fdm.cache: 1 keys/, shell_output("#{bin}/fdm -f #{testpath}/fdm.conf cache list #{testpath}/fdm.cache")
   end
 end
