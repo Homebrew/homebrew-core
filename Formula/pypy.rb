@@ -1,9 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-src.tar.bz2"
-  sha256 "5f06bede6d71dce8dfbfe797aab26c8e35cb990e16b826914652dc093ad74451"
-  revision 1
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.2.0-src.tar.bz2"
+  sha256 "55cb7757784fbe3952102447f65b27d80e6c885a464a7af1a9ce264492439dcc"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
@@ -22,6 +21,7 @@ class Pypy < Formula
   depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl@1.1"
   depends_on "sqlite"
+  depends_on "tcl-tk"
 
   resource "bootstrap" do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-osx64.tar.bz2"
@@ -30,17 +30,17 @@ class Pypy < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-41.0.1.zip"
-    sha256 "a222d126f5471598053c9a77f4b5d4f26eaa1f150ad6e01dcf1a42e185d05613"
+    url "https://files.pythonhosted.org/packages/f4/d5/a6c19dcbcbc267aca376558797f036d9bcdff344c9f785fe7d0fe9a5f2a7/setuptools-41.4.0.zip"
+    sha256 "7eae782ccf36b790c21bde7d86a4f303a441cd77036b25c559a602cf5186ce4d"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/source/p/pip/pip-19.1.1.tar.gz"
-    sha256 "44d3d7d3d30a1eb65c7e5ff1173cdf8f7467850605ac7cc3707b6064bddd0958"
+    url "https://files.pythonhosted.org/packages/ce/ea/9b445176a65ae4ba22dce1d93e4b5fe182f953df71a145f557cffaffc1bf/pip-19.3.1.tar.gz"
+    sha256 "21207d76c1031e517668898a6b46a9fb1501c7a4710ef5dfd6a40ad9e6757ea7"
   end
 
   def install
-    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+    ENV.append "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
