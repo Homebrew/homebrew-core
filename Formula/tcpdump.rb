@@ -1,9 +1,8 @@
 class Tcpdump < Formula
   desc "Command-line packet analyzer"
   homepage "https://www.tcpdump.org/"
-  url "https://www.tcpdump.org/release/tcpdump-4.9.2.tar.gz"
-  sha256 "798b3536a29832ce0cbb07fafb1ce5097c95e308a6f592d14052e1ef1505fe79"
-  revision 2
+  url "https://www.tcpdump.org/release/tcpdump-4.9.3.tar.gz"
+  sha256 "2cd47cb3d460b6ff75f4a9940f594317ad456cfbf2bd2c8e5151e16559db6410"
   head "https://github.com/the-tcpdump-group/tcpdump.git"
 
   bottle do
