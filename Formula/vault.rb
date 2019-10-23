@@ -29,7 +29,7 @@ class Vault < Formula
     (buildpath/"bin").mkpath
 
     cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
+      system "make", "dev-ui"
       bin.install "bin/vault"
       prefix.install_metafiles
     end
