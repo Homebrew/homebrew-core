@@ -28,7 +28,6 @@ class Zrepl < Formula
 
     ENV["GOPATH"] = gopath
     ENV.prepend_create_path "PATH", gopath/"bin"
-    ENV["GO111MODULE"] = "on"
     cd gopath/"src/github.com/zrepl/zrepl" do
       system "go", "build", "-o", "'$GOPATH/bin/stringer'", "golang.org/x/tools/cmd/stringer"
       system "go", "build", "-o", "'$GOPATH/bin/protoc-gen-go'", "github.com/golang/protobuf/protoc-gen-go"
