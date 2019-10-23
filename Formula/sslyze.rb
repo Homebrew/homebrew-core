@@ -30,10 +30,10 @@ class Sslyze < Formula
     end
   end
 
-  depends_on :arch => :x86_64
-  depends_on "python@3"
   depends_on "libffi" => [:build]
   depends_on "pipenv" => [:build]
+  depends_on :arch => :x86_64
+  depends_on "python"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
@@ -76,18 +76,11 @@ class Sslyze < Formula
     end
 
     resource("nassl").stage do
-      nassl_path = Pathname.pwd
-      # openssl fails on parallel build. Related issues:
-      # - https://rt.openssl.org/Ticket/Display.html?id=3736&user=guest&pass=guest
-      # - https://rt.openssl.org/Ticket/Display.html?id=3737&user=guest&pass=guest
-      ENV.deparallelize do
       system "pipenv", "install", "--dev"
       system "pipenv", "run", "invoke", "build.all"
-      #system "pipenv", "run", "invoke", "test"
-      end
       venv.pip_install nassl_path
     end
-    
+
     venv.pip_install_and_link buildpath
   end
 
