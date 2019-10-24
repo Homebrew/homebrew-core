@@ -7,6 +7,9 @@ class X8664ElfBinutils < Formula
 
   def install
     system "./configure", "--target=x86_64-elf",
+                          "--enable-targets=all",
+                          "--enable-multilib",
+                          "--enable-64-bit-bfd",
                           "--disable-werror",
                           "--prefix=#{prefix}"
     system "make"
@@ -14,6 +17,6 @@ class X8664ElfBinutils < Formula
   end
 
   test do
-    assert_match "f()", shell_output("#{bin}/x86_64-elf-c++filt _Z1fv")
+    assert_match "f()", shell_output("#{bin}/all-elf-c++filt _Z1fv")
   end
 end

@@ -6,13 +6,15 @@ class X8664ElfGcc < Formula
   sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
 
   depends_on "gmp"
-  depends_on "x86_64-elf-binutils"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "x86_64-elf-binutils"
 
   def install
     mkdir "x86_64-elf-gcc-build" do
       system "../configure", "--target=x86_64-elf",
+                             "--enable-targets=all",
+                             "--enable-multilib",
                              "--prefix=#{prefix}",
                              "--without-isl",
                              "--disable-werror",
