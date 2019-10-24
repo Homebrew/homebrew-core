@@ -1,8 +1,8 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.10.tar.gz"
-  sha256 "89f834f4ab075525b6862908788487763a189ce1124c692a75e740749f69659a"
+  url "https://github.com/deplinenoise/tundra/archive/v2.11.tar.gz"
+  sha256 "004965754e87dcaeb31df757ba3c745b641d1331bbab10e6a96df428bf836c11"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +13,8 @@ class Tundra < Formula
   end
 
   resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
-    sha256 "58a6f4277ca2bc8565222b3bbd58a177609e9c488e8a72649359ba51450db7d8"
+    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
+    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
   end
 
   def install
