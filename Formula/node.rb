@@ -19,8 +19,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.11.3.tgz"
-    sha256 "9e1dbf6a2642df2cef11e68fdc20e29e4ee04bd7c9459fef914cae4bdc587f18"
+    url "https://registry.npmjs.org/npm/-/npm-6.12.0.tgz"
+    sha256 "44617834498381efffece2fdd0866590ad2eb37c46e9f13933222cef7e1202c8"
   end
 
   def install
