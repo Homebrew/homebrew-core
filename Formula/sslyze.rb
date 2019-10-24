@@ -30,9 +30,9 @@ class Sslyze < Formula
     end
   end
 
-  depends_on "libffi" => [:build]
   depends_on "pipenv" => [:build]
   depends_on :arch => :x86_64
+  depends_on "libffi"
   depends_on "python"
 
   resource "asn1crypto" do
