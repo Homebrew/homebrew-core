@@ -3,8 +3,8 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://files.pythonhosted.org/packages/37/39/861f2fc7e5598234606b4ec65086152c5e42d7cec92e4dbba10d8de14fcd/twine-1.14.0.tar.gz"
-  sha256 "e37d5a73d77b095b85314dde807bfb85b580b5b9d137f5b21332f4636990d97a"
+  url "https://files.pythonhosted.org/packages/91/82/32c68749d10ae30dd126699ee471b8885d9a9ae326a0f25dac42bb6a3f28/twine-2.0.0.tar.gz"
+  sha256 "9fe7091715c7576df166df8ef6654e61bada39571783f2fd415bdcba867c6993"
   head "https://github.com/pypa/twine.git"
 
   bottle do
@@ -28,8 +28,8 @@ class TwinePypi < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/0d/aa/c5ac2f337d9a10ee95d160d47beb8d9400e1b2a46bb94990a0409fe6d133/cffi-1.13.1.tar.gz"
+    sha256 "558b3afef987cf4b17abd849e7bedf64ee12b28175d564d05b628a0f9355599b"
   end
 
   resource "chardet" do
@@ -48,8 +48,8 @@ class TwinePypi < Formula
   end
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/90/52/e20466b85000a181e1e144fd8305caf2cf475e2f9674e797b222f8105f5f/future-0.17.1.tar.gz"
-    sha256 "67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
+    url "https://files.pythonhosted.org/packages/3f/bf/57733d44afd0cf67580658507bd11d3ec629612d5e0e432beb4b8f6fbb04/future-0.18.1.tar.gz"
+    sha256 "858e38522e8fd0d3ce8f0c1feaf0603358e366d5403209674c7b617fa0c24093"
   end
 
   resource "idna" do
@@ -93,13 +93,13 @@ class TwinePypi < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/d0/10/54a72929d8b042965180f01cbf0701b5377c5cce0148c552807d195d8d0b/tqdm-4.35.0.tar.gz"
-    sha256 "1be3e4e3198f2d0e47b928e9d9a8ec1b63525db29095cec1467f4c5a4ea8ebf9"
+    url "https://files.pythonhosted.org/packages/80/b3/6ca4806441b730782fc4613c6aa2070412295c5521f33ae151988e448929/tqdm-4.36.1.tar.gz"
+    sha256 "abc25d0ce2397d070ef07d8c7e706aede7920da163c64997585d42d3537ece3d"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
   end
 
   resource "webencodings" do
