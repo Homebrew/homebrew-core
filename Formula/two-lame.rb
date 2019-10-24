@@ -1,10 +1,8 @@
 class TwoLame < Formula
   desc "Optimized MPEG Audio Layer 2 (MP2) encoder"
-  # Homepage down since at least December 2015
-  # homepage "http://www.twolame.org/"
-  homepage "https://sourceforge.net/projects/twolame/"
-  url "https://downloads.sourceforge.net/twolame/twolame-0.3.13.tar.gz"
-  sha256 "98f332f48951f47f23f70fd0379463aff7d7fb26f07e1e24e42ddef22cc6112a"
+  homepage "http://www.twolame.org/"
+  url "https://downloads.sourceforge.net/twolame/0.4.0/twolame-0.4.0.tar.gz"
+  sha256 "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d"
 
   bottle do
     cellar :any
@@ -19,5 +17,10 @@ class TwoLame < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+    bin.install "simplefrontend/.libs/stwolame"
+  end
+
+  test do
+    system "#{bin}/stwolame", test_fixtures("test.wav"), "test.mp2"
   end
 end
