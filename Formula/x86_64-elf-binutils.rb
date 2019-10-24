@@ -17,6 +17,6 @@ class X8664ElfBinutils < Formula
   end
 
   test do
-    assert_match "f()", shell_output("#{bin}/all-elf-c++filt _Z1fv")
+    assert_match "f()", shell_output("#{bin}/x86_64-elf-c++filt _Z1fv")
   end
 end
