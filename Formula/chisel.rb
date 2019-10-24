@@ -1,8 +1,8 @@
 class Chisel < Formula
   desc "Collection of LLDB commands to assist debugging iOS apps"
   homepage "https://github.com/facebook/chisel"
-  url "https://github.com/facebook/chisel/archive/HEAD.tar.gz"
-  sha256 "02fb6076ae035b5fd86ad44e757cc3a741c543f048745462bd804bccb32b91e2"
+  url "https://github.com/facebook/chisel/archive/1.8.1.tar.gz"
+  sha256 "2f803ac99c20d2ae86d4485eb3d1be29010c5e3088ccf0a2b19021657022e3fb"
   head "https://github.com/facebook/chisel.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Chisel < Formula
 
   def install
     libexec.install Dir["*.py", "commands"]
+    prefix.install "PATENTS" unless build.head?
 
     # == LD_DYLIB_INSTALL_NAME Explanation ==
     # This make invocation calls xcodebuild, which in turn performs ad hoc code
