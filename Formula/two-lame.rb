@@ -6,11 +6,9 @@ class TwoLame < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "98a0ad3cf35a49fa67c88f0e0fc5cd129abcc2ee1083576d1a181340cecbed1d" => :catalina
-    sha256 "3e1206ffe2663c75cc8def2832a0b36374bd1c548f234e178462219536abf539" => :mojave
-    sha256 "34e26fc01f8c195e0b410bf3756cb283d86417f1b1d4ec0ac799441976601f78" => :high_sierra
-    sha256 "f1138207ebf9a6e1a95ebd553b3f7a8c91ba7546d812c313fa1f3beac8d593c9" => :sierra
+    sha256 "9ba9f3afb14f2ac2fa911046a83ee50ed6a93d747f0c305788a61b4138e5fe5a" => :catalina
+    sha256 "77d5c37574ecdf0d857e09f47e9de5eda3049fe8cd1486942a6a62a4baae6f06" => :mojave
+    sha256 "153c7085434a1bce73b0ce704f37997179d6e53614a7014546b9b4d3f80dec97" => :high_sierra
   end
 
   def install
