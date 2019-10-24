@@ -1,15 +1,15 @@
-class Hadoop < Formula
+class HadoopAT28 < Formula
   desc "Framework for distributed processing of large data sets"
   homepage "https://hadoop.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-3.2.1/hadoop-3.2.1.tar.gz"
-  sha256 "f66a3a4115b8f16c1077d1a198a06854dbef0e4233291712ed08d0a10629ed37"
+  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-2.8.5/hadoop-2.8.5.tar.gz"
+  sha256 "f9c726df693ce2daa4107886f603270d66e7257f77a92c9886502d6cd4a884a4"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
   conflicts_with "yarn", :because => "both install `yarn` binaries"
-  conflicts_with "hadoop@2.8", :because => "both install `hadoop` binaries"
+  conflicts_with "hadoop", :because => "both install `hadoop` binaries"
 
   def install
     rm_f Dir["bin/*.cmd", "sbin/*.cmd", "libexec/*.cmd", "etc/hadoop/*.cmd"]
