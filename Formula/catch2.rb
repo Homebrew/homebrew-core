@@ -1,8 +1,8 @@
 class Catch2 < Formula
   desc "Modern, C++-native, header-only, test framework"
   homepage "https://github.com/catchorg/Catch2"
-  url "https://github.com/catchorg/Catch2/archive/v2.10.1.tar.gz"
-  sha256 "dcbbe0a5f4d2a4330bdf5bcb9ef6a02303d679d46596e4ed06ca462f2372d4de"
+  url "https://github.com/catchorg/Catch2/archive/v2.10.2.tar.gz"
+  sha256 "79aa46ee6c5a87bc5306bfffc6ecde6a1ad6327715b208ee2e846873f282a494"
 
   bottle do
     cellar :any_skip_relocation
