@@ -76,6 +76,7 @@ class Sslyze < Formula
     end
 
     resource("nassl").stage do
+      nassl_path = Pathname.pwd
       system "pipenv", "install", "--dev"
       system "pipenv", "run", "invoke", "build.all"
       venv.pip_install nassl_path
