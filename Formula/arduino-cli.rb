@@ -2,8 +2,8 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     :tag      => "0.5.0",
-     :revision => "3be22875e27f220350d8ab5b13403d804acfd20b"
+     :tag      => "0.6.0",
+     :revision => "3a08b07d458ef65fdefe88a7d71056227f626f5a"
   head "https://github.com/arduino/arduino-cli.git"
 
   bottle do
@@ -26,6 +26,6 @@ class ArduinoCli < Formula
 
   test do
     system "#{bin}/arduino-cli", "sketch", "new", "test_sketch"
-    assert File.directory?("#{testpath}/Documents/Arduino/test_sketch")
+    assert File.directory?("#{testpath}/test_sketch")
   end
 end
