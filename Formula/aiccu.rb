@@ -8,6 +8,7 @@ class Aiccu < Formula
 
   bottle do
     rebuild 1
+    sha256 "83284f72e078fceac87aee5752547ea4d25c6be0421a9bc3cd64bb97177b8ea7" => :catalina
     sha256 "f6c90e2ecdcd0d676abe4fb32f98a8592d348ac3794de62fa64f403e5ecbbf17" => :mojave
     sha256 "9033bb99bd8fbaa3b74abb0fa850b2220c317628851af361180c0c764732d49c" => :high_sierra
     sha256 "ee19bef55805a8562bddb41a3af66e5bce9589b1e4d96b05348a37b5ada2c091" => :sierra
