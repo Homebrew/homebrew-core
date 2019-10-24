@@ -41,6 +41,9 @@ class Cvs < Formula
     sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
   end
 
+  # Fixes "cvs [init aborted]: cannot get working directory: No such file or directory" on Catalina. Original patch idea by Jason White from stackoverflow
+  patch :DATA
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -71,3 +74,19 @@ class Cvs < Formula
     end
   end
 end
+
+__END__
+--- cvs-1.12.13/lib/xgetcwd.c.orig      2019-10-10 22:52:37.000000000 -0500
++++ cvs-1.12.13/lib/xgetcwd.c   2019-10-10 22:53:32.000000000 -0500
+@@ -25,8 +25,9 @@
+ #include "xgetcwd.h"
+
+ #include <errno.h>
++#include <unistd.h>
+
+-#include "getcwd.h"
++/* #include "getcwd.h" */
+ #include "xalloc.h"
+
+ /* Return the current directory, newly allocated.
+
