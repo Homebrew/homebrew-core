@@ -1,8 +1,8 @@
 class Exercism < Formula
   desc "Command-line tool to interact with exercism.io"
-  homepage "https://cli.exercism.io/"
-  url "https://github.com/exercism/cli/archive/v3.0.12.tar.gz"
-  sha256 "cdafd383d866dca4bc96be002d5d25eeea4801d003456a0215e28a2fba5a0820"
+  homepage "https://exercism.io/cli/"
+  url "https://github.com/exercism/cli/archive/v3.0.13.tar.gz"
+  sha256 "ecc27f272792bc8909d14f11dd08f0d2e9bde4cc663b3769e00eab6e65328a9f"
   head "https://github.com/exercism/cli.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Exercism < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "go", "build", "-ldflags", "-s -w", "-o", bin/"exercism", "exercism/main.go"
+      system "go", "build", "-ldflags", "-s", "-o", bin/"exercism", "exercism/main.go"
       prefix.install_metafiles
     end
   end
