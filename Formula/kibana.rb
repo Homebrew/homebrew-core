@@ -13,15 +13,8 @@ class Kibana < Formula
     sha256 "a4186dcb4f9a6e57614b0b7c03d297f845f91c6e1e914078c5d491750b43734b" => :sierra
   end
 
-  resource "node" do
-    url "https://nodejs.org/dist/v10.15.2/node-v10.15.2.tar.xz"
-    sha256 "b8bb2da7cb016e895bc2f70009a420f6b8d519e66548624b6130bbfbd5118c59"
-  end
-
-  resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.16.0/yarn-v1.16.0.tar.gz"
-    sha256 "df202627d9a70cf09ef2fb11cb298cb619db1b958590959d6f6e571b50656029"
-  end
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
     resource("node").stage do
