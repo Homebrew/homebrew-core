@@ -1,8 +1,8 @@
 class Check < Formula
   desc "C unit testing framework"
   homepage "https://libcheck.github.io/check/"
-  url "https://github.com/libcheck/check/releases/download/0.12.0/check-0.12.0.tar.gz"
-  sha256 "464201098bee00e90f5c4bdfa94a5d3ead8d641f9025b560a27755a83b824234"
+  url "https://github.com/libcheck/check/releases/download/0.13.0/check-0.13.0.tar.gz"
+  sha256 "c4336b31447acc7e3266854f73ec188cdb15554d0edd44739631da174a569909"
 
   bottle do
     cellar :any
