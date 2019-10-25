@@ -1,4 +1,4 @@
-require 'formula'
+require "formula"
 
 class Elm < Formula
   desc "Functional programming language for building browser-based GUIs"
@@ -45,6 +45,7 @@ class Elm < Formula
 
     src_path = testpath/"Hello.elm"
     src_path.write <<~EOS
+      module Hello exposing (..)
       import Html exposing (text)
       main = text "Hello, world!"
     EOS
