@@ -5,12 +5,23 @@ class GccArmNoneEabi < Formula
   version "8-2019-q3-update"
   sha256 "e8a8ddfec47601f2d83f1d80c0600f198476f227102121c8d6a5a781d0c2eeef"
 
-  env :std
+  depends_on "gmp"
+  depends_on "isl"
+  depends_on "libelf"
+  depends_on "libmpc"
+  depends_on "mpfr"
 
-  depends_on "wget" => :build
+  uses_from_macos "expat"
+  uses_from_macos "libiconv"
+  uses_from_macos "zlib"
 
   def install
+    cd "src" do
+      Dir.glob("*.tar.bz2") { |file| system "tar", "xf", file }
+    end
+
     inreplace "build-common.sh" do |s|
+      s.gsub! /^clean_env$/, ""
       s.gsub! "INSTALLDIR_NATIVE=$ROOT/install-native", "INSTALLDIR_NATIVE=#{prefix}"
       s.gsub! "INSTALLDIR_NATIVE_DOC=$ROOT/install-native/share/doc/gcc-arm-none-eabi", "INSTALLDIR_NATIVE_DOC=#{doc}"
 
@@ -29,17 +40,9 @@ class GccArmNoneEabi < Formula
       s.gsub! "--htmldir=$INSTALLDIR_NATIVE_DOC/html", "--htmldir=#{doc}/html"
       s.gsub! "--pdfdir=$INSTALLDIR_NATIVE_DOC/pdf", "--pdfdir=#{doc}/pdf"
       s.gsub! "--with-sysroot=$INSTALLDIR_NATIVE/arm-none-eabi", "--with-sysroot=#{prefix}/arm-none-eabi"
-
-      # Task III-11, IV-8, V-0 and V-1 generates package which we don't need
-      s.gsub! /^echo Task \[III-11\].*?popd/m, ""
-      s.gsub! /^echo Task \[IV-8\].*?popd/m, ""
-      s.gsub! /^echo Task \[V-0\].*?popd/m, ""
-      s.gsub! /^echo Task \[V-1\].*?popd/m, ""
     end
 
-    system "./install-sources.sh"
-    system "./build-prerequisites.sh"
-    system "./build-toolchain.sh", "--skip_steps=manual"
+    system "./build-toolchain.sh", "--build_type=ppa", "--skip_steps=manual"
   end
 
   test do
