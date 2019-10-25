@@ -1,9 +1,8 @@
 class Cutter < Formula
   desc "Unit Testing Framework for C and C++"
-  homepage "https://cutter.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cutter/cutter/1.2.6/cutter-1.2.6.tar.gz"
-  sha256 "459becce78ec4c568f4f5a5e20c73ea36be283bf955f4a252e8491b634339065"
-  revision 1
+  homepage "https://cutter.osdn.jp/"
+  url "https://osdn.mirror.constant.com/cutter/71616/cutter-1.2.7.tar.gz"
+  sha256 "4d80feb16f8f4d8eed62bca40194f8896e70bdac06305bf612b41601e659cae6"
   head "https://github.com/clear-code/cutter.git"
 
   bottle do
