@@ -13,9 +13,35 @@ class Netdata < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1" if MacOS.version <= :sierra
+  depends_on "json-c"
+  depends_on "libuv"
+  depends_on "lz4"
+  depends_on "openssl@1.1"
+
+  resource "judy" do
+    url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
+    sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+  end
 
   def install
+    # We build judy as static library, so we don't need to install it
+    # into the real prefix
+    judyprefix = "#{buildpath}/resources/judy"
+
+    resource("judy").stage do
+      system "./configure", "--disable-debug", "--disable-dependency-tracking",
+          "--disable-shared", "--prefix=#{judyprefix}"
+
+      # Parallel build is broken
+      ENV.deparallelize do
+        system "make", "-j1", "install"
+      end
+    end
+
+    ENV["PREFIX"] = prefix
+    ENV.append "CFLAGS", "-I#{judyprefix}/include"
+    ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
+
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -25,6 +51,7 @@ class Netdata < Formula
                           "--libexecdir=#{libexec}",
                           "--with-math",
                           "--with-zlib",
+                          "--enable-dbengine",
                           "--with-user=netdata",
                           "UUID_CFLAGS=-I/usr/include",
                           "UUID_LIBS=-lc"
