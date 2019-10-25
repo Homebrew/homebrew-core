@@ -46,10 +46,6 @@ class Stubby < Formula
           <string>-C</string>
           <string>#{etc}/stubby/stubby.yml</string>
         </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/stubby/stubby.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/stubby/stubby.log</string>
       </dict>
     </plist>
   EOS
