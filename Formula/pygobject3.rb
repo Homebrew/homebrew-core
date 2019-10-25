@@ -16,7 +16,6 @@ class Pygobject3 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection"
-  depends_on "py2cairo"
   depends_on "py3cairo"
   depends_on "python"
 
