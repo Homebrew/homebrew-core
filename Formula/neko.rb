@@ -1,9 +1,8 @@
 class Neko < Formula
   desc "High-level, dynamically typed programming language"
   homepage "https://nekovm.org/"
-  url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
-  sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 6
+  url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
+  sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
