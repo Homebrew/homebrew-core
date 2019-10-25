@@ -1,8 +1,8 @@
 class Swaks < Formula
   desc "SMTP command-line test tool"
   homepage "https://www.jetmore.org/john/code/swaks/"
-  url "https://www.jetmore.org/john/code/swaks/files/swaks-20181104.0.tar.gz"
-  sha256 "023f7f8818ebcd638618327809cf1939c5ffcaf6c3d2572ef56179d68f683e58"
+  url "https://www.jetmore.org/john/code/swaks/files/swaks-20190914.0.tar.gz"
+  sha256 "5733a51a5c3f74f62274c17dc825f177c22ed52703c97c3b23a5354d7ec15c89"
 
   bottle :unneeded
 
