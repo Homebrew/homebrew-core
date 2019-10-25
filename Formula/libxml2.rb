@@ -26,6 +26,7 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "python"
+  depends_on "readline"
 
   # Fix crash when using Python 3 using Fedora's patch.
   # Reported upstream:
@@ -51,6 +52,7 @@ class Libxml2 < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-history",
                           "--without-python",
                           "--without-lzma"
     system "make", "install"
