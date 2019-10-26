@@ -5,7 +5,7 @@ class Pgcli < Formula
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/5a/2a/9821c4a30d79fafdefeff7b071639b0968e1d54710430f2da16f8124fc37/pgcli-2.1.1.tar.gz"
   sha256 "84e0817a29c3cacaaaf85351422bdb90f230f2550e4af558c25536fd235ab6ca"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
