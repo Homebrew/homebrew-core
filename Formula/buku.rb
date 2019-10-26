@@ -5,7 +5,7 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
   sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
