@@ -2,8 +2,9 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag      => "3.4.7",
-      :revision => "bb7b827a9c135fbfd066da94109a728351b87b92"
+      :tag      => "4.0.0",
+      :revision => "ef18b627e598d8c7411f58c1ca672a5aace13c74"
+  head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
     cellar :any
@@ -13,40 +14,28 @@ class Haxe < Formula
     sha256 "759280efbec7f6ab98ca83639639325892f688a6fc9c6c7daa24432545086f47" => :sierra
   end
 
-  head do
-    url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
-
-    depends_on "aspcud" => :build
-    depends_on "opam" => :build
-    depends_on "pkg-config" => :build
-  end
-
-  depends_on "camlp4" => :build
   depends_on "cmake" => :build
   depends_on "ocaml" => :build
+  depends_on "opam" => :build
+  depends_on "pkg-config" => :build
   depends_on "neko"
   depends_on "pcre"
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
-
     # Build requires targets to be built in specific order
     ENV.deparallelize
 
-    if build.head?
-      Dir.mktmpdir("opamroot") do |opamroot|
-        ENV["OPAMROOT"] = opamroot
-        ENV["OPAMYES"] = "1"
-        system "opam", "init", "--no-setup", "--disable-sandboxing"
-        system "opam", "config", "exec", "--",
-               "opam", "pin", "add", "haxe", buildpath, "--no-action"
-        system "opam", "config", "exec", "--",
-               "opam", "install", "haxe", "--deps-only"
-        system "opam", "config", "exec", "--",
-               "make", "ADD_REVISION=1"
-      end
-    else
-      system "make", "OCAMLOPT=ocamlopt.opt"
+    Dir.mktmpdir("opamroot") do |opamroot|
+      ENV["OPAMROOT"] = opamroot
+      ENV["OPAMYES"] = "1"
+      ENV["ADD_REVISION"] = "1" if build.head?
+      system "opam", "init", "--no-setup", "--disable-sandboxing"
+      system "opam", "config", "exec", "--",
+             "opam", "pin", "add", "haxe", buildpath, "--no-action"
+      system "opam", "config", "exec", "--",
+             "opam", "install", "haxe", "--deps-only"
+      system "opam", "config", "exec", "--",
+             "make"
     end
 
     # Rebuild haxelib as a valid binary
