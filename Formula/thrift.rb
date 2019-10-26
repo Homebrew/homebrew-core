@@ -1,9 +1,8 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.12.0/thrift-0.12.0.tar.gz"
-  sha256 "c336099532b765a6815173f62df0ed897528a9d551837d627c1f87fadad90428"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.13.0/thrift-0.13.0.tar.gz"
+  sha256 "7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179"
 
   bottle do
     cellar :any
@@ -43,6 +42,7 @@ class Thrift < Formula
       --without-php_extension
       --without-python
       --without-ruby
+      --without-swift
     ]
 
     ENV.cxx11 if ENV.compiler == :clang
