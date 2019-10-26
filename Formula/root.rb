@@ -5,13 +5,13 @@ class Root < Formula
   version "6.18.04"
   sha256 "315a85fc8363f8eb1bffa0decbf126121258f79bd273513ed64795675485cfa4"
   head "https://github.com/root-project/root.git"
-
-  bottle do
-    sha256 "83090dd063a5cde66bf587f6000b798fda756476fee3651b6f660e1b39cff4bb" => :catalina
-    sha256 "9ce760ff961b29b382d8373c6fbe72808e025b9a3e6113deb64df8586b0a853d" => :mojave
-    sha256 "acbac57657964414945706d499bab86ad7ac6367c78493a5e47de2eba111e0f1" => :high_sierra
-    sha256 "82e6f8dc5048f3977c9a942c2fd62671423f95bfe77e6d5abd9f53b6ac141b13" => :sierra
-  end
+  
+ # bottle do
+ #   sha256 "83090dd063a5cde66bf587f6000b798fda756476fee3651b6f660e1b39cff4bb" => :catalina
+ #   sha256 "9ce760ff961b29b382d8373c6fbe72808e025b9a3e6113deb64df8586b0a853d" => :mojave
+ #   sha256 "acbac57657964414945706d499bab86ad7ac6367c78493a5e47de2eba111e0f1" => :high_sierra
+ #   sha256 "82e6f8dc5048f3977c9a942c2fd62671423f95bfe77e6d5abd9f53b6ac141b13" => :sierra
+ # end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
   # strings libCling.so | grep Xcode:
@@ -66,11 +66,11 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{py_exe}
       -DPYTHON_INCLUDE_DIR=#{py_inc}
       -DPYTHON_LIBRARY=#{py_prefix}/Python
-      -Dbuiltin_cfitsio=OFF
+      -Dbuiltin_cfitsio=ON
       -Dbuiltin_freetype=ON
       -Ddavix=ON
       -Dfftw3=ON
-      -Dfitsio=OFF
+      -Dfitsio=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dgnuinstall=ON
