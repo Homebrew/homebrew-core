@@ -15,7 +15,7 @@ class Zola < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     bash_completion.install "completions/zola.bash"
     zsh_completion.install "completions/_zola"
