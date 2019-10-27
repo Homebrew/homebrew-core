@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
-  revision 4
+  revision 3
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
@@ -36,21 +36,6 @@ class Csound < Formula
   resource "ableton-link" do
     url "https://github.com/Ableton/link/archive/Link-3.0.2.tar.gz"
     sha256 "2716e916a9dd9445b2a4de1f2325da818b7f097ec7004d453c83b10205167100"
-  end
-
-  resource "csound-manual-html" do
-    url "https://github.com/csound/csound/releases/download/6.13.0/Csound6.13.0_manual_html.zip"
-    sha256 "7b70190ba9ef7e885545b88012ce012ffc48043a17edb6ae1326a646dfc359b4"
-  end
-
-  resource "csound-manual-pdf-a4" do
-    url "https://github.com/csound/csound/releases/download/6.13.0/Csound6.13.0_manual_A4_pdf.zip"
-    sha256 "62f511ac0ad8f6327583310714f61e9b07558fc57014859099200e1d05e5a642"
-  end
-
-  resource "csound-manual-pdf-letter" do
-    url "https://github.com/csound/csound/releases/download/6.13.0/Csound6.13.0_manual_pdf.zip"
-    sha256 "09d62a688bdaef6a53e9d33feee1290c18099b4f927cdba54f3a79ab41bd91d7"
   end
 
   resource "getfem" do
@@ -88,21 +73,9 @@ class Csound < Formula
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
-
-    (pkgshare/"hrtf-data").install Dir["samples/*.dat"]
-
-    resource("csound-manual-html").stage { (doc/"html").install Dir["*"] }
-    resource("csound-manual-pdf-a4").stage { (doc/"pdf").install "Csound6.13.0_manual_A4.pdf" }
-    resource("csound-manual-pdf-letter").stage { (doc/"pdf").install "Csound6.13.0_manual.pdf" }
   end
 
   def caveats; <<~EOS
-    The manual as HTML is in
-      #{HOMEBREW_PREFIX}/share/doc/csound/html
-
-    HRTF data files are in
-      #{HOMEBREW_PREFIX}/share/csound/hrtf-data
-
     To use the Python bindings, you may need to add to #{shell_profile}:
       export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_prefix}/Frameworks"
   EOS
@@ -111,7 +84,6 @@ class Csound < Formula
   test do
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
-      sr = 44100
       gi_peer link_create
       gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
@@ -122,7 +94,6 @@ class Csound < Formula
       instr 1
           a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           a_signal STKPlucked 440, 1
-          a_, a_ hrtfstat a_signal, 0, 0, sprintf("hrtf-%d-left.dat", sr), sprintf("hrtf-%d-right.dat", sr), 9, sr
           hdf5write "test.h5", a_signal
           out a_signal
       endin
@@ -135,7 +106,6 @@ class Csound < Formula
 
     ENV["OPCODE6DIR64"] = "#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64"
     ENV["RAWWAVE_PATH"] = "#{HOMEBREW_PREFIX}/share/stk/rawwaves"
-    ENV["SADIR"] = "#{HOMEBREW_PREFIX}/share/csound/hrtf-data"
 
     require "open3"
     stdout, stderr, status = Open3.capture3("#{bin}/csound test.orc test.sco")
