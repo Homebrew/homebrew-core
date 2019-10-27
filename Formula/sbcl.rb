@@ -1,9 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.5.7/sbcl-1.5.7-source.tar.bz2"
-  sha256 "54742fb5e2f3f350fbafd72bc73662fca21382b5553ed6a146098950d2409485"
-  revision 1
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.5.8/sbcl-1.5.8-source.tar.bz2"
+  sha256 "84572f9133d13c982db13d1768d38331421204bc0ca083dacc5364e46796ff4c"
 
   bottle do
     sha256 "768b97a7b45d987a9880348e105a5134b2d1babc1e1048c4139820a93e27ceda" => :catalina
@@ -20,17 +19,6 @@ class Sbcl < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
-  end
-
-  # Two patches below prevent a segfault on macOS Catalina
-  patch :p1 do
-    url "https://github.com/sbcl/sbcl/commit/07d135b0dd4e7c34bc0dce6aac07570d66e297ee.diff?full_index=1"
-    sha256 "7522320e325451a61181edfd0a3ccbd21b48850102c0f976c9af814117a8b29e"
-  end
-
-  patch :p1 do
-    url "https://github.com/sbcl/sbcl/commit/5cefb8506b7d8d9a0277236eb3f7e76c4428ac10.diff?full_index=1"
-    sha256 "e88cec2d4e8d9eff9658a7706ac25718d5d8cd09df3928692f2b27e0644dd73c"
   end
 
   def install
