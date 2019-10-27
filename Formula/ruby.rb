@@ -140,7 +140,7 @@ class Ruby < Formula
           "#{api_version}"
         ]
 
-        @default_dir ||= File.join(*path)
+        @homebrew_path ||= File.join(*path)
       end
 
       def self.private_dir
@@ -170,9 +170,9 @@ class Ruby < Formula
 
       def self.default_path
         if Gem.user_home && File.exist?(Gem.user_home)
-          [user_dir, default_dir, private_dir]
+          [user_dir, default_dir, old_default_dir, private_dir]
         else
-          [default_dir, private_dir]
+          [default_dir, old_default_dir, private_dir]
         end
       end
 
@@ -182,6 +182,13 @@ class Ruby < Formula
 
       def self.ruby
         "#{opt_bin}/ruby"
+      end
+
+      # https://github.com/Homebrew/homebrew-core/issues/40872#issuecomment-542092547
+      class BasicSpecification
+        def self.default_specifications_dir
+          File.join(Gem.old_default_dir, "specifications", "default")
+        end
       end
     end
   EOS
