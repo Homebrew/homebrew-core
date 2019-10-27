@@ -1,10 +1,9 @@
 class OpenBabel < Formula
   desc "Chemical toolbox"
   homepage "https://openbabel.org"
-  url "https://github.com/openbabel/openbabel/archive/openbabel-2-4-1.tar.gz"
-  version "2.4.1"
-  sha256 "594c7f8a83f3502381469d643f7b185882da1dd4bc2280c16502ef980af2a776"
-  revision 1
+  url "https://github.com/openbabel/openbabel/archive/openbabel-3-0-0.tar.gz"
+  version "3.0.0"
+  sha256 "5c630c4145abae9bb4ab6c56a940985acb6dadf3a8c3a8073d750512c0220f30"
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do
@@ -16,11 +15,17 @@ class OpenBabel < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "rapidjson" => :build
+  depends_on "swig" => :build
+  depends_on "cairo"
   depends_on "eigen"
+  depends_on "python"
 
   def install
-    args = std_cmake_args + %w[
-      -DCAIRO_LIBRARY:FILEPATH=
+    args = std_cmake_args + %W[
+      -DRUN_SWIG=ON
+      -DPYTHON_BINDINGS=ON
+      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
     ]
 
     mkdir "build" do
