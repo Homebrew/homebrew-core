@@ -5,7 +5,7 @@ class GccArmNoneEabi < Formula
   version "8-2019-q3-update"
   sha256 "e8a8ddfec47601f2d83f1d80c0600f198476f227102121c8d6a5a781d0c2eeef"
 
-  env :std
+  #env :std
 
   depends_on "gmp" # 6.1.0 6.1.2
   depends_on "isl" # 0.18 0.21
@@ -23,7 +23,7 @@ class GccArmNoneEabi < Formula
     end
 
     inreplace "build-common.sh" do |s|
-      #s.gsub! /^clean_env$/, ""
+      s.gsub! /^clean_env$/, ""
       s.gsub! "INSTALLDIR_NATIVE=$ROOT/install-native", "INSTALLDIR_NATIVE=#{prefix}"
       s.gsub! "INSTALLDIR_NATIVE_DOC=$ROOT/install-native/share/doc/gcc-arm-none-eabi", "INSTALLDIR_NATIVE_DOC=#{doc}"
 
