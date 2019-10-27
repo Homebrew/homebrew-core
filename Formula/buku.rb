@@ -5,13 +5,13 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
   sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "df4858f1cfb23d6dc88f6789fa9031f5b9a0b05d237b93f71303d696e21d2a78" => :catalina
-    sha256 "c7b8a37fae9350d07cc50f1230819c7f628eb577fbc7aa5ba07eb6cee06ec7cb" => :mojave
-    sha256 "2c93cf452cce05902049fcb5cf71daa7431ae4eb04fbbd6fc9091785fd19b78b" => :high_sierra
+    sha256 "507fdab1e9b0bb374131781c14a8ca7bf2317a52e25a2a23d14f646fefd433ba" => :catalina
+    sha256 "63bba11125015a071ffb492ae9ab49e818f915c31c26d34f0cb34cbf7d266da8" => :mojave
+    sha256 "225cba1f8dae1398e1b6f124dd7f7d0a486f006e56400f4c70cd1a5285891bd2" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -33,8 +33,8 @@ class Buku < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "cryptography" do

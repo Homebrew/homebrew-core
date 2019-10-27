@@ -5,14 +5,13 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/46/bd/9ad49a599625c838da94b39d98d9dc00427e12c2962aeab11865d01ed95a/fdroidserver-1.1.5.tar.gz"
   sha256 "14291cde4c663328a70e22305769171a79caefea2f1148d1628cb3cda8938fba"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "1499c1250def2fbb425b3bf228a2bc0a88944e912e4311fbeb9eb2a0e603bd34" => :catalina
-    sha256 "ad45cfa9f6e48be44bc6de975db7bb9fd1b1f7f63d1b003106903f1f6706d4de" => :mojave
-    sha256 "8dc42cea3f8b3ac0d5af85a6e8eaffdd175088db58ff1989ab254e132fca6214" => :high_sierra
-    sha256 "1c03c755b24210f97b851a676ab58dfc52fd39a47d934f5ba5b47baffd4dacd5" => :sierra
+    sha256 "f279ee6232805b1d8a36180780de1bdf0db6d9602af9fae4e6baf45fea4b186a" => :catalina
+    sha256 "46fe13f9e5760778fe32b7d8e6f98cd83c7628936df20ac39224fd7f667161b0" => :mojave
+    sha256 "d08c7e734f18999dedb40cfd0ca3491d4cab62d12b184f3b381bd74efed5bfea" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -180,8 +179,8 @@ class Fdroidserver < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/cb/79/96df883cd6df0c86cb010e6f4ff790b7a30a45016a9509c94ea72c8695cd/numpy-1.17.1.zip"
-    sha256 "f11331530f0eff69a758d62c2461cd98cdc2eae0147279d8fc86e0464eb7e8ca"
+    url "https://files.pythonhosted.org/packages/ac/36/325b27ef698684c38b1fe2e546e2e7ef9cecd7037bcdb35c87efec4356af/numpy-1.17.2.zip"
+    sha256 "73615d3edc84dd7c4aeb212fa3748fb83217e00d201875a47327f55363cef2df"
   end
 
   resource "oauthlib" do

@@ -3,23 +3,22 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://tailordev.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/3c/bc/ee05f1f2d46f79d069930e0717e6dd6ede555b4d564eaae42273570e8806/td-watson-1.7.0.tar.gz"
-  sha256 "249313996751f32f38817d424cbf8d74956461df1439f0ee3a962fcc3c77225d"
+  url "https://files.pythonhosted.org/packages/b2/ab/64c9eac8eb2032ce7bc51c41aa44c41bdbabf96d8f850aae2fcb28a67795/td-watson-1.8.0.tar.gz"
+  sha256 "161870b9e398f2a25a08f0aed7b176676f503d7f16aead026f2e62b6a034e6c6"
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "277462fa6e1833337a8bf8c1fdc358d71f48d07c32221940d118aebadf4459aa" => :catalina
-    sha256 "85f3a2416c8198a9c24f49546beab3adb44ed8e51d7a4663c84785b684678a9f" => :mojave
-    sha256 "cd68c535214d7f3bfcb5fdbdc64001769c77a56c491f2dd02f1aeadcca608504" => :high_sierra
-    sha256 "4f090c12f582739483574f6f925b7167b6e42f272c0d1a062dba6e900eabb3cd" => :sierra
+    sha256 "a67e55a269b9c50c048768b8a351579390bc4dea662fb6fd4b3bf85b967d4a39" => :catalina
+    sha256 "ca9fdd52b2273f598161e0bd2063ed7836e83e36ee92466acfd0bb2f20f0cabc" => :mojave
+    sha256 "4d10018cf8a4cebde993145393c252ed2db81ff0adf4ae52a8dbfc2ed7f59109" => :high_sierra
   end
 
   depends_on "python"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/0e/29/a080c566b078dd72ac486991c94ec2f3dd508ac9ec8c254c9dbe30dcfbb2/arrow-0.14.2.tar.gz"
-    sha256 "41be7ea4c53c2cf57bf30f2d614f60c411160133f7a0a8c49111c30fb7e725b5"
+    url "https://files.pythonhosted.org/packages/43/0e/47416c54ad7742981bf77fdfc405987551ab14b181a6140c8cd2a5823872/arrow-0.15.2.tar.gz"
+    sha256 "10257c5daba1a88db34afa284823382f4963feca7733b9107956bed041aff24f"
   end
 
   resource "backports.functools_lru_cache" do
@@ -28,8 +27,8 @@ class Watson < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
   resource "chardet" do
@@ -63,8 +62,8 @@ class Watson < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
   end
 
   def install

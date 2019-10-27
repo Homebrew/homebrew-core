@@ -3,14 +3,14 @@ class Stormssh < Formula
   homepage "https://github.com/emre/storm"
   url "https://files.pythonhosted.org/packages/0a/18/85d12be676ae0c1d98173b07cc289bbf9e0c67d6c7054b8df3e1003bf992/stormssh-0.7.0.tar.gz"
   sha256 "8d034dcd9487fa0d280e0ec855d08420f51d5f9f2249f932e3c12119eaa53453"
-  revision 1
+  revision 2
   head "https://github.com/emre/storm.git"
 
   bottle do
     cellar :any
-    sha256 "e20d17fd12cce6a7c3a52f7260357987487bb19dc4048ccb0db910180c942cf3" => :catalina
-    sha256 "e0cde03f436db323f91b6944ddf2222c2fa9823f3f8794b9619abe7046b267e3" => :mojave
-    sha256 "0082cc67df66b23b731c782c8d459adf302e643509fea12829db82f0e12c84e6" => :high_sierra
+    sha256 "3dfc531e43e43e4af569dbcc0226f3a2f98886def75f8a6d96a7339bb9b13254" => :catalina
+    sha256 "bb637896cf459669199e861b092abc345195cdb73eb9db46f6f8d65e1a8a11e0" => :mojave
+    sha256 "bb917e99b7f5e775f71e1c2bd0eea10a0c8e4c189d4effe6a41a72db52401ffd" => :high_sierra
   end
 
   depends_on "python"
@@ -78,8 +78,8 @@ class Stormssh < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "PyNaCl" do

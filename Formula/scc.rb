@@ -1,14 +1,14 @@
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
-  url "https://github.com/boyter/scc/archive/v2.9.1.tar.gz"
-  sha256 "d0b984f2f51cf61420498b054992cd8e99dae78237d00466e5b85808c9b2cce9"
+  url "https://github.com/boyter/scc/archive/v2.10.0.tar.gz"
+  sha256 "cee0682bf8151964af534fdac07734595da9b264dc1119fa689d8fa2524bd708"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c401d3ab6b113cb7b0e494f86b333db612df1bae626522735d901a17c8ae83df" => :catalina
-    sha256 "41610eca331399d5ba16250eb51e3f577d60bcef97d1db25680f69f3310401cc" => :mojave
-    sha256 "d5ca245c4bd9a6aa7eacae5a52a2236807eb95e65192d8a1848fdee055130399" => :high_sierra
+    sha256 "00f03832d26812c1eb6c9bbb7593bd3947337ed38f3c136e5e5f185c3bc68183" => :catalina
+    sha256 "f98f09fc75a7f06a026bc355179c563e570b56c5be7726a3c0740c410a99cd53" => :mojave
+    sha256 "c3b3c917bba3db5bd0818493ef211e36a170ec9651e1c1291d897da03bb666e5" => :high_sierra
   end
 
   depends_on "go" => :build

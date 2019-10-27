@@ -5,13 +5,14 @@ class Salt < Formula
   homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/b7/f2/d285dd83d76be1d80bc9851b309ad9d88a60de1822f80c58d92355208525/salt-2019.2.1.tar.gz"
   sha256 "c8fa8318a8e87f788970b83f841bb52f1e873a697e2db9691e284ce248aa930a"
+  revision 1
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "2846f05e24aaf42e4c05d6c11891a285a50484a0c46e26968a21c81c5c0b2dbd" => :catalina
-    sha256 "a8719ce6f2cc610a56413c9a9b9079a0b8956667bcc576dd53965552045b7835" => :mojave
-    sha256 "5329c46b139a95148f0b41138c67f4d7dabc06b4b3b2a7fdadbf84b624c73739" => :high_sierra
+    sha256 "195eabe6ea2474f0a0c584aa21cab7370e60610c035adbb40c85851dbc2b4dba" => :catalina
+    sha256 "13a1456391cf40574294469e852c47e20ff40ed9bcaf45c5c2ff8058878a9d65" => :mojave
+    sha256 "50564375b1060f22883bc086c18af5a77625663deead6c9dd7faed834c2ffc5b" => :high_sierra
   end
 
   depends_on "swig" => :build
@@ -55,8 +56,8 @@ class Salt < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "chardet" do

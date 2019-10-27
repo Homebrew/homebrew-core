@@ -5,14 +5,13 @@ class Pgcli < Formula
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/5a/2a/9821c4a30d79fafdefeff7b071639b0968e1d54710430f2da16f8124fc37/pgcli-2.1.1.tar.gz"
   sha256 "84e0817a29c3cacaaaf85351422bdb90f230f2550e4af558c25536fd235ab6ca"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "01d4b4732a08954da1ccab42bf27254abf75442faface748e15458b8b56345d1" => :catalina
-    sha256 "f6538e828aedada97d70c2c000720e8711dff8e0c4f7ee1de68dbc4195ae2201" => :mojave
-    sha256 "edf30e13dfaabef3d1b492c4909b5e0e5572db886b307278ae384a7c45bcf7bd" => :high_sierra
-    sha256 "61966f34869b2cb646c8ed98fe63a9f5bcc18527b7cff2385c5a84968c9e8717" => :sierra
+    sha256 "f249647ee7af3ff3caa929490a29c4749dba9ecad62dfebf21c4535d1a636395" => :catalina
+    sha256 "a3e952246b681e08a6eb7303e223e179718ef6f5b3d2374a0869e84ad093d70d" => :mojave
+    sha256 "8c0311b51fab153b32713adb5242c0da56359dc9015566727f5ef649148c4573" => :high_sierra
   end
 
   depends_on "libpq"
@@ -55,8 +54,8 @@ class Pgcli < Formula
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/63/54/c039eb0f46f9a9406b59a638415c2012ad7be9b4b97bfddb1f48c280df3a/psycopg2-2.7.7.tar.gz"
-    sha256 "f4526d078aedd5187d0508aa5f9a01eae6a48a470ed678406da94b4cd6524b7e"
+    url "https://files.pythonhosted.org/packages/5c/1c/6997288da181277a0c29bc39a5f9143ff20b8c99f2a7d059cfb55163e165/psycopg2-2.8.3.tar.gz"
+    sha256 "897a6e838319b4bf648a574afb6cabcb17d0488f8c7195100d48d872419f4457"
   end
 
   resource "Pygments" do

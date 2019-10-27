@@ -5,14 +5,14 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v4.0.4.tar.gz"
   sha256 "d91eaaad06a5e124a76388999b22a4c590ea26149a30aaff73658cd98d0651d5"
-  revision 2
+  revision 3
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "d946915abed58f18dfa8af35286dabfc8e5518028dcac1a9e551d840926af118" => :catalina
-    sha256 "05e9c2cd03b9fc62ecd73bc487c27c49b42c270467c12f36e4b7a1f11f2e4de8" => :mojave
-    sha256 "d2fb9a27ef50f0d8c74e9565bd3594b85ab4ddf9c6477ff5f467d83b2da95759" => :high_sierra
+    sha256 "67a63cedf54af5e2cf26289144335e769075b38dad3bad71c761b2d1425f1eff" => :catalina
+    sha256 "7d6eb3b85bbab030dd305f8df023df97b15eab5dbb176ee9868ca56a26531c50" => :mojave
+    sha256 "d2a1bece180c75e949f3bb316c413c6ad8a672bf1200356462bdfaf03f1ac817" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -40,8 +40,8 @@ class Mitmproxy < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "click" do
@@ -120,8 +120,8 @@ class Mitmproxy < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/3d/46/a08f44a2a919e32689dca849ebfcb4f71f5e91e18f840bd49a88dc157a14/ruamel.yaml-0.15.46.tar.gz"
-    sha256 "8f048085a58ca59353c2c283e5f14af387ab6a1a7ae5d6ec26056bc2e7a396f0"
+    url "https://files.pythonhosted.org/packages/9a/ee/55cd64bbff971c181e2d9e1c13aba9a27fd4cd2bee545dbe90c44427c757/ruamel.yaml-0.15.100.tar.gz"
+    sha256 "8e42f3067a59e819935a2926e247170ed93c8f0b2ab64526f888e026854db2e4"
   end
 
   resource "six" do
