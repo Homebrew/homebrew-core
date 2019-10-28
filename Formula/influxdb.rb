@@ -2,8 +2,8 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag      => "v1.7.7",
-      :revision => "f8fdf652f348fc9980997fe1c972e2b79ddd13b0"
+      :tag      => "v1.7.9",
+      :revision => "23bc63d43a8dc05f53afa46e3526ebb5578f3d88"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
@@ -99,9 +99,8 @@ class Influxdb < Formula
       pid = fork do
         exec "#{bin}/influxd -config #{testpath}/config.toml"
       end
-      sleep 1
+      sleep 6
       output = shell_output("curl -Is localhost:8086/ping")
-      sleep 1
       assert_match /X-Influxdb-Version:/, output
     ensure
       Process.kill("SIGINT", pid)
