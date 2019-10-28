@@ -101,6 +101,7 @@
   "jpeg6b": "jpeg@6",
   "juju2": "juju",
   "juju@2.0": "juju",
+  "jupyter": "jupyterlab",
   "kibana41": "kibana@4.1",
   "kibana44": "kibana@4.4",
   "kotlin-compiler": "kotlin",
