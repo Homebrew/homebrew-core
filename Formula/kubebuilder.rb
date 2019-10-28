@@ -2,8 +2,8 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      :tag      => "v2.0.1",
-      :revision => "855513fa7eec932f8fcd1c28c02a139c222413af"
+      :tag      => "v2.1.0",
+      :revision => "51b536013c61d87b19e0d3e1d498c4ff3db5bbcf"
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do
