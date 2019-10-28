@@ -15,6 +15,7 @@ class Rocksdb < Formula
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"
+  depends_on "zstd"
 
   def install
     ENV.cxx11
@@ -66,7 +67,8 @@ class Rocksdb < Formula
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb_lite",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
-                                "-L#{Formula["lz4"].opt_lib}", "-llz4"
+                                "-L#{Formula["lz4"].opt_lib}", "-llz4",
+                                "-L#{Formula["zstd"].opt_lib}", "-lzstd"
     system "./db_test"
 
     assert_match "sst_dump --file=", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1", 1)
