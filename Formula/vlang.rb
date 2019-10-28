@@ -19,9 +19,15 @@ class Vlang < Formula
   end
 
   test do
-    ## TODO: Add a better test
-    Dir.chdir libexec do
-      shell_output("#{bin}/v test v")
-    end
+    (testpath/"hello-v.v").write <<~EOS
+      fn main() {
+        println('Hello, world!')
+      }
+    EOS
+    system "#{bin}/v", "-o", "hello-v", "hello-v.v"
+    assert_equal "Hello, world!\n", `./hello-v`
+
+    #need https://github.com/vlang/v/commit/fa7e0ce58a731d393e633b68a0710c7d1e27543f to be released
+    #shell_output("#{bin}/v test v")
   end
 end
