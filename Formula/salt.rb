@@ -3,9 +3,8 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://s.saltstack.com/community/"
-  url "https://files.pythonhosted.org/packages/b7/f2/d285dd83d76be1d80bc9851b309ad9d88a60de1822f80c58d92355208525/salt-2019.2.1.tar.gz"
-  sha256 "c8fa8318a8e87f788970b83f841bb52f1e873a697e2db9691e284ce248aa930a"
-  revision 1
+  url "https://files.pythonhosted.org/packages/a3/99/b3e5c77b8383fdd04fce0161c2ee58a21633a37b3b8d8367d6449023eb8c/salt-2019.2.2.tar.gz"
+  sha256 "75eef973cfc0fe2bb3e5db440e62507420ec4d7fc78758691bd329b02e542586"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -17,7 +16,7 @@ class Salt < Formula
   depends_on "swig" => :build
   depends_on "libgit2"
   depends_on "libyaml"
-  depends_on "openssl@1.1" # For M2Crypto
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "zeromq"
 
@@ -25,13 +24,13 @@ class Salt < Formula
   # pygit2 must be the same version as libgit2 - mismatched versions are incompatible
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+    url "https://files.pythonhosted.org/packages/7b/db/1d037ccd626d05a7a47a1b81ea73775614af83c2b3e53d86a0bb41d8d799/Jinja2-2.10.3.tar.gz"
+    sha256 "9fe95f19286cfefaa917656583d020be14e7859c6b0252588391e47db34527de"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/0a/d3/ecef6a0eaef77448deb6c9768af936fec71c0c4b42af983699cfa1499962/M2Crypto-0.31.0.tar.gz"
-    sha256 "fd59a9705275d609948005f4cbcaf25f28a4271308237eb166169528692ce498"
+    url "https://files.pythonhosted.org/packages/74/18/3beedd4ac48b52d1a4d12f2a8c5cf0ae342ce974859fba838cbbc1580249/M2Crypto-0.35.2.tar.gz"
+    sha256 "4c6ad45ffb88670c590233683074f2440d96aaccb05b831371869fc387cbd127"
   end
 
   resource "MarkupSafe" do
@@ -50,8 +49,8 @@ class Salt < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
-    sha256 "b26104d6835d1f5e49452a26eb2ff87fe7090b89dfcaee5ea2212697e1e1d7ae"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
   resource "cffi" do
@@ -70,8 +69,8 @@ class Salt < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/81/9c/0036c66234482044070836cc622266839e2412f8108849ab0bfdeaab8578/msgpack-0.6.1.tar.gz"
-    sha256 "4008c72f5ef2b7936447dcb83db41d97e9791c83221be13d5e19db0796df1972"
+    url "https://files.pythonhosted.org/packages/74/0a/de673c1c987f5779b65ef69052331ec0b0ebd22958bda77a8284be831964/msgpack-0.6.2.tar.gz"
+    sha256 "ea3c2f859346fcd55fc46e96885301d9c2f7a36d453f5d8f2967840efa1e1830"
   end
 
   resource "pycparser" do
@@ -90,13 +89,13 @@ class Salt < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/f8/48/5416696b9f2eacc7d1f9fe3a7187ad54d769e09585ec0b59c137ab5c7575/pyzmq-18.0.1.tar.gz"
-    sha256 "8b319805f6f7c907b101c864c3ca6cefc9db8ce0791356f180b1b644c7347e4c"
+    url "https://files.pythonhosted.org/packages/3c/83/7ecbe9b762829f589fa9734026e0ccb63cb128fe5615ae1698f65df72bfe/pyzmq-18.1.1.tar.gz"
+    sha256 "8c69a6cbfa94da29a34f6b16193e7c15f5d3220cb772d6d17425ff3faa063a6d"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
-    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "singledispatch" do
@@ -120,12 +119,21 @@ class Salt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
+    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
   end
 
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
+
+    # Workaround for https://github.com/saltstack/salt/issues/55084
+    # Remove when fixed
+    inreplace "salt/utils/rsax931.py",
+              "lib = find_library('crypto')",
+              "lib = '#{Formula["openssl@1.1"].opt_lib}/libcrypto.dylib'"
+
+    # Fix building of M2Crypto on High Sierra https://github.com/Homebrew/homebrew-core/pull/45895
+    ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
 
     virtualenv_install_with_resources
     prefix.install libexec/"share" # man pages
