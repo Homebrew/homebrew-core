@@ -1,8 +1,10 @@
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
-  url "https://github.com/mozilla/geckodriver/archive/v0.25.0.tar.gz"
-  sha256 "9ba9b1be1a2e47ddd11216ce863903853975a4805e72b9ed5da8bcbcaebbcea9"
+  # Get the commit id for stable releases from https://github.com/mozilla/geckodriver/releases
+  url "https://hg.mozilla.org/mozilla-central/archive/e9783a644016aa9b317887076618425586730d73.tar.gz"
+  version "0.26.0"
+  sha256 "034f525b6163ffd473ac61191107d104244b5ac7d3f89259b9c2915812654099"
   head "https://hg.mozilla.org/mozilla-central/", :using => :hg
 
   bottle do
@@ -16,8 +18,9 @@ class Geckodriver < Formula
   depends_on "rust" => :build
 
   def install
-    dir = build.head? ? "testing/geckodriver" : "."
-    cd(dir) { system "cargo", "install", "--root", prefix, "--path", "." }
+    cd "testing/geckodriver" do
+      system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    end
     bin.install_symlink bin/"geckodriver" => "wires"
   end
 
