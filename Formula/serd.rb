@@ -1,8 +1,8 @@
 class Serd < Formula
   desc "C library for RDF syntax"
   homepage "https://drobilla.net/software/serd/"
-  url "https://download.drobilla.net/serd-0.30.0.tar.bz2"
-  sha256 "6efb0efa5c2155e6bbac941cddeeabb7ed26d70a57d24178894ff169d8f6cefb"
+  url "https://download.drobilla.net/serd-0.30.2.tar.bz2"
+  sha256 "9d3102701172804f823f2215ca3147c50eba992641f9fbe014272355f4937202"
 
   bottle do
     cellar :any
@@ -18,5 +18,9 @@ class Serd < Formula
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
+  end
+
+  test do
+    pipe_output("serdi -", "() a <http://example.org/List> .", 0)
   end
 end
