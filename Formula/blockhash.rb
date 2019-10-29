@@ -25,6 +25,9 @@ class Blockhash < Formula
 
   def install
     system "./waf", "configure", "--prefix=#{prefix}"
+    # pkg-config adds -fopenmp flag during configuring
+    # This fails the build on system clang, and OpenMP is not used in blockhash
+    inreplace "build/c4che/_cache.py", "-fopenmp", ""
     system "./waf"
     system "./waf", "install"
   end
