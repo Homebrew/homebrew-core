@@ -1,8 +1,8 @@
 class Simgrid < Formula
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://gforge.inria.fr/frs/download.php/file/37602/SimGrid-3.20.tar.gz"
-  sha256 "4d4757eb45d87cf18d990d589c31d223b0ea8cf6fcd8c94fca4d38162193cef6"
+  url "https://framagit.org/simgrid/simgrid/uploads/ddd14d9e34ee36bc90d9107f12480c28/SimGrid-3.24.tar.gz"
+  sha256 "c976ed1cbcc7ff136f6d1a8eda7d9ccf090e0e16d5239e6e631047ae9e592921"
 
   bottle do
     sha256 "a9c5cb5da50ab2b224e5d1882834d1e7c4428393e05bec3731823597a2da30e9" => :mojave
@@ -22,6 +22,8 @@ class Simgrid < Formula
     system "cmake", ".",
                     "-Denable_debug=on",
                     "-Denable_compile_optimizations=off",
+                    "-DCMAKE_C_COMPILER=clang",
+                    "-DCMAKE_CXX_COMPILER=clang++",
                     *std_cmake_args
     system "make", "install"
   end
