@@ -1,8 +1,8 @@
 class Sparse < Formula
   desc "Static C code analysis tool"
   homepage "https://sparse.wiki.kernel.org/"
-  url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.0.tar.xz"
-  sha256 "faad3d038e22024280bbd7d6093e9c22dc6333ab7db3638079b93036e43fc277"
+  url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.1.tar.xz"
+  sha256 "fdb05c84c8a62833b0920a0f855708b3843cb00df64d1582cba1c1da7df65b61"
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
 
   bottle do
@@ -13,7 +13,18 @@ class Sparse < Formula
     sha256 "e2e13c56e25ecd0f95558263931d2f4b31b533126e289b95e8ef8f5db4fa1e22" => :sierra
   end
 
+  depends_on "gcc" if DevelopmentTools.clang_build_version < 1100
+
+  # error: use of unknown builtin '__builtin_clrsb'
+  fails_with :clang if DevelopmentTools.clang_build_version < 1100
+
   def install
+    # BSD "install" does not understand the GNU -D flag.
+    # Create the parent directories ourselves.
+    inreplace "Makefile", "install -D", "install"
+    bin.mkpath
+    man1.mkpath
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 
