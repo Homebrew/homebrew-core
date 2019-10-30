@@ -267,12 +267,6 @@ class Nbdime < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    To enable the git integration run
-      nbdime config-git --enable --global
-  EOS
-  end
-
   test do
     (testpath/"old.ipynb").write <<~EOS
       {
