@@ -1,8 +1,8 @@
 class Cli53 < Formula
   desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
-  url "https://github.com/barnybug/cli53/archive/0.8.15.tar.gz"
-  sha256 "6b9fcce93071782f9cdfe1a05f098aa08e83f317a0685c2a7f09bafb7d74d24f"
+  url "https://github.com/barnybug/cli53/archive/0.8.16.tar.gz"
+  sha256 "e1cc35c471b06e12580344c15f30c49b161e07a4c900401372024f141d96646d"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,11 +16,14 @@ class Cli53 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/barnybug"
-    ln_s buildpath, buildpath/"src/github.com/barnybug/cli53"
 
-    system "make", "build"
-    bin.install "cli53"
+    dir = buildpath/"src/github.com/barnybug/cli53"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-o", bin/"cli53", "./cmd/cli53"
+      prefix.install_metafiles
+    end
   end
 
   test do
