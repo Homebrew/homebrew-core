@@ -2,8 +2,8 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.0.1",
-    :revision => "d19f0e1c5dcbef2d3852cff5d3f73ede1a204964"
+    :tag      => "3.0.3",
+    :revision => "33ac3d34d129b40c41cd45ef0f51662646682180"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,11 +13,6 @@ class Cheat < Formula
   end
 
   depends_on "go" => :build
-
-  patch do
-    url "https://github.com/cheat/cheat/pull/486.patch?full_index=1"
-    sha256 "ea7839da450d1f59850c880a2c972ca284fff004a52bb9e5d83d95355ae53c25"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
