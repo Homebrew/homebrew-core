@@ -1,9 +1,8 @@
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
-  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.0/rrdtool-1.7.0.tar.gz"
-  sha256 "f97d348935b91780f2cd80399719e20c0b91f0a23537c0a85f9ff306d4c5526b"
-  revision 2
+  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.2/rrdtool-1.7.2.tar.gz"
+  sha256 "a199faeb7eff7cafc46fac253e682d833d08932f3db93a550a4a5af180ca58db"
 
   bottle do
     cellar :any
@@ -36,6 +35,8 @@ class Rrdtool < Formula
       --disable-perl-site-install
       --disable-ruby-site-install
     ]
+
+    inreplace "configure", /^sleep 1$/, "#sleep 1"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
