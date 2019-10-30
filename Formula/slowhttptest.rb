@@ -1,9 +1,8 @@
 class Slowhttptest < Formula
   desc "Simulates application layer denial of service attacks"
   homepage "https://github.com/shekyan/slowhttptest"
-  url "https://github.com/shekyan/slowhttptest/archive/v1.7.tar.gz"
-  sha256 "9fd3ce4b0a7dda2e96210b1e438c0c8ec924a13e6699410ac8530224b29cfb8e"
-  revision 1
+  url "https://github.com/shekyan/slowhttptest/archive/v1.8.tar.gz"
+  sha256 "31f7f1779c3d8e6f095ab19559ea515b5397b5c021573ade9cdba2ee31aaef11"
   head "https://github.com/shekyan/slowhttptest.git"
 
   bottle do
@@ -17,10 +16,6 @@ class Slowhttptest < Formula
   depends_on "openssl@1.1"
 
   def install
-    # Patch for OpenSSL 1.1 compatibility, submitted upstream
-    # https://github.com/shekyan/slowhttptest/pull/53
-    inreplace "configure", "SSL_library_init", "SSL_new"
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
