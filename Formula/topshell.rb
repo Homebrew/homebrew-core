@@ -2,7 +2,7 @@ require "language/node"
 
 class Topshell < Formula
   desc "Purely functional, reactive scripting language"
-  homepage "http://show.ahnfelt.net/topshell/"
+  homepage "https://github.com/topshell-language/topshell"
   url "https://github.com/topshell-language/topshell/archive/v0.7.7.tar.gz"
   sha256 "a24c759b231fbd5aaed3409ed5d12e98ae2987cc27672fef27964a21017dccd6"
 
