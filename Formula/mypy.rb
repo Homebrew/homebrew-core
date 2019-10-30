@@ -4,6 +4,7 @@ class Mypy < Formula
   url "https://github.com/python/mypy.git",
       :tag      => "v0.740",
       :revision => "0662772b5a6b9029da0cf4aec857b9b1e34057a9"
+  revision 1
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -67,6 +68,7 @@ class Mypy < Formula
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    ENV["MYPY_USE_MYPYC"] = "1"
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
