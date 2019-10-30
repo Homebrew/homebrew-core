@@ -348,13 +348,10 @@ class Nbdime < Formula
        "nbformat_minor": 1
       }
     EOS
+    # sadly no special exit code if files are the same
     diff_output = shell_output("#{bin}/nbdiff --no-color old.ipynb new.ipynb")
     assert_match "nbdiff old.ipynb new.ipynb", diff_output
     assert_match /--- old.ipynb  \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{6}/, diff_output
     assert_match /\+\+\+ new.ipynb  \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}.\d{6}/, diff_output
-    assert_match "## replaced (type changed from NoneType to int) /cells/0/execution_count:", diff_output
-    assert_match "-  None", diff_output
-    assert_match "+  1", diff_output
-    assert_match "## inserted before /cells/0/outputs/0:", diff_output
   end
 end
