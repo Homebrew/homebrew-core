@@ -2,8 +2,8 @@ class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
   url "https://github.com/bitnami-labs/sealed-secrets.git",
-      :tag      => "v0.9.2",
-      :revision => "4315de9a5428cbdfd1fcd53efa19ab9443b2defe"
+      :tag      => "v0.9.3",
+      :revision => "148bc89a8d8f150c5146c1b81ae9d3736e3ed719"
   sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
 
   bottle do
@@ -25,7 +25,7 @@ class Kubeseal < Formula
   test do
     # ensure build reports the (git tag) version
     output = shell_output("#{bin}/kubeseal --version")
-    assert_equal "kubeseal version: v0.9.2", output.strip
+    assert_equal "kubeseal version: v0.9.3", output.strip
 
     # ensure kubeseal can seal secrets
     secretyaml = [
