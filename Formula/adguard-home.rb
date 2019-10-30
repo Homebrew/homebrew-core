@@ -84,7 +84,40 @@ class AdguardHome < Formula
   end
 
   test do
-    output = shell_output("echo \"no\" | #{bin}/AdGuardHome 2>&1", 1)
-    assert_match "AdGuard Home, version #{version}, channel release", output
+    begin
+      require "socket"
+
+      server = TCPServer.new(0)
+      http_port = server.addr[1]
+      server.close
+
+      server = TCPServer.new(0)
+      dns_port = server.addr[1]
+      server.close
+
+      expected_output_re = /ns\d{1,}\.google\.com\./
+
+      (testpath/"AdGuardHome.yaml").write <<~EOS
+        bind_host: localhost
+        bind_port: #{http_port}
+        dns:
+          bind_host: localhost
+          port: #{dns_port}
+          bootstrap_dns:
+            - '1.1.1.1'
+      EOS
+
+      pid = fork do
+        exec bin/"AdGuardHome", "-w", "#{testpath}", "-c", "#{testpath}/AdGuardHome.yaml", "--pidfile", "#{testpath}/httpd.pid"
+      end
+      sleep 3
+
+      assert_block do
+        shell_output("dig @127.0.0.1 -p #{dns_port} google.com NS +short").split("\n").all? { |ns| ns =~ expected_output_re }
+      end
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end
