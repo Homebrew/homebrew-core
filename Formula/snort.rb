@@ -1,14 +1,11 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
-  mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
-  sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
-  revision 1
+  url "https://www.snort.org/downloads/snort/snort-2.9.15.tar.gz"
+  sha256 "bfb437746446ef72a03c501db13cd6da5edd2b41f55c80c437ba288be6da7dba"
 
   bottle do
     cellar :any
-    rebuild 2
     sha256 "21333e3b46c2a9e9b64661a891a0d16558c888d9b260b1a713a7583d98e8999c" => :catalina
     sha256 "a900ea0646b89f1152f16dd0e86df4a5f8bd8de73269653bc4b6629110467bc0" => :mojave
     sha256 "a69f95c8452769835680ea5410db5c853749539758ebdb7aa38ed5ec1dde2a02" => :high_sierra
@@ -42,6 +39,7 @@ class Snort < Formula
       --enable-reload
       --enable-sourcefire
       --enable-targetbased
+      --disable-control-socket
       --with-openssl-includes=#{openssl.opt_include}
       --with-openssl-libraries=#{openssl.opt_lib}
       --with-libpcap-includes=#{libpcap.opt_include}
