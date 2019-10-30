@@ -1,8 +1,8 @@
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v1.6.5.tar.gz"
-  sha256 "50f069db2fa713024a19bf708add7812f3420b0c107eb68cd9907d76e375a06d"
+  url "https://github.com/o2sh/onefetch/archive/v1.7.0.tar.gz"
+  sha256 "b0fd4862a1f2847688ce9739eba7a28b732e6fb966086987f4276edd88aac362"
 
   bottle do
     cellar :any_skip_relocation
