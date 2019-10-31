@@ -1,6 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz"
