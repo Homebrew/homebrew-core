@@ -12,6 +12,6 @@ class YarnCompletion < Formula
 
   test do
     assert_match "complete -F _yarn yarn",
-      shell_output("source #{bash_completion}/yarn && complete -p yarn")
+      shell_output("bash -c 'source #{bash_completion}/yarn && complete -p yarn'")
   end
 end
