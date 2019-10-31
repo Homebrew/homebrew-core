@@ -1,8 +1,8 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.90.1.tar.gz"
-  sha256 "781b53eec72856cb94f14b015ad6b565170f9b77c4e1823b1ded645e48ea1538"
+  url "https://github.com/roboll/helmfile/archive/v0.90.2.tar.gz"
+  sha256 "52cbcdbf08f3a9f2322e79fb9f799d3ba10ac2817db408ba4afc024762a41296"
 
   bottle do
     cellar :any_skip_relocation
