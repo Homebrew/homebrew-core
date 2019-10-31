@@ -6,6 +6,8 @@ class YarnCompletion < Formula
 
   bottle :unneeded
 
+  conflicts_with "bash-completion", :because => "Bash v4+ & bash completion v2 are required"
+
   def install
     bash_completion.install "yarn-completion.bash" => "yarn"
   end
