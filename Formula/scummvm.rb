@@ -1,9 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://www.scummvm.org/frs/scummvm/2.0.0/scummvm-2.0.0.tar.xz"
-  sha256 "9784418d555ba75822d229514a05cf226b8ce1a751eec425432e6b7e128fca60"
-  revision 1
+  url "https://www.scummvm.org/frs/scummvm/2.1.0/scummvm-2.1.0.tar.xz"
+  sha256 "6b50c6596a1536b52865f556dc05ded20f86b6ffabe4bccbd746b5587b15f727"
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
@@ -13,11 +12,13 @@ class Scummvm < Formula
     sha256 "3269c1ce9326d70f62471b4e11a70f513621864c8983013d21129bf54f68e297" => :sierra
   end
 
+  depends_on "a52dec"
   depends_on "faad2"
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
+  depends_on "libmpeg2"
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
@@ -25,7 +26,9 @@ class Scummvm < Formula
   depends_on "theora"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-release"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-release",
+                          "--with-sdl-prefix=#{Formula["sdl2"].opt_prefix}"
     system "make"
     system "make", "install"
     (share+"pixmaps").rmtree
