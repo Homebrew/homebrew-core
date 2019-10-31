@@ -1,9 +1,8 @@
 class Residualvm < Formula
   desc "3D graphic adventure game interpreter"
   homepage "https://residualvm.org/"
-  url "https://downloads.sourceforge.net/project/residualvm/residualvm/0.2.1/residualvm-0.2.1-sources.tar.bz2"
-  sha256 "cd2748a665f80b8c527c6dd35f8435e718d2e10440dca10e7765574c7402d924"
-  revision 1
+  url "https://github.com/residualvm/residualvm/archive/0.3.1.tar.gz"
+  sha256 "515b02129dd374bc9c0b732ddeaaaa3a342cc25ea0ea3c4ccf19141b5d362e1d"
   head "https://github.com/residualvm/residualvm.git"
 
   bottle do
@@ -19,15 +18,25 @@ class Residualvm < Formula
   depends_on "flac"
   depends_on "fluid-synth"
   depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "glew"
+  depends_on "jpeg-turbo"
+  depends_on "libmpeg2"
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "sdl"
+  depends_on "sdl2"
   depends_on "theora"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-release"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-release",
+                          "--enable-cloud",
+                          "--enable-faad",
+                          "--enable-flac",
+                          "--enable-fluidsynth",
+                          "--enable-libcurl",
+                          "--enable-opengl-shaders",
+                          "--with-sdl-prefix=#{Formula["sdl2"].opt_prefix}"
     system "make"
     system "make", "install"
     (share+"icons").rmtree
