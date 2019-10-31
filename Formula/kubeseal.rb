@@ -2,15 +2,15 @@ class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
   url "https://github.com/bitnami-labs/sealed-secrets.git",
-      :tag      => "v0.9.2",
-      :revision => "4315de9a5428cbdfd1fcd53efa19ab9443b2defe"
+      :tag      => "v0.9.3",
+      :revision => "148bc89a8d8f150c5146c1b81ae9d3736e3ed719"
   sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8a804160fd871f138b1403b9d07ca695783bc6a6fa8c8cd4869a8acad8dc032" => :catalina
-    sha256 "46fae70b8d1773c55c11ae24a951e743fe1009ae80c8a2d1b428607f55a8873b" => :mojave
-    sha256 "ef747c826564b259240d6cd64c70292af508661d7cda40ee1a50011da2189ee0" => :high_sierra
+    sha256 "3162299c925b17c9fa111c1a76e007898f11f96f597948094c0e195fee9cdb09" => :catalina
+    sha256 "aaa6abcac1d462aa997042bee74ce291eed226536e41f234347ad7c19710700a" => :mojave
+    sha256 "0a48761811dcf8cc97e928fdcbff3116ad42e449ab344b992ded15ac164d5fc1" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -25,7 +25,7 @@ class Kubeseal < Formula
   test do
     # ensure build reports the (git tag) version
     output = shell_output("#{bin}/kubeseal --version")
-    assert_equal "kubeseal version: v0.9.2", output.strip
+    assert_equal "kubeseal version: v0.9.3", output.strip
 
     # ensure kubeseal can seal secrets
     secretyaml = [

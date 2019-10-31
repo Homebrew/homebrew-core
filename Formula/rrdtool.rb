@@ -1,16 +1,13 @@
 class Rrdtool < Formula
   desc "Round Robin Database"
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
-  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.0/rrdtool-1.7.0.tar.gz"
-  sha256 "f97d348935b91780f2cd80399719e20c0b91f0a23537c0a85f9ff306d4c5526b"
-  revision 2
+  url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.2/rrdtool-1.7.2.tar.gz"
+  sha256 "a199faeb7eff7cafc46fac253e682d833d08932f3db93a550a4a5af180ca58db"
 
   bottle do
-    cellar :any
-    sha256 "fdf30d365db065b6b6a7b7d48d86122dde11d1f0ef4a8fc0d5447b4b78e3511b" => :catalina
-    sha256 "7b3548ea861690d6507de212fe55808c9120424b6b9c73a5fc9ac960b252685a" => :mojave
-    sha256 "a93a0f09da257b0e9fd429727ad1d7afbfe8ca8b19aaa299f77f6719954b8432" => :high_sierra
-    sha256 "42323cefde415bf4d129f4a619f1a40acc517f6cfa52a584aadf286c6cf72f9d" => :sierra
+    sha256 "a4d3e8bf312569dc26aca0b029ffcc297f6db4ebbef7d0317b02cf500d5cce28" => :catalina
+    sha256 "222f77c78f4cf725543038d06d198a4c7c9f3fcfdc84b86b7db6b9d056baf10e" => :mojave
+    sha256 "9c7bfeb5624aa4589c9e0894342e70ff4706b57628a0ed879d4e751146640ca3" => :high_sierra
   end
 
   head do
@@ -36,6 +33,8 @@ class Rrdtool < Formula
       --disable-perl-site-install
       --disable-ruby-site-install
     ]
+
+    inreplace "configure", /^sleep 1$/, "#sleep 1"
 
     system "./bootstrap" if build.head?
     system "./configure", *args

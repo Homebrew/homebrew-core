@@ -3,14 +3,14 @@ class VapoursynthImwri < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R47.2.tar.gz"
   sha256 "8ce4553f9fc5e5bbfb26ec9c0c5bf94be307530f947424c713ef67bc8a6d22b2"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "c44e2fff06ebddfe56ac9bc0ab1ca6d7879f6cc242ed47fdd9181b1e2b594095" => :catalina
-    sha256 "9a38930b60fdad8781f39e4daed3fb41425180b14e430ba2fa392ea4fd12326c" => :mojave
-    sha256 "5b15ff78ec77412e2d646d9f627b10d60c55da4d5a0d30c5ceaab2fae1be5380" => :high_sierra
-    sha256 "152ac072c27212c8de5bd8a6910a0bfdaa1c3ebd3d46c3e068792251a3a8ed10" => :sierra
+    sha256 "7c9a3aee7f5168f979ea811537911110d9049f12a71f30559f2d447129238a4d" => :catalina
+    sha256 "97e04bbff9be62f36606f469d8186af7b1b9471c67341c7dd8b2a9f266e57693" => :mojave
+    sha256 "0fe2d4124f3e8f82f1528059ea809a1dde095aca6ff12902de2aef04f3e81921" => :high_sierra
   end
 
   depends_on "autoconf" => :build

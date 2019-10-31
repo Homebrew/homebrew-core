@@ -3,14 +3,14 @@ class Blockhash < Formula
   homepage "https://github.com/commonsmachinery/blockhash"
   url "https://github.com/commonsmachinery/blockhash/archive/v0.3.1.tar.gz"
   sha256 "56e8d2fecf2c7658c9f8b32bfb2d29fdd0d0535ddb3082e44b45a5da705aca86"
+  revision 1
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
     cellar :any
-    sha256 "6ffdc13e9245f06147a95870dbf8b0b380bda2cb4fb0036988cf1d9f4a96ce2c" => :mojave
-    sha256 "c4b04968387672dded5493575dbc182f9a8cd43dce80943c5eaca9450cee1a44" => :high_sierra
-    sha256 "e684a55045cca7db8816b9fdb0881290c5cf80c20230dab454aef1d90f45adf4" => :sierra
-    sha256 "aadd5917fdb402fad8d6b7b02ca379cdefec0151edf0b8fa1135ccf1767e610f" => :el_capitan
+    sha256 "e5b78f0c14faf009da78d00c1b31700837bd14c42be49d5609cf2f584678006a" => :catalina
+    sha256 "d9580b0bade98b0d083d3838b1b7078894b6d3d56e758628a050345a1ddf526b" => :mojave
+    sha256 "fdba183a92f5cfea8db07f626ccf13993bc59dec11ee2e402b063133da33f2eb" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,6 +24,9 @@ class Blockhash < Formula
 
   def install
     system "./waf", "configure", "--prefix=#{prefix}"
+    # pkg-config adds -fopenmp flag during configuring
+    # This fails the build on system clang, and OpenMP is not used in blockhash
+    inreplace "build/c4che/_cache.py", "-fopenmp", ""
     system "./waf"
     system "./waf", "install"
   end

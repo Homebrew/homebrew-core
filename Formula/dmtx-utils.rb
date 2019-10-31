@@ -3,13 +3,13 @@ class DmtxUtils < Formula
   homepage "https://github.com/dmtx/dmtx-utils"
   url "https://github.com/dmtx/dmtx-utils/archive/v0.7.6.tar.gz"
   sha256 "0d396ec14f32a8cf9e08369a4122a16aa2e5fa1675e02218f16f1ab777ea2a28"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fe694e604d62e41231d194d13fde0908c12b1e6495e48409479567c2a7d5f85b" => :mojave
-    sha256 "05d42a829bd84a769a9c96d6cc26737eb86f9a32126d210cccc55fa0ceef3d22" => :high_sierra
-    sha256 "0a9fde419f3e14cb13b3f1f527e83653e66f61f054727f93da9e7b4bbd709ea6" => :sierra
-    sha256 "f9b43f0bbeada1a08355536d51c63a068d51897cf968f7d65699c6f6745f2f81" => :el_capitan
+    sha256 "b769c72ede0c30f8d66fa831a0228e1896a59bee2c1edb833cc983ffad647ff3" => :catalina
+    sha256 "2aa5a9010d8aa229b81b7b571739131420a33643814b93d23de55547ac7c0202" => :mojave
+    sha256 "dc6b4de991219302c6cc12f6bfc4ef867469f76278f77e0b7bed41e07e27f598" => :high_sierra
   end
 
   depends_on "autoconf" => :build

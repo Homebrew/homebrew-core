@@ -4,13 +4,14 @@ class Mypy < Formula
   url "https://github.com/python/mypy.git",
       :tag      => "v0.740",
       :revision => "0662772b5a6b9029da0cf4aec857b9b1e34057a9"
+  revision 1
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "504cf32ce81ae794afe4404bebacb259234355d9948542d705075d16509c73aa" => :catalina
-    sha256 "0cb7d398b33f3ae133669d84711fe027c365d363b13f6c925db52294b83bb052" => :mojave
-    sha256 "3c23f16558f156d7f7c9850c684ce73cc504e5aa64612fa531b4fd1dff4614e1" => :high_sierra
+    sha256 "f6254003146ab4e1ade60be5ab23bcca0f3e3086d2949ca1fd93c63d5ef627f0" => :catalina
+    sha256 "539a9f99c6f0118e0c6e3ee0c80e201272244ea29939fdadc3ebde276c39ef4f" => :mojave
+    sha256 "954d03c00690939582b135c17fc6aa90f24a698bdd27c4e5c6ecc7946a3c6b3d" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -67,6 +68,7 @@ class Mypy < Formula
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    ENV["MYPY_USE_MYPYC"] = "1"
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]

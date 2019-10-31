@@ -1,6 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://releases.llvm.org/9.0.0/llvm-9.0.0.src.tar.xz"
@@ -54,10 +55,9 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "2e24b1c53c61457264bb413eed57b5953105f15f674b9c1378c50c8ad62faf0e" => :catalina
-    sha256 "38b3c05f35101dcfb5502a7212aa477fe0add93dc010ceb0f8b3c56bf1e3bfad" => :mojave
-    sha256 "e16c1d5a25f5fe0fc9a10f785d36930862a07daf1115f838f7d2e62bb53ddf90" => :high_sierra
+    sha256 "a8e2475a1fc5a81f0da83a73d17fd54cc2a686f7b5d8e7ace9ea18885971415f" => :catalina
+    sha256 "418d1e365a59f1ef41b36e444ea72e60f381ba02083659e0375838d81443b151" => :mojave
+    sha256 "f9e02c2d5e6a5480e2f3f353d223acb170a9ba19fcd8d3ce38fbbc4e99a7d952" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
