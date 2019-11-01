@@ -17,8 +17,7 @@ class Tealdeer < Formula
   conflicts_with "tldr", :because => "both install `tldr` binaries"
 
   def install
-    system "cargo", "install", "--root", prefix,
-                               "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     bash_completion.install "bash_tealdeer"
   end
 
