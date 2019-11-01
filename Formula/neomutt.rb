@@ -1,9 +1,9 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/neomutt-20180716.tar.gz"
-  sha256 "bd89826980b493ba312228c9c14ffe2403e268571aea6008c6dc7ed3848de200"
-  revision 2
+  url "https://github.com/neomutt/neomutt/archive/2019-10-25.tar.gz"
+  version "20191025"
+  sha256 "e056a30b79beaa2e45c404f0a837637233782d0180702c3a7836dd4280838db1"
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
@@ -38,6 +38,6 @@ class Neomutt < Formula
 
   test do
     output = shell_output("#{bin}/neomutt -F /dev/null -Q debug_level")
-    assert_equal "debug_level=0", output.chomp
+    assert_equal "set debug_level = 0", output.chomp
   end
 end
