@@ -1,8 +1,8 @@
 class ZeroInstall < Formula
   desc "Zero Install is a decentralised software installation system"
   homepage "https://0install.net/"
-  url "https://downloads.sourceforge.net/project/zero-install/0install/2.13/0install-2.13.tar.bz2"
-  sha256 "10726e05ac262c7c5dd1ae109deddf9aa61a146db8fc75c997dd4efc3a4d35ca"
+  url "https://downloads.sf.net/project/zero-install/0install/2.14.1/0install-2.14.1.tar.bz2"
+  sha256 "7c389eef002e4849b37c9f2438679723266948191f5bcb09879c1cd5827533c5"
 
   bottle do
     cellar :any_skip_relocation
