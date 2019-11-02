@@ -17,7 +17,7 @@ class Bat < Formula
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
     fish_completion.install "assets/completions/bat.fish"
   end
