@@ -14,6 +14,8 @@ class Apel < Formula
     sha256 "00acef6949043235fc8a613c1d5dc9f58d8e365bde486d42461fc89449ff834b" => :mavericks
   end
 
+  depends_on "emacs" if MacOS.version >= :catalina
+
   def install
     system "make", "install", "PREFIX=#{prefix}",
            "LISPDIR=#{elisp}", "VERSION_SPECIFIC_LISPDIR=#{elisp}"
@@ -26,6 +28,6 @@ class Apel < Formula
       (require 'poe)
       (print (minibuffer-prompt-width))
     EOS
-    assert_equal "0", shell_output("emacs -Q --batch -l #{program}").strip
+    assert_equal "0", shell_output("#{Formula["emacs"].bin}/emacs -Q --batch -l #{program}").strip
   end
 end
