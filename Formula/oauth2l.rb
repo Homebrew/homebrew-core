@@ -15,6 +15,7 @@ class Oauth2l < Formula
   end
 
   test do
-    system "#{bin}/oauth2l", "-h"
+    assert_match "Invalid Value",
+      shell_output("#{bin}/oauth2l info abcd1234")
   end
 end
