@@ -1,7 +1,9 @@
 class Psftools < Formula
   desc "Tools for fixed-width bitmap fonts"
   homepage "https://www.seasip.info/Unix/PSF/"
-  url "https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz"
+  url "https://people.phys.ethz.ch/~myczko/debian/psftools/psftools_1.1.10.orig.tar.gz"
+  # Previous URL (upstream default URL) has changed checksum:
+  # https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz
   sha256 "1bc03214a29c4fc461a7aa11b9a3debde419b1271fa5110273ded961774e2b6f"
 
   bottle do
