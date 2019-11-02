@@ -22,7 +22,8 @@ class Ripgrep < Formula
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "cargo", "install", "--root", prefix,
+    system "cargo", "install", "--locked",
+                               "--root", prefix,
                                "--path", ".",
                                "--features", "pcre2"
 
