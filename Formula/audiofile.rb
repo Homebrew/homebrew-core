@@ -10,8 +10,8 @@ class Audiofile < Formula
     # Fixes CVE-2015-7747. Fixed upstream but doesn't apply cleanly.
     # https://github.com/mpruett/audiofile/commit/b62c902dd258125cac86cd2df21fc898035a43d3
     patch do
-      url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-4.debian.tar.xz"
-      sha256 "0620675a52bdb40b775980cc1820e308df329348bb847f9a4a8361b3799fa241"
+      url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-5.debian.tar.xz"
+      sha256 "7ae94516b5bfea75031c5bab1e9cccf6a25dd438f1eda40bb601b8ee85a07daa"
       apply "patches/03_CVE-2015-7747.patch"
     end
   end
@@ -48,8 +48,8 @@ class Audiofile < Formula
   # https://github.com/mpruett/audiofile/issues/41
   # https://github.com/mpruett/audiofile/pull/42
   patch do
-    url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-4.debian.tar.xz"
-    sha256 "0620675a52bdb40b775980cc1820e308df329348bb847f9a4a8361b3799fa241"
+    url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-5.debian.tar.xz"
+    sha256 "7ae94516b5bfea75031c5bab1e9cccf6a25dd438f1eda40bb601b8ee85a07daa"
     apply "patches/04_clamp-index-values-to-fix-index-overflow-in-IMA.cpp.patch",
           "patches/05_Always-check-the-number-of-coefficients.patch",
           "patches/06_Check-for-multiplication-overflow-in-MSADPCM-decodeSam.patch",
