@@ -1,9 +1,9 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20190105.c40b723.tar.gz"
-  version "20190105"
-  sha256 "a2c29bf6aa627300444bb06b277edb7e841a83a31fbae7d33adf6f52b1019df7"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20190901.1791406.tar.gz"
+  version "20190901"
+  sha256 "e6116e9cbe461a9da08b25d897efc41d159ea6366a0500b9905d791c0d2be129"
 
   bottle do
     cellar :any_skip_relocation
