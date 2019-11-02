@@ -1,9 +1,9 @@
 class Dasm < Formula
   desc "Macro assembler with support for several 8-bit microprocessors"
-  homepage "https://dasm-dillon.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/dasm-dillon/dasm-dillon/2.20.11/dasm-2.20.11-2014.03.04-source.tar.gz"
-  sha256 "a9330adae534aeffbfdb8b3ba838322b92e1e0bb24f24f05b0ffb0a656312f36"
-  head "https://svn.code.sf.net/p/dasm-dillon/code/trunk"
+  homepage "https://dasm-assembler.github.io/"
+  url "https://github.com/dasm-assembler/dasm/archive/2.20.11.tar.gz"
+  sha256 "c69bbe192159dcf75677ca13bba65c3318dc443f2df45fccd3c060b2e092c7f5"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
