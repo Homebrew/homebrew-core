@@ -1,9 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://www.itk.org/"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.13/InsightToolkit-4.13.2.tar.gz"
-  sha256 "d8760b279de20497c432e7cdf97ed349277da1ae435be1f6f0f00fbe8d4938c1"
-  revision 1
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.0.1/InsightToolkit-5.0.1.tar.gz"
+  sha256 "613b125cbf58481e8d1e36bdeacf7e21aba4b129b4e524b112f70c4d4e6d15a6"
   head "https://itk.org/ITK.git"
 
   bottle do
@@ -20,13 +19,6 @@ class Itk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "vtk"
-
-  # Patch needed to install MINC's cmake files into #{lib}/cmake not #{lib}
-  # PR Submitted to ITK upstream: https://github.com/InsightSoftwareConsortium/ITK/pull/754
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/itk/4.13.2-MINC-cmake-files-location.patch"
-    sha256 "7ec6a55e83109332d636298e7339793ec338969211533467ff0fbfb7c1c27883"
-  end
 
   def install
     args = std_cmake_args + %W[
@@ -76,9 +68,9 @@ class Itk < Formula
 
     v = version.to_s.split(".")[0..1].join(".")
     # Build step
-    system ENV.cxx, "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
+    system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
-    system ENV.cxx, "test.cxx.o", "-o", "test",
+    system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test",
                     "#{lib}/libITKCommon-#{v}.1.dylib",
                     "#{lib}/libITKVNLInstantiation-#{v}.1.dylib",
                     "#{lib}/libitkvnl_algo-#{v}.1.dylib",
