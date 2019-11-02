@@ -1,10 +1,9 @@
 class Ipbt < Formula
   desc "Program for recording a UNIX terminal session"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20180824.dc543d3.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/ipbt-20180824.tar.gz"
-  version "20180824"
-  sha256 "8347b373252a4c7054d476a39933287a146bb0e0f9dbfe86cd23931cf9eabb5c"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20190601.d1519e0.tar.gz"
+  version "20190601"
+  sha256 "a519507fccda5e3054d3639e9abedb482a108fa8ee6fc3b1c03ba0d6a4ba48aa"
 
   bottle do
     cellar :any_skip_relocation
