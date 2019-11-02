@@ -17,6 +17,13 @@ class Pssh < Formula
 
   conflicts_with "putty", :because => "both install `pscp` binaries"
 
+  # Fix for Python 3 compatibility
+  # https://bugs.archlinux.org/task/46571
+  patch do
+    url "https://github.com/nplanel/parallel-ssh/commit/ee379dc5.diff?full_index=1"
+    sha256 "467df6024d180ea41a7e453b2d4485ef2be2a911410d8845df1b9e6b6dc301ae"
+  end
+
   def install
     # Fixes import error with python3, see https://github.com/lilydjwg/pssh/issues/70
     # fixed in master, should be removed for versions > 2.3.1
