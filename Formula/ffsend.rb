@@ -1,8 +1,8 @@
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
-  url "https://github.com/timvisee/ffsend/archive/v0.2.52.tar.gz"
-  sha256 "b5fd937604eeccd85d7b30d8510784d95497c2412da29c586430275db55043ef"
+  url "https://github.com/timvisee/ffsend/archive/v0.2.55.tar.gz"
+  sha256 "dbcf0891e0ebe3929dbe7e063bd185344d53c9d3ebde6b62d6e82297e85ed8ad"
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Ffsend < Formula
     # https://docs.rs/openssl/0.10.19/openssl/#manual
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     bash_completion.install "contrib/completions/ffsend.bash"
     fish_completion.install "contrib/completions/ffsend.fish"
