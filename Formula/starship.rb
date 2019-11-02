@@ -1,8 +1,8 @@
 class Starship < Formula
   desc "The cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/v0.25.1.tar.gz"
-  sha256 "eb560643045c7e273525db414f2936289cf9bebdc6db0615018db77d8e6e10d0"
+  url "https://github.com/starship/starship/archive/v0.26.1.tar.gz"
+  sha256 "d48e7865f8c2807ac06cadaa3599e1edc3b45b38c086b9bd3a61e118c401807b"
   head "https://github.com/starship/starship.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Starship < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
