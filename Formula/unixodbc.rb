@@ -3,6 +3,7 @@ class Unixodbc < Formula
   homepage "http://www.unixodbc.org/"
   url "http://www.unixodbc.org/unixODBC-2.3.7.tar.gz"
   sha256 "45f169ba1f454a72b8fcbb82abd832630a3bf93baa84731cf2949f449e1e3e77"
+  revision 1
 
   bottle do
     rebuild 1
@@ -12,6 +13,7 @@ class Unixodbc < Formula
     sha256 "44407c41dc2c5cc58fcd2c254fa54ede75e7782b82567f4f1ba421d357203105" => :sierra
   end
 
+  depends_on "libiconv"
   depends_on "libtool"
 
   conflicts_with "libiodbc", :because => "both install 'odbcinst.h' header"
@@ -23,11 +25,21 @@ class Unixodbc < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--enable-static",
-                          "--enable-gui=no"
+                          "--enable-gui=no",
+                          "--with-libiconv-prefix=#{Formula["libiconv"].prefix}"
     system "make", "install"
   end
 
   test do
     system bin/"odbcinst", "-j"
+    (testpath/"test.c").write <<~EOS
+      #include <sql.h>
+      int main() {
+          SQLFreeConnect(0);
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "#{lib}/libodbc.a", "#{Formula["libtool"].lib}/libltdl.a", "#{Formula["libiconv"].lib}/libiconv.a", "-o", "test"
+    system "./test"
   end
 end
