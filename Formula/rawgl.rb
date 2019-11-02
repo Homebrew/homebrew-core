@@ -16,6 +16,12 @@ class Rawgl < Formula
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
+  # Upstream fix for SDL2_mixer >= 2.0.2
+  patch do
+    url "https://github.com/cyxx/rawgl/commit/483492fb.diff?full_index=1"
+    sha256 "7af13dfa6cd1e042b6bbaf789da88471e326a411ccac3dac4c6c4c1124e8a153"
+  end
+
   def install
     system "make"
     bin.install "rawgl"
