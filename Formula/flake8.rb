@@ -3,8 +3,8 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.8/flake8-3.7.8.tar.bz2"
-  sha256 "c379edcba8b53cc119ac782ecb75c35571bfa440248821a1e1a8b012b289c43c"
+  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.9/flake8-3.7.9.tar.bz2"
+  sha256 "2fd4dfaaeb507e1bb5a598f76e61eca50d27930e550c215f73ed2e5454681c1e"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
