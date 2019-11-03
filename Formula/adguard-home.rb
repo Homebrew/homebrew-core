@@ -95,7 +95,7 @@ class AdguardHome < Formula
       dns_port = server.addr[1]
       server.close
 
-      expected_output_re = /ns\d{1,}\.google\.com\./
+      expected_output_re = /ns\d+\.google\.com\./
 
       (testpath/"AdGuardHome.yaml").write <<~EOS
         bind_host: localhost
