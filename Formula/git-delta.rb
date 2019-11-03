@@ -19,7 +19,7 @@ class GitDelta < Formula
   conflicts_with "delta", :because => "both install a `delta` binary"
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
