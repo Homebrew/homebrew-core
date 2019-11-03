@@ -24,7 +24,7 @@ class Miniserve < Formula
       system "./install.sh", "--prefix=#{buildpath}/rust-nightly"
       ENV.prepend_path "PATH", "#{buildpath}/rust-nightly/bin"
     end
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
