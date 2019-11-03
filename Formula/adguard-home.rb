@@ -35,21 +35,6 @@ class AdguardHome < Formula
     end
   end
 
-  def caveats; <<~EOS
-    On the first run, you have to go through the initial configuration
-    wizard. Open your web browser and go to:
-      http://127.0.0.1:3000
-
-    After starting and configuring AdGuardHome, you will need to point your
-    local DNS server to 127.0.0.1. You can do this by going to
-    System Preferences > "Network" and clicking the "Advanced..."
-    button for your interface. You will see a "DNS" tab where you
-    can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
-    By default, AdGuardHome runs on localhost (127.0.0.1), port 53,
-    balancing traffic across a set of resolvers.
-  EOS
-  end
-
   plist_options :startup => true
 
   def plist; <<~EOS
