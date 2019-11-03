@@ -32,7 +32,7 @@ class HowardHinnantDate < Formula
         std::cout << t << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-ltz", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-ltz", "-o", "test"
     system "./test"
   end
 end
