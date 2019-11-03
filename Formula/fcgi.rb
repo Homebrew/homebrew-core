@@ -38,7 +38,7 @@ class Fcgi < Formula
         while (FCGI_Accept() >= 0){
         printf("Request number %d running on host %s", ++count, getenv("SERVER_HOSTNAME"));}}
     EOS
-    system ENV.cc, "testfile.c", "-lfcgi", "-o", "testfile"
+    system ENV.cc, "testfile.c", "-L#{lib}", "-lfcgi", "-o", "testfile"
     assert_match "Request number 1 running on host", shell_output("./testfile")
   end
 end
