@@ -5,6 +5,7 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
   mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
   sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
+  revision 1
 
   bottle do
     sha256 "8de07ab7df9b5bdcc3761e614fc1a9ff6b56a171d1c1f6d47591ed9646901bcd" => :catalina
@@ -32,14 +33,26 @@ class Gmt < Formula
     sha256 "8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3"
   end
 
+  # The following two patches fix a problem in detecting locally installed
+  # html pages (https://github.com/GenericMappingTools/gmt/issues/1960).
+  # They must be removed when GMT 6.0.1 is released.
+  patch do
+    url "https://github.com/GenericMappingTools/gmt/commit/b65dc6ebe7eba396b57dbad59e85b7ba7e8e2908.patch?full_index=1"
+  end
+
+  patch do
+    url "https://github.com/GenericMappingTools/gmt/commit/daf646554a25cf1a4a94255b694afc43028f9696.patch?full_index=1"
+  end
+
   def install
     (buildpath/"gshhg").install resource("gshhg")
     (buildpath/"dcw").install resource("dcw")
 
+    # GMT_DOCDIR and GMT_MANDIR must be relative paths
     args = std_cmake_args.concat %W[
       -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DGMT_DOCDIR=#{share}/doc/gmt
-      -DGMT_MANDIR=#{man}
+      -DGMT_DOCDIR=share/doc/gmt
+      -DGMT_MANDIR=share/man
       -DGSHHG_ROOT=#{buildpath}/gshhg
       -DCOPY_GSHHG:BOOL=TRUE
       -DDCW_ROOT=#{buildpath}/dcw
