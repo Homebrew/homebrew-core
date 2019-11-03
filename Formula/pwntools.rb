@@ -5,7 +5,7 @@ class Pwntools < Formula
   homepage "https://github.com/Gallopsled/pwntools"
   url "https://github.com/Gallopsled/pwntools/archive/3.12.2.tar.gz"
   sha256 "8e048b514ee449b4c76f4eba1b4fcd48fdefd1bf04ae4c62b44e984923d2e979"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,12 +16,12 @@ class Pwntools < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   conflicts_with "moreutils", :because => "Both install `errno` binaries"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name
