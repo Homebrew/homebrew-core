@@ -13,6 +13,9 @@ class Rhash < Formula
   end
 
   def install
+    # Work around Xcode 11 code generation bug
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
