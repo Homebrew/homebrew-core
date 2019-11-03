@@ -1,8 +1,9 @@
 class Wxmac < Formula
   desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2"
-  sha256 "fffc1d34dac54ff7008df327907984b156c50cff5a2f36ee3da6052744ab554a"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2"
+  sha256 "96157f988d261b7368e5340afa1a0cad943768f35929c22841f62c25b17bf7f0"
+  revision 2
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
@@ -13,14 +14,21 @@ class Wxmac < Formula
     sha256 "691e2e49b33f78d1189386cf969bfe1f292d3644dbfdf67b92a795656e50870a" => :sierra
   end
 
+  devel do
+    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.3/wxWidgets-3.1.3.tar.bz2"
+    sha256 "fffc1d34dac54ff7008df327907984b156c50cff5a2f36ee3da6052744ab554a"
+  end
+
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
 
-  # Adjust assertion which fails for wxGLCanvas due to changes in macOS 10.14.
-  # Patch taken from upstream WX_3_0_BRANCH:
-  # https://github.com/wxWidgets/wxWidgets/commit/531fdbcb64b265e6f24f1f0cc7469f308b9fb697
-  patch :DATA
+  stable do
+    # Adjust assertion which fails for wxGLCanvas due to changes in macOS 10.14.
+    # Patch taken from upstream WX_3_0_BRANCH:
+    # https://github.com/wxWidgets/wxWidgets/commit/531fdbcb64b265e6f24f1f0cc7469f308b9fb697
+    patch :DATA
+  end
 
   def install
     args = [
