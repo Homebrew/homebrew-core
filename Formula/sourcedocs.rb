@@ -10,10 +10,10 @@ class Sourcedocs < Formula
     sha256 "7a7c4205340af10ab3cb41ea097f3be5fcf134c461c84869216b568aaa86b429" => :high_sierra
   end
 
-  depends_on :xcode => ["9.3", :build, :test]
+  depends_on :xcode => ["10.3", :build, :test]
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", "-static-stdlib"
+    system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/sourcedocs"
   end
 
