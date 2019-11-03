@@ -38,7 +38,7 @@ class Idutils < Formula
   end
 
   test do
-    system bin/"mkid", "/usr/include"
+    system bin/"mkid", "#{MacOS.sdk_path}/usr/include"
     system bin/"lid", "FILE"
   end
 end
