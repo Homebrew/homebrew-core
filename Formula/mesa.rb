@@ -3,6 +3,7 @@ class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
   url "https://mesa.freedesktop.org/archive/mesa-19.1.7.tar.xz"
+  mirror "https://www.mesa3d.org/archive/mesa-19.1.7.tar.xz"
   sha256 "e287920fdb38712a9fed448dc90b3ca95048c7face5db52e58361f8b6e0f3cd5"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
