@@ -30,9 +30,9 @@ class Jabba < Formula
 
   test do
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "1.11.0"
-    jdk_path = Utils.popen_read("#{bin}/jabba which 1.11.0").strip
-    assert_match 'java version "11.0',
+    system bin/"jabba", "install", "1.13.0"
+    jdk_path = Utils.popen_read("#{bin}/jabba which 1.13.0").strip
+    assert_match 'java version "13.0',
                  shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
   end
 end
