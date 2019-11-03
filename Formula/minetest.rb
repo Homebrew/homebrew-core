@@ -3,12 +3,12 @@ class Minetest < Formula
   homepage "https://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.0.1.tar.gz"
-    sha256 "aa771cf178ad1b436d5723e5d6dd24e42b5d56f1cfe9c930f6426b7f24bb1635"
+    url "https://github.com/johnlockard/minetest/archive/5.1.0.tar.gz"
+    sha256 "4180c94cc1fd8d2e502c223485ae60bd6c2c2fbe2164cc33b5fc83061fd3d364"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.0.1.tar.gz"
-      sha256 "965d2cf3ac8c822bc9e60fb8f508182fb2f24dde46f46b000caf225ebe2ec519"
+      url "https://github.com/minetest/minetest_game/archive/5.1.0.tar.gz"
+      sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
     end
   end
 
@@ -29,11 +29,16 @@ class Minetest < Formula
   depends_on "cmake" => :build
   depends_on "freetype"
   depends_on "gettext"
+  depends_on "hiredis"
   depends_on "irrlicht"
   depends_on "jpeg"
+  depends_on "leveldb"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "luajit"
+  depends_on "postgresql"
+  depends_on "spatialindex"
+  depends_on :x11
 
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
@@ -58,5 +63,19 @@ class Minetest < Formula
       If you would like to start the Minetest server from a terminal, run
       "/Applications/minetest.app/Contents/MacOS/minetest --server".
     EOS
+  end
+
+  test do
+    #
+    # --help and --version produce output directly.
+    # --speedtests and --videomodes need user data directory in order to work.
+    # --info and --trace need user data directory and run the game.
+    #
+    # --run-unittests and --speedtests do not work for Homebrew.
+    #
+    # Debug File: all test information should wind up in here.
+    #
+    (testpath/"Library/Application Support/minetest/debug.txt").write("")
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--videomodes"
   end
 end
