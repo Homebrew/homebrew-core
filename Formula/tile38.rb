@@ -1,8 +1,8 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
-  url "https://github.com/tidwall/tile38/archive/1.18.0.tar.gz"
-  sha256 "75b085b1b45ae288b4b42687925cad1dda1276a7c6d08807d12b8f78374be6a5"
+  url "https://github.com/tidwall/tile38/archive/1.19.0.tar.gz"
+  sha256 "4317f3753c941b48e22ea61f3425fb5c2fd345fbeb5415f06396fa0af3ad35d1"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
@@ -73,7 +73,8 @@ class Tile38 < Formula
       exec "#{bin}/tile38-server", "-q"
     end
     sleep 2
-    json_output = shell_output("#{bin}/tile38-cli server")
+    # remove `$408` in the first line output
+    json_output = shell_output("#{bin}/tile38-cli server").lines[1]
     tile38_server = JSON.parse(json_output)
     assert_equal tile38_server["ok"], true
   ensure
