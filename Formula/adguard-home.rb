@@ -93,7 +93,15 @@ class AdguardHome < Formula
       EOS
 
       pid = fork do
-        exec bin/"AdGuardHome", "-w", "#{testpath}", "-c", "#{testpath}/AdGuardHome.yaml", "--pidfile", "#{testpath}/httpd.pid"
+        exec(
+          bin/"AdGuardHome",
+          "-w",
+          "#{testpath}",
+          "-c",
+          "#{testpath}/AdGuardHome.yaml",
+          "--pidfile",
+          "#{testpath}/httpd.pid",
+        )
       end
       sleep 3
 
