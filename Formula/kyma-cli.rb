@@ -13,7 +13,6 @@ class KymaCli < Formula
     sha256 "58723114b1043e44686c6d07bdc241bb1bcd2f1f6e85317017b480acedc52800" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -22,7 +21,6 @@ class KymaCli < Formula
     bin_path.install Dir["*"]
 
     cd bin_path do
-      system "dep", "ensure", "-vendor-only"
       system "make", "build-darwin"
       bin.install "bin/kyma-darwin" => "kyma"
     end
