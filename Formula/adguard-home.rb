@@ -105,9 +105,8 @@ class AdguardHome < Formula
       end
       sleep 3
 
-      assert_block do
-        shell_output("dig @127.0.0.1 -p #{dns_port} google.com NS +short").split("\n").all? { |ns| ns =~ expected_output_re }
-      end
+      shell_output("dig @127.0.0.1 -p #{dns_port} google.com NS +short")
+      .lines.each { |ns| assert_match expected_output_re, ns }
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
