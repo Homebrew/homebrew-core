@@ -18,7 +18,7 @@ class Sk < Formula
   def install
     (buildpath/"src/github.com/lotabout").mkpath
     ln_s buildpath, buildpath/"src/github.com/lotabout/skim"
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     pkgshare.install "install"
     bash_completion.install "shell/key-bindings.bash"
