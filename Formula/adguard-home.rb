@@ -69,48 +69,46 @@ class AdguardHome < Formula
   end
 
   test do
-    begin
-      require "socket"
+    require "socket"
 
-      server = TCPServer.new(0)
-      http_port = server.addr[1]
-      server.close
+    server = TCPServer.new(0)
+    http_port = server.addr[1]
+    server.close
 
-      server = TCPServer.new(0)
-      dns_port = server.addr[1]
-      server.close
+    server = TCPServer.new(0)
+    dns_port = server.addr[1]
+    server.close
 
-      expected_output_re = /ns\d+\.google\.com\./
+    expected_output_re = /ns\d+\.google\.com\./
 
-      (testpath/"AdGuardHome.yaml").write <<~EOS
+    (testpath/"AdGuardHome.yaml").write <<~EOS
+      bind_host: localhost
+      bind_port: #{http_port}
+      dns:
         bind_host: localhost
-        bind_port: #{http_port}
-        dns:
-          bind_host: localhost
-          port: #{dns_port}
-          bootstrap_dns:
-            - '1.1.1.1'
-      EOS
+        port: #{dns_port}
+        bootstrap_dns:
+          - '1.1.1.1'
+    EOS
 
-      pid = fork do
-        exec(
-          bin/"AdGuardHome",
-          "-w",
+    pid = fork do
+      exec(
+        bin/"AdGuardHome",
+        "-w",
         testpath.to_s,
-          "-c",
-          "#{testpath}/AdGuardHome.yaml",
-          "--pidfile",
-          "#{testpath}/httpd.pid",
-        )
-      end
-      sleep 3
+        "-c",
+        "#{testpath}/AdGuardHome.yaml",
+        "--pidfile",
+        "#{testpath}/httpd.pid",
+      )
+    end
+    sleep 3
 
-      shell_output("dig @127.0.0.1 -p #{dns_port} google.com NS +short")
+    shell_output("dig @127.0.0.1 -p #{dns_port} google.com NS +short")
       .lines
       .each { |ns| assert_match expected_output_re, ns }
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
-    end
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end
