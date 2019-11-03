@@ -15,7 +15,7 @@ class Shadowenv < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "#{buildpath}/man/man1/shadowenv.1"
     man5.install "#{buildpath}/man/man5/shadowlisp.5"
   end
