@@ -16,7 +16,7 @@ class Gleam < Formula
   depends_on "rebar3"
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "gleam"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "gleam"
   end
 
   test do
