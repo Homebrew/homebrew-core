@@ -1,8 +1,8 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.2.4.tar.gz"
-  sha256 "5b6590c82cd5f6cbfe09e89ce52622208f5d4b24e021fce7646204b417bd1d2e"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.3.0.tar.gz"
+  sha256 "d8378e82e392c70f5c20cb08705687da30cd427f2bca539939311512777e6659"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
@@ -18,21 +18,36 @@ class Offlineimap < Formula
   depends_on "sphinx-doc" => :build
   depends_on "python@2" # does not support Python 3
 
+  resource "rfc6555" do
+    url "https://files.pythonhosted.org/packages/58/a8/1dfba2db1f744657065562386069e547eefea9432d3f520d4af5b5fabd28/rfc6555-0.0.0.tar.gz"
+    sha256 "191cbba0315b53654155321e56a93466f42cd0a474b4f341df4d03264dcb5217"
+  end
+
+  resource "selectors2" do
+    url "https://files.pythonhosted.org/packages/a4/54/d690d931777ca7310562997fab09019582e6e557984c02d7647f3654f7f5/selectors2-2.0.1.tar.gz"
+    sha256 "81b77c4c6f607248b1d6bbdb5935403fef294b224b842a830bbfabb400c81884"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
     sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install
+    xy = Language::Python.major_minor_version "python2"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "docs"
     man1.install "docs/offlineimap.1"
     man7.install "docs/offlineimapui.7"
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resource("six").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
-    end
     etc.install "offlineimap.conf", "offlineimap.conf.minimal"
     libexec.install "bin/offlineimap" => "offlineimap.py"
     libexec.install "offlineimap"
