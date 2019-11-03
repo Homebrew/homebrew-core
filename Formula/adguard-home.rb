@@ -96,7 +96,7 @@ class AdguardHome < Formula
         exec(
           bin/"AdGuardHome",
           "-w",
-          "#{testpath}",
+        testpath.to_s,
           "-c",
           "#{testpath}/AdGuardHome.yaml",
           "--pidfile",
