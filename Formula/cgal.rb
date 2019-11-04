@@ -1,8 +1,8 @@
 class Cgal < Formula
-  desc "Computational Geometry Algorithm Library"
+  desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.14.1/CGAL-4.14.1.tar.xz"
-  sha256 "d4ec2528b88a7c3a07b0b86db96c216822f85b951bf4bc7f9d1f26bf6c369afe"
+  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-5.0/CGAL-5.0.tar.xz"
+  sha256 "e1e7e932988c5d149aa471c1afd69915b7603b5b31b9b317a0debb20ecd42dcc"
 
   bottle do
     cellar :any
@@ -19,8 +19,7 @@ class Cgal < Formula
 
   def install
     args = std_cmake_args + %W[
-      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
-      -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
+      -DCMAKE_CXX_FLAGS='-std=c++14'
       -DWITH_Eigen3=ON
       -DWITH_LAPACK=ON
       -DWITH_CGAL_Qt5=OFF
