@@ -3,7 +3,7 @@ class Pgrouting < Formula
   homepage "https://pgrouting.org/"
   url "https://github.com/pgRouting/pgrouting/archive/v2.6.3.tar.gz"
   sha256 "7ebef19dc698d4e85b85274f6949e77b26fe5a2b79335589bc3fbdfca977eb0f"
-  revision 1
+  revision 2
   head "https://github.com/pgRouting/pgrouting.git"
 
   bottle do
@@ -19,6 +19,12 @@ class Pgrouting < Formula
   depends_on "gmp"
   depends_on "postgis"
   depends_on "postgresql"
+
+  # Patch for CGAL 5.0. To be removed next release. see https://github.com/pgRouting/pgrouting/pull/1188 for fix upstream
+  patch do
+    url "https://cgal.geometryfactory.com/~mgimeno/pgrouting-for-cgal-5-0.diff"
+    sha256 "9dab335d9782b1214852d85a3559bc1092ea95b9abd6b5701759799050005c98"
+  end
 
   def install
     mkdir "stage"
