@@ -3,10 +3,11 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.13.1.tar.xz"
-  sha256 "adf00266dc38352a166a9739f1a24a1e36f1be9c04bf72e16e142a256436974e"
+  url "https://download.qt.io/official_releases/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+  mirror "http://qt.mirror.constant.com/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+  mirror "http://qt.mirrors.tds.net/qt/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+  sha256 "55e8273536be41f4f63064a79e552a22133848bb419400b6fa8e9fc0dc05de08"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
@@ -23,14 +24,6 @@ class Qt < Formula
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
   depends_on :macos => :sierra
-
-  # Fix QtWebEngine's chromium for Xcode 11 and macOS 10.15 SDK
-  # Upstream patch, remove in next version
-  # https://bugreports.qt.io/browse/QTBUG-78997
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9cc60b1e/qt/QTBUG-78997.diff"
-    sha256 "9834112eaca6b903709308ee690e0315472ae82d7d4488e3a38d307fe58b2ae7"
-  end
 
   def install
     args = %W[
