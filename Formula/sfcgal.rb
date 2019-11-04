@@ -3,7 +3,7 @@ class Sfcgal < Formula
   homepage "http://sfcgal.org/"
   url "https://github.com/Oslandia/SFCGAL/archive/v1.3.7.tar.gz"
   sha256 "30ea1af26cb2f572c628aae08dd1953d80a69d15e1cac225390904d91fce031b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "ed1fe60ab20f1c5dafa487779a06becd1b5ca7dd8aaac3c59dcb8460a439ba38" => :catalina
@@ -17,6 +17,12 @@ class Sfcgal < Formula
   depends_on "cgal"
   depends_on "gmp"
   depends_on "mpfr"
+
+  # Patch for CGAL-5.0. To be removed next release. See https://github.com/Oslandia/SFCGAL/pull/197 for fix upstream
+  patch do
+    url "https://github.com/Oslandia/SFCGAL/compare/v1.3.7...sloriot:remove_auto_ptr.patch"
+    sha256 "4cc975509368df986ff634ddcf605ad6469aa01bb68659ae21d171ed2a0f5f66"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
