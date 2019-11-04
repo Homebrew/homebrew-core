@@ -25,9 +25,9 @@ class Ungit < Formula
     require "nokogiri"
 
     pid = fork do
-      exec bin/"ungit", "--no-launchBrowser", "--autoShutdownTimeout", "10000" # give it an idle timeout to make it exit
+      exec bin/"ungit", "--no-launchBrowser", "--autoShutdownTimeout", "12000" # give it an idle timeout to make it exit
     end
-    sleep 5
+    sleep 8
     assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:8448/")).at_css("title").text
   ensure
     Process.kill("TERM", pid)
