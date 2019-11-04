@@ -11,7 +11,7 @@ class Couchdb < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "spidermonkey"
 
   def install
