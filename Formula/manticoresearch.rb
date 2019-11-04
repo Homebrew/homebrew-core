@@ -66,7 +66,6 @@ class Manticoresearch < Formula
         binlog_path=#
       }
     EOS
-    system bin/"searchd"
     pid = fork do
       exec bin/"searchd"
     end
