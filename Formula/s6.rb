@@ -1,8 +1,8 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.8.0.1.tar.gz"
-  sha256 "dbe08f5b76c15fa32a090779b88fb2de9a9a107c3ac8ce488931dd39aa1c31d8"
+  url "https://skarnet.org/software/s6/s6-2.9.0.1.tar.gz"
+  sha256 "e0cdbaf26e3ba1c41ecc0a8d1f45fb78194f96109b55cabeb849528b7e966c57"
 
   bottle do
     sha256 "e10f7001d61d1e9effd0c5bceef485301ce37fcf7efb84b77297621df70d31d7" => :catalina
@@ -12,13 +12,13 @@ class S6 < Formula
   end
 
   resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.8.1.0.tar.gz"
-    sha256 "431c6507b4a0f539b6463b4381b9b9153c86ad75fa3c6bfc9dc4722f00b166ba"
+    url "https://skarnet.org/software/skalibs/skalibs-2.9.1.0.tar.gz"
+    sha256 "d3b204afc462b9659e0c16f6df1c796e7612534f537eec053529f67ddcd086a5"
   end
 
   resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.5.1.0.tar.gz"
-    sha256 "b1a756842947488404db8173bbae179d6e78b6ef551ec683acca540ecaf22677"
+    url "https://skarnet.org/software/execline/execline-2.5.3.0.tar.gz"
+    sha256 "05205c6869ae65a51c63d0e805572573806f6474aa21e12c49dd5654d3ceed33"
   end
 
   def install
