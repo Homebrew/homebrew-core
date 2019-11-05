@@ -1,8 +1,8 @@
 class Yacas < Formula
   desc "General purpose computer algebra system"
   homepage "https://www.yacas.org/"
-  url "https://github.com/grzegorzmazur/yacas/archive/v1.6.1.tar.gz"
-  sha256 "6b94394f705bed70a9d104967073efd6c23e9eb1a832805c4d805ef875555ae5"
+  url "https://github.com/grzegorzmazur/yacas/archive/v1.8.0.tar.gz"
+  sha256 "25ebdafaec032eb4f39a12d87afc6cf9bf63ab952479a4839a71df92da5a981b"
 
   bottle do
     cellar :any
@@ -19,11 +19,13 @@ class Yacas < Formula
     mkdir "build" do
       system "cmake", "..", "-G", "Xcode", "-DENABLE_CYACAS_GUI=OFF",
                             "-DENABLE_CYACAS_KERNEL=OFF", *std_cmake_args
-      xcodebuild "-target", "ALL_BUILD", "-project", "YACAS.xcodeproj",
+      ln_s "../libyacas/Release", "cyacas/libyacas_mp/Release"
+      xcodebuild "-project", "yacas.xcodeproj", "-scheme", "ALL_BUILD",
                  "-configuration", "Release", "SYMROOT=build/cyacas/libyacas"
     end
     bin.install "build/cyacas/libyacas/Release/yacas"
-    lib.install Dir["build/cyacas/libyacas/Release/{libyacas.a,yacas.framework}"]
+    lib.install "build/cyacas/libyacas/Release/libyacas.a",
+                "build/cyacas/libyacas/Release/libyacas_mp.a"
     pkgshare.install "scripts"
   end
 
