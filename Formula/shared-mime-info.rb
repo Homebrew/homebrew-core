@@ -42,10 +42,18 @@ class SharedMimeInfo < Formula
   end
 
   def post_install
-    ln_sf HOMEBREW_PREFIX/"share/mime", share/"mime"
-    (HOMEBREW_PREFIX/"share/mime/packages").mkpath
-    cp (pkgshare/"packages").children, HOMEBREW_PREFIX/"share/mime/packages"
-    system bin/"update-mime-database", HOMEBREW_PREFIX/"share/mime"
+    global_mime = HOMEBREW_PREFIX/"share/mime"
+    cellar_mime = share/"mime"
+
+    if !cellar_mime.exist? || !cellar_mime.symlink?
+      rm_rf cellar_mime
+      ln_sf global_mime, cellar_mime
+    end
+
+    (global_mime/"packages").mkpath
+    cp (pkgshare/"packages").children, global_mime/"packages"
+
+    system bin/"update-mime-database", global_mime
   end
 
   test do
