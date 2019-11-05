@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.7/sleuthkit-4.6.7.tar.gz"
-  sha256 "525fced79117929621fb583ed4a554a01a07e8739e9c000507acfa793f8d6915"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.7.0/sleuthkit-4.7.0.tar.gz"
+  sha256 "24b95ab1d65cc3248c6f735eae033d7090c5bb65bae12d2c1d3cffa1422fdc35"
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Sleuthkit < Formula
 
   depends_on "ant" => :build
   depends_on "afflib"
-  depends_on :java
+  depends_on :java => "1.8"
   depends_on "libewf"
   depends_on "libpq"
   depends_on "sqlite"
