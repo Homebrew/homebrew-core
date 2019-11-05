@@ -1,9 +1,8 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.2.1.tar.bz2"
-  sha256 "1139c24b7372f89c0a697096bf9809be70ba55e006c23ff47305c1849d98acda"
-  revision 2
+  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.0.tar.bz2"
+  sha256 "1e06723b13591e57c99ebe2006fb8daddc4cf72efb366a64a34673ba5f61c201"
   version_scheme 1
 
   bottle do
@@ -17,7 +16,8 @@ class Rpm < Formula
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "lua@5.1"
+  depends_on "libomp"
+  depends_on "lua"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
@@ -25,7 +25,9 @@ class Rpm < Formula
   depends_on "zstd"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua"].opt_libexec/"lib/pkgconfig"
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "LDFLAGS", "-lomp"
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
