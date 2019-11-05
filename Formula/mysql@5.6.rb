@@ -3,6 +3,7 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.46.tar.gz"
   sha256 "12e1fbabf2086e6175359767ca89fa8a58f9274fcad40434aa6a56e582d65f49"
+  revision 1
 
   bottle do
     sha256 "d31aaa8cf6c266c1df4da73aeb62ad67481a0fa7d7531ae41668d0426bd7df6e" => :catalina
@@ -13,7 +14,7 @@ class MysqlAT56 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   def datadir
     var/"mysql"
