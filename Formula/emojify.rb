@@ -1,8 +1,8 @@
 class Emojify < Formula
   desc "Emoji on the command-line :scream:"
   homepage "https://github.com/mrowa44/emojify"
-  url "https://github.com/mrowa44/emojify/archive/v1.0.2.tar.gz"
-  sha256 "a75d49d623f92974d7852526591d5563c27b7655c20ebdd66a07b8a47dae861c"
+  url "https://github.com/mrowa44/emojify/archive/2.1.0.tar.gz"
+  sha256 "f5d37f99b598975179991a3f569d21e7f1aaf481dbf12f4108fc7bfdab93d0fc"
   head "https://github.com/mrowa44/emojify.git"
 
   bottle :unneeded
