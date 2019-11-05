@@ -1,9 +1,8 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.41/source/mariadb-10.1.41.tar.gz"
-  sha256 "2b47c3afdae81eab2b9c29ba6a10328acb8d07166e8112744f6d704cc70100f2"
-  revision 1
+  url "https://downloads.mariadb.org/f/mariadb-10.1.42/source/mariadb-10.1.42.tar.gz"
+  sha256 "be95fcafd52257535f58e343cd3cc8c83d2bf0b8c855c017c013e63f3b6d4239"
 
   bottle do
     sha256 "b8300ed92c7b8e8244a600215d9f78f9da28304271e65bb9bde97a98836870e1" => :catalina
