@@ -1,8 +1,8 @@
 class Slowhttptest < Formula
   desc "Simulates application layer denial of service attacks"
   homepage "https://github.com/shekyan/slowhttptest"
-  url "https://github.com/shekyan/slowhttptest/archive/v1.8.tar.gz"
-  sha256 "31f7f1779c3d8e6f095ab19559ea515b5397b5c021573ade9cdba2ee31aaef11"
+  url "https://github.com/shekyan/slowhttptest/archive/v1.8.1.tar.gz"
+  sha256 "95f43a18efbdfaa088acf0e2d6ce0fc4f4fc33a7486cd536d327a6ba71de30e7"
   head "https://github.com/shekyan/slowhttptest.git"
 
   bottle do
