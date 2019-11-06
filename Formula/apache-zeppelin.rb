@@ -7,7 +7,7 @@ class ApacheZeppelin < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.7"
 
   def install
     rm_f Dir["bin/*.cmd"]
