@@ -29,6 +29,8 @@ class X264 < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-lsmash
+      --disable-swscale
+      --disable-ffms
       --enable-shared
       --enable-static
       --enable-strip
