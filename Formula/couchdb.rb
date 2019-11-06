@@ -1,10 +1,8 @@
 class Couchdb < Formula
-  desc "Document database server"
+  desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
-  sha256 "7b7c0db046ded544a587a8935d495610dd10f01a9cae3cd42cf88c5ae40bc431"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=/couchdb/source/2.3.1/apache-couchdb-2.3.1.tar.gz"
+  sha256 "43eb8cec41eb52871bf22d35f3e2c2ce5b806ebdbce3594cf6b0438f2534227d"
 
   bottle do
     sha256 "66b81866e5bbb1d5509f1f59bfb7091f0ff9e2638a20e4c9e31ec6fd23bf0279" => :catalina
@@ -13,60 +11,56 @@ class Couchdb < Formula
     sha256 "d06ec7cd12e85e87126a4cb1b28f28b9d8fcda789f3aa62431c68731b14fd1f9" => :sierra
   end
 
-  head do
-    url "https://github.com/apache/couchdb.git"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "help2man" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-  end
-
-  depends_on "erlang@19"
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "erlang@21" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "icu4c"
+  depends_on "openssl@1.1"
   depends_on "spidermonkey"
 
-  # Allow overwriting old configuration with new symlinks.
-  link_overwrite "etc/couchdb/default.ini"
-  link_overwrite "etc/couchdb/local.ini"
-  link_overwrite "etc/logrotate.d/couchdb"
-
   def install
-    # CouchDB >=1.3.0 supports vendor names and versioning
-    # in the welcome message
-    inreplace "etc/couchdb/default.ini.tpl.in" do |s|
-      s.gsub! "%package_author_name%", "Homebrew"
-      s.gsub! "%version%", pkg_version
-    end
-
-    unless build.stable?
-      # workaround for the auto-generation of THANKS file which assumes
-      # a developer build environment incl access to git sha
-      touch "THANKS"
-      system "./bootstrap"
-    end
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
-                          "--sysconfdir=#{prefix}/etc",
-                          "--disable-init",
-                          "--with-erlang=#{Formula["erlang@19"].opt_lib}/erlang/usr/include",
-                          "--with-js-include=#{HOMEBREW_PREFIX}/include/js",
-                          "--with-js-lib=#{HOMEBREW_PREFIX}/lib"
-    system "make"
-    system "make", "install"
-
-    # Use our plist instead to avoid faffing with a new system user.
-    (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete
-    (lib/"couchdb/bin/couchjs").chmod 0755
+    system "./configure"
+    system "make", "release"
+    # setting new database dir
+    inreplace "rel/couchdb/etc/default.ini", "./data", "#{var}/couchdb/data"
+    # remove windows startup script
+    File.delete("rel/couchdb/bin/couchdb.cmd") if File.exist?("rel/couchdb/bin/couchdb.cmd")
+    # install files
+    bin.install Dir["rel/couchdb/bin/*"]
+    prefix.install Dir["rel/couchdb/*"]
+    (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete if File.exist?(prefix/"Library/LaunchDaemons/org.apache.couchdb.plist")
   end
 
   def post_install
-    (var/"lib/couchdb").mkpath
-    (var/"log/couchdb").mkpath
-    (var/"run/couchdb").mkpath
+    # creating database directory
+    (var/"couchdb/data").mkpath
+    # patching to start couchdb from symlinks
+    inreplace "#{bin}/couchdb", 'COUCHDB_BIN_DIR=$(cd "${0%/*}" && pwd)',
+'canonical_readlink ()
+  {
+  cd $(dirname $1);
+  FILE=$(basename $1);
+  if [ -h "$FILE" ]; then
+    canonical_readlink $(readlink $FILE);
+  else
+    echo "$(pwd -P)";
+  fi
+}
+COUCHDB_BIN_DIR=$(canonical_readlink $0)'
+  end
+
+  def caveats; <<~EOS
+    If your upgrade from version 1.7.2_1 then your old database path is "/usr/local/var/lib/couchdb".
+
+    The database path of this installation: #{var}/couchdb/data".
+
+    If you want to migrate your data from 1.x to 2.x then follow this guide:
+    https://docs.couchdb.org/en/stable/install/upgrading.html
+
+  EOS
   end
 
   plist_options :manual => "couchdb"
@@ -82,7 +76,7 @@ class Couchdb < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{opt_bin}/couchdb</string>
+        <string>#{bin}/couchdb</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
@@ -92,22 +86,19 @@ class Couchdb < Formula
   end
 
   test do
-    # ensure couchdb embedded spidermonkey vm works
-    system "#{bin}/couchjs", "-h"
+    # copy config files
+    cp_r prefix/"etc", testpath
+    # setting database path to testpath
+    inreplace "#{testpath}/etc/default.ini", "#{var}/couchdb/data", "#{testpath}/data"
 
-    (testpath/"var/lib/couchdb").mkpath
-    (testpath/"var/log/couchdb").mkpath
-    (testpath/"var/run/couchdb").mkpath
-    cp_r prefix/"etc/couchdb", testpath
-    inreplace "#{testpath}/couchdb/default.ini", "/usr/local/var", testpath/"var"
-
+    # start CouchDB with test environment
     pid = fork do
-      exec "#{bin}/couchdb -A #{testpath}/couchdb"
+      exec "#{bin}/couchdb -couch_ini #{testpath}/etc/default.ini #{testpath}/etc/local.ini"
     end
     sleep 2
 
     begin
-      assert_match "Homebrew", shell_output("curl -# localhost:5984")
+      assert_match "The Apache Software Foundation", shell_output("curl --silent localhost:5984")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
