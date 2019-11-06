@@ -15,7 +15,7 @@ class AntlrAT2 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     # C Sharp is explicitly disabled because the antlr configure script will
@@ -31,7 +31,7 @@ class AntlrAT2 < Formula
 
     (bin/"antlr").write <<~EOS
       #!/bin/sh
-      java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
+      exec "#{Formula["openjdk"].opt_bin}/java" -classpath #{libexec}/antlr.jar antlr.Tool "$@"
     EOS
   end
 
