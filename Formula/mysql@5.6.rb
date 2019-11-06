@@ -3,7 +3,7 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.46.tar.gz"
   sha256 "12e1fbabf2086e6175359767ca89fa8a58f9274fcad40434aa6a56e582d65f49"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "110f70d90f42d346fba999930aae72b6e585d97f22c8774e00e62f6b959fad87" => :catalina
@@ -35,7 +35,7 @@ class MysqlAT56 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=system
+      -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
       -DSYSCONFDIR=#{etc}
