@@ -7,7 +7,7 @@ class Ant < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   resource "ivy" do
     url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
@@ -25,8 +25,8 @@ class Ant < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
     rm bin/"ant"
     (bin/"ant").write <<~EOS
-      #!/bin/sh
-      #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
+      #!/bin/bash
+      JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}" exec "#{libexec}/bin/ant" -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
 
     resource("ivy").stage do
