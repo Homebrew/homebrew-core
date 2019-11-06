@@ -1,9 +1,8 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v4/squid-4.8.tar.xz"
-  sha256 "78cdb324d93341d36d09d5f791060f6e8aaa5ff3179f7c949cd910d023a86210"
-  revision 1
+  url "http://www.squid-cache.org/Versions/v4/squid-4.9.tar.xz"
+  sha256 "1cb1838c6683b0568a3a4050f4ea2fc1eaa5cbba6bdf7d57f7258c7cd7b41fa1"
 
   bottle do
     sha256 "429050d3989194432d4f71436dce1d5b71bca1e2bbb6e9acf414f43a35e53bd0" => :catalina
@@ -25,10 +24,6 @@ class Squid < Formula
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
     ENV.append "LDFLAGS", "-lresolv"
-
-    # Patch for detection of OpenSSL 1.1, submitted upstream
-    # https://github.com/squid-cache/squid/pull/470
-    inreplace "configure", "SSL_library_init", "SSL_CTX_new"
 
     # For --disable-eui, see:
     # http://www.squid-cache.org/mail-archive/squid-users/201304/0040.html
