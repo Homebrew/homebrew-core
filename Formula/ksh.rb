@@ -19,24 +19,12 @@ class Ksh < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
-  resource "init" do
-    url "https://github.com/att/ast/releases/download/2020.0.0/ksh-2020.0.0.tar.gz"
-    sha256 "8701c27211b0043ddd485e35f2ba7f4075fc8fc2818d0545e38b1dda4288b6f7"
-  end
-
   def install
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
-  end
-
-  def caveats
-    <<~EOS
-      We agreed to the Eclipse Public License 1.0 for you.
-      If this is unacceptable you should uninstall.
-    EOS
   end
 
   test do
