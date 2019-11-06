@@ -1,8 +1,8 @@
 class MysqlConnectorCxxAT11 < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-1.1.12.tar.gz"
-  sha256 "ffc4604064c8861e2c2ece80dc4830ec1e8816de4d54f0d3ca0c451234068751"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-1.1.13.tar.gz"
+  sha256 "332c87330ab167c17606b95d27af110c3f8f228658e8ba0d1f6e5f0a0acf3b41"
 
   bottle do
     cellar :any
