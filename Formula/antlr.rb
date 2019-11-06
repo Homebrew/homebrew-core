@@ -6,19 +6,19 @@ class Antlr < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     prefix.install "antlr-#{version}-complete.jar"
 
     (bin/"antlr").write <<~EOS
       #!/bin/bash
-      CLASSPATH="#{prefix}/antlr-#{version}-complete.jar:." exec java -jar #{prefix}/antlr-#{version}-complete.jar "$@"
+      CLASSPATH="#{prefix}/antlr-#{version}-complete.jar:." exec "#{Formula["openjdk"].opt_bin}/java" -jar #{prefix}/antlr-#{version}-complete.jar "$@"
     EOS
 
     (bin/"grun").write <<~EOS
       #!/bin/bash
-      java -classpath #{prefix}/antlr-#{version}-complete.jar:. org.antlr.v4.gui.TestRig "$@"
+      exec "#{Formula["openjdk"].opt_bin}/java" -classpath #{prefix}/antlr-#{version}-complete.jar:. org.antlr.v4.gui.TestRig "$@"
     EOS
   end
 
@@ -38,7 +38,7 @@ class Antlr < Formula
     ENV.prepend "CLASSPATH", "#{prefix}/antlr-#{version}-complete.jar", ":"
     ENV.prepend "CLASSPATH", ".", ":"
     system "#{bin}/antlr", "Expr.g4"
-    system "javac", *Dir["Expr*.java"]
+    system "#{Formula["openjdk"].bin}/javac", *Dir["Expr*.java"]
     assert_match(/^$/, pipe_output("#{bin}/grun Expr prog", "22+20\n"))
   end
 end
