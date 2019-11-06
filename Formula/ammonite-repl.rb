@@ -6,12 +6,12 @@ class AmmoniteRepl < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
-    libexec.install Dir["*"].shift => "amm"
-    chmod 0555, libexec/"amm"
-    bin.install_symlink libexec/"amm"
+    (libexec/"bin").install Dir["*"].first => "amm"
+    chmod 0755, libexec/"bin/amm"
+    (bin/"amm").write_env_script libexec/"bin/amm", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
   end
 
   test do
