@@ -6,12 +6,11 @@ class ApacheArchiva < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-
-    bin.install_symlink libexec/"bin/archiva"
+    (bin/"archiva").write_env_script libexec/"bin/archiva", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   def post_install
