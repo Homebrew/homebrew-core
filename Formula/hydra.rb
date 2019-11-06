@@ -3,7 +3,7 @@ class Hydra < Formula
   homepage "https://github.com/vanhauser-thc/thc-hydra"
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.0.tar.gz"
   sha256 "56672e253c128abaa6fb19e77f6f59ba6a93762a9ba435505a009ef6d58e8d0e"
-  revision 2
+  revision 3
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
@@ -25,8 +25,19 @@ class Hydra < Formula
       s.gsub! "/opt/local/lib", Formula["openssl@1.1"].opt_lib
       s.gsub! "/opt/local/*ssl", Formula["openssl@1.1"].opt_lib
       s.gsub! "/opt/*ssl/include", Formula["openssl@1.1"].opt_include
-      # Avoid opportunistic linking of subversion
-      s.gsub! "libsvn", "oh_no_you_dont"
+      # Avoid opportunistic linking of everything
+      %w[
+        gtk+-2.0
+        libfreerdp2
+        libgcrypt
+        libidn
+        libmemcached
+        libmongoc
+        libpq
+        libsvn
+      ].each do |lib| 
+        s.gsub! lib, "oh_no_you_dont"
+      end
     end
 
     # Having our gcc in the PATH first can cause issues. Monitor this.
