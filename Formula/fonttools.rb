@@ -3,15 +3,15 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://github.com/fonttools/fonttools/releases/download/4.0.0/fonttools-4.0.0.zip"
-  sha256 "9415fda795f4ff8e89d41ab907388ec5a4c236f4774ea65a746d8c1e4e839d3d"
+  url "https://github.com/fonttools/fonttools/releases/download/4.0.2/fonttools-4.0.2.zip"
+  sha256 "bb9bf6b5b4ded33e0d9f823e5ae2e1fa643af4d614915660abe3853a9a6931cd"
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1aa10dd2690e9936c6b1b91eec172e413ec624574af235f1ff74756d5069f0a5" => :mojave
-    sha256 "f83aa14daa70d975757ad6ac8d8f41f104b43a72c69393e44af78033f7b88e32" => :high_sierra
-    sha256 "ee29ddf4263c764c7a98477a2350aa7cf3e229105d931b319c9815584e87c446" => :sierra
+    sha256 "0e25de527bc3ca605d5aa3d3bfed49f153527e6a517f53fb0faf1582bffef0ec" => :catalina
+    sha256 "a3a13ac1d7e2ed4458050eeb4c6821c63f969adfee7aa93fa4dc774cd0446bb0" => :mojave
+    sha256 "bf112d57e9bb3de65863317ed2ae3a9011f84db6fff06966368fec84f9c1647d" => :high_sierra
   end
 
   depends_on "python"
@@ -21,7 +21,7 @@ class Fonttools < Formula
   end
 
   test do
-    cp "/Library/Fonts/Arial.ttf", testpath
-    system bin/"ttx", "Arial.ttf"
+    cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
+    system bin/"ttx", "ZapfDingbats.ttf"
   end
 end

@@ -9,12 +9,10 @@ class Fcgi < Formula
 
   bottle do
     cellar :any
-    sha256 "1d091b591f3e4ae9fcb5474beaa519c644a6c52fb79d4cd22c936fffa9e74f5a" => :mojave
-    sha256 "d5ebce52eefded7c5e911c1bd4771316cc8110da4644d86077b2c66551b2d3dc" => :high_sierra
-    sha256 "a8062d977c2e8b1d63557b703eac13ce75ce8331f16dc68de153309cfd7b2166" => :sierra
-    sha256 "27b723d2451b163cf1c5b8c461b6b550b9c4fcdd8dfd9e9f9c20477cb50d3da7" => :el_capitan
-    sha256 "ad01d3980edafd7330a41b008e95e4af24708ac0a6b8bb625160635d6f36c4a3" => :yosemite
-    sha256 "58b93f834db071aac4831e73d7f34f59a73759a453676ca66b187135e8da7f36" => :mavericks
+    rebuild 1
+    sha256 "54cfcdd18d640c947dca6c7d02eec6ef996ed6abd1cce93ec6d2265da7c56415" => :catalina
+    sha256 "022ad3910de37e2713d9795bff3fc89d4562e4eeea218e9985023515478b980f" => :mojave
+    sha256 "e3916280d172a68bd76bb57d6799e7557a5b0933949403cefd35ec722da89889" => :high_sierra
   end
 
   # Fixes "dyld: Symbol not found: _environ"
@@ -38,7 +36,7 @@ class Fcgi < Formula
         while (FCGI_Accept() >= 0){
         printf("Request number %d running on host %s", ++count, getenv("SERVER_HOSTNAME"));}}
     EOS
-    system ENV.cc, "testfile.c", "-lfcgi", "-o", "testfile"
+    system ENV.cc, "testfile.c", "-L#{lib}", "-lfcgi", "-o", "testfile"
     assert_match "Request number 1 running on host", shell_output("./testfile")
   end
 end

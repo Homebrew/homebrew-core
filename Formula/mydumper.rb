@@ -3,14 +3,14 @@ class Mydumper < Formula
   homepage "https://launchpad.net/mydumper"
   url "https://launchpad.net/mydumper/0.9/0.9.1/+download/mydumper-0.9.1.tar.gz"
   sha256 "aefab5dc4192acb043d685b6bb952c87557fbea5e083b8547c68ccfec878171f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "08798a5d4fa3af367907a32963a55c166b5aaa654cd5708edb61ba907ee883e2" => :mojave
-    sha256 "1b05e59ddf8d604e827cb19132162d4d8ebf98459f58ca57af9c5b9a089694f0" => :high_sierra
-    sha256 "a4ed9559c67a607cef27874d667d6d4c5ee80d9663a45d6cc623cf457ea2284e" => :sierra
-    sha256 "f470b334ba765d77a9df8193f2333f43fa617d0a1a95b38d1325ddb4b5c5f47c" => :el_capitan
+    sha256 "c83af06c23cef3f5557401ac032594a76a73dee0b217501f9ed87de2d687d5e7" => :catalina
+    sha256 "cd88536c659e9ed81cef9d17760c3ca39fef7f2f616e82d78a26cc82b83c521d" => :mojave
+    sha256 "98662639ad82a87522d4811da9309fe3d7fa90765a129c452cb4479475c9c58f" => :high_sierra
+    sha256 "772e970e9555afa00e13760f39dd824260a350b1cf375d30f9d0d9ef8e5b60fe" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -18,7 +18,7 @@ class Mydumper < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   # This patch allows cmake to find .dylib shared libs in macOS. A bug report has

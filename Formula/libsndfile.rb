@@ -6,6 +6,7 @@ class Libsndfile < Formula
 
   bottle do
     cellar :any
+    sha256 "6399523ef99f5c9ea4adcb8ce4af9406c32673deab4beba7114b32162a9b3c54" => :catalina
     sha256 "e7cb1a29d931a1637ec84a5ba6b71d37801dc0bb4eab38051df19755cb048667" => :mojave
     sha256 "d06bf0bf936cde67857ac3d3599944d2050ea8dc6237bad8b4c27ef86ac2eb3c" => :high_sierra
     sha256 "4e4bde6464cfbefcf7f2a9001af0ea34c6273b466ffa71ac953b2bb41eb619ec" => :sierra

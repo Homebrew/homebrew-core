@@ -8,6 +8,7 @@ class Irrlicht < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "665031602d338528055bfb7dba5c1a4c94c0deaea6c3db8d4d4cddb061a54e7d" => :catalina
     sha256 "e5b9b3d8b58f26c138b9dcd421fad9769e6ab7833bbf668cdeac909fd204a601" => :mojave
     sha256 "508d300a52f1f1d5b1d5193f07559ca3da5aa3286181ae88b415bf5468c521bc" => :high_sierra
     sha256 "d2236f351b11847d960909fa0e96d83ab0448228de30cd21014fea47a2c636a5" => :sierra

@@ -1,15 +1,14 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz"
-  sha256 "18b2f0fe07ed0d6f81951a5fd5ece44de9c8aeb4dc5bb20d4f595f6cc6bd403e"
-  revision 1
+  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz"
+  sha256 "f482b027437c99e53b81037a9843fccd549243fd52145d016e9c7174a4f5db90"
 
   bottle do
     cellar :any
-    sha256 "aa8d4c56a94505b37c58935aee01777f87623a4ca9ad9e01276103cce877ce30" => :mojave
-    sha256 "9a1d0b3325e604b5335b1b93f2db1b0c341430188c72523a5aba15dea4b85d1b" => :high_sierra
-    sha256 "08383865a6b8460916bed3239b08e4c683573cd82a7bd0a351067c6f0f9f572a" => :sierra
+    sha256 "137dfd734f5e7fe9b9ee80d1efa135f95a3ade95ceab83b2f79cd7ca1fd4d313" => :catalina
+    sha256 "1be57687d8aef14d6bc95be0a02a5dfdbce4bf859ea057c93e3ff8545c700fcd" => :mojave
+    sha256 "87ec03b8d25d6c3c455c98dbc8d9ac3569df6abaae0c07ad9444a1cfa462cd06" => :high_sierra
   end
 
   head do
@@ -20,6 +19,7 @@ class SharedMimeInfo < Formula
   end
 
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
@@ -42,10 +42,18 @@ class SharedMimeInfo < Formula
   end
 
   def post_install
-    ln_sf HOMEBREW_PREFIX/"share/mime", share/"mime"
-    (HOMEBREW_PREFIX/"share/mime/packages").mkpath
-    cp (pkgshare/"packages").children, HOMEBREW_PREFIX/"share/mime/packages"
-    system bin/"update-mime-database", HOMEBREW_PREFIX/"share/mime"
+    global_mime = HOMEBREW_PREFIX/"share/mime"
+    cellar_mime = share/"mime"
+
+    if !cellar_mime.exist? || !cellar_mime.symlink?
+      rm_rf cellar_mime
+      ln_sf global_mime, cellar_mime
+    end
+
+    (global_mime/"packages").mkpath
+    cp (pkgshare/"packages").children, global_mime/"packages"
+
+    system bin/"update-mime-database", global_mime
   end
 
   test do

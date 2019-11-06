@@ -6,9 +6,10 @@ class Guile < Formula
   sha256 "b33576331465a60b003573541bf3b1c205936a16c407bc69f8419a527bf5c988"
 
   bottle do
-    sha256 "17506d92107d7209955da7c2adf9ab324d41b9667557a9b1fa81d6f6813149f3" => :mojave
-    sha256 "093fc2760544ffff7c69ec0e0767b586e206ca67cf909b51211f7eea368ef9ea" => :high_sierra
-    sha256 "32e167bfe1de00fdd3c64e5785edbf5d90b3c8621e3699fd287cb6b09a377d7f" => :sierra
+    rebuild 1
+    sha256 "7bfe0c8f0f0ccbd3efa21dc515c149492d900e68e6bf6a802d4f9295c8bcf9e9" => :catalina
+    sha256 "b4c73a4155900d19f6b2a6255ff5b0ae454d3663eac004e16fb79fd4f69ec9c5" => :mojave
+    sha256 "f90ffabcd109edc74afe9b8c07c6f166207011d6dff277e626360b9d6b5a2db3" => :high_sierra
   end
 
   head do
@@ -29,6 +30,10 @@ class Guile < Formula
   depends_on "readline"
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -7,6 +7,7 @@ class Dar < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "6d643ec441c9ed7da176da5ce56413c918b7cad23d5ae6cd995766698461aa26" => :catalina
     sha256 "3009db4f526f3657c3008475df42b5e1759ad9964c513f541de3c3c05e971ffb" => :mojave
     sha256 "b872b6741e38ea818e1836fd218733331219c15acfb84a638dc213eec8925f6e" => :high_sierra
     sha256 "263659de5c6418cadae4d2bbe71c4b45c14d7d5e91ae1fa62a8e2c7e8b3a2fd5" => :sierra

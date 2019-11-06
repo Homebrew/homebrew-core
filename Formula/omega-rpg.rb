@@ -6,11 +6,11 @@ class OmegaRpg < Formula
   revision 1
 
   bottle do
-    sha256 "10390c232402e60f1397665338d15d0448dc992c950a09a72fbf94c812af9aa8" => :mojave
-    sha256 "f4a5911b81f9919e68c5bd35f8e3d13240045b09e57b622f4766e747bb3e6a03" => :high_sierra
-    sha256 "06008f528a9ac14c6b7e1f9be84a5e76a4ad4df234344e7e13eaedb108ce4b04" => :sierra
-    sha256 "d46db018d9c54c5a0460f46763a218b6bff1bf277aca19fe91b17965dac3a367" => :el_capitan
-    sha256 "1b5b760d814cf07c4d9daa8dbcbcccfc38038dbab140ed182ad514bad07fe932" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "4ab6747f5c291b26c9ba5b750d98ee6368f42dc35039bf23b2e401a318fb87f6" => :catalina
+    sha256 "8161e569d07cae64b550fa2f2e795171ca82b65b283cf1e45056b61d12fa71f5" => :mojave
+    sha256 "0b08d090868aa2b1da56645e74ea87d6a15043c473aba35e56f3fbf2e4b4f4d4" => :high_sierra
   end
 
   def install

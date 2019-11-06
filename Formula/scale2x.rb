@@ -6,6 +6,7 @@ class Scale2x < Formula
 
   bottle do
     cellar :any
+    sha256 "83ab737ffb44b1b2913244a82c63d754057e79034bcf455d75b9150b630f85c7" => :catalina
     sha256 "da91fa8382839f9cf1b9d58b1e38b1d2f6d3cc1fef3cd0dce1481774397ebe35" => :mojave
     sha256 "2a3519bdbba8ff6caa1ca9b48d461866b8121dfd224a2c25da106087bb3cfd61" => :high_sierra
     sha256 "771e1b1ea660234e8bea89e774d0d802f7f1cb12c08e100cbb5b83d0a02a61ea" => :sierra

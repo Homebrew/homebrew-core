@@ -43,11 +43,11 @@ class GrOsmosdr < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <osmosdr/device.h>
       int main() {
-        osmosdr::device_t device();
+        osmosdr::device_t device;
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lgnuradio-osmosdr", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lgnuradio-osmosdr", "-o", "test"
     system "./test"
   end
 end

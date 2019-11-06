@@ -6,6 +6,7 @@ class Asyncplusplus < Formula
 
   bottle do
     cellar :any
+    sha256 "b82364488e395452869e09a902ca4c79ee61cd241f8d5dae689545aedf6146f2" => :catalina
     sha256 "fd9a043e4c813883327b16d2ab53d44eaa0edfe97a90ada246a1ba57d46ab38b" => :mojave
     sha256 "a2c84fd99324e27a45366a41cbcc775376eeff3043f357dca2ca810fda236e1a" => :high_sierra
     sha256 "eaf0d777a614ff9a8effe1899c4468ab149c5625d8c16353415f1df24b17a311" => :sierra

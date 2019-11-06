@@ -7,6 +7,7 @@ class Cmix < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9dbbd3e8367f799405fbb237d68fe46e968bda502a5779f3be1c467b56e394b8" => :catalina
     sha256 "448fa06555b59d6a0541d1e36ff9eac14e05775fd2ef119e860a305368b800ec" => :mojave
     sha256 "6e1bc1de5f3c36e6fcda7874b8fbd18938aedbdbce94039763302f9643964a0a" => :high_sierra
     sha256 "3dc97bda2656e2b2ffccb50915f9a981513fff5a8f90af2a1c5521afe52568d0" => :sierra

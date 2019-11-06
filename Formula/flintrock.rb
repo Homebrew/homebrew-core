@@ -5,19 +5,20 @@ class Flintrock < Formula
   homepage "https://github.com/nchammas/flintrock"
   url "https://files.pythonhosted.org/packages/82/2e/c2aa7e8a98b03632f789e15854ee9716d6b3aef31580950458285819be95/Flintrock-0.11.0.tar.gz"
   sha256 "f203a5558acc5fc7d8fd6efefaf6f0b90625c9d9c938521cdecc44bc684b3605"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "4e751759576f7e080179569f30da1959b3bcf962262dbd2da3c28eb7af957c97" => :mojave
-    sha256 "d16f396f143d138ed1d8ccba3762af7edcdc49568ac917e71309e9b7900d4381" => :high_sierra
-    sha256 "ac2b26f81c53a18e63b7168bfe717db79a223717c5c1209f775b66f0461e54fd" => :sierra
+    sha256 "90882b250088faf808dda945c33d2dc5ea3c21ceed4fdd643c09a4719a906124" => :catalina
+    sha256 "1914a99ecab08487973ed6050e3c04fcaff533487a184074baeec6279935a700" => :mojave
+    sha256 "4f84435e63cf37b5d02f36badd892ce90c5e71d685e1bc3d56f24e1403e3b159" => :high_sierra
   end
 
   depends_on "python"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "bcrypt" do
@@ -36,8 +37,8 @@ class Flintrock < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "click" do
@@ -81,8 +82,8 @@ class Flintrock < Formula
   end
 
   resource "PyNaCl" do
-    url "https://files.pythonhosted.org/packages/08/19/cf56e60efd122fa6d2228118a9b345455b13ffe16a14be81d025b03b261f/PyNaCl-1.2.1.tar.gz"
-    sha256 "e0d38fa0a75f65f556fb912f2c6790d1fa29b7dd27a1d9cc5591b281321eaaa9"
+    url "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"
+    sha256 "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"
   end
 
   resource "python-dateutil" do

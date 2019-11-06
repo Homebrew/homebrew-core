@@ -6,6 +6,7 @@ class Apachetop < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0876195a3ce545c11cd9a7bc9f348572bee2b0fe30d053cb0398423c2eb7743c" => :catalina
     sha256 "90dcbabb24c87f8cc0571a0cf1e6e559019c3af7f9502f09c4a0f98b7dafa038" => :mojave
     sha256 "f11376a3c66e0c038d0bedb25e105414a27a26a766f1b138e2cd9fdac44e4e4f" => :high_sierra
     sha256 "5acd00b752d960b8dc7250e841ccf8f0dd457d184b0d7c3a8e257a531cf01ae1" => :sierra

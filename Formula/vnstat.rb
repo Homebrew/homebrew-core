@@ -6,6 +6,7 @@ class Vnstat < Formula
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
+    sha256 "c11e31478ff92d6161753a03e927de59347c09d8bf2b133b4de854d6909178fd" => :catalina
     sha256 "28ca5fc572b83efdeb8f186debb37e7d21c0255b26273cc970d45d1aca6346c6" => :mojave
     sha256 "2ba06d6af371f3ee26e98357db8d58849c15ed5bc8536e71b5796927805ad92d" => :high_sierra
     sha256 "b3fba4ea86b675bdab6147eeb51b705be074203d4974d0b7f09221b1ad2b0a41" => :sierra

@@ -3,14 +3,15 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/3.7.2.tar.gz"
-  sha256 "df11f0ba80efff5fee6c397d38c4aa8a7816b0b1629c4f0e84c3776520340ffe"
+  url "https://github.com/snapcore/snapcraft/archive/3.8.tar.gz"
+  sha256 "0430418d771caff48cd740e1317467cd00e846e04eb62651ae985a147a37b4ec"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f0c6d4c0571821bffc5ec388c09e11511a4b8352d606553f155d08608502fa1d" => :mojave
-    sha256 "bbad8eab86b13c770c6ed3a0e52342d2396d1653f2bebb7a7b45985ffe34fd40" => :high_sierra
-    sha256 "adff1c1ce0876ee58b6b0c7d9b9af78d0614f06d2e21ed0800f8dcb6a7ff8943" => :sierra
+    sha256 "1e4b0134d6439cc7a395b8d358168c20eb308b77b1624cd1f6f42698f0669673" => :catalina
+    sha256 "246c3c04bfe41a9a63bc30738a85646fa6e37a30d5dc83e329f96740ff881025" => :mojave
+    sha256 "687f50d9443171aa19e683e2c46119ba9ff152a621907b4837ef05a808e9bd32" => :high_sierra
   end
 
   depends_on "libsodium"
@@ -26,8 +27,8 @@ class Snapcraft < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "chardet" do
@@ -101,8 +102,8 @@ class Snapcraft < Formula
   end
 
   resource "PyNaCl" do
-    url "https://files.pythonhosted.org/packages/08/19/cf56e60efd122fa6d2228118a9b345455b13ffe16a14be81d025b03b261f/PyNaCl-1.2.1.tar.gz"
-    sha256 "e0d38fa0a75f65f556fb912f2c6790d1fa29b7dd27a1d9cc5591b281321eaaa9"
+    url "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"
+    sha256 "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"
   end
 
   resource "pysha3" do

@@ -7,6 +7,7 @@ class Polipo < Formula
 
   bottle do
     rebuild 2
+    sha256 "c1806514cf77c3b9738131299f04a2c051617a3a44cd1aa4440ecd16103c5bad" => :catalina
     sha256 "2653a1ffd719d82318a04fd94b8a2573714c03e974b43ae7b3df6ad4b9e410f3" => :mojave
     sha256 "6fe78288ca28698ac07fd96d99fbbf311a6b410eb7150dfac5388564b76d4195" => :high_sierra
     sha256 "7a943f9e9952d78c692d5ec155b407319181a6a66ee1367801f77da8f7bb8459" => :sierra

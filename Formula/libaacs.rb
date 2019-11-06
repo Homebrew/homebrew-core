@@ -6,6 +6,7 @@ class Libaacs < Formula
 
   bottle do
     cellar :any
+    sha256 "9c3fbec79dd315fe3cdc3c4cb414e2ec925ee0afa3e8cbe1a134252e46f689a7" => :catalina
     sha256 "2071dce1ff86c499e3e97c90848e61041d98477c0e50faec10701acd0de7f8d8" => :mojave
     sha256 "b423d7825fa1695fb9099c0f6f00ea0b460c697878badc2a710900c8e3a55c39" => :high_sierra
     sha256 "07efaa70031e035a007873916e1e288c830b67095c140e358a71801b044c86a9" => :sierra

@@ -6,6 +6,7 @@ class Libart < Formula
 
   bottle do
     cellar :any
+    sha256 "54ca46ebc37bba1fdc39e8b28c166202e7d488d93cc5b4acfb042a14adec84f9" => :catalina
     sha256 "5fc8b240a975efcb5bd3992afd4d01c0a393a306a4a66192cb9a10e580bcf4d3" => :mojave
     sha256 "c5ae59f4955fd1b4e3c49976b06609d56c5079d2b0f6e0675b356b1eb09181cd" => :high_sierra
     sha256 "e9e14623ba0284a89dd09c7be72393619582c5d0489891cd1f654b6c26b0fabc" => :sierra

@@ -1,20 +1,20 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/nats.c"
-  url "https://github.com/nats-io/nats.c/archive/v2.0.0.tar.gz"
-  sha256 "e10beeb623fc5dadd0673269674331f7b35d19e52ff32d14ceac981b3c701587"
+  url "https://github.com/nats-io/nats.c/archive/v2.1.0.tar.gz"
+  sha256 "1493ae3d790e2ebc4d77c65ef2957e2fb77182d69afeeeb2be1e1e6bee0ca12e"
 
   bottle do
     cellar :any
-    sha256 "2a63067238faa20a7871b556efc943477d6274893b1878d05c34528bd5654edb" => :mojave
-    sha256 "3290deb15140ce507d3f80c3d063819de70b50414f000348f9db8c57ef688293" => :high_sierra
-    sha256 "6f40330287323041eac21154d2501ef0fc942cb5ef64308e242378b2f0911859" => :sierra
+    sha256 "39678d7d1bf583fc5c5812a7dff8626a8a5d4ca8028fb0b8b30a74fafcca82a8" => :catalina
+    sha256 "7c8e7fe9a642ba2e33c0e25b702171b557f29a3dd37921826d16566a0417cf66" => :mojave
+    sha256 "d961682c43b33f7149ed477bdff2246a6449463a2f51c592501eec7096dbbd11" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf-c"
 
   def install

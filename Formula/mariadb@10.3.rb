@@ -3,17 +3,18 @@ class MariadbAT103 < Formula
   homepage "https://mariadb.org/"
   url "https://downloads.mariadb.org/f/mariadb-10.3.16/source/mariadb-10.3.16.tar.gz"
   sha256 "39e9723eaf620afd99b0925b2c2a5a50a89110ba50040adf14cce7cf89e5e21b"
+  revision 1
 
   bottle do
-    sha256 "d8f2f82a4d210481595defcaf814656c8dc9a3cf2be007ea907ea24501994c84" => :mojave
-    sha256 "fddf0b25b61966bc059c1861491ba4ab209450b7a073888df8df183fa20d77b6" => :high_sierra
-    sha256 "e042378d7348833c6de65b8db933620360258f86e6ae78f4e359a4ad92204b70" => :sierra
+    sha256 "e5cc23fe1f5129d9e3b90a9f050634a8602a4fc4808a82887d26e04fa527c534" => :mojave
+    sha256 "5e2e3f45c126afba39aa98953c32f9f7877a48258d3501eac6162c3eafbf0084" => :high_sierra
+    sha256 "af37f1b2a105b1d4fe9e64ae6547ca81a852dcd563bdaf991cd93e7aaa632fa9" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

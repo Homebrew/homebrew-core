@@ -5,20 +5,19 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/99/4d/16d7398fe5eefc602a8870fb3e93597aabe681b0f1497749148695cba4a1/charm-tools-2.2.3.tar.gz"
   sha256 "ea659f59041cb3dff0be862d657830591e656a9a259931064edab7477875245b"
-  revision 3
+  revision 5
 
   bottle do
     cellar :any
-    sha256 "276a8198e27a384e9d45392f485f184170cc324586740e046c6b55a44539a559" => :mojave
-    sha256 "68365eeb6730d2d7645a791c7d60206d733f19d56c16deb31e5b42cc0378bc28" => :high_sierra
-    sha256 "4dc6ab436414c0ffd0c07601bec4240b2907c090b7a7a300c5ec6bc49e960a01" => :sierra
-    sha256 "11a6747479a401661fcd32e6233e581ec0f065a0fc737ee3da163c23d73bb00d" => :el_capitan
+    sha256 "e9b2c3188af215e2e210431c5163169394043cd1c16a87dd1b6d283f38022c62" => :catalina
+    sha256 "9ba319601416e3c9cdfa4c5faddd35a1c3e8fd08a5350101452842e2479cd8ea" => :mojave
+    sha256 "798585af357c29bede7390d302a0adb47ff6d97cd8f0dc8606a0c3d3e54d2108" => :high_sierra
   end
 
   depends_on "charm"
   depends_on "libyaml"
   depends_on "mercurial"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2"
 
   # Additionally include ndg-httpsclient for requests[security]
@@ -43,8 +42,8 @@ class CharmTools < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
-    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "blessings" do

@@ -6,6 +6,7 @@ class Cityhash < Formula
 
   bottle do
     cellar :any
+    sha256 "ddca5903f40b8ec22ca0a2da4f116a03dc45d0f383c508f4f0370cd5899b80c3" => :catalina
     sha256 "4d7f25360b715d36177c70f06f7c21f39d38b6b8aa9f8a5befe80818baa3545f" => :mojave
     sha256 "37e8244399c42c6f3bdb2fad91562607e96bc3380378d318ceecbc16ec8d52be" => :high_sierra
     sha256 "62d8d1409dfe744d4de7a1727824b06c5a80b248433c2d8bd8a4efcd444346cb" => :sierra

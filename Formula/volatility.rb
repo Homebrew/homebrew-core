@@ -5,13 +5,14 @@ class Volatility < Formula
   homepage "https://github.com/volatilityfoundation/volatility"
   url "https://github.com/volatilityfoundation/volatility/archive/2.6.1.tar.gz"
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
+  revision 1
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
     cellar :any
-    sha256 "8c8cd1a96a5e582cbbf4f5288c1c554d844d1341668aa05e45796f2cf492339a" => :mojave
-    sha256 "1e243e54e576589fde637011bb109fe7afc8e2e88b79429c4a26157c79f55b0c" => :high_sierra
-    sha256 "31626e2c4f9761445d57b0b77580b0b10bff9b1d741156b027f4ba325a6d813b" => :sierra
+    sha256 "36711d85e328addf0816cfcff097f5121a11888f942d799b8aa8b729542761d1" => :catalina
+    sha256 "d2e1c42961809ffd7a566b162d33fd5fbec2deeebb223ae45667ddb3840ab865" => :mojave
+    sha256 "1e9190790c5ade45aa09922f05898cc20d2bf69e4fd32abb4147d01fd99a594e" => :high_sierra
   end
 
   depends_on "freetype"

@@ -7,12 +7,11 @@ class Mpdviz < Formula
   sha256 "c34243ec3f3d91adbc36d608d5ba7082ff78870f2fd76a6650d5fb3218cc2ba3"
 
   bottle do
-    sha256 "7bec2924c89ed7553aff5a5c8c0d1fe611024f8533fbb0f257ce244a262aec24" => :mojave
-    sha256 "f05e8482d844ded6507acbc60440add0e9cffb93060e4c57d0735e20493fc8a1" => :high_sierra
-    sha256 "f76523028928595c731469cfaecbf2ab9201a90290d7c21e176b2cfc4560956d" => :sierra
-    sha256 "9ba7f88de1dec1c4c6d4bdbb2f45541d43ae56c5039b2193c92186202a74322c" => :el_capitan
-    sha256 "a3ccae36bb636ebe51ef1c3f70bf582d1ca55053639c58aaefb7e48672191dcf" => :yosemite
-    sha256 "063b1d5a369b91869c21ae8aa5dbfa96cd1e9b3c4d5091fc573c965e1b253493" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "f65d98aebf9bee4de6dce79983fe91b20f95d731be71999021639bdd7c8c14e9" => :catalina
+    sha256 "dcc5deb65626637f6a4182f96e1ccd441a462c55657e134d2277a70be8246278" => :mojave
+    sha256 "1f1b0b01dcfd1c37b7820ae93a9775abcd5b1abcdb8a5a4038d348e517b3c87a" => :high_sierra
   end
 
   depends_on "go" => :build

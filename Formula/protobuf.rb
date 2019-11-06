@@ -2,22 +2,21 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.9.1",
-      :revision => "655310ca192a6e3a050e0ca0b7084a2968072260"
+      :tag      => "v3.10.0",
+      :revision => "6d4e7fd7966c989e38024a8ea693db83758944f1"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
     cellar :any
-    sha256 "b0b095847f08949cc9777188f6ee0883ea987b2a7bf6c10899da5127d6cbc1ef" => :mojave
-    sha256 "db34146f742af2300e66626be56766c7af2efe56057b6d19f0310f25f26e7ab7" => :high_sierra
-    sha256 "5e357d762a171fbb5e77af6b244823da4d8c1d54286568103c5f8a729ab97cb6" => :sierra
+    sha256 "7e1a09099cc918a87e5b8b8aa8720b5398ae140ca2cb49203afb9a12f873feb9" => :catalina
+    sha256 "b13a84b99a3c1655b6c0b1dacd7290b22ef8eb6ad321e5ce29372d4718e736be" => :mojave
+    sha256 "0795805e92c9a9166de9be8529910e6783cf5300ca03783313a3c15ae243232a" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "python" => [:build, :test]
-  depends_on "python@2" => [:build, :test]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
@@ -44,20 +43,18 @@ class Protobuf < Formula
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"
 
-    ["python2", "python3"].each do |python|
-      resource("six").stage do
-        system python, *Language::Python.setup_install_args(libexec)
-      end
-      chdir "python" do
-        system python, *Language::Python.setup_install_args(libexec),
-                       "--cpp_implementation"
-      end
-
-      version = Language::Python.major_minor_version python
-      site_packages = "lib/python#{version}/site-packages"
-      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-      (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
+    resource("six").stage do
+      system "python3", *Language::Python.setup_install_args(libexec)
     end
+    chdir "python" do
+      system "python3", *Language::Python.setup_install_args(libexec),
+                        "--cpp_implementation"
+    end
+
+    version = Language::Python.major_minor_version "python3"
+    site_packages = "lib/python#{version}/site-packages"
+    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+    (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
   end
 
   test do
@@ -73,7 +70,6 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python2.7", "-c", "import google.protobuf"
     system "python3", "-c", "import google.protobuf"
   end
 end

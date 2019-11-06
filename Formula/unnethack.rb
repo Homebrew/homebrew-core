@@ -6,6 +6,7 @@ class Unnethack < Formula
   head "https://github.com/UnNetHack/UnNetHack.git"
 
   bottle do
+    sha256 "2bc88eb355efec5f772e5e555b428290a014e4f6e84e0945d88ce867060af66b" => :catalina
     sha256 "c95ffced18c9be00207e55c4d592f477cd5975fd04412115de66629d74e66088" => :mojave
     sha256 "4648259b51fa627ee3ad0ef01b5040e573741f9528385d8c04d8b6354ec745c8" => :high_sierra
     sha256 "4ccafeafee0cd1e9cc7705ee312101229748100ea32b5cb1c7c63b29ed1d7742" => :sierra

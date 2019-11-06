@@ -7,6 +7,7 @@ class PassOtp < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "515eb09606a7e6d384d81a2cb045189b0f1dbda605f4743cd06f9bdb665ff0db" => :catalina
     sha256 "4fd5893adc28693cf5b532d0ad1d469d58842e355d676cb3371c4832ed1e7a0c" => :mojave
     sha256 "4fd5893adc28693cf5b532d0ad1d469d58842e355d676cb3371c4832ed1e7a0c" => :high_sierra
     sha256 "bd30d129efb90973ffa102df943b0b3f07c47f28cb70027bec07a75d66bfd145" => :sierra

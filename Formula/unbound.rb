@@ -1,26 +1,25 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.2.tar.gz"
-  sha256 "6f7acec5cf451277fcda31729886ae7dd62537c4f506855603e3aa153fcb6b95"
-  revision 1
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.4.tar.gz"
+  sha256 "3d3e25fb224025f0e732c7970e5676f53fd1764c16d6a01be073a13e42954bb0"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
-    sha256 "1e5a0656a5280f923f82aaa48374a0ac6e1562b0f315f0f980e3aade6dc6d083" => :mojave
-    sha256 "afad7dffd4fbe9c1b9e87b69882439e8abe1e107c0efdcb398c208ddaedb3301" => :high_sierra
-    sha256 "e62f07fda5af05f595645fb28309c4041722fb8e88324164ac2ceaf088a53a55" => :sierra
+    sha256 "1334db025dbafd779ecd8ae1e331c2bc4cc0a75e82e483941270210bf397c5a5" => :catalina
+    sha256 "b43a4d47b31d91ab1b51db34c600e2772f059a00cd24a0e5541bf9ebdfe036be" => :mojave
+    sha256 "84f88888deb8015640d57cc2ed551f04949f999c09b2398bdc39270559d2d997" => :high_sierra
   end
 
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-event-api
     ]
 

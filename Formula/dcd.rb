@@ -21,19 +21,17 @@ class Dcd < Formula
   end
 
   test do
-    begin
-      # spawn a server, using a non-default port to avoid
-      # clashes with pre-existing dcd-server instances
-      server = fork do
-        exec "#{bin}/dcd-server", "-p9167"
-      end
-      # Give it generous time to load
-      sleep 0.5
-      # query the server from a client
-      system "#{bin}/dcd-client", "-q", "-p9167"
-    ensure
-      Process.kill "TERM", server
-      Process.wait server
+    # spawn a server, using a non-default port to avoid
+    # clashes with pre-existing dcd-server instances
+    server = fork do
+      exec "#{bin}/dcd-server", "-p9167"
     end
+    # Give it generous time to load
+    sleep 0.5
+    # query the server from a client
+    system "#{bin}/dcd-client", "-q", "-p9167"
+  ensure
+    Process.kill "TERM", server
+    Process.wait server
   end
 end

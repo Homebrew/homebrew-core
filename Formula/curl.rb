@@ -1,14 +1,14 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.65.3.tar.bz2"
-  sha256 "0a855e83be482d7bc9ea00e05bdb1551a44966076762f9650959179c89fce509"
+  url "https://curl.haxx.se/download/curl-7.67.0.tar.bz2"
+  sha256 "dd5f6956821a548bf4b44f067a530ce9445cc8094fd3e7e3fc7854815858586c"
 
   bottle do
     cellar :any
-    sha256 "01b10eeb5cab3098b1fdc3c5a0a7379b676fceac2e34514829a7b4267f437f06" => :mojave
-    sha256 "ae322d8e7706e0d5db7d192ba1c206123cfcfaf873b943fe51488f39f3d7d363" => :high_sierra
-    sha256 "94fd774f43b19aae56e3e3ed5c97fa12364a4bfdb96db8fb264990e422dc4281" => :sierra
+    sha256 "d43bf6905beee288978104f8fa403fe8b5ded820256916f336d2897be5d9872e" => :catalina
+    sha256 "3e1fa3e2435503c0d67b447a4f20294459f90bc9279890ac80590617fe23657b" => :mojave
+    sha256 "d04cf2c4ca107d4a73e44d886727fbd06f988c120eae06e5b9e8d6ab1f61cf59" => :high_sierra
   end
 
   head do
@@ -32,7 +32,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-darwinssl
+      --with-secure-transport
       --without-ca-bundle
       --without-ca-path
     ]

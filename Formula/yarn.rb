@@ -2,8 +2,8 @@ class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
   # Should only be updated if the new version is listed as a stable release on the homepage
-  url "https://yarnpkg.com/downloads/1.17.3/yarn-v1.17.3.tar.gz"
-  sha256 "e3835194409f1b3afa1c62ca82f561f1c29d26580c9e220c36866317e043c6f3"
+  url "https://yarnpkg.com/downloads/1.19.1/yarn-v1.19.1.tar.gz"
+  sha256 "34293da6266f2aae9690d59c2d764056053ff7eebc56b80b8df05010c3da9343"
 
   bottle :unneeded
 

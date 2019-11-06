@@ -1,16 +1,17 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1c.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1c.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1c.tar.gz"
-  sha256 "f6fb3079ad15076154eda9413fed42877d668e7069d9b87396d0804fdb3f4c90"
+  url "https://www.openssl.org/source/openssl-1.1.1d.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1d.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1d.tar.gz"
+  sha256 "1e3a91bc1f9dfce01af26026f856e064eab4c8ee0a8f457b5ae30b40b8b711f2"
   version_scheme 1
 
   bottle do
-    sha256 "e4c85922978ded43321679e00ecb35b47d3924e604209239b99f0ff86e0a1b02" => :mojave
-    sha256 "fd7d66a43b37f5e4b558852935b84f45921da0f5bd6f12a2736b046214aed432" => :high_sierra
-    sha256 "b0ac9931918d90518992569308814040c58455aebeb0c7bc7008fc46f593c5a7" => :sierra
+    sha256 "d7f992ebfd78f80828051f6dc6a1a99aed405f86b0f39ea651fd0afeadd1b0f4" => :catalina
+    sha256 "104ef018b7bb8fcc49f57e5a60359a28a02d480d85a959e6141394b0571cbb28" => :mojave
+    sha256 "c7681ee40cb3680cd9fafcdb092bde153b9d4903907d67858baa5f19025f927b" => :high_sierra
+    sha256 "a95d756e9aa3a8d118833f9083112048bf635f20c33943de04163bdcf7412328" => :sierra
   end
 
   keg_only :provided_by_macos,

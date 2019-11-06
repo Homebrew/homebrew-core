@@ -9,6 +9,7 @@ class Portaudio < Formula
 
   bottle do
     cellar :any
+    sha256 "fef3e25b903e0e22e1899afe1a456ccb8f372e7123c17eda90607cc5e98271b4" => :catalina
     sha256 "54d0d7a2e270221cef38c5405a5102a0efc19df4aa88d907d74d0eefebbc31ba" => :mojave
     sha256 "c8c55723ecdb61b8e4f4431062814d6ce8a267a19fe3e34c70b2bd677a0e20f9" => :high_sierra
     sha256 "4fb62387583b02607e013f376c02b4a1f6c2a2fa9b68ee43e79c9c04d12f9a45" => :sierra

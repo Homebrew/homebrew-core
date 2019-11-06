@@ -4,13 +4,13 @@ class OathToolkit < Formula
   url "https://download.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.2.tar.gz"
   mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.2.tar.gz"
   sha256 "b03446fa4b549af5ebe4d35d7aba51163442d255660558cd861ebce536824aa0"
+  revision 1
 
   bottle do
     rebuild 1
-    sha256 "e56c414cf742ef44cef4c904c7bac6138d2fe3dde08d4733fcb6d94c62e75eae" => :mojave
-    sha256 "dbf06b9def1ea821269ff0b6d44f54e05c64af1fe57799803de5deb3a355c0d2" => :high_sierra
-    sha256 "af3c35a9cd1139b813bf5bbea9b9c0eff5890fc9beff8096d4405218d6398a42" => :sierra
-    sha256 "e72016ad2981cdfd75cc76aa8913ad8b41eca71eec82a769addb14cd94fc162e" => :el_capitan
+    sha256 "24a65399ed4b462a3291c542616e1a5dad4df008dcb116fd12c34030f05135b0" => :catalina
+    sha256 "ab9cbc2e7e8c7004c5a3db7fbc4b6a0cbc9560a353a306cba0fa4d1174a46f68" => :mojave
+    sha256 "a7fbff2831b4c6a61896c65b482b3db50d2e070e1e74772e7fb929bbd4a586f0" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -1,16 +1,15 @@
 class Binwalk < Formula
   desc "Searches a binary image for embedded files and executable code"
   homepage "https://github.com/ReFirmLabs/binwalk"
-  url "https://github.com/ReFirmLabs/binwalk/archive/v2.1.1.tar.gz"
-  sha256 "1b70a5b03489d29f60fef18008a2164974234874faab48a4f47ec53d461d284a"
-  revision 7
+  url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
+  sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
     cellar :any
-    sha256 "6b5e5e6d141f39f0660b0f99c26b9d9fd46fa91aa4dd58f8c30c4c1fd4fbbabe" => :mojave
-    sha256 "956a8472894cb45f180ff7ed215e1ee1d32f970f45645e472e0d3678478714bf" => :high_sierra
-    sha256 "2d3a67d85512443840a04e351b9488a3454f2164beb2151772abcca0185a604d" => :sierra
+    sha256 "e95a1061cccebe8b26ade0344cfec88d987f0344c0ef3ef0dae1ca9d7e2304ec" => :catalina
+    sha256 "aade25dafcf47d5a9b4e8c51f8e5aba3fe3c9e09cd2a592aec68a7e685741ee0" => :mojave
+    sha256 "ddf7030e8ff4e1f5a2aed178b1ccff13f3e6e5428bd23ab63679fbaeeb89ac80" => :high_sierra
   end
 
   depends_on "swig" => :build
@@ -21,13 +20,13 @@ class Binwalk < Formula
   depends_on "xz"
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/45/ba/2a781ebbb0cd7962cc1d12a6b65bd4eff57ffda449fdbbae4726dc05fbc3/numpy-1.15.2.zip"
-    sha256 "27a0d018f608a3fe34ac5e2b876f4c23c47e38295c47dd0775cc294cd2614bc1"
+    url "https://files.pythonhosted.org/packages/ac/36/325b27ef698684c38b1fe2e546e2e7ef9cecd7037bcdb35c87efec4356af/numpy-1.17.2.zip"
+    sha256 "73615d3edc84dd7c4aeb212fa3748fb83217e00d201875a47327f55363cef2df"
   end
 
   resource "scipy" do
-    url "https://files.pythonhosted.org/packages/07/76/7e844757b9f3bf5ab9f951ccd3e4a8eed91ab8720b0aac8c2adcc2fdae9f/scipy-1.1.0.tar.gz"
-    sha256 "878352408424dffaa695ffedf2f9f92844e116686923ed9aa8626fc30d32cfd1"
+    url "https://files.pythonhosted.org/packages/ee/5b/5afcd1c46f97b3c2ac3489dbc95d6ca28eacf8e3634e51f495da68d97f0f/scipy-1.3.1.tar.gz"
+    sha256 "2643cfb46d97b7797d1dbdb6f3c23fe3402904e3c90e6facfe6a9b98d808c1b5"
   end
 
   def install

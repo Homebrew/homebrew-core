@@ -1,14 +1,14 @@
 class PythonYq < Formula
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://yq.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0c/23/aa30f88c916128aa60de9d4f53dd40c8f6c31cb7ebb808aab1b0501a701f/yq-2.7.2.tar.gz"
-  sha256 "f7dafd1e53d1f806ffe11de6da814e231d866595e2faae0dfc38135b8ee79bbb"
+  url "https://files.pythonhosted.org/packages/89/67/e36d2ea4c0e273db3adabbc200ebb76dee4cfdfd9e1fea6e6fab73441098/yq-2.8.1.tar.gz"
+  sha256 "24d36c7e9e670209562a161b8506ff7e86959be49ba7aee4ca659810801e5710"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d3d388e9e69167f57f2b8f4e87322aeda5a940a1ce4227a43a671aeb19c06b04" => :mojave
-    sha256 "ec55df02a3aaf3aca5d43e01047474bd83c5bea8bce6c469e81df8dcd7c73024" => :high_sierra
-    sha256 "ec55df02a3aaf3aca5d43e01047474bd83c5bea8bce6c469e81df8dcd7c73024" => :sierra
+    sha256 "cc8f999e7cd9aecdd2a853f89df3809fb337366652ca7b6f5ffc85977f8f7e96" => :catalina
+    sha256 "cc8f999e7cd9aecdd2a853f89df3809fb337366652ca7b6f5ffc85977f8f7e96" => :mojave
+    sha256 "cc8f999e7cd9aecdd2a853f89df3809fb337366652ca7b6f5ffc85977f8f7e96" => :high_sierra
   end
 
   depends_on "jq"
@@ -17,13 +17,13 @@ class PythonYq < Formula
   conflicts_with "yq", :because => "both install `yq` executables"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
+    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/57/17/a6acddc5f5993ea6eaf792b2e6c3be55e3e11f3b85206c818572585f61e1/xmltodict-0.11.0.tar.gz"
-    sha256 "8f8d7d40aa28d83f4109a7e8aa86e67a4df202d9538be40c0cb1d70da527b0df"
+    url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
+    sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
   end
 
   def install

@@ -1,14 +1,14 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.3.1/shadowsocks-libev-3.3.1.tar.gz"
-  sha256 "afd25ae5e737be385fa53364c66095c354277e98cf141b54beb2be93d9228f4f"
+  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.3.3/shadowsocks-libev-3.3.3.tar.gz"
+  sha256 "677356a5ed6b5ae9e32a898061db2587158ff27e245db03f4bde9b006ef12dc9"
 
   bottle do
     cellar :any
-    sha256 "ade99b8f402587c406e4c7175fcc06f788548200ded90d97b059432a9e70ebeb" => :mojave
-    sha256 "bd8da9891600f1c6c9758c3cbdac881951104986576b4acfa45b5f59f6ce78b1" => :high_sierra
-    sha256 "95eb717688ab13cd91f16cf6adebd36b9e2da39ba635d7ea41ec32f2bcd5d045" => :sierra
+    sha256 "be5c6b0ee030a71916cb8eaa46c5661f1ab92a382556d2e45b748ad6d05b1ec1" => :catalina
+    sha256 "7698e2260405590b827b65a1d2e2db18cdb62973021af8207bca803ff8f0bcad" => :mojave
+    sha256 "ffd307be32d7040633103eabab039b856df5e99f4e2512386c954dde32262c19" => :high_sierra
   end
 
   head do

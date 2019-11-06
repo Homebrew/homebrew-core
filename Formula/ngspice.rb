@@ -7,6 +7,7 @@ class Ngspice < Formula
 
   bottle do
     rebuild 1
+    sha256 "90ef0a161c54ad7ce33ed9753a556478e0a3f56cf1dc0c15d819ff3583ef5fc2" => :catalina
     sha256 "ad1218af03e9711b74cbf8919b8ef9c77ec216ee43d40648423c5043f4feb393" => :mojave
     sha256 "1241cc934814f62c3abcc148817b1eb10ec84db5a7ec65c7d0f5316e4bb7f831" => :high_sierra
     sha256 "89983540f2878f500431a0bec70dfcc2bcfc695e382499586e7f44189a978caa" => :sierra

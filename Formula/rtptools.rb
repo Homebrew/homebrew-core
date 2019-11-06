@@ -1,15 +1,15 @@
 class Rtptools < Formula
   desc "Set of tools for processing RTP data"
-  homepage "https://www.cs.columbia.edu/irt/software/rtptools/"
-  url "https://www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
+  homepage "http://www.cs.columbia.edu/irt/software/rtptools/"
+  url "http://www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
   sha256 "2c76b2a423fb943820c91194372133a44cbdc456ebf69c51616ec50eeb068c28"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae6814e85782983d6e657331902fd792f78a2571b74887aafbe71e07b1bf4a97" => :mojave
-    sha256 "246c3120540b65eb6da10b3ea57d194e3014a4ab4e653a241676f6540c128607" => :high_sierra
-    sha256 "923a5b4263afc7903843268745313b854ade82c5c4faa36521fb30209e01e047" => :sierra
-    sha256 "3e50750a9e8589b351f0b5d61c2828bd928b053fbcef917b3cd805eeaee349ca" => :el_capitan
+    rebuild 1
+    sha256 "62a46aec907b497ca92c8a07731cf56b3a2b986850acbcb203aa87e94e945abe" => :catalina
+    sha256 "51fe1b7831b60ee5ca438c11f72094149dbee5f96209a965997209fd6ac95742" => :mojave
+    sha256 "e96df17dfe878ecb9e87a938579a21d514e31dbf8e5e6b743264dac23e42501c" => :high_sierra
   end
 
   def install

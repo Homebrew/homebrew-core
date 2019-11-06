@@ -3,15 +3,15 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.com/"
   # Please only update version when the tools have been modified/updated,
   # since the Linux module aspect isn't of utility for us.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20190702.tar.xz"
-  sha256 "1a1311bc71abd47a72c47d918be3bacc486b3de90734661858af75cc990dbaac"
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20191012.tar.xz"
+  sha256 "93573193c9c1c22fde31eb1729ad428ca39da77a603a3d81561a9816ccecfa8e"
   head "https://git.zx2c4.com/WireGuard", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef92b9f817cdab70d3f0b209c10371047091032c0d3122ae233c55b0d2d80b71" => :mojave
-    sha256 "8b37ba466e40b8ec98c3f78aa45cf30ba4c134c2e498dac770c874cf2a68789c" => :high_sierra
-    sha256 "a9eeba2af14e948074df17f0d0878835efe3bdf4dc1555243556333e1de583d0" => :sierra
+    sha256 "430f85ccb7fa687eed9692b0ebda2daa4b67566f667d63383524cffddc041fa9" => :catalina
+    sha256 "6012b7c4ceaa1bd6c32638c26dd7823835d84d4ba05abc58daa68dd2e6ad6e1c" => :mojave
+    sha256 "847e9270ae88160d80b331a63da506f71dd4f9582c49bf6599c031ec3680bf65" => :high_sierra
   end
 
   depends_on "bash"

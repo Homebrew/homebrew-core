@@ -1,15 +1,15 @@
 class Flatcc < Formula
   desc "FlatBuffers Compiler and Library in C for C"
   homepage "https://github.com/dvidelabs/flatcc"
-  url "https://github.com/dvidelabs/flatcc/archive/v0.5.3.tar.gz"
-  sha256 "d7519a97569ebdc9d12b162be0f9861fdc2724244f68595264a411ac48e4e983"
+  url "https://github.com/dvidelabs/flatcc/archive/v0.6.0.tar.gz"
+  sha256 "a92da3566d11e19bb807a83554b1a2c644a5bd91c9d9b088514456bb56e1c666"
   head "https://github.com/dvidelabs/flatcc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ca5ad18001cd6511efd9e6eca6b7c4be094c276c6febda4961ef9eaaface955" => :mojave
-    sha256 "b792b08126ca76b61e6b0957b11e22118138cc698b8512169bae6d1a6a1f3213" => :high_sierra
-    sha256 "c5eb2a9d90a410ba1807b3033c44b988c7e494dc6aa5130052c7bb57b6d1ea27" => :sierra
+    sha256 "f1f1cd7532305f48b008fb1f3687d9369a88f184902a8992fd77789410841b4e" => :catalina
+    sha256 "74651142d2c732bfbe671d78cdcf3357189c9b3d3cb7078bf9e882ad9ca6b053" => :mojave
+    sha256 "9e37511cd8069fb56ff15e72f0184d1908f9d4948ebd57d2b430c760cac60aa6" => :high_sierra
   end
 
   depends_on "cmake" => :build

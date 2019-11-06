@@ -7,6 +7,7 @@ class Vte < Formula
 
   bottle do
     rebuild 1
+    sha256 "26d7503f02898f3b188f3c9eb3bf843feaccc0d6694a9f360f1e6e3ea0e10bd1" => :catalina
     sha256 "320ff58d9e751660a0f6feea056915df5b1266d43ee4223e4622bc07da0dcf24" => :mojave
     sha256 "f8ed141e63dea2c9bbb68e974571a574bda1330d32575c10c792de5e0ea4ffea" => :high_sierra
     sha256 "f84c4aa751a6c63962cc8c1a30cd1fcc3938652b259f51e252b20763fe4a9ef8" => :sierra

@@ -6,6 +6,7 @@ class Devtodo < Formula
   revision 2
 
   bottle do
+    sha256 "24cc0693b8b69ac2fe7d926cbc3b8fae6e09df83b6a979ac71c68b8ae5ee6196" => :catalina
     sha256 "80c04083f48a5791985a5cf02e86ddff3e40b4523177a947f0bd3f7f066f47a1" => :mojave
     sha256 "1d5279b22730d8983887f91866a913b4714f8e453e382116bee294bbacee0e97" => :high_sierra
     sha256 "aa22627fa7722dd0ca564fdd9770a047901d71090bb5312edfa91c8cf0d72ba4" => :sierra

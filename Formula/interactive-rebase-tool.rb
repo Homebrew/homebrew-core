@@ -6,15 +6,16 @@ class InteractiveRebaseTool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e164819243e778c25f49adb1e0e9da7e1c94e2973a89c5df35188fe4eaf09567" => :mojave
-    sha256 "24b07c849654699ac2ff0e827562fff88c947c45ca224440817ad580a9d91167" => :high_sierra
-    sha256 "3d0f6aa7a3379829f3999eed234d303a22f81d1fa9b6fcb7aa070234c330246d" => :sierra
+    rebuild 1
+    sha256 "29c07ab1c4efc97c65213815a8e770dec18574435135ce515f1701ce9e989cdc" => :catalina
+    sha256 "7633dcbb333d144ff73119623b6d181b864a87ea124048e64d26465fdc99fba7" => :mojave
+    sha256 "01edbef9fae206778e3e0e14c1612869a4490a054910f5181ee6537150e3767a" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

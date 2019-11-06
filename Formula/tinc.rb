@@ -1,21 +1,23 @@
 class Tinc < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
-  url "https://tinc-vpn.org/packages/tinc-1.0.35.tar.gz"
-  sha256 "18c83b147cc3e2133a7ac2543eeb014d52070de01c7474287d3ccecc9b16895e"
+  url "https://tinc-vpn.org/packages/tinc-1.0.36.tar.gz"
+  sha256 "40f73bb3facc480effe0e771442a706ff0488edea7a5f2505d4ccb2aa8163108"
 
   bottle do
-    sha256 "98c73cd30d30b74363b2093621006361da5a8738e040d9c6bf329016d7f18c3f" => :mojave
-    sha256 "9c76119b5f3116772bff828dfb3032d44d1ee6d232236789c03871cf605d9f37" => :high_sierra
-    sha256 "0c78ab7901f43d6f2dd2406157308377722df4d225737fb193dcd7e3f3ef7714" => :sierra
+    cellar :any
+    sha256 "fcaaca6b5abf4f30a55149f41871a7c4ec99fe8a9dc87ddb68ea735c03569a66" => :catalina
+    sha256 "ba34dc41517f617c4d61d61e2f76cbafd9b75aa5edacc894e5b24e97cfb269f5" => :mojave
+    sha256 "a5ec2ae5f1e6252f80f33158bb0a1140e29764ed1f2e8754dcedf50e4fb49290" => :high_sierra
+    sha256 "923b15d1dcd7aafbb566f83edc9cced61b13379e857243bbe28b2755270b542d" => :sierra
   end
 
   depends_on "lzo"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

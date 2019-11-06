@@ -6,6 +6,7 @@ class GitOctopus < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "175dcb36b4098a7c406d15a84cd2cfa856d6df0cfd0cdb3d2a08ff4101dc5249" => :catalina
     sha256 "4288690717a7c78406fde14701b2d8c3f7d1d24b27257ceedd02dda4ed81765e" => :mojave
     sha256 "67b8b9950133c0ca6f8a0be544bf192136ebad791eea0070becf47ab99eec270" => :high_sierra
     sha256 "8d5bd1ae923518cd155c1e1ddf1a31b93d75af241e325087853657adc39eca85" => :sierra

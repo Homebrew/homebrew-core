@@ -6,6 +6,7 @@ class Ttf2pt1 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "29a39e797de6107bfe0878e68eb0eabd67d7cbb9b10e76055f1d9d3618a1a842" => :catalina
     sha256 "6cdd6394dba88c5c8acc8199443a3dcb8f3eaf357c8497d58b84c5a4e475cc5f" => :mojave
     sha256 "180c25530da15c48af99ea59e20f40e18e7339e812a375c9d3760ad23429a085" => :high_sierra
     sha256 "e70efa3a1b28b212ea2366ac50b33fbf48e9b7922d03f1a6b86965af87244bee" => :sierra

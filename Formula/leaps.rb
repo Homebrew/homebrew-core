@@ -7,6 +7,7 @@ class Leaps < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5cecda6732be6b32d1184038a5e1ad008c438053eabed0880c2f2ad194c4fefb" => :catalina
     sha256 "9e40e4b5b75c73411f6ab74bea028f72f25f8b788eadf032f0f5cfed03baefae" => :mojave
     sha256 "37343e978d4035fa9b2881c038748ec4704bf8a57308c59e64592dd404166e36" => :high_sierra
     sha256 "d269ec8f0e492e2a9c7804ca2cc6d9211a9be7c3dfbb0daaab19c5b14bef5b24" => :sierra
@@ -27,22 +28,20 @@ class Leaps < Formula
   end
 
   test do
-    begin
-      port = ":8080"
+    port = ":8080"
 
-      # Start the server in a fork
-      leaps_pid = fork do
-        exec "#{bin}/leaps", "-address", port
-      end
-
-      # Give the server some time to start serving
-      sleep(1)
-
-      # Check that the server is responding correctly
-      assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
-    ensure
-      # Stop the server gracefully
-      Process.kill("HUP", leaps_pid)
+    # Start the server in a fork
+    leaps_pid = fork do
+      exec "#{bin}/leaps", "-address", port
     end
+
+    # Give the server some time to start serving
+    sleep(1)
+
+    # Check that the server is responding correctly
+    assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
+  ensure
+    # Stop the server gracefully
+    Process.kill("HUP", leaps_pid)
   end
 end

@@ -7,6 +7,7 @@ class Blahtexml < Formula
 
   bottle do
     cellar :any
+    sha256 "3f883672f92e2039c22bb278ca50ece210c2c01e58f4c230c3ab1e3101eeb74f" => :catalina
     sha256 "23f943fa053e861b0f6c9f2e9cfa1c74d6b8966ac698e6650386d44f7d7de31b" => :mojave
     sha256 "c2696cdaa1724541f0d07900219247365e30061a471df0b80f6469b3bc2b4a14" => :high_sierra
     sha256 "bcd628072b5b7d6625e2b2caad1c6f64483807facda1b2eff32795de1b25070f" => :sierra

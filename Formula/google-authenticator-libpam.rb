@@ -6,6 +6,7 @@ class GoogleAuthenticatorLibpam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aa5f60e9fa0a2d69c03127e9398d495d4bf06c4fea64d3dc4b9b6d7b94c7f1d1" => :catalina
     sha256 "7705a1508ebbf3b288dd23864957af565d0133300808325aae1be638db759aa3" => :mojave
     sha256 "95296464b3cc30ae3120d74c2a00ebd7f48270313cdf3e5f2e17149e5811bf23" => :high_sierra
     sha256 "2555908b0fe0caaed427bb7722a8fd84c3495732db7a95c241b078850e3b140b" => :sierra

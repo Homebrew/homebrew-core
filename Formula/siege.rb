@@ -3,15 +3,16 @@ class Siege < Formula
   homepage "https://www.joedog.org/siege-home/"
   url "http://download.joedog.org/siege/siege-4.0.4.tar.gz"
   sha256 "8f7dcf18bd722bb9cc92bc3ea4b59836b4a2f8d8f01d4a94c8d181f56d91ea6f"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "efa8687e655b73e1c890867584a894e2bf3f5b458f3210dd2e4d087eb2185570" => :mojave
-    sha256 "6f6ddf745927d9e2b6a60f0c78868a952cb223b4a5ff127c1d165ee1abac9c0d" => :high_sierra
-    sha256 "637cbbe464290468705fd46e92ad3e90c60e6e29518591cb33ff33d72e2af3f4" => :sierra
+    sha256 "6072653be5dfab7b9f5b2154f060daababdf65ebc3cb0a5bdb1cf9ff2b95e1b2" => :catalina
+    sha256 "8a057346938d661b2a4b2cf6523da41a76bdc9a26b76953b3e301763f1b1c804" => :mojave
+    sha256 "2313774da1f8716dd225cfe13b12808ad23af54ffa2d477dd90bdd7bef16380c" => :high_sierra
+    sha256 "3ce11d6b7f693f0f3da024c7e8a1341d57b21d532bef16f414064300998fcedb" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # To avoid unnecessary warning due to hardcoded path, create the folder first
@@ -20,7 +21,7 @@ class Siege < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
     system "make", "install"
   end

@@ -7,6 +7,7 @@ class Cf4ocl < Formula
 
   bottle do
     cellar :any
+    sha256 "42086ab65ee844ca3e982c19592ca56fc4d7e0c1417fc749585dc4f24426c1b5" => :catalina
     sha256 "bac407173815fb9bed500a83fb8c2cac4c599a4b1c35a6a619adbfa746817162" => :mojave
     sha256 "d5903425babf74b3f3af6b4aebf7e0c583bf0729d15799b4a99208141ca80b5a" => :high_sierra
     sha256 "dfbd0e6e303f7f8ff286e38b98562cbf9b18ac880070fcfa19240b0b9c8d4a2a" => :sierra

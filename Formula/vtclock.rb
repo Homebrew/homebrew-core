@@ -6,6 +6,7 @@ class Vtclock < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a9d8600f4ab8ef25a88f5778d4625ad04c7600b8770e08300193f2841451c6d4" => :catalina
     sha256 "380055ab532f75e4cb03f91d5e0cbceb14371d4b57ddad9771d562cf572e5746" => :mojave
     sha256 "d72cbcb6862c0030433a2413fbf1d1773d6ed8207a5c681c9ffd206fa5798f45" => :high_sierra
     sha256 "766e69763326b8a8c5cfdc636cbba9f6fcffde0739be56612c54a2904d95d456" => :sierra

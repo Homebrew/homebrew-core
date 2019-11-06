@@ -11,17 +11,19 @@ class Gpac < Formula
   homepage "https://gpac.wp.mines-telecom.fr/"
   url "https://github.com/gpac/gpac/archive/v0.8.0.tar.gz"
   sha256 "f9c4bf82b0cbc9014bc217d6245118ceb1be319f877501f8b6da7a284f70ec65"
+  revision 1
   head "https://github.com/gpac/gpac.git"
 
   bottle do
     cellar :any
-    sha256 "f2c2011bf39b446799dc060821df0947997583f2ec4793488aa98964fe6d6cb5" => :mojave
-    sha256 "817c6ab9614c89b887bd2887faa03e1aaa505cf25861c9ca4c53e598b56b5396" => :high_sierra
-    sha256 "d1860839d41ed5922e40c1f2b1ff6215083cfaba19d9751db985541b2cf475b8" => :sierra
+    sha256 "4fc891e2da6330b285fa451d8ef381a584ce6db88775b236dfea9be15ca5ec94" => :catalina
+    sha256 "e524e50f08bcb03f3c8af5313f517bd51382a0cf830aa632499834e1f396514e" => :mojave
+    sha256 "3cc7442693e7173b95ae2b7cd5ed8eb4e89a7e5859284d1f12f21a181e8d2bdf" => :high_sierra
+    sha256 "0f2a6e4e1a24d9754b71062cbe86c871db8a98915933a819bfee8e0e68baf4c7" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "bento4", :because => "both install `mp42ts` binaries"
 

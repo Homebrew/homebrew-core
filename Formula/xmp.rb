@@ -5,12 +5,11 @@ class Xmp < Formula
   sha256 "1dbd61074783545ac7bef5b5daa772fd2110764cb70f937af8c3fad30f73289e"
 
   bottle do
-    sha256 "9765cf4aca60e17e46524d625b1d92655c1182851c3b408c9f2e4fb7c62e4ae1" => :mojave
-    sha256 "f399d4668b512d45d1019264c4968af84060d138380d5743a0eb483dfdd53578" => :high_sierra
-    sha256 "4eb53e6f831785a5bbe084be7be3c83c7942392c06a00608f8d4d29e0d0d735a" => :sierra
-    sha256 "2412ab978ad3562876d8078a6e588f8617b5507df33aecee84ada484f1ec33b8" => :el_capitan
-    sha256 "a0ee59b4a71a7cda6a59e7b06a9c0b54dc04e3bf77b97f0b4e2336c16afc8d57" => :yosemite
-    sha256 "289fbcb9393539a355bf163dce53562afd29981c2fd0de3491133c7105a5bc06" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "dc4399be2df77f0534bf1151201fd52b61694df7285bd58d9c1fe16522f199f6" => :catalina
+    sha256 "197be59a2a0c3495aeed49eeeedea65b060534f4ff5ad234cdd35f6da19fb9e1" => :mojave
+    sha256 "c76b4335844295d6daaaaca97f462828d39a9ce511c859d0ebf66165b12a6354" => :high_sierra
   end
 
   head do

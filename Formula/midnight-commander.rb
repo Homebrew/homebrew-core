@@ -3,19 +3,20 @@ class MidnightCommander < Formula
   homepage "https://www.midnight-commander.org/"
   url "https://www.midnight-commander.org/downloads/mc-4.8.22.tar.xz"
   sha256 "ee7868d7ba0498cf2cccefe107d7efee7f2571098806bba2aed5a159db801318"
-  revision 1
+  revision 2
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
-    sha256 "c1b8c5c6f30a67ab06e29a441e1b33f2b2f351e1cac064d005c58a2061d3fc2d" => :mojave
-    sha256 "ab2a0274dad5bdb3073e9331ea29f69179735a0ed424eb02b6723d40e074ba80" => :high_sierra
-    sha256 "5fdca1bab0f0d9b430a743041b6567da126e3bd22e0d4433df58e1afe3404d60" => :sierra
+    sha256 "a09791d4752c87a4f02c9d45d418f282ebeab30089641ef0d0ec6d7390449815" => :catalina
+    sha256 "f0a68c97b763f0287815a5aa09d001cf813595e3a9d4ba5ae5c25095adb666ce" => :mojave
+    sha256 "a0c72e44f505ccb864b2b301a05cdec10580a26b195f574a46f0e552cf97e993" => :high_sierra
+    sha256 "1d7f48e1c2834f4bb2a3dadc0df433eec646fe31bf1817e44fa9a16dc91ee941" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libssh2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "s-lang"
 
   conflicts_with "minio-mc", :because => "Both install a `mc` binary"

@@ -7,6 +7,7 @@ class GitExtras < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a59d6c7f60ed7a2904f855bb32cc66f21cd91f03c84c7d85803343cff21c942d" => :catalina
     sha256 "5bd122f438ebe8d623169f24a5add6a4609a7e33782f15f09e98a9e8e4c5a5fc" => :mojave
     sha256 "5bd122f438ebe8d623169f24a5add6a4609a7e33782f15f09e98a9e8e4c5a5fc" => :high_sierra
     sha256 "3e50176046daa936eded6a4f5ac27d56fd05375c145c61889a050fdb3797d596" => :sierra

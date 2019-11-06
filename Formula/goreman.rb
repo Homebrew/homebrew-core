@@ -1,21 +1,20 @@
 class Goreman < Formula
   desc "Foreman clone written in Go"
   homepage "https://github.com/mattn/goreman"
-  url "https://github.com/mattn/goreman/archive/v0.2.1.tar.gz"
-  sha256 "c1ef360fcc92688956bc7a18fae089d78754bd1dde22a89b27228ae5a840cc45"
+  url "https://github.com/mattn/goreman/archive/v0.3.0.tar.gz"
+  sha256 "80b439dc2d68e59003c5cb1739a8c2241be54ece36e8cb686e4db25bee9e141a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bd1c4412693e31ddc84eb29ae4fe5bd9612e0e5b2973b38e9ff0f0b4258c029" => :mojave
-    sha256 "4b2929d2a39a08456394b23b34be00206d26070211e8e80b2d659f94d8c8a8a1" => :high_sierra
-    sha256 "c5ccc2b4a4ecd7fa50f5bedffd93809aa42c36a89290b62e743f08a4a60f4ad4" => :sierra
+    sha256 "05f671ec06b1bdb69d7ae497026fb9e7d892ff30d176fbd85a7b1f96576f2938" => :catalina
+    sha256 "896a22c18d18985195df7b47f655b759051856a12406f4de23e3a511630eadee" => :mojave
+    sha256 "f3ea945f4596a6f2b218c1fea6ff2e9e7fc4420b07b1f32a22698c01e5a59424" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     srcpath = buildpath/"src/github.com/mattn/goreman"
     srcpath.install buildpath.children

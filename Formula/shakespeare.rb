@@ -7,6 +7,7 @@ class Shakespeare < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "189fbdefeea765fcb5b9b33cc1bde987fe57376b3aff1a0eada8faaec27a84aa" => :catalina
     sha256 "657bf548e23dd5564a32e1b86f983f1899e24966728e8e94dfdb981d35e60a45" => :mojave
     sha256 "7320be8a139934d9a80543a8017de6500f02971374a36038592ad122d76f85cf" => :high_sierra
     sha256 "6a8e746959adcbd5629bd6ec74fcc3854fa7355d098c14a640a6df23358ce335" => :sierra

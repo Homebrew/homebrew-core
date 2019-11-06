@@ -6,6 +6,7 @@ class Bgpdump < Formula
 
   bottle do
     cellar :any
+    sha256 "2bfbd4dd9019c2cb8ae595a9e426faf477b8d00e6468745907666f36a5e4ee07" => :catalina
     sha256 "be587d92cf5ad81323a5054da8a9010c4ddf6740370c7158a3abd3a832475f02" => :mojave
     sha256 "fb3bbc75887e67758164e3ce55f6a4061442f195538349b0be86e17745134aaa" => :high_sierra
     sha256 "151caa6be8e75f495e3776d448364b096ba67c537a46264664e89b468eca7705" => :sierra

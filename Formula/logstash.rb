@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.3.0.tar.gz"
-  sha256 "4e7f47d0014bee0c85be2687a5bb7224c2c5c343d4ecb143711af92569a5c938"
+  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.4.1.tar.gz"
+  sha256 "0770b6af348a681e218bfdb78360e55ea042dad9ddcea6f9d9b5021f44e5ef5d"
   head "https://github.com/elastic/logstash.git"
 
   bottle :unneeded

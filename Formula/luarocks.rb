@@ -1,15 +1,15 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.1.3.tar.gz"
-  sha256 "c573435f495aac159e34eaa0a3847172a2298eb6295fcdc35d565f9f9b990513"
+  url "https://luarocks.org/releases/luarocks-3.2.1.tar.gz"
+  sha256 "f27e20c9cdb3ffb991ccdb85796c36a0690566676f8e1a59b0d0ee6598907d04"
   head "https://github.com/luarocks/luarocks.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08458e0b638f8007065b5af141ad28af3ff0962c3d60593e751d6564cb6777b6" => :mojave
-    sha256 "08458e0b638f8007065b5af141ad28af3ff0962c3d60593e751d6564cb6777b6" => :high_sierra
-    sha256 "2771ed4bb77feb1cacfb1fedcf7604482887849ff786d5fea52fa8e3a8f7264b" => :sierra
+    sha256 "29e2c931525520f224a780598fd2e2db874bec996deea7be48926ac388aee044" => :catalina
+    sha256 "29e2c931525520f224a780598fd2e2db874bec996deea7be48926ac388aee044" => :mojave
+    sha256 "29e2c931525520f224a780598fd2e2db874bec996deea7be48926ac388aee044" => :high_sierra
   end
 
   depends_on "lua@5.1" => :test

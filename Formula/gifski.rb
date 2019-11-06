@@ -1,21 +1,22 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/0.8.7.tar.gz"
-  sha256 "e8d8d2fdb816953315989b3ecf39ac88f33b8c49aa7c79a0df8f53b4032755ab"
+  url "https://github.com/ImageOptim/gifski/archive/0.9.2.tar.gz"
+  sha256 "e2f6a44e5422527f1a6c582f371b637fefa9f0420c25cbce5831b1c95a2c91c9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "41b0c73f3364637a793137b5ff167847f04104a29ef1db89fce744839786f20b" => :mojave
-    sha256 "33268907c1359250acb2993847a179ae6dfd9c0173b9c62def3dfdb41168072b" => :high_sierra
-    sha256 "7a4cceb9e6b9ea907dc9244ae6e7e2a44069588034ac7937eb642f7cc1252ec8" => :sierra
+    rebuild 1
+    sha256 "e827ecb693054dfbf0650fc8b0a34ab58f13e065a6de410130703d0850aacb08" => :catalina
+    sha256 "46732beed14ac4265f06325e80bc5c7ade918418d371222a0f7171bbd6c5a189" => :mojave
+    sha256 "42d6a2e0f41b73144e2126b0943093567095676a16615ebde7c07416cbb7d8de" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

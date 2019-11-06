@@ -8,6 +8,7 @@ class Dirt < Formula
 
   bottle do
     cellar :any
+    sha256 "2e9cf5a28852453f9ec5394bb2218fe3366e2cc6ef133e2dda847fbfa71ee968" => :catalina
     sha256 "f90972cf61d77071fec9ab429f8a88a03738699b7e223b30c8655d5c64fede74" => :mojave
     sha256 "b889891f8186b244161241e9c81d20afad20c31bd592fbf6860658334f314d39" => :high_sierra
     sha256 "63847bffb4de9fa0cf57a1aea8a6bc1d713b8b0a1243ada27e6dd9d4aa21ccc1" => :sierra

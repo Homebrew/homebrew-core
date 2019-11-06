@@ -6,6 +6,7 @@ class Dbxml < Formula
   revision 3
 
   bottle do
+    sha256 "59c12069d26a6be4f542d4c7869841c2bd71e8cb08a1c809d559818fb1cb156a" => :catalina
     sha256 "b525b9d21d149d533aeb62a169becfe1e140f143d34291d0a8fddf2ada41a018" => :mojave
     sha256 "1886b654f152fc03a6a6e781ca94e5ca3a08f7f190bc1168326bf46b337c02e9" => :high_sierra
     sha256 "2a350300c31d639d46e9fafc16747d5cbe1897035acf1c365f795127535693b3" => :sierra

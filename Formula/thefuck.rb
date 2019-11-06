@@ -9,6 +9,7 @@ class Thefuck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a9e1c5b8a788445cbddb0c75e76b15855e2f7d38ff97730213a58266b7c67848" => :catalina
     sha256 "e0d8a79a9c0c301c9d5316983ee95aaeb582ae354a6dcd1bec3ae3a16e2920bf" => :mojave
     sha256 "5eec27cd3a36614f7042b2936f943fa1a173c00f90a46b37e199ef3f359b38ab" => :high_sierra
     sha256 "dbac00409d1662ad5c566f0936c296fba3dc42ce59cfa49b3bd5eb6fb9972cf5" => :sierra

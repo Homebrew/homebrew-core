@@ -29,16 +29,14 @@ class Algernon < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
-                                "--addr", ":45678"
-      end
-      sleep 20
-      output = shell_output("curl -sIm3 -o- http://localhost:45678")
-      assert_match /200 OK.*Server: Algernon/m, output
-    ensure
-      Process.kill("HUP", pid)
+    pid = fork do
+      exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
+                              "--addr", ":45678"
     end
+    sleep 20
+    output = shell_output("curl -sIm3 -o- http://localhost:45678")
+    assert_match /200 OK.*Server: Algernon/m, output
+  ensure
+    Process.kill("HUP", pid)
   end
 end

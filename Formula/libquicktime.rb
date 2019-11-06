@@ -6,6 +6,7 @@ class Libquicktime < Formula
   revision 5
 
   bottle do
+    sha256 "33d7a1146846e30e48e637ddd64f3e7541728df03becf8175e798a8fd3eb3bab" => :catalina
     sha256 "56165e3b70f7e444bca93369b3fa4602eefb1aa4b9624ed1ecbaa4741eb7c245" => :mojave
     sha256 "df1b207f23b3edc587629a0fd700a446d4f8210e6a7de3bbfd3d5c122cef16f7" => :high_sierra
     sha256 "1770ac237a79cb0d9ae918e4bcd6d92bcca6a6695823f7a3fde6dde7d3077acb" => :sierra

@@ -6,6 +6,7 @@ class Kimwituxx < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "470e06521034cea8db6ad07e8aab45c5bfbe3969cd03891799348eb4e9279c90" => :catalina
     sha256 "067f8d375baa815645201a091c2f8325b469e59d9b2793e5a0dd83bfd9350aa2" => :mojave
     sha256 "26ba22bbcdbea896f4af405631bed60dfc198757b6f879765e8d85e373b122db" => :high_sierra
     sha256 "a5dfd8382b50fc856ba741b79cf7077ae741549b8b8ff32ce727cfd7e8bd2a69" => :sierra

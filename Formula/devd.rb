@@ -7,6 +7,7 @@ class Devd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d394040c10c42a1e4ac22af9fff69a8fa93e26cdbc3c9d21cec0c1bedb0bfc12" => :catalina
     sha256 "14f2c29b4bd17afe84568daa6800e9500438c28b02b7bc83f2a76252bb79099b" => :mojave
     sha256 "64faee99fcec04c2d603610f169900a1379bd5961be352745078c38dfc5cdb17" => :high_sierra
     sha256 "3023d0d25dbca5e3790fbf42c6f093d8241970700bbb4d6ca7b516c23ff25d77" => :sierra

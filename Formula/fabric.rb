@@ -5,21 +5,22 @@ class Fabric < Formula
   homepage "https://www.fabfile.org/"
   url "https://github.com/fabric/fabric/archive/2.5.0.tar.gz"
   sha256 "4b3f4c79bcc372de575e7756b50c89373ce1acb8565902a5e406b5e78c41389c"
+  revision 3
   head "https://github.com/fabric/fabric.git"
 
   bottle do
     cellar :any
-    sha256 "54a3ab2e1f45a4f7db5245b01bb7b2e17fa207793d57cffecd8035a7a24c6434" => :mojave
-    sha256 "e64c8ee94a51e10e1b4dff7c837a09a05ae0ef0470d9cd67314ebd2d991677c0" => :high_sierra
-    sha256 "07cf0556c6e5b8593ab9839afaee77794aac3353770201aae9cefa219c759155" => :sierra
+    sha256 "983a6a97456eca02be91de21c11dff86984d838e4b541ea9283a3ffbf4aac238" => :catalina
+    sha256 "5ce39d4aacd66a52f89e91f582c6af74e65c2a0310d84a731782b7046d5107d0" => :mojave
+    sha256 "5cc1c4145cf1e8f44300a585cdfd813e3b5faa8a265dced7cba327c7741a7d9f" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "bcrypt" do
@@ -28,8 +29,8 @@ class Fabric < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "cryptography" do

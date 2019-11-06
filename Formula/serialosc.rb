@@ -8,6 +8,7 @@ class Serialosc < Formula
 
   bottle do
     cellar :any
+    sha256 "694f87c372351b614a376a40f816018030241114063aab1a7a051958016dd435" => :catalina
     sha256 "e0bf57d0c476bba84d0fd54ef092ebcc0077a163f9313a659ea3401502de43ad" => :high_sierra
     sha256 "708a6230d77c734f5bb5c7f6f09d76cc02f345aa9ff82b392ed48e76236c06e1" => :sierra
     sha256 "538a58e048362ab6561a3ba60a4bce9a262ec6245c2bdbf2c3b07a21c8f725cc" => :el_capitan

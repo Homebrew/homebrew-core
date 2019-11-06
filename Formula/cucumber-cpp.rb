@@ -3,13 +3,14 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6deb96212f76f8d2fa02b415ec0f14b9438ff5c9584a1ce59674f48d10a19d4" => :mojave
-    sha256 "2c167d9c65e65a6e96b551a2f55afdf07d5c1627019a8f04abe6bdf3e67d0a82" => :high_sierra
-    sha256 "3bc759450c0db471c504545c176a9e69df29426a479779debae4c2a9b3ee0d7a" => :sierra
+    rebuild 1
+    sha256 "bdb03c9be8588d3f06468697f160a7f79deba63bdc8557e57904c4d73064678f" => :catalina
+    sha256 "1aa6806faca85d2b63ce287fe4e5f2d61653b845bb1bae9761646464a4d8220e" => :mojave
+    sha256 "1d0058ed4d37fdf0ae44ab2205e202b603edd295c9d20b32d3c253d816300d29" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,10 +24,6 @@ class CucumberCpp < Formula
       -DCUKE_DISABLE_FUNCTIONAL=on
       -DCUKE_DISABLE_BOOST_TEST=on
     ]
-
-    # Temporary fix for bad boost 1.70.0 / cmake interaction
-    # https://github.com/Homebrew/homebrew-core/pull/38890
-    args << "-DBoost_NO_BOOST_CMAKE=ON"
 
     system "cmake", ".", *args
     system "cmake", "--build", "."

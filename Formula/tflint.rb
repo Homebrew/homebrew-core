@@ -2,22 +2,21 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.10.3",
-    :revision => "1ba6a7adf3128ebe4449f063519b22a821b462f1"
+    :tag      => "v0.12.1",
+    :revision => "98b9b63f6d1bae0838165465db8b04613760e9e6"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18a8cb7708043553cfb34a7862a5ce92c49a2059bfc4c29b3017c98b2e1a7e05" => :mojave
-    sha256 "13a273b940bb2f5ab2478f7584003fcc861b839f56b7b6879291705cf33d3e33" => :high_sierra
-    sha256 "3ef5d2bde2f191cf1bf111cebd8e30a84acba5dd1b4c6c9be5bc566ecc99d961" => :sierra
+    sha256 "a321c4c221d75e7438bf5f0066f7fb19bdba08bb4a8e1f7f9aba21c4378f1115" => :catalina
+    sha256 "014a86cc46f23c52eab90b9679c40cfe2727d88dd9d1e85538ced3f0a36d3ff2" => :mojave
+    sha256 "68b21e6af886c82e29e24b8892bb7be0f75ccc2861101748aa9c18b283c0b9e5" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/wata727/tflint"
     dir.install buildpath.children
@@ -34,6 +33,10 @@ class Tflint < Formula
         region = "${var.aws_region}"
       }
     EOS
-    assert_match "Awesome! Your code is following the best practices :)", shell_output("#{bin}/tflint test.tf")
+
+    # tflint returns exitstatus: 0 (no issues), 2 (errors occured), 3 (no errors but issues found)
+    assert_match "", shell_output("#{bin}/tflint test.tf")
+    assert_equal 0, $CHILD_STATUS.exitstatus
+    assert_match version.to_s, shell_output("#{bin}/tflint --version")
   end
 end

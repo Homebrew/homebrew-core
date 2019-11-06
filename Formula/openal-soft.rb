@@ -7,6 +7,7 @@ class OpenalSoft < Formula
 
   bottle do
     cellar :any
+    sha256 "9d3d985b4b1b739da6f8e12cc4365ec0b05f9c272fbeb7d138c696a9d4861ef1" => :catalina
     sha256 "e92caf6e45539adcefec9fc8e9c78e4e2a7a0dc0792442c891ef6473030b51bb" => :mojave
     sha256 "1a16c1d226f08047d499020a07e5ed8731d9f4ba7eadfb286e4357de36783629" => :high_sierra
     sha256 "d136a5196e8c2eb28804027287ca62068d58c2867eaf67ee28576099d94a7b1d" => :sierra

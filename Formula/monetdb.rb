@@ -1,13 +1,14 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Apr2019/MonetDB-11.33.3.tar.xz"
-  sha256 "f69e7312a77407bef2d970e6d8edfc0ca687d5b31c6b4714bd9132fa468a12e9"
+  url "https://www.monetdb.org/downloads/sources/Apr2019-SP1/MonetDB-11.33.11.tar.xz"
+  sha256 "fbfae41d39c7b5c0decf2716d540eb4b7eea9873ed95d106e199a920dcf4d70e"
 
   bottle do
-    sha256 "98754982eb7de2da55d57923901c2b4e888cba24045a63bdf362fb343dbdc8dc" => :mojave
-    sha256 "001a6ae3a8cf8c602789403d75f92d7cbcbc18ca223f1a7dc2f80a8e28966151" => :high_sierra
-    sha256 "5ae1ba5352b0d8d4eea311e77ca94671446c7d8c977cb3060fb91dbdad2add9c" => :sierra
+    sha256 "d7c68c13677815c9c79c538ae8f949b1a9df4c6117ee988aa90b3f4e6131252b" => :catalina
+    sha256 "307ea27d439b837179a8e6dedf8d648fd95627f43c52996cea75586a87271a41" => :mojave
+    sha256 "9c4ae1d233e6cd181643ba0b6614cd0c5bebf6331d7a9dfaab9f4f544b0d9d83" => :high_sierra
+    sha256 "ecfc1cc0b8e196a35ff77236333ccc7d21a5ec04d6ff419c7aafe0291302b622" => :sierra
   end
 
   head do
@@ -21,7 +22,7 @@ class Monetdb < Formula
 
   depends_on "libatomic_ops" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit
 

@@ -1,35 +1,40 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.7.5.tar.gz"
-  sha256 "4fcc8bf44f775dbbbd6146713f6fbdc80f2d88e2e8b93767f62eb5d635a56739"
-  head "https://github.com/google/cayley.git"
+  url "https://github.com/cayleygraph/cayley.git",
+    :tag      => "v0.7.7",
+    :revision => "dcf764fef381f19ee49fad186b4e00024709f148"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "377e5180df5cf802155e5d2af615f226706c0f02774b50a53b2b5d44480a151d" => :mojave
-    sha256 "ce7a9c57fbf969e0cf60bc9cdf8f6e1d57e254dc506a9e509cc4d7052bbb53df" => :high_sierra
-    sha256 "a745c0d7c87f43e62232be852ec8df3b8ee5e18cb6595725b5588843521164a4" => :sierra
+    sha256 "ef95f5188624ab0af351c03552e5e3b715e0747d9117fd3c235f5219e7347051" => :catalina
+    sha256 "e647be34623b1a8d635df7508f09111dfd8eb6f368a6979f9c5619b016beda8c" => :mojave
+    sha256 "4177fdcb60422d484f1377e5367844ebcc9be471fffc76e717d8ad90e49ee99c" => :high_sierra
   end
 
   depends_on "bazaar" => :build
-  depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath
 
-    (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
-    cd "src/github.com/cayleygraph/cayley" do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"cayley", "-ldflags",
-             "-X main.Version=#{version}", ".../cmd/cayley"
+    dir = buildpath/"src/github.com/cayleygraph/cayley"
+    dir.install buildpath.children
+
+    cd dir do
+      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+
+      ldflags = %W[
+        -s -w
+        -X github.com/cayleygraph/cayley/version.Version=#{version}
+        -X github.com/cayleygraph/cayley/version.GitHash=#{commit}
+      ]
+
+      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags.join(" "), ".../cmd/cayley"
 
       inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
       etc.install "cayley_example.yml" => "cayley.yml"
-
-      (pkgshare/"assets").install "docs", "static", "templates"
 
       # Install samples
       system "gzip", "-d", "data/30kmoviedata.nq.gz"
@@ -46,7 +51,7 @@ class Cayley < Formula
     end
   end
 
-  plist_options :manual => "cayley http --assets=#{HOMEBREW_PREFIX}/share/cayley/assets --config=#{HOMEBREW_PREFIX}/etc/cayley.conf"
+  plist_options :manual => "cayley http --config=#{HOMEBREW_PREFIX}/etc/cayley.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -64,7 +69,6 @@ class Cayley < Formula
         <array>
           <string>#{opt_bin}/cayley</string>
           <string>http</string>
-          <string>--assets=#{opt_pkgshare}/assets</string>
           <string>--config=#{etc}/cayley.conf</string>
         </array>
         <key>RunAtLoad</key>

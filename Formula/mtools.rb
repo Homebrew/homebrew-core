@@ -7,6 +7,7 @@ class Mtools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2ac51535ed5eafba74ec14886735ea2cd79768d72c688d97fc1a49d8f5b73fce" => :catalina
     sha256 "541d3f5c8c8059dade3f91871f71c97c9ceff2987e97c95f4fefb57a8b55fc44" => :mojave
     sha256 "402e30be30bc720b3bc8249da0ce56e7378f6e6f62ea68ddae27d558e438bca7" => :high_sierra
     sha256 "c3fea7a5246d365ef2d4466b0722102afaf39a362b5127ffbe084de03b7afcf0" => :sierra

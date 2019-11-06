@@ -6,6 +6,7 @@ class Fakeroot < Formula
 
   bottle do
     cellar :any
+    sha256 "3196d024b09ed9fed851d173695b5909fbe883e10c14cc9207b10eb4ba9503a7" => :catalina
     sha256 "3451446e08a5a0dcc125fac9ec5e076abb7859331a1ef63afeb3130cdc1665be" => :mojave
     sha256 "ec1b436ab733127e356e7b7f5c80ea4ef04817e13c6715f4321a46051f67ef12" => :high_sierra
     sha256 "7fc1ccead9bbcbd8f47d166830ce2ea0efcb6e60cd2fe69ae356a175028077a6" => :sierra

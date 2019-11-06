@@ -9,6 +9,7 @@ class TeensyLoaderCli < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "7f74686ca19b38755cabce80ccbc58610aa4ab41cb2ae092b49fd409095a0b14" => :catalina
     sha256 "29f39b8c7638729e3217e102c3c1baae55e77446cd98f4eb98bd9a03a1af2dcf" => :mojave
     sha256 "27403d4218ade972073291cf3a7c0550bf624fa7ad5ad60d63786ca87303d518" => :high_sierra
     sha256 "8e4375b7d7fef1ed28bb48cef480c347ef488137956a61ec8b146946fd25e324" => :sierra

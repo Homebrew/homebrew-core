@@ -7,6 +7,7 @@ class Cracklib < Formula
 
   bottle do
     cellar :any
+    sha256 "6b22a44df4e1602edc9d248bd1ef58a638c1d04cfdfcbc745f331d05ea91d8ac" => :catalina
     sha256 "cdf8e3240e77e574df95271024c7b260ef5eafea27dfa6f6188c1a686dd1b9be" => :mojave
     sha256 "210b950eee847fdccdb388c14d87eb425182282e581187302daa91dfa166fb78" => :high_sierra
     sha256 "3e74c66c810e5faa99833fc89d375945d0059ddc4b13b5f57128de70cff9dfef" => :sierra

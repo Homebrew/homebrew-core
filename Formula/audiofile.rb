@@ -10,19 +10,18 @@ class Audiofile < Formula
     # Fixes CVE-2015-7747. Fixed upstream but doesn't apply cleanly.
     # https://github.com/mpruett/audiofile/commit/b62c902dd258125cac86cd2df21fc898035a43d3
     patch do
-      url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-4.debian.tar.xz"
-      sha256 "0620675a52bdb40b775980cc1820e308df329348bb847f9a4a8361b3799fa241"
+      url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-5.debian.tar.xz"
+      sha256 "7ae94516b5bfea75031c5bab1e9cccf6a25dd438f1eda40bb601b8ee85a07daa"
       apply "patches/03_CVE-2015-7747.patch"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "9d1038463e8eaa68f1cee8c447d566dc5acd32e2697f41837a9c08fedb0b2088" => :mojave
-    sha256 "cf1f732ca5565a0e5d24a8d90714e554f95b4fbd3662da18ec843c0c356fff16" => :high_sierra
-    sha256 "0a6cc39d6cce2c4436008f3d5679dbac6a8e0c0a1a91ea5db34597737fd5fb54" => :sierra
-    sha256 "8e725b2809f539e2382b07a2fb64a551cbb09fdbaad168dd05784142e07ce495" => :el_capitan
-    sha256 "b7c1a9815937840419cec79513d908a5e7ddb34699c34d656a6f1f85cb08b90f" => :yosemite
+    rebuild 1
+    sha256 "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4" => :catalina
+    sha256 "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769" => :mojave
+    sha256 "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024" => :high_sierra
   end
 
   head do
@@ -48,8 +47,8 @@ class Audiofile < Formula
   # https://github.com/mpruett/audiofile/issues/41
   # https://github.com/mpruett/audiofile/pull/42
   patch do
-    url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-4.debian.tar.xz"
-    sha256 "0620675a52bdb40b775980cc1820e308df329348bb847f9a4a8361b3799fa241"
+    url "https://deb.debian.org/debian/pool/main/a/audiofile/audiofile_0.3.6-5.debian.tar.xz"
+    sha256 "7ae94516b5bfea75031c5bab1e9cccf6a25dd438f1eda40bb601b8ee85a07daa"
     apply "patches/04_clamp-index-values-to-fix-index-overflow-in-IMA.cpp.patch",
           "patches/05_Always-check-the-number-of-coefficients.patch",
           "patches/06_Check-for-multiplication-overflow-in-MSADPCM-decodeSam.patch",

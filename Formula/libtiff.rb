@@ -1,28 +1,18 @@
 class Libtiff < Formula
   desc "TIFF library and utilities"
   homepage "https://libtiff.gitlab.io/libtiff/"
-  url "https://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz"
-  mirror "https://fossies.org/linux/misc/tiff-4.0.10.tar.gz"
-  sha256 "2c52d11ccaf767457db0c46795d9c7d1a8d8f76f68b0b800a3dfe45786b996e4"
-  revision 1
+  url "https://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/tiff-4.1.0.tar.gz"
+  sha256 "5d29f32517dadb6dbcd1255ea5bbc93a2b54b94fbf83653b4d65c7d6775b8634"
 
   bottle do
     cellar :any
-    sha256 "6ecdca6159e5e4db0ec0fcbddbc76dbdc65e496139b131a05f2a9ed8187914f8" => :mojave
-    sha256 "f05323c49236328f4a63e0acb9ff340baf37e589cf5699f334d1e98928f87fd4" => :high_sierra
-    sha256 "818a699c6a293cccfbae8c8b1d0320c0fd8f7ca17c711fded8764f36d11a3db6" => :sierra
+    sha256 "449bd9123e73e4c4eab85b77322d769cc9df0f6adab05e9b9319b012d1215a68" => :catalina
+    sha256 "dd060521aa30fb2f4678c9ebab6362104a9a705d098a90eac4059743c93c8c16" => :mojave
+    sha256 "577c2754b00fc8a5009e08bfd7af630ab4812250508df20a1c92d3c7ae678b94" => :high_sierra
   end
 
   depends_on "jpeg"
-
-  # Patches are taken from latest Fedora package, which is currently
-  # libtiff-4.0.10-2.fc30.src.rpm and whose changelog is available at
-  # https://apps.fedoraproject.org/packages/libtiff/changelog/
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d15e00544e7df009b5ad34f3b65351fc249092c0/libtiff/libtiff-CVE-2019-6128.patch"
-    sha256 "dbec51f5bec722905288871e3d8aa3c41059a1ba322c1ac42ddc8d62646abc66"
-  end
 
   def install
     args = %W[

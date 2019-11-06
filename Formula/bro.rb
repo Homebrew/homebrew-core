@@ -1,25 +1,25 @@
 class Bro < Formula
   desc "Network security monitor"
   homepage "https://www.bro.org"
-  url "https://www.bro.org/downloads/bro-2.6.2.tar.gz"
-  sha256 "6df6876f3f7b1dd8afeb3d5f88bfb9269f52d5d796258c4414bdd91aa2eac0a6"
+  url "https://www.bro.org/downloads/bro-2.6.4.tar.gz"
+  sha256 "a47a9cdcef0ea14d5f70c390ab266f0333063ff96f3869a5f1609581a1d1ceb7"
   head "https://github.com/bro/bro.git"
 
   bottle do
-    sha256 "69c4fa4c4b9842e9a5f2aa07c1e02838b88ae73ee9cc02090ff532baef02d682" => :mojave
-    sha256 "eff43b1c0b15404696ff6d2323cfb77be9c5d0f7e7a9e65fc11c56056a209e83" => :high_sierra
-    sha256 "5ae17948baf2acc7aed24432ef399a3297fa9500e06854b4669434c669c92fb7" => :sierra
+    sha256 "ca782c79c23a584194f55ac2503f1f2f7b092b5f500fa7e5d019e538b226e8da" => :catalina
+    sha256 "b77ba6c36ab178d8023f247089f405c3eba2ba79b06801cef517fab1b1cf7464" => :mojave
+    sha256 "fb7fd4a18ef08bf3bc3ab2247021bcf18bc721ad7394db4abb594f1e39e735ec" => :high_sierra
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "geoip"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--localstatedir=#{var}",
                           "--conf-files-dir=#{etc}"
     system "make", "install"

@@ -1,14 +1,14 @@
 class Zshdb < Formula
   desc "Debugger for zsh"
   homepage "https://github.com/rocky/zshdb"
-  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.0.0/zshdb-1.0.0.tar.gz"
-  sha256 "593faf4056683a5f2d2bb145c58a3ec9b62b5495003215fce22b4d9357593136"
+  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.0.1/zshdb-1.0.1.tar.gz"
+  sha256 "0b2717c1b1682b87c9e2a4d5303a5a60f9fbf418dbb7dd64fc814fbeead6506a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "01ec9d4e145a8baa08d28b9fe2d7b5b8ac23dbcd18c7418cd0255192da314bf1" => :mojave
-    sha256 "01ec9d4e145a8baa08d28b9fe2d7b5b8ac23dbcd18c7418cd0255192da314bf1" => :high_sierra
-    sha256 "5deb4b52890ad39981494b708b30f184fa7ec66c95528d93468c6bcb3b93bc91" => :sierra
+    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :catalina
+    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :mojave
+    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :high_sierra
   end
 
   head do

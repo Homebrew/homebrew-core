@@ -6,6 +6,7 @@ class Cppunit < Formula
 
   bottle do
     cellar :any
+    sha256 "6a5f121673ff3abbb3c414bc549fca92207de96df5e61c355ff618a3c2d48fed" => :catalina
     sha256 "3a62b16c2f36115f58f28277602c2cda352bb8e3dc5d559708db19f22ac5eb9e" => :mojave
     sha256 "2740f149428280c1dd20ac94612eacca944d29dac0838eee4eeb0eef2ae1fdd6" => :high_sierra
     sha256 "3c620068fba4bf15b6138ffc4042ab2111a67201310523104c07c314115520bb" => :sierra

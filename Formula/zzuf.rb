@@ -5,6 +5,7 @@ class Zzuf < Formula
   sha256 "04353d94c68391b3945199f100ab47fc5ff7815db1e92581a600d4175e3a6872"
 
   bottle do
+    sha256 "809edd89cf9bd285a0f5496500627aca8b4b4cec071bfd747eb7ae3918526ae6" => :catalina
     sha256 "43c9049f2ff8d13a585009b43923579c087e0797a8d0258fc891be14f3ce6ce9" => :mojave
     sha256 "f13b52915de3bf08ed663b02df0f8b4d8f78d3a623c523a4d5f3c085ae6bafcf" => :high_sierra
     sha256 "9f1b2bfb909739bc5dec2e56b520313e30df3384e8a249b575d3664ac6a636be" => :sierra

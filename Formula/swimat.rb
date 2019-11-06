@@ -7,6 +7,7 @@ class Swimat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a94df9efa0aef16df8e593696a3dc3dd1fbe4f8fa59512af713d4915a103843c" => :catalina
     sha256 "197ba3d1db2bfbee29a10e4735925b4fdac3035c486b7899bc564cea5f019839" => :mojave
   end
 

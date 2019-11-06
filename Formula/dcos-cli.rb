@@ -1,14 +1,14 @@
 class DcosCli < Formula
   desc "The DC/OS command-line interface"
-  homepage "https://docs.mesosphere.com/latest/cli/"
-  url "https://github.com/dcos/dcos-cli/archive/0.8.0.tar.gz"
-  sha256 "bc6f3ab1e399c8b26c72839ac8c8304290913450c70ee69335acd8459de30e5c"
+  homepage "https://docs.d2iq.com/mesosphere/dcos/latest/cli"
+  url "https://github.com/dcos/dcos-cli/archive/1.1.1.tar.gz"
+  sha256 "eaea8d3de0587296c992404baff55b6274d2bb239a9d8012fb59d08c7f6b475c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd4e092a54674868edcfb46f90b8d1e0d83c2f5c1ca1750b84eeed390a4b766b" => :mojave
-    sha256 "fb0548c2f3983d2d7dacf74681e0453c6628215ddfd58f0aaccb81f6813850bb" => :high_sierra
-    sha256 "fbba6c02bd1004e1f8eb64c2055e9227a2da2239b76b26704c082f711c0e3f3a" => :sierra
+    sha256 "d3dca71dff8086b365e8b2b314827a01739c2f28847c7eb7402ffa80687acda3" => :catalina
+    sha256 "ad0552f203ce9c42ac9f84e6caf0778a26ab2eeff3834010e7954952a8b9fbc7" => :mojave
+    sha256 "8ab423bd236183063a06a1256943173dd0a26df53d410fa98ebf2a751f948ee1" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +17,7 @@ class DcosCli < Formula
     ENV["GOPATH"] = buildpath
     ENV["NO_DOCKER"] = "1"
 
-    ENV["VERSION"] = "0.8.0"
+    ENV["VERSION"] = "1.1.0"
 
     bin_path = buildpath/"src/github.com/dcos/dcos-cli"
 
@@ -30,6 +30,6 @@ class DcosCli < Formula
 
   test do
     run_output = shell_output("#{bin}/dcos --version 2>&1")
-    assert_match "dcoscli.version=0.8.0", run_output
+    assert_match "dcoscli.version=1.1.0", run_output
   end
 end

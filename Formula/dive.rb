@@ -2,22 +2,20 @@ class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
   url "https://github.com/wagoodman/dive.git",
-    :tag      => "v0.7.2",
-    :revision => "09296c0214c4cc7477fe53bc79c54805899c6d19"
+    :tag      => "v0.9.0",
+    :revision => "0b147b0f6098b519d2e57c2aa74646dfbf95ab85"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d8e19fe2565174d6d2a7b2b247aa1f62a63ca7394856c218878115619ef6c439" => :mojave
-    sha256 "b207a956d663539670ed7dec54a5543a20720dabc926b22326751af106af4194" => :high_sierra
-    sha256 "34f300558c0794d99d71823cfe87ad8c3b0e3ef84e59f64cee0a5af860711b51" => :sierra
+    sha256 "427fa8fde6629b4709785e5e03e1269a128c73ba0006dd82db717173b091c08b" => :catalina
+    sha256 "9f4ec5b1ed70dd7b1b104f6421ebffe800ae7eb1dd8ff901ebdf5b75c58c3db6" => :mojave
+    sha256 "85ab640f05d6cd0078165fd60ce8fc813b98aae1c6a8a52ac1dbf514b463a5a8" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/wagoodman/dive"
     dir.install buildpath.children
@@ -36,7 +34,6 @@ class Dive < Formula
     EOS
 
     assert_match "dive #{version}", shell_output("#{bin}/dive version")
-
     assert_match "Building image", shell_output("CI=true #{bin}/dive build .", 1)
   end
 end

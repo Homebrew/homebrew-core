@@ -6,6 +6,7 @@ class TransmissionCli < Formula
   revision 1
 
   bottle do
+    sha256 "e64cb28206f2592f2b4b922a5953d6cdc806ec1eb0e20ecf16dbfa333268edcb" => :catalina
     sha256 "83eb7e06a8c621224c883d220ef242127ee4f273cbfa290889118ceb1e4d2cca" => :mojave
     sha256 "800441903403efd301a0a8fc63771523302c43c8020381b4b19cba5ae51da843" => :high_sierra
     sha256 "1f518eddc8e93cd916313a16a0e253f9abe744c45d908bfee5fac40a0d6041f1" => :sierra

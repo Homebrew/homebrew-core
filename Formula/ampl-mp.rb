@@ -7,6 +7,7 @@ class AmplMp < Formula
 
   bottle do
     cellar :any
+    sha256 "34d8e286684821717367eed169b4fa7155874e0ce26898cddbd0d2611431ce0d" => :catalina
     sha256 "c16bb69deb8159e7d23af87e61de36aacba168ececc03ae0f2ba7b063758a3dc" => :mojave
     sha256 "db013b18d1c1ac615514e2ba8f760cc8b91120218b205d843d536beb3888237e" => :high_sierra
     sha256 "46d1cf71028cfaa76c3dc7fbc869dfdac4704f97c2963142df41afabe3bbc6f0" => :sierra

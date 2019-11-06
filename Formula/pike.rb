@@ -5,9 +5,11 @@ class Pike < Formula
   sha256 "c47aad2e4f2c501c0eeea5f32a50385b46bda444f922a387a5c7754302f12a16"
 
   bottle do
-    sha256 "0985d750f7b4fe325483bcba5af44bfa93971c1660c27266b2597cabb77b2fdc" => :mojave
-    sha256 "432a58be844ff2f0f9ed535264ee959ab905db0299b1b516915ccd97366b81ab" => :high_sierra
-    sha256 "082ef34d2cbd6b9cb269be07f1ba8c29fe0121be59f17cf4ff71440a25af7ecc" => :sierra
+    cellar :any
+    rebuild 1
+    sha256 "f299725be9679d3be3abcb580dc81c6512ae66e1a1a3b2034e329212899cfcff" => :catalina
+    sha256 "f588f3ad79e59c90e7339fba213f67102b7040bb42fad2437ec4d3094e636295" => :mojave
+    sha256 "5d67e09c9bb49b77a1a670591d6d2c1f8f039efe4b2b18c50e0f8941c072e976" => :high_sierra
   end
 
   depends_on "gmp"

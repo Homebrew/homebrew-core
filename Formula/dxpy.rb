@@ -3,22 +3,31 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/50/2c/e0fdd293350ca01b3d7ee7a41ee6272f2f8f2ae70bacdf3888b99904b59b/dxpy-0.262.0.tar.gz"
-  sha256 "a490fa516589bbc7cf2f38fe5987a5e88955d8897e8076ffc03cede7006c453c"
+  url "https://files.pythonhosted.org/packages/db/22/d542a468e3cc547160ac7046a66468365c87ea80126198efeacedc76bf77/dxpy-0.288.0.tar.gz"
+  sha256 "a1f98e02f8cf30cbe818a424132d5e431f2e3c19a9755dc2d36ae7d91e4fe442"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "341d3a4a70beeb72e5216c095d9f08e3a6ce78ce9bd87861d50ea0b82bc15234" => :mojave
-    sha256 "fa0bf1bc470dee38f505bd0f9aaa4d4ea9378f3bbee381499098c37603c0312f" => :high_sierra
-    sha256 "1d04a50a2fddaa93b9c239914ecb200d9ee1232cdeacf54b43fac1d4aaef41b5" => :sierra
+    sha256 "1856f7f9c3e4eaf73564c9c03391e0568077abcd0e9990e4cdcbc42250a9b47f" => :catalina
+    sha256 "b0b4c8e4fb9462dbe63906fef83e428ea8e60c0d0077f29c99deb57cdd1c964c" => :mojave
+    sha256 "0729c98bb4fe13788b432813c0c759314d02ed9ed667b3af87f578792abb1b12" => :high_sierra
   end
 
   depends_on "python@2" # does not support Python 3
 
+  resource "argcomplete" do
+    url "https://files.pythonhosted.org/packages/9c/c5/4009a381ba46f8424832b6fa9a6d8c79b2089a0170beb434280d293a5b5c/argcomplete-1.10.0.tar.gz"
+    sha256 "45836de8cc63d2f6e06b898cef1e4ce1e9907d246ec77ac8e64f23f153d6bec1"
+  end
+
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
     sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+  end
+
+  resource "backports.ssl_match_hostname" do
+    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
+    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
   end
 
   resource "beautifulsoup4" do
@@ -52,13 +61,13 @@ class Dxpy < Formula
   end
 
   resource "fusepy" do
-    url "https://files.pythonhosted.org/packages/0f/4d/26a937988e2633aa9f1d5268aa3782afaee9a482c6c6f221fc1e1ae58862/fusepy-2.0.2.tar.gz"
-    sha256 "aa5929d5464caed81406481a330dc975d1a95b9a41d0a98f095c7e18fe501bfc"
+    url "https://files.pythonhosted.org/packages/04/0b/4506cb2e831cea4b0214d3625430e921faaa05a7fb520458c75a2dbd2152/fusepy-3.0.1.tar.gz"
+    sha256 "72ff783ec2f43de3ab394e3f7457605bf04c8cf288a2f4068b4cde141d4ee6bd"
   end
 
   resource "futures" do
-    url "https://files.pythonhosted.org/packages/8d/73/b5fff618482bc06c9711e7cdc0d5d7eb1904d35898f48f2d7f9696b08bef/futures-3.0.4.tar.gz"
-    sha256 "19485d83f7bd2151c0aeaf88fbba3ee50dadfb222ffc3b66a344ef4952b782a3"
+    url "https://files.pythonhosted.org/packages/47/04/5fc6c74ad114032cd2c544c575bffc17582295e9cd6a851d6026ab4b2c00/futures-3.3.0.tar.gz"
+    sha256 "7e033af76a5e35f58e56da7a91e687706faf4e7bdfb2cbc3f2cca6b9bcda9794"
   end
 
   resource "idna" do
@@ -114,6 +123,11 @@ class Dxpy < Formula
   resource "xattr" do
     url "https://files.pythonhosted.org/packages/c5/80/b25d549ae4bf4f3e9635a331b759ffca2de4dd8a78dc5106d1ca92f5d08d/xattr-0.6.4.tar.gz"
     sha256 "f9dcebc99555634b697fa3dad8ea3047deb389c6f1928d347a0c49277a5c0e9e"
+  end
+
+  resource "websocket-client" do
+    url "https://files.pythonhosted.org/packages/fb/1f/9acd71b77e66fafb19cfb023e50cbb7ed2c3be3c72db999162bd36c518c4/websocket_client-0.53.0.tar.gz"
+    sha256 "c42b71b68f9ef151433d6dcc6a7cb98ac72d2ad1e3a74981ca22bc5d9134f166"
   end
 
   def install

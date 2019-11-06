@@ -2,15 +2,15 @@ class Lemon < Formula
   desc "LALR(1) parser generator like yacc or bison"
   homepage "https://www.hwaci.com/sw/lemon/"
   url "https://tx97.net/pub/distfiles/lemon-1.69.tar.bz2"
+  mirror "https://mirror.amdmi3.ru/distfiles/lemon-1.69.tar.bz2"
   sha256 "bc7c1cae233b6af48f4b436ee900843106a15bdb1dc810bc463d8c6aad0dd916"
 
   bottle do
-    sha256 "ba917fc3f6df28ea62f91bdd45cbe4c43dd8148c2573fc263cd1bcfcb7915a6e" => :mojave
-    sha256 "b01253f24f206fb1a1e76656ec4c9f43d3132d8dcaaa60708d1478e0a3546a12" => :high_sierra
-    sha256 "54fc18e48b3e9bfa4e14317158e3aef097d075bc3819d6424cb5b48a5845a7d8" => :sierra
-    sha256 "9016fa354fa9f34abf2db3cdca2e13a6dd6223534ff9ea08001ddaff053fe446" => :el_capitan
-    sha256 "e9b8328c8d905424be43404911bff1296c16fbdd83ecfeab7b51917f31c81ab7" => :yosemite
-    sha256 "a8120db2de1708f3ecd4bddc5775f90cf5c39a55010a90d01b8cd5f58325560e" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "286af27372fde1ea7ea8e0eb910a3707b622e73cfc1e66f23e7fbe4bf7d3d59c" => :catalina
+    sha256 "99d4d1999862af18af2c16f3b80564e2202e3fbb17012283f0c9bdf87ef403b3" => :mojave
+    sha256 "239bfe217ab89f4e6ef9fbfcc0f82996c3d5ab835324c3b91e42314e1cb002d3" => :high_sierra
   end
 
   def install

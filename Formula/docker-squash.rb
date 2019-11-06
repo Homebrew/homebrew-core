@@ -1,15 +1,14 @@
 class DockerSquash < Formula
   desc "Docker image squashing tool"
   homepage "https://github.com/goldmann/docker-squash"
-  url "https://github.com/goldmann/docker-squash/archive/1.0.7.tar.gz"
-  sha256 "0c9d3be78c4d0ce478a6e1358ba07fc3a22f6d68eb426533d503bb7e9f3ba829"
-  revision 2
+  url "https://github.com/goldmann/docker-squash/archive/1.0.8.tar.gz"
+  sha256 "41638cb007d1a021656f8d30203fd94392d6f3e69afb9f960ee62a25db053384"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8384bb06ba05792ed9ff44d22a5b73ac9da70a9d45b8084b3f567b9a12b1523c" => :mojave
-    sha256 "d1b564c6770c2c369fdc6f9210ea433d784b0363ca38580f901e5add6ac94cc8" => :high_sierra
-    sha256 "6f1372515fa1a32b99948a2743c6d1cf99b3f3d60ace87716f915b192e6a5d92" => :sierra
+    sha256 "919fd1cdcde2e6a161987ca831205daac0b63eff8e6de78cc225e04f75e00e4c" => :catalina
+    sha256 "919fd1cdcde2e6a161987ca831205daac0b63eff8e6de78cc225e04f75e00e4c" => :mojave
+    sha256 "919fd1cdcde2e6a161987ca831205daac0b63eff8e6de78cc225e04f75e00e4c" => :high_sierra
   end
 
   depends_on "python"

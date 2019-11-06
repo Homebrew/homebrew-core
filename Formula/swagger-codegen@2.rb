@@ -1,14 +1,14 @@
 class SwaggerCodegenAT2 < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.7.tar.gz"
-  sha256 "2c49ea5d4aeb48232a693dafb7903bb1ab4ff4fa293a0824d6e70611efcc9511"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.9.tar.gz"
+  sha256 "753e80c3286ebfd6d783d756616e79fbe70cec999ce1e394265d5ce1888ea76e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "933369f09633b52e4ed6f667b15963d85f869c71065912d8f7a8e3f8d640f4aa" => :mojave
-    sha256 "497a8f2045d6fb210135f5a02e423dca1eeca36521fad4cb7f0ecc384c08d5b3" => :high_sierra
-    sha256 "b9fc346c29076314f5baf75b9ce8b9f7cdfa90aa40bfcdaab2fc48d63b64d765" => :sierra
+    sha256 "5a7564506bb5e3b944e7a0bdcb8143932da96c6420b2849fef1ec71ee870dc6e" => :catalina
+    sha256 "4132e890d79cf03662c756af325b8e29d6bec90e51663422b7aa18828e424f7e" => :mojave
+    sha256 "5af0a9d1c78c497bb2f16aa9efbc16f69341df4b12050b2f0169ac9d8b1e11b8" => :high_sierra
   end
 
   keg_only :versioned_formula

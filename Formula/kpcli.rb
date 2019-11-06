@@ -1,15 +1,14 @@
 class Kpcli < Formula
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.2.pl"
-  sha256 "615a1bae19ed0c132076a809b162a66ea0dc22c1d992a8c6e1f2e1aaedfae687"
-  revision 1
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.3.pl"
+  sha256 "04de984d6b79bdeb84689bf8eaa0e2e3aa8756b7cca9ffdf36e1a9d1c0f1cdfc"
 
   bottle do
     cellar :any
-    sha256 "dbe1ffd312a251d68cfff8604487a63658e5fa634a158a7302d38a6dbc77aa88" => :mojave
-    sha256 "ce0ab8a522909ec830cde961cd92d8ea2032cc6a7a815098d2246b7d622360e6" => :high_sierra
-    sha256 "319992d5bf77cbd242c8596d023c6b96d8540938f7ff169bc434a2e0685bd8ec" => :sierra
+    sha256 "5f59575c4711bcc72d546ce158c202fdd38bc548471ff35067bce662d071a8a2" => :catalina
+    sha256 "6911dd04b9f3bbe7dc2cfc4c6fc53079e4a71b40c1718c64291d3f1086fc4c8b" => :mojave
+    sha256 "c1b3100690e04b1b00e9034c6a65e2117e088788efc0d849f8cc9cb350219a0e" => :high_sierra
   end
 
   depends_on "readline"

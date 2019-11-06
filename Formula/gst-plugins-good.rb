@@ -1,18 +1,17 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 5
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz"
-    sha256 "654adef33380d604112f702c2927574cfc285e31307b79e584113858838bb0fd"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.1.tar.xz"
+    sha256 "9fbabe69018fcec707df0b71150168776040cde6c1a26bb5a82a136755fa8f1f"
   end
 
   bottle do
-    rebuild 1
-    sha256 "3c946956e265e3084d5c0c2230ce1e50bfeb7a80fcd44f7bbed2eaa7777f7e45" => :mojave
-    sha256 "83b67ec03a1f676173361ea65114900003046c0a5012b7ca727e077113626222" => :high_sierra
-    sha256 "c37bde7e82aa9c39bf1c166dede898cc9d8346b3371471020bd86910929602c0" => :sierra
+    sha256 "070e2e81a5b6020655a6ca7ccd2d23a4f07769a4b6b63ef82560a91a79ca681d" => :catalina
+    sha256 "673f6063b41897bc8459c1bab7645c8d1b5bd2fd0d76487377bae0aea6515be5" => :mojave
+    sha256 "e5779ab58e4fc5c01bd5d0d0ed06cfe27ceee5777057a65170cdf09d4f0046b1" => :high_sierra
+    sha256 "53b2bd6a52bd0aab3f45a28023d0e973f120047614f18fc91520bf70943994cb" => :sierra
   end
 
   head do

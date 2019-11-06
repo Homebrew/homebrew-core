@@ -1,6 +1,7 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
+  revision 1
   head "https://git.videolan.org/git/x264.git"
 
   stable do
@@ -12,14 +13,19 @@ class X264 < Formula
 
   bottle do
     cellar :any
-    sha256 "474593a6930921e1668ff97daaa211d6b0da6c48a08f928496d76b45542afafe" => :mojave
-    sha256 "0aad96ccfbf09fbb4cbbaa708c9ff6b46829bd92873f482b05582ee0f7389624" => :high_sierra
-    sha256 "845455c25e8966fd2a1dc9c08b78df6c9a28d73848c187b411ef5d34de6094d0" => :sierra
+    rebuild 1
+    sha256 "9e49fa8cc8e0bd02bdb85f8b2def682a8c6aab5d3f7bfe6bb51e2e78da1b2eb9" => :catalina
+    sha256 "07d6a4de866c38296a3cb788c3370857bd745e88cd7e1723fc0261c4e44a1081" => :mojave
+    sha256 "80b6d49faed147546c8639bdc09143968587d7fed7c45dcd9c4e0f56cdb932ff" => :high_sierra
   end
 
   depends_on "nasm" => :build
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     args = %W[
       --prefix=#{prefix}
       --disable-lsmash

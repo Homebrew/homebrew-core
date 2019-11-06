@@ -6,6 +6,7 @@ class Einstein < Formula
 
   bottle do
     cellar :any
+    sha256 "54ce5ebd0b06256ecdda309bc0a0b500a0bf29411021fb5525dd647b923c3354" => :catalina
     sha256 "1430c04b154114c5ada29708033872f75a1c1ca361d997747aac748806d0182d" => :mojave
     sha256 "faa76a6c3363ec2c5f814940560db5fb52d8d7af89149dae7bbdf14967c51e3a" => :high_sierra
     sha256 "b2f4290bc28e3dd1c528b7c58fa363f8e5832c00283fa79f2f9243d8e5a02c4c" => :sierra
@@ -18,7 +19,10 @@ class Einstein < Formula
   depends_on "sdl_ttf"
 
   # Fixes a cast error on compilation
-  patch :p0, :DATA
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/einstein/2.0.patch"
+    sha256 "c538ccb769c53aee4555ed6514c287444193290889853e1b53948a2cac7baf11"
+  end
 
   def install
     system "make"
@@ -27,41 +31,3 @@ class Einstein < Formula
     (pkgshare/"res").install "einstein.res"
   end
 end
-
-__END__
---- formatter.cpp
-+++ formatter.cpp
-@@ -58,7 +58,7 @@ Formatter::Formatter(unsigned char *data, int offset)
-             if ((c.type == INT_ARG) || (c.type == STRING_ARG) ||
-                     (c.type == FLOAT_ARG) || (c.type == DOUBLE_ARG))
-             {
--                int no = (int)c.data;
-+                int no = *((int*)(&c.data));
-                 args[no - 1] = c.type;
-             }
-         }
-@@ -135,7 +135,7 @@ std::wstring Formatter::format(std::vector<ArgValue*> &argValues) const
-
-             case STRING_ARG:
-             case INT_ARG:
--                no = (int)cmd->data - 1;
-+                no = *((int*)(&cmd->data)) - 1;
-                 if (no < (int)argValues.size())
-                     s += argValues[no]->format(cmd);
-                 break;
---- main.cpp
-+++ main.cpp
-@@ -61,13 +61,9 @@ static void loadResources(const std::wstring &selfPath)
- #ifdef WIN32
-     dirs.push_back(getStorage()->get(L"path", L"") + L"\\res");
- #else
--#ifdef __APPLE__
--    dirs.push_back(getResourcesPath(selfPath));
--#else
-     dirs.push_back(PREFIX L"/share/einstein/res");
-     dirs.push_back(fromMbcs(getenv("HOME")) + L"/.einstein/res");
- #endif
--#endif
-     dirs.push_back(L"res");
-     dirs.push_back(L".");
-     resources = new ResourcesCollection(dirs);

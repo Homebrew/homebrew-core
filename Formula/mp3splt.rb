@@ -6,6 +6,7 @@ class Mp3splt < Formula
   revision 1
 
   bottle do
+    sha256 "d2a1ca7bd32f12b0cb152031cf812ab5af2fcef906f4a5d4fc1939f5d6b37e12" => :catalina
     sha256 "fb9ec207370028ac673f0f4e067dbae93d19e567ca80ab46e9e49d895262ac81" => :mojave
     sha256 "5dac4b6a6632c234ad5137084275924e1fcc32833a333924cc55fc50da51afe3" => :high_sierra
     sha256 "86a18b472c2b9a7b603da79caa1e406c3ca73d717a508cf6999ae2c73a6b7870" => :sierra

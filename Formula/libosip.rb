@@ -7,6 +7,7 @@ class Libosip < Formula
 
   bottle do
     cellar :any
+    sha256 "46d086cc09198763b3e3ea9beebe97c4a1549d257b509cf56f01f7e9aece6f4a" => :catalina
     sha256 "48927b88f3bbbf374d17f42111c2742ee9687e2f98174724122bdb0859cff495" => :mojave
     sha256 "a5491521463dac7678b0f33c154134eeb6c197ffd17e12045118a108826580a5" => :high_sierra
     sha256 "123835319f7fcc3bf04dc8bec0204256e53685ef29f179226c98f4a6abe0c1b5" => :sierra

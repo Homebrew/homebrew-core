@@ -5,11 +5,11 @@ class Foremost < Formula
   sha256 "502054ef212e3d90b292e99c7f7ac91f89f024720cd5a7e7680c3d1901ef5f34"
 
   bottle do
-    rebuild 1
-    sha256 "3812c7a8acb32b12fab03912fd373437187558cedaa42d46e9683f890034b5dc" => :mojave
-    sha256 "77429923aeac124b53330a69e09c03fcbe75d56f1ed9668db39ddc2e0ddace7a" => :high_sierra
-    sha256 "1fec9cd62de192dcbd5217cfa2c6c1c1ca056afa85a434114748171bf740ed96" => :sierra
-    sha256 "73f4f781edd9621d498238d77536dda5fbfa60dbb613bd7f15bb31d72699c986" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "3ce88077de06f1f58980822adeed92ca6db4b32bad5ed24aa3912dc8f0a1a47f" => :catalina
+    sha256 "2255dbe5608916e081e46f1d332fcfc9b47265630827a472c4166daa061ea373" => :mojave
+    sha256 "4411ec156c431a8715ba5d74f101c8f4e54793001424729dde2e305abf570558" => :high_sierra
   end
 
   def install

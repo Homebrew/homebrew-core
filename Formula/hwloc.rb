@@ -1,14 +1,14 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://www.open-mpi.org/software/hwloc/v2.0/downloads/hwloc-2.0.4.tar.bz2"
-  sha256 "653c05742dff16e5ee6ad3343fd40e93be8ba887eaffbd539832b68780d047a9"
+  url "https://www.open-mpi.org/software/hwloc/v2.1/downloads/hwloc-2.1.0.tar.bz2"
+  sha256 "19429752f772cf68321196970ffb10dafd7e02ab38d2b3382b157c78efd10862"
 
   bottle do
     cellar :any
-    sha256 "471cf1870f1719d87422e9a66488bb98b9e9bcb6af3c8482ccf2c8d3dad66997" => :mojave
-    sha256 "f57cbfaa45150def690a473468909743ea38dda08166977bde552b3c3fe5704e" => :high_sierra
-    sha256 "0b13e2d51c3644d0dc8febe826d1ab845f15bc5f32f0bb08f7f1b7c95dfbd9ef" => :sierra
+    sha256 "94e4e238c45da330b53fde9c622e74a2dfabd00a17f37fa1807b1d828452759d" => :catalina
+    sha256 "df6180858171e5345d517cb5d7bace1f0f33fd63a84180ec591f2530465d7172" => :mojave
+    sha256 "e07953afc5a1e9548c467b1336c7003c2e2d008110c8e2012f160dedc3b15037" => :high_sierra
   end
 
   head do
@@ -19,6 +19,7 @@ class Hwloc < Formula
   end
 
   depends_on "pkg-config" => :build
+  uses_from_macos "libxml2"
 
   def install
     system "./autogen.sh" if build.head?

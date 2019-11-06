@@ -1,16 +1,16 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v2.12/mxml-2.12.tar.gz"
-  sha256 "6bfb53baa1176e916855bd3b6d592fd5b962c3c259aacdb5670d90c57ce4034f"
+  url "https://github.com/michaelrsweet/mxml/releases/download/v3.1/mxml-3.1.tar.gz"
+  sha256 "1ac8d252f62f9dc2b2004518c70d2da313bdfcd92b8350e215f46064a34b52fc"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a2b4ef33ab0e325d90dc981a1ec1dcc51cc7f655f9dbfdf4d1d22b77f2c485be" => :mojave
-    sha256 "fb7036772610237c6f56e3ce22d3ca4d48cc6ee0b9274bedb5cc40468fa9e2ac" => :high_sierra
-    sha256 "d4593b0721fa4cdec6664b30cf908fc70afa14cc904cf62cd6302c6435cc9c98" => :sierra
+    sha256 "e386b406006d568647f83d92268685f47c3ce72995ea843b6fb456947ef669ef" => :catalina
+    sha256 "f8e186285e66c760f033ab4205cfa5d05a48d3b5ac2a668c0f3cd4572c0fd151" => :mojave
+    sha256 "bf35de7007c525ef4e179ec3e89df8656b9a206f9390df068585361d90cbd3b6" => :high_sierra
+    sha256 "044434b96bcf9a3097e28c4e85fa5e1e558f2b2dc62c7e8eba6363c664924b68" => :sierra
   end
 
   depends_on :xcode => :build # for docsetutil
@@ -25,11 +25,26 @@ class Libmxml < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      int testfunc(char *string)
+      #include <mxml.h>
+
+      int main()
       {
-        return string ? string[0] : 0;
+        FILE *fp;
+        mxml_node_t *tree;
+
+        fp = fopen("test.xml", "r");
+        tree = mxmlLoadFile(NULL, fp, MXML_OPAQUE_CALLBACK);
+        fclose(fp);
       }
     EOS
-    assert_match /testfunc/, shell_output("#{bin}/mxmldoc test.c")
+
+    (testpath/"test.xml").write <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <test>
+        <text>I'm an XML document.</text>
+      </test>
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmxml", "-o", "test"
+    system "./test"
   end
 end

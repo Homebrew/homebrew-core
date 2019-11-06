@@ -7,10 +7,10 @@ class Idutils < Formula
   revision 1
 
   bottle do
-    sha256 "6917d20826d315163a75422d8dba2c735e6bc9d3d9b528597e2a1e7c8fb90cd5" => :mojave
-    sha256 "f91b3e43aae6bb6d645a5900920364f34baae6e124b9d11f3f58a230b60d47af" => :high_sierra
-    sha256 "8a3edf99858c93dda9dc51ee15efd75b9a4fd89f828c6663470ea113a814e305" => :sierra
-    sha256 "49456db30e93abd2633ac358bf2e1d1e4f25b53871caecac766af9ab8d1a46b5" => :el_capitan
+    rebuild 1
+    sha256 "5df54c76ae786e54f6994c1c65821adaa746c8a6b1aecbafbe3cd9f4f77f7c62" => :catalina
+    sha256 "b48a4caf24a1eba916f1932c85970294e56a0559603a8289fe732c124fbf0811" => :mojave
+    sha256 "95f118aa56026de98d148bccc5a807d609a2bfc54749e1d9051a5dce80f603ef" => :high_sierra
   end
 
   conflicts_with "coreutils", :because => "both install `gid` and `gid.1`"
@@ -38,7 +38,7 @@ class Idutils < Formula
   end
 
   test do
-    system bin/"mkid", "/usr/include"
+    system bin/"mkid", "#{MacOS.sdk_path}/usr/include"
     system bin/"lid", "FILE"
   end
 end

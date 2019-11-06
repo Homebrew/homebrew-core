@@ -1,12 +1,13 @@
 class Xsane < Formula
   desc "Graphical scanning frontend"
-  homepage "http://www.xsane.org"
+  homepage "https://wiki.ubuntuusers.de/XSane/"
   url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/xsane-0.999.tar.gz"
   mirror "https://fossies.org/linux/misc/xsane-0.999.tar.gz"
   sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
   revision 4
 
   bottle do
+    sha256 "1b87500430dca49d717fa39d92214da59f08d4f7ec63ea477056bc5b2b920de4" => :catalina
     sha256 "93064b6ec70657f6815a0aba5d52c8b7e54e9ef6f223c608351b790887c62b92" => :mojave
     sha256 "4242d28d56f5ed634f7f8632d41e441e1cbeaf60a362628796a436ba2f8eac11" => :high_sierra
     sha256 "f247067d49d44f8c0662cd64c99524f13c4b3a18ef7e49a19dd377bb449c859d" => :sierra

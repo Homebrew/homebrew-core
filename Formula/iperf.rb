@@ -6,6 +6,7 @@ class Iperf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0b9b36d65f113055e86b158f62daa64bf5c177e27abec34c51cbb60bf2a7d4d7" => :catalina
     sha256 "8c24a0392dcda9d134c1d1121671875da4b67905321eb6e67053d6e965f92bee" => :mojave
     sha256 "7cee5824d4c70a302b3830eaf6615f52e5a1b41fdcbfbcabb46c5dd3ee00ec2c" => :high_sierra
     sha256 "4b29283a8f69c773d307501a5f89af2a0f5804ce62874b7bd2e6ea89145cf73a" => :sierra
@@ -17,13 +18,11 @@ class Iperf < Formula
   end
 
   test do
-    begin
-      server = IO.popen("#{bin}/iperf --server")
-      sleep 1
-      assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
-    ensure
-      Process.kill("SIGINT", server.pid)
-      Process.wait(server.pid)
-    end
+    server = IO.popen("#{bin}/iperf --server")
+    sleep 1
+    assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
+  ensure
+    Process.kill("SIGINT", server.pid)
+    Process.wait(server.pid)
   end
 end

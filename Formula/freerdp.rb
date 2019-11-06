@@ -25,11 +25,11 @@ class Freerdp < Formula
   end
 
   bottle do
-    sha256 "4617cb1c7c5ba4e37d7a490d8712dae6be05167cf61de4e5f56e03752d625658" => :mojave
-    sha256 "849254a5206feace01a07302a2e483c82cdc2403b85c6ad6a13917da19a53fb4" => :high_sierra
-    sha256 "429e7a072afb895dbb2dd35a5d0ec64d6225c42af1e81c415454edd94336a5cf" => :sierra
-    sha256 "6f7c7f1ccfe392cdd983e53ff662f7dae3c2ea94f47637760dc2e41fb707f172" => :el_capitan
-    sha256 "a371c32a6fd8c6ccd28dad7260ecc84b042128f157aa85f2e2ffe9efcc19e0bc" => :yosemite
+    rebuild 1
+    sha256 "2024d1074958c1de78287aa67d580a73727409a1dfe4f8cdd48d980ef456fd92" => :catalina
+    sha256 "fbe93dacf9d752070395f904bbbad1fdfcf9c88fc11fa7bc232cf1d47e63ae3f" => :mojave
+    sha256 "d5a590f4fd4af84251a575a34fa636a8e09c40e9b6795dc17243a32ecd0d3c67" => :high_sierra
+    sha256 "9c9b013c4a2b9b2c7eb7542d1b0094b531b8ebed7b88542ff95b775cab0be52c" => :sierra
   end
 
   head do
@@ -39,7 +39,7 @@ class Freerdp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on :x11
 
   def install

@@ -1,15 +1,14 @@
 class Wsk < Formula
   desc "OpenWhisk Command-Line Interface (CLI)"
   homepage "https://openwhisk.apache.org/"
-  url "https://github.com/apache/incubator-openwhisk-cli/archive/0.10.0-incubating.tar.gz"
-  version "0.10.0-incubating"
-  sha256 "0f0052ea85b10aea8902d4ccb9393fd523b96d5b2477b1c38d486366edc9535c"
+  url "https://github.com/apache/openwhisk-cli/archive/1.0.0.tar.gz"
+  sha256 "31e6fceaa3ae51be7b93d308eb0b68c891277f904c17cf6496e51062f1655332"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "850399f50dccd74a0b26b06110bcc2c350684113d43c4befc589cc184eb10254" => :mojave
-    sha256 "f15b8866018349165cf08465902fc6de24b7ffa4207baa8aab4f1e4851933cbf" => :high_sierra
-    sha256 "9b568c659828cf15eae198a7632a3ef6ca66fcad518541518ab3d380b1d39a07" => :sierra
+    sha256 "461c8bd630f1fb80859d16f1ef4ec57ba73990febdada45deb0411b66fca044e" => :catalina
+    sha256 "3082ab49e515fa5b534ee3e8f0de9e90a23d7130d9fbf5f469ea5ef3f40c8bd9" => :mojave
+    sha256 "9ea3a295b2eb7b4f622ec8d6065aa5a9cd50285d83df66453e41d2214de6135c" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -18,7 +17,7 @@ class Wsk < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/apache/incubator-openwhisk-cli"
+    dir = buildpath/"src/github.com/apache/openwhisk-cli"
     dir.install buildpath.children
     cd dir do
       system "go-bindata", "-pkg", "wski18n", "-o",

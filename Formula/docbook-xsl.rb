@@ -6,6 +6,7 @@ class DocbookXsl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e99a33fedc074688fd4920c3c1814667625ac9944668852e66a653fec14eeaee" => :catalina
     sha256 "8aa2fdbcf7ca6ecffd1047597a1b1fa9c913e973bf2f080fea9e6dd2ac1edbc4" => :mojave
     sha256 "e80af394f337e21fcdbc8c8f6f0822559bfa71e5aacb192450aa71c5e0dc2257" => :high_sierra
     sha256 "4e63a12e69dc7cf292c1f4fd8f1c54f544887b809618b80b5fc3fc780f492f77" => :sierra

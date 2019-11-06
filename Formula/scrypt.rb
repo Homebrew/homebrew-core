@@ -1,16 +1,15 @@
 class Scrypt < Formula
   desc "Encrypt and decrypt files using memory-hard password function"
   homepage "https://www.tarsnap.com/scrypt.html"
-  url "https://www.tarsnap.com/scrypt/scrypt-1.2.1.tgz"
-  sha256 "4621f5e7da2f802e20850436219370092e9fcda93bd598f6d4236cce33f4c577"
+  url "https://www.tarsnap.com/scrypt/scrypt-1.3.0.tgz"
+  sha256 "263034edd4d1e117d4051d9a9260c74dedb0efaf4491c5152b738978b3f32748"
 
   bottle do
     cellar :any
-    sha256 "dbe434d01b09f02e1cc7fee6e163acd87d70270aecc355907fbf99dbc98fd59c" => :mojave
-    sha256 "fa929a235e8b07184fd77a35fb38d0ce08e4d627130057144ba40873b355702d" => :high_sierra
-    sha256 "d2f0f0170d78fae63833094fbdcb920489c9e04fb4579a0b82ca527ebd7bb12f" => :sierra
-    sha256 "2028c6a6a14d6753deae95d35d94c75cfcc64633ed69b3fea7f9da7a47d079b1" => :el_capitan
-    sha256 "15c52d5c143e002bd5dec4bb70020f0ff05f66a85067e187e1a08b0d04f3b9f5" => :yosemite
+    sha256 "a683e2b6a8432d2489594a4f18dfb61704fdba3dc33fb8ae54ca169cee6124ee" => :catalina
+    sha256 "3d8a2f79a7d04355d6c646e3b70def1159dbef4974b5783a67af6afea2d3d2e6" => :mojave
+    sha256 "9a39b3a69169a7e199ee174d7b643eb07e0a7da152508ef49606d59e13cc9f3d" => :high_sierra
+    sha256 "61c6a47372b1da0735a45af1e93abe8530e22b8f469ef5c4dbed836194e6b228" => :sierra
   end
 
   head do
@@ -20,7 +19,7 @@ class Scrypt < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "autoreconf", "-fvi" if build.head?

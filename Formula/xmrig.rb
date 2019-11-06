@@ -3,19 +3,21 @@ class Xmrig < Formula
   homepage "https://github.com/xmrig/xmrig"
   url "https://github.com/xmrig/xmrig/archive/v2.14.4.tar.gz"
   sha256 "7e827ece5df61ab1e23dda40940ad2f7946dc006fced86836aed3a26dcdc185e"
+  revision 1
   head "https://github.com/xmrig/xmrig.git"
 
   bottle do
     cellar :any
-    sha256 "2a05a2ce6d54579c4bf2d146c4669ef40ed25648fd02ac74c92d585079faed8c" => :mojave
-    sha256 "813e654ae09af3044d50f1fdcbea93e13009ccf9f2e1ebb04c512ecbd8fdc377" => :high_sierra
-    sha256 "83d020800b9dd01efa05bdea2b36e7658bf6e484da7a29137cb778d849a5c3dd" => :sierra
+    sha256 "593c36810c6bdb62a1e5b792ad5329ef6bbb83ce930512375c3a96641a93f099" => :catalina
+    sha256 "9cfd4cdb1593f0e90867dfce64e82f0979558ddeb89492edb4ef8fb04e865af3" => :mojave
+    sha256 "578b70e67019678acc15d0d936a948b7905dab827efbdac4c0e235dc8e00db36" => :high_sierra
+    sha256 "b798556ea6f2315521d08d4a9d209191b4b9f64bf26ff9104dca8df07f7561c4" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "libmicrohttpd"
   depends_on "libuv"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     mkdir "build" do

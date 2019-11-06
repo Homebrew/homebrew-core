@@ -6,6 +6,7 @@ class Posh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "feed2fe4790da6503fd829889f4ca5aa70f7716e1329cae79d92e84c9142ae69" => :catalina
     sha256 "700e48f30128fa0fdd35c3117154dd24455ba2a8839bd56fda146f5cf8e4eb11" => :mojave
     sha256 "9c38d14973e3fd33480cfdb45442a1e2e5291d4a60008ea61c689d497f8ff7ef" => :high_sierra
     sha256 "d8528d6120edc6a45b43c7e3b148b5cb8859dcd10ee24c60ae7b1c7cfaa992d5" => :sierra

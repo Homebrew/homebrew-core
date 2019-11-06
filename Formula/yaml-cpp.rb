@@ -1,26 +1,17 @@
 class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
-  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.2.tar.gz"
-  sha256 "e4d8560e163c3d875fd5d9e5542b5fd5bec810febdcba61481fe5fc4e6b1fd05"
-  revision 1
+  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.3.tar.gz"
+  sha256 "77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed"
 
   bottle do
-    cellar :any
-    sha256 "0ce658deb59e0d2fc5268fbc4f02923770b5be7867ab10e2d2bba339d71bd593" => :mojave
-    sha256 "cbcedc236b8ec1dbd389de60327e59fc546cf116cccd5d7d5da786fe52a4e7c0" => :high_sierra
-    sha256 "b332f87fbdda1324e819dd9e4c4f388b58e9c19159b97afe92b2992a17add1b9" => :sierra
+    cellar :any_skip_relocation
+    sha256 "e359e13c2fc0564c7500572af0a711d0a9f8b6655f0ab9d214d644ccc855ff68" => :catalina
+    sha256 "1e43334e4896703dda18ca52e76b4ec8bf850fb253d2553f7a9598b426d81773" => :mojave
+    sha256 "b4b5fc6d5d29494aa10d9ac75de1514afeda044ef736c5b1bc7953d1ad7162ca" => :high_sierra
   end
 
   depends_on "cmake" => :build
-
-  # Upstream commit from Sep 3 2018 "Improvements to CMake buildsystem"
-  # which fixes the unexpected installation of Google Test.
-  # See https://github.com/jbeder/yaml-cpp/issues/539
-  patch do
-    url "https://github.com/jbeder/yaml-cpp/commit/5e79f5eed3d86125468681116e92814d2cf40067.patch?full_index=1"
-    sha256 "52da989f0dcaca68ae9ee6334155954639506e16cbe3b9bd007dace9e171e4bd"
-  end
 
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"

@@ -1,28 +1,26 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno.git",
-    :tag      => "v0.16.0",
-    :revision => "0809b06a3938868f364f1343b0de4d5d9686495d"
+  url "https://github.com/denoland/deno/releases/download/v0.23.0/deno_src.tar.gz"
+  version "0.23.0"
+  sha256 "e6b0c32a6ae960a3ddfaa0b7c9126264d55e751e69a425886854430cf7e0551f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fec7d5b48dbbc065b0e1a0bbc9a41a6e63a006262462f0798953af73cd024443" => :mojave
-    sha256 "101e16751809e367218b66feea68c6764eb46341b351a5a212b190132d2a8362" => :high_sierra
-    sha256 "d03f433bc569a326e1f7e2d7a3d992cb62723dde955e846c3060e7e49be2c566" => :sierra
+    sha256 "c177ef3c88e894ebbd9c5be191f515aec61f84528903cbf01b47f828af34c1c0" => :catalina
+    sha256 "83865fe1d93a0ffc3ccce5a2d871cdd373db7ed7fff1edd667f360cb42e2c0ff" => :mojave
+    sha256 "6bc2f7e03e32bf70ae24cb53480b9be38b91c8cf9919c86e9a1b7519f7c67360" => :high_sierra
   end
 
-  depends_on "llvm" => :build
+  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100
   depends_on "ninja" => :build
-  depends_on "node" => :build
   depends_on "rust" => :build
 
-  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
-  depends_on :macos => :el_capitan
+  depends_on :xcode => ["10.0", :build] # required by v8 7.9+
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "81ee1967d3fcbc829bac1c005c3da59739c88df9"
+      :revision => "152c5144ceed9592c20f0c8fd55769646077569b"
   end
 
   def install
@@ -34,19 +32,25 @@ class Deno < Formula
     end
 
     # env args for building a release build with our clang, ninja and gn
-    ENV["DENO_BUILD_MODE"] = "release"
-    ENV["DENO_BUILD_ARGS"] = %W[
-      clang_base_path="#{Formula["llvm"].prefix}"
+    ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
+    ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
+    args = %W[
       clang_use_chrome_plugins=false
       mac_deployment_target="#{MacOS.version}"
-    ].join(" ")
-    ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
-    ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
+      treat_warnings_as_errors=false
+    ]
+    if DevelopmentTools.clang_build_version < 1100
+      # build with llvm and link against system libc++ (no runtime dep)
+      args << "clang_base_path=\"#{Formula["llvm"].prefix}\""
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    else # build with system clang
+      args << "clang_base_path=\"/usr/\""
+    end
+    ENV["DENO_BUILD_ARGS"] = args.join(" ")
 
-    system "python", "tools/setup.py", "--no-binary-download"
-    system "python", "tools/build.py", "--release"
-
-    bin.install "target/release/deno"
+    cd "cli" do
+      system "cargo", "install", "-vv", "--locked", "--root", prefix, "--path", "."
+    end
 
     # Install bash and zsh completion
     output = Utils.popen_read("#{bin}/deno completions bash")

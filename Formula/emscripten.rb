@@ -3,25 +3,26 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.38.42.tar.gz"
-    sha256 "a7547d6f36dc25f4bf431ad4d112a5604cc03e71ed05547acdf910c3cfcd8a8c"
+    url "https://github.com/emscripten-core/emscripten/archive/1.38.44.tar.gz"
+    sha256 "e6bf63595ca28beb4c0385062cd686f1b442d7faa8b3c717fb4cb872478b4660"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.38.42.tar.gz"
-      sha256 "3a5b9690387c33dccbf2bd4faba7a97d80637cf85e480a56b2191a756bfd8822"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.38.44.tar.gz"
+      sha256 "d066f36d1083e5d62e2a9fb24e162e506a6b359fc101c43aec22ba8b1a836a01"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.38.42.tar.gz"
-      sha256 "a815b4496565d7d260ff82681542fc86b2a407cf27ff8fa28b0a5b05da6468de"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.38.44.tar.gz"
+      sha256 "13aca52d91aba756f8e0610e4a4ebd8147369f4708c7542efdf8a4f96e52f2a1"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "63c8da858bbe31b2bd05de6bdb04c927a086b918145121e7e9c1abc2de6403ac" => :mojave
-    sha256 "2d7c0e10aab8085e4b762e27484d824437e72e46e91bec8682b56025d1580d5a" => :high_sierra
-    sha256 "465e24c9b0bcdfa92cfdd849fe27d3bf17232c9325d8d2704de4ade6aaf9e1ca" => :sierra
+    sha256 "66c05f38b32954c464edecce8f6e2c9dfb22b843f871272ef1d6d884bc135615" => :catalina
+    sha256 "4f8be86a67d0f1fc87c01c92dd0fe8112f1cd6c5b1ae210ac0528ce02ad36b8a" => :mojave
+    sha256 "3abedeaff354db116142227d55d93232210b073549ab26c33b7f8c97fe8e897b" => :high_sierra
+    sha256 "36d6ea5dd8eaff5b9f8adf9388bfc9bcab2d22b8b738a164378601e174cc9bca" => :sierra
   end
 
   head do
@@ -38,17 +39,11 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "yuicompressor"
 
   def install
     ENV.cxx11
-    # rewrite hardcoded paths from system python to homebrew python
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`
-    python2_shebang_files = python2_shebangs.lines.sort.uniq
-    python2_shebang_files.map! { |f| Pathname(f.chomp) }
-    python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^#!/usr/bin/python2?$}, "#!#{Formula["python@2"].opt_bin}/python2"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git

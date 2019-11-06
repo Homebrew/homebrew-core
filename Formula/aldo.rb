@@ -7,6 +7,7 @@ class Aldo < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "2a574bfd1a76ef4733d941234df142dfc87b05cefefaf58d0617113d7af85999" => :catalina
     sha256 "4c510b7da186be5d55c990d97265952de8fad51079ad2fa18058b8a57d8eeebb" => :mojave
     sha256 "d30e5e60defc2e2d2110cf52a60898d94ae3331a679f1c228e0d598421a594d9" => :high_sierra
     sha256 "ad5216c04fce4d1f4da63af2fa4d298a3414073db186991ec4389a942799ddd1" => :sierra
@@ -19,7 +20,10 @@ class Aldo < Formula
 
   # Reported upstream:
   # https://savannah.nongnu.org/bugs/index.php?42127
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/aldo/0.7.7.patch"
+    sha256 "3b6c6cc067fc690b5af4042a2326cee2b74071966e9e2cd71fab061fde6c4a5d"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
@@ -30,31 +34,3 @@ class Aldo < Formula
     assert_match "Aldo #{version} Main Menu", pipe_output("#{bin}/aldo", "6")
   end
 end
-
-__END__
-diff --git a/src/menu.cc b/src/menu.cc
-index 483b826..092d604 100644
---- a/src/menu.cc
-+++ b/src/menu.cc
-@@ -112,20 +112,17 @@ void Menu::add_item(id_type id, std::string c, Function2 f)
- 
- void Menu::add_item_at(unsigned int pos, id_type id, std::string c, Function1 f)
- {
--    IT it(&m_its[pos]);
--    m_its.insert(it, Item(id,c,f) );
-+    m_its.insert(m_its.begin()+pos, Item(id,c,f) );
- }
- 
- void Menu::add_item_at(unsigned int pos, id_type id, std::string c, Function2 f)
- {
--    IT it(&m_its[pos]);
--    m_its.insert(it, Item(id,c,f) );
-+    m_its.insert(m_its.begin()+pos, Item(id,c,f) );
- }
- 
- void Menu::delete_item_at(unsigned int pos)
- {
--    IT it(&m_its[pos]);
--    m_its.erase(it);
-+    m_its.erase(m_its.begin()+pos);
- }

@@ -3,14 +3,14 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://github.com/adrienverge/yamllint/archive/v1.17.0.tar.gz"
-  sha256 "4e43c92ffa4165b43d7dbb522315e63bb5a72a7c6bf407328f7df78ce150dd97"
+  url "https://github.com/adrienverge/yamllint/archive/v1.18.0.tar.gz"
+  sha256 "9cb686e484600fd4aa312e71920d3bbb70ff41ba358d57c557fede0a2bc2fe00"
 
   bottle do
     cellar :any
-    sha256 "472299009d245cefd218755378caa5c43001efcbfae1c689c8f61388bb1f4b5c" => :mojave
-    sha256 "53c8d9214d79642cd0dd15723efab24fa092bcd53816b535df94967400495379" => :high_sierra
-    sha256 "8ac4e116780f39be2e27062da6c3398c5b8ea445bd607999a7906838b7d9a993" => :sierra
+    sha256 "85f03b165bfa96dfc5835a899500377d7b3bd6c8226d236aebd515e6898a34be" => :catalina
+    sha256 "3b01f5a86973698fcebbf9d9ddb5033d486de50a3bf160a2f02384a28651b894" => :mojave
+    sha256 "32f4b7d300c5f7cea61849d70cc0f0700f7817b1215af31613660b9e9b8b78f8" => :high_sierra
   end
 
   depends_on "libyaml"
@@ -22,8 +22,8 @@ class Yamllint < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/84/2a/bfee636b1e2f7d6e30dd74f49201ccfa5c3cf322d44929ecc6c137c486c5/pathspec-0.5.9.tar.gz"
-    sha256 "54a5eab895d89f342b52ba2bffe70930ef9f8d96e398cccf530d21fa0516a873"
+    url "https://files.pythonhosted.org/packages/7a/68/5902e8cd7f7b17c5879982a3a3ee2ad0c3b92b80c79989a2d3e1ca8d29e1/pathspec-0.6.0.tar.gz"
+    sha256 "e285ccc8b0785beadd4c18e5708b12bb8fcf529a1e61215b3feff1d1e559ea5c"
   end
 
   def install

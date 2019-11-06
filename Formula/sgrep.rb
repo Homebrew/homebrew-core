@@ -6,12 +6,11 @@ class Sgrep < Formula
   sha256 "d5b16478e3ab44735e24283d2d895d2c9c80139c95228df3bdb2ac446395faf9"
 
   bottle do
-    sha256 "a9035c893dcfb8a82a7e2976774645af26dc4f1ade1f2af225264a35695ebda4" => :mojave
-    sha256 "0e46d1884c4ad14911e32952b3f1e2df1457b455a30ed06ee67dfb5e33efd469" => :high_sierra
-    sha256 "c698f6a657fd7edd7bb8e7d717dc09ac73b1042e93b79555152626f71388b275" => :sierra
-    sha256 "089890a739b047b429b88a583f71832fbfbd3c8f7abc067531424c14e8463df4" => :el_capitan
-    sha256 "a4228a3f40db355cbd6b3feedd4cbdaf8c9b582b24f188982f296b17ac14590f" => :yosemite
-    sha256 "f582b8ae918c1f279e1e3c362d016ad91aeb4accc229cfe9f6ccac8c991ce4a6" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "29e528a52ae36131ded52bb08d9cf9b12b1455fbc715f7b7bbd3b97f637862e5" => :catalina
+    sha256 "bfb1f484dd474727fec463b1b90ffe7250f5c82e0e65bec96903e38f6e0a8e48" => :mojave
+    sha256 "a243589e79a4cde4f7bba21ec618e3c323c049589707bde6e2c20c4bf1014464" => :high_sierra
   end
 
   def install

@@ -4,18 +4,17 @@ class HttpLoad < Formula
   url "https://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz"
   version "20160309"
   sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "002c9e11e41446466d42dfe8f094019dcb80541564eca948c6d91abfd99720b1" => :mojave
-    sha256 "99aa7a6ff01be1c5966127174bd9eb7739488f5b4845c96fb66f44055badf2b0" => :high_sierra
-    sha256 "d0ee5757f7b530a23d0c27f603e7bf237599f4d279ea9c9261f1417e7ed3cf97" => :sierra
-    sha256 "70f69abf54c027ae1397ccd17b61e66108a5dbd03e8edd8db1ff6af0f8f135d9" => :el_capitan
-    sha256 "f4702e82a17b0c972164f2bc8ba985edccf0f3dc840627d37d5307d9b914ba25" => :yosemite
+    sha256 "36fada1e1b8cbe35a9eb1fb2374c175a003d750f0560565c6bfaf6b90a17f748" => :catalina
+    sha256 "d0d672723564b758fc3ef0721239e108ec063a395e183db033071200d5d9ee48" => :mojave
+    sha256 "22e21275c49121c174024104f9b99c5f55d37e032ff7cae42bba89746c26bd88" => :high_sierra
+    sha256 "a949ed2040faf49c7cdb6bf0110dfbbff465641c811e78a035998a4160170a05" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     bin.mkpath
@@ -26,7 +25,7 @@ class HttpLoad < Formula
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
-      SSL_TREE=#{Formula["openssl"].opt_prefix}
+      SSL_TREE=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     inreplace "Makefile", "#SSL_", "SSL_"

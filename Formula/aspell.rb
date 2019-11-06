@@ -1,14 +1,14 @@
 class Aspell < Formula
   desc "Spell checker with better logic than ispell"
   homepage "http://aspell.net/"
-  url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.7.tar.gz"
-  sha256 "5ca8fc8cb0370cc6c9eb5b64c6d1bc5d57b3750dbf17887726c3407d833b70e4"
+  url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.8.tar.gz"
+  sha256 "f9b77e515334a751b2e60daab5db23499e26c9209f5e7b7443b05235ad0226f2"
 
   bottle do
-    sha256 "f71bf9b9cb6abb31a0c4a4976f7a58deaa14e7973642134c990502ca27eb93d4" => :mojave
-    sha256 "2a70b927766a45bcd47ed6080892cc8448c37a629259c2bded10ab739e52a01e" => :high_sierra
-    sha256 "9729877ac32cd2396fb570391dd148d482396246e3f698433cf2c1a3f5e606d2" => :sierra
+    sha256 "f34a5b53fa80f6f0ea3cef83d04eceed93f918153463e0b77a596374a842249d" => :catalina
+    sha256 "756d2f24409150b932043544af99bc1c2ea242299174ab89a2d06c7878812af8" => :mojave
+    sha256 "9bbb8be505d953395bcccde4712cf85792c6bf03af535cc553783361476ddddb" => :high_sierra
   end
 
   resource "en" do

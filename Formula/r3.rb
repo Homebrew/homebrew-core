@@ -7,6 +7,7 @@ class R3 < Formula
 
   bottle do
     cellar :any
+    sha256 "96787f402bbc3a37207c3d5c3468d3b98028a12335a66d176d18d268e2406462" => :catalina
     sha256 "f136221b1d7a0a4ee057ea0551a2b742d1a49cb50011e5651e8fa5c96327b0b0" => :mojave
     sha256 "5239e5302b1952367f6cdc066e43483de6b0d30fa70f1dcf2e9f03b10983890f" => :high_sierra
     sha256 "d39c22ae9e69454cc7c205ff0cecc3dd6084a38a1e1742091f55df389e5a8f4a" => :sierra

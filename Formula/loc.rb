@@ -5,16 +5,17 @@ class Loc < Formula
   sha256 "1e8403fd9a3832007f28fb389593cd6a572f719cd95d85619e7bbcf3dbea18e5"
 
   bottle do
-    sha256 "5700a3aaa7b9e65ce5205517b9313822dc655bb4f4f4e1d3e3d78b0292c2dde7" => :mojave
-    sha256 "2c66f5b54d8769dd96f34992db4dd6fc5d84344ce16553f2ee47c6fc6818a861" => :high_sierra
-    sha256 "276bb55a29fa8e24a968376e040a648aefac8710e968c507040a12a2d5979edd" => :sierra
-    sha256 "c3a745729bbcbb8fbda867e82946ce3d20078beca4bb08265ceb6467691ca0da" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "2a8ac9341661cefa1221418aa2cb5cdd5207108ade6803ab5af34ca01d0aef13" => :catalina
+    sha256 "008db46fed420d7ec698d46e059a4913368af4d8f0b2f4f8502a39ee392b830d" => :mojave
+    sha256 "f4241a70db520e24c587649bf7b8db0f743afaf00b01ebee5934bee7e88ae42e" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

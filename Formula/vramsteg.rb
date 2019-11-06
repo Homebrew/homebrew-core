@@ -7,6 +7,7 @@ class Vramsteg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a6f6f99e3b12dca8a56919d1144b10e43a9059e7691d56dfdf8aab330e6febe8" => :catalina
     sha256 "a868fba582ce440a14ae18d4be193209e7d25fd3291b568bea7f123e61aa044d" => :mojave
     sha256 "0c9aff3582ad05a388cba8c43770ead295d921a8e419323a3c4115f09e609ba1" => :high_sierra
     sha256 "7f65668b7bb036fb19e69bdc9cbc2ec48728bc8c1936253f6d5e8d74a113a3fd" => :sierra

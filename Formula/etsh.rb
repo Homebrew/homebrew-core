@@ -6,6 +6,7 @@ class Etsh < Formula
   version_scheme 1
 
   bottle do
+    sha256 "0fc00861a2a9e210f8ad7a1aad38a50375583299ea6a9e338d9fdd9d8f168e92" => :catalina
     sha256 "ee5cb69606c9c472cf0ab618e886a0f238a9e044d49cc54d97d4d806e58738c5" => :mojave
     sha256 "875b9f0c5cd602f8a40b31d2eb7134a3fe045c0d53a5535b4b8ab5ab4cf09806" => :high_sierra
     sha256 "31219a25086c96ac502d6def1dd108dcf815f62a4a204248a10cbc698b1ab75a" => :sierra

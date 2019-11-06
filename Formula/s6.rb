@@ -1,23 +1,23 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-  url "https://skarnet.org/software/s6/s6-2.8.0.1.tar.gz"
-  sha256 "dbe08f5b76c15fa32a090779b88fb2de9a9a107c3ac8ce488931dd39aa1c31d8"
+  url "https://skarnet.org/software/s6/s6-2.9.0.1.tar.gz"
+  sha256 "e0cdbaf26e3ba1c41ecc0a8d1f45fb78194f96109b55cabeb849528b7e966c57"
 
   bottle do
-    sha256 "4c1819aca5030161f69a0e8ff7a1c70ca7056e0226b173e3c7098709c2fb03a9" => :mojave
-    sha256 "8600da62dfe7099ba8526addf7dda2a09d9eeb63e7cbe6e5602b1944967b5ea3" => :high_sierra
-    sha256 "a72070b37a6b2d9ae738f32e7970e748c9d354b921718c2ea8d27b6cc5bdb0fc" => :sierra
+    sha256 "f9b95da1b5dde761446263f5abfc9d278c87fa6f7ad83f809503cc82bdeaa691" => :catalina
+    sha256 "46cb227d5bcfb4e9c17174a76e7138bd896dda52912c6dbf744f7aa40c388ed9" => :mojave
+    sha256 "88345eff5034e9f7b21943b6c6db34204acce6421b85f4ac598d503550f60960" => :high_sierra
   end
 
   resource "skalibs" do
-    url "https://skarnet.org/software/skalibs/skalibs-2.8.1.0.tar.gz"
-    sha256 "431c6507b4a0f539b6463b4381b9b9153c86ad75fa3c6bfc9dc4722f00b166ba"
+    url "https://skarnet.org/software/skalibs/skalibs-2.9.1.0.tar.gz"
+    sha256 "d3b204afc462b9659e0c16f6df1c796e7612534f537eec053529f67ddcd086a5"
   end
 
   resource "execline" do
-    url "https://skarnet.org/software/execline/execline-2.5.1.0.tar.gz"
-    sha256 "b1a756842947488404db8173bbae179d6e78b6ef551ec683acca540ecaf22677"
+    url "https://skarnet.org/software/execline/execline-2.5.3.0.tar.gz"
+    sha256 "05205c6869ae65a51c63d0e805572573806f6474aa21e12c49dd5654d3ceed33"
   end
 
   def install

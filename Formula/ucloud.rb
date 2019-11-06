@@ -1,14 +1,14 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.23.tar.gz"
-  sha256 "a7d4ee43320e31514b17d6deb8768da2c2a6c84dc741c20082bc98683b3fde9a"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.28.tar.gz"
+  sha256 "d5b1399956361d1d89c634c3067a7bc22383be577f8f9f08d671d181265bee2f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f64a91d4c9d7ccd461b50b0633dcf213205c1977b90eac63f45ae9b9405c788c" => :mojave
-    sha256 "c45290e25dddc955b3720d736406f2e9f62ee7a393b23b029d9340d77a345add" => :high_sierra
-    sha256 "2a0f5472de04428eebf2b89277d58a85b7164e4784fec94180e526b1aca3e8c5" => :sierra
+    sha256 "74252d770cdaffa85614fb58d679bed267b35b1984bee75f2f37a73926430074" => :catalina
+    sha256 "06b81238bdf4c69857974350474000353847d4d5e880661fa01b99b7ed12f364" => :mojave
+    sha256 "419a3d47d5f5a8fb1a197a1cb555edb7dc9d0ff7d843fb9e4816bb669d20139e" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -1,32 +1,32 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz"
-  sha256 "234fa05b6839e92dc300b2dd78c92ec9c0c8d439f65e1d430a7034f60af16067"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz"
+  sha256 "9f71d61973626d8b28c4cdf8e2484b4bf13870ed643fed982d68b2cfd754371b"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "c32304092f99c0c296fe210bcaf2a16a50ba4d670faa170fc78e6f950c19def0" => :mojave
-    sha256 "bae26a253f14434ab6b7dda559a4c0f353e727084bc4b0f389a6aa136b9d4216" => :high_sierra
-    sha256 "3215c678f328fd01d3b942ff8d83fa77d0e3f886d3a69334f8082d3ec133ebf2" => :sierra
+    sha256 "fa754c684673a191b999528995c1dc4b0d597a95ed6a2b1dd213c8e7018885ab" => :catalina
+    sha256 "36d3b48999a9252ea1a25fa54cd5305259c713d78d14be8161ea206357c1e120" => :mojave
+    sha256 "014ffddf6866f5c8c4177d06629b040949e4dfbb730e3dbe13a26a6a54e260df" => :high_sierra
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
   if MacOS.version < :yosemite
-    depends_on "openssl"
+    depends_on "openssl@1.1"
     depends_on "curl"
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.23.0.tar.xz"
-    sha256 "b7959afd19554aeaaa455c88eeed2c164854391f13319bd3fa7df2577c57ddc8"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.24.0.tar.xz"
+    sha256 "05b6ed0719d5e29d5c60dd7d0a5469f4a0514008a64f6084ac26335d1b37f73b"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.23.0.tar.xz"
-    sha256 "9558433f68ff4229bd55e84c4d26b74e5d3518ab0ec30186253b090ea887946a"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.24.0.tar.xz"
+    sha256 "b0c872c16f22942c1cb6c90ec07f395a931f7c2f9fb920d2ec926674265c04a6"
   end
 
   resource "Net::SMTP::SSL" do
@@ -69,7 +69,7 @@ class Git < Formula
     ]
 
     if MacOS.version < :yosemite
-      openssl_prefix = Formula["openssl"].opt_prefix
+      openssl_prefix = Formula["openssl@1.1"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]

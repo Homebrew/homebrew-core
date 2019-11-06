@@ -7,6 +7,7 @@ class Es < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "034c7d219310fe7a27dd50d3c7d628419d0176d09e0d6cb9e863eb185d544824" => :catalina
     sha256 "0b6411663827c69bb38ca5973201e66d293eaaece30d93cd4b62db6449d62756" => :mojave
     sha256 "b8fdbd8dd642283af492c5f6c72d23b39cc9819f543908c0d3d3c2c71d86151d" => :high_sierra
     sha256 "7fa9e3a21662d59d5505fda8945435f71331647d6efdae0ce7112bd507af3398" => :sierra

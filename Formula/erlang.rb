@@ -2,15 +2,15 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.0.7.tar.gz"
-  sha256 "04c090b55ec4a01778e7e1a5b7fdf54012548ca72737965b7aa8c4d7878c92bc"
+  url "https://github.com/erlang/otp/archive/OTP-22.1.5.tar.gz"
+  sha256 "b00622ef0ac433bae912cf11cbf06467a057ea710fbda6317ba5d0b10cc2e4b1"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "1158d2c1839d793c63b776509a764681b160bd41cfc99913196a24ca113843eb" => :mojave
-    sha256 "0649b93f990b227b27c8d0f8489a34a060bdd40e9a0cefbefd1f07163b559a6f" => :high_sierra
-    sha256 "21bd49ab0d479272cd3b2d5b5de1299d741d4561470930ddaa462d17716dc283" => :sierra
+    sha256 "65e9c44ddbf45f5233518789abf4f9e10c1877935a06bdc94b8c8df7ea77a1bc" => :catalina
+    sha256 "416daae94f9cdc13245c8e262d706ceb044359bb7ce01b32d2f6121dcfc97553" => :mojave
+    sha256 "24495b3d34c9f1edd9032b92ab76a88dd40a7b79117832cc0969b0ac0ae17d24" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -20,18 +20,22 @@ class Erlang < Formula
   depends_on "wxmac" # for GUI apps like observer
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_22.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_22.0.tar.gz"
-    sha256 "c3acdb3c7c69eaceb8bcd5a69f8a19ba8320d403c176a3b560f9240b943ab370"
+    url "https://www.erlang.org/download/otp_doc_man_22.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_22.1.tar.gz"
+    sha256 "64f45909ed8332619055d424c32f8cc8987290a1ac4079269572fba6ef9c74d9"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_22.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_22.0.tar.gz"
-    sha256 "64da88a0045501264105b4cc8023821810d23058404a3aadb8da1bc8fb5c13cb"
+    url "https://www.erlang.org/download/otp_doc_html_22.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_22.1.tar.gz"
+    sha256 "3864ac1aa30084738d783d12c241c0a4943cf22a6d1d0f6c7bb9ba0a45ecb9eb"
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }

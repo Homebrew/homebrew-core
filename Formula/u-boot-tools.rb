@@ -1,17 +1,17 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2019.07.tar.bz2"
-  sha256 "bff4fa77e8da17521c030ca4c5b947a056c1b1be4d3e6ee8637020b8d50251d0"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2019.10.tar.bz2"
+  sha256 "8d6d6070739522dd236cba7055b8736bfe92b4fac0ea18ad809829ca79667014"
 
   bottle do
     cellar :any
-    sha256 "d8ed22b53de5ef5e3838383676c4f3a98ba2d0b1426d642ae966695776e24ded" => :mojave
-    sha256 "19bb4b4cb1a75cdff0f03545d9a343d21159881b7db79bf1efc05c1093b5d371" => :high_sierra
-    sha256 "700555f219bb29d8b01676e0c7c77d3603acdc4f8384d3ac4f322fbc621104dd" => :sierra
+    sha256 "af8a3c5ce497b01ea53fba05c2995e3614bd52f695dae88ab97d3eed675f3846" => :catalina
+    sha256 "5f036981757605340697d6b5162037d786b40b2f25de56c2b5b10e7552be22b3" => :mojave
+    sha256 "a90ef3a2c36fd843ce11d922ab18f2a3d4cd77d27ad013239ec5de6e4508e2f0" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "sandbox_defconfig"

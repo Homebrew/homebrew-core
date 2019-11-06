@@ -1,15 +1,14 @@
 class Gdl < Formula
   desc "GNOME Docking Library provides docking features for GTK+ 3"
   homepage "https://developer.gnome.org/gdl/"
-  url "https://download.gnome.org/sources/gdl/3.28/gdl-3.28.0.tar.xz"
-  sha256 "52cc98ecc105148467b3b2b4e0d27ae484b1b6710d53413f771ed07ef1b737b6"
-  revision 2
+  url "https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz"
+  sha256 "858b30f0cdce4c4cb3e8365a7d54ce57c388beff38ea583be5449bc78dda8d02"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "1a2e3b9fad14c8cdc47fbdf4ef7d232e1278c9921906da3b0458ae7f18e8370e" => :mojave
-    sha256 "6546a306e177da91fa227b130e8e26a721b5ec1abe61a825f203795cc4bf04b1" => :high_sierra
-    sha256 "6857bc228637ed35ee70f505d3e2881c73c4c85ff6da47d3b5e92bde89b9252e" => :sierra
+    sha256 "72213f48c641e747ee4e5f57d99f5f6b58281def3979fd9bbd4b10d43fac94f1" => :catalina
+    sha256 "be37ffff8627cd687027fa38bc67e1e19dac530caeff7c6e26a1d4c58cb7219b" => :mojave
+    sha256 "0d014a840abbe39750efa407a6a9bc49b542dd875e07eb541cf234307f41b276" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

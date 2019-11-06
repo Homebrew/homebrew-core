@@ -6,6 +6,7 @@ class Nrg2iso < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "709c3f50eaf96b520116f8990fdab7cd52e271b3025d52724ba04aa50b025f17" => :catalina
     sha256 "6ff39712b0f4c8ba707eb1850ced8e9e0f14d3dc615cb9fb5a16456f0f69d680" => :mojave
     sha256 "7fcd88c9587e77ec07210ace97b4432197545ea4d70ff547b1b44977aef8eb8a" => :high_sierra
     sha256 "01177e7bc064b062c454caad61c24b80deb20768ab2d880c77ba20708ac6e709" => :sierra

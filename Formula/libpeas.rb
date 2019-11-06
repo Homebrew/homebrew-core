@@ -1,41 +1,46 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://developer.gnome.org/libpeas/stable/"
-  url "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz"
-  sha256 "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
-  revision 3
+  url "https://download.gnome.org/sources/libpeas/1.24/libpeas-1.24.1.tar.xz"
+  sha256 "9c3acf7a567cbb4f8bf62b096e013f12c3911cc850c3fa9900cbd5aa4f6ec284"
 
   bottle do
-    sha256 "662d750a332d8737fc62da587cac4c65f252b3ab3cd3764137a29329f61ccec4" => :mojave
-    sha256 "690949052e9d12486a79eb0a72c9966a26e56d209ca452fc0e9521b02de5557c" => :high_sierra
-    sha256 "b1139f2529b45ee2b01eaa9d2b0d13734263507ec2939a2a8a79bc4baa75afd1" => :sierra
+    sha256 "0b0f838272f0a44cb81c70fffb984a054a12ea63f6b515aab1f1158bc96bad1b" => :catalina
+    sha256 "504886a5e23802e49f8a10de0bc0547f4235854ae3eae3ac87fa3aed39ab50c1" => :mojave
+    sha256 "be6e36451525d6b365159b177eea7a1b92fc2cae3376a923970eef2f432cba16" => :high_sierra
   end
 
-  depends_on "gettext" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
   depends_on "python"
 
+  # patch submitted upstream as https://gitlab.gnome.org/GNOME/libpeas/merge_requests/22
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libpeas/commit/d5f5749372.diff"
+    sha256 "a46c4229656423de2e277bf5dd96e7f595cee19cc112c10f422c29c960cf4dcc"
+  end
+
   def install
     args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
       --prefix=#{prefix}
-      --enable-gtk
-      --enable-python3
-      --disable-python2
+      -Dpython3=true
+      -Dintrospection=true
+      -Dvapi=true
+      -Dwidgetry=true
+      -Ddemos=false
     ]
 
-    xy = Language::Python.major_minor_version "python3"
-    py3_lib = Formula["python"].opt_frameworks/"Python.framework/Versions/#{xy}/lib"
-    ENV.append "LDFLAGS", "-L#{py3_lib}"
-
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

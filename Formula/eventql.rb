@@ -30,15 +30,13 @@ class Eventql < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec bin/"evqld", "--standalone", "--datadir", testpath
-      end
-      sleep 1
-      system bin/"evql", "--database", "test", "-e", "SELECT 42;"
-    ensure
-      Process.kill "SIGTERM", pid
-      Process.wait pid
+    pid = fork do
+      exec bin/"evqld", "--standalone", "--datadir", testpath
     end
+    sleep 1
+    system bin/"evql", "--database", "test", "-e", "SELECT 42;"
+  ensure
+    Process.kill "SIGTERM", pid
+    Process.wait pid
   end
 end

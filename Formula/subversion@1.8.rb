@@ -4,12 +4,14 @@ class SubversionAT18 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.19.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
+  revision 1
 
   bottle do
-    sha256 "8f940fc03a334713836d6ed93f748fe573fc51dc5468dd575e14d7a614a4fb0a" => :mojave
-    sha256 "3a4e79dead2f4d209e06fe631903ed870610ddfc9ac091ec7d734f5025d0642e" => :high_sierra
-    sha256 "a3d73ecc8eddacfe764f5a83d5215220b7d3100d694c17ac3bed68089984e863" => :sierra
-    sha256 "0a39c347943ac7f025af06571378987e5d69805ab45cafd38215b5929a5a3722" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "d471619f345885cff74ff22c7c1783ff31d2a979471f8b55dba9851fd7872fdc" => :catalina
+    sha256 "f1ddeb0830e05709298f49b05131297e079a20cdf115a57d84e8c336b2c97aca" => :mojave
+    sha256 "4f5837d367ff776070c2d0a1a20a17a14fb56ec5296a00969c5fd5914888da02" => :sierra
   end
 
   keg_only :versioned_formula
@@ -18,7 +20,7 @@ class SubversionAT18 < Formula
   depends_on "scons" => :build # For Serf
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "openssl" # For Serf
+  depends_on "openssl@1.1" # For Serf
   depends_on "sqlite" # build against Homebrew version for consistency
 
   resource "serf" do
@@ -30,7 +32,10 @@ class SubversionAT18 < Formula
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
   # Prevent linking into a Python Framework
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/subversion@1.8/1.8.16.patch"
+    sha256 "3d8bb24db773c713a1301986f71e018b7d0ff95425738964b575562841f8dc64"
+  end
 
   def install
     inreplace "Makefile.in",
@@ -49,7 +54,7 @@ class SubversionAT18 < Formula
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-                OPENSSL=#{Formula["openssl"].opt_prefix}]
+                OPENSSL=#{Formula["openssl@1.1"].opt_prefix}]
 
       if MacOS.version >= :sierra || !MacOS::CLT.installed?
         args << "APR=#{Formula["apr"].opt_prefix}"
@@ -118,51 +123,3 @@ class SubversionAT18 < Formula
     system "#{bin}/svnadmin", "verify", "test"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 445251b..6ff4332 100755
---- a/configure
-+++ b/configure
-@@ -25366,6 +25366,8 @@ fi
- SWIG_CPPFLAGS="$CPPFLAGS"
-
-   SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-no-cpp-precomp //'`
-+  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-F\/[^ ]* //'`
-+  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-isystem\/[^ ]* //'`
-
-
-
-diff --git a/subversion/bindings/swig/perl/native/Makefile.PL.in b/subversion/bindings/swig/perl/native/Makefile.PL.in
-index a60430b..bd9b017 100644
---- a/subversion/bindings/swig/perl/native/Makefile.PL.in
-+++ b/subversion/bindings/swig/perl/native/Makefile.PL.in
-@@ -76,10 +76,13 @@ my $apr_ldflags = '@SVN_APR_LIBS@'
-
- chomp $apr_shlib_path_var;
-
-+my $config_ccflags = $Config{ccflags};
-+$config_ccflags =~ s/-arch\s+\S+//g;
-+
- my %config = (
-     ABSTRACT => 'Perl bindings for Subversion',
-     DEFINE => $cppflags,
--    CCFLAGS => join(' ', $cflags, $Config{ccflags}),
-+    CCFLAGS => join(' ', $cflags, $config_ccflags),
-     INC  => join(' ', $includes, $cppflags,
-                  " -I$swig_srcdir/perl/libsvn_swig_perl",
-                  " -I$svnlib_srcdir/include",
-
-diff --git a/build/get-py-info.py b/build/get-py-info.py
-index 29a6c0a..dd1a5a8 100644
---- a/build/get-py-info.py
-+++ b/build/get-py-info.py
-@@ -83,7 +83,7 @@ def link_options():
-   options = sysconfig.get_config_var('LDSHARED').split()
-   fwdir = sysconfig.get_config_var('PYTHONFRAMEWORKDIR')
-
--  if fwdir and fwdir != "no-framework":
-+  if fwdir and fwdir != "no-framework" and sys.platform != 'darwin':
-
-     # Setup the framework prefix
-     fwprefix = sysconfig.get_config_var('PYTHONFRAMEWORKPREFIX')

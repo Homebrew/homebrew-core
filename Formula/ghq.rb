@@ -2,14 +2,15 @@ class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
   url "https://github.com/motemen/ghq.git",
-      :tag      => "v0.12.6",
-      :revision => "f75cda17931f3d24829f425344dff18f91d78bf6"
+      :tag      => "v0.12.8",
+      :revision => "fe5ca0511e4d028be926215d05590638e3995c99"
+  head "https://github.com/motemen/ghq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "feb197303052612409d47fdfcaa1ed48e617a2a6c561d24a9590994ba8f956f5" => :mojave
-    sha256 "5b301b1b73f6e915107fad6dbe50de2f298cfdc0e847f926bd64205935c3922d" => :high_sierra
-    sha256 "4d36b962ed79ab2736ecd7bd8b7480ac00a13258df8ad2f0c37226abcb660b4d" => :sierra
+    sha256 "c17b2fd413cb7a1a2c681e863fc3ea5ff14b3910bf77b37464812fca3b0875b5" => :catalina
+    sha256 "9e421aaaf0c7b2340c7367d70144a7f1b8a99f37f3165abcd8527afd6e1989a1" => :mojave
+    sha256 "441bec0507a8ec029a4afa8832e7d64a26775d50859226859b1098f912f32918" => :high_sierra
   end
 
   depends_on "go" => :build

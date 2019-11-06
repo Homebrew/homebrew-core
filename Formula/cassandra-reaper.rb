@@ -15,15 +15,13 @@ class CassandraReaper < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/cassandra-reaper"
-      end
-      sleep 10
-      output = shell_output("curl -Im3 -o- http://localhost:8080/webui/")
-      assert_match /200 OK.*/m, output
-    ensure
-      Process.kill("KILL", pid)
+    pid = fork do
+      exec "#{bin}/cassandra-reaper"
     end
+    sleep 10
+    output = shell_output("curl -Im3 -o- http://localhost:8080/webui/")
+    assert_match /200 OK.*/m, output
+  ensure
+    Process.kill("KILL", pid)
   end
 end

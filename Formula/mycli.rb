@@ -5,15 +5,17 @@ class Mycli < Formula
   homepage "https://mycli.net/"
   url "https://files.pythonhosted.org/packages/11/dd/ddb8650471155b43b83888f0efce74214c175115e0e37ff415d2f991f1b3/mycli-1.20.1.tar.gz"
   sha256 "d4414ef8573a957b2cbb91db87bc48d48bfc3714ef23cf41cd4a5ad227561c6e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "1e00109d6e68aff3552e170ebcb1b4cf1bc5283cb0810fce6555bb8365c797b9" => :mojave
-    sha256 "68c76e2b2a7cbb81fd8ec2a610ed744fa6cd3563e799e60a84004d8a7c9da144" => :high_sierra
-    sha256 "20f2f2af26ba71afafa6e1c8616a3961b5c62f33ea5f6368a0eb45fbca569ba3" => :sierra
+    sha256 "b48844ed091ff6f097190cd54e55925f923593447b26ef18ae4e44de29dae3b8" => :catalina
+    sha256 "ec2089af8fd2b62b1abaf73ee07358f20091f0672b16cea5a9a57db17e6640be" => :mojave
+    sha256 "1af3274bd5ca31c33f37cdfba59d8a203ef3b45336a132a3f8b71d87a4834988" => :high_sierra
+    sha256 "f3cb3c2bc3b9c58977055ab28ba2cfbf9012d76b3a73733583b3ab4f7293d336" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "asn1crypto" do

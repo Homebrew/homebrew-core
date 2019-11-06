@@ -7,6 +7,7 @@ class Libelf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b7635245b64cc7d857c92191c40877cba96871d07f4749f620bc96c63cd2635e" => :catalina
     sha256 "7cb626407ee7d61546f2493da91ecc63996d6180949b96b84793e075bd130f2d" => :mojave
     sha256 "e11504a15c64cd7fca3248ca7ed14eead25a5d63d8bbd9a8e00f076c56602295" => :high_sierra
     sha256 "a771e35555810a4910304e3ca5967ea3e4f8cbe45576e5b2dc6b80cd9c1f0f13" => :sierra

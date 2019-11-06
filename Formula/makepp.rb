@@ -6,6 +6,7 @@ class Makepp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0dfbbcc3fafad36964f7e4c0820726c9764d89a9b56aa190a5cfd44cd0a53dc8" => :catalina
     sha256 "4420c1b9b7c5e42663c239b7e2c753c1669a1746bd21579c09e82224f5ea9620" => :mojave
     sha256 "8a8cfb0d135e47e4a37bff17d662234a9c1ebb17d82b12013b3a24d0f8f15032" => :high_sierra
     sha256 "d9244cdf9ca16edf5972aa60783ecfd675c581ba3a9b53339593f1fdc355a0ab" => :sierra

@@ -8,6 +8,7 @@ class Xhyve < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b81d7e54464f0870eabe1fead9d31627ad5342fd2e9aaff47535a7bcc738751f" => :catalina
     sha256 "babcee304193c68f484434c551732e5657878095f00c4149fc88867317f9252e" => :mojave
     sha256 "9643b72b869ec57653668f1ed2db0c3a2c7fad77d8000931933824622032d476" => :high_sierra
     sha256 "edc2e17147d4ae9333033e7317590a48b752b418df689a6dae45bd29a12eaca8" => :sierra

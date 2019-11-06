@@ -3,14 +3,14 @@ require "language/node"
 class ImageoptimCli < Formula
   desc "CLI for ImageOptim, ImageAlpha and JPEGmini"
   homepage "https://jamiemason.github.io/ImageOptim-CLI/"
-  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.3.9.tar.gz"
-  sha256 "caf4ebfa64bd5ffd52e3d542b70a329be9225a926606188bd7451c2dfb2f23cc"
+  url "https://github.com/JamieMason/ImageOptim-CLI/archive/3.0.2.tar.gz"
+  sha256 "957261d38fa85e0ec377efb2eceae695e3d87b621bae64853f9f5163efd3594b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cf86eb384317f001ec7ad87b52b9f5bb0d5ec87ddd08094a55dfe19b8079547" => :mojave
-    sha256 "4416a4a08e36b65ead4b59bf11c468018c5a0e3569313a700780918d293f7410" => :high_sierra
-    sha256 "ca9d0340fc4f40db5347ce6313d469db8e851a1ea98cca6fa2b61b5e6391547a" => :sierra
+    sha256 "56a9b2dba8f47850a26c335311f8c436b683c0b92ef5ab0b83e91688cf64ec7a" => :catalina
+    sha256 "b7b1923ed31ab32540a5dffcf798675401ca48249fae54f49d67bc6c78feede9" => :mojave
+    sha256 "6f1aa4b2e4de3e7a1502f1f8747283589697e5f0f0506f4d24acd53381311706" => :high_sierra
   end
 
   depends_on "node@10" => :build

@@ -3,13 +3,14 @@ class Pangomm < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pangomm/2.42/pangomm-2.42.0.tar.xz"
   sha256 "ca6da067ff93a6445780c0b4b226eb84f484ab104b8391fb744a45cbc7edbf56"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "3b1a4952eb3f0d4b5df3d179407b6ad65c9638a6f8da2a916668e51dc9f2581f" => :mojave
-    sha256 "739e5383f7c7c44ec8e8438d0e4741fc573b92dd4a1f41fb8f240034843fe5b2" => :high_sierra
-    sha256 "a140ebd7b3ddb682658ccff2e58a4049f46b4a4b69685810fe55e96e63cffa4b" => :sierra
+    sha256 "4e9fc1700643a05af5748609802fac09023c7be06602cfb876260a4ef8de8041" => :catalina
+    sha256 "103b9458af7fd9d7f08df10ad1da6f34b5c348399b88c5c50d0db25c61a38b4a" => :mojave
+    sha256 "48d67ace965522374210098e3a6e991f3a8fb1b5815211fac2d1130b10b3cdec" => :high_sierra
+    sha256 "15a59400365ed6730c2078de7b12081b0370659eda3f693ba367e4d9907a8ba3" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -40,7 +41,7 @@ class Pangomm < Formula
     glibmm = Formula["glibmm"]
     harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
     flags = %W[

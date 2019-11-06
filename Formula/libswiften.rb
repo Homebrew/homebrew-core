@@ -7,6 +7,7 @@ class Libswiften < Formula
 
   bottle do
     cellar :any
+    sha256 "919e570b27576a942a2dd08c190f188cf8f0deb00950dc0b5956478da38091ed" => :catalina
     sha256 "489821c365b23676ac84c6f9ecc2157edaebd6d0025fa75b5f5e972078dead88" => :mojave
     sha256 "3ec7dc4286e4651d14188794f22d4d89fa1284b999c7134416abcdd02d880744" => :high_sierra
     sha256 "07e2d9467520a4c814e15b5328bec8b989449284161c66e120b036f09eed8d14" => :sierra

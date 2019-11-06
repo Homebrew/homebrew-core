@@ -3,11 +3,14 @@ class Subversion < Formula
   homepage "https://subversion.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.2.tar.bz2"
   sha256 "3bd0b5c8e4c5175263dc9a92fd9aef94ce917e80af034f26fe5c45fde7e0f771"
+  revision 1
 
   bottle do
-    sha256 "1e4473037a759517eba689e659078fe57efc5c5df3f43346f1274cd9ac592c31" => :mojave
-    sha256 "3e22e30433819422372a463cec25340ca18db785cb999f55a229af5ddd1f24f7" => :high_sierra
-    sha256 "6b696bcfe06c27f70b39ffde9085af247217b16614fb017ce5ae20613f3c30f5" => :sierra
+    rebuild 1
+    sha256 "8b6f9a588d09d642d8384fa3d331c8d6d1951af7c07dd98af2f6c1bc413ba80d" => :catalina
+    sha256 "645a3295fda5daaa6e640180e3a14bd67ae995623b2b217111aa7e9f01359382" => :mojave
+    sha256 "d84a139907231b750f9defd9e6e4e08357e6892ae99f93297eedc318059efca6" => :high_sierra
+    sha256 "682ed0a48848860718baed5b975ef985628431765f5fef53d9ac4f39bb8e5320" => :sierra
   end
 
   head do
@@ -29,7 +32,7 @@ class Subversion < Formula
   # gettext, lz4, perl, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
-  depends_on "openssl" # For Serf
+  depends_on "openssl@1.1" # For Serf
   depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
@@ -57,7 +60,7 @@ class Subversion < Formula
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-        OPENSSL=#{Formula["openssl"].opt_prefix}
+        OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]

@@ -22,7 +22,7 @@ class Freeswitch < Formula
   depends_on "jpeg"
   depends_on "libsndfile"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "opus"
   depends_on "pcre"
   depends_on "speex"

@@ -5,6 +5,7 @@ class Nsuds < Formula
   sha256 "6d9b3e53f3cf45e9aa29f742f6a3f7bc83a1290099a62d9b8ba421879076926e"
 
   bottle do
+    sha256 "dcccae0ffd504a9a09ed57bfe0ac26127723c92513177eb862fa132e21c6968a" => :catalina
     sha256 "60d318290bb60415eb4abfdd7ffad468a24294892ac4ff90895cc0e589ea3da6" => :mojave
     sha256 "26e82eae22288d51eda3742c0ae4f3e1b0b17a003461f1baec38ccaa52495d9f" => :high_sierra
     sha256 "89ae2f310d8b21d98ababce7110f20d3d41da06b7a751447c56aa6dbd13a1950" => :sierra

@@ -1,22 +1,21 @@
 class Starship < Formula
   desc "The cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/v0.12.2.tar.gz"
-  sha256 "daef973624f0db3bb55913d2bb0a79b74425be903a175f8df5ef5888bdedb1e4"
+  url "https://github.com/starship/starship/archive/v0.26.2.tar.gz"
+  sha256 "bc57c0083bb02a7d6b4fb6c7a9b7f6d1ecb315f7294aeb71834e2d4660a2fa46"
   head "https://github.com/starship/starship.git"
 
   bottle do
-    cellar :any
-    sha256 "815e807ab25abfa9836106d7718a5c6ba85ea7490b617da90d8474de365ba488" => :mojave
-    sha256 "3ba47f8e0848a64a22265bf1586b604ef0f7becef941a5160f797c9c2ca834ad" => :high_sierra
-    sha256 "3506ef2def0ea2d1e7edb35325cc874c42b15c760691171489f68a6fd64347a4" => :sierra
+    cellar :any_skip_relocation
+    sha256 "019f4188a7333079222d4badf7eca7e072261cfe315dd86d9a19cc307bf3484e" => :catalina
+    sha256 "1733139a61d2f7b0ff92d9493103d3bd45fad72e847d4c9f233bd3c522ac2f4a" => :mojave
+    sha256 "2af180a8e59d6c8676edd41fa4cf10ee38e0c7d5a1e096d7df8f3c853ba3cf5e" => :high_sierra
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

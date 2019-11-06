@@ -6,6 +6,7 @@ class Dnsmap < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c27b047492145254a37464c3fdebcd656ed25a6e8b0b6d863a5012d00a0d7253" => :catalina
     sha256 "4172919faa189face592aa272a8a45b62c05dc3056f75ed26e505d1e35118b5c" => :mojave
     sha256 "3c45ae4ec1149775df005f3438c0a24971291094bc47814a8a60e4ca67dbce79" => :high_sierra
     sha256 "2015e3fdee32fcdbc0501f522ba720280e8cb07a75f8166fd62a9f876ea12124" => :sierra

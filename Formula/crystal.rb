@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.30.1.tar.gz"
-    sha256 "0ffc00fa54929c2533bc0bcb89e0b001dd3abc470ccc87e3576047a5cdafc062"
+    url "https://github.com/crystal-lang/crystal/archive/0.31.1.tar.gz"
+    sha256 "b4a51164763b891572492e2445d3a69b462675184ea0ccf06fcc57a070f07b80"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "3e6d1c482c1d4128b7298e63219ae1ea311d4575c3f0f6791b44e60ce7f7d2d6" => :mojave
-    sha256 "3a2a303378a72dccc017092c6aed04de81b3f8bf56b654b568f9e2fa56c16a7a" => :high_sierra
-    sha256 "b810c431c44ab0ca75af43d461ed21706065eac5c2a9ab95ff491a745db0e464" => :sierra
+    sha256 "b2b6a72ed1d5475197afb51dda915df11b4ec0dea594d9ac9a0e74fb5b77f1a1" => :catalina
+    sha256 "a3b0717f4006a32899703e4608ff6ff6e22c079514ebafe4c14afb3cb9e6654b" => :mojave
+    sha256 "47e8c8b0b9525982dca06dab82ab9fffded6039f5a132f6d89e753bd135e0695" => :high_sierra
   end
 
   head do
@@ -34,7 +34,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm"
+  depends_on "llvm@8"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -45,15 +45,15 @@ class Crystal < Formula
 
     # extension to handle multi-threading
     patch :p1 do
-      url "https://raw.githubusercontent.com/crystal-lang/distribution-scripts/ab683792f34c60159f0e697adf792ff5b0fcbf91/linux/files/feature-thread-stackbottom.patch"
-      sha256 "acbae8cfe10e3efac403a629490cfd05e809554d23e9c3a88acddbb66f8ef7e0"
+      url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
+      sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
     end
   end
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.29.0/crystal-0.29.0-1-darwin-x86_64.tar.gz"
-    version "0.29.0-1"
-    sha256 "6de700d88dc0486c0d56e4d5c6852dc675256aa6f2c571ed8e4b15e0fc72a0b9"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-darwin-x86_64.tar.gz"
+    version "0.30.1-1"
+    sha256 "ffc3ee9124367a2dcd76f9b4c2bf8df083ba8fce506aaf0e3c6bfad738257adc"
   end
 
   def install

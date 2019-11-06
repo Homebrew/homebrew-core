@@ -7,15 +7,16 @@ class Click < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b154b0c1375d2b0ce09ef9ee3b44dbc5a4b1387f6e341fceb7708177e2801208" => :mojave
-    sha256 "287467bcb9ec9ef1adf4809e3a33ae64a26d17620e214fc833e979fb12c43e3c" => :high_sierra
-    sha256 "c5690ca5166998c859d72b02ba9d44e4053fa9e3866626610fa332410571601f" => :sierra
+    rebuild 1
+    sha256 "a9eb4e55483197279fef53a15753b4dcdbf9846a39ac4161d248755abf935456" => :catalina
+    sha256 "1238dd24fd4d28984d7de54273a09ba7eb635d928627ca5f53242594c1cc11f1" => :mojave
+    sha256 "392665aea350546e63dcc94054236555e3e91967cfe02854f15b24272a6d7aba" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

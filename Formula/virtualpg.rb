@@ -6,6 +6,7 @@ class Virtualpg < Formula
 
   bottle do
     cellar :any
+    sha256 "62178e004321740f4ce9ff06a9650085a8ff73f5b09594c11377c5a8b26f7b7b" => :catalina
     sha256 "11f87cc36cdd1bc00799f4d877b7c25c6ffae17c32322041831cec002d927c8d" => :mojave
     sha256 "2e7d844424706349b16cbbf1f7ab6fd257703ed8de3347277090c75cadb491b8" => :high_sierra
     sha256 "1d61bc6b83f9584e6a787b614f475177fe98472bc6fa697c1a6695dfe6f65701" => :sierra

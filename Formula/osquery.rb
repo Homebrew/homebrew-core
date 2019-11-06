@@ -3,18 +3,18 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 5
+  revision 9
 
   bottle do
     cellar :any
-    sha256 "15245bc5b8e1ed3d627a9f121a7c8b78cf9da8dca860d8ccc7af76104d5c62f3" => :mojave
-    sha256 "d57acfec2a5a390982790b13b700373f59af3484f877f85631a9520b1004b6c2" => :high_sierra
-    sha256 "46ff1d6af73a92e13c0da00278d29cc58cac4e8d61adb26224ab354dce76aea2" => :sierra
+    sha256 "404a62c344cd4e6859cbceb6e77d9c1db4e830d512b4b667729641979d032cdd" => :catalina
+    sha256 "532a3d4f4a7c7a0370e86b415dfa205d149f25b4b0c7fcf5f83e4c4e5cea7a1b" => :mojave
+    sha256 "ce02e277e11f0960e0f945f00bf36be773911682cbb8934c14d2cc83a0798253" => :high_sierra
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
@@ -25,7 +25,7 @@ class Osquery < Formula
   depends_on "lldpd"
   # osquery only supports macOS 10.12 and above. Do not remove this.
   depends_on :macos => :sierra
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
@@ -64,6 +64,13 @@ class Osquery < Formula
     sha256 "46bce0c62f1a8f0df506855049991e6fceb6d1cc4e1113a2f657e76b5c5bdd14"
   end
 
+  # Patch for compatibility with OpenSSL 1.1
+  # submitted upstream: https://github.com/osquery/osquery/issues/5755
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/osquery/openssl-1.1.diff"
+    sha256 "18ace03c11e06b0728060382284a8da115bd6e14247db20ac0188246e5ff8af4"
+  end
+
   def install
     ENV.cxx11
 
@@ -99,15 +106,16 @@ class Osquery < Formula
     # Set the version
     ENV["OSQUERY_BUILD_VERSION"] = version
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python#{xy}/site-packages"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
-        system "python", "setup.py", "install",
-                                 "--prefix=#{buildpath}/third-party/python/",
-                                 "--single-version-externally-managed",
-                                 "--record=installed.txt"
+        system "python3", "setup.py", "install",
+                          "--prefix=#{buildpath}/third-party/python/",
+                          "--single-version-externally-managed",
+                          "--record=installed.txt"
       end
     end
 

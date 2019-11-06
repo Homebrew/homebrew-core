@@ -7,6 +7,7 @@ class Gauge < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "55748117bc55056a48b5c7b25071fd7b1a620361939f7016e2511d9b8eab2537" => :catalina
     sha256 "45b496b39ee682a95ca49b36a94e8041e03fca3644e80223c36539f495fee384" => :mojave
     sha256 "60af1c02f5a733bcb8614fe8bc2c7031675cde58aed3f6b0eb0a5a18602c8320" => :high_sierra
     sha256 "591e0cbb2faa78e291cc2dc026fe68532c6c63f4329fada91bdedc3695f92d00" => :sierra

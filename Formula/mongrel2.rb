@@ -16,6 +16,7 @@ class Mongrel2 < Formula
 
   bottle do
     cellar :any
+    sha256 "a8fec9c22f23f3347c2ffff44b25e07920ba8dd7e24c0001f0b3fc73fce07407" => :catalina
     sha256 "cfda97fdc8cf6fa5ee0b4f1b48b07840b1560bd73ced286bb574f838148e6f25" => :mojave
     sha256 "67696f654ab1d878ac7c2a3fa254b0ee86c1d444578045997a971ca44189b2fe" => :high_sierra
     sha256 "293b0edc8bcc0b7e3a97748a6accbc5000916ed145fd467aeb809303438a207a" => :sierra

@@ -1,14 +1,15 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "https://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.15.2.tar.gz"
-  sha256 "be53024e16946ce49ff787f3ce569aa5710010236db68f971433ac6a10318a46"
+  url "https://github.com/osmcode/libosmium/archive/v2.15.3.tar.gz"
+  sha256 "f95b76aa03fe60b5dc3e86329d6eb4baec4f86522a8d440ad149068019fb6866"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "75e519364edc883bffa07dfef3d88df6d4fe56bcf0cc19c0951fcf9fa95fd57e" => :mojave
-    sha256 "75e519364edc883bffa07dfef3d88df6d4fe56bcf0cc19c0951fcf9fa95fd57e" => :high_sierra
-    sha256 "765b186c188877807aa06e03d97084f990e3b1cb83d25309a711d57c0042ac49" => :sierra
+    sha256 "1023aa5862aa41042aeb4d0492751993f17dc65867595c1f593013586f51c684" => :catalina
+    sha256 "cd0cfcb40bb35bdd6fc6cf3688d3e7fd157d76636eb4a49ecb08a87c838bc48b" => :mojave
+    sha256 "cd0cfcb40bb35bdd6fc6cf3688d3e7fd157d76636eb4a49ecb08a87c838bc48b" => :high_sierra
+    sha256 "35c9e4bb692ce877308644878b4119bba11b1e9c26945ba712ed88a0390f608a" => :sierra
   end
 
   depends_on "boost" => :build

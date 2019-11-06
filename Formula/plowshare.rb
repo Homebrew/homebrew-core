@@ -7,6 +7,7 @@ class Plowshare < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c46e0ffe3e874eed0628aaf03ddd6711b9076e5ae0ba5c6f678c66babc2fa3f7" => :catalina
     sha256 "b9099a281503dde8b677db021242fa0e495d036ce2e9b13838badf8ff17caff9" => :mojave
     sha256 "fe966c7db7ceb08f5d9c522c68f332eb87927dccf71b53947824d541ae889904" => :high_sierra
     sha256 "fe966c7db7ceb08f5d9c522c68f332eb87927dccf71b53947824d541ae889904" => :sierra

@@ -3,11 +3,13 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
   sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
+  revision 1
 
   bottle do
-    sha256 "480e5ee70d642c0afbd2b28a043526b216fab5d3ab6971b6f170e9e6875b7498" => :mojave
-    sha256 "4d30088005c028338628847aabd6cdc79a6339c0d572f58150dba762a77e86c1" => :high_sierra
-    sha256 "60718a817a26c25ce8e35afdf73ff7bbb530789f7ae13ba5105700ea1d623e8e" => :sierra
+    sha256 "e4ea3bb192e9a18c1e6d07df0f8d4d1c3f66fd137d1fb1d7bfc4d1797e6fc71a" => :catalina
+    sha256 "5c79a9667f73328988698067ccd98044c65b047d6334e4ecfbf6ea1f218a2494" => :mojave
+    sha256 "9e30e4ca82c4e36117a083f59f8326d7e3b5ce8b9f962ac3f036b8de24d50163" => :high_sierra
+    sha256 "872f44972f4f7701cc22730987eb5b81efb7691160ee7e4989fbcc25988ea1ae" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -15,7 +17,7 @@ class PerconaXtrabackup < Formula
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "percona-server",
     :because => "both install lib/plugin/keyring_vault.so"

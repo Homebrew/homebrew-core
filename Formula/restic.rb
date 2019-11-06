@@ -3,21 +3,23 @@ class Restic < Formula
   homepage "https://restic.github.io/"
   url "https://github.com/restic/restic/archive/v0.9.5.tar.gz"
   sha256 "e22208e946ede07f56ef60c1c89de817b453967663ce4867628dff77761bd429"
+  revision 1
   head "https://github.com/restic/restic.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f9218c65c562b2eace35015cff1a2dafd5a59dc5973165f3b59d7165f7d0a6c" => :mojave
-    sha256 "1775322bbdcd094cd3cded9097b5e07588fdd4c40e447fd2db319e37e8f2704e" => :high_sierra
-    sha256 "450abee766d22cd546b03beac010cef7e9b268aa0f9a223519697e3660985805" => :sierra
+    sha256 "ea2d49bab5d855579964096fff8a061ce14295199f589d6d474c97ea9d504bfa" => :catalina
+    sha256 "68b427514497fc3e5e886af43fe04c477a54d1c08c6f7cd9244ab09b170bd47d" => :mojave
+    sha256 "1b0a856fe819e6923abf28590bca2980fb7fb23af46230224d171579b85df7e6" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
+    ENV["CGO_ENABLED"] = "1"
 
-    system "go", "run", "build.go"
+    system "go", "run", "-mod=vendor", "build.go", "--enable-cgo"
 
     mkdir "completions"
     system "./restic", "generate", "--bash-completion", "completions/restic"

@@ -8,6 +8,7 @@ class Apngasm < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "48dfe150da3c6f5992d771f4581d39a6a4a9750ae4835d959f6bbc23c03923da" => :catalina
     sha256 "9385f652fd7fae83e373a823d7cd7b090213f3e6e17d1eee415022a4eb454cf4" => :mojave
     sha256 "df11f91ea8d27997410b38d42e435b58c34d54dd2bb58a714745ffcfaaacdda2" => :high_sierra
     sha256 "87cb9f81d1ec12b561e8750d259e27d1d97daa654742fcce032863e0185baf0f" => :sierra

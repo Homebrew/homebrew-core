@@ -3,15 +3,15 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://github.com/xonsh/xonsh/archive/0.9.11.tar.gz"
-  sha256 "8dec5e90c17983afeb2fa7f584795981274104c6eea3c97f7cf66b56d4204f7c"
+  url "https://github.com/xonsh/xonsh/archive/0.9.13.tar.gz"
+  sha256 "21b9c81377c3be04bdf72f0eca2370a3c3ad7b050683362bc52ec84085cdebd2"
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c279b4e997cc250643eb7c329be125a5723c7036177b23b52c69c2be6b295e27" => :mojave
-    sha256 "700cca4cde3ade58a21a868423cfeca402dcd1fe0370d2fac33bf4ab78da78bb" => :high_sierra
-    sha256 "9aaf96327d494c27442df40027520e76acfb09cc6e2f6730d498b54a96b8d867" => :sierra
+    sha256 "10ee5748da75f7eeb67ad4c18d5cb068aedb4900b99817e6bc21abe0f1ad1ccb" => :catalina
+    sha256 "61b50ab167ff40a6f9e047e08ba4e282fa2856bcf2cec60c7fd2d0de5e89d6a7" => :mojave
+    sha256 "245117ead07c8301e7ca7472e9c15542f001885101bb5b9013d9e8bf43e56d39" => :high_sierra
   end
 
   depends_on "python"
@@ -20,8 +20,8 @@ class Xonsh < Formula
   # See https://xon.sh/osx.html#dependencies
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/94/a0/57dc47115621d9b3fcc589848cdbcbb6c4c130186e8fc4c4704766a7a699/prompt_toolkit-2.0.9.tar.gz"
-    sha256 "2519ad1d8038fd5fc8e770362237ad0364d16a7650fb5724af6997ed5515e3c1"
+    url "https://files.pythonhosted.org/packages/0c/37/7ad3bf3c6dbe96facf9927ddf066fdafa0f86766237cff32c3c7355d3b7c/prompt_toolkit-2.0.10.tar.gz"
+    sha256 "f15af68f66e664eaa559d4ac8a928111eebd5feda0c11738b5998045224829db"
   end
 
   resource "Pygments" do

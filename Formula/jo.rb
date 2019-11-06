@@ -6,6 +6,7 @@ class Jo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "46d94e6735d051174c5d0a1931a821aeb7e52e8e429b10fce310eaad69596dcf" => :catalina
     sha256 "5dc83773f2bf1dc245498a5b3869f94539197292fdbfc49d34b5f2ebb8630685" => :mojave
     sha256 "0fe9b043869cbd4149ce411b585b9fc5814f3c4b76bcb875c93b4dd08126d7bc" => :high_sierra
     sha256 "e5ddb95312a7d34c0e4533c1dc21a6f854a8e8505b17116617e1b79538b6b0a0" => :sierra

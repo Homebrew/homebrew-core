@@ -1,13 +1,14 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.xz"
-  sha256 "11a83f85c03d3f0fc9b8a9b6cad1b2674f26c5aaa43ba858d4b0fcc2b54171e1"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
+  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
 
   bottle do
-    sha256 "56630571e08b65c422073d54458db4f338be7a707a572173f51e964fcc611f3c" => :mojave
-    sha256 "52face1cf238072f1964cb6ace624510008857c645dee162ad0b60a138b6c136" => :high_sierra
-    sha256 "e43742f0a29eff33122a484ee06d58b9ac236a7013fd972b1e4c47dc3acb9e82" => :sierra
+    rebuild 1
+    sha256 "74304ae76b81629a80edb0655c34883b00ab674fa10e0db4bd5336015acc5e17" => :catalina
+    sha256 "da318a12d35502d95a8bea49f735bb74af72cdb38b687b2f565d75b139941736" => :mojave
+    sha256 "9416860e0cd56aa45bfce03801a81eefcb0a25e0ccb123a82c51f5f1b6911abb" => :high_sierra
   end
 
   head do
@@ -19,15 +20,15 @@ class Ruby < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # Should be updated only when Ruby is updated (if an update is available).
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.0.3.tgz"
-    sha256 "be3a7abc31e91de667406e84cd15265b73fc502268a1dd09404214a49b4acb2c"
+    url "https://rubygems.org/rubygems/rubygems-3.0.6.tgz"
+    sha256 "fd6785ac24728bd5bf8f0883d197fe0cea4df37d485c5353c93fbe573b8941b1"
   end
 
   def api_version
@@ -44,7 +45,7 @@ class Ruby < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -52,6 +53,7 @@ class Ruby < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 
@@ -139,7 +141,7 @@ class Ruby < Formula
           "#{api_version}"
         ]
 
-        @default_dir ||= File.join(*path)
+        @homebrew_path ||= File.join(*path)
       end
 
       def self.private_dir
@@ -169,9 +171,9 @@ class Ruby < Formula
 
       def self.default_path
         if Gem.user_home && File.exist?(Gem.user_home)
-          [user_dir, default_dir, private_dir]
+          [user_dir, default_dir, old_default_dir, private_dir]
         else
-          [default_dir, private_dir]
+          [default_dir, old_default_dir, private_dir]
         end
       end
 
@@ -181,6 +183,13 @@ class Ruby < Formula
 
       def self.ruby
         "#{opt_bin}/ruby"
+      end
+
+      # https://github.com/Homebrew/homebrew-core/issues/40872#issuecomment-542092547
+      class BasicSpecification
+        def self.default_specifications_dir
+          File.join(Gem.old_default_dir, "specifications", "default")
+        end
       end
     end
   EOS

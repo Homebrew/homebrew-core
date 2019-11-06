@@ -7,6 +7,7 @@ class Glslang < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8fc2ca716eb2599052b377cc7eecc7ab42112d096bbdfa10756b303af5297edf" => :catalina
     sha256 "a62ffe30f1d2b726a20d558679d9061d513bce025f31551cc2b218e744f8e7aa" => :mojave
     sha256 "0ade09ae5c51996b8d661dcd2f03164acaad6bcd8bde1995f960370c7d5e88d1" => :high_sierra
     sha256 "1c3d394fc3efcfcac63f8f1656bb12749cde4da1962d13eb5b657946d51e3359" => :sierra

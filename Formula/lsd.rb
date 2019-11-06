@@ -6,15 +6,16 @@ class Lsd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9cf1be00bfe0f3f7d0142dd1d1f4118be58415f7a8444ff194a5f919a3dd03c9" => :mojave
-    sha256 "1017f694172dec6120c2d49277268ee21f417a363c55a880541c1119bd82fc4e" => :high_sierra
-    sha256 "93be9faa9b2a58a509f7d53a78ce1950bc3a770a13cffdc0980a329b97f14a5f" => :sierra
+    rebuild 1
+    sha256 "1b8e0284a229f80ae87e49e3d8b921c343e3dd6d674a8f065a1e495725ff48b5" => :catalina
+    sha256 "14d093c826b92b4839c5ffa1c9a33d2bf85b46f31a0ea7a87d69f6c6b068788c" => :mojave
+    sha256 "32c4bbfc324a5382726aa4d90e30338a646aae14c91c17e9b204925a6afdbf37" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

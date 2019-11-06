@@ -7,6 +7,7 @@ class Serve < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8cc3f01c3baafe4728f382083cce3ceca4bbe7263ae51da6fdc49c01d8fc1458" => :catalina
     sha256 "a339885f14479144ebe771f5caba2239290d89926a1a8bbbaa56751b9ef62f8f" => :mojave
     sha256 "2b1474e49ed747c67fde6ed65e404da4c4e4d2f39190995241e10e62a99cca17" => :high_sierra
     sha256 "c23f691164cbd2f96630d273215f300e1e05ad99427b63e830db52c01eb9ac08" => :sierra
@@ -15,7 +16,6 @@ class Serve < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     src = buildpath/"src/github.com/syntaqx/serve"
@@ -27,15 +27,13 @@ class Serve < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/serve"
-      end
-      sleep 1
-      output = shell_output("curl -sI http://localhost:8080")
-      assert_match(/200 OK/m, output)
-    ensure
-      Process.kill("HUP", pid)
+    pid = fork do
+      exec "#{bin}/serve"
     end
+    sleep 1
+    output = shell_output("curl -sI http://localhost:8080")
+    assert_match(/200 OK/m, output)
+  ensure
+    Process.kill("HUP", pid)
   end
 end

@@ -1,15 +1,15 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.08.0.tar.gz"
-  sha256 "df69f681bbad5ab7c7c3832a6da01e1523e3d42156a1b61e7344e0b6b6f6d24f"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.10.0.tar.gz"
+  sha256 "5ec0a912ebe2688b0fbe10999463cb8365ce5e87d8a47eb04f95bd63880dc2f0"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
     cellar :any
-    sha256 "e56fb2634376e8f5b0d210b3d35f41ebeb6efc721f798d9a037ac3fb82c98fcf" => :mojave
-    sha256 "90206d0b1ae9ecd436f79b9a9a24f6c25ad34bd6bff8f083ccdbfcdbf93e3c0e" => :high_sierra
-    sha256 "05afed0a5f13840a11eed5b9d6d3bc5564194631bf909b4dc9b5e218a0ec216a" => :sierra
+    sha256 "67db4b7a55b8262884d13199566a759aa1fb11b128c38d98df41420f80d4d222" => :catalina
+    sha256 "0fde2dd271e807ea6a3035fab2fbe6559f5263dc5da28cb9c8ad3a42540f0d96" => :mojave
+    sha256 "812d6bee630aefdf692bb9367310186194b51e306b700c9a311bf643fe388e8f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,6 +20,8 @@ class Wxmaxima < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     prefix.install "wxMaxima.app"
+
+    bash_completion.install "data/wxmaxima"
   end
 
   def caveats; <<~EOS

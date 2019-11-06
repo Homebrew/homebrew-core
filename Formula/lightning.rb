@@ -1,16 +1,15 @@
 class Lightning < Formula
   desc "Generates assembly language code at run-time"
   homepage "https://www.gnu.org/software/lightning/"
-  url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.2.tar.gz"
-  sha256 "9b289ed1c977602f9282da507db2e980dcfb5207ee8bd2501536a6852a157a69"
+  url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.3.tar.gz"
+  sha256 "ed856b866dc6f68678dc1151579118fab1c65fad687cf847fc2d94ca045efdc9"
 
   bottle do
     cellar :any
-    sha256 "1eae478d637843e90a1d6ad9597f8479ab79dda1e56fd12b37428f7d5c8c5a15" => :mojave
-    sha256 "ed3fb8e5552f78ef17fa4a5eab54a69068113c28f50723e2a9d9fa68ca9a554d" => :high_sierra
-    sha256 "b3898ab467ddc57c03f72615e95fedadf4bbf249ba76ed9de8cc410efe58b114" => :sierra
-    sha256 "ddea1c93ea261eb8f49f998deb8769b8b67d44ec955e6dbbe8509d90f5ae9b6e" => :el_capitan
+    sha256 "543bb685d72b8e9b10b14f3dcd615d38f8f499d10e1d27e40604240fc3f65ac3" => :catalina
+    sha256 "c767959e901e6f47f9bbfe243e629508edbdb138376443d7943c4c4a5a52d4f2" => :mojave
+    sha256 "da42166b5dd858cad42eeb7fc69a9ef870d23b67da6fa978d4bc58d3a464a0d4" => :high_sierra
   end
 
   depends_on "binutils" => :build

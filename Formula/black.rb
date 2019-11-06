@@ -3,14 +3,14 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/89/07/aebb10fb8f2ffbac672dfbebffa724643bc84cf012a57737a622d1dabddb/black-19.3b0.tar.gz"
-  sha256 "68950ffd4d9169716bcb8719a56c07a2f4485354fec061cdd5910aa07369731c"
+  url "https://files.pythonhosted.org/packages/b0/dc/ecd83b973fb7b82c34d828aad621a6e5865764d52375b8ac1d7a45e23c8d/black-19.10b0.tar.gz"
+  sha256 "c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef695bcdffed96f3c28c7ea0fe5ea51a18a1ad2c152fc25ba02871ba950b94b9" => :mojave
-    sha256 "f3e89b08d42080b08ebf3cd2ffecfac53f4c56f7dc7ce55f722a6425954f642a" => :high_sierra
-    sha256 "ecf9478d385e1756118ba799463970e517582f19399ea8f51fb36ccb66f344d4" => :sierra
+    sha256 "a4f41f40e695ff43e81206aa495a6c5462e1998371cee746b5e5bd1da304b465" => :catalina
+    sha256 "b1d29825686f8d7e5661a2b42e539f5da3664f91624a6ba1189e8c991483d4f3" => :mojave
+    sha256 "d26e50bbc697b595266542a1fc544e06057000537b11d17d1d1c6f9e158af0cd" => :high_sierra
   end
 
   depends_on "python"
@@ -21,8 +21,8 @@ class Black < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/cc/d9/931a24cc5394f19383fbbe3e1147a0291276afa43a0dc3ed0d6cd9fda813/attrs-19.1.0.tar.gz"
-    sha256 "f0b870f674851ecbfbbbd364d6b5cbdff9dcedbc7f3f5e18a6891057f21fe399"
+    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
+    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
   end
 
   resource "click" do
@@ -30,9 +30,24 @@ class Black < Formula
     sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
   end
 
+  resource "pathspec" do
+    url "https://files.pythonhosted.org/packages/7a/68/5902e8cd7f7b17c5879982a3a3ee2ad0c3b92b80c79989a2d3e1ca8d29e1/pathspec-0.6.0.tar.gz"
+    sha256 "e285ccc8b0785beadd4c18e5708b12bb8fcf529a1e61215b3feff1d1e559ea5c"
+  end
+
+  resource "regex" do
+    url "https://files.pythonhosted.org/packages/fc/1d/13cc7d174cd2d05808abac3f5fb37433e30c4cd93b152d2a9c09c926d7e8/regex-2019.11.1.tar.gz"
+    sha256 "720e34a539a76a1fedcebe4397290604cc2bdf6f81eca44adb9fb2ea071c0c69"
+  end
+
   resource "toml" do
     url "https://files.pythonhosted.org/packages/b9/19/5cbd78eac8b1783671c40e34bb0fa83133a06d340a38b55c645076d40094/toml-0.10.0.tar.gz"
     sha256 "229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c"
+  end
+
+  resource "typed-ast" do
+    url "https://files.pythonhosted.org/packages/34/de/d0cfe2ea7ddfd8b2b8374ed2e04eeb08b6ee6e1e84081d151341bba596e5/typed_ast-1.4.0.tar.gz"
+    sha256 "66480f95b8167c9c5c5c87f32cf437d585937970f3fc24386f313a4c97b44e34"
   end
 
   def install

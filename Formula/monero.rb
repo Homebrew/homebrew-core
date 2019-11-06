@@ -4,19 +4,21 @@ class Monero < Formula
   url "https://github.com/monero-project/monero.git",
       :tag      => "v0.14.1.2",
       :revision => "8f0aedfa1ad7090ff1580cdce55b152fcb5655c0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a6d27e2517f648fdaa10691d376f488c0da25333e04f216e599ee5a029eca995" => :mojave
-    sha256 "50e46b5dce33c569567c0c181d9498fb6b382193a9c4fc9e1dd0eea46b860cc7" => :high_sierra
-    sha256 "3198b6bb61482ca13a5c1835a3ab49038d5f5838cc63d09aa17fa3bd52d23363" => :sierra
+    rebuild 2
+    sha256 "08b723e312ce9d8dff7a20f984c693a6e565139ab4120725a9cff2749b7a2848" => :catalina
+    sha256 "81532b17051681e22899872df6313bc218eed7660605418b25d87751f3b62c57" => :mojave
+    sha256 "863ea40becab7aa44ebd1a67ed70bf9c0574164dddd03f2aafb14923da40bf9d" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"

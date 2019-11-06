@@ -1,23 +1,23 @@
 class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
-  homepage "https://github.com/alexellis/inlets"
-  url "https://github.com/alexellis/inlets.git",
-      :tag      => "2.3.1",
-      :revision => "32012d6a4b0686f395f77e4231d4d56650c5816e"
+  homepage "https://github.com/inlets/inlets"
+  url "https://github.com/inlets/inlets.git",
+      :tag      => "2.6.1",
+      :revision => "5a1abcf24dcd30dc4a251902aa6cc7cb981ef0ae"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b583c7b1869fe56b51db248b0712a8f3f8fcd7e945442ce94a7ca2dce1b482d0" => :mojave
-    sha256 "d15696dab69fec86372bfd3cab7287da96b6d64dc193faf83fbc593fffb729a9" => :high_sierra
-    sha256 "320d799eca112707433a0381e505715c5a984082e766558a9e3498bd15eaf7eb" => :sierra
+    sha256 "ab879c3612195a1229a424c44fbc238239058b475da8795d618fce8176874bae" => :catalina
+    sha256 "1f4fe93d4582e86f348ab9e1b52ed9fa90f799d73ae90e7bf79ea30d7617cd0c" => :mojave
+    sha256 "0550e3d07c29db12fcc3de100273c582bb2cd7fe0f2e9b665021fa9e7572bdbe" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/alexellis/inlets").install buildpath.children
-    cd "src/github.com/alexellis/inlets" do
+    (buildpath/"src/github.com/inlets/inlets").install buildpath.children
+    cd "src/github.com/inlets/inlets" do
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
              "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
@@ -34,6 +34,7 @@ class Inlets < Formula
   end
 
   MOCK_RESPONSE = "INLETS OK".freeze
+  SECRET_TOKEN = "itsasecret-sssshhhhh".freeze
 
   test do
     upstream_server = TCPServer.new(0)
@@ -64,6 +65,7 @@ class Inlets < Formula
         end
 
         socket.print "HTTP/1.1 200 OK\\r\\n" +
+                    "Host: localhost:#{upstream_port}\\r\\n" +
                     "Content-Type: text/plain\\r\\n" +
                     "Content-Length: \#\{response.bytesize\}\\r\\n" +
                     "Connection: close\\r\\n"
@@ -103,12 +105,12 @@ class Inlets < Formula
       sleep 3
       server_pid = fork do
         puts "Starting inlets server with port #{remote_port}"
-        exec "#{bin}/inlets server --port #{remote_port}"
+        exec "#{bin}/inlets server --port #{remote_port} --token #{SECRET_TOKEN}"
       end
 
       client_pid = fork do
-        puts "Starting inlets client with remote localhost:#{remote_port}, upstream localhost:#{upstream_port}"
-        exec "#{bin}/inlets client --remote localhost:#{remote_port} --upstream localhost:#{upstream_port}"
+        puts "Starting inlets client with remote localhost:#{remote_port}, upstream localhost:#{upstream_port}, token: #{SECRET_TOKEN}"
+        exec "#{bin}/inlets client --remote localhost:#{remote_port} --upstream localhost:#{upstream_port} --token #{SECRET_TOKEN}"
       end
 
       puts "Waiting for inlets websocket tunnel"

@@ -7,6 +7,7 @@ class Bamtools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e06e5350260683c40d522ea80415d67bad57be49c30e5b534256aeac0bc5e3d8" => :catalina
     sha256 "5c1195094d84ce0e5ec63660597029dad111639e7212537c1d083444714ac294" => :mojave
     sha256 "cd3886cfb77b71ef9924d5475e4dbae2d42c4c66ef3880de33ca202855ce92b0" => :high_sierra
     sha256 "5e72d5b1b5b18551bbd91c7f3b7a2dd6e763b13add38b9a3a798bb5a450be64e" => :sierra

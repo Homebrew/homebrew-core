@@ -10,6 +10,7 @@ class Pgplot < Formula
 
   bottle do
     cellar :any
+    sha256 "a0632e523fa04f95888c94adb1e9dda335e35ed871f8c0c96f25390d430e3db5" => :catalina
     sha256 "3d1afcf5d6a2dbd3a0707a984aa173787f1e58ed8b75139464d59bc28d9f31c4" => :mojave
     sha256 "e38e9fca27499543c9239d9c655c1cf328364d127aa028d48c6a92a19d85c41f" => :high_sierra
     sha256 "70aa46b991b8f502aa5c73c6fb56a0f9851396c147384ebd40a4b316d6c1c196" => :sierra

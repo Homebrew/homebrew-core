@@ -7,6 +7,7 @@ class XalanC < Formula
 
   bottle do
     cellar :any
+    sha256 "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304" => :catalina
     sha256 "5b00fab72d4db7db40495ff5331e6cd9539b30f21d6b1357d9dcc2e7275421ae" => :mojave
     sha256 "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f" => :high_sierra
     sha256 "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c" => :sierra

@@ -16,10 +16,11 @@ class Wrangler < Formula
   end
 
   bottle do
-    sha256 "529f9eaef03fd452c23ffe017a40b4d7a3b6b0916c8bf703a2dcde5928e0b172" => :mojave
-    sha256 "a28a2a7468aa9a3f058efaa22dd0f62e54288b19c4b6bae894e036354eb14eba" => :high_sierra
-    sha256 "82c65deab497486889357ba5c68cd184bea168bc91a12de58f5aac9b17ea2b68" => :sierra
-    sha256 "fa0957e38733763091ee1e4bee98d7b2fab221fff49416d6eb7950374ce5df3d" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "129a7cacfe094491f22d885546ac36dcdd60c601f391b290970fadbc5777ca22" => :catalina
+    sha256 "6ca8b450fc9c98d43c9e6494bd725d2785ed70f010193237bb34c13f54be7303" => :mojave
+    sha256 "7708561c89c92c61b67907ca43fa351e9a39da572c43e1f9d15d4dc0cd4855da" => :high_sierra
   end
 
   depends_on "erlang@20"

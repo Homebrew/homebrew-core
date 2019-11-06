@@ -3,18 +3,19 @@ class Tarantool < Formula
   homepage "https://tarantool.org/"
   url "https://download.tarantool.org/tarantool/2.2/src/tarantool-2.2.1.1.tar.gz"
   sha256 "42c6c61b7d9a2444afd96e4f5e1828da18ea2637d1e9d61dc543436ae48dd87f"
+  revision 1
   head "https://github.com/tarantool/tarantool.git", :branch => "2.1", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "bfab7334c83c2b08d990fd1567605b3a46a6a7242d07b88e5b233bfbe7446f7b" => :mojave
-    sha256 "899df1423b7594dc880a99add686cea5d81d7869b5fa9a10ffeb133a19560235" => :high_sierra
-    sha256 "0e724da858627e134e4c9fc94c3a8d97a1df66fe8b28c30ac737abd7c4980af8" => :sierra
+    sha256 "37cd09c82cb575c366ceb620d3faa91b0a2892a8bd57b172e56d6f2d4de2a8e1" => :mojave
+    sha256 "4708c57aa9b553f5186fd35ab880971f01d6a36ba77cddbc94b7cd8860b03218" => :high_sierra
+    sha256 "1acbde9f75d34721117bf08960b9975f88f73da9b6865008c9987a7521191ff7" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
@@ -28,7 +29,7 @@ class Tarantool < Formula
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
     args << "-DENABLE_DIST=ON"
-    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
     args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
     args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"

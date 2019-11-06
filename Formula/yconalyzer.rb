@@ -7,6 +7,7 @@ class Yconalyzer < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "2e834b5134e7670fc97cb45131b732a7dc7a6f41598dacb20dd65b575713dc16" => :catalina
     sha256 "d5b2345a94b2590f9f533f30d3770cc2008ce294fd8c56015f025181ba951b35" => :mojave
     sha256 "4341ba620cc2724608dea783a2ddbd3bde93fd2017cc675e906f233941fb4ab3" => :high_sierra
     sha256 "3bf190ad069a4ee9423e79415907a684320e8e776916329f46d7620274a03434" => :sierra
@@ -17,7 +18,10 @@ class Yconalyzer < Formula
 
   # Fix build issues issue on OS X 10.9/clang
   # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/
-  patch :p0, :DATA
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/yconalyzer/1.0.4.patch"
+    sha256 "a4e87fc310565d91496adac9343ba72841bde3b54b4996e774fa3f919c903f33"
+  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -28,27 +32,3 @@ class Yconalyzer < Formula
     system "make", "install"
   end
 end
-__END__
---- yconalyzer.cc.orig	2014-01-12 14:15:17.000000000 +0800
-+++ yconalyzer.cc	2014-01-12 14:17:49.000000000 +0800
-@@ -76,19 +76,11 @@
-
- #include <string>
-
--#if __GNUC__ > 2
- #include <map>
--using namespace _GLIBCXX_STD;
-+using namespace std;
- // Linux gcc-3 is not too happy with the format strings we use in BSD.
- #define KEY_FMT_STRING "%#8x%#4x"
-
--#else	/* We are using gnu-c <= 2 */
--
--#include <hash_map.h>
--#define KEY_FMT_STRING "%8ux%4hx"
--
--#endif
--
- static int debug = 0;
- static u_short port = 0;
- static int nbuckets;

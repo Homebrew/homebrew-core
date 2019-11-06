@@ -3,32 +3,67 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/3.0.6.tar.gz"
-  sha256 "a8ee1d28ae6c82ea3eb9ccf3eee23d2adc749672c6e0497a62f8f1c2ab395d2b"
+  url "https://github.com/laramies/theHarvester/archive/V3.1.tar.gz"
+  sha256 "5157f61bdd8fa2a7e5f4c055709e251a1664a86b0265450e5a68d2cdf8c55c13"
   head "https://github.com/laramies/theHarvester.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1dbace026e1efa3ff81ec7466918f9be6a1611ff6f2096e6b61c2e24d17ab21c" => :mojave
-    sha256 "95ad2239029134599857dafec1c1a6cfd4aaf4a4179b116daf1f667d644a815e" => :high_sierra
-    sha256 "4ad92a36c760ec2195fce390512467e48f8fad0e507fc9b2c94a720edebd102f" => :sierra
+    sha256 "274398dbaf8d24f8b52d6aaa436081486d95839b3a7040ed40f8afe37d1184b4" => :catalina
+    sha256 "a12701a839ff69050ab270b1e3b18758aa6d107cc30a6cc7b1c4ce9d0a2d8dc0" => :mojave
+    sha256 "fa44985ba8c6761d27b5c26582dfc79e14ede1c55d9e320d843095b419acdece" => :high_sierra
   end
 
   depends_on "python"
 
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
+    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+  end
+
+  resource "aiodns" do
+    url "https://files.pythonhosted.org/packages/30/2e/b86ce168485b68d40c6a810838669deacf0abf41845c383659c2b613e69f/aiodns-2.0.0.tar.gz"
+    sha256 "815fdef4607474295d68da46978a54481dd1e7be153c7d60f9e72773cd38d77d"
+  end
+
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/88/df/86bffad6309f74f3ff85ea69344a078fc30003270c8df6894fca7a3c72ff/beautifulsoup4-4.6.3.tar.gz"
-    sha256 "90f8e61121d6ae58362ce3bed8cd997efb00c914eae0ff3d363c32f9a9822d10"
+    url "https://files.pythonhosted.org/packages/86/cd/495c68f0536dcd25f016e006731ba7be72e072280305ec52590012c1e6f2/beautifulsoup4-4.8.1.tar.gz"
+    sha256 "6135db2ba678168c07950f9a16c4031822c6f4aec75a65e0a97bc5ca09789931"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
-    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/0d/aa/c5ac2f337d9a10ee95d160d47beb8d9400e1b2a46bb94990a0409fe6d133/cffi-1.13.1.tar.gz"
+    sha256 "558b3afef987cf4b17abd849e7bedf64ee12b28175d564d05b628a0f9355599b"
   end
 
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  end
+
+  resource "dnspython" do
+    url "https://files.pythonhosted.org/packages/ec/c5/14bcd63cb6d06092a004793399ec395405edf97c2301dfdc146dfbd5beed/dnspython-1.16.0.zip"
+    sha256 "36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01"
+  end
+
+  resource "gevent" do
+    url "https://files.pythonhosted.org/packages/ed/27/6c49b70808f569b66ec7fac2e78f076e9b204db9cf5768740cff3d5a07ae/gevent-1.4.0.tar.gz"
+    sha256 "1eb7fa3b9bd9174dfe9c3b59b7a09b768ecd496debfc4976a9530a3e15c990d1"
+  end
+
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/f8/e8/b30ae23b45f69aa3f024b46064c0ac8e5fcb4f22ace0dca8d6f9c8bbe5e7/greenlet-0.4.15.tar.gz"
+    sha256 "9416443e219356e3c31f1f918a91badf2e37acf297e2fa13d24d1cc2380f8fbc"
+  end
+
+  resource "grequests" do
+    url "https://files.pythonhosted.org/packages/7e/80/39540c164bc4a6fd5bdafe4ab448752605bce4812b77702f81fd54fbbcc3/grequests-0.4.0.tar.gz"
+    sha256 "8aeccc15e60ec65c7e67ee32e9c596ab2196979815497f85cf863465a1626490"
   end
 
   resource "html5lib" do
@@ -37,13 +72,38 @@ class Theharvester < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
+    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+  end
+
+  resource "netaddr" do
+    url "https://files.pythonhosted.org/packages/0c/13/7cbb180b52201c07c796243eeff4c256b053656da5cfe3916c3f5b57b3a0/netaddr-0.7.19.tar.gz"
+    sha256 "38aeec7cdd035081d3a4c306394b19d677623bf76fa0913f6695127c7753aefd"
+  end
+
+  resource "plotly" do
+    url "https://files.pythonhosted.org/packages/51/6d/835092e91c265d28f4bb94beda715b0182080f8e0344a6480bf4dc9d8522/plotly-4.2.1.tar.gz"
+    sha256 "6650ddb4da3aa94dcaa32e0779e611c6b17f371b5250ffdbf5ece6d66ba4483b"
+  end
+
+  resource "pycares" do
+    url "https://files.pythonhosted.org/packages/85/de/cd46a73e43e206a6ad1e9cf9cc893c3ed1b21caf57f1e0a8d9a119d290eb/pycares-3.0.0.tar.gz"
+    sha256 "b253f5dcaa0ac7076b79388a3ac80dd8f3bd979108f813baade40d3a9b8bf0bd"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+  end
+
+  resource "retrying" do
+    url "https://files.pythonhosted.org/packages/44/ef/beae4b4ef80902f22e3af073397f079c96969c69b2c7d52a57ea9ae61c9d/retrying-1.3.3.tar.gz"
+    sha256 "08c039560a6da2fe4f2c426d0766e284d3b736e355f8dd24b37367b0bb41973b"
+  end
+
+  resource "shodan" do
+    url "https://files.pythonhosted.org/packages/a5/8b/c62f16523a14ac8df38745b75b2d498566c6ad87d7339d25d489261320be/shodan-1.19.0.tar.gz"
+    sha256 "9d8bb822738d02a63dbe890b46f511f0df13fd33a60b754278c3bf5dd5cf9fc4"
   end
 
   resource "six" do
@@ -52,13 +112,18 @@ class Theharvester < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/cb/09/1f13472d09c220c2d3accc51bc3be65f94ed8b59bf09b26f81bda64faea0/soupsieve-1.3.1.tar.gz"
-    sha256 "f75ea3af46ccadaa34accb2601eda67ba1d24fc5f163408af4d1c6a48ddf95b5"
+    url "https://files.pythonhosted.org/packages/7f/4e/95a13527e18b6f1a15c93f1c634b86d5fa634c5619dce695f4e0cd68182f/soupsieve-1.9.4.tar.gz"
+    sha256 "605f89ad5fdbfefe30cdc293303665eff2d188865d4dbe4eb510bba1edfbfce3"
+  end
+
+  resource "texttable" do
+    url "https://files.pythonhosted.org/packages/82/a8/60df592e3a100a1f83928795aca210414d72cebdc6e4e0c95a6d8ac632fe/texttable-1.6.2.tar.gz"
+    sha256 "eff3703781fbc7750125f50e10f001195174f13825a92a45e9403037d539b4f4"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
   end
 
   resource "webencodings" do

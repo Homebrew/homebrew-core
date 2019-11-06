@@ -2,15 +2,16 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag      => "v0.720",
-      :revision => "36aecdae92d050f626ea9029ad08f0c8382c47e7"
+      :tag      => "v0.740",
+      :revision => "0662772b5a6b9029da0cf4aec857b9b1e34057a9"
+  revision 1
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e89cb9fc9273e033c83c89bf525793c3cfca6b950f2f66336a5544e57bc25eb" => :mojave
-    sha256 "5890fbc8dc83dd5813475edba6cd5d627a9baa5093a0aec11bfc5f0048cec9c3" => :high_sierra
-    sha256 "c789fe7ef362aa2d1cd92272bde151b49a3d78b30455fb472906a7ffa7b39d71" => :sierra
+    sha256 "f6254003146ab4e1ade60be5ab23bcca0f3e3086d2949ca1fd93c63d5ef627f0" => :catalina
+    sha256 "539a9f99c6f0118e0c6e3ee0c80e201272244ea29939fdadc3ebde276c39ef4f" => :mojave
+    sha256 "954d03c00690939582b135c17fc6aa90f24a698bdd27c4e5c6ecc7946a3c6b3d" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -67,6 +68,7 @@ class Mypy < Formula
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    ENV["MYPY_USE_MYPYC"] = "1"
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]

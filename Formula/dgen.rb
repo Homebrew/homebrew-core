@@ -6,6 +6,7 @@ class Dgen < Formula
 
   bottle do
     cellar :any
+    sha256 "753f4d198c110edbcadb1b81db8200a161d67104b2e9ffa75b44d9fde6521bc0" => :catalina
     sha256 "7ebcef39d27013a647585ab076ca31fc1be468c85aeafe2d504242b4194a3d2e" => :mojave
     sha256 "bac08b08f7cfb9c108ccf0bfe2d4623324e5038f01e508c1fb5da6b3c4d58dff" => :high_sierra
     sha256 "50383807ec76387aa156cf6157ea537465bf20ad35e4e9eddda7d34685ded635" => :sierra

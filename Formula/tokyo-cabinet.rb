@@ -7,6 +7,7 @@ class TokyoCabinet < Formula
 
   bottle do
     rebuild 1
+    sha256 "23694919d46c474b8c12d69d2e980d08f96f6bface62a74be7b8554de532e871" => :catalina
     sha256 "dd723c7394954fe354044bbd6bbea955e985c4652f0d2e7e9a7696da87d7a3aa" => :mojave
     sha256 "6470326d4c4d4d9a459407ec73a6ea6a2d6d2d459fb547467584dcf4e777aea8" => :high_sierra
     sha256 "9ace00b3ee94dbd63c427910c5aff77935f04bb884047061c792d6e90836a380" => :sierra

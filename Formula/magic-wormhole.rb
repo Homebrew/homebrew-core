@@ -5,16 +5,17 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/77/15/9438290bab8146efc0213f7c3d9645d9bc5a2e885e4049477e7432e40336/magic-wormhole-0.11.2.tar.gz"
   sha256 "ae79667bdbb39fba7d315e36718db383651b45421813366cfaceb069e222d905"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "9e23e7330c2d66f365abf00390d2fa9826f80aab0c78cdf85ddfa8b9c21e626e" => :mojave
-    sha256 "71a0b343f89f7f1d8b4afd361f2fd7b3d98243544a92a80fecee19c360c42d4f" => :high_sierra
-    sha256 "c1e49d96bf4e556bd142e1d82da454477c4b43b4b62570542e3243c5afc81109" => :sierra
+    sha256 "35d6058436bfaf716ae83fbb69966e6c86e2da00285149075b56871ac6df1662" => :catalina
+    sha256 "4e40e95e6fb387b976256b87a8a17918aac67350f67e2b271a7ce473da52a616" => :mojave
+    sha256 "cca50a77caa693e070b8f88038c7ab50110612c958c27896e2b5827cae20229b" => :high_sierra
   end
 
   depends_on "libsodium"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "Automat" do
@@ -38,8 +39,8 @@ class MagicWormhole < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "attrs" do

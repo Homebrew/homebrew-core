@@ -3,12 +3,12 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 5
+  revision 8
 
   bottle do
-    sha256 "05f5658fe5858ab38c6bf263ede586b398632ff720e0757a02eadb268d820cd7" => :mojave
-    sha256 "245914e60fd2a86f5672e2669e27168eb853a25348ed1258a0fc932f42b25f40" => :high_sierra
-    sha256 "f630b9b98bf8d3a3b44c7186c7eea7b335e66842a666445d7e2f0bae00e77d32" => :sierra
+    sha256 "74065f85e29e7e9c2e19e31145855e7a123e24ea700499378722d0ae008bccac" => :catalina
+    sha256 "29c21307edc34fb9fcbddf7bcaa7a8aaee843c65c3bb0520e713073f09e07bdd" => :mojave
+    sha256 "02c91ab047a63b1f7fe8420cd0ca05e0d68ea9ef95de20421f6970b2e85a45bd" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -42,6 +42,10 @@ class FfmpegAT28 < Formula
       inreplace %w[libavdevice/v4l2.c libavutil/time.c], "HAVE_CLOCK_GETTIME",
                                                          "UNDEFINED_GIBBERISH"
     end
+
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     args = %W[
       --prefix=#{prefix}

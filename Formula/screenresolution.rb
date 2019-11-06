@@ -7,6 +7,7 @@ class Screenresolution < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "53636977689925be4ef97933dc0f1b411f0cd82f71a268cfe7c6f90d5a294f97" => :catalina
     sha256 "15d61e87178dbe8ef88c9cb75251f472efc42830b1a2c5be25e4a5bd074e0c66" => :mojave
     sha256 "b2f7b0933c734d5ecd8bfafae8d384f20821c45ca38fc81308035d3ca79f3535" => :high_sierra
     sha256 "ef630f5af67d6bcdde3fd580917ad05d871274f0d62b2a76705ab2b9683f334f" => :sierra

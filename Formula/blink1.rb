@@ -2,15 +2,15 @@ class Blink1 < Formula
   desc "Control blink(1) indicator light"
   homepage "https://blink1.thingm.com/"
   url "https://github.com/todbot/blink1-tool.git",
-      :tag      => "v2.0.3",
-      :revision => "8a6503846da3bd4ca342674b07ae7dc3df8c2f88"
+      :tag      => "v2.0.5",
+      :revision => "ab2230d1164020f92cea4b7071e3b3ab4b320421"
   head "https://github.com/todbot/blink1-tool.git"
 
   bottle do
     cellar :any
-    sha256 "a2846d908090afcb7263f40ad7417c075a1d410434daef733e3891880ffa65ff" => :mojave
-    sha256 "e653c071bae006ae27f1452f7f824529ca43a8adfe04412020999371a2d64983" => :high_sierra
-    sha256 "35d89ca09af8184a60a70b83fb41a88f436463ecb4f0461e6f91b8cd04770075" => :sierra
+    sha256 "a7443c93dae3d13fef21b814396945d666ff3d32756106b2bc479dbf843e0e72" => :catalina
+    sha256 "a7443c93dae3d13fef21b814396945d666ff3d32756106b2bc479dbf843e0e72" => :mojave
+    sha256 "7066a0cdd84d176e63e466c742d06e358685e18c6262f55b41d70a4a9a196638" => :high_sierra
   end
 
   def install

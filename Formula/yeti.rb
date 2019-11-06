@@ -7,6 +7,7 @@ class Yeti < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5bb8d8a2c4ba29c5e4cab58c9c0ba9ad53ee19d48f1845885b49d8cf3f2e83f0" => :catalina
     sha256 "5945caa7c11f1424c971fbd1df5c0e904526dc69b35897bab7c34fcd1a2895e9" => :mojave
     sha256 "b9d0083c8220cb02f5b994998149904613bceb589b7fb265bb9964e5af7dbb18" => :high_sierra
     sha256 "5298c83ec842d28b26bf4d1cec151e2ae674509c27778de0aeacaf365711e7b9" => :sierra

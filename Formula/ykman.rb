@@ -5,24 +5,25 @@ class Ykman < Formula
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.0.tar.gz"
   sha256 "0137acd30cffa60421dde8277b3bb0c5d5e2179d36df0d190de6faf7eec76359"
+  revision 2
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
     cellar :any
-    sha256 "0efe2f842020eb08f0eaedbe5ebf67bd053fb3a0add3b5117b58646f0cca3dc7" => :mojave
-    sha256 "9d066df2483b432caf694b9494d5fb11cb901779d0ff8ffa647f4c102928f09b" => :high_sierra
-    sha256 "949954699cc169e4d2347ca96c37caa54c9323bd3f554654e069b70649123acd" => :sierra
+    sha256 "6167b5271e16ec0578c19e057d3640ef915078ea49283c33527e5eb1f8fb761c" => :catalina
+    sha256 "c61168ce749d7c6642028a64d5be0e6a27de9f9e5ad7cc7e7d63e3e7f9f022de" => :mojave
+    sha256 "b290e4341fd449971cb3b9d6459b28120b603cc96a2e2895473d6d3d5f12317b" => :high_sierra
   end
 
   depends_on "swig" => :build
   depends_on "libusb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   depends_on "ykpers"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "cffi" do

@@ -5,6 +5,7 @@ class I386ElfGrub < Formula
   sha256 "e5292496995ad42dabe843a0192cf2a2c502e7ffcc7479398232b10a472df77d"
 
   bottle do
+    sha256 "5830d46cdc02c4667b253cbccf2310d7cddbf779658193ab949c0b2447eb20be" => :catalina
     sha256 "00be811dfc11c92ba89e6383ec1afb621b5f92e01d744e0c51bb07c459cecdd4" => :mojave
     sha256 "14d011e73fe7ea1272ec3ddb229b29fdc86c20fbbb59fb9bc6bbf3bfd34f830f" => :high_sierra
     sha256 "6631f2c897378798fb03472e306d4ae6d6ac44c2e4e629599b06978b4ed1ce19" => :sierra

@@ -6,6 +6,7 @@ class Vpcs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "180a02cc1bb06bb9e5f441688d6b1a51e5c531cd6dea68399aba55f3c5691dd9" => :catalina
     sha256 "5728bc8e33f81a307c74fe625305c42363a493ff1dc612d604feec971374385d" => :mojave
     sha256 "ac52b231d875679e7bd4da3a09c6b5bc833e5b93fe5a77749dc834b1d82d21d5" => :high_sierra
     sha256 "78c7e415e9bcbdf28cfdda5d37fce9cc7d735b01d61400b41239e0cdee17ada5" => :sierra

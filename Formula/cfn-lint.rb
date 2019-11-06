@@ -3,41 +3,41 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.23.3.tar.gz"
-  sha256 "11870dcf18414cadd43dafb0c6cf2cdef966b6327ca02d18c9d643bcb696d696"
+  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.24.8.tar.gz"
+  sha256 "c55210404e3d1b4612b8c5be9da00b4d9324f6d186783356b4f4605d2faac836"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d943c17333c74b6b612f2f1cc0c8417aa2287d47e66ad7cc663c8ef596d3abd" => :mojave
-    sha256 "576e324f2b33ac0cb8333d919eb05d1aaa9dcb958cf91dffde3faf663f5a010b" => :high_sierra
-    sha256 "a61b13d69eeedee0fe5c76a8cd3954f51e6b45f7a0ae059813c0c9ad0d223268" => :sierra
+    sha256 "6b7e4751eaa64673d546c195cf1e477e4f5f11c442d20295d79b5233cb587acc" => :catalina
+    sha256 "6ecc413586dc98df8b75ec7e18d15f05262ec86161789d6760a3957a7755fa62" => :mojave
+    sha256 "2c21d8f2de82981f64161f48bb42222f860c43bc5b555dbc3f898160abfbab00" => :high_sierra
   end
 
   depends_on "python"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/cc/d9/931a24cc5394f19383fbbe3e1147a0291276afa43a0dc3ed0d6cd9fda813/attrs-19.1.0.tar.gz"
-    sha256 "f0b870f674851ecbfbbbd364d6b5cbdff9dcedbc7f3f5e18a6891057f21fe399"
+    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
+    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/58/f8/797395aebdecbff6d7b2b8a655292c62c321054c933ebe12f808c34e6aab/aws-sam-translator-1.13.0.tar.gz"
-    sha256 "6966b45dc444de3ced673164889e8cf0ac001c947cfac6030527cd38e2e40071"
+    url "https://files.pythonhosted.org/packages/1c/1e/134c579a98d070cb8d5801c317fb0f21018629e7fa0b8de82a408e61d1c7/aws-sam-translator-1.15.1.tar.gz"
+    sha256 "11c62c00f37b57c39a55d7a29d93f4704a88549c29a6448ebc953147173fbe85"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1f/23/d8eb13eb604210bb9100d1e3b18ed0f28053be039d7de63cf0d93f355f62/boto3-1.9.199.tar.gz"
-    sha256 "68e9eba6f846cf8e01973ec565afdb1adfb9612b531c15bb5c5524394db4df5b"
+    url "https://files.pythonhosted.org/packages/e7/56/9ebdcc725a5fde8968131ed5ccc0a60fe0d0e8e65333eb841112bab24339/boto3-1.10.2.tar.gz"
+    sha256 "818c56a317c176142dbf1dca3f5b4366c80460c6cc3c4efe22f0bde736571283"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7a/46/c8fe2a0be79705539742ab9ff6a0a5d4ba8b55c7103ee546c769d3d1da70/botocore-1.12.199.tar.gz"
-    sha256 "25d87047241b7b775443570c0e790ca952f9f7491d4d6472430a4b006383a257"
+    url "https://files.pythonhosted.org/packages/cc/c6/4e047c7efa1f9658f020e26ff42a55f76749f2da1aa83dd0d369676b4eb9/botocore-1.13.2.tar.gz"
+    sha256 "8223485841ef4731a5d4943a733295ba69d0005c4ae64c468308cc07f6960d39"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
   resource "chardet" do
@@ -46,13 +46,18 @@ class CfnLint < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
-    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
+    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
   end
 
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
     sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/5d/44/636bcd15697791943e2dedda0dbe098d8530a38d113b202817133e0b06c0/importlib_metadata-0.23.tar.gz"
+    sha256 "aa18d7378b00b40847790e7c27e11673d7fed219354109d0e7b9e5b25dc3ad26"
   end
 
   resource "jmespath" do
@@ -71,8 +76,13 @@ class CfnLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/92/d2/8768983d6e4bb1478ea08e7bc186304f47b99c22bfd711caa8e9becb0361/jsonschema-3.0.2.tar.gz"
-    sha256 "8d4a2b7b6c2237e0199c8ea1a6d3e05bf118e289ae2b9d7ba444182a2959560d"
+    url "https://files.pythonhosted.org/packages/43/52/0a4dabd8d42efe6bb039d61731cb20a73d5425e29be16a7a2003b923e542/jsonschema-3.1.1.tar.gz"
+    sha256 "2fa0684276b6333ff3c0b1b27081f4b2305f0a36cf702a23db50edb141893c3f"
+  end
+
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/c2/31/45f61c8927c9550109f1c4b99ba3ca66d328d889a9c9853a808bff1c9fa0/more-itertools-7.2.0.tar.gz"
+    sha256 "409cd48d4db7052af495b09dec721011634af3753ae1ef92d2b32f73a745f832"
   end
 
   resource "pyrsistent" do
@@ -106,8 +116,13 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/57/dd/585d728479d97d25aeeb9aa470d36a4ad8d0ba5610f84e14770128ce6ff7/zipp-0.6.0.tar.gz"
+    sha256 "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e"
   end
 
   def install

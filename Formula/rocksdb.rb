@@ -1,19 +1,20 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/v6.1.2.tar.gz"
-  sha256 "df93f3b66caa1cbe1c2862c99c33e18a5c5b24a64fb51dfe8ef805e3c9fd1cad"
+  url "https://github.com/facebook/rocksdb/archive/v6.4.6.tar.gz"
+  sha256 "540bbf9369a31e0891fcb4056a36ffa439c59fc179aa0b1f46e3478417f97643"
 
   bottle do
     cellar :any
-    sha256 "c4263cba90140e0353fa89120e37ee541c6a65d89d79bc5ad94314e782262e30" => :mojave
-    sha256 "952b3fd45590fc8592cf6f5d945ac27f82126730c02ccc61efe86d7911554206" => :high_sierra
-    sha256 "86792cf15a7d20c03f15d1e2dfb40e3abe8407ace76a9436ec47db7f349b52ef" => :sierra
+    sha256 "bdc1dfc33bac8fd7dccb4cc509fbf72a7862e9bcd185c97b527cf582730a3ffa" => :catalina
+    sha256 "c78058e32338dfbc80d2edc43598d959640ae26f82b8998cbf21531de8f923c0" => :mojave
+    sha256 "ae2484553609e262a0090c5e84007c574b2a43e9e349e826f7a7489dd46f62a9" => :high_sierra
   end
 
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"
+  depends_on "zstd"
 
   def install
     ENV.cxx11
@@ -65,7 +66,8 @@ class Rocksdb < Formula
                                 "-lz", "-lbz2",
                                 "-L#{lib}", "-lrocksdb_lite",
                                 "-L#{Formula["snappy"].opt_lib}", "-lsnappy",
-                                "-L#{Formula["lz4"].opt_lib}", "-llz4"
+                                "-L#{Formula["lz4"].opt_lib}", "-llz4",
+                                "-L#{Formula["zstd"].opt_lib}", "-lzstd"
     system "./db_test"
 
     assert_match "sst_dump --file=", shell_output("#{bin}/rocksdb_sst_dump --help 2>&1", 1)

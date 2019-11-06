@@ -7,13 +7,20 @@ class Unison < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55a361bda2f5a43073508d25702eea6b16470f74619e4a6d1058f7fc89f901e5" => :mojave
-    sha256 "1622a673b2bc8ef6d00dd754c26cfd3d5f737ed1dc48a46bbce486fa0f766181" => :high_sierra
-    sha256 "fd00605490100ec224f5d86a79da341ce639e1d0772fb48cc133672d1bc2a812" => :sierra
-    sha256 "53c945e143961a5d158a36980664d5be7153b84074bfa4220eee2db35404b7d3" => :el_capitan
+    rebuild 1
+    sha256 "045499eab89d6b0d3faa898fe91c71bc7cba031c5a244c2f7367bc3825c958b5" => :catalina
+    sha256 "58e3ccf3e3f0ac6b331b786fdb7bbe9f0e22babec094279f2c715bef256daacb" => :mojave
+    sha256 "0cce7f269f0458a4ce1318fce5af58f9bcbfd29e314211fc8dedb6b4d8a7f1fb" => :high_sierra
   end
 
   depends_on "ocaml" => :build
+
+  # Upstream fix for compatibility with OCaml 4.08 and later
+  # https://github.com/bcpierce00/unison/pull/276
+  patch do
+    url "https://github.com/bcpierce00/unison/commit/23fa1292.diff?full_index=1"
+    sha256 "ad6b28dc2fe1c6c99863079c7e96b12452aa05c05ed010b6c551e32244ce76f2"
+  end
 
   def install
     ENV.deparallelize

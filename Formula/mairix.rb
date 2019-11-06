@@ -7,6 +7,7 @@ class Mairix < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3c74d81ccb04da6f3fa9f0f734861738f6dcc924bde12dc8055fd73ea1be68ce" => :catalina
     sha256 "483128f4a24cbf40c26ceef2a9951c44992c57f114327671883b8ab7b9da8569" => :mojave
     sha256 "5975d9e5b741611279f008a50febebfa9d91c4e3e8448c4d8eda80cbd5c371af" => :high_sierra
     sha256 "9cfafed3ea8980b65d1fa5910db71468b3dfd5b81b598d20ff1bf317c55edbca" => :sierra

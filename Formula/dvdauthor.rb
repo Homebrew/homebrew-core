@@ -3,14 +3,13 @@ class Dvdauthor < Formula
   homepage "https://dvdauthor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/dvdauthor/dvdauthor-0.7.2.tar.gz"
   sha256 "3020a92de9f78eb36f48b6f22d5a001c47107826634a785a62dfcd080f612eb7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e7f18d7e9e16892ad5dacf7d5dd094016da3331a19f4c5b81e9b16f134b88fd3" => :mojave
-    sha256 "c31cd13def25b19f42dc4472ebb7013069aea342d6da18de5b8aa4ce68ddecba" => :high_sierra
-    sha256 "021c04387000c15dfd64763c9cf4eb7dd23ee0bed9e79941c8ff00182bf4e3b2" => :sierra
-    sha256 "adeee0423ba54e77da2710f1877e0cbc43733f833abc73ad76465a7d34c829a7" => :el_capitan
-    sha256 "b4c79aab01e4ae32f39107af7ef863fd75f75cf7d9e32731be3f2e2e4d49d782" => :yosemite
+    sha256 "b28cf71e6dec0467f9e87a1a1b4af0d06eb616f5748eadf52979d9e3fdf12c95" => :catalina
+    sha256 "dd1e5474d6c92c842a0314b1359942f0e300902691babbf654750715dda95325" => :mojave
+    sha256 "8ae1553ccb62320baa2aebc1bab814def0b96f7efeaa47743bcce80c7a65aed8" => :high_sierra
   end
 
   # Dvdauthor will optionally detect ImageMagick or GraphicsMagick, too.

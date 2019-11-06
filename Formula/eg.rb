@@ -6,6 +6,7 @@ class Eg < Formula
   head "https://github.com/davep/eg.git"
 
   bottle do
+    sha256 "82c5cb9c305f5bcda5af0bac6143b6dec9798b7b301c17249e769e4018322225" => :catalina
     sha256 "d48319623e66719275970f0f2c40ded729720e134b5e93b9ff3e871ee0903807" => :mojave
     sha256 "4955ef20bd0d41b433f077784ca1a9d96a40eb2e6f7840c70f308b60d1fc553d" => :high_sierra
     sha256 "307a0ce0f1514288179dbbc56fdac3de02100c80e8c57b1abedcab5cd0cff458" => :sierra

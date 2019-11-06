@@ -5,6 +5,7 @@ class I386ElfGdb < Formula
   sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
 
   bottle do
+    sha256 "78bc76a038e82c274fcbf1acb1a731d3e93e137501f2e93578998f2ad3d69707" => :catalina
     sha256 "bdecb45d09a045fe1ffaa9e489ca5d5cf4bc52ad317066ddebcc6fef762214b0" => :mojave
     sha256 "f24d032ddfe38c469592fcd27de1f2cd76748065291003802f63ed2eeefc0802" => :high_sierra
     sha256 "db2569c5307b05e3806d5fe4072782b8f9601abe60779144b66a45c1fe6abc8b" => :sierra

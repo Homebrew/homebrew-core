@@ -13,13 +13,11 @@ class Serveit < Formula
   end
 
   test do
-    begin
-      pid = fork { exec bin/"serveit" }
-      sleep 2
-      assert_match(/Listing for/, shell_output("curl localhost:8000"))
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    pid = fork { exec bin/"serveit" }
+    sleep 2
+    assert_match(/Listing for/, shell_output("curl localhost:8000"))
+  ensure
+    Process.kill("SIGINT", pid)
+    Process.wait(pid)
   end
 end

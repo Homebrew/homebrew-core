@@ -6,6 +6,7 @@ class Libiodbc < Formula
 
   bottle do
     cellar :any
+    sha256 "b9b78f823c2af7962bfc97cb34fd528c8f6eab85823045168ac8ac84eaac3d12" => :catalina
     sha256 "1472bb0987705537158b7c3196d27d01ba02d6c0fdcca733f3cf8d53eca29c5d" => :mojave
     sha256 "77a4fb5fa3036a831e05e2a83585ac2fcdcdf4cf83baa72f28cfb2f8a659ba13" => :high_sierra
     sha256 "abc07f2fe98ed04c4dc5bd5cada2ea68fb9be56337ed442393609f0a22ec21e8" => :sierra

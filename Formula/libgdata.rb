@@ -6,6 +6,7 @@ class Libgdata < Formula
   revision 2
 
   bottle do
+    sha256 "3a231d1efc876f659a3ac123ac14a5e89632d5ac27f1a48c1ed31654e70f31c6" => :catalina
     sha256 "7f94b356b1893b2c1870be3d5798af1a04eb405ef1ae0800293fd98b573df52f" => :mojave
     sha256 "e6d45d94b108ab0eb008ae03a751fab8c32690d31728ec1886ef8978aef1d53a" => :high_sierra
     sha256 "e71114ddb9b3944980a83d92c5b8521a79d52b9719746126aa0865a4986b146a" => :sierra

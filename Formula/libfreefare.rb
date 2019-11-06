@@ -3,19 +3,19 @@ class Libfreefare < Formula
   homepage "https://github.com/nfc-tools/libfreefare"
   url "https://github.com/nfc-tools/libfreefare/releases/download/libfreefare-0.4.0/libfreefare-0.4.0.tar.bz2"
   sha256 "bfa31d14a99a1247f5ed49195d6373de512e3eb75bf1627658b40cf7f876bc64"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "953fe3418c5992478db9870f2b8dbf40d47e232ac893b914abf0ed22d5b2e135" => :mojave
-    sha256 "745df5e971fa587181aedac8a82a534b7a7a882db37214f41a11abcfb7f346ea" => :high_sierra
-    sha256 "db7b9483be4a65d146fdba8211c8280c65eacb1d7537b1f149a2ef10433598ae" => :sierra
+    sha256 "e9432f6847992d848ab9ff220e5f7309672933a857987b1f49d5533c0c998af5" => :catalina
+    sha256 "cb3dedfc77ded9e44680a7c7f68ab9fc20d7cb2042bde58494968f011354eb74" => :mojave
+    sha256 "d3d40b88ac6049ea3eb2f3afc96dee6608425bd46526b5e15f264c9b9c8fba99" => :high_sierra
+    sha256 "4f75161d80be443a364a7d594dd9c627d6c253edbb856241dff1f9b73af3fec3" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libnfc"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Upstream commit for endianness-related functions, fixes
   # https://github.com/nfc-tools/libfreefare/issues/55

@@ -1,11 +1,12 @@
 class Tinycdb < Formula
   desc "Create and read constant databases"
-  homepage "http://www.corpit.ru/mjt/tinycdb.html"
-  url "http://www.corpit.ru/mjt/tinycdb/tinycdb-0.78.tar.gz"
+  homepage "https://www.corpit.ru/mjt/tinycdb.html"
+  url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.78.tar.gz"
   sha256 "50678f432d8ada8d69f728ec11c3140e151813a7847cf30a62d86f3a720ed63c"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9493c656d7faf05c57439f251587db9ea5bb6371031f2d08ad04f22398c72a12" => :catalina
     sha256 "6ccb5ea327e61b14af89692af32c9fe6fbd9c2d04447ef92970b6f7909fba26b" => :mojave
     sha256 "7b3ca0152fa89592ce48a85cca3aad67b3c1f0ad35e153a52bbb8a772540dd3d" => :high_sierra
     sha256 "a1b2de0589b4530d51f33060657d5c7f08a46d1e90b60f2c2a03f499ff944a4e" => :sierra

@@ -1,16 +1,15 @@
 class Ipbt < Formula
   desc "Program for recording a UNIX terminal session"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20180824.dc543d3.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/ipbt-20180824.tar.gz"
-  version "20180824"
-  sha256 "8347b373252a4c7054d476a39933287a146bb0e0f9dbfe86cd23931cf9eabb5c"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20190601.d1519e0.tar.gz"
+  version "20190601"
+  sha256 "a519507fccda5e3054d3639e9abedb482a108fa8ee6fc3b1c03ba0d6a4ba48aa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd283b7c7c23687fe8d2805171c1abf50924e53d4072fe5bb3ca96e6fa16c206" => :mojave
-    sha256 "8a353ed14fde241fdc9894083f36298f5374c06c264129b4f1468188633e2467" => :high_sierra
-    sha256 "81dfccfb83c374d509ab37f7ad4cf8cc0d40bfb3b47e45d9d05ea3880e3d03aa" => :sierra
+    sha256 "367536bc0020cd8b4313936070ec9539bcfe56de061a40b6bfc4aa0533d82a5a" => :catalina
+    sha256 "e68f7a1286319ca19382bef65cbf2d80fd1f15bc46dc623cbe9b8f73b5d9d848" => :mojave
+    sha256 "9ae5d95807ead91cb2bd746fb2f3d4fee82cb39dba42f67bdea9eede792b7261" => :high_sierra
   end
 
   uses_from_macos "ncurses"

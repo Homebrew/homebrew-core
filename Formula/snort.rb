@@ -2,13 +2,16 @@ class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
   url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
+  mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
   sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "2451928b0b98275ecedb347024ea33ed80bb7fca6e67f6f60bd2343159d960d5" => :mojave
-    sha256 "e90378116097477c70bf92381c6fcd5ac122939a1c06c0afaadd797e38fd549f" => :high_sierra
-    sha256 "7143a99771c1482070dc7802da36bc25cc4df7c59c55fd4ad9cb3646e1b60fe2" => :sierra
+    rebuild 1
+    sha256 "f755ac48a5486cc165a8522d29cfc0e477f925fd9e7706934e1a77853f7da073" => :mojave
+    sha256 "adebfe9523e2e1dbb0afdaabf08b4c8d69263560a1078d971d70902476c6a60f" => :high_sierra
+    sha256 "9db4b27cf980477aa4ff50259846554f4eb1c932e600d9edb9653e76f346c3f1" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -17,11 +20,11 @@ class Snort < Formula
   depends_on "libpcap"
   depends_on "luajit"
   depends_on "nghttp2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     libpcap = Formula["libpcap"]
 
     args = %W[

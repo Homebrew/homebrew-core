@@ -1,14 +1,13 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.2.tar.xz"
-  sha256 "28ed5ff00d6faf1dc885c4252a538e43ff3f614fcf6a0f20c3b63604295d3c02"
+  url "https://download.gnome.org/sources/libgweather/3.34/libgweather-3.34.0.tar.xz"
+  sha256 "02245395d639d9749fe2d19b7e66b64a152b9509ab0e5aad92514538b9c6f1b9"
 
   bottle do
-    rebuild 1
-    sha256 "ca2baee1404a6ed57b383f8e7db30a3996ec30a7d037c51b2ba6c3279b1469fa" => :mojave
-    sha256 "1ca19968b2fa7a1f652a7175f98a2a02c4c0a1f5ef0893cdc4c20940bb973573" => :high_sierra
-    sha256 "2d146f273cdb420e70f45983e1c9ed5aa1f3647ffd991708d94e3bc9e2809fd8" => :sierra
+    sha256 "e7262310f48d77e3e70d309cdc19f1079c28a94b88496abcfa9f4e03ca93f805" => :catalina
+    sha256 "fcc22b2abefa96b0abd2e86ba9341869092b623346867a501a4e72cb29bf22a9" => :mojave
+    sha256 "2802a4ff61ec604b482c0433ae645673e8920758e95a7137aa6a30d8cb4da182" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

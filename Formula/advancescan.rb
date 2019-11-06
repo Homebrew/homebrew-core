@@ -6,6 +6,7 @@ class Advancescan < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a2858248da2aa75092ab3511c6f9922bc85227e07c27444371e8d75931668bee" => :catalina
     sha256 "3aa20db4c47b16166b385d3e7e0c7af903833333757af7b1e0909dec00824ce2" => :mojave
     sha256 "d0a8416434aa03573dcbadebd135fbcfa6f4829934622ab8afe68aa496ec5e48" => :high_sierra
     sha256 "0bc4290c65271b84aec455adbaf85795857b19102e6efb152a64623420ae5757" => :sierra

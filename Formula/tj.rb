@@ -6,6 +6,7 @@ class Tj < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ab9e94d37b842d4d96e8a1ce0e6a87b7d5f333467662bf311f4a23a6a05d3088" => :catalina
     sha256 "9e9789735a9437803ccadf92845d8bfb2f85e11429fb97e195c01fb2887cf045" => :mojave
     sha256 "6e47b0d410b1a9aafc4b31bf6f397e5b6194faf2aea88e0fc0f45a4584adbf37" => :high_sierra
     sha256 "f62d1e6bebec485f947355a7a0a79fd9f3986396ac5f79c96e630693533a5c9d" => :sierra

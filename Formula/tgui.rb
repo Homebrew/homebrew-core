@@ -6,6 +6,7 @@ class Tgui < Formula
 
   bottle do
     cellar :any
+    sha256 "2915a3f1a9ea5911aa740862361c4b5947c62e673dfd38ae6916821bdb39b63c" => :catalina
     sha256 "bb4cb1abbe054e3a6111a1b6c6f94542dda6de5ed2a090b5089f1b7248d04aad" => :mojave
     sha256 "811a11b144eaf8cd53701b61529cfe3429f5d2b25846ff861318375c180f10af" => :high_sierra
     sha256 "28ccab66f83240703d4778a408576be56b1a212c520419b35bc9330c70ea5cee" => :sierra

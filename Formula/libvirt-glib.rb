@@ -6,6 +6,7 @@ class LibvirtGlib < Formula
   revision 1
 
   bottle do
+    sha256 "d4e218497763f25fa19d8c23f4e36a4538d4281d4f015d583305650ccd879873" => :catalina
     sha256 "7b6665ce900145b71afcc3e77821b8292072de84662a8e0588ff9c416adce946" => :mojave
     sha256 "49573b3aa06fbc8ccf8ef3ebf40ffc6550b74d3592b58e336d11e3dc0d654a60" => :high_sierra
     sha256 "c98664ee49b401f61b05984f7bc5a992cb91aeecd744beae3bf5f38857b42af8" => :sierra

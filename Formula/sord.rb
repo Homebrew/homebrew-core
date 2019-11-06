@@ -6,6 +6,7 @@ class Sord < Formula
 
   bottle do
     cellar :any
+    sha256 "7cdaa246d22171440011a68d047d3e6a266a89581935af789743b455c922fda6" => :catalina
     sha256 "d9fb150f83839e9179f5a011cba23885d6fd369912d876b066ab545eff993777" => :mojave
     sha256 "c51813aa91714be7ff72372606538ccf028f3019a2e3b1c9eb1af184d925cd2c" => :high_sierra
     sha256 "cdc2488f62b363e161df7412fc459fc4b6aa564d5b7d92c841e71d462629751a" => :sierra

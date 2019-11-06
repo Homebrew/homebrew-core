@@ -7,6 +7,7 @@ class Solid < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "f5b7baa17975ec35c118f8744fa852d51c07d03b96d707de8ee3e65c19755e9a" => :catalina
     sha256 "8c7fd219da510e1821b50069ffbcc3025bee102a1ada47fe4b3f9464507fb1bc" => :mojave
     sha256 "30954dffe6674f98523b3cb299f909aefbe554b70000cd777df75c326edf80d0" => :high_sierra
     sha256 "2836475cd2195c3906950c2a62ed618302e3f57ba4c348a82b737fcb0956fc07" => :sierra

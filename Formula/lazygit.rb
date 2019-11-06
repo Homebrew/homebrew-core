@@ -1,31 +1,21 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.8.1.tar.gz"
-  sha256 "274ba05573b38cccc56cb63053eec0972535979b95f1f30b6ca318d991f2c14c"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.9.tar.gz"
+  sha256 "33a13cd4c9556e011b6dba68a4e2e7e6dcb59cb6891f6820a41c5b4e24bee42f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c496b0eb15a8125667fa0a3c894825c3f7bd15153bf6d73c2396cad5e6af0346" => :mojave
-    sha256 "347b4d71a314a38e4574ca61c3014d0cb037e93f413df07c80cfce289f577ee4" => :high_sierra
-    sha256 "216fece43e1dc34031bfd2bed23fcb26b9a62e8052ff961295d1823ed5062559" => :sierra
+    sha256 "e1792c09ea2e9d48cbcc051b6e147a8328195b5fd936bcb823db4453e83c94e9" => :catalina
+    sha256 "8a17ec65dfa5d4e0efd74538d7111e266ee11c864d0ca5f1503b37defa3d8278" => :mojave
+    sha256 "90c65e8a382d0266516f7c21b178e8f6f0fd9cefd0a7260212892ca3560f3253" => :high_sierra
   end
 
   depends_on "go" => :build
 
-  # adapted from https://kevin.burke.dev/kevin/install-homebrew-go/
   def install
-    ENV["GOPATH"] = buildpath
-
-    bin_path = buildpath/"src/github.com/jesseduffield/lazygit"
-    # Copy all files from their current location (GOPATH root)
-    # to $GOPATH/src/github.com/jesseduffield/lazygit
-    bin_path.install Dir["*"]
-    cd bin_path do
-      # Install the compiled binary into Homebrew's `bin` - a pre-existing
-      # global variable
-      system "go", "build", "-ldflags", "-X main.version=0.8 -X main.buildSource=homebrew", "-o", bin/"lazygit", "."
-    end
+    system "go", "build", "-mod=vendor", "-o", bin/"lazygit",
+      "-ldflags", "-X main.version=#{version} -X main.buildSource=homebrew"
   end
 
   # lazygit is a terminal GUI, but it can be run in 'client mode' for example to write to git's todo file

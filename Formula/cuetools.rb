@@ -7,6 +7,7 @@ class Cuetools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dc2d7bfcb8fd048421265da986fdb381007d64c7d2a45d45a53b896bad78bf18" => :catalina
     sha256 "1e36c3c8d2d53947b73a9f0a0aed74145e2b1890f83764de02f1d12566d0300f" => :mojave
     sha256 "4393d6db857a9568a34de3a09ff049fbec9a55a95b029eacd24e35d6ce792074" => :high_sierra
     sha256 "9456e5957a78f993f5a8cef76aa583ac6a42a8298fb05bded243dbaf810f9a44" => :sierra

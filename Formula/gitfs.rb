@@ -5,14 +5,14 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 4
+  revision 5
   head "https://github.com/PressLabs/gitfs.git"
 
   bottle do
     cellar :any
-    sha256 "7859077b249dd271735ef57f6472aefec42708ed8efafc472f81ff31e77d0726" => :mojave
-    sha256 "9f70c9b930752bc09c7f141b7a77990ed96b9dd995c087f6b861831e249830a2" => :high_sierra
-    sha256 "5a85dbfb02e93e66495b512a10348242f7e6380d690af2aebc8bd4b48d2e0f22" => :sierra
+    sha256 "672ed08730f673fd497b265c3673ce6c36e00fc7c4b4e2f3f5396af7aa2ff049" => :catalina
+    sha256 "20e5dfcf7b3c802cf39420d7c4b8093381fbe8112d498d936e2e0ce10b85f6da" => :mojave
+    sha256 "10e417686bf747da730f9c08659b4ba4801236a3ed0821e125580e99fbfe27a2" => :high_sierra
   end
 
   depends_on "libgit2"
@@ -25,8 +25,8 @@ class Gitfs < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
-    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "fusepy" do

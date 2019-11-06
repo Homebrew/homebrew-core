@@ -9,6 +9,7 @@ class Mpw < Formula
 
   bottle do
     cellar :any
+    sha256 "b366e68b6dd4ec5cbb82fc9c25780922760c765f3bd6d32a55d9073dbcc55d5b" => :catalina
     sha256 "8c63ff8456087dc2476df24055a58dfc6f8eb79f84c611f963ef1964fa13819b" => :mojave
     sha256 "46677cf8649983d5b77103d2ca56d9ad3697808ecc406f626a3462a089f932da" => :high_sierra
     sha256 "19bf22915b3c534ad3ee6f1dfc20f142d53ae6c0c88757ae2632b7b1daa6667f" => :sierra

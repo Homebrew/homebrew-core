@@ -1,13 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.13-4/source/tarball/percona-server-8.0.13-4.tar.gz"
-  sha256 "0a42a0e51e3c27fa1fb2eb3e8d057a33e3ef77691f651b92b5ba6c9fe2890b9b"
+  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.16-7/source/tarball/percona-server-8.0.16-7.tar.gz"
+  sha256 "8f8f685c23917054f47b7b3a0f0acb6eb9157e59f46463caf112d1704495e798"
 
   bottle do
-    sha256 "f4caccf7602504cf3c7049f34ef0863c84d42e328c18f240d3ca803f13f231e7" => :mojave
-    sha256 "11d0784cccc954f1ba7932efb27e2d11559451762528090afff7ab6e554ab53b" => :high_sierra
-    sha256 "96dbc394bc381333e1ffe4e39e55260033486258ee3248bab29a4c3c52ef2492" => :sierra
+    sha256 "052ee98be920cb88cc9ce2bcd7b25caeca0ae13203d16197f5e25126c20bf1df" => :catalina
+    sha256 "f7075505bd318f9738a4963652eb5dbeca7afd035b4c9dcfab06bb331229b8eb" => :mojave
+    sha256 "6a4565db4a704989ac67120325ff9b9a6ece44af4b8ec20866f9fd0b1003a483" => :high_sierra
   end
 
   pour_bottle? do
@@ -21,9 +21,9 @@ class PerconaServer < Formula
   # Needs at least Clang 3.3, which shipped alongside Lion.
   # Note: MySQL themselves don't support anything below Sierra.
   depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
-  conflicts_with "mariadb", "mysql", "mysql-cluster",
+  conflicts_with "mariadb", "mysql",
     :because => "percona, mariadb, and mysql install the same binaries."
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"
@@ -38,8 +38,8 @@ class PerconaServer < Formula
   end
 
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.67.0/boost_1_67_0.tar.bz2"
-    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+    url "https://downloads.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.bz2"
+    sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   end
 
   # Where the database files should be located. Existing installs have them
@@ -52,6 +52,7 @@ class PerconaServer < Formula
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
+      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_0900_ai_ci
@@ -169,23 +170,21 @@ class PerconaServer < Formula
   end
 
   test do
-    begin
-      # Expects datadir to be a completely clean dir, which testpath isn't.
-      dir = Dir.mktmpdir
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+    # Expects datadir to be a completely clean dir, which testpath isn't.
+    dir = Dir.mktmpdir
+    system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+    "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
-      pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
-      end
-      sleep 2
-
-      output = shell_output("curl 127.0.0.1:3306")
-      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
-      assert_match version.to_s, output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    pid = fork do
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
     end
+    sleep 2
+
+    output = shell_output("curl 127.0.0.1:3306")
+    output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+    assert_match version.to_s, output
+  ensure
+    Process.kill(9, pid)
+    Process.wait(pid)
   end
 end

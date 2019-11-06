@@ -7,6 +7,7 @@ class Mplayershell < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "09cfdf5d08af35a3be96623c6535fece3acfbc60cf81247b118778cb2b68acc3" => :catalina
     sha256 "1be2bb2a8eccce7fa190b85af6e67fb7fe36393c32a8295852af0e6e390b6ee9" => :mojave
     sha256 "c0b558e0508d80fe05a1d9617b7aa1986066c54bc0a3da585631eb406da5eb93" => :high_sierra
     sha256 "e9377eaebb65903037105bf3ed6ee301a182452791e9daeaadd08ccb732d9d1b" => :sierra

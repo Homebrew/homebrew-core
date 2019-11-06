@@ -6,6 +6,7 @@ class Gibbslda < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1531c6a6f324f3639ad798d9ae63b461812aecf0a0f3e5a4ad3ea786997c1e5d" => :catalina
     sha256 "2d8cab4cd368d2c12c301dae37449d9b5ce6e625b39bfa7f96d542e6390c6848" => :mojave
     sha256 "a92cdb534bb1061948417a9840addb3bda01fcbdca63ca290b34e818bd4e695c" => :high_sierra
     sha256 "9244041821944e45946fcf6a491ee1579293b4c154c7b9921b38fd6159567552" => :sierra

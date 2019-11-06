@@ -1,23 +1,25 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
   homepage "https://libspatialindex.org/"
-  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.0/spatialindex-src-1.9.0.tar.gz"
-  sha256 "52d6875deea12f88e6918d192cbfd38d6e78d13f84e1fd10cca66132fa063941"
+  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.3/spatialindex-src-1.9.3.tar.bz2"
+  sha256 "4a529431cfa80443ab4dcd45a4b25aebbabe1c0ce2fa1665039c80e999dcc50a"
 
   bottle do
     cellar :any
-    sha256 "bdda20e0607a6ac0a2bbf3ee37c0d507b7f9ede93f2210c3b33887b1682c173e" => :mojave
-    sha256 "81cb9da70510a276cf06cc993f1b94aa27ce688b923aeac8170df372496bd371" => :high_sierra
-    sha256 "98434cec34dcc25434dd5ea1ea669b4f4471f1b361f17dbe408c1e984eb6016f" => :sierra
+    sha256 "fbcbfaf6510137f3168a0dc57cbac8c8b1435094b1ede9d35a30fa6ccaea28f4" => :catalina
+    sha256 "a5cbdfb3acddb053e596fc56e7653559581923e48ed6815503fffc47c7a16660" => :mojave
+    sha256 "cace27981cc1e5143a48e8b700d6823dff9d8049140683e0e536c476894ede91" => :high_sierra
   end
+
+  depends_on "cmake" => :build
 
   def install
     ENV.cxx11
 
-    ENV.append "CXXFLAGS", "-std=c++11"
-
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
@@ -57,7 +59,7 @@ class Spatialindex < Formula
 
           id_type id = 1;
 
-          tree->insertData(data.size() + 1, reinterpret_cast<const byte*>(data.c_str()), r, id);
+          tree->insertData(data.size() + 1, reinterpret_cast<const unsigned char*>(data.c_str()), r, id);
 
           /* ensure that (2, 2) is in that box */
           double qplow[2] = { 2.0, 2.0 };

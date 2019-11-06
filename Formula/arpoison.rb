@@ -7,6 +7,7 @@ class Arpoison < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "21f8aabff068436f9fd942ef7ec4fac4dda3f675efa2feaf3120283a6dded2f1" => :catalina
     sha256 "85237acdcba092c948cd45c98ad0e9fdfea757d155e7a464a8379fee5b9420a8" => :mojave
     sha256 "eb37399841022351ef5551de5a63ecfc93d061d03518d62f01852a1d8e663e4e" => :high_sierra
     sha256 "2ed60cb186440c24eaf0c8e040acb89ba60cdd730c83f4c6793add25c80a67ca" => :sierra

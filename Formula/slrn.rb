@@ -3,17 +3,17 @@ class Slrn < Formula
   homepage "https://slrn.sourceforge.io/"
   url "https://jedsoft.org/releases/slrn/slrn-1.0.3a.tar.bz2"
   sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
+  revision 1
   head "git://git.jedsoft.org/git/slrn.git"
 
   bottle do
-    sha256 "5e8fc00235e336b67c0bcc0a9459f96abbec583724e97c1be0dde7619d6900dc" => :mojave
-    sha256 "73238ccdd5f84b813446674f5be88f604c4e44107ab5bf367caee0bdd00ea410" => :high_sierra
-    sha256 "46721d6d7a4ac469837a4e41bfdc279727ee7c3dd38351eb3d47aa7b43e64062" => :sierra
-    sha256 "d45e3c8765302bd61709b091143becf4c7ce78913256620c956dcf2b95431910" => :el_capitan
-    sha256 "06d71ffeb008854c63eeadf6f45633cf692e648490cb20c2ba5f3229cc3dc808" => :yosemite
+    sha256 "de190a3f3793acd7d8e50dc82231e7ad94535621bc4c37a34efcc1907c295296" => :catalina
+    sha256 "9dcfea5ecabef7b65a480fec81ab5b1dcc7a67d45bb8fab0d35821684ab56d0e" => :mojave
+    sha256 "417197dcbd30a8330f2a3a1e5171b2f3c2ed7869cca8d2fb302108ae391f4072" => :high_sierra
+    sha256 "dac0b018eb8f1d53b69ae27ca121510806f0eb9bbdcdbdd119295bd022a8faaf" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "s-lang"
 
   def install
@@ -23,7 +23,7 @@ class Slrn < Formula
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     system "make", "all", "slrnpull"

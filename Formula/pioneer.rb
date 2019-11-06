@@ -1,14 +1,14 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/20190203.tar.gz"
-  sha256 "e526f1659ae321f45b997c0245acecbf9c4cf2122b025ab8db1090f1b9804f5e"
+  url "https://github.com/pioneerspacesim/pioneer/archive/20191009.tar.gz"
+  sha256 "54ffa99b5dad6334e75f21deab6e9afa48164d5ea474753c6ccda1a742c22cd6"
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 "23947d453a46d35df0f9c6fb2e1adcc2b7c617715ff1c511bebd506e2917debf" => :mojave
-    sha256 "4c486039882c875eef6efd1eaaeec11c38ae9e689e3ccce62c9aedf94788cdf9" => :high_sierra
-    sha256 "5369b0bd037db606cb9ee7915f84c91fc225f1315d554292c9c11a34e8363e3a" => :sierra
+    sha256 "7c0182c31a24c82eb17699d1903dc8ef5b099c129d6a98872781fc80d72de113" => :catalina
+    sha256 "d8673a04707cb545d4fcbc8d8e6b7343d9ad0875e81eff084122f228407fcd08" => :mojave
+    sha256 "7dd936ed8baf6cb85941ba23bf8845192c737fd05c585459746ff69c0cd27aa4" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -17,7 +17,7 @@ class Pioneer < Formula
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
-  depends_on "libsigc++"
+  depends_on "libsigc++@2"
   depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_image"

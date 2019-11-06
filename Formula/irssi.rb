@@ -1,13 +1,16 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.2.1/irssi-1.2.1.tar.xz"
-  sha256 "5466a1ed9612cfa707d9a37d60b29d027b4ac7d83c74ceb1a410e2b59edba92c"
+  url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
+  sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
+  revision 1
 
   bottle do
-    sha256 "7e5b4748f6cbf3cd92f5981aff4ac68bbea75cab1ff4ba8a102774053ec82d41" => :mojave
-    sha256 "d74dccec46a3cbab24126dc7f3be346b05caa50bdf492e9196a0fda15ad0a2fa" => :high_sierra
-    sha256 "70d8c2802625e36774aba6762d31adae082eef57e690dd0e1feb4f836a6fb5fc" => :sierra
+    rebuild 1
+    sha256 "a8d0caa726da8abaa3942e154ea6d6501df46ea3ae7c24d3583d3a229fd92727" => :catalina
+    sha256 "e25efab5dc0b20925d920aca182f713fa54b3d781bbea7ff0ff98606a29e8553" => :mojave
+    sha256 "92ce3e102445bc1248daf5404b9045088dde6a8f4e185c5f2a98982e692b4b26" => :high_sierra
+    sha256 "5f2f66c2581189d52bab585f5a1731f2382a29d7125d782856b6b0944515b1bd" => :sierra
   end
 
   head do
@@ -20,7 +23,7 @@ class Irssi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "perl"
 
   def install

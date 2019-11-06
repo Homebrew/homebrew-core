@@ -3,14 +3,13 @@ class Gtksourceviewmm3 < Formula
   homepage "https://developer.gnome.org/gtksourceviewmm/"
   url "https://download.gnome.org/sources/gtksourceviewmm/3.18/gtksourceviewmm-3.18.0.tar.xz"
   sha256 "51081ae3d37975dae33d3f6a40621d85cb68f4b36ae3835eec1513482aacfb39"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "fd3d1d483f70e0d450a51062f6212a98f0b25025e6133995f09f3c7b32af7362" => :mojave
-    sha256 "20a1a1c428802f8db9137f4f6c5312285f309da870ad442c4b40c0f6665a6489" => :high_sierra
-    sha256 "754836affbefee5bb1e305ebb049f89109d083ae2367e69c0a5111d5c9220d26" => :sierra
+    sha256 "2c82a7c2975e465a30e351ffdd860a1edabe5fbc50a84ff6fe6db66a112e3036" => :catalina
+    sha256 "55fdb6b622005ee3040b1721e5b8689d7b7f32f1ff6a6e357903d3e3abec95f0" => :mojave
+    sha256 "59e1bfd42443eea4c9dbf05f15503f9e16eada52ccd19f27e2b925303cae3626" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -49,7 +48,7 @@ class Gtksourceviewmm3 < Formula
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]

@@ -6,6 +6,7 @@ class Gzrt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d1d5378de11679a973ce6a5893984b0431f7ad62f369215814927cdb5fbf6678" => :catalina
     sha256 "4d2f5fca0f32dd8a88d7aba3d8e6f926d89f74fa1748b9e7f618bdc76e3500fe" => :mojave
     sha256 "2e7f8e8743943f1e83c4b1ed6372fa3c4cab00f7a090dbb4f967b7fade1e5e20" => :high_sierra
     sha256 "da5c89596737f514900f32986dd9eb32f010c6c1b9f1643dd03a07eae7e383a7" => :sierra

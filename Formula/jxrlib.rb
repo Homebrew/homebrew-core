@@ -6,6 +6,7 @@ class Jxrlib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "51c5db55544b873ddbb50eb5681ab3d6ce1552df452bc31f3865d33e36176888" => :catalina
     sha256 "923729f8257b2ff225affe4a2a822f2dd40e799ca45be9ac423f04b5e4e603f0" => :mojave
     sha256 "6d24053d591022594ab92f880c56da4057a9e4f8d8ecb6f942e3558900385def" => :high_sierra
     sha256 "0eb8602ab389d9fff5bce803b085af322309592dc41aa0902b223e353a9f8abc" => :sierra
@@ -26,7 +27,7 @@ class Jxrlib < Formula
   end
 
   test do
-    bmp = "Qk06AAAAAAAAADYAAAAoAAAAAQAAAAEAAAABABgAAAAAAAQAAADDDgAAww4AAAAAAAAAAAAA////AA==".unpack("m")[0]
+    bmp = "Qk06AAAAAAAAADYAAAAoAAAAAQAAAAEAAAABABgAAAAAAAQAAADDDgAAww4AAAAAAAAAAAAA////AA==".unpack1("m")
     infile  = "test.bmp"
     outfile = "test.jxr"
     File.open(infile, "wb") { |f| f.write bmp }

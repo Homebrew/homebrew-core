@@ -373,17 +373,15 @@ class Pgloader < Formula
     ]
 
     IO.popen(postgres_command * " ") do |postgres|
-      begin
-        ohai postgres_command * " "
-        # Postgres won't create the socket until it's ready for connections, but
-        # if it fails to start, we'll be waiting for the socket forever. So we
-        # time out quickly; this is simpler than mucking with child process
-        # signals.
-        Timeout.timeout(5) { sleep 0.2 while socket_dir.children.empty? }
-        yield
-      ensure
-        Process.kill(:TERM, postgres.pid)
-      end
+      ohai postgres_command * " "
+      # Postgres won't create the socket until it's ready for connections, but
+      # if it fails to start, we'll be waiting for the socket forever. So we
+      # time out quickly; this is simpler than mucking with child process
+      # signals.
+      Timeout.timeout(5) { sleep 0.2 while socket_dir.children.empty? }
+      yield
+    ensure
+      Process.kill(:TERM, postgres.pid)
     end
   end
 

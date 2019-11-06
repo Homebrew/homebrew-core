@@ -3,14 +3,14 @@ class Trafficserver < Formula
   homepage "https://trafficserver.apache.org/"
 
   stable do
-    url "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.7.tar.bz2"
-    sha256 "285d39fe76887f26579216365de75f64ed799f75d0c20726e2a74bd8f9c38b65"
+    url "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.5.tar.bz2"
+    sha256 "8ede46ef4b7961b0f53dc3418985f30569725c671ea9e6626dc8bbf0ca46544f"
   end
 
   bottle do
-    sha256 "d897fd2ad8c55e5982ad2a3293180c5baca6d12ff355df8fff88f3f4c26bf730" => :mojave
-    sha256 "8798c321ad6b052eab2a8ee3be53c65230a5748b71343012d4116e04cf5cbe3e" => :high_sierra
-    sha256 "e4406ff29b744c822d7e6661efdda7e04f08afe8b111a31d07c1bce05daa1732" => :sierra
+    sha256 "e6ea637eb779516b21ebae5e0df8ee10b6dfac8a0e710139ec9f5edcc4f6d6c6" => :catalina
+    sha256 "146b8cda24b90b8f8438bd8cd0684ce0324c2fc7ba18de598cc9f151e5fe59a7" => :mojave
+    sha256 "2016f7171e6633dfa7abf86833354c30b63d2517955f0e7695dd3f0bed5b99b1" => :high_sierra
   end
 
   head do
@@ -26,7 +26,7 @@ class Trafficserver < Formula
     end
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
@@ -41,7 +41,7 @@ class Trafficserver < Formula
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules

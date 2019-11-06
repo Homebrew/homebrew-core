@@ -10,14 +10,14 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.12.1.tar.gz"
-  sha256 "01c565406ec4ffa85db90b45ece2260b25fac3646cc063bbc20a242c6ed4210c"
-  revision 1
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.12.2.tar.gz"
+  sha256 "bc42750ce8237742b9382f2148fc547a8d8601aa4a7cd28c55fe7ca045196882"
 
   bottle do
-    sha256 "e0c20be9ff6d0ce29d610cb61ed92f35bfb3abe7a49c8927ecbf6aecad49d375" => :mojave
-    sha256 "4ea37a2acfe5c0ea6ecc4ae5a0cf53db7a6ff7c9aef50ea971ea359e49160ec6" => :high_sierra
-    sha256 "78f11d068e9732a78ee2dc6340876ec4b4d5e38a1123f636161ec03329ffc15d" => :sierra
+    sha256 "ce41f9c9b42f18f888a94fe25c0b4dc55350bc7c8af7941ecf69521594c8957c" => :catalina
+    sha256 "e7e7590aa65ca7718e331b44ab06bea2309c1e8da9e5825952e66423fea28f08" => :mojave
+    sha256 "268e9971eed04727f535635dcc1824dc4450df5b743510e0a12cdfb5b1c5eedf" => :high_sierra
+    sha256 "96d708c0619c85131740d94dcd70cb21701c16d7e78e44a538aef233e72ef4ef" => :sierra
   end
 
   head do
@@ -31,7 +31,7 @@ class Mutt < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gpgme"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
 
   conflicts_with "tin",
@@ -53,7 +53,7 @@ class Mutt < Formula
       --enable-smtp
       --with-gss
       --with-sasl
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tokyocabinet
       --enable-gpgme
     ]

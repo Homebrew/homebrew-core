@@ -7,6 +7,7 @@ class Fondu < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3c8abb65351f0b4d1399234918154035f62ddcceed533f95a286fac1d1e91a87" => :catalina
     sha256 "475674b5832a56db833ddf7fd01a4c16ff848dfc43dcca726ddfca86d42afdec" => :mojave
     sha256 "00619e7b8f11378041a50cfcb557bebdfb542fbd7f1d5eda85d756537b9c34d9" => :high_sierra
     sha256 "a4e10488264a8c28c06aa2f517e1937b3375462b4c44dcfb2ed50a8742298821" => :sierra

@@ -5,16 +5,16 @@ class Httrack < Formula
   # link to download.httrack.com will break on next HTTrack update.
   url "https://mirror.httrack.com/historical/httrack-3.49.2.tar.gz"
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
+  revision 1
 
   bottle do
-    sha256 "8542fa3b1a4badf7290315b4174d5026c81e79c5add75432176bb5385f6a1e5e" => :mojave
-    sha256 "e46c52519cd4b7caf7ff5bd034ab016362e79d4df73840305b3a54d679fa33b4" => :high_sierra
-    sha256 "16e5fb0657a1cdafcfa94d9f5e1362f7f1f89e86633e371b7ad86d17b7caa37b" => :sierra
-    sha256 "34e26e1534cdf1cf32f10c861833c2ab8405def4a0f2d08253acfe15e37a8b90" => :el_capitan
-    sha256 "e07658fd32a00001eb85c18b159eea17e2014142e8e56c7d1e07ecbb5774be95" => :yosemite
+    sha256 "291ab06b376233166dd833422801d0a7be6f06cdabdc568656ec64ad3adc5fe8" => :catalina
+    sha256 "6e0d2265e15d103a37b6b594f7f10c85af82012f1e3c1e25fc436e7430502b2c" => :mojave
+    sha256 "612d8c3f9ee15fd7c4f42dbca3c5e3b58e968d626aa15f916f85c8cdb44ea31f" => :high_sierra
+    sha256 "842d48bdb72573623a478a97a2c2abcafe34fb4b0443229216e35d30552dd27f" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.deparallelize

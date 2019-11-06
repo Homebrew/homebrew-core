@@ -6,6 +6,7 @@ class Zork < Formula
   head "https://github.com/devshane/zork.git"
 
   bottle do
+    sha256 "e3beae53e804ba7ad871d84431b76e1e7ca958bb0db4b70506771107b3f25ca1" => :catalina
     sha256 "0290ba47e707b2812ae354672fd59409acd354fe00b445c424e07c2f3ae8133c" => :mojave
     sha256 "13e9074fc59bcaeb1dbb5fdeb536da90cd33ef23889109fe20e79429ead56444" => :high_sierra
     sha256 "d2fe9ee55de4906a3a99d30070d81f73637f3972a6e0c44eb7ab2461c024c684" => :sierra

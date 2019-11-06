@@ -7,6 +7,7 @@ class Pugixml < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3c0b7ab4c2b6e3a3c5445020f530557ad5d2455f1e56e8dad1e9851abdb675b1" => :catalina
     sha256 "65415981e37fc57d6e01ccd5ce9ef3a28f0b127ebefad23978a826fbf90ce6c1" => :mojave
     sha256 "88887f5773727df5b02405326b57821c7d8ae625bc36878d5abc9317e66a9f74" => :high_sierra
     sha256 "349e189771d80c798d920be6ff8f6d24612528a05e4285c4957e806092792604" => :sierra

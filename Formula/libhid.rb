@@ -7,6 +7,7 @@ class Libhid < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "049d5c106ab738e55af18878f19cc0510d78bbda54f0c5626e3ccb725e415c68" => :catalina
     sha256 "7457dc1791e661356e54059fb7b49f9629f2814694057bb38c6ad6698b3c4556" => :mojave
     sha256 "b2949cef974f368856304506aecea44d3daca81b2d8c798bc141ef376723eded" => :high_sierra
     sha256 "b92f274a981788b3092927223099f4f3220877417c766ec8e8bd63171e9a9849" => :sierra
@@ -19,7 +20,10 @@ class Libhid < Formula
   depends_on "libusb-compat"
 
   # Fix compilation error on 10.9
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/libhid/0.2.16.patch"
+    sha256 "443a3218902054b7fc7a9f91fd1601d50e2cc7bdca3f16e75419b3b60f2dab81"
+  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -41,27 +45,3 @@ class Libhid < Formula
     system "./test"
   end
 end
-
-__END__
---- libhid-0.2.16/src/Makefile.am.org	2014-01-02 19:20:33.000000000 +0200
-+++ libhid-0.2.16/src/Makefile.am	2014-01-02 19:21:15.000000000 +0200
-@@ -17,7 +17,7 @@ else
- if OS_DARWIN
- OS_SUPPORT_SOURCE = darwin.c
- AM_CFLAGS += -no-cpp-precomp
--AM_LDFLAGS += -lIOKit -framework "CoreFoundation"
-+AM_LDFLAGS += -framework IOKit -framework "CoreFoundation"
- else
- OS_SUPPORT =
- endif
---- libhid-0.2.16/src/Makefile.in.org	2014-01-02 19:20:35.000000000 +0200
-+++ libhid-0.2.16/src/Makefile.in	2014-01-02 19:21:24.000000000 +0200
-@@ -39,7 +39,7 @@ POST_UNINSTALL = :
- build_triplet = @build@
- host_triplet = @host@
- @OS_BSD_FALSE@@OS_DARWIN_TRUE@@OS_LINUX_FALSE@@OS_SOLARIS_FALSE@am__append_1 = -no-cpp-precomp
--@OS_BSD_FALSE@@OS_DARWIN_TRUE@@OS_LINUX_FALSE@@OS_SOLARIS_FALSE@am__append_2 = -lIOKit -framework "CoreFoundation"
-+@OS_BSD_FALSE@@OS_DARWIN_TRUE@@OS_LINUX_FALSE@@OS_SOLARIS_FALSE@am__append_2 = -framework IOKit -framework "CoreFoundation"
- bin_PROGRAMS = libhid-detach-device$(EXEEXT)
- subdir = src
- DIST_COMMON = $(include_HEADERS) $(srcdir)/Makefile.am \

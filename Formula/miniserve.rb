@@ -1,20 +1,30 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/v0.3.0.tar.gz"
-  sha256 "80ee5d661730ddad14671f961b560467f3b3a9f0544b9b11dec65098eb4a1f7e"
+  url "https://github.com/svenstaro/miniserve/archive/v0.5.0.tar.gz"
+  sha256 "5b7c91bdf35e1a17ca006efa0354712301886c5c50952a2162401aef77faced0"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8955f888b8c0828d741d5541a2ae6567704d78db99600d59b3d9a02dc571089" => :mojave
-    sha256 "8711ae0bb727abd3ed3ad8d1335275d26fbc473f19bacfbad76b10b5a0bf4efc" => :high_sierra
-    sha256 "a00b82cfce9fecd067b62ec3135a0e9cc59d3133f97ed3c0e7b815e4921c32d0" => :sierra
+    rebuild 1
+    sha256 "82eca53aa5ca2e90b82bbce87ab964bae0e83b536ecf164a7f1c39a89571b855" => :catalina
+    sha256 "3b2d47cf800219c31be4767036e8ddfc4dc6bf67793a24f3a7bc83710414cc84" => :mojave
+    sha256 "076ced27fb5a0dccfcf1c6059675369360685ba2f939fd7fd70b775a33dfa863" => :high_sierra
   end
 
-  depends_on "rust" => :build
+  # Miniserve requires a known-good Rust nightly release to use.
+  resource "rust-nightly" do
+    url "https://static.rust-lang.org/dist/2019-08-24/rust-nightly-x86_64-apple-darwin.tar.xz"
+    sha256 "104ddea51b758f4962960097e9e0f3cabf2c671ec3148bc745344431bb93605d"
+  end
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    resource("rust-nightly").stage do
+      system "./install.sh", "--prefix=#{buildpath}/rust-nightly"
+      ENV.prepend_path "PATH", "#{buildpath}/rust-nightly/bin"
+    end
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
@@ -25,7 +35,7 @@ class Miniserve < Formula
     server.close
 
     pid = fork do
-      exec "#{bin}/miniserve", "#{bin}/miniserve", "--if", "127.0.0.1", "--port", port.to_s
+      exec "#{bin}/miniserve", "#{bin}/miniserve", "-i", "127.0.0.1", "--port", port.to_s
     end
 
     sleep 2

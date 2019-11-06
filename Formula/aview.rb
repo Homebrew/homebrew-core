@@ -6,6 +6,7 @@ class Aview < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad92a0e964ccbebe685edf9c595efd420475490d255caed072985cb128a8230b" => :catalina
     sha256 "fe70cf7dbd1d2e1473da3818b96d3a94d811e93d52ecbb6ecfc1c1e1ccb8b12a" => :mojave
     sha256 "4f5fa09318475fca46c584b52e5d5b845cd4d331df04744ca41d6789575b32ec" => :high_sierra
     sha256 "95cbb14a2a5cb4d8d11d9ca3621e81705df77f47d85f89383913e3a02da56041" => :sierra
@@ -16,7 +17,10 @@ class Aview < Formula
 
   depends_on "aalib"
 
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/aview/1.3.0rc1.patch"
+    sha256 "72a979eff325056f709cee49f5836a425635bd72078515a5949a812aa68741aa"
+  end
 
   def install
     system "./configure", "--disable-debug",
@@ -30,30 +34,3 @@ class Aview < Formula
     system "#{bin}/aview", "--version"
   end
 end
-
-__END__
-diff --git a/image.c b/image.c
-index 232b838..9780e61 100644
---- a/image.c
-+++ b/image.c
-@@ -1,6 +1,6 @@
- #include <stdio.h>
- #include <unistd.h>
--#include <malloc.h>
-+#include <stdlib.h>
- #include "config.h"
- 
- int imgwidth, imgheight;
-diff --git a/ui.c b/ui.c
-index d316f7a..134a4ca 100644
---- a/ui.c
-+++ b/ui.c
-@@ -1,6 +1,6 @@
- #include <stdio.h>
- #include <ctype.h>
--#include <malloc.h>
-+#include <stdlib.h>
- #include <string.h>
- #include <aalib.h>
- #include "shrink.h"
-

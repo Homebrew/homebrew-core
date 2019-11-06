@@ -7,6 +7,7 @@ class Znapzend < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5d52960b6314938d41a65d7b441c3a6c8ef211cd1ca5e7388b59af0a92cb61b7" => :catalina
     sha256 "7962667b10e7f44b35469d4b5ef1a8e4aeaf75310b34e72840edfc283f1aae16" => :mojave
     sha256 "7fca9b0f4b129afbc30bee164b1a73911e4da9e48c4943b1d6e7e8e77a1cec17" => :high_sierra
     sha256 "f12ede845017559f77147ceab275fcbb128f3bdec7a1ff0cd72d54029349a419" => :sierra

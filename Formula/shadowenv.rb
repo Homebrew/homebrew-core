@@ -6,15 +6,16 @@ class Shadowenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c49d28a4409d10ebdde0974d943afdd99c26e79db903135c654709d6e470e8e" => :mojave
-    sha256 "a78e9ad50488f2e07420c080378249f73758b65a604cc66f0e1db417a1c8e7ae" => :high_sierra
-    sha256 "4a42c37a23a2b126ed1f5c5e22c8ff70082d04f557fd7a7f1d15a1ee6b38eede" => :sierra
+    rebuild 1
+    sha256 "eacad4a8fa7a7d99678627407bb71add17b8fbf7035c68cc2f9834957461ef8c" => :catalina
+    sha256 "1969877c70ecc740eca9817c65483788dafeac0680af373e77b56356a123bd6f" => :mojave
+    sha256 "7af4f19a3db2b59c0d432d67b170d19252e287777b420f09e7683776faeb1f92" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "#{buildpath}/man/man1/shadowenv.1"
     man5.install "#{buildpath}/man/man5/shadowlisp.5"
   end

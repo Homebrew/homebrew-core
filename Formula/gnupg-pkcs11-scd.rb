@@ -3,12 +3,14 @@ class GnupgPkcs11Scd < Formula
   homepage "https://gnupg-pkcs11.sourceforge.io"
   url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.9.2/gnupg-pkcs11-scd-0.9.2.tar.bz2"
   sha256 "fddd798f8b5f9f960d2a7f6961b00ef7b49b00e8bf069c113a4d42b5e44fd0d5"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "99a4910d7fc7e0a7a101b66f4634aef44d61233327b720eef13612fef9406f22" => :mojave
-    sha256 "a226b2072da2340d2acda61cfd0e4be867d90646fe4a0d5816ff0f4c593907b0" => :high_sierra
-    sha256 "28a6407547621148fcb957b4c16da177e8a346383b0102ee7352650672b44021" => :sierra
+    sha256 "78f09618378fd89be78ff9e10af2e1d33ac5dc06fcca6474994662434b7b3dc1" => :catalina
+    sha256 "78537d1ee3285a604aae1d683db56da1b9ec76bf71262ff234e758efda63f885" => :mojave
+    sha256 "1f4264ac76b36c453a3c5a000d1b1269f331e88420efc5591274ccbb8dc8b85c" => :high_sierra
+    sha256 "83748a14d87233e8a2cf4744d0353c01176536b5cd9e1b317f741f824416453f" => :sierra
   end
 
   depends_on "autoconf" => :build

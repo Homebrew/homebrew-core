@@ -3,22 +3,20 @@ class AnsibleAT20 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
   sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7f4e6ad0d1987ea253c845e1003033732c810030dbea5fde80331c35cc994539" => :mojave
-    sha256 "0cf09f665995cb713b32152f76ac8786c7cd245720b956025d9d9b0ae011d47e" => :high_sierra
-    sha256 "9fd845b11d6f144d95fa9e81fb68a4f4e69a31a99c1ed99453abc699945dbead" => :sierra
-    sha256 "0649dfc2f9becb403dc019dd9774d191ea5f168db968c9dd2fa60291951cdb78" => :el_capitan
+    sha256 "21b45149092f885da54439dd468abfcc11c44f0a2f50fe93d02aec71effe5fc2" => :catalina
+    sha256 "741e8d3b3e22ab627b0348a0d0a33008c52f74cb1b50258fe2072ce819820d57" => :mojave
+    sha256 "6f249daf3099320814559c0575188df8243d65c706c189d14511a56159c8ac73" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python@2" # does not support Python 3
 
   #

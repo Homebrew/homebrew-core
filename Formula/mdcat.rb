@@ -6,16 +6,17 @@ class Mdcat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03a6092a5f1c29f6d603dcb70d65370df4c766636355c5ba4ad2eae5eb234c37" => :mojave
-    sha256 "8eaebefd87230851d0c79f6b40076225a5a6051c176cd44173b04fa785fe7464" => :high_sierra
-    sha256 "6f49eb3e6378bbcf315a0fece01f6eb67c2ba9166d60a6a2f15afe5efe1dabe9" => :sierra
+    rebuild 1
+    sha256 "9d1828626a16a9be233143eff8d8abe7d2257157b929d62c307a5c3557ea0dd8" => :catalina
+    sha256 "b7a0aa28deba05d9488d9717ba37a1da23ffff794ff7422332069d24f7731b13" => :mojave
+    sha256 "24466bc6fb718df66d2c61b9a53d446e0bace8678b2ebb13fadb7caf4fde4da7" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

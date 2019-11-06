@@ -6,6 +6,7 @@ class Grsync < Formula
   revision 2
 
   bottle do
+    sha256 "f6d12bc8edca619d77c739ce87bf3e236db3887ad68cbc85aa83977fdd42b5cb" => :catalina
     sha256 "8645e9089cb1045704be43d8c7351b26ced5823331bc0ab7bf94eadfa22c50af" => :mojave
     sha256 "a37529e54d8e00d5a2400fc3ae0e5ccf06d4c84d5e36afc38233859f57f76117" => :high_sierra
     sha256 "a186fcf380ae3b1a73223b9591a8ccd9174a3fee91dae8e445da2dae98d6da71" => :sierra

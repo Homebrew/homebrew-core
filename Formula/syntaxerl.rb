@@ -6,6 +6,7 @@ class Syntaxerl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7e37cdaf043add132428e29854d4d1cd0aa5dc039387671ba000b9ae26267d6a" => :catalina
     sha256 "569cf5e87181031c9b13dd6cb2f4fe17967d4392c87a2db30d498883a05106c6" => :mojave
     sha256 "2b4c6e6d7e7413fe81e5107e80841f5a8c4bbddec9e12f3f53c92bedd5fced3b" => :high_sierra
     sha256 "0e0ac8402dd61720eeca50047b173f7500dc38bd7cceb37915c4425b7492044e" => :sierra

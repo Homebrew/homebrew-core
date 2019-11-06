@@ -2,17 +2,18 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      :tag      => "v19.03.1",
-      :revision => "74b1e89e8ac68948be88fe0aa1e2767ae28659fe"
+      :tag      => "v19.03.4",
+      :revision => "9013bf583a215dc1488d941f9b6f7f11e1ea899f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed32c0a9455ff5f193f6f6f8d1754a02534f6419f5d36af5c5c7adeb5a10f51d" => :mojave
-    sha256 "bb3c3929bb7c1897442638ed57d0d8eb84b863b68d33122a5e6b39283e06453f" => :high_sierra
-    sha256 "ceee85312a0a8fc94afa85060743486fa127893c8fd1f09f4edc65a2db526d55" => :sierra
+    sha256 "f23dad9c1da05cabee6fe374aff8bf2f0a2fc977311d60866dc5616cbac5a61e" => :catalina
+    sha256 "ef7735ec063e05ed9d42160a6d0e6be69228aa2b556bedf47d81842ef686d817" => :mojave
+    sha256 "d7a899fa9a800416167d21499a03645548cdc409b564ba8bf1434c9a519ddd9c" => :high_sierra
   end
 
   depends_on "go" => :build
+  depends_on "go-md2man" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -27,6 +28,12 @@ class Docker < Formula
                  "-X \"github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community\""]
       system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
              "github.com/docker/cli/cmd/docker"
+
+      Pathname.glob("man/*.[1-8].md") do |md|
+        section = md.to_s[/\.(\d+)\.md\Z/, 1]
+        (man/"man#{section}").mkpath
+        system "go-md2man", "-in=#{md}", "-out=#{man/"man#{section}"/md.stem}"
+      end
 
       bash_completion.install "contrib/completion/bash/docker"
       fish_completion.install "contrib/completion/fish/docker.fish"

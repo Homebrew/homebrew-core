@@ -3,16 +3,18 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-5.1.tar.gz"
-  sha256 "6222d92d860e411e422b7dc58062132bc512fa52ec48a71143b40cab4be7c829"
+  url "https://www.mercurial-scm.org/release/mercurial-5.1.2.tar.gz"
+  sha256 "15af0b090b23649e0e53621a88dde97b55a734d7cb08b77d3df284db70d44e2e"
 
   bottle do
-    sha256 "323cac9485100769e72ed0a2ef140edcef8e4e9b255972f3b215223e59c838ee" => :mojave
-    sha256 "011fcb73b9bbbfab98498e4ab8c5a78df8d6e798daae1d6f0c3f64e805868548" => :high_sierra
-    sha256 "6b20b940236c25882194f64d62f5eb2cc7d1858f7fb01e4d4728577e824520b7" => :sierra
+    sha256 "5d02b93a360c6423c6d357d57486b048e41d32b5314d34b52d0fb53d081cbba9" => :catalina
+    sha256 "145b59c737eb5a332b38029f36e3837cbf88f15f063fb8642ea066a28971f80d" => :mojave
+    sha256 "c28323134e53c09ca43ad1543b034fb54c2558f05ddfead977390899ec2afa70" => :high_sierra
   end
 
-  depends_on "python@2" # does not support Python 3
+  # See discussion at https://github.com/Homebrew/homebrew-core/pull/44095
+  # plans for Python 3 migration
+  depends_on "python@2"
 
   def install
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
@@ -21,8 +23,8 @@ class Mercurial < Formula
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", \
-             "HG=#{bin}/hg"
+      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg",
+                     "HG=#{bin}/hg"
       bin.install "chg"
     end
 

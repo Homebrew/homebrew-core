@@ -6,6 +6,7 @@ class Chromaprint < Formula
 
   bottle do
     cellar :any
+    sha256 "aec3832bf6ffc46535afa1bf6a429d267a72a49ce7fe82e558bd2637b1a97aa6" => :catalina
     sha256 "88b395f32a669162b2d270c9f38711fe884aabacc7c7ce9062dbf420d5445a21" => :mojave
     sha256 "3d0ae4279d4d3fa0fad24c434e82032384256ed1613e89e7b601e1f02ceaa596" => :high_sierra
     sha256 "fc91e7116562484496de75f3e3e0a7a61771b9826b6f3a4497af411df2683290" => :sierra

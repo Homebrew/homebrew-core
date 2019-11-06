@@ -6,6 +6,7 @@ class Sfst < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2896c595e911f263874ef30e7d615fac1bd3fe332f14c18bdf042addc0619155" => :catalina
     sha256 "74aa99f751d850a1fcdc1cf347406e7137625cdc8010e3dacce972858a5469f7" => :mojave
     sha256 "6c5e1bc0f6e6d78a565b7892767035238957ab80b838b496a039a9174475056f" => :high_sierra
     sha256 "b3c2889ed84c29e3fb4a2d0f89af99631045178ea30227c8b6ffd3f8cdf308d1" => :sierra

@@ -4,26 +4,27 @@ class TinyFugue < Formula
   url "https://downloads.sourceforge.net/project/tinyfugue/tinyfugue/5.0%20beta%208/tf-50b8.tar.gz"
   version "5.0b8"
   sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "65a9e5f9d8ad9890474161ba55b5ebc73f46398a2145c800d506bc975e5b995b" => :mojave
-    sha256 "870605dd7981a86165e8af6c79e18b5ac556bd5f933a46ff6ef000be50a87714" => :high_sierra
-    sha256 "f4df3ef186829f13f9f4d5512faf3e65e01eaf14aefd42b0f6895aded918fe79" => :sierra
-    sha256 "8b87d1b3de3a1ed16b2c587897c1716b00d011d152476ecdaa922a1406f2846a" => :el_capitan
-    sha256 "fbc2ca2d91d2a3bb3df752a98306f7f7f04756870019eb7f72df06a68efa632e" => :yosemite
-    sha256 "0d7db7bf7a3744de5cb572c013da516e98b5d6ed911a2f3bf4e0a028a160fd04" => :mavericks
+    sha256 "24ef105267f27da0182f9f179ab73c2388230f3886b20697ff98495a235feeb4" => :catalina
+    sha256 "2196e7b32acfb7604f19b8734d5425b32650ff1154f6c327313b8d18c52ffda1" => :mojave
+    sha256 "32fcc0d6629da120ee1698b6185aaea0387519861182a4d6f10e6c67e9455405" => :high_sierra
+    sha256 "cbdc761189ce2c20a0a00b2ba2bfe930d0b149ea932dda7c562fa36d6b199e7e" => :sierra
   end
 
   depends_on "libnet"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   conflicts_with "tee-clc", :because => "both install a `tf` binary"
 
   # pcre deprecated pcre_info. Switch to HB pcre-8.31 and pcre_fullinfo.
   # Not reported upstream; project is in stasis since 2007.
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/tiny-fugue/5.0b8.patch"
+    sha256 "22f660dc0c0d0691ccaaacadf2f3c47afefbdc95639e46c6b4b77a0545b6a17c"
+  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -33,50 +34,3 @@ class TinyFugue < Formula
     system "make", "install"
   end
 end
-
-
-__END__
---- a/src/malloc.c	2007-01-13 15:12:39.000000000 -0800
-+++ b/src/malloc.c	2012-10-26 08:23:30.000000000 -0700
-@@ -7,6 +7,7 @@
-  ************************************************************************/
- static const char RCSid[] = "$Id: malloc.c,v 35004.22 2007/01/13 23:12:39 kkeys Exp $";
- 
-+#include "sys/types.h"
- #include "tfconfig.h"
- #include "port.h"
- #include "signals.h"
---- a/src/macro.c	2007-01-13 15:12:39.000000000 -0800
-+++ b/src/macro.c	2012-10-26 08:15:31.000000000 -0700
-@@ -893,7 +893,8 @@
-     }
-     spec->attr &= ~F_NONE;
-     if (spec->nsubattr) {
--	int n = pcre_info(spec->trig.ri->re, NULL, NULL);
-+	int n;
-+	pcre_fullinfo(spec->trig.ri->re, NULL, PCRE_INFO_CAPTURECOUNT, &n);
- 	for (i = 0; i < spec->nsubattr; i++) {
- 	    spec->subattr[i].attr &= ~F_NONE;
- 	    if (spec->subattr[i].subexp > n) {
---- a/src/pattern.c	2007-01-13 15:12:39.000000000 -0800
-+++ b/src/pattern.c	2012-10-26 08:16:19.000000000 -0700
-@@ -151,7 +151,7 @@
- 	    emsg ? emsg : "unknown error");
- 	goto tf_reg_compile_error;
-     }
--    n = pcre_info(ri->re, NULL, NULL);
-+    pcre_fullinfo(ri->re, NULL, PCRE_INFO_CAPTURECOUNT, &n);
-     if (n < 0) goto tf_reg_compile_error;
-     ri->ovecsize = 3 * (n + 1);
-     ri->ovector = dmalloc(NULL, sizeof(int) * ri->ovecsize, file, line);
---- a/src/pattern.h	2007-01-13 15:12:39.000000000 -0800
-+++ b/src/pattern.h	2012-10-26 08:17:54.000000000 -0700
-@@ -10,7 +10,7 @@
- #ifndef PATTERN_H
- #define PATTERN_H
- 
--#include "pcre-2.08/pcre.h"
-+#include <pcre.h>
- 
- typedef struct RegInfo {
-     pcre *re;

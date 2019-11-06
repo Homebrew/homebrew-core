@@ -7,6 +7,7 @@ class Unrtf < Formula
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", :using => :hg
 
   bottle do
+    sha256 "90361817069fa7149b201a0caf5e65abd872d10f8fdda154ff450511debf1d99" => :catalina
     sha256 "b038c53ba7341cc9365db6cf9d46c6f7c3feba843643168e24a12856a29a6dbb" => :mojave
     sha256 "9abc63bdeae500637c8e1d6d31c72be013d0f2cf8ad8e3f1cb6e3babe5b6d94a" => :high_sierra
     sha256 "4c9e869dad1a76bf4077d9e19cabf9d383ed914b5a1c348dadc1eb0961c23b0a" => :sierra

@@ -7,6 +7,7 @@ class Glyr < Formula
 
   bottle do
     cellar :any
+    sha256 "0a32bfceb64d33842aee008ca44e823062589323777efee2f15f013f18017a08" => :catalina
     sha256 "45d36208e031f97c1202824c6a6a0a9e97d777fae91ce7cddc3ca17c3168d31c" => :mojave
     sha256 "fb3ef9186aae754a62a466aae16471049bdaefcc168106fc6f0097e937115524" => :high_sierra
     sha256 "04cbfc6d3294d068b3a97bfb5235aed84b3e95478f8f3e873be17127142b07f6" => :sierra

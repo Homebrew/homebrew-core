@@ -1,21 +1,22 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.12.0.tar.gz"
-  sha256 "b285ddd35101aa4104751ee75a505d8ebf8c92ea3ae5f7c702894e969986c99b"
+  url "https://github.com/kpcyrd/sn0int/archive/v0.13.0.tar.gz"
+  sha256 "98fa5a854a319177c8a41f62f7be4515fa55552554ea1afb8db729ed92f93e7c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34c620d12d87164aa7bbc917ec42be9a7d2e8b509311b7a34f3cfd11af5e8f08" => :mojave
-    sha256 "361967842972b3c6f6b8d2febdb1a30c74101f80403bf11f5fc59dfe0ef664e7" => :high_sierra
-    sha256 "af6893b50a10ef8d4f65fc1166b415b4a231dcdf65c51d283bf008c054b914f5" => :sierra
+    rebuild 1
+    sha256 "010e3a11a2ef850f780d350e1f0da232dcbc032ef5c6b442d79dc2f950b804af" => :catalina
+    sha256 "cf6005ad1e1ee1926b19e8a2d6d11dc2e8f84814cfd5ac785431645641f5ba1b" => :mojave
+    sha256 "1cdb6d0437e56d58276e193a42e7b7256a9079f86711f5de3daf45edf8314a41" => :high_sierra
   end
 
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     system "#{bin}/sn0int completions bash > sn0int.bash"
     system "#{bin}/sn0int completions fish > sn0int.fish"

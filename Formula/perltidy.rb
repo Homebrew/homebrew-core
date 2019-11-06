@@ -1,14 +1,14 @@
 class Perltidy < Formula
   desc "Indents and reformats Perl scripts to make them easier to read"
   homepage "https://perltidy.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/perltidy/20190601/Perl-Tidy-20190601.tar.gz"
-  sha256 "8f3d704b4eff457bf5bb70f9adf570690b2252dec31f75e8cb743392f1be338f"
+  url "https://downloads.sourceforge.net/project/perltidy/20190915/Perl-Tidy-20190915.tar.gz"
+  sha256 "c236dfacbba115cfc3f2868006c8601e021fe97c13cd2170a49bf8d404cc701b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f73526cd1fb0bdefa05ae84ef5a0789aa31e67aba44ff7492ccec7d95242df15" => :mojave
-    sha256 "39502016b8763e1c96b730a4bb1d6396efd70781e19d768b25b6601371ca4d4c" => :high_sierra
-    sha256 "6e160f9dac0c0128cc097094363202f5f0feae41deee4c7e6bf63c0a125a96ae" => :sierra
+    sha256 "a6a6c2d5d9cb8d87eda99bb05ab1d4cc0afc4eafb6cdc9765f0e275dbb4010d3" => :catalina
+    sha256 "d93079fafa5beacbed053cf21cb96ae095d084c71def53b0d74d27b364514d5a" => :mojave
+    sha256 "6c5d11263079c58ebf55bd6c4339d6086ecbaab0db0f179243ebb98c657e1f2e" => :high_sierra
   end
 
   def install

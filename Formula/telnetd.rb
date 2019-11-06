@@ -7,6 +7,7 @@ class Telnetd < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3311f7c7010df042a4e81248140a31b0bfd3b187a993aef039ffda2ca8bdb14c" => :catalina
     sha256 "61c06e02268d33b84484ba991221493ef0d01dfcff6c4e655ff831c3f7fc6f51" => :mojave
     sha256 "6c0d7658f3f74e12ea983a72907635a0444d97290b43c604b96218b4e6ca52d1" => :high_sierra
     sha256 "43e4d4a2eb55629583d76ce9c6131f2ce1d4868b90d2e24a170ffc63f4947c8a" => :sierra

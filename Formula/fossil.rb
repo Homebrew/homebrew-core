@@ -1,18 +1,18 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.9.tar.gz"
-  sha256 "1cb2ada92d43e3e7e008fe77f5e743d301c7ea34d4c36c42f255f873e73d8b4f"
+  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.10.tar.gz"
+  sha256 "d8a3776d2ce77385ed5ff20a2776d13bb534fb2508e87351e14e94f91cd12b10"
   head "https://www.fossil-scm.org/", :using => :fossil
 
   bottle do
     cellar :any
-    sha256 "26824c9aabd17ee21379354468d70e5fee77d0e209257c6a9814c877ec2ebfbb" => :mojave
-    sha256 "4e12d6e813f147a034f2a5a08a9d36e744531a83cfd8195850ca492e40e98925" => :high_sierra
-    sha256 "31eccca72e7ca53b48b66ecedcd883a50af41e1f355a34ae229f39fe79120632" => :sierra
+    sha256 "16afbe0d2eb0df60423b5274e368fd002bd9ab5af565c96535e0bae2c966f85c" => :catalina
+    sha256 "901b5ea0ef15aa3cbe195dc33c925a6e6dbca03b2ff012ee1bfca800e58eca5f" => :mojave
+    sha256 "6ae2eb58d9c1bfb35371a60a43a546fe619dd73350395ac4d11976bb5bebf486" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
   def install

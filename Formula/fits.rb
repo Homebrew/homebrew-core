@@ -6,6 +6,7 @@ class Fits < Formula
 
   bottle do
     cellar :any
+    sha256 "302c59fe81a3f6525d7f8935ba22b921485029e49a1929a18eefaff4575da69a" => :catalina
     sha256 "456aa46dc03d3ee38f4d6aa2a2c29f2aa3f0499eb2297d24b3c6ca0236742b14" => :mojave
     sha256 "7d6dd16320473df3523432254f211dc846f8002c72c805f336811d530de7df7f" => :high_sierra
     sha256 "89566466a165dfca0947c7686ed6559a202da46375344906625a0f0e4cf3a057" => :sierra

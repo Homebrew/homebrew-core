@@ -7,6 +7,7 @@ class Unp64 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2bcb692303d870dec60ae2e5c664ffca2ff8d6e46365700c0701ae0e7b19e23d" => :catalina
     sha256 "966cbf5ee30ed72e472df6fa40c80adc623a18c3ab9764e22185cb0b48da4e46" => :mojave
     sha256 "d84f3af986ace7e131687c719d399212ca7c8e5bb4fc5f7bc9d0910db4116132" => :high_sierra
     sha256 "60f32f5261a3a7cf7f0b7058a53163267a026fb03886875403c7ebae12eb0b34" => :sierra

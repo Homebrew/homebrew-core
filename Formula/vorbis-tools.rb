@@ -6,10 +6,11 @@ class VorbisTools < Formula
   revision 2
 
   bottle do
-    sha256 "ebcf801412fdea4ebf8e3dc850317fe6c8f8c4d9eeb10e3ba9c09bff3300b5cb" => :mojave
-    sha256 "fd042bd1be3987bfd945e4e681d246b179af2f67ec139c51d62ce7ab27ff0fdd" => :high_sierra
-    sha256 "6f6d8a2ac7093b409aae173ac42877fd9b3360284c17eb8789923c36e88acf00" => :sierra
-    sha256 "d5ef7448a1d2373a418c87dbd5a74975b0979c0c3c411e49414fe54869f31482" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "71a81bbeec2d79ddd7f39858cf66a450fac9d542824c30a064298229d6637594" => :catalina
+    sha256 "c3e402519ad170a0a37d80d394d8afbe905985784f8ea5d93fcc84a4486a9977" => :mojave
+    sha256 "e929c31331ffcb58d21cb086184ed747185dd8d0f4b7ee1b98134cabe44490bc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

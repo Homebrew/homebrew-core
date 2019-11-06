@@ -6,6 +6,7 @@ class Clac < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aaea6c0a7d8c809bfdb43219509873b6cec87593b45b9b2fae4a51d37c197102" => :catalina
     sha256 "f88ab13f5b80ecad66b4104df24a41932deb7da4a6bed46f1dbe3ad18889817f" => :mojave
     sha256 "b6e5fd38ba066369ed384eb016cbc0a56411ec46f22b0e7399f21009a16b8720" => :high_sierra
     sha256 "7e1fa4bcd0c7aed8586f7036e3d1fce149a5d4b321f496163ea5aaedbad60596" => :sierra

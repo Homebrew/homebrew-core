@@ -8,6 +8,7 @@ class Ed < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "2977274fd722f25c7ff48bcec676bbd5441a541290eecc0fadd612b912a402e6" => :catalina
     sha256 "5e928abc1cb9805d5af7c20862dd34158fce16a40b081e7fbf2d0831eee4823e" => :mojave
     sha256 "f0c6117b99056bb8d56538e31cf2ba6213d3f4f3eb6527dc566636eb9cd07595" => :high_sierra
     sha256 "04e745994129682e6d11caa6ce047a76da39c448403d4723fce2560c3603faef" => :sierra

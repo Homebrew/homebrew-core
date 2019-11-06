@@ -7,6 +7,7 @@ class AptDater < Formula
   version_scheme 1
 
   bottle do
+    sha256 "5fe58574f889c5e29bd2f4c492848281450da398cace807a33c5100b44090665" => :catalina
     sha256 "d736fdabb393e90e6895b9d5694cc0a78f592bd363483e7e935d044fd0331d41" => :mojave
     sha256 "f6b5f606925ac38d24ef56fc52e93c3f5a4e8f1ab2d687ebb376c78d4f91f366" => :high_sierra
     sha256 "66d81a3bf524ab635a34803119837ef26704011b2d362ab7f41aba0d40b54ea3" => :sierra

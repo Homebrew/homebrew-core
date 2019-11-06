@@ -7,6 +7,7 @@ class Miruo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "044456429802d6f6d8ba2a8d00547e0e0695e99edd1cceb1af29e70eb004d13f" => :catalina
     sha256 "a71716a29094f72b62cc6a84284abb509916907c5559b25a2b85196148b86c84" => :mojave
     sha256 "36df62e0454d4b7e5743a002a2ff3293e087a9fb607c369f3d23732d87330e4e" => :high_sierra
     sha256 "dbe92dd3ab515528597eb76aa986f4e9d8dd512504d76ca60b86b5dc5dc70449" => :sierra

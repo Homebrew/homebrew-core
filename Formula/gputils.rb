@@ -5,6 +5,7 @@ class Gputils < Formula
   sha256 "6f88a018e85717b57a22f27a0ca41b2157633a82351f7755be92e2d7dc40bb14"
 
   bottle do
+    sha256 "66500b5fe160a363d47dd326ff7e983e33f81d25a457f0304ada80de72d61ac8" => :catalina
     sha256 "94ddaac79ac5d6cfdddbd588fbb2ccd8be3f5a62662fe64d19a63828d8b6d305" => :mojave
     sha256 "c5ed95fc323471f635edbc08e81394f66486c4c81953a0881c5b26791d1176bb" => :high_sierra
     sha256 "aba5cb544582e26bdb212f9782f911b0e9d36c5049d0aed3928c48ae9b74a6e9" => :sierra

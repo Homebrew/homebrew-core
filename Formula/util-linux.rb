@@ -6,9 +6,10 @@ class UtilLinux < Formula
 
   bottle do
     cellar :any
-    sha256 "3fb25026099ea42c1c54b80cad6bbdf9bf09b0e0e967ca4690698d0d2d379483" => :mojave
-    sha256 "7d7e421229cbf8b0ac5fbe1f0ffc7d18a3e0ce9dc09090bd346f676111cc2bb7" => :high_sierra
-    sha256 "1c0c0011db6ecf47a6ad673c38878b5265ce82f6aba4b6bf7d4733d4513b6c7a" => :sierra
+    rebuild 1
+    sha256 "ad4962d8ce56d784085cf53e2f3add3432a3905285acf05a23fcc2e5e40cf5a8" => :catalina
+    sha256 "483548a881703f1e4645c40a9779758ff2da0db1dc521b4ce7321d86c723669d" => :mojave
+    sha256 "f02d33204d3ff42112ab972d1fa93f84a7676bcc28f208eac41172db4f7416e7" => :high_sierra
   end
 
   keg_only "macOS provides the uuid.h header"
@@ -17,11 +18,10 @@ class UtilLinux < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-ipcs",        # does not build on macOS
-                          "--disable-ipcrm",       # does not build on macOS
-                          "--disable-wall",        # already comes with macOS
-                          "--enable-libuuid",      # conflicts with ossp-uuid
-                          "--disable-libsmartcols" # macOS already ships 'column'
+                          "--disable-ipcs",  # does not build on macOS
+                          "--disable-ipcrm", # does not build on macOS
+                          "--disable-wall",  # already comes with macOS
+                          "--enable-libuuid" # conflicts with ossp-uuid
 
     system "make", "install"
 
@@ -43,7 +43,16 @@ class UtilLinux < Formula
   end
 
   test do
-    out = shell_output("#{bin}/namei -lx /usr").split("\n")
-    assert_equal ["f: /usr", "Drwxr-xr-x root wheel /", "drwxr-xr-x root wheel usr"], out
+    stat  = File.stat "/usr"
+    owner = Etc.getpwuid(stat.uid).name
+    group = Etc.getgrgid(stat.gid).name
+
+    flags = ["x", "w", "r"] * 3
+    perms = flags.each_with_index.reduce("") do |sum, (flag, index)|
+      sum.insert 0, ((stat.mode & (2 ** index)).zero? ? "-" : flag)
+    end
+
+    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split(" ")
+    assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end

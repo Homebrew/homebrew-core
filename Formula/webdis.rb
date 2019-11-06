@@ -7,6 +7,7 @@ class Webdis < Formula
 
   bottle do
     cellar :any
+    sha256 "404e1541ef26a22fd496c2f3b0c145f110b3264f69089793acca8fdd372d4331" => :catalina
     sha256 "6a9197076c07eff2bca44c342d584512686d50d05a8943b96cbca86a12ed77bf" => :mojave
     sha256 "7c78af53a76f221a6dbc1188d2ff8c5d83f315832bc33470a16f485c254bc8b4" => :high_sierra
     sha256 "c04c67e6eaccf8e60a434cf6654348aae9c5790f97ad680f94be4047f3e5d808" => :sierra
@@ -59,16 +60,14 @@ class Webdis < Formula
   end
 
   test do
-    begin
-      server = fork do
-        exec "#{bin}/webdis", "#{etc}/webdis.json"
-      end
-      sleep 0.5
-      # Test that the response is from webdis
-      assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:7379/PING"))
-    ensure
-      Process.kill "TERM", server
-      Process.wait server
+    server = fork do
+      exec "#{bin}/webdis", "#{etc}/webdis.json"
     end
+    sleep 0.5
+    # Test that the response is from webdis
+    assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:7379/PING"))
+  ensure
+    Process.kill "TERM", server
+    Process.wait server
   end
 end

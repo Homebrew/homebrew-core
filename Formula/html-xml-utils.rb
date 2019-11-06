@@ -1,15 +1,14 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.7.tar.gz"
-  sha256 "99373637639bf1bd33c5d2a7c2c4cd4efc30dcf37350fc536c489a2370b998ef"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.8.tar.gz"
+  sha256 "9ab41c9277efc699603d062c10740c6e528fdb9ac35014db4e07f16ad8700d5d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0627bfa11adb31884d574f4d8f7bb22f1190464e435f23c278c88d413feae2fe" => :mojave
-    sha256 "1d0db3459079f61ebf01e025558c5ce63cf3b096932d870e47199271b57b225c" => :high_sierra
-    sha256 "c2f6bff7a920806db425704f379b072a656836c72016b9cc2458c170a4d635fe" => :sierra
-    sha256 "ca7f5cc13b994275d3a923aad5a5f56b4af548f346da6a03ee201aa8113f2d7c" => :el_capitan
+    sha256 "28e913a33a61be2662a9aeedb18afd3e61f7ff31f533221e2382fc16845984a2" => :catalina
+    sha256 "8e290495b957bc609598e4a2e6fb26512011e0c433a5058d807d86e406a406ab" => :mojave
+    sha256 "2aa00ada9b366c012d149ff28c99d0054a7b166d2088700482e6118e16580358" => :high_sierra
   end
 
   def install

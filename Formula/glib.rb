@@ -1,13 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.6.tar.xz"
-  sha256 "ff8fab8d8deaa4fd0536c90f90d9769a09071779c7e6183907f6855645bffb6c"
+  url "https://download.gnome.org/sources/glib/2.62/glib-2.62.2.tar.xz"
+  sha256 "698824a413f76df039739c2a78f45b10939d526ae7495bab4e694e6730deb3f1"
 
   bottle do
-    sha256 "cb0b27f37cc011ba0e5ffcd044273c6b5e25da50fd230633b00d1f00ed72a645" => :mojave
-    sha256 "e4724ebd7416a7ea891adbfa06af1d4f938d4fe5bcd0e5dcff31f47e0debf8f3" => :high_sierra
-    sha256 "a7e5f7d3736fd08041edafe031fc172db1a1abb943af7510594670f6acb00b68" => :sierra
+    sha256 "bce8a4978621ce0cabc64bda3542208b1e6c01536d58131b3a747865355f3977" => :catalina
+    sha256 "76dd1095c8376fe635b517055f5f82e34838f1cdf05cd8440dea071d2c8a15f0" => :mojave
+    sha256 "d77bb5858285d781ac6fd286a3c1ebca200c012fdd9631a59473099aec12936e" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -33,7 +33,7 @@ class Glib < Formula
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
-      -Diconv=native
+      -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
       -Ddtrace=false
@@ -56,11 +56,22 @@ class Glib < Formula
     # have a pkgconfig file, so we add gettext lib and include paths here.
     gettext = Formula["gettext"].opt_prefix
     inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-      s.gsub! "Libs: -lintl -L${libdir} -lglib-2.0",
+      s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
     end
+
+    # `pkg-config --print-requires-private gobject-2.0` includes libffi,
+    # but that package is keg-only so it needs to look for the pkgconfig file
+    # in libffi's opt path.
+    libffi = Formula["libffi"].opt_prefix
+    inreplace lib+"pkgconfig/gobject-2.0.pc" do |s|
+      s.gsub! "Requires.private: libffi",
+              "Requires.private: #{libffi}/lib/pkgconfig/libffi.pc"
+    end
+
+    bash_completion.install Dir["gio/completion/*"]
   end
 
   def post_install

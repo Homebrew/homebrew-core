@@ -1,20 +1,20 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.16.1/node-v8.16.1.tar.xz"
-  sha256 "d8c190acdf2d967faf49c22df883d31a8d4e249d67852dae3c2d8a0f756b0512"
+  url "https://nodejs.org/dist/v8.16.2/node-v8.16.2.tar.xz"
+  sha256 "8c16b500ad74c1b1bde099996c287eeed5a4b2ab0efdf5d94d1d683cc2654ec3"
 
   bottle do
     cellar :any
-    sha256 "08c4cc937e3df04daab65273f91c8d6bde901a91b3ae80267d2053417362acdd" => :mojave
-    sha256 "5db101e2f01b24f1c6bf49163a8e8707f02f20465f488a1512ef5929f2c54951" => :high_sierra
-    sha256 "b466c0a2ef2b7e955af959de8da61f81a8234eafc7d73b1b077c76013e01e15e" => :sierra
+    sha256 "4eb652d630d2d7ff897924e5fc0a6289b17333a09df2f5a7c86b6264208ff868" => :catalina
+    sha256 "9bf072f908fd3df263bba829bedf67c877f2dc967b5762230229d2d344d956d2" => :mojave
+    sha256 "099985ae3f5a16ac482a371d67467f875851d3645f12f0f08b524c39a45fe39a" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python@2" => :build # does not support Python 3
   depends_on "icu4c"
 
   def install

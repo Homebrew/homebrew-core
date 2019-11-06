@@ -7,6 +7,7 @@ class Sproxy < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "ee0bff8062b0d007a9b762d35af1879e8abcf7203dae265d1a70ade53047af90" => :catalina
     sha256 "2d689087925622e4f7e2c2572c2339c62a6c2b891bce7093bcd664f1a15c28d9" => :mojave
     sha256 "326b01fa9a1370c54929ae4c11d1b67b2238875eca8188365486b9c2a374264f" => :high_sierra
     sha256 "8d57317644b76b465adc5caf984f1e3cf57f9486f642705eee66128adbcf3589" => :sierra

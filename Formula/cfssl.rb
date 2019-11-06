@@ -1,15 +1,15 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/1.3.4.tar.gz"
-  sha256 "ca120300f5bf3b2f8da229d10d4b2882a87075861541608bd07cd68238cef86c"
+  url "https://github.com/cloudflare/cfssl/archive/v1.4.0.tar.gz"
+  sha256 "d8b74a162d71fff92626622962e123fd4cc693efb90b71116c1e61fa8dde41fd"
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba9571999266074d81e6bb4f217d3c45fcb94527487eeb5ace75792b7ed199ea" => :mojave
-    sha256 "38dbabe5a39ed3227794967c278ae276093129d447185649fe61367bc8f82d17" => :high_sierra
-    sha256 "910309082f62cf08117212ba3906aaad66f459b792dc0420322ad6b6e2bbe195" => :sierra
+    sha256 "5ea762e6bb069bc75f27de5f6792922a1815f7f03dca506b2e53d8e4bbf85cc1" => :catalina
+    sha256 "df8bd563a4dd4ca5db514c6db898d2253163903f5bf490cbf1ab300584222590" => :mojave
+    sha256 "e0ab7384cefb5f374308610b3f388efc4af2ce9f524ee5e79143ccbe392f9582" => :high_sierra
   end
 
   depends_on "go" => :build

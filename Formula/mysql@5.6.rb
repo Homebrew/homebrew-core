@@ -1,19 +1,20 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.43.tar.gz"
-  sha256 "1c95800bf0e1b7a19a37d37fbc5023af85c6bc0b41532433b3a886263a1673ef"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.46.tar.gz"
+  sha256 "12e1fbabf2086e6175359767ca89fa8a58f9274fcad40434aa6a56e582d65f49"
+  revision 2
 
   bottle do
-    sha256 "a1eb58101bd7a6897da03abf98c3ce9eb6c964f25871da6fa363f0118b1fd5bf" => :mojave
-    sha256 "690cd67c744f052a37b2a5a35131939a068b590f033ce32232c5bce862d7780a" => :high_sierra
-    sha256 "0ee74b3db712bd7fcceb3f62e3538f3bb12d8e31a9eb5398e3be7a9fd4000320" => :sierra
+    sha256 "a3145660591369afee1c641ddcf42826b77782547fd85e54974d894e0e23e72f" => :catalina
+    sha256 "965f73063ddf89afb3baa3ff1d8bd22636cd39011207bb748d465b9d881dca93" => :mojave
+    sha256 "b3b0ca8146a2d477c8c37b5b9f7b775ea316fbc424ae30b04f8abe95e8c1c1f1" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def datadir
     var/"mysql"
@@ -34,7 +35,7 @@ class MysqlAT56 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=system
+      -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
       -DSYSCONFDIR=#{etc}
@@ -131,23 +132,21 @@ class MysqlAT56 < Formula
   end
 
   test do
-    begin
-      # Expects datadir to be a completely clean dir, which testpath isn't.
-      dir = Dir.mktmpdir
-      system bin/"mysql_install_db", "--user=#{ENV["USER"]}",
-      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+    # Expects datadir to be a completely clean dir, which testpath isn't.
+    dir = Dir.mktmpdir
+    system bin/"mysql_install_db", "--user=#{ENV["USER"]}",
+    "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
-      pid = fork do
-        exec bin/"mysqld", "--datadir=#{dir}"
-      end
-      sleep 2
-
-      output = shell_output("curl 127.0.0.1:3306")
-      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
-      assert_match version.to_s, output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    pid = fork do
+      exec bin/"mysqld", "--datadir=#{dir}"
     end
+    sleep 2
+
+    output = shell_output("curl 127.0.0.1:3306")
+    output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+    assert_match version.to_s, output
+  ensure
+    Process.kill(9, pid)
+    Process.wait(pid)
   end
 end

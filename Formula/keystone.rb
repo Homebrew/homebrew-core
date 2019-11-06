@@ -7,6 +7,7 @@ class Keystone < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "75683abbb09ac9e29703e7ce788a86e010a53fea0437fe5c531f75efbc10a048" => :catalina
     sha256 "c914d5799915bc7c40fa1e82a407d8e40dcc583c904a3da24042b1a4abdeb5bc" => :mojave
     sha256 "bb281d9882f991ce15f0c7c421af9af9ed7f9ac1d563bc6bbe5ff7ce5352617d" => :high_sierra
     sha256 "b6cd1a7208fa16627366dfa4ba297edbf1dba6baf01a031d830b292e0e6cd019" => :sierra

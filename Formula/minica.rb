@@ -6,6 +6,7 @@ class Minica < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8e6c8aee5224159bf91d3c48e7cabdfdb1ad07dda5a08a8e46a06b3b6985fd9e" => :catalina
     sha256 "b9e770340412c61c71cee5c4428fb43bc3204615c826f3a2daabca42869cea66" => :mojave
     sha256 "52bcdc795e10b9fffd91984fc50a17c68c658f409ff545c6d94e147f2adce66a" => :high_sierra
     sha256 "de8de2c3f4a630f159186701abd9badd6d8f086fabc47984af857d809c28e822" => :sierra

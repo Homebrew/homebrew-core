@@ -1,20 +1,21 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://www.hyperscan.io/"
-  url "https://github.com/intel/hyperscan/archive/v5.1.1.tar.gz"
-  sha256 "e3bb509d4002f2d75e1804e754efa6334316d1ee110a3b85c8156c08fe5e2369"
+  url "https://github.com/intel/hyperscan/archive/v5.2.1.tar.gz"
+  sha256 "fd879e4ee5ecdd125e3a79ef040886978ae8f1203832d5a3f050c48f17eec867"
 
   bottle do
     cellar :any
-    sha256 "eb3598a0cc81779744de90bed42c6fcd4b0a00178e30addeaef875b9f512393e" => :mojave
-    sha256 "d5f4957952f9ee837b50e81cb9c58f6d8889d9df823a91ca9c9418230b7093bf" => :high_sierra
-    sha256 "c7a0dc597b4bf6c4c162c4d0ad2827a8b243d949035d9e1dd05680bce0d17d1b" => :sierra
+    sha256 "cacfe36f25b46fe2471198bc6681eb194a3fd256cde11ed83d981c2460ac8b82" => :catalina
+    sha256 "ac6af77275747fbf4b9ae3f311512c7370a8f89b34dfc7c871d4dc7807ec2e74" => :mojave
+    sha256 "3cd0c873c95437297f7a8939ada2d1f7094f63616684d548c23eb9293c1cd098" => :high_sierra
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ragel" => :build
+  depends_on "pcre"
 
   def install
     mkdir "build" do

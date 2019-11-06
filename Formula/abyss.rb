@@ -6,6 +6,7 @@ class Abyss < Formula
 
   bottle do
     cellar :any
+    sha256 "b36e77523181b9af7ad7453e32d409e070d2dc9ba40671d37da0d89ccb4f7948" => :catalina
     sha256 "c97c5da6397f990889bc108183aeba752d7dfa0d096ee1362ae5b66352ce08d6" => :mojave
     sha256 "64db8abd2422f7c484a94e3912e9fc607027d47c3491fe533bf4d77a0f30ef3a" => :high_sierra
     sha256 "fe96208a98f962f62ccd572846d817742eef39b20ee8432dd950587b5a919429" => :sierra

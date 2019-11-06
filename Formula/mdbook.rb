@@ -1,20 +1,21 @@
 class Mdbook < Formula
   desc "Create modern online books from Markdown files"
-  homepage "https://rust-lang-nursery.github.io/mdBook"
-  url "https://github.com/rust-lang-nursery/mdBook/archive/v0.3.1.tar.gz"
-  sha256 "8852c12bb80c9c4ce82eaa5edb9036b739ceb65d5cc0ad1ff48147369f3829ce"
+  homepage "https://rust-lang.github.io/mdBook/"
+  url "https://github.com/rust-lang-nursery/mdBook/archive/v0.3.4.tar.gz"
+  sha256 "5bb6671ce38957352b28a428c5bab26eff2c2fe2faf9c961ebdfb16d8f63cad6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0a2ec6304a160d958db04db5656deb0e2425ac939e351791a0b11c8365fcda2" => :mojave
-    sha256 "62dfb80f5e987cf08e10b392b3d231e521da66ed67146ac305d71522b6cc7ff7" => :high_sierra
-    sha256 "9a5389bd6221d42ed9870ebb1a207983fb1472c384e47be92b3e1ed133fcaf29" => :sierra
+    rebuild 1
+    sha256 "653a644e869dc4416eea183c203f2e85189d02835dab29aedad70268e1c8730e" => :catalina
+    sha256 "cb341f1231e146408d19ed63a6e313af57a20bac85f95c8673f19e70d8ab1e90" => :mojave
+    sha256 "f1c95b99c7a5b372da9687983d6244955abb8aeb3295c3b26d52a18a97ca1283" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

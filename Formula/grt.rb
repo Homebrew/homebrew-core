@@ -1,17 +1,14 @@
 class Grt < Formula
   desc "The Gesture Recognition Toolkit for real-time machine learning"
   homepage "https://nickgillian.com/grt/"
-  url "https://github.com/nickgillian/grt/archive/v0.0.1.tar.gz"
-  sha256 "56f90a9ffa8b2bf4e5831d39f9e1912879cf032efa667a5237b57f68800a2dda"
+  url "https://github.com/nickgillian/grt/archive/v0.2.4.tar.gz"
+  sha256 "55bcabe7a58916461dc4341758eff2a45bd5b236c263dfe6e58c176c1a7e1ac4"
 
   bottle do
     cellar :any
-    sha256 "8bb7de01e59559f64a3727cd1a7a693c980fe2dba67bd11fbd685a66a02b96d4" => :mojave
-    sha256 "150d3e7148af480198401bf4e7763fc296a81f81748efe8247f3b603087d7bca" => :high_sierra
-    sha256 "8c31e85370522a4db436657f0f5501f0fd20befc31b969a0c0db6c33ed12aed7" => :sierra
-    sha256 "f48b42fd6f856239fb1f004a700aec5a85c129dc0a4a2b5955ce6a9a9721b231" => :el_capitan
-    sha256 "aa26978c7029c36ab7d20a0e092968132e96255087f4155a1739db6dfcb9c170" => :yosemite
-    sha256 "a3170758b555fe767a6c9b75940cdd3b22fe17740c7902bc4058ab7bd01d575f" => :mavericks
+    sha256 "35705ad1d151228e4e8c647cf16fc5b7578b4b777c54e94ebbcc8e19d26bd1f5" => :catalina
+    sha256 "830332fffbe52f7eb282eca343977fa27e4ae4978bc9f409df264cba5f37e38c" => :mojave
+    sha256 "d5a55b3a6b4ca75d3ef37ba47f43ed033215e0d9b5f5a26f738e484f3e428667" => :high_sierra
   end
 
   depends_on "cmake" => :build

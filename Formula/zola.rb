@@ -1,21 +1,22 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.8.0.tar.gz"
-  sha256 "c16909fc20ad3e2f922beb270b2350928669149ba2e958de72558f96620a9624"
+  url "https://github.com/getzola/zola/archive/v0.9.0.tar.gz"
+  sha256 "8d226ec764f2bc06de8e49e2e22ccf37811bc478bbcaa83c2c841b222ef4fc4e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d3a24de59191ce4b88524939a4c9b6010f2421d4c9e4fa4d6872adb6ec47d29f" => :mojave
-    sha256 "e3f5eea15eac1b2850a3841afdd45419a5befe99684bcaad36c90abbd6d0a3e7" => :high_sierra
-    sha256 "8b1034cc9fa42dca6e4c892f283a092150097562a949254e7247c0ff98a0bf1e" => :sierra
+    sha256 "2dfac53b9f826f22f9ffae18c8799b70ee60c82f05e4b8ed68cd8027a59dbc74" => :catalina
+    sha256 "d4410cc94d0f7d2538118a72c81612db8894dded17b8919a8613042eb1154884" => :mojave
+    sha256 "598fc17bbf51800f18671664acee37ecff19ab25f7ea89dd46366ba200f232e1" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     bash_completion.install "completions/zola.bash"
     zsh_completion.install "completions/_zola"

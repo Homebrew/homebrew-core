@@ -3,33 +3,43 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/release-3.2/s3ql-3.2.tar.bz2"
-  sha256 "07e93368a52e96a93e1fdc4a66d1a0d845f8808f6d8fbb4aab14e1c824ce67c6"
+  url "https://github.com/s3ql/s3ql/releases/download/release-3.3.2/s3ql-3.3.2.tar.bz2"
+  sha256 "72b310052752e281a17468a8bbe9006db7fa1f0184b83b38c5667239dfd59e73"
 
   bottle do
     cellar :any
-    sha256 "f158d1f719d9938f809f02bb75d6142234018cf68bad96f70803829188eceb48" => :mojave
-    sha256 "2b898a41cadd099417bacb68c8a83f17ace3011c36f9aa02276616b06db083c4" => :high_sierra
-    sha256 "7f34e24972bedafa368ec0fab96ac01c16bc80a0390f593c86561d854039ffd1" => :sierra
+    sha256 "150b046b61b159e53e9ea75a4caf8aa57d5fd1126ae979623b2d3bba2a4f65c6" => :catalina
+    sha256 "51ebd5ffe836cc037af238835ea5cc645efc9b0f66573bae6a03bfa28c51b072" => :mojave
+    sha256 "d319dda1e0f2a731c4eda35767d72648f3e49ac841eb79d864a9d6361def747c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on :osxfuse
   depends_on "python"
 
+  resource "apsw" do
+    url "https://files.pythonhosted.org/packages/b5/a1/3de5a2d35fc34939672f4e1bd7d68cca359a31b76926f00d95f434c63aaa/apsw-3.9.2-r1.tar.gz"
+    sha256 "dab96fd164dde9e59f7f27228291498217fa0e74048e2c08c7059d7e39589270"
+  end
+
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
+  end
+
+  resource "cachetools" do
+    url "https://files.pythonhosted.org/packages/ae/37/7fd45996b19200e0cb2027a0b6bef4636951c4ea111bfad36c71287247f6/cachetools-3.1.1.tar.gz"
+    sha256 "8ea2d3ce97850f31e4a08b0e2b5e6c34997d7216a9d2c98e0f3978630d4da69a"
+  end
+
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
-  end
-
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
+    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
   end
 
   resource "chardet" do
@@ -38,28 +48,8 @@ class S3ql < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/c2/95/f43d02315f4ec074219c6e3124a87eba1d2d12196c2767fadfdc07a83884/cryptography-2.7.tar.gz"
-    sha256 "e6347742ac8f35ded4a46ff835c60e68c22a536a8ae5c4422966d06946b6d4c6"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
-  end
-
-  resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/be/60/da377e1bed002716fb2d5d1d1cab720f298cb33ecff7bf7adea72788e4e4/cryptography-2.8.tar.gz"
+    sha256 "3cda1f0ed8747339bbdf71b9f38ca74c7b592f24f65cdb3ab3765e4b02871651"
   end
 
   resource "defusedxml" do
@@ -67,19 +57,24 @@ class S3ql < Formula
     sha256 "f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5"
   end
 
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
-  end
-
-  resource "apsw" do
-    url "https://files.pythonhosted.org/packages/b5/a1/3de5a2d35fc34939672f4e1bd7d68cca359a31b76926f00d95f434c63aaa/apsw-3.9.2-r1.tar.gz"
-    sha256 "dab96fd164dde9e59f7f27228291498217fa0e74048e2c08c7059d7e39589270"
-  end
-
   resource "dugong" do
     url "https://files.pythonhosted.org/packages/db/68/74767cc13b9e7cfa9705fc9cf3b272e55350de8cd4a73c98508a95d9a52c/dugong-3.7.5.tar.bz2"
     sha256 "d0d07606282230fd9832f2de647e4cb46882c227883e6a12a8ff811ac46d7283"
+  end
+
+  resource "google-auth" do
+    url "https://files.pythonhosted.org/packages/6f/c2/a35495112e0e29f01d5c0f204980166b53d6d744a87a940e2717590cff83/google-auth-1.7.0.tar.gz"
+    sha256 "8b67e34a07055b9785948ff9d3e044f93be9019f4f69711b04450087ae150817"
+  end
+
+  resource "google-auth-oauthlib" do
+    url "https://files.pythonhosted.org/packages/cd/5a/2b5a4c1294a4e8903bdba122083bd505dc51688a95d4670cde89dc45e6ed/google-auth-oauthlib-0.4.1.tar.gz"
+    sha256 "88d2cd115e3391eb85e1243ac6902e76e77c5fe438b7276b297fbe68015458dd"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
+    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
   end
 
   resource "llfuse" do
@@ -88,13 +83,28 @@ class S3ql < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/6a/cf/f1a44998f36c62a7a9e51145101428299be27b1e3a411adfd6fd87589889/oauthlib-3.0.2.tar.gz"
-    sha256 "b4d99ae8ccfb7d33ba9591b59355c64eef5241534aa3da2e4c0435346b84bc8e"
+    url "https://files.pythonhosted.org/packages/fc/c7/829c73c64d3749da7811c06319458e47f3461944da9d98bb4df1cb1598c2/oauthlib-3.1.0.tar.gz"
+    sha256 "bee41cc35fcca6e988463cacc3bcb8a96224f470ca547e697b604cc697b2f889"
   end
 
-  resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/ae/37/7fd45996b19200e0cb2027a0b6bef4636951c4ea111bfad36c71287247f6/cachetools-3.1.1.tar.gz"
-    sha256 "8ea2d3ce97850f31e4a08b0e2b5e6c34997d7216a9d2c98e0f3978630d4da69a"
+  resource "pyasn1" do
+    url "https://files.pythonhosted.org/packages/ca/f8/2a60a2c88a97558bdd289b6dc9eb75b00bd90ff34155d681ba6dbbcb46b2/pyasn1-0.4.7.tar.gz"
+    sha256 "a9495356ca1d66ed197a0f72b41eb1823cf7ea8b5bd07191673e8147aecf8604"
+  end
+
+  resource "pyasn1-modules" do
+    url "https://files.pythonhosted.org/packages/75/93/c51104ea6a74252957c341ccd110b65efecc18edfd386b666637d67d4d10/pyasn1-modules-0.2.7.tar.gz"
+    sha256 "0c35a52e00b672f832e5846826f1fb7507907f7d52fba6faa9e3c4cbe874fe4b"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+  end
+
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
+    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
   resource "requests-oauthlib" do
@@ -107,24 +117,14 @@ class S3ql < Formula
     sha256 "1a836406405730121ae9823e19c6e806c62bbad73f890574fff50efa4122c487"
   end
 
-  resource "pyasn1-modules" do
-    url "https://files.pythonhosted.org/packages/ec/0b/69620cb04a016e4a1e8e352e8a42717862129b574b3479adb2358a1f12f7/pyasn1-modules-0.2.5.tar.gz"
-    sha256 "ef721f68f7951fab9b0404d42590f479e30d9005daccb1699b0a51bb4177db96"
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/46/60/b7e32f6ff481b8a1f6c8f02b0fd9b693d1c92ddd2efb038ec050d99a7245/pyasn1-0.4.5.tar.gz"
-    sha256 "da2420fe13a9452d8ae97a0e478adde1dee153b11ba832a95b223a2ba01c10f7"
-  end
-
-  resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/ef/77/eb1d3288dbe2ba6f4fe50b9bb41770bac514cd2eb91466b56d44a99e2f8d/google-auth-1.6.3.tar.gz"
-    sha256 "0f7c6a64927d34c1a474da92cfc59e552a5d3b940d3266606c6a28b72888b9e4"
-  end
-
-  resource "google-auth-oauthlib" do
-    url "https://files.pythonhosted.org/packages/1b/81/ab7bd0a5286277b37e25da5577a4c8d0085ebbe82784e4f08c4d6ac767ee/google-auth-oauthlib-0.4.0.tar.gz"
-    sha256 "6a8b0072048940d1f41c23c03576867e577e826fec140a1c7e148ec486e083ba"
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
+    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
   end
 
   def install
@@ -134,7 +134,7 @@ class S3ql < Formula
     end
 
     # The inreplace changes the name of the (fsck|mkfs|mount|umount).s3ql
-    # utilities to use underscore (_) as a seperator, which is consistent
+    # utilities to use underscore (_) as a separator, which is consistent
     # with other tools on macOS.
     # Final names: fsck_s3ql, mkfs_s3ql, mount_s3ql, umount_s3ql
     inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="

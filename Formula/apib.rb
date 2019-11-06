@@ -3,36 +3,35 @@ class Apib < Formula
   homepage "https://github.com/apigee/apib"
   url "https://github.com/apigee/apib/archive/APIB_1_0.tar.gz"
   sha256 "1592e55c01f2f9bc8085b39f09c49cd7b786b6fb6d02441ca665eef262e7b87e"
-  revision 1
+  revision 3
   head "https://github.com/apigee/apib.git"
 
   bottle do
     cellar :any
-    sha256 "6ebf28013ff33494c45a67b4e66abf15549a90cac60fc8bb0f8720ebf1387623" => :mojave
-    sha256 "3ceaeadbdbd7c70211b7774ab76cff8e4d5176d4f04e4f1984043ec16002c4ec" => :high_sierra
-    sha256 "f0443f15ef97284cefe199c11f7cbb14d6b41e48c5d13d6a372e9d47c1410573" => :sierra
-    sha256 "cc30447ff51239eb2334d85b2f3faf0842b21ff882d8a4edb2e99155cb1dab76" => :el_capitan
-    sha256 "9cd200dbdb251c5d50e7fa2307a6252aa295a4a7ac0e594d0774ad1d2631215c" => :yosemite
-    sha256 "b14202356551d0b33446c99d38c4ed0f1d4893aa8e203fd04b6923db18ff40c1" => :mavericks
+    sha256 "89a8653925243569be382dc7a7816a836e020973e627ba0a0b3926e3de0ba684" => :catalina
+    sha256 "ca59f86634b3b9282496f95b432aa9e0c9924eb189c1ec2965d427edac8bab4e" => :mojave
+    sha256 "f2adc68de1b28e305ad7530ec097425bcf75beb70d6dd820f025cabcbeb54585" => :high_sierra
+    sha256 "bbe9bc25a8584f163347662675d78b69cdfaac495be5f2fa026dfca112f8d4a4" => :sierra
   end
 
   depends_on "apr"
-  depends_on "openssl"
+  depends_on "apr-util"
+  depends_on "openssl@1.1"
 
   def install
-    # Upstream hardcodes finding apr in /usr/include. When CLT is not present
-    # we need to fix this so our apr requirement works.
+    # Fix detection of libcrypto for OpenSSL 1.1
+    inreplace "configure", "CRYPTO_num_locks", "EVP_sha1"
+
+    # Upstream hardcodes finding apr in /usr/include
     # https://github.com/apigee/apib/issues/11
-    unless MacOS::CLT.installed?
-      inreplace "configure" do |s|
-        s.gsub! "/usr/include/apr-1.0", "#{Formula["apr"].opt_libexec}/include/apr-1"
-        s.gsub! "/usr/include/apr-1", "#{Formula["apr"].opt_libexec}/include/apr-1"
-      end
-      ENV.append "LDFLAGS", "-L#{Formula["apr-util"].opt_libexec}/lib"
-      ENV.append "LDFLAGS", "-L#{Formula["apr"].opt_libexec}/lib"
-      ENV.append "CFLAGS", "-I#{Formula["apr"].opt_libexec}/include/apr-1"
-      ENV.append "CFLAGS", "-I#{Formula["apr-util"].opt_libexec}/include/apr-1"
+    inreplace "configure" do |s|
+      s.gsub! "/usr/include/apr-1.0", "#{Formula["apr"].opt_libexec}/include/apr-1"
+      s.gsub! "/usr/include/apr-1", "#{Formula["apr"].opt_libexec}/include/apr-1"
     end
+    ENV.append "LDFLAGS", "-L#{Formula["apr-util"].opt_libexec}/lib"
+    ENV.append "LDFLAGS", "-L#{Formula["apr"].opt_libexec}/lib"
+    ENV.append "CFLAGS", "-I#{Formula["apr"].opt_libexec}/include/apr-1"
+    ENV.append "CFLAGS", "-I#{Formula["apr-util"].opt_libexec}/include/apr-1"
 
     system "./configure", "--prefix=#{prefix}"
     system "make"

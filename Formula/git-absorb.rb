@@ -6,15 +6,16 @@ class GitAbsorb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4a8e3e6fa101306c8d99bf95634a7fbe08fcb80d46742161b972e9f5ab1031b5" => :mojave
-    sha256 "6723320cdbcef35818dc58ce6e0fcd3be87606ae59fc355d9179e5690bc90540" => :high_sierra
-    sha256 "d51c5da6ae0c17b416d0fb2bf1f043c7d0e3cb8535a47dc0afea56ef96a50f1f" => :sierra
+    rebuild 1
+    sha256 "a4c692c6a939cb32c74a9a0d307a6c7b724ba6119893261b0b8d0805d1ac18c8" => :catalina
+    sha256 "d09dccdcb396edabf3238f73b92f5f9f389c91cfd7cd1a45702984db67229b69" => :mojave
+    sha256 "ba2a3614b72b498ed571d8cccbe9ecdfd6874a960eb0d4b466d3086fa4c10142" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

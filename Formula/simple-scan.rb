@@ -1,13 +1,13 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/3.32/simple-scan-3.32.2.1.tar.xz"
-  sha256 "d7f7f93a93bb302aebc80bd44edb8d4c22ec774aa12d52756b5034bd04310b77"
+  url "https://download.gnome.org/sources/simple-scan/3.34/simple-scan-3.34.1.tar.xz"
+  sha256 "d827fec3383a565724136b6fda543a94c8f8f161782ac6edf9e91ed6fad49f3e"
 
   bottle do
-    sha256 "261285338c73398642a3ff587d2b961799c493a79bba377a605550faffdc364e" => :mojave
-    sha256 "bc9bc91f2693a621a9fed3c8a9df0015829c573fb39bca1a2b157d359732909f" => :high_sierra
-    sha256 "0cfa5ed41747987feba5703f5cce94ce6926d3bca7fe005294ab07caffcb3ede" => :sierra
+    sha256 "cdc5762ccf853b05ee2e6137fc7659a9f39b07d6bc2928a3fc475451300ce6f3" => :catalina
+    sha256 "2c0c7c6b55375fbc5991696a488c5f6e8e91a8142edc3889d91feb0f5679bb95" => :mojave
+    sha256 "4f504978ec76795f48cbaa7872235e31e60e8b0d17064c8f7322c5249205911f" => :high_sierra
   end
 
   depends_on "itstool" => :build

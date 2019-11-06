@@ -1,13 +1,15 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
-  url "https://www.freetds.org/files/stable/freetds-1.1.11.tar.gz"
-  sha256 "0f9d2f56f5603585e600ed6a0b48e99a9753747717a0230301c201ee41e5fb37"
+  url "https://www.freetds.org/files/stable/freetds-1.1.15.tar.gz"
+  sha256 "ebeb9060bcfe54f13ab0fbf8cb72ac95cc6cefbe728a30247516d55334d66a03"
+  revision 1
 
   bottle do
-    sha256 "1a3be639e4b71bd17f51b41b26fbe553b4f41424f313ea24c3ebb844b6980f6c" => :mojave
-    sha256 "d57f34d7c05afd47c56e2d81ca71b45cba9a5d81a58bcc0ed7e379d986f50a4f" => :high_sierra
-    sha256 "f5e55a33e67db0387f2e88e7899e16db687b3f6c22d93da1e77e2d0e333ac2c1" => :sierra
+    sha256 "ca2629c55d6d380a36ab7a05e49e79d2e5299f2cb7d9b98ee029b0e57d1b0d3f" => :catalina
+    sha256 "a0753a85a5b04ecde98ff9ed9a02cc2ae9c3d4dc20a697239288743e61429a6f" => :mojave
+    sha256 "aa66ed44901cd2c3685691de001d2bd18a123934602c08c99750c6dce379eb38" => :high_sierra
+    sha256 "a2e9e4956517f29a2dee0f5902dac9463c6eb12da23c8d7d57a024f27ffea4b1" => :sierra
   end
 
   head do
@@ -20,7 +22,7 @@ class Freetds < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "unixodbc"
   uses_from_macos "readline"
 
@@ -31,7 +33,7 @@ class Freetds < Formula
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide

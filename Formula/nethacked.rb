@@ -25,6 +25,7 @@ class Nethacked < Formula
   sha256 "4e3065a7b652d5fc21577e0b7ac3a60513cd30f4ee81c7f11431a71185b609aa"
 
   bottle do
+    sha256 "619034420b0ce7a657824a14c45af647132ac8263839b9a56fc0b64ff100aa64" => :catalina
     sha256 "77cec385d3ab1ba8c9d4ef1234d25a42a7aff77c9db2158fad7820f677a67cc0" => :mojave
     sha256 "4fe2af842c20dc95f4ae5bebcffed0b85da6a94a548b0d5f8115d1829c80e3cc" => :high_sierra
     sha256 "d2c880eb02b32bc6a976b16502f400a94b395375b5cd59e731fb209580e3ceee" => :sierra

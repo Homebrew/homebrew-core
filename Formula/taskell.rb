@@ -5,14 +5,14 @@ class Taskell < Formula
 
   desc "Command-line Kanban board/task manager with support for Trello"
   homepage "https://taskell.app"
-  url "https://github.com/smallhadroncollider/taskell/archive/1.6.0.tar.gz"
-  sha256 "5033252318bfb3b81a090b3a6063b19eb03d896c4425a2923a5af7d2b19306ad"
+  url "https://github.com/smallhadroncollider/taskell/archive/1.6.1.tar.gz"
+  sha256 "66f4b80c5f5a79f7f796bac7f24834879f30492dcf420041ea4f005bedf656d3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4435d430a03be5fb76b1b1c02e461351525fb339b431a08c1dfc49817a76998" => :mojave
-    sha256 "c8ccaf3b6230c5bf4940a9d34aad61623b94276791374799e8ed271266227610" => :high_sierra
-    sha256 "00b0a4d4a69a0816dad8012954c617dfcb70fe340d2a40f5af8e075eef88e8ae" => :sierra
+    sha256 "baa3bdfa34942bc24d117265911acf485b2653d30419fd7b92e86eecf72e5d3d" => :mojave
+    sha256 "5cefc442114d0e3f7bd06eb84285c6f61c5c6730b346eb80c02d72d21e552e5a" => :high_sierra
+    sha256 "94210ead7c255058a381a46fee0bd06166737173e208b0ced933849950d4589e" => :sierra
   end
 
   depends_on "cabal-install" => :build

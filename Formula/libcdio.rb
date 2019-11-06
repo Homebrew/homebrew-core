@@ -7,6 +7,7 @@ class Libcdio < Formula
 
   bottle do
     cellar :any
+    sha256 "3ec17ce98e129db74cb883941e429286b9ab762c740dcb6ee8c7ff077d6e3304" => :catalina
     sha256 "55014a60373e44384aa7f797c613ccd5289c55d759c3521b7e5d6819ff54b2ac" => :mojave
     sha256 "32604fb219cc4e59e5eb1e0937b320edfacf31d97f04b9a5fbfcd4354a6a56d0" => :high_sierra
     sha256 "61095f7c4888b1c0e022ec9eb314fe389feae1eb030d65e7d91512515528e439" => :sierra

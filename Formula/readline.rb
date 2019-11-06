@@ -3,15 +3,25 @@ class Readline < Formula
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
   url "https://ftp.gnu.org/gnu/readline/readline-8.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
-  version "8.0.0"
+  version "8.0.1"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
-  revision 1
+
+  %w[
+    001 d8e5e98933cf5756f862243c0601cb69d3667bb33f2c7b751fe4e40b2c3fd069
+  ].each_slice(2) do |p, checksum|
+    patch :p0 do
+      url "https://ftp.gnu.org/gnu/readline/readline-8.0-patches/readline80-#{p}"
+      mirror "https://ftpmirror.gnu.org/readline/readline-8.0-patches/readline80-#{p}"
+      sha256 checksum
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "faab004773e6449dd97971311cb62a9bbaa44f1483b82640e818f0c355c8266d" => :mojave
-    sha256 "7a45c1ed8488b6832f067adffaab328d643090d118f722f59ce4651731e10f1c" => :high_sierra
-    sha256 "84edf47dae849438e675ef98910e08b3176de9e2abbad83e50e88d4111c6557e" => :sierra
+    sha256 "ab3c966f4cae7d0f3ecc5688bb989820c3261f5ed547a08c84186ba7f53bdd9c" => :catalina
+    sha256 "3c754391e9d243835811d128771ca0f1a565024100fd2c2871534353d46aaf0e" => :mojave
+    sha256 "ae341a036139a92a47396aabc773ffcf40a17fc388aaadf0147f688c72ece987" => :high_sierra
+    sha256 "f234d1ff8148bf08b0ac31e661f2e96b5c6e64df26a45d2392056c9077f964af" => :sierra
   end
 
   keg_only :shadowed_by_macos, <<~EOS

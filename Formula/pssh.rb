@@ -1,4 +1,5 @@
 class Pssh < Formula
+  include Language::Python::Virtualenv
   desc "Parallel versions of OpenSSH and related tools"
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
@@ -6,25 +7,30 @@ class Pssh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c1fd4fa8d8ecf0d14653822cba442d183a8a2d79b016ecab5c54e565c6972ed2" => :mojave
-    sha256 "ce781e0051a5a1855088a25df9eeb828b7a4bbbdafff90b2713c557acba2b19d" => :high_sierra
-    sha256 "b4a9f92943bcfb34d5230d90658176ef5fe3a304f3abe48a1aad5fbda38c8efb" => :sierra
-    sha256 "b13dcf5091ba493f21cd44c9ef43d028a4e23627b7b855ab4d299f0d543037a1" => :el_capitan
-    sha256 "16f3c0b42cd3bfabea6a22a39b62299de53e1fb894b72da0c12574f25a09963a" => :yosemite
-    sha256 "62595390d018a9a953928cf6adf8e9299b92f00c3846d74757a18437abbc5f27" => :mavericks
+    rebuild 2
+    sha256 "8f48ad9c3d6c59d77e50a85a940e9698482018140475035b274eee45567d5474" => :catalina
+    sha256 "fd5a9e13b00695332f468814d5bf2c823713cb7f91f423395996f5f65354f8d6" => :mojave
+    sha256 "73f994d5f4b9e8df301351b552108cdc2cf5a99c2899c8f5c929c9111b69187c" => :high_sierra
   end
 
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   conflicts_with "putty", :because => "both install `pscp` binaries"
 
+  # Fix for Python 3 compatibility
+  # https://bugs.archlinux.org/task/46571
+  patch do
+    url "https://github.com/nplanel/parallel-ssh/commit/ee379dc5.diff?full_index=1"
+    sha256 "467df6024d180ea41a7e453b2d4485ef2be2a911410d8845df1b9e6b6dc301ae"
+  end
+
   def install
-    ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
+    # Fixes import error with python3, see https://github.com/lilydjwg/pssh/issues/70
+    # fixed in master, should be removed for versions > 2.3.1
+    inreplace "psshlib/cli.py", "import version", "from psshlib import version"
 
-    system "python", "setup.py", "install", "--prefix=#{prefix}",
-                                 "--install-data=#{share}"
-
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do

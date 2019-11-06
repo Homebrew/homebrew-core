@@ -6,6 +6,7 @@ class Torrentcheck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b8100aac4cf74924411b389b8e2c45656d621e8ef3281b21e761188859a36f2e" => :catalina
     sha256 "68fe4afd56987956e760e7dc7cac8db8677dd9c4aee2b844435fbc90e0da039a" => :mojave
     sha256 "7d214899822d24fabad867f67d8062bb689a74e8f7975ea2209bf69aca342abe" => :high_sierra
     sha256 "c1169f112306b1f235297cba2c8920894e063b9b1f774e36be75f3f2c194bda5" => :sierra

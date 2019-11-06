@@ -7,6 +7,7 @@ class Astyle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8bffda383a58eb65c458e00a9cc7dcb3b852a1b5e89a830df7e6eeb594a92f3c" => :catalina
     sha256 "65a2f71d86cbc112f12729a0845f47f718cb2751e2e1ccdd78c6c4fc4ad6e817" => :mojave
     sha256 "a58fdf5320a691b37337973e0ca43d2e69f42adbc96d6ab160066c3574373047" => :high_sierra
     sha256 "7a3ff647da72399ee8aa05f1c55806b3bc273409e4a7b2ab0f68930227a47b5f" => :sierra

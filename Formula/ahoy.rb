@@ -6,6 +6,7 @@ class Ahoy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fb8e03826f9109edc8bb5b1e0c7c9d8054d76e364bca13e0afdf7a23b022a817" => :catalina
     sha256 "eabaf2c0faa64d878f3fd552823b9d5103e0755ba5f3120628e605964fc93257" => :mojave
     sha256 "93db889b646270f7a92d32f649c9e256e4e90cfa006a04c614334f28557ce7ca" => :high_sierra
     sha256 "5743854a4e6553adb3318a2facfd941bcf4d95a7ab3c2399400c7818c6e19c6f" => :sierra

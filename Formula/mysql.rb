@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.17.tar.gz"
-  sha256 "d44231316ce30a1d1189125ceed86d3388409778e17d0e3b9a060f532463e29a"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
+  sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
 
   bottle do
-    sha256 "10cf5cf9a3d69d003df6d3e199077c86355a23bfbcec4a78c228a665bf138e02" => :mojave
-    sha256 "5dba41b81a061cd6bcf957098c1b56dc17c5d05722ddd0f67b60a9658fb2ec87" => :high_sierra
-    sha256 "6118beb2342ec03ade285293a78fcdec5829d1527a09cc01bd0f043c999603f1" => :sierra
+    sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
+    sha256 "0bddb035ea8098a4eb0a9d76afae97a077f517bdb0592a4edae828a566470236" => :mojave
+    sha256 "85a4e9fedd5fa606eff74a72d0e8b9f2ce4dcbd7976e42deb6611eccc1db24ef" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,9 +20,9 @@ class Mysql < Formula
   # Note: MySQL themselves don't support anything below Sierra.
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
+  conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"
@@ -91,6 +91,7 @@ class Mysql < Formula
       [mysqld]
       # Only allow connections from localhost
       bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
     EOS
     etc.install "my.cnf"
   end
@@ -151,23 +152,21 @@ class Mysql < Formula
   end
 
   test do
-    begin
-      # Expects datadir to be a completely clean dir, which testpath isn't.
-      dir = Dir.mktmpdir
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+    # Expects datadir to be a completely clean dir, which testpath isn't.
+    dir = Dir.mktmpdir
+    system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+    "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
-      pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
-      end
-      sleep 2
-
-      output = shell_output("curl 127.0.0.1:3306")
-      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
-      assert_match version.to_s, output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    pid = fork do
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
     end
+    sleep 2
+
+    output = shell_output("curl 127.0.0.1:3306")
+    output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+    assert_match version.to_s, output
+  ensure
+    Process.kill(9, pid)
+    Process.wait(pid)
   end
 end

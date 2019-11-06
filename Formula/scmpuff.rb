@@ -6,6 +6,7 @@ class Scmpuff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3e191a0aa602fb00cd35bc729261b2b377472b7f8add3d56263680d11ac7183b" => :catalina
     sha256 "304cb27623cc21878468793b8b8375a8a89f4f050cda665d301ecc025690e712" => :mojave
     sha256 "604d1805e793cbf6e0b07e030389a0275ccc98db832ff7564522496302e04985" => :high_sierra
     sha256 "15a2fd8febc6ac36cb3429979fd5c8f88f230ae6276c073a0eedc5ac7e7abf69" => :sierra

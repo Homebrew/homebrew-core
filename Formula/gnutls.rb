@@ -1,14 +1,14 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz"
-  sha256 "4331fca55817ecdd74450b908a6c29b4f05bb24dd13144c6284aa34d872e1fcb"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz"
+  sha256 "b1f3ca67673b05b746a961acf2243eaae0ffe658b6a6494265c648e7c7812293"
 
   bottle do
-    sha256 "919a4cbaf5a160dbbe94811b6cc399b91986e4d13ce69d107b812265a0156dff" => :mojave
-    sha256 "6f8bc3a47210b4c86fbbca4a445c311786e7fb31e4cd5c81d9a6654927016b1a" => :high_sierra
-    sha256 "d13c3930d861d58d936c9c5e0d6d99dac16e23bc2dd125cf0e092aa683332754" => :sierra
+    sha256 "89d7940566541751bad9e2a553d8a739e2b39c905986e47bebab4a46c740f6e4" => :catalina
+    sha256 "28482998c647f8def5e6b0311dd80ea030ab6c49145f39cde573da49beed8b63" => :mojave
+    sha256 "cf5dd54bf707bb65e8782564fb4c11ea38c4d0c0750586d679f5e53c7f742128" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -22,17 +22,6 @@ class Gnutls < Formula
   depends_on "p11-kit"
   depends_on "unbound"
 
-  # Patch for build error on Sierra:
-  #   Undefined symbols for architecture x86_64:
-  #     "___get_cpuid_count", referenced from:
-  #     _register_x86_crypto in libaccelerated.a(x86-common.o)
-  #
-  # This patch has been merged upstream and this issue should be fixed in the 3.6.10 release.
-  patch do
-    url "https://gitlab.com/gnutls/gnutls/commit/ef80617d1e17e0878a909baad62a75ba265c0e00.patch"
-    sha256 "3b1634fa348c0f0064e43f3fb673e30a5e46f2b51cd6cd0d4a0cbf326e71c90e"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -45,6 +34,9 @@ class Gnutls < Formula
       --disable-heartbeat-support
       --with-p11-kit
     ]
+
+    # Work around a gnulib issue with macOS Catalina
+    args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
     system "make", "install"

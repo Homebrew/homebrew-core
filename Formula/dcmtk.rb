@@ -1,20 +1,20 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "https://dicom.offis.de/dcmtk.php.en"
-  url "https://dicom.offis.de/download/dcmtk/dcmtk364/dcmtk-3.6.4.tar.gz"
-  sha256 "a93ff354fae091689a0740a1000cde7d4378fdf733aef9287a70d7091efa42c0"
+  url "https://dicom.offis.de/download/dcmtk/dcmtk365/dcmtk-3.6.5.tar.gz"
+  sha256 "a05178665f21896dbb0974106dba1ad144975414abd760b4cf8f5cc979f9beb9"
   head "https://git.dcmtk.org/dcmtk.git"
 
   bottle do
-    sha256 "46d767ca45268ce74114db9d9593e28acd17ac31ffb055c00653702f11795102" => :mojave
-    sha256 "322ad228d11c068ddab0ce532106aeddfbebd6019c433a918d3ee90eb53d7bee" => :high_sierra
-    sha256 "09ed452dbde3f7eae5233d475a1bbf07824505773729dcc55f6f00b90378d8fd" => :sierra
+    sha256 "5b49e8b8d34cd1472f5091fc4d6e4b4a05133ac3cd85f6f428aef6c1013234b0" => :catalina
+    sha256 "3d149b4aa7f6d76df7ddda09d845c4c43a0aa0617800b9ea25602183e213f5b0" => :mojave
+    sha256 "70ba2b42c6a522f2da68ac47834f240db316afd12b388edb4bc7c1f586a18f2c" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "libxml2"
 
   def install

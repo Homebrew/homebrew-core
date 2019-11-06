@@ -6,6 +6,7 @@ class Libgraphqlparser < Formula
 
   bottle do
     cellar :any
+    sha256 "d6eca9eeb1f1ab04d3931bc07bafc55010923381be523f20334d6340a3971e45" => :catalina
     sha256 "aac2103ad45e4cf7f45ba61e728a7be244a4f8982cd89082015a59ac9a011a7a" => :mojave
     sha256 "cffca81b24fb0914f2904592156f6ac7d6971807b81d72234cb0218fc7481cde" => :high_sierra
     sha256 "15805dc7067558d8af112caa85ebcb777122640d41cc1b7998e070ebdeafd62d" => :sierra

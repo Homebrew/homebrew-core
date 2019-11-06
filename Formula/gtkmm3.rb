@@ -1,16 +1,14 @@
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz"
-  sha256 "ddfe42ed2458a20a34de252854bcf4b52d3f0c671c045f56b42aa27c7542d2fd"
-  revision 1
+  url "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.2.tar.xz"
+  sha256 "6d71091bcd1863133460d4188d04102810e9123de19706fb656b7bb915b4adc3"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "409f78d7839955440528daa58d4468745ed82ecfb14b5a6e03aeabe3855fdf37" => :mojave
-    sha256 "9e352e1867a3e138341d8079f7e291d78f17078bc2c577d0e46f0dd86083f9c7" => :high_sierra
-    sha256 "a27610e8384cb69e401e582934b63810c4aef60940e689a27fbc7c3652ef26d8" => :sierra
+    sha256 "d35be6a3fa037d282f4b69a2c4ccf7f23a37a8474b630d1b01ed6862786e2a3f" => :catalina
+    sha256 "72650a88c5365ac34924eb731abd08396bbf4a4618d160c272b5f6b26b0b629e" => :mojave
+    sha256 "de16db648405af1cc6f236026437a928a0f3d238c41317106d878ea5fa52bad4" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -49,7 +47,7 @@ class Gtkmm3 < Formula
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
     pangomm = Formula["pangomm"]
     pixman = Formula["pixman"]

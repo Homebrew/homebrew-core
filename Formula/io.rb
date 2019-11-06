@@ -1,16 +1,15 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
-  url "https://github.com/stevedekorte/io/archive/2017.09.06.tar.gz"
+  url "https://github.com/IoLanguage/io/archive/2017.09.06.tar.gz"
   sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
-  head "https://github.com/stevedekorte/io.git"
+  revision 1
+  head "https://github.com/IoLanguage/io.git"
 
   bottle do
-    sha256 "9e628fa0879d7d2e370ae5275393d1d52b578f6f10d3f005faf9d0360caf8851" => :mojave
-    sha256 "686d5d23790b53c27765d49da0a74ec96ee949353b31646a0a92ee931270a23d" => :high_sierra
-    sha256 "2d0e05344917ad3a1d322f2860030013315ceb7e8ae962cf6070d1ee8cc395d4" => :sierra
-    sha256 "3a5a0e9a1ec0ce7f4bc6bcfc5fb8c782f0b1ba0451251aaab51a796452b59e67" => :el_capitan
-    sha256 "16d31a7062e2c7ebab815bcd48b03aab9597a6c40071cb407e2bc6dec91fef0b" => :yosemite
+    sha256 "c4c862d20a8e4ddb1e6e588414a9e23ae2a17baa490e3beb621614aca7a8ca87" => :catalina
+    sha256 "48c37d6f30d8b01d391e7f4ef777b5087425d89a9df0077414769a59333db420" => :mojave
+    sha256 "a061482b97c1ada8eea9d658f13fe0cfbfa223d97762b51611c4cab2de4c0273" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,9 +22,11 @@ class Io < Formula
     # FSF GCC needs this to build the ObjC bridge
     ENV.append_to_cflags "-fobjc-exceptions"
 
-    # Turn off all add-ons in main cmake file
-    inreplace "CMakeLists.txt", "add_subdirectory(addons)",
-                                "#add_subdirectory(addons)"
+    unless build.head?
+      # Turn off all add-ons in main cmake file
+      inreplace "CMakeLists.txt", "add_subdirectory(addons)",
+                                  "#add_subdirectory(addons)"
+    end
 
     mkdir "buildroot" do
       system "cmake", "..", "-DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON",

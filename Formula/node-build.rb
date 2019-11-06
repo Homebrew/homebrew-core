@@ -1,14 +1,14 @@
 class NodeBuild < Formula
   desc "Install NodeJS versions"
   homepage "https://github.com/nodenv/node-build"
-  url "https://github.com/nodenv/node-build/archive/v4.6.3.tar.gz"
-  sha256 "c6edca61093d9dd73f58e7249394a03fa400ca99771107f339790f8889eb3f45"
+  url "https://github.com/nodenv/node-build/archive/v4.6.5.tar.gz"
+  sha256 "89726dd3e801145532bf291057f13134ec4aa69c521d78f520ff8c59fc575afa"
   head "https://github.com/nodenv/node-build.git"
 
   bottle :unneeded
 
   depends_on "autoconf"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkg-config"
 
   def install
