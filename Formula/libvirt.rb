@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.8.0.tar.xz"
-  sha256 "e23328289b18bdedc1e966f6c26402b2983149c660ed8bd52cda6feab0c20c55"
+  url "https://libvirt.org/sources/libvirt-5.9.0.tar.xz"
+  sha256 "3496d2e1d988185de013b2a9d2e8824458afd85aa7cd050283a59b3d78978939"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -12,6 +12,7 @@ class Libvirt < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "yajl"
