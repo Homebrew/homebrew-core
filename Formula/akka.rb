@@ -3,10 +3,11 @@ class Akka < Formula
   homepage "https://github.com/akka/akka"
   url "https://downloads.typesafe.com/akka/akka_2.11-2.4.20.zip"
   sha256 "6f6af368672640512f8e0099a5d88277f4ac64de7d4edd151411e6a80cc78d0f"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     # Remove Windows files
@@ -23,8 +24,8 @@ class Akka < Formula
     end
 
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/akka"
-    bin.install_symlink libexec/"bin/akka-cluster"
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do
@@ -87,11 +88,11 @@ class Akka < Formula
         }
       }
     EOS
-    system "javac", "-classpath", Dir[libexec/"lib/**/*.jar"].join(":"),
+    system "#{Formula["openjdk"].bin}/javac", "-classpath", Dir[libexec/"lib/**/*.jar"].join(":"),
       testpath/"src/main/java/sample/hello/HelloWorld.java",
       testpath/"src/main/java/sample/hello/Greeter.java",
       testpath/"src/main/java/sample/hello/Main.java"
-    system "java",
+    system "#{Formula["openjdk"].bin}/java",
       "-classpath", (Dir[libexec/"lib/**/*.jar"] + [testpath/"src/main/java"]).join(":"),
       "akka.Main", "sample.hello.HelloWorld"
   end
