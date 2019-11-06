@@ -1,8 +1,8 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v3.4.0/libqalculate-3.4.0.tar.gz"
-  sha256 "752d975c3e2cd3ff5827fde5f6d4554a2e5c436826ba8af9cb0623f82615dc60"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v3.6.0/libqalculate-3.6.0.tar.gz"
+  sha256 "66b38ed6460f0cd6a1b16ba4145c0396c995939da0ed78f15736f8cd794969b2"
 
   bottle do
     sha256 "6aa37a0ac5ed476c10810a237a65409d37179a987abf0759dd570b0f06b91608" => :catalina
@@ -17,6 +17,12 @@ class Libqalculate < Formula
   depends_on "gnuplot"
   depends_on "mpfr"
   depends_on "readline"
+
+  # Fixed for next version: https://github.com/Qalculate/libqalculate/issues/167
+  patch do
+    url "https://github.com/Qalculate/libqalculate/commit/6f1aae9c.diff?full_index=1"
+    sha256 "3df223259f3925345ed0ebe40a659bbd146f940f54972ff45852d8959a50f62b"
+  end
 
   def install
     ENV.cxx11
