@@ -6,7 +6,7 @@ class Akka < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     # Remove Windows files
@@ -23,11 +23,13 @@ class Akka < Formula
     end
 
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/akka"
-    bin.install_symlink libexec/"bin/akka-cluster"
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+
     (testpath/"src/main/java/sample/hello/HelloWorld.java").write <<~EOS
       package sample.hello;
 
