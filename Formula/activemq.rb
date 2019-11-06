@@ -6,12 +6,12 @@ class Activemq < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     rm_rf Dir["bin/linux-x86-*"]
     libexec.install Dir["*"]
-    (bin/"activemq").write_env_script libexec/"bin/activemq", Language::Java.java_home_env("1.6+")
+    (bin/"activemq").write_env_script libexec/"bin/activemq", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   plist_options :manual => "activemq start"
