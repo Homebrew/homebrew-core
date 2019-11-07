@@ -1,0 +1,31 @@
+class Diesel < Formula
+  desc "Command-line tool for Rust ORM Diesel"
+  homepage "https://diesel.rs"
+  url "https://github.com/diesel-rs/diesel/archive/v1.4.3.tar.gz"
+  sha256 "79769964028e5cc85219d100d4945d69a5d2ec5a4125c36fd50b9ef1dc326d5a"
+
+  depends_on "rust" => [:build, :test]
+  depends_on "libpq"
+  depends_on "mysql-client"
+  depends_on "sqlite"
+
+  def install
+    system "cargo", "install", "--root", prefix, "--path", "diesel_cli"
+    bin.install "target/release/diesel"
+
+    system "#{bin}/diesel completions bash > diesel.bash"
+    system "#{bin}/diesel completions zsh > _diesel"
+    system "#{bin}/diesel completions fish > diesel.fish"
+
+    bash_completion.install "diesel.bash"
+    zsh_completion.install "_diesel"
+    fish_completion.install "diesel.fish"
+  end
+
+  test do
+    ENV["DATABASE_URL"] = "db.sqlite"
+    system "cargo", "init"
+    system bin/"diesel", "setup"
+    assert_predicate testpath/"db.sqlite", :exist?, "SQLite database should be created"
+  end
+end
