@@ -24,9 +24,12 @@ class Elm < Formula
     (buildpath/"elm-compiler").install Dir["*"]
 
     cabal_sandbox do
-      cabal_sandbox_add_source "elm-compiler"
-      cabal_install "--only-dependencies", "elm"
-      cabal_install "--prefix=#{prefix}", "elm"
+      system "cd", "elm-compiler"
+      system "stack", "init"
+      system "stack", "build"
+      #cabal_sandbox_add_source "elm-compiler"
+      #cabal_install "--only-dependencies", "elm"
+      #cabal_install "--prefix=#{prefix}", "elm"
     end
   end
 
