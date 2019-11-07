@@ -1,8 +1,8 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://github.com/apple/swift"
-  url "https://github.com/apple/swift/archive/swift-4.2.1-RELEASE.tar.gz"
-  sha256 "1e26cf541f7b10b96344fb1c4500ec52ced525cdf7b6bb77425c768cef0b2c5b"
+  url "https://github.com/apple/swift/archive/swift-5.2.2-RELEASE.tar.gz"
+  sha256 "92b0d1225e61a521ea10fe25f2cc35a2ad50ac55d1690d710f675d4db0c13b35"
 
   bottle do
     cellar :any
@@ -16,43 +16,43 @@ class Swift < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  # Depends on latest version of Xcode
+  # Has strict requirements on the minimum version of Xcode
   # https://github.com/apple/swift#system-requirements
-  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => ["11.2", :build]
 
   uses_from_macos "icu4c"
 
   # This formula is expected to have broken/missing linkage to
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.
-  resource "clang" do
-    url "https://github.com/apple/swift-clang/archive/swift-4.2.1-RELEASE.tar.gz"
-    sha256 "cbf22fe2da2e2a19010f6e109ab3f80a8af811d9416c29d031362c02a0e69a66"
+  resource "llvm-project" do
+    url "https://github.com/apple/llvm-project/archive/swift-5.2.2-RELEASE.tar.gz"
+    sha256 "2c30e793e4bc29dc396fab522bebda731bb25be0019b07f314e70139c94de552"
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-4.2.1-RELEASE.tar.gz"
-    sha256 "0e9f097c26703693a5543667716c2cac7a8847806e850db740ae9f90eaf93793"
-  end
-
-  resource "compiler-rt" do
-    url "https://github.com/apple/swift-compiler-rt/archive/swift-4.2.1-RELEASE.tar.gz"
-    sha256 "6b14737d2d57f3287a5c2d80d8d8ae917d8f7bbe4d78cc6d66a80e68d55cd00f"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.2.2-RELEASE.tar.gz"
+    sha256 "0992aa8065beb88c8471e30e414a243be3e270b02b66e4c242ba741169baafe4"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-4.2.1-RELEASE.tar.gz"
-    sha256 "07a02b4314050a66fad460b76379988d794dac1452a56fcf5073d318458fed6e"
-  end
-
-  resource "llvm" do
-    url "https://github.com/apple/swift-llvm/archive/swift-4.2.1-RELEASE.tar.gz"
-    sha256 "bcd85a91824dd166fe852ddb7e58c509f52316011c3079010ad59b017a61ad14"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.2.2-RELEASE.tar.gz"
+    sha256 "b54ec43c58bf2fddfcc4e83fe744567f05274feb024dd2a39dba6b1badb49fac"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-4.2.1-RELEASE.tar.gz"
-    sha256 "e1a50dc3d264bdb8d0447c264e8c164403e84b0831ffd53d87f15a742bda7fa9"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.2.2-RELEASE.tar.gz"
+    sha256 "6d259436b1c09512e285187eb8794bbf550bdb513e243bc46e4790df0b1b9be8"
+  end
+
+  resource "indexstore-db" do
+    url "https://github.com/apple/indexstore-db/archive/swift-5.2.2-RELEASE.tar.gz"
+    sha256 "e7fe557a21a357025ef27a4036582a3b2393d37ba1182e2ce535f10fded2f6a1"
+  end
+
+  resource "sourcekit-lsp" do
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.2.2-RELEASE.tar.gz"
+    sha256 "a712da9e3e2ff5d3d584ab2030e786c095bd25ecf33a00eda6bea5f261685c09"
   end
 
   def install
@@ -62,47 +62,54 @@ class Swift < Formula
     toolchain_prefix = "/Swift-#{version}.xctoolchain"
     install_prefix = "#{toolchain_prefix}/usr"
 
-    ln_sf buildpath, "#{workspace}/swift"
-    resources.each { |r| r.stage("#{workspace}/#{r.name}") }
+    ln_sf buildpath, workspace/"swift"
+    resources.each { |r| r.stage(workspace/r.name) }
 
     mkdir build do
       # List of components to build
-      components = %w[
-        compiler clang-resource-dir-symlink
-        clang-builtin-headers-in-clang-resource-dir stdlib sdk-overlay tools
-        editor-integration testsuite-tools toolchain-dev-tools license
+      swift_components = %w[
+        compiler clang-resource-dir-symlink stdlib sdk-overlay
+        tools editor-integration toolchain-tools license
         sourcekit-xpc-service swift-remote-mirror
-        swift-remote-mirror-headers
+        swift-remote-mirror-headers parser-lib
+      ]
+      llvm_components = %w[
+        llvm-cov llvm-profdata IndexStore clang
+        clang-resource-headers compiler-rt clangd
       ]
 
-      system "#{workspace}/swift/utils/build-script",
-        "--release", "--assertions",
-        "--no-swift-stdlib-assertions",
-        "--build-subdir=#{build}",
-        "--llbuild", "--swiftpm",
-        "--",
-        "--workspace=#{workspace}",
-        "--build-args=-j#{ENV.make_jobs}",
-        "--install-destdir=#{prefix}",
-        "--toolchain-prefix=#{toolchain_prefix}",
-        "--install-prefix=#{install_prefix}",
-        "--host-target=macosx-x86_64",
-        "--stdlib-deployment-targets=macosx-x86_64",
-        "--build-swift-static-stdlib",
-        "--build-swift-dynamic-stdlib",
-        "--build-swift-static-sdk-overlay",
-        "--build-swift-dynamic-sdk-overlay",
-        "--build-swift-stdlib-unittest-extra",
-        "--install-swift",
-        "--swift-install-components=#{components.join(";")}",
-        "--llvm-install-components=clang;libclang;libclang-headers",
-        "--install-llbuild",
-        "--install-swiftpm"
+      args = %W[
+        --release --assertions
+        --no-swift-stdlib-assertions
+        --build-subdir=#{build}
+        --llbuild --swiftpm
+        --indexstore-db --sourcekit-lsp
+        --jobs=#{ENV.make_jobs}
+        --verbose-build
+        --
+        --workspace=#{workspace}
+        --install-destdir=#{prefix}
+        --toolchain-prefix=#{toolchain_prefix}
+        --install-prefix=#{install_prefix}
+        --host-target=macosx-x86_64
+        --stdlib-deployment-targets=macosx-x86_64
+        --build-swift-dynamic-stdlib
+        --build-swift-dynamic-sdk-overlay
+        --build-swift-stdlib-unittest-extra
+        --install-swift
+        --swift-install-components=#{swift_components.join(";")}
+        --llvm-install-components=#{llvm_components.join(";")}
+        --install-llbuild
+        --install-swiftpm
+        --install-sourcekit-lsp
+      ]
+
+      system "#{workspace}/swift/utils/build-script", *args
     end
   end
 
   test do
-    (testpath/"test.swift").write <<~EOS
+    (testpath/"test.swift").write <<~'EOS'
       let base = 2
       let exponent_inner = 3
       let exponent_outer = 4
@@ -114,9 +121,9 @@ class Swift < Formula
         }
       }
 
-      print("(\\(base)^\\(exponent_inner))^\\(exponent_outer) == \\(answer)")
+      print("(\(base)^\(exponent_inner))^\(exponent_outer) == \(answer)")
     EOS
-    output = shell_output("#{prefix}/Swift-#{version}.xctoolchain/usr/bin/swift test.swift")
+    output = shell_output("#{prefix}/Swift-#{version}.xctoolchain/usr/bin/swift -v test.swift")
     assert_match "(2^3)^4 == 4096\n", output
   end
 end
