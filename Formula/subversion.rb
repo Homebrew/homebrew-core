@@ -1,9 +1,9 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.2.tar.bz2"
-  sha256 "3bd0b5c8e4c5175263dc9a92fd9aef94ce917e80af034f26fe5c45fde7e0f771"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.13.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
+  sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
 
   bottle do
     rebuild 1
@@ -50,8 +50,6 @@ class Subversion < Formula
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
-    # Fix #33530 by ensuring the system Ruby can build test programs.
-    ENV.delete "SDKROOT"
 
     serf_prefix = libexec/"serf"
 
@@ -113,10 +111,6 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    # Peg to system Ruby
-    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
-    system "make", "install-swig-rb"
-
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
     ENV.deparallelize
@@ -148,10 +142,6 @@ class Subversion < Formula
 
       The perl bindings are located in various subdirectories of:
         #{opt_lib}/perl5
-
-      If you wish to use the Ruby bindings you may need to add:
-        #{HOMEBREW_PREFIX}/lib/ruby
-      to your RUBYLIB.
 
       You may need to link the Java bindings into the Java Extensions folder:
         sudo mkdir -p /Library/Java/Extensions
