@@ -2,9 +2,8 @@ class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "http://gerbv.gpleda.org/"
   # 2.6.1 is the latest official stable release but it is very buggy and incomplete
-  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.6.0/gerbv-2.6.0.tar.gz"
-  sha256 "5c55425c3493bc8407949be8b4e572434a6b378f5727cc0dcef97dc2e7574dd0"
-  revision 3
+  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.7.0/gerbv-2.7.0.tar.gz"
+  sha256 "c5ee808c4230ce6be3ad10ab63c547098386d43022704de25ddb9378e62053b4"
 
   bottle do
     rebuild 1
@@ -22,7 +21,8 @@ class Gerbv < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-update-desktop-database"
+                          "--disable-update-desktop-database",
+                          "--disable-schemas-compile"
     system "make", "install"
   end
 
@@ -62,7 +62,7 @@ class Gerbv < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gerbv-2.6.0
+      -I#{include}/gerbv-2.7.0
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
