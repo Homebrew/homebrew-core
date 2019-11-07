@@ -191,6 +191,7 @@
   "transfig": "fig2dev",
   "transmission": "transmission-cli",
   "unison240": "unison@2.40",
+  "usbmuxd": "libusbmuxd",
   "v8-315": "v8@3.15",
   "varnish4": "varnish@4",
   "vim74": "vim@7.4",
