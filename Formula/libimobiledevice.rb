@@ -1,7 +1,7 @@
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "https://www.libimobiledevice.org/"
-  revision 4
+  revision 5
 
   stable do
     url "https://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2"
@@ -39,8 +39,8 @@ class Libimobiledevice < Formula
   depends_on "pkg-config" => :build
   depends_on "libplist"
   depends_on "libtasn1"
+  depends_on "libusbmuxd"
   depends_on "openssl@1.1"
-  depends_on "usbmuxd"
 
   def install
     system "./autogen.sh" if build.head?
