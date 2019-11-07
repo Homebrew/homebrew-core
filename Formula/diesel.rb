@@ -7,7 +7,7 @@ class Diesel < Formula
   depends_on "rust" => [:build, :test]
   depends_on "libpq"
   depends_on "mysql-client"
-  depends_on "sqlite"
+  uses_from_macos "sqlite"
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "diesel_cli"
