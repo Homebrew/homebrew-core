@@ -5,6 +5,7 @@ class Joplin < Formula
   homepage "https://joplin.cozic.net/"
   url "https://registry.npmjs.org/joplin/-/joplin-1.0.149.tgz"
   sha256 "26b1c4b80db58148e934852016687ced1c617f1841afc9b1e5eea00e10e20c8e"
+  revision 1
 
   bottle do
     sha256 "d5c541119dc009ea3aab6743365b6bd5f2618e3f2417aa13415520ad316a7434" => :catalina
@@ -15,6 +16,8 @@ class Joplin < Formula
   depends_on "node"
 
   def install
+    # patch to support node 13, remove during next compatible upgrade
+    inreplace "package.json", "\"sharp\": \"^0.22.1\",", "\"sharp\": \"^0.23.2\","
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
