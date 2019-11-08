@@ -1,8 +1,8 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.4/apache-cassandra-3.11.4-bin.tar.gz"
-  sha256 "5d598e23c3ffc4db0301ec2b313061e3208fae0f9763d4b47888237dd9069987"
+  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.5/apache-cassandra-3.11.5-bin.tar.gz"
+  sha256 "a765adcaa42a6c881f5e79d030854d082900992cc11da40eee413bb235970a6a"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,18 +17,13 @@ class Cassandra < Formula
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c2/f7/c7b501b783e5a74cf1768bc174ee4fb0a8a6ee5af6afa92274ff964703e0/setuptools-40.8.0.zip"
-    sha256 "6e4eec90337e849ade7103723b9a99631c1f0d19990d6e8412dc42f5ae8b304d"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
-    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
+    url "https://files.pythonhosted.org/packages/11/0a/7f13ef5cd932a107cd4c0f3ebc9d831d9b78e1a0e8c98a098ca17b1d7d97/setuptools-41.6.0.zip"
+    sha256 "6afa61b391dcd16cb8890ec9f66cc4015a8a31a6e1c2b4e0c464514be1a3d722"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "thrift" do
@@ -42,8 +37,8 @@ class Cassandra < Formula
   end
 
   resource "cassandra-driver" do
-    url "https://files.pythonhosted.org/packages/31/07/2423f77878559593ef17175ef2e0372dc91994368b15c6a47fca40b416ea/cassandra-driver-3.16.0.tar.gz"
-    sha256 "42bcb167a90da6604081872ef609a327a63273842da81120fc462de031155abe"
+    url "https://files.pythonhosted.org/packages/2e/d4/3ff873c0b9a34eff541347a87aba2a4a6a61ef4111a5b2c757d8d66a194b/cassandra-driver-3.20.1.tar.gz"
+    sha256 "80c7ef27834d730e85bb8074309526f40032c7eeac20884701941dbb01586203"
   end
 
   def install
