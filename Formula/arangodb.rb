@@ -16,9 +16,6 @@ class Arangodb < Formula
   depends_on :macos => :mojave
   depends_on "openssl@1.1"
 
-  # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87665
-  fails_with :gcc => "7"
-
   # the ArangoStarter is in a separate github repository;
   # it is used to easily start single server and clusters
   # with a unified CLI
