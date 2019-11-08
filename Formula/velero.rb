@@ -1,8 +1,8 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
-  homepage "https://github.com/heptio/velero"
-  url "https://github.com/heptio/velero/archive/v1.1.0.tar.gz"
-  sha256 "9313f059c9c973052fba4b307e652b1067b8542302277af1f610415e79cb32c0"
+  homepage "https://github.com/vmware-tanzu/velero"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.2.0.tar.gz"
+  sha256 "078a0e8d2283b8e0e951d30e0e2f494d9ff9828ed385af77986b945cbd6d3338"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Velero < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/heptio/velero"
+    dir = buildpath/"src/github.com/vmware-tanzu/velero"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
       system "go", "build", "-o", bin/"velero", "-installsuffix", "static",
                    "-ldflags",
-                   "-X github.com/heptio/velero/pkg/buildinfo.Version=v#{version}",
+                   "-X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}",
                    "./cmd/velero"
 
       # Install bash completion
