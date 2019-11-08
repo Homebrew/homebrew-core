@@ -3,7 +3,7 @@ class BulkExtractor < Formula
   homepage "https://github.com/simsong/bulk_extractor/wiki"
   url "https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
   sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
-  revision 2
+  revision 3
 
   bottle do
     rebuild 2
@@ -13,10 +13,33 @@ class BulkExtractor < Formula
     sha256 "712520309fa42fb430631cf8d5746e0ae71a87c07760e2f8b3532c04bac8d171" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "boost"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
+
+  # Upstream commits for OpenSSL 1.1 compatibility in dfxm:
+  # https://github.com/simsong/dfxml/commits/master/src/hash_t.h
+  # Three commits are picked:
+  #   - https://github.com/simsong/dfxml/commit/8198685d
+  #   - https://github.com/simsong/dfxml/commit/f2482de7
+  #   - https://github.com/simsong/dfxml/commit/c3122462
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/78bb67a8/bulk_extractor/openssl-1.1.diff"
+    sha256 "996fd9b3a8d1d77a1b22f2dbb9d0e5c501298d2fd95ad84a7ea3234d51e3ebe2"
+  end
 
   def install
+    # Source contains to copies of dfxml, keep them in sync
+    # (because of the patch). Remove in next version.
+    rm_rf "plugins/dfxml"
+    cp_r "src/dfxml", "plugins"
+
+    # Regenerate configure after applying the patch.
+    # Remove in next version.
+    system "autoreconf", "-f"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
