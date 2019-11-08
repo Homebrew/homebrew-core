@@ -24,8 +24,8 @@ class Elm < Formula
     (buildpath/"elm-compiler").install Dir["*"]
     system "cd", "elm-compiler"
     system "stack", "init"
-    system "stack", "build"
-    system "stack", "elm"
+    system "stack", "--resolver", "build"
+    system "stack", "install", "elm"
 
     #cabal_sandbox do  
       #cabal_sandbox_add_source "elm-compiler"
