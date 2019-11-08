@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.5.1.tar.gz"
-  sha256 "4e648c0aff129a02dd0279303880603cd92dd27b81ef7c40dee3eded9102c1cb"
+  url "https://download.arangodb.com/Source/ArangoDB-3.5.2.tar.gz"
+  sha256 "9331ddb8d745c5d977975591b20a00461bfe11865bfce9f3495dc8bdb9260bf1"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
@@ -25,12 +25,6 @@ class Arangodb < Formula
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
       :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
-  end
-
-  # fixed upstream in https://github.com/arangodb/arangodb/commit/55ca6c8660e0b373bae1840d61894a4202913cfa
-  patch do
-    url "https://github.com/arangodb/arangodb/commit/55ca6c86.diff?full_index=1"
-    sha256 "99f653d868360949ee6eb2d5fa380ded3f9a8941caba1ce7b97c88b6e4ae166d"
   end
 
   def install
