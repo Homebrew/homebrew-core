@@ -1,10 +1,10 @@
 class Octant < Formula
   desc "Kubernetes introspection tool for developers"
-  homepage "https://github.com/vmware/octant"
-  url "https://github.com/vmware/octant.git",
-      :tag      => "v0.8.0",
-      :revision => "e37e7f6c6c797ef215fdbeedb91c709c88193522"
-  head "https://github.com/vmware/octant.git"
+  homepage "https://octant.dev"
+  url "https://github.com/vmware-tanzu/octant.git",
+      :tag      => "v0.9.1",
+      :revision => "7c4bd4a03489aebba979a09aeda0c4c390650e94"
+  head "https://github.com/vmware-tanzu/octant.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,10 +21,10 @@ class Octant < Formula
     ENV["GOPATH"] = buildpath
     ENV["GOFLAGS"] = "-mod=vendor"
 
-    dir = buildpath/"src/github.com/vmware/octant"
+    dir = buildpath/"src/github.com/vmware-tanzu/octant"
     dir.install buildpath.children
 
-    cd "src/github.com/vmware/octant" do
+    cd "src/github.com/vmware-tanzu/octant" do
       system "make", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
