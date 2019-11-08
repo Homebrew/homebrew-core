@@ -11,7 +11,6 @@ class Diesel < Formula
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "diesel_cli"
-    bin.install "target/release/diesel"
 
     system "#{bin}/diesel completions bash > diesel.bash"
     system "#{bin}/diesel completions zsh > _diesel"
