@@ -23,8 +23,8 @@ class Elm < Formula
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
     system "cd", "elm-compiler"
-    system "stack", "init"
-    system "stack", "--resolver", "build"
+    system "stack", "init", "--omit-packages"
+    system "stack", "build"
     system "stack", "install", "elm"
 
     #cabal_sandbox do  
