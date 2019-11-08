@@ -16,21 +16,22 @@ class Elm < Formula
     sha256 "e2a5f47750fb6a487e5220a3ac234b209acdb7edcde7e42c2ebe2507f8a3a5cf" => :el_capitan
   end
 
-  depends_on "cabal-install" => :build
+  #depends_on "cabal-install" => :build
   depends_on "haskell-stack" => :build
 
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
     (buildpath/"elm-compiler").install Dir["*"]
+    system "cd", "elm-compiler"
+    system "stack", "init"
+    system "stack", "build"
+    system "stack", "elm"
 
-    cabal_sandbox do
-      system "cd", "elm-compiler"
-      system "stack", "init"
-      system "stack", "build"
+    #cabal_sandbox do  
       #cabal_sandbox_add_source "elm-compiler"
       #cabal_install "--only-dependencies", "elm"
       #cabal_install "--prefix=#{prefix}", "elm"
-    end
+    #end
   end
 
   test do
