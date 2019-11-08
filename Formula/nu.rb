@@ -13,11 +13,6 @@ class Nu < Formula
 
   depends_on "pcre"
 
-  fails_with :gcc do
-    build 5666
-    cause "nu only builds with clang"
-  end
-
   def install
     ENV.delete("SDKROOT") if MacOS.version < :sierra
     ENV["PREFIX"] = prefix
