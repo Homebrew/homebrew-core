@@ -21,11 +21,6 @@ class Libkate < Formula
   depends_on "libogg"
   depends_on "libpng"
 
-  fails_with :gcc do
-    build 5666
-    cause "Segfault during compilation"
-  end
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
