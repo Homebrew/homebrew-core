@@ -1,8 +1,19 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
-  sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
+  revision 1
+
+  stable do
+    url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
+    sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
+
+    # Upstream fix for OpenSSL 1.1 compatibility
+    # https://github.com/networkupstools/nut/pull/504
+    patch do
+      url "https://github.com/networkupstools/nut/commit/612c05ef.diff?full_index=1"
+      sha256 "9d21e425eba72fbefba3c3d74465d239726798f95063c3b90b2e4b9a12414e12"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -15,14 +26,14 @@ class Nut < Formula
   head do
     url "https://github.com/networkupstools/nut.git"
     depends_on "asciidoc" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   conflicts_with "rhino", :because => "both install `rhino` binaries"
 
@@ -30,6 +41,9 @@ class Nut < Formula
     if build.head?
       ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
       system "./autogen.sh"
+    else
+      # Regenerate configure, due to patch applied
+      system "autoreconf", "-i"
     end
 
     system "./configure", "--disable-dependency-tracking",
