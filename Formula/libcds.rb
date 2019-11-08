@@ -14,10 +14,6 @@ class Libcds < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  if DevelopmentTools.clang_build_version < 800
-    depends_on "gcc"
-    fails_with :clang
-  end
 
   def install
     system "cmake", ".", *std_cmake_args
