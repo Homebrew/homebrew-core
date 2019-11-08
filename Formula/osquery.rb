@@ -35,8 +35,6 @@ class Osquery < Formula
   depends_on "yara"
   depends_on "zstd"
 
-  fails_with :gcc => "6"
-
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
