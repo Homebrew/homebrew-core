@@ -18,11 +18,6 @@ class Pdnsrec < Formula
   depends_on "lua"
   depends_on "openssl@1.1"
 
-  fails_with :clang do
-    build 600
-    cause "incomplete C++11 support"
-  end
-
   def install
     ENV.cxx11
 
