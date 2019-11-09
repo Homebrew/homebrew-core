@@ -41,6 +41,7 @@ class Root < Formula
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
+  depends_on "cfitsio"
 
   skip_clean "bin"
 
@@ -70,7 +71,7 @@ class Root < Formula
       -Dbuiltin_freetype=ON
       -Ddavix=ON
       -Dfftw3=ON
-      -Dfitsio=OFF
+      -Dfitsio=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dgnuinstall=ON
