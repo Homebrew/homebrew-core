@@ -3,7 +3,7 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "b68bad6fab8c8537c24993081e11f062edd43faa2ad9278e8f365f36042c16fb" => :catalina
@@ -25,6 +25,7 @@ class OpencvAT2 < Formula
   uses_from_macos "python@2"
 
   def install
+    ENV.cxx11
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[
