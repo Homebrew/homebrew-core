@@ -131,6 +131,7 @@
   "mongodb32": "mongodb@3.2",
   "mpfr2": "mpfr@2",
   "mpich2": "mpich",
+  "mysql-connector-c": "mysql-client",
   "mysql56": "mysql@5.6",
   "newsbeuter": "newsboat",
   "nimrod": "nim",
