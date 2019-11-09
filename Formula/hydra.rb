@@ -3,7 +3,7 @@ class Hydra < Formula
   homepage "https://github.com/vanhauser-thc/thc-hydra"
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.0.tar.gz"
   sha256 "56672e253c128abaa6fb19e77f6f59ba6a93762a9ba435505a009ef6d58e8d0e"
-  revision 3
+  revision 4
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
