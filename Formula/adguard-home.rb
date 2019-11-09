@@ -10,8 +10,8 @@ class AdguardHome < Formula
   depends_on "node" => :build
 
   resource "packr" do
-    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
-    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
+    url "https://github.com/gobuffalo/packr/archive/v2.7.1.tar.gz"
+    sha256 "842bc86dfb34c1ff8d1cc1c12fb46cf30ad279eec17ecef8b122c151cfc16b85"
   end
 
   def install
