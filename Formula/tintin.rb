@@ -26,5 +26,10 @@ class Tintin < Formula
                      "install"
     end
   end
+  
+  test do
+    shell_output("#{bin}/tt++ -Ge \"#info system; #buffer write {#{testpath}/output}; #end\"")
+    assert_match /#{version}/, File.read(testpath/"output")
+  end
 
 end
