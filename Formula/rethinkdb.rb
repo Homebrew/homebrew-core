@@ -3,6 +3,7 @@ class Rethinkdb < Formula
   homepage "https://www.rethinkdb.com/"
   url "https://download.rethinkdb.com/dist/rethinkdb-2.3.6.tgz"
   sha256 "c42159666910ad01be295a57caf8839ec3a89227d8919be5418e3aa1f0a3dc28"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,8 +15,7 @@ class Rethinkdb < Formula
   end
 
   depends_on "boost" => :build
-
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
 
   # Fix error with Xcode 9, patch merged upstream:
   # https://github.com/rethinkdb/rethinkdb/pull/6450
@@ -24,6 +24,18 @@ class Rethinkdb < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/fb00ee376a/rethinkdb/xcode9.patch"
       sha256 "abd50d91a247ee7de988020dd9d405a3d4cd93edb2875b7d5822ba0f513f85a0"
     end
+  end
+
+  # Upstream commit for OpenSSL 1.1 compatibility
+  patch do
+    url "https://github.com/rethinkdb/rethinkdb/commit/62456155.diff?full_index=1"
+    sha256 "6666074788d7de3295619426350c96b1f2e2e3b2427e76511dc168447034cacd"
+  end
+
+  # Upstream fix for Boost >= 1.69
+  patch do
+    url "https://github.com/rethinkdb/rethinkdb/commit/04785087.diff?full_index=1"
+    sha256 "a26e452ce1f16541a9ba40057af154e594fe89665c2c656994ceab103d2017e9"
   end
 
   def install
