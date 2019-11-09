@@ -1,7 +1,7 @@
 class Mkcert < Formula
   desc "Simple tool to make locally trusted development certificates"
   homepage "https://github.com/FiloSottile/mkcert"
-  url "https://github.com/FiloSottile/mkcert/archive/v1.4.0.tar.gz"
+  url "https://github.com/FiloSottile/mkcert/archive/v1.4.1.tar.gz"
   sha256 "8ad11055b4fb47955312b7b72e24057cc6dca1606d14838a1520ce87ed62cc89"
 
   bottle do
@@ -19,7 +19,7 @@ class Mkcert < Formula
     (buildpath/"src/github.com/FiloSottile/mkcert").install buildpath.children
 
     cd "src/github.com/FiloSottile/mkcert" do
-      system "go", "build", "-o", bin/"mkcert"
+      system "go", "build", "-o", bin/"mkcert", "-ldflags", "-X main.Version=#{version}"
       prefix.install_metafiles
     end
   end
