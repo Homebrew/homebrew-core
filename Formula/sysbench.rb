@@ -3,6 +3,7 @@ class Sysbench < Formula
   homepage "https://github.com/akopytov/sysbench"
   url "https://github.com/akopytov/sysbench/archive/1.0.18.tar.gz"
   sha256 "c679b285e633c819d637bdafaeacc1bec13f37da5b3357c7e17d97a71bf28cb1"
+  revision 1
 
   bottle do
     cellar :any
