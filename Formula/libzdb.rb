@@ -3,7 +3,7 @@ class Libzdb < Formula
   homepage "https://tildeslash.com/libzdb/"
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.tar.gz"
   sha256 "005ddf4b29c6db622e16303298c2f914dfd82590111cea7cfd09b4acf46cf4f2"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
