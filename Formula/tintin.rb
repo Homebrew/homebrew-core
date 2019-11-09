@@ -27,11 +27,4 @@ class Tintin < Formula
     end
   end
 
-  test do
-    require "pty"
-    (testpath/"input").write("#end {bye}\n")
-    PTY.spawn(bin/"tt++", "-G", "input") do |r, _w, _pid|
-      assert_match "Goodbye", r.read
-    end
-  end
 end
