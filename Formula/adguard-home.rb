@@ -7,7 +7,7 @@ class AdguardHome < Formula
   head "https://github.com/AdguardTeam/AdGuardHome.git", :using => :git
 
   depends_on "go" => :build
-  depends_on "node@8" => :build
+  depends_on "node" => :build
 
   resource "packr" do
     url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
@@ -17,6 +17,8 @@ class AdguardHome < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "0"
+
+    ENV.append_path "PATH", HOMEBREW_PREFIX/"bin"
 
     dir = buildpath/"src/github.com/AdguardTeam/AdGuardHome"
     dir.install buildpath.children
