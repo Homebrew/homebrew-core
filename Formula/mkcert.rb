@@ -19,7 +19,7 @@ class Mkcert < Formula
     (buildpath/"src/github.com/FiloSottile/mkcert").install buildpath.children
 
     cd "src/github.com/FiloSottile/mkcert" do
-      system "go", "build", "-o", bin/"mkcert", "-ldflags", "-X main.Version=#{version}"
+      system "go", "build", "-o", bin/"mkcert", "-ldflags", "-X main.Version=v#{version}"
       prefix.install_metafiles
     end
   end
