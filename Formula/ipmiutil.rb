@@ -1,8 +1,8 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-2.9.5.tar.gz"
-  sha256 "eb00f0582ee75e1f8d371e398d546ddd7639595b9a0a1f27a84cc6ecb038dbe6"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.4.tar.gz"
+  sha256 "9938ca13f55d2be157081d49c8c6392391b057c9818e02d5ef231a62e54a8a65"
 
   bottle do
     cellar :any
@@ -13,17 +13,19 @@ class Ipmiutil < Formula
     sha256 "8e136064d7075e847c87bc7f7e1e9bc583259f51205dd69ddafb0708fdff3f66" => :sierra
   end
 
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "openssl@1.1"
 
   conflicts_with "renameutils", :because => "both install `icmd` binaries"
 
-  # Ensure ipmiutil does not try to link against (disabled) OpenSSL's MD2
-  # support. Patch submitted upstream in
-  # https://sourceforge.net/p/ipmiutil/mailman/message/33373858/
-  patch :DATA
-
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    # Darwin does not exist only on PowerPC
+    inreplace "configure.ac", "test \"$archp\" = \"powerpc\"", "true"
+    system "autoreconf", "-fiv"
+
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-sha256",
                           "--enable-gpl"
@@ -42,26 +44,3 @@ class Ipmiutil < Formula
     system "#{bin}/ipmiutil", "delloem", "help"
   end
 end
-
-__END__
-diff -u ./configure.bak ./configure
---- ./configure.bak       2015-02-04 22:15:07.000000000 +0100
-+++ ./configure   2015-02-04 22:16:18.000000000 +0100
-@@ -20739,7 +20739,7 @@
-            echo "Detected HP-UX"
-            os=hpux
-            MD2_CFLAGS="-DSKIP_MD2"
--           OS_CFLAGS="-DHPUX"
-+           OS_CFLAGS="-DHPUX $MD2_CFLAGS"
-            OS_LFLAGS=""
-            OS_DRIVERS="ipmimv.c"
-            drivers="open"
-@@ -20748,7 +20748,7 @@
-            echo "Detected MacOSX"
-            os=macos
-            MD2_CFLAGS="-DSKIP_MD2"
--           OS_CFLAGS="-DMACOS"
-+           OS_CFLAGS="-DMACOS $MD2_CFLAGS"
-            OS_LFLAGS=""
-           OS_DRIVERS="ipmimv.c ipmidir.c"
-           drivers="open direct"
