@@ -3,6 +3,7 @@ class MysqlConnectorCxx < Formula
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
   url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.18-src.tar.gz"
   sha256 "63b20e446c0aadeddbbc5cef36db8222d602793e6f1e6de511bdf7bcb2181f86"
+  revision 1
 
   bottle do
     cellar :any
