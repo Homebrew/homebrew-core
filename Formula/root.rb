@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.18.04.source.tar.gz"
   version "6.18.04"
   sha256 "315a85fc8363f8eb1bffa0decbf126121258f79bd273513ed64795675485cfa4"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -26,6 +27,7 @@ class Root < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "cfitsio"
   depends_on "davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran
@@ -41,7 +43,6 @@ class Root < Formula
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
-  depends_on "cfitsio"
 
   skip_clean "bin"
 
