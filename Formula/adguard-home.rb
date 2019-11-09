@@ -59,9 +59,9 @@ class AdguardHome < Formula
         <key>UserName</key>
         <string>root</string>
         <key>StandardErrorPath</key>
-        <string>/dev/null</string>
+        <string>#{var}/log/adguard-home.log</string>
         <key>StandardOutPath</key>
-        <string>/dev/null</string>
+        <string>#{var}/log/consul.log</string>
       </dict>
     </plist>
   EOS
