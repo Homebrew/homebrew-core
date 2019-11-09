@@ -3,7 +3,7 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
   sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
-  revision 1
+  revision 2
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
