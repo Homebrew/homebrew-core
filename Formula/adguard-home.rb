@@ -1,8 +1,9 @@
 class AdguardHome < Formula
   desc "Network-wide ads & trackers blocking DNS server"
   homepage "https://adguard.com/adguard-home.html"
-  url "https://github.com/AdguardTeam/AdGuardHome/archive/v0.98.1.tar.gz"
-  sha256 "37779d659bb9faa1b2273f70aba4db14a77b4467888953d055547f28e8afa707"
+  url "https://github.com/AdguardTeam/AdGuardHome.git",
+      :tag      => "v0.98.1",
+      :revision => "64d40bdc47081ed80e597e61e5c96953c1e35c30"
   head "https://github.com/AdguardTeam/AdGuardHome.git", :using => :git
 
   depends_on "go" => :build
@@ -23,11 +24,7 @@ class AdguardHome < Formula
     resource("packr").stage { system "go", "install", "./packr" }
 
     cd dir do
-      system "npm", "--prefix", "client", "install"
-      system "npm", "--prefix", "client", "run", "build-prod"
-
-      system buildpath/"bin/packr", "-z"
-      system "go", "build", "-ldflags", "-s -w -X main.version=#{version}"
+      system "make"
       bin.install "AdGuardHome"
 
       (etc/"adguard-home").mkpath
