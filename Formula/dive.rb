@@ -2,8 +2,8 @@ class Dive < Formula
   desc "Tool for exploring each layer in a docker image"
   homepage "https://github.com/wagoodman/dive"
   url "https://github.com/wagoodman/dive.git",
-    :tag      => "v0.9.0",
-    :revision => "0b147b0f6098b519d2e57c2aa74646dfbf95ab85"
+    :tag      => "v0.9.1",
+    :revision => "bfcfc54ee34b623274a91ca48379ac229b5415c2"
 
   bottle do
     cellar :any_skip_relocation
