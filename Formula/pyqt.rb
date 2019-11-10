@@ -33,8 +33,7 @@ class Pyqt < Formula
 
     system "python3", "configure.py", *args
     system "make"
-    system "make", "install"
-    system "make", "clean"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
@@ -49,7 +48,6 @@ class Pyqt < Formula
       Network
       Quick
       Svg
-      WebEngineWidgets
       Widgets
       Xml
     ].each { |mod| system "python3", "-c", "import PyQt5.Qt#{mod}" }
