@@ -4,6 +4,7 @@ class GitlabRunner < Formula
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
       :tag      => "v12.4.1",
       :revision => "05161b14c906e862455a2a9a8c3e549379af6bba"
+  revision 1
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
@@ -22,7 +23,7 @@ class GitlabRunner < Formula
 
     cd dir do
       proj = "gitlab.com/gitlab-org/gitlab-runner"
-      commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
+      commit = Utils.popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS
