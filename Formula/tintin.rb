@@ -28,7 +28,7 @@ class Tintin < Formula
   end
 
   test do
-    shell_output("#{bin}/tt++ -Ge \"#info system; #buffer write {#{testpath}/output}; #end\"")
-    assert_match /#{version}/, File.read(testpath/"output")
+    system bin/"tt++", "-e \"#nop; #buffer write #{testpath}/version.txt; #end;\""
+    assert_match /#{version}/, File.read(testpath/"version.txt")
   end
 end
