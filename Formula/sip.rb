@@ -3,7 +3,7 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.19/sip-4.19.19.tar.gz"
   sha256 "5436b61a78f48c7e8078e93a6b59453ad33780f80c644e5f3af39f94be1ede44"
-  revision 2
+  revision 3
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
@@ -33,19 +33,14 @@ class Sip < Formula
                       "--destdir=#{lib}/python#{version}/site-packages",
                       "--bindir=#{bin}",
                       "--incdir=#{include}",
-                      "--sipdir=#{HOMEBREW_PREFIX}/share/sip"
+                      "--sipdir=#{HOMEBREW_PREFIX}/share/sip",
+                      "--sip-module", "PyQt5.sip"
     system "make"
     system "make", "install"
-    system "make", "clean"
   end
 
   def post_install
     (HOMEBREW_PREFIX/"share/sip").mkpath
-  end
-
-  def caveats; <<~EOS
-    The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip.
-  EOS
   end
 
   test do
@@ -77,26 +72,9 @@ class Sip < Formula
         void test();
       };
     EOS
-    (testpath/"generate.py").write <<~EOS
-      from sipconfig import SIPModuleMakefile, Configuration
-      m = SIPModuleMakefile(Configuration(), "test.build")
-      m.extra_libs = ["test"]
-      m.extra_lib_dirs = ["."]
-      m.generate()
-    EOS
-    (testpath/"run.py").write <<~EOS
-      from test import Test
-      t = Test()
-      t.test()
-    EOS
+
     system ENV.cxx, "-shared", "-Wl,-install_name,#{testpath}/libtest.dylib",
                     "-o", "libtest.dylib", "test.cpp"
     system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
-
-    version = Language::Python.major_minor_version "python3"
-    ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
-    system "python3", "generate.py"
-    system "make", "-j1", "clean", "all"
-    system "python3", "run.py"
   end
 end
