@@ -39,14 +39,13 @@ class Vice < Formula
       "--prefix=#{prefix}",
       "--disable-dependency-tracking",
       "--disable-arch",
-      "--disable-bundle",
       "--enable-external-ffmpeg",
     ]
 
     if build.head?
       configure_flags << "--enable-native-gtk3ui"
-      configure_flags << "--disable-hwscale"
     else
+      configure_flags << "--disable-bundle"
       configure_flags << "--enable-sdlui2"
     end
 
