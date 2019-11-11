@@ -9,11 +9,6 @@ class AdguardHome < Formula
   depends_on "go" => :build
   depends_on "node" => :build
 
-  resource "packr" do
-    url "https://github.com/gobuffalo/packr/archive/v2.7.1.tar.gz"
-    sha256 "842bc86dfb34c1ff8d1cc1c12fb46cf30ad279eec17ecef8b122c151cfc16b85"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "0"
@@ -22,8 +17,6 @@ class AdguardHome < Formula
 
     dir = buildpath/"src/github.com/AdguardTeam/AdGuardHome"
     dir.install buildpath.children
-
-    resource("packr").stage { system "go", "install", "./packr" }
 
     cd dir do
       system "make"
