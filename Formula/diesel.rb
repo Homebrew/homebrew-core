@@ -4,6 +4,8 @@ class Diesel < Formula
   url "https://github.com/diesel-rs/diesel/archive/v1.4.3.tar.gz"
   sha256 "79769964028e5cc85219d100d4945d69a5d2ec5a4125c36fd50b9ef1dc326d5a"
 
+  head "https://github.com/diesel-rs/diesel.git"
+
   depends_on "rust" => [:build, :test]
   depends_on "libpq"
   depends_on "mysql-client"
