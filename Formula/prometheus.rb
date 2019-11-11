@@ -22,12 +22,29 @@ class Prometheus < Formula
     libexec.install %w[consoles console_libraries]
   end
 
+  def post_install
+    (etc/"prometheus.args").write <<~EOS
+      --config.file #{etc}/prometheus.yml
+      --web.listen-address=127.0.0.1:9090
+      --storage.tsdb.path #{var}/prometheus
+    EOS
+
+    (etc/"prometheus.yml").write <<~EOS
+      global:
+        scrape_interval: 15s
+
+      scrape_configs:
+        - job_name: "prometheus"
+          static_configs:
+          - targets: ["localhost:9090"]
+    EOS
+  end
+
   def caveats; <<~EOS
     When used with `brew services`, prometheus' configuration is stored as command line flags in
       #{etc}/prometheus.args
 
-    Example configuration:
-      echo "--config.file ~/.config/prometheus.yml" > #{etc}/prometheus.args
+    Configuration for prometheus is located in the #{etc}/prometheus.yml file.
 
   EOS
   end
