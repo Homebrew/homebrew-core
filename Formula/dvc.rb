@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/0.67.0.tar.gz"
-  sha256 "fa02b646d328a9693e320b428307266789b2fdd24d0d5e47babe8aef6b432ea4"
+  url "https://github.com/iterative/dvc/archive/0.68.1.tar.gz"
+  sha256 "a072ebf2151213c61ac7e580e51dc1cecefa4cd840e4f7ae1927d6710312cfe0"
 
   bottle do
     sha256 "f3a6618ac71cde525880edcd1f74c84e6d5a24737e1ea726977b3575ee321ced" => :catalina
@@ -28,6 +28,12 @@ class Dvc < Formula
     # [2] https://github.com/iterative/homebrew-dvc/issues/9
     system libexec/"bin/pip", "uninstall", "-y", "Pillow"
     system libexec/"bin/pip", "uninstall", "-y", "dvc"
+
+    # NOTE: dvc uses this file [1] to know which package it was installed from,
+    # so that it is able to provide appropriate instructions for updates.
+    # [1] https://github.com/iterative/dvc/blob/0.68.1/dvc/utils/pkg.py
+    File.open("dvc/utils/build.py", "w+") { |file| file.write("PKG = \"brew\"") }
+
     venv.pip_install_and_link buildpath
 
     bash_completion.install "scripts/completion/dvc.bash" => "dvc"
