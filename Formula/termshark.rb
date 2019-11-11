@@ -1,8 +1,8 @@
 class Termshark < Formula
   desc "Terminal UI for tshark, inspired by Wireshark"
   homepage "https://termshark.io"
-  url "https://github.com/gcla/termshark/archive/v1.0.0.tar.gz"
-  sha256 "669bba0e8dd7df54ade6321a5c7d2ec20563ffd777f7b3b0394a11f88da64698"
+  url "https://github.com/gcla/termshark/archive/v2.0.0.tar.gz"
+  sha256 "37129758921aad149f96a0c22cb561a223afb5b16c2a5adc6bc40c0e313e3a08"
 
   bottle do
     cellar :any_skip_relocation
