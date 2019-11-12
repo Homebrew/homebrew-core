@@ -1,8 +1,8 @@
 class Mdbook < Formula
   desc "Create modern online books from Markdown files"
   homepage "https://rust-lang.github.io/mdBook/"
-  url "https://github.com/rust-lang-nursery/mdBook/archive/v0.3.4.tar.gz"
-  sha256 "5bb6671ce38957352b28a428c5bab26eff2c2fe2faf9c961ebdfb16d8f63cad6"
+  url "https://github.com/rust-lang-nursery/mdBook/archive/v0.3.5.tar.gz"
+  sha256 "73258ba3713004e06675ef2a1fbd3e7b48eb144db37c5ac1e2b96086b51a6e87"
 
   bottle do
     cellar :any_skip_relocation
