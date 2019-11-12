@@ -1,9 +1,8 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://downloads.mariadb.org/connector-c/"
-  url "https://downloads.mariadb.org/f/connector-c-3.1.2/mariadb-connector-c-3.1.2-src.tar.gz"
-  sha256 "156aa2de91fd9607fa6c638d23888082b6dd07628652697992bba6d15045ff5d"
-  revision 1
+  url "https://downloads.mariadb.org/f/connector-c-3.1.5/mariadb-connector-c-3.1.5-src.tar.gz"
+  sha256 "a9de5fedd1a7805c86e23be49b9ceb79a86b090ad560d51495d7ba5952a9d9d5"
 
   bottle do
     sha256 "85cd4eac75f693602a4cb4cd8b17cd26a71d3df3e147ba28f40e605fcd1cacb5" => :catalina
