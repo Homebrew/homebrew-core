@@ -3,8 +3,8 @@ require "language/node"
 class NowCli < Formula
   desc "The command-line interface for Now"
   homepage "https://zeit.co/now"
-  url "https://registry.npmjs.org/now/-/now-16.4.4.tgz"
-  sha256 "298702a21ba1444aada234effad9b0babb4b6c51261e191ad087d11ecef7bf76"
+  url "https://registry.npmjs.org/now/-/now-16.5.0.tgz"
+  sha256 "0c665d7af5b6e4a9b954a3435cf430ccecbfaa8e72084a210c55ed3c28f63a2c"
 
   bottle do
     cellar :any_skip_relocation
