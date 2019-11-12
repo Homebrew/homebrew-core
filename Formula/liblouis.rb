@@ -33,9 +33,6 @@ class Liblouis < Formula
     cd "python" do
       system "python3", *Language::Python.setup_install_args(prefix)
     end
-  end
-
-  def post_install
     mkdir "#{prefix}/tools"
     mv "#{bin}/lou_maketable", "#{prefix}/tools/", :force => true
     mv "#{bin}/lou_maketable.d", "#{prefix}/tools/", :force => true
