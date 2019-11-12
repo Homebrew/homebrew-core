@@ -1,8 +1,8 @@
 class Sord < Formula
   desc "C library for storing RDF data in memory"
   homepage "https://drobilla.net/software/sord/"
-  url "https://download.drobilla.net/sord-0.16.2.tar.bz2"
-  sha256 "09f51174dd8f3efbd95f44f0bb0b165f08e066e052d40095de59de787987da8d"
+  url "https://download.drobilla.net/sord-0.16.4.tar.bz2"
+  sha256 "b15998f4e7ad958201346009477d6696e90ee5d3e9aff25e7e9be074372690d7"
 
   bottle do
     cellar :any
@@ -21,5 +21,16 @@ class Sord < Formula
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
+  end
+
+  test do
+    path = testpath/"input.ttl"
+    path.write <<~EOS
+      @prefix : <http://example.org/base#> .
+      :a :b :c .
+    EOS
+
+    output = "<http://example.org/base#a> <http://example.org/base#b> <http://example.org/base#c> .\n"
+    assert_equal output, shell_output(bin/"sordi input.ttl")
   end
 end
