@@ -2,8 +2,8 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v2.16.0",
-      :revision => "e13bc94621d4ef666270cfbe734aaabf342a49bb"
+      :tag      => "v2.16.1",
+      :revision => "bbdfe5e7803a12bbdf97e94cd847859890cf4050"
   head "https://github.com/helm/helm.git"
 
   bottle do
