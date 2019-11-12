@@ -3,6 +3,7 @@ class Mpi4py < Formula
   homepage "https://mpi4py.readthedocs.io"
   url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.3.tar.gz"
   sha256 "012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f"
+  revision 1
 
   bottle do
     cellar :any
