@@ -1,8 +1,8 @@
 class Suil < Formula
   desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
   homepage "https://drobilla.net/software/suil/"
-  url "https://download.drobilla.net/suil-0.10.4.tar.bz2"
-  sha256 "a1e9899012790eef8867b5475853d76689b246cca88a99ac0d379a6c0d85c72b"
+  url "https://download.drobilla.net/suil-0.10.6.tar.bz2"
+  sha256 "06fc70abaa33bd7089dd1051af46f89d378e8465d170347a3190132e6f009b7c"
 
   bottle do
     sha256 "d47dfcab557ae99bf0d1fe6950f43a4fc83babbff35430beba7234fc78c9ad7e" => :catalina
