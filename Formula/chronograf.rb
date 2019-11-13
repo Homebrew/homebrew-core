@@ -3,8 +3,8 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.7.14.tar.gz"
-  sha256 "245479b691e2ad484717778562ce9e0c21b1d769e7d748335d1c5f41cd677d4c"
+  url "https://github.com/influxdata/chronograf/archive/1.7.15.tar.gz"
+  sha256 "2fc0eb3a585d38c12639e5746091796655f9164f4f123aba33c958a81cd9e0b1"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
@@ -14,8 +14,8 @@ class Chronograf < Formula
     sha256 "4e54046b3218fac9e81fa7b28b621e83ccec7e025e9a546f2686e62fc1c19478" => :sierra
   end
 
-  depends_on "go" => :build
-  depends_on "node" => :build
+  depends_on "go@1.12" => :build
+  depends_on "node@12" => :build
   depends_on "yarn" => :build
   depends_on "influxdb"
   depends_on "kapacitor"
@@ -28,9 +28,6 @@ class Chronograf < Formula
     chronograf_path.install buildpath.children
 
     cd chronograf_path do
-      cd "ui" do # fix node 12 compatibility
-        system "yarn", "upgrade", "parcel@1.11.0", "node-sass@4.12.0"
-      end
       system "make", "dep"
       system "make", ".jssrc"
       system "make", "chronograf"
