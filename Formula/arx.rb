@@ -18,6 +18,8 @@ class Arx < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
+  conflicts_with "arx-libertatis", "rnv", :because => "arx, arx-libertatis and rnv all install `arx` binaries"
+
   def install
     cabal_sandbox do
       cabal_install "--only-dependencies"
