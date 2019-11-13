@@ -3,6 +3,7 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.15.1/apache-arrow-0.15.1.tar.gz"
   sha256 "9a2c58c72310eafebb4997244cbeeb8c26696320d0ae3eb3e8512f75ef856fc9"
+  revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -39,6 +40,7 @@ class ApacheArrow < Formula
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
+      -DARROW_JEMALLOC=OFF
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
     ]
