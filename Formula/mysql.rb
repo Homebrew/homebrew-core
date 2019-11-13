@@ -3,6 +3,7 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
   sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
+  revision 1
 
   bottle do
     sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
@@ -21,6 +22,7 @@ class Mysql < Formula
   depends_on :macos => :yosemite
 
   depends_on "openssl@1.1"
+  depends_on "protobuf@3.7" # MySQL 8.0.19 will support the latest version
 
   conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
@@ -58,8 +60,8 @@ class Mysql < Formula
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_SSL=yes
+      -DWITH_PROTOBUF=system
       -DWITH_UNIT_TESTS=OFF
-      -DWITH_EMBEDDED_SERVER=ON
       -DENABLED_LOCAL_INFILE=1
       -DWITH_INNODB_MEMCACHED=ON
     ]
