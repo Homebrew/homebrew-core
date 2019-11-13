@@ -3,6 +3,7 @@ class Mariadb < Formula
   homepage "https://mariadb.org/"
   url "https://downloads.mariadb.org/f/mariadb-10.4.10/source/mariadb-10.4.10.tar.gz"
   sha256 "cd50fddf86c2a47405737e342f78ebd40d5716f0fb32b976245de713bed01421"
+  revision 1
 
   bottle do
     sha256 "64eef58dca19b2adb6f0ac36952766a66bab70926424428ceb1c4f41608e4cdf" => :catalina
@@ -11,6 +12,8 @@ class Mariadb < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "groonga"
   depends_on "openssl@1.1"
 
   conflicts_with "mysql", "percona-server",
@@ -29,6 +32,9 @@ class Mariadb < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
+
+    # Use brew groonga
+    rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
