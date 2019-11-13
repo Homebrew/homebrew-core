@@ -3,6 +3,7 @@ class MariadbAT102 < Formula
   homepage "https://mariadb.org/"
   url "https://downloads.mariadb.org/f/mariadb-10.2.29/source/mariadb-10.2.29.tar.gz"
   sha256 "1470032821a163136d2013e58fc788e5c234777093cbd2ce9c27280a33c10202"
+  revision 1
 
   bottle do
     sha256 "3f720f09ed941691f9e97ef007aa95c5810cea739dc55e63ff8de18b10776e8e" => :catalina
@@ -13,6 +14,8 @@ class MariadbAT102 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "groonga"
   depends_on "openssl@1.1"
 
   def install
@@ -23,6 +26,9 @@ class MariadbAT102 < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
+
+    # Use brew groonga
+    rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
