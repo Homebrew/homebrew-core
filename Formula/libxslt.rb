@@ -1,9 +1,8 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz"
-  sha256 "8e36605144409df979cab43d835002f63988f3dc94d5d3537c12796db90e38c8"
-  revision 1
+  url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
+  sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
 
   bottle do
     cellar :any
