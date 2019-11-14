@@ -61,8 +61,10 @@ class Git < Formula
       ENV["NO_PERL_MAKEMAKER"] = "1"
     end
 
-    # Ensure we are using the correct system headers (for curl)
-    if MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
+    # Ensure we are using the correct system headers (for curl) to workaround
+    # mismatched Xcode/CLT versions:
+    # https://github.com/Homebrew/homebrew-core/issues/46466
+    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
       ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
