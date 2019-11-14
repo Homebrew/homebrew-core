@@ -4,6 +4,7 @@ class Caf < Formula
   homepage "https://actor-framework.org/"
   url "https://github.com/actor-framework/actor-framework/archive/0.17.3.tar.gz"
   sha256 "af235dbb5001a86d716c19f1b597be81bbcf172b87d42e2a38dc3ac97ea3863d"
+  revision 1
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
@@ -14,6 +15,7 @@ class Caf < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--no-examples",
