@@ -3,7 +3,7 @@ class Libevhtp < Formula
   homepage "https://criticalstack.com/"
   url "https://github.com/criticalstack/libevhtp/archive/1.2.18.tar.gz"
   sha256 "316ede0d672be3ae6fe489d4ac1c8c53a1db7d4fe05edaff3c7c853933e02795"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -20,6 +20,7 @@ class Libevhtp < Formula
   def install
     system "cmake", "-DEVHTP_BUILD_SHARED=ON",
                     "-DBUILD_SHARED_LIBS=ON",
+                    "-DEVHTP_DISABLE_REGEX=ON",
                     ".", *std_cmake_args
     system "make", "install"
     mkdir_p "./html/docs/"
