@@ -10,7 +10,10 @@ class Nift < Formula
   end
 
   test do
-    output = shell_output("#{bin}/nsm")
-    assert_match "no commands given, nothing to do", output
+    Dir.mkdir "test"
+    Dir.chdir "test"
+    system "#{bin}/nsm", "init"
+    assert_predicate testpath/"test/site/index.html", :exist?
+    Dir.chdir "../"
   end
 end
