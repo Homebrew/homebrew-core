@@ -3,6 +3,7 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v7.0.0.tar.bz2"
   sha256 "aa20dfff3596f08a7f427aab74315a6cb80c2b086b4a107ed35af02f9496b628"
+  revision 1
 
   bottle do
     sha256 "7e837e0c4ee8140d9b736d1cfb5a50c095140ffb279feb8219ab870f39188f99" => :catalina
