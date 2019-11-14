@@ -2,8 +2,8 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag      => "v1.6.1",
-      :revision => "9be6dfc310ddd54627d698537a98827245185290"
+      :tag      => "v1.6.2",
+      :revision => "1200f25eabc75368484a78698e75f1e61b6ed010"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
@@ -15,7 +15,7 @@ class Consul < Formula
     sha256 "0aba9ab485ca5777c07b678c93a5fffe76020fe5b7dfb45bd11b83794443f9af" => :sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
   depends_on "gox" => :build
 
   def install
