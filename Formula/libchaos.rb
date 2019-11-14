@@ -23,7 +23,7 @@ class Libchaos < Formula
   end
 
   test do
-    (testpath/"t_libchaos.cc").write <<~EOS
+    (testpath/"test.cc").write <<~EOS
       #include <chaos.h>
       #include <iostream>
       #include <string>
@@ -39,7 +39,7 @@ class Libchaos < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-lchaos", "-o", "t_libchaos", "t_libchaos.cc"
-    system "./t_libchaos"
+    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lchaos", "-o", "test", "test.cc"
+    system "./test"
   end
 end
