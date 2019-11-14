@@ -1,9 +1,8 @@
 class PostgresqlAT10 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.10/postgresql-10.10.tar.bz2"
-  sha256 "ad4f9b8575f98ed6091bf9bb2cb16f0e52795a5f66546c1f499ca5c69b21f253"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v10.11/postgresql-10.11.tar.bz2"
+  sha256 "0d5d14ff6b075655f4421038fbde3a5d7b418c26a249a187a4175600d7aecc09"
 
   bottle do
     sha256 "366f1eeb324e064dc0dc7feb2daec0c516cd8f3efcdaeacf5dd3ac18b09e3eef" => :catalina
