@@ -10,10 +10,9 @@ class Nift < Formula
   end
 
   test do
-    Dir.mkdir "test"
-    Dir.chdir "test"
-    system "#{bin}/nsm", "init"
-    assert_predicate testpath/"test/site/index.html", :exist?
-    Dir.chdir "../"
+    mkdir "empty" do
+      system "#{bin}/nsm", "init"
+      assert_predicate testpath/"empty/site/index.html", :exist?
+    end
   end
 end
