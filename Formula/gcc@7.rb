@@ -4,6 +4,7 @@ class GccAT7 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
   sha256 "b81946e7f01f90528a1f7352ab08cc602b9ccc05d4e44da4bd501c5a189ee661"
+  revision 1
 
   bottle do
     sha256 "f9df4177f2893dd91df5e8ccf825bc1e5f46f4ea23526e18307874d00d61f892" => :mojave
