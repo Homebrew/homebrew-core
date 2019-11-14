@@ -4,11 +4,11 @@ class Mdbm < Formula
   url "https://github.com/yahoo/mdbm/archive/v4.13.0.tar.gz"
   sha256 "99cec32e02639048f96abf4475eb3f97fc669541560cd030992bab155f0cb7f8"
 
-  depends_on "coreutils" => :build
-  depends_on "cppunit" => :build
-  depends_on "make" => :build
-  depends_on "openssl" => :build
-  depends_on "readline" => :build
+  depends_on "coreutils"
+  depends_on "cppunit"
+  depends_on "make"
+  depends_on "openssl"
+  depends_on "readline"
 
   def install
     ENV.delete "CC"
