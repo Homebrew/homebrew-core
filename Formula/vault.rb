@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag      => "v1.2.4",
-      :revision => "360b3a32c68a4003594a25ba17c8f582558fcfbc"
+      :tag      => "v1.3.0",
+      :revision => "0f5c835d1cf91c00d01cb29a0048732d91357afa"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Vault < Formula
     sha256 "323c61e661e4f55f7a5387877fd5c3537650cfaa1fe71b1150d2d8943a83c8e2" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
   depends_on "gox" => :build
 
   def install
