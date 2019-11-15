@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.12.src.tar.gz"
-  sha256 "a5892fb0abccb820c394e4e245c00ef30fc94e4ae58a048b23f94047c0816025"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.13.src.tar.gz"
+  sha256 "49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9"
 
   bottle do
     sha256 "a27076eb4615c5d58a838a2afcb037565a863bc24df30074fdb65785819bdf0f" => :catalina
@@ -12,13 +12,15 @@ class IncludeWhatYouUse < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" # include-what-you-use 0.12 is compatible with llvm 8.0
+  depends_on "llvm" # include-what-you-use 0.13 is compatible with llvm 9.0
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
-    # We do not want to symlink clang headers into HOMEBREW_PREFIX, so install
-    # to libexec to ensure that the resource path, which is always computed
-    # relative to the location of the include-what-you-use executable and is
-    # not configurable, is also located under libexec.
+    # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
+    # so install to libexec to ensure that the resource path, which is always
+    # computed relative to the location of the include-what-you-use executable
+    # and is not configurable, is also located under libexec.
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
       -DCMAKE_PREFIX_PATH=#{Formula["llvm"].opt_lib}
@@ -32,16 +34,18 @@ class IncludeWhatYouUse < Formula
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
 
-    # include-what-you-use needs a copy of the clang headers to be located
-    # in a specific folder under its resource path. These may need to be
+    # include-what-you-use needs a copy of the clang and libc++ headers to be
+    # located in specific folders under its resource path. These may need to be
     # updated when new major versions of llvm are released, i.e., by
     # incrementing the version of include-what-you-use or the revision of this
     # formula. This would be indicated by include-what-you-use failing to
-    # locate stddef.h when running the test block below.
+    # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    mkdir_p libexec/"lib/clang/#{Formula["llvm"].version}/include"
-    cp_r Dir["#{Formula["llvm"].opt_lib}/clang/#{Formula["llvm"].version}/include/*"],
-      libexec/"lib/clang/#{Formula["llvm"].version}/include"
+    mkdir_p libexec/"lib/clang/#{Formula["llvm"].version}"
+    cp_r Formula["llvm"].opt_lib/"clang/#{Formula["llvm"].version}/include",
+      libexec/"lib/clang/#{Formula["llvm"].version}"
+    mkdir_p libexec/"include"
+    cp_r Formula["llvm"].opt_include/"c++", libexec/"include"
   end
 
   test do
@@ -71,5 +75,18 @@ class IncludeWhatYouUse < Formula
     EOS
     assert_match expected_output,
       shell_output("#{bin}/include-what-you-use main.c 2>&1", 4)
+
+    (testpath/"main.cc").write <<~EOS
+      #include <iostream>
+      int main() {
+        std::cout << "Hello, world!" << std::endl;
+        return 0;
+      }
+    EOS
+    expected_output = <<~EOS
+      (main.cc has correct #includes/fwd-decls)
+    EOS
+    assert_match expected_output,
+      shell_output("#{bin}/include-what-you-use main.cc 2>&1", 2)
   end
 end
