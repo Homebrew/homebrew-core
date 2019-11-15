@@ -13,8 +13,8 @@ class MariadbConnectorC < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "mysql", "mariadb", "percona-server",
-                 :because => "both install plugins"
+  conflicts_with "mariadb",
+                 :because => "both install mariadb_config"
 
   def install
     args = std_cmake_args
