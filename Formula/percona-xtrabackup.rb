@@ -3,7 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
   sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e4ea3bb192e9a18c1e6d07df0f8d4d1c3f66fd137d1fb1d7bfc4d1797e6fc71a" => :catalina
@@ -18,9 +18,6 @@ class PerconaXtrabackup < Formula
   depends_on "libgcrypt"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
-
-  conflicts_with "percona-server",
-    :because => "both install lib/plugin/keyring_vault.so"
 
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
@@ -41,8 +38,10 @@ class PerconaXtrabackup < Formula
     cmake_args = %w[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
+      -DINSTALL_PLUGINDIR=lib/percona-xtrabackup/plugin
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
+      -DINSTALL_MYSQLTESTDIR=
       -DCMAKE_CXX_FLAGS="-DBOOST_NO_CXX11_HDR_ARRAY"
     ]
 
@@ -62,10 +61,8 @@ class PerconaXtrabackup < Formula
 
     share.install "share/man"
 
-    rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
-    # remove conflicting libraries that are already installed by mysql
+    # remove conflicting library that is already installed by mysql
     rm lib/"libmysqlservices.a"
-    rm lib/"plugin/keyring_file.so"
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
