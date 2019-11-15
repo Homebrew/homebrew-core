@@ -17,7 +17,7 @@ class Bat < Formula
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
-    ENV.append "RUSTFLAGS", "-Clink-args=-Wl,-bind_at_load"
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
     fish_completion.install "assets/completions/bat.fish"
