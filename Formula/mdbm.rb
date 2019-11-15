@@ -19,7 +19,7 @@ class Mdbm < Formula
     system "mdbm_create", ts_mdbm
     assert_predicate ts_mdbm, :exist?
     system "mdbm_check", ts_mdbm
-    system "mdbm_trunc", "-y", ts_mdbm
+    system "mdbm_trunc", "-f", ts_mdbm
     system "mdbm_sync", ts_mdbm
   end
 end
