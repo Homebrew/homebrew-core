@@ -3,6 +3,7 @@ class Ispc < Formula
   homepage "https://ispc.github.io"
   url "https://github.com/ispc/ispc/archive/v1.12.0.tar.gz"
   sha256 "9ebc29adcdf477659b45155d0f91e61120a12084e42113d0e9f4ce5cfdfbdcab"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,21 +15,16 @@ class Ispc < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "llvm@4"
+  depends_on "llvm"
   depends_on "python"
 
   def install
-    # The standard include paths for clang supplied by the llvm@4 formula do not include
-    # C headers such as unistd.h. Add the path to those headers explicitly so that
-    # generation of the ispc builtins and standard library do not silently fail.
-    inreplace "cmake/GenerateBuiltins.cmake", "${CLANG_EXECUTABLE}",
-      "${CLANG_EXECUTABLE} -I#{MacOS.sdk_path}/usr/include"
-
     args = std_cmake_args + %W[
       -DISPC_INCLUDE_EXAMPLES=OFF
       -DISPC_INCLUDE_TESTS=OFF
       -DISPC_INCLUDE_UTILS=OFF
-      -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm@4"]}'
+      -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm"].opt_bin}'
+      -DISPC_NO_DUMPS=ON
     ]
 
     mkdir "build" do
