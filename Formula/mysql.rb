@@ -27,8 +27,6 @@ class Mysql < Formula
 
   conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
