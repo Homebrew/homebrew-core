@@ -16,6 +16,8 @@ class Sphinx < Formula
   depends_on "mysql@5.7"
   depends_on "openssl@1.1"
 
+  conflicts_with "manticoresearch", :because => "manticoresearch is a fork of sphinx"
+
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
         :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
