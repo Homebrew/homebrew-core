@@ -1,9 +1,11 @@
 class Vit < Formula
-  desc "Front-end for Task Warrior"
+  include Language::Python::Virtualenv
+
+  desc "Full-screen terminal interface for Taskwarrior"
   homepage "https://taskwarrior.org/news/news.20140406.html"
-  url "https://github.com/scottkosty/vit/archive/v1.3.tar.gz"
-  sha256 "a53021cfbcc1b1a492f630650e7e798d2361beb312d33ee15840e8209c8414c9"
-  head "https://github.com/scottkosty/vit.git"
+  url "https://github.com/scottkosty/vit/archive/v2.0.0.tar.gz"
+  sha256 "0c8739c16b5922880e762bd38f887240923d16181b2f85bb88c4f9f6faf38d6d"
+  head "https://github.com/scottkosty/vit.git", :branch => "2.x"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,31 +15,27 @@ class Vit < Formula
     sha256 "7b41d373de2b877ec5b91b47e36b694ea3e966822e77697948e91861dd52725c" => :sierra
   end
 
+  depends_on "python"
   depends_on "task"
 
-  resource "Curses" do
-    url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.36.tar.gz"
-    sha256 "a414795ba031c5918c70279fe534fee594a96ec4b0c78f44ce453090796add64"
+  def install
+    venv = virtualenv_create(libexec, "python3")
+    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
+                              "--ignore-installed", buildpath
+    system libexec/"bin/pip", "uninstall", "-y", name
+    venv.pip_install_and_link buildpath
   end
 
-  def install
-    ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
+  test do
+    (testpath/".vit").mkpath
+    touch testpath/".vit/config.ini"
+    touch testpath/".taskrc"
 
-    resource("Curses").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
+    require "pty"
+    PTY.spawn(bin/"vit") do |_stdout, _stdin, pid|
+      sleep 1
+      Process.kill "TERM", pid
     end
-
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "build"
-
-    bin.install "vit"
-    man1.install "vit.1"
-    man5.install "vitrc.5"
-    # vit-commands needs to be installed in the keg because that's where vit
-    # will look for it.
-    (prefix+"etc").install "commands" => "vit-commands"
-    bin.env_script_all_files(libexec+"bin", :PERL5LIB => ENV["PERL5LIB"])
+    assert_predicate testpath/".task", :exist?
   end
 end
