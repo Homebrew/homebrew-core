@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-5.1.2.tar.gz"
-  sha256 "15af0b090b23649e0e53621a88dde97b55a734d7cb08b77d3df284db70d44e2e"
+  url "https://www.mercurial-scm.org/release/mercurial-5.2.tar.gz"
+  sha256 "ff030e923f03ee15c91191996fcb099bfcfa60c7df263be227f67b6a65d36194"
 
   bottle do
     sha256 "5d02b93a360c6423c6d357d57486b048e41d32b5314d34b52d0fb53d081cbba9" => :catalina
@@ -12,18 +12,16 @@ class Mercurial < Formula
     sha256 "c28323134e53c09ca43ad1543b034fb54c2558f05ddfead977390899ec2afa70" => :high_sierra
   end
 
-  # See discussion at https://github.com/Homebrew/homebrew-core/pull/44095
-  # plans for Python 3 migration
-  depends_on "python@2"
+  depends_on "python"
 
   def install
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+    ENV["HGPYTHON3"] = "1"
 
     system "make", "PREFIX=#{prefix}", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg",
+      system "make", "PREFIX=#{prefix}", "PYTHON=python3", "HGPATH=#{bin}/hg",
                      "HG=#{bin}/hg"
       bin.install "chg"
     end
