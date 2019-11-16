@@ -2,8 +2,8 @@ class Lazydocker < Formula
   desc "The lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
-      :tag      => "v0.7.5",
-      :revision => "945ad95baef908a3fbe90806817d379fabb8de21"
+      :tag      => "v0.7.6",
+      :revision => "450d16304087f16da0f9ce15b54640599cb163d6"
 
   bottle do
     cellar :any_skip_relocation
