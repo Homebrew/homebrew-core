@@ -15,13 +15,13 @@ class Csound < Formula
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
-  depends_on "python" => [:build, :test]
   depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
   depends_on "hdf5"
   depends_on "jack"
   depends_on "liblo"
+  depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
@@ -56,7 +56,7 @@ class Csound < Formula
       -DBUILD_PYTHON_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
-      -DCS_FRAMEWORK_DEST:PATH=#{frameworks}
+      -DCS_FRAMEWORK_DEST=#{frameworks}
       -DGMM_INCLUDE_DIR=#{buildpath}/gmm
     ]
 
@@ -65,9 +65,9 @@ class Csound < Formula
       system "make", "install"
     end
 
-    include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
+    include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound"
 
-    libexec.install "#{buildpath}/interfaces/ctcsound.py"
+    libexec.install buildpath/"interfaces/ctcsound.py"
 
     python_version = Language::Python.major_minor_version "python3"
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
@@ -77,7 +77,7 @@ class Csound < Formula
 
   def caveats; <<~EOS
     To use the Python bindings, you may need to add to #{shell_profile}:
-      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_prefix}/Frameworks"
+      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
   EOS
   end
 
@@ -88,6 +88,7 @@ class Csound < Formula
       gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
       gi_fluidEngineNumber fluidEngine
+      gi_image imagecreate 1, 1
       gi_realVector la_i_vr_create 1
       pyinit
       pyruni "print('hello, world')"
@@ -104,8 +105,8 @@ class Csound < Formula
       e
     EOS
 
-    ENV["OPCODE6DIR64"] = "#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64"
-    ENV["RAWWAVE_PATH"] = "#{HOMEBREW_PREFIX}/share/stk/rawwaves"
+    ENV["OPCODE6DIR64"] = frameworks/"CsoundLib64.framework/Resources/Opcodes64"
+    ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
 
     require "open3"
     stdout, stderr, status = Open3.capture3("#{bin}/csound test.orc test.sco")
@@ -119,16 +120,16 @@ class Csound < Formula
     assert_predicate testpath/"test.h5", :exist?
 
     (testpath/"jacko.orc").write "JackoInfo"
-    system "#{bin}/csound", "--orc", "--syntax-check-only", "jacko.orc"
+    system bin/"csound", "--orc", "--syntax-check-only", "jacko.orc"
 
     (testpath/"wii.orc").write <<~EOS
       instr 1
           i_success wiiconnect 1, 1
       endin
     EOS
-    system "#{bin}/csound", "wii.orc", "test.sco"
+    system bin/"csound", "wii.orc", "test.sco"
 
-    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+    ENV["DYLD_FRAMEWORK_PATH"] = frameworks
     system "python3", "-c", "import ctcsound"
   end
 end
