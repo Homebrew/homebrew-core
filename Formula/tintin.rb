@@ -28,7 +28,7 @@ class Tintin < Formula
   end
 
   test do
-    touch testpath/"version.txt"    
+    touch testpath/"version.txt"
     system bin/"tt++", "-e \"#nop; #log o #{testpath}/version.txt; #help greeting; #end;\""
     assert_match /#{version}/, File.read(testpath/"version.txt")
   end
