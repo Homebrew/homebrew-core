@@ -3,7 +3,7 @@ class AmplMp < Formula
   homepage "https://www.ampl.com/"
   url "https://github.com/ampl/mp/archive/3.1.0.tar.gz"
   sha256 "587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -20,6 +20,13 @@ class AmplMp < Formula
   resource "miniampl" do
     url "https://github.com/dpo/miniampl/archive/v1.0.tar.gz"
     sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
+  end
+
+  # Removes Google Benchmark - as already done so upstream
+  # All it did was conflict with the google-benchmark formula
+  patch do
+    url "https://github.com/ampl/mp/commit/96e332bb8cb7ba925e3ac947d6df515496027eed.patch?full_index=1"
+    sha256 "1a4ef4cd1f4e8b959c20518f8f00994ef577e74e05824b2d1b241b1c3c1f84eb"
   end
 
   def install
