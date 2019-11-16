@@ -2,8 +2,8 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.12.1",
-    :revision => "98b9b63f6d1bae0838165465db8b04613760e9e6"
+    :tag      => "v0.13.1",
+    :revision => "470fb17da7324f773e204ce56e5f1ded6fc9cf3c"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
@@ -16,15 +16,7 @@ class Tflint < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/wata727/tflint"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"tflint"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-o", bin/"tflint"
   end
 
   test do
