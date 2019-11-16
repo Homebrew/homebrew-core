@@ -2,8 +2,8 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.0.7",
-    :revision => "09c29a322f4393f1c92d00b84c867b2c8ff45a7a"
+    :tag      => "3.1.0",
+    :revision => "573d43a7e6f8e093392c2582dfaa30ac824dda8d"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,15 +15,7 @@ class Cheat < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/cheat/cheat"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
   end
 
   test do
