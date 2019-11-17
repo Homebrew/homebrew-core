@@ -13,7 +13,7 @@ class Dvc < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   def install
