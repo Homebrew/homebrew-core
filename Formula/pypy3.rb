@@ -74,7 +74,7 @@ class Pypy3 < Formula
       s.gsub! "libdirs = []",
               "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
     end
-    
+
     # This has been completely rewritten upstream in master so check with
     # the next release whether this can be removed or not.
     inreplace "pypy/tool/build_cffi_imports.py" do |s|
