@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://github.com/DNSCrypt/dnscrypt-proxy"
-  url "https://github.com/DNSCrypt/dnscrypt-proxy/archive/2.0.31.tar.gz"
-  sha256 "b5d17ae56856e5797b59d862bccb038ff891ac0bf159534e9a937b0f0cc35777"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.33.tar.gz"
+  sha256 "9e62dd3dff59c283a0b8214d99925c1ca8855876992be1755b3eb6b3489194fd"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
 
   bottle do
@@ -83,8 +83,10 @@ class DnscryptProxy < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{sbin}/dnscrypt-proxy --version")
+
     config = "-config #{etc}/dnscrypt-proxy.toml"
     output = shell_output("#{sbin}/dnscrypt-proxy #{config} -list 2>&1")
-    assert_match "public-resolvers.md] loaded", output
+    assert_match "Source [public-resolvers] loaded", output
   end
 end
