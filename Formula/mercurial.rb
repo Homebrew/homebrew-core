@@ -5,6 +5,7 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://www.mercurial-scm.org/release/mercurial-5.2.tar.gz"
   sha256 "ff030e923f03ee15c91191996fcb099bfcfa60c7df263be227f67b6a65d36194"
+  revision 1
 
   bottle do
     sha256 "d614de3ff6e07cdfd1fffcf5d8e5df6bb408b3643ff0e6d50595a09dede76b57" => :catalina
@@ -17,7 +18,7 @@ class Mercurial < Formula
   def install
     ENV["HGPYTHON3"] = "1"
 
-    system "make", "PREFIX=#{prefix}", "install-bin"
+    system "make", "PREFIX=#{prefix}", "PYTHON=python3", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
