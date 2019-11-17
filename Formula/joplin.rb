@@ -3,9 +3,8 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.149.tgz"
-  sha256 "26b1c4b80db58148e934852016687ced1c617f1841afc9b1e5eea00e10e20c8e"
-  revision 1
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.150.tgz"
+  sha256 "8baab0baf97ac77a10d05ca74abc03b4a8b78d53480d70420d6448ec4986bb8b"
 
   bottle do
     sha256 "165fa445621934b879f92be8aa29ccac65aa70040530707ce87f8d8817b2244e" => :catalina
@@ -16,8 +15,6 @@ class Joplin < Formula
   depends_on "node"
 
   def install
-    # patch to support node 13, remove during next compatible upgrade
-    inreplace "package.json", "\"sharp\": \"^0.22.1\",", "\"sharp\": \"^0.23.2\","
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
