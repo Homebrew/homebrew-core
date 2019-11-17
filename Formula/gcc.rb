@@ -64,6 +64,7 @@ class Gcc < Formula
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
+      --enable-plugin
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
