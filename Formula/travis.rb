@@ -117,8 +117,6 @@ class Travis < Formula
     (testpath/".travis.yml").write <<~EOS
       language: ruby
 
-      sudo: true
-
       matrix:
         include:
           - os: osx
