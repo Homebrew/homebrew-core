@@ -1,8 +1,8 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v3.0.0.tar.gz"
-  sha256 "8f1c78c15e779643112e5c12ddaa05f103fe24b81bd628b0e644335b65e26cbe"
+  url "https://github.com/zricethezav/gitleaks/archive/v3.0.1.tar.gz"
+  sha256 "f1d30e4714407200129baa20e1f73420b24d8502e38d40f893b4782e20507fc0"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,15 +14,11 @@ class Gitleaks < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ldflags = %W[
+      -X github.com/zricethezav/gitleaks/version.Version=#{version}
+    ]
 
-    dir = buildpath/"github.com/zricethezav/gitleaks"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"gitleaks"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"gitleaks"
   end
 
   test do
