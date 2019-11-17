@@ -1,8 +1,8 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.92.0.tar.gz"
-  sha256 "fe2ec6b7b487bcba3b28108015c2ab223e233c789ee029b50e08e0bbd87c48c4"
+  url "https://github.com/roboll/helmfile/archive/v0.92.1.tar.gz"
+  sha256 "dcb08533087aea527f581910c29e200a114556b462b53f34d92c7e75e97d73f3"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,17 +12,11 @@ class Helmfile < Formula
   end
 
   depends_on "go" => :build
-  depends_on "kubernetes-helm"
+  depends_on "helm"
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/roboll/helmfile").install buildpath.children
-    cd "src/github.com/roboll/helmfile" do
-      system "go", "build", "-ldflags", "-X main.Version=v#{version}",
+    system "go", "build", "-ldflags", "-X main.Version=v#{version}",
              "-o", bin/"helmfile", "-v", "github.com/roboll/helmfile"
-      prefix.install_metafiles
-    end
   end
 
   test do
@@ -34,7 +28,7 @@ class Helmfile < Formula
     releases:
     - name: test
     EOS
-    system Formula["kubernetes-helm"].opt_bin/"helm", "init", "--client-only"
+    system Formula["helm"].opt_bin/"helm", "create", "foo"
     output = "Adding repo stable https://kubernetes-charts.storage.googleapis.com"
     assert_match output, shell_output("#{bin}/helmfile -f helmfile.yaml repos 2>&1")
     assert_match version.to_s, shell_output("#{bin}/helmfile -v")
