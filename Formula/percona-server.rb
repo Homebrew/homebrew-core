@@ -26,8 +26,6 @@ class PerconaServer < Formula
 
   conflicts_with "mariadb", "mysql",
     :because => "percona, mariadb, and mysql install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
