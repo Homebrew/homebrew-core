@@ -1,8 +1,8 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.6.0.tar.gz"
-  sha256 "1c35c5a48018205bc540d0cc1d11fc2a47579b1319262940412ba2b8372459d6"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.7.0.tar.gz"
+  sha256 "bca0fd28d91577988ff527042ed0e4e61bec26c1c90062e3c3c3bf3e857b1834"
 
   bottle do
     cellar :any_skip_relocation
@@ -44,6 +44,11 @@ class Rex < Formula
     sha256 "a82c334c02ce4b0f9ea77c67bf77738f76a9b8aa4bae5c7209d1c76453d3c48d"
   end
 
+  resource "ExtUtils::MakeMaker" do
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.38.tar.gz"
+    sha256 "897d64af242331ebb69090f68a2b610091e1996952d02096ce7942072a35e02c"
+  end
+
   resource "File::Listing" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/File-Listing-6.04.tar.gz"
     sha256 "1e0050fcd6789a2179ec0db282bf1e90fb92be35d1171588bd9c47d52d959cf5"
@@ -60,18 +65,18 @@ class Rex < Formula
   end
 
   resource "HTTP::Cookies" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz"
-    sha256 "0cc7f079079dcad8293fea36875ef58dd1bfd75ce1a6c244cd73ed9523eb13d4"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.07.tar.gz"
+    sha256 "6a2f8cde56074c9dc5b46a143975f19b981d0569f1d4dc5e80567d6aab3eea2a"
   end
 
   resource "HTTP::Daemon" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.04.tar.gz"
-    sha256 "df053d8d5e581e58a470cec359d0f7ec0d05c23fb1be2c91804ddc6ab58aa88a"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.06.tar.gz"
+    sha256 "fc03a161b54553f766457a4267e7066767f54ad01cacfe9a91d7caa2a0319bad"
   end
 
   resource "HTTP::Date" do
-    url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz"
-    sha256 "e8b9941da0f9f0c9c01068401a5e81341f0e3707d1c754f8e11f42a7e629e333"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.04.tar.gz"
+    sha256 "c55f3f7a36d173fec34896594a601047625f454e54ee6bb322a23f619d4eb98e"
   end
 
   resource "HTTP::Message" do
@@ -221,7 +226,7 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else
