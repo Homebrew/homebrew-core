@@ -24,7 +24,7 @@ class Neko < Formula
   def install
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
-    # mysql, and mysql-connector-c.
+    # mysql, and mysql-client.
     system "cmake", ".", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
            "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
     system "ninja", "install"
