@@ -3,7 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
   sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "3de1cc8089d273eaf169764138c669f8a87f5a74c585f8f259d0e49c74023bba" => :catalina
