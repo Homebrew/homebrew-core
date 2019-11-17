@@ -3,6 +3,7 @@ class NodeExporter < Formula
   homepage "https://prometheus.io/"
   url "https://github.com/prometheus/node_exporter/archive/v0.18.1.tar.gz"
   sha256 "9ddf187c462f2681ab4516410ada0e6f0f03097db6986686795559ea71a07694"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +20,12 @@ class NodeExporter < Formula
 
     (buildpath/"src/github.com/prometheus/node_exporter").install buildpath.children
     cd "src/github.com/prometheus/node_exporter" do
-      system "go", "build", "-o", bin/"node_exporter", "-ldflags",
-           "-X github.com/prometheus/node_exporter/vendor/github.com/prometheus/common/version.Version=#{version}",
+      ldflags = %W[
+        -X github.com/prometheus/common/version.Version=#{version}
+        -X github.com/prometheus/common/version.BuildUser=Homebrew
+      ]
+      system "go", "build", "-o", bin/"node_exporter",
+           "-ldflags", ldflags.join(" "),
            "github.com/prometheus/node_exporter"
       prefix.install_metafiles
     end
