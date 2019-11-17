@@ -1,8 +1,9 @@
 class Synscan < Formula
   desc "Asynchronous half-open TCP portscanner"
-  homepage "http://www.digit-labs.org/files/tools/synscan/"
-  url "http://www.digit-labs.org/files/tools/synscan/releases/synscan-5.02.tar.gz"
+  homepage "http://digit-labs.org/files/tools/synscan/"
+  url "http://digit-labs.org/files/tools/synscan/releases/synscan-5.02.tar.gz"
   sha256 "c4e6bbcc6a7a9f1ea66f6d3540e605a79e38080530886a50186eaa848c26591e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +14,15 @@ class Synscan < Formula
     sha256 "4cacc06fdeda9a24bb681cb90c52c4692d5bf3993f18db496c5de19ab9d46dac" => :mavericks
   end
 
+  depends_on "libpcap"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    # Ideally we pass the prefix into --with-libpcap, but that option only checks "flat"
+    # i.e. it only works if the headers and libraries are in the same directory.
+    ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
+    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-libpcap=yes"
     system "make", "macos"
     system "make", "install"
   end
