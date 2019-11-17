@@ -24,9 +24,9 @@ class Pypy < Formula
   depends_on "tcl-tk"
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-osx64.tar.bz2"
-    version "7.0.0"
-    sha256 "e7ecb029d9c7a59388838fc4820a50a2f5bee6536010031060e3dfa882730dc8"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-osx64.tar.bz2"
+    version "7.1.1"
+    sha256 "31a17294dec96c2191885c776b4ee02112957dc874f7ba03e570537a77b78c35"
   end
 
   resource "setuptools" do
@@ -48,6 +48,14 @@ class Pypy < Formula
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
+
+    # Fix build on High Sierra
+    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
+              "#{prefix}/opt/tcl-tk/include"
+      s.gsub! "libdirs = []",
+              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
+    end
 
     resource("bootstrap").stage buildpath/"bootstrap"
     python = buildpath/"bootstrap/bin/pypy"
