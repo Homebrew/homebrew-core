@@ -21,6 +21,9 @@ class Eventql < Formula
   end
 
   def install
+    # SpiderMonkey sets the deployment target to 10.6, kicking in libstdc++ mode
+    # which no longer has headers as of Xcode 10.
+    ENV["_MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     # the internal libzookeeper fails to build if we don't deparallelize
     # https://github.com/eventql/eventql/issues/180
     ENV.deparallelize
