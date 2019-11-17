@@ -3,7 +3,7 @@ class Libav < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.xz"
   sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
-  revision 2
+  revision 3
   head "https://git.libav.org/libav.git"
 
   bottle do
@@ -24,7 +24,6 @@ class Libav < Formula
   depends_on "freetype"
   depends_on "lame"
   depends_on "libvorbis"
-  depends_on "libvpx"
   depends_on "opus"
   depends_on "sdl"
   depends_on "theora"
@@ -54,6 +53,7 @@ class Libav < Formula
       --disable-debug
       --disable-shared
       --disable-indev=jack
+      --disable-libvpx
       --prefix=#{prefix}
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
@@ -65,7 +65,6 @@ class Libav < Formula
       --enable-libmp3lame
       --enable-libopus
       --enable-libvorbis
-      --enable-libvpx
       --enable-libx264
       --enable-libxvid
       --enable-nonfree
