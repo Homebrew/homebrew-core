@@ -5,7 +5,7 @@ class Dvc < Formula
   homepage "https://dvc.org"
   url "https://github.com/iterative/dvc/archive/0.68.1.tar.gz"
   sha256 "a072ebf2151213c61ac7e580e51dc1cecefa4cd840e4f7ae1927d6710312cfe0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "a561c535faeb646e91b206f2f1ce2fa3f36ac806f35848542873eef56e7f7ccd" => :catalina
@@ -14,12 +14,23 @@ class Dvc < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "apache-arrow"
   depends_on "openssl@1.1"
   depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", ".[all]"
+
+    system libexec/"bin/pip", "install",
+      "--no-binary", ":all:",
+      # NOTE: we will uninstall Pillow anyway, so there is no need to build it
+      # from source.
+      "--only-binary", "Pillow",
+      "--ignore-installed",
+      # NOTE: pyarrow is already installed as a part of apache-arrow package,
+      # so we don't need to specify `hdfs` option.
+      ".[gs,s3,azure,oss,ssh]"
+
     # NOTE: dvc depends on asciimatics, which depends on Pillow, which
     # uses liblcms2.2.dylib that causes troubles on mojave. See [1]
     # and [2] for more info. As a workaround, we need to simply
