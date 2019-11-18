@@ -12,6 +12,7 @@ class Pspg < Formula
     sha256 "978a2c0600cf23ab33fa128da6870d8df73949f1c57549ee33cde36b8380f196" => :high_sierra
   end
 
+  depends_on "libpq"
   depends_on "ncurses"
   depends_on "readline"
 
