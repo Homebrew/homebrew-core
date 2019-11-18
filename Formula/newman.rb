@@ -3,8 +3,8 @@ require "language/node"
 class Newman < Formula
   desc "Command-line collection runner for Postman"
   homepage "https://www.getpostman.com"
-  url "https://registry.npmjs.org/newman/-/newman-4.5.5.tgz"
-  sha256 "21209b816385c04dd3634879a21149ed75f0da0b333c4fd2861e15684653307b"
+  url "https://registry.npmjs.org/newman/-/newman-4.5.6.tgz"
+  sha256 "aebd5e289a0fe7c8805c415c02cec151169672a68a1054c95384b07c6b422012"
 
   bottle do
     cellar :any_skip_relocation
