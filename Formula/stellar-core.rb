@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "The backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      :tag      => "v11.2.0",
-      :revision => "f3857733a9b67da4528df59bb616ea84ba539a1a"
+      :tag      => "v12.1.0",
+      :revision => "8afe57913a08deffa247d7b5f837e0b28a54b864"
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
@@ -18,8 +18,9 @@ class StellarCore < Formula
   depends_on "libtool" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "parallel" => :test
+  depends_on "libpqxx"
   depends_on "libsodium"
-  depends_on "postgresql"
 
   def install
     system "./autogen.sh"
@@ -32,6 +33,6 @@ class StellarCore < Formula
   end
 
   test do
-    system "#{bin}/stellar-core", "--test", "'[bucket],[crypto],[herder],[upgrades],[accountsubentriescount],[bucketlistconsistent],[cacheisconsistent],[fs]'"
+    system "#{bin}/stellar-core", "test", "'[bucket],[crypto],[herder],[upgrades],[accountsubentriescount],[bucketlistconsistent],[cacheisconsistent],[fs]'"
   end
 end
