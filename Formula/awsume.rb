@@ -3,9 +3,9 @@ class Awsume < Formula
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
   homepage "https://www.trek10.com/blog/awsume-aws-assume-made-awesome"
-
   url "https://github.com/trek10inc/awsume/archive/4.0.0.tar.gz"
   sha256 "8cc7d466beef1c32b3397ed62cba22f7a309ab1650317cef6873cf019be7d25e"
+  revision 1
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Awsume < Formula
     sha256 "0eba67450540e7d925d166a50dc2051fc4d867cba692a3f2a8d6a7c612065cf5" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   uses_from_macos "sqlite"
 
