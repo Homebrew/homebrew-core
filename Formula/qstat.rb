@@ -1,8 +1,8 @@
 class Qstat < Formula
   desc "Query Quake servers from the command-line"
-  homepage "https://qstat.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/qstat/qstat/qstat-2.11/qstat-2.11.tar.gz"
-  sha256 "16f0c0f55567597d7f2db5136a0858c56effb4481a2c821a48cd0432ea572150"
+  homepage "https://github.com/multiplay/qstat"
+  url "https://github.com/multiplay/qstat/archive/v2.14.tar.gz"
+  sha256 "ae906b74d4cce8057b5a265b76859101da8104c2a07c05f11a51f7c9f033ef8b"
 
   bottle do
     sha256 "1225042ca663297e1a38ab1da3a13998fa169dea184c569a17c3f0905894a64f" => :mojave
@@ -13,7 +13,11 @@ class Qstat < Formula
     sha256 "96b05212759a5a648f24ade7334738bda8d4ef4eeb8669e31afe45ed6293dc52" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
