@@ -5,7 +5,7 @@ class Awsume < Formula
   homepage "https://www.trek10.com/blog/awsume-aws-assume-made-awesome"
   url "https://github.com/trek10inc/awsume/archive/4.0.0.tar.gz"
   sha256 "8cc7d466beef1c32b3397ed62cba22f7a309ab1650317cef6873cf019be7d25e"
-  revision 1
+  revision 2
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
