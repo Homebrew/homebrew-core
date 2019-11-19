@@ -16,8 +16,6 @@ class MysqlClient < Formula
 
   depends_on "openssl@1.1"
 
-  depends_on :xcode => "9.0"
-
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
