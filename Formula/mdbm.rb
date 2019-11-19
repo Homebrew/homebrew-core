@@ -13,6 +13,19 @@ class Mdbm < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
+  def post_install
+    mv @lib.to_s, @libexec.to_s, :force => true do
+      ignored_extensions = [".sh", ".pl"]
+      Dir.glob("#{bin}/*") do |file|
+        next if ignored_extensions.include? File.extname(file)
+
+        macho = MachO.open(file)
+        macho.change_dylib("#{lib}/libmdbm.dylib", "#{libexec}/libmdbm.dylib")
+        macho.write!
+      end
+    end
+  end
+
   test do
     ts_mdbm = testpath/"test.mdbm"
     system "mdbm_create", ts_mdbm
