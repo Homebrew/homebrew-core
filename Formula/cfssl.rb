@@ -19,9 +19,10 @@ class Cfssl < Formula
     ENV["GOPATH"] = buildpath
     cfsslpath = buildpath/"src/github.com/cloudflare/cfssl"
     cfsslpath.install Dir["{*,.git}"]
+    ldflags = "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"
     cd "src/github.com/cloudflare/cfssl" do
-      system "go", "build", "-o", "#{bin}/cfssl", "cmd/cfssl/cfssl.go"
-      system "go", "build", "-o", "#{bin}/cfssljson", "cmd/cfssljson/cfssljson.go"
+      system "go", "build", "-o", "#{bin}/cfssl", "-ldflags", ldflags, "cmd/cfssl/cfssl.go"
+      system "go", "build", "-o", "#{bin}/cfssljson", "-ldflags", ldflags, "cmd/cfssljson/cfssljson.go"
       system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
     end
   end
