@@ -1,9 +1,9 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
-  url "https://github.com/tidwall/tile38/archive/1.19.0.tar.gz"
-  sha256 "4317f3753c941b48e22ea61f3425fb5c2fd345fbeb5415f06396fa0af3ad35d1"
-  head "https://github.com/tidwall/tile38.git"
+  url "https://github.com/tidwall/tile38.git",
+    :tag      => "1.19.1",
+    :revision => "644f65c7d9801b98e8f6c3c446f54e00e23f81d1"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,10 +19,16 @@ class Tile38 < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "make"
+    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
 
-    bin.install "tile38-cli", "tile38-server"
+    ldflags = %W[
+      -s -w
+      -X github.com/tidwall/tile38/core.Version=#{version}
+      -X github.com/tidwall/tile38/core.GitSHA=#{commit}
+    ]
+
+    system "go", "build", "-o", bin/"tile38-server", "-ldflags", ldflags.join(" "), "./cmd/tile38-server"
+    system "go", "build", "-o", bin/"tile38-cli", "-ldflags", ldflags.join(" "), "./cmd/tile38-cli"
   end
 
   def post_install
