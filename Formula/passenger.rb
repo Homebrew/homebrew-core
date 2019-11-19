@@ -3,6 +3,7 @@ class Passenger < Formula
   homepage "https://www.phusionpassenger.com/"
   url "https://github.com/phusion/passenger/releases/download/release-6.0.4/passenger-6.0.4.tar.gz"
   sha256 "ec1e4b555c176642c1c316897177d54b6f7d369490280e8ee3e54644e40b250b"
+  revision 1
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
@@ -18,9 +19,18 @@ class Passenger < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  # Enables setting temp path to avoid sandbox violations, already merged upstream
+  patch do
+    url "https://github.com/phusion/passenger/commit/e512231f.patch?full_index=1"
+    sha256 "9f39f5c1c8b68516f7bac0ba07921144a5de30b6a72ef2423ea83a77d512bea8"
+  end
+
   def install
-    # https://github.com/Homebrew/homebrew-core/pull/1046
-    ENV.delete("SDKROOT")
+    if MacOS.version >= :mojave && MacOS::CLT.installed?
+      ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+    else
+      ENV.delete("SDKROOT")
+    end
 
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
       s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl@1.1"].opt_include}"
@@ -119,6 +129,7 @@ class Passenger < Formula
         proxy_temp_path #{testpath}/proxy_temp;
         scgi_temp_path #{testpath}/scgi_temp;
         uwsgi_temp_path #{testpath}/uwsgi_temp;
+        passenger_temp_path #{testpath}/passenger_temp;
 
         server {
           passenger_enabled on;
