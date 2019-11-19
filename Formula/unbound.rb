@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.4.tar.gz"
-  sha256 "3d3e25fb224025f0e732c7970e5676f53fd1764c16d6a01be073a13e42954bb0"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.5.tar.gz"
+  sha256 "8a8d400f697c61d73d109c250743a1b6b79848297848026d82b43e831045db57"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
@@ -18,9 +18,11 @@ class Unbound < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --enable-event-api
+      --enable-tfo-client
+      --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-      --enable-event-api
     ]
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
