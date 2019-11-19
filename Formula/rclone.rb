@@ -1,9 +1,9 @@
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
-  url "https://github.com/ncw/rclone/archive/v1.50.1.tar.gz"
+  url "https://github.com/rclone/rclone/archive/v1.50.1.tar.gz"
   sha256 "aba9aadd3d20f8684a0150482011a8f9aa36feaf31d987660912378e7892553a"
-  head "https://github.com/ncw/rclone.git"
+  head "https://github.com/rclone/rclone.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,8 @@ class Rclone < Formula
 
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    mkdir_p buildpath/"src/github.com/ncw/"
-    ln_s buildpath, buildpath/"src/github.com/ncw/rclone"
+    mkdir_p buildpath/"src/github.com/rclone/"
+    ln_s buildpath, buildpath/"src/github.com/rclone/rclone"
     system "go", "build", "-o", bin/"rclone"
     man1.install "rclone.1"
     system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
