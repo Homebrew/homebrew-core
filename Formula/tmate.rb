@@ -1,8 +1,8 @@
 class Tmate < Formula
   desc "Instant terminal sharing"
   homepage "https://tmate.io/"
-  url "https://github.com/tmate-io/tmate/archive/2.3.1.tar.gz"
-  sha256 "21cb6029d09e3809e37b9b8f1cd96b452197b8c2e28d3551d674b8e580bf4048"
+  url "https://github.com/tmate-io/tmate/archive/2.4.0.tar.gz"
+  sha256 "62b61eb12ab394012c861f6b48ba0bc04ac8765abca13bdde5a4d9105cb16138"
   head "https://github.com/tmate-io/tmate.git"
 
   bottle do
