@@ -52,6 +52,11 @@ class Nzbget < Formula
     <dict>
       <key>Label</key>
       <string>#{plist_name}</string>
+      <key>EnvironmentVariables</key>
+      <dict>
+        <key>PATH</key>
+        <string>#{HOMEBREW_PREFIX}/bin:$PATH</string>
+      </dict>
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/nzbget</string>
