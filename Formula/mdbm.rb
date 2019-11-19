@@ -6,6 +6,7 @@ class Mdbm < Formula
 
   depends_on "coreutils" => :build
   depends_on "cppunit" => :build
+  depends_on :xcode => ["10.2", :build]
   depends_on "openssl@1.1"
   depends_on "readline"
 
