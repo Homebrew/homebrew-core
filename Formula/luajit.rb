@@ -1,19 +1,19 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
-  url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
-  sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
   head "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
+
+  stable do
+    url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
+    sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
+    patch :DATA
+  end
 
   bottle do
     cellar :any
     rebuild 2
     sha256 "859148159c69b09e70d2c46b40c63f86341d309d8ed73d67b41666a8444d0b39" => :mojave
     sha256 "3ee1eeeca03770a402bc429aef0a09467f5b2efcdcb47c9a7d55355af0815c99" => :high_sierra
-  end
-
-  stable do
-    patch :DATA
   end
 
   def install
