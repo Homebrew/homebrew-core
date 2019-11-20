@@ -1,8 +1,8 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/v0.2.0.tar.gz"
-  sha256 "40ceb559059b43e96f61303a43ca0fac80b26f8281a07aa03e235658a6548891"
+  url "https://github.com/zrepl/zrepl/archive/v0.2.1.tar.gz"
+  sha256 "df474e70f5a51d84816ee8a06038ded167a7548e547e2d2822c313f088eeeafd"
   head "https://github.com/zrepl/zrepl.git"
 
   bottle do
@@ -26,6 +26,9 @@ class Zrepl < Formula
     (gopath/"src/github.com/zrepl/zrepl").install contents
 
     ENV["GOPATH"] = gopath
+    ENV["GOOS"]   = "darwin"
+    ENV["GOARCH"] = "amd64"
+
     ENV.prepend_create_path "PATH", gopath/"bin"
     cd gopath/"src/github.com/zrepl/zrepl" do
       system "go", "build", "-o", "'$GOPATH/bin/stringer'", "golang.org/x/tools/cmd/stringer"
@@ -34,7 +37,7 @@ class Zrepl < Formula
       system "go", "build", "-o", "'$GOPATH/bin/goimports'", "golang.org/x/tools/cmd/goimports"
       system "go", "build", "-o", "'$GOPATH/bin/golangci-lint'", "github.com/golangci/golangci-lint/cmd/golangci-lint"
       system "make", "ZREPL_VERSION=#{version}"
-      bin.install "artifacts/zrepl"
+      bin.install "artifacts/zrepl-darwin-amd64" => "zrepl"
     end
   end
 
