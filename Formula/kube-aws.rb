@@ -2,8 +2,8 @@ class KubeAws < Formula
   desc "Command-line tool to declaratively manage Kubernetes clusters on AWS"
   homepage "https://kubernetes-incubator.github.io/kube-aws/"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
-      :tag      => "v0.14.2",
-      :revision => "fd0bdbe6d476318f0076d709e3643a08999a9e95"
+      :tag      => "v0.15.0-rc1",
+      :revision => "ea799beb103e5a5c8cb5e97afa82c43b43d051e6"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
