@@ -1,7 +1,7 @@
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "https://www.libimobiledevice.org/"
-  revision 5
+  revision 6
 
   stable do
     url "https://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2"
