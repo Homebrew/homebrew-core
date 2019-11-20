@@ -1,8 +1,8 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.8.6.tar.gz"
-  sha256 "37922fa5085170cad6504498d9758fb63c61d5cb5b68689c11a6c5e84f0311b3"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.8.7.tar.gz"
+  sha256 "8c1c49a1eccf5d8b952dadadba3552b0eac67482b8a29eaad62aa7343a0732c3"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
