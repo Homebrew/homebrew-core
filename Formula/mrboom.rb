@@ -25,12 +25,20 @@ class Mrboom < Formula
 
   test do
     require "pty"
-    PTY.spawn(bin/"mrboom", "-m") do |r, _w, pid|
+    require "expect"
+    require "timeout"
+    PTY.spawn(bin/"mrboom", "-m", "-f 0", "-z") do |r, _w, pid|
       sleep 1
       Process.kill "SIGINT", pid
-      assert_match "monster", r.read
+      assert_match "monster", r.expect(/monster/, 10)[0]
     ensure
-      Process.wait pid
+      begin
+        Timeout.timeout(10) do
+          Process.wait pid
+        end
+      rescue Timeout::Error
+        Process.kill "KILL", pid
+      end
     end
   end
 end
