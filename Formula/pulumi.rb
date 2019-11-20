@@ -2,8 +2,8 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v1.5.2",
-      :revision => "bbc61b86af9e748c11c5c14489ad06b78c45f62a"
+      :tag      => "v1.6.0",
+      :revision => "35b32f20c3054e2d13d359ce568c7fce9aa59acc"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class Pulumi < Formula
     sha256 "d0d914e5ee9a4415ec7fb9bc0dcc7fbcdf05308acfa755828fbb0373542479ea" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
