@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.13.1.tar.gz"
-  sha256 "5624c16728679362cfa46b76ec1d247018106989f2260d35583c42c49c5142b5"
+  url "https://github.com/prometheus/prometheus/archive/v2.14.0.tar.gz"
+  sha256 "5c40de1961997996ef5b59561a78116a9548235bc77305c05f214b6319a0284d"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,7 @@ class Prometheus < Formula
   end
 
   depends_on "go" => :build
+  depends_on "yarn" => :build
 
   def install
     mkdir_p buildpath/"src/github.com/prometheus"
