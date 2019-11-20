@@ -2,8 +2,8 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.122.0",
-      :revision => "173edbac545df7796ca2c4eb5ea3a1817920b562"
+      :tag      => "v0.123.0",
+      :revision => "30da2ee18207ecc706e92df4b8b0f5a11214d745"
 
   bottle do
     cellar :any_skip_relocation
