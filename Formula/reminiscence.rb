@@ -1,8 +1,8 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.7.tar.bz2"
-  sha256 "3e1b9d8e260e5aca086c4a95a833abb2918a2a81047df706770b8f7dcda1934f"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.5.tar.bz2"
+  sha256 "108ec26b71539a0697eff97498c31a26a10278892649584531732a0df0472abf"
 
   bottle do
     cellar :any
@@ -23,17 +23,22 @@ class Reminiscence < Formula
 
   resource "tremor" do
     url "https://git.xiph.org/tremor.git",
-        :revision => "b56ffce0c0773ec5ca04c466bc00b1bbcaf65aef"
+        :revision => "7c30a66346199f3f09017a09567c6c8a3a0eedc8"
   end
 
   def install
     resource("tremor").stage do
-      system "autoreconf", "-fiv"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}",
-                            "--disable-static"
+      system "./autogen.sh", "--disable-dependency-tracking",
+                             "--disable-silent-rules",
+                             "--prefix=#{libexec}",
+                             "--disable-static"
       system "make", "install"
+    end
+
+    # fix for files missing from archive, reported upstream via email
+    inreplace "Makefile" do |s|
+      s.gsub! "-DUSE_STATIC_SCALER", ""
+      s.gsub! "SCALERS :=", "#SCALERS :="
     end
 
     ENV.prepend "CPPFLAGS", "-I#{libexec}/include"
