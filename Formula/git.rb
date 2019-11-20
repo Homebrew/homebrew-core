@@ -3,7 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz"
   sha256 "9f71d61973626d8b28c4cdf8e2484b4bf13870ed643fed982d68b2cfd754371b"
-  revision 1
+  revision 2
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
