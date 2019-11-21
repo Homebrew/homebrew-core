@@ -1,8 +1,8 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre2-10.33.tar.bz2"
-  sha256 "35514dff0ccdf02b55bd2e9fa586a1b9d01f62332c3356e379eabb75f789d8aa"
+  url "https://ftp.pcre.org/pub/pcre/pcre2-10.34.tar.bz2"
+  sha256 "74c473ffaba9e13db6951fd146e0143fe9887852ce73406a03277af1d9b798ca"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
   bottle do
