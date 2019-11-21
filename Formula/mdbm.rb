@@ -11,20 +11,20 @@ class Mdbm < Formula
   depends_on "readline"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
-  end
-
-  def post_install
-    mv @lib.to_s, @libexec.to_s, :force => true do
-      ignored_extensions = [".sh", ".pl"]
-      Dir.glob("#{bin}/*") do |file|
-        next if ignored_extensions.include? File.extname(file)
-
-        macho = MachO.open(file)
-        macho.change_dylib("#{lib}/libmdbm.dylib", "#{libexec}/libmdbm.dylib")
-        macho.write!
-      end
+    ENV["DYLD_LIBRARY_PATH"] = libexec.to_s
+    inreplace "src/lib/Makefile" do |s|
+      s.gsub! "LIB_DEST=\$(PREFIX)/lib\$(ARCH_SUFFIX)", "LIB_DEST=\$(PREFIX)/libexec"
     end
+    system "make"
+    Dir.glob("src/tools/object/*") do |f|
+      next if ["mdbm_big_data_builder.pl", "mdbm_environment.sh", "mdbm_reset_all_locks"].include? File.basename(f)
+
+      macho = MachO.open(f)
+      macho.change_dylib("object/libmdbm.dylib", "#{libexec}/libmdbm.dylib")
+      macho.write!
+    end
+
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
