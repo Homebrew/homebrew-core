@@ -592,7 +592,7 @@ class Ansible < Formula
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     # Work around Xcode 11 clang bug
     # https://code.videolan.org/videolan/libbluray/issues/20
