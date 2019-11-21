@@ -30,7 +30,7 @@ class Dafny < Formula
     system "msbuild", "Source/Dafny.sln"
 
     libexec.install Dir["Binaries/*"]
-    (libexec/"z3/bin").install_symlink which("z3")
+    (libexec/"z3/bin").install_symlink Formula["z3"].opt_bin/"z3"
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash
