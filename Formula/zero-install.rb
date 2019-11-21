@@ -26,7 +26,7 @@ class ZeroInstall < Formula
     opamroot = buildpath/"opamroot"
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
-    system "opam", "init", "--no-setup"
+    system "opam", "init", "--no-setup", "--disable-sandboxing"
     modules = %w[
       cppo
       yojson
