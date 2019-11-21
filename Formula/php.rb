@@ -1,8 +1,8 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.3.11.tar.xz"
-  sha256 "657cf6464bac28e9490c59c07a2cf7bb76c200f09cfadf6e44ea64e95fa01021"
+  url "https://www.php.net/distributions/php-7.3.12.tar.xz"
+  sha256 "aafe5e9861ad828860c6af8c88cdc1488314785962328eb1783607c1fdd855df"
 
   bottle do
     sha256 "c09396d2fc055d74f0f915c475ded38e8f7afac70ca5cc05546629e42fc654f1" => :catalina
