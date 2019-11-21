@@ -1,10 +1,10 @@
-class Bro < Formula
+class Zeek < Formula
   desc "Network security monitor"
-  homepage "https://www.bro.org"
-  url "https://github.com/bro/bro.git",
+  homepage "https://www.zeek.org"
+  url "https://github.com/zeek/zeek.git",
       :tag      => "v3.0.0",
       :revision => "a5557586699d9a90aba70a7a0468549c400e9b61"
-  head "https://github.com/bro/bro.git"
+  head "https://github.com/zeek/zeek.git"
 
   bottle do
     sha256 "41f94471321f660ee0cb1f0577f6501fefd5d5af4959db475450ec12cbf2c658" => :catalina
