@@ -3,6 +3,7 @@ class Dafny < Formula
   homepage "https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness"
   url "https://github.com/dafny-lang/dafny/archive/v2.3.0.tar.gz"
   sha256 "ea7ae310282c922772a46a9a85e2b4213043283038b74d012047b5294687d168"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
