@@ -1,9 +1,8 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.github.io/"
-  url "https://github.com/restic/restic/archive/v0.9.5.tar.gz"
-  sha256 "e22208e946ede07f56ef60c1c89de817b453967663ce4867628dff77761bd429"
-  revision 1
+  url "https://github.com/restic/restic/archive/v0.9.6.tar.gz"
+  sha256 "1cc8655fa99f06e787871a9f8b5ceec283c856fa341a5b38824a0ca89420b0fe"
   head "https://github.com/restic/restic.git"
 
   bottle do
