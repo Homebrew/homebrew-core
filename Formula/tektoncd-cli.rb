@@ -1,9 +1,9 @@
 class TektoncdCli < Formula
   desc "CLI for interacting with TektonCD"
   homepage "https://github.com/tektoncd/cli"
-  url "https://github.com/tektoncd/cli/archive/v0.5.0.tar.gz"
+  url "https://github.com/tektoncd/cli/archive/v0.5.1.tar.gz"
 
-  sha256 "b38e8560c0144e0288ed2538ab864c9e081eae36b8adc28530806d9171cd0a64"
+  sha256 "a6f812d84dd7f22a677e1c3aedc6af793c2b6eeff5a07c0b3736c661566df141"
 
   bottle do
     cellar :any_skip_relocation
