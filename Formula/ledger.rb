@@ -3,7 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.3.tar.gz"
   sha256 "b248c91d65c7a101b9d6226025f2b4bf3dabe94c0c49ab6d51ce84a22a39622b"
-  revision 2
+  revision 3
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -15,10 +15,8 @@ class Ledger < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "boost-python"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@2"
 
   def install
     ENV.cxx11
@@ -28,11 +26,9 @@ class Ledger < Formula
       --output=build
       --prefix=#{prefix}
       --boost=#{Formula["boost"].opt_prefix}
-      --python
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
-      -DUSE_PYTHON27_COMPONENT=1
       -DBoost_NO_BOOST_CMAKE=ON
     ]
     system "./acprep", "opt", "make", *args
@@ -41,7 +37,6 @@ class Ledger < Formula
 
     (pkgshare/"examples").install Dir["test/input/*.dat"]
     pkgshare.install "contrib"
-    pkgshare.install "python/demo.py"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
     bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
@@ -55,7 +50,5 @@ class Ledger < Formula
       "balance", "--collapse", "equity"
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $CHILD_STATUS.exitstatus
-
-    system "python", pkgshare/"demo.py"
   end
 end
