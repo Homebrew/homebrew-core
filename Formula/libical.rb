@@ -1,15 +1,14 @@
 class Libical < Formula
   desc "Implementation of iCalendar protocols and data formats"
   homepage "https://libical.github.io/libical/"
-  url "https://github.com/libical/libical/releases/download/v3.0.5/libical-3.0.5.tar.gz"
-  sha256 "7ad550c8c49c9b9983658e3ab3e68b1eee2439ec17b169a6b1e6ecb5274e78e6"
-  revision 1
+  url "https://github.com/libical/libical/archive/v3.0.6.tar.gz"
+  sha256 "fd2404a3df42390268e9fb804ef9f235e429b6f0da8992a148cbb3614946d99b"
 
   bottle do
     cellar :any
-    sha256 "157441819058ccbb5ca028b55f1fb28f917f49bfe298a5656368565499715cf4" => :mojave
-    sha256 "791780b56d00c1dbf11c907be3ee76412100f42299c4a21cd55a2226e679263f" => :high_sierra
-    sha256 "09cd5f376db3ed6e3f894f56c563e1ebb96d7783208cd696635e95a53bff2303" => :sierra
+    sha256 "71bd098bc73c1dbd57d0453dd297e71cbb9b9400ef4680a6cf5ed3e622a9e897" => :catalina
+    sha256 "5a59126f6b2a6fc0febc7dc71cb72e09d4e7c789eaee3502aa38ac3ee4b3ca4f" => :mojave
+    sha256 "dceec75d740489e95eb73088cb8de2fc9dd080d6ea4a88844ad06fa2d980668e" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -2,21 +2,20 @@ class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.7.5",
-    :revision => "7ad90c5847b94e276aaaf93f271be1cb8b186a28"
+    :tag      => "0.8.4",
+    :revision => "3df9db7f4811e89d2633e78c3fd4743ec0062d4f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cfc63b42ced4a3b9b7f6e6487258100c03ae4f7e7dc574b6b5dceb7135efcee9" => :mojave
-    sha256 "1811cbc5c59aaeec3ab972836240da115e75fa4ff588a94fbc780d0de10b85cb" => :high_sierra
-    sha256 "c19ea7f9c303ed2c35ddaefb59358c791b3ddc5f5c6be5d3c42aea2d20de7861" => :sierra
+    sha256 "7197e3ecc256aff6efb2e8d186a5507270431f4d0f37735e24aa3d29c76a9bb5" => :catalina
+    sha256 "0a9c047c5429ff44af7b0f8451b38f8b966f193ddb073e9c6ca3105d84498f0c" => :mojave
+    sha256 "7174d86df23c114fd2e3d92fc8d0172631011e4e725334e32e8fe3ec04245749" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/GoogleCloudPlatform/terraformer"
     dir.install buildpath.children
@@ -34,6 +33,6 @@ class Terraformer < Formula
     assert_match help_output.to_s, shell_output("#{bin}/terraformer -h")
 
     import_error = "aaa"
-    assert_match import_error.to_s, shell_output("#{bin}/terraformer import google --resources=gcs --zone=europe-west1-a --projects=aaa 2>&1", 1)
+    assert_match import_error.to_s, shell_output("#{bin}/terraformer import google --resources=gcs --projects=aaa 2>&1", 1)
   end
 end

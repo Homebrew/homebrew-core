@@ -3,16 +3,15 @@ class Gitfs < Formula
 
   desc "Version controlled file system"
   homepage "https://www.presslabs.com/gitfs"
-  url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
-  sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 4
-  head "https://github.com/PressLabs/gitfs.git"
+  url "https://github.com/presslabs/gitfs/archive/0.5.2.tar.gz"
+  sha256 "921e24311e3b8ea3a5448d698a11a747618ee8dd62d5d43a85801de0b111cbf3"
+  head "https://github.com/presslabs/gitfs.git"
 
   bottle do
     cellar :any
-    sha256 "7859077b249dd271735ef57f6472aefec42708ed8efafc472f81ff31e77d0726" => :mojave
-    sha256 "9f70c9b930752bc09c7f141b7a77990ed96b9dd995c087f6b861831e249830a2" => :high_sierra
-    sha256 "5a85dbfb02e93e66495b512a10348242f7e6380d690af2aebc8bd4b48d2e0f22" => :sierra
+    sha256 "46b9f946ecb8009dc86e20230314c21d17f270f516410094a4efe7e4bd49125b" => :catalina
+    sha256 "b3c0185053026036e2cb08fb9eeacc896a690f3b86a6fb9e319fa72213c215eb" => :mojave
+    sha256 "e15109dbbfebea22a1f90b35ad2a93769cf581eda07d29c7cc7eb8c8b6982b43" => :high_sierra
   end
 
   depends_on "libgit2"
@@ -25,23 +24,33 @@ class Gitfs < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
-    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
+    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
   end
 
   resource "fusepy" do
-    url "https://files.pythonhosted.org/packages/70/aa/959d781b7ac979af1a9fbea0faffe06677c390907b56b8ce024eb9320451/fusepy-2.0.4.tar.gz"
-    sha256 "10f5c7f5414241bffecdc333c4d3a725f1d6605cae6b4eaf86a838ff49cdaf6c"
+    url "https://files.pythonhosted.org/packages/04/0b/4506cb2e831cea4b0214d3625430e921faaa05a7fb520458c75a2dbd2152/fusepy-3.0.1.tar.gz"
+    sha256 "72ff783ec2f43de3ab394e3f7457605bf04c8cf288a2f4068b4cde141d4ee6bd"
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/ec/56/9f591bee962dcdc3c4268c4bf0a836d5188b1604e58e3618df12a963573b/pygit2-0.28.1.tar.gz"
-    sha256 "2ccdb865ef530c799a6430d0e52952925ffc0d7c856e7608f4cf42f4b821412b"
+    url "https://files.pythonhosted.org/packages/4c/64/88c2a4eb2d22ca1982b364f41ff5da42d61de791d7eb68140e7f8f7eb721/pygit2-0.28.2.tar.gz"
+    sha256 "4d8c3fbbf2e5793a9984681a94e6ac2f1bc91a92cbac762dbdfbea296b917f86"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  end
+
+  resource "raven" do
+    url "https://files.pythonhosted.org/packages/79/57/b74a86d74f96b224a477316d418389af9738ba7a63c829477e7a86dd6f47/raven-6.10.0.tar.gz"
+    sha256 "3fa6de6efa2493a7c827472e984ce9b020797d0da16f1db67197bcc23c8fae54"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
   end
 
   def install

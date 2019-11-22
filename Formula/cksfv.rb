@@ -1,11 +1,12 @@
 class Cksfv < Formula
   desc "File verification utility"
-  homepage "http://zakalwe.fi/~shd/foss/cksfv/"
-  url "http://zakalwe.fi/~shd/foss/cksfv/files/cksfv-1.3.14.tar.bz2"
+  homepage "https://zakalwe.fi/~shd/foss/cksfv/"
+  url "https://zakalwe.fi/~shd/foss/cksfv/files/cksfv-1.3.14.tar.bz2"
   sha256 "8f3c246f3a4a1f0136842a2108568297e66e92f5996e0945d186c27bca07df52"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ee0e6d47bba7ece1e9d3f89db630ba943d2e85834d1b2c7c4307e449f8de517f" => :catalina
     sha256 "fcefe9fe38fb4555760f8d7e651f19aca85115583f896ba602b1396e71547743" => :mojave
     sha256 "095a3a02e99d3f018472202e65231212c818750cd91d42c32a95957b407c1d4b" => :high_sierra
     sha256 "4414da8e35f9d69a0e04e4a1942745f98b5234891a04935627248e2e6954e17d" => :sierra

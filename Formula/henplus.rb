@@ -7,6 +7,7 @@ class Henplus < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a53828d49583605b23c96a1cbdcf50eabd946bcc77b4cb3b9beb02f620f7c372" => :catalina
     sha256 "4b11fa555ad538ba707fdfe601b105a7ed184be52f46d9aadb1d5ce7c53e2e15" => :mojave
     sha256 "87645aab44dcb857cf05f044d1991c7c06ee616b00acde904d3f470d2caf6ae3" => :high_sierra
     sha256 "2a66a4eeecd45406dc022d6f22a17aaf1ff3a22277296620a2771fb26a580afe" => :sierra

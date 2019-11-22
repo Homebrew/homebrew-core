@@ -1,11 +1,12 @@
 class Tidyp < Formula
   desc "Validate and modify HTML"
-  homepage "http://tidyp.com/"
+  homepage "https://github.com/petdance/tidyp"
   url "https://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz"
   sha256 "20b0fad32c63575bd4685ed09b8c5ca222bbc7b15284210d4b576d0223f0b338"
 
   bottle do
     cellar :any
+    sha256 "ed67353f58e09c04387453c92536d7980c3408391bae0db77f3af421779cee57" => :catalina
     sha256 "234868d17b7ca6e890d0adc4e339e2a35c81b3c72f0fd8487d1d3352b03fddc5" => :mojave
     sha256 "52ef5e1d78ef5a3404e2345683fc03a61b0fad8084b74508473a042b1858b54c" => :high_sierra
     sha256 "6b5b65c1476004cc973fff0992dfaf77887b5a5df583ac31fc22665d250b538a" => :sierra

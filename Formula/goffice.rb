@@ -1,14 +1,13 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.45.tar.xz"
-  sha256 "702ba567e9ec0bbdd9b1a8161cd24648b4868d57a6cb89128f13c125f6f31947"
-  revision 1
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.46.tar.xz"
+  sha256 "058d6d3a40e1f60525682ec6b857c441d5deb50d0d30a76804f9f36f865a13a9"
 
   bottle do
-    sha256 "7ce5144ecb512469e8638204656c332466569bb434975605067b876af1c7ece9" => :mojave
-    sha256 "eb2968d535961e4edcc0483f339ff83dddf24dab6da6fd7ff9ed2d5d1865afdd" => :high_sierra
-    sha256 "44a154844f42b75cfdb38ca864ca2170d547bbbd0125b3d0e75cea67e0ef5fad" => :sierra
+    sha256 "0fe21687f0305ad07a1accb75eb6235490aae734c2b11262e20b62c7ee4968c3" => :catalina
+    sha256 "5cdf0c352915329f46093c916ec4c5c2adecf6a7c46f695e70a9cb7e4f2fedae" => :mojave
+    sha256 "faf193d186c3a95533149ee9df8a360e83c277687dbf7a43150b7fe299ee190e" => :high_sierra
   end
 
   head do
@@ -30,6 +29,7 @@ class Goffice < Formula
   depends_on "librsvg"
   depends_on "pango"
   depends_on "pcre"
+  uses_from_macos "libxslt"
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
@@ -56,6 +56,7 @@ class Goffice < Formula
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
            "-I#{MacOS.sdk_path}/usr/include/libxml2",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",

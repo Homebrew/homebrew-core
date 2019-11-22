@@ -1,17 +1,15 @@
 class Sbjson < Formula
   desc "JSON CLI parser & reformatter based on SBJson v5"
   homepage "https://github.com/stig/json-framework"
-  url "https://github.com/stig/json-framework/archive/v5.0.0.tar.gz"
-  sha256 "e803753a157db475c4b89bddc0f550a5fdd0fc1980428a81ca6116feb2fd52e1"
+  url "https://github.com/stig/json-framework/archive/v5.0.2.tar.gz"
+  sha256 "3d0162aca53a3305faff06f95bd4cabf15ab1ba95b9e422f87b5de0990c4c06b"
   head "https://github.com/stig/json-framework.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "634ba12a265ba3f273d2b321dada0a1a9192f57fa9988c210d202445cc15a30c" => :mojave
-    sha256 "c269d25dc05df3ee48da8f91f31a00c09b33ee1dfb135cec4783df44509f9478" => :high_sierra
-    sha256 "aded461aca135b96288154c6fe6219d7c093a0836dafc6fdec90899256e8f8db" => :sierra
-    sha256 "ce91cd42fb178216f3fe2ef6c617f9ca91a9e981b85142a22a8cc715ab105fc3" => :el_capitan
-    sha256 "46f00ae266cdc64c839ff5ad2f8258eb42bdb7682e8e5201e9acb1f07f449611" => :yosemite
+    sha256 "ae17cd9f58361f2a482bdffe5aee76da5cf34131ba14ea6b3aa1cea2f348e852" => :catalina
+    sha256 "239b7bb8278f310fb76feb7dc3be64cf5c05720bdf7655c915d27b90c7761c38" => :mojave
+    sha256 "ce4947b43a5706b19e1ac8f0b42234bbad19d033d5344afd72cfb9ae5470f52a" => :high_sierra
   end
 
   depends_on :xcode => :build

@@ -1,17 +1,15 @@
 class Vttest < Formula
   desc "Test compatibility of VT100-compatible terminals"
   homepage "https://invisible-island.net/vttest/"
-  url "https://invisible-mirror.net/archives/vttest/vttest-20140305.tgz"
-  sha256 "0168aa34061d4470a68b0dd0781a2a9e2bbfb1493e540c99f615b867a11cbf83"
+  url "https://invisible-mirror.net/archives/vttest/vttest-20190710.tgz"
+  sha256 "048b4078003c588ad2ee3202468576df7dee16914df0f663fc6dd5bb49526303"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ff835e1beb71c0e221c87be184b6afdf1c8d6cb050c8d8f0d9d22b46c5df88f" => :mojave
-    sha256 "6a3972df6f5ab23fb7480ffda28b8b1e8059854b837f1c947744e5dfb542c6bb" => :high_sierra
-    sha256 "360d6eaa04e1a147eee360fed7d66ab779acc0a0ab3b51b1916cdf4d4a7f11f1" => :sierra
-    sha256 "e758b4d59d1322b736f247c9ebbabe3c73ad06b324120997c6af784b8a3ab3f7" => :el_capitan
-    sha256 "2584fb77678acad877286416b79db38673320ec028e6a6add37b987b150af648" => :yosemite
-    sha256 "e2faf045a9a09d49e64f104bf65ca7a8fabf4552a50621bd22206e80ef579844" => :mavericks
+    sha256 "91afb7cae0494fc2da73e6e66121e2482d5673b69b2ce3e99792e79b01f8a98b" => :catalina
+    sha256 "a8dbf4d1fa88673fc6aba2c41b13ff917be9669220852bd4a2295d44c60c8f7a" => :mojave
+    sha256 "8d3bd4169069a0e8b87b9715db1d6518acb4e335157f7be25b867a48c13d023f" => :high_sierra
+    sha256 "206744ef6b93ed8a6be0921ebd964b4e8e03e92b057afbcb9dff0806bf6ef747" => :sierra
   end
 
   def install
@@ -21,6 +19,6 @@ class Vttest < Formula
   end
 
   test do
-    assert_predicate bin/"vttest", :exist?
+    assert_match version.to_s, shell_output(bin/"vttest -V")
   end
 end

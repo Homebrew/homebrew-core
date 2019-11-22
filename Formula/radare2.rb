@@ -1,14 +1,14 @@
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
-  url "https://radare.mikelloc.com/get/3.5.1/radare2-3.5.1.tar.gz"
-  sha256 "bc927aec4d29fa647fdc56afc2d7b04bf47c2234a43d0080f356705748299d9c"
+  url "https://radare.mikelloc.com/get/3.6.0/radare2-3.6.0.tar.gz"
+  sha256 "21f3aa7573bd229d15c56322ecae12b4597bf6db4831a91224c8f86b2cd0bad0"
   head "https://github.com/radare/radare2.git"
 
   bottle do
-    sha256 "0ef7a91ce4b25b3b5eaced6755e41b73cccb4a8aace4f2a6e0ca86faf4e8d0ce" => :mojave
-    sha256 "864612e414d3aaf8c77e2f0f63abb2b3517fc46a2d5b5c947429252cef24a12b" => :high_sierra
-    sha256 "f097dca460f7578ffeeb16055bc432b67c8d9fb9e8b5c2f802d9134ba6947622" => :sierra
+    sha256 "ada8679faa49b7edebb271c4b0e587495262bbfcfbe1b85cd67970443c0c9088" => :mojave
+    sha256 "fdb529956f72d3236dfc6a40d1d2736a314ceea09f2a1a7d2300ae7ca2db9b81" => :high_sierra
+    sha256 "ae93a39352efc321199286005dfbaedad2ccca3f8ad07b48958c82536a269555" => :sierra
   end
 
   def install

@@ -2,21 +2,19 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-      :tag      => "v1.1.4",
-      :revision => "e4956358fbab0d78e975d474acba2a0d098e4adc"
+      :tag      => "v1.3.1",
+      :revision => "67b8ef1f3ef419c5e9d561aa6dd88e7e1eaf9901"
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "67ce6ef3f1b4ee81ed0b318eda26e057d45eed77c2692084f955498da96b4681" => :mojave
-    sha256 "76fb791cc61b49a3ca67fc5813a27c78017cc18c3b7081c8033646c8c030c328" => :high_sierra
-    sha256 "52eaa78ef30cc4d9671a1beab3de008329e8bba0fe17477e55f29e5696a42312" => :sierra
+    sha256 "cca242ffe3995d47fa18745db53c6aa2fab7afbc29f24bba465990cb16cb6442" => :mojave
+    sha256 "144fe683b8d74f3e2300f4fd6dfa0904223b255509f42b675fcb50a7a5835902" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     src = buildpath/"src/github.com/syncthing/syncthing"

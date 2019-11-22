@@ -6,6 +6,7 @@ class Cifer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ce4a7d9b846388eae2309dbd0a1f0493b533cbefef85ae50ff97648b6a46600c" => :catalina
     sha256 "ed647fac83a0f0605c4fbf0492be1568199a60473e20ac455feb4ff1abea1946" => :mojave
     sha256 "04d95a6448d38450079196139c6e6d5b5811265444c9abf8fe93b7424181a222" => :high_sierra
     sha256 "875e676d7866fd3ba2c8b70806838068775ffbc1102c56ca52d041155b2ade43" => :sierra

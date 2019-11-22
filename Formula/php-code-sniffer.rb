@@ -1,14 +1,14 @@
 class PhpCodeSniffer < Formula
   desc "Check coding standards in PHP, JavaScript and CSS"
   homepage "https://github.com/squizlabs/PHP_CodeSniffer/"
-  url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.4.2/phpcs.phar"
-  sha256 "6966a9d41099caab6fe63728f20ff0dba4c9c5a2b157c735ece98b6367e16942"
+  url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.5.2/phpcs.phar"
+  sha256 "15ad1fe73b3e972f666bf4d0e9b51548d4b50f780c9cf0c64999c78c9a4e644f"
 
   bottle :unneeded
 
   resource "phpcbf.phar" do
-    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.4.2/phpcbf.phar"
-    sha256 "d7b9b36e92b674ebbaceb1d80cdf1fdd190bc8cfd00e1ce68ed2b712513e4423"
+    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.5.2/phpcbf.phar"
+    sha256 "a632465994bb5e17de8722c855c539a45e6e6e1785caf644820144436afd167e"
   end
 
   def install

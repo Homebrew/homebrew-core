@@ -1,15 +1,14 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "http://qmmp.ylsoftware.com/"
-  url "http://qmmp.ylsoftware.com/files/qmmp-1.2.4.tar.bz2"
-  sha256 "224904f073e3921a080dca008e6c99e3d606f5442d1df08835cba000a069ae66"
-  revision 2
-  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
+  url "http://qmmp.ylsoftware.com/files/qmmp-1.3.4.tar.bz2"
+  sha256 "e07d9026e5d0c53bf1a057974088363929a06f4e3785447956879b204c7d3b49"
+  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.3/"
 
   bottle do
-    sha256 "7c1b47197fe2ac57e24412a1b98ab6566d45ef84693c48ba5b9c5da3d6b4a501" => :mojave
-    sha256 "5e24216b88f75d6542d6be523ee9ebbad1fd6cda199b3790c2e2db81fb0e89cc" => :high_sierra
-    sha256 "119ac7be32b53b1bc2b40ebf291d0a044d7a8e0fddc7ed109d0a4aee28c399ad" => :sierra
+    sha256 "08ed79c3a818a9f9552c92f1413f6058dd4d9ca01aa46a66f29a5bedbaa15d87" => :mojave
+    sha256 "f38af2c80e8e6e1c68f2fb9d7765f3a0978d901e7355b1568c865885e7a36fe4" => :high_sierra
+    sha256 "ddb1cc7eeecc93daecb2982c53080836f817fb596a338927f9a13213c6b0b6c5" => :sierra
   end
 
   depends_on "cmake" => :build

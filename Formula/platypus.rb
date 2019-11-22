@@ -1,16 +1,16 @@
 class Platypus < Formula
   desc "Create macOS applications from {Perl,Ruby,sh,Python} scripts"
   homepage "https://sveinbjorn.org/platypus"
-  url "https://sveinbjorn.org/files/software/platypus/platypus5.2.src.zip"
-  sha256 "0c0201804e13c09a33fe95ba715ed995872d35d3cdfa2cb694cf378980ed4c08"
+  url "https://sveinbjorn.org/files/software/platypus/platypus5.3.src.zip"
+  sha256 "b5b707d4f664ab6f60eed545d49a7d38da7557ce8268cc4791886eee7b3ca571"
   head "https://github.com/sveinbjornt/Platypus.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "968362767410bc2055c0847543a95ba8a272a29015bd7c118ac47feeca12b649" => :mojave
-    sha256 "598660d8723204958b3f891597408e24ef0ee1b6914037e9759949d20491290c" => :high_sierra
-    sha256 "9b3b01e6a10711db553f8d59589701d1763f5d178a7c87496b0bc02d94a24f7b" => :sierra
+    sha256 "8e1b66ba6d450ba4cef3ccd2192d58c08f1401a443a44338c80a917f7607341e" => :catalina
+    sha256 "a08defbfae9f265bc7473c639b060fb8fa0dd1b6923746a1cf86756112347250" => :mojave
+    sha256 "df48127dd7e77c37b7ed73247c74f3bb3d37d0e239590d848f91f8af5f98f628" => :high_sierra
+    sha256 "d46dd428161d8ed7febf5ea4109f9bcddfa65c75d4e67619781745587c6b6f55" => :sierra
   end
 
   depends_on :xcode => ["8.0", :build]
@@ -20,10 +20,11 @@ class Platypus < Formula
                "-project", "Platypus.xcodeproj",
                "-target", "platypus",
                "-target", "ScriptExec",
+               "CODE_SIGN_IDENTITY=", "CODE_SIGNING_REQUIRED=NO",
                "clean",
                "install"
 
-    man1.install "CommandLineTool/man/platypus.1"
+    man1.install "CLT/man/platypus.1"
     bin.install "dst/platypus_clt" => "platypus"
 
     cd "build/UninstalledProducts/macosx/ScriptExec.app/Contents" do

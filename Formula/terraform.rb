@@ -1,15 +1,15 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.2.tar.gz"
-  sha256 "08aa4b6eb1d3f45735e97364bf9c7d58beda63fd1d5336fa334975bef531a6f2"
+  url "https://github.com/hashicorp/terraform/archive/v0.12.16.tar.gz"
+  sha256 "ccdcbce56c70a5d23272692320f49d48cd821a9d91b900f538a37069f31be731"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea316fbf7af6d913eb25bc70af0d4ff91f9ed854ebaaef7951a3f5fdb17f5f36" => :mojave
-    sha256 "9061cf127f2427ff715d517c3a07cff2cf90213a126c6b267efc98132b53a2a0" => :high_sierra
-    sha256 "53730721d7414c266295c7a9db37ccc6840bd98c8a583ada6b578c0b59dc6918" => :sierra
+    sha256 "ddb02c7ddf6d33a7acf3e71d5ddcc81e71791f2a63d95a04bcbd89d658102a5c" => :catalina
+    sha256 "a0dc81636a6e741ea4ec4fafbd3e4acacce060bce985c3791ecd5191e693f8c5" => :mojave
+    sha256 "0d14d96a594d8f35dec15aca851c3f1e6781d27da89191a1e3af74eef76cbc84" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class Terraform < Formula
 
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = "amd64"
-      system "make", "tools", "test", "bin"
+      system "make", "tools", "bin"
 
       bin.install "pkg/darwin_amd64/terraform"
       prefix.install_metafiles

@@ -3,13 +3,15 @@ class Pypy < Formula
   homepage "https://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-src.tar.bz2"
   sha256 "5f06bede6d71dce8dfbfe797aab26c8e35cb990e16b826914652dc093ad74451"
+  revision 1
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "dfb8b553b52f71ecdbc700fa4960df3f61a9f2ae7c7f79a91c873efc8bbcc37c" => :mojave
-    sha256 "1b371dea9a157ac6148f355e4cc12b08290955df38b6a85063a49022f49e70e8" => :high_sierra
-    sha256 "836b5eb5e60478e73d89598ff2fb21d9100f4758d433209b1c9b73d675a3613a" => :sierra
+    sha256 "e1840eed0266a35996470db66f28b1d1b2fabcda7f51200e81847c2c59a32ed8" => :catalina
+    sha256 "14c8cec024030a5c28748a0783e4e7c6dfcc31b81dfbed4cd53eb0ea0b382aa6" => :mojave
+    sha256 "d2c8f92fcbd771cb919d92a8aac14970d26c7cd3d41965dcf8507c5195fd00c7" => :high_sierra
+    sha256 "90fc694ab3be9590e0aaf3a2c77042978c2b93776b94f6e8ba5df7d849f250f3" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,7 +20,7 @@ class Pypy < Formula
   # pypy does not find system libffi, and its location cannot be given
   # as a build option
   depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
 
   resource "bootstrap" do

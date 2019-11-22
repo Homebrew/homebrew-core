@@ -2,13 +2,14 @@ class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
   url "https://github.com/uber/needle.git",
-      :tag      => "v0.10.0",
-      :revision => "5f8ea2228d19d34b9611b0322c9c43acc929faee"
+      :tag      => "v0.11.0",
+      :revision => "c7bdc2b94877e70d30fa8c05505672074f297144"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18dee69387e7a101967583d29541dc93a5fb65db526eaf04379109eb8625d408" => :mojave
-    sha256 "8f10782b33daaabc306c43c9b10bb8eba09987aa9e15d94dee6ebde167e418d2" => :high_sierra
+    sha256 "d7b4102e80a103f7578d5220d89691350de90341ba9fa06980026d874d295393" => :catalina
+    sha256 "f3d9fb6053eeb5d55f434a12e891a81e9eea06bfc51715dbba3276c03ebfb448" => :mojave
+    sha256 "b3a85d1dc8c443a13ef9f901c2f77a80ed88105d6db2a5aacbe236c9741d5f22" => :high_sierra
   end
 
   depends_on :xcode => ["10.0", :build]

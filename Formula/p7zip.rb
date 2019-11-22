@@ -3,14 +3,14 @@ class P7zip < Formula
   homepage "https://p7zip.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/p7zip/p7zip/16.02/p7zip_16.02_src_all.tar.bz2"
   sha256 "5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb715042a9067df735cd7d032a15988da430fbf5a297d9624b9a4a021af6fea2" => :mojave
-    sha256 "fb52fc214eb4ecd032666997976a514212adcb3c33ca23f15547310d5dc14a6e" => :high_sierra
-    sha256 "a2b914eebce9108f278e33b53ca798999eb81397c370bd1eaa7f63ddc5e51867" => :sierra
-    sha256 "229fc3a0badd5325e69b93121c9d55e7860110093e57ef46af063daccb2af372" => :el_capitan
+    sha256 "b9f5fb1321ce5738d0129b3c48f51fc36a947bd84450f95ce9caa90e767fbd1b" => :catalina
+    sha256 "0de20c4bd05dc5652ca5f188895bf74e52eb701aaed502a0d1271eb58236f898" => :mojave
+    sha256 "5951a42bd864da7dba5ef5781a2efba206daba8b6f75c60c0cfd910dae218482" => :high_sierra
+    sha256 "73fe6276e906f67cd28adc0f5a22c914d57fd3cfdd54134ad64e5330f710235a" => :sierra
   end
 
   patch do
@@ -18,6 +18,11 @@ class P7zip < Formula
     sha256 "fab0be1764efdbde1804072f1daa833de4e11ea65f718ad141a592404162643c"
     apply "patches/12-CVE-2016-9296.patch",
           "patches/13-CVE-2017-17969.patch"
+  end
+
+  patch :p4 do
+    url "https://github.com/aonez/Keka/files/2940620/15-Enhanced-encryption-strength.patch.zip"
+    sha256 "838dd2175c3112dc34193e99b8414d1dc1b2b20b861bdde0df2b32dbf59d1ce4"
   end
 
   def install

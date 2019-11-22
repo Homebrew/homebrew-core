@@ -1,15 +1,15 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.3.tar.xz"
-  sha256 "0c3020452880581a8face91595b239198078645e7d7184273b8bcc7758beb63d"
-  revision 1
+  url "https://ffmpeg.org/releases/ffmpeg-4.2.1.tar.xz"
+  sha256 "cec7c87e9b60d174509e263ac4011b522385fd0775292e1670ecc1180c9bb6d4"
+  revision 2
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "ddfb58dd5432eed657d9ecda3b4c2f06eb523815e9e7f339b1f05d1048f89d40" => :mojave
-    sha256 "41dd2796b2c3136faf6d5b20e1f7774db2c21a916c1b9d752e1ea4c92ff32f22" => :high_sierra
-    sha256 "3904c3b313c0a53349b2bd3a0e27b503b5448f81b319c313ee48ef80492bf5dd" => :sierra
+    sha256 "11b16a8f9657e0826774d41133052b088f778a50f6f8037f641923cbb6b90335" => :catalina
+    sha256 "a8dfa8eb401973fb9aa2adf806fca3e2a091ccb16d1270b5dcd67283022ba05b" => :mojave
+    sha256 "67fa397296c48e8f838a4cfbd654da8888a7e579eb53bda46e2d2ca70908d14e" => :high_sierra
   end
 
   depends_on "nasm" => :build
@@ -25,6 +25,7 @@ class Ffmpeg < Formula
   depends_on "libass"
   depends_on "libbluray"
   depends_on "libsoxr"
+  depends_on "libvidstab"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
@@ -43,12 +44,15 @@ class Ffmpeg < Formula
   depends_on "xz"
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     args = %W[
       --prefix=#{prefix}
       --enable-shared
       --enable-pthreads
       --enable-version3
-      --enable-hardcoded-tables
       --enable-avresample
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
@@ -64,6 +68,7 @@ class Ffmpeg < Formula
       --enable-libsnappy
       --enable-libtesseract
       --enable-libtheora
+      --enable-libvidstab
       --enable-libvorbis
       --enable-libvpx
       --enable-libx264
@@ -79,11 +84,10 @@ class Ffmpeg < Formula
       --enable-libopenjpeg
       --enable-librtmp
       --enable-libspeex
+      --enable-libsoxr
       --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
-      --enable-libaom
-      --enable-libsoxr
     ]
 
     system "./configure", *args
@@ -92,6 +96,9 @@ class Ffmpeg < Formula
     # Build and install additional FFmpeg tools
     system "make", "alltools"
     bin.install Dir["tools/*"].select { |f| File.executable? f }
+
+    # Fix for Non-executables that were installed to bin/
+    mv bin/"python", pkgshare/"python", :force => true
   end
 
   test do

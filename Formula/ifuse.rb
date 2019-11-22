@@ -1,5 +1,5 @@
 class Ifuse < Formula
-  desc "FUSE module for iPhone and iPod Touch devices"
+  desc "FUSE module for iOS devices"
   homepage "https://www.libimobiledevice.org/"
   url "https://github.com/libimobiledevice/ifuse/archive/1.1.3.tar.gz"
   sha256 "9b63afa6f2182da9e8c04b9e5a25c509f16f96f5439a271413956ecb67143089"
@@ -7,11 +7,10 @@ class Ifuse < Formula
 
   bottle do
     cellar :any
-    sha256 "6b0dc5b7eec5838f20855593340bcca01193502d5f32fc2bf11c6e39bca551ae" => :mojave
-    sha256 "d19076c990140bc4dbbcdfa75182c0be880d57fdf418b3c1c1780f53fd8adac9" => :high_sierra
-    sha256 "424c1d3dcc232ca0afa729bc27abcc4d5519e879ea61badfd3fb4e9d1ff3af1b" => :sierra
-    sha256 "2225777c6c9afaa0218f0fa8ca6b8eb0bc0a34ab7004e48613ff51af63f64d02" => :el_capitan
-    sha256 "9ea6fd7a09dbfba5bb1f1a7335330977440c1e3d73dac29b8a6433a6a35d1bff" => :yosemite
+    rebuild 1
+    sha256 "8a9233151be9f9d521a6d4be9aa052215b6de0e5d7a1efbe0bedf1ef52e38ebb" => :catalina
+    sha256 "e39c8c8d45a60b65acb5ea39001f67724d90a9cef2d4f99d35f719b933ff15ee" => :mojave
+    sha256 "0f0a95935b2004ea58982f2a095c33365d9ba4e23c75f62c3e38b7bee75c85b6" => :high_sierra
   end
 
   depends_on "autoconf" => :build

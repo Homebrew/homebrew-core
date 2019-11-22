@@ -6,6 +6,7 @@ class Cdargs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2f5fdbb4fdbe3d4dfcb5d45368b91d1ce9c8610902f36e6d28e2d185d2b2185d" => :catalina
     sha256 "d06682d3e4d5ad57b05b00ee2d15f6b34da528e420ea038604b4897c570efd8d" => :mojave
     sha256 "10a170bfe1b70f6c8909ddb6fb88b7615219d6847576e72ee1e4011aba482e9b" => :high_sierra
     sha256 "5ba84d6dff14f5743296721a91e6d01ce984bf6e4589ce2128041b1ed9560a3a" => :sierra
@@ -16,7 +17,10 @@ class Cdargs < Formula
 
   # fixes zsh usage using the patch provided at the cdargs homepage
   # (See https://www.skamphausen.de/cgi-bin/ska/CDargs)
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/cdargs/1.35.patch"
+    sha256 "adb4e73f6c5104432928cd7474a83901fe0f545f1910b51e4e81d67ecef80a96"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
@@ -39,31 +43,3 @@ class Cdargs < Formula
     system "#{bin}/cdargs", "--version"
   end
 end
-
-__END__
-diff --git a/contrib/cdargs-bash.sh b/contrib/cdargs-bash.sh
-index 8a197ef..f3da067 100644
---- a/contrib/cdargs-bash.sh
-+++ b/contrib/cdargs-bash.sh
-@@ -11,6 +11,12 @@
- CDARGS_SORT=0   # set to 1 if you want mark to sort the list
- CDARGS_NODUPS=1 # set to 1 if you want mark to delete dups
- 
-+# Support ZSH via its BASH completion emulation
-+if [ -n "$ZSH_VERSION" ]; then
-+	autoload bashcompinit
-+	bashcompinit
-+fi
-+
- # --------------------------------------------- #
- # Run the cdargs program to get the target      #
- # directory to be used in the various context   #
-@@ -166,7 +172,7 @@ function mark ()
-     local tmpfile
- 
-     # first clear any bookmarks with this same alias, if file exists
--    if [[ "$CDARGS_NODUPS" && -e "$HOME/.cdargs" ]]; then
-+    if [ "$CDARGS_NODUPS" ] && [ -e "$HOME/.cdargs" ]; then
-         tmpfile=`echo ${TEMP:-${TMPDIR:-/tmp}} | sed -e "s/\\/$//"`
-         tmpfile=$tmpfile/cdargs.$USER.$$.$RANDOM
-         grep -v "^$1 " "$HOME/.cdargs" > $tmpfile && 'mv' -f $tmpfile "$HOME/.cdargs";

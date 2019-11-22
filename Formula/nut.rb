@@ -1,29 +1,37 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
-  sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
+  revision 1
+
+  stable do
+    url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
+    sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
+
+    # Upstream fix for OpenSSL 1.1 compatibility
+    # https://github.com/networkupstools/nut/pull/504
+    patch do
+      url "https://github.com/networkupstools/nut/commit/612c05ef.diff?full_index=1"
+      sha256 "9d21e425eba72fbefba3c3d74465d239726798f95063c3b90b2e4b9a12414e12"
+    end
+  end
 
   bottle do
-    sha256 "3f5166d461e19f8e6eb838215ba1502fb6ec039a94cdab3d88a5ccdf62c675db" => :mojave
-    sha256 "102d8b6e9635321a7585d79c8c3c95d0f973c91cbf031be4d6839cf10c06ad2d" => :high_sierra
-    sha256 "45949916c354f6c3ba50df8ada5690f36d15ca1114185f1d92f66c4b08110f63" => :sierra
-    sha256 "df1f1a4b7efa73d48ada9d97ec13983fd1ba674773a058f771044dcd841a4b79" => :el_capitan
-    sha256 "d544abc34f9ed56f76fae104b8a472fe081c5072e32aeddbbd674316e9c0931d" => :yosemite
-    sha256 "83183c2346ec3642b45a20e47439225d94a58d6617669dd2001922f12d544942" => :mavericks
+    sha256 "80c2ed8d7a3b3b56cf7d27ac2e3ce4c76d181ed234479dfb45ca8c997a6fbe63" => :catalina
+    sha256 "4bad8169c9c0750fe3e537d9ad6efa961e7cd0882e133933d0bfcf906be46aeb" => :mojave
+    sha256 "8c82af838412a2be677821aab3ec3f72f8e68bb997e7bcd42b828b5cf9b0dcc5" => :high_sierra
   end
 
   head do
     url "https://github.com/networkupstools/nut.git"
     depends_on "asciidoc" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "rhino", :because => "both install `rhino` binaries"
 
@@ -31,6 +39,9 @@ class Nut < Formula
     if build.head?
       ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
       system "./autogen.sh"
+    else
+      # Regenerate configure, due to patch applied
+      system "autoreconf", "-i"
     end
 
     system "./configure", "--disable-dependency-tracking",

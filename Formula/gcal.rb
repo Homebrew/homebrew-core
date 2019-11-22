@@ -7,6 +7,7 @@ class Gcal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4bb8c5727fb336106016d1158796e0a127fc82eb630ec9e2bccb6d70327aa531" => :catalina
     sha256 "39c897bb2106251109af642741220e8b92e19c52be37ef928258eb1a2f6230ff" => :mojave
     sha256 "0a1e3ab27fcc8d08d78452074137dcdf281068c41a732a64222e9b5ed235e8fb" => :high_sierra
     sha256 "f120585bc8538eb1ab7c71ec240b150472cbf7b42e7fc6a3f008c15104d81e7c" => :sierra

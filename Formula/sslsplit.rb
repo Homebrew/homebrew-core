@@ -1,15 +1,16 @@
 class Sslsplit < Formula
   desc "Man-in-the-middle attacks against SSL encrypted network connections"
   homepage "https://www.roe.ch/SSLsplit"
-  url "https://github.com/droe/sslsplit/archive/0.5.4.tar.gz"
-  sha256 "3338256598c0a8af6cc564609f3bce75cf2a9d74c32583bf96253a2ea0ef29fe"
+  url "https://github.com/droe/sslsplit/archive/0.5.5.tar.gz"
+  sha256 "3a6b9caa3552c9139ea5c9841d4bf24d47764f14b1b04b7aae7fa2697641080b"
   head "https://github.com/droe/sslsplit.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "e9b80b5cce57663bb27adcf85c75bdcd210562d0f088b50a433f99c77236b2b7" => :mojave
-    sha256 "a5dd5e0059f6f1005eb3d524839f04b100aabe88ecee520c0fb170ae348a4f0f" => :high_sierra
-    sha256 "714098423b62bb41fccf94d852543f17e0aa1b363e4bc11582d1c25be6decb13" => :sierra
+    sha256 "decb7c458603db61943eeab24740e800b41fccb236408d8dc5277016b48ade6c" => :catalina
+    sha256 "5655ccab5645f479b861988a3204f4dfcab8b927901a788ea0c019fc0db0a2c7" => :mojave
+    sha256 "f81d93aa07edfa712ca820813745652e6b4543d5bc1b123f884afa23dddb7f22" => :high_sierra
+    sha256 "02f2d9a59d3cce84232cdf1e0eeae6dfe2330907462dd059a38edde7ac790b1b" => :sierra
   end
 
   depends_on "check" => :build
@@ -17,12 +18,9 @@ class Sslsplit < Formula
   depends_on "libevent"
   depends_on "libnet"
   depends_on "libpcap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    # Work around https://github.com/droe/sslsplit/issues/251
-    inreplace "GNUmakefile", "$(DESTDIR)/var/", "$(DESTDIR)$(PREFIX)/var/"
-
     system "make", "test"
     system "make", "install", "PREFIX=#{prefix}"
   end

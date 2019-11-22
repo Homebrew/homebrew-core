@@ -5,6 +5,7 @@ class Mpg321 < Formula
   sha256 "056fcc03e3f5c5021ec74bb5053d32c4a3b89b4086478dcf81adae650eac284e"
 
   bottle do
+    sha256 "fdea1076a22b6af12c33b02e9eb040fceb11d39ed2eaa7307574bf5331d8f8dc" => :catalina
     sha256 "d587b58200397ad4e8f7fa8c861e01c2c5e344d89a235e78d22fb7bd5ddf04f2" => :mojave
     sha256 "6a8f8f58c8bf02f99e8206a231fce4e9f2bd7333b888581dd1838246983d139f" => :high_sierra
     sha256 "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e" => :sierra
@@ -25,7 +26,10 @@ class Mpg321 < Formula
   # Both patches have been reported upstream here:
   # https://sourceforge.net/p/mpg321/patches/20/
   # Remove these at: Unknown.  These have not been merged as of 0.3.2.
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/mpg321/0.3.2.patch"
+    sha256 "a856292a913d3d94b3389ae7b1020d662e85bd4557d1a9d1c8ebe517978e62a1"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -41,32 +45,3 @@ class Mpg321 < Formula
     system "#{bin}/mpg321", "--version"
   end
 end
-
-__END__
---- a/mpg321.h	2012-03-25 05:27:49.000000000 -0700
-+++ b/mpg321.h	2012-11-15 20:54:28.000000000 -0800
-@@ -290,7 +290,7 @@
- /* Shared total decoded frames */
- decoded_frames *Decoded_Frames;
- 
--#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)
-+#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED) || defined(__APPLE__)
- /* */
- #else
- union semun {
---- a/network.c	2012-03-25 05:27:49.000000000 -0700
-+++ b/network.c	2012-11-15 20:58:02.000000000 -0800
-@@ -50,6 +50,13 @@
- 
- #define IFVERB if(options.opt & MPG321_VERBOSE_PLAY)
- 
-+/* The following defines are needed to emulate the Linux interface on
-+ * BSD-based systems like FreeBSD and OS X */
-+#if !defined(IPV6_ADD_MEMBERSHIP) && defined(IPV6_JOIN_GROUP)
-+#define IPV6_ADD_MEMBERSHIP IPV6_JOIN_GROUP
-+#define IPV6_DROP_MEMBERSHIP IPV6_LEAVE_GROUP
-+#endif
-+
- int proxy_enable = 0;
- char *proxy_server;
- int auth_enable = 0;

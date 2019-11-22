@@ -7,6 +7,7 @@ class Apollo < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "500fd9f2ec123176fbf34fd1ecf3a71e5211c513fb4559959b94c0a767c54628" => :catalina
     sha256 "0bea2c3db30793391d982ff0d6233e11b93df47a34fe253c8daf8dc6f0fe05fd" => :mojave
     sha256 "48b09eb2c2be0ed37a27b6b4d6835c5db6d80c877ea10e46296ddd17f8e646ba" => :high_sierra
     sha256 "1d4d6ac835aa8f72d8fb3084780e215986737c6609dff27a552730f2df9f5fc7" => :sierra

@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.29.0.tar.gz"
-    sha256 "c2265b2a904ded282751f59a3bd0367072058eee1cf51ebe0af03a572f8e19b9"
+    url "https://github.com/crystal-lang/crystal/archive/0.31.1.tar.gz"
+    sha256 "b4a51164763b891572492e2445d3a69b462675184ea0ccf06fcc57a070f07b80"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "87ad47db7f211cc64fa79a847f23ef3850da2792f8c4d673b0c16fca9be769ce" => :mojave
-    sha256 "cfa194da34d0cf847f6d3ce19603e7d8f8502c3cf93ec6975df59247f2f1e252" => :high_sierra
-    sha256 "50982b8eee0c4ee85539e0cddd51425a54572af1bf50b7ac7dcf691bb62c0996" => :sierra
+    sha256 "b2b6a72ed1d5475197afb51dda915df11b4ec0dea594d9ac9a0e74fb5b77f1a1" => :catalina
+    sha256 "a3b0717f4006a32899703e4608ff6ff6e22c079514ebafe4c14afb3cb9e6654b" => :mojave
+    sha256 "47e8c8b0b9525982dca06dab82ab9fffded6039f5a132f6d89e753bd135e0695" => :high_sierra
   end
 
   head do
@@ -34,7 +34,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@6"
+  depends_on "llvm@8"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -45,15 +45,15 @@ class Crystal < Formula
 
     # extension to handle multi-threading
     patch :p1 do
-      url "https://raw.githubusercontent.com/crystal-lang/distribution-scripts/ab683792f34c60159f0e697adf792ff5b0fcbf91/linux/files/feature-thread-stackbottom.patch"
-      sha256 "acbae8cfe10e3efac403a629490cfd05e809554d23e9c3a88acddbb66f8ef7e0"
+      url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
+      sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
     end
   end
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.28.0/crystal-0.28.0-1-darwin-x86_64.tar.gz"
-    version "0.28.0-1"
-    sha256 "f3ba24c297a99382d749344f319947f807da03371240e373d5c3d13117d4a113"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-darwin-x86_64.tar.gz"
+    version "0.30.1-1"
+    sha256 "ffc3ee9124367a2dcd76f9b4c2bf8df083ba8fce506aaf0e3c6bfad738257adc"
   end
 
   def install
@@ -91,7 +91,13 @@ class Crystal < Formula
 
     # Build shards
     resource("shards").stage do
-      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+      system buildpath/"bin/crystal", "build",
+                                      "-o", buildpath/".build/shards",
+                                      "src/shards.cr",
+                                      "--release", "--no-debug"
+
+      man1.install "man/shards.1"
+      man5.install "man/shard.yml.5"
     end
 
     bin.install ".build/shards"
@@ -101,6 +107,8 @@ class Crystal < Formula
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
+
+    man1.install "man/crystal.1"
   end
 
   test do

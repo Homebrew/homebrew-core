@@ -1,22 +1,22 @@
 class Nyx < Formula
   desc "Command-line monitor for Tor"
   homepage "https://nyx.torproject.org/"
-  url "https://files.pythonhosted.org/packages/42/37/85890dae5680f36f5b1c964ad41674ebb8d1186383fbca58f82e76de734c/nyx-2.0.4.tar.gz"
-  sha256 "38db634789c2d72e485522a490397eb5f77c0bd7c689453efe57808c99dba75e"
-  revision 1
+  url "https://files.pythonhosted.org/packages/f4/da/68419425cb0f64f996e2150045c7043c2bb61f77b5928c2156c26a21db88/nyx-2.1.0.tar.gz"
+  sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "895858835ef8f41c1993ecff11fec696a827fee4bb6430c0fa62239987912424" => :mojave
-    sha256 "9d99d881d70f0edd43304861e6ca83a3434286447ba4ac5c5e057405859848db" => :high_sierra
-    sha256 "9d99d881d70f0edd43304861e6ca83a3434286447ba4ac5c5e057405859848db" => :sierra
+    sha256 "a92eabd02b2b59ac8f71aa0b6669b8ec6a8123b46a0eca100e20bc9661b90e48" => :catalina
+    sha256 "e45539c22cd0a63392fc06b83824094917c40f6bcbb2d3e05b95dfb2210f8556" => :mojave
+    sha256 "e45539c22cd0a63392fc06b83824094917c40f6bcbb2d3e05b95dfb2210f8556" => :high_sierra
+    sha256 "1becd20ec7f74fe0fb05655320ab0329562fdd119a8f29acfd3c80a3594d1564" => :sierra
   end
 
   depends_on "python"
 
   resource "stem" do
-    url "https://files.pythonhosted.org/packages/11/d5/e51983f81b38408ae2f0e166481ad867962f6fa07610fe71119534e12d41/stem-1.6.0.tar.gz"
-    sha256 "d7fe1fb13ed5a94d610b5ad77e9f1b3404db0ca0586ded7a34afd323e3b849ed"
+    url "https://files.pythonhosted.org/packages/7f/71/d82f4204e88be00220cc54eedb2972fd05081cb0e5ebdc537d8940b064ea/stem-1.7.1.tar.gz"
+    sha256 "c9eaf3116cb60c15995cbd3dec3a5cbc50e9bb6e062c4d6d42201e566f498ca2"
   end
 
   def install

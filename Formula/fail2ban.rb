@@ -12,13 +12,14 @@ class Fail2ban < Formula
 
   depends_on "help2man" => :build
   depends_on "sphinx-doc" => :build
+  uses_from_macos "python@2"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
     rm "setup.cfg"
     Dir["config/paths-*.conf"].each do |r|
-      next if File.basename(r) =~ /paths-common\.conf|paths-osx\.conf/
+      next if /paths-common\.conf|paths-osx\.conf/.match?(File.basename(r))
 
       rm r
     end

@@ -7,6 +7,7 @@ class Backupninja < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "10006896f517296c2a62d1f510d3795afa2777f24d401206cfb69ce06bdf5d3c" => :catalina
     sha256 "39df0693351a58ac9f406d6c16ab9c15ddb5d96ddf7ac9e98cf94061ccffe9a8" => :mojave
     sha256 "39df0693351a58ac9f406d6c16ab9c15ddb5d96ddf7ac9e98cf94061ccffe9a8" => :high_sierra
     sha256 "071ac37b853475ae44c4b3dde995d694a5fce322e68d7eeb39eb52a85c781cea" => :sierra

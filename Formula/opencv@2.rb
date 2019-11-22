@@ -3,12 +3,13 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 3
+  revision 5
 
   bottle do
-    sha256 "58275354d07bd2721862f309460ba35dc40ae254398cbb547a9433d73f39c568" => :mojave
-    sha256 "b3535abd6e68488da494dcfd012a0fafbd8efd11d6f7da079bc94cede0fe4780" => :high_sierra
-    sha256 "0bf66ae256ba6541ab7c6387e1a07490785cd5bcb6b488b4b2a3aeacb61fc7df" => :sierra
+    rebuild 1
+    sha256 "9b5ec41fcf3171360aaab7a54e4f9a0de45af3d067ba95f8cfc0752162df24f9" => :catalina
+    sha256 "f3730ff75749689792411fc2b928e0682ca6d4fdf036617d2ea4c0f96e073023" => :mojave
+    sha256 "ee0926b30e0ca6b85f3670dd0e45183ed2c392d9bbe9748256ae96130638e3d1" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -20,7 +21,7 @@ class OpencvAT2 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "numpy"
+  depends_on "numpy@1.16"
   depends_on "openexr"
   depends_on "python@2" # does not support Python 3
 

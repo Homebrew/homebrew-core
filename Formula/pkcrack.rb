@@ -7,6 +7,7 @@ class Pkcrack < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "d3a30eacefe197d458f08b01ad58d778376fc5b4d53c35f7c0e5c525c17c32d0" => :catalina
     sha256 "43571237e186fe6907bef85b5584772b80ed96b7336e55c47a1b18a41ef75278" => :mojave
     sha256 "13c80200a6a1b96c74c590c595c1860447b04a6bb44d10210d82e0fa53e8f61b" => :high_sierra
     sha256 "264358646b08985192cd06c9bc032c16296eb00198dd9852521e0cfdfe1703ef" => :sierra

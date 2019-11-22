@@ -7,6 +7,7 @@ class ArgpStandalone < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "560e1829dce7113479d755380e0e65318a996f0d04d8e0761f24810e9e019e7d" => :catalina
     sha256 "fb60d10ba68efda61d1dfdb161bcf9bfa0474c82b03e0579517cb10608aa9aea" => :mojave
     sha256 "92532fafd8c2cc86b33de0f347496746d8049bb4d1a6ce0948148e0f3c4bca5a" => :high_sierra
     sha256 "10627e72c0e0eb66cbd03a2beb767c06b8edad4bef01914de7f7c6c1be33a356" => :sierra

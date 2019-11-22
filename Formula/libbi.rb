@@ -1,16 +1,16 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
-  url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
-  sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
-  revision 3
+  url "https://github.com/lawmurray/LibBi/archive/1.4.5.tar.gz"
+  sha256 "af2b6d30e1502f99a3950d63ceaf7d7275a236f4d81eff337121c24fbb802fbe"
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e53c92aaa7dc0446b22a305130ae8d7e3deaf3d370116fae8b1b7ef60a6820e" => :mojave
-    sha256 "b0888c11a7fde4aceea78f281593b2dee115521bec9cfa9aaa0b29109881cf51" => :high_sierra
-    sha256 "dc6d58a9f2b19b86d64097ecee68e40f1f060020b17590d08c759b199b740924" => :sierra
+    sha256 "9375c903bf9980fa04fe6ab1a08fc174dbfdbc60cbf6bf33a4f85c135b4ba356" => :catalina
+    sha256 "9e3385af760fa9d77122311be8cc0da4993e5dbf514fd7449ddc45fef328e31f" => :mojave
+    sha256 "f4777d1ce91c8e1b4a7b56db70ed1a15a605e3817ae063cdd7187ab40167bfed" => :high_sierra
+    sha256 "d1916249f2268c6015852f177d0198b3a96dad65c406e867ab73fbb837e8fa39" => :sierra
   end
 
   depends_on "automake"
@@ -137,7 +137,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
+    system "#{bin}/libbi", "sample", "@test.conf"
     assert_predicate testpath/"test.nc", :exist?
   end
 end

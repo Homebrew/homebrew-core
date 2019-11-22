@@ -1,15 +1,15 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.4.tar.xz"
-  sha256 "d9e8b94af7b206fcf52bec6501b921bd7d0bd7a31fb7e896a35ba8253678e31e"
-  revision 1
+  url "https://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.6.tar.xz"
+  sha256 "b33576331465a60b003573541bf3b1c205936a16c407bc69f8419a527bf5c988"
 
   bottle do
-    sha256 "a5916710ddddf9ab79f368008fddfc708fd50ae86fc5b894a7d70cb3cebfb326" => :mojave
-    sha256 "fe1d3822f7bb1a18b3fa73907db89ba7654a85c3cae4f572eb3257a4b2e148d0" => :high_sierra
-    sha256 "a1bf9796750403fc459f8393144ac7589474f97ba4ce3a0d732fdab7aa3f3df1" => :sierra
+    rebuild 1
+    sha256 "7bfe0c8f0f0ccbd3efa21dc515c149492d900e68e6bf6a802d4f9295c8bcf9e9" => :catalina
+    sha256 "b4c73a4155900d19f6b2a6255ff5b0ae454d3663eac004e16fb79fd4f69ec9c5" => :mojave
+    sha256 "f90ffabcd109edc74afe9b8c07c6f166207011d6dff277e626360b9d6b5a2db3" => :high_sierra
   end
 
   head do
@@ -30,6 +30,10 @@ class Guile < Formula
   depends_on "readline"
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

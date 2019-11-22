@@ -1,15 +1,14 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.4.1/tig-2.4.1.tar.gz"
-  sha256 "b6b6aa183e571224d0e1fab3ec482542c1a97fa7a85b26352dc31dbafe8558b8"
-  revision 1
+  url "https://github.com/jonas/tig/releases/download/tig-2.5.0/tig-2.5.0.tar.gz"
+  sha256 "ff537c67af9201e7e7276ce8a0ff9961e9d9c6a8a78790f5817124bd7755aef4"
 
   bottle do
     cellar :any
-    sha256 "eba3a55c27fa0574f50afa7c93992e2ca977bfec4614c3cbf659a8139af33ef9" => :mojave
-    sha256 "4a73419c6034c18896d658938992a2c3ec8f4c5cd0567323cde27c6270861d03" => :high_sierra
-    sha256 "09939bc22023b396db534f278257343b0752509a53eea5f2a417cbb0a47b3b8c" => :sierra
+    sha256 "03f5fc99e3763dc90dd4e2a3445fb9e4a65a2db790b8aa40c1d56cd08d1d5f6f" => :catalina
+    sha256 "5fbd4ddf058724d51f88221bb54f949dd79941d7654f63881c62bf9768a7e12e" => :mojave
+    sha256 "8c85a68d1ff0400649e18b47160152ea1220e72afa6217d916462ecc7053bf14" => :high_sierra
   end
 
   head do

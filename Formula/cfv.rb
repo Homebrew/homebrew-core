@@ -7,6 +7,7 @@ class Cfv < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "cd4fac08aac6490ade28d8b370e006c720bab5df939caadb92b25af278a4384a" => :catalina
     sha256 "251348813c0a811e6ac298432967d19e42bfa73bbc3217eaa0b63bec4b78d98d" => :mojave
     sha256 "7452ead7901f4f4ab2683cd391af82f856eba1a57c11d07c038ca18507535dac" => :high_sierra
     sha256 "449f4b10a0371005f04bffa6271364824a83fbb68cb15208168c19457b987b6e" => :sierra

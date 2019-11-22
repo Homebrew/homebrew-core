@@ -5,6 +5,7 @@ class IscDhcp < Formula
   sha256 "2a22508922ab367b4af4664a0472dc220cc9603482cf3c16d9aff14f3a76b608"
 
   bottle do
+    sha256 "d210dbeb3f76fbad9f2023b80f18090e513a41f62b14ce4e60017cc3209c5193" => :catalina
     sha256 "d9961821503dd2dbd1e81001cdc58125e92d1c33ecd1d46d834a64ebc59e27d2" => :mojave
     sha256 "eea8d134e6003550ee99f8e7d81d2869fa0eb73f1986e06073561c630ed2966c" => :high_sierra
     sha256 "461dd0ba33e5d16684db8a65f757cd3e0a1c6e9a5d5ba657a20819ab6acc3ff4" => :sierra

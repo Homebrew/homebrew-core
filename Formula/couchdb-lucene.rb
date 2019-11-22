@@ -14,7 +14,7 @@ class CouchdbLucene < Formula
 
   depends_on "maven" => :build
   depends_on "couchdb"
-  depends_on :java
+  depends_on :java => "1.8"
 
   def install
     system "mvn"

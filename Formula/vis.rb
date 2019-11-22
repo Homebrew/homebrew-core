@@ -7,6 +7,7 @@ class Vis < Formula
 
   bottle do
     rebuild 1
+    sha256 "653477cccc87df049b8dad710c07e4f62ea4b228c31ac6781a1f7ef289efeff4" => :catalina
     sha256 "93c11117e6a40af5059b02810737dbb1cd494a1eae88acc0d0230d0afeae4768" => :mojave
     sha256 "da6c3c09d9b53f77c0aecbdd99d145447ed12505f3d2103532502415b53f4564" => :high_sierra
     sha256 "831f3f4424b231e086784a1741eb1bdc94b5134fa220176a24848f7f226634ab" => :sierra

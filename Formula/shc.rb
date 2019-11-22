@@ -1,15 +1,16 @@
 class Shc < Formula
   desc "Shell Script Compiler"
   homepage "https://neurobin.github.io/shc"
-  url "https://github.com/neurobin/shc/archive/4.0.2.tar.gz"
-  sha256 "43fef6d59a4376d20c0bfef2bbbf606284fa54194b3fdb522b1bac38e4e8ca45"
+  url "https://github.com/neurobin/shc/archive/4.0.3.tar.gz"
+  sha256 "7d7fa6a9f5f53d607ab851d739ae3d3b99ca86e2cb1425a6cab9299f673aee16"
   head "https://github.com/neurobin/shc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "239f2094c8e79dfe1b51d67b4e07b8e8d47b47ac769eae623929d045c1ce6ec0" => :mojave
-    sha256 "6ab21bfcf0b7b3b37c6ec3e886e61981b937aeddd67badc8338f35b5b6a3d457" => :high_sierra
-    sha256 "bd8f1f3e707ec3dc1d0702059abf4633a9ec8fe97f494dc61181663525afef22" => :sierra
+    sha256 "cdfc62c7d9bd39ed7e956066f8d55a189c58b185b6abf7e45b5d8c63a6abe2d5" => :catalina
+    sha256 "ff3c55ef1d10c16066e97a20143dbd1e7781ceb9a2c5c8b46d140f6711bc79fa" => :mojave
+    sha256 "c19f4586119be579006eace517045998138d83a17e2b5c8ec00ad73ea007b68c" => :high_sierra
+    sha256 "6e1834ac7b4cc64ba972a59189512bb9ff9e0ec307df78f9e0fc1fee42378f6d" => :sierra
   end
 
   def install

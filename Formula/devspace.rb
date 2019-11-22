@@ -2,14 +2,14 @@ class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.cloud/docs"
   url "https://github.com/devspace-cloud/devspace.git",
-    :tag      => "v3.5.8",
-    :revision => "3efff768ae61fffbfb224a51406ba54e6b670a02"
+    :tag      => "v4.2.1",
+    :revision => "5e9fbc5e0f37aec72a6356f8beec4a27f697dbae"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c4fd2de185f666e08638c9fb26aca9bed0fbdd1243bf9e6e5e7a678a2d975843" => :mojave
-    sha256 "d03af3dd5f4b7dd11cd9a2e15b7025bbcb014a2fabd35090880216da300dc1b0" => :high_sierra
-    sha256 "3e80c774662a3df41c0ce0e974dac983e58ce9977a0de0d8508e01edbd52da28" => :sierra
+    sha256 "f13dbcd3813bc2938f1f741e832092322dc494407c6900d2d89ae027af4ff01c" => :catalina
+    sha256 "80f8cf458d3fecb12adcb04e1594ecbfb10125248a55fd22a0d37ca9840645e1" => :mojave
+    sha256 "c5d1f3949542f2c28e407453397385dfe4253a6cb28f5d636bff7dda762b8d56" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +17,6 @@ class Devspace < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/devspace-cloud/devspace"
     dir.install buildpath.children

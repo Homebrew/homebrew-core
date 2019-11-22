@@ -1,16 +1,16 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz"
-  sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
-  revision 1
+  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.0.tar.gz"
+  sha256 "5c5ed5f1a76888dc57a83704f24ae02f8319849f5c4cf19d254296978a1a1961"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
     cellar :any
-    sha256 "46867f03eddad20bbcc7d17580d48ab718c3658291a1e51b928c6b0c2a55100f" => :mojave
-    sha256 "9a992489da4ea09c66997fbc5c8ffbcb2dd411b4c2acbf23e24497184943aa53" => :high_sierra
-    sha256 "03209012cb8884dd4224661d47ec9d5190807ae317b04342a4c7a4f97b830895" => :sierra
+    sha256 "e28683663b237b02037c5e54d452e54cc881029ed0f5e25a885ba6bb804440e2" => :catalina
+    sha256 "774212dc0edf27447e1d5ba46ae9d3dfb989a90b529e49d15df99b9bb16e73d7" => :mojave
+    sha256 "eb9d24e2550bc7f13826306de27ceec45c2ddbde3440976a695c33daefbb204d" => :high_sierra
+    sha256 "d118c493ae35173a0eb966dc7641887dc9670772561b7e6ba25bccf4bdaab384" => :sierra
   end
 
   depends_on "autoconf" => :build

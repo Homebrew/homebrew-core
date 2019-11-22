@@ -1,15 +1,15 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.22.tar.gz"
-  sha256 "fd41ef85cec3eca0107d83583ad25faa8804dd22d76f6da7fc157e0233b13a59"
-  revision 1
+  url "https://dev.yorhel.nl/download/ncdc-1.22.1.tar.gz"
+  sha256 "d15fd378aa345f423e59a38691c668f69b516cd4b8afbbcdc446007740c3afad"
 
   bottle do
     cellar :any
-    sha256 "bd458109141b6ba53b1cfb1f7a6c23f54b9f9a394aa343ea45b5c266ddcc6050" => :mojave
-    sha256 "8674135fbed6f357731b7c758ee1b57ef4e37f5d939ec0033cf20c7b2df5062f" => :high_sierra
-    sha256 "fe29149237f3e024935eaca35954a829b21983871ee2976029f7fdc92ef2b491" => :sierra
+    sha256 "2f074f7eb6aa1a1d0024e1f900315cb4bd056ad711c0f504acb160714e07597a" => :catalina
+    sha256 "4490571bb2101e00e3edc39ab25baf75a63dfd9617381ae0f102a274a2fbf622" => :mojave
+    sha256 "bd143dd032839762597253796c562607e43c654c128d4f4162fd382fd660dbfd" => :high_sierra
+    sha256 "59f5011b9c39b78c75a2bf5d93ae398a16660852a3b8fd8ed3a3389ea463fbf7" => :sierra
   end
 
   head do

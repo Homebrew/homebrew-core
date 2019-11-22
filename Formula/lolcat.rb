@@ -2,14 +2,15 @@ class Lolcat < Formula
   desc "Rainbows and unicorns in your console!"
   homepage "https://github.com/busyloop/lolcat"
   url "https://github.com/busyloop/lolcat.git",
-      :tag      => "v99.9.69",
-      :revision => "692002ad5d5b2b797f4918c21655de4eb88d4349"
+      :tag      => "v100.0.0",
+      :revision => "7d96dcad726a5efa05a45b8729be9b6d851437ab"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a80143a72192e7deb0ac935b9915bcb702aaa7902eac2d35fbe307562c9e2537" => :mojave
-    sha256 "6c49fea808082b581f45e7c09d8f8623cb35bf2d8a11e9f7f4a694352f94a1d2" => :high_sierra
-    sha256 "23e4f4e393c138057234c7c281dd4bbdbc554a3cd4afdf43d976a92330e44825" => :sierra
+    sha256 "dbeb1867020b84f062d5102ee81ab37d53decdc673dfb412847e0d8f36864140" => :catalina
+    sha256 "4732ed711ccd6e3d32c9614daca439dea84644a132f8b3dac3d0a52cd26d3b7d" => :mojave
+    sha256 "ca82ef3c4b46099bfd3e2e0ad6290fdcde71286db588b4a66069a762cac947ee" => :high_sierra
+    sha256 "ebfb0e8ded22cc1eb717a7ba73087cdb0beb5f0447f6642648a2e864736b9c1b" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

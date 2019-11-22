@@ -6,6 +6,7 @@ class Argus < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8deffdef21a05cf61e3b134532439173966ec8748f1988c4048c3173d6788d2e" => :catalina
     sha256 "83ea7bc0f0103ba900dad6856762aae355f726c0bb9f089cc5434c30dacce1fb" => :mojave
     sha256 "faf6ef808e9ff867eed42586ae6c27f84b66933559e9960fb48853b67325fb20" => :high_sierra
     sha256 "42487c51fa731752e10da402b5fac0f973ee090eaad19f8f4fd52fc5317c9cfb" => :sierra

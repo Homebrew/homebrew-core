@@ -1,28 +1,28 @@
 class PostgresqlAT10 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.9/postgresql-10.9.tar.bz2"
-  sha256 "958b317fb007e94f3bef7e2a6641875db8f7f9d73db9f283324f3d6e8f5b0f54"
+  url "https://ftp.postgresql.org/pub/source/v10.11/postgresql-10.11.tar.bz2"
+  sha256 "0d5d14ff6b075655f4421038fbde3a5d7b418c26a249a187a4175600d7aecc09"
 
   bottle do
-    sha256 "c8ed8b8f9eb72d0da20bd4e45a9caa14b429a02366e5794b74e78be6ba236625" => :mojave
-    sha256 "78574c605b262965bdcb781ebd56c481603b5bef75acc560cab586a726b36278" => :high_sierra
-    sha256 "a7528fb1f165f3a83fc3afff6c86b138d0edf3cfc009f7dbfc9d58eaac9aab10" => :sierra
+    sha256 "7a146c7abbb7cfbee0ba221210dfdd77fb70981aca1fd23cda040c786363d441" => :catalina
+    sha256 "f6abb43bc4f5df710e06d08c1d739c9279516c1ba8f8090206b7251a54d37a3b" => :mojave
+    sha256 "8d659c8869b2216e2371fc8229afe1f9842661eec9f82af48d15a15a093c5d33" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"
 
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
     args = %W[
       --disable-debug
@@ -55,7 +55,7 @@ class PostgresqlAT10 < Formula
     # to inside the SDK, so we need to use `-iwithsysroot` instead
     # of `-I` to point to the correct location.
     # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib} -R#{lib}/postgresql"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib} -R#{lib}/postgresql"
 
     system "./configure", *args
     system "make"

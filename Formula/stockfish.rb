@@ -7,6 +7,7 @@ class Stockfish < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "788bbe949f69b99c2ca0220961aa3ad2cdc05487340d54b44b964f62ca076d3f" => :catalina
     sha256 "7e7d58466b8d4f325e69eb593dbb40074541e383b9b1e62dae83b3d9cddfc3a7" => :mojave
     sha256 "be82b92aa3b8a89162caca9f206645cb6395b93898f7575ea782f754b2183bd8" => :high_sierra
     sha256 "84e6d5d13b0a30843ed3eafd245a3c6a61ecf67635b3b18ba5950fb69aed1bb1" => :sierra

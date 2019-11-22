@@ -1,14 +1,14 @@
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
   homepage "https://github.com/genuinetools/weather"
-  url "https://github.com/genuinetools/weather/archive/v0.15.6.tar.gz"
-  sha256 "a10edddd0e1157dbb95b3c31170806d3789f00939e4192ad90bb23a87a70e48c"
+  url "https://github.com/genuinetools/weather/archive/v0.15.7.tar.gz"
+  sha256 "e5efd17d40d4246998293de6191e39954aee59c5a0f917f319b493a8dc335edb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "65017d8799925fab8fe8533fb385fb56dc6a22114ec0092f624031c926e550e1" => :mojave
-    sha256 "2b385bbbc7310dc75466acc8bba635ffceb523788f66040933a201f476d0b9a0" => :high_sierra
-    sha256 "5ba56cd686eb287578ddfc1ae25d5896ffd699b902852b1d68a0caaac4148f6e" => :sierra
+    sha256 "64aac1bb9c9f6fc856fdb6e818b11d715addb17c6f35480abf0a337c1dcaa311" => :catalina
+    sha256 "ae72f00275774f08c66fb8f90697545b97701c4fb819416fb6215779ec775cab" => :mojave
+    sha256 "b621c14d94f6e0e1c350e0bc78c0269bed889b065d811acb8da39d137de5ac4f" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -27,7 +27,7 @@ class DarkskyWeather < Formula
   end
 
   test do
-    output = shell_output("#{bin}/weather -location london")
-    assert_match "London in England", output
+    output = shell_output("#{bin}/weather")
+    assert_match "Current weather is", output
   end
 end

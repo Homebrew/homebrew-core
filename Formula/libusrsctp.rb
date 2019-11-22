@@ -7,6 +7,7 @@ class Libusrsctp < Formula
 
   bottle do
     cellar :any
+    sha256 "de21e0c3c332c8fe847ad292d047168a9c3598c613a6a8f1f3e42082c15d9150" => :catalina
     sha256 "a7f2fe014d976dc839bdad57f3ac07a9c11683e683643c2de76c9036f87e61f9" => :mojave
     sha256 "8914ab47dadb25cf626662cde57d10f10a99915b4848d0302c92a61b40842c3f" => :high_sierra
     sha256 "7d210faa7eb0101915c2f918ac0479c7bfc5faa251b389dfea68d94385823499" => :sierra

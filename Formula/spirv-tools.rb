@@ -6,6 +6,7 @@ class SpirvTools < Formula
 
   bottle do
     cellar :any
+    sha256 "31efbec043164a1f6105eccaf2031bf5482abac4567fbf6880e373a90ff3abd9" => :catalina
     sha256 "46438f2839f8258cec5593a0db9899c5dd7d9ae4c791ed0f349d6a5ab9164d10" => :mojave
     sha256 "741ef8b7a9b09ebc6cb485b6d752f5e2ea8e84643ca07aa8d2931861501f69b4" => :high_sierra
     sha256 "d2a4328e6a8e8e98114c97f547e87b248384855c9013d3b48c70a20b7d525a84" => :sierra

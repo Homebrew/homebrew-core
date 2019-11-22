@@ -6,6 +6,7 @@ class Fcl < Formula
   revision 1
 
   bottle do
+    sha256 "07ef96db4ac5806832c2e6bd28eba505c98c1bb55ed1f86d6d1793752b9265c4" => :catalina
     sha256 "392131d9e9aea1fdd2e727161a7c4909dbe5efad7742e88ccc1afbc9090725bd" => :mojave
     sha256 "72a5ca040739722599576b579a6f864ca3307bf01ad8403765d739813a3e1fd0" => :high_sierra
     sha256 "8fd76b19ab4408397f161947d7da47f619ec710ddcdc2c012579440a6885f192" => :sierra

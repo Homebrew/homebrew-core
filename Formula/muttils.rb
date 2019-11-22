@@ -7,6 +7,7 @@ class Muttils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3befd252ecc2caef4856c067d6fdf1eeb7db624c6362c3d6612dadd45e954849" => :catalina
     sha256 "44469a59b620c95a16ce8df8f83865d52bacf1fc67ce2e662e70f7a220aed363" => :mojave
     sha256 "cc13c555f3f6fe0527b1b2ef61f50d3e01fe99663d9ba76d8ea912c7114bb9f0" => :high_sierra
     sha256 "5c8920713f0a4abc1e6834dda10b40295010dfb96589196ffb319476801f3178" => :sierra

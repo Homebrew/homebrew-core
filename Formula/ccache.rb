@@ -1,15 +1,17 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7.1/ccache-3.7.1.tar.xz"
-  sha256 "66fc121a2a33968f9ec428e02f48ff4b8896fbabb759e9c09352267014dcbe65"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.6/ccache-3.7.6.tar.xz"
+  sha256 "73e2633ac9bca387b5a39c72a8f85634670c4091dab639228c433898163c86c0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "758092cb544e543094c6db931631112660f817112df869ac44fd82a604921aeb" => :mojave
-    sha256 "db4b6e2637ede1d12536544b7dc3f6c36549c1fad7cfca481a103b88cff134ae" => :high_sierra
-    sha256 "b41e0434efa91fa46caae563d5866fcfee17915c52a8983b8c898d59a5646440" => :sierra
+    sha256 "3adbcce85eb17728cd913be9f53b1c9da01ad1e4ba5d2a646c7cea9b74877153" => :catalina
+    sha256 "349361984428110dd2ad23b3e25b564ca0d38edcf1d005ecc79835d5d5385231" => :mojave
+    sha256 "c54accd2400689df8a8debf9252fe6817db9da8450e026924b898983fcc871f0" => :high_sierra
   end
+
+  uses_from_macos "zlib"
 
   head do
     url "https://github.com/ccache/ccache.git"
@@ -34,9 +36,9 @@ class Ccache < Formula
       clang
       clang++
       cc
-      gcc gcc2 gcc3 gcc-3.3 gcc-4.0 gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9 gcc-5 gcc-6 gcc-7
-      c++ c++3 c++-3.3 c++-4.0 c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9 c++-5 c++-6 c++-7
-      g++ g++2 g++3 g++-3.3 g++-4.0 g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9 g++-5 g++-6 g++-7
+      gcc gcc2 gcc3 gcc-3.3 gcc-4.0 gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9 gcc-5 gcc-6 gcc-7 gcc-8 gcc-9
+      c++ c++3 c++-3.3 c++-4.0 c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9 c++-5 c++-6 c++-7 c++-8 c++-9
+      g++ g++2 g++3 g++-3.3 g++-4.0 g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9 g++-5 g++-6 g++-7 g++-8 g++-9
     ].each do |prog|
       libexec.install_symlink bin/"ccache" => prog
     end

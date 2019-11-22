@@ -7,6 +7,7 @@ class Xqilla < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3e01ca81220688c9680e3c23c0f7434f415e2b1e7b2e812f514a540eb51b50cd" => :catalina
     sha256 "93ae09129c45ee7b1a4ecfe996c305791e06833c1e73b604b33282e5ea90248a" => :mojave
     sha256 "38579e6ab1b6f6801ca5404cc79fcd972f395b9dd2e981672889b3eac5441c86" => :high_sierra
     sha256 "0f1ef8f2aa1349b723062426a3e44fba2821bcf93316bacabf4c5e2948093bc4" => :sierra

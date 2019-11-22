@@ -6,6 +6,7 @@ class Netcat6 < Formula
 
   bottle do
     rebuild 1
+    sha256 "fbba0de060d7d38efc84e3a098de48d127467fd8e6d90edf2ed96bc20b5e38df" => :catalina
     sha256 "aba098730e397f84b6ed7534b41bd7f65f5f6182189d890ac93216faff2fe9b7" => :mojave
     sha256 "b3fe44c42b33bc668cdaa0f05eb10a5f9b67891b1947b98abe9cad6464182835" => :high_sierra
     sha256 "bdb853a9a63a03555682eae734d9d9a7725591dfd16128cf59f208968ef16ef2" => :sierra

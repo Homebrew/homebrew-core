@@ -4,15 +4,14 @@ class Gitup < Formula
   desc "Update multiple git repositories at once"
   homepage "https://github.com/earwig/git-repo-updater"
   url "https://github.com/earwig/git-repo-updater.git",
-      :tag      => "v0.5",
-      :revision => "ba5eec698999c36cb3d603ae46baa6f076b7b695"
+      :tag      => "v0.5.1",
+      :revision => "b502b2eaa46a6a10d9db228209f984bb235444a7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80a1da9109342ec500c6cdb89c7a90b79048a80438d20368169cfc03b2f57776" => :mojave
-    sha256 "013423ddf1b0b48b22cf16fcc60b35f3e06e73615f24dc226fa004669d09e392" => :high_sierra
-    sha256 "2b3a5f5cdc84e26488f87e2fdc390612bc79c016fb5ce2915eddc8c49dc71473" => :sierra
-    sha256 "3099d2c8e9b7adb5150b23d08f95832808e8d175186f25109459f106c3d31564" => :el_capitan
+    sha256 "a66375c90ccd31c676aeff3e17a40a4993e77f4701702cc68361bf490581e406" => :catalina
+    sha256 "52286e039d13246b140d4d3c922d269965a6db1f14ff5e8331ffad51790ce14e" => :mojave
+    sha256 "b550170bcff2cb60d1af74abcea941c54f433003b084010ea2b73bd7d34f947e" => :high_sierra
   end
 
   depends_on "python"

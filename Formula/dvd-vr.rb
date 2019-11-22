@@ -6,6 +6,7 @@ class DvdVr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bd9d4471e3e4832bbfcc4ddf0fa34f32bfe0fc6efea5ec17414157cc060a141d" => :catalina
     sha256 "1f815f7699e3bb885c56c3842e9d43ef58d3b338a1405f2f33b26a1b975a1061" => :mojave
     sha256 "e96bdfc31d58a3d94f739937c0efbbdd0b2a60a625aa8c33033e71adf8ee040c" => :high_sierra
     sha256 "7b38c83a9bb9daded6a6f28be018076cdcdbbfb0d47102ecbdd06128bebb33ee" => :sierra

@@ -6,12 +6,11 @@ class Uudeview < Formula
   revision 1
 
   bottle do
-    sha256 "c5d18a9546ce1a85463f9539913849a345d789b320a85fbcb4808d55e698ddfd" => :mojave
-    sha256 "9dc171e8989c39f86f0c7dc3731223cfa5ca675777423141a81dd2eedb030fd1" => :high_sierra
-    sha256 "a8ab0219be6aa4d27c2d2cf782fdd6729c927b6e241c1a19c277c508dfaf9504" => :sierra
-    sha256 "fa6bcd2362f84742db9e89d4e474a4359d06d9829db2a54223597b5ab662053c" => :el_capitan
-    sha256 "2692468b933a114f9f2cdebdb566ace98a5d33694fa6133e5024df5e4022a63f" => :yosemite
-    sha256 "632df808fdc10ec4f8dbc18c028b51f6c28152fe0cc00c4b2a19a723f0b0499b" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "9b5990b5b763e90614bd2d074e670c20e834541d60082a4e78f90d67a65da5c3" => :catalina
+    sha256 "2869df0b09975172227dc83be6d667b3d0f8e4f2cf0f6d9ec0cd3fdca02727f4" => :mojave
+    sha256 "7bb4c57755efed1b4208d234a0017d785757da04ca8f8e43c92980f3fe16b85c" => :high_sierra
   end
 
   # Fix function signatures (for clang)

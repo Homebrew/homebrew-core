@@ -6,6 +6,7 @@ class Fwknop < Formula
   head "https://github.com/mrash/fwknop.git"
 
   bottle do
+    sha256 "3a4ff22b7de484deb6473ffdad63d3e927290925af925b5dbf1b868648824493" => :catalina
     sha256 "2e56267215274c15f322335f86aa92b671f5600cbfd2275949cef03ec47d390e" => :mojave
     sha256 "a36cd65fe358a6b156b2b5276bcdf629b2d777ac8a803e7cd40ee9e3c75512e4" => :high_sierra
     sha256 "7472ea129bbb0d5a1187d08e4a9770d66d480a9bc284a62db11f6dec90b770cf" => :sierra

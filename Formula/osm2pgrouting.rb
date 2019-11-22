@@ -8,6 +8,7 @@ class Osm2pgrouting < Formula
 
   bottle do
     cellar :any
+    sha256 "4f0887c9a9b548ecdf8e04f6ecb9038eea4937dfcd9374afcb608917998be9cb" => :catalina
     sha256 "3ed89abec56121bbd4a6be5002c00a3ea5406c085311259aa59005f93108088b" => :mojave
     sha256 "50abb343eee9a3158ac73941990edc6d973f7f7e865af326bae1ee65623fcf3a" => :high_sierra
     sha256 "b576bf2e32adac14ab0be1ffbadfe543c9e9d127308231b3a57a40138807433b" => :sierra

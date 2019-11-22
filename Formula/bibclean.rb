@@ -7,6 +7,7 @@ class Bibclean < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c939db687fd2d65f9b1093ec2afd4b1f6d410cfa838283db6d9b2fd905b78ef5" => :catalina
     sha256 "08446fff8a8c9f0b58238290cab9f14d06131db299df35702fece9804cbfedbe" => :mojave
     sha256 "0716be98bca14351bf4f0ca3da343e6a79bb945a34929eadf7742824342f48ff" => :high_sierra
     sha256 "addcead999d4c3ec3e5112c227512e200681e4775b163bfc24f2bff71ac15f77" => :sierra

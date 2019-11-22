@@ -7,6 +7,7 @@ class Pcb < Formula
   version_scheme 1
 
   bottle do
+    sha256 "d43af459fe1d262e950a073894903ffb599531f710424c753b3c2779cbdb7771" => :catalina
     sha256 "3f910571af474058db83eac46cc6672a8492b1c5b594594752d2cf3c077a6e33" => :mojave
     sha256 "c2014db727633acb06b633247d3e9e809a76cb9a88daa7deb9b7bc1609670f39" => :high_sierra
     sha256 "0a71157a119d5206fb3b908fd8c25a4072b0e832aa466f13cbd04d998af39817" => :sierra

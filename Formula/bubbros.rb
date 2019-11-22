@@ -8,6 +8,7 @@ class Bubbros < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "0787da9180d41eb01bca38a6e0c04759877e5c141d9dd1de02c3e81ebc6ad771" => :catalina
     sha256 "40db40b8456691091963eeb5e7183a79dfa392c3428261b582b29f1201398163" => :mojave
     sha256 "e808145d3d1ae843d32a437be1ef8ad70c837bf4b2ccf66e4963cd6561d45c14" => :high_sierra
     sha256 "afee50e9fa76478ba416a51cae53efa3ac6ff9fd457d58fb5b6b0b09d343e4c9" => :sierra

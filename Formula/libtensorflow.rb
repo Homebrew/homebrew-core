@@ -1,31 +1,32 @@
 class Libtensorflow < Formula
+  include Language::Python::Virtualenv
+
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.13.1.tar.gz"
-  sha256 "7cd19978e6bc7edc2c847bce19f95515a742b34ea5e28e4389dade35348f58ed"
+  url "https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz"
+  sha256 "49b5f0495cd681cbcb5296a4476853d4aea19a43bdd9f179c928a977308a0617"
 
   bottle do
     cellar :any
-    sha256 "2df4c37601b1533a183473808acbf01444abcad0775ad2f5a699f6a3c0eba494" => :mojave
-    sha256 "5a9d0ea0a8e3496388dd2892a144a2c627b445e356e0c8a2b7722b2ae54c6887" => :high_sierra
-    sha256 "d9cc97a0c4b21dff9ccc3f511c90a820ff8ae857b82c06c812f1f2defe8b261b" => :sierra
+    sha256 "a338993572cfa5bfa0ab375e02284012659e2fe1a71e0fa94572d28c8a890cf4" => :catalina
+    sha256 "a338993572cfa5bfa0ab375e02284012659e2fe1a71e0fa94572d28c8a890cf4" => :mojave
+    sha256 "5a80f27525dbb8e21244c792e256e444b617321d83d96cc6e3eb706a5b498e10" => :high_sierra
   end
 
   depends_on "bazel" => :build
   depends_on :java => ["1.8", :build]
-
-  # Allow libtensorflow to be built on bazel 0.22.0
-  patch do
-    url "https://github.com/tensorflow/tensorflow/commit/91da898cb6f6b0e751e15ceb813a37cdfe18a035.patch?full_index=1"
-    sha256 "648295170a4d4226a76f916e61bf052dcd4b13e1c0517386a0e59963285cdc9b"
-  end
+  depends_on "python" => :build
 
   def install
+    venv_root = "#{buildpath}/venv"
+    virtualenv_create(venv_root, "python3")
+
     cmd = Language::Java.java_home_cmd("1.8")
     ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
 
-    ENV["PYTHON_BIN_PATH"] = which("python").to_s
+    ENV["PYTHON_BIN_PATH"] = "#{venv_root}/bin/python"
     ENV["CC_OPT_FLAGS"] = "-march=native"
+    ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
     ENV["TF_NEED_HDFS"] = "0"
@@ -43,11 +44,20 @@ class Libtensorflow < Formula
     ENV["TF_NEED_ROCM"] = "0"
     ENV["TF_DOWNLOAD_CLANG"] = "0"
     ENV["TF_SET_ANDROID_WORKSPACE"] = "0"
+    ENV["TF_CONFIGURE_IOS"] = "0"
     system "./configure"
 
     system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt", "--copt=-march=native", "tensorflow:libtensorflow.so"
-    lib.install Dir["bazel-bin/tensorflow/*.so"]
-    (include/"tensorflow/c").install "tensorflow/c/c_api.h"
+    lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
+    (include/"tensorflow/c").install %w[
+      tensorflow/c/c_api.h
+      tensorflow/c/c_api_experimental.h
+      tensorflow/c/tf_attrtype.h
+      tensorflow/c/tf_datatype.h
+      tensorflow/c/tf_status.h
+      tensorflow/c/tf_tensor.h
+    ]
+
     (lib/"pkgconfig/tensorflow.pc").write <<~EOS
       Name: tensorflow
       Description: Tensorflow library

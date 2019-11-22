@@ -1,16 +1,16 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel707.tar.gz"
-  version "7.07"
-  sha256 "a2c493b833b217adf94d2000eb19015b990c4e441beb35cf36b1d33ed2351991"
-  revision 1
+  url "https://github.com/camlp5/camlp5/archive/rel710.tar.gz"
+  version "7.10"
+  sha256 "83dff83d33ee9b70cd1b9d8d365db63a118201e5feb6aab49d9d3b1d62621784"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "bc41d8d05b58ea18887f802e63037dc77aacb77014fbd37f375459cf198b1a02" => :mojave
-    sha256 "46b26065975d0d1e8769ca94425792146c142d1f92658ac33ce14840e56c55d1" => :high_sierra
-    sha256 "048042a01ab67acb0aad31a5d8c9647b497a13fa3299f8cd85e3bcb664f52566" => :sierra
+    sha256 "6c8c1d3f0239f92b455a1cb801e45ba6b4cb7f9021a48f36ccade3f0a9c3a679" => :catalina
+    sha256 "f20e753e899bf8d6fedf51284a5ffeabfffc3da01151d07ef6f040888ffd159a" => :mojave
+    sha256 "c6d3725bb7e79d77c00b1f430abad3f8542563eab79429eaa7f0420138a38d94" => :high_sierra
+    sha256 "6246f8aa046ae45095f20ad3c839b317d284c7c4a27b6d572b8bb3256d9a5c19" => :sierra
   end
 
   depends_on "ocaml"

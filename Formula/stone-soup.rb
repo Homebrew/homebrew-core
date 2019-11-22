@@ -1,21 +1,34 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/0.22/stone_soup-0.22.1.tar.xz"
-  sha256 "49834a0fbfcba4953359c649fbe52f42b983f5c0cc5e9aa95c5e4066f1453c40"
+  url "https://crawl.develz.org/release/0.24/stone_soup-0.24.0.tar.xz"
+  sha256 "eb069ae421d4246a3332d9081fb6e08b4bfaa71c407ffc17c194c5f9170d7561"
 
   bottle do
-    sha256 "000858caed6adc83af07e58ae18ae965068467eda9bc55fa857e67b11758aaf6" => :mojave
-    sha256 "9c2728c5e7e0aa9cd005dd88be988c9ce0fd442c2fbf4dfbcd0889ddc44a77e9" => :high_sierra
-    sha256 "6ff5f2ccb4d81ee521d8fd2b86a33c8f382b9d56ac87ec8cf3b15eae69583d64" => :sierra
+    sha256 "4a1647599ab29da11bc0bcb6f57f9554b3d1315e044637bfffe7a1518cab0e92" => :catalina
+    sha256 "0f8c131437b46bf836a852386ee2155f759ddee3ab5d672c68a3416fce409248" => :mojave
+    sha256 "ebdc756c9a25432d009c259e2e47b3c7e78b0ba579f29c4c67d475b10486bf76" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
 
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
+    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+  end
+
   def install
     ENV.cxx11
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
+
+    resource("PyYAML").stage do
+      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
 
     cd "source" do
       args = %W[

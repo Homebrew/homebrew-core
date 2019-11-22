@@ -1,14 +1,15 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.87.tar.gz"
-  sha256 "ea7ac1cd2f5c00ecffd596fd0f7281cba44308e565a634fae02b77ecd927c153"
+  url "https://github.com/danmar/cppcheck/archive/1.89.tar.gz"
+  sha256 "37452d378825c7bd78116b4d7073df795fa732207d371ad5348287f811755783"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "459379b27b56d2d21e66a73b971f5f95a95cc40a05bfea06584b59600ee606f4" => :mojave
-    sha256 "ac488840fa1fbb9e4413f0720a23ef262884805d42712f922e83ff0cae0b279f" => :high_sierra
-    sha256 "76f7886607cb555fc93e61032b5d56b84ddb9e40b5d61920bbfb1e98e876ed49" => :sierra
+    sha256 "aacd73f4050b54bb478113225e163848f72bbe7785fe660422fc84b553533f42" => :catalina
+    sha256 "61da574ea3681d0e985c69942a287c728fcf65ad5687c27b1c4403942c4275dd" => :mojave
+    sha256 "31c0dcf85ae7ac5f93306c9f6885267b514c689bbe59a1ba90d0e15c4334813a" => :high_sierra
+    sha256 "3f7f734e3a70feca667702f5f087a731efaf93bb850e6b519c0a03c0033ee719" => :sierra
   end
 
   depends_on "pcre"
@@ -16,13 +17,13 @@ class Cppcheck < Formula
   def install
     ENV.cxx11
 
-    system "make", "HAVE_RULES=yes", "CFGDIR=#{prefix}/cfg"
+    system "make", "HAVE_RULES=yes", "FILESDIR=#{prefix}/cfg"
 
-    # CFGDIR is relative to the prefix for install, don't add #{prefix}.
-    system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "CFGDIR=/cfg", "install"
+    # FILESDIR is relative to the prefix for install, don't add #{prefix}.
+    system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "FILESDIR=/cfg", "install"
 
     # Move the python addons to the cppcheck pkgshare folder
-    (pkgshare/"addons").install Dir.glob(bin/"*.py")
+    (pkgshare/"addons").install Dir.glob("addons/*.py")
   end
 
   test do

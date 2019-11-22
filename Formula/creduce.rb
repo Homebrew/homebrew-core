@@ -1,17 +1,16 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  url "https://embed.cs.utah.edu/creduce/creduce-2.8.0.tar.gz"
-  sha256 "77f622453a7fc52aa061a89aed457f23ab538b12270df0a2a79b6957fd381def"
-  revision 1
+  url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
+  sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
     cellar :any
-    sha256 "3fba90ded1f41ed4eac24b7555ea1c25ea208f8bf6310faebce62ad5468a7b38" => :mojave
-    sha256 "b21a9e4c372448314e03a62c3407acd8dc5f3235d578a100c47ed65cdbc8dcf4" => :high_sierra
-    sha256 "6f7525027fddd4976486f08102696cb2351ec5f0808404bf4dcfb1b81003a4d0" => :sierra
-    sha256 "2cbc72f40a90bd98abca8a39667bff10c861caa160f3a0f17434c9c79476b669" => :el_capitan
+    sha256 "73d556c64d5e48c3f98fde3b8bf11a930ad768a2940d23a7bc3d34b966568da2" => :catalina
+    sha256 "55e4516a29a95dfea7347c1a4bf41137fc19e1146b137e119bae8094ac1d74e5" => :mojave
+    sha256 "446ef6482cdea11babd544762c96d8774a6a2007b9c418f2822286e5f77b16e1" => :high_sierra
+    sha256 "146bf9ec3d7e5ca0bf20600687e6833208be8af614b571bfe50137e0c98d84f1" => :sierra
   end
 
   depends_on "astyle"
@@ -25,8 +24,8 @@ class Creduce < Formula
   end
 
   resource "File::Which" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.22.tar.gz"
-    sha256 "e8a8ffcf96868c6879e82645db4ff9ef00c2d8a286fed21971e7280f52cf0dd4"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
+    sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
   end
 
   resource "Getopt::Tabular" do
@@ -40,8 +39,8 @@ class Creduce < Formula
   end
 
   resource "Term::ReadKey" do
-    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.37.tar.gz"
-    sha256 "4a9383cf2e0e0194668fe2bd546e894ffad41d556b41d2f2f577c8db682db241"
+    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+    sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
 
   def install

@@ -3,17 +3,18 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.12.0.tar.gz"
   sha256 "f56d51b2c33a9c03f1b9d4fc5f7480f1c2104ef1e8f04def84a16f35d0bc42f6"
+  revision 2
   head "https://github.com/innotop/innotop.git"
 
   bottle do
     cellar :any
-    sha256 "13740d04ed167a78a6ed28ed8012f25466cb808b2522f4a5b3955a4ad95d264d" => :mojave
-    sha256 "4516935649be32530275e7d8e2f1e5022062e81b5d366d73cc29e31160dd3051" => :high_sierra
-    sha256 "e799d849f29384b28a7cff999ff3fcfa6e422176c38754ea87ac90dcee807766" => :sierra
+    sha256 "937b00c65e3a404671911927fb6822401d1ee7d7d485519522cd98c4cf3c3f4b" => :catalina
+    sha256 "c121ba3fb8b300e6504f82d09f37845ddec1b3e7bdcf351c4f803bb44b922bc2" => :mojave
+    sha256 "34c26eaa153e3412c1d4426a3f8df76661dc260b454f06943a2e75dcee329140" => :high_sierra
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.636.tar.gz"

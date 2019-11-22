@@ -1,20 +1,25 @@
 class Qhull < Formula
   desc "Computes convex hulls in n dimensions"
   homepage "http://www.qhull.org/"
-  url "http://www.qhull.org/download/qhull-2015-src-7.2.0.tgz"
-  version "2015.2"
-  sha256 "78b010925c3b577adc3d58278787d7df08f7c8fb02c3490e375eab91bb58a436"
+  url "http://www.qhull.org/download/qhull-2019-src-7.3.2.tgz"
+  version "2019.1"
+  sha256 "2b7990558c363076261564f61b74db4d0d73b71869755108a469038c07dc43fb"
 
   bottle do
     cellar :any
-    sha256 "33b41bad4871bd781b91ca4c418a1b5c94dc29f676288bd8f41b5ae8c302b329" => :mojave
-    sha256 "91d7e43f955fb4d9513d588e4f56a6b6c6101e9a9e0f6ed73c63a045bd4b8c25" => :high_sierra
-    sha256 "2b0192507bef8e077cae894ee59a2a25b490170cc1be64413caa1ac6e48da86d" => :sierra
-    sha256 "98d3967e46833ff3278b6815b638b5c4b049bb621543b9015124fef83276ab01" => :el_capitan
-    sha256 "00fb087ce5f3d674d22959ea820b4e3605b02ea31694d4f00d2044bc54ca3c02" => :yosemite
+    sha256 "2914810492c9ef6f46606237d8ab3adc84b4cdb5edfdab722dfa4adf58864504" => :catalina
+    sha256 "fcee31c1350555f924e27fc7868c4244fe9e6f3be67dc9a91426c85f27e65306" => :mojave
+    sha256 "9eab455f07e6bc666960235f23919cce155bf630a689cafdf346083dc88925df" => :high_sierra
   end
 
   depends_on "cmake" => :build
+
+  # fixes build on case-insensitive filesystems
+  # see https://github.com/qhull/qhull/issues/48
+  patch do
+    url "https://github.com/qhull/qhull/commit/6052739c827bff64de3f05343e45fd080909759c.patch?full_index=1"
+    sha256 "ed97d5920ad9c09e028a26da1f0e8d9d313f3e757d52c14ea562827d6c865804"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -8,6 +8,7 @@ class Sersniff < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "96f5d56b1d6c9acb8b465a1912fbd03f6837e0ffabf643200b40528ec7984358" => :catalina
     sha256 "89c553505287f0cbd3ef2d46c6b04eb328d0748db6e60511b25d24cefcab83ce" => :mojave
     sha256 "eb3cf737a135049c3f7b8bacf4d71670dfc755a1b266f41f0865fb8983a53d55" => :high_sierra
     sha256 "077112b0300e14f956fbe45ff650cf973e04c355707a3add63b8efc7fc047737" => :sierra

@@ -1,20 +1,20 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.0.5.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.0.5.tar.gz"
-  sha256 "b5a2cbf0dcd3f1df2675dbd5ec10bbe6f8ae995c41b68cebe2bc95bffc90696e"
+  url "https://www.torproject.org/dist/tor-0.4.1.6.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.1.6.tar.gz"
+  sha256 "2a88524ce426079fb9b828bc1b789f2c8ade3ed53c130851102debc3518bed71"
 
   bottle do
-    sha256 "b48b0db02211c743921d73017107ec254d2a2814f35a413462f1f97c7d89f6a0" => :mojave
-    sha256 "84abc429dd05a6957c4d1a3937762fce8c0b4a464462569b4f796cc2540b3cc2" => :high_sierra
-    sha256 "c4693bce8195e5c2fef75777010bf872bb8bd93cfac8dd00b5218d4612aa82c2" => :sierra
+    sha256 "9c5640201025b30afda85e5b73716ecfb9f539082f165fef57123c4134f77e79" => :catalina
+    sha256 "a2052b0336cd7b822a72a651e410d640110562f72941b00093c2894ee3038af6" => :mojave
+    sha256 "7506e85c4f8d0cf7234a5ee428a28e1c674d380d3433ca54aea1f14acc0ba188" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "libscrypt"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -23,7 +23,7 @@ class Tor < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{Formula["openssl"].opt_prefix}
+      --with-openssl-dir=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     system "./configure", *args

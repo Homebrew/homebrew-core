@@ -1,17 +1,15 @@
 class Flac < Formula
   desc "Free lossless audio codec"
   homepage "https://xiph.org/flac/"
-  url "https://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/flac/flac-src/flac-1.3.2.tar.xz"
-  sha256 "91cfc3ed61dc40f47f050a109b08610667d73477af6ef36dcad31c31a4a8d53f"
-  revision 1
+  url "https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz"
+  sha256 "213e82bd716c9de6db2f98bcadbc4c24c7e2efe8c75939a1a84e28539c4e1748"
 
   bottle do
     cellar :any
-    sha256 "e3972de751c58d0b835ef606f5d21c4ef22bbac927b17f75440259fb2da06bd6" => :mojave
-    sha256 "b439d1a0321f9488ad0a2edfe3307402cca4e7f5e560a833078fa29561fadacd" => :high_sierra
-    sha256 "27aef309b675e9946f6ac4d090a0322d0888789087b2e38cbaaabc527eb3f22b" => :sierra
-    sha256 "17fb6eec1e71416a0000e507953babd4fca2a0204f48ae064d02b76b906dc096" => :el_capitan
+    sha256 "c33809e09990a272cff9d0aae609eab10f605bae909b6d4c14e5af5096e3b0c9" => :catalina
+    sha256 "ef7f0557e79c99a79814f4ed29120719eea153f12b774a207e19d9b61658660f" => :mojave
+    sha256 "bd5a61be6c9f3b75f5012f56b2db4bf351d991675dd8f6ddb18c74e7c985d0fb" => :high_sierra
+    sha256 "aa3dc4ddf9802576ea7f3ef73bf7276c54720de3378c7b4d0a708707644c2089" => :sierra
   end
 
   head do

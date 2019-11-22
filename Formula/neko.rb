@@ -1,16 +1,17 @@
 class Neko < Formula
   desc "High-level, dynamically typed programming language"
   homepage "https://nekovm.org/"
-  url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
-  sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 6
+  url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
+  sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
+  revision 1
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 "e4d68665d504273468b38a5891c938d59080147677abfc718967e11eeb70ce5d" => :mojave
-    sha256 "396aea7bce27dcba88338f6698036c097864a172732742e04bfac4815fc7c7e7" => :high_sierra
-    sha256 "12be1d612bea5f7efbca986107ea498edec85d610e7df6abde68c95a07e5746c" => :sierra
-    sha256 "0054a53a378dc7ab95c74fff99f80a3bd15b927fe87204635b728a9bbdc2b866" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "85b136ca63c944258f90bb2c429e0d698f26c1f18e4061b775f8499ec5dc5bf7" => :catalina
+    sha256 "9fa6b1793f214b603e14a557521d22f7fabb1fea0a4794f2272269791431f744" => :mojave
+    sha256 "0a3ce8e9c8caaa2cd0d3e32f7fd43d68f17240de051222f8c0090e2b2e4ce161" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,13 +19,13 @@ class Neko < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "mbedtls"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
-    # mysql, and mysql-connector-c.
+    # mysql, and mysql-client.
     system "cmake", ".", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
            "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
     system "ninja", "install"

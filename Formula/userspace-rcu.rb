@@ -1,15 +1,15 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://liburcu.org"
-  url "https://lttng.org/files/urcu/userspace-rcu-0.10.2.tar.bz2"
-  sha256 "b3f6888daf6fe02c1f8097f4a0898e41b5fe9975e121dc792b9ddef4b17261cc"
+  url "https://lttng.org/files/urcu/userspace-rcu-0.11.1.tar.bz2"
+  sha256 "92b9971bf3f1c443edd6c09e7bf5ff3b43531e778841f16377a812c8feeb3350"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9a563f49d9a758f7f04b2aae28b1af9f83639f6f5ffa72b60530e6fd22e8ab63" => :mojave
-    sha256 "c30de049c48f01c4d112f7cccf09b264ca212c12d8f26a4c25d365f63a165909" => :high_sierra
-    sha256 "4a3935774671539cb2087954f8729a06f06b9d5402a9b24f9ecea29daa6d3b64" => :sierra
+    sha256 "9775f683e726589140c2c5e7ceb3c0c050ea40315275eb093f25f866501e5626" => :catalina
+    sha256 "2b70670f8a4a37cfd7a60a3a5c46908556ec7fb78f9992dbe73f022154c601fe" => :mojave
+    sha256 "c1923cecf3ed76e60ac2980a703817789dbc82315aec3fd84d49b528ce28da80" => :high_sierra
+    sha256 "70f936b43372e4596cdfa543f1b3a42aa01a4d8ca93fe2a38e0b8e6994aa65de" => :sierra
   end
 
   def install

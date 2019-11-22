@@ -6,6 +6,7 @@ class GnuplotAT4 < Formula
   revision 3
 
   bottle do
+    sha256 "aca6da067597cd60e147c1534d0f6cf86f874de847a62888fda313ad66ea5d79" => :catalina
     sha256 "e1444a4c413bb9e5d6670c3b8216761f097dd1ba6943f075f3014391184bd2d5" => :mojave
     sha256 "63368d69e33d92bd7f36e5ebd4f5245263c656171ff2e9d346183d0e3ea45534" => :high_sierra
     sha256 "d6439eb67f9da39adfacfbeef4719efa6a88ebeb6a4f8091b5e1dac267479d3b" => :sierra

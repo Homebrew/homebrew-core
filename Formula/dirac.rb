@@ -9,6 +9,7 @@ class Dirac < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8c4a433f067fac458d219eaed956744d84cb9069334df82a3745e6f5f24aa686" => :catalina
     sha256 "c018586bbfdeb10487adc1c62bdd74138b9d11195064bd2a07d458a55d770a06" => :mojave
     sha256 "9413ec8e068d4c8e30d679a62af9779a09de385e2287acebacf9e5c56e80a50a" => :high_sierra
     sha256 "09b846fe4069e971ec6d10668d97ac599cb555e5799f3ba3076d0d088e1f78cf" => :sierra
@@ -31,7 +32,10 @@ class Dirac < Formula
 
   # HACK: the configure script, which assumes any compiler that
   # starts with "cl" is a Microsoft compiler
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/dirac/1.0.2.patch"
+    sha256 "8f77a8f088b7054855e18391a4baa5c085da0f418f203c3e47aad7b63d84794a"
+  end
 
   def install
     # BSD cp doesn't have '-d'
@@ -42,50 +46,3 @@ class Dirac < Formula
     system "make", "install"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 41329b9..8f5ed19 100755
---- a/configure
-+++ b/configure
-@@ -15903,30 +15903,8 @@ ACLOCAL_AMFLAGS="-I m4 $ACLOCAL_AMFLAGS"
- use_msvc=no
-
-
--case "$CXX" in
--		cl*|CL*)
--		CXXFLAGS="-nologo -W1 -EHsc -DWIN32"
--		if test x"$enable_shared" = "xyes"; then
--		    LIBEXT=".dll";
--		    LIBFLAGS="-DLL -INCREMENTAL:NO"
--			CXXFLAGS="$CXXFLAGS -D_WINDLL"
--		else
--		    LIBEXT=".lib";
--		    LIBFLAGS="-lib"
--		fi
--		RANLIB="echo"
--		use_msvc=yes
--		;;
--	*)
--		;;
--esac
-- if test x"$use_msvc" = "xyes"; then
--  USE_MSVC_TRUE=
--  USE_MSVC_FALSE='#'
--else
-   USE_MSVC_TRUE='#'
-   USE_MSVC_FALSE=
--fi
-
-
-
-@@ -22678,7 +22656,8 @@ $debug ||
- if test -n "$CONFIG_FILES"; then
-
-
--ac_cr=''
-+ac_cr='
-+'
- ac_cs_awk_cr=`$AWK 'BEGIN { print "a\rb" }' </dev/null 2>/dev/null`
- if test "$ac_cs_awk_cr" = "a${ac_cr}b"; then
-   ac_cs_awk_cr='\\r'

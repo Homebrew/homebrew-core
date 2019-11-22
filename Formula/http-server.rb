@@ -9,10 +9,10 @@ class HttpServer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "755716ac31e2feb72c2ce6a27d68175e751850cf1c28cccc3f96fc09bd2a3a6c" => :mojave
-    sha256 "d6a7324d5ed8943d3a63cd570346169206163879dbc9b347f584031ee9423a4a" => :high_sierra
-    sha256 "0a693d35ecd6e30295a3c714b51c02fe37dd1b0fba63107fffaecad6827f6850" => :sierra
-    sha256 "8d34e825aededd73ab87420e53a537742998f578f0019ddcf7eae9b8d8f6dd55" => :el_capitan
+    rebuild 1
+    sha256 "665fb079e61a54404b0cca165221606a3e4eaea7e0e8dbb3d09868402d67d1b5" => :catalina
+    sha256 "73f8bae1002efba8e3799e5f0394831dd79b53b264e0581cfac6f8ab8ee58002" => :mojave
+    sha256 "346263e7a818fbaeeb2dfc7dee4e57b908bb2eafcc407609ce3ca336b47132ba" => :high_sierra
   end
 
   depends_on "node"
@@ -23,15 +23,17 @@ class HttpServer < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/http-server"
-      end
-      sleep 1
-      output = shell_output("curl -sI http://localhost:8080")
-      assert_match /200 OK/m, output
-    ensure
-      Process.kill("HUP", pid)
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    pid = fork do
+      exec "#{bin}/http-server", "-p#{port}"
     end
+    sleep 1
+    output = shell_output("curl -sI http://localhost:#{port}")
+    assert_match /200 OK/m, output
+  ensure
+    Process.kill("HUP", pid)
   end
 end

@@ -1,15 +1,16 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/lotabout/skim"
-  url "https://github.com/lotabout/skim/archive/v0.6.8.tar.gz"
-  sha256 "646b43c9b4863f2d30c9e08710067816ca463fc75631b415a8763cc8c943161f"
+  url "https://github.com/lotabout/skim/archive/v0.6.9.tar.gz"
+  sha256 "74a22471bca35e4c07f59c89e3332e08bb968ad734e74846505d5033a4915e47"
   head "https://github.com/lotabout/skim.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bdb8e40fcc9420ad6086a7f5ff01d2b23b911db3eef17edbfec12154cd8ab146" => :mojave
-    sha256 "c92be46e4e1b07e76178a01014271e34367a0648b5fb3712a9a1425084a314e7" => :high_sierra
-    sha256 "ec22f3701080bc60e38fb813318c7416c367cb851db37b5b4ce6d28db3aeab09" => :sierra
+    rebuild 1
+    sha256 "6ab938630527bafcf9e606c6064a7c1a71d914e5c17d7c85d3087eddb4dd0969" => :catalina
+    sha256 "2d365a27765394204114b255530137af6f9a7827ad4229489a6a7610fa77faad" => :mojave
+    sha256 "aa524091bad3ee151541200db321417bf674800fc32f7a4779fb381a5adaf575" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -17,7 +18,7 @@ class Sk < Formula
   def install
     (buildpath/"src/github.com/lotabout").mkpath
     ln_s buildpath, buildpath/"src/github.com/lotabout/skim"
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     pkgshare.install "install"
     bash_completion.install "shell/key-bindings.bash"

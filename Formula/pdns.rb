@@ -1,13 +1,15 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.1.8.tar.bz2"
-  sha256 "94561132f46c08f646399511b680ce8cda150fd2b8e3d38c0b90b4187163e617"
+  url "https://downloads.powerdns.com/releases/pdns-4.1.11.tar.bz2"
+  sha256 "754e4f0ce31118fef5dc470dc039e1f4e7b3ca6248074c9678a659508693b712"
+  revision 1
 
   bottle do
-    sha256 "44cef8a6fdbb901422ff37309f5080bbeda9eeafc7297cfe241c5b7e6daea09b" => :mojave
-    sha256 "3f1dc45321b7c14074baec9a9a53d7fb3cd5ca069ccca589f70fa15ff83e446d" => :high_sierra
-    sha256 "4196afa3c93a17356a69d96458e2792c5636c9005363892add5a9a9311c0f8f3" => :sierra
+    sha256 "b2bd81b9baf0e20bf5f46857c9457e4fc30af8ef2d11fa88025c74fccbc712d2" => :catalina
+    sha256 "e9b851c9ce8248562bfa591aaa8313768643e7c3535744e491040d5939e1078e" => :mojave
+    sha256 "1f195fcf89c603691184c77841f8df250cb6ef205841feede230a41337203d77" => :high_sierra
+    sha256 "a0e77bc4f1d21eedef8f74cd1a669d700fddfbe35c950e207ceaf1868898e25b" => :sierra
   end
 
   head do
@@ -22,7 +24,7 @@ class Pdns < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
 
   def install
@@ -33,7 +35,7 @@ class Pdns < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-sqlite3
       --with-modules=gsqlite3
     ]

@@ -1,9 +1,9 @@
 class H2 < Formula
   desc "Java SQL database"
   homepage "https://www.h2database.com/"
-  url "https://www.h2database.com/h2-2018-03-18.zip"
-  version "1.4.197"
-  sha256 "a45e7824b4f54f5d9d65fb89f22e1e75ecadb15ea4dcf8c5d432b80af59ea759"
+  url "https://www.h2database.com/h2-2019-10-14.zip"
+  version "1.4.200"
+  sha256 "a72f319f1b5347a6ee9eba42718e69e2ae41e2f846b3475f9292f1e3beb59b01"
 
   bottle :unneeded
 
@@ -60,6 +60,6 @@ class H2 < Formula
   end
 
   test do
-    assert_match "Starts the H2 Console", shell_output("#{bin}/h2 -help")
+    assert_match "Usage: java org.h2.tools.GUIConsole", shell_output("#{bin}/h2 -help 2>&1")
   end
 end

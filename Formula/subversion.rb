@@ -1,16 +1,14 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2"
-  sha256 "7fae7c73d8a007c107c0ae5eb372bc0bb013dbfe966fcd5c59cd5a195a5e2edf"
-  revision 2
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.13.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
+  sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
 
   bottle do
-    rebuild 1
-    sha256 "f99b4392f0acebf4e61a5b8747d19fdae652add9b910f060ed1a8a95f9d0ad2c" => :mojave
-    sha256 "dea97ac9eec8be1aa78cf4e8670c0c21db55fff756778e2b31021a508fb86707" => :high_sierra
-    sha256 "ed8c961d325cba194b76059a6f498bbc1af89375f1b10e3e98117f2d0b43b1b4" => :sierra
+    sha256 "a1d9bd57c76fdc4bbecf5b830727b5aff9b3b73a3374e0ee0671b77ecd7e613d" => :catalina
+    sha256 "e6c30e79ad6c5137f390008e7634bc11e4c83e4767e4171a00c3b35245845d24" => :mojave
+    sha256 "27ca7ad325fc3454944c8371034fe9643c2e2f7630b2a0a6c51c3efa319b6f7a" => :high_sierra
   end
 
   head do
@@ -32,7 +30,7 @@ class Subversion < Formula
   # gettext, lz4, perl, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
-  depends_on "openssl" # For Serf
+  depends_on "openssl@1.1" # For Serf
   depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
@@ -50,8 +48,6 @@ class Subversion < Formula
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
-    # Fix #33530 by ensuring the system Ruby can build test programs.
-    ENV.delete "SDKROOT"
 
     serf_prefix = libexec/"serf"
 
@@ -60,7 +56,7 @@ class Subversion < Formula
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-        OPENSSL=#{Formula["openssl"].opt_prefix}
+        OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
@@ -113,10 +109,6 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    # Peg to system Ruby
-    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
-    system "make", "install-swig-rb"
-
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
     ENV.deparallelize
@@ -148,10 +140,6 @@ class Subversion < Formula
 
       The perl bindings are located in various subdirectories of:
         #{opt_lib}/perl5
-
-      If you wish to use the Ruby bindings you may need to add:
-        #{HOMEBREW_PREFIX}/lib/ruby
-      to your RUBYLIB.
 
       You may need to link the Java bindings into the Java Extensions folder:
         sudo mkdir -p /Library/Java/Extensions

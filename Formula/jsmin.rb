@@ -7,6 +7,7 @@ class Jsmin < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d72944720c9ec82c18cc5bba48c54292cd6ef625b5817d6493a410ce97d48a9e" => :catalina
     sha256 "40fb75c3bff520391b1e9c6b163f41ece401ed3aafaeb5231c3c116ffd597000" => :mojave
     sha256 "333b2cb7e9b9b575580cf9a100760641117e2c178b766eee49dcd18854f40d8f" => :high_sierra
     sha256 "21ce8792fb1bb8b004f884953b2ab97ebd0d00568f5507c3b168f594ebbbd084" => :sierra

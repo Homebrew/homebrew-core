@@ -1,15 +1,15 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre2-10.33.tar.bz2"
-  sha256 "35514dff0ccdf02b55bd2e9fa586a1b9d01f62332c3356e379eabb75f789d8aa"
+  url "https://ftp.pcre.org/pub/pcre/pcre2-10.34.tar.bz2"
+  sha256 "74c473ffaba9e13db6951fd146e0143fe9887852ce73406a03277af1d9b798ca"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
   bottle do
     cellar :any
-    sha256 "fb30c3eebba4483a10378bc8df52f96761fed4a1ac5572ad1bf4afbf2f8638c5" => :mojave
-    sha256 "26b34cf7a846d49cdbdefa853227d7d4b02d6bd97c59dacdb0fb9dcf155444b5" => :high_sierra
-    sha256 "a712fa6195fd968bae380e54709f46f66a94c69549a77f0836dae43ed95e11dc" => :sierra
+    sha256 "af3bf030a455daf0a560f8d9e433f7a803d7150933895699f311d661c33b9729" => :catalina
+    sha256 "9bc0815c6c4c584ef16e93e5ecf37aa786303d88f9321274a29b4f60876d583f" => :mojave
+    sha256 "494acfae91394df3c48b2bdb13d46b5a540e401c54be9f7c10234e6001fba678" => :high_sierra
   end
 
   def install

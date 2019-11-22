@@ -1,14 +1,15 @@
 class CBlosc < Formula
   desc "Blocking, shuffling and loss-less compression library"
-  homepage "http://blosc.org/"
-  url "https://github.com/Blosc/c-blosc/archive/v1.16.3.tar.gz"
-  sha256 "bec56cb0956725beb93d50478e918aca09f489f1bfe543dbd3087827a7344396"
+  homepage "https://blosc.org/"
+  url "https://github.com/Blosc/c-blosc/archive/v1.17.0.tar.gz"
+  sha256 "75d98c752b8cf0d4a6380a3089d56523f175b0afa2d0cf724a1bd0a1a8f975a4"
 
   bottle do
     cellar :any
-    sha256 "803654ccc5c592364ad7ede6d719e9b8e04ab3db2ed80bfde0a1d3d6c183ee90" => :mojave
-    sha256 "2490504b4dd8181c3b745a89110ca8b211e24d90fe37be2636f3d7176787bc60" => :high_sierra
-    sha256 "386026371f549b24e0b7ca2e6a624199d3400a2b8ea42f6fb83bdb6c34119a6a" => :sierra
+    sha256 "94043450fac7a32fb15bec298a53b6fd486ac082c4e04b06ed3f1541aa8a625e" => :catalina
+    sha256 "6b0d57fbcd25dea36dbbb13d6fe520b3f536a3ff36aebb1c087eb73f46a7178e" => :mojave
+    sha256 "3f4a4438e79820e9a0d00ff29ed87e8f74ee6d208a51cebf6226a73e20714791" => :high_sierra
+    sha256 "bfdec00e2a65af3899b79182ea64cd02d8669edb1fd9332928a862057f3d2aa9" => :sierra
   end
 
   depends_on "cmake" => :build

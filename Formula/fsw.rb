@@ -7,6 +7,7 @@ class Fsw < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "749f3025e6383ae635a30302a3c61a191e57fbe88a7c74b3650749de7e9c8dad" => :catalina
     sha256 "90779855faefd63a20e1e60406430bfec63d4ce766e253dae595f01acbebbf62" => :mojave
     sha256 "d16086899f7ae88e0fd4eeaac5ede4e5749d688e9bb2385686f824f0a0e24677" => :high_sierra
     sha256 "71b5da385bf9d59d33e6c331f23cab5676284d627129ee4f0352976b8ce13fe8" => :sierra
@@ -24,18 +25,16 @@ class Fsw < Formula
   end
 
   test do
-    begin
-      io = IO.popen("#{bin}/fsw test")
-      (testpath/"test").write("foo")
-      sleep 2
-      rm testpath/"test"
-      sleep 2
-      (testpath/"test").write("foo")
-      sleep 2
-      assert_equal File.expand_path("test"), io.gets.strip
-    ensure
-      Process.kill "INT", io.pid
-      Process.wait io.pid
-    end
+    io = IO.popen("#{bin}/fsw test")
+    (testpath/"test").write("foo")
+    sleep 2
+    rm testpath/"test"
+    sleep 2
+    (testpath/"test").write("foo")
+    sleep 2
+    assert_equal File.expand_path("test"), io.gets.strip
+  ensure
+    Process.kill "INT", io.pid
+    Process.wait io.pid
   end
 end

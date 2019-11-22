@@ -11,10 +11,11 @@ class Cvs < Formula
   revision 1
 
   bottle do
-    sha256 "6a2788027cadb1df5de3581f4e6c0a78e30a2b98dd8cbf26fc7ec030d9a8fc18" => :mojave
-    sha256 "11b8be2fda1de3c8b77b20bdc283ceb12ba511826a0d3b79147dbfaeb83420db" => :high_sierra
-    sha256 "01f9517d330037a248bc6d36c8127a4f99eb364a8a0d1cc5f8520cca261b7163" => :sierra
-    sha256 "32dcf27cf028e270e826ba9850bde2f403f77c2c16a4b534d59cf68c0446e1fb" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "3768bdcd294e1bd9cd63d685da456d709a62aaf5e50a58baab0db0f35fbc9939" => :catalina
+    sha256 "f5a626e218d0162c660297336bc98d52204cfdc75783bd8261745fbbf9e5d29d" => :mojave
+    sha256 "64a31581ff4564b19ac27b551bd5ed5ee673fdeea5087b6476a51832665543e0" => :high_sierra
   end
 
   patch :p0 do
@@ -40,6 +41,9 @@ class Cvs < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/24118ec737c7/cvs/vasnprintf-high-sierra-fix.diff"
     sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
   end
+
+  # Fixes "cvs [init aborted]: cannot get working directory: No such file or directory" on Catalina. Original patch idea by Jason White from stackoverflow
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug",
@@ -71,3 +75,18 @@ class Cvs < Formula
     end
   end
 end
+
+__END__
+--- cvs-1.12.13/lib/xgetcwd.c.orig      2019-10-10 22:52:37.000000000 -0500
++++ cvs-1.12.13/lib/xgetcwd.c   2019-10-10 22:53:32.000000000 -0500
+@@ -25,8 +25,9 @@
+ #include "xgetcwd.h"
+
+ #include <errno.h>
++#include <unistd.h>
+
+-#include "getcwd.h"
++/* #include "getcwd.h" */
+ #include "xalloc.h"
+
+ /* Return the current directory, newly allocated.

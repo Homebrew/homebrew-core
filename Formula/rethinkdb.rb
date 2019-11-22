@@ -3,19 +3,17 @@ class Rethinkdb < Formula
   homepage "https://www.rethinkdb.com/"
   url "https://download.rethinkdb.com/dist/rethinkdb-2.3.6.tgz"
   sha256 "c42159666910ad01be295a57caf8839ec3a89227d8919be5418e3aa1f0a3dc28"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ba85df2995a353785371e679d208e711c4b34bf8fdff2007dd4f366fe9dfde51" => :mojave
-    sha256 "eaa4700adc14905f388602c44008cbefcd2ac5c22a4a23e6871058a5f1a2a7ca" => :high_sierra
-    sha256 "1f936e43b0cb7b321d9a14a2f2de994154162ca5bb656c8583506ca253eadf6b" => :sierra
-    sha256 "d090123ea89626f60caa5517b1416b669d3cacfd51fcedfdcd6f58020e941190" => :el_capitan
-    sha256 "a17c6864cef6dfc7f1e8ab7da2fcd640d85a504991c0d61175e2f6c78e1ba6ee" => :yosemite
+    sha256 "47ba903ac7a898a08135cabf1b51880541d469b4dfe31c890420319828051574" => :catalina
+    sha256 "134b8075ce3fc70993a15e6e909a5c4e87fa40013288c6ae6e1504a17135db78" => :mojave
+    sha256 "8ba94c5670a91302eddee0924ea02cfc537d198f9b070c9fe9dc39d144f3391d" => :high_sierra
   end
 
   depends_on "boost" => :build
-
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # Fix error with Xcode 9, patch merged upstream:
   # https://github.com/rethinkdb/rethinkdb/pull/6450
@@ -24,6 +22,18 @@ class Rethinkdb < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/fb00ee376a/rethinkdb/xcode9.patch"
       sha256 "abd50d91a247ee7de988020dd9d405a3d4cd93edb2875b7d5822ba0f513f85a0"
     end
+  end
+
+  # Upstream commit for OpenSSL 1.1 compatibility
+  patch do
+    url "https://github.com/rethinkdb/rethinkdb/commit/62456155.diff?full_index=1"
+    sha256 "6666074788d7de3295619426350c96b1f2e2e3b2427e76511dc168447034cacd"
+  end
+
+  # Upstream fix for Boost >= 1.69
+  patch do
+    url "https://github.com/rethinkdb/rethinkdb/commit/04785087.diff?full_index=1"
+    sha256 "a26e452ce1f16541a9ba40057af154e594fe89665c2c656994ceab103d2017e9"
   end
 
   def install

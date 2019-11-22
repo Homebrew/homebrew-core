@@ -1,43 +1,42 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.8.4.tar.gz"
-  sha256 "c49deac9e0933bcb7044f08516861a2d560988540b23de2ac1ad443b219afdb6"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.9.1.tar.gz"
+  sha256 "c7b40f5605dd972108f503f031b20186f5e5bca2b65cd4b8bd6c3e4ba8126697"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   bottle do
     cellar :any
-    sha256 "0bf833c715e66967808c601fa1566c25175fadd1d12715c2e72ccd3eac699337" => :mojave
-    sha256 "107e81382b6927dd4310a5accef1c2fb48ad616a8a8f838ba31d20d4ce855a2a" => :high_sierra
-    sha256 "9d15d02676d08bbcd0352f1aef7bba03206438aa50c5ed86358f45e9ef1534bf" => :sierra
-    sha256 "ea9882112cc77b4500803dfb5043c846de7dc9d584f007978d05863f6a8611cb" => :el_capitan
+    sha256 "72ccd05545ec772fe1c0fb52e61f899e803b10e8a3cc8d5ae81d17c21d7685af" => :catalina
+    sha256 "a3ea2b6e4e3e9b85565b473c1dd8826611a54d58d896c7d183b531f45f1d69e4" => :mojave
+    sha256 "6845ead23ea19d336483799227e497eb7b1e45c0e67b91cd85b424a842a8b188" => :high_sierra
+    sha256 "5b4f345172c39853765b57eb0c7a706454031cf3a6da1c00a2b3d61244b20ada" => :sierra
   end
 
-  depends_on "cmake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    ENV.cxx11
-
-    system "cmake", ".", *std_cmake_args,
-                         "-DBUILD_STATIC_LIBS=ON",
-                         "-DBUILD_SHARED_LIBS=ON",
-                         "-DJSONCPP_WITH_CMAKE_PACKAGE=ON",
-                         "-DJSONCPP_WITH_TESTS=OFF",
-                         "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF",
-                         "-DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <json/json.h>
       int main() {
-        Json::Value root;
-        Json::Reader reader;
-        return reader.parse("[1, 2, 3]", root) ? 0: 1;
+          Json::Value root;
+          Json::CharReaderBuilder builder;
+          std::string errs;
+          std::istringstream stream1;
+          stream1.str("[1, 2, 3]");
+          return Json::parseFromStream(builder, stream1, &root, &errs) ? 0: 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", "test",
                   "-I#{include}/jsoncpp",
                   "-L#{lib}",
                   "-ljsoncpp"

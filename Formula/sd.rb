@@ -6,15 +6,16 @@ class Sd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bae6022d6efa72ce65337baa1be8a1b5d569905c13958be7bab9191239123297" => :mojave
-    sha256 "404bbedfd604f51148f33dd9441dd93611def5ddf93c91466f44921507353e4a" => :high_sierra
-    sha256 "010317dec38d6fead368fbc2b3d26c9eab2a0ea6d833ccc419484c76989e55e8" => :sierra
+    rebuild 1
+    sha256 "bdd3186fb20a398f02a3d2b9dee49e7f60f91e9566cddfc81be0ba4ce72fff2a" => :catalina
+    sha256 "29f6491b5f39d63482793ac52f703ed037c8f0759c9d18c5585ebdf3cab711bd" => :mojave
+    sha256 "0beab832bb7d2570a61d7c01033de8d47c3543e98d1b3fe20dead77ef5f28f7d" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

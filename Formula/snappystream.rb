@@ -7,6 +7,7 @@ class Snappystream < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a17c5546b26c7de0636bcbf8effce43c7c1735ccd0b4612684505c39421b350d" => :catalina
     sha256 "3b4546ed797d251364320b9da77640c4980e913bb08b3376b7394a65833d8aa4" => :mojave
     sha256 "75b9c1672f271ec42ca15cb6fa9b327bc3f081a2497804142961633a0ca57884" => :high_sierra
     sha256 "0993bdf488fd8a1d59de3b5ecf3080d7ff4a6dee895dd801aff3687c5809d0ae" => :sierra

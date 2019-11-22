@@ -1,13 +1,15 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.16.tar.gz"
-  sha256 "7c936aa7bc9f4c462b24bade2e9abe1b3a6869ea19c46e78ec0a9b2a87a3d17f"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
+  sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
+  revision 1
 
   bottle do
-    sha256 "65e6629740ca75ceaae575b4cc68f2cf133619d08cdcd4cb2dee9737ce5fad3a" => :mojave
-    sha256 "cd3e3fcba5c6c4bd74a0dfd2fc4643328e070752c9a9b80597eec2d7d5699bef" => :high_sierra
-    sha256 "8927a950ff12ced1b0293ab1afea5bf774ade87b916449a450cf6c150e07435b" => :sierra
+    rebuild 1
+    sha256 "48885b9bdbee8475973b8610b6088ed0e47b8a628ad1822b7b7e63df4f99a77a" => :catalina
+    sha256 "fb790b94534ffa9f0393d33b27e4a3fb8876ab3818882a305d1a6fba653c3ab3" => :mojave
+    sha256 "83237573cd7aa72103b3cda406079805a5a8fbe292c2ca460e1b8c1c3802cd83" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,14 +22,11 @@ class Mysql < Formula
   # Note: MySQL themselves don't support anything below Sierra.
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  depends_on "protobuf@3.7" # MySQL 8.0.19 will support the latest version
 
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
+  conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
@@ -58,8 +57,8 @@ class Mysql < Formula
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_SSL=yes
+      -DWITH_PROTOBUF=system
       -DWITH_UNIT_TESTS=OFF
-      -DWITH_EMBEDDED_SERVER=ON
       -DENABLED_LOCAL_INFILE=1
       -DWITH_INNODB_MEMCACHED=ON
     ]
@@ -91,6 +90,7 @@ class Mysql < Formula
       [mysqld]
       # Only allow connections from localhost
       bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
     EOS
     etc.install "my.cnf"
   end
@@ -151,23 +151,21 @@ class Mysql < Formula
   end
 
   test do
-    begin
-      # Expects datadir to be a completely clean dir, which testpath isn't.
-      dir = Dir.mktmpdir
-      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
-      "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
+    # Expects datadir to be a completely clean dir, which testpath isn't.
+    dir = Dir.mktmpdir
+    system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+    "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
-      pid = fork do
-        exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
-      end
-      sleep 2
-
-      output = shell_output("curl 127.0.0.1:3306")
-      output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
-      assert_match version.to_s, output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    pid = fork do
+      exec bin/"mysqld", "--bind-address=127.0.0.1", "--datadir=#{dir}"
     end
+    sleep 2
+
+    output = shell_output("curl 127.0.0.1:3306")
+    output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
+    assert_match version.to_s, output
+  ensure
+    Process.kill(9, pid)
+    Process.wait(pid)
   end
 end

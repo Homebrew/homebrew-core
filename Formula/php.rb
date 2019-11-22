@@ -1,14 +1,13 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.3.6.tar.xz"
-  sha256 "fefc8967daa30ebc375b2ab2857f97da94ca81921b722ddac86b29e15c54a164"
-  revision 1
+  url "https://www.php.net/distributions/php-7.3.12.tar.xz"
+  sha256 "aafe5e9861ad828860c6af8c88cdc1488314785962328eb1783607c1fdd855df"
 
   bottle do
-    sha256 "a7bb7bea2ffee51fc67c8ba61c45c980a05f994fa4580fc4629601ed06d5c8ee" => :mojave
-    sha256 "d27bbb0e34d7bdcc4d55f43f7aff223878b3d6915335630c78696eab60d89068" => :high_sierra
-    sha256 "602ce9cb951472043180c62889d225cebbb812f60a4241dbaff957e6b3bc7b74" => :sierra
+    sha256 "722d443d96be2a8e13580c27630c39872da1b6d05a03b1df5780c34c45cfd315" => :catalina
+    sha256 "622147992d0d1a7e837ac5c2431a5383306ed351ba5ca915f950e841f6ce4956" => :mojave
+    sha256 "2963f4e3417d0f92beb93e5d5c87325132ea0828514ecd5ffb041f956b81653f" => :high_sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -31,7 +30,7 @@ class Php < Formula
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "openldap"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -139,7 +138,7 @@ class Php < Formula
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
@@ -173,9 +172,14 @@ class Php < Formula
 
     # Use OpenSSL cert bundle
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{HOMEBREW_PREFIX}/etc/openssl/cert.pem\""
+      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{HOMEBREW_PREFIX}/etc/openssl/certs\""
+      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+
+    # php 7.3 known bug
+    # SO discussion: https://stackoverflow.com/a/53709484/791609
+    # bug report: https://bugs.php.net/bug.php?id=77260
+    inreplace "php.ini-development", ";pcre.jit=1", "pcre.jit=0"
 
     config_files = {
       "php.ini-development"   => "php.ini",
@@ -236,7 +240,7 @@ class Php < Formula
       "test_dir" => pear_path/"test",
       "php_bin"  => opt_bin/"php",
     }.each do |key, value|
-      value.mkpath if key =~ /(?<!bin|man)_dir$/
+      value.mkpath if /(?<!bin|man)_dir$/.match?(key)
       system bin/"pear", "config-set", key, value, "system"
     end
 

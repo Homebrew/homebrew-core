@@ -1,16 +1,17 @@
 class Agedu < Formula
   desc "Unix utility for tracking down wasted disk space"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/agedu/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20180918.80c7beb.tar.gz"
-  version "20180918"
-  sha256 "26dc3cef8e64f6fe31491a22aa53048ccff59590f7fba4d0211b6fe0bd8c5a36"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20190630.66cb14d.tar.gz"
+  version "20190630"
+  sha256 "717ee909bb9f737089857765713e39462db6169b99abd7587192e65b7554d5bb"
   head "https://git.tartarus.org/simon/agedu.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5396979e91e666e508f42292185a535ce7c05e2ab58cc737bd71cfa8a8075098" => :mojave
-    sha256 "a2870dd2c261fb6b0b2e8f4737e3e78766ee81bfd4d91f5d866382ce926150d7" => :high_sierra
-    sha256 "8faf747600ba2be25a29493dd51df0ff9faf9186c695db0472bad8bf28303575" => :sierra
+    sha256 "cca96d256d3ec4eb7ccaa2e5062cf575bd3065d7068a9d6bd7e3508a7e87048d" => :catalina
+    sha256 "3cec13de1853d543fd8bd42f578f1037e5005040638af2143bf38b3dd22a0060" => :mojave
+    sha256 "5e6ba4f9a0e740e8091def5ffa43c8b88f841f0554fb721d92b43bff517500e0" => :high_sierra
+    sha256 "bac281c68b7b62f7241f49567c29828c97e51990f54da8c208dfa206465716b4" => :sierra
   end
 
   depends_on "autoconf" => :build

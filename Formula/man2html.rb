@@ -7,6 +7,7 @@ class Man2html < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "760f302a2a8c5178b683688d47e7ec55b17bf85a51ee404b00b2a3eb02030fcb" => :catalina
     sha256 "5096761bebb1f08c8eb8bac3e99b35884116086b7e39bf3d3daad3340645ff75" => :mojave
     sha256 "9fe2dcdd8c5f344106dfe57db3e70bec51f78594fb2c968f5561506d1bd7dbbe" => :high_sierra
     sha256 "ced5194219735226831e611db4247de1affdec0c2e53e813d5c1a7c5d3bce928" => :sierra

@@ -7,6 +7,7 @@ class Freeimage < Formula
 
   bottle do
     cellar :any
+    sha256 "dd2d5bf49573e8285829a3d8e35b2c3932b7308731f3c07a663f90aac853c2cc" => :catalina
     sha256 "a7b9b40dfcbd8f1ce76d67fb537b5be968f01fbdf85f246e449d6a4477551a0a" => :mojave
     sha256 "f3372b5ce748afa7c99da67a593c3e1f112b5aa4b28b36da6a17ee4428158c68" => :high_sierra
     sha256 "24423414222aa7c629f53aadeef266a1e7f3aa50e4138f4a876eadaba634d6c6" => :sierra

@@ -7,6 +7,7 @@ class Livestreamer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "eefba06d6e419df186fb43ab392fd3aa922c7c43811d06eb00237b693dc04cf3" => :catalina
     sha256 "5d261e64d0bd86160b44dd62d3a93d2ef7c1ac28a01c4db04e026be389f13809" => :mojave
     sha256 "c6517deb167fe5b05bc120c260487b0676de4e0f3a05cf8ed771bfb5cf2e67cc" => :high_sierra
     sha256 "9200989d249443fc8daa7827d8490df5b9a056d2df9182fd6a10d8eab1893b69" => :sierra

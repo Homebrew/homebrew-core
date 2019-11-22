@@ -10,6 +10,7 @@ class Statik < Formula
 
   bottle do
     cellar :any
+    sha256 "9a929bed838eac7299d6db3cabac93ddf475c1a7d5100f1d8d0dc522d1867471" => :catalina
     sha256 "0b670112d5c2e9c8166c264ba33a5bd7c01e7cbcb99abe030f2c7923a6e09f5f" => :mojave
     sha256 "06551895c3028af13b050ccc738afe4643ac782ca02dc9c9a0de68b04c5a8e5c" => :high_sierra
     sha256 "44b40f63c9d8de054cb52ce509347eec87f2ac53afa613bb15d66f3c5b3317f7" => :sierra

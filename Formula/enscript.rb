@@ -8,6 +8,7 @@ class Enscript < Formula
   head "https://git.savannah.gnu.org/git/enscript.git"
 
   bottle do
+    sha256 "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e" => :catalina
     sha256 "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0" => :mojave
     sha256 "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426" => :high_sierra
     sha256 "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c" => :sierra

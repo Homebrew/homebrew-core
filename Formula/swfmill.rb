@@ -6,6 +6,7 @@ class Swfmill < Formula
 
   bottle do
     cellar :any
+    sha256 "be2f7f3666c78c37775bd41e2adb640f290bb3e73d8a0b4b04bae0f08e140fac" => :catalina
     sha256 "4eb93babe47a07ccb946b87a7e5515eef651b376c590231920a5acdcc6023aea" => :mojave
     sha256 "2516e0ca300458f626e1311673643e1cad03131fb77717fb4f6d10e5f7c6e522" => :high_sierra
     sha256 "f8f7530eb3697993d145bd67fcb44122319f3dadbd5a15535ae23ce33c1991fc" => :sierra

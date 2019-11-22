@@ -1,14 +1,14 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.7.tar.xz"
-  sha256 "a42f53570f669eaf10af68e98d65b531015ff9e12be7a62d9269ea684652f648"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.8.tar.xz"
+  sha256 "fb8ca66bb7807fff595fbdf2a0afd085c02a6aa47715c9aa3171002f9f1a3f91"
 
   bottle do
-    sha256 "9384beaf449f98580c6217c2c94924076b44de0a7084ba918c86b817c05de371" => :mojave
-    sha256 "5c6954b8036350b73a4fe1cf0947254719c07026db8361a2bbe3f700b252adca" => :high_sierra
-    sha256 "e42e2481dd5199279200aff330bc27a21f7054cff37d36be656976f09bffbe86" => :sierra
+    sha256 "5d765e9c0b189897133a930ab956c4a861bf36532a225b7d11a4f19cfba91a26" => :catalina
+    sha256 "c4216f771502095c9ef56440c4c6061d907100ad9530bd4f3e9ac8beb98a743e" => :mojave
+    sha256 "3be2664f28a1df4bd39f4f70b68274efa08d02338572aa857820692a0f50f116" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,7 +18,7 @@ class Openvpn < Formula
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkcs11-helper"
 
   def install

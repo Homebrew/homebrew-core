@@ -3,18 +3,17 @@ class Ssldump < Formula
   homepage "https://ssldump.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ssldump/ssldump/0.9b3/ssldump-0.9b3.tar.gz"
   sha256 "6422c16718d27c270bbcfcc1272c4f9bd3c0799c351f1d6dd54fdc162afdab1e"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "81814f2ed4a43f89f2bce76f316a11f6adf36b46cab132c69566ab465bb18b41" => :mojave
-    sha256 "f61685cdc0a75d520d823508f76ad11a3bd6b3f76c2c0da85045f8a47155f4e2" => :high_sierra
-    sha256 "e1b49cff5781b5c030696757f3edba544c2bd58a50486962c8cbf0cd3b005da3" => :sierra
-    sha256 "a468350638d8d0e66e8fe137b1473a25e300b967cadae1652e062f9cd92f2dbb" => :el_capitan
-    sha256 "714f3e5283285dea18ba6bfc27f3dda2fc9d1317c6fe269fd4ba84aba44fe44c" => :yosemite
-    sha256 "61b20e42893e904872f075064323366aa29e05fc3bab4a2d09265e6e05189532" => :mavericks
+    sha256 "4227a45957205b7e183b9f66f4ad2cd57abd7eda44db220d0feadf4de03b5778" => :catalina
+    sha256 "940b872d8dd649cc7ef309bb169a02a48425b7059c44c012831fafd5cbe8b61e" => :mojave
+    sha256 "096ee72c50d64cddefb9d90f2b9c904322eaf36eab4c76bb914a60387b75baf9" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "libpcap"
+  depends_on "openssl@1.1"
 
   # reorder include files
   # https://sourceforge.net/p/ssldump/bugs/40/
@@ -32,6 +31,7 @@ class Ssldump < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
+                          "--with-pcap=#{Formula["libpcap"].opt_prefix}",
                           "osx"
     system "make"
     # force install as make got confused by install target and INSTALL file.

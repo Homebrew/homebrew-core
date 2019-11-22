@@ -1,16 +1,16 @@
 class Jsonnet < Formula
   desc "Domain specific configuration language for defining JSON data"
   homepage "https://jsonnet.org/"
-  url "https://github.com/google/jsonnet/archive/v0.13.0.tar.gz"
-  sha256 "f6f0c4ea333f3423f1a7237a8a107c589354c38be8a2a438198f9f7c69b77596"
+  url "https://github.com/google/jsonnet/archive/v0.14.0.tar.gz"
+  sha256 "7f41cdc4cb366cfc1de3aada926a2f7e640ef025887eb05cdaf8342d6e4e088b"
   head "https://github.com/google/jsonnet.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e485bd544c0a43cc82f7d36ad3927261c3b6985f041d15f9cc6ce801297d193e" => :mojave
-    sha256 "d4067225c401c1a6ccd83809edd2c6dc3ca1342a3fc891f0c750029b8c942a07" => :high_sierra
-    sha256 "0d0cb6e6051c492b82b83e9f78dbdc3d42c2d69cbedf050a98c23bcb7e8eb6ad" => :sierra
+    sha256 "34027529c69b14c27c5a903bd1ee6c6fc368b3d9115b4c63e7cb93ed1e64a2e3" => :catalina
+    sha256 "51c48fabc272d0fd1affde0bc7025b067913067e68fe5b142815d92270b151a0" => :mojave
+    sha256 "5e90257ebfb7be1662553482275a2507a858642659703af00ee339e125edc810" => :high_sierra
+    sha256 "3bcb8c5591acc3566d1ed94d2e21b9988d1622e203de62c5fe110996b84564ca" => :sierra
   end
 
   def install

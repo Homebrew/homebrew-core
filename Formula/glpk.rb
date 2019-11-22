@@ -7,6 +7,7 @@ class Glpk < Formula
 
   bottle do
     cellar :any
+    sha256 "55bd72ce9a73c652c34616d09d8ca7d05028c089835c9f0e91db0868e626fc05" => :catalina
     sha256 "563546e59d89de41270630d03276672f927037c28d6c64531791524cb7e611e4" => :mojave
     sha256 "5c0b4a34749c6e60bf9aa39f175ca907bab774f89a1b8a1697f3f5d02d493f2a" => :high_sierra
     sha256 "3cbe0b40e3852414560a4929da0ee050fc8fa424b56b3ea756f853ce274b9a3a" => :sierra

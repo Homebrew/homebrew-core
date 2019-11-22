@@ -9,9 +9,11 @@ class Pipenv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b009471c44f19b92649f1ef10961cb852fac7784a02bb319f7c9bbc017e85d19" => :mojave
-    sha256 "30a4e67c98fd7ec02db6158cbaa7052fad686ec21378e1be2a682aa3c1dfcd47" => :high_sierra
-    sha256 "3143408bdede7d4130fc6d2a21b8250ca9b33c842e08be1ee93d652221b7be37" => :sierra
+    rebuild 1
+    sha256 "8f084160ecf6fec95317a0a298242040590ded00f5d375796c28697f1e9507c8" => :catalina
+    sha256 "df13002254ad48b6586ed47c9c754992dbf669ce630b6c6c90ceca0a79c21e17" => :mojave
+    sha256 "41aec81be5fa304ba9cfe4a061ac9088f6d51fac05bc0c6b73afddec431c6bb1" => :high_sierra
+    sha256 "d961acb64dbd94b43950f877ce48e0bf519c07b71eed0188acdf81d55876d75c" => :sierra
   end
 
   depends_on "python"
@@ -39,11 +41,10 @@ class Pipenv < Formula
     venv.pip_install resources
     venv.pip_install buildpath
 
-    # `pipenv` needs to be able to find `virtualenv` and `pewtwo` on PATH. So we
+    # `pipenv` needs to be able to find `virtualenv` on PATH. So we
     # install symlinks for those scripts in `#{libexec}/tools` and create a
     # wrapper script for `pipenv` which adds `#{libexec}/tools` to PATH.
-    (libexec/"tools").install_symlink libexec/"bin/pewtwo", libexec/"bin/pip",
-                                      libexec/"bin/virtualenv"
+    (libexec/"tools").install_symlink libexec/"bin/pip", libexec/"bin/virtualenv"
     env = {
       :PATH => "#{libexec}/tools:$PATH",
     }

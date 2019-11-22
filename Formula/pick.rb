@@ -6,6 +6,7 @@ class Pick < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3f5c3b2a34966596f3e5ddf33de5524f656aa558a00fcd6ef47c262115a872d6" => :catalina
     sha256 "4f376e252f19746091a38cc04c25ba95b69b91855e9655e91ddff1e79cc3b6f4" => :mojave
     sha256 "596b06179a358b1be315dedaef900d28c059ef710c428ecbbbb5072c2294380e" => :high_sierra
     sha256 "e91e7c5882344a8d2722c50bad65959aacfdef739206aec833722b6f00a2e8a2" => :sierra

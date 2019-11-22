@@ -6,6 +6,7 @@ class Libnfs < Formula
 
   bottle do
     cellar :any
+    sha256 "d727464baa3bbd6111f7b791ae67da3573e47be5d7d613c314853e581743f941" => :catalina
     sha256 "e51a653f469f19db8c24f009166b7c63a3d9e48ffd16e687d81e2fc0da52f632" => :mojave
     sha256 "2c6199b4295a952c6c179811c9190c8741054011f23ed5a051528baf07b44509" => :high_sierra
     sha256 "668a6d77334fd656ea8ca32c1bb36c9253fb95f1dc701607d722afa6af6aa737" => :sierra

@@ -1,39 +1,38 @@
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://people.freebsd.org/~abe/"
-  url "https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.bz2"
-  sha256 "c9da946a525fbf82ff80090b6d1879c38df090556f3fe0e6d782cb44172450a3"
+  url "https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz"
+  sha256 "3df912bd966fc24dc73ddea3e36a61d79270b21b085936a4caabca56e5b486a2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "830be0b158cbb5ff2f6bf019a517e6c89ff013760a6297fe8e285e66322b8e1a" => :mojave
-    sha256 "276399b5b42f5a9dc167515add55c3bb2e545faec1299516b06793b1581a9311" => :high_sierra
-    sha256 "9d57eea962770c2f3c5b56d26d9fdb9b0bbdde559dfc92d0c9db3dcaae33cc43" => :sierra
-    sha256 "59c8c1a9455e3f10c8d6326bab49ab33a85c3cfa702627aa4ba2dd9600cc7d72" => :el_capitan
+    sha256 "b50a86c814c6bbc1d1f716cb39b254ad628c55a6850588f907c1792b5dc6fa3f" => :catalina
+    sha256 "3532e9650fc5b836d5584cd8733f83218229d170859bf2c85e62b4abad08d356" => :mojave
+    sha256 "8ebe4f68ada3d1c1984bbfb660437984f5fc9d61c93b3da8024bfd0d797a2172" => :high_sierra
+    sha256 "e07f28fd45b1eae5231393b45360920da4ad4386a83ccb6a256fc7ea26509f59" => :sierra
   end
 
+  keg_only :provided_by_macos
+
   def install
-    system "tar", "xf", "lsof_#{version}_src.tar"
-    cd "lsof_#{version}_src" do
-      inreplace "dialects/darwin/libproc/dfile.c",
-                "#extern\tstruct pff_tab\tPgf_tab[];", "extern\tstruct pff_tab\tPgf_tab[];"
+    ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    ENV["LSOF_CC"] = ENV.cc
+    ENV["LSOF_CCV"] = ENV.cxx
 
-      ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    # Source hardcodes full header paths at /usr/include
+    inreplace %w[
+      dialects/darwin/kmem/dlsof.h
+      dialects/darwin/kmem/machine.h
+      dialects/darwin/libproc/machine.h
+    ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
 
-      # Source hardcodes full header paths at /usr/include
-      inreplace %w[
-        dialects/darwin/kmem/dlsof.h
-        dialects/darwin/kmem/machine.h
-        dialects/darwin/libproc/machine.h
-      ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+    mv "00README", "README"
+    system "./Configure", "-n", "darwin"
 
-      mv "00README", "README"
-      system "./Configure", "-n", "darwin"
-      system "make"
-      bin.install "lsof"
-      man8.install "lsof.8"
-      prefix.install_metafiles
-    end
+    system "make"
+    bin.install "lsof"
+    man8.install "lsof.8"
+    prefix.install_metafiles
   end
 
   test do

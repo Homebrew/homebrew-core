@@ -1,15 +1,16 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.28.0.tar.gz"
-  sha256 "93a1b8430aad4e11163b3123c7460a107a81faaa629b5809a9894086cea4f98a"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.28.1.tar.gz"
+  sha256 "26a468622e5a0450a6bfbb4853f1c0df3b031e5f8fe5b0c147c1200a1a8ee137"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "230b369c0fbaae5d333b9aec107f1fefc27f85232d74095a47851630eb9ec306" => :mojave
-    sha256 "4950b4ce77e3db24eee4fdfcdd573d7a9eb010a373e30e87b6854358257d3bff" => :high_sierra
-    sha256 "bf8a520a19886681d27279b29484f44cb6794822945aa4cd9d7617e11d5b729e" => :sierra
+    sha256 "a035c82776f016a0c193e23cb6b568ee1bc7d0c5397651f754c778850114cd69" => :catalina
+    sha256 "aa49fbe598db8eb7ef274008954e72f237255d97bb65fbc68a2492d4c040a8b6" => :mojave
+    sha256 "91ff3a7ec412eb76dadc39ca79ce16b85594ae3d5e171ba43a40f6357264cb30" => :high_sierra
+    sha256 "f871bb6047f5761bfa369d9a578c9512d6e47675be7aeb2f9855de98f08bc6e3" => :sierra
   end
 
   depends_on "go" => :build

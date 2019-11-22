@@ -7,6 +7,7 @@ class Multitail < Formula
 
   bottle do
     rebuild 1
+    sha256 "d61b7ec5070d9ce5d4430c2a4b91406b1f50fc4debb26064200aece8fbb86581" => :catalina
     sha256 "9d561e3132f6749aec218961f65d84516cc6a99a2247ee6ef4abf6ed1accc942" => :mojave
     sha256 "b8d2ab93cd8bf7954ffc49ed929aa0cf2c60a2ebeb872e9d3686d314af043be2" => :high_sierra
     sha256 "ec1007a1ab7ffc9394f25d1a838d54051c04c14667721e8db9f49803084f6dcc" => :sierra

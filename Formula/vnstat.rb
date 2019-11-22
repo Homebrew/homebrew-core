@@ -1,21 +1,21 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-1.18.tar.gz"
-  sha256 "d7193592b9e7445fa5cbe8af7d3b39982f165ee8fc58041ff41f509b37c687d5"
+  url "https://humdi.net/vnstat/vnstat-2.4.tar.gz"
+  sha256 "a0955999abd56d5463d257ffdccc9b1e9ad9ea504de81e64ba4c197f1245abaa"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
-    sha256 "71d5cfa630f710ba51faad03f8dfba4952af4143fc65b9dbe3c614d2a2ca3700" => :mojave
-    sha256 "0e0b04bd9787c9f010d26e5ae3541dea2f175ba4978e6e47facfb64d1fa2b1b5" => :high_sierra
-    sha256 "1dc2fe8f702bdf75b4abd1ac24602f95526dccbec90018bd1e276f1070bf66f1" => :sierra
-    sha256 "19db09a61e7be5967f4574b22407628fc15d823f8d2f821bcd3cd99b7b564da1" => :el_capitan
+    sha256 "c11e31478ff92d6161753a03e927de59347c09d8bf2b133b4de854d6909178fd" => :catalina
+    sha256 "28ca5fc572b83efdeb8f186debb37e7d21c0255b26273cc970d45d1aca6346c6" => :mojave
+    sha256 "2ba06d6af371f3ee26e98357db8d58849c15ed5bc8536e71b5796927805ad92d" => :high_sierra
+    sha256 "b3fba4ea86b675bdab6147eeb51b705be074203d4974d0b7f09221b1ad2b0a41" => :sierra
   end
 
   depends_on "gd"
 
   def install
-    inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.1 man/vnstati.1
+    inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|
       s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", false
       s.gsub! "/var/", "#{var}/", false
@@ -84,6 +84,6 @@ class Vnstat < Formula
       Process.kill "SIGINT", stat.pid
       Process.wait stat.pid
     end
-    assert_match "Info: Monitoring:", stat.read
+    assert_match "Info: Monitoring", stat.read
   end
 end

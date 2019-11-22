@@ -6,6 +6,7 @@ class Mandoc < Formula
   head "anoncvs@mandoc.bsd.lv:/cvs", :using => :cvs
 
   bottle do
+    sha256 "f408752db9b1ba4cc1fc8f47fdf41e1ade8abbcf243e947938efbbea550006b4" => :catalina
     sha256 "78ffbf8bee7e5135ea303bb861f432288f2d48d403d7e932753b1ef962348917" => :mojave
     sha256 "3236fdca9fe2cd8cca29d246d9252eaeea8ceeb7d8f5251574c2bc771a841647" => :high_sierra
     sha256 "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec" => :sierra
@@ -29,7 +30,7 @@ class Mandoc < Formula
       "BINM_MAN=bsdman",
       "BINM_APROPOS=bsdapropos",
       "BINM_WHATIS=bsdwhatis",
-      "BINM_MAKEWHATIS=bsdmakewhatis",	# default is "makewhatis".
+      "BINM_MAKEWHATIS=bsdmakewhatis", # default is "makewhatis".
 
       # These are names for *section 7* pages only. Several other pages are
       # prefixed "mandoc_", similar to the "groff_" pages.

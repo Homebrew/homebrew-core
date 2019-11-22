@@ -1,14 +1,15 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2019.06.17.00.tar.gz"
-  sha256 "dc7ee18b24521a842fc5f7166d44b3db7246354ba4b22aa58b6a2444bb6cae6b"
+  url "https://github.com/facebook/folly/archive/v2019.11.11.00.tar.gz"
+  sha256 "3b050f4ea17a12d7675ec4f1b02ef33dea2a5d46f09cc68e0165ca5b352c34b4"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "eedccf1f8b6c8c4964ba3d34b54d0c19548e294ade86f2f787ea3c2d97708534" => :mojave
-    sha256 "5225faa9f9b6836d0d1830c8e0fbf1d38aa971f8d799f420791228349c9b509c" => :high_sierra
+    sha256 "a31ad6656a7c29184694594bbfb36bd01c5e6a2d92122db4a6ae7f1cefe2007f" => :catalina
+    sha256 "28de37ae5613f0da104d696bb67ae801d7d741c6d6f9594cec82388b150b3ceb" => :mojave
+    sha256 "4343e3782e251854eae23d5c5eb354eafc13ee9422e7845760ae357c4c5ec382" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,14 +24,10 @@ class Folly < Formula
   # https://github.com/facebook/folly/issues/966
   depends_on :macos => :high_sierra
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
-
-  # Known issue upstream. They're working on it:
-  # https://github.com/facebook/folly/pull/445
-  fails_with :gcc => "6"
 
   def install
     mkdir "_build" do

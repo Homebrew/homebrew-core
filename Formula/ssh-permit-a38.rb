@@ -3,24 +3,26 @@ class SshPermitA38 < Formula
   homepage "https://github.com/ierror/ssh-permit-a38"
   url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
   sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
+  revision 1
 
   bottle do
-    sha256 "79aa6e33c91a8cb2dd5c2f30277bc17b26b877010cf07a49ca212e2882085c2b" => :mojave
-    sha256 "d4a7dc99358b86444ccde5f25ca78c1750eb28ae9e602b2021884660c88efe04" => :high_sierra
-    sha256 "9cd48f3b1c0bd568dd5a303bd4b69f42e84ef29e883bc5f9738cfd84030c066d" => :sierra
-    sha256 "548a878a784eda04a5c1601dcf17d7fb908b65eebd9fe44b39b3d7bc609d1575" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "3eefd64fbbe3e4d500a69352091da85ca685a435094facc30e6942d9d5e89a1d" => :catalina
+    sha256 "683ebbe9a6a845802f825f1775e6d861387be41fd520b648275f97a580e92398" => :mojave
+    sha256 "7d82d59932bb6d721a31726efc231d043d54d180995d0119d8f8bf9fc37f3e9b" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

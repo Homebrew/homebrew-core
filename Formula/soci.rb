@@ -6,6 +6,7 @@ class Soci < Formula
 
   bottle do
     rebuild 1
+    sha256 "0fd00b5a595f94e6e62cb7f6976816bca6a747ed3a98b0327f5961548e2606ef" => :catalina
     sha256 "e0898c45669d19255465f990c9ac4ea6f6b42c4c6de7688d5ca137f77080bc55" => :mojave
     sha256 "bf08b482820dd4ce1613b662d573caeeb0e9e78d379d7f21dee9118833867e65" => :high_sierra
     sha256 "db0a84d0ac41fb65d0bdea2eccc652754bdacca85b8659aec879d85101f2d276" => :sierra

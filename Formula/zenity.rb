@@ -6,6 +6,7 @@ class Zenity < Formula
   revision 1
 
   bottle do
+    sha256 "6bbf833a5a7d71346a5391fae436c2c46f530f0f5b9ac5d57330601b3456db49" => :catalina
     sha256 "cef54fcd5601eb5dd3b563d1a09a6cd83654a2fa46e4a83a3d3c6e6a356fe29a" => :mojave
     sha256 "36cf68d4838890e8d9122109464548a4630da0b06dcf6d4f0976ccf58b99dde2" => :high_sierra
     sha256 "8b06d6cfec84ff39a95aeb4b466c1eb62584ff019ed90331334d243501cc8398" => :sierra

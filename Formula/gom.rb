@@ -6,6 +6,7 @@ class Gom < Formula
   revision 6
 
   bottle do
+    sha256 "9ac0fa6a00e863a79a22304e11ce8acdc506cc7115efde0f139400548e4084ba" => :catalina
     sha256 "e350f42cc200b16352b511d93e31bd77fe1bafae91bae450e950f9546e109b0b" => :mojave
     sha256 "218193c3f957ef4c999a446bfa6049e978b69f40a40461afaef965b70aaa190a" => :high_sierra
     sha256 "17e82d8af22b8db897ccded270b254c84d67cf7d4be699b2cdc0408982febe60" => :sierra

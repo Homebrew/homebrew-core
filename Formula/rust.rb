@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz"
-    sha256 "5a4d637a716bac18d085f44dd87ef48b32195f71b967d872d80280b38cff712d"
+    url "https://static.rust-lang.org/dist/rustc-1.39.0-src.tar.gz"
+    sha256 "b4a1f6b6a93931f270691aba4fc85eee032fecda973e6b9c774cd06857609357"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.36.0",
-          :revision => "6f3e9c367abb497c64f360c3839dab5e74928d5c"
+          :tag      => "0.40.0",
+          :revision => "1c6ec66d5bae40e9dfd2fb82f091b5172c212d73"
     end
 
     resource "racer" do
@@ -21,10 +21,9 @@ class Rust < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "263d805d5220eb9f7c21ee0a737b933001e66ea9e2853eb0a20b05cc0b8f5547" => :mojave
-    sha256 "84b687f6229875ff5f917567e50969019fe725bc7e7b881849bed3e9fed9f4d4" => :high_sierra
-    sha256 "49f3e0adb8678b4ca434c6cd04f1bb92b3ef5b688209b5a24a1c30c1f9153ce0" => :sierra
+    sha256 "feea87a17ac222cb84b952d964067ce591063ff41f408cad6e7ad4d0c71d33d8" => :catalina
+    sha256 "0d7c179f204475b6ae4438435fc59ef898fdc7399f9f43cc73e6f4b9114e12a9" => :mojave
+    sha256 "0e2ee5ccad46ffafad625ed4c97d7b918be1e6e54dea0cbc72e323ed59d0bad9" => :high_sierra
   end
 
   head do
@@ -41,13 +40,13 @@ class Rust < Formula
 
   depends_on "cmake" => :build
   depends_on "libssh2"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pkg-config"
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2019-05-14/cargo-0.35.0-x86_64-apple-darwin.tar.gz"
-    sha256 "e16d48fff7fc9907bb38f06b5cc496b7e3c3de803615604405591bdfbc4aec94"
+    url "https://static.rust-lang.org/dist/2019-09-26/cargo-0.39.0-x86_64-apple-darwin.tar.gz"
+    sha256 "107af82e268dfe7dbb35908ab0dfd96d0356c3750520612f1add1ecb8ecbc535"
   end
 
   def install
@@ -57,7 +56,7 @@ class Rust < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     # Fix build failure for cmake v0.1.24 "error: internal compiler error:
     # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for

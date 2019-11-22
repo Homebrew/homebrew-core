@@ -3,16 +3,15 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.140.tgz"
-  sha256 "c491b2f6bdf5a98a1a2e4124ed9a1bdba59ed7ae1a88ee223cf922b24e111447"
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.150.tgz"
+  sha256 "8baab0baf97ac77a10d05ca74abc03b4a8b78d53480d70420d6448ec4986bb8b"
 
   bottle do
-    sha256 "52c55a3c5ce8533881f8fb9ccf0229801616b7c97518455779c1ee5ab3c05ed3" => :mojave
-    sha256 "dfa7eb1274b6e9700f371bf5460a6cf76602b4739b846b5940af99abb2c015a0" => :high_sierra
-    sha256 "537b34b004214603816e592789ec7453c947a488dfeabbaa55741278b62e1cef" => :sierra
+    sha256 "e109e114f10667484a610ac694883c3c6a58791ceca6a2744c7f17d2f6dff207" => :catalina
+    sha256 "53867d6ce8e1ae6981d7375ec60afa0500b8b31645673dea8fb35c201ef52732" => :mojave
+    sha256 "dcf1c24522a4471089d0af2aca9b46c57540123f1f404aedad7f66a3bf82c9ab" => :high_sierra
   end
 
-  depends_on "python@2" => :build
   depends_on "node"
 
   def install

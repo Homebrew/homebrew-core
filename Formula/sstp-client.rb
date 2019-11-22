@@ -3,17 +3,18 @@ class SstpClient < Formula
   homepage "https://sstp-client.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.12.tar.gz"
   sha256 "487eb406579689803ce0397f6102b18641e4572ac7bc9b9e5f3027c84dcf67ff"
+  revision 2
 
   bottle do
-    sha256 "361a2e8e315b16b5444338c13e11db2d0b78bb8ad0f73de18526d164f87b237e" => :mojave
-    sha256 "f910157864b32a5cd004366b0e8ee6cefd09b0edd36afb89d751ede34e27df96" => :high_sierra
-    sha256 "1bbbe9f5558b4757f8244064144106b0bda636c2adcc3da734634895b960ff68" => :sierra
-    sha256 "c4b0b6b1ebc16783d22327173bfe1e90bd5fd329786a613422c858fc352672eb" => :el_capitan
+    sha256 "49bffeb675814b187dd9237be82ef24e45d92f99b162d86dbbc07191f3817094" => :catalina
+    sha256 "ae3fd0084d4a41d7e61cdd50c63049e401aa2d6a29f17c1d5b60b2693c3f42cd" => :mojave
+    sha256 "a01dc2761f3a46199b4499650fda972c98f91ec4f4a4f91273a354e73592ca8e" => :high_sierra
+    sha256 "bee90ce7dd97505c82ec1e159134a3ac73065dbe8257c839f9ec0b5d33271640" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",

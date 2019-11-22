@@ -6,9 +6,10 @@ class Stubby < Formula
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
 
   bottle do
-    sha256 "aa05e8445978d4d7391addd20666f7ab141e9587e4585d7873052acb68aed123" => :mojave
-    sha256 "e336da47ce50d92a0c3f445db4200dad8f99ba406ef454abfffb4085601e9e71" => :high_sierra
-    sha256 "685cec7e37bf310b77da3680fa81d1bfc920928289c4905eb5c6899e40f6f801" => :sierra
+    rebuild 1
+    sha256 "c7e9b790cdc0cdafba63e1856369698182d028b0e050879b47451100ba7974cf" => :catalina
+    sha256 "ab22feeb762899b728ae55a2c702fd622ebdb2edaf776e11c0af2c9f2cddba0c" => :mojave
+    sha256 "02913e7695ae6ff3120a4f676490f6cdeeb10b92192537718ac2a23742d43276" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -45,10 +46,6 @@ class Stubby < Formula
           <string>-C</string>
           <string>#{etc}/stubby/stubby.yml</string>
         </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/stubby/stubby.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/stubby/stubby.log</string>
       </dict>
     </plist>
   EOS

@@ -7,6 +7,7 @@ class Enigma < Formula
 
   bottle do
     cellar :any
+    sha256 "38e4eb761c8c03ec2ff3221d576335d60c60ecb5f369e69098d34740118d48e4" => :catalina
     sha256 "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231" => :mojave
     sha256 "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15" => :high_sierra
     sha256 "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3" => :sierra

@@ -2,15 +2,15 @@ class StellarCore < Formula
   desc "The backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      :tag      => "v11.1.0",
-      :revision => "324c1bd61b0e9bada63e0d696d799421b00a7950"
+      :tag      => "v12.1.0",
+      :revision => "8afe57913a08deffa247d7b5f837e0b28a54b864"
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
     cellar :any
-    sha256 "c1473918971a04861605c718abe38686d16b0ba4ec508766792354abc90cf128" => :mojave
-    sha256 "ce9b538a413cc7b36734b5e59723359f1e610e6ac54dfe59b5626c88f8f851ca" => :high_sierra
-    sha256 "859222f7f6df9135ef4c833c7bd7f377273f31183fb5fa50193f91f1fdae43b0" => :sierra
+    sha256 "02a0d4e82e45367e4622e517e703e49b3e6af4b80a24a36741cf0616638c98d7" => :catalina
+    sha256 "bda5192d4d3fe8307cbdcfccdebb8c751b3d899d4ccea3f3cbe14a6141d5cfe8" => :mojave
+    sha256 "83ad5766310af3d84f485a66c233cef5c096029082a14e3c278d5edc9ff2d50e" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,8 +18,9 @@ class StellarCore < Formula
   depends_on "libtool" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "parallel" => :test
+  depends_on "libpqxx"
   depends_on "libsodium"
-  depends_on "postgresql"
 
   def install
     system "./autogen.sh"
@@ -32,6 +33,6 @@ class StellarCore < Formula
   end
 
   test do
-    system "#{bin}/stellar-core", "--test", "'[bucket],[crypto],[herder],[upgrades],[accountsubentriescount],[bucketlistconsistent],[cacheisconsistent],[fs]'"
+    system "#{bin}/stellar-core", "test", "'[bucket],[crypto],[herder],[upgrades],[accountsubentriescount],[bucketlistconsistent],[cacheisconsistent],[fs]'"
   end
 end

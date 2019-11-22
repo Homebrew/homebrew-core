@@ -3,14 +3,14 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-8.0.3.tgz"
-  sha256 "5e4b52bf5280598393697e050386612f541de9a5faf695628f1d4456539ca943"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-8.3.19.tgz"
+  sha256 "c062b52ac2503fea168da198ec184992b7407b1560e8bb17eab3b78689d2db43"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5a8db4b3519a6dd83ff444d9e0f77d745b79b622faad778057987005aa10c8f" => :mojave
-    sha256 "8a63bf9ee15d4cbb07697b32864b5ec8d2148df013899a33b465e2e0d38bd47d" => :high_sierra
-    sha256 "a0995a834c31e379392043d488ebebb9b1695d2111a387e978b934dfe7afc24f" => :sierra
+    sha256 "11eba9373cb96b8ce903fdc42e3e36291a5dba46f652c3a373e242bee32ef1aa" => :catalina
+    sha256 "54d7fddbf220fa8d679b543721a15e1ab1a2a84faa45a4d05c0c2e20523aa331" => :mojave
+    sha256 "eb7a7e71c6daae9bb387e6351a9ff185da19accfb60e5867f19d81cc5aaf7b2b" => :high_sierra
   end
 
   depends_on "node"

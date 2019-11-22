@@ -1,13 +1,16 @@
 class Stolon < Formula
   desc "Cloud native PostgreSQL manager for high availability"
   homepage "https://github.com/sorintlab/stolon"
-  url "https://github.com/sorintlab/stolon.git", :tag => "v0.13.0"
+  url "https://github.com/sorintlab/stolon.git",
+    :tag      => "v0.14.0",
+    :revision => "48f9ace3ab7cb21179a43d05c328b02b17f31489"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8ef622f0b90477eaf3231563a82738c28e59f7b4ff3e82cb24923552f8b5dce" => :mojave
-    sha256 "5ce46f6fa94f1cb1e9605f4a3aa3fbb17debb2658ca465a1edb469c79caf34a3" => :high_sierra
-    sha256 "c51cd775f84ea6a00dd7fde28bb6c917c25f8c909e57faa838e4e7b0b541fb30" => :sierra
+    sha256 "51d6407392f8c4c13a12de0003f188bbb0f8fc02eed970d8cf62c7cf9d194cf5" => :catalina
+    sha256 "4c9b9cfaf27f24e6011277f5a37ef9292ffeaa9bb53561b5223cd8796c071660" => :mojave
+    sha256 "fcbe634904119d23eb304dfb3a96973eb60721a65163b782c919a2eebef60a8a" => :high_sierra
+    sha256 "893841a3fbe74d09346c360f38c95c9e534a51604e9a9f834cd1fb86cfe3473c" => :sierra
   end
 
   depends_on "go" => :build
@@ -30,19 +33,12 @@ class Stolon < Formula
       exec "consul", "agent", "-dev"
     end
     sleep 2
-    run_output = shell_output("#{bin}/stolonctl version 2>&1")
-    assert_match "stolonctl version v0.13.0", run_output
-    run_output = shell_output("#{bin}/stolonctl status --cluster-name test --store-backend consul 2>&1", 1)
-    assert_match "=== Active sentinels ===\n\nNo active sentinels\n\n=== Active proxies ===\n\nNo active proxies\nnil cluster data: <nil>\n", run_output
 
-    run_output = shell_output("#{bin}/stolon-keeper --version 2>&1")
-    assert_match "stolon-keeper version v0.13.0", run_output
-
-    run_output = shell_output("#{bin}/stolon-sentinel --version 2>&1")
-    assert_match "stolon-sentinel version v0.13.0", run_output
-
-    run_output = shell_output("#{bin}/stolon-proxy --version 2>&1")
-    assert_match "stolon-proxy version v0.13.0", run_output
+    assert_match "stolonctl version v#{version}", shell_output("#{bin}/stolonctl version 2>&1")
+    assert_match "nil cluster data: <nil>", shell_output("#{bin}/stolonctl status --cluster-name test --store-backend consul 2>&1", 1)
+    assert_match "stolon-keeper version v#{version}", shell_output("#{bin}/stolon-keeper --version 2>&1")
+    assert_match "stolon-sentinel version v#{version}", shell_output("#{bin}/stolon-sentinel --version 2>&1")
+    assert_match "stolon-proxy version v#{version}", shell_output("#{bin}/stolon-proxy --version 2>&1")
 
     Process.kill("TERM", pid)
     Process.wait(pid)

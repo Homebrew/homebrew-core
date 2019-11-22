@@ -1,14 +1,14 @@
 class Wskdeploy < Formula
   desc "Apache OpenWhisk project deployment utility"
   homepage "https://openwhisk.apache.org/"
-  url "https://github.com/apache/incubator-openwhisk-wskdeploy/archive/0.9.9.tar.gz"
-  sha256 "fa0164b9262b90c57cee868de000459ae8461042c0984d40ce22bf0c0ce4a49f"
+  url "https://github.com/apache/openwhisk-wskdeploy/archive/1.0.0.tar.gz"
+  sha256 "74c02e8118a123cfad113dc75d5e7d256b18fb80ad9e27b2b95eb74b8677e483"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c8d5674fda8507a62dd30b0b26c382bccdc48945c405758c8b805d5350e565aa" => :mojave
-    sha256 "3569a4127a3503f8507d5b437d0d35c4c5a259055f84984553d83a6ad9be42e0" => :high_sierra
-    sha256 "0cd26ef2912f60d108795fb7588a81edf6a1c937e90a2f8ba4987926376c0cab" => :sierra
+    sha256 "3628415e19ddfa9aa4c701f10bdecc2b60a595b8a88beff1fada7174b38517ed" => :catalina
+    sha256 "fa27eb070527a3e4fff0ea62ed16e521b2c7f5482f4ca8c1bb934823e75c856b" => :mojave
+    sha256 "9690c45ee52ba2c4bee9de7075136fd6743f05dcfca445c57f44df940b1fb3e7" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -16,8 +16,8 @@ class Wskdeploy < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/apache/incubator-openwhisk-wskdeploy").install buildpath.children
-    cd "src/github.com/apache/incubator-openwhisk-wskdeploy" do
+    (buildpath/"src/github.com/apache/openwhisk-wskdeploy").install buildpath.children
+    cd "src/github.com/apache/openwhisk-wskdeploy" do
       system "godep", "restore"
       system "go", "build", "-o", bin/"wskdeploy",
                    "-ldflags", "-X main.Version=#{version}"

@@ -3,14 +3,14 @@ class Libu2fServer < Formula
   homepage "https://developers.yubico.com/libu2f-server/"
   url "https://developers.yubico.com/libu2f-server/Releases/libu2f-server-1.1.0.tar.xz"
   sha256 "8dcd3caeacebef6e36a42462039fd035e45fa85653dcb2013f45e15aad49a277"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4171f31751c8bd489ff38e66de80340f1abff5442472dca02b2b2be5d6bd1b12" => :mojave
-    sha256 "8b2986796fde4c4af2ceea03780de6310932f5b26744118d56920694777e0738" => :high_sierra
-    sha256 "90ec17a1fccbb6d6ed4e8cd95d6828ef1b0fe80f173435e7124fab938d3af812" => :sierra
-    sha256 "566d3f52eef7dca1671f93f8f2b1f351e960b3c98a3737ed7f14843296d5a601" => :el_capitan
+    sha256 "35ef1eeeb2a02eb66a48bd70269cbaa22e1f92a4d94ef1d11891d23bc5ae3cb3" => :catalina
+    sha256 "732660807115af952d552524130daa4bf0e4314eebf2f94eade5e2b8229ad678" => :mojave
+    sha256 "f947cf956060d05e1ccf80d21e5f8e0efcc26144cdc15998fb26235bde0b184c" => :high_sierra
+    sha256 "e507b37b71477f7315eeae089473689bc6fbf05466a402ffd48df80c26985ddd" => :sierra
   end
 
   depends_on "check" => :build
@@ -18,7 +18,7 @@ class Libu2fServer < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV["LIBSSL_LIBS"] = "-lssl -lcrypto -lz"

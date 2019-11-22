@@ -6,6 +6,7 @@ class Drip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "11c4a909bf8a51be3923be6647126524769f8580898d6b6035fe4a9e95d5c415" => :catalina
     sha256 "fae4ea200256b46fea345cc1ac3c2b312fc235b6f6988a7d078145e44ebe7331" => :mojave
     sha256 "6fe1110fb43b5e32e16c9053675313468ca0fbdf92d3ec9f0c9d5be105e4c409" => :high_sierra
     sha256 "5d84f90eae53dbd9055e429d42981933cf5f3a2f213862ba7892643c5289e9df" => :sierra

@@ -1,17 +1,15 @@
 class Tmate < Formula
   desc "Instant terminal sharing"
   homepage "https://tmate.io/"
-  url "https://github.com/tmate-io/tmate/archive/2.2.1.tar.gz"
-  sha256 "d9c2ac59f42e65aac5f500f0548ea8056fd79c9c5285e5af324d833e2a84c305"
-  revision 4
+  url "https://github.com/tmate-io/tmate/archive/2.4.0.tar.gz"
+  sha256 "62b61eb12ab394012c861f6b48ba0bc04ac8765abca13bdde5a4d9105cb16138"
   head "https://github.com/tmate-io/tmate.git"
 
   bottle do
     cellar :any
-    sha256 "788ab394a785b79e997e8324b0973cf70ef5d214d4c2427869b36c032d77d45b" => :mojave
-    sha256 "9f6b37c2a0011b255d3a5c39e0bf653e8271d4f8cfc4306bc615ddf77946b442" => :high_sierra
-    sha256 "a3a692cff9eba1a68eef998577050169da2eb3930e9e12902a33c689ed904548" => :sierra
-    sha256 "95dac4cc5d9fc02d7a7d832d471b4911b52e97ced0ab98e902c84d33ee54dc7c" => :el_capitan
+    sha256 "a278bcb401068bed2434ec48bfb059a86d793a6daa4877574ac0ed7168cb1ebc" => :catalina
+    sha256 "7e5158460b898422b4c6e84390d0e8446e2ad52789a30f9942288c5c32acc8a1" => :mojave
+    sha256 "0f4f06d0ab7715adc7f6d33cf7d3c08fd057e7f038a666b360ac4ad6a3449ad9" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -1,15 +1,15 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.51.0/meson-0.51.0.tar.gz"
-  sha256 "2f75fdf6d586d3595c03a07afcd0eaae11f68dd33fea5906a434d22a409ed63f"
+  url "https://github.com/mesonbuild/meson/releases/download/0.52.0/meson-0.52.0.tar.gz"
+  sha256 "d60f75f0dedcc4fd249dbc7519d6f3ce6df490033d276ef1cf27453ef4938d32"
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fd6bb7dedb95162aca637f4c8c97463b3c14895698120ce15cd24844d39fed0" => :mojave
-    sha256 "7fd6bb7dedb95162aca637f4c8c97463b3c14895698120ce15cd24844d39fed0" => :high_sierra
-    sha256 "85147f9668c946ab6db2f30016a65e08ad8478f6b1bacf3e5936465c290eef55" => :sierra
+    sha256 "8df30b9960a09372a5695bb8a6c2275ecd42337d668e6334c846652cc0803e20" => :catalina
+    sha256 "8df30b9960a09372a5695bb8a6c2275ecd42337d668e6334c846652cc0803e20" => :mojave
+    sha256 "8df30b9960a09372a5695bb8a6c2275ecd42337d668e6334c846652cc0803e20" => :high_sierra
   end
 
   depends_on "ninja"

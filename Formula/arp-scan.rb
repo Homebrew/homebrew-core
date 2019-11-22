@@ -1,16 +1,14 @@
 class ArpScan < Formula
   desc "ARP scanning and fingerprinting tool"
   homepage "https://github.com/royhills/arp-scan"
-  url "https://github.com/royhills/arp-scan/archive/1.9.5.tar.gz"
-  sha256 "aa9498af84158a315b7e0ea6c2cddfa746660ca3987cbe7e32c0c90f5382d9d2"
-  revision 1
+  url "https://github.com/royhills/arp-scan/archive/1.9.6.tar.gz"
+  sha256 "971b45c3369816467994797fbcd0076eb8f0ffb9c42764ea6dba25ab3fd490da"
   head "https://github.com/royhills/arp-scan.git"
 
   bottle do
-    sha256 "b2b784e3577ce342c80a646428ebb672971a532679791467b009493e048896f8" => :mojave
-    sha256 "bc0fdf16b93e8793cbe2bc820969b167ef54df05d25e2d1f9162bda984768241" => :high_sierra
-    sha256 "8e372e2939b71602ed646c55ccf80a8a17f16e00c25e3eb2a7a273a7df19a487" => :sierra
-    sha256 "15502dca99f62348373e10510432ff389170fa4b1cbf40a52b546e3c5beecf40" => :el_capitan
+    sha256 "6b6621b80ffaccbbbd1f9942e7279ac786aaa258003980c6111e27d49ab199d5" => :catalina
+    sha256 "d17e1ad7dac154571c7e48fe2d9aac7b0555c10a60c1184ffc8b273e5b1238a7" => :mojave
+    sha256 "e6dbdf4a4c2cc9f42012c76192bf562858aa8838895cda7e507543497b253003" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -3,17 +3,19 @@ class Pgloader < Formula
   homepage "https://github.com/dimitri/pgloader"
   url "https://github.com/dimitri/pgloader/archive/v3.6.1.tar.gz"
   sha256 "6fa94f2e8e9c94c5f7700c02b61b97a17092bd87b3b77b3d84a06a1fb98b09fa"
+  revision 1
   head "https://github.com/dimitri/pgloader.git"
 
   bottle do
-    sha256 "38db7f6a7695e08463a32172d9b31a14766fbfe8c7aaa4c552c9336537be6d5d" => :mojave
-    sha256 "3d569cdcdc3a27a6a0401582dd09b21aecf2032ec13e6df29d7f92c087857e84" => :high_sierra
-    sha256 "d4f9b42c3ec8d2794b887d659e7da03390f799cbfcbca0defa6c5387a6dbe00a" => :sierra
+    sha256 "51a494f1f8730502568e3cecb0182c479ccf7a56276d073245a905eea877844d" => :catalina
+    sha256 "f6fae178dc49b4151102a2132a62ee24191b3090a6854a1fcd1d3e78425fd72e" => :mojave
+    sha256 "46b847486646d3ab813a4624fe2868670757ea2315a04e090a42e3bb71693fd2" => :high_sierra
   end
 
   depends_on "buildapp" => :build
   depends_on "sphinx-doc" => :build
   depends_on "freetds"
+  depends_on "openssl@1.1"
   depends_on "postgresql"
   depends_on "sbcl"
 
@@ -350,6 +352,11 @@ class Pgloader < Formula
       resource.stage buildpath/"lib"/resource.name
     end
 
+    inreplace buildpath/"lib/cl+ssl/src/reload.lisp", "/usr/local/opt/openssl/lib/libcrypto.dylib",
+                                                      Formula["openssl@1.1"].opt_lib/"libcrypto.dylib"
+    inreplace buildpath/"lib/cl+ssl/src/reload.lisp", "/usr/local/opt/openssl/lib/libssl.dylib",
+                                                      Formula["openssl@1.1"].opt_lib/"libssl.dylib"
+
     ENV["CL_SOURCE_REGISTRY"] = "#{buildpath}/lib//:#{buildpath}//"
     ENV["ASDF_OUTPUT_TRANSLATIONS"] = "/:/"
     system "make", "pgloader-standalone", "BUILDAPP=buildapp"
@@ -373,17 +380,15 @@ class Pgloader < Formula
     ]
 
     IO.popen(postgres_command * " ") do |postgres|
-      begin
-        ohai postgres_command * " "
-        # Postgres won't create the socket until it's ready for connections, but
-        # if it fails to start, we'll be waiting for the socket forever. So we
-        # time out quickly; this is simpler than mucking with child process
-        # signals.
-        Timeout.timeout(5) { sleep 0.2 while socket_dir.children.empty? }
-        yield
-      ensure
-        Process.kill(:TERM, postgres.pid)
-      end
+      ohai postgres_command * " "
+      # Postgres won't create the socket until it's ready for connections, but
+      # if it fails to start, we'll be waiting for the socket forever. So we
+      # time out quickly; this is simpler than mucking with child process
+      # signals.
+      Timeout.timeout(5) { sleep 0.2 while socket_dir.children.empty? }
+      yield
+    ensure
+      Process.kill(:TERM, postgres.pid)
     end
   end
 

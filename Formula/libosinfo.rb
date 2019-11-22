@@ -1,14 +1,14 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.5.0.tar.gz"
-  sha256 "bf692567983478c92bde78d454c18d6196abb032b5a77f430b09a7ef92ec6089"
-  revision 1
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.6.0.tar.gz"
+  sha256 "3c385c1cceb46301fdc79115e7b28e3df7aa26fafce0a787a60132a86a1990c7"
 
   bottle do
-    sha256 "1d028a79be8109c00e46e4339861c4fbb6e503ffce646a5057613c0b0777da58" => :mojave
-    sha256 "b3d146798995b0a5878b26201e9dc2833759b229a55c8b34003dadd5791c9dd9" => :high_sierra
-    sha256 "0fc8647922adcb43897a9d44f8c4ce606ce58eaba460139ea108c4eb63fb6a6c" => :sierra
+    sha256 "8242828a781ce96d398c46860ae0202afab5fe579b5e91aaa256e969fd85d0a6" => :catalina
+    sha256 "c67caf435fca9b083f3928bd6983dcaf4347f33b16693e5f28debe5b216b012d" => :mojave
+    sha256 "bed6f6794bcf73559378663f1856436508ab77572a9d6a79fce658ac6f320787" => :high_sierra
+    sha256 "a9d1632746e463740d21c64cacfd00f9625664c14369c6089edf6aa3f29170b0" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,9 +22,6 @@ class Libosinfo < Formula
   def install
     # avoid wget dependency
     inreplace "Makefile.in", "wget -q -O", "curl -o"
-
-    # sh lives at /bin/sh on macOS, not /usr/bin/sh
-    inreplace "build-aux/install-sh", "#!/usr/bin/sh", "#!/bin/sh"
 
     args = %W[
       --prefix=#{prefix}

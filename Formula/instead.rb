@@ -1,13 +1,13 @@
 class Instead < Formula
   desc "Interpreter of simple text adventures"
   homepage "https://instead.syscall.ru/"
-  url "https://github.com/instead-hub/instead/archive/3.3.0.tar.gz"
-  sha256 "43fea58f3f4abd6b9fb5680b519f8a3d29c895798c5f69b39a01c080e95b4ac0"
+  url "https://github.com/instead-hub/instead/archive/3.3.1.tar.gz"
+  sha256 "3b5e4cb7ce965e89a3906787791919d475834001438d10c46b77085f2e8767ea"
 
   bottle do
-    sha256 "8e05330df7054b69d5696ba00bbf4bb438cbd35b175f5a745e80c7b0095dec73" => :mojave
-    sha256 "0eaf8c4d40fcd870575d99c5359e6fecc15d539707e6ddbe9065ee0f31e141ac" => :high_sierra
-    sha256 "78f59e3c2455fe4be63ec3ea079c4afcd9a3e5f7ff8d5de90b4e2fa1e401db9a" => :sierra
+    sha256 "e020cbe4c016591b3c017d0df239b0704ca7b4076c2f61d47ffbb44b67f151b0" => :catalina
+    sha256 "64eda82eb27e394732b69b0811515f9ac5cb4549bfe6014b21ed0a80507e0f83" => :mojave
+    sha256 "176bc087885f093320ee60548e0f5162f07531a6e2d4e4f360dbd31d6f670091" => :high_sierra
   end
 
   depends_on "cmake" => :build

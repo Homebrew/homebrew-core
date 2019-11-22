@@ -1,5 +1,5 @@
 class Ideviceinstaller < Formula
-  desc "Cross-platform library for communicating with iOS devices"
+  desc "Tool for managing apps on iOS devices"
   homepage "https://www.libimobiledevice.org/"
   url "https://www.libimobiledevice.org/downloads/ideviceinstaller-1.1.0.tar.bz2"
   sha256 "0821b8d3ca6153d9bf82ceba2706f7bd0e3f07b90a138d79c2448e42362e2f53"
@@ -7,10 +7,10 @@ class Ideviceinstaller < Formula
 
   bottle do
     cellar :any
-    sha256 "e65331be443285a8aa2cd22f90104aca31197a6419bcbccb60e3e6f39a3c8773" => :mojave
-    sha256 "a67c1699f0c03461f57e2232b44d175f2f38f4288ac3a3db6d92f90e299da786" => :high_sierra
-    sha256 "4651061aec01678c5feb365acc989aa211602cb62e32a1498bd4a52de217aa82" => :sierra
-    sha256 "8821769d4434688cc64aa3e63bb4f426d37d416b2dca3c935f1293ae1bddad22" => :el_capitan
+    rebuild 1
+    sha256 "3fcfe52042361034d6d884268c6e145db6ccae21a65d55fae590b8d3203209e6" => :catalina
+    sha256 "e0df189964f8d77e2ea30e8255b7d5a6fa82710b9b65e1351f086358530f6d84" => :mojave
+    sha256 "d8f6c9528b2737db5453b118e8792533274df7b06968c868ba0096cf62e48079" => :high_sierra
   end
 
   head do

@@ -2,16 +2,16 @@ class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon.git",
-      :tag      => "1.12.4",
-      :revision => "fd4412ebb5a233b34073a9cebebf131ab7ee6433"
+      :tag      => "1.12.5",
+      :revision => "206912d922bb8ab96e23708d1cf222d572741ebe"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ac2fac7c0662d6864f2dc2e99fbae53041463a67b5e55bb3922deb487daf7382" => :mojave
-    sha256 "db60d68e16302c740d2581fb113bbee08438ecf2706ce5cb91abc04b643d1ccc" => :high_sierra
-    sha256 "0f97251244c9138256f5bb9a5cc6ee367ee56e68bef2a1c174fd1e45a8965119" => :sierra
+    sha256 "fa5efc4b459178262db04e6cf12f24ebdc7540eae749e8b86b4d01e4b74a856b" => :mojave
+    sha256 "01ffdc4770c149a2be689b33235eff7838352ad20d11f1ff1c2c9c0a40f3fc24" => :high_sierra
+    sha256 "abeffa6872984c9c33550a267379c79ae2e4fe3f1370fa67391c6ca3040bf3e4" => :sierra
   end
 
   depends_on "go" => :build
@@ -29,16 +29,14 @@ class Algernon < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
-                                "--addr", ":45678"
-      end
-      sleep 20
-      output = shell_output("curl -sIm3 -o- http://localhost:45678")
-      assert_match /200 OK.*Server: Algernon/m, output
-    ensure
-      Process.kill("HUP", pid)
+    pid = fork do
+      exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
+                              "--addr", ":45678"
     end
+    sleep 20
+    output = shell_output("curl -sIm3 -o- http://localhost:45678")
+    assert_match /200 OK.*Server: Algernon/m, output
+  ensure
+    Process.kill("HUP", pid)
   end
 end

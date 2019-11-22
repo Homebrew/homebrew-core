@@ -7,6 +7,7 @@ class Hivemind < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ed80238e557ca71f115b2b3cd5031bfac16a3d02d8b37b386b629d89dd26af48" => :catalina
     sha256 "8e6f70ca5e0c8eb1e42d47bee207ec5333b453660d808103a36d53c51a7fb59a" => :mojave
     sha256 "7a89018774693681975cea22dcdebe35df043507476d1318f195e6d194978693" => :high_sierra
     sha256 "4aa25b52b5c7fd3dc7ae29ab31cf19eeddde4e7685fd7e9838be0ea8cf09f3c1" => :sierra

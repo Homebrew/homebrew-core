@@ -3,15 +3,16 @@ class IrcdHybrid < Formula
   homepage "http://www.ircd-hybrid.org/"
   url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.24/ircd-hybrid-8.2.24.tgz"
   sha256 "eaa42d8bf10c0e619e3bda96f35d31bb20715305a85a1386cfbc6b8761fed50e"
+  revision 1
 
   bottle do
-    sha256 "019444c3b32e17ec5dab9f9a7697b2cceda280d2af447b4f56271082e98a2438" => :mojave
-    sha256 "a3c6846e6cdad9e8615f01d1539b857a4a02aa87b475f0b7e576c29716f9b4e2" => :high_sierra
-    sha256 "1be9a361ecfcadda2db262d7af21b3a4518fa2dbb1400fc9b6bfd21e3b080949" => :sierra
-    sha256 "cb2919d989ee6ae1fa2ed37b4cdc24ff32d10512d436ec29d47218b75ab3f3a3" => :el_capitan
+    sha256 "de9ce625b777bf066d1d0b2933443618b677fe74387f7a3d2f07ff856605f1c0" => :catalina
+    sha256 "478efdf1f24ce2baa47511c4cfa2c451703140c760186a8845fecc765c3b38c4" => :mojave
+    sha256 "36d3e9d28b01f104593703ebe93a230a170247090e78b492cee72eb55c3cedcc" => :high_sierra
+    sha256 "f61894f34fb608a97f4df370f9f466a129f418d8eb48781fe936ff5f145c2c5a" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
 
@@ -25,7 +26,7 @@ class IrcdHybrid < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
-                          "--enable-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--enable-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
     etc.install "doc/reference.conf" => "ircd.conf"
   end

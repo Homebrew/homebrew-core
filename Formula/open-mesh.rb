@@ -1,16 +1,16 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/7.1/OpenMesh-7.1.tar.bz2"
-  sha256 "71cd5eb25893b0369ac766bb8305a525ffbb39b7f796d2878c7f9b8e0827cbac"
+  url "https://www.openmesh.org/media/Releases/8.0/OpenMesh-8.0.tar.bz2"
+  sha256 "f3311232d3611847c523bd4792ce8700f7ec81e9e1ff2a4bdda18eac70577d33"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
     cellar :any
-    sha256 "569d019aa380afeff5ab62e031426ef62660b391ee6eb5b55ef1fd793860015e" => :mojave
-    sha256 "b7cefbc94249260c254e22d7502c2e21d86149784c20580ad5708f69a177ad81" => :high_sierra
-    sha256 "5d7fbe275ebec95a6f3abe24ac13d6b9bdb1df2e07bb43c92dd8e9e6383105c5" => :sierra
-    sha256 "77e73ad0a825ceae51b0bb906005a1c3e6fab6527adf7f2fcde9a12351d89dc8" => :el_capitan
+    sha256 "6bd14d6bbc21d69422c0af5e5ea2239c7fd2d4327d54de780a09d1d728a46459" => :catalina
+    sha256 "2b6ca56b68c75abb0599ffb58d8f53479fcf7e523ae5be0d2cd914c4d18bfba6" => :mojave
+    sha256 "85e4165e12cbf7ac988c1aebce01509d383665f6f2a775da64965d860f6195af" => :high_sierra
+    sha256 "348b75951d4960940111b8abbb352aff0caf1d0fb2ab8a2f8a167aaf326e5db9" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -67,6 +67,7 @@ class OpenMesh < Formula
       -L#{lib}
       -lOpenMeshCore
       -lOpenMeshTools
+      --std=c++11
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"

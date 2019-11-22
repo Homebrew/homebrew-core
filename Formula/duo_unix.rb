@@ -1,19 +1,19 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.2.tar.gz"
-  sha256 "e1ec2f43036ba639743d631f308419c9a88618a93d4038bf40a9cdeef89ca6db"
+  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.3.tar.gz"
+  sha256 "beabba9fc286fea651941548aa830920f465ca6b754adb6fbc050ad420d3ae75"
 
   bottle do
-    sha256 "006db27f7e6d2370e6a5e318c5c5eb0105c1dd5092c0fe397b0c9196d7298432" => :mojave
-    sha256 "c77151aad876b68e731ac2f63ea6ca661f95e0e1e603a0c081f0d7a6d5c110c2" => :high_sierra
-    sha256 "dcd51390cdf902d90e1c9f21b67f4a38a4b470d4bd8b7e1190c40d0df6641377" => :sierra
+    sha256 "a41a6f038fb5134b2afef19dd4994d2828aae0273c49d254c64052d9211939e4" => :catalina
+    sha256 "fd5f5e51339021d07de78e85e15c1aac887b96df2dabb66ed04e682e0123a1f6" => :mojave
+    sha256 "6d78f280c2a556b36497a48c6b13b2abfc683ee734fe3f084491b20e241521e8" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./bootstrap"
@@ -22,7 +22,7 @@ class DuoUnix < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--includedir=#{include}/duo",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pam=#{lib}/pam/"
     system "make", "install"
   end

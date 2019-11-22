@@ -3,15 +3,16 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://github.com/usit-gd/zabbix-cli/"
-  url "https://github.com/usit-gd/zabbix-cli/archive/2.0.1.tar.gz"
-  sha256 "237e4ec82f8e070ebd69d6f2df6cecd086663320c67e7afbab39ebb6460ea132"
+  url "https://github.com/usit-gd/zabbix-cli/archive/2.1.1.tar.gz"
+  sha256 "1f58b1374dc9e2711bab5d78740ab17fa81dc89aca14e7ea75c10631e6e81227"
   head "https://github.com/usit-gd/zabbix-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "44f00b786590c8cf2c8d0cb85015537b0ee478ccb75ce0c2b8100e10f5a5e74e" => :mojave
-    sha256 "60f771c174df15328657938e91a3bfd98291b2854a378fa14df6742ea9a1ed3f" => :high_sierra
-    sha256 "c696cd8b4f8aa3a78e9c77c7b7b813df9b9459eb8ee76252f4e74975af0b5ed9" => :sierra
+    sha256 "bc2cca8aba0a57cd443c04111875c3dcd9c4a3e4b58e5368bd265ceddfe18d26" => :catalina
+    sha256 "27334ed941525d5eca30f6ce21c9ca9caab0956d4f218b1e951f3c0e0bad7387" => :mojave
+    sha256 "c0121fb46cbca0ff72d19e6f4e1c26a7f1cf988206fc3efb00a6826a2ab31cd3" => :high_sierra
+    sha256 "f61ee16a471a92e786e4da862cdd9a510439db832719bef33a3962bd1ec8f003" => :sierra
   end
 
   depends_on "python"

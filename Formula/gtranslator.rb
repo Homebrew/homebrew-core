@@ -1,13 +1,14 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/3.32/gtranslator-3.32.1.tar.xz"
-  sha256 "e1b37b0436684eb3079916eff7b6eeac2cd51ebbf8d2d6f35b5480ca0391b4da"
+  url "https://download.gnome.org/sources/gtranslator/3.34/gtranslator-3.34.0.tar.xz"
+  sha256 "b2f25c02bdfd246896803756078c3006ef433c83eb802bc23a33413046bffb17"
+  revision 1
 
   bottle do
-    sha256 "2cb0295073c0f1df175ed5b550b5f72ace147baaea33ac1057fb55df6a850bce" => :mojave
-    sha256 "3947995fc4be8630abc393b5e2a10c93dc599fbd65a2fcf9bef3124d9750c8db" => :high_sierra
-    sha256 "ac1903136af8f037d5a5c9bbd663d7d833adaf5b887471b72666681e88c237c2" => :sierra
+    sha256 "159e755282296b401507b791b4c4b7121b995a8055b75271aca6c4ff95c7fcf6" => :catalina
+    sha256 "4b5a43b5bd598eab15e66156b3491c43ad20dc7a226880ee9b720e4bb6b43188" => :mojave
+    sha256 "17ac4683c97685ceedbda84a6680124f04d6181e2397c373633dc8c99eb835b2" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -21,7 +22,9 @@ class Gtranslator < Formula
   depends_on "gtksourceview4"
   depends_on "iso-codes"
   depends_on "itstool"
+  depends_on "json-glib"
   depends_on "libgda"
+  depends_on "libsoup"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step

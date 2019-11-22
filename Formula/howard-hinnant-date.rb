@@ -6,10 +6,10 @@ class HowardHinnantDate < Formula
 
   bottle do
     cellar :any
-    sha256 "4fa9af2ae9c888fdc73395b7d243bbcc36dbeee17b4165b3754444a21b803fc5" => :mojave
-    sha256 "92fa4808e4dcde7540032ce0aac6a0a33e468e654944706ba2661187e2111616" => :high_sierra
-    sha256 "f42440908ef92ade61d8b1b3c152355162768b0a5eaca3fcc1ed3deae72f8c17" => :sierra
-    sha256 "c3902905c2a51ae0e35fe54b84b00f68d97408f502d83b21f293087d16b9e175" => :el_capitan
+    rebuild 1
+    sha256 "7afeb7e1b64e9e78d766be80a2e95c51b404092eeb1e5deb4d84956eeb02aff3" => :catalina
+    sha256 "d1601c1a3c38241472d597a126ed120124995919e42d5a9cc10357c699d1b5e7" => :mojave
+    sha256 "f7600a317e2569e37ac78be36abaff96f8f572cd7650d9c202a5a758f59f46f8" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -32,7 +32,7 @@ class HowardHinnantDate < Formula
         std::cout << t << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-ltz", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-ltz", "-o", "test"
     system "./test"
   end
 end

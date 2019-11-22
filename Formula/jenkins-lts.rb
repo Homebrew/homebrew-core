@@ -1,8 +1,8 @@
 class JenkinsLts < Formula
   desc "Extendable open-source CI server"
   homepage "https://jenkins.io/index.html#stable"
-  url "http://mirrors.jenkins.io/war-stable/2.176.1/jenkins.war"
-  sha256 "8bbc6e2043e7bd102f751aca94b51652e1e792ec0a11377d52c9d9ed484f0e8c"
+  url "http://mirrors.jenkins.io/war-stable/2.190.3/jenkins.war"
+  sha256 "79c2042b30ad71dc9cf17a5877f64eaed405fa03e24e002ca60f8db73b7ad490"
 
   bottle :unneeded
 

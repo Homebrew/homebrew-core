@@ -1,14 +1,13 @@
 class Liblockfile < Formula
   desc "Library providing functions to lock standard mailboxes"
   homepage "https://tracker.debian.org/pkg/liblockfile"
-  url "https://deb.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.14.orig.tar.gz"
-  sha256 "ab40d4a3e8cbc204f7e87fea637a4e4ddf9a1149aaa0a723a4267febd0b1d060"
+  url "https://deb.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.16.orig.tar.gz"
+  sha256 "cf6e3828ced3fcc7e5ed36b7dabdf9e0e3ba55a973dab8ed212fb86afc901c69"
 
   bottle do
-    sha256 "26b5675b6797bb7d652bedd7795bc8b141e4bc91f21fdd0e143f24cc2f76ef0d" => :mojave
-    sha256 "49db28fa47ee7012be39fbb8ab03948c050a95525808aa27ad2f8521ff8fadc6" => :high_sierra
-    sha256 "45b9f5fee9e1a0efa2439027cd72d5bc6fede1ec9391a46d0a9eb024e675b31c" => :sierra
-    sha256 "f6ca20b97a651114986b485e950859e733a08384bd9ea08ef12eb8cd29f2e697" => :el_capitan
+    sha256 "e5991a3eac0b5cd41f2850d73643607c33bb41b7014105f0ed80b75c5e7ef866" => :catalina
+    sha256 "18663ff713cb46c514546f5a73026deb4e3df5b701b082b5cd68275581b05ba8" => :mojave
+    sha256 "bc532693f97e4d14ac59974b80f5a31b121b5cc404efb2aacda1c1607f4bcf5b" => :high_sierra
   end
 
   def install

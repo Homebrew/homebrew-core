@@ -7,6 +7,7 @@ class Procmail < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a7f6ee9550f27ea88322a4c4c88b04421e6d2c676248a914571a2fbffd6d425f" => :catalina
     sha256 "48be3e5215b4ac296ef1f9150b313964112e5c7d04fe20489f336342548656e0" => :mojave
     sha256 "c64920b1989d941d9aa4de7c275cf2e80306cb8bd2ee5d8263e883ddab7ef2e3" => :high_sierra
     sha256 "c64ccf998d9c71d1b73004abe4c96a8c35993cf4c1a899cd6d92bfab82b9272a" => :sierra

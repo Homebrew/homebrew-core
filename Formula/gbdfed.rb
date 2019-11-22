@@ -7,6 +7,7 @@ class Gbdfed < Formula
 
   bottle do
     cellar :any
+    sha256 "ac131ff87dd812928b3f8136d5ce364370ab0a8ded3ffdf2fbf2a38e58998494" => :catalina
     sha256 "00b2376a043f6e90d777bc9e5805d84da21c046f446c4dcd649b482a01cbc6cf" => :mojave
     sha256 "945fc3ffa7573224e7a387e6dec353ca7f3b46829f3e3728774a97c26fb0923a" => :high_sierra
     sha256 "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5" => :sierra

@@ -7,6 +7,7 @@ class Ht < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "330aeebfe496dbe213285aed3ab6d2dfad6a709f86b43ac8ad8a33798b08c2fe" => :catalina
     sha256 "0669645033eb4eeecad54df5e43bc733ce4cc527fa52f2277c002296b2207753" => :mojave
     sha256 "8c604066c63fa1eba3bb547626bbc280ea4446bb2961cb54e8b4fc7b829af5c4" => :high_sierra
     sha256 "197a62339202dd45529bbf42b67addc35939dbae43cc9704ff15d75e5ad62d01" => :sierra

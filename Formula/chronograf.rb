@@ -3,15 +3,15 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.7.11.tar.gz"
-  sha256 "576e24ab31f3134edaf72651fa288eb4e6f1461662730a57af63096a088d0664"
+  url "https://github.com/influxdata/chronograf/archive/1.7.14.tar.gz"
+  sha256 "245479b691e2ad484717778562ce9e0c21b1d769e7d748335d1c5f41cd677d4c"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3482c2d6ba13a49c943cc17a4334ca61730bdacdf658b1345870d30c7e8e855f" => :mojave
-    sha256 "b3e32c0c49a56455d1b2208bdc9978f85b999d39ac11b5de3cfc4d8e9f839a2e" => :high_sierra
-    sha256 "f52ec78ab92ab591df495dfd28dc7339a2b57915c397fc0cd25da3e7cb763210" => :sierra
+    sha256 "f3115535c7d986495c81b71b9b0f0e718d9cc4319fb6ed6d3fe38f559f820768" => :mojave
+    sha256 "a5c6e5b3dcfd0896e51b2c80606ea0127079cf0f1f42385d6bff4dcf5496019c" => :high_sierra
+    sha256 "4e54046b3218fac9e81fa7b28b621e83ccec7e025e9a546f2686e62fc1c19478" => :sierra
   end
 
   depends_on "go" => :build
@@ -27,10 +27,10 @@ class Chronograf < Formula
     chronograf_path = buildpath/"src/github.com/influxdata/chronograf"
     chronograf_path.install buildpath.children
 
-    # fixes yarn + upath@1.0.4 incompatibility, remove once upath is upgraded to 1.0.5+
-    Pathname.new("#{ENV["HOME"]}/.yarnrc").write("ignore-engines true\n")
-
     cd chronograf_path do
+      cd "ui" do # fix node 12 compatibility
+        system "yarn", "upgrade", "parcel@1.11.0", "node-sass@4.12.0"
+      end
       system "make", "dep"
       system "make", ".jssrc"
       system "make", "chronograf"
@@ -71,17 +71,15 @@ class Chronograf < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/chronograf"
-      end
-      sleep 1
-      output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
-      sleep 1
-      assert_match %r{/chronograf/v1/layouts}, output
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
+    pid = fork do
+      exec "#{bin}/chronograf"
     end
+    sleep 3
+    output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
+    sleep 1
+    assert_match %r{/chronograf/v1/layouts}, output
+  ensure
+    Process.kill("SIGINT", pid)
+    Process.wait(pid)
   end
 end

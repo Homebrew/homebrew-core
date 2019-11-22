@@ -3,12 +3,12 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 22
+  revision 25
 
   bottle do
-    sha256 "b7e898aedfcd06a3866aae2a1951b78a99c9348815484f93b07d6c68331a836d" => :mojave
-    sha256 "afb0f1509b33e4c26f0a0fa43e4282f34aca6573a9290a199d3c232f22009563" => :high_sierra
-    sha256 "0061cc3f741008cb7afae6e67fb10eba53b13e45d9e9dd2b01ba64cfea8455a3" => :sierra
+    sha256 "3b68a47e1d71d14052194841b7ab611fbd5104dd079e6236e20840fb68db8c05" => :catalina
+    sha256 "123201d7964eebb690ddad2fd2a9156f4780935a1cfc19fd84531251e03d8068" => :mojave
+    sha256 "06ab5dc0adebdb11b368434a701ddb64b218e0b5b19e4fda21b9d05bc5c9a4d9" => :high_sierra
   end
 
   keg_only :versioned_formula

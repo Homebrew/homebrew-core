@@ -1,17 +1,18 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.4.0.tar.xz"
-  sha256 "1cfa802081bee09fd0ddfa97bd491e6554e25fa59f7a7758b41d8aef53458e7b"
+  url "https://libvirt.org/sources/libvirt-5.9.0.tar.xz"
+  sha256 "3496d2e1d988185de013b2a9d2e8824458afd85aa7cd050283a59b3d78978939"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "a9c0b1b4466e2d3b87565b2b893baa981e54082d0e8e31d7beeb5cb4add0a6f8" => :mojave
-    sha256 "e5a42a756d659e1423fff10dbbf1ff96c63da6f0e0214a04d67d10b714c29a21" => :high_sierra
-    sha256 "8478162f9cad2897bb817589d85d03176ffe894482cf1a2cb5a5eebb0d2bf34e" => :sierra
+    sha256 "15c9711df6e2c8dfcfac262a19c1d0aa0e1be6c518a548af238f26aa63c24006" => :catalina
+    sha256 "d837fc01b016eb7a624a56155910e6b4c428b7833fb5f111956ab38997a37337" => :mojave
+    sha256 "ec74e1d18cc8adcff1a99b6b3de4d11f6a2733b2113f02566c8f90694ea1c9c2" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "yajl"
@@ -40,6 +41,9 @@ class Libvirt < Formula
     ]
 
     args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
+
+    # Work around a gnulib issue with macOS Catalina
+    args << "gl_cv_func_ftello_works=yes"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

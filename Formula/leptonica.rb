@@ -3,12 +3,13 @@ class Leptonica < Formula
   homepage "http://www.leptonica.org/"
   url "http://www.leptonica.org/source/leptonica-1.78.0.tar.gz"
   sha256 "e2ed2e81e7a22ddf45d2c05f0bc8b9ae7450545d995bfe28517ba408d14a5a88"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "534b5e4c96c34aed7f2e3dd9ffc046fd49a9a015a1ed0c2f1859d2cc182ed66e" => :mojave
-    sha256 "ca7ccc979d58c3586d74169c5dbd537976f2ec9a41bd16effaec418fb03ecfc0" => :high_sierra
-    sha256 "9f14866468766e9b7344b18c6d530f6cbb88919e2b3d25dad248f2e049f7bd3a" => :sierra
+    sha256 "d9e27aab9e580e3f25f3be0c59f18aaa54b644c5886a7a1557d7bd2fda5003ab" => :catalina
+    sha256 "0fc5ee0131143e0abe3b645ca69c23f8701787f0d60b2b28c0a4fdbbd5ce0913" => :mojave
+    sha256 "53334591a3f5f47b0aba1ca1d9529bfd83bb05140784a34b3e4571d160483f06" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

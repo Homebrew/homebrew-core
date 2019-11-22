@@ -3,18 +3,19 @@ class Breezy < Formula
 
   desc "Version control system implemented in Python with multi-format support"
   homepage "https://www.breezy-vcs.org"
-  url "https://files.pythonhosted.org/packages/f6/8a/f5aab26e6769907afda49a79e19dfa187a9f84797d9147ee6e35b52d97b9/breezy-3.0.0.tar.gz"
-  sha256 "d5723a7a3fcaa827bf2731c20df5240d7063c7728b2db3a5d58bc90f6257f878"
+  url "https://files.pythonhosted.org/packages/6b/81/ae2ddb07ef93d62689a98b6b711394bfbe3e35c719253b18e6b84221d500/breezy-3.0.2.tar.gz"
+  sha256 "50f16bc7faf299f98fe58573da55b0664078f94b1a0e7f0ce9e1e6a0d47e68e0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a5168ff98a8a820806d15619f793189a3f61876879121a5cd7d4b2e1e723dd5" => :mojave
-    sha256 "5f508532d94dcfb5346666b78a2762608294d51b5580ecf047dbdfb4f4c52243" => :high_sierra
-    sha256 "ab4a0b94706bb8f761ba47f60603736364838306c2d108e1c332506d680ff18b" => :sierra
+    sha256 "e06627d654c6610734e326fe0ef7203b5bb37bfd60af14dbda48e755ccec4372" => :catalina
+    sha256 "1c37188d399bcc580b85b4d433831c3efc1241ba79e4af173ad3d896e236ac77" => :mojave
+    sha256 "e1b965da5e13778f78f29d2835954f2aa15eba430dc9a928339ad9834783d73f" => :high_sierra
   end
 
+  depends_on "cython" => :build
   depends_on "gettext" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "configobj" do
@@ -22,19 +23,14 @@ class Breezy < Formula
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/f0/f8/7f406aac4c6919d5a4ce16509bbe059cd256e9ad94bae5ccac14094b7c51/Cython-0.29.1.tar.gz"
-    sha256 "18ab7646985a97e02cee72e1ddba2e732d4931d4e1732494ff30c5aa084bfb97"
-  end
-
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/2e/02/42ce6e45a206ccb044d8a3296646497e96b5263624e5862d21da947b9d59/dulwich-0.19.11.tar.gz"
-    sha256 "afbe070f6899357e33f63f3f3696e601731fef66c64a489dea1bc9f539f4a725"
+    url "https://files.pythonhosted.org/packages/44/26/d0c3930418e57e79f30766fe1dd536a8863fe3e443efaf6574e66d33264a/dulwich-0.19.13.tar.gz"
+    sha256 "aa628449c5f594a9a282f4d9e5993fef65481ef5e3b9b6c52ff31200f8f5dc95"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/a4/57/86681372e7a8d642718cadeef38ead1c24c4a1af21ae852642bf974e37c7/paramiko-2.4.2.tar.gz"
-    sha256 "a8975a7df3560c9f1e2b43dc54ebd40fd00a7017392ca5445ce7df409f900fcb"
+    url "https://files.pythonhosted.org/packages/54/68/dde7919279d4ecdd1607a7eb425a2874ccd49a73a5a71f8aa4f0102d3eb8/paramiko-2.6.0.tar.gz"
+    sha256 "f4b2edfa0d226b70bd4ca31ea7e389325990283da23465d572ed1f70a7583041"
   end
 
   resource "pycrypto" do
@@ -43,13 +39,13 @@ class Breezy < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
-    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
+    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
   end
 
   def install

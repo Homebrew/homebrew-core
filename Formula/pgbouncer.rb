@@ -1,30 +1,32 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
-  homepage "https://wiki.postgresql.org/wiki/PgBouncer"
-  url "https://pgbouncer.github.io/downloads/files/1.9.0/pgbouncer-1.9.0.tar.gz"
-  sha256 "39eca9613398636327e79cbcbd5b41115035bca9ca1bd3725539646468825f04"
+  homepage "https://pgbouncer.github.io/"
+  url "https://pgbouncer.github.io/downloads/files/1.10.0/pgbouncer-1.10.0.tar.gz"
+  sha256 "d8a01442fe14ce3bd712b9e2e12456694edbbb1baedb0d6ed1f915657dd71bd5"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ff4be2490697fe770c31b0daee18fae4c8911652162dd7590c36e6c10f645f91" => :mojave
-    sha256 "ef9421f5cb50c9ac632151f5058f78976fcd80dbb395fca5344a849e497368ff" => :high_sierra
-    sha256 "1913c8bc33932cb10583a2cbbb37735345db29a2d84571c4f137d0d9d9c68336" => :sierra
-    sha256 "2bd0cd45ec8291fbf9db4965a50a063a9d6b2137f6ef160170a07bdb7a068629" => :el_capitan
+    sha256 "4d52e5a09594ca3350df197d2c2ca8ac98943f194cbd476cc187e731139b9c27" => :catalina
+    sha256 "47856e33e4e537ee50b39573d63f1366f332b57d57be21a797bd7da6d19eb11b" => :mojave
+    sha256 "728418195cb273b74d67b791a0e9834cbc7dc9828f928c9dd44fe015e404b117" => :high_sierra
+    sha256 "ec357f9ba0bd22a1f34b0ce1d9174376ba4aedf43904318430cd109f076a4188" => :sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "xmlto" => :build
   depends_on "libevent"
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
     system "./configure", "--disable-debug",
                           "--with-libevent=#{HOMEBREW_PREFIX}",
                           "--prefix=#{prefix}"
     ln_s "../install-sh", "doc/install-sh"
     system "make", "install"
     bin.install "etc/mkauth.py"
+    inreplace "etc/pgbouncer.ini" do |s|
+      s.gsub! /logfile = .*/, "logfile = #{var}/log/pgbouncer.log"
+      s.gsub! /pidfile = .*/, "pidfile = #{var}/run/pgbouncer.pid"
+      s.gsub! /auth_file = .*/, "auth_file = #{etc}/userlist.txt"
+    end
     etc.install %w[etc/pgbouncer.ini etc/userlist.txt]
   end
 
@@ -53,7 +55,6 @@ class Pgbouncer < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/pgbouncer</string>
-          <string>-d</string>
           <string>-q</string>
           <string>#{etc}/pgbouncer.ini</string>
         </array>

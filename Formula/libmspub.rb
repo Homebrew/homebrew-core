@@ -7,6 +7,7 @@ class Libmspub < Formula
 
   bottle do
     cellar :any
+    sha256 "aee93415583bfd6d1b12ccbb1f18b7bad97579ab9046cfff2d303e1bc7336abf" => :catalina
     sha256 "93f7e02d005fb22101eab93659f200ed8376130c9a4bad0c24b0cdde51b92f18" => :mojave
     sha256 "43347c63d9fb4a6746929b2127453241cdad9b13a9fd00ddf82af418d6a175b2" => :high_sierra
     sha256 "ebf70558240b3cc3c49994e865108d7d29796c45d1129e844ef1c99d8ae510a7" => :sierra

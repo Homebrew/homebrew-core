@@ -1,15 +1,14 @@
 class Aespipe < Formula
   desc "AES encryption or decryption for pipes"
   homepage "https://loop-aes.sourceforge.io/"
-  url "https://loop-aes.sourceforge.io/aespipe/aespipe-v2.4e.tar.bz2"
-  sha256 "bad5abb8678c2a6062d22b893171623e0c8e6163b5c1e6e5086e2140e606b93a"
+  url "https://loop-aes.sourceforge.io/aespipe/aespipe-v2.4f.tar.bz2"
+  sha256 "b135e1659f58dc9be5e3c88923cd03d2a936096ab8cd7f2b3af4cb7a844cef96"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abd6ee4463960a4283fa5fd97b45f7ca49400bdee3182d1248ced9ef45626189" => :mojave
-    sha256 "0031c9dbcf93fb4faa3b4176491cb0917426f0b5c146e0dff9a1f51a0d2cc9c9" => :high_sierra
-    sha256 "7569237a2bd31170d52f161afdb3b46cc23acdc4a35c2662d0b79aac831ac2b8" => :sierra
-    sha256 "5a70398747999348647c7577da0c4fb2274413f53ee65fd6fce3845cbc27e0d9" => :el_capitan
+    sha256 "c96c3f1ba5bcd7672630d7c9d693cb5d9333e3473ecdca6771290a68ac54db2e" => :catalina
+    sha256 "f52e6c3afc951ca588522d8073b62300113a30cb6d3927a25de643cc10622d74" => :mojave
+    sha256 "00d7cb8240e8e1beb4b8cf701bf38961531df8a9f2d497c4ff5a95747ac3dbae" => :high_sierra
   end
 
   def install

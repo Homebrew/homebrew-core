@@ -9,14 +9,15 @@ class Filebeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c5f15117647492fb99f28916a00a5999348952e13f097d8c6bc7608df981af5" => :mojave
-    sha256 "6fb82adc6d41dff52ee5407211f14f3d6b8eaf2451dce045e04533f8200a16d5" => :high_sierra
-    sha256 "f8a9672cc5c88dfdb35a46b731f05d34d1b749f5a58f0b70393a854787eebc39" => :sierra
-    sha256 "86e8f72ae2e7404c3e8de74ddd154efbc003b26bb83ca5d28813a38d403b4a45" => :el_capitan
+    rebuild 1
+    sha256 "f851504b92be5efb4b22c8368f5fa93e362a92936ac13591dc3bf4964e245b1a" => :catalina
+    sha256 "3e8ba2861a929174fe1fec21c8c957842ba64f75451984f5619f3d5956cecaf7" => :mojave
+    sha256 "16df33929b7bed4480a78d6e7907f9e8eb3b35f90a1da8b8b88217e041da361f" => :high_sierra
+    sha256 "c0887cf5e4842173b9bc286657755f19f03f4c025934f632efb6d90d24626a27" => :sierra
   end
 
   depends_on "go" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
@@ -27,10 +28,11 @@ class Filebeat < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
     resource("virtualenv").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
     ENV.prepend_path "PATH", buildpath/"vendor/bin"

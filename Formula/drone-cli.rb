@@ -2,27 +2,26 @@ class DroneCli < Formula
   desc "Drone CLI"
   homepage "https://drone.io"
   url "https://github.com/drone/drone-cli.git",
-    :tag      => "v1.1.1",
-    :revision => "b796291a8a07a0300696ee3944418236751788e1"
+    :tag      => "v1.2.0",
+    :revision => "f9fd3fe42bdfa015f2da700de8d00cecbd8adc1a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c45a40ac12130a4dc15a6bcb41a33674b532736b5e30494f196e6c1dd0b5f38d" => :mojave
-    sha256 "7c30b8d8e8b257501d55e478fab4b9ef7601cc04f26c83b5d89e34f7e0f5a038" => :high_sierra
-    sha256 "7acd0eab3d379a33206e17d9c99386d9412ac38d65aeb871b7a6c426a3cf559f" => :sierra
+    sha256 "cde21f2a1c918e095f138b6cccc9870c2a1a76bee8a9a8e3dbee33ab4c54bfbd" => :catalina
+    sha256 "a059cdbe892dd4a7058636503d690da54ac8fab3eaeff7d1ae32e07229282b1a" => :mojave
+    sha256 "5753b74f0c5ede30868d431cc877f934eb5e10a7bc59ede9da54d2f3b785fa8b" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
 
     dir = buildpath/"src/github.com/drone/drone-cli"
     dir.install buildpath.children
 
     cd dir do
-      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"drone", "drone/main.go"
       prefix.install_metafiles
     end

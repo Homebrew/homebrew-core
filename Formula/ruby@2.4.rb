@@ -3,18 +3,21 @@ class RubyAT24 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.6.tar.xz"
   sha256 "25da31b9815bfa9bba9f9b793c055a40a35c43c6adfb1fdbd81a09099f9b529c"
+  revision 1
 
   bottle do
-    sha256 "8eb2f3497a733142d07bcb8431926b7abccf1c65da8b0bf479265248eb22c7d3" => :mojave
-    sha256 "fd4576334a6107dc70b5ac1fd95843bd2992c8447bdb4eb023da2bf9c576cc9d" => :high_sierra
-    sha256 "bd108dec203c7b30f4defe7c66aa6813e77d936e2dd794b13a945e429852c05e" => :sierra
+    rebuild 1
+    sha256 "c0390429744012b7b6d69e0dabae107d0fa847df6ae08f364c53f1f38072755c" => :catalina
+    sha256 "d47dbea53e472a49a045acc195770092e92689801f8c544a51adbc221f2b7825" => :mojave
+    sha256 "ff4fd989d5e6ee797db897a6f9ee4e4bec7800337e37e01b230f53b54e51522a" => :high_sierra
+    sha256 "496a8815159f999fdd6002875d8d5fd67ec089af3d487e1ebffee0740568a195" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def api_version
@@ -29,7 +32,7 @@ class RubyAT24 < Formula
     # otherwise `gem` command breaks
     ENV.delete("SDKROOT")
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -37,6 +40,7 @@ class RubyAT24 < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

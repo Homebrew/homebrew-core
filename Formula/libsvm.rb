@@ -1,17 +1,18 @@
 class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.22.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/libsvm-3.22.tar.gz"
-  sha256 "6d81c67d3b13073eb5a25aa77188f141b242ec328518fad95367ede253d0a77d"
+
+  # Upstream deletes old downloads, so we need to mirror it ourselves
+  url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.23.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/libsvm-3.23.tar.gz"
+  sha256 "257aed630dc0a0163e12cb2a80aea9c7dc988e55f28d69c945a38b9433c0ea4a"
 
   bottle do
     cellar :any
-    sha256 "3fba9f6c0ce647a202c653b1f024d7dd53174aecbb4082b9333a1122309b36af" => :mojave
-    sha256 "6fae589e624777638a8a5bc1c8b03e3bb48f88a61380b608273b44bd2d25aec4" => :high_sierra
-    sha256 "39f3552e425be4bcb6e42d917b508bf94904520526c49ec52712c017680583fd" => :sierra
-    sha256 "67867d2ddde33efd85da4c1a03757af0e3dcf591186552140876ddd11916d5df" => :el_capitan
-    sha256 "3ee2001f87f2a58e698aeb0bfc413baa820184dba1caa2b3ec0a5a593a80d651" => :yosemite
+    sha256 "c2c9525f4cdff0654a5a805dc60aa09880454f0fa5ab92eb1e4c0287cd738c96" => :catalina
+    sha256 "75d440e35a774490aea6cec6fd514779069d3ffa55febce89a3f1eb8bad45337" => :mojave
+    sha256 "661d867329c2851e84d02e78d2debc78357c9aa0d576223a1011b4d5533a7391" => :high_sierra
+    sha256 "e78ffd8fb5a4c430e206462619ef419cde99f48728d09baaf250dc1cbc121abc" => :sierra
   end
 
   def install

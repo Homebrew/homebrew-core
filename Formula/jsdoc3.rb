@@ -3,15 +3,16 @@ require "language/node"
 class Jsdoc3 < Formula
   desc "API documentation generator for JavaScript"
   homepage "https://jsdoc.app/"
-  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.6.2.tgz"
-  sha256 "8fcb467c7095e9b2dc5771212ffd98978cf54c355ea8b60ac28db7eb73b1de3a"
+  url "https://registry.npmjs.org/jsdoc/-/jsdoc-3.6.3.tgz"
+  sha256 "e5f5f08854cb821d6196fe7b438b80372c67be16eb0f45c6ea22b5b741379dcd"
   head "https://github.com/jsdoc3/jsdoc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a3dbe47d0b9c325e1688a7b96691119beee2f65c16a15eda674b7a4ee17251af" => :mojave
-    sha256 "9c7edd88f94bbbb7f302cd0da115aed76ccca398ef374d09a446de678f005bec" => :high_sierra
-    sha256 "4083d0193dd4fd7055e2232e14303751dec9f5b664dd543f7986c149c9eba8d5" => :sierra
+    sha256 "23a682cadd4cd7d6c89c34fe912cf11ccd8a2da14c8a87c3d6cb12db08b78b13" => :catalina
+    sha256 "85f149b9eb5f0e49bff30e9af4a465c9dd768500c27061198225bbdc42e47315" => :mojave
+    sha256 "91a544105a3ab68142b455117c91276ab5632ad80daa6cca34aa80800093213e" => :high_sierra
+    sha256 "3c7eac58fecbcfb14c9d3d1c0a89ba065fb8f773fff6953a9a925c8b453e6e63" => :sierra
   end
 
   depends_on "node"

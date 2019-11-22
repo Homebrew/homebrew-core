@@ -6,7 +6,7 @@ class Jvmtop < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.8"
 
   def install
     rm Dir["*.bat"]

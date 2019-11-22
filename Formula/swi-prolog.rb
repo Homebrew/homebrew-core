@@ -1,15 +1,16 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
-  url "https://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
-  sha256 "abb81b55ac5f2c90997c0005b1f15b74ed046638b64e784840a139fe21d0a735"
-  revision 2
+  url "https://www.swi-prolog.org/download/stable/src/swipl-8.0.3.tar.gz"
+  sha256 "cee59c0a477c8166d722703f6e52f962028f3ac43a5f41240ecb45dbdbe2d6ae"
+  revision 1
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
-    sha256 "1f939859822bad18d36ab1a65bb51fa9eafad219cb5f3602ff3f5da5fdc57342" => :mojave
-    sha256 "648648853bafd06553bdaf3e508f4eac9364ed317f305268eae70b133eb39a98" => :high_sierra
-    sha256 "05a806650cd1a311eda4ab03e5ac941da4cf6e090a8e98be3f13ee5fa61c9441" => :sierra
+    sha256 "7c4d1bfaa974db039bdd7ec219d22206b63833b4c2a2d078db52c8f6742031ce" => :catalina
+    sha256 "587beb4ccaa5e7fb85d1c4465487fb315e4ef168a30ad674c614d8c0ba84ca6b" => :mojave
+    sha256 "fff29cb6a95e692fb68bda037ccef83164a91e550e784d643446f777a9cb8ccc" => :high_sierra
+    sha256 "3cbd050f46aef41c733b56ab49dc081c6bd39ad67c79d3a24381a01291c8a1ad" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -19,7 +20,7 @@ class SwiProlog < Formula
   depends_on "jpeg"
   depends_on "libarchive"
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"

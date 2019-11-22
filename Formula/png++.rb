@@ -1,23 +1,34 @@
 class Pngxx < Formula
   desc "C++ wrapper for libpng library"
   homepage "https://www.nongnu.org/pngpp/"
-  url "https://savannah.nongnu.org/download/pngpp/png++-0.2.5.tar.gz"
-  sha256 "339fa2dff2cdd117efb43768cb272745faef4d02705b5e0e840537a2c1467b72"
-  revision 1
+  url "https://download.savannah.gnu.org/releases/pngpp/png++-0.2.10.tar.gz"
+  sha256 "998af216ab16ebb88543fbaa2dbb9175855e944775b66f2996fc945c8444eee1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0a5221ea49fb845c830698b2d1c170cb8d59d18916ca843a5c80ef7d48b37435" => :mojave
-    sha256 "4085580bff1ec2116c321e84a426d195943a002f84b4662c9814a64e5925c627" => :high_sierra
-    sha256 "41785b523dc50e5b237d83d027b34b6532114a6751eff3f409ee0ba9e0730f04" => :sierra
-    sha256 "7b01b3ff0af9e60f2887bb45ff5ba2f5823a9a440c2d78e51e69904d3edd80d8" => :el_capitan
-    sha256 "de37d7fadb7308b45ba0448308256d00bf36442bacbab1e734ee8398aea8a8dd" => :yosemite
-    sha256 "f2e242ee428f191645418a9897eb2fd729408dd67d04e7af4cefc7dcb5715250" => :mavericks
+    sha256 "c6377c5185e7ae53ff7ec9a133b8c12618a400f64d14b55ee751dc7c85cbc491" => :catalina
+    sha256 "536f9c2dd05cfd2ae8a4f7f5d0c5c38575cf91609498f98bd6c3f97c4de2c520" => :mojave
+    sha256 "536f9c2dd05cfd2ae8a4f7f5d0c5c38575cf91609498f98bd6c3f97c4de2c520" => :high_sierra
+    sha256 "cee110f568bae723e8e5172e8bab36c8f4c5adb8bf339a444926a572bfa13f89" => :sierra
   end
 
   depends_on "libpng"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <png++/png.hpp>
+      int main() {
+        png::image<png::rgb_pixel> image(200, 300);
+        if (image.get_width() != 200) return 1;
+        if (image.get_height() != 300) return 2;
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-o", "test"
+    system "./test"
   end
 end

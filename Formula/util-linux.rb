@@ -1,15 +1,15 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.33/util-linux-2.33.2.tar.xz"
-  sha256 "631be8eac6cf6230ba478de211941d526808dba3cd436380793334496013ce97"
-  revision 1
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.34/util-linux-2.34.tar.xz"
+  sha256 "743f9d0c7252b6db246b659c1e1ce0bd45d8d4508b4dfa427bbb4a3e9b9f62b5"
 
   bottle do
     cellar :any
-    sha256 "4378cde04082e8ae81a32a02c329989f10a7b582354d248e81f5958d4a5cf150" => :mojave
-    sha256 "618e77696340f47cda39e0f80dfdc9ddaf18462ee11b536139689c8dc1381b5c" => :high_sierra
-    sha256 "569009c8d2f16d8ebaae5f56a8e6cf528e593f4c9e0ad3f32cf244fb6ddc8e65" => :sierra
+    rebuild 1
+    sha256 "ad4962d8ce56d784085cf53e2f3add3432a3905285acf05a23fcc2e5e40cf5a8" => :catalina
+    sha256 "483548a881703f1e4645c40a9779758ff2da0db1dc521b4ce7321d86c723669d" => :mojave
+    sha256 "f02d33204d3ff42112ab972d1fa93f84a7676bcc28f208eac41172db4f7416e7" => :high_sierra
   end
 
   keg_only "macOS provides the uuid.h header"
@@ -18,11 +18,10 @@ class UtilLinux < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--disable-ipcs",        # does not build on macOS
-                          "--disable-ipcrm",       # does not build on macOS
-                          "--disable-wall",        # already comes with macOS
-                          "--enable-libuuid",      # conflicts with ossp-uuid
-                          "--disable-libsmartcols" # macOS already ships 'column'
+                          "--disable-ipcs",  # does not build on macOS
+                          "--disable-ipcrm", # does not build on macOS
+                          "--disable-wall",  # already comes with macOS
+                          "--enable-libuuid" # conflicts with ossp-uuid
 
     system "make", "install"
 
@@ -44,7 +43,16 @@ class UtilLinux < Formula
   end
 
   test do
-    out = shell_output("#{bin}/namei -lx /usr").split("\n")
-    assert_equal ["f: /usr", "Drwxr-xr-x root wheel /", "drwxr-xr-x root wheel usr"], out
+    stat  = File.stat "/usr"
+    owner = Etc.getpwuid(stat.uid).name
+    group = Etc.getgrgid(stat.gid).name
+
+    flags = ["x", "w", "r"] * 3
+    perms = flags.each_with_index.reduce("") do |sum, (flag, index)|
+      sum.insert 0, ((stat.mode & (2 ** index)).zero? ? "-" : flag)
+    end
+
+    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split(" ")
+    assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end

@@ -7,6 +7,7 @@ class Liboil < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "4568936a9d090ea8a2a349e4009a0b2f0a66edc49c93b4bda1a9c30d6ad64544" => :catalina
     sha256 "e8655c3c54d78829199c130758a73dce27e27d8a925cb9ec943a1d32522c13f6" => :mojave
     sha256 "3214b8910deb69c2c0138a5ece603515c089fa2178ead16e4106695dd6b4c4b4" => :high_sierra
     sha256 "f242435c284690879f84812481843e92c54adc190a8201aa31d550c262e1951d" => :sierra

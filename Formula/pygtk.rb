@@ -7,17 +7,25 @@ class Pygtk < Formula
 
   bottle do
     cellar :any
-    sha256 "4b7adc63c58467d417789307672f8e269bda9189e893e3962547dbcde0e3c52e" => :mojave
-    sha256 "e999cf9dbfe2cbed2aa8106acfa5e7a357c421146c1ae4b8de7d47e9b87b72a4" => :high_sierra
-    sha256 "73871fa751d38f41bf54d09531764ed05c2a3f8a5b8dfd54f34c26a7638965b2" => :sierra
+    rebuild 2
+    sha256 "12bab3d76587659b38e56867c9b359941803275716896e2936cd3e8029cf5f3f" => :catalina
+    sha256 "87f89d246e3a779381ec2efdee7ee2b69fda464f38a59dd8e14304435d759419" => :mojave
+    sha256 "969cef803e110b2767c6d3ade304b92d7f23a02ff7eb4030772b69b52df7c3b2" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "atk"
   depends_on "glib"
   depends_on "gtk+"
+  depends_on "libglade"
   depends_on "py2cairo"
   depends_on "pygobject"
+
+  # Allow building with recent Pango, where some symbols were removed
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/pygtk/2.24.0.diff"
+    sha256 "ec480cff20082c41d9015bb7f7fc523c27a2c12a60772b2c55222e4ba0263dde"
+  end
 
   def install
     ENV.append "CFLAGS", "-ObjC"

@@ -3,17 +3,19 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.17.0.tar.gz"
-  sha256 "e21b5d06cd53e86afb94f0b3678e0abb0c0f011433471fa3d895cefa65ae0fab"
+  url "https://nginx.org/download/nginx-1.17.3.tar.gz"
+  sha256 "3b84fe1c2cf9ca22fde370e486a9ab16b6427df1b6ea62cdb61978c9f34d0f3c"
+  revision 1
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "fb48be70e11aa7072281f33cb98ed10fb7f5e455e61ba539b9896cb5b33b920f" => :mojave
-    sha256 "c681fa739292c44facbb1f79461a99050d7881152ba6b0dea01952aa03783f96" => :high_sierra
-    sha256 "a746595e48de02ea3b9b11cd363609a3e1c3268564128591beecbaf2fbfbb5da" => :sierra
+    sha256 "484511b8e595f7dba53248439c320208fc4b885ba0baf78e05cbb7f89e80b755" => :catalina
+    sha256 "11b43209912c3f75918d07a36c9e676ad042707a2f2948115edc3242daf0b28d" => :mojave
+    sha256 "fb7d0e09b9fa42615cb53f03c2ddaad90946a79e9bf184d48f430b7f9ce1513e" => :high_sierra
+    sha256 "61f78dccbe4df891bf0697ac906e6fe779ca2b3a61ab70b28412439c419d91a7" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
   def install
@@ -27,7 +29,7 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     pcre = Formula["pcre"]
 
     cc_opt = "-I#{pcre.opt_include} -I#{openssl.opt_include}"

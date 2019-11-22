@@ -1,15 +1,16 @@
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
-  url "https://github.com/t3rm1n4l/megacmd/archive/0.015.tar.gz"
-  sha256 "7c8e7ea1732351a044f4c6568629f3bb91ca40cd4937736dc53b074495b1a7f5"
+  url "https://github.com/t3rm1n4l/megacmd/archive/0.016.tar.gz"
+  sha256 "def4cda692860c85529c8de9b0bdb8624a30f57d265f7e70994fc212e5da7e40"
   head "https://github.com/t3rm1n4l/megacmd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0e79f8dac4fdd9501fe421db7062fa0079a97cd2772a55a64ac5539b1b64d17" => :mojave
-    sha256 "ced96a75c37a3f1676ddff1ed47b66c4d76e9200c656e18585ab83d0b3c9ef57" => :high_sierra
-    sha256 "88cc0a307b4e6dc9ead44158859c647d3459f39cf841571f88c251a77ec57d10" => :sierra
+    sha256 "80a5775ff5e5fe1e958cc6345a2d53f13e37bf366c7f4c8f3033f218851de813" => :catalina
+    sha256 "e7612192a4ac2e79363d8441f7d0f007c319a5aafd8e4f56e805335cbfa72d21" => :mojave
+    sha256 "02e75c7bbada7c3b3a230f3395448ec1dfb8598e7053ac6ad6a2b0b2f264d9ad" => :high_sierra
+    sha256 "8f60fb2783c1481f086e401e7cbfb2ada3a6e82a35e6d2e1a24643a7c7d8453f" => :sierra
   end
 
   depends_on "go" => :build

@@ -5,10 +5,9 @@ class Travis < Formula
   sha256 "77f43de7c1e686e2b8eca3f467047de9687c4021c4a12f46dcf1e0f3e63a96c3"
 
   bottle do
-    cellar :any
-    sha256 "42d8323b7ebb3687b3ea96b1051fd9e02c22732ebd2964d6bea064fb443f99ba" => :mojave
-    sha256 "d66aa769ff2b66c634ead1d76966015f852d39c3b6baf5ef01e80f2da5c66c45" => :high_sierra
-    sha256 "01b6473c4a5d559e0920c8badd3fd182d0ce9896db2e0017419176814c800d99" => :sierra
+    rebuild 1
+    sha256 "58794172ef335a7a15c7969257debbb6bb64a35364dbb10293af1a70cc78e5e7" => :catalina
+    sha256 "5f49254c2ad3a135a20299f7c25df27cb1ccb7c9ab7d093b207e5e52c91f6c3a" => :high_sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
@@ -116,8 +115,6 @@ class Travis < Formula
   test do
     (testpath/".travis.yml").write <<~EOS
       language: ruby
-
-      sudo: true
 
       matrix:
         include:

@@ -1,38 +1,33 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2"
-  sha256 "430ae8354789de4fd19ee52f3b1f739e1fba576f0aded0897c3c2bc00fb38778"
+  url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
+  sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
   revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "df5614e51cd271c477ac5a614a196180637c22f9c88b38b05c23e28a46db2c25" => :mojave
-    sha256 "fc247eaaa4e2cbe16f3acf5d88485f795fee38872fdcab2bbb0012340c5e4c30" => :high_sierra
-    sha256 "d1ff523535c6e1fafe64007fbe835c1432ac86ab1e5779b12288f9c4d57506b3" => :sierra
+    sha256 "8e5e68a29e926f7ee89b627d6d4db0b772837c521629993bd7921cde451b0c1f" => :catalina
+    sha256 "93ad0a86ef2c27f17747ed776a4e845b4e73c22f12cfed3cf9fb3cc28d1760cd" => :mojave
+    sha256 "431860df4d21263eedaf340a0e6b6338d9439190f9be92f3931fbc3c119ea24b" => :high_sierra
   end
 
+  depends_on "numpy" => :build
   depends_on "boost"
   depends_on "python"
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
-    sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
-  end
-
   def install
     # "layout" should be synchronized with boost
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged-1.66",
-            # --no-cmake-config should be dropped if possible in next version
-            "--no-cmake-config",
-            "--user-config=user-config.jam",
-            "threading=multi,single",
-            "link=shared,static"]
+    args = %W[
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged-1.66
+      --user-config=user-config.jam
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
@@ -49,13 +44,6 @@ class BoostPython3 < Formula
     pyver = Language::Python.major_minor_version "python3"
     py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
-    numpy_site_packages = buildpath/"homebrew-numpy/lib/python#{pyver}/site-packages"
-    numpy_site_packages.mkpath
-    ENV["PYTHONPATH"] = numpy_site_packages
-    resource("numpy").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"homebrew-numpy")
-    end
-
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
       using darwin : : #{ENV.cxx} ;
@@ -69,10 +57,16 @@ class BoostPython3 < Formula
                              "--with-libraries=python", "--with-python=python3",
                              "--with-python-root=#{py_prefix}"
 
-    system "./b2", "--build-dir=build-python3", "--stagedir=stage-python3",
-                   "python=#{pyver}", *args
+    system "./b2", "--build-dir=build-python3",
+                   "--stagedir=stage-python3",
+                   "--libdir=install-python3/lib",
+                   "--prefix=install-python3",
+                   "python=#{pyver}",
+                   *args
 
-    lib.install Dir["stage-python3/lib/*py*"]
+    lib.install Dir["install-python3/lib/*.*"]
+    (lib/"cmake").install Dir["install-python3/lib/cmake/boost_python*"]
+    (lib/"cmake").install Dir["install-python3/lib/cmake/boost_numpy*"]
     doc.install Dir["libs/python/doc/*"]
   end
 

@@ -1,15 +1,16 @@
 class Cmix < Formula
   desc "Data compression program with high compression ratio"
   homepage "https://www.byronknoll.com/cmix.html"
-  url "https://github.com/byronknoll/cmix/archive/v17.tar.gz"
-  version "17.0.0"
-  sha256 "31af51dd0be70c9c3c724911b60a46c11860e9fabb59860d541c869966a84c46"
+  url "https://github.com/byronknoll/cmix/archive/v18.tar.gz"
+  version "18.0.0"
+  sha256 "2f0272186a8ff693146d0d8070ad4d9687461a486805ab91d727891df316498d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d0853a7359422d21f3fa77d0130f979cb88a36418be3f767d59f10958403100" => :mojave
-    sha256 "7b9b9850f26bc23078d4a4321d129e4e82f14db885d1609b9ac916047170b106" => :high_sierra
-    sha256 "da16b7d8acc398c4ac59f89dc27f2ae1d4ba4391c8c8bbd3e841c236f201e497" => :sierra
+    sha256 "9dbbd3e8367f799405fbb237d68fe46e968bda502a5779f3be1c467b56e394b8" => :catalina
+    sha256 "448fa06555b59d6a0541d1e36ff9eac14e05775fd2ef119e860a305368b800ec" => :mojave
+    sha256 "6e1bc1de5f3c36e6fcda7874b8fbd18938aedbdbce94039763302f9643964a0a" => :high_sierra
+    sha256 "3dc97bda2656e2b2ffccb50915f9a981513fff5a8f90af2a1c5521afe52568d0" => :sierra
   end
 
   def install

@@ -6,6 +6,7 @@ class Rnv < Formula
 
   bottle do
     cellar :any
+    sha256 "9a780a7b9ed3b264a7d0471aba7aac503b60640af76156028ecf118a0c35665e" => :catalina
     sha256 "06a2cb705d679da7de638434f45e28764dcd448863d31f6b39ab090dfde4c04f" => :mojave
     sha256 "9bf4571824c6d8e837cfcad7ac5e16c6bfc120d4638f0428cdfb8f14203b8c41" => :high_sierra
     sha256 "8dd3263bb656dcca22605b12faf4c6f54d65e5040e58a7a464c85b69ca19dc99" => :sierra
@@ -16,7 +17,7 @@ class Rnv < Formula
 
   depends_on "expat"
 
-  conflicts_with "arx-libertatis", :because => "both install `arx` binaries"
+  conflicts_with "arx", "arx-libertatis", :because => "rnv, arx and arx-libertatis all install `arx` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

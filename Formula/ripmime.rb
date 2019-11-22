@@ -6,6 +6,7 @@ class Ripmime < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bbdb33bd7b2a1c5a2073b6cbd0c3916caa99d5de809f4915e138f523cb752026" => :catalina
     sha256 "976c8c7c1374fce9c9b4493f7c144c0e78db68223e1e7b53adaabc0978795ef1" => :mojave
     sha256 "915cd6326fe857e0608d25c9b6e2f4fab06734df23d0ad938184c1b791981345" => :high_sierra
     sha256 "09a2b60d927bbc236998e29ea50969ce95ab4470d74cd7a40a54f9f4ec24252b" => :sierra

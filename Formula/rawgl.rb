@@ -7,14 +7,20 @@ class Rawgl < Formula
 
   bottle do
     cellar :any
-    sha256 "97ce691b12b91ba6f948168e993fa04ec6ea18aad89d60dd40754d2554649ef0" => :high_sierra
-    sha256 "73791cd66afb8da8c36bfcec4ffda39fbd4db8bf94e5112dff8bda46462c3365" => :sierra
-    sha256 "83711f3b4e919fbe21d02221356ad3e0108ee00739c699eb1acf79f2be8b6b18" => :el_capitan
-    sha256 "b453fd2cf86a0299e372222942500f0b816165218ce0dec1726e0be493cf77c9" => :yosemite
+    rebuild 1
+    sha256 "96bd31a9298e14d5b4db183c8833d6e1e6bb10344193f49e1681a13cecc0c276" => :catalina
+    sha256 "59d92a845f19239386ea16af01ae174ab61bedeade38b55e492895b55656f576" => :mojave
+    sha256 "fb7f71cbce3b517ba8946cea53611c7577a2f1b1618a5f27dd0b67f23e278a25" => :high_sierra
   end
 
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  # Upstream fix for SDL2_mixer >= 2.0.2
+  patch do
+    url "https://github.com/cyxx/rawgl/commit/483492fb.diff?full_index=1"
+    sha256 "7af13dfa6cd1e042b6bbaf789da88471e326a411ccac3dac4c6c4c1124e8a153"
+  end
 
   def install
     system "make"

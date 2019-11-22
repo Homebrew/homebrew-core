@@ -3,21 +3,21 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.5652",
-      :revision => "8181ba39bfa333b15299af67e033b9c3ca3edfcb"
+      :tag      => "v0.1.5879",
+      :revision => "416032d85e2c8dec0ca6322baf07255ac851f50c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1299e61a1ce0ce4a5b7d4c48d6e20d929eec6b0ccb7b613ada94ac45df9502a7" => :mojave
-    sha256 "c2192067cea61fe85e993f09189b4cd43f0d3cf07e2a069942532e977f93bcf3" => :high_sierra
-    sha256 "741850a705d26eb10f05e57f38add00133ad61f5f887d4b04b8ade6681cb5af1" => :sierra
+    sha256 "6c70e1810214aac26798cfc5ac8734fbecae1baee3af9af8b5f45dedca66d30c" => :catalina
+    sha256 "48adff67b7d69ed1a6656a754e754e8cae67ce4ec7929a805c405bbce89eabc9" => :mojave
+    sha256 "b82e42bd9c5026de007fbb5c684e8fd2875db82c25a935b9e22ff5563d94217f" => :high_sierra
+    sha256 "37088c6cc436902542b008a3f78aad369f7a199f0d24cb2b3573d0e95a795256" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
     dir.install buildpath.children

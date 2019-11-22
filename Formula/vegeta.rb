@@ -2,14 +2,15 @@ class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
   url "https://github.com/tsenart/vegeta.git",
-      :tag      => "cli/v12.5.1",
-      :revision => "0f5577eaf11a136541b8c667273b6bc5eba51a8b"
+      :tag      => "v12.7.0",
+      :revision => "9c95632b3e8562be6df690c639a3f5a6f40d3004"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "448919322a1dd870003a3953eaaea42139534024f98755a29d602e537b58caf0" => :mojave
-    sha256 "398e443ae8f8d96d00315fd47888e59c1505820af33cc19e529d0f8f3918c026" => :high_sierra
-    sha256 "44e7a0ef3154894e7468a99a6f208b6cdb17b3adfadcace4aadd27d16ac956e5" => :sierra
+    sha256 "8bcc25e5a17aabc111d71ea916e8433589a9fe9e41bf5f172c77faafdd4285c5" => :catalina
+    sha256 "5b40fdc60f3bb98cb1c922ecbf84ea48748e97a3e31d979378f1abc2b6ea032a" => :mojave
+    sha256 "d72fb9d6d2b987f0f35c0545d806a1ea4626e266641e6e8abecc4ce0be54e4ce" => :high_sierra
+    sha256 "1596ae7a805382e2073fbc92a94c105d4176d75aace961e829c00dedd47b97b9" => :sierra
   end
 
   depends_on "dep" => :build

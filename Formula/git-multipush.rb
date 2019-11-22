@@ -7,6 +7,7 @@ class GitMultipush < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b9de9b128791d8c416076ed738016ffe534ce85bacddf297ab9ce13954dcaff6" => :catalina
     sha256 "8f4c2e7a1aee0db75154c4b21aee1a4bd398a9b889f119e7b86a06b1533b9304" => :mojave
     sha256 "edd99d5ec177bccf061f7424aa595a5515fa5728aec649594f42964cec1f371e" => :high_sierra
     sha256 "81d0a4bc4808ab5a31b043640c2ec861cbe6a5fead1a76eda0ffa7bff8ae6158" => :sierra

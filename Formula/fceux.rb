@@ -7,6 +7,7 @@ class Fceux < Formula
 
   bottle do
     cellar :any
+    sha256 "67f2f82fd3ebb86f98ce85e958392dd9b1439591e86476eb92964488308904ce" => :catalina
     sha256 "dc3c25ea5a685c59eced0d705e43ef72cdd42e3cf21cdb48c0ca02ebd2494a64" => :mojave
     sha256 "86dcccdeb382c68cb9b00393780def76257b27d14b897caffd044ae0f2afba10" => :high_sierra
   end

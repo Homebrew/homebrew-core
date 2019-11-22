@@ -2,21 +2,22 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag      => "v2.32",
-      :revision => "e88455ee2ed933df2f286ede5a53c596f03fb71a"
+      :tag      => "v2.34",
+      :revision => "2723ce64f0e83e81ac4a49068fba2588701fdb11"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
     cellar :any
-    sha256 "1edfe398c91dc0f7f23cc87c37b58de0ce760e266635f00f754ba7c8514043be" => :mojave
-    sha256 "db8b5e0da2926a9c9c18bd2a54698e0eaad92e2e672968c15d4136e60233df26" => :high_sierra
-    sha256 "90271bd22d1642a6533b9a202ba0c6f9b55e230300d5a997047cad6491d245c5" => :sierra
+    sha256 "3b73fd7b8c2a030aa2d6cbe8251c1233f75344b4c59395ca170e725d72209c84" => :catalina
+    sha256 "eecf7d02f14a70a7bf084ac4ca1b90069a5aafa1c8ce321a5c4a18bce480811e" => :mojave
+    sha256 "a6a0623ecedda03bf90e396e1c891ad2925dc2845810d55c3d145ab6bc410a28" => :high_sierra
+    sha256 "0c6d0ace0aba7ad795b4db67a658f3d2130e93b02bd22f459d54c5d852f3e9bd" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "emacs"
   depends_on "llvm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi

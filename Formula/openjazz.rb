@@ -1,16 +1,15 @@
 class Openjazz < Formula
   desc "Open source Jazz Jackrabit engine"
   homepage "http://www.alister.eu/jazz/oj/"
-  url "https://github.com/AlisterT/openjazz/releases/download/20180522/openjazz-20180522.tar.xz"
-  sha256 "35260066f307ff7e31304907a2a430a20b8d1fa5f90ad2c13275ab3aca337c24"
+  url "https://github.com/AlisterT/openjazz/archive/20190106.tar.gz"
+  sha256 "27da3ab32cb6b806502a213c435e1b3b6ecebb9f099592f71caf6574135b1662"
   head "https://github.com/AlisterT/openjazz.git"
 
   bottle do
     cellar :any
-    sha256 "c0f7a1ea63036f0fe37ddc60e4d161fadc549ef84de52ee1ec88c3c00516608f" => :mojave
-    sha256 "25b2ba3440262667196d729f4e88604dfb74e6c9191b92e30d31a241d9aab090" => :high_sierra
-    sha256 "ea4d18c72bc6cf5a5393d9f7ed8c40fc66d8355181c93249a926d47029eeae9c" => :sierra
-    sha256 "f410241a95a93323d5dd94fd7469b3912ce4105cbe3c3e5483b301f5ea642794" => :el_capitan
+    sha256 "9f6f4144256364824f4c16c430aaa738e6675f031f8bd7eaa76fa33d4d367430" => :catalina
+    sha256 "06066b8e0bf792d894ceb24ed1ec5409ad896982db87ecab8c07278eabdc3f98" => :mojave
+    sha256 "b5684fc3faa686f06f9600e8c4bb9c787c7cbf3eb100fc8a64a52502e84ce2ca" => :high_sierra
   end
 
   depends_on "autoconf" => :build

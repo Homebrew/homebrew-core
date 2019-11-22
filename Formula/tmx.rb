@@ -6,6 +6,7 @@ class Tmx < Formula
 
   bottle do
     cellar :any
+    sha256 "846228b02676e378a400f4ca3b4d2ac343faf222c34e654cef66e4e8b3aa8f6c" => :catalina
     sha256 "e84b8ed8574cbd3c67fca475d1172fc7e51a7a6707ea0d5e109f79479b655c27" => :mojave
     sha256 "a0583aec000dcda5738acc799591da7a8495c81bfffa0ee988428191f6840d47" => :high_sierra
     sha256 "591bf5f7712d4406b505c52dc62949b793961a944f0e38b1336a3333d16b0161" => :sierra

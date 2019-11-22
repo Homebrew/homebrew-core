@@ -1,14 +1,14 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://github.com/libexpat/libexpat/releases/download/R_2_2_7/expat-2.2.7.tar.xz"
-  sha256 "30e3f40acf9a8fdbd5c379bdcc8d1178a1d9af306de29fc8ece922bc4c57bef8"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.xz"
+  sha256 "1ea6965b15c2106b6bbe883397271c80dfa0331cdf821b2c319591b55eadc0a4"
 
   bottle do
     cellar :any
-    sha256 "1f66114d9aa512cbe153665e6b9102d41d83d164089214ed588ad8a6bbbc3efe" => :mojave
-    sha256 "b1bb9a07d7f8a8ef94530a8caad7024f761754d8d251a05fc59cab9113fd5444" => :high_sierra
-    sha256 "b7522b1e884f5705fd0a7051fcbf7360c2521857ad6783b886761fdae0057ebe" => :sierra
+    sha256 "202ebb6d7a1eb01066263128fe34ebbbc806e5ee35b283510fa1074b674c3739" => :catalina
+    sha256 "7440c3d35a2bd7d27bb6364a5d8c2f206509d6ebe09bd507039b701c133bb45d" => :mojave
+    sha256 "5c51e4a42af80a11bf3f2c697a36aedc6df21b03bed3b51c3127472660b042b3" => :high_sierra
   end
 
   head do

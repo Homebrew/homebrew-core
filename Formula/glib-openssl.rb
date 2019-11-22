@@ -3,17 +3,19 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
+  revision 2
 
   bottle do
-    sha256 "4f3163fb50a273e93a19b7136f1235517da5450d610c7d304591060f447eb93e" => :mojave
-    sha256 "7e79387127349d9976e104c0580b0efaf836865e15ede603232ecd5b80f3edb8" => :high_sierra
-    sha256 "2c6f6a96f2643fdfdc772c460ca7e9ec08783bf02f89a6312a02624dbba1a82a" => :sierra
-    sha256 "5f808a52d9c9fcebeb8143701c0e4dae92260f7c1233795069972b80718ac841" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "b2e75859c8bb44299d9a871d3193508fe5ea41c0ef0204fc570ea4d809a00513" => :catalina
+    sha256 "8eefefc726dbee8d4c50bf5302a1f318ac1a79e27f5a5a182ee56a137cd35088" => :mojave
+    sha256 "e96140eb3a6066a9256dfe771b8d35aa80961313034f0a20e5414d17061da051" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.

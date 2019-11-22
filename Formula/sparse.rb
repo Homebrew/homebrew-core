@@ -1,18 +1,29 @@
 class Sparse < Formula
   desc "Static C code analysis tool"
   homepage "https://sparse.wiki.kernel.org/"
-  url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.0.tar.xz"
-  sha256 "faad3d038e22024280bbd7d6093e9c22dc6333ab7db3638079b93036e43fc277"
+  url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.1.tar.xz"
+  sha256 "fdb05c84c8a62833b0920a0f855708b3843cb00df64d1582cba1c1da7df65b61"
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7bb9bba1767d4df2a5c07911fbe5a52e63a89ee61f59ac38b7abdf18f915050" => :mojave
-    sha256 "a2e1769a7a40c5ed66ee727a6b07d7227a7cf5f8bfe1f0acf7af1b4549841ef5" => :high_sierra
-    sha256 "e2e13c56e25ecd0f95558263931d2f4b31b533126e289b95e8ef8f5db4fa1e22" => :sierra
+    sha256 "e1b3677825bb6ba5e50e6d0da79836fd34d1e1c0249053d11640d88114d3fcbb" => :catalina
+    sha256 "a96ecc9bb289caf14f4dcf9dd5a0b1d04e2336d1c1e79eafd8af6cb3f3a9e5dd" => :mojave
+    sha256 "ec9b7f151a40b278fe062c354cbbdfb47c5a2420b1cf87a04d5813d0221e47f9" => :high_sierra
   end
 
+  depends_on "gcc" if DevelopmentTools.clang_build_version < 1100
+
+  # error: use of unknown builtin '__builtin_clrsb'
+  fails_with :clang if DevelopmentTools.clang_build_version < 1100
+
   def install
+    # BSD "install" does not understand the GNU -D flag.
+    # Create the parent directories ourselves.
+    inreplace "Makefile", "install -D", "install"
+    bin.mkpath
+    man1.mkpath
+
     system "make", "install", "PREFIX=#{prefix}"
   end
 

@@ -8,6 +8,7 @@ class Awf < Formula
 
   bottle do
     cellar :any
+    sha256 "cb84883afc611eacadc474b10407dee6b7177758054fbc2eaa65f21ba7d96f9f" => :catalina
     sha256 "b0290ffc5c750f924cbf96a2a5398215a41137a69211d262387789e399aba9d8" => :mojave
     sha256 "090ec40bbd96bea15714d411b9c89e6b06ca9723050252f00623b49c61da1497" => :high_sierra
     sha256 "417806f1ab0aa5d1c2e2e0302dd2c3c4cdaaf2957ac18fbfe1f9a2ced72947bd" => :sierra

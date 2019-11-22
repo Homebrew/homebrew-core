@@ -1,19 +1,18 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.3-src/pyside-setup-everywhere-src-5.12.3.tar.xz"
-  sha256 "4f7aab7d4bbaf1b3573cc989d704e87b0de55cce656ae5e23418a88baa4c6842"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.13.2-src/pyside-setup-opensource-src-5.13.2.tar.xz"
+  sha256 "3e255d64df08880d0281ebe86009d5ea45f24332b308954d967c33995f75e543"
 
   bottle do
-    sha256 "406393d0ea64456804d192f4948e49cf05ac205d653ccf67f71c68ba9b031ba2" => :mojave
-    sha256 "9f7b0a4631c41473e970b700f89aac3d3873d7461ccd3ceb52b4cad255f15821" => :high_sierra
-    sha256 "d0d8054cec40e93e029fd9d6e98882f63303d5718f8e5a9ed7f259ffb7bc7d05" => :sierra
+    sha256 "fea86f39d15b29aac8ed23fda31d69eb46a63f76b8a70da89b64f4398a97f32a" => :catalina
+    sha256 "0a121ff7a1f1cdf1801f327fbedbf520939e73d417adba0e077513d0660a9148" => :mojave
+    sha256 "df3df6b24b051d6132a87cdb09b5a40e6aee86248665c9c35ecdf71af1432ce6" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "llvm" => :build
   depends_on "python"
-  depends_on "python@2"
   depends_on "qt"
 
   def install
@@ -37,34 +36,21 @@ class Pyside < Formula
 
     lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/PySide2/*.dylib")
     lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/shiboken2/*.dylib")
-
-    system "python2", *Language::Python.setup_install_args(prefix),
-           "--install-lib", lib/"python2.7/site-packages", *args,
-           "--build-type=shiboken2"
-
-    system "python2", *Language::Python.setup_install_args(prefix),
-           "--install-lib", lib/"python2.7/site-packages", *args,
-           "--build-type=pyside2"
-
-    lib.install_symlink Dir.glob(lib/"python2.7/site-packages/PySide2/*.dylib")
-    lib.install_symlink Dir.glob(lib/"python2.7/site-packages/shiboken2/*.dylib")
   end
 
   test do
-    ["python3", "python2"].each do |python|
-      system python, "-c", "import PySide2"
-      %w[
-        Core
-        Gui
-        Location
-        Multimedia
-        Network
-        Quick
-        Svg
-        WebEngineWidgets
-        Widgets
-        Xml
-      ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
-    end
+    system "python3", "-c", "import PySide2"
+    %w[
+      Core
+      Gui
+      Location
+      Multimedia
+      Network
+      Quick
+      Svg
+      WebEngineWidgets
+      Widgets
+      Xml
+    ].each { |mod| system "python3", "-c", "import PySide2.Qt#{mod}" }
   end
 end

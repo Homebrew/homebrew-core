@@ -1,25 +1,25 @@
 class Badtouch < Formula
   desc "Scriptable network authentication cracker"
   homepage "https://github.com/kpcyrd/badtouch"
-  url "https://github.com/kpcyrd/badtouch/archive/v0.7.0.tar.gz"
-  sha256 "d49eb11825ab56245f82f0958a89ea69edf558c1bd142afba2d4408dc9d20fbb"
+  url "https://github.com/kpcyrd/badtouch/archive/v0.7.1.tar.gz"
+  sha256 "c188bb1df106761a436fd25d3530323a47633c4c937d186e82c00981ffc94b5f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4eecd98779c60f00a1060813bc2bbd66f3f223ad369ab463750df9f6a4bd0c8e" => :mojave
-    sha256 "02c3fe748b8b48754827a468b8fc9825c614a1e2a6585818612ce9d8e3ab39c3" => :high_sierra
-    sha256 "100a8b53f7e2f540ab447382ca44b6f4368a189a2ad069caa71c555ca464c04e" => :sierra
+    sha256 "f6294a3dc8e19096623409df112ed32d30005d7ea9539529b39d374b21c6d4ac" => :catalina
+    sha256 "4ac7d4d570c30b3f024a276f50aa39429350a852efd5c29e4941d66dbe7227f6" => :mojave
+    sha256 "e4f2eb394ebc2c5f2b674d577ef2263b6580927d1b0eb15ee38384fbfb6565f4" => :high_sierra
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "docs/badtouch.1"
   end
 

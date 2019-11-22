@@ -6,6 +6,7 @@ class Mfcuk < Formula
 
   bottle do
     cellar :any
+    sha256 "00500f4e312ac63d7da99e10f1bdc0d08ace389a36de90b8a7e786cb4fd85a8e" => :catalina
     sha256 "715ca194ceaf40ef63f83f801479a2844663c564705282272805938b5747af6d" => :mojave
     sha256 "1dddb64e65b9fb1e387f2bd18ed2ae0f600aa868fa92a0141f66fb835a1e8dac" => :high_sierra
     sha256 "a4ae4d6f6cdec9dd28c52ff04da99b9de86c79a19c6e182ef3a557f48dde0741" => :sierra

@@ -7,6 +7,7 @@ class Makeicns < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c2a5afff3eee709316951ad70c8244fe5c628ae98fdb2e15ea607c7638733d63" => :catalina
     sha256 "16d2135a49e22ffe920567c7ac382d5f706ef7ce5de377750553a0e59414819a" => :mojave
     sha256 "c40907f2d30603bdfe8402e90cbb35209b46cee1e7967d0ab06c21d5d7935eb8" => :high_sierra
     sha256 "3a673790c42724f75b905713e269f8bfa3e54bb64fde48130164c68b5656c871" => :sierra

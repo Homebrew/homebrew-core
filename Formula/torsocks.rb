@@ -7,6 +7,7 @@ class Torsocks < Formula
   head "https://git.torproject.org/torsocks.git"
 
   bottle do
+    sha256 "e29d0428907ea2d5aecfbeeb70de35998082a899cc5a86b312c5b264c6ed442c" => :catalina
     sha256 "a69a7a23628c4a79c216b114ccdd0bbd20b76513f5f16eaea2eab8be17473323" => :mojave
     sha256 "14a21746072ddb73f7fc3157dbe41bcce90e0bcb0a3761646faf421294e3ecff" => :high_sierra
     sha256 "c2eb93f0ef7d44ca1c74ccc210d0a2a3fa2a45a7ef46c7ec68f68fb4162e5905" => :sierra

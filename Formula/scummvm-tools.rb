@@ -1,15 +1,15 @@
 class ScummvmTools < Formula
   desc "Collection of tools for ScummVM"
   homepage "https://www.scummvm.org/"
-  url "https://www.scummvm.org/frs/scummvm-tools/2.0.0/scummvm-tools-2.0.0.tar.xz"
-  sha256 "c2042ccdc6faaf745552bac2c00f213da382a7e382baa96343e508fced4451b3"
+  url "https://www.scummvm.org/frs/scummvm-tools/2.1.0/scummvm-tools-2.1.0.tar.xz"
+  sha256 "cfc62d285d0e304061db72691cdfb8ce4ead868cffb2658b1f1c81934f404665"
   head "https://github.com/scummvm/scummvm-tools.git"
 
   bottle do
-    sha256 "5914f77097fe7684e1a8718cbede0d994c9d52d400e6b47eff9c70d6d683e34d" => :mojave
-    sha256 "84313eb5337d2f3c37f9ad5c494da4b43546422f9428f33dcf9b0c2af54473b8" => :high_sierra
-    sha256 "5a9144ac0d1812d401ff76df988bac6bc681903bd94aad2b3f97a2e2279e9d73" => :sierra
-    sha256 "c68cf67ed07a34a4db800598a64b6eb293ac714da6706ef89e58ce9a13ecde99" => :el_capitan
+    cellar :any
+    sha256 "821010b2b6e9756d7207a5dd61cdac53c82b780ca9a17a8ae313f82501cfa5fb" => :catalina
+    sha256 "47718a761f38f31677a6a02851be2b42e16fb891bdb02df704f32d8b84e93796" => :mojave
+    sha256 "9f5a6820cf016444c995abd59119e7446b5b9342298b97b9767efbd8938a2579" => :high_sierra
   end
 
   depends_on "boost"

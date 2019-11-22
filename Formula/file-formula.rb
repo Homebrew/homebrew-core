@@ -2,12 +2,13 @@
 class FileFormula < Formula
   desc "Utility to determine file types"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.37.tar.gz"
+  url "https://astron.com/pub/file/file-5.37.tar.gz"
   sha256 "e9c13967f7dd339a3c241b7710ba093560b9a33013491318e88e6b8b57bae07f"
   head "https://github.com/file/file.git"
 
   bottle do
     cellar :any
+    sha256 "989d78e136eb47e029b8bd70de10b1ca0eb0c6db3893b0ad86696b667a0cffc0" => :catalina
     sha256 "63271d014690b6ac45ca3ad13d23d6756ef196bd60870f7fbcf08853b60576c5" => :mojave
     sha256 "add66c41a0a6d051f263b9082ae931c0eb0f177bd04d4b2c08b79f89c3e6730b" => :high_sierra
     sha256 "4638417e6d477be3048d44c6ba1ac04c3aa9cd584c7e80553c5c6d153c8e5d86" => :sierra

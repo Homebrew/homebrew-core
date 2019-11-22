@@ -1,15 +1,14 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/neomutt-20180716.tar.gz"
-  sha256 "bd89826980b493ba312228c9c14ffe2403e268571aea6008c6dc7ed3848de200"
-  revision 1
+  url "https://github.com/neomutt/neomutt/archive/20191111.tar.gz"
+  sha256 "29b9e9d7293157a8575808eb2ceb62ffb2f31be206405abc64fc37a4425e36f4"
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
-    sha256 "e4cf9f442f87c2092a5721d7d9e0f8832b645fda68c01a779a45f2bec6cd403c" => :mojave
-    sha256 "757e4871abd3a6f474a84f8ea9c541a14557ad3263f597779b11caa428cfcd5d" => :high_sierra
-    sha256 "0e0e9c5a2abb6c6e379ab2823180ed3eb695e24654d3ab368cf9c8c5524bb1bd" => :sierra
+    sha256 "eb6b23700d5b13a715fc3d31cdf1df8a4f09bc9c63c542bccac05a6dd38d69e3" => :catalina
+    sha256 "694902ef8d32f06c824463701fbe4b9c1b3707f22896a2525e4bdd98b7a36540" => :mojave
+    sha256 "ea0214b73aa7b52e28c617b3d23c856b62d740758061af2a77492a787f6e316e" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build
@@ -18,7 +17,7 @@ class Neomutt < Formula
   depends_on "libidn"
   depends_on "lmdb"
   depends_on "notmuch"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
 
   def install
@@ -31,13 +30,13 @@ class Neomutt < Formula
                           "--notmuch",
                           "--sasl",
                           "--tokyocabinet",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-ui=ncurses"
     system "make", "install"
   end
 
   test do
     output = shell_output("#{bin}/neomutt -F /dev/null -Q debug_level")
-    assert_equal "debug_level=0", output.chomp
+    assert_equal "set debug_level = 0", output.chomp
   end
 end

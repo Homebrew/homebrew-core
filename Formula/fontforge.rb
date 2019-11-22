@@ -1,23 +1,24 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20190413/fontforge-20190413.tar.gz"
-  sha256 "6762a045aba3d6ff1a7b856ae2e1e900a08a8925ccac5ebf24de91692b206617"
-  revision 2
+  url "https://github.com/fontforge/fontforge/releases/download/20190801/fontforge-20190801.tar.gz"
+  sha256 "d92075ca783c97dc68433b1ed629b9054a4b4c74ac64c54ced7f691540f70852"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "755c0de75b7900bfbc5c2d65cad3d65ea51335694738e3bed652ff07fa0fe4cd" => :mojave
-    sha256 "50baa3d0a77de516261e0e81344aac39a40658203badc8916018701e703a2cd9" => :high_sierra
-    sha256 "e9961cd990142589ced45395a0fb676b2bd8181032ca19cd9575e3641832347b" => :sierra
+    sha256 "5491094eb17337498a90804ce72fd154cdf643272467312a9dc1cfc1f5e56a82" => :catalina
+    sha256 "ceade22a6cbbecff190fedd4be117cfce9c6036c20a51de701f82a69cd0343a5" => :mojave
+    sha256 "0e91f1858662fa08537287af6e1884ef94377a46a5eb24cec61f3f9f41c48e8a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => [:build, :test]
   depends_on "cairo"
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gettext"
   depends_on "giflib"
+  depends_on "glib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libspiro"
@@ -25,6 +26,9 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
+  depends_on "python"
+  depends_on "readline"
+  uses_from_macos "libxml2"
 
   def install
     ENV["PYTHON_CFLAGS"] = `python3-config --cflags`.chomp

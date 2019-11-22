@@ -4,18 +4,17 @@ class Ipmitool < Formula
   url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.18/ipmitool-1.8.18.tar.bz2"
   mirror "https://deb.debian.org/debian/pool/main/i/ipmitool/ipmitool_1.8.18.orig.tar.bz2"
   sha256 "0c1ba3b1555edefb7c32ae8cd6a3e04322056bc087918f07189eeedfc8b81e01"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "80039ed77975cdfc9b50ce83750b28be15dca7506c482cc43e60791359ac4240" => :mojave
-    sha256 "ffea0646f0d1ce2d773f1566fe813e36c3ab8d409ad26580c87709d696401fd4" => :high_sierra
-    sha256 "c7e13ccde0f639c52aa915a71f9779ec0b514ed1260c5c9078754498f80c9ec3" => :sierra
-    sha256 "d6ce46b2b93ac040cb3ac235bd68ecab496b8dbebee22fb4fb69ad52aa75e9c9" => :el_capitan
-    sha256 "5e9ad832c757416534a30df441ba41f83a4634bb80c224d4e42e7395b58cb9a6" => :yosemite
+    sha256 "926d5c49a0a1b9411e45c54e412403003266c27127059edb50b40e07adaf2260" => :catalina
+    sha256 "3bf8d00d62c2e1dc781493d448062ad365ac8e7c73010ee37ba2040a48513c10" => :mojave
+    sha256 "04462f0b4129d34cbf7e8e5c72591360e89dd6d6cef20008567015d57ab611c4" => :high_sierra
+    sha256 "f08f0e5717ff8ccf031ca738eb4995b39db5d37b802800b6e0b6c154f6fed830" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # https://sourceforge.net/p/ipmitool/bugs/433/#89ea and
   # https://sourceforge.net/p/ipmitool/bugs/436/ (prematurely closed):
@@ -24,6 +23,13 @@ class Ipmitool < Formula
   patch do
     url "https://gist.githubusercontent.com/adaugherity/87f1466b3c93d5aed205a636169d1c58/raw/29880afac214c1821e34479dad50dca58a0951ef/ipmitool-getpass-segfault.patch"
     sha256 "fc1cff11aa4af974a3be191857baeaf5753d853024923b55c720eac56f424038"
+  end
+
+  # Patch for compatibility with OpenSSL 1.1.1
+  # https://reviews.freebsd.org/D17527
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/10f4f68f/ipmitool/openssl-1.1.diff"
+    sha256 "8ad4e19d7c39d1bf95a0219d03f4d8490727ac79cb297a36639443ef030bb76a"
   end
 
   def install

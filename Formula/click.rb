@@ -1,21 +1,22 @@
 class Click < Formula
   desc "The command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
-  url "https://github.com/databricks/click/archive/v0.4.0.tar.gz"
-  sha256 "69df76f57af8b0c244ef4c975a242d3fe84f8e4f4fd44e62b2ccdf24ea82b23d"
+  url "https://github.com/databricks/click/archive/v0.4.2.tar.gz"
+  sha256 "cc68454dc8d53904d6d972e60b7c38138967ee61b391143c68b5ef0a59043d4a"
   head "https://github.com/databricks/click.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e879a6d855395353f4d6bf94c86db2581681be41be9a8d892344cc64190b72c4" => :mojave
-    sha256 "ae13dc5304de63ae3cf3af67f0919d8c5c8ac7a4ac5ce63b4d297476eff302b8" => :high_sierra
-    sha256 "d1da447c91387264409aef3256198c1863d4840bdeb9b218c8e5da2fc6fc0d34" => :sierra
+    rebuild 1
+    sha256 "a9eb4e55483197279fef53a15753b4dcdbf9846a39ac4161d248755abf935456" => :catalina
+    sha256 "1238dd24fd4d28984d7de54273a09ba7eb635d928627ca5f53242594c1cc11f1" => :mojave
+    sha256 "392665aea350546e63dcc94054236555e3e91967cfe02854f15b24272a6d7aba" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

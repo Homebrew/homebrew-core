@@ -1,14 +1,14 @@
 class Eprover < Formula
   desc "Theorem prover for full first-order logic with equality"
   homepage "https://eprover.org/"
-  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.2/E.tgz"
-  sha256 "2c2c45a57e69daa571307a89746228194f0144a5884741f2d487823f1fbf3022"
+  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.4/E.tgz"
+  sha256 "bcb76488155f2b624463c4cc50682bdbec45b30e72cfb174556670e3aff7c5f6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f45c36c2ba8a4c3793b4078b9948a735853d9e91e568d7a5ffcc2ec195998ca" => :mojave
-    sha256 "77cd34eeb515299ddd4f3db8e6fa70580c64b144d9e82718d4e3a5c5b4f7a25a" => :high_sierra
-    sha256 "b2ab8b9aaebb1755f8f77c5f1820f795a15c5daa77dd42b718e194404cec70f8" => :sierra
+    sha256 "fc6c6e87ee95f0cfd0f0f0a838fd40bf2f9613f7e78b1a5c9f0b33bc7ca7b094" => :catalina
+    sha256 "fd14ba20a1ed8799a668e6f521ddbd8c1fac8ff43ac1f14bb6c9346ee7980cf3" => :mojave
+    sha256 "5db8b8088c46bde8355a4742572d63db7ccea5885b37c401e05579762271559f" => :high_sierra
   end
 
   def install

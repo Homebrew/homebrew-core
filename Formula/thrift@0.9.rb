@@ -1,15 +1,14 @@
 class ThriftAT09 < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org"
-  url "https://archive.apache.org/dist/thrift/0.9.3/thrift-0.9.3.tar.gz"
-  sha256 "b0740a070ac09adde04d43e852ce4c320564a292f26521c46b78e0641564969e"
+  url "https://github.com/apache/thrift/archive/0.9.3.1.tar.gz"
+  sha256 "1f7ca02d88a603f2845b2c7abcab74f8107dd7285056284d65241eb7965e143c"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "79422a32dc72ec61bb4f0b9db57a08af6c7478ac676e52f14d05e9060acff2df" => :mojave
-    sha256 "c48f3d1200f4cedd092622f380bee268caefa553822c4b0f7bf25aec13d19371" => :high_sierra
-    sha256 "d0b173d367891df3d5a9398ea5f5e3a48cbd412fa88955e29d061b7707b7b9e4" => :sierra
+    sha256 "bebef37eaa3671d2810eaaf9f06b7c6cf73ef56f83b8359de514643cd201b946" => :catalina
+    sha256 "9c4f0de40a613a30dce7b032425a66d0f5392680d6af39f9944e8982bd7d16d4" => :mojave
+    sha256 "a85aabc6f3c1d496f618c41e1ca367d2e8c730d9fd543f5b2a74af2760a1869a" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -20,7 +19,19 @@ class ThriftAT09 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+
+  # Fix CRYPTO_num_locks compile error
+  patch do
+    url "https://github.com/apache/thrift/commit/4bbfe6120e71b81df7f23dcc246990c29eb27859.patch?full_index=1"
+    sha256 "23b29d50cd606b88863153ec8ae1c7b3e1ef0fceca7ec59088b8135f40b99ce6"
+  end
+
+  # Fix compile when SSLv3 is disabled (OpenSSL 1.1)
+  patch do
+    url "https://github.com/apache/thrift/commit/b819260c653f6fd9602419ee2541060ecb930c4c.patch?full_index=1"
+    sha256 "5934555674b67fb7a9fad04ffe0bd46fdbe3eca5e8f98dd072efa4bb342c9bfa"
+  end
 
   def install
     args = %w[
@@ -39,6 +50,13 @@ class ThriftAT09 < Formula
 
     # Don't install extensions to /usr
     ENV["JAVA_PREFIX"] = pkgshare/"java"
+
+    # 0.9.3.1 shipped with a syntax error...
+    inreplace "configure.ac", "if test \"$have_cpp\" = \"yes\" ; then\nAC_TYPE_INT16_T",
+                              "AC_TYPE_INT16_T"
+
+    # We need to regenerate the configure script since it doesn't have all the changes.
+    system "./bootstrap.sh"
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",

@@ -1,18 +1,18 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.23/postgresql-9.4.23.tar.bz2"
-  sha256 "0d009c08b0c82b12484950bba10ae8bfd6f0c7bafd8f086ab756c483dd231d9b"
+  url "https://ftp.postgresql.org/pub/source/v9.4.25/postgresql-9.4.25.tar.bz2"
+  sha256 "cb98afaef4748de76c13202c14198e3e4717adde49fd9c90fdc81da877520928"
 
   bottle do
-    sha256 "2e4f8ee2cf55492d4bb76b815fdf8203055f28349fd0fbf36f46ffd1349a81a7" => :mojave
-    sha256 "fc805f2be877a2a10091f1f965fd3f85b69d64f6dbf1d2e3ccd6d394d0c2564e" => :high_sierra
-    sha256 "8cc855c8d592687c56f681ae6d564ef48c9f11895e2d0951ab9ff19540b0cf67" => :sierra
+    sha256 "904a5a1def08482696448ba47e237a9d27678b7540ed2a4acd161399e0b44ae3" => :catalina
+    sha256 "0eaaa37ad26cf3b4d63b697ce89633fe5ecde9d469cd093c652189e0a19398d6" => :mojave
+    sha256 "6d2008d12f5c35a11a2c4c3ae4d2753abc06b8af10387ec566673376854dad8c" => :high_sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
@@ -21,8 +21,8 @@ class PostgresqlAT94 < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
     ENV.prepend "PG_SYSROOT", MacOS.sdk_path
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
 

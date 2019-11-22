@@ -1,16 +1,15 @@
 class Xorriso < Formula
   desc "ISO9660+RR manipulation tool"
   homepage "https://www.gnu.org/software/xorriso/"
-  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.4.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.4.8.tar.gz"
-  sha256 "ec82069e04096cd9c18be9b12b87b750ade0b5e37508978feabcde36b2278481"
+  url "https://ftp.gnu.org/gnu/xorriso/xorriso-1.5.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/xorriso/xorriso-1.5.2.tar.gz"
+  sha256 "3b69f5c93ae7c40c5bbe4a847fa3963f5efc9c565551622f77121c5792fc17e7"
 
   bottle do
-    rebuild 1
-    sha256 "3bf163215648c9e63a6fa03746ebff1dec15c9aff6204788db2a43e24ab9cb28" => :mojave
-    sha256 "45f3af489e20189f73248b0c5444cc0a986f1028c23959aeaf240173bebabeee" => :high_sierra
-    sha256 "e7ddc12178ac466d7aceaa3786b070829582b6c5adeb59ca383eeab3fa866e89" => :sierra
-    sha256 "dd920cbec3a5d95504763a4129aa915031bc124285ddb16d7ff76c15cecb9724" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "ba9353c38b3109630b543faf56f9f8431ec225db32e5f446495528879fcdc361" => :catalina
+    sha256 "e85cf1dfeb93797ef41680738cbde8fdf02aecb8040681742c2c89c82659c871" => :mojave
+    sha256 "341b85b60e1762c6ffca661940ce5e1958b1f2aab89f49da0865466ad1badc5a" => :high_sierra
   end
 
   def install

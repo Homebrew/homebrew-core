@@ -1,15 +1,16 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
-  # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
-  homepage "https://github.com/tstack/lnav"
+  homepage "https://lnav.org/"
   url "https://github.com/tstack/lnav/releases/download/v0.8.5/lnav-0.8.5.tar.gz"
   sha256 "bb809bc8198d8f7395f3de76efdc1a08a5c2c97dc693040faee38802c38945de"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b888a423afd1868ef45428afc107f5fe7a9df3204330dc4f589a8e9acffaa14d" => :mojave
-    sha256 "2d2a97a3c86fe5e16dd0579185fdb24151abb881c9415872875708b2e8e75be6" => :high_sierra
-    sha256 "a1bd07d7c2cb1c08f8b894e994cf17e65d7ebcf2d10b39d34d643bfbb3b4f5ce" => :sierra
+    sha256 "ada56b43c4f4301dd5c6a48502a4f801c1871b95c84aad6aeebfb0370ef4bc97" => :catalina
+    sha256 "2c6e7bd10eb78c6f476739be3e106012d6decce1d8ff1ae1a51c55f3cea2c688" => :mojave
+    sha256 "bc796136677ca2b4bee92decf2d517ee0a92a6ea2d476b45a350d5aff367c948" => :high_sierra
+    sha256 "91968b3b06733d667459ca2ffb81e82b91d10e4710c22f72a739e2eed203ba1e" => :sierra
   end
 
   head do
@@ -22,15 +23,13 @@ class Lnav < Formula
 
   depends_on "pcre"
   depends_on "readline"
-  depends_on "sqlite" if MacOS.version < :sierra
+  depends_on "sqlite"
 
   def install
-    # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
-    ENV.delete("SDKROOT")
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make", "install"
   end

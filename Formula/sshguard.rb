@@ -1,15 +1,16 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.3.1/sshguard-2.3.1.tar.gz"
-  sha256 "769055e26df78f4bca34c9a7acf265dfa224c055b33ced47f53d55bf659d20a2"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.0/sshguard-2.4.0.tar.gz"
+  sha256 "065ca4091b3a96802714b560dbbc3d9f0e67574e99e2b6e8857aa1027d17d6c0"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3cd89e0a19db4220d583cd5404931b48a0564e0febc5236dceb308f34ccfc970" => :mojave
-    sha256 "924436fc182a6d79a0f4e2461b25f4aca1aa57c48bb2db049ae1fbe0f115cdab" => :high_sierra
-    sha256 "37b791a9417754e5db8f1665b2982bd6a8421927b73950d520af0c9eb369c474" => :sierra
+    sha256 "033c09dbb290b68e8b33ce6709fba3b8764342af4b1ddac8d91b4e63973caea0" => :catalina
+    sha256 "63af5b9fe223253a1798e8500475af1675c8a36d987628b9e195a5da33bad252" => :mojave
+    sha256 "54bb8831aaf7de0a2ba0ee3780e34a76dd67e90d3db8bcf5e3496ec78e4d5b56" => :high_sierra
+    sha256 "94c8ecf69111d23d51cc2e61ecfc0438dd9006236340e659ed094b8d7e3fd699" => :sierra
   end
 
   head do
@@ -77,11 +78,9 @@ class Sshguard < Formula
   test do
     require "pty"
     PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
-      begin
-        assert_equal "SSHGuard #{version}", r.read.strip
-      ensure
-        Process.wait pid
-      end
+      assert_equal "SSHGuard #{version}", r.read.strip
+    ensure
+      Process.wait pid
     end
   end
 end

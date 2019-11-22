@@ -3,16 +3,17 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://www.pyinstaller.org"
-  url "https://files.pythonhosted.org/packages/03/32/0e0de593f129bf1d1e77eed562496d154ef4460fd5cecfd78612ef39a0cc/PyInstaller-3.4.tar.gz"
-  sha256 "a5a6e04a66abfcf8761e89a2ebad937919c6be33a7b8963e1a961b55cb35986b"
+  url "https://files.pythonhosted.org/packages/e2/c9/0b44b2ea87ba36395483a672fddd07e6a9cb2b8d3c4a28d7ae76c7e7e1e5/PyInstaller-3.5.tar.gz"
+  sha256 "ee7504022d1332a3324250faf2135ea56ac71fdb6309cff8cd235de26b1d0a96"
 
   head "https://github.com/pyinstaller/pyinstaller.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "812b3300c586b888ed5154504c435854229169e4804d4c0ff0b767a05cfb82f8" => :mojave
-    sha256 "77034c4dc8c1a15687181119713d74e4c1ac09a8c35666c322ded2e6d0a2e23a" => :high_sierra
-    sha256 "32eb622d3f35d8d0f497a4d6a6ef746d56a234d48719e8c9044b13f83e5ea65c" => :sierra
+    sha256 "52a2ac801e06ee93c8d9a143b93fa5211505edeb836d5ccf7ea3a689df6756b4" => :catalina
+    sha256 "e24fb59052ce51b1ad9c77b2a5cb7fef1430f2c09ae85c129b00469ab4cf31c3" => :mojave
+    sha256 "45e50e7a2fdca28463bb9d5f3785fb11a62f73a9dfea88fc1e0584539b5871a1" => :high_sierra
+    sha256 "4112b5a32d0b465156e207d08f8c97512625df9e2ee3596cd27dbf8ae7a63ffd" => :sierra
   end
 
   depends_on "python"

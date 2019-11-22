@@ -8,6 +8,7 @@ class Sift < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d2c0f8e64a32bcbaa45976a350d302dd13e3b68595162d69005dae7599d9be40" => :catalina
     sha256 "08aae3031f30b5502bd93b26c4a2e655077f3a91c212b04898c19d14444ec0e6" => :mojave
     sha256 "b0d584ae926816c4f525c9070cb67c7622e851c3cbba67e7c0b9cae5d30feb00" => :high_sierra
     sha256 "42fbf76075951fd28a27b4e2763b3af58eb93b0260c3a3c82719d7a32ef7baec" => :sierra

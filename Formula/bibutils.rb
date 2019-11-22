@@ -1,15 +1,14 @@
 class Bibutils < Formula
   desc "Bibliography conversion utilities"
   homepage "https://sourceforge.net/p/bibutils/home/Bibutils/"
-  url "https://downloads.sourceforge.net/project/bibutils/bibutils_6.7_src.tgz"
-  sha256 "02a12b86ae5f1c4991d625aa4d982418bdfb4a8b5855ce1c0dd38a6436ac4c1c"
+  url "https://downloads.sourceforge.net/project/bibutils/bibutils_6.8_src.tgz"
+  sha256 "81e37fffb4543724abfaabd718779fd6788a644f2cd78fd9eeb2ff43b37448d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77c7e24e44776095769e2103d7bc37ebbd314e91c6c86a9a4e24ad42f15b16dd" => :mojave
-    sha256 "cf925ae310688ae93b2f93a4bb23deb16f06fa8f28f20b67aee17162eaa484c1" => :high_sierra
-    sha256 "97a7c39fa603ac3ebdbde752b0b34d55bc724df248c8ecc8293e9cf47a791823" => :sierra
-    sha256 "b0c558be47dbda2db57b3f13dcf830c37efcef97a5af1899aa3910027c9cdbed" => :el_capitan
+    sha256 "dac93b43ca23378a2479b3940ba06711ee75ec20448b8157f9c86e7793fa903e" => :catalina
+    sha256 "581d652841aeef6824b5dbec7bd4d5d7ee6cb8681125d7588d23ebd28ed311df" => :mojave
+    sha256 "6d10e1fe5b235d6b6027512eed4cb196c5a64db785f5df8dd4535a641d1010d8" => :high_sierra
   end
 
   def install

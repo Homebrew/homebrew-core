@@ -6,6 +6,7 @@ class Djmount < Formula
 
   bottle do
     cellar :any
+    sha256 "b65ba648683b4875d18b611f0bffa16afe20674cb7c83f127fc24d0ba972b12a" => :catalina
     sha256 "d2ac3aa0c76c1489d7addcb9d9d4a9cb850f3dd9db3bc939ba6bc97e38668e4f" => :mojave
     sha256 "4d70d21ce227a8a1e84df11152a0f587d647b21df8585fe69e54a133a9299795" => :high_sierra
     sha256 "47be8c859fd5271a518ed61bf2a70c1baea0314e5ad10fefbe0d43fc5a8bd99a" => :sierra

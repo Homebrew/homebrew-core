@@ -2,19 +2,19 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.1",
-      :revision => "6e16f47450373f04d6a60db1d23c5b13b37f7431"
+      :tag      => "v6.8.5",
+      :revision => "22b590e4e8dbb91bdcfe8689e59dcb04447eeef6"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3cebb937a1a651b2720da38866310417153f2523b37b8bc1883c7666b0aad803" => :mojave
-    sha256 "bbee3c9ab34a7c4edfa1b9334eb824030166cf5198046b2b826438e0efcc7de8" => :high_sierra
-    sha256 "48ce2f9f54a3c5e57a7b3ba13b10866f6e766b46f3ad014b596ef06e0ebc5cd4" => :sierra
+    sha256 "769740db06a6cfc3d2c42450e1d4aab8418bfd1aea00acada3df0344a42a95b8" => :catalina
+    sha256 "eddd788da291aef7c3762b1ab05957a9ad8e899053ecd0bd7481623048fab8e5" => :mojave
+    sha256 "330f0403db8a803e136d856e78ae5cbcb5525a24cc3696c8a8cb8e75af31c89a" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "python@2" => :build
+  depends_on "python@2" => :build # does not support Python 3
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/8b/f4/360aa656ddb0f4168aeaa1057d8784b95d1ce12f34332c1cf52420b6db4e/virtualenv-16.3.0.tar.gz"

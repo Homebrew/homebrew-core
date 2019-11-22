@@ -1,14 +1,14 @@
 class Mkcert < Formula
   desc "Simple tool to make locally trusted development certificates"
   homepage "https://github.com/FiloSottile/mkcert"
-  url "https://github.com/FiloSottile/mkcert/archive/v1.3.0.tar.gz"
-  sha256 "2ac56e023a6f5a7d4bf949897338c333da0ce551cd45a50c01054987dd7e257b"
+  url "https://github.com/FiloSottile/mkcert/archive/v1.4.1.tar.gz"
+  sha256 "b539e11ac0a06ff4831b76134b8d391610287cf8e56b002365b3786b96e0acbe"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a75af73ec6914b3a57a9f9e63a1b20af3cfe9fd6129da87e29adbf76d9efeb6a" => :mojave
-    sha256 "54ef43d3e7846cce0fa5dc70b54236a29847f4b400216dec9f383d01e583bdd0" => :high_sierra
-    sha256 "951c4300cad59315176e100cd347125d18dbeef2100b2c884a1b348bfdd3990a" => :sierra
+    sha256 "b7cc76858dc35c6d3aabb07242ab6f5f079c4cb85deea4a9f66114528980914b" => :catalina
+    sha256 "9100c7f044d91e6ca0c483ed572217de28daa34c04fa6e2a130116175ba162e9" => :mojave
+    sha256 "f7d3255bc7f40e66bc75fd6ebfacc6b02c91514f412de9cf4b85b0d332bc4931" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -18,7 +18,7 @@ class Mkcert < Formula
     (buildpath/"src/github.com/FiloSottile/mkcert").install buildpath.children
 
     cd "src/github.com/FiloSottile/mkcert" do
-      system "go", "build", "-o", bin/"mkcert"
+      system "go", "build", "-o", bin/"mkcert", "-ldflags", "-X main.Version=v#{version}"
       prefix.install_metafiles
     end
   end

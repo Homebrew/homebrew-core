@@ -1,15 +1,15 @@
 class GoAT111 < Formula
   desc "Go programming environment (1.11)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.11.6.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.11.6.src.tar.gz"
-  sha256 "a96da1425dcbec094736033a8a416316547f8100ab4b72c31d4824d761d3e133"
+  url "https://dl.google.com/go/go1.11.13.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.11.13.src.tar.gz"
+  sha256 "5032095fd3f641cafcce164f551e5ae873785ce7b07ca7c143aecd18f7ba4076"
 
   bottle do
-    rebuild 1
-    sha256 "8e9422aa0f6f116cb74eef7a56f1ad9ebdf89af440bb53bbc817ce1e71b3be1d" => :mojave
-    sha256 "29f2a0e76752d6b7cbbe4712420a8a826fb3081eafbe965cc502dbcfd153afa8" => :high_sierra
-    sha256 "77b1bb722d714efd96a7ca9f29959363447053c64a83264ae63a6ea4a171f486" => :sierra
+    sha256 "54190931138cfffd1581a40e1cf6d13038fd8a5b277728824fc98c2fa5f6eb88" => :catalina
+    sha256 "100e91a2d1c1533f24399a5730c7705c831604ab134cd889cf74e07bbd069dcc" => :mojave
+    sha256 "118b70c5b092c9374dccc87165d2b88c32c5dcea1fc9b7c0d3b6d30116f4990d" => :high_sierra
+    sha256 "5b5e2452501f5b3c7c25a8e4ba42ea9c20cb483250bc027046d3ef961c15b526" => :sierra
   end
 
   keg_only :versioned_formula
@@ -26,14 +26,6 @@ class GoAT111 < Formula
     url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
     version "1.7"
     sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
-  end
-
-  # Prevents Go from building malformed binaries. Fixed upstream, should
-  # be in a future release.
-  # https://github.com/golang/go/issues/32673
-  patch do
-    url "https://github.com/golang/go/commit/26954bde4443c4bfbfe7608f35584b6b810f3f2c.patch?full_index=1"
-    sha256 "25a361bd4aa1155be06e2239c1974aa9c59f971210f19e16a3b7b576b9d4f677"
   end
 
   def install

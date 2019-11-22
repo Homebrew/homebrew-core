@@ -8,6 +8,7 @@ class FbiServefiles < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0240fdac4ac0282e980d113b430702d6693b52ec3d98955e4ca8444a6e73638e" => :catalina
     sha256 "307d14a7e492771758ddb6e059eb78c2fb65bbc818b48ebb34c5941e4493e7bd" => :mojave
     sha256 "d92c88a5682ff03bc5221f8c2bab82a5eaad593377f31a21ccb196c444012396" => :high_sierra
     sha256 "b9b755ced8b5387e70181598347ecb790ec4df4454fed8c63d85816864ed1976" => :sierra

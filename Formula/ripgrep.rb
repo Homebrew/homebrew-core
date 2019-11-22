@@ -1,15 +1,16 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/11.0.1.tar.gz"
-  sha256 "ba106404342160a66f703b8c9db9d45117c1a3664a0996822496bcb9f238b184"
+  url "https://github.com/BurntSushi/ripgrep/archive/11.0.2.tar.gz"
+  sha256 "0983861279936ada8bc7a6d5d663d590ad34eb44a44c75c2d6ccd0ab33490055"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
     cellar :any
-    sha256 "db7aa040d1dace4cc4225493ca37802cf7c3769b26e3ed0d1cdd32780aeda252" => :mojave
-    sha256 "d205bcd983c83ec1097523502d44598b844c3a13760e88449cd05b34e0ceba77" => :high_sierra
-    sha256 "1212eb9d8a2a38bc54cbbb38cc92015c6572622324bdd049b3e016564a8571da" => :sierra
+    rebuild 1
+    sha256 "2807391bd15f5529d15c88357b6a54de405ea22272a81613bb53bcef0c40717d" => :catalina
+    sha256 "e8916c30f1eea952b2429c1268a7f91aa19178e56c97106bc71f53778d2084aa" => :mojave
+    sha256 "2e28d6ebf756c5bd0d952d885166b39d5f1f19a10421a66f722fc5a22ad206a9" => :high_sierra
   end
 
   depends_on "asciidoc" => :build
@@ -21,7 +22,8 @@ class Ripgrep < Formula
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "cargo", "install", "--root", prefix,
+    system "cargo", "install", "--locked",
+                               "--root", prefix,
                                "--path", ".",
                                "--features", "pcre2"
 

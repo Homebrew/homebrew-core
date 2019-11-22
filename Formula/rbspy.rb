@@ -6,15 +6,16 @@ class Rbspy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7bb64a208e7baaa6e1e14a0be8817090a25dfe4b00aa0e01609147c467195e5f" => :mojave
-    sha256 "b161ddfff4af3be60659bdcee9661c32731cfd7dad5d4017e419b18d5b6b2cb9" => :high_sierra
-    sha256 "53e502d8f8c9a788aae1afa31004114da78f12033f9456ee292fa6e7d3db319a" => :sierra
+    rebuild 1
+    sha256 "9c294a02b723e6447e8d768dd14cef97bc9cee25c8541805c3e9da92bdf8dc2b" => :catalina
+    sha256 "8ee146850f9552d9d81ae467cf0418e12899916f4e143e29a0d85691f099ecb8" => :mojave
+    sha256 "a2a5d8cc114f60f72072ba283faa5ffc862696c76e8d849d191950de6136477a" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

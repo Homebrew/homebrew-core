@@ -1,15 +1,15 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
-  url "https://github.com/tidwall/tile38/archive/1.17.1.tar.gz"
-  sha256 "a621091ddca8e07d2f1d1cb4d2a4898d59b5c1abb32767d9d573aa3249f23004"
-  head "https://github.com/tidwall/tile38.git"
+  url "https://github.com/tidwall/tile38.git",
+    :tag      => "1.19.1",
+    :revision => "644f65c7d9801b98e8f6c3c446f54e00e23f81d1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2f04f1d5892c67b732c7e1b72222dbce04c4c17cc5e9b4f9e588640fe841e38" => :mojave
-    sha256 "c6a6c1adf6ff179dcdb9ad6fc28ab773d880fc081b26b3ee3c07c6278b2c96d7" => :high_sierra
-    sha256 "91d6657818cc72d7be3a778ef59325c271a795419ecf631031de81ba370d9767" => :sierra
+    sha256 "7e0591e39543cdd60fd8d7c8272227e0c5650ea4d6af67e312c39812d6a7e469" => :catalina
+    sha256 "1ecbbf44dbb2cd5275091fa8fde44420c79047a43320887ce83d1bc311323191" => :mojave
+    sha256 "1a2ec065ec72f51a591fcfc41c0f09155c3aa35e6de08290e6994c73db3f4ca5" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,10 +19,16 @@ class Tile38 < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "make"
+    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
 
-    bin.install "tile38-cli", "tile38-server"
+    ldflags = %W[
+      -s -w
+      -X github.com/tidwall/tile38/core.Version=#{version}
+      -X github.com/tidwall/tile38/core.GitSHA=#{commit}
+    ]
+
+    system "go", "build", "-o", bin/"tile38-server", "-ldflags", ldflags.join(" "), "./cmd/tile38-server"
+    system "go", "build", "-o", bin/"tile38-cli", "-ldflags", ldflags.join(" "), "./cmd/tile38-cli"
   end
 
   def post_install
@@ -69,16 +75,15 @@ class Tile38 < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/tile38-server", "-q"
-      end
-      sleep 2
-      json_output = shell_output("#{bin}/tile38-cli server")
-      tile38_server = JSON.parse(json_output)
-      assert_equal tile38_server["ok"], true
-    ensure
-      Process.kill("HUP", pid)
+    pid = fork do
+      exec "#{bin}/tile38-server", "-q"
     end
+    sleep 2
+    # remove `$408` in the first line output
+    json_output = shell_output("#{bin}/tile38-cli server").lines[1]
+    tile38_server = JSON.parse(json_output)
+    assert_equal tile38_server["ok"], true
+  ensure
+    Process.kill("HUP", pid)
   end
 end

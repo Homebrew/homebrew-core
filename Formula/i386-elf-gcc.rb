@@ -1,13 +1,15 @@
 class I386ElfGcc < Formula
   desc "The GNU compiler collection for i386-elf"
   homepage "https://gcc.gnu.org"
-  url "https://mirrors.nju.edu.cn/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-  sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+  sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
 
   bottle do
-    sha256 "a5fc827397725b13fcf0b4c455b68021b2285c80fb0c047030db9602d3e98623" => :mojave
-    sha256 "913cafca1eb2ec4493d09eda85f16c64561835c35882eb4bad13c81692bcb468" => :high_sierra
-    sha256 "e63d8a51cce665fbd05aa7cbc75082181caeaf38b8c77210e5c3846cdc49e1e5" => :sierra
+    sha256 "e7b2581357b72f1f6467d5c023540f5d7bfa4b6a0dd66738f10b150ca2d9a90e" => :catalina
+    sha256 "9c07c54353f96455a4c2a9c5c3468a2b39770917f6555f56e9cd3c953df5bdb8" => :mojave
+    sha256 "5ee8e21a5a3490d19c0c5dc947144786862d3e182fb51f89be66fd1cc1eb0427" => :high_sierra
+    sha256 "601dbae559327522ea705c0c7b92fc3dcf5280873d350b9e29913563261a73a1" => :sierra
   end
 
   depends_on "gmp"

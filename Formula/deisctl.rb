@@ -7,6 +7,7 @@ class Deisctl < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "40bd2431dcb776bdafa9474da331d17780aa568cdd8ad91b0e617a65e8c4da13" => :catalina
     sha256 "16becd65687b6d388850461b7fa9d949cdbc6b6f30d5977f44be28f174c49dc4" => :mojave
     sha256 "8a73a808a0b8f9d995cb4dd0e41c48b13749527c50055a187ed18244db851884" => :high_sierra
     sha256 "8661535566fe1d2484f5a0a2a4e6450ee026fe5c56490b335db9a5b34beb6984" => :sierra

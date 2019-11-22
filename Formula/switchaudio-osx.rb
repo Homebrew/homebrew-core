@@ -8,6 +8,7 @@ class SwitchaudioOsx < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "4a1ad0824d878dcabb3d7ffe4ad911f850383dbf2db28100e58f28cbc96657b7" => :catalina
     sha256 "85d0fe91c72d1a61e331e475af4e6ded9d0ca3581612c1934835bc44653fe407" => :mojave
     sha256 "26af506ea42b83ae8ccde71ed8b7666ccf3e3a349b2dd8958af7025854ffefd3" => :high_sierra
     sha256 "89ed040cc50c7b7ad88a903da5351cfa0027a4daf22cf73f2713e0887847c5d1" => :sierra

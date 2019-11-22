@@ -1,14 +1,15 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://github.com/akopytov/sysbench/archive/1.0.17.tar.gz"
-  sha256 "9bcad62eaf473510f5184f33cc41f1e07c2640c8810ae9eebe25ba27ba04df5d"
+  url "https://github.com/akopytov/sysbench/archive/1.0.18.tar.gz"
+  sha256 "c679b285e633c819d637bdafaeacc1bec13f37da5b3357c7e17d97a71bf28cb1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "064afff9de05baa1de8eea0fb9d4c94fb247c87364e7bdbe238e127b68922971" => :mojave
-    sha256 "39aef6117641eebb5157d30a6523b9881e9049d5f5cfabb9710f34f37387cb1a" => :high_sierra
-    sha256 "e58185196573b1731c1ba57f9356798ab91fa35d9d0e89b23e03e0bfc9491dc3" => :sierra
+    sha256 "a720824e2b028688b66f6f364d6e45754e3544001c5ab5427d9c0fc0c5e7153f" => :catalina
+    sha256 "8343774a73daa156e839c23c521f5ddce1c4d12c7106028c6b78e3b10193e112" => :mojave
+    sha256 "6a24f2724fd649fc96a0f6829620a46b71d8edbff172fc17d163cbaaf728a3ad" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -16,7 +17,7 @@ class Sysbench < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
@@ -24,7 +25,8 @@ class Sysbench < Formula
     # Fix for luajit build breakage.
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    # https://github.com/LuaJIT/LuaJIT/issues/518: set to 10.14 to build on Catalina.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = (DevelopmentTools.clang_build_version >= 1100) ? "10.14" : MacOS.version
 
     system "./configure", "--prefix=#{prefix}", "--with-mysql"
     system "make", "install"

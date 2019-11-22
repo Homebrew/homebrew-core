@@ -1,19 +1,20 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
-  url "https://www.pjsip.org/release/2.7.2/pjproject-2.7.2.tar.bz2"
-  sha256 "9c2c828abab7626edf18e04b041ef274bfaa86f99adf2c25ff56f1509e813772"
+  url "https://www.pjsip.org/release/2.9/pjproject-2.9.tar.bz2"
+  sha256 "d185ef7855c8ec07191dde92f54b65a7a4b7a6f7bf8c46f7af35ceeb1da2a636"
+  revision 1
   head "https://svn.pjsip.org/repos/pjproject/trunk"
 
   bottle do
     cellar :any
-    sha256 "2aa9d3fa63190d540d0a97203d086a096d7806db0d3fdb2995b1f1cc85674998" => :mojave
-    sha256 "eec232d8fe6c5b4e05521a87a4bd1a5cb4fcc6a4f0a996ddaacc33bd2d93255f" => :high_sierra
-    sha256 "f7d12f6bcb2a628df0e87e4bbaffc368ca004ed6de12d11d4d019b080257a2d0" => :sierra
-    sha256 "52a55c49ef0d0d53abf447fd060e7eaf8bd1d10c8f6b419582c5e453634d5b61" => :el_capitan
+    sha256 "784718544f0553b52ffa60aa895d405a95401112164c72962242f4b801b168c4" => :catalina
+    sha256 "ea18f1105154234f2c89b17d5973fd96c4821910a3e902a70d79ba219b655a4b" => :mojave
+    sha256 "05291521fbceb75e3abf7a0c185cce9c491a00afde019a52ccbbc4b91a38710c" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on :macos => :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}"

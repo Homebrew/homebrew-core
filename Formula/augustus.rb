@@ -1,16 +1,15 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "http://bioinf.uni-greifswald.de/augustus/"
-  url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.2.tar.gz"
-  sha256 "989a95fe3a83d62af4d323a9727d11b2c566adcf4d789d5d86d7b842d83e7671"
+  url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
+  sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4d052d58f6a1432deabdb529c83774017cc51456e780fd0dc79d127db2593366" => :mojave
-    sha256 "54dfd9c7cb44e36d126ac9d1febe79192a5c9fa71e11b9e5bb9a3b6aa14ed3bf" => :high_sierra
-    sha256 "a6fdc891239b33bea15d9f3f87992e5bf37a9b82ef683e662331617c1ac3c980" => :sierra
+    sha256 "397da54388ec9d56ee891b021fe313e0e4cfa2e46e80ef177ddd6d24723abec3" => :catalina
+    sha256 "67298cd2aa811dfa953f8d0c9019df12fe2f7aec6cd35ebf1cf27e38fb39e858" => :mojave
+    sha256 "030d9fced4d6863a77e5058f145e2d13560ef0b9aedd1cb01e96c593c9e3cbc6" => :high_sierra
   end
 
   depends_on "boost" => :build

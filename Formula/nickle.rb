@@ -1,14 +1,14 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://www.nickle.org/release/nickle-2.81.tar.gz"
-  sha256 "99a9331489e290fb768bf8d88e8b03e76f25485d7636c30d9eee616ca9d358b5"
-  revision 1
+  url "https://www.nickle.org/release/nickle-2.85.tar.gz"
+  sha256 "aaa8c96c31e533f238e03b1d91d6a6b5e95bed25a8b89a48d64d67fcfe8c7e89"
 
   bottle do
-    sha256 "0f2df376f4844e68bff024867233a87bb81e72bf7596a396c25d957976c25179" => :mojave
-    sha256 "b10a7bab81cafce5c1f21a9b52eba9f69944c0d1e8104415bf6efc478676546b" => :high_sierra
-    sha256 "e1e8b1026149286d819e57a5e674eb51d5b50f31f243ce06004824162e258ded" => :sierra
+    sha256 "04ccc5499b87e41f1d674d4e9be56fc3ddc933384be0960db2c5a9e405eacc38" => :catalina
+    sha256 "6294e2a7a132be9cbda76ff8a8529971a0a034a06455060fad7746cb32b0767a" => :mojave
+    sha256 "e5ce6aaea5ca0a7f0680d57fc9ff2d74128bda489bd0f1cc89e7c2f40ddc6958" => :high_sierra
+    sha256 "8204000310cac65645b48f68855aacd3f8257d11395f9e96b2751c0831c0628f" => :sierra
   end
 
   depends_on "readline"

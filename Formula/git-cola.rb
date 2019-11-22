@@ -1,15 +1,17 @@
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://github.com/git-cola/git-cola/archive/v3.4.tar.gz"
-  sha256 "763e382d8b32427539585d17ec6fe92026c073f6d31a864a5816ebe22cf245bc"
+  url "https://github.com/git-cola/git-cola/archive/v3.5.tar.gz"
+  sha256 "7fdcfc4326b35e384b97bd4bb2189b4cb5cf258948352759c302e632b41bb2e2"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "833bb6fc9782c38d57028fef7556c3750066d5d4dd6982b0593f72f2bf7a5311" => :mojave
-    sha256 "833bb6fc9782c38d57028fef7556c3750066d5d4dd6982b0593f72f2bf7a5311" => :high_sierra
-    sha256 "cddad576614177c901869aa64a2a103b4f68b3c94c760d75665f8529d004ece7" => :sierra
+    rebuild 1
+    sha256 "0420dfa06bdd89ee3cac8e02c849cc0ebe4d54e9c1721cca78d876321125f8d1" => :catalina
+    sha256 "0420dfa06bdd89ee3cac8e02c849cc0ebe4d54e9c1721cca78d876321125f8d1" => :mojave
+    sha256 "0420dfa06bdd89ee3cac8e02c849cc0ebe4d54e9c1721cca78d876321125f8d1" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build

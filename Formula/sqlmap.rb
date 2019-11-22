@@ -1,13 +1,11 @@
 class Sqlmap < Formula
   desc "Penetration testing for SQL injection and database servers"
   homepage "http://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/1.3.6.tar.gz"
-  sha256 "265378d93d4f3a025ebdfd5e502a67b4c03d14d66381615c4f4f12e63670bdd4"
+  url "https://github.com/sqlmapproject/sqlmap/archive/1.3.11.tar.gz"
+  sha256 "b0f25a4ba27787ab55cc939969bcc7ddbe550558759859424be478e6363f8bc3"
   head "https://github.com/sqlmapproject/sqlmap.git"
 
   bottle :unneeded
-
-  depends_on "python@2"
 
   def install
     libexec.install Dir["*"]

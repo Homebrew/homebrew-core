@@ -9,13 +9,14 @@ class MpsYoutube < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "97d97b734d3371938920e2d1b3a5e180a58c29441b376a2bfa9d2a3c52aef220" => :mojave
-    sha256 "7a358b9c265b5db8ad8367bdeb42e6b4b3f0164f66db91a80119b83c3a459016" => :high_sierra
-    sha256 "ecda06ebd06fda0260cf4e97490ff41c53ed070bd97c5ad61f4d52775813f0c2" => :sierra
+    rebuild 4
+    sha256 "94b1a1ee53f3808545b8cfe1bfdd60a0347c869c9637b097f6897eff71e06406" => :catalina
+    sha256 "567d91b7531d4cd44529b15f35aafecc0deefed6ff4251a32a51cd0b9e2f060a" => :mojave
+    sha256 "54561e5998860437fd853041c19db9f6bc40ed6365cd2533593ce9d8f9597acc" => :high_sierra
+    sha256 "029ff729d697a093a9cf405ec5a68a38c0cc438d76c43f1e44d0ec7cd79a83d8" => :sierra
   end
 
-  depends_on "mpv"
+  depends_on "mplayer"
   depends_on "python"
 
   resource "pafy" do
@@ -24,8 +25,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/69/e9/c96133c3b4874d9b682e918aa1e030a482a866f2b61ba9e985e47d08fffb/youtube_dl-2019.6.21.tar.gz"
-    sha256 "a64ffda79f467c81877d5452d775ebf858b43853ff7ce8644be3a80ebf3f9ea9"
+    url "https://files.pythonhosted.org/packages/34/8b/a9d28a385c56f1945753614705ba2018355100efab7d4161e60b9d8dc801/youtube_dl-2019.9.12.1.tar.gz"
+    sha256 "d61dd64e81a4cc026726b25981faf8ef8453363598483d51f7dc6f6d5580a78f"
   end
 
   def install
@@ -36,6 +37,13 @@ class MpsYoutube < Formula
     end
 
     venv.pip_install_and_link buildpath
+  end
+
+  def caveats
+    <<~EOS
+      Install the optional mpv app with Homebrew Cask:
+        brew cask install mpv
+    EOS
   end
 
   test do

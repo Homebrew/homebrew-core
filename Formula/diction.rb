@@ -6,6 +6,7 @@ class Diction < Formula
   sha256 "35c2f1bf8ddf0d5fa9f737ffc8e55230736e5d850ff40b57fdf5ef1d7aa024f6"
 
   bottle do
+    sha256 "ff26ae017482eaef3a07b4c6522e65a84b2ec03b6afaffa20e0138a244edd5e2" => :catalina
     sha256 "74ffc9abed7808557c799d089d4336da01d68c484e7b90dac797015d9656c8de" => :mojave
     sha256 "194a52459b3bfd3e4f38f8e19ea9f4d371d2bf3b005d3e36b8aa5519c5afaf2d" => :high_sierra
     sha256 "70dbde26567eb6b0093d897f9ceafb212eaf51d23028a925d39c0f53b803b5b9" => :sierra

@@ -1,19 +1,18 @@
 class Scamper < Formula
   desc "Advanced traceroute and network measurement utility"
   homepage "https://www.caida.org/tools/measurement/scamper/"
-  url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20180504.tar.gz"
-  sha256 "f8e192a12439ccba712870a47fb0a239715f2c43a98df3d1ae6761fa688fe189"
+  url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20191102.tar.gz"
+  sha256 "a5f1856546a30d8362377a1489de8c566c31c3b93744909cf6bea5b7cbd92645"
 
   bottle do
     cellar :any
-    sha256 "cab67481dc39c238684cc768012596d086d03594c88423cc4bf027e878a6e98f" => :mojave
-    sha256 "8eebcd5d3451744d3020a8925c49988271e8c96f1ade51692362eb0f401fccc7" => :high_sierra
-    sha256 "5c0144da8cbe504095f8613d64134dabb97a1a1478ba1104519ab9f77c0fa725" => :sierra
-    sha256 "49389540e24b1bb0a606569a1c3cda007cc86e7a1abda920089a326f35ce5d0f" => :el_capitan
+    sha256 "1a0f5c1946b62fb7fd92ee13f8313c8cc1aab2b167ed379a58480e6f6a033df5" => :catalina
+    sha256 "c42efb0765d212d5df33142b3923c0e04d49e0f58891f15530796838c6ff9e17" => :mojave
+    sha256 "8887037431a396ab36e404588554c8729e96b9da785e4216817832f2c805242d" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

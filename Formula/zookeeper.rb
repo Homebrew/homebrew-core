@@ -1,14 +1,14 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz"
-  sha256 "7ced798e41d2027784b8fd55c908605ad5bd94a742d5dab2506be8f94770594d"
+  url "https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz"
+  sha256 "b14f7a0fece8bd34c7fffa46039e563ac5367607c612517aa7bd37306afbd1cd"
 
   bottle do
     cellar :any
-    sha256 "d1e4e7738cd147dceb3d91b32480c20ac5da27d129905f336ba51c0c01b8a476" => :mojave
-    sha256 "806ec4f5c3c63387ffa3d1934764b3ebedcacdeffaa26661ae203c71be7d707b" => :high_sierra
-    sha256 "ea14de526563c5a1d5edd84c40383c75bef5dcf135b80dbc54af14f8b70cc68f" => :sierra
+    sha256 "854225ed94e18cdf9a08b992a658e851d4c4d77d826e8ae243488e65b38af84c" => :catalina
+    sha256 "e4cc87d3dc3d2e406fbc262b0b98bea4b8ab2464ca17c24b98abc92a055a4454" => :mojave
+    sha256 "6eceba9bba26dce645d2357f4fdca321b13bafb540c501f9b36f335695b450b1" => :high_sierra
   end
 
   head do
@@ -53,7 +53,7 @@ class Zookeeper < Formula
       system "autoreconf", "-fvi", "src/c"
     end
 
-    cd "src/c" do
+    cd "zookeeper-client/zookeeper-client-c" do
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
                             "--without-cppunit"
@@ -67,7 +67,7 @@ class Zookeeper < Formula
       libexec.install "bin", "src/contrib", "src/java/lib"
       libexec.install Dir["build/*.jar"]
     else
-      libexec.install "bin", "contrib", "lib"
+      libexec.install "bin", "zookeeper-contrib", "lib"
       libexec.install Dir["*.jar"]
     end
 

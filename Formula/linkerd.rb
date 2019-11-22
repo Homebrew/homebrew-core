@@ -3,17 +3,17 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-    :tag      => "stable-2.3.2",
-    :revision => "da0bc760fb8490c04bd739e212c98b6431e6e415"
+    :tag      => "stable-2.6.0",
+    :revision => "1039d82547388f361160b419e30d0b6b2051dc36"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ecf328937f1dc57f4ddad3bd832bc2dd3d2680a5ad35d89925c6ba8fe248835" => :mojave
-    sha256 "c4b201f7d2e790582754e448d3316085242dfd5613c8d6cbbdd17b6dd311702c" => :high_sierra
-    sha256 "6c1b3780a189c4d62f5c4471bd6715f492f4fe4862460137bb9f4feb236b6386" => :sierra
+    sha256 "743e5e1389c865c8b87aa3a38394bdbd959f3acec51f8b17c3339b1024e2848b" => :catalina
+    sha256 "7ff94d438b4c8acd6ad236e07da2df4d29993dcbf16e695fcf924259055fa98c" => :mojave
+    sha256 "247915d7d44b19e9e695c5739eed3ab5ee34027ffbf204c0e9c018179401aa09" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
 
   def install
     ENV["GOPATH"] = buildpath

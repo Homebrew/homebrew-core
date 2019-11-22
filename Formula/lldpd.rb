@@ -1,13 +1,15 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.3.tar.gz"
-  sha256 "39fced395168015416bfe78b95414facf066f841f349024433aa20ab54e4c360"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.4.tar.gz"
+  sha256 "5319bc032fabf1008d5d91e280276aa7f1bbfbb70129d8526cd4526d7c22724f"
+  revision 1
 
   bottle do
-    sha256 "1e72e4618d45de3304c07a9675cfd0ef39668bdff4a327fd40a0f88fba6d42f9" => :mojave
-    sha256 "6835530d05dfc54cb55c50336421d033b270f167e8439b5e15b706e4ba4044af" => :high_sierra
-    sha256 "c193e5f0e92b1bbfc02e64c762bf2e111e587b50acb6def5bd71480c14ffd5a2" => :sierra
+    sha256 "650fa8e3eb7d9697d2d5386bcb63f89d45cb84b00268ebb8d244b1c860735598" => :catalina
+    sha256 "e9a056129cde2e89fafc05704cfdaf0b59b4b4e7a4a84fc342600f47a5a2d540" => :mojave
+    sha256 "a38c7dfd11897bb66d7e7ae648d6037221ca7c8055020bc8ca1b6630fc36e295" => :high_sierra
+    sha256 "7ae0166c4d523d1b8d31792d2b160b47048c0a1096c7246ce652effc97f9df0f" => :sierra
   end
 
   depends_on "pkg-config" => :build

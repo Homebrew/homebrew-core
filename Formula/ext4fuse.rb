@@ -7,6 +7,7 @@ class Ext4fuse < Formula
 
   bottle do
     cellar :any
+    sha256 "446dde5e84b058966ead0cde5e38e9411f465732527f6decfa1c0dcdbd4abbef" => :catalina
     sha256 "88c4918bf5218f99295e539fe4499152edb3b60b6659e44ddd68b22359f512ae" => :mojave
     sha256 "fc69c8993afd0ffc16a73c9c036ca8f83c77ac2a19b3237f76f9ccee8b30bbc9" => :high_sierra
     sha256 "fe8bbe7cd5362f00ff06ef750926bf349d60563c20b0ecf212778631c8912ba2" => :sierra

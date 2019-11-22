@@ -1,15 +1,14 @@
 class Sdlpop < Formula
   desc "Open-source port of Prince of Persia"
   homepage "https://github.com/NagyD/SDLPoP"
-  url "https://github.com/NagyD/SDLPoP/archive/v1.18.1.tar.gz"
-  sha256 "8032c47fad4b73021d636ead510bbc1ab5106cff77103e331ad0f32a49a13946"
+  url "https://github.com/NagyD/SDLPoP/archive/v1.20.tar.gz"
+  sha256 "dbb75398dee2224bcee648602ad23e469b936a2b7ea962a8a01b091b989f25b6"
 
   bottle do
     cellar :any
-    sha256 "a10a88b0fabec9c095c13f0e870ba5e5417b24c8b9712ab04e4cc243aa30d9b3" => :mojave
-    sha256 "7d65b2aeda0577a96a4b24664c7b272bc91ab7ddda0e464d47a1a6ee389e4d45" => :high_sierra
-    sha256 "45f4786672fa1f2d4879c00887138c9fb2f778b344223b0eb4ab8a77f8a0a630" => :sierra
-    sha256 "32a0513366830e5082ceae4e48286a5817e391b101c64cc4f015c774feeb076e" => :el_capitan
+    sha256 "54fd6bcb8f351a98cd38017bb3c2a6df7a607dbd13b32cbd2162ab168a2a7759" => :catalina
+    sha256 "136ad2e3a3dfb37fa6e998ebcada2b35f1a41b8b31b4ac404038388bd2d6902b" => :mojave
+    sha256 "40e3329a4043ea4da4e71ccfbea3c9f710e9fed5d61e1d91a5390f7505f6c5f5" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

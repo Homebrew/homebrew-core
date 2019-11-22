@@ -6,6 +6,7 @@ class Par2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1d5d6e609ee90bf82d54b12b9f3ab726007acd9edaa8011faab4fc1037cf14ea" => :catalina
     sha256 "b47768e76669350def4fa99bd4c5f6462a8f73446d7709c00453e1acceab66df" => :mojave
     sha256 "569f6c3227a6e65de30991c3b921e321cb3b5e4e85e341042b2e3fcb00d2685e" => :high_sierra
     sha256 "85ca540e5daeb33c115c6cc37ae2bcb52b4db822679471ccf31598125f475d63" => :sierra

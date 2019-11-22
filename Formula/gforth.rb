@@ -6,10 +6,11 @@ class Gforth < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "fad1852c887abe73b0142456849bca8fe69a87d8eb68f3d7d64e3120aef36d09" => :mojave
-    sha256 "f0a7cb803ec02c2599dfddfba3dc91e00353d526307a50d93c3962e67fe914a0" => :high_sierra
-    sha256 "c18312f7e27c15dce54614cff5cbb76f4356f8d40171cf3edafb96ecd981bb99" => :sierra
+    cellar :any
+    rebuild 2
+    sha256 "9a3670647cbf4c87a62a271032ff04b70de04a9b2b3091be0c2a00cbfba860f2" => :catalina
+    sha256 "cba74a11ad3333f1462e3defcbc5903a1bc05ecca2d7686633da15affb12ebf5" => :mojave
+    sha256 "5643950f876b48bab6c92c8e9c016b8cf026907ee0c21f81a6a68db5b0a70e15" => :high_sierra
   end
 
   depends_on "emacs" => :build

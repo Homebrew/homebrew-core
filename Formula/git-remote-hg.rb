@@ -9,6 +9,7 @@ class GitRemoteHg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fd29f07fbc50952fa8f97420e26f07f9fe4d26222620f1c8b8cf50a0236b0643" => :catalina
     sha256 "d31145dbac316f9c7540d75dd6aafbcc4a2e075ec9c021efd41b4c087c186c1d" => :mojave
     sha256 "cae74b1c19b7f028810a213128de4ae3b33c909930ff25e76209bfbd65b9bbb7" => :high_sierra
     sha256 "d21a60283d278cd8e4fb3d5c76622edf49b64a19b300dbb5f71c91f967eed610" => :sierra

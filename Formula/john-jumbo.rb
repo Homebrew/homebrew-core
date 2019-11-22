@@ -1,24 +1,21 @@
 class JohnJumbo < Formula
   desc "Enhanced version of john, a UNIX password cracker"
   homepage "https://www.openwall.com/john/"
-  url "https://openwall.com/john/j/john-1.8.0-jumbo-1.tar.xz"
-  version "1.8.0"
-  sha256 "bac93d025995a051f055adbd7ce2f1975676cac6c74a6c7a3ee4cfdd9c160923"
+  url "https://openwall.com/john/k/john-1.9.0-jumbo-1.tar.xz"
+  version "1.9.0"
+  sha256 "f5d123f82983c53d8cc598e174394b074be7a77756f5fb5ed8515918c81e7f3b"
 
   bottle do
-    cellar :any
-    rebuild 6
-    sha256 "18a76d1f8abe542239444a3931d1d08f5f745cbb9a202b1d5fd2e1290b30fa4d" => :mojave
-    sha256 "6612d2001d80361ec70a19a8c54254a76fe1919a9cc72918032304e714144530" => :high_sierra
-    sha256 "6a2460e120f697e09a1ed62a948e5ecd767fc1b24a3f331aa4d59833205e48a4" => :sierra
-    sha256 "a87bf02d882413393f3f3759ab0fa6a171438609d101c7c9bc7772fe69e2ab47" => :el_capitan
-    sha256 "cf9c82f416a4eb3aad7d4202b21105988d346be8d8df262ea4ca18e683475d32" => :yosemite
-    sha256 "b36f66b0469b5c6cde95f780671db5b32e4e4dd7c16c4e7e591043bfdef2b65c" => :mavericks
+    rebuild 1
+    sha256 "e7a19321df5d635dab8f7049d96ee032c7536f1f2bf41b2b1d032e1665bfd127" => :catalina
+    sha256 "51f7b265d83da1db5c2a34e77d2f376e1fa7730ecde5c9cfcda181ccab084f8e" => :mojave
+    sha256 "0719a701b7280ccd2bd1e2f834ffb6518d183f80c5df2afcb956f374e6d032c3" => :high_sierra
+    sha256 "6349fe1f1c0524382ab6ed36a4ceeb795c67cacb310688e2759cf33efab82609" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "john", :because => "both install the same binaries"
 
@@ -27,28 +24,36 @@ class JohnJumbo < Formula
     cause "Upstream have a hacky workaround for supporting gcc that we can't use."
   end
 
-  # Patch taken from MacPorts, tells john where to find runtime files.
-  # https://github.com/magnumripper/JohnTheRipper/issues/982
-  patch :DATA
-
-  # Previously john-jumbo ignored the value of $HOME; fixed
-  # upstream.  See
-  # https://github.com/magnumripper/JohnTheRipper/issues/1901
+  # Fixed setup `-mno-sse4.1` for some machines.
+  # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4100
   patch do
-    url "https://github.com/magnumripper/JohnTheRipper/commit/d29ad8aabaa9726eb08f440001c37611fa072e0c.diff?full_index=1"
-    sha256 "b3400f54c64dccce6fe4846872c945b280ec221c7a3d614b03c18029cba3695a"
+    url "https://github.com/magnumripper/JohnTheRipper/commit/a537bbca37c1c2452ffcfccea6d2366447ec05c2.diff?full_index=1"
+    sha256 "c246b7a4b06436810dee66d324fa550c5f6bc2dabcb09a2f5f7836c6633a549a"
+  end
+
+  # Fixed setup of openssl@1.1 over series of patches
+  # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4101
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/pull/4101.diff?full_index=1"
+    sha256 "c21ba72b1267752c8fe70b6f48baf6a36bf4f4796a58e5b2f5998a3a42f96126"
   end
 
   def install
+    ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE=1"
+    ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_EXEC='\"#{share}/john\"'"
+    ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_HOME='\"#{share}/john\"'"
+
+    ENV.append "CFLAGS", "-mno-sse4.1" unless MacOS.version.requires_sse4?
+
+    ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@1.1"].opt_lib}"
+    ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@1.1"].opt_include}"
+
     cd "src" do
-      system "./configure", "--disable-native-tests", "--disable-native-macro"
+      system "./configure", "--disable-native-tests"
       system "make", "clean"
-      system "make", "-s", "CC=#{ENV.cc}"
+      system "make"
     end
 
-    # Remove the symlink and install the real file
-    rm "README"
-    prefix.install "doc/README"
     doc.install Dir["doc/*"]
 
     # Only symlink the main binary into bin
@@ -57,9 +62,6 @@ class JohnJumbo < Formula
 
     bash_completion.install share/"john/john.bash_completion" => "john.bash"
     zsh_completion.install share/"john/john.zsh_completion" => "_john"
-
-    # Source code defaults to "john.ini", so rename
-    mv share/"john/john.conf", share/"john/john.ini"
   end
 
   test do
@@ -69,27 +71,3 @@ class JohnJumbo < Formula
     assert_match(/secret/, (testpath/"john2.pot").read)
   end
 end
-
-
-__END__
---- a/src/params.h	2012-08-30 13:24:18.000000000 -0500
-+++ b/src/params.h	2012-08-30 13:25:13.000000000 -0500
-@@ -70,15 +70,15 @@
-  * notes above.
-  */
- #ifndef JOHN_SYSTEMWIDE
--#define JOHN_SYSTEMWIDE			0
-+#define JOHN_SYSTEMWIDE			1
- #endif
-
- #if JOHN_SYSTEMWIDE
- #ifndef JOHN_SYSTEMWIDE_EXEC /* please refer to the notes above */
--#define JOHN_SYSTEMWIDE_EXEC		"/usr/libexec/john"
-+#define JOHN_SYSTEMWIDE_EXEC		"HOMEBREW_PREFIX/share/john"
- #endif
- #ifndef JOHN_SYSTEMWIDE_HOME
--#define JOHN_SYSTEMWIDE_HOME		"/usr/share/john"
-+#define JOHN_SYSTEMWIDE_HOME		"HOMEBREW_PREFIX/share/john"
- #endif
- #define JOHN_PRIVATE_HOME		"~/.john"
- #endif

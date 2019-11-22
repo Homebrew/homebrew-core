@@ -3,15 +3,15 @@ class Redex < Formula
   homepage "https://fbredex.com"
   url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
   sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
-  revision 1
+  revision 3
   head "https://github.com/facebook/redex.git"
 
   bottle do
     cellar :any
-    sha256 "1238aba94a455c15ab04cbe425c6b42afb8b0c31e117d9146686a1986386c6e4" => :mojave
-    sha256 "3af2c80e3680ee759285ebb1939530b8f5e15315c6a98d64e2334ac6f1abb907" => :high_sierra
-    sha256 "eeca9a5992edfc721cf08ea9c86d59c4110998af603e447213da01cc84d6216c" => :sierra
-    sha256 "6bf545087ea1d01922b9cc5a157b941785b3e1abe339d45a50745ddfdf21d8fd" => :el_capitan
+    sha256 "8d26d3585dd46ba830662bffcff750f5c2332b17bb2e44c642bbc91e7c768ea1" => :catalina
+    sha256 "6a04f538e454dfcdcb18433ba198b2a280e566b21c74b2f881a3a8b73efa6685" => :mojave
+    sha256 "a5d151af47697821120f6bca37f10eae53849fcccd397bc801d861e5fb1fbc98" => :high_sierra
+    sha256 "84df4e62e4f7b2e4fe0752cbbdc65d88481f0248ea02641133b7c36535dde67c" => :sierra
   end
 
   depends_on "autoconf" => :build

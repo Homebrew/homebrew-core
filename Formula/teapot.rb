@@ -7,6 +7,7 @@ class Teapot < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "590fcacca0a46973b2ce6dd07e30d360e600aa86950af7d3a25d5d3f12512cc4" => :catalina
     sha256 "29d1d772e73a64a1616dcbeb3d32e8839ec7642f809d604eef52ac7805405ba3" => :mojave
     sha256 "f918044ee7953b5cc9be50487cc86bf57b4e217990551cc67c6f0c9c41f0ac0a" => :high_sierra
     sha256 "f0dc057cdfa1aa5168898a22791ee72fd3e525fd750838e94147f8b3811c1b07" => :sierra

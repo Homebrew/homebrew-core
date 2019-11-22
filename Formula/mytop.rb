@@ -4,18 +4,17 @@ class Mytop < Formula
   url "http://www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 6
+  revision 8
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "873b88c76650758b49e1749e35c765b5179ffd371ab489f146b35da1e3620029" => :mojave
-    sha256 "8d64c44dcfccde35179d48a1698f0108df3c621e68ee7f8716a6d6db35cc1448" => :high_sierra
-    sha256 "26a4812e17d0285a28176d8bd735e06a1196a794c7cefb4837f7ab9a9ed4272d" => :sierra
+    sha256 "69930f7d5c68b0d6ce75c89820732f269d3b3c6651358875b0db58ae1ead38f0" => :catalina
+    sha256 "ac13ecf239ff9d4bb1d39ad584c46ac9a5c95f3b96b3991bf9108280b30c0a19" => :mojave
+    sha256 "2862de7630947648898e1ef348a8357fdd25622310c9af03450c40ea33fc925c" => :high_sierra
   end
 
   depends_on "mysql-client"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "mariadb", :because => "both install `mytop` binaries"
 

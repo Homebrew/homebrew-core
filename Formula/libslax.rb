@@ -1,15 +1,13 @@
 class Libslax < Formula
   desc "Implementation of the SLAX language (an XSLT alternative)"
   homepage "http://www.libslax.org/"
-  url "https://github.com/Juniper/libslax/releases/download/0.22.0/libslax-0.22.0.tar.gz"
-  sha256 "a32fb437a160666d88d9a9ae04ee6a880ea75f1f0e1e9a5a01ce1c8fbded6dfe"
+  url "https://github.com/Juniper/libslax/releases/download/0.22.1/libslax-0.22.1.tar.gz"
+  sha256 "4da6fb9886e50d75478d5ecc6868c90dae9d30ba7fc6e6d154fc92e6a48d9a95"
 
   bottle do
-    sha256 "0d3ba0fdd3bde7b42ca4246cffe14e34064a75a9eb719e6a5b986101e05aa670" => :mojave
-    sha256 "119f8062107d0621d36b62a87a7b2af4e7aff1b5b18bec2ddba32d1570eb0d4c" => :high_sierra
-    sha256 "7b8f9a2b5da09d32b9d0f45458a0059ebecddf7e40e49f667ad9c6c5f2a75d84" => :sierra
-    sha256 "6c74666ce37951d72d6589914d203362195431324d89aeb7702c4d5574ebe17e" => :el_capitan
-    sha256 "ac6582a698eae9f96d92d29b9e0ea1fb25b74c969e52cc1a97a1830ac6bb0544" => :yosemite
+    sha256 "8b4506f10c72d75425ad849f17918a6574c349ebdf29ab740ad323811d1a4d02" => :catalina
+    sha256 "5e024a22f8a47c0a11724d7543cd50141e8246b3669155cd734854ee74ec9d71" => :mojave
+    sha256 "95e8b6bdc7010103110d8c7a92c33dd8e2e04228e037ca81c3a5cb69ea955ab2" => :high_sierra
   end
 
   head do
@@ -20,13 +18,13 @@ class Libslax < Formula
   end
 
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "genometools", :because => "both install `bin/gt`"
 
   def install
     # configure remembers "-lcrypto" but not the link path.
-    ENV.append "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
 
     if MacOS.version == :sierra || MacOS.version == :el_capitan
       ENV["SDKROOT"] = MacOS.sdk_path

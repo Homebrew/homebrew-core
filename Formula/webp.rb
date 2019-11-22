@@ -1,15 +1,15 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.2.tar.gz"
-  sha256 "3d47b48c40ed6476e8047b2ddb81d93835e0ca1b8d3e8c679afbb3004dd564b1"
+  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz"
+  sha256 "e20a07865c8697bba00aebccc6f54912d6bc333bb4d604e6b07491c1a226b34f"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "38bdac64dbf41666310ae1589e6102b6bcd688540514f7af4334dd74996c4277" => :mojave
-    sha256 "b324a2a6eeb5c7c916a903f7249b6233334f99e7394b9927784319f086e21f8e" => :high_sierra
-    sha256 "32e6c391ab45b17b167d565ef1ac36eeb2267483425f4b0f710f5445fa75df61" => :sierra
+    sha256 "6bce8ee7b2b0cb615ea73deed3de3f345bcec05720222bd23882d4d8b7424fb6" => :catalina
+    sha256 "347c02d4de7afe9e5e73391d293a19f89d40957fafd757656011dea270227838" => :mojave
+    sha256 "c21dfa59400041f1e1976c3b9721bf10c7df35bf1514f3182d6911db3fb85ebf" => :high_sierra
+    sha256 "dd8d1b68c16db0a5861f4be748456fa745dca31e22a708a6eb4f6374b03debbe" => :sierra
   end
 
   head do

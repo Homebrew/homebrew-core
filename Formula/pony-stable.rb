@@ -1,15 +1,16 @@
 class PonyStable < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/pony-stable"
-  url "https://github.com/ponylang/pony-stable/archive/0.2.0.tar.gz"
-  sha256 "ed33a9523bc5eba7a9c738ede4e4dcef1755c485e6bfc0c58973c30908a1cb4d"
+  url "https://github.com/ponylang/pony-stable/archive/0.2.1.tar.gz"
+  sha256 "1335d7b3457421b8913f19c17da76d2d6b9ad17288dfb5fdcf2af9fd93193890"
   head "https://github.com/ponylang/pony-stable.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35714dcf19ff2245090f7651430cfb0c1216cc3e599e6cda7edb9b964db4be6f" => :mojave
-    sha256 "77768ecada4cbab8da58ff06f639a43eec4cf1fbe328330dc0073971bdbacfc9" => :high_sierra
-    sha256 "b04c2a2da1a13bb3cf965742c4c6228ccf8e7befbe734bd2f461633eaf6e46ba" => :sierra
+    sha256 "ac8a8ee51543c3529f4d6d0d385c93602b146a7d62a9e7012c4d61bb374f9f78" => :catalina
+    sha256 "7da637b58849f22f8ff032854b405eb5a7c32ea3603b524146e4cf24f67ded1c" => :mojave
+    sha256 "a81295a6570890eb1b6ae816a80d58ffa8960858efbd4744a8ec7bd22986eadc" => :high_sierra
+    sha256 "7e6c0e27461f443549eeaad7430ccee0fc8b833acf5c9658255de4d5dcd52b21" => :sierra
   end
 
   depends_on "ponyc"

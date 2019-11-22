@@ -1,17 +1,18 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://ab.inf.uni-tuebingen.de/software/diamond/"
-  url "https://github.com/bbuchfink/diamond/archive/v0.9.24.tar.gz"
-  sha256 "22e8fc3980c2f5d6b584d4fefa3406172141697f7cb32b9742cb43a593b4ff24"
+  url "https://github.com/bbuchfink/diamond/archive/v0.9.29.tar.gz"
+  sha256 "9ccec6417b4a7bfcd616e3daee6b1d9e5f61340ae241e8c374b01176124ba635"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d142fdeb7bcaf6fe11a63bea7027d7e71a16165243ec1a4e1bc319941ffea21f" => :mojave
-    sha256 "2ea545335e21704468d960aae7b9d5702e7a0bcb7540cc7ca6bb872ecce4bb50" => :high_sierra
-    sha256 "a7eb2dad7dece443eeb54b53084bc7c715f221067dce51d7e238214dc402b2d2" => :sierra
+    sha256 "b0bf57ae646521f6911054c707222a979d384f426ba60186b631b6069bb006fb" => :catalina
+    sha256 "cebb87be2e7fa2a3de21a52b2e0e3a4a46701381646a81aeaaf56aa38558472a" => :mojave
+    sha256 "8c63422b3bf6b46b6fb6bf484f199f5b18d1c58fe7dc091e4d1feae116fd7da1" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "zlib"
 
   def install
     system "cmake", ".", *std_cmake_args

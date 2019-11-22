@@ -6,6 +6,7 @@ class Bioawk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c7377ef6e226404f71d52c04715ea0bb8456e1c90493e93e78101dfb3ed2190e" => :catalina
     sha256 "7082d4073e07ba3dfa849f95eb126d966a45f9fceb1d197595119a216e465727" => :mojave
     sha256 "023f5cafaa31404e68b8fc6bcfbeee27e63eb5fbcab897d2f406fceda90ec9ff" => :high_sierra
     sha256 "154d44dd9ea56db8170127711e991950d487e379ae12df76332e4b7512f79fe8" => :sierra

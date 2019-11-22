@@ -6,6 +6,7 @@ class Mkclean < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8bbf507533210f38e1ec8e8f18238194b9d67cc54c9d037b25670f6d48fbac6b" => :catalina
     sha256 "645c0b42475bb4d09c2c27219e80ffc3fed4c34b72c5f6bb0e8534cba1101ea2" => :mojave
     sha256 "eb519c8f3fb9b2773529d5e7a9751cec7e2a7a67a76af92cab0e6b48449dc6de" => :high_sierra
     sha256 "73e502b5331d28da40fc3b94763f6ea30a141e48329bede7eddf3e396991671b" => :sierra

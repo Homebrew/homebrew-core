@@ -1,15 +1,16 @@
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/v0.13.2.tar.gz"
-  sha256 "0886851af2437b161d47b279a32bef426577e7bec3f5acdadebe34549aae8270"
+  url "https://github.com/Masterminds/glide/archive/v0.13.3.tar.gz"
+  sha256 "817dad2f25303d835789c889bf2fac5e141ad2442b9f75da7b164650f0de3fee"
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e1f33381b136034b0940785e703098ea99f8550895abe890b9edb850303364d8" => :mojave
-    sha256 "181f8aa3ef425517c444d303c9ad44c8062f8305ea40db9b8419f2b2b53ad045" => :high_sierra
-    sha256 "a925a8c1930e77ce29406e3cc5783d380dda884aef053ad1b0d85ca13da3d740" => :sierra
+    sha256 "6950b3ca86a9c460e3937ca5b931836586310203726ca37bd434b822b4f0f8c1" => :catalina
+    sha256 "795f7f533f050b5356846b3ed2a9db88a51ef74b929e28ea0473c83f630b03c3" => :mojave
+    sha256 "45c35a6adf13bc732a827669e4ffb19dcfa710180c2b2930435d4217802313d6" => :high_sierra
+    sha256 "d665d8221c75985ffde8357c5ebfd53c2cb3398ac699a1afc1ebf8000e5206cc" => :sierra
   end
 
   depends_on "go"

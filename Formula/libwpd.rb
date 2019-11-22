@@ -6,6 +6,7 @@ class Libwpd < Formula
 
   bottle do
     cellar :any
+    sha256 "edb924ac33633d851f162839c2e1ef57734c81bd5a6d3d2cde7750175bd19386" => :catalina
     sha256 "b9cdcbf1e0c875c8666f16a9547386754c40607652b0255d6eda8b2afb2da229" => :mojave
     sha256 "baba04ac2fc8bcd2bbf890f8d7e3e27f7eae3044d960f027634e3d0310447dc8" => :high_sierra
     sha256 "f4ef8b16411ea32e77e35bf0a8109b5f7651931e885ffd4ad7a8933a12d4f749" => :sierra

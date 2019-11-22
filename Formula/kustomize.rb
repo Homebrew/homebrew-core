@@ -2,35 +2,32 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v2.1.0",
-      :revision => "af67c893d87c5fb8200f8a3edac7fdafd61ec0bd"
+      :tag      => "kustomize/v3.2.1",
+      :revision => "d89b448c745937f0cf1936162f26a5aac688f840"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd50a743957a1b3f15b6ebd887f0f7c39f248d6b9d75f6182e960a4e5e1715b2" => :mojave
-    sha256 "80e464ef646f293212bcace956de93804c9556ac45697bb7f5bf75a276261fc9" => :high_sierra
-    sha256 "2c7ede4c483f6072a35d098778e32dba19550f93d8268c49c9210222daca08e7" => :sierra
+    sha256 "a56bc3f26d7526f95467fee01d19da8f8efbe1c795180dff92d2d796f3eb098e" => :mojave
+    sha256 "382e90f81114ee7b082c2a211b6d9c380c1a8db5f658d3e5e6fe57ecabe8c746" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
 
     dir = buildpath/"src/kubernetes-sigs/kustomize"
     dir.install buildpath.children
-
-    cd dir do
+    cd dir/"kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{version}
-        -X sigs.k8s.io/kustomize/pkg/commands/misc.gitCommit=#{revision}
-        -X sigs.k8s.io/kustomize/pkg/commands/misc.buildDate=#{Time.now.iso8601}
+        -s -X sigs.k8s.io/kustomize/kustomize/v3/provenance.version=#{version}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.buildDate=#{Time.now.iso8601}
       ]
-      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize", "cmd/kustomize/main.go"
+      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
       prefix.install_metafiles
     end
   end
@@ -41,7 +38,7 @@ class Kustomize < Formula
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
       - service.yaml
-      patches:
+      patchesStrategicMerge:
       - patch.yaml
     EOS
     (testpath/"patch.yaml").write <<~EOS

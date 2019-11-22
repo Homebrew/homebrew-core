@@ -7,6 +7,7 @@ class Classads < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "9803231cebf936ef95bd86c820a7f3ba832c56109ad8a527ac5786d1d6150234" => :catalina
     sha256 "2c2987f20d62b7c0926071bfe5c2c9825b30b4c6dba4dd20e2d2f34c5369ef44" => :mojave
     sha256 "febef9dc12fdea8d1dbd1687f835ac8a58d8a7534ce2a0735d6102872058ec59" => :high_sierra
     sha256 "d51471a725a552974a309b8add05ca731264f7a0fbaedee1c85b97475c204cb7" => :sierra

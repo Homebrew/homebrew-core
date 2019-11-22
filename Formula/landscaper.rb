@@ -2,15 +2,16 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag      => "v1.0.23",
-      :revision => "608a1393d1afca82b03ccb497e27f5d2b170f55b"
+      :tag      => "v1.0.24",
+      :revision => "1199b098bcabc729c885007d868f38b2cf8d2370"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cda7019ddf77729c76a01f8dcf6b99b041f715a98936ac599b6075c44f48ec14" => :mojave
-    sha256 "9af1e83611a73e13d3e15c99de54276c612f6de031a6832fdb0e9bcd8d8b5b44" => :high_sierra
-    sha256 "f9d5002f1d72b4654474328f4c4e3f0cfa1d18d6b24bbf48a4ef05df45a321a5" => :sierra
+    sha256 "6ac6de3f445e382e6f03c339ef45268113dc8566e1fb8154a47e257611565592" => :catalina
+    sha256 "d178824d2e212c303d702137ad51e9df746cd0b65d53e1e3c80aa69268965cb2" => :mojave
+    sha256 "7394b4d8cef65cff64ad929b623a4eb8e0dc4eb7541e919d7eb128ec811b104b" => :high_sierra
+    sha256 "c231a80ae46932dd67361637ffb2efb1a9906d6e11ff9cf73fae7ea855533649" => :sierra
   end
 
   depends_on "dep" => :build

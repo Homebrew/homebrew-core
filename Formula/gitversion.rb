@@ -1,18 +1,16 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://github.com/GitTools/GitVersion"
-  url "https://github.com/GitTools/GitVersion/releases/download/v4.0.0/GitVersion-bin-net40-v4.0.0.zip"
-  sha256 "872c6cfaecd8693a37c3d3fcb77c24bf4068ea5db14fee4dad9912a6b922b9f1"
+  url "https://github.com/GitTools/GitVersion/releases/download/5.1.2/gitversion-osx-5.1.2.tar.gz"
+  sha256 "eb24c6b798a5cbfa427ab1154a98d77180aca53403cb5a8801165167601d1eed"
 
   bottle :unneeded
-
-  depends_on "mono"
 
   def install
     libexec.install Dir["*"]
     (bin/"gitversion").write <<~EOS
       #!/bin/sh
-      exec "mono" "#{libexec}/GitVersion.exe" "$@"
+      exec "#{libexec}/GitVersion" "$@"
     EOS
   end
 

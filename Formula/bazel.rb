@@ -1,16 +1,17 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-dist.zip"
-  sha256 "c0e94f8f818759f3f67af798c38683520c540f469cb41aea8f5e5a0e43f11600"
+  url "https://github.com/bazelbuild/bazel/releases/download/1.1.0/bazel-1.1.0-dist.zip"
+  sha256 "4b66a8c93af7832ed32e7236cf454a05f3aa06d25a8576fc3f83114f142f95ab"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f17ee6fbf30904385f27009e779402a72b36466af6d4c2a08bfc1068c1a6085f" => :mojave
-    sha256 "45999bf26c8a4f0e8903714031c8338baaf4cb837e3adda8f55618e2d736ff33" => :high_sierra
-    sha256 "0b6417bfde134a0d72ae446458293cc82a1829ccb7ebfae01be5e9cfbdd803d3" => :sierra
+    sha256 "7d70d6c44909ed659835ac0e9d0da100877fc4fbd41ecee91a2ac33518c9e632" => :catalina
+    sha256 "7d70d6c44909ed659835ac0e9d0da100877fc4fbd41ecee91a2ac33518c9e632" => :mojave
+    sha256 "76b460671dd23a477d57f0f1c9e187faaab504f6160baafc4032bb0e59036304" => :high_sierra
   end
 
+  depends_on "python" => :build
   depends_on :java => "1.8"
   depends_on :macos => :yosemite
 

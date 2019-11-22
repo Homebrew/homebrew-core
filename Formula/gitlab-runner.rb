@@ -2,15 +2,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag      => "v12.0.0",
-      :revision => "6946bae7d492f32e6dd5242bdedba98abda1b629"
+      :tag      => "v12.5.0",
+      :revision => "577f813d20d4a51e2843de62a07b7169f6f11019"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32e671bb2e76be21a1d14a23a10144e390399008ffbe4bf42a4e15ba53123397" => :mojave
-    sha256 "45900f51fe86935bb92345a425a18c08f0753b7006e7443363a5dbf4fb730139" => :high_sierra
-    sha256 "eeb69b3a6d6ec14f5ab7300147b88e1e1c2275414d3c3d6001b3d105e86f5d94" => :sierra
+    sha256 "9cc9966bd27716f0c20cca63c9637e49b9a24dbd70884860d708fc6e21de1d25" => :catalina
+    sha256 "6387af32f3cb551258290e5df712706810adc57ff34136da006ac544b38385e7" => :mojave
+    sha256 "0edf07dc6ff44c6ce3735c63c799c12ddc9dbf21941b399f5e9ffa6704313b60" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -22,7 +22,7 @@ class GitlabRunner < Formula
 
     cd dir do
       proj = "gitlab.com/gitlab-org/gitlab-runner"
-      commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
+      commit = Utils.popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS

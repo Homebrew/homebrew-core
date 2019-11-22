@@ -8,6 +8,7 @@ class Jerm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "679f37e7f92c4eb64a0c94e11e8fc1bdc1b28f3bb7fbefafc38a955318d2f03d" => :catalina
     sha256 "3141c6a52da59f5b0ee5cb514fc797b5979e4ddb4e71b36f56c133ff5311dce8" => :mojave
     sha256 "dd2a0ae44a1aa671a62ccc7461e7550df48d656beeac35b7bc61c732350ece3b" => :high_sierra
     sha256 "ee9a8a2e559bf9ab82ba413e8741759fed6d59cfe82a063c82b72b81a56cfe5e" => :sierra

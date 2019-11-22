@@ -3,14 +3,15 @@ class Ydcv < Formula
 
   desc "YouDao Console Version"
   homepage "https://github.com/felixonmars/ydcv"
-  url "https://github.com/felixonmars/ydcv/archive/0.6.2.tar.gz"
-  sha256 "45a237fba401771c5ad8455938e6cf360beab24655a4961db368eb2fbbbfb546"
+  url "https://github.com/felixonmars/ydcv/archive/0.7.tar.gz"
+  sha256 "03dd5de36ea8fce3170e678e63fc3694e2718b22bc5e1526e3e07f5c36ec9aa0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0f4fb06ecf1aade03aa1851ec9cc4b75e10aaa5a95177440eeff02e07238e32" => :mojave
-    sha256 "3cd596b113010dfbcc5577c1d5b57bfc09e6b6ec843795c6d1aaf7e50690a5c7" => :high_sierra
-    sha256 "1e716fe115344fce903575e5843d380c0edea040725e7548af0ff9b03bdd5bd2" => :sierra
+    sha256 "8c3b86d6f485f64c93716604031b7ab9981bcaae43096b545a753e114e6bd7b9" => :catalina
+    sha256 "d4782bc68e0fe4fcc0d9687d44c9f4cf19188644bc723ad0de21e1c4629c757e" => :mojave
+    sha256 "306a3fba391696ddf6a1031774906786421ae4df2a2466f4b05eb9c2e7c34a57" => :high_sierra
+    sha256 "24bd213b43d60cf2ef49868c3419bf09bce242d82ce78c4cd4d793c01d45676c" => :sierra
   end
 
   depends_on "python"
@@ -22,8 +23,12 @@ class Ydcv < Formula
     virtualenv_install_with_resources
   end
 
+  def caveats; <<~EOS
+    You need to add a config for API Key, read more at https://github.com/felixonmars/ydcv
+  EOS
+  end
+
   test do
-    assert_match "hello", shell_output("#{bin}/ydcv 你好")
-    assert_match "你好", shell_output("#{bin}/ydcv hello")
+    system "#{bin}/ydcv", "--help"
   end
 end

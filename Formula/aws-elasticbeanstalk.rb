@@ -8,9 +8,12 @@ class AwsElasticbeanstalk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "845a732bc3beebc483146c2981c33e7d6c76ca99d266794ef51ad9ffe4519dd9" => :catalina
     sha256 "83badc49015db13b12f12ec1f3640716fba2161a80e91772d8ccdc144ff69185" => :mojave
     sha256 "e88ba1b0777ae69d037fb3fe933b833ed8147d34b85aa0adb97b2d63df08a87f" => :high_sierra
   end
+
+  uses_from_macos "python@2"
 
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"

@@ -1,15 +1,15 @@
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/releases/download/v3.3.2/distcc-3.3.2.tar.gz"
-  sha256 "64894de2970c631801d29c9962553673ea7a1d150e6855d7e166d273fca5cdfc"
+  url "https://github.com/distcc/distcc/releases/download/v3.3.3/distcc-3.3.3.tar.gz"
+  sha256 "bead25471d5a53ecfdf8f065a6fe48901c14d5008956c318c700e56bc87bf0bc"
   head "https://github.com/distcc/distcc.git"
 
   bottle do
-    rebuild 1
-    sha256 "cc6733686bc22b48972455982fe93656bcc27f3f4fea1d202c42316a2baceb6a" => :mojave
-    sha256 "e0e26dfa751cc3790a81de8ed8bda041a36ff487cbc9c18790e11a1d487893ae" => :high_sierra
-    sha256 "5839cf82df4187c62f5035c26762f88ed84da15e472501ab2d9097d2c77a023e" => :sierra
+    sha256 "1f92fe59d82abc151c1d7769b6e8a00c5b1c591b47111d7673dbee55d8c855e8" => :catalina
+    sha256 "5db52d207f099b1ffc3a9bdf59ad17b2c16f0edabe1aa984344f955c5723d449" => :mojave
+    sha256 "48190c1dece9ef45931f0b178cd04843569707623d145474e8d0e2ad7cf80609" => :high_sierra
+    sha256 "6dc68f19b66bed0e613611828d276ac02251d3fe5b940720376d02187a1fa1c9" => :sierra
   end
 
   depends_on "autoconf" => :build

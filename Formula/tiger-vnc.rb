@@ -1,14 +1,13 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.9.0.tar.gz"
-  sha256 "f15ced8500ec56356c3bf271f52e58ed83729118361c7103eab64a618441f740"
-  revision 2
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.10.0.tar.gz"
+  sha256 "a1e54d980eef8db06f5f696aa1fb6b98be049dac5205fda8b54f211a88dd182c"
 
   bottle do
-    sha256 "00d679d7a5302a288803e304852d641454270fb61ad86f29468b6628d098766b" => :mojave
-    sha256 "8bc6fd944ac4ddb423a0164b2adf3d0733ce0b7461e53835cdf9d8f3ef1a27cf" => :high_sierra
-    sha256 "7c5b8f1a5e52f4bb76ef40a3904aaac50f052dbd9661b6429e86f492a120bb02" => :sierra
+    sha256 "666603d27a9ed626467b787dcee3b5f541176ef13a3ec8e8e16fc8d314a3f1b4" => :catalina
+    sha256 "197e51f10b6373b45b4fa6c39821f24984ee9c5c3dd803dc255b1d030f7f97d2" => :mojave
+    sha256 "6b29f38cac25323031ec657628a20fe8732583c5c1b4c5930ae7b52e8cf1d256" => :high_sierra
   end
 
   depends_on "cmake" => :build

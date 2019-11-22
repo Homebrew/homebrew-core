@@ -3,14 +3,14 @@ require "language/node"
 class Ungit < Formula
   desc "The easiest way to use git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.4.44.tgz"
-  sha256 "11f17f108dae85332d81e63efcb47517e0bddce64b3f97b9eff80dd9f80278b6"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.0.tgz"
+  sha256 "e41ec6128586f980140bb38393d4135710cb14d3ef3e4431720f1b3550ce6047"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c6e00aef5a25f4c9749bcc2448aee9f7b14726f55bc6a57dc708660e029b923" => :mojave
-    sha256 "01c84b92d9b28e98e4ed1a842eeece5698283a394b9ee0d12acbae42b829843b" => :high_sierra
-    sha256 "cb7474b30a4c5bce09262eade9a8cd3434bfc9cf770c49f4b5828c4ad63e3e27" => :sierra
+    sha256 "ed42ae8af033b52cb1048fc8d9915fb7633c4627e7ee0a7819251368cd45f2fc" => :catalina
+    sha256 "341dde234a6a0e375f26c95b604bf964fec73d7f4ff50258ac1a9198bfb511d8" => :mojave
+    sha256 "073a373648a944b4ea72184f5c1f7d4dcec932d998e239f83b9fbeb4f496ccce" => :high_sierra
   end
 
   depends_on "node"
@@ -21,17 +21,22 @@ class Ungit < Formula
   end
 
   test do
-    begin
-      require "nokogiri"
+    require "nokogiri"
 
-      pid = fork do
-        exec bin/"ungit", "--no-launchBrowser", "--autoShutdownTimeout", "5000" # give it an idle timeout to make it exit
-      end
-      sleep 3
-      assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:8448/")).at_css("title").text
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    ppid = fork do
+      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
     end
+    sleep 5
+    assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:#{port}/")).at_css("title").text
+  ensure
+    Process.kill("TERM", ppid)
+    # ensure that there are no spawned child processes left
+    child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
+    child_p.each { |pid| Process.kill("TERM", pid) }
+    Process.wait(ppid)
   end
 end

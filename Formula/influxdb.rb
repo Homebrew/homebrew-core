@@ -2,15 +2,15 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag      => "v1.7.6",
-      :revision => "01c8dd416270f424ab0c40f9291e269ac6921964"
+      :tag      => "v1.7.9",
+      :revision => "23bc63d43a8dc05f53afa46e3526ebb5578f3d88"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5ba8515cbfa445a33a87622c846cd234eef297d1e3921ea88a467487fded2fb" => :mojave
-    sha256 "642a60f4727e0c4567b08c0bceae3d09451aed208cad8d73013295ca1f993f79" => :high_sierra
-    sha256 "7516bac5c5bd4e114f735ef680f3d7c0178c6b4b4d3470b2a76ed39b3c06693c" => :sierra
+    sha256 "43172c67fa138aaed080a19dca1311ad8b4beccc0b70bce8bf10703328806f10" => :catalina
+    sha256 "68d9383fb468504f40c8d9992cae8f4ec8dbda502ca4073f0249daa6cfde9a87" => :mojave
+    sha256 "fd216a7b67395f3a7ab19affcc51a3dcb71e978f5295daeda871933601dfe6be" => :high_sierra
   end
 
   depends_on "dep" => :build
@@ -98,9 +98,8 @@ class Influxdb < Formula
       pid = fork do
         exec "#{bin}/influxd -config #{testpath}/config.toml"
       end
-      sleep 1
+      sleep 6
       output = shell_output("curl -Is localhost:8086/ping")
-      sleep 1
       assert_match /X-Influxdb-Version:/, output
     ensure
       Process.kill("SIGINT", pid)

@@ -1,15 +1,16 @@
 class Cxxopts < Formula
   desc "Lightweight C++ command-line option parser"
   homepage "https://github.com/jarro2783/cxxopts"
-  url "https://github.com/jarro2783/cxxopts/archive/v2.1.2.tar.gz"
-  sha256 "95f524c6615a2067e935e02ef74b013b17efa339df0a3c9db3e91fc0afbaf269"
+  url "https://github.com/jarro2783/cxxopts/archive/v2.2.0.tar.gz"
+  sha256 "447dbfc2361fce9742c5d1c9cfb25731c977b405f9085a738fbd608626da8a4d"
   head "https://github.com/jarro2783/cxxopts.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d93d263719727fd6844488a3e2c46207634ded0bcec26157b471327ca581e7e" => :mojave
-    sha256 "0d93d263719727fd6844488a3e2c46207634ded0bcec26157b471327ca581e7e" => :high_sierra
-    sha256 "c90e201b7a4dbc127b20db001d16870910707bd8023040bed8614b2b60123acc" => :sierra
+    sha256 "eac0f746cf84e2b1a88cba6da3686269b7f71d05492eec886cd36f388989cb6c" => :catalina
+    sha256 "0d218ecd42f83ea5e0fac4c6d8e36d5acf555133c7d52fed9657107edffef917" => :mojave
+    sha256 "0d218ecd42f83ea5e0fac4c6d8e36d5acf555133c7d52fed9657107edffef917" => :high_sierra
+    sha256 "36f6ff18ae628891ca7d188c749fea2a097db1b9d83181bfd123ce09adddebb3" => :sierra
   end
 
   depends_on "cmake" => :build

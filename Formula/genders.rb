@@ -6,6 +6,7 @@ class Genders < Formula
 
   bottle do
     cellar :any
+    sha256 "d87fb37a4218b226478fa012c55f761bc2cb1d27bad2a1a058520fd697935ade" => :catalina
     sha256 "ca1e1452a598fd313b76788262c762c75eadf975cc2a07fe49937823350acef9" => :mojave
     sha256 "67d6136a20f82c2e249d9b98ef2394bc98ae1ca40daec766255a4d1c67cbd8d8" => :high_sierra
     sha256 "af7991bf0459a88559c4a09a3be4fa96b26d17dea3750bc964f244c2754ffd0d" => :sierra

@@ -7,6 +7,7 @@ class Wordplay < Formula
 
   bottle do
     rebuild 1
+    sha256 "bf3847365e1920baf313fc0286116de59fee392ccde5182173ed7198b9883626" => :catalina
     sha256 "d98d89abff244c21cf2ad4eb651ed39afea5b3146bf0ec3277483b813c4e8d89" => :mojave
     sha256 "9056fb79657b3be7ba8a97f4a13b1777e72447b717bd9fd1b7830023bda964a6" => :high_sierra
     sha256 "5141a8f5456e5a685b65c5d9f3100029c6f42b3f0c80aa3d6a4736d3028a6a6b" => :sierra

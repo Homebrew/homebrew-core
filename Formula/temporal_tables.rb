@@ -7,6 +7,7 @@ class TemporalTables < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "089d7d21cccdfaeafbbfd64852e33b6516d12de3e9e1d8298a177e04047f8e69" => :catalina
     sha256 "39df26c928bb5460cfdb81a6b6e885565e127629f6fbddc34e87a101232a4819" => :mojave
     sha256 "64f64ad4344321f89ce6b14c4bd44eb04f026ae76ffcdd65396879f533158dfa" => :high_sierra
     sha256 "eec62fa0f8393fbeb3e7f53fa6fb904e0e75048d8ea64946d162f0a3b9f679ea" => :sierra

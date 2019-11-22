@@ -7,6 +7,7 @@ class Vip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d49d0ecf58de93d03369024f165aae99210c2b72cffe4aadff7a2299236d7420" => :catalina
     sha256 "da936f8d9a839a1235962c772ae957563c13f089d5953df7c1ba64b694cb0687" => :mojave
     sha256 "5622623485848fc1e4238404c3491f056f4220c6a80fbe9342ec89cd34b15bcb" => :high_sierra
     sha256 "12eec6f5294a94f2fb09c54f218470aab2fb7bad58570e8a82c789d8ba5e9639" => :sierra
@@ -21,7 +22,10 @@ class Vip < Formula
   end
 
   # use awk and /var/tmp as temporary directory
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/vip/19971113.patch"
+    sha256 "96879c8d778f21b21aa27eb138424a82ffa8e8192b8cf15b2c4a5794908ef790"
+  end
 
   def install
     bin.install "vip"
@@ -30,30 +34,3 @@ class Vip < Formula
     end
   end
 end
-
-
-__END__
-diff --git a/vip b/vip
-index f150167..e517675 100644
---- a/vip
-+++ b/vip
-@@ -66,7 +66,7 @@ Usage:  $PROG [ -no ] [ command ]
- 			otherwise stdin is used;
- "
- 
--: ${TMPDIR:="/usr/tmp"}		# where temp. files go
-+: ${TMPDIR:="/var/tmp"}		# where temp. files go
- TEMP_FILE="$TMPDIR/$PROG.$$"	# temp. file to hold data to edit
- COMMAND="cat"			# default command to produce input
- DFLT_ED="vi"			# default editor
-@@ -81,6 +81,10 @@ case "$SYS" in
- 	;;
-   "HP-UX "*)
- 	AWK=awk
-+	;;
-+  "Darwin "*)
-+	AWK=awk
-+	;;
-   esac
- 
- #

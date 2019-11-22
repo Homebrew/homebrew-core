@@ -7,6 +7,7 @@ class Glew < Formula
 
   bottle do
     cellar :any
+    sha256 "8a848d279644c654db3f5a782811a0db9b405d6b6dd49b0ba303b9b8866b0793" => :catalina
     sha256 "a81e04f8be35080991e136e0b2229448fd237a31991d34d5a2e1c5f8db795201" => :mojave
     sha256 "6923b0c452de864a5be7a4d1c47803f434590e9caca1366c57811aead7e5a34b" => :high_sierra
     sha256 "17d6b3bbb956bd1672a26490eb58a82eaa0e3e1adb926f3e87ba060bdf999cf3" => :sierra

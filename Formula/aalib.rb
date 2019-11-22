@@ -7,6 +7,7 @@ class Aalib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "306da4a8cb39ef81eed8b81a7d1c1c7bd47405d8270d036dde9c07c630fa4ea3" => :catalina
     sha256 "a19ebbf86362d9a90900dd0b4013ebed778cd8681c0b3ed122c8bbaa04b11cbe" => :mojave
     sha256 "b2c5467ff9182645676381967b8dc89878f88900b19bed34ef432fd3257aa2a0" => :high_sierra
     sha256 "2c2d05720ca991422e4c27e3f770c29024c5197871cba67404f4e72a3cfaf002" => :sierra

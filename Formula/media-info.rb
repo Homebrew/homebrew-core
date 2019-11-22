@@ -1,15 +1,16 @@
 class MediaInfo < Formula
   desc "Unified display of technical and tag data for audio/video"
   homepage "https://mediaarea.net/"
-  url "https://mediaarea.net/download/binary/mediainfo/19.04/MediaInfo_CLI_19.04_GNU_FromSource.tar.bz2"
-  version "19.04"
-  sha256 "fdd3de83d09e85d6b9ecb8b74e86f2fed31d424621adcd5f01b020a214bc7931"
+  url "https://mediaarea.net/download/binary/mediainfo/19.09/MediaInfo_CLI_19.09_GNU_FromSource.tar.bz2"
+  version "19.09"
+  sha256 "8b07022943b478ba591eabfb1e6fdc3cdebeb1ec9ffcb4c30751f0a7cd22bf7c"
 
   bottle do
     cellar :any
-    sha256 "b8dd9d52888d0cd92da22fad6b896a757269961c4d94c7136e5c79b4aeea6f36" => :mojave
-    sha256 "3dbda8ffbd8af33d17b6d7e290d40be1a8cb3e7c0088b4e4545ebfe7baa3dabe" => :high_sierra
-    sha256 "05cf959783f2137cdb7e35df7135a71bb6eda02dec2dc6ac2b66b82f4e0cfd99" => :sierra
+    sha256 "fbd91754577bb619927acc08b1ff8571fbf4156e2ad9d55ce0b4cf198b7ca6c5" => :catalina
+    sha256 "cf1dcc291f844f0a96fc65e27ebb5e823f9d4323e41e7337c921df80bd7419f4" => :mojave
+    sha256 "c0c5548d995ddd10c1bdcdb7cff42cb9993cdf013a7f43fd82748ba0e0303bad" => :high_sierra
+    sha256 "cc25e2bc328d7bb23803dd05fce392f7eed7a1c9a7d8bfd48c29eb88a097db08" => :sierra
   end
 
   depends_on "pkg-config" => :build

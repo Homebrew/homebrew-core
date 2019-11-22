@@ -2,15 +2,15 @@ class CernNdiff < Formula
   desc "Numerical diff tool"
   # Note: ndiff is a sub-project of Mad-X at the moment..
   homepage "https://mad.web.cern.ch/mad/"
-  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/v5.04.02.tar.gz"
-  sha256 "4bd4670e63fb99521f17702b99913bb767b31953680937a64a97314f5b2e715b"
+  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/5.05.01.tar.gz"
+  sha256 "0634b14bd00234ef44d37e47a884d4031fd1a2062475553198e83923a7c918e5"
   head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "51ade6e0cb3717a6123da78cef16a2e77cfc7544f613ee24df0b5122d8c27963" => :mojave
-    sha256 "4dd0bd56b604a2d94d569498749baab86242c8fe4eb20c12364f510a8643435f" => :high_sierra
-    sha256 "dbc2378692211fed755ffef20423329fb5f20ebbd02411adf1a77f23df9333fb" => :sierra
+    sha256 "bb7ec4fd2605658c5d2ff764a6dc867c1322c673d6aad93acf9e269237a34907" => :catalina
+    sha256 "77bdb65653b6d4ab9fd1b2f7b5f4af951fce1f50cd5403b3d30eeafdfd85c20a" => :mojave
+    sha256 "66b88d2c6cf4f38ad0a3277175c83d99597ffdde3165905c9bcec285a6befd4d" => :high_sierra
   end
 
   depends_on "cmake" => :build

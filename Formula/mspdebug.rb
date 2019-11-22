@@ -6,6 +6,7 @@ class Mspdebug < Formula
   head "https://github.com/dlbeer/mspdebug.git"
 
   bottle do
+    sha256 "4e512b296b8a655fbe8632afca020866f6499c461fb715aef5c4eb6bdda88034" => :catalina
     sha256 "4d5d8c35966a0000b010bbaea7c2c403ff4921d1306d34d752ccceb3f3d3b155" => :mojave
     sha256 "4124d4fbd9e191d941153962bb74aed50cc200c473b5ad5850610a1bc85f87b4" => :high_sierra
     sha256 "e16447e04c99d74b8cdc49a063c230c64d09e34402d0221542594f3aacac5940" => :sierra

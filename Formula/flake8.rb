@@ -3,15 +3,15 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.7/flake8-3.7.7.tar.bz2"
-  sha256 "536b9bda5101ab0604217ce9846828ab6b24e958bc23e9b52abeb531fa47a73a"
+  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.9/flake8-3.7.9.tar.bz2"
+  sha256 "2fd4dfaaeb507e1bb5a598f76e61eca50d27930e550c215f73ed2e5454681c1e"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "44b69dfb14bce44ec3ac46e888921e5541c3802e8f22747e7e554322644dbfcd" => :mojave
-    sha256 "e8d3a528c5d7dc767f016e253f1d72f27f713a94f58acd510cb6472debda7f34" => :high_sierra
-    sha256 "3c3de620e7966962c807a4c2531a4174da3e3847004a4e782e063c94479a79d3" => :sierra
+    sha256 "64ed289bb60f923957b6ba6a9462e89903e2444ac40baa88b9d5c855d970eb27" => :catalina
+    sha256 "0ea49e473833c6bd7fa8d00a8962f59a0dfb853d9237b5961b31a233d3996082" => :mojave
+    sha256 "0d1162d279110a265420fe2f93f04f330e2ac47fdf410368ae1ba260749cb661" => :high_sierra
   end
 
   depends_on "python"
@@ -32,8 +32,8 @@ class Flake8 < Formula
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/48/6d/7bfd617b21292397e10e24af4cf42947a359b0c425b66f194cf5d14b1444/pyflakes-2.1.0.tar.gz"
-    sha256 "5e8c00e30c464c99e0b501dc160b13a14af7f27d4dffb529c556e30a159e231d"
+    url "https://files.pythonhosted.org/packages/52/64/87303747635c2988fcaef18af54bfdec925b6ea3b80bcd28aaca5ba41c9e/pyflakes-2.1.1.tar.gz"
+    sha256 "d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"
   end
 
   def install
@@ -53,7 +53,7 @@ class Flake8 < Formula
 
   test do
     xy = Language::Python.major_minor_version "python3"
-    # flake8 version 3.6.0 will fail this test with `E203` warnings.
+    # flake8 version 3.7.8 will fail this test with `E203` warnings.
     # Adding `E203` to the list of ignores makes the test pass.
     # Remove the customized ignore list once the problem is fixed upstream.
     system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"

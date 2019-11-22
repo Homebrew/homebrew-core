@@ -1,33 +1,33 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.22.0.tar.xz"
-  sha256 "159e4b599f8af4612e70b666600a3139541f8bacc18124daf2cbe8d1b934f29f"
-  revision 1
+  url "https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz"
+  sha256 "9f71d61973626d8b28c4cdf8e2484b4bf13870ed643fed982d68b2cfd754371b"
+  revision 2
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "38ce7760cf405112350d7f734db435b488ba224d437698c7a93cb8972f016660" => :mojave
-    sha256 "3363c946daf5f249083b7a146294dae7f89d64eadf591635d570c8da7553c522" => :high_sierra
-    sha256 "d40515ee220ae0a3f9992094873e9273c0065abc43bc703628e1feacdd83a9e0" => :sierra
+    sha256 "87100f6c01be17be5501be0ee5d674610e594ee0ae2d57ac3a2ebefec601e589" => :catalina
+    sha256 "343c1a0b842b84095aa0632ea7ca3f1717103fe4f393a6014c7f6165b079c849" => :mojave
+    sha256 "c4c40270f2acd82234660d8e1b3093294222fd8dc47687fc575815ed8544baf0" => :high_sierra
   end
 
   depends_on "gettext"
   depends_on "pcre2"
 
   if MacOS.version < :yosemite
-    depends_on "openssl"
+    depends_on "openssl@1.1"
     depends_on "curl"
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.22.0.tar.xz"
-    sha256 "5c7e010abfca5ff2eabf3616bf7216609cfb93dbc12b7c4e13f4ae3e539dbc79"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.24.0.tar.xz"
+    sha256 "05b6ed0719d5e29d5c60dd7d0a5469f4a0514008a64f6084ac26335d1b37f73b"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.22.0.tar.xz"
-    sha256 "4e2cfda33d8e86812bfcdb907478d1144412ce472c32edd0219b3c0201c7ee3a"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.24.0.tar.xz"
+    sha256 "b0c872c16f22942c1cb6c90ec07f395a931f7c2f9fb920d2ec926674265c04a6"
   end
 
   resource "Net::SMTP::SSL" do
@@ -61,6 +61,13 @@ class Git < Formula
       ENV["NO_PERL_MAKEMAKER"] = "1"
     end
 
+    # Ensure we are using the correct system headers (for curl) to workaround
+    # mismatched Xcode/CLT versions:
+    # https://github.com/Homebrew/homebrew-core/issues/46466
+    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
+      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+    end
+
     args = %W[
       prefix=#{prefix}
       sysconfdir=#{etc}
@@ -70,7 +77,7 @@ class Git < Formula
     ]
 
     if MacOS.version < :yosemite
-      openssl_prefix = Formula["openssl"].opt_prefix
+      openssl_prefix = Formula["openssl@1.1"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]

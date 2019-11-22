@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.17.0.tar.gz"
-  sha256 "eff0150c1fc8c6ce63493aebc19f6f02f8262bc19ba1747acdf8cbc1713ac8e6"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.20.0.tar.gz"
+  sha256 "eb7d75eb07be0557455cad16968746ed5fa609e04a0dccf83c446bfa3477bf45"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83548f04d8a67ba659776a499000f6fbef1c8980bf2c4969a32f98beaa0a14e6" => :mojave
-    sha256 "900a2611355122bd7300c7e9b923dbc42b86c39caa1f0aab19a889a260193ec9" => :high_sierra
-    sha256 "93a34478ed26fc0e63d4e7f508631b69297449be4c8fc3e45f9398c83d9566e6" => :sierra
+    sha256 "219f8120fd41745a33a99b9fd3e41743d2f12b1c1af03c5eea486d3a50f14cb3" => :catalina
+    sha256 "f55108ee2b68b82490d850a7f12c512dd7b7e58ead9d1ded9814de076625f5a2" => :mojave
+    sha256 "e77c9db9f0ef18af49adfe12d8f0de736ad1833f7ca9ca305ed861e9d99db55c" => :high_sierra
   end
 
   depends_on "python"

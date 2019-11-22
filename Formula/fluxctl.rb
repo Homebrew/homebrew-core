@@ -2,21 +2,20 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/weaveworks/flux"
   url "https://github.com/weaveworks/flux.git",
-      :tag      => "1.13.0",
-      :revision => "4a1959d7b30068ebe54b29b907d5a4e4fbc920c5"
+      :tag      => "1.15.0",
+      :revision => "7a09c08cbdfa6d157c2d2dc71d2011c5bbcfdad6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b6a31ca0a4b99a840973e5033d03578b8349bed3c5113793027975a903c1a1ea" => :mojave
-    sha256 "0cdab0813dd5508ceb1cb5c721be65a0ca9448bddef2626d5a713f2a77109b10" => :high_sierra
-    sha256 "dfe150d06f635ae80cd653de1ed4501357aa7d8dd162a2fac057fbe8e4d52eca" => :sierra
+    sha256 "0b39b27c91aaa924086907a0249e3ae3ea4eac8b647f307e4f595db4d814c2ad" => :catalina
+    sha256 "51eccf51bddeef263b3a3c75d80245fd222a24f1de63391b36f86d3b79fd112a" => :mojave
+    sha256 "91e60598e6b67cde4ed3df3863112301bba60e830c85350769dd3820d60be6c9" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/weaveworks/flux"
     dir.install buildpath.children

@@ -7,6 +7,7 @@ class Vsftpd < Formula
 
   bottle do
     rebuild 2
+    sha256 "43b17ac94b152a4922a915b7e2efc89c3da7ee53e00f860136c5c58489e2b782" => :catalina
     sha256 "5605a908ab4b24008e48f2280107695a7afaae8a1a521964b8f2248d2baa960a" => :mojave
     sha256 "dbfc9b28f5ea49dda09d31fb630d995b72fd63b83b358e04156329252c3ab25b" => :high_sierra
     sha256 "22349437bd4d75b1ffd2fddfd90f92367e0a4f478f540b9086457541883f2c3b" => :sierra
@@ -16,7 +17,10 @@ class Vsftpd < Formula
 
   # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/vsftpd/3.0.3.patch"
+    sha256 "7947d91f75cb02b834783382bcd2a2ef41565a76e31a5667a1ea0bd5bef48011"
+  end
 
   def install
     inreplace "defs.h", "/etc/vsftpd.conf", "#{etc}/vsftpd.conf"
@@ -66,46 +70,3 @@ class Vsftpd < Formula
     assert_match version.to_s, shell_output("#{sbin}/vsftpd -v 0>&1")
   end
 end
-
-__END__
-diff --git a/sysdeputil.c b/sysdeputil.c
-index 9dc8a5e..66dbe30 100644
---- a/sysdeputil.c
-+++ b/sysdeputil.c
-@@ -64,6 +64,10 @@
- #include <utmpx.h>
- 
- /* BEGIN config */
-+#if defined(__APPLE__)
-+  #undef VSF_SYSDEP_HAVE_UTMPX
-+#endif
-+
- #if defined(__linux__)
-   #include <errno.h>
-   #include <syscall.h>
-diff --git a/vsf_findlibs.sh b/vsf_findlibs.sh
-index b988be6..68d4a34 100755
---- a/vsf_findlibs.sh
-+++ b/vsf_findlibs.sh
-@@ -20,6 +20,8 @@ if find_func pam_start sysdeputil.o; then
-   locate_library /usr/lib/libpam.sl && echo "-lpam";
-   # AIX ends shared libraries with .a
-   locate_library /usr/lib/libpam.a && echo "-lpam";
-+  # Mac OS X / Darwin shared libraries with .dylib
-+  locate_library /usr/lib/libpam.dylib && echo "-lpam";
- else
-   locate_library /lib/libcrypt.so && echo "-lcrypt";
-   locate_library /usr/lib/libcrypt.so && echo "-lcrypt";
-diff --git a/Makefile b/Makefile
-index c63ed1b..556519e 100644
---- a/Makefile
-+++ b/Makefile
-@@ -10,7 +10,7 @@ CFLAGS	=	-O2 -fPIE -fstack-protector --param=ssp-buffer-size=4 \
-
- LIBS	=	`./vsf_findlibs.sh`
- LINK	=	-Wl,-s
--LDFLAGS	=	-fPIE -pie -Wl,-z,relro -Wl,-z,now
-+LDFLAGS	=	-fPIE -pie
-
- OBJS	=	main.o utility.o prelogin.o ftpcmdio.o postlogin.o privsock.o \
-		tunables.o ftpdataio.o secbuf.o ls.o \

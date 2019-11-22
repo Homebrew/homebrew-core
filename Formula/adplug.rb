@@ -6,6 +6,7 @@ class Adplug < Formula
 
   bottle do
     cellar :any
+    sha256 "04bdc21d28dcc3da379cf01989b8f89386ef471431b68b9f047382e98cefe37e" => :catalina
     sha256 "bf68be72cffe219d9450afa96b4445c1db273c7ce4ea664d023341cc2d9b6fb7" => :mojave
     sha256 "8b5a35c8e06097a6d12d172e1c2682542e4dd3eb6264933b8c0fa29b99d80e9e" => :high_sierra
     sha256 "66f5ef8ac8ff8a1e6909098259cc501057eab601e416df3f23ca5cf975b09ac6" => :sierra

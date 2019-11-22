@@ -6,33 +6,43 @@ class Virtuoso < Formula
   # This explicit version should be safe to remove next release.
   version "7.2.5.1"
   sha256 "826477d25a8493a68064919873fb4da4823ebe09537c04ff4d26ba49d9543d64"
+  revision 1
+  # HEAD is disabled as the below, required patches are not compatible.
 
   bottle do
     cellar :any
-    sha256 "699c3f1bf4711cc0ec3a0c81f69047fcf721f4f2a38db629858f7b155217d1f8" => :mojave
-    sha256 "b01c3c149c4f025ea1456fc5a5d3c5ca68eb6d99797226e35204dbd80cb43cb1" => :high_sierra
-    sha256 "b7df838df0d82a95a0f7fc40177b5fb94fb0e47559d559c75baa473af7956b92" => :sierra
-    sha256 "4bacfd4bbaf1d4a048a68f4993b06fc2b6a9a2c1145f9cea78fb8fbff23166a1" => :el_capitan
+    sha256 "c4904ae739141d51638c3f33064c85498c20d32169053daa61203ff6706c1fa8" => :catalina
+    sha256 "3a2375ce75d34e6fa2568aeb4bc3ac0239a4052c811eb3afeb7536166b05e67b" => :mojave
+    sha256 "3abcc2f1444324d675af9014ac20555124c875d7e9a4ba9b021fd1ad7c570845" => :high_sierra
   end
 
-  head do
-    url "https://github.com/openlink/virtuoso-opensource.git", :branch => "develop/7"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
-  depends_on "openssl"
+  depends_on "libtool" => :build
+  depends_on "openssl@1.1"
 
   conflicts_with "unixodbc", :because => "Both install `isql` binaries."
 
   skip_clean :la
 
+  # Support OpenSSL 1.1
+  patch do
+    url "https://sources.debian.org/data/main/v/virtuoso-opensource/7.2.5.1+dfsg-2/debian/patches/ssl1.1.patch"
+    sha256 "9fcaaff5394706fcc448e35e30f89c20fe83f5eb0fbe1411d4b2550d1ec37bf3"
+  end
+
+  # TLS 1.3 compile error patch.
+  # This also updates the default TLS protocols to allow TLS 1.3.
+  patch do
+    url "https://github.com/openlink/virtuoso-opensource/commit/67e09939cf62dc753feca8381396346f6d3d4a06.patch?full_index=1"
+    sha256 "485f54e4c79d4e1e8b30c4900e5c10ae77bded3928f187e7e2e960d345ca5378"
+  end
+
   def install
-    system "./autogen.sh" if build.head?
+    # We patched configure.ac on stable so need to rerun the autogen.
+    system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

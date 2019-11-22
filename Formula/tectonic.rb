@@ -3,13 +3,14 @@ class Tectonic < Formula
   homepage "https://tectonic-typesetting.github.io/"
   url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.11.tar.gz"
   sha256 "e700dc691dfd092adfe098b716992136343ddfac5eaabb1e8cfae4e63f8454c7"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "a862b7c4cbe355b1c3c86aa6601e757e50f51f4e205b29edece526428b09ebcd" => :mojave
-    sha256 "8820a091d0bfcd31ad2bc5b8c8d9f0a29160a47497d00f03bc332e8c0bfe509c" => :high_sierra
-    sha256 "76005a41861cee9fd834d46d84f33c2f8a09f887770e29e569d64b1bb8110d49" => :sierra
+    rebuild 1
+    sha256 "f0ca20c3fb6590fc243d4d10b4c7441f0f9f2db02dc094bcc6b79f9b00021712" => :catalina
+    sha256 "444c5e60329bda85226028b831b300c46620fc7ffb398767bd55e657dc13b8c7" => :mojave
+    sha256 "73e06f54020a87762d6126205d26c7d50d216e3cbdb3778ed0828d32a89ef032" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -19,7 +20,7 @@ class Tectonic < Formula
   depends_on "harfbuzz"
   depends_on "icu4c"
   depends_on "libpng"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
@@ -27,15 +28,15 @@ class Tectonic < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--root", prefix, "--path", "."
-    pkgshare.install "tests"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
-    system bin/"tectonic", "-o", testpath, pkgshare/"tests/xenia/paper.tex"
-    assert_predicate testpath/"paper.pdf", :exist?, "Failed to create paper.pdf"
-    assert_match "PDF document", shell_output("file paper.pdf")
+    (testpath/"test.tex").write 'Hello, World!\bye'
+    system bin/"tectonic", "-o", testpath, "--format", "plain", testpath/"test.tex"
+    assert_predicate testpath/"test.pdf", :exist?, "Failed to create test.pdf"
+    assert_match "PDF document", shell_output("file test.pdf")
   end
 end

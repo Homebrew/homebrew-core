@@ -7,6 +7,7 @@ class Uchardet < Formula
 
   bottle do
     cellar :any
+    sha256 "83fd5ae3ce1597de3b2847f979fbc92fc5b95489c48637efcb3afab5620d2426" => :catalina
     sha256 "d276b3607abe2ed5e2922cda3572d09192c60f13bf18d6d84cee24c12d700bcf" => :mojave
     sha256 "c0416fb559e8c10f1cca21a0b0162d462cc02019d8abbce3712f64261b1ce8fe" => :high_sierra
     sha256 "dce2d199e163858a10f27f9d94d232b8df5d38507098b629356ee5154d4f182c" => :sierra

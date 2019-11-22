@@ -1,18 +1,19 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.1.0.tar.gz"
-  sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
-  revision 2
+  url "https://github.com/opencv/opencv/archive/4.1.2.tar.gz"
+  sha256 "385dd0a9c25e67ef0dd60e022d2a2d7b17e2f36819cf3cb46aa8cdff5c5282c9"
 
   bottle do
-    sha256 "3be6de71c28077e5279ffb0104729b0cef1267f81908e6ea0fb404fb81d913e6" => :mojave
-    sha256 "ac383a5029e4ebec4a0695d8e27c95afc449609de3cc83840f9e11ec64f0b4d9" => :high_sierra
-    sha256 "7f134df27e2f8a0ea59273bbb2cae3ce9e6070fa02cd5e125e650a3968f5af0d" => :sierra
+    rebuild 1
+    sha256 "5f6821416988e413bcc9bd4ef5169a66e8458c4b55495286850bea7c6b6d34ee" => :catalina
+    sha256 "a5ff3b325dda09989870c0ff910b4ca4e639962b605ee95e9d2a01627d93da07" => :mojave
+    sha256 "d028ff3f01a4548e402659bf2291030d98a8ef6ec3ad54cbf18e2b7782899dec" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
@@ -23,30 +24,20 @@ class Opencv < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "python"
-  depends_on "python@2"
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.1.0.tar.gz"
-    sha256 "e7d775cc0b87b04308823ca518b11b34cc12907a59af4ccdaf64419c1ba5e682"
-  end
-
-  patch do
-    url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
-    sha256 "c48a6a769f364e6f61bc99cf47a6e664c85246c9fcd4a201afc408158fc4f1ef"
+    url "https://github.com/opencv/opencv_contrib/archive/4.1.2.tar.gz"
+    sha256 "0f6c3d30baa39e3e7611afb481ee86dea45dafb182cac87d570c95dccd83eb8b"
   end
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py2_prefix = `python2-config --prefix`.chomp
-    py2_lib = "#{py2_prefix}/lib"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -80,11 +71,8 @@ class Opencv < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DBUILD_opencv_python2=ON
+      -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
@@ -128,9 +116,7 @@ class Opencv < Formula
                     "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python2.7", "python3"].each do |python|
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
-      assert_equal version.to_s, output.chomp
-    end
+    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    assert_equal version.to_s, output.chomp
   end
 end

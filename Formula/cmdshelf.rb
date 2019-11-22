@@ -5,15 +5,17 @@ class Cmdshelf < Formula
   sha256 "dea2ea567cfa67196664629ceda5bc775040b472c25e96944c19c74892d69539"
 
   bottle do
-    sha256 "a36461b526e0a974d0f0245b2a197e35413db272db06b819b2e5b7bbbce0200c" => :mojave
-    sha256 "3164b78efb9862ea0171b1d88e43fe96d6f01119de756b7a661191f918047b76" => :high_sierra
-    sha256 "50af031ee7ce0ae0eefd79801c30530b7fb7cdf65adf56f6c015e6fce6a2b01b" => :sierra
+    cellar :any_skip_relocation
+    rebuild 2
+    sha256 "e4093bda9528ae027e122f321e2f1a44d3b4fc8b569e2bf0eba526399cccdacd" => :catalina
+    sha256 "4c83af8661b368f727a389f12d434be45655d10aef9ae1acb8b2be830aae0558" => :mojave
+    sha256 "c0cdc78df3f3896e4e8ba2112ec6e5189682da06419637ebfa9d660ff4fb902f" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man.install Dir["docs/man/*"]
     bash_completion.install "cmdshelf-completion.bash"
   end

@@ -5,16 +5,17 @@ class Pgcli < Formula
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/5a/2a/9821c4a30d79fafdefeff7b071639b0968e1d54710430f2da16f8124fc37/pgcli-2.1.1.tar.gz"
   sha256 "84e0817a29c3cacaaaf85351422bdb90f230f2550e4af558c25536fd235ab6ca"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "c71dfb32746fb2f6738070b082ffb8693fe90c28bc8c969d3a2438b575bcba14" => :mojave
-    sha256 "8888f2a5aa2e8677c9a981b84ed98ec8bb828cc13fec4026ea7646e3a49b57a9" => :high_sierra
-    sha256 "e4e631f17d32e34340047d371ebd25a543b9fa4551662f3b810492d2fbec7589" => :sierra
+    sha256 "f249647ee7af3ff3caa929490a29c4749dba9ecad62dfebf21c4535d1a636395" => :catalina
+    sha256 "a3e952246b681e08a6eb7303e223e179718ef6f5b3d2374a0869e84ad093d70d" => :mojave
+    sha256 "8c0311b51fab153b32713adb5242c0da56359dc9015566727f5ef649148c4573" => :high_sierra
   end
 
   depends_on "libpq"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
 
   resource "backports.csv" do
@@ -23,8 +24,8 @@ class Pgcli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/e6/6a/5e0e8011a9ae7807de2ea455da57cec381d04f8219f9a2a8f3b171ac3885/cli_helpers-1.2.0.tar.gz"
-    sha256 "d211192b4d5a61de0020c516213ba67bbf1662ccd8c0624e6696dedb1a9d3e5d"
+    url "https://files.pythonhosted.org/packages/43/36/ba00975df9d393c0ccc3b1bf1610227bc4c4d611a5c69249b57be8ba6253/cli_helpers-1.2.1.tar.gz"
+    sha256 "98db22eaa86827d99ee6af9f5f3923142d04df256425204530842b032849a165"
   end
 
   resource "Click" do
@@ -53,8 +54,8 @@ class Pgcli < Formula
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/63/54/c039eb0f46f9a9406b59a638415c2012ad7be9b4b97bfddb1f48c280df3a/psycopg2-2.7.7.tar.gz"
-    sha256 "f4526d078aedd5187d0508aa5f9a01eae6a48a470ed678406da94b4cd6524b7e"
+    url "https://files.pythonhosted.org/packages/5c/1c/6997288da181277a0c29bc39a5f9143ff20b8c99f2a7d059cfb55163e165/psycopg2-2.8.3.tar.gz"
+    sha256 "897a6e838319b4bf648a574afb6cabcb17d0488f8c7195100d48d872419f4457"
   end
 
   resource "Pygments" do

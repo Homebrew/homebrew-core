@@ -6,6 +6,7 @@ class Ctl < Formula
   revision 3
 
   bottle do
+    sha256 "0ad490aa788bd360a656878b50d31d3a943932072ab51c8b87a01ccfae9f8548" => :catalina
     sha256 "ab6441016e0027ca393e6c9a92224c5a684a5476cebd9fdb5c48f42dda81e5b2" => :mojave
     sha256 "fe9ebf7a5d7f115a0ba08ad2d72b21a65315ad213cc8d7cbda02ffba96ef8fde" => :high_sierra
     sha256 "ab156768e3ae9f46aac1dc14ee0aed58173657ab0cadbb6e85f43bf68a6fd4c6" => :sierra

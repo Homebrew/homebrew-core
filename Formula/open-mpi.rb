@@ -1,14 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
-  sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
-  revision 1
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.bz2"
+  sha256 "900bf751be72eccf06de9d186f7b1c4b5c2fa9fa66458e53b77778dffdfe4057"
 
   bottle do
-    sha256 "f7c495b7015a86f61cbc44c5788912d919e5bdd70b13160b0a94e4d07f892f69" => :mojave
-    sha256 "6660708bc834553df9cda635ea590ad5e30112af7aa522e33c78b4655105901b" => :high_sierra
-    sha256 "ecd525d18b89900646a4bbe161760830ad84ad2c9d4ca3afcb9f8855a692c5f1" => :sierra
+    sha256 "ac579ec2df32c7cc06b8eed8763acc19ca60c2efcda202a9ed064f160a82d279" => :catalina
+    sha256 "414093834dd4f424b64131c8af489a4ce2154c104725fff666be34072f5622f0" => :mojave
+    sha256 "096f28e4f8b2bb81277ce390e6c4b207c3c97d63adf12b00d446d91eae096424" => :high_sierra
   end
 
   head do
@@ -19,6 +18,7 @@ class OpenMpi < Formula
   end
 
   depends_on "gcc"
+  depends_on "hwloc"
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
@@ -38,9 +38,6 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-
-    # Fixes an issue in 4.0.0, should be fixed in 4.0.1
-    args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args

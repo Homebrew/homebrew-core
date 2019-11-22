@@ -7,6 +7,7 @@ class Pygtkglext < Formula
 
   bottle do
     cellar :any
+    sha256 "fd74b3701d9fe8f423e9df935d91264b08b3273cd6a2d197726f20c140acca54" => :catalina
     sha256 "c6422a1ab0ad17e577f18c415e04e3ad3c980647da2bf74e23c0b7d98258012d" => :mojave
     sha256 "25c1190335a16ed62b8a7ef09342fbda936e30d4e318c713e97dff1a344847ed" => :high_sierra
     sha256 "62ef8746895c3695f1b22d60b2dcd9c9654b2108ed1f23d257684bd22e5b1b2d" => :sierra

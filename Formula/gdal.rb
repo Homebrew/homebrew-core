@@ -1,14 +1,14 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.4.1/gdal-2.4.1.tar.xz"
-  sha256 "fd51b4900b2fc49b98d8714f55fc8a78ebfd07218357f93fb796791115a5a1ad"
-  revision 1
+  url "https://download.osgeo.org/gdal/2.4.2/gdal-2.4.2.tar.xz"
+  sha256 "dcc132e469c5eb76fa4aaff238d32e45a5d947dc5b6c801a123b70045b618e0c"
+  revision 3
 
   bottle do
-    sha256 "c8d273221eef1ea1943d3052a720ce127345b1fd676512c520d6ce52e26a14b1" => :mojave
-    sha256 "1d09001cc301d35b5d913d8b7da50e10fefab92ba447d5416bcfd82ac4ba4adb" => :high_sierra
-    sha256 "2ee9618f5cdcc84e7a1eb922bf5e584521627a7e338794f27c4c245ef740cf35" => :sierra
+    sha256 "37370723c5db87a87aa05e6601b5ecd91829788770eb3b70b8728483fd42e950" => :catalina
+    sha256 "9409de0723bf4c11a9a50c2c5507dba5bf65f31bb0225b1ddea68abc018f992b" => :mojave
+    sha256 "d59c9ce6d87b049273cd087bc676ce39b7c650153fe6d6bd5f3c46a261e646ca" => :high_sierra
   end
 
   head do
@@ -39,13 +39,14 @@ class Gdal < Formula
   depends_on "poppler"
   depends_on "proj"
   depends_on "python"
-  depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
   depends_on "webp"
   depends_on "xerces-c"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
+
+  conflicts_with "cpl", :because => "both install cpl_error.h"
 
   def install
     args = [
@@ -101,9 +102,7 @@ class Gdal < Formula
       "--without-libgrass",
       "--without-mysql",
       "--without-perl",
-      "--without-php",
       "--without-python",
-      "--without-ruby",
 
       # Unsupported backends are either proprietary or have no compatible version
       # in Homebrew. Podofo is disabled because Poppler provides the same
@@ -122,7 +121,6 @@ class Gdal < Formula
       "--without-msg",
       "--without-oci",
       "--without-ingres",
-      "--without-dwgdirect",
       "--without-idb",
       "--without-sde",
       "--without-podofo",
@@ -131,6 +129,7 @@ class Gdal < Formula
     ]
 
     # Work around "error: no member named 'signbit' in the global namespace"
+    # Remove once support for macOS 10.12 Sierra is dropped
     if DevelopmentTools.clang_build_version >= 900
       ENV.delete "SDKROOT"
       ENV.delete "HOMEBREW_SDKROOT"
@@ -140,13 +139,11 @@ class Gdal < Formula
     system "make"
     system "make", "install"
 
-    if build.stable? # GDAL 2.3 handles Python differently
-      cd "swig/python" do
-        system "python3", *Language::Python.setup_install_args(prefix)
-        system "python2", *Language::Python.setup_install_args(prefix)
-      end
-      bin.install Dir["swig/python/scripts/*.py"]
+    # Build Python bindings
+    cd "swig/python" do
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
+    bin.install Dir["swig/python/scripts/*.py"]
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
@@ -159,9 +156,6 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
-    if build.stable? # GDAL 2.3 handles Python differently
-      system "python3", "-c", "import gdal"
-      system "python2", "-c", "import gdal"
-    end
+    system "python3", "-c", "import gdal"
   end
 end

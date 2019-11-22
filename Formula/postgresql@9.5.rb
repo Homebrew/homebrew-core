@@ -1,23 +1,23 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.18/postgresql-9.5.18.tar.bz2"
-  sha256 "dfc940487ed5acd5f657d6d02d53a18f9699888d4b0f820071e4564ed2f9f3dd"
+  url "https://ftp.postgresql.org/pub/source/v9.5.20/postgresql-9.5.20.tar.bz2"
+  sha256 "925751b375cf975bebbe79753fbcb5fe85d7a62abe516d4c56861a6b877dde0d"
 
   bottle do
-    sha256 "2006d20f7e967b60a0aca3023d55298b602b17cf6a05ecdc2f6abd1be8cf6d93" => :mojave
-    sha256 "0cb56d225a796281a5de016bbd8647667565526beca91c3aca2fa670067c8593" => :high_sierra
-    sha256 "59c040b41ea68887c7e56c40b4044c548ce90b952599927471be81d39e7fcb80" => :sierra
+    sha256 "bf187b380bd75edad88799e4f79a6fac2b6698539a72a5a17617e91f116488b1" => :catalina
+    sha256 "55076f260c28505db9e7850ed5b1079fcc2064cb1941c5c1b3c5f58ac6a6ae3d" => :mojave
+    sha256 "837bb443599d9d1642006bb53177aa2bb7bba4b176b9677af687745162d90248" => :high_sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   def install
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
+    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
 
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"

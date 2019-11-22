@@ -6,6 +6,7 @@ class Lzfse < Formula
 
   bottle do
     cellar :any
+    sha256 "bf5a9fba1911206046cb4698e9b23ac23f247bcd1c47cdd779fa7a786c40aa27" => :catalina
     sha256 "2f42a21db8de9f71535a0a9b7ca084f1a0e89174cbda174915f5da2e1ec5d3d2" => :mojave
     sha256 "e2a28bc48a8d90dd26cf2fe92d9186cbe0f19c8a58a5d15c8591826cd047b43b" => :high_sierra
     sha256 "2da23959f27fe8a141b2967a591052c6ec081224b7b3c9c65c4a854faba77456" => :sierra

@@ -6,6 +6,7 @@ class Yazpp < Formula
 
   bottle do
     cellar :any
+    sha256 "fc6c551c54b78b477836368f8f4c24f39bc8324ced4aaed418ed6ebde071c130" => :catalina
     sha256 "ad3ae23deb4f16249fbfc8794a30116911a211c76adbc024948cf9b8842a55b4" => :mojave
     sha256 "870f730cc4ee76700749f4091d111cb0e9a529d43c1ba7cb40b36807e49d9b76" => :high_sierra
     sha256 "794e2e265413005b3c26a0fa38e1ab8957bd1ec13cf4abb63730070181d9beb4" => :sierra

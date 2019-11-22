@@ -1,21 +1,23 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.21/source/tomcat-native-1.2.21-src.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.21/source/tomcat-native-1.2.21-src.tar.gz"
-  sha256 "05bba41671cc91c531c366a9ccd930b38a107a0212c73181961f3cda508d5007"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.23/source/tomcat-native-1.2.23-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.23/source/tomcat-native-1.2.23-src.tar.gz"
+  sha256 "5ae5940f759cfdd68384ecf61f2c4fd9b01eb430ab0d349c0b197df0b0c0c3c7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3d37f4f0edaa55674c3f4a0df9592d9dbf397ee21347fe7a09d53ee765a8fa36" => :mojave
-    sha256 "6df50a56e9c18cf7d25e3a16e2206d1b535ee53ce4c5574c8bcde75a0e5ed822" => :high_sierra
-    sha256 "883a53d75d7e4f7a2de85304cc72d0b1fe0d8fd58d5fa126fde4e65049f10f8f" => :sierra
+    sha256 "499d10e958763721cb39297d1dbf5a7e6d7ed6f6bdda0c08ee1159af2f4fe974" => :catalina
+    sha256 "945488a79003f860822a2848a68b69f4443697db9bcee063be5cbf27df7d2424" => :mojave
+    sha256 "e14b2958741b69ca96218c7a942a35277c6657ef978597ac17ea1a3fd21dfa62" => :high_sierra
+    sha256 "771ea402f8194159234038dc462bdc3442ed3af9f4a6d1ff5eb3d7babafe8de0" => :sierra
   end
 
   depends_on "libtool" => :build
   depends_on "apr"
   depends_on :java => "1.7+"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "tomcat"
 
   def install
@@ -23,7 +25,7 @@ class TomcatNative < Formula
       system "./configure", "--prefix=#{prefix}",
                             "--with-apr=#{Formula["apr"].opt_prefix}",
                             "--with-java-home=#{ENV["JAVA_HOME"]}",
-                            "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                            "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
 
       # fixes occasional compiling issue: glibtool: compile: specify a tag with `--tag'
       args = ["LIBTOOL=glibtool --tag=CC"]

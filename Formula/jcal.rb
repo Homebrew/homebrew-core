@@ -6,6 +6,7 @@ class Jcal < Formula
 
   bottle do
     cellar :any
+    sha256 "0544ee162b480d5999a312cf721b40007901f964b20edbdd8e062b2e95c64157" => :catalina
     sha256 "4274c678ae3c2110c94b474aa56fcbb6b121645f9a91352b7c24bf028750f3d9" => :mojave
     sha256 "348fdd02ce58859bf75ebe00feaf5c90e1f4f052d531e7667343f4c220d8e7bb" => :high_sierra
     sha256 "d6f50844723751f0de8181f751ffc0912013b518b5ac60777a3ade7e1aaa3179" => :sierra

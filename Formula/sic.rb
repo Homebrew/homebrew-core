@@ -7,6 +7,7 @@ class Sic < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e8f0a94363bdaebc692584e6a0d2782f88238a9cb4b7920ec6393dcf87d171d8" => :catalina
     sha256 "2c50dd89e57fa0764576417365933792e7599dfb8899ec75957be0fb6d46dd5a" => :mojave
     sha256 "f7e19c7d87f5f13e736edcf7f8cb821b4b644f78208c87f2f6655e5b7541abcc" => :high_sierra
     sha256 "8ec385f1fa892a80c51dca477f469dfe69864d0d5538b652c45ac17914aa5f89" => :sierra

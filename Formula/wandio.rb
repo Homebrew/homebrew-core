@@ -1,20 +1,19 @@
 class Wandio < Formula
   desc "Transparently read from and write to zip, bzip2, lzma or zstd archives"
   homepage "https://research.wand.net.nz/software/libwandio.php"
-  url "https://research.wand.net.nz/software/wandio/wandio-4.0.0.tar.gz"
-  sha256 "f6d9c81c1ad0b7a99696c057fb02e5c04a9c240effd6bf587a5b02352ce86a9f"
+  url "https://research.wand.net.nz/software/wandio/wandio-4.2.2.tar.gz"
+  sha256 "1196f3a4fc36cc886e71dcd13f542d3648dad989dbe53bc81ec35da19cc8fbbc"
 
   bottle do
     cellar :any
-    sha256 "9964682cfb6e23baace99a67c86e821e1af876639abdc8da2f547a9af22cd1b2" => :mojave
-    sha256 "758e3f124fa77a0c52431746e7a75da699c6717697662f696a70381050e0aa66" => :high_sierra
-    sha256 "e0c976e9684b3cd990c21bc50fdb6c6bbc3a4bd77f0641e26f8741e0783fd999" => :sierra
-    sha256 "921de26a27560963d4b4c92ce7e7afa852ad7e1a949184933245d8404a48f1ed" => :el_capitan
+    sha256 "dc91ef0f03bfc027c7921a132c92ef7b9e768307050742b6ff9543998a786f6b" => :catalina
+    sha256 "02cce1059503c0fa2051661ab8075e62c279aeb8a761d408ef2dd4ab7545a6b6" => :mojave
+    sha256 "0dbb3e5ddd4fc6de440174d2667d8453f3f4136d6dba0d3f6cc58f15537ff9d7" => :high_sierra
+    sha256 "98922801f17e30f8aa0685ba4fd2b4a21b46ab53ad1a71f7f39f28fa7cbc2186" => :sierra
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--with-http",
+    system "./configure", "--with-http",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -22,6 +21,7 @@ class Wandio < Formula
   end
 
   test do
-    system "#{bin}/wandiocat", "-h"
+    system "#{bin}/wandiocat", "-z", "9", "-Z", "gzip", "-o", "test.gz", test_fixtures("test.png"), test_fixtures("test.pdf")
+    assert_predicate testpath/"test.gz", :exist?
   end
 end

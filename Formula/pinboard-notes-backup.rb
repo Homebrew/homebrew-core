@@ -5,25 +5,23 @@ class PinboardNotesBackup < Formula
 
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.4.tar.gz"
-  sha256 "f402418a005a8c7e4ba980ded37ed35530edd896a0f57a8c50cc39add7432704"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.4.1.tar.gz"
+  sha256 "c21d87f19bba59bb51ff7f7715a33a4a33ced20971f4881fd371ab3070a4b106"
   head "https://github.com/bdesham/pinboard-notes-backup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "546bb1aa255c67331b1436035960bb49cfcd0d4a093050e4670386d8e4d9d330" => :mojave
-    sha256 "07b024d0b1c50325561ca382b6f90ee5aab261093cbc92498862608a6a11cc61" => :high_sierra
-    sha256 "d07095e46fd0354044caf2c7125f1d307fd728c97ae5eb32309d97cbb2cf4d30" => :sierra
+    sha256 "e904a9c00e26580d3f45716bb16987c4174850f85d5ee441073c1c1ee5b91d24" => :mojave
+    sha256 "8815547595a8642a26183a7701bb13d9a60068fd5b7aa9d34506f584c3158580" => :high_sierra
+    sha256 "b5673dd192867c0a38dfc9443d1272b42bc303d3561949ce3157ea7300e2aeb6" => :sierra
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "pandoc" => :build
 
   def install
     install_cabal_package
-    system "./make_man_page"
-    man1.install "pnbackup.1"
+    man1.install "man/pnbackup.1"
   end
 
   # A real test would require hard-coding someone's Pinboard API key here

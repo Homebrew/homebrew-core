@@ -3,21 +3,21 @@ class Ccm < Formula
   homepage "https://github.com/pcmanus/ccm"
   url "https://files.pythonhosted.org/packages/fc/ab/b51afd466cc4acf2192e230ddb6fd3adb56066f05c7be1852af7bd655068/ccm-3.1.4.tar.gz"
   sha256 "a98268c2d8e5534d8d2d94267060e9ee9105b35e43d704bac0fa495a773acf7d"
-  revision 1
+  revision 2
   head "https://github.com/pcmanus/ccm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7459ea7995ce0dfe7289e55b0d4b78dca3a41909b2a067c908226da64df67051" => :mojave
-    sha256 "00bf2f352fc8ea1d34560c269db3d8674f7aacf73a691a26a959d3073127473c" => :high_sierra
-    sha256 "4888764eb18e9bb810507cce436275d9af23d81ed52d26b168ba23fd1d40c9a7" => :sierra
+    sha256 "14578e355dbabf14218cabce44f285c7bb31427d8b3a0ca6c0c3a929bc350447" => :catalina
+    sha256 "2bc849b79f2e9791e9b984015d3a2e67109d677265bb27b138dbb89baba9b0dd" => :mojave
+    sha256 "4955b2f65932e79c9c33103517bd9c147db22d6db9c38cc34b7c5e1a80dcb3ab" => :high_sierra
   end
 
   depends_on "python"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
+    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
   end
 
   resource "six" do

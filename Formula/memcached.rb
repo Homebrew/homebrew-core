@@ -1,19 +1,17 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.5.14.tar.gz"
-  sha256 "9c5bdf29a780fb6c6f7c9eaaeeda0583efdf663193758c3e316c969a510af2a9"
+  url "https://www.memcached.org/files/memcached-1.5.19.tar.gz"
+  sha256 "3ddcdaa2d14d215f3111a7448b79c889c57618a26e97ad989581f1880a5a4be0"
 
   bottle do
     cellar :any
-    sha256 "ad92429279c21a55ebf3c3715d1ffd051fae10fb171f38d68b9d9829a1ecb4da" => :mojave
-    sha256 "8e523a5bab95585ebcb29bcdbe4ce3aeff11ad80b5c286bef8e81454a65ee6d3" => :high_sierra
-    sha256 "7e8473396ca5431a2ff6d0360728d667b02d1be8e9e5c11d47e79bc14453a223" => :sierra
+    sha256 "1e6afd5a220e785c50c8258c55c6c938663366d29edff010fc7d31ee78ac9336" => :catalina
+    sha256 "8664da285842c6dbdf04eae132c8cc1a1f2f4c861e25ff25989ea524b255407c" => :mojave
+    sha256 "a48eadd9daa3e726d87c90f14b16aee6e9566d730b5d513924bcaa2c2cac68b1" => :high_sierra
   end
 
   depends_on "libevent"
-
-  conflicts_with "mysql-cluster", :because => "both install `bin/memcached`"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-coverage"

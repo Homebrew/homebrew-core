@@ -1,13 +1,13 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.9.tar.gz"
-  sha256 "905fe62e2825310eeb77187f8974763c3ae2f08ca1f649bcaf4721f1fd14a764"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.11.tar.gz"
+  sha256 "86fccd2190a14c7f3024edf922229919803dee774f91c85fdee54029e179f270"
 
   bottle do
-    sha256 "6b3c73d844f2e03884494b5ef35ae61e954d61deaabee3dc2c6890ea59f2c8d9" => :mojave
-    sha256 "3ede1d5379b523fa49bafded248216359461d5f469f31f487317dd6b975fe2d4" => :high_sierra
-    sha256 "894321121f744ff2e39557ebd913a6ba208f6f61eeb3578e8e61854091b63992" => :sierra
+    sha256 "5a8bc1fd8ab45d0c087be911182ab0e567484463694894f8e30a46ea8d1b9e17" => :catalina
+    sha256 "223a3505acc1c17d7b7b2c01608bea4cbda38a49fbe975e0b7c4597854c6d379" => :mojave
+    sha256 "92cc84001552e490a6274357f6ef2381cac96d0e16a270412656e275e4627c45" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -17,15 +17,10 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.9/scrcpy-server-v1.9.jar"
-    sha256 "ad7e539f100e48259b646f26982bc63e0a60a81ac87ae135e242855bef69bd1a"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.11/scrcpy-server-v1.11"
+    sha256 "ff3a454012e91d9185cfe8ca7691cea16c43a7dcc08e92fa47ab9f0ea675abd1"
   end
 
-  # include the commit that fixes non portable build
-  patch do
-    url "https://github.com/Genymobile/scrcpy/commit/bcd0a876f7bf52642330410812a6b7100cdeda91.patch?full_index=1"
-    sha256 "86444cd3e26b73cf1c48e442c7aeabc748140b3422c860ac7ebbb05a374c1405"
-  end
   def install
     r = resource("prebuilt-server")
     r.fetch
@@ -35,7 +30,6 @@ class Scrcpy < Formula
       system "meson", "--prefix=#{prefix}",
                       "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
-                      "-Dportable=false",
                       ".."
 
       system "ninja", "install"

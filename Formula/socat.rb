@@ -3,15 +3,17 @@ class Socat < Formula
   homepage "http://www.dest-unreach.org/socat/"
   url "http://www.dest-unreach.org/socat/download/socat-1.7.3.3.tar.gz"
   sha256 "8cc0eaee73e646001c64adaab3e496ed20d4d729aaaf939df2a761e99c674372"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8df52f1aac80cb54571c817acf3dc3a37dc7c6cc61efda3ff5d894b802e41488" => :mojave
-    sha256 "146f0a748cf86284207e7a23f178eace6019d861add738fca74e74171a079fb6" => :high_sierra
-    sha256 "c17ddaf91194b3b06845c63f9d38f364612a5bbee315ff716eccd3b89a543bc2" => :sierra
+    sha256 "d59da60bfab8d0c13ae081e6fcfc4c95148b4304b4ca373ec22e1a28272473de" => :catalina
+    sha256 "9cd58f9c9f906e36325423daa512cc1c2194e9e86f7011905891403a6e8fb82a" => :mojave
+    sha256 "e3c00c79b9f326c9cc46116e11a9281ef42bc0b9c1d3ce271cbbfbcf22933c01" => :high_sierra
+    sha256 "55324b293c9c94e3550efd38c06f3bd0ba58a20d46fba44d9b444f6f372e8fd6" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # patch for type conflict, sent upstream

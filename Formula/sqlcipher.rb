@@ -3,22 +3,24 @@ class Sqlcipher < Formula
   homepage "https://www.zetetic.net/sqlcipher/"
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.2.0.tar.gz"
   sha256 "105c1b813f848da038c03647a8bfc9d42fb46865e6aaf4edfd46ff3b18cdccfc"
+  revision 1
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
     cellar :any
-    sha256 "dbe202e4ca6f3c16bcac80c8466b9202b0322993044ef1fc8a008d8f150bb689" => :mojave
-    sha256 "539d88f8b348dc79d1f63fc7719e1a35bc6a451c0fd06c0df2616d1a58372cc6" => :high_sierra
-    sha256 "6b84524fa20fc0d6e9ff0c15242760cfb5516bd50042fa4d79ea49ce93c62d55" => :sierra
+    sha256 "d75fad68d4754a6e4df6b42dd67e30060841ed4c4b76f11c876ae56fe8c5b634" => :catalina
+    sha256 "6d341263b65d34595b30df94ff816f9554f7101860709433644cc180ab551298" => :mojave
+    sha256 "723521130f5dbebf48d7eb61eb3525f7d779261cc4c3760724e65f4a87315cd8" => :high_sierra
+    sha256 "0168ffe787b5aa7742861922a503118aa5140eac7572d3270a42e7dfb68f04c6" => :sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --enable-tempstore=yes
-      --with-crypto-lib=#{Formula["openssl"].opt_prefix}
+      --with-crypto-lib=#{Formula["openssl@1.1"].opt_prefix}
       --enable-load-extension
       --disable-tcl
     ]

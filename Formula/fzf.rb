@@ -1,18 +1,19 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.18.0.tar.gz"
-  sha256 "5406d181785ea17b007544082b972ae004b62fb19cdb41f25e265ea3cc8c2d9d"
+  url "https://github.com/junegunn/fzf/archive/0.19.0.tar.gz"
+  sha256 "4d7ee0b621287e64ed450d187e5022d906aa378c5390d8c7c1f843417d2f3422"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f77b9b22f32f76493cdac585106b01502c6583908e0b7b6ea70ab023b5c1c2e" => :mojave
-    sha256 "6f457b819868a5515d2154eae02eb8fdbc154a1815e96729ed62f68395672f38" => :high_sierra
-    sha256 "4e352d29fefafd0c7af1c98ebf97276afbf4df844444aa98e4e1fa32d338e281" => :sierra
+    sha256 "0be169ab230f6ff7b2322ee3d61fa0cd44e04300b688d207b67e910d948af442" => :catalina
+    sha256 "5b5f429819576c27bab7bb658e3a99ae8043535e19d887fd9eaee954667ee715" => :mojave
+    sha256 "19e9ba86b09129e06530b322f892ba89fb1db3173219ca0228cc0fe2d8281fbc" => :high_sierra
   end
 
   depends_on "go" => :build
+  uses_from_macos "ncurses"
 
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"

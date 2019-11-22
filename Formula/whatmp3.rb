@@ -9,6 +9,7 @@ class Whatmp3 < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "192361cf51ca2e2aeb3312de0325c81224f9fa655da04cb6c2ee47e21247e84d" => :catalina
     sha256 "6b36c6382c121ba067270c41d336af706df2f2a531e02703f629557aaa8206d7" => :mojave
     sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :high_sierra
     sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :sierra

@@ -3,19 +3,21 @@ class Osc < Formula
 
   desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.165.1.tar.gz"
-  sha256 "538e7afd6deac6b67d21ae9989d55991f0633fe9b464dace5c01024a0eca6095"
+  url "https://github.com/openSUSE/osc/archive/0.165.2.tar.gz"
+  sha256 "56c0819cd49d18c99561bd5af6f8fcfbf71ae1f56b3efbf34c81d0dfcd70606c"
+  revision 1
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "8804c135b870175d2ee79fb6c00769348cd449bba177e87aab5771e8fb167834" => :mojave
-    sha256 "42d423c24000b29ad7adea5b63869fb6d8d8059f6b728ad66d6108a1c5f59ada" => :high_sierra
-    sha256 "95073f668739520d1a813acddaa3992d83bb106ca0215d8f1f5d1c43070546dc" => :sierra
+    sha256 "d1c93a273d971d2ec5ca0d216f06a508c0a6c5a6932c45abb7e95e7ae2ec9ea9" => :catalina
+    sha256 "421e4df99f7b0ba5d0de94997044f371373ae267ad4f9e7958f45f143bce5d4b" => :mojave
+    sha256 "4f79dde31c2bc61d87f5d82b588ed7f6c02ff26cd816e4811f87c6fec764b109" => :high_sierra
+    sha256 "2abd032fe1c24461b9b65a9d53f80786909d2039aec1b1ea84734fe47b47f099" => :sierra
   end
 
   depends_on "swig" => :build
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1" # For M2Crypto
   depends_on "python@2"
 
   resource "pycurl" do
@@ -42,7 +44,7 @@ class Osc < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
-    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }
@@ -50,7 +52,7 @@ class Osc < Formula
     resource("M2Crypto").stage do
       inreplace "setup.py" do |s|
         s.gsub! "self.openssl = '/usr'",
-                "self.openssl = '#{Formula["openssl"].opt_prefix}'"
+                "self.openssl = '#{Formula["openssl@1.1"].opt_prefix}'"
         s.gsub! "platform.system() == \"Linux\"",
                 "platform.system() == \"Darwin\" or \\0"
       end

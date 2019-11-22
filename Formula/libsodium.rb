@@ -1,15 +1,15 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
-  homepage "https://github.com/jedisct1/libsodium/"
-  url "https://github.com/jedisct1/libsodium/archive/1.0.18-RELEASE.tar.gz"
-  version "1.0.18"
-  sha256 "b7292dd1da67a049c8e78415cd498ec138d194cfdb302e716b08d26b80fecc10"
+  homepage "https://libsodium.org/"
+  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz"
+  sha256 "6f504490b342a4f8a4c4a02fc9b866cbef8622d5df4e5452b46be121e46636c1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f0c5a9db15c8798edfa438b6911c6e354591f22ae3ed53696bf81c0a18afb0be" => :mojave
-    sha256 "2b7cb72aaf03b3e6b4ae4e03133001abd134c8ebf008bbb788115df5df42cf97" => :high_sierra
-    sha256 "e54c6a8913c83ef3201e15a4d68bed3ff329dd773d70aaf6cf7771ea93abe6a6" => :sierra
+    sha256 "db372521cd0b1861a5b578bee22426f3a1f4f7cb3c382be1f842da4715dc65bd" => :catalina
+    sha256 "55245bfcf6654b0914d3f7459b99a08c54ef2560587bf583a1c1aff4cfc81f28" => :mojave
+    sha256 "fc972755eb60f4221d7b32e58fc0f94e99b913fefefc84c4c76dc4bca1c5c445" => :high_sierra
   end
 
   head do

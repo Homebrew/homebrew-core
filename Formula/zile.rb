@@ -7,10 +7,11 @@ class Zile < Formula
   revision 2
 
   bottle do
-    sha256 "eb3ccf733c6a85290d419c7098aafd1d844880f689973276decd6bf9c19fe965" => :mojave
-    sha256 "f17882759df971a7e3184638a13b889576eba380d61a005e3bbd33d3d32cc84e" => :high_sierra
-    sha256 "5be3657e02aa7dca41fd0432bbff60a3d96623a89179280a31b18cbde1a6b836" => :sierra
-    sha256 "25330278315a0e2fbc7cd731d69e88ba8205cd4d622ca7a0abbc638f95e6d937" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "854315aad2cba51fa2b556ebce95ffb0d402a491420e900de898a22c95c082e3" => :catalina
+    sha256 "812e96a8ffe6c3baaece7400306b588bfd1eb1442f943a73f34b4066ab6b0f44" => :mojave
+    sha256 "d0cefa1b959efdf8344907a229bff4ea03cf9856b2d028a509e0b8e0a046a7f2" => :high_sierra
   end
 
   depends_on "help2man" => :build

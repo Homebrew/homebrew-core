@@ -14,8 +14,6 @@ class ClozureCl < Formula
 
   depends_on :xcode => :build
 
-  conflicts_with "cclive", :because => "both install a ccl binary"
-
   resource "bootstrap" do
     url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
     sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"

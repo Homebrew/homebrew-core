@@ -6,6 +6,7 @@ class Libquvi < Formula
   revision 2
 
   bottle do
+    sha256 "6f98f88d5f98ef09c1aee13b24e89be731c79170b3bce5af1617a5309eade725" => :catalina
     sha256 "4916926b6bc9b2180ec1cf06bb24bc76eb9d342c748b4e36ddc65ffad1933cbd" => :mojave
     sha256 "bb5a4201afd814e87ee496b8cefbcf126f0245d7b3c600039e71e7b355115bf7" => :high_sierra
     sha256 "9968d412860717f837082f0e9d225b741d8430a99a3d1c4e12b7a1cdc95cd456" => :sierra

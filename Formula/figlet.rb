@@ -6,6 +6,7 @@ class Figlet < Formula
   sha256 "bf88c40fd0f077dab2712f54f8d39ac952e4e9f2e1882f1195be9e5e4257417d"
 
   bottle do
+    sha256 "b0ecddfbf1d1e1d45ff1d3cb1be1977fd80a7924c27a73d995435de9aff5ca66" => :catalina
     sha256 "906556c44706889c0170f4dfe7d7427f27122cee425042c3911f7266f9fc2e4c" => :mojave
     sha256 "3047847adef9cb5bd5588cf65f64bfcc0549ed44d4370a862071aba2f9d98ba6" => :high_sierra
     sha256 "c53966c742bf88b8481f6ed0bde1a951ea11185af2c631fb02b84fa7120f2e17" => :sierra

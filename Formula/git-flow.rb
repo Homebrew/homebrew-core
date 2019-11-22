@@ -16,6 +16,7 @@ class GitFlow < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8ea12cd7e2666fb6fdfaffaeb3a0437037a40cde559a835fc9de038f36a424dc" => :catalina
     sha256 "ab455769b6b8122e1d345f56d799fe43445bbbeba6265892715167388c737af9" => :mojave
     sha256 "ce4b64f4d13f4a5a8e05c9087627b42cd328c8accc8349c4ca256238d1d3fecc" => :high_sierra
     sha256 "acb9a2690fa86925600fa6e67e38731ef05f7f5d6ccfceb9c5175286c1081fe0" => :sierra

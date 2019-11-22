@@ -1,15 +1,15 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://github.com/bup/bup"
-  url "https://github.com/bup/bup/archive/0.29.2.tar.gz"
-  sha256 "7f54503f305eab5db5db41e1825477b8804870ca251f65bcfb4d89ad2598574f"
+  url "https://github.com/bup/bup/archive/0.30.tar.gz"
+  sha256 "5238f045c220278a165fff528ea32288f2752db2e1ac15704e849b71cddda0b2"
   head "https://github.com/bup/bup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ca4593db392b93bad33bd522b2fd5c37bae9966b606e4c62a0fd8997901f1f0" => :mojave
-    sha256 "3a1eb0bb1d6f5e4da3e1afe9565d19d1be8eb455ceb20ef404b8c042ce416aa1" => :high_sierra
-    sha256 "81d72623d910ba47d6960b4bbc65e214aa9fdb41639d800dc850a5ad8981a5d7" => :sierra
+    sha256 "03113e1218de2523b0234d8ac10a18151f684c46c689e027e253e9db43e1cf4a" => :catalina
+    sha256 "2de7026bdda615a5cf7715d0ded2c40cddb19336ec354bc03bfc87a88c604afc" => :mojave
+    sha256 "87858ab9d63413366fd0fcda74bd74e0d206206157b87202783c75bb2fc7476e" => :high_sierra
   end
 
   depends_on "pandoc" => :build

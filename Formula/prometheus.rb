@@ -1,14 +1,15 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.10.0.tar.gz"
-  sha256 "0362f4aa2fb44cc2c572df140da742bdf99fe9f338157a83f6634694fd693000"
+  url "https://github.com/prometheus/prometheus/archive/v2.13.1.tar.gz"
+  sha256 "5624c16728679362cfa46b76ec1d247018106989f2260d35583c42c49c5142b5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d2a7005356b329c5fab1aa0bbb13034e139ddd73439302cedfa9c9cb5e99c5a" => :mojave
-    sha256 "039d4dd438004103a8f18d3537d9aff3ec95f62e3479053fc5269110aebdf848" => :high_sierra
-    sha256 "47f498051efb821140af097766e5676ab42b07d5c7e672cb27a09fe88f207801" => :sierra
+    rebuild 1
+    sha256 "3e2f6180a0594933ac5eeb1f5574d9f07a45479b556702a426697ffa507328fd" => :catalina
+    sha256 "7a0549df192cd2b4c23a7322ff2d8096eb19774027f028cbeef5363fb5718862" => :mojave
+    sha256 "a68c839c3b0d5d63e768ab069f72b7a4d1c32b385d4d448a3de444b5044e95c3" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -22,12 +23,29 @@ class Prometheus < Formula
     libexec.install %w[consoles console_libraries]
   end
 
+  def post_install
+    (etc/"prometheus.args").write <<~EOS
+      --config.file #{etc}/prometheus.yml
+      --web.listen-address=127.0.0.1:9090
+      --storage.tsdb.path #{var}/prometheus
+    EOS
+
+    (etc/"prometheus.yml").write <<~EOS
+      global:
+        scrape_interval: 15s
+
+      scrape_configs:
+        - job_name: "prometheus"
+          static_configs:
+          - targets: ["localhost:9090"]
+    EOS
+  end
+
   def caveats; <<~EOS
     When used with `brew services`, prometheus' configuration is stored as command line flags in
       #{etc}/prometheus.args
 
-    Example configuration:
-      echo "--config.file ~/.config/prometheus.yml" > #{etc}/prometheus.args
+    Configuration for prometheus is located in the #{etc}/prometheus.yml file.
 
   EOS
   end

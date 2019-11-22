@@ -5,12 +5,11 @@ class Ssed < Formula
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
 
   bottle do
-    sha256 "f9ed77103129ce1f3534eb7e7b735a72f5ea83442d46c11664b4a8a3883b1a0a" => :mojave
-    sha256 "0cc13b472591ed0dab6bcb69f8c08e89cc217342c655355982b44e07a5f7318c" => :high_sierra
-    sha256 "0834fb44e8acc946a9a7030b4313295777c3c9d8808f67c24daaaa2ce6c6a2ed" => :sierra
-    sha256 "6c8c5a5547c7c97e59f1f7284083f46d5e61e7ab80ac08ebdfeec4a4b4e95fbb" => :el_capitan
-    sha256 "7e313ca41f3a8e37bc91ab4a9d8c7acbf508cd7a89ac605df7cee3adcf108510" => :yosemite
-    sha256 "448b2fdfee6f84c3d72fdf29d5ccd042027a9850ea16d75b5f4ee576d8cbadcc" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "21b9139163cd1f1ddf11ad063e4e9c2409d7c73cba2473912d9117a1631205b8" => :catalina
+    sha256 "3684fa95549fe291253881be5f173e9cff43940be146842f3576a48c7052e234" => :mojave
+    sha256 "cc8945d2f1d9849181c61650958ba6f90a1ff4f4d7dfacf265b5d13921d0a91b" => :high_sierra
   end
 
   conflicts_with "gnu-sed", :because => "both install share/info/sed.info"

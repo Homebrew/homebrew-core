@@ -1,14 +1,16 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.6.tar.gz"
-  sha256 "fba3c52e3cef467005b74c948b1b6a3ad38324a60b2163718182e687c5ef252c"
+  url "https://github.com/nicolasff/webdis/archive/0.1.7.tar.gz"
+  sha256 "932e8b2d75ea6093759c4f9a228c34de664a1d41c2ef3aaa57fa61cdc38024a2"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "818f49b927b88a96fa120e5dd400866bd54ef71328b437f99b3e6a01423a2d00" => :mojave
-    sha256 "9663e5b97037750b84b2572511ae4cfd7bfb17b46513b114deeee583a2b8b41d" => :high_sierra
-    sha256 "0d92954fd4c3cee5ddb82db0db2aa85a2e9d7f6a6ef550295d5f498b2640d214" => :sierra
+    sha256 "404e1541ef26a22fd496c2f3b0c145f110b3264f69089793acca8fdd372d4331" => :catalina
+    sha256 "6a9197076c07eff2bca44c342d584512686d50d05a8943b96cbca86a12ed77bf" => :mojave
+    sha256 "7c78af53a76f221a6dbc1188d2ff8c5d83f315832bc33470a16f485c254bc8b4" => :high_sierra
+    sha256 "c04c67e6eaccf8e60a434cf6654348aae9c5790f97ad680f94be4047f3e5d808" => :sierra
   end
 
   depends_on "libevent"
@@ -58,16 +60,14 @@ class Webdis < Formula
   end
 
   test do
-    begin
-      server = fork do
-        exec "#{bin}/webdis", "#{etc}/webdis.json"
-      end
-      sleep 0.5
-      # Test that the response is from webdis
-      assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:7379/PING"))
-    ensure
-      Process.kill "TERM", server
-      Process.wait server
+    server = fork do
+      exec "#{bin}/webdis", "#{etc}/webdis.json"
     end
+    sleep 0.5
+    # Test that the response is from webdis
+    assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:7379/PING"))
+  ensure
+    Process.kill "TERM", server
+    Process.wait server
   end
 end

@@ -1,24 +1,26 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.27.tar.gz"
-  sha256 "1bab5f30406cabac2f2cc95f8af6dfe20581646a75a70c091845e04d325f4eea"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.2.2.tar.gz"
+  sha256 "83b333940a25fe6d453bcac6ea39edfa244612a879117c4a624c97eb250246fb"
+  revision 1
 
   bottle do
-    sha256 "f63a856122e366a1413a5fbe580bfa40faa937696cee7a089c11241dad35a50b" => :mojave
-    sha256 "491a88aae267376b31da83f39ef94ddf2cfb0c302f124a5671c6c5c06b740fcc" => :high_sierra
-    sha256 "6aa3633bf07bad78e431f8856f8f94832196f92814b8cde319e0358ed82d8658" => :sierra
+    sha256 "ca69db82461ccb04f94857b03715b967f80896539d7abce2b2cebb4dc3124082" => :catalina
+    sha256 "70d66d7396db21ace3541a6be4b556b9f339570e71fa817941df594c1205686a" => :mojave
+    sha256 "9fbd67d1d673c34b06f0f597e45b02121e98d286733e9df1d553daf8292b9b25" => :high_sierra
+    sha256 "9391533efaae88803ac27fc7f450523d7a40ab02b4da422e15f8c6bb925cc6cb" => :sierra
   end
 
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--localstatedir=#{var}",
                           "--with-libevent=#{Formula["libevent"].opt_prefix}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

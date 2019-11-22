@@ -7,6 +7,7 @@ class Crc32c < Formula
 
   bottle do
     cellar :any
+    sha256 "e2b5e57945365a1b21afdaf7e17e2ec43e1e5bf07b88486cf4df34a950c446cf" => :catalina
     sha256 "af325a8d3249cd237a34492d33c6c84cc7c058b9baede77e1499beb09789ee3d" => :mojave
     sha256 "bf99febb71f1928b3fddc01c509a53ad1e10d0f5ee64fb561b54729e8482465e" => :high_sierra
     sha256 "8f3c05aba98d9142e5fc1e38b1c0467f50dd6c51f03d53b0aa41566a8a7723f5" => :sierra

@@ -2,14 +2,14 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-    :tag      => "v1.9.1",
-    :revision => "2df5cca073e34c966e807727d29a4b2046e52c48"
+    :tag      => "v1.13.0",
+    :revision => "eb732a11111e881e5d8918e446f4444acb16a1c1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a6fc8f01511faf89bfc796df2d40931ea2f44c468f6fa18e56f2dca552cba795" => :mojave
-    sha256 "c382f8695d831c403a9ba21dbcdcd2674dc12ef0c102ac24c56f33b2d3ebe471" => :high_sierra
-    sha256 "8e9f8641bacf5e96ee3ed36e57fc12552d91f1d0e18f5660ecbd671358894d71" => :sierra
+    sha256 "8e3c363a7f552070ddac2226613bf95b72bcfa73f227c4bf46a675b16208b82c" => :catalina
+    sha256 "e07e214524e64fe3aeec6443420c04e942f35bd52f8a713f5ac1f5b7f51dec2f" => :mojave
+    sha256 "ea265a6c92c0ab66a593c1b2d972671f4982bd90996e44ab515e7d8edf46dfbf" => :high_sierra
   end
 
   depends_on "dep" => :build

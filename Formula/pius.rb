@@ -3,15 +3,16 @@ class Pius < Formula
 
   desc "PGP individual UID signer"
   homepage "https://www.phildev.net/pius/"
-  url "https://github.com/jaymzh/pius/archive/v2.2.7.tar.gz"
-  sha256 "1a806299bce6faa8d7f97a8fef9a0ed4cca1b68e7dff311981103cf512903d46"
+  url "https://github.com/jaymzh/pius/archive/v3.0.0.tar.gz"
+  sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6a89759b45a3eb4872c9d2b5ee6b2a8cffd7d9d2d7de68832886f2f291e0a87" => :mojave
-    sha256 "7b46acad45cbc2559c2b167e5060842fea50256ddd375ba9bb6147cfd4ba286b" => :high_sierra
-    sha256 "018c43d5e6de8bf924ea090937758dfc04aec4d3abbe543227fd352064f75556" => :sierra
+    sha256 "e9ba4374fb3a68bd4b0c9dab7fb3bdc7591fb742af79859f83f6df69ca774913" => :catalina
+    sha256 "b90078fc6aeda02b140a97c534ec19d587465e4f8425ae492fb2988ac28b7f05" => :mojave
+    sha256 "a157ec03fd571b4cf8e732e42dd4a48c5a0c5117a0164fe49261ed445a367415" => :high_sierra
+    sha256 "a29676721817a3f58d8f03683f7d3ed55780b476f3fc6d4f6de7156422423e76" => :sierra
   end
 
   depends_on "gnupg"

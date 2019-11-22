@@ -1,20 +1,21 @@
 class InteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.0.0.tar.gz"
-  sha256 "74dc96e59820bd3352984618d307d9b4de2e257aed65d0c8b3118580ffb6da56"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.1.0.tar.gz"
+  sha256 "c4fa28f864f84e24e7d6253074e5409f49362a99e40f481f2187b5e6a79285f7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6109668cf960bebee20d6412aa468c608d00ce71213b3a18087c0b27f7af08d4" => :mojave
-    sha256 "a68156fe2a1693509a89656b4e4bf7d887e9bc41aa4472bc8ea32fba8b7b1f00" => :high_sierra
-    sha256 "b88696e2077e06c1eddeb783f6230fff7dddd920442ebf5aa0b5ba5b0197541c" => :sierra
+    rebuild 1
+    sha256 "29c07ab1c4efc97c65213815a8e770dec18574435135ce515f1701ce9e989cdc" => :catalina
+    sha256 "7633dcbb333d144ff73119623b6d181b864a87ea124048e64d26465fdc99fba7" => :mojave
+    sha256 "01edbef9fae206778e3e0e14c1612869a4490a054910f5181ee6537150e3767a" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

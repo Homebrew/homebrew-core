@@ -6,17 +6,17 @@ class Web100clt < Formula
   revision 1
 
   bottle do
-    sha256 "2b37669adf9e8248295fc31e95659697dcc4b47db89e9db11cea506f02863dfe" => :mojave
-    sha256 "93f6e31d1b28eea6a6f64d6bcacf39db135725bd6130a88173a724c6968c8c62" => :high_sierra
-    sha256 "be444b693ab664de5d521242702bf91a1518cd8945d7d6db1b03126f8a2638bb" => :sierra
-    sha256 "d0998cd6fb89d689aeb6f88bcd92039ad88daa3aef8b718bbcb8be6a3c4a7e39" => :el_capitan
-    sha256 "e2acae1966b2897ef89dcec1610e164f4c8bee054369d2012e1619853c6674d0" => :yosemite
-    sha256 "86b6d51af3d9e33db8220d8834d04aeed0241872a28aeac697b4357d2afbcc2e" => :mavericks
+    cellar :any
+    rebuild 1
+    sha256 "6674131c694ef7d4b8f0bc6fe8342ddc6e015b180efcf1f9452366cfb5eaf2d9" => :catalina
+    sha256 "d0657f34a029afff0189246744dd03d276ea9091e61b6dd208aea81b7e58cf36" => :mojave
+    sha256 "d6d8ecf4d6e7aa7da29fab7d2fe58db4c6da2da60b777be22d12854c15ea0887" => :high_sierra
+    sha256 "a6c81629d7e8171694cc14ebd5a1fc2280f23643be442f1103ac5a84403e344a" => :sierra
   end
 
   depends_on "i2util"
   depends_on "jansson"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # fixes issue with new default secure strlcpy/strlcat functions in 10.9
   # https://github.com/ndt-project/ndt/issues/106
@@ -30,7 +30,7 @@ class Web100clt < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
 
     # we only want to build the web100clt client so we need
     # to change to the src directory before installing.

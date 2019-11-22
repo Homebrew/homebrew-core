@@ -5,6 +5,7 @@ class Madplay < Formula
   sha256 "5a79c7516ff7560dffc6a14399a389432bc619c905b13d3b73da22fa65acede0"
 
   bottle do
+    sha256 "06320361fe8d3687b541149a2c26f78b9a251a813ef7ca1ecfe09e6dfd7ec1b9" => :catalina
     sha256 "04339d670f10b87819965e4bae0e5700840e97e1052313cc62dd5ae6d7e194ce" => :mojave
     sha256 "7ff11d9521cb9507f669753e8c862efa44f5673cc009578202c1ec7dcba379d1" => :high_sierra
     sha256 "a4a1b057547c65f8d793e874632e98ee10bfdae234ff011d16d99593c3fa7853" => :sierra

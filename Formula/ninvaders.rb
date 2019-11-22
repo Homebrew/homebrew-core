@@ -6,6 +6,7 @@ class Ninvaders < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fc5a1eb5df34f13a6d63777b20ec5fea7a8a0351e8f9b8561e6ec95c42ced2c2" => :catalina
     sha256 "4cb75493161c6153611c727bef8837c6c41fbd5db8872239d682cabadc7d2311" => :mojave
     sha256 "75247d901255b6fba826ca60d909b5bb1c349c969b98f65275c898ca45b32b7c" => :high_sierra
     sha256 "3de94522f9f6f5560e1e6f354470aef0c46de68792fd93bd2b044d45db8328c6" => :sierra

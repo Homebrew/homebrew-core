@@ -6,6 +6,7 @@ class Dcled < Formula
 
   bottle do
     cellar :any
+    sha256 "83a87a0f780dc73c21151690f3b1d0654d33e2baad358122be9d24a0610cea64" => :catalina
     sha256 "4b94dd5ba218e3bdb0a10767d0ae62205495130baa839db4be4ab29d6561e5e2" => :mojave
     sha256 "91cf7fa30d905efaf7499f0667c65e25ddb69d82be3f52b93d1df6a400fd7141" => :high_sierra
     sha256 "bfc1532d76b4d37c706d065bc98feb5a3aeff20751a713d7b7efb08c0976fe9e" => :sierra

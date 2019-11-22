@@ -2,31 +2,30 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-156.tar.gz"
-  version "8.1-156"
-  sha256 "c2420dddd2e2527a516685206fb7d4053fe5a872ab7069f10f95bbe990cc43f8"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-161.tar.gz"
+  version "8.1-161"
+  sha256 "e64959dc0b62bc23f481e42eccbe593d3606a241df334dcfabd28fdd8a769a29"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
     cellar :any
-    sha256 "0ae9784f9fb5afc98628250e542b8d128945165989f958d1b8b656136c5c3aba" => :mojave
-    sha256 "a28ea17c67713702b00309c93e23adbb787bddb842ed70009c27b32241dc60ef" => :high_sierra
-    sha256 "a87b8553efce30f97c23665d7b1a539209005e4b98308ba5c98ce4c3f4c51e3c" => :sierra
+    sha256 "9da991b45f4ca6fc8bbf4c1e04f55b2341ffde0a8eeddf018e51ff574965f6a9" => :catalina
+    sha256 "8b49227432024454492a07e6259f683435f67430d2277f2581181d70bcb97922" => :mojave
+    sha256 "1cea9d8aaf17fbf16c3f7d9d62deff86ac66523cfe0c5d53f71d3b91043d2f15" => :high_sierra
   end
 
   depends_on :xcode => :build
   depends_on "cscope"
   depends_on "lua"
   depends_on "python"
+  depends_on "ruby"
 
   conflicts_with "vim",
     :because => "vim and macvim both install vi* binaries"
 
   def install
     # Avoid issues finding Ruby headers
-    if MacOS.version == :sierra || MacOS.version == :yosemite
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT")
 
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")

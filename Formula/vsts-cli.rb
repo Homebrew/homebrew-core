@@ -8,6 +8,7 @@ class VstsCli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fe8bf52da2dfd3a475c035183a3fb2587b7ab255a598aa3bf30ffd5ab8cff6e6" => :catalina
     sha256 "55cd1a1328f4d3f85d4f7319b8cc1eaa6bfb2c528922f7707e5156649a54c997" => :mojave
     sha256 "0ab4def28bd633cdbd4d82158db3eb7f105e91091c2740cf37a6f84d065a0c69" => :high_sierra
     sha256 "cffcc18b4f1785c13c9599de7f829df864fa319ee614383b1652526a17ea87a3" => :sierra

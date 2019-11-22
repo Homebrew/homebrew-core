@@ -9,7 +9,7 @@ class Xmlsectool < Formula
   depends_on :java => "1.7+"
 
   def install
-    prefix.install "doc/LICENSE.TXT"
+    prefix.install "doc/LICENSE.txt"
     rm_rf "doc"
     libexec.install Dir["*"]
     (bin/"xmlsectool").write_env_script "#{libexec}/xmlsectool.sh", Language::Java.java_home_env

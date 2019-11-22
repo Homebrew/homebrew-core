@@ -6,6 +6,7 @@ class Gqview < Formula
   revision 3
 
   bottle do
+    sha256 "e8e56389d265444d10d7859b63736370c2b88b98d4f8b4254bdecf2f3b7c8ab4" => :catalina
     sha256 "dc9cc0efc66c0e2156efeba84201c54711288e96868367bde264dbfaff14236f" => :mojave
     sha256 "faeb25a25899fc5d18b2097574c3975648aaab4b8a55545e5ba6579335c2f587" => :high_sierra
     sha256 "b0e983e36c58634a2ae893003567dac0737c012811c1dcb64f0def22fc11f604" => :sierra

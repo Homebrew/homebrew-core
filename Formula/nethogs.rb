@@ -6,6 +6,7 @@ class Nethogs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cc7d9af4eebb27c162e280dd551742ed0346cc807e45980e2ce6de8b1f8b26ff" => :catalina
     sha256 "a43516ede7e2046c39f1984e4afaee53a3705a81d78491827e33a6a3f631bed8" => :mojave
     sha256 "b70632b33aeb7f23c93cbd27cdb36d49382f3619684c32b60c76129a5d64195e" => :high_sierra
     sha256 "25731b08cad9b8f5a420172bab21d6986d49ee7044cbdd3a7717c6b10ee8da8d" => :sierra

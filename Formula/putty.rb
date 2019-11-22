@@ -1,14 +1,14 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.71/putty-0.71.tar.gz"
-  sha256 "2f931ce2f89780cc8ca7bbed90fcd22c44515d2773f5fa954069e209b48ec6b8"
+  url "https://the.earth.li/~sgtatham/putty/0.73/putty-0.73.tar.gz"
+  sha256 "3db0b5403fb41aecd3aa506611366650d927650b6eb3d839ad4dcc782519df1c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f95ab0aa9ee5ac399d31f31d2e448fb5de0febdb31682e00ce604374cecf2e7" => :mojave
-    sha256 "d860a4b7c2fbcdfec3fea76fed4df08042a66b677402e7edae098fc99eadad92" => :high_sierra
-    sha256 "67fa3cdca8d8b5bb0e4532ffd11e5f3037771fd8b14e7dd13fc2b23150ef9510" => :sierra
+    sha256 "37ba26e6b965281083a75044df48335b9dd4eb06c2d3893af3c904ce73df633f" => :catalina
+    sha256 "765e7d374a8f98b1d336e5120fd9e9e07cddd75c0f9ac68fe9bdbde577193620" => :mojave
+    sha256 "cdba0d03e5de13733fcf62307656adba84d872ae5b97cdde77034ef97de5e63f" => :high_sierra
   end
 
   head do

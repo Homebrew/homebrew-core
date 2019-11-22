@@ -2,15 +2,15 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://gloo.solo.io"
   url "https://github.com/solo-io/gloo.git",
-      :tag      => "v0.14.0",
-      :revision => "30331163719bcf2a8b2c718a2c6f2bcaf64f1fe5"
+      :tag      => "v0.21.3",
+      :revision => "edf4a9d39f81eceabd6bc1061df7c52259ca9f18"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1018e9e336997029ad08fe353c880f1cfc0f458e2a1149b95a7d20f3f2edd034" => :mojave
-    sha256 "2224200870df12d2dfe6705151c01faf14034cd91cebb3fffa486a65eeedef93" => :high_sierra
-    sha256 "bb912e47600a9fa12956ab2760427790ac1bec3d2e698fbb1e4e8f2430e5d189" => :sierra
+    sha256 "7f2dee9d8e6f2276a3d0a0f721bd8905644f89e7b0c80f1af60424cffccd398e" => :catalina
+    sha256 "0689c1195ecbb4a74e468978ea1290a96a9a57bd6600cd516f32a78ce9078153" => :mojave
+    sha256 "f5843cedaa6cdfa67a2c385e92fd3167e850758c700c3bfbf5f1b6cffc4faf67" => :high_sierra
   end
 
   depends_on "dep" => :build
@@ -32,8 +32,11 @@ class Glooctl < Formula
     run_output = shell_output("#{bin}/glooctl 2>&1")
     assert_match "glooctl is the unified CLI for Gloo.", run_output
 
-    version_output = shell_output("#{bin}/glooctl --version 2>&1")
-    assert_match "glooctl community edition version #{version}", version_output
+    version_output = shell_output("#{bin}/glooctl version 2>&1")
+    assert_match "Client: {\"version\":\"#{version}\"}", version_output
+
+    version_output = shell_output("#{bin}/glooctl version 2>&1")
+    assert_match "Server: version undefined", version_output
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
     status_output = shell_output("#{bin}/glooctl get proxy 2>&1", 1)

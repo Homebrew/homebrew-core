@@ -1,22 +1,21 @@
 class Tag < Formula
-  desc "Manipulate and query tags on Mavericks files"
+  desc "Manipulate and query tags on macOS files"
   homepage "https://github.com/jdberry/tag/"
-  url "https://github.com/jdberry/tag/archive/v0.9.tar.gz"
-  sha256 "ec2e3df36e18d4bd17f8fea34c1c5b9311e23d220e4ad64fc55505aa4c4b552a"
+  url "https://github.com/jdberry/tag/archive/v0.10.tar.gz"
+  sha256 "5ab057d3e3f0dbb5c3be3970ffd90f69af4cb6201c18c1cbaa23ef367e5b071e"
+  revision 1
   head "https://github.com/jdberry/tag.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f1c31729b905f07c0401f39d4e10014363fdd976d26f5ceb0390b233eafcbd4" => :mojave
-    sha256 "a956e7444a881bbe4db8f1100e3a6c2913d795291a3522d34795df9ea4a26b14" => :high_sierra
-    sha256 "976deacd9ba2533d152a70d4920ce0edab6e22f35fd72f438774c675e9bf532f" => :sierra
-    sha256 "f91752c50c52456037e04b7e38c1fd1246edb0086fc681860e71f222c2891df8" => :el_capitan
-    sha256 "640a9ebb8fa34d93f5566e2af7e25716eaa2497165c4e7122bcae1d9cd51fb5a" => :yosemite
+    sha256 "e1572ae47d558d60983f7c1cbe9ae42a5c7f2dcb950762ab6c721e81351f5657" => :catalina
+    sha256 "ee5dbe68476b6ae900b92486f3dc3c7a9755296c1fee54a75cd64c7d6af66763" => :mojave
+    sha256 "5801c9fac7b1a4bad52f02fd8a09b64050ebc52515bd96115153c7049bd4619f" => :high_sierra
+    sha256 "5711ce58bd5b224252f1869f84f937c6bca0775bf4c86a6a1168418c1218dc98" => :sierra
   end
 
   def install
-    system "make"
-    bin.install "bin/tag"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do

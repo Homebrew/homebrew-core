@@ -2,19 +2,19 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.1",
-      :revision => "6e16f47450373f04d6a60db1d23c5b13b37f7431"
+      :tag      => "v6.8.5",
+      :revision => "22b590e4e8dbb91bdcfe8689e59dcb04447eeef6"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b46df3822b95bbc4fd9fb00363dbab5c4993a7b524e00037cb5b2d8cf13bae2b" => :mojave
-    sha256 "ac1ac64ae79461afd4556bef3fa25769a34682432ed9ea427a43d5bef246e8d4" => :high_sierra
-    sha256 "a8a989db4c6d67d0c55b88a04b732ac7f4e72fa64d6ba1b0397da331d4fcdca8" => :sierra
+    sha256 "57ac0c9cda8ae95ebce96c93706cc238fa2d9c6c7b1a0bb81f5c983e08df6eac" => :catalina
+    sha256 "54dba617a305ad4f3ff652fb1c75b3fdd13c884bb9fd678a939a0cb81f62523d" => :mojave
+    sha256 "52703b2da7dcd22d56a9b358b668f3fecee98f3f781c79dc043f248b00bafedc" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "python@2" => :build
+  depends_on "python@2" => :build # does not support Python 3
 
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/8b/f4/360aa656ddb0f4168aeaa1057d8784b95d1ce12f34332c1cf52420b6db4e/virtualenv-16.3.0.tar.gz"

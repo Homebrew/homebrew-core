@@ -3,27 +3,30 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
   sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
-  revision 2
+  revision 6
 
   bottle do
-    sha256 "70a892b1550d5db5a793e512ab3f9744c03377003874d914a69d44c868bb2939" => :mojave
-    sha256 "fb2b0171946b9aa29893c673df56fc7b927ae2f0e9676a6de94f1800ccd063ca" => :high_sierra
-    sha256 "c47c9e302312b726aa24ebf39bc159d117cd9b951c67d30b2ec28f933a24e3b7" => :sierra
+    sha256 "7460fa876f5d1a8b9b5ac08f74b8e69468141ae793b8e3dbdf835627318e656d" => :catalina
+    sha256 "69c61e101739083a8d812a92761d7a5123ede956b1178991cbfa299b539d01dd" => :mojave
+    sha256 "29480517515710bbcdb8cfd6f6ad89fe11bfc8c7995005dee0efe5d2b6722df4" => :high_sierra
+    sha256 "f234b5a7bc3a1eeeff60dbc83b90c05b47235712b30787550321ed0dfd750b5f" => :sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
+  depends_on "gflags"
+  depends_on "glog"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
   depends_on "python"
-  depends_on "python@2"
   depends_on "tbb"
 
   resource "contrib" do
@@ -38,15 +41,11 @@ class OpencvAT3 < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py2_prefix = `python2-config --prefix`.chomp
-    py2_lib = "#{py2_prefix}/lib"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -79,11 +78,8 @@ class OpencvAT3 < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
-      -DBUILD_opencv_python2=ON
+      -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
@@ -118,10 +114,9 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python2.7", "python3.7"].each do |python|
-      ENV["PYTHONPATH"] = lib/python/"site-packages"
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
-      assert_equal version.to_s, output.chomp
-    end
+    py3_version = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = lib/"python#{py3_version}/site-packages"
+    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    assert_equal version.to_s, output.chomp
   end
 end

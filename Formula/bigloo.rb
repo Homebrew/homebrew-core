@@ -4,11 +4,13 @@ class Bigloo < Formula
   url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
   version "4.3e"
   sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
+  revision 1
 
   bottle do
-    sha256 "d034117c6d060275241be0e0e1043782a04f8dd30f14bea3c7d26a6a7e6feb35" => :mojave
-    sha256 "3945eb3bc733cb230df566c7649aaeb06e8e79e287c5d233d1623a75e9d482c4" => :high_sierra
-    sha256 "de439ab15ec2e1854e9c2596438ca395f6678176fe7a9062afdf86afb40f1bee" => :sierra
+    sha256 "06c2d3728e778db36954a6fca8ecc8cb663d90122a884cfb0fc96ce1de36663a" => :catalina
+    sha256 "5de69de8a1afee85a7b6af5d024c80ff3ceb7acc8e391c20fd24398122cfad9a" => :mojave
+    sha256 "26a5f98ee71f7794ced067f64a695f040ef271413ac58b0e0cbfa883ab44ee73" => :high_sierra
+    sha256 "2844e66dfeecc9cfe4ad85558f2d2be450b5aea3acad7461402e9fcb7fb5bbdd" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -16,7 +18,7 @@ class Bigloo < Formula
   depends_on "libtool" => :build
 
   depends_on "gmp"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[

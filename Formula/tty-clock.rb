@@ -7,6 +7,7 @@ class TtyClock < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dc5a60415f5cd5397d973b361db6bc0db2172621fe6eed037ee05c851097c27d" => :catalina
     sha256 "eab206747869e0190d82dfa71d7763df4a3f202c3035f7bccb5b32fc52580989" => :mojave
     sha256 "b3d2a19cdb38e0e156be552d6f9ca8926097300f17bbe6628b7443934d3e1cb1" => :high_sierra
     sha256 "9b0e056ec6d86d9ba9cbd2abc02236607a6ad5601e7a656d10cad20182564315" => :sierra

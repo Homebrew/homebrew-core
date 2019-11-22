@@ -1,19 +1,19 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.3.tar.xz"
-  sha256 "520d4d779b1d31591762b2a98f84072531b9e17ac401df9668493e189eafc6ba"
-  revision 2
+  url "https://download.gnome.org/sources/gxml/0.18/gxml-0.18.1.tar.xz"
+  sha256 "bac5bc82c39423c1dbbfd89235f4a9b03b69cfcd3188905359ce81747b6400ed"
 
   bottle do
-    sha256 "6a9de82882c75a57b891a82d5033f7d72ff145b61e30e180ad4339223694b194" => :mojave
-    sha256 "2f92dacc64c00a008a9d9a78b9bcc863fc204fce8f83d8a4493a45c61134902a" => :high_sierra
-    sha256 "3dc0c7f3322afc0c4a7c5517759e9c2d0241915236b9f8016d134fb94eac6380" => :sierra
+    sha256 "4eb68617f73471be697746b879fe118fb3e116a1e911a2f95541982a77cd4714" => :catalina
+    sha256 "b9bb621d776f10dc1c3a9bde25964bd26847bf49cdee49ada1c0407f5fb14dbb" => :mojave
+    sha256 "4253e9a1bd9ce221e2287e5d53d39342c65fd06aa63028aa56effae2514854b4" => :high_sierra
+    sha256 "47042a94c013db905170cc0c373b8f7000d77e9c75d2d17dbacad6cd658e6b56" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
@@ -21,24 +21,11 @@ class Gxml < Formula
   depends_on "libxml2"
 
   def install
-    # ensures that the gobject-introspection files remain within the keg
-    inreplace "gxml/Makefile.in" do |s|
-      s.gsub! "@HAVE_INTROSPECTION_TRUE@girdir = $(INTROSPECTION_GIRDIR)",
-              "@HAVE_INTROSPECTION_TRUE@girdir = $(datadir)/gir-1.0"
-      s.gsub! "@HAVE_INTROSPECTION_TRUE@typelibdir = $(INTROSPECTION_TYPELIBDIR)",
-              "@HAVE_INTROSPECTION_TRUE@typelibdir = $(libdir)/girepository-1.0"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Dintrospection=true", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
-    system "make", "install"
-  end
-
-  def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
   end
 
   test do
@@ -59,7 +46,7 @@ class Gxml < Formula
       -I#{libxml2.opt_include}/libxml2
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gxml-0.16
+      -I#{include}/gxml-0.18
       -I#{libgee.opt_include}/gee-0.8
       -D_REENTRANT
       -L#{gettext.opt_lib}
@@ -71,7 +58,7 @@ class Gxml < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgxml-0.16
+      -lgxml-0.18
       -lintl
       -lxml2
     ]

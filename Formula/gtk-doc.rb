@@ -1,15 +1,15 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.30/gtk-doc-1.30.tar.xz"
-  sha256 "a4f6448eb838ccd30d76a33b1fd095f81aea361f03b12c7b23df181d21b7069e"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz"
+  sha256 "de0ef034fb17cb21ab0c635ec730d19746bce52984a6706e7bbec6fb5e0b907c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b4c6a1d8576e0a796c9522b461e2485ffb98a3af35844401e8c5d3b862c20a69" => :mojave
-    sha256 "b4c6a1d8576e0a796c9522b461e2485ffb98a3af35844401e8c5d3b862c20a69" => :high_sierra
-    sha256 "661963cd595945cff961721ac28f0498a04b31dda962dc6e4a3734240db8a0c7" => :sierra
+    sha256 "c2a37977def6cbd8225e422533ff471908c76a5cea619f8e92fa2c625e7d7cbf" => :catalina
+    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :mojave
+    sha256 "79d3ef58493e71bfa4782d7ac1a4a19500f085b2b3fc348880b5f5645a10fe7e" => :high_sierra
+    sha256 "62a6648f580ec06ba130accd90bb5bf178780d84fc338b98f05acf59e67423e1" => :sierra
   end
 
   depends_on "itstool" => :build
@@ -20,10 +20,11 @@ class GtkDoc < Formula
   depends_on "libxml2"
   depends_on "python"
   depends_on "source-highlight"
+  uses_from_macos "libxslt"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/1d/55/55cd82a72af652d71eb14f318e2d12d2fd14ded43d6fd105e50ed395198c/Pygments-2.4.0.tar.gz"
-    sha256 "31cba6ffb739f099a85e243eff8cb717089fdd3c7300767d9fc34cb8e1b065f5"
+    url "https://files.pythonhosted.org/packages/7e/ae/26808275fc76bf2832deb10d3a3ed3107bc4de01b85dcccbe525f2cd6d1e/Pygments-2.4.2.tar.gz"
+    sha256 "881c4c157e45f30af185c1ffe8d549d48ac9127433f2c380c24b84572ad66297"
   end
 
   def install

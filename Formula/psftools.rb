@@ -1,15 +1,17 @@
 class Psftools < Formula
   desc "Tools for fixed-width bitmap fonts"
   homepage "https://www.seasip.info/Unix/PSF/"
-  url "https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz"
+  url "https://people.phys.ethz.ch/~myczko/debian/psftools/psftools_1.1.10.orig.tar.gz"
+  # Previous URL (upstream default URL) has changed checksum:
+  # https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz
   sha256 "1bc03214a29c4fc461a7aa11b9a3debde419b1271fa5110273ded961774e2b6f"
 
   bottle do
     cellar :any
-    sha256 "710ec6da54d533e4ccc37c87093408ec5519d67852bda95485c1ac35564e0a07" => :mojave
-    sha256 "40c3b6b56dfa842d6a3058d5082bbe16dd3ef0360258279cca98f9da05ec9cd4" => :high_sierra
-    sha256 "532260f14b0b77301c7bf6b89ae1cf7f5948f26dc9d27898bb5588cb9cd4f99e" => :sierra
-    sha256 "ecfe3cabea7cb93be49b1189394253c09f8614877e76f8d7f59a7c1e05bc0128" => :el_capitan
+    rebuild 1
+    sha256 "45dc312102cc19efb4f884e2815e7429958be40fba454973de6d64783b379862" => :catalina
+    sha256 "6206419f9571de1d719e48ea41f352e7a19ccf93e22f67949d39f6407117ce5e" => :mojave
+    sha256 "abd4076ee669f51d13339c64d609db42543ba04268b9e3e8e79d5c4ad3dba397" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -1,13 +1,13 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostpdl-9.27.tar.gz"
-  sha256 "9e089546624296bf4aca14c2adcb0762b323ca77ae14176d21127b749baac8d6"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostpdl-9.50.tar.gz"
+  sha256 "dd94c5a06c03c58b47b929d03260f491d4807eaf5be83abd283278927b11c9ee"
 
   bottle do
-    sha256 "4ba703a1dc6cdc5f41ef354afd5073ec83fd26eb2683973c34da36159bc1dd2e" => :mojave
-    sha256 "6db33437048f3268643c5e8fb873746409022fd914962262e960096562a8a277" => :high_sierra
-    sha256 "ff291bf76719b9e30973342d98600183056898590ab3b0d3945c63de621c004f" => :sierra
+    sha256 "c1e11a68fdd8b406979fc51791cb1f2a25d76c48a94570c41d6baecc5b338ee1" => :catalina
+    sha256 "8d035baadee0af460d3703593dfa646225499de19e97df29ce415e46ac414590" => :mojave
+    sha256 "e3327de86ff58f2f348c40cda8b0e4c6eebb120187dbb5d93be14fd887b54c05" => :high_sierra
   end
 
   head do
@@ -76,8 +76,8 @@ index f50c09c00adb..8855133b400c 100644
 @@ -89,18 +89,33 @@ GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR
  # similar linkers it must containt the trailing "="
  # LDFLAGS_SO=-shared -Wl,$(LD_SET_DT_SONAME)$(LDFLAGS_SO_PREFIX)$(GS_SONAME_MAJOR)
- 
- 
+
+
  # MacOS X
 -#GS_SOEXT=dylib
 -#GS_SONAME=$(GS_SONAME_BASE).$(GS_SOEXT)
@@ -91,7 +91,7 @@ index f50c09c00adb..8855133b400c 100644
 -#LDFLAGS_SO_MAC=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
 +GS_LDFLAGS_SO=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
  #LDFLAGS_SO=-dynamiclib -install_name $(FRAMEWORK_NAME)
- 
+
 +PCL_SONAME=$(PCL_SONAME_BASE).$(GS_SOEXT)
 +PCL_SONAME_MAJOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
 +PCL_SONAME_MAJOR_MINOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)

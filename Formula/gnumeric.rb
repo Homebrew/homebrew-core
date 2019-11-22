@@ -1,14 +1,13 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.45.tar.xz"
-  sha256 "3098ada0a24effbde52b0074968a8dc03b7cf1c522e9e1b1186f48bb67a00d31"
-  revision 1
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.46.tar.xz"
+  sha256 "9fdc67377af52dfe69a7db4f533938024a75f454fc5d25ab43b8e6739be0b5e1"
 
   bottle do
-    sha256 "0ccbc934389445c103643232c5e00e8a9261b81833dbf6d46a3017f8e1827563" => :mojave
-    sha256 "fde4d00e34ec7ce8b026950314fc2c879a0317eb8ad482600da018965adc113b" => :high_sierra
-    sha256 "b6c7861f5c07afda4641be0b4f09b2cc7cf1b00596b548a94d997c9d1aebede6" => :sierra
+    sha256 "0f2c5361ccf199dca09ec37db79df9c9b9bd4b703afd9d5f947d6f70676c7325" => :catalina
+    sha256 "d8dcf90b5c5c8b53b9d9ef0c043e755baf102da1b7b0a5a4f72161ebb7e4a91c" => :mojave
+    sha256 "ac070ba1756593dc9781a771d674a866e7d03ba71987cc62d88de8e6dc0a0e2e" => :high_sierra
   end
 
   depends_on "intltool" => :build

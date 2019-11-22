@@ -7,6 +7,7 @@ class Shocco < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "35dec28dfe3249f6675a3334744f985b2a158ee6c484980d90f174f5969a16f8" => :catalina
     sha256 "273f7af2f859f819079d33837c72374cf8c0cddce77bc213295d780dc21e81a0" => :mojave
     sha256 "035ca34f9629648cec2c1bad1acfed26142da87319c773eafc4af0a2d7ced315" => :high_sierra
     sha256 "035ca34f9629648cec2c1bad1acfed26142da87319c773eafc4af0a2d7ced315" => :sierra

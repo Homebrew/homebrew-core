@@ -4,14 +4,13 @@ class Fragroute < Formula
   url "https://www.monkey.org/~dugsong/fragroute/fragroute-1.2.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.wiretapped.net/pub/security/packet-construction/fragroute-1.2.tar.gz"
   sha256 "6899a61ecacba3bb400a65b51b3c0f76d4e591dbf976fba0389434a29efc2003"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "79fcf3e14e1efa3a35fe8c0107ceb3830f4a7c4d6ea33b183b70530ba2e0b0e5" => :mojave
-    sha256 "65ea82f265aeb3018b59f1c24630ad2e88fc8d3c678579f4e83be4f339005450" => :high_sierra
-    sha256 "54e5062ef504ba660fa5bbc67a562c7fd9a80fbca511cf37c10ca65d135cefe7" => :sierra
-    sha256 "d9a4634cf2e7759caed69fee95f5f0044e4365cbaaf308a2f5abddfa46f4bec1" => :el_capitan
-    sha256 "7c1fc2c4a43e91a22b2e999d071424c5b57243820e2293cc4106e4b68ded0323" => :yosemite
+    sha256 "8b5a87b7cae2d578e00075136ceccaca0c29dbcbb1b01e15675bc29b9205e93d" => :catalina
+    sha256 "49f91a2616ef97ae98f005907b63d6a76e25ac32c9efff8f277d16742b7b971c" => :mojave
+    sha256 "3392e2a1e9a8631c45d4ddcd16284d8ab5cac2dc3f71783688db50183ad414b6" => :high_sierra
+    sha256 "cc8ca43ae5c45a8821a8a4803e4aca6e316a1b0c2083adb6cdc539acce3cfbbe" => :sierra
   end
 
   depends_on "libdnet"
@@ -42,7 +41,7 @@ class Fragroute < Formula
       --with-libdnet=#{Formula["libdnet"].opt_prefix}
     ]
 
-    args << "--with-libpcap=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    args << "--with-libpcap=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed? && MacOS.version == :sierra
 
     system "./configure", *args
     system "make", "install"

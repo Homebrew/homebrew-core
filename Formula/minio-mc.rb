@@ -2,15 +2,15 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2019-06-19T22-39-53Z",
-      :revision => "d97cfaa55d36bd3770077b45a78a091ebbc2c26a"
-  version "20190619223953"
+      :tag      => "RELEASE.2019-10-09T22-54-57Z",
+      :revision => "f93fe1330a3647b1afaff0ed8c188d2897bf391e"
+  version "20191009225457"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "444b955540686b612bb4207a80674f126591d00fd8198b52430419298d6de091" => :mojave
-    sha256 "6e7e8a82e5984369b1cbafc9cca4585169aff5a5789fbc6ce102b5507a0c0d1a" => :high_sierra
-    sha256 "f2b435171f2ec3bf8f3e14da598cbfc22724c1726116f0bc9c0e6bccb958f9c6" => :sierra
+    sha256 "74b0a7ada6bcff57f250cecc66ce6e26faf02207a7eec67b1401d35332c5b519" => :catalina
+    sha256 "f919164d11d9e21aadd60662959b967c7f14fa61a60f38e582909e761e08bfc5" => :mojave
+    sha256 "326d3187ceff7eb10dc82d055102dea7cb90f11056103740f42cb845f17797ac" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,7 +19,6 @@ class MinioMc < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
     src = buildpath/"src/github.com/minio/mc"
     src.install buildpath.children
     src.cd do

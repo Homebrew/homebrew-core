@@ -5,12 +5,11 @@ class Xmlcatmgr < Formula
   sha256 "ea1142b6aef40fbd624fc3e2130cf10cf081b5fa88e5229c92b8f515779d6fdc"
 
   bottle do
-    sha256 "93f887d556a0853ae208b2775c232fae453bbd436616849d6d97156ca56cd3f3" => :mojave
-    sha256 "c21d6a7e434563de3235dd7045e51933568428eefc2fa6d959e8040413c5bab0" => :high_sierra
-    sha256 "ed6376a26e59f66eccad7e0db6e0d111c8d93697fbee1e748e8c18e53035b4f2" => :sierra
-    sha256 "b55ae55a25d8ddc6ed88b2c7cb0c5aa77588ecd668684a592632a1addd5de22e" => :el_capitan
-    sha256 "4515f7fa360ed92348a6325f26645609110f18eb74111b1bd9d2717ee7600f2f" => :yosemite
-    sha256 "3e09fe17a25bca20447863f19093209824871f2bb3635a0ab1fc9dcbb7d94967" => :mavericks
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "ae788970290574145fa3ca20e389469f1a8582c8b604a50e3e506b7ffcb9faa4" => :catalina
+    sha256 "eb8b0acfdaed325cce3e6b7befb53a675f9f7f6dc8aa5d058b4ebecea2d50e53" => :mojave
+    sha256 "bbb201365fe9f89dc036d97e7bcb05d5b299e32f2ad427266f1d73934fd03cb4" => :high_sierra
   end
 
   def install

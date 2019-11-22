@@ -1,25 +1,25 @@
 class Cql < Formula
   desc "Decentralized SQL database with blockchain features"
   homepage "https://covenantsql.io"
-  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.7.0.tar.gz"
-  sha256 "552832e7ff8586170e47d1c3aa6f526e366c6b804bb3fa37a08f87f112bcfb7c"
+  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.0.tar.gz"
+  sha256 "fc63d9bc296b037c8a8fd1984bc6e4156d0c73d9948dfa8654a954f904ad1f4a"
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f629558de28e0fee43be602f0fd8984adc083198d813a94dc8dd87c91f2015e1" => :mojave
-    sha256 "1c3f6ed32148cb851663e7799610f85b6f94ae31b3703258fd971cc7dcdd63d5" => :high_sierra
-    sha256 "5dea26e91da9ce55e0adb1397eb695d47b6e0d678e5afab435a58381836a1aad" => :sierra
+    sha256 "49533c8489134ec2059062f52cdcbcc09eec2b51c0732bfd7920a16c99eeabf5" => :mojave
+    sha256 "fc13d8162b67116b9542e055a6ae6772a2c48a000c594baf2a799a74b4ca5edc" => :high_sierra
+    sha256 "fa82fc3f35356e8ea6278117c185e0cba469d80fbaca38d25f5adfdc96e4c910" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CQLVERSION"] = "v0.6.0"
+    ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
     mkdir_p "src/github.com/CovenantSQL"
-    ldflags = "-X main.version=v0.6.0 " \
+    ldflags = "-X main.version=v#{version} " \
       "-X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C " \
       "-X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y"
     ln_s buildpath, "src/github.com/CovenantSQL/CovenantSQL"

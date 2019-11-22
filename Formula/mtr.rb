@@ -1,24 +1,36 @@
 class Mtr < Formula
   desc "'traceroute' and 'ping' in a single tool"
   homepage "https://www.bitwizard.nl/mtr/"
-  url "https://github.com/traviscross/mtr/archive/v0.92.tar.gz"
-  sha256 "568a52911a8933496e60c88ac6fea12379469d7943feb9223f4337903e4bc164"
+  url "https://github.com/traviscross/mtr/archive/v0.93.tar.gz"
+  sha256 "3a1ab330104ddee3135af3cfa567b9608001c5deecbf200c08b545ed6d7a4c8f"
+  revision 1
   head "https://github.com/traviscross/mtr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0ec13c29bb5e49ffbe0a9c83da77313c28b6bed60da1eb923945130f74158212" => :mojave
-    sha256 "3e426bdf04070ab31f2e70fae91a5b576ced3072733d5e9a0b617c75e97202bf" => :high_sierra
-    sha256 "0558426657c36a32f26d65c96b6111753f7189b5b198715df33b9a4f64e25732" => :sierra
-    sha256 "1700c0b67f337a9089de95ded89391be790ad440336b252be1d109b9b8352cc7" => :el_capitan
-    sha256 "90aa1e5d224e98d572525b09715390f0fbf2b72954cd3c0b87b9cd6af6ff8ac2" => :yosemite
+    rebuild 1
+    sha256 "a952c5da397d034d9dda48176adc6c95e80817885d7668bb655f3fae5ecd3ddd" => :catalina
+    sha256 "4a4715a86749b16145a303a90d872aaf4f30d21f90718cc091db319a76061cc8" => :mojave
+    sha256 "a1ce74b90b7647841648e097bc8a3215bca12a050727234486c5ea90c9387627" => :high_sierra
+    sha256 "a0c602faaa5af45b8bc5efcc9897a765cc22c1f94411de07ceb32fe5aa721183" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
 
+  # Pull request submitted upstream as https://github.com/traviscross/mtr/pull/315
+  patch do
+    url "https://github.com/traviscross/mtr/pull/315.patch?full_index=1"
+    sha256 "c67b455198d4ad8269de56464366ed2bbbc5b363ceda0285ee84be40e4893668"
+  end
+
   def install
+    # Fix UNKNOWN version reported by `mtr --version`.
+    inreplace "configure.ac",
+              "m4_esyscmd([build-aux/git-version-gen .tarball-version])",
+              version.to_s
+
     # We need to add this because nameserver8_compat.h has been removed in Snow Leopard
     ENV["LIBS"] = "-lresolv"
     args = %W[

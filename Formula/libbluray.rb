@@ -1,14 +1,15 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/pub/videolan/libbluray/1.1.1/libbluray-1.1.1.tar.bz2"
-  sha256 "106478a17c8bcac8c7b4174e7432b2bad5a1e6dd2926c4224791fd4669472338"
+  url "https://download.videolan.org/pub/videolan/libbluray/1.1.2/libbluray-1.1.2.tar.bz2"
+  sha256 "a3dd452239b100dc9da0d01b30e1692693e2a332a7d29917bf84bb10ea7c0b42"
 
   bottle do
     cellar :any
-    sha256 "24eef45b0f6eb3bb19ae609d7dda031f590ef44520f541bd6d482ee65e4d31a8" => :mojave
-    sha256 "8e74d8a78290772617abed2a3f30faf97155af0fcb48127c5405dedd41e59b23" => :high_sierra
-    sha256 "78c069763126e0ededbdea942ba16d9cabdf5b48044eab6b80e8e26920b919ce" => :sierra
+    rebuild 1
+    sha256 "02450f9c05b48ec198c967ef34b109002c9d9f2c496ef8876f3779e451ed2271" => :catalina
+    sha256 "cf27d6ba0b4e169785801140ba11fb47e78040f26b5af9e2279bc808e5b62bc3" => :mojave
+    sha256 "1566fcca5871d636404d2517dba45f6c287ab8dd5c9ffc8b9b09dc1bf2af0e18" => :high_sierra
   end
 
   head do
@@ -32,6 +33,10 @@ class Libbluray < Formula
 
     # https://mailman.videolan.org/pipermail/libbluray-devel/2014-April/001401.html
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
+
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
 

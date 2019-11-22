@@ -3,14 +3,14 @@ require "language/node"
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.9.2.tgz"
-  sha256 "3fa3e83fab7bc1625b38616b8254a313216b41815bcdaeaabb21b485d8144f0d"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.9.8.tgz"
+  sha256 "8c9710a1a18317e5cc755eb806bf407e2cc080fdcf93c381054761c85c6c4faa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da81642eacc2034c72996f88008dbbab1c3ecea1face54455d12437b2cfe2d53" => :mojave
-    sha256 "774f313d8c73b5b45c0c2133c0ea73180de28c5ca0b72a5d7f52b765ca0b83d2" => :high_sierra
-    sha256 "ee14539b477d19413e96057548e500f3c4409cd4d8bfc8316e72432a70a47ae9" => :sierra
+    sha256 "e2244fe9ec29e830a907beca5859ee8fb728e7f45d523c80c7ece7752353d7d0" => :catalina
+    sha256 "d0a212a8e1c2b38ef8380b6d154dceda5dc44807224a02528ef4355b5781a30f" => :mojave
+    sha256 "5139600604f66f3935caa40f1924f452c0d6320c4d5cf0622eb061e96ab066a0" => :high_sierra
   end
 
   depends_on "node"
@@ -24,9 +24,9 @@ class FaunaShell < Formula
     output = shell_output("#{bin}/fauna list-endpoints 2>&1", 1)
     assert_match "No endpoints defined", output
 
-    pipe_output("#{bin}/fauna add-endpoint https://endpoint1:8443", "secret\nendpoint1\n")
+    pipe_output("#{bin}/fauna add-endpoint https://db.fauna.com:443", "your_fauna_secret\nfauna_endpoint\n")
 
     output = shell_output("#{bin}/fauna list-endpoints")
-    assert_equal "endpoint1 *\n", output
+    assert_equal "fauna_endpoint *\n", output
   end
 end

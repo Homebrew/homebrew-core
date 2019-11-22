@@ -1,16 +1,15 @@
 class Vitetris < Formula
   desc "Terminal-based Tetris clone"
   homepage "https://www.victornils.net/tetris/"
-  url "https://www.victornils.net/tetris/vitetris-0.57.tar.gz"
-  sha256 "0c9fa6c8b16e2f8968f65e16a87f1bcd39b827d510c6efb0771f0400ab91cdc2"
+  url "https://github.com/vicgeralds/vitetris/archive/v0.58.0.tar.gz"
+  sha256 "e7e7cb74bb814b9fec80fe4ede3c3f04134d8217d630e092a097238248d604f9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57a4c3d266930344ac69130d2dc5075c25783d0446712ff983ce1b42c69b4a4b" => :mojave
-    sha256 "1a01bb4e1ac4a04e4cd139683a0593c3ad2aadca28c8c7ed7b2ca1881400ffac" => :high_sierra
-    sha256 "817866938f1d4df2dcbb69166e187ec4a5d2f61cff83d50725f5112e773c5f34" => :sierra
-    sha256 "d3d2d0c8a86995742c790418cd4e11bbf46d0ea4efa6b8bd5f372a3df7f9ea2b" => :el_capitan
-    sha256 "3ce0392ac4a01daeb72ae626eba038f32d4b3acd0ecb3695f0ec57376e1a4039" => :yosemite
+    sha256 "17c380c39ba763e9559876cef2a6c5189947994aef7c0e6f3613e383f8f9e646" => :catalina
+    sha256 "5cfebdcea81b5e7720d1941f3973b0b47c1fd510234b09f81e9098c1132c0b92" => :mojave
+    sha256 "175da9ed672d62d7c5409d94f299a67ab8499020283a4ea1ca21f6efc6470809" => :high_sierra
+    sha256 "6cb9f1f8d9492c7a652d32115ae488dd19282aa94261957115b50e97c74f06f4" => :sierra
   end
 
   # remove a 'strip' option not supported on OS X and root options for

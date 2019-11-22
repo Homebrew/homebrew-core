@@ -5,6 +5,7 @@ class Avanor < Formula
   sha256 "8f55be83d985470b9a5220263fc87d0a0a6e2b60dbbc977c1c49347321379ef3"
 
   bottle do
+    sha256 "ecaf9be2ed4f7fac2f5cff16be121214bbbfd44477a5f3f5287ce26da94fed3e" => :catalina
     sha256 "ca4aef9b5bceb8f3dddd89f58846f4d9cfbddf2f108a7e8e39d262e92ea9bac4" => :mojave
     sha256 "d99615cac684c32894df532e78452b2542ba857ce69fa58d39e54bcc2fe4ca4a" => :high_sierra
     sha256 "848e96ed26b258042b77a3c2139398b8e6f62722719263c082fb4c6655ffd4bc" => :sierra

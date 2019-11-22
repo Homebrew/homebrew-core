@@ -3,26 +3,27 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v2.1.3.tar.gz"
-  sha256 "eabca9619d1b3a1346975e302b65662305175d5a0c19e517a8b87febfff7c2bb"
+  url "https://github.com/cloudreach/sceptre/archive/v2.1.5.tar.gz"
+  sha256 "85b88159e1125992f0beb8c88188d795763395dbed34ad589e0fc6b0cdf2a882"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cd7fb506bd53417a807d066149daf631f4f315cb65fd28452270f71a263b13e" => :mojave
-    sha256 "df94219c98139d473090c913736e2de1fa0713ccbabf63c387b74c45849cde70" => :high_sierra
-    sha256 "15d32b3dacf69f013545783a38bbb0c9d42314f8e68c0c9f6a3a8d5a52809aba" => :sierra
+    sha256 "fbe478ccae8e17f449c333d991870d426cbc7bbb3a4d30ee265b493200e36338" => :catalina
+    sha256 "b2dc2e0aca642aff912a0a13a04d59a40007fd681390a8b5f8a14497fbc74cbe" => :mojave
+    sha256 "48c12f6a282ae95e1aefab82bfc2692a33957f8b125431c50035090b7e532bc5" => :high_sierra
+    sha256 "a3344075c87e5ecd12d95f56190728a32aeb9d00eebf1c8fa1256735b7b9dc36" => :sierra
   end
 
   depends_on "python"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/81/5d/b0504bce5eab566258e92d73d1394776f6c90dde4ee45b2696674e7c06c7/boto3-1.9.172.tar.gz"
-    sha256 "e482f835cd547589bf9f11c5c1cbad5f3303105e1e909af620d3617c6dee08eb"
+    url "https://files.pythonhosted.org/packages/a2/28/f9a5b24e10ad896c9d875f54ac1294bfdb144770e8b3c82bd4b4925aa143/boto3-1.9.180.tar.gz"
+    sha256 "99e5d071332f176c32ced41902349fe760add1f02cc86de1d5ae4cf05ff7a6e7"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/22/48/10fe9fa17d60acfbce8aac557a75e5f9d8e08372fb8423320b985d7974a3/botocore-1.12.172.tar.gz"
-    sha256 "1fa1ad4be9e9fea77eed7d5021be4283e9bcfecc60d2de83f96552025c4725d1"
+    url "https://files.pythonhosted.org/packages/76/be/4df8e3539e32c569726da382aa0711d9ead3466a7c3943534526baacfc50/botocore-1.12.180.tar.gz"
+    sha256 "a2ceaa00724228a961ef6f97da60ab09f3161a76e2f3ae82a49be396ca1083fc"
   end
 
   resource "click" do

@@ -1,14 +1,14 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.1.tar.xz"
-  sha256 "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
+  url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.2.tar.xz"
+  sha256 "bb9195c3a95bacf556d0203e9691f7489e0d3bc5ae1e5a440c89b2f2435d3ed6"
   revision 2
 
   bottle do
-    sha256 "013df9c3ab1595bf4ce60672150bbda28041aff247d8c00ec5d36322c22fafa9" => :mojave
-    sha256 "94b9b222a506f3204f12d170bba3c0ef5be4c9ca24c790030bf6adcae3a6b20d" => :high_sierra
-    sha256 "ae2957d74e7d1e601f00ff748c3c5e04699e68709304d4c7a68c0174fd6ef2b3" => :sierra
+    sha256 "deba67191c1c4825ab89bade5bf15dd9d66abbc01973c75b74b3e2b5a6f01d92" => :catalina
+    sha256 "e6ec433b39fea3fa6ac56ed5ca2b935d298df7497c917997f25258fd3904bcc6" => :mojave
+    sha256 "b284a4fb840f0ee9077d02d54b88f8ca3e4fb64205e1a8ff3631cc0751b41891" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +25,7 @@ class Gspell < Formula
   patch :DATA
 
   def install
-    system "autoreconf", "-i"
+    system "autoreconf", "-if"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

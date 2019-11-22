@@ -1,18 +1,17 @@
 class Htpdate < Formula
   desc "Synchronize time with remote web servers"
   homepage "http://www.vervest.org/htp/"
-  url "http://www.vervest.org/htp/archive/c/htpdate-0.9.1.tar.bz2"
-  sha256 "2afd132b00d33cd45eea9445387441174fe9bedf3fdf72c5a19f0051cf5a2446"
+  url "http://www.vervest.org/htp/archive/c/htpdate-1.2.2.tar.xz"
+  sha256 "5f1f959877852abb3153fa407e8532161a7abe916aa635796ef93f8e4119f955"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8116eeebe02e935b9d2421f53b7a01ef16bf58b03ca57002389600d0f306c089" => :mojave
-    sha256 "2814f0254b6e9398fe30003348f9f0b455b25c20c42ced875d1dad5d22feadaf" => :high_sierra
-    sha256 "c5490cb23845604c332f2e5536639d7cb87ecc75fc3b6f8e0f8e799fc959a320" => :sierra
-    sha256 "fbdf082a4cbde49e5a9e5ea28f8f9c76e634d1f4fc79397e70e55306947c37b8" => :el_capitan
-    sha256 "56073fc56009dac7f807d436f09732bf4e659d2374bb6a61646dc7f94740daa0" => :yosemite
-    sha256 "973fb72128a9fe5e0c4c1aaaf9671b4ea706bc98ba5f96ecd10a2dae46049e57" => :mavericks
+    sha256 "ed41231b1e7d1760603e39f3e161be7cf817abc978f70c0dcbaec3bb206d9d8d" => :catalina
+    sha256 "4da5825b9f51a83c7de24d289719f0d341b79685a7e1580f2de867e53941934a" => :mojave
+    sha256 "437b8823d451f79f1ad8e2420387a3f50c3dc5919ef19717d41c437a88b77247" => :high_sierra
   end
+
+  depends_on :macos => :high_sierra # needs <sys/timex.h>
 
   def install
     system "make", "prefix=#{prefix}",
@@ -23,6 +22,6 @@ class Htpdate < Formula
   end
 
   test do
-    system "#{bin}/htpdate", "-h"
+    system "#{bin}/htpdate", "-q", "-d", "-u", ENV["USER"], "example.org"
   end
 end

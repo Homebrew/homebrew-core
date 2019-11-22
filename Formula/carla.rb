@@ -3,13 +3,15 @@ class Carla < Formula
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
   url "https://github.com/falkTX/Carla/archive/v2.0.0.tar.gz"
   sha256 "d0c8d8417f8cce9abe807f6359231f187d60db7121ec1dccce3b596a22ef6c41"
+  revision 1
   head "https://github.com/falkTX/Carla.git"
 
   bottle do
     cellar :any
-    sha256 "a39e18a5d4607940f90a6a32efc29fa82ec626995fe93354a85f248c63e65c2a" => :mojave
-    sha256 "24e9a7ac065d312ad4911dd663befc3abadc020a239f013345cfd6b3bfac2c4e" => :high_sierra
-    sha256 "2ce1ae9b9971999d046e84523807da278fbd67dedfcc5282b7e0965880980cd5" => :sierra
+    rebuild 1
+    sha256 "619903bfafcd1e6871b17507cec571c1caa33555f79235e3385aad8e2fd75087" => :catalina
+    sha256 "811e984b6f6c4daf2593ce51ccb9b0401a2bd4bb9c63e87041d4ed25a221c4d0" => :mojave
+    sha256 "f5a5b09a5dabb1d434b407f7dd26973368a74e633c71ae49c3646de597af16a1" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

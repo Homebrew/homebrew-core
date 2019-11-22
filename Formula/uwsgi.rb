@@ -1,11 +1,12 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
+  revision 1
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
-    url "https://projects.unbit.it/downloads/uwsgi-2.0.17.1.tar.gz"
-    sha256 "d2318235c74665a60021a4fc7770e9c2756f9fc07de7b8c22805efe85b5ab277"
+    url "https://projects.unbit.it/downloads/uwsgi-2.0.18.tar.gz"
+    sha256 "4972ac538800fb2d421027f49b4a1869b66048839507ccf0aa2fda792d99f583"
 
     # Fix "library not found for -lgcc_s.10.5" with 10.14 SDK
     # Remove in next release
@@ -16,14 +17,14 @@ class Uwsgi < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 "aa95c6aa7628d8b24c4b39fe57a7eef5e8d8ee87e213d8cfc14847bacc344995" => :mojave
-    sha256 "90a83b0aaf8f43ca1ca0374fc6df91ca1263e48261fa0dc5df80783006d70734" => :high_sierra
-    sha256 "cede48b191857733597fee22d494426cffe2127cadca87b07595c8d40d163aef" => :sierra
+    sha256 "6c17be7f1c2be510e4a7901f9e84acaeab7beb517190643622cd1fe81ef37871" => :catalina
+    sha256 "fa0a1738cc9fafdae2e03e7c9092f98d8873ee1ec0dbe0f6935c75e7ee7c954e" => :mojave
+    sha256 "562237e2f56cea601ba029b32c435a38247441a8188e37ee26543647bf940b7c" => :high_sierra
+    sha256 "80e82901e28914acedd3101a37559b82edebc37c1e5371b5876c4ff32f84cadc" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "python@2"
   depends_on "yajl"
@@ -43,7 +44,7 @@ class Uwsgi < Formula
     end
 
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
-    openssl = Formula["openssl"]
+    openssl = Formula["openssl@1.1"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 

@@ -1,16 +1,17 @@
 class Uade < Formula
   desc "Play Amiga tunes through UAE emulation"
-  homepage "http://zakalwe.fi/uade/"
+  homepage "https://zakalwe.fi/uade/"
   head "https://gitlab.com/uade-music-player/uade.git"
 
   stable do
-    url "http://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2"
+    url "https://zakalwe.fi/uade/uade2/uade-2.13.tar.bz2"
     sha256 "3b194e5aebbfa99d3708d5a0b5e6bd7dc5d1caaecf4ae9b52f8ff87e222dd612"
 
     # Upstream patch to fix compiler detection under superenv
     patch :DATA
   end
   bottle do
+    sha256 "10471b0c0ebb1fc05ed2cec2268aac9727110312b5e2ab20202bdbf9ce98a198" => :catalina
     sha256 "c3fec98e439e93b609a93b3041a0e09be74426652b5dd78f15c543afeeb4216d" => :mojave
     sha256 "226dc1fbb9535b64f19e04310db19fb9a760024fc0b0c73e3c68cf7c72e508d9" => :high_sierra
     sha256 "432a5f95b33416c9bfc29ef4d81ea6d4fab2a568c71c00a9bda034985ed1276b" => :sierra

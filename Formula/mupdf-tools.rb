@@ -7,12 +7,16 @@ class MupdfTools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e20c2295c7c3c373054ba83e9a9fe69ffdb0ea8934ce7312fdf44505d9673606" => :mojave
-    sha256 "28897896f22e72d44a71ebb5851bcd71a07c669440c1f7f63d0a07502a11c5b0" => :high_sierra
-    sha256 "ffe9e5694d30e98060e688dcd0e8f91fc3b4eb6f42da2eb336f2d3aec13b0f81" => :sierra
+    rebuild 1
+    sha256 "2777f9f600980f2dc9a08607f6b8cd63e0d34a76579a2c96a5cddc6b9abc919d" => :catalina
+    sha256 "bca11e9d9e1e2fefbf2aecfdabe5152aa9d2ac0a026690fa9f63fdc7a480f002" => :mojave
+    sha256 "34787901ceaf810b88d553a40f2307a4255056ada19323f8d742e87727bfb33d" => :high_sierra
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "make", "install",
            "build=release",
            "verbose=yes",

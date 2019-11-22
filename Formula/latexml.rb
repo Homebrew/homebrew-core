@@ -1,15 +1,16 @@
 class Latexml < Formula
   desc "LaTeX to XML/HTML/MathML Converter"
   homepage "https://dlmf.nist.gov/LaTeXML/"
-  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.3.tar.gz"
-  sha256 "28a57369b65b85d09c1a2516e69d26bbbe102ab790cae5e2fc9709b26185f62f"
+  url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.4.tar.gz"
+  sha256 "92599b45fb587ac14b2ba9cc84b85d9ddc2deaf1cbdc2e89e7a6559e1fbb34cc"
   head "https://github.com/brucemiller/LaTeXML.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3a5d8f45fdb180e01020f6197a9a07737f81eab6934d949b92f5b711f35041d" => :mojave
-    sha256 "5fed67a74a9966182e7f998a2184541d517a56e1293be12612b0a14b3380cb17" => :high_sierra
-    sha256 "405cb6dee92b6c535e03a4841b3961e96bfb259cdfdf2909f1743d4ff2d479df" => :sierra
+    sha256 "89177de9fcad665602e176c80095dc52ad5faebe5db384348ac7afaa67a37aab" => :catalina
+    sha256 "e7c78acf6bb580fdb949777719972a806c1d7d349d9e826b338572bedde6cf5c" => :mojave
+    sha256 "388dbf99df85e55879cccfa48eed9b6ef362d13f3ffe83dbfd09b1e7fb12fa1f" => :high_sierra
+    sha256 "b911ac9897012edcc7c32d96785e4ca3830ce8cbddff78da0942263c7fb0d0bb" => :sierra
   end
 
   resource "Image::Size" do
