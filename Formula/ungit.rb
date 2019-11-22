@@ -33,10 +33,12 @@ class Ungit < Formula
     sleep 5
     assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:#{port}/")).at_css("title").text
   ensure
-    Process.kill("TERM", ppid)
-    # ensure that there are no spawned child processes left
-    child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
-    child_p.each { |pid| Process.kill("TERM", pid) }
-    Process.wait(ppid)
+    if ppid
+      Process.kill("TERM", ppid)
+      # ensure that there are no spawned child processes left
+      child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
+      child_p.each { |pid| Process.kill("TERM", pid) }
+      Process.wait(ppid)
+    end
   end
 end
