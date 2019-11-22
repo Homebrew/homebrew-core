@@ -2,8 +2,8 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/weaveworks/flux"
   url "https://github.com/weaveworks/flux.git",
-      :tag      => "1.15.0",
-      :revision => "7a09c08cbdfa6d157c2d2dc71d2011c5bbcfdad6"
+      :tag      => "1.16.0",
+      :revision => "876f994ac2868a9887362c128dc4c55c4674c81d"
 
   bottle do
     cellar :any_skip_relocation
