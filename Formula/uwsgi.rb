@@ -1,7 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  revision 1
+  revision 2
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -26,15 +26,8 @@ class Uwsgi < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "yajl"
-
-  # "no such file or directory: '... libpython2.7.a'"
-  # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/726bff4/uwsgi/libpython-tbd-xcode-sdk.diff"
-    sha256 "d71c879774b32424b5a9051ff47d3ae6e005412e9214675d806857ec906f9336"
-  end
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
@@ -59,7 +52,7 @@ class Uwsgi < Formula
       embedded_plugins = null
     EOS
 
-    system "python", "uwsgiconfig.py", "--verbose", "--build", "brew"
+    system "python3", "uwsgiconfig.py", "--verbose", "--build", "brew"
 
     plugins = %w[airbrake alarm_curl alarm_speech asyncio cache
                  carbon cgi cheaper_backlog2 cheaper_busyness
@@ -80,16 +73,10 @@ class Uwsgi < Formula
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
-      system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
+      system "python3", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
     end
 
-    python_versions = {
-      "python"  => "python2.7",
-      "python2" => "python2.7",
-    }
-    python_versions.each do |k, v|
-      system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
-    end
+    system "python3", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", "python3"
 
     bin.install "uwsgi"
   end
@@ -137,7 +124,7 @@ class Uwsgi < Formula
     EOS
 
     pid = fork do
-      exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python -w helloworld"
+      exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python3 -w helloworld"
     end
     sleep 2
 
