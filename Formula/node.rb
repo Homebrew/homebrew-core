@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v13.1.0/node-v13.1.0.tar.gz"
-  sha256 "df640a2f151f788d02dc25c91d80fffe06b4c3c72fbdee07ab9abd7c6879d6cd"
+  url "https://nodejs.org/dist/v13.2.0/node-v13.2.0.tar.gz"
+  sha256 "379dcecb721984a99dc9e16c2a096d6eb7a760d50b188582d9ce33e0478a1a5e"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -19,14 +19,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.12.1.tgz"
-    sha256 "a537fc1d5e8d1187deb4c8debb07b580cfdb4a0e5584feb378e2c66f35d85b9a"
-  end
-
-  # apply upstream Python 3 compatibility fix for macOS (remove with next version)
-  patch do
-    url "https://github.com/nodejs/node/commit/0673dfc0d8944a37e17fbaa683022f4b9e035577.patch?full_index=1"
-    sha256 "a682d597fb63861a3ae812345ade7ad2b1125b3362317e247b4fb52ecd7532be"
+    url "https://registry.npmjs.org/npm/-/npm-6.13.1.tgz"
+    sha256 "b376fb6352851eb591c11489422a467e15abd07f439dc1c1dbc8cb87013b4862"
   end
 
   def install
