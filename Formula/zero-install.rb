@@ -20,12 +20,12 @@ class ZeroInstall < Formula
   depends_on "gnupg"
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
 
     opamroot = buildpath/"opamroot"
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
+    ENV["OPAMVERBOSE"] = "1"
     system "opam", "init", "--no-setup", "--disable-sandboxing"
     modules = %w[
       cppo
@@ -34,9 +34,8 @@ class ZeroInstall < Formula
       ounit
       lwt_react
       ocurl
-      obus
       sha
-      cppo_ocamlbuild
+      dune
     ]
     system "opam", "config", "exec", "opam", "install", *modules
 
