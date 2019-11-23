@@ -28,9 +28,9 @@ class Texlab < Formula
       stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/texlab")
       pid = wait_thr.pid
       stdin.write <<~EOF
-      Content-Length: 103
+        Content-Length: 103
 
-      {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
+        {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
 
       EOF
       assert_match "Content-Length: 543", stdout.gets("\n")
