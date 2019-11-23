@@ -22,8 +22,7 @@ class ZeroInstall < Formula
   def install
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
 
-    opamroot = buildpath/"opamroot"
-    ENV["OPAMROOT"] = opamroot
+    ENV["OPAMROOT"] = Dir.mktmpdir
     ENV["OPAMYES"] = "1"
     ENV["OPAMVERBOSE"] = "1"
     system "opam", "init", "--no-setup", "--disable-sandboxing"
