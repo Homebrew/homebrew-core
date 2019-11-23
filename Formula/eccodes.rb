@@ -16,9 +16,6 @@ class Eccodes < Formula
   depends_on "libpng"
   depends_on "netcdf"
 
-  conflicts_with "grib-api",
-    :because => "eccodes and grib-api install the same binaries."
-
   def install
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
