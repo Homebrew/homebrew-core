@@ -26,6 +26,8 @@ class Liblwgeom < Formula
   depends_on "json-c"
   depends_on "proj"
 
+  uses_from_macos "libxml2"
+
   def install
     # See postgis.rb for comments about these settings
     ENV.deparallelize
