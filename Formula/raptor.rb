@@ -15,6 +15,8 @@ class Raptor < Formula
     sha256 "5e640e01d5cdd6899ca00704ba581358d254f7cfb9b81d62c901c825bb347681" => :mavericks
   end
 
+  uses_from_macos "libxml2"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
