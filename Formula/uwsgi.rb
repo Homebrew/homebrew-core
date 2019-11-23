@@ -27,6 +27,8 @@ class Uwsgi < Formula
   depends_on "pcre"
   depends_on "python"
   depends_on "yajl"
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
