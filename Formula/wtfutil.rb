@@ -16,7 +16,9 @@ class Wtfutil < Formula
 
   def install
     ENV["GOPROXY"] = "https://gocenter.io"
-    system "go", "build", "-o", bin/"wtfutil"
+    ldflags=["-s -w -X main.version=#{version}",
+             "-X main.date=#{Time.now.iso8601}"]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"wtfutil"
   end
 
   test do
