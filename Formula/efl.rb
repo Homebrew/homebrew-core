@@ -10,7 +10,10 @@ class Efl < Formula
     sha256 "5e303d498b339b5c248e9167efd68c362013d9198fdf5dbed98138721688a8db" => :sierra
   end
 
+  depends_on "cmake" => :build
   depends_on "gettext" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "bullet"
   depends_on "dbus"
@@ -34,19 +37,8 @@ class Efl < Formula
   depends_on "shared-mime-info"
 
   def install
-    ENV.cxx11
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    system "./configure", *args
-    system "make", "install"
-  end
-
-  def post_install
-    system Formula["shared-mime-info"].opt_bin/"update-mime-database", "#{HOMEBREW_PREFIX}/share/mime"
+    system "meson", "--prefix=#{prefix}", ".", "build"
+    system "ninja", "-C", "build", "install"
   end
 
   test do
