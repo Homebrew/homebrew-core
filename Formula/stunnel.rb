@@ -1,9 +1,8 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.55.tar.gz"
-  sha256 "90de69f41c58342549e74c82503555a6426961b29af3ed92f878192727074c62"
-  revision 1
+  url "https://www.stunnel.org/downloads/stunnel-5.56.tar.gz"
+  sha256 "7384bfb356b9a89ddfee70b5ca494d187605bb516b4fff597e167f97e2236b22"
 
   bottle do
     cellar :any
