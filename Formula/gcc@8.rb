@@ -4,6 +4,7 @@ class GccAT8 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
+  revision 1
 
   bottle do
     sha256 "b1e150c72b4c3b7f3493371d71cdb668f691bfee2e998e5b0bf570eed28254d6" => :mojave
@@ -88,7 +89,7 @@ class GccAT8 < Formula
       elsif MacOS.version >= :mojave
         # System headers are no longer located in /usr/include
         args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
       end
 
       system "../configure", *args
