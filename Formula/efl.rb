@@ -16,6 +16,7 @@ class Efl < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "bullet"
+  depends_on "check"
   depends_on "dbus"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -37,7 +38,15 @@ class Efl < Formula
   depends_on "shared-mime-info"
 
   def install
-    system "meson", "--prefix=#{prefix}", "-Dsystemd=false", ".", "build"
+    system "meson", "--prefix=#{prefix}",
+     "-Dsystemd=false",
+     "-Dx11=false",
+     "-Davahi=false",
+     "-Dv4l2=false",
+     "-Deeze=false",
+     "-Dopengl=none",
+     ".", "build"
+    system "ninja", "-C", "build"
     system "ninja", "-C", "build", "install"
   end
 
