@@ -17,6 +17,8 @@ class AwsGoogleAuth < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "python"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "soupsieve" do
     url "https://files.pythonhosted.org/packages/fb/9e/2e236603b058daa6820193d4d95f4dcfbbbd0d3c709bec8c6ef1b1902501/soupsieve-1.9.1.tar.gz#sha256=b20eff5e564529711544066d7dc0f7661df41232ae263619dede5059799cdfca"
