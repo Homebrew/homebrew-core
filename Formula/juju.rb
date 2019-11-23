@@ -1,8 +1,8 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
-  url "https://launchpad.net/juju/2.6/2.6.9/+download/juju-core_2.6.9.tar.gz"
-  sha256 "85c428a6c558432d24b9d29011f62fc2ed46961933cb3cbb5aba85cb9768a00c"
+  url "https://launchpad.net/juju/2.6/2.6.10/+download/juju-core_2.6.10.tar.gz"
+  sha256 "d781b733dd7a4e74ef0e9f88527a74a4bea0298e56f4dcaa6dd1cf62c2c40f2b"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,13 @@ class Juju < Formula
   depends_on "go" => :build
 
   def install
+    # Fix for Catalina
+    # Backport of https://github.com/juju/juju/pull/10775 and https://github.com/juju/os/pull/14
+    # Remove in 2.7
+    inreplace Dir["src/github.com/juju/juju/vendor/github.com/juju/{utils,os}/series/series.go"],
+      "var macOSXSeries = map[int]string{",
+      "var macOSXSeries = map[int]string{\n\t19: \"catalina\","
+
     ENV["GOPATH"] = buildpath
     system "go", "build", "github.com/juju/juju/cmd/juju"
     system "go", "build", "github.com/juju/juju/cmd/plugins/juju-metadata"
