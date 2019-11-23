@@ -37,7 +37,7 @@ class Efl < Formula
   depends_on "shared-mime-info"
 
   def install
-    system "meson", "--prefix=#{prefix}", ".", "build"
+    system "meson", "--prefix=#{prefix}", "-Dsystemd=false", ".", "build"
     system "ninja", "-C", "build", "install"
   end
 
