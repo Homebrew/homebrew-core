@@ -3,6 +3,7 @@ class Cassandra < Formula
   homepage "https://cassandra.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.4/apache-cassandra-3.11.4-bin.tar.gz"
   sha256 "5d598e23c3ffc4db0301ec2b313061e3208fae0f9763d4b47888237dd9069987"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -154,5 +155,7 @@ class Cassandra < Formula
 
     output = shell_output("#{bin}/cqlsh localhost 2>&1", 1)
     assert_match "Connection error", output
+
+    system "python3", "-c", "import cassandra"
   end
 end
