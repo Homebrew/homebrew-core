@@ -11,6 +11,7 @@ class Rav1e < Formula
     sha256 "d7677873a6ddb3c9818aadc04324727bd7d402ec930609dbbffff47cb931337a" => :high_sierra
   end
 
+  depends_on "cargo-c" => :build
   depends_on "nasm" => :build
   depends_on "rust" => :build
 
@@ -23,6 +24,7 @@ class Rav1e < Formula
     system "cargo", "install", "--locked",
                                "--root", prefix,
                                "--path", "."
+    system "cargo", "cinstall", "--prefix", prefix
   end
 
   test do
