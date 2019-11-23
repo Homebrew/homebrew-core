@@ -22,6 +22,9 @@ class Fdroidserver < Formula
   depends_on "python"
   depends_on "s3cmd"
   depends_on "webp"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "zlib"
 
   resource "androguard" do
     url "https://files.pythonhosted.org/packages/83/78/0f44e8f0fd10493b3118d79d60599c93e5a2cd378d83054014600a620cba/androguard-3.3.5.tar.gz"
