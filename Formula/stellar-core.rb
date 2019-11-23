@@ -4,6 +4,7 @@ class StellarCore < Formula
   url "https://github.com/stellar/stellar-core.git",
       :tag      => "v12.1.0",
       :revision => "8afe57913a08deffa247d7b5f837e0b28a54b864"
+  revision 1
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
@@ -19,6 +20,7 @@ class StellarCore < Formula
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "parallel" => :test
+  depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
 
