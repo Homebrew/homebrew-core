@@ -13,6 +13,8 @@ class Howdoi < Formula
   end
 
   depends_on "python"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/06/b8/d1ea38513c22e8c906275d135818fee16ad8495985956a9b7e2bb21942a1/certifi-2019.3.9.tar.gz"
