@@ -35,12 +35,25 @@ class Libhttpserver < Formula
   end
 
   test do
-    system ENV.cxx, pkgshare/"examples/hello_world.cpp",
+    require "socket"
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    cp pkgshare/"examples/hello_world.cpp", testpath
+    inreplace "hello_world.cpp", "create_webserver(8080)",
+                                 "create_webserver(#{port})"
+
+    system ENV.cxx, "hello_world.cpp",
       "-std=c++11", "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
+
     pid = fork { exec "./hello_world" }
+
     sleep 1 # grace time for server start
+
     begin
-      assert_match /Hello World!!!/, shell_output("curl http://127.0.0.1:8080/hello")
+      assert_match /Hello World!!!/, shell_output("curl http://127.0.0.1:#{port}/hello")
     ensure
       Process.kill 9, pid
       Process.wait pid
