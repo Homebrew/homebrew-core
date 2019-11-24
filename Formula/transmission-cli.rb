@@ -3,7 +3,7 @@ class TransmissionCli < Formula
   homepage "https://www.transmissionbt.com/"
   url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
   sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e64cb28206f2592f2b4b922a5953d6cdc806ec1eb0e20ecf16dbfa333268edcb" => :catalina
@@ -14,6 +14,7 @@ class TransmissionCli < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "openssl@1.1"
 
   def install
     ENV.append "LDFLAGS", "-framework Foundation -prebind"
