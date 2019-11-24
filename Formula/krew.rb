@@ -5,10 +5,10 @@ class Krew < Formula
   sha256 "643d2936d00766e198a3748d2ea3f002177a3747f9fe476923c7e0002ab662f1"
 
   def install
-    bin.install "krew-darwin_amd64" => "krew"
+    bin.install "krew-darwin_amd64" => "kubectl-krew"
   end
 
   test do
-    system "#{bin}/krew", "version"
+    system "#{bin}/kubectl-krew", "version"
   end
 end
