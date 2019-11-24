@@ -21,32 +21,39 @@ class ZeroInstall < Formula
 
   def install
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
-
-    ENV["OPAMROOT"] = Dir.mktmpdir
-    ENV["OPAMYES"] = "1"
-    ENV["OPAMVERBOSE"] = "1"
-    system "opam", "init", "--no-setup", "--disable-sandboxing"
-    modules = %w[
-      cppo
-      yojson
-      xmlm
-      ounit
-      lwt_react
-      ocurl
-      sha
-      dune
-    ]
-    system "opam", "config", "exec", "opam", "install", *modules
-
-    # mkdir: <buildpath>/build: File exists.
-    # https://github.com/0install/0install/issues/87
-    ENV.deparallelize { system "opam", "config", "exec", "make" }
-
-    inreplace "dist/install.sh" do |s|
-      s.gsub! '"/usr/local"', prefix
-      s.gsub! '"${PREFIX}/man"', man
+    
+    # Use correct curl headers
+    if MacOS.version >= :mojave && MacOS::CLT.installed?
+      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
-    system "make", "install"
+
+    Dir.mktmpdir("opamroot") do |opamroot|
+      ENV["OPAMROOT"] = opamroot
+      ENV["OPAMYES"] = "1"
+      ENV["OPAMVERBOSE"] = "1"
+      system "opam", "init", "--no-setup", "--disable-sandboxing"
+      modules = %w[
+        cppo
+        yojson
+        xmlm
+        ounit
+        lwt_react
+        ocurl
+        sha
+        dune
+      ]
+      system "opam", "config", "exec", "opam", "install", *modules
+
+      # mkdir: <buildpath>/build: File exists.
+      # https://github.com/0install/0install/issues/87
+      ENV.deparallelize { system "opam", "config", "exec", "make" }
+
+      inreplace "dist/install.sh" do |s|
+        s.gsub! '"/usr/local"', prefix
+        s.gsub! '"${PREFIX}/man"', man
+      end
+      system "make", "install"
+    end
   end
 
   test do
