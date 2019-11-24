@@ -5,8 +5,8 @@ class PandocCrossref < Formula
 
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.4.1/pandoc-crossref-0.3.4.1.tar.gz"
-  sha256 "de22767a19cb8b58fb77be4e85e05040e68830b37eb565afa6f63c8da7221aa6"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.5.0/pandoc-crossref-0.3.5.0.tar.gz"
+  sha256 "646ea9b0d1564f894528036724d7a112d54e6946555602cd15c421b48fc301f4"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class PandocCrossref < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
   depends_on "pandoc"
 
   def install
