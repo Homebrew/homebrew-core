@@ -3,6 +3,7 @@ class Imlib2 < Formula
   homepage "https://sourceforge.net/projects/enlightenment/"
   url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.5.1/imlib2-1.5.1.tar.bz2"
   sha256 "fa4e57452b8843f4a70f70fd435c746ae2ace813250f8c65f977db5d7914baae"
+  revision 1
 
   bottle do
     rebuild 1
