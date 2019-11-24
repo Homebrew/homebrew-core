@@ -3,6 +3,7 @@ class Antlr4CppRuntime < Formula
   homepage "https://www.antlr.org/"
   url "https://www.antlr.org/download/antlr4-cpp-runtime-4.7.2-source.zip"
   sha256 "8631a39116684638168663d295a969ad544cead3e6089605a44fea34ec01f31a"
+  revision 1
 
   bottle do
     cellar :any
