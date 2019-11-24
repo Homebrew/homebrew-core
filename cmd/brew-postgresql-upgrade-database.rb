@@ -57,18 +57,38 @@ begin
     server_stopped = true
   end
 
+  # Shut down old server if it is up via brew services
+  if /#{old_pg_name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
+    system "brew", "services", "stop", old_pg_name
+  end
+
   # get 'lc_collate' from old DB"
   unless quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
     system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "start"
   end
 
-  sql_for_lc_collate = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate';"
-  sql_for_lc_ctype = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_ctype';"
-  lc_collate = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAX", "-U", ENV["USER"], "-c", sql_for_lc_collate).strip
-  lc_ctype = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAX", "-U", ENV["USER"], "-c", sql_for_lc_ctype).strip
   initdb_args = []
-  initdb_args += ["--lc-collate", lc_collate] unless lc_collate.empty?
-  initdb_args += ["--lc-ctype", lc_ctype] unless lc_ctype.empty?
+  locale_settings = %w[
+    lc_collate
+    lc_ctype
+    lc_messages
+    lc_monetary
+    lc_numeric
+    lc_time
+    server_encoding
+  ]
+  locale_settings.each do |setting|
+    sql = "SELECT setting FROM pg_settings WHERE name LIKE '#{setting}';"
+    value = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAX", "-U", ENV["USER"], "-c", sql).strip
+
+    next if value.empty?
+
+    if setting == "server_encoding"
+      initdb_args += ["-E #{value}"]
+    else
+      initdb_args += ["--#{setting.tr!("_", "-")}=#{value}"]
+    end
+  end
 
   if quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
     system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "stop"
@@ -79,9 +99,11 @@ begin
   moved_data = true
 
   (var/"postgres").mkpath
+  ohai "Creating database..."
   safe_system "#{bin}/initdb", *initdb_args, "#{var}/postgres"
   initdb_run = true
 
+  ohai "Migrating and upgrading data..."
   (var/"log").cd do
     safe_system "#{bin}/pg_upgrade",
       "-r",
