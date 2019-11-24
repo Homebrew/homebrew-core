@@ -3,10 +3,17 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
-  sha256 "55e8273536be41f4f63064a79e552a22133848bb419400b6fa8e9fc0dc05de08"
+
+  if MacOS.version <= :el_capitan
+    url "https://download.qt.io/archive/qt/5.11/5.11.3/single/qt-everywhere-src-5.11.3.tar.xz"
+    mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.11/5.11.3/single/qt-everywhere-src-5.11.3.tar.xz"
+    sha256 "859417642713cee2493ee3646a7fee782c9f1db39e41d7bb1322bba0c5f0ff4d"
+  else
+    url "https://download.qt.io/official_releases/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+    mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+    mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz"
+    sha256 "55e8273536be41f4f63064a79e552a22133848bb419400b6fa8e9fc0dc05de08"
+  end
 
   head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
@@ -21,7 +28,7 @@ class Qt < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
-  depends_on :macos => :sierra
+  depends_on :macos => :el_capitan
 
   def install
     args = %W[
