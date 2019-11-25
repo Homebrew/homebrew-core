@@ -1,9 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.1.11.tar.bz2"
-  sha256 "754e4f0ce31118fef5dc470dc039e1f4e7b3ca6248074c9678a659508693b712"
-  revision 1
+  url "https://downloads.powerdns.com/releases/pdns-4.2.0.tar.bz2"
+  sha256 "222007f25e25aad71ac7d8b7f1797a4bcb30781e456d74ed00396e53828a903a"
 
   bottle do
     sha256 "b2bd81b9baf0e20bf5f46857c9457e4fc30af8ef2d11fa88025c74fccbc712d2" => :catalina
@@ -35,7 +34,7 @@ class Pdns < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libcrypto=#{Formula["openssl@1.1"].opt_prefix}
       --with-sqlite3
       --with-modules=gsqlite3
     ]
