@@ -3,8 +3,8 @@ class Scf < Formula
 
   desc "Tencent serverless cloud function commnad line tools"
   homepage "https://github.com/tencentyun/scfcli"
-  url "https://files.pythonhosted.org/packages/6b/67/d0976ab3712e2a440bf1761ad2fff87d25da54aa1aa7f1a1dcbd194acab1/scf-0.2.3.tar.gz"
-  sha256 "a2a9fa333df614aa7f9c2cefce0c4d55acb6b7fe2fa108601fa7249d109aa6a1"
+  url "https://files.pythonhosted.org/packages/fd/aa/2803641d7ac94c088db66836ba389ed22dff9de85deb95325d65f4f5e43b/scf-0.2.4.tar.gz"
+  sha256 "b05b79f97b8b38c38a53e0440448f2c5d6ae6f1f2aa58f6e3f1f1f9257fc55e8"
 
   depends_on "python"
 
