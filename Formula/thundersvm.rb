@@ -18,7 +18,7 @@ class Thundersvm < Formula
       args << "-DCMAKE_CXX_COMPILER=g++-9"
 
       # keep same performance as when built manually
-      args << "-DCMAKE_CXX_FLAGS_RELEASE=-O3"
+      args << "-DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG -O3"
 
       args << "-DUSE_CUDA=OFF"
       args << "-DUSE_EIGEN=ON"
