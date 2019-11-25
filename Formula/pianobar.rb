@@ -1,8 +1,8 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  url "https://6xq.net/pianobar/pianobar-2018.06.22.tar.bz2"
-  sha256 "946357718a7b5fea661247ad10187e77f94724ef2bb29a2482afeb2d8c8bd4c2"
+  url "https://6xq.net/pianobar/pianobar-2019.02.14.tar.bz2"
+  sha256 "c0bd0313b31492ed266d1932d319cfe2a4be7024686492c458bb5e4ceb0ee21f"
   head "https://github.com/PromyLOPh/pianobar.git"
 
   bottle do
@@ -15,13 +15,10 @@ class Pianobar < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "faad2"
   depends_on "ffmpeg"
-  depends_on "gnutls"
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
-  depends_on "mad"
 
   def install
     # Discard Homebrew's CFLAGS as Pianobar reportedly doesn't like them
@@ -34,5 +31,13 @@ class Pianobar < Formula
     system "make", "install", "PREFIX=#{prefix}"
 
     prefix.install "contrib"
+  end
+
+  test do
+    require "pty"
+    PTY.spawn(bin/"pianobar") do |stdout, stdin, _pid|
+      stdin.putc "\n"
+      assert_match "pianobar (#{version})", stdout.read
+    end
   end
 end
