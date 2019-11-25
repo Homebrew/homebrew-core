@@ -1,9 +1,8 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://repo.or.cz/pachi.git/snapshot/pachi-11.00-retsugen.tar.gz"
-  sha256 "2aaf9aba098d816d20950d283c8eaed522f3fa71f68390a4c384c0c1ab03cd6f"
-  revision 1
+  url "https://github.com/pasky/pachi/archive/pachi-12.40.tar.gz"
+  sha256 "f523d23aa855f78a171df334b9712bca540d3ef4ef69b7306b84e4c35446d097"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
@@ -30,6 +29,13 @@ class Pachi < Formula
   def install
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
+
+    # Work around Xcode 11 clang bug
+    inreplace "Makefile", "CFLAGS       :=", "CFLAGS := -fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
+    # https://github.com/pasky/pachi/issues/78
+    inreplace "Makefile", "build.h: .git/HEAD .git/index", "build.h:"
+    inreplace "Makefile", "DCNN=1", "DCNN=0"
 
     system "make"
     bin.install "pachi"
