@@ -14,17 +14,16 @@ class Thundersvm < Formula
     mkdir "build" do
       args = std_cmake_args
 
-      args << "-DCMAKE_C_COMPILER=gcc-9"
-      args << "-DCMAKE_CXX_COMPILER=g++-9"
+      args << "-DUSE_CUDA=OFF"
+      args << "-DUSE_EIGEN=ON"
 
       # keep same performance as when built manually
       args << "-DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG -O3"
 
-      args << "-DUSE_CUDA=OFF"
-      args << "-DUSE_EIGEN=ON"
-
-      system "cmake", "..", *args
-      system "make"
+      with_env("HOMEBREW_CC" => "gcc-9", "HOMEBREW_CXX" => "g++-9") do
+        system "cmake", "..", *args
+        system "make"
+      end
 
       bin.install "bin/thundersvm-predict"
       bin.install "bin/thundersvm-train"
