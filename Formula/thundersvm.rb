@@ -20,6 +20,9 @@ class Thundersvm < Formula
       args << "-DUSE_CUDA=OFF"
       args << "-DUSE_EIGEN=ON"
 
+      # keep same performance as when built manually
+      args << "-DCMAKE_CXX_FLAGS_RELEASE=-O3"
+
       libomp = Formula["libomp"]
       args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
       args << "-DOpenMP_C_LIB_NAMES=omp"
