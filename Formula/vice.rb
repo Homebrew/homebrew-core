@@ -3,7 +3,7 @@ class Vice < Formula
   homepage "https://vice-emu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.3.tar.gz"
   sha256 "1a55b38cc988165b077808c07c52a779d181270b28c14b5c9abf4e569137431d"
-  revision 2
+  revision 3
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   bottle do
