@@ -5,23 +5,27 @@ class Thundersvm < Formula
   sha256 "0328511caa762ebbf5f7174c2a3cf7a05393b93fff51a6819bcdd5b25e5c54ae"
 
   depends_on "cmake" => :build
-  depends_on "eigen" => :build
-  depends_on "gcc"
+  depends_on "eigen"
+  depends_on "libomp"
 
   def install
     inreplace "CMakeLists.txt", "${PROJECT_SOURCE_DIR}/eigen", "#{Formula["eigen"].opt_include}/eigen3"
 
+    (buildpath/"src/thundersvm/CMakeLists.txt").append_lines <<~EOS
+      target_link_libraries(${PROJECT_LIB_NAME} OpenMP::OpenMP_CXX)
+    EOS
+
     mkdir "build" do
       args = std_cmake_args
-
-      args << "-DCMAKE_C_COMPILER=gcc-9"
-      args << "-DCMAKE_CXX_COMPILER=g++-9"
-
-      # keep same performance as when built manually
-      args << "-DCMAKE_CXX_FLAGS_RELEASE=-O3"
-
       args << "-DUSE_CUDA=OFF"
       args << "-DUSE_EIGEN=ON"
+
+      libomp = Formula["libomp"]
+      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_C_LIB_NAMES=omp"
+      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_CXX_LIB_NAMES=omp"
+      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
 
       system "cmake", "..", *args
       system "make"
@@ -35,6 +39,7 @@ class Thundersvm < Formula
   end
 
   test do
-    system "#{bin}/thundersvm-train", "-c", "100", "-g", "0.5", "#{pkgshare}/dataset/test_dataset.txt"
+    system "#{bin}/thundersvm-train", "-c", "100", "-g", "0.5", "#{pkgshare}/dataset/test_dataset.txt", "model.txt"
+    system "#{bin}/thundersvm-predict", "#{pkgshare}/dataset/test_dataset.txt", "model.txt", "out.txt"
   end
 end
