@@ -1,8 +1,8 @@
 class ArpScan < Formula
   desc "ARP scanning and fingerprinting tool"
   homepage "https://github.com/royhills/arp-scan"
-  url "https://github.com/royhills/arp-scan/archive/1.9.6.tar.gz"
-  sha256 "971b45c3369816467994797fbcd0076eb8f0ffb9c42764ea6dba25ab3fd490da"
+  url "https://github.com/royhills/arp-scan/archive/1.9.7.tar.gz"
+  sha256 "e03c36e4933c655bd0e4a841272554a347cd0136faf42c4a6564059e0761c039"
   head "https://github.com/royhills/arp-scan.git"
 
   bottle do
