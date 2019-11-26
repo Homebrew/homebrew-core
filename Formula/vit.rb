@@ -32,7 +32,7 @@ class Vit < Formula
 
     require "pty"
     PTY.spawn(bin/"vit") do |_stdout, _stdin, pid|
-      sleep 1
+      sleep 3
       Process.kill "TERM", pid
     end
     assert_predicate testpath/".task", :exist?
