@@ -1,9 +1,8 @@
 class Abcl < Formula
   desc "Armed Bear Common Lisp: a full implementation of Common Lisp"
   homepage "https://abcl.org/"
-  url "https://abcl.org/releases/1.5.0/abcl-src-1.5.0.tar.gz"
-  sha256 "920ee7d634a7f4ceca0a469d431d3611a321c566814d5ddb92d75950c0631bc2"
-  revision 1
+  url "https://abcl.org/releases/1.6.0/abcl-src-1.6.0.tar.gz"
+  sha256 "893fce815d3fc9a3aa250c78ff84ed2e51b702f71cb11e1befc2a2ec9c666b43"
   head "https://abcl.org/svn/trunk/abcl/", :using => :svn
 
   bottle do
