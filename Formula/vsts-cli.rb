@@ -126,11 +126,6 @@ class VstsCli < Formula
     sha256 "1ece70729d616029f7fd1859524ee6b7d95ff07403af7bb4f963322ad28005f8"
   end
 
-  resource "vsts-cli" do
-    url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
-    sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
-  end
-
   resource "vsts-cli-admin" do
     url "https://files.pythonhosted.org/packages/96/15/501240b53c6de9c81ba7c2c57e4a7227cc68eacb776a7b034178d7ffb56d/vsts-cli-admin-0.1.4.tar.gz"
     sha256 "d8a56dd57112a91818557043a8c1e98e26b8d9e793a448ceaa9df0439972cfd5"
