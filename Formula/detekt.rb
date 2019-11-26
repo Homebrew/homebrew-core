@@ -12,6 +12,12 @@ class Detekt < Formula
   end
 
   test do
-    system bin/"detekt", "--help"
+    (testpath/"input.kt").write <<~EOS
+      fun main() {
+
+      }
+    EOS
+    system bin/"detekt", "--input", "input.kt", "--report", "txt:output.txt"
+    assert_equal "EmptyFunctionBlock", shell_output("cat output.txt").slice(/\w+/)
   end
 end
