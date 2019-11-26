@@ -13,6 +13,7 @@ class Solr < Formula
   def install
     bin.install %w[bin/solr bin/post bin/oom_solr.sh]
     pkgshare.install "bin/solr.in.sh"
+    (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
     prefix.install %w[example server]
     libexec.install Dir["*"]
 
@@ -42,6 +43,8 @@ class Solr < Formula
             <string>#{opt_bin}/solr</string>
             <string>start</string>
             <string>-f</string>
+            <string>-s</string>
+            <string>/usr/local/var/lib/solr</string>
           </array>
           <key>ServiceDescription</key>
           <string>#{name}</string>
