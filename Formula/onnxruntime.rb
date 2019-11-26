@@ -28,7 +28,7 @@ class Onnxruntime < Formula
       #include <stdio.h>
       int main()
       {
-        printf("%s\\n", OrtGetVersionString());
+        printf("%s\\n", OrtGetApiBase()->GetVersionString());
         return 0;
       }
     EOS
