@@ -3,7 +3,7 @@ class Vips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/releases/download/v8.8.3/vips-8.8.3.tar.gz"
   sha256 "c5e4dd5a5c6a777c129037d19ca606769b3f1d405fcc9c8eeda906a61491f790"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "8c31d6738b85b66511af4c73ffb3cfe5ea28c795fa953a55498f717722f69b81" => :catalina
@@ -19,7 +19,6 @@ class Vips < Formula
   depends_on "giflib"
   depends_on "glib"
   depends_on "imagemagick"
-  depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
   depends_on "libheif"
@@ -28,6 +27,7 @@ class Vips < Formula
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "little-cms2"
+  depends_on "mozjpeg"
   depends_on "openexr"
   depends_on "openslide"
   depends_on "orc"
@@ -36,6 +36,9 @@ class Vips < Formula
   depends_on "webp"
 
   def install
+    # mozjpeg needs to appear before libjpeg, otherwise it's not used
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["mozjpeg"].opt_lib/"pkgconfig"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -50,5 +53,9 @@ class Vips < Formula
     system "#{bin}/vips", "-l"
     cmd = "#{bin}/vipsheader -f width #{test_fixtures("test.png")}"
     assert_equal "8", shell_output(cmd).chomp
+
+    # --trellis-quant requires mozjpeg, vips warns if it's not present
+    cmd = "#{bin}/vips jpegsave #{test_fixtures("test.png")} #{testpath}/test.jpg --trellis-quant 2>&1"
+    assert_equal "", shell_output(cmd)
   end
 end
