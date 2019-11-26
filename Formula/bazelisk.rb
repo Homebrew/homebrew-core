@@ -25,6 +25,7 @@ class Bazelisk < Formula
   end
 
   test do
+    ENV["USE_BAZEL_VERSION"] = Formula["bazel"].version
     assert_match /v#{version}/, shell_output("#{bin}/bazelisk version")
 
     # This is an older than current version, so that we can test that bazelisk
