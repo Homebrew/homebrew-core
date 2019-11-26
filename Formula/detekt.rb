@@ -7,8 +7,8 @@ class Detekt < Formula
   depends_on :java => "1.8+"
 
   def install
-    libexec.install "detekt-cli-1.1.1-all.jar"
-    bin.write_jar_script libexec/"detekt-cli-1.1.1-all.jar", "detekt"
+    libexec.install "detekt-cli-#{version}-all.jar"
+    bin.write_jar_script libexec/"detekt-cli-#{version}-all.jar", "detekt"
   end
 
   test do
