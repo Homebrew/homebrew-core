@@ -10,8 +10,19 @@ class Samurai < Formula
   end
 
   test do
-    (testpath/"build.ninja").write("rule cc\n  command = cc $in -o $out\nbuild foo: cc foo.c\n")
-    (testpath/"foo.c").write("int main() {}")
+    (testpath/"build.ninja").write <<~EOS
+      rule cc
+        command = #{ENV.cc} $in -o $out
+      build hello: cc hello.c
+    EOS
+    (testpath/"hello.c").write <<~EOS
+      #include <stdio.h>
+      int main() {
+        puts("Hello, world!");
+        return 0;
+      }
+    EOS
     system bin/"samu"
+    assert_match "Hello, world!", shell_output("./hello")
   end
 end
