@@ -1,8 +1,8 @@
 class Comby < Formula
   desc "Tool for changing code across many languages"
   homepage "https://comby.dev"
-  url "https://github.com/comby-tools/comby/archive/0.11.0.tar.gz"
-  sha256 "4bd35595793bb7ee3f01d406e83d218cef01929a95388a343077b9937c541a94"
+  url "https://github.com/comby-tools/comby/archive/0.12.0.tar.gz"
+  sha256 "ec0808c59bb7733dd5ba515147895db5f5820a5333fcd479f3091ea0b6a5519e"
 
   bottle do
     cellar :any
@@ -30,7 +30,7 @@ class Comby < Formula
   end
 
   test do
-    assert_equal "0.11.0", shell_output("#{bin}/comby -version").strip
+    assert_equal "0.12.0", shell_output("#{bin}/comby -version").strip
 
     expect = <<~EXPECT
       --- /dev/null
