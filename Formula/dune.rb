@@ -16,6 +16,11 @@ class Dune < Formula
   end
 
   test do
-    system bin/"dune", "--version"
+    contents = "bar"
+    target_fname = "foo.txt"
+    (testpath/"dune").write("(rule (with-stdout-to #{target_fname} (echo #{contents})))")
+    system bin/"dune", "build", "foo.txt", "--root", "."
+    output = File.read(testpath/"_build/default/#{target_fname}")
+    assert_match contents, output
   end
 end
