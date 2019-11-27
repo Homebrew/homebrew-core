@@ -19,7 +19,6 @@ class Blast < Formula
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 
   def install
-
     # Fix shebang lines and JSON dependency
     require "tempfile"
     sed_script_file = Tempfile.new("sed_script.sed")
