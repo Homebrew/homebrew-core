@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.17.tar.bz2"
-  sha256 "afa262868e39b651a2db4c071fba90415154243e83a830ca00516f9a807fd514"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.18.tar.bz2"
+  sha256 "30d37ce2ca55b2b9b61480b2a175a3b22066ab41cd3f84688448919b566dec0a"
 
   bottle do
     sha256 "4d6dcc2800fd42235849fec27fe13843abbe0f6a35dc1a33c8477325ecd10037" => :catalina
