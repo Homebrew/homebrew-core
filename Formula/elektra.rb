@@ -1,8 +1,8 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.0.tar.gz"
-  sha256 "fcdbd1a148af91e2933d9a797def17d386a17006f629d5146020fe3b1b51ddd8"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.1.tar.gz"
+  sha256 "df1d2ec1b4db9c89c216772f0998581a1cbb665e295ff9a418549360bb42f758"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
@@ -21,16 +21,16 @@ class Elektra < Formula
       system "make", "install"
     end
 
-    bash_completion.install "scripts/kdb-bash-completion" => "kdb"
-    fish_completion.install "scripts/kdb.fish"
-    zsh_completion.install "scripts/kdb_zsh_completion" => "_kdb"
+    bash_completion.install "scripts/completion/kdb-bash-completion" => "kdb"
+    fish_completion.install "scripts/completion/kdb.fish"
+    zsh_completion.install "scripts/completion/kdb_zsh_completion" => "_kdb"
   end
 
   test do
     output = shell_output("#{bin}/kdb get system/elektra/version/infos/licence")
     assert_match "BSD", output
-    Utils.popen_read("#{bin}/kdb", "list").split.each do |plugin|
-      system "#{bin}/kdb", "check", plugin
+    Utils.popen_read("#{bin}/kdb", "plugin-list").split.each do |plugin|
+      system "#{bin}/kdb", "plugin-check", plugin
     end
   end
 end
