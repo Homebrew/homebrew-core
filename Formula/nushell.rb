@@ -20,10 +20,6 @@ class Nushell < Formula
   end
 
   test do
-    # assert_equal "#{Dir.pwd}> 2\n#{Dir.pwd}> CTRL-D\n", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
-
-    # Remove the test below and return to the better one above if/when Nushell
-    # reinstates the expected behavior for Ctrl+D (EOF)
-    assert_match version.to_s, shell_output("#{bin}/nu --version")
+    assert_equal "#{Dir.pwd}> 2\n#{Dir.pwd}> ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
   end
 end
