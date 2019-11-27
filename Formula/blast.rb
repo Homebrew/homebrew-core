@@ -12,11 +12,28 @@ class Blast < Formula
     sha256 "57f2e2f9c65aa5364eb72a9bbdf6948a30af2975a53445a4b43203f56395da7c" => :sierra
   end
 
+  depends_on "edirect"
   depends_on "lmdb"
+  depends_on "perl"
 
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 
   def install
+
+    # Fix shebang lines and JSON dependency
+    require "tempfile"
+    sed_script_file = Tempfile.new("sed_script.sed")
+    sed_script_file.puts("s@/usr/bin/perl@/usr/bin/env perl@")
+    sed_script_file.puts("s/JSON/JSON::PP/")
+    sed_script_file.puts("s/from_json/decode_json/")
+    sed_script_file.close
+    system "sed", "-i~", "-f", sed_script_file.path, "c++/src/app/blast/update_blastdb.pl"
+
+    sed_script_file = Tempfile.new("sed_script.sed")
+    sed_script_file.puts("s/direct$/&:$PATH/")
+    sed_script_file.close
+    system "sed", "-i~", "-f", sed_script_file.path, "c++/src/app/blast/get_species_taxids.sh"
+
     cd "c++" do
       # Use ./configure --without-boost to fix
       # error: allocating an object of abstract class type 'ncbi::CNcbiBoostLogger'
@@ -34,11 +51,26 @@ class Blast < Formula
   end
 
   test do
+    output = shell_output("#{bin}/update_blastdb.pl --showall")
+    assert_match "nt", output
+
+    output = shell_output("#{bin}/get_species_taxids.sh -t 9606")
+    assert_match "9606", output
+
     (testpath/"test.fasta").write <<~EOS
       >U00096.2:1-70
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
     output = shell_output("#{bin}/blastn -query test.fasta -subject test.fasta")
     assert_match "Identities = 70/70", output
+
+    # Create BLAST database
+    output = shell_output("#{bin}/makeblastdb -in test.fasta -out foo -title FOO -dbtype prot")
+    assert_match "Adding sequences from FASTA", output
+
+    # Check newly created BLAST database
+    output = shell_output("#{bin}/blastdbcmd -info -db foo")
+    assert_match "Database: FOO", output
+    rm_f Dir["foo.p*"]
   end
 end
