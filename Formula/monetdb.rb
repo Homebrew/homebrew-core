@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Apr2019-SP1/MonetDB-11.33.11.tar.xz"
-  sha256 "fbfae41d39c7b5c0decf2716d540eb4b7eea9873ed95d106e199a920dcf4d70e"
+  url "https://www.monetdb.org/downloads/sources/Nov2019/MonetDB-11.35.3.tar.xz"
+  sha256 "54715eb6e33e1c9464c700cb30e143e00e549c344f410e1e424bbc61fea587cc"
 
   bottle do
     sha256 "d7c68c13677815c9c79c538ae8f949b1a9df4c6117ee988aa90b3f4e6131252b" => :catalina
@@ -16,6 +16,7 @@ class Monetdb < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "bison" => :build
     depends_on "gettext" => :build
     depends_on "libtool" => :build
   end
