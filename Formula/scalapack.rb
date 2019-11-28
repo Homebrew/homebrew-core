@@ -1,9 +1,8 @@
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
   homepage "https://www.netlib.org/scalapack/"
-  url "https://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
-  sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
-  revision 16
+  url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
+  sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
 
   bottle do
     cellar :any
