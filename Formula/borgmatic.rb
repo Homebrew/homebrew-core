@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.4.0.tar.gz"
-  sha256 "247f97a7366d6fa54e73ab1e5837c1666fef1c2c49f78288fbd5fc35ce3362f8"
+  url "https://github.com/witten/borgmatic/archive/1.4.15.tar.gz"
+  sha256 "8d2c34c72e6bcf6fc038396b917447d9556a1728230a9df2041ab08e8d1602d5"
 
   bottle do
     cellar :any
@@ -93,7 +93,7 @@ class Borgmatic < Formula
 
       # Return error on info so we force an init to occur
       if [ "$1" = "info" ]; then
-        exit 1
+        exit 2
       fi
     EOS
     borg.chmod 0755
@@ -107,9 +107,8 @@ class Borgmatic < Formula
                          .gsub(/user@backupserver:sourcehostname.borg/, repo_path)
     File.open(config_path, "w") { |file| file.puts config_content }
 
-    # This does not work in newer version
     # Initialize Repo
-    # system bin/"borgmatic", "-v", "2", "-n", "--config", config_path, "--init", "--encryption", "repokey"
+    system bin/"borgmatic", "-v", "2", "--config", config_path, "--init", "--encryption", "repokey"
 
     # Create a backup
     system bin/"borgmatic", "--config", config_path
@@ -122,6 +121,8 @@ class Borgmatic < Formula
 
     # Assert that the proper borg commands were executed
     assert_equal <<~EOS, log_content
+      info #{repo_path}
+      init --encryption repokey --debug #{repo_path}
       prune --keep-daily 7 --prefix {hostname}- #{repo_path}
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
       check --prefix {hostname}- #{repo_path}
