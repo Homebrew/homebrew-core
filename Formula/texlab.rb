@@ -11,10 +11,10 @@ class Texlab < Formula
   depends_on "rust" => :build
 
   def install
-    cd "src/citeproc/js"
-    system "npm", "install", *Language::Node.local_npm_install_args
-    system "npm", "run", "dist"
-    cd "../../.."
+    cd "src/citeproc/js" do
+      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "run", "dist"
+    end
     system "cargo", "install", "--locked",
                                "--root", prefix,
                                "--path", "."
