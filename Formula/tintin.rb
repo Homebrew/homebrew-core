@@ -28,8 +28,6 @@ class Tintin < Formula
   end
 
   test do
-    touch testpath/"version.txt"
-    system bin/"tt++", "-e \"#nop; #log o #{testpath}/version.txt; #help greeting; #end;\""
-    assert_match /#{version}/, File.read(testpath/"version.txt")
+    shell_output("#{bin}/tt++ -e \"#nop; #info system; #end;\"")
   end
 end
