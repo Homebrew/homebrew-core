@@ -14,13 +14,6 @@ class Juju < Formula
   depends_on "go" => :build
 
   def install
-    # Fix for Catalina
-    # Backport of https://github.com/juju/juju/pull/10775 and https://github.com/juju/os/pull/14
-    # Remove in 2.7
-    inreplace Dir["src/github.com/juju/juju/vendor/github.com/juju/{utils,os}/series/series.go"],
-      "var macOSXSeries = map[int]string{",
-      "var macOSXSeries = map[int]string{\n\t19: \"catalina\","
-
     ENV["GOPATH"] = buildpath
     system "go", "build", "github.com/juju/juju/cmd/juju"
     system "go", "build", "github.com/juju/juju/cmd/plugins/juju-metadata"
