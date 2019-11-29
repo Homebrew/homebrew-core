@@ -1,7 +1,7 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.4/apache-cassandra-3.11.4-bin.tar.gz"
+  url "https://archive.apache.org/dist/cassandra/3.11.4/apache-cassandra-3.11.4-bin.tar.gz"
   sha256 "5d598e23c3ffc4db0301ec2b313061e3208fae0f9763d4b47888237dd9069987"
 
   bottle do
@@ -12,7 +12,7 @@ class Cassandra < Formula
     sha256 "11de972c00c4b627e7c58de7b0645c4ef76ded64a31a88ccb8e3fc0b4c0da833" => :sierra
   end
 
-  depends_on "cython"
+  depends_on "cython" => :build
   depends_on "python"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
