@@ -55,11 +55,11 @@ class Blast < Formula
     assert_match "Identities = 70/70", output
 
     # Create BLAST database
-    output = shell_output("#{bin}/makeblastdb -in test.fasta -out foo -title FOO -dbtype prot")
+    output = shell_output("#{bin}/makeblastdb -in test.fasta -out testdb -dbtype nucl")
     assert_match "Adding sequences from FASTA", output
 
     # Check newly created BLAST database
-    output = shell_output("#{bin}/blastdbcmd -info -db foo")
-    assert_match "Database: FOO", output
+    output = shell_output("#{bin}/blastdbcmd -info -db testdb")
+    assert_match "Database: test", output
   end
 end
