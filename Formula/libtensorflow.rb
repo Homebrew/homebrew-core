@@ -5,6 +5,7 @@ class Libtensorflow < Formula
   homepage "https://www.tensorflow.org/"
   url "https://github.com/tensorflow/tensorflow/archive/v2.1.0.tar.gz"
   sha256 "638e541a4981f52c69da4a311815f1e7989bf1d67a41d204511966e1daed14f7"
+  revision 1
 
   bottle do
     cellar :any
@@ -27,6 +28,11 @@ class Libtensorflow < Formula
     sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
+  resource "test-model" do
+    url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
+    sha256 "147fab50ddc945972818516418942157de5e7053d4b67e7fca0b0ada16733ecb"
+  end
+
   def install
     # Bazel fails if version from .bazelversion doesn't match bazel version, so just to use the latest one
     rm_f ".bazelversion"
@@ -35,7 +41,9 @@ class Libtensorflow < Formula
     ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
 
     venv = virtualenv_create("#{buildpath}/venv", "python3")
-    venv.pip_install resources
+    (resources.map(&:name).to_set - ["test-model"]).each do |r|
+      venv.pip_install resource(r)
+    end
     ENV["PYTHON_BIN_PATH"] = "#{buildpath}/venv/bin/python"
 
     ENV["CC_OPT_FLAGS"] = "-march=native"
@@ -67,6 +75,9 @@ class Libtensorflow < Formula
     ]
     targets = %w[
       tensorflow:libtensorflow.so
+      tensorflow/tools/benchmark:benchmark_model
+      tensorflow/tools/graph_transforms:summarize_graph
+      tensorflow/tools/graph_transforms:transform_graph
     ]
     system "bazel", "build", *bazel_args, *targets
 
@@ -78,6 +89,11 @@ class Libtensorflow < Formula
       tensorflow/c/tf_datatype.h
       tensorflow/c/tf_status.h
       tensorflow/c/tf_tensor.h
+    ]
+    bin.install %w[
+      bazel-bin/tensorflow/tools/benchmark/benchmark_model
+      bazel-bin/tensorflow/tools/graph_transforms/summarize_graph
+      bazel-bin/tensorflow/tools/graph_transforms/transform_graph
     ]
 
     (lib/"pkgconfig/tensorflow.pc").write <<~EOS
@@ -99,5 +115,49 @@ class Libtensorflow < Formula
     EOS
     system ENV.cc, "-L#{lib}", "-ltensorflow", "-o", "test_tf", "test.c"
     assert_equal version, shell_output("./test_tf")
+
+    resource("test-model").stage(testpath)
+
+    summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph.pb 2>&1")
+    variables_match = /Found \d+ variables:.+$/.match(summarize_graph_output)
+    assert_not_nil variables_match, "Unexpected stdout from summarize_graph for graph.pb (no found variables)"
+    variables_names = variables_match[0].scan(/name=([^,]+)/).flatten.sort
+
+    transform_command = %W[
+      #{bin}/transform_graph
+      --in_graph=#{testpath}/graph.pb
+      --out_graph=#{testpath}/graph-new.pb
+      --inputs=n/a
+      --outputs=n/a
+      --transforms="obfuscate_names"
+      2>&1
+    ].join(" ")
+    shell_output(transform_command)
+
+    assert_predicate testpath/"graph-new.pb", :exist?, "transform_graph did not create an output graph"
+
+    new_summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph-new.pb 2>&1")
+    new_variables_match = /Found \d+ variables:.+$/.match(new_summarize_graph_output)
+    assert_not_nil new_variables_match, "Unexpected summarize_graph output for graph-new.pb (no found variables)"
+    new_variables_names = new_variables_match[0].scan(/name=([^,]+)/).flatten.sort
+
+    assert_not_equal variables_names, new_variables_names, "transform_graph didn't obfuscate variable names"
+
+    benchmark_model_match = /benchmark_model -- (.+)$/.match(new_summarize_graph_output)
+    assert_not_nil benchmark_model_match, "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
+
+    benchmark_model_args = benchmark_model_match[1].split(" ")
+    benchmark_model_args.delete("--show_flops")
+
+    benchmark_model_command = [
+      "#{bin}/benchmark_model",
+      "--time_limit=10",
+      "--num_threads=1",
+      *benchmark_model_args,
+      "2>&1",
+    ].join(" ")
+
+    benchmark_model_output = shell_output(benchmark_model_command)
+    assert_includes benchmark_model_output, "Timings (microseconds):", "Unexpected benchmark_model output (no timings)"
   end
 end
