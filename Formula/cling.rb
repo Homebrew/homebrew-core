@@ -2,9 +2,8 @@ class Cling < Formula
   desc "The cling C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "https://github.com/root-project/cling.git",
-      :tag      => "v0.5",
-      :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
-  revision 2
+      :tag      => "v0.6",
+      :revision => "82ac7bf1870abbedb7fe44f8e34a429538f26a8d"
 
   bottle do
     cellar :any
@@ -18,14 +17,14 @@ class Cling < Formula
 
   resource "clang" do
     url "http://root.cern.ch/git/clang.git",
-        :tag      => "cling-patches-r302975",
-        :revision => "1f8b137c7eb06ed8e321649ef7e3f3e7a96f361c"
+        :tag      => "cling-v0.6",
+        :revision => "02c41d5edd15232b0b25ec1d842403552c2aceb4"
   end
 
   resource "llvm" do
     url "http://root.cern.ch/git/llvm.git",
-        :tag      => "cling-patches-r302975",
-        :revision => "2a34248cb945d63ded5ee55128e68efd7e5b87c8"
+        :tag      => "cling-v0.6",
+        :revision => "e0b472e46eb5861570497c2b9efabf96f2d4a485"
   end
 
   def install
