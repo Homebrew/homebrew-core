@@ -1,8 +1,8 @@
 class Timewarrior < Formula
   desc "Command-line time tracking application"
-  homepage "https://taskwarrior.org/docs/timewarrior/"
-  url "https://taskwarrior.org/download/timew-1.1.1.tar.gz"
-  sha256 "1f7d9a62e55fc5a3126433654ccb1fd7d2d135f06f05697f871897c9db77ccc9"
+  homepage "https://timewarrior.net/"
+  url "https://github.com/GothenburgBitFactory/timewarrior/releases/download/v1.2.0/timew-1.2.0.tar.gz"
+  sha256 "2c4d153105a32536ae328038246ebd846a5abd96df7ed29c11100866eaed8e3c"
   head "https://github.com/GothenburgBitFactory/timewarrior.git"
 
   bottle do
