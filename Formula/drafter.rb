@@ -1,8 +1,8 @@
 class Drafter < Formula
   desc "Native C/C++ API Blueprint Parser"
   homepage "https://apiblueprint.org/"
-  url "https://github.com/apiaryio/drafter/releases/download/v4.0.2/drafter-4.0.2.tar.gz"
-  sha256 "35e9ca58acbf7dc2e8c48a8bf16bc7a4efbdc2dedaeedb258e0ad80c14496d78"
+  url "https://github.com/apiaryio/drafter/releases/download/v4.1.0/drafter-4.1.0.tar.gz"
+  sha256 "243032f9ff202bffdc10b382a435f59b0110be8da1029f8c4208b8c22bd37f06"
   head "https://github.com/apiaryio/drafter.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Drafter < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make", "drafter", "drafter-cli"
+    system "make", "drafter"
     system "make", "install"
   end
 
