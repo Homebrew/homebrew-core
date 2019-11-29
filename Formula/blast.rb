@@ -17,11 +17,14 @@ class Blast < Formula
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 
   def install
-    # Fix shebang lines and JSON dependency
+    # Fix shebang line
     inreplace "c++/src/app/blast/update_blastdb.pl", "#!/usr/bin/perl", "#!/usr/bin/env perl"
+    # Use JSON::PP instead of JSON, as the former has been a core perl module
+    # since perl 5.14 and thus is more widely available.
     inreplace "c++/src/app/blast/update_blastdb.pl", "JSON", "JSON::PP"
     inreplace "c++/src/app/blast/update_blastdb.pl", "from_json", "decode_json"
 
+    # Fix shebang line, for those who have edirect
     sed_script_file = Tempfile.new("sed_script.sed")
     sed_script_file.puts("s/direct$/&:$PATH/")
     sed_script_file.close
