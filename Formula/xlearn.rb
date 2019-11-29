@@ -6,6 +6,7 @@ class Xlearn < Formula
 
   bottle do
     cellar :any
+    rebuild 1
     sha256 "c4ec883864c2f54e1a9f3ea3367ad2708279dc237865e9d8c99663f91a93226e" => :catalina
     sha256 "46810065f0738f93158ca485a22c61625f5d86272b7f9e3e97f3286affb4f775" => :mojave
     sha256 "41cd07c71a598ec5e1a8c458352f7570344822a9cc4b98f0327fe029806d3db8" => :high_sierra
