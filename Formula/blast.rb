@@ -47,9 +47,6 @@ class Blast < Formula
     output = shell_output("#{bin}/update_blastdb.pl --showall")
     assert_match "nt", output
 
-    # output = shell_output("#{bin}/get_species_taxids.sh -t 9606")
-    # assert_match "9606", output
-
     (testpath/"test.fasta").write <<~EOS
       >U00096.2:1-70
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
@@ -64,6 +61,5 @@ class Blast < Formula
     # Check newly created BLAST database
     output = shell_output("#{bin}/blastdbcmd -info -db foo")
     assert_match "Database: FOO", output
-    rm_f Dir["foo.p*"]
   end
 end
