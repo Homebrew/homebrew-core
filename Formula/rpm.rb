@@ -3,6 +3,7 @@ class Rpm < Formula
   homepage "https://rpm.org/"
   url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.1.tar.bz2"
   sha256 "ddef45f9601cd12042edfc9b6e37efcca32814e1e0f4bb8682d08144a3e2d230"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -20,6 +21,7 @@ class Rpm < Formula
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
+  depends_on "python"
   depends_on "xz"
   depends_on "zstd"
 
@@ -43,11 +45,14 @@ class Rpm < Formula
                           "--sysconfdir=#{etc}",
                           "--with-path-magic=#{HOMEBREW_PREFIX}/share/misc/magic",
                           "--enable-nls",
+                          "--enable-python",
                           "--disable-plugins",
                           "--with-external-db",
                           "--with-crypto=openssl",
+                          "--with-python=python3",
                           "--without-apidocs",
-                          "--with-vendor=homebrew"
+                          "--with-vendor=homebrew",
+                          "PYTHON=#{Formula["python"].opt_bin}/python3"
     system "make", "install"
   end
 
@@ -111,5 +116,6 @@ class Rpm < Formula
     assert_predicate rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm", :exist?
     system "#{bin}/rpm", "-qpi", "--dbpath=#{testpath}/var/lib/rpm",
                          rpmdir("%_rpmdir")/"noarch/test-1.0-1.noarch.rpm"
+    system "python3", "-c", "import rpm"
   end
 end
