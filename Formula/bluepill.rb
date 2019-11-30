@@ -2,8 +2,7 @@ class Bluepill < Formula
   desc "iOS testing tool that runs UI tests using multiple simulators"
   homepage "https://github.com/linkedin/bluepill"
   url "https://github.com/linkedin/bluepill.git",
-    :tag => "v5.0.0"
-  sha256 "9b147ccd040449f9a2a47c8cc884819eae098d93f7e987dce259982a729fd136"
+    :tag => "v5.1.1", :revision => "065f4b325f513ea32b3c9be8885ba073bbacaeca"
   head "https://github.com/linkedin/bluepill.git"
 
   bottle do
@@ -13,7 +12,7 @@ class Bluepill < Formula
     sha256 "57c90a31f9e2e6d8bbe31ff1c183efa6d57c934e826be3e1c7f2c34b6a40928f" => :high_sierra
   end
 
-  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => ["11.2", :build]
 
   def install
     xcodebuild "-workspace", "Bluepill.xcworkspace",
