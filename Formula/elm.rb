@@ -5,8 +5,8 @@ class Elm < Formula
 
   desc "Functional programming language for building browser-based GUIs"
   homepage "https://elm-lang.org"
-  url "https://github.com/elm/compiler/archive/0.19.0.tar.gz"
-  sha256 "494df33724224307d6e2b4d0b342448cc927901483384ee4f8cfee2cb38e993c"
+  url "https://github.com/elm/compiler/archive/0.19.1.tar.gz"
+  sha256 "aa161caca775cef1bbb04bcdeb4471d3aabcf87b6d9d9d5b0d62d3052e8250b1"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Elm < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc@8.6" => :build
 
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
@@ -25,7 +25,7 @@ class Elm < Formula
 
     cabal_sandbox do
       cabal_sandbox_add_source "elm-compiler"
-      cabal_install "--only-dependencies", "elm"
+      cabal_install "--only-dependencies", "--force-reinstalls", "elm"
       cabal_install "--prefix=#{prefix}", "elm"
     end
   end
@@ -39,7 +39,7 @@ class Elm < Formula
         "source-directories": [
                   "."
         ],
-        "elm-version": "0.19.0",
+        "elm-version": "0.19.1",
         "dependencies": {
                 "direct": {
                     "elm/browser": "1.0.0",
@@ -62,6 +62,7 @@ class Elm < Formula
 
     src_path = testpath/"Hello.elm"
     src_path.write <<~EOS
+      module Hello exposing (main)
       import Html exposing (text)
       main = text "Hello, world!"
     EOS
