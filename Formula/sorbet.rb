@@ -7,6 +7,7 @@ class Sorbet < Formula
 
   depends_on "autoconf" => :build
   depends_on "coreutils" => :build
+  uses_from_macos "llvm" => :build
   depends_on "parallel" => :build
   depends_on :xcode => :build
 
