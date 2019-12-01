@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag      => "0.10.5",
-      :revision => "8f825f6dab4cf9bd4622324d38528ccbb994e7e6"
+      :tag      => "0.11.0",
+      :revision => "0ab4012784510381e2b90c031ede3d77197b10b1"
 
   bottle do
     cellar :any_skip_relocation
@@ -50,7 +50,7 @@ class FaasCli < Formula
 
     (testpath/"test.yml").write <<~EOS
       provider:
-        name: faas
+        name: openfaas
         gateway: http://localhost:#{port}
         network: "func_functions"
 
