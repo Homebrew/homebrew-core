@@ -3,8 +3,10 @@ class Bumpversion < Formula
 
   desc "Increase version numbers with SemVer terms"
   homepage "https://pypi.python.org/pypi/bumpversion"
-  url "https://github.com/peritus/bumpversion/archive/v0.5.3.tar.gz"
-  sha256 "97ac6efca7544853309b68efe92f113ab6bddb77ecbaefa5702a6183a30bcb33"
+  # maintained fork for the project
+  # Ongoing maintenance discussion for the project, https://github.com/c4urself/bump2version/issues/86
+  url "https://github.com/c4urself/bump2version/archive/v0.5.11.tar.gz"
+  sha256 "f06c943b320033b3aa07958c99920474a54f1d0d76b12299fa67d59cdb17ab00"
 
   bottle do
     cellar :any_skip_relocation
