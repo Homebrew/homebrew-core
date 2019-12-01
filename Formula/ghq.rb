@@ -2,8 +2,8 @@ class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
   url "https://github.com/motemen/ghq.git",
-      :tag      => "v0.12.9",
-      :revision => "c93b01d2023abcc39e6dfa35821d54a95dfe240a"
+      :tag      => "v0.13.0",
+      :revision => "7ba9b5f82952dc930f289262a2df7bafb6bd53bf"
   head "https://github.com/motemen/ghq.git"
 
   bottle do
