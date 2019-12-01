@@ -161,6 +161,7 @@ class AwsElasticbeanstalk < Formula
   end
 
   test do
-    system "#{bin}/eb", "--version"
+    output = shell_output("#{bin}/eb init --region=us-east-1 --profile=homebrew-test", 4)
+    assert_match("ERROR: InvalidProfileError - The config profile (homebrew-test) could not be found", output)
   end
 end
