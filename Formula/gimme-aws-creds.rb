@@ -3,8 +3,8 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/2b/7a/e0e905e6f4e7d90b99fcaa94f56a24f67852c75d38399997073b006487cb/gimme%20aws%20creds-2.1.1.tar.gz"
-  sha256 "87ab4a0bd1ce758f24c8302416779c38ca376cf38a58e68fe332512071004c5a"
+  url "https://files.pythonhosted.org/packages/21/d2/f80fe263ce22cb5a3df87a6e8e06f2166318e368bce9a21343d8c490fc68/gimme%20aws%20creds-2.1.3.tar.gz"
+  sha256 "3af7e0f780d2a8ac195772cc4f9a7d6a163e8ef1e841507cfb6676ef7e0941a2"
 
   bottle do
     cellar :any
@@ -32,7 +32,6 @@ class GimmeAwsCreds < Formula
     assert_match "Okta Configuration Profile Name", output
     assert_match "[TESTPROFILE]", config_file.read
 
-    installed_version = shell_output("#{bin}/gimme-aws-creds --version")
-    assert_match version.to_s, installed_version
+    assert_match version.to_s, shell_output("#{bin}/gimme-aws-creds --version")
   end
 end
