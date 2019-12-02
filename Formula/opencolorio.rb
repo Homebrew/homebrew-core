@@ -3,7 +3,7 @@ class Opencolorio < Formula
   homepage "https://opencolorio.org/"
   url "https://github.com/imageworks/OpenColorIO/archive/v1.1.1.tar.gz"
   sha256 "c9b5b9def907e1dafb29e37336b702fff22cc6306d445a13b1621b8a754c14c8"
-  revision 1
+  revision 2
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
@@ -17,19 +17,13 @@ class Opencolorio < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    py3_config = `python3-config --configdir`.chomp
-    py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
-    py3_version = Language::Python.major_minor_version "python3"
-
     args = std_cmake_args + %W[
       -DCMAKE_VERBOSE_MAKEFILE=OFF
       -DPYTHON=python3
-      -DPYTHON_EXECUTABLE=#{which "python3"}
-      -DPYTHON_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
-      -DPYTHON_INCLUDE_DIR=#{py3_include}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/"python3"
     ]
 
     mkdir "macbuild" do
