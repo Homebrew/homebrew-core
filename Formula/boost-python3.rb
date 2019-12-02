@@ -4,6 +4,7 @@ class BoostPython3 < Formula
   url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
   mirror "https://dl.bintray.com/homebrew/mirror/boost_1_72_0.tar.bz2"
   sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -15,7 +16,7 @@ class BoostPython3 < Formula
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python"
+  depends_on "python@3.8"
 
   # Fix build on Xcode 11.4
   patch do
@@ -46,15 +47,15 @@ class BoostPython3 < Formula
     # user-config.jam below.
     inreplace "bootstrap.sh", "using python", "#using python"
 
-    pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
       using darwin : : #{ENV.cxx} ;
       using python : #{pyver}
                    : python3
-                   : #{py_prefix}/include/python#{pyver}m
+                   : #{py_prefix}/include/python#{pyver}
                    : #{py_prefix}/lib ;
     EOS
 
@@ -87,9 +88,9 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
-    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
+    pyincludes = Utils.popen_read("#{Formula["python@3.8"].opt_bin}/python3-config --includes").chomp.split(" ")
+    pylib = Utils.popen_read("#{Formula["python@3.8"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
+    pyver = Language::Python.major_minor_version(Formula["python@3.8"].opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
@@ -98,6 +99,6 @@ class BoostPython3 < Formula
       import hello
       print(hello.greet())
     EOS
-    assert_match "Hello, world!", pipe_output("python3", output, 0)
+    assert_match "Hello, world!", pipe_output(Formula["python@3.8"].opt_bin/"python3", output, 0)
   end
 end
