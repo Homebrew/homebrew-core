@@ -4,6 +4,7 @@ class Re2 < Formula
   url "https://github.com/google/re2/archive/2019-12-01.tar.gz"
   version "20191201"
   sha256 "7268e1b4254d9ffa5ccf010fee954150dbb788fd9705234442e7d9f0ee5a42d3"
+  revision 1
   head "https://github.com/google/re2.git"
 
   bottle do
