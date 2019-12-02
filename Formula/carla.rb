@@ -3,7 +3,7 @@ class Carla < Formula
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
   url "https://github.com/falkTX/Carla/archive/v2.0.0.tar.gz"
   sha256 "d0c8d8417f8cce9abe807f6359231f187d60db7121ec1dccce3b596a22ef6c41"
-  revision 2
+  revision 3
   head "https://github.com/falkTX/Carla.git"
 
   bottle do
@@ -18,11 +18,14 @@ class Carla < Formula
   depends_on "liblo"
   depends_on "libmagic"
   depends_on "pyqt"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
+
+    inreplace bin/"carla", "PYTHON=$(which python3 2>/dev/null)",
+                           "PYTHON=#{Formula["python@3.8"].opt_bin}/python3"
   end
 
   test do
