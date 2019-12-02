@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/Release-2.1.13.0.tar.gz"
   version "2.1.13"
   sha256 "f0653582eaf386db40dc30e2d822f3235592803223079ea3b3e30e46b3dc3acf"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -26,7 +27,7 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "webp"
 
   def install
@@ -44,14 +45,14 @@ class Openimageio < Formula
     ]
 
     # CMake picks up the system's python dylib, even if we have a brewed one.
-    py3ver = Language::Python.major_minor_version "python3"
-    py3prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    py3ver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    py3prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
 
     args << "-DPYTHON_EXECUTABLE=#{py3prefix}/bin/python3"
     args << "-DPYTHON_LIBRARY=#{py3prefix}/lib/libpython#{py3ver}.dylib"
-    args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}m"
+    args << "-DPYTHON_INCLUDE_DIR=#{py3prefix}/include/python#{py3ver}"
 
     # CMake picks up boost-python instead of boost-python3
     args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
@@ -79,6 +80,6 @@ class Openimageio < Formula
       import OpenImageIO
       print(OpenImageIO.VERSION_STRING)
     EOS
-    assert_match version.to_s, pipe_output("python3", output, 0)
+    assert_match version.to_s, pipe_output(Formula["python@3.8"].opt_bin/"python3", output, 0)
   end
 end
