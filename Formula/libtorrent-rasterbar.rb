@@ -3,6 +3,7 @@ class LibtorrentRasterbar < Formula
   homepage "https://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_5/libtorrent-rasterbar-1.2.5.tar.gz"
   sha256 "84b79f85ffa4e4a5f434bf5c53b0d5a63dfea17b7623143caaa695faf61b2d1b"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,9 +23,10 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
+    pyver = Language::Python.major_minor_version(Formula["python@3.8"].bin/"python3").to_s.delete(".")
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -33,8 +35,10 @@ class LibtorrentRasterbar < Formula
       --enable-encryption
       --enable-python-binding
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-boost-python=boost_python37-mt
+      --with-boost-python=boost_python#{pyver}-mt
       PYTHON=python3
+      PYTHON_EXTRA_LIBS=#{`#{Formula["python@3.8"].opt_bin}/python3-config --libs --embed`.chomp}
+      PYTHON_EXTRA_LDFLAGS=#{`#{Formula["python@3.8"].opt_bin}/python3-config --ldflags`.chomp}
     ]
 
     if build.head?
