@@ -3,6 +3,7 @@ class Libpeas < Formula
   homepage "https://developer.gnome.org/libpeas/stable/"
   url "https://download.gnome.org/sources/libpeas/1.26/libpeas-1.26.0.tar.xz"
   sha256 "a976d77e20496479a8e955e6a38fb0e5c5de89cf64d9f44e75c2213ee14f7376"
+  revision 1
 
   bottle do
     sha256 "ca5e8f34c01f0978fb82601876a7e673fde22286cff4ab74dda6ab90774fe38a" => :catalina
@@ -18,7 +19,7 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     args = %W[
