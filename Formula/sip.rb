@@ -3,6 +3,7 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.21/sip-4.19.21.tar.gz"
   sha256 "6af9979ab41590e8311b8cc94356718429ef96ba0e3592bdd630da01211200ae"
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
@@ -12,10 +13,10 @@ class Sip < Formula
     sha256 "aa8a6c4122d15687e8f279ad342d1a1a232aa658e0179ac38f67c1a2e0a26f8c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_bin
     ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
 
     if build.head?
