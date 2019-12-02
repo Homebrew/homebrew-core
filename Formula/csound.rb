@@ -3,7 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
   sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
-  revision 2
+  revision 3
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
@@ -82,7 +82,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version "python3"
+    python_version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
@@ -145,7 +145,7 @@ class Csound < Formula
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
     ENV["DYLD_FRAMEWORK_PATH"] = frameworks
-    system "python3", "-c", "import ctcsound"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import ctcsound"
     ENV.delete("DYLD_FRAMEWORK_PATH")
 
     (testpath/"test.java").write <<~EOS
