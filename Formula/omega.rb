@@ -1,8 +1,8 @@
 class Omega < Formula
   desc "Packaged search engine for websites, built on top of Xapian"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.13/xapian-omega-1.4.13.tar.xz"
-  sha256 "c26ec4a99a210c26ce64ec08bc7dbb9cca78d82d9266351d498751f6575e8906"
+  url "https://oligarchy.co.uk/xapian/1.4.14/xapian-omega-1.4.14.tar.xz"
+  sha256 "8b2b16cd52409c35507d1103cbdf10d9eabd0b5df64d9f34f0c9065a5d0286c3"
 
   bottle do
     sha256 "dc1d707250e36287e84d862455967778da56bec1490705f0037fc0d285a47ea3" => :catalina
