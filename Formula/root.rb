@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.20.02.source.tar.gz"
   version "6.20.02"
   sha256 "0997586bf097c0afbc6f08edbffcebf5eb6a4237262216114ba3f5c8087dcba6"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -38,7 +39,7 @@ class Root < Formula
   depends_on "numpy" # for tmva
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
@@ -58,17 +59,10 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
-    py_exe = Utils.popen_read("which python3").strip
-    py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
-    py_inc =
-      Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-
     args = std_cmake_args + %W[
       -DCLING_CXX_PATH=clang++
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
-      -DPYTHON_EXECUTABLE=#{py_exe}
-      -DPYTHON_INCLUDE_DIR=#{py_inc}
-      -DPYTHON_LIBRARY=#{py_prefix}/Python
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Ddavix=ON
@@ -166,6 +160,6 @@ class Root < Formula
 
     # Test Python module
     ENV["PYTHONPATH"] = lib/"root"
-    system "python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end
