@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.10.tar.gz"
   sha256 "aafee193ffb8fe0c82d4afef6ef91972cbaf5feea100edc2f262750611b4be1f"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -61,7 +62,7 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
                             "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-      system "python3", "setup.py", "install", "--prefix=#{prefix}"
+      system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -83,8 +84,8 @@ class Libxml2 < Formula
     system ENV.cc, *args
     system "./test"
 
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system "python3", "-c", "import libxml2"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import libxml2"
   end
 end
