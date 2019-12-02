@@ -3,6 +3,7 @@ class Adios2 < Formula
   homepage "https://adios2.readthedocs.io"
   url "https://github.com/ornladios/ADIOS2/archive/v2.5.0.tar.gz"
   sha256 "7c8ff3bf5441dd662806df9650c56a669359cb0185ea232ecb3578de7b065329"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
 
   bottle do
@@ -19,7 +20,7 @@ class Adios2 < Formula
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "zeromq"
   uses_from_macos "bzip2"
 
@@ -49,7 +50,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPYTHON_EXECUTABLE:FILEPATH=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
@@ -71,11 +72,8 @@ class Adios2 < Formula
     system "./a.out"
     assert_predicate testpath/"myVector_cpp.bp", :exist?
 
-    system "#{Formula["python"].opt_bin}/python3",
-           "-c", "import adios2"
-
-    system "#{Formula["python"].opt_bin}/python3",
-           (pkgshare/"test/helloBPWriter.py")
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import adios2"
+    system Formula["python@3.8"].opt_bin/"python3", (pkgshare/"test/helloBPWriter.py")
     assert_predicate testpath/"npArray.bp", :exist?
   end
 end
