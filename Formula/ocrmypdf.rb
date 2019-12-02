@@ -5,6 +5,7 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/50/d5/67ada5ade12fc0021f17932f43888999e0e06e5f36351e914381d56435b5/ocrmypdf-9.6.1.tar.gz"
   sha256 "0c84eabe943f385d0c869fa1e1383207778455661ba16775039de2e2acca6b6b"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class Ocrmypdf < Formula
   depends_on "libxml2"
   depends_on "pngquant"
   depends_on "pybind11"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qpdf"
   depends_on "tesseract"
   depends_on "unpaper"
@@ -94,7 +95,7 @@ class Ocrmypdf < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
