@@ -25,10 +25,7 @@ class Blast < Formula
     inreplace "c++/src/app/blast/update_blastdb.pl", "from_json", "decode_json"
 
     # Fix shebang line, for those who have edirect
-    sed_script_file = Tempfile.new("sed_script.sed")
-    sed_script_file.puts("s/direct$/&:$PATH/")
-    sed_script_file.close
-    system "sed", "-i~", "-f", sed_script_file.path, "c++/src/app/blast/get_species_taxids.sh"
+    inreplace "c++/src/app/blast/get_species_taxids.sh", /edirect$/, "edirect:$PATH"
 
     cd "c++" do
       # Use ./configure --without-boost to fix
