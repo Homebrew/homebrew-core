@@ -3,7 +3,7 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://github.com/malaterre/GDCM/archive/v3.0.5.tar.gz"
   sha256 "5cc175d9b845db91143f972e505680e766ab814a147b16abbb34acd88dacdb5a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c10202e17aa57c391d38bfe06e6b33eae64f2659f85c88e2be9a0ea1e040dbfd" => :catalina
@@ -17,16 +17,17 @@ class Gdcm < Formula
   depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "vtk"
 
   def install
     ENV.cxx11
 
-    xy = Language::Python.major_minor_version "python3"
+    python3 = Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     python_include =
-      Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-    python_executable = Utils.popen_read("python3 -c 'import sys;print(sys.executable)'").chomp
+      Utils.popen_read("#{python3} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+    python_executable = Utils.popen_read("#{python3} -c 'import sys;print(sys.executable)'").chomp
 
     args = std_cmake_args + %W[
       -GNinja
@@ -69,6 +70,6 @@ class Gdcm < Formula
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
-    system "python3", "-c", "import gdcm"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gdcm"
   end
 end
