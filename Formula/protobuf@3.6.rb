@@ -3,7 +3,7 @@ class ProtobufAT36 < Formula
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf/archive/v3.6.1.3.tar.gz"
   sha256 "73fdad358857e120fd0fa19e071a96e15c0f23bb25f85d3f7009abfd4f264a2a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class ProtobufAT36 < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
@@ -58,14 +58,14 @@ class ProtobufAT36 < Formula
     ENV.append_to_cflags "-L#{lib}"
 
     resource("six").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
     chdir "python" do
-      system "python3", *Language::Python.setup_install_args(libexec),
-                        "--cpp_implementation"
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
+                                                      "--cpp_implementation"
     end
 
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     site_packages = "lib/python#{version}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
