@@ -5,6 +5,7 @@ class Dvc < Formula
   homepage "https://dvc.org"
   url "https://github.com/iterative/dvc/archive/0.92.0.tar.gz"
   sha256 "660087d41fa6d02bc72a585f3f505a4a559a217fed8be762d220912f3014b3e4"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,11 +17,10 @@ class Dvc < Formula
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
   depends_on "openssl@1.1"
-  # `apache-arrow` currently depends on Python 3.7
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     system libexec/"bin/pip", "install",
       "--no-binary", ":all:",
