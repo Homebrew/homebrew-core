@@ -14,7 +14,7 @@ class Tbb < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -29,7 +29,7 @@ class Tbb < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
     system "cmake", *std_cmake_args,
