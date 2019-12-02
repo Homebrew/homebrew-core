@@ -3,7 +3,7 @@ class GitCola < Formula
   homepage "https://git-cola.github.io/"
   url "https://github.com/git-cola/git-cola/archive/v3.6.tar.gz"
   sha256 "63369f519f81988c2d167ba2c59ad53644d3fac2b7be1e12d3f1df9b8fd91839"
-  revision 1
+  revision 2
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
@@ -15,12 +15,12 @@ class GitCola < Formula
 
   depends_on "sphinx-doc" => :build
   depends_on "pyqt"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     ENV.delete("PYTHONPATH")
-    system "make", "PYTHON=python3", "prefix=#{prefix}", "install"
-    system "make", "install-doc", "PYTHON=python3", "prefix=#{prefix}",
+    system "make", "PYTHON=#{Formula["python@3.8"].opt_bin}/python3", "prefix=#{prefix}", "install"
+    system "make", "install-doc", "PYTHON=#{Formula["python@3.8"].opt_bin}/python3}", "prefix=#{prefix}",
            "SPHINXBUILD=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
   end
 
