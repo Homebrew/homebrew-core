@@ -6,6 +6,7 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/b9/8b/31267dd6d026a082faed35ec8d97522c0236f2e083bf15aff64d982215e1/wxPython-4.0.7.post2.tar.gz"
   version "4.0.7.post2"
   sha256 "5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,7 +20,7 @@ class Wxpython < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"
@@ -45,7 +46,7 @@ class Wxpython < Formula
               /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
               "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
@@ -76,10 +77,10 @@ class Wxpython < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
-    output = shell_output("python3 -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("#{Formula["python@3.8"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end
