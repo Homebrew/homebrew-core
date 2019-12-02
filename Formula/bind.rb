@@ -10,6 +10,7 @@ class Bind < Formula
 
   url "https://downloads.isc.org/isc/bind9/9.16.1/bind-9.16.1.tar.xz"
   sha256 "a913d7e78135b9123d233215b58102fa0f18130fb1e158465a1c2b6f3bd75e91"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
@@ -23,7 +24,7 @@ class Bind < Formula
   depends_on "json-c"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
@@ -31,12 +32,12 @@ class Bind < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -46,8 +47,9 @@ class Bind < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-json-c",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python-install-dir=#{vendor_site_packages}",
-                          "--with-python=#{Formula["python"].opt_bin}/python3",
+                          "--with-python=#{Formula["python@3.8"].opt_bin}/python3",
                           "--without-lmdb"
 
     system "make"
