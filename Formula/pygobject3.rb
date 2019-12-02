@@ -3,6 +3,7 @@ class Pygobject3 < Formula
   homepage "https://wiki.gnome.org/Projects/PyGObject"
   url "https://download.gnome.org/sources/pygobject/3.36/pygobject-3.36.0.tar.xz"
   sha256 "8683d2dfb5baa9e501a9a64eeba5c2c1117eadb781ab1cd7a9d255834af6daef"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,13 +17,13 @@ class Pygobject3 < Formula
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection"
   depends_on "py3cairo"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     mkdir "buildpy3" do
       system "meson", "--prefix=#{prefix}",
                       "-Dpycairo=true",
-                      "-Dpython=python3",
+                      "-Dpython=#{Formula["python@3.8"].opt_bin}/python3",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
@@ -38,8 +39,8 @@ class Pygobject3 < Formula
       assert(31 == GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
     EOS
 
-    pyversion = Language::Python.major_minor_version "python3"
+    pyversion = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", lib/"python#{pyversion}/site-packages"
-    system "python3", "test.py"
+    system Formula["python@3.8"].opt_bin/"python3", "test.py"
   end
 end
