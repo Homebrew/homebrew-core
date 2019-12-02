@@ -3,6 +3,7 @@ class Pybind11 < Formula
   homepage "https://github.com/pybind/pybind11"
   url "https://github.com/pybind/pybind11/archive/v2.4.3.tar.gz"
   sha256 "1eed57bc6863190e35637290f97a20c81cfe4d9090ac0a24f3bbf08f265eb71d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Pybind11 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "cmake", ".", "-DPYBIND11_TEST=OFF", *std_cmake_args
@@ -39,8 +40,8 @@ class Pybind11 < Formula
       example.add(1,2)
     EOS
 
-    python_flags = `python3-config --cflags --ldflags`.split(" ")
+    python_flags = `#{Formula["python@3.8"].opt_bin}/python3-config --cflags --ldflags --embed`.split(" ")
     system ENV.cxx, "-O3", "-shared", "-std=c++11", *python_flags, "example.cpp", "-o", "example.so"
-    system "python3", "example.py"
+    system Formula["python@3.8"].opt_bin/"python3", "example.py"
   end
 end
