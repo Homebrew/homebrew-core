@@ -15,7 +15,7 @@ class GnomeBuilder < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "adwaita-icon-theme"
   depends_on "dbus"
   depends_on "gspell"
@@ -39,7 +39,7 @@ class GnomeBuilder < Formula
     ENV["DESTDIR"] = "/"
 
     # prevent sandbox violation
-    pyver = Language::Python.major_minor_version "python3"
+    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
 
     args = %W[
       --prefix=#{prefix}
