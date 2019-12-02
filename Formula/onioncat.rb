@@ -1,9 +1,8 @@
 class Onioncat < Formula
   desc "VPN-adapter that provides location privacy using Tor or I2P"
   homepage "https://www.onioncat.org"
-  url "https://www.cypherpunk.at/ocat/download/Source/current/onioncat-0.2.2.r578.tar.gz"
-  version "0.2.2.r578"
-  sha256 "69c677e04987bd438495d575b566c358f449ff138b836925fd406cf6d6a400f5"
+  url "https://www.cypherpunk.at/ocat/download/Source/0.2.x/onioncat-0.2.8.tar.gz"
+  sha256 "fed003e151458ef2b6964e957266afbbb493e048cb54a46b948edb70df171d62"
 
   bottle do
     cellar :any_skip_relocation
