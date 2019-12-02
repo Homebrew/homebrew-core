@@ -3,6 +3,7 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.4/QScintilla-2.11.4.tar.gz"
   sha256 "723f8f1d1686d9fc8f204cd855347e984322dd5cd727891d324d0d7d187bee20"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Qscintilla2 < Formula
   end
 
   depends_on "pyqt"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qt"
   depends_on "sip"
 
@@ -44,9 +45,9 @@ class Qscintilla2 < Formula
 
     cd "Python" do
       (share/"sip").mkpath
-      version = Language::Python.major_minor_version "python3"
+      version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
       pydir = "#{lib}/python#{version}/site-packages/PyQt5"
-      system "python3", "configure.py", "-o", lib, "-n", include,
+      system Formula["python@3.8"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include,
                         "--apidir=#{prefix}/qsci",
                         "--destdir=#{pydir}",
                         "--stubsdir=#{pydir}",
@@ -70,6 +71,6 @@ class Qscintilla2 < Formula
       assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS
 
-    system "python3", "test.py"
+    system Formula["python@3.8"].opt_bin/"python3", "test.py"
   end
 end
