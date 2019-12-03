@@ -63,6 +63,11 @@ class Scf < Formula
     sha256 "5312d970d8579338a528b79ee8409e11100b585a99b41c5c61f267cbe0912246"
   end
 
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/dd/26/30fc0d541d9fdf55faf5ba4b0fd68f81d5bd2447579224820ad525934178/more-itertools-5.0.0.tar.gz"
+    sha256 "38a936c0a6d98a38bcc2d03fdaaedaba9f412879461dd2ceff8d37564d6522e4"
+  end
+
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/1f/7f/a020327823b9c405ee6f85ab3053ff171e10801b19cfe55c78bb0b3810e7/jsonschema-3.0.1.tar.gz"
     sha256 "0c0a81564f181de3212efa2d17de1910f8732fa1b71c42266d983cd74304e20d"
@@ -203,7 +208,7 @@ class Scf < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python2")
     venv.pip_install resources
     venv.pip_install_and_link buildpath
   end
