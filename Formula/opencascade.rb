@@ -1,9 +1,9 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://www.opencascade.com/content/overview"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_3_0p3;sf=tgz"
-  version "7.3.0p3"
-  sha256 "fbd46db3e75313131b88a606024ea4d4496c3c7f6e68c23988e9d3e673d4f21b"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_4_0;sf=tgz"
+  version "7.4.0"
+  sha256 "655da7717dac3460a22a6a7ee68860c1da56da2fec9c380d8ac0ac0349d67676"
 
   bottle do
     cellar :any
