@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.62/glib-2.62.4.tar.xz"
   sha256 "4c84030d77fa9712135dfa8036ad663925655ae95b1d19399b6200e869925bbc"
+  revision 1
 
   bottle do
     sha256 "d5f0419ecc444b4d7b2e830d9ba880886fc683fcdcbbf2d0b791cdef51b67b07" => :catalina
@@ -16,7 +17,7 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
   uses_from_macos "util-linux" # for libmount.so
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
@@ -40,7 +41,7 @@ class Glib < Formula
     ]
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", *args, ".."
+      system "meson", "--prefix=#{prefix}", "--bindir=#{libexec}/bin", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -72,6 +73,11 @@ class Glib < Formula
     end
 
     bash_completion.install Dir["gio/completion/*"]
+
+    Dir[libexec/"bin/*"].each do |executable|
+      basename = File.basename(executable)
+      (bin/basename).write_env_script executable, :PATH => "#{Formula["python@3.8"].opt_bin}:$PATH"
+    end
   end
 
   def post_install
