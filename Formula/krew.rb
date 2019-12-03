@@ -1,8 +1,8 @@
 class Krew < Formula
   desc "Package manager for kubectl plugins"
   homepage "https://krew.dev"
-  url "https://github.com/kubernetes-sigs/krew/archive/v0.3.2.tar.gz"
-  sha256 "c1807bdf1f504061a75cce67874529533f511aa02a09e313684f2e507f1dd195"
+  url "https://github.com/kubernetes-sigs/krew/archive/v0.3.3.tar.gz"
+  sha256 "d63e0ccc08f32bfc314b3bc574f20842041e2f58ab89ddc88a24cb25c1caee38"
 
   bottle do
     cellar :any_skip_relocation
