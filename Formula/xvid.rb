@@ -1,9 +1,9 @@
 class Xvid < Formula
   desc "High-performance, high-quality MPEG-4 video library"
   homepage "https://labs.xvid.com/"
-  url "https://downloads.xvid.com/downloads/xvidcore-1.3.5.tar.bz2"
-  mirror "https://fossies.org/linux/misc/xvidcore-1.3.5.tar.bz2"
-  sha256 "7c20f279f9d8e89042e85465d2bcb1b3130ceb1ecec33d5448c4589d78f010b4"
+  url "https://downloads.xvid.com/downloads/xvidcore-1.3.6.tar.bz2"
+  mirror "https://fossies.org/linux/misc/xvidcore-1.3.6.tar.bz2"
+  sha256 "5e6b58b13c247fe7a9faf9b95517cc52bc4b59a44b630cab20aae0c7f654f77e"
 
   bottle do
     cellar :any
