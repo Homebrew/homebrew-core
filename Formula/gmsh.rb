@@ -3,6 +3,7 @@ class Gmsh < Formula
   homepage "https://gmsh.info/"
   url "https://gmsh.info/src/gmsh-4.4.1-source.tgz"
   sha256 "853c6438fc4e4b765206e66a514b09182c56377bb4b73f1d0d26eda7eb8af0dc"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
