@@ -1,9 +1,8 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
-  homepage "https://www.linphone.org/technical-corner/ortp/overview"
-  url "https://nongnu.askapache.com/linphone/ortp/sources/ortp-0.27.0.tar.gz"
-  sha256 "eb61a833ab3ad80978d7007411240f46e9b2d1034373b9d9dfaac88c1b6ec0af"
-  revision 4
+  homepage "https://www.linphone.org/technical-corner/ortp"
+  url "https://www.linphone.org/releases/sources/ortp/ortp-1.0.2.tar.gz"
+  sha256 "a51551194332ac62b47865dc1e60893ece4922c489a7b0a780b8be562978d804"
 
   bottle do
     sha256 "6df0d199df16298cf0ec21e7d235ad6ea6702c4bab49cf736d84578afbb74df4" => :catalina
@@ -18,8 +17,8 @@ class Ortp < Formula
   depends_on "mbedtls"
 
   resource "bctoolbox" do
-    url "https://github.com/BelledonneCommunications/bctoolbox/archive/0.6.0.tar.gz"
-    sha256 "299dedcf8f1edea79964314504f0d24e97cdf24a289896fc09bc69c38eb9f9be"
+    url "https://www.linphone.org/releases/sources/bctoolbox/bctoolbox-0.6.0.tar.gz"
+    sha256 "4657e1970df262f77e47dee63b1135a5e063b63b0c42cfe7f41642b22e3831a8"
   end
 
   def install
@@ -38,9 +37,14 @@ class Ortp < Formula
 
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    args = std_cmake_args + %W[
+      -DCMAKE_PREFIX_PATH=#{libexec}
+      -DENABLE_DOC=NO
+    ]
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make", "install"
+    end
   end
 
   test do
@@ -54,7 +58,7 @@ class Ortp < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lortp",
+    system ENV.cc, "-I#{include}", "-I#{libexec}/include", "-L#{lib}", "-lortp",
            testpath/"test.c", "-o", "test"
     system "./test"
   end
