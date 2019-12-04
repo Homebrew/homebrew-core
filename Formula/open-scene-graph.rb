@@ -1,8 +1,8 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.3.tar.gz"
-  sha256 "51bbc79aa73ca602cd1518e4e25bd71d41a10abd296e18093a8acfebd3c62696"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.4.tar.gz"
+  sha256 "81394d1b484c631028b85d21c5535280c21bbd911cb058e8746c87e93e7b9d33"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
@@ -17,11 +17,11 @@ class OpenSceneGraph < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gtkglext"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "sdl"
 
   # patch necessary to ensure support for gtkglext-quartz
-  # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
+  # filed as an issue to the developers https://github.com/openscenegraph/OpenSceneGraph/issues/34
   patch :DATA
 
   def install
@@ -35,8 +35,9 @@ class OpenSceneGraph < Formula
       -DBUILD_DOCUMENTATION=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_OpenEXR=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
-      -DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON
       -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
       -DCMAKE_OSX_ARCHITECTURES=x86_64
       -DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio
@@ -67,6 +68,7 @@ class OpenSceneGraph < Formula
     assert_equal `./test`.chomp, version.to_s
   end
 end
+
 __END__
 diff --git a/CMakeModules/FindGtkGl.cmake b/CMakeModules/FindGtkGl.cmake
 index 321cede..6497589 100644
