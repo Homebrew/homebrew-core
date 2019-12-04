@@ -163,7 +163,6 @@ class AwsElasticbeanstalk < Formula
 
   def install
     virtualenv_install_with_resources
-    bash_completion.install libexec/"bin/eb_completion.bash"
   end
 
   test do
