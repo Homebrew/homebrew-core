@@ -16,7 +16,7 @@ class Gnirehtet < Formula
   def install
     resource("java_bundle").stage { libexec.install "gnirehtet.apk" }
 
-    system "cargo", "install", "--root", libexec, "--path", "relay-rust"
+    system "cargo", "install", "--locked", "--root", libexec, "--path", "relay-rust"
     mv "#{libexec}/bin/gnirehtet", "#{libexec}/gnirehtet"
 
     (bin/"gnirehtet").write <<~EOS
