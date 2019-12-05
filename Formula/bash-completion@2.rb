@@ -1,8 +1,8 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.1+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz"
-  sha256 "c01f5570f5698a0dda8dc9cfb2a83744daa1ec54758373a6e349bd903375f54d"
+  url "https://github.com/scop/bash-completion/releases/download/2.10/bash-completion-2.10.tar.xz"
+  sha256 "123c17998e34b937ce57bb1b111cd817bc369309e9a8047c0bcf06ead4a3ec92"
 
   bottle do
     cellar :any_skip_relocation
