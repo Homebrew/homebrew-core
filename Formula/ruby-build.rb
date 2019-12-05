@@ -16,6 +16,16 @@ class RubyBuild < Formula
     system "./install.sh"
   end
 
+  def caveats; <<~EOS
+    Warning: without further action ruby-build will download and install OpenSSL outside of Homebrew, and never update it.
+
+    To avoid this, set the following environment variable in your shell:
+      export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
+
+    However, note that if you do this, it will interfere with building end of life rubies that still use OpenSSL 1.0.
+  EOS
+  end
+
   test do
     assert_match "2.0.0", shell_output("#{bin}/ruby-build --definitions")
   end
