@@ -3,6 +3,7 @@ class Gocr < Formula
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
   url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz"
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
+  revision 1
 
   bottle do
     cellar :any
