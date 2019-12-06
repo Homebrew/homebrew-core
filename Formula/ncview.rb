@@ -1,10 +1,9 @@
 class Ncview < Formula
   desc "Visual browser for netCDF format files"
   homepage "https://web.archive.org/web/20190806213507/meteora.ucsd.edu/~pierce/ncview_home_page.html"
-  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/ncview--2.1.7.tar.gz"
-  sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 10
+  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/ncview--2.1.8.tar.gz"
+  sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
 
   bottle do
     sha256 "6728af3ab82b4598d60c52a5bd3f0f1a94077876e4936b45c430743657d248aa" => :catalina
