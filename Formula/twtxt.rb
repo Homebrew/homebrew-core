@@ -12,7 +12,7 @@ class Twtxt < Formula
     sha256 "f1a2d991ea0e742dd12092c521cb8d886a4c6800b2d1d2aaeefa325f642d6eab" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python3"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/1e/d4/c1206b016b42a0b223aadb559318966b64ec27e5406bed79c36356e62082/aiohttp-2.2.5.tar.gz"
