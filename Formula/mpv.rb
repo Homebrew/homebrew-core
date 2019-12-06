@@ -48,7 +48,7 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
 
-    system "./bootstrap.py"
+    system "python3", "bootstrap.py"
     system "python3", "waf", "configure", *args
     system "python3", "waf", "install"
   end
