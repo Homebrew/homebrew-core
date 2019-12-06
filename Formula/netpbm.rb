@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3603
-  version "10.73.27"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3687
+  version "10.73.29"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
@@ -61,11 +61,9 @@ class Netpbm < Formula
       # do man pages explicitly; otherwise a junk file is installed in man/web
       man1.install Dir["man/man1/*.1"]
       man5.install Dir["man/man5/*.5"]
-      lib.install Dir["link/*.a"], Dir["link/*.dylib"]
+      lib.install Dir["staticlink/*.a"], Dir["sharedlink/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
-
-    (bin/"doc.url").unlink
   end
 
   test do
