@@ -1,8 +1,8 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://seladb.github.io/PcapPlusPlus-Doc"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v19.04.tar.gz"
-  sha256 "0b44074ebbaaa8666e16471311b6b99b0a5bf52d16bbe1452d26bacecfd90add"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v19.12.tar.gz"
+  sha256 "9bebe2972a6678b8fb80f93b92a3caf9babae346137f2171e6941f35b56f88bb"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,6 @@ class Pcapplusplus < Formula
   end
 
   def install
-    inreplace "mk/PcapPlusPlus.mk.macosx", "-I", "-I#{MacOS.sdk_path}"
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and
