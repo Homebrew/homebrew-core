@@ -1,10 +1,9 @@
 class Asciidoc < Formula
   desc "Formatter/translator for text files to numerous formats. Includes a2x"
   homepage "http://asciidoc.org/"
-  # This release is listed as final on GitHub, but not listed on asciidoc.org.
-  url "https://github.com/asciidoc/asciidoc/archive/8.6.10.tar.gz"
-  sha256 "9e52f8578d891beaef25730a92a6e723596ddbd07bfe0d2a56486fcf63a0b983"
-  revision 2
+  url "https://github.com/asciidoc/asciidoc-py3/archive/8.6.10.tar.gz"
+  sha256 "88911e41d3caf64e1c0363b123612e2ac0ac58c0fb4b7141e9ab67eb3f95fc75"
+  revision 3
   head "https://github.com/asciidoc/asciidoc.git"
 
   bottle do
@@ -18,19 +17,16 @@ class Asciidoc < Formula
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
+  depends_on "python"
   depends_on "source-highlight"
 
   def install
-    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    py3ver = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PATH", Formula["python"].opt_frameworks/"Python.framework/Versions/#{py3ver}/bin"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
-
-    inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
-                 filters/graphviz/graphviz2png.py filters/latex/latex2img.py
-                 filters/music/music2png.py filters/unwraplatex.py],
-      "#!/usr/bin/env python2", "#!/usr/bin/python"
 
     # otherwise macOS's xmllint bails out
     inreplace "Makefile", "-f manpage", "-f manpage -L"
