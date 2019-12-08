@@ -3,6 +3,7 @@ class Cgal < Formula
   homepage "https://www.cgal.org/"
   url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-5.0/CGAL-5.0.tar.xz"
   sha256 "e1e7e932988c5d149aa471c1afd69915b7603b5b31b9b317a0debb20ecd42dcc"
+  revision 1
 
   bottle do
     cellar :any
