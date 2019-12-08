@@ -1,9 +1,8 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/bcftools/releases/download/1.9/bcftools-1.9.tar.bz2"
-  sha256 "6f36d0e6f16ec4acf88649fb1565d443acf0ba40f25a9afd87f14d14d13070c8"
-  revision 1
+  url "https://github.com/samtools/bcftools/releases/download/1.10/bcftools-1.10.tar.bz2"
+  sha256 "2a37721b944772633f334cc0897c43430d56cf59d7363b72d5cd2cfc9ae3af83"
 
   bottle do
     sha256 "f70c090211ffc74530eeb79f2c96c7a6522d6da62629a07ec02959b1d3c0aff7" => :catalina
