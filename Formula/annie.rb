@@ -14,12 +14,8 @@ class Annie < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/iawia002/annie").install buildpath.children
-    cd "src/github.com/iawia002/annie" do
-      system "go", "build", "-o", bin/"annie"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-o", bin/"annie"
+    prefix.install_metafiles
   end
 
   test do
