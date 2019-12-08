@@ -1,8 +1,8 @@
 class Diffr < Formula
   desc "LCS based diff highlighting tool to ease code review from your terminal"
   homepage "https://github.com/mookid/diffr"
-  url "https://github.com/mookid/diffr/archive/v0.1.2.tar.gz"
-  sha256 "76767fec7bcec1f86ed0c21c05ce4fee3ac41e00f2b88e91249102b02c0f7307"
+  url "https://github.com/mookid/diffr/archive/v0.1.3.tar.gz"
+  sha256 "7fd8c078a1b94140624a5a021eef059a916f79cdf21cfba7489f83be8fadfaa2"
 
   bottle do
     cellar :any_skip_relocation
