@@ -1,8 +1,8 @@
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2"
-  sha256 "083f688d7070082411c72c27372104ed472ed7a620591d06f928e653ebc23482"
+  url "https://github.com/samtools/samtools/releases/download/1.10/samtools-1.10.tar.bz2"
+  sha256 "7b9ec5f05d61ec17bd9a82927e45d8ef37f813f79eb03fe06c88377f1bd03585"
 
   bottle do
     cellar :any
@@ -14,6 +14,8 @@ class Samtools < Formula
   end
 
   depends_on "htslib"
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",
