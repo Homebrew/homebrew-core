@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2"
-  sha256 "e04b877057e8b3b8425d957f057b42f0e8509173621d3eccaedd0da607d9929a"
+  url "https://github.com/samtools/htslib/releases/download/1.10/htslib-1.10.tar.bz2"
+  sha256 "7ae44dd9faeb4c4293e9bb4815164ac28c6c6fae81fed4791df2fa878f57a972"
 
   bottle do
     cellar :any
@@ -15,8 +15,12 @@ class Htslib < Formula
 
   depends_on "xz"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
     system "make", "install"
     pkgshare.install "test"
   end
