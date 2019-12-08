@@ -1,8 +1,8 @@
 class Testdisk < Formula
   desc "Powerful free data recovery utility"
   homepage "https://www.cgsecurity.org/wiki/TestDisk"
-  url "https://www.cgsecurity.org/testdisk-7.1.tar.bz2"
-  sha256 "1413c47569e48c5b22653b943d48136cb228abcbd6f03da109c4df63382190fe"
+  url "https://www.cgsecurity.org/testdisk-7.2-WIP.tar.bz2"
+  sha256 "f661b4e4ffd973d9685c0c0fce8016a8086ccdfedb249c14b24017943f40b3ce"
 
   bottle do
     cellar :any_skip_relocation
