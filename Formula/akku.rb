@@ -1,8 +1,8 @@
 class Akku < Formula
   desc "R6RS/R7RS Scheme language package manager"
   homepage "https://akkuscm.org"
-  url "https://github.com/weinholt/akku/releases/download/v1.0.0/akku-1.0.0.src.tar.xz"
-  sha256 "37ac149c19cce1219595d751f9d5b99ccaffe3892ba023148dc48aab89c4bf7d"
+  url "https://gitlab.com/akkuscm/akku/uploads/7f36e5a69b24c028d478fdc3c13e7c3d/akku-1.0.1.src.tar.xz"
+  sha256 "33d6ca54122bc565b91520006f97f611dc5f5ae2ebcf77953544b50f1b1bd7c7"
   head "https://gitlab.com/akkuscm/akku.git"
 
   # TODO: Akku supports both Guile and Chez, but the actual tarball to download is
@@ -34,7 +34,7 @@ class Akku < Formula
   end
 
   test do
-    expected = ",()´ Akku.scm 1.0.0 - Scheme package manager"
+    expected = ",()´ Akku.scm 1.0.1 - Scheme package manager"
     assert_match shell_output("#{bin}/akku --help"), expected
   end
 end
