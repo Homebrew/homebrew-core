@@ -1,9 +1,8 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.6.tar.xz"
-  sha256 "fa9e3130e7afdfb6eff1b7892caac3efdd38a442f9989ca8c061eced2c755148"
-  revision 1
+  url "https://weechat.org/files/src/weechat-2.7.tar.xz"
+  sha256 "56fc42a4afece57bc27f95a2d155815a5e6472f32535add4c0ab4ce3b5e399e7"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
@@ -19,11 +18,12 @@ class Weechat < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libiconv"
   depends_on "lua"
   depends_on "ncurses"
   depends_on "perl"
   depends_on "python"
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "ruby"
 
   def install
     args = std_cmake_args + %W[
@@ -31,12 +31,8 @@ class Weechat < Formula
       -DENABLE_GUILE=OFF
       -DCA_FILE=#{etc}/openssl/cert.pem
       -DENABLE_JAVASCRIPT=OFF
+      -DENABLE_PHP=OFF
     ]
-
-    if MacOS.version >= :sierra
-      args << "-DRUBY_EXECUTABLE=/usr/bin/ruby"
-      args << "-DRUBY_LIB=/usr/lib/libruby.dylib"
-    end
 
     if MacOS.version >= :mojave && MacOS::CLT.installed?
       ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
