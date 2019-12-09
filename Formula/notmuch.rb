@@ -37,6 +37,9 @@ class Notmuch < Formula
     # Emacs and parallel builds aren't friends
     ENV.deparallelize
 
+    # Add sphinx-doc binaries to path
+    ENV.prepend_path "PATH", Formula["sphinx-doc"].opt_bin
+
     system "./configure", *args
     system "make", "V=1", "install"
 
