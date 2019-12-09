@@ -1,8 +1,8 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
-  url "https://gforge.inria.fr/frs/download.php/file/37934/geogram_1.6.11.tar.gz"
-  sha256 "5d823eb8bc3b34cc5c7abd78320a81e7e79ae16374a9706a7069d53ca032caf6"
+  url "https://gforge.inria.fr/frs/download.php/file/38229/geogram_1.7.3.tar.gz"
+  sha256 "6fb402825f6f633f51c1b4a71ceb9137320d0d7bf569c96bfde39fe0be24d1a9"
 
   bottle do
     sha256 "a50a856afcb09e79581bd15f5a2abc84fd6d42d3fb3cb7c7403e315c77de8a34" => :catalina
