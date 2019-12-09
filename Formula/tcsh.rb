@@ -1,7 +1,7 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://www.tcsh.org/"
-  url "ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.02.tar.gz"
+  url "https://astron.com/pub/tcsh/tcsh-6.22.02.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.22.02.tar.gz"
   sha256 "ed287158ca1b00ba477e8ea57bac53609838ebcfd05fcb05ca95021b7ebe885b"
 
