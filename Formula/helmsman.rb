@@ -4,6 +4,7 @@ class Helmsman < Formula
   url "https://github.com/Praqma/helmsman.git",
     :tag      => "v1.13.0",
     :revision => "eb732a11111e881e5d8918e446f4444acb16a1c1"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +15,8 @@ class Helmsman < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "helm@2"
   depends_on "kubernetes-cli"
-  depends_on "kubernetes-helm"
 
   def install
     ENV["GOPATH"] = buildpath
@@ -26,12 +27,17 @@ class Helmsman < Formula
     cd dir do
       system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"helmsman"
+      bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["helm@2"].opt_bin}:$PATH")
       prefix.install_metafiles
       pkgshare.install "example.yaml"
     end
   end
 
   test do
+    # add helm@2 to PATH for testing
+    # PR for moving it to helm v3, https://github.com/Praqma/helmsman/pull/329
+    ENV["PATH"] = "#{ENV["PATH"]}:#{Formula["helm@2"].opt_bin}"
+
     assert_match version.to_s, shell_output("#{bin}/helmsman version")
 
     output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1", 1)
