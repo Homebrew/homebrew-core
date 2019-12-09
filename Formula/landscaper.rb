@@ -4,6 +4,7 @@ class Landscaper < Formula
   url "https://github.com/Eneco/landscaper.git",
       :tag      => "v1.0.24",
       :revision => "1199b098bcabc729c885007d868f38b2cf8d2370"
+  revision 1
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
@@ -16,8 +17,8 @@ class Landscaper < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "helm@2"
   depends_on "kubernetes-cli"
-  depends_on "kubernetes-helm"
 
   def install
     ENV["GOPATH"] = buildpath
@@ -30,11 +31,14 @@ class Landscaper < Formula
       system "make", "bootstrap"
       system "make", "build"
       bin.install "build/landscaper"
+      bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["helm@2"].opt_bin}:$PATH")
       prefix.install_metafiles
     end
   end
 
   test do
-    assert_match "This is Landscaper v#{version}", pipe_output("#{bin}/landscaper apply 2>&1")
+    output = shell_output("#{bin}/landscaper apply --dry-run 2>&1", 1)
+    assert_match "This is Landscaper v#{version}", output
+    assert_match "dryRun=true", output
   end
 end
