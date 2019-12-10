@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://github.com/DNSCrypt/dnscrypt-proxy"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.34.tar.gz"
-  sha256 "38ec7df2bdeff6d094d8975c0005c1d896a63b529cba417381b63fcf51d42303"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.35.tar.gz"
+  sha256 "723395e5afa4adb550f2050801260aef3cc9ed918cc26780c7474b110a9ad9d7"
   head "https://github.com/DNSCrypt/dnscrypt-proxy.git"
 
   bottle do
