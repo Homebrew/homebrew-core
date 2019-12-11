@@ -1,8 +1,8 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2019.07.01/kakoune-2019.07.01.tar.bz2"
-  sha256 "8cf978499000bd71a78736eaee5663bd996f53c4e610c62a9bd97502a3ed6fd3"
+  url "https://github.com/mawww/kakoune/releases/download/v2019.12.10/kakoune-2019.12.10.tar.bz2"
+  sha256 "66ad8d28cecb29b08e5975e659ee91206ca676a0194c730ca4eed026bafa2ff8"
   head "https://github.com/mawww/kakoune.git"
 
   bottle do
