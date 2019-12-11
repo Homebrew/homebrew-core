@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.8.279.23.tar.gz"
-  sha256 "00857a609670234cae963a3866edd8ff826f0a98ebbb59a44ab8e656ff3e746c"
+  url "https://github.com/v8/v8/archive/7.9.317.31.tar.gz"
+  sha256 "a11c1a4350ed521993e83846da61a8c1e563204a6d8c7b28cb0b4f0fba420fe5"
 
   bottle do
     cellar :any
@@ -21,18 +21,18 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "152c5144ceed9592c20f0c8fd55769646077569b"
+      :revision => "ad9e442d92dcd9ee73a557428cfc336b55cbd533"
   end
 
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "693faeda4ee025796c7e473d953a5a7b6ad64c93"
+      :revision => "082f11b29976c3be67dddd74bd75c6d1793201c7"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "53f6b233a41ec982d8445996247093f7aaf41639"
+      :revision => "5005010d694e16571b8dfbf07d70817841f80a69"
   end
 
   resource "v8/base/trace_event/common" do
@@ -42,7 +42,7 @@ class V8 < Formula
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "565f1b848215b77c3732bca345fe76a0431d8b34"
+      :revision => "f2fb48c3b3d79a75a88a99fba6576b25d42ec528"
   end
 
   resource "v8/third_party/jinja2" do
