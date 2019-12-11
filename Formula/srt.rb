@@ -1,8 +1,8 @@
 class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
-  url "https://github.com/Haivision/srt/archive/v1.4.0.tar.gz"
-  sha256 "c2ba0bb9382ab42f9eebac831dc021e7da26b2971aaeb30a891dd24297bd929c"
+  url "https://github.com/Haivision/srt/archive/v1.4.1.tar.gz"
+  sha256 "e80ca1cd0711b9c70882c12ec365cda1ba852e1ce8acd43161a21a04de0cbf14"
   head "https://github.com/Haivision/srt.git"
 
   bottle do
