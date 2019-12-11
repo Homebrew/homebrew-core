@@ -5,51 +5,33 @@ class Fastlane < Formula
   sha256 "ff3813d75bbced1030b5d7e3e714e75f358788f74d951be796515e8ec4e7ec79"
   head "https://github.com/fastlane/fastlane.git"
 
-  RUBY_DEP = "ruby@2.5".freeze
-
-  depends_on RUBY_DEP
+  depends_on "ruby@2.5"
 
   def install
-    # Build and unpack gem into lib directory to reference from our Gemfile
-    system "gem", "build", "fastlane.gemspec"
-    gem_name = Dir["fastlane-*.gem"].last
-    version_name = File.basename(gem_name, ".gem")
-    system "gem", "unpack", gem_name, "--target", lib
-
-    # Need to also unpack the gemspec to install from bundler
-    # Manually copying since 'gem unpack' doesn't recognize '--target'
-    system "gem", "unpack", gem_name, "--spec"
-    cp "#{version_name}.gemspec", "#{lib}/#{version_name}/fastlane.gemspec"
-
-    # Gemfile referencing our unpacked gem
-    (prefix/libexec/"Gemfile").write <<~EOS
-      source "https://rubygems.org"
-      gem "fastlane", path: "#{lib}/#{version_name}"
-    EOS
-
     ENV["GEM_HOME"] = libexec
-    ENV["BUNDLE_PATH"] = libexec
-    ENV["BUNDLE_GEMFILE"] = libexec/"Gemfile"
-    ENV.prepend_path "PATH", Formula[RUBY_DEP].opt_bin
+    ENV["GEM_PATH"] = libexec
 
-    # Installing bundler and fastlane dependencies
-    system "gem", "install", "bundler"
-    bundle = Dir["#{libexec}/**/bundle"].last
-    system bundle, "install", "--without", "test"
+    system "gem", "build", "fastlane.gemspec"
+    system "gem", "install", "fastlane-#{version}.gem", "--no-document"
 
-    # fastlane executable referencing our gems installed in libexec
     (bin/"fastlane").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula[RUBY_DEP].opt_bin}:$PATH}"
-      GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" BUNDLE_GEMFILE="#{libexec}/Gemfile" \\
-        exec "#{bundle}" exec "#{libexec}/bin/fastlane" "$@"
+      export PATH="#{Formula["ruby@2.5"].opt_bin}:$PATH}"
+      GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
+        exec "#{libexec}/bin/fastlane" "$@"
     EOS
-    chmod("+x", File.join(bin, "fastlane"))
+    chmod "+x", bin/"fastlane"
   end
 
   test do
-    output = shell_output("#{bin}/fastlane --version")
-    assert_true output.include?("fastlane #{version}")
-    assert_true output.include?("#{prefix}/lib/fastlane-#{versionb}/bin/fastlane")
+    version_output = shell_output("#{bin}/fastlane --version")
+    assert_true version_output.include?("fastlane #{version}")
+    assert_true version_output.include?("#{prefix}/libexec/gems/fastlane-#{version}/bin/fastlane")
+
+    actions_output = shell_output("#{bin}/fastlane actions")
+    actions_output.include?("gym")
+    actions_output.include?("pilot")
+    actions_output.include?("screengrab")
+    actions_output.include?("supply")
   end
 end
