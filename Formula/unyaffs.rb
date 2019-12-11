@@ -1,9 +1,9 @@
 class Unyaffs < Formula
   desc "Extract files from a YAFFS2 filesystem image"
-  homepage "https://github.com/ehlers/unyaffs"
-  url "https://github.com/ehlers/unyaffs/archive/0.9.7.tar.gz"
-  sha256 "099ee9e51046b83fe8555d7a6284f6fe4fbae96be91404f770443d8129bd8775"
-  head "https://github.com/ehlers/unyaffs.git"
+  homepage "https://git.bernhard-ehlers.de/ehlers/unyaffs/"
+  url "https://git.bernhard-ehlers.de/ehlers/unyaffs/archive/0.9.7.tar.gz"
+  sha256 "17489fb07051d228ede6ed35c9138e25f81085492804104a8f52c51a1bd6750d"
+  head "https://git.bernhard-ehlers.de/ehlers/unyaffs.git"
 
   bottle do
     cellar :any_skip_relocation
