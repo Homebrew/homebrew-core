@@ -24,14 +24,12 @@ class Fastlane < Formula
   end
 
   test do
-    version_output = shell_output("#{bin}/fastlane --version")
-    assert_true version_output.include?("fastlane #{version}")
-    assert_true version_output.include?("#{prefix}/libexec/gems/fastlane-#{version}/bin/fastlane")
+    assert_match "fastlane #{version}", shell_output("#{bin}/fastlane --version")
 
     actions_output = shell_output("#{bin}/fastlane actions")
-    actions_output.include?("gym")
-    actions_output.include?("pilot")
-    actions_output.include?("screengrab")
-    actions_output.include?("supply")
+    assert_match "gym", actions_output
+    assert_match "pilot", actions_output
+    assert_match "screengrab", actions_output
+    assert_match "supply", actions_output
   end
 end
