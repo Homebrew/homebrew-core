@@ -2,8 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      :tag      => "v3.0.0",
-      :revision => "a5557586699d9a90aba70a7a0468549c400e9b61"
+      :tag      => "v3.0.1",
+      :revision => "ae4740fa265701f494df23b65af80822f3e26a13"
   head "https://github.com/zeek/zeek.git"
 
   bottle do
@@ -30,6 +30,6 @@ class Zeek < Formula
   end
 
   test do
-    system "#{bin}/bro", "--version"
+    system "#{bin}/zeek", "--version"
   end
 end
