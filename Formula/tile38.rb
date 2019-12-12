@@ -2,8 +2,8 @@ class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
   url "https://github.com/tidwall/tile38.git",
-    :tag      => "1.19.2",
-    :revision => "0db642f743bac0580442816ff62548fffae94349"
+    :tag      => "1.19.3",
+    :revision => "d48dd2278afb4271019f53c02c9642debd1ff609"
 
   bottle do
     cellar :any_skip_relocation
