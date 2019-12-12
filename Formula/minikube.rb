@@ -2,8 +2,8 @@ class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
   homepage "https://minikube.sigs.k8s.io/"
   url "https://github.com/kubernetes/minikube.git",
-      :tag      => "v1.6.0",
-      :revision => "11630973e5aacb8f16d706f97683bf70fffcba3b"
+      :tag      => "v1.6.1",
+      :revision => "42a9df4854dcea40ec187b6b8f9a910c6038f81a"
   head "https://github.com/kubernetes/minikube.git"
 
   bottle do
