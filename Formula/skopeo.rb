@@ -3,7 +3,7 @@ class Skopeo < Formula
   homepage "https://github.com/containers/skopeo"
   url "https://github.com/containers/skopeo/archive/v0.1.40.tar.gz"
   sha256 "ee1e33245938fcb622f5864fac860e2d8bfa2fa907af4b5ffc3704ed0db46bbf"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -34,10 +34,10 @@ class Skopeo < Formula
 
       ldflags = [
         "-X main.gitCommit=",
-        "-X github.com/containers/image/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
-        "-X github.com/containers/image/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
-        "-X github.com/containers/image/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
-        "-X github.com/containers/image/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
+        "-X github.com/containers/image/v5/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
+        "-X github.com/containers/image/v5/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
+        "-X github.com/containers/image/v5/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
+        "-X github.com/containers/image/v5/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
       ].join(" ")
 
       system "go", "build", "-v", "-x", "-tags", buildtags, "-ldflags", ldflags, "-o", bin/"skopeo", "./cmd/skopeo"
