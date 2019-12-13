@@ -3,7 +3,7 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 5
+  revision 6
 
   bottle do
     rebuild 1
@@ -23,7 +23,7 @@ class OpencvAT2 < Formula
   depends_on "libtiff"
   depends_on "numpy@1.16"
   depends_on "openexr"
-  depends_on "python@2" # does not support Python 3
+  uses_from_macos "python@2"
 
   def install
     jpeg = Formula["jpeg"]
