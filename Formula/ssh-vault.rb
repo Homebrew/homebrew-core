@@ -31,7 +31,7 @@ class SshVault < Formula
   test do
     output = shell_output("echo hi | #{bin}/ssh-vault -u new create")
     fingerprint = output.split("\n").first.split(";").last
-    cmd = "#{bin}/ssh-vault -k https://ssh-keys.online/#{fingerprint} view"
+    cmd = "#{bin}/ssh-vault -k https://ssh-keys.online/key/#{fingerprint} view"
     output = pipe_output(cmd, output, 0)
     assert_equal "hi", output.chomp
   end
