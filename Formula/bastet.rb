@@ -1,6 +1,6 @@
 class Bastet < Formula
   desc "Bastard Tetris"
-  homepage "http://fph.altervista.org/prog/bastet.html"
+  homepage "https://fph.altervista.org/prog/bastet.html"
   url "https://github.com/fph/bastet/archive/0.43.2.tar.gz"
   sha256 "f219510afc1d83e4651fbffd5921b1e0b926d5311da4f8fa7df103dc7f2c403f"
 
