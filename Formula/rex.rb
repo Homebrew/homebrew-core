@@ -1,8 +1,8 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.7.0.tar.gz"
-  sha256 "bca0fd28d91577988ff527042ed0e4e61bec26c1c90062e3c3c3bf3e857b1834"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.7.1.tar.gz"
+  sha256 "e6f461eff30433756c4845dd06d20f66c61a23effe264c4e98998972d2f9d8e1"
 
   bottle do
     cellar :any_skip_relocation
@@ -64,8 +64,8 @@ class Rex < Formula
   end
 
   resource "HTTP::Cookies" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.07.tar.gz"
-    sha256 "6a2f8cde56074c9dc5b46a143975f19b981d0569f1d4dc5e80567d6aab3eea2a"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.08.tar.gz"
+    sha256 "49ebb73576eb41063c04bc079477df094496deec805ae033f3be338c23c3af59"
   end
 
   resource "HTTP::Daemon" do
@@ -74,8 +74,8 @@ class Rex < Formula
   end
 
   resource "HTTP::Date" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.04.tar.gz"
-    sha256 "c55f3f7a36d173fec34896594a601047625f454e54ee6bb322a23f619d4eb98e"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz"
+    sha256 "365d6294dfbd37ebc51def8b65b81eb79b3934ecbc95a2ec2d4d827efe6a922b"
   end
 
   resource "HTTP::Message" do
