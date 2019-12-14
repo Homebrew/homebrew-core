@@ -5,7 +5,7 @@ class Volatility < Formula
   homepage "https://github.com/volatilityfoundation/volatility"
   url "https://github.com/volatilityfoundation/volatility/archive/2.6.1.tar.gz"
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
-  revision 1
+  revision 2
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
@@ -17,8 +17,10 @@ class Volatility < Formula
 
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "python@2" # does not support Python 3
   depends_on "yara"
+  # Python 3 support will come with volatility 3
+  # https://github.com/volatilityfoundation/volatility3
+  uses_from_macos "python@2"
 
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/2c/e3/84a3a99904c368daa1de5e85a6e9cc07189e7f66cb1338a9ebf93fa051bd/distorm3-3.4.1.tar.gz"
