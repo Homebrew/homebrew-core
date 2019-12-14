@@ -15,15 +15,9 @@ class TerraformDocs < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/segmentio/terraform-docs"
-    dir.install buildpath.children
-
-    cd dir do
-      system "make", "build-darwin-amd64"
-      bin.install "bin/darwin-amd64/terraform-docs"
-      prefix.install_metafiles
-    end
+    system "make", "build-darwin-amd64"
+    bin.install "bin/darwin-amd64/terraform-docs"
+    prefix.install_metafiles
   end
 
   test do
