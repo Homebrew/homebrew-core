@@ -1,9 +1,8 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.12.2%20%28Stable%29/asio-1.12.2.tar.bz2"
-  sha256 "4e27dcb37456ba707570334b91f4798721111ed67b69915685eac141895779aa"
-  revision 1
+  url "https://downloads.sourceforge.net/project/asio/asio/1.14.0%20%28Stable%29/asio-1.14.0.tar.bz2"
+  sha256 "2e1be1a518a568525f79b5734d13731b6b4e4399ec576a0961db6e2d86112973"
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
