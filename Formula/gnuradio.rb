@@ -3,7 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
-  revision 11
+  revision 12
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -22,9 +22,9 @@ class Gnuradio < Formula
   depends_on "gsl"
   depends_on "numpy@1.16"
   depends_on "portaudio"
-  depends_on "python@2"
   depends_on "uhd"
   depends_on "zeromq"
+  uses_from_macos "python@2" # Does not support Python 3
 
   # cheetah starts here
   resource "Markdown" do
@@ -182,7 +182,7 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system "python2.7", testpath/"test.py"
+    system "python", testpath/"test.py"
 
     cd testpath do
       system "#{bin}/gr_modtool", "newmod", "test"
