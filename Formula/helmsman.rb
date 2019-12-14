@@ -2,9 +2,8 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-    :tag      => "v1.13.0",
-    :revision => "eb732a11111e881e5d8918e446f4444acb16a1c1"
-  revision 1
+    :tag      => "v1.13.1",
+    :revision => "d4731fbe63312934cf7caa6b07acfca6fd2d03c3"
 
   bottle do
     cellar :any_skip_relocation
@@ -34,10 +33,6 @@ class Helmsman < Formula
   end
 
   test do
-    # add helm@2 to PATH for testing
-    # PR for moving it to helm v3, https://github.com/Praqma/helmsman/pull/329
-    ENV["PATH"] = "#{ENV["PATH"]}:#{Formula["helm@2"].opt_bin}"
-
     assert_match version.to_s, shell_output("#{bin}/helmsman version")
 
     output = shell_output("#{bin}/helmsman --apply -f #{pkgshare}/example.yaml 2>&1", 1)
