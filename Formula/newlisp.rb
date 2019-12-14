@@ -1,9 +1,8 @@
 class Newlisp < Formula
   desc "Lisp-like, general-purpose scripting language"
   homepage "http://www.newlisp.org/"
-  url "http://www.newlisp.org/downloads/newlisp-10.7.1.tgz"
-  sha256 "2e300c8bed365a564d284bf3ad6c49e036256e7fc3f469ebda0b45e6e196a7cc"
-  revision 1
+  url "http://www.newlisp.org/downloads/newlisp-10.7.5.tgz"
+  sha256 "dc2d0ff651c2b275bc4af3af8ba59851a6fb6e1eaddc20ae75fb60b1e90126ec"
 
   bottle do
     sha256 "7b9a804b9fdb3836b57cc58dd42208e18697fd7ce6b0b9dfcc7dcb1c3deca4d1" => :mojave
@@ -16,12 +15,6 @@ class Newlisp < Formula
   def install
     # Required to use our configuration
     ENV.append_to_cflags "-DNEWCONFIG -c"
-
-    # fix the prefix in a source file
-    inreplace "guiserver/newlisp-edit.lsp" do |s|
-      s.gsub! "#!/usr/local/bin/newlisp", "#!/usr/bin/env newlisp"
-      s.gsub! "/usr/local/bin/newlisp", "#{opt_bin}/newlisp"
-    end
 
     system "./configure-alt", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
