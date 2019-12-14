@@ -1,9 +1,8 @@
 class Norm < Formula
   desc "NACK-Oriented Reliable Multicast"
   homepage "https://www.nrl.navy.mil/itd/ncs/products/norm"
-  url "https://downloads.pf.itd.nrl.navy.mil/norm/archive/src-norm-1.5r6.tgz"
-  version "1.5r6"
-  sha256 "20ea2e8dd5d5e1ff1ff91dc7dab6db53a77d7b7183d8cf2425c215fd294f22a7"
+  url "https://github.com/USNavalResearchLaboratory/norm/archive/v1.5.8.tar.gz"
+  sha256 "ee7493c9ae9a129e7cbcd090a412fb0d0e25ab3acaa4748e5dc696bf822a62b5"
 
   bottle do
     cellar :any
@@ -15,7 +14,14 @@ class Norm < Formula
     sha256 "b5f802ff09e68b712f472f45aea9b634f6c45868bccaf708d565ff98a95b145e" => :mavericks
   end
 
+  resource "protolib" do
+    url "https://github.com/USNavalResearchLaboratory/protolib/archive/v3.0b1.tar.gz"
+    sha256 "1e15bbbef4758e0179672d456c2ad2b2087927a3796adc4a18e2338f300bc3e6"
+  end
+
   def install
+    (buildpath/"protolib").install resource("protolib")
+
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "install"
     include.install "include/normApi.h"
