@@ -1,8 +1,8 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.4.0.tar.gz"
-  sha256 "776468072b90b8cb68e063fe1e01be581a217b00bc68febeed19cb23a28d0e04"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.0.tar.gz"
+  sha256 "10e0754b034ce84c5783e494ddb5772265bc8b1cfaa1a13871521881c869b4b4"
 
   bottle do
     cellar :any_skip_relocation
