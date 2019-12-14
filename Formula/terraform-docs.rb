@@ -15,7 +15,7 @@ class TerraformDocs < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build-darwin-amd64"
+    system "make", "build"
     bin.install "bin/darwin-amd64/terraform-docs"
     prefix.install_metafiles
   end
