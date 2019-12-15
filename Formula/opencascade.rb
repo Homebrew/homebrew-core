@@ -16,18 +16,15 @@ class Opencascade < Formula
   depends_on "doxygen" => :build
   depends_on "freeimage"
   depends_on "freetype"
-  depends_on "gl2ps"
   depends_on "tbb"
 
   def install
     system "cmake", ".",
                     "-DUSE_FREEIMAGE=ON",
-                    "-DUSE_GL2PS=ON",
                     "-DUSE_TBB=ON",
                     "-DINSTALL_DOC_Overview=ON",
                     "-D3RDPARTY_FREEIMAGE_DIR=#{Formula["freeimage"].opt_prefix}",
                     "-D3RDPARTY_FREETYPE_DIR=#{Formula["freetype"].opt_prefix}",
-                    "-D3RDPARTY_GL2PS_DIR=#{Formula["gl2ps"].opt_prefix}",
                     "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
                     "-D3RDPARTY_TCL_DIR:PATH=#{MacOS.sdk_path_if_needed}/usr",
                     "-D3RDPARTY_TCL_INCLUDE_DIR=#{MacOS.sdk_path_if_needed}/usr/include",
