@@ -1,8 +1,8 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.3.0.tar.gz"
-  sha256 "d8378e82e392c70f5c20cb08705687da30cd427f2bca539939311512777e6659"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.3.2.tar.gz"
+  sha256 "d47b564858c3e9fc7726ef58c9a4ee518d2958c5de3dcad6cd78b7cfe0a6bdef"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
@@ -12,10 +12,9 @@ class Offlineimap < Formula
     sha256 "deaa78edce86b63e6d24b563877f6c246c2d1cf2987da172174fbd2207112eb1" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "docbook-xsl" => :build
-  depends_on "sphinx-doc" => :build
-  depends_on "python@2" # does not support Python 3
+  # Will never support Python 3
+  # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
+  uses_from_macos "python@2"
 
   resource "rfc6555" do
     url "https://files.pythonhosted.org/packages/58/a8/1dfba2db1f744657065562386069e547eefea9432d3f520d4af5b5fabd28/rfc6555-0.0.0.tar.gz"
@@ -28,13 +27,13 @@ class Offlineimap < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python2"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.delete("PYTHONPATH")
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
     resources.each do |r|
       r.stage do
@@ -42,10 +41,9 @@ class Offlineimap < Formula
       end
     end
 
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    system "make", "docs"
-    man1.install "docs/offlineimap.1"
-    man7.install "docs/offlineimapui.7"
+    # Remove hardcoded python2 that does not exist on high-sierra or mojave
+    inreplace "Makefile", "python2", "python"
+    inreplace "bin/offlineimap", "python2", "python"
 
     etc.install "offlineimap.conf", "offlineimap.conf.minimal"
     libexec.install "bin/offlineimap" => "offlineimap.py"
