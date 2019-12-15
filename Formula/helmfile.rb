@@ -1,8 +1,8 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.94.1.tar.gz"
-  sha256 "aff89609be5b0c88dfa7d2212b0f143b23ce137561bfe2c1a705419f91d9f0bd"
+  url "https://github.com/roboll/helmfile/archive/v0.95.0.tar.gz"
+  sha256 "abc60798f77979541229237f26ecdc67ac5abe462a3ead69047fc19b72f27931"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Helmfile < Formula
   depends_on "helm"
 
   def install
-    system "go", "build", "-ldflags", "-X main.Version=v#{version}",
+    system "go", "build", "-ldflags", "-X github.com/roboll/helmfile/pkg/app/version.Version=v#{version}",
              "-o", bin/"helmfile", "-v", "github.com/roboll/helmfile"
   end
 
