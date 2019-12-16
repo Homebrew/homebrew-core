@@ -3,7 +3,7 @@ class AppscaleTools < Formula
   homepage "https://github.com/AppScale/appscale-tools"
   url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
   sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
-  revision 2
+  revision 3
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
@@ -15,9 +15,9 @@ class AppscaleTools < Formula
 
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  # Uses SOAPPy, which does not support Python 3
-  depends_on "python@2" # does not support Python 3
   depends_on "ssh-copy-id"
+  # Uses SOAPPy, which does not support Python 3
+  uses_from_macos "python@2" # does not support Python 3
 
   resource "retrying" do
     url "https://files.pythonhosted.org/packages/44/ef/beae4b4ef80902f22e3af073397f079c96969c69b2c7d52a57ea9ae61c9d/retrying-1.3.3.tar.gz"
