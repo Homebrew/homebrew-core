@@ -64,7 +64,7 @@ class Piknik < Formula
     conffile = testpath/"testconfig.toml"
 
     genkeys = shell_output("#{bin}/piknik -genkeys")
-    lines = genkeys.lines.grep(/\s+=\s+/).map { |x| x.gsub(/\s+/, " ").gsub(/#.*/, "") }.uniq
+    lines = genkeys.lines.grep(/\s+=\s+/).map { |x| x.gsub(/\s+/, " ").gsub(/#.*/, "").gsub("0.0.0.0", "127.0.0.1") }.uniq
     conffile.write lines.join("\n")
     pid = fork do
       exec "#{bin}/piknik", "-server", "-config", conffile
