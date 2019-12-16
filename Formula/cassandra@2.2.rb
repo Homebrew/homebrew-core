@@ -1,8 +1,8 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.14/apache-cassandra-2.2.14-bin.tar.gz"
-  sha256 "38b5a1785cb2957147cb4d8852b819160485dac91c417dc0c38440a6021e5dac"
+  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
+  sha256 "7109f50a5a12f62b41e692521622344ba1e79381d713fc578e60e554f7c83334"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class CassandraAT22 < Formula
   keg_only :versioned_formula
 
   depends_on "cython" => :build
-  depends_on "python@2" # does not support Python 3.7
+  uses_from_macos "python@2" # does not support Python 3.7
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
