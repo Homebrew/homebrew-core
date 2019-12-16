@@ -3,6 +3,7 @@ class CassandraAT21 < Formula
   homepage "https://cassandra.apache.org"
   url "https://archive.apache.org/dist/cassandra/2.1.21/apache-cassandra-2.1.21-bin.tar.gz"
   sha256 "992080ce42bb90173b1a910edffadc7f917b5a6e598db5154ff32ae8e2d00ad3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class CassandraAT21 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@2" # does not support Python 3
+  uses_from_macos "python@2" # does not support Python 3
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
