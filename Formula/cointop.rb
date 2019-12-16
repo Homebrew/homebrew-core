@@ -6,21 +6,17 @@ class Cointop < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec3315959d76a14ec024e118023ae93ccc978a2f708954f58f97a184e1f846a1" => :catalina
-    sha256 "6ca7fb14bebc07fccdb7dbebdb8c0731440c46ac925009453b7998620f641cf2" => :mojave
-    sha256 "26ce47cf63a324f26a77a04fd132e69b79de006f8ace83b8c583da4025933ed3" => :high_sierra
+    rebuild 1
+    sha256 "cee5844824a7ecec45c07c7fe46b300c51828ebcfee30d328704b7328aba58aa" => :catalina
+    sha256 "ab20b801fffdf992f5320b0cae3e682775f4dd005dcba9c9a447482a55f6c7fc" => :mojave
+    sha256 "09b107a745e4122439e77715e3e28a529daad29344e0e3d8b89177340ccb01bc" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/miguelmota/cointop"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-o", bin/"cointop"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"cointop"
+    prefix.install_metafiles
   end
 
   test do

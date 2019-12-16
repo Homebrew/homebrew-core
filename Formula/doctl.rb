@@ -1,15 +1,15 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.34.0.tar.gz"
-  sha256 "21dc7370b812989582012180d99d908b12192129149295db63faa7c234e0cc06"
+  url "https://github.com/digitalocean/doctl/archive/v1.36.0.tar.gz"
+  sha256 "36070690813edcf10f85d396509c8c377a6033425731923cc3e3d6bb084e0c05"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07158b1290338cbd4ac75b6e802979b57065149e8276f115093e946445a8b965" => :catalina
-    sha256 "fe9848231ab2d1a1db9e769211d62e7e936c2d405c6c0c68a1d1e1e5334997a5" => :mojave
-    sha256 "ef07a00403432d55036283b41f6b574bcd2f98671efd10adf932d68d24e471e6" => :high_sierra
+    sha256 "d966661d8aab25154603d21367132ed8bfbdc12663982db8582737b72c7b31b5" => :catalina
+    sha256 "d20263437bbd26c0291428912f23af33d37a8be2ad702678f611ce63512d1160" => :mojave
+    sha256 "ebd3da967ca1c994936347aeb9859674bd4d8c6a047ca710008cb42f3933006e" => :high_sierra
   end
 
   depends_on "go" => :build

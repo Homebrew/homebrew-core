@@ -3,13 +3,13 @@ class Libpulsar < Formula
   homepage "https://pulsar.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.4.1/apache-pulsar-2.4.1-src.tar.gz"
   sha256 "6fb764b0d15506884905b781cfd2f678ad6a819f2c8d60cc34f78966b4676d40"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "5512ea72365cd415f5ae87ac87a22a2dc29b4f26fcef90417aba2c5274a674f7" => :catalina
-    sha256 "16712826987ae1daf5c87afde07b1f064a9915f2cc955b65cdef4b02d95528b5" => :mojave
-    sha256 "87595a0547694e1e02b838b29d4522a77f403807642f7898a1bfb8db7c96d64e" => :high_sierra
+    sha256 "758c5a7f3e535f2d1b090e0ebc7ea2cfe897610eb0e5f8c65f6c2347edea681e" => :catalina
+    sha256 "829dc72cdc0ef1061f3ce318daade47dd081b207343a6624701bf2a018c37648" => :mojave
+    sha256 "fe4d957fb5fdce6880fddc04d5da05ef044865e038845934f2a03c0493e56dbe" => :high_sierra
   end
 
   depends_on "cmake" => :build

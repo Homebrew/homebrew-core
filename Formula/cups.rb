@@ -1,13 +1,13 @@
 class Cups < Formula
   desc "Common UNIX Printing System"
   homepage "https://www.cups.org"
-  url "https://github.com/apple/cups/releases/download/v2.3.0/cups-2.3.0-source.tar.gz"
-  sha256 "acaf0229cf008ea8f06353ffd1bbd62d71dbe88990dd3330650ef87edb95a1a5"
+  url "https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz"
+  sha256 "1bca9d89507e3f68cbc84482fe46ae8d5333af5bc2b9061347b2007182ac77ce"
 
   bottle do
-    sha256 "8fa7332f0bda6fdc9b08692375637675d422d23712835e8c04110cdeea79531d" => :catalina
-    sha256 "19697995a80b35ff96a361ce5f309f5c2972fe512079234e60f0affd6ee7bae3" => :mojave
-    sha256 "17e8402cc38c9ccf7c9faa31b7922ca52aa8f6f79b8131ee61324f06c3d66b0f" => :high_sierra
+    sha256 "028330028dca9194605bdf6ec807b413adae82b1491bb69cbee64d31fc04a6f3" => :catalina
+    sha256 "4fd5c5705dfb551e9fd5091f63a69d985bae05bc0b29fb253c9877138b254e7b" => :mojave
+    sha256 "932ce69ebe900f3e307939ffb475a1d2d3f46d079b3c6b5238385051bdc110a1" => :high_sierra
   end
 
   keg_only :provided_by_macos

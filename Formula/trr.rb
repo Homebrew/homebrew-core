@@ -7,16 +7,15 @@ class Trr < Formula
   revision 1
 
   bottle do
-    sha256 "14b4972311987725cc19c4278503c4ecf24cc98599c0caf411363f859dcc1f5e" => :mojave
-    sha256 "cf2a952840541507c0f5b830d6db985a9aa9e4dab5bdc80bef4d8b7683303da8" => :high_sierra
-    sha256 "85385ce899c573ebe08ccca03a8993b2ecffb7d064ae9cc85e337ce8462650e5" => :sierra
-    sha256 "2b5abc44babd72072cd9303e305d7586574ae65df2c350ca474764dede329035" => :el_capitan
-    sha256 "b965ca412e2a97b20bda8afb03fb042fe05f162c6391ea5460e05473c9260ced" => :yosemite
-    sha256 "1b24783f3b7060b6c1ac0a9edac5a990fc2bcefcccef9746897a627c912a931f" => :mavericks
+    rebuild 1
+    sha256 "c8b3b0e457c769fea4142ff484e27f2c9d07d3000e7766c3c9f363b08138bd8b" => :catalina
+    sha256 "be5d808046485957b6cece0d725415dd00025d0007f5eaaf04f4259c766f4b36" => :mojave
+    sha256 "d8aab4b51d742dc7724a9409074047fab825642b4101b16483af46285624baff" => :high_sierra
   end
 
   depends_on "nkf" => :build
   depends_on "apel"
+  depends_on "emacs" if MacOS.version >= :catalina
 
   def install
     system "make", "clean"

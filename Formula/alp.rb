@@ -7,25 +7,17 @@ class Alp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9cfab017fc82194576c793c3fc429d9cff31cb04a72ab5741f89428f3caef547" => :catalina
-    sha256 "cfbba643bf915f19598675cbb333674527fa64a41e36d1ad248c8f49c7754a9e" => :mojave
-    sha256 "f102f90a4e05ea5c651d9cddc3ea987767bb792b4385a6669283f7678f5fdbbc" => :high_sierra
+    rebuild 1
+    sha256 "490aef4ecbd2150797258cd243da08323f3ac7fca4fb140fba7dd1dc4c0e9226" => :catalina
+    sha256 "d1ce608565f0fa3995de0f21b3b3aa5cc90b8c6678704ffe8bf23f56feb9706b" => :mojave
+    sha256 "8c560595fc185ffa578e527f3736b0429d35fce177ce86ab20d25f7f1d0a791e" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    srcpath = buildpath/"src/github.com/tkuchiki/alp"
-    srcpath.install buildpath.children
-
-    cd srcpath do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"alp", "cli/alp/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"alp", "cli/alp/main.go"
+    prefix.install_metafiles
   end
 
   test do

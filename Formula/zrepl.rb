@@ -1,15 +1,15 @@
 class Zrepl < Formula
   desc "One-stop ZFS backup & replication solution"
   homepage "https://zrepl.github.io"
-  url "https://github.com/zrepl/zrepl/archive/v0.2.0.tar.gz"
-  sha256 "40ceb559059b43e96f61303a43ca0fac80b26f8281a07aa03e235658a6548891"
+  url "https://github.com/zrepl/zrepl/archive/v0.2.1.tar.gz"
+  sha256 "df474e70f5a51d84816ee8a06038ded167a7548e547e2d2822c313f088eeeafd"
   head "https://github.com/zrepl/zrepl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb99b7814e895f3004274ef6898002a2f09a8a88948a3a3fd79810adedf29beb" => :catalina
-    sha256 "ad08b412021d906160358c211cf6f9a8578f82a427610f576e206d2424dbc2f8" => :mojave
-    sha256 "51b266e1b03634d565d898848b20b6a7c1267dfac0ab3cfe7d0a1f011f6b46c5" => :high_sierra
+    sha256 "089ca444325890a214face9ea6de0cfc7de1a931ce126e4253f0c390c814fd67" => :catalina
+    sha256 "0907d294ed2efe16891751914c03f869940b0c640e82ae11b882d50a60352dab" => :mojave
+    sha256 "d480d224d1cfd259622de17f60d7f619f439e9cf37337a0a136fba827daa36d2" => :high_sierra
   end
 
   depends_on "dep" => :build
@@ -26,6 +26,9 @@ class Zrepl < Formula
     (gopath/"src/github.com/zrepl/zrepl").install contents
 
     ENV["GOPATH"] = gopath
+    ENV["GOOS"]   = "darwin"
+    ENV["GOARCH"] = "amd64"
+
     ENV.prepend_create_path "PATH", gopath/"bin"
     cd gopath/"src/github.com/zrepl/zrepl" do
       system "go", "build", "-o", "'$GOPATH/bin/stringer'", "golang.org/x/tools/cmd/stringer"
@@ -34,7 +37,7 @@ class Zrepl < Formula
       system "go", "build", "-o", "'$GOPATH/bin/goimports'", "golang.org/x/tools/cmd/goimports"
       system "go", "build", "-o", "'$GOPATH/bin/golangci-lint'", "github.com/golangci/golangci-lint/cmd/golangci-lint"
       system "make", "ZREPL_VERSION=#{version}"
-      bin.install "artifacts/zrepl"
+      bin.install "artifacts/zrepl-darwin-amd64" => "zrepl"
     end
   end
 

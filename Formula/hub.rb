@@ -7,25 +7,22 @@ class Hub < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "039088d14cd3eb740f57f4a3f2703f6b71716abf1369a3878a3bd1b93b84522b" => :catalina
-    sha256 "b9f7bda85596f33a7417d1fbd4a140b8f583d3cf862f4d3c7a9ac0066ee18071" => :mojave
-    sha256 "30091202eec232f4f7b3e2194721f20ece42392c1171f6eb45bfe7b6ee5c1665" => :high_sierra
+    rebuild 1
+    sha256 "ecb167b7862314de59c67deb9c8dcbcec17ff78cc949cd7ce8309efb9f269e1e" => :catalina
+    sha256 "22e8f62a10d5b985760ca626506b32a31c5a8f298df40a0560e034c7193c5bca" => :mojave
+    sha256 "b44b83e821252707efd46b4d1b2920b34a540977941061280a148cf90f4b8e1d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/github/hub").install buildpath.children
-    cd "src/github.com/github/hub" do
-      system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "prefix=#{prefix}"
 
-      prefix.install_metafiles
+    prefix.install_metafiles
 
-      bash_completion.install "etc/hub.bash_completion.sh"
-      zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
-    end
+    bash_completion.install "etc/hub.bash_completion.sh"
+    zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+    fish_completion.install "etc/hub.fish_completion" => "hub.fish"
   end
 
   test do

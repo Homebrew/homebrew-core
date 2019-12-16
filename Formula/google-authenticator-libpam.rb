@@ -1,15 +1,14 @@
 class GoogleAuthenticatorLibpam < Formula
   desc "PAM module for two-factor authentication"
   homepage "https://github.com/google/google-authenticator-libpam"
-  url "https://github.com/google/google-authenticator-libpam/archive/1.06.tar.gz"
-  sha256 "52f03ec746e8deb1af37911697d096f0fa87583491b7cc460cdf09a6ef0d6b06"
+  url "https://github.com/google/google-authenticator-libpam/archive/1.07.tar.gz"
+  sha256 "104a158e013585e20287f8d33935e93c711b96281e6dda621a5c19575d0b0405"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aa5f60e9fa0a2d69c03127e9398d495d4bf06c4fea64d3dc4b9b6d7b94c7f1d1" => :catalina
-    sha256 "7705a1508ebbf3b288dd23864957af565d0133300808325aae1be638db759aa3" => :mojave
-    sha256 "95296464b3cc30ae3120d74c2a00ebd7f48270313cdf3e5f2e17149e5811bf23" => :high_sierra
-    sha256 "2555908b0fe0caaed427bb7722a8fd84c3495732db7a95c241b078850e3b140b" => :sierra
+    sha256 "a079d10d1e6bb920d1981d994a40643a592d6af2c3f8d45265e070b613b7f332" => :catalina
+    sha256 "e5f1db2b8216b360ef95e86e59aedcba7679bdb3e5d2f72b3848a243382b4e47" => :mojave
+    sha256 "8f07cb758011d0eb1439f3f6e0b6326156a65d2525725125b4c27fdcd28930dd" => :high_sierra
   end
 
   depends_on "autoconf" => :build

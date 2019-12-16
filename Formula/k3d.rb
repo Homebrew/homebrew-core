@@ -6,28 +6,20 @@ class K3d < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d6f15dfdc46bbda0a2b4b07503c65e2e047a91490b742401c6c65cc65fc28c7" => :catalina
-    sha256 "d2f50bb1aa5c9b6f0cdd3b6996be133d1ca78ce02ed2904fbf6ccc81d7e7c070" => :mojave
-    sha256 "84dc8df4801b2e1ed3d15594eeed4ab99260b0a0faca1b42212a9190510a3646" => :high_sierra
+    rebuild 1
+    sha256 "924f1b505a80875275bf7444c656e5179cefd3d4d6695062686288b6b3cb79d0" => :catalina
+    sha256 "accbdaaeb582efc36e80a16bbe84a273c49e793549de52a71114d587957c4d25" => :mojave
+    sha256 "6b4728e2db86221cd26f8825b5729e9bffaf86ce0a71619089b766ff02e69159" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "0"
-
-    dir = buildpath/"src/github.com/rancher/k3d"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", \
-          "-mod", "vendor", \
-          "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v0.10.0", \
-          "-o", bin/"k3d"
-      prefix.install_metafiles
-    end
+    system "go", "build", \
+        "-mod", "vendor", \
+        "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v0.10.0", \
+        "-trimpath", "-o", bin/"k3d"
+    prefix.install_metafiles
   end
 
   test do

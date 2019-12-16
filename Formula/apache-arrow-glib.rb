@@ -3,12 +3,13 @@ class ApacheArrowGlib < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.15.1/apache-arrow-0.15.1.tar.gz"
   sha256 "9a2c58c72310eafebb4997244cbeeb8c26696320d0ae3eb3e8512f75ef856fc9"
+  revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
-    sha256 "2493520000b0f65b8df7bdf36b0ddd23b62a9d385f67b89c2d9683b78912faa1" => :catalina
-    sha256 "a879f3bef3051807b5f73f0f85a1d518c01ed9507b677310349d21dfe31ac4f7" => :mojave
-    sha256 "2cb009ec7cf70f9e4a8995c3c259a94285b7354b54ec130612c782beb29db5f1" => :high_sierra
+    sha256 "40f8f387d085231e4196326e5077a0a2a57d26fba3cf1aad354e8b8ba12543da" => :catalina
+    sha256 "fd32a9689862003253b5508c00455cedf8ddb353a43307d258d124b12342312e" => :mojave
+    sha256 "6166b657fec8b598460df8b12428d60ac2c5c67cb08521cfd33e4d73578b5920" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

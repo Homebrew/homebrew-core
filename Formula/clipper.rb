@@ -6,18 +6,16 @@ class Clipper < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "915eb7a292f99d512a41e29bc155fd157e6387418c1628287d7b5e56c30ac4f6" => :catalina
-    sha256 "ba99d879f6edccf9555855897bcc8b029b46ae5866bba052c3f826eaaa6cc717" => :mojave
-    sha256 "918667f51ab58ce6518c3777d42d3cabb9323d14fbcf805a55b1fb7952cfe05e" => :high_sierra
-    sha256 "e3c2f97b33d9e2648cd4efe1ede9e9d427d0cd71778891324a4def3b4f98562a" => :sierra
+    rebuild 1
+    sha256 "6e16549f9930f652364f727cf42ea04608d92f172e7916c85900c3b6feb98df0" => :catalina
+    sha256 "2216327dbb3a341f14db9d2da767749d00e460917bcf1098665948e24eeb2e8b" => :mojave
+    sha256 "a2230d8cb54b244b82ea5f5c47cebabe2f63a6b9dc1b98d47cd4a0fcd4eb743f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "go", "build", "clipper.go"
-    bin.install "clipper"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"clipper", "clipper.go"
   end
 
   plist_options :manual => "clipper"

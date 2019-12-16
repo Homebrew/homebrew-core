@@ -7,29 +7,17 @@ class Chamber < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "335df38f4c238f4a5d2a16fecb69939ed6713ed8dd8d973982ca24f39360c472" => :catalina
-    sha256 "5dd2e5805853221f8cbe79083c7fdf13d85f16c70885d8cc78bacef7e641ee82" => :mojave
-    sha256 "5dd41982896b1d61207d658897e415e7bd9cbadf6c81c6362d592d9c50006bf7" => :high_sierra
+    rebuild 1
+    sha256 "493649fc1bfe2ac8ac76b0b97f68b181459020ec1a0a7ce5ef3f93dab801b94c" => :catalina
+    sha256 "21221372fcf06090c02801dcaed36a8da62ed05fd8bbc12c2f9533ad8376bb9d" => :mojave
+    sha256 "aeb39f2d163855cd7bbc71456ede11b08fc13a1b68c1c88c2276e8d8cc003fad" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = "amd64"
-    ENV["CGO_ENABLED"] = "0"
-
-    path = buildpath/"src/github.com/segmentio/chamber"
-    path.install Dir["{*,.git}"]
-
-    cd "src/github.com/segmentio/chamber" do
-      system "govendor", "sync"
-      system "go", "build", "-o", bin/"chamber",
-                   "-ldflags", "-X main.Version=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.Version=#{version}", "-trimpath", "-o", bin/"chamber"
+    prefix.install_metafiles
   end
 
   test do

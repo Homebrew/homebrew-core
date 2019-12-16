@@ -6,12 +6,13 @@ class Libtorch < Formula
   url "https://github.com/pytorch/pytorch.git",
       :tag      => "v1.3.1",
       :revision => "ee77ccbb6da4e2efd83673e798acf7081bc03564"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "14816a9d82e777689bea036eb0c7345102abef82074bc44a28e38d6ab50b04b6" => :catalina
-    sha256 "aa70c0d4f5a6cb08a856a4440aa94940d0a65a3488b09bf5ad4c4f76f0bc99db" => :mojave
-    sha256 "55286e4c841f25fb8d2e846a2401a87ca70d718941c76ac0992043a105922016" => :high_sierra
+    sha256 "b6d4961d7c1baaff41dd09ec6a37c1a4bc991886b2c24155572eaa693f687a3f" => :catalina
+    sha256 "d75117d358cdc75fdd03caff3fc77b3a0ef91bf3d457d4eccf6c77d1b9332eee" => :mojave
+    sha256 "4f4e8bff70d04eeef62e99411cc9bafedfb14082e50f500911c809bd20433b5d" => :high_sierra
   end
 
   depends_on "cmake" => :build

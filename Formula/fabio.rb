@@ -7,23 +7,18 @@ class Fabio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dca507ccf0d4c5adeb412d88c10a898d3fd3625693caba0bce5af3a4b89c656c" => :catalina
-    sha256 "ef6b9ea02fd26a0fb6f6b00e4b2d8aadac7c700f785ba7eaa476192305001afb" => :mojave
-    sha256 "5adf97f0728f3c3a3beb82087aaa891041430ec884f5d0468c14977cdbcbf04a" => :high_sierra
+    rebuild 1
+    sha256 "9ed48161ee4b2c5bcf0ce9ce520c2506bec689b2d21735d1eb4f3a3cb470fb57" => :catalina
+    sha256 "3fe400520ea3af9c28baef9b376f14d8a96c88d6c79bc057f0949e15ea9c0efe" => :mojave
+    sha256 "41ae1110be9335004d77846ab554cb5ecf45f6c48f83942b95bd752c243dcc14" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "consul"
 
   def install
-    mkdir_p buildpath/"src/github.com/fabiolb"
-    ln_s buildpath, buildpath/"src/github.com/fabiolb/fabio"
-
-    ENV["GOPATH"] = buildpath.to_s
-    ENV["GO111MODULE"] = "off"
-
-    system "go", "install", "github.com/fabiolb/fabio"
-    bin.install "#{buildpath}/bin/fabio"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"fabio"
+    prefix.install_metafiles
   end
 
   test do

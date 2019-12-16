@@ -6,25 +6,22 @@ class Kubeless < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7ae0105927a08b8e940f205767afb6136295a07bb54924a55143be1d7ab6944b" => :catalina
-    sha256 "151d3184666c690d3ec2d074dd314cf2ca2b9f727e0cc89660bd2f1026307aed" => :mojave
-    sha256 "c37d5f0d6513ba6f37f5731731626b4faefc28bc7980b67a6a249bf58ed623d9" => :high_sierra
+    rebuild 1
+    sha256 "ed81401f5b4031e28ab1fe472b9d9a2deddc879eef6959234d087ba76c572882" => :catalina
+    sha256 "b75024000765c7c616d99e5893c34e3413965a7b26e1c89b49d478d49cf73f3e" => :mojave
+    sha256 "762ad7bb6a7ee337f9449591b2efafe9572614286ce3c9d15b47b3fdc30f44eb" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/kubeless/kubeless").install buildpath.children
-    cd "src/github.com/kubeless/kubeless" do
-      ldflags = %W[
-        -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
-      ]
-      system "go", "build", "-o", bin/"kubeless", "-ldflags",
-             ldflags.join(" "), "./cmd/kubeless"
-      prefix.install_metafiles
-    end
+    ldflags = %W[
+      -s -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"kubeless", "./cmd/kubeless"
+    prefix.install_metafiles
   end
 
   test do

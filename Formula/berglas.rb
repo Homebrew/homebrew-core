@@ -1,14 +1,14 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.3.0.tar.gz"
-  sha256 "4b42a057cf950e001a995e5b9b9dcec51dbfde652a486e1a6bf75a942507fae8"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.0.tar.gz"
+  sha256 "10e0754b034ce84c5783e494ddb5772265bc8b1cfaa1a13871521881c869b4b4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f347e69919162e5abd4ee3f2e614527e1faa3cdcf2fe915e11b921b9c8a28b8" => :catalina
-    sha256 "8ee48f0d0a24874e5e9f7f3244875612a2f68de5e226dac7f90a1dfdff3fb425" => :mojave
-    sha256 "3ac1a5de0e26b07541ff87c24ffb62e1f04e5d5b1141d112ec8040569727c3ff" => :high_sierra
+    sha256 "305e848eb3a7b671b10996b7b145ee8a41d46165c825450399497a920a92e759" => :catalina
+    sha256 "f7df64d6b12b4fe6fa458aa9d9b5d979589c5e0da9a0cf0e545c59d732734806" => :mojave
+    sha256 "e86deac6d0854b9dcdac69df25b5ce838c0ec9adf918c5855c457ff6a9975e95" => :high_sierra
   end
 
   depends_on "go" => :build

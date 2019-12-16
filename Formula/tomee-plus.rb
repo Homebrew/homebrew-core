@@ -1,8 +1,8 @@
 class TomeePlus < Formula
   desc "Everything in TomEE Web Profile and JAX-RS, plus more"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-7.1.1/apache-tomee-7.1.1-plus.tar.gz"
-  sha256 "c62def2a1453d7cc7f549e651232341d750518e512ba271c3e2666377e442409"
+  url "https://archive.apache.org/dist/tomee/tomee-8.0.0/apache-tomee-8.0.0-plus.tar.gz"
+  sha256 "677d9db26a5d1d8fc23a348e29935133bdb995ae420623563bcfb0b6a6638da8"
 
   bottle :unneeded
 

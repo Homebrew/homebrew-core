@@ -3,14 +3,14 @@ require "language/node"
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.9.9.tgz"
-  sha256 "aa603d2b41d46225828a8839608b60b49dbf130ec552ae4c972d8bb3ceb1b257"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.10.0.tgz"
+  sha256 "0af05027f5d01d9058db45d24955ba2ab41591237f9b9af62b7c8e34fb7ef055"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "58df3d2064ccb0dc335e05365850d72d84546907f53d933e22ec48843686a50f" => :catalina
-    sha256 "f02dfad16bb4edffd02de46ccd6a4fc40d4a7d1d79c622d547fb08e5b6612c68" => :mojave
-    sha256 "20709502538d7f8f753a464b78398b1f1e78223ca65417e092d2678c5c04ece1" => :high_sierra
+    sha256 "12f82c3c0a1d7c0f86300fe9dcbdbe36681cc48f99b3fe8220296862b5962d57" => :catalina
+    sha256 "75fee11abe76543cc547bd9268d0d2f72c331a013daca4a0e5eefbce091b012f" => :mojave
+    sha256 "7e24cbcdafe28790bb3afe2f26742afece6b598a9dc95ecb09082cb673e5d87c" => :high_sierra
   end
 
   depends_on "node"

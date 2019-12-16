@@ -6,9 +6,10 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "a6126ab264bbe4f59cc8f27fbaba953a6654943f50c7869a42c74646baa44084" => :catalina
-    sha256 "876809a4bbe6af6f5dce055a7c7246b0b48db9237b6a7ba0151ef3b17eb2e1d8" => :mojave
-    sha256 "fc82056229104bf1898040d8cfd01eafa3a86afa18cdb0a1776afb63f0d72e7d" => :high_sierra
+    rebuild 1
+    sha256 "2b74c106f611b2019ddafd39d8e4d1f2a921c0bf70b2c88ef6f75d8ac74fc4ef" => :catalina
+    sha256 "008065b20d49d3b6b758c5343406ff3e81a7fb3eb4bf584e3cccce278f34d428" => :mojave
+    sha256 "2065404c51b4f50edc3f6f8859410920d015501c1d74969239b549c1e7e83f4b" => :high_sierra
   end
 
   depends_on "docutils" => :build
@@ -48,7 +49,7 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
 
-    system "./bootstrap.py"
+    system "python3", "bootstrap.py"
     system "python3", "waf", "configure", *args
     system "python3", "waf", "install"
   end

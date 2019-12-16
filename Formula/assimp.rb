@@ -25,6 +25,14 @@ class Assimp < Formula
     end
   end
 
+  # Fix CMake error "The imported target "assimp::assimp" references the file
+  # "/usr/local/lib/libassimp.dylib.5""
+  # Upstream PR from 11 Nov 2019 "Fix shared lib name on macOS"
+  patch do
+    url "https://github.com/assimp/assimp/pull/2765.patch?full_index=1"
+    sha256 "4c8102fea4af720f65d420aa883d60e6ed0f9eb8309938793e82de69d11a23dc"
+  end
+
   def install
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"

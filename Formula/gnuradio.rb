@@ -3,13 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
-  revision 11
+  revision 12
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "3cefbcfdcc521c4dd63f22d96929f3a02e6044ce821b884270b7c05f2cef51fb" => :catalina
-    sha256 "e017b330d6f1d06d8347c9b49aa2a1b6b89f8b320452a386f5e8a09bfa73a9ba" => :mojave
-    sha256 "3faa0b3095bf6208291fa6367dff9f6498358e20ea84d7f8b3b1dfe0f7dbae41" => :high_sierra
+    sha256 "426f2df8293360e29050dfec708e317e76718a1030b90dd9a77bfe0024a6d972" => :catalina
+    sha256 "1524b7c15a18d1a5b9b7aa53c47c482668b782df2d41cd4c8dc2c8b775776570" => :mojave
+    sha256 "7e18a8c2e2cecd01854395bc481ab82affce32cef73c54b9b65ebb9e182b06df" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,9 +22,9 @@ class Gnuradio < Formula
   depends_on "gsl"
   depends_on "numpy@1.16"
   depends_on "portaudio"
-  depends_on "python@2"
   depends_on "uhd"
   depends_on "zeromq"
+  uses_from_macos "python@2" # Does not support Python 3
 
   # cheetah starts here
   resource "Markdown" do
@@ -182,7 +182,7 @@ class Gnuradio < Formula
 
       main()
     EOS
-    system "python2.7", testpath/"test.py"
+    system "python", testpath/"test.py"
 
     cd testpath do
       system "#{bin}/gr_modtool", "newmod", "test"

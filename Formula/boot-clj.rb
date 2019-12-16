@@ -10,7 +10,7 @@ class BootClj < Formula
 
   def install
     libexec.install "boot.jar"
-    bin.write_jar_script libexec/"boot.jar", "boot"
+    bin.write_jar_script libexec/"boot.jar", "boot", %Q(-Dboot.app.path="#{bin}/boot")
   end
 
   test do

@@ -1,15 +1,13 @@
 class Gource < Formula
   desc "Version Control Visualization Tool"
   homepage "https://github.com/acaudwell/Gource"
-  url "https://github.com/acaudwell/Gource/releases/download/gource-0.49/gource-0.49.tar.gz"
-  sha256 "a9dd23693861e224322708a8e26c9e3aaa3e4c9ec41264b1ee2d5dcd6e2c0e8a"
+  url "https://github.com/acaudwell/Gource/releases/download/gource-0.51/gource-0.51.tar.gz"
+  sha256 "19a3f888b1825aa7ed46f52cebce5012e3c62439e3d281102f21814c7a58e79a"
 
   bottle do
-    rebuild 1
-    sha256 "6af5b890ecc507e13ac6720fb00d5e1bae3f1c4203cdcfa24ad9c96975a4b1e5" => :catalina
-    sha256 "f7b1c895b7c202aae26d1396b2634082ede889eb5c9bf0b2d7758e52f88c924e" => :mojave
-    sha256 "72e08ff92d3ac208ec5fcb9a6514ca0d47db160eb9cab604a236ea3a31a149de" => :high_sierra
-    sha256 "de278ad81dfaa50d78f66b307044464b3db7741f02b5933ea1046347775674b8" => :sierra
+    sha256 "6db0866cca37c5701a5deb79e4867ec0cf1134c76839a40b6fd49968a5564cb0" => :catalina
+    sha256 "18204f0fb8b737d0e903718a645a08d63338c93c7ca8052db569445d19a18800" => :mojave
+    sha256 "1dc9d1e848779e59367a2c7714bc6f2c97f2becc3d4ccef8c3576ad38af4053e" => :high_sierra
   end
 
   head do

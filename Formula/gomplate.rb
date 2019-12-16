@@ -7,22 +7,19 @@ class Gomplate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "667919ff17c4cf90ea26855f7a5c0ab1809c2d40a48fd0c8239369ec8a13fb69" => :catalina
-    sha256 "32eda12648133f2e42d9d4a9698770078af69305dce8e8039859f628193e7fd1" => :mojave
-    sha256 "965395ac9edc3e81b10b8cfdcc0313d4a61a14495873990a300ff13324d685dd" => :high_sierra
+    rebuild 1
+    sha256 "ef111dcdd62072e6b1293da6d767099be4140f17ba9b5d595f85a44d93440bcd" => :catalina
+    sha256 "c97ce8c1f02a1ce4fbf9ae9680e8f70838289cd1db9a625d71922f959bdb22b9" => :mojave
+    sha256 "7253fa83fb15068b94a95c12bd74f27fdf55ad68e3e78022ae26a82df0f6f0b3" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "upx" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/hairyhenderson/gomplate").install buildpath.children
-    cd "src/github.com/hairyhenderson/gomplate" do
-      system "make", "compress", "VERSION=#{version}"
-      bin.install "bin/gomplate-slim" => "gomplate"
-      prefix.install_metafiles
-    end
+    system "make", "compress", "VERSION=#{version}"
+    bin.install "bin/gomplate-slim" => "gomplate"
+    prefix.install_metafiles
   end
 
   test do

@@ -1,16 +1,14 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/v1.2.tar.gz"
-  sha256 "c5023104925ff4a79746509d4d85294d8aafa98da6733e768ae53da0355453de"
-  revision 1
+  url "https://github.com/ocaml/num/archive/v1.3.tar.gz"
+  sha256 "4f79c30e81ea9553c5b2c5b5b57bb19968ccad1e85256b3c446b5df58f33e94d"
 
   bottle do
     cellar :any
-    sha256 "30c8c4e2925aec9055c637286a678b8b2b8e35660deaf410dcf50089238c0246" => :catalina
-    sha256 "0181124dda2a3a5c35cbf1155712526b99bbc402df14b24cc532b9a6ef8b06e9" => :mojave
-    sha256 "bcaa0380dc03f7095cd4b00656ae3b4e1cbe66c8519cbbe7eab63efa76e31503" => :high_sierra
-    sha256 "819a3ceaa82022ec9b8019610d906d4520752810dcb688595c23e8cf25051b57" => :sierra
+    sha256 "9767a628e3b326207c0800fbc84a6cb061d487d1de215073672c263674a4f37e" => :catalina
+    sha256 "db56cb0607b94417b31c5e0479631ae0b2e712786140a204bc990d247ab843c3" => :mojave
+    sha256 "6034f0ae346d64a651e72ea1da790f6d49869eb319bc447b53bde54cc93f1345" => :high_sierra
   end
 
   depends_on "ocaml-findlib" => :build

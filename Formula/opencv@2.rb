@@ -3,13 +3,12 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 5
+  revision 6
 
   bottle do
-    rebuild 1
-    sha256 "9b5ec41fcf3171360aaab7a54e4f9a0de45af3d067ba95f8cfc0752162df24f9" => :catalina
-    sha256 "f3730ff75749689792411fc2b928e0682ca6d4fdf036617d2ea4c0f96e073023" => :mojave
-    sha256 "ee0926b30e0ca6b85f3670dd0e45183ed2c392d9bbe9748256ae96130638e3d1" => :high_sierra
+    sha256 "b68bad6fab8c8537c24993081e11f062edd43faa2ad9278e8f365f36042c16fb" => :catalina
+    sha256 "e3a170fef544fcb995f5c4c7b5299230a9d988af25e90fe111536158ff6547b6" => :mojave
+    sha256 "68108126c697cb6782b52e875a5435296c86321e26d6f2a39faa470cd8a8aced" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -23,7 +22,7 @@ class OpencvAT2 < Formula
   depends_on "libtiff"
   depends_on "numpy@1.16"
   depends_on "openexr"
-  depends_on "python@2" # does not support Python 3
+  uses_from_macos "python@2"
 
   def install
     jpeg = Formula["jpeg"]

@@ -1,17 +1,20 @@
 class Jupyterlab < Formula
+  include Language::Python::Virtualenv
+
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/57/a8/9aea7e00e8634f6e73bc2641033fee2d59e5d506784474e5e5d55eb15d55/jupyterlab-1.2.0.tar.gz"
-  sha256 "ce945579a6b20628d275efd4debffef96fa66ef83a10a62d7087ca5610b61668"
+  url "https://files.pythonhosted.org/packages/ea/3e/4a964dec4800a4f67f750fe860f538b81876082b65c52adf24cbc1aa50bb/jupyterlab-1.2.3.tar.gz"
+  sha256 "2188a9bcaaf0b6a68ff9098a481f37ece8231634b862fd3c9adedc466aac79f2"
 
   bottle do
     cellar :any
-    sha256 "61c4f955e0df4af3cb810915f318a0b2e6803861d6765d5836cce190eee00de1" => :catalina
-    sha256 "2af4efd99fb6b991212ded9df425f893365c448db8ec12bb17a84f6024789933" => :mojave
-    sha256 "75142752e2f46267cb109986f9ba1872225b61ef463e72327449a392411482d0" => :high_sierra
+    sha256 "7418e5bbe2b6e0400efedca199675550b2f201b87e1b2ab292d749e972381779" => :catalina
+    sha256 "0a3e2f9711fe4d455e342ae0ff058cd720cbb1d6c6d2d9a534ce56adb786954b" => :mojave
+    sha256 "08138039b812e88c9ae09985ae95e8410865182631df7589ca3cc266bfc0a057" => :high_sierra
   end
 
   depends_on "ipython"
+  depends_on "node"
   depends_on "pandoc"
   depends_on "python"
   depends_on "zeromq"
@@ -242,32 +245,18 @@ class Jupyterlab < Formula
   end
 
   def install
+    venv = virtualenv_create(libexec, "python3")
     ENV["JUPYTER_PATH"] = etc/"jupyter"
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # gather packages to link based on options
     linked = %w[jupyter-core jupyter-client nbformat ipykernel jupyter-console
                 nbconvert notebook]
     dependencies = resources.map(&:name).to_set - linked
-
-    # install dependent packages
     dependencies.each do |r|
-      resource(r).stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
+      venv.pip_install resource(r)
     end
-
-    # install main packages and link with env script
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    linked.each do |r|
-      resource(r).stage do
-        system "python3", *Language::Python.setup_install_args(libexec)
-      end
-    end
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :JUPYTER_PATH => ENV["JUPYTER_PATH"], :PYTHONPATH => ENV["PYTHONPATH"])
+    venv.pip_install_and_link linked
+    venv.pip_install_and_link buildpath
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
@@ -311,5 +300,15 @@ class Jupyterlab < Formula
 
     assert_match "-F _jupyter",
       shell_output("source #{bash_completion}/jupyter && complete -p jupyter")
+
+    version_regexp = Regexp.quote(version.to_s)
+
+    # Ensure that jupyter can load the jupyter lab package.
+    assert_match /^jupyter lab *: #{version_regexp}$/,
+      shell_output(bin/"jupyter --version")
+
+    # Ensure that jupyter-lab binary was installed by pip.
+    assert_match /^#{version_regexp}$/,
+      shell_output(bin/"jupyter-lab --version")
   end
 end

@@ -8,25 +8,19 @@ class Kubebuilder < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "051043567cef8d39e55adfefab1d703831a26a4474d8a218f290c550069c4759" => :catalina
-    sha256 "32ab8d66024bf3f65d93d530ea418aeb3e8a4eca74b425a55f9f62bd2a8dcd49" => :mojave
-    sha256 "b7e50da13d190cb07d0d3c30a36cd7d084bd782481c48a83f5d48c8dedb4c091" => :high_sierra
+    rebuild 1
+    sha256 "1e36d2456c8b998ac206eea2285056ab96f413c489328876ac21a14feb031bc3" => :catalina
+    sha256 "fd4ea19043bac99346e055a43f7663e36e0b4053b95a883772e65713a0547ccb" => :mojave
+    sha256 "ff71790d113a8fee329e0e908e6a4b3e4f0db929b4ebf04a1b641d91899ac546" => :high_sierra
   end
 
   depends_on "git-lfs" => :build
   depends_on "go"
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/sigs.k8s.io/kubebuilder"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      # Make binary
-      system "make", "build"
-      bin.install "bin/kubebuilder"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "bin/kubebuilder"
+    prefix.install_metafiles
   end
 
   test do

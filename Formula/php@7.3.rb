@@ -1,13 +1,13 @@
-class PhpAT71 < Formula
+class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.1.33.tar.xz"
-  sha256 "bd7c0a9bd5433289ee01fd440af3715309faf583f75832b64fe169c100d52968"
+  url "https://www.php.net/distributions/php-7.3.12.tar.xz"
+  sha256 "aafe5e9861ad828860c6af8c88cdc1488314785962328eb1783607c1fdd855df"
 
   bottle do
-    sha256 "8d5fe6ef069cd38913facb42b72b5597aaeb1d7eb05377ba53259e2d5dd1ba2e" => :catalina
-    sha256 "0d349a06ffb681665c2c07efdc33cf9fe5494583024745208cce708ae6b121de" => :mojave
-    sha256 "2b3d9af13b1a65c06192ad3a2a8a2ccd06ed4dd2497fe8707c15a6fa812fea5f" => :high_sierra
+    sha256 "661bef105829e0aace4886f7a99d178bd4c0056a83ea5b3167245f0afba4551f" => :catalina
+    sha256 "64f85c84e32cb3ff478abb8c87b6f48b10fd6201c11682d213eac1b30c1772d4" => :mojave
+    sha256 "a665d6c234b80cf6c9792a3d41b504d2e529f1b091e7d38bb936449b76b9340c" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -16,6 +16,7 @@ class PhpAT71 < Formula
   depends_on "pkg-config" => :build
   depends_on "apr"
   depends_on "apr-util"
+  depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
   depends_on "curl-openssl"
@@ -28,9 +29,8 @@ class PhpAT71 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libpq"
-  depends_on "libtool"
+  depends_on "libsodium"
   depends_on "libzip"
-  depends_on "mcrypt"
   depends_on "openldap"
   depends_on "openssl@1.1"
   depends_on "sqlite"
@@ -58,9 +58,10 @@ class PhpAT71 < Formula
               "APXS_LIBEXECDIR='$(INSTALL_ROOT)#{lib}/httpd/modules'"
       s.gsub! "-z `$APXS -q SYSCONFDIR`",
               "-z ''"
+
       # apxs will interpolate the @ in the versioned prefix: https://bz.apache.org/bugzilla/show_bug.cgi?id=61944
       s.gsub! "LIBEXECDIR='$APXS_LIBEXECDIR'",
-              "LIBEXECDIR='" + "#{lib}/httpd/modules".gsub("@", "\\@") + "'"
+      "LIBEXECDIR='" + "#{lib}/httpd/modules".gsub("@", "\\@") + "'"
     end
 
     # Update error message in apache sapi to better explain the requirements
@@ -136,15 +137,15 @@ class PhpAT71 < Formula
       --with-layout=GNU
       --with-ldap=#{Formula["openldap"].opt_prefix}
       --with-ldap-sasl#{headers_path}
-      --with-libedit#{headers_path}
       --with-libxml-dir#{headers_path}
+      --with-libedit#{headers_path}
       --with-libzip
-      --with-mcrypt=#{Formula["mcrypt"].opt_prefix}
       --with-mhash#{headers_path}
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
       --with-ndbm#{headers_path}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
@@ -154,6 +155,7 @@ class PhpAT71 < Formula
       --with-pic
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
+      --with-sodium=#{Formula["libsodium"].opt_prefix}
       --with-sqlite3=#{Formula["sqlite"].opt_prefix}
       --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
@@ -179,6 +181,11 @@ class PhpAT71 < Formula
       "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
       "openssl.capath = \"#{etc}/openssl@1.1/certs\""
+
+    # php 7.3 known bug
+    # SO discussion: https://stackoverflow.com/a/53709484/791609
+    # bug report: https://bugs.php.net/bug.php?id=77260
+    inreplace "php.ini-development", ";pcre.jit=1", "pcre.jit=0"
 
     config_files = {
       "php.ini-development"   => "php.ini",

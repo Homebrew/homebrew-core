@@ -3,12 +3,12 @@ class GtkMacIntegration < Formula
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
   url "https://download.gnome.org/sources/gtk-mac-integration/2.1/gtk-mac-integration-2.1.3.tar.xz"
   sha256 "d5f72302daad1f517932194d72967a32e72ed8177cfa38aaf64f0a80564ce454"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "c44aed60d1bddea2a38b4e7d4211dc506695b66170889b104cc9b0f42ae074ed" => :catalina
-    sha256 "17623aa62198ffb4da0a61b4265d50d3e168170b3e39b33679abea0014d8f773" => :mojave
-    sha256 "e8f85dbdf092f966838caca1156c836f6a85e9d906276de9eac47dbea4d84adc" => :high_sierra
+    sha256 "45d864e4a3ced0213ddbc6f445d8693e03b4b4e94b3fe265b154bbb10173973e" => :catalina
+    sha256 "e8904cf89995682e84d4d78a1a2caa956c75aee42b6cf08f164bb694a2212ba4" => :mojave
+    sha256 "d80603f52730a70f2fa7770a2eaab791e9e47b083e6274cd05419a5b80fbb610" => :high_sierra
   end
 
   head do
@@ -25,7 +25,6 @@ class GtkMacIntegration < Formula
   depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk+3"
-  depends_on "pygtk"
 
   def install
     args = %W[
@@ -34,8 +33,8 @@ class GtkMacIntegration < Formula
       --prefix=#{prefix}
       --with-gtk2
       --with-gtk3
-      --enable-python=yes
       --enable-introspection=yes
+      --enable-python=no
     ]
 
     if build.head?

@@ -7,23 +7,17 @@ class Dive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca95c04566151ebd4ef7b16505c825aefc109fe5c5b8994c43c9e37e00f34fca" => :catalina
-    sha256 "83a9ca47c8ada30d73177485c3b660b8815cbce9bdd71fe9d713ee4de195ffc2" => :mojave
-    sha256 "4c2b212f5447326dc667753c289fe3192719515bed98102ec4061f8be5631005" => :high_sierra
+    rebuild 1
+    sha256 "40f8ae5dc1ace5e588ddfec9355e9a0377929ffa13b2480c1220aca2cd1ec718" => :catalina
+    sha256 "278e4cd358ae21365dc261a623f2dc976f0467ad56e352eadec9dac4de568fc9" => :mojave
+    sha256 "34dcd82075559df6a0a47081c7860cfc3450f58284ab0abff694f69d48df9f28" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/wagoodman/dive"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-o", bin/"dive"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"dive"
+    prefix.install_metafiles
   end
 
   test do

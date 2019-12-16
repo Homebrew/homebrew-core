@@ -1,15 +1,15 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.10.2.tar.gz"
-  sha256 "05b520b7511d06d152395b8ea9da3f78fe3bdc7fb2e262a338a7176c9511f395"
+  url "https://github.com/Canop/broot/archive/v0.10.3.tar.gz"
+  sha256 "6e0ddb89d3b533bcbf7f8f0b874c480f3421f5fa7780a0487f26b44438fda0e5"
   head "https://github.com/Canop/broot.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f199956e05eb8c777ee6f8f5ecd573d0f67e4502724b6a2a24eef632b377b80" => :catalina
-    sha256 "e7e084cdb1904deeb0f46710c962fe35496f470c0538ff4582404c1c028de95f" => :mojave
-    sha256 "ce7d18614a5cc44c3f85e1717b6cd4d1efbb005f3aedae96ac6d398cd22b4f06" => :high_sierra
+    sha256 "d6fa0d431eb939baf3260c436c37a273e68fc0ca26ae3a320f6d5df84171d50b" => :catalina
+    sha256 "86eea9278e02f9888e1bc5c80342579620a696cc50d1aebe54416b1f98cc0b94" => :mojave
+    sha256 "242b5c4c68e6db4ec8624f80b610607f69f17d729ec2b990f8af7caa1e86e6b1" => :high_sierra
   end
 
   depends_on "rust" => :build

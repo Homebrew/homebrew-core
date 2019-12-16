@@ -7,24 +7,17 @@ class DroneCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cde21f2a1c918e095f138b6cccc9870c2a1a76bee8a9a8e3dbee33ab4c54bfbd" => :catalina
-    sha256 "a059cdbe892dd4a7058636503d690da54ac8fab3eaeff7d1ae32e07229282b1a" => :mojave
-    sha256 "5753b74f0c5ede30868d431cc877f934eb5e10a7bc59ede9da54d2f3b785fa8b" => :high_sierra
+    rebuild 1
+    sha256 "a0661b38156217550cab8512d9c16f51e28c68223afb0b9abca7b4c039a1b0fc" => :catalina
+    sha256 "15a4a8121d517816693c700e107099a3d6afbb1ef188ed2269d68e4d5a154b77" => :mojave
+    sha256 "df3f7884560e17997fd85c9984f88510f7a9d5bf7f26f2d0e93700819f453989" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/drone/drone-cli"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"drone", "drone/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"drone", "drone/main.go"
+    prefix.install_metafiles
   end
 
   test do

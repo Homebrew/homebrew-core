@@ -3,12 +3,13 @@ class Grpc < Formula
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc/archive/v1.25.0.tar.gz"
   sha256 "ffbe61269160ea745e487f79b0fd06b6edd3d50c6d9123f053b5634737cf2f69"
+  revision 1
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "95d0cc6709f6a4465e9580937db5fd9a45812cf084f0689c71b69666a5bfd65b" => :catalina
-    sha256 "6cc94b6a248af3cd10daa68b732142de4a1a5d4e5b2eaa73fb7bd537fe57cfc7" => :mojave
-    sha256 "fc1760f5aa11cb91f4d535fb0c236197be7406bcab0caf7d5607a829a58a9c8a" => :high_sierra
+    sha256 "121e8dab5db105879365d17c764a86c4c679ea5382048cb27a877aa2b5e6cd9e" => :catalina
+    sha256 "5b5a446b37b7b9e23dc4b18eec8597e8d6c50a1fdd04a408e945fdd6949d3ead" => :mojave
+    sha256 "68680e04a6c8004f8a4a52060d0dec81ba08bce8aa19deb6ab5f59bb87a862f6" => :high_sierra
   end
 
   depends_on "autoconf" => :build

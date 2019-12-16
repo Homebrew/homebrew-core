@@ -6,23 +6,17 @@ class Cli53 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c563d3742b5ae012b0c08f3e816f04092c3ba5f3460b046790d5b8c12d5563c" => :catalina
-    sha256 "d0484ba43d434d973d2fe02689b8d33d8402ebd2931c84c44317841a214c8abe" => :mojave
-    sha256 "c1f265ccffd84dc3077f6eccf68d1e71430b2a38401ce58ee572e228b070730a" => :high_sierra
+    rebuild 1
+    sha256 "1dc8fc0a54263784bfed7d0ff6802ef66ef753d276410be52f49620b1bde89ad" => :catalina
+    sha256 "9d4dc2fce304be814b276f23415c736a426011642609c6625a45181b3a894857" => :mojave
+    sha256 "a9cdffb7125145c1d86e6a9bb3f75049254a66168ef41387cf25d98a253d0756" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/barnybug/cli53"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"cli53", "./cmd/cli53"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"cli53", "./cmd/cli53"
+    prefix.install_metafiles
   end
 
   test do

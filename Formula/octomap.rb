@@ -1,20 +1,20 @@
 class Octomap < Formula
   desc "Efficient probabilistic 3D mapping framework based on octrees"
   homepage "https://octomap.github.io/"
-  url "https://github.com/OctoMap/octomap/archive/v1.9.0.tar.gz"
-  sha256 "5f81c9a8cbc9526b2e725251cd3a829e5222a28201b394314002146d8b9214dd"
+  url "https://github.com/OctoMap/octomap/archive/v1.9.1.tar.gz"
+  sha256 "9abce615d9f3f97a15ba129a10e3a01f9bef9aad178f2ef398f9a925f793c7b9"
 
   bottle do
-    sha256 "8482f30379e429ef1822883a6a1c73de91852b22b0b7a584c58b433ff486e624" => :catalina
-    sha256 "ebcc39c4935eea656d1c9b3f4f8e4360b2cf559255cec9d84c8cf22d0ac6f661" => :mojave
-    sha256 "3e72d0af26510eb79310138dc80a2b2dea541e90ac58a953e5294251bca14728" => :high_sierra
-    sha256 "eb292c0c7005c2fd75b65f50bc2a361181ee7c3c5113f6da56f80b4f03bf75fc" => :sierra
-    sha256 "d29abe7987fdb2901996e8e6c4aaf2c8a0daeb98b6cee2a585f048769082a4ad" => :el_capitan
+    sha256 "5c4e53e0a23b76ad71f3c8a74118d9538ea1871e90c034ed1a9d2b75f60fc8d3" => :catalina
+    sha256 "a4d0d866ab76835817fdc0dcd1b3bb1cf9248e338223aba24af680daf53d65c3" => :mojave
+    sha256 "9432c0567beb3f4fbad243670cc65054421383dbd07e78faaaff109032a435e5" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   def install
+    inreplace "octomap/src/math/CMakeLists.txt", "INSTALL_NAME_DIR", "#INSTALL_NAME_DIR"
+
     cd "octomap" do
       system "cmake", ".", *std_cmake_args
       system "make", "install"

@@ -3,14 +3,14 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.4.0.tar.gz"
-  sha256 "247f97a7366d6fa54e73ab1e5837c1666fef1c2c49f78288fbd5fc35ce3362f8"
+  url "https://github.com/witten/borgmatic/archive/1.4.16.tar.gz"
+  sha256 "d5bc7eabfd958aabb00371febb8b99d3bfefb4f28d8c4618a227b421086b8418"
 
   bottle do
     cellar :any
-    sha256 "6a6e8d0f620531b0dcd083ba2f1690664386943cc1d044efeb2eaacfe868f1ff" => :catalina
-    sha256 "6e98e72bac5a94450873dccb9b1031b58dbb1e60a82d9264938abf0895829a3a" => :mojave
-    sha256 "2643c86ef126eb87c08007bab0826be9a31812d6f2f2e340fc83353c7a6ece7b" => :high_sierra
+    sha256 "d15ab01b907130ee526947e58700fb77beb5cb55e5082f7b4f6a5c8fb3aee64b" => :catalina
+    sha256 "023658e18dbbb0faf9498965cdea66fd219e67596787b74f251a87cfa4a21db2" => :mojave
+    sha256 "cab5889334cbb9d41e095403eebaa92cb58fcad706f74055cfdc788e65d2cb84" => :high_sierra
   end
 
   depends_on "libyaml"
@@ -93,7 +93,7 @@ class Borgmatic < Formula
 
       # Return error on info so we force an init to occur
       if [ "$1" = "info" ]; then
-        exit 1
+        exit 2
       fi
     EOS
     borg.chmod 0755
@@ -107,9 +107,8 @@ class Borgmatic < Formula
                          .gsub(/user@backupserver:sourcehostname.borg/, repo_path)
     File.open(config_path, "w") { |file| file.puts config_content }
 
-    # This does not work in newer version
     # Initialize Repo
-    # system bin/"borgmatic", "-v", "2", "-n", "--config", config_path, "--init", "--encryption", "repokey"
+    system bin/"borgmatic", "-v", "2", "--config", config_path, "--init", "--encryption", "repokey"
 
     # Create a backup
     system bin/"borgmatic", "--config", config_path
@@ -122,6 +121,8 @@ class Borgmatic < Formula
 
     # Assert that the proper borg commands were executed
     assert_equal <<~EOS, log_content
+      info #{repo_path}
+      init --encryption repokey --debug #{repo_path}
       prune --keep-daily 7 --prefix {hostname}- #{repo_path}
       create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
       check --prefix {hostname}- #{repo_path}

@@ -2,15 +2,15 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag      => "4.0.2",
-      :revision => "fc976eac04685b206a9a64d9a88ee6237e4b72af"
+      :tag      => "4.0.3",
+      :revision => "dcfaf4ac01ffd4dbfbcc649f6e2a41ca7bfd1450"
   head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "03e8b41fc8bfd6cc77d283ec78d5b5f89a3343ccb31338fb2de5ad11bde0e0e1" => :catalina
-    sha256 "6b7c977ce5acd98d9c38bd668d1d31a42cc61fb1fa8be2c3400acfc0d507ad62" => :mojave
-    sha256 "d58593b1301ad899f18087c72da39b12045785dfd69d40cf9fbdac15124dd4df" => :high_sierra
+    sha256 "ddabbf9479d7c3044c8ebaaba12efb14459b48afc3fcd6081c8a0388e4f5ba1d" => :catalina
+    sha256 "bb2b28201aebdd74360639a492a70dee82591949a9554818488c1cf8d4519d09" => :mojave
+    sha256 "342b165e5295a089106a9dbe6c7674cb6981bae0778e53f4a8256323d587aaf1" => :high_sierra
   end
 
   depends_on "cmake" => :build

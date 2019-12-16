@@ -6,24 +6,18 @@ class ForkCleaner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca8629c6ca7800ee9798d4acd14769bc86a7dd6d410b5699458adca6b4f69114" => :catalina
-    sha256 "c61fdbd8b7b70450c79f01408332fcce4ffa68aad3aec467d663b1aaa76b3960" => :mojave
-    sha256 "5101681b2fbcd850eaab43fa2c55dc5d0e6df26565a185a9e30a3bba39cdcc03" => :high_sierra
+    rebuild 1
+    sha256 "23a1b55f97bbac97d9db5ae0f75cbcc7fc117fb54fc692e3123cfaccfee335d6" => :catalina
+    sha256 "9d5c53422feafdd72a1aeabec54c4a0c7ed07a01b774d24b1feabe81041e511f" => :mojave
+    sha256 "120ffcc07d412fc8d73b29b62400d315e8dea71401cc0b7b6dc227573ed4fc77" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/caarlos0/fork-cleaner"
-    dir.install buildpath.children
-
-    cd dir do
-      system "make"
-      bin.install "fork-cleaner"
-      prefix.install_metafiles
-    end
+    system "make"
+    bin.install "fork-cleaner"
+    prefix.install_metafiles
   end
 
   test do

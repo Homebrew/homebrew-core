@@ -7,21 +7,17 @@ class Fluxctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af2d6e040da3865b720aff241b91d17a990d85dc3af393d9af6dab7d2666265c" => :catalina
-    sha256 "99864875ebc4964465d2a2afbf8316127067f9d7e79112426de34af55545de54" => :mojave
-    sha256 "45a8b61efeb0e3db81ed67c13dbf3b5302ee12322444a2e0d8b5b81c7acaa910" => :high_sierra
+    rebuild 1
+    sha256 "35ee96b930f1918e28c8a62c17dd152a059be84313be201bb0c6a65469c850d7" => :catalina
+    sha256 "334fa0b02b60d9d34be4f431ae4221b20c5b6312484a58ca96d20ccb9fbfd8ff" => :mojave
+    sha256 "0efc9c42b78326fb7fd50942ad04ee58a1648b91d46714330e11852be021ed13" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/weaveworks/flux"
-    dir.install buildpath.children
-
-    cd dir/"cmd/fluxctl" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"fluxctl"
+    cd buildpath/"cmd/fluxctl" do
+      system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"fluxctl"
       prefix.install_metafiles
     end
   end

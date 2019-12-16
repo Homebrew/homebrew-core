@@ -3,19 +3,20 @@ class NodeAT10 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v10.17.0/node-v10.17.0.tar.gz"
   sha256 "5204249d135176b547737d3eed2ca8a9d7f731fef6e545f741129cfa21f90573"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "40dd8d0a63109a7382bb82b8acce2a59dec5e287aa16076a53bef58a69505298" => :catalina
-    sha256 "b8065c647630356ba9d8cb1aa08a91084fd2c31068fc26b74641a982b5c6d21b" => :mojave
-    sha256 "4d7052b587498a1cda140e1190a274a3e4002e1967dfe5dbc29e1cc286a48733" => :high_sierra
+    sha256 "ec9980d5667a2b29d359df5c76f755ebe64d48e2a49c9b5779ef0311552022f0" => :catalina
+    sha256 "954ac747419a38dedf7a8ef08ed0e862f62931dc965feac8bfbea918c454260e" => :mojave
+    sha256 "3ee5af245cbd291e21e967d4bd72c22cae243f4abf022a3fc1a3b47ea4db96fd" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build # does not support Python 3
   depends_on "icu4c"
+  uses_from_macos "python@2" => :build
 
   # Fixes detecting Apple clang 11.
   patch do

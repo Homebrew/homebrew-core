@@ -7,10 +7,10 @@ class MongoCDriver < Formula
 
   bottle do
     cellar :any
-    sha256 "9a9d3bf8c7a2fa80b8eacc25971af07beb6005314fd42a09ddd4a6aac17bb991" => :catalina
-    sha256 "8df25e1bb5101bb1fd920e48ccc0ddf09b92bd89619a55189c9ea1af5b2167da" => :mojave
-    sha256 "e290daad2e58ac398b47227c9b3a7484bf2b73341cd9e2bc2991b554822f3218" => :high_sierra
-    sha256 "6544daf5b18f3004d7d0a9dfbfe9594dafa37e15b57f55e3d8b99c134f25d9ef" => :sierra
+    rebuild 1
+    sha256 "fbb0256760644f90124feec011db8a441fb6708233c599b16f1f583911245835" => :catalina
+    sha256 "f128cc30b15aad0b2cb4957b2dc86da627e56cb8f18fcdba76a6e422ecb6b7d4" => :mojave
+    sha256 "641f4c7b285ee136b73c0037a4ed49428c92b657253ca357363379c29c372304" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,7 +18,11 @@ class MongoCDriver < Formula
   depends_on "sphinx-doc" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    cmake_args = std_cmake_args
+    if build.head?
+      cmake_args << "-DBUILD_VERSION=1.16.0-pre"
+    end
+    system "cmake", ".", *cmake_args
     system "make", "install"
     (pkgshare/"libbson").install "src/libbson/examples"
     (pkgshare/"libmongoc").install "src/libmongoc/examples"

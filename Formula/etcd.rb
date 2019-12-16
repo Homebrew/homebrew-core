@@ -8,24 +8,18 @@ class Etcd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ec3f9d7548b078452d2c669521c83a79173178ee84d5a3963d5ecd1ee79ec21" => :catalina
-    sha256 "2247b5b279eb6ba017c8fa079a0628571cf62444b8c22849ac426ad0ce800221" => :mojave
-    sha256 "e9ab53a559f0a73840b1c2a7112e7cc2192055c9904977a6006f70962eacc335" => :high_sierra
+    rebuild 1
+    sha256 "0d58d57ae35e8e9e3c3cf8cb0a733457cef97d981c8289e8865b77e23cf93435" => :catalina
+    sha256 "d99c71d4594b92e7d69f132cc0cda3c4e9ba279b29e6066868e96bc1ee7f6cb2" => :mojave
+    sha256 "5d227dae1220540413cc29c5929cad05b43428ce8829ad59e84f80277b11ce2e" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/etcd-io/etcd"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl", "etcdctl/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"etcd"
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"etcdctl", "etcdctl/main.go"
+    prefix.install_metafiles
   end
 
   plist_options :manual => "etcd"
