@@ -4,6 +4,7 @@ class Mesos < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
   mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
   sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
+  revision 1
 
   bottle do
     sha256 "b5d4c1be465ac092856a0bd587eedffc1f2fa4627410a4f7fb3ec2eedec36bef" => :catalina
@@ -16,8 +17,8 @@ class Mesos < Formula
   depends_on "apr-util"
   depends_on :java => "1.8"
 
-  depends_on "python@2"
   depends_on "subversion"
+  uses_from_macos "python@2"
 
   conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
   conflicts_with "rapidjson", :because => "mesos installs a copy of rapidjson headers"
