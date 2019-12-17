@@ -5,7 +5,7 @@ class Ooniprobe < Formula
   homepage "https://ooni.torproject.org/"
   url "https://files.pythonhosted.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
   sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -18,8 +18,9 @@ class Ooniprobe < Formula
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@2"
   depends_on "tor"
+  # Does not support python 3, will be replaced by https://github.com/ooni/probe-cli once out of pre-release
+  uses_from_macos "python@2"
 
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)
