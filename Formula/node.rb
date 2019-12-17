@@ -3,6 +3,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v13.3.0/node-v13.3.0.tar.gz"
   sha256 "cab5bd4712265745cfce1416ea0f425f1de71452f0ddc544d815aacee2aede3e"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
