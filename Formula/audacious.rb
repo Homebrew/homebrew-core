@@ -1,6 +1,7 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2"
@@ -47,10 +48,10 @@ class Audacious < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "neon"
-  depends_on "python@2"
   depends_on "qt"
   depends_on "sdl2"
   depends_on "wavpack"
+  uses_from_macos "python@2"
 
   def install
     args = %W[
