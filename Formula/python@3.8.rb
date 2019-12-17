@@ -284,19 +284,12 @@ class PythonAT38 < Formula
     end
     <<~EOS
       Python has been installed as
-        #{HOMEBREW_PREFIX}/bin/python3
-
-      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
-      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
-        #{opt_libexec}/bin
-
-      If you need Homebrew's Python 2.7 run
-        brew install python@2
+        #{opt_bin}/python3
 
       You can install Python packages with
-        pip3 install <package>
+        #{opt_bin}/pip3 install <package>
       They will install into the site-package directory
-        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
+        #{prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
