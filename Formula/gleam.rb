@@ -1,8 +1,8 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/lpil/gleam/archive/v0.4.2.tar.gz"
-  sha256 "db1d9568138eddc56d5fc6135ae9f21b06335119fe7fe2526d6498a97fa4fd67"
+  url "https://github.com/lpil/gleam/archive/v0.5.0.tar.gz"
+  sha256 "ee65ec241fa604b7fce97a7de8ea2d193e41dab8e7115fab759b6b71247025f4"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Gleam < Formula
   depends_on "rebar3"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "gleam"
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
