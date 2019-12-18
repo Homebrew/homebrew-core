@@ -91,6 +91,7 @@
   "hh": "hstr",
   "htop-osx": "htop",
   "httpd24": "httpd",
+  "i386-elf-binutils": "x86_64-elf-binutils",
   "influxdb08": "influxdb@0.8",
   "isl011": "isl@0.11",
   "isl012": "isl@0.12",
