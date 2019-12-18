@@ -1,8 +1,8 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.2.25.tar.xz"
-  sha256 "746efeedc38e6ff7b1ec1432440f5fa801537adf6cd21e4afb3f040e5b0760a9"
+  url "https://www.php.net/distributions/php-7.2.26.tar.xz"
+  sha256 "1dd3bc875e105f5c9d21fb4dc240670bd2c22037820ff03890f5ab883c88b78d"
 
   bottle do
     sha256 "a951eaf1cc000be90aa3f8d212898c7374f889711d29812392dbb087d8177664" => :catalina
