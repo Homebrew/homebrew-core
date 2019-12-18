@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.4.3.tar.gz"
-    sha256 "d9ae34d58cc577ab62aaf58e687ffb23805400a82ed813d37ff15f64d25f6cf0"
+    url "https://github.com/nabla-c0d3/sslyze/archive/2.1.4.tar.gz"
+    sha256 "817b37f49f179ecc5dbd663ad256e626865513192f3ece54181eee4a786f02c0"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/1.1.3.tar.gz"
-      sha256 "09aa98d630710c2da74aebeda1eccc4e878bd8ececa1c3ad5464d6e777b44eb6"
+      url "https://github.com/nabla-c0d3/nassl/archive/2.2.0.tar.gz"
+      sha256 "3a6abdc6e4510c4f6f8921cf57feb68781074416eaad3920cb35f3c03232b82d"
     end
   end
 
@@ -30,47 +30,35 @@ class Sslyze < Formula
     end
   end
 
+  depends_on "pipenv" => :build
   depends_on :arch => :x86_64
-  depends_on "python@2"
+  depends_on "libffi"
+  depends_on "openssl@1.1"
+  depends_on "python"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
-    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
+    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
+    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
-    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-  end
-
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
-    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
-  end
-
-  resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
-    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
+    url "https://files.pythonhosted.org/packages/69/ed/5e97b7f54237a9e4e6291b6e52173372b7fa45ca730d36ea90b790c0059a/cryptography-2.5.tar.gz"
+    sha256 "4946b67235b9d2ea7d31307be9d5ad5959d6c4a8f98f900157b47abddf698401"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
-    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
+    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "tls-parser" do
@@ -78,68 +66,23 @@ class Sslyze < Formula
     sha256 "869ad3c8a45e73bcbb3bf0dd094f0345675c830e851576f42585af1a60c2b0e5"
   end
 
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/ec/cc/28444132a25c113149cec54618abc909596f0b272a74c55bab9593f8876c/typing-3.6.4.tar.gz"
-    sha256 "d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
-  end
-
-  resource "zlib" do
-    url "https://zlib.net/zlib-1.2.11.tar.gz"
-    mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz"
-    sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
-  end
-
-  resource "openssl-legacy" do
-    url "https://ftp.openssl.org/source/old/1.0.2/openssl-1.0.2e.tar.gz"
-    sha256 "e23ccafdb75cfcde782da0151731aa2185195ac745eea3846133f2e05c0e0bff"
-  end
-
-  resource "openssl-modern" do
-    url "https://github.com/openssl/openssl.git",
-        :revision => "1f5878b8e25a785dde330bf485e6ed5a6ae09a1a"
-  end
-
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
 
     res = resources.map(&:name).to_set
-    res -= %w[cryptography nassl openssl-legacy openssl-modern zlib]
+    res -= %w[nassl]
 
     res.each do |r|
       venv.pip_install resource(r)
     end
 
-    ENV.prepend_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-
     resource("nassl").stage do
       nassl_path = Pathname.pwd
-      # openssl fails on parallel build. Related issues:
-      # - https://rt.openssl.org/Ticket/Display.html?id=3736&user=guest&pass=guest
-      # - https://rt.openssl.org/Ticket/Display.html?id=3737&user=guest&pass=guest
-      ENV.deparallelize do
-        mv "bin/openssl-legacy/include", "nassl_openssl_legacy_include"
-        mv "bin/openssl-modern/include", "nassl_openssl_modern_include"
-        rm_rf "bin" # make sure we don't use the prebuilt binaries
-        (nassl_path/"bin/openssl-legacy/darwin64").mkpath
-        (nassl_path/"bin/openssl-modern/darwin64").mkpath
-        mv "nassl_openssl_legacy_include", "bin/openssl-legacy/include"
-        mv "nassl_openssl_modern_include", "bin/openssl-modern/include"
-        (nassl_path/"zlib-#{resource("zlib").version}").install resource("zlib")
-        (nassl_path/"openssl-1.0.2e").install resource("openssl-legacy")
-        (nassl_path/"openssl-master").install resource("openssl-modern")
-        system "python", "build_from_scratch.py"
-      end
-      system "python", "run_tests.py"
+      system "pipenv", "install", "--dev"
+      system "pipenv", "run", "invoke", "build.all"
       venv.pip_install nassl_path
-
-      # Link cryptography against the openssl modern used by nassl above
-      # Avoid "TypeError - object of type 'UnrecognizedExtension' has no len()"
-      # Work around https://github.com/pyca/cryptography/issues/4373
-      # See https://github.com/nabla-c0d3/sslyze/issues/323
-      ENV.prepend "CPPFLAGS", "-I#{nassl_path}/bin/openssl-modern/include"
-      ENV.prepend "LDFLAGS", "-L#{nassl_path}/bin/openssl-modern/darwin64"
-      venv.pip_install resource("cryptography")
     end
+
     venv.pip_install_and_link buildpath
   end
 
