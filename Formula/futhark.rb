@@ -5,8 +5,8 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.13.1.tar.gz"
-  sha256 "a0f33d7605fad80998c9b8dae6678eb8932316235a4ac6e5993f3f2858987719"
+  url "https://github.com/diku-dk/futhark/archive/v0.13.2.tar.gz"
+  sha256 "51b1c4bf3cac469dabbf66955049480273411cf5eb50da235f0a4c96cffe2b8e"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
@@ -22,6 +22,12 @@ class Futhark < Formula
 
   def install
     cabal_sandbox do
+      # Futhark provides a cabal.project.freeze for pinning Cabal
+      # dependencies, but this is only picked up by "v2" builds, and
+      # as of this writing, Homebrew still does sandboxed "v1" builds.
+      # Fortunately, the file formats seem to be compatible.
+      mv "cabal.project.freeze", "cabal.config"
+
       cabal_install "hpack"
       system "./.cabal-sandbox/bin/hpack"
 
