@@ -1,8 +1,12 @@
 class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
-  url "https://github.com/kubernetes-sigs/aws-iam-authenticator/archive/v0.4.0.tar.gz"
+  url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
+    :tag      => "v0.4.0",
+    :revision => "c141eda34ad1b6b4d71056810951801348f8c367"
   sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
+  head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "f6ead03c19e3c8c2f6b37020499e3cce3c8e806cfe895314c5749d68cdbfd1ff" => :catalina
@@ -16,13 +20,16 @@ class AwsIamAuthenticator < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
+    version = Utils.popen_read("git describe --tags").strip
 
     (buildpath/"src/github.com/kubernetes-sigs/aws-iam-authenticator").install buildpath.children
 
     cd "src/github.com/kubernetes-sigs/aws-iam-authenticator" do
       system "dep", "ensure", "-vendor-only"
       cd "cmd/aws-iam-authenticator" do
-        system "go", "build", "-o", "aws-iam-authenticator"
+        system "go", "build", "-o", "aws-iam-authenticator",
+          "-ldflags", "-s -w -X main.version=#{version} -X main.commit=#{revision}"
         bin.install "aws-iam-authenticator"
       end
       prefix.install_metafiles
@@ -30,6 +37,9 @@ class AwsIamAuthenticator < Formula
   end
 
   test do
+    output = shell_output("#{bin}/aws-iam-authenticator version")
+    assert_match "\"Version\":\"v#{version}\"", output
+
     system "#{bin}/aws-iam-authenticator", "init", "-i", "test"
     contents = Dir.entries(".")
     ["cert.pem", "key.pem", "aws-iam-authenticator.kubeconfig"].each do |created|
