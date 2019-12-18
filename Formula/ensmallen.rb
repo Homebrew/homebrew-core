@@ -4,6 +4,13 @@ class Ensmallen < Formula
   url "https://ensmallen.org/files/ensmallen-2.10.5.tar.gz"
   sha256 "fa45e8f65c93d20fec3bbafbb87c66d2762942b00395159846f62e9c35ff7168"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "aa864a73b33f5e886480e75327398f0a742d9cf0dc4001bf7d00500a0db463bb" => :catalina
+    sha256 "aa864a73b33f5e886480e75327398f0a742d9cf0dc4001bf7d00500a0db463bb" => :mojave
+    sha256 "aa864a73b33f5e886480e75327398f0a742d9cf0dc4001bf7d00500a0db463bb" => :high_sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "armadillo"
 
