@@ -1,8 +1,8 @@
 class Dashing < Formula
   desc "Generate Dash documentation from HTML files"
   homepage "https://github.com/technosophos/dashing"
-  url "https://github.com/technosophos/dashing/archive/0.3.0.tar.gz"
-  sha256 "f6569f3df80c964c0482e7adc1450ea44532d8da887091d099ce42a908fc8136"
+  url "https://github.com/technosophos/dashing/archive/0.4.0.tar.gz"
+  sha256 "81b21acae83c144f10d9eea05a0b89f0dcdfa694c3760c2a25bd4eab72a2a3b9"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,22 +12,17 @@ class Dashing < Formula
     sha256 "b37d425623bdbb32fe99d58c6d15cbc0753706aad3758aaf95ed229316e2a185" => :el_capitan
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   # Use ruby docs just as dummy documentation to test with
   resource "ruby_docs_tarball" do
-    url "https://ruby-doc.org/downloads/ruby_2_5_0_core_rdocs.tgz"
-    sha256 "219e171641e979a5c8dee1b63347a1a26b94ba648aec96f7e6ed915d12bcaa15"
+    url "https://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
+    sha256 "1ef2923161031789a88ac40630c93b7c4feb74147b47fd14c0dfe53559dc6622"
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-
     (buildpath/"src/github.com/technosophos/dashing").install buildpath.children
     cd "src/github.com/technosophos/dashing" do
-      system "glide", "install"
       system "go", "build", "-o", bin/"dashing", "-ldflags",
              "-X main.version=#{version}"
       prefix.install_metafiles
