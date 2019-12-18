@@ -3,6 +3,7 @@ class PdfRedactTools < Formula
   homepage "https://github.com/firstlookmedia/pdf-redact-tools"
   url "https://github.com/firstlookmedia/pdf-redact-tools/archive/v0.1.2.tar.gz"
   sha256 "5874a7b76be15ccaa4c20874299ef51fbaf520a858229a58678bc72a305305fc"
+  revision 1
   head "https://github.com/firstlookmedia/pdf-redact-tools.git"
 
   bottle do
@@ -18,7 +19,8 @@ class PdfRedactTools < Formula
   depends_on "exiftool"
   depends_on "ghostscript"
   depends_on "imagemagick"
-  depends_on "python@2" # does not support Python 3
+  # https://github.com/firstlookmedia/pdf-redact-tools/pull/34
+  uses_from_macos "python@2" # does not support Python 3
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
