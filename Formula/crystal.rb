@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.32.0.tar.gz"
-    sha256 "c1705f6502e410ceff10ef4cafc859aadb2d0858a699311f923f7f6e7e8ce81a"
+    url "https://github.com/crystal-lang/crystal/archive/0.32.1.tar.gz"
+    sha256 "66b62d0fb5bfa6547f285eb520f7fd0bc57bc994babf54cb8e7a61e613c79399"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -35,6 +35,7 @@ class Crystal < Formula
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "llvm"
+  depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -101,7 +102,10 @@ class Crystal < Formula
     end
 
     bin.install ".build/shards"
-    bin.install ".build/crystal"
+    libexec.install ".build/crystal"
+    (bin/"crystal").write_env_script libexec/"crystal",
+      :PKG_CONFIG_PATH => "${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl"].opt_lib/"pkgconfig"}"
+
     prefix.install "src"
     (prefix/"embedded/lib").install "#{buildpath/"gc"}/.libs/libgc.a"
 
