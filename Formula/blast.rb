@@ -26,6 +26,8 @@ class Blast < Formula
 
     # Fix shebang line, for those who have edirect
     inreplace "c++/src/app/blast/get_species_taxids.sh", /edirect$/, "edirect:$PATH"
+      "export PATH=/bin:/usr/bin:/am/ncbiapdata/bin:$HOME/edirect",
+      "export PATH=#{bin}:#{HOMEBREW_PREFIX}/bin:$PATH:/am/ncbiapdata/bin:$HOME/edirect"
 
     cd "c++" do
       # Use ./configure --without-boost to fix
