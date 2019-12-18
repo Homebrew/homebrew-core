@@ -17,7 +17,7 @@ class Nushell < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", "--features", "starship-prompt", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
