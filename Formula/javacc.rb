@@ -1,8 +1,8 @@
 class Javacc < Formula
-  desc "Java parser generator"
+  desc "Parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/7.0.4.tar.gz"
-  sha256 "a6a2381dfae5fdfe7849b921c9950af594ff475b69fbc6e8568365c5734cf77c"
+  url "https://github.com/javacc/javacc/archive/7.0.5.tar.gz"
+  sha256 "d1502f8a7ed607de17427a1f33e490a33b0c2d5612879e812126bf95e7ed11f4"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Javacc < Formula
 
   def install
     system "ant"
-    libexec.install "target/javacc.jar"
-    doc.install Dir["www/doc/*"]
+    (libexec/"lib").install "target/javacc-#{version}.jar"
+    doc.install Dir["docs/*"]
     (share/"examples").install Dir["examples/*"]
     %w[javacc jjdoc jjtree].each do |script|
       (bin/script).write <<~SH
         #!/bin/bash
-        exec java -classpath #{libexec/"javacc.jar"} #{script} "$@"
+        exec java -classpath #{libexec/"lib/javacc-#{version}.jar"} #{script} "$@"
       SH
     end
   end
