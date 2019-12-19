@@ -1,9 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2"
-  sha256 "0112df690301d9eb993cc48965fc71b7751c9021a4f4ee08fcae366c326b5e5a"
-  revision 2
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.18.tar.xz"
+  sha256 "c946dfb45beb7fe0fb95b89a25395b449eda2b205ba3e8a1ffb1ef992d9eca64"
 
   bottle do
     sha256 "c85c022cbec147dc1c206c6efaaab0ad1cc9db52b90706a3e131b6918eed7f89" => :catalina
@@ -16,12 +15,14 @@ class Gegl < Formula
     # Use the Github mirror because official git unreliable.
     url "https://github.com/GNOME/gegl.git"
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
+  depends_on "cmake" => :build
   depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   depends_on "pkg-config" => :build
   depends_on "babl"
   depends_on "gettext"
@@ -29,20 +30,16 @@ class Gegl < Formula
   depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
+  depends_on "little-cms2"
 
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-docs",
-                          "--without-cairo",
-                          "--without-jasper",
-                          "--without-umfpack",
-                          "--without-libspiro"
-    system "make", "install"
+    system "meson", "build", "--prefix=#{prefix}"
+    cd "build" do
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
