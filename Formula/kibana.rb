@@ -2,8 +2,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.8.3",
-      :revision => "c814843540abb9dedf0f89bddc61bee364527743"
+      :tag      => "v6.8.6",
+      :revision => "a174acf677e77d280e3cbbbd8ffb6eca6db80846"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -19,12 +19,17 @@ class Kibana < Formula
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.16.0/yarn-v1.16.0.tar.gz"
-    sha256 "df202627d9a70cf09ef2fb11cb298cb619db1b958590959d6f6e571b50656029"
+    url "https://yarnpkg.com/downloads/1.21.1/yarn-v1.21.1.tar.gz"
+    sha256 "d1d9f4a0f16f5ed484e814afeb98f39b82d4728c6c8beaafb5abc99c02db6674"
   end
 
   def install
     resource("node").stage do
+      # Fixes detecting Apple clang 11. (this is the patch that's applied in the node@10 formula)
+      inreplace "configure.py" do |s|
+        s.gsub! 'cc, r"(^Apple LLVM version) ([0-9]+\.[0-9]+)")', 'cc, r"(^Apple (?:clang|LLVM) version) ([0-9]+\.[0-9]+)")'
+      end
+
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "install"
     end
