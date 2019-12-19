@@ -16,13 +16,8 @@ class Nsq < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
-    cd "src/github.com/nsqio/nsq" do
-      system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
-      prefix.install_metafiles
-    end
+    system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+    prefix.install_metafiles
   end
 
   def post_install
