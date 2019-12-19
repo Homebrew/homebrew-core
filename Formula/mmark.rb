@@ -19,14 +19,9 @@ class Mmark < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/mmarkdown/mmark").install buildpath.children
-    cd "src/github.com/mmarkdown/mmark" do
-      system "go", "build", "-o", bin/"mmark"
-      man1.install "mmark.1"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"mmark"
+    man1.install "mmark.1"
+    prefix.install_metafiles
   end
 
   test do
