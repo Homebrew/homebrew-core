@@ -25,7 +25,7 @@ class Blast < Formula
     inreplace "c++/src/app/blast/update_blastdb.pl", "from_json", "decode_json"
 
     # Fix shebang line, for those who have edirect
-    inreplace "c++/src/app/blast/get_species_taxids.sh", /edirect$/, "edirect:$PATH"
+    inreplace "c++/src/app/blast/get_species_taxids.sh",
       "export PATH=/bin:/usr/bin:/am/ncbiapdata/bin:$HOME/edirect",
       "export PATH=#{bin}:#{HOMEBREW_PREFIX}/bin:$PATH:/am/ncbiapdata/bin:$HOME/edirect"
 
