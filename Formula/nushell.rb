@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.6.1.tar.gz"
-  sha256 "3f7878df7d77fe330e6840428845800d9eefc2ad8248617c42004030ecf527f0"
+  url "https://github.com/nushell/nushell/archive/0.7.0.tar.gz"
+  sha256 "9cfb6be335f7a06ccaf7cc2a06075a23ed6e2e2fdd6ea7fbc165a7d4a30990f9"
   head "https://github.com/nushell/nushell.git"
 
   bottle do
@@ -17,10 +17,10 @@ class Nushell < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cargo", "install", "--features", "starship-prompt", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", "--features", "stable", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
-    assert_equal "#{Dir.pwd}> 2\n#{Dir.pwd}> ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    assert_equal "\n~ \n❯ 2\n\n~ \n❯ ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
   end
 end
