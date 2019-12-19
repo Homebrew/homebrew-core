@@ -8,9 +8,10 @@ class KymaCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c762e252ca9fac83aace4a9c64ccd697649aedb2b5316b1b4262db0512ed370" => :catalina
-    sha256 "ac947921edd96aaee0316200b9d89b000134095f7dbe67e1bb58662548ada90c" => :mojave
-    sha256 "fb93cc1699da81e9927e5664703a29af043c23693300790b3c09e69cfd7a4562" => :high_sierra
+    rebuild 1
+    sha256 "eaf207c14e97c39fffdcad41701c7d38670248e6104208db3c78e4eff8c06c09" => :catalina
+    sha256 "bf3a28ea32655812abb2840c50242220cee249c020db4d0f79ad342b53f73b62" => :mojave
+    sha256 "a8ec9a335867521d07b348928548d41b7627631c48cc1f14cd4ba09004398db6" => :high_sierra
   end
 
   depends_on "go" => :build
