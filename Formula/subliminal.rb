@@ -5,18 +5,17 @@ class Subliminal < Formula
   homepage "https://subliminal.readthedocs.org"
   url "https://files.pythonhosted.org/packages/f0/84/8cddb13aa4142e85546cd7c0d0546d2c1a25f0876000a3ec37151dfd8eb9/subliminal-2.0.5.tar.gz"
   sha256 "147aa54f54de62d6fcafa213bb9ea89319600c133dab1a5532ff7126352bfbb7"
+  revision 1
   head "https://github.com/Diaoul/subliminal.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "072007f3a3451aa316278456c307aa7ba7ba64ef1187b8f8c807659ec36d3899" => :catalina
-    sha256 "457861fcc30e065232f158501fd4e3b80fb0c60bcbfbcb12dca0ac3906c37121" => :mojave
-    sha256 "5582303e8dd6e3ddcc82b5ca88454337116ed22e46c08e6bea6b9068c9d91085" => :high_sierra
-    sha256 "1e53262d5fe047cbb56366be5c195f172a28c1d0f24dfaccb1808c7d4bd739ac" => :sierra
+    sha256 "5ed1e341a5c814b25e18461ed108c5085f9e2553c86183bc5bf3905b234acd66" => :catalina
+    sha256 "de941a422e12c8ed0f70284c9ec2ae9e2c48d14f7f9d78112bbbfcbd8fcb12b6" => :mojave
+    sha256 "de941a422e12c8ed0f70284c9ec2ae9e2c48d14f7f9d78112bbbfcbd8fcb12b6" => :high_sierra
   end
 
-  depends_on "python@2" # does not support Python 3.7
+  uses_from_macos "python@2" # does not support Python 3.7
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
@@ -109,7 +108,19 @@ class Subliminal < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    site_packages = libexec/"lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", site_packages
+    system "python", *Language::Python.setup_install_args(libexec)
+
+    bin.install Dir[libexec/"bin/*"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

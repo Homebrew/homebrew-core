@@ -12,8 +12,9 @@ class Nushell < Formula
     sha256 "0a462f17a6f2c1fdab7fd605da8b24d1e30e83fdfd7834756f054d25460c1543" => :high_sierra
   end
 
+  depends_on "rust" => :build
+
   depends_on "openssl@1.1"
-  depends_on "rust"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."

@@ -1,14 +1,14 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/1.2.1/bazel-1.2.1-dist.zip"
-  sha256 "255da49d0f012bc4f2c1d6d3ccdbe578e22fe97b8d124e1629a486fe2a09d3e1"
+  url "https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip"
+  sha256 "724da3c656f68e787a86ebb9844773aa1c2e3a873cc39462a8f1b336153d6cbb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3083bf1b24db4702c29a13a41174343a14aacc023df0e11ab1b17b822cc5a496" => :catalina
-    sha256 "19eca5d57c8ffc7bdf19ebcc1376b40a7466253a48f3209cbb475931e38a5b1d" => :mojave
-    sha256 "7c62fff1f7d36dd22a8c5e56b73f639c873ed91062e871865eb7f7084029987a" => :high_sierra
+    sha256 "ad8b72428a6127b3417e90e26a4d0534cb0c65c22e158e958ddc1e9341a4f0bd" => :catalina
+    sha256 "424204a2aabeb6f6323bcf2909a64015137590c309e0e382ce053edfd9aeeac6" => :mojave
+    sha256 "f276a2424d4e6ed6ac5c65771f0370bec4382d8930c75e093703f65cf87803e8" => :high_sierra
   end
 
   depends_on "python" => :build

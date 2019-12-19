@@ -16,6 +16,9 @@ class PostgresqlAT11 < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
   depends_on "readline"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
 
   def install
     # avoid adding the SDK library directory to the linker search path

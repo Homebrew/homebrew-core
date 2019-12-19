@@ -19,7 +19,7 @@ class Texlab < Formula
   end
 
   test do
-    require "Open3"
+    require "open3"
 
     begin
       stdin, stdout, _, wait_thr = Open3.popen3("#{bin}/texlab")

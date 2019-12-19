@@ -3,11 +3,12 @@ class Libpq < Formula
   homepage "https://www.postgresql.org/docs/12/libpq.html"
   url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
   sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
+  revision 1
 
   bottle do
-    sha256 "e38eeb2551409bd6f85fac83f04fe73a794a040c155a75dafe56d6f8ce031494" => :catalina
-    sha256 "ced57c972519a98fb97dd178a6415aa191e624c06ea0fb78c735463a14b98d55" => :mojave
-    sha256 "fd9cc6a0674764f208d4ebe72619d01ae7f209010fca416a9ff5d9f2cc292166" => :high_sierra
+    sha256 "7091cf8b116e4320adb38a78a7cfe09676db01c6ab20775039352bcc7627cccb" => :catalina
+    sha256 "c391659b1be8ed18885421e23cf5a0b33f04b389d6c3b41aad5dfa43c38f9641" => :mojave
+    sha256 "47317a41104e4cef411027fc5fcead51b5901ea7ed0b07ab3ad6a582767486b4" => :high_sierra
   end
 
   keg_only "conflicts with postgres formula"
@@ -17,6 +18,7 @@ class Libpq < Formula
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
+                          "--with-gssapi",
                           "--with-openssl",
                           "--libdir=#{opt_lib}",
                           "--includedir=#{opt_include}"
@@ -31,6 +33,8 @@ class Libpq < Formula
     system "make", "-C", "src/bin", "install", *dirs
     system "make", "-C", "src/include", "install", *dirs
     system "make", "-C", "src/interfaces", "install", *dirs
+    system "make", "-C", "src/common", "install", *dirs
+    system "make", "-C", "src/port", "install", *dirs
     system "make", "-C", "doc", "install", *dirs
   end
 

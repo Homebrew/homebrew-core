@@ -9,16 +9,18 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ce13d36d45f503c545b18ea243763c87de6f51dbc2cd8bb5be8c0a9209931a59" => :catalina
-    sha256 "3aa1c3c50b68e086799fa0e775ad4039aede3697cbba99b9c336e6cc7eeb8231" => :mojave
-    sha256 "56ddc3764ecfb4ca657ebb8f9f8b6e986ed580c86508edc1d19ebb1954025df8" => :high_sierra
+    rebuild 2
+    sha256 "af0ca35be9c42ad8167fbdb497438814ebb7ba3a08a96431360a91af37064736" => :catalina
+    sha256 "616b96839755a08668908e5fc53d62bf987164a395c90b2afde6a659c2d483b1" => :mojave
+    sha256 "8bab39fa0731d7868724cacbef2ceb716fc99481be1d1cf04d16d000800db286" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python"
+  uses_from_macos "libffi"
+  uses_from_macos "libxslt"
 
   # Collect requirements from:
   #   ansible
@@ -402,6 +404,11 @@ class Ansible < Formula
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/1c/b1/362a0d4235496cb42c33d1d8732b5e2c607b0129ad5fdd76f5a583b9fcb3/pexpect-4.7.0.tar.gz"
     sha256 "9e2c1fd0e6ee3a49b28f95d4b33bc389c89b20af6a1255906e90ff1262ce62eb"
+  end
+
+  resource "ptyprocess" do
+    url "https://files.pythonhosted.org/packages/7d/2d/e4b8733cf79b7309d84c9081a4ab558c89d8c89da5961bf4ddb050ca1ce0/ptyprocess-0.6.0.tar.gz"
+    sha256 "923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"
   end
 
   resource "pyasn1" do

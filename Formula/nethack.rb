@@ -3,15 +3,15 @@
 class Nethack < Formula
   desc "Single-player roguelike video game"
   homepage "https://www.nethack.org/"
-  url "https://www.nethack.org/download/3.6.3/nethack-363-src.tgz"
-  version "3.6.3"
-  sha256 "1437b650d9a170fc7d53b47fe2f043a7687c74a02aa89916043039b501620b09"
-  head "https://git.code.sf.net/p/nethack/NetHack.git", :branch => "NetHack-3.6.3"
+  url "https://www.nethack.org/download/3.6.4/nethack-364-src.tgz"
+  version "3.6.4"
+  sha256 "0531ab8466032611d61f702cb71fb3ceca78a7a4918885c1b4f2f17cb57dbd59"
+  head "https://github.com/NetHack/NetHack.git"
 
   bottle do
-    sha256 "97681ae93eebecc753330c8337bccfac8485927bd4a59d091e3afe41e2575674" => :catalina
-    sha256 "f0cc750101ae9d758655a1662b313edc29c5ffc3118f5c925dc4a35885b591a9" => :mojave
-    sha256 "338ec64c471bc1992bcf768052af2d0383a5fc053426d34281c74b8ff0ec7f4b" => :high_sierra
+    sha256 "f22b563c9e8aea4616d57f9227eb1974e4160747dd2cb229f4e3528daabf346d" => :catalina
+    sha256 "245aa0e0e81b8a57456ab2143adc61d4d939a3aa56ae651b89476c459d28f9dc" => :mojave
+    sha256 "de56066a50b1fcfc2f39d5084c5f9e08118768bbbb8aeb3d0c4696d042c10466" => :high_sierra
   end
 
   uses_from_macos "ncurses"

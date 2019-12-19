@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.32.0.tar.gz"
-    sha256 "c1705f6502e410ceff10ef4cafc859aadb2d0858a699311f923f7f6e7e8ce81a"
+    url "https://github.com/crystal-lang/crystal/archive/0.32.1.tar.gz"
+    sha256 "66b62d0fb5bfa6547f285eb520f7fd0bc57bc994babf54cb8e7a61e613c79399"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "ca6dc355fb0e07011cfd10e796017284b2983dd60484cc68815eb7b50b9b994f" => :catalina
-    sha256 "41abc191c23487d1b937aef1d8be92214ce302dc34e7b13700fe0317950f09bf" => :mojave
-    sha256 "87c7e1b222f6e363ed1451ab0fcf9955a3f7bd86126c31b40e0d5ca74064309c" => :high_sierra
+    sha256 "024e5e9c4b1f93863fa2ccfbc8fb98c3e494d6f0e0edfb5da5838826e6e63e0e" => :catalina
+    sha256 "cd590caeb6a39bd3555683e3b642ef19eaa5711740cacf19a67ab86cee4352a4" => :mojave
+    sha256 "cdabfcf0fc44bf640605c56eaa4be42e668acd022a1b62b44ca6405de5a60ad2" => :high_sierra
   end
 
   head do
@@ -35,6 +35,7 @@ class Crystal < Formula
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "llvm"
+  depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -101,7 +102,10 @@ class Crystal < Formula
     end
 
     bin.install ".build/shards"
-    bin.install ".build/crystal"
+    libexec.install ".build/crystal"
+    (bin/"crystal").write_env_script libexec/"crystal",
+      :PKG_CONFIG_PATH => "${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl"].opt_lib/"pkgconfig"}"
+
     prefix.install "src"
     (prefix/"embedded/lib").install "#{buildpath/"gc"}/.libs/libgc.a"
 

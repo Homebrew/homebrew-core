@@ -1,15 +1,15 @@
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/v1.2.2.tar.gz"
-  sha256 "c5d6eb6ce080431f2996ee7e8e1f4b8f6c61455a1011b922e325e28e88d01b53"
+  url "https://github.com/edenhill/librdkafka/archive/v1.3.0.tar.gz"
+  sha256 "465cab533ebc5b9ca8d97c90ab69e0093460665ebaf38623209cf343653c76d2"
   head "https://github.com/edenhill/librdkafka.git"
 
   bottle do
     cellar :any
-    sha256 "a2ed4daef1757720cdcffea3fd51271f86c4dc59fbc834c51c365c011547da09" => :catalina
-    sha256 "503d1848ef0909e467233aeffb55653ba594f05ab262306692fce45d4d9eafa8" => :mojave
-    sha256 "c8d90277c835b532fe08bbf40f451709b643f471654bdb5b53fe4a4075f69707" => :high_sierra
+    sha256 "b1eb668f9a0f2baf248a94f2c0b88e0fe8ce4f07745a18fd1ca7d99324b777fa" => :catalina
+    sha256 "f2be2e15d096671088a0bd76429ad651c008aea18c7acf7828abda9d2c925ec5" => :mojave
+    sha256 "0c437ace1c068e76c25e849c659b420c9a2c59fd27d1ec6f935f190f40b4672d" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -32,6 +32,9 @@ class Sonobuoy < Formula
   end
 
   test do
+    resources.each do |r|
+      r.verify_download_integrity(r.fetch)
+    end
     output = shell_output("#{bin}/sonobuoy 2>&1")
     assert_match "Sonobuoy is an introspective kubernetes component that generates reports on cluster conformance", output
     assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")

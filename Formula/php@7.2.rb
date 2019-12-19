@@ -1,13 +1,13 @@
 class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.2.25.tar.xz"
-  sha256 "746efeedc38e6ff7b1ec1432440f5fa801537adf6cd21e4afb3f040e5b0760a9"
+  url "https://www.php.net/distributions/php-7.2.26.tar.xz"
+  sha256 "1dd3bc875e105f5c9d21fb4dc240670bd2c22037820ff03890f5ab883c88b78d"
 
   bottle do
-    sha256 "a951eaf1cc000be90aa3f8d212898c7374f889711d29812392dbb087d8177664" => :catalina
-    sha256 "eed6eb7d281b72d7abc3f42a58d3257101c00633d9e7a057957628165ac1c553" => :mojave
-    sha256 "1414b7e45bd689e56dfb1b83294185577b46196121966b14a3981614bd0acc48" => :high_sierra
+    sha256 "95c89317226612603d535c21cd4a843bca320b7c16ba914e7c454fb30f0683f1" => :catalina
+    sha256 "3067244276a037f37b7f7c0d802fa7e3b4b3ef1154933b18fbd5c9f39339eef2" => :mojave
+    sha256 "9437fed0510d8c169ceb18f5cab74d531def15b55abe5c62af4b727e1228709f" => :high_sierra
   end
 
   keg_only :versioned_formula
