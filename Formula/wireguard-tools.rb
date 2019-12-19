@@ -3,8 +3,8 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.com/"
   # Please only update version when the tools have been modified/updated,
   # since the Linux module aspect isn't of utility for us.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20191127.tar.xz"
-  sha256 "7d4e80a6f84564d4826dd05da2b59e8d17645072c0345d0fc0d197be176c3d06"
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20191219.tar.xz"
+  sha256 "5aba6f0c38e97faa0b155623ba594bb0e4bd5e29deacd8d5ed8bda8d8283b0e7"
   head "https://git.zx2c4.com/WireGuard", :using => :git
 
   bottle do
