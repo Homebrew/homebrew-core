@@ -15,16 +15,9 @@ class Lego < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/go-acme/lego"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
-          "-o", bin/"lego", "cmd/lego/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath",
+        "-o", bin/"lego", "cmd/lego/main.go"
+    prefix.install_metafiles
   end
 
   test do
