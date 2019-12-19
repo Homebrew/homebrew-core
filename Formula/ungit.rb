@@ -21,8 +21,6 @@ class Ungit < Formula
   end
 
   test do
-    require "nokogiri"
-
     server = TCPServer.new(0)
     port = server.addr[1]
     server.close
@@ -31,7 +29,7 @@ class Ungit < Formula
       exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
     end
     sleep 5
-    assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:#{port}/")).at_css("title").text
+    assert_includes shell_output("curl -s 127.0.0.1:#{port}/"), "<title>ungit</title>"
   ensure
     if ppid
       Process.kill("TERM", ppid)
