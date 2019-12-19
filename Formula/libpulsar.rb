@@ -1,9 +1,8 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.4.1/apache-pulsar-2.4.1-src.tar.gz"
-  sha256 "6fb764b0d15506884905b781cfd2f678ad6a819f2c8d60cc34f78966b4676d40"
-  revision 2
+  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.4.2/apache-pulsar-2.4.2-src.tar.gz"
+  sha256 "4b543932db923aa135c4d54b9122bcbdfc67bd73de641f9fffbc9a4ddf3430ae"
 
   bottle do
     cellar :any
@@ -17,16 +16,11 @@ class Libpulsar < Formula
   depends_on "boost"
   depends_on "openssl@1.1"
   depends_on "protobuf"
+  depends_on "snappy"
   depends_on "zstd"
 
   def install
     cd "pulsar-client-cpp" do
-      # Stop opportunistic linking to snappy
-      # (Snappy was broken in 2.4.0 - could be added now)
-      inreplace "CMakeLists.txt",
-                "HAS_SNAPPY 1",
-                "HAS_SNAPPY 0"
-
       system "cmake", ".", *std_cmake_args,
                       "-DBUILD_TESTS=OFF",
                       "-DBUILD_PYTHON_WRAPPER=OFF",
