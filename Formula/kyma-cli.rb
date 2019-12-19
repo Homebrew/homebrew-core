@@ -16,14 +16,8 @@ class KymaCli < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    bin_path = buildpath/"src/github.com/kyma-project/cli/"
-    bin_path.install Dir["*"]
-
-    cd bin_path do
-      system "make", "build-darwin"
-      bin.install "bin/kyma-darwin" => "kyma"
-    end
+    system "make", "build-darwin"
+    bin.install "bin/kyma-darwin" => "kyma"
   end
 
   test do
