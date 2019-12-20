@@ -1,8 +1,8 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tar.xz"
-  sha256 "e85a76ea9f3d6c485ec1780fca4e500725a4a7bbc63c78ebc44170de9b619d94"
+  url "https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz"
+  sha256 "75894117f6db7051c1b34f37410168844bbb357c139a8a10a352e9bf8be594e8"
   head "https://github.com/python/cpython.git"
 
   bottle do
