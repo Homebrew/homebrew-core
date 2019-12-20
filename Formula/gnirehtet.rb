@@ -4,6 +4,7 @@ class Gnirehtet < Formula
   url "https://github.com/Genymobile/gnirehtet/archive/v2.5.tar.gz"
   sha256 "2b55b56e1b21d1b609a0899fe85d1f311120bb12b04761ec586187338daf6ec5"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Genymobile/gnirehtet.git"
 
   bottle do
@@ -27,16 +28,7 @@ class Gnirehtet < Formula
     system "cargo", "install", "--locked", "--root", libexec, "--path", "relay-rust"
     mv "#{libexec}/bin/gnirehtet", "#{libexec}/gnirehtet"
 
-    (bin/"gnirehtet").write <<~EOS
-      #!/bin/bash
-      if [[ "$1" == "install" ]]; then
-        shift
-        echo "Installing #{libexec}/gnirehtet.apk"
-        adb install -r #{libexec}/gnirehtet.apk
-      else
-        #{libexec}/gnirehtet $*
-      fi
-    EOS
+    (bin/"gnirehtet").write_env_script("#{libexec}/gnirehtet", GNIREHTET_APK: "#{libexec}/gnirehtet.apk")
   end
 
   def caveats
