@@ -1,9 +1,9 @@
 class Rsnapshot < Formula
   desc "File system snapshot utility (based on rsync)"
   homepage "https://www.rsnapshot.org/"
-  url "https://github.com/rsnapshot/rsnapshot/releases/download/1.4.2/rsnapshot-1.4.2.tar.gz"
-  sha256 "042a81c45b325296b21c363f417985d857f083f87c5c27f5a64677a052f24e16"
-  head "https://github.com/DrHyde/rsnapshot.git"
+  url "https://github.com/rsnapshot/rsnapshot/releases/download/1.4.3/rsnapshot-1.4.3.tar.gz"
+  sha256 "2b0c7aad3e14e0260513331425a605d73c3bdd7936d66d418d7714a76bc55bd1"
+  head "https://github.com/rsnapshot/rsnapshot.git"
 
   bottle do
     cellar :any_skip_relocation
