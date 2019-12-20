@@ -1,8 +1,8 @@
-class PythonAT38 < Formula
+class PythonAT381 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz"
-  sha256 "b356244e13fb5491da890b35b13b2118c3122977c2cd825e3eb6e7d462030d84"
+  url "https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz"
+  sha256 "75894117f6db7051c1b34f37410168844bbb357c139a8a10a352e9bf8be594e8"
 
   bottle do
     sha256 "72c20e5109fea0ab0295d4199b214317c11a64b86f52a999094d3479eed15d7b" => :catalina
