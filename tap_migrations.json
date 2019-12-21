@@ -26,5 +26,6 @@
   "quassel": "homebrew/cask",
   "schismtracker": "homebrew/cask/schism-tracker",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
-  "tuntap": "homebrew/cask"
+  "tuntap": "homebrew/cask",
+  "wesnoth": "homebrew/cask/the-battle-for-wesnoth"
 }
