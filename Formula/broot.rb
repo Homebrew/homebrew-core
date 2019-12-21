@@ -1,8 +1,8 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.10.3.tar.gz"
-  sha256 "6e0ddb89d3b533bcbf7f8f0b874c480f3421f5fa7780a0487f26b44438fda0e5"
+  url "https://github.com/Canop/broot/archive/v0.11.7.tar.gz"
+  sha256 "3698beeb8e8b0f586dabba666c58f64503b7de470f3ebe1fd769d86a8cd73372"
   head "https://github.com/Canop/broot.git"
 
   bottle do
@@ -19,17 +19,19 @@ class Broot < Formula
   end
 
   test do
-    require "pty"
+    assert_match version.to_s, shell_output("#{bin}/broot --version")
 
-    %w[a b c].each { |f| (testpath/"root"/f).write("") }
-    PTY.spawn("#{bin}/broot", "--cmd", ":pt", "--no-style", "--out", "#{testpath}/output.txt", testpath/"root") do |r, _w, _pid|
-      r.read
+    assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
 
-      assert_match <<~EOS, (testpath/"output.txt").read.gsub(/\r\n?/, "\n")
-        ├──a
-        ├──b
-        └──c
-      EOS
-    end
+    (testpath/"test.exp").write <<~EOS
+      spawn #{bin}/broot --cmd :pt --no-style --out #{testpath}/output.txt #{testpath}/root
+      send "Y\r"
+      expect {
+        timeout { exit 1 }
+        eof
+      }
+    EOS
+
+    assert_match "New Configuration file written in", shell_output("expect -f test.exp 2>&1")
   end
 end
