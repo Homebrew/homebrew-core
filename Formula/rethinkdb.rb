@@ -20,7 +20,7 @@ class Rethinkdb < Formula
 
     # rethinkdb requires that protobuf be linked against libc++
     # but brew's protobuf is sometimes linked against libstdc++
-    args += ["--fetch", "protobuf", "--allow-fetch"]
+    args += ["--fetch", "protobuf"]
 
     system "./configure", *args
     system "make"
