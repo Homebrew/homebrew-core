@@ -14,4 +14,10 @@ class Ccfits < Formula
     system "make"
     system "make", "install"
   end
+  
+  test do
+    (testpath/"test.sh").write <<~EOS
+    #{bin}/cookhook
+  EOS
+  end
 end
