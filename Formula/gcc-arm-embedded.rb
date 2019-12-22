@@ -16,6 +16,8 @@ class GccArmEmbedded < Formula
 
   def install
     ENV.deparallelize
+    inreplace "build-common.sh", "JOBS=1", "JOBS=`sysctl -n hw.ncpu`"
+
     # `clean_env` removes most ENV variables as a precaution. This can't happen if we want to use Superenv.
     inreplace "build-common.sh", /clean_env$/, ""
 
