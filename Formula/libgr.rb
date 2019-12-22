@@ -1,8 +1,8 @@
 class Libgr < Formula
   desc "GR framework: a graphics library for visualisation applications"
   homepage "https://gr-framework.org/"
-  url "https://github.com/sciapp/gr/archive/v0.37.0.tar.gz"
-  sha256 "9120c4215cd2c10239f45f4cbf79dcb199a9e7e3bbbf36e5ce8f4e5eb2e70e24"
+  url "https://github.com/sciapp/gr/archive/v0.44.1.tar.gz"
+  sha256 "43979bee9f9bffd145e9e076d1ee24e6ecf3866eb6c0e34631da922bfb4dc0b5"
 
   bottle do
     sha256 "cf43f68b60d8c2084f84e35fc66daa8d88b66b13b2380bee6b7807d622f440ef" => :mojave
@@ -12,9 +12,17 @@ class Libgr < Formula
 
   depends_on :xcode => :build
   depends_on "cairo"
+  depends_on "glfw"
+  depends_on "libtiff"
+  depends_on "qt"
+  depends_on "zeromq"
 
   def install
-    system "make", "self", "GRDIR=#{prefix}"
+    # TODO: Remove this when released archive includes
+    # the fix of https://github.com/sciapp/gr/pull/101 .
+    ENV.deparallelize
+    system "make", "GRDIR=#{prefix}"
+    system "make", "GRDIR=#{prefix}", "install"
   end
 
   test do
@@ -25,6 +33,7 @@ class Libgr < Formula
       int main(void) {
           gr_opengks();
           gr_openws(1, "test.png", 140);
+          gr_activatews(1);
           double x[] = {0, 0.2, 0.4, 0.6, 0.8, 1.0};
           double y[] = {0.3, 0.5, 0.4, 0.2, 0.6, 0.7};
           gr_polyline(6, x, y);
