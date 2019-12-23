@@ -111,7 +111,8 @@ class PythonAT38 < Formula
     args << "CPPFLAGS=#{cppflags.join(" ")}" unless cppflags.empty?
 
     system "./configure", *args
-    system "make"
+    ncpu = `sysctl -n hw.ncpu`.strip
+    system "make", "--jobs=#{ncpu}"
 
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
