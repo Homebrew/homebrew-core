@@ -16,10 +16,10 @@ class Shfmt < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["CGO_ENABLED"] = "0"
     (buildpath/"src/mvdan.cc").mkpath
     ln_sf buildpath, buildpath/"src/mvdan.cc/sh"
-    system "go", "build", "-a", "-tags", "production brew", "-o", "#{bin}/shfmt", "mvdan.cc/sh/cmd/shfmt"
+    system "go", "build", "-a", "-tags", "production brew", "-ldflags", "-w -s -extldflags '-static'", "-o", "#{bin}/shfmt", "mvdan.cc/sh/cmd/shfmt"
   end
 
   test do
