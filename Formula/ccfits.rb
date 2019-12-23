@@ -16,8 +16,17 @@ class Ccfits < Formula
   end
   
   test do
-    (testpath/"test.sh").write <<~EOS
-    #{bin}/cookhook
-  EOS
+    (testpath/"test.cpp").write <<~EOS
+      #include <CCfits/CCfits>
+      #include <iostream>
+      int main()
+      {
+	      CCfits::FITS::setVerboseMode(true);
+        std::cout <<"the answer is "<<CCfits::VTbyte<<std::endl;
+      }
+    EOS
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lCCfits"
+    assert_match /the answer is -11/, shell_output("./test")
   end
 end
