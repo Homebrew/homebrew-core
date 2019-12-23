@@ -15,7 +15,7 @@ class Corral < Formula
   depends_on "ponyc"
 
   def install
-    system "make", "prefix=#{prefix}", "install"
+    system "make", "arch=x86-64", "prefix=#{prefix}", "install"
   end
 
   test do
