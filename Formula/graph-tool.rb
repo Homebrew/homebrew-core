@@ -5,13 +5,16 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.29.tar.bz2"
   sha256 "6c0c4336bed6e2f79c91ace6d6914145ee03d0bd5025473b5918aec2b0657f7a"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "84f12c9ac465871e7b8755df75fa2640d26298f0847a95290e51ed55186551b8" => :catalina
     sha256 "54fd468bfbcb4f1d5bb143d1b64c8e76f7334229b49f985c3d3207aab30bd309" => :mojave
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
@@ -69,7 +72,14 @@ class GraphTool < Formula
     sha256 "f03072db108d69aaadaf41ae433501d517cc4a02d4108f37de99d81480ea3a94"
   end
 
+  # Patch for CGAL-5.0. Look here for related issue : https://git.skewed.de/count0/graph-tool/issues/625
+  patch do
+    url "https://cgal.geometryfactory.com/~mgimeno/graph-tool-for-cgal.diff"
+    sha256 "c45330ed6117a02204e356695f5784192258a37a9263d3ca887a9d89248590b8"
+  end
+
   def install
+    system "autoreconf", "-fiv"
     xy = Language::Python.major_minor_version "python3"
     venv = virtualenv_create(libexec, "python3")
 
@@ -85,6 +95,8 @@ class GraphTool < Formula
       PYTHON_LIBS=-undefined\ dynamic_lookup
       --with-python-module-path=#{lib}/python#{xy}/site-packages
       --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
+      --with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib
+      --with-boost-coroutine=boost_coroutine-mt
     ]
     args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
 
