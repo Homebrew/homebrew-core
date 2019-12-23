@@ -19,15 +19,16 @@ class Purescript < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc@8.6" => :build
 
-  def install
-    cabal_sandbox do
-      if build.head?
-        cabal_install "hpack"
-        system "./.cabal-sandbox/bin/hpack"
-      end
+  if build.head?
+    depends_on "hpack" => :build
+  end
 
-      install_cabal_package "-f", "release", :using => ["alex", "happy-1.19.9"]
+  def install
+    if build.head?
+      system "hpack"
     end
+
+    install_cabal_package "-f", "release", :using => ["alex", "happy-1.19.9"]
   end
 
   test do

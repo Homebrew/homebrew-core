@@ -17,13 +17,11 @@ class Taskell < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "hpack" => :build
 
   def install
-    cabal_sandbox do
-      cabal_install "hpack"
-      system "./.cabal-sandbox/bin/hpack"
-      install_cabal_package
-    end
+    system "hpack"
+    install_cabal_package
   end
 
   test do

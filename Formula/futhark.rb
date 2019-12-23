@@ -18,21 +18,19 @@ class Futhark < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "hpack" => :build
   depends_on "sphinx-doc" => :build
 
   def install
-    cabal_sandbox do
-      # Futhark provides a cabal.project.freeze for pinning Cabal
-      # dependencies, but this is only picked up by "v2" builds, and
-      # as of this writing, Homebrew still does sandboxed "v1" builds.
-      # Fortunately, the file formats seem to be compatible.
-      mv "cabal.project.freeze", "cabal.config"
+    # Futhark provides a cabal.project.freeze for pinning Cabal
+    # dependencies, but this is only picked up by "v2" builds, and
+    # as of this writing, Homebrew still does sandboxed "v1" builds.
+    # Fortunately, the file formats seem to be compatible.
+    mv "cabal.project.freeze", "cabal.config"
 
-      cabal_install "hpack"
-      system "./.cabal-sandbox/bin/hpack"
+    system "hpack"
 
-      install_cabal_package :using => ["alex", "happy"]
-    end
+    install_cabal_package :using => ["alex", "happy"]
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]
