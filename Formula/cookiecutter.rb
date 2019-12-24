@@ -3,9 +3,8 @@ class Cookiecutter < Formula
 
   desc "Utility that creates projects from templates"
   homepage "https://github.com/audreyr/cookiecutter"
-  url "https://github.com/audreyr/cookiecutter/archive/1.6.0.tar.gz"
-  sha256 "0c9018699b556b83d7c37b27fe0cc17485b90b6e1f47365b3cdddf77f6ca9d36"
-  revision 1
+  url "https://github.com/audreyr/cookiecutter/archive/1.7.0.tar.gz"
+  sha256 "975c578050a040e77c9a68a49ba420137d8da820d8ebf109342144f73a02722d"
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
