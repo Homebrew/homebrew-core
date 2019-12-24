@@ -1,8 +1,8 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "https://pugixml.org/"
-  url "https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz"
-  sha256 "d156d35b83f680e40fd6412c4455fdd03544339779134617b9b28d19e11fdba6"
+  url "https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz"
+  sha256 "55f399fbb470942410d348584dc953bcaec926415d3462f471ef350f29b5870a"
 
   bottle do
     cellar :any_skip_relocation
@@ -40,9 +40,8 @@ class Pugixml < Formula
       <root>Hello world!</root>
     EOS
 
-    system ENV.cc, "test.cpp", "-o", "test", "-lstdc++",
-                               "-L#{Dir["#{lib}/pug*"].first}", "-lpugixml",
-                               "-I#{include.children.first}"
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lpugixml"
     system "./test"
   end
 end
