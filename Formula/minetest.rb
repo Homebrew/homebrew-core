@@ -8,8 +8,8 @@ class Minetest < Formula
 
     # This patch is already merged in master and it should be removed when new version of mintest is released
     patch do
-      url "https://patch-diff.githubusercontent.com/raw/minetest/minetest/pull/9064.diff"
-      sha256 "ec85ad198f1db811cde5b543ce741f219abdf6038dee7f72b426e3488632b5da"
+      url "https://github.com/minetest/minetest/pull/9064.patch"
+      sha256 "251217d2c44f53c37419260bc329c5c09fe590342ff2c1c3a4c5cb7192cea550"
     end
 
     resource "minetest_game" do
