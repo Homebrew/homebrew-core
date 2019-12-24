@@ -28,7 +28,7 @@ class Termshark < Formula
   end
 
   test do
-    assert_match "termshark v2.0.2",
+    assert_match "termshark v#{version}",
                  shell_output("#{bin}/termshark -v --pass-thru=false")
 
     # Build a test pcap programmatically. Termshark will read this
