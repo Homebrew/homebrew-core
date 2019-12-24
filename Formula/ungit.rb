@@ -5,6 +5,7 @@ class Ungit < Formula
   homepage "https://github.com/FredrikNoren/ungit"
   url "https://registry.npmjs.org/ungit/-/ungit-1.5.1.tgz"
   sha256 "8f045f6f606e3e89a8a053f86c9d403ba85df8d047e85a31a321fcce99cd9dee"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
