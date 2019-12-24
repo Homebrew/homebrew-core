@@ -1,9 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.4/QScintilla_gpl-2.10.4.tar.gz"
-  sha256 "0353e694a67081e2ecdd7c80e1a848cf79a36dbba78b2afa36009482149b022d"
-  revision 3
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.4/QScintilla-2.11.4.tar.gz"
+  sha256 "723f8f1d1686d9fc8f204cd855347e984322dd5cd727891d324d0d7d187bee20"
 
   bottle do
     cellar :any
@@ -58,7 +57,8 @@ class Qscintilla2 < Formula
                         "--pyqt=PyQt5",
                         "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
                         "--sip-incdir=#{Formula["sip"].opt_include}",
-                        "--spec=#{spec}"
+                        "--spec=#{spec}",
+                        "--no-dist-info"
       system "make"
       system "make", "install"
       system "make", "clean"
