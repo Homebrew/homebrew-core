@@ -1,4 +1,4 @@
-class PhpunitAT75 < Formula
+class PhpunitAT7 < Formula
   desc "Programmer-oriented testing framework for PHP"
   homepage "https://phpunit.de"
   url "https://phar.phpunit.de/phpunit-7.5.2.phar"
