@@ -1,9 +1,8 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://mingw-w64.org/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v6.0.0.tar.bz2"
-  sha256 "805e11101e26d7897fce7d49cbb140d7bac15f3e085a91e0001e80b2adaf48f0"
-  revision 2
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v7.0.0.tar.bz2"
+  sha256 "aa20dfff3596f08a7f427aab74315a6cb80c2b086b4a107ed35af02f9496b628"
 
   bottle do
     sha256 "9ad033584d22194c1c5fba12d0e8cd0efb5e3af002c4edbb4c2b5974847c22b2" => :catalina
@@ -21,15 +20,15 @@ class MingwW64 < Formula
   depends_on "mpfr"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.xz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.xz"
-    sha256 "0ab6c55dd86a92ed561972ba15b9b70a8b9f75557f896446c82e8b36e473ee04"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.xz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.33.1.tar.xz"
+    sha256 "ab66fc2d1c3ec0359b8e08843c9f33b63e8707efdff5e4cc5c200eae24722cbf"
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.gz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz"
-    sha256 "be303f7a8292982a35381489f5a9178603cbe9a4715ee4fa4a815d6bcd2b658d"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
+    sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
   end
 
   def target_archs
