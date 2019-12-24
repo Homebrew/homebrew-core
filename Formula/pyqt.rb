@@ -28,6 +28,7 @@ class Pyqt < Formula
             "--qmake=#{Formula["qt"].bin}/qmake",
             # Force deployment target to avoid libc++ issues
             "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+            "--designer-plugindir=#{pkgshare}/plugins",
             "--qml-plugindir=#{pkgshare}/plugins",
             "--verbose"]
 

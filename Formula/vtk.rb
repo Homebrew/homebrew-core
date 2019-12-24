@@ -1,7 +1,7 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  revision 5
+  revision 6
   head "https://github.com/Kitware/VTK.git"
 
   stable do
