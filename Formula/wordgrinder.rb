@@ -11,7 +11,7 @@ class Wordgrinder < Formula
   def install
     system "make", "OBJDIR=#{buildpath}/wg-build"
     bin.install "bin/wordgrinder-builtin-curses-release" => "wordgrinder"
-    man1.install "bin/wordgrinder.1" => "wordgrinder.1"
+    man1.install "bin/wordgrinder.1"
     doc.install "README.wg"
   end
 
