@@ -6,7 +6,7 @@ class PhpunitAT75 < Formula
 
   bottle :unneeded
 
-keg_only :versioned_formula
+  keg_only :versioned_formula
 
   depends_on "php" => :test
 
