@@ -3,6 +3,7 @@ class GitCola < Formula
   homepage "https://git-cola.github.io/"
   url "https://github.com/git-cola/git-cola/archive/v3.6.tar.gz"
   sha256 "63369f519f81988c2d167ba2c59ad53644d3fac2b7be1e12d3f1df9b8fd91839"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
