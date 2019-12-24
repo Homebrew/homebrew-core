@@ -1,9 +1,9 @@
 class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers"
-  homepage "https://designerror.github.io/webdav-client-cpp"
-  url "https://github.com/designerror/webdav-client-cpp/archive/v1.0.1.tar.gz"
+  homepage "https://cloudpolis.github.io/webdav-client-cpp"
+  url "https://github.com/CloudPolis/webdav-client-cpp/archive/v1.0.1.tar.gz"
   sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -46,12 +46,12 @@ class Wdc < Formula
     EOS
     pugixml = Formula["pugixml"]
     openssl = Formula["openssl@1.1"]
-    system ENV.cc, "test.cpp", "-o", "test", "-lcurl", "-lstdc++", "-std=c++11",
+    system ENV.cxx, "test.cpp", "-o", "test", "-lcurl", "-std=c++11",
                    "-L#{lib}", "-lwdc", "-I#{include}",
                    "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
                    "-I#{openssl.opt_include}",
-                   "-L#{Dir["#{pugixml.opt_lib}/pug*"].first}", "-lpugixml",
-                   "-I#{pugixml.opt_include.children.first}"
+                   "-L#{pugixml.opt_lib}", "-lpugixml",
+                   "-I#{pugixml.opt_include}"
     system "./test"
   end
 end
