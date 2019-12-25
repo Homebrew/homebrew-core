@@ -7,15 +7,10 @@ class Sampler < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/sqshq/sampler"
-    dir.install Dir["*"]
-    cd dir do
-      system "go", "build", "-o", bin/"sampler"
-    end
+    system "go", "build", "-o", bin/"sampler"
   end
 
   test do
-    system "#{bin}/sampler", "-v"
+    assert_includes "specify config file", shell_output("#{bin}/sampler")
   end
 end
