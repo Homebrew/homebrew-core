@@ -1,8 +1,8 @@
 class Macosvpn < Formula
   desc "Create Mac OS VPNs programmatically"
   homepage "https://github.com/halo/macosvpn"
-  url "https://github.com/halo/macosvpn/archive/1.0.0.tar.gz"
-  sha256 "87ef62980a4e68b72b36dd912b0490c12e9542255a501e07a9ccfca024590050"
+  url "https://github.com/halo/macosvpn/archive/1.0.1.tar.gz"
+  sha256 "85f5051512e7b403980e40eea96cc4dc21205379ea89a2dfd4e5aed19f5f25ca"
 
   bottle do
     cellar :any_skip_relocation
