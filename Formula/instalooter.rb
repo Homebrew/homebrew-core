@@ -3,15 +3,8 @@ class Instalooter < Formula
 
   desc "Download any picture or video associated from an Instagram profile"
   homepage "https://github.com/althonos/instalooter"
-  url "https://files.pythonhosted.org/packages/0f/74/ec6140e31557b1477d83b194304e0f64a143f9f643436b4c386c203e26ba/instalooter-2.4.0.tar.gz"
-  sha256 "7a50cea27bb813a5907f9377ed1faf144800cd3ffdd4d0a3c875f347f21d670e"
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "773fb165ae888baca4e80e4b5131417cad649da7d472bc7288bcda5e917aeb7d" => :catalina
-    sha256 "bb333976b501602f886648fac57838e82bb9587e83ecafacb47a7998d817ebde" => :mojave
-    sha256 "4449d692f18e9b92ebef9a0a5d54b1da43a536a2951e45b4bb4e5aa51093e38f" => :high_sierra
-  end
+  url "https://files.pythonhosted.org/packages/72/47/181d89914f9cd7cb066a32f5e21a49023bb4fec2d5e6aefa645f1874c972/instalooter-2.4.1.tar.gz"
+  sha256 "aa65caaff3b43bd05288476765282165c7ca78e9de2e8ab9b796977b73d0320a"
 
   depends_on "python"
 
@@ -21,8 +14,8 @@ class Instalooter < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
-    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
+    url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
+    sha256 "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
   end
 
   resource "chardet" do
@@ -56,8 +49,8 @@ class Instalooter < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/ad/99/5b2e99737edeb28c71bcbec5b5dda19d0d9ef3ca3e92e3e925e7c0bb364c/python-dateutil-2.8.0.tar.gz"
-    sha256 "c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "pytz" do
@@ -71,23 +64,23 @@ class Instalooter < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "tenacity" do
-    url "https://files.pythonhosted.org/packages/7a/0e/0f513dcc347afe2ad13b6501be85939848de944300a9e237a0c14b77795a/tenacity-5.1.1.tar.gz"
-    sha256 "a4eb168dbf55ed2cae27e7c6b2bd48ab54dabaf294177d998330cf59f294c112"
+    url "https://files.pythonhosted.org/packages/2d/7a/b5494aa3940974d92de47f7b57384a0eb8b56142ea47f82028c661359c6f/tenacity-5.1.5.tar.gz"
+    sha256 "e664bd94f088b17f46da33255ae33911ca6a0fe04b156d334b601a4ef66d3c5f"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/80/b3/6ca4806441b730782fc4613c6aa2070412295c5521f33ae151988e448929/tqdm-4.36.1.tar.gz"
-    sha256 "abc25d0ce2397d070ef07d8c7e706aede7920da163c64997585d42d3537ece3d"
+    url "https://files.pythonhosted.org/packages/cc/84/6005c80747390ca4355d0f0ec416068a46f26eed4ea6029660c71e87ccd4/tqdm-4.41.0.tar.gz"
+    sha256 "166a82cdea964ae45528e0cc89436255ff2be73dc848bdf239f13c501cae5dc7"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
-    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
+    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
+    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
   end
 
   resource "verboselogs" do
