@@ -17,6 +17,8 @@ class Remarshal < Formula
 
   depends_on "python"
 
+  conflicts_with "msgpack-tools", :because => "both install 'json2msgpack' binary"
+
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a3/65/837fefac7475963d1eccf4aa684c23b95aa6c1d033a2c5965ccb11e22623/PyYAML-5.1.1.tar.gz"
     sha256 "b4bb4d3f5e232425e25dda21c070ce05168a786ac9eda43768ab7f3ac2770955"
