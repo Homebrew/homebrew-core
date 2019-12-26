@@ -4,6 +4,7 @@ class SourceHighlight < Formula
   url "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
   mirror "https://ftpmirror.gnu.org/src-highlite/source-highlight-3.1.9.tar.gz"
   sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
+  revision 1
 
   bottle do
     sha256 "6975c8ff628b6780b652097e96771de14426a6caa6e10b020bca8a295b0e624e" => :catalina
