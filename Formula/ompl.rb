@@ -14,6 +14,12 @@ class Ompl < Formula
   depends_on "boost"
   depends_on "eigen"
 
+  # fix for Boost 1.71
+  patch do
+    url "https://github.com/ompl/ompl/commit/962961fb86a6395d14c35f655dc439377a0cfbec.patch?full_index=1"
+    sha256 "43fc3991a3a5c4189bc2949d4a5cd7e08e4c77f5c6770cdf79f34a95422ccae6"
+  end
+
   def install
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
@@ -32,7 +38,7 @@ class Ompl < Formula
       }
     EOS
 
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lompl", "-lstdc++", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lompl", "-o", "test"
     system "./test"
   end
 end
