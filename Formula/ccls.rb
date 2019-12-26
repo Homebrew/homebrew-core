@@ -1,8 +1,8 @@
 class Ccls < Formula
   desc "C/C++/ObjC language server"
   homepage "https://github.com/MaskRay/ccls"
-  url "https://github.com/MaskRay/ccls/archive/0.20190823.3.tar.gz"
-  sha256 "db4d048651f27759393baf7880d66b1eae69a48d65999cca01e6962f96839950"
+  url "https://github.com/MaskRay/ccls/archive/0.20190823.5.tar.gz"
+  sha256 "6f39fa5ce79c1682973811ce2409718710bfef6008f94f96277393e6846bd76c"
   head "https://github.com/MaskRay/ccls.git"
 
   bottle do
