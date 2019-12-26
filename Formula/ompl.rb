@@ -16,8 +16,8 @@ class Ompl < Formula
 
   # fix for Boost 1.71
   patch do
-    url "https://github.com/ompl/ompl/commit/962961fb86a6395d14c35f655dc439377a0cfbec.patch?full_index=1"
-    sha256 "43fc3991a3a5c4189bc2949d4a5cd7e08e4c77f5c6770cdf79f34a95422ccae6"
+    url "https://github.com/ompl/ompl/commit/962961fb.diff?full_index=1"
+    sha256 "56adf06b5bdc12823c04e96e764618c48a912fd01422138f15cc578f2464177a"
   end
 
   def install
