@@ -6,6 +6,7 @@ class Sshuttle < Formula
   url "https://github.com/sshuttle/sshuttle.git",
       :tag      => "v0.78.5",
       :revision => "752a95310198886515577463a4a7e36d7f218018"
+  revision 1
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Sshuttle < Formula
     sha256 "04e8f60acb5131f58a0fbe66d7c8d847c4d423db3edb2671ff1319fc499a2c5f" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     # Building the docs requires installing
