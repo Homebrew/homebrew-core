@@ -5,6 +5,7 @@ class Yapf < Formula
   homepage "https://github.com/google/yapf"
   url "https://files.pythonhosted.org/packages/8e/1e/730a64d83e1b6a64bb8efa5358fc8e9418e6c2d19862523dce22be1040ed/yapf-0.29.0.tar.gz"
   sha256 "712e23c468506bf12cadd10169f852572ecc61b266258422d45aaf4ad7ef43de"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Yapf < Formula
     sha256 "326436e6bc974790bf36de06e7ea7070d3d0bcaf52b14e2067727c3e95ee47dc" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
