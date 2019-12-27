@@ -5,7 +5,7 @@ class KeepkeyAgent < Formula
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class KeepkeyAgent < Formula
     sha256 "923d1471a0285a545de011f0628e36e02566bc422b7d5d86d20af82b3e301968" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "backports.shutil_which" do
     url "https://files.pythonhosted.org/packages/dd/ea/715dc80584207a0ff4a693a73b03c65f087d8ad30842832b9866fe18cb2f/backports.shutil_which-3.5.1.tar.gz"
