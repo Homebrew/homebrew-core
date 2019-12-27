@@ -5,6 +5,7 @@ class Legit < Formula
   homepage "https://frostming.github.io/legit/"
   url "https://files.pythonhosted.org/packages/6b/65/819f84ef3caa4743c834122acb897df29167f6178c9c095d7896f2181387/legit-1.1.0.tar.gz"
   sha256 "25bd3809d657c9b0bd45a6a230dc7f58a56e6e068159d471ffeadb0cf4677b4d"
+  revision 1
   head "https://github.com/frostming/legit.git", :branch => "master"
 
   bottle do
@@ -14,7 +15,7 @@ class Legit < Formula
     sha256 "b2b05bde239b036eec589a445c27ada95aca2330b76113bba72c7ad20e482d10" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
