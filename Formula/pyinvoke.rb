@@ -5,6 +5,7 @@ class Pyinvoke < Formula
   homepage "https://www.pyinvoke.org/"
   url "https://github.com/pyinvoke/invoke/archive/1.3.0.tar.gz"
   sha256 "f95915dfbadc0a5526946950160334bf476b282de285af0e7defdb712bb25d8b"
+  revision 1
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Pyinvoke < Formula
     sha256 "385bb92f31b81c09dbc329d2f5fcab8fbcfc8608a65cdf924eef23ed9ef38ed0" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
