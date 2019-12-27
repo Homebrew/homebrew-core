@@ -1,8 +1,8 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
-  url "https://download.strongswan.org/strongswan-5.8.1.tar.bz2"
-  sha256 "d9af70acea5c054952ad1584916c1bf231b064eb6c8a9791dcb6ae90a769990c"
+  url "https://download.strongswan.org/strongswan-5.8.2.tar.bz2"
+  sha256 "86900ddbe7337c923dadf2c8339ae8ed2b9158e3691745884d08ae534677430e"
 
   bottle do
     sha256 "8f7f09871c02f3f2496f2976f9d34848bb1b7b5bd3e4f150cd07071562b101a2" => :catalina
