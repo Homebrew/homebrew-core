@@ -5,6 +5,7 @@ class CfnLint < Formula
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
   url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.26.2.tar.gz"
   sha256 "fff4b0a6f867308b5fa27b7e6cbd4e6bfa161b6a9edefc03835698c7c266a263"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class CfnLint < Formula
     sha256 "b1fadf87e056092b095e14d6a072e13df65f6b190b8392c17f4e9c9b1e66c76f" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
