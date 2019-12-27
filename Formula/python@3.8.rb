@@ -1,8 +1,8 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz"
-  sha256 "b356244e13fb5491da890b35b13b2118c3122977c2cd825e3eb6e7d462030d84"
+  url "https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz"
+  sha256 "75894117f6db7051c1b34f37410168844bbb357c139a8a10a352e9bf8be594e8"
 
   bottle do
     sha256 "72c20e5109fea0ab0295d4199b214317c11a64b86f52a999094d3479eed15d7b" => :catalina
@@ -137,12 +137,6 @@ class PythonAT38 < Formula
     inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
               %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
               "\\1'#{opt_prefix}/Frameworks/\\2'"
-
-    # A fix, because python and python3 both want to install Python.framework
-    # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
-    # https://github.com/Homebrew/homebrew/issues/15943
-    ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
-    rm prefix/"Frameworks/Python.framework/Versions/Current"
 
     # Symlink the pkgconfig files into HOMEBREW_PREFIX so they're accessible.
     (lib/"pkgconfig").install_symlink Dir["#{frameworks}/Python.framework/Versions/#{xy}/lib/pkgconfig/*"]
