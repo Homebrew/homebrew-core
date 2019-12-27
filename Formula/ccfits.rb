@@ -19,10 +19,9 @@ class Ccfits < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <CCfits/CCfits>
       #include <iostream>
-      int main()
-      {
-	      CCfits::FITS::setVerboseMode(true);
-        std::cout <<"the answer is "<<CCfits::VTbyte<<std::endl;
+      int main() {
+        CCfits::FITS::setVerboseMode(true);
+        std::cout << "the answer is " << CCfits::VTbyte << std::endl;
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
