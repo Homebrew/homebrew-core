@@ -5,6 +5,7 @@ class EgExamples < Formula
   homepage "https://github.com/srsudar/eg"
   url "https://files.pythonhosted.org/packages/a6/93/38075713a7968a9e8484e894f604f99a68e443e0f9db0ed48063b1241969/eg-1.1.1.tar.gz"
   sha256 "3faa5fb453d8ba113975a1f31e37ace94867539ba9d46a40af4cea90028a04e4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class EgExamples < Formula
     sha256 "b97620b249f6b74425c157c068b415b4368245f7ce6d2a20d92b9a2db7230547" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
