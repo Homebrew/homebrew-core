@@ -1,8 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
-  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
+  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.xz"
+  sha256 "27d350a52a02b53034ca0794efe518667d558f152656c2baaf08f3d0c8b02343"
 
   bottle do
     rebuild 1
@@ -27,8 +27,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.0.6.tgz"
-    sha256 "fd6785ac24728bd5bf8f0883d197fe0cea4df37d485c5353c93fbe573b8941b1"
+    url "https://rubygems.org/rubygems/rubygems-3.1.2.tgz"
+    sha256 "edd1a6bca6e780a3f65019bbcb0bbfe36c65a9809c0d43e7b52f23792591f140"
   end
 
   def api_version
@@ -130,6 +130,7 @@ class Ruby < Formula
         alias :old_default_path :default_path
         alias :old_default_bindir :default_bindir
         alias :old_ruby :ruby
+        alias :old_default_specifications_dir :default_specifications_dir
       end
 
       def self.default_dir
@@ -186,10 +187,9 @@ class Ruby < Formula
       end
 
       # https://github.com/Homebrew/homebrew-core/issues/40872#issuecomment-542092547
-      class BasicSpecification
-        def self.default_specifications_dir
-          File.join(Gem.old_default_dir, "specifications", "default")
-        end
+      # https://github.com/Homebrew/homebrew-core/pull/48329#issuecomment-584418161
+      def self.default_specifications_dir
+        File.join(Gem.old_default_dir, "specifications", "default")
       end
     end
   EOS
