@@ -1,8 +1,8 @@
 class Frei0r < Formula
   desc "Minimalistic plugin API for video effects"
   homepage "https://frei0r.dyne.org/"
-  url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz"
-  sha256 "e0c24630961195d9bd65aa8d43732469e8248e8918faa942cfb881769d11515e"
+  url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz"
+  sha256 "1b1ff8f0f9bc23eed724e94e9a7c1d8f0244bfe33424bb4fe68e6460c088523a"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,16 @@ class Frei0r < Formula
     sha256 "28d07c64bce38e3fa9c76437ce86b86ae34ac317070f1e167dbbc1f825f68b46" => :sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Disable opportunistic linking against Cairo
+    inreplace "CMakeLists.txt", "find_package (Cairo)", ""
+    cmake_args = std_cmake_args + %w[
+      -DWITHOUT_OPENCV=ON
+      -DWITHOUT_GAVL=ON
+    ]
+    system "cmake", ".", *cmake_args
     system "make", "install"
   end
 end
