@@ -5,7 +5,7 @@ class Scour < Formula
   homepage "https://www.codedread.com/scour/"
   url "https://github.com/scour-project/scour/archive/v0.37.tar.gz"
   sha256 "4fcb961586d8a6d98ac9343ca5647421b98fdc79b51d81a1d3d18576b7908823"
-  revision 1
+  revision 2
   head "https://github.com/scour-project/scour.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Scour < Formula
     sha256 "034447e6f32a3c4925682911e97a89d62ca418347ad0be425a64d299db1f7f20" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
