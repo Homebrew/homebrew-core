@@ -1,8 +1,8 @@
 class Rhash < Formula
   desc "Utility for computing and verifying hash sums of files"
   homepage "https://sourceforge.net/projects/rhash/"
-  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.8/rhash-1.3.8-src.tar.gz"
-  sha256 "be536a56acfefc87dbc8b1db30fc639020e41edf05518185ea98630e3df7c04c"
+  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.9/rhash-1.3.9-src.tar.gz"
+  sha256 "42b1006f998adb189b1f316bf1a60e3171da047a85c4aaded2d0d26c1476c9f6"
   head "https://github.com/rhash/RHash.git"
 
   bottle do
