@@ -6,6 +6,7 @@ class Gitup < Formula
   url "https://github.com/earwig/git-repo-updater.git",
       :tag      => "v0.5.1",
       :revision => "b502b2eaa46a6a10d9db228209f984bb235444a7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Gitup < Formula
     sha256 "b550170bcff2cb60d1af74abcea941c54f433003b084010ea2b73bd7d34f947e" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
