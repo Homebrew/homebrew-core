@@ -5,6 +5,7 @@ class GitRevise < Formula
   homepage "https://github.com/mystor/git-revise"
   url "https://github.com/mystor/git-revise/archive/0.5.1.tar.gz"
   sha256 "3f64521eb056ff097eb282811459820e1afd138cf2de113d609051060459d24d"
+  revision 1
   head "https://github.com/mystor/git-revise.git"
 
   bottle do
@@ -14,7 +15,7 @@ class GitRevise < Formula
     sha256 "5659d2d32986473c77135b28f52da15cd2a09a4dfdb8d959b640be765c9a5460" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
