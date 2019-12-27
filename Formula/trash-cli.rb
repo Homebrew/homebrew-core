@@ -5,7 +5,7 @@ class TrashCli < Formula
   homepage "https://github.com/andreafrancia/trash-cli"
   url "https://github.com/andreafrancia/trash-cli/archive/0.17.1.14.tar.gz"
   sha256 "8fdd20e5e9c55ea4e24677e602a06a94a93f1155f9970c55b25dede5e037b974"
-  revision 1
+  revision 2
   head "https://github.com/andreafrancia/trash-cli.git"
 
   bottle do
@@ -16,7 +16,7 @@ class TrashCli < Formula
     sha256 "5cb6346603e9ba432c92d46bc20f8612dad0dfa4e32e1996e2c0cc1aaab87990" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "trash", :because => "both install a `trash` binary"
 
