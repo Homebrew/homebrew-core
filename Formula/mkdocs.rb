@@ -5,7 +5,7 @@ class Mkdocs < Formula
   homepage "https://www.mkdocs.org/"
   url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
   sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Mkdocs < Formula
     sha256 "ec14bfa77ebb331e8d24e345825f3eff934709ed46f2a3f30f990dfd63654969" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
