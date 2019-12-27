@@ -5,6 +5,7 @@ class Internetarchive < Formula
   homepage "https://github.com/jjjake/internetarchive"
   url "https://files.pythonhosted.org/packages/f8/08/4317a2a43b1c7d48683a36438c0c0f77044ed61d71df9e2cc95345ab4999/internetarchive-1.8.5.tar.gz"
   sha256 "2e7477ed3fe43f1d09853b281c8034deafacf7ebc614ba80788c90ecdbf0c3d3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Internetarchive < Formula
     sha256 "ea342b66c28cd7b3b737891d3c02d03ff04afe8190fe67c96554d90cb2b8bdc0" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
