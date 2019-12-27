@@ -5,6 +5,7 @@ class Thefuck < Formula
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/19/b0/5a563805cd59ad99b46a82fad0008ff6d9b55b61db88d8839b448c45b63c/thefuck-3.29.tar.gz"
   sha256 "7b907b6ef6863cc0d3e9bb3e573054547a60f89572250b767ccadb317d3c8297"
+  revision 1
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Thefuck < Formula
     sha256 "dbac00409d1662ad5c566f0936c296fba3dc42ce59cfa49b3bd5eb6fb9972cf5" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/76/53/e785891dce0e2f2b9f4b4ff5bc6062a53332ed28833c7afede841f46a5db/colorama-0.4.1.tar.gz"
