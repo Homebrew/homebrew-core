@@ -4,6 +4,7 @@ class Ghq < Formula
   url "https://github.com/motemen/ghq.git",
       :tag      => "v0.17.1",
       :revision => "5add27b66cbb918e28f195a9065f6875b1a33392"
+  revision 1
   head "https://github.com/motemen/ghq.git"
 
   bottle do
@@ -18,6 +19,7 @@ class Ghq < Formula
   def install
     system "make", "build"
     bin.install "ghq"
+    bash_completion.install "misc/bash/_ghq" => "ghq"
     zsh_completion.install "misc/zsh/_ghq"
     prefix.install_metafiles
   end
