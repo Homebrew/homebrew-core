@@ -1,9 +1,8 @@
 class Mkvtomp4 < Formula
   desc "Convert mkv files to mp4"
   homepage "https://github.com/gavinbeatty/mkvtomp4/"
-  url "https://github.com/gavinbeatty/mkvtomp4/archive/mkvtomp4-v1.3.tar.gz"
-  sha256 "cc644b9c0947cf948c1b0f7bbf132514c6f809074ceed9edf6277a8a1b81c87a"
-  revision 1
+  url "https://github.com/gavinbeatty/mkvtomp4/archive/mkvtomp4-v2.0.tar.gz"
+  sha256 "0f9aa1754d4b33a6a83c0a71a373836d4872b3288dae9cfb6168c35f09887f2d"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,14 +18,15 @@ class Mkvtomp4 < Formula
   depends_on "ffmpeg"
   depends_on "gpac"
   depends_on "mkvtoolnix"
-  depends_on "python@2" # does not support Python 3
+  depends_on "python"
 
   def install
-    ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", lib+"python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = lib+"python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", lib+"python#{xy}/site-packages"
 
     system "make"
-    system "python", "setup.py", "install", "--prefix=#{prefix}"
+    system "python3", *Language::Python.setup_install_args(prefix)
 
     bin.install "mkvtomp4.py" => "mkvtomp4"
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
