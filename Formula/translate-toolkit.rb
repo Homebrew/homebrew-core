@@ -5,6 +5,7 @@ class TranslateToolkit < Formula
   homepage "https://toolkit.translatehouse.org/"
   url "https://github.com/translate/translate/archive/2.4.0.tar.gz"
   sha256 "7f1d6a9566bb512fd88d51bd8bc920f42e379c91a4686761dbe89762f8a3a51d"
+  revision 1
   head "https://github.com/translate/translate.git"
 
   bottle do
@@ -15,7 +16,7 @@ class TranslateToolkit < Formula
     sha256 "b22388e34bf4e0abdc73502967d6d6242f7c7d17e10f6b6cd55d3561ff696ee6" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
