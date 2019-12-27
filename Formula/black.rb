@@ -5,6 +5,7 @@ class Black < Formula
   homepage "https://black.readthedocs.io/en/stable/"
   url "https://files.pythonhosted.org/packages/b0/dc/ecd83b973fb7b82c34d828aad621a6e5865764d52375b8ac1d7a45e23c8d/black-19.10b0.tar.gz"
   sha256 "c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Black < Formula
     sha256 "d26e50bbc697b595266542a1fc544e06057000537b11d17d1d1c6f9e158af0cd" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
