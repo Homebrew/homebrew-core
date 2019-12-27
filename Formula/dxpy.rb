@@ -5,6 +5,7 @@ class Dxpy < Formula
   homepage "https://github.com/dnanexus/dx-toolkit"
   url "https://files.pythonhosted.org/packages/fc/23/7eb806687ecb4d3795bce9d2cb294dd931a7536be319534b1818a7d32f65/dxpy-0.289.1.tar.gz"
   sha256 "6079f50557e67f24f2f86bb3c4324d29fce4c3ac257ffdd086a7d1149981f392"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Dxpy < Formula
     sha256 "3de8cb5503f1e9a202e4c2bdaf0cfab36c9691b33a539c9783e6d6b7011d6e42" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/58/88/5a8da671e087ef513a63519344b35d80c6979591eee24e06a5acd1cd11b9/argcomplete-1.10.2.tar.gz"
