@@ -196,7 +196,6 @@
   "usbmuxd": "libusbmuxd",
   "v8-315": "v8@3.15",
   "varnish4": "varnish@4",
-  "vim74": "vim@7.4",
   "wires": "geckodriver",
   "wpcli-completion": "wp-cli-completion",
   "zeromq32": "zeromq@3.2",
