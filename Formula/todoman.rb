@@ -5,6 +5,7 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/42/5a/b11c0df8bb9bfd4404d596a9ed1966aece1510a07b89499074080334297c/todoman-3.7.0.tar.gz"
   sha256 "1eb65c05ec82db501065d1a90d885a4352d92958121b1b9dab6a970abfe07999"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Todoman < Formula
     sha256 "ad43b0d360649e4e96d98c97cd218a2fcba3e66260e50d8e9da5de93b0d4a050" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "devtodo", :because => "both install a `todo` binary"
 
