@@ -7,6 +7,7 @@ class Bumpversion < Formula
   # Ongoing maintenance discussion for the project, https://github.com/c4urself/bump2version/issues/86
   url "https://github.com/c4urself/bump2version/archive/v0.5.11.tar.gz"
   sha256 "f06c943b320033b3aa07958c99920474a54f1d0d76b12299fa67d59cdb17ab00"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,7 @@ class Bumpversion < Formula
     sha256 "5b40851a4fa852ef9b58c379aeba9ace20f6c3132c1caad41ce43307e79b68d9" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
