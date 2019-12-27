@@ -5,6 +5,7 @@ class HomeassistantCli < Formula
   homepage "https://github.com/home-assistant/home-assistant-cli"
   url "https://files.pythonhosted.org/packages/63/ad/e02ef2951ebeb871a1f7e13a1975683520a18c9dddfd9b94cc6fec6ff3ca/homeassistant-cli-0.8.0.tar.gz"
   sha256 "1610c91ce23fda460d95d2937f898360bfff8a9ef80fc7bbfa9966a0c4120463"
+  revision 1
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
   bottle do
@@ -14,7 +15,7 @@ class HomeassistantCli < Formula
     sha256 "44d959f97d332c16c3a6fd455a03fe30471f7ddfb8e7e37c9704e1dbcd815047" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/00/94/f9fa18e8d7124d7850a5715a0b9c0584f7b9375d331d35e157cee50f27cc/aiohttp-3.6.2.tar.gz"
