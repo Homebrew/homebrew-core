@@ -5,6 +5,7 @@ class Awslogs < Formula
   homepage "https://github.com/jorgebastida/awslogs"
   url "https://github.com/jorgebastida/awslogs/archive/0.11.0.tar.gz"
   sha256 "6258a121629cb872ee61fe78bf112753c8782c971524f0943a0e21f74d5e28bd"
+  revision 1
   head "https://github.com/jorgebastida/awslogs.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Awslogs < Formula
     sha256 "7abb54b867eaa110ef231718f22452cd663188037176de08ada4519835420282" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/fd/50/3868735fae36e0f93216019551ca0f75b6cf9f933a55891244efefdcc3bd/boto3-1.9.62.tar.gz"
