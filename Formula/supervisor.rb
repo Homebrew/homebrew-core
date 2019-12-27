@@ -5,6 +5,7 @@ class Supervisor < Formula
   homepage "http://supervisord.org/"
   url "https://github.com/Supervisor/supervisor/archive/4.1.0.tar.gz"
   sha256 "e4e87a309d34c1356b77d1dfd300191b2a7c314e050d7b3853e5b91ef166c2f2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Supervisor < Formula
     sha256 "41fd027c40c5e5da953fc007999db6248046f45ea68e9b1c5a4525834e98f130" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|
