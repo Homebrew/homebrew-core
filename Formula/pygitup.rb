@@ -5,6 +5,7 @@ class Pygitup < Formula
   homepage "https://github.com/msiemens/PyGitUp"
   url "https://files.pythonhosted.org/packages/46/45/32dc0bf07c620644a8ed899e381309f4f25b50f20a91e555285522592833/git-up-1.6.1.tar.gz"
   sha256 "ea83441e7ab05011624e2e7333ef875c263124db5eed74507acd32b07c48473f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Pygitup < Formula
     sha256 "3ca5dc9d6443ec789e54686ee3d71662e69db2da877749bbb1e5ba7b562279ff" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
