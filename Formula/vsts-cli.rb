@@ -5,6 +5,7 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
   sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class VstsCli < Formula
     sha256 "ca77ac87f904bb3e88fb958f5d088d4740d93ea134a41c5bab3fb1218ef7c54d" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/3c/21/9741e5e5e63245a8cdafb32ffc738bff6e7ef6253b65953e77933e56ce88/argcomplete-1.9.4.tar.gz"
