@@ -1,8 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.0.tar.gz"
-  sha256 "5c5ed5f1a76888dc57a83704f24ae02f8319849f5c4cf19d254296978a1a1961"
+  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.1.tar.gz"
+  sha256 "2a66ff0d8595bff8f04032165e6c936389b1e5727c3ce5a27b3e059d218db1cb"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
@@ -18,7 +18,6 @@ class Tesseract < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-
   depends_on "leptonica"
   depends_on "libtiff"
 
@@ -64,7 +63,7 @@ class Tesseract < Formula
 
   def caveats; <<~EOS
     This formula contains only the "eng", "osd", and "snum" language data files.
-    If you need all the other supported languages, `brew install tesseract-lang`.
+    If you need any other supported languages, run `brew install tesseract-lang`.
   EOS
   end
 
