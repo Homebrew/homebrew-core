@@ -5,7 +5,7 @@ class Mdv < Formula
   homepage "https://github.com/axiros/terminal_markdown_viewer"
   url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
   sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Mdv < Formula
     sha256 "d4a980db5be1cb783cb85c4f769b8e47f3ed09be8539ca7b02c8ea4c80e8e43d" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
