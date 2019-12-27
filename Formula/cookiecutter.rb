@@ -5,6 +5,7 @@ class Cookiecutter < Formula
   homepage "https://github.com/audreyr/cookiecutter"
   url "https://github.com/audreyr/cookiecutter/archive/1.7.0.tar.gz"
   sha256 "975c578050a040e77c9a68a49ba420137d8da820d8ebf109342144f73a02722d"
+  revision 1
   revision 0
   head "https://github.com/audreyr/cookiecutter.git"
 
@@ -15,7 +16,7 @@ class Cookiecutter < Formula
     sha256 "1f60fbd7b821544830a73ec9fbbfd5a7d17e1d0a68b205f52b1f0c0f6481f74c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/a2/58/fd486f60594fe51afd1d2f2f0e8a80832d5b3d66c100caef24dadcdc95d7/arrow-0.15.4.tar.gz"
