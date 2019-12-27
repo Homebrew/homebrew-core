@@ -5,6 +5,7 @@ class Esptool < Formula
   homepage "https://github.com/espressif/esptool"
   url "https://github.com/espressif/esptool/archive/v2.8.tar.gz"
   sha256 "f6187ab0467e05bff6ef4e777bde5ee8eb57a74154865d30491ebb42b228c617"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Esptool < Formula
     sha256 "c8f2ab169b860cd549b3fa1bf572adb29e77a76ebf0f3d5a62ba58af00f8173b" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "ecdsa" do
     url "https://files.pythonhosted.org/packages/f9/e5/99ebb176e47f150ac115ffeda5fedb6a3dbb3c00c74a59fd84ddf12f5857/ecdsa-0.13.tar.gz"
