@@ -5,6 +5,7 @@ class Mackup < Formula
   homepage "https://github.com/lra/mackup"
   url "https://github.com/lra/mackup/archive/0.8.27.tar.gz"
   sha256 "b7d84ea661de27b1d4664bb71e6ab52ef30c6ca180a67435c1d4dea073cb3e4c"
+  revision 1
   head "https://github.com/lra/mackup.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Mackup < Formula
     sha256 "c941c433ddcb1f6deee07ade71d4d3a9f910e229bb01601402377ebca43411fd" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
