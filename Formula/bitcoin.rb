@@ -3,6 +3,7 @@ class Bitcoin < Formula
   homepage "https://bitcoin.org/"
   url "https://bitcoin.org/bin/bitcoin-core-0.19.0.1/bitcoin-0.19.0.1.tar.gz"
   sha256 "7ac9f972249a0a16ed01352ca2a199a5448fe87a4ea74923404a40b4086de284"
+  revision 1
 
   bottle do
     cellar :any
@@ -26,6 +27,13 @@ class Bitcoin < Formula
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
   depends_on "zeromq"
+
+  # Fix for Boost 1.72
+  # https://github.com/bitcoin/bitcoin/pull/17654
+  patch do
+    url "https://github.com/bitcoin/bitcoin/commit/ddecb671.diff?full_index=1"
+    sha256 "79e52316dbcb1ad06caeea58363ab2365983522d23c02f3102c88138ec9b18b0"
+  end
 
   def install
     if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
