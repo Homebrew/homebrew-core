@@ -5,6 +5,7 @@ class Instalooter < Formula
   homepage "https://github.com/althonos/instalooter"
   url "https://files.pythonhosted.org/packages/72/47/181d89914f9cd7cb066a32f5e21a49023bb4fec2d5e6aefa645f1874c972/instalooter-2.4.1.tar.gz"
   sha256 "aa65caaff3b43bd05288476765282165c7ca78e9de2e8ab9b796977b73d0320a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Instalooter < Formula
     sha256 "0b5da069f218433170d8520db0f4b8f12360c45d455014dc1f0188889ce839ef" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
