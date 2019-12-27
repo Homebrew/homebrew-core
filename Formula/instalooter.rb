@@ -6,6 +6,13 @@ class Instalooter < Formula
   url "https://files.pythonhosted.org/packages/72/47/181d89914f9cd7cb066a32f5e21a49023bb4fec2d5e6aefa645f1874c972/instalooter-2.4.1.tar.gz"
   sha256 "aa65caaff3b43bd05288476765282165c7ca78e9de2e8ab9b796977b73d0320a"
 
+  bottle do
+     cellar :any_skip_relocation
+     sha256 "773fb165ae888baca4e80e4b5131417cad649da7d472bc7288bcda5e917aeb7d" => :catalina
+     sha256 "bb333976b501602f886648fac57838e82bb9587e83ecafacb47a7998d817ebde" => :mojave
+     sha256 "4449d692f18e9b92ebef9a0a5d54b1da43a536a2951e45b4bb4e5aa51093e38f" => :high_sierra
+   end
+
   depends_on "python"
 
   resource "appdirs" do
