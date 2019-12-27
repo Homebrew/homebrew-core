@@ -5,6 +5,7 @@ class Ydcv < Formula
   homepage "https://github.com/felixonmars/ydcv"
   url "https://github.com/felixonmars/ydcv/archive/0.7.tar.gz"
   sha256 "03dd5de36ea8fce3170e678e63fc3694e2718b22bc5e1526e3e07f5c36ec9aa0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Ydcv < Formula
     sha256 "24bd213b43d60cf2ef49868c3419bf09bce242d82ce78c4cd4d793c01d45676c" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version
