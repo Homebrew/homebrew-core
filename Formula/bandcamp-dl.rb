@@ -6,7 +6,7 @@ class BandcampDl < Formula
   url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
   version "0.0.8-12"
   sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
-  revision 1
+  revision 2
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
@@ -18,7 +18,7 @@ class BandcampDl < Formula
     sha256 "d0ec20e1cdd9b41230d038ba8b93c4d09c185768bfc60c77a98c13a7f2465935" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "Unidecode" do
     url "https://files.pythonhosted.org/packages/9d/36/49d0ee152b6a1631f03a541532c6201942430060aa97fe011cf01a2cce64/Unidecode-1.0.22.tar.gz"
