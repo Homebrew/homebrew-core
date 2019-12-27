@@ -5,6 +5,7 @@ class Fonttools < Formula
   homepage "https://github.com/fonttools/fonttools"
   url "https://github.com/fonttools/fonttools/releases/download/4.2.2/fonttools-4.2.2.zip"
   sha256 "66bb3dfe7efe5972b0145339c063ffaf9539e973f7ff8791df84366eafc65804"
+  revision 1
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Fonttools < Formula
     sha256 "4c259ab4c718c77c77bce6dbfaeb2aa2b6664f786b5b7a3bfc16f8699d47791f" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
