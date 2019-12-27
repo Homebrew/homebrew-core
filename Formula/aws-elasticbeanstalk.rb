@@ -5,6 +5,7 @@ class AwsElasticbeanstalk < Formula
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
   url "https://files.pythonhosted.org/packages/a6/26/e723d628db031a434466597f2310779a46d41e7548a83e04188c55aaa051/awsebcli-3.16.0.tar.gz"
   sha256 "03252f15f06f131e17644333cabe0221e446ff36fccad3d9434eeb7aef226c35"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class AwsElasticbeanstalk < Formula
     sha256 "31abd014c69a88ecf601a2afe0716de3e56c07f89709793bfa2d5b6ea21fdb1f" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/51/c7/3af3ec267387d4a900a9e8f9a03a6c9068fb3c606c77bf2dd4558e1ea248/blessed-1.15.0.tar.gz"
