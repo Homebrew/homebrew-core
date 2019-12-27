@@ -3,22 +3,22 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.088.1.tar.gz"
-    sha256 "cf73f12981155635f293790377fa82b6d0119535f92cdd33775b151cb4f747a2"
+    url "https://github.com/dlang/dmd/archive/v2.089.1.tar.gz"
+    sha256 "4a55f080ab72ce4cbfbece241613636b949cecfad6a8656732b6bebff4c2008c"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.088.1.tar.gz"
-      sha256 "aaaa379fa505622d30fae48d219c563b19631951325f919679233cd16be494fe"
+      url "https://github.com/dlang/druntime/archive/v2.089.1.tar.gz"
+      sha256 "740c62c7d8b91b188c9b6d6a4b1f7065ee28620a30d687e1957c8775f9516e46"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.088.1.tar.gz"
-      sha256 "82bfccd2a32a17387e354d56d752e0f003301368a93b4189e2b8b8e2242910fa"
+      url "https://github.com/dlang/phobos/archive/v2.089.1.tar.gz"
+      sha256 "003227ea649ee67c2ae0e09035d73abcc0a2e6edd46d439747d787369857a1e9"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.088.1.tar.gz"
-      sha256 "e2eb1afe24985096554c971059916bfad1573b85786529c0394009c8db967139"
+      url "https://github.com/dlang/tools/archive/v2.089.1.tar.gz"
+      sha256 "b3d7f0d2e4ce6646a5ea5afa49b6b96271e2b23b18676fe91dfd44e8ee59cfa9"
     end
   end
 
@@ -49,7 +49,7 @@ class Dmd < Formula
     # doesn't work on MacOS Catalina due to TLS related APIs missing on the system.
     # We manually overwrite DMD version used for bootstraping until upstream catches up.
     old_host_dmd_ver="2.079.1"
-    host_dmd_ver="2.088.0"
+    host_dmd_ver="2.088.1"
 
     make_args = %W[
       INSTALL_DIR=#{prefix}
