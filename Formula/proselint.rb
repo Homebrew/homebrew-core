@@ -5,7 +5,7 @@ class Proselint < Formula
   homepage "http://proselint.com"
   url "https://files.pythonhosted.org/packages/42/ff/8e7ad0108b8faffdf2ec7d170b4a8a3c9bc91f5077debf5381ef14702588/proselint-0.10.2.tar.gz"
   sha256 "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac8ef904"
-  revision 1
+  revision 2
   head "https://github.com/amperser/proselint.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Proselint < Formula
     sha256 "7834267f43950c5d637d354c584a5e3093b3bce26b8b5869773745a60b7a0b29" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
