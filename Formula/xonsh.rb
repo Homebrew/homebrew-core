@@ -5,6 +5,7 @@ class Xonsh < Formula
   homepage "https://xon.sh/"
   url "https://github.com/xonsh/xonsh/archive/0.9.13.tar.gz"
   sha256 "21b9c81377c3be04bdf72f0eca2370a3c3ad7b050683362bc52ec84085cdebd2"
+  revision 1
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Xonsh < Formula
     sha256 "245117ead07c8301e7ca7472e9c15542f001885101bb5b9013d9e8bf43e56d39" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
   # See https://xon.sh/osx.html#dependencies
