@@ -5,7 +5,7 @@ class Pyvim < Formula
   homepage "https://github.com/jonathanslenders/pyvim"
   url "https://files.pythonhosted.org/packages/6e/85/47543120e478ddc5d31e447a7fed1fe4ac81cbb066ca623a2cc54f685dff/pyvim-2.0.24.tar.gz"
   sha256 "27b8f244bebc49cf375b10d16046df24438798208d7eaf199e3d04babf08cc6f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class Pyvim < Formula
     sha256 "b8626e91ddbbf8abaf02755765dc0228160e0a65faabb963a60352a03e9a6ac8" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
