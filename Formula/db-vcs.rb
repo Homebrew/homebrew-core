@@ -11,6 +11,7 @@ class DbVcs < Formula
   end
 
   test do
-    assert_equal "fatal: Not a db repository (or any of the parent directories). Please run 'db init'.", shell_output("#{bin}/db server add localhost", 2).strip
+    output = shell_output("#{bin}/db server add localhost", 2)
+    assert_match "fatal: Not a db repository", output
   end
 end
