@@ -14,7 +14,7 @@ class Solr < Formula
     bin.install %w[bin/solr bin/post bin/oom_solr.sh]
     pkgshare.install "bin/solr.in.sh"
     (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
-    prefix.install %w[example server]
+    prefix.install %w[contrib dist example server]
     libexec.install Dir["*"]
 
     # Fix the classpath for the post tool
