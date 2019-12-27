@@ -5,6 +5,7 @@ class Platformio < Formula
   homepage "https://platformio.org/"
   url "https://files.pythonhosted.org/packages/b5/b6/832b92113764feae278376dd0f39f0a3d4321c24b9ff1ff9c9777ba23b8d/platformio-4.1.0.tar.gz"
   sha256 "4552086d82fb4d7022abeb620499314249548d084b37ddf446a7ee3099b13c21"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Platformio < Formula
     sha256 "1313c81f8906aa6c6646c3175c05089afbcc0260a18ccb957f2ae37d666d9fbe" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/c4/a5/6bf41779860e9b526772e1b3b31a65a22bd97535572988d16028c5ab617d/bottle-0.12.17.tar.gz"
