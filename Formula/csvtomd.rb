@@ -5,7 +5,7 @@ class Csvtomd < Formula
   homepage "https://github.com/mplewis/csvtomd"
   url "https://files.pythonhosted.org/packages/2f/41/289bedde7fb32d817d5802eff68b99546842cb34df840665ec39b363f258/csvtomd-0.2.1.tar.gz"
   sha256 "d9fdf166c3c299ad5800b3cb1661f223b98237f38f22e9d253d45d321f70ec72"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Csvtomd < Formula
     sha256 "d343b9087bbaf2b5a5be09f71d23ff9b07742cc262f5fd66b7b220d2db73b4b2" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
