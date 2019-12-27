@@ -4,6 +4,8 @@ class DbVcs < Formula
   url "https://github.com/infostreams/db/archive/1.0.tar.gz"
   sha256 "a21f717ead07058242f28d90bd3d56f478f05039f0628e8f177c4383c36efefd"
 
+  bottle :unneeded
+
   def install
     libexec.install "db"
     libexec.install "bin/"
