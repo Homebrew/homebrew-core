@@ -5,7 +5,7 @@ class Flintrock < Formula
   homepage "https://github.com/nchammas/flintrock"
   url "https://files.pythonhosted.org/packages/82/2e/c2aa7e8a98b03632f789e15854ee9716d6b3aef31580950458285819be95/Flintrock-0.11.0.tar.gz"
   sha256 "f203a5558acc5fc7d8fd6efefaf6f0b90625c9d9c938521cdecc44bc684b3605"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Flintrock < Formula
     sha256 "4f84435e63cf37b5d02f36badd892ce90c5e71d685e1bc3d56f24e1403e3b159" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
