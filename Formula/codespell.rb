@@ -5,6 +5,7 @@ class Codespell < Formula
   homepage "https://github.com/codespell-project/codespell"
   url "https://files.pythonhosted.org/packages/df/6f/764ca059e0eb06b69e1abed2c9a2cabe7dac72b336e2600615b38ea547a3/codespell-1.16.0.tar.gz"
   sha256 "bf3b7c83327aefd26fe718527baa9bd61016e86db91a8123c0ef9c150fa02de9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Codespell < Formula
     sha256 "b77254f7aee7303a2edabb0a780a78407e7d8c55a44e6a5c75c9dd799beba12d" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources
