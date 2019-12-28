@@ -12,7 +12,7 @@ class Macosvpn < Formula
     sha256 "4cf716851d7a1fda3ed5387504d01d8832b53f54fd7b683267af29fc5d18f7a1" => :el_capitan
   end
 
-  depends_on :xcode => ["7.3", :build]
+  depends_on :xcode => ["11.1", :build]
 
   def install
     xcodebuild "SYMROOT=build"
