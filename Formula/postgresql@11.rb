@@ -3,6 +3,7 @@ class PostgresqlAT11 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v11.6/postgresql-11.6.tar.bz2"
   sha256 "49924f7ff92965fdb20c86e0696f2dc9f8553e1563124ead7beedf8910c13170"
+  revision 1
 
   bottle do
     sha256 "c91e358723fd5f700f059a0a1beff478d3e4aaa2ec40a3a166e946ff130d9fd0" => :catalina
