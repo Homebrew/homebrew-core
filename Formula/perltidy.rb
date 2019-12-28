@@ -1,8 +1,8 @@
 class Perltidy < Formula
   desc "Indents and reformats Perl scripts to make them easier to read"
   homepage "https://perltidy.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/perltidy/20190915/Perl-Tidy-20190915.tar.gz"
-  sha256 "c236dfacbba115cfc3f2868006c8601e021fe97c13cd2170a49bf8d404cc701b"
+  url "https://downloads.sourceforge.net/project/perltidy/20191203/Perl-Tidy-20191203.tar.gz"
+  sha256 "3afe84d410e9fc4b74a5a1481e638b0b64aebc79f149a1448849ebad69234970"
 
   bottle do
     cellar :any_skip_relocation
