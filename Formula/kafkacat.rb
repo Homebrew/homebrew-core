@@ -14,6 +14,7 @@ class Kafkacat < Formula
   end
 
   depends_on "avro-c"
+  depends_on "librdkafka"
   depends_on "libserdes"
   depends_on "yajl"
 
