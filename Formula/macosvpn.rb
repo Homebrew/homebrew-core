@@ -20,6 +20,6 @@ class Macosvpn < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/macosvpn version", 10)
+    assert_match version.to_s, shell_output("#{bin}/macosvpn version", 2)
   end
 end
