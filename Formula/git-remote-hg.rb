@@ -5,6 +5,7 @@ class GitRemoteHg < Formula
   homepage "https://github.com/felipec/git-remote-hg"
   url "https://github.com/felipec/git-remote-hg/archive/v0.4.tar.gz"
   sha256 "916072d134cde65b7ffa7d1da1acaabb0f29b65c017d0560e907e7a94063d1b1"
+  revision 1
   head "https://github.com/felipec/git-remote-hg.git"
 
   bottle do
@@ -16,7 +17,7 @@ class GitRemoteHg < Formula
   end
 
   depends_on "mercurial"
-  depends_on "python@2" # does not support Python 3
+  uses_from_macos "python@2" # does not support Python 3
 
   conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"
 
