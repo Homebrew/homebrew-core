@@ -13,7 +13,8 @@ class Libserdes < Formula
   end
 
   depends_on "avro-c"
-  depends_on "librdkafka"
+  depends_on "jansson"
+  uses_from_macos "curl"
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -23,22 +24,24 @@ class Libserdes < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <stdio.h>
-      #include <stdlib.h>
-      #include <unistd.h>
-      #include <signal.h>
-      #include <librdkafka/rdkafka.h>
-      #include <serdes-avro.h>
-      #include <serdes.h>
+      #include <err.h>
+      #include <stddef.h>
+      #include <sys/types.h>
+      #include <libserdes/serdes.h>
 
       int main()
       {
-        rd_kafka_conf_t *rk_conf;
-        rk_conf = rd_kafka_conf_new();
+        char errstr[512];
+        serdes_conf_t *sconf = serdes_conf_new(NULL, 0, NULL);
+        serdes_t *serdes = serdes_new(sconf, errstr, sizeof(errstr));
+        if (serdes == NULL) {
+          errx(1, "constructing serdes: %s", errstr);
+        }
+        serdes_destroy(serdes);
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}/libserdes", "-L/usr/local/lib/", "-L#{lib}", "-lrdkafka", "-lserdes", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lserdes", "-o", "test"
     system "./test"
   end
 end
