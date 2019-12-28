@@ -1,8 +1,8 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.13.1.tar.gz"
-  sha256 "5624c16728679362cfa46b76ec1d247018106989f2260d35583c42c49c5142b5"
+  url "https://github.com/prometheus/prometheus/archive/v2.15.1.tar.gz"
+  sha256 "67590a51ad26ee6135d40b8df90f8b58d85ce890fc67e66d08bb8207db289a1e"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,11 +13,14 @@ class Prometheus < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
+    system "make", "assets"
     system "make", "build"
     bin.install %w[promtool prometheus]
     libexec.install %w[consoles console_libraries]
@@ -42,7 +45,7 @@ class Prometheus < Formula
   end
 
   def caveats; <<~EOS
-    When used with `brew services`, prometheus' configuration is stored as command line flags in
+    When used with `brew services`, prometheus' configuration is stored as command line flags in:
       #{etc}/prometheus.args
 
     Configuration for prometheus is located in the #{etc}/prometheus.yml file.
