@@ -3,6 +3,7 @@ class Postgresql < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
   sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
+  revision 1
   head "https://github.com/postgres/postgres.git"
 
   bottle do
