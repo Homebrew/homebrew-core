@@ -2,8 +2,9 @@ class Libserdes < Formula
   desc "Schema ser/deserializer lib for Avro + Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
   url "https://github.com/confluentinc/libserdes.git",
-  :tag      => "v5.3.1",
-  :revision => "b259d15f68dce65591700b0ccccb73311db1de3d"
+    :tag      => "v5.3.1",
+    :revision => "b259d15f68dce65591700b0ccccb73311db1de3d"
+  head "https://github.com/confluentinc/libserdes.git"
 
   bottle do
     cellar :any
