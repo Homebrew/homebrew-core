@@ -3,6 +3,7 @@ class Php < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.4.1.tar.xz"
   sha256 "561bb866bdd509094be00f4ece7c3543ec971c4d878645ee81437e291cffc762"
+  revision 1
 
   bottle do
     sha256 "74a6bd1f08e2d15bd1fb68d49f41b245329cf14f88eafea1f56d7be02f09495c" => :catalina
