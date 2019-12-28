@@ -1,9 +1,9 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "http://site.icu-project.org/home"
-  url "https://github.com/unicode-org/icu/releases/download/release-64-2/icu4c-64_2-src.tgz"
-  version "64.2"
-  sha256 "627d5d8478e6d96fc8c90fed4851239079a561a6a8b9e48b0892f24e82d31d6c"
+  url "https://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz"
+  version "65.1"
+  sha256 "53e37466b3d6d6d01ead029e3567d873a43a5d1c668ed2278e253b683136d948"
 
   bottle do
     cellar :any
