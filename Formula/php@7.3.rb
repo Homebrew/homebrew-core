@@ -3,6 +3,7 @@ class PhpAT73 < Formula
   homepage "https://www.php.net/"
   url "https://www.php.net/distributions/php-7.3.13.tar.xz"
   sha256 "57ac55fe442d2da650abeb9e6fa161bd3a98ba6528c029f076f8bba43dd5c228"
+  revision 1
 
   bottle do
     sha256 "6b4249d889e8680e31bf731656e7ff80dc6e7250092ba51ebc0b1cf99e185780" => :catalina
