@@ -39,6 +39,10 @@ class Weechat < Formula
       args << "-DRUBY_LIB=/usr/lib/libruby.dylib"
     end
 
+    if MacOS.version >= :mojave && MacOS::CLT.installed?
+      ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+    end
+
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install", "VERBOSE=1"
