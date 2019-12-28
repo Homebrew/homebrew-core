@@ -3,7 +3,7 @@ class Mimic < Formula
   homepage "https://mimic.mycroft.ai"
   url "https://github.com/MycroftAI/mimic/archive/1.2.0.2.tar.gz"
   sha256 "619f3864d8ff599c1fa47424b7d87059236fcd51db3c0c311eb3635c80174b5a"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
