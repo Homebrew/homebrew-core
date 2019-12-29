@@ -3,6 +3,7 @@ class Pipx < Formula
   homepage "https://github.com/pipxproject/pipx"
   url "https://files.pythonhosted.org/packages/e1/50/cd0e61f43733f4179d26f73f270323b7c18d138c2511b042759df26d40af/pipx-0.14.0.0.tar.gz"
   sha256 "33c6e2f48c8b5b9e79cb5d61d3887562ecdbc2bf2e63818ca419a88d94359bc8"
+  head "https://github.com/pipxproject/pipx.git"
 
   bottle do
     cellar :any_skip_relocation
