@@ -1,8 +1,8 @@
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
   homepage "https://github.com/XAMPPRocky/tokei"
-  url "https://github.com/XAMPPRocky/tokei/archive/v10.1.0.tar.gz"
-  sha256 "86b741d32850b267dcaaad244de8b821b0bd64678b83428b0150820bd963e697"
+  url "https://github.com/XAMPPRocky/tokei/archive/v10.1.1.tar.gz"
+  sha256 "ad203224b891ec75208d86b296d02f08770e0a4b6421827b1bac397fddd996ab"
 
   bottle do
     cellar :any_skip_relocation
