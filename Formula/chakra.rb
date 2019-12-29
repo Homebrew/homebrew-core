@@ -14,6 +14,11 @@ class Chakra < Formula
   depends_on "cmake" => :build
   depends_on "icu4c"
 
+  patch do
+    url "https://github.com/microsoft/ChakraCore/commit/20b819a5.diff?full_index=1"
+    sha256 "8540dfa548d45372579e034dc34fddd837b47f7f842b4086283b13cc3b1d8ae9"
+  end
+
   def install
     args = [
       "--lto-thin",
