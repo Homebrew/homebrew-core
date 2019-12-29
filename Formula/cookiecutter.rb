@@ -6,7 +6,6 @@ class Cookiecutter < Formula
   url "https://github.com/audreyr/cookiecutter/archive/1.7.0.tar.gz"
   sha256 "975c578050a040e77c9a68a49ba420137d8da820d8ebf109342144f73a02722d"
   revision 1
-  revision 0
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
