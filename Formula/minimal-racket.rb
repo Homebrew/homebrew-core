@@ -1,8 +1,8 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/7.3/racket-minimal-7.3-src-builtpkgs.tgz"
-  sha256 "40286b2de8aaeed70d2dbebcbbb89f1be55be00fd55f4522635b7a51a58d6dc2"
+  url "https://mirror.racket-lang.org/installers/7.5/racket-minimal-7.5-src-builtpkgs.tgz"
+  sha256 "232d53aef4233a1f50325da0e6455f84b77eb0829f8184e1219d0382c066073a"
 
   bottle do
     cellar :any
@@ -15,13 +15,18 @@ class MinimalRacket < Formula
   skip_clean "lib/racket/launchers.rktd", "lib/racket/mans.rktd"
 
   def install
+    # configure racket's package tool (raco) to do the Right Thing
+    # see: https://docs.racket-lang.org/raco/config-file.html
+    inreplace "etc/config.rktd", /\)\)\n$/, ") (default-scope . \"installation\"))\n"
+
     cd "src" do
       args = %W[
         --disable-debug
         --disable-dependency-tracking
+        --enable-origtree=no
         --enable-macprefix
         --prefix=#{prefix}
-        --man=#{man}
+        --mandir=#{man}
         --sysconfdir=#{etc}
       ]
 
@@ -29,24 +34,11 @@ class MinimalRacket < Formula
       system "make"
       system "make", "install"
     end
-
-    # configure racket's package tool (raco) to do the Right Thing
-    # see: https://docs.racket-lang.org/raco/config-file.html
-    inreplace etc/"racket/config.rktd" do |s|
-      s.gsub!(
-        /\(bin-dir\s+\.\s+"#{Regexp.quote(bin)}"\)/,
-        "(bin-dir . \"#{HOMEBREW_PREFIX}/bin\")",
-      )
-      s.gsub!(
-        /\n\)$/,
-        "\n      (default-scope . \"installation\")\n)",
-      )
-    end
   end
 
   def caveats; <<~EOS
     This is a minimal Racket distribution.
-    If you want to build the DrRacket IDE, you may run
+    If you want to build the DrRacket IDE, you may run:
       raco pkg install --auto drracket
 
     The full Racket distribution is available as a cask:
