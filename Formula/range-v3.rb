@@ -1,8 +1,8 @@
 class RangeV3 < Formula
   desc "Experimental range library for C++14/17/20"
   homepage "https://ericniebler.github.io/range-v3/"
-  url "https://github.com/ericniebler/range-v3/archive/0.9.1.tar.gz"
-  sha256 "2b5b442d572b5978ea51c650adfaf0796f39f326404d09b83d846e04f571876b"
+  url "https://github.com/ericniebler/range-v3/archive/0.10.0.tar.gz"
+  sha256 "5a1cd44e7315d0e8dcb1eee4df6802221456a9d1dbeac53da02ac7bd4ea150cd"
 
   bottle do
     cellar :any_skip_relocation
