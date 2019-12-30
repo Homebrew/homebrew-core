@@ -1,8 +1,8 @@
 class Oclgrind < Formula
   desc "OpenCL device simulator and debugger"
   homepage "https://github.com/jrprice/Oclgrind"
-  url "https://github.com/jrprice/Oclgrind/archive/v18.3.tar.gz"
-  sha256 "90518d47573e64c6c28e173dc6f10c4e0ca53a99543ef2f1afaac1cbf725fe90"
+  url "https://github.com/jrprice/Oclgrind/archive/v19.10.tar.gz"
+  sha256 "f9a8f22cb9f6d88670f2578c46ba0d728ba8eaee5c481c2811129dc157c43dc0"
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Oclgrind < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm"
 
   def install
     system "cmake", ".", *std_cmake_args
