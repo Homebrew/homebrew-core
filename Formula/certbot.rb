@@ -5,7 +5,7 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v1.0.0.tar.gz"
   sha256 "cb853d4aeff1bd28c6a20bb4b26e782a791a28dfee5b6cf410ef2b6f4f580bd8"
-  revision 2
+  revision 3
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -183,7 +183,7 @@ class Certbot < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     cd buildpath/"certbot" do
-      system "python3", "setup.py", "install", "--prefix=#{libexec}"
+      system "python3", *Language::Python.setup_install_args(libexec)
     end
 
     # Shipped with certbot, not external resources.
