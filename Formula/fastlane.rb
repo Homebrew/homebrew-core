@@ -1,8 +1,8 @@
 class Fastlane < Formula
   desc "Easiest way to build and release mobile apps"
   homepage "https://fastlane.tools"
-  url "https://github.com/fastlane/fastlane/archive/2.138.0.tar.gz"
-  sha256 "81ee26356de1357b76120aee4d13dd789dd3e358115d830ca2030d4060b0cabf"
+  url "https://github.com/fastlane/fastlane/archive/2.139.0.tar.gz"
+  sha256 "b90b7ff47b8b9404eb8c18c7832409fb09b42b49e864e2534c9d6e071e763b5c"
   head "https://github.com/fastlane/fastlane.git"
 
   bottle do
@@ -18,16 +18,16 @@ class Fastlane < Formula
     ENV["GEM_HOME"] = libexec
     ENV["GEM_PATH"] = libexec
 
-    system "gem", "build", "fastlane.gemspec"
-    system "gem", "install", "fastlane-#{version}.gem", "--no-document"
+    # system "gem", "build", "fastlane.gemspec"
+    # system "gem", "install", "fastlane-#{version}.gem", "--no-document"
 
-    (bin/"fastlane").write <<~EOS
-      #!/bin/bash
-      export PATH="#{Formula["ruby@2.5"].opt_bin}:$PATH}"
-      GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
-        exec "#{libexec}/bin/fastlane" "$@"
-    EOS
-    chmod "+x", bin/"fastlane"
+    # (bin/"fastlane").write <<~EOS
+    #   #!/bin/bash
+    #   export PATH="#{Formula["ruby@2.5"].opt_bin}:$PATH}"
+    #   GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
+    #     exec "#{libexec}/bin/fastlane" "$@"
+    # EOS
+    # chmod "+x", bin/"fastlane"
   end
 
   test do
