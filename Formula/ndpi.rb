@@ -1,8 +1,8 @@
 class Ndpi < Formula
   desc "Deep Packet Inspection (DPI) library"
   homepage "https://www.ntop.org/products/deep-packet-inspection/ndpi/"
-  url "https://github.com/ntop/nDPI/archive/2.8.tar.gz"
-  sha256 "f98def4d0e43818317b20e2887ce500b2d6a5a9c8ddb28cf57ae51caae0f33cc"
+  url "https://github.com/ntop/nDPI/archive/3.0.tar.gz"
+  sha256 "69fb8003f00e9b9be3d06925398e15a83ac517cd155b6768f5f0e9342471c164"
   head "https://github.com/ntop/nDPI.git", :branch => "dev"
 
   bottle do
@@ -24,6 +24,9 @@ class Ndpi < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+
+    # temp fix to move sample files, reported upstream: https://github.com/ntop/nDPI/issues/826
+    mv sbin, share
   end
 
   test do
