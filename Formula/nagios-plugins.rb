@@ -1,9 +1,8 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz"
-  sha256 "647c0ba4583d891c965fc29b77c4ccfeccc21f409fdf259cb8af52cb39c21e18"
-  revision 1
+  url "https://nagios-plugins.org/download/nagios-plugins-2.3.1.tar.gz"
+  sha256 "06924416be052def988d3470519989ed1289216fc2e1c4d41835b4bff17902cc"
 
   bottle do
     cellar :any
