@@ -11,6 +11,13 @@ class Polyml < Formula
     sha256 "b3dd5bae8d8cef36c6258c2620a4ae894a7a1c66fe56330c48e19a1f81aa66d9" => :sierra
   end
 
+  # Patch for Xcode 11
+  # https://github.com/polyml/polyml/pull/119
+  patch do
+    url "https://github.com/polyml/polyml/commit/44efa473.diff?full_index=1"
+    sha256 "0835165da3f0b540c13e06d79dfdc4bcbcc4cde17207ea2e02978582552ee4d0"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking", "--disable-debug",
                           "--prefix=#{prefix}"
