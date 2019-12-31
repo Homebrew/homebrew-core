@@ -1,15 +1,14 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.8.tar.gz"
-    sha256 "683d28aece3bf3f17c3d53d7a76fbd2a24719767477f5dce55268683fd87f821"
+    url "https://github.com/ntop/ntopng/archive/3.8.1.tar.gz"
+    sha256 "1dbd6600d3f86c0553f38a98439837ef6cc39bf0cec2511fe755ab6939651378"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/2.6.tar.gz"
-      sha256 "efdfb68940385b18079920330528978765dc2a90c8163d10f63301bddadbf91e"
+      url "https://github.com/ntop/nDPI/archive/3.0.tar.gz"
+      sha256 "69fb8003f00e9b9be3d06925398e15a83ac517cd155b6768f5f0e9342471c164"
     end
   end
 
