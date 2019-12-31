@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20191218/git-annex-7.20191218.tar.gz"
-  sha256 "060bb91186130204a29bb5b8c990b280065c3c866c9b3bc240a633d14b11c5b7"
+  url "https://hackage.haskell.org/package/git-annex-7.20191230/git-annex-7.20191230.tar.gz"
+  sha256 "227c9e7dd7fdf32398a3edaec418550c96d3e55cb05f012566f38f1de1264df7"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -25,10 +25,6 @@ class GitAnnex < Formula
   depends_on "xdot"
 
   def install
-    # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
-    # This is already resolved in aws 0.20 but we can't move to 0.20 until
-    # esqueleto 2.6.0 ships. See https://github.com/bitemyapp/esqueleto/issues/88
-    # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
     install_cabal_package "--constraint", "http-conduit>=2.3",
                           "--constraint", "network>=2.6.3.0",
                           :using => ["alex", "happy", "c2hs"],
