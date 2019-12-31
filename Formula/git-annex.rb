@@ -45,6 +45,11 @@ class GitAnnex < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>OBJC_DISABLE_INITIALIZE_FORK_SAFETY</key>
+          <string>YES</string>
+        </dict>
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>
