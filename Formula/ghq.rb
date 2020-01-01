@@ -2,8 +2,8 @@ class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
   url "https://github.com/motemen/ghq.git",
-      :tag      => "v0.17.4",
-      :revision => "a87d262c33a63c860086623391fc4e11df9da4fe"
+      :tag      => "v0.99.1",
+      :revision => "661921c8605c3e8d421d3149cd1d1a8a7ec226c8"
   head "https://github.com/motemen/ghq.git"
 
   bottle do
@@ -24,6 +24,6 @@ class Ghq < Formula
   end
 
   test do
-    assert_match "#{testpath}/.ghq", shell_output("#{bin}/ghq root")
+    assert_match "#{testpath}/ghq", shell_output("#{bin}/ghq root")
   end
 end
