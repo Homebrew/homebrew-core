@@ -1,8 +1,8 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.14.1.0.tar.gz"
-  sha256 "8fc1ad70d80f7f69a30c957fee218ef8767cfd5a0ee4f0830e506f2b22e5b923"
+  url "https://github.com/EttusResearch/uhd/archive/v3.15.0.0.tar.gz"
+  sha256 "eed4a77d75faafff56be78985950039f8d9d1eb9fcbd58b8862e481dd49825cd"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
@@ -19,11 +19,16 @@ class Uhd < Formula
   depends_on "python"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
-    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+    url "https://files.pythonhosted.org/packages/b0/3c/8dcd6883d009f7cae0f3157fb53e9afb05a0d3d33b3db1268ec2e6f4a56b/Mako-1.1.0.tar.gz"
+    sha256 "a36919599a9b7dc5d86a7a8988f23a9a3a3d083070023bab23d64f7f1d1e0a4b"
   end
 
   def install
+    # https://github.com/EttusResearch/uhd/issues/313
+    inreplace "host/lib/transport/nirio/lvbitx/process-lvbitx.py",
+              "autogen_src_path = os.path.relpath(options.output_src_path)",
+              "autogen_src_path = os.path.realpath(options.output_src_path)"
+
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
@@ -32,7 +37,7 @@ class Uhd < Formula
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON3=ON", "-DENABLE_STATIC_LIBS=ON"
+      system "cmake", "..", *std_cmake_args, "-DENABLE_STATIC_LIBS=ON", "-DENABLE_TESTS=OFF"
       system "make"
       system "make", "test"
       system "make", "install"
