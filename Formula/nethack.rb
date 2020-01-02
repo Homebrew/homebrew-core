@@ -22,6 +22,7 @@ class Nethack < Formula
   def install
     # Build everything in-order
     ENV.deparallelize
+    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O0"
 
     # Generate makefiles for OS X
     cd "sys/unix" do
