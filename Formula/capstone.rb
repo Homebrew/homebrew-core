@@ -3,7 +3,7 @@ class Capstone < Formula
   homepage "https://www.capstone-engine.org/"
   url "https://github.com/aquynh/capstone/archive/4.0.1.tar.gz"
   sha256 "79bbea8dbe466bd7d051e037db5961fdb34f67c9fac5c3471dd105cfb1e05dc7"
-  head "https://github.com/aquynh/capstone.git"
+  head "https://github.com/aquynh/capstone.git", :branch => "next"
 
   bottle do
     cellar :any
