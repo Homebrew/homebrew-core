@@ -1,9 +1,8 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.19.0/opensc-0.19.0.tar.gz"
-  sha256 "2c5a0e4df9027635290b9c0f3addbbf0d651db5ddb0ab789cb0e978f02fd5826"
-  revision 1
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.20.0/opensc-0.20.0.tar.gz"
+  sha256 "bbf4b4f4a44463645c90a525e820a8059b2f742a53b7b944f941de3c97ba4863"
   head "https://github.com/OpenSC/OpenSC.git"
 
   bottle do
@@ -33,5 +32,9 @@ class Opensc < Formula
     system "./bootstrap"
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/opensc-tool -i")
   end
 end
