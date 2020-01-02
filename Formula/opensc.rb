@@ -33,6 +33,13 @@ class Opensc < Formula
     system "make", "install"
   end
 
+  def caveats; <<~EOS
+    The OpenSSH PKCS11 smartcard integration will not work from High Sierra
+    onwards. If you need this functionality, unlink this formula, then install
+    the OpenSC cask.
+  EOS
+  end
+
   test do
     assert_match version.to_s, shell_output("#{bin}/opensc-tool -i")
   end
