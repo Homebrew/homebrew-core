@@ -6,6 +6,7 @@ class Nethack < Formula
   url "https://www.nethack.org/download/3.6.4/nethack-364-src.tgz"
   version "3.6.4"
   sha256 "0531ab8466032611d61f702cb71fb3ceca78a7a4918885c1b4f2f17cb57dbd59"
+  revision 1
   head "https://github.com/NetHack/NetHack.git"
 
   bottle do
@@ -22,7 +23,10 @@ class Nethack < Formula
   def install
     # Build everything in-order
     ENV.deparallelize
-    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "O0"
+
+    # Disable optimization since it causes a hang in the / command
+    # See issue #48465
+    ENV.O0
 
     # Generate makefiles for OS X
     cd "sys/unix" do
