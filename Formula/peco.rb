@@ -1,8 +1,8 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.5.4.tar.gz"
-  sha256 "06636082070634256b5adc4c24955ad2c520b24fec528131d0ce203c31aa209d"
+  url "https://github.com/peco/peco/archive/v0.5.5.tar.gz"
+  sha256 "ce4191cb16d924c81cce1ebd0340d98739794745d19565ba8a84ef1e12e1960c"
   head "https://github.com/peco/peco.git"
 
   bottle do
