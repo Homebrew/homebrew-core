@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
-  url "https://github.com/rancher/k3d/archive/v1.3.4.tar.gz"
-  sha256 "3d6c5d64795e4b459f236c391dd24e1ff08fcb2bf29e914509c8ddf8f699bfe7"
+  url "https://github.com/rancher/k3d/archive/v1.4.0.tar.gz"
+  sha256 "849942d0bc01318aae08bd6e56eaac8d738076065fb3d8e3f53bc2c024437e18"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class K3d < Formula
   def install
     system "go", "build", \
         "-mod", "vendor", \
-        "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v0.10.0", \
+        "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v1.0.1", \
         "-trimpath", "-o", bin/"k3d"
     prefix.install_metafiles
   end
