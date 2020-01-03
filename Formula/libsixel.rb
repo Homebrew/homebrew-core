@@ -1,8 +1,8 @@
 class Libsixel < Formula
   desc "SIXEL encoder/decoder implementation"
   homepage "https://github.com/saitoha/sixel"
-  url "https://github.com/saitoha/libsixel/releases/download/v1.8.4/libsixel-1.8.4.tar.gz"
-  sha256 "5335a4a505f871c190208d6c8cb358466179e79910b9566bb1f78bc64f453475"
+  url "https://github.com/saitoha/libsixel/releases/download/v1.8.5/libsixel-1.8.5.tar.gz"
+  sha256 "74e7d2b53c4364ccb3afb8d00dafd4061f7b9a65edd3fdb330647d8294400e59"
 
   bottle do
     cellar :any
