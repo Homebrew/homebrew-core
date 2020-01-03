@@ -12,10 +12,7 @@ class GitLfs < Formula
   end
 
   depends_on "go" => :build
-  uses_from_macos "ruby"
-
-  # System Ruby uses old TLS versions no longer supported by RubyGems.
-  depends_on "ruby" => :build if MacOS.version <= :sierra
+  depends_on "ruby" => :build
 
   def install
     ENV["GIT_LFS_SHA"] = ""
