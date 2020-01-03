@@ -35,6 +35,11 @@ class Mpd < Formula
   depends_on "opus"
   depends_on "sqlite"
 
+  # Fix compilation with Clang
+  # This patch backports https://github.com/MusicPlayerDaemon/MPD/commit/dca0519336586be95b920004178114a097681768
+  # Remove in next release
+  patch :DATA
+
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
@@ -123,3 +128,19 @@ class Mpd < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/util/Compiler.h b/src/util/Compiler.h
+index 96f63fae4..04e49bb61 100644
+--- a/src/util/Compiler.h
++++ b/src/util/Compiler.h
+@@ -145,7 +145,7 @@
+
+ #if GCC_CHECK_VERSION(7,0)
+ #define gcc_fallthrough __attribute__((fallthrough))
+-#elif CLANG_CHECK_VERSION(10,0)
++#elif CLANG_CHECK_VERSION(10,0) && defined(__cplusplus)
+ #define gcc_fallthrough [[fallthrough]]
+ #else
+ #define gcc_fallthrough
+
