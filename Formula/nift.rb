@@ -18,7 +18,7 @@ class Nift < Formula
 
   test do
     mkdir "empty" do
-      system "#{bin}/nsm", "init"
+      system "#{bin}/nsm", "init-html"
       assert_predicate testpath/"empty/site/index.html", :exist?
     end
   end
