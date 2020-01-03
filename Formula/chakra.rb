@@ -15,8 +15,8 @@ class Chakra < Formula
   depends_on "icu4c"
 
   patch do
-    url "https://github.com/microsoft/ChakraCore/commit/20b819a5.diff?full_index=1"
-    sha256 "8540dfa548d45372579e034dc34fddd837b47f7f842b4086283b13cc3b1d8ae9"
+    url "https://github.com/microsoft/ChakraCore/commit/4874bbcf.diff?full_index=1"
+    sha256 "668d848352a6cbfebccfe4aa3bfa5c4d0a33f90c86e81fc7c4cfbdd57c23524a"
   end
 
   def install
