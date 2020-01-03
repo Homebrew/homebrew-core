@@ -2,8 +2,8 @@ class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
   url "https://gitlab.com/procps-ng/procps.git",
-      :tag      => "v3.3.15",
-      :revision => "7bb949bcba13c107fa0f45d2d0298b1ad6b6d6cc"
+      :tag      => "v3.3.16",
+      :revision => "59c88e18f29000ceaf7e5f98181b07be443cf12f"
   head "https://gitlab.com/procps-ng/procps.git"
 
   bottle do
@@ -17,10 +17,11 @@ class Watch < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "gettext"
+  depends_on "ncurses"
 
   conflicts_with "visionmedia-watch"
 
@@ -28,7 +29,8 @@ class Watch < Formula
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-nls"
+                          "--disable-nls",
+                          "--enable-watch8bit"
     system "make", "watch"
     bin.install "watch"
     man1.install "watch.1"
