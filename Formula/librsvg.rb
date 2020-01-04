@@ -18,6 +18,7 @@ class Librsvg < Formula
   depends_on "glib"
   depends_on "libcroco"
   depends_on "pango"
+  depends_on "vala"
 
   def install
     args = %W[
@@ -27,6 +28,7 @@ class Librsvg < Formula
       --enable-tools=yes
       --enable-pixbuf-loader=yes
       --enable-introspection=yes
+      --enable-vala=yes
     ]
 
     system "./configure", *args
