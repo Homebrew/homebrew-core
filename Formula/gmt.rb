@@ -5,7 +5,9 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
   mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
   sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
-  revision 1
+  revision 2
+
+  head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
     sha256 "8756d488271e9a55f6f6010f9674152e71311e7a9d9d2e40c4027cd3372f596d" => :catalina
@@ -33,15 +35,17 @@ class Gmt < Formula
     sha256 "8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3"
   end
 
-  # The following two patches fix a problem in detecting locally installed
-  # html pages (https://github.com/GenericMappingTools/gmt/issues/1960).
-  # They must be removed when GMT 6.0.1 is released.
-  patch do
-    url "https://github.com/GenericMappingTools/gmt/commit/b65dc6ebe7eba396b57dbad59e85b7ba7e8e2908.patch?full_index=1"
-  end
+  unless build.head?
+    # The following two patches fix a problem in detecting locally installed
+    # html pages (https://github.com/GenericMappingTools/gmt/issues/1960).
+    # They must be removed when GMT 6.0.1 is released.
+    patch do
+      url "https://github.com/GenericMappingTools/gmt/commit/b65dc6ebe7eba396b57dbad59e85b7ba7e8e2908.patch?full_index=1"
+    end
 
-  patch do
-    url "https://github.com/GenericMappingTools/gmt/commit/daf646554a25cf1a4a94255b694afc43028f9696.patch?full_index=1"
+    patch do
+      url "https://github.com/GenericMappingTools/gmt/commit/daf646554a25cf1a4a94255b694afc43028f9696.patch?full_index=1"
+    end
   end
 
   def install
