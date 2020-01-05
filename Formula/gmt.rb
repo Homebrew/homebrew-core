@@ -5,8 +5,7 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
   mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
   sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
-  revision 2
-
+  revision 1
   head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
@@ -40,11 +39,13 @@ class Gmt < Formula
     # html pages (https://github.com/GenericMappingTools/gmt/issues/1960).
     # They must be removed when GMT 6.0.1 is released.
     patch do
-      url "https://github.com/GenericMappingTools/gmt/commit/b65dc6ebe7eba396b57dbad59e85b7ba7e8e2908.patch?full_index=1"
+      url "https://github.com/GenericMappingTools/gmt/commit/b65dc6eb.diff?full_index=1"
+      sha256 "459dee38eef6b0c960a3d3a992ac715e82693c4c2cd34afd99965faf07cce2f8"
     end
 
     patch do
-      url "https://github.com/GenericMappingTools/gmt/commit/daf646554a25cf1a4a94255b694afc43028f9696.patch?full_index=1"
+      url "https://github.com/GenericMappingTools/gmt/commit/daf64655.diff?full_index=1"
+      sha256 "f2b5b0d5c4d6f568f453365f857c09429f2e29f9e72b220ca17a81128db75d37"
     end
   end
 
