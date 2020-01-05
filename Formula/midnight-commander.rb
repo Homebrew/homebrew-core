@@ -1,9 +1,8 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.22.tar.xz"
-  sha256 "ee7868d7ba0498cf2cccefe107d7efee7f2571098806bba2aed5a159db801318"
-  revision 2
+  url "https://www.midnight-commander.org/downloads/mc-4.8.23.tar.xz"
+  sha256 "dd7f7ce74183307b0df25b5c3e60ad3293fd3d3d27d2f37dd7a10efce13dff1c"
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
@@ -20,6 +19,13 @@ class MidnightCommander < Formula
   depends_on "s-lang"
 
   conflicts_with "minio-mc", :because => "Both install a `mc` binary"
+
+  # Fix compilation https://midnight-commander.org/ticket/4035
+  # Remove in next release
+  patch do
+    url "https://midnight-commander.org/raw-attachment/ticket/4035/mc-4.8.23.patch"
+    sha256 "eca0c095700bc4c4a41e74da0f95874c4a91a0f22ad45b2d96b32d2f537d856f"
+  end
 
   def install
     args = %W[
