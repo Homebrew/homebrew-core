@@ -100,7 +100,6 @@ class Opencv < Formula
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
-      rm lib/"libIlmImf.a"
     end
   end
 
