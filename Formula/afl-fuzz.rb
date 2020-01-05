@@ -10,6 +10,8 @@ class AflFuzz < Formula
     sha256 "cb0c464f59c82a4df3a8ec0cae87ceea54b49445da53be4f32c6a343d7180601" => :high_sierra
   end
 
+  conflicts_with "aflplusplus"
+
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
