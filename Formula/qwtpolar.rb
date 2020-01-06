@@ -21,11 +21,7 @@ class Qwtpolar < Formula
   patch :DATA
 
   def install
-    cd "doc" do
-      doc.install "html"
-      man3.install Dir["man/man3/{q,Q}wt*"]
-    end
-    # Remove leftover doxygen files, so they don't get installed
+    # Doc install is broken, remove it to avoid errors
     rm_r "doc"
 
     inreplace "qwtpolarconfig.pri" do |s|
