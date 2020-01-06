@@ -30,6 +30,12 @@ class Freedink < Formula
     sha256 "715f44773b05b73a9ec9b62b0e152f3f281be1a1512fbaaa386176da94cffb9d"
   end
 
+  # Patch for recent SDL
+  patch :p0 do
+    url "https://raw.githubusercontent.com/openbsd/ports/fc8b95c6/games/freedink/game/patches/patch-src_input_cpp"
+    sha256 "fa06a8a87bd4f3977440cdde0fb6145b6e5b0005b266b19c059d3fd7c2ff836a"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
