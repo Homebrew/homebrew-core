@@ -55,7 +55,8 @@ class Pbc < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lgmp", "-L#{lib}", "-lpbc", "-o", "test"
+    system ENV.cc, "test.c", "-L#{Formula["gmp"].lib}", "-lgmp", "-L#{lib}",
+                   "-lpbc", "-o", "test"
     system "./test"
   end
 end
