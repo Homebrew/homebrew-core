@@ -14,18 +14,18 @@ class Libb64 < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-
+      #include <string.h>
       #include <b64/cencode.h>
       int main()
       {
         base64_encodestate B64STATE;
         base64_init_encodestate(&B64STATE);
-        char buf[8];
+        char buf[32];
         int c = base64_encode_block("\x01\x02\x03\x04", 4, buf, &B64STATE);
-        c = base64_encode_blockend(buf, &B64STATE);
+        c += base64_encode_blockend(buf+c, &B64STATE);
+        if (memcmp(buf,"AQIDBA==",8)) return(-1);
         return 0;
       }
-
     EOS
     args = %w[test.c -L/usr/local/lib -lb64 -o test]
     system ENV.cc, *args
