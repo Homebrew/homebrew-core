@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2019.10.tar.bz2"
-  sha256 "8d6d6070739522dd236cba7055b8736bfe92b4fac0ea18ad809829ca79667014"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2020.01.tar.bz2"
+  sha256 "aa453c603208b1b27bd03525775a7f79b443adec577fdc6e8f06974025a135f1"
 
   bottle do
     cellar :any
@@ -14,6 +14,8 @@ class UBootTools < Formula
   depends_on "openssl@1.1"
 
   def install
+    ENV["MK_ARCH"]="x86_64"
+
     system "make", "sandbox_defconfig"
     system "make", "tools"
     bin.install "tools/mkimage"
