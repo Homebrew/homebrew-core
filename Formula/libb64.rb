@@ -6,8 +6,6 @@ class Libb64 < Formula
 
   def install
     system "make"
-    bin.mkpath
-    bin.install "base64/base64"
     include.mkpath
     include.install "include/b64"
     lib.mkpath
@@ -15,6 +13,22 @@ class Libb64 < Formula
   end
 
   test do
-    system "#{bin}/base64", "-e", "/dev/null", "/dev/null"
+    (testpath/"test.c").write <<~EOS
+
+      #include <b64/cencode.h>
+      int main()
+      {
+        base64_encodestate B64STATE;
+        base64_init_encodestate(&B64STATE);
+        char buf[8];
+        int c = base64_encode_block("\x01\x02\x03\x04", 4, buf, &B64STATE);
+        c = base64_encode_blockend(buf, &B64STATE);
+        return 0;
+      }
+
+    EOS
+    args = %w[test.c -L/usr/local/lib -lb64 -o test]
+    system ENV.cc, *args
+    system "./test"
   end
 end
