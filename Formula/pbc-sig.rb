@@ -43,7 +43,8 @@ class PbcSig < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lpbc", "-lpbc_sig"
+    system ENV.cc, "test.c", "-o", "test", "-L#{Formula["pbc"].lib}",
+                   "-L#{lib}", "-lpbc", "-lpbc_sig"
     system "./test"
   end
 end
