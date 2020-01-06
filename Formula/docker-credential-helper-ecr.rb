@@ -2,8 +2,8 @@ class DockerCredentialHelperEcr < Formula
   desc "Docker Credential Helper for Amazon ECR"
   homepage "https://github.com/awslabs/amazon-ecr-credential-helper"
   url "https://github.com/awslabs/amazon-ecr-credential-helper.git",
-      :tag      => "v0.3.1",
-      :revision => "b4a1707cec17b0533a5b9e9004ef4b59bcd0ca95"
+      :tag      => "v0.4.0",
+      :revision => "1a5791b236421b509fbc30502211b1de51ca8e30"
 
   bottle do
     cellar :any_skip_relocation
