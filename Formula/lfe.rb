@@ -13,6 +13,7 @@ class Lfe < Formula
     sha256 "aab3e33761e9db3c4e5cceb8769edca70f2eb618e0bed5e3658ab2fdc3bae2ac" => :yosemite
   end
 
+  depends_on "emacs" if MacOS.version >= :catalina
   depends_on "erlang"
 
   def install
