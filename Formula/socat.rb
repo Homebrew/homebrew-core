@@ -1,9 +1,8 @@
 class Socat < Formula
-  desc "netcat on steroids"
+  desc "SOcket CAT: netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.3.tar.gz"
-  sha256 "8cc0eaee73e646001c64adaab3e496ed20d4d729aaaf939df2a761e99c674372"
-  revision 1
+  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.4.tar.gz"
+  sha256 "d9ed2075abed7b3ec9730ed729b4c8e287c502181c806d4487020418a6e2fc36"
 
   bottle do
     cellar :any
@@ -16,9 +15,6 @@ class Socat < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  # patch for type conflict, sent upstream
-  patch :p0, :DATA
-
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
@@ -29,16 +25,3 @@ class Socat < Formula
     assert_match "HTTP/1.0", output.lines.first
   end
 end
-
-__END__
---- xio-termios.h	2019-05-11 09:10:55.000000000 +0900
-+++ xio-termios.h	2019-05-11 09:11:13.000000000 +0900
-@@ -148,7 +148,7 @@
- extern int xiotermios_value(int fd, int word, tcflag_t mask, tcflag_t value);
- extern int xiotermios_char(int fd, int n, unsigned char c);
- #ifdef HAVE_TERMIOS_ISPEED
--extern int xiotermios_speed(int fd, int n, unsigned int speed);
-+extern int xiotermios_speed(int fd, int n, speed_t speed);
- #endif
- extern int xiotermios_spec(int fd, int optcode);
- extern int xiotermios_flush(int fd);
