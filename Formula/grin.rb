@@ -1,8 +1,8 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/v2.1.1.tar.gz"
-  sha256 "189d45cb08fd19a60d0b1a7e592e527235a7db4da7cb6b0f017f36a643374e18"
+  url "https://github.com/mimblewimble/grin/archive/v3.0.0.tar.gz"
+  sha256 "7a95e3d16d4af52d9a6882b5912ffaaf5bb41a5a45652565114c018dbdd64dac"
 
   bottle do
     cellar :any_skip_relocation
