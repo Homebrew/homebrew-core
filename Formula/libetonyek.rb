@@ -3,6 +3,7 @@ class Libetonyek < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
   url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.9.tar.xz"
   sha256 "e61677e8799ce6e55b25afc11aa5339113f6a49cff031f336e32fa58635b1a4a"
+  revision 1
 
   bottle do
     sha256 "babe107b6e32e3efa4ad535cac4d699e6705cd930e99ddcdefb1846df0c28984" => :mojave
@@ -36,7 +37,7 @@ class Libetonyek < Formula
                           "--disable-werror",
                           "--disable-tests",
                           "--prefix=#{prefix}",
-                          "--with-mdds=1.4"
+                          "--with-mdds=1.5"
     system "make", "install"
   end
 
