@@ -1,11 +1,11 @@
 class Libb64 < Formula
   desc "Base64 encoding/decoding library"
   homepage "https://libb64.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/libb64/libb64/libb64/libb64-1.2.src.zip"
-  sha256 "343d8d61c5cbe3d3407394f16a5390c06f8ff907bd8d614c16546310b689bfd3"
+  url "https://downloads.sourceforge.net/project/libb64/libb64/libb64/libb64-1.2.1.zip"
+  sha256 "20106f0ba95cfd9c35a13c71206643e3fb3e46512df3e2efb2fdbf87116314b2"
 
   def install
-    system "make"
+    system "make", "all_src"
     include.mkpath
     include.install "include/b64"
     lib.mkpath
