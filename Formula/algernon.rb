@@ -20,7 +20,7 @@ class Algernon < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/xyproto/algernon").install buildpath.children
     cd "src/github.com/xyproto/algernon" do
-      system "go", "build", "-o", "algernon"
+      system "go", "build", "-mod=vendor", "-o", "algernon"
 
       bin.install "desktop/mdview"
       bin.install "algernon"
