@@ -6,9 +6,7 @@ class Libb64 < Formula
 
   def install
     system "make", "all_src"
-    include.mkpath
     include.install "include/b64"
-    lib.mkpath
     lib.install "src/libb64.a"
   end
 
@@ -27,8 +25,7 @@ class Libb64 < Formula
         return 0;
       }
     EOS
-    args = %w[test.c -L/usr/local/lib -lb64 -o test]
-    system ENV.cc, *args
+    system ENV.cc, "test.c", "-L/usr/local/lib", "-lb64", "-o", "test"
     system "./test"
   end
 end
