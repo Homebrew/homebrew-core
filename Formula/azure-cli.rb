@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/f68fedd91e6fc84ed4a0d3b670bd8b9a50319838"
   version "2.0.79"
   sha256 "46fa9be6ee185147400327bdb112ae0c924d9b9aa1f650d65c73a203bb4fe06e"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -16,7 +17,7 @@ class AzureCli < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "adal" do
     url "https://files.pythonhosted.org/packages/75/e2/c44b5e8d99544a2e21aace5f8390c6f3dbf8a952f0453779075ffafafc80/adal-1.2.2.tar.gz"
