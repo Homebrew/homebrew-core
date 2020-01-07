@@ -5,6 +5,7 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.9.2.tar.gz"
   sha256 "2f83f8ccc50640aa41a24f6e7757ac06b0ee6189fdcaacab68851771d3b42f3a"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -18,7 +19,7 @@ class Ansible < Formula
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
@@ -602,7 +603,7 @@ class Ansible < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
