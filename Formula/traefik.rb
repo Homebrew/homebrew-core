@@ -1,9 +1,9 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v2.1.1/traefik-v2.1.1.src.tar.gz"
-  version "2.1.1"
-  sha256 "e1b5131a71f36df69866f88d8c27d99bf5be1ba856e8090045b45425af8d017f"
+  url "https://github.com/containous/traefik/releases/download/v2.1.2/traefik-v2.1.2.src.tar.gz"
+  version "2.1.2"
+  sha256 "e907cc84b2444aac12b8eb44ff53fbfbddfe6a54329f8c5db289498c6f1fd039"
   head "https://github.com/containous/traefik.git"
 
   bottle do
@@ -17,14 +17,11 @@ class Traefik < Formula
   depends_on "go-bindata" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/containous/traefik").install buildpath.children
-
-    cd "src/github.com/containous/traefik" do
-      system "go", "generate"
-      system "go", "build", "-o", bin/"traefik", "./cmd/traefik"
-      prefix.install_metafiles
-    end
+    system "go", "generate"
+    system "go", "build",
+      "-ldflags", "-s -w -X github.com/containous/traefik/v2/pkg/version.Version=#{version}",
+      "-trimpath", "-o", bin/"traefik", "./cmd/traefik"
+    prefix.install_metafiles
   end
 
   plist_options :manual => "traefik"
@@ -105,5 +102,7 @@ class Traefik < Formula
     ensure
       Process.kill("HUP", pid)
     end
+
+    assert_match version.to_s, shell_output("#{bin}/traefik version 2>&1")
   end
 end
