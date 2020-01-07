@@ -2,8 +2,8 @@ class Helmsman < Formula
   desc "Helm Charts as Code tool"
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman.git",
-    :tag      => "v1.13.1",
-    :revision => "d4731fbe63312934cf7caa6b07acfca6fd2d03c3"
+    :tag      => "v3.0.0",
+    :revision => "b38d571bca31699eedc3fb0a199f9f2b657870fb"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,24 +12,16 @@ class Helmsman < Formula
     sha256 "f54f83dd557ed2b63953719e20ba4ae515887ee465f64444b889322b981621d5" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "helm@2"
+  depends_on "helm"
   depends_on "kubernetes-cli"
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/Praqma/helmsman"
-    dir.install buildpath.children
-
-    cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"helmsman"
-      bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["helm@2"].opt_bin}:$PATH")
-      prefix.install_metafiles
-      pkgshare.install "example.yaml"
-    end
+    system "go", "build",
+      "-ldflags", "-s -w -X main.version=#{version}",
+      "-trimpath", "-o", bin/"helmsman", "cmd/helmsman/main.go"
+    prefix.install_metafiles
+    pkgshare.install "examples/example.yaml"
   end
 
   test do
