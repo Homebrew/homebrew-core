@@ -5,6 +5,7 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v5.0.1.tar.gz"
   sha256 "1fe41a6e5b2eec818f457a28772cf2924571078ff1150f928e8bd543a7d3999e"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -16,11 +17,11 @@ class Mitmproxy < Formula
 
   depends_on "openssl@1.1"
   depends_on "protobuf"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
-    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
+    url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
+    sha256 "5a215cb8dc12f892244e3a113fe05397ee23c5c4ca7a69cd6e69811755efc42d"
   end
 
   resource "blinker" do
@@ -119,8 +120,8 @@ class Mitmproxy < Formula
   end
 
   resource "publicsuffix2" do
-    url "https://files.pythonhosted.org/packages/61/be/304060d8c9e920e08ce1c4cbf25c6c6e92494a842f0a0afa498bc796ebb2/publicsuffix2-2.20190812.tar.gz"
-    sha256 "990d0d080c6af538e6de608bf06e07b51962c6af5e9b0f20dae5511271ea5b87"
+    url "https://files.pythonhosted.org/packages/5a/04/1759906c4c5b67b2903f546de234a824d4028ef24eb0b1122daa43376c20/publicsuffix2-2.20191221.tar.gz"
+    sha256 "00f8cc31aa8d0d5592a5ced19cccba7de428ebca985db26ac852d920ddd6fe7b"
   end
 
   resource "pyasn1" do
@@ -139,8 +140,8 @@ class Mitmproxy < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/00/32/8076fa13e832bb4dcff379f18f228e5a53412be0631808b9ca2610c0f566/pyparsing-2.4.5.tar.gz"
-    sha256 "4ca62001be367f01bd3e92ecbb79070272a9d4964dce6a48a82ff0b8bc7e683a"
+    url "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz"
+    sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
   end
 
   resource "pyperclip" do
@@ -151,11 +152,6 @@ class Mitmproxy < Formula
   resource "ruamel.yaml" do
     url "https://files.pythonhosted.org/packages/de/76/cf97d739365eff258e2af0457a150bf2818f3eaa460328610eafeed0894a/ruamel.yaml-0.16.5.tar.gz"
     sha256 "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
-  end
-
-  resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/92/28/612085de3fae9f82d62d80255d9f4cf05b1b341db1e180adcf28c1bf748d/ruamel.yaml.clib-0.2.0.tar.gz"
-    sha256 "b66832ea8077d9b3f6e311c4a53d06273db5dc2db6e8a908550f3c14d67e718c"
   end
 
   resource "six" do
