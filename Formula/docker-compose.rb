@@ -5,6 +5,7 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
   url "https://github.com/docker/compose/archive/1.25.1.tar.gz"
   sha256 "e48b08d2e94ef011733c5a61b18d7a6b67148e2bf48b375ac1ecb0003fa0c816"
+  revision 1
   head "https://github.com/docker/compose.git"
 
   bottle do
@@ -15,7 +16,7 @@ class DockerCompose < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "./script/build/write-git-sha" if build.head?
