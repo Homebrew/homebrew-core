@@ -1,8 +1,8 @@
 class FuseZip < Formula
   desc "FUSE file system to create & manipulate ZIP archives"
   homepage "https://bitbucket.org/agalanin/fuse-zip"
-  url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.6.2.tar.gz"
-  sha256 "d39fd064b7b34e351e309de6297342c21dcc6caf60e22804f888c7c1f905498e"
+  url "https://bitbucket.org/agalanin/fuse-zip/downloads/fuse-zip-0.7.0.tar.gz"
+  sha256 "47306bab2b8b0db8ca6fac01833ccfb4394ddae1943ab2e7020b1bdbb210410b"
   head "https://bitbucket.org/agalanin/fuse-zip", :using => :hg
 
   bottle do
@@ -18,6 +18,11 @@ class FuseZip < Formula
   depends_on :osxfuse
 
   def install
+    # upstream issue: https://bitbucket.org/agalanin/fuse-zip/issues/66/cannot-build-fuze-zip-070-on-mac-osx
+    inreplace "lib/extraField.cpp", "#include <sys/sysmacros.h>", ""
+    inreplace "lib/fuse-zip.cpp", "stbuf->st_atim", "stbuf->st_atimespec"
+    inreplace "lib/fuse-zip.cpp", "stbuf->st_mtim", "stbuf->st_mtimespec"
+    inreplace "lib/fuse-zip.cpp", "stbuf->st_ctim", "stbuf->st_ctimespec"
     system "make", "prefix=#{prefix}", "install"
   end
 
