@@ -7,12 +7,10 @@ class Noweb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e37f2dd197cbd312c8635ab73e92d904b1d02d485879aac2077b5361986fcc0f" => :mojave
-    sha256 "7d794eab58f440c640358ba7454f04f007b26b3b35a0d19acec1915c97c25c5b" => :high_sierra
-    sha256 "3235ad9e73a3371058c59319f6c2363444e66e1c43e9576af3e08e14dfca682b" => :sierra
-    sha256 "1a3ec7b1f7fba58e0d8064d279d518d69e50b1f813284792deb6b7db702eae38" => :el_capitan
-    sha256 "34dd66401fe717e1ed384114d7037ea7a6e0aaabe6f2a98f314c8d6bb41c25be" => :yosemite
-    sha256 "54bf1e45409d1c022d08dee3a43c4e2d7f038a646f00a5d5f2f6db90ff54d668" => :mavericks
+    rebuild 1
+    sha256 "2867f2275c206dfb42d8ac22aca69b6ad0e8f9474c36d19b6f5cb4758797caf4" => :catalina
+    sha256 "461f350d77b97afcd8ed73c61fee9392e0d4f9f0345f93e8f637e36371bf925e" => :mojave
+    sha256 "0d09a290942eccbbabb3a7f15c098299a88df2dd3090c9d4a4d755c5430f4b68" => :high_sierra
   end
 
   depends_on "icon"

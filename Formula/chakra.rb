@@ -1,18 +1,23 @@
 class Chakra < Formula
   desc "The core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.13.tar.gz"
-  sha256 "8ea67bfd3a5974b4fb1ff30fd8b9b7ad356dfffa2cad21ceadd9b6027b3d65b7"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.15.tar.gz"
+  sha256 "8a065b653b8170c2295a48cce226708a2c8357c8d468e076b917eecddae1732d"
 
   bottle do
     cellar :any
-    sha256 "a31f2ec0d7394a2faf7634ce6173df13a081f0927c126564c13e56cde8c6759f" => :mojave
-    sha256 "ef89ad378b0561ffe8ed919f94ce0d887fa0ef8afe8c76730430a2a6f7800dc6" => :high_sierra
-    sha256 "2473383f68da532b43dd94ca9d37471cdd1f2e69cf20dd58314ad3729f4f8844" => :sierra
+    sha256 "d33ba43882f7f50e14b6923ddea459f7153c006373b1846bf25232c0ad66e33b" => :catalina
+    sha256 "d031cef051330c7924d2201ca22c6e80f0cd11da86f684c2f1ce984e6748655e" => :mojave
+    sha256 "b91f54c71fa0d48d12f29bd7a77cedf4ba428c2615e2ae607c9f140aa6343b05" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "icu4c"
+
+  patch do
+    url "https://github.com/microsoft/ChakraCore/commit/4874bbcf.diff?full_index=1"
+    sha256 "668d848352a6cbfebccfe4aa3bfa5c4d0a33f90c86e81fc7c4cfbdd57c23524a"
+  end
 
   def install
     args = [

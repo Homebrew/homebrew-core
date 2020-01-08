@@ -1,14 +1,13 @@
 class Re2c < Formula
   desc "Generate C-based recognizers from regular expressions"
   homepage "https://re2c.org"
-  url "https://github.com/skvadrik/re2c/releases/download/1.2.1/re2c-1.2.1.tar.xz"
-  sha256 "1a4cd706b5b966aeffd78e3cf8b24239470ded30551e813610f9cd1a4e01b817"
+  url "https://github.com/skvadrik/re2c/releases/download/1.3/re2c-1.3.tar.xz"
+  sha256 "f37f25ff760e90088e7d03d1232002c2c2672646d5844fdf8e0d51a5cd75a503"
 
   bottle do
-    sha256 "628da2992f2fdc6ac4ab38b6fdbcef1a52b4e8ccca3ee31735e97b05000baf52" => :catalina
-    sha256 "2d9f14907212e68580afa38eae450c8c0a9157169a1fd00e6faf27f872134433" => :mojave
-    sha256 "3a39e5869772c6774b53c22e59d5e4fd195349962aedcf65731cd6eb0cb54e9d" => :high_sierra
-    sha256 "20d4035575168abd66a65bfda9e93efa4d2aae6ef6597f1bd66ffa3028151dff" => :sierra
+    sha256 "374376ae451fe0e6ca93f17634e6353e8503cffa16018fbe44007997b865965d" => :catalina
+    sha256 "3cb716f9bcb81ad81cafc6e2e5a5be444caa297cec939213bcf2e805fb65f778" => :mojave
+    sha256 "7d9b2456469379900fc2abddc732710b822241a8a7bd2f734766a18b47b704a9" => :high_sierra
   end
 
   def install

@@ -7,16 +7,15 @@ class Isl < Formula
   # and update isl_version() function accordingly.  All other names will
   # result in isl_version() function returning "UNKNOWN" and hence break
   # package detection.
-  url "http://isl.gforge.inria.fr/isl-0.21.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/i/isl/isl_0.21.orig.tar.xz"
-  sha256 "777058852a3db9500954361e294881214f6ecd4b594c00da5eee974cd6a54960"
+  url "http://isl.gforge.inria.fr/isl-0.22.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/i/isl/isl_0.22.orig.tar.xz"
+  sha256 "6c8bc56c477affecba9c59e2c9f026967ac8bad01b51bdd07916db40a517b9fa"
 
   bottle do
     cellar :any
-    sha256 "1f42c08dd84a2f418c8446be2679f027d8b1250d337b5e3135c401eba578cbb7" => :catalina
-    sha256 "f9188b5d486b2a835cd865f219be1a9848ce3926e27089a1538ee989db65447d" => :mojave
-    sha256 "d997d49958218e521bc4f73369414ff9fad040d28601d94012e4c68cd090ea93" => :high_sierra
-    sha256 "d5dc353916cd98da04552a3d7cb86a3203612df422c4e9389e13e12f86945865" => :sierra
+    sha256 "3908e18211bb5e4a76cac2a9ebb9c83dbf3c8cd8138f0e74970ede9802d614fb" => :catalina
+    sha256 "02f2d0a55d47fe5e548b7169e4bbed902dd1869200e4b65422ec7dc0de2f02c8" => :mojave
+    sha256 "e9e611d53b38b536b214e1431eb50b4550cb2b20bfc987267ebfe2db087a6fcc" => :high_sierra
   end
 
   head do

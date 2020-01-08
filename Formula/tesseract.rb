@@ -1,16 +1,15 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.0.tar.gz"
-  sha256 "5c5ed5f1a76888dc57a83704f24ae02f8319849f5c4cf19d254296978a1a1961"
+  url "https://github.com/tesseract-ocr/tesseract/archive/4.1.1.tar.gz"
+  sha256 "2a66ff0d8595bff8f04032165e6c936389b1e5727c3ce5a27b3e059d218db1cb"
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
     cellar :any
-    sha256 "e28683663b237b02037c5e54d452e54cc881029ed0f5e25a885ba6bb804440e2" => :catalina
-    sha256 "774212dc0edf27447e1d5ba46ae9d3dfb989a90b529e49d15df99b9bb16e73d7" => :mojave
-    sha256 "eb9d24e2550bc7f13826306de27ceec45c2ddbde3440976a695c33daefbb204d" => :high_sierra
-    sha256 "d118c493ae35173a0eb966dc7641887dc9670772561b7e6ba25bccf4bdaab384" => :sierra
+    sha256 "81ff467946d9c85151c86819034cd183a983b4a3fa10374c7f039a5ec3ef0d82" => :catalina
+    sha256 "34eee505fccec07eaab30f14c46f9688db9f3aa578306d47bbcd31801b0b849d" => :mojave
+    sha256 "6b64585454bcca9b62945b284000723d76afad15b5e80109ca6cdc699ae50e25" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,7 +17,6 @@ class Tesseract < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-
   depends_on "leptonica"
   depends_on "libtiff"
 
@@ -64,7 +62,7 @@ class Tesseract < Formula
 
   def caveats; <<~EOS
     This formula contains only the "eng", "osd", and "snum" language data files.
-    If you need all the other supported languages, `brew install tesseract-lang`.
+    If you need any other supported languages, run `brew install tesseract-lang`.
   EOS
   end
 

@@ -3,14 +3,13 @@ class Field3d < Formula
   homepage "https://sites.google.com/site/field3d/"
   url "https://github.com/imageworks/Field3D/archive/v1.7.2.tar.gz"
   sha256 "8f7c33ecb4489ed626455cf3998d911a079b4f137f86814d9c37c5765bf4b020"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
-    sha256 "e9bc286abc81f4d9e9a548d12052cb5983f97be7c71ba48fea596ca20a6299a3" => :catalina
-    sha256 "5a309ce2f4638c73a6de3739bdfebcf95d1dc58b35ea3e788a7fd2aef86202c5" => :mojave
-    sha256 "46dd1e449ac494a9fe2b16eee139915151aee504293492120b2d1bf4b8a74490" => :high_sierra
-    sha256 "59d48d1f4975d7f86214169f3dad2c0fa5bfc3168ce659275518ff5c48504f9f" => :sierra
+    sha256 "a790934191e341047106165eff2a5f812f16114c9559d0f8986722a3a4991230" => :catalina
+    sha256 "6a675590f02785539160e54cfb49ffc2b041da2b6276abcd2c67b56c85e805f9" => :mojave
+    sha256 "82a33f663441303c0c8a9412e3e4c62a883a58ed2a1eda1981a41cd7d44b72c4" => :high_sierra
   end
 
   depends_on "scons" => :build
@@ -18,7 +17,15 @@ class Field3d < Formula
   depends_on "hdf5"
   depends_on "ilmbase"
 
+  # Append C++11 flag to CXXFLAGS
+  # https://github.com/imageworks/Field3D/pull/97
+  patch do
+    url "https://github.com/imageworks/Field3D/pull/97.diff?full_index=1"
+    sha256 "a2fdd2a1d10fbf62c0ee67a6e1a63919dad8aa509004401d60de939315779288"
+  end
+
   def install
+    ENV.cxx11
     system "scons"
     include.install Dir["install/**/**/release/include/*"]
     lib.install Dir["install/**/**/release/lib/*"]
@@ -27,7 +34,7 @@ class Field3d < Formula
   end
 
   test do
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lField3D",
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lField3D",
            "-I#{Formula["boost"].opt_include}",
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",

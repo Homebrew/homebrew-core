@@ -5,16 +5,16 @@ class Pyvim < Formula
   homepage "https://github.com/jonathanslenders/pyvim"
   url "https://files.pythonhosted.org/packages/6e/85/47543120e478ddc5d31e447a7fed1fe4ac81cbb066ca623a2cc54f685dff/pyvim-2.0.24.tar.gz"
   sha256 "27b8f244bebc49cf375b10d16046df24438798208d7eaf199e3d04babf08cc6f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db64f72516e0e11c230fab541f11d2707d9bb0d1069292a0435f462a54440bfc" => :mojave
-    sha256 "cc567ddff18dbcf58edc1a7578bfe1ff9228d84f22dfbd231d0b8b2b92ae366d" => :high_sierra
-    sha256 "b8626e91ddbbf8abaf02755765dc0228160e0a65faabb963a60352a03e9a6ac8" => :sierra
+    sha256 "1abd88f14a1a2ff16970a2c1ab81aa816005ed2f66c1fb7a17ea8966e9282e0e" => :catalina
+    sha256 "01238569b2364d691a3500fb834f00e9eaaad5e498d4e3ffbc2875ff30ea9b5d" => :mojave
+    sha256 "810c63ff6194ee71848d1b0b5d138b5aaa7146b0675b67374f18aabfe301db96" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

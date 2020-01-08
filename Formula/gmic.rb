@@ -1,15 +1,16 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_2.8.0.tar.gz"
-  sha256 "d1ca5c726f7570af3a6f0bca27eeb66ef1e6a1b6a17bdaeaf0d59be40b9cd075"
+  url "https://gmic.eu/files/source/gmic_2.8.1.tar.gz"
+  sha256 "1a2b4c75c428201e52e920bd07e6c04118ae294cb89fce3c1c4ef386421b2a7a"
+  revision 1
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
     cellar :any
-    sha256 "d259d87c9472d9e46b898938d6e14136eea816c20b9a367f5c6a8a5388e49e05" => :catalina
-    sha256 "10f8571f1376aec45f91b45c1ed57b23cf07ef1c73dc944c22ae5db5048a0d68" => :mojave
-    sha256 "654703f48c73f2e7977bff37b2357ad2a0d4a67d4b0c41877833c7a5bf7eb632" => :high_sierra
+    sha256 "8c84dd3859b104dda7b701de6ac595c11b23ab34fd99f90dca3a4ded80a8ba34" => :catalina
+    sha256 "dc8d5647e0bfadbfeb6e8cbec7a6bfbff5442987a5d0c4b492398860370312b6" => :mojave
+    sha256 "1f50e9f137f3f50219799b5db1416f2464e6b161e69bd17cedb25c0bdbe9957f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -31,5 +32,8 @@ class Gmic < Formula
     %w[test.jpg test.png].each do |file|
       system bin/"gmic", test_fixtures(file)
     end
+    system bin/"gmic", "-input", test_fixtures("test.jpg"), "rodilius", "10,4,400,16",
+           "smooth", "60,0,1,1,4", "normalize_local", "10,16", "-output", testpath/"test_rodilius.jpg"
+    assert_predicate testpath/"test_rodilius.jpg", :exist?
   end
 end

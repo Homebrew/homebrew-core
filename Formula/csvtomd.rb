@@ -5,18 +5,16 @@ class Csvtomd < Formula
   homepage "https://github.com/mplewis/csvtomd"
   url "https://files.pythonhosted.org/packages/2f/41/289bedde7fb32d817d5802eff68b99546842cb34df840665ec39b363f258/csvtomd-0.2.1.tar.gz"
   sha256 "d9fdf166c3c299ad5800b3cb1661f223b98237f38f22e9d253d45d321f70ec72"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1541679650c339ee4206c518f2b665a72823bc751dc63d6d1af5e6fa9bbc8063" => :catalina
-    sha256 "4ca9e89b41c681120bdf0900fbf5833463115b8d5373a64227ba61ceb252cfef" => :mojave
-    sha256 "9676da327548cff3c4e1235b7d9071939315b22f8a7fcce3c555b308890b8338" => :high_sierra
-    sha256 "b38719288a0ba84c2a2143ac0f13965eac1f796e2a6ab20918fc59d304415f2b" => :sierra
-    sha256 "d343b9087bbaf2b5a5be09f71d23ff9b07742cc262f5fd66b7b220d2db73b4b2" => :el_capitan
+    sha256 "afbc8082fa52c379c904aba4ad436a492bf7568421add34fbceb3fb4cc72790b" => :catalina
+    sha256 "be1e107cde89a22f8c1716b4cfa3e31b3009b6c7d5b79293e378e386dfbd2d80" => :mojave
+    sha256 "70df513c26a7973a3475c3be18c332be4908374a747cec08e305c31656df01d6" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     virtualenv_install_with_resources

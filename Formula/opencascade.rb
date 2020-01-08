@@ -4,17 +4,18 @@ class Opencascade < Formula
   url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_4_0;sf=tgz"
   version "7.4.0"
   sha256 "655da7717dac3460a22a6a7ee68860c1da56da2fec9c380d8ac0ac0349d67676"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "441c84f28463e9e244bef066b77fbc01655d5c207396176cf0c882b7b8226462" => :catalina
-    sha256 "68d154507cde36f9badcfe44c25e07eae50d7555e1561cf8832db4a216120fc1" => :mojave
-    sha256 "6afc55ff6d45bc2901aff5e2f7a525b422a2fa5d2ba3e864918a22c3e7e0f582" => :high_sierra
+    sha256 "c40f93c6b10493d4bba40d037128e7babd92beeb7881f21e79c307d8f5691be7" => :catalina
+    sha256 "6db3f5251bd8db10fcc4503f1be714d1689544013ddbd25d24c1f59f72cce80a" => :mojave
+    sha256 "9ea4dc36a4e19c022c7fdd40250e8272cfea1817ec516573a1d0994c7b62e797" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "rapidjson" => :build
   depends_on "freeimage"
   depends_on "freetype"
   depends_on "tbb"
@@ -22,10 +23,13 @@ class Opencascade < Formula
   def install
     system "cmake", ".",
                     "-DUSE_FREEIMAGE=ON",
+                    "-DUSE_RAPIDJSON=ON",
                     "-DUSE_TBB=ON",
                     "-DINSTALL_DOC_Overview=ON",
                     "-D3RDPARTY_FREEIMAGE_DIR=#{Formula["freeimage"].opt_prefix}",
                     "-D3RDPARTY_FREETYPE_DIR=#{Formula["freetype"].opt_prefix}",
+                    "-D3RDPARTY_RAPIDJSON_DIR=#{Formula["rapidjson"].opt_prefix}",
+                    "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{Formula["rapidjson"].opt_include}",
                     "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
                     "-D3RDPARTY_TCL_DIR:PATH=#{MacOS.sdk_path_if_needed}/usr",
                     "-D3RDPARTY_TCL_INCLUDE_DIR=#{MacOS.sdk_path_if_needed}/usr/include",

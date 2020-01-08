@@ -1,14 +1,14 @@
 class Bedtools < Formula
   desc "Tools for genome arithmetic (set theory on the genome)"
   homepage "https://github.com/arq5x/bedtools2"
-  url "https://github.com/arq5x/bedtools2/archive/v2.29.1.tar.gz"
-  sha256 "504c0992caa027ec1840ea9ca6909f7e59e7ebc1a2b422233b35abb9592aff5c"
+  url "https://github.com/arq5x/bedtools2/archive/v2.29.2.tar.gz"
+  sha256 "bc2f36b5d4fc9890c69f607d54da873032628462e88c545dd633d2c787a544a5"
 
   bottle do
     cellar :any
-    sha256 "d511d1636d496882cbc1ac78089f08d549329a6226b0b7cfc31812b72d3dff17" => :catalina
-    sha256 "c0279bb1c7687541472e1bba4a171ce411a0fafab538dcb3c72be426f7bb0adb" => :mojave
-    sha256 "dd16efe379fb9774292621a47fa26b9281b524a9c5bdc6adcf0d753452259fd4" => :high_sierra
+    sha256 "4cdd660e64c7d78876a2ccf60eec8891f484cdd24e2c40ce36800828dffcce1c" => :catalina
+    sha256 "5c40ac3daf8ba6022cd5229aac50458d80b14920ddd513f2e165b233c9e95e72" => :mojave
+    sha256 "2f534f9efbdd387764924f2a9e3a08b435cab0ff0a0edabd6bafe8fa4123af6a" => :high_sierra
   end
 
   depends_on "xz"

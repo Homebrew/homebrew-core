@@ -6,13 +6,14 @@ class Lfe < Formula
   head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do
-    sha256 "3b141e0c7c6d6630883e0ed5a00590e4e5b868fc1817b99c62afaccc4cb361dd" => :mojave
-    sha256 "1a0f582845e8c0c87331c9e9148b06dde79483847cc1bb31674596fe2d3c3422" => :high_sierra
-    sha256 "a6f27b9dd837d866fb471db3556677112c4f8ca3df386596f975083a939c8a16" => :sierra
-    sha256 "47827019926bdbfb6b0fa0c7fe123b0007482670aa651408e736f00c4796ce01" => :el_capitan
-    sha256 "aab3e33761e9db3c4e5cceb8769edca70f2eb618e0bed5e3658ab2fdc3bae2ac" => :yosemite
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "c57baaef29be1d30231cbc3ff14c4ee103c89bcd86f1b09eb8cd43f8bc9e8dc6" => :catalina
+    sha256 "d0fd48d72bf02ce31f39aabd5c7ec89aa4bb7f22f7bee979419ba59eabf0bbf5" => :mojave
+    sha256 "ef0d47df833ea4c17bb07e1287129bb8bebbc870dfffe09b5f4a6f7875ccea52" => :high_sierra
   end
 
+  depends_on "emacs" if MacOS.version >= :catalina
   depends_on "erlang"
 
   def install

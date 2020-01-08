@@ -7,27 +7,22 @@ class NodeExporter < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "174b28c6400abf9a2c566ea67d0928ad3e49b5a1cf3c1a1b9a813dc19f103094" => :catalina
-    sha256 "2cd46fee60f0551f948e81ac31f60184374cba3370a7e1c9dd01b7c55cbd25d3" => :mojave
-    sha256 "e5ff3e073b7da6ae318b18b5952525706ac70426f01fd2aea3b4bb53b56ea23d" => :high_sierra
+    rebuild 1
+    sha256 "ff1a0c237371d710a60ae7692eb08fa96259840e7565f6345ed50821db2d27aa" => :catalina
+    sha256 "9ab6e123c1862749886247564ea64dede482a6cb9efb19c611e2a5a5b4595237" => :mojave
+    sha256 "5de4df63394055e449580b4b583f4411237f84096042eef63d3423b39f75ff2e" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/prometheus/node_exporter").install buildpath.children
-    cd "src/github.com/prometheus/node_exporter" do
-      ldflags = %W[
-        -X github.com/prometheus/common/version.Version=#{version}
-        -X github.com/prometheus/common/version.BuildUser=Homebrew
-      ]
-      system "go", "build", "-o", bin/"node_exporter",
-           "-ldflags", ldflags.join(" "),
-           "github.com/prometheus/node_exporter"
-      prefix.install_metafiles
-    end
+    ldflags = %W[
+      -X github.com/prometheus/common/version.Version=#{version}
+      -X github.com/prometheus/common/version.BuildUser=Homebrew
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"node_exporter"
+    prefix.install_metafiles
   end
 
   def caveats; <<~EOS

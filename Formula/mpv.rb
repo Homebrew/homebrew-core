@@ -1,15 +1,14 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.30.0.tar.gz"
-  sha256 "33a1bcb7e74ff17f070e754c15c52228cf44f2cefbfd8f34886ae81df214ca35"
+  url "https://github.com/mpv-player/mpv/archive/v0.31.0.tar.gz"
+  sha256 "805a3ac8cf51bfdea6087a6480c18835101da0355c8e469b6d488a1e290585a5"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    rebuild 1
-    sha256 "2b74c106f611b2019ddafd39d8e4d1f2a921c0bf70b2c88ef6f75d8ac74fc4ef" => :catalina
-    sha256 "008065b20d49d3b6b758c5343406ff3e81a7fb3eb4bf584e3cccce278f34d428" => :mojave
-    sha256 "2065404c51b4f50edc3f6f8859410920d015501c1d74969239b549c1e7e83f4b" => :high_sierra
+    sha256 "17c6fa1d463a0794103602e3b521b29f860338f46b45b080bf66e8114033385b" => :catalina
+    sha256 "8d21fead1070abcd60107bd35ec254ea5439d6c4d8e92f4d4c78693c926d352a" => :mojave
+    sha256 "2a62eda7996e00f5663db652a62c883f0a0e480aa2f53b8739d5d64a46a7df4f" => :high_sierra
   end
 
   depends_on "docutils" => :build

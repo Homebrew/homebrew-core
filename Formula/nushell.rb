@@ -1,15 +1,15 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.6.1.tar.gz"
-  sha256 "3f7878df7d77fe330e6840428845800d9eefc2ad8248617c42004030ecf527f0"
+  url "https://github.com/nushell/nushell/archive/0.8.0.tar.gz"
+  sha256 "fada2e350efdf0e730469ab503499b76ab97326bf6e8fc7ffc5db99a4c311ce6"
   head "https://github.com/nushell/nushell.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc92b88a9b8f3bd658d7e94852781b94c8454f96d880bd51bcf09a4bc42365d5" => :catalina
-    sha256 "1bf554953bade08fd0d34e5c79286a20a3a4707d23f24f8416e702d3a853eee0" => :mojave
-    sha256 "0a462f17a6f2c1fdab7fd605da8b24d1e30e83fdfd7834756f054d25460c1543" => :high_sierra
+    sha256 "6ef158b90a9aafef35f6885cfbc843eaee29fcbfd098337c9a9d0bbcfd31d69e" => :catalina
+    sha256 "3a4056fd7d2867f279ab8e77906b68728c87d309423bbd212eb5cea80feb6bd7" => :mojave
+    sha256 "c87c8fb6585391bc62c33af07c52452def5b3329c7f408f07da3bc8dbcecb63a" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -17,10 +17,10 @@ class Nushell < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", "--features", "stable", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
-    assert_equal "#{Dir.pwd}> 2\n#{Dir.pwd}> ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    assert_equal "\n~ \n❯ 2\n\n~ \n❯ ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
   end
 end

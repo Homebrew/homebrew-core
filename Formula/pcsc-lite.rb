@@ -1,15 +1,14 @@
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
   homepage "https://pcsclite.apdu.fr/"
-  url "https://pcsclite.apdu.fr/files/pcsc-lite-1.8.25.tar.bz2"
-  sha256 "d76d79edc31cf76e782b9f697420d3defbcc91778c3c650658086a1b748e8792"
+  url "https://pcsclite.apdu.fr/files/pcsc-lite-1.8.26.tar.bz2"
+  sha256 "3eb7be7d6ef618c0a444316cf5c1f2f9d7227aedba7a192f389fe3e7c0dfbbd9"
 
   bottle do
     cellar :any
-    sha256 "d4fdefb11d6fcfb20ffb8aac8be408d4c1041fd981caabc42a6d482fd980ca62" => :catalina
-    sha256 "29ebb59b42af0959efe85ca374d03cd51984b9966c3be2ed51c8ae30098e0ea2" => :mojave
-    sha256 "832957657fec785b6d157a6a670da607675bdef8655d82c3a16fc39e305e5e57" => :high_sierra
-    sha256 "92fb7438f0467c2f749218cb8b23fa1bf66425fb8f49b20888530fb97094598f" => :sierra
+    sha256 "91abf052e57e7318c312280b2d7561f7086d2b408182d05040181b61ad76ab82" => :catalina
+    sha256 "0ee727a04ea8be3f4997d7fbb3d6f904136ab1430b468ee0ca237f82f13db338" => :mojave
+    sha256 "60fc7ec0222710dc894afb838e7c63942c5106a88d812dfaac19c112de9e6b0f" => :high_sierra
   end
 
   keg_only :provided_by_macos,

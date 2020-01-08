@@ -1,14 +1,15 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "https://www.openvdb.org/"
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.2.1.tar.gz"
-  sha256 "d4dd17ad571d4dd048f010e6f4b7657391960ed73523ed1716a17e7cf1806f71"
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v7.0.0.tar.gz"
+  sha256 "97bc8ae35ef7ccbf49a4e25cb73e8c2eccae6b235bac86f2150707efcd1e910d"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
-    sha256 "3bd3b1a0572827e3904945d4f5251a4f946a5776b25a64668a7c27ed52d56f26" => :catalina
-    sha256 "1a2e126f54fc18e62f6591f2edcc54f6e9bfcddf88c8fdba77d13d4539fe8e0a" => :mojave
-    sha256 "a5d74669be61a935aca1d9151c5dff04c854f4a1976f421c15e1ebcc6ae3b0da" => :high_sierra
+    sha256 "d2d9f1a4dd5983cd22eab1b569c6c50ae501584cab1812a1d3ad36f57a3eb0f2" => :catalina
+    sha256 "a9f7ebf1aec1579173f4923b6ce5e107a60631e47ab3ffeeb0c3656fe97fefcb" => :mojave
+    sha256 "8ff45c14d9d2d7c499834a775d1796dbeff7f985a25a4023f184a96a361594a6" => :high_sierra
   end
 
   depends_on "doxygen" => :build
@@ -26,7 +27,6 @@ class Openvdb < Formula
   end
 
   def install
-    ENV.cxx11
     # Adjust hard coded paths in Makefile
     args = [
       "DESTDIR=#{prefix}",

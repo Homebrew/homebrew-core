@@ -1,15 +1,15 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/2.6.1.tar.gz"
-  sha256 "6f2da47dbb2afc258b1dd38f125685888d5af6796922d9195993af8736339eab"
+  url "https://github.com/okbob/pspg/archive/2.6.4.tar.gz"
+  sha256 "2d2b14a87056ce09625298de22629866c3c14aa55d46ea7ee627a682b9ea804e"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
     cellar :any
-    sha256 "9a4790e9a52ebc240b126bfffffb5de551af189ae3b70556976b47fe82a83111" => :catalina
-    sha256 "1ec39b50bd344692740069f60f009fa8b6a4d032c7298db4d2f2168435e0fbd4" => :mojave
-    sha256 "80ebbbf3457b508426cab75935129a36b979edbca03f5e5e2aaa3f98ae854146" => :high_sierra
+    sha256 "282603c8a30facf530e56c5ae9afc1a18c6cc967d3d261598e9a1c098a027ce8" => :catalina
+    sha256 "6850be58486b6c7884a2445377235fd44d89692b1f18cffcf2f902075b5d9d98" => :mojave
+    sha256 "8d57ad89ea8726a897ab60afc6b7e3b09799f388189223dda876266f655999ed" => :high_sierra
   end
 
   depends_on "libpq"

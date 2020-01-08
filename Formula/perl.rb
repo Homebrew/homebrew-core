@@ -1,15 +1,14 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.30.0.tar.gz"
-  sha256 "851213c754d98ccff042caa40ba7a796b2cee88c5325f121be5cbb61bbf975f2"
-  head "https://perl5.git.perl.org/perl.git", :branch => "blead"
+  url "https://www.cpan.org/src/5.0/perl-5.30.1.tar.gz"
+  sha256 "bf3d25571ff1ee94186177c2cdef87867fd6a14aa5a84f0b1fb7bf798f42f964"
+  head "https://github.com/perl/perl5.git", :branch => "blead"
 
   bottle do
-    sha256 "558b5c5408c82ec7e14ea7974b5f1e62ed5a5ed8343506c69b94becfe27e2488" => :catalina
-    sha256 "c0d17d9af9a950c65c7ac39f5d5bcdc2932ab281455107a5c55d1eda7d792f0d" => :mojave
-    sha256 "8529587433c3bf6985dd92d39808c01d9d421eeef8e25dc5b2921729d253c346" => :high_sierra
-    sha256 "086995758ea8f80844c3acb75ac8c177421560b382d22f63d128668f31918b0e" => :sierra
+    sha256 "c67104091d5328aadb95532ceb7aa4b25544c2505acd11522b5615b67953d38f" => :catalina
+    sha256 "38e242ca4adaad6c0ef271e8e7d77030998f5809daf1b90c208d81b8b75fb5c9" => :mojave
+    sha256 "73e7650fd86f600e3342cd14491e632c0bae0c541476ab5c30b4409deedf7664" => :high_sierra
   end
 
   # Prevent site_perl directories from being removed

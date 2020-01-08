@@ -1,15 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.0.7.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.0.7.tar.xz"
-  sha256 "3b2b279017753398b8d5deb440db5f98a205eea35f9417e5fa2893947e7992f2"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-3.2.0.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-3.2.0.tar.xz"
+  sha256 "4cfd33a19a454ff4002243e9d04d6afd64280a109a21ae652a192f2be2b1b66c"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "31b983597eed8c9b2c558834daead1e10627bded7d09704f717c511393153a8a" => :catalina
-    sha256 "cae160ae78978e6538c3cb092d873f621b0bfa48653f19bbdb09f1c1ba60d6e5" => :mojave
-    sha256 "6cf02d08de5b6cc3ceb03b5f302587695b66777b2fb48ea426dde0678bb9b0b2" => :high_sierra
+    sha256 "34dc6140fd7f9daee5807871cda824cc2a17fa3e25dcb411bdb4fcc811733646" => :catalina
+    sha256 "6de820c1ea99ac1669dccfec1f7fbcd3e6d1559cdd11873822e11cc53871ea87" => :mojave
+    sha256 "b9a183ed3507b5ad14a52425294f4a06b9c566b693646275d2583755e7cb6f67" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -40,7 +40,6 @@ class Wireshark < Formula
       -DENABLE_SMI=ON
       -DBUILD_sshdump=ON
       -DBUILD_ciscodump=ON
-
       -DENABLE_NGHTTP2=ON
       -DBUILD_wireshark=OFF
       -DENABLE_APPLICATION_BUNDLE=OFF

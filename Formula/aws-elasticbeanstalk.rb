@@ -5,15 +5,16 @@ class AwsElasticbeanstalk < Formula
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
   url "https://files.pythonhosted.org/packages/a6/26/e723d628db031a434466597f2310779a46d41e7548a83e04188c55aaa051/awsebcli-3.16.0.tar.gz"
   sha256 "03252f15f06f131e17644333cabe0221e446ff36fccad3d9434eeb7aef226c35"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d4d98bbd6eeb580c6f1ffdbb54f673d37a1d0c36f88308af4b53ff0a1cf9c02" => :catalina
-    sha256 "1fec8cfb32ed35dc64a4178c3f89ad5269e8cb323924cc2074c2d864c1644b40" => :mojave
-    sha256 "31abd014c69a88ecf601a2afe0716de3e56c07f89709793bfa2d5b6ea21fdb1f" => :high_sierra
+    sha256 "d9582b26c5594d05c979a877c29760d4815c70fb91944703bbcf321b2a072c10" => :catalina
+    sha256 "1b692297e13b4fcba6fb757394525c0e623a6d8f7d79956e4fc52af0f927fc17" => :mojave
+    sha256 "9bd7ef3674ca872d077dedce6a431ec9182f4dea1ab8480423b18f495d35a0b3" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/51/c7/3af3ec267387d4a900a9e8f9a03a6c9068fb3c606c77bf2dd4558e1ea248/blessed-1.15.0.tar.gz"

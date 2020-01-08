@@ -3,13 +3,14 @@ class GitCola < Formula
   homepage "https://git-cola.github.io/"
   url "https://github.com/git-cola/git-cola/archive/v3.6.tar.gz"
   sha256 "63369f519f81988c2d167ba2c59ad53644d3fac2b7be1e12d3f1df9b8fd91839"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d7670e205435be7fa9e08a6d28c15b5df1b868de01371fa1898f3f10b0acc3c" => :catalina
-    sha256 "0d7670e205435be7fa9e08a6d28c15b5df1b868de01371fa1898f3f10b0acc3c" => :mojave
-    sha256 "0d7670e205435be7fa9e08a6d28c15b5df1b868de01371fa1898f3f10b0acc3c" => :high_sierra
+    sha256 "9298661d78219de2ad1a621a76d4c3785d10fb7abd4606d38e195573cd01c541" => :catalina
+    sha256 "9298661d78219de2ad1a621a76d4c3785d10fb7abd4606d38e195573cd01c541" => :mojave
+    sha256 "9298661d78219de2ad1a621a76d4c3785d10fb7abd4606d38e195573cd01c541" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build

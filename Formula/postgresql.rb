@@ -6,13 +6,19 @@ class Postgresql < Formula
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "309377407d7cb766d238f063c10210c4e48d48fcdadd62560346c2d4af782bc4" => :catalina
-    sha256 "2e97d7d591916d79f8e8a5ed0023c6d1e31e27a5b289d31d9b5cdf51e1d3a040" => :mojave
-    sha256 "754aac4d7055bdd801f91eef7e36ba93ee5fafd931e0a13a02bcd64e71ff34a9" => :high_sierra
+    rebuild 1
+    sha256 "10d46b2d2fba43e24ad03583e3243d928c4dcf8531ded3630c9a942a1ee7e9b6" => :catalina
+    sha256 "c620a1f26b954d2e27b37117dde1ce0c0b8a965879a39398ecabc8e548717fa3" => :mojave
+    sha256 "6eb005a6b35c7637589733eb2ebd932d5e840023bf71322b1a609909d9035390" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
+
+  # GSSAPI provided by Kerberos.framework crashes when forked.
+  # See https://github.com/Homebrew/homebrew-core/issues/47494.
+  depends_on "krb5"
+
   depends_on "openssl@1.1"
   depends_on "readline"
   uses_from_macos "libxml2"

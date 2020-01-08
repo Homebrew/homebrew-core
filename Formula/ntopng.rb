@@ -1,22 +1,21 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.8.tar.gz"
-    sha256 "683d28aece3bf3f17c3d53d7a76fbd2a24719767477f5dce55268683fd87f821"
+    url "https://github.com/ntop/ntopng/archive/3.8.1.tar.gz"
+    sha256 "1dbd6600d3f86c0553f38a98439837ef6cc39bf0cec2511fe755ab6939651378"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/2.6.tar.gz"
-      sha256 "efdfb68940385b18079920330528978765dc2a90c8163d10f63301bddadbf91e"
+      url "https://github.com/ntop/nDPI/archive/3.0.tar.gz"
+      sha256 "69fb8003f00e9b9be3d06925398e15a83ac517cd155b6768f5f0e9342471c164"
     end
   end
 
   bottle do
-    sha256 "3a602d61daeaefb049709098a3d242c1ac2ad5afb4f77be8a4ddbf93da664b95" => :catalina
-    sha256 "6cb5cc074b9ea01ad835bd886db85ae9e9b1df171ed61958533dd117a0e7be94" => :mojave
-    sha256 "69641c0b78b4e5d642ae7410d2859f501434d25b8064d33dcb46156520432a7c" => :high_sierra
+    sha256 "8873e29f3d1884c8ef73a4908a942c66b5f12eb4587843742831fd41cb45d33b" => :catalina
+    sha256 "f046d1443aa95c5cd34dc6666560211bea5456b7adeba71559997baa4d809822" => :mojave
+    sha256 "b70730c924903d018a4c870c4813d36c6bac0cad0e5f439b6c8aaf4202083cf1" => :high_sierra
   end
 
   head do

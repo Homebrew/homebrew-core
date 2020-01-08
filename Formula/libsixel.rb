@@ -1,15 +1,14 @@
 class Libsixel < Formula
   desc "SIXEL encoder/decoder implementation"
   homepage "https://github.com/saitoha/sixel"
-  url "https://github.com/saitoha/libsixel/releases/download/v1.8.2/libsixel-1.8.2.tar.gz"
-  sha256 "c464d2a6fcf35e9e6bad1876729e853a8b9f6abfe97d9e3487c9bfac45cf2a5f"
+  url "https://github.com/saitoha/libsixel/releases/download/v1.8.5/libsixel-1.8.5.tar.gz"
+  sha256 "74e7d2b53c4364ccb3afb8d00dafd4061f7b9a65edd3fdb330647d8294400e59"
 
   bottle do
     cellar :any
-    sha256 "91a56eaeeb48be9347ed3ef0618d0c89c1e966b2ae88be40c6b40d70c6b5504b" => :catalina
-    sha256 "d4cb5ca4c127d45f7727dc0c8c4e527f537484f437922ed9fac74c5f628543f1" => :mojave
-    sha256 "0e6e7c7fea1d75cd9fbbb3ef1e67f9c2d9daeff592808d2392a8e517f555536b" => :high_sierra
-    sha256 "0847829121008f75c987d932ef91866d4d201fabe6533953a476f17be2379714" => :sierra
+    sha256 "ebc6eedece1e35507982ff22fc8b7ef0276f299ce8baea9454a11dd7277b958b" => :catalina
+    sha256 "e3cfac40fcc994b9288030fafb9a54786db54c554d01e5c0752d1503edf7557c" => :mojave
+    sha256 "a2f8006bcc498f77684aeefacd939796df48839c9a174fec3ba2f0747a943886" => :high_sierra
   end
 
   depends_on "jpeg"

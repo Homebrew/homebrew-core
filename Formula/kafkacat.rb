@@ -7,18 +7,21 @@ class Kafkacat < Formula
 
   bottle do
     cellar :any
-    sha256 "cc01ec929d214eedcec98151842b38587f35e986436f5bb1cabe64d836627beb" => :catalina
-    sha256 "c3b196b7c491b9640c268591df790f89d5c12c6551e54f49a39193bdf100eea9" => :mojave
-    sha256 "13717f4c5cc332fda009d2cafba1433414e6c2def7c3131129f8d2e4a8dab307" => :high_sierra
-    sha256 "e09845976996cd838656e0065309e06f65e8446e1f0eb01f471bda2da36553ed" => :sierra
+    rebuild 2
+    sha256 "af4674858fa32d4c39346018f441609647f35071ef9d7615f214ad47594e1b6f" => :catalina
+    sha256 "169186d382345c58af1a3a616493ce305f7abb808420ac95a8230e9bcbcec2d9" => :mojave
+    sha256 "60bca6aa0aae36980bcd917cb0ff1b042d7cb3317c5e6e6446488c25ac1edf29" => :high_sierra
   end
 
+  depends_on "avro-c"
   depends_on "librdkafka"
+  depends_on "libserdes"
   depends_on "yajl"
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-json"
+                          "--enable-json",
+                          "--enable-avro"
     system "make"
     system "make", "install"
   end

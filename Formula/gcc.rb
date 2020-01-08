@@ -4,13 +4,13 @@ class Gcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
   sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
-  revision 2
+  revision 3
   head "https://gcc.gnu.org/git/gcc.git"
 
   bottle do
-    sha256 "1564397f461f629f3811f1ececc7f2bb614f7520242743fc41348d190d8b6aa9" => :catalina
-    sha256 "5012d43ce3ff9b31fc21f9df1075b9d5e205d1a727b75f6dbd098654aff0f0f2" => :mojave
-    sha256 "cc0e6c6a7f7ce5823d0578cf57a6e201727238905aa8a4726e5f90dbc252d94b" => :high_sierra
+    sha256 "3d1fed93856370b9857e187c11f8cfe43c0df9a05274a2eaabb1a9e5c7fd9605" => :catalina
+    sha256 "76037262428095ab93360edca037d5b0153cc9a3bde2991d3d09295684c3bd8e" => :mojave
+    sha256 "4a5bad045cdc625c0eddfac21eb90f5c56370aaf186a33612907ca17551d7541" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

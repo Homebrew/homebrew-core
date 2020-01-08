@@ -5,17 +5,17 @@ class ZabbixCli < Formula
   homepage "https://github.com/usit-gd/zabbix-cli/"
   url "https://github.com/usit-gd/zabbix-cli/archive/2.1.1.tar.gz"
   sha256 "1f58b1374dc9e2711bab5d78740ab17fa81dc89aca14e7ea75c10631e6e81227"
+  revision 1
   head "https://github.com/usit-gd/zabbix-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc2cca8aba0a57cd443c04111875c3dcd9c4a3e4b58e5368bd265ceddfe18d26" => :catalina
-    sha256 "27334ed941525d5eca30f6ce21c9ca9caab0956d4f218b1e951f3c0e0bad7387" => :mojave
-    sha256 "c0121fb46cbca0ff72d19e6f4e1c26a7f1cf988206fc3efb00a6826a2ab31cd3" => :high_sierra
-    sha256 "f61ee16a471a92e786e4da862cdd9a510439db832719bef33a3962bd1ec8f003" => :sierra
+    sha256 "7071c34bc3936777f0e2e8b00dc444e824ea6c0e728c773c5aa3d25f6186b008" => :catalina
+    sha256 "103d5b399b782c2e34da9cd4fdaac537cbc237fecf95afb97541b75f52c9c41a" => :mojave
+    sha256 "b1fea65428370a415bc3befc71501d5eb1ca837096171bce1333a55c8c14965f" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   ## direct dependencies
 

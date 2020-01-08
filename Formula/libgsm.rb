@@ -42,4 +42,22 @@ class Libgsm < Formula
            "GSM_INSTALL_INC=#{include}"
     lib.install Dir["lib/*dylib"]
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <gsm.h>
+
+      int main()
+      {
+        gsm g = gsm_create();
+        if (g == 0)
+        {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lgsm", "test.c", "-o", "test"
+    system "./test"
+  end
 end

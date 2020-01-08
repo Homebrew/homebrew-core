@@ -1,15 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.16.tar.xz"
-  sha256 "30cf1bddf7d7388487276745ad3515f134e07f0c57f9f97cb2b5d3befd4a4d92"
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.18.tar.xz"
+  sha256 "8782e66cd5afd6c92860725196b35b6df07d3d127ef70e900e144323089e9442"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
     cellar :any
-    sha256 "e95a7a6319c1f16bdab71fe9b51de03e15699d98de139b707565e6b914628ba3" => :catalina
-    sha256 "378d96b24973c9750ee9be2a22989897c4e7eb56d59719fd64f8070c68462b23" => :mojave
-    sha256 "8fc205d45f92798ddf9152fea2a5d1310e4f271870d5bbabfbb833732b299144" => :high_sierra
+    sha256 "97205bdca3c0ab031163f0b6721a4a07072de25d98c9ebab9228c97a7e0ee651" => :catalina
+    sha256 "d50ccd6d119e4d7a8b2d5fb6267e2b576f2f8d35eb27f0e2885fc2f4b7db7ef6" => :mojave
+    sha256 "97c3161fd3a06c8158c388a3c2a094b4698f73ef7218270ede11d7bcd7f06d94" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -34,6 +34,11 @@ class Mpd < Formula
   depends_on "libvorbis"
   depends_on "opus"
   depends_on "sqlite"
+
+  # Fix compilation with Clang
+  # This patch backports https://github.com/MusicPlayerDaemon/MPD/commit/dca0519336586be95b920004178114a097681768
+  # Remove in next release
+  patch :DATA
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -123,3 +128,18 @@ class Mpd < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/util/Compiler.h b/src/util/Compiler.h
+index 96f63fae4..04e49bb61 100644
+--- a/src/util/Compiler.h
++++ b/src/util/Compiler.h
+@@ -145,7 +145,7 @@
+
+ #if GCC_CHECK_VERSION(7,0)
+ #define gcc_fallthrough __attribute__((fallthrough))
+-#elif CLANG_CHECK_VERSION(10,0)
++#elif CLANG_CHECK_VERSION(10,0) && defined(__cplusplus)
+ #define gcc_fallthrough [[fallthrough]]
+ #else
+ #define gcc_fallthrough

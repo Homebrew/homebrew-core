@@ -3,20 +3,25 @@ class Minetest < Formula
   homepage "https://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.0.1.tar.gz"
-    sha256 "aa771cf178ad1b436d5723e5d6dd24e42b5d56f1cfe9c930f6426b7f24bb1635"
+    url "https://github.com/minetest/minetest/archive/5.1.0.tar.gz"
+    sha256 "ca53975eecf6a39383040658f41d697c8d7f8d5fe9176460f564979c73b53906"
+
+    # This patch is already merged in master and it should be removed when new version of mintest is released
+    patch do
+      url "https://github.com/minetest/minetest/pull/9064.patch?full_index=1"
+      sha256 "78c5148ae5260bf2220ca18849c698e92c93e1c92b8f287135b293457c9ab6cd"
+    end
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.0.1.tar.gz"
-      sha256 "965d2cf3ac8c822bc9e60fb8f508182fb2f24dde46f46b000caf225ebe2ec519"
+      url "https://github.com/minetest/minetest_game/archive/5.1.0.tar.gz"
+      sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 "4ec9b8e6e60c4b595dbac6c46de877b5388f99bc84f37237343f8230025f4d03" => :catalina
-    sha256 "5bc5752b405790705eda2cd02896dbb9fe7c6a45201da68f6dfa1e22381708da" => :mojave
-    sha256 "43d8c313c55a7fd721f174ec48aa07b28bd2c68be71dccf07b701a681169a510" => :high_sierra
+    sha256 "e6774d4217375c164de190acccfbc208ca7c9e5a491b0584450090ea7d393b65" => :catalina
+    sha256 "656842e7896dcc6458522201d9a6ec2ccd6f09daf249a1145387122c52af74bb" => :mojave
+    sha256 "cebe39a206ec1d950d8c3e77b94d2b8e4f1953350d9b0ae5ece220de082f531c" => :high_sierra
   end
 
   head do

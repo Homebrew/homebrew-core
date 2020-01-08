@@ -109,13 +109,10 @@ class Csound < Formula
     ENV["OPCODE6DIR64"] = frameworks/"CsoundLib64.framework/Resources/Opcodes64"
     ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
 
-    require "open3"
-    stdout, stderr, status = Open3.capture3("#{bin}/csound test.orc test.sco")
-
-    assert status.success?
-    assert_equal "hello, world\n", stdout
-    assert_match /^rtaudio:/, stderr
-    assert_match /^rtmidi:/, stderr
+    output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
+    assert_match /^hello, world\n/, output
+    assert_match /^rtaudio:/, output
+    assert_match /^rtmidi:/, output
 
     assert_predicate testpath/"test.aif", :exist?
     assert_predicate testpath/"test.h5", :exist?

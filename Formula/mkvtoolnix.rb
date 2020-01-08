@@ -3,12 +3,13 @@ class Mkvtoolnix < Formula
   homepage "https://mkvtoolnix.download/"
   url "https://mkvtoolnix.download/sources/mkvtoolnix-40.0.0.tar.xz"
   sha256 "f9248c9a137aa12e46c573d56de7f7da50864e2e4b18b88af21c84f49c21a336"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "536271928c7ace583a5a05891cef742b9046ed0bbf42b23c4956b96b0e207666" => :catalina
-    sha256 "c9ef62cf8b5ec71b2a5ebd7439ea407bab8c575c36c8451e4707cd908b8e362f" => :mojave
-    sha256 "2488118f270bfc8b0057f4efe92cebb08f75fa977c4a587d8939bd24f83328c8" => :high_sierra
+    sha256 "09e5dff1545f5d9180a460ffc008ce2c81b54bb09a35c01f251fe7a210d976f5" => :catalina
+    sha256 "264d111e6877d5afe49f410a9473d1fb792145bbc6892f8c429f594a43eb2c7c" => :mojave
+    sha256 "b6d36bf12a372847b73e7e4dd1f1ca80924f5cbd4629a3143ed3de9f264e1a70" => :high_sierra
   end
 
   head do

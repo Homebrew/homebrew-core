@@ -7,20 +7,17 @@ class NatsServer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4edb45f19824f760294780d6b365916ee23c514acfc183d3fe9d52fbb4a189a9" => :catalina
-    sha256 "aa5771424fa936d191a62e0e7cdd4c3aa2bfe2ac6cd3869419015ae3808bd426" => :mojave
-    sha256 "48c033283b086a6540f0d26b4e0782de589b1b1e481968bdc6f96b86b3549f19" => :high_sierra
+    rebuild 1
+    sha256 "741692cfc2ae1355fe20290be89747b09ca369bea409ed9e4d7df09505ff535b" => :catalina
+    sha256 "4d9fa56c9f438d0dd4119285e2eeb0d49d4f30d2b419a65de72927607908fb6e" => :mojave
+    sha256 "015003baad6097a8a4c62c345f87f9e8ce15811e90dac9d11384ffac0c800d5f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "off"
-    mkdir_p "src/github.com/nats-io"
-    ln_s buildpath, "src/github.com/nats-io/nats-server"
-    buildfile = buildpath/"src/github.com/nats-io/nats-server/main.go"
-    system "go", "build", "-v", "-o", bin/"nats-server", buildfile
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"nats-server"
+    prefix.install_metafiles
   end
 
   plist_options :manual => "nats-server"

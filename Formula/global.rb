@@ -1,15 +1,14 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.3.tar.gz"
-  sha256 "cbee98ef6c1b064bc5b062d14a6d94dca67289e8374860817057db7688bc651c"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
+  sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
 
   bottle do
-    sha256 "7630616608884ada0b7f4118f3e7aecd8a6a3984e69b6d435d8101e5f2939aba" => :catalina
-    sha256 "a7c38baeddffcd462c81d75f880a883e197256b942157e26850223b9cad2494b" => :mojave
-    sha256 "437111cf310d59b8834b4ed82455a88177ea53c23bf34eb92ffd31c40d77f62f" => :high_sierra
-    sha256 "1239020a37f617c1f128a54d2be7b25bbc328772113e77d9d0522f4d4e07a86a" => :sierra
+    sha256 "ea05203cc1a7b4b3b6f633a19e0dcb3b5513bb2b108ca7c163ddc4f10ac2033b" => :catalina
+    sha256 "e0ede31afb0f038fe0911d543de55509429a5b623ecd140fd2a1fd3d75f967af" => :mojave
+    sha256 "d9d4826d0848d4bd0352f26c2dfde008fa81c35a745c316cec46e74b1a22d443" => :high_sierra
   end
 
   head do

@@ -5,21 +5,22 @@ class Ooniprobe < Formula
   homepage "https://ooni.torproject.org/"
   url "https://files.pythonhosted.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
   sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "05ce79a0aeb0e883481580d842df635376d0eac039a86d5427658feb188780d4" => :catalina
-    sha256 "55d102e458c36b68734ba64cdbf591d8c6c07a9ac02467c8ef90e300033f3074" => :mojave
-    sha256 "f24000b6eb696d06b952dbe3e99af46c558890c744113420168033c44b6f1095" => :high_sierra
+    sha256 "9a5d8c8b6bda3609642113631ba7c39b2cbf4fc27b09bd4b2fccc832befdd3e5" => :catalina
+    sha256 "e8e120b4342f22d48efbcfa45cde2faa28c9edd045121373f3b2ba8349e1d6fc" => :mojave
+    sha256 "3e13549c0175e9f3167f24526ed0c45bd7096b84c0360042654be9b4dff980f7" => :high_sierra
   end
 
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@2"
   depends_on "tor"
+  # Does not support python 3, will be replaced by https://github.com/ooni/probe-cli once out of pre-release
+  uses_from_macos "python@2"
 
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)

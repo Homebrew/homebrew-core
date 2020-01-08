@@ -1,15 +1,15 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.3.tar.gz"
-  sha256 "84fdc5fff0d76e415cfd165e79cb21682f9dc68e58a771dbe968099956609568"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.4.tar.gz"
+  sha256 "db24b1e07aa7164bee2cf73cc936dc2fb75aa4d062b3b70dccd5f85e6d580e34"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb4389494ccfc00cc1d8d8cf715992a6ba840caf3514585d93746a28bc93fa85" => :catalina
-    sha256 "7d575e145d4894e8cb3811aa26186a8a9038556ce7e8588c24abcab400bdcdff" => :mojave
-    sha256 "2b8723d4a35e4a70d6de828b29a5652677e57ef4ec359c545b5d9e5f2976d8a7" => :high_sierra
+    sha256 "1b4ae8a2bde4b3ca809b8ef0d017b4b7cfe8f9e3f0d81f5bd22c9e48cede8100" => :catalina
+    sha256 "aafc33584c60390e9dc7b29c1a74a6dc55e9235d9827bbb99c067a9b8e7eadd9" => :mojave
+    sha256 "1b4ae8a2bde4b3ca809b8ef0d017b4b7cfe8f9e3f0d81f5bd22c9e48cede8100" => :high_sierra
   end
 
   depends_on "ruby"
@@ -21,8 +21,8 @@ class Tmuxinator < Formula
   end
 
   resource "thor" do
-    url "https://rubygems.org/downloads/thor-0.20.3.gem"
-    sha256 "49bc217fe28f6af34c6e60b003e3405c27595a55689077d82e9e61d4d3b519fa"
+    url "https://rubygems.org/downloads/thor-1.0.1.gem"
+    sha256 "7572061e3cbe6feee57828670e6a25a66dd397f05c1f8515d49f770a7d9d70f5"
   end
 
   resource "xdg" do

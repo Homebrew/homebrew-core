@@ -5,15 +5,16 @@ class Dxpy < Formula
   homepage "https://github.com/dnanexus/dx-toolkit"
   url "https://files.pythonhosted.org/packages/fc/23/7eb806687ecb4d3795bce9d2cb294dd931a7536be319534b1818a7d32f65/dxpy-0.289.1.tar.gz"
   sha256 "6079f50557e67f24f2f86bb3c4324d29fce4c3ac257ffdd086a7d1149981f392"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b5f528239ba4c97708e62eb653682cdead95269fe05181799c4b0cfb6457c1b1" => :catalina
-    sha256 "2f56e17831bb8c2756c909a629c9f9a5d3f4ca58ea73967063771b7dbbc07313" => :mojave
-    sha256 "3de8cb5503f1e9a202e4c2bdaf0cfab36c9691b33a539c9783e6d6b7011d6e42" => :high_sierra
+    sha256 "7d8294ca36261cb52977655eff735fcd35313f21559848e65fc34241bac903bf" => :catalina
+    sha256 "60e5e2e70b3fc5632f3bec4c9ca7380a721deb361f1b3baf7265a818cca52e98" => :mojave
+    sha256 "619cc53de2c7aa091c4b0b3f8fe0807b7e5c31cf56d891e4d82c035c5376129c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/58/88/5a8da671e087ef513a63519344b35d80c6979591eee24e06a5acd1cd11b9/argcomplete-1.10.2.tar.gz"

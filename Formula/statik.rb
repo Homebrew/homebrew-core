@@ -5,15 +5,14 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
   sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
-  revision 1
+  revision 2
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
     cellar :any
-    sha256 "9a929bed838eac7299d6db3cabac93ddf475c1a7d5100f1d8d0dc522d1867471" => :catalina
-    sha256 "0b670112d5c2e9c8166c264ba33a5bd7c01e7cbcb99abe030f2c7923a6e09f5f" => :mojave
-    sha256 "06551895c3028af13b050ccc738afe4643ac782ca02dc9c9a0de68b04c5a8e5c" => :high_sierra
-    sha256 "44b40f63c9d8de054cb52ce509347eec87f2ac53afa613bb15d66f3c5b3317f7" => :sierra
+    sha256 "114195665f574c4c4a9b56ca1071610423c252b0d3e222034575f51206059ed0" => :catalina
+    sha256 "d1e258882ca6b3b5bb4a84e9786639fc8281919d3167f06d98d190a6104b3c6e" => :mojave
+    sha256 "7fb8a4394f54916bd6d9f9770be85a9da4a6f9c35ffb1c692fa4306a430062b1" => :high_sierra
   end
 
   depends_on "python"

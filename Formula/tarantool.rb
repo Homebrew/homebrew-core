@@ -8,9 +8,10 @@ class Tarantool < Formula
 
   bottle do
     cellar :any
-    sha256 "37cd09c82cb575c366ceb620d3faa91b0a2892a8bd57b172e56d6f2d4de2a8e1" => :mojave
-    sha256 "4708c57aa9b553f5186fd35ab880971f01d6a36ba77cddbc94b7cd8860b03218" => :high_sierra
-    sha256 "1acbde9f75d34721117bf08960b9975f88f73da9b6865008c9987a7521191ff7" => :sierra
+    rebuild 1
+    sha256 "3cfec8cfab6720c57e72a3a11e924f169a710d3f5e91b6cf4e94afccd07ff8e8" => :catalina
+    sha256 "bb69d7f27b59778d5f4f71b2b64cbfeb52503dba3970af26e649bfab3dfc09d6" => :mojave
+    sha256 "9011b28c8ad82a31bb5e48405c7e4637998b4608cb336245b494312014362a47" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -3,15 +3,15 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v5.0.0.tar.gz"
-  sha256 "0e9114de261096c006d50f3fe99cdf08dc609b93584d94857393a82f3733a536"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v5.0.1.tar.gz"
+  sha256 "1fe41a6e5b2eec818f457a28772cf2924571078ff1150f928e8bd543a7d3999e"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "c690b19e657ff07a87b6a6da87b35012d8a8acf748263f23426ef1bb166df672" => :catalina
-    sha256 "b8f60f05ceb6df4e12f2aa70c83d560e4ed1cc7b2cebda1d463a5b5dc470e1d5" => :mojave
-    sha256 "106b9d2cbcdc07b67476a41ec052d30b4268d139917a53d7163ace433b611c31" => :high_sierra
+    sha256 "ed7b29911186b6335c62ac18abfe1626f3ca32725b9d75816f9c52cfd45bfa6a" => :catalina
+    sha256 "2cd749a410e5be7ce1c6a48e32f7078622e1235a15ba9915267affefcd775e70" => :mojave
+    sha256 "94c2965d1ae28f8e57a853f2919e00229b31ca76179a10df30fc1f61b7f51a81" => :high_sierra
   end
 
   depends_on "openssl@1.1"

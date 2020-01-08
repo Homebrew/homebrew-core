@@ -5,17 +5,16 @@ class Jrnl < Formula
   homepage "https://jrnl.sh/"
   url "https://github.com/maebert/jrnl/archive/1.9.8.tar.gz"
   sha256 "ec9dcf01f67a2329218fcd090b56042379937b269ddbd8c0c64097636f012e63"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9e0a96ab3932c457b4fd476e3b7bdfd32956e31bb1b261c1fab34113834ec48a" => :catalina
-    sha256 "e2535675419ec4769c229c7d468d9dd4139e14245286dd766a1eab8a650723a7" => :mojave
-    sha256 "0325b924a82ce0153d3e9d683fc55190d154d45ee9279fc6d136f50506417af3" => :high_sierra
+    sha256 "301107739e5da8fac38d89c0624e6d87bcaeec6751d278004965e4839ad998c0" => :catalina
+    sha256 "5f4f5070cbfee1148d56f06c2cd43a38c23b747b073d31b2d6d31739503cf30d" => :mojave
+    sha256 "99c76e93bf71e5ccd6ae14ddb7469de07c82e16b9784e6c5c7686039e3260dea" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "entrypoints" do
     url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"

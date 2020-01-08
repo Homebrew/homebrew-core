@@ -70,7 +70,7 @@ class Libmodplug < Formula
         }
       }
     EOS
-    system ENV.cc, "test_mod.cpp", "-L#{lib}", "-lmodplug", "-lstdc++", "-o", "test_mod"
+    system ENV.cxx, "test_mod.cpp", "-L#{lib}", "-lmodplug", "-o", "test_mod"
     system "./test_mod"
   end
 end

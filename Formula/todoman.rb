@@ -5,16 +5,17 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/42/5a/b11c0df8bb9bfd4404d596a9ed1966aece1510a07b89499074080334297c/todoman-3.7.0.tar.gz"
   sha256 "1eb65c05ec82db501065d1a90d885a4352d92958121b1b9dab6a970abfe07999"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5941cefd3313318b37c0ac4954f18de865e6400731daaf753a5aa343db314433" => :catalina
-    sha256 "99c8b818c65ebeb64d18c18feb998974784dcd1704b9724d48ecaaed51b4049e" => :mojave
-    sha256 "ad43b0d360649e4e96d98c97cd218a2fcba3e66260e50d8e9da5de93b0d4a050" => :high_sierra
+    sha256 "339bef292df297e3e4e0eec51f57f49cbf70e0ae3b5c19f0fbf71c0e46578d41" => :catalina
+    sha256 "5c5cbcb5df2132b9d683e5e6ae4cc3b86fca5fa26c4603e8a7d9f7b6be6f84b8" => :mojave
+    sha256 "981eaa665b9fdce0c1a63d5b15032efbd366dd7fe5bc1a108a48354c743bacc1" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "devtodo", :because => "both install a `todo` binary"
 

@@ -5,17 +5,17 @@ class Httpie < Formula
   homepage "https://httpie.org/"
   url "https://files.pythonhosted.org/packages/d5/a4/ab61c1dbfdef33c7b7f5f7df0d79eb5cd55a106601a4acc17f983f320b4a/httpie-1.0.3.tar.gz"
   sha256 "6d1b6e21da7d3ec030ae95536d4032c1129bdaf9de4adc72c596b87e5f646e80"
+  revision 1
   head "https://github.com/jakubroztocil/httpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "641b4d390468b8759f0b43a5f30074a680bbe61d71be201b7f7a48f7e497bd20" => :catalina
-    sha256 "2436432e8ee1efe7f6c19c501af35aba453dabe3b9a9f88bed4e22a795bc6d1c" => :mojave
-    sha256 "e50d67eb555607a235a14ee0c80e484c08295aed71fb82dad4ef9afc4af1c9b7" => :high_sierra
-    sha256 "153ce88d4496d04fa1ba61641841b2c89254687af8c7e9aca7127b298e3ee0f1" => :sierra
+    sha256 "19694b5ec311939a8b73cc329ca49386155ed3a17e4eca691779c725d36286b5" => :catalina
+    sha256 "8c7d93d55ea3351e25fadfdd3748ca0a3ff7dd62ab9dbf31b7243fba76890c4d" => :mojave
+    sha256 "e0d5269bb5d03a1797c8612005fa46d6a35f2b84eb76e9607ef1169464b566ea" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/7e/ae/26808275fc76bf2832deb10d3a3ed3107bc4de01b85dcccbe525f2cd6d1e/Pygments-2.4.2.tar.gz"

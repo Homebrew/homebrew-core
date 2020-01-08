@@ -1,16 +1,14 @@
 class Pcb < Formula
   desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
-  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.0/pcb-4.2.0.tar.gz"
-  sha256 "cd4b36df6747789775812fb433f246d6bd5a27f3a16357d78d9c4c9b59c59a43"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.2.1/pcb-4.2.1.tar.gz"
+  sha256 "981532c0a1efd09e3ab6aa690992a4338d0970736ad709c51397bf0d24db3fc5"
   version_scheme 1
 
   bottle do
-    sha256 "d43af459fe1d262e950a073894903ffb599531f710424c753b3c2779cbdb7771" => :catalina
-    sha256 "3f910571af474058db83eac46cc6672a8492b1c5b594594752d2cf3c077a6e33" => :mojave
-    sha256 "c2014db727633acb06b633247d3e9e809a76cb9a88daa7deb9b7bc1609670f39" => :high_sierra
-    sha256 "0a71157a119d5206fb3b908fd8c25a4072b0e832aa466f13cbd04d998af39817" => :sierra
+    sha256 "20254cf55d1b28f5485c4b9865f536a77df6e4c993c7e9392c2408b2352ec6fd" => :catalina
+    sha256 "b8307f5227c9479cf344e927c12ba075f47eea359c4b81f06108f0441301bbe3" => :mojave
+    sha256 "b9da3459cad08ada02a9bd4ec840cecca099ba96c07c0f462b749671eaac9eb6" => :high_sierra
   end
 
   head do

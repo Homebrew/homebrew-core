@@ -1,14 +1,14 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/v2.1.1.tar.gz"
-  sha256 "189d45cb08fd19a60d0b1a7e592e527235a7db4da7cb6b0f017f36a643374e18"
+  url "https://github.com/mimblewimble/grin/archive/v3.0.0.tar.gz"
+  sha256 "7a95e3d16d4af52d9a6882b5912ffaaf5bb41a5a45652565114c018dbdd64dac"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e47755a4c84467215c30717440af6de9e7dde7f303e4096966f9220769eb0dd" => :catalina
-    sha256 "c4f5424a3554bbdc6ee95761a58c18b16cbb8d8a8601d516d12d9ba5439e366a" => :mojave
-    sha256 "86a2b05e7b3a45b695d0556a50c18bcbe0cbd4197cbebc094280053f7a5dd28d" => :high_sierra
+    sha256 "b459b1d029abbe94bb3e65b2c66045c4f37673ccb5ad140b87c20ae648dd3875" => :catalina
+    sha256 "9ebd55d251a8d939569a5ae1c2b882f4a89c52e0f545716f0470c63aa94b6c15" => :mojave
+    sha256 "79e6906b19db7e058014e7f3fe462437c03a15de0d68a974f9e3cb91f8b9deec" => :high_sierra
   end
 
   depends_on "rust" => :build

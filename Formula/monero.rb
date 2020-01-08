@@ -4,12 +4,13 @@ class Monero < Formula
   url "https://github.com/monero-project/monero.git",
       :tag      => "v0.15.0.1",
       :revision => "6def88ad405b39f632a91afa3aacbb92ecc63c1f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a576ff3d3106ae6ee6b94e1156a3afa44bb3fb44d6f1b4694fc3df44dd4b96a4" => :catalina
-    sha256 "d63070938737aee203b744397100480464b5c59cff8b7ab95bc8700e9d0d9255" => :mojave
-    sha256 "4a8b4c93004a16a089e7f7faf723877573b6ad9518d55a911231bf88bc387dde" => :high_sierra
+    sha256 "97e2127eb9940787ca8fd90fefe51c024a7b7eb31a71831202211a0cb073a1b3" => :catalina
+    sha256 "d11ad52f791fbc14f859bda0bc97e0daa62d4df2ca30ca8a98170a5d091286ef" => :mojave
+    sha256 "a8742fb9b6c349f47398d7327d02674aab87cafcc076f622e3dbc916f65918cc" => :high_sierra
   end
 
   depends_on "cmake" => :build

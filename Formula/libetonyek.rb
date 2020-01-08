@@ -3,11 +3,13 @@ class Libetonyek < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
   url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.9.tar.xz"
   sha256 "e61677e8799ce6e55b25afc11aa5339113f6a49cff031f336e32fa58635b1a4a"
+  revision 1
 
   bottle do
-    sha256 "babe107b6e32e3efa4ad535cac4d699e6705cd930e99ddcdefb1846df0c28984" => :mojave
-    sha256 "2dddd5203a9a15f453b7da4b17e4e2556b16c95563160b454853ac258899ae37" => :high_sierra
-    sha256 "e00523e2ed27d9f56b60c50db89e33ed7b6993a7301dc56e7a1b7228f63b3912" => :sierra
+    cellar :any
+    sha256 "c646035faf6b7213d1aa15a2e37478607f30ec3743b9af7fc4a83190f40b1941" => :catalina
+    sha256 "833ea6922b7e7eadd5446a9a1c8b6fe73fe49e4025703a63a90b8c4be966cb71" => :mojave
+    sha256 "7fdf62c11f4874c487d132fb24307e7a3ede2b03cfb231afff8872ae9c230c06" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -36,7 +38,7 @@ class Libetonyek < Formula
                           "--disable-werror",
                           "--disable-tests",
                           "--prefix=#{prefix}",
-                          "--with-mdds=1.4"
+                          "--with-mdds=1.5"
     system "make", "install"
   end
 

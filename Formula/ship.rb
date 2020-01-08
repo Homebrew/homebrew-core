@@ -12,7 +12,7 @@ class Ship < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@8" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
 
   def install

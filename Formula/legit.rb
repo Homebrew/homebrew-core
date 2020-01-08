@@ -5,16 +5,17 @@ class Legit < Formula
   homepage "https://frostming.github.io/legit/"
   url "https://files.pythonhosted.org/packages/6b/65/819f84ef3caa4743c834122acb897df29167f6178c9c095d7896f2181387/legit-1.1.0.tar.gz"
   sha256 "25bd3809d657c9b0bd45a6a230dc7f58a56e6e068159d471ffeadb0cf4677b4d"
+  revision 1
   head "https://github.com/frostming/legit.git", :branch => "master"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f688323badcbca7aabde7b3d6714c143d40a5306de059ecdf7dbf815157143e" => :catalina
-    sha256 "81ff474f13586a2e6e543e24d8bc2c40f29c671fa8fb194de3d5e501fcf2b7a2" => :mojave
-    sha256 "b2b05bde239b036eec589a445c27ada95aca2330b76113bba72c7ad20e482d10" => :high_sierra
+    sha256 "e7f856fc9b5006de204b039de012c60154d4393b17fe6a16942f9a2f2fe1547d" => :catalina
+    sha256 "5c64d0307fdf5efe81b5ad0795e67a9674b8725e99407716d7073bb71f60cbc0" => :mojave
+    sha256 "2c34a9958b93118ccf0190ab9450689a9983de54556d6eb58fd24db1b2b74faf" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"

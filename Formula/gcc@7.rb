@@ -4,10 +4,12 @@ class GccAT7 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
   sha256 "b81946e7f01f90528a1f7352ab08cc602b9ccc05d4e44da4bd501c5a189ee661"
+  revision 1
 
   bottle do
-    sha256 "f9df4177f2893dd91df5e8ccf825bc1e5f46f4ea23526e18307874d00d61f892" => :mojave
-    sha256 "c2dc80495ae24de4482cb26f53460fd5b1d9068d9be8462e4c896940858adf65" => :high_sierra
+    sha256 "76dc2382a71870837e2078301b6d560cf283ae14b4a19d0dae8a3d65947a4f67" => :catalina
+    sha256 "0495fee4d7f6ed1ccc53ce56e7f2dc7ef7ba539a30f2e5f2aaffd9f9ddc6afae" => :mojave
+    sha256 "a255ac711b7652425449bce3e07f625470ae8a325d8c66c0b00d2c17494d9723" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

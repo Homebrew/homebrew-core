@@ -5,14 +5,21 @@ class Ompl < Formula
   sha256 "03d5a661061928ced63bb945055579061665634ef217559b1f47fef842e1fa85"
 
   bottle do
-    sha256 "265baf6e114b571afba3e29affcacda2bdd5b98f98be9cfddf9dd4966043b6d8" => :mojave
-    sha256 "75ccf7aea2c76430746126f38c04f463638a924a62884e060a90bdc915285e75" => :high_sierra
-    sha256 "68d8a29fabd7d3b9aaed23f9b9b2ab5d72eed79d1a96b6bc6978d914d84cf204" => :sierra
+    rebuild 1
+    sha256 "9402582e9dba3b47fb91bd36dec50086fd36effaf4cf5734c44c4d71362729eb" => :catalina
+    sha256 "14033d9549ebd3086e84cd058ab2df19e90acfc6c1e3c1b4d62f4a6b8c8058d6" => :mojave
+    sha256 "961b2a574fdf47d8fd0e74e9755bfb3009147807a316869fa2444d61f9b4123f" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
+
+  # fix for Boost 1.71
+  patch do
+    url "https://github.com/ompl/ompl/commit/962961fb.diff?full_index=1"
+    sha256 "56adf06b5bdc12823c04e96e764618c48a912fd01422138f15cc578f2464177a"
+  end
 
   def install
     ENV.cxx11
@@ -32,7 +39,7 @@ class Ompl < Formula
       }
     EOS
 
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lompl", "-lstdc++", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lompl", "-o", "test"
     system "./test"
   end
 end

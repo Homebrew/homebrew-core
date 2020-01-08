@@ -1,14 +1,13 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "https://astron.com/pub/file/file-5.37.tar.gz"
-  sha256 "e9c13967f7dd339a3c241b7710ba093560b9a33013491318e88e6b8b57bae07f"
+  url "https://astron.com/pub/file/file-5.38.tar.gz"
+  sha256 "593c2ffc2ab349c5aea0f55fedfe4d681737b6b62376a9b3ad1e77b2cc19fa34"
 
   bottle do
-    sha256 "e654f30906f89acee7a71bafc464d27876024fd795bbcbe0535285afce215ff0" => :catalina
-    sha256 "d4bef4ec5fd234cd4fdc0650d7a2dba51fa9e5d421669db9fa8d2d466e20c98c" => :mojave
-    sha256 "14eb5417f36b7ae1813a290c6004c880bd2c50498bc470a48dd9fb8cb489aa4e" => :high_sierra
-    sha256 "c5cacee5081c405d14caa39c8e3768c6112c8f154c9e1ebbeabd081fff88f44b" => :sierra
+    sha256 "b62d63057eeb729667d6155b5d79da97742d5656d9995359f6d945b6109ce2ef" => :catalina
+    sha256 "0b6136c04b93fbec36326c88f7443e66d9faa209dedab7346f2b6ba015cd1ffe" => :mojave
+    sha256 "8bf0dd3733907457d0102dd8e6e28ddaea304cd7eb59e5e559145f50046dd784" => :high_sierra
   end
 
   def install

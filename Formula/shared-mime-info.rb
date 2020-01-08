@@ -46,6 +46,9 @@ class SharedMimeInfo < Formula
     global_mime = HOMEBREW_PREFIX/"share/mime"
     cellar_mime = share/"mime"
 
+    # Remove bad links created by old libheif postinstall
+    rm_rf global_mime if global_mime.symlink?
+
     if !cellar_mime.exist? || !cellar_mime.symlink?
       rm_rf cellar_mime
       ln_sf global_mime, cellar_mime

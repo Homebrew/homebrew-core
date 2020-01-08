@@ -19,4 +19,23 @@ class Libsoxr < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <soxr.h>
+
+      int main()
+      {
+        char const *version = 0;
+        version = soxr_version();
+        if (version == 0)
+        {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsoxr", "test.c", "-o", "test"
+    system "./test"
+  end
 end

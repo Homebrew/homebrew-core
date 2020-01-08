@@ -5,20 +5,20 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.9.2.tar.gz"
   sha256 "2f83f8ccc50640aa41a24f6e7757ac06b0ee6189fdcaacab68851771d3b42f3a"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "af0ca35be9c42ad8167fbdb497438814ebb7ba3a08a96431360a91af37064736" => :catalina
-    sha256 "616b96839755a08668908e5fc53d62bf987164a395c90b2afde6a659c2d483b1" => :mojave
-    sha256 "8bab39fa0731d7868724cacbef2ceb716fc99481be1d1cf04d16d000800db286" => :high_sierra
+    sha256 "9cbccac6a3398b11a08fde8dfaa17f05cde344b3394eaa760d81e6f5b429c0c4" => :catalina
+    sha256 "97df95880897d23f6f56fb69d9772aa07f7693a6a61adcf2cc799b7733203081" => :mojave
+    sha256 "1a645b578dd08bc43e62add53647f00e0ebd38a032057ca6065da08c3ec81c49" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
@@ -602,7 +602,7 @@ class Ansible < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra

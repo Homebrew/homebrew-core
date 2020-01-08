@@ -1,14 +1,14 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v3.6.1.tar.gz"
-  sha256 "2610892706f13a616626740a4e474af93568fcb332e8ee2497bf5c3be60065f2"
+  url "https://github.com/uber/h3/archive/v3.6.2.tar.gz"
+  sha256 "b94fa612f26ceb9f3bcabbb4a425472e548c44d281128842105c71ace651455d"
 
   bottle do
     cellar :any
-    sha256 "995bdeb47df1e9a516f0d1723bfa636c3292760b0bf01e5553b6ef014e56d686" => :catalina
-    sha256 "091d1b56208b92af6ab304e904b72059a4bc3700a23564daba1fac9e68ae2ee4" => :mojave
-    sha256 "bc195a3205e34ad22cf4c6776961c1c969330982f69b8d9314f37a79e2359ca2" => :high_sierra
+    sha256 "2af0d72ef4f2c32b5259e699f2e539090fdd1b75f32e4079bb5ef02624485b48" => :catalina
+    sha256 "57ea8592019ec9ae43262b9fba49461611bf360bf2c5ef6bb33d3b938d8f98d2" => :mojave
+    sha256 "d78e6b17d7d5dcd8120a85f10f4d00cf3a6475736172626336432628bab74ea2" => :high_sierra
   end
 
   depends_on "cmake" => :build

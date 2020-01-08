@@ -7,18 +7,18 @@ class Overmind < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e5aee58153a72b8ad07f9bb8fc6edc54253396ff6ac09edd656990afc75e148" => :catalina
-    sha256 "cd9943966640124680b2a2f9a1ace5fb50fea0e2401bc5206e096ad377f0a27d" => :mojave
-    sha256 "caca34564409a66cf16c544a9b6065db06b4c29d71725118dcc3de3dcaf75156" => :high_sierra
+    rebuild 1
+    sha256 "df98635534afa5d8f50dae0d94c22c322eb9207504286e2de3d893f48dd231be" => :catalina
+    sha256 "71e26cd0de3036d27a040b163754b9d6e7d00756e15158ec24e9709b10b512c3" => :mojave
+    sha256 "749729e78f9702a2a2523a6f31c2a157a4266aeabc8e3a54b69cacad5edfc897" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "tmux"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/DarthSim/overmind").install buildpath.children
-    system "go", "build", "-o", "#{bin}/overmind", "-v", "github.com/DarthSim/overmind"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"overmind"
+    prefix.install_metafiles
   end
 
   test do

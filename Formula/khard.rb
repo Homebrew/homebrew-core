@@ -5,15 +5,16 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/38/41/e54a6ef446701a4ba723df8850189f62e9e9a320de9ff2b1accadd589cc6/khard-0.15.1.tar.gz"
   sha256 "5ca8e678133e08fa4861cc31aedf9f30b4f8e3958ed66ede025c23ec5e176aa1"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b5d5ac8a3de8d3b5cb2483d3fe35c420886e7970a1434bad54f5be9e1097459" => :catalina
-    sha256 "3b15e022548269878b7e5397bdc32c458b4b38705e4381bbe59dbd7c380b0442" => :mojave
-    sha256 "99aa1b845b5b35d5a08797344a4dabfb5a2055e1f415efb8dd5f1694846a2efb" => :high_sierra
+    sha256 "5ca37c0a1a80df10f491b06daa364ad7da2249b0445fb7792dadc51b097530a2" => :catalina
+    sha256 "89cb3be869d6cd31867f2bcac8a2155ab05e749b652c725f33a35a3ab2af554f" => :mojave
+    sha256 "79c73982870dc90a9053f1ead53fc3ac030517e8a2f4cade0a23b6263723c24e" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/ec/0f/cd484ac8820fed363b374af30049adc8fd13065720fd4f4c6be8a2309da7/atomicwrites-1.3.0.tar.gz"

@@ -1,26 +1,18 @@
 class Nano < Formula
   desc "Free (GNU) replacement for the Pico text editor"
   homepage "https://www.nano-editor.org/"
-  url "https://www.nano-editor.org/dist/v4/nano-4.6.tar.gz"
-  sha256 "81007141b3cb5d06d5b7283845f0b853cdb9c9a5f4feaaf223d5d2bfbb07bfb7"
+  url "https://www.nano-editor.org/dist/v4/nano-4.7.tar.gz"
+  sha256 "11c4939a5b9ba6627e57e2796c634e1f1e94063b7ce9cc7fcb7e99d2917196f8"
 
   bottle do
-    sha256 "e9bc20edf4cb803e19698c852c04b16fd80aa65cc13dd038325118ef9e030749" => :catalina
-    sha256 "c45f47c1154978ac59410cbda1da83fa76d58b9ad13fbdbed0b6d6e721b6fe77" => :mojave
-    sha256 "1c09e84ea1a05180a5acbd56f0f738bca4742f9cc834a0586685d47f59c57902" => :high_sierra
+    sha256 "37692aaa6e40dc54e858c04aa0d78557205dc719b6e60cf114f3af41c725c72e" => :catalina
+    sha256 "b73793db58a90b8a0a66011796f379be7cf7e6d3bfcae220a59d70e00d6c9ed2" => :mojave
+    sha256 "95e7ea69b3e0fc0d980bcb5d9f6652fd2ffabf064da87c365a3304ebda982275" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "ncurses"
-
-  # Reported upstream at https://savannah.gnu.org/bugs/index.php?57367
-  # Fixed upstream at https://git.savannah.gnu.org/cgit/nano.git/commit/?id=f516cddce749c3bf938271ef3182b9169ac8cbcc
-  # Remove patch in next update.
-  patch do
-    url "https://savannah.gnu.org/file/0001-build-fix-compilation-on-macOS-where-st_mtim-is-unkn.patch?file_id=48016"
-    sha256 "c30e10bb5c5df739c51e7a91c66bf8ebef52709e463c8717f292292daf5aebc9"
-  end
 
   def install
     system "./configure", "--disable-debug",

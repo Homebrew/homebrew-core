@@ -1,23 +1,23 @@
 class Vice < Formula
   desc "Versatile Commodore Emulator"
-  homepage "https://vice-emu.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.3.tar.gz"
-  sha256 "1a55b38cc988165b077808c07c52a779d181270b28c14b5c9abf4e569137431d"
-  revision 3
+  homepage "https://sourceforge.net/projects/vice-emu/"
+  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.4.tar.gz"
+  sha256 "4bd00c1c63d38cd1fe01b90032834b52f774bc29e4b67eeb1e525b14fee07aeb"
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   bottle do
-    sha256 "ab60f8d6ed6e48190ae40464b449578141326e56006e422e46b85525f0876fec" => :catalina
-    sha256 "8774f17d04f9f3967886123347151705b1e53d0d3d55328ba553d60f1a73747b" => :mojave
-    sha256 "009af174f99daedad8b319cef9668f07d7c513fa8a859a687ef731a3e2a1abf7" => :high_sierra
+    cellar :any
+    sha256 "2482ee0bd13df1eb97fb420443b9bdeb7926e625c83a96404791fdcd8ab99f56" => :catalina
+    sha256 "00f63203afc84abacd468d5a012fd308a8adbca29ba87b01a2a8d0ac2ac3ad91" => :mojave
+    sha256 "236aacd38e7edec5cace94942ccb31ba77f64a6b062dfa35585a5bb87a6206ec" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "xa" => :build
   depends_on "yasm" => :build
-  depends_on "autoconf" if build.head?
-  depends_on "automake" if build.head?
+  depends_on "autoconf"
+  depends_on "automake"
   depends_on "ffmpeg"
   depends_on "flac"
   depends_on "giflib"
@@ -44,11 +44,10 @@ class Vice < Formula
     if build.head?
       configure_flags << "--enable-native-gtk3ui"
     else
-      configure_flags << "--disable-bundle"
       configure_flags << "--enable-sdlui2"
     end
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *configure_flags
     system "make", "install"
   end

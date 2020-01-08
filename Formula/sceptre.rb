@@ -5,15 +5,16 @@ class Sceptre < Formula
   homepage "https://sceptre.cloudreach.com"
   url "https://github.com/cloudreach/sceptre/archive/v2.2.1.tar.gz"
   sha256 "86a2630d46f37adcd36b692e0788006777d130872d4de84a3e0ff36c29fa4dbe"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "403e7c2dad5e738d4c32319dbd5ed4e191a0a5751ad25b18a56c99fd850e9fca" => :catalina
-    sha256 "e968fdf0f2ca0918b7c3f7c5e198c7ce9613842ba7999c676e6729c64ba295e0" => :mojave
-    sha256 "445841f4807d0d76606a7dcc6fd90d279f9aca66f410e78c8be09ea838f970ae" => :high_sierra
+    sha256 "610a8004f3c4239f6e38fde562ebd96caec34a1f582f0420d75516750f08ae86" => :catalina
+    sha256 "abe14b4eb1021c936cc5d1c25a8c9fa820b5fd5d8ddcc53b4811302721a2ac34" => :mojave
+    sha256 "6685a772d3fc7b653586065bbe996f68f2b9a7a177affa18a86190cd742439e7" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/36/d0/271327b50232d2e746b7a17b265be857f2fd086d40653b93415fc32e2a4f/boto3-1.10.39.tar.gz"

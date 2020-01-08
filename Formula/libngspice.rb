@@ -1,14 +1,13 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/28/ngspice-28.tar.gz"
-  sha256 "94804fa78c8db2f90f088902e8c27f7b732a66767a58c70f37612bff5a16df66"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/31/ngspice-31.tar.gz"
+  sha256 "845f3b0c962e47ded051dfbc134c3c1e4ac925c9f0ce1cb3df64eb9b9da5c282"
 
   bottle do
-    sha256 "62d5c4b9ee7a4126e7dfb18b3fd762c6d4b7325283702b58646d640a1c1773ec" => :mojave
-    sha256 "ad14b322a63580cbee9940bb67546cce89d654072446cbb90bd75020f359e3f6" => :high_sierra
-    sha256 "bfae0f3f17b4f5493b1c3dab4f2ad45f33d276d9da2ebe44ec68c808d5204ffb" => :sierra
-    sha256 "81fa4c4a1da3fb720f921274fde37cdd540ffce16d6bec9c35bbae8399aa728c" => :el_capitan
+    sha256 "65990d8ecfe7fea7f7be728ac3783b2df7efd321e4b1fb4f50b9f5491fa47dc3" => :catalina
+    sha256 "b1693830a58945c577baa5bab6d97df12cc429409d938a5dae333c9a9059dcd8" => :mojave
+    sha256 "b44b359c37d2ce7c60bee9597e880cf5190e25c1145c4a92f93b9f7572ad9a1e" => :high_sierra
   end
 
   head do
@@ -23,9 +22,17 @@ class Libngspice < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--disable-debug",
-      "--disable-dependency-tracking", "--with-ngshared", "--enable-cider",
-      "--enable-xspice"
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-ngshared
+      --enable-cider
+      --enable-xspice
+    ]
+
+    system "./configure", *args
     system "make", "install"
   end
 

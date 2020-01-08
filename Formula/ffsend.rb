@@ -1,14 +1,14 @@
 class Ffsend < Formula
   desc "Fully featured Firefox Send client"
   homepage "https://gitlab.com/timvisee/ffsend"
-  url "https://github.com/timvisee/ffsend/archive/v0.2.57.tar.gz"
-  sha256 "fcf789cdd8d5abb746834e695aa323220b8c284f3f9cce3ceefc48167a63ac5f"
+  url "https://github.com/timvisee/ffsend/archive/v0.2.58.tar.gz"
+  sha256 "2a3f043205a72925bac4609390cfe0536f130face488e344d2f49a571d16b2df"
 
   bottle do
     cellar :any
-    sha256 "0b90ceb3197e202bfd133c263c364ed66f984e21d1e87c162eb0f3fd7047d687" => :catalina
-    sha256 "90683c978990aa9c1f1096cb299db258f7fcdc6ce3f33c536de6ca2a8d1dcdf6" => :mojave
-    sha256 "d89c379a5b5bd49cb57bd4d3c5e5fa4ad5e0d4e970dfbb3b0ea556a1e21a9219" => :high_sierra
+    sha256 "b30219c0350fab468f5e240889dabda09ef7920bac7d41a75fc9c7efb49dbc19" => :catalina
+    sha256 "910fe50ce65a6150ef953a1ff9e8fca8cad0bfc77efbf8f0991397d374d1dfca" => :mojave
+    sha256 "e4ac10d824640ddef3a173e5c89943b3838b4f49a2d23d1d6e2d01bdb2724f86" => :high_sierra
   end
 
   depends_on "rust" => :build

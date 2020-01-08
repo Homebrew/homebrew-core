@@ -115,8 +115,8 @@ class AnimeDownloader < Formula
 
   test do
     assert_match "anime, version 4.0.1", shell_output("#{bin}/anime --version")
-    system "sh", "-c", "echo 1 | #{bin}/anime watch -n Kaguya-sama --provider kissanime; echo 1 | #{bin}/anime watch -l | grep 0/12 > out"
-    assert_match "    1 | Kaguya-sama: Love is War            |    0/12  |", (testpath/"out").read
+    system "sh", "-c", "echo 1 | #{bin}/anime watch -n Kaguya-sama --provider twist.moe; echo 1 | #{bin}/anime watch -l | grep 0/12 > out"
+    assert_match "    1 | kaguya-sama-wa-kokurasetai-tensai-t |    0/12  |", (testpath/"out").read
     system "sh", "-c", "echo y | anime watch -r Kaguya-sama"
   end
 end

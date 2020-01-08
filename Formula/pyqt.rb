@@ -1,15 +1,14 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://www.riverbankcomputing.com/static/Downloads/PyQt5/5.13.2/PyQt5-5.13.2.tar.gz"
-  sha256 "adc17c077bf233987b8e43ada87d1e0deca9bd71a13e5fd5fc377482ed69c827"
+  url "https://files.pythonhosted.org/packages/7c/5b/e760ec4f868cb77cee45b4554bf15d3fe6972176e89c4e3faac941213694/PyQt5-5.14.0.tar.gz"
+  sha256 "0145a6b7de15756366decb736c349a0cb510d706c83fda5b8cd9e0557bc1da72"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c3e2354b324a380fee65658f87b22ec03bc3ac81538786d9148d0524de72cdac" => :catalina
-    sha256 "3400e6944a13f80b02bbd44f634aadd6caee0c00012ab0170f922d00fe2e758b" => :mojave
-    sha256 "7dbe8e7e69eeda102bae7cae9f6f1ccae9c73ea9662643df1534b66a9e8a70cc" => :high_sierra
+    sha256 "e2abbfd19a3b2e9c52f2c1c4fb84cc752f832b616a89c1138ab74cad96d95584" => :catalina
+    sha256 "5026dd96d99bb8866d2a2b3bf1bc55d66f9ddbd39e9180ee7c921481b49f39b9" => :mojave
+    sha256 "32f1de6e98558bbf79e31771cfa6bce4206bac12108f384324006c1a18209dfc" => :high_sierra
   end
 
   depends_on "python"
@@ -28,6 +27,7 @@ class Pyqt < Formula
             "--qmake=#{Formula["qt"].bin}/qmake",
             # Force deployment target to avoid libc++ issues
             "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+            "--designer-plugindir=#{pkgshare}/plugins",
             "--qml-plugindir=#{pkgshare}/plugins",
             "--verbose"]
 

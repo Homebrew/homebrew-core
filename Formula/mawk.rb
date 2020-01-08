@@ -1,15 +1,14 @@
 class Mawk < Formula
   desc "Interpreter for the AWK Programming Language"
   homepage "https://invisible-island.net/mawk/"
-  url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20190203.tgz"
-  sha256 "daacb314029185bbef86b0df5627ad8591378d420fc32236f99f15a9a8a6b840"
+  url "https://invisible-mirror.net/archives/mawk/mawk-1.3.4-20200106.tgz"
+  sha256 "f1e1240ba7626ffe920a8bd2d596864dde9f3fa7411db0165142041628b015b6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "87a7675f30db2ec57146c6e40150ef20d1cee3107a450019c731ddd356f07ad0" => :catalina
-    sha256 "990c18ba7b60182eca889c9765eaf3048d35e91b974b2cdfa8e614ae85435590" => :mojave
-    sha256 "dd7af444d67e691a9c80fe4192aa8ec2ebfb61b768e4836ab848e5799b6bcef0" => :high_sierra
-    sha256 "8cbc0e93a86f97c9227118cabdc7813e741e875d5e4841714504e0aeee22ee0a" => :sierra
+    sha256 "11528aabd4e0471c5bd2a58448a57d76ed03398a23e3aced31bc81d82e8e49f9" => :catalina
+    sha256 "1ff2343200bcedccef77ab9222888ab004883445966f7effd24a11272de04de6" => :mojave
+    sha256 "da08b49c94a33e016746d3695390aa77f31f01d71634ba7bd9d4de637dbc6a94" => :high_sierra
   end
 
   def install

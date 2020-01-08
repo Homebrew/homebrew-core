@@ -5,18 +5,19 @@ class AnsibleLint < Formula
   homepage "https://github.com/ansible/ansible-lint/"
   url "https://files.pythonhosted.org/packages/fc/e6/e3cf96cb73b1920584cdcc8579164a70b7e8aab276b198f2130a7939efcc/ansible-lint-4.2.0.tar.gz"
   sha256 "eb925d8682d70563ccb80e2aca7b3edf84fb0b768cea3edc6846aac7abdc414a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "76d681f7b9b7ed2cafd6127bc0efaddea2b0543e9a4c2c47cf396bf4fcf4c00a" => :catalina
-    sha256 "42386ad777899a8a08670e0a540ed6ac90f7acb31c93a17630fd90e458543d26" => :mojave
-    sha256 "352889cbc418f486b98b1b73e8c15c28a3ee344a5c0eb8a63714e7167b845288" => :high_sierra
+    sha256 "4bcb0e12b8186301c42be8fdbbedb50e26a5168324807cbc4223b71257f48472" => :catalina
+    sha256 "262b1e46d5b13ced6641be3eba16f31ce92219caaf89ee4ff0a5cb77fb19f3f6" => :mojave
+    sha256 "78465b1854e034eb68cea65f5b37b62e1b6ec07b2b45e8586c7d25039d35b39b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "ansible" do
     url "https://files.pythonhosted.org/packages/f3/0d/ee54843308769f2c78be849d9e9f65dc8d63781941dc880f68507aae33ba/ansible-2.9.2.tar.gz"

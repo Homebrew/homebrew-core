@@ -1,15 +1,15 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v1.8.0.tar.gz"
-  sha256 "af644d2555c3852513135e87dc6f9bc8b5ee789a4f1c151f4478d108fa007c49"
+  url "https://github.com/latex-lsp/texlab/archive/v1.9.0.tar.gz"
+  sha256 "7598add822e9932c5822e2af084267b2627ac68ebfff7a5000382e9f6226c930"
   head "https://github.com/latex-lsp/texlab.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b21e7ccb8ba6e2e714543d39e9b1c5dfaacf2fdc0fb5b523900464520762ac76" => :catalina
-    sha256 "8aaf1f88ec5f3c1a7dba5934cdf4ae3aaab5de0cc406039ba7af151ef146ca9a" => :mojave
-    sha256 "8ff6bc889d612a421272f23df4c813b4e1e9411bd88e97bc653a2c06841c87ae" => :high_sierra
+    sha256 "00873c7c9f05c736f8f8f449311d50951e88b846f3ef1f73f351546bfda67aa1" => :catalina
+    sha256 "be27218a856605bb68c949314388de8cd4d41e7bad34d6e937ac2dfcdfd83465" => :mojave
+    sha256 "113a8623c118bf0d370f8a49640a01dd6f4e82c9edc956a38097ce9fd63c0b95" => :high_sierra
   end
 
   depends_on "rust" => :build

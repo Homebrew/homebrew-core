@@ -5,15 +5,15 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20191114/git-annex-7.20191114.tar.gz"
-  sha256 "b53a48b6bf26d959af98a57865d461b7c9e4ea35f03a668d1d0ea0355eb1d9a9"
+  url "https://hackage.haskell.org/package/git-annex-7.20191230/git-annex-7.20191230.tar.gz"
+  sha256 "227c9e7dd7fdf32398a3edaec418550c96d3e55cb05f012566f38f1de1264df7"
   head "git://git-annex.branchable.com/"
 
   bottle do
     cellar :any
-    sha256 "2ada65e0aecdc5e8e3fd0c240c5f6021125d2dd2c20065e2fa23d859f3c19a40" => :catalina
-    sha256 "38ca8303ef65b5a769bd16e276d0ad781d7c2f525ac70e26a76771894048b8a2" => :mojave
-    sha256 "a92b6eaa265d4fe9224a1cc1a32f5fc14e86681dd85640e5bad7a4668600f5ac" => :high_sierra
+    sha256 "d8574cec7e255e94a1fd3a2a42b05b4aa3802c25ff9452a9454ad10d124a3bbb" => :catalina
+    sha256 "c5e4e1242efb274e7036984c08165b71016a4735a92c96c2189debc3814d4ba5" => :mojave
+    sha256 "405814f5c8b37d26bea3ad4947a0fbbd18ac4efa8038b09b5684a7a496162dea" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -25,10 +25,6 @@ class GitAnnex < Formula
   depends_on "xdot"
 
   def install
-    # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
-    # This is already resolved in aws 0.20 but we can't move to 0.20 until
-    # esqueleto 2.6.0 ships. See https://github.com/bitemyapp/esqueleto/issues/88
-    # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
     install_cabal_package "--constraint", "http-conduit>=2.3",
                           "--constraint", "network>=2.6.3.0",
                           :using => ["alex", "happy", "c2hs"],

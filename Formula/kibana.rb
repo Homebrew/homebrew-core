@@ -2,15 +2,15 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.8.3",
-      :revision => "c814843540abb9dedf0f89bddc61bee364527743"
+      :tag      => "v6.8.6",
+      :revision => "a174acf677e77d280e3cbbbd8ffb6eca6db80846"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8634e98d1d8ed79f691e7bf6faa4365741011f01d4be389b8ae00305baf67cd" => :mojave
-    sha256 "6e79191708e71fecf8d6a7c7757d45237af992e64fd0f15f16e1f124c61749be" => :high_sierra
-    sha256 "a4186dcb4f9a6e57614b0b7c03d297f845f91c6e1e914078c5d491750b43734b" => :sierra
+    sha256 "86aebac6fb40be11009a8d2be5e7904636b338159ae308abc472be375a9dcb45" => :catalina
+    sha256 "3149c24c2993d253b00876be56b1b44babeb9ecc96eb2bf55c0bc607641fa4b0" => :mojave
+    sha256 "8bcdc16b14a3f940f54384a42086e1e4af5d3f953734c7760131f275ceb32ee5" => :high_sierra
   end
 
   resource "node" do
@@ -19,12 +19,17 @@ class Kibana < Formula
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.16.0/yarn-v1.16.0.tar.gz"
-    sha256 "df202627d9a70cf09ef2fb11cb298cb619db1b958590959d6f6e571b50656029"
+    url "https://yarnpkg.com/downloads/1.21.1/yarn-v1.21.1.tar.gz"
+    sha256 "d1d9f4a0f16f5ed484e814afeb98f39b82d4728c6c8beaafb5abc99c02db6674"
   end
 
   def install
     resource("node").stage do
+      # Fixes detecting Apple clang 11. (this is the patch that's applied in the node@10 formula)
+      inreplace "configure.py" do |s|
+        s.gsub! 'cc, r"(^Apple LLVM version) ([0-9]+\.[0-9]+)")', 'cc, r"(^Apple (?:clang|LLVM) version) ([0-9]+\.[0-9]+)")'
+      end
+
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "install"
     end

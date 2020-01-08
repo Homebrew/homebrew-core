@@ -5,15 +5,16 @@ class Nbdime < Formula
   homepage "https://nbdime.readthedocs.io"
   url "https://files.pythonhosted.org/packages/1d/49/f173b8697f9868059739055c27f4263dcbcc2060669249b5e4d62765b3e5/nbdime-1.1.0.tar.gz"
   sha256 "80032f75d2a9a4b23bb1a0cd6411a68ced8c33b8a63d9ab7cfbb9c47ab3dde61"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a1e551db5a59c295b886182751879cfd93460a53fa4c0c8716cc4f107635194" => :catalina
-    sha256 "d0f0f80a7bdf536f0f64666164168d9f03a3cab28e2fecdd2a878cca24fec511" => :mojave
-    sha256 "87c8cd36eaa6632b2c35f27e210cfea8867da1cafb333f85c3afb73850495921" => :high_sierra
+    sha256 "76bd49bd43d155497fdff3f443add92f515ecc64551b9aedeae7e7ad215455ad" => :catalina
+    sha256 "10fa3c2b2837e1ce129b0a870ae4033f46518f1098df66a32ca41ba97c5a61be" => :mojave
+    sha256 "ed8ddb9629b85848a9d8c9732c8ee6858a47b2de38c1c8c13bd2d749180ab4f6" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"

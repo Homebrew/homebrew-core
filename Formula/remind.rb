@@ -1,14 +1,14 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-03.01.17.tar.gz"
-  sha256 "c955c196ffd368720fc4af91823f88d66a47be8d28736f279918ab64a460fe51"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-03.02.00.tar.gz"
+  sha256 "a52dbb033cb47a365689f0d03682ce11eff9c408f575cf69b17b763af4841204"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d1c2871766946e5341f0103b2880e887e5fe62612d8108ad45856a161434e42" => :catalina
-    sha256 "3e980511c004eb678cc24e9fa083501b470e7dd87dfee99cd4bf483a0de8ec2f" => :mojave
-    sha256 "f9c4efc40e72ee9b6b07cea755de607df275ab9fbb183620410e4f4e347af647" => :high_sierra
+    sha256 "e020d939de67a30ea416682bfcc22e0c0202f87696dbd98d234bbbc686ec69a6" => :catalina
+    sha256 "cbf0c4fe2faa65b2bba5bd2756d959911d6edc1b95ad0c5dcd7e4fabbc00c870" => :mojave
+    sha256 "6724e071cc10ef3616ae5e076f4b9dd3582ad6fba1bfdb77d5e984bde12a15ed" => :high_sierra
   end
 
   conflicts_with "rem", :because => "both install `rem` binaries"

@@ -2,16 +2,14 @@ class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
   url "https://github.com/bcicen/ctop.git",
-    :tag      => "v0.7.2",
-    :revision => "70bd2ae3a3476969cae3c7f921d38b130ceec648"
+    :tag      => "v0.7.3",
+    :revision => "4741b276e4bbaa41a67d62443239d50b5a936623"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ab60a890e27e6eeffb6a077af370f06f0881d0fd75e571439e52e37c3ee00061" => :catalina
-    sha256 "2e2f235137e94a3480bf54a0ef951665756736e38db7e0d61bee478e03d550ce" => :mojave
-    sha256 "6d86410f2860a8d05d15b4cb0ae22a940de3968d75209493b3988d0c456b0b34" => :high_sierra
-    sha256 "143755c7fee144254c6d3fa401a607aae977820acf199f954ff8cdfabf336235" => :sierra
+    sha256 "de0de48522c65a299d7d2a01b217eb0bfb591dd2606b3bccaa1ad3f8b8cbc485" => :catalina
+    sha256 "07b42bcc8980f46bcca3808292b44cf5175fa6ba22ae5af2426b93e882d63f4e" => :mojave
+    sha256 "d53ec344099ab1428ecbf13da5e970d0ea9567a4bfd355cc82c12047aba62de8" => :high_sierra
   end
 
   depends_on "go" => :build

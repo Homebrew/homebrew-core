@@ -1,17 +1,16 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/boost-1.71.0.tar.gz"
-  sha256 "236328d837d4c199c364a7f909070c86ce800b868336abb401a270bd247f9e6d"
+  url "https://github.com/boostorg/build/archive/boost-1.72.0.tar.gz"
+  sha256 "657d175aa59bcb307f75990fe2ae43793d30e40540c6d964b96ab5db3aa8629c"
   version_scheme 1
   head "https://github.com/boostorg/build.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64536e5359d5a44216dfe28da70acf494e0145711ecee4cb8f014ca0fd0be3fc" => :catalina
-    sha256 "38b1d0c754e3bdf870ee3eec5cd3ce5e1a6e00bef49053d75a91105b2e9311c9" => :mojave
-    sha256 "54d0198ed146c01582834fdf3c399382f599b9dd94632efe0d51c1739e204ba5" => :high_sierra
-    sha256 "ec8ed9608fe07c3f581bd3e67199449e80134a9f6bb718ab8e8105b3756364b1" => :sierra
+    sha256 "5b6a968f112d3cd808c4ed9186e4ee7f45fbf1adf19c188d65d782976c4f7bd0" => :catalina
+    sha256 "60041cac36e864d8c0296101f5ed5137f2c09413c0f054b87ed5c9ed1ad3e65e" => :mojave
+    sha256 "ea884fe791ba6b1b336d4bffdbba02414dbb746199c2748f0aefee845b7fbcd7" => :high_sierra
   end
 
   conflicts_with "b2-tools", :because => "both install `b2` binaries"
