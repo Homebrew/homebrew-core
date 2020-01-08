@@ -1,9 +1,9 @@
 class Kawa < Formula
   desc "Programming language for Java (implementation of Scheme)"
   homepage "https://www.gnu.org/software/kawa/"
-  url "https://ftp.gnu.org/gnu/kawa/kawa-3.0.zip"
-  mirror "https://ftpmirror.gnu.org/kawa/kawa-3.0.zip"
-  sha256 "63116eec4b2b2dd8fae0b30127639aa42ad7a7430c4970d3fd76b42a148e423c"
+  url "https://ftp.gnu.org/gnu/kawa/kawa-3.1.zip"
+  mirror "https://ftpmirror.gnu.org/kawa/kawa-3.1.zip"
+  sha256 "c4c3abb5d4f3eab526299150e073685f29e5416fa4f9b025e06d31ce17d1c739"
 
   bottle :unneeded
 
