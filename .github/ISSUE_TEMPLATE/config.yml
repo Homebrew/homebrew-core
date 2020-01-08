@@ -1,0 +1,15 @@
+blank_issues_enabled: false
+
+contact_links:
+- name: Get help on Discourse
+  url: https://discourse.brew.sh
+  about: Have a question? Not sure if your issue affects everyone reproducibly? The quickest way to get help is on Homebrew's Discourse!
+- name: New issue on Homebrew/brew
+  url: https://github.com/Homebrew/brew/issues/new/choose
+  about: Having a `brew` problem that's not from a `brew install` or `brew upgrade` of a single formula/package? Report it to Homebrew/brew (the Homebrew package manager).
+- name: New issue on Homebrew/homebrew-cask
+  url: https://github.com/Homebrew/homebrew-cask/issues/new/choose
+  about: Having a `brew cask` problem? Report it to Homebrew/homebrew-cask (the cask tap/repository)
+- name: New issue on Homebrew/linuxbrew-core
+  url: https://github.com/Homebrew/linuxbrew-core/issues/new/choose
+  about: On Linux? Having a `brew` problem with a `brew install` or `brew upgrade` of a single formula/package? Report it to Homebrew/linuxbrew-core (the Linux core tap/repository).
