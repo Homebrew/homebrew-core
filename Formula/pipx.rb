@@ -3,6 +3,7 @@ class Pipx < Formula
   homepage "https://github.com/pipxproject/pipx"
   url "https://files.pythonhosted.org/packages/67/87/7f1547c4e8430ad3a6ca815f66e666651f91ad26e91d99d797a09f2b8991/pipx-0.15.1.1.tar.gz"
   sha256 "4b56b878899bf26917a945c316d52c71a8a99131c192f8396e9e971b431b8dd7"
+  revision 1
   head "https://github.com/pipxproject/pipx.git"
 
   bottle do
@@ -46,6 +47,7 @@ class Pipx < Formula
 
     system "python3", *Language::Python.setup_install_args(libexec)
     (bin/"pipx").write_env_script(libexec/"bin/pipx", :PYTHONPATH => ENV["PYTHONPATH"])
+    (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
