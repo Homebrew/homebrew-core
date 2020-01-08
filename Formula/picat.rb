@@ -1,9 +1,9 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat26_src.tar.gz"
-  version "2.6.2"
-  sha256 "eb70cf7b1796812e9398077156abd7b4558130cb913ee9186f3625869184c651"
+  url "http://picat-lang.org/download/picat28_src.tar.gz"
+  version "2.8"
+  sha256 "79d8ffe8570856db40b0358688b268ca3ee5f1c0fe5fa90cc7260d411ef29e0a"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,8 @@ class Picat < Formula
   end
 
   def install
-    # Hardcode in Makefile issue is reported to upstream in the official Google Groups
-    # https://groups.google.com/d/msg/picat-lang/0kZYUJKgnkY/3Vig5X1NCAAJ
-    inreplace "emu/Makefile.picat.mac64", "/usr/local/bin/gcc", "gcc"
-    system "make", "-C", "emu", "-f", "Makefile.picat.mac64"
-
-    bin.install "emu/picat_macx" => "picat"
+    system "make", "-C", "emu", "-f", "Makefile.mac64"
+    bin.install "emu/picat" => "picat"
     prefix.install "lib" => "pi_lib"
     doc.install Dir["doc/*"]
     pkgshare.install "exs"
