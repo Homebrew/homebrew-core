@@ -8,6 +8,6 @@ class Mp < Formula
     bin.install "mp"
   end
   test do
-    assert_match "3.2.13", shell_output("#{bin}/mp --version", 2)
+    assert_match "3.2.13", shell_output("#{bin}/mp --version")
   end
 end
