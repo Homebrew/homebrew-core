@@ -10,7 +10,7 @@ class Plank < Formula
     sha256 "e676ae9da3fa8f472c0747a9fb993a6957c2cccceee34d9564e839d0eca59a06" => :high_sierra
   end
 
-  depends_on :xcode => ["10.1", :build]
+  depends_on :xcode => ["11.3", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
