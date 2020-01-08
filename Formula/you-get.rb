@@ -5,6 +5,7 @@ class YouGet < Formula
   homepage "https://you-get.org/"
   url "https://github.com/soimort/you-get/archive/v0.4.1388.tar.gz"
   sha256 "17bbb545efbd0898fe48311df33d6288049dcae5f4a2132da70a1072f019b96b"
+  revision 1
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
@@ -14,7 +15,7 @@ class YouGet < Formula
     sha256 "4ab0eec8eb3928ad5b784cd8ea53b8c20d028139b2fc839e064fa694595e9f7a" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "rtmpdump"
 
   def install
