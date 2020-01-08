@@ -5,6 +5,7 @@ class Yamllint < Formula
   homepage "https://github.com/adrienverge/yamllint"
   url "https://github.com/adrienverge/yamllint/archive/v1.20.0.tar.gz"
   sha256 "6391bfd0f3d360a418fef54c6ccf77615c25b2b62c54fb770c07823471016b18"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,11 +15,11 @@ class Yamllint < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
-    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
+    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
+    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
   end
 
   resource "pathspec" do
