@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.2.0-src.tar.bz2"
-  sha256 "55cb7757784fbe3952102447f65b27d80e6c885a464a7af1a9ce264492439dcc"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.0-src.tar.bz2"
+  sha256 "b0b25c7f8938ab0fedd8dedf26b9e73c490913b002b484c1b2f19d5844a518de"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
@@ -23,14 +23,14 @@ class Pypy < Formula
   depends_on "tcl-tk"
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-osx64.tar.bz2"
-    version "7.1.1"
-    sha256 "31a17294dec96c2191885c776b4ee02112957dc874f7ba03e570537a77b78c35"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.0-osx64.tar.bz2"
+    version "7.3.0"
+    sha256 "ca7b056b243a6221ad04fa7fc8696e36a2fb858396999dcaa31dbbae53c54474"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/11/0a/7f13ef5cd932a107cd4c0f3ebc9d831d9b78e1a0e8c98a098ca17b1d7d97/setuptools-41.6.0.zip"
-    sha256 "6afa61b391dcd16cb8890ec9f66cc4015a8a31a6e1c2b4e0c464514be1a3d722"
+    url "https://files.pythonhosted.org/packages/b0/f3/44da7482ac6da3f36f68e253cb04de37365b3dba9036a3c70773b778b485/setuptools-44.0.0.zip"
+    sha256 "e5baf7723e5bb8382fc146e33032b241efc63314211a3a120aaa55d62d2bb008"
   end
 
   resource "pip" do
