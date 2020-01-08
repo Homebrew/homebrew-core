@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v3.7.0.tar.gz"
-  sha256 "3aab23ea372cd3dbbb68a45fef2232b39ab668aebda5e19dd0ed47e254913d63"
+  url "https://github.com/r-darwish/topgrade/archive/v3.7.1.tar.gz"
+  sha256 "2f75d3315ac925d0735836ddee251446f78366060e801202cecd8ad76fe1ea08"
 
   bottle do
     cellar :any_skip_relocation
