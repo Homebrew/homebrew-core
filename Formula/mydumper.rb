@@ -1,9 +1,8 @@
 class Mydumper < Formula
   desc "How MySQL DBA & support engineer would imagine 'mysqldump' ;-)"
   homepage "https://launchpad.net/mydumper"
-  url "https://launchpad.net/mydumper/0.9/0.9.1/+download/mydumper-0.9.1.tar.gz"
-  sha256 "aefab5dc4192acb043d685b6bb952c87557fbea5e083b8547c68ccfec878171f"
-  revision 3
+  url "https://github.com/maxbube/mydumper/archive/v0.9.5.tar.gz"
+  sha256 "544d434b13ec192976d596d9a7977f46b330f5ae3370f066dbe680c1a4697eb6"
 
   bottle do
     cellar :any
@@ -43,8 +42,8 @@ __END__
  )
 
  set(TMP_MYSQL_LIBRARIES "")
--set(CMAKE_FIND_LIBRARY_SUFFIXES .so .a .lib)
-+set(CMAKE_FIND_LIBRARY_SUFFIXES .so .lib .dylib)
+-set(CMAKE_FIND_LIBRARY_SUFFIXES .so .a .lib .so.1)
++set(CMAKE_FIND_LIBRARY_SUFFIXES .so .lib .dylib .so.1)
  foreach(MY_LIB ${MYSQL_ADD_LIBRARIES})
      find_library("MYSQL_LIBRARIES_${MY_LIB}" NAMES ${MY_LIB}
          HINTS
