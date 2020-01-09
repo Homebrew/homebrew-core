@@ -1,9 +1,9 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.28.1/deno_src.tar.gz"
-  version "0.28.1"
-  sha256 "6b48749fc14de0262171e6cbf968363a3307e5b0c5aaf6ca55196d6c1a151a25"
+  url "https://github.com/denoland/deno/releases/download/v0.29.0/deno_src.tar.gz"
+  version "0.29.0"
+  sha256 "e61d961b5b6a05ecc50205e856b122da223216f28f3156bc26ad6aef9e54e0c2"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +20,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "152c5144ceed9592c20f0c8fd55769646077569b"
+      :revision => "a5bcbd726ac7bd342ca6ee3e3a006478fd1f00b5"
   end
 
   def install
@@ -32,21 +32,14 @@ class Deno < Formula
     end
 
     # env args for building a release build with our clang, ninja and gn
-    ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
-    ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
-    args = %W[
-      clang_use_chrome_plugins=false
-      mac_deployment_target="#{MacOS.version}"
-      treat_warnings_as_errors=false
-    ]
+    ENV["GN"] = buildpath/"gn/out/gn"
     if DevelopmentTools.clang_build_version < 1100
       # build with llvm and link against system libc++ (no runtime dep)
-      args << "clang_base_path=\"#{Formula["llvm"].prefix}\""
+      ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
       ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     else # build with system clang
-      args << "clang_base_path=\"/usr/\""
+      ENV["CLANG_BASE_PATH"] = "/usr/"
     end
-    ENV["DENO_BUILD_ARGS"] = args.join(" ")
 
     cd "cli" do
       system "cargo", "install", "-vv", "--locked", "--root", prefix, "--path", "."
@@ -65,5 +58,7 @@ class Deno < Formula
     EOS
     hello = shell_output("#{bin}/deno run hello.ts")
     assert_includes hello, "hello deno"
+    cat = shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts -- #{testpath}/hello.ts")
+    assert_includes cat, "console.log"
   end
 end
