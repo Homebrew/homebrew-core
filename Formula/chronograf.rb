@@ -3,8 +3,8 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.7.14.tar.gz"
-  sha256 "245479b691e2ad484717778562ce9e0c21b1d769e7d748335d1c5f41cd677d4c"
+  url "https://github.com/influxdata/chronograf/archive/1.7.17.tar.gz"
+  sha256 "dd5e3e29f3df793cb5325c5e68e1bfcef0db90f34c212aec23068fafa0a553d8"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Chronograf < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
   depends_on "influxdb"
@@ -74,7 +75,7 @@ class Chronograf < Formula
     pid = fork do
       exec "#{bin}/chronograf"
     end
-    sleep 3
+    sleep 10
     output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
     sleep 1
     assert_match %r{/chronograf/v1/layouts}, output
