@@ -1,8 +1,8 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/a7/5c/495190b8c7cc71977c3d3fafe788d99d43eeb4740ac56856095df6a23fbd/scipy-1.3.3.tar.gz"
-  sha256 "64bf4e8ae0db2d42b58477817f648d81e77f0b381d0ea4427385bba3f959380a"
+  url "https://files.pythonhosted.org/packages/04/ab/e2eb3e3f90b9363040a3d885ccc5c79fe20c5b8a3caa8fe3bf47ff653260/scipy-1.4.1.tar.gz"
+  sha256 "dee1bbf3a6c8f73b6b218cb28eed8dd13347ea2f87d572ce19b289d6fd3fbc59"
   head "https://github.com/scipy/scipy.git"
 
   bottle do
@@ -16,6 +16,7 @@ class Scipy < Formula
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"
+  depends_on "pybind11"
   depends_on "python"
 
   cxxstdlib_check :skip
