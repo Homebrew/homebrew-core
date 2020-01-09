@@ -2,9 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag      => "v0.740",
-      :revision => "0662772b5a6b9029da0cf4aec857b9b1e34057a9"
-  revision 1
+      :tag      => "v0.761",
+      :revision => "f53b718bdf5935443332a43d8c1b448af8b80b57"
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -18,8 +17,8 @@ class Mypy < Formula
   depends_on "python"
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/1c/ca/5b8c1fe032a458c2c4bcbe509d1401dca9dda35c7fc46b36bb81c2834740/psutil-5.6.3.tar.gz"
-    sha256 "863a85c1c0a5103a12c05a35e59d336e1d665747e531256e061213e2e90f63f3"
+    url "https://files.pythonhosted.org/packages/73/93/4f8213fbe66fc20cb904f35e6e04e20b47b85bee39845cc66a0bcf5ccdcb/psutil-5.6.7.tar.gz"
+    sha256 "ffad8eb2ac614518bbe3c0b8eb9dffdb3a8d2e3a7d5da51c5b974fb723a5c5aa"
   end
 
   resource "sphinx_rtd_theme" do
@@ -33,13 +32,13 @@ class Mypy < Formula
   end
 
   resource "mypy_extensions" do
-    url "https://files.pythonhosted.org/packages/c2/92/3cc05d1206237d54db7b2565a58080a909445330b4f90a6436302a49f0f8/mypy_extensions-0.4.1.tar.gz"
-    sha256 "37e0e956f41369209a3d5f34580150bcacfabaa57b33a15c0b25f4b5725e0812"
+    url "https://files.pythonhosted.org/packages/63/60/0582ce2eaced55f65a4406fc97beba256de4b7a95a0034c6576458c6519f/mypy_extensions-0.4.3.tar.gz"
+    sha256 "2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"
   end
 
   resource "typing_extensions" do
-    url "https://files.pythonhosted.org/packages/59/b6/21774b993eec6e797fbc49e53830df823b69a3cb62f94d36dfb497a0b65a/typing_extensions-3.7.4.tar.gz"
-    sha256 "2ed632b30bb54fc3941c382decfd0ee4148f5c591651c9272473fea2c6397d95"
+    url "https://files.pythonhosted.org/packages/e7/dd/f1713bc6638cc3a6a23735eff6ee09393b44b96176d3296693ada272a80b/typing_extensions-3.7.4.1.tar.gz"
+    sha256 "091ecc894d5e908ac75209f10d5b4f118fbdb2eb1ede6a63544054bb1edb41f2"
   end
 
   def install
