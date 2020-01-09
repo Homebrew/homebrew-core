@@ -1,8 +1,11 @@
 class Streamlink < Formula
+  include Language::Python::Virtualenv
+
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
   url "https://github.com/streamlink/streamlink/releases/download/1.3.0/streamlink-1.3.0.tar.gz"
   sha256 "00649658b74c76022a04564919431e4d6156d974caf56f25cd52a07fa5732315"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,11 +14,11 @@ class Streamlink < Formula
     sha256 "20c4824b8a9e3abfca0122fa33693aa4b7d7794f8aa8f9c06797b55f49a61135" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
-    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
+    url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
+    sha256 "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
   end
 
   resource "chardet" do
@@ -34,8 +37,8 @@ class Streamlink < Formula
   end
 
   resource "iso3166" do
-    url "https://files.pythonhosted.org/packages/0e/ae/0b4ee6f5f3f197b1508f21044f8b18508bc04dd4bc1be98d57d7c720330f/iso3166-1.0.tar.gz"
-    sha256 "eaad12d1c5fb9394dc423a13b8084973960a7b392677039ce6fd932aa4a74bab"
+    url "https://files.pythonhosted.org/packages/5b/62/b0f573e5d9ea128084f2440924e95f4e54690ccee9d974b5bf345e5f8540/iso3166-1.0.1.tar.gz"
+    sha256 "b1e58dbcf50fbb2c9c418ec7a6057f0cdb30b8f822ac852f72e71ba769dae8c5"
   end
 
   resource "isodate" do
@@ -74,19 +77,7 @@ class Streamlink < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
