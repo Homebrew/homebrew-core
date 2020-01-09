@@ -1,8 +1,11 @@
 class Howdoi < Formula
+  include Language::Python::Virtualenv
+
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
   url "https://files.pythonhosted.org/packages/03/db/c9b5bb64adac16b0feab7924fb1134ce88bc38f7af4e74aca27c48de26df/howdoi-1.2.1.tar.gz"
   sha256 "3b322668606d29d8a841c3b28c0574851f512b55c33a7ceb982b6a98d82fa3e3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +14,7 @@ class Howdoi < Formula
     sha256 "3238cfd27c96ebd69e74b0549e119a83f463dfe52b762b32bf34b72d6566ce1d" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
@@ -65,11 +68,6 @@ class Howdoi < Formula
     sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
-  resource "requests-cache" do
-    url "https://files.pythonhosted.org/packages/0c/d4/bdc22aad6979ceeea2638297f213108aeb5e25c7b103fa02e4acbe43992e/requests-cache-0.5.2.tar.gz"
-    sha256 "813023269686045f8e01e2289cc1e7e9ae5ab22ddd1e2849a9093ab3ab7270eb"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
     sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
@@ -79,19 +77,7 @@ class Howdoi < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
