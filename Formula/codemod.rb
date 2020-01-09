@@ -1,9 +1,11 @@
 class Codemod < Formula
+  include Language::Python::Virtualenv
+
   desc "Large-scale codebase refactors assistant tool"
   homepage "https://github.com/facebook/codemod"
   url "https://files.pythonhosted.org/packages/9b/e3/cb31bfcf14f976060ea7b7f34135ebc796cde65eba923f6a0c4b71f15cc2/codemod-1.0.0.tar.gz"
   sha256 "06e8c75f2b45210dd8270e30a6a88ae464b39abd6d0cab58a3d7bfd1c094e588"
-  revision 1
+  revision 2
   version_scheme 1
   head "https://github.com/facebook/codemod.git"
 
@@ -15,14 +17,10 @@ class Codemod < Formula
     sha256 "cbf4fa912e1a717b55992756b44d10e7eb8640cc541d255625cecb0e65c41377" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
