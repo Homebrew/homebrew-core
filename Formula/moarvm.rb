@@ -3,6 +3,7 @@ class Moarvm < Formula
   homepage "https://moarvm.org"
   url "https://github.com/MoarVM/MoarVM/releases/download/2019.07.1/MoarVM-2019.07.1.tar.gz"
   sha256 "253c945ee6b589ede6949b8e77814542befcbc326190e18ef549634db4955988"
+  revision 1
 
   bottle do
     sha256 "2f1c4e9b79eea7f66a0b1ca420e105d5c89d387b7b5240d70627018832e15139" => :mojave
