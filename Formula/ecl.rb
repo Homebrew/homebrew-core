@@ -3,7 +3,7 @@ class Ecl < Formula
   homepage "https://common-lisp.net/project/ecl/"
   url "https://common-lisp.net/project/ecl/static/files/release/ecl-16.1.3.tgz"
   sha256 "76a585c616e8fa83a6b7209325a309da5bc0ca68e0658f396f49955638111254"
-  revision 3
+  revision 4
   head "https://gitlab.com/embeddable-common-lisp/ecl.git"
 
   bottle do
