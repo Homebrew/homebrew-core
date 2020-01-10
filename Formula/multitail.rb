@@ -1,8 +1,8 @@
 class Multitail < Formula
   desc "Tail multiple files in one terminal simultaneously"
   homepage "https://vanheusden.com/multitail/"
-  url "https://vanheusden.com/multitail/multitail-6.4.2.tgz"
-  sha256 "af1d5458a78ad3b747c5eeb135b19bdca281ce414cefdc6ea0cff6d913caa1fd"
+  url "https://vanheusden.com/multitail/multitail-6.5.0.tgz"
+  sha256 "b29d5e77dfc663c7500f78da67de5d82d35d9417a4741a89a18ce9ee7bdba9ed"
   head "https://github.com/flok99/multitail.git"
 
   bottle do
@@ -13,6 +13,9 @@ class Multitail < Formula
     sha256 "ec1007a1ab7ffc9394f25d1a838d54051c04c14667721e8db9f49803084f6dcc" => :sierra
     sha256 "b9c5e200dab1bf30ef4bd9bb257d5728c6779552aab97a1ddc65d02ad697cd8f" => :el_capitan
   end
+
+  depends_on "pkg-config" => :build
+  depends_on "ncurses"
 
   def install
     system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
