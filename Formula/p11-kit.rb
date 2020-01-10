@@ -3,6 +3,7 @@ class P11Kit < Formula
   homepage "https://p11-glue.freedesktop.org"
   url "https://github.com/p11-glue/p11-kit/releases/download/0.23.19/p11-kit-0.23.19.tar.xz"
   sha256 "91936e1cee62cd022b9d093dbe6b121dec0977a3a16ae9a6ccaa21468b23f1f0"
+  revision 1
 
   bottle do
     sha256 "8cb6adb07849a57acc64fa88ed13951b91c1fb7e4386a28e653733e5f238bc4e" => :catalina
