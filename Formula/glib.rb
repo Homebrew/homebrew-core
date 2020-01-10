@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.62/glib-2.62.4.tar.xz"
   sha256 "4c84030d77fa9712135dfa8036ad663925655ae95b1d19399b6200e869925bbc"
+  revision 1
 
   bottle do
     sha256 "d5f0419ecc444b4d7b2e830d9ba880886fc683fcdcbbf2d0b791cdef51b67b07" => :catalina
