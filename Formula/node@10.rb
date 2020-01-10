@@ -1,8 +1,8 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.18.0/node-v10.18.0.tar.gz"
-  sha256 "f9c8785c5d5ba0e5412dada04a89ab3fe32531423c47232217aad79757a769e7"
+  url "https://nodejs.org/dist/v10.18.1/node-v10.18.1.tar.gz"
+  sha256 "80a61ffbe6d156458ed54120eb0e9fff7b626502e0986e861d91b365f7e876db"
 
   bottle do
     cellar :any
@@ -16,12 +16,6 @@ class NodeAT10 < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   uses_from_macos "python@2" => :build
-
-  # Fixes detecting Apple clang 11.
-  patch do
-    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
-    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
-  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"
