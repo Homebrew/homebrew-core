@@ -1,8 +1,8 @@
 class Mrboom < Formula
   desc "Eight player Bomberman clone"
   homepage "http://mrboom.mumblecore.org/"
-  url "https://github.com/Javanaise/mrboom-libretro/archive/4.8.tar.gz"
-  sha256 "ca41016ced65840d364556ba7477f1d1af2d5b72c98dd1bdf406bea75ad28b71"
+  url "https://github.com/Javanaise/mrboom-libretro/archive/4.9.tar.gz"
+  sha256 "062cf1f91364d2d6ea717e92304ca163cfba5d14b30bb440ee118d1b8e10328d"
 
   bottle do
     cellar :any
@@ -17,6 +17,12 @@ class Mrboom < Formula
   depends_on "minizip"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  # fix Makefile issue, remove in next release
+  patch do
+    url "https://github.com/Javanaise/mrboom-libretro/commit/c777f1059c9a4b3fcefe6e2a19cfe9f81a13740b.diff?full_index=1"
+    sha256 "19f469ccde5f1a9bc45fa440fd4cbfd294947f17b191f299822db17de66a5a23"
+  end
 
   def install
     system "make", "mrboom", "LIBSDL2=1"
