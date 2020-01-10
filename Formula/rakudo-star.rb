@@ -3,6 +3,7 @@ class RakudoStar < Formula
   homepage "https://rakudo.org/"
   url "https://rakudostar.com/files/star/rakudo-star-2019.03.tar.gz"
   sha256 "640a69de3a2b4f6c49e75a01040e8770de3650ea1d5bb61057e3dfa3c79cc008"
+  revision 1
 
   bottle do
     sha256 "2dccbb7e92453c8c41cb3716344b52a9f620f434940fd583c6e9b0a6f20ce23d" => :catalina
