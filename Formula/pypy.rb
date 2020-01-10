@@ -3,6 +3,7 @@ class Pypy < Formula
   homepage "https://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.0-src.tar.bz2"
   sha256 "b0b25c7f8938ab0fedd8dedf26b9e73c490913b002b484c1b2f19d5844a518de"
+  revision 1
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
