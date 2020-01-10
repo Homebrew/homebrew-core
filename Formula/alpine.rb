@@ -4,7 +4,7 @@ class Alpine < Formula
   url "https://ftp.osuosl.org/pub/blfs/conglomeration/alpine/alpine-2.21.tar.xz"
   mirror "https://fossies.org/linux/misc/alpine-2.21.tar.xz"
   sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "73d6ba0c5623c94d2434fbb7d64e232faff22ad4a2d0352f32bcf6e1c2b33d5b" => :catalina
@@ -23,7 +23,6 @@ class Alpine < Formula
       --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
       --with-ssl-certs-dir=#{etc}/openssl@1.1
       --prefix=#{prefix}
-      --with-passfile=.pine-passfile
     ]
 
     system "./configure", *args
