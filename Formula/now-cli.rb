@@ -24,8 +24,8 @@ class NowCli < Formula
   end
 
   test do
-    system "#{bin}/now", "init", "markdown"
-    assert_predicate testpath/"markdown/now.json", :exist?, "now.json must exist"
-    assert_predicate testpath/"markdown/README.md", :exist?, "README.md must exist"
+    system "#{bin}/now", "init", "jekyll"
+    assert_predicate testpath/"jekyll/_config.yml", :exist?, "_config.yml must exist"
+    assert_predicate testpath/"jekyll/README.md", :exist?, "README.md must exist"
   end
 end
