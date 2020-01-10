@@ -1,8 +1,8 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.xz"
-  sha256 "565036cf7f140139c3033f0934b72e1885ac7e881994b7919e15d7bee3f8ac4e"
+  url "https://mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.xz"
+  sha256 "6fe78184bd5208f9595e4d7f92bc8df50af30fbe8e2c1298b581c84945f2f5da"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -12,6 +12,9 @@ class MupdfTools < Formula
     sha256 "bca11e9d9e1e2fefbf2aecfdabe5152aa9d2ac0a026690fa9f63fdc7a480f002" => :mojave
     sha256 "34787901ceaf810b88d553a40f2307a4255056ada19323f8d742e87727bfb33d" => :high_sierra
   end
+
+  conflicts_with "mupdf",
+    :because => "mupdf and mupdf-tools install the same binaries."
 
   def install
     # Work around Xcode 11 clang bug
@@ -31,6 +34,6 @@ class MupdfTools < Formula
   end
 
   test do
-    assert_match "Homebrew test", shell_output("#{bin}/mutool draw -F txt #{test_fixtures("test.pdf")}")
+    assert_match "Homebrew test", shell_output("#{bin}/mudraw -F txt #{test_fixtures("test.pdf")}")
   end
 end
