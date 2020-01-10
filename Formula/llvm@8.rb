@@ -3,7 +3,7 @@ class LlvmAT8 < Formula
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
