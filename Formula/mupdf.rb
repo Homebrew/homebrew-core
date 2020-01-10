@@ -1,9 +1,8 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.xz"
-  sha256 "565036cf7f140139c3033f0934b72e1885ac7e881994b7919e15d7bee3f8ac4e"
-  revision 1
+  url "https://mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.xz"
+  sha256 "6fe78184bd5208f9595e4d7f92bc8df50af30fbe8e2c1298b581c84945f2f5da"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -14,7 +13,6 @@ class Mupdf < Formula
     sha256 "e4d59258d07575e2d4e6c041bb6ace980891cdbd08b8238849d721c9c6ec2195" => :high_sierra
   end
 
-  depends_on "openssl@1.1"
   depends_on :x11
 
   conflicts_with "mupdf-tools",
