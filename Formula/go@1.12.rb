@@ -1,9 +1,9 @@
 class GoAT112 < Formula
   desc "Go programming environment (1.12)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.12.14.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.12.14.src.tar.gz"
-  sha256 "39dbf05f7e2ffcb19b08f07d53dcc96feadeb1987fef9e279e7ff0c598213064"
+  url "https://dl.google.com/go/go1.12.15.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.12.15.src.tar.gz"
+  sha256 "8aba74417e527524ad5724e6e6c21016795d1017692db76d1b0851c6bdec84c3"
 
   bottle do
     sha256 "c60db01a6810400103380418d7ae2b6838e7393a500bef9bcec160137b9ff34a" => :catalina
