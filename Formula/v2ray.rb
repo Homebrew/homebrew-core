@@ -1,12 +1,10 @@
 class V2ray < Formula
   desc "Project V provide a unified platform for anti-censorship"
   homepage "https://github.com/v2ray/v2ray-core"
-  version "4.22.1"
-  url "https://github.com/v2ray/v2ray-core/archive/v#{version}.tar.gz"
+  url "https://github.com/v2ray/v2ray-core/archive/v4.22.1.tar.gz"
   sha256 "31c1934eeac3552c7ab68eac9dc3e964e05f3c743b3733b0b6a0159c495019d6"
 
   depends_on "go" => :build
-  depends_on "geoip"
 
   resource "geosite" do
     url "https://github.com/v2ray/domain-list-community/releases/download/202001070832/dlc.dat"
@@ -70,9 +68,6 @@ class V2ray < Formula
   end
 
   test do
-    require "open3"
-    Open3.popen3("#{bin}/v2ray", "-test -config #{etc}/v2ray/config.json") do |_, stdout, _|
-      assert_equal "result", stdout.read
-    end
+    assert_match "OK", shell_output("env V2RAY_LOCATION_ASSET=#{etc}/v2ray #{bin}/v2ray -test -config #{etc}/v2ray/config.json")
   end
 end
