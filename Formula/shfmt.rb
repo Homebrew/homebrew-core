@@ -3,6 +3,7 @@ class Shfmt < Formula
   homepage "https://github.com/mvdan/sh"
   url "https://github.com/mvdan/sh/archive/v3.0.1.tar.gz"
   sha256 "4cca3d8a40e5132a4764a3bf7bcf335288ebff8a4a74e130f9359605e6f07544"
+  revision 1
   head "https://github.com/mvdan/sh.git"
 
   bottle do
@@ -18,10 +19,12 @@ class Shfmt < Formula
     ENV["CGO_ENABLED"] = "0"
     (buildpath/"src/mvdan.cc").mkpath
     ln_sf buildpath, buildpath/"src/mvdan.cc/sh"
-    system "go", "build", "-a", "-tags", "production brew", "-ldflags", "-w -s -extldflags '-static'", "-o", "#{bin}/shfmt", "mvdan.cc/sh/cmd/shfmt"
+    system "go", "build", "-a", "-tags", "production brew", "-ldflags", "-w -s -extldflags '-static'", "-o", "#{bin}/shfmt", "./cmd/shfmt"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/shfmt  --version")
+
     (testpath/"test").write "\t\techo foo"
     system "#{bin}/shfmt", testpath/"test"
   end
