@@ -3,6 +3,7 @@ class NodeAT12 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v12.14.1/node-v12.14.1.tar.gz"
   sha256 "42a7f0777fea8825611cb9250ff927824dba4f7aea854b47d522798acf4bdbc6"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,12 +15,12 @@ class NodeAT12 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "icu4c"
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
