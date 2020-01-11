@@ -6,8 +6,6 @@ class TomeeWebprofile < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
-
   def install
     # Remove Windows scripts
     rm_rf Dir["bin/*.bat"]
@@ -17,11 +15,7 @@ class TomeeWebprofile < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    libexec.install_symlink "#{libexec}/bin/startup.sh" => "tomee-webprofile-startup"
-    env = Language::Java.java_home_env("1.8")
-    env[:JRE_HOME] = "$(#{Language::Java.java_home_cmd("1.8")})"
-    (bin/"tomee-webprofile-startup").write_env_script libexec/"tomee-webprofile-startup", env
-    (bin/"tomee-webprofile-configtest").write_env_script libexec/"bin/configtest.sh", env
+    bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-webprofile-startup"
   end
 
   def caveats; <<~EOS
@@ -33,6 +27,6 @@ class TomeeWebprofile < Formula
   end
 
   test do
-    system "#{bin}/tomee-webprofile-configtest"
+    system "#{opt_libexec}/bin/configtest.sh"
   end
 end
