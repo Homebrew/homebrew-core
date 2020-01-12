@@ -1,8 +1,8 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://www.veripool.org/ftp/verilator-4.024.tgz"
-  sha256 "dab91beaa85293564cf0a931f847f7a6cd4ff30b0c11edd1957a9ab1db57b25a"
+  url "https://www.veripool.org/ftp/verilator-4.026.tgz"
+  sha256 "6afb8ab04ab4e29e36f4b4cb04bb2c711e0af11843e41028ee1ea0d31eef9fac"
 
   bottle do
     sha256 "7b75bff1f5796bfddae139d2fef7df2912f236e8f08b73f102e51ddb6d72434d" => :catalina
