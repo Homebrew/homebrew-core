@@ -1,8 +1,8 @@
 class MdaLv2 < Formula
   desc "LV2 port of the MDA plugins"
   homepage "https://drobilla.net/software/mda-lv2/"
-  url "https://download.drobilla.net/mda-lv2-1.2.2.tar.bz2"
-  sha256 "a476c31ed9f8b009ebacc32a02d06ba9584c0d0d03f03dd62b1354d10a030442"
+  url "https://download.drobilla.net/mda-lv2-1.2.4.tar.bz2"
+  sha256 "a81a00e19594881174526cd6ee7a3e301236e0ca25191982f5c9af5eb8d96ca8"
 
   bottle do
     cellar :any
@@ -22,6 +22,6 @@ class MdaLv2 < Formula
   def install
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
-    system "./waf", "install"
+    system "./waf", "install", "--destdir=#{prefix}"
   end
 end
