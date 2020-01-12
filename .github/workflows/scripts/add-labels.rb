@@ -5,7 +5,9 @@ client = Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"])
 repo = ENV["GITHUB_REPOSITORY"]
 pr_number = ENV["GITHUB_REF"].split("/")[2]
 
-pr_files = client.pull_request_files(repo, pr_number)
+pr_files = client.pull_request_files(repo, pr_number).select do |file|
+  file[:filename].start_with?("Formula")
+end
 
 pr_labels = {
   no_bottles: 0
