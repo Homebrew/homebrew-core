@@ -24,6 +24,4 @@ end
 if pr_files.count == pr_labels[:no_bottles]
   puts "Adding the 'no-bottles' label."
   client.add_labels_to_an_issue(repo, pr_number, ["no-bottles"])
-else
-  puts "Not labelling this PR as there's a mixture of bottled and unbottled formulae."
 end
