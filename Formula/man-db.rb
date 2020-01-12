@@ -1,9 +1,8 @@
 class ManDb < Formula
   desc "Unix documentation system"
-  homepage "http://man-db.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.5.tar.xz"
-  sha256 "b64d52747534f1fe873b2876eb7f01319985309d5d7da319d2bc52ba1e73f6c1"
-  revision 1
+  homepage "https://www.nongnu.org/man-db/"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.9.0.tar.xz"
+  sha256 "5d4aacd9e8876d6a3203a889860c3524c293c38f04111a3350deab8a6cd3e261"
 
   bottle do
     sha256 "7020922156beba59a49ce7d858f370d6fb1884ed2debaf8c57a09b4c37096a14" => :catalina
@@ -15,8 +14,8 @@ class ManDb < Formula
   depends_on "pkg-config" => :build
 
   resource "libpipeline" do
-    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.1.tar.gz"
-    sha256 "d633706b7d845f08b42bc66ddbe845d57e726bf89298e2cee29f09577e2f902f"
+    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.2.tar.gz"
+    sha256 "fd59c649c1ae9d67604d1644f116ad4d297eaa66f838e3dfab96b41e85b059fb"
   end
 
   def install
@@ -43,18 +42,7 @@ class ManDb < Formula
       --program-prefix=g
     ]
 
-    # NB: Remove once man-db 2.8.6 is released
-    # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=b74c839eaa5000a18d1c396e995eca85b0e9464b
-    args += %w[
-      --without-systemdtmpfilesdir
-      --without-systemdsystemunitdir
-    ]
-
     system "./configure", *args
-
-    # NB: Remove once man-db 2.8.6 is released
-    # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=056e8c7c012b00261133259d6438ff8303a8c36c
-    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress"
 
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"
