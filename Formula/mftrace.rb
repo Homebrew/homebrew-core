@@ -1,10 +1,8 @@
 class Mftrace < Formula
   desc "Trace TeX bitmap font to PFA, PFB, or TTF font"
   homepage "http://lilypond.org/mftrace/"
-  url "http://lilypond.org/downloads/sources/mftrace/mftrace-1.2.19.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.19.tar.gz"
-  sha256 "778126f4220aa31fc91fa8baafd26aaf8be9c5e8fed5c0e92a61de04d32bbdb5"
-  revision 2
+  url "http://lilypond.org/downloads/sources/mftrace/mftrace-1.2.20.tar.gz"
+  sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
 
   bottle do
     cellar :any_skip_relocation
