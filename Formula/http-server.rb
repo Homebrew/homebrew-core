@@ -2,10 +2,10 @@ require "language/node"
 
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
-  homepage "https://github.com/indexzero/http-server"
+  homepage "https://github.com/http-party/http-server"
   url "https://registry.npmjs.org/http-server/-/http-server-0.12.1.tgz"
   sha256 "9d8ef9f4bd6fb76f4399e3fe725ab06a6a683bb82ec5799d6521fdcaa2c0def0"
-  head "https://github.com/indexzero/http-server.git"
+  head "https://github.com/http-party/http-server.git"
 
   bottle do
     cellar :any_skip_relocation
