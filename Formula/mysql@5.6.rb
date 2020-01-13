@@ -1,9 +1,8 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.46.tar.gz"
-  sha256 "12e1fbabf2086e6175359767ca89fa8a58f9274fcad40434aa6a56e582d65f49"
-  revision 2
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.47.tar.gz"
+  sha256 "0919096705784c62af831bb607e99345083edd76967c8c65966728742a9127fe"
 
   bottle do
     sha256 "a3145660591369afee1c641ddcf42826b77782547fd85e54974d894e0e23e72f" => :catalina
@@ -29,34 +28,35 @@ class MysqlAT56 < Formula
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
-      -DMYSQL_DATADIR=#{datadir}
-      -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MANDIR=share/man
-      -DINSTALL_DOCDIR=share/doc/#{name}
-      -DINSTALL_INFODIR=share/info
-      -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=yes
+      -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
+      -DINSTALL_DOCDIR=share/doc/#{name}
+      -DINSTALL_INCLUDEDIR=include/mysql
+      -DINSTALL_INFODIR=share/info
+      -DINSTALL_MANDIR=share/man
+      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
+      -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
       -DWITH_EMBEDDED_SERVER=ON
       -DWITH_ARCHIVE_STORAGE_ENGINE=1
       -DWITH_BLACKHOLE_STORAGE_ENGINE=1
       -DENABLED_LOCAL_INFILE=1
-      -DWITH_INNODB_MEMCACHED=1
+      -DWITH_INNODB_MEMCACHED=ON
     ]
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
-    # We don't want to keep a 240MB+ folder around most users won't need.
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
+
+    # Remove the tests directory
     rm_rf prefix/"mysql-test"
 
     # Don't create databases inside of the prefix!
@@ -66,10 +66,10 @@ class MysqlAT56 < Formula
     # Link the setup script into bin
     bin.install_symlink prefix/"scripts/mysql_install_db"
 
-    # Fix up the control script and link into bin
+    # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",
-              /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"
-
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mysqlaccess"
