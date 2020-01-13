@@ -14,7 +14,7 @@ class Md < Formula
     sha256 "979e6070affecebf0bcddb24075a3e059c5e4880da1666bb3dc96608f5d7148a" => :yosemite
     sha256 "5faf5907b69c2a53c9bbbcfcb908d24c222181490b69116e09102212382be5ea" => :mavericks
   end
-
+https://thoitrangquanaogiaydeptuixachquangchau.business.site/?utm_source=gmb&utm_medium=referral
   def install
     cd "md" do
       system ENV.cc, ENV.cflags, "-o", "md", "md.c"
