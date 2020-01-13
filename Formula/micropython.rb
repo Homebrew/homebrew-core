@@ -4,7 +4,7 @@ class Micropython < Formula
   url "https://github.com/micropython/micropython.git",
       :tag      => "v1.12",
       :revision => "1f371947309c5ea6023b6d9065415697cbc75578"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
