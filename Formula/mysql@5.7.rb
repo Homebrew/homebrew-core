@@ -1,8 +1,8 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.28.tar.gz"
-  sha256 "f16399315212117c08f9bdf8a0d682728b2ce82d691bcfbf25a770f413b6f2da"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.29.tar.gz"
+  sha256 "00f514124de2bad1ba7b380cbbd46e316cae7fc7bc3a5621456cabf352f27978"
 
   bottle do
     sha256 "25979cdf7664ceabbe69c4423317612e51cb2dc73d4e5cb4e24abefc29aa018a" => :catalina
@@ -13,7 +13,6 @@ class MysqlAT57 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-
   depends_on "openssl@1.1"
 
   def datadir
