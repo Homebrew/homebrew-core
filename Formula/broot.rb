@@ -1,8 +1,8 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.11.7.tar.gz"
-  sha256 "3698beeb8e8b0f586dabba666c58f64503b7de470f3ebe1fd769d86a8cd73372"
+  url "https://github.com/Canop/broot/archive/v0.11.8.tar.gz"
+  sha256 "e4cde6b6e8096337609144458b0777580241c2eee7700521802ecc8dd01130c6"
   head "https://github.com/Canop/broot.git"
 
   bottle do
@@ -24,8 +24,8 @@ class Broot < Formula
     assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
 
     (testpath/"test.exp").write <<~EOS
-      spawn #{bin}/broot --cmd :pt --no-style --out #{testpath}/output.txt #{testpath}/root
-      send "Y\r"
+      spawn #{bin}/broot --cmd :pt --no-style --out #{testpath}/output.txt
+      send "n\r"
       expect {
         timeout { exit 1 }
         eof
