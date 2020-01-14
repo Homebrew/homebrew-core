@@ -1,8 +1,8 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.11.2.tar.gz"
-  sha256 "d2c18601b364c35b5acb0a0b46cd6e14cae456e0eb854e5c789cf65f3cd6a2a7"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz"
+  sha256 "56f5afaa0ddc256791c405719b6436a83b92dcd5be37fe860dea103aee8250a2"
 
   bottle do
     sha256 "239d0fd91972dfae7429806a40f286deecaa7e4ce960c7aa7ccecc6e99fe97c0" => :catalina
