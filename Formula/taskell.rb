@@ -5,8 +5,8 @@ class Taskell < Formula
 
   desc "Command-line Kanban board/task manager with support for Trello"
   homepage "https://taskell.app"
-  url "https://github.com/smallhadroncollider/taskell/archive/1.9.0.tar.gz"
-  sha256 "6b9fe5e411ebda99bc07cbd3ff49be450eacab13afcddfa2e7665957edeaf9a9"
+  url "https://github.com/smallhadroncollider/taskell/archive/1.9.1.tar.gz"
+  sha256 "0c0d3e69390a6da10bf9050b03ac1319eb960e6afb25db39b4e33e33440f7db4"
 
   bottle do
     cellar :any_skip_relocation
