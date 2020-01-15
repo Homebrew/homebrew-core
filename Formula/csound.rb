@@ -7,21 +7,22 @@ class Csound < Formula
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
-    sha256 "bc1ee99a636b4bd41f5908437f28dd0d29c5b17a0bdb8738d0abcc46177775a8" => :mojave
-    sha256 "034fad8c4492004feed3e8517ea02800095baa484a781786224d79aeb16b1920" => :high_sierra
-    sha256 "3183ded30b94c6a53a31797973ea11e3a79f376a599b0b30910b4d5d80cd9eb8" => :sierra
+    rebuild 1
+    sha256 "be17285fc4fa7d1fcf75ff43a2c998299ba6470c2075be81ff68764304b13a08" => :catalina
+    sha256 "b6c050245d5983ea1671b3b9e1e2a36a37cff06f4fcccb6dd975ce512751470e" => :mojave
+    sha256 "1459367a87cd664a30be991be416a57cdc01348411e936438b1b43eed8d6bb82" => :high_sierra
   end
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
-  depends_on "python" => [:build, :test]
   depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
   depends_on "hdf5"
   depends_on "jack"
   depends_on "liblo"
+  depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
@@ -56,7 +57,7 @@ class Csound < Formula
       -DBUILD_PYTHON_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
-      -DCS_FRAMEWORK_DEST:PATH=#{frameworks}
+      -DCS_FRAMEWORK_DEST=#{frameworks}
       -DGMM_INCLUDE_DIR=#{buildpath}/gmm
     ]
 
@@ -65,9 +66,9 @@ class Csound < Formula
       system "make", "install"
     end
 
-    include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
+    include.install_symlink frameworks/"CsoundLib64.framework/Headers" => "csound"
 
-    libexec.install "#{buildpath}/interfaces/ctcsound.py"
+    libexec.install buildpath/"interfaces/ctcsound.py"
 
     python_version = Language::Python.major_minor_version "python3"
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
@@ -77,7 +78,7 @@ class Csound < Formula
 
   def caveats; <<~EOS
     To use the Python bindings, you may need to add to #{shell_profile}:
-      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_prefix}/Frameworks"
+      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
   EOS
   end
 
@@ -88,6 +89,7 @@ class Csound < Formula
       gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
       gi_fluidEngineNumber fluidEngine
+      gi_image imagecreate 1, 1
       gi_realVector la_i_vr_create 1
       pyinit
       pyruni "print('hello, world')"
@@ -104,31 +106,28 @@ class Csound < Formula
       e
     EOS
 
-    ENV["OPCODE6DIR64"] = "#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64"
-    ENV["RAWWAVE_PATH"] = "#{HOMEBREW_PREFIX}/share/stk/rawwaves"
+    ENV["OPCODE6DIR64"] = frameworks/"CsoundLib64.framework/Resources/Opcodes64"
+    ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
 
-    require "open3"
-    stdout, stderr, status = Open3.capture3("#{bin}/csound test.orc test.sco")
-
-    assert status.success?
-    assert_equal "hello, world\n", stdout
-    assert_match /^rtaudio:/, stderr
-    assert_match /^rtmidi:/, stderr
+    output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
+    assert_match /^hello, world\n/, output
+    assert_match /^rtaudio:/, output
+    assert_match /^rtmidi:/, output
 
     assert_predicate testpath/"test.aif", :exist?
     assert_predicate testpath/"test.h5", :exist?
 
     (testpath/"jacko.orc").write "JackoInfo"
-    system "#{bin}/csound", "--orc", "--syntax-check-only", "jacko.orc"
+    system bin/"csound", "--orc", "--syntax-check-only", "jacko.orc"
 
     (testpath/"wii.orc").write <<~EOS
       instr 1
           i_success wiiconnect 1, 1
       endin
     EOS
-    system "#{bin}/csound", "wii.orc", "test.sco"
+    system bin/"csound", "wii.orc", "test.sco"
 
-    ENV["DYLD_FRAMEWORK_PATH"] = "#{opt_prefix}/Frameworks"
+    ENV["DYLD_FRAMEWORK_PATH"] = frameworks
     system "python3", "-c", "import ctcsound"
   end
 end

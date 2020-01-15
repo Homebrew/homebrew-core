@@ -7,21 +7,16 @@ class Jump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f9f29b875a419a764877e8fa3b4c3afaae42e136ceda0d56d3e61911fb7d3166" => :catalina
-    sha256 "125750ca3597f9d628b2fc988c492a5c77e3bbacb18580905d9169c24688049c" => :mojave
-    sha256 "03cbd33d75d0928fb0ff6141b4460b76cd288864831147e0b323d0f767d26477" => :high_sierra
-    sha256 "e890b010358194bc27f6f6c32d3671e928e8465b93a03f96195308ba7f639c47" => :sierra
+    rebuild 1
+    sha256 "953aefe18f668dd77d0dfdfb8a068a5b9df541a923b619fc886efa3a812bf883" => :catalina
+    sha256 "8f278ac52e247254c19a2a7a3a5c3ae1972c61266600080b4c47b3dfc118066a" => :mojave
+    sha256 "05b7f315b38908f1f936ccfae5fcb026294c0daaaafbd9c6cda885ca43b3b9eb" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/gsamokovarov").mkpath
-    ln_s buildpath, buildpath/"src/github.com/gsamokovarov/jump"
-
-    ENV["GO111MODULE"] = "off"
-    system "go", "build", "-o", "#{bin}/jump"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", "#{bin}/jump"
     man1.install "man/jump.1"
     man1.install "man/j.1"
   end

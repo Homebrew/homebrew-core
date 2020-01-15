@@ -3,17 +3,18 @@ class NumpyAT116 < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/d3/4b/f9f4b96c0b1ba43d28a5bdc4b64f0b9d3fbcf31313a51bc766942866a7c7/numpy-1.16.4.zip"
   sha256 "7242be12a58fec245ee9734e625964b97cf7e3f2f7d016603f9e56660ce479c7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7a6e4d2862b296c4dbdce11618396ff5c13da4aa84e4747fcf0a07efff508ad7" => :catalina
-    sha256 "1efacb12d68f80b3bb431f3ccf0ee161c096b29253b2777a0ed407f38f966342" => :mojave
-    sha256 "8f4597ef83483db4104b5172f5312f5ce946826fb6bd5eceeb0d2ec156526774" => :high_sierra
+    sha256 "6c80a9d89e01c944f4142c95f7239d796c9e0a4915c395e99a30d8b221c89280" => :catalina
+    sha256 "eae10fb059b9246e2e106572c0534b33fe5848380b945fb2afe90600b0dc5cb1" => :mojave
+    sha256 "d7713fb06785ea6dc8ff901858b7c5155f4ca5624d4c5d380b58c1f254ac6268" => :high_sierra
   end
 
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
-  depends_on "python@2"
+  uses_from_macos "python@2"
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
@@ -39,22 +40,22 @@ class NumpyAT116 < Formula
 
     Pathname("site.cfg").write config
 
-    version = Language::Python.major_minor_version "python2"
+    version = Language::Python.major_minor_version "python"
     dest_path = lib/"python#{version}/site-packages"
     dest_path.mkpath
 
     nose_path = libexec/"nose/lib/python#{version}/site-packages"
     resource("nose").stage do
-      system "python2", *Language::Python.setup_install_args(libexec/"nose")
+      system "python", *Language::Python.setup_install_args(libexec/"nose")
       (dest_path/"homebrew-numpy-nose.pth").write "#{nose_path}\n"
     end
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
     resource("Cython").stage do
-      system "python2", *Language::Python.setup_install_args(buildpath/"tools")
+      system "python", *Language::Python.setup_install_args(buildpath/"tools")
     end
 
-    system "python2", "setup.py",
+    system "python", "setup.py",
       "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}",
       "install", "--prefix=#{prefix}",
       "--single-version-externally-managed", "--record=installed.txt"
@@ -63,7 +64,7 @@ class NumpyAT116 < Formula
   end
 
   test do
-    system "python2", "-c", <<~EOS
+    system "python", "-c", <<~EOS
       import numpy as np
       t = np.ones((3,3), int)
       assert t.sum() == 9

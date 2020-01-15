@@ -14,6 +14,8 @@ class Sratoolkit < Formula
 
   depends_on "hdf5"
   depends_on "libmagic"
+  uses_from_macos "libxml2"
+  uses_from_macos "perl"
 
   resource "ngs-sdk" do
     url "https://github.com/ncbi/ngs/archive/2.10.0.tar.gz"

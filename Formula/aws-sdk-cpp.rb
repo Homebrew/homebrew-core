@@ -2,15 +2,14 @@ class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-sdk-cpp/archive/1.7.220.tar.gz"
-  sha256 "dc552094c20f0328af5b4b3d48d18581eba4e1225d82b3648aebcf08f2093bbf"
+  url "https://github.com/aws/aws-sdk-cpp/archive/1.7.250.tar.gz"
+  sha256 "5aa14947c45f66a63eca0a5667117f23d0b5cf4ddb1b82c63d51e692e833cb4d"
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
-    cellar :any
-    sha256 "fc2131ef665c09f2b26ccede0f86b379b46a359c8886f070be28c4cb2e53b47b" => :catalina
-    sha256 "beff941d5aa881944550a8221ab9efad1d642ea63116baaa3582b875edc263c8" => :mojave
-    sha256 "d137b2274b648a5d5983cab49d8fc587e15f28f23d35fcb3a63658fdf6869444" => :high_sierra
+    sha256 "c85840e349d21d415e8008b3974a150617acd01f501d69e57b07890a6cbfbbfa" => :catalina
+    sha256 "e10b2ba552debdf5c45ea0d7d5032b83b3d79cecad231c59caeb40735b188846" => :mojave
+    sha256 "6b00ecdf0e94cfe05d9b941ed5105d59e7f4435ab1712c0644d7f9c53a6b8eb3" => :high_sierra
   end
 
   depends_on "cmake" => :build

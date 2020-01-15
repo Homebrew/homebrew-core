@@ -1,29 +1,32 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.12.0/node-v12.12.0.tar.gz"
-  sha256 "6ce681625c09bc2b2b5757165580e648579e4bc7bce5e246fa6339270eec8bde"
+  url "https://nodejs.org/dist/v13.6.0/node-v13.6.0.tar.gz"
+  sha256 "c1db19b4cf23b3903ac3048dad44a05397a63854b2a159fedc454eb15650369a"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "9838182b0d60364c5339b1c114d238544e3206232762060c299072ecf62feefa" => :catalina
-    sha256 "eb0c3475ab27846d730168a2d2d63eb1802254203c34141cf3ae22f65801228d" => :mojave
-    sha256 "0f35e88be5a84c808dba472d053af25639b300c095392f63e85d9ae94cf12b20" => :high_sierra
+    sha256 "3e1ec20ae11174c74c4f704b2ea9cf75d11e535a25822015aab5436803a66287" => :catalina
+    sha256 "bc3727f6f1b1f079b53a19c26c985a066a1525feffa2d2594a5626618f3bac6e" => :mojave
+    sha256 "bb130c28909677feaeb29232a521dbd15fcdfc171e807e82fb7b419073f75e37" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.11.3.tgz"
-    sha256 "9e1dbf6a2642df2cef11e68fdc20e29e4ee04bd7c9459fef914cae4bdc587f18"
+    url "https://registry.npmjs.org/npm/-/npm-6.13.4.tgz"
+    sha256 "a063290bd5fa06a8753de14169b7b243750432f42d01213fbd699e6b85916de7"
   end
 
   def install
+    # make sure subprocesses spawned by make are using our Python 3
+    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm --with-intl=system-icu]

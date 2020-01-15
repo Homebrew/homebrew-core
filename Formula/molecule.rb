@@ -5,18 +5,17 @@ class Molecule < Formula
   homepage "https://molecule.readthedocs.io"
   url "https://files.pythonhosted.org/packages/8d/51/a691f91a829e0be54c8d898ece232c723936faa408496e8ac87f32846bea/molecule-2.20.1.tar.gz"
   sha256 "621797c54299775f284bbb010d5bb9be485500eecaaa14a476cbc0df285d0da7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "e3af5eb1fd3e7e69ce4612c9552410eddb82cf2b8ff2dc324329a8016d246ea1" => :catalina
-    sha256 "36eb8654b8479a100715cd5bf772490052ee63dc7f30e0fe04f4b820882c2f97" => :mojave
-    sha256 "4d5fba10ff0e501b86c9e3ec54d25c835ef98c2ea80cd80248c99d1b805ef076" => :high_sierra
-    sha256 "a71f424f9bf9b714ec4aa047ed12deb076314b9cd109f60f0c1b9e9ccca06562" => :sierra
+    sha256 "879e48bce381671cf7a72e88f4cfa8b9f837b1306333a889d4ef0e68ed2b24d9" => :catalina
+    sha256 "b366b86278aef1b3864693715251a703b7c147f199d66a44b91f87a96796d3de" => :mojave
+    sha256 "8cca9a1a17d59754c5bd9796b171029199beb0681d2eb9816d421cf59f937e96" => :high_sierra
   end
 
   depends_on "openssl@1.1"
-  depends_on "python@2"
+  uses_from_macos "python@2" # Does not support Python 3
 
   # Collect requirements from:
   #  molecule
@@ -294,7 +293,6 @@ class Molecule < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
     virtualenv_install_with_resources
   end
 

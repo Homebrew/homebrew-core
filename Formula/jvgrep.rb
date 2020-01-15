@@ -7,23 +7,17 @@ class Jvgrep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0406af870ba8a0856f55f84959c482f3233c4bf14034a1365f5e56bdbd1e8a4b" => :catalina
-    sha256 "a80b912749b52c3468dc0a4d292dd08468ac3dc7e3f3e333f1e2ed86427ae3d1" => :mojave
-    sha256 "b077a43b04365d028da6bdbd7876c8d21be347dfc3afb6f1dd9a5a1a4efe92da" => :high_sierra
+    rebuild 1
+    sha256 "e3185aabdad286cf8e9879a2ba383c55c65daa00cd6b3579f94b0cf42240cd51" => :catalina
+    sha256 "e3185aabdad286cf8e9879a2ba383c55c65daa00cd6b3579f94b0cf42240cd51" => :mojave
+    sha256 "e3185aabdad286cf8e9879a2ba383c55c65daa00cd6b3579f94b0cf42240cd51" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/mattn/jvgrep"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"jvgrep"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jvgrep"
+    prefix.install_metafiles
   end
 
   test do

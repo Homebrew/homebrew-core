@@ -3,15 +3,14 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
-  revision 2
+  revision 4
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a35a50b9b0ad50c3e71a741c1ff21bfba5ea4e888886753285d48a0e378c971a" => :catalina
-    sha256 "20bbd4c2c55b7e235786030deb15a22bea1847c8557f69967c241681a3c685e8" => :mojave
-    sha256 "89500fa5621132bccfb09ab3cfc67ce6975700833c778bde1afdd8911c715b1a" => :high_sierra
+    sha256 "fe3624f935fb3e4f485092fd488b79a9d9ab984dc7c0bc5dd50da611c9c329c7" => :catalina
+    sha256 "5995a22204083377bcd6ea49f1514cde44c6de113c7df15cfd890462ece24699" => :mojave
+    sha256 "1f45d8b3f426977b1f9f8622fcce23c326ef98ecef16604e7569c2e9655b4b0d" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]

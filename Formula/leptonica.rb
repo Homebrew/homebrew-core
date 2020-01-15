@@ -1,16 +1,14 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "http://www.leptonica.org/source/leptonica-1.78.0.tar.gz"
-  sha256 "e2ed2e81e7a22ddf45d2c05f0bc8b9ae7450545d995bfe28517ba408d14a5a88"
+  url "http://www.leptonica.org/source/leptonica-1.79.0.tar.gz"
+  sha256 "045966c9c5d60ebded314a9931007a56d9d2f7a6ac39cb5cc077c816f62300d8"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9941fc91bf580e0118af3781faaeb303e888465057fa5cf4184025e9342c04a8" => :catalina
-    sha256 "e986663412d5f3e2e731766c6b90eaf586f343067787602e9a11361d998b4d24" => :mojave
-    sha256 "9d07766fb8cb612838f4bc85801a106b7ba07b76bef30b68d5935aa9485076e4" => :high_sierra
-    sha256 "5200d6f0a132a730aa552c128f8a9abd076f34568a70dc6bea7b042d2fa7b037" => :sierra
+    sha256 "2e53934abea2e776f9b532f4ea9d56c12e0bbbd83a54f56aa74de3393450dc11" => :catalina
+    sha256 "29985739b8eb8fdc9e927bfe95f5ed63c0f11a48f693b8af0210efce4b5d7742" => :mojave
+    sha256 "715a73dfeab21b60423385a51a400e815857742c4902b4d875083a50bc971354" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

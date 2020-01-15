@@ -1,13 +1,13 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-5.0.0.tar.gz"
-  sha256 "6a3dcc427196927a5cdefd32c290fa352d6405e9bb6d3fe12c71f47d31d98a63"
+  url "https://www.openinfosecfoundation.org/download/suricata-5.0.1.tar.gz"
+  sha256 "90073666225c43b4127be83946ca4dab9eddb8885c2dfe8cd8004e08a8058b0c"
 
   bottle do
-    sha256 "bb6b21d3beb37cfa2ceaf5f524daf6bd5a8f48c8a2f3203f2bab9a203424aa0f" => :catalina
-    sha256 "2d5a85985c0bba470ab19fcb85516983c455f6515966b7f2320d4e75dd7e89cc" => :mojave
-    sha256 "a5251c6b0ac12117237d04252339ef60886bc5e038052310bb4b917e8864d778" => :high_sierra
+    sha256 "6b716162347e716d436699717519e5720a5797b5975cd6586deaa769d329ffcc" => :catalina
+    sha256 "3b0fd80ac5e85f93b25059a371324a799aa476f2a84ecb543db89a60b85fcb6d" => :mojave
+    sha256 "1da6b1e94986331627d18aee15605254b449a1447732649635cbc023bd475363" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -28,13 +28,13 @@ class Suricata < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
-    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
+    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/e3/24/c35fb1c1c315fc0fffe61ea00d3f88e85469004713dab488dee4f35b0aff/simplejson-3.16.0.tar.gz"
-    sha256 "b1f329139ba647a9548aa05fb95d046b4a677643070dc2afc05fa2e975d09ca5"
+    url "https://files.pythonhosted.org/packages/98/87/a7b98aa9256c8843f92878966dc3d8d914c14aad97e2c5ce4798d5743e07/simplejson-3.17.0.tar.gz"
+    sha256 "2b4b2b738b3b99819a17feaf118265d0753d5536049ea570b3c43b51c4701e81"
   end
 
   def install

@@ -6,10 +6,10 @@ class Eventql < Formula
 
   bottle do
     cellar :any
-    sha256 "d405964fc6f05815c58bbd92c0c3354f63d851b56cafd441ccdc4cf731baed4f" => :high_sierra
-    sha256 "d1675cdb38f322f561295746f1631c89754bd99600472baf13848d6efdc04866" => :sierra
-    sha256 "b4e4529266dab7d570531a569e558ca5f3d29de79e6f3a401cdfd347b59eaa68" => :el_capitan
-    sha256 "de93e092a5e3f158e2a6b1d34a1016abb2d1988701c2dac3c9012d395559ce81" => :yosemite
+    rebuild 1
+    sha256 "f14adb77f2c1a4ab8ca08a55a14884e5f87058e10895bf3558e7e5b5df6329f6" => :catalina
+    sha256 "b6f264a76ce93195c2de6708d497c59dcb7192da13038247a33b3fd7aae5ce9a" => :mojave
+    sha256 "9f0440ead195557859530cfb429c82cea72b3ad7caf3dbb6e149b5959890ad4e" => :high_sierra
   end
 
   head do
@@ -21,6 +21,9 @@ class Eventql < Formula
   end
 
   def install
+    # SpiderMonkey sets the deployment target to 10.6, kicking in libstdc++ mode
+    # which no longer has headers as of Xcode 10.
+    ENV["_MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     # the internal libzookeeper fails to build if we don't deparallelize
     # https://github.com/eventql/eventql/issues/180
     ENV.deparallelize

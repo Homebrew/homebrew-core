@@ -8,9 +8,10 @@ class Neko < Formula
 
   bottle do
     cellar :any
-    sha256 "aedc2d1e4ac68af356e4d3d6e1bde0553b737e5734a227dfe2134645d363b788" => :catalina
-    sha256 "7a499e2421564e1b752f658ffd8af89cbd91dd4418fa6b68390a7f55652f7420" => :mojave
-    sha256 "29be87f25d471ad2961b3bcd526eaccd618fa050cab5d3c6e29aaa2953df1178" => :high_sierra
+    rebuild 1
+    sha256 "85b136ca63c944258f90bb2c429e0d698f26c1f18e4061b775f8499ec5dc5bf7" => :catalina
+    sha256 "9fa6b1793f214b603e14a557521d22f7fabb1fea0a4794f2272269791431f744" => :mojave
+    sha256 "0a3ce8e9c8caaa2cd0d3e32f7fd43d68f17240de051222f8c0090e2b2e4ce161" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -24,7 +25,7 @@ class Neko < Formula
   def install
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
-    # mysql, and mysql-connector-c.
+    # mysql, and mysql-client.
     system "cmake", ".", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
            "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
     system "ninja", "install"

@@ -37,6 +37,8 @@ jobs:
 
           if ! git diff --exit-code HEAD -- _data/analytics _data/formula api/formula formula cask; then
             git commit -m "formula: update from ${GITHUB_REPOSITORY} push" _data/analytics _data/formula api/formula formula
+            git fetch
+            git rebase origin/master
             git push
           fi
         env:

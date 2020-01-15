@@ -6,9 +6,10 @@ class Pdal < Formula
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
-    sha256 "b6b38e62c87b28985bba32abbd61c5fcc8d0fa2bd5cd2aabbbbca0debabd3256" => :catalina
-    sha256 "76d2630b0fd6351c6ddd900c9946d48d2162ee10d516aae7f99367e8c2620daf" => :mojave
-    sha256 "00ea9635ce86ebb1783ecf798ebc85e35928594e596408471a8181ef894d86fe" => :high_sierra
+    rebuild 1
+    sha256 "cd83816acd8f7f4328f7e327eb33fda0d40dece97255a40415fc1f3c19539e52" => :catalina
+    sha256 "deb26dd7d9f1fff59e075aa2e290bc6b8ce5a9852838a232f2954e77ef220907" => :mojave
+    sha256 "f2865ee1f77d01b1f5b62b24ef4f3a4aeb4db2cdab9cbd0b315c3d9666fd8b31" => :high_sierra
   end
 
   depends_on "cmake" => :build

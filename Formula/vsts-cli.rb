@@ -5,16 +5,16 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
   sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe8bf52da2dfd3a475c035183a3fb2587b7ab255a598aa3bf30ffd5ab8cff6e6" => :catalina
-    sha256 "55cd1a1328f4d3f85d4f7319b8cc1eaa6bfb2c528922f7707e5156649a54c997" => :mojave
-    sha256 "0ab4def28bd633cdbd4d82158db3eb7f105e91091c2740cf37a6f84d065a0c69" => :high_sierra
-    sha256 "cffcc18b4f1785c13c9599de7f829df864fa319ee614383b1652526a17ea87a3" => :sierra
+    sha256 "fff87d43f92ff97b5e094754215674a31a359f6f5420d18a67d9f173d69cba56" => :catalina
+    sha256 "f9a79bfd88a3b20cfc74c657341ecce3b10c0ef10f1c6c46bc9434cfd46d829c" => :mojave
+    sha256 "1e128e9095734bbd8e8b673ebe132e5e8657436aa30427b5421ce968e3a4b441" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/3c/21/9741e5e5e63245a8cdafb32ffc738bff6e7ef6253b65953e77933e56ce88/argcomplete-1.9.4.tar.gz"
@@ -124,11 +124,6 @@ class VstsCli < Formula
   resource "vsts" do
     url "https://files.pythonhosted.org/packages/e7/37/d8725833efba01d234aabda5a0c2ffb6c369dd3286bca265dfbbe7a51250/vsts-0.1.20.tar.gz"
     sha256 "1ece70729d616029f7fd1859524ee6b7d95ff07403af7bb4f963322ad28005f8"
-  end
-
-  resource "vsts-cli" do
-    url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
-    sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
   end
 
   resource "vsts-cli-admin" do

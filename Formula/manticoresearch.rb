@@ -3,12 +3,13 @@ class Manticoresearch < Formula
   homepage "https://www.manticoresearch.com"
   url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.2.0/manticore-3.2.0-191017-e526a01-release.tar.gz"
   sha256 "df6dbcc4df01065fc3cc6328f043b8cef3eb403a28671455cd3c8fc4217e3391"
+  revision 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
   bottle do
-    sha256 "fd744cbff75ab0e153d9c4a0eb1e49fec7222daa49b481363be448ab0fc506c0" => :catalina
-    sha256 "ae594e5ef0c1f5c73b6f08b90249081f0df69879453fa379f3f3b5ae935ed17e" => :mojave
-    sha256 "fad052312cbbe75b5a0a6ca4e2184d9531f8c8bfa606597f0487c75a2339b09c" => :high_sierra
+    sha256 "1e40580a0e712cdcde9f403281d5e99ca64d0284666ce4a22cec9a4bf0db1c37" => :catalina
+    sha256 "ff90a6afa1768090306b1bff962e97a426c05b3abd8f5c277d6ad37d2a8a191a" => :mojave
+    sha256 "6a5cc018b61d2265e9a30ccb67be8992712dcb591dfd2f802d76346018ba3367" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,7 +17,7 @@ class Manticoresearch < Formula
   depends_on "libpq" => :build
   depends_on "mysql" => :build
   depends_on "unixodbc" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   conflicts_with "sphinx",
    :because => "manticore, sphinx install the same binaries."

@@ -3,14 +3,12 @@ class Skopeo < Formula
   homepage "https://github.com/containers/skopeo"
   url "https://github.com/containers/skopeo/archive/v0.1.40.tar.gz"
   sha256 "ee1e33245938fcb622f5864fac860e2d8bfa2fa907af4b5ffc3704ed0db46bbf"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "d382e6ed0f92e335d4b0c82bc535760dd7c32268f0b60dcb8ce7a09dbe4e1b5f" => :catalina
-    sha256 "2c766d15ff4b798021ddb5c2eff823cefbbb20afb92da2e86e8e747dc891abbd" => :mojave
-    sha256 "ae5437d6ba74269a0b82a85b365bbbdd0cf187107a44bf7119753d33e644947f" => :high_sierra
+    sha256 "7d7d1e19a1428b5e95ed5d9aaefb9283b43b02efe9ce093a09de180050615be1" => :catalina
+    sha256 "84f3a5721eac5c6d6bf3a8c60b2769dc91699a254dd181eaf73589794df5551b" => :mojave
+    sha256 "d9bf95337e47606ce9b789327bb23b2e95de554584609bdfb857932906261dc0" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -34,10 +32,10 @@ class Skopeo < Formula
 
       ldflags = [
         "-X main.gitCommit=",
-        "-X github.com/containers/image/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
-        "-X github.com/containers/image/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
-        "-X github.com/containers/image/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
-        "-X github.com/containers/image/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
+        "-X github.com/containers/image/v5/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
+        "-X github.com/containers/image/v5/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
+        "-X github.com/containers/image/v5/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
+        "-X github.com/containers/image/v5/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
       ].join(" ")
 
       system "go", "build", "-v", "-x", "-tags", buildtags, "-ldflags", ldflags, "-o", bin/"skopeo", "./cmd/skopeo"

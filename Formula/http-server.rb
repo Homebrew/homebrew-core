@@ -2,17 +2,16 @@ require "language/node"
 
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
-  homepage "https://github.com/indexzero/http-server"
-  url "https://registry.npmjs.org/http-server/-/http-server-0.11.1.tgz"
-  sha256 "4154aba3e09f21595e26fdd174d9773e22755c0009f661bed54b8647fc987d95"
-  head "https://github.com/indexzero/http-server.git"
+  homepage "https://github.com/http-party/http-server"
+  url "https://registry.npmjs.org/http-server/-/http-server-0.12.1.tgz"
+  sha256 "9d8ef9f4bd6fb76f4399e3fe725ab06a6a683bb82ec5799d6521fdcaa2c0def0"
+  head "https://github.com/http-party/http-server.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "665fb079e61a54404b0cca165221606a3e4eaea7e0e8dbb3d09868402d67d1b5" => :catalina
-    sha256 "73f8bae1002efba8e3799e5f0394831dd79b53b264e0581cfac6f8ab8ee58002" => :mojave
-    sha256 "346263e7a818fbaeeb2dfc7dee4e57b908bb2eafcc407609ce3ca336b47132ba" => :high_sierra
+    sha256 "d54d568edf8a41ba191780c8a5afbc283afc49a71db6a47259752eedbcd157b1" => :catalina
+    sha256 "abbcfb975903d901ed6e2d81e93f527143c76ac1813d181d8a4cbb6c4de58dbe" => :mojave
+    sha256 "df39f65c35d983da959f812f94ba676aa616b7c79ccb4385978ac37ec0055274" => :high_sierra
   end
 
   depends_on "node"

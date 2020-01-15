@@ -1,16 +1,15 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/3.3.tar.gz"
-  sha256 "81bf5fde487676a8af55cb317830703086bb534c53968d71936e7b48ee5a0f3e"
+  url "https://github.com/glfw/glfw/archive/3.3.1.tar.gz"
+  sha256 "6bca16e69361798817a4b62a5239a77253c29577fcd5d52ae8b85096e514177f"
   head "https://github.com/glfw/glfw.git"
 
   bottle do
     cellar :any
-    sha256 "59d76959deeaed390dd2f2a98e670f1a944c26d1212ce9dd8bd230f5010eec44" => :catalina
-    sha256 "5f7f80b2113be000ab11c52357d2b1dc684b82a61455c562c2d84968fab2b2c7" => :mojave
-    sha256 "d064f1a5ed0ac3d2cc2979472f47116c4aa4dcabe5a2b8f6684411e157bf0ef6" => :high_sierra
-    sha256 "bf7f440724924b206abe7be4407df6277cf7c145c25eb9429d20d2d4ccd0994e" => :sierra
+    sha256 "4996e07913ae48845b920762f8cbeb4c7595d587d9d8b53af267493743e7c10d" => :catalina
+    sha256 "788d664fc14aca6ee4072e208930db6c6a8711bdbd6e79cd9f3cc38f69c77a2c" => :mojave
+    sha256 "0f222e06e1e48d3f9dfe271df5d1f0c0ae25995151c6900d68e73d9cd39eff8c" => :high_sierra
   end
 
   depends_on "cmake" => :build

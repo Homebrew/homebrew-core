@@ -1,8 +1,8 @@
 class Ballerina < Formula
   desc "A Programming Language for Network Distributed Applications"
-  homepage "https://v1-0.ballerina.io"
-  url "https://product-dist.ballerina.io/downloads/1.0.2/jballerina-1.0.2.zip"
-  sha256 "e4ea5c605fb9a9e96872ca77449c6465ad9b8137cc492d9ea98089e0cecc09a1"
+  homepage "https://ballerina.io"
+  url "https://product-dist.ballerina.io/downloads/1.1.0/ballerina-1.1.0.zip"
+  sha256 "801ca6c9d1db44156ad724a9ea10ecab97bb35c641faf3fc35afc97bb68f7855"
 
   bottle :unneeded
 
@@ -14,16 +14,8 @@ class Ballerina < Formula
 
     chmod 0755, "bin/ballerina"
 
-    inreplace ["bin/ballerina"] do |s|
-      s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{libexec}"
-      s.gsub! /\r?/, ""
-    end
-
     bin.install "bin/ballerina"
     libexec.install Dir["*"]
-    # Add symlinks for the Language Server
-    prefix.install_symlink libexec/"bre"
-    prefix.install_symlink libexec/"lib"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 

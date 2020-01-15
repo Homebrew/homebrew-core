@@ -3,32 +3,28 @@ class Ispc < Formula
   homepage "https://ispc.github.io"
   url "https://github.com/ispc/ispc/archive/v1.12.0.tar.gz"
   sha256 "9ebc29adcdf477659b45155d0f91e61120a12084e42113d0e9f4ce5cfdfbdcab"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7e06311ad988893b2f89b95791866a1edea6d3d3f21c3b78a9671363db7275b8" => :mojave
-    sha256 "0597f7a59aa3a549d97f70804c82937383946152f1849162b5e7c4a5527ec3f7" => :high_sierra
-    sha256 "d4db0a4b773d610a63af77fae5c953fd6ea49c3e3080a924c37b345634d48e06" => :sierra
+    sha256 "99109ffe35534e264eea6814b4006a49a1aba2cda154ab2d22d7e0c29da6cfc0" => :catalina
+    sha256 "cc7f31ea15ede43f37e40270643d3fa86722bc4ccf9a1bf4c763ad6985a26ffb" => :mojave
+    sha256 "17439d6f18ba148e5a912f595240ce5c89a9f951059411217c53db59dbab75d2" => :high_sierra
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
-  depends_on "llvm@4"
+  depends_on "llvm"
   depends_on "python"
 
   def install
-    # The standard include paths for clang supplied by the llvm@4 formula do not include
-    # C headers such as unistd.h. Add the path to those headers explicitly so that
-    # generation of the ispc builtins and standard library do not silently fail.
-    inreplace "cmake/GenerateBuiltins.cmake", "${CLANG_EXECUTABLE}",
-      "${CLANG_EXECUTABLE} -I#{MacOS.sdk_path}/usr/include"
-
     args = std_cmake_args + %W[
       -DISPC_INCLUDE_EXAMPLES=OFF
       -DISPC_INCLUDE_TESTS=OFF
       -DISPC_INCLUDE_UTILS=OFF
-      -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm@4"]}'
+      -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm"].opt_bin}'
+      -DISPC_NO_DUMPS=ON
     ]
 
     mkdir "build" do

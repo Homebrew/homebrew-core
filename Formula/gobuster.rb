@@ -7,24 +7,17 @@ class Gobuster < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4c8f7838d25aa09d1a9487c6f70c8d15058fdd41008ae895082f8891a0798b0" => :catalina
-    sha256 "a9c4bbe39fb195053b3ab6775df8a70e23db510b4a04193b87bde9a82ed512d2" => :mojave
-    sha256 "1509160d7934a4d2ae01fba76441e905bd1fc36687d58a557ebaf7b47c274e30" => :high_sierra
-    sha256 "d72c5733c19364971ad6b6445b5c0c591bceffb6340ecbbb35c44295e1e04ff7" => :sierra
+    rebuild 1
+    sha256 "d6616ba0e64ee406559414e2c6325f46b0ddc16fc20dde42cad3e3fc7d3df223" => :catalina
+    sha256 "068251847cb8be7e495f093d86468eec1d6459f9a4daa0ba6b7936b49cc14735" => :mojave
+    sha256 "98d0266e847077f64dbff9bac8db93e0d3044425efc4992374be23ddb94d7d3d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/OJ/gobuster"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"gobuster"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gobuster"
+    prefix.install_metafiles
   end
 
   test do

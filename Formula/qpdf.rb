@@ -1,14 +1,14 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://github.com/qpdf/qpdf"
-  url "https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.0.2/qpdf-9.0.2.tar.gz"
-  sha256 "d02451d906068947f45e5216032f0f29ae53313c70c4deedcf3c3e173584d22c"
+  url "https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.1.0/qpdf-9.1.0.tar.gz"
+  sha256 "3abbbb7907f2e750336b9c97e67b6e806aca91ab537402ec080656d63940ed79"
 
   bottle do
     cellar :any
-    sha256 "bcf24ff1867321810bd7b563f08436420cee9ff5dba5f2da18671a735522f0fe" => :catalina
-    sha256 "3789a7a12c6a2375165db35229154b0463edfd40e9d205db9342b086564f7782" => :mojave
-    sha256 "0f79ce577ce7f4bde5edd9e4a62d0972d08b1271f0ec274d8dde91b7fb5c5656" => :high_sierra
+    sha256 "142d72298eb8b6be1159b944faad65c04f0036c554c08380c0c2880bd820cf78" => :catalina
+    sha256 "729439409ba0644093f521870a9d280703239dd56f261b3613ba1d8847146237" => :mojave
+    sha256 "bf691b5ffd8f3075a0fe781f4b566dbca06619a375c39f40e191de7a4785b57b" => :high_sierra
   end
 
   depends_on "jpeg"

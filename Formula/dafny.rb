@@ -3,12 +3,13 @@ class Dafny < Formula
   homepage "https://www.microsoft.com/en-us/research/project/dafny-a-language-and-program-verifier-for-functional-correctness"
   url "https://github.com/dafny-lang/dafny/archive/v2.3.0.tar.gz"
   sha256 "ea7ae310282c922772a46a9a85e2b4213043283038b74d012047b5294687d168"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "73faff043056b7e45842d6c528a530d4ce4f5072f92ed7612cdd458d64de2985" => :catalina
-    sha256 "c0a0e194956400b852678cddfd8f9135ccdb8fd1949dc24611d0a37ec9b5640a" => :mojave
-    sha256 "2bf8cf46f3233236273c8cfdec90e7f8168fc160342ac36a0c6bc8f22f57559b" => :high_sierra
+    sha256 "743b75dd6ac3dde62485b8b8183fcc5c27096613f21db7e526f2666849750442" => :catalina
+    sha256 "0900c998ff8f541fdfacef7876f0bf69a4f654ab4177d54028776cb8010f867a" => :mojave
+    sha256 "c4552aa63db9846dfa540682245f8d8b73557e7686e401b11ab8f26d29c59dba" => :high_sierra
   end
 
   depends_on "mono-libgdiplus" => :build
@@ -30,7 +31,7 @@ class Dafny < Formula
     system "msbuild", "Source/Dafny.sln"
 
     libexec.install Dir["Binaries/*"]
-    (libexec/"z3/bin").install_symlink which("z3")
+    (libexec/"z3/bin").install_symlink Formula["z3"].opt_bin/"z3"
 
     (bin/"dafny").write <<~EOS
       #!/bin/bash

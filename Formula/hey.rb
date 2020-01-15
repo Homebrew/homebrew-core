@@ -7,24 +7,17 @@ class Hey < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32e5c3a7dca7b7f63892f0891d4301f4acbf2d90034445321d348dcdaeb47bcf" => :catalina
-    sha256 "c65e3a95c59f8263d5f38a3e605ecdda801511095e54009aaaa2c362a1bfa07e" => :mojave
-    sha256 "8de8655664bfa9ad639e113db3b21d517b2bd35a7d6efa0796cc74eb594451a3" => :high_sierra
-    sha256 "901cfcb578352c650a3e7ecb77e5102effdea8e6c8bcd76e4b14021e57d3a189" => :sierra
+    rebuild 1
+    sha256 "cd9a8e4d509b49c316adf3e3a81a803013ee16aef60c5764f8d630320c8d8de1" => :catalina
+    sha256 "b3679713758e81df3b8a269bd16c21a02826f559e87b36ed23a8184013929afa" => :mojave
+    sha256 "a935a6112c86b4a42b53f1d914ddb1719529ff2c0fb72a1c92be432fa9bf974b" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/rakyll/hey"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"hey"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"hey"
+    prefix.install_metafiles
   end
 
   test do

@@ -1,17 +1,14 @@
 class Passwdqc < Formula
   desc "Password/passphrase strength checking and enforcement toolset"
   homepage "https://www.openwall.com/passwdqc/"
-  url "https://www.openwall.com/passwdqc/passwdqc-1.3.1.tar.gz"
-  sha256 "d1fedeaf759e8a0f32d28b5811ef11b5a5365154849190f4b7fab670a70ffb14"
+  url "https://www.openwall.com/passwdqc/passwdqc-1.4.0.tar.gz"
+  sha256 "72689c31c34d48349a7c2aab2cf6cf95b8d22818758aba329d5e0ead9f95fc97"
 
   bottle do
     cellar :any
-    sha256 "49e4a3baa4adf8f13f1c9b145be4d55c02e02a9b8dad50d2b96721ba82851d17" => :catalina
-    sha256 "e0f9450b595fb6935ed0cba174755cda95a7ff2fc7f9cc0e9e9027f69e5c1b6c" => :mojave
-    sha256 "f3225da4795b1f3c89e25aac62101021f533faebe52fda91101a497da156f797" => :high_sierra
-    sha256 "e63d866e12db3c5b031b33681a8a6b5163908cbbedde6d33e72e2543a4a75ef2" => :sierra
-    sha256 "607a5adfb33eca79f847569357c77d643b9be4b17ba73c915575990ad676bddd" => :el_capitan
-    sha256 "6aac1b96be6144cdb889af5cbcccc3c6779593f3544abdc186d17c61cc4acf34" => :yosemite
+    sha256 "79af7b94b6b1cf7063931c89285dc47440c4b1a66b273c80900e5f0b839ee527" => :catalina
+    sha256 "41115da2512aa8ee6f62fdda8b822d26a63d6eeaf5496ca624adbe25b384cb55" => :mojave
+    sha256 "e7da5597bd23a730aa9b28fa3e3efa749952beaa7a480959cad4e7c6a238400d" => :high_sierra
   end
 
   def install

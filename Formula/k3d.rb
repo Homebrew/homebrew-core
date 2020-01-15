@@ -1,33 +1,24 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
-  url "https://github.com/rancher/k3d/archive/v1.3.4.tar.gz"
-  sha256 "3d6c5d64795e4b459f236c391dd24e1ff08fcb2bf29e914509c8ddf8f699bfe7"
+  url "https://github.com/rancher/k3d/archive/v1.4.0.tar.gz"
+  sha256 "849942d0bc01318aae08bd6e56eaac8d738076065fb3d8e3f53bc2c024437e18"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d6f15dfdc46bbda0a2b4b07503c65e2e047a91490b742401c6c65cc65fc28c7" => :catalina
-    sha256 "d2f50bb1aa5c9b6f0cdd3b6996be133d1ca78ce02ed2904fbf6ccc81d7e7c070" => :mojave
-    sha256 "84dc8df4801b2e1ed3d15594eeed4ab99260b0a0faca1b42212a9190510a3646" => :high_sierra
+    sha256 "9b842404ac3408dcf542b300f8bce83c563bd28ae4e784af1922237d1629934a" => :catalina
+    sha256 "31bbbe046f861fa7b392fb56b1f3264b05129d1384b7c18241b8327946dd46ae" => :mojave
+    sha256 "923ba1112c13a27169a37d17ab03929ae9ff8fe7b5299cd9c13b5735a70a8423" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "0"
-
-    dir = buildpath/"src/github.com/rancher/k3d"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", \
-          "-mod", "vendor", \
-          "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v0.10.0", \
-          "-o", bin/"k3d"
-      prefix.install_metafiles
-    end
+    system "go", "build", \
+        "-mod", "vendor", \
+        "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v1.0.1", \
+        "-trimpath", "-o", bin/"k3d"
+    prefix.install_metafiles
   end
 
   test do

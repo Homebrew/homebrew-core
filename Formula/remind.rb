@@ -1,15 +1,14 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-03.01.16.tar.gz"
-  sha256 "eeb79bd4019d23a033fe3e86c672d960399db6a27c747e5b466ad55831dfca93"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-03.02.00.tar.gz"
+  sha256 "a52dbb033cb47a365689f0d03682ce11eff9c408f575cf69b17b763af4841204"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "444089059be6e06068947152227c92456a491c31e03663b3cf306c2858da1dc0" => :catalina
-    sha256 "cf9cead0828acc09c9f93c45df372063167daaa46e336a7ef9c604310f92c51f" => :mojave
-    sha256 "955b1f9a9a769c8d88814fee718237ea94ec2c537a3953cb01427815577ef84a" => :high_sierra
-    sha256 "a2349249ca5fa9dcb92998f94b7b761636fa7c04c54c088798da92773c438e56" => :sierra
+    sha256 "e020d939de67a30ea416682bfcc22e0c0202f87696dbd98d234bbbc686ec69a6" => :catalina
+    sha256 "cbf0c4fe2faa65b2bba5bd2756d959911d6edc1b95ad0c5dcd7e4fabbc00c870" => :mojave
+    sha256 "6724e071cc10ef3616ae5e076f4b9dd3582ad6fba1bfdb77d5e984bde12a15ed" => :high_sierra
   end
 
   conflicts_with "rem", :because => "both install `rem` binaries"

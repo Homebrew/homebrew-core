@@ -1,24 +1,24 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
   homepage "https://www.musicpd.org/clients/ncmpc/"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.30.tar.xz"
-  sha256 "e3fe0cb58b8a77f63fb1645c2f974b334f1614efdc834ec698ee7d861f1b12a3"
-  revision 2
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.36.tar.xz"
+  sha256 "4632873dfc8efe61e501dc9184a5b921b482be2ddbedd3d23d05241d477a3e2c"
 
   bottle do
-    sha256 "288b7c60146d5041ba4a5ce7a82dcea40a45ba37b87caed9baf6b0f98d329107" => :catalina
-    sha256 "7b3d786665c467062935bd484d37fa1781364040a48d83c1da17759615a26bc7" => :mojave
-    sha256 "5489be35a603c832514f87c7b1d1368a366abd133085968eb8f6eeaec8da08d4" => :high_sierra
-    sha256 "1e7ecbd504ea76bb826e32221e1c8d90135969c785a7ee90e32db77d09ca151e" => :sierra
+    cellar :any
+    sha256 "eb296eef08ee1bd8be2b0037f39479123301cb6454fed7f32e63f37e32da9b4f" => :catalina
+    sha256 "2e240f225487cfd1b07b0bd196c05d152fb421a5dcd8ee9b6686f2f3dbeb1948" => :mojave
+    sha256 "a16f92c342b7189b5c6b934a532a7fae6e48f4cd7486cc14b868a3a58434c191" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gcc" if DevelopmentTools.clang_build_version <= 800
   depends_on "gettext"
-  depends_on "glib"
   depends_on "libmpdclient"
+  depends_on "pcre"
 
   fails_with :clang do
     build 800
@@ -26,21 +26,8 @@ class Ncmpc < Formula
   end
 
   def install
-    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-
-    # Fix undefined symbols _COLORS, _COLS, etc.
-    # Reported 21 Sep 2017 https://github.com/MusicPlayerDaemon/ncmpc/issues/6
-    (buildpath/"ncurses.pc").write <<~EOS
-      Name: ncurses
-      Description: ncurses
-      Version: 5.4
-      Libs: -L/usr/lib -lncurses
-      Cflags: -I#{sdk}/usr/include
-    EOS
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath
-
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", "--prefix=#{prefix}", "-Dcolors=false", "-Dnls=disabled", ".."
       system "ninja", "install"
     end
   end

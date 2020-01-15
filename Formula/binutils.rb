@@ -1,15 +1,14 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.gz"
-  sha256 "9b0d97b3d30df184d302bced12f976aa1e5fbf4b0be696cdebc6cca30411a46e"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.33.1.tar.gz"
+  sha256 "98aba5f673280451a09df3a8d8eddb3aa0c505ac183f1e2f9d00c67aa04c6f7d"
 
   bottle do
-    sha256 "cc0be2b4198597a513413e2957423e6db06b183dfef802f4fa1a493a42388ddb" => :catalina
-    sha256 "101c47b5ba0dd14c33ae6252f0f732f2c9e3db9bb5bf03c880533b62e9f18dc2" => :mojave
-    sha256 "b82cf83f50a4822652022612c4f51052a56741e281ee509c8f18e1485b29cdaa" => :high_sierra
-    sha256 "7fabb9b6e95bbc156469a765189e153917adb9b8fbdc24a7662f42b4995ba825" => :sierra
+    sha256 "c9043b4615a1462646f0af1296fdc4ec70fc654fb7daff77f9c4e73373d1b312" => :catalina
+    sha256 "c97046dc6f519c176addcd4ed37afddc0553e7eebf8b30fbd5a5b64487b9cdc4" => :mojave
+    sha256 "021367441684b194be93d5be015930e1507a6a2d7c7201d3815740a052f0b87a" => :high_sierra
   end
 
   uses_from_macos "zlib"

@@ -6,9 +6,10 @@ class Fifechan < Formula
 
   bottle do
     cellar :any
-    sha256 "5937aa4c53237b058dda1132fe52cb170edc885c553c0137c8f65cc969e34670" => :mojave
-    sha256 "212bf8bc5c6fc69aab9c0c155e6555e5e104031a60352e5890a948c40f5547af" => :high_sierra
-    sha256 "67ef643758003a8f58eaf26fe3955542d90304c5371fa634da0137b2223ca7aa" => :sierra
+    rebuild 1
+    sha256 "c0594d877411b0a33f2a37d0d3e2ca38a3d3dfd47797bf89aef9579bd2095dda" => :catalina
+    sha256 "93491cce22fd712b86ec6f7af129107a596f2e736181354417c4d48c0c40b919" => :mojave
+    sha256 "725c25c62dd609dd58d19c25b484398e9e68f19a9cb7aa3c1d1877b53ed9615a" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -3,21 +3,20 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.24.1.tar.gz"
-  sha256 "63a0e0d3819ff77aebd3d5ea30f77b36475ed522c4dabed2eb10636e35aa9370"
+  url "https://github.com/docker/compose/archive/1.25.1.tar.gz"
+  sha256 "e48b08d2e94ef011733c5a61b18d7a6b67148e2bf48b375ac1ecb0003fa0c816"
   revision 1
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "ea81818e81c01527da9743b1c058d46fea7c1062956e970e78d1913a9f3c1a15" => :catalina
-    sha256 "9abfd3a6d2a68609e72f8bf38bf6ddf54a4ae791a63257ad6907079967bd9dae" => :mojave
-    sha256 "ee17fed45db4a209a1ed3c68e30ea395da7ad39cd14cd319944879eca89022c2" => :high_sierra
-    sha256 "4c49a9248f46799f22c8d5c90b55a077b543635dbe5f211685c071a83ed0980f" => :sierra
+    sha256 "1a00d00ba0802424d7e34c80fe8350d28c264fb07c51deab2a78e2caebe1c640" => :catalina
+    sha256 "5c5a3469ad1b3477ffd0baa14e828fae93cbaa6de581360531bd71b9540f27e4" => :mojave
+    sha256 "a7fcd7bd74e78c40e5535fe9d41ff9b0c81e75726f9e87a25200a6942bcdadf8" => :high_sierra
   end
 
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "./script/build/write-git-sha" if build.head?

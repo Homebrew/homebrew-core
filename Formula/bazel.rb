@@ -1,14 +1,15 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/1.1.0/bazel-1.1.0-dist.zip"
-  sha256 "4b66a8c93af7832ed32e7236cf454a05f3aa06d25a8576fc3f83114f142f95ab"
+  url "https://github.com/bazelbuild/bazel/releases/download/2.0.0/bazel-2.0.0-dist.zip"
+  sha256 "724da3c656f68e787a86ebb9844773aa1c2e3a873cc39462a8f1b336153d6cbb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d70d6c44909ed659835ac0e9d0da100877fc4fbd41ecee91a2ac33518c9e632" => :catalina
-    sha256 "7d70d6c44909ed659835ac0e9d0da100877fc4fbd41ecee91a2ac33518c9e632" => :mojave
-    sha256 "76b460671dd23a477d57f0f1c9e187faaab504f6160baafc4032bb0e59036304" => :high_sierra
+    sha256 "f56df802376e27a38bfaed8ce955a2c68c5566e13d6e40fdd6ff1a382a0b7488" => :catalina
+    sha256 "f56df802376e27a38bfaed8ce955a2c68c5566e13d6e40fdd6ff1a382a0b7488" => :mojave
+    sha256 "1bb5f3024c7659a268aaddca9648832f9728e70484bf43d23b3285d74eaa39ae" => :high_sierra
   end
 
   depends_on "python" => :build
@@ -35,6 +36,7 @@ class Bazel < Formula
              "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
+      ln_s bin/"bazel", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
 

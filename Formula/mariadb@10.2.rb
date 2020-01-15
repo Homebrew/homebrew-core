@@ -1,18 +1,20 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.29/source/mariadb-10.2.29.tar.gz"
-  sha256 "1470032821a163136d2013e58fc788e5c234777093cbd2ce9c27280a33c10202"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.30/source/mariadb-10.2.30.tar.gz"
+  sha256 "9bcc7556dfc5d77d78551e2f9a719f45545609f14f8acdf129b99f577e041b38"
 
   bottle do
-    sha256 "3f720f09ed941691f9e97ef007aa95c5810cea739dc55e63ff8de18b10776e8e" => :catalina
-    sha256 "5365b832abe72858bdf3932ce798d748dcce805eaf192af3489bcc07336dbc72" => :mojave
-    sha256 "08cb9f3ab1a63d5e64b06632d92370ce44570a87c2bc49aa59f34ec9179dbb90" => :high_sierra
+    sha256 "eefdfe8c3153a3aa6fbc58f5a9f001560d84b237fff251651db1261c45217d25" => :catalina
+    sha256 "d39bb7facc5c6a5ae8bf4de465581839412d51c8601d618a31891ccd5db8cb9f" => :mojave
+    sha256 "2550afb05fac6702cb77aef53e79b011bd0c626ae201f7d7b2c2a85a221bd12c" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "groonga"
   depends_on "openssl@1.1"
 
   def install
@@ -23,6 +25,9 @@ class MariadbAT102 < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
+
+    # Use brew groonga
+    rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
     args = %W[

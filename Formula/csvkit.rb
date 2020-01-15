@@ -5,16 +5,16 @@ class Csvkit < Formula
   homepage "https://csvkit.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/66/d8/206e4da52bcf9cc29dfa3a93837b14b37ba42f58ccbd22a42a3b3ae0381a/csvkit-1.0.4.tar.gz"
   sha256 "1353a383531bee191820edfb88418c13dfe1cdfa9dd3dc46f431c05cd2a260a0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "89c69fb3bca0a55ea7c8ae84bdca28ddec9a3c9ff376b707d42686fe1d9c9e1e" => :catalina
-    sha256 "6aa5bcb47f588ff16030bbb84db7ae9ac50377b5837cd19afb6dd7c6ebdadcb0" => :mojave
-    sha256 "536f76460094339f456ef4546cb93f5c3f38dc0adb859e7730af80cc192e8215" => :high_sierra
-    sha256 "548d3e5d15d6b2f1cbb2043d9d83b8fff650fcea8875eff94f018f79432b607f" => :sierra
+    sha256 "9083266427393ac8cfcec49fde3090bfeabea1abe5d70186dbd9bd72c42744a4" => :catalina
+    sha256 "71c0b34e9749e70bea71c6ec077d04cbdd95554ac1bdc8024995edc8bdfa4ba6" => :mojave
+    sha256 "b4abc28e0a5054dc386c54ce3fdb0a8295c07cf3e43a04333e1d88e2a1c8f67d" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "agate" do
     url "https://files.pythonhosted.org/packages/d4/1c/99fb34c81c68012c71e8d35a1f16a6b25952322e23c911c81327c8464be8/agate-1.6.1.tar.gz"

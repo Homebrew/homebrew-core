@@ -1,14 +1,13 @@
 class Jailkit < Formula
   desc "Utilities to create limited user accounts in a chroot jail"
   homepage "https://olivier.sessink.nl/jailkit/"
-  url "https://olivier.sessink.nl/jailkit/jailkit-2.20.tar.bz2"
-  sha256 "8db7b54f4bef9f205d88fb23bfd0b74dd7c8d8495045009ef5146c61e458a0b2"
+  url "https://olivier.sessink.nl/jailkit/jailkit-2.21.tar.bz2"
+  sha256 "db3bb090a4fffdef59b5eafd594478d576cacf84306f9929d0dfbed090cf3687"
 
   bottle do
-    sha256 "8de16a27592d62469f074c6c5296451d80f3aef3bbaf5c017c884b5ae1d209cf" => :catalina
-    sha256 "1442d9932b7b8b539118d9fb98fd4e6a73f9da2b436c8cd5d1efd3cd3e05c2a7" => :mojave
-    sha256 "dd024c14e4ac619ec32581322550942b875a324b80320990a8a5242aa54e5c6b" => :high_sierra
-    sha256 "34a77f5ddba7f627d0e7c5bdd524a1bfa55ef56662e2e29305d35602dbfccc63" => :sierra
+    sha256 "b0980932e53c18886c0106fd50a6101fc77754fcfb536bf218fd6845f7e91309" => :catalina
+    sha256 "1aae3a9499ec0553b45b48003e43c55e1facd7b56d94cc4ff9cb639496b7fa05" => :mojave
+    sha256 "25e55b2cc8572ad043c97ad2b86e08f93ef1a69c6fb66d1bf1630c4c5092bdfc" => :high_sierra
   end
 
   def install

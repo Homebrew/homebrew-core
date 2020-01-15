@@ -5,17 +5,17 @@ class Thefuck < Formula
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/19/b0/5a563805cd59ad99b46a82fad0008ff6d9b55b61db88d8839b448c45b63c/thefuck-3.29.tar.gz"
   sha256 "7b907b6ef6863cc0d3e9bb3e573054547a60f89572250b767ccadb317d3c8297"
+  revision 1
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9e1c5b8a788445cbddb0c75e76b15855e2f7d38ff97730213a58266b7c67848" => :catalina
-    sha256 "e0d8a79a9c0c301c9d5316983ee95aaeb582ae354a6dcd1bec3ae3a16e2920bf" => :mojave
-    sha256 "5eec27cd3a36614f7042b2936f943fa1a173c00f90a46b37e199ef3f359b38ab" => :high_sierra
-    sha256 "dbac00409d1662ad5c566f0936c296fba3dc42ce59cfa49b3bd5eb6fb9972cf5" => :sierra
+    sha256 "762a5d749374bbda2f181728c971bc998ce9c32f4ea20d242be0c5879e97356b" => :catalina
+    sha256 "2e261bc8017c602761652100d4075a0a2dbb63eb4c385135defdd157ac0a1aaa" => :mojave
+    sha256 "e0d301ddb9c3f769939484e9d6078be4edb25f099a10d8d75d7f67f12b04e15d" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/76/53/e785891dce0e2f2b9f4b4ff5bc6062a53332ed28833c7afede841f46a5db/colorama-0.4.1.tar.gz"

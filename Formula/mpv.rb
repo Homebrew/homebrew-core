@@ -1,14 +1,14 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.30.0.tar.gz"
-  sha256 "33a1bcb7e74ff17f070e754c15c52228cf44f2cefbfd8f34886ae81df214ca35"
+  url "https://github.com/mpv-player/mpv/archive/v0.31.0.tar.gz"
+  sha256 "805a3ac8cf51bfdea6087a6480c18835101da0355c8e469b6d488a1e290585a5"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "a6126ab264bbe4f59cc8f27fbaba953a6654943f50c7869a42c74646baa44084" => :catalina
-    sha256 "876809a4bbe6af6f5dce055a7c7246b0b48db9237b6a7ba0151ef3b17eb2e1d8" => :mojave
-    sha256 "fc82056229104bf1898040d8cfd01eafa3a86afa18cdb0a1776afb63f0d72e7d" => :high_sierra
+    sha256 "17c6fa1d463a0794103602e3b521b29f860338f46b45b080bf66e8114033385b" => :catalina
+    sha256 "8d21fead1070abcd60107bd35ec254ea5439d6c4d8e92f4d4c78693c926d352a" => :mojave
+    sha256 "2a62eda7996e00f5663db652a62c883f0a0e480aa2f53b8739d5d64a46a7df4f" => :high_sierra
   end
 
   depends_on "docutils" => :build
@@ -48,7 +48,7 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
 
-    system "./bootstrap.py"
+    system "python3", "bootstrap.py"
     system "python3", "waf", "configure", *args
     system "python3", "waf", "install"
   end

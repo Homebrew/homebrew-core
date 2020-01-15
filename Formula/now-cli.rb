@@ -3,14 +3,14 @@ require "language/node"
 class NowCli < Formula
   desc "The command-line interface for Now"
   homepage "https://zeit.co/now"
-  url "https://registry.npmjs.org/now/-/now-16.4.4.tgz"
-  sha256 "298702a21ba1444aada234effad9b0babb4b6c51261e191ad087d11ecef7bf76"
+  url "https://registry.npmjs.org/now/-/now-16.7.3.tgz"
+  sha256 "f8f918995a6f3f597ee9bdcf5d2330a35c65ac17690d03a12a0b06272f3c3250"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21b8ca2b7d39b05c7b4182f132efb4950a02b3f5aee7b1189fabeef2c22eb911" => :catalina
-    sha256 "1a453bf09a84b48a43862be487ce6696c291176822e3347d3f9f69240ad03e9c" => :mojave
-    sha256 "b33a49998ca484174e1fd8bd2250578d3fd99ad02dc7bcd22555340ad27e5fea" => :high_sierra
+    sha256 "e1e4ca68d24122d99da6810667cab1ddf76df0f2141338c5139377d9ceb5820a" => :catalina
+    sha256 "108b80dcca3e3a9b2791a477cedbef19096b05e628103ff9b16055203d8a5ee8" => :mojave
+    sha256 "c9a83021623b33ef0c5f80f58d3abb60a79ec1a441d24a19da6d9cfd38560091" => :high_sierra
   end
 
   depends_on "node"
@@ -24,8 +24,8 @@ class NowCli < Formula
   end
 
   test do
-    system "#{bin}/now", "init", "markdown"
-    assert_predicate testpath/"markdown/now.json", :exist?, "now.json must exist"
-    assert_predicate testpath/"markdown/README.md", :exist?, "README.md must exist"
+    system "#{bin}/now", "init", "jekyll"
+    assert_predicate testpath/"jekyll/_config.yml", :exist?, "_config.yml must exist"
+    assert_predicate testpath/"jekyll/README.md", :exist?, "README.md must exist"
   end
 end

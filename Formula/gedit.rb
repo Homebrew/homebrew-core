@@ -1,14 +1,13 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.34/gedit-3.34.0.tar.xz"
-  sha256 "3e95e51d3ccb495a9ac95aa3ed7fe8fe37ccde7c678f37fa3cea684bc71d507e"
-  revision 1
+  url "https://download.gnome.org/sources/gedit/3.34/gedit-3.34.1.tar.xz"
+  sha256 "ebf9ef4e19831699d26bb93ce029edfed65416d7c11147835fc370d73428d5c6"
 
   bottle do
-    sha256 "188f873c298e9e29cfa99ae292023da5eb93d5dc91b22ea4dcf215dd7fdccfbb" => :catalina
-    sha256 "2e6ca747f2ea550481b6d6c86dbd13bba3d19695d904ae25784b205124e5b9cd" => :mojave
-    sha256 "c356ea924bfae4ca4e938566b9dce2d3de2467c180c1b0270e0e163f5af2ef61" => :high_sierra
+    sha256 "be10a5f9c19532b6989c3c7855c450d9ce64527ea6e42b01d22928e09d4f47fa" => :catalina
+    sha256 "fef39bc1e61bfd3d1bb26b66fafdece9be765e87ad9e8a83b59a60c661e69d6a" => :mojave
+    sha256 "e2e0f82401cea741c126b60862a7e7066578019c06eb28f319c17361dda99c5b" => :high_sierra
   end
 
   depends_on "itstool" => :build
@@ -26,7 +25,6 @@ class Gedit < Formula
   depends_on "gsettings-desktop-schemas"
   depends_on "gspell"
   depends_on "gtk+3"
-  depends_on "gtk-mac-integration"
   depends_on "gtksourceview4"
   depends_on "libpeas"
   depends_on "libsoup"

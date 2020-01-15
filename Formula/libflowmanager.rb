@@ -6,10 +6,10 @@ class Libflowmanager < Formula
 
   bottle do
     cellar :any
-    sha256 "5fa3ce0917567cf4baf9c72b4a8f2fd5ebe013fd58371c213ceffbb46c946586" => :mojave
-    sha256 "52ebf18a6e9816920a0d44c09e9694c59524854d89e277e87486b81b995a6a60" => :high_sierra
-    sha256 "56f84519f766ec0c4fcb47401851743070649a46b6f84707650256601e2ed04d" => :sierra
-    sha256 "62ab34fafd7cd64356c2c6d185f76709539cca3c55b3ca7e41473ee79ddbae7f" => :el_capitan
+    rebuild 1
+    sha256 "00482390deb850174ce9c6802c5fce4fa4115083f106d5db97472e34d1e611e0" => :catalina
+    sha256 "f8149c2a5a868f41d28b7f09b370ad99fc918759d621d6b4a7ecc07d8762bc1d" => :mojave
+    sha256 "46e72fe5aed2637f83436f098c2c6e3b375cd3fbf0c6d94ce0658d40aed30969" => :high_sierra
   end
 
   depends_on "libtrace"

@@ -1,16 +1,15 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.18.1/bitcoin-0.18.1.tar.gz"
-  sha256 "5c7d93f15579e37aa2d1dc79e8f5ac675f59045fceddf604ae0f1550eb03bf96"
+  url "https://bitcoin.org/bin/bitcoin-core-0.19.0.1/bitcoin-0.19.0.1.tar.gz"
+  sha256 "7ac9f972249a0a16ed01352ca2a199a5448fe87a4ea74923404a40b4086de284"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "938d065581a197627f256912124625c19e41c44d6171c9436439887df1f760c7" => :catalina
-    sha256 "5ef81b850e854e55d8f833c60f85c687757dce42b40270d361e6ba01ce9a37a7" => :mojave
-    sha256 "8650b24c3dba1bb87c8fcf1516e013f4a5390b5b79ebbcd6f97e57bad20a194a" => :high_sierra
-    sha256 "40f30ab7c8fe3eef9e90929cdaba441035f22e45fe7d3360ce653b55d8b2d40d" => :sierra
+    sha256 "7af2f9d403cd5ccaa285f6c284aa37112a8a1060c93a656c750a4fdcab45abcc" => :catalina
+    sha256 "8d05c31f6a2e15aa6bb23f69938adc50df45a10d6277ed07467e849b91db1bd4" => :mojave
+    sha256 "4c9d743d4186adcd4660ebb2456f5dd5586a09f461d302ba09756be5510ceba9" => :high_sierra
   end
 
   head do
@@ -28,6 +27,13 @@ class Bitcoin < Formula
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
   depends_on "zeromq"
+
+  # Fix for Boost 1.72
+  # https://github.com/bitcoin/bitcoin/pull/17654
+  patch do
+    url "https://github.com/bitcoin/bitcoin/commit/ddecb671.diff?full_index=1"
+    sha256 "79e52316dbcb1ad06caeea58363ab2365983522d23c02f3102c88138ec9b18b0"
+  end
 
   def install
     if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"

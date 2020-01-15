@@ -3,14 +3,14 @@ class KitchenSync < Formula
   homepage "https://github.com/willbryant/kitchen_sync"
   url "https://github.com/willbryant/kitchen_sync/archive/v1.17.tar.gz"
   sha256 "e8c15cfeaa932e0ae9527584a3091e186eaed138648747b7f5ab0853ca0c40b6"
+  revision 1
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
     cellar :any
-    sha256 "1040b1e30475c6f9d4d256c06a694c3919a26d16e911cfee688f6941833a070a" => :catalina
-    sha256 "1fbeec29bf84647ad9fe84bb7d076d9c431305693b1bdb7812fb0aa172108b30" => :mojave
-    sha256 "a46b98302d26ec6351d46a091b3b6eea489172f0ad2d27855a442aa94a5c9ce6" => :high_sierra
-    sha256 "ec7db6c3b9db72e581b37e6bf44130a201e0f608fbc4f1cf6c64443fa05a34cc" => :sierra
+    sha256 "6f5d6aedbfd703b89518a24e0017fc9600dbf93ef03222f61d6fb137e6c66e9f" => :catalina
+    sha256 "db5d563bd89d7cb4885213f8934171f059279b1f674dfcce6f14b36b66e2f5df" => :mojave
+    sha256 "11ba563b62bd1aeb3adb5e01c7633bb293843f44c730342d52973cdb2dd91da8" => :high_sierra
   end
 
   depends_on "cmake" => :build

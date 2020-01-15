@@ -6,10 +6,10 @@ class Qtfaststart < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72a7b46a652dc99b3c24df9a868008927e795f438ef2e68fb3d7456abbc3724a" => :mojave
-    sha256 "4534f204dcc950ad18c3a141119fcd8d9a9623645092ae3f003b08dd94851dcf" => :high_sierra
-    sha256 "a11b3b623a2682567830cb05810ed4445037f5b43a52f2378a10291aad70a2c6" => :sierra
-    sha256 "00ed1702b08f3fe7d0660aab963f15baab6a5bac8db02048fe5d0b4d80b4abe0" => :el_capitan
+    rebuild 1
+    sha256 "abce3f470e0a8b62acd78aa2c58114a3e5b64d7b2117d8ffbaadc23c4eee186e" => :catalina
+    sha256 "2fac027c66defdafcbaee5b346fd5c5e6c11b5e9a267de40d604b8e837f5d2c4" => :mojave
+    sha256 "073794a6af64b0fe9f2bc22480b4c605f9497c5ae9087d26fa8e51bdc0230b00" => :high_sierra
   end
 
   resource "mov" do

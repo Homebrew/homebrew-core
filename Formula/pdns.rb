@@ -1,15 +1,13 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.1.11.tar.bz2"
-  sha256 "754e4f0ce31118fef5dc470dc039e1f4e7b3ca6248074c9678a659508693b712"
-  revision 1
+  url "https://downloads.powerdns.com/releases/pdns-4.2.1.tar.bz2"
+  sha256 "f65019986b8fcbb1c6fffebcded04b2b397b84395830f4c63e8d119bcfa1aa28"
 
   bottle do
-    sha256 "b2bd81b9baf0e20bf5f46857c9457e4fc30af8ef2d11fa88025c74fccbc712d2" => :catalina
-    sha256 "e9b851c9ce8248562bfa591aaa8313768643e7c3535744e491040d5939e1078e" => :mojave
-    sha256 "1f195fcf89c603691184c77841f8df250cb6ef205841feede230a41337203d77" => :high_sierra
-    sha256 "a0e77bc4f1d21eedef8f74cd1a669d700fddfbe35c950e207ceaf1868898e25b" => :sierra
+    sha256 "f14eb64110b61db1e93716eab2a7bdb22bf77221dc5e07aed6e19cb5c8415fa7" => :catalina
+    sha256 "cf298ee7822ff4a58356693622b4f2ce998b3d144e70c64c6805aa3fcc28fd1f" => :mojave
+    sha256 "f6e5655f7d5a31caa53887b030937cd36d56a2d542357eb2753f674a42e40289" => :high_sierra
   end
 
   head do
@@ -35,7 +33,7 @@ class Pdns < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/powerdns
       --with-lua
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libcrypto=#{Formula["openssl@1.1"].opt_prefix}
       --with-sqlite3
       --with-modules=gsqlite3
     ]

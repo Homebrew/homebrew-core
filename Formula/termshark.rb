@@ -1,14 +1,14 @@
 class Termshark < Formula
   desc "Terminal UI for tshark, inspired by Wireshark"
   homepage "https://termshark.io"
-  url "https://github.com/gcla/termshark/archive/v2.0.2.tar.gz"
-  sha256 "36e45dfeb97f89379bda5be6bfe69c46e5c4211674120977e7b0033f5d90321a"
+  url "https://github.com/gcla/termshark/archive/v2.0.3.tar.gz"
+  sha256 "c05a64f1e502d406cc149c6e8b92720ad6310aecd1dd206e05713fd8a2247a84"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e18358cf1f36863654432e2cdb4a0480450b84d7303c06ca5a5d8d6e3f700fb1" => :catalina
-    sha256 "8e06abc39790211a9af567b0fa7d4dc64e87963d0177329fa1102c2bc77e4760" => :mojave
-    sha256 "afcf0a6baa316d5df18162a32b8630d8c10d96e063545b59dbe4409470d726e2" => :high_sierra
+    sha256 "7b8b0fe96ff5a914f1de2545f9381465c1a8a6bff877e4c016ed54c6975c9825" => :catalina
+    sha256 "71a09e2a4e0af93d8e0dc4b57596dd66410db6c4846a53ab558920b22df0b451" => :mojave
+    sha256 "1feaeff8adfee9e3722bcb6c5d0da6dd26be45758423910338cafb504542f683" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -28,7 +28,7 @@ class Termshark < Formula
   end
 
   test do
-    assert_match "termshark v2.0.2",
+    assert_match "termshark v#{version}",
                  shell_output("#{bin}/termshark -v --pass-thru=false")
 
     # Build a test pcap programmatically. Termshark will read this

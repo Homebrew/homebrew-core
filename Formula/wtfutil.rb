@@ -2,21 +2,22 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.24.0",
-    :revision => "a6468c585b11826a7d5284699571396499ab7aae"
+    :tag      => "v0.25.0",
+    :revision => "5291a31afd9a525342ab62896423a00e06f3811f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d69582354c189a7df774084a328a1f181e361cfa1d17588d2cbdf597c2ddd165" => :catalina
-    sha256 "97a30eb80a347cae086c7d2889b08f3790955618375885d860b25da4e296b586" => :mojave
-    sha256 "0e57d38359e60da17118c1630c363918a07b1d6599420e1699f85d3c94c27c5f" => :high_sierra
+    sha256 "a68a5f3dfe0cab3ed3097b3fe236760496a5615b35ac7d5dcc1fd4c4a0d600ee" => :mojave
+    sha256 "5750ceac539222b235943f796a89c6da90836cf767f332e7db7fc2da3a942d60" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPROXY"] = "https://gocenter.io"
-    system "go", "build", "-o", bin/"wtfutil"
+    ldflags=["-s -w -X main.version=#{version}",
+             "-X main.date=#{Time.now.iso8601}"]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"wtfutil"
   end
 
   test do

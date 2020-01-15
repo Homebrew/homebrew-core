@@ -1,16 +1,16 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0215.tar.gz"
-  version "0.215"
-  sha256 "c1b5fb0b91829df5f3dbe54ff13a7ccfa3a9f8aafa51a61c9a2f3158560ed609"
+  url "https://github.com/mamedev/mame/archive/mame0216.tar.gz"
+  version "0.216"
+  sha256 "cc69e56ebbabbd6cf197d4910de0904f5709844a81f0117ce5d922f702429fc8"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "ec8db5dbde15aa22abe7c60125d59abb010d7963eb5c8718c1b69135da483278" => :catalina
-    sha256 "93bbb6a79c2b338c1d561df0eb2cf56b2339903d0662adac16a77e224e5eccd9" => :mojave
-    sha256 "2255ff61643d909edbb851c7e31a54adda656175e2952fee29d5405922e8e271" => :high_sierra
+    sha256 "8bc6497043bfa57144c2dea206449918236b382187012e067b1cfc80d468bb54" => :catalina
+    sha256 "cc193f1b57ef6daa1ff2f33b5d4e5140ee7454d3b900f3c51dd9e7fc30a5f7ae" => :mojave
+    sha256 "d00dfa62f18e09ab0c51bb1ffb64b4599ded97941f38b8b6b347a4322dd6c869" => :high_sierra
   end
 
   depends_on "asio" => :build

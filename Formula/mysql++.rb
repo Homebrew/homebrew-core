@@ -3,13 +3,13 @@ class Mysqlxx < Formula
   homepage "https://tangentsoft.com/mysqlpp/home"
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.5.tar.gz"
   sha256 "b780beeb3a9cd9ce6a9043028527484df8e822c58c5274d4d67ec5ba2fc0a778"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9fdde4d5d3add26f37cc3640cdf4b0687cda260c0467a51a9e9cf6c5d263e482" => :catalina
-    sha256 "6e0bd5060ad63d2271d92b2ed4e8eacdabff05598c134f3506d436fa5a3f9b2a" => :mojave
-    sha256 "1c0ca1caf7821bada3f3f3a31fb1dffc23695ea65dc4abf7641c4e42abea1431" => :high_sierra
-    sha256 "e78c8f7ea89a07d3aa4ac5eaac2e48782c85b6ea2612fcfa5ba4a59f481933a4" => :sierra
+    sha256 "657ebf2f50f14f877b6892bbee2c5e92aef47093a22918a9d14b871769d76a30" => :catalina
+    sha256 "0e2b71648130ccac76a5d861e609538ffc697e629db9c352b0f69b513df4aa4e" => :mojave
+    sha256 "a8bb0d5cdc09c45b28b15e6e3de0b20260b8f11f395fb968d1f6a4c931d9a292" => :high_sierra
   end
 
   depends_on "mysql-client"

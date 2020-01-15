@@ -1,13 +1,13 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.58/gjs-1.58.1.tar.xz"
-  sha256 "b4df16ea87dc78c0df5412f9134efb14f7c510773aee117d5ad4cda75646c6f5"
+  url "https://download.gnome.org/sources/gjs/1.58/gjs-1.58.4.tar.xz"
+  sha256 "261a3f666c771d7744965fe71b804fc2c3a3d46a8e3e8d4f7ed5ef97967ebd5f"
 
   bottle do
-    sha256 "4138dc2352633c4f69b4642c698c60f61afff72edf0fd4dc56ace53d9f31398a" => :catalina
-    sha256 "b256f7388d0ea2cbb10c2abda97b192bf2377e7cbf47f16f0eebd0385aa24045" => :mojave
-    sha256 "c2f5ed90b642182fcb8fa2cb359a8cc9ea3a6cbfe97d2a0435f0c4108d056376" => :high_sierra
+    sha256 "4114f05819aeec46f6e6a11e103e19ff49adaa7df059ecf2dc2bb474026199b4" => :catalina
+    sha256 "58e02247520ffcb72f50d7a1201c9f7b0697d60df473b9cb25c41b1b4611f1f7" => :mojave
+    sha256 "f49e8bea476320bef6a2f719b391898e90a930756291b9e91b6a52fb135af5bc" => :high_sierra
   end
 
   depends_on "autoconf@2.13" => :build
@@ -44,7 +44,8 @@ class Gjs < Formula
                               "--enable-pie",
                               "--enable-release",
                               "--with-intl-api",
-                              "--disable-jemalloc"
+                              "--disable-jemalloc",
+                              "--disable-xcode-checks"
         system "make"
         system "make", "install"
         rm Dir["#{bin}/*"]

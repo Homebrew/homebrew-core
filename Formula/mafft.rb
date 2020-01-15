@@ -1,15 +1,14 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.429-with-extensions-src.tgz"
-  sha256 "a939b153a5ebaa18a786ad0598ce11d177f4ccff698404a9f9686a38fc6ee67b"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.453-with-extensions-src.tgz"
+  sha256 "8b2f0d6249c575f80cd51278ab45dd149b8ac9b159adac20fd1ddc7a6722af11"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34536c22532e7427b8170be99a4a566334df6e03b752d18d6a8be0eec6a31fba" => :catalina
-    sha256 "8286d20021c84330602546f9bc7d12f3440b62cf4e41c53188ec4409608a759e" => :mojave
-    sha256 "b7a38f20fb6fc2d10845b6605962cedc1f2dd952fd46bb420a13203b2873e632" => :high_sierra
-    sha256 "39fe0fcdb27d0a2e358c3c9ea41d6f07bd169f228943bc37a1b3186f67833513" => :sierra
+    sha256 "f6e8372f6e89a3001926a1f11acdba06c1d5ecf6ee42d5ad9a6be7692147fc77" => :catalina
+    sha256 "3253fc686c81f566361935088acd1cdf7c2493f81233520a40eedeb8db9dbe10" => :mojave
+    sha256 "eb7f34ff0a6015a18a71cc84c5d7839644166e0e3439201e66454e0337e871be" => :high_sierra
   end
 
   def install

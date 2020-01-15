@@ -2,28 +2,20 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.0.6",
-    :revision => "50dc3c8b29490f70ce67dfd426f681f5f5d01945"
+    :tag      => "3.2.2",
+    :revision => "f47b75edc0ef011d8955b1e2c522a74c8b6143e5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9484678d131ceff8d993b58be7b426fc4ae01c9d353b2ff8b85022fb3d008f70" => :catalina
-    sha256 "213b1351d0d3416ab9adda329349a737f6cec0885abe16acf98268000c56939a" => :mojave
-    sha256 "ed4d0cabdbfcc0ec90b672463079f27115f63efb08a0f30b73a62aad53e18e41" => :high_sierra
+    sha256 "b02352aed34fe7f2ba8a119677bb24164e1fe2ca4479f3221abdd34f864b2297" => :catalina
+    sha256 "d9fd5fd5aa32cda93946533d76e250a46bb3a880b3174282d8977ff27048388e" => :mojave
+    sha256 "a49311e865e5b7c6d8e3718fd4f0ecf07d245008e68e2bda376482c731b98c30" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/cheat/cheat"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
   end
 
   test do

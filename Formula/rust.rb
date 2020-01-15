@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.39.0-src.tar.gz"
-    sha256 "b4a1f6b6a93931f270691aba4fc85eee032fecda973e6b9c774cd06857609357"
+    url "https://static.rust-lang.org/dist/rustc-1.40.0-src.tar.gz"
+    sha256 "dd97005578defc10a482bff3e4e728350d2099c60ffcf1f5e189540c39a549ad"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.40.0",
-          :revision => "1c6ec66d5bae40e9dfd2fb82f091b5172c212d73"
+          :tag      => "0.41.0",
+          :revision => "bc8e4c8be13c8f8d1583f9d52e55fda038c0f9d4"
     end
 
     resource "racer" do
@@ -21,9 +21,10 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "feea87a17ac222cb84b952d964067ce591063ff41f408cad6e7ad4d0c71d33d8" => :catalina
-    sha256 "0d7c179f204475b6ae4438435fc59ef898fdc7399f9f43cc73e6f4b9114e12a9" => :mojave
-    sha256 "0e2ee5ccad46ffafad625ed4c97d7b918be1e6e54dea0cbc72e323ed59d0bad9" => :high_sierra
+    cellar :any
+    sha256 "d32d463310da37b3cd5165e6def90159e8d223ffb4c2b8414dbda6eaf3f1e852" => :catalina
+    sha256 "37eb20eafba9ed6bdfc40ee96b0638c5e44c80e6d5a10d0431bbf0ea20c5bd6a" => :mojave
+    sha256 "2768bdee84510629baba7f6a44cf0919bfe115d7971fdb917880fcbb8992bf51" => :high_sierra
   end
 
   head do
@@ -45,8 +46,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2019-09-26/cargo-0.39.0-x86_64-apple-darwin.tar.gz"
-    sha256 "107af82e268dfe7dbb35908ab0dfd96d0356c3750520612f1add1ecb8ecbc535"
+    url "https://static.rust-lang.org/dist/2019-11-07/cargo-0.40.0-x86_64-apple-darwin.tar.gz"
+    sha256 "8a8d2a7ecd9560aedab1e159ba25a6abed361a66ef9ad469ef19735194c26ed8"
   end
 
   def install
@@ -66,8 +67,8 @@ class Rust < Formula
     ENV["SDKROOT"] = MacOS.sdk_path
 
     args = ["--prefix=#{prefix}"]
-    args << "--disable-rpath" if build.head?
     if build.head?
+      args << "--disable-rpath"
       args << "--release-channel=nightly"
     else
       args << "--release-channel=stable"

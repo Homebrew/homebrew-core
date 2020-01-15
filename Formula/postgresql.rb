@@ -1,22 +1,29 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2"
-  sha256 "7fdf23060bfc715144cbf2696cf05b0fa284ad3eb21f0c378591c6bca99ad180"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
+  sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "50c6402fe972adb5e0b14e6e62f80e8d5149b9ff2a03609ec57822f60ce60cbd" => :catalina
-    sha256 "463c6a192a0b6a5d1359b68db24003b2dac6895cdb86c827c41bf03fffd856d6" => :mojave
-    sha256 "eacea455385cab25b9692b5b2aed804f34fa409838ee90702fe01c793117d33c" => :high_sierra
-    sha256 "ae676cf5e076fd8f0b7395835e25f35e8d82f2660534749a3f45c1677cb8f7ba" => :sierra
+    rebuild 1
+    sha256 "10d46b2d2fba43e24ad03583e3243d928c4dcf8531ded3630c9a942a1ee7e9b6" => :catalina
+    sha256 "c620a1f26b954d2e27b37117dde1ce0c0b8a965879a39398ecabc8e548717fa3" => :mojave
+    sha256 "6eb005a6b35c7637589733eb2ebd932d5e840023bf71322b1a609909d9035390" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
+
+  # GSSAPI provided by Kerberos.framework crashes when forked.
+  # See https://github.com/Homebrew/homebrew-core/issues/47494.
+  depends_on "krb5"
+
   depends_on "openssl@1.1"
   depends_on "readline"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -30,6 +37,7 @@ class Postgresql < Formula
       --prefix=#{prefix}
       --datadir=#{HOMEBREW_PREFIX}/share/postgresql
       --libdir=#{HOMEBREW_PREFIX}/lib
+      --includedir=#{HOMEBREW_PREFIX}/include
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
@@ -56,7 +64,11 @@ class Postgresql < Formula
     system "make"
     system "make", "install-world", "datadir=#{pkgshare}",
                                     "libdir=#{lib}",
-                                    "pkglibdir=#{lib}/postgresql"
+                                    "pkglibdir=#{lib}/postgresql",
+                                    "includedir=#{include}",
+                                    "pkgincludedir=#{include}/postgresql",
+                                    "includedir_server=#{include}/postgresql/server",
+                                    "includedir_internal=#{include}/postgresql/internal"
   end
 
   def post_install

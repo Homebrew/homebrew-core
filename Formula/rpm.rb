@@ -1,14 +1,14 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.0.tar.bz2"
-  sha256 "1e06723b13591e57c99ebe2006fb8daddc4cf72efb366a64a34673ba5f61c201"
+  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.1.tar.bz2"
+  sha256 "ddef45f9601cd12042edfc9b6e37efcca32814e1e0f4bb8682d08144a3e2d230"
   version_scheme 1
 
   bottle do
-    sha256 "a758f1a11bb8b5c794d6566988cc0a1d61aa5f7b0b66b6a5b0fe33330d26aff6" => :catalina
-    sha256 "282452168e2b1c1635009bcd8a5dcc27580f2bcaf738f6b37fd20c383e0e17de" => :mojave
-    sha256 "0e1ccf75206784980f892425c2d96d5ff2b7433953c49296948eda35506e2e9f" => :high_sierra
+    sha256 "001127e004c5bda9299956bdcdfc4fc95b9c9894a191f23c9325fa0f3f47ac55" => :catalina
+    sha256 "36a81d3e478ca4d48554954373f56d9cd31539504b25038e72c4aead4ab82270" => :mojave
+    sha256 "77a3a72aa150d019c2ef6b5ed2e4ee30c2289325e597c5bb591ba0fdcaf5be0f" => :high_sierra
   end
 
   depends_on "berkeley-db"

@@ -2,14 +2,15 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag      => "v0.15.0.0",
-      :revision => "69c488a479609df2838c14cd0cf500242758f449"
+      :tag      => "v0.15.0.1",
+      :revision => "6def88ad405b39f632a91afa3aacbb92ecc63c1f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9692a78382ea9a4c4d12e43c228c1789696d8fb1a3d137bd29b9cdce8b2e532a" => :catalina
-    sha256 "350e30d0dc79742c442f44e5f80621d75f502ea044337422d4e6e9333bf3d084" => :mojave
-    sha256 "65ebae03a8a85a9d406f19eabfba28e84cb32e36b8af51a06a2d23846eb9d0f0" => :high_sierra
+    sha256 "97e2127eb9940787ca8fd90fefe51c024a7b7eb31a71831202211a0cb073a1b3" => :catalina
+    sha256 "d11ad52f791fbc14f859bda0bc97e0daa62d4df2ca30ca8a98170a5d091286ef" => :mojave
+    sha256 "a8742fb9b6c349f47398d7327d02674aab87cafcc076f622e3dbc916f65918cc" => :high_sierra
   end
 
   depends_on "cmake" => :build

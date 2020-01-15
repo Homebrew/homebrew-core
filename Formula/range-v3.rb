@@ -1,15 +1,14 @@
 class RangeV3 < Formula
   desc "Experimental range library for C++14/17/20"
   homepage "https://ericniebler.github.io/range-v3/"
-  url "https://github.com/ericniebler/range-v3/archive/0.9.1.tar.gz"
-  sha256 "2b5b442d572b5978ea51c650adfaf0796f39f326404d09b83d846e04f571876b"
+  url "https://github.com/ericniebler/range-v3/archive/0.10.0.tar.gz"
+  sha256 "5a1cd44e7315d0e8dcb1eee4df6802221456a9d1dbeac53da02ac7bd4ea150cd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35f0f6197f9740b0429b08a341e2dab02fe2cbf10faeeac8b204a26c7117e249" => :catalina
-    sha256 "d50bc210a23dfaaa55c6164392572a5fe21d51f588b53087adaa131fcf233db7" => :mojave
-    sha256 "d50bc210a23dfaaa55c6164392572a5fe21d51f588b53087adaa131fcf233db7" => :high_sierra
-    sha256 "2ef924d9e34791e3c94128602ad48ab8ad34f6542712ab9b73e79c4a80ba2443" => :sierra
+    sha256 "765e3422e15f7c6e2c3b4d7aacfdfea919ddcad18cde592a481f2eb5e3fe537d" => :catalina
+    sha256 "765e3422e15f7c6e2c3b4d7aacfdfea919ddcad18cde592a481f2eb5e3fe537d" => :mojave
+    sha256 "765e3422e15f7c6e2c3b4d7aacfdfea919ddcad18cde592a481f2eb5e3fe537d" => :high_sierra
   end
 
   depends_on "cmake" => :build

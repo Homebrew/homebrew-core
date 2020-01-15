@@ -3,22 +3,20 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.3.tar.gz"
   sha256 "b248c91d65c7a101b9d6226025f2b4bf3dabe94c0c49ab6d51ce84a22a39622b"
-  revision 2
+  revision 4
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    sha256 "3832ab013b9af3f1c3a0f036cd672480dfc83e64c5647ff1b2bb18cd42eafadf" => :catalina
-    sha256 "db83f16edf50f9ef8924146954c67939aa0dfd28eb4d3ea7117be2da969a2d34" => :mojave
-    sha256 "6be4a8ef637a89862f326455b20c1244dc68c0ea955ad06d9e315ab5ec80fdcd" => :high_sierra
-    sha256 "ff0f9bb212a91440415225bc505bcbf305fc254e021994864955312c8c5e37d0" => :sierra
+    sha256 "9b9be8385bbf69fcd7e910bce409f97c08542b89aecacde4d615d5a5ca9af65c" => :catalina
+    sha256 "f36940017c56792a42d010b1b1094d355575adb4d51f74acaf4ea8e57024aba0" => :mojave
+    sha256 "a8313d55f2a5070ac82c01260c11a77273c5dc6d0ee2c38d06eb0b9a143cb5cb" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "boost-python"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@2"
+  uses_from_macos "python@2"
 
   def install
     ENV.cxx11
@@ -28,11 +26,9 @@ class Ledger < Formula
       --output=build
       --prefix=#{prefix}
       --boost=#{Formula["boost"].opt_prefix}
-      --python
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
-      -DUSE_PYTHON27_COMPONENT=1
       -DBoost_NO_BOOST_CMAKE=ON
     ]
     system "./acprep", "opt", "make", *args
@@ -41,7 +37,6 @@ class Ledger < Formula
 
     (pkgshare/"examples").install Dir["test/input/*.dat"]
     pkgshare.install "contrib"
-    pkgshare.install "python/demo.py"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
     bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
@@ -55,7 +50,5 @@ class Ledger < Formula
       "balance", "--collapse", "equity"
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $CHILD_STATUS.exitstatus
-
-    system "python", pkgshare/"demo.py"
   end
 end

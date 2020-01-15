@@ -3,13 +3,12 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "aceb0af3fffbec2688b79ed1ae4d9c3c4004d8f6d685fb3156799b416403595a" => :catalina
-    sha256 "786a7ce7564b15a7b24b6bbe9db363ac96ba44a0dc432e487f4ce5926f8abb95" => :mojave
-    sha256 "3f2d8620a26cc9e524be24d91db203337f4e1daad7b5db61c74207f26daf1298" => :high_sierra
-    sha256 "959cdbb77423ca2a305981370a087736941ae2767a3cbfbd0483f24b97049ca5" => :sierra
+    sha256 "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f" => :catalina
+    sha256 "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b" => :mojave
+    sha256 "aec227666c4e6216b061e979c5aabd1343c9c6433e8f85868f0f12eff3c01b62" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

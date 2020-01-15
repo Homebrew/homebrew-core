@@ -5,11 +5,10 @@ class Qdae < Formula
   sha256 "780752c37c9ec68dd0cd08bd6fe288a1028277e10f74ef405ca200770edb5227"
 
   bottle do
-    sha256 "0d4d08d365cd0945d39a04cf9ffdff5b8692dd4b0038553398a62e7b25361590" => :mojave
-    sha256 "60fdb0801b8db3e5b36bc896aca8d4e71278ffe2106019e38f34ffd9605500ec" => :high_sierra
-    sha256 "bf2425bdeea4a4ac407056410f6758d44f2b31a9c9afc13871f96914c1d17651" => :sierra
-    sha256 "b8882074853ecfcbf6d2426361d5baa553380efbb5896777f0c829cac65811a4" => :el_capitan
-    sha256 "1a4eeaff6ff2a86179b673c04837aebe2664ca1eeb065e3081296f653b762cc7" => :yosemite
+    rebuild 1
+    sha256 "d951231205b4f4faf3e4f829665d25c82d236f3f52339dd5664fb8adb46e68eb" => :catalina
+    sha256 "290d931e61684c53227e0a16d808427eb7218fbec76c57eb250c03dbf15bb6b8" => :mojave
+    sha256 "945b28c4354053f3ebd81bb868ef6a14d8fef1c32d6cebd73455bd17f17332ae" => :high_sierra
   end
 
   depends_on "libxml2"

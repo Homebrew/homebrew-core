@@ -1,28 +1,30 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/v2.6.4.tar.gz"
-  sha256 "72c8e5833e61a31a4595bbd8a77bfb0a8ade9c60603638be70ea801e309d39fe"
+  url "https://github.com/mvdan/sh/archive/v3.0.1.tar.gz"
+  sha256 "4cca3d8a40e5132a4764a3bf7bcf335288ebff8a4a74e130f9359605e6f07544"
+  revision 1
   head "https://github.com/mvdan/sh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31b526255ecd8a4fe944c7ca3d7d757cd55d30235417d84ca39c071f149a0004" => :catalina
-    sha256 "15b43658df24bf448ab0d3373ee75ab6e6af1e101ae684019fd9830a169fc48c" => :mojave
-    sha256 "c18cccddb9678d23261c99b8a9870bc8ac98c74a332f6263eff670561f620a7a" => :high_sierra
-    sha256 "ab8acee13bd584683347201a04cbef8b652fad596bbbc3374d153fb315cd4d88" => :sierra
+    sha256 "6358293ae23a216f4349ac0ab191bf9b17e9205a979cc0934c839406066194ce" => :catalina
+    sha256 "d05ca216d6a5b95ad55eaca1e5faf4c346ae9b9f9fc82eb644dfdc3b684ed646" => :mojave
+    sha256 "4b32111c7f53b4f21cc971b866f218b40ba87cb3606c5fe418eabb2a4dc886d4" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["CGO_ENABLED"] = "0"
     (buildpath/"src/mvdan.cc").mkpath
     ln_sf buildpath, buildpath/"src/mvdan.cc/sh"
-    system "go", "build", "-a", "-tags", "production brew", "-o", "#{bin}/shfmt", "mvdan.cc/sh/cmd/shfmt"
+    system "go", "build", "-a", "-tags", "production brew", "-ldflags", "-w -s -extldflags '-static'", "-o", "#{bin}/shfmt", "./cmd/shfmt"
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/shfmt  --version")
+
     (testpath/"test").write "\t\techo foo"
     system "#{bin}/shfmt", testpath/"test"
   end

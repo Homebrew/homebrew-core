@@ -3,27 +3,26 @@ class NodeExporter < Formula
   homepage "https://prometheus.io/"
   url "https://github.com/prometheus/node_exporter/archive/v0.18.1.tar.gz"
   sha256 "9ddf187c462f2681ab4516410ada0e6f0f03097db6986686795559ea71a07694"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e03cfae1e9c140e9cc552cd642e010d0c6efce181b216b4027821b57ad04a95" => :catalina
-    sha256 "ff7b019285ebd031d6985bb06e4300518c9e07f01536ebb5281e4970818cb8a3" => :mojave
-    sha256 "1cce732622dee4be305a42090545dfb493513229bbe9dbbd203432d108b4594c" => :high_sierra
-    sha256 "8dff90ccbad967c36b51e27e3c681deb8369f417fae3111765f92f847e3bc30b" => :sierra
+    rebuild 1
+    sha256 "ff1a0c237371d710a60ae7692eb08fa96259840e7565f6345ed50821db2d27aa" => :catalina
+    sha256 "9ab6e123c1862749886247564ea64dede482a6cb9efb19c611e2a5a5b4595237" => :mojave
+    sha256 "5de4df63394055e449580b4b583f4411237f84096042eef63d3423b39f75ff2e" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/prometheus/node_exporter").install buildpath.children
-    cd "src/github.com/prometheus/node_exporter" do
-      system "go", "build", "-o", bin/"node_exporter", "-ldflags",
-           "-X github.com/prometheus/node_exporter/vendor/github.com/prometheus/common/version.Version=#{version}",
-           "github.com/prometheus/node_exporter"
-      prefix.install_metafiles
-    end
+    ldflags = %W[
+      -X github.com/prometheus/common/version.Version=#{version}
+      -X github.com/prometheus/common/version.BuildUser=Homebrew
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"node_exporter"
+    prefix.install_metafiles
   end
 
   def caveats; <<~EOS

@@ -3,14 +3,15 @@ class Wxpython < Formula
 
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxwidgets.org/"
-  url "https://files.pythonhosted.org/packages/9a/a1/9c081e04798eb134b63def3db121a6e4436e1d84e76692503deef8e75423/wxPython-4.0.6.tar.gz"
-  sha256 "35cc8ae9dd5246e2c9861bb796026bbcb9fb083e4d49650f776622171ecdab37"
+  url "https://files.pythonhosted.org/packages/b9/8b/31267dd6d026a082faed35ec8d97522c0236f2e083bf15aff64d982215e1/wxPython-4.0.7.post2.tar.gz"
+  version "4.0.7.post2"
+  sha256 "5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e"
 
   bottle do
     cellar :any
-    sha256 "2df58a8f1ccba9acc4e7bb7d17cdfaf14a29acd59d8bcab15d6de0bf2784fb7c" => :mojave
-    sha256 "b206e93c7820402551b7c9648aa64f7ca3b910162c5724ae98b22ce7c2ffa658" => :high_sierra
-    sha256 "9472c06ce95355a9afb82aaa85eaf12b04e823d718064961a8c3b85520a55c76" => :sierra
+    sha256 "efbbe3dbd7c67ee29154ea478760322c8bfd78d6f47b3bd0cb7e60444393d5c0" => :catalina
+    sha256 "ec81f44d7a30fd52f1fbdf2493a124c22e225cd1a4042489fcac5605599c9597" => :mojave
+    sha256 "5a487d33cdd6493079b0e937a38565c7af94bcbe653f23d1b9e5411cb9539856" => :high_sierra
   end
 
   depends_on "freetype"
@@ -21,33 +22,28 @@ class Wxpython < Formula
   depends_on "python"
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/81/1a/6b2971adc1bca55b9a53ed1efa372acff7e8b9913982a396f3fa046efaf8/Pillow-6.0.0.tar.gz"
-    sha256 "809c0a2ce9032cbcd7b5313f71af4bdc5c8c771cb86eb7559afd954cab82ebb5"
+    url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"
+    sha256 "bf4e972a88f8841d8fdc6db1a75e0f8d763e66e3754b03006cbc3854d89f1cb1"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
-  # Fix build with recent macOS versions (remove with next version)
+  # Fix build for 10.15 SDK (WebKit errors).
+  # Fixed in 4.1.x.
   patch do
-    url "https://github.com/wxWidgets/Phoenix/commit/dcb06f6f.diff?full_index=1"
-    sha256 "efb0cf73be0f677967d98f8bb3af4885bd164882c2c930fb8abf23e5bdddc9fa"
-  end
-
-  # Do not require pathlib2 dependency (remove with next version)
-  patch do
-    url "https://github.com/wxWidgets/Phoenix/commit/2c4f9cb2.diff?full_index=1"
-    sha256 "1ec14aaf175ec64ccc00174c3bae416dc059c4c4138215bc4370377bfd15130b"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/20da70f67040d40f8420bd7d543c875739261e24/wxpython/10.15-sdk.patch"
+    sha256 "c54f2bb97532f483219c63a3c9e463d4aeda759bee2fff1f07820f3c752f68f1"
   end
 
   def install
     # Fix build of included wxwidgets
     # see https://github.com/wxWidgets/Phoenix/issues/1247
     inreplace "buildtools/build_wxwidgets.py",
-              "#wxpy_configure_opts.append(\"--enable-monolithic\")",
-              "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+              /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
+              "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
 
     venv = virtualenv_create(libexec, "python3")
 

@@ -1,8 +1,8 @@
 class WpCli < Formula
   desc "Command-line interface for WordPress"
   homepage "https://wp-cli.org/"
-  url "https://github.com/wp-cli/wp-cli/releases/download/v2.3.0/wp-cli-2.3.0.phar"
-  sha256 "3c5edf945846f650846b973a22645823c7f5e00b0e393f921397d26ee11f3770"
+  url "https://github.com/wp-cli/wp-cli/releases/download/v2.4.0/wp-cli-2.4.0.phar"
+  sha256 "139dcc86ed39ef751679efbdaf57a53528f1afda972c4e3622667cc27397b540"
 
   bottle :unneeded
 

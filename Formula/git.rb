@@ -1,14 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.24.0.tar.xz"
-  sha256 "9f71d61973626d8b28c4cdf8e2484b4bf13870ed643fed982d68b2cfd754371b"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.25.0.tar.xz"
+  sha256 "c060291a3ffb43d7c99f4aa5c4d37d3751cf6bca683e7344ea407ea504d9a8d0"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "fa754c684673a191b999528995c1dc4b0d597a95ed6a2b1dd213c8e7018885ab" => :catalina
-    sha256 "36d3b48999a9252ea1a25fa54cd5305259c713d78d14be8161ea206357c1e120" => :mojave
-    sha256 "014ffddf6866f5c8c4177d06629b040949e4dfbb730e3dbe13a26a6a54e260df" => :high_sierra
+    sha256 "8b55d36d8e8465ce563f6d0c969e3dec7b3b0092534596345b0d9450dee72729" => :catalina
+    sha256 "764785c78dbcb098b5673772503e01f2946fa37f97bebe257ee81ee416504879" => :mojave
+    sha256 "3bcfa1937f04364e1590e6b5abe9c8cda3dc0e035690eeca6c57b6ce8cb981cc" => :high_sierra
   end
 
   depends_on "gettext"
@@ -20,13 +20,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.24.0.tar.xz"
-    sha256 "05b6ed0719d5e29d5c60dd7d0a5469f4a0514008a64f6084ac26335d1b37f73b"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.25.0.tar.xz"
+    sha256 "a99d83260ff903102bf7556e673c1535e4b0fb276a718a5d2f32b501e39a000d"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.24.0.tar.xz"
-    sha256 "b0c872c16f22942c1cb6c90ec07f395a931f7c2f9fb920d2ec926674265c04a6"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.25.0.tar.xz"
+    sha256 "d396777bdd69dc2db06a49da6971a883fd95fe16ad1dcca7e6b491686658c8bd"
   end
 
   resource "Net::SMTP::SSL" do
@@ -58,6 +58,13 @@ class Git < Formula
 
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
+    end
+
+    # Ensure we are using the correct system headers (for curl) to workaround
+    # mismatched Xcode/CLT versions:
+    # https://github.com/Homebrew/homebrew-core/issues/46466
+    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
+      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
     args = %W[

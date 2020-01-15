@@ -1,27 +1,22 @@
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
-  url "https://deviousfish.com/Downloads/pianod/pianod-176.tar.gz"
-  sha256 "4f3be12daef1adb3bcbbcf8ec529abf0ac018e03140be9c5b0f1203d6e1b9bf0"
-  revision 1
+  url "https://deviousfish.com/Downloads/pianod2/Devel/pianod2-301.tar.gz"
+  sha256 "d6fa01d786af65fe3b4e6f4f97fa048db6619b9443e23f655d3ea8ab4766caee"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "14b7d55edd091ded3ad707d14e81136fdd34ec38308b292bd78a4879c7690fa1" => :catalina
-    sha256 "e85267b08e38e5657066b8c20e84177ada48b11567c79de70e4b61b65da515f7" => :mojave
-    sha256 "f3b3d4d7ab4c8841a87cb44ecfee33fdd69b05c85c2f62f094ae4251fe38d777" => :high_sierra
+    sha256 "6698a4353e50aed190386ccdf407af24f6b623691ebabdef7f8a0b7dca77b338" => :catalina
+    sha256 "c0dfa015b5c5546a2fc4788d716c00520282773a93e7d6669f891f2b1126f587" => :mojave
+    sha256 "d7c6ba07d0b46d393c4dc5de718e4dcd3130d6b0f8f2ee5aa5d00efd8ec69e93" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "faad2"
-  depends_on "gnutls"
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
-  depends_on "mad"
 
   def install
+    ENV["OBJCXXFLAGS"] = "-std=c++11"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

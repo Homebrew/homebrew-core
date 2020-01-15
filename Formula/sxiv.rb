@@ -4,14 +4,14 @@ class Sxiv < Formula
   url "https://github.com/muennich/sxiv/archive/v25.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/s/sxiv/sxiv_25.orig.tar.gz"
   sha256 "16d1aca1a179e1c0875844efe2e51cfa396a4403467c389f7e9221a733ae5e26"
+  revision 1
   head "https://github.com/muennich/sxiv.git"
 
   bottle do
     cellar :any
-    sha256 "50df305ce82fbe25234ebfbd1a3482aba25f7594104e34b2232cb86b18ff4ea5" => :catalina
-    sha256 "997fa90908e0bdb205de81a7ebdaf77cc4cbd36e5545b955a60394fb59abdcc5" => :mojave
-    sha256 "b89d70ec319463f27d1b8a75318f96c5f6032f50a35e64508e27564af9c7a98a" => :high_sierra
-    sha256 "77e317584075a5bf67d5426c075a2a72a2fe5a3134341a633c81a4256ff5af6e" => :sierra
+    sha256 "4fc8ef0f71f9cc26c8d685915c12f34147941f57a0d5cef118d0bc681907b5a4" => :catalina
+    sha256 "14d41d161fe07716d411db619a508bbdf6ba8f679dbcedbe349545a2e199bc5e" => :mojave
+    sha256 "f34e137e297f708018be69bdb6c355a9f86ff9fc0cf630560a7922c2224e71b4" => :high_sierra
   end
 
   depends_on "giflib"

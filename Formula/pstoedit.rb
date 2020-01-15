@@ -1,14 +1,13 @@
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
   homepage "http://www.pstoedit.net/"
-  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.74/pstoedit-3.74.tar.gz"
-  sha256 "353242fa4a3a73c3c856d1122a4d258a12be869707629603807e27137566990c"
+  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.75/pstoedit-3.75.tar.gz"
+  sha256 "b7b5d8510b40a5b148f7751268712fcfd0c1ed2bb46f359f655b6fcdc53364cf"
 
   bottle do
-    sha256 "9a2cea540decaf93a026ba2e246a78ffd6a6bd68bdc26702d913ce82fd73bd36" => :catalina
-    sha256 "08a1be5ab3a0b2782a0c4df3c14639f1d7da4a0b66af6eed1147a249b4b7b41f" => :mojave
-    sha256 "d8fae40ce28f534dc2c2b90cbd4a9db4ae002c69273b9cf64695c6f7cbe3e653" => :high_sierra
-    sha256 "029b9f2869ebcbf06c8f3cffda92b5bdb44577c38100c39524f9bbd5d5b4ccbc" => :sierra
+    sha256 "f048d902c088f0625c0c9e18d84b159493775b40e742812b040e7b517900260a" => :catalina
+    sha256 "1f3ec91e58d95e08081694b43e031ed83f13a73cecff15c55c532268282b0ad1" => :mojave
+    sha256 "22710dd8997d40cec3492c40960a9966b80b386bdbd3fed46515c66bb25053d7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

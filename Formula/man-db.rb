@@ -1,22 +1,20 @@
 class ManDb < Formula
   desc "Unix documentation system"
-  homepage "http://man-db.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.5.tar.xz"
-  sha256 "b64d52747534f1fe873b2876eb7f01319985309d5d7da319d2bc52ba1e73f6c1"
-  revision 1
+  homepage "https://www.nongnu.org/man-db/"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.9.0.tar.xz"
+  sha256 "5d4aacd9e8876d6a3203a889860c3524c293c38f04111a3350deab8a6cd3e261"
 
   bottle do
-    sha256 "7020922156beba59a49ce7d858f370d6fb1884ed2debaf8c57a09b4c37096a14" => :catalina
-    sha256 "d068d781ba8482dd4e00b14d514e8bbaa30600ed286f0c422e09524e3e8a4247" => :mojave
-    sha256 "4ee0fb987e13ced600fdbc6159e75f5303510e937d94ed78ccd0610eb8eac601" => :high_sierra
-    sha256 "6054a6367980207aad35a40f0147e389e8f4db1691f42056111448389c61f23b" => :sierra
+    sha256 "acfb2487fd63a6340a33325d79da8431301863076d8b43b45eec27462d281371" => :catalina
+    sha256 "9f04ec084e26f41d481fbb828083c79de93c6007b3e2069a6d0ce67b570f9906" => :mojave
+    sha256 "23362793edcd3694c19900b2432bfb34850fc3df1bd757e372f3793510ccaf13" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
 
   resource "libpipeline" do
-    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.1.tar.gz"
-    sha256 "d633706b7d845f08b42bc66ddbe845d57e726bf89298e2cee29f09577e2f902f"
+    url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.2.tar.gz"
+    sha256 "fd59c649c1ae9d67604d1644f116ad4d297eaa66f838e3dfab96b41e85b059fb"
   end
 
   def install
@@ -43,18 +41,7 @@ class ManDb < Formula
       --program-prefix=g
     ]
 
-    # NB: Remove once man-db 2.8.6 is released
-    # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=b74c839eaa5000a18d1c396e995eca85b0e9464b
-    args += %w[
-      --without-systemdtmpfilesdir
-      --without-systemdsystemunitdir
-    ]
-
     system "./configure", *args
-
-    # NB: Remove once man-db 2.8.6 is released
-    # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=056e8c7c012b00261133259d6438ff8303a8c36c
-    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress"
 
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"

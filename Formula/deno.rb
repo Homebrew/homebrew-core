@@ -1,15 +1,15 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.23.0/deno_src.tar.gz"
-  version "0.23.0"
-  sha256 "e6b0c32a6ae960a3ddfaa0b7c9126264d55e751e69a425886854430cf7e0551f"
+  url "https://github.com/denoland/deno/releases/download/v0.29.0/deno_src.tar.gz"
+  version "0.29.0"
+  sha256 "e61d961b5b6a05ecc50205e856b122da223216f28f3156bc26ad6aef9e54e0c2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c177ef3c88e894ebbd9c5be191f515aec61f84528903cbf01b47f828af34c1c0" => :catalina
-    sha256 "83865fe1d93a0ffc3ccce5a2d871cdd373db7ed7fff1edd667f360cb42e2c0ff" => :mojave
-    sha256 "6bc2f7e03e32bf70ae24cb53480b9be38b91c8cf9919c86e9a1b7519f7c67360" => :high_sierra
+    sha256 "b2913b75f56e6483b3b83df38302bb975bef0ba4fa3c3cbb9b9e425aff834bb9" => :catalina
+    sha256 "345a3a1d5ff0f369a2c22e5a1a75d7f1f4e9b6378fe6f03e5a547d8a77bbd0d8" => :mojave
+    sha256 "e18a50ad39820b00ef4d1029b6053b8710a8856955fd41af840000e5843b3575" => :high_sierra
   end
 
   depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100
@@ -20,7 +20,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "152c5144ceed9592c20f0c8fd55769646077569b"
+      :revision => "a5bcbd726ac7bd342ca6ee3e3a006478fd1f00b5"
   end
 
   def install
@@ -32,21 +32,14 @@ class Deno < Formula
     end
 
     # env args for building a release build with our clang, ninja and gn
-    ENV["DENO_NO_BINARY_DOWNLOAD"] = "1"
-    ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
-    args = %W[
-      clang_use_chrome_plugins=false
-      mac_deployment_target="#{MacOS.version}"
-      treat_warnings_as_errors=false
-    ]
+    ENV["GN"] = buildpath/"gn/out/gn"
     if DevelopmentTools.clang_build_version < 1100
       # build with llvm and link against system libc++ (no runtime dep)
-      args << "clang_base_path=\"#{Formula["llvm"].prefix}\""
+      ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
       ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     else # build with system clang
-      args << "clang_base_path=\"/usr/\""
+      ENV["CLANG_BASE_PATH"] = "/usr/"
     end
-    ENV["DENO_BUILD_ARGS"] = args.join(" ")
 
     cd "cli" do
       system "cargo", "install", "-vv", "--locked", "--root", prefix, "--path", "."
@@ -65,5 +58,7 @@ class Deno < Formula
     EOS
     hello = shell_output("#{bin}/deno run hello.ts")
     assert_includes hello, "hello deno"
+    cat = shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts -- #{testpath}/hello.ts")
+    assert_includes cat, "console.log"
   end
 end

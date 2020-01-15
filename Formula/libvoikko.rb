@@ -3,18 +3,18 @@ class Libvoikko < Formula
   homepage "https://voikko.puimula.org/"
   url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.tar.gz"
   sha256 "e843df002fcea2a90609d87e4d6c28f8a0e23332d3b42979ab1793e18f839307"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "747d8a98e45ed2d48b9b33c2246fcd2de7f7ef94766d82d87bceb6a591d28a8a" => :catalina
-    sha256 "b53926f1e2a9ec5edd61f43790f607f458d0760288a7df1719d438f920e81a66" => :mojave
-    sha256 "d1a273c51ed07deed7be74921f45875fb1debeea209500b1eb4031acc6fe0795" => :high_sierra
+    sha256 "77b2e04b116979ed93b2b6371fa434433e770b944410a55b15b2174a45ff7b8d" => :catalina
+    sha256 "f9ab71db12a2457de1705ea205506efd2bacf3433a85cfecc00af01dc7430a5c" => :mojave
+    sha256 "e809b2d5759f6c04c20228d91598d767462354bc4a97bcb30daa017132cd01e7" => :high_sierra
   end
 
   depends_on "foma" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "hfstospell"
 
   resource "voikko-fi" do

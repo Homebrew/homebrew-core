@@ -1,14 +1,13 @@
 class Gstreamer < Formula
   desc "Development framework for multimedia applications"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.1.tar.xz"
-  sha256 "02211c3447c4daa55919c5c0f43a82a6fbb51740d57fc3af0639d46f1cf4377d"
+  url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz"
+  sha256 "e3f044246783fd685439647373fa13ba14f7ab0b346eadd06437092f8419e94e"
 
   bottle do
-    sha256 "48c4b4960f11989dc272c6fa7e55bddfc5cda3372c6f7a0d518e0364eba4f573" => :catalina
-    sha256 "e94719e78d99cfd0f65c34597328203b1e862cbce420aa8405070d289d3fea70" => :mojave
-    sha256 "bf2bed7f060f56039fccaf3ca6a0569a29d5f9b0fc5a1749fd12c2f59a08fcf8" => :high_sierra
-    sha256 "e1b716279d7c161d7163ccf19863e33435db37eb29485611fca8d68c7a08ad9a" => :sierra
+    sha256 "3473eef6aadd51a378f722c08a399922c4b401f38d8d5bffe7e2cb0ba845f919" => :catalina
+    sha256 "6427cd64ac1c541d35fc57f869dd1290e57aab8a2a9f5589b79f6e078e4432d5" => :mojave
+    sha256 "b1a6cbfbac2bb152ce023fbe283ef38ec371ceccff48ae1545cdeac1a36933ba" => :high_sierra
   end
 
   head do

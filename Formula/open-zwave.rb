@@ -1,13 +1,13 @@
 class OpenZwave < Formula
   desc "Library that interfaces with selected Z-Wave PC controllers"
   homepage "http://www.openzwave.com"
-  url "https://github.com/OpenZWave/open-zwave/archive/v1.6.tar.gz"
-  sha256 "3b11dffa7608359c8c848451863e0287e17f5f101aeee7c2e89b7dc16f87050b"
+  url "http://old.openzwave.com/downloads/openzwave-1.6.962.tar.gz"
+  sha256 "d8dfc382f7db2a2e530e9971ff7e325a0c46b29954028b050b4ed36fe0e667bf"
 
   bottle do
-    sha256 "3558f07a0fc5c7fc44546e1a2cf7b51df88769d3d10e3d72861134ddb418bc07" => :mojave
-    sha256 "2148dac1b2414919ee8dace92213b83d84aa329f42e32d0c5f2ca2304c91a70b" => :high_sierra
-    sha256 "4804ba898c7c3527b7cbd7a0f7ce8d5358f00c96fe176f3365b6f25e5f5a2bdd" => :sierra
+    sha256 "148856828778ba5345ee0fe2c9b685d5965ec727271a5b71162e567c76cbf6f8" => :catalina
+    sha256 "e24bdb6a19b9b42638fe804a0c2c8ebeab86c53a385d8c5a1750f18392160023" => :mojave
+    sha256 "12c6536412f6a6f859075820409a32a08ec8071c68a8da189873a35546a71436" => :high_sierra
   end
 
   depends_on "doxygen" => :build

@@ -7,6 +7,7 @@ class Cabocha < Formula
   sha256 "9db896d7f9d83fc3ae34908b788ae514ae19531eb89052e25f061232f6165992"
 
   bottle do
+    sha256 "70e045edcdf30456dfcf96777f0f8fa68807d638ec90995b076c4ce47730e5ff" => :catalina
     sha256 "7142730e5fa6dd1203d6f34168f85d7704050cf620891a9d0db4f9eefc49370a" => :mojave
     sha256 "beafa5ccf84633bed67d405f22ac8e570d2dc2fe0e10fccf8c11076639c672ae" => :high_sierra
     sha256 "27bd41bab80ab64fb32e5bc8b568864b874f0dec16817d38c37abd3c7582c694" => :sierra

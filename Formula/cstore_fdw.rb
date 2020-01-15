@@ -3,21 +3,30 @@ class CstoreFdw < Formula
   homepage "https://github.com/citusdata/cstore_fdw"
   url "https://github.com/citusdata/cstore_fdw/archive/v1.6.2.tar.gz"
   sha256 "35aabbc5a1608024e6aa038d06035e90d587e805eb706eb80652eb8547783491"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a8b567b94b36717172703aaae7efdd9186c98f38019a46e5215ada8494e595ee" => :catalina
-    sha256 "b6bc6b6fa4ee33cc7feb99c3048ef9111720bff5a4d9aafd46269dfe886e84a7" => :mojave
-    sha256 "634bbe8703dec700f01becc6a83fce3aeb741cfcb6e3cc40527cc334b67f4bdf" => :high_sierra
-    sha256 "947cd3c688305996b7b3a4159c0feab29efd5adaa0ae5548250ffdb3b8095bee" => :sierra
+    sha256 "d6b1fd16c930e9296175924104500bbb277780fa432a6c798ca08550038e5d67" => :catalina
+    sha256 "da634eeeaef15ef6f5820a5d5b0c9fc9cb9267d575d3ec95a60f86d94112b9da" => :mojave
+    sha256 "76c6867e57fdaf5be3b0841d833602c222280642255238a3fd65c7aa24c0e4a5" => :high_sierra
   end
 
   depends_on "postgresql"
   depends_on "protobuf-c"
 
-  def install
-    ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
+  # PostgreSQL 12 compatibility patches
+  patch do
+    url "https://github.com/citusdata/cstore_fdw/commit/db6cc99f23d1a4f4eacead60521bd49c0ba3352d.patch?full_index=1"
+    sha256 "2159967206a4604c382e7dbd66f2ddb3ca0a5ae954620c85d5842e2eebffa086"
+  end
 
+  patch do
+    url "https://github.com/citusdata/cstore_fdw/commit/4497b13baed58e2d8d97f0b840579b4503956226.patch?full_index=1"
+    sha256 "89a7aa514741c3a647aafb287b6ddf26625f28421951e70f8d1d74e5fdec3c79"
+  end
+
+  def install
     # workaround for https://github.com/Homebrew/homebrew/issues/49948
     system "make", "libpq=-L#{Formula["postgresql"].opt_lib} -lpq"
 

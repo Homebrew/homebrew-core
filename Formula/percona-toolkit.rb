@@ -3,15 +3,14 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
   sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
-  revision 1
+  revision 2
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "1a4d81c900166778aaacd7d3229f44ee50b0fa459c29de79b46b623041ba3bd6" => :catalina
-    sha256 "a4bad18fddbba29c052142b2f2ab78b4172915ec3ce6ccdd25f37e417d4e3b55" => :mojave
-    sha256 "9825bfde46b669fd79a189ce075d34b5654fdc1743c3cac0fd7366288db7a007" => :high_sierra
-    sha256 "86253e327592de79373eb010fc134dfdbc2e68ab2a222dbdb3ed176e65243cbd" => :sierra
+    sha256 "e4039124f5a501670a7d625f4af2621c0075673dbe462fbffe955ac5367c15af" => :catalina
+    sha256 "b257017efc776a066319c4c855731c9354f2da80a6a5d884d29b9705f5acc5dd" => :mojave
+    sha256 "581f9d4c2f5cbc87f69c77b8707900122f22370dd4699c857d8225c8a1030ddf" => :high_sierra
   end
 
   depends_on "mysql-client"

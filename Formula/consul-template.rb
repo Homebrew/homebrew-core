@@ -2,36 +2,28 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag      => "v0.22.1",
-      :revision => "f04989c64e9bd4c49a7217ac4635732dd8e0bb26"
+      :tag      => "v0.24.0",
+      :revision => "a7bcaa73a2ff8a1567efd577a857259f10e9d210"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72e9acbe3c7ec5ba23b8cbe5b613d15c4c96e1d3a10d5a74640f9f69a81d0a46" => :catalina
-    sha256 "3ce2ab218e3b6379add2f41bb32457fd3e7974cbbbf8a795055e535f590d0dfb" => :mojave
-    sha256 "b58cbc3a12ec729d0375df7893f6238e591d6af347bb8a4437f8741a40828dcc" => :high_sierra
+    sha256 "7d6ba218b40585bfec50e321a39fcd184f54b3934896e7b8740e906f7211b321" => :catalina
+    sha256 "bb877b6b83d183aa38f96354404464374ce6dd9be589781924c8840f8d8c401f" => :mojave
+    sha256 "977f793446ae540866fd515e4d696622ffb65b6a14ae59ad0ddccb306d3467ce" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = "amd64"
-
-    dir = buildpath/"src/github.com/hashicorp/consul-template"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      project = "github.com/hashicorp/consul-template"
-      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-      ldflags = ["-X #{project}/version.Name=consul-template",
-                 "-X #{project}/version.GitCommit=#{commit}"]
-      system "go", "build", "-o", bin/"consul-template", "-ldflags",
-             ldflags.join(" ")
-      prefix.install_metafiles
-    end
+    project = "github.com/hashicorp/consul-template"
+    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+    ldflags = ["-s", "-w",
+               "-X #{project}/version.Name=consul-template",
+               "-X #{project}/version.GitCommit=#{commit}"]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"consul-template"
+    prefix.install_metafiles
   end
 
   test do

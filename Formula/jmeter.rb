@@ -1,14 +1,14 @@
 class Jmeter < Formula
   desc "Load testing and performance measurement application"
   homepage "https://jmeter.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-5.2.tgz"
-  sha256 "f3eb178fadc5feb2ab896ade4e99a178ac9842f74b6d1b5bc6a3658c27ccdd78"
+  url "https://www.apache.org/dyn/closer.cgi?path=jmeter/binaries/apache-jmeter-5.2.1.tgz"
+  sha256 "bbb3cb5fe0b16c1fa139727063f18d9aca6890c7edf53f3a614b8f929f1f1de9"
 
   bottle do
     cellar :any
-    sha256 "e452e3c960df3f60dd1005e3f49687e30bf06a42349eb8167e4905b2c3cd942c" => :catalina
-    sha256 "e452e3c960df3f60dd1005e3f49687e30bf06a42349eb8167e4905b2c3cd942c" => :mojave
-    sha256 "e452e3c960df3f60dd1005e3f49687e30bf06a42349eb8167e4905b2c3cd942c" => :high_sierra
+    sha256 "be9973637adf70706a9e596b6d8098e3cb6d99757177d07c81a502da8ae6c719" => :catalina
+    sha256 "be9973637adf70706a9e596b6d8098e3cb6d99757177d07c81a502da8ae6c719" => :mojave
+    sha256 "be9973637adf70706a9e596b6d8098e3cb6d99757177d07c81a502da8ae6c719" => :high_sierra
   end
 
   resource "jmeterplugins-standard" do

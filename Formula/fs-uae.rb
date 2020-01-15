@@ -1,15 +1,14 @@
 class FsUae < Formula
   desc "Amiga emulator"
   homepage "https://fs-uae.net/"
-  url "https://fs-uae.net/stable/3.0.0/fs-uae-3.0.0.tar.gz"
-  sha256 "221568b8f78bac352f84297f0cabe984d3da4f808e39cc3191541c02b389c964"
+  url "https://fs-uae.net/stable/3.0.2/fs-uae-3.0.2.tar.gz"
+  sha256 "4ededc341edf12ad84e15ecfaf7942ebba12b75aec8c78fb0275d13c749f8aab"
 
   bottle do
     cellar :any
-    sha256 "99c0efd17141470c96e857a0e00696f2d0e6c901d7fa39a2efe30cf5112203ee" => :catalina
-    sha256 "a520a09e6a703765acaf3829b901b86d6f6503ef2887f1c5495ba6f309443a23" => :mojave
-    sha256 "ece2223f92dbe078b29dda91e691551d6788f8ea22fa7cc46919b125c4d62fb1" => :high_sierra
-    sha256 "f4b193b58774d21e007cd83a564ee8d2efab0f99bb213d91424c56f472ae35ee" => :sierra
+    sha256 "2cb4662c10c986ade12705af57c7e22a00fdd9d7a9614cc3ebbe0eca9b894993" => :catalina
+    sha256 "ca6060bdc8914aaf5978987d337f07351c34411939f68d136262f63a7bfe6436" => :mojave
+    sha256 "5563ad8f239034acb4ba21144f50ec62fa90982b576f4460bf3d57158afa1281" => :high_sierra
   end
 
   head do

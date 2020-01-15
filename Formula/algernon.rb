@@ -2,30 +2,25 @@ class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon.git",
-      :tag      => "1.12.5",
-      :revision => "206912d922bb8ab96e23708d1cf222d572741ebe"
+      :tag      => "1.12.6",
+      :revision => "da249c53d427c4cde18f758b2e04ea6ce955e825"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa5efc4b459178262db04e6cf12f24ebdc7540eae749e8b86b4d01e4b74a856b" => :mojave
-    sha256 "01ffdc4770c149a2be689b33235eff7838352ad20d11f1ff1c2c9c0a40f3fc24" => :high_sierra
-    sha256 "abeffa6872984c9c33550a267379c79ae2e4fe3f1370fa67391c6ca3040bf3e4" => :sierra
+    sha256 "fa20b282e2ae3d81dc7241a35a4f4cb2f94ec6252426adbe817b31d4738a1d75" => :catalina
+    sha256 "21cd4660fbaf3cf7ed98429dfb90d14ca88f11a7f728b46cde79019dbbb02540" => :mojave
+    sha256 "7496c47f6ea70bd68e074f1ffbfac585b45faba59d94b706dd2ea57e2388508f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/xyproto/algernon").install buildpath.children
-    cd "src/github.com/xyproto/algernon" do
-      system "go", "build", "-o", "algernon"
+    system "go", "build", "-trimpath", "-mod=vendor", "-o", bin/"algernon"
 
-      bin.install "desktop/mdview"
-      bin.install "algernon"
-      prefix.install_metafiles
-    end
+    bin.install "desktop/mdview"
+    prefix.install_metafiles
   end
 
   test do

@@ -1,31 +1,22 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
-  revision 4
+  revision 1
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
-    sha256 "2d8044673ac786d71b08004f190bbca368258bf60e6602ffc0d9622835ccb05e"
+    url "https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2"
+    sha256 "8366e840bb3c9448c2cf0cf9a0800155b0bd7cc212a28ba44990c3d2289c6b93"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-3.9.tar.bz2"
-      sha256 "8bf7f21089cb3406968cc9c71307774aee7100ec4607f28f63cf5690d5c927b8"
-
-      # Fixes "info_bar.cc:258:21: error: no viable overloaded '='"
-      # Upstream PR from 11 Dec 2017 "qtui: fix build with Qt 5.10"
-      patch do
-        url "https://github.com/audacious-media-player/audacious-plugins/pull/62.patch?full_index=1"
-        sha256 "055e11096de7a8b695959b0d5f69a7f84630764f7abd7ec7b4dc3f14a719d9de"
-      end
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.tar.bz2"
+      sha256 "eec3177631f99729bf0e94223b627406cc648c70e6646e35613c7b55040a2642"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 "9dbef45b266c5978d4b5ef08eaf5ab48d91b927cf6e25976ff67de031b0b76aa" => :catalina
-    sha256 "a3cc36beec2b0456f1cc2e5640bf127867820ae574a7a4b3a417bbc8cd5ce1d8" => :mojave
-    sha256 "4cc10fd5a8a28cf497c637a90ee4af7f835aa7d8e46cab02de1073a49d143699" => :high_sierra
-    sha256 "effe340c0314c54baf2aab58ce010e16e720f75fe199bac6acbf895ceb4fc28e" => :sierra
+    sha256 "158dca9a2823c05fa18355c498c98dc7499adcb0c47307f513f0ae4194a0a29c" => :catalina
+    sha256 "e543093afa490963a3a18befc35964fb8693a9c9c6d34e86a346799159ea5781" => :mojave
+    sha256 "867c89b2a22b253cbb645c7a171144e3a8868d90417cd6c06b7ac4674b860c41" => :high_sierra
   end
 
   head do
@@ -57,10 +48,10 @@ class Audacious < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "neon"
-  depends_on "python@2"
   depends_on "qt"
   depends_on "sdl2"
   depends_on "wavpack"
+  uses_from_macos "python@2"
 
   def install
     args = %W[

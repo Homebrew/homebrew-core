@@ -1,28 +1,22 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.90.8.tar.gz"
-  sha256 "e54abf082b2387cd62c4f19423c02efa40820752e9da3ece573de42d2af1fb7a"
+  url "https://github.com/roboll/helmfile/archive/v0.98.2.tar.gz"
+  sha256 "dad18c34a12124624f2c2bef3647f5c5d255abbf0e2741c8a2c05d70c587437c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f576ce215811b4a2008bb88f8396c617dc5e32422f2ea9bb8fca6009cdd4a01f" => :catalina
-    sha256 "c35c76ddf6087f248d7f5c3da751e1e04d8810d3298ead04a7b35bd500e63af2" => :mojave
-    sha256 "0e48282cad50d9674270009c6ad70c97ee6e82fe74f96a6ed98b901cb3a4847e" => :high_sierra
+    sha256 "24e5e90710be49f15c492a37e1cb469d1cda071801c02edfb3919499844751f1" => :catalina
+    sha256 "9d68eab249b5c67c07018c4c08d787823afc863842a0d21e62c1dd0c2ee7d14e" => :mojave
+    sha256 "debd964a7bc57e35ae4847c86e7b24fa2699105737ca8d56874deeecd24241f8" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "kubernetes-helm"
+  depends_on "helm"
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/roboll/helmfile").install buildpath.children
-    cd "src/github.com/roboll/helmfile" do
-      system "go", "build", "-ldflags", "-X main.Version=v#{version}",
+    system "go", "build", "-ldflags", "-X github.com/roboll/helmfile/pkg/app/version.Version=v#{version}",
              "-o", bin/"helmfile", "-v", "github.com/roboll/helmfile"
-      prefix.install_metafiles
-    end
   end
 
   test do
@@ -34,7 +28,7 @@ class Helmfile < Formula
     releases:
     - name: test
     EOS
-    system Formula["kubernetes-helm"].opt_bin/"helm", "init", "--client-only"
+    system Formula["helm"].opt_bin/"helm", "create", "foo"
     output = "Adding repo stable https://kubernetes-charts.storage.googleapis.com"
     assert_match output, shell_output("#{bin}/helmfile -f helmfile.yaml repos 2>&1")
     assert_match version.to_s, shell_output("#{bin}/helmfile -v")

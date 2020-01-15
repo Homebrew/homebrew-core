@@ -1,16 +1,15 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.22.tar.gz"
-  sha256 "299de0686f7a4848e2aef22f0647ba35b8114f573334dd3e1a7e331052145593"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.24.tar.gz"
+  sha256 "d861a002ce40689a5c8d5e5f5b8e261b8c42fed87645d04ff72dd542f58a883e"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bc2b2ce5a2b823b3d7de43e9c32f042c729d84d582e561d46261c926fba2bc1" => :catalina
-    sha256 "57c44b5c966174dd88c6e3f88692dbe39f53ac71a356f97ef3b547014709df55" => :mojave
-    sha256 "09d4fd76bd60877e1919495b70080ef96e71e5128c6c9d1d7ddf641c01a99b42" => :high_sierra
-    sha256 "66759745236dcb18d3b829ae22fe8d449389667dd02378e57df1b2842bad6e09" => :sierra
+    sha256 "d34ae270c9139aebcf176e7c6671cc838fe9b50b49fa1ee1c818f5d618c721c1" => :catalina
+    sha256 "6643cc486c2bf11db3a7440ad5cd3e844bc9300229f951286bd1ec577ef225e6" => :mojave
+    sha256 "9fb60cab0e9fa40714958f85108f23de3761e7b59b60f7efadf2c3988ec40044" => :high_sierra
   end
 
   depends_on "atomicparsley"

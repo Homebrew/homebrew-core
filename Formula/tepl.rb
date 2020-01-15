@@ -1,14 +1,13 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/4.2/tepl-4.2.0.tar.xz"
-  sha256 "8839d4428ecdd87fd5abc657ebbe5a9601a57262e9946845e47dec264e669ccd"
-  revision 3
+  url "https://download.gnome.org/sources/tepl/4.2/tepl-4.2.1.tar.xz"
+  sha256 "f31ce335fa69061e5ab8653842c5d9c763641abbe323cc2374c273fc240d2b6e"
 
   bottle do
-    sha256 "f4694d4b2cab35b0b3ae9ab137ca1c7dc5c7204a105adcbc2f1228ebfebbe70e" => :catalina
-    sha256 "c24080049d2ce5a95ac93458444538712169653ee3f73b7d58fa26f22c3e5430" => :mojave
-    sha256 "1a07d0162bdcbae050dfed5529a1e28ab8fbb3054fb6fb6a6f76ce7e0cbe2323" => :high_sierra
+    sha256 "86c7525cced9bbbb7d610b4234319c971adfa2956a40b30627d73d5a1f7d6abe" => :catalina
+    sha256 "f30d1359092aa7182961a00250f8b04f84efc5fbf9050382ab08a2b0e40e3079" => :mojave
+    sha256 "3a3eb85ed75ecc8c8b416d1eaab1c158201d4291854d182fd9ab9c1ed4a307aa" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

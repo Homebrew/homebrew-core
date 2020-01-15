@@ -1,14 +1,14 @@
 class Proteinortho < Formula
   desc "Detecting orthologous genes within different species"
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
-  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.10/proteinortho-v6.0.10.tar.gz"
-  sha256 "8fa5f5cc1dd0397a76230bf4f5269df7bbded891d9a1d2e2819d5ff2d1ed86fd"
+  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.12/proteinortho-v6.0.12.tar.gz"
+  sha256 "36fcec0891c8bf451349122e7b2783b1ec6aaf195c32139bc78e7201ab00b8c1"
 
   bottle do
     cellar :any
-    sha256 "9bd90ecd679b2d7359ebfee1ec8a976b04bdee7efd7b06914a879361599f14ff" => :catalina
-    sha256 "af1f1368c59e1b3a9be9cb6c2993d855b4e8759066043cdfc66808083d24cdda" => :mojave
-    sha256 "8e9c2960879c33caef01fcd405081867b08f55c8b92b5c20d719b1c694a80c50" => :high_sierra
+    sha256 "5d79fb2e746542350513d67eaa3d747f6c6e09d86cd2c6dfc3465b38f35e4267" => :catalina
+    sha256 "7a76cfd6bd99fc9dc43251c9a263984699dda21ecef5fbb41e09a33c337118ee" => :mojave
+    sha256 "ce909b9a126d82f41caa268251cbd7f103185dedcc1369d239fd872112eae188" => :high_sierra
   end
 
   depends_on "diamond"

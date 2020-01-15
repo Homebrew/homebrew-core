@@ -3,13 +3,13 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 9
+  revision 11
 
   bottle do
     cellar :any
-    sha256 "404a62c344cd4e6859cbceb6e77d9c1db4e830d512b4b667729641979d032cdd" => :catalina
-    sha256 "532a3d4f4a7c7a0370e86b415dfa205d149f25b4b0c7fcf5f83e4c4e5cea7a1b" => :mojave
-    sha256 "ce02e277e11f0960e0f945f00bf36be773911682cbb8934c14d2cc83a0798253" => :high_sierra
+    sha256 "5d07ef460c20bb6ede8018079202e59b27150c29fde3a072b4f598897f93ef65" => :catalina
+    sha256 "c015c17ab374408bab6203f644b31afde987ce17e0ccbd310456eea73199bcf9" => :mojave
+    sha256 "a7fbabe2b0b53f56465b67d9010b6043dcfddb041271cc178fceec7114096463" => :high_sierra
   end
 
   depends_on "bison" => :build

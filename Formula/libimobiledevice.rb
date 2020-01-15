@@ -1,7 +1,7 @@
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "https://www.libimobiledevice.org/"
-  revision 5
+  revision 6
 
   stable do
     url "https://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2"
@@ -22,9 +22,9 @@ class Libimobiledevice < Formula
 
   bottle do
     cellar :any
-    sha256 "2b42ce328bf8e386971a741c1d5099a2e40ea745e168324134b064152e132133" => :catalina
-    sha256 "e2dd71a089274ebcd01bca90d87536dc0e3d00d62681b11fa8c39a146cd2e0cb" => :mojave
-    sha256 "59e5b73f7ac825c486ebddfcf412c828bcff59e07c575cb34632420cb9dc7778" => :high_sierra
+    sha256 "27409d27b5532a572a4a8eeec891e1cce92bc0afa423528eae94543f22aa72aa" => :catalina
+    sha256 "672ac6aaf5656e07add1b5da7c3a30c0655ce2b9efff957faa34855ed34d9dde" => :mojave
+    sha256 "14e8fb93dbb63ceca4c66163d1f9bfe7db5bcbc581ae4ca3e3cc8dc0ab93eeb4" => :high_sierra
   end
 
   head do

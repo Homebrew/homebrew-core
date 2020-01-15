@@ -1,12 +1,10 @@
 class TomeeWebprofile < Formula
   desc "All-Apache Java EE 7 Web Profile stack"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-7.1.1/apache-tomee-7.1.1-webprofile.tar.gz"
-  sha256 "1bb495c47cd6b4ce476fa1701becf31af81046efcf86a7df446e7a9a4c67e304"
+  url "https://archive.apache.org/dist/tomee/tomee-8.0.0/apache-tomee-8.0.0-webprofile.tar.gz"
+  sha256 "5cdda0d0416700692f1e5282154f786f1fdb7015aa3909b0e44cdfe39720dedd"
 
   bottle :unneeded
-
-  depends_on :java => "1.8"
 
   def install
     # Remove Windows scripts
@@ -17,11 +15,7 @@ class TomeeWebprofile < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    libexec.install_symlink "#{libexec}/bin/startup.sh" => "tomee-webprofile-startup"
-    env = Language::Java.java_home_env("1.8")
-    env[:JRE_HOME] = "$(#{Language::Java.java_home_cmd("1.8")})"
-    (bin/"tomee-webprofile-startup").write_env_script libexec/"tomee-webprofile-startup", env
-    (bin/"tomee-webprofile-configtest").write_env_script libexec/"bin/configtest.sh", env
+    bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-webprofile-startup"
   end
 
   def caveats; <<~EOS
@@ -33,6 +27,6 @@ class TomeeWebprofile < Formula
   end
 
   test do
-    system "#{bin}/tomee-webprofile-configtest"
+    system "#{opt_libexec}/bin/configtest.sh"
   end
 end

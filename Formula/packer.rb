@@ -2,39 +2,30 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.4.5",
-      :revision => "5ddd02d1c0e5d8b1b0e2171d2d40c7d7b5641e68"
+      :tag      => "v1.5.1",
+      :revision => "324581ac9ce8d1e0558b33eea9d4f9d6d5a16002"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08ec8a4a9c53c072150651471e084761287f912e8dc7b47a1672e6b615fc012d" => :catalina
-    sha256 "824bc5c626e4b6924b0447c401f23440f91ef2da893aa929e5473b2442905446" => :mojave
-    sha256 "82512049d11b9f94d77e54cc2f56b704bf66212a1fae9b2374ac15b7f9f3d6ae" => :high_sierra
+    sha256 "b677568879c147832d4b3257ceb8c2be85b9734dd8d32f023ac555c5033b9184" => :catalina
+    sha256 "3c31fa5d294cea8b70fff1509e99622a445459fade8af68a2e22af6bb324b2bf" => :mojave
+    sha256 "98c5d43324077d4aff6ed91e5ee2f2587d15ea81db625856e1d5862f693eb980" => :high_sierra
   end
 
   depends_on "coreutils" => :build
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = "amd64"
-    ENV["GOPATH"] = buildpath
-
-    packerpath = buildpath/"src/github.com/hashicorp/packer"
-    packerpath.install Dir["{*,.git}"]
-
-    cd packerpath do
-      (buildpath/"bin").mkpath
-      if build.head?
-        system "make", "bin"
-      else
-        system "make", "releasebin"
-      end
-      bin.install buildpath/"bin/packer"
-      zsh_completion.install "contrib/zsh-completion/_packer"
-      prefix.install_metafiles
+    (buildpath/"bin").mkpath
+    if build.head?
+      system "make", "bin"
+    else
+      system "make", "releasebin"
     end
+    bin.install buildpath/"bin/packer"
+    zsh_completion.install "contrib/zsh-completion/_packer"
+    prefix.install_metafiles
   end
 
   test do

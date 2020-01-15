@@ -1,8 +1,8 @@
 class Proguard < Formula
   desc "Java class file shrinker, optimizer, and obfuscator"
   homepage "https://proguard.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/proguard/proguard/6.2/proguard6.2.0.tar.gz"
-  sha256 "7f64bd1db37c3b2eae69803135e0e59f438b759bd00a5ef18ee7319657916575"
+  url "https://downloads.sourceforge.net/project/proguard/proguard/6.2/proguard6.2.2.tar.gz"
+  sha256 "e38c56f2e96809686e1584f21d4f95ed2433ff1a80406174d44e52c27b36fadd"
 
   bottle :unneeded
 

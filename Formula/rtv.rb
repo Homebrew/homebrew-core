@@ -5,17 +5,17 @@ class Rtv < Formula
   homepage "https://github.com/michael-lazar/rtv"
   url "https://github.com/michael-lazar/rtv/archive/v1.27.0.tar.gz"
   sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
+  revision 1
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e615584a7b34c084ce03f1706d59040992cdadba29749c4b2cbc8a11f97d621" => :catalina
-    sha256 "8ed89953d4ad5b442e9d0c70b4666d5bee9d000b770494c3362d198cedf4c333" => :mojave
-    sha256 "eb6ffa91b9211cde7fd1dd705df5f22ca437240fff127f9822eb124c1b711ce8" => :high_sierra
-    sha256 "1c1cd02142c41260e04a0db2fcfc659b20431fe64f4dbefa41f75216b217c137" => :sierra
+    sha256 "6696970e4ef065c0de51b1bcebcd8299ee5ef1af006f61b7b7c2826ffba1772b" => :catalina
+    sha256 "b604b939703f82ad867a4a8921b1cef0745dfb45da74244d420878da0e1b2aae" => :mojave
+    sha256 "d4f6689640d868afa9340d4f00dd240b3ba0529a84bfeb1c45a035215c6b2ff3" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     venv = virtualenv_create(libexec, "python3")

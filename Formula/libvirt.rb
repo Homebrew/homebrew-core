@@ -1,14 +1,14 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-5.9.0.tar.xz"
-  sha256 "3496d2e1d988185de013b2a9d2e8824458afd85aa7cd050283a59b3d78978939"
+  url "https://libvirt.org/sources/libvirt-5.10.0.tar.xz"
+  sha256 "9aaa889dccdc16e39eaa53dae36375413619561896920419fb1351bee8a2fc87"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "15c9711df6e2c8dfcfac262a19c1d0aa0e1be6c518a548af238f26aa63c24006" => :catalina
-    sha256 "d837fc01b016eb7a624a56155910e6b4c428b7833fb5f111956ab38997a37337" => :mojave
-    sha256 "ec74e1d18cc8adcff1a99b6b3de4d11f6a2733b2113f02566c8f90694ea1c9c2" => :high_sierra
+    sha256 "6e509dd62c2f5b483b382e42551abc5e07e17615cabaa9818b45a4ebab316473" => :catalina
+    sha256 "2a360ce73e763512d89482b6a5a4661d042a2045a140f160f5fb94245438e332" => :mojave
+    sha256 "da6ea126971e7a2de4bca5bf7097751198b172af13dc9dc4b56be066833e5ffa" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -46,16 +46,18 @@ class Libvirt < Formula
     args << "gl_cv_func_ftello_works=yes"
 
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    mkdir "build" do
+      system "../configure", *args
 
-    # Compilation of docs doesn't get done if we jump straight to "make install"
-    system "make"
-    system "make", "install"
+      # Compilation of docs doesn't get done if we jump straight to "make install"
+      system "make"
+      system "make", "install"
+    end
 
     # Update the libvirt daemon config file to reflect the Homebrew prefix
     inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
-      s.gsub! "/etc/", "#{HOMEBREW_PREFIX}/etc/"
-      s.gsub! "/var/", "#{HOMEBREW_PREFIX}/var/"
+      s.gsub! "/etc/", "#{etc}/"
+      s.gsub! "/var/", "#{var}/"
     end
   end
 

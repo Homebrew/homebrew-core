@@ -5,17 +5,16 @@ class Mkdocs < Formula
   homepage "https://www.mkdocs.org/"
   url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
   sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e13213b32b73bbea27859bff27b83ca956cc13d895565fbf00962e3ec6d2d354" => :catalina
-    sha256 "fa6aae95e082beaaab49e39298be6612e0d9f0d9bee2f6d328f0aebdaac90868" => :mojave
-    sha256 "f74b98c684abbede806343fc573b80bf3bd7ed31b20a6df0ee97a48c89259fc9" => :high_sierra
-    sha256 "ec14bfa77ebb331e8d24e345825f3eff934709ed46f2a3f30f990dfd63654969" => :sierra
+    sha256 "7ecd9fdfdb559dbd1fa66b36711a2949ac5ae8781d78d209fe0abdad812e71e9" => :catalina
+    sha256 "864a0f3119006f065d631d1825a428595e960cb7e5498ed466079b679bede15f" => :mojave
+    sha256 "a30d402b53530b3a372a0353c4c41a41416f09df074de849e38252c9faafc80f" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"

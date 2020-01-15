@@ -1,21 +1,20 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.14/apache-cassandra-2.2.14-bin.tar.gz"
-  sha256 "38b5a1785cb2957147cb4d8852b819160485dac91c417dc0c38440a6021e5dac"
+  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
+  sha256 "7109f50a5a12f62b41e692521622344ba1e79381d713fc578e60e554f7c83334"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "17c4117ac258fbb75712800f65a4151875546b3bb02c67835e81ca3a4afc17ae" => :catalina
-    sha256 "cf3ba2451f3a9c9bee6131234e1e4305d2e5394dc672cf851df5f3689594ef90" => :mojave
-    sha256 "aa2080584701f1a204bd1fcb51579a351d009f20fb5c29bbb22ad57f53e3a538" => :high_sierra
-    sha256 "f42f97a2caaf0e1c565e5a359744a032d1c935230dbdb0aa2b6adb6ef30ae1bc" => :sierra
+    sha256 "efe044b667e3479966bb5a29802a1fcca724d36d07f1eddc29baf59b9f887d0b" => :catalina
+    sha256 "b969cfce702ad4dd02f6495abee2370a3ababd44cc82a567169b8af930fab85e" => :mojave
+    sha256 "1a2aa9db7744896b53bf01ffca7214cc2cd0ef5f026546873c9c02f4bb7471fe" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cython" => :build
-  depends_on "python@2" # does not support Python 3.7
+  uses_from_macos "python@2" # does not support Python 3.7
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do

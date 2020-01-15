@@ -7,21 +7,17 @@ class NatsStreamingServer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82e1ea223fbe428cc919989bdab5c8190b721885e518ff58150d09041ef51be8" => :catalina
-    sha256 "9f430d70010e052480bde5f073efe69b828da2ca1411aaa2a0f813bf7398bcdd" => :mojave
-    sha256 "4acdd612b1d990dd4f91deb2a157d768678d84fe2da844151c9df00df76722a2" => :high_sierra
-    sha256 "cccd977ede44ad42685bcd359d7937dc87bb114f1e41d203cdfdd728d15750fe" => :sierra
+    rebuild 1
+    sha256 "96891cdad9b8c43b06295e8becc5d8b84d2024b1a2e6f298e7fd80ba354cd89b" => :catalina
+    sha256 "0ab74f6fa1e2147c1b794570a24190468312f99dfd73c1fa28c72cb18121179e" => :mojave
+    sha256 "a23985559dbe2d570712406a571efcd56b84997152ca2b0f85684caf833db368" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "off"
-    mkdir_p "src/github.com/nats-io"
-    ln_s buildpath, "src/github.com/nats-io/nats-streaming-server"
-    buildfile = buildpath/"src/github.com/nats-io/nats-streaming-server/nats-streaming-server.go"
-    system "go", "build", "-v", "-o", bin/"nats-streaming-server", buildfile
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"nats-streaming-server"
+    prefix.install_metafiles
   end
 
   plist_options :manual => "nats-streaming-server"

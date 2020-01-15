@@ -1,15 +1,15 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.10.1.tar.gz"
-  sha256 "1a05e66f8e65fa54bcab89b58cbc2569d8bf8800bcda082c5f91e3087028d57c"
+  url "https://github.com/Canop/broot/archive/v0.11.8.tar.gz"
+  sha256 "e4cde6b6e8096337609144458b0777580241c2eee7700521802ecc8dd01130c6"
   head "https://github.com/Canop/broot.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c4afaa643707b3b44263229d80a9a9d31ab3c3e8871a16f2886c2aa6636c0ed" => :catalina
-    sha256 "a2de879e9ec8b6eed08ecc3dcbb5801d1bed5aecaf903eff2dfa664f9b3baeb5" => :mojave
-    sha256 "22edc6ade4f4b63b31988decc8064322e2ee75f1b38a1a0e24ec3700f1d6f4f0" => :high_sierra
+    sha256 "31b3ce75ae211ce1fb3e5e7887e9f69a5e144eaa3622ac7265c05563204598b1" => :catalina
+    sha256 "26d160ab0f3e62132d126e0da677ffccbb840b88e4cdcdf2f4f0fa53f9ffa37f" => :mojave
+    sha256 "d7afe598c6942bf988482846720849e55ca31fd2e97e40e100c46929f9feae9c" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -19,17 +19,19 @@ class Broot < Formula
   end
 
   test do
-    require "pty"
+    assert_match version.to_s, shell_output("#{bin}/broot --version")
 
-    %w[a b c].each { |f| (testpath/"root"/f).write("") }
-    PTY.spawn("#{bin}/broot", "--cmd", ":pt", "--no-style", "--out", "#{testpath}/output.txt", testpath/"root") do |r, _w, _pid|
-      r.read
+    assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
 
-      assert_match <<~EOS, (testpath/"output.txt").read.gsub(/\r\n?/, "\n")
-        ├──a
-        ├──b
-        └──c
-      EOS
-    end
+    (testpath/"test.exp").write <<~EOS
+      spawn #{bin}/broot --cmd :pt --no-style --out #{testpath}/output.txt
+      send "n\r"
+      expect {
+        timeout { exit 1 }
+        eof
+      }
+    EOS
+
+    assert_match "New Configuration file written in", shell_output("expect -f test.exp 2>&1")
   end
 end

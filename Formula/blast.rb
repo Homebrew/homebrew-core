@@ -3,12 +3,13 @@ class Blast < Formula
   homepage "https://blast.ncbi.nlm.nih.gov/"
   url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-src.tar.gz"
   version "2.10.0"
-  sha256 "41202e3954ebe98c8ab6f5afb884c16d47240f9a39e8ccef4dbec1aa2e2a2971"
+  sha256 "3acdd9cec01c4f43e56aeaf89049cb8f8013d60b9c1705eced10166967f1d926"
 
   bottle do
-    sha256 "5aa82e85a39605cbeea6b06c33909a1d258012cb3ef2584b071117c2be08e793" => :catalina
-    sha256 "a5dd9dbf6c1a2739a4e17d70658f3c3d64e96e1ed7d0278e634e9e5634dfc74b" => :mojave
-    sha256 "23c98c61a2e4d0c581f98216000a202272c3b5fe44d0b5787181a0d8ec04f84d" => :high_sierra
+    rebuild 1
+    sha256 "71ebf77b85de24cac6384b796b7b6a70fcaaeded84e1534bbfc4ba86030289d8" => :catalina
+    sha256 "4da358f7b8d0fdc4b3d3a47ee16e0f6345c0846d76a692bdfeb7a7e0f84a12dd" => :mojave
+    sha256 "0f8ce869239db65218854d9897bc47108d08a33d4f35d7afb56c22f1dc4a24ba" => :high_sierra
   end
 
   depends_on "lmdb"
@@ -33,11 +34,22 @@ class Blast < Formula
   end
 
   test do
+    output = shell_output("#{bin}/update_blastdb.pl --showall")
+    assert_match "nt", output
+
     (testpath/"test.fasta").write <<~EOS
       >U00096.2:1-70
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
     output = shell_output("#{bin}/blastn -query test.fasta -subject test.fasta")
     assert_match "Identities = 70/70", output
+
+    # Create BLAST database
+    output = shell_output("#{bin}/makeblastdb -in test.fasta -out testdb -dbtype nucl")
+    assert_match "Adding sequences from FASTA", output
+
+    # Check newly created BLAST database
+    output = shell_output("#{bin}/blastdbcmd -info -db testdb")
+    assert_match "Database: test", output
   end
 end

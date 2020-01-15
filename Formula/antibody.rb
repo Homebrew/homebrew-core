@@ -6,24 +6,16 @@ class Antibody < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2dd2e53eecdaa34b50562b657a445b4db885b960ebfd3dae9fcbcf995ae6173b" => :catalina
-    sha256 "bd9e7f0f71fc030cb850f9e79f08c7ea371b0e22b129c6e2d566345a12528cb2" => :mojave
-    sha256 "26e2787989cbfb1c795884d0c3ccc855442c1362aa242e2d4f91bc9b5393c1f5" => :high_sierra
+    rebuild 1
+    sha256 "9b622b8764b1baf843440a5cda15b48c8c4fe887df85b20f200c1f7cc6a8d20f" => :catalina
+    sha256 "fe386d626091b2c5b218ea725d1352351ea5f2bbe2913e466a7ba42a3fdd0956" => :mojave
+    sha256 "c0dbe5808586236f555b502e6ab02a9c2947d42d7006154d20a2e738670c1e6d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/antibody/antibody"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "mod", "vendor"
-      system "go", "build", "-ldflags", "-X main.version=#{version}"
-      bin.install "antibody"
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"antibody"
   end
 
   test do

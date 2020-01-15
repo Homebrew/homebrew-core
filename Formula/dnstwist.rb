@@ -5,13 +5,13 @@ class Dnstwist < Formula
   homepage "https://github.com/elceef/dnstwist"
   url "https://github.com/elceef/dnstwist/archive/20190706.tar.gz"
   sha256 "d1192a3aca209b537f54274471398ad4cd8b040551eb0469011d0231ee53520a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a15738df1be85f96cafaf7bea481911e9a34a71e24582b8b8582fdbd82e4b37f" => :catalina
-    sha256 "b48530ee9287f78c6b0fc0fd2f8566292b950ff10552e954f1729036d0b59682" => :mojave
-    sha256 "da539cbdea76bb9a1226e91d05bfd45e2f4cfa43c54880933f4e7e6b9b99c5ab" => :high_sierra
-    sha256 "bb6f91f9958e7b389a607912ac336670fd1f8808c5418a95d83d1bab78c7ce8f" => :sierra
+    sha256 "05f11f47a0105f97fe790b2e7d046fcd60d531401dca91b35d723625653b7867" => :catalina
+    sha256 "f9ca60f8374c6e783046dff9498eb6edb5a48f1f044898da659dc552cd21d0f1" => :mojave
+    sha256 "a8ed8cc779f4800282208052c3acb80d50b236fed75c97004d73368b2cb03e17" => :high_sierra
   end
 
   depends_on "geoip"
@@ -24,13 +24,13 @@ class Dnstwist < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/c5/67/5d0548226bcc34468e23a0333978f0e23d28d0b3f0c71a151aef9c3f7680/certifi-2019.6.16.tar.gz"
-    sha256 "945e3ba63a0b9f577b1395204e13c3a231f9bc0223888be653286534e5873695"
+    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
+    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
+    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
   end
 
   resource "chardet" do
@@ -59,23 +59,23 @@ class Dnstwist < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "ssdeep" do
-    url "https://files.pythonhosted.org/packages/96/54/15b2e0b6e5042b67eb648e3d0e5d10105e6797353fe0a63579b74bf5eeee/ssdeep-3.3.tar.gz"
-    sha256 "255de1f034652b3ed21920221017e70e570b1644f9436fea120ae416175f4ef5"
+    url "https://files.pythonhosted.org/packages/e0/d3/f17602a7dde1231d332f4067fdd421057ffe335c3bbc295e7ccfab769d95/ssdeep-3.4.tar.gz"
+    sha256 "1b5510716bc495a2b18300ea837fcf944552a1cc678bb74e384bce251d99a85f"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
-    sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
+    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
+    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
   end
 
   resource "whois" do
-    url "https://files.pythonhosted.org/packages/5a/b0/c08d2d3dcd35f10ddf51b072c471872a1f426025045eb361feeac5c7e5a6/whois-0.8.tar.gz"
-    sha256 "078298e68dee9ba0d6a2bc58a6987d9f4151e09ae0ea3b4c8c8d3dac0e7a709b"
+    url "https://files.pythonhosted.org/packages/b3/69/563d03c4c8b662f6369961d7e52da22e070f92fd378724076c20a3cccc3b/whois-0.9.4.tar.gz"
+    sha256 "ee7fd23b13cdf33b94d633a31edac9f4e4015a72455f5d669837a8ad100612ce"
   end
 
   def install
@@ -86,13 +86,14 @@ class Dnstwist < Formula
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
     (libexec/"bin/database").install "database/GeoIP.dat", "database/effective_tld_names.dat"
-    bin.write_exec_script libexec/"bin/dnstwist"
+    (bin/"dnstwist").write_env_script libexec/"bin/dnstwist", :PATH => "#{libexec}/bin:$PATH"
   end
 
   test do
-    output = shell_output("#{bin}/dnstwist github.com")
+    output = shell_output("#{bin}/dnstwist -grsw brew.sh")
 
     assert_match version.to_s, output
     assert_match /Processing \d+ domain variants/, output
+    assert_not_match /notice: missing module/, output
   end
 end

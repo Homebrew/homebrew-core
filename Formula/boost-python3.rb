@@ -1,16 +1,15 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2"
-  sha256 "d73a8da01e8bf8c7eda40b4c84915071a8c8a0df4a6734537ddde4a8580524ee"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
+  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "8e5e68a29e926f7ee89b627d6d4db0b772837c521629993bd7921cde451b0c1f" => :catalina
-    sha256 "93ad0a86ef2c27f17747ed776a4e845b4e73c22f12cfed3cf9fb3cc28d1760cd" => :mojave
-    sha256 "431860df4d21263eedaf340a0e6b6338d9439190f9be92f3931fbc3c119ea24b" => :high_sierra
+    sha256 "ce20b29ffbf51137476d5bce459731fd2eb9bd0f5a3a9b1758a6c2cb52b0826d" => :catalina
+    sha256 "a89c855389dba45e976613c0a818d5a1d9042f5627c27a57d825136538f95543" => :mojave
+    sha256 "ff1323cf64f2604a274486bc822bf5790f8e8eaac6b2e44e5bdabda3ecb8c661" => :high_sierra
   end
 
   depends_on "numpy" => :build

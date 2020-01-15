@@ -1,14 +1,13 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
-  url "https://gforge.inria.fr/frs/download.php/file/37934/geogram_1.6.11.tar.gz"
-  sha256 "5d823eb8bc3b34cc5c7abd78320a81e7e79ae16374a9706a7069d53ca032caf6"
+  url "https://gforge.inria.fr/frs/download.php/file/38229/geogram_1.7.3.tar.gz"
+  sha256 "6fb402825f6f633f51c1b4a71ceb9137320d0d7bf569c96bfde39fe0be24d1a9"
 
   bottle do
-    sha256 "a50a856afcb09e79581bd15f5a2abc84fd6d42d3fb3cb7c7403e315c77de8a34" => :catalina
-    sha256 "44825a928086db529724d520b545d661175a8c96eff2787a02c2a6b1d4571ef1" => :mojave
-    sha256 "ae7ff1f9dece2397f97b7cd544e7c55f3e5f04599b6377bad05fa496a74bf767" => :high_sierra
-    sha256 "4230cc8b3eb383800aaa5fa2d5b54f52581116d9348dfebd770ed2b0c800704a" => :sierra
+    sha256 "7183148a73e4f3c1179523f7faf02446daa3bf34a40cd3531f23b65c6ecca689" => :catalina
+    sha256 "eb84b21471b52d7b54b7da2fcb73e5d5411ce3e17938c496a8e055870796bb86" => :mojave
+    sha256 "3666ffab4e601d92a335d69cd391824d876b8776aa380bd467ae55138b68dc2d" => :high_sierra
   end
 
   depends_on "cmake" => :build

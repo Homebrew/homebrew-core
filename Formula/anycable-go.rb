@@ -6,18 +6,16 @@ class AnycableGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab783dacc5e7118d049c7b0edb4840c5c0e8e63566a82d977e421426887da412" => :catalina
-    sha256 "a65ac740e2d0ce092b84c958334418b206f725cf2e6fca77be68f146817a5a88" => :mojave
-    sha256 "a9e268c4eb4e313e6fd3b3e6e3508039fb8abb7c0f3ce17f5ce952efc7a5fadc" => :high_sierra
-    sha256 "eec5c786934d53b6260727f73f7a08ed29626aef25782687b0f7251b47f42497" => :sierra
+    rebuild 1
+    sha256 "7b15a2340fa1fb7ecf97079a1cedbdef0c1f1cf7379f847e70b3f44f08b141e0" => :catalina
+    sha256 "12e069a770ebdd191bc1d6ffbe5de94242e5d54c1e4d8b46600d133fc4d92871" => :mojave
+    sha256 "0ca4a9b558458aa15fbf81ff5aeabff78102fb6031a5c8295b65c2d9f6c558df" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/anycable/anycable-go/").install Dir["*"]
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-o", "#{bin}/anycable-go", "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", "#{bin}/anycable-go", "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
 
   test do

@@ -3,13 +3,12 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 5
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 "9b5ec41fcf3171360aaab7a54e4f9a0de45af3d067ba95f8cfc0752162df24f9" => :catalina
-    sha256 "f3730ff75749689792411fc2b928e0682ca6d4fdf036617d2ea4c0f96e073023" => :mojave
-    sha256 "ee0926b30e0ca6b85f3670dd0e45183ed2c392d9bbe9748256ae96130638e3d1" => :high_sierra
+    sha256 "31719e8af1404aca919073f25576ff2dceb880aa0fc91d863f7a73ac0073f598" => :catalina
+    sha256 "b2b37e62a774c9ddbf4c20686daa27d4e61230366345e685b9be5ea7c99536a2" => :mojave
+    sha256 "5a3ab48231f3e591399d33f8cc9029dc9ebd8a49e4fcd9a02ce24de3b49aa70d" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -23,9 +22,10 @@ class OpencvAT2 < Formula
   depends_on "libtiff"
   depends_on "numpy@1.16"
   depends_on "openexr"
-  depends_on "python@2" # does not support Python 3
+  uses_from_macos "python@2"
 
   def install
+    ENV.cxx11
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[

@@ -70,6 +70,7 @@ class Piknik < Formula
       exec "#{bin}/piknik", "-server", "-config", conffile
     end
     begin
+      sleep 1
       IO.popen([{}, "#{bin}/piknik", "-config", conffile, "-copy"], "w+") do |p|
         p.write "test"
       end

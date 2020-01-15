@@ -4,16 +4,16 @@ class Pssh < Formula
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/parallel-ssh/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "8f48ad9c3d6c59d77e50a85a940e9698482018140475035b274eee45567d5474" => :catalina
-    sha256 "fd5a9e13b00695332f468814d5bf2c823713cb7f91f423395996f5f65354f8d6" => :mojave
-    sha256 "73f994d5f4b9e8df301351b552108cdc2cf5a99c2899c8f5c929c9111b69187c" => :high_sierra
+    sha256 "15a2e96dc3e0a2f8bc5e757d98db2f846169bd119dacd9e48d21cc0ca3cf9681" => :catalina
+    sha256 "fd0ad782abf8cd1c26ad22dee75cbff7752e1d802e2f2b6012baf49c4e37811f" => :mojave
+    sha256 "63e2c5fff24e3c39e7c905d6baf2bb47bc0fc5a5299fa2afceccb9c6e914eb15" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "putty", :because => "both install `pscp` binaries"
 

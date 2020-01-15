@@ -1,33 +1,53 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.13.1.tar.gz"
-  sha256 "5624c16728679362cfa46b76ec1d247018106989f2260d35583c42c49c5142b5"
+  url "https://github.com/prometheus/prometheus/archive/v2.15.2.tar.gz"
+  sha256 "2ba37bced3e90c5e7dd3248918f13f2f3444de748cfe413b0a09f82532c3c553"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8567d3c97901741a54653bce9581054c2c1d2f1cc719d6a07ab62eb4438f06b4" => :catalina
-    sha256 "dffe17c57858d9ca205d87bdf85cecc6878ed79aa220b39a9012f560ff7238c4" => :mojave
-    sha256 "f400edd263fc42cfb89bd700b2099ad7d19353949637e3fa756c0db0563c4f62" => :high_sierra
+    sha256 "4c1fec08803cee24252ac7ae3459b928e609a42a2151ed17017b2182ef183877" => :catalina
+    sha256 "d4807cdd70fa35152127626e79a1f966ae3e7a50be06fd3c239a8bd039492212" => :mojave
+    sha256 "0a75a53d47767302e3014e98a227cc5b61a9536b31d1a0c50ed506593d014852" => :high_sierra
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
+    system "make", "assets"
     system "make", "build"
     bin.install %w[promtool prometheus]
     libexec.install %w[consoles console_libraries]
   end
 
+  def post_install
+    (etc/"prometheus.args").write <<~EOS
+      --config.file #{etc}/prometheus.yml
+      --web.listen-address=127.0.0.1:9090
+      --storage.tsdb.path #{var}/prometheus
+    EOS
+
+    (etc/"prometheus.yml").write <<~EOS
+      global:
+        scrape_interval: 15s
+
+      scrape_configs:
+        - job_name: "prometheus"
+          static_configs:
+          - targets: ["localhost:9090"]
+    EOS
+  end
+
   def caveats; <<~EOS
-    When used with `brew services`, prometheus' configuration is stored as command line flags in
+    When used with `brew services`, prometheus' configuration is stored as command line flags in:
       #{etc}/prometheus.args
 
-    Example configuration:
-      echo "--config.file ~/.config/prometheus.yml" > #{etc}/prometheus.args
+    Configuration for prometheus is located in the #{etc}/prometheus.yml file.
 
   EOS
   end

@@ -3,13 +3,14 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.15.1/apache-arrow-0.15.1.tar.gz"
   sha256 "9a2c58c72310eafebb4997244cbeeb8c26696320d0ae3eb3e8512f75ef856fc9"
+  revision 3
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "161ac1e4d33ca27b45e9f932215b02c4372510f99ce87a8fc177f91c5b017b04" => :catalina
-    sha256 "3969920bc63038723db3a8a1104c471703bc0c7716d0e79b3c695d577e73ba61" => :mojave
-    sha256 "4eae55d14c2d26583f66ef293b553086a24f01f14a52fa76416a16de8c64b221" => :high_sierra
+    sha256 "51c5df916c795016199c9ccb96970cc6f7f2c5a2382aff716f106fd22e9ffe1a" => :catalina
+    sha256 "378e4e77e56c549db1676ed865b02ac18b2e03f68d2205b46af4b6ff243b2d48" => :mojave
+    sha256 "dc8780d6c8ad035d830c70917e4be9830aa01fc88b4a4a90cb07136bbaac56d2" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -39,6 +40,7 @@ class ApacheArrow < Formula
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
+      -DARROW_JEMALLOC=OFF
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
     ]

@@ -1,25 +1,23 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
-  homepage "https://pgbouncer.github.io/"
-  url "https://pgbouncer.github.io/downloads/files/1.10.0/pgbouncer-1.10.0.tar.gz"
-  sha256 "d8a01442fe14ce3bd712b9e2e12456694edbbb1baedb0d6ed1f915657dd71bd5"
-  revision 1
+  homepage "https://www.pgbouncer.org/"
+  url "https://www.pgbouncer.org/downloads/files/1.12.0/pgbouncer-1.12.0.tar.gz"
+  sha256 "1b3c6564376cafa0da98df3520f0e932bb2aebaf9a95ca5b9fa461e9eb7b273e"
 
   bottle do
     cellar :any
-    sha256 "4d52e5a09594ca3350df197d2c2ca8ac98943f194cbd476cc187e731139b9c27" => :catalina
-    sha256 "47856e33e4e537ee50b39573d63f1366f332b57d57be21a797bd7da6d19eb11b" => :mojave
-    sha256 "728418195cb273b74d67b791a0e9834cbc7dc9828f928c9dd44fe015e404b117" => :high_sierra
-    sha256 "ec357f9ba0bd22a1f34b0ce1d9174376ba4aedf43904318430cd109f076a4188" => :sierra
+    sha256 "e01f2d531e6ef62c29614c8eb435d311733e44206d7da4e78e6853ddb339bb07" => :catalina
+    sha256 "1c9de5a71cf7c54d92802adefe2ce68ef0db48bc6619b06e2cf2741164330927" => :mojave
+    sha256 "387cf0cf1819be2442ed9b3acd89815b4c5b3bc6a3386641568a70eaa62c6100" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
-                          "--with-libevent=#{HOMEBREW_PREFIX}",
                           "--prefix=#{prefix}"
-    ln_s "../install-sh", "doc/install-sh"
     system "make", "install"
     bin.install "etc/mkauth.py"
     inreplace "etc/pgbouncer.ini" do |s|

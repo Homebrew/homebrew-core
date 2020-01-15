@@ -3,14 +3,16 @@ class Ssldump < Formula
   homepage "https://ssldump.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ssldump/ssldump/0.9b3/ssldump-0.9b3.tar.gz"
   sha256 "6422c16718d27c270bbcfcc1272c4f9bd3c0799c351f1d6dd54fdc162afdab1e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "7a44847c1e12de0c5598484412f8e087178fe33558dd77c93bad349838820f8d" => :high_sierra
-    sha256 "b95746d7b8b7dea0d0a5dc5b043d75c5d072feaf2489b5b618f03e8d33e2eb39" => :sierra
+    sha256 "4227a45957205b7e183b9f66f4ad2cd57abd7eda44db220d0feadf4de03b5778" => :catalina
+    sha256 "940b872d8dd649cc7ef309bb169a02a48425b7059c44c012831fafd5cbe8b61e" => :mojave
+    sha256 "096ee72c50d64cddefb9d90f2b9c904322eaf36eab4c76bb914a60387b75baf9" => :high_sierra
   end
 
+  depends_on "libpcap"
   depends_on "openssl@1.1"
 
   # reorder include files
@@ -29,6 +31,7 @@ class Ssldump < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
+                          "--with-pcap=#{Formula["libpcap"].opt_prefix}",
                           "osx"
     system "make"
     # force install as make got confused by install target and INSTALL file.

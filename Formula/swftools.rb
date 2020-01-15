@@ -6,13 +6,10 @@ class Swftools < Formula
   revision 1
 
   bottle do
-    sha256 "b42251a99a66e8063d36e131da89d2613f658c5e48f8900854a9c2f16ddea71a" => :catalina
-    sha256 "2fa840ad38183d656158ae3055e776ed122df16b866e31125e3b9327a27198c4" => :mojave
-    sha256 "2db933a79589905a67f36a9ea96a692a684c676d70b5299b087ae892195ff007" => :high_sierra
-    sha256 "479570fcb99302996b55c361db1a6bb4a3abee611533b854fa350956f6b8cf61" => :sierra
-    sha256 "7343a6c406b0374b460f1d814e5542372f85df5d6ee500759648084713e33174" => :el_capitan
-    sha256 "f672348156459f385c6b08ed67c7055cd1cb9ee9dee8d868777596a57ac01a7f" => :yosemite
-    sha256 "7f18b7dae61164cd47eb34712884dea4de8df821d51ce955c6c33f36c165eaa1" => :mavericks
+    rebuild 1
+    sha256 "b0791e6725e6d07610847df7e4431e5839fcf72120cea34f1890b425f8e024c4" => :catalina
+    sha256 "bf18bfc66b1f6d6ed247acd0a4208a09b4acf6a4668e8f7eba2e40ad33ffe9f6" => :mojave
+    sha256 "d0e441ed7eef07c3536965d5269f648744ceb62d41fbcfe9a12248b8154c4f62" => :high_sierra
   end
 
   # Fixes a conftest for libfftwf.dylib that mistakenly calls fftw_malloc()

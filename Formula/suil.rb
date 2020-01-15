@@ -1,14 +1,13 @@
 class Suil < Formula
   desc "Lightweight C library for loading and wrapping LV2 plugin UIs"
   homepage "https://drobilla.net/software/suil/"
-  url "https://download.drobilla.net/suil-0.10.4.tar.bz2"
-  sha256 "a1e9899012790eef8867b5475853d76689b246cca88a99ac0d379a6c0d85c72b"
+  url "https://download.drobilla.net/suil-0.10.6.tar.bz2"
+  sha256 "06fc70abaa33bd7089dd1051af46f89d378e8465d170347a3190132e6f009b7c"
 
   bottle do
-    sha256 "d47dfcab557ae99bf0d1fe6950f43a4fc83babbff35430beba7234fc78c9ad7e" => :catalina
-    sha256 "5edd9d88d7fbac6909430c73ffdcdf1ea3bc8ed7ccad2ffe5e132a256fb92a3b" => :mojave
-    sha256 "7cd481bd8924581cb61e3fcfd9fd6811d898c6b2dc18aae80007dc75e11a7671" => :high_sierra
-    sha256 "22ad8a4f9858b90574bd1f1e9028d37a37003a4e5b211baa3a2f400dedc65e38" => :sierra
+    sha256 "588d837f629e7850d05a28f561852bd990229623748baf8c13be9337dc5d8e2a" => :catalina
+    sha256 "1497f4ef4de7dc80b8f79913ecc46203ddd3dc1f0afa117fed6ba4c3f448a4d9" => :mojave
+    sha256 "811369571b4c28268a130c040b8019ebf77fa26b4410022891b45d7ad2c03eb3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

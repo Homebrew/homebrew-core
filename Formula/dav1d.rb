@@ -1,14 +1,14 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/0.5.1/dav1d-0.5.1.tar.bz2"
-  sha256 "0214d201a338e8418f805b68f9ad277e33d79c18594dee6eaf6dcd74db2674a9"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/0.5.2/dav1d-0.5.2.tar.bz2"
+  sha256 "1780199d71e62a82ca1bfca2d71da5c599c7e1edc68c72f6fc3c0c25ce1880b7"
 
   bottle do
     cellar :any
-    sha256 "0c445c0646f1680c5f9d7b14ed943a86f80c14593ac70555dac58cb914227e06" => :catalina
-    sha256 "dcd2489d8c2d93218c577ea922dd991a4aa774d0d2f08fad18dcb0572a33eb0c" => :mojave
-    sha256 "8b792db87b3202af2642ab9f3342af548b9db418ce4f21ced41fec3aa971511f" => :high_sierra
+    sha256 "7ea56ce2cf38f27dbdf3f13482ba83960cef4e1739d629c85553a32472f2fcc2" => :catalina
+    sha256 "28caa4bbf6f5d15c0703d8bc74469dbd41af94ffe5484eb55b2aaaa039bce663" => :mojave
+    sha256 "28ee60cace4896798d08cb082df550aaadaee5571d9f8196f8d06164997ec776" => :high_sierra
   end
 
   depends_on "meson" => :build

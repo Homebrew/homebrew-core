@@ -3,13 +3,13 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20190801/fontforge-20190801.tar.gz"
   sha256 "d92075ca783c97dc68433b1ed629b9054a4b4c74ac64c54ced7f691540f70852"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "71a2e924ae1a70b91698172cb92eaa74ce6acc5f27ce28e00e218c733d9cd023" => :catalina
-    sha256 "1f9682e52b812f5b365ba32e7447afa6dfbffb0aa15b6f4687acd050638174e0" => :mojave
-    sha256 "e96f5fb275b708c9387e5968d7d97692221cd8b76805f65719601125bb7e6f6b" => :high_sierra
-    sha256 "5dedc46d7f5e9278e644318a50132cb4050f129c922aeed7b290bcb42c7aeb32" => :sierra
+    sha256 "5491094eb17337498a90804ce72fd154cdf643272467312a9dc1cfc1f5e56a82" => :catalina
+    sha256 "ceade22a6cbbecff190fedd4be117cfce9c6036c20a51de701f82a69cd0343a5" => :mojave
+    sha256 "0e91f1858662fa08537287af6e1884ef94377a46a5eb24cec61f3f9f41c48e8a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

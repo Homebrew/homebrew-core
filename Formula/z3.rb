@@ -1,16 +1,15 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.8.6.tar.gz"
-  sha256 "37922fa5085170cad6504498d9758fb63c61d5cb5b68689c11a6c5e84f0311b3"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.8.7.tar.gz"
+  sha256 "8c1c49a1eccf5d8b952dadadba3552b0eac67482b8a29eaad62aa7343a0732c3"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
     cellar :any
-    sha256 "77e5760f19f5acdf3b73adebdf1e93ad00d5bc43d695a0565728ca8e6aa02b70" => :catalina
-    sha256 "0c71a481c7232c4c93e4a28e85271959a7ec2fe4ff88f4245936bdf5dff5c389" => :mojave
-    sha256 "5999876e4ae35a590879c8f7caeace02aacc4fe77eb58819443dd2fb05aff495" => :high_sierra
-    sha256 "e08003ed5ac98409f7d9c0f6fbe2bd483d202079db5233ddbca53e3182a6108a" => :sierra
+    sha256 "a3ce513ca71645a6c71d3f5b0e60ccb27171a8b9a019287e170efe817fb4a76b" => :catalina
+    sha256 "3f0eb432537467e69e9e4990ab6511b795c68557ab276d9e11325ece14c68718" => :mojave
+    sha256 "4cfd76bc84c1b51b2d1450560eb67f1b467c1ebba516c84e617cc099ff579ee7" => :high_sierra
   end
 
   depends_on "python"

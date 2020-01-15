@@ -1,16 +1,16 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "https://imapsync.lamiral.info/"
-  url "https://imapsync.lamiral.info/dist2/imapsync-1.921.tgz"
+  url "https://imapsync.lamiral.info/dist2/imapsync-1.945.tgz"
   # Note the mirror will return 404 until the version becomes outdated.
-  sha256 "0b3fc87d95bb06f8e28dbe9ac7d87828b80204b2589411886b1a78c83ae8d969"
+  sha256 "38c8bceea28ff9a4f533d67e945ef5c0025d81a1d312239c17f38234971ce529"
   head "https://github.com/imapsync/imapsync.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9846792eaa71812601ef1a3697fe59dde4b34eeba1a3fa881b7cf646dcbdddb" => :mojave
-    sha256 "53debfad08afdadee07591b2d0bc98620a89e2819574243d6840079c17f4ccea" => :high_sierra
-    sha256 "c15fb4c35f58028d8846ace4f1df31296feb3bc0c13fcbaceb27ac1df33b3bf6" => :sierra
+    sha256 "790bd48d5b6108a257e9453aa3a2c60474805457b40b9794ff7ef97999a59b20" => :catalina
+    sha256 "82488e74500a8fc45342246ce67b65b386e82118a10848409c9baa1058f01210" => :mojave
+    sha256 "ecabb7fc517a6f3b558fba82711c3c00334cebdc2aa120fd634fe46f07f0fe00" => :high_sierra
   end
 
   resource "Unicode::String" do
@@ -73,6 +73,16 @@ class Imapsync < Formula
     sha256 "0786319d3a3a8bae5d727939244bf17e140b714f52734d5e9f627203e4cf3e3b"
   end
 
+  resource "File::Tail" do
+    url "https://cpan.metacpan.org/authors/id/M/MG/MGRABNAR/File-Tail-1.3.tar.gz"
+    sha256 "26d09f81836e43eae40028d5283fe5620fe6fe6278bf3eb8eb600c48ec34afc7"
+  end
+
+  resource "IO::Socket::IP" do
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz"
+    sha256 "11950da7636cb786efd3bfb5891da4c820975276bce43175214391e5c32b7b96"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
@@ -104,12 +114,9 @@ class Imapsync < Formula
   end
 
   test do
-    output = shell_output("#{bin}/imapsync --dry", 255)
-    assert_match version.to_s, output
-    resources.each do |r|
-      next if ["Module::Build::Tiny", "Readonly", "Sys::MemInfo"].include? r.name
-
-      assert_match /#{r.name}\s+#{r.version}/, output
-    end
+    assert_match version.to_s, pipe_output("#{bin}/imapsync --dry")
+    shell_output("#{bin}/imapsync --dry \
+       --host1 test1.lamiral.info --user1 test1 --password1 secret1 \
+       --host2 test2.lamiral.info --user2 test2 --password2 secret2")
   end
 end

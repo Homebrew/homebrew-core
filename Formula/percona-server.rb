@@ -3,11 +3,13 @@ class PerconaServer < Formula
   homepage "https://www.percona.com"
   url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.17-8/source/tarball/percona-server-8.0.17-8.tar.gz"
   sha256 "0a96de68a71acce0c3c57cdd554b63a8f7c3026bd5aec88a384f76ce9ff4fced"
+  revision 1
 
   bottle do
-    sha256 "9df258ed7a61017087fd3ba1c4a2968f4fe5732c428a45455b9c4ba3faaa5b70" => :catalina
-    sha256 "d76960aa4262d39beacb460fc47bffb71e31314afd9e57d381bd2a4b319d3425" => :mojave
-    sha256 "2a832324afac70b9895d8b0f6017a7f93b7008f77bfffa16cf184ff505a0a027" => :high_sierra
+    rebuild 1
+    sha256 "1d185a20987cc90ddadf67b3a0bfa99c65b5e903c04cbf5618c6840d0e5c2c52" => :catalina
+    sha256 "698a9e8aeb74952720a1ec7173504ac81e1bedb37df33bcdbdc73c6406f43258" => :mojave
+    sha256 "e1ef93655f32e10839745355c8b54801eb5400df0e3095bf6a77db217a648c20" => :high_sierra
   end
 
   pour_bottle? do
@@ -25,10 +27,6 @@ class PerconaServer < Formula
 
   conflicts_with "mariadb", "mysql",
     :because => "percona, mariadb, and mysql install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
@@ -61,7 +59,7 @@ class PerconaServer < Formula
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DINSTALL_PLUGINDIR=lib/plugin
+      -DINSTALL_PLUGINDIR=lib/percona-server/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DWITH_SSL=yes

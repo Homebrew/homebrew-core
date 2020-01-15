@@ -1,16 +1,14 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.1+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz"
-  sha256 "c01f5570f5698a0dda8dc9cfb2a83744daa1ec54758373a6e349bd903375f54d"
+  url "https://github.com/scop/bash-completion/releases/download/2.10/bash-completion-2.10.tar.xz"
+  sha256 "123c17998e34b937ce57bb1b111cd817bc369309e9a8047c0bcf06ead4a3ec92"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2e9f92a4467a67597ae250f98bf9c6e10903acb94b22deb747253837283c4113" => :catalina
-    sha256 "4377303d2f57e4fd4887201a15c6ffe9e41e0636b8b83cf7a4a53ce76f85a5e7" => :mojave
-    sha256 "ae0fd1bc4b23207417f5d070eeedb4d3158cc170dcf9c84f04c23fe479c219dc" => :high_sierra
-    sha256 "ae0fd1bc4b23207417f5d070eeedb4d3158cc170dcf9c84f04c23fe479c219dc" => :sierra
+    sha256 "457ae745fa3c9ad6cda7f497cd312bcc70f469a723e1a9b0d59af87234a9b3d3" => :catalina
+    sha256 "457ae745fa3c9ad6cda7f497cd312bcc70f469a723e1a9b0d59af87234a9b3d3" => :mojave
+    sha256 "457ae745fa3c9ad6cda7f497cd312bcc70f469a723e1a9b0d59af87234a9b3d3" => :high_sierra
   end
 
   head do
@@ -38,7 +36,7 @@ class BashCompletionAT2 < Formula
       [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
 
     If you'd like to use existing homebrew v1 completions, add the following before the previous line:
-      export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+      export BASH_COMPLETION_COMPAT_DIR="#{etc}/bash_completion.d"
   EOS
   end
 

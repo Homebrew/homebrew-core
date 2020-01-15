@@ -1,31 +1,25 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.2.1.tar.gz"
-  sha256 "31b25cfe81e72e8af9c6d856f714765be7acf204acf37f0ebae5d801bfe49e4c"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.0.tar.gz"
+  sha256 "10e0754b034ce84c5783e494ddb5772265bc8b1cfaa1a13871521881c869b4b4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "26c99b55d3c745bb585248077816dc3673113dd80b1f441461a3e67b178318d7" => :catalina
-    sha256 "f32a7a8634d9a7a530d9b93b1aab3414ada1f71b2211db37073dc170908964d2" => :mojave
-    sha256 "6e716ee0f9c86c302f3c747f842bad61f0310c52bede3107c68eecc31fec4489" => :high_sierra
+    sha256 "305e848eb3a7b671b10996b7b145ee8a41d46165c825450399497a920a92e759" => :catalina
+    sha256 "f7df64d6b12b4fe6fa458aa9d9b5d979589c5e0da9a0cf0e545c59d732734806" => :mojave
+    sha256 "e86deac6d0854b9dcdac69df25b5ce838c0ec9adf918c5855c457ff6a9975e95" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/GoogleCloudPlatform/berglas").install buildpath.children
-
-    cd "src/github.com/GoogleCloudPlatform/berglas" do
-      system "go", "build", "-o", bin/"berglas"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-o", bin/"berglas"
   end
 
   test do
     assert_match "#{version}\n", shell_output("#{bin}/berglas --version 2>&1")
-    out = shell_output("#{bin}/berglas list homebrewtest 2>&1", 60)
+    out = shell_output("#{bin}/berglas list homebrewtest 2>&1", 61)
     assert_match "could not find default credentials.", out
   end
 end

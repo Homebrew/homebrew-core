@@ -1,18 +1,18 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v6.4.4.tar.gz"
-  sha256 "fad788bb4f8c4cef776a906603e5277955b6f63e150d34928980892abc5cc651"
+  url "https://github.com/grafana/grafana/archive/v6.5.2.tar.gz"
+  sha256 "3c60234fbcc7417f2acdf980a2299bc934a3ba8a42bd1b6a0186c882b334b77e"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43d7922f548665368c27aa56c8fa1a6b3698e3be8502876b5d448c8d15cb0fc2" => :catalina
-    sha256 "f62579607d03134a4ed8dbceff747edc99a3f8d1b166d19c16d5f28c55ce9a63" => :mojave
-    sha256 "7dcfbda62970e8effcbe83a3246603ae1d98024f1cfeaeeeff82877d69a9aac8" => :high_sierra
+    sha256 "6d06d2cff78b12230fc9e5589f12e45b3c9b502ba1cf165b908473619487cb4a" => :catalina
+    sha256 "0123534f1be94f8db7f053893841e9a7b60f7c9dd3f4c6ac6bd6efec890b5899" => :mojave
+    sha256 "050a5bf9b299b478b5bd537bd63dd903bd494ce090f6bbff272777b8d1333b21" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
   depends_on "node@10" => :build
   depends_on "yarn" => :build
 

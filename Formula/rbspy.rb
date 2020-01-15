@@ -1,15 +1,14 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/v0.3.7.tar.gz"
-  sha256 "cc9262eec63e8fbb24f2926f27afee20c7cd9695fefad0804dc0272c99b410b8"
+  url "https://github.com/rbspy/rbspy/archive/v0.3.8.tar.gz"
+  sha256 "afde93875ef8cdd856e51002e2623bb896f4be6af494ffdcd2a69c2fe9e5cb5c"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9c294a02b723e6447e8d768dd14cef97bc9cee25c8541805c3e9da92bdf8dc2b" => :catalina
-    sha256 "8ee146850f9552d9d81ae467cf0418e12899916f4e143e29a0d85691f099ecb8" => :mojave
-    sha256 "a2a5d8cc114f60f72072ba283faa5ffc862696c76e8d849d191950de6136477a" => :high_sierra
+    sha256 "99f2a1fdc5051876aee5166aeac783087010dd9ddf6399bfec4764a04d0dc27a" => :catalina
+    sha256 "88c4b1f48597a0b0f7b0c5a679a9d4b898427c631d59b1aab2a93d9b69c2c86c" => :mojave
+    sha256 "ac4f7a5cdc64e8c3fbf6a73e4dcf8312bdd74405b2bac1896f318b9afb5bfde7" => :high_sierra
   end
 
   depends_on "rust" => :build

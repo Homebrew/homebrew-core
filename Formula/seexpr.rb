@@ -6,12 +6,10 @@ class Seexpr < Formula
 
   bottle do
     cellar :any
-    sha256 "f240a108c552c37d6f070d5048f1f00a33055243a5a82e6f017481fd452847a0" => :mojave
-    sha256 "a5a7e8224eb7669dc0fea2178df7d51be1733f9fb82d4c0bb1851608f18c4722" => :high_sierra
-    sha256 "762881f740d763d3c2477f5ead9b2fc7c549f38721b39e999f9b6634f5215b68" => :sierra
-    sha256 "0a374c2f84169d0b4ab064dfdd2dee856d5f80c9b8b27eee57e3d1614abffaa9" => :el_capitan
-    sha256 "c023332d27c1977db807f890011688ed756eb130fa1df40aa562776192733ffd" => :yosemite
-    sha256 "2e55d79f1519adbf0f1fdcf566aa67bd5515a60132516e2908250831d8e40355" => :mavericks
+    rebuild 1
+    sha256 "ab581107fbb5bb7528c410fa80d6d6e82aab9c541a8223bc8cda99e7a4d5bfe2" => :catalina
+    sha256 "5d169101ebae1861b26164770de46d5ae9ecf41282219b9d419a0a1cbb563b98" => :mojave
+    sha256 "7547836d1b40c29fbfa118d3c25c6cdec2c9311c7ce7d1b254430196bc854c46" => :high_sierra
   end
 
   depends_on "cmake" => :build

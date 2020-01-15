@@ -1,16 +1,15 @@
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.19/sip-4.19.19.tar.gz"
-  sha256 "5436b61a78f48c7e8078e93a6b59453ad33780f80c644e5f3af39f94be1ede44"
-  revision 3
+  url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz"
+  sha256 "04cc2f87ac97e8718d8e1ef036e3ec26050ab44c21f9277618d5b67432fcbfd6"
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55d3dbbc80a7d87d4c4c4e0644e473edfbfc6ea8c00f96b745c788ed0de16114" => :catalina
-    sha256 "52c3ab51c8754323ef8219e84235214c5cf1f12e6c704d5fe70b2b95372f306e" => :mojave
-    sha256 "3e037042028c83b9329d376ed6663ddfe7ba90f714cc623421ed8ff2e87f90b5" => :high_sierra
+    sha256 "eae3d43737dcc1d551e21550a8907e4865885f258549bfe20a329846af38a200" => :catalina
+    sha256 "d06982c72e687ca3549241083f08bc49b9f3802567a8eee06614c1116e5cc11e" => :mojave
+    sha256 "68f805ae7c8dfcc9c59ef0c4aaaf15485aef98a532b4c13cda559525acd974dd" => :high_sierra
   end
 
   depends_on "python"

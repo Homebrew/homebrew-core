@@ -1,15 +1,15 @@
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
-  url "https://github.com/otfried/ipe-tools/archive/v7.2.8.1.tar.gz"
-  sha256 "a6174aae72f93b56c6652c2c27d5203e0f867e11a5e1c7d89c4aa3b4bcb67eb3"
-  revision 7
+  url "https://github.com/otfried/ipe-tools/archive/v7.2.13.1.tar.gz"
+  sha256 "c8725d78e43b7d6a04465e8a156bc4c6a78121f291aac74e0b0a10286ef95544"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e87321bdee82edb49c6a206f13cce4ab335c704ef7630bc164aa4bd083da5a3b" => :catalina
-    sha256 "2b98872436e2df29e37cae41552f635c645d18062747df7c46e246fc18a89498" => :mojave
-    sha256 "c82150d32b8492a75ac882f03e41da84ea01073091886d30162281bc12a1910c" => :high_sierra
+    sha256 "51a62eadc1df0e45c25ff4889fc2b47539c7f28424f2438b14ea2e8436b1e478" => :catalina
+    sha256 "46d256f6e8100c4c9aa7026b0735054a02b4e730b18def8b193909f73fd9407d" => :mojave
+    sha256 "d62d60ee2dd612bcb88360bd24735db6a28d0ae327671c9c7a8e4dfab6ffde51" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -28,6 +28,6 @@ class Pdftoipe < Formula
   test do
     cp test_fixtures("test.pdf"), testpath
     system bin/"pdftoipe", "test.pdf"
-    assert_match "Homebrew test.</text>", File.read("test.ipe")
+    assert_match "<ipestyle>", File.read("test.ipe")
   end
 end

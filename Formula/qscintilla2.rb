@@ -1,16 +1,14 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.4/QScintilla_gpl-2.10.4.tar.gz"
-  sha256 "0353e694a67081e2ecdd7c80e1a848cf79a36dbba78b2afa36009482149b022d"
-  revision 3
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.4/QScintilla-2.11.4.tar.gz"
+  sha256 "723f8f1d1686d9fc8f204cd855347e984322dd5cd727891d324d0d7d187bee20"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "297d44e8f58ce6fff2e4d5000ecb3be6427eb13a19dbcb6a3d980ebb943ba656" => :catalina
-    sha256 "297d44e8f58ce6fff2e4d5000ecb3be6427eb13a19dbcb6a3d980ebb943ba656" => :mojave
-    sha256 "3a8154e5e400a4182d2b2262ddf8e5ce898dd22bed13b1ec6f93f2729d7fa862" => :high_sierra
+    sha256 "889b907f0384a161d9bb30d11c02e12f23dadb48b68bfcadcd5a6a42f994954e" => :catalina
+    sha256 "889b907f0384a161d9bb30d11c02e12f23dadb48b68bfcadcd5a6a42f994954e" => :mojave
+    sha256 "72baf9be5f0709256faaac3363d152f63153aae6e2b2679e2c13b532a9bb775b" => :high_sierra
   end
 
   depends_on "pyqt"
@@ -58,7 +56,8 @@ class Qscintilla2 < Formula
                         "--pyqt=PyQt5",
                         "--pyqt-sipdir=#{Formula["pyqt"].opt_share}/sip/Qt5",
                         "--sip-incdir=#{Formula["sip"].opt_include}",
-                        "--spec=#{spec}"
+                        "--spec=#{spec}",
+                        "--no-dist-info"
       system "make"
       system "make", "install"
       system "make", "clean"

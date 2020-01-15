@@ -1,15 +1,14 @@
 class Um < Formula
   desc "Command-line utility for creating and maintaining personal man pages"
   homepage "https://github.com/sinclairtarget/um"
-  url "https://github.com/sinclairtarget/um/archive/4.1.0.tar.gz"
-  sha256 "0606cd8da69618d508d06dee859dd1147a4d8846cdff57fb8958c71fe906523f"
+  url "https://github.com/sinclairtarget/um/archive/4.2.0.tar.gz"
+  sha256 "f8c3f4bc5933cb4ab9643dcef7b01b8e8edf2dcbcd8062ef3ef214d1673ae64e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9d5469f93dc3cc8570e4b2b8867357202280cfb61f5a95d1c6966cb82aecb08" => :catalina
-    sha256 "1d1db24a30203c2439682f6cc2a5426aab764187ee7586f23baf1e7c8a866cf1" => :mojave
-    sha256 "292928bc6148b5a43c6247602fae927be0b06c8e6d0ec2b60d25432ed77e74d7" => :high_sierra
-    sha256 "985f610f0669af71b2d24cf8489d15967f1ea30b650372165ea41aabd93cfc33" => :sierra
+    sha256 "266b397cd3e24060e7926f438279325aed89643070618add3db64175e348c04b" => :catalina
+    sha256 "a4d8c9ddc2b46076eaccf3e3d4eaa43918f3d156e8abd16ad1415ea85f2da8f5" => :mojave
+    sha256 "a479ed6f535f228d1bfa15a7292e58d06a4f07d1238c4fa83f1b99c80564a24e" => :high_sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

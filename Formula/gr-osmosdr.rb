@@ -1,16 +1,15 @@
 class GrOsmosdr < Formula
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://cgit.osmocom.org/gr-osmosdr/snapshot/gr-osmosdr-0.1.4.tar.gz"
-  mirror "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
+  url "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
   sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
-  revision 8
+  revision 9
 
   bottle do
     cellar :any
-    sha256 "de042fcc5ae37fb7be209ebe983dbabac1bfb5bc9fecf461d6999290033565a7" => :mojave
-    sha256 "b32174cd48394ab6b8b142a9072f2ff6f85732225ddd196702d6aa21121070c2" => :high_sierra
-    sha256 "6e16a8b497d89db6746aa992b85fb1c9e771d555d1a8909c7d7057e9ad268abe" => :sierra
+    sha256 "7fd2370bc3f22dd0448e827f12d41dea8b04fdecf57669ddf8b437fb982fce55" => :catalina
+    sha256 "8b0d2f0803b136645d597787a74d3f7d5079136e0dc16e2c7919e09ae3211283" => :mojave
+    sha256 "494b8a534f23ac18f613bf5042e9f2baa3235fc58be303b362942910f223c6e8" => :high_sierra
   end
 
   depends_on "cmake" => :build

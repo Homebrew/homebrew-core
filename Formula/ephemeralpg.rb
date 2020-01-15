@@ -1,17 +1,14 @@
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
   homepage "http://ephemeralpg.org"
-  url "http://ephemeralpg.org/code/ephemeralpg-2.5.tar.gz"
-  mirror "https://bitbucket.org/eradman/ephemeralpg/get/ephemeralpg-2.5.tar.gz"
-  sha256 "93a350443e431f474c4f898fe8bbe649e20957b25ce1d9d43810117128658e00"
+  url "http://ephemeralpg.org/code/ephemeralpg-2.9.tar.gz"
+  sha256 "09314fe7d7ba2c26fb02864b9ddc92a538bc53674200363e77bb53a2fc1c17be"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57d9e48fa538af3fe7c01f0c4b0ff10cf6cc6f3f2827f31850cb61ff473e7fda" => :catalina
-    sha256 "537dbb19980fce982e2859e14852d31fb5f4f91fc62ef062dab427890bf334ce" => :mojave
-    sha256 "fa778995e1b3d3adb26a3ebd0a584376dd85e5239cdf8417643cb2984040bb6c" => :high_sierra
-    sha256 "23c036094f518eb3d98539e410ea95bbe237bda31b205f3741fb46bb7d5e32c5" => :sierra
-    sha256 "fe44d3d4814322c408e59944d86d56214c6056547111957efdbf08e382d4672b" => :el_capitan
+    sha256 "c02e04cf822d9a12c30126152a1003c2fe545e6c0dbda9c893ef5d165a342722" => :catalina
+    sha256 "b880f6d03f12cc1c0f0c9b4a4726bbc0870cfa2c14e4eacc8a62f8a7ddfa0082" => :mojave
+    sha256 "b3c09234c2cfd5739e55758c0ff0516b4776213fbe0b157b25a7f60010977bb2" => :high_sierra
   end
 
   depends_on "postgresql"

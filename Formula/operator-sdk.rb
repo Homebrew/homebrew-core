@@ -2,14 +2,14 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      :tag      => "v0.12.0",
-      :revision => "2445fcda834ca4b7cf0d6c38fba6317fb219b469"
+      :tag      => "v0.14.0",
+      :revision => "4fb185b9d45682473b4951c9788f845ba2fa5b12"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do
-    sha256 "3c1a3096fa626aaad7d10ad6a93fe467141a33959814e70e51628965ed2f2e97" => :catalina
-    sha256 "be37a061411e49e92b16970dcbc2e6a418e3fedc090aadffe88dc6c2818dfb58" => :mojave
-    sha256 "d866ecd94c8ccc81fed99c2402f1ec3d49ea6d0933fbe4917786f9ead396c68c" => :high_sierra
+    sha256 "290b9478ff1430eddb2dbaf5e4a63e35f1620079ce188f6bff07924613940676" => :catalina
+    sha256 "d6eed5cf84fc0ffdc61891341210e94013836ebaba9bb53c088726204c0e18c3" => :mojave
+    sha256 "01786054613e8f91cd55d9b6f38055cf24f3c0b2b11e28a98770a24c11438d67" => :high_sierra
   end
 
   depends_on "go"

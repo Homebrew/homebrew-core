@@ -3,12 +3,13 @@ class MysqlConnectorCxx < Formula
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
   url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.18-src.tar.gz"
   sha256 "63b20e446c0aadeddbbc5cef36db8222d602793e6f1e6de511bdf7bcb2181f86"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d2f10b3cf8427392875384a867ec170eebe6fbea36006f3d3e74a5f5a62120d9" => :catalina
-    sha256 "88d27cf897808cf89158469faf309c1771522e0e6e07632c46a38c9c84873dad" => :mojave
-    sha256 "cf8f23c86220e60cde4efab54cfc046d3895c517504f4b76d6f371a1a66d997f" => :high_sierra
+    sha256 "96a111e160d5679d219db4a6a6a8814c639fa7fdf90ecd3e4e5a5d9f2a1adbf8" => :catalina
+    sha256 "593b8b076c869e9e7dac19950656d338ee54db5b364186d949ae6c1b7c63ebcb" => :mojave
+    sha256 "c5b39ffed5a049ad6ab5d3e0ab201e5422840c48e648dc74ff57ecbb02702145" => :high_sierra
   end
 
   depends_on "boost" => :build

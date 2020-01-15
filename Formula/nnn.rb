@@ -1,15 +1,15 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v2.7.tar.gz"
-  sha256 "0592c7cbcf2cf66cacac49e9204636480820b1bc74e4187dd7ee06945a6d07c5"
+  url "https://github.com/jarun/nnn/archive/v2.8.1.tar.gz"
+  sha256 "cadf9cf8038433aeeb50a777180ad4b309ac7d2fec81c7da177ddca515812f06"
   head "https://github.com/jarun/nnn.git"
 
   bottle do
     cellar :any
-    sha256 "cf5f8858f95a2b09ead189bf89989a86e4f320a3d1892caf15cb98fd253d0ed4" => :catalina
-    sha256 "312a3d50d38eda061638ea7e6b5c82f40e9f462eed882316c18bf20503c9bdae" => :mojave
-    sha256 "f819fda84d7ba01e82d64549bd8846eb11299d63edc5a4a7bcbf2703a928ad7f" => :high_sierra
+    sha256 "ceaa1d0df4e726017c45a50c07cb463338aebedb7ef078aaf02df7a9ba559fba" => :catalina
+    sha256 "05fee70609df45e3f9ebc99df751bbe20eb373691caeb4d1e89c1d2c0c24812f" => :mojave
+    sha256 "b4700186efd6ab8984bd788100b7b5e78702a7ab2bea50cf1177499ba752c191" => :high_sierra
   end
 
   depends_on "readline"

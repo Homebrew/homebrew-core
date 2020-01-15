@@ -3,19 +3,18 @@ class Awsume < Formula
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
   homepage "https://www.trek10.com/blog/awsume-aws-assume-made-awesome"
-
-  url "https://github.com/trek10inc/awsume/archive/4.0.0.tar.gz"
-  sha256 "8cc7d466beef1c32b3397ed62cba22f7a309ab1650317cef6873cf019be7d25e"
+  url "https://github.com/trek10inc/awsume/archive/4.1.10.tar.gz"
+  sha256 "962b4f7ce25c4647fdc5c286a78cc8a1bf65d75e799116084b4b362a63ef7eb2"
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d7627407c05644c59ee3ba36d592e92c8dcec7d663c5eb53ddd52062fa0c61c3" => :catalina
-    sha256 "a26e73a7ad4e464d9dd2bdd027dee7a729f6f28a36800fc22701b1dd729e29d1" => :mojave
-    sha256 "0eba67450540e7d925d166a50dc2051fc4d867cba692a3f2a8d6a7c612065cf5" => :high_sierra
+    sha256 "6b0dba57fd46e839c5c1a06e61845e9540b5bfeb731e7cead4e1690f0b5fff1b" => :catalina
+    sha256 "44ba1d3057fd94aa715e2ccae140088bf382fa1e1b0cb519baf9621fd1f54902" => :mojave
+    sha256 "4799a2384a87f2c15ea5eec27a24887a55063d0c859d616c06fd2990f21e6bbb" => :high_sierra
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "python"
   uses_from_macos "sqlite"
 
@@ -29,7 +28,10 @@ class Awsume < Formula
 
   test do
     assert_includes "4.0.0", shell_output("#{bin}/awsume -v")
+
     file_path = File.expand_path("~/.awsume/config.yaml")
     shell_output(File.exist?(file_path))
+
+    assert_match "PROFILE  TYPE  SOURCE  MFA?  REGION  ACCOUNT", shell_output("#{bin}/awsume --list-profiles 2>&1")
   end
 end

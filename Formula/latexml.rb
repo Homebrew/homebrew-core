@@ -13,6 +13,10 @@ class Latexml < Formula
     sha256 "b911ac9897012edcc7c32d96785e4ca3830ce8cbddff78da0942263c7fb0d0bb" => :sierra
   end
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
+
   resource "Image::Size" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
     sha256 "53c9b1f86531cde060ee63709d1fda73cabc0cf2d581d29b22b014781b9f026b"

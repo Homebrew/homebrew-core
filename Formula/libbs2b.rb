@@ -25,4 +25,22 @@ class Libbs2b < Formula
                           "--enable-shared"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <bs2b/bs2b.h>
+
+      int main()
+      {
+        t_bs2bdp info = bs2b_open();
+        if (info == 0)
+        {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lbs2b", "test.c", "-o", "test"
+    system "./test"
+  end
 end

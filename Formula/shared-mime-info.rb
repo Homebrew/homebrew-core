@@ -23,6 +23,7 @@ class SharedMimeInfo < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+  uses_from_macos "libxml2"
 
   def install
     # Disable the post-install update-mimedb due to crash
@@ -44,6 +45,9 @@ class SharedMimeInfo < Formula
   def post_install
     global_mime = HOMEBREW_PREFIX/"share/mime"
     cellar_mime = share/"mime"
+
+    # Remove bad links created by old libheif postinstall
+    rm_rf global_mime if global_mime.symlink?
 
     if !cellar_mime.exist? || !cellar_mime.symlink?
       rm_rf cellar_mime

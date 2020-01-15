@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
-  sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.19.tar.gz"
+  sha256 "3622d2a53236ed9ca62de0616a7e80fd477a9a3f862ba09d503da188f53ca523"
 
   bottle do
-    sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
-    sha256 "0bddb035ea8098a4eb0a9d76afae97a077f517bdb0592a4edae828a566470236" => :mojave
-    sha256 "85a4e9fedd5fa606eff74a72d0e8b9f2ce4dcbd7976e42deb6611eccc1db24ef" => :high_sierra
+    sha256 "2754abf3fefc4128b5aba75966ce68aebce156c718567908f8eaa2611251f951" => :catalina
+    sha256 "4b18d45af8dcd0d1fea0e7c82a7ed8a6ce3a0bb9e5be6bf4d395460126a0ac70" => :mojave
+    sha256 "eaf32cf0e17c95d195372b9014852dc77e423dfa8b2362566703edb85449458a" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -21,13 +21,10 @@ class Mysql < Formula
   depends_on :macos => :yosemite
 
   depends_on "openssl@1.1"
+  depends_on "protobuf"
 
   conflicts_with "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
@@ -58,8 +55,8 @@ class Mysql < Formula
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_SSL=yes
+      -DWITH_PROTOBUF=system
       -DWITH_UNIT_TESTS=OFF
-      -DWITH_EMBEDDED_SERVER=ON
       -DENABLED_LOCAL_INFILE=1
       -DWITH_INNODB_MEMCACHED=ON
     ]

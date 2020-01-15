@@ -1,14 +1,14 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.4.tar.gz"
-  sha256 "3d3e25fb224025f0e732c7970e5676f53fd1764c16d6a01be073a13e42954bb0"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.6.tar.gz"
+  sha256 "1d98fc6ea99197a20b4a0e540e87022cf523085786e0fc26de6ebb2720f5aaf0"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
-    sha256 "1334db025dbafd779ecd8ae1e331c2bc4cc0a75e82e483941270210bf397c5a5" => :catalina
-    sha256 "b43a4d47b31d91ab1b51db34c600e2772f059a00cd24a0e5541bf9ebdfe036be" => :mojave
-    sha256 "84f88888deb8015640d57cc2ed551f04949f999c09b2398bdc39270559d2d997" => :high_sierra
+    sha256 "813d64c350df8065b82e0ec4a057d04839c75b7e34054e9d9aec71b5b13008b1" => :catalina
+    sha256 "f6ebf1d706a3c8b2b8d955757ead2fb7bcbc1219a7a64a1cb441d19c66ed1543" => :mojave
+    sha256 "b8249022a2846505980ea13fe2b9606fb83e84aade6178816cbc3af36e81ee2d" => :high_sierra
   end
 
   depends_on "libevent"
@@ -18,9 +18,11 @@ class Unbound < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --enable-event-api
+      --enable-tfo-client
+      --enable-tfo-server
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
-      --enable-event-api
     ]
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed

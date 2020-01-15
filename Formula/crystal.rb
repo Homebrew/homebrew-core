@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.31.1.tar.gz"
-    sha256 "b4a51164763b891572492e2445d3a69b462675184ea0ccf06fcc57a070f07b80"
+    url "https://github.com/crystal-lang/crystal/archive/0.32.1.tar.gz"
+    sha256 "66b62d0fb5bfa6547f285eb520f7fd0bc57bc994babf54cb8e7a61e613c79399"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,9 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "b2b6a72ed1d5475197afb51dda915df11b4ec0dea594d9ac9a0e74fb5b77f1a1" => :catalina
-    sha256 "a3b0717f4006a32899703e4608ff6ff6e22c079514ebafe4c14afb3cb9e6654b" => :mojave
-    sha256 "47e8c8b0b9525982dca06dab82ab9fffded6039f5a132f6d89e753bd135e0695" => :high_sierra
+    sha256 "024e5e9c4b1f93863fa2ccfbc8fb98c3e494d6f0e0edfb5da5838826e6e63e0e" => :catalina
+    sha256 "cd590caeb6a39bd3555683e3b642ef19eaa5711740cacf19a67ab86cee4352a4" => :mojave
+    sha256 "cdabfcf0fc44bf640605c56eaa4be42e668acd022a1b62b44ca6405de5a60ad2" => :high_sierra
   end
 
   head do
@@ -34,7 +34,8 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@8"
+  depends_on "llvm"
+  depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -51,9 +52,9 @@ class Crystal < Formula
   end
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.30.1/crystal-0.30.1-1-darwin-x86_64.tar.gz"
-    version "0.30.1-1"
-    sha256 "ffc3ee9124367a2dcd76f9b4c2bf8df083ba8fce506aaf0e3c6bfad738257adc"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.31.1/crystal-0.31.1-1-darwin-x86_64.tar.gz"
+    version "0.31.1-1"
+    sha256 "ffc655df0efe8004058f87750949b7a2b165d8baef73c5596193eba1c17efdb5"
   end
 
   def install
@@ -101,7 +102,10 @@ class Crystal < Formula
     end
 
     bin.install ".build/shards"
-    bin.install ".build/crystal"
+    libexec.install ".build/crystal"
+    (bin/"crystal").write_env_script libexec/"crystal",
+      :PKG_CONFIG_PATH => "${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl"].opt_lib/"pkgconfig"}"
+
     prefix.install "src"
     (prefix/"embedded/lib").install "#{buildpath/"gc"}/.libs/libgc.a"
 

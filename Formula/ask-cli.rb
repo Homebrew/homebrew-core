@@ -3,13 +3,14 @@ require "language/node"
 class AskCli < Formula
   desc "CLI tool for Alexa Skill Kit"
   homepage "https://www.npmjs.com/package/ask-cli"
-  url "https://registry.npmjs.org/ask-cli/-/ask-cli-1.7.17.tgz"
-  sha256 "32eebadf3115cac8b84600bacb0f5eac156c2a3e25da70cdcd96458cc419f68d"
+  url "https://registry.npmjs.org/ask-cli/-/ask-cli-1.7.21.tgz"
+  sha256 "b04f24aaa8513fd66f0dc6a9df516c84c1c312dd6f61620ec760eb72efe4bef9"
 
   bottle do
-    sha256 "8ca82ecb9cebf17ce23057b97a9f232a9c14bb41b4bcb14c70386f6d6e84068a" => :catalina
-    sha256 "a5cb16a965dc04130a716014d9ae39ebd917d271d4f82555724d98e2fa6dd709" => :mojave
-    sha256 "2afd36fe40d5efbc8ec919ffb9a635c913e7479c9aef578e0c2ff584f4e08ba3" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "bafee83ccee4c71a54085ca699bdd21b5764e3b9fba39d9d1690874e8deeddea" => :catalina
+    sha256 "4e7c3b1ef8e844d8a63968acb4bb53199dc6685e243190334b63d0e9e0f3e9f6" => :mojave
+    sha256 "1bc26d3853118ea9b15785663a29862df57887d64d64d1e80c06a6b024deed3e" => :high_sierra
   end
 
   depends_on "node"

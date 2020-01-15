@@ -1,15 +1,14 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.3.tar.xz"
-  sha256 "002958c5528321edd53440235d3c44e71b5b1e09b9177e8daf677450b6c4433d"
+  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.4.tar.xz"
+  sha256 "0bd2cc681dfeffdef739cb29913f8c3caa47a88a451fd2bc6e606c02997289d2"
 
   bottle do
     cellar :any
-    sha256 "2b40b669394b38062aeb683c72a53c73a6a48420d7529c5862290a4721850bb7" => :catalina
-    sha256 "2effda8b89a49b5dbd3860061666757e58ba982534e42507e29ea3646f896178" => :mojave
-    sha256 "0f7ebb1bf7449c25196dd2f3500e520a2b0eb67ac21263ec87c9d02c7d9e7e58" => :high_sierra
-    sha256 "147538004325b02238d187ec1ef55944a0e74fe83accf1506904b62d01f75ec2" => :sierra
+    sha256 "96e139bc93053e6bb0a03201169e16c6112ef0ab27cdc648d35a26f2d786855c" => :catalina
+    sha256 "c2f968269360ad31b30d6635d234cdc82e926fd109f3ac3aa4eb2a71f27f3ceb" => :mojave
+    sha256 "3ed4dbf8d3715738c5226c0466b7ace7a57b4a49dc838d3260d5d8acd82c1a07" => :high_sierra
   end
 
   depends_on "meson" => :build

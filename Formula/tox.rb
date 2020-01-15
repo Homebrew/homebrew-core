@@ -3,18 +3,17 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/9d/fa/e3428607370756d134fe4c222658bad329cac419a01a6a88c84d8f1adaa6/tox-3.13.2.tar.gz"
-  sha256 "ee35ffce74933a6c6ac10c9a0182e41763140a5a5070e21b114feca56eaccdcd"
+  url "https://files.pythonhosted.org/packages/13/03/e2d1d99dc55280982445b747e34bd26b8e7e88fcc563f015d653dc8cbab9/tox-3.14.3.tar.gz"
+  sha256 "06ba73b149bf838d5cd25dc30c2dd2671ae5b2757cf98e5c41a35fe449f131b3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93a70214910c1c579f13e0db0457dc655c317d5ea9f8f8bea5652ee1eb8018ec" => :catalina
-    sha256 "0c9189386bb9c8003c3f8d77e438eeb69266edaaa17477f4f7aa50f9cc25239f" => :mojave
-    sha256 "44846281dab267074cdefbd33ed8f2bf30b216e2a162b7bbfd7bfc4813b3d8d9" => :high_sierra
-    sha256 "d4a609edc507339f7a3952d536ea54c1606f083acd6f815ad3fc7440053f5fd9" => :sierra
+    sha256 "33d105bb8e9976f833d4414a7a25c7643dacc0db813e18d5f38a2d3a9fab0b2e" => :catalina
+    sha256 "802618f5ca42a17b6d9d03c14405b836d4cae22b587c9a4f175e0bcbbb194a4d" => :mojave
+    sha256 "e72b666afaf9c06bc7d3e4ce9eef19c43ed95040a6354af3e62db3fbd5bfb8ef" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "filelock" do
     url "https://files.pythonhosted.org/packages/14/ec/6ee2168387ce0154632f856d5cc5592328e9cf93127c5c9aeca92c8c16cb/filelock-3.0.12.tar.gz"
@@ -22,33 +21,38 @@ class Tox < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/fd/5c/9caf9fe3d92afc3c0296c97b0fd72cacfcaf20e8b2c42306840914e052fa/importlib_metadata-0.18.tar.gz"
-    sha256 "cb6ee23b46173539939964df59d3d72c3e0c1b5d54b84f1d8a7e912fe43612db"
+    url "https://files.pythonhosted.org/packages/cb/bb/7a935a48bf751af244090a7bd558769942cf13a7eba874b8b25538f3db01/importlib_metadata-1.3.0.tar.gz"
+    sha256 "073a852570f92da5f744a3472af1b61e28e9f78ccf0c9117658dc32b15de7b45"
+  end
+
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/4e/b2/e9e512cccde6c54bf66a8e5820a2af779eb8235028627002ca90d4f75bea/more-itertools-8.0.2.tar.gz"
+    sha256 "b84b238cce0d9adad5ed87e745778d20a3f8487d0f0cb8b8a586816c7496458d"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/16/51/d72654dbbaa4a4ffbf7cb0ecd7d12222979e0a660bf3f42acc47550bf098/packaging-19.0.tar.gz"
-    sha256 "0c98a5d0be38ed775798ece1b9727178c4469d9c3b4ada66e8e6b7849f8732af"
+    url "https://files.pythonhosted.org/packages/c7/cf/d84b72480a556d9bd4a191a91b0a8ea71cb48e6f6132f12d9d365c51bdb6/packaging-20.0.tar.gz"
+    sha256 "fe1d8331dfa7cc0a883b49d75fc76380b2ab2734b220fbb87d774e4fd4b851f8"
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/75/21/cdabca0144cfa282c2893dc8e07957245ac8657896ef3ea26f18b6fda710/pluggy-0.12.0.tar.gz"
-    sha256 "0825a152ac059776623854c1543d65a4ad408eb3d33ee114dff91e57ec6ae6fc"
+    url "https://files.pythonhosted.org/packages/f8/04/7a8542bed4b16a65c2714bf76cf5a0b026157da7f75e87cc88774aa10b14/pluggy-0.13.1.tar.gz"
+    sha256 "15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/f1/5a/87ca5909f400a2de1561f1648883af74345fe96349f34f737cdfc94eba8c/py-1.8.0.tar.gz"
-    sha256 "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53"
+    url "https://files.pythonhosted.org/packages/bd/8f/169d08dcac7d6e311333c96b63cbe92e7947778475e1a619b674989ba1ed/py-1.8.1.tar.gz"
+    sha256 "5e27081401262157467ad6e7f851b7aa402c5852dbcb3dae06768434de5752aa"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/91/53/f4dedc34f7a5797c35e451d67740560a384168f79c32e127b22a91f96ceb/pyparsing-2.4.1.tar.gz"
-    sha256 "530d8bf8cc93a34019d08142593cf4d78a05c890da8cf87ffa3120af53772238"
+    url "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz"
+    sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "toml" do
@@ -57,13 +61,13 @@ class Tox < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/97/f4/64c1853c3b35c1cfa57f3485b49c8c684f9dcaba4e24c56717b83fc66e90/virtualenv-16.6.2.tar.gz"
-    sha256 "861bbce3a418110346c70f5c7a696fdcf23a261424e1d28aa4f9362fc2ccbc19"
+    url "https://files.pythonhosted.org/packages/aa/3b/213c384c65e17995cccd0f2bb993b7b82c41f62e74c2f8f39c8e60549d86/virtualenv-16.7.9.tar.gz"
+    sha256 "0d62c70883c0342d59c11d0ddac0d954d0431321a41ab20851facf2b222598f3"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/66/ae/1d6693cde3b3e3c14e95cf3408f24d0e869ead42a79993b611d8817d929a/zipp-0.5.2.tar.gz"
-    sha256 "4970c3758f4e89a7857a973b1e2a5d75bcdc47794442f2e2dd4fe8e0466e809a"
+    url "https://files.pythonhosted.org/packages/57/dd/585d728479d97d25aeeb9aa470d36a4ad8d0ba5610f84e14770128ce6ff7/zipp-0.6.0.tar.gz"
+    sha256 "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e"
   end
 
   def install
@@ -80,13 +84,11 @@ class Tox < Formula
       rm f
       ln_s realpath, f
     end
-    inreplace lib_python_path/"orig-prefix.txt",
-              Formula["python"].opt_prefix, Formula["python"].prefix.realpath
   end
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
+    pyver = Language::Python.major_minor_version("python3.8").to_s.delete(".")
     (testpath/"tox.ini").write <<~EOS
       [tox]
       envlist=py#{pyver}

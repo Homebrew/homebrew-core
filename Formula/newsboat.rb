@@ -1,15 +1,14 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.17.1/newsboat-2.17.1.tar.xz"
-  sha256 "c1ebd24b017173156e817a1a3dd1d982808dec30a891e1f487806e5f86171997"
+  url "https://newsboat.org/releases/2.18/newsboat-2.18.tar.xz"
+  sha256 "f23932c0226ec3f69eac7668da444e73175048498e15e9d773451648b2cba4b0"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
-    rebuild 1
-    sha256 "66aa9b1c98217bfc6d52b658501896bfa8e5d48048f553042838b22035508bc1" => :catalina
-    sha256 "cb49362b332f540d1df86f78385f98d99ddd0740d781764641ba9069d7e6a87a" => :mojave
-    sha256 "872d0d0553c67df6d9b095a173946cd1a357721e97037c20802f86550d2e0514" => :high_sierra
+    sha256 "3ebdaac8a35ae290af7adffe737bec71f1ca4d96d58acc352a6d926eab3dc1ed" => :catalina
+    sha256 "3b5461262a95b3c29cd7fce17c0c7db2116dccdcbb9bdd4e9e912b5890279737" => :mojave
+    sha256 "9e3ce4ad4a7230aa6356651c7dca731d56366bba7ba42e73eeb8d3dfdbf8ca45" => :high_sierra
   end
 
   depends_on "asciidoc" => :build

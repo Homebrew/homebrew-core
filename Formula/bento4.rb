@@ -1,16 +1,15 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-628.tar.gz"
-  version "1.5.1-628"
-  sha256 "e6fce0b1015698ff2f4f99e81c516ec042b351de052c885da7f82aebda56b65a"
+  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-629.tar.gz"
+  version "1.5.1-629"
+  sha256 "de692f15ddd17d1d89e5bc58131f77ff4cd0dd1d0116fdef82d285910f204d29"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f982d297d2d65bb5e51c29602fea985f0abe399077b555f805920ebd821b583a" => :catalina
-    sha256 "70b14caee7dee4170ef309393e122f16ecb677943a3f2c9d1d40747764bea18d" => :mojave
-    sha256 "d1977eae032f7de54129952c0178bf183aa3909a89826333b185a36e43c780f0" => :high_sierra
-    sha256 "85ca3dbb13344503507d939edb90dfee89f3d8f342c1fadbb1494e983d9251cf" => :sierra
+    sha256 "753d0676bfb53c3a83586ab89acd95245a6ea3907c367858d81cd950cbfa0ffb" => :catalina
+    sha256 "6a56425ed7103855772dd0979d63827d53ee37e61e3dd92dbaa3e04755689e5f" => :mojave
+    sha256 "615ee776852cf976005c1c55142fb68fa52a48eb366f629a24b361a70cfcab75" => :high_sierra
   end
 
   depends_on :xcode => :build

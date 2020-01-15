@@ -2,9 +2,9 @@ class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
   # Get the commit id for stable releases from https://github.com/mozilla/geckodriver/releases
-  url "https://hg.mozilla.org/mozilla-central/archive/e9783a644016aa9b317887076618425586730d73.tar.gz"
+  url "https://hg.mozilla.org/mozilla-central/archive/e9783a644016aa9b317887076618425586730d73.zip/testing/"
   version "0.26.0"
-  sha256 "034f525b6163ffd473ac61191107d104244b5ac7d3f89259b9c2915812654099"
+  sha256 "89f20b2d492b44b40ee049d0f0d4d91c52758b74dd7b5c7acad89a88ca1f177e"
   head "https://hg.mozilla.org/mozilla-central/", :using => :hg
 
   bottle do

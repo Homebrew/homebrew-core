@@ -3,24 +3,25 @@ class Osslsigncode < Formula
   homepage "https://github.com/mtrojnar/osslsigncode"
   url "https://github.com/mtrojnar/osslsigncode/archive/2.0.tar.gz"
   sha256 "5a60e0a4b3e0b4d655317b2f12a810211c50242138322b16e7e01c6fbb89d92f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "958b10ce3d64f94b1beb5f9f9d25d9252a059d35306b22e6c816bdaa38a331b0" => :catalina
-    sha256 "372930dce3e97d7ff42ceb60c21996b98bc05eeab16c4badf7d224ae9c3bc3b2" => :mojave
-    sha256 "77be2ee5af3ae642658118eac2fad889b48995fcfb183ff0602462467ba0cb22" => :high_sierra
-    sha256 "a430c3f1cdb8e9be02aa18c89483309431e77ae4daf3b8288e1680fe60e129c8" => :sierra
+    sha256 "9f9d6f343dc0a7e6ecf34a27e97049b62952e5a05319b1f7aa4c235cf793fc5e" => :catalina
+    sha256 "cf48ec533b5cc0db3cf56903091936822c422d484371c28b2397bd02bd3bdbbb" => :mojave
+    sha256 "5999a97a256941d082e171faceb5cbf7fb54720031d71cc1c086d8d08d18ff01" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libgsf"
   depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--with-gsf", "--prefix=#{prefix}"
     system "make", "install"
   end
 

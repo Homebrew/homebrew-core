@@ -1,9 +1,9 @@
 class Saxon < Formula
   desc "XSLT and XQuery processor"
   homepage "https://saxon.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/9.9/SaxonHE9-9-1-5J.zip"
-  version "9.9.1.5"
-  sha256 "380a14ebaa12c7a26befa9e8e0f2ebd8a83c76ca8da4501e7fc9b523d57e364e"
+  url "https://downloads.sourceforge.net/project/saxon/Saxon-HE/9.9/SaxonHE9-9-1-6J.zip"
+  version "9.9.1.6"
+  sha256 "e94d8bbbb9a3a3dc9518c1923c436b2eb5ddc0e74bfd0bec1a07ac63e0e31b92"
 
   bottle :unneeded
 

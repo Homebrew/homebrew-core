@@ -6,9 +6,17 @@ class Polyml < Formula
   head "https://github.com/polyml/polyml.git"
 
   bottle do
-    sha256 "7d004ce1e0cd9920cc0d66a690be780e11365f8725bbfaa68222ddf324d1d0f8" => :mojave
-    sha256 "11835db3f5848077c9b0e6af52bceffaf4c356892c9e3dc795976bcf9711a06b" => :high_sierra
-    sha256 "b3dd5bae8d8cef36c6258c2620a4ae894a7a1c66fe56330c48e19a1f81aa66d9" => :sierra
+    rebuild 1
+    sha256 "1439f4258d7fa8adfab0b037ae43c5effaffd9b1c7793c05f73a0f130b65d403" => :catalina
+    sha256 "356373c5c6483a552164e3aa815076688f37e41d74f8350a52321205f5d4547d" => :mojave
+    sha256 "d69da52fe77cd77d079de8ba2b389ced34800cebf55202d023c6800d584a5212" => :high_sierra
+  end
+
+  # Patch for Xcode 11
+  # https://github.com/polyml/polyml/pull/119
+  patch do
+    url "https://github.com/polyml/polyml/commit/44efa473.diff?full_index=1"
+    sha256 "0835165da3f0b540c13e06d79dfdc4bcbcc4cde17207ea2e02978582552ee4d0"
   end
 
   def install

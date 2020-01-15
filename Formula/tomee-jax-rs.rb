@@ -1,10 +1,12 @@
 class TomeeJaxRs < Formula
   desc "TomeEE Web Profile plus JAX-RS"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.4/apache-tomee-1.7.4-jaxrs.tar.gz"
-  sha256 "35f56e5f79dfa3ebfe220c2c45b280b204dcd265c4e905b994669391f4672e71"
+  url "https://archive.apache.org/dist/tomee/tomee-1.7.5/apache-tomee-1.7.5-jaxrs.tar.gz"
+  sha256 "5c9241ca683db85c13a23234b206fe98011d734a661383bbc9027deb756c09da"
 
   bottle :unneeded
+
+  depends_on :java => "1.8"
 
   def install
     # Remove Windows scripts
@@ -15,7 +17,11 @@ class TomeeJaxRs < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-jax-rs-startup"
+    libexec.install_symlink "#{libexec}/bin/startup.sh" => "tomee-jax-rs-startup"
+    env = Language::Java.java_home_env("1.8")
+    env[:JRE_HOME] = "$(#{Language::Java.java_home_cmd("1.8")})"
+    (bin/"tomee-jax-rs-startup").write_env_script libexec/"tomee-jax-rs-startup", env
+    (bin/"tomee-jax-rs-configtest").write_env_script libexec/"bin/configtest.sh", env
   end
 
   def caveats; <<~EOS
@@ -27,6 +33,6 @@ class TomeeJaxRs < Formula
   end
 
   test do
-    system "#{opt_libexec}/bin/configtest.sh"
+    system "#{bin}/tomee-jax-rs-configtest"
   end
 end

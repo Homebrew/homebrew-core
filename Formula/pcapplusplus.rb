@@ -1,19 +1,17 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
-  homepage "https://seladb.github.io/PcapPlusPlus-Doc"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v19.04.tar.gz"
-  sha256 "0b44074ebbaaa8666e16471311b6b99b0a5bf52d16bbe1452d26bacecfd90add"
+  homepage "https://pcapplusplus.github.io"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v19.12.tar.gz"
+  sha256 "9bebe2972a6678b8fb80f93b92a3caf9babae346137f2171e6941f35b56f88bb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a862a2c39d37c54d2dd719fc4874f8eb21f49477400f9537523c49a18c5cf7bb" => :catalina
-    sha256 "66e87be04a8af4d24911300dc912481258533644dedbd1d8541368b8cf750be1" => :mojave
-    sha256 "8309ef07fefb2edaf0eb7f8697a56d85faaad8f034fbb6ad5d2b526da89b3e5d" => :high_sierra
-    sha256 "a856979800a5007e3f686f3d39a323bb25702457745929b34448c94df1b442b3" => :sierra
+    sha256 "7b028a7ef2438fc52a831baaeaa5475282a4ac811b17464304d0a4b77d9f031b" => :catalina
+    sha256 "712589c7198116011221a502c0cb158bf5b901ae06cb6a51ba7e523fb413ba48" => :mojave
+    sha256 "23854dd42a6afc6abcc8056f3661309c394496292470fb15b76ab211f38b965b" => :high_sierra
   end
 
   def install
-    inreplace "mk/PcapPlusPlus.mk.macosx", "-I", "-I#{MacOS.sdk_path}"
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and

@@ -1,14 +1,13 @@
 class Smartmontools < Formula
   desc "SMART hard drive monitoring"
   homepage "https://www.smartmontools.org/"
-  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.0/smartmontools-7.0.tar.gz"
-  sha256 "e5e1ac2786bc87fdbd6f92d0ee751b799fbb3e1a09c0a6a379f9eb64b3e8f61c"
+  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.1/smartmontools-7.1.tar.gz"
+  sha256 "3f734d2c99deb1e4af62b25d944c6252de70ca64d766c4c7294545a2e659b846"
 
   bottle do
-    sha256 "83418daec52373443bbf5c30ea6a808fbd36ec7ed31e708512e1adf7cc3204a1" => :catalina
-    sha256 "eeb9c234d61a85547f6e5f169966f5afd5cb5c31a9f17d758910bdd855d711c4" => :mojave
-    sha256 "e77726b986b056d7b58112e965c399861d41a568193c45b9862d7ef5f04ed479" => :high_sierra
-    sha256 "74c52c197fbfef3715fe6ed1dc787756cb7185932958005f738c2ce142579a48" => :sierra
+    sha256 "cc34524c76ff39abb4afc6794fe404e257cf04816c1d2c33f8edd158e5677239" => :catalina
+    sha256 "cce7b82f81c999afcd180dd7fb1ef471bfb24d9934dc3ad326d86db7ea478f2c" => :mojave
+    sha256 "77b4722b7ffc997a2b5482518f291640fcabc45468ae5fca12520943869263be" => :high_sierra
   end
 
   def install

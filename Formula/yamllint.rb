@@ -3,27 +3,28 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://github.com/adrienverge/yamllint/archive/v1.18.0.tar.gz"
-  sha256 "9cb686e484600fd4aa312e71920d3bbb70ff41ba358d57c557fede0a2bc2fe00"
+  url "https://github.com/adrienverge/yamllint/archive/v1.20.0.tar.gz"
+  sha256 "6391bfd0f3d360a418fef54c6ccf77615c25b2b62c54fb770c07823471016b18"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "85f03b165bfa96dfc5835a899500377d7b3bd6c8226d236aebd515e6898a34be" => :catalina
-    sha256 "3b01f5a86973698fcebbf9d9ddb5033d486de50a3bf160a2f02384a28651b894" => :mojave
-    sha256 "32f4b7d300c5f7cea61849d70cc0f0700f7817b1215af31613660b9e9b8b78f8" => :high_sierra
+    sha256 "1a39e71f5471a2ef25cbb48d4ad7978171385ff38d5c40125f2c258cc6682244" => :catalina
+    sha256 "ee0e9115ae2423d3691c59c85ee10e03a0109706e24b2f51e21773ff15096a6b" => :mojave
+    sha256 "cb73a80359f4c689e5051d11cb3931b23268c573e00f52900875391442e10f51" => :high_sierra
   end
 
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
-    sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
+    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/7a/68/5902e8cd7f7b17c5879982a3a3ee2ad0c3b92b80c79989a2d3e1ca8d29e1/pathspec-0.6.0.tar.gz"
-    sha256 "e285ccc8b0785beadd4c18e5708b12bb8fcf529a1e61215b3feff1d1e559ea5c"
+    url "https://files.pythonhosted.org/packages/ce/f2/d35c292da8fbff725625a17ae40f48f933070acd5ccddb03d8c09d81758d/pathspec-0.7.0.tar.gz"
+    sha256 "562aa70af2e0d434367d9790ad37aed893de47f1693e4201fd1d3dca15d19b96"
   end
 
   def install

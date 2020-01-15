@@ -3,14 +3,15 @@ require "language/node"
 class Ungit < Formula
   desc "The easiest way to use git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.4.48.tgz"
-  sha256 "691447a39ac4729c2b0ee2705cc21b9d239063354b78583853d1c053347758b1"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.1.tgz"
+  sha256 "8f045f6f606e3e89a8a053f86c9d403ba85df8d047e85a31a321fcce99cd9dee"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ce1ae47d981846075039727bf49cab48878d423b037826da80a00ca9947eb032" => :catalina
-    sha256 "7d2353cd03d6e6c0a507f09ede57f6631ac970f03aac0b93f4b0e3cbe9341700" => :mojave
-    sha256 "9ddae55fa2dc593690d08c3d661e87a1441c457d5505d411eef9dca0a23dcb33" => :high_sierra
+    sha256 "287bc7f94ff856dba56f6faf19700b3a973b28b9034796f378afe2e86c1429ad" => :catalina
+    sha256 "2a8f82d9cb0e4be0f550b4239a6d9c927f2ea5be0a82fe3f3e79b244c624e1aa" => :mojave
+    sha256 "d3379a71b3f4a89bb335b33fbe08f1b3618fdcc659d0e735227f9c73236a3946" => :high_sierra
   end
 
   depends_on "node"
@@ -21,8 +22,6 @@ class Ungit < Formula
   end
 
   test do
-    require "nokogiri"
-
     server = TCPServer.new(0)
     port = server.addr[1]
     server.close
@@ -31,12 +30,14 @@ class Ungit < Formula
       exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
     end
     sleep 5
-    assert_match "ungit", Nokogiri::HTML(shell_output("curl -s 127.0.0.1:#{port}/")).at_css("title").text
+    assert_includes shell_output("curl -s 127.0.0.1:#{port}/"), "<title>ungit</title>"
   ensure
-    Process.kill("TERM", ppid)
-    # ensure that there are no spawned child processes left
-    child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
-    child_p.each { |pid| Process.kill("TERM", pid) }
-    Process.wait(ppid)
+    if ppid
+      Process.kill("TERM", ppid)
+      # ensure that there are no spawned child processes left
+      child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
+      child_p.each { |pid| Process.kill("TERM", pid) }
+      Process.wait(ppid)
+    end
   end
 end

@@ -8,15 +8,15 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://ftp.isc.org/isc/bind/9.14.7/bind-9.14.7.tar.gz"
-  sha256 "cea0f54e5908f77ffd21eb312ee9dd4f3f8f93ca312c6118f27d6c0fba45291d"
+  url "https://ftp.isc.org/isc/bind/9.14.9/bind-9.14.9.tar.gz"
+  sha256 "29575ed58fa2324fb137936421f64f9aa048d67c78840dd18ade204ee180573c"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "7a25e1c396315cff3ea878c0bba176078f1c76559afef6bc3f367763d2bc1769" => :catalina
-    sha256 "08329c4f83dc10626cfed146f4123dd19ff9bc8336dfb0e8dfbfd01b4f01ccf5" => :mojave
-    sha256 "48a3e794f6832bf04bd3f9880f542980ba46bc62dd1c3722dd322cf4d1e7b694" => :high_sierra
+    sha256 "406570ae0567dbdc6794f130f8f0e6b58909d453859bd5b6c9b9f6fba72c98a8" => :catalina
+    sha256 "d76267552143b88b7560f3d228f6c9a78eb2da6d56ad6911414d080cefb1b547" => :mojave
+    sha256 "7a24c570e43b1656accc7f749f98f59db18f8096c408ea89361e1231091910b4" => :high_sierra
   end
 
   depends_on "json-c"

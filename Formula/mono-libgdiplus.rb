@@ -3,12 +3,13 @@ class MonoLibgdiplus < Formula
   homepage "https://www.mono-project.com/docs/gui/libgdiplus/"
   url "https://github.com/mono/libgdiplus/archive/6.0.4.tar.gz"
   sha256 "9a5e3f98018116f99361520348e9713cd05680c231d689a83d87acfaf237d3a8"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f188b273e8486964db3cbbc9583112c6f6abffa37d996f0aab069dbb98c67682" => :catalina
-    sha256 "b8ef1609c1fc1f76b488a4d98792bba7267549f7d861df0abb420b1f6f4d40d1" => :mojave
-    sha256 "35cdac699b7bf1b7cf7a656007f1401e2c495bee8e7bead9a780be48c44ec5dc" => :high_sierra
+    sha256 "2b2a77eb692e4383bcd370c67952a4da8000d79ac75c9bf9b4c02a5db291291a" => :catalina
+    sha256 "aa006fa3746f4d6ecd7fa1b004adb5bf5061bcda97320d105eddf841f3c9087e" => :mojave
+    sha256 "de806803fb54ffefa1fa627eadb5c7e627082ae3b4c8fb8554e0aa243cb412d3" => :high_sierra
   end
 
   depends_on "autoconf" => :build

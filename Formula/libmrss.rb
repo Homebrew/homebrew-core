@@ -6,13 +6,10 @@ class Libmrss < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ee283af3f89ae1e38408a4fe77df32218845aef0dc096aefc49149bcb42e611b" => :mojave
-    sha256 "0aa71e057813f04d6ec6682f81c1b0dfdde634cb37f3adadb1083a5337fd1ad8" => :high_sierra
-    sha256 "18314ef43a046f7944ef92cc3d08fdff60168a170fadb89aeeaa33ed927c9d01" => :sierra
-    sha256 "85da9deb7189d65de0cd834a3b6777358a2cc263b4626de3b4036cc99a82fa8c" => :el_capitan
-    sha256 "6ffc4597ea7c697b8d6c0e39196fc748e99bc5b29ec40651c17a7cce97de1cce" => :yosemite
-    sha256 "ab5aef7bbf64a913dedec5d77b8e0345ea1ad83eace9a98cffa045d461cdd277" => :mavericks
+    rebuild 2
+    sha256 "03a62a0d10dd05156876128388b1081c329a00f38d71d6e8b52bff20b3d40fbe" => :catalina
+    sha256 "66000637d850285b2fd66f2fc00ae5a3096690ec84b8280037c39bff3246612c" => :mojave
+    sha256 "234ec50cc4eabdd5433abb2d27f1e359c468db4fda10a36eb2c9278034a4e000" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -3,35 +3,36 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.39.0.tar.gz"
-  sha256 "af9fcea7b23cc64e67accfb54351b87a7c43897ae59fcd74459067d814d2f501"
+  url "https://github.com/certbot/certbot/archive/v1.0.0.tar.gz"
+  sha256 "cb853d4aeff1bd28c6a20bb4b26e782a791a28dfee5b6cf410ef2b6f4f580bd8"
+  revision 4
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "773ab91e1ec8c9d3268c9c7829eed606405d01e1d95ea13917dd8a24056e04fb" => :catalina
-    sha256 "7b79b2a4ab7cbb6b842b2fb6ac938bd7399f35828b7e871aaf8a81b82e6d5ef3" => :mojave
-    sha256 "cd39422f8f5e717447839fbf982e011280cf79738e0f5548630508441b6fc1f8" => :high_sierra
+    sha256 "d3ff1f180e9048ef5d7fb7f95dbe8d04094261351815eda2408ed7343d56308a" => :catalina
+    sha256 "69432acc19a087c898e085635d2523887cd323792be54d4d68fd0311937d9f5e" => :mojave
+    sha256 "504eb5bfa12f607a5a71f2e8911d697b4ccfc9ee602d63ef8fbf89feeae58e48" => :high_sierra
   end
 
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/69/7a/f20452e26d88d95a3fece217244117da8a099be08f8fe718eef665dc8b74/acme-0.39.0.tar.gz"
-    sha256 "a2fcb75d16de6804f4b4d773a457ee2f6434ebaf8fd1aa60862a91d4e8f73608"
+    url "https://files.pythonhosted.org/packages/c7/57/8747646a4ae8fbde7460248b2489a68cf9161029009e55d305b36df40f21/acme-1.0.0.tar.gz"
+    sha256 "6a08f12f848ce563b50bca421ba9db653df9f82cfefeaf8aba517f046d1386c2"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/62/85/7585750fd65599e88df0fed59c74f5075d4ea2fe611deceb95dd1c2fb25b/certifi-2019.9.11.tar.gz"
-    sha256 "e4f3620cfea4f83eedc95b24abd9cd56f3c4b146dd0177e83a21b4eb49e21e50"
+    url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
+    sha256 "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/0d/aa/c5ac2f337d9a10ee95d160d47beb8d9400e1b2a46bb94990a0409fe6d133/cffi-1.13.1.tar.gz"
-    sha256 "558b3afef987cf4b17abd849e7bedf64ee12b28175d564d05b628a0f9355599b"
+    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
+    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
   end
 
   resource "chardet" do
@@ -40,8 +41,8 @@ class Certbot < Formula
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/24/f2/91071498c99fdff7bf8bddb4b981e68bb095b6204233b5d9ce6747f97836/ConfigArgParse-0.15.1.tar.gz"
-    sha256 "baaf0fd2c1c108d007f402dab5481ac5f12d77d034825bf5a27f8224757bd0ac"
+    url "https://files.pythonhosted.org/packages/66/37/dd9fcb3b19c1dceea450ee994952e311a96dd827bb09ee19169c3427e0d3/ConfigArgParse-1.0.tar.gz"
+    sha256 "bf378245bc9cdc403a527e5b7406b991680c2a530e7e81af747880b54eb57133"
   end
 
   resource "configobj" do
@@ -57,11 +58,6 @@ class Certbot < Formula
   resource "distro" do
     url "https://files.pythonhosted.org/packages/ca/e3/78443d739d7efeea86cbbe0216511d29b2f5ca8dbf51a6f2898432738987/distro-1.4.0.tar.gz"
     sha256 "362dde65d846d23baee4b5c058c8586f219b5a54be1cf5fc6ff55c4578392f57"
-  end
-
-  resource "future" do
-    url "https://files.pythonhosted.org/packages/3f/bf/57733d44afd0cf67580658507bd11d3ec629612d5e0e432beb4b8f6fbb04/future-0.18.1.tar.gz"
-    sha256 "858e38522e8fd0d3ce8f0c1feaf0603358e366d5403209674c7b617fa0c24093"
   end
 
   resource "idna" do
@@ -80,8 +76,8 @@ class Certbot < Formula
   end
 
   resource "parsedatetime" do
-    url "https://files.pythonhosted.org/packages/e3/b3/02385db13f1f25f04ad7895f35e9fe3960a4b9d53112775a6f7d63f264b6/parsedatetime-2.4.tar.gz"
-    sha256 "3d817c58fb9570d1eec1dd46fa9448cd644eeed4fb612684b02dfda3a79cb84b"
+    url "https://files.pythonhosted.org/packages/5f/19/43357ced106dd1ab6bceb1decb866e8619172fc271991a54eb2f680a2e9b/parsedatetime-2.5.tar.gz"
+    sha256 "d2e9ddb1e463de871d32088a3f3cea3dc8282b1b2800e081bd0ef86900451667"
   end
 
   resource "pycparser" do
@@ -90,13 +86,13 @@ class Certbot < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/40/d0/8efd61531f338a89b4efa48fcf1972d870d2b67a7aea9dcf70783c8464dc/pyOpenSSL-19.0.0.tar.gz"
-    sha256 "aeca66338f6de19d1aa46ed634c3b9ae519a64b458f8468aec688e7e3c20f200"
+    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
+    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/7e/24/eaa8d7003aee23eda270099eeec754d7bf4399f75c6a011ef948304f66a2/pyparsing-2.4.2.tar.gz"
-    sha256 "6f98a7b9397e206d78cc01df10131398f1c8b8510a2f4d97d9abd82e1aacdd80"
+    url "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz"
+    sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
   end
 
   resource "pyRFC3339" do
@@ -125,18 +121,18 @@ class Certbot < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ff/44/29655168da441dff66de03952880c6e2d17b252836ff1aa4421fba556424/urllib3-1.25.6.tar.gz"
-    sha256 "9a107b99a5393caf59c7aa3c1249c16e6879447533d0887f4336dde834c7be86"
+    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
+    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
   end
 
   resource "zope.component" do
-    url "https://files.pythonhosted.org/packages/49/72/69a2b1eea2b37077e24fa84d287382550c649ecd0b1f25122f4d591ba468/zope.component-4.5.tar.gz"
-    sha256 "6edfd626c3b593b72895a8cfcf79bff41f4619194ce996a85bce31ac02b94e55"
+    url "https://files.pythonhosted.org/packages/32/97/81ce1c228e8a7e98ef92e8ff211b091cf5a223d6d69cb599368798084042/zope.component-4.6.tar.gz"
+    sha256 "ec2afc5bbe611dcace98bb39822c122d44743d635dafc7315b9aef25097db9e6"
   end
 
   resource "zope.deferredimport" do
@@ -155,28 +151,46 @@ class Certbot < Formula
   end
 
   resource "zope.hookable" do
-    url "https://files.pythonhosted.org/packages/41/b5/378175b959565de41f45c775cdfbf8897aaeaf29a258b94e40bd2661ce46/zope.hookable-4.2.0.tar.gz"
-    sha256 "c1df3929a3666fc5a0c80d60a0c1e6f6ef97c7f6ed2f1b7cf49f3e6f3d4dde15"
+    url "https://files.pythonhosted.org/packages/35/7e/d7ffdd410a9b4aa97d175af1718baa6b741ec6a60baa668354dd3da4e26c/zope.hookable-5.0.0.tar.gz"
+    sha256 "0f325838dbac827a1e2ed5d482c1f2656b6844dc96aa098f7727e76395fcd694"
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/4e/d0/c9d16bd5b38de44a20c6dc5d5ed80a49626fafcb3db9f9efdc2a19026db6/zope.interface-4.6.0.tar.gz"
-    sha256 "1b3d0dcabc7c90b470e59e38a9acaa361be43b3a6ea644c0063951964717f0e5"
+    url "https://files.pythonhosted.org/packages/c3/05/bf3130eb799548882ce61b7c3d2dbc5d4d5cc6e821efa8786c5273d56844/zope.interface-4.7.1.tar.gz"
+    sha256 "4bb937e998be9d5e345f486693e477ba79e4344674484001a0b646be1d530487"
   end
 
   resource "zope.proxy" do
-    url "https://files.pythonhosted.org/packages/a3/7b/ada37e2c9ba5ba6b23ef8b0f090fd08fabd06e15450c41dca4799349a2dd/zope.proxy-4.3.2.tar.gz"
-    sha256 "ab6d6975d9c51c13cac828ff03168de21fb562b0664c59bcdc4a4b10f39a5b17"
+    url "https://files.pythonhosted.org/packages/e2/44/bea546c55488c044351e51ebf23bf440b19876e0069a418cadc1bd5736f7/zope.proxy-4.3.3.tar.gz"
+    sha256 "dac4279aa05055d3897ab5e5ee5a7b39db121f91df65a530f8b1ac7f9bd93119"
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    # Install in our prefix, not the first-in-the-path python site-packages dir.
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+
+    cd buildpath/"certbot" do
+      system "python3", *Language::Python.setup_install_args(libexec)
+    end
 
     # Shipped with certbot, not external resources.
     %w[acme certbot-apache certbot-nginx].each do |r|
-      venv.pip_install buildpath/r
+      cd buildpath/r do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
     end
-    pkgshare.install "examples"
+    pkgshare.install buildpath/"certbot/examples"
+
+    bin.install Dir[libexec/"bin/certbot"]
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

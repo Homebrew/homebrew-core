@@ -2,23 +2,27 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.4",
-      :revision => "fa5b03454e25d60fbcd857a5839d16db59507b82"
+      :tag      => "v6.8.5",
+      :revision => "22b590e4e8dbb91bdcfe8689e59dcb04447eeef6"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bcf0b79801b0a29f4146dfec8bf69ddefd05e9624b201c07d98c35a05148f0d" => :catalina
-    sha256 "8923796487cbd5c4f093973caf03055e30117c015eeb0a27d4ac142a550451dc" => :mojave
-    sha256 "987382ed60010313648f0d7dc934aebf65b0242354eb3a9d40108315c05d30f4" => :high_sierra
+    rebuild 1
+    sha256 "09e1dc845a3f118cb43994e16d9e9646b907c479688070104ea0af636df84c4f" => :catalina
+    sha256 "4a8d39c4a22f8fe45bd5e9fe3f9a3f12902c149c450e8060ba4dd727b3ad4193" => :mojave
+    sha256 "b7ea5ae1e8784382ae7c5e346f896795803d0f9ca2d98fa7acdb58f687a81025" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "python@2" => :build # does not support Python 3
+  # https://github.com/elastic/beats/pull/14798
+  uses_from_macos "python@2" => :build # does not support Python 3
 
+  # Newer virtualenvs are not compatible with Python 2.7.10 on high sierra, use an old version
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/8b/f4/360aa656ddb0f4168aeaa1057d8784b95d1ce12f34332c1cf52420b6db4e/virtualenv-16.3.0.tar.gz"
-    sha256 "729f0bcab430e4ef137646805b5b1d8efbb43fe53d4a0f33328624a84a5121f7"
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
   # Patch required to build against go 1.11 (Can be removed with v7.0.0)

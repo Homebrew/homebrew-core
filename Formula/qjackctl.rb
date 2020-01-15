@@ -1,14 +1,14 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/qjackctl/qjackctl-0.6.0.tar.gz"
-  sha256 "9dd5ee9a7f0a2d1d530b10652e09972732dc210239b7c082be816f0e7bdfadcd"
+  url "https://download.sourceforge.net/qjackctl/qjackctl-0.6.1.tar.gz"
+  sha256 "dec2b1d98cc06bce6bc714a57521b15bafa2718835a1afffb6f0b1eb07d1c027"
   head "https://git.code.sf.net/p/qjackctl/code.git"
 
   bottle do
-    sha256 "8c7bc53fa8a6ca3e7f3667f25c7a540c25caadb94954eab6a1db0d37c00adfac" => :catalina
-    sha256 "f946cf13730aa5bd4e7acefbfaa2cdf548ed324c9b93291882b69c46c19b1bb4" => :mojave
-    sha256 "adbc4f40b588fb096dc40923f1d37953a0424e70c2aa78ca375d1dd64751c52d" => :high_sierra
+    sha256 "4d98a6cb0d8daf2dbf5b32c98c4f8168b77a55346bf92c036e701de3b24105d2" => :catalina
+    sha256 "7b658d986d16dd31c24899081396d91c645eebd6fb40bfcc18ad494e864c13e8" => :mojave
+    sha256 "d1444c4f9ac82682034ad2b895acd46e8227027b983a04bbbfaec2c7968a9646" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

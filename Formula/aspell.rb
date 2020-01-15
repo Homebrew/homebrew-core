@@ -545,6 +545,8 @@ class Aspell < Formula
     sha256 "3fa255cd0b20e6229a53df972fd3c5ed8481db11cfd0347dd3da629bbb7a6796"
   end
 
+  uses_from_macos "ncurses"
+
   # const problems with llvm: https://www.freebsd.org/cgi/query-pr.cgi?pr=180565&cat=
   patch :DATA
 

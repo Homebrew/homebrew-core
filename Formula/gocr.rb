@@ -3,13 +3,13 @@ class Gocr < Formula
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
   url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz"
   sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fac83eb0f14256afd06202061eece969cb5b9cd7dda66e4d20077dc823353bed" => :catalina
-    sha256 "f0af1bb6614e72f70b54eeacb2063aff9eea014965611828f2e13eb8677d636b" => :mojave
-    sha256 "8bcc15b6bef035a94d27a242f7cd40f6c71d4585a2b0c964f3e26aa800258f8a" => :high_sierra
-    sha256 "bf3b661399dd9450b81ed3c22536ebeec0931310daa57371904ee4e40f5b0413" => :sierra
+    sha256 "d0408f223b941c6d81c0edd843ab5916475a4ea4b94892b548da6403e4c3af2a" => :catalina
+    sha256 "d173d60e8d8f139b4e7e310b84d1bfc56e406eb026c51beba9d4b2facaac3ae1" => :mojave
+    sha256 "2a5cfa5a815706b2ecb11658ad9132bba21de5304e4541118d8d061a5bb7779a" => :high_sierra
   end
 
   depends_on "jpeg"

@@ -2,15 +2,15 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.10.0",
-      :revision => "6d4e7fd7966c989e38024a8ea693db83758944f1"
+      :tag      => "v3.11.2",
+      :revision => "fe1790ca0df67173702f70d5646b82f48f412b99"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
     cellar :any
-    sha256 "7e1a09099cc918a87e5b8b8aa8720b5398ae140ca2cb49203afb9a12f873feb9" => :catalina
-    sha256 "b13a84b99a3c1655b6c0b1dacd7290b22ef8eb6ad321e5ce29372d4718e736be" => :mojave
-    sha256 "0795805e92c9a9166de9be8529910e6783cf5300ca03783313a3c15ae243232a" => :high_sierra
+    sha256 "3fdda0c68757e397a80cf6d87ffb1f6570f459c368a1288c316e932687c5a98f" => :catalina
+    sha256 "c2c8d923c866867eec44813a8264684bd6deb5fc98fc0ca257eaf1dea34ba183" => :mojave
+    sha256 "a772a6c0dc4a95ae6a2cc200664995ef2749d08da8e0965c9b18e932cd5ff19c" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -19,8 +19,8 @@ class Protobuf < Formula
   depends_on "python" => [:build, :test]
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   def install

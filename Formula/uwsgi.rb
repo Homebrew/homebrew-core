@@ -1,7 +1,7 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  revision 1
+  revision 2
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -17,24 +17,18 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "6c17be7f1c2be510e4a7901f9e84acaeab7beb517190643622cd1fe81ef37871" => :catalina
-    sha256 "fa0a1738cc9fafdae2e03e7c9092f98d8873ee1ec0dbe0f6935c75e7ee7c954e" => :mojave
-    sha256 "562237e2f56cea601ba029b32c435a38247441a8188e37ee26543647bf940b7c" => :high_sierra
-    sha256 "80e82901e28914acedd3101a37559b82edebc37c1e5371b5876c4ff32f84cadc" => :sierra
+    sha256 "a918ea316ed8408dae9257ee12ad3df6db84996be08a2e657efab291a688d702" => :catalina
+    sha256 "d7d6455c84e3a0f02ba2843f2a0c05a8433ce12042b54024048fb30457f24035" => :mojave
+    sha256 "5064635530307154b9d08a912ed246b1c0049f9a8bcf1e7e9b9994160be09069" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "yajl"
-
-  # "no such file or directory: '... libpython2.7.a'"
-  # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/726bff4/uwsgi/libpython-tbd-xcode-sdk.diff"
-    sha256 "d71c879774b32424b5a9051ff47d3ae6e005412e9214675d806857ec906f9336"
-  end
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
@@ -59,7 +53,7 @@ class Uwsgi < Formula
       embedded_plugins = null
     EOS
 
-    system "python", "uwsgiconfig.py", "--verbose", "--build", "brew"
+    system "python3", "uwsgiconfig.py", "--verbose", "--build", "brew"
 
     plugins = %w[airbrake alarm_curl alarm_speech asyncio cache
                  carbon cgi cheaper_backlog2 cheaper_busyness
@@ -80,16 +74,10 @@ class Uwsgi < Formula
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
-      system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
+      system "python3", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
     end
 
-    python_versions = {
-      "python"  => "python2.7",
-      "python2" => "python2.7",
-    }
-    python_versions.each do |k, v|
-      system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
-    end
+    system "python3", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", "python3"
 
     bin.install "uwsgi"
   end
@@ -137,7 +125,7 @@ class Uwsgi < Formula
     EOS
 
     pid = fork do
-      exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python -w helloworld"
+      exec "#{bin}/uwsgi --http-socket 127.0.0.1:8080 --protocol=http --plugin python3 -w helloworld"
     end
     sleep 2
 

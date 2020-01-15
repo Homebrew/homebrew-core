@@ -2,23 +2,26 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.4",
-      :revision => "fa5b03454e25d60fbcd857a5839d16db59507b82"
+      :tag      => "v6.8.5",
+      :revision => "22b590e4e8dbb91bdcfe8689e59dcb04447eeef6"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05cdf380a57e9b976c66cd8f629f378eb934b8813a7b65b3394a7fa8056e9d06" => :catalina
-    sha256 "41396f8f2996398b9dcae3fa1020f6ccbe1eef750b88b5bdb3d449acd6414b79" => :mojave
-    sha256 "80580cc7b97af0844e783d0466f92d42f3612ee0af2e8562e6e22728d802d4a3" => :high_sierra
+    sha256 "a7e57e0a45c199988abf82d7fefc1e0e29dfec3d36fc404c3f66f1589a9959e0" => :catalina
+    sha256 "e2e5a236ae0051987d1e15907525ff035cbe93fd7a1f83cdc2157d1bdabc7fb8" => :mojave
+    sha256 "6466e3abe58c3648d841a06ea1e11bd27af6ce38c568af4d9046701a30200d9d" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "python@2" => :build # does not support Python 3
+  # https://github.com/elastic/beats/pull/14798
+  uses_from_macos "python@2" => :build # does not support Python 3
 
+  # Newer virtualenvs are not compatible with Python 2.7.10 on high sierra, use an old version
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/8b/f4/360aa656ddb0f4168aeaa1057d8784b95d1ce12f34332c1cf52420b6db4e/virtualenv-16.3.0.tar.gz"
-    sha256 "729f0bcab430e4ef137646805b5b1d8efbb43fe53d4a0f33328624a84a5121f7"
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
   end
 
   def install

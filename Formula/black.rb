@@ -5,15 +5,16 @@ class Black < Formula
   homepage "https://black.readthedocs.io/en/stable/"
   url "https://files.pythonhosted.org/packages/b0/dc/ecd83b973fb7b82c34d828aad621a6e5865764d52375b8ac1d7a45e23c8d/black-19.10b0.tar.gz"
   sha256 "c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a4f41f40e695ff43e81206aa495a6c5462e1998371cee746b5e5bd1da304b465" => :catalina
-    sha256 "b1d29825686f8d7e5661a2b42e539f5da3664f91624a6ba1189e8c991483d4f3" => :mojave
-    sha256 "d26e50bbc697b595266542a1fc544e06057000537b11d17d1d1c6f9e158af0cd" => :high_sierra
+    sha256 "3f67772566b3334f6a2c6d6d70d3f5b4a775db05b5953e721364d79e54fad369" => :catalina
+    sha256 "0344cc00f35d00398f73346681b4acf5f15eb165e7e8f6ccb4eb69dd44ea5cae" => :mojave
+    sha256 "cdf830b2a2d3e008de06e54afac17eb22e368aca1ff562fa870bf87dc9f26302" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"

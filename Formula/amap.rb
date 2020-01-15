@@ -1,7 +1,7 @@
 class Amap < Formula
   desc "Perform application protocol detection"
-  homepage "https://www.thc.org/thc-amap/"
-  url "https://www.thc.org/releases/amap-5.4.tar.gz"
+  homepage "https://github.com/vanhauser-thc/THC-Archive"
+  url "https://github.com/vanhauser-thc/THC-Archive/raw/master/Tools/amap-5.4.tar.gz"
   mirror "https://downloads.sourceforge.net/project/slackbuildsdirectlinks/amap/amap-5.4.tar.gz"
   sha256 "a75ea58de75034de6b10b0de0065ec88e32f9e9af11c7d69edbffc4da9a5b059"
   revision 3

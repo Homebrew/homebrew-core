@@ -65,6 +65,8 @@ class Dnsmasq < Formula
           <string>--keep-in-foreground</string>
           <string>-C</string>
           <string>#{etc}/dnsmasq.conf</string>
+          <string>-7</string>
+          <string>#{etc}/dnsmasq.d,*.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

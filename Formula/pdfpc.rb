@@ -6,9 +6,10 @@ class Pdfpc < Formula
   head "https://github.com/pdfpc/pdfpc.git"
 
   bottle do
-    sha256 "80fa8e226eb146d7d5d04096ad69cbba4e1358f255ccf44333162eaec2ca0976" => :mojave
-    sha256 "79745c4f54d0347251ae9dc09c9eeb3b5c12caffbe45d3da1d581c2002edafab" => :high_sierra
-    sha256 "9142b108ce4ff8c361e293bf7f55efe4c7d0f5015eae64fb3055433d25766427" => :sierra
+    rebuild 1
+    sha256 "b65b794725b5c60423cb97f6283aac5a7e4c348a112aad160605501eed96b7dd" => :catalina
+    sha256 "0549b04e7edd7cb9831d5981fb43ad8e0ae92459f5c00b2e80520f32b6d1bf84" => :mojave
+    sha256 "ab33199fc0198e8ec4fe35811a86d7c475eef84359ed03b42633515731b8542c" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,6 +19,13 @@ class Pdfpc < Formula
   depends_on "libgee"
   depends_on "librsvg"
   depends_on "poppler"
+
+  # Build with recent vala, remove in next release
+  # https://github.com/pdfpc/pdfpc/pull/446
+  patch do
+    url "https://github.com/pdfpc/pdfpc/commit/afd0fc83.diff?full_index=1"
+    sha256 "8f2769696229393fe179b637f261fcf47128f4dd8026446d74e65483f1dbea36"
+  end
 
   def install
     system "cmake", ".", "-DMOVIES=on", *std_cmake_args

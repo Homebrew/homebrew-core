@@ -1,15 +1,15 @@
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.13/xapian-core-1.4.13.tar.xz"
-  sha256 "93f8ffffa80c5e6036befbf356f34456cc18c2f745cef85e9b4cfc254042137c"
+  url "https://oligarchy.co.uk/xapian/1.4.14/xapian-core-1.4.14.tar.xz"
+  sha256 "975a7ac018c9d34a15cc94a3ecc883204403469f748907e5c4c64d0aec2e4949"
   version_scheme 1
 
   bottle do
     cellar :any
-    sha256 "ca56eb658ab73e5eb7f75995b131599e8ca564d9863e597fd058a18b405c8fdd" => :catalina
-    sha256 "7b3ed25c8416ba7ae6423cd96a71ad175bd07a62bf17fb1e80e36b4e9c6f7c30" => :mojave
-    sha256 "79293e9bbcdf86cbb286b90cd410dd8977d28c81c07b960095ff3515d33b9050" => :high_sierra
+    sha256 "6c6664a6610f8825cc704392667de90e105a33f9713ba89816dd56dbb86f5ccf" => :catalina
+    sha256 "d62e83d7e27525b93403a00257fc212cd4ea8d6ca55f034f15f1882d2fb0999c" => :mojave
+    sha256 "e953ecc8f71b25029e6a1fa38346c56896fbe31de5371dfe4fcf2a1cd543d705" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -18,8 +18,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.13/xapian-bindings-1.4.13.tar.xz"
-    sha256 "7a5a5d2712159ed0a5174a8aabedfc01452a69ebd6e2147d97e497122baa5892"
+    url "https://oligarchy.co.uk/xapian/1.4.14/xapian-bindings-1.4.14.tar.xz"
+    sha256 "5609d5680650d8a424683eb3fe3239dc8468341cabe0861e7be5018b383b6161"
   end
 
   def install
@@ -45,6 +45,6 @@ class Xapian < Formula
 
   test do
     system bin/"xapian-config", "--libs"
-    system "python3.7 -c 'import xapian'"
+    system "python3", "-c", "import xapian"
   end
 end

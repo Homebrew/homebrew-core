@@ -1,15 +1,14 @@
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.1.1/scons-3.1.1.tar.gz"
-  sha256 "4cea417fdd7499a36f407923d03b4b7000b0f9e8fd7b31b316b9ce7eba9143a5"
+  url "https://downloads.sourceforge.net/project/scons/scons/3.1.2/scons-3.1.2.tar.gz"
+  sha256 "7801f3f62f654528e272df780be10c0e9337e897650b62ddcee9f39fde13f8fb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ad10b009525d47c7bb51a0c743c55a7f10aba46b9b19d107b9a9e0e6d121990" => :catalina
-    sha256 "7a13e185a9fbdc22c2766738254ad968e44b414780ccb7700be7ca8e4a5a0b98" => :mojave
-    sha256 "7a13e185a9fbdc22c2766738254ad968e44b414780ccb7700be7ca8e4a5a0b98" => :high_sierra
-    sha256 "9d7566fc25fd4c27d37cb5252bf2f63cc467f8a80dfb20e58f084e29d9d1fa30" => :sierra
+    sha256 "eacddf72a0a5803c6053eb8bda0f9b1c0a27f8d7bd30c239c56aa3608802ea15" => :catalina
+    sha256 "eacddf72a0a5803c6053eb8bda0f9b1c0a27f8d7bd30c239c56aa3608802ea15" => :mojave
+    sha256 "eacddf72a0a5803c6053eb8bda0f9b1c0a27f8d7bd30c239c56aa3608802ea15" => :high_sierra
   end
 
   def install

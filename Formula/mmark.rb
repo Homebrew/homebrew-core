@@ -1,14 +1,14 @@
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.miek.nl/"
-  url "https://github.com/mmarkdown/mmark/archive/v2.2.0.tar.gz"
-  sha256 "8a7b278b93b737daf46554fa83b86538b1f6eee02f8508eb08581aa578531f02"
+  url "https://github.com/mmarkdown/mmark/archive/v2.2.2.tar.gz"
+  sha256 "2521d600191a433cd001f3a82f0694b4951ef2c666ed9f250d358cf914ec98b1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b502e75cb3bc36d562d342650766ef432b8823d7f14898ef57085fc9c939537f" => :catalina
-    sha256 "991527aa84e63ac9e1e0c3693c041339aed014f4441fb5c862b9ce9a4a32c419" => :mojave
-    sha256 "c3d57bbdd88cfdd3f212c68f73350afd5969b471d928f4ea6aa30d7545e2618d" => :high_sierra
+    sha256 "bc624892ce13e3e70ff5fb726a55067680c9854ade0e73aa8133cd254f891ecf" => :catalina
+    sha256 "bc624892ce13e3e70ff5fb726a55067680c9854ade0e73aa8133cd254f891ecf" => :mojave
+    sha256 "bc624892ce13e3e70ff5fb726a55067680c9854ade0e73aa8133cd254f891ecf" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,14 +19,9 @@ class Mmark < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/mmarkdown/mmark").install buildpath.children
-    cd "src/github.com/mmarkdown/mmark" do
-      system "go", "build", "-o", bin/"mmark"
-      man1.install "mmark.1"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"mmark"
+    man1.install "mmark.1"
+    prefix.install_metafiles
   end
 
   test do

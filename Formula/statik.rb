@@ -5,18 +5,17 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
   sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
-  revision 1
+  revision 3
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
     cellar :any
-    sha256 "9a929bed838eac7299d6db3cabac93ddf475c1a7d5100f1d8d0dc522d1867471" => :catalina
-    sha256 "0b670112d5c2e9c8166c264ba33a5bd7c01e7cbcb99abe030f2c7923a6e09f5f" => :mojave
-    sha256 "06551895c3028af13b050ccc738afe4643ac782ca02dc9c9a0de68b04c5a8e5c" => :high_sierra
-    sha256 "44b40f63c9d8de054cb52ce509347eec87f2ac53afa613bb15d66f3c5b3317f7" => :sierra
+    sha256 "42b9ce47cd1adf076f99b06ee1af089870a2da0c4abc2f86fd98a94761a1eb27" => :catalina
+    sha256 "0291dbdf49901a3141f97a466ecda416ab8ee1c11c30f04bab8c5f4208a95a1c" => :mojave
+    sha256 "9d898d64f57db338a4ece54d14d6cdda03a47eb8131fbb6b39067c9213ec838c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 

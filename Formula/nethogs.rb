@@ -15,6 +15,9 @@ class Nethogs < Formula
     sha256 "3652cadd0558c01c522e586a483b03b95badf98028ab3b7f9a227f8bae275def" => :mavericks
   end
 
+  uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
