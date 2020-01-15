@@ -1,8 +1,8 @@
 class Tta < Formula
   desc "Lossless audio codec"
-  homepage "https://web.archive.org/web/20100131140204/true-audio.com/"
-  url "https://downloads.sourceforge.net/project/tta/tta/libtta/libtta-2.2.tar.gz"
-  sha256 "1723424d75b3cda907ff68abf727bb9bc0c23982ea8f91ed1cc045804c1435c4"
+  homepage "http://tta.tausoft.org/"
+  url "https://downloads.sourceforge.net/project/tta/tta/libtta/libtta-c-2.3.tar.gz"
+  sha256 "68ba6db2d494dcd4aa6832a40952b88a3d50ca1174ab0ef1e091db16992303c7"
 
   bottle do
     cellar :any_skip_relocation
