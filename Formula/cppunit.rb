@@ -1,8 +1,8 @@
 class Cppunit < Formula
   desc "Unit testing framework for C++"
   homepage "https://wiki.freedesktop.org/www/Software/cppunit/"
-  url "https://dev-www.libreoffice.org/src/cppunit-1.15.0.tar.gz"
-  sha256 "1c61dfdb430e04ebb411e4b80fbd49fe7e63a1be0209a76d7c07501f02834922"
+  url "https://dev-www.libreoffice.org/src/cppunit-1.15.1.tar.gz"
+  sha256 "89c5c6665337f56fd2db36bc3805a5619709d51fb136e51937072f63fcc717a7"
 
   bottle do
     cellar :any
