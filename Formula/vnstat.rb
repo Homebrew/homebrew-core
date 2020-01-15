@@ -1,8 +1,8 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.4.tar.gz"
-  sha256 "a0955999abd56d5463d257ffdccc9b1e9ad9ea504de81e64ba4c197f1245abaa"
+  url "https://humdi.net/vnstat/vnstat-2.5.tar.gz"
+  sha256 "f1bfb16911b28cb0db93341e65433da804ec178592b6728235a84b1c091d1578"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
