@@ -47,7 +47,7 @@ class Bibclean < Formula
     end
 
     system "make", "all"
-    system "make", "check"
+  
     system "make", "install"
 
     ENV.prepend_path "PATH", pkgshare
