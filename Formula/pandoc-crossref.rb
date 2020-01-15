@@ -7,6 +7,7 @@ class PandocCrossref < Formula
   homepage "https://github.com/lierdakil/pandoc-crossref"
   url "https://hackage.haskell.org/package/pandoc-crossref-0.3.5.0/pandoc-crossref-0.3.5.0.tar.gz"
   sha256 "646ea9b0d1564f894528036724d7a112d54e6946555602cd15c421b48fc301f4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
