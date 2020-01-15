@@ -1,9 +1,8 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  url "https://github.com/google/snappy/archive/1.1.7.tar.gz"
-  sha256 "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4"
-  revision 1
+  url "https://github.com/google/snappy/archive/1.1.8.tar.gz"
+  sha256 "16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f"
   head "https://github.com/google/snappy.git"
 
   bottle do
