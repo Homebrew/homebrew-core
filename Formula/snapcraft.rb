@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/3.9.5.tar.gz"
-  sha256 "b30ce954b6cf89954504e166ae795c3b46c962bd16b9868d50476192ac888d39"
+  url "https://github.com/snapcore/snapcraft/archive/3.9.7.tar.gz"
+  sha256 "1b7221ec3e8cc8afccaae959dd51cbde7228c580c072e0db3b5fd2a6252f050b"
 
   bottle do
     cellar :any
@@ -56,8 +56,8 @@ class Snapcraft < Formula
   end
 
   resource "httplib2" do
-    url "https://files.pythonhosted.org/packages/4b/fb/6ab4e89de856c023bea8f21acff54324f32fa3e2c8da690f2bffd8e5de5b/httplib2-0.15.0.tar.gz"
-    sha256 "a5f914f18f99cb9541660454a159e3b3c63241fc3ab60005bb88d97cc7a4fb58"
+    url "https://files.pythonhosted.org/packages/54/3e/ec53cf9e084a158a51bc669c40facfe5c5c93d194ca8fdaf4c933ea05d77/httplib2-0.16.0.tar.gz"
+    sha256 "b6a5a3faa31b56d6eaa61b22e328bfa73a877fe4308b02aa98d6d424ff865564"
   end
 
   resource "idna" do
@@ -211,8 +211,8 @@ class Snapcraft < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "tabulate" do
