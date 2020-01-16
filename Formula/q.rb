@@ -1,8 +1,8 @@
 class Q < Formula
   desc "Treat text as a database"
   homepage "https://github.com/harelba/q"
-  url "https://github.com/harelba/q/archive/1.7.4.tar.gz"
-  sha256 "97a21907e4599bfdc8937ee4cb4d7e899c45ae09ae8d3c96235efa469e4f2ac3"
+  url "https://github.com/harelba/q/archive/2.0.9.tar.gz"
+  sha256 "5673e96677988661c1615038c1d11641ee9fd2740b3a5d650b43a5c51dd2aceb"
   head "https://github.com/harelba/q.git"
 
   bottle :unneeded
@@ -13,7 +13,7 @@ class Q < Formula
 
   test do
     seq = (1..100).map(&:to_s).join("\n")
-    output = pipe_output("#{bin}/q 'select sum(c1) from -'", seq)
+    output = pipe_output("#{bin}/q -c 1 'select sum(c1) from -'", seq)
     assert_equal "5050\n", output
   end
 end
