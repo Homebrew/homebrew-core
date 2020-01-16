@@ -1,9 +1,10 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v0.18.1.tar.gz"
-  sha256 "9ddf187c462f2681ab4516410ada0e6f0f03097db6986686795559ea71a07694"
-  revision 1
+  url "https://github.com/prometheus/node_exporter.git",
+    :tag      => "v0.18.1",
+    :revision => "3db77732e925c08f675d7404a8c46466b2ece83e"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -16,12 +17,8 @@ class NodeExporter < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -X github.com/prometheus/common/version.Version=#{version}
-      -X github.com/prometheus/common/version.BuildUser=Homebrew
-    ]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
-           "-o", bin/"node_exporter"
+    system "make", "build"
+    bin.install "node_exporter"
     prefix.install_metafiles
   end
 
