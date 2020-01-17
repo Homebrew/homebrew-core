@@ -17,12 +17,6 @@ class Snappy < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  # Upstream PR from 20 Dec 2017 "Fix broken version API"
-  patch do
-    url "https://github.com/google/snappy/pull/61.patch?full_index=1"
-    sha256 "131404e4da2440c83115308f58c91b4a29f4ae93bf841284e0877135d122d7e2"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
