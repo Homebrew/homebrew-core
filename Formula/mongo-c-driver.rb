@@ -1,8 +1,8 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.15.3/mongo-c-driver-1.15.3.tar.gz"
-  sha256 "a09b871339ea15508baedd7777d7eaec13af962b4351e2fb2e19278d7313e049"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.16.0/mongo-c-driver-1.16.0.tar.gz"
+  sha256 "a4e7ed92e3a2a28640987507b4b9da18c2ed225fe87af00ea9deec839cdd55e0"
   head "https://github.com/mongodb/mongo-c-driver.git"
 
   bottle do
@@ -19,7 +19,7 @@ class MongoCDriver < Formula
   def install
     cmake_args = std_cmake_args
     if build.head?
-      cmake_args << "-DBUILD_VERSION=1.16.0-pre"
+      cmake_args << "-DBUILD_VERSION=1.17.0-pre"
     end
     system "cmake", ".", *cmake_args
     system "make", "install"
