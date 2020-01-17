@@ -110,7 +110,7 @@ class Csound < Formula
     ENV["RAWWAVE_PATH"] = Formula["stk"].pkgshare/"rawwaves"
 
     output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
-    assert_match /^hello, world\n/, output
+    assert_match /^hello, world$/, output
     assert_match /^rtaudio:/, output
     assert_match /^rtmidi:/, output
 
@@ -125,7 +125,7 @@ class Csound < Formula
           i_success wiiconnect 1, 1
       endin
     EOS
-    system bin/"csound", "wii.orc", "test.sco"
+    system bin/"csound", "--orc", "--syntax-check-only", "wii.orc"
 
     ENV["DYLD_FRAMEWORK_PATH"] = frameworks
     system "python3", "-c", "import ctcsound"
