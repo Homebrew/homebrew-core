@@ -87,8 +87,8 @@ class Nagios < Formula
 
       2) Load the cgi and php modules by patching /etc/apache2/httpd.conf:
 
-        -#LoadModule php5_module        libexec/apache2/libphp5.so
-        +LoadModule php5_module        libexec/apache2/libphp5.so
+        -#LoadModule php7_module        libexec/apache2/libphp7.so
+        +LoadModule php7_module        libexec/apache2/libphp7.so
 
         -#LoadModule cgi_module libexec/apache2/mod_cgi.so
         +LoadModule cgi_module libexec/apache2/mod_cgi.so
