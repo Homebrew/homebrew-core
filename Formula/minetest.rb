@@ -6,7 +6,7 @@ class Minetest < Formula
     url "https://github.com/minetest/minetest/archive/5.1.0.tar.gz"
     sha256 "ca53975eecf6a39383040658f41d697c8d7f8d5fe9176460f564979c73b53906"
 
-    # This patch is already merged in master and it should be removed when new version of mintest is released
+    # This patch is already merged in master and it should be removed when new version of minetest is released
     patch do
       url "https://github.com/minetest/minetest/pull/9064.patch?full_index=1"
       sha256 "78c5148ae5260bf2220ca18849c698e92c93e1c92b8f287135b293457c9ab6cd"
@@ -33,13 +33,13 @@ class Minetest < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "freetype"
-  depends_on "gettext"
-  depends_on "irrlicht"
-  depends_on "jpeg"
-  depends_on "libogg"
-  depends_on "libvorbis"
-  depends_on "luajit"
+  depends_on "freetype" => :build
+  depends_on "gettext" => :build
+  depends_on "irrlicht" => :build
+  depends_on "jpeg" => :build
+  depends_on "libogg" => :build
+  depends_on "libvorbis" => :build
+  depends_on "luajit" => :build
 
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
@@ -62,7 +62,7 @@ class Minetest < Formula
       to create those folders first).
 
       If you would like to start the Minetest server from a terminal, run
-      "/Applications/minetest.app/Contents/MacOS/minetest --server".
+      "#{prefix}/minetest.app/Contents/MacOS/minetest --server".
     EOS
   end
 end
