@@ -1,9 +1,9 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.6.tar.xz"
-  sha256 "b33576331465a60b003573541bf3b1c205936a16c407bc69f8419a527bf5c988"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.0.tar.xz"
+  sha256 "c9138d6595a9f69bf9733d0bc2d3b9f3d8b79f35f289006912b3361cb0510c75"
 
   bottle do
     rebuild 1
@@ -50,7 +50,7 @@ class Guile < Formula
     # --with-xyz-prefix= for libffi and bdw-gc or a solid argument for
     # Homebrew automatically removing Cellar paths from .pc files in favour
     # of opt_prefix usage everywhere.
-    inreplace lib/"pkgconfig/guile-2.2.pc" do |s|
+    inreplace lib/"pkgconfig/guile-3.0.pc" do |s|
       s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
       s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
     end
