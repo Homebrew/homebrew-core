@@ -13,11 +13,11 @@ class Mobiledevice < Formula
     sha256 "6e7b8b74e3fe54132245a6f6720a77385c1a0185d6b2fdfbdb7391229e9e8b7a" => :el_capitan
   end
 
-  # Upstream is pretty dead but this is a simple change
-  # that permits building on newer versions of macOS.
+  # This is a simple change that permits building on newer versions of macOS.
+  # Should be included in the next stable release.
   patch do
-    url "https://github.com/imkira/mobiledevice/pull/20.patch?full_index=1"
-    sha256 "adb46783a6cce1e988e2efd3440e2991ac5c5ce55f59b9049c9ccc2936ae8a02"
+    url "https://github.com/imkira/mobiledevice/commit/0472188d875382c5535916bf4469a2de7696fd39.patch?full_index=1"
+    sha256 "76094a3e39e287c88bb60c829d2e9ab8801f8638c116d95a16333198b236147b"
   end
 
   def install
