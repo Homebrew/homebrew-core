@@ -1,12 +1,24 @@
-#:  * `postgresql-upgrade-database`:
+#:  * `postgresql-upgrade-database` [options]
 #:    Upgrades the database for the `postgresql` formula.
+#:
+#:    -D, --pgdata    Location of the database configuration
+#:                    files. Same as the pg_ctl -D flag.
+
+require "optparse"
+options = {}
+OptionParser.new do |opts|
+  opts.on("-D", "--pgdata DATADIR", "Location of the database configuration files.") do |data_dir|
+    options[:data_dir] = Pathname(data_dir)
+  end
+end.parse!
 
 name = "postgresql"
 pg = Formula[name]
 bin = pg.bin
 var = pg.var
 version = pg.version
-pg_version_file = var/"postgres/PG_VERSION"
+data_dir = options[:data_dir] || var/"postgres"
+pg_version_file = data_dir/"PG_VERSION"
 
 pg_version_installed = version.to_s[/^\d+/]
 pg_version_data = pg_version_file.read.chomp
@@ -16,11 +28,10 @@ if pg_version_installed == pg_version_data
   EOS
 end
 
-datadir = var/"postgres"
-old_datadir = var/"postgres.old"
-if old_datadir.exist?
+old_data_dir = Pathname("#{data_dir}.old")
+if old_data_dir.exist?
   odie <<~EOS
-    #{old_datadir} already exists!
+    #{old_data_dir} already exists!
     Remove it if you want to upgrade data automatically.
   EOS
 end
@@ -52,8 +63,8 @@ begin
   if /#{name}\s+started/.match?(Utils.popen_read("brew", "services", "list"))
     system "brew", "services", "stop", name
     service_stopped = true
-  elsif quiet_system "#{bin}/pg_ctl", "-D", datadir, "status"
-    system "#{bin}/pg_ctl", "-D", datadir, "stop"
+  elsif quiet_system "#{bin}/pg_ctl", "-D", data_dir, "status"
+    system "#{bin}/pg_ctl", "-D", data_dir, "stop"
     server_stopped = true
   end
 
@@ -63,8 +74,8 @@ begin
   end
 
   # get 'lc_collate' from old DB"
-  unless quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
-    system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "start"
+  unless quiet_system "#{old_bin}/pg_ctl", "-w", "-D", data_dir, "status"
+    system "#{old_bin}/pg_ctl", "-w", "-D", data_dir, "start"
   end
 
   initdb_args = []
@@ -90,17 +101,17 @@ begin
     end
   end
 
-  if quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
-    system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "stop"
+  if quiet_system "#{old_bin}/pg_ctl", "-w", "-D", data_dir, "status"
+    system "#{old_bin}/pg_ctl", "-w", "-D", data_dir, "stop"
   end
 
-  ohai "Moving #{name} data from #{datadir} to #{old_datadir}..."
-  FileUtils.mv datadir, old_datadir
+  ohai "Moving #{name} data from #{data_dir} to #{old_data_dir}..."
+  FileUtils.mv data_dir, old_data_dir
   moved_data = true
 
-  (var/"postgres").mkpath
+  data_dir.mkpath
   ohai "Creating database..."
-  safe_system "#{bin}/initdb", *initdb_args, "#{var}/postgres"
+  safe_system "#{bin}/initdb", *initdb_args, data_dir
   initdb_run = true
 
   ohai "Migrating and upgrading data..."
@@ -109,18 +120,18 @@ begin
       "-r",
       "-b", old_bin,
       "-B", bin,
-      "-d", old_datadir,
-      "-D", datadir,
+      "-d", old_data_dir,
+      "-D", data_dir,
       "-j", Hardware::CPU.cores.to_s
   end
   upgraded = true
 
   ohai "Upgraded #{name} data from #{pg_version_data} to #{pg_version_installed}!"
-  ohai "Your #{name} #{pg_version_data} data remains at #{old_datadir}"
+  ohai "Your #{name} #{pg_version_data} data remains at #{old_data_dir}"
 ensure
   if upgraded
     if server_stopped
-      safe_system "#{bin}/pg_ctl", "-D", datadir, "start"
+      safe_system "#{bin}/pg_ctl", "-D", data_dir, "start"
     elsif service_stopped
       safe_system "brew", "services", "start", name
     end
@@ -128,14 +139,14 @@ ensure
     onoe "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed} failed!"
     if initdb_run
       ohai "Removing empty #{name} initdb database..."
-      FileUtils.rm_r datadir
+      FileUtils.rm_r data_dir
     end
     if moved_data
-      ohai "Moving #{name} data back from #{old_datadir} to #{datadir}..."
-      FileUtils.mv old_datadir, datadir
+      ohai "Moving #{name} data back from #{old_data_dir} to #{data_dir}..."
+      FileUtils.mv old_data_dir, data_dir
     end
     if server_stopped
-      system "#{bin}/pg_ctl", "-D", datadir, "start"
+      system "#{bin}/pg_ctl", "-D", data_dir, "start"
     elsif service_stopped
       system "brew", "services", "start", name
     end
