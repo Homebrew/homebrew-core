@@ -3,6 +3,7 @@ class Fastlane < Formula
   homepage "https://fastlane.tools"
   url "https://github.com/fastlane/fastlane/archive/2.140.0.tar.gz"
   sha256 "06f6c3f348d1892d53ffc2055293b1d7fe0898c43e183811bce6055da8536be6"
+  revision 1
   head "https://github.com/fastlane/fastlane.git"
 
   bottle do
@@ -23,7 +24,7 @@ class Fastlane < Formula
 
     (bin/"fastlane").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["ruby@2.5"].opt_bin}:$PATH}"
+      export PATH="#{Formula["ruby@2.5"].opt_bin}:#{libexec}/bin:$PATH"
       GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
         exec "#{libexec}/bin/fastlane" "$@"
     EOS
