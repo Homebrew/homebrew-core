@@ -4,14 +4,6 @@ class Alertmanager < Formula
   url "https://github.com/prometheus/alertmanager/archive/v0.20.0.tar.gz"
   sha256 "4789ef95b09ba86a66a2923c3535d1bfe30a566390770784c52052c7c83ee1bc"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3e2f6180a0594933ac5eeb1f5574d9f07a45479b556702a426697ffa507328fd" => :catalina
-    sha256 "7a0549df192cd2b4c23a7322ff2d8096eb19774027f028cbeef5363fb5718862" => :mojave
-    sha256 "a68c839c3b0d5d63e768ab069f72b7a4d1c32b385d4d448a3de444b5044e95c3" => :high_sierra
-  end
-
   depends_on "go" => :build
 
   def install
@@ -25,13 +17,17 @@ class Alertmanager < Formula
   def post_install
     (var/"alertmanager").mkdir
 
-    (var/"alertmanager/alertmanager.args").write <<~EOS
-      --config.file="#{var}/alertmanager/alertmanager.yml"
-      --web.listen-address="127.0.0.1:9093"
+    (etc/"alertmanager.sh").write <<~EOS
+      "#{opt_bin}/alertmanager" \
+      --config.file="#{etc}/alertmanager.yml" \
+      --web.listen-address="127.0.0.1:9093" \
       --storage.path="#{var}/alertmanager"
     EOS
 
-    (var/"alertmanager/alertmanager.yml").write <<~EOS
+    alertmanager = (etc/"alertmanager.sh")
+    alertmanager.chmod 0755
+
+    (etc/"alertmanager.yml").write <<~EOS
       route:
         receiver: dummy
 
@@ -42,7 +38,9 @@ class Alertmanager < Formula
 
   def caveats; <<~EOS
     When used with `brew services`, alertmanager' configuration is stored as command line flags in
-    #{var}/alertmanager/alertmanager.yml file.
+      #{etc}/alertmanager.sh file.
+
+    Configuration for prometheus is located in the #{etc}/prometheus.yml file.
 
   EOS
   end
@@ -60,8 +58,7 @@ class Alertmanager < Formula
         <array>
           <string>sh</string>
           <string>-c</string>
-          <string>#{opt_bin}/alertmanager</string>
-          <string>$(&lt; #{var}/alertmanager/alertmanager.args)</string>
+          <string>#{etc}/alertmanager.sh</string>
         </array>
         <key>WorkingDirectory</key>
         <string>#{var}/alertmanager</string>
