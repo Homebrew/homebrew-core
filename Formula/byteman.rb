@@ -1,8 +1,8 @@
 class Byteman < Formula
   desc "Java bytecode manipulation tool for testing, monitoring and tracing"
   homepage "https://byteman.jboss.org/"
-  url "https://downloads.jboss.org/byteman/4.0.9/byteman-download-4.0.9-bin.zip"
-  sha256 "899baa48686782ecc3e97aaa5c06a0b4b1e890f9448944fa3ee5a645dc100514"
+  url "https://downloads.jboss.org/byteman/4.0.10/byteman-download-4.0.10-bin.zip"
+  sha256 "068cf4752688e0c154daa476c1a26d10cb8f90252e380862f44d3bb79781cc2e"
 
   bottle :unneeded
   depends_on :java => "1.6+"
