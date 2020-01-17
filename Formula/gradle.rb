@@ -10,7 +10,7 @@ class Gradle < Formula
 
   def install
     rm_f Dir["bin/*.bat"]
-    libexec.install %w[bin docs lib samples src]
+    libexec.install %w[bin docs lib src]
     (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
 
