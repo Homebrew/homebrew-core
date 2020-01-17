@@ -65,4 +65,8 @@ class Minetest < Formula
       "#{prefix}/minetest.app/Contents/MacOS/minetest --server".
     EOS
   end
+
+  test do
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
+  end
 end
