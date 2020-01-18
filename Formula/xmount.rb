@@ -1,9 +1,8 @@
 class Xmount < Formula
   desc "Convert between multiple input & output disk image types"
   homepage "https://www.pinguin.lu/xmount/"
-  url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
-      :tag      => "v0.7.6",
-      :revision => "d0f67c46632a69ff1b608e90ed2fba8344ab7f3d"
+  url "https://files.pinguin.lu/xmount-0.7.6.tar.gz"
+  sha256 "76e544cd55edc2dae32c42a38a04e11336f4985e1d59cec9dd41e9f9af9b0008"
   revision 2
 
   bottle do
@@ -22,10 +21,8 @@ class Xmount < Formula
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
 
-    Dir.chdir "trunk" do
-      system "cmake", ".", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
