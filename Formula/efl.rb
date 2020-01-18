@@ -20,8 +20,10 @@ class Efl < Formula
   depends_on "freetype"
   depends_on "fribidi"
   depends_on "giflib"
+  depends_on "glib"
   depends_on "gst-plugins-good"
   depends_on "gstreamer"
+  depends_on "harfbuzz"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libraw"
@@ -33,8 +35,6 @@ class Efl < Formula
   depends_on "openssl@1.1"
   depends_on "poppler"
   depends_on "pulseaudio"
-  depends_on "glib"
-  depends_on "harfbuzz"
   depends_on "shared-mime-info"
 
   def install
@@ -44,9 +44,9 @@ class Efl < Formula
       "-Dx11=false",
       "-Dcocoa=false", # default
       "-Deeze=false",
-      "-Dopengl=full",
+      "-Dopengl=none",
       "-Deina-magic-debug=false",
-      "-Dbuild-examples=true", # default
+      "-Dbuild-examples=false",
       "-Dbuild-tests=false",
       "-Dglib=true", # default
       "-Dg-mainloop=false", # default (requires glib)
