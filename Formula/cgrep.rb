@@ -5,8 +5,8 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.30.tar.gz"
-  sha256 "b7aefe2d5b0abc1fb8143fe1e6faed636e2b4eb5198ad1d1f7f6db5121a37da3"
+  url "https://github.com/awgn/cgrep/archive/v6.6.31.tar.gz"
+  sha256 "82a0a459f06aa2050d52b645f2f0f7d9fc1fc798a2660c83122b3f2b6b2d590d"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
@@ -18,6 +18,7 @@ class Cgrep < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre"
 
   def install
