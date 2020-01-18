@@ -42,7 +42,7 @@ class Efl < Formula
       "--prefix=#{prefix}",
       "-Davahi=false",
       "-Dx11=false",
-      "-Dcocoa=true",
+      "-Dcocoa=false", # default
       "-Deeze=false",
       "-Dopengl=full",
       "-Deina-magic-debug=false",
