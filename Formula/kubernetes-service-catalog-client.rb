@@ -3,7 +3,7 @@ class KubernetesServiceCatalogClient < Formula
   homepage "https://svc-cat.io/"
   url "https://github.com/kubernetes-sigs/service-catalog.git",
       :tag      => "v0.2.2",
-      :revision => "f3e67cc3e70d266e643d391e43b1bdd31cdad448"
+      :revision => "33d0c09773b4a57b652b4e08b68921f402065f1d"
 
   bottle do
     cellar :any_skip_relocation
