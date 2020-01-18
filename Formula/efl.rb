@@ -33,6 +33,8 @@ class Efl < Formula
   depends_on "openssl@1.1"
   depends_on "poppler"
   depends_on "pulseaudio"
+  depends_on "glib"
+  depends_on "harfbuzz"
   depends_on "shared-mime-info"
 
   def install
@@ -46,12 +48,12 @@ class Efl < Formula
       "-Deina-magic-debug=false",
       "-Dbuild-examples=true", # default
       "-Dbuild-tests=false",
-      "-Dglib=false",
+      "-Dglib=true", # default
       "-Dg-mainloop=false", # default (requires glib)
       "-Dsystemd=false",
       "-Dxinput2=true", # default (requires x11)
       "-Dxinput22=true", # default (requires x11)
-      "-Dharfbuzz=false",
+      "-Dharfbuzz=true", # default
       "-Dedje-sound-and-video=false",
       "-Dembedded-lz4=true",
       "-Dlibmount=false",
