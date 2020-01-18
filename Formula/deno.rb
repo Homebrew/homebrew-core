@@ -1,9 +1,9 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.29.0/deno_src.tar.gz"
-  version "0.29.0"
-  sha256 "e61d961b5b6a05ecc50205e856b122da223216f28f3156bc26ad6aef9e54e0c2"
+  url "https://github.com/denoland/deno/releases/download/v0.30.0/deno_src.tar.gz"
+  version "0.30.0"
+  sha256 "34fed174ed48b556f57d9727c7ee429518a8dd4c06993d51767039745ca1e6d5"
 
   bottle do
     cellar :any_skip_relocation
@@ -58,7 +58,7 @@ class Deno < Formula
     EOS
     hello = shell_output("#{bin}/deno run hello.ts")
     assert_includes hello, "hello deno"
-    cat = shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts -- #{testpath}/hello.ts")
+    cat = shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts #{testpath}/hello.ts")
     assert_includes cat, "console.log"
   end
 end
