@@ -1,8 +1,8 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/geek1011/kepubify/archive/v2.5.1.tar.gz"
-  sha256 "880c9438d0fd9e5812deb1e493394e9766c8ff0bcf582b63a9a5d085b8c993e7"
+  url "https://github.com/geek1011/kepubify/archive/v3.0.0.tar.gz"
+  sha256 "1207fa20b230f7cb178e8114eda90edea7728a8014f7c7a86c46a4b4bfb4d87d"
   head "https://github.com/geek1011/kepubify.git"
 
   bottle do
@@ -28,15 +28,15 @@ class Kepubify < Formula
     system "go", "build", "-o", bin/"seriesmeta",
                  "-ldflags", ldflags, "./seriesmeta"
 
-    pkgshare.install "kepub/testdata/books/test1.epub"
+    pkgshare.install "kepub/test.epub"
   end
 
   test do
     pdf = test_fixtures("test.pdf")
     output = shell_output("#{bin}/kepubify #{pdf} 2>&1", 1)
-    assert_match "not an epub", output
+    assert_match "Error: invalid extension", output
 
-    system bin/"kepubify", pkgshare/"test1.epub"
-    assert_predicate testpath/"test1.kepub.epub", :exist?
+    system bin/"kepubify", pkgshare/"test.epub"
+    assert_predicate testpath/"test_converted.kepub.epub", :exist?
   end
 end
