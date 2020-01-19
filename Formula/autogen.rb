@@ -4,6 +4,7 @@ class Autogen < Formula
   url "https://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.xz"
   mirror "https://ftpmirror.gnu.org/autogen/rel5.18.16/autogen-5.18.16.tar.xz"
   sha256 "f8a13466b48faa3ba99fe17a069e71c9ab006d9b1cfabe699f8c60a47d5bb49a"
+  revision 1
 
   bottle do
     sha256 "e103302688bc9f7e4493c8827133f3341ab701740249196ddbfc2f2cf4fc1246" => :catalina
