@@ -65,7 +65,6 @@ class Ghc < Formula
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
                             "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
       system "make"
-      system "make", "check"
       system "make", "install"
     end
 
