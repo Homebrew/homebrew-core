@@ -4,7 +4,7 @@ class Mdk < Formula
   url "https://ftp.gnu.org/gnu/mdk/v1.2.10/mdk-1.2.10.tar.gz"
   mirror "https://ftpmirror.gnu.org/mdk/v1.2.10/mdk-1.2.10.tar.gz"
   sha256 "b0f4323a607a3346769499b00fdd6d4748af5a61dd8a24511867ef5d96c08ce7"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "ca512acbb302831a59136fe510dafbf2076ca6be8aceeeaa151bc27021d96249" => :catalina
