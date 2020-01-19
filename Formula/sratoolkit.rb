@@ -1,8 +1,8 @@
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
-  url "https://github.com/ncbi/sra-tools/archive/2.10.0.tar.gz"
-  sha256 "6d2b02bad674cde6b9677a522f62da092da5471d23738976abce8eae5710fa0c"
+  url "https://github.com/ncbi/sra-tools/archive/2.10.2.tar.gz"
+  sha256 "e8f95d5c68528bbb9ea1a817d3a20115c63a6f8ce28b814fbd78a88bbdcf5524"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
