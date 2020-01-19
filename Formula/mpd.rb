@@ -1,8 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.18.tar.xz"
-  sha256 "8782e66cd5afd6c92860725196b35b6df07d3d127ef70e900e144323089e9442"
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.19.tar.xz"
+  sha256 "d3275e11d85637adde250cadf3b4f5aec2144228f0d8085767493fc46c55b2f9"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
@@ -34,11 +34,6 @@ class Mpd < Formula
   depends_on "libvorbis"
   depends_on "opus"
   depends_on "sqlite"
-
-  # Fix compilation with Clang
-  # This patch backports https://github.com/MusicPlayerDaemon/MPD/commit/dca0519336586be95b920004178114a097681768
-  # Remove in next release
-  patch :DATA
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -128,18 +123,3 @@ class Mpd < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/util/Compiler.h b/src/util/Compiler.h
-index 96f63fae4..04e49bb61 100644
---- a/src/util/Compiler.h
-+++ b/src/util/Compiler.h
-@@ -145,7 +145,7 @@
-
- #if GCC_CHECK_VERSION(7,0)
- #define gcc_fallthrough __attribute__((fallthrough))
--#elif CLANG_CHECK_VERSION(10,0)
-+#elif CLANG_CHECK_VERSION(10,0) && defined(__cplusplus)
- #define gcc_fallthrough [[fallthrough]]
- #else
- #define gcc_fallthrough
