@@ -2,8 +2,8 @@ class Hey < Formula
   desc "HTTP load generator, ApacheBench (ab) replacement"
   homepage "https://github.com/rakyll/hey"
   url "https://github.com/rakyll/hey.git",
-    :tag      => "v0.1.2",
-    :revision => "01803349acd49d756dafa2cb6ac5b5bfc141fc3b"
+    :tag      => "v0.1.3",
+    :revision => "36f181ad99713ffd70c09a021ea8a689b8fb43d3"
 
   bottle do
     cellar :any_skip_relocation
