@@ -21,8 +21,6 @@ class IosDeploy < Formula
     xcodebuild "test", "-scheme", "ios-deploy-tests", "-configuration", "Release", "SYMROOT=build"
 
     bin.install "build/Release/ios-deploy"
-    include.install "build/Release/libios_deploy.h"
-    lib.install "build/Release/libios-deploy.a"
   end
 
   test do
