@@ -4,7 +4,7 @@ class Minetest < Formula
 
   stable do
     url "https://github.com/minetest/minetest/archive/5.1.1.tar.gz"
-    sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
+    sha256 "65d483bce244827de174edcb30f7e453b06a7590da6cdeb7a2237ff6180c090b"
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game/archive/5.1.1.tar.gz"
