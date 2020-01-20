@@ -9,8 +9,8 @@ The commit message should be `<formula> <version> (new formula)`
 If that command doesn't work or you choose to do the version bump manually:
 The commit message should be `<formula> <version>`
 
-# For submitting a new patch for the formula
-The commit message should be `<formula>: short-description-for-the-change`
+# When submitting a new patch for a formula
+The commit message should be `<formula>: short-description-of-the-change`
 
  -->
 
