@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/3.9.7.tar.gz"
-  sha256 "1b7221ec3e8cc8afccaae959dd51cbde7228c580c072e0db3b5fd2a6252f050b"
+  url "https://github.com/snapcore/snapcraft/archive/3.9.8.tar.gz"
+  sha256 "98e52347e0080cb4b08290b1c0814b2f20d2a9da1c337fe21bf24345bb04bc68"
 
   bottle do
     cellar :any
@@ -231,8 +231,8 @@ class Snapcraft < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/d4/cd/ef86396dce8910413b6ca1ef31ec09367c47e15fc1a12def2cc8ae134dea/zipp-1.0.0.tar.gz"
-    sha256 "d38fbe01bbf7a3593a32bc35a9c4453c32bc42b98c377f9bff7e9f8da157786c"
+    url "https://files.pythonhosted.org/packages/ee/f7/6c3ca4764a8025da9422825c2bc367fdc8dd115ebb52e4ef057f234938c4/zipp-2.0.0.tar.gz"
+    sha256 "7ae5ccaca427bafa9760ac3cd8f8c244bfc259794b5b6bb9db4dda2241575d09"
   end
 
   def install
