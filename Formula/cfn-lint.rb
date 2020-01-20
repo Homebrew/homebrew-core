@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.27.0.tar.gz"
-  sha256 "0e4dcadb94b3d541a16d2e8d3f157b8a9cb5bd081182d3072dab9528d44ed988"
+  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.27.1.tar.gz"
+  sha256 "4c7227763ccd2fb96451a55d87951c5951f20c8275a884afcdb8b7b3ff82304f"
 
   bottle do
     cellar :any_skip_relocation
