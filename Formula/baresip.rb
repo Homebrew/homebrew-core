@@ -1,8 +1,8 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "http://www.creytiv.com/baresip.html"
-  url "http://www.creytiv.com/pub/baresip-0.5.10.tar.gz"
-  sha256 "393fb010410d3fc6a4879cfda235f0ec98439be5d1dca02c15f3416f7110a7fb"
+  url "http://www.creytiv.com/pub/baresip-0.6.5.tar.gz"
+  sha256 "2b035bd8b2121c72bec674768579a3bdcc5d1d567ecb0a84125864d69807b18d"
 
   bottle do
     sha256 "2738fa4c1740e0c54aad92e122ffd3351a040d58867233a74e7ef93643cf302f" => :catalina
@@ -33,7 +33,8 @@ class Baresip < Formula
                               "USE_G711=1",
                               "USE_OPENGL=1",
                               "USE_STDIO=1",
-                              "USE_UUID=1"
+                              "USE_UUID=1",
+                              "HAVE_GETOPT=1"
   end
 
   test do
