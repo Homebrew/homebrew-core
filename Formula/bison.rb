@@ -1,9 +1,9 @@
 class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
-  url "https://ftp.gnu.org/gnu/bison/bison-3.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.5.tar.xz"
-  sha256 "55e4a023b1b4ad19095a5f8279f0dc048fa29f970759cea83224a6d5e7a3a641"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.5.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.5.1.tar.xz"
+  sha256 "3e7e097bd9709a2d5e40e69446b74b149733b3de864fadb7a9b54eca7b2a4dd0"
 
   bottle do
     sha256 "0a99cc32f88221f5e733ee7db13536f83a2e5232458f89b1725a3bfe09013b08" => :catalina
@@ -11,9 +11,9 @@ class Bison < Formula
     sha256 "ef24c90f7fb895768f1c96b9822dae1b112b068a075e2afd5baf398313b6d395" => :high_sierra
   end
 
-  uses_from_macos "m4"
-
   keg_only :provided_by_macos, "some formulae require a newer version of bison"
+
+  uses_from_macos "m4"
 
   def install
     system "./configure", "--disable-dependency-tracking",
