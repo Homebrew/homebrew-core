@@ -3,18 +3,12 @@ class Minetest < Formula
   homepage "https://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.1.0.tar.gz"
-    sha256 "ca53975eecf6a39383040658f41d697c8d7f8d5fe9176460f564979c73b53906"
-
-    # This patch is already merged in master and it should be removed when new version of mintest is released
-    patch do
-      url "https://github.com/minetest/minetest/pull/9064.patch?full_index=1"
-      sha256 "78c5148ae5260bf2220ca18849c698e92c93e1c92b8f287135b293457c9ab6cd"
-    end
+    url "https://github.com/minetest/minetest/archive/5.1.1.tar.gz"
+    sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.1.0.tar.gz"
-      sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
+      url "https://github.com/minetest/minetest_game/archive/5.1.1.tar.gz"
+      sha256 "89dbb7cad2a1cec1ca0cdaa0f0eafc5699676bcd6880891c7720a10dfe7f6af9"
     end
   end
 
@@ -62,7 +56,11 @@ class Minetest < Formula
       to create those folders first).
 
       If you would like to start the Minetest server from a terminal, run
-      "/Applications/minetest.app/Contents/MacOS/minetest --server".
+      "#{prefix}/minetest.app/Contents/MacOS/minetest --server".
     EOS
+  end
+
+  test do
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
   end
 end
