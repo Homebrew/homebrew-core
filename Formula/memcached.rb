@@ -14,7 +14,7 @@ class Memcached < Formula
   depends_on "libevent"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-coverage"
+    system "./configure", "--prefix=#{prefix}", "--disable-coverage", "--enable-tls"
     system "make", "install"
   end
 
