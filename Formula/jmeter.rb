@@ -12,7 +12,7 @@ class Jmeter < Formula
   end
 
   resource "jmeter-plugins-manager" do
-    url "https://jmeter-plugins.org/get/"
+    url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.3/jmeter-plugins-manager-1.3.jar"
     sha256 "482b8a9cd82a69ef1b633fc4235bfa9bee96894f663e5085df7061410d6ab99a"
   end
 
