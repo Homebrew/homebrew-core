@@ -3,7 +3,7 @@ class Skopeo < Formula
   homepage "https://github.com/containers/skopeo"
   url "https://github.com/containers/skopeo/archive/v0.1.40.tar.gz"
   sha256 "ee1e33245938fcb622f5864fac860e2d8bfa2fa907af4b5ffc3704ed0db46bbf"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "7d7d1e19a1428b5e95ed5d9aaefb9283b43b02efe9ce093a09de180050615be1" => :catalina
@@ -42,6 +42,8 @@ class Skopeo < Formula
 
       (etc/"containers").install "default-policy.json" => "policy.json"
       (etc/"containers/registries.d").install "default.yaml"
+
+      bash_completion.install "completions/bash/skopeo"
 
       prefix.install_metafiles
     end
