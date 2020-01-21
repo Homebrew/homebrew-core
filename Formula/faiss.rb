@@ -4,6 +4,8 @@ class Faiss < Formula
   url "https://github.com/facebookresearch/faiss/archive/v1.6.1.tar.gz"
   sha256 "827437c9a684fcb88ee21a8fd8f0ecd94f36e2db213f74357d0465c5a7e72ac6"
 
+  depends_on "libomp"
+
   def install
     system "./configure", "--without-cuda",
                           "--prefix=#{prefix}"
