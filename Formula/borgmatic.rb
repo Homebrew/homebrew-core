@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.4.21.tar.gz"
-  sha256 "1c1c6fe0d0c461bdfe6f173b7cf12628c5142b886a45ce62ab2ec9a3a990b804"
+  url "https://github.com/witten/borgmatic/archive/1.4.22.tar.gz"
+  sha256 "1b2649c04074198bb1492d1121b320dd9f58de4e3ae3c11d28b32e0a43019733"
 
   bottle do
     cellar :any
@@ -42,8 +42,8 @@ class Borgmatic < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
-    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
+    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
+    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
   end
 
   resource "pykwalify" do
@@ -62,18 +62,18 @@ class Borgmatic < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/de/76/cf97d739365eff258e2af0457a150bf2818f3eaa460328610eafeed0894a/ruamel.yaml-0.16.5.tar.gz"
-    sha256 "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
+    url "https://files.pythonhosted.org/packages/b3/c3/1bd29f827237b420f4c978716fd9343ba14b1c6746a638dfeb7bbc7adcf9/ruamel.yaml-0.16.6.tar.gz"
+    sha256 "966e5a049eebf011c90424b9ec7dab6358cee8de0907354b27a27f20a8c4c2ec"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
-    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
+    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
+    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
   end
 
   def install
