@@ -21,7 +21,7 @@ class Exercism < Formula
 
     bash_completion.install "shell/exercism_completion.bash"
     zsh_completion.install "shell/exercism_completion.zsh" => "_exercism"
-    fish_completion.install "shell/exercism.fish" => "exercism.fish"
+    fish_completion.install "shell/exercism.fish"
   end
 
   test do
