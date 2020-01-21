@@ -18,6 +18,10 @@ class Exercism < Formula
   def install
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"exercism", "exercism/main.go"
     prefix.install_metafiles
+
+    bash_completion.install "shell/exercism_completion.bash"
+    zsh_completion.install "shell/exercism_completion.zsh" => "_exercism"
+    fish_completion.install "shell/exercism.fish" => "exercism.fish"
   end
 
   test do
