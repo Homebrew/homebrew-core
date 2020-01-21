@@ -17,7 +17,7 @@ class Supermodel < Formula
   depends_on "sdl"
 
   def install
-    inreplace "Makefiles/Makefile.SDL.OSX.GCC" do |s|
+    inreplace "Makefiles/Makefile.OSX" do |s|
       # Set up SDL library correctly
       s.gsub! "-framework SDL", "`sdl-config --libs`"
       s.gsub! /(\$\(COMPILER_FLAGS\))/, "\\1 -I#{Formula["sdl"].opt_prefix}/include"
@@ -31,7 +31,7 @@ class Supermodel < Formula
       s.gsub! /(\w+\.log)/, "#{var}/supermodel/Logs/\\1"
     end
 
-    system "make", "-f", "Makefiles/Makefile.SDL.OSX.GCC"
+    system "make", "-f", "Makefiles/Makefile.OSX"
     bin.install "bin/Supermodel" => "supermodel"
     (var/"supermodel/Config").install "Config/Supermodel.ini"
     (var/"supermodel/Saves").mkpath
