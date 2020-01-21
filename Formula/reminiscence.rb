@@ -1,8 +1,8 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.5.tar.bz2"
-  sha256 "108ec26b71539a0697eff97498c31a26a10278892649584531732a0df0472abf"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.6.tar.bz2"
+  sha256 "a1738ca7df64cd34e75a0ada3110e70ed495260fda813bc9d8722b521fc6fee0"
 
   bottle do
     cellar :any
@@ -31,12 +31,6 @@ class Reminiscence < Formula
                              "--prefix=#{libexec}",
                              "--disable-static"
       system "make", "install"
-    end
-
-    # fix for files missing from archive, reported upstream via email
-    inreplace "Makefile" do |s|
-      s.gsub! "-DUSE_STATIC_SCALER", ""
-      s.gsub! "SCALERS :=", "#SCALERS :="
     end
 
     ENV.prepend "CPPFLAGS", "-I#{libexec}/include"
