@@ -21,6 +21,7 @@ class Dynet < Formula
     cp pkgshare/"examples/xor/train_xor.cc", testpath
     system ENV.cxx, "-std=c++11", "train_xor.cc", "-I#{include}",
                     "-L#{lib}", "-ldynet", "-o", "train_xor"
-    system "./train_xor"
+    _, stderr = Open3.capture3("./train_xor")
+    assert_includes stderr, "E ="
   end
 end
