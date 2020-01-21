@@ -17,7 +17,7 @@ class Supermodel < Formula
   depends_on "sdl"
 
   def install
-    makefile_dir = build.head? ? Makefiles/Makefile.OSX : Makefiles/Makefile.SDL.OSX.GCC
+    makefile_dir = build.head? ? "Makefiles/Makefile.OSX" : "Makefiles/Makefile.SDL.OSX.GCC"
     inreplace makefile_dir do |s|
       # Set up SDL library correctly
       s.gsub! "-framework SDL", "`sdl-config --libs`"
