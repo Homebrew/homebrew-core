@@ -3,7 +3,7 @@ class Libexosip < Formula
   homepage "https://savannah.nongnu.org/projects/exosip"
   url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.1.0.tar.gz"
   sha256 "41107e5bd6dca50899b7381f7f68bfd9ae8df584c534c8a4c9ca668b66a88a4b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
