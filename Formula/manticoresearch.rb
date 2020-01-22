@@ -1,8 +1,8 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.2.0/manticore-3.2.0-191017-e526a01-release.tar.gz"
-  sha256 "df6dbcc4df01065fc3cc6328f043b8cef3eb403a28671455cd3c8fc4217e3391"
+  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.2.2/manticore-3.2.2-191226-afd6046-release.tar.gz"
+  sha256 "7942ae4d3484b125b9c336b75d751ac9b71b71f9f60ead9272be84ee69bb5e6f"
   revision 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
@@ -39,7 +39,7 @@ class Manticoresearch < Formula
     (var/"manticore/data").mkpath
   end
 
-  plist_options :manual => "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/sphinx.conf"
+  plist_options :manual => "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/manticore.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +56,7 @@ class Manticoresearch < Formula
         <array>
             <string>#{opt_bin}/searchd</string>
             <string>--config</string>
-            <string>#{etc}/manticore/sphinx.conf</string>
+            <string>#{etc}/manticore/manticore.conf</string>
             <string>--nodetach</string>
         </array>
         <key>WorkingDirectory</key>
@@ -67,7 +67,7 @@ class Manticoresearch < Formula
   end
 
   test do
-    (testpath/"sphinx.conf").write <<~EOS
+    (testpath/"manticore.conf").write <<~EOS
       searchd {
         pid_file = searchd.pid
         binlog_path=#
