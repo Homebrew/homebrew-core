@@ -1,8 +1,8 @@
 class Govc < Formula
   desc "Command-line tool for VMware vSphere"
   homepage "https://github.com/vmware/govmomi/tree/master/govc"
-  url "https://github.com/vmware/govmomi/archive/v0.21.0.tar.gz"
-  sha256 "3690bc16e6193ee0d142e8abc1941ad38f841494dd460277722ba3873e0793dc"
+  url "https://github.com/vmware/govmomi/archive/v0.22.1.tar.gz"
+  sha256 "44b5b4b92862b2c544abc60f5091309ed64f6aef33957572459317acc7bc2aa8"
 
   bottle do
     cellar :any_skip_relocation
