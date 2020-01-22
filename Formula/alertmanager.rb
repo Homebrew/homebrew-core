@@ -17,15 +17,11 @@ class Alertmanager < Formula
   def post_install
     (var/"alertmanager").mkdir
 
-    (etc/"alertmanager.sh").write <<~EOS
-      "#{opt_bin}/alertmanager" \
-      --config.file="#{etc}/alertmanager.yml" \
-      --web.listen-address="127.0.0.1:9093" \
-      --storage.path="#{var}/alertmanager"
+    (etc/"alertmanager.args").write <<~EOS
+      --config.file=#{etc}/alertmanager.yml \
+      --web.listen-address=127.0.0.1:9093 \
+      --storage.path=#{var}/alertmanager
     EOS
-
-    alertmanager = (etc/"alertmanager.sh")
-    alertmanager.chmod 0755
 
     (etc/"alertmanager.yml").write <<~EOS
       route:
@@ -38,7 +34,7 @@ class Alertmanager < Formula
 
   def caveats; <<~EOS
     When used with `brew services`, alertmanager' configuration is stored as command line flags in
-      #{etc}/alertmanager.sh file.
+      #{etc}/alertmanager.args file.
 
     Configuration for prometheus is located in the #{etc}/prometheus.yml file.
 
@@ -58,7 +54,7 @@ class Alertmanager < Formula
         <array>
           <string>sh</string>
           <string>-c</string>
-          <string>#{etc}/alertmanager.sh</string>
+          <string>#{opt_bin}/alertmanager $(&lt; #{etc}/alertmanager.args)</string>
         </array>
         <key>WorkingDirectory</key>
         <string>#{var}/alertmanager</string>
