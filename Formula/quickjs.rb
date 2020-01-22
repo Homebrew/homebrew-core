@@ -1,8 +1,8 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2020-01-05.tar.xz"
-  sha256 "76642c98c9c3c3d3fee3321689ea8bfc9ab94a8bb4759aefa2749f832f52d36d"
+  url "https://bellard.org/quickjs/quickjs-2020-01-19.tar.xz"
+  sha256 "4ae4c20c4ed7c201d72c228d5e8768314950914ba60d759f3df23d59037f2b85"
 
   bottle do
     sha256 "f42c786f0081402e0f3c5825fb2404751217a2c06652a651e1dbb4ef0551739e" => :catalina
