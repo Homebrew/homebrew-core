@@ -1,8 +1,8 @@
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20191012.tar.xz"
-  sha256 "f4b651b7da7c93a4318c1231204d7d4529e2610b57041ee99fd85c22301edbcc"
+  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20200121.tar.xz"
+  sha256 "d790697df58bcd1d890f126d8a4f0b9aa11ad6f847a692e9c638a4b7b0454c14"
   head "https://git.zx2c4.com/wireguard-go", :using => :git
 
   bottle do
