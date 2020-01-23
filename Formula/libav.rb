@@ -3,7 +3,7 @@ class Libav < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.xz"
   sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
-  revision 2
+  revision 3
   head "https://git.libav.org/libav.git"
 
   bottle do
