@@ -3,6 +3,7 @@ class Vcs < Formula
   homepage "https://p.outlyer.net/vcs/"
   url "https://p.outlyer.net/vcs/files/vcs-1.13.2.tar.gz"
   sha256 "fc2a2b3994d5ffb5d87fb3dceaa5f6855aca7a89c58533b12fd11b8fb5b623af"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
