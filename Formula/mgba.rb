@@ -3,7 +3,7 @@ class Mgba < Formula
   homepage "https://mgba.io/"
   url "https://github.com/mgba-emu/mgba/archive/0.7.3.tar.gz"
   sha256 "6d5e8ab6f87d3d9fa85af2543db838568dbdfcecd6797f8153f1b3a10b4a8bdd"
-  revision 1
+  revision 2
   head "https://github.com/mgba-emu/mgba.git"
 
   bottle do
