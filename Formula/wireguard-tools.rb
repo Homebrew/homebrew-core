@@ -1,8 +1,8 @@
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200102.tar.xz"
-  sha256 "547cd1c2f8dca904faac9e8d3964f1ef956c24bb12e3498da88dde95243c7f08"
+  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200121.tar.xz"
+  sha256 "15bfdbdbecbd3870ced9a7e68286c871bfcb2071d165f113808081f2e428faa3"
   head "https://git.zx2c4.com/wireguard-tools", :using => :git
 
   bottle do
