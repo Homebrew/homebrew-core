@@ -1,6 +1,7 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
+  # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.4.2.tar.xz"
   sha256 "98284deac017da0d426117ecae7599a1f1bf62ae3911e8bc16c4403a8f4bdf13"
 
