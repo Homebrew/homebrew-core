@@ -1,9 +1,8 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.9.1.tar.gz"
-  sha256 "0add34d53cd27f8c468a59b8e931a636ad3174b60581c0387abb98a9fc9cddb6"
-  revision 5
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.10.0.tar.gz"
+  sha256 "dd24f93967ba9512a02d6fa15855084a45deb4cd6f3662f22afbbf0d65978d20"
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
@@ -22,12 +21,6 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qhull"
   depends_on "vtk"
-
-  # Upstream patch for boost 1.70.0
-  patch do
-    url "https://github.com/PointCloudLibrary/pcl/commit/648932bc.diff?full_index=1"
-    sha256 "23f2cced7786715c59b49a48e4037eb9dea9abee099c4c5c92d95a647636b5ec"
-  end
 
   def install
     args = std_cmake_args + %w[
