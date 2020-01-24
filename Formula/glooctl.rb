@@ -2,8 +2,8 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
   url "https://github.com/solo-io/gloo.git",
-      :tag      => "v1.3.0",
-      :revision => "6002921c48a901d6f4cca9ab801400b231088cfc"
+      :tag      => "v1.3.1",
+      :revision => "d3039276e4ece6cd9a93222d68456aae57f1b602"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do
@@ -13,7 +13,6 @@ class Glooctl < Formula
     sha256 "ef4ef27f00830982defa16206543b14bda2a8ae991f41612b1c5d77ca9e6b936" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -22,7 +21,6 @@ class Glooctl < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      system "dep", "ensure", "-vendor-only"
       system "make", "glooctl", "TAGGED_VERSION=v#{version}"
       bin.install "_output/glooctl"
     end
@@ -40,6 +38,6 @@ class Glooctl < Formula
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
     status_output = shell_output("#{bin}/glooctl get proxy 2>&1", 1)
-    assert_match "failed to create proxy client", status_output
+    assert_match "failed to create kube client", status_output
   end
 end
