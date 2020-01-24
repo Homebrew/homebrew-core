@@ -3,8 +3,8 @@ class LibtensorflowAT1 < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz"
-  sha256 "a5d49c00a175a61da7431a9b289747d62339be9cf37600330ad63b611f7f5dc9"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.15.1.tar.gz"
+  sha256 "19b6e72bc8675937f618cede364d7228a71c2eeaffc42801bcefd98dda7ca056"
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class LibtensorflowAT1 < Formula
 
   depends_on "bazel" => :build
   depends_on :java => ["1.8", :build]
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
 
   def install
     venv_root = "#{buildpath}/venv"
