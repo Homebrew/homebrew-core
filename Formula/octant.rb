@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      :tag      => "v0.9.1",
-      :revision => "7c4bd4a03489aebba979a09aeda0c4c390650e94"
+      :tag      => "v0.10.0",
+      :revision => "72e66943d660dc7bdd2c96b27cc141f9c4e8f9d8"
   head "https://github.com/vmware-tanzu/octant.git"
 
   bottle do
@@ -15,7 +15,6 @@ class Octant < Formula
 
   depends_on "go" => :build
   depends_on "node@10" => :build
-  depends_on "protoc-gen-go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -25,11 +24,11 @@ class Octant < Formula
     dir.install buildpath.children
 
     cd "src/github.com/vmware-tanzu/octant" do
-      system "make", "go-install"
+      system "go", "run", "build.go", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
-      system "make", "web-build"
-      system "make", "generate"
+      system "go", "generate", "./pkg/icon"
+      system "go", "run", "build.go", "web-build"
 
       commit = Utils.popen_read("git rev-parse HEAD").chomp
       build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
