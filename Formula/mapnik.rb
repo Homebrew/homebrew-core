@@ -26,6 +26,12 @@ class Mapnik < Formula
   depends_on "proj"
   depends_on "webp"
 
+  # Upstream fix for Boost 1.72
+  patch do
+    url "https://github.com/mapnik/mapnik/commit/f1cf712d.diff?full_index=1"
+    sha256 "129cded3c55c916565ba03b00429dde192b7fdface35ea425bcfa685697e7653"
+  end
+
   def install
     ENV.cxx11
 
