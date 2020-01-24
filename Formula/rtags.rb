@@ -3,7 +3,7 @@ class Rtags < Formula
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
       :tag      => "v2.38",
-      :revision => "9687ccd"
+      :revision => "9687ccdb9e539981e7934e768ea5c84464a61139"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
