@@ -5,8 +5,8 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.13.2.tar.gz"
-  sha256 "51b1c4bf3cac469dabbf66955049480273411cf5eb50da235f0a4c96cffe2b8e"
+  url "https://github.com/diku-dk/futhark/archive/v0.14.1.tar.gz"
+  sha256 "375ec3e8cc7bb54cfb042684353446c1df792c3d409cd0082256e6446d696235"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
@@ -22,12 +22,6 @@ class Futhark < Formula
   depends_on "sphinx-doc" => :build
 
   def install
-    # Futhark provides a cabal.project.freeze for pinning Cabal
-    # dependencies, but this is only picked up by "v2" builds, and
-    # as of this writing, Homebrew still does sandboxed "v1" builds.
-    # Fortunately, the file formats seem to be compatible.
-    mv "cabal.project.freeze", "cabal.config"
-
     system "hpack"
 
     install_cabal_package :using => ["alex", "happy"]
