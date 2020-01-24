@@ -5,6 +5,7 @@ class Dvc < Formula
   homepage "https://dvc.org"
   url "https://github.com/iterative/dvc/archive/0.82.2.tar.gz"
   sha256 "518bc0d39cc79f049c481db7e6fda11dea0d41cac8d499ea91616ae2dce61884"
+  revision 1
 
   bottle do
     cellar :any
@@ -29,7 +30,7 @@ class Dvc < Formula
       "--ignore-installed",
       # NOTE: pyarrow is already installed as a part of apache-arrow package,
       # so we don't need to specify `hdfs` option.
-      ".[gs,s3,azure,oss,ssh]"
+      ".[gs,s3,azure,oss,ssh,gdrive]"
 
     # NOTE: dvc depends on asciimatics, which depends on Pillow, which
     # uses liblcms2.2.dylib that causes troubles on mojave. See [1]
