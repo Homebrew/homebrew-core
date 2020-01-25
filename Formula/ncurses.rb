@@ -4,6 +4,7 @@ class Ncurses < Formula
   url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.1.tar.gz"
   sha256 "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17"
+  revision 1
 
   bottle do
     sha256 "61853d5641a03a19db9936c6b56844d39fbbd6eaa6cb6b1e268f9ebc1e58cf8e" => :catalina
@@ -48,6 +49,9 @@ class Ncurses < Formula
     lib.install_symlink "libncurses.dylib" => "libcurses.dylib"
 
     (lib/"pkgconfig").install_symlink "ncursesw.pc" => "ncurses.pc"
+    (lib/"pkgconfig").install_symlink "formw.pc" => "form.pc"
+    (lib/"pkgconfig").install_symlink "menuw.pc" => "menu.pc"
+    (lib/"pkgconfig").install_symlink "panelw.pc" => "panel.pc"
 
     bin.install_symlink "ncursesw#{major}-config" => "ncurses#{major}-config"
 
