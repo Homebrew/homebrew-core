@@ -1,9 +1,8 @@
 class Kcov < Formula
   desc "Code coverage tester for compiled programs, Python, and shell scripts"
   homepage "https://simonkagstrom.github.io/kcov/"
-  url "https://github.com/SimonKagstrom/kcov/archive/v37.tar.gz"
-  sha256 "a136e3dddf850a8b006509f49cc75383cd44662169e9fec996ec8cc616824dcc"
-  revision 1
+  url "https://github.com/SimonKagstrom/kcov/archive/38.tar.gz"
+  sha256 "b37af60d81a9b1e3b140f9473bdcb7975af12040feb24cc666f9bb2bb0be68b4"
   head "https://github.com/SimonKagstrom/kcov.git"
 
   bottle do
