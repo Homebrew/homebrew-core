@@ -1,10 +1,9 @@
 class Alpine < Formula
   desc "News and email agent"
-  homepage "https://repo.or.cz/alpine.git"
-  url "https://ftp.osuosl.org/pub/blfs/conglomeration/alpine/alpine-2.21.tar.xz"
-  mirror "https://fossies.org/linux/misc/alpine-2.21.tar.xz"
-  sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
-  revision 2
+  homepage "http://alpine.x10host.com/alpine/release/"
+  url "http://alpine.x10host.com/alpine/release/src/alpine-2.22.tar.xz"
+  sha256 "849567c1b6f71fde3aaa1c97cf0577b12a525d9e22c0ea47797c4bf1cd2bbfdb"
+  head "https://repo.or.cz/alpine.git"
 
   bottle do
     sha256 "c3df47485dcedfed585bc0dbbb8fcbc2e6eed1494d48cf49a2ee224eba7e659e" => :catalina
@@ -22,6 +21,7 @@ class Alpine < Formula
       --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
       --with-ssl-certs-dir=#{etc}/openssl@1.1
       --prefix=#{prefix}
+      --with-bundled-tools
     ]
 
     system "./configure", *args
@@ -29,6 +29,6 @@ class Alpine < Formula
   end
 
   test do
-    system "#{bin}/alpine", "-supported"
+    system "#{bin}/alpine", "-conf"
   end
 end
