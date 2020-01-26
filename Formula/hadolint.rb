@@ -15,16 +15,15 @@ class Hadolint < Formula
     sha256 "5494638c1b68a80e0832eede84bf70afe2ae14c30c80c202e90ca8de9c847009" => :sierra
   end
 
-  depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "haskell-stack" => :build
 
   def install
-    cabal_sandbox do
-      cabal_install "hpack"
-      system "./.cabal-sandbox/bin/hpack"
-    end
+    # Let `stack` handle its own parallelization
+    jobs = ENV.make_jobs
+    ENV.deparallelize
 
-    install_cabal_package
+    system "stack", "-j#{jobs}", "build"
+    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
   end
 
   test do
