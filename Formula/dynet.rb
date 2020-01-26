@@ -21,7 +21,6 @@ class Dynet < Formula
     cp pkgshare/"examples/xor/train_xor.cc", testpath
     system ENV.cxx, "-std=c++11", "train_xor.cc", "-I#{include}",
                     "-L#{lib}", "-ldynet", "-o", "train_xor"
-    _, stderr = Open3.capture3("./train_xor")
-    assert_includes stderr, "E ="
+    assert_match "memory allocation done", shell_output("./train_xor 2>&1")
   end
 end
