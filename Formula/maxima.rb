@@ -1,8 +1,8 @@
 class Maxima < Formula
   desc "Computer algebra system"
   homepage "https://maxima.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.43.0-source/maxima-5.43.0.tar.gz"
-  sha256 "dcfda54511035276fd074ac736e97d41905171e43a5802bb820914c3c885ca77"
+  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.43.1-source/maxima-5.43.1.tar.gz"
+  sha256 "4ac6157fd9d8cb14d5fd1c6fb523ecce208fc184b46005b27f9babc097740738"
 
   bottle do
     cellar :any_skip_relocation
