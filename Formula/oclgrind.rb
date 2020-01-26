@@ -112,7 +112,9 @@ class Oclgrind < Formula
         puts(buf2);
       }
     EOS
+
     system ENV.cc, "rot13.c", "-o", "rot13", "-framework", "OpenCL"
-    assert_equal "Hello, World!", pipe_output([bin/"oclgrind", "./rot13"], "", 0).chomp
+    output = shell_output("#{bin}/oclgrind ./rot13").chomp
+    assert_equal "Hello, World!", output
   end
 end
