@@ -1,9 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
-  sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
-  revision 2
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.11/bochs-2.6.11.tar.gz"
+  sha256 "63897b41fbbbdfb1c492d3c4dee1edb4224282a07bbdf442a4a68c19bcc18862"
 
   bottle do
     rebuild 1
@@ -16,6 +15,8 @@ class Bochs < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool"
   depends_on "sdl2"
+
+  uses_from_macos "ncurses"
 
   # Fix pointer cast issue
   # https://sourceforge.net/p/bochs/patches/537/
@@ -34,6 +35,7 @@ class Bochs < Formula
       --enable-alignment-check
       --enable-all-optimizations
       --enable-avx
+      --enable-evex
       --enable-cdrom
       --enable-clgd54xx
       --enable-cpu-level=6
@@ -49,7 +51,6 @@ class Bochs < Formula
       --enable-plugins
       --enable-readline
       --enable-show-ips
-      --enable-smp
       --enable-usb
       --enable-vmx=2
       --enable-x86-64
