@@ -1,8 +1,8 @@
 class InteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.2.0.tar.gz"
-  sha256 "0dc328575d03fb160f0222d594ab26b540aa257c8be41f5d6ba854bd5876a171"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.2.1.tar.gz"
+  sha256 "8df32f209d481580c3365a065882e40343ecc42d9e4ed593838092bb6746a197"
 
   bottle do
     cellar :any_skip_relocation
