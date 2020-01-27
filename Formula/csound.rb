@@ -57,6 +57,7 @@ class Csound < Formula
     args = std_cmake_args + %W[
       -DABLETON_LINK_HOME=#{buildpath}/ableton
       -DBUILD_ABLETON_LINK_OPCODES=ON
+      -DBUILD_JAVA_INTERFACE=ON
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
