@@ -1,8 +1,8 @@
 class Libxlsxwriter < Formula
   desc "C library for creating Excel XLSX files"
   homepage "https://libxlsxwriter.github.io/"
-  url "https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_0.9.1.tar.gz"
-  sha256 "149195ee216b1187a328ac2d334d77573410f7e75c36c0cf15a82ec67478e645"
+  url "https://github.com/jmcnamara/libxlsxwriter/archive/RELEASE_0.9.4.tar.gz"
+  sha256 "6fbc4d3f84255debbce1ce024087074b7c3f01856115e8bf6b0354db77d3c3df"
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Libxlsxwriter < Formula
   end
 
   def install
-    system "make", "install", "INSTALL_DIR=#{prefix}", "V=1"
+    system "make", "install", "PREFIX=#{prefix}", "V=1"
   end
 
   test do
