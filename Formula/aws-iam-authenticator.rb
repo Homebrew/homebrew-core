@@ -2,8 +2,8 @@ class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
   url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
-    :tag      => "v0.4.0",
-    :revision => "c141eda34ad1b6b4d71056810951801348f8c367"
+    :tag      => "v0.5.0",
+    :revision => "1cfe2a90f68381eacd7b6dcfa2bf689e76eb8b4b"
   sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git"
 
@@ -15,25 +15,18 @@ class AwsIamAuthenticator < Formula
     sha256 "3f6e13d4e9d4ae52b38083b34b811e3d863e6defd2faeba80993da32646f1b69" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    # project = "github.com/kubernetes-sigs/aws-iam-authenticator"
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
     version = Utils.popen_read("git describe --tags").strip
-
-    (buildpath/"src/github.com/kubernetes-sigs/aws-iam-authenticator").install buildpath.children
-
-    cd "src/github.com/kubernetes-sigs/aws-iam-authenticator" do
-      system "dep", "ensure", "-vendor-only"
-      cd "cmd/aws-iam-authenticator" do
-        system "go", "build", "-o", "aws-iam-authenticator",
-          "-ldflags", "-s -w -X main.version=#{version} -X main.commit=#{revision}"
-        bin.install "aws-iam-authenticator"
-      end
-      prefix.install_metafiles
-    end
+    ldflags = ["-s", "-w",
+               "-X main.version=#{version}",
+               "-X main.commit=#{revision}"]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"aws-iam-authenticator", "./cmd/aws-iam-authenticator"
+    prefix.install_metafiles
   end
 
   test do
