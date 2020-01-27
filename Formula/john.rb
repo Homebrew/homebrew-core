@@ -28,8 +28,13 @@ class John < Formula
     libexec.install Dir["run/*"]
     bin.install_symlink libexec/"john"
 
-    # Source code defaults to 'john.ini', so rename
-    mv libexec/"john.conf", libexec/"john.ini"
+    share.install_symlink libexec => "john"
+  end
+
+  test do
+    # run john benchmarks
+    ENV["HOME"] = testpath
+    shell_output("john --test")
   end
 end
 
