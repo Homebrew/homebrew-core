@@ -165,10 +165,10 @@ class Git < Formula
   end
 
 
-  def caveats; <<~EOS
-    The Tcl/Tk GUIs gitk and git-gui are no longer included in this formula.
-      To continue using them please install the git-gui formula.
-  EOS
+  def caveats
+    <<~EOS
+      The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
+    EOS
   end
 
   test do
