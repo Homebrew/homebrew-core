@@ -71,7 +71,7 @@ class Apcupsd < Formula
     s += <<~EOS
       To load #{name} at startup, activate the included Launch Daemon:
 
-        sudo cp #{prefix}/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons
+        sudo cp #{prefix}/lib/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons
         sudo chmod 644 /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
         sudo launchctl load -w /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
 
