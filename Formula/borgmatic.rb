@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.4.22.tar.gz"
-  sha256 "1b2649c04074198bb1492d1121b320dd9f58de4e3ae3c11d28b32e0a43019733"
+  url "https://github.com/witten/borgmatic/archive/1.5.0.tar.gz"
+  sha256 "cc9218b5bebe0aab48c918bb77f7bbf7b373ac850ee8cf6007479dda178a5b6f"
 
   bottle do
     cellar :any
@@ -123,9 +123,9 @@ class Borgmatic < Formula
     assert_equal <<~EOS, log_content
       info --debug #{repo_path}
       init --encryption repokey --debug #{repo_path}
-      prune --keep-daily 7 --prefix {hostname}- #{repo_path}
-      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
-      check --prefix {hostname}- #{repo_path}
+      prune --keep-daily 7 --prefix {hostname}- --info #{repo_path}
+      create --info #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
+      check --prefix {hostname}- --info #{repo_path}
       list --json #{repo_path}
     EOS
   end
