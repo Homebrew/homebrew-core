@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.01.2.tar.gz"
-  sha256 "af6e653e1f25951c402097d92819d70e9765bae897f88f616d62b8320ddbebc7"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.01.3.tar.gz"
+  sha256 "0cbb768e0c5c5efb4fda22ffd1a6ee45ecf98d469ae44b0cbcaa9497eda674f2"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
@@ -20,6 +20,7 @@ class Wxmaxima < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     prefix.install "wxMaxima.app"
+    bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
 
     bash_completion.install "data/wxmaxima"
   end
