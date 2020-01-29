@@ -2,9 +2,9 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-19.3.2.tar.xz"
-  mirror "https://www.mesa3d.org/archive/mesa-19.3.2.tar.xz"
-  sha256 "4e3aee324616352bbc7f58d47ab573e10f68cc7719fd045bd6d3abcdd97ee1c1"
+  url "https://mesa.freedesktop.org/archive/mesa-19.3.3.tar.xz"
+  mirror "https://www.mesa3d.org/archive/mesa-19.3.3.tar.xz"
+  sha256 "81ce4810bb25d61300f8104856461f4d49cf7cb794aa70cb572312e370c39f09"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
