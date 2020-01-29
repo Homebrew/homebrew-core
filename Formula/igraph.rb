@@ -1,9 +1,8 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://igraph.org/nightly/get/c/igraph-0.7.1.tar.gz"
-  sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
-  revision 6
+  url "https://github.com/igraph/igraph/releases/download/0.8.0/igraph-0.8.0.tar.gz"
+  sha256 "72637335600cf4758fd718009b16d92489b58a2f5dd96d884740d20cd5769649"
 
   bottle do
     cellar :any
