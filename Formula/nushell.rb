@@ -21,6 +21,7 @@ class Nushell < Formula
   end
 
   test do
-    assert_equal "Welcome to Nushell 0.9.0 (type 'help' for more info)\n~ \n❯ 2\n~ \n❯ ", pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
+    assert_equal "Welcome to Nushell 0.9.0 (type 'help' for more info)\n~ \n❯ 2\n~ \n❯ ",
+    pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it')
   end
 end
