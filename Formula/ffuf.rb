@@ -1,8 +1,8 @@
 class Ffuf < Formula
   desc "Fast web fuzzer written in Go"
   homepage "https://github.com/ffuf/ffuf"
-  url "https://github.com/ffuf/ffuf/archive/v0.12.tar.gz"
-  sha256 "8a80c043cce5c1125260240d42eb4cff36d45d81668840b6934cb771b050ce45"
+  url "https://github.com/ffuf/ffuf/archive/v1.0.tar.gz"
+  sha256 "1ad8263a4330d7a7f4d32829c4c8519a87879b716819580adcd1ee83118ac1a6"
 
   bottle do
     cellar :any_skip_relocation
