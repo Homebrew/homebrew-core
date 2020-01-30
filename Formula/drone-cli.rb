@@ -2,8 +2,8 @@ class DroneCli < Formula
   desc "Drone CLI"
   homepage "https://drone.io"
   url "https://github.com/drone/drone-cli.git",
-    :tag      => "v1.2.0",
-    :revision => "f9fd3fe42bdfa015f2da700de8d00cecbd8adc1a"
+    :tag      => "v1.2.1",
+    :revision => "a5f8e7c245635a3855cebfde61c29b805d0b46a0"
 
   bottle do
     cellar :any_skip_relocation
