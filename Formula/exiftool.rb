@@ -1,8 +1,8 @@
 class Exiftool < Formula
   desc "Perl lib for reading and writing EXIF metadata"
-  homepage "https://www.sno.phy.queensu.ca/~phil/exiftool/index.html"
+  homepage "https://exiftool.org"
   # Ensure release is tagged production before submitting.
-  # https://www.sno.phy.queensu.ca/~phil/exiftool/history.html
+  # https://exiftool.org/history.html
   url "https://exiftool.org/Image-ExifTool-11.85.tar.gz"
   sha256 "8b0aaa8e080adfc8736c3b179c140ad3c05dc58a84540f1e56772ce129a8f897"
 
