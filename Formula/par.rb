@@ -3,7 +3,7 @@ class Par < Formula
   homepage "https://web.archive.org/web/20190921042412/www.nicemice.net/par/"
   url "https://web.archive.org/web/20190921042412/www.nicemice.net/par/Par152.tar.gz"
   version "1.52"
-  sha256 "33dcdae905f4b4267b4dc1f3efb032d79705ca8d2122e17efdecfd8162067082"
+  sha256 "38b29555c75840e1a15aa61676966777adfd3d0746da9343c2676aa4e5be2b6e"
 
   bottle do
     cellar :any_skip_relocation
