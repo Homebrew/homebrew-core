@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.6.0.tar.gz"
-  sha256 "8ccb5568eb47e7e6dc49cfa2c07cd6b13a3be38716f3eba961634cd19a4f8031"
+  url "https://download.arangodb.com/Source/ArangoDB-3.6.1.tar.gz"
+  sha256 "cd2ab380e79ff1ac322c164d0f53a9bfe170b073f336820f051823e3c52c2c5b"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
@@ -13,6 +13,7 @@ class Arangodb < Formula
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
+  depends_on "docker" => :build
   depends_on :macos => :mojave
   depends_on "openssl@1.1"
 
@@ -21,7 +22,7 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
+      :revision => "f59cdbb0f4f78afd171b1952021e999e9747c1c2"
   end
 
   def install
@@ -32,7 +33,7 @@ class Arangodb < Formula
       system "make", "deps"
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.12 -X main.projectBuild=#{commit}",
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.13 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
