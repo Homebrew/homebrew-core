@@ -30,12 +30,6 @@ class John < Formula
 
     share.install_symlink libexec => "john"
   end
-
-  test do
-    # run john benchmarks
-    ENV["HOME"] = testpath
-    shell_output("john --test")
-  end
 end
 
 
