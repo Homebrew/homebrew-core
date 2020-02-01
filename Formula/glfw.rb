@@ -1,8 +1,8 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/3.3.1.tar.gz"
-  sha256 "6bca16e69361798817a4b62a5239a77253c29577fcd5d52ae8b85096e514177f"
+  url "https://github.com/glfw/glfw/archive/3.3.2.tar.gz"
+  sha256 "98768e12e615fbe9f3386f5bbfeb91b5a3b45a8c4c77159cef06b1f6ff749537"
   head "https://github.com/glfw/glfw.git"
 
   bottle do
