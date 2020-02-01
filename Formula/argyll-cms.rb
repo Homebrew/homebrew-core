@@ -1,9 +1,9 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.1.1_src.zip"
-  version "2.1.1"
-  sha256 "51269bcafc4d95679354b796685c3f0a41b44b78443cbe360cda4a2d72f32acb"
+  url "https://www.argyllcms.com/Argyll_V2.1.2_src.zip"
+  version "2.1.2"
+  sha256 "be378ca836b17b8684db05e9feaab138d711835ef00a04a76ac0ceacd386a3e3"
 
   bottle do
     cellar :any
@@ -18,6 +18,16 @@ class ArgyllCms < Formula
   depends_on "libtiff"
 
   conflicts_with "num-utils", :because => "both install `average` binaries"
+
+  # Fixes calls to obj_msgSend, whose signature changed in macOS 10.15.
+  # Follows the advice in this blog post, which should be compatible
+  # with both older and newer versions of macOS.
+  # https://www.mikeash.com/pyblog/objc_msgsends-new-prototype.html
+  # Submitted upstream: https://www.freelists.org/post/argyllcms/Patch-Fix-macOS-build-failures-from-obj-msgSend-definition-change
+  patch do
+    url "https://www.freelists.org/archives/argyllcms/02-2020/bin7VecLntD2x.bin"
+    sha256 "fa86f5f21ed38bec6a20a79cefb78ef7254f6185ef33cac23e50bb1de87507a4"
+  end
 
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
