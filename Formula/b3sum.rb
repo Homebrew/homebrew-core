@@ -1,8 +1,8 @@
 class B3sum < Formula
   desc "The BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/0.1.0.tar.gz"
-  sha256 "0a5d8900f63bfe875115398fa2935ec0d5d518fd3f860ef81d22d328cc832148"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/0.1.3.tar.gz"
+  sha256 "54a0eaa0a8f8fc9114251e7ad1d00d97b1c5cb96da6e648969b6b5b5a9a3bf87"
 
   bottle do
     cellar :any_skip_relocation
