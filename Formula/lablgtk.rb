@@ -12,7 +12,6 @@ class Lablgtk < Formula
     sha256 "d67fbd9ba41211acbc4948a5dcbae98459cde16dc94211786e8c359f1f7158b1" => :sierra
   end
 
-  depends_on "camlp4" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+"
   depends_on "gtksourceview"
