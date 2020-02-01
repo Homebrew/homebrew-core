@@ -17,15 +17,9 @@ class Fstar < Formula
   depends_on "camlp4" => :build
   depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
+  depends_on "z3" => :build
   depends_on "gmp"
   depends_on "ocaml"
-
-  # FStar uses a special cutting-edge release from the Z3 team.
-  # As we don't depend on the standard release we can't use the z3 formula.
-  resource "z3" do
-    url "https://github.com/Z3Prover/z3.git",
-        :revision => "1f29cebd4df633a4fea50a29b80aa756ecd0e8e7"
-  end
 
   def install
     ENV.deparallelize # Not related to F* : OCaml parallelization
@@ -35,17 +29,6 @@ class Fstar < Formula
     # Avoid having to depend on coreutils
     inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
-
-    resource("z3").stage do
-      # F* warns if the Z3 git hash doesn't match
-      githash = Utils.popen_read("git", "rev-parse", "--short=12", "HEAD").chomp
-      system "python", "scripts/mk_make.py", "--prefix=#{libexec}",
-             "--githash=#{githash}"
-      cd "build" do
-        system "make"
-        system "make", "install"
-      end
-    end
 
     system "opam", "init", "--no-setup"
     system "opam", "config", "exec", "opam", "install",
