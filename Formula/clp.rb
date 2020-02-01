@@ -1,8 +1,8 @@
 class Clp < Formula
   desc "Linear programming solver"
   homepage "https://github.com/coin-or/Clp"
-  url "https://github.com/coin-or/Clp/archive/releases/1.17.3.tar.gz"
-  sha256 "25f0692fe1daa492e7801770af6991506ae9a8c34a4cae358d017400a02dfcf8"
+  url "https://github.com/coin-or/Clp/archive/releases/1.17.4.tar.gz"
+  sha256 "ef412cde00cb1313d9041115a700d8d59d4b8b8b5e4dde43e9deb5108fcfbea8"
 
   bottle do
     cellar :any
