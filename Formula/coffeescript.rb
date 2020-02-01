@@ -3,8 +3,8 @@ require "language/node"
 class Coffeescript < Formula
   desc "Unfancy JavaScript"
   homepage "https://coffeescript.org/"
-  url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.5.0.tgz"
-  sha256 "39754cce8c4d37042fac41ac5a91bb5fcb04496b48550cfa678d3d393c834583"
+  url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.5.1.tgz"
+  sha256 "0ab43e873a859d323f2f5a0069a8bef3acfa72b09769be3350c9d43c5bb489a0"
   head "https://github.com/jashkenas/coffeescript.git"
 
   bottle do
