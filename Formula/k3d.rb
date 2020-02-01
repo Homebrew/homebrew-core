@@ -1,8 +1,8 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
-  url "https://github.com/rancher/k3d/archive/v1.5.1.tar.gz"
-  sha256 "c51cf975e9a55aa88d74a8ca36ba2da4cda483f107b2b1d75bd66e05c240ca90"
+  url "https://github.com/rancher/k3d/archive/v1.6.0.tar.gz"
+  sha256 "a6c6b9680e2026cdbcaf78ce97269994c0b117c4e2515e89129aecb67334a0e9"
 
   bottle do
     cellar :any_skip_relocation
