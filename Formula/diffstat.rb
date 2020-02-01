@@ -1,9 +1,8 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.62.tgz"
-  mirror "https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.62.orig.tar.gz"
-  sha256 "7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.63.tgz"
+  sha256 "7eddd53401b99b90bac3f7ebf23dd583d7d99c6106e67a4f1161b7a20110dc6f"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,7 +30,7 @@ class Diffstat < Formula
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
       +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 '7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f'
+      +  sha256 '7eddd53401b99b90bac3f7ebf23dd583d7d99c6106e67a4f1161b7a20110dc6f'
     EOS
     output = shell_output("#{bin}/diffstat diff.diff")
     assert_match "2 insertions(+), 3 deletions(-)", output
