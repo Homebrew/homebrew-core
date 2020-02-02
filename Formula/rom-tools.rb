@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0216.tar.gz"
-  version "0.216"
-  sha256 "cc69e56ebbabbd6cf197d4910de0904f5709844a81f0117ce5d922f702429fc8"
+  url "https://github.com/mamedev/mame/archive/mame0218.tar.gz"
+  version "0.218"
+  sha256 "c855d2a53956d7ecc6b2d029747495278cd701dc785c50548f0f20ffa673b91f"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -13,7 +13,6 @@ class RomTools < Formula
     sha256 "d00dfa62f18e09ab0c51bb1ffb64b4599ded97941f38b8b6b347a4322dd6c869" => :high_sierra
   end
 
-  depends_on "asio" => :build
   depends_on "pkg-config" => :build
   depends_on "flac"
   # Need C++ compiler and standard library support C++14.
@@ -29,7 +28,7 @@ class RomTools < Formula
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=1",
+                   "USE_SYSTEM_LIB_ASIO=0",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1"
     bin.install %w[
