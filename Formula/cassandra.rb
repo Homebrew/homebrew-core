@@ -1,8 +1,8 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/3.11.4/apache-cassandra-3.11.4-bin.tar.gz"
-  sha256 "5d598e23c3ffc4db0301ec2b313061e3208fae0f9763d4b47888237dd9069987"
+  url "https://archive.apache.org/dist/cassandra/3.11.5/apache-cassandra-3.11.5-bin.tar.gz"
+  sha256 "a765adcaa42a6c881f5e79d030854d082900992cc11da40eee413bb235970a6a"
 
   bottle do
     cellar :any_skip_relocation
@@ -62,7 +62,7 @@ class Cassandra < Formula
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
-    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_HOME/logs", "-Dcassandra.logdir\=#{var}/log/cassandra"
+    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR", "-Dcassandra.logdir\=#{var}/log/cassandra"
     inreplace "bin/cassandra.in.sh" do |s|
       s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"", "CASSANDRA_HOME=\"#{libexec}\""
       # Store configs in etc, outside of keg
