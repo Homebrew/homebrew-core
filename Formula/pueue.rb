@@ -1,15 +1,14 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.1.4.tar.gz"
-  sha256 "8e156d1037a88448219d9c5bdbc844799e616604985c86a83541f0a23481f302"
+  url "https://github.com/Nukesor/pueue/archive/v0.1.5.tar.gz"
+  sha256 "b4d4ced6caab23193c566c34488cc9adf2da0e92777616af579f59a5e52bd7a4"
   head "https://github.com/Nukesor/pueue.git"
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
-    rm bin/"completions_pueue"
 
     prefix.install_metafiles
 
