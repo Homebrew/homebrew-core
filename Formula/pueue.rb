@@ -3,6 +3,7 @@ class Pueue < Formula
   homepage "https://github.com/Nukesor/pueue"
   url "https://github.com/Nukesor/pueue/archive/v0.1.4.tar.gz"
   sha256 "8e156d1037a88448219d9c5bdbc844799e616604985c86a83541f0a23481f302"
+  head "https://github.com/Nukesor/pueue.git"
 
   depends_on "rust" => :build
 
