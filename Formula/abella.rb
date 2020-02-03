@@ -14,7 +14,7 @@ class Abella < Formula
   # See: abella-prover/abella#123
   patch do
     url "https://github.com/abella-prover/abella/commit/101faf5553ba1267c0e4c1dda979372b0c38a676.diff?full_index=1"
-    sha256 "4d97c0cfe637ee402c506a4b3461d619d70ca0ea4ba1281b31d7e4fe6fef628e"
+    sha256 "2f00562b177f1b131dec794fea769153ce767c6e8fd249c159c2a12a9012061a"
   end
 
   def install
