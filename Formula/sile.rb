@@ -1,10 +1,10 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.1/sile-0.10.1.tar.bz2"
-  sha256 "a5ec924bfe8a629ec4b4d09754d822cab1cf48d28bc6ce649faa5c597a108666"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.3/sile-0.10.3.tar.bz2"
+  sha256 "d89d5ce7d2bf46fb062e5299ffd8b5d821dc3cb3462a0e7c1109edeee111d856"
 
-  head "https://github.com/sile-typesetter/sile.git"
+  head "https://github.com/sile-typesetter/sile.git", :shallow => false
 
   bottle do
     sha256 "f2fdd492e9272036fe2d35636d245a1ea05a0beebbb3a0a6b9b4019f36def3f3" => :catalina
@@ -32,6 +32,11 @@ class Sile < Formula
   resource "cassowary" do
     url "https://github.com/sile-typesetter/cassowary.lua/archive/v2.2.tar.gz"
     sha256 "e2f7774b6883581491b8f2c9d1655b2136bc24d837a9e43f515590a766ec4afd"
+  end
+
+  resource "cosmo" do
+    url "https://github.com/mascarenhas/cosmo/archive/v16.06.04.tar.gz"
+    sha256 "86d17aea5080a90671d965cffeb9b104c19e0e1ea55c08687c0924c4512b52b1"
   end
 
   resource "linenoise" do
@@ -134,8 +139,8 @@ class Sile < Formula
     (libexec/"bin").install bin/"sile"
     (bin/"sile").write <<~EOS
       #!/bin/bash
-      export LUA_PATH="#{ENV["LUA_PATH"]}"
-      export LUA_CPATH="#{ENV["LUA_CPATH"]}"
+      export LUA_PATH="#{ENV["LUA_PATH"]};;"
+      export LUA_CPATH="#{ENV["LUA_CPATH"]};;"
       "#{libexec}/bin/sile" "$@"
     EOS
   end
