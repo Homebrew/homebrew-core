@@ -1,8 +1,8 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/segmentio/terraform-docs"
-  url "https://github.com/segmentio/terraform-docs/archive/v0.8.1.tar.gz"
-  sha256 "b7ae9b6a295aafdceb900386ab38573c90d6af4ba1a6dda3f588b79b99e5d83f"
+  url "https://github.com/segmentio/terraform-docs/archive/v0.8.2.tar.gz"
+  sha256 "005957c5c5d56a27e60ca735128231f68c3f099b433a7041a0f1591bee59fbd0"
 
   bottle do
     cellar :any_skip_relocation
