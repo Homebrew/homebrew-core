@@ -1,8 +1,8 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.34.tar.gz"
-  sha256 "a687007c1049fe8277b181c5e403776518e81a8e642af920a135649a058f165b"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.40.tar.gz"
+  sha256 "970d49682f30e7bffba5d4b2ea70ae9e86781d6dbfdd3af4d1aa0c8a68f9646a"
 
   bottle do
     cellar :any
@@ -12,7 +12,8 @@ class MoltenVk < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :xcode => ["10.0", :build]
+  depends_on "python" => :build
+  depends_on :xcode => ["11.0", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on :macos => :sierra
 
@@ -28,7 +29,7 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        :revision => "08cbb5458f692d4778806775f65eb3dc642ddbbf"
+        :revision => "881bbb347a08d1b5aa77f61a52a30b506de9f2bf"
   end
 
   resource "Vulkan-Portability" do
@@ -40,31 +41,31 @@ class MoltenVk < Formula
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        :revision => "ac5a9570a744eb72725c23c34f36fbc564c0bb51"
+        :revision => "f9818f0804e6e73ec8afcc523b7e7f8bfc362632"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        :revision => "e06c7e9a515b716c731bda13f507546f107775d1"
+        :revision => "4fc7a33910fb8e40b970d160e1b38ab3f67fe0f3"
   end
 
   resource "SPIRV-Tools" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        :revision => "26c1b8878315a7a5c188df45e0bc236bb222b698"
+        :revision => "323a81fc5e30e43a04e5e22af4cba98ca2a161e6"
   end
 
   resource "SPIRV-Headers" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        :revision => "2434b89345a50c018c84f42a310b0fad4f3fd94f"
+        :revision => "204cd131c42b90d129073719f2766293ce35c081"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        :revision => "2abb69904b9ad017d39d3da1e7fc3dec1a584cd8"
+        :revision => "4792a6854238ba3f6d10b8c7fcd11c102cae4ca6"
   end
 
   def install
