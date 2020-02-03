@@ -3,14 +3,18 @@ class WildflyAs < Formula
   homepage "https://wildfly.org/"
   url "https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final.tar.gz"
   sha256 "54498e9c16b29c7f0a2cbab91edab6dfb9e2002259ee07c6d1247c23dc0cbb6c"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     rm_f Dir["bin/*.ps1"]
+
+    inreplace "bin/standalone.sh", /JAVA="[^"]*"/, "JAVA='#{Formula["openjdk"].opt_bin}/java'"
+
     libexec.install Dir["*"]
     mkdir_p libexec/"standalone/log"
   end
