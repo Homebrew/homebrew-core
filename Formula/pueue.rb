@@ -12,7 +12,7 @@ class Pueue < Formula
 
     prefix.install_metafiles
 
-    bash_completion.install "utils/completions/pueue.bash" => "pueue.bash"
+    bash_completion.install "utils/completions/pueue.bash" => "pueue"
     fish_completion.install "utils/completions/pueue.fish" => "pueue.fish"
   end
 
