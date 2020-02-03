@@ -1,8 +1,8 @@
 class Movgrab < Formula
   desc "Downloader for youtube, dailymotion, and other video websites"
   homepage "https://sites.google.com/site/columscode/home/movgrab"
-  url "https://sites.google.com/site/columscode/files/movgrab-1.2.1.tar.gz"
-  sha256 "1e9a57b1c934d8584f9133d918c1ceecfe102bbaf9fb4c8ab174a642917ae4a8"
+  url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
+  sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +15,23 @@ class Movgrab < Formula
     sha256 "f36f583c82bf0b4fda8b918fde44d0631950544c48f313ac3ed52b9dee6af7de" => :mavericks
   end
 
+  depends_on "libressl"
+
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
+    # libUseful's configure script incorrectly detects macOS's getxattr functions,
+    # expecting them to be functionally equivalent to Linux's. They're not!
+    ENV["ac_cv_lib_c_getxattr"] = "no"
+    ENV["ac_cv_lib_c_setxattr"] = "no"
+
+    # Can you believe this? A forgotten semicolon! Probably got missed because it's
+    # behind a conditional #ifdef.
+    inreplace "libUseful-2.8/FileSystem.c", "result=-1", "result=-1;"
+
+    # Later versions of libUseful handle the fact that setresuid is Linux-only, but
+    # this one does not. https://github.com/ColumPaget/Movgrab/blob/master/libUseful/Process.c#L95-L99
+    inreplace "libUseful-2.8/Process.c", "setresuid(uid,uid,uid)", "setreuid(uid,uid)"
+
+    system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--enable-ssl"
     system "make"
 
     # because case-insensitivity is sadly a thing and while the movgrab
