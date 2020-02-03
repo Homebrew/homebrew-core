@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.5.0.tar.gz"
-  sha256 "cc9218b5bebe0aab48c918bb77f7bbf7b373ac850ee8cf6007479dda178a5b6f"
+  url "https://github.com/witten/borgmatic/archive/1.5.1.tar.gz"
+  sha256 "cf06f1b5a7de8f8ef696dc6ba7d67ad30cdbdabf8c9d240ae871efd36885e2a9"
 
   bottle do
     cellar :any
@@ -62,8 +62,8 @@ class Borgmatic < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/b3/c3/1bd29f827237b420f4c978716fd9343ba14b1c6746a638dfeb7bbc7adcf9/ruamel.yaml-0.16.6.tar.gz"
-    sha256 "966e5a049eebf011c90424b9ec7dab6358cee8de0907354b27a27f20a8c4c2ec"
+    url "https://files.pythonhosted.org/packages/01/e2/735f7b40a4141c930581199d433711c97fb4ee3bc2a99693cc58944c6fc3/ruamel.yaml-0.16.7.tar.gz"
+    sha256 "9d59fa89985c55155d35c886663e357813404ae8f94638cb673135b8c8c1a7c7"
   end
 
   resource "six" do
@@ -123,9 +123,9 @@ class Borgmatic < Formula
     assert_equal <<~EOS, log_content
       info --debug #{repo_path}
       init --encryption repokey --debug #{repo_path}
-      prune --keep-daily 7 --prefix {hostname}- --info #{repo_path}
-      create --info #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
-      check --prefix {hostname}- --info #{repo_path}
+      prune --keep-daily 7 --prefix {hostname}- #{repo_path}
+      create #{repo_path}::{hostname}-{now:%Y-%m-%dT%H:%M:%S.%f} /home /etc /var/log/syslog*
+      check --prefix {hostname}- #{repo_path}
       list --json #{repo_path}
     EOS
   end
