@@ -21,12 +21,12 @@ class Ponyc < Formula
     satisfy { DevelopmentTools.clang_build_version >= 800 }
   end
 
-  depends_on "llvm@7"
+  depends_on "llvm@9"
   depends_on :macos => :yosemite
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"] = "#{Formula["llvm@7"].opt_bin}/llvm-config"
+    ENV["LLVM_CONFIG"] = "#{Formula["llvm@9"].opt_bin}/llvm-config"
     system "make", "install", "verbose=1", "config=release",
            "ponydir=#{prefix}", "prefix="
   end
