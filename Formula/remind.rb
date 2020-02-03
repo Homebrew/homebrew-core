@@ -1,8 +1,8 @@
 class Remind < Formula
   desc "Sophisticated calendar and alarm"
   homepage "https://dianne.skoll.ca/projects/remind/"
-  url "https://dianne.skoll.ca/projects/remind/download/remind-03.02.00.tar.gz"
-  sha256 "a52dbb033cb47a365689f0d03682ce11eff9c408f575cf69b17b763af4841204"
+  url "https://dianne.skoll.ca/projects/remind/download/remind-03.03.00.tar.gz"
+  sha256 "96895b981ae59c3ba136c59ad54bccaa4fb959197f371aff4eb16eca81b3b61a"
 
   bottle do
     cellar :any_skip_relocation
