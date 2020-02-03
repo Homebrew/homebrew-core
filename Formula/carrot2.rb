@@ -3,15 +3,16 @@ class Carrot2 < Formula
   homepage "https://project.carrot2.org"
   url "https://github.com/carrot2/carrot2/releases/download/release%2F3.16.2/carrot2-dcs-3.16.2.zip"
   sha256 "b08c954dc2eb92ecee46d1162ac9081285771c5f2c3cd3f7742923a47b24a66e"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
     bin.install libexec/"dcs.sh" => "carrot2"
-    inreplace bin/"carrot2", "java", "cd #{libexec} && exec java"
+    inreplace bin/"carrot2", "java", "cd #{libexec} && exec '#{Formula["openjdk"].opt_bin}/java'"
   end
 
   plist_options :manual => "carrot2"
