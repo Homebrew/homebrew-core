@@ -4,6 +4,7 @@ class OpenjdkAT12 < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk12u/archive/jdk-12.0.2+10.tar.bz2"
   version "12.0.2+10"
   sha256 "f7242b56e0292bc7ec5795bbaeb98552ef30d7a686cd7ca0a877fe37b399f384"
+  revision 1
 
   bottle do
     cellar :any
@@ -56,7 +57,8 @@ class OpenjdkAT12 < Formula
     system "make", "images"
 
     libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
+    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
   end
 
   def caveats

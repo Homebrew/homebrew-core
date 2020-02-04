@@ -4,6 +4,7 @@ class Openjdk < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk13u/archive/jdk-13.0.2+8.tar.bz2"
   version "13.0.2+8"
   sha256 "01059532335fefc5e0e7a23cc79eeb1dc6fea477606981b89f259aa0e0f9abc1"
+  revision 1
 
   bottle do
     cellar :any
@@ -46,7 +47,8 @@ class Openjdk < Formula
     system "make", "images"
 
     libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
+    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
   end
 
   def caveats
