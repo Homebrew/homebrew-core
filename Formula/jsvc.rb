@@ -4,6 +4,7 @@ class Jsvc < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=commons/daemon/source/commons-daemon-1.2.2-src.tar.gz"
   mirror "https://archive.apache.org/dist/commons/daemon/source/commons-daemon-1.2.2-src.tar.gz"
   sha256 "ebd9d50989ee2009cc83f501e6793ad5978672ecea97be5198135a081a8aac71"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Jsvc < Formula
     sha256 "40a4f7b1ed3195ff9de7a6aa9842e05614482c1ae9c8f43aad9afd0ebe90e009" => :high_sierra
   end
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     ENV.append "CFLAGS", "-arch #{MacOS.preferred_arch}"
@@ -22,11 +23,11 @@ class Jsvc < Formula
     prefix.install %w[NOTICE.txt LICENSE.txt RELEASE-NOTES.txt]
 
     cd "src/native/unix" do
-      system "./configure", "--with-java=#{ENV["JAVA_HOME"]}"
+      system "./configure", "--with-java=#{Formula["openjdk"].opt_prefix}"
       system "make"
 
       libexec.install "jsvc"
-      (bin/"jsvc").write_env_script libexec/"jsvc", Language::Java.java_home_env("1.8+")
+      (bin/"jsvc").write_env_script libexec/"jsvc", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
     end
   end
 
