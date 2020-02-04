@@ -3,7 +3,7 @@ class Smali < Formula
   homepage "https://github.com/JesusFreke/smali"
   url "https://github.com/JesusFreke/smali/archive/v2.3.4.tar.gz"
   sha256 "d364ebb60ac954cac7c974d72def897a373430fcd4e3349816743147fbaba375"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,7 @@ class Smali < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     system "gradle", "build", "--no-daemon"
@@ -22,7 +22,12 @@ class Smali < Formula
       jarfile = "#{name}-#{version}-dev-fat.jar"
 
       libexec.install "#{name}/build/libs/#{jarfile}"
-      bin.write_jar_script libexec/jarfile, name, :java_version => "1.8+"
+
+      (bin/name).write <<~EOS
+        #!/bin/bash
+        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/#{jarfile}" "$@"
+      EOS
     end
   end
 
