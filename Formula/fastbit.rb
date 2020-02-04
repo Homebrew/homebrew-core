@@ -3,6 +3,7 @@ class Fastbit < Formula
   homepage "https://sdm.lbl.gov/fastbit/"
   url "https://code.lbl.gov/frs/download.php/file/426/fastbit-2.0.3.tar.gz"
   sha256 "1ddb16d33d869894f8d8cd745cd3198974aabebca68fa2b83eb44d22339466ec"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Fastbit < Formula
     sha256 "8488bbb85691e3181243fb0ad2afb84715c684204551e5064bff9846d18be82e" => :el_capitan
   end
 
-  depends_on :java
+  depends_on "openjdk"
 
   conflicts_with "iniparser", :because => "Both install `include/dictionary.h`"
 
@@ -27,10 +28,14 @@ class Fastbit < Formula
     ENV.cxx11
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-java=#{Formula["openjdk"].opt_prefix}"
     system "make", "install"
     libexec.install lib/"fastbitjni.jar"
-    bin.write_jar_script libexec/"fastbitjni.jar", "fastbitjni"
+    (bin/"fastbitjni").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar '#{libexec}/fastbitjni.jar' "$@"
+    EOS
   end
 
   test do
