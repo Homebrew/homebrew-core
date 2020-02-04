@@ -3,15 +3,16 @@ class KaitaiStructCompiler < Formula
   homepage "https://kaitai.io/"
   url "https://bintray.com/artifact/download/kaitai-io/universal/0.8/kaitai-struct-compiler-0.8.zip"
   sha256 "545fc10e134db2901cad8817be1b440fca6f2bad8b92b2948ebe0647f3ffa2c9"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/kaitai-struct-compiler"
+    (bin/"kaitai-struct-compiler").write_env_script libexec/"bin/kaitai-struct-compiler",
+                                                    :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do
