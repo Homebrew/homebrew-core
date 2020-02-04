@@ -4,20 +4,25 @@ class Civl < Formula
   url "https://vsl.cis.udel.edu/lib/sw/civl/1.7/r3157/release/CIVL-1.7_3157.tgz"
   version "1.7-3157"
   sha256 "49ed0467ea281bf5a436b2caf4f87862d3f613fa9e6e746ce52cfd409c3f4403"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
   depends_on "z3"
 
   def install
-    libexec.install "lib/civl-1.7_3157.jar"
-    bin.write_jar_script libexec/"civl-1.7_3157.jar", "civl"
+    libexec.install "lib/civl-#{version.to_s.tr("-", "_")}.jar" => "civl.jar"
+    (bin/"civl").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/civl.jar" "$@"
+    EOS
     pkgshare.install "doc", "emacs", "examples", "licenses"
   end
 
   test do
+    (HOMEBREW_CACHE/"java_cache").mkpath
+
     # Test with example suggested in manual.
     example = pkgshare/"examples/concurrency/locksBad.cvl"
     assert_match "The program MAY NOT be correct.",
