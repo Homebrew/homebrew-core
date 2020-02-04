@@ -3,7 +3,7 @@ class Lcm < Formula
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
-  revision 1
+  revision 2
 
   head "https://github.com/lcm-proj/lcm.git"
 
@@ -17,7 +17,7 @@ class Lcm < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
   depends_on "python"
 
   def install
