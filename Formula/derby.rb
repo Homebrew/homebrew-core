@@ -4,19 +4,21 @@ class Derby < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.15.1.3/db-derby-10.15.1.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/db/derby/db-derby-10.15.1.3/db-derby-10.15.1.3-bin.tar.gz"
   sha256 "eedb0293fea8b7d9cc813371c34935661e42ea8270e72fedd0ffe2a6a29c61ad"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     rm_rf Dir["bin/*.bat"]
     libexec.install %w[lib test index.html LICENSE NOTICE RELEASE-NOTES.html
                        KEYS docs javadoc demo]
     bin.install Dir["bin/*"]
-    bin.env_script_all_files(libexec/"bin",
-      Language::Java.overridable_java_home_env.merge(:DERBY_INSTALL => libexec.to_s,
-                                                     :DERBY_HOME    => libexec.to_s))
+    bin.env_script_all_files libexec/"bin",
+                             :JAVA_HOME     => Formula["openjdk"].opt_prefix,
+                             :DERBY_INSTALL => libexec,
+                             :DERBY_HOME    => libexec
   end
 
   def post_install
