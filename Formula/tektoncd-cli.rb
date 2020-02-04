@@ -3,7 +3,7 @@ class TektoncdCli < Formula
   homepage "https://github.com/tektoncd/cli"
   url "https://github.com/tektoncd/cli/archive/v0.7.1.tar.gz"
 
-  sha256 "0db328406aec10571fe9ca5f262c5e3d7b4f29df54712adb6ecc8ba5868aea4c"
+  sha256 "72df3075303d2b0393bae9a0f9e9b8441060b8a4db57e613ba8f1bfda03809b5"
 
   bottle do
     cellar :any_skip_relocation
