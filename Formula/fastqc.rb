@@ -3,15 +3,16 @@ class Fastqc < Formula
   homepage "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
   url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.9.zip"
   sha256 "15510a176ef798e40325b717cac556509fb218268cfdb9a35ea6776498321369"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
     chmod 0755, libexec/"fastqc"
-    bin.install_symlink libexec/"fastqc"
+    (bin/"fastqc").write_env_script libexec/"fastqc", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do
