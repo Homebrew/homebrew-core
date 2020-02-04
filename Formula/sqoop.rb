@@ -1,10 +1,9 @@
 class Sqoop < Formula
   desc "Transfer bulk data between Hadoop and structured datastores"
   homepage "https://sqoop.apache.org/"
-  url "https://archive.apache.org/dist/sqoop/1.4.6/sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz"
-  version "1.4.6"
-  sha256 "d582e7968c24ff040365ec49764531cb76dfa22c38add5f57a16a57e70d5d496"
-  revision 1
+  url "https://archive.apache.org/dist/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz"
+  version "1.4.7"
+  sha256 "64111b136dbadcb873ce17e09201f723d4aea81e5e7c843e400eb817bb26f235"
 
   bottle :unneeded
 
@@ -12,15 +11,8 @@ class Sqoop < Formula
   depends_on "hadoop"
   depends_on "hbase"
   depends_on "hive"
-  depends_on :java => "1.6+"
+  depends_on "openjdk"
   depends_on "zookeeper"
-
-  # Patch for readlink -f missing on macOS. Should be fixed in 1.4.7.
-  # https://issues.apache.org/jira/browse/SQOOP-2531
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/77adf73/sqoop/1.4.6.patch"
-    sha256 "f13af5c6525f5bf8f3b993c3ece4f21133680fdbebb663fd4b7b6db9039b07b4"
-  end
 
   def sqoop_envs
     <<~EOS
@@ -38,7 +30,7 @@ class Sqoop < Formula
     libexec.install Dir["*.jar"]
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.6+"))
+    bin.env_script_all_files(libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix)
 
     # Install a sqoop-env.sh file
     envs = libexec/"conf/sqoop-env.sh"
