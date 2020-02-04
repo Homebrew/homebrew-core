@@ -1,8 +1,8 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.9.4/poco-1.9.4-all.tar.gz"
-  sha256 "eb34f257b11240a711ee505f1d80c754a80a990aeb48d8d93407884df288fd77"
+  url "https://pocoproject.org/releases/poco-1.10.0/poco-1.10.0-all.tar.gz"
+  sha256 "fa8bbe29da53882b053e37f94e19f2de4be85631b3186fff3bed8027427b7777"
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
@@ -16,10 +16,9 @@ class Poco < Formula
   depends_on "openssl@1.1"
 
   def install
-    ENV.cxx11
-
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_DATA_MYSQL=OFF",
+      system "cmake", "..", *std_cmake_args,
+                            "-DENABLE_DATA_MYSQL=OFF",
                             "-DENABLE_DATA_ODBC=OFF"
       system "make", "install"
     end
