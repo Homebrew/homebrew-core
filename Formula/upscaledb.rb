@@ -1,7 +1,7 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  revision 13
+  revision 14
 
   stable do
     url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
@@ -34,7 +34,7 @@ class Upscaledb < Formula
 
   depends_on "boost"
   depends_on "gnutls"
-  depends_on :java
+  depends_on "openjdk"
   depends_on "openssl@1.1"
   depends_on "protobuf"
 
@@ -72,7 +72,7 @@ class Upscaledb < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "JDK=#{ENV["JAVA_HOME"]}"
+                          "JDK=#{Formula["openjdk"].opt_prefix}"
     system "make", "install"
 
     pkgshare.install "samples"
