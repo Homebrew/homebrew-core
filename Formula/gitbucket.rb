@@ -3,6 +3,7 @@ class Gitbucket < Formula
   homepage "https://github.com/gitbucket/gitbucket"
   url "https://github.com/gitbucket/gitbucket/releases/download/4.33.0/gitbucket.war"
   sha256 "35e190ddb7a2f9760d43617d2e6325c2a745ba66061daa3fa95cc9d871423506"
+  revision 1
 
   head do
     url "https://github.com/gitbucket/gitbucket.git"
@@ -11,7 +12,7 @@ class Gitbucket < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     if build.head?
@@ -38,7 +39,7 @@ class Gitbucket < Formula
         <string>gitbucket</string>
         <key>ProgramArguments</key>
         <array>
-          <string>/usr/bin/java</string>
+          <string>#{Formula["openjdk"].opt_bin}/java</string>
           <string>-Dmail.smtp.starttls.enable=true</string>
           <string>-jar</string>
           <string>#{opt_libexec}/gitbucket.war</string>
@@ -53,7 +54,7 @@ class Gitbucket < Formula
   end
 
   test do
-    io = IO.popen("java -jar #{libexec}/gitbucket.war")
+    io = IO.popen("'#{Formula["openjdk"].opt_bin}/java' -jar #{libexec}/gitbucket.war")
     sleep 12
     Process.kill("SIGINT", io.pid)
     Process.wait(io.pid)
