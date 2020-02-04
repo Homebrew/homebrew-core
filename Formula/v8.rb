@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.9.317.31.tar.gz"
-  sha256 "a11c1a4350ed521993e83846da61a8c1e563204a6d8c7b28cb0b4f0fba420fe5"
+  url "https://github.com/v8/v8/archive/8.0.426.16.tar.gz"
+  sha256 "8d619c82251245a098936079e2bdc41c6b726d26abf8f1e36fb6b2dc122533f6"
 
   bottle do
     cellar :any
@@ -27,12 +27,12 @@ class V8 < Formula
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "082f11b29976c3be67dddd74bd75c6d1793201c7"
+      :revision => "e35470d98289c1f82179839d7657d45b59e982c9"
   end
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-      :revision => "5005010d694e16571b8dfbf07d70817841f80a69"
+      :revision => "dbd3825b31041d782c5b504c59dcfb5ac7dda08c"
   end
 
   resource "v8/base/trace_event/common" do
@@ -42,7 +42,7 @@ class V8 < Formula
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "f2fb48c3b3d79a75a88a99fba6576b25d42ec528"
+      :revision => "5395345ca4f0c596110188688ed990e0de5a181c"
   end
 
   resource "v8/third_party/jinja2" do
@@ -55,6 +55,11 @@ class V8 < Formula
       :revision => "8f45f5cfa0009d2a70589bcda0349b8cb2b72783"
   end
 
+  resource "v8/third_party/zlib" do
+    url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
+      :revision => "e77e1c06c8881abff0c7418368d147ff4a474d08"
+  end
+
   def install
     (buildpath/"build").install resource("v8/build")
     (buildpath/"third_party/jinja2").install resource("v8/third_party/jinja2")
@@ -62,6 +67,7 @@ class V8 < Formula
     (buildpath/"third_party/googletest/src").install resource("v8/third_party/googletest/src")
     (buildpath/"base/trace_event/common").install resource("v8/base/trace_event/common")
     (buildpath/"third_party/icu").install resource("v8/third_party/icu")
+    (buildpath/"third_party/zlib").install resource("v8/third_party/zlib")
 
     # Build gn from source and add it to the PATH
     (buildpath/"gn").install resource("gn")
@@ -83,7 +89,7 @@ class V8 < Formula
       :treat_warnings_as_errors     => false,
     }
 
-    # use clang from homebrew llvm formula on <= High Sierra, because the system clang is to old for V8
+    # use clang from homebrew llvm formula on <= Mojave, because the system clang is to old for V8
     if DevelopmentTools.clang_build_version < 1100
       ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
       gn_args[:clang_base_path] = "\"#{Formula["llvm"].prefix}\""
