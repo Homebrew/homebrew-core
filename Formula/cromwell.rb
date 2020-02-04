@@ -1,8 +1,9 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/48//cromwell-48.jar"
+  url "https://github.com/broadinstitute/cromwell/releases/download/48/cromwell-48.jar"
   sha256 "c14b4f34f208245bd1a62032d20ad7c6f79cf5a9209f4590645d05f28172155c"
+  revision 1
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
@@ -11,26 +12,33 @@ class Cromwell < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   resource "womtool" do
-    url "https://github.com/broadinstitute/cromwell/releases/download/48//womtool-48.jar"
+    url "https://github.com/broadinstitute/cromwell/releases/download/48/womtool-48.jar"
     sha256 "d0c5447fb25e7fcd9a5fbdb7fb543941b46ab37cc1741c98ece56084868be936"
   end
 
   def install
     if build.head?
       system "sbt", "assembly"
-      libexec.install Dir["server/target/scala-*/cromwell-*.jar"][0]
-      libexec.install Dir["womtool/target/scala-2.12/womtool-*.jar"][0]
+      libexec.install Dir["server/target/scala-*/cromwell-*.jar"][0] => "cromwell.jar"
+      libexec.install Dir["womtool/target/scala-*/womtool-*.jar"][0] => "womtool.jar"
     else
-      libexec.install Dir["cromwell-*.jar"][0]
+      libexec.install "cromwell-#{version}.jar" => "cromwell.jar"
       resource("womtool").stage do
-        libexec.install Dir["womtool-*.jar"][0]
+        libexec.install "womtool-#{version}.jar" => "womtool.jar"
       end
     end
-    bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell", "$JAVA_OPTS"
-    bin.write_jar_script Dir[libexec/"womtool-*.jar"][0], "womtool"
+
+    (bin/"cromwell").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" $JAVA_OPTS -jar "#{libexec}/cromwell.jar" "$@"
+    EOS
+    (bin/"womtool").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/womtool.jar" "$@"
+    EOS
   end
 
   test do
