@@ -2,8 +2,8 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      :tag      => "v1.2.1",
-      :revision => "56a03d98104be7cfa57d4bbdc03b4c7cea29a6c9"
+      :tag      => "v1.3.0",
+      :revision => "24b8784d71096f3dfa38d6533a770f45a49cda43"
   head "https://github.com/bazelbuild/bazelisk.git"
 
   bottle do
