@@ -4,14 +4,15 @@ class AwsCfnTools < Formula
   url "https://cloudformation-cli.s3.amazonaws.com/AWSCloudFormation-cli.zip"
   version "1.0.12"
   sha256 "382e3e951833fd77235fae41c1742224d68bdf165e1ace4200ee88c01ac29a90"
+  revision 1
 
   bottle :unneeded
 
   depends_on "ec2-api-tools"
-  depends_on :java
+  depends_on "openjdk"
 
   def install
-    env = Language::Java.java_home_env.merge(:AWS_CLOUDFORMATION_HOME => libexec)
+    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :AWS_CLOUDFORMATION_HOME => libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|
