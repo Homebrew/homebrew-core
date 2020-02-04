@@ -3,6 +3,7 @@ class Javacc < Formula
   homepage "https://javacc.org/"
   url "https://github.com/javacc/javacc/archive/7.0.5.tar.gz"
   sha256 "d1502f8a7ed607de17427a1f33e490a33b0c2d5612879e812126bf95e7ed11f4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,17 +13,18 @@ class Javacc < Formula
   end
 
   depends_on "ant" => :build
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     system "ant"
-    (libexec/"lib").install "target/javacc-#{version}.jar"
-    doc.install Dir["docs/*"]
+    libexec.install "target/javacc.jar"
+    doc.install Dir["www/doc/*"]
     (share/"examples").install Dir["examples/*"]
     %w[javacc jjdoc jjtree].each do |script|
       (bin/script).write <<~SH
         #!/bin/bash
-        exec java -classpath #{libexec/"lib/javacc-#{version}.jar"} #{script} "$@"
+        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        exec "${JAVA_HOME}/bin/java" -classpath '#{libexec}/javacc.jar' #{script} "$@"
       SH
     end
   end
