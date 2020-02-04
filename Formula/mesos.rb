@@ -12,6 +12,7 @@ class Mesos < Formula
     sha256 "b58e9a2208f2f018c4e54cd573ff43494bf653a72dd5bde269a5f84301d7369c" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on :java => "1.8"
