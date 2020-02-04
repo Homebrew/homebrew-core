@@ -1,8 +1,8 @@
 class Coinutils < Formula
   desc "COIN-OR utilities"
   homepage "https://github.com/coin-or/CoinUtils"
-  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.3.tar.gz"
-  sha256 "7c4753816e765974941db75ec89f8855e56b86959f3a5f068fdf95b0003be61c"
+  url "https://github.com/coin-or/CoinUtils/archive/releases/2.11.4.tar.gz"
+  sha256 "d4effff4452e73356eed9f889efd9c44fe9cd68bd37b608a5ebb2c58bd45ef81"
 
   bottle do
     cellar :any
