@@ -4,23 +4,25 @@ class SolrAT77 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/7.7.2/solr-7.7.2.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz"
   sha256 "eb8ee4038f25364328355de3338e46961093e39166c9bcc28b5915ae491320df"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java
+  depends_on "openjdk"
 
   skip_clean "example/logs"
 
   def install
+    # Fix the classpath for the post tool
+    inreplace "bin/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
+
     bin.install %w[bin/solr bin/post bin/oom_solr.sh]
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
     pkgshare.install "bin/solr.in.sh"
     prefix.install %w[example server]
     libexec.install Dir["*"]
-
-    # Fix the classpath for the post tool
-    inreplace "#{bin}/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
 
     # Fix the paths in the sample solrconfig.xml files
     Dir.glob(["#{prefix}/example/**/solrconfig.xml",
