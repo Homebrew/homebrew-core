@@ -4,12 +4,13 @@ class TomcatAT7 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.100/bin/apache-tomcat-7.0.100.tar.gz"
   mirror "https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.100/bin/apache-tomcat-7.0.100.tar.gz"
   sha256 "3b8057cb9fd50ace772a0f92b247029fc848ed611d5cff9cb6ab832ffbb65272"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java
+  depends_on "openjdk"
 
   # Keep log folders
   skip_clean "libexec"
@@ -21,7 +22,7 @@ class TomcatAT7 < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   plist_options :manual => "catalina run"
