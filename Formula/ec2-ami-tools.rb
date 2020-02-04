@@ -3,13 +3,14 @@ class Ec2AmiTools < Formula
   homepage "https://aws.amazon.com/developertools/368"
   url "https://ec2-downloads.s3.amazonaws.com/ec2-ami-tools-1.5.7.zip"
   sha256 "5a45d9f393d2e144124d23d2312b3a8918c5a3f7463b48d55f8db3d56a3fb29f"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
-    env = Language::Java.java_home_env.merge(:EC2_AMITOOL_HOME => libexec)
+    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :EC2_AMITOOL_HOME => libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|
