@@ -3,10 +3,11 @@ class SonarqubeLts < Formula
   homepage "https://www.sonarqube.org/"
   url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.1.zip"
   sha256 "67f3ccae79245397480b0947d7a0b5661dc650b87f368b39365044ebcc88ada0"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   conflicts_with "sonarqube", :because => "both install the same binaries"
 
@@ -16,7 +17,7 @@ class SonarqubeLts < Formula
 
     libexec.install Dir["*"]
 
-    bin.install_symlink "#{libexec}/bin/macosx-universal-64/sonar.sh" => "sonar"
+    (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   plist_options :manual => "sonar console"
