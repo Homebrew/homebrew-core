@@ -4,6 +4,7 @@ class Mahout < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=mahout/0.13.0/apache-mahout-distribution-0.13.0.tar.gz"
   mirror "https://archive.apache.org/dist/mahout/0.13.0/apache-mahout-distribution-0.13.0.tar.gz"
   sha256 "87bdc86e16b5817d6b5a810b94d7389604887f7de9c680f34faaf0cbb8dabf6f"
+  revision 1
 
   head do
     url "https://github.com/apache/mahout.git"
@@ -13,9 +14,11 @@ class Mahout < Formula
   bottle :unneeded
 
   depends_on "hadoop"
-  depends_on :java
+  depends_on "openjdk"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+
     if build.head?
       chmod 755, "./bin"
       system "mvn", "-DskipTests", "clean", "install"
@@ -33,7 +36,7 @@ class Mahout < Formula
     end
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => ENV["JAVA_HOME"]
   end
 
   test do
