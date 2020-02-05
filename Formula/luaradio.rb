@@ -1,8 +1,8 @@
 class Luaradio < Formula
   desc "Lightweight, embeddable flow graph signal processing framework for SDR"
   homepage "https://luaradio.io/"
-  url "https://github.com/vsergeev/luaradio/archive/v0.5.1.tar.gz"
-  sha256 "723dce178594a6a9a64de6ba7929f04d5fd08d0c9ed57650b22993afdb1ebdf3"
+  url "https://github.com/vsergeev/luaradio/archive/v0.6.0.tar.gz"
+  sha256 "2d2a93948f2d6ed890409ca60e4845f9f3e3e81b81a6653377384060ad541190"
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Luaradio < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
+  depends_on "liquid-dsp"
   depends_on "luajit"
 
   def install
