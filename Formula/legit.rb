@@ -3,9 +3,8 @@ class Legit < Formula
 
   desc "Command-line interface for Git, optimized for workflow simplicity"
   homepage "https://frostming.github.io/legit/"
-  url "https://files.pythonhosted.org/packages/6b/65/819f84ef3caa4743c834122acb897df29167f6178c9c095d7896f2181387/legit-1.1.0.tar.gz"
-  sha256 "25bd3809d657c9b0bd45a6a230dc7f58a56e6e068159d471ffeadb0cf4677b4d"
-  revision 1
+  url "https://files.pythonhosted.org/packages/75/99/e17f2b4d1939e806091721949acc664de5ad36a32187cd3222107b002400/legit-1.2.0.tar.gz"
+  sha256 "2c78b97b5947d03d55160b36255dafd3c3f3b1994148519c09a5846db21af059"
   head "https://github.com/frostming/legit.git", :branch => "master"
 
   bottle do
