@@ -3,6 +3,7 @@ class Ant < Formula
   homepage "https://ant.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.7-bin.tar.xz"
   sha256 "925fa954d82b6edf5cfd51fc66659d6e02cf1a6a082c3c41fe83f604c2d17c02"
+  revision 1
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle :unneeded
