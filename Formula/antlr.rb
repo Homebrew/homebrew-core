@@ -3,6 +3,7 @@ class Antlr < Formula
   homepage "https://www.antlr.org/"
   url "https://www.antlr.org/download/antlr-4.8-complete.jar"
   sha256 "73a49d6810d903aa4827ee32126937b85d3bebec0a8e679b0dd963cbcc49ba5a"
+  revision 1
 
   bottle :unneeded
 
