@@ -3,6 +3,7 @@ class AmmoniteRepl < Formula
   homepage "https://lihaoyi.github.io/Ammonite/#Ammonite-REPL"
   url "https://github.com/lihaoyi/Ammonite/releases/download/2.0.4/2.13-2.0.4"
   sha256 "3ad1ccbf799c7b228ae61662bc46f11db84dee35bc56a1b9c89901306dc24039"
+  revision 1
 
   bottle :unneeded
 
