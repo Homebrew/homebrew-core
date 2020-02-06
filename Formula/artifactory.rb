@@ -3,6 +3,7 @@ class Artifactory < Formula
   homepage "https://www.jfrog.com/artifactory/"
   url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.17.0.zip"
   sha256 "eb68a3cdbed2bf23c340009eeb1f843d81cb1b548338cf23784ea141f28f4602"
+  revision 1
 
   bottle :unneeded
 
