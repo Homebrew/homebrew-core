@@ -3,6 +3,7 @@ class Faiss < Formula
   homepage "https://github.com/facebookresearch/faiss"
   url "https://github.com/facebookresearch/faiss/archive/v1.6.1.tar.gz"
   sha256 "827437c9a684fcb88ee21a8fd8f0ecd94f36e2db213f74357d0465c5a7e72ac6"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,22 +16,17 @@ class Faiss < Formula
 
   def install
     system "./configure", "--without-cuda",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
+                          "LIBS=-lomp"
     system "make"
     system "make", "install"
+    pkgshare.install "demos"
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
-      #include <faiss/IndexFlat.h>
-
-      int main()
-      {
-          faiss::IndexFlatL2 index(64);
-          return 0;
-      }
-    EOS
-    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lfaiss", "test.cpp", "-o", "test"
-    system "./test"
+    cp pkgshare/"demos/demo_imi_flat.cpp", testpath
+    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lfaiss", "demo_imi_flat.cpp", "-o", "test"
+    assert_match "Query results", shell_output("./test")
   end
 end
