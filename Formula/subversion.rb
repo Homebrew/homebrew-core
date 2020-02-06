@@ -4,7 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.13.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
   sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "138d0924e18d0994c2f50fefa8101e06573239a1937f972ee904bee0b84c79a3" => :catalina
@@ -20,7 +20,7 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
-  depends_on :java => ["1.8+", :build]
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig@3" => :build # https://issues.apache.org/jira/browse/SVN-4818
@@ -77,6 +77,7 @@ class Subversion < Formula
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
+      --with-jdk=#{Formula["openjdk"].opt_prefix}
       --with-ruby-sitedir=#{lib}/ruby
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
