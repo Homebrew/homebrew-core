@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
-  homepage "https://sourceforge.net/projects/opencubicplayer/"
-  url "https://downloads.sourceforge.net/project/opencubicplayer/ocp-0.1.21/ocp-0.1.21.tar.bz2"
-  sha256 "d88eeaed42902813869911e888971ab5acd86a56d03df0821b376f2ce11230bf"
+  homepage "https://stian.cubic.org/project-ocp.php"
+  url "https://stian.cubic.org/ocp/ocp-0.2.1.tar.bz2"
+  sha256 "238ed6547e4c96b775d93aa6e4252982a763f62ecd201f6312f041212edc1798"
 
   bottle do
     sha256 "0013bfd8ad47785121a86258607c5643f0cf21f961b6d3dbc43d9a2b8f984571" => :catalina
@@ -18,6 +18,17 @@ class Ocp < Formula
   depends_on "libvorbis"
   depends_on "mad"
 
+  # Fix duplicate symbol errors, remove in next release
+  # https://github.com/mywave82/opencubicplayer/issues/15
+  patch do
+    url "https://github.com/mywave82/opencubicplayer/commit/04368dc54e649050517fe3a058e919fb5fb5f150.diff?full_index=1"
+    sha256 "baf237701358a45c79fd9e31fec5ecf3c8087597b30e9846023ef2e76006bb58"
+  end
+  patch do
+    url "https://github.com/mywave82/opencubicplayer/commit/1907b8f85e3e5fa61a02ad0ca3ce9bd30bfc0ea6.diff?full_index=1"
+    sha256 "fc82d4d7f630885097efa2223bba4c941456f2d70e625b6721ca2e825fad2d43"
+  end
+
   def install
     ENV.deparallelize
 
@@ -25,6 +36,7 @@ class Ocp < Formula
       --prefix=#{prefix}
       --without-x11
       --without-sdl
+      --without-sdl2
       --without-desktop_file_install
     ]
 
