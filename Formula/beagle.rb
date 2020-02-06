@@ -3,6 +3,7 @@ class Beagle < Formula
   homepage "https://github.com/beagle-dev/beagle-lib"
   url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.2.tar.gz"
   sha256 "dd872b484a3a9f0bce369465e60ccf4e4c0cd7bd5ce41499415366019f236275"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,8 +16,8 @@ class Beagle < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "doxygen" => :build
-  depends_on :java => [:build, :test]
   depends_on "libtool" => :build
+  depends_on "openjdk" => [:build, :test]
 
   def install
     system "./autogen.sh"
@@ -42,7 +43,7 @@ class Beagle < Formula
     system ENV.cxx, "-I#{include}/libhmsbeagle-1",
            testpath/"test.cpp", "-o", "test"
     system "./test"
-    system "javac", "T.java"
-    system "java", "-Djava.library.path=#{lib}", "T"
+    system "#{Formula["openjdk"].bin}/javac", "T.java"
+    system "#{Formula["openjdk"].bin}/java", "-Djava.library.path=#{lib}", "T"
   end
 end
