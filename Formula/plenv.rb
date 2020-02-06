@@ -7,6 +7,8 @@ class Plenv < Formula
 
   bottle :unneeded
 
+  depends_on "perl-build"
+
   def install
     prefix.install "bin", "plenv.d", "completions", "libexec"
 
