@@ -15,6 +15,10 @@ class Aamath < Formula
     sha256 "0212e0b5844ea1a491bc7d4fcab2b590921042b28bc50e79c36cd9e15d08e2aa" => :mavericks
   end
 
+  uses_from_macos "bison" => :build # for yacc
+  uses_from_macos "flex" => :build
+  uses_from_macos "readline"
+
   # Fix build on clang; patch by Homebrew team
   # https://github.com/Homebrew/homebrew/issues/23872
   patch do
