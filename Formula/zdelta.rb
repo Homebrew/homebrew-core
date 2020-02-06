@@ -17,7 +17,7 @@ class Zdelta < Formula
   end
 
   def install
-    system "make", "test", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
+    system "make"
     system "make", "install", "prefix=#{prefix}"
     bin.install "zdc", "zdu"
   end
