@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.102.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.102.1.tar.gz"
-  sha256 "0dbda8d0d990d068732966f13049d112a26dce62145d234383467c1d877dedd6"
+  url "https://www.clamav.net/downloads/production/clamav-0.102.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/clamav-0.102.2.tar.gz"
+  sha256 "89fcdcc0eba329ca84d270df09d2bb89ae55f5024b0c3bddb817512fb2c907d3"
 
   bottle do
     sha256 "8240d37b0fa38f3728a57ce6b80e41e437e9501cdb07ea59e42ecc7ade8709d1" => :catalina
