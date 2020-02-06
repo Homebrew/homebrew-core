@@ -5,6 +5,7 @@ class Mlton < Formula
   version "20180207"
   sha256 "872cd98da3db720cbe05f673eaa1776d020d828713753f18fa5dd6a268195fef"
   head "https://github.com/MLton/mlton.git"
+  revision 1
 
   bottle do
     cellar :any
