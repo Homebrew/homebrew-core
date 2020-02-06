@@ -4,10 +4,11 @@ class Fop < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=/xmlgraphics/fop/binaries/fop-2.4-bin.tar.gz"
   mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.4-bin.tar.gz"
   sha256 "d97f7318ca1aab9937d68aa6ce2a00379d8d4a0b692515246c84d328a6bf4f0c"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on "openjdk"
 
   resource "hyph" do
     url "https://downloads.sourceforge.net/project/offo/offo-hyphenation-utf8/0.1/offo-hyphenation-fop-stable-utf8.zip"
@@ -20,7 +21,7 @@ class Fop < Formula
 
     executable = libexec/"fop/fop"
     executable.chmod 0555
-    bin.write_exec_script executable
+    (bin/"fop").write_env_script executable, :JAVA_HOME => Formula["openjdk"].opt_prefix
 
     resource("hyph").stage do
       (libexec/"build").install "fop-hyph.jar"
