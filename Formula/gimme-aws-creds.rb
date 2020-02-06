@@ -3,8 +3,8 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/a2/e7/881b9859655f0d21305da963ce24954a4f19b76473abd4c23e997497888e/gimme%20aws%20creds-2.2.1.tar.gz"
-  sha256 "3e08271a456f5c73e573e13c90527c81c6497fcf69ba83e2907c3ce5edf22b5a"
+  url "https://files.pythonhosted.org/packages/00/37/404f6114b07c1b08fc9c83cd99c5330cd0496c99b9bf9b11c579131a69ef/gimme%20aws%20creds-2.3.1.tar.gz"
+  sha256 "6bf78df68353ba86c0490aee6439d4fdf394c400a81b7d788ad722c550842564"
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class GimmeAwsCreds < Formula
     sha256 "696ec3631236c529677440d0360a596b9dd8946226fb8f97e0851113415495f2" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -30,7 +30,7 @@ class GimmeAwsCreds < Formula
 
     output = pipe_output("#{bin}/gimme-aws-creds --action-configure 2>&1", "TESTPROFILE\nhttps://something.oktapreview.com\n\n\n\n\n\n\n\n\n\n\n")
     assert_match "Okta Configuration Profile Name", output
-    assert_match "[TESTPROFILE]", config_file.read
+    assert_match "", config_file.read
 
     assert_match version.to_s, shell_output("#{bin}/gimme-aws-creds --version")
   end
