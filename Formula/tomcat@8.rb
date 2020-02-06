@@ -4,12 +4,13 @@ class TomcatAT8 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz"
   mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.51/bin/apache-tomcat-8.5.51.tar.gz"
   sha256 "836ecd816605e281636cae78c5b494ccaeb168c24f8266a72e9e704b2204affe"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -18,7 +19,7 @@ class TomcatAT8 < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   plist_options :manual => "catalina run"
