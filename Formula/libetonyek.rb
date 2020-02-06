@@ -18,6 +18,8 @@ class Libetonyek < Formula
   depends_on "librevenge"
   depends_on "mdds"
 
+  uses_from_macos "libxml2"
+
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.2.tar.bz2"
     sha256 "d6242790324f1432fb0a6fae71b6851f520b2c5a87675497cf8ea14c2924d52e"
