@@ -3,6 +3,7 @@ class Gmediaserver < Formula
   homepage "https://www.gnu.org/software/gmediaserver/"
   url "https://download.savannah.gnu.org/releases/gmediaserver/gmediaserver-0.13.0.tar.gz"
   sha256 "357030911bcce4ac9e47c2c9219b72e88705a8465899d4e0553bce540fb0fd12"
+  revision 1
 
   bottle do
     cellar :any
