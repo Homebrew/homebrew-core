@@ -3,10 +3,11 @@ class Frege < Formula
   homepage "https://github.com/Frege/frege/"
   url "https://github.com/Frege/frege/releases/download/3.24public/frege3.24.405.jar"
   sha256 "f5a6e40d1438a676de85620e3304ada4760878879e02dbb7c723164bd6087fc4"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
@@ -23,6 +24,6 @@ class Frege < Formula
           println (greeting "World")
     EOS
     system bin/"fregec", "-d", testpath, "test.fr"
-    system "java", "-Xss1m", "-cp", "#{testpath}:#{libexec}/frege#{version}.jar", "Hello"
+    system "#{Formula["openjdk"].bin}/java", "-Xss1m", "-cp", "#{testpath}:#{libexec}/frege#{version}.jar", "Hello"
   end
 end
