@@ -3,6 +3,7 @@ class Djmount < Formula
   homepage "https://djmount.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/djmount/djmount/0.71/djmount-0.71.tar.gz"
   sha256 "aa5bb482af4cbd42695a7e396043d47b53d075ac2f6aa18a8f8e11383c030e4f"
+  revision 1
 
   bottle do
     cellar :any
