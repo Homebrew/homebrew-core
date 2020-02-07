@@ -15,6 +15,9 @@ class Cayley < Formula
 
   depends_on "go" => :build
 
+  CONFIGURATION_FILE = "cayley.json"
+  LOG_FILE = "cayley.log"
+
   def install
     # Set up environment variables
     ENV["GOPATH"] = buildpath
@@ -25,23 +28,20 @@ class Cayley < Formula
 
     cd dir do
       source_configuration_file = "configurations/persisted.json"
-      configuration_file = "cayley.json"
       version_flag = "github.com/cayleygraph/cayley/version.Version"
       git_revision_flag = "github.com/cayleygraph/cayley/version.GitHash"
       db_default_path = "data/cayley.db"
-      log_file=var/"log"/"cayley.log"
-      base_path = var/"cayley"
-      db_path = base_path/"cayley.db"
+      db_path = var/"cayley"/"cayley.db"
       
       commit = Utils.popen_read("git rev-parse --short=12 HEAD").chomp
 
       ldflags = "-s -w -X #{version_flag}=#{version} -X #{git_revision_flag}=#{commit}"
 
       # Download dependencies
-      system "go" "mod" "download"
+      system "go", "mod", "download"
       
       # Download UI
-      system "go" "run" "cmd/download_ui/download_ui.go"
+      system "go", "run", "cmd/download_ui/download_ui.go"
 
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
       system "packr2"
@@ -50,20 +50,21 @@ class Cayley < Formula
       system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags, ".../cmd/cayley"
 
       inreplace source_configuration_file, db_default_path, db_path
-      etc.install source_configuration_file => configuration_file
+      etc.install source_configuration_file => CONFIGURATION_FILE
     end
   end
 
   def post_install
+    base_path = var/"cayley"
     unless File.exist? base_path
       (base_path).mkpath
 
       # Initialize the database
-      system bin/"cayley", "init", "--config=#{etc}/#{configuration_file}"
+      system bin/"cayley", "init", "--config=#{etc}/#{CONFIGURATION_FILE}"
     end
   end
 
-  plist_options :manual => "cayley http --config=#{HOMEBREW_PREFIX}/etc/#{configuration_file}"
+  plist_options :manual => "cayley http --config=#{HOMEBREW_PREFIX}/etc/#{CONFIGURATION_FILE}"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -81,16 +82,16 @@ class Cayley < Formula
         <array>
           <string>#{opt_bin}/cayley</string>
           <string>http</string>
-          <string>--config=#{etc}/#{configuration_file}</string>
+          <string>--config=#{etc}/#{CONFIGURATION_FILE}</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{base_path}</string>
+        <string>#{var}/cayley</string>
         <key>StandardErrorPath</key>
-        <string>#{log_file}</string>
+        <string>#{var}/log/#{LOG_FILE}</string>
         <key>StandardOutPath</key>
-        <string>#{log_file}</string>
+        <string>#{var}/log/#{LOG_FILE}</string>
       </dict>
     </plist>
   EOS
