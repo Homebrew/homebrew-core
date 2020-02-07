@@ -1,9 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.15.1/apache-arrow-0.15.1.tar.gz"
-  sha256 "9a2c58c72310eafebb4997244cbeeb8c26696320d0ae3eb3e8512f75ef856fc9"
-  revision 3
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.16.0/apache-arrow-0.16.0.tar.gz"
+  sha256 "261992de4029a1593195ff4000501503bd403146471b3168bd2cc414ad0fb7f5"
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -13,12 +12,9 @@ class ApacheArrow < Formula
     sha256 "dc8780d6c8ad035d830c70917e4be9830aa01fc88b4a4a90cb07136bbaac56d2" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "brotli"
-  depends_on "double-conversion"
-  depends_on "flatbuffers"
   depends_on "glog"
   depends_on "grpc"
   depends_on "lz4"
@@ -35,12 +31,18 @@ class ApacheArrow < Formula
     ENV.cxx11
     args = %W[
       -DARROW_FLIGHT=ON
+      -DARROW_JEMALLOC=OFF
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
-      -DARROW_JEMALLOC=OFF
+      -DARROW_WITH_BZ2=ON
+      -DARROW_WITH_ZLIB=ON
+      -DARROW_WITH_ZSTD=ON
+      -DARROW_WITH_LZ4=ON
+      -DARROW_WITH_SNAPPY=ON
+      -DARROW_WITH_BROTLI=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
     ]
