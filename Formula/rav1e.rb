@@ -1,8 +1,8 @@
 class Rav1e < Formula
   desc "The fastest and safest AV1 encoder"
   homepage "https://github.com/xiph/rav1e"
-  url "https://github.com/xiph/rav1e/archive/v0.2.1.tar.gz"
-  sha256 "6bb57bd744516aec2e11cb7076538694a44e5bf628d3d91a935dd8e3ee5a7ff6"
+  url "https://github.com/xiph/rav1e/archive/v0.3.0.tar.gz"
+  sha256 "6f51888eb0d3710f4f8c519a2a8b859a88019e0c335efc6abf7f940abc8dc57b"
 
   bottle do
     cellar :any
