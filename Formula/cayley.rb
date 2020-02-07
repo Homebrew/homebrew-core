@@ -7,8 +7,6 @@ class Cayley < Formula
   version "0.7.7"
   sha256 "37ef9043cb20aeffa93d57f360fdee3e0c9d1b2fa8d404a00f3bff1b58937206"
 
-  sha256 "37ef9043cb20aeffa93d57f360fdee3e0c9d1b2fa8d404a00f3bff1b58937206"
-
   bottle do
     cellar :any_skip_relocation
     sha256 "e647be34623b1a8d635df7508f09111dfd8eb6f368a6979f9c5619b016beda8c" => :mojave
