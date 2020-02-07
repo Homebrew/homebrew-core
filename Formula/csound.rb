@@ -3,6 +3,7 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
   sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
+  revision 1
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
@@ -21,12 +22,12 @@ class Csound < Formula
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
-  depends_on :java
   depends_on "liblo"
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
+  depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "stk"
@@ -51,6 +52,8 @@ class Csound < Formula
   end
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
@@ -150,7 +153,7 @@ class Csound < Formula
           }
       }
     EOS
-    system "javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
-    system "java", "-classpath", "#{libexec}/csnd6.jar:.", "-Djava.library.path=#{libexec}", "test"
+    system "#{Formula["openjdk"].bin}/javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
+    system "#{Formula["openjdk"].bin}/java", "-classpath", "#{libexec}/csnd6.jar:.", "-Djava.library.path=#{libexec}", "test"
   end
 end
