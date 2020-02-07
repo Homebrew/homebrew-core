@@ -39,9 +39,6 @@ class Cayley < Formula
 
       # Download dependencies
       system "go", "mod", "download"
-      
-      # Download UI
-      system "go", "run", "./cmd/download_ui/download_ui.go"
 
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
       system "packr2"
