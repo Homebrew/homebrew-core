@@ -2,8 +2,8 @@ class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
   url "https://github.com/ssh-vault/ssh-vault.git",
-      :tag      => "0.12.5",
-      :revision => "a72db6da6b949f6adbfd82e1f44c4e12e17d0970"
+      :tag      => "0.12.6",
+      :revision => "7296095220586d5dc46554444b2e23aba164066c"
   head "https://github.com/ssh-vault/ssh-vault.git"
 
   bottle do
