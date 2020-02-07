@@ -21,6 +21,16 @@ class Asdf < Formula
 
   def install
     bash_completion.install "completions/asdf.bash"
+    zsh_completion.mkpath
+    cp "#{bash_completion}/asdf.bash", zsh_completion
+    (zsh_completion/"_asdf").write <<~EOS
+      #compdef asdf
+      _asdf () {
+        local e
+        e=$(dirname ${funcsourcetrace[1]%:*})/asdf.bash
+        if [[ -f $e ]]; then source $e; fi
+      }
+    EOS
     fish_completion.install "completions/asdf.fish"
     libexec.install "bin/private"
     prefix.install Dir["*"]
