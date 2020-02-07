@@ -92,7 +92,6 @@ class Cayley < Formula
       </dict>
     </plist>
   EOS
-    bin.install "cayley"
   end
 
   test do
