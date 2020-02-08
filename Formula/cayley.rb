@@ -16,7 +16,11 @@ class Cayley < Formula
   depends_on "gobuffalo/tap/packr" => :build
 
   CONFIGURATION_FILE = "cayley.json"
+  CONFIGURATION_FILE.freeze
+
   LOG_FILE = "cayley.log"
+  LOG_FILE.freeze
+
 
   def install
     # Set up environment variables
@@ -25,7 +29,6 @@ class Cayley < Formula
     # Define directories
     dir = buildpath/"src/github.com/cayleygraph/cayley"
     dir.install buildpath.children
-
     cd dir do
       source_configuration_file = "configurations/persisted.json"
       version_flag = "github.com/cayleygraph/cayley/version.Version"
@@ -54,7 +57,7 @@ class Cayley < Formula
   def post_install
     base_path = var/"cayley"
     unless File.exist? base_path
-      (base_path).mkpath
+      base_path.mkpath
 
       # Initialize the database
       system bin/"cayley", "init", "--config=#{etc}/#{CONFIGURATION_FILE}"
