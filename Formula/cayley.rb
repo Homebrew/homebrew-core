@@ -23,9 +23,6 @@ class Cayley < Formula
 
 
   def install
-    # Set up environment variables
-    ENV["GOPATH"] = buildpath
-
     # Define directories
     dir = buildpath/"src/github.com/cayleygraph/cayley"
     dir.install buildpath.children
