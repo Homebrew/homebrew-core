@@ -36,6 +36,15 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
+  uses_from_macos "expat"
+  uses_from_macos "krb5"
+  uses_from_macos "libmagic"
+  uses_from_macos "libtool"
+  uses_from_macos "python@2"
+  uses_from_macos "ruby"
+  uses_from_macos "util-linux"
+  uses_from_macos "zlib"
+
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
