@@ -16,9 +16,22 @@ class Ptex < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "zlib"
+
+  resource "wtest" do
+    url "https://raw.githubusercontent.com/wdas/ptex/v2.3.2/src/tests/wtest.cpp"
+    sha256 "95c78f97421eac034401b579037b7ba4536a96f4b356f8f1bb1e87b9db752444"
+  end
+
   def install
     system "make", "prefix=#{prefix}"
-    system "make", "test"
     system "make", "install"
+  end
+
+  test do
+    resource("wtest").stage testpath
+    system ENV.cxx, "wtest.cpp", "-o", "wtest", "-L#{opt_lib}", "-lptex"
+    system "./wtest"
+    system "#{bin}/ptxinfo", "-c", "test.ptx"
   end
 end
