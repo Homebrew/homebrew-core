@@ -13,6 +13,7 @@ class Cayley < Formula
   end
 
   depends_on "go" => :build
+  depends_on "gobuffalo/tap/packr" => :build
 
   CONFIGURATION_FILE = "cayley.json"
   LOG_FILE = "cayley.log"
@@ -40,7 +41,7 @@ class Cayley < Formula
       system "go", "get", "-u", "github.com/gobuffalo/packr/v2/packr2"
 
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
-      system "#{buildpath}/bin/packr2"
+      system "packr2"
 
       # Build the binary
       system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags, "./cmd/cayley"
