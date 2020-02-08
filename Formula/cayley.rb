@@ -4,7 +4,6 @@ class Cayley < Formula
   url "https://github.com/cayleygraph/cayley.git",
     :tag      => "v0.7.7",
     :revision => "dcf764fef381f19ee49fad186b4e00024709f148"
-  version "0.7.7"
   sha256 "37ef9043cb20aeffa93d57f360fdee3e0c9d1b2fa8d404a00f3bff1b58937206"
 
   bottle do
