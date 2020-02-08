@@ -40,9 +40,6 @@ class Cayley < Formula
 
       ldflags = "-s -w -X #{version_flag}=#{version} -X #{git_revision_flag}=#{commit}"
 
-      # Install packr2
-      system "go", "get", "-u", "github.com/gobuffalo/packr/v2/packr2"
-
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
       system "packr2"
 
