@@ -1,8 +1,8 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2"
-  sha256 "babd98437208c163175c29453f8681094bcaf92968a15cafb1a276076b33c97c"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.37.tar.bz2"
+  sha256 "b32d6ff72a73cf79797f7f2d039e95e9c6f92f0c1450215410840ab62aea9763"
 
   bottle do
     sha256 "36dbd30d1702f91f9197b0987587767838a118f3fd88f579303247b752b15740" => :catalina
