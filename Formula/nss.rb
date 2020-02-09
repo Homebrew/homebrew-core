@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_49_2_RTM/src/nss-3.49.2.tar.gz"
-  sha256 "faa7502c3ce9240d4be2aa88f63d88cf7d1cc512060e63ef21a7813c236160b2"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_50_RTM/src/nss-3.50.tar.gz"
+  sha256 "185df319775243f5f5daa9d49b7f9cc5f2b389435be3247c3376579bee063ba7"
 
   bottle do
     cellar :any
