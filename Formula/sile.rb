@@ -1,15 +1,15 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.0/sile-0.10.0.tar.bz2"
-  sha256 "b0353b88793d68bf3e800f87bff51e8161ce39d250e22dff11385712caf332b6"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.1/sile-0.10.1.tar.bz2"
+  sha256 "a5ec924bfe8a629ec4b4d09754d822cab1cf48d28bc6ce649faa5c597a108666"
 
   head "https://github.com/sile-typesetter/sile.git"
 
   bottle do
-    sha256 "13efad60330ea32f48868bfade15cdb17444f33808076b6083135b7c8f78f89f" => :catalina
-    sha256 "78a599ac1ec982a6c45e644deab0b2543d7c3eaa4f05d4123f9b5dff4cbc4307" => :mojave
-    sha256 "3198d02481bc558ab451d8cb49c723f3d5afc18d1abe6a3a91c40f34251ef912" => :high_sierra
+    sha256 "f2fdd492e9272036fe2d35636d245a1ea05a0beebbb3a0a6b9b4019f36def3f3" => :catalina
+    sha256 "ca6e60229ac5f6a6a9e0554c5fb1d2aecc3807556ae7b57943602cfc05061b20" => :mojave
+    sha256 "d3b337dfa79cb2179426687064fb4eb5cc80cbc345ba6acdf0e885abd1360aa9" => :high_sierra
   end
 
   if build.head?

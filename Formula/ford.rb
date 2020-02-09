@@ -19,6 +19,9 @@ class Ford < Formula
   depends_on "graphviz"
   depends_on "python"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/fa/8d/1d14391fdaed5abada4e0f63543fef49b8331a34ca60c88bd521bcf7f782/beautifulsoup4-4.6.0.tar.gz"
     sha256 "808b6ac932dccb0a4126558f7dfdcf41710dd44a4ef497a0bb59a77f9f078e89"

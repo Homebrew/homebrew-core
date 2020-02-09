@@ -1,15 +1,14 @@
 class Clp < Formula
   desc "Linear programming solver"
   homepage "https://github.com/coin-or/Clp"
-  url "https://github.com/coin-or/Clp/archive/releases/1.17.3.tar.gz"
-  sha256 "25f0692fe1daa492e7801770af6991506ae9a8c34a4cae358d017400a02dfcf8"
+  url "https://github.com/coin-or/Clp/archive/releases/1.17.5.tar.gz"
+  sha256 "7e2856ef7cab4bc1a439756cf101d5184a7af09d2921452a22a459ac8f949b7b"
 
   bottle do
     cellar :any
-    sha256 "8fbdf09232ec254499190aa1ded5d7b1ef9afceee52152d06015e372693e0f0f" => :catalina
-    sha256 "47405e6eaa81067d591c0b71bf2eca12e8e3452e74f4038142c5c79955924913" => :mojave
-    sha256 "a4e37c5c28ccc68d31609142021b79f3ae6e88279a9cef7380e05c13fdfc3042" => :high_sierra
-    sha256 "9ad0b39ec4c454bb43433099dcceb152a29418d5d33a4b8049155b4861940979" => :sierra
+    sha256 "d1a33cab0f8dcf831ac90298ed32f654c421c050cdd896ae1fb668b918c3a2de" => :catalina
+    sha256 "289e8a0a562e795ef4c88395ea41098d62965f474249839bd53c8aa7f14f4ef8" => :mojave
+    sha256 "26e2a26ff6c1212ca867fd41bfb827969e414e540b5bbe2f28a034ea9e32293b" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]

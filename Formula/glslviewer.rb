@@ -1,17 +1,15 @@
 class Glslviewer < Formula
   desc "Live-coding console tool that renders GLSL Shaders"
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
-  url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.5.5.tar.gz"
-  sha256 "28a784d701294fd335031ab293c5f4764a498f84714b1ae677dbc4e05ed94b23"
+  url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.6.0.tar.gz"
+  sha256 "9235fefc41130ad4088c50c76a1f246069fe4986e42df972e352549d16d935b7"
   head "https://github.com/patriciogonzalezvivo/glslViewer.git"
 
   bottle do
     cellar :any
-    sha256 "81841fc4594a7e06444a0ace80d8ad8c7ea3738325d86e968ba844bc27c8d085" => :catalina
-    sha256 "e39a6cd0133d664e812e5148d01a7da705d23253548cb7cd0bae58324f7757b8" => :mojave
-    sha256 "79145bf1417520ea637f08bc4b1cc3071f2cef6404ddec54fea7df701860eece" => :high_sierra
-    sha256 "c81f27a48b0fbbca9e091d76893d9e9e6064e25c5febce922b800318cb1bf1e8" => :sierra
-    sha256 "48f30017a20bbbe4835dfcba05f64b992ffd6a30e95f8f6676ab7ffd87077749" => :el_capitan
+    sha256 "4df521fbbc143343c32dd68f743f337954063f0852dcab3aa75a08a8b8be3509" => :catalina
+    sha256 "c15fc78aa3d9ec10dadabac7e2d240c6b05bfee77d0248c7c05f8ffea06ec971" => :mojave
+    sha256 "c1bc3d4aaaba644a4c825c090d0aa2987ae243c78f7e931c99ef6631d6f81cbc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

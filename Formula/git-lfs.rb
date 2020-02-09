@@ -1,15 +1,14 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/releases/download/v2.9.2/git-lfs-v2.9.2.tar.gz"
-  sha256 "77358e12545415a6716b1e0228540f0e90619f1738dfe114cd3e5c30d43ffffd"
+  url "https://github.com/git-lfs/git-lfs/releases/download/v2.10.0/git-lfs-v2.10.0.tar.gz"
+  sha256 "07fd5c57a1039d5717dc192affbe3268ec2fd03accdca462cb504c0b4194cd23"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2c6e5fac4c30b021c7b193e4e324df245e67caff2f6f8eaf59b7170475e95825" => :catalina
-    sha256 "dc6d138b8add71ea2cc9b6dc18401fac9e832afcaf4d267b7494615bc52e59fe" => :mojave
-    sha256 "ef1874b898390008d6eb1b257d3d04d54ce5c89b9431e25b036a83588ed01fd5" => :high_sierra
+    sha256 "8fec7d8b8ad7c3332bfa1862dd8615712dab8315a9128ed8b5609fa1659431e7" => :catalina
+    sha256 "3c5bcef656ca742c6697b952c9f7c483c1fad046f52136dbe9ee0f16f44835c4" => :mojave
+    sha256 "ed0d8f1271d9d81a2c22622023c260ef040f2172e75357893ef54134bc6eedff" => :high_sierra
   end
 
   depends_on "go" => :build

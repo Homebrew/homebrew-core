@@ -1,14 +1,14 @@
 class InteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
-  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.2.0.tar.gz"
-  sha256 "0dc328575d03fb160f0222d594ab26b540aa257c8be41f5d6ba854bd5876a171"
+  url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.2.1.tar.gz"
+  sha256 "8df32f209d481580c3365a065882e40343ecc42d9e4ed593838092bb6746a197"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c39969f4e0f4d322317e4e9ce4338c376374178858ae0e2bf47322fea9b5768" => :catalina
-    sha256 "d5906a9f52376adc5c3ea5a48431f2928451bd801dc1bf6a89bd5f603de08e82" => :mojave
-    sha256 "0228140f6c111c0982983757373b55bd4ebdda48dc6eb142a1b22585a66e1277" => :high_sierra
+    sha256 "2a8d8d62c2b236884b25b0c43bfda93365501a80f807cabb071c7a682a2ea86b" => :catalina
+    sha256 "5be78d2011eb211939a6d4632f279477315c0bffd321c1aa303910756e966a48" => :mojave
+    sha256 "d28ef2f9af69ce2374eae1ad39591a575b5bc743e208b2cb023b8b432a4a231c" => :high_sierra
   end
 
   depends_on "rust" => :build

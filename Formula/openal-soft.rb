@@ -1,15 +1,15 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "https://openal-soft.org/"
-  url "https://openal-soft.org/openal-releases/openal-soft-1.20.0.tar.bz2"
-  sha256 "c089497922b454baf96d5e4bbc1a114cf75c56b44801edc48b9b82ab5ed1e60e"
+  url "https://openal-soft.org/openal-releases/openal-soft-1.20.1.tar.bz2"
+  sha256 "b6ceb051325732c23f5c8b6d37dbd89534517e6439a87e970882b447c3025d6d"
   head "https://github.com/kcat/openal-soft.git"
 
   bottle do
     cellar :any
-    sha256 "c4015ea65c1201e6aceae1cab1adb1eaf383d5fd814d5a752e2c0d5370ea8049" => :catalina
-    sha256 "cdcc313243d0469df2d0742c70abfbcb7b3473f15c9cacb33e131baa241b6e71" => :mojave
-    sha256 "8172415cd85b7341b8316b55465cafd06e29d1edf7d9c91b58ca761520e06d64" => :high_sierra
+    sha256 "b62337bb563eaaacec777b6861de4b6ba1d33ad8e19418b4b5a0cdfb37473fcf" => :catalina
+    sha256 "f6448e18550e62cd283bebe24e98f6253c5c18758aeb7c44f3816f1840082b25" => :mojave
+    sha256 "26dbb8819cd991e4a901f3f90f0cc2339c9e4220330329dcf7caa37b14d048d7" => :high_sierra
   end
 
   keg_only :provided_by_macos, "macOS provides OpenAL.framework"

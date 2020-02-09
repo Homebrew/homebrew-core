@@ -3,6 +3,7 @@ class Apollo < Formula
   homepage "https://activemq.apache.org/apollo"
   url "https://archive.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
   sha256 "74577339a1843995a5128d14c68b21fb8f229d80d8ce1341dd3134f250ab689d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Apollo < Formula
     sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :yosemite
   end
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
   resource "bdb-je" do
@@ -37,12 +38,12 @@ class Apollo < Formula
     (libexec/"lib").install resource("bdb-je")
     (libexec/"lib").install resource("mqtt")
 
-    (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.java_home_env
+    (bin/"apollo").write_env_script libexec/"bin/apollo", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   def caveats; <<~EOS
     To create the broker:
-        #{bin}/apollo create #{var}/apollo
+      #{bin}/apollo create #{var}/apollo
   EOS
   end
 

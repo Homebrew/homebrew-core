@@ -1,14 +1,14 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.0.tar.gz"
-  sha256 "8a3f81ea94fa6ffddf751b65cd2443c76defb5b773544c253af43b0e4e029376"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.1.tar.gz"
+  sha256 "b6b5dd0fbf01b1a85293dca7b2d5ece256f1ef51b7a49f388d4d870840d0bd03"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb8de66e60b0f0e35ecab6053b2332109c0ab22d4eb0b43d15ea5d518098faef" => :catalina
-    sha256 "38443e6785c43eec7c076253d61e7b9cd7877fed0d788944b022e4d1e1a7722b" => :mojave
-    sha256 "f0c67ad2a82c2fb63f8f73c6be85cb12f0ee0937c3b24b9ecad13b98f3515929" => :high_sierra
+    sha256 "4d59f01cc470c56b285b35eddd9e70652435760ced2b5b2d7c47fdce3638c9fa" => :catalina
+    sha256 "3506a2c0d76517cc6aea1ac7c5de1c20c9bc49f2c1834cce609ab449274bf55f" => :mojave
+    sha256 "25d63c0b1dc812d8a657b3548952cfdc8c2147d44b3b818d4bb5a693300d2a39" => :high_sierra
   end
 
   resource "Module::Build" do
@@ -44,8 +44,8 @@ class Rex < Formula
   end
 
   resource "ExtUtils::MakeMaker" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.43_01.tar.gz"
-    sha256 "5c6eb20bf3b2222fad50b682886831069ebda9604dbed54a2193e8252c7a6a39"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.44.tar.gz"
+    sha256 "52a18f8271250faf5f3527499dd2b78d3b4fd3b064408d0cfdda9a3538887188"
   end
 
   resource "File::Listing" do

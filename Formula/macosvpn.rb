@@ -1,13 +1,13 @@
 class Macosvpn < Formula
   desc "Create Mac OS VPNs programmatically"
   homepage "https://github.com/halo/macosvpn"
-  url "https://github.com/halo/macosvpn/archive/1.0.1.tar.gz"
-  sha256 "85f5051512e7b403980e40eea96cc4dc21205379ea89a2dfd4e5aed19f5f25ca"
+  url "https://github.com/halo/macosvpn/archive/1.0.2.tar.gz"
+  sha256 "bcc1ddb7714c1c0030f1cf97c581dd03b30b189ffc33fd1f805dd9d0bd3e0363"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c9ee75909444d54b186d2318bcc18f9b85fab80b827d69565635e8ba09b3c58" => :catalina
-    sha256 "f6ecbd3448ed2465b0362d42c6dc61e2c37cfd1f0d83bf57436c88d767add73b" => :mojave
+    sha256 "8a2d3103fe6c5c674b9180af8c1c0e15e0583874a3986e84ac3a29cc76227329" => :catalina
+    sha256 "e31d705b812175220fef63839c6310ae3ee28e2e8d61dc04bdb2972dd970f513" => :mojave
   end
 
   depends_on :xcode => ["11.1", :build]

@@ -1,15 +1,15 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.30.0/deno_src.tar.gz"
-  version "0.30.0"
-  sha256 "34fed174ed48b556f57d9727c7ee429518a8dd4c06993d51767039745ca1e6d5"
+  url "https://github.com/denoland/deno/releases/download/v0.32.0/deno_src.tar.gz"
+  version "0.32.0"
+  sha256 "a76ae60403b93508510bfe9f496e8775c5742cb2af0af673b1a029df39a07e53"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cde94edda76a7d39ce8c1bbef540a1c9d09ad7f5cb8fa99030726a5ed9df108d" => :catalina
-    sha256 "1790d5321ec0bbe25b1104ca9248a363ffd54bc2de382235a2ab172ee0b39556" => :mojave
-    sha256 "9cce02d01848dc36dae9dc1b48c661979b01949a6f8e4b18c623e9a7a8021302" => :high_sierra
+    sha256 "ab97d241ed0a588f2297dd2d83bf95144868406daec44c16214a597be6a6dc1c" => :catalina
+    sha256 "affaf68bddc2434f219244fd556b1dfc6380570872ec15f4b5e81fc3a8c444f7" => :mojave
+    sha256 "28b955127900481160fdf16a5a76c8bdc9932d750ef9f1b4209d93a10d7f685f" => :high_sierra
   end
 
   depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100

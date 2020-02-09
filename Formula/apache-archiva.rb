@@ -3,15 +3,15 @@ class ApacheArchiva < Formula
   homepage "https://archiva.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=archiva/2.2.4/binaries/apache-archiva-2.2.4-bin.tar.gz"
   sha256 "ad099c451529d566db8b5ad6cf2d8bafc6aa2cc3d225c39fd374cad420a6643c"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-
-    bin.install_symlink libexec/"bin/archiva"
+    (bin/"archiva").write_env_script libexec/"bin/archiva", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   def post_install

@@ -7,7 +7,6 @@
 # - opam
 #
 # Applications that really shouldn't break on a compiler update are:
-# - mldonkey
 # - coq
 # - coccinelle
 # - unison

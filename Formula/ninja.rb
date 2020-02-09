@@ -1,16 +1,15 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/v1.9.0.tar.gz"
-  sha256 "5d7ec75828f8d3fd1a0c2f31b5b0cea780cdfe1031359228c428c1a48bfcd5b9"
+  url "https://github.com/ninja-build/ninja/archive/v1.10.0.tar.gz"
+  sha256 "3810318b08489435f8efc19c05525e80a993af5a55baa0dfeae0465a9d45f99f"
   head "https://github.com/ninja-build/ninja.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9cfd9fe284e4c4eda7bda2a7a5c3970b22775df472a57e7aafea12a36b69357f" => :catalina
-    sha256 "d3f825237b23175d46ed02f492df8297968f3ce45f328362f167caf962323c98" => :mojave
-    sha256 "c6057431959eb3117f5eca1bb62d2403d189f3091f2cacaef89c9696b2ecec39" => :high_sierra
-    sha256 "dc8bba938426720e0f4f2158b882f331737059919cf46ff59fcb786261b8ea8c" => :sierra
+    sha256 "b536415ef20ab14e808ef3fe558bbcd4c86de048d7e47cc86906fed4e1507fdc" => :catalina
+    sha256 "07c7d5eab06643969950a168b7a4ce34a39d236869e909942294eb136dfe3063" => :mojave
+    sha256 "e413c88eed509424d118a0b61b7b3c63535fc7c8c92cd336322db7a8af9cf6e0" => :high_sierra
   end
 
   def install

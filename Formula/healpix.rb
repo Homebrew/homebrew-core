@@ -4,13 +4,13 @@ class Healpix < Formula
   url "https://downloads.sourceforge.net/project/healpix/Healpix_3.50/Healpix_3.50_2018Dec10.tar.gz"
   version "3.50"
   sha256 "ec9378888ef8365f9a83fa82e3ef3b4e411ed6a63aca33b74a6917c05334bf4f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "bbdffcc18f74787a48b54de7f3670515f7f2291feaf9b5e03ac2cdb6cbec6381" => :catalina
-    sha256 "7d494b528ed28e6df329d22ba3d14e307b5e7c897af3f2219c30bffbf638c956" => :mojave
-    sha256 "76f44151520341f299560a7836b743bf5285f6e900c5ee8bb69f69777875740e" => :high_sierra
-    sha256 "dd1261e0aedf5b2b180011999223b14edda14564c73a274af75642c4073e330a" => :sierra
+    sha256 "15b3b3d37de957c018e56ccfdc87c5d44cbb658b3d197f90b660b194f44d7b54" => :catalina
+    sha256 "2c255d6791ca868a7a6568f609bcf7d9e52350dafa615ecabad0adb924863c34" => :mojave
+    sha256 "5a1d7d01df7445395df8475a2cb2c2e7d5200c73a3702f57109566a7f8698fa3" => :high_sierra
   end
 
   depends_on "autoconf" => :build

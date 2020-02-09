@@ -3,14 +3,15 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://launchpad.net/duplicity/0.8-series/0.8.09/+download/duplicity-0.8.09.tar.gz"
-  sha256 "4e10c6fa5cc02592c9fe1f318b27b66242a2e74c03c2149b9b9b9365acebd105"
+  url "https://launchpad.net/duplicity/0.8-series/0.8.10/+download/duplicity-0.8.10fin1558.tar.gz"
+  version "0.8.10"
+  sha256 "b08295b7e8d321dd3459465d28fb190c9653d849be7ab13b1f9d09d6b6aa578d"
 
   bottle do
     cellar :any
-    sha256 "6005d6d49078a2931f52a8c9d0a0b8f783ab49fd7f3deed2a935958686da589a" => :catalina
-    sha256 "ce07220381fffd14c37749c4f44760a4e60d9fe3d576f01f05260d00474a5c3c" => :mojave
-    sha256 "bf9e84145ce1870c62de83025263fee17e8f3cefcca33a5766100e81c0c44642" => :high_sierra
+    sha256 "33a3f42210f3f2e097de4b4327aba56d680f8216fc30e1215f25a9ae203098c2" => :catalina
+    sha256 "c2166c31bb0e00cfc94bc7ff85888496252dc7fc1722fd2ed6eefe2826d8b8b0" => :mojave
+    sha256 "67342c8edd808f5287d354472ddbaa5c03115e2615963bc224c55bcf2572d235" => :high_sierra
   end
 
   depends_on "gnupg"

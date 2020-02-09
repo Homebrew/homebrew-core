@@ -1,18 +1,24 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.5.20.tar.gz"
-  sha256 "cfd7b023a9cefe7ae8a67184f51d841dbbf97994ed0e8a55e31ee092320ea1e4"
+  url "https://www.memcached.org/files/memcached-1.5.22.tar.gz"
+  sha256 "c2b47e9d20575a2367087c229636ffc3fb699a6c3a7f3a22f44402f25f5f1f93"
+  head "https://github.com/memcached/memcached.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a03608101a7aa55a32ef05d945e852bfc22cbd4647c5a6d41d7957c022489e02" => :catalina
-    sha256 "cca9f385ec7477a12f787aec8cb0da8a58f83c170e8ded061cbbdff75e158ccf" => :mojave
-    sha256 "893bc856ebe459590a08c6acf9ad863d850413de804ddac8b65d1262c5dc2467" => :high_sierra
+    sha256 "c06d96884f09dc8ff4c1d6bed20366db116b4c3b837c7bd5d294d831848af454" => :catalina
+    sha256 "f041a91c262c14161be71a27e47b7b37d837e27fbb2f16ad38036ff3481fd14c" => :mojave
+    sha256 "2fee77cf1c8777a1c6c1eb64086bca30a6ae684b7ec4bfbb41f107c24de8b2c8" => :high_sierra
   end
 
   depends_on "libevent"
+
+  # fix for https://github.com/memcached/memcached/issues/598, included in next version
+  patch do
+    url "https://github.com/memcached/memcached/commit/7e3a2991.diff?full_index=1"
+    sha256 "063a2d91f863c4c6139ff5f0355bd880aca89b6da813515e0f0d11d9295189b4"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-coverage", "--enable-tls"

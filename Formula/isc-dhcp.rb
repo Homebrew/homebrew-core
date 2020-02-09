@@ -1,15 +1,13 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
   homepage "https://www.isc.org/software/dhcp"
-  url "https://ftp.isc.org/isc/dhcp/4.4.1/dhcp-4.4.1.tar.gz"
-  sha256 "2a22508922ab367b4af4664a0472dc220cc9603482cf3c16d9aff14f3a76b608"
+  url "https://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz"
+  sha256 "1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521"
 
   bottle do
-    sha256 "d210dbeb3f76fbad9f2023b80f18090e513a41f62b14ce4e60017cc3209c5193" => :catalina
-    sha256 "d9961821503dd2dbd1e81001cdc58125e92d1c33ecd1d46d834a64ebc59e27d2" => :mojave
-    sha256 "eea8d134e6003550ee99f8e7d81d2869fa0eb73f1986e06073561c630ed2966c" => :high_sierra
-    sha256 "461dd0ba33e5d16684db8a65f757cd3e0a1c6e9a5d5ba657a20819ab6acc3ff4" => :sierra
-    sha256 "ae9ef8eb1f904486ec7267b381d9703608fb7d7420b5e9c05bbae1c9e725085f" => :el_capitan
+    sha256 "26591c29130891dfe5a7ebe686c800bda76fdf5113885a801c3a30730a119130" => :catalina
+    sha256 "0d61b17cc0bbac751ded99a66948e880c64fe6ba47a8d1613c470ee6c4e54fec" => :mojave
+    sha256 "b0894db278d509c8615da4df71e26bce91daf300bba6380095f291bd2daa642c" => :high_sierra
   end
 
   def install

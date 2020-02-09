@@ -1,15 +1,15 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v13.6.0/node-v13.6.0.tar.gz"
-  sha256 "c1db19b4cf23b3903ac3048dad44a05397a63854b2a159fedc454eb15650369a"
+  url "https://nodejs.org/dist/v13.8.0/node-v13.8.0.tar.gz"
+  sha256 "815b5e1b18114f35da89e4d98febeaba97555d51ef593bd5175db2b05f2e8be6"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "3e1ec20ae11174c74c4f704b2ea9cf75d11e535a25822015aab5436803a66287" => :catalina
-    sha256 "bc3727f6f1b1f079b53a19c26c985a066a1525feffa2d2594a5626618f3bac6e" => :mojave
-    sha256 "bb130c28909677feaeb29232a521dbd15fcdfc171e807e82fb7b419073f75e37" => :high_sierra
+    sha256 "6a7bb59475a74827139563a4aa12d44de2cd427d889fdad61274f44b5dcbeb24" => :catalina
+    sha256 "b5b012b38740b15d59245aa118f95d896449dafb5e3d336a2df611acf8e65d55" => :mojave
+    sha256 "927e40396e22a83cb9dadc3ac8f52ddd1726439368b516e1c433a2c80d4df2e7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -19,8 +19,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.13.4.tgz"
-    sha256 "a063290bd5fa06a8753de14169b7b243750432f42d01213fbd699e6b85916de7"
+    url "https://registry.npmjs.org/npm/-/npm-6.13.7.tgz"
+    sha256 "6adf71c198d61a5790cf0e057f4ab72c6ef6c345d72bed8bb7212cb9db969494"
   end
 
   def install
@@ -68,13 +68,13 @@ class Node < Formula
     ln_sf node_modules/"npm/bin/npm-cli.js", HOMEBREW_PREFIX/"bin/npm"
     ln_sf node_modules/"npm/bin/npx-cli.js", HOMEBREW_PREFIX/"bin/npx"
 
-    # Let's do the manpage dance. It's just a jump to the left.
-    # And then a step to the right, with your hand on rm_f.
+    # Create manpage symlinks (or overwrite the old ones)
     %w[man1 man5 man7].each do |man|
       # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
+      # still needed to migrate from copied file manpages to symlink manpages
       rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"]
-      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      ln_sf Dir[node_modules/"npm/man/#{man}/{npm,package-,shrinkwrap-,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")

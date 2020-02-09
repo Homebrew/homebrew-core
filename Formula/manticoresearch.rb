@@ -1,15 +1,14 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.2.0/manticore-3.2.0-191017-e526a01-release.tar.gz"
-  sha256 "df6dbcc4df01065fc3cc6328f043b8cef3eb403a28671455cd3c8fc4217e3391"
-  revision 1
+  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.3.0/manticore-3.3.0-200204-01fc8ad-release.tar.gz"
+  sha256 "f62801f6eb50bd08cb8fe976f0a3a43c7600b979a1ced8d14b8261ca06eaf22c"
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
   bottle do
-    sha256 "1e40580a0e712cdcde9f403281d5e99ca64d0284666ce4a22cec9a4bf0db1c37" => :catalina
-    sha256 "ff90a6afa1768090306b1bff962e97a426c05b3abd8f5c277d6ad37d2a8a191a" => :mojave
-    sha256 "6a5cc018b61d2265e9a30ccb67be8992712dcb591dfd2f802d76346018ba3367" => :high_sierra
+    sha256 "1ca227dc0117b0dfcc68d1fca84c17c0b1ec40b7e14d354f2275045a4d8c218c" => :catalina
+    sha256 "c37e97a993bfe2bb7f80b3e75871c0a13bca43e8925d5a6b58e85743d1b91ea9" => :mojave
+    sha256 "7fba8f8cd8bd4245f85c4dca4901c96723fca0cbb5189176a74cfb5776cffa63" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -39,7 +38,7 @@ class Manticoresearch < Formula
     (var/"manticore/data").mkpath
   end
 
-  plist_options :manual => "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/sphinx.conf"
+  plist_options :manual => "searchd --config #{HOMEBREW_PREFIX}/etc/manticore/manticore.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -56,7 +55,7 @@ class Manticoresearch < Formula
         <array>
             <string>#{opt_bin}/searchd</string>
             <string>--config</string>
-            <string>#{etc}/manticore/sphinx.conf</string>
+            <string>#{etc}/manticore/manticore.conf</string>
             <string>--nodetach</string>
         </array>
         <key>WorkingDirectory</key>
@@ -67,7 +66,7 @@ class Manticoresearch < Formula
   end
 
   test do
-    (testpath/"sphinx.conf").write <<~EOS
+    (testpath/"manticore.conf").write <<~EOS
       searchd {
         pid_file = searchd.pid
         binlog_path=#

@@ -1,15 +1,15 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://sqlite.org/2019/sqlite-src-3300100.zip"
-  version "3.30.1"
-  sha256 "4690370737189149c9e8344414aa371f89a70e3744ba317cef1a49fb0ee81ce1"
+  url "https://sqlite.org/2020/sqlite-src-3310100.zip"
+  version "3.31.1"
+  sha256 "f2dc2382855d99a960c363c1e5ae72b49da4c55d49154aa6d100e5970a1fee58"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ea365cbc64a6623313e4d6701ac5cfe12d14b76be8b6fba72afdb47129327d6" => :catalina
-    sha256 "84322ef8c2737104776358d3ddc6f253ce4e4d9bf464d4d2da1fa8c56bba7d2f" => :mojave
-    sha256 "953a02effe120859def6682480aa659fd137163ff1334d247c2ebd20472407c4" => :high_sierra
+    sha256 "7296d5d4f3bccdb153c6a312c0ea65a9868cda646ee4028606ea8a46476d86e1" => :catalina
+    sha256 "f569d04c603f101d0bedbe4aeaa36ab5fb964978bb247589693778e488806e29" => :mojave
+    sha256 "881d1f7bebd40c356fc343029a1deadebdd67086f8da86621403837d3f703228" => :high_sierra
   end
 
   def install

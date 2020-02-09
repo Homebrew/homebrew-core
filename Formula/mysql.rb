@@ -5,9 +5,10 @@ class Mysql < Formula
   sha256 "3622d2a53236ed9ca62de0616a7e80fd477a9a3f862ba09d503da188f53ca523"
 
   bottle do
-    sha256 "2754abf3fefc4128b5aba75966ce68aebce156c718567908f8eaa2611251f951" => :catalina
-    sha256 "4b18d45af8dcd0d1fea0e7c82a7ed8a6ce3a0bb9e5be6bf4d395460126a0ac70" => :mojave
-    sha256 "eaf32cf0e17c95d195372b9014852dc77e423dfa8b2362566703edb85449458a" => :high_sierra
+    rebuild 1
+    sha256 "f0e2788a984639ed41fc07181083bb9ed0aa1cf4e411d15e90b35ff7dd8bc68b" => :catalina
+    sha256 "8f162c8d03f044c27755fae991cf11e63df299e2ae8c292aa583cd5fb8b5a14b" => :mojave
+    sha256 "6d504b074ba0f45a868fc5be12a752f8fe84135dd3e8a00cd708c84ac7005ba4" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -42,8 +43,6 @@ class Mysql < Formula
     args = %W[
       -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info

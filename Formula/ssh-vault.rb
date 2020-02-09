@@ -2,15 +2,15 @@ class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
   url "https://github.com/ssh-vault/ssh-vault.git",
-      :tag      => "0.12.5",
-      :revision => "a72db6da6b949f6adbfd82e1f44c4e12e17d0970"
+      :tag      => "0.12.6",
+      :revision => "7296095220586d5dc46554444b2e23aba164066c"
   head "https://github.com/ssh-vault/ssh-vault.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12e3e14671d317e1e337a81348962dd1abcad4994eb36d3d088f367cba4174b9" => :catalina
-    sha256 "a77d9ec9d764fec99d165746b07282934357081d313be6dd43f85de40534299a" => :mojave
-    sha256 "8670837a09a5eb5fccef4f7f6393b25ef208fcb332fcde26ecbe0fee66f04e5b" => :high_sierra
+    sha256 "d12a7148614bb8fbc97e0e7f72fe04e18da0cd7fb54ee1e5b9308757a2377e83" => :catalina
+    sha256 "7b7874972e68f117d14f5027895b6259320abe8db5deda72da09875c507755b1" => :mojave
+    sha256 "c6cf671474c67600ddac7bbcae909797c8ba26e16692533b5e82faa153ea9d77" => :high_sierra
   end
 
   depends_on "dep" => :build

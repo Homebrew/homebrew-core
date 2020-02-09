@@ -1,14 +1,16 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
+  # Note: Please keep these values in sync with git-gui.rb when updating.
   url "https://www.kernel.org/pub/software/scm/git/git-2.25.0.tar.xz"
   sha256 "c060291a3ffb43d7c99f4aa5c4d37d3751cf6bca683e7344ea407ea504d9a8d0"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "8b55d36d8e8465ce563f6d0c969e3dec7b3b0092534596345b0d9450dee72729" => :catalina
-    sha256 "764785c78dbcb098b5673772503e01f2946fa37f97bebe257ee81ee416504879" => :mojave
-    sha256 "3bcfa1937f04364e1590e6b5abe9c8cda3dc0e035690eeca6c57b6ce8cb981cc" => :high_sierra
+    sha256 "9ab68a09b14009dd3c28fcd3e6ef98213f675887615cab5c67d62a026ccc019b" => :catalina
+    sha256 "54508f6ad675b1a3964d8576b9123d1459f6edf4f8847e229b56ec76cf49014b" => :mojave
+    sha256 "cac935cce4729d0cc61ce0b3cda18848d811c6e51a03498b6f44e6f3764b3b9e" => :high_sierra
   end
 
   depends_on "gettext"
@@ -67,12 +69,17 @@ class Git < Formula
       ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
+    # The git-gui and gitk tools are installed by a separate formula (git-gui)
+    # to avoid a dependency on tcl-tk and to avoid using the broken system
+    # tcl-tk (see https://github.com/Homebrew/homebrew-core/issues/36390)
+    # This is done by setting the NO_TCLTK make variable.
     args = %W[
       prefix=#{prefix}
       sysconfdir=#{etc}
       CC=#{ENV.cc}
       CFLAGS=#{ENV.cflags}
       LDFLAGS=#{ENV.ldflags}
+      NO_TCLTK=1
     ]
 
     if MacOS.version < :yosemite
@@ -155,6 +162,13 @@ class Git < Formula
       \thelper = osxkeychain
     EOS
     etc.install "gitconfig"
+  end
+
+
+  def caveats
+    <<~EOS
+      The Tcl/Tk GUIs (e.g. gitk, git-gui) are now in the `git-gui` formula.
+    EOS
   end
 
   test do

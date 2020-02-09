@@ -24,6 +24,8 @@ class GitPlus < Formula
   test do
     mkdir "testme" do
       system "git", "init"
+      system "git", "config", "user.email", "\"test@example.com\""
+      system "git", "config", "user.name", "\"Test\""
       touch "README"
       system "git", "add", "README"
       system "git", "commit", "-m", "testing"

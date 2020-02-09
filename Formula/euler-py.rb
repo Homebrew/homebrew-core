@@ -39,11 +39,10 @@ class EulerPy < Formula
 
   test do
     require "open3"
-    Open3.popen3("#{bin}/euler") do |stdin, stdout, _|
-      stdin.write("\n")
-      stdin.close
-      assert_match 'Successfully created "001.py".', stdout.read
-    end
-    assert_equal 0, $CHILD_STATUS.exitstatus
+    output = Open3.capture2("#{bin}/euler", :stdin_data => "\n")
+    # output[0] is the stdout text, output[1] is the exit code
+    assert_match 'Successfully created "001.py".', output[0]
+    assert_equal 0, output[1]
+    assert_predicate testpath/"001.py", :exist?
   end
 end

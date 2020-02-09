@@ -1,15 +1,15 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.6/axel-2.17.6.tar.gz"
-  sha256 "15be4803789d8a3b0aa7ea9629a21ea56ff46ea5d8b484004a00826d4ffcbd00"
+  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.7/axel-2.17.7.tar.gz"
+  sha256 "b05e828fac19acb3bddb7d5e5af69617f29f34aea78dd2045cf30edc834cb4d5"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
     cellar :any
-    sha256 "acf292cb3e442dba912aa49f6ca641c2863099f649fc52293ea288a6f8dd8f89" => :catalina
-    sha256 "07593f73d611d773ee8155c1f26a165ba06f2a716d15a243a4add77983cf3253" => :mojave
-    sha256 "c6564d7d46b9201beae836dc36fa6d3b465b51d4c1f7283d498c22145472d6bb" => :high_sierra
+    sha256 "f21813f4113f1c50d6c9c241210435f5db49e63136ada0beb4e6b13b71922b7e" => :catalina
+    sha256 "ea45d5812240f3969a9ae75adedd25a37a133e38002d33a655ca1c46118f5153" => :mojave
+    sha256 "8cdedff82eae38b9e34842d3546b48b5ad4729fa949bcbcdc6e194afa78fbcfe" => :high_sierra
   end
 
   depends_on "autoconf" => :build

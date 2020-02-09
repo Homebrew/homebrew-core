@@ -3,14 +3,14 @@ class NodeSass < Formula
 
   desc "JavaScript implementation of a Sass compiler"
   homepage "https://github.com/sass/dart-sass"
-  url "https://registry.npmjs.org/sass/-/sass-1.23.7.tgz"
-  sha256 "6113e3c3034a8d7701c9ecc73e7c2f53e6e419a47d42a63e26ac4546a878328e"
+  url "https://registry.npmjs.org/sass/-/sass-1.24.0.tgz"
+  sha256 "307b4f7abd346d0d1590ebc3ad655c41ee9f7cc5b42ab0b5cc5dfb0259ecca1c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "322346ee7f6719fc0697d8c9e5b5209e0169dde870ec9c7ae71fcadb26410797" => :catalina
-    sha256 "a6536baf69cfe20e40be7109e947b008e64b32534e617a4315bc6404e4520478" => :mojave
-    sha256 "ee3a08eb743459e18456808f98f230e779fd72f62716c881fd35da5131e36302" => :high_sierra
+    sha256 "0f56dcd061453bad57aa438499db321e0d1535d6dfa555a1073178fad6fbdbe0" => :catalina
+    sha256 "d96e8d23c1c86bac5628d4b6198d9bbca258982de50c5c57778435587bf36425" => :mojave
+    sha256 "0366aa4e52543fb4f897bf194171961c31920fbe90cb9064ee572829b66c931b" => :high_sierra
   end
 
   depends_on "node"

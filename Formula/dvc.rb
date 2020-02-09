@@ -3,14 +3,14 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/0.80.0.tar.gz"
-  sha256 "fd3ffcc72937cf81045b9868a711f876e1227bad7e8eb4d93386d49892fd9bcd"
+  url "https://github.com/iterative/dvc/archive/0.82.9.tar.gz"
+  sha256 "6bdf94d10e2e0dd6f84ec1c69e336a1deda189bd699318961b11d1aa5bb214d6"
 
   bottle do
     cellar :any
-    sha256 "57b7b09007c23c4e17617bde63920bdc44b4f11af9d8ae71dafa843aa9e1d602" => :catalina
-    sha256 "c524ede083d1fb3c395ce765d7855e671fa6a58f724807e7a3075f4d52fa855d" => :mojave
-    sha256 "12d8bba1e5d8835fa3f2ffa78acbf48c9fdb95b61ac26cf6ac1086fd2d2ecf6d" => :high_sierra
+    sha256 "36d26e71d5d429384909ff5f3e4809ba60c54ca4c6ece4a4701e78ffd281a89c" => :catalina
+    sha256 "747804fa4b056417a5a6fc90e4660c6cbfad831c44dd3ece776c3b1c84420229" => :mojave
+    sha256 "b5bcb8cc3c963db520d504035b5f028c74ac40ae4791c9b2044a29d5db346fba" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +29,7 @@ class Dvc < Formula
       "--ignore-installed",
       # NOTE: pyarrow is already installed as a part of apache-arrow package,
       # so we don't need to specify `hdfs` option.
-      ".[gs,s3,azure,oss,ssh]"
+      ".[gs,s3,azure,oss,ssh,gdrive]"
 
     # NOTE: dvc depends on asciimatics, which depends on Pillow, which
     # uses liblcms2.2.dylib that causes troubles on mojave. See [1]

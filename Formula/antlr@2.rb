@@ -3,7 +3,7 @@ class AntlrAT2 < Formula
   homepage "https://www.antlr2.org/"
   url "https://www.antlr2.org/download/antlr-2.7.7.tar.gz"
   sha256 "853aeb021aef7586bda29e74a6b03006bcb565a755c86b66032d8ec31b67dbb9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class AntlrAT2 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     # C Sharp is explicitly disabled because the antlr configure script will
@@ -31,7 +31,7 @@ class AntlrAT2 < Formula
 
     (bin/"antlr").write <<~EOS
       #!/bin/sh
-      java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
+      exec "#{Formula["openjdk"].opt_bin}/java" -classpath #{libexec}/antlr.jar antlr.Tool "$@"
     EOS
   end
 

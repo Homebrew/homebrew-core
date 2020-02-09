@@ -3,16 +3,15 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.0.tar.gz"
-  sha256 "0137acd30cffa60421dde8277b3bb0c5d5e2179d36df0d190de6faf7eec76359"
-  revision 3
+  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.1.tar.gz"
+  sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
     cellar :any
-    sha256 "a879498e0d007205c07219191f5b60beabfe94fc5ef2c47dbf8719fb05812c30" => :catalina
-    sha256 "98e8820bb5ddf13f238566c0e3645dcb0bbf90f2ed6b37036ace6b9d7b8f70d7" => :mojave
-    sha256 "e914360f428e651d2342b87e7b78298211142cef6aea3ada330f26edbffaefba" => :high_sierra
+    sha256 "6b0f5422988f06d8fffffed1c81ef4ef37fe577144a9f60eda5bfde0d7a4499a" => :catalina
+    sha256 "e55ff26b3e133f483382df475bf2ad9f4852c9aa62c6ad26d360defd674fea21" => :mojave
+    sha256 "83758f4f58c383ac3332c5802fafe613c8877369a335f4db6967784fe96f5880" => :high_sierra
   end
 
   depends_on "swig" => :build

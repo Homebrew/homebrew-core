@@ -1,13 +1,14 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
-  url "https://www.php.net/distributions/php-7.4.1.tar.xz"
-  sha256 "561bb866bdd509094be00f4ece7c3543ec971c4d878645ee81437e291cffc762"
+  # Should only be updated if the new version is announced on the homepage, https://www.php.net/
+  url "https://www.php.net/distributions/php-7.4.2.tar.xz"
+  sha256 "98284deac017da0d426117ecae7599a1f1bf62ae3911e8bc16c4403a8f4bdf13"
 
   bottle do
-    sha256 "74a6bd1f08e2d15bd1fb68d49f41b245329cf14f88eafea1f56d7be02f09495c" => :catalina
-    sha256 "81fd2df36274b74df5a34ecded65f94a0cb48231c97ff08490c90e70f81126c5" => :mojave
-    sha256 "55c9d4cbf83dfacfca20d0296861577d3e9349966e0328b7c8bd22d9e440222f" => :high_sierra
+    sha256 "ddd14746138f0212dfd8d2c0944d573ce05c3ba900c2579440f7e8defa63b0c7" => :catalina
+    sha256 "fcc85c9f550df021a7f505d57c43e19672940c37ef7a1f909eec2d1d13202cef" => :mojave
+    sha256 "edfcefb109b356338ed324305f7317659df02bb5a8252b67a696180e75e81b1c" => :high_sierra
   end
 
   depends_on "httpd" => [:build, :test]

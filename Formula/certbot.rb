@@ -3,16 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v1.0.0.tar.gz"
-  sha256 "cb853d4aeff1bd28c6a20bb4b26e782a791a28dfee5b6cf410ef2b6f4f580bd8"
-  revision 4
+  url "https://github.com/certbot/certbot/archive/v1.1.0.tar.gz"
+  sha256 "9b57d009a6ad62d21ca23b0c21c28654353a5493dd1b8b0b6953c166e7a73b3e"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "d3ff1f180e9048ef5d7fb7f95dbe8d04094261351815eda2408ed7343d56308a" => :catalina
-    sha256 "69432acc19a087c898e085635d2523887cd323792be54d4d68fd0311937d9f5e" => :mojave
-    sha256 "504eb5bfa12f607a5a71f2e8911d697b4ccfc9ee602d63ef8fbf89feeae58e48" => :high_sierra
+    sha256 "733e23b4ece94891104fd8c49aa8617bc508b02f8008a068ffc2646a6cae82ce" => :catalina
+    sha256 "8367f80e4079e6725671c633752dcb0e2eba148601c54d753f70cf3f0a5ae831" => :mojave
+    sha256 "0e95da6a3673b5dd8cdb35799ffeb86e84d5cb55b6395a80baaad1a71fcb06d1" => :high_sierra
   end
 
   depends_on "augeas"
@@ -21,8 +20,8 @@ class Certbot < Formula
   depends_on "python@3.8"
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/c7/57/8747646a4ae8fbde7460248b2489a68cf9161029009e55d305b36df40f21/acme-1.0.0.tar.gz"
-    sha256 "6a08f12f848ce563b50bca421ba9db653df9f82cfefeaf8aba517f046d1386c2"
+    url "https://files.pythonhosted.org/packages/e4/80/07e77634199dbbe595b3b1e320adae7fcb00653dc4bf5e56f457851e8017/acme-1.1.0.tar.gz"
+    sha256 "c305a20eeb9cb02240347703d497891c13d43a47c794fa100d4dbb479a5370d9"
   end
 
   resource "certifi" do
@@ -121,13 +120,13 @@ class Certbot < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
-    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
+    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
+    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
   end
 
   resource "zope.component" do

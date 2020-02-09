@@ -3,12 +3,13 @@ class Wcslib < Formula
   homepage "https://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "https://www.atnf.csiro.au/pub/software/wcslib/wcslib-7.1.tar.bz2"
   sha256 "f0bb749eb384794501ad3f71cc10d69debcc0dfca2a395ef57062245c9165116"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3901a6e6a0dccc34459c165fcd2dc07d6229efe3160dcc908dd4e2479d5f8bbe" => :catalina
-    sha256 "7d9ebc483a9e1a2b75bf11f68b5175433ecb453f7d8057934313b77ab41dcbcf" => :mojave
-    sha256 "a9d982721090b1560e868092bfd97f769993fe87a498138adbc599c519487819" => :high_sierra
+    sha256 "6b13b97c4df588d435da3cb4e09c70b4db1ad2a19c3a15bf5d80108514062904" => :catalina
+    sha256 "db830d1e0e3c8b7da3f61d9fb007232703458200b90165a03688dea6b93fcf18" => :mojave
+    sha256 "ab7122ab82a0ab67a87f4d51fb08e0d59b9b16309ea7a830707a7207ddfd0b0c" => :high_sierra
   end
 
   depends_on "cfitsio"

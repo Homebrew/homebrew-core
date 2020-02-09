@@ -3,12 +3,13 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
   sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "3d436d5b28b674dd972e448fb4e6d7844075fbfa4266eb671eb72555d0294709" => :catalina
-    sha256 "94596bb3553a4d09107a5900064f5e0ccc01d8891888d184e67a0ac34d6f4f55" => :mojave
-    sha256 "c740004bfdaadc7adeda4cc79745fb3e0a3b2b52ba35f54664e06a351ce5104f" => :high_sierra
+    sha256 "546882bd1860e2a544384911c853a0eae4e648343fe231c465110c3d429f48bf" => :catalina
+    sha256 "6f4d6af93906cc627d54d1859f7fc0fe83dc5a3efc7ad37c6650cd7517a1a473" => :mojave
+    sha256 "7e194f69c8077f24317fd00b86768ea73bbce7db717ef3506f7182ccea20d0fc" => :high_sierra
   end
 
   depends_on "nasm" => :build
@@ -37,6 +38,7 @@ class Ffmpeg < Formula
   depends_on "speex"
   depends_on "tesseract"
   depends_on "theora"
+  depends_on "webp"
   depends_on "x264"
   depends_on "x265"
   depends_on "xvid"
@@ -70,6 +72,7 @@ class Ffmpeg < Formula
       --enable-libvidstab
       --enable-libvorbis
       --enable-libvpx
+      --enable-libwebp
       --enable-libx264
       --enable-libx265
       --enable-libxvid

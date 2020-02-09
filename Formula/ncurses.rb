@@ -4,13 +4,12 @@ class Ncurses < Formula
   url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.1.tar.gz"
   sha256 "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17"
+  revision 1
 
   bottle do
-    sha256 "61853d5641a03a19db9936c6b56844d39fbbd6eaa6cb6b1e268f9ebc1e58cf8e" => :catalina
-    sha256 "01e031f6bb1513edcb26d78a15dc5e85969c42e9dc40ae3cbc3535982658abc0" => :mojave
-    sha256 "bc5a61af5553ac748657e276ffcd604fca3d74db0b10855b9e4163ae45f7cb72" => :high_sierra
-    sha256 "8c1b3ae226520b5c14f61c52935eceb04717d8174382d137a169718f50f67910" => :sierra
-    sha256 "5e3d98b211de89b9c750d627bdd66e42bf1fa77ad1528e4db8a4de33ed419c28" => :el_capitan
+    sha256 "4776644ae1dde76e4f1afa169278cd8a8f1b38a845866db57a542829b9c9e60c" => :catalina
+    sha256 "9ae7d52a9fdc8941884b4cf606555f939450e68f3eb90fa2c8cd1d3e432727b6" => :mojave
+    sha256 "7c02ea1f682af10b1ec7e98da52bb408d5f6fdb6668bdd0170b0707e6ec74e94" => :high_sierra
   end
 
   keg_only :provided_by_macos
@@ -48,6 +47,9 @@ class Ncurses < Formula
     lib.install_symlink "libncurses.dylib" => "libcurses.dylib"
 
     (lib/"pkgconfig").install_symlink "ncursesw.pc" => "ncurses.pc"
+    (lib/"pkgconfig").install_symlink "formw.pc" => "form.pc"
+    (lib/"pkgconfig").install_symlink "menuw.pc" => "menu.pc"
+    (lib/"pkgconfig").install_symlink "panelw.pc" => "panel.pc"
 
     bin.install_symlink "ncursesw#{major}-config" => "ncurses#{major}-config"
 

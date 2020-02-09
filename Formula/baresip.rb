@@ -1,15 +1,13 @@
 class Baresip < Formula
   desc "Modular SIP useragent"
   homepage "http://www.creytiv.com/baresip.html"
-  url "http://www.creytiv.com/pub/baresip-0.5.10.tar.gz"
-  sha256 "393fb010410d3fc6a4879cfda235f0ec98439be5d1dca02c15f3416f7110a7fb"
+  url "http://www.creytiv.com/pub/baresip-0.6.5.tar.gz"
+  sha256 "2b035bd8b2121c72bec674768579a3bdcc5d1d567ecb0a84125864d69807b18d"
 
   bottle do
-    sha256 "2738fa4c1740e0c54aad92e122ffd3351a040d58867233a74e7ef93643cf302f" => :catalina
-    sha256 "a7d010f0c6ea77cfe38e34a26d163fda8994c2e903988b70d8771e685eeb3c5e" => :mojave
-    sha256 "2d21997680aa9d6faba15c4e786afddf9c76f2fc51887475de59d56262fcf785" => :high_sierra
-    sha256 "b60def84ebf98e806916f400f602036824b03d3b8b1dd97d44929fe2004ad1ff" => :sierra
-    sha256 "f23e3075e1d9b114d1b4022d831f9d4639d3a17438b2f79eb6919dc9819c3387" => :el_capitan
+    sha256 "dd71d2ba58f82dd58b4da6c350b2d52ff4e04fe64679a446778615550dfb95b8" => :catalina
+    sha256 "ec2fb4cba298c281b40a0929c227b563508ecaf5564e9381872c14469fb73ef9" => :mojave
+    sha256 "b99e262d153eb3414c2a6fe813be98e78f71da205d66ede0ec799d1e07f0341a" => :high_sierra
   end
 
   depends_on "libre"
@@ -33,7 +31,8 @@ class Baresip < Formula
                               "USE_G711=1",
                               "USE_OPENGL=1",
                               "USE_STDIO=1",
-                              "USE_UUID=1"
+                              "USE_UUID=1",
+                              "HAVE_GETOPT=1"
   end
 
   test do

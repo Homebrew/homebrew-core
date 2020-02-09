@@ -1,15 +1,14 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/3.11.4/apache-cassandra-3.11.4-bin.tar.gz"
-  sha256 "5d598e23c3ffc4db0301ec2b313061e3208fae0f9763d4b47888237dd9069987"
+  url "https://archive.apache.org/dist/cassandra/3.11.5/apache-cassandra-3.11.5-bin.tar.gz"
+  sha256 "a765adcaa42a6c881f5e79d030854d082900992cc11da40eee413bb235970a6a"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e9f5422b20f44c82dc3399f34da97e314cb0047c9b99c7325b1c1a91ad3063f5" => :catalina
-    sha256 "75d3a49ace9a7596bbd41106955464d5db48239a2fc6e481d92c0fa18a0e37e6" => :mojave
-    sha256 "69d5dc8380290293b5a5dd138dfde2b2dc33577b8e08d057154e2703cb1a841d" => :high_sierra
+    sha256 "42b99821ce8118fcdee212008bc3363d6db290030c54b5fc757a297af9df439d" => :catalina
+    sha256 "4fd242d2203108e0abd038b6a1e780325e7e66ee21b7441950012458b33f424e" => :mojave
+    sha256 "96c3282be35a4f27abba9c157a9f6c431ee5819ce2c729444fd9d3e60c4992b6" => :high_sierra
   end
 
   depends_on "cython" => :build
@@ -62,7 +61,7 @@ class Cassandra < Formula
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
-    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_HOME/logs", "-Dcassandra.logdir\=#{var}/log/cassandra"
+    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR", "-Dcassandra.logdir\=#{var}/log/cassandra"
     inreplace "bin/cassandra.in.sh" do |s|
       s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"", "CASSANDRA_HOME=\"#{libexec}\""
       # Store configs in etc, outside of keg

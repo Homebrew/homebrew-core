@@ -14,6 +14,8 @@ class FlowTools < Formula
     sha256 "dc15779397a7f60c67b20c314b4513133c0883a5eafb3e972e744b8a70ca1060" => :mavericks
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

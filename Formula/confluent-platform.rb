@@ -1,9 +1,9 @@
 class ConfluentPlatform < Formula
   desc "Developer-optimized distribution of Apache Kafka"
   homepage "https://www.confluent.io/product/confluent-platform/"
-  url "https://packages.confluent.io/archive/5.3/confluent-5.3.1-2.12.tar.gz"
-  version "5.3.1"
-  sha256 "ed18fa2ec2ef00d34b52c9382dc92c9314cf06d2501ab022a62b5ea7ab1010dd"
+  url "https://packages.confluent.io/archive/5.4/confluent-5.4.0-2.12.tar.gz"
+  version "5.4.0"
+  sha256 "2d678d21a17dcbe99e2227519c7f60c02c51043cb8d6f90c75cc849d0782da52"
 
   bottle :unneeded
 

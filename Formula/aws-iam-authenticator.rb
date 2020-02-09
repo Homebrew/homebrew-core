@@ -2,38 +2,30 @@ class AwsIamAuthenticator < Formula
   desc "Use AWS IAM credentials to authenticate to Kubernetes"
   homepage "https://github.com/kubernetes-sigs/aws-iam-authenticator"
   url "https://github.com/kubernetes-sigs/aws-iam-authenticator.git",
-    :tag      => "v0.4.0",
-    :revision => "c141eda34ad1b6b4d71056810951801348f8c367"
+    :tag      => "v0.5.0",
+    :revision => "1cfe2a90f68381eacd7b6dcfa2bf689e76eb8b4b"
   sha256 "d077ce973e5917fab7cbad46bc2d19264e8d0ae23321afd97b1bc481075a31fa"
   head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "52d34b15b5e660a07adca612c6184b83f504fe46232ec053241ab275535045d5" => :catalina
-    sha256 "9f81530c6fe28dc4baf6775a2e454fab32103461154ce35d796f2da237ad48a0" => :mojave
-    sha256 "3f6e13d4e9d4ae52b38083b34b811e3d863e6defd2faeba80993da32646f1b69" => :high_sierra
+    sha256 "9009147f0817116c801357d6d8bc082d1f320971a81b7c00051e0d43c8066a60" => :catalina
+    sha256 "c475da0533c8bc809525e65a99410bcd39a8a4331216537e55a5c55a8599ebfe" => :mojave
+    sha256 "152fe875fe64835efb1e13d088b7e2ca6cf2aa826333465047e8c90bb91e0dc7" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    # project = "github.com/kubernetes-sigs/aws-iam-authenticator"
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
     version = Utils.popen_read("git describe --tags").strip
-
-    (buildpath/"src/github.com/kubernetes-sigs/aws-iam-authenticator").install buildpath.children
-
-    cd "src/github.com/kubernetes-sigs/aws-iam-authenticator" do
-      system "dep", "ensure", "-vendor-only"
-      cd "cmd/aws-iam-authenticator" do
-        system "go", "build", "-o", "aws-iam-authenticator",
-          "-ldflags", "-s -w -X main.version=#{version} -X main.commit=#{revision}"
-        bin.install "aws-iam-authenticator"
-      end
-      prefix.install_metafiles
-    end
+    ldflags = ["-s", "-w",
+               "-X main.version=#{version}",
+               "-X main.commit=#{revision}"]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
+           "-o", bin/"aws-iam-authenticator", "./cmd/aws-iam-authenticator"
+    prefix.install_metafiles
   end
 
   test do

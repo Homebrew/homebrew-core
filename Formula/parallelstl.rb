@@ -1,8 +1,8 @@
 class Parallelstl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://github.com/intel/parallelstl"
-  url "https://github.com/intel/parallelstl/archive/20190522.tar.gz"
-  sha256 "37a83f26299c66a9988e85f06149487cfb2d69fb41568c64b7ad7c7903bcaac1"
+  url "https://github.com/intel/parallelstl/archive/20191218.tar.gz"
+  sha256 "cdbf051df6d9399a1756bd94a87c4e083fff144703aff561b608012653ce3a2c"
 
   bottle :unneeded
 
@@ -10,6 +10,7 @@ class Parallelstl < Formula
 
   def install
     include.install Dir["include/*"]
+    (prefix/"stdlib").install Dir["stdlib/*"]
   end
 
   test do
@@ -28,7 +29,7 @@ class Parallelstl < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "-L#{Formula["tbb"].opt_lib}", "-ltbb",
-                    "-I#{include}", "test.cpp", "-o", "test"
+                    "-I#{prefix}/stdlib", "-I#{include}", "test.cpp", "-o", "test"
     system "./test"
   end
 end

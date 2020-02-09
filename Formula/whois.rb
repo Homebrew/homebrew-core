@@ -1,15 +1,15 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.4.tar.xz"
-  sha256 "d1e1084f73085a4c12036174d7a69e15570bf13c62ee0ff7f8723e7b7e54274d"
+  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.5.tar.xz"
+  sha256 "c30e8a444482eadac157be42649833ef77c5ea9fb5cbcbabb6ee3f2254e5530d"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
     cellar :any
-    sha256 "2496636025f7d389e2fe9820f8e100526b7ceba3c6ec6d692e9ff12d1fa88fba" => :catalina
-    sha256 "73e5083c6a4d0307d634bbf21ce5ceafb2f8f691af37242ac3f82218637fcd1c" => :mojave
-    sha256 "a41565ba5b0ec4acd8f8c8e676cd83e3191649cf42aaeccc09ff55ef5f3f4e3a" => :high_sierra
+    sha256 "fbdbe5c9d7e53c178d38dd2cc96f9b7c7c7e6d66ac3c99612c934c9fae09c434" => :catalina
+    sha256 "5433f102ffe597e2eb1ed81285967701b7a77bbe79ddcba9dc2bc7d53106fe1e" => :mojave
+    sha256 "ad4c83c260322ab6eec10cd3e4a26603d60d48ca103984d47ee3bf76af3b43ae" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

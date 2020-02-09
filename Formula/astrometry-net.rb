@@ -5,13 +5,13 @@ class AstrometryNet < Formula
   homepage "https://github.com/dstndstn/astrometry.net"
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.78/astrometry.net-0.78.tar.gz"
   sha256 "9eda1b6cab5269b0a0e5d610aec86866cb8b08fb8f56254dc12f1690d69bc649"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "bdf6a857f38ee3ed7b6bf8dbf3ad6923efc459e9bb2c4ff1201d983d19259313" => :catalina
-    sha256 "6a167e6bc9e73ee238744ccde761bfe6a99e5ed8060f5ff30440e571bdb9b71b" => :mojave
-    sha256 "4bcc0814023d5ecfaea0ef36def0a4e2688a70ce496d370c3a2da5c4c4375e1c" => :high_sierra
+    sha256 "cb0300becf79b6cfaed610b1a597aad73cc4a01dc7d35c860ada294933a52086" => :catalina
+    sha256 "3cb90e5f8cf720be409d0b1e2562b5efaa874695c67331e48ac2add01ac3fd96" => :mojave
+    sha256 "a85dc3730566d2da35afa3d7730c0db7f2c5d67a94d89f4a17f2d985a16529e2" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

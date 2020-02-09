@@ -5,10 +5,10 @@ class Apcupsd < Formula
   sha256 "db7748559b6b4c3784f9856561ef6ac6199ef7bd019b3edcd7e0a647bf8f9867"
 
   bottle do
-    rebuild 2
-    sha256 "1b2f0eb580e77f211f0bc29afe58a93fb8174d25e66618bdc3ac5fd3de32b63e" => :catalina
-    sha256 "61c215ad1e3dc4ef4afb638079e0c309fee5fb6da6bac61098faa8be014b782f" => :mojave
-    sha256 "3a7ccfc637cdd8074947ecf2da3c3a632e6b57ef2ee390b9bf570b1499470b9a" => :high_sierra
+    rebuild 3
+    sha256 "6bdbc101891e5c10b8aead1e1c86ce8ed1560f38b4de96a6c804c73953ad3ac0" => :catalina
+    sha256 "f9e745573abb55d0194e958d48256ace18a8116fc2c7577617de915746e6c18b" => :mojave
+    sha256 "8e604286ac22168ede829d3dff95ac782b458316c3389827c6d6c5168a2552e4" => :high_sierra
   end
 
   depends_on "gd"
@@ -71,7 +71,7 @@ class Apcupsd < Formula
     s += <<~EOS
       To load #{name} at startup, activate the included Launch Daemon:
 
-        sudo cp #{prefix}/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons
+        sudo cp #{prefix}/lib/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons
         sudo chmod 644 /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
         sudo launchctl load -w /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
 

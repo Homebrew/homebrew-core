@@ -1,12 +1,13 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
-  homepage "https://hapifhir.io/doc_cli.html"
+  homepage "https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html"
   url "https://github.com/jamesagnew/hapi-fhir/releases/download/v4.1.0/hapi-fhir-4.1.0-cli.zip"
   sha256 "4c99debffc813472fe09c9d3805c0a108e3880507955951acf796b3a50abca27"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   resource "test_resource" do
     url "https://github.com/jamesagnew/hapi-fhir/raw/v4.1.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
@@ -17,6 +18,7 @@ class HapiFhirCli < Formula
     inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{libexec}"
     libexec.install "hapi-fhir-cli.jar"
     bin.install "hapi-fhir-cli"
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do

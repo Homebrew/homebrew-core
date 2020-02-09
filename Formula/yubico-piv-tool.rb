@@ -1,16 +1,14 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-1.7.0.tar.gz"
-  sha256 "b428527e4031453a637128077983e782e9fea25df98e95e0fc27819b2e82fd7f"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.0.0.tar.gz"
+  sha256 "dae510ea88922720019029c7f0296ddc74bb30573e40d9bc18fc155023859488"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9e370aff78e01f8f0ded41fd2b2cde9ec6e56b338638699d8fa5695219878fb3" => :catalina
-    sha256 "3f2eed436a541be3d2237fbd67c46c80187b70e20ec025e5d218765486f57ac3" => :mojave
-    sha256 "bb089bf8da6abf4c048c2173039d7587df31437eb01d52ac9f254286fe38ec9a" => :high_sierra
-    sha256 "7af412bcd780062bb35eae49852dd16bb46cae272543e0a0f3375d3380fd52b4" => :sierra
+    sha256 "f85cee9151108f2ca5e6e067d846123c1d55044d26ec8c7c3a29a3b7ba4e81f8" => :catalina
+    sha256 "b4d327cc5524b7cbbbb4bf241b59f5d19556484bd5c3109964d070a7586578a2" => :mojave
+    sha256 "1e5c8cc9a64bdfbae6d16b27029e24d9290d2f449f7ef6e90b7c47ea29cf2b3f" => :high_sierra
   end
 
   depends_on "check" => :build

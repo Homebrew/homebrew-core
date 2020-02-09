@@ -3,14 +3,14 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.17.7.tar.gz"
-  sha256 "b62756842807e5693b794e5d0ae289bd8ae5b098e66538b2a91eb80f25c591ff"
+  url "https://nginx.org/download/nginx-1.17.8.tar.gz"
+  sha256 "97d23ecf6d5150b30e284b40e8a6f7e3bb5be6b601e373a4d013768d5a25965b"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "b8162fd6a84eb12c7c46bbee564f0776012aee504eb98efc42d5c559733b32a3" => :catalina
-    sha256 "58af10ed37372f6946172e5b855518c587e2eb3dc87ae183407e8518241ecfa7" => :mojave
-    sha256 "54ba160e942f3dcfd9d557b2bd3b76159078138c08da6f7cd2ca301286c7b116" => :high_sierra
+    sha256 "7c2d457ddf56d25783b9c24b4b7235a87530cfe7dde924780c032438343b6174" => :catalina
+    sha256 "67483a96fe74c3752c6a137575fa57634348b4850fb55b7b5e05b1cb5b49086a" => :mojave
+    sha256 "a827db017de049e9bd303a4799070f8cfabc66d8f067d24a09e8edabe9b8b04c" => :high_sierra
   end
 
   depends_on "openssl@1.1"

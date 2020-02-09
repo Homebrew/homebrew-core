@@ -1,14 +1,14 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/heptio/sonobuoy"
-  url "https://github.com/heptio/sonobuoy/archive/v0.17.1.tar.gz"
-  sha256 "33e8d092bd554bf3293c3d0e9339a1371665b7fc6bc0926682400fbfeb7691f9"
+  url "https://github.com/heptio/sonobuoy/archive/v0.17.2.tar.gz"
+  sha256 "fc6623156840c9a518d0820d2a857f7476fd6085c9f0f747fcddd896bf333219"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "629d991fbb0fd643f548f201bac38096066faab23c8d949825b33761bdb178a9" => :catalina
-    sha256 "3b04c462e136b0d42bb4c263903276a1bd443fee82de33f523bf3ccf5828393c" => :mojave
-    sha256 "fc2a9af268e2a589c0fedaab200933c20c71e8c320b134dca629954cc24916fe" => :high_sierra
+    sha256 "785670def8b6bfc3255498ebaa401f825e4e02c5d8e6d5bc8d296ef090a7624e" => :catalina
+    sha256 "2510e45a45090aadc0489074ba46e5e22ea4035596f12fc38e3682972150d1fc" => :mojave
+    sha256 "a316e566aaf947ab97681e0dfce1c48b64c83330cc4cb73689cf61ff6f208d57" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -3,10 +3,11 @@ class Artifactory < Formula
   homepage "https://www.jfrog.com/artifactory/"
   url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.17.0.zip"
   sha256 "eb68a3cdbed2bf23c340009eeb1f843d81cb1b548338cf23784ea141f28f4602"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     # Remove Windows binaries
@@ -21,9 +22,11 @@ class Artifactory < Formula
     libexec.install Dir["*"]
 
     # Launch Script
-    bin.install_symlink libexec/"bin/artifactory.sh"
+    bin.install libexec/"bin/artifactory.sh"
     # Memory Options
-    bin.install_symlink libexec/"bin/artifactory.default"
+    bin.install libexec/"bin/artifactory.default"
+
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   def post_install

@@ -1,8 +1,8 @@
 class WiremockStandalone < Formula
   desc "Simulator for HTTP-based APIs"
   homepage "http://wiremock.org/docs/running-standalone/"
-  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.25.0/wiremock-standalone-2.25.0.jar"
-  sha256 "3ad3724cc31b161ec3ae674fc94417312388b68ca4768955ecd8854d1062c7bc"
+  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.26.0/wiremock-standalone-2.26.0.jar"
+  sha256 "2e700abcd02c29e835522a306584a0483d8e3ce6a93d2af1c0766c8d7702cb7b"
   head "https://github.com/tomakehurst/wiremock.git"
 
   bottle :unneeded

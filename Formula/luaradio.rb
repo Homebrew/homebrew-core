@@ -1,20 +1,20 @@
 class Luaradio < Formula
   desc "Lightweight, embeddable flow graph signal processing framework for SDR"
   homepage "https://luaradio.io/"
-  url "https://github.com/vsergeev/luaradio/archive/v0.5.1.tar.gz"
-  sha256 "723dce178594a6a9a64de6ba7929f04d5fd08d0c9ed57650b22993afdb1ebdf3"
+  url "https://github.com/vsergeev/luaradio/archive/v0.6.0.tar.gz"
+  sha256 "2d2a93948f2d6ed890409ca60e4845f9f3e3e81b81a6653377384060ad541190"
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "aea4720401562ca9bed2ec71fa24707fe20b2fa392aab8c7c19c2f563443aff7" => :catalina
-    sha256 "ab2033c7ec9b302782cd4736a7efaf63abb808fc26d56a32d8a68df0b124e309" => :mojave
-    sha256 "4417816f9ee6a53057b81862820dbd15833d455ef5be31908a1f989131e751ac" => :high_sierra
+    sha256 "0ace0262c839a3ac836a2971893032428ee7b3f7b8906cbe6934654f0df6f48b" => :catalina
+    sha256 "2eb05f604a4384c6fca81fdbce2d0dbaebccb42431460680e8f348967161becb" => :mojave
+    sha256 "3daa65756dc789602c6f563cb50da9dce75b02d95ebbe6f102015957b8bd346f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
+  depends_on "liquid-dsp"
   depends_on "luajit"
 
   def install

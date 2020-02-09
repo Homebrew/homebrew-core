@@ -1,7 +1,8 @@
 class Par < Formula
   desc "Paragraph reflow for email"
-  homepage "https://web.archive.org/web/20190921042412/www.nicemice.net/par/"
-  url "https://web.archive.org/web/20190921042412/www.nicemice.net/par/Par152.tar.gz"
+  homepage "http://www.nicemice.net/par/"
+  url "http://www.nicemice.net/par/Par152.tar.gz"
+  mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/Par152.tar.gz"
   version "1.52"
   sha256 "33dcdae905f4b4267b4dc1f3efb032d79705ca8d2122e17efdecfd8162067082"
 

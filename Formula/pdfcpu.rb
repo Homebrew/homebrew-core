@@ -1,25 +1,21 @@
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
-  url "https://github.com/pdfcpu/pdfcpu/archive/v0.2.5.tar.gz"
-  sha256 "bf2920cc595dd34f4297e851063fb095eea23575db43c53547910749c703261a"
+  url "https://github.com/pdfcpu/pdfcpu/archive/v0.3.2.tar.gz"
+  sha256 "4258d6a86d48d18da89ac9f307e8b6c6c93d5de59403dfc563db256317a7f576"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "415443f104d02baa622d899eeee490937dbde9dd6eb9ea7b439c27830c6213e2" => :catalina
-    sha256 "e93767228f9a034e686e5687cfda91416139aa27eca3cd6fbc23773701c168bb" => :mojave
-    sha256 "b4c5b54a3b826aad673529fae0535b76dcff89c24247d2053c929c2712e8964d" => :high_sierra
+    sha256 "e8e8371a6e3e7d8ae9df59818be1ecca6ca1e5cce80ac695759f13b734b9b887" => :catalina
+    sha256 "e8e8371a6e3e7d8ae9df59818be1ecca6ca1e5cce80ac695759f13b734b9b887" => :mojave
+    sha256 "e8e8371a6e3e7d8ae9df59818be1ecca6ca1e5cce80ac695759f13b734b9b887" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/pdfcpu/pdfcpu").install buildpath.children
-    cd "src/github.com/pdfcpu/pdfcpu/cmd/pdfcpu" do
-      system "go", "build", "-o", bin/"pdfcpu", "-ldflags",
-             "-X github.com/pdfcpu/pdfcpu/pkg/pdfcpu.VersionStr=#{version}"
-    end
+    system "go", "build", "-trimpath", "-o", bin/"pdfcpu", "-ldflags",
+           "-X github.com/pdfcpu/pdfcpu/pkg/pdfcpu.VersionStr=#{version}", "./cmd/pdfcpu"
   end
 
   test do

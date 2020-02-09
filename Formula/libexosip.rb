@@ -3,14 +3,13 @@ class Libexosip < Formula
   homepage "https://savannah.nongnu.org/projects/exosip"
   url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.1.0.tar.gz"
   sha256 "41107e5bd6dca50899b7381f7f68bfd9ae8df584c534c8a4c9ca668b66a88a4b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "8a1cf2e13613b6e2f92823dd783046c608d3f57b8bef64badf9ce54e7edbf7de" => :catalina
-    sha256 "c2fc3e1f96abb5f383a1b2948757010319d63ec41544854003e48f995b3eb4b7" => :mojave
-    sha256 "645d0b89351aa41b957dfcbf4f82d6df7912dba8f4364ebe5b129c9e385039eb" => :high_sierra
-    sha256 "602438fc2690914f98d185deaa5472102cf4154278ddaea9454d612e59186a20" => :sierra
+    sha256 "837af149701fd01d1b8c99b19ddcb8a08407e048225dc7d0af7e35d8d2113698" => :catalina
+    sha256 "87f85e6d4adb2ad196e0b4d2bff84f3cc9cbe9a92d4afb2a2101638577a3923e" => :mojave
+    sha256 "66c6dcf6e90bc4c08c5d6f119dfa997b1dfc750ac641a1b6139b74eebb897449" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

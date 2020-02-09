@@ -3,17 +3,17 @@ require "language/node"
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://insect.sh/"
-  url "https://registry.npmjs.org/insect/-/insect-5.3.0.tgz"
-  sha256 "770f1c282366bab62fd5cce03416781423d768ee9c88456a11c6159e1e5d776b"
+  url "https://registry.npmjs.org/insect/-/insect-5.4.0.tgz"
+  sha256 "c810e50c473439b04b2b3b7e580e6a2781f1c8747eb4261c262e413d6a145c2c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3fd6c2de1da3c5194cb1829b176f0ce7ff19305ddf8c9271dc57fc248339651" => :catalina
-    sha256 "fb96c43fff8bedc56b885fbd49a924f54bc485460aa428c30bae6b02ee9e422b" => :mojave
-    sha256 "46444cc696e42c428815638f1ca6b22dfb6c9f92ee53978dfc0b9d4bd3aa6d6a" => :high_sierra
+    sha256 "1a7bbd56f97d661e4e236e8375db1614659cf2a35d2112feab11c258d437b054" => :catalina
+    sha256 "8ba4c9bce3fa2fa0dc6546910d0ed7afff432f2e7938e63638c6494a197bba23" => :mojave
+    sha256 "d0efc8426a611811210f093f7a91671fd3f741619709ca88f04274ce7f8e9c06" => :high_sierra
   end
 
-  depends_on "bower" => :build
+  depends_on "psc-package" => :build
   depends_on "pulp" => :build
   depends_on "purescript" => :build
   depends_on "node"

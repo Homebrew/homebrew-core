@@ -3,14 +3,14 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/d1/c6/c911e905c4ea9e7d87ee27c13b3b0671afd5775555206b354f1f858d6344/poetry-1.0.2.tar.gz"
-  sha256 "f3e41da4820ac94689bcf736807e48213e5e5cb5edfdbae3df6c6876c42de4ed"
+  url "https://files.pythonhosted.org/packages/eb/98/a598bb2663e0e43557a99a243ebd21b27b1fc07d2c146b2554aa45ace5dc/poetry-1.0.3.tar.gz"
+  sha256 "60a079b1c1d8a4f1538d28ee8d1bf79a5d0eae96f497fdae9512eb3c1f8da13b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10df063f03a450392883f562621a240ba062de70f9db917c383c87bf9d901c18" => :catalina
-    sha256 "7bc40a1e86946cf60a046a869129c9772cbc46030bfdf3f46ad37601ea0e8816" => :mojave
-    sha256 "8881f7d7a38addfaf0abd337f8b958ac3018dbae1cb01af0b91c30c0b4cd3a82" => :high_sierra
+    sha256 "8d98261dfde4e086b5ed1f100fc20a8b39fee57081e6da83d3671feb275c0481" => :catalina
+    sha256 "42967228661abe70625b5e0af526e709db85de16439ecd8f2861a84c44021520" => :mojave
+    sha256 "8ce2ac8630626710d9917fa18698ea0d44a5b2cce8f6ea46dc0774943ea8f0d2" => :high_sierra
   end
 
   depends_on "python"
@@ -60,6 +60,7 @@ class Poetry < Formula
     sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
   end
 
+  # importlib-metadata<1.2.0,>=1.1.3
   resource "importlib-metadata" do
     url "https://files.pythonhosted.org/packages/e0/ab/591e1162057d42954114d87cd73ee29f7259535f3743f6618fc09ce681a9/importlib_metadata-1.1.3.tar.gz"
     sha256 "7a99fb4084ffe6dae374961ba7a6521b79c1d07c658ab3a28aa264ee1d1b14e3"
@@ -70,6 +71,7 @@ class Poetry < Formula
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
   end
 
+  # keyring<21.0.0,>=20.0.1
   resource "keyring" do
     url "https://files.pythonhosted.org/packages/97/b5/983b219cc9288340b1a572dc85b1efd96938d807dae9ebc9355616e0db32/keyring-20.0.1.tar.gz"
     sha256 "963bfa7f090269d30bdc5e25589e5fd9dad2cf2a7c6f176a7f2386910e5d0d8d"
@@ -81,8 +83,8 @@ class Poetry < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/4e/b2/e9e512cccde6c54bf66a8e5820a2af779eb8235028627002ca90d4f75bea/more-itertools-8.0.2.tar.gz"
-    sha256 "b84b238cce0d9adad5ed87e745778d20a3f8487d0f0cb8b8a586816c7496458d"
+    url "https://files.pythonhosted.org/packages/a0/47/6ff6d07d84c67e3462c50fa33bf649cda859a8773b53dc73842e84455c05/more-itertools-8.2.0.tar.gz"
+    sha256 "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"
   end
 
   resource "msgpack" do
@@ -90,14 +92,15 @@ class Poetry < Formula
     sha256 "ea3c2f859346fcd55fc46e96885301d9c2f7a36d453f5d8f2967840efa1e1830"
   end
 
+  # 'pastel<0.2.0,>=0.1.0' distribution was not found and is required by clikit
   resource "pastel" do
     url "https://files.pythonhosted.org/packages/88/f4/848a64c39b19d421b28467d799768860eb19add127ac8eafafafb9e90998/pastel-0.1.1.tar.gz"
     sha256 "bf3b1901b2442ea0d8ab9a390594e5b0c9584709d543a3113506fe8b28cbace3"
   end
 
   resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/1c/b1/362a0d4235496cb42c33d1d8732b5e2c607b0129ad5fdd76f5a583b9fcb3/pexpect-4.7.0.tar.gz"
-    sha256 "9e2c1fd0e6ee3a49b28f95d4b33bc389c89b20af6a1255906e90ff1262ce62eb"
+    url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
+    sha256 "fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"
   end
 
   resource "pkginfo" do
@@ -120,6 +123,7 @@ class Poetry < Formula
     sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
   end
 
+  # pyrsistent<0.15.0,>=0.14.2
   resource "pyrsistent" do
     url "https://files.pythonhosted.org/packages/8c/46/4e93ab8a379d7efe93f20a0fb8a27bdfe88942cc954ab0210c3164e783e0/pyrsistent-0.14.11.tar.gz"
     sha256 "3ca82748918eb65e2d89f222b702277099aca77e34843c5eb9d52451173970e2"
@@ -130,6 +134,7 @@ class Poetry < Formula
     sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
+  # requests-toolbelt<0.9.0,>=0.8.0
   resource "requests-toolbelt" do
     url "https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz"
     sha256 "f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
@@ -141,8 +146,8 @@ class Poetry < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "tomlkit" do
@@ -151,8 +156,8 @@ class Poetry < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
-    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
+    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
+    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
   end
 
   resource "webencodings" do
@@ -160,6 +165,7 @@ class Poetry < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
+  # 'zipp>=0.5' distribution was not found and is required by importlib-metadata
   resource "zipp" do
     url "https://files.pythonhosted.org/packages/57/dd/585d728479d97d25aeeb9aa470d36a4ad8d0ba5610f84e14770128ce6ff7/zipp-0.6.0.tar.gz"
     sha256 "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e"

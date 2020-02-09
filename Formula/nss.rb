@@ -1,14 +1,14 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_49_1_RTM/src/nss-3.49.1.tar.gz"
-  sha256 "d9aa42e49e02bb0dc0a2f164604cfc718e11a2a06ddb266cd676376ac21b026e"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_49_2_RTM/src/nss-3.49.2.tar.gz"
+  sha256 "faa7502c3ce9240d4be2aa88f63d88cf7d1cc512060e63ef21a7813c236160b2"
 
   bottle do
     cellar :any
-    sha256 "9d616968ba563fd40f14783968e37728c00e3791322010102a5865a18e87faa3" => :catalina
-    sha256 "99f5e708e9491f7b4d60cd8579cc266d9977632863201b6b062433074f9bf9a8" => :mojave
-    sha256 "b2b53491314199a32a9f293007601612aefe0ae469b574cc645ef3f1956081d0" => :high_sierra
+    sha256 "139c7c657a9eaf32c45f999b8d4593d8eebee23dd30f8e9822cc0e64a7639cea" => :catalina
+    sha256 "4f2248cbb274f7c45741512a0fa09f6f84b54e202ce86058dae97ab3001213b4" => :mojave
+    sha256 "349bba0cd507fec437d4686638ef532283acf7dfda172262aff2677293a98bdc" => :high_sierra
   end
 
   depends_on "nspr"

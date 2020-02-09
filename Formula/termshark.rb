@@ -1,14 +1,14 @@
 class Termshark < Formula
   desc "Terminal UI for tshark, inspired by Wireshark"
   homepage "https://termshark.io"
-  url "https://github.com/gcla/termshark/archive/v2.0.3.tar.gz"
-  sha256 "c05a64f1e502d406cc149c6e8b92720ad6310aecd1dd206e05713fd8a2247a84"
+  url "https://github.com/gcla/termshark/archive/v2.1.1.tar.gz"
+  sha256 "c02a21e0a61b791b1287b85acc33834ccd3bb4efb40be52e5a74d2b989d51416"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7b8b0fe96ff5a914f1de2545f9381465c1a8a6bff877e4c016ed54c6975c9825" => :catalina
-    sha256 "71a09e2a4e0af93d8e0dc4b57596dd66410db6c4846a53ab558920b22df0b451" => :mojave
-    sha256 "1feaeff8adfee9e3722bcb6c5d0da6dd26be45758423910338cafb504542f683" => :high_sierra
+    sha256 "04877a693f8f87f4120847862fa35642b5d862c7b93603b11d330015316efe03" => :catalina
+    sha256 "ec8e1526dd3ba7cb58bbcc510eee873c10fd11f428d12b54950d1dcfa5603a1a" => :mojave
+    sha256 "ef6bfc089550e3ba2afb02510ff7d5d3a8364079970a4f223a8b84801f1c0b93" => :high_sierra
   end
 
   depends_on "go" => :build

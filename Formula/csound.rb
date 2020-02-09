@@ -1,25 +1,27 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
-  sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
-  revision 4
+  url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
+  sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
-    sha256 "c4e9ff3ef8d8b2cc55ceb1de117a70f3135f1ee02a329a309e3b25e1387fe052" => :catalina
-    sha256 "318360d3f96d136816fbe3b6f7e6b91b24279a3c2510fb930bc50d5742c6e8c5" => :mojave
-    sha256 "257925fdd36a76c78a51112f4fc86c438102c05d98fc91723d537c34cef16c73" => :high_sierra
+    sha256 "f3fafbee57e8d1fa960065c82f27b493267fbaf8f032bd987973b31ddf7e8317" => :catalina
+    sha256 "ee309aca5eab1921c9c544c4d8ef9a30f7e45df6ff2e978da3bda6450354a0ff" => :mojave
+    sha256 "3983060036956544aebbba3322d76d7d294c97ece23c42c4b5454f82d4d2f6b3" => :high_sierra
   end
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
+  depends_on "swig" => :build
   depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
+  depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
+  depends_on :java
   depends_on "liblo"
   depends_on "libpng"
   depends_on "libsamplerate"
@@ -29,6 +31,11 @@ class Csound < Formula
   depends_on "portmidi"
   depends_on "stk"
   depends_on "wiiuse"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
+  uses_from_macos "python@2"
+  uses_from_macos "zlib"
 
   conflicts_with "libextractor", :because => "both install `extract` binaries"
   conflicts_with "pkcrack", :because => "both install `extract` binaries"
@@ -50,7 +57,7 @@ class Csound < Formula
     args = std_cmake_args + %W[
       -DABLETON_LINK_HOME=#{buildpath}/ableton
       -DBUILD_ABLETON_LINK_OPCODES=ON
-      -DBUILD_JAVA_INTERFACE=OFF
+      -DBUILD_JAVA_INTERFACE=ON
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
@@ -58,6 +65,7 @@ class Csound < Formula
       -DCMAKE_INSTALL_RPATH=#{frameworks}
       -DCS_FRAMEWORK_DEST=#{frameworks}
       -DGMM_INCLUDE_DIR=#{buildpath}/gmm
+      -DJAVA_MODULE_INSTALL_DIR=#{libexec}
     ]
 
     mkdir "build" do
@@ -78,6 +86,12 @@ class Csound < Formula
   def caveats; <<~EOS
     To use the Python bindings, you may need to add to #{shell_profile}:
       export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
+
+    To use the Java bindings, you may need to add to #{shell_profile}:
+      export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
+    and link the native shared library into your Java Extensions folder:
+      mkdir -p ~/Library/Java/Extensions
+      ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
   EOS
   end
 
@@ -116,17 +130,27 @@ class Csound < Formula
     assert_predicate testpath/"test.aif", :exist?
     assert_predicate testpath/"test.h5", :exist?
 
-    (testpath/"jacko.orc").write "JackoInfo"
-    system bin/"csound", "--orc", "--syntax-check-only", "jacko.orc"
-
-    (testpath/"wii.orc").write <<~EOS
+    (testpath/"opcode-existence.orc").write <<~EOS
+      JackoInfo
       instr 1
           i_success wiiconnect 1, 1
       endin
     EOS
-    system bin/"csound", "--orc", "--syntax-check-only", "wii.orc"
+    system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
     ENV["DYLD_FRAMEWORK_PATH"] = frameworks
     system "python3", "-c", "import ctcsound"
+    ENV.delete("DYLD_FRAMEWORK_PATH")
+
+    (testpath/"test.java").write <<~EOS
+      import csnd6.*;
+      public class test {
+          public static void main(String args[]) {
+              csnd6.csoundInitialize(csnd6.CSOUNDINIT_NO_ATEXIT | csnd6.CSOUNDINIT_NO_SIGNAL_HANDLER);
+          }
+      }
+    EOS
+    system "javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
+    system "java", "-classpath", "#{libexec}/csnd6.jar:.", "-Djava.library.path=#{libexec}", "test"
   end
 end

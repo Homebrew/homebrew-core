@@ -3,14 +3,14 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.27.1.tar.gz"
-  sha256 "4c7227763ccd2fb96451a55d87951c5951f20c8275a884afcdb8b7b3ff82304f"
+  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.27.4.tar.gz"
+  sha256 "26f1da3df317deeffc157cba45d0b31a3ef2095b549c570558adebb9000c8b06"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "781205024f8d497e3b92886ba8915de672d34c0396451e00ef12f5bd7c0a597a" => :catalina
-    sha256 "0c4c186bb38c1463f9a7b430bf76606b2f985d26b0cd046fd9337242fff21d5f" => :mojave
-    sha256 "f853bdb7b2b0f89761c7653b8109ee613026329d964ce6ae4fa1ea656e4343a3" => :high_sierra
+    sha256 "0b318c2e784a2558e7b49c0893a1b225fd6b8a47401b46c81e36a3a50799e269" => :catalina
+    sha256 "f5da3d28f5c3555d31e2551d6c3663dd56e92fcc1e62a2820b32e2143470f6a2" => :mojave
+    sha256 "c7b7ce329c0f7b0792d4647dcffba14813887340fd92828a290f33b1aa8e957e" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -26,13 +26,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a7/42/0f7da5b5a834808d796a90c74cce1eaaa810534824484c566b834fa10d83/boto3-1.11.5.tar.gz"
-    sha256 "7aaccacc199cd633b5ac14f0d544c9d592c53275a79cf4d230a9f66215331665"
+    url "https://files.pythonhosted.org/packages/b7/3c/1ec57f15ba09d217305e3334dca3d7c6f6e113e5cd7fe51bece1c74efeac/boto3-1.11.9.tar.gz"
+    sha256 "05f7ae180813fbf11cb7397b43b6bd29463abdc246bee58127836f1a8f6a9a2f"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a7/e9/a5189f3d97226ccabd711d5532e16023691385f9390a6670f31c38c9c0c9/botocore-1.14.5.tar.gz"
-    sha256 "96a16e64c96d34fa2e535c1d5a0024bf55eee853b939be0331318cd060b3d395"
+    url "https://files.pythonhosted.org/packages/8e/cf/22d74ce0c1c66eb3989ed24642cc73f617786d9942d8f9fc3d9d23819ab3/botocore-1.14.9.tar.gz"
+    sha256 "1909424c9544f92142c8e551888731e32a99f9c99cfe8d21fea3ec0c32981dae"
   end
 
   resource "certifi" do
@@ -57,8 +57,8 @@ class CfnLint < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/8c/0e/10e247f40c89ba72b7f2a2104ccf1b65de18f79562ffe11bfb837b711acf/importlib_metadata-1.4.0.tar.gz"
-    sha256 "f17c015735e1a88296994c0697ecea7e11db24290941983b08c9feb30921e6d8"
+    url "https://files.pythonhosted.org/packages/0d/e4/638f3bde506b86f62235c595073066e7b8472fc9ee2b8c6491347f31d726/importlib_metadata-1.5.0.tar.gz"
+    sha256 "06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302"
   end
 
   resource "jmespath" do
@@ -67,8 +67,8 @@ class CfnLint < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/30/ac/9b6478a560627e4310130a9e35c31a9f4d650704bbd03946e77c73abcf6c/jsonpatch-1.24.tar.gz"
-    sha256 "cbb72f8bf35260628aea6b508a107245f757d1ec839a19c34349985e2c05645a"
+    url "https://files.pythonhosted.org/packages/70/9f/6f0bfbb4cc1401ce994d336bcb4ed2aa924f395e7fd1926511c04a52eee1/jsonpatch-1.25.tar.gz"
+    sha256 "ddc0f7628b8bfdd62e3cbfbc24ca6671b0b6265b50d186c2cf3659dc0f78fd6a"
   end
 
   resource "jsonpointer" do
@@ -82,8 +82,8 @@ class CfnLint < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/df/8c/c278395367a46c00d28036143fdc6583db8f98622b83875403f16473509b/more-itertools-8.1.0.tar.gz"
-    sha256 "c468adec578380b6281a114cb8a5db34eb1116277da92d7c46f904f0b52d3288"
+    url "https://files.pythonhosted.org/packages/a0/47/6ff6d07d84c67e3462c50fa33bf649cda859a8773b53dc73842e84455c05/more-itertools-8.2.0.tar.gz"
+    sha256 "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"
   end
 
   resource "pyrsistent" do
@@ -107,8 +107,8 @@ class CfnLint < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/b2/45/5f8817a68b5128f9c9ee2259412de4fccf0dbce4220bf9ba703285232231/s3transfer-0.3.1.tar.gz"
-    sha256 "248dffd2de2dfb870c507b412fc22ed37cd3255293e293c395158e7c55fbe5f9"
+    url "https://files.pythonhosted.org/packages/63/1b/541c480e6ace294537cf33786363e4dc54823c6f0b25bf03c1685c00218f/s3transfer-0.3.2.tar.gz"
+    sha256 "4924e10451cc37901945806423d16c2c2040a6530645a614ed87e995ccec764c"
   end
 
   resource "six" do
@@ -117,13 +117,13 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
-    sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
+    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
+    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/ee/f7/6c3ca4764a8025da9422825c2bc367fdc8dd115ebb52e4ef057f234938c4/zipp-2.0.0.tar.gz"
-    sha256 "7ae5ccaca427bafa9760ac3cd8f8c244bfc259794b5b6bb9db4dda2241575d09"
+    url "https://files.pythonhosted.org/packages/11/b5/89f3ab6d45b2709863761bab58c574b2344ef215749abb5407818c21c9ca/zipp-2.1.0.tar.gz"
+    sha256 "feae2f18633c32fc71f2de629bfb3bd3c9325cd4419642b1f1da42ee488d9b98"
   end
 
   def install

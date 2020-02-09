@@ -6,9 +6,10 @@ class Oclgrind < Formula
 
   bottle do
     cellar :any
-    sha256 "0d74b5823ac1dd31da92034fba356f9c24d3027ef19df6c384865a39549351fa" => :catalina
-    sha256 "f5d9efa96fa4f225f91cd84ed02fe91df8566621045be58ff4db368ede6cccbe" => :mojave
-    sha256 "3288de0030946fd7d61b8a7c91d20daa8c18f80abd224255c70ab47254c64086" => :high_sierra
+    rebuild 1
+    sha256 "ffb53cf7c25cab8764915b0569964de90f16c3486c4b88c1c604467af7211001" => :catalina
+    sha256 "5e22e8e0cd96a5bbc198f9df7f2eb9c1ec4489d693d40ec913a42592f891f5cc" => :mojave
+    sha256 "a87183acf599c5fe68f8bd43c978234af6ecae7ec0cbc33ff50e79548ff438c5" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -112,7 +113,9 @@ class Oclgrind < Formula
         puts(buf2);
       }
     EOS
+
     system ENV.cc, "rot13.c", "-o", "rot13", "-framework", "OpenCL"
-    assert_equal "Hello, World!", pipe_output([bin/"oclgrind", "./rot13"], "", 0).chomp
+    output = shell_output("#{bin}/oclgrind ./rot13").chomp
+    assert_equal "Hello, World!", output
   end
 end

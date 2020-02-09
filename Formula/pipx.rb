@@ -1,16 +1,15 @@
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://github.com/pipxproject/pipx"
-  url "https://files.pythonhosted.org/packages/67/87/7f1547c4e8430ad3a6ca815f66e666651f91ad26e91d99d797a09f2b8991/pipx-0.15.1.1.tar.gz"
-  sha256 "4b56b878899bf26917a945c316d52c71a8a99131c192f8396e9e971b431b8dd7"
-  revision 1
+  url "https://files.pythonhosted.org/packages/24/34/643ee280e42da87d033deae55e624575f4ea8e2e655169143da91cd76c36/pipx-0.15.1.3.tar.gz"
+  sha256 "01aa3a9549ea4ce8428ccb1b770d5fd428159f17635cad208effc17b42ccb72e"
   head "https://github.com/pipxproject/pipx.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "256bf6633c381e01c1ac56db6351497b03e3f5ec0baeba0d9de555c09e76489f" => :catalina
-    sha256 "256bf6633c381e01c1ac56db6351497b03e3f5ec0baeba0d9de555c09e76489f" => :mojave
-    sha256 "256bf6633c381e01c1ac56db6351497b03e3f5ec0baeba0d9de555c09e76489f" => :high_sierra
+    sha256 "d6c9dab20b253977ac72203b446a09e670d3d7f5dfea95fa12d497b423a92792" => :catalina
+    sha256 "d6c9dab20b253977ac72203b446a09e670d3d7f5dfea95fa12d497b423a92792" => :mojave
+    sha256 "d6c9dab20b253977ac72203b446a09e670d3d7f5dfea95fa12d497b423a92792" => :high_sierra
   end
 
   depends_on "python"

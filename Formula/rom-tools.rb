@@ -1,19 +1,18 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0216.tar.gz"
-  version "0.216"
-  sha256 "cc69e56ebbabbd6cf197d4910de0904f5709844a81f0117ce5d922f702429fc8"
+  url "https://github.com/mamedev/mame/archive/mame0218.tar.gz"
+  version "0.218"
+  sha256 "c855d2a53956d7ecc6b2d029747495278cd701dc785c50548f0f20ffa673b91f"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "8bc6497043bfa57144c2dea206449918236b382187012e067b1cfc80d468bb54" => :catalina
-    sha256 "cc193f1b57ef6daa1ff2f33b5d4e5140ee7454d3b900f3c51dd9e7fc30a5f7ae" => :mojave
-    sha256 "d00dfa62f18e09ab0c51bb1ffb64b4599ded97941f38b8b6b347a4322dd6c869" => :high_sierra
+    sha256 "b22c316af57864f35b828c0ab5e45012ef61ec5aade6db733c774a8f6b8e5f81" => :catalina
+    sha256 "686f0d2b62a048a25ee08df2abfdd88bd058fdbf572d83eff5858edd195627c2" => :mojave
+    sha256 "3080b023b04b47492d028c99eeab8a3f2d3dd7f5ee0524d8719d3e89371824cf" => :high_sierra
   end
 
-  depends_on "asio" => :build
   depends_on "pkg-config" => :build
   depends_on "flac"
   # Need C++ compiler and standard library support C++14.
@@ -29,7 +28,7 @@ class RomTools < Formula
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=1",
+                   "USE_SYSTEM_LIB_ASIO=0",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_UTF8PROC=1"
     bin.install %w[

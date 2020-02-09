@@ -1,16 +1,16 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0217.tar.gz"
-  version "0.217"
-  sha256 "b38873459a781d3b464a0f2c978690e3bdf12bdfee5de5e36fc5b45a32914abe"
+  url "https://github.com/mamedev/mame/archive/mame0218.tar.gz"
+  version "0.218"
+  sha256 "c855d2a53956d7ecc6b2d029747495278cd701dc785c50548f0f20ffa673b91f"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "5f2bf9eab38d5ede4d10f5a9f08e413a9ae1a716141b213693fa3ada09b838d8" => :catalina
-    sha256 "9ee6d51ea4bb5d33918ec4aaf5bf755505e8947522c1431afa67589cb6da7671" => :mojave
-    sha256 "8b4598fafef423777d389e7e71bfbdebb225915ac7ca9bfb850d17ae9497c944" => :high_sierra
+    sha256 "107a43de5bd425025cbe992c5a707d2e0ab7de1a647502aa98d3b65723c574d6" => :catalina
+    sha256 "097f7b85063ace674fc27e4042ca0cde718ab8caef33aa58bcd1f2f2a90c4727" => :mojave
+    sha256 "fdfc29f13a4ebebc45330a2f1d804aabbb4fb15aa3f3df6db64503a154a5f1ed" => :high_sierra
   end
 
   depends_on "glm" => :build

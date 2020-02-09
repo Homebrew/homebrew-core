@@ -2,26 +2,24 @@ class Bazelisk < Formula
   desc "User-friendly launcher for Bazel"
   homepage "https://github.com/bazelbuild/bazelisk/"
   url "https://github.com/bazelbuild/bazelisk.git",
-      :tag      => "v1.2.1",
-      :revision => "56a03d98104be7cfa57d4bbdc03b4c7cea29a6c9"
+      :tag      => "v1.3.0",
+      :revision => "24b8784d71096f3dfa38d6533a770f45a49cda43"
   head "https://github.com/bazelbuild/bazelisk.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd510b727fea39be403be09808e2023ff7050c3c610cebe1fc1aacffe73c0f9a" => :catalina
-    sha256 "cd510b727fea39be403be09808e2023ff7050c3c610cebe1fc1aacffe73c0f9a" => :mojave
-    sha256 "cd510b727fea39be403be09808e2023ff7050c3c610cebe1fc1aacffe73c0f9a" => :high_sierra
+    sha256 "e9a394c4e1f686f37b62040be9e8fcc7571bfd32d8c9ff9a43e6c59905053a4c" => :catalina
+    sha256 "e9a394c4e1f686f37b62040be9e8fcc7571bfd32d8c9ff9a43e6c59905053a4c" => :mojave
+    sha256 "e9a394c4e1f686f37b62040be9e8fcc7571bfd32d8c9ff9a43e6c59905053a4c" => :high_sierra
   end
 
   depends_on "bazel" => :build
 
   def install
-    system "bazel", "build", "--stamp",
-      "--workspace_status_command=#{buildpath}/stamp.sh",
-      "--platforms=@io_bazel_rules_go//go/toolchain:darwin_amd64",
-      "//:bazelisk"
+    rm_f ".bazelversion" # Homebrew uses the latest bazel
+    system "bazel", "build", "--config=release", "//:bazelisk-darwin"
 
-    bin.install "bazel-bin/darwin_amd64_pure_stripped/bazelisk" => "bazelisk"
+    bin.install "bazel-bin/bazelisk-darwin_amd64" => "bazelisk"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Fuseki < Formula
   desc "SPARQL server"
   homepage "https://jena.apache.org/documentation/fuseki2/"
-  url "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-3.13.1.tar.gz"
-  sha256 "fe3003941ded224edeab9e9dc3221b46b3cfa2743d1b0218210dcacde2010b05"
+  url "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-3.14.0.tar.gz"
+  sha256 "11cdfc60c515281efeb392394d750f1847ee77a2b0a4728ab006f4faafee916a"
 
   bottle :unneeded
 
@@ -16,6 +16,7 @@ class Fuseki < Formula
                                  :FUSEKI_HOME => libexec,
                                  :FUSEKI_LOGS => var/"log/fuseki",
                                  :FUSEKI_RUN  => var/"run")
+      chmod 0755, libexec/exe
     end
 
     # Non-symlinked binaries and application files
