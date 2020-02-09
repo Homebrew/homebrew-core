@@ -12,7 +12,6 @@ class Assimp < Formula
     sha256 "6dffc67ca984f5870bdc09a1c0adbb3c0d2209c7fb8169e2204c4c2d2d44aebe" => :high_sierra
   end
 
-  depends_on "boost" => :build
   depends_on "cmake" => :build
   uses_from_macos "zlib"
 
