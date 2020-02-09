@@ -1,8 +1,8 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.0.tar.gz"
-  sha256 "8a3f81ea94fa6ffddf751b65cd2443c76defb5b773544c253af43b0e4e029376"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.1.tar.gz"
+  sha256 "b6b5dd0fbf01b1a85293dca7b2d5ece256f1ef51b7a49f388d4d870840d0bd03"
 
   bottle do
     cellar :any_skip_relocation
@@ -44,8 +44,8 @@ class Rex < Formula
   end
 
   resource "ExtUtils::MakeMaker" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.43_01.tar.gz"
-    sha256 "5c6eb20bf3b2222fad50b682886831069ebda9604dbed54a2193e8252c7a6a39"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.44.tar.gz"
+    sha256 "52a18f8271250faf5f3527499dd2b78d3b4fd3b064408d0cfdda9a3538887188"
   end
 
   resource "File::Listing" do
