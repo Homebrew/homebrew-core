@@ -17,6 +17,8 @@ class Httpry < Formula
     sha256 "ec016612be65aa5761213134d211f9bee121d8904dae9b9d73ebfc37d4de3cea" => :mavericks
   end
 
+  uses_from_macos "libpcap"
+
   def install
     system "make"
     bin.install "httpry"
