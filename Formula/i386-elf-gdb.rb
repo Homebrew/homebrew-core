@@ -12,6 +12,8 @@ class I386ElfGdb < Formula
     sha256 "5a173cea39b163dabfd97db3ea26446344ff82bdc3792b3111414d7f5c9ee6de" => :high_sierra
   end
 
+  conflicts_with "gdb", :because => "both install include/gdb, share/gdb and share/info"
+
   def install
     mkdir "build" do
       system "../configure", "--target=i386-elf",
