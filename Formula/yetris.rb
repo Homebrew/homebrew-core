@@ -14,6 +14,8 @@ class Yetris < Formula
     sha256 "a14c5327ab931d7394b3f617422916eafbc76a936ac77e81a959b38aa223dd5e" => :yosemite
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
