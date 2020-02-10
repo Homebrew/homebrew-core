@@ -117,9 +117,6 @@ class Mariadb < Formula
     server starting up correctly.
 
     MySQL is configured to only allow connections from localhost by default
-
-    To connect:
-        mysql -uroot
   EOS
   end
 
