@@ -16,6 +16,8 @@ class Ophcrack < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "expat"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-gui",
