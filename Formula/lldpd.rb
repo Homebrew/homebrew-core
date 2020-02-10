@@ -16,6 +16,8 @@ class Lldpd < Formula
   depends_on "libevent"
   depends_on "readline"
 
+  uses_from_macos "libxml2"
+
   def install
     readline = Formula["readline"]
     args = %W[
