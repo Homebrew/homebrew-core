@@ -31,10 +31,10 @@ class Simgrid < Formula
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
-      #include <simgrid/msg.h>
+      #include <simgrid/engine.h>
 
       int main(int argc, char* argv[]) {
-        printf("%f", MSG_get_clock());
+        printf("%f", simgrid_get_clock());
         return 0;
       }
     EOS
