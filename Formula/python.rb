@@ -291,9 +291,6 @@ class Python < Formula
       `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
-      If you need Homebrew's Python 2.7 run
-        brew install python@2
-
       You can install Python packages with
         pip3 install <package>
       They will install into the site-package directory
