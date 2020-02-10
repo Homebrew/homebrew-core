@@ -21,6 +21,8 @@ class Gpredict < Formula
   depends_on "gtk+3"
   depends_on "hamlib"
 
+  uses_from_macos "curl"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
