@@ -1,9 +1,8 @@
 class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
-  url "https://github.com/flexible-collision-library/fcl/archive/0.5.0.tar.gz"
-  sha256 "8e6c19720e77024c1fbff5a912d81e8f28004208864607447bc90a31f18fb41a"
-  revision 1
+  url "https://github.com/flexible-collision-library/fcl/archive/v0.6.0.tar.gz"
+  sha256 "6891abac5cc26d64f5ef8894bc6c2a30174558c5c83a3ed63cf65a21cb619b2b"
 
   bottle do
     sha256 "07ef96db4ac5806832c2e6bd28eba505c98c1bb55ed1f86d6d1793752b9265c4" => :catalina
@@ -16,6 +15,7 @@ class Fcl < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "eigen"
   depends_on "libccd"
   depends_on "octomap"
 
@@ -27,16 +27,17 @@ class Fcl < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <fcl/shape/geometric_shapes.h>
+      #include <fcl/geometry/shape/box.h>
       #include <cassert>
 
       int main() {
-        assert(fcl::Box(1, 1, 1).computeVolume() == 1);
+        assert(fcl::Boxd(1, 1, 1).computeVolume() == 1);
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
-                    "-lfcl", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}",
+                    "-I#{Formula["eigen"].include}/eigen3",
+                    "-L#{lib}", "-lfcl", "-o", "test"
     system "./test"
   end
 end
