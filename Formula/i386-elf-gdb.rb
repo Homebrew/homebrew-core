@@ -1,8 +1,10 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
-  sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
+  sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
+  head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
     sha256 "78bc76a038e82c274fcbf1acb1a731d3e93e137501f2e93578998f2ad3d69707" => :catalina
