@@ -12,6 +12,8 @@ class Gdb < Formula
     sha256 "4cde626aa5d32dde54d70bd531a06e65051e7ac7371f1970b6b9c838f565239c" => :high_sierra
   end
 
+  conflicts_with "i386-elf-gdb", :because => "both install include/gdb, share/gdb and share/info"
+
   fails_with :clang do
     build 800
     cause <<~EOS
