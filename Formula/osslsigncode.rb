@@ -19,6 +19,8 @@ class Osslsigncode < Formula
   depends_on "libgsf"
   depends_on "openssl@1.1"
 
+  uses_from_macos "curl"
+
   def install
     system "./autogen.sh"
     system "./configure", "--with-gsf", "--prefix=#{prefix}"
