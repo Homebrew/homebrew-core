@@ -1,9 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.3.1.tar.xz"
-  sha256 "1e55b4d7cdca7b34be12f4ceae651623aa73b2fd640152313f9f66a7149757c4"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
+  sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
@@ -11,8 +11,6 @@ class Gdb < Formula
     sha256 "832e02507122f99636166486b7fa5b0004f98c3fb967e3c3e6a427b5ecbf81ed" => :mojave
     sha256 "c6f506f57a95d8ea21635874bfbc8493e3efd9b34f88ea5f8195d1f7cfa62805" => :high_sierra
   end
-
-  depends_on "pkg-config" => :build
 
   fails_with :clang do
     build 800
@@ -32,11 +30,13 @@ class Gdb < Formula
       --disable-binutils
     ]
 
-    system "./configure", *args
-    system "make"
+    mkdir "build" do
+      system "../configure", *args
+      system "make"
 
-    # Don't install bfd or opcodes, as they are provided by binutils
-    system "make", "install-gdb"
+      # Don't install bfd or opcodes, as they are provided by binutils
+      system "make", "install-gdb"
+    end
   end
 
   def caveats; <<~EOS
