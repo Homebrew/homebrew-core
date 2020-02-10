@@ -3,8 +3,8 @@ class Pympress < Formula
 
   desc "Simple and powerful dual-screen PDF reader designed for presentations"
   homepage "https://github.com/Cimbali/pympress/"
-  url "https://files.pythonhosted.org/packages/35/03/4e655064b30b5717cfed53da88eda098971728fe4c8c94b1599833edbc66/pympress-1.5.1.tar.gz"
-  sha256 "8ea3808f31c9ae4152bdcf09632e1fece943d91fc3c974c4c3497ce1984e6d9c"
+  url "https://files.pythonhosted.org/packages/d1/cf/a81c579fa9b65daa7b159220038adaaeb144d21616dc83868ed7c42589d9/pympress-1.5.2.tar.gz"
+  sha256 "3f19236897ba7b3106b0b8ccd04ca32aee42fe3a604ea1d7ced305abcceeecf2"
   head "https://github.com/Cimbali/pympress.git"
 
   bottle do
