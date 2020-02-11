@@ -1,9 +1,8 @@
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://tsl0922.github.io/ttyd/"
-  url "https://github.com/tsl0922/ttyd/archive/1.5.2.tar.gz"
-  sha256 "b5b62ec2ce08add0173e6d1dfdd879e55f02f9490043e89f389981a62e87d376"
-  revision 3
+  url "https://github.com/tsl0922/ttyd/archive/1.6.0.tar.gz"
+  sha256 "d14740bc82be0d0760dd0a3c97acbcbde490412a4edc61edabe46d311b068f83"
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
@@ -14,7 +13,6 @@ class Ttyd < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libevent"
   depends_on "libuv"
