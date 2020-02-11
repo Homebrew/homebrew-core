@@ -4,8 +4,8 @@ class Riff < Formula
   desc "Function As A Service on top of Kubernetes, riff is for functions"
   homepage "https://www.projectriff.io/"
   url "https://github.com/projectriff/cli.git",
-      :tag      => "v0.4.0",
-      :revision => "d1b042f4247d8eb01ee0b9e984926028a2844fe8"
+      :tag      => "v0.5.0",
+      :revision => "f96cf2f5ca6fddfaf4716c0045f5f142da2d3828"
 
   bottle do
     cellar :any_skip_relocation
