@@ -1,8 +1,8 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/v9.1.2.tar.gz"
-  sha256 "0f36ffc2e4e478562ca038459cb11227150b450356454fd029b078e75d28746b"
+  url "https://github.com/citusdata/citus/archive/v9.2.0.tar.gz"
+  sha256 "c442b78ab1d66ce262e4e217191294f5d333f79a728608a7180cc17e3b395a40"
   head "https://github.com/citusdata/citus.git"
 
   bottle do
