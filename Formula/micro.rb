@@ -1,9 +1,10 @@
 class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
-  url "https://github.com/zyedidia/micro/releases/download/v1.4.1/micro-1.4.1-src.tar.gz"
-  sha256 "0b516826226cf1ddf2fbb274f049cab456a5c162efe3d648f0871564fadcf812"
-  head "https://github.com/zyedidia/micro.git", :shallow => false
+  url "https://github.com/zyedidia/micro.git",
+      :tag      => "v2.0.0",
+      :revision => "399c6290768867351813250a6f1d8df7554917a5"
+  head "https://github.com/zyedidia/micro.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,15 +17,10 @@ class Micro < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/github.com/zyedidia/micro").install buildpath.children
-
-    cd "src/github.com/zyedidia/micro" do
-      system "make", "build-quick"
-      bin.install "micro"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "micro"
+    man1.install "assets/packaging/micro.1"
+    prefix.install_metafiles
   end
 
   test do
