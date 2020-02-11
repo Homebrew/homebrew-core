@@ -22,6 +22,7 @@ class Qt < Formula
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
   depends_on :macos => :sierra
+  depends_on "molten-vk"
 
   def install
     args = %W[
@@ -40,6 +41,8 @@ class Qt < Formula
       -pkg-config
       -dbus-runtime
       -proprietary-codecs
+      -I#{Formula["molten-vk"].opt_include}
+      -I#{Formula["molten-vk"].opt_libexec}/include
     ]
 
     system "./configure", *args
