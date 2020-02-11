@@ -20,6 +20,10 @@ class Zeek < Formula
   depends_on "geoip"
   depends_on "openssl@1.1"
 
+  uses_from_macos "flex"
+  uses_from_macos "libpcap"
+  uses_from_macos "python@2" # See https://github.com/zeek/zeek/issues/706
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-caf=#{Formula["caf"].opt_prefix}",
