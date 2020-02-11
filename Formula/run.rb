@@ -1,8 +1,8 @@
 class Run < Formula
   desc "Easily manage and invoke small scripts and wrappers"
   homepage "https://github.com/TekWizely/run"
-  url "https://github.com/TekWizely/run/archive/v0.7.0.tar.gz"
-  sha256 "fd310e3eb61b975e754689731e7b8557c790506a309df80f5cd23a7019f9edc4"
+  url "https://github.com/TekWizely/run/archive/v0.7.1.tar.gz"
+  sha256 "43618d64860c5e962bd0b81e8a3b71085378dff162557dc237fa58595f1a0681"
 
   bottle do
     cellar :any_skip_relocation
