@@ -13,7 +13,6 @@ class Arangodb < Formula
   depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on "docker" => :build
   depends_on :macos => :mojave
   depends_on "openssl@1.1"
 
@@ -21,21 +20,15 @@ class Arangodb < Formula
   # it is used to easily start single server and clusters
   # with a unified CLI
   resource "starter" do
-    url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "f59cdbb0f4f78afd171b1952021e999e9747c1c2"
+    url "https://github.com/arangodb-helper/arangodb/releases/download/0.14.13/arangodb-darwin-amd64"
+    sha256 "71e02d4ccdac585b24d9ee145ce41c246c547b76618ebf436f792b12637dc02a"
   end
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     resource("starter").stage do
-      ENV.append "GOPATH", Dir.pwd + "/.gobuild"
-      system "make", "deps"
-      # use commit-id as projectBuild
-      commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.13 -X main.projectBuild=#{commit}",
-                            "-o", "arangodb",
-                            "github.com/arangodb-helper/arangodb"
+      mv "arangodb-darwin-amd64", "arangodb"
       bin.install "arangodb"
     end
 
