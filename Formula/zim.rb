@@ -16,9 +16,8 @@ class Zim < Formula
   depends_on "adwaita-icon-theme"
   depends_on "graphviz"
   depends_on "gtk+3"
+  depends_on "gtksourceview3"
   depends_on "pygobject3"
-  depends_on "pygtk"
-  depends_on "pygtksourceview"
   depends_on "python"
 
   resource "pyxdg" do
@@ -35,7 +34,7 @@ class Zim < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.7/site-packages"
     system "python3", "./setup.py", "install", "--prefix=#{libexec}"
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"], :XDG_DATA_DIRS => libexec/"share"
+    bin.env_script_all_files libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"], :XDG_DATA_DIRS => ["#{HOMEBREW_PREFIX}/share", libexec/"share"].join(":")
     pkgshare.install "zim"
   end
 
