@@ -1,8 +1,8 @@
 class Corral < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/corral"
-  url "https://github.com/ponylang/corral/archive/0.3.0.tar.gz"
-  sha256 "5e2f825dd67a060623bdbd992bcdf2d4a377a6d491f4bd60e8754f60df33e578"
+  url "https://github.com/ponylang/corral/archive/0.3.1.tar.gz"
+  sha256 "ab6fc435db5726a3ea68c8364f3de665551825e5dd58c06ce19576ef7266e602"
   head "https://github.com/ponylang/corral.git"
 
   bottle do
