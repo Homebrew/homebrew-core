@@ -3,7 +3,7 @@ class Libpsl < Formula
   homepage "https://rockdaboot.github.io/libpsl"
   url "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz"
   sha256 "41bd1c75a375b85c337b59783f5deb93dbb443fb0a52d257f403df7bd653ee12"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,9 +14,12 @@ class Libpsl < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.8" => :build
   depends_on "libidn2"
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
