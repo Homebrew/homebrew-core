@@ -3,7 +3,7 @@ class Ldns < Formula
   homepage "https://nlnetlabs.nl/projects/ldns/"
   url "https://nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz"
   sha256 "8ac84c16bdca60e710eea75782356f3ac3b55680d40e1530d7cea474ac208229"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,6 +15,7 @@ class Ldns < Formula
 
   depends_on "swig" => :build
   depends_on "openssl@1.1"
+  depends_on "python@3.8"
 
   def install
     args = %W[
@@ -23,10 +24,16 @@ class Ldns < Formula
       --with-examples
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pyldns
-      PYTHON_SITE_PKG=#{lib}/python2.7/site-packages
+      PYTHON_SITE_PKG=#{lib}/python3.8/site-packages
       --disable-dane-verify
     ]
 
+    if MacOS.version == :mojave
+      # Fixes: ./contrib/python/ldns_wrapper.c:2746:10: fatal error: 'ldns.h' file not found
+      inreplace "contrib/python/ldns.i", "#include \"ldns.h\"", "#include <ldns/ldns.h>"
+    end
+
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
     system "./configure", *args
 
     inreplace "Makefile" do |s|
