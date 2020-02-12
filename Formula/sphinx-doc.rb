@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/5d/0b/9d45b32b7cc316f70a71a5549456cdedd1e6e068feed49e1139846c67501/Sphinx-2.4.0.tar.gz"
-  sha256 "fb2ce74c28154872757925edda0060b4c4102cdc86b8b30063f23399678de2ca"
+  url "https://files.pythonhosted.org/packages/42/6b/cddf7d5af24ac73506c98dba8025e4f71cd33553f54c8bf3478a09d5fed0/Sphinx-2.4.1.tar.gz"
+  sha256 "f929b72e0cfe45fa581b8964d54457117863a6a6c9369ecc1a65b8827abd3bf2"
 
   bottle do
     cellar :any_skip_relocation
