@@ -1,9 +1,9 @@
 class ApacheFlink < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://archive.apache.org/dist/flink/flink-1.9.1/flink-1.9.1-bin-scala_2.11.tgz"
-  version "1.9.1"
-  sha256 "f69de344cd593e92f8261e19ae8a47b3910e9a70a7cd1ccfb1ecd1ff000b93ea"
+  url "https://archive.apache.org/dist/flink/flink-1.9.2/flink-1.9.2-bin-scala_2.11.tgz"
+  version "1.9.2"
+  sha256 "26f615da6cb774364c7ada8458ade8dac02c588692621d048fbb2d2e0d821297"
   head "https://github.com/apache/flink.git"
 
   bottle :unneeded
