@@ -3,6 +3,7 @@ class GsettingsDesktopSchemas < Formula
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
   url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.34/gsettings-desktop-schemas-3.34.0.tar.xz"
   sha256 "288b04260f7040b0e004a8d59c773cfb4e32df4f1b4a0f9d705c51afccc95ead"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +18,9 @@ class GsettingsDesktopSchemas < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "python"
+
+  uses_from_macos "expat"
 
   def install
     ENV["DESTDIR"] = "/"
