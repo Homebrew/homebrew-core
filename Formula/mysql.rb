@@ -53,7 +53,7 @@ class Mysql < Formula
       -DSYSCONFDIR=#{etc}
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
-      -DWITH_SSL=yes
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
       -DWITH_PROTOBUF=system
       -DWITH_UNIT_TESTS=OFF
       -DENABLED_LOCAL_INFILE=1
@@ -67,6 +67,14 @@ class Mysql < Formula
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
+
+    # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
+    rm_rf lib/"libssl.dylib"
+    rm_rf lib/"libssl.1.1.dylib"
+    rm_rf lib/"libcrypto.1.1.dylib"
+    rm_rf lib/"libcrypto.dylib"
+    rm_rf lib/"plugin/libcrypto.1.1.dylib"
+    rm_rf lib/"plugin/libssl.1.1.dylib"
 
     # Remove the tests directory
     rm_rf prefix/"mysql-test"
