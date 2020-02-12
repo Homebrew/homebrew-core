@@ -13,11 +13,29 @@ class Kpt < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    # system "./configure", "--disable-debug",
+    #                       "--disable-dependency-tracking",
+    #                       "--disable-silent-rules",
+    #                       "--prefix=#{prefix}"
     # system "cmake", ".", *std_cmake_args
+    ENV["GO111MODULE"] = on
+    ENV["GOPATH"] = buildpath
+    ENV.prepend_create_path "PATH", buildpath/"bin"
+    dir = buildpath/"src/github.com/GoogleContainerTools/kpt"
+    dir.install buildpath.children - [buildpath/".brew_home"]
+
+    cd dir do
+      #ENV.delete "AWS_ACCESS_KEY"
+      #ENV.delete "AWS_SECRET_KEY"
+
+      ENV["XC_OS"] = "darwin"
+      ENV["XC_ARCH"] = "amd64"
+      system "make", "build"
+
+      bin.install "pkg/darwin_amd64/kpt"
+      prefix.install_metafiles
+    end
+
   end
 
   test do
