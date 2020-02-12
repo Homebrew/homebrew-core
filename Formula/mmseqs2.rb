@@ -16,10 +16,10 @@ class Mmseqs2 < Formula
 
   depends_on "cmake" => :build
   depends_on "libomp"
+  depends_on "wget"
 
   uses_from_macos "bzip2"
   uses_from_macos "gawk"
-  uses_from_macos "wget"
   uses_from_macos "zlib"
 
   resource "documentation" do
