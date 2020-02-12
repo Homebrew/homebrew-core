@@ -4,38 +4,15 @@
 class Kpt < Formula
   desc "kpt is a toolkit to help you manage, manipulate, customize, and apply Kubernetes Resource configuration data files."
   homepage "https://googlecontainertools.github.io/kpt"
-  url "https://github.com/GoogleContainerTools/kpt/archive/v0.4.0.zip"
-  sha256 "9fa1d2a3d2ba38ee8c37ba5e01b3ecd77802d90748108ae7c96f4beb32af6cbf"
+  url "https://github.com/GoogleContainerTools/kpt/archive/v0.4.0.tar.gz"
+  sha256 "63133d79cebfda47a281bee31bf10e1ec6f40556d6dac32546a54e91ee58ce9a"
 
-  # depends_on "cmake" => :build
   depends_on "go" => :build
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-    # Remove unrecognized options if warned by configure
-    # system "./configure", "--disable-debug",
-    #                       "--disable-dependency-tracking",
-    #                       "--disable-silent-rules",
-    #                       "--prefix=#{prefix}"
-    # system "cmake", ".", *std_cmake_args
-    ENV["GO111MODULE"] = on
-    ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    dir = buildpath/"src/github.com/GoogleContainerTools/kpt"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      #ENV.delete "AWS_ACCESS_KEY"
-      #ENV.delete "AWS_SECRET_KEY"
-
-      ENV["XC_OS"] = "darwin"
-      ENV["XC_ARCH"] = "amd64"
-      system "make", "build"
-
-      bin.install "pkg/darwin_amd64/kpt"
-      prefix.install_metafiles
-    end
-
+    ENV["GO111MODULE"] = "on"
+    system "go", "build", "-ldflags", "-X main.version=#{version}", *std_go_args
   end
 
   test do
