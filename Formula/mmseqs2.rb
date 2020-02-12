@@ -17,6 +17,11 @@ class Mmseqs2 < Formula
   depends_on "cmake" => :build
   depends_on "libomp"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "gawk"
+  uses_from_macos "wget"
+  uses_from_macos "zlib"
+
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
         :revision => "c77918c9cebb24075f3c102a73fb1d413017a1a5"
