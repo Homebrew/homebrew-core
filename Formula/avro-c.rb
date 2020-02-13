@@ -1,8 +1,8 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.9.1/c/avro-c-1.9.1.tar.gz"
-  sha256 "7df7bc1e13ce7180f0438ed05ab6642b5b2b6df91f30b927b470e25a78e04642"
+  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.9.2/c/avro-c-1.9.2.tar.gz"
+  sha256 "08697f7dc9ff52829ff90368628a80f6fd5c118004ced931211c26001e080cd2"
 
   bottle do
     sha256 "46eed9b02091bc06e0a1007beed901d6fe8f19366e86e4544103e4f7f43a2e28" => :catalina
