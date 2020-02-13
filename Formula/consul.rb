@@ -2,8 +2,8 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag      => "v1.6.3",
-      :revision => "7f3b5f3436ce446888a0394025fd318516244df3"
+      :tag      => "v1.7.0",
+      :revision => "95fb95bfe643d7886c4fb2d9f3afe1977d31cfec"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
@@ -14,13 +14,10 @@ class Consul < Formula
     sha256 "1b34a79b804fc7a7fa6060f7b1467f366ca8ed4d95265caee93acd52487ec671" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
   depends_on "gox" => :build
 
   def install
-    # Avoid running `go get`
-    inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
-
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
