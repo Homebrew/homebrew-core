@@ -14,6 +14,8 @@ class AwscliAT1 < Formula
     sha256 "250ff17d41717dcce1cac123eb286030c0c2b3290c7272fa2ffbd1bb8fe1d02f" => :mojave
     sha256 "372c8e6b3a9b243ebddc2003730160ef9da3300ec029e2598b70d0f186365814" => :high_sierra
   end
+  
+  keg_only :versioned_formula
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
