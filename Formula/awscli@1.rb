@@ -7,13 +7,6 @@ class AwscliAT1 < Formula
   url "https://github.com/aws/aws-cli/archive/1.17.10.tar.gz"
   sha256 "29fb03756ec56af1ab64de48f926440a7c9c3664b2f3382525e45fae6decb9f8"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "ed66a81ad012426c49328d7d1ff6b49e871a9ff54e2dd22ad726c38f447d4fab" => :catalina
-    sha256 "250ff17d41717dcce1cac123eb286030c0c2b3290c7272fa2ffbd1bb8fe1d02f" => :mojave
-    sha256 "372c8e6b3a9b243ebddc2003730160ef9da3300ec029e2598b70d0f186365814" => :high_sierra
-  end
   
   keg_only :versioned_formula
 
