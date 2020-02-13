@@ -6,7 +6,7 @@ class AwscliAT1 < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.17.10.tar.gz"
   sha256 "29fb03756ec56af1ab64de48f926440a7c9c3664b2f3382525e45fae6decb9f8"
-  
+
   keg_only :versioned_formula
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
