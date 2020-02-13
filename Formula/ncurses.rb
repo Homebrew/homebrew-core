@@ -1,10 +1,9 @@
 class Ncurses < Formula
   desc "Text-based UI library"
   homepage "https://www.gnu.org/software/ncurses/"
-  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.1.tar.gz"
-  sha256 "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17"
-  revision 1
+  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.2.tar.gz"
+  sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
 
   bottle do
     sha256 "4776644ae1dde76e4f1afa169278cd8a8f1b38a845866db57a542829b9c9e60c" => :catalina
