@@ -1,8 +1,8 @@
 class Chakra < Formula
   desc "The core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.15.tar.gz"
-  sha256 "8a065b653b8170c2295a48cce226708a2c8357c8d468e076b917eecddae1732d"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.16.tar.gz"
+  sha256 "81429055e51a786079002d33d3eae58771f8b7c383b3f47991d63e5be84a7f4d"
 
   bottle do
     cellar :any
@@ -13,11 +13,6 @@ class Chakra < Formula
 
   depends_on "cmake" => :build
   depends_on "icu4c"
-
-  patch do
-    url "https://github.com/microsoft/ChakraCore/commit/4874bbcf.diff?full_index=1"
-    sha256 "668d848352a6cbfebccfe4aa3bfa5c4d0a33f90c86e81fc7c4cfbdd57c23524a"
-  end
 
   def install
     args = [
