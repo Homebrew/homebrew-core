@@ -4,6 +4,7 @@ class Manticoresearch < Formula
   url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.3.0/manticore-3.3.0-200204-01fc8ad-release.tar.gz"
   sha256 "f62801f6eb50bd08cb8fe976f0a3a43c7600b979a1ced8d14b8261ca06eaf22c"
   head "https://github.com/manticoresoftware/manticoresearch.git"
+  version "3.3.0"
 
   bottle do
     sha256 "1ca227dc0117b0dfcc68d1fca84c17c0b1ec40b7e14d354f2275045a4d8c218c" => :catalina
