@@ -4,9 +4,9 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.17.10.tar.gz"
-  sha256 "29fb03756ec56af1ab64de48f926440a7c9c3664b2f3382525e45fae6decb9f8"
-  head "https://github.com/aws/aws-cli.git", :branch => "develop"
+  url "https://github.com/aws/aws-cli/archive/2.0.0.tar.gz"
+  sha256 "c6064a4419432cfae0a7866a7ab08ab2b2a686c6452ddac1369a45a3cf003c7e"
+  head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +21,7 @@ class Awscli < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
+    system libexec/"bin/pip", "install", "-v", "-r", "requirements.txt",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
