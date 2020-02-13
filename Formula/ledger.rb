@@ -3,7 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.3.tar.gz"
   sha256 "b248c91d65c7a101b9d6226025f2b4bf3dabe94c0c49ab6d51ce84a22a39622b"
-  revision 4
+  revision 5
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -16,10 +16,11 @@ class Ledger < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  uses_from_macos "python@2"
+  depends_on "python@3.8"
 
   def install
     ENV.cxx11
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
@@ -30,6 +31,7 @@ class Ledger < Formula
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
       -DBoost_NO_BOOST_CMAKE=ON
+      -DPython_FIND_VERSION_MAJOR=3
     ]
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
