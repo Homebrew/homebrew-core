@@ -1,4 +1,4 @@
-class Awscli < Formula
+class AwscliAT1 < Formula
   include Language::Python::Virtualenv
 
   desc "Official Amazon AWS command-line interface"
