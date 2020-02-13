@@ -1,9 +1,8 @@
 class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
-  url "https://github.com/icecc/icecream/archive/1.3.tar.gz"
-  sha256 "5e147544dcc557ae6f0b13246aa1445f0f244f010de8e137053078275613bd00"
-  revision 1
+  url "https://github.com/icecc/icecream/archive/1.3.1.tar.gz"
+  sha256 "9f45510fb2251d818baebcff19051c1cf059e48c6b830fb064a8379480159b9d"
 
   bottle do
     sha256 "4695f1db7d16476613f6778408167c67a8e22adb9a5506a4eab61b84e3105ad9" => :catalina
@@ -18,13 +17,6 @@ class Icecream < Formula
   depends_on "libarchive"
   depends_on "lzo"
   depends_on "zstd"
-
-  # Backport https://github.com/icecc/icecream/pull/511
-  # icecc-create-env was broken on darwin. Remove in next stable release
-  patch do
-    url "https://github.com/icecc/icecream/commit/10b9468f5bd30a0fdb058901e91e7a29f1bfbd42.patch?full_index=1"
-    sha256 "dcf817be4549b2a732935e5bb6e310c135324929578a59ec3e55514b2b580360"
-  end
 
   def install
     args = %W[
