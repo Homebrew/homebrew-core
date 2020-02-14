@@ -1,23 +1,11 @@
 class Bitlbee < Formula
   desc "IRC to other chat networks gateway"
   homepage "https://www.bitlbee.org/"
-  revision 1
   head "https://github.com/bitlbee/bitlbee.git"
 
   stable do
-    url "https://get.bitlbee.org/src/bitlbee-3.5.1.tar.gz"
-    sha256 "9636d7fd89ebb3756c13a9a3387736ca6d56ccf66ec0580d512f07b21db0fa69"
-
-    # Fixes a couple of bugs/potential crashes.
-    patch do
-      url "https://github.com/bitlbee/bitlbee/commit/17a58dfa.patch?full_index=1"
-      sha256 "3a5729fd68bedabd1df717124e1950897eaee9feaf8237f6d67746e73df6cc6b"
-    end
-
-    patch do
-      url "https://github.com/bitlbee/bitlbee/commit/eb73d05e.patch?full_index=1"
-      sha256 "a54bdc82ff2959992e081586f5dd478a1719cd5037ebb0bfa54db6013853e0a5"
-    end
+    url "https://get.bitlbee.org/src/bitlbee-3.6.tar.gz"
+    sha256 "9f15de46f29b46bf1e39fc50bdf4515e71b17f551f3955094c5da792d962107e"
   end
 
   bottle do
