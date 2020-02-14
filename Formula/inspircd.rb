@@ -1,8 +1,8 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/v2.0.27.tar.gz"
-  sha256 "6bc1956bd6a7d2d463c646f1563c99cb507f2f214e51d6ac9c70906ac27aae73"
+  url "https://github.com/inspircd/inspircd/archive/v3.5.0.tar.gz"
+  sha256 "c7e61d02bf6bde873bdf4696bf1b695e09d2d396fcaa05ff37942290d1b75c63"
 
   bottle do
     sha256 "8d0b4455f893654aa729369b74ffed990fc554fd9b6d4902fdf1b8ee66e44c5e" => :catalina
@@ -18,12 +18,8 @@ class Inspircd < Formula
 
   def install
     system "./configure", "--enable-extras=m_ldapauth.cpp,m_ldapoper.cpp"
-    system "./configure", "--prefix=#{prefix}", "--with-cc=#{ENV.cc}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-  end
-
-  def post_install
-    inreplace "#{prefix}/org.inspircd.plist", "ircdaemon", ENV["USER"]
   end
 
   test do
