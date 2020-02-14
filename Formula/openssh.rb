@@ -5,6 +5,7 @@ class Openssh < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz"
   version "8.1p1"
   sha256 "02f5dbef3835d0753556f973cd57b4c19b6b1f6cd24c03445e23ac77ca1b93ff"
+  revision 1
 
   bottle do
     sha256 "825d62ddaf333750d265a8791d808af2fd41085f81d51249970a7dff50e331b3" => :catalina
