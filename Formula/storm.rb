@@ -1,8 +1,8 @@
 class Storm < Formula
   desc "Distributed realtime computation system to process data streams"
   homepage "https://storm.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=storm/apache-storm-1.2.3/apache-storm-1.2.3.tar.gz"
-  sha256 "d45322253db06353a521284f31b30bd964dab859f3a279a305bd79112803425a"
+  url "https://www.apache.org/dyn/closer.cgi?path=storm/apache-storm-2.1.0/apache-storm-2.1.0.tar.gz"
+  sha256 "fe2b31b62dc3457dcb776a012f22cb884da41e7381274b4f83a3f412e862c963"
 
   bottle :unneeded
 
