@@ -1,8 +1,8 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://github.com/apple/swift"
-  url "https://github.com/apple/swift/archive/swift-4.2.1-RELEASE.tar.gz"
-  sha256 "1e26cf541f7b10b96344fb1c4500ec52ced525cdf7b6bb77425c768cef0b2c5b"
+  url "https://github.com/apple/swift/archive/swift-5.1.4-RELEASE.tar.gz"
+  sha256 "46765a6a604be0b11cb4660bf5adbef8a95d2b74b03aa46860ef81a5ba92d5e8"
 
   bottle do
     cellar :any
