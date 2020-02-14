@@ -15,9 +15,6 @@ class Libtommath < Formula
   def install
     ENV["DESTDIR"] = prefix
 
-    # Work around Xcode 11 clang bug
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     system "make"
     system "make", "test_standalone"
     include.install Dir["tommath*.h"]
