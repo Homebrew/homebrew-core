@@ -1,8 +1,8 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.22.4.tar.xz"
-  sha256 "454002b98922f5590048ff523237c41f93d8ab0a76174be167dea0677c879120"
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.23.3.tar.xz"
+  sha256 "53cea69eaabe443a099fb204b7353e968e7bb62b41fbb0da24451403c7a56901"
 
   bottle do
     sha256 "d04b2c44f519e791014658b0994f49eee9940ca684ea2de402923bea23db4adc" => :mojave
@@ -11,6 +11,9 @@ class Efl < Formula
   end
 
   depends_on "gettext" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "bullet"
   depends_on "dbus"
@@ -34,15 +37,11 @@ class Efl < Formula
   depends_on "shared-mime-info"
 
   def install
-    ENV.cxx11
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install
