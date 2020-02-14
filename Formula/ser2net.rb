@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-3.5.1.tar.gz"
-  sha256 "02f5dd0abbef5a17b80836b0de1ef0588e257106fb5e269b86822bfd001dc862"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.1.1.tar.gz"
+  sha256 "ad6c8fb34d01be177570323899d840a44c8774399d594595393708162fc61e22"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +12,20 @@ class Ser2net < Formula
     sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
   end
 
+  depends_on "cmake" => :build
   depends_on :macos => :sierra # needs clock_gettime
 
+  resource "gensio" do
+    url "https://github.com/cminyard/gensio/archive/v2.0.1.tar.gz"
+    sha256 "c66638d28ce4df1e9edf1116b5db49b4ec00fb3c5a11ac0cb3d80c72e7096552"
+  end
+
   def install
+    resource("gensio").stage do
+      system "cmake", ".", *std_cmake_args
+      system "make", "install"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
