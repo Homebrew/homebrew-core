@@ -1,8 +1,8 @@
 class Libtrng < Formula
   desc "Tina's Random Number Generator Library"
   homepage "https://www.numbercrunch.de/trng/"
-  url "https://www.numbercrunch.de/trng/trng-4.20.tar.gz"
-  sha256 "8cffd03392a3e498fe9f93ccfa9ff0c9eacf9fd9d33e3655123852d701bbacbc"
+  url "https://www.numbercrunch.de/trng/trng-4.22.tar.gz"
+  sha256 "6acff0a6136e41cbf0b265ae1f4392c8f4394ecfe9803bc98255e9e8d926f3d8"
 
   bottle do
     cellar :any
