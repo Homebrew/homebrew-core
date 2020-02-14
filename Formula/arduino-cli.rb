@@ -2,8 +2,8 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     :tag      => "0.7.2",
-     :revision => "9c10e063435a813e6e9bdecc596b5d735aa8a4ec"
+     :tag      => "0.8.0",
+     :revision => "64c501da0f4c72c3dfadc081f7aa83cae99958c8"
   head "https://github.com/arduino/arduino-cli.git"
 
   bottle do
