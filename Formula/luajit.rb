@@ -29,9 +29,6 @@ class Luajit < Formula
       f.change_make_var! "CCOPT_x86", ""
     end
 
-    # Xcode 11 fix
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
