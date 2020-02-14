@@ -4,6 +4,7 @@ class Freeswitch < Formula
   url "https://github.com/signalwire/freeswitch.git",
       :tag      => "v1.10.1",
       :revision => "f9990221e6094886066ec2bf9685648135bd405a"
+  revision 1
   head "https://github.com/signalwire/freeswitch.git"
 
   bottle do
