@@ -1,8 +1,8 @@
 class NanopbGenerator < Formula
   desc "C library for encoding and decoding Protocol Buffer messages"
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
-  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.3.9.4.tar.gz"
-  sha256 "6d0c2d41ff8bdb0a4742fb5064071c4d8da8fa1942135f0480a5ac63ef641b12"
+  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.1.tar.gz"
+  sha256 "bae4202983c39d7546a0a464ada00faf9263ac186d8426f0497fefab0abb5eea"
 
   bottle do
     cellar :any_skip_relocation
@@ -35,10 +35,11 @@ class NanopbGenerator < Formula
         required string test_field = 1;
       }
     EOS
+
     system Formula["protobuf"].bin/"protoc",
       "--proto_path=#{testpath}", "--plugin=#{bin}/protoc-gen-nanopb",
       "--nanopb_out=#{testpath}", testpath/"test.proto"
-    system "grep", "test_field", testpath/"test.pb.c"
-    system "grep", "test_field", testpath/"test.pb.h"
+    system "grep", "Test", testpath/"test.pb.c"
+    system "grep", "Test", testpath/"test.pb.h"
   end
 end
