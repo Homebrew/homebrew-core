@@ -14,5 +14,7 @@ class Giter8 < Formula
 
   test do
     assert_match "g8 #{version}", shell_output("#{bin}/g8 --version")
+    system "#{bin}/g8", "scala/scala-seed.g8", "--name=hello"
+    assert_predicate testpath/"hello/build.sbt", :exist?
   end
 end
