@@ -1,9 +1,8 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
-  sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
-  revision 2
+  url "https://www.percona.com/downloads/percona-toolkit/3.1.0/source/tarball/percona-toolkit-3.1.0.tar.gz"
+  sha256 "722593773825efe7626ff0b74de6a2133483c9c89fd7812bfe440edaacaec9cc"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
@@ -15,6 +14,8 @@ class PerconaToolkit < Formula
 
   depends_on "mysql-client"
   depends_on "openssl@1.1"
+
+  uses_from_macos "perl"
 
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave
@@ -44,7 +45,7 @@ class PerconaToolkit < Formula
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-    system "make", "test", "install"
+    system "make", "install"
     share.install prefix/"man"
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
