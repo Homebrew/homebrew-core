@@ -1,9 +1,9 @@
 class ApacheFlink < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://archive.apache.org/dist/flink/flink-1.9.2/flink-1.9.2-bin-scala_2.11.tgz"
-  version "1.9.2"
-  sha256 "26f615da6cb774364c7ada8458ade8dac02c588692621d048fbb2d2e0d821297"
+  url "https://archive.apache.org/dist/flink/flink-1.10.0/flink-1.10.0-bin-scala_2.11.tgz"
+  version "1.10.0"
+  sha256 "4d9e8e1a2de3cd7f221b73a9d266f0d260550272afd82041134b9032c84cceb3"
   head "https://github.com/apache/flink.git"
 
   bottle :unneeded
@@ -14,6 +14,7 @@ class ApacheFlink < Formula
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
     (libexec/"bin").env_script_all_files(libexec/"libexec", Language::Java.java_home_env("1.8"))
+    (libexec/"bin").install Dir["#{libexec}/libexec/*.jar"]
     chmod 0755, Dir["#{libexec}/bin/*"]
     bin.write_exec_script "#{libexec}/bin/flink"
   end
