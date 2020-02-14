@@ -28,9 +28,6 @@ class Pachi < Formula
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
 
-    # Work around Xcode 11 clang bug
-    inreplace "Makefile", "CFLAGS       :=", "CFLAGS := -fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # https://github.com/pasky/pachi/issues/78
     inreplace "Makefile", "build.h: .git/HEAD .git/index", "build.h:"
     inreplace "Makefile", "DCNN=1", "DCNN=0"
