@@ -1,8 +1,8 @@
 class PostgresqlAT11 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.6/postgresql-11.6.tar.bz2"
-  sha256 "49924f7ff92965fdb20c86e0696f2dc9f8553e1563124ead7beedf8910c13170"
+  url "https://ftp.postgresql.org/pub/source/v11.7/postgresql-11.7.tar.bz2"
+  sha256 "324ae93a8846fbb6a25d562d271bc441ffa8794654c5b2839384834de220a313"
 
   bottle do
     sha256 "c91e358723fd5f700f059a0a1beff478d3e4aaa2ec40a3a166e946ff130d9fd0" => :catalina
