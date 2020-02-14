@@ -44,6 +44,7 @@ class Opencv < Formula
     py3_version = Language::Python.major_minor_version "python3"
 
     args = std_cmake_args + %W[
+      -CMAKE_CXX_FLAGS="-std=c++11"
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=ON
