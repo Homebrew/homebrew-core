@@ -1,8 +1,8 @@
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
   homepage "https://github.com/foundweekends/giter8"
-  url "https://github.com/foundweekends/giter8/archive/v0.11.0.tar.gz"
-  sha256 "413ebc032d6bc57aaa4b3d6451256320cff56a13d73d5f36c4ee8d7d890f54d5"
+  url "https://github.com/foundweekends/giter8/archive/v0.12.0.tar.gz"
+  sha256 "2ab4ea9c0e6a71ca452582d806b6489d0be587da95e7c9441eb5fe7f6fd5fe34"
 
   bottle do
     cellar :any_skip_relocation
