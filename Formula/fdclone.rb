@@ -1,8 +1,8 @@
 class Fdclone < Formula
   desc "Console-based file manager"
   homepage "https://hp.vector.co.jp/authors/VA012337/soft/fd/"
-  url "http://www.unixusers.net/src/fdclone/FD-3.01h.tar.gz"
-  sha256 "24be8af52faa48cd6f123d55cfca45d21e5fd1dc16bed24f6686497429f3e2cf"
+  url "http://www.unixusers.net/src/fdclone/FD-3.01j.tar.gz"
+  sha256 "fe5bb67eb670dcdb1f7368698641c928523e2269b9bee3d13b3b77565d22a121"
 
   bottle do
     sha256 "84cacf0bc5a76449dc1e0a00999424eed4e580367ff018c26a82a5fd78315896" => :catalina
