@@ -1,8 +1,8 @@
 class Pod2man < Formula
   desc "Perl documentation generator"
   homepage "https://www.eyrie.org/~eagle/software/podlators/"
-  url "https://archives.eyrie.org/software/perl/podlators-4.12.tar.xz"
-  sha256 "d345ab7a68df69cb0f34299c385c0d0daefc00580f7cb4f6cb9c1e31549d04ec"
+  url "https://archives.eyrie.org/software/perl/podlators-4.14.tar.xz"
+  sha256 "e504c3d9772b538d7ea31ce2c5e7a562d64a5b7f7c26277b1d7a0de1f6acfdf4"
 
   bottle do
     cellar :any_skip_relocation
