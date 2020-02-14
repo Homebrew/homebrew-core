@@ -1,8 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_2.8.3.tar.gz"
-  sha256 "573a4f7731ba506a397c8080e60ad30bd3d4b686c51ec3d22d7f5de9a901547c"
+  url "https://gmic.eu/files/source/gmic_2.8.4.tar.gz"
+  sha256 "b2a279bdf981595b30d8d7828fabf9a620cde06eae8db345a8cddf2160c25379"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
