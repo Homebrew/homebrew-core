@@ -3,6 +3,7 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.7.tar.xz"
   sha256 "56fc42a4afece57bc27f95a2d155815a5e6472f32535add4c0ab4ce3b5e399e7"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
