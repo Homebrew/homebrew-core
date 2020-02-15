@@ -7,6 +7,7 @@ class Pandoc < Formula
   homepage "https://pandoc.org/"
   url "https://hackage.haskell.org/package/pandoc-2.9.1.1/pandoc-2.9.1.1.tar.gz"
   sha256 "9d21c5efe2074f9b3097a20e0798de9d8b89a86a1ce04a307f476c7b4aa3816d"
+  revision 1
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
@@ -20,7 +21,7 @@ class Pandoc < Formula
 
   def install
     cabal_sandbox do
-      install_cabal_package
+      install_cabal_package :flags => ["embed_data_files"]
     end
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
     man1.install "man/pandoc.1"
