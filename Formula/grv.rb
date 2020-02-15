@@ -35,6 +35,8 @@ class Grv < Formula
     ENV["TERM"] = "xterm"
 
     system "git", "init"
+    system "git", "config", "user.email", '"test@example.com"'
+    system "git", "config", "user.name", '"Test"'
     system "git", "commit", "--allow-empty", "-m", "test"
     pipe_output("#{bin}/grv -logLevel DEBUG", "'<grv-exit>'", 0)
 
