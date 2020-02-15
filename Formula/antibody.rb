@@ -1,8 +1,8 @@
 class Antibody < Formula
   desc "The fastest shell plugin manager"
   homepage "https://getantibody.github.io/"
-  url "https://github.com/getantibody/antibody/archive/v4.3.0.tar.gz"
-  sha256 "ba5be9416a6ae1c88c8bad655306c5d1c8391176c4343c5d25b981b7999cb02c"
+  url "https://github.com/getantibody/antibody/archive/v4.3.1.tar.gz"
+  sha256 "b69b2b90914e03f4a54453d740345cad222b379c366ec3788f4fdf4b1f01ac64"
 
   bottle do
     cellar :any_skip_relocation
