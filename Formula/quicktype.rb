@@ -6,6 +6,7 @@ class Quicktype < Formula
   # quicktype should only be updated every 10 releases on multiples of 10
   url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.200.tgz"
   sha256 "cc921e796121b2b5e5e1afa71e56585ecd1dc53e21f1de599ecb7381dd9e9265"
+  head "https://github.com/quicktype/quicktype.git"
 
   bottle do
     cellar :any_skip_relocation
