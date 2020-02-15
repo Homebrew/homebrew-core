@@ -1,8 +1,8 @@
 class Atari800 < Formula
   desc "Atari 8-bit machine emulator"
   homepage "https://atari800.github.io/"
-  url "https://downloads.sourceforge.net/project/atari800/atari800/4.1.0/atari800-4.1.0-src.tgz"
-  sha256 "fedfe2ec94dc6f29b467e8c419efff64a7451aa4bbd60ffbd4709cb4da6276c0"
+  url "https://github.com/atari800/atari800/releases/download/ATARI800_4_2_0/atari800-4.2.0-src.tgz"
+  sha256 "55cb5568229c415f1782130afd11df88c03bb6d81fa4aa60a4ac8a2f151f1359"
 
   bottle do
     cellar :any
@@ -17,7 +17,8 @@ class Atari800 < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                            "--disable-sdltest"
+                          "--disable-sdltest",
+                          "--disable-riodevice"
     system "make", "install"
   end
 
