@@ -14,11 +14,13 @@ class Octant < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node@10" => :build
+  depends_on "node" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOFLAGS"] = "-mod=vendor"
+
+    ENV.append_path "PATH", HOMEBREW_PREFIX/"bin"
 
     dir = buildpath/"src/github.com/vmware-tanzu/octant"
     dir.install buildpath.children
