@@ -13,11 +13,14 @@ class Libpqxx < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.8" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
+
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
     system "make", "install"
   end
