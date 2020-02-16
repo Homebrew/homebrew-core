@@ -4,6 +4,7 @@ class Cheat < Formula
   url "https://github.com/cheat/cheat.git",
     :tag      => "3.6.0",
     :revision => "b13246978ab7ebb254b49d58c625f94aa2e08ee7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +17,9 @@ class Cheat < Formula
 
   def install
     system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
+
+    bash_completion.install "scripts/cheat.bash"
+    fish_completion.install "scripts/cheat.fish"
   end
 
   test do
