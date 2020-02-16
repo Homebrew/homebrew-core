@@ -1,8 +1,8 @@
 class YoutubeDl < Formula
   desc "Download YouTube videos from the command-line"
   homepage "https://ytdl-org.github.io/youtube-dl/"
-  url "https://github.com/ytdl-org/youtube-dl/releases/download/2020.01.24/youtube-dl-2020.01.24.tar.gz"
-  sha256 "0b1dcc96d204984df1ee364e81cddd5645421f6065d2815472258ccdad5c36ff"
+  url "https://github.com/ytdl-org/youtube-dl/releases/download/2020.02.16/youtube-dl-2020.02.16.tar.gz"
+  sha256 "abcd19c109125a69915c6ad70fcc6b02411a64427fbb7b91a6b37217dfb9e0c6"
 
   head do
     url "https://github.com/ytdl-org/youtube-dl.git"
