@@ -2,8 +2,8 @@ class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
   url "https://github.com/tsenart/vegeta.git",
-      :tag      => "v12.7.0",
-      :revision => "9c95632b3e8562be6df690c639a3f5a6f40d3004"
+      :tag      => "v12.8.0",
+      :revision => "7232e921ca2001e87fb39c3df6934e951faf59fa"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,18 +13,20 @@ class Vegeta < Formula
     sha256 "1596ae7a805382e2073fbc92a94c105d4176d75aace961e829c00dedd47b97b9" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/tsenart/vegeta"
-    src.install buildpath.children
-    src.cd do
-      system "make", "vegeta"
-      bin.install "vegeta"
-      prefix.install_metafiles
-    end
+    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+    build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+
+    ldflags = %W[
+      -s -w
+      -X main.Version=#{version}
+      -X main.Commit=#{commit}
+      -X main.Date=#{build_time}
+    ]
+
+    system "go", "build", "-o", bin/"vegeta", "-ldflags", ldflags.join(" ")
   end
 
   test do
