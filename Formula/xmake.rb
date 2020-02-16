@@ -1,7 +1,7 @@
 class Xmake < Formula
   desc "A cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.2.9/xmake-v2.2.9.tar.gz"
+  url "ttps://cdn.jsdelivr.net/gh/xmake-mirror/xmake-releases@2.2.9/xmake-v2.2.9.tar.gz"
   sha256 "7d7b4b368808c78cda4bcdd00a140cd8b4cab8f32c7b3c31aa22fdd08dde4940"
   head "https://github.com/xmake-io/xmake.git"
 
@@ -13,10 +13,8 @@ class Xmake < Formula
   end
 
   def install
-    system "./install", "output"
-    pkgshare.install Dir["xmake/*"]
-    bin.install "output/share/xmake/xmake"
-    bin.env_script_all_files(libexec, :XMAKE_PROGRAM_DIR => pkgshare)
+    system "make", "build"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
