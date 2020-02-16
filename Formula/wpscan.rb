@@ -1,9 +1,8 @@
 class Wpscan < Formula
   desc "Black box WordPress vulnerability scanner"
   homepage "https://wpscan.org"
-  url "https://github.com/wpscanteam/wpscan/archive/2.9.4.tar.gz"
-  sha256 "ad066b48565e82208d5e0451891366f6a9b9a3648d149d14c83d00f4712094d3"
-  revision 1
+  url "https://github.com/wpscanteam/wpscan/archive/v3.7.8.tar.gz"
+  sha256 "4837ca3f8d5d42ca6aa8ccfa61fb3cb8262f050903e6b6d28f747709fea637a5"
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
@@ -16,44 +15,40 @@ class Wpscan < Formula
 
   depends_on "ruby"
 
+  # Fixes the --no-update commandline option
+  # https://github.com/wpscanteam/wpscan/pull/1455
+  patch do
+    url "https://github.com/mistydemeo/wpscan/commit/eed763944642416cb5245b4e0cd281cb161122b4.patch?full_index=1"
+    sha256 "0f532dfac5526e75b241e06c17127cd9b608f1450d685a696a2a122e5db545eb"
+  end
+
   def install
-    inreplace "lib/common/common_helper.rb" do |s|
-      s.gsub! "File.join(USER_DIR, '.wpscan/cache')", "'#{var}/cache/wpscan'"
-      s.gsub! "File.join(USER_DIR, '.wpscan/data')", "'#{var}/wpscan/data'"
-      s.gsub! "File.join(USER_DIR, '.wpscan/log.txt')", "'#{var}/log/wpscan/log.txt'"
-    end
-
-    system "unzip", "-o", "data.zip"
-    libexec.install "data", "lib", "spec", "Gemfile", "Gemfile.lock", "wpscan.rb"
-
+    inreplace "lib/wpscan.rb", /DB_DIR.*=.*$/, "DB_DIR = Pathname.new('#{var}/wpscan/db')"
+    libexec.install Dir["*"]
     ENV["GEM_HOME"] = libexec
     ENV["BUNDLE_PATH"] = libexec
     ENV["BUNDLE_GEMFILE"] = libexec/"Gemfile"
     system "gem", "install", "bundler"
     bundle = Dir["#{libexec}/**/bundle"].last
-    system bundle, "install", "--without", "test"
+    system bundle, "install", "--jobs=#{ENV.make_jobs}"
+    wpscan = Dir["#{libexec}/ruby/**/bin/wpscan"].last
 
+    ruby_series = Formula["ruby"].version.to_s.split(".")[0..1].join(".")
     (bin/"wpscan").write <<~EOS
       #!/bin/bash
-      GEM_HOME="#{libexec}" BUNDLE_GEMFILE="#{libexec}/Gemfile" \\
+      GEM_HOME="#{libexec}/ruby/#{ruby_series}.0" BUNDLE_GEMFILE="#{libexec}/Gemfile" \\
         exec "#{bundle}" exec "#{Formula["ruby"].opt_bin}/ruby" \\
-        "#{libexec}/wpscan.rb" "$@"
+        "#{wpscan}" "$@"
     EOS
   end
 
   def post_install
-    (var/"log/wpscan").mkpath
     # Update database
     system bin/"wpscan", "--update"
   end
 
-  def caveats; <<~EOS
-    Logs are saved to #{var}/cache/wpscan/log.txt by default.
-  EOS
-  end
-
   test do
     assert_match "URL: https://wordpress.org/",
-                 pipe_output("#{bin}/wpscan --url https://wordpress.org/")
+                 pipe_output("#{bin}/wpscan --no-update --url https://wordpress.org/")
   end
 end
