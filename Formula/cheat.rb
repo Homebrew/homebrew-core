@@ -2,8 +2,8 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.5.1",
-    :revision => "7b4a268ebddedca7f94de7b1d9751212f68e3488"
+    :tag      => "3.6.0",
+    :revision => "b13246978ab7ebb254b49d58c625f94aa2e08ee7"
 
   bottle do
     cellar :any_skip_relocation
