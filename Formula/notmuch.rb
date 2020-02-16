@@ -16,7 +16,6 @@ class Notmuch < Formula
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "emacs"
   depends_on "glib"
   depends_on "gmime"
   depends_on "python"
@@ -28,7 +27,6 @@ class Notmuch < Formula
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
-      --with-emacs
       --emacslispdir=#{elisp}
       --emacsetcdir=#{elisp}
       --without-ruby
@@ -36,6 +34,8 @@ class Notmuch < Formula
 
     # Emacs and parallel builds aren't friends
     ENV.deparallelize
+
+    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.7/site-packages"
 
     system "./configure", *args
     system "make", "V=1", "install"
