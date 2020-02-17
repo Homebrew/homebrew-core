@@ -4,13 +4,13 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.18.04.source.tar.gz"
   version "6.18.04"
   sha256 "315a85fc8363f8eb1bffa0decbf126121258f79bd273513ed64795675485cfa4"
-  revision 2
+  revision 3
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "27ae5cf8f6a43ac4f094eedbf08b0b0e359f2b9367ca40bf45461db17f37e92b" => :catalina
-    sha256 "969044266dd1ca84caacee84332072459d0d527ad2e620ad3c481ddfc68275ca" => :mojave
-    sha256 "a81a8865786cd14075807c7fc00ed01350dcdd6dab0b4435f9201519299a3f75" => :high_sierra
+    sha256 "76899519d3608dba01cca9330c3e657689288b044ba809998bce83cc4baca97e" => :catalina
+    sha256 "5ef5db5c7d28ab66e469eca1fecc36f1c97fa71fce96d4cbb5b3fbb30c98e23d" => :mojave
+    sha256 "c1f9523092c84b853aa6e5afd151727662b90e5299f7b74ddf56b9d4bf7c8caa" => :high_sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726

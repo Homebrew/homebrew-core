@@ -1,14 +1,13 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
-  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
+  url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.xz"
+  sha256 "27d350a52a02b53034ca0794efe518667d558f152656c2baaf08f3d0c8b02343"
 
   bottle do
-    rebuild 1
-    sha256 "74304ae76b81629a80edb0655c34883b00ab674fa10e0db4bd5336015acc5e17" => :catalina
-    sha256 "da318a12d35502d95a8bea49f735bb74af72cdb38b687b2f565d75b139941736" => :mojave
-    sha256 "9416860e0cd56aa45bfce03801a81eefcb0a25e0ccb123a82c51f5f1b6911abb" => :high_sierra
+    sha256 "14f7b11cfde66b26acb95616a3f38f43351393f7fa201d51193af31deb7b91e0" => :catalina
+    sha256 "f5c8b04bde97e95a900b3035ce681af2ee6b582338c5ea9405a492510be8c3b9" => :mojave
+    sha256 "84a621c44222aadee6d1c2ed20a9c5e868c1af89ea547bec402fe90b396c9274" => :high_sierra
   end
 
   head do
@@ -27,8 +26,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.0.6.tgz"
-    sha256 "fd6785ac24728bd5bf8f0883d197fe0cea4df37d485c5353c93fbe573b8941b1"
+    url "https://rubygems.org/rubygems/rubygems-3.1.2.tgz"
+    sha256 "edd1a6bca6e780a3f65019bbcb0bbfe36c65a9809c0d43e7b52f23792591f140"
   end
 
   def api_version
@@ -130,6 +129,7 @@ class Ruby < Formula
         alias :old_default_path :default_path
         alias :old_default_bindir :default_bindir
         alias :old_ruby :ruby
+        alias :old_default_specifications_dir :default_specifications_dir
       end
 
       def self.default_dir
@@ -186,10 +186,9 @@ class Ruby < Formula
       end
 
       # https://github.com/Homebrew/homebrew-core/issues/40872#issuecomment-542092547
-      class BasicSpecification
-        def self.default_specifications_dir
-          File.join(Gem.old_default_dir, "specifications", "default")
-        end
+      # https://github.com/Homebrew/homebrew-core/pull/48329#issuecomment-584418161
+      def self.default_specifications_dir
+        File.join(Gem.old_default_dir, "specifications", "default")
       end
     end
   EOS

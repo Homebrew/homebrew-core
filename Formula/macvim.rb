@@ -5,13 +5,14 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-161.tar.gz"
   version "8.1-161"
   sha256 "e64959dc0b62bc23f481e42eccbe593d3606a241df334dcfabd28fdd8a769a29"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
     cellar :any
-    sha256 "9da991b45f4ca6fc8bbf4c1e04f55b2341ffde0a8eeddf018e51ff574965f6a9" => :catalina
-    sha256 "8b49227432024454492a07e6259f683435f67430d2277f2581181d70bcb97922" => :mojave
-    sha256 "1cea9d8aaf17fbf16c3f7d9d62deff86ac66523cfe0c5d53f71d3b91043d2f15" => :high_sierra
+    sha256 "b0a85c4de12b7b5b1c66190531b9efbfbd2d7157da0395469b6fd3ee399bc3e2" => :catalina
+    sha256 "9170c2b9251ecdb05136d0aee386cd81146a6cc46630e7da91b116e23507e5e4" => :mojave
+    sha256 "6d8063a92bad12faf79bce8efc5dc68b1e8a598df197b1d12935265365048ca9" => :high_sierra
   end
 
   depends_on :xcode => :build

@@ -2,15 +2,15 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      :tag      => "v5.20",
-      :revision => "e24eda30a4dc4048790a84ff7614c9bc4e982c69"
+      :tag      => "v5.21",
+      :revision => "59b311f3b6e8a0f7408b5b84f08c6317c9611135"
   head "https://github.com/mattermost/mmctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0221eb71e054ca73e69e3379456fc13cc9925a789c5166f942cb0f557a90a529" => :catalina
-    sha256 "60a19274ae83adfbb9215033cd2ef4f88fd24d7d779b152d98a22e9cb311c17f" => :mojave
-    sha256 "d68259149975cdc80fe24cc2354df4eefbe6dfbb94c9631977bed9d6254a3345" => :high_sierra
+    sha256 "9c858d0975d305ef2565b224a438e6f3900b30ffd9607afcffbb85d2e1157dd5" => :catalina
+    sha256 "6a8abf05c34c30965b5429bcb44ae30489cf7a28564efd8fe1e3639f3e419fcc" => :mojave
+    sha256 "63ee8b2dc5c704ea28d6bc87a81d3c31fb78b084adae489d616573d28cd435a8" => :high_sierra
   end
 
   depends_on "go" => :build

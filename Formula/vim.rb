@@ -4,12 +4,13 @@ class Vim < Formula
   # vim should only be updated every 50 releases on multiples of 50
   url "https://github.com/vim/vim/archive/v8.2.0250.tar.gz"
   sha256 "e726378903b28f2531f01f49ddb7e579c40aab636998453bd98041686ba6540b"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "fca587079b82bc7a6d2c4e1ad25cf21b44f8f2e302c99d4d19e0bef56dcf2ed9" => :catalina
-    sha256 "8fc46223f98ead3f9849f895ff976a6fc7d07512fa037b542700cdbbfa2c639c" => :mojave
-    sha256 "a4afd9956cca85f7e29d3b4ca95a7076447f26276ca8b7d527391557f6e2591b" => :high_sierra
+    sha256 "9bb4fdc5b68110fc17ab05c30bacdd7a8648e63d7cef5411bf8b53ffc1d72d8e" => :catalina
+    sha256 "bf8e48a5fb5e299d24e46124009a7edb358c4b074675d663d9269bb289632af8" => :mojave
+    sha256 "c30b613ee22ad44854c0d929df8eeccd7d7e2a33865078c97ae94342b2922bda" => :high_sierra
   end
 
   depends_on "gettext"
