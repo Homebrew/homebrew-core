@@ -1,8 +1,8 @@
 class PyenvVirtualenv < Formula
   desc "Pyenv plugin to manage virtualenv"
   homepage "https://github.com/pyenv/pyenv-virtualenv"
-  url "https://github.com/pyenv/pyenv-virtualenv/archive/v1.1.3.tar.gz"
-  sha256 "247618b294b46e269bf1c1c3ed0f240d36ae9b454ce96856a57fd3f1053c90cd"
+  url "https://github.com/pyenv/pyenv-virtualenv/archive/v1.1.5.tar.gz"
+  sha256 "27ae3de027a6f6dccdca4085225512e559c6b94b31625bd2b357a18890a1e618"
   version_scheme 1
   head "https://github.com/pyenv/pyenv-virtualenv.git"
 
@@ -13,6 +13,22 @@ class PyenvVirtualenv < Formula
   def install
     ENV["PREFIX"] = prefix
     system "./install.sh"
+
+    # These inreplace steps may be unnecessary in the future if upstream
+    # addresses the following issue and PR:
+    # https://github.com/pyenv/pyenv-virtualenv/issues/307
+    # https://github.com/pyenv/pyenv-virtualenv/pull/308
+    inreplace bin/"pyenv-virtualenv-prefix" do |s|
+      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
+    end
+
+    inreplace bin/"pyenv-virtualenvs" do |s|
+      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
+    end
+
+    inreplace libexec/"pyenv-virtualenv-realpath" do |s|
+      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
+    end
   end
 
   def caveats; <<~EOS
