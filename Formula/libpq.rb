@@ -1,9 +1,8 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/12/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
-  sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v12.2/postgresql-12.2.tar.bz2"
+  sha256 "ad1dcc4c4fc500786b745635a9e1eba950195ce20b8913f50345bb7d5369b5de"
 
   bottle do
     sha256 "7091cf8b116e4320adb38a78a7cfe09676db01c6ab20775039352bcc7627cccb" => :catalina
