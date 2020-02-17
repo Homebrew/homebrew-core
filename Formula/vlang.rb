@@ -19,16 +19,6 @@ class Vlang < Formula
     pkgshare.install "examples"
   end
 
-  def caveats
-    <<~EOS
-      To use the graphics modules, install glfw and freetype:
-        brew install glfw freetype
-
-      To use the http module, install OpenSSL:
-        brew install openssl
-    EOS
-  end
-
   test do
     cp pkgshare/"examples/hello_world.v", testpath
     system "#{bin}/v", "-o", "test", "hello_world.v"
