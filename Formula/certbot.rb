@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v1.1.0.tar.gz"
-  sha256 "9b57d009a6ad62d21ca23b0c21c28654353a5493dd1b8b0b6953c166e7a73b3e"
+  url "https://github.com/certbot/certbot/archive/v1.2.0.tar.gz"
+  sha256 "93b3288aea72feb8ea95e59e5c2bf5fc3cbf8adf342b2cfc8c9d95282e75917a"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -20,8 +20,8 @@ class Certbot < Formula
   depends_on "python@3.8"
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/e4/80/07e77634199dbbe595b3b1e320adae7fcb00653dc4bf5e56f457851e8017/acme-1.1.0.tar.gz"
-    sha256 "c305a20eeb9cb02240347703d497891c13d43a47c794fa100d4dbb479a5370d9"
+    url "https://files.pythonhosted.org/packages/40/0c/eeac8a14019d6f297fbd3b2bacfa57d38e60147cc03542214662253a694c/acme-1.2.0.tar.gz"
+    sha256 "0630c740d49bda945e97bd35fc8d6f02d082c8cb9e18f8fec0dbb3d395ac26ab"
   end
 
   resource "certifi" do
@@ -30,8 +30,8 @@ class Certbot < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
-    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
+    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
+    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
   end
 
   resource "chardet" do
@@ -65,13 +65,13 @@ class Certbot < Formula
   end
 
   resource "josepy" do
-    url "https://files.pythonhosted.org/packages/a4/78/297f71aafb7d4d825af43087ccf7b4a790283329b246e66d8a31b0cac093/josepy-1.2.0.tar.gz"
-    sha256 "9cec9a839fe9520f0420e4f38e7219525daccce4813296627436fe444cd002d3"
+    url "https://files.pythonhosted.org/packages/92/4a/145b0c6d0984698ccb4debc0161e3f74d8db645ddd9573cacc2abbc22d55/josepy-1.3.0.tar.gz"
+    sha256 "c341ffa403399b18e9eae9012f804843045764d1390f9cb4648980a7569b1619"
   end
 
   resource "mock" do
-    url "https://files.pythonhosted.org/packages/2e/ab/4fe657d78b270aa6a32f027849513b829b41b0f28d9d8d7f8c3d29ea559a/mock-3.0.5.tar.gz"
-    sha256 "83657d894c90d5681d62155c82bda9c1187827525880eda8ff5df4ec813437c3"
+    url "https://files.pythonhosted.org/packages/1c/fd/141c477591ab50e27cd16a4969c957f915f4fb3c6323a624c548f38b507f/mock-4.0.1.tar.gz"
+    sha256 "2a572b715f09dd2f0a583d8aeb5bb67d7ed7a8fd31d193cf1227a99c16a67bc3"
   end
 
   resource "parsedatetime" do
@@ -100,8 +100,8 @@ class Certbot < Formula
   end
 
   resource "python-augeas" do
-    url "https://files.pythonhosted.org/packages/b4/d7/62d335d9df28e2f78207dcd12bbbcee89a7b5ba6d247feaddc9d04f27e1e/python-augeas-1.0.3.tar.gz"
-    sha256 "d062f4a44aee797aa9296f5a82cd8c3df5036ca23df6b9ac48cbaa3b4f29a664"
+    url "https://files.pythonhosted.org/packages/af/cc/5064a3c25721cd863e6982b87f10fdd91d8bcc62b6f7f36f5231f20d6376/python-augeas-1.1.0.tar.gz"
+    sha256 "5194a49e86b40ffc57055f73d833f87e39dce6fce934683e7d0d5bbb8eff3b8c"
   end
 
   resource "pytz" do
