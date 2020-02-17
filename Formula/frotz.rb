@@ -1,8 +1,8 @@
 class Frotz < Formula
   desc "Infocom-style interactive fiction player"
-  homepage "https://gitlab.com/DavidGriffith/frotz"
-  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.50/frotz-2.50.tar.gz"
-  sha256 "0352dfc458fb5cc7a932c568bd86aabdde943bee25ea0cce58c46f8c893f554f"
+  homepage "https://661.org/proj/if/frotz/"
+  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.51/frotz-2.51.tar.gz"
+  sha256 "7916f17061e845e4fa5047c841306c4be2614e9c941753f9739c5d39c7e9f05b"
   head "https://gitlab.com/DavidGriffith/frotz.git"
 
   bottle do
@@ -17,7 +17,6 @@ class Frotz < Formula
       s.change_make_var! "MANDIR", man
       s.change_make_var! "SYSCONFDIR", etc
       s.change_make_var! "SOUND_TYPE", "none"
-      s.gsub! "        ", "	"
     end
 
     system "make", "frotz"
