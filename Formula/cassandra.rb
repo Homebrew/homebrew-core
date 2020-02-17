@@ -1,8 +1,8 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/3.11.5/apache-cassandra-3.11.5-bin.tar.gz"
-  sha256 "a765adcaa42a6c881f5e79d030854d082900992cc11da40eee413bb235970a6a"
+  url "https://archive.apache.org/dist/cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz"
+  sha256 "ce34edebd1b6bb35216ae97bd06d3efc338c05b273b78267556a99f85d30e45b"
 
   bottle do
     cellar :any_skip_relocation
