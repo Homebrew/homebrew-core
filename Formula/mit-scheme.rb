@@ -1,10 +1,10 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
-  sha256 "4f6a16f9c7d4b4b7bb3aa53ef523cad39b54ae1eaa3ab3205930b6a87759b170"
-  revision 2
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-svm1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-svm1.tar.gz"
+  version "10.1.10"
+  sha256 "36ad0aba50d60309c21e7f061c46c1aad1dda0ad73d2bb396684e49a268904e4"
 
   bottle do
     sha256 "7c76aab44ca4bc0c5564fa77440b23d319bcdddc8be2b5793296ec1040d68a1f" => :catalina
@@ -43,9 +43,6 @@ class MitScheme < Formula
       compiler/etc/disload.scm
       edwin/techinfo.scm
       edwin/unix.scm
-      swat/c/tk3.2-custom/Makefile
-      swat/c/tk3.2-custom/tcl/Makefile
-      swat/scheme/other/btest.scm
     ].each do |f|
       inreplace f, "/usr/local", prefix
     end
@@ -54,16 +51,15 @@ class MitScheme < Formula
       s.gsub! "/usr/local", prefix
       # Fixes "configure: error: No MacOSX SDK for version: 10.10"
       # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
-      s.gsub! /SDK=MacOSX\${MACOSX}$/, "SDK=MacOSX#{MacOS.sdk.version}"
+      s.gsub! /SDK=MacOSX\${MACOS}$/, "SDK=MacOSX#{MacOS.sdk.version}"
     end
 
-    inreplace "etc/make-liarc.sh" do |s|
-      # Allows us to build without X11
-      # https://savannah.gnu.org/bugs/?47887
-      s.gsub! "run_configure", "run_configure --without-x"
+    inreplace "edwin/compile.sh" do |s|
+      s.gsub! "mit-scheme", "#{bin}/mit-scheme"
     end
 
-    system "etc/make-liarc.sh", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
+    system "make"
     system "make", "install"
   end
 
@@ -103,7 +99,7 @@ class MitScheme < Formula
       "#{bin}/mit-scheme --load primes.scm --eval '(primes<= 72)' < /dev/null",
     )
     assert_match(
-      /;Value 2: \(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71\)/,
+      /;Value: \(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71\)/,
       output,
     )
   end
