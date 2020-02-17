@@ -3,6 +3,7 @@ class Ode < Formula
   homepage "https://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.tar.gz"
   sha256 "4ba3b76f9c1314160de483b3db92b0569242a07452cbb25b368e75deb3cabf27"
+  revision 1
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
@@ -23,7 +24,7 @@ class Ode < Formula
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
 
-    system "./configure", "--prefix=#{prefix}", "--enable-libccd"
+    system "./configure", "--prefix=#{prefix}", "--enable-libccd", "--enable-shared", "--disable-static", "--enable-double-precision"
     system "make"
     system "make", "install"
   end
