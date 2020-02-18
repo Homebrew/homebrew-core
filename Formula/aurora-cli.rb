@@ -2,6 +2,7 @@ class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.21.0/apache-aurora-0.21.0.tar.gz"
+  mirror "https://archive.apache.org/dist/aurora/0.21.0/apache-aurora-0.21.0.tar.gz"
   sha256 "4b608e5199ae72c83b0bc97569de5ed2c58d73a709f6906c3664154144438b65"
 
   bottle do
