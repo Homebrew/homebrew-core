@@ -32,9 +32,6 @@ class Notmuch < Formula
       --without-ruby
     ]
 
-    # Emacs and parallel builds aren't friends
-    ENV.deparallelize
-
     ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.7/site-packages"
 
     system "./configure", *args
