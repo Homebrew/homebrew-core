@@ -18,7 +18,7 @@ class Notmuch < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
