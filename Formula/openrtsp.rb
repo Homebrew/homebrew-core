@@ -13,6 +13,8 @@ class Openrtsp < Formula
     sha256 "293bd6edd7d7de1ea39517b1809865f120570e3645acbd777b704c5ebed16189" => :sierra
   end
 
+  depends_on "openssl@1.1"
+
   def install
     system "./genMakefiles", "macosx"
     system "make", "PREFIX=#{prefix}", "install"
