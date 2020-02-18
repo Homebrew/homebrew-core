@@ -48,6 +48,8 @@ class Dnsmasq < Formula
     (var/"run/dnsmasq").mkpath
     (etc/"dnsmasq.d/ppp").mkpath
     (etc/"dnsmasq.d/dhcpc").mkpath
+    touch etc/"dnsmasq.d/ppp/.keepme"
+    touch etc/"dnsmasq.d/dhcpc/.keepme"
   end
 
   plist_options :startup => true
