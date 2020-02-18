@@ -1,10 +1,10 @@
 class Nwchem < Formula
   desc "NWChem: Open Source High-Performance Computational Chemistry"
   homepage "http://www.nwchem-sw.org"
-  url "https://github.com/nwchemgit/nwchem/releases/download/6.8.1-release/nwchem-6.8.1-release.revision-v6.8-133-ge032219-src.2018-06-14.tar.bz2"
-  version "6.8.1"
-  sha256 "23ce8241a5977a93d8224f66433851c81a08ad58a4c551858ae031485b095ab7"
-  revision 8
+  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-beta2/nwchem-7.0.0-release.revision-98b07222-src.2020-02-07.tar.bz2"
+  version "7.0.0"
+  sha256 "d3589c33be7b357bbea9089c3fcf190424f14c69543e0fe15ecad6482d178bf7"
+  revision 0
 
   bottle do
     cellar :any
@@ -40,16 +40,13 @@ class Nwchem < Formula
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
 
       ENV["NWCHEM_TOP"] = buildpath
-      ENV["PYTHONVERSION"] = "2.7"
-      pyhome = `python-config --prefix`.chomp
-      ENV["PYTHONHOME"] = pyhome
       ENV["NWCHEM_LONG_PATHS"] = "Y"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+      ENV["LAPACK_LIB"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
       ENV["SCALAPACK"] = "-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack"
       ENV["USE_64TO32"] = "y"
       system "make", "nwchem_config", "NWCHEM_MODULES=all python"
-      system "make", "64_to_32"
       system "make", "NWCHEM_TARGET=MACX64", "USE_MPI=Y"
 
       bin.install "../bin/MACX64/nwchem"
