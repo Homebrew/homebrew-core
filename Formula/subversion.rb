@@ -4,7 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.13.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
   sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "92a78117ee83b94aeee65ac0b69fb37c7d687c6ce6f0a1c47effeb770d574050" => :catalina
@@ -33,6 +33,7 @@ class Subversion < Formula
   depends_on "lz4"
   depends_on "openssl@1.1" # For Serf
   depends_on "perl"
+  depends_on "python@3.8"
   depends_on "sqlite"
   depends_on "utf8proc"
 
@@ -40,7 +41,6 @@ class Subversion < Formula
   uses_from_macos "krb5"
   uses_from_macos "libmagic"
   uses_from_macos "libtool"
-  uses_from_macos "python@2"
   uses_from_macos "ruby"
   uses_from_macos "util-linux"
   uses_from_macos "zlib"
@@ -57,11 +57,21 @@ class Subversion < Formula
   patch :DATA
 
   def install
-    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
+      inreplace "SConstruct" do |s|
+        s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
+        "print('Warning: Used unknown variables:', ', '.join(unknown.keys()))"
+        s.gsub! "match = re.search('SERF_MAJOR_VERSION ([0-9]+).*'",
+        "match = re.search(b'SERF_MAJOR_VERSION ([0-9]+).*'"
+        s.gsub! "'SERF_MINOR_VERSION ([0-9]+).*'",
+        "b'SERF_MINOR_VERSION ([0-9]+).*'"
+        s.gsub! "'SERF_PATCH_VERSION ([0-9]+)'",
+        "b'SERF_PATCH_VERSION ([0-9]+)'"
+      end
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
@@ -118,7 +128,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
