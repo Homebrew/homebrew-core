@@ -2,6 +2,7 @@ class ApacheForrest < Formula
   desc "Publishing framework providing multiple output formats"
   homepage "https://forrest.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=forrest/apache-forrest-0.9-sources.tar.gz"
+  mirror "https://archive.apache.org/dist/forrest/apache-forrest-0.9-sources.tar.gz"
   sha256 "c6ac758db2eb0d4d91bd1733bbbc2dec4fdb33603895c464bcb47a34490fb64d"
   revision 1
 
