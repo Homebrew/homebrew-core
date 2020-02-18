@@ -3,6 +3,7 @@ class Libheif < Formula
   homepage "https://www.libde265.org/"
   url "https://github.com/strukturag/libheif/releases/download/v1.6.2/libheif-1.6.2.tar.gz"
   sha256 "bb229e855621deb374f61bee95c4642f60c2a2496bded35df3d3c42cc6d8eefc"
+  revision 1
 
   bottle do
     cellar :any
