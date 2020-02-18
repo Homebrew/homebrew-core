@@ -2,6 +2,7 @@ class ApacheArchiva < Formula
   desc "The Build Artifact Repository Manager"
   homepage "https://archiva.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=archiva/2.2.4/binaries/apache-archiva-2.2.4-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/archiva/2.2.4/binaries/apache-archiva-2.2.4-bin.tar.gz"
   sha256 "ad099c451529d566db8b5ad6cf2d8bafc6aa2cc3d225c39fd374cad420a6643c"
   revision 1
 
