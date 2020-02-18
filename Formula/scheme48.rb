@@ -1,7 +1,7 @@
 class Scheme48 < Formula
   desc "Scheme byte-code interpreter"
-  homepage "http://www.s48.org/"
-  url "http://s48.org/1.9.2/scheme48-1.9.2.tgz"
+  homepage "https://www.s48.org/"
+  url "https://s48.org/1.9.2/scheme48-1.9.2.tgz"
   sha256 "9c4921a90e95daee067cd2e9cc0ffe09e118f4da01c0c0198e577c4f47759df4"
 
   bottle do
