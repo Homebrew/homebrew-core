@@ -2,6 +2,7 @@ class ApacheZeppelin < Formula
   desc "Web-based notebook that enables interactive data analytics"
   homepage "https://zeppelin.apache.org"
   url "https://www.apache.org/dyn/closer.lua?path=zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-all.tgz"
+  mirror "https://archive.apache.org/dist/zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-all.tgz"
   sha256 "96e7af24a4bdcd43acc1f5bf6acf21922d0e3acf0ecc7d922267b11b33bb7feb"
   head "https://github.com/apache/zeppelin.git"
 
