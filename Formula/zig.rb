@@ -15,6 +15,9 @@ class Zig < Formula
   depends_on "llvm"
 
   def install
+    ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+    ENV["LD"] = Formula["llvm"].opt_bin/"ld.lld"
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
