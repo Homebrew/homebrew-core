@@ -18,6 +18,11 @@ class Ucon64 < Formula
     sha256 "d74cb3ba11a4ef5d0f8d224325958ca1203b0d8bb4a7a79867e412d987f0b846"
   end
 
+  patch do
+    url "https://github.com/mistydemeo/ucon64/commit/878e5b04404f721f60936b2066ae17b5dfce8921.patch?full_index=1"
+    sha256 "168ae94e3e7e82b5b8f4c0424d16d9a5f74d3f21320bb38d35b2ca8fae1738f3"
+  end
+
   def install
     # ucon64's normal install process installs the discmage library in
     # the user's home folder. We want to store it inside the prefix, so
