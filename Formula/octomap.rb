@@ -1,8 +1,8 @@
 class Octomap < Formula
   desc "Efficient probabilistic 3D mapping framework based on octrees"
   homepage "https://octomap.github.io/"
-  url "https://github.com/OctoMap/octomap/archive/v1.9.1.tar.gz"
-  sha256 "9abce615d9f3f97a15ba129a10e3a01f9bef9aad178f2ef398f9a925f793c7b9"
+  url "https://github.com/OctoMap/octomap/archive/v1.9.3.tar.gz"
+  sha256 "8488de97ed2c8f4757bfbaf3225e82a9e36783dce1f573b3bde1cf968aa89696"
 
   bottle do
     sha256 "5c4e53e0a23b76ad71f3c8a74118d9538ea1871e90c034ed1a9d2b75f60fc8d3" => :catalina
@@ -13,8 +13,6 @@ class Octomap < Formula
   depends_on "cmake" => :build
 
   def install
-    inreplace "octomap/src/math/CMakeLists.txt", "INSTALL_NAME_DIR", "#INSTALL_NAME_DIR"
-
     cd "octomap" do
       system "cmake", ".", *std_cmake_args
       system "make", "install"
