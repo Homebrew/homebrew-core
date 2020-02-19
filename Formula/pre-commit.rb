@@ -46,7 +46,7 @@ class PreCommit < Formula
       ENV["GIT_COMMITTER_NAME"] = "test user"
       ENV["GIT_COMMITTER_EMAIL"] = "test@example.com"
       git_exe = which("git")
-      ENV["PATH"] = "/usr/bin:/bin"
+      ENV["PATH"] = "#{bin}:/usr/bin:/bin"
       system git_exe, "commit", "-m", "test"
     end
   end
