@@ -18,6 +18,7 @@ class Nwchem < Formula
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "scalapack"
+  depends_on "python"
 
   def install
     pkgshare.install "QA"
@@ -41,6 +42,8 @@ class Nwchem < Formula
 
       ENV["NWCHEM_TOP"] = buildpath
       ENV["NWCHEM_LONG_PATHS"] = "Y"
+#needed to use python 3.7 to skip using default python2
+      ENV["PYTHONVERSION"] = "3.7"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["LAPACK_LIB"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
