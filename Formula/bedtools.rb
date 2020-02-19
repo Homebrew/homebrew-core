@@ -11,9 +11,15 @@ class Bedtools < Formula
     sha256 "2f534f9efbdd387764924f2a9e3a08b435cab0ff0a0edabd6bafe8fa4123af6a" => :high_sierra
   end
 
+  depends_on "python@3.8" => :build
   depends_on "xz"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
+    inreplace "Makefile", "python", "python3"
+
     system "make"
     system "make", "install", "prefix=#{prefix}"
   end
