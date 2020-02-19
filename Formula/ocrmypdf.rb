@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/18/df/10630a3ba916ac9832c6c409a40b9186f6cd5a97570f70056bad9a8175ba/ocrmypdf-9.5.0.tar.gz"
-  sha256 "6b8d5f8be690f6850fbe0e2a4d496f2ed92bc275ad8dad8fbb3f115c84ab87db"
+  url "https://files.pythonhosted.org/packages/a9/4f/6fdbdadc554b28e75998eda555c5a0ea084da4668567302bde6736e63dbf/ocrmypdf-9.6.0.tar.gz"
+  sha256 "5a8f5c95a67bd3c14f7fab657f1a88c3b46e9f7ce5b5aef15eb1b4b7f5ff0075"
 
   bottle do
     cellar :any
@@ -34,8 +34,8 @@ class Ocrmypdf < Formula
   uses_from_macos "zlib"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
-    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
+    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
+    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
   end
 
   resource "chardet" do
@@ -59,8 +59,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/38/9e/07dd2e45436c6282d7efb3de0d561a07926048a5cbda9489a3bb8abd08b7/pikepdf-1.10.0.tar.gz"
-    sha256 "5099c256cc0143801ea06a935c954fc833e4f595759c3239e6f4ed19aad244e1"
+    url "https://files.pythonhosted.org/packages/42/15/0339718f4c732246529c2fe1cc70205f89dd8995c29c867908e8353b6b65/pikepdf-1.10.1.tar.gz"
+    sha256 "3777f482fb24e6665e8ac09a8a9beb70380c3b0fb5a890d7aa90dca679a793f4"
   end
 
   resource "Pillow" do
