@@ -1,17 +1,14 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-3.x/nrpe-3.2.1.tar.gz"
-  sha256 "8ad2d1846ab9011fdd2942b8fc0c99dfad9a97e57f4a3e6e394a4ead99c0f1f0"
-  revision 1
+  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.0.tar.gz"
+  sha256 "a3d0a7ac5385421dfcc29afce7eeade13ca10d8d9115ca5c2962b72946c88a1e"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7c0ce6b92d5fe437be7c96a45aa59e5497bfaf9dd29de04128a137afdd86e90b" => :catalina
-    sha256 "d68901dd62599886b0221f60672cef58f18a6d1dc39c28ac8eb955f90e80daf1" => :mojave
-    sha256 "1338535bd58f188ed452b40bdc6b38c0b45ed56cb39819293c2d896031114659" => :high_sierra
-    sha256 "5ec433eb1047741db64c0e16a8c216ffce9764ab45a7b5bf881bbb2f7e7a98d1" => :sierra
+    sha256 "eb75e8cbf609bf4a2d514fc03341bb33144d7cde87fcc174abc160ccd15f8683" => :catalina
+    sha256 "34c54f47ac9a79e2e698df0cf693e3b99e3aedbfb193ab626febb8eb21a1e30f" => :mojave
+    sha256 "169a4d77296cd0abd2b048faa223eab53fd3cbd44911c3a394dc28103d1ab71a" => :high_sierra
   end
 
   depends_on "nagios-plugins"
