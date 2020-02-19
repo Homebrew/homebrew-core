@@ -19,6 +19,16 @@ class MysqlClient < Formula
 
   depends_on "openssl@1.1"
 
+  # Required to fix issue with angled includes
+  # https://bugs.gentoo.org/692644
+  # https://bugzilla.redhat.com/1623950
+  # https://bugs.mysql.com/92870
+  # We'll use Gentoo patch until PR Homebrew/formula-patches#282 lands.
+  patch :p1 do
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/dev-db/mysql-connector-c/files/mysql-connector-c-8.0.17-use-relative-include-path-for-udf_registration_types-h.patch"
+    sha256 "606ab7ee0d1fe27a2638d917a47dd7763e97a635225ca44ece366f6613aea6b6"
+  end
+
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
