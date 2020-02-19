@@ -6,13 +6,6 @@ class PreCommit < Formula
   url "https://github.com/pre-commit/pre-commit/archive/v2.1.0.tar.gz"
   sha256 "62c09f83cbac0904c9aff0a6412f5db2d10e1756fa6c1fc05eeefa15b677fb80"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "24692c6d05f9e60b6ffb29ea6f110de52ecf6929bd8b3569e72c10d121059093" => :catalina
-    sha256 "fcba832e25006b372b25d92fecafbfbce3fe415d9aa80973c98c3b1645cf23bb" => :mojave
-    sha256 "239b6b495d41b65e5746d3fce4a4866c5c24d04ff67ddd15d9c2bf7a1a0a5828" => :high_sierra
-  end
-
   depends_on "python@3.8"
 
   def install
