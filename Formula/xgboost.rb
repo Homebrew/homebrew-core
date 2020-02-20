@@ -2,8 +2,8 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      :tag      => "v0.90",
-      :revision => "515f5f5c4779ff5361dcd796e22d55937e1048ea"
+      :tag      => "v1.0.0",
+      :revision => "d90e7b31170b86f97eafb6b9b64027abb6881a3e"
 
   bottle do
     cellar :any
@@ -13,10 +13,19 @@ class Xgboost < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libomp"
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, "-DUSE_OPENMP=0", ".."
+      libomp = Formula["libomp"]
+      args = std_cmake_args
+      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_C_LIB_NAMES=omp"
+      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+      args << "-DOpenMP_CXX_LIB_NAMES=omp"
+      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
+
+      system "cmake", *args, ".."
       system "make"
       system "make", "install"
     end
