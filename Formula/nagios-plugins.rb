@@ -1,9 +1,9 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz"
-  sha256 "647c0ba4583d891c965fc29b77c4ccfeccc21f409fdf259cb8af52cb39c21e18"
-  revision 1
+  url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.2.tar.gz"
+  sha256 "b074c27a4a2bb08bae30c724b28c1f33f2c5f37dc4b0c5dad0171ca39356a5c9"
+  head "https://github.com/nagios-plugins/nagios-plugins.git"
 
   bottle do
     cellar :any
@@ -13,6 +13,8 @@ class NagiosPlugins < Formula
     sha256 "4119699bb703aea5a3a9369300b209587209c4d8675d22997a16ed75089e141b" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "openssl@1.1"
 
   conflicts_with "monitoring-plugins", :because => "monitoring-plugins ships their plugins to the same folder."
@@ -25,6 +27,7 @@ class NagiosPlugins < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
+    system "./tools/setup" if build.head?
     system "./configure", *args
     system "make", "install"
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
@@ -38,7 +41,7 @@ class NagiosPlugins < Formula
   end
 
   test do
-    output = shell_output("#{sbin}/check_dns -H 8.8.8.8 -t 3")
+    output = shell_output("#{sbin}/check_dns -H brew.sh -s 8.8.8.8 -t 3")
     assert_match "DNS OK", output
   end
 end
