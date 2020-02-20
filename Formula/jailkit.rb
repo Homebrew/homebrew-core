@@ -10,7 +10,11 @@ class Jailkit < Formula
     sha256 "25e55b2cc8572ad043c97ad2b86e08f93ef1a69c6fb66d1bf1630c4c5092bdfc" => :high_sierra
   end
 
+  depends_on "python@3.8"
+
   def install
+    ENV["PYTHONINTERPRETER"] = Formula["python@3.8"].opt_bin/"python3"
+
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
   end
