@@ -12,13 +12,24 @@ class I386ElfGdb < Formula
     sha256 "5a173cea39b163dabfd97db3ea26446344ff82bdc3792b3111414d7f5c9ee6de" => :high_sierra
   end
 
+  depends_on "python@3.8"
+  depends_on "xz" # required for lzma support
+
   conflicts_with "gdb", :because => "both install include/gdb, share/gdb and share/info"
 
   def install
+    args = %W[
+      --target=i386-elf
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --with-lzma
+      --with-python=#{Formula["python@3.8"].opt_bin}/python3
+      --disable-binutils
+    ]
+
     mkdir "build" do
-      system "../configure", "--target=i386-elf",
-                             "--prefix=#{prefix}",
-                             "--disable-werror"
+      system "../configure", *args
       system "make"
 
       # Don't install bfd or opcodes, as they are provided by binutils
