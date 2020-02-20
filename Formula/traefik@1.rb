@@ -1,9 +1,9 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.20/traefik-v1.7.20.src.tar.gz"
-  version "1.7.20"
-  sha256 "cc56693c9775bcc6f7a031d64c754e5325c0bcc0fb66f57f45f216c8c23a1545"
+  url "https://github.com/containous/traefik/releases/download/v1.7.21/traefik-v1.7.21.src.tar.gz"
+  version "1.7.21"
+  sha256 "94a30fffba6d25aa1375a538c211838862e0ea1294625dd3553a36b27a263b0f"
 
   bottle do
     cellar :any_skip_relocation
