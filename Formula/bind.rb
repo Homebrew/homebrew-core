@@ -8,8 +8,8 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.14.10/bind-9.14.10.tar.gz"
-  sha256 "4ab98d5ce3102034b8a21a2fe59426aeb05bfa0be47521127dfccf09af60735a"
+  url "https://downloads.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz"
+  sha256 "af4bd9bdaeb1aa7399429972f3a8aa01dd6886b7ae046d703ab8da45330f2e28"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
@@ -19,7 +19,9 @@ class Bind < Formula
     sha256 "ae0dd1ed3bdb2d8ff9817c2358fb04bea8d9e67c387efe12b253d5e251f4204e" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "libuv"
   depends_on "openssl@1.1"
   depends_on "python"
 
@@ -44,10 +46,10 @@ class Bind < Formula
     end
 
     system "./configure", "--prefix=#{prefix}",
+                          "--with-json-c",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
-                          "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--with-python-install-dir=#{vendor_site_packages}",
+                          "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--without-lmdb"
 
     system "make"
