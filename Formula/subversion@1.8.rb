@@ -1,7 +1,7 @@
 class SubversionAT18 < Formula
   desc "Version control system"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.19.tar.bz2"
+  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.8.19.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
   revision 1
@@ -24,7 +24,7 @@ class SubversionAT18 < Formula
   depends_on "sqlite" # build against Homebrew version for consistency
 
   resource "serf" do
-    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    url "https://www.apache.org/dyn/closer.lua?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
     sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
