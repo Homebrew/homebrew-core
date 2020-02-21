@@ -3,7 +3,7 @@ class Libstfl < Formula
   homepage "http://www.clifford.at/stfl/"
   url "http://www.clifford.at/stfl/stfl-0.24.tar.gz"
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
@@ -13,9 +13,12 @@ class Libstfl < Formula
   end
 
   depends_on "swig" => :build
+  depends_on "python@3.8"
   depends_on "ruby"
 
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+
     ENV.append "LDLIBS", "-liconv"
     ENV.append "LIBS", "-lncurses -liconv -lruby"
 
@@ -36,12 +39,15 @@ class Libstfl < Formula
       s.gsub! "libstfl.so", "libstfl.dylib"
     end
 
+    xy = "3.8"
+    python_config = Formula["python@3.8"].opt_libexec/"bin/python-config"
+
     inreplace "python/Makefile.snippet" do |s|
       # Install into the site-packages in the Cellar (so uninstall works)
-      s.change_make_var! "PYTHON_SITEARCH", lib/"python2.7/site-packages"
+      s.change_make_var! "PYTHON_SITEARCH", lib/"python#{xy}/site-packages"
       s.gsub! "lib-dynload/", ""
       s.gsub! "ncursesw", "ncurses"
-      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
+      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`#{python_config} --cflags`.chomp}"
       s.gsub! "-lncurses", "-lncurses -liconv"
     end
 
