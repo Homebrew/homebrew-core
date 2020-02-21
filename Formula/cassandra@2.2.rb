@@ -1,7 +1,7 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
   mirror "https://archive.apache.org/dist/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
   sha256 "7109f50a5a12f62b41e692521622344ba1e79381d713fc578e60e554f7c83334"
 
