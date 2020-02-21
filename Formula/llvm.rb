@@ -177,6 +177,13 @@ class Llvm < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+
+    # install emacs modes
+    elisp.install Dir["utils/emacs/*.el"] + %w[
+      tools/clang/tools/clang-format/clang-format.el
+      tools/clang/tools/clang-rename/clang-rename.el
+      tools/clang/tools/extra/clang-include-fixer/tool/clang-include-fixer.el
+    ]
   end
 
   def caveats; <<~EOS
