@@ -1,7 +1,7 @@
 class Derby < Formula
   desc "Apache Derby is an embedded relational database running on JVM"
   homepage "https://db.apache.org/derby/"
-  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.15.1.3/db-derby-10.15.1.3-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=db/derby/db-derby-10.15.1.3/db-derby-10.15.1.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/db/derby/db-derby-10.15.1.3/db-derby-10.15.1.3-bin.tar.gz"
   sha256 "eedb0293fea8b7d9cc813371c34935661e42ea8270e72fedd0ffe2a6a29c61ad"
   revision 1
