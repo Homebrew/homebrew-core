@@ -4,7 +4,7 @@ class Solr < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/8.4.1/solr-8.4.1.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/8.4.1/solr-8.4.1.tgz"
   sha256 "ec39e1e024b2e37405149de41e39e875a39bf11a53f506d07d96b47b8d2a4301"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
@@ -17,7 +17,7 @@ class Solr < Formula
     inreplace "bin/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
 
     bin.install %w[bin/solr bin/post bin/oom_solr.sh]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    bin.env_script_all_files "bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
     pkgshare.install "bin/solr.in.sh"
     (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
     prefix.install %w[contrib dist example server]
