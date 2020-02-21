@@ -23,7 +23,12 @@ class Detekt < Formula
 
       }
     EOS
-    system bin/"detekt", "--input", "input.kt", "--report", "txt:output.txt"
+    (testpath/"detekt.yml").write <<~EOS
+      empty-blocks:
+        EmptyFunctionBlock:
+          active: true
+    EOS
+    system bin/"detekt", "--input", "input.kt", "--report", "txt:output.txt", "--config", "detekt.yml"
     assert_equal "EmptyFunctionBlock", shell_output("cat output.txt").slice(/\w+/)
   end
 end
