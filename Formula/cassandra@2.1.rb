@@ -1,7 +1,8 @@
 class CassandraAT21 < Formula
   desc "Distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/2.1.21/apache-cassandra-2.1.21-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.1.21/apache-cassandra-2.1.21-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/2.1.21/apache-cassandra-2.1.21-bin.tar.gz"
   sha256 "992080ce42bb90173b1a910edffadc7f917b5a6e598db5154ff32ae8e2d00ad3"
   revision 1
 
