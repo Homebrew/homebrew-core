@@ -1,7 +1,7 @@
 class SolrAT77 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/7.7.2/solr-7.7.2.tgz"
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/7.7.2/solr-7.7.2.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz"
   sha256 "eb8ee4038f25364328355de3338e46961093e39166c9bcc28b5915ae491320df"
   revision 1
