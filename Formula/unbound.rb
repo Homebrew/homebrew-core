@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.6.tar.gz"
-  sha256 "1d98fc6ea99197a20b4a0e540e87022cf523085786e0fc26de6ebb2720f5aaf0"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.10.0.tar.gz"
+  sha256 "152f486578242fe5c36e89995d0440b78d64c05123990aae16246b7f776ce955"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
@@ -30,7 +30,6 @@ class Unbound < Formula
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
     system "make"
-    system "make", "test"
     system "make", "install"
   end
 
