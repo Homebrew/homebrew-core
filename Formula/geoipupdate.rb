@@ -1,8 +1,8 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/archive/v4.1.5.tar.gz"
-  sha256 "fba0de08136af05038c2375e24f0eb2cfddf46caa2ec946dc1417d72d1108fed"
+  url "https://github.com/maxmind/geoipupdate/archive/v4.2.2.tar.gz"
+  sha256 "a9267a1fbbadc4686198002d3de0ef60a65e3b47c4e050bcdccf692aa1791092"
   head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
@@ -26,7 +26,6 @@ class Geoipupdate < Formula
 
   def post_install
     (var/"GeoIP").mkpath
-    system bin/"geoipupdate", "-v"
   end
 
   test do
