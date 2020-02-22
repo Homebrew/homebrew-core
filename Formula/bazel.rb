@@ -11,7 +11,7 @@ class Bazel < Formula
     sha256 "ffc3ecb5c76b9d4aee3c7f10f6a53775f8b25fbafe98dcd36519850b034351ad" => :high_sierra
   end
 
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on :java => "1.8"
   depends_on :macos => :yosemite
 
