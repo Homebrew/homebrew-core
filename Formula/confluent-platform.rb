@@ -11,6 +11,8 @@ class ConfluentPlatform < Formula
 
   conflicts_with "kafka", :because => "kafka also ships with identically named Kafka related executables"
 
+  patch :DATA
+
   def install
     prefix.install "bin"
     rm_rf "#{bin}/windows"
@@ -27,3 +29,18 @@ class ConfluentPlatform < Formula
     assert_match version.to_s, shell_output("#{bin}/kafka-broker-api-versions --version")
   end
 end
+__END__
+diff --git a/bin/confluent b/bin/confluent
+index 1247e4f..fadbb8d 100755
+--- a/bin/confluent
++++ b/bin/confluent
+@@ -184,7 +184,8 @@ BINARY=confluent
+ OS=$(uname_os)
+ ARCH=$(uname_arch)
+ PREFIX="${OWNER}/${REPO}"
+-EXE_PATH="${BASH_SOURCE%/*}/../libexec/cli"
++SELF=$(realpath "${BASH_SOURCE}")
++EXE_PATH="${SELF%/*}/../libexec/cli"
+ PLATFORM="${OS}/${ARCH}"
+
+ # use in logging routines
