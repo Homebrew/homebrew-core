@@ -4,6 +4,7 @@ class ClojureLsp < Formula
   url "https://github.com/snoe/clojure-lsp/archive/release-20190408T040839.tar.gz"
   version "20190408"
   sha256 "79c6d812a8ef4af2cfdd78c4b9aa96674ff9fb8dfeb27869215caa4aee954fae"
+  revision 1
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
@@ -15,12 +16,17 @@ class ClojureLsp < Formula
   end
 
   depends_on "leiningen" => :build
+  depends_on "openjdk@11"
 
   def install
     system "lein", "uberjar"
     jar = Dir["target/clojure-lsp-*-standalone.jar"][0]
     libexec.install jar
-    bin.write_jar_script libexec/File.basename(jar), "clojure-lsp"
+    (bin/"clojure-lsp").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk@11"].opt_prefix}}"
+      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/#{File.basename(jar)}" "$@"
+    EOS
   end
 
   test do
