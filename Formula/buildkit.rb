@@ -1,8 +1,10 @@
 class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
-  url "https://github.com/moby/buildkit/archive/v0.6.3.tar.gz"
-  sha256 "b455ee83340f08b30c64918da2cce6e4f97cd8d0f65aeb3f640ca93d19f17e56"
+  url "https://github.com/moby/buildkit.git",
+      :tag      => "v0.6.4",
+      :revision => "ebcef1f69af0bbca077efa9a960a481e579a0e89"
+  head "https://github.com/moby/buildkit.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,14 +16,18 @@ class Buildkit < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    doc.install %w[README.md] + Dir["docs/*.md"]
+    revision = Utils.popen_read("git rev-parse HEAD").chomp
+    ldflags = %W[
+      -s -w
+      -X github.com/moby/buildkit/version.Version=#{version}
+      -X github.com/moby/buildkit/version.Revision=#{revision}
+      -X github.com/moby/buildkit/version.Package=github.com/moby/buildkit
+    ]
 
-    (buildpath/"src/github.com/moby/buildkit/").install Dir["*"]
+    system "go", "build", "-mod", "vendor", "-trimpath",
+      "-ldflags", ldflags.join(" "), "-o", bin/"buildctl", "./cmd/buildctl"
 
-    ldflags = ["-X github.com/moby/buildkit/version.Version=#{version}",
-               "-X github.com/moby/buildkit/version.Package=github.com/moby/buildkit"]
-    system "go", "build", "-o", bin/"buildctl", "-ldflags", ldflags.join(" "), "github.com/moby/buildkit/cmd/buildctl"
+    doc.install Dir["docs/*.md"]
   end
 
   test do
