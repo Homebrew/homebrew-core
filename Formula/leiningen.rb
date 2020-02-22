@@ -3,6 +3,7 @@ class Leiningen < Formula
   homepage "https://github.com/technomancy/leiningen"
   url "https://github.com/technomancy/leiningen/archive/2.9.1.tar.gz"
   sha256 "a4c239b407576f94e2fef5bfa107f0d3f97d0b19c253b08860d9609df4ab8b29"
+  revision 1
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
@@ -12,6 +13,8 @@ class Leiningen < Formula
     sha256 "4b353034cd7bf4825ed9c5a340a20beed7382a8369f9ecd9f7da233e9b36a03a" => :high_sierra
     sha256 "f7ebcf91cfac411472d2dfdee71f008bc2ad3d7289b342a98db0916e74b7f615" => :sierra
   end
+
+  depends_on "openjdk@11"
 
   resource "jar" do
     url "https://github.com/technomancy/leiningen/releases/download/2.9.1/leiningen-2.9.1-standalone.zip", :using => :nounzip
@@ -29,7 +32,9 @@ class Leiningen < Formula
       s.change_make_var! "LEIN_JAR", libexec/jar
     end
 
-    bin.install "bin/lein-pkg" => "lein"
+    chmod "+x", "bin/lein-pkg"
+    (libexec/"bin").install "bin/lein-pkg"
+    (bin/"lein").write_env_script libexec/"bin/lein-pkg", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk@11"].opt_prefix}}"
     bash_completion.install "bash_completion.bash" => "lein-completion.bash"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
