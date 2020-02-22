@@ -16,6 +16,11 @@ class ConfluentPlatform < Formula
     rm_rf "#{bin}/windows"
     prefix.install "etc"
     prefix.install "share"
+    prefix.install "libexec"
+    rm_rf "#{libexec}/cli/linux_386"
+    rm_rf "#{libexec}/cli/linux_amd64"
+    rm_rf "#{libexec}/cli/windows_386"
+    rm_rf "#{libexec}/cli/windows_amd64"
   end
 
   test do
