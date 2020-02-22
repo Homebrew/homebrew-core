@@ -9,7 +9,7 @@ class GhcAT82 < Formula
   sha256 "bb8ec3634aa132d09faa270bbd604b82dfa61f04855655af6f9d14a9eedc05fc"
 
   bottle do
-    rebuild 1
+    rebuild 2
     sha256 "e8b7dbca371f1c62de38dd06dcd9e90d638acf2e2f6b61b087a0eb043ebbbfd7" => :mojave
     sha256 "b1f1d079df456ce6297160e75766cd8016737bfaefee52cd29eeabddc302d4fd" => :high_sierra
     sha256 "a3a80024bb1535107f78646d0d806efb1a794d132e52aa5a39e47fac24d5c275" => :sierra
