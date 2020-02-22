@@ -1,8 +1,8 @@
 class Iblinter < Formula
   desc "Linter tool for Interface Builder"
   homepage "https://github.com/IBDecodable/IBLinter"
-  url "https://github.com/IBDecodable/IBLinter/archive/0.4.21.tar.gz"
-  sha256 "cbf5a0abe08563f7f4151c0ed49fc86381b3ac284b65fc49496e44cae248d451"
+  url "https://github.com/IBDecodable/IBLinter/archive/0.4.22.tar.gz"
+  sha256 "0f95b874c1a61fee5dc55da25429790490fcdd20667a3a9065dbd53641374971"
   head "https://github.com/IBDecodable/IBLinter.git"
 
   bottle do
