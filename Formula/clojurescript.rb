@@ -3,18 +3,18 @@ class Clojurescript < Formula
   homepage "https://github.com/clojure/clojurescript"
   url "https://github.com/clojure/clojurescript/releases/download/r1.10.597/cljs.jar"
   sha256 "f861a9b36b67287ac667a57abe930721bff9f83c19bb07982a05ef09a94208a7"
-  revision 1
+  revision 2
   head "https://github.com/clojure/clojurescript.git"
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     libexec.install "cljs.jar"
     (bin/"cljsc").write <<~EOS
       #!/bin/bash
-      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk@11"].opt_prefix}}"
       exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/cljs.jar" "$@"
     EOS
   end
