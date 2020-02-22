@@ -9,6 +9,7 @@ class Openmittsu < Formula
   depends_on "cmake"
   depends_on "libsodium"
   depends_on :macos => :mavericks
+  depends_on "pkg-config"
   depends_on "qrencode"
   depends_on "qt"
   depends_on "spdlog"
