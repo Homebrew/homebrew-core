@@ -3,7 +3,6 @@ class Detekt < Formula
   homepage "https://github.com/arturbosch/detekt"
   url "https://jcenter.bintray.com/io/gitlab/arturbosch/detekt/detekt-cli/1.5.1/detekt-cli-1.5.1-all.jar"
   sha256 "7bfff3b000cc798f44355ef29499f05625f72250c667c56aa3d571b0bb9567d7"
-  revision 1
 
   bottle :unneeded
 
