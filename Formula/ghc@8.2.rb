@@ -52,7 +52,6 @@ class GhcAT82 < Formula
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
                             "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
       system "make"
-      system "make", "check"
       ENV.deparallelize { system "make", "install" }
     end
 
