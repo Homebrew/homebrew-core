@@ -1,0 +1,61 @@
+name: Build bottles.
+
+on:
+  pull_request:
+    paths:
+      - 'Formula/*'
+
+jobs:
+  build-bottles:
+    strategy:
+      matrix:
+        version: [10.15, 10.14, 10.13]
+    runs-on: ${{ matrix.version }}
+    env:
+      HOMEBREW_GIT_NAME: BrewTestBot
+      HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'
+      PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Setup tap
+        run: |
+          git -C $(brew --repo) remote set-url origin https://github.com/Homebrew/brew
+          cd $(brew --repo ${{ github.repository }})
+          git config remote.origin.url https://github.com/Homebrew/homebrew-core/
+          git fetch origin refs/pull/${{ github.event.pull_request.number }}/merge
+          git checkout -f FETCH_HEAD
+      - name: Cleanup
+        run: |
+          BREW_LIST=$(brew list 2>/dev/null)
+          if [ -n "$BREW_LIST" ]; then
+            echo ">> brew uninstall"
+            brew uninstall --force --ignore-dependencies $BREW_LIST
+          fi
+          rm -rf bottles
+          rm -rf *
+          find . /usr/local/Homebrew -name .git/gc.log -delete
+          brew update-reset /usr/local/Homebrew
+          brew update
+      - name: Build bottles
+        run: |
+          mkdir bottles
+          cd bottles
+          brew test-bot --ci-pr
+      - name: Upload bottles
+        if: always()
+        uses: actions/upload-artifact@v1
+        with:
+          name: bottles
+          path: bottles
+      - name: Cleanup
+        if: always()
+        run: |
+          BREW_LIST=$(brew list 2>/dev/null)
+          if [ -n "$BREW_LIST" ]; then
+            echo ">> brew uninstall"
+            brew uninstall --force --ignore-dependencies $BREW_LIST
+          fi
+          rm -rf bottles
+          rm -rf *
