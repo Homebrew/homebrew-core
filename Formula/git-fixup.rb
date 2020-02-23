@@ -1,8 +1,8 @@
 class GitFixup < Formula
   desc "Alias for git commit --fixup <ref>"
   homepage "https://github.com/keis/git-fixup"
-  url "https://github.com/keis/git-fixup/archive/v1.2.0.tar.gz"
-  sha256 "894989bd31b52fcfbfe226bc86bd1baea06820aa86938561b14772929f261337"
+  url "https://github.com/keis/git-fixup/archive/v1.3.0.tar.gz"
+  sha256 "29665151f82cac5f5807b8241392150e7c8ee8024ce37f23752c23c134516d57"
   head "https://github.com/keis/git-fixup.git", :branch => "master"
 
   bottle do
