@@ -2,8 +2,8 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.26.0",
-    :revision => "7ab898c718e693e76a930e334bb0c2836d4cf2d8"
+    :tag      => "v0.27.0",
+    :revision => "14602299a1487a8f54f1b71ea742368181235ca4"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +15,12 @@ class Wtfutil < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPROXY"] = "https://gocenter.io"
-    ldflags=["-s -w -X main.version=#{version}",
-             "-X main.date=#{Time.now.iso8601}"]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"wtfutil"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.date=#{Time.now.iso8601}
+    ]
+    system "go", "build", "-trimpath", "-ldflags", ldflags.join(" "), "-o", bin/"wtfutil"
   end
 
   test do
