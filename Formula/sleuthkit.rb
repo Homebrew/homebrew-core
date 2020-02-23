@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.7/sleuthkit-4.6.7.tar.gz"
-  sha256 "525fced79117929621fb583ed4a554a01a07e8739e9c000507acfa793f8d6915"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.8.0/sleuthkit-4.8.0.tar.gz"
+  sha256 "f584b46c882693bcbd819fb58f75e9be45ac8abdbf605c190f87ef1122f28f6c"
 
   bottle do
     cellar :any
@@ -14,15 +14,17 @@ class Sleuthkit < Formula
 
   depends_on "ant" => :build
   depends_on "afflib"
-  depends_on :java
   depends_on "libewf"
   depends_on "libpq"
-  depends_on "sqlite"
+  depends_on "openjdk"
+
+  uses_from_macos "sqlite"
 
   conflicts_with "ffind",
     :because => "both install a 'ffind' executable."
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
     ENV.append_to_cflags "-DNDEBUG"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
