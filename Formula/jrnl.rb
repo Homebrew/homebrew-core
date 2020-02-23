@@ -97,15 +97,87 @@ class Jrnl < Formula
   end
 
   test do
-    (testpath/"write_journal.sh").write <<~EOS
+    (testpath/"write_journal.sh").write <<~'EOS'
       #!/usr/bin/expect -f
-      set timeout 1s
-      spawn #{bin}/jrnl --version
-      expect -exact "jrnl version v2.2"
-      expect eof
-    EOS
-    chmod 0755, testpath/"write_journal.sh"
 
-    system "./write_journal.sh"
+      set timeout 3
+      match_max 100000
+      spawn "$env(BREW_TEST_BIN)/jrnl" "This is the fanciest test in the world."
+
+      expect {
+        "Path to your journal file" { send -- "$env(BREW_TEST_PATH)/test.txt\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -exact "Do you want to encrypt your journal? You can always change this later \[y/N\] " { send -- "n\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        eof { exit }
+        timeout { exit 1 }
+      }
+    EOS
+
+    (testpath/"read_journal.sh").write <<~'EOS'
+      #!/usr/bin/expect -f
+
+      set timeout 3
+      spawn "$env(BREW_TEST_BIN)/jrnl" -1
+
+      expect {
+        "This is the fanciest test in the world." { exit }
+        timeout { exit 1 }
+        eof { exit 1 }
+      }
+
+    EOS
+
+    (testpath/"encrypt_journal.sh").write <<~'EOS'
+      #!/usr/bin/expect -f
+
+      set timeout 3
+      spawn "$env(BREW_TEST_BIN)/jrnl" --encrypt
+
+      expect {
+        -exact "Enter password for new journal: " { send -- "homebrew\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -exact "Enter password again: " { send -- "homebrew\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -exact "Do you want to store the password in your keychain? \[Y/n\] " { send -- "n\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -re "Journal encrypted to .*/test.txt." { exit }
+        timeout { exit 1 }
+        eof { exit 1 }
+      }
+    EOS
+
+    (testpath/"test_journal.sh").write <<~EOS
+      #!/bin/bash
+      set -e
+
+      export XDG_CONFIG_HOME="#{testpath}/.config"
+      export BREW_TEST_BIN="#{bin}"
+      export BREW_TEST_PATH="#{testpath}"
+
+      expect "$BREW_TEST_PATH/write_journal.sh"
+      expect "$BREW_TEST_PATH/read_journal.sh"
+      expect "$BREW_TEST_PATH/encrypt_journal.sh"
+    EOS
+    chmod 0755, testpath/"test_journal.sh"
+
+    system "./test_journal.sh"
+    assert_predicate testpath/".config/jrnl/jrnl.yaml", :exist?
+    assert_predicate testpath/"test.txt", :exist?
   end
 end
