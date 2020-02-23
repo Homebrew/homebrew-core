@@ -97,20 +97,22 @@ class Jrnl < Formula
   end
 
   test do
-    (testpath/"write_journal.sh").write <<~'EOS'
+    (testpath/"tests.sh").write <<~'EOS'
       #!/usr/bin/expect -f
 
       set timeout 3
       match_max 100000
+
+      # Write the journal
       spawn "$env(BREW_TEST_BIN)/jrnl" "This is the fanciest test in the world."
 
       expect {
-        "Path to your journal file" { send -- "$env(BREW_TEST_PATH)/test.txt\r" }
+        "/.local/share/jrnl/journal.txt" { send -- "$env(BREW_TEST_PATH)/test.txt\r" }
         timeout { exit 1 }
       }
 
       expect {
-        -exact "Do you want to encrypt your journal? You can always change this later \[y/N\] " { send -- "n\r" }
+        "You can always change this later" { send -- "n\r" }
         timeout { exit 1 }
       }
 
@@ -118,12 +120,8 @@ class Jrnl < Formula
         eof { exit }
         timeout { exit 1 }
       }
-    EOS
 
-    (testpath/"read_journal.sh").write <<~'EOS'
-      #!/usr/bin/expect -f
-
-      set timeout 3
+      # Read the journal
       spawn "$env(BREW_TEST_BIN)/jrnl" -1
 
       expect {
@@ -132,12 +130,7 @@ class Jrnl < Formula
         eof { exit 1 }
       }
 
-    EOS
-
-    (testpath/"encrypt_journal.sh").write <<~'EOS'
-      #!/usr/bin/expect -f
-
-      set timeout 3
+      # Encrypt the journal
       spawn "$env(BREW_TEST_BIN)/jrnl" --encrypt
 
       expect {
@@ -162,21 +155,19 @@ class Jrnl < Formula
       }
     EOS
 
-    (testpath/"test_journal.sh").write <<~EOS
+    (testpath/"run_tests.sh").write <<~EOS
       #!/bin/bash
-      set -e
+      set -ex
 
       export XDG_CONFIG_HOME="#{testpath}/.config"
       export BREW_TEST_BIN="#{bin}"
       export BREW_TEST_PATH="#{testpath}"
 
-      expect "$BREW_TEST_PATH/write_journal.sh"
-      expect "$BREW_TEST_PATH/read_journal.sh"
-      expect "$BREW_TEST_PATH/encrypt_journal.sh"
+      expect "$BREW_TEST_PATH/tests.sh"
     EOS
-    chmod 0755, testpath/"test_journal.sh"
+    chmod 0755, testpath/"run_tests.sh"
 
-    system "./test_journal.sh"
+    system "./run_tests.sh"
     assert_predicate testpath/".config/jrnl/jrnl.yaml", :exist?
     assert_predicate testpath/"test.txt", :exist?
   end
