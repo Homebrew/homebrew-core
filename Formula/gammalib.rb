@@ -36,7 +36,7 @@ class Gammalib < Formula
         std::cout << l << std::endl;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}", 
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
                     "-L#{lib}", "-lgamma"
     assert_match /184.56/, shell_output("./test")
   end
