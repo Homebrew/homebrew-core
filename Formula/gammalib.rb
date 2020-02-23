@@ -31,9 +31,8 @@ class Gammalib < Formula
       dir=gammalib.GSkyDir()
       dir.radec_deg(83.63,22.01)
       l=dir.l_deg()
-      b=dir.b_deg()
-      print(l,b)
+      print(l)
     EOS
-    assert_match /(184.55973405309402, -5.7891829467816827)/, shell_output("python test.py")
+    assert_match /184.55973405309402/, shell_output("python test.py")
   end
 end
