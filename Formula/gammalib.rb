@@ -26,13 +26,18 @@ class Gammalib < Formula
   end
 
   test do
-    (testpath/"test.py").write <<~EOS
-      import gammalib
-      dir=gammalib.GSkyDir()
-      dir.radec_deg(83.63,22.01)
-      l=dir.l_deg()
-      print(l)
+    (testpath/"test.cpp").write <<~EOS
+      #include <gammalib/GSkyMap.hpp>
+      #include <iostream>
+      int main() {
+        GSkyDir dir;
+        dir.radec_deg(83.63,22.01);
+        double l = dir.l_deg();
+        std::cout << l << std::endl;
+      }
     EOS
-    assert_match /184.55973405309402/, shell_output("python test.py")
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}", 
+                    "-L#{lib}", "-lgamma"
+    assert_match /184.56/, shell_output("./test")
   end
 end
