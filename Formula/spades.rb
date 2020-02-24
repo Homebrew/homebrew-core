@@ -1,9 +1,9 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
-  url "http://cab.spbu.ru/files/release3.13.1/SPAdes-3.13.1.tar.gz"
-  mirror "https://github.com/ablab/spades/releases/download/v3.13.1/SPAdes-3.13.1.tar.gz"
-  sha256 "8da29b72fb56170dd39e3a8ea5074071a8fa63b29346874010b8d293c2f72a3e"
+  url "http://cab.spbu.ru/files/release3.14.0/SPAdes-3.14.0.tar.gz"
+  mirror "https://github.com/ablab/spades/releases/download/v3.14.0/SPAdes-3.14.0.tar.gz"
+  sha256 "18988dd51762863a16009aebb6e873c1fbca92328b0e6a5af0773e2b1ad7ddb9"
 
   bottle do
     cellar :any
@@ -12,7 +12,8 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for OpenMP
+  depends_on "python"
 
   fails_with :clang # no OpenMP support
 
@@ -24,6 +25,7 @@ class Spades < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/spades.py --version 2>&1")
     assert_match "TEST PASSED CORRECTLY", shell_output("#{bin}/spades.py --test")
   end
 end
