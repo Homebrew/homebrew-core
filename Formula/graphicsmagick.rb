@@ -21,6 +21,10 @@ class Graphicsmagick < Formula
   depends_on "little-cms2"
   depends_on "webp"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
   skip_clean :la
 
   def install

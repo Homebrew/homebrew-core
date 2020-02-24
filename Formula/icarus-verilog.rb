@@ -20,6 +20,10 @@ class IcarusVerilog < Formula
   # parser is subtly broken when processed with an old version of bison
   depends_on "bison" => :build
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"

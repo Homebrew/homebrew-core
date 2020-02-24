@@ -17,6 +17,8 @@ class Kakoune < Formula
   depends_on :macos => :high_sierra # needs C++17
   depends_on "ncurses"
 
+  uses_from_macos "libxslt" => :build
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 

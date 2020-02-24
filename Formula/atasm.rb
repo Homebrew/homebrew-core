@@ -12,6 +12,8 @@ class Atasm < Formula
     sha256 "b9eb26201949590ab8fce80ee3feabe7f0be2f611e7c60b6b456c8d78480680c" => :high_sierra
   end
 
+  uses_from_macos "zlib"
+
   def install
     cd "src" do
       system "make", "prog"

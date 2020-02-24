@@ -21,6 +21,9 @@ class Futhark < Formula
   depends_on "hpack" => :build
   depends_on "sphinx-doc" => :build
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     system "hpack"
 

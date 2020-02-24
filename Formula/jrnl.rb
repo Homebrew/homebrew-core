@@ -16,6 +16,8 @@ class Jrnl < Formula
 
   depends_on "python@3.8"
 
+  uses_from_macos "expect" => :test
+
   resource "entrypoints" do
     url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
     sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"

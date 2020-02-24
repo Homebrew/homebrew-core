@@ -3,10 +3,11 @@ class Prestodb < Formula
   homepage "https://prestodb.io"
   url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.230/presto-server-0.230.tar.gz"
   sha256 "dfa98c7d709e2c2c81e400f746cfec28665ba2005faaa8d87ed38d82b5550503"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   conflicts_with "prestosql", :because => "both install `presto` and `presto-server` binaries"
 
@@ -51,11 +52,16 @@ class Prestodb < Formula
 
     (bin/"presto-server").write <<~EOS
       #!/bin/bash
+      export JAVA_HOME="#{Formula["openjdk"].opt_prefix}"
       exec "#{libexec}/bin/launcher" "$@"
     EOS
 
     resource("presto-cli").stage do
-      bin.install "presto-cli-#{version}-executable.jar" => "presto"
+      libexec.install "presto-cli-#{version}-executable.jar"
+      (bin/"presto").write <<~EOS
+        #!/bin/bash
+        exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/presto-cli-#{version}-executable.jar" "$@"
+      EOS
     end
   end
 

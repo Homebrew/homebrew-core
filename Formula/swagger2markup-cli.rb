@@ -3,14 +3,18 @@ class Swagger2markupCli < Formula
   homepage "https://github.com/Swagger2Markup/swagger2markup"
   url "https://jcenter.bintray.com/io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar"
   sha256 "93ff10990f8279eca35b7ac30099460e557b073d48b52d16046ab1aeab248a0a"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install "swagger2markup-cli-#{version}.jar"
-    bin.write_jar_script libexec/"swagger2markup-cli-#{version}.jar", "swagger2markup"
+    (bin/"swagger2markup").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/swagger2markup-cli-#{version}.jar" "$@"
+    EOS
   end
 
   test do

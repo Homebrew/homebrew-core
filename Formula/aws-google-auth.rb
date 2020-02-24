@@ -17,6 +17,7 @@ class AwsGoogleAuth < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "python"
+
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

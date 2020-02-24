@@ -25,6 +25,9 @@ class Clamav < Formula
   depends_on "pcre"
   depends_on "yara"
 
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   skip_clean "share/clamav"
 
   def install

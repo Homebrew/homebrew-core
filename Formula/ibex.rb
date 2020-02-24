@@ -17,6 +17,8 @@ class Ibex < Formula
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
 
+  uses_from_macos "zlib"
+
   def install
     ENV.cxx11
 

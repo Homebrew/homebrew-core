@@ -1,14 +1,13 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://github.com/malaterre/GDCM/archive/v3.0.4.tar.gz"
-  sha256 "9e460e5aae0082e5bb0cb4e6cb1293f4ea902394406e2260cc92674f7bd481b2"
+  url "https://github.com/malaterre/GDCM/archive/v3.0.5.tar.gz"
+  sha256 "5cc175d9b845db91143f972e505680e766ab814a147b16abbb34acd88dacdb5a"
 
   bottle do
-    rebuild 1
-    sha256 "201ba6da41d2b973f657f3389e9fe1fa87e85bf1cf7834045ae17a57412b0265" => :catalina
-    sha256 "340dc449521ef30f0abba3064efb0e5f5c6f82279a677c55d379c2bc2591b006" => :mojave
-    sha256 "af608b1190a8a7032cfbce20cba4724fa591e6f93005bffb4fc5ef1464f9c9cf" => :high_sierra
+    sha256 "e24215eb5ed66ad5a38977e81f942f654dce972d71d1dfa8a7b7ffc105c95b7f" => :catalina
+    sha256 "dee1e40f1f9a612803d1a78882de28651b65673e565495e5b929e6c042e98333" => :mojave
+    sha256 "af68518b60f18452864680bc6301ba77d5503990875e7fa9f701b943fd8a9377" => :high_sierra
   end
 
   depends_on "cmake" => :build

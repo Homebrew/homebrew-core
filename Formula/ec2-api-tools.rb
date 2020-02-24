@@ -3,13 +3,14 @@ class Ec2ApiTools < Formula
   homepage "https://aws.amazon.com/developertools/351"
   url "https://ec2-downloads.s3.amazonaws.com/ec2-api-tools-1.7.5.1.zip"
   sha256 "851abe30403ee1c86a3ebdddf5b4bffd7ef4b587110530feadf00954d9ae2f3a"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
-    env = Language::Java.java_home_env.merge(:EC2_HOME => libexec)
+    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :EC2_HOME => libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

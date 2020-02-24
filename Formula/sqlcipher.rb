@@ -3,13 +3,14 @@ class Sqlcipher < Formula
   homepage "https://www.zetetic.net/sqlcipher/"
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.3.0.tar.gz"
   sha256 "fccb37e440ada898902b294d02cde7af9e8706b185d77ed9f6f4d5b18b4c305f"
+  revision 1
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
     cellar :any
-    sha256 "1de7fda1b6e412d3bb49f18cb7a174f40af184d917064c79c047a9abf65d89ae" => :catalina
-    sha256 "76195cf0c62a5045b8d977b937938d448a3b9fc842b69f0b2a126ad918c6b7dd" => :mojave
-    sha256 "66462c093665ae487d19de677d544489a2608e239792317d4cbacd75d692d8a6" => :high_sierra
+    sha256 "e591938b7bc869c5eed94883d0a017f78a6c4ef00cea844c4b2c3888a3adf5a8" => :catalina
+    sha256 "a6ff6235a7e50d3ae89273323c0741672049cbb1ee12f9c30d794b544112c20d" => :mojave
+    sha256 "3d8eda2ea4d3205955380eae7275562be849fe5586494b676c8ae87b273eae85" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -24,7 +25,7 @@ class Sqlcipher < Formula
     ]
 
     # Build with full-text search enabled
-    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
+    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_COLUMN_METADATA"
 
     system "./configure", *args
     system "make"

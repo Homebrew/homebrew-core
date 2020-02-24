@@ -15,6 +15,9 @@ class Geoipupdate < Formula
   depends_on "go" => :build
   depends_on "pandoc" => :build
 
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   def install
     system "make", "CONFFILE=#{etc}/GeoIP.conf", "DATADIR=#{var}/GeoIP", "VERSION=#{version} (homebrew)"
 

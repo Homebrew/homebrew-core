@@ -16,6 +16,9 @@ class BoostAT160 < Formula
 
   keg_only :versioned_formula
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   # Handle compile failure with boost/graph/adjacency_matrix.hpp
   # https://github.com/Homebrew/homebrew/pull/48262
   # https://svn.boost.org/trac/boost/ticket/11880

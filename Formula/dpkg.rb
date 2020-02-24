@@ -21,6 +21,9 @@ class Dpkg < Formula
   depends_on "perl"
   depends_on "xz" # For LZMA
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.

@@ -11,6 +11,7 @@ class Fdclone < Formula
   end
 
   depends_on "nkf" => :build
+
   uses_from_macos "ncurses"
 
   patch do

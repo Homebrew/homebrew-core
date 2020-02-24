@@ -15,7 +15,6 @@ class Ffmpeg < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
-
   depends_on "aom"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -43,6 +42,9 @@ class Ffmpeg < Formula
   depends_on "x265"
   depends_on "xvid"
   depends_on "xz"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     args = %W[

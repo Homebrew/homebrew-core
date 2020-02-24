@@ -4,10 +4,11 @@ class Basex < Formula
   url "http://files.basex.org/releases/9.3.1/BaseX931.zip"
   version "9.3.1"
   sha256 "87114c79888dee0dbbe4ed18b8aca5636f054f15af5682a153b9d66ebcb354e4"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     rm Dir["bin/*.bat"]
@@ -16,7 +17,8 @@ class Basex < Formula
     rm_rf "etc"
     prefix.install_metafiles
     libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do

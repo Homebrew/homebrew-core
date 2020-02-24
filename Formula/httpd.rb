@@ -1,7 +1,8 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/httpd/httpd-2.4.41.tar.bz2"
+  url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.41.tar.bz2"
+  mirror "https://archive.apache.org/dist/httpd/httpd-2.4.41.tar.bz2"
   sha256 "133d48298fe5315ae9366a0ec66282fa4040efa5d566174481077ade7d18ea40"
   revision 1
 
@@ -18,6 +19,7 @@ class Httpd < Formula
   depends_on "nghttp2"
   depends_on "openssl@1.1"
   depends_on "pcre"
+
   uses_from_macos "zlib"
 
   def install

@@ -1,15 +1,15 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.44.2.tar.gz"
-  sha256 "dcefe2c1a9a62e521a1692b840dac7693ec89ffa7c3d76496466288be8c1ff0a"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.44.3.tar.gz"
+  sha256 "5249438143fa240f16d218727e30476739eddad048fef749103e72b928859929"
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf4e73e35b35f6bbaedd0009a26781634c2c22a145de80adf3c69e9caf8fcc6d" => :catalina
-    sha256 "1b17615950195914196f9c91259a6ae90d15e0b6cbba30f238ef6bd47078ce91" => :mojave
-    sha256 "bc9e8cdf3c1b9a2295d75b065f1b8be81725a95fdbed7869e5ff56a8c02c36da" => :high_sierra
+    sha256 "78237244269a102d41f9d5abbad8c877c81bdff9baf25c2a33dbe03e41635ee6" => :catalina
+    sha256 "1998d61dcc95bee80a784ddf4f556e90f9fa6f658cc9fffa8c65e23f485f9d96" => :mojave
+    sha256 "dc033b41518d26b1123fbd1cf11317f0f60a9b0e1ba7cc0538f6b09fd410ea4e" => :high_sierra
   end
 
   depends_on :xcode => ["10.1", :build]

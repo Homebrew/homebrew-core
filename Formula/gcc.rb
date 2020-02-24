@@ -25,6 +25,8 @@ class Gcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "zlib"
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 

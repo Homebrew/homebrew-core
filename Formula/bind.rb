@@ -8,18 +8,20 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://downloads.isc.org/isc/bind9/9.14.10/bind-9.14.10.tar.gz"
-  sha256 "4ab98d5ce3102034b8a21a2fe59426aeb05bfa0be47521127dfccf09af60735a"
+  url "https://downloads.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz"
+  sha256 "af4bd9bdaeb1aa7399429972f3a8aa01dd6886b7ae046d703ab8da45330f2e28"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "cf2eadd4ebd51150e6c6b0bb6d8daca2e7aa0d28bc6398cafb84779c99845851" => :catalina
-    sha256 "2b9d785e2eefd8d977c8cff685a4b61fc2925c9db22b103d1c52e4444fee9e66" => :mojave
-    sha256 "ae0dd1ed3bdb2d8ff9817c2358fb04bea8d9e67c387efe12b253d5e251f4204e" => :high_sierra
+    sha256 "4ef58e4fff406c549fc7a07fd058c95d15405b01feb4e7a3ae1f65facc08dc4e" => :catalina
+    sha256 "a21c33e4d31d00d9988297bc1b3d9fd0e4312f85d77899ae2fe808e38c984be4" => :mojave
+    sha256 "18a28e31bc7a122b43c7b64a5b68c9ee06d350dc209dc2dd9e2f5fcca42dcad5" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "libuv"
   depends_on "openssl@1.1"
   depends_on "python"
 
@@ -44,10 +46,10 @@ class Bind < Formula
     end
 
     system "./configure", "--prefix=#{prefix}",
+                          "--with-json-c",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
-                          "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--with-python-install-dir=#{vendor_site_packages}",
+                          "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--without-lmdb"
 
     system "make"

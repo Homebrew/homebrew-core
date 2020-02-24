@@ -13,6 +13,10 @@ class Gsoap < Formula
   depends_on "autoconf" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+  uses_from_macos "zlib"
+
   def install
     # Contacted upstream by email and been told this should be fixed by 2.8.37,
     # it is due to the compilation of symbol2.c and soapcpp2_yacc.h not being

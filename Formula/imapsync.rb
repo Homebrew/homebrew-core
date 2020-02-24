@@ -13,6 +13,8 @@ class Imapsync < Formula
     sha256 "ecabb7fc517a6f3b558fba82711c3c00334cebdc2aa120fd634fe46f07f0fe00" => :high_sierra
   end
 
+  uses_from_macos "perl"
+
   resource "Unicode::String" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/GAAS/Unicode-String-2.10.tar.gz"
     sha256 "894a110ece479546af8afec0972eec7320c86c4dea4e6b354dff3c7526ba9b68"

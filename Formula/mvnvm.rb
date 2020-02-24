@@ -3,18 +3,19 @@ class Mvnvm < Formula
   homepage "https://mvnvm.org/"
   url "https://bitbucket.org/mjensen/mvnvm/get/mvnvm-1.0.13.tar.gz"
   sha256 "af90239b6209b51901701602ee8fd80f1c0171743a1335038d8dd2216e0cbf7d"
+  revision 1
   head "https://bitbucket.org/mjensen/mvnvm.git"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   conflicts_with "maven", :because => "also installs a 'mvn' executable"
 
   def install
     bin.install "mvn"
     bin.install "mvnDebug"
-    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("1.7+"))
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
   end
 
   test do

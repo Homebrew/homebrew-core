@@ -3,10 +3,11 @@ class Redpen < Formula
   homepage "http://redpen.cc/"
   url "https://github.com/redpen-cc/redpen/releases/download/redpen-1.10.3/redpen-1.10.3.tar.gz"
   sha256 "0a7543e3961428ce68eb47c964e8988ec2f585db6e32ded582eb6626a98ffdd2"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     # Don't need Windows files.
@@ -14,7 +15,7 @@ class Redpen < Formula
     libexec.install %w[conf lib sample-doc js]
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8+"))
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do

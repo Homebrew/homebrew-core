@@ -20,6 +20,8 @@ class AwscliAT1 < Formula
   # Sierra
   depends_on "python@3.8"
 
+  uses_from_macos "groff"
+
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",

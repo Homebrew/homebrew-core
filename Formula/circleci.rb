@@ -3,15 +3,14 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.5879",
-      :revision => "416032d85e2c8dec0ca6322baf07255ac851f50c"
+      :tag      => "v0.1.6220",
+      :revision => "664c4ea4b05c9a6a1b89671a34cb26d58681bb85"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c70e1810214aac26798cfc5ac8734fbecae1baee3af9af8b5f45dedca66d30c" => :catalina
-    sha256 "48adff67b7d69ed1a6656a754e754e8cae67ce4ec7929a805c405bbce89eabc9" => :mojave
-    sha256 "b82e42bd9c5026de007fbb5c684e8fd2875db82c25a935b9e22ff5563d94217f" => :high_sierra
-    sha256 "37088c6cc436902542b008a3f78aad369f7a199f0d24cb2b3573d0e95a795256" => :sierra
+    sha256 "c719d15d275cdfd17192c5304b2570f52f9ffa028629f92c3fe43b00d7b9c658" => :catalina
+    sha256 "62595265012ab1f9021a33d5779ca2f20dde48ee4d5c02e5c8ecef17c67efc5d" => :mojave
+    sha256 "aafed852363aea48fe4b1517654c56a078f9d8bf301dc894dbfc2bb84cb5fcb0" => :high_sierra
   end
 
   depends_on "go" => :build

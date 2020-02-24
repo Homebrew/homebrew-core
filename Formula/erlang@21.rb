@@ -20,6 +20,8 @@ class ErlangAT21 < Formula
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
+  uses_from_macos "m4" => :build
+
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.3.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_man_21.3.tar.gz"

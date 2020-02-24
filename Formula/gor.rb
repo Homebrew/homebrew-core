@@ -15,6 +15,8 @@ class Gor < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "libpcap"
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"

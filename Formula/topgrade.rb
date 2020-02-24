@@ -1,14 +1,14 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v3.9.0.tar.gz"
-  sha256 "a74af12257c12ab30937ba357cab9584716e5ca320a8458e2c2cb17589b7cdcf"
+  url "https://github.com/r-darwish/topgrade/archive/v4.0.2.tar.gz"
+  sha256 "83c9396f57da870240ae36108bcf25c838fffccf10636e5fb6cad88978bdb648"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb8e62300f5e30207486d03b62ed23de268d0203959f2fd8bf9bd9d7bb1fe446" => :catalina
-    sha256 "74c2cb06fd29ea0e72de7ae28df68d56f91112fef487068100c0c07c1b63aeba" => :mojave
-    sha256 "6583f2c1758402ac4958c3875d48d5a9c9710fdbd1a50237641731d2592e9053" => :high_sierra
+    sha256 "a1770ed6de5f7ae21f35808e299067ca14e7b22d488d4dee597452f5f9f57e77" => :catalina
+    sha256 "7387a9ac0d5c6e6bfbb0f0bad852c607d8a04cd732a428253b84870e1298e605" => :mojave
+    sha256 "c1c08f48afc87ce9a99708ef21f034703853383fa0bb3424531685957afb7f5f" => :high_sierra
   end
 
   depends_on "rust" => :build

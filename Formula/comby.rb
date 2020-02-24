@@ -15,6 +15,9 @@ class Comby < Formula
   depends_on "opam" => :build
   depends_on "pcre"
   depends_on "pkg-config"
+
+  uses_from_macos "m4"
+  uses_from_macos "unzip"
   uses_from_macos "zlib"
 
   def install

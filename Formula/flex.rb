@@ -29,6 +29,9 @@ class Flex < Formula
   depends_on "help2man" => :build
   depends_on "gettext"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "m4"
+
   def install
     if build.head?
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"

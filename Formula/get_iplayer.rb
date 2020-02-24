@@ -15,7 +15,9 @@ class GetIplayer < Formula
   depends_on "atomicparsley"
   depends_on "ffmpeg"
   depends_on :macos => :yosemite
+
   uses_from_macos "libxml2"
+  uses_from_macos "perl"
 
   resource "IO::Socket::IP" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz"

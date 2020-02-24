@@ -3,10 +3,11 @@ class Jasmin < Formula
   homepage "https://jasmin.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/jasmin/jasmin/jasmin-2.4/jasmin-2.4.zip"
   sha256 "eaa10c68cec68206fd102e9ec7113739eccd790108a1b95a6e8c3e93f20e449d"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -14,7 +15,11 @@ class Jasmin < Formula
 
     libexec.install Dir["*.jar"]
     prefix.install %w[Readme.txt license-ant.txt license-jasmin.txt]
-    bin.write_jar_script libexec/"jasmin.jar", "jasmin"
+    (bin/"jasmin").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/jasmin.jar" "$@"
+    EOS
   end
 
   test do

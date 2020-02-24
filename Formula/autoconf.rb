@@ -17,6 +17,9 @@ class Autoconf < Formula
     sha256 "d153b3318754731ff5e91b45b2518c75880993fa9d1f312a03696e2c1de0c9d5" => :mavericks
   end
 
+  uses_from_macos "m4"
+  uses_from_macos "perl"
+
   def install
     ENV["PERL"] = "/usr/bin/perl"
 

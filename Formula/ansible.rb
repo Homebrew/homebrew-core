@@ -5,19 +5,21 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.9.4.tar.gz"
   sha256 "2517bf4743d52f00d509396a41e9ce44e5bc1285bd7aa53dfe28ea02fc1a75a6"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "1d96acd80c0291e181062b66be9f75f9bf952d38134abc3e445a0c18ce272ea5" => :catalina
-    sha256 "7f227936d8424e3224843ca8b4d0397e4ff65d6c117839e05d7b948a41c0c664" => :mojave
-    sha256 "9fb2a1c3c5698c12d153da53463563e8a5edc69aa1d5d6952da7479efb14f91a" => :high_sierra
+    sha256 "f99db9f97cd8b5245ff043534d19c9ad136e14d6e3aa4266d317e9dc68c5a7cb" => :catalina
+    sha256 "a834bb82786159e2599146aa2d19c2370b5259320528d2e40166abce2e089c48" => :mojave
+    sha256 "81d69c48b7719875097e25a8940fb0c3765d33f4b2d454a5f60fd306922451aa" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.8"
+
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
@@ -428,6 +430,12 @@ class Ansible < Formula
   resource "pycrypto" do
     url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+
+    # Fix warnings "SyntaxWarning: "is" with a literal. Did you mean "=="?" for python 3.8
+    patch do
+      url "https://github.com/dlitz/pycrypto/commit/4e4cc0beefbb316db2a8750e747e697df0b754d7.patch?full_index=1"
+      sha256 "f82fedee6cf73c868b55af3ab2b7d2d029b84960be0dc3baf85bb4bf541e1451"
+    end
   end
 
   resource "pyparsing" do

@@ -14,6 +14,7 @@ class Auditbeat < Formula
   end
 
   depends_on "go" => :build
+
   # https://github.com/elastic/beats/pull/14798
   uses_from_macos "python@2" => :build # does not support Python 3
 

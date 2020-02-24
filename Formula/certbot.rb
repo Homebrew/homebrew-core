@@ -19,6 +19,8 @@ class Certbot < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
+  uses_from_macos "libffi"
+
   resource "acme" do
     url "https://files.pythonhosted.org/packages/40/0c/eeac8a14019d6f297fbd3b2bacfa57d38e60147cc03542214662253a694c/acme-1.2.0.tar.gz"
     sha256 "0630c740d49bda945e97bd35fc8d6f02d082c8cb9e18f8fec0dbb3d395ac26ab"

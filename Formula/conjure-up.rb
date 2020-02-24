@@ -23,6 +23,8 @@ class ConjureUp < Formula
   depends_on "python@3.8"
   depends_on "redis"
 
+  uses_from_macos "libffi"
+
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/94/c2/e3cb60c1b7d9478203d4514e2d33ea424ad9bb98e45b21d6225db93f25c9/aiofiles-0.4.0.tar.gz"

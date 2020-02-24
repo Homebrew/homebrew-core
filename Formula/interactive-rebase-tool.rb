@@ -13,6 +13,9 @@ class InteractiveRebaseTool < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end

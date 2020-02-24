@@ -4,14 +4,15 @@ class ElbTools < Formula
   url "https://ec2-downloads.s3.amazonaws.com/ElasticLoadBalancing.zip"
   version "1.0.35.0"
   sha256 "31d9aa0ca579c270f8e3579f967b6048bc070802b7b41a30a9fa090fbffba62b"
+  revision 1
 
   bottle :unneeded
 
   depends_on "ec2-api-tools"
-  depends_on :java
+  depends_on "openjdk"
 
   def install
-    env = Language::Java.java_home_env.merge(:AWS_ELB_HOME => libexec)
+    env = { :JAVA_HOME => Formula["openjdk"].opt_prefix, :AWS_ELB_HOME => libexec }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

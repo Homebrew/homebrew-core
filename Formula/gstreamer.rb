@@ -24,6 +24,8 @@ class Gstreamer < Formula
   depends_on "gettext"
   depends_on "glib"
 
+  uses_from_macos "flex" => :build
+
   def install
     args = %W[
       --prefix=#{prefix}

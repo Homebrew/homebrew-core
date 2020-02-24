@@ -39,6 +39,10 @@ class ClangFormat < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     (buildpath/"projects/libcxx").install resource("libcxx")
     (buildpath/"tools/clang").install resource("clang")

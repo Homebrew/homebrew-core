@@ -14,6 +14,8 @@ class BoostPython < Formula
 
   depends_on "boost"
 
+  uses_from_macos "python@2"
+
   def install
     # "layout" should be synchronized with boost
     args = %W[

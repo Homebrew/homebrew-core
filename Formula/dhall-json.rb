@@ -19,6 +19,9 @@ class DhallJson < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc@8.6" => :build
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     install_cabal_package
   end

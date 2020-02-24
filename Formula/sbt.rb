@@ -4,10 +4,11 @@ class Sbt < Formula
   url "https://github.com/sbt/sbt/releases/download/v1.3.8/sbt-1.3.8.tgz"
   mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.8/sbt-1.3.8.tgz"
   sha256 "27b2ed49758011fefc1bd05e1f4156544d60673e082277186fdd33b6f55d995d"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     inreplace "bin/sbt" do |s|
@@ -24,6 +25,7 @@ class Sbt < Formula
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
         . "$HOME/.sbtconfig"
       fi
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
       exec "#{libexec}/bin/sbt" "$@"
     EOS
   end

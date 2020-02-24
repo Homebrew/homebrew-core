@@ -3,14 +3,14 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/18/df/10630a3ba916ac9832c6c409a40b9186f6cd5a97570f70056bad9a8175ba/ocrmypdf-9.5.0.tar.gz"
-  sha256 "6b8d5f8be690f6850fbe0e2a4d496f2ed92bc275ad8dad8fbb3f115c84ab87db"
+  url "https://files.pythonhosted.org/packages/a9/4f/6fdbdadc554b28e75998eda555c5a0ea084da4668567302bde6736e63dbf/ocrmypdf-9.6.0.tar.gz"
+  sha256 "5a8f5c95a67bd3c14f7fab657f1a88c3b46e9f7ce5b5aef15eb1b4b7f5ff0075"
 
   bottle do
     cellar :any
-    sha256 "882e27dfcaf71d4c023025d2ffaa693aa47a7d961f5064f641aa180a5aa35e26" => :catalina
-    sha256 "4026c4cce3371ac401f6a06256f35293099ad20b6da30ae0afabfa8b222adc18" => :mojave
-    sha256 "783349f495b20c0049cbda54012269b36a376c334da11b36a4bfbac6a404cd40" => :high_sierra
+    sha256 "859a556c7da066483117fbb3c050c8351a68a6964082b5c48017bd8ebdecfff7" => :catalina
+    sha256 "4ad61dc80a54e75b52add739dad9a17d1d516a0672960512f228ab1fc0ec9752" => :mojave
+    sha256 "4963b2638dee47ef39b587276db33c061a3b542d49f1d42f2e7fb26398c0b247" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -34,8 +34,8 @@ class Ocrmypdf < Formula
   uses_from_macos "zlib"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
-    sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
+    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
+    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
   end
 
   resource "chardet" do
@@ -59,8 +59,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/38/9e/07dd2e45436c6282d7efb3de0d561a07926048a5cbda9489a3bb8abd08b7/pikepdf-1.10.0.tar.gz"
-    sha256 "5099c256cc0143801ea06a935c954fc833e4f595759c3239e6f4ed19aad244e1"
+    url "https://files.pythonhosted.org/packages/42/15/0339718f4c732246529c2fe1cc70205f89dd8995c29c867908e8353b6b65/pikepdf-1.10.1.tar.gz"
+    sha256 "3777f482fb24e6665e8ac09a8a9beb70380c3b0fb5a890d7aa90dca679a793f4"
   end
 
   resource "Pillow" do

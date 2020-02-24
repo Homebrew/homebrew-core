@@ -13,6 +13,7 @@ class Bat < Formula
   end
 
   depends_on "rust" => :build
+
   uses_from_macos "zlib"
 
   def install

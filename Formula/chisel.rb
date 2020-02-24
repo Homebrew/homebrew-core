@@ -1,21 +1,19 @@
 class Chisel < Formula
   desc "Collection of LLDB commands to assist debugging iOS apps"
   homepage "https://github.com/facebook/chisel"
-  url "https://github.com/facebook/chisel/archive/1.8.1.tar.gz"
-  sha256 "2f803ac99c20d2ae86d4485eb3d1be29010c5e3088ccf0a2b19021657022e3fb"
+  url "https://github.com/facebook/chisel/archive/2.0.0.tar.gz"
+  sha256 "e2ededa84fbe68904f01ff12f2c9607a87626e33c17ed35989278f15c3543385"
   head "https://github.com/facebook/chisel.git"
 
   bottle do
     cellar :any
-    sha256 "e77606622ec541a1a02ab155ec4cb6b0ca6ae653cd4bb6aea2b7c7f3262a139d" => :catalina
-    sha256 "29c17de80f280349701f53c1103e9654717c6f70d4075ae3da640bec2c04ba74" => :mojave
-    sha256 "8886d6402a50e4b920f5d55809ec9b51e934b7073f02bdf112ab98fb4466b665" => :high_sierra
-    sha256 "85d31eb6edf4a19059f7e3c019a07ad2462bb1df42cab53eac24baef3a3c703e" => :sierra
+    sha256 "77635fc7ebef3451a9f81eb942d380c39990866eb7e1ca134efdcd9bc0c3f02c" => :catalina
+    sha256 "458800fbdac364534efa7105a17294125b58b5f929b6993bc7893e01a157e6cc" => :mojave
+    sha256 "596ef36832b696a736d8b47b6d0a27893dc74be2e999e80dbb7893ec79ca9ea5" => :high_sierra
   end
 
   def install
     libexec.install Dir["*.py", "commands"]
-    prefix.install "PATENTS"
 
     # == LD_DYLIB_INSTALL_NAME Explanation ==
     # This make invocation calls xcodebuild, which in turn performs ad hoc code

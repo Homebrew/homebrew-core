@@ -15,6 +15,8 @@ class GimmeAwsCreds < Formula
 
   depends_on "python@3.8"
 
+  uses_from_macos "libffi"
+
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",

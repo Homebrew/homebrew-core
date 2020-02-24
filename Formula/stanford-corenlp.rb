@@ -4,14 +4,16 @@ class StanfordCorenlp < Formula
   url "https://nlp.stanford.edu/software/stanford-corenlp-full-2018-10-05.zip"
   version "3.9.2"
   sha256 "833f0f5413a33e7fbc98aeddcb80eb0a55b672f67417b8d956ed9c39abe8d26c"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/*.sh"]
+    bin.install Dir["#{libexec}/*.sh"]
+    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   test do

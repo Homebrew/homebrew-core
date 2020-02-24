@@ -16,6 +16,8 @@ class Ht < Formula
 
   depends_on "lzo"
 
+  uses_from_macos "ncurses"
+
   def install
     # Fix compilation with Xcode 9
     # https://github.com/sebastianbiallas/ht/pull/18

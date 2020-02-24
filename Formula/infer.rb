@@ -24,7 +24,13 @@ class Infer < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "sqlite"
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "unzip" => :build
+  uses_from_macos "ncurses"
   uses_from_macos "python@2" # python@2 dependency will be removed in https://github.com/facebook/infer/issues/934
+  uses_from_macos "xz"
+  uses_from_macos "zlib"
 
   # Remove camlp4 dependency, which is deprecated
   # Addressed in 0.18.x

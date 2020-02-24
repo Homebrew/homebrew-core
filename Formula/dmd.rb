@@ -44,6 +44,9 @@ class Dmd < Formula
     end
   end
 
+  uses_from_macos "unzip" => :build
+  uses_from_macos "xz" => :build
+
   def install
     # DMD defaults to v2.088.0 to bootstrap as of DMD 2.090.0
     # On MacOS Catalina, a version < 2.087.1 would not work due to TLS related symbols missing

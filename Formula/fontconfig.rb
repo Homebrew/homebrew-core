@@ -30,6 +30,9 @@ class Fontconfig < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+
   def install
     font_dirs = %w[
       /System/Library/Fonts

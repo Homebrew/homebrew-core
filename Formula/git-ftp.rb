@@ -15,6 +15,7 @@ class GitFtp < Formula
 
   depends_on "pandoc" => :build
   depends_on "libssh2"
+
   uses_from_macos "zlib"
 
   resource "curl" do

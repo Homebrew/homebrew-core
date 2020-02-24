@@ -3,15 +3,19 @@ class WiremockStandalone < Formula
   homepage "http://wiremock.org/docs/running-standalone/"
   url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.26.0/wiremock-standalone-2.26.0.jar"
   sha256 "2e700abcd02c29e835522a306584a0483d8e3ce6a93d2af1c0766c8d7702cb7b"
+  revision 1
   head "https://github.com/tomakehurst/wiremock.git"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install "wiremock-standalone-#{version}.jar"
-    bin.write_jar_script libexec/"wiremock-standalone-#{version}.jar", "wiremock"
+    (bin/"wiremock").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/wiremock-standalone-#{version}.jar" "$@"
+    EOS
   end
 
   test do

@@ -4,11 +4,12 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-5.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
   sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
+  revision 1
 
   bottle do
-    sha256 "b10ad92fdb35e57c87e00440e1df4674b91ab61a2d55046ab2e3b9d16264edb1" => :catalina
-    sha256 "d5e20c1cdbe7b71e03e24936acb35158ce38ec33a92fa64e6f5ffe5b5f193165" => :mojave
-    sha256 "9f62aad44ae84a39f00bfadc6039e7e17303800a99458cf37bdee3044c4add4d" => :high_sierra
+    sha256 "e9710c9a9d5c84c708017d839baeebe6324c09d07828f4b6c074fcdca302b7c7" => :catalina
+    sha256 "3e99b794c40e48428e3c93258542e4f1e169a90db8e02831ac585475fa09dc60" => :mojave
+    sha256 "04738b5855d6d037e416e2a6a594efcc0567a01b7866c80cb470a3f867f78405" => :high_sierra
   end
 
   head do
@@ -23,7 +24,7 @@ class Octave < Formula
 
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on :java => ["1.7+", :build]
+  depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -91,6 +92,7 @@ class Octave < Formula
                           "--disable-static",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
+                          "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
                           "--with-x=no",
                           "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
                           "--with-portaudio",

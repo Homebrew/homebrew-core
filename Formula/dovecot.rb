@@ -11,6 +11,8 @@ class Dovecot < Formula
   end
 
   depends_on "openssl@1.1"
+  uses_from_macos "bzip2"
+  uses_from_macos "sqlite"
 
   resource "pigeonhole" do
     url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.9.tar.gz"

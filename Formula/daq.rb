@@ -16,6 +16,10 @@ class Daq < Formula
     sha256 "8ce4fbbbb9f6189f6ee51d3223a81ebc7ea76069353bd284822989d6ccc364a5" => :mavericks
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "libpcap"
+
   # libpcap on >= 10.12 has pcap_lib_version() instead of pcap_version
   # Reported 8 Oct 2017 to bugs AT snort DOT org
   if MacOS.version >= :sierra

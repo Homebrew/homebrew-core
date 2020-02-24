@@ -3,14 +3,14 @@ class Ode < Formula
   homepage "https://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.tar.gz"
   sha256 "4ba3b76f9c1314160de483b3db92b0569242a07452cbb25b368e75deb3cabf27"
+  revision 1
   head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e5b71e7f775b1d5d17e80cda8d174e72cd8b0b99c75bc266f198abd8a42bb134" => :catalina
-    sha256 "ea4f04cfd28205dfa4215c96342046a9b89e7c13731159aecd5788a791d07ec2" => :mojave
-    sha256 "eb5e88678caee617bee029a5d90ec2e2344b1d4ff1ac28d4953549e9dd4f6dcf" => :high_sierra
-    sha256 "8a5ab1cb46e5454379dcbc090d012b42cdc0b3dba9b81475af7fda8abc7b93a0" => :sierra
+    cellar :any
+    sha256 "794406d650c7ec28b44c593f68079eb4cdf21ccb7b86abec7060bb914b678dad" => :catalina
+    sha256 "b4307a7a46c67cb8b4197dd196c11e497db5d4fc0603082ae19dc7120cd1b539" => :mojave
+    sha256 "d03fd05d9762eaf7373c1502db1a21dc34028c880e713068ae0dc313de0a4b3e" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +23,7 @@ class Ode < Formula
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
 
-    system "./configure", "--prefix=#{prefix}", "--enable-libccd"
+    system "./configure", "--prefix=#{prefix}", "--enable-libccd", "--enable-shared", "--disable-static", "--enable-double-precision"
     system "make"
     system "make", "install"
   end

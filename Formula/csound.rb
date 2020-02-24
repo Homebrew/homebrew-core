@@ -3,12 +3,13 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
   sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
+  revision 1
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
-    sha256 "f3fafbee57e8d1fa960065c82f27b493267fbaf8f032bd987973b31ddf7e8317" => :catalina
-    sha256 "ee309aca5eab1921c9c544c4d8ef9a30f7e45df6ff2e978da3bda6450354a0ff" => :mojave
-    sha256 "3983060036956544aebbba3322d76d7d294c97ece23c42c4b5454f82d4d2f6b3" => :high_sierra
+    sha256 "2a7c038f8093c562be38f619f9bb87661df0d0e76d433e0f27a93e9eee610ce0" => :catalina
+    sha256 "b8b156eda0e2aa5b01e3f7e7714be9cb4d42e2eb9fc41c01cc2635a683e5b61c" => :mojave
+    sha256 "88d6cf2045f9b6a77d3a3bf26ba72fc8076500f58f4a19425c617e7d63dbdd39" => :high_sierra
   end
 
   depends_on "asio" => :build
@@ -21,16 +22,17 @@ class Csound < Formula
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
-  depends_on :java
   depends_on "liblo"
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
+  depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "stk"
   depends_on "wiiuse"
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
@@ -51,6 +53,8 @@ class Csound < Formula
   end
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
@@ -150,7 +154,7 @@ class Csound < Formula
           }
       }
     EOS
-    system "javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
-    system "java", "-classpath", "#{libexec}/csnd6.jar:.", "-Djava.library.path=#{libexec}", "test"
+    system "#{Formula["openjdk"].bin}/javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
+    system "#{Formula["openjdk"].bin}/java", "-classpath", "#{libexec}/csnd6.jar:.", "-Djava.library.path=#{libexec}", "test"
   end
 end

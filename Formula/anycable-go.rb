@@ -3,6 +3,7 @@ class AnycableGo < Formula
   homepage "https://github.com/anycable/anycable-go"
   url "https://github.com/anycable/anycable-go/archive/v0.6.4.tar.gz"
   sha256 "dbcfccdedc7d28d2d70e12a6c2aff77be28a65dcaa27386d3b65465849fff162"
+  head "https://github.com/anycable/anycable-go.git"
 
   bottle do
     cellar :any_skip_relocation

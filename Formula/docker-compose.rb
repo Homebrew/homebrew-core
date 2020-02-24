@@ -17,6 +17,8 @@ class DockerCompose < Formula
   depends_on "libyaml"
   depends_on "python@3.8"
 
+  uses_from_macos "libffi"
+
   def install
     system "./script/build/write-git-sha" if build.head?
     venv = virtualenv_create(libexec, "python3")

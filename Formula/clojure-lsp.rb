@@ -1,17 +1,16 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/snoe/clojure-lsp"
-  url "https://github.com/snoe/clojure-lsp/archive/release-20190408T040839.tar.gz"
-  version "20190408"
-  sha256 "79c6d812a8ef4af2cfdd78c4b9aa96674ff9fb8dfeb27869215caa4aee954fae"
+  url "https://github.com/snoe/clojure-lsp/archive/release-20200121T234305.tar.gz"
+  version "20200121T234305"
+  sha256 "33d4b1a66beee4e74e9c5bb034f49cdc124732c2fafef486b13a4b3573d0fa5d"
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "95114b39a9096f7279018026bb99a2aa5ba75e828ec66769d7e795409111b6d1" => :catalina
-    sha256 "6d37d3893a1cfb5ecdd5ea3a543ca5ccef2cf25d62596e74486f6dff6ce3d29d" => :mojave
-    sha256 "d9f2d7991242c2803059b3319bcda915de5c4d5b523ee5da067d28768e8b5a8a" => :high_sierra
-    sha256 "d99ed04247a05fb3e3e87b2237832fdf25abc02cc7c2f03ff12ce2b66f7b4e34" => :sierra
+    sha256 "c18d55000495393516567e0da650f268062bf6ec5f16566cdc64870aa193e969" => :catalina
+    sha256 "67c08a8c4013340936bd5890a75fff949a32087b17361a0b8949d7893c287d1c" => :mojave
+    sha256 "8ceb86184b71354b9386ae4b354a65528e963b949b0bec9489c7cc29bc8fda28" => :high_sierra
   end
 
   depends_on "leiningen" => :build

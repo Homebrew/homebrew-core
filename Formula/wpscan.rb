@@ -14,6 +14,11 @@ class Wpscan < Formula
 
   depends_on "ruby"
 
+  uses_from_macos "curl"
+  uses_from_macos "unzip"
+  uses_from_macos "xz" # for liblxma
+  uses_from_macos "zlib"
+
   # Fixes the --no-update commandline option
   # https://github.com/wpscanteam/wpscan/pull/1455
   patch do

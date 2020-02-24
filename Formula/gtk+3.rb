@@ -24,6 +24,8 @@ class Gtkx3 < Formula
   depends_on "libepoxy"
   depends_on "pango"
 
+  uses_from_macos "libxslt" => :build # for xsltproc
+
   def install
     args = %W[
       --prefix=#{prefix}

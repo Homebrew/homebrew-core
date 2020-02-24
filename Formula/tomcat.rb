@@ -1,12 +1,14 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.31/bin/apache-tomcat-9.0.31.tar.gz"
   sha256 "1b111d890f8c0b3f3eb7f8f8f557a8e163ef6b06bca3e262ba1062808467cb43"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -15,7 +17,7 @@ class Tomcat < Formula
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
+    (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
   end
 
   plist_options :manual => "catalina run"

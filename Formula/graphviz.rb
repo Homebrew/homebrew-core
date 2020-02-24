@@ -21,6 +21,8 @@ class Graphviz < Formula
   depends_on "libpng"
   depends_on "libtool"
 
+  uses_from_macos "flex" => :build
+
   def install
     args = %W[
       --disable-debug

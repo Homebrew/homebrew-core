@@ -12,6 +12,8 @@ class Frobtads < Formula
     sha256 "cff84f9389281d4ca9c9aae8ece93384aec506ea9601e1c3d637df82776afce3" => :el_capitan
   end
 
+  uses_from_macos "curl" => :build
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

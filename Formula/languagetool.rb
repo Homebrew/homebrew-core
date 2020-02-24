@@ -3,21 +3,25 @@ class Languagetool < Formula
   homepage "https://www.languagetool.org/"
   url "https://languagetool.org/download/LanguageTool-4.8.zip"
   sha256 "b4775e88fd90d6389f86023600c4c0e16a9cc00cfe8f093bf1f0c2bbf2a1904d"
+  revision 1
 
   bottle :unneeded
-  depends_on :java => "1.8+"
-
-  def server_script(server_jar); <<~EOS
-    #!/bin/bash
-    exec java -cp #{server_jar} org.languagetool.server.HTTPServer "$@"
-  EOS
-  end
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-    bin.write_jar_script libexec/"languagetool-commandline.jar", "languagetool"
-    (bin+"languagetool-server").write server_script(libexec/"languagetool-server.jar")
-    bin.write_jar_script libexec/"languagetool.jar", "languagetool-gui"
+    (bin/"languagetool").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/languagetool-commandline.jar" "$@"
+    EOS
+    (bin/"languagetool-server").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -cp "#{libexec}/languagetool-server.jar" org.languagetool.server.HTTPServer "$@"
+    EOS
+    (bin/"languagetool-gui").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/languagetool.jar" "$@"
+    EOS
   end
 
   test do

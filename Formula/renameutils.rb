@@ -3,14 +3,13 @@ class Renameutils < Formula
   homepage "https://www.nongnu.org/renameutils/"
   url "https://download.savannah.gnu.org/releases/renameutils/renameutils-0.12.0.tar.gz"
   sha256 "cbd2f002027ccf5a923135c3f529c6d17fabbca7d85506a394ca37694a9eb4a3"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "c4828ddd8305c394eb1cba076d8863447dc243191990be37de19acfe6ec1c8c0" => :catalina
-    sha256 "9f13f1f0096e9875dfa28466cf6689203c7018a8b38cf32def6567f63fd1d3e0" => :mojave
-    sha256 "69dacfc5145602d3310aac38122aa7385956fbfb56c9af97adee0f77c2c01453" => :high_sierra
-    sha256 "89d596e819476c80807653aaf8a20f7cef7976f53570e4242d87ccebea4cb92f" => :sierra
+    sha256 "2ec48c66fea9f53acf2b2ba3b726e6f7a9ff35778a3fb574fc59e7c6d01f681a" => :catalina
+    sha256 "4f360267cba9842ef85e9cfbb1baaf73e9576dccfb924aade7f0ad6bbf0bf605" => :mojave
+    sha256 "d25dc64bcc5d30e7695c65a93f7285849b57fdbdb18bf7d5e7bc22f0786cb14c" => :high_sierra
   end
 
   depends_on "coreutils"

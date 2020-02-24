@@ -14,6 +14,8 @@ class Advancescan < Formula
     sha256 "f91cbe31c7c8072fffffcd0cc8766e20df6f728abc73f66140f97c0a49d6f6c8" => :yosemite
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}"

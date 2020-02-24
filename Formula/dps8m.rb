@@ -17,6 +17,8 @@ class Dps8m < Formula
 
   depends_on "libuv"
 
+  uses_from_macos "expect" => :test
+
   def install
     # Reported 23 Jul 2017 "make dosn't create bin directory"
     # See https://sourceforge.net/p/dps8m/mailman/message/35960505/

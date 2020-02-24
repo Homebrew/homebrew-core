@@ -15,6 +15,8 @@ class Gloox < Formula
   depends_on "libidn"
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-zlib",

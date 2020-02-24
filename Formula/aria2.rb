@@ -13,6 +13,7 @@ class Aria2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libssh2"
+
   uses_from_macos "libxml2"
 
   def install

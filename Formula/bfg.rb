@@ -3,14 +3,18 @@ class Bfg < Formula
   homepage "https://rtyley.github.io/bfg-repo-cleaner/"
   url "https://search.maven.org/remotecontent?filepath=com/madgag/bfg/1.13.0/bfg-1.13.0.jar"
   sha256 "bf22bab9dd42d4682b490d6bc366afdad6c3da99f97521032d3be8ba7526c8ce"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install "bfg-#{version}.jar"
-    bin.write_jar_script libexec/"bfg-#{version}.jar", "bfg"
+    (bin/"bfg").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/bfg-#{version}.jar" "$@"
+    EOS
   end
 
   test do

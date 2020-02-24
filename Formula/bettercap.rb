@@ -16,6 +16,8 @@ class Bettercap < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
+  uses_from_macos "libpcap"
+
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children

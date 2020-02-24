@@ -3,16 +3,16 @@ class Jadx < Formula
   homepage "https://github.com/skylot/jadx"
   url "https://github.com/skylot/jadx/releases/download/v1.1.0/jadx-1.1.0.zip"
   sha256 "91948067a60feee36512e043b288f726678ddd760aa11a01496b53df95465b16"
+  revision 1
 
   head do
     url "https://github.com/skylot/jadx.git"
     depends_on "gradle" => :build
-    depends_on :java => "1.8+"
   end
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on "openjdk"
 
   resource "sample.apk" do
     url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
@@ -26,8 +26,9 @@ class Jadx < Formula
     else
       libexec.install Dir["*"]
     end
-    bin.install_symlink libexec/"bin/jadx"
-    bin.install_symlink libexec/"bin/jadx-gui"
+    bin.install libexec/"bin/jadx"
+    bin.install libexec/"bin/jadx-gui"
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
   end
 
   test do

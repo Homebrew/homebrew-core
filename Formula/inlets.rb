@@ -14,6 +14,8 @@ class Inlets < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "ruby" => :test
+
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/inlets/inlets").install buildpath.children

@@ -21,6 +21,7 @@ class Fdroidserver < Formula
   depends_on "python@3.8"
   depends_on "s3cmd"
   depends_on "webp"
+
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"

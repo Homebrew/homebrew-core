@@ -20,6 +20,7 @@ class GtkDoc < Formula
   depends_on "libxml2"
   depends_on "python"
   depends_on "source-highlight"
+
   uses_from_macos "libxslt"
 
   resource "Pygments" do

@@ -3,21 +3,21 @@ class Lcm < Formula
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
-  revision 1
+  revision 2
 
   head "https://github.com/lcm-proj/lcm.git"
 
   bottle do
     cellar :any
-    sha256 "52b944b19684bf87d7e688746f0fd6e228592cbbe0b573b8a7bed8a992a58352" => :catalina
-    sha256 "6cef0f13a3d16fc22eec7e49723f912abeb1e6d8f86aa1ce30cbd7fef422081c" => :mojave
-    sha256 "508d932a8eec5be9f8e70baaf17aa9c03dcf28228880f1a88ff797fea77deea1" => :high_sierra
+    sha256 "b8f3be8b771deb122adc99739eda2d3478aac5024126e08c01c9cba713933845" => :catalina
+    sha256 "20d4cade09d8d65b256739cfd02047903a619a99b3b9d843cff6a8ba2fe78f47" => :mojave
+    sha256 "ada0ffb27c286c7283ae3a4d084acdc19cf9ccab29e529eafe137af33b1f3a9f" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
   depends_on "python"
 
   def install
