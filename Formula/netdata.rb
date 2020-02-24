@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Distributed real-time performance and health monitoring"
   homepage "https://my-netdata.io/"
-  url "https://github.com/netdata/netdata/releases/download/v1.19.0/netdata-v1.19.0.tar.gz"
-  sha256 "36c46bd95c0d8138e2f1a886c9b9fb6a9fd22fbf9d3097420c10b868ed23e355"
+  url "https://github.com/netdata/netdata/releases/download/v1.20.0/netdata-v1.20.0.tar.gz"
+  sha256 "dc51869e3e541ca569e75d601133a413a8e56ce2b606dbfe84b35b1d7806216e"
 
   bottle do
     sha256 "29e1693f268bc6ecac4cf3c0deb76fbce0d5d5933d820867f29e5c77b80046a8" => :catalina
@@ -67,6 +67,8 @@ class Netdata < Formula
       s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
       s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
     end
+    (var/"cache/netdata/unittest-dbengine/dbengine").mkpath
+    (var/"lib/netdata/registry").mkpath
     (var/"netdata").mkpath
   end
 
