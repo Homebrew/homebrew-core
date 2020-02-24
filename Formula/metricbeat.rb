@@ -2,8 +2,8 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.6",
-      :revision => "4fa63eb23a94bf23650023317bdff335c4705fc2"
+      :tag      => "v7.6.0",
+      :revision => "6a23e8f8f30f5001ba344e4e54d8d9cb82cb107c"
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -14,13 +14,11 @@ class Metricbeat < Formula
   end
 
   depends_on "go" => :build
-  # https://github.com/elastic/beats/pull/14798
-  uses_from_macos "python@2" => :build # does not support Python 3
+  depends_on "python@3.8" => :build
 
-  # Newer virtualenvs are not compatible with Python 2.7.10 on high sierra, use an old version
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
-    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
+    url "https://files.pythonhosted.org/packages/60/5f/f17dd17ba9ee47fb0629789bbd320e833622634444877b2e7d90922aa0e5/virtualenv-20.0.5.tar.gz"
+    sha256 "531b142e300d405bb9faedad4adbeb82b4098b918e35209af2adef3129274aae"
   end
 
   def install
@@ -30,7 +28,7 @@ class Metricbeat < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python3.8/site-packages"
 
     resource("virtualenv").stage do
       system "python", *Language::Python.setup_install_args(buildpath/"vendor")
