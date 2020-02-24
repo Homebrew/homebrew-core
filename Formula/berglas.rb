@@ -1,8 +1,8 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.0.tar.gz"
-  sha256 "10e0754b034ce84c5783e494ddb5772265bc8b1cfaa1a13871521881c869b4b4"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.1.tar.gz"
+  sha256 "feafbb1d2515bd5dd80b6408d6611549ea22c4366687883b92f706dfd2df596a"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +14,10 @@ class Berglas < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"berglas"
+    system "go", "build", "-mod=vendor", "-o", bin/"berglas"
   end
 
   test do
-    assert_match "#{version}\n", shell_output("#{bin}/berglas --version 2>&1")
     out = shell_output("#{bin}/berglas list homebrewtest 2>&1", 61)
     assert_match "could not find default credentials.", out
   end
