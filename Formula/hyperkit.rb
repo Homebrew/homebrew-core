@@ -1,8 +1,8 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20190802.tar.gz"
-  sha256 "747e20f47167f7a03d31691503027eff5d5df0d10d7821be3f18ab8d3dccbbfa"
+  url "https://github.com/moby/hyperkit/archive/v0.20200224.tar.gz"
+  sha256 "c0f9e0eb4cd9efdfa099a8cb5b35483b64688d6d1fc0c7a01e591abd4cf76413"
 
   bottle do
     cellar :any_skip_relocation
