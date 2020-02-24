@@ -1,8 +1,8 @@
 class Stlink < Formula
   desc "STM32 discovery line Linux programmer"
   homepage "https://github.com/texane/stlink"
-  url "https://github.com/texane/stlink/archive/v1.5.1.tar.gz"
-  sha256 "e0145fbfd3e781f21baf12a0750b0933c445ee6338e36142836bf5a2c267e107"
+  url "https://github.com/texane/stlink/archive/v1.6.0.tar.gz"
+  sha256 "5575e9322e6914fad3bcbcad77fa2669e4b1853cd49bed44bfac1c68992f538a"
   head "https://github.com/texane/stlink.git"
 
   bottle do
@@ -25,6 +25,6 @@ class Stlink < Formula
   end
 
   test do
-    system bin/"st-util", "-h"
+    assert_match "st-flash #{version}", shell_output("#{bin}/st-flash --debug reset 2>&1", 255)
   end
 end
