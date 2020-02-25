@@ -2,8 +2,8 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-    :tag      => "v3.4.3",
-    :revision => "3cf2f69b5738fb702ba1a935590f36b52b18979b"
+    :tag      => "v3.4.4",
+    :revision => "c65a9e2dd1fd500ca4191b1f22ddfe5e019b3ca1"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
