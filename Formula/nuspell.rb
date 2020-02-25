@@ -6,12 +6,9 @@ class Nuspell < Formula
 
   depends_on "catch2" => :build
   depends_on "cmake" => :build
-  depends_on "gcc@7" => :build
-  depends_on "ruby" => :build
   depends_on "boost"
-  depends_on "icu4c"
-  fails_with :gcc => "5"
-  fails_with :gcc => "6"
+  uses_from_macos "ruby" => :build
+  uses_from_macos "icu4c"
 
   def install
     mkdir "build" do
@@ -20,6 +17,7 @@ class Nuspell < Formula
       ENV.prepend_path "PATH", buildpath/"gem_home/bin"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "cmake", "--build", "."
+      # internal unit tests of the code and external tests of the application
       system "cmake", "--build", ".", "--target", "test"
       system "cmake", "--build", ".", "--target", "install"
     end
