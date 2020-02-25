@@ -109,7 +109,7 @@ class GhcAT86 < Formula
   end
 
   test do
-    (testpath/"hello.hs").write('main = putStrLn "Hello Homebrew"')\
+    (testpath/"hello.hs").write('main = putStrLn "Hello Homebrew"')
     assert_match "Hello Homebrew", shell_output("#{bin}/runghc hello.hs")
   end
 end
