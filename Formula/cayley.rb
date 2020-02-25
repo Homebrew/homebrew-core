@@ -37,11 +37,15 @@ class Cayley < Formula
 
       ldflags = "-s -w -X #{version_flag}=#{version} -X #{git_revision_flag}=#{commit}"
 
+      # Remove packr dummy files
+      system "rm", "internal/http/http-packr.go"
+      system "rm", "-r", "packrd"
+
       # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
       system "packr2"
 
       # Build the binary
-      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags, ".../cmd/cayley"
+      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags, "./cmd/cayley"
 
       inreplace source_configuration_file, db_default_path, db_path
       etc.install source_configuration_file => CONFIGURATION_FILE
