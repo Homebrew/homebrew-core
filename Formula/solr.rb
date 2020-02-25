@@ -14,7 +14,7 @@ class Solr < Formula
     pkgshare.install "bin/solr.in.sh"
     (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
     prefix.install %w[contrib dist server]
-    libexec.install Dir["bin"]
+    libexec.install "bin"
     bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
     bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr"
     (libexec/"bin").rmtree
