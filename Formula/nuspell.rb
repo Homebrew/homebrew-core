@@ -35,6 +35,6 @@ class Nuspell < Formula
   end
 
   test do
-    system bin/"nuspell", "--help"
+    system "#{bin}/nuspell", "-D"
   end
 end
