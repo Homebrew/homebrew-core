@@ -5,12 +5,7 @@ class GitFixup < Formula
   sha256 "29665151f82cac5f5807b8241392150e7c8ee8024ce37f23752c23c134516d57"
   head "https://github.com/keis/git-fixup.git", :branch => "master"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "adb91d6c86a8330a51394a03e20b5d7dc20144ee80426802b1b651766fc2462e" => :catalina
-    sha256 "adb91d6c86a8330a51394a03e20b5d7dc20144ee80426802b1b651766fc2462e" => :mojave
-    sha256 "adb91d6c86a8330a51394a03e20b5d7dc20144ee80426802b1b651766fc2462e" => :high_sierra
-  end
+  bottle :unneeded
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
