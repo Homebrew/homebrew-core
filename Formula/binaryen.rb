@@ -13,6 +13,7 @@ class Binaryen < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python" => :build
   depends_on :macos => :el_capitan # needs thread-local storage
 
   def install
