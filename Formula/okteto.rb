@@ -1,8 +1,8 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/1.7.2.tar.gz"
-  sha256 "d7d439d5c1d6ffd396458b82fe31b0c464430a1b2bd7ca1bda727057c90cf572"
+  url "https://github.com/okteto/okteto/archive/1.7.3.tar.gz"
+  sha256 "4710d3140696056530067d474d0e055cb74da972d9825e8cea86167d6cb1b480"
 
   bottle do
     cellar :any_skip_relocation
