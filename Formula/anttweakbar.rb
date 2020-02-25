@@ -38,4 +38,16 @@ class Anttweakbar < Formula
     lib.install "lib/libAntTweakBar.dylib", "lib/libAntTweakBar.a"
     include.install "include/AntTweakBar.h"
   end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <AntTweakBar.h>
+      int main() {
+        TwBar *bar; // TwBar is an internal structure of AntTweakBar
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-L#{lib}", "-anttweakbar", "-o", "test"
+    system "./test"
+  end
 end
