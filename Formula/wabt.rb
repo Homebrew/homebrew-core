@@ -13,6 +13,7 @@ class Wabt < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8" => :build
 
   def install
     mkdir "build" do
