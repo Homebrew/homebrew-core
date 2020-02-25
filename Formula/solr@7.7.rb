@@ -1,10 +1,10 @@
 class SolrAT77 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/7.7.2/solr-7.7.2.tgz"
+  url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/7.7.2/solr-7.7.2.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/7.7.2/solr-7.7.2.tgz"
   sha256 "eb8ee4038f25364328355de3338e46961093e39166c9bcc28b5915ae491320df"
-  revision 2
+  revision 3
 
   bottle :unneeded
 
@@ -12,24 +12,14 @@ class SolrAT77 < Formula
 
   depends_on "openjdk"
 
-  skip_clean "example/logs"
-
   def install
-    # Fix the classpath for the post tool
-    inreplace "bin/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
-
-    bin.install %w[bin/solr bin/post bin/oom_solr.sh]
-    bin.env_script_all_files "bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
     pkgshare.install "bin/solr.in.sh"
-    prefix.install %w[example server]
-    libexec.install Dir["*"]
-
-    # Fix the paths in the sample solrconfig.xml files
-    Dir.glob(["#{prefix}/example/**/solrconfig.xml",
-              "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
-              "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
-      inreplace f, ":../../../..}/", "}/libexec/"
-    end
+    (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
+    prefix.install %w[contrib dist server]
+    libexec.install Dir["bin"]
+    bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
+    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr"
+    (libexec/"bin").rmtree
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/solr@7.7/bin/solr start"
