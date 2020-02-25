@@ -4,7 +4,6 @@ class Cayley < Formula
   url "https://github.com/cayleygraph/cayley.git",
     :tag      => "v0.7.7",
     :revision => "dcf764fef381f19ee49fad186b4e00024709f148"
-  sha256 "37ef9043cb20aeffa93d57f360fdee3e0c9d1b2fa8d404a00f3bff1b58937206"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,6 +22,7 @@ class Cayley < Formula
 
 
   def install
+    ENV["GOPATH"] = ""
     # Define directories
     dir = buildpath/"src/github.com/cayleygraph/cayley"
     dir.install buildpath.children
@@ -41,7 +41,7 @@ class Cayley < Formula
       system "packr2"
 
       # Build the binary
-      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags, "./cmd/cayley"
+      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags, ".../cmd/cayley"
 
       inreplace source_configuration_file, db_default_path, db_path
       etc.install source_configuration_file => CONFIGURATION_FILE
