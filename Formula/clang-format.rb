@@ -1,20 +1,11 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2019-05-14"
-
+  version "9.0.1"
+  
   stable do
-    depends_on "subversion" => :build
-    url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2019-05-14/", :using => :svn
-
-    resource "clang" do
-      url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2019-05-14/", :using => :svn
-    end
-
-    resource "libcxx" do
-      url "https://releases.llvm.org/9.0.0/libcxx-9.0.0.src.tar.xz"
-      sha256 "3c4162972b5d3204ba47ac384aa456855a17b5e97422723d4758251acf1ed28c"
-    end
+    depends_on "git" => :build
+    url "https://github.com/llvm/llvm-project.git", :tag => "llvmorg-9.0.1"
   end
 
   bottle do
@@ -25,15 +16,8 @@ class ClangFormat < Formula
   end
 
   head do
-    url "https://git.llvm.org/git/llvm.git"
-
-    resource "clang" do
-      url "https://git.llvm.org/git/clang.git"
-    end
-
-    resource "libcxx" do
-      url "https://git.llvm.org/git/libcxx.git"
-    end
+    depends_on "git" => :build
+    url "https://github.com/llvm/llvm-project.git"
   end
 
   depends_on "cmake" => :build
@@ -44,19 +28,15 @@ class ClangFormat < Formula
   uses_from_macos "zlib"
 
   def install
-    (buildpath/"projects/libcxx").install resource("libcxx")
-    (buildpath/"tools/clang").install resource("clang")
-
     mkdir "build" do
       args = std_cmake_args
       args << "-DCMAKE_OSX_SYSROOT=/" unless MacOS::Xcode.installed?
-      args << "-DLLVM_ENABLE_LIBCXX=ON"
-      args << ".."
+      args << "-DLLVM_ENABLE_PROJECTS='clang;libcxx;clang-tools-extra'"
+      args << "../llvm/"
       system "cmake", "-G", "Ninja", *args
       system "ninja", "clang-format"
       bin.install "bin/clang-format"
     end
-    bin.install "tools/clang/tools/clang-format/git-clang-format"
     (share/"clang").install Dir["tools/clang/tools/clang-format/clang-format*"]
   end
 
