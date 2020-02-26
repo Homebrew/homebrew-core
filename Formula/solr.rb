@@ -50,11 +50,17 @@ class Solr < Formula
   end
 
   test do
-    shell_output(bin/"solr -i", 1)
+    # Info detects no Solr node => exit code 3
+    shell_output(bin/"solr -i", 3)
+    # Start a Solr node => exit code 0
     shell_output(bin/"solr start")
-    shell_output(bin/"solr start", 1)
+    # Info detects a Solr node => exit code 0
     shell_output(bin/"solr -i")
+    # Impossible to start a second Solr node on the same port => exit code 1
+    shell_output(bin/"solr start", 1)
+    # Stop a Solr node => exit code 0
     shell_output(bin/"solr stop")
+    # No Solr node left to stop => exit code 1
     shell_output(bin/"solr stop", 1)
   end
 end
