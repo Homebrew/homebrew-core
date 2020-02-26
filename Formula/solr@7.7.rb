@@ -50,6 +50,11 @@ class SolrAT77 < Formula
   end
 
   test do
-    system bin/"solr"
+    shell_output(bin/"solr -i", 1)
+    shell_output(bin/"solr start")
+    shell_output(bin/"solr start", 1)
+    shell_output(bin/"solr -i")
+    shell_output(bin/"solr stop")
+    shell_output(bin/"solr stop", 1)
   end
 end
