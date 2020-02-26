@@ -1,8 +1,9 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "9.0.1"
-  
+  version "2019-12-20"
+  revision 1
+
   stable do
     depends_on "git" => :build
     url "https://github.com/llvm/llvm-project.git", :tag => "llvmorg-9.0.1"
