@@ -2,25 +2,22 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag      => "v1.6.3",
-      :revision => "7f3b5f3436ce446888a0394025fd318516244df3"
+      :tag      => "v1.7.0",
+      :revision => "95fb95bfe643d7886c4fb2d9f3afe1977d31cfec"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db780890ca69e58b0839937c3a0260761215fecee2bbdb1827ad0c9228f20c06" => :catalina
-    sha256 "ca1652b6998daace01dcf6344c41736ddfdd8a3c7f29be6358ab420d16eba414" => :mojave
-    sha256 "1b34a79b804fc7a7fa6060f7b1467f366ca8ed4d95265caee93acd52487ec671" => :high_sierra
+    sha256 "b7fc917839569100f1b90a76ec22768a3cbcf0fc418954c03846c987138a1612" => :catalina
+    sha256 "2f6dae165542afb1118541b9a021a16b66a6be39aafc6fa5374378e296dbf515" => :mojave
+    sha256 "6524af52fe7e00146a634543c56f288e1ec6ae022037622aad89412deed96ec3" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
   depends_on "gox" => :build
 
   def install
-    # Avoid running `go get`
-    inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
-
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath

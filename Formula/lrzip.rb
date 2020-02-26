@@ -17,6 +17,9 @@ class Lrzip < Formula
   depends_on "pkg-config" => :build
   depends_on "lzo"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

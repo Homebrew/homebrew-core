@@ -14,6 +14,8 @@ class Lftp < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "zlib"
+
   def install
     # Work around "error: no member named 'fpclassify' in the global namespace"
     if MacOS.version == :high_sierra

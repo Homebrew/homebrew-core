@@ -18,6 +18,8 @@ class Ledger < Formula
   depends_on "mpfr"
   depends_on "python@3.8"
 
+  uses_from_macos "groff"
+
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"

@@ -15,6 +15,8 @@ class Libtecla < Formula
     sha256 "d7f9b95bbe7540504751d42589e8500a77d15dc3e6b2f7fe501ed872172f1129" => :mavericks
   end
 
+  uses_from_macos "ncurses"
+
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"

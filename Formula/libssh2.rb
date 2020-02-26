@@ -23,6 +23,8 @@ class Libssh2 < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     args = %W[
       --prefix=#{prefix}

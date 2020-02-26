@@ -9,9 +9,10 @@ class Ghc < Formula
   sha256 "01cea54d90686b97bcc9960b108beaffccd4336dee930dcf9beaf52b1f370a0b"
 
   bottle do
-    sha256 "bf0bccb87e793a052b2f49109ae3e99342e239ae213408825d30d16cf2170b19" => :catalina
-    sha256 "b04d036de7bdace378f178a15bb67eda8d0932e911f4519d6abf266b0fa44678" => :mojave
-    sha256 "3361eba5ff14c5ee50a90ee1090c01e1a6cac005788e4d05a9b66ddeddecc50c" => :high_sierra
+    rebuild 1
+    sha256 "523ef0b1257da703f3d066ed2199a92add1a842d4a8fd9cd723fa6d819f4341b" => :catalina
+    sha256 "09c8245bccd809280062915eab7600a3ef86bd4676cca93b720db0c7df5a8005" => :mojave
+    sha256 "8201a8cee5d4204bd7ae044d44edaf9d0a7108998407346ca0f4185048a888e8" => :high_sierra
   end
 
   head do
@@ -119,6 +120,6 @@ class Ghc < Formula
 
   test do
     (testpath/"hello.hs").write('main = putStrLn "Hello Homebrew"')
-    system "#{bin}/runghc", testpath/"hello.hs"
+    assert_match "Hello Homebrew", shell_output("#{bin}/runghc hello.hs")
   end
 end

@@ -16,6 +16,7 @@ class Libserdes < Formula
 
   depends_on "avro-c"
   depends_on "jansson"
+
   uses_from_macos "curl"
 
   def install

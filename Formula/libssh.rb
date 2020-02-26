@@ -15,6 +15,8 @@ class Libssh < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     mkdir "build" do
       system "cmake", "..", "-DWITH_STATIC_LIB=ON",

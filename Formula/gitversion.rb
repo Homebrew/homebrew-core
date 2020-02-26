@@ -6,6 +6,8 @@ class Gitversion < Formula
 
   bottle :unneeded
 
+  uses_from_macos "icu4c"
+
   def install
     libexec.install Dir["*"]
     (bin/"gitversion").write <<~EOS

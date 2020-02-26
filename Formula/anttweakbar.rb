@@ -32,10 +32,23 @@ class Anttweakbar < Formula
     if DevelopmentTools.clang_build_version >= 900 ||
        (MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0")
       ENV.delete("SDKROOT")
+      ENV.delete("HOMEBREW_SDKROOT")
     end
 
     system "make", "-C", "src", "-f", "Makefile.osx"
     lib.install "lib/libAntTweakBar.dylib", "lib/libAntTweakBar.a"
     include.install "include/AntTweakBar.h"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <AntTweakBar.h>
+      int main() {
+        TwBar *bar; // TwBar is an internal structure of AntTweakBar
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-L#{lib}", "-anttweakbar", "-o", "test"
+    system "./test"
   end
 end

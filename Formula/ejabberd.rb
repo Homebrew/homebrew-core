@@ -1,14 +1,14 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/20.01/ejabberd-20.01.tgz"
-  sha256 "860b5ce39e455bde2484f5fd67ad4d6812e86da975d1f26b75959367b7b49bb9"
+  url "https://www.process-one.net/downloads/ejabberd/20.02/ejabberd-20.02.tgz"
+  sha256 "70d3f1f11ee1d68de7944b879fd502595a4b64e379073986ae5613f774a9d0b9"
 
   bottle do
     cellar :any
-    sha256 "82d659032313a97894ab862f9edb41ce6b949e5f563d94aa9770f1d6cbfe29fc" => :catalina
-    sha256 "91582805d944ae637e13655d693ce04fc59ce75274dbfc27bf31afd38eed1c1f" => :mojave
-    sha256 "32fd8b7fff97ac59e5e4defd7e07742969f7ae6f3342c6e4e20246a52bef7292" => :high_sierra
+    sha256 "aa28c86c26a48f1e5bf1138add19cdbb8b6b07a5fab9e3d35beda6969aa9b020" => :catalina
+    sha256 "d5dd3cd458519ee5f531c5000e308112f5ad1366fc7c250260db5c3628393c8f" => :mojave
+    sha256 "68e0a18b7a0cb4a3a9952f1698f91cd071ebca3660f8c62c42b3b81750be7501" => :high_sierra
   end
 
   head do

@@ -25,6 +25,9 @@ class Libewf < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     if build.head?
       system "./synclibs.sh"

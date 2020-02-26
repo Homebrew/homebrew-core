@@ -17,6 +17,9 @@ class Libidl < Formula
   depends_on "gettext"
   depends_on "glib"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

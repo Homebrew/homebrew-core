@@ -12,6 +12,9 @@ class Libzip < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   conflicts_with "libtcod", "minizip2",
     :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 

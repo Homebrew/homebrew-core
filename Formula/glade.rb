@@ -1,14 +1,13 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.1.tar.xz"
-  sha256 "dff89a2ef2eaf000ff2a46979978d03cb9202cb04668e01d0ea5c5bb5547e39a"
-  revision 3
+  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.2.tar.xz"
+  sha256 "edefa6eb24b4d15bd52589121dc109bc08c286157c41288deb74dd9cc3f26a21"
 
   bottle do
-    sha256 "d74b67d3cb4e4df75000513f812f6fdecc4f208af545397ec65b0e06b24dc504" => :catalina
-    sha256 "a6ca3581505e7ba2bad7b14c620fc694c645bcf7978a0d06db0baa4f0fa1ab84" => :mojave
-    sha256 "0382cf5cc5057d5a32d40544457e4776c878b53dfe6d4fbd10f21f74c09f4427" => :high_sierra
+    sha256 "27f88ef0f2e6d8eb6a0431786f8a3b314a3ecfdeee7fe760d9257827f1c1fdc5" => :catalina
+    sha256 "91a3f27f611b2571469b7876f28f6ece6c73df75c801075b2da431966218ec1d" => :mojave
+    sha256 "3a49959c858a0a041014aa51311fb2152acfd75fb3f27c005709bc56f2bc40ec" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build

@@ -15,6 +15,7 @@ class Libical < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "icu4c"
+
   uses_from_macos "libxml2"
 
   def install

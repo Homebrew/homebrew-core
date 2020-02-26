@@ -19,6 +19,11 @@ class Libming < Formula
   depends_on "giflib"
   depends_on "libpng"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "perl"
+  uses_from_macos "python@2"
+
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",

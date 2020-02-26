@@ -16,6 +16,8 @@ class Less < Formula
 
   depends_on "pcre"
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
     system "make", "install"

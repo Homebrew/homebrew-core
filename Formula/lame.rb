@@ -13,6 +13,8 @@ class Lame < Formula
     sha256 "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc" => :el_capitan
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # Fix undefined symbol error _lame_init_old
     # https://sourceforge.net/p/lame/mailman/message/36081038/

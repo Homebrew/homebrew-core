@@ -14,6 +14,8 @@ class Libedit < Formula
 
   keg_only :provided_by_macos
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

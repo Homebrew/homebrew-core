@@ -1,34 +1,24 @@
-class Go < Formula
-  desc "Open source programming language to build simple/reliable/efficient software"
+class GoAT113 < Formula
+  desc "Go programming environment (1.13)"
   homepage "https://golang.org"
-
-  stable do
-    url "https://dl.google.com/go/go1.14.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.14.src.tar.gz"
-    sha256 "6d643e46ad565058c7a39dac01144172ef9bd476521f42148be59249e4b74389"
-
-    go_version = version.to_s.split(".")[0..1].join(".")
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go#{go_version}"
-    end
-  end
+  url "https://dl.google.com/go/go1.13.8.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.13.8.src.tar.gz"
+  sha256 "b13bf04633d4d8cf53226ebeaace8d4d2fd07ae6fa676d0844a688339debec34"
 
   bottle do
-    sha256 "a4e81b1025b77af039a34888545ce0f4a3a332b1ed6358ca8107e878d25e46aa" => :catalina
-    sha256 "998c9c9f95091a3567d9ac27def2d3d4d33aeae06e621d78bf76f3f4f4a2a793" => :mojave
-    sha256 "c26d2ecb7e2c53a78fa0cca9b7117355f953ebf1b4bd31eef04ebe4e576a174b" => :high_sierra
+    sha256 "647f72f84425166b67839eb251402c870e5448a9d6c04ef9210d198c8813a0e5" => :catalina
+    sha256 "0f5f5cdeef29173a7152c250bc55a81693a097434fd0454a59b61e70bd47ce84" => :mojave
+    sha256 "cfa1d0e7b34a96f2f184ee56f58079c724a996830aec5df329eae8c3e94a14e6" => :high_sierra
   end
 
-  head do
-    url "https://go.googlesource.com/go.git"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git"
-    end
-  end
+  keg_only :versioned_formula
 
   depends_on :macos => :el_capitan
+
+  resource "gotools" do
+    url "https://go.googlesource.com/tools.git",
+        :branch => "release-branch.go1.13"
+  end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do

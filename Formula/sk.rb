@@ -22,6 +22,7 @@ class Sk < Formula
     pkgshare.install "install"
     bash_completion.install "shell/key-bindings.bash"
     bash_completion.install "shell/completion.bash"
+    fish_completion.install "shell/key-bindings.fish" => "skim.fish"
     zsh_completion.install "shell/key-bindings.zsh"
     zsh_completion.install "shell/completion.zsh"
     man1.install "man/man1/sk.1", "man/man1/sk-tmux.1"

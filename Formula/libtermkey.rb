@@ -16,6 +16,8 @@ class Libtermkey < Formula
   depends_on "pkg-config" => :build
   depends_on "unibilium"
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"

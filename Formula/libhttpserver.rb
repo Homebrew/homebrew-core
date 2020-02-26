@@ -19,6 +19,8 @@ class Libhttpserver < Formula
   depends_on "pkg-config" => :build
   depends_on "libmicrohttpd"
 
+  uses_from_macos "curl" => :test
+
   def install
     args = [
       "--disable-dependency-tracking",

@@ -19,6 +19,8 @@ class Libbi < Formula
   depends_on "netcdf"
   depends_on "qrupdate"
 
+  uses_from_macos "perl"
+
   resource "Test::Simple" do
     url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302133.tar.gz"
     sha256 "02bc2b4ec299886efcc29148308c9afb64e0f2c2acdeaa2dee33c3adfe6f96e2"

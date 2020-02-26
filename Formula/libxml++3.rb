@@ -14,6 +14,8 @@ class Libxmlxx3 < Formula
   depends_on "pkg-config" => :build
   depends_on "glibmm"
 
+  uses_from_macos "libxml2"
+
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

@@ -16,6 +16,7 @@ class Libcroco < Formula
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+
   uses_from_macos "libxml2"
 
   def install

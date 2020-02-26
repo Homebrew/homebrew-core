@@ -15,6 +15,10 @@ class Libarchive < Formula
 
   depends_on "xz"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
+
   def install
     system "./configure",
            "--prefix=#{prefix}",
