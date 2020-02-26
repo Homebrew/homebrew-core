@@ -1,9 +1,10 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.4.14/zookeeper-3.4.14.tar.gz"
-  sha256 "b14f7a0fece8bd34c7fffa46039e563ac5367607c612517aa7bd37306afbd1cd"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7.tar.gz"
+  sha256 "7470d30b17cc77be3b58171d820c432bf5181310fbc62e941e2be2745f7300d4"
+  head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
   bottle do
     cellar :any
@@ -12,15 +13,11 @@ class Zookeeper < Formula
     sha256 "6eceba9bba26dce645d2357f4fdca321b13bafb540c501f9b36f335695b450b1" => :high_sierra
   end
 
-  head do
-    url "https://svn.apache.org/repos/asf/zookeeper/trunk"
-
-    depends_on "ant" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "cppunit" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "ant" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def shim_script(target)
     <<~EOS
@@ -49,12 +46,10 @@ class Zookeeper < Formula
   end
 
   def install
-    if build.head?
-      system "ant", "compile_jute"
-      system "autoreconf", "-fvi", "src/c"
-    end
+    system "ant", "compile_jute"
 
     cd "zookeeper-client/zookeeper-client-c" do
+      system "autoreconf", "-fiv"
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
                             "--without-cppunit"
@@ -63,14 +58,9 @@ class Zookeeper < Formula
 
     rm_f Dir["bin/*.cmd"]
 
-    if build.head?
-      system "ant"
-      libexec.install "bin", "src/contrib", "src/java/lib"
-      libexec.install Dir["build/*.jar"]
-    else
-      libexec.install "bin", "zookeeper-contrib", "lib"
-      libexec.install Dir["*.jar"]
-    end
+    system "ant"
+    libexec.install "bin", "build/lib", "zookeeper-contrib"
+    libexec.install Dir["build/*.jar"]
 
     bin.mkpath
     (etc/"zookeeper").mkpath
