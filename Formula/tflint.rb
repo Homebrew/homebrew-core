@@ -2,8 +2,8 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.14.0",
-    :revision => "90f5297fdfcc9cbfd65cd900af6eda2d7e8066f0"
+    :tag      => "v0.15.0",
+    :revision => "869c0a04c14ac316af0153ebc665b8a41e17ece5"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Tflint < Formula
   test do
     (testpath/"test.tf").write <<~EOS
       provider "aws" {
-        region = "${var.aws_region}"
+        region = var.aws_region
       }
     EOS
 
