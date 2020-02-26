@@ -8,6 +8,7 @@ class Nuspell < Formula
   depends_on "cmake" => :build
   depends_on "binutils" => :test
   depends_on "gnu-tar" => :test
+  depends_on "grep" => :test
   depends_on "boost"
   uses_from_macos "ruby" => :build
   uses_from_macos "icu4c"
