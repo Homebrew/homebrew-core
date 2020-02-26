@@ -32,6 +32,7 @@ class Anttweakbar < Formula
     if DevelopmentTools.clang_build_version >= 900 ||
        (MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0")
       ENV.delete("SDKROOT")
+      ENV.delete("HOMEBREW_SDKROOT")
     end
 
     system "make", "-C", "src", "-f", "Makefile.osx"
