@@ -1,9 +1,9 @@
 class Nwchem < Formula
   desc "NWChem: Open Source High-Performance Computational Chemistry"
   homepage "http://www.nwchem-sw.org"
-  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-beta2/nwchem-7.0.0-release.revision-98b07222-src.2020-02-07.tar.bz2"
+  url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-release/nwchem-7.0.0-release.revision-2c9a1c7c-src.2020-02-26.tar.bz2"
   version "7.0.0"
-  sha256 "d3589c33be7b357bbea9089c3fcf190424f14c69543e0fe15ecad6482d178bf7"
+  sha256 "1046e13a4c7f95860c8e8fac2b4d80657900ecd07a8242943d564048ce303514"
   revision 0
 
   bottle do
