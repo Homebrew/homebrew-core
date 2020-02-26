@@ -52,6 +52,7 @@ class Solr < Formula
   test do
     # Start a Solr node => exit code 0
     shell_output(bin/"solr start")
+    sleep 10
     # Stop a Solr node => exit code 0
     shell_output(bin/"solr stop")
   end
