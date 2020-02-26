@@ -5,7 +5,6 @@ class ClangFormat < Formula
   revision 1
 
   stable do
-    depends_on "git" => :build
     url "https://github.com/llvm/llvm-project.git", 
         :tag => "llvmorg-9.0.1",
         :revision => "c1a0a213378a458fbea1a5c77b315c7dce08fd05"
@@ -19,7 +18,6 @@ class ClangFormat < Formula
   end
 
   head do
-    depends_on "git" => :build
     url "https://github.com/llvm/llvm-project.git"
   end
 
