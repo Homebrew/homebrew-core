@@ -18,7 +18,7 @@ class SolrAT77 < Formula
     prefix.install %w[contrib dist server]
     libexec.install "bin"
     bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
-    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr"
+    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr", :SOLR_LOGS_DIR => var/"log/solr", :SOLR_PID_DIR => var/"run"
     (libexec/"bin").rmtree
   end
 
@@ -50,11 +50,9 @@ class SolrAT77 < Formula
   end
 
   test do
-    shell_output(bin/"solr -i", 1)
+    # Start a Solr node => exit code 0
     shell_output(bin/"solr start")
-    shell_output(bin/"solr start", 1)
-    shell_output(bin/"solr -i")
+    # Stop a Solr node => exit code 0
     shell_output(bin/"solr stop")
-    shell_output(bin/"solr stop", 1)
   end
 end

@@ -16,7 +16,7 @@ class Solr < Formula
     prefix.install %w[contrib dist server]
     libexec.install "bin"
     bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
-    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr"
+    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr", :SOLR_LOGS_DIR => var/"log/solr", :SOLR_PID_DIR => var/"run"
     (libexec/"bin").rmtree
   end
 
@@ -50,17 +50,9 @@ class Solr < Formula
   end
 
   test do
-    # Info detects no Solr node => exit code 3
-    shell_output(bin/"solr -i", 3)
     # Start a Solr node => exit code 0
     shell_output(bin/"solr start")
-    # Info detects a Solr node => exit code 0
-    shell_output(bin/"solr -i")
-    # Impossible to start a second Solr node on the same port => exit code 1
-    shell_output(bin/"solr start", 1)
     # Stop a Solr node => exit code 0
     shell_output(bin/"solr stop")
-    # No Solr node left to stop => exit code 1
-    shell_output(bin/"solr stop", 1)
   end
 end
