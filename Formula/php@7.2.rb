@@ -39,6 +39,11 @@ class PhpAT72 < Formula
   depends_on "unixodbc"
   depends_on "webp"
 
+  resource "ioncube" do
+    url "https://downloads.ioncube.com/loader_downloads/ioncube_loaders_dar_x86-64.tar.gz"
+    sha256 "9e1fa2de631793d8e890830ad8ee24184b1b744fda7e546db84a646b1feca008"
+  end
+
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
   patch :DATA
@@ -264,6 +269,22 @@ class PhpAT72 < Formula
         EOS
       end
     end
+
+    # Install ionCube Loader extension
+    extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
+    ioncube_config_path = etc/"php/#{php_version}/conf.d/00-ioncube.ini"
+    resource("ioncube").stage do
+      cp "ioncube_loader_dar_#{php_version}.so", "#{extension_dir}/ioncube.so"
+      if ioncube_config_path.exist?
+        inreplace ioncube_config_path,
+          /zend_extension=.*$/, "zend_extension=ioncube.so"
+      else
+        ioncube_config_path.write <<~EOS
+          [ioncube]
+          zend_extension="ioncube.so"
+        EOS
+      end
+    end
   end
 
   def caveats
@@ -317,6 +338,8 @@ class PhpAT72 < Formula
   test do
     assert_match /^Zend OPcache$/, shell_output("#{bin}/php -i"),
       "Zend OPCache extension not loaded"
+    assert_match /^ionCube Loader$/, shell_output("#{bin}/php -i"),
+      "ionCube Loader extension not loaded"
     # Test related to libxml2 and
     # https://github.com/Homebrew/homebrew-core/issues/28398
     assert_includes MachO::Tools.dylibs("#{bin}/php"),
