@@ -97,5 +97,9 @@ class Cayley < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cayley version")
+    server = Thread.new { system "#{bin}/cayley", "http" }
+    response = Net::HTTP.get('localhost:64210', '/')
+    refute_empty response, "Response must not be empty"
+    server.terminate
   end
 end
