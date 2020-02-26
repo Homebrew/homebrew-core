@@ -4,13 +4,12 @@ class Nuspell < Formula
   url "https://github.com/nuspell/nuspell/archive/v3.0.0.tar.gz"
   sha256 "9ce86d5463723cc7dceba9d1dd046e1022ed5e3004ac6d12f2daaf5b090a6066"
 
-  depends_on "catch2" => :build
   depends_on "cmake" => :build
-  depends_on "binutils" => :test
   depends_on "gnu-tar" => :test
   depends_on "grep" => :test
   depends_on "boost"
   uses_from_macos "ruby" => :build
+  uses_from_macos "binutils" => :test
   uses_from_macos "icu4c"
 
   resource "test_dictionary" do
@@ -28,7 +27,7 @@ class Nuspell < Formula
       ENV["GEM_HOME"] = buildpath/"gem_home"
       system "gem", "install", "ronn"
       ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", "-DBUILD_TESTING=OFF", *std_cmake_args
       system "cmake", "--build", ".", "--target", "install"
     end
   end
