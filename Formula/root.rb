@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.18.04.source.tar.gz"
-  version "6.18.04"
-  sha256 "315a85fc8363f8eb1bffa0decbf126121258f79bd273513ed64795675485cfa4"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.20.00.source.tar.gz"
+  version "6.20.00"
+  sha256 "68421eb0434b38b66346fa8ea6053a0fdc9a6d254e4a72019f4e3633ae118bf0"
   head "https://github.com/root-project/root.git"
 
   bottle do
