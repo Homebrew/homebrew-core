@@ -6,9 +6,9 @@ class Nuspell < Formula
 
   depends_on "catch2" => :build
   depends_on "cmake" => :build
-  depends_on "p7zip" => :build
+  depends_on "binutils" => :test
+  depends_on "gnu-tar" => :test
   depends_on "boost"
-  depends_on :macos => [:catalina, :high_sierra, :dunno]
   uses_from_macos "ruby" => :build
   uses_from_macos "icu4c"
 
@@ -43,11 +43,11 @@ class Nuspell < Formula
 
   test do
     testpath.install resource("test_dictionary")
-    system "7z", "x", "-aoa", "hunspell-en-us_2018.04.16-1_all.deb"
-    system "tar", "xf", "data.tar"
+    system "ar", "x", "hunspell-en-us_2018.04.16-1_all.deb"
+    system "tar", "xf", "data.tar.xz"
     testpath.install resource("test_wordlist")
-    system "7z", "x", "-aoa", "wamerican-small_2018.04.16-1_all.deb"
-    system "tar", "xf", "data.tar"
+    system "ar", "x", "wamerican-small_2018.04.16-1_all.deb"
+    system "tar", "xf", "data.tar.xz"
     assert(pipe_output("#{bin}/nuspell -d usr/share/hunspell/en_US usr/share/dict/american-english-small | grep '^*'").size > 45000)
   end
 end
