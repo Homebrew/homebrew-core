@@ -1,8 +1,8 @@
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
-  url "https://github.com/adrienverge/openfortivpn/archive/v1.11.0.tar.gz"
-  sha256 "95db77566376f4504547b6407b249f007f2edf63b85ffe999436a999569645b6"
+  url "https://github.com/adrienverge/openfortivpn/archive/v1.12.0.tar.gz"
+  sha256 "ecad7d9998ee1be6cd263637333568f9b9fa72ba51f329a937f9e7db4bb3168a"
 
   bottle do
     sha256 "2a967fdaa6aa44291d6b4976fe2238c6b5436803bbff0c734d9100ae32d40935" => :catalina
@@ -14,6 +14,12 @@ class Openfortivpn < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+
+  # Fix incompatibility with macOS sed. Remove with next release.
+  patch do
+    url "https://github.com/adrienverge/openfortivpn/commit/527265ea58dee643a8f2890e1ed021558b95fdea.patch?full_index=1"
+    sha256 "8e73a74399a6331b9eb2e136a9f5e65e25c52a59fd2ac5aa4a4141baf81e14f1"
+  end
 
   def install
     system "./autogen.sh"
