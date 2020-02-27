@@ -1,8 +1,8 @@
 class LibunwindHeaders < Formula
   desc "C API for determining the call-chain of a program"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/libunwind/libunwind-35.3.tar.gz"
-  sha256 "2bcc95553a44fa3edca41993ccfac65ba267830cb37c85dca760b34094722e56"
+  url "https://opensource.apple.com/tarballs/libunwind/libunwind-35.4.tar.gz"
+  sha256 "5ca0fcb257a33eb376b19cd26ddc5f34d00f9099c8ffb462d7484bfdca654d7d"
 
   bottle do
     cellar :any_skip_relocation
