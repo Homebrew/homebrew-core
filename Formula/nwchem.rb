@@ -64,7 +64,7 @@ class Nwchem < Formula
       ENV["NWCHEM_TOP"] = pkgshare
       ENV["NWCHEM_TARGET"] = "MACX64"
       ENV["NWCHEM_EXECUTABLE"] = "#{bin}/nwchem"
-      system "./runtests.mpi.unix", "procs", "0", "dft_he2+", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
+      system "./runtests.mpi.unix", "procs", "0", "dft_he2+", "pyqa3", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
     end
   end
 end
