@@ -1,8 +1,8 @@
 class Telnetd < Formula
   desc "TELNET server (built from macOS Sierra sources)"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
-  sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
+  url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
+  sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
 
   bottle do
     cellar :any_skip_relocation
