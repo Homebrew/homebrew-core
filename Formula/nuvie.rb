@@ -51,4 +51,17 @@ class Nuvie < Formula
       #{var}/nuvie/nuvie.cfg
   EOS
   end
+
+  test do
+    pid = fork do
+      exec bin/"nuvie"
+    end
+    sleep 3
+
+    assert_predicate bin/"nuvie", :exist?
+    assert_predicate bin/"nuvie", :executable?
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
+  end
 end
