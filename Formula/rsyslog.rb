@@ -41,6 +41,9 @@ class Rsyslog < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  def post_install
     mkdir_p var/"run"
   end
 
