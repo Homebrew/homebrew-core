@@ -59,10 +59,19 @@ class Lsyncd < Formula
     "10.13.1" => ["xnu-4570.20.62.tar.gz",  "4968ae345a83d7aca3a8da65bf09bdc637e2eefbc236f7931c38abb879fe05df"],
     "10.13.2" => ["xnu-4570.31.3.tar.gz",   "1c364646d001f1a6eee80fa71f746b1142121203eabd808f1eab18317ade576c"],
     "10.13.3" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.13.4" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.13.5" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.13.6" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.14"   => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.4" => ["xnu-4570.51.1.tar.gz",   "2c392ff711d596ffd8833c794f45f2781d4f66e09b949df974f2fed4871d5642"],
+    "10.13.5" => ["xnu-4570.61.1.tar.gz",   "7655d0864e2b1c45c543ea65deab41cf093dc2cda1c78707d75488849ddd9670"],
+    "10.13.6" => ["xnu-4570.71.2.tar.gz",   "7dc621cbf4345315badae37dfab6bf133265fff43a4daaf47bea1feb00f490cc"],
+    "10.14"   => ["xnu-4903.221.2.tar.gz",  "c7a4f66bacfd4432b217ef4883798499fd223e1b717f7c5814fccc3a4ae7f4eb"],
+    "10.14.1" => ["xnu-4903.221.2.tar.gz",  "c7a4f66bacfd4432b217ef4883798499fd223e1b717f7c5814fccc3a4ae7f4eb"],
+    "10.14.2" => ["xnu-4903.231.4.tar.gz",  "4aeb745dd26aecc82e44d293fc125099d93e50fe1248bd9178df272e9503be0a"],
+    "10.14.3" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.4" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.5" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.15"   => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.1" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.2" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.3" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
   }
 
   if xnu_headers.key? MacOS.full_version
