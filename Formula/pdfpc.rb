@@ -1,8 +1,8 @@
 class Pdfpc < Formula
   desc "Presenter console with multi-monitor support for PDF files"
   homepage "https://pdfpc.github.io/"
-  url "https://github.com/pdfpc/pdfpc/archive/v4.3.4.tar.gz"
-  sha256 "cc3ccd7a23990b76dd6083e774d28f63d726a86db3a7f180b1c90596b735d5ed"
+  url "https://github.com/pdfpc/pdfpc/archive/v4.4.0.tar.gz"
+  sha256 "5fc457b081cdf02708436bb708940fd6b689e03fc336d3faab652f0b85592c00"
   head "https://github.com/pdfpc/pdfpc.git"
 
   bottle do
@@ -19,13 +19,6 @@ class Pdfpc < Formula
   depends_on "libgee"
   depends_on "librsvg"
   depends_on "poppler"
-
-  # Build with recent vala, remove in next release
-  # https://github.com/pdfpc/pdfpc/pull/446
-  patch do
-    url "https://github.com/pdfpc/pdfpc/commit/afd0fc83.diff?full_index=1"
-    sha256 "8f2769696229393fe179b637f261fcf47128f4dd8026446d74e65483f1dbea36"
-  end
 
   def install
     system "cmake", ".", "-DMOVIES=on", *std_cmake_args
