@@ -1,8 +1,8 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.39.0.tar.gz"
-  sha256 "f8dc68ed0e80fde62cd002603c00904e37c647e1ec0c1df1ee19575018dc7131"
+  url "https://github.com/bitrise-io/bitrise/archive/1.39.1.tar.gz"
+  sha256 "6b4758927907a57b5ceb46f74a97481fcfafff12f634cc336877bb97b69602a2"
 
   bottle do
     cellar :any_skip_relocation
