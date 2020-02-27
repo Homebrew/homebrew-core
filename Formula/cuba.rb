@@ -2,7 +2,7 @@ class Cuba < Formula
   desc "Library for multidimensional numerical integration"
   homepage "http://www.feynarts.de/cuba/"
   url "http://www.feynarts.de/cuba/Cuba-4.2.tar.gz"
-  sha256 "6b75bb8146ae6fb7da8ebb72ab7502ecd73920efc3ff77a69a656db9530a5eef"
+  sha256 "da4197a194f7a79465dfb2c06c250caa8e76d731e9d6bdfd2dd6e81c8fc005e0"
 
   bottle do
     cellar :any_skip_relocation
