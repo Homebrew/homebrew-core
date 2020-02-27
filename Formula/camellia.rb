@@ -20,4 +20,17 @@ class Camellia < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include "camellia.h"
+      int main() {
+        CamImage image; // CamImage is an internal structure of Camellia
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lcamellia", "-o", "test", "test.cpp"
+    system "./test"
+  end
 end
