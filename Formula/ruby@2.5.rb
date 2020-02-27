@@ -66,16 +66,6 @@ class RubyAT25 < Formula
   end
 
   def post_install
-    # Since Gem ships Bundle we want to provide that full/expected installation
-    # but to do so we need to handle the case where someone has previously
-    # installed bundle manually via `gem install`.
-    rm_f %W[
-      #{rubygems_bindir}/bundle
-      #{rubygems_bindir}/bundler
-    ]
-    rm_rf Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"]
-    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
-
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
