@@ -59,17 +59,23 @@ class Solr < Formula
   end
 
   test do
+    require "socket"
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
     # Info detects no Solr node => exit code 3
     shell_output(bin/"solr -i", 3)
     # Start a Solr node => exit code 0
-    shell_output(bin/"solr start -Djava.io.tmpdir=/tmp")
+    shell_output(bin/"solr start -p #{port} -Djava.io.tmpdir=/tmp")
     # Info detects a Solr node => exit code 0
     shell_output(bin/"solr -i")
     # Impossible to start a second Solr node on the same port => exit code 1
-    shell_output(bin/"solr start", 1)
+    shell_output(bin/"solr start -p #{port}", 1)
     # Stop a Solr node => exit code 0
-    shell_output(bin/"solr stop")
+    shell_output(bin/"solr stop -p #{port}")
     # No Solr node left to stop => exit code 1
-    shell_output(bin/"solr stop", 1)
+    shell_output(bin/"solr stop -p #{port}", 1)
   end
 end
