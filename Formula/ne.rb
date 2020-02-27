@@ -1,8 +1,8 @@
 class Ne < Formula
   desc "The nice editor"
   homepage "https://github.com/vigna/ne"
-  url "https://github.com/vigna/ne/archive/3.2.1.tar.gz"
-  sha256 "6b9324d9a4c3deef02f4ecf75407f5b5ed4e68a3bb4af3f9c1ea19dc628f9b5d"
+  url "https://github.com/vigna/ne/archive/3.3.0.tar.gz"
+  sha256 "74936aac85eaa59cd7f11e42c7568c903de2137dd528f75864d0c827f05be1bd"
   head "https://github.com/vigna/ne.git"
 
   bottle do
