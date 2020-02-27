@@ -4,31 +4,29 @@ class Solr < Formula
   url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.4.1/solr-8.4.1.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/8.4.1/solr-8.4.1.tgz"
   sha256 "ec39e1e024b2e37405149de41e39e875a39bf11a53f506d07d96b47b8d2a4301"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
   depends_on "openjdk"
 
-  skip_clean "example/logs"
-
   def install
-    # Fix the classpath for the post tool
-    inreplace "bin/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
-
-    bin.install %w[bin/solr bin/post bin/oom_solr.sh]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
     pkgshare.install "bin/solr.in.sh"
     (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"
-    prefix.install %w[contrib dist example server]
-    libexec.install Dir["*"]
+    prefix.install %w[contrib dist server]
+    libexec.install "bin"
+    bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
+    bin.env_script_all_files libexec,
+      :JAVA_HOME     => Formula["openjdk"].opt_prefix,
+      :SOLR_HOME     => var/"lib/solr",
+      :SOLR_LOGS_DIR => var/"log/solr",
+      :SOLR_PID_DIR  => var/"run/solr"
+    (libexec/"bin").rmtree
+  end
 
-    # Fix the paths in the sample solrconfig.xml files
-    Dir.glob(["#{prefix}/example/**/solrconfig.xml",
-              "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
-              "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
-      inreplace f, ":../../../..}/", "}/libexec/"
-    end
+  def post_install
+    (var/"run/solr").mkpath
+    (var/"log/solr").mkpath
   end
 
   plist_options :manual => "solr start"
@@ -61,6 +59,17 @@ class Solr < Formula
   end
 
   test do
-    system bin/"solr"
+    # Info detects no Solr node => exit code 3
+    shell_output(bin/"solr -i", 3)
+    # Start a Solr node => exit code 0
+    shell_output(bin/"solr start -Djava.io.tmpdir=/tmp")
+    # Info detects a Solr node => exit code 0
+    shell_output(bin/"solr -i")
+    # Impossible to start a second Solr node on the same port => exit code 1
+    shell_output(bin/"solr start", 1)
+    # Stop a Solr node => exit code 0
+    shell_output(bin/"solr stop")
+    # No Solr node left to stop => exit code 1
+    shell_output(bin/"solr stop", 1)
   end
 end
