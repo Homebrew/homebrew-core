@@ -18,7 +18,11 @@ class SolrAT77 < Formula
     prefix.install %w[contrib dist server]
     libexec.install "bin"
     bin.install [libexec/"bin/solr", libexec/"bin/post", libexec/"bin/oom_solr.sh"]
-    bin.env_script_all_files libexec, :JAVA_HOME => Formula["openjdk"].opt_prefix, :SOLR_HOME => var/"lib/solr", :SOLR_LOGS_DIR => var/"log/solr", :SOLR_PID_DIR => var/"run/solr"
+    bin.env_script_all_files libexec,
+      :JAVA_HOME     => Formula["openjdk"].opt_prefix,
+      :SOLR_HOME     => var/"lib/solr",
+      :SOLR_LOGS_DIR => var/"log/solr",
+      :SOLR_PID_DIR  => var/"run/solr"
     (libexec/"bin").rmtree
   end
 
