@@ -1,9 +1,8 @@
 class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "https://www.netlib.org/lapack/"
-  url "https://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
-  sha256 "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
-  revision 2
+  url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
+  sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
@@ -31,7 +30,7 @@ class Lapack < Formula
   end
 
   test do
-    (testpath/"lp.cpp").write <<~EOS
+    (testpath/"lp.c").write <<~EOS
       #include "lapacke.h"
       int main() {
         void *p = LAPACKE_malloc(sizeof(char)*100);
@@ -41,7 +40,7 @@ class Lapack < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "lp.cpp", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
+    system ENV.cc, "lp.c", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
     system "./lp"
   end
 end
