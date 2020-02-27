@@ -1,5 +1,5 @@
 class Telnet < Formula
-  desc "User interface to the TELNET protocol (built from macOS Sierra sources)"
+  desc "User interface to the TELNET protocol"
   homepage "https://opensource.apple.com/"
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-63.tar.gz"
   sha256 "13858ef1018f41b93026302840e832c2b65289242225c5a19ce5e26f84607f15"
