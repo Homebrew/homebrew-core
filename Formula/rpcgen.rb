@@ -17,15 +17,6 @@ class Rpcgen < Formula
 
   depends_on :xcode => ["7.3", :build]
 
-  # Add support for parsing 'hyper' and 'quad' types, as per RFC4506.
-  # https://github.com/openbsd/src/commit/26f19e833517620fd866d2ef3b1ea76ece6924c5
-  # https://github.com/freebsd/freebsd/commit/15a1e09c3d41cb01afc70a2ea4d20c5a0d09348a
-  # Reported to Apple 13 Dec 2016 rdar://29644450
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/rpcgen/63.patch"
-    sha256 "d687d74e1780ec512c6dacf5cb767650efa515a556106400294393f5f06cf1db"
-  end
-
   def install
     xcodebuild "-project", "developer_cmds.xcodeproj",
                "-target", "rpcgen",
