@@ -68,6 +68,7 @@ class Lsyncd < Formula
     "10.14.3" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
     "10.14.4" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
     "10.14.5" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.6" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
     "10.15"   => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
     "10.15.1" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
     "10.15.2" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
