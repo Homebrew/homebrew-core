@@ -1,6 +1,10 @@
 ---
 name: New issue for Reproducible Bug
-about: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
+about: 'If you''re sure it''s reproducible and not just your machine: submit an issue
+  so we can investigate.'
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
