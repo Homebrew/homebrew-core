@@ -1,12 +1,10 @@
-name: Build bottles.
+name: 'New CI Testing (Ignore Failures)'
 
 on:
-  pull_request:
-    paths:
-      - 'Formula/*'
+  pull_request: []
 
 jobs:
-  build-bottles:
+  tests:
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
