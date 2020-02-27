@@ -3,7 +3,6 @@ class Cromwell < Formula
   homepage "https://github.com/broadinstitute/cromwell"
   url "https://github.com/broadinstitute/cromwell/releases/download/49/cromwell-49.jar"
   sha256 "4ff4dbd4ebe128ea51d81ffeeb59fa547f436af775f984770c1dd98569e759c2"
-  revision 1
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
