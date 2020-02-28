@@ -1,8 +1,8 @@
 class Libvmaf < Formula
   desc "Perceptual video quality assessment based on multi-method fusion"
   homepage "https://github.com/Netflix/vmaf"
-  url "https://github.com/Netflix/vmaf/archive/v1.3.15.tar.gz"
-  sha256 "43bbb484102c4d976da4a10d896fb9a11838c8aa809e9c017d5b3edb225b528d"
+  url "https://github.com/Netflix/vmaf/archive/v1.5.1.tar.gz"
+  sha256 "9267b40223ac8d67fb6b99726ce7ed3925b9843f18ad5aa8ffbe2fe873e45cbe"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,18 +12,31 @@ class Libvmaf < Formula
     sha256 "c5b2cbf13a844a4591e2f1dbf7d20266715130802ba3b030f45e9471da994e86" => :sierra
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   def install
-    system "make"
-    system "make", "install", "INSTALL_PREFIX=#{prefix}"
-    system "make", "testlib", "INSTALL_PREFIX=#{prefix}"
-    pkgshare.install "wrapper/testlib"
-    pkgshare.install "python/test/resource/yuv/src01_hrc00_576x324.yuv"
+    Dir.chdir("libvmaf") do
+      system "meson", "--prefix=#{prefix}", "build", "--buildtype", "release"
+      system "ninja", "-vC", "build"
+      system "ninja", "-vC", "build", "install"
+    end
   end
 
   test do
-    yuv = "#{pkgshare}/src01_hrc00_576x324.yuv"
-    pkl = "#{share}/model/vmaf_v0.6.1.pkl"
-    output = shell_output("#{pkgshare}/testlib yuv420p 576 324 #{yuv} #{yuv} #{pkl}")
-    assert_match "VMAF score = ", output
+    (testpath/"test.c").write <<~EOS
+      #include <libvmaf/libvmaf.h>
+      int main() {
+        return 0;
+      }
+    EOS
+
+    flags = [
+      "-I#{HOMEBREW_PREFIX}/include/libvmaf",
+      "-L#{lib}",
+    ]
+
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
   end
 end
