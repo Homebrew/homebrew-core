@@ -20,6 +20,12 @@ class Shellcheck < Formula
   depends_on "ghc" => :build
   depends_on "pandoc" => :build
 
+  # GHC 8.8 compatibility. Remove with the next release.
+  patch do
+    url "https://github.com/koalaman/shellcheck/commit/2c026f1ec7c205c731ff2a0ccd85365f37245758.patch?full_index=1"
+    sha256 "21d76e62f16b12518a2cb30fd1450d1f68bf14e164ec0689732e5ed5b97c656f"
+  end
+
   def install
     install_cabal_package
     system "pandoc", "-s", "-f", "markdown-smart", "-t", "man",
