@@ -1,8 +1,8 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/1.3.0.tar.gz"
-  sha256 "e5b202f75234f47ea8ca94331192223c28877021f978a6ed39e50927b2381e06"
+  url "https://github.com/Shopify/shadowenv/archive/1.3.1.tar.gz"
+  sha256 "2ecb61475c75022a4cfe378e750b23fbf3c559452465bc399ea1369c18d9054b"
 
   bottle do
     cellar :any_skip_relocation
