@@ -17,7 +17,7 @@ class Cryptol < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build # 8.8 will be supported in the next release
   depends_on "z3"
 
   uses_from_macos "ncurses"
