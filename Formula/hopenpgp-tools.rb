@@ -17,7 +17,7 @@ class HopenpgpTools < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
 
@@ -27,7 +27,7 @@ class HopenpgpTools < Formula
   end
 
   def install
-    install_cabal_package :using => ["alex", "happy"]
+    install_cabal_package :using => ["alex", "happy", "c2hs"]
   end
 
   test do
