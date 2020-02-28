@@ -1,12 +1,11 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
-  revision 1
   head "https://anongit.kde.org/qca.git"
 
   stable do
-    url "https://github.com/KDE/qca/archive/v2.2.1.tar.gz"
-    sha256 "c67fc0fa8ae6cb3d0ba0fbd8fca8ee8e4c5061b99f1fd685fd7d9800cef17f6b"
+    url "https://github.com/KDE/qca/archive/v2.3.0.tar.gz"
+    sha256 "39aa18f0985d82949f4dccce04af3eb8d4b6b64e0c71785786738d38d8183b0a"
 
     # use major version for framework, instead of full version
     # see: https://github.com/KDE/qca/pull/3
