@@ -16,7 +16,7 @@ class Nwchem < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "scalapack"
 
   def install
