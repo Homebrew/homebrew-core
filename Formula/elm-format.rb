@@ -18,7 +18,7 @@ class ElmFormat < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
 
   def build_elm_format_conf
     <<~EOS
