@@ -20,4 +20,21 @@ class Ctemplate < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <string>
+      #include <ctemplate/template.h>
+      int main(int argc, char** argv) {
+        ctemplate::TemplateDictionary dict("example");
+        dict.SetValue("NAME", "Jane Doe");
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}",
+                    "-lctemplate_nothreads", "test.cpp", "-o", "test"
+    system "./test"
+  end
 end
