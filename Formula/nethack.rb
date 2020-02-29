@@ -15,6 +15,8 @@ class Nethack < Formula
     sha256 "4ee79f011195859ee87569c6d7080d438d9e7d23e4a096a437187da8479cc126" => :high_sierra
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
 
   def install
@@ -37,6 +39,8 @@ class Nethack < Formula
       # Setting VAR_PLAYGROUND preserves saves across upgrades
       inreplace "hints/#{hintfile}" do |s|
         s.change_make_var! "HACKDIR", libexec
+        s.change_make_var! "CHOWN", "true"
+        s.change_make_var! "CHGRP", "true"
         s.gsub! "#WANT_WIN_CURSES=1", "WANT_WIN_CURSES=1\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
       end
 
