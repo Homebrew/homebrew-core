@@ -1,9 +1,8 @@
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/liblo/liblo/0.29/liblo-0.29.tar.gz"
-  sha256 "ace1b4e234091425c150261d1ca7070cece48ee3c228a5612d048116d864c06a"
-  revision 1
+  url "https://downloads.sourceforge.net/project/liblo/liblo/0.31/liblo-0.31.tar.gz"
+  sha256 "2b4f446e1220dcd624ecd8405248b08b7601e9a0d87a0b94730c2907dbccc750"
 
   bottle do
     cellar :any
@@ -35,5 +34,21 @@ class Liblo < Formula
     end
 
     system "make", "install"
+  end
+
+  test do
+    (testpath/"lo_version.c").write <<~EOS
+      #include <stdio.h>
+      #include "lo/lo.h"
+      int main() {
+        char version[6];
+        lo_version(version, 6, 0, 0, 0, 0, 0, 0, 0);
+        printf("%s", version);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "lo_version.c", "-I#{include}", "-L#{lib}", "-llo", "-o", "lo_version"
+    lo_version = `./lo_version`
+    assert_equal version.to_str, lo_version
   end
 end
