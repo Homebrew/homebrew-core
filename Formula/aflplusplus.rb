@@ -4,8 +4,8 @@ class Aflplusplus < Formula
   url "https://github.com/vanhauser-thc/AFLplusplus/archive/2.62c.tar.gz"
   sha256 "cde181ac733aa3a1212ffcb494bb9306a2086c7521fb006719b0e15cd8015c63"
 
-  depends_on "automake"
-  depends_on "wget"
+  depends_on "automake" => :build
+  depends_on "wget" => :build
 
   conflicts_with "afl-fuzz"
 
