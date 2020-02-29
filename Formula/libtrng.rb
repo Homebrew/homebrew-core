@@ -15,8 +15,11 @@ class Libtrng < Formula
 
   depends_on "cmake" => :build
 
+  # Examples do not build. Should be fixed in next release.
+  # https://github.com/rabauke/trng4/commit/78f7aea798b12603d9a2f6c68e19692f61c70647
+  patch :DATA
+
   def install
-    inreplace "CMakeLists.txt", "add_subdirectory(examples)", ""
     system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"
@@ -38,3 +41,18 @@ class Libtrng < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index a916560..b29ab99 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -6,7 +6,7 @@ find_package(OpenMP)
+ find_package(TBB)
+
+ include_directories(..)
+-link_libraries(trng4)
++link_libraries(trng4_static)
+ link_directories(${PROJECT_BINARY_DIR}/trng)
+
+ add_executable(hello_world hello_world.cc)
