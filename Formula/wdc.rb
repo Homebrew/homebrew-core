@@ -6,9 +6,9 @@ class Wdc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba175bbe8a5c6ba732b4fc93386315b1d616c651eea748d821021b970758cd0b" => :catalina
-    sha256 "8ea1fa726f01bca89007add6ef9560d14b3f5413df360dd5d6e9bb6f597402ce" => :mojave
-    sha256 "35868afa90ec0e1573fe41225a666cf66a2bb30629d06f8ca82da3a6117290fd" => :high_sierra
+    sha256 "18365f76dafd05a312e9a7862f2fa747caa8c63e881469719a8ef45d07dce3c6" => :catalina
+    sha256 "fbcaccbaa2440ac38f9efa41a342eef4d883e522fa5df7d642aaa1563d38f28b" => :mojave
+    sha256 "92dcb68d02f64ff51446052bf5c41fa178cc48ade406a9533199461476f7c849" => :high_sierra
   end
 
   depends_on "cmake" => :build
