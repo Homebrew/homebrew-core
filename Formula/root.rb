@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.20.00.source.tar.gz"
   version "6.20.00"
   sha256 "68421eb0434b38b66346fa8ea6053a0fdc9a6d254e4a72019f4e3633ae118bf0"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
