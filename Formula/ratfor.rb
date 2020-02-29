@@ -1,9 +1,8 @@
 class Ratfor < Formula
   desc "Rational Fortran"
   homepage "http://www.dgate.org/ratfor/"
-  url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
-  sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
-  revision 2
+  url "http://www.dgate.org/ratfor/tars/ratfor-1.04.tar.gz"
+  sha256 "c1d99c1a9e17693a4f605c20a1bb27adc9d1616e95eb7c104ec1fe2d8b96da6b"
 
   bottle do
     cellar :any_skip_relocation
