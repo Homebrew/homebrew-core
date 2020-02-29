@@ -16,18 +16,12 @@ class Nethack < Formula
 
   uses_from_macos "ncurses"
 
-  # Don't remove save folder
-  skip_clean "libexec/save"
-
   def install
-    # Build everything in-order
     ENV.deparallelize
 
-    # Disable optimization since it causes a hang in the / command
-    # See issue #48465
+    # Fixes https://github.com/NetHack/NetHack/issues/274
     ENV.O0
 
-    # Generate makefiles for OS X
     cd "sys/unix" do
       if MacOS.version >= :mojave
         hintfile = "macosx10.14"
@@ -38,23 +32,40 @@ class Nethack < Formula
       # Enable wizard mode for all users
       inreplace "sysconf", /^WIZARDS=.*/, "WIZARDS=*"
 
+      # Enable curses interface
+      # Setting VAR_PLAYGROUND preserves saves across upgrades
+      inreplace "hints/#{hintfile}" do |s|
+        s.change_make_var! "HACKDIR", libexec
+        s.gsub! "#WANT_WIN_CURSES=1", "WANT_WIN_CURSES=1\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
+      end
+
       system "sh", "setup.sh", "hints/#{hintfile}"
     end
 
-    # Make the game with curses
-    system "make", "install", "HACKDIR=#{libexec}", "WANT_WIN_CURSES=1"
-    bin.install "src/nethack"
-    (libexec+"save").mkpath
-
-    # Enable `man nethack`
+    system "make", "install"
+    bin.install_symlink libexec/"nethack"
     man6.install "doc/nethack.6"
+  end
 
-    # These need to be group-writable in multi-user situations
-    chmod "g+w", libexec
-    chmod "g+w", libexec+"save"
+  def post_install
+    # These need to exist (even if empty) otherwise nethack won't start
+    savedir = HOMEBREW_PREFIX/"share/nethack"
+    mkdir_p savedir
+    cd savedir do
+      %w[xlogfile logfile perm record].each do |f|
+        touch f
+      end
+      mkdir_p "save"
+      touch "save/.keepme" # preserve on `brew cleanup`
+    end
+    # Set group-writeable for multiuser installs
+    chmod "g+w", savedir
+    chmod "g+w", savedir/"save"
   end
 
   test do
     system "#{bin}/nethack", "-s"
+    assert_match (HOMEBREW_PREFIX/"share/nethack").to_s,
+                 shell_output("#{bin}/nethack --showpaths")
   end
 end
