@@ -1,9 +1,8 @@
 class Py2cairo < Formula
   desc "Python 2 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
-  url "https://github.com/pygobject/pycairo/releases/download/v1.18.2/pycairo-1.18.2.tar.gz"
-  sha256 "dcb853fd020729516e8828ad364084e752327d4cff8505d20b13504b32b16531"
-  revision 1
+  url "https://github.com/pygobject/pycairo/releases/download/v1.19.1/pycairo-1.19.1.tar.gz"
+  sha256 "2c143183280feb67f5beb4e543fd49990c28e7df427301ede04fc550d3562e84"
 
   bottle do
     cellar :any
@@ -14,13 +13,13 @@ class Py2cairo < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  uses_from_macos "python@2"
+  depends_on "python"
 
   def install
-    system "python", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
-    system "python", "-c", "import cairo; print(cairo.version)"
+    system "python3", "-c", "import cairo; print(cairo.version)"
   end
 end
