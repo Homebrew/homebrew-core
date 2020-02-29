@@ -6,8 +6,8 @@ class ElmFormat < Formula
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag      => "0.8.2",
-      :revision => "ab3627cce01e5556b3fe8c2b5e3d92b80bfc74af"
+      :tag      => "0.8.3",
+      :revision => "b97e3593d564a1e069c0a022da8cbd98ca2c5a4b"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
