@@ -1,10 +1,9 @@
 class Dps8m < Formula
   desc "Simulator for the Multics dps-8/m mainframe"
   homepage "https://ringzero.wikidot.com"
-  url "https://downloads.sourceforge.net/project/dps8m/Release%201.0/source.tgz"
-  version "1.0"
-  sha256 "51088dd91de888b918644c431eec22318640d28eb3050d9c01cd072aa7cca3c7"
-  head "https://github.com/charlesUnixPro/dps8m.git"
+  url "https://gitlab.com/dps8m/dps8m/-/archive/R2.0/dps8m-R2.0.tar.gz"
+  sha256 "bb0106d0419afd75bc615006bd9e3f1ff93e12649346feb19820b73c92d06f0d"
+  head "https://gitlab.com/dps8m/dps8m.git"
 
   bottle do
     cellar :any
