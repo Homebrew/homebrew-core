@@ -97,17 +97,17 @@ class Jrnl < Formula
   end
 
   test do
-    (testpath/"tests.sh").write <<~'EOS'
+    (testpath/"tests.sh").write <<~EOS
       #!/usr/bin/expect -f
 
       set timeout 3
       match_max 100000
 
       # Write the journal
-      spawn "$env(BREW_TEST_BIN)/jrnl" "This is the fanciest test in the world."
+      spawn "#{bin}/jrnl" "This is the fanciest test in the world."
 
       expect {
-        "/.local/share/jrnl/journal.txt" { send -- "$env(BREW_TEST_PATH)/test.txt\r" }
+        "/.local/share/jrnl/journal.txt" { send -- "#{testpath}/test.txt\r" }
         timeout { exit 1 }
       }
 
@@ -122,7 +122,7 @@ class Jrnl < Formula
       }
 
       # Read the journal
-      spawn "$env(BREW_TEST_BIN)/jrnl" -1
+      spawn "#{bin}/jrnl" -1
 
       expect {
         "This is the fanciest test in the world." { exit }
@@ -131,7 +131,7 @@ class Jrnl < Formula
       }
 
       # Encrypt the journal
-      spawn "$env(BREW_TEST_BIN)/jrnl" --encrypt
+      spawn "#{bin}/jrnl" --encrypt
 
       expect {
         -exact "Enter password for new journal: " { send -- "homebrew\r" }
@@ -155,19 +155,7 @@ class Jrnl < Formula
       }
     EOS
 
-    (testpath/"run_tests.sh").write <<~EOS
-      #!/bin/bash
-      set -ex
-
-      export XDG_CONFIG_HOME="#{testpath}/.config"
-      export BREW_TEST_BIN="#{bin}"
-      export BREW_TEST_PATH="#{testpath}"
-
-      expect "$BREW_TEST_PATH/tests.sh"
-    EOS
-    chmod 0755, testpath/"run_tests.sh"
-
-    system "./run_tests.sh"
+    system "expect ./tests.sh"
     assert_predicate testpath/".config/jrnl/jrnl.yaml", :exist?
     assert_predicate testpath/"test.txt", :exist?
   end
