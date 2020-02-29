@@ -3,6 +3,7 @@ class Pyenv < Formula
   homepage "https://github.com/pyenv/pyenv"
   url "https://github.com/pyenv/pyenv/archive/v1.2.18.tar.gz"
   sha256 "cc147f020178bb2f1ce0a8b9acb0bdf73979d967ce7d7415e22746e84e0eec7a"
+  revision 1
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
@@ -16,6 +17,7 @@ class Pyenv < Formula
   depends_on "autoconf"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
+  depends_on "python@3.8"
   depends_on "readline"
 
   uses_from_macos "bzip2"
@@ -26,6 +28,7 @@ class Pyenv < Formula
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
+    inreplace "libexec/pyenv-versions", "system pyenv-which python", "system pyenv-which python3"
 
     system "src/configure"
     system "make", "-C", "src"
@@ -41,6 +44,11 @@ class Pyenv < Formula
   end
 
   test do
+    # python@3.8 is keg only. Pyenv needs Python 3 in the path
+    # to work, so provide our version. Users can later on choose
+    # which python they want to use by modifying .pyenv/version
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+
     shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions")
   end
 end
