@@ -1,8 +1,8 @@
 class GrpcSwift < Formula
   desc "The Swift language implementation of gRPC"
   homepage "https://github.com/grpc/grpc-swift"
-  url "https://github.com/grpc/grpc-swift/archive/0.9.1.tar.gz"
-  sha256 "6b3a2ed13c805c6b8f339f558f2a1372bdcf84c079c104a6d0b54fd7650b8fbf"
+  url "https://github.com/grpc/grpc-swift/archive/0.10.0.tar.gz"
+  sha256 "dd162909c4dc45c8436744ebb0a0fc90763a496b44e3674dc01dac5ee8e763b9"
   head "https://github.com/grpc/grpc-swift.git"
 
   bottle do
