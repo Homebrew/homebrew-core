@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
-  homepage "https://www.bcgsc.ca/resources/gsc-software-centre"
-  url "https://github.com/bcgsc/abyss/releases/download/2.2.3/abyss-2.2.3.tar.gz"
-  sha256 "ac7679ececbdd89cc050998eae31fa5f8bf7cdab6a0c05eb5eb1e3867c7e75cb"
+  homepage "https://www.bcgsc.ca/resources/software/abyss"
+  url "https://github.com/bcgsc/abyss/releases/download/2.2.4/abyss-2.2.4.tar.gz"
+  sha256 "f064a8c5ad152a37963d9001df6c89d744370f7ec5a387307747c4647360a47c"
 
   bottle do
     cellar :any
