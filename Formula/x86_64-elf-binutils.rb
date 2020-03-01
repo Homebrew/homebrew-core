@@ -1,9 +1,9 @@
 class X8664ElfBinutils < Formula
   desc "FSF Binutils for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.33.1.tar.gz"
-  sha256 "98aba5f673280451a09df3a8d8eddb3aa0c505ac183f1e2f9d00c67aa04c6f7d"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
+  sha256 "53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3"
 
   bottle do
     sha256 "18ea6dbe526c6c14961968ab697cfa44852f99716c57df5ee1f4c80eeae4e44e" => :catalina
