@@ -1,8 +1,8 @@
 class Bowtie2 < Formula
   desc "Fast and sensitive gapped read aligner"
   homepage "https://bowtie-bio.sourceforge.io/bowtie2/"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.3.5.1.tar.gz"
-  sha256 "86a018af1090900c160a0990cc106569805aa64a3ec8708e1d2127839e4a94b4"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.4.1.tar.gz"
+  sha256 "9fb25513886bf294217dd9c5ca26d18dd5e02e0ae999935ac7ba5700befc492e"
 
   bottle do
     cellar :any
@@ -15,10 +15,7 @@ class Bowtie2 < Formula
   depends_on "tbb"
 
   def install
-    tbb = Formula["tbb"]
-    system "make", "install", "WITH_TBB=1", "prefix=#{prefix}",
-           "EXTRA_FLAGS=-L #{tbb.opt_lib}", "INC=-I #{tbb.opt_include}"
-
+    system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "example", "scripts"
   end
 
