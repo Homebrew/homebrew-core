@@ -1,8 +1,8 @@
 class Comby < Formula
   desc "Tool for changing code across many languages"
   homepage "https://comby.dev"
-  url "https://github.com/comby-tools/comby/archive/0.12.0.tar.gz"
-  sha256 "ec0808c59bb7733dd5ba515147895db5f5820a5333fcd479f3091ea0b6a5519e"
+  url "https://github.com/comby-tools/comby/archive/0.13.1.tar.gz"
+  sha256 "b9d8592070ba9912c82ce9eaf620b78dd92717f422cd94df5d04c9fb443196bd"
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class Comby < Formula
   end
 
   depends_on "gmp" => :build
+  depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pcre"
   depends_on "pkg-config"
@@ -26,14 +27,17 @@ class Comby < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    system "opam", "init", "--no-setup", "--disable-sandboxing", "--compiler=4.09.0", "--jobs=1"
+    system "opam", "init", "--no-setup", "--disable-sandboxing"
     system "opam", "config", "exec", "--", "opam", "install", ".", "--deps-only", "-y"
+
+    ENV.prepend_path "LIBRARY_PATH", opamroot/"default/lib/hack_parallel" # for -lhp
     system "opam", "config", "exec", "--", "make", "release"
+
     bin.install "_build/default/src/main.exe" => "comby"
   end
 
   test do
-    assert_equal "0.12.0", shell_output("#{bin}/comby -version").strip
+    assert_equal version.to_s, shell_output("#{bin}/comby -version").strip
 
     expect = <<~EXPECT
       --- /dev/null
