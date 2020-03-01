@@ -27,7 +27,7 @@ class GambitScheme < Formula
 
     # Fixed in gambit HEAD, but they haven't cut a release
     inreplace "config.status" do |s|
-      s.gsub! /\/usr\/local\/opt\/openssl(?!@1\.1)/, "/usr/local/opt/openssl@1.1"
+      s.gsub! %r{/usr/local/opt/openssl(?!@1\.1)}, "/usr/local/opt/openssl@1.1"
     end
     system "./config.status"
 

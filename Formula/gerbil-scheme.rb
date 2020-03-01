@@ -3,7 +3,7 @@ class GerbilScheme < Formula
   homepage "https://cons.io"
   url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
   sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
-  revision 4
+  revision 5
 
   bottle do
     rebuild 1
@@ -28,6 +28,11 @@ class GerbilScheme < Formula
       gxtags
     ]
 
+    inreplace ["src/gerbil/gxi", "src/gerbil/gxi-build-script"] do |s|
+      s.gsub! /GERBIL_HOME=[^\n]*/, "GERBIL_HOME=#{libexec}"
+      s.gsub! /\bgsi\b/, "#{Formula["gambit-scheme"].opt_prefix}/current/bin/gsi"
+    end
+
     cd "src" do
       ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
       ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
@@ -50,7 +55,6 @@ class GerbilScheme < Formula
   end
 
   test do
-    ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
-    assert_equal "0123456789", shell_output("#{libexec}/bin/gxi -e \"(for-each write '(0 1 2 3 4 5 6 7 8 9))\"")
+    assert_equal "0123456789", shell_output("gxi -e \"(for-each write '(0 1 2 3 4 5 6 7 8 9))\"")
   end
 end
