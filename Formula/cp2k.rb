@@ -1,9 +1,8 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://github.com/cp2k/cp2k/releases/download/v6.1.0/cp2k-6.1.tar.bz2"
-  sha256 "af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b"
-  revision 1
+  url "https://github.com/cp2k/cp2k/releases/download/v7.1.0/cp2k-7.1.tar.bz2"
+  sha256 "ccd711a09a426145440e666310dd01cc5772ab103493c4ae6a3470898cd0addb"
 
   bottle do
     rebuild 1
@@ -21,13 +20,13 @@ class Cp2k < Formula
   fails_with :clang # needs OpenMP support
 
   resource "libint" do
-    url "https://downloads.sourceforge.net/project/libint/v1-releases/libint-1.1.5.tar.gz"
-    sha256 "31d7dd553c7b1a773863fcddc15ba9358bdcc58f5962c9fcee1cd24f309c4198"
+    url "https://github.com/cp2k/libint-cp2k/releases/download/v2.6.0/libint-v2.6.0-cp2k-lmax-5.tgz"
+    sha256 "1cd72206afddb232bcf2179c6229fbf6e42e4ba8440e701e6aa57ff1e871e9db"
   end
 
   def install
     resource("libint").stage do
-      system "./configure", "--prefix=#{libexec}"
+      system "./configure", "--prefix=#{libexec}", "--enable-fortran"
       system "make"
       ENV.deparallelize { system "make", "install" }
     end
@@ -61,13 +60,10 @@ class Cp2k < Formula
     inreplace Dir["arch/Darwin-IntelMacintosh-gfortran.*smp"],
               "-lfftw3", "-lfftw3 -lfftw3_threads"
 
-    # Now we build
-    cd "makefiles" do
-      %w[sopt ssmp popt psmp].each do |exe|
-        system "make", "ARCH=Darwin-IntelMacintosh-gfortran", "VERSION=#{exe}"
-        bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k.#{exe}"
-        bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k_shell.#{exe}"
-      end
+    %w[sopt ssmp popt psmp].each do |exe|
+      system "make", "ARCH=Darwin-IntelMacintosh-gfortran", "VERSION=#{exe}"
+      bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k.#{exe}"
+      bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k_shell.#{exe}"
     end
 
     (pkgshare/"tests").install "tests/Fist/water512.inp"
