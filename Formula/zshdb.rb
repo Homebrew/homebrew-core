@@ -1,8 +1,8 @@
 class Zshdb < Formula
   desc "Debugger for zsh"
   homepage "https://github.com/rocky/zshdb"
-  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.0.1/zshdb-1.0.1.tar.gz"
-  sha256 "0b2717c1b1682b87c9e2a4d5303a5a60f9fbf418dbb7dd64fc814fbeead6506a"
+  url "https://downloads.sourceforge.net/project/bashdb/zshdb/1.1.2/zshdb-1.1.2.tar.gz"
+  sha256 "bf9cb36f60ce6833c5cd880c58d6741873b33f5d546079eebcfce258d609e9af"
 
   bottle do
     cellar :any_skip_relocation
