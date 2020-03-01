@@ -1,8 +1,8 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/20.01.tar.gz"
-  sha256 "c015f7d395cf24b9050135238de38683e5a90378215bc6d5bb89777a9623f0e6"
+  url "https://github.com/FNA-XNA/FAudio/archive/20.02.tar.gz"
+  sha256 "103a6d278921ce757e5427133626f60ce4876b30d81186f78af35d9f1ca4ef16"
   head "https://github.com/FNA-XNA/FAudio.git"
 
   bottle do
