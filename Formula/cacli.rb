@@ -1,8 +1,8 @@
 class Cacli < Formula
   desc "Train machine learning models from Cloud Annotations"
   homepage "https://cloud.annotations.ai"
-  url "https://github.com/cloud-annotations/training/archive/v1.2.29.tar.gz"
-  sha256 "bb95ca829a705d2fcb77302415b2a7c8d9ed7e6bd2afa95c97c5b2fd0da45c50"
+  url "https://github.com/cloud-annotations/training/archive/v1.2.30.tar.gz"
+  sha256 "f10758c46deefc90d08967f6e0f7d232947d5c795b9c533a2ffa898363391e81"
 
   bottle do
     cellar :any_skip_relocation
