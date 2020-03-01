@@ -1,8 +1,8 @@
 class GitFtp < Formula
   desc "Git-powered FTP client"
   homepage "https://git-ftp.github.io/"
-  url "https://github.com/git-ftp/git-ftp/archive/1.5.2.tar.gz"
-  sha256 "a6bf52f6f1d30c4d8f52fd0fbd61dc9f32e66099e3e9c4994bec65094305605b"
+  url "https://github.com/git-ftp/git-ftp/archive/1.6.0.tar.gz"
+  sha256 "088b58d66c420e5eddc51327caec8dcbe8bddae557c308aa739231ed0490db01"
   head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
 
   bottle do
@@ -19,9 +19,9 @@ class GitFtp < Formula
   uses_from_macos "zlib"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.62.0.tar.bz2"
-    mirror "https://curl.askapache.com/download/curl-7.62.0.tar.bz2"
-    sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
+    url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.69.0.tar.bz2"
+    sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
   end
 
   def install
