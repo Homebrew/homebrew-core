@@ -1,8 +1,8 @@
 class GitRemoteGcrypt < Formula
   desc "GPG-encrypted git remotes"
   homepage "https://spwhitton.name/tech/code/git-remote-gcrypt/"
-  url "https://github.com/spwhitton/git-remote-gcrypt/archive/1.2.tar.gz"
-  sha256 "6f00d5891639f8d2c263ca15b14ad02bb5a8dd048e9c778fcc12a38cb26f51c4"
+  url "https://github.com/spwhitton/git-remote-gcrypt/archive/1.3.tar.gz"
+  sha256 "e1948dda848db845db404e4337b07206c96cb239b66392fd1c9c246279c2cb25"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,6 @@ class GitRemoteGcrypt < Formula
   depends_on "docutils" => :build
 
   def install
-    inreplace "./install.sh", "rst2man", "rst2man.py"
     ENV["prefix"] = prefix
     system "./install.sh"
   end
