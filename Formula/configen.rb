@@ -1,8 +1,8 @@
 class Configen < Formula
   desc "Configuration file code generator for use in Xcode projects"
   homepage "https://github.com/theappbusiness/ConfigGenerator"
-  url "https://github.com/theappbusiness/ConfigGenerator/archive/1.1.0.tar.gz"
-  sha256 "3bd03adbd82cd94a610b07fbc3e9fb8e5aca35f938c891fa69db9eec9411331b"
+  url "https://github.com/theappbusiness/ConfigGenerator/archive/1.1.1.tar.gz"
+  sha256 "bc35ff0970c9d892a9c9e762f9a6bc63d222d3556cec924e9292f517ac22339d"
   head "https://github.com/theappbusiness/ConfigGenerator.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Configen < Formula
     sha256 "ecc6949d99f9a8843f85450bac723d11e4efb9c65430d669e191a0aaf1d2c0e7" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.2", :build]
 
   def install
     xcodebuild "SYMROOT=build"
