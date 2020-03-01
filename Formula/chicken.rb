@@ -1,8 +1,8 @@
 class Chicken < Formula
   desc "Compiler for the Scheme programming language"
   homepage "https://www.call-cc.org/"
-  url "https://code.call-cc.org/releases/5.1.0/chicken-5.1.0.tar.gz"
-  sha256 "5c1101a8d8faabfd500ad69101e0c7c8bd826c68970f89c270640470e7b84b4b"
+  url "https://code.call-cc.org/releases/5.2.0/chicken-5.2.0.tar.gz"
+  sha256 "819149c8ce7303a9b381d3fdc1d5765c5f9ac4dee6f627d1652f47966a8780fa"
   head "https://code.call-cc.org/git/chicken-core.git"
 
   bottle do
