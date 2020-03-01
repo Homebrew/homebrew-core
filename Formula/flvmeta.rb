@@ -1,8 +1,8 @@
 class Flvmeta < Formula
   desc "Manipulate Adobe flash video files (FLV)"
   homepage "https://www.flvmeta.com/"
-  url "https://www.flvmeta.com/download.php?file=flvmeta-1.2.1.tar.gz"
-  sha256 "4b48afc2db8b0ff1c86861bc09a58481bc241d93b879b6f915fbf695fc4bff51"
+  url "https://flvmeta.com/files/flvmeta-1.2.2.tar.gz"
+  sha256 "a51a2f18d97dfa1d09729546ce9ac690569b4ce6f738a75363113d990c0e5118"
   head "https://github.com/noirotm/flvmeta.git"
 
   bottle do
