@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.1/sbcl-2.0.1-source.tar.bz2"
-  sha256 "8450d60b7264a34158f8811d46dc6e74ff855bbd1227752572877e6604ce56e8"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.2/sbcl-2.0.2-source.tar.bz2"
+  sha256 "4864046e3b8bc0d0af7523491cf0e2be6155518864e63cf2e6f8326865fbfe1e"
 
   bottle do
     sha256 "481a9512dd731873704c8595bc97a3b8b0bbf404946cc1462ff49acf9d6a7c85" => :catalina
