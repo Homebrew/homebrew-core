@@ -1,9 +1,9 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-5-2/getdns-1.5.2.tar.gz"
-  sha256 "1826a6a221ea9e9301f2c1f5d25f6f5588e841f08b967645bf50c53b970694c0"
-  revision 3
+  url "https://getdnsapi.net/releases/getdns-1-6-0/getdns-1.6.0.tar.gz"
+  sha256 "40e5737471a3902ba8304b0fd63aa7c95802f66ebbc6eae53c487c8e8a380f4a"
+  head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -13,32 +13,17 @@ class Getdns < Formula
     sha256 "aab96082494eadf2d8806211a3597fdd3356938181e39b8c77a6146a8767ce97" => :sierra
   end
 
-  head do
-    url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "libidn2"
   depends_on "openssl@1.1"
   depends_on "unbound"
 
   def install
-    if build.head?
-      system "glibtoolize", "-ci"
-      system "autoreconf", "-fi"
-    end
-
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-libevent",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-trust-anchor=#{etc}/getdns-root.key",
-                          "--without-stubby"
+    system "cmake", ".", *std_cmake_args,
+                         "-DBUILD_TESTING=OFF",
+                         "-DPATH_TRUST_ANCHOR_FILE=#{etc}/getdns-root.key"
     system "make"
-    ENV.deparallelize
     system "make", "install"
   end
 
