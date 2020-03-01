@@ -1,9 +1,8 @@
 class Bde < Formula
   desc "Basic Development Environment: foundational C++ libraries used at Bloomberg"
   homepage "https://github.com/bloomberg/bde"
-  url "https://github.com/bloomberg/bde/archive/BDE_3.0.0.0.tar.gz"
-  sha256 "c6f295947c1af5f0d4e728e4d6801c4b29bb35a742faebc058f86b36722e8cdd"
-  revision 1
+  url "https://github.com/bloomberg/bde/archive/3.39.0.0.tar.gz"
+  sha256 "e16f0821e925f23de279f72cfd2b2ff23ae344979a4b285d9d63abd4f759f329"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,13 +12,18 @@ class Bde < Formula
     sha256 "605cff2b1687632dd90ffacc48cee0d1890415816379f8f63814411810a88d74" => :sierra
   end
 
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
+
   resource "bde-tools" do
-    url "https://github.com/bloomberg/bde-tools/archive/v1.0.tar.gz"
-    sha256 "9b3936fecef23f8c072e62208d2068decfd13d144b771125afc9e0fb9ad16d30"
+    url "https://github.com/bloomberg/bde-tools/archive/v1.1.tar.gz"
+    sha256 "c5d77d5e811e79f824816ee06dbf92a2a7e3eb0b6d9f27088bcac8c06d930fd5"
   end
 
   def install
     buildpath.install resource("bde-tools")
+
+    ENV.cxx11
 
     system "python", "./bin/waf", "configure", "--prefix=#{prefix}"
     system "python", "./bin/waf", "build"
