@@ -6,9 +6,9 @@ class Fileicon < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b3cfdf0e341c2a39ff84e617279e95f38d315130ed2820d867251ef4c8ba9da" => :catalina
-    sha256 "6b3cfdf0e341c2a39ff84e617279e95f38d315130ed2820d867251ef4c8ba9da" => :mojave
-    sha256 "6b3cfdf0e341c2a39ff84e617279e95f38d315130ed2820d867251ef4c8ba9da" => :high_sierra
+    sha256 "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92" => :catalina
+    sha256 "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92" => :mojave
+    sha256 "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92" => :high_sierra
   end
 
   def install
