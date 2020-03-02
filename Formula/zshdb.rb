@@ -6,9 +6,9 @@ class Zshdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :catalina
-    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :mojave
-    sha256 "02c72baac9b416aef9b58d98d72b1e0dca18de16efd3ae9dfd43368b52fa88a7" => :high_sierra
+    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :catalina
+    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :mojave
+    sha256 "2bdc583e95b4d4bd92624d48ce804561e3a337792dbba74f451a2507eb939704" => :high_sierra
   end
 
   head do
