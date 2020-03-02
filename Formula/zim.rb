@@ -5,13 +5,6 @@ class Zim < Formula
   sha256 "ba02e418b4fb1d7847f96b49ada8c917c881a28bb5fb55dcdca54be7b3fd196a"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "91f15636c51398dc31f7c43d570a652cc1bddb8fc3571bdfc203d25231aa095d" => :catalina
-    sha256 "91f15636c51398dc31f7c43d570a652cc1bddb8fc3571bdfc203d25231aa095d" => :mojave
-    sha256 "91f15636c51398dc31f7c43d570a652cc1bddb8fc3571bdfc203d25231aa095d" => :high_sierra
-  end
-
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "graphviz"
@@ -42,6 +35,15 @@ class Zim < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
 
-    system "#{bin}/zim", "--version"
+    mkdir_p %w[Notes/Homebrew HTML]
+    # Equivalent of (except doesn't require user interaction):
+    # zim --plugin quicknote --notebook ./Notes --page Homebrew --basename Homebrew  --text "[[https://brew.sh|Homebrew]]"
+    File.write(
+      "Notes/Homebrew/Homebrew.txt",
+      "Content-Type: text/x-zim-wiki\nWiki-Format: zim 0.4\nCreation-Date: 2020-03-02T07:17:51+02:00\n\n[[https://brew.sh|Homebrew]]",
+    )
+    system "#{bin}/zim", "--index", "./Notes"
+    system "#{bin}/zim", "--export", "-r", "-o", "HTML", "./Notes"
+    system "grep", '<a href="https://brew.sh".*Homebrew</a>', "HTML/Homebrew/Homebrew.html"
   end
 end
