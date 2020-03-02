@@ -3,7 +3,7 @@ class GambitScheme < Formula
   homepage "https://github.com/gambit/gambit"
   url "https://github.com/gambit/gambit/archive/v4.9.3.tar.gz"
   sha256 "a5e4e5c66a99b6039fa7ee3741ac80f3f6c4cff47dc9e0ff1692ae73e13751ca"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -24,6 +24,13 @@ class GambitScheme < Formula
     ]
 
     system "./configure", *args
+
+    # Fixed in gambit HEAD, but they haven't cut a release
+    inreplace "config.status" do |s|
+      s.gsub! /\/usr\/local\/opt\/openssl(?!@1\.1)/, "/usr/local/opt/openssl@1.1"
+    end
+    system "./config.status"
+
     system "make"
     ENV.deparallelize
     system "make", "install"
