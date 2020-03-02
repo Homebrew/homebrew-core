@@ -13,6 +13,8 @@ class Vnstat < Formula
 
   depends_on "gd"
 
+  uses_from_macos "sqlite"
+
   def install
     inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|

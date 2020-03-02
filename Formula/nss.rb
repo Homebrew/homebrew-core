@@ -13,6 +13,8 @@ class Nss < Formula
 
   depends_on "nspr"
 
+  uses_from_macos "sqlite"
+
   def install
     ENV.deparallelize
     cd "nss"

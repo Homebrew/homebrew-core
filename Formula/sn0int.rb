@@ -14,6 +14,8 @@ class Sn0int < Formula
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
 
+  uses_from_macos "sqlite"
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
