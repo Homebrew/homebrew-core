@@ -11,6 +11,6 @@ class Killswitch < Formula
   end
 
   test do
-    system "#{bin}/killswitch", "-v"
+    assert_match "No VPN interface found", shell_output("#{bin}/killswitch 2>&1", 1)
   end
 end
