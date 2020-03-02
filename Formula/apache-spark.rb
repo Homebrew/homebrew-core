@@ -5,12 +5,11 @@ class ApacheSpark < Formula
   mirror "https://archive.apache.org/dist/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz"
   version "2.4.5"
   sha256 "020be52524e4df366eb974d41a6e18fcb6efcaba9a51632169e917c74267dd81"
-  revision 1
   head "https://github.com/apache/spark.git"
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on :java => "1.8"
 
   def install
     # Rename beeline to distinguish it from hive's beeline
@@ -19,7 +18,7 @@ class ApacheSpark < Formula
     rm_f Dir["bin/*.cmd"]
     libexec.install Dir["*"]
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
