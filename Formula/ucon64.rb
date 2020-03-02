@@ -11,6 +11,9 @@ class Ucon64 < Formula
     sha256 "30d2d85dba7891d5eb5b43c69c5b6ac0ad0606d279c6a30e254f6ffd819356f8" => :high_sierra
   end
 
+  uses_from_macos "unzip" => [:build, :test]
+  uses_from_macos "zlib"
+
   resource "super_bat_puncher_demo" do
     url "http://morphcat.de/superbatpuncher/Super%20Bat%20Puncher%20Demo.zip"
     sha256 "d74cb3ba11a4ef5d0f8d224325958ca1203b0d8bb4a7a79867e412d987f0b846"

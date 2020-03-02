@@ -23,6 +23,9 @@ class Wireshark < Formula
   depends_on "lua@5.1"
   depends_on "nghttp2"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     args = std_cmake_args + %W[
       -DENABLE_CARES=ON

@@ -20,6 +20,7 @@ class Yaz < Formula
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
+
   uses_from_macos "libxml2"
 
   def install

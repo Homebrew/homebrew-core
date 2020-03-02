@@ -23,6 +23,8 @@ class Znc < Formula
   depends_on "openssl@1.1"
   depends_on "python"
 
+  uses_from_macos "zlib"
+
   def install
     ENV.cxx11
     # These need to be set in CXXFLAGS, because ZNC will embed them in its

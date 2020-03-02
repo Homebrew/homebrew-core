@@ -14,6 +14,8 @@ class Unbound < Formula
   depends_on "libevent"
   depends_on "openssl@1.1"
 
+  uses_from_macos "expat"
+
   def install
     args = %W[
       --prefix=#{prefix}

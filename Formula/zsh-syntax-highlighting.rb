@@ -13,6 +13,8 @@ class ZshSyntaxHighlighting < Formula
     sha256 "6b7d4cdc41b56c842a4b76f9901d922d1f39bd638e94249881078a873de8970b" => :high_sierra
   end
 
+  uses_from_macos "zsh"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end

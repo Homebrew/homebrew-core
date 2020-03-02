@@ -15,6 +15,8 @@ class YleDl < Formula
   depends_on "python"
   depends_on "rtmpdump"
 
+  uses_from_macos "libxslt"
+
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
     # Check if there are bugfixes at https://github.com/K-S-V/Scripts/commits/master/AdobeHDS.php

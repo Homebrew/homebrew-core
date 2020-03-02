@@ -14,6 +14,8 @@ class Zork < Formula
     sha256 "cb1076cd985679e6d9d093f4887c95bc7f0eb046c2799ec5000611703f428d47" => :yosemite
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "DATADIR=#{share}", "BINDIR=#{bin}"
     system "make", "install", "DATADIR=#{share}", "BINDIR=#{bin}", "MANDIR=#{man}"

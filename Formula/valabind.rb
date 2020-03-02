@@ -18,6 +18,9 @@ class Valabind < Formula
   depends_on "swig"
   depends_on "vala"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"

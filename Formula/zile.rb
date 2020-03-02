@@ -18,6 +18,8 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

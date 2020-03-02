@@ -14,6 +14,8 @@ class Upx < Formula
 
   depends_on "ucl" => :build
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "all"
     bin.install "src/upx.out" => "upx"

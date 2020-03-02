@@ -19,6 +19,8 @@ class VorbisTools < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
+  uses_from_macos "curl"
+
   def install
     # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
     # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK

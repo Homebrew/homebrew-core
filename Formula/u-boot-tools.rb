@@ -13,6 +13,9 @@ class UBootTools < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "make", "sandbox_defconfig"
     system "make", "tools"

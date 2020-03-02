@@ -25,6 +25,9 @@ class Weechat < Formula
   depends_on "python"
   depends_on "ruby"
 
+  uses_from_macos "curl"
+  uses_from_macos "tcl-tk"
+
   def install
     args = std_cmake_args + %W[
       -DENABLE_MAN=ON

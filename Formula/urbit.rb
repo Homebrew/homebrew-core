@@ -21,6 +21,9 @@ class Urbit < Formula
   depends_on "libuv"
   depends_on "openssl@1.1"
 
+  uses_from_macos "curl"
+  uses_from_macos "ncurses"
+
   def install
     system "./scripts/build"
     bin.install "build/urbit"

@@ -36,6 +36,8 @@ class Vips < Formula
   depends_on "poppler"
   depends_on "webp"
 
+  uses_from_macos "curl"
+
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["mozjpeg"].opt_lib/"pkgconfig"

@@ -15,6 +15,8 @@ class Wdiff < Formula
 
   depends_on "gettext"
 
+  uses_from_macos "ncurses"
+
   conflicts_with "montage", :because => "Both install an mdiff executable"
 
   def install
