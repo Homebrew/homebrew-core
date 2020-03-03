@@ -6,10 +6,9 @@ class GoStatik < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f746f843baa189a6c418fbd0ab441e5fce4cadfaa3b85cb10b694b55a144d3b" => :catalina
-    sha256 "4e347596a83f169bdb0b72cd81d69ea275966fead97f7decb67c873380c179b8" => :mojave
-    sha256 "4ec52d9626abcbb07f25640c9ecec4e620faa9ee619f6f289f172aa7bc509590" => :high_sierra
-    sha256 "e0e8c356eb1ed32cf074d4abfa81fd8fa9d6d8dfb7c7724c696a521f974a3b44" => :sierra
+    sha256 "923729f442bef89c09fc9818c4f2ff1689a099b7519285372d7f5448e5b88fcc" => :catalina
+    sha256 "3834b8aa037b4e5b84caaa68aa6170f482869e73098af131f0a93b0e4dba3454" => :mojave
+    sha256 "79b923320dfeb847b229ee880cd8aa1c11a77026d6070bb33ebaee1d76b67198" => :high_sierra
   end
 
   depends_on "go" => :build
