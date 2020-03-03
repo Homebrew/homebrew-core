@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v0.5.7.tar.gz"
-  sha256 "a1185de36b27bb9831a172b70e60f741aeaa774682f3ac4bccb9df45734f8b5b"
+  url "https://github.com/cli/cli/archive/v0.6.0.tar.gz"
+  sha256 "1d298968f3e93ac5ffa5d36f003ce005f784f5a3fa66552bfd14fe88cfc68274"
 
   bottle do
     cellar :any_skip_relocation
