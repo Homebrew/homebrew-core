@@ -24,6 +24,7 @@ class Cmus < Formula
   depends_on "mad"
   depends_on "mp4v2"
   depends_on "opusfile"
+  depends_on "pulseaudio" => :optional
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}"
