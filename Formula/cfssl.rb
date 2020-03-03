@@ -3,6 +3,7 @@ class Cfssl < Formula
   homepage "https://cfssl.org/"
   url "https://github.com/cloudflare/cfssl/archive/v1.4.1.tar.gz"
   sha256 "c8a86ef10cbb0c168f3b597db15b31f98b170edb7958f7154edeb29aee41315e"
+  revision 1
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
@@ -17,15 +18,12 @@ class Cfssl < Formula
   depends_on "libtool"
 
   def install
-    ENV["GOPATH"] = buildpath
-    cfsslpath = buildpath/"src/github.com/cloudflare/cfssl"
-    cfsslpath.install Dir["{*,.git}"]
-    ldflags = "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"
-    cd "src/github.com/cloudflare/cfssl" do
-      system "go", "build", "-o", "#{bin}/cfssl", "-ldflags", ldflags, "cmd/cfssl/cfssl.go"
-      system "go", "build", "-o", "#{bin}/cfssljson", "-ldflags", ldflags, "cmd/cfssljson/cfssljson.go"
-      system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
-    end
+    ldflags = ["-s", "-w",
+               "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"]
+
+    system "go", "build", "-o", "#{bin}/cfssl", "-ldflags", ldflags, "cmd/cfssl/cfssl.go"
+    system "go", "build", "-o", "#{bin}/cfssljson", "-ldflags", ldflags, "cmd/cfssljson/cfssljson.go"
+    system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
   end
 
   def caveats; <<~EOS
