@@ -1,8 +1,8 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.17.2.tar.gz"
-  sha256 "e503f396b82471a42478c10621855e2de905de5c13a2700db601b00d4513971c"
+  url "https://github.com/open-policy-agent/opa/archive/v0.17.3.tar.gz"
+  sha256 "998e6af2ed46f30324e004e075bd18ed9918159de6ddf4ac19ff2b2972ead9fb"
 
   bottle do
     cellar :any_skip_relocation
