@@ -1,11 +1,10 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "http://liblouis.org"
-  revision 1
 
   stable do
-    url "https://github.com/liblouis/liblouis/releases/download/v3.12.0/liblouis-3.12.0.tar.gz"
-    sha256 "87d9bad6d75916270bad14bb22fa5f487c7edee4774878c04bef82833bc9467d"
+    url "https://github.com/liblouis/liblouis/releases/download/v3.13.0/liblouis-3.13.0.tar.gz"
+    sha256 "2803b89a2bff9f02032125fa7b7d0a204a60d8d14f232242344b5f09535e9a01"
     depends_on "help2man" => :build
     depends_on "pkg-config" => :build
     depends_on "python@3.8"
