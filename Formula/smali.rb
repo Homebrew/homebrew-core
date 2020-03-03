@@ -6,9 +6,9 @@ class Smali < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1c7681f60d45b5f7136c0c7d2c5a83c7bf633e8b804b05bf0ae03d54e771718" => :catalina
-    sha256 "261b6ac2d6ec76698c3d5412774297a997e915bbff7428a3dcba894e4ff6dbac" => :mojave
-    sha256 "653de129bfac3a35e0b32dc84c934e8058ee9ba40c0a42a1bf9c3c7ed5ffdb09" => :high_sierra
+    sha256 "efa9c4eae8301de352ce02cb8180a8e21c4df6e6aaf080e9dfd7ec493a1467ba" => :catalina
+    sha256 "cd91042aa24ff1f209ce3b4461114f9c2cfb773df77258a029449873e2eab9ed" => :mojave
+    sha256 "3c6001a0005d2b80c5e646a0823cc48cd752f9ad37e9badc50d3d100a0a88885" => :high_sierra
   end
 
   depends_on "gradle" => :build
