@@ -5,10 +5,9 @@ class Enchant < Formula
   sha256 "c7b5e2853f0dd0b1aafea2f9e071941affeec3a76df8e3f6d67a718c89293555"
 
   bottle do
-    sha256 "d5eedc2985d47ad2c68fc02920ce159ffed812dbe21a0798a0c19b9c764b73e0" => :catalina
-    sha256 "31b8df7f3a7c9000a9172a08e95563e4c0aa5eff9166d5908637adea3f3853c4" => :mojave
-    sha256 "5175504ba38adc84dc8b0eb756270de9509c0702aca2eafc399a237bba67cb0b" => :high_sierra
-    sha256 "cbdd497839d06d13c0457ae4ce827bcdbc85e976902598b39fae14821cc1a3b9" => :sierra
+    sha256 "d469967da67083b5cc8bc487abecda421ee2e325b96e39fde1c7e8679c58b0c7" => :catalina
+    sha256 "ec8877a36d41989ae3bd3c532908017c4f4b959956777c6098bcd5e305d22b51" => :mojave
+    sha256 "b2fb985de774158cad73461be089bf6734bc096f0060c7b6cb2eed2016ed273b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
