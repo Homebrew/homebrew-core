@@ -7,9 +7,9 @@ class Imgproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "57a5c9eaab8d1c879408e0f913881122d43ed3c83101778fc33f56b019eaac58" => :catalina
-    sha256 "07e603c33c881326331adc0c46922f5ce2921d20ca8d150597c5c252a0270c8b" => :mojave
-    sha256 "faed3f667fab354d93587f6464a206dfa825a96e392dcb2c34240becaf19a289" => :high_sierra
+    sha256 "00ccc578f8e285ea971dfb62b89c42f8a47ed889c64ced5f0e8560812ab0c339" => :catalina
+    sha256 "5d8239fa9fdf86460c52eebd7c23df2b94a227c3311bdd21c6d81e98c6ce5d58" => :mojave
+    sha256 "e5b06fe37914f6a412f5c324c3d69649320abf53893d69f35c8b5f296e790a8b" => :high_sierra
   end
 
   depends_on "go" => :build
