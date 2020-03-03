@@ -1,9 +1,9 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2020-01-01.tar.gz"
-  version "20200101"
-  sha256 "7509a34636b7dd2966f7a34440cee1153983fd61a4bf8f759a4f7781b9ceebaf"
+  url "https://github.com/google/re2/archive/2020-03-03.tar.gz"
+  version "20200303"
+  sha256 "04ee2aaebaa5038554683329afc494e684c30f82f2a1e47eb62450e59338f84d"
   head "https://github.com/google/re2.git"
 
   bottle do
@@ -17,9 +17,9 @@ class Re2 < Formula
     ENV.cxx11
 
     system "make", "install", "prefix=#{prefix}"
-    MachO::Tools.change_dylib_id("#{lib}/libre2.0.0.0.dylib", "#{lib}/libre2.0.dylib")
-    lib.install_symlink "libre2.0.0.0.dylib" => "libre2.0.dylib"
-    lib.install_symlink "libre2.0.0.0.dylib" => "libre2.dylib"
+    MachO::Tools.change_dylib_id("#{lib}/libre2.6.0.0.dylib", "#{lib}/libre2.0.dylib")
+    lib.install_symlink "libre2.6.0.0.dylib" => "libre2.0.dylib"
+    lib.install_symlink "libre2.6.0.0.dylib" => "libre2.dylib"
   end
 
   test do
