@@ -15,12 +15,7 @@ class Scons < Formula
   depends_on "python@3.8"
 
   def install
-    Dir["**/*"].each do |f|
-      next unless File.file?(f)
-      next unless File.read(f).include?("/usr/bin/env python")
-
-      inreplace f, %r{#! ?/usr/bin/env python}, "#! #{Formula["python@3.8"].opt_bin/"python3"}"
-    end
+    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
 
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
     system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install",
