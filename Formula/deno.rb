@@ -2,7 +2,6 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno/releases/download/v0.34.0/deno_src.tar.gz"
-  version "0.34.0"
   sha256 "e6439e04b6df8db8d5192f98ee89c7d3ba9e966816fc7bf0d46cb52dc2e797aa"
 
   bottle do
@@ -17,6 +16,11 @@ class Deno < Formula
   depends_on "rust" => :build
 
   depends_on :xcode => ["10.0", :build] # required by v8 7.9+
+
+  # Does not work with Python 3
+  # https://github.com/denoland/deno/issues/2893
+  uses_from_macos "python@2"
+  uses_from_macos "xz"
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
