@@ -1,9 +1,8 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/6.4.5.tar.gz"
-  sha256 "86921fdb0fe54495a79d5af2c96f2c771098c31e9b352d0834230fd2799ad362"
-  revision 5
+  url "https://github.com/jtv/libpqxx/archive/7.0.4.tar.gz"
+  sha256 "b56b441eb49755b39f0ba194b81047f7596540ee23c1caa8aa1b963f1bded9f5"
 
   bottle do
     cellar :any
@@ -20,6 +19,7 @@ class Libpqxx < Formula
   def install
     ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
+    ENV.append "CXXFLAGS", "-std=c++17"
 
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
     system "make", "install"
@@ -33,7 +33,7 @@ class Libpqxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lpqxx",
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lpqxx",
            "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no runnning postgresql server
     # system "./test"
