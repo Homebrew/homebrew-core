@@ -8,9 +8,9 @@ class Babel < Formula
   sha256 "2df1c0b546be24908cc60e4df52d51c726caf23986941e2a9997739f46e72ea0"
 
   bottle do
-    sha256 "00c05ad04b5ca39c7b9778deae665b9c0412433500edf2aa7dabd0cc18038a3c" => :catalina
-    sha256 "da1fdfca1beeb17ddce0d49d2f7a8d325a5997536adbe8a7e837d4c42c6cc702" => :mojave
-    sha256 "89c74232851bb72edb317bb4fb399bb4b3ead7af57cba92dca8804fc5a247d27" => :high_sierra
+    sha256 "a8cce2b8d6fae4c2ca15f5b43fc341ee709d470b1d2b6ee2c1e9f51b57ebb811" => :catalina
+    sha256 "cbe3831e019e6c42793d76aacd7ef53e6e8e05c1ab57659973c29f42fa16a7bb" => :mojave
+    sha256 "2f0be893881e4262618b5ef50a9c4783862969421c75ea689e3e7321de7bc26a" => :high_sierra
   end
 
   depends_on "node"
