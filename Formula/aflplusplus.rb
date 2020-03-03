@@ -5,12 +5,11 @@ class Aflplusplus < Formula
   sha256 "cde181ac733aa3a1212ffcb494bb9306a2086c7521fb006719b0e15cd8015c63"
 
   depends_on "automake" => :build
-  depends_on "wget" => :build
 
   conflicts_with "afl-fuzz"
 
   def install
-    system "make", "distrib", "PREFIX=#{prefix}"
+    system "make", "source-only", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
