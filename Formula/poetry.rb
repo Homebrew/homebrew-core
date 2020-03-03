@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/eb/98/a598bb2663e0e43557a99a243ebd21b27b1fc07d2c146b2554aa45ace5dc/poetry-1.0.3.tar.gz"
-  sha256 "60a079b1c1d8a4f1538d28ee8d1bf79a5d0eae96f497fdae9512eb3c1f8da13b"
+  url "https://files.pythonhosted.org/packages/2c/79/7fc6e1ac5ebff02e39f24a17ddf56ef6370797a8371e6cfc5c7b56d3a1ea/poetry-1.0.5.tar.gz"
+  sha256 "8e195ea8a4bce4f418a23fd828aa2f9ce06be7655720efd1d95beb0ee641030a"
 
   bottle do
     cellar :any_skip_relocation
@@ -46,8 +46,8 @@ class Poetry < Formula
   end
 
   resource "clikit" do
-    url "https://files.pythonhosted.org/packages/f5/08/931c67dd473d32783c1efdb8f54a9797d87b86a568b418bcb83eb9559393/clikit-0.4.1.tar.gz"
-    sha256 "8ae4766b974d7b1983e39d501da9a0aadf118a907a0c9b50714d027c8b59ea81"
+    url "https://files.pythonhosted.org/packages/17/c1/72bb34dcb120d32850543389e8d40b5bacba447152832569ba081113f003/clikit-0.4.2.tar.gz"
+    sha256 "f67336462800078e0896cf6ecfa3b460dfea4dfa01de659388a4ff0d83c8d6ca"
   end
 
   resource "html5lib" do
@@ -56,8 +56,8 @@ class Poetry < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
+    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
   end
 
   # importlib-metadata<1.2.0,>=1.1.3
@@ -88,14 +88,13 @@ class Poetry < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/74/0a/de673c1c987f5779b65ef69052331ec0b0ebd22958bda77a8284be831964/msgpack-0.6.2.tar.gz"
-    sha256 "ea3c2f859346fcd55fc46e96885301d9c2f7a36d453f5d8f2967840efa1e1830"
+    url "https://files.pythonhosted.org/packages/e4/4f/057549afbd12fdd5d9aae9df19a6773a3d91988afe7be45b277e8cee2f4d/msgpack-1.0.0.tar.gz"
+    sha256 "9534d5cc480d4aff720233411a1f765be90885750b07df772380b34c10ecb5c0"
   end
 
-  # 'pastel<0.2.0,>=0.1.0' distribution was not found and is required by clikit
   resource "pastel" do
-    url "https://files.pythonhosted.org/packages/88/f4/848a64c39b19d421b28467d799768860eb19add127ac8eafafafb9e90998/pastel-0.1.1.tar.gz"
-    sha256 "bf3b1901b2442ea0d8ab9a390594e5b0c9584709d543a3113506fe8b28cbace3"
+    url "https://files.pythonhosted.org/packages/c9/c8/aa23c18b1b811b1907f06b1556d39213982675dd2a2e72493d20fe2b6a57/pastel-0.2.0.tar.gz"
+    sha256 "46155fc523bdd4efcd450bbcb3f2b94a6e3b25edc0eb493e081104ad09e1ca36"
   end
 
   resource "pexpect" do
@@ -130,8 +129,8 @@ class Poetry < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
   end
 
   # requests-toolbelt<0.9.0,>=0.8.0
@@ -140,6 +139,7 @@ class Poetry < Formula
     sha256 "f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
   end
 
+  # sdist for 1.3.2 has no setup.py file
   resource "shellingham" do
     url "https://files.pythonhosted.org/packages/1b/82/52b4facd501d1cdfee1f2b3aa6092dc0ee6c07baf78692f9035adb1357da/shellingham-1.3.1.tar.gz"
     sha256 "985b23bbd1feae47ca6a6365eacd314d93d95a8a16f8f346945074c28fe6f3e0"
@@ -151,8 +151,8 @@ class Poetry < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/20/e9/bae28bcfcb9942600b1e206d013499c291367ee8ddf9f455ff54729bc6e4/tomlkit-0.5.8.tar.gz"
-    sha256 "32c10cc16ded7e4101c79f269910658cc2a0be5913f1252121c3cd603051c269"
+    url "https://files.pythonhosted.org/packages/53/10/1f1186fcd453d10254450a7e947e92e6dbb0bf1418484aa4da2829be44f9/tomlkit-0.5.11.tar.gz"
+    sha256 "f044eda25647882e5ef22b43a1688fb6ab12af2fc50e8456cdfc751c873101cf"
   end
 
   resource "urllib3" do
@@ -165,10 +165,9 @@ class Poetry < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  # 'zipp>=0.5' distribution was not found and is required by importlib-metadata
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/57/dd/585d728479d97d25aeeb9aa470d36a4ad8d0ba5610f84e14770128ce6ff7/zipp-0.6.0.tar.gz"
-    sha256 "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e"
+    url "https://files.pythonhosted.org/packages/78/08/d52f0ea643bc1068d6dc98b412f4966a9b63255d20911a23ac3220c033c4/zipp-1.2.0.tar.gz"
+    sha256 "c70410551488251b0fee67b460fb9a536af8d6f9f008ad10ac51f615b6a521b1"
   end
 
   def install
