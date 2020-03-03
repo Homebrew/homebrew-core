@@ -8,9 +8,9 @@ class HgFastExport < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e205898991d6d4befff9295792a2d0e87cde9f24b02ad75ce2b6c43b17619e14" => :catalina
-    sha256 "6a408b86b22768b990daf8d2d55c2767cfd93cc1208e5f1c322aa2d19e310a14" => :mojave
-    sha256 "7ee154d85bb7a2ec5c45cb394296282a55f62b741b6434a68a1e966a7009a69d" => :high_sierra
+    sha256 "88cbf330f7c043f1e36f00e8bded4624ec510ca5d825e0be1f1805520f893238" => :catalina
+    sha256 "b308363b65517f560f935ba4a2ffcbba80f69d42d79788b83935518552b95138" => :mojave
+    sha256 "1da8e73f749516b112815209ab914d1929820004db9d91170d99666f993e15a8" => :high_sierra
   end
 
   uses_from_macos "python@2" # does not support Python 3
