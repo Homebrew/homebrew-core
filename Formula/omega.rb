@@ -5,9 +5,9 @@ class Omega < Formula
   sha256 "c3112b920809a42a3b63ccaa17425b9a2f55f9a06a5091c402455fcf347fc3d2"
 
   bottle do
-    sha256 "9b728b5bbc02212b6f0121db7275f563b5ec69241fceac5129f56e9077ea90f2" => :catalina
-    sha256 "bb7b70cb7e9c92e6174226d93483fa1d04f73c47a3da9370231ef0424066054c" => :mojave
-    sha256 "b39bad45e77fb4bed15f3c6256604dbd70ea8d757c8825bd4fd245ef8266aaba" => :high_sierra
+    sha256 "74c6765d98613554c318770837e011e15ddb3ac9c0ab89ea9daf5222cadfb442" => :catalina
+    sha256 "b63722eb7af499fbf5a9d18000e73140f6e678f6b74b392ba211a28d9c927537" => :mojave
+    sha256 "fea9fe989568f59aeedd52eb6b0c39c26cb15f01eeb1b3013a79e14c0dee7c1f" => :high_sierra
   end
 
   depends_on "libmagic"
