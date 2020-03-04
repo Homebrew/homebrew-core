@@ -46,6 +46,10 @@ class Rsyslog < Formula
     system "make", "install"
   end
 
+  def post_install
+    mkdir_p var/"run"
+  end
+
   plist_options :manual => "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
 
   def plist; <<~EOS
