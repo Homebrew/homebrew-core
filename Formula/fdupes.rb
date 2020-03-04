@@ -1,8 +1,8 @@
 class Fdupes < Formula
   desc "Identify or delete duplicate files"
   homepage "https://github.com/adrianlopezroche/fdupes"
-  url "https://github.com/adrianlopezroche/fdupes/archive/v1.6.1.tar.gz"
-  sha256 "9d6b6fdb0b8419815b4df3bdfd0aebc135b8276c90bbbe78ebe6af0b88ba49ea"
+  url "https://github.com/adrianlopezroche/fdupes/releases/download/2.0.0/fdupes-2.0.0.tar.gz"
+  sha256 "eb9e3bd3e722ebb2a272e45a1073f78c60f8989b151c3661421b86b14b203410"
   version_scheme 1
 
   bottle do
@@ -16,11 +16,14 @@ class Fdupes < Formula
     sha256 "ce706b289e019a30c4d07a307ae2c5c10ef1b886e4ee8e5e62f7275a9213a370" => :yosemite
   end
 
+  depends_on "pcre2"
+
+  uses_from_macos "ncurses"
+
   def install
-    inreplace "Makefile", "gcc", "#{ENV.cc} #{ENV.cflags}"
-    system "make", "fdupes"
-    bin.install "fdupes"
-    man1.install "fdupes.1"
+    system "./configure", "--prefix=#{prefix}"
+    system "make"
+    system "make", "install"
   end
 
   test do
