@@ -6,14 +6,10 @@ class Fdupes < Formula
   version_scheme 1
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "461c8de0f269c38289159a5b41935a788955bff38fdc7c104108c9e3dfac22ea" => :catalina
-    sha256 "69dcc3c64c3debb7f3b927e16fc6e7e2250c4c35db280a8fd97315fcc48628a4" => :mojave
-    sha256 "2ca42f56f5b4e48a4a51cf9687108eb2ebbbf43ce610596d4420be1a68f1ec1b" => :high_sierra
-    sha256 "4838e3104ea06e61d7acce5f482ff80bae1d634f29a1edd44e388b9f8c63f19b" => :sierra
-    sha256 "b0b7afcd64459cfc3c2bb95ac92e1aa7f6531fbf05603e472c97c5d4e72c94b7" => :el_capitan
-    sha256 "ce706b289e019a30c4d07a307ae2c5c10ef1b886e4ee8e5e62f7275a9213a370" => :yosemite
+    cellar :any
+    sha256 "f23e032f6c62aabb8a3a5935286363f4b5f805a2e9126612c551f6e8bf9c4105" => :catalina
+    sha256 "b8729a91b857ff0f5b314350471434dcad1918a1bb6bd555b6fe41cb1a355ab7" => :mojave
+    sha256 "44f3f184a04ac478d4b49e25886a50f24853f9ef52058d94f331ee6a71006727" => :high_sierra
   end
 
   depends_on "pcre2"
