@@ -6,13 +6,9 @@ class H264bitstream < Formula
 
   bottle do
     cellar :any
-    sha256 "4b90423bfea6663a9bfacca42403f9cd2f4f5002db79aa04cdee8a80358c11ae" => :catalina
-    sha256 "c085b29b8aba3d0a8b80a4bd94292cfdc01af1a19cdcadc5d7394923ab28f632" => :mojave
-    sha256 "b671d3f1f37da9a1e095c82cb3cc0229945f202957c36656a49b625e230e1854" => :high_sierra
-    sha256 "5542dfab9f67f04540bf57c72720eaaf48a17ebdc20020a7c6b61ee64d41d0c2" => :sierra
-    sha256 "cb603960e6eb5ab5f78cc41546c6c4f1bdf53f07fcf7c7af7c4e714ad4b14dce" => :el_capitan
-    sha256 "3989d4b3baa711dd6e4db74d74be519ef6661f8e93d62e258252f932f7d6699e" => :yosemite
-    sha256 "f26e8535f5007317aeda05e886453604c97abc0e0892ce6975fee09a7900c1f8" => :mavericks
+    sha256 "ac1f452b4c4d4d90310ec1f3cd9ec45271665604844dca55df3f7a91885d28d7" => :catalina
+    sha256 "ebe66ef0a10e2afacf2b418eb15aa57ed873c6df73d6da71b6252efce8c15a5e" => :mojave
+    sha256 "191acedb64e2ab618696fe16c55b81cdadb9819a0b0fc594235d31a28a1cdf96" => :high_sierra
   end
 
   depends_on "autoconf" => :build
