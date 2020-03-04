@@ -3,7 +3,7 @@ class Passenger < Formula
   homepage "https://www.phusionpassenger.com/"
   url "https://github.com/phusion/passenger/releases/download/release-6.0.4/passenger-6.0.4.tar.gz"
   sha256 "ec1e4b555c176642c1c316897177d54b6f7d369490280e8ee3e54644e40b250b"
-  revision 4
+  revision 5
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
