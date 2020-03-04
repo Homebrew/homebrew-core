@@ -3,6 +3,7 @@ class Proteinortho < Formula
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
   url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.14/proteinortho-v6.0.14.tar.gz"
   sha256 "b7653d3b5f71331154625c3d4a62a1ebaf1fa24c77f4e2f3f99fc8c08fe3c743"
+  revision 1
 
   bottle do
     cellar :any
