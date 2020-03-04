@@ -3,6 +3,7 @@ class NumpyAT116 < Formula
   homepage "https://www.numpy.org/"
   url "https://github.com/numpy/numpy/releases/download/v1.16.6/numpy-1.16.6.zip"
   sha256 "e5cf3fdf13401885e8eea8170624ec96225e2174eb0c611c6f26dd33b489e3ff"
+  revision 1
 
   bottle do
     cellar :any
