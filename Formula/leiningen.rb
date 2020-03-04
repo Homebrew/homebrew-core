@@ -1,8 +1,8 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.9.1.tar.gz"
-  sha256 "a4c239b407576f94e2fef5bfa107f0d3f97d0b19c253b08860d9609df4ab8b29"
+  url "https://github.com/technomancy/leiningen/archive/2.9.2.tar.gz"
+  sha256 "da49422cef0bd2df58421d291ce948addd1ddad36e1c59487c3c6ff3b85cfa18"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
@@ -14,8 +14,8 @@ class Leiningen < Formula
   end
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.1/leiningen-2.9.1-standalone.zip", :using => :nounzip
-    sha256 "ea7c831a4f5c38b6fc3926c6ad32d1d4b9b91bf830a715ecff5a70a18bda55f8"
+    url "https://github.com/technomancy/leiningen/releases/download/2.9.2/leiningen-2.9.2-standalone.zip", :using => :nounzip
+    sha256 "09805bd809656794cfe7d9155fd4b8bea2646092318690bf68e3c379574a2d3c"
   end
 
   def install
