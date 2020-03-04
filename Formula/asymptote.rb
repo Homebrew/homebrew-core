@@ -5,9 +5,9 @@ class Asymptote < Formula
   sha256 "8091fe58e8a7eb42dd7c697e5632cfbc1532c0bbf6d5016a755db44fe7af96f4"
 
   bottle do
-    sha256 "64b808892251efca9174dedbca7c7053771d5f6ea84777562a6a92275ba1b50f" => :catalina
-    sha256 "ee051fe8dd1b6162d5686c0a0f8a0fc9dd6268c7befc72952721f6f6ab5f7413" => :mojave
-    sha256 "cc10a84f49fd48428e79d8f5792335c5b4f4dcf51be79c1a013f946321c7e82d" => :high_sierra
+    sha256 "f9533fe2de225a68b658fe63e382ee52e335875cfbddf7b7ca641ad226615338" => :catalina
+    sha256 "1c2ccd8c1686f5af101412ac87f81213d7294f2f97e0939307af52aa870a2b37" => :mojave
+    sha256 "164c6a5ed383dbd4c7ceee488ebc1623e65faefcba8090a6a07619c8f8488eb4" => :high_sierra
   end
 
   depends_on "fftw"
