@@ -1,8 +1,8 @@
 class Keydb < Formula
   desc "Multithreaded fork of Redis"
   homepage "https://keydb.dev"
-  url "https://github.com/JohnSully/KeyDB/archive/v5.3.1.tar.gz"
-  sha256 "4c02ade4ba9701ab7235d95c6f2d884957620da03523808c12ba3beeb355387a"
+  url "https://github.com/JohnSully/KeyDB/archive/v5.3.2.tar.gz"
+  sha256 "ed63e45889da4bec3cf1cc53e213c1d2f5b5569e079cb3f22dfe0c49cea1166b"
 
   bottle do
     cellar :any_skip_relocation
