@@ -5,6 +5,7 @@ class Poetry < Formula
   homepage "https://python-poetry.org/"
   url "https://files.pythonhosted.org/packages/2c/79/7fc6e1ac5ebff02e39f24a17ddf56ef6370797a8371e6cfc5c7b56d3a1ea/poetry-1.0.5.tar.gz"
   sha256 "8e195ea8a4bce4f418a23fd828aa2f9ce06be7655720efd1d95beb0ee641030a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -173,18 +174,29 @@ class Poetry < Formula
   def install
     xy = Language::Python.major_minor_version "python3"
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    site_packages = libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", site_packages
     system "python3", *Language::Python.setup_install_args(libexec)
 
-    bin.install libexec/"bin/poetry"
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    (bin/"poetry").write <<~PYTHON
+      #!#{Formula["python"].opt_bin/"python3"}
+      import sys
+
+      sys.path.insert(0, "#{site_packages}")
+      sys.path.insert(0, "#{vendor_site_packages}")
+
+      if __name__ == "__main__":
+          from poetry.console import main
+          main()
+    PYTHON
   end
 
   test do
