@@ -1,8 +1,8 @@
 class Radamsa < Formula
   desc "Test case generator for robustness testing (a.k.a. a \"fuzzer\")"
   homepage "https://github.com/aoh/radamsa"
-  url "https://github.com/aoh/radamsa/releases/download/v0.5/radamsa-0.5.tar.gz"
-  sha256 "e21a86aa6dca7e4619085fc60fb664d0a1bd067ca6ebfbcb16ab2d57c8854cb4"
+  url "https://gitlab.com/akihe/radamsa/-/archive/v0.6/radamsa-v0.6.tar.gz"
+  sha256 "a68f11da7a559fceb695a7af7035384ecd2982d666c7c95ce74c849405450b5e"
 
   bottle do
     cellar :any_skip_relocation
