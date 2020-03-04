@@ -6,9 +6,9 @@ class Cglm < Formula
 
   bottle do
     cellar :any
-    sha256 "d03dbd49ca7c4eaf65c79d8baf9ba9bdba80b09282022ad7677cc4d80cc07cb3" => :catalina
-    sha256 "eae499b98f846f8e48609ee12055b69297eef0d84baecb1baca0683211652d5a" => :mojave
-    sha256 "6184f901f7835a1fa00228d7e48951b12f8ae3c6be7c910c0786690134999778" => :high_sierra
+    sha256 "e3ee844dd6ee90eef23ad9bab0bf7b27ddd14673a861f997f564f7af29f67cc5" => :catalina
+    sha256 "c32e801f823de46bf1d72e711a5922eeef50d8b9832fcadc4d5aea616aadcb8d" => :mojave
+    sha256 "fd6887d4d8f6810490e6486ed6c8f706020f3bb11bcf7cedbb846cb05bd8ac4a" => :high_sierra
   end
 
   depends_on "autoconf" => :build
