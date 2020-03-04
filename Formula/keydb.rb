@@ -6,9 +6,9 @@ class Keydb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ecbd75e637fc40e8131a35c594b9a028634d55361df0ed83d310b2270c01b5a" => :catalina
-    sha256 "920ee8aede6c62432d4433fcda41855d4168c039b8e3948c96c38ed98f47d21b" => :mojave
-    sha256 "9a4b08c647a79c5e63e0e3d048cb879adf2b6ec2afe223019369486612cc4845" => :high_sierra
+    sha256 "af562aac5b3bdc1fd73a052b18ecc191e558e149fc874f9292edaccb58cb9ea2" => :catalina
+    sha256 "7ee213166db5963069cf66f1b364923e978ae5556741c9e2621103b02c51ce58" => :mojave
+    sha256 "5c889f1e756e3291a9ce8b9c96d5649e03c860d6cbf100fb015faf4ac964ec27" => :high_sierra
   end
 
   def install
