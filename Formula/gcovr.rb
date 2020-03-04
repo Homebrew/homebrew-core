@@ -7,11 +7,9 @@ class Gcovr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c1f761c118737ad2f786b20433f8ffb62344ed0449ba4c57d3316c1e87dace4" => :catalina
-    sha256 "375d5736d80f9843b2a77d86b365d123a472325c6c8cd3c68d065bce99d8c9bf" => :mojave
-    sha256 "b5b3a5c643c84b547e6c2ae0c9db6cba7d53a8a081e080eb1efefcfd1f95b211" => :high_sierra
-    sha256 "7cf8abff45bbea6e268fe4674c5f8ff2be1d4df413abf3068def0f07c2bc0c09" => :sierra
-    sha256 "8044508fa650772d5d00cd83a8eacebf0cd910b2ced77e693809dbb8a0fdcb34" => :el_capitan
+    sha256 "64f2de6af39af65e2da0fe0622cf72005110bdafcaecdfb71abd6253dc4cf9d5" => :catalina
+    sha256 "6a25bff0607c3ec6e8442a541dfae012678b046e5a1023efc22c5a5063300e1d" => :mojave
+    sha256 "182bbf76588334f06561c759dfdd7ded755f913293eb5da0fa2d7a9b53e6ee86" => :high_sierra
   end
 
   depends_on "python@3.8"
