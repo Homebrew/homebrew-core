@@ -1,8 +1,8 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig4c%2B%2B-1.9.5.src.tar.gz"
-  sha256 "20e72a5a07d1bf8baa649efe437b4d3ed99944f0e4dfc1fbe23bfbe4d9749ed5"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig4c%2B%2B-2.0.1.src.tar.gz"
+  sha256 "b72ff4b67db5491dbe0b795d9328f454cd6ad3d4ac163ce99e12bf5002ff2791"
 
   bottle do
     cellar :any
@@ -30,7 +30,7 @@ class Biosig < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-
+    ENV.deparallelize
     system "make"
     system "make", "install"
   end
