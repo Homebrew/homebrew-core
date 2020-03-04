@@ -3,6 +3,7 @@ class Boost < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
   sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -16,6 +17,15 @@ class Boost < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  # Fixes significant library search issues in the CMake scripts
+  # where it mixes single-threaded and multithreaded libraries.
+  # Remove with Boost 1.73.0.
+  patch do
+    url "https://github.com/boostorg/boost_install/compare/52ab9149544bae82e54f600303f5d6d1dda9a4f5...a1b5a477470ff9dc2e00f30be4ec4285583b33b6.patch?full_index=1"
+    sha256 "fb168dd2ddfa20983b565ead86d4355c6d6e3e49bce9c2c6ab7f6e9cd9350bd4"
+    directory "tools/boost_install"
+  end
 
   def install
     # Force boost to compile with the desired compiler
