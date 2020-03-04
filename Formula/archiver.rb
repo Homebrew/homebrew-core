@@ -8,16 +8,8 @@ class Archiver < Formula
   depends_on "go" => :build
 
   def install
-    # Don't set GOPATH because we want to build using go modules to
-    # ensure our dependencies are the ones specified in `go.mod`.
     ENV["CGO_ENABLED"] = "0"
-    mkdir_p buildpath
-    ln_sf buildpath, buildpath/"archiver"
-
-    cd "archiver" do
-      system "go", "build", "-o", bin/"arc",
-             "cmd/arc/main.go"
-    end
+    system "go", "build", "-trimpath", "-o", bin/"arc", "cmd/arc/main.go"
   end
 
   test do
