@@ -15,7 +15,12 @@ class ZshCompletions < Formula
     <<~EOS
       To activate these completions, add the following to your .zshrc:
 
-        fpath=(#{HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+        if type brew &>/dev/null; then
+          FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+          autoload -Uz compinit
+          compinit
+        fi
 
       You may also need to force rebuild `zcompdump`:
 
