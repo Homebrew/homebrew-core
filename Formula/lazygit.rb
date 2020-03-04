@@ -1,8 +1,8 @@
 class Lazygit < Formula
   desc "Simple terminal UI for git commands"
   homepage "https://github.com/jesseduffield/lazygit/"
-  url "https://github.com/jesseduffield/lazygit/archive/v0.16.tar.gz"
-  sha256 "51593353676c64de955775128e29d74365cdea4a9e946999fe6be8fb0b4c4268"
+  url "https://github.com/jesseduffield/lazygit/archive/v0.16.2.tar.gz"
+  sha256 "76c043e59afc403d7353cdb188ac6850ce4c4125412e291240c787b0187e71c6"
 
   bottle do
     cellar :any_skip_relocation
