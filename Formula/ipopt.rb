@@ -3,7 +3,7 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
-  revision 4
+  revision 5
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
