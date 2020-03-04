@@ -1,10 +1,11 @@
 class Psftools < Formula
   desc "Tools for fixed-width bitmap fonts"
   homepage "https://www.seasip.info/Unix/PSF/"
-  url "https://people.phys.ethz.ch/~myczko/debian/psftools/psftools_1.1.10.orig.tar.gz"
-  # Previous URL (upstream default URL) has changed checksum:
-  # https://www.seasip.info/Unix/PSF/psftools-1.1.10.tar.gz
-  sha256 "1bc03214a29c4fc461a7aa11b9a3debde419b1271fa5110273ded961774e2b6f"
+  # psftools-1.1.10.tar.gz (dated 2017) was a typo of 1.0.10 and has since been deleted.
+  # You may still find it on some mirrors but it should not be used.
+  url "https://www.seasip.info/Unix/PSF/psftools-1.0.13.tar.gz"
+  sha256 "9c61e6885dca2f9591b4aa5fe821e16d4779cd071c3a45ead326629f210def65"
+  version_scheme 1
 
   bottle do
     cellar :any
