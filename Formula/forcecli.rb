@@ -8,14 +8,7 @@ class Forcecli < Formula
   depends_on "go" => :build
 
   def install
-    # Don't set GOPATH because we want to build using go modules to
-    # ensure our dependencies are the ones specified in `go.mod`.
-    mkdir_p buildpath
-    ln_sf buildpath, buildpath/"force-cli"
-
-    cd "force-cli" do
-      system "go", "build", "-o", bin/"force", "main.go"
-    end
+    system "go", "build", "-trimpath", "-o", bin/"force"
   end
 
   test do
