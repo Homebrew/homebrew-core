@@ -21,7 +21,6 @@ class AzureStorageCpp < Formula
     system "cmake", "Microsoft.WindowsAzure.Storage",
                     "-DBUILD_SAMPLES=OFF",
                     "-DBUILD_TESTS=OFF",
-                    "-DBoost_USE_MULTITHREADED=ON",
                     *std_cmake_args
     system "make", "install"
   end
