@@ -4,6 +4,7 @@ class Nwchem < Formula
   url "https://github.com/nwchemgit/nwchem/releases/download/v7.0.0-release/nwchem-7.0.0-release.revision-2c9a1c7c-src.2020-02-26.tar.bz2"
   version "7.0.0"
   sha256 "1046e13a4c7f95860c8e8fac2b4d80657900ecd07a8242943d564048ce303514"
+  revision 1
 
   bottle do
     cellar :any
