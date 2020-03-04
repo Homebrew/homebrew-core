@@ -1,6 +1,6 @@
 class Radamsa < Formula
   desc "Test case generator for robustness testing (a.k.a. a \"fuzzer\")"
-  homepage "https://github.com/aoh/radamsa"
+  homepage "https://gitlab.com/akihe/radamsa"
   url "https://gitlab.com/akihe/radamsa/-/archive/v0.6/radamsa-v0.6.tar.gz"
   sha256 "a68f11da7a559fceb695a7af7035384ecd2982d666c7c95ce74c849405450b5e"
 
