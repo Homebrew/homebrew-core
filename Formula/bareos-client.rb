@@ -5,10 +5,9 @@ class BareosClient < Formula
   sha256 "688505f8bc45b919dfd1c8bdcd448b4bdbe1ea2d1755358a94d702e9aff8482b"
 
   bottle do
-    sha256 "7d69e52f214e7e5b8cf30e28ee49344165aea78837a4549b7699f01010b69dce" => :catalina
-    sha256 "d597282300909ac572b5047abc5a1840a5cdbac7a0dd3bc57e97cb5ab2e29c6d" => :mojave
-    sha256 "b8b3ba172f69be5c28656466d8225e4d4a02175e419666c205d98a6440323c28" => :high_sierra
-    sha256 "f4cb5ceaa5c0795aca38e6ced82cff2bee7c3ccfd6b83e7b49f161818e5c0e28" => :sierra
+    sha256 "afd57cdc34b88e67673ca416ca95bd10490a51ed4158ac503e41d42130eb4964" => :catalina
+    sha256 "da9c6752912285c42f35ef5cc75fc51cf51326dd80fe8eafb454fda5a522e585" => :mojave
+    sha256 "a3cc09799454c9387eef89150a48d6dabfa6f095f2b72b59094f0e5a0a4da4f1" => :high_sierra
   end
 
   depends_on "cmake" => :build
