@@ -6,9 +6,9 @@ class Biosig < Formula
 
   bottle do
     cellar :any
-    sha256 "59008e7ffe5f8049571860df04d2bc23389f7d7a206f0b3697c5469d8f189522" => :catalina
-    sha256 "9c1c605c039b453110165c83bff9eb159c554f0b224780c11f34e77d80626241" => :mojave
-    sha256 "40e3e75769bbbf7d0f09cf9a9d52e41d7a2fdb2c8b0c4217365b3d213ebdf06b" => :high_sierra
+    sha256 "7e856fea428089895b7957bb0dea53cb710f664f19ff170ec363144de8e8a052" => :catalina
+    sha256 "ebfbd5a26b263c2b36b6a1edc68baef3323e42258c9c249694c8327ea0b83bb8" => :mojave
+    sha256 "cd7c964993b7b18682119a7803ea5af1d7de0afec98069e8402529ca22c8b247" => :high_sierra
   end
 
   depends_on "gawk" => :build
