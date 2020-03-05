@@ -8,9 +8,9 @@ class Mmctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c858d0975d305ef2565b224a438e6f3900b30ffd9607afcffbb85d2e1157dd5" => :catalina
-    sha256 "6a8abf05c34c30965b5429bcb44ae30489cf7a28564efd8fe1e3639f3e419fcc" => :mojave
-    sha256 "63ee8b2dc5c704ea28d6bc87a81d3c31fb78b084adae489d616573d28cd435a8" => :high_sierra
+    sha256 "8305ed8770d1f84ed3bd5022a872e34b10ced136e6b11667be8afd9ae4552e78" => :catalina
+    sha256 "2ad46f59adc0624a21d8e58995915ac14b0c0d0285f4ec74cf1b64b0ab8c22dd" => :mojave
+    sha256 "81163ac683788d2f9d49913f20113bc1c50c39a9e68c3322314192390598b9cb" => :high_sierra
   end
 
   depends_on "go" => :build
