@@ -16,7 +16,9 @@ class AuroraCli < Formula
 
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there
-    ENV["PANTS_BINARIES_PATH_BY_ID"] = "{('darwin','15'):('mac','10.11'),('darwin','16'):('mac','10.12'),('darwin','17'):('mac','10.13'),('darwin','18'):('mac','10.13')}"
+    ENV["PANTS_BINARIES_PATH_BY_ID"] =
+      "{('darwin','15'):('mac','10.11'),('darwin','16'):('mac','10.12'),"\
+      "('darwin','17'):('mac','10.13'),('darwin','18'):('mac','10.13')}"
 
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora"
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora_admin"
