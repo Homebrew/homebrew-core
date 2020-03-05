@@ -7,9 +7,9 @@ class Libxkbcommon < Formula
 
   bottle do
     cellar :any
-    sha256 "3bb1cdd87e14a36a47ee65bab56c9182f772cdf1b9f4147bc2fe95f7a916a6d1" => :catalina
-    sha256 "d6ed444a792d3752ffa009f5211001be4689e6d8d1990597037143b8704f6d7d" => :mojave
-    sha256 "999abf2655e5bc7ec209937b02e8377e626f940e9f506c57e3d0e78436696cde" => :high_sierra
+    sha256 "4cdb1253e94b84d437d265c6e7c893c0bd4ab250de217c1326bc7192917dd53b" => :catalina
+    sha256 "d3f1d57e7ac3f00e3ddf5b95f24446ea09b254d880757ca928ab6f3873aad215" => :mojave
+    sha256 "d9faf6a0432c5c26d3245d401899ee7a4230eade04cdd36995fa49748d1a8a62" => :high_sierra
   end
 
   depends_on "bison" => :build
