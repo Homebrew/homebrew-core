@@ -36,7 +36,6 @@ class PythonAT38 < Formula
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
-
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7", "bin/pip-3.8"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7", "bin/easy_install-3.8"
 
