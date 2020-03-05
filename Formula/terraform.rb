@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.21.tar.gz"
-  sha256 "313f1fd527d9c2688c895e31be6cb43d817e01b4cf38511a413b26f4a602f44e"
+  url "https://github.com/hashicorp/terraform/archive/v0.12.23.tar.gz"
+  sha256 "fad34a55e4643313fe50168472e39c9468b7a4a37f8e81d9507adee210ea8e4b"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Terraform < Formula
     sha256 "1e6a06b503baf84d70ba84a03609ee100e0fc2065853c8d211215b1fe27f9dd3" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.13" => :build
   depends_on "gox" => :build
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
