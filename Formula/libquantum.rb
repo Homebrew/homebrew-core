@@ -1,8 +1,8 @@
 class Libquantum < Formula
   desc "C library for the simulation of quantum mechanics"
   homepage "http://www.libquantum.de/"
-  url "http://www.libquantum.de/files/libquantum-1.0.0.tar.gz"
-  sha256 "b0f1a5ec9768457ac9835bd52c3017d279ac99cc0dffe6ce2adf8ac762997b2c"
+  url "http://www.libquantum.de/files/libquantum-1.1.1.tar.gz"
+  sha256 "d8e3c4407076558f87640f1e618501ec85bc5f4c5a84db4117ceaec7105046e5"
 
   bottle do
     cellar :any_skip_relocation
