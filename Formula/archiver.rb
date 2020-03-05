@@ -8,7 +8,6 @@ class Archiver < Formula
   depends_on "go" => :build
 
   def install
-    ENV["CGO_ENABLED"] = "0"
     system "go", "build", "-trimpath", "-o", bin/"arc", "cmd/arc/main.go"
   end
 
@@ -22,7 +21,10 @@ class Archiver < Formula
 
     system "#{bin}/arc", "archive", "test.zip",
            "test1", "test2", "test3"
+
     assert_predicate testpath/"test.zip", :exist?
+    assert_match "application/zip",
+                 shell_output("file -bI #{testpath}/test.zip")
 
     output = shell_output("#{bin}/arc ls test.zip")
     names = output.lines.map do |line|
