@@ -1,9 +1,8 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.5.tar.gz"
-  sha256 "5d3f71609b908910249a1bcdcb20c5e94f0cbea6418dc9f1d36ec2f41bed80a7"
-  revision 2
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.6.tar.gz"
+  sha256 "9f0a69fec1216ac947991bb1e506cc97f130ae14cef1fc5bbce08daaea566b63"
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
   bottle do
@@ -20,6 +19,7 @@ class IosWebkitDebugProxy < Formula
   depends_on "libimobiledevice"
   depends_on "libplist"
   depends_on "libusbmuxd"
+  depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
