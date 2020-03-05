@@ -6,14 +6,9 @@ class Cpptest < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "539bd0186d98d9c8ecc658e0d60b1a748ef5d2f9cd18226204a634f3b141c12a" => :catalina
-    sha256 "9d91d78a8a3081d6ed690810ecb4bcf3bf3010874ba859e30c0c948f7ba30db9" => :mojave
-    sha256 "bd7d2b0055d1de9cce94d3695aa7c160fbe3d0780e9650c73a7543bd5726162a" => :high_sierra
-    sha256 "f243764e911fe4c056f782ebee8cd84316214d961b14322b4cedc92f60478d49" => :sierra
-    sha256 "216442c844ddb2886e6877cd129fda3c589dadf8ac07572e6aa05c1c3cff4669" => :el_capitan
-    sha256 "e6b364e203c882063362e4a0ef6e6482420ab57b1ec24699b6da31b50f792f14" => :yosemite
-    sha256 "c1f68d40bd58366d28846395169868d86a012b8d65473aa8845401619052d568" => :mavericks
+    sha256 "531646bba9e8aedff87216058a90e2fdc245b11ef55ad3f5c3aaaf717fd998cb" => :catalina
+    sha256 "5a109d0b6cb796d0de9e6b32a6373e1e78fd4da316be33a26ba9c84fbf799eb8" => :mojave
+    sha256 "cac49d059592f8d9f030855041727a61c7358404e16fc63d106ade58253ba0f1" => :high_sierra
   end
 
   def install
