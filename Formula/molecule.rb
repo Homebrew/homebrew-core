@@ -309,9 +309,12 @@ class Molecule < Formula
 
   test do
     # Test the Vagrant driver
-    system bin/"molecule", "init", "role", "foo-vagrant", "--driver-name", "vagrant", "--verifier-name", "testinfra"
-    assert_predicate testpath/"foo-vagrant/molecule/default/molecule.yml", :exist?, "Failed to create 'foo-vagrant/molecule/default/molecule.yml' file!"
-    assert_predicate testpath/"foo-vagrant/molecule/default/tests/test_default.py", :exist?, "Failed to create 'foo-vagrant/molecule/default/tests/test_default.py' file!"
+    system bin/"molecule", "init", "role", "foo-vagrant", "--driver-name",
+                           "vagrant", "--verifier-name", "testinfra"
+    assert_predicate testpath/"foo-vagrant/molecule/default/molecule.yml", :exist?,
+                     "Failed to create 'foo-vagrant/molecule/default/molecule.yml' file!"
+    assert_predicate testpath/"foo-vagrant/molecule/default/tests/test_default.py", :exist?,
+                     "Failed to create 'foo-vagrant/molecule/default/tests/test_default.py' file!"
     cd "foo-vagrant" do
       system bin/"molecule", "list"
     end
