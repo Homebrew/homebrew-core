@@ -8,9 +8,9 @@ class Stgit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "736d0fb7ba2e2f09acb9f3c12e7a232d975c1f20306b1d6b56dbc8fa9622bb0e" => :catalina
-    sha256 "a8c5a52941bb5c524f97bddf295dbf65b79ec74b4ec5a0d0ebcdb25429e1e03d" => :mojave
-    sha256 "a8c5a52941bb5c524f97bddf295dbf65b79ec74b4ec5a0d0ebcdb25429e1e03d" => :high_sierra
+    sha256 "3156fd71a826606d77fd2dbd469dac3bbcde1f3553eb1e05f825c985c5d65f4e" => :catalina
+    sha256 "3156fd71a826606d77fd2dbd469dac3bbcde1f3553eb1e05f825c985c5d65f4e" => :mojave
+    sha256 "3156fd71a826606d77fd2dbd469dac3bbcde1f3553eb1e05f825c985c5d65f4e" => :high_sierra
   end
 
   depends_on "asciidoc" => :build
