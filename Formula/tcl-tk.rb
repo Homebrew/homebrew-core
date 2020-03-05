@@ -3,7 +3,6 @@ class TclTk < Formula
   homepage "https://www.tcl-lang.org"
   url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tcl8.6.10-src.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.10-src.tar.gz"
-  version "8.6.10"
   sha256 "5196dbf6638e3df8d5c87b5815c8c2b758496eb6f0e41446596c9a4e638d87ed"
 
   bottle do
@@ -35,17 +34,21 @@ class TclTk < Formula
   resource "tk" do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.10/tk8.6.10-src.tar.gz"
     mirror "https://fossies.org/linux/misc/tk8.6.10-src.tar.gz"
-    version "8.6.10"
     sha256 "63df418a859d0a463347f95ded5cd88a3dd3aaa1ceecaeee362194bc30f3e386"
 
     # Upstream issue 7 Jan 2018 "Build failure with Aqua support on OS X 10.8 and 10.9"
     # See https://core.tcl-lang.org/tcl/tktview/95a8293a2936e34cc8d0658c21e5214f1ca9b435
     if MacOS.version == :mavericks
       patch :p0 do
-        url "https://raw.githubusercontent.com/macports/macports-ports/0a883ad388b/x11/tk/files/patch-macosx-tkMacOSXXStubs.c.diff"
+        url "https://raw.githubusercontent.com/macports/macports-ports/0a883ad388b2cbecf14f5ed674bfc9b6d2ce6f23/x11/tk/files/patch-macosx-tkMacOSXXStubs.c.diff"
         sha256 "2cdba6bbf2503307fe4f4d7200ad57c9926ebf0ff6ed3e65bf551067a30a04a9"
       end
     end
+  end
+
+  resource "itk4" do
+    url "https://downloads.sourceforge.net/project/incrtcl/%5Bincr%20Tcl_Tk%5D-4-source/itk%204.1.0/itk4.1.0.tar.gz"
+    sha256 "da646199222efdc4d8c99593863c8d287442ea5a8687f95460d6e9e72431c9c7"
   end
 
   def install
@@ -98,9 +101,56 @@ class TclTk < Formula
                             "--mandir=#{man}"
       system "make", "install"
     end
+
+    resource("itk4").stage do
+      itcl_dir = Pathname.glob(lib/"itcl*").last
+      args = %W[
+        --prefix=#{prefix}
+        --exec-prefix=#{prefix}
+        --with-tcl=#{lib}
+        --with-tk=#{lib}
+        --with-itcl=#{itcl_dir}
+      ]
+      system "./configure", *args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
     assert_equal "honk", pipe_output("#{bin}/tclsh", "puts honk\n").chomp
+
+    test_itk = <<~EOS
+      # Check that Itcl and Itk load, and that we can define, instantiate,
+      # and query the properties of a widget.
+
+
+      # If anything errors, just exit
+      catch {
+          package require Itcl
+          package require Itk
+
+          # Define class
+          itcl::class TestClass {
+              inherit itk::Toplevel
+              constructor {args} {
+                  itk_component add bye {
+                      button $itk_interior.bye -text "Bye"
+                  }
+                  eval itk_initialize $args
+              }
+          }
+
+          # Create an instance
+          set testobj [TestClass .#auto]
+
+          # Check the widget has a bye component with text property "Bye"
+          if {[[$testobj component bye] cget -text]=="Bye"} {
+              puts "OK"
+          }
+      }
+      exit
+    EOS
+    assert_equal "OK\n", pipe_output("#{bin}/wish", test_itk), "Itk test failed"
   end
 end
