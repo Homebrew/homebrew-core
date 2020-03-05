@@ -1,8 +1,8 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_3/libtorrent-rasterbar-1.2.3.tar.gz"
-  sha256 "1582fdbbd0449bcfe4ffae2ccb9e5bf0577459a32bb25604e01accb847da1a2d"
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_4/libtorrent-rasterbar-1.2.4.tar.gz"
+  sha256 "8759bddb589006ee164438588adaf007325b3bcaf6ae4c64d87a2b914409c680"
 
   bottle do
     cellar :any
