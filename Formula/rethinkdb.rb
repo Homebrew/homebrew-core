@@ -16,6 +16,10 @@ class Rethinkdb < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "curl"
+  # Does not support python 3, as stated in the readme
+  # v8 and gyp fail to build: https://github.com/Homebrew/linuxbrew-core/pull/19614
+  # See also https://github.com/rethinkdb/rethinkdb/pull/6401
+  uses_from_macos "python@2"
 
   def install
     args = ["--prefix=#{prefix}"]
