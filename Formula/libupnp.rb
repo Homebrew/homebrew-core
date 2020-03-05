@@ -1,8 +1,8 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
   homepage "https://pupnp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pupnp/pupnp/libUPnP%201.6.25/libupnp-1.6.25.tar.bz2"
-  sha256 "c5a300b86775435c076d58a79cc0d5a977d76027d2a7d721590729b7f369fa43"
+  url "https://github.com/pupnp/pupnp/releases/download/release-1.12.0/libupnp-1.12.0.tar.bz2"
+  sha256 "1bda3939976a9a2901382233db39379ce993b59a0e7fd0dd781212a44a9b44a2"
 
   bottle do
     cellar :any
