@@ -1,8 +1,8 @@
 class Libxo < Formula
   desc "Allows an application to generate text, XML, JSON, and HTML output"
   homepage "https://juniper.github.io/libxo/libxo-manual.html"
-  url "https://github.com/Juniper/libxo/releases/download/1.0.4/libxo-1.0.4.tar.gz"
-  sha256 "23885980313c42211610a65004f9f319804f2ff8e94b2e83b04f4920bf45f6cb"
+  url "https://github.com/Juniper/libxo/releases/download/1.4.0/libxo-1.4.0.tar.gz"
+  sha256 "aa842d9374bc0c640d9526abdeb6f1dc75c1a14e892eafd3c9e0ee2e8dfc1c43"
 
   bottle do
     sha256 "edf3ba21362791144880eae2e05adfa23168b6223f1f0560962a7ec6292d0f77" => :catalina
