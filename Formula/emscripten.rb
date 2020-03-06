@@ -37,6 +37,7 @@ class Emscripten < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "binaryen"
   depends_on "node"
   depends_on "python"
   depends_on "yuicompressor"
@@ -79,7 +80,8 @@ class Emscripten < Formula
   def caveats; <<~EOS
     Manually set LLVM_ROOT to
       #{opt_libexec}/llvm/bin
-    and comment out BINARYEN_ROOT
+    and BINARYEN_ROOT to
+      #{Formula["binaryen"].opt_prefix}
     in ~/.emscripten after running `emcc` for the first time.
   EOS
   end
