@@ -3,6 +3,7 @@ class Libgeotiff < Formula
   homepage "https://geotiff.osgeo.org/"
   url "https://github.com/OSGeo/libgeotiff/releases/download/1.5.1/libgeotiff-1.5.1.tar.gz"
   sha256 "f9e99733c170d11052f562bcd2c7cb4de53ed405f7acdde4f16195cd3ead612c"
+  revision 1
 
   bottle do
     cellar :any
