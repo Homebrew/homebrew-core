@@ -1,8 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2019.2.tar.gz"
-  sha256 "1fde9d2a0df920a401441cd77253fc7b3b9ab0578eabda8caaaceaa6c7638440"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.1.tar.gz"
+  sha256 "1eaa5e09c638d7113b60d825e6ce44406b35031be68db894a016b5faf45de568"
 
   bottle do
     cellar :any
@@ -13,23 +13,24 @@ class SpirvTools < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python" => :build
 
   resource "re2" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/re2.git",
-        :revision => "6cf8ccd82dbaab2668e9b13596c68183c9ecd13f"
+        :revision => "5bd613749fd530b576b890283bfb6bc6ea6246cb"
   end
 
   resource "effcee" do
     # revision number could be found in ./DEPS
     url "https://github.com/google/effcee.git",
-        :revision => "04b624799f5a9dbaf3fa1dbed2ba9dce2fc8dcf2"
+        :revision => "cd25ec17e9382f99a895b9ef53ff3c277464d07d"
   end
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        :revision => "e74c389f81915d0a48d6df1af83c3862c5ad85ab"
+        :revision => "dc77030acc9c6fe7ca21fff54c5a9d7b532d7da6"
   end
 
   def install
@@ -38,7 +39,9 @@ class SpirvTools < Formula
     (buildpath/"external/SPIRV-Headers").install resource("spirv-headers")
 
     mkdir "build" do
-      system "cmake", "..", "-DEFFCEE_BUILD_TESTING=OFF", *std_cmake_args
+      system "cmake", "..", *std_cmake_args,
+                            "-DSPIRV_SKIP_TESTS=ON",
+                            "-DEFFCEE_BUILD_TESTING=OFF"
       system "make", "install"
     end
 
@@ -47,12 +50,6 @@ class SpirvTools < Formula
 
   test do
     cp libexec/"examples"/"main.cpp", "test.cpp"
-    # fix test, porting https://github.com/KhronosGroup/SPIRV-Tools/pull/2540
-    inreplace "test.cpp" do |s|
-      s.gsub! /(const std::string source =)\n(      \"         OpCapability Shader \")/,
-              "\\1\n      \"         OpCapability Linkage \"\n\\2"
-      s.gsub! "SPV_ENV_VULKAN_1_0", "SPV_ENV_UNIVERSAL_1_3"
-    end
     system ENV.cc, "-o", "test", "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}", "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", "-lc++"
     system "./test"
   end
