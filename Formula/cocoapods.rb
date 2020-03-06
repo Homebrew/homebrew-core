@@ -1,8 +1,8 @@
 class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
-  url "https://github.com/CocoaPods/CocoaPods/archive/1.8.4.tar.gz"
-  sha256 "7afe0a8f0d1a83d23a3a04c195229c9bec37d114e6b81b41458e65e33138f8c6"
+  url "https://github.com/CocoaPods/CocoaPods/archive/1.9.0.tar.gz"
+  sha256 "5acda88d2cbbcc8a2c29e15b85f53b1cbd95d3f314cb100f098f545a1d7717aa"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,10 @@ class Cocoapods < Formula
   depends_on "ruby" if MacOS.version <= :sierra
 
   def install
+    if MacOS.version >= :mojave && MacOS::CLT.installed?
+      ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+    end
+
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "cocoapods.gemspec"
     system "gem", "install", "cocoapods-#{version}.gem"
