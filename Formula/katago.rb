@@ -19,17 +19,16 @@ class Katago < Formula
     url "https://github.com/lightvector/KataGo/releases/download/v1.3.3/g170e-b20c256x2-s2430231552-d525879064.bin.gz", :using => :nounzip
     sha256 "770f65c5cfa6e7ebba1b972768406668afdfc2e65d61e45b8cb468677f5fea4d"
   end
-  
+
   resource "30b-network" do
     url "https://github.com/lightvector/KataGo/releases/download/v1.3.3/g170-b30c320x2-s1287828224-d525929064.bin.gz", :using => :nounzip
     sha256 "3c2864fda18d8bc595b1fb65ec25cc998ac90cd203a6269c56691e195297c325"
   end
-  
+
   resource "40b-network" do
     url "https://github.com/lightvector/KataGo/releases/download/v1.3.3/g170-b40c256x2-s1349368064-d524332537.bin.gz", :using => :nounzip
     sha256 "74ea1a4e9c0a461b9fb35a297d11f10e3fcfee32e5b710720784120fe52cbad0"
   end
-  
 
   def install
     cd "cpp" do
