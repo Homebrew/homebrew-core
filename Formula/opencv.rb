@@ -3,7 +3,7 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.2.0.tar.gz"
   sha256 "9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "ea0fdece123eee89fd81a7604de47b91df5fa3a7b4c2ac867df87fe57b86f2ea" => :catalina
@@ -22,9 +22,12 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
+  depends_on "openblas"
   depends_on "openexr"
+  depends_on "protobuf"
   depends_on "python"
   depends_on "tbb"
+  depends_on "webp"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.2.0.tar.gz"
@@ -36,6 +39,9 @@ class Opencv < Formula
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    # Avoid Accelerate.framework
+    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
+
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
 
@@ -46,12 +52,14 @@ class Opencv < Formula
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
+      -DBUILD_PROTOBUF=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
+      -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
@@ -59,6 +67,7 @@ class Opencv < Formula
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON
+      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
