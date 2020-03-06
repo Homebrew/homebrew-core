@@ -3,7 +3,7 @@ class Liblwgeom < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz"
   sha256 "b6cb286c5016029d984f8c440947bf9178da72e1f6f840ed639270e1c451db5e"
-  revision 1
+  revision 2
   head "https://git.osgeo.org/gitea/postgis/postgis"
 
   bottle do
