@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.34/gedit-3.34.1.tar.xz"
-  sha256 "ebf9ef4e19831699d26bb93ce029edfed65416d7c11147835fc370d73428d5c6"
+  url "https://download.gnome.org/sources/gedit/3.36/gedit-3.36.0.tar.xz"
+  sha256 "c983dd12a4e9db7af1aaa3062e6f042811ef99a4d6382659096f2ef8fc559435"
 
   bottle do
     sha256 "be10a5f9c19532b6989c3c7855c450d9ce64527ea6e42b01d22928e09d4f47fa" => :catalina
@@ -30,6 +30,10 @@ class Gedit < Formula
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
+  depends_on "tepl"
+
+  # see https://gitlab.gnome.org/GNOME/gedit/-/merge_requests/74
+  patch :DATA
 
   def install
     ENV["DESTDIR"] = "/"
@@ -90,7 +94,7 @@ class Gedit < Formula
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gedit-3.14
+      -I#{include}/gedit-3.36
       -I#{libepoxy.opt_include}
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -I#{libpeas.opt_include}/libpeas-1.0
@@ -115,7 +119,7 @@ class Gedit < Formula
       -lcairo-gobject
       -lgdk-3
       -lgdk_pixbuf-2.0
-      -lgedit-3.14
+      -lgedit-3.36
       -lgio-2.0
       -lgirepository-1.0
       -lglib-2.0
@@ -133,3 +137,33 @@ class Gedit < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gedit/gedit-app-osx.m b/gedit/gedit-app-osx.m
+index 07774cc53..5df1b94da 100644
+--- a/gedit/gedit-app-osx.m
++++ b/gedit/gedit-app-osx.m
+@@ -32,6 +32,10 @@
+ #include "gedit-commands.h"
+ #include "gedit-commands-private.h"
+ #include "gedit-recent.h"
++#import <AppKit/AppKit.h>
++
++NSWindow *gdk_quartz_window_get_nswindow(GdkWindow *window);
++NSEvent *gdk_quartz_event_get_nsevent(GdkEvent *event);
+
+ static GeditWindow *
+ ensure_window (GeditAppOSX *app,
+diff --git a/gedit/gedit-file-chooser-dialog-osx.m b/gedit/gedit-file-chooser-dialog-osx.m
+index ecfbee62a..f897c81cd 100644
+--- a/gedit/gedit-file-chooser-dialog-osx.m
++++ b/gedit/gedit-file-chooser-dialog-osx.m
+@@ -29,6 +29,8 @@
+ #include "gedit-encodings-dialog.h"
+ #include "gedit-utils.h"
+
++NSWindow *gdk_quartz_window_get_nswindow(GdkWindow *window);
++
+ struct _GeditFileChooserDialogOSX
+ {
+	GObject parent_instance;
