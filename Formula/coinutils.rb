@@ -7,9 +7,9 @@ class Coinutils < Formula
 
   bottle do
     cellar :any
-    sha256 "1203aaaec931f868fb71a66e26b113802a14b35065608a28928c776d08304d01" => :catalina
-    sha256 "6b069af9d6dde2057701b410eaf3e838c01feb8f2da07da54d67eb51ef9731c6" => :mojave
-    sha256 "1e510876cc284f21136a2eb25695fa87a5787dc51f0fddae9bad04d9512e7659" => :high_sierra
+    sha256 "d62fac6d9dbda55ac6e058f9e7b48cfa812cf03b9e08882d9092d87ce3ace1e0" => :catalina
+    sha256 "89d72ec3af0e21ed24a8335eb1102e0ac956bab679fb1f1eca2cf3e8d1b5207e" => :mojave
+    sha256 "2ecf56e6beb9ac656b25aae2cfc0a4eb0e309d57cb7ce2ce888a1fee7e76abc0" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
