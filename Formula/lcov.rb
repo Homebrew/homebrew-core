@@ -3,7 +3,7 @@ class Lcov < Formula
   homepage "https://github.com/linux-test-project/lcov"
   url "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
   sha256 "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
-  revision 1
+  revision 2
   head "https://github.com/linux-test-project/lcov.git"
 
   bottle do
@@ -42,21 +42,24 @@ class Lcov < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
 
-    resource("JSON").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
-    end
-
-    resource("PerlIO::gzip").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make"
+        system "make", "install"
+      end
     end
 
     inreplace %w[bin/genhtml bin/geninfo bin/lcov],
       "/etc/lcovrc", "#{prefix}/etc/lcovrc"
     system "make", "PREFIX=#{prefix}", "BIN_DIR=#{bin}", "MAN_DIR=#{man}", "install"
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    perl_files = Dir["#{bin}/*"]
+    inreplace perl_files, "#!/usr/bin/env perl", "#!/usr/bin/perl"
+
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
