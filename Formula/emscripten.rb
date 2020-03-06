@@ -81,7 +81,7 @@ class Emscripten < Formula
     Manually set LLVM_ROOT to
       #{opt_libexec}/llvm/bin
     and BINARYEN_ROOT to
-      #{Formulary.factory("binaryen").opt_prefix}
+      #{Formula["binaryen"].opt_prefix}
     in ~/.emscripten after running `emcc` for the first time.
   EOS
   end
