@@ -6,9 +6,9 @@ class Opencv < Formula
   revision 2
 
   bottle do
-    sha256 "472eb704dd3314e66ae8d891d935a6d3064d7456f2a523bb4fdb6b0eff3abd09" => :catalina
-    sha256 "f3b89894ec7d52ed32f6f8563d668037c0bd8f2aaa8ec83b05dbf8d1a43a2aee" => :mojave
-    sha256 "34d5dd7862daf84e586033fd9093602a82655b8959688547d9c97e4e8044bdc8" => :high_sierra
+    sha256 "ea0fdece123eee89fd81a7604de47b91df5fa3a7b4c2ac867df87fe57b86f2ea" => :catalina
+    sha256 "b232d5040b3c8bf40f7bb9ebfb5ac9d159222af38de00bc685e3a56db37eccff" => :mojave
+    sha256 "e2075eb346e3f43816996631d1c62490459be25c0370bb5c1d9f767f85bf1eb5" => :high_sierra
   end
 
   depends_on "cmake" => :build
