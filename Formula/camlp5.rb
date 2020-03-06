@@ -4,6 +4,7 @@ class Camlp5 < Formula
   url "https://github.com/camlp5/camlp5/archive/rel711.tar.gz"
   version "7.11"
   sha256 "a048b8e0feb2a1058187824fc9cb6b55f2c5b788c43c15d6db090d789c7121ba"
+  revision 1
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
