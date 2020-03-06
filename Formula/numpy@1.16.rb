@@ -7,9 +7,9 @@ class NumpyAT116 < Formula
 
   bottle do
     cellar :any
-    sha256 "8054540276bc17fc4ca5172c4ecf417570f2cd506ea1b52a0b115cc2f8639f87" => :catalina
-    sha256 "7fb81c91225d249874c13d08a7c0f13cef67371f1286bfc1e0765946da24bea2" => :mojave
-    sha256 "d827e8e7c656d04c31c525acba5de5d2aaf5b8480a728b6071c730349202cade" => :high_sierra
+    sha256 "fff9f604e35a06cc3197cc818a851d037f6d8f30df04fc7640144966bfb15c91" => :catalina
+    sha256 "0d6a4439397cf4c684b6e01fb7038ed9b9943582d5ef15f080503755330ca615" => :mojave
+    sha256 "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272" => :high_sierra
   end
 
   depends_on "gcc" => :build # for gfortran
