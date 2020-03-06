@@ -17,8 +17,8 @@ class Proj < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "libtiff" => :build
   depends_on "pkg-config" => :build
+  depends_on "libtiff"
 
   uses_from_macos "sqlite"
 
