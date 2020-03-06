@@ -3,6 +3,7 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.1.0/source/tarball/percona-toolkit-3.1.0.tar.gz"
   sha256 "722593773825efe7626ff0b74de6a2133483c9c89fd7812bfe440edaacaec9cc"
+  revision 1
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
@@ -37,6 +38,7 @@ class PerconaToolkit < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
@@ -47,6 +49,15 @@ class PerconaToolkit < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "install"
     share.install prefix/"man"
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    non_perl_files = %w[bin/pt-ioprofile bin/pt-mext bin/pt-mysql-summary
+                        bin/pt-pmp bin/pt-sift bin/pt-stalk bin/pt-summary]
+    perl_files = Dir["bin/*"] - non_perl_files
+    inreplace perl_files, "#!/usr/bin/env perl", "#!/usr/bin/perl"
+
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
