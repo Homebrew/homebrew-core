@@ -3,8 +3,8 @@
 # also updated by incrementing their revisions.
 #
 # Specific packages to pay attention to include:
-# - camlp4
-# - opam
+# - camlp5
+# - lablgtk
 #
 # Applications that really shouldn't break on a compiler update are:
 # - coq
@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.08/ocaml-4.08.1.tar.xz"
-  sha256 "cd4f180453ffd7cc6028bb18954b3d7c3f715af13157df2f7c68bdfa07655ea3"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.09/ocaml-4.09.0.tar.xz"
+  sha256 "f2fb91dfe86bae00a33fc5ba51685e95a68564274f5277f787c31931b22a7fec"
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
 
   bottle do
@@ -40,7 +40,6 @@ class Ocaml < Formula
       --prefix=#{HOMEBREW_PREFIX}
       --enable-debug-runtime
       --mandir=#{man}
-      --disable-graph-lib
     ]
     system "./configure", *args
     system "make", "world.opt"
