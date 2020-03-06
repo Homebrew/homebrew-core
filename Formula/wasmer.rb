@@ -7,9 +7,9 @@ class Wasmer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eec4528f3e924b39355ae55ef52b49ed5f2943235832d7a8a679f2fff58744d5" => :catalina
-    sha256 "64c27de363e8ea456d871088ddcea0ad473f0002a3cf7c3e4a571c4c861144b4" => :mojave
-    sha256 "70b309e4cf6e2cc0efca0ba59f771f81e317df5d333363d8ceeb0b7b692b8e0c" => :high_sierra
+    sha256 "f952dc02f6b8be47ae19abaa1e3dd8b1cc514494113a18dccfd5c9eabc29792c" => :catalina
+    sha256 "1785f2610300b3d735517c390cd8d189db23a6e15a07ef22c74f29b88b6cc1f1" => :mojave
+    sha256 "295094ada5c3e3cd220bc7ca0b68a8fe868b370947b05692d703ca8a41fd3177" => :high_sierra
   end
 
   depends_on "cmake" => :build
