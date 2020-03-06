@@ -1,9 +1,8 @@
 class Mdds < Formula
   desc "Multi-dimensional data structure and indexing algorithm"
   homepage "https://gitlab.com/mdds/mdds"
-  url "https://kohei.us/files/mdds/src/mdds-1.5.0.tar.bz2"
-  sha256 "144d6debd7be32726f332eac14ef9f17e2d3cf89cb3250eb31a7127e0789680d"
-  revision 1
+  url "https://kohei.us/files/mdds/src/mdds-1.6.0.tar.bz2"
+  sha256 "f1585c9cbd12f83a6d43d395ac1ab6a9d9d5d77f062c7b5f704e24ed72dae07d"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +19,7 @@ class Mdds < Formula
     inreplace "configure.ac", "$CPPFLAGS -I/usr/include -I/usr/local/include",
                               "$CPPFLAGS -I/usr/local/include"
     system "autoconf"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-openmp"
     system "make", "install"
   end
 
