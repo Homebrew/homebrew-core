@@ -3,6 +3,7 @@ class Efl < Formula
   homepage "https://www.enlightenment.org"
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.22.4.tar.xz"
   sha256 "454002b98922f5590048ff523237c41f93d8ab0a76174be167dea0677c879120"
+  revision 1
 
   bottle do
     sha256 "d04b2c44f519e791014658b0994f49eee9940ca684ea2de402923bea23db4adc" => :mojave
@@ -33,6 +34,8 @@ class Efl < Formula
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
 
+  patch :DATA
+
   def install
     ENV.cxx11
 
@@ -54,3 +57,27 @@ class Efl < Formula
     system bin/"eet", "-V"
   end
 end
+
+__END__
+diff --git a/src/lib/ecore_cocoa/ecore_cocoa_app.m b/src/lib/ecore_cocoa/ecore_cocoa_app.m
+index 8df1be1..e29b934 100644
+--- a/src/lib/ecore_cocoa/ecore_cocoa_app.m
++++ b/src/lib/ecore_cocoa/ecore_cocoa_app.m
+@@ -45,7 +45,7 @@ + (Ecore_Cocoa_Application *)sharedApplication
+ 
+ - (void)internalUpdate
+ {
+-   [_mainMenu update];
++   [[self mainMenu] update];
+    // FIXME Will not compile with GNUStep (member is named "_main_menu")
+ }
+ 
+@@ -76,7 +76,7 @@ - (void)run
+ {
+    [self finishLaunching];
+ 
+-   _running = 1;
++   [self setValue:[NSNumber numberWithShort:1] forKey:@"_running"];
+    _expiration = [NSDate distantPast];
+ 
+    _timer = ecore_timer_add(ECORE_COCOA_MAINLOOP_PERIOD,
