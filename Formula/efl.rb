@@ -34,6 +34,7 @@ class Efl < Formula
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
 
+  # https://phab.enlightenment.org/T8562
   patch :DATA
 
   def install
