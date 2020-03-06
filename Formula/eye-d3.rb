@@ -1,8 +1,8 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "https://eyed3.nicfit.net/"
-  url "https://files.pythonhosted.org/packages/11/d7/643b96c711836d7258637d0439fdfcd9841472055f1cf66ea62ef1eca0ce/eyeD3-0.9.2.tar.gz"
-  sha256 "96f1dc92d29da529bf5a0caac6b62a3da2dae319409678491eb7f3e3e1c0359a"
+  url "https://files.pythonhosted.org/packages/c3/e2/d5265ec9caf98b4444b82ad4d0c4e7fffe93d3d6d470f21efe61e54fb1e4/eyeD3-0.9.3.tar.gz"
+  sha256 "33020d86aa1ffb4a130e10c27d0c3f9fa05989b862d454e95195ff08eeb67375"
 
   bottle do
     cellar :any_skip_relocation
@@ -48,8 +48,8 @@ class EyeD3 < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7b/d5/199f982ae38231995276421377b72f4a25d8251f4fa56f6be7cfcd9bb022/packaging-20.1.tar.gz"
-    sha256 "e665345f9eef0c621aa0bf2f8d78cf6d21904eef16a93f020240b704a57f1334"
+    url "https://files.pythonhosted.org/packages/65/37/83e3f492eb52d771e2820e88105f605335553fe10422cba9d256faeb1702/packaging-20.3.tar.gz"
+    sha256 "3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3"
   end
 
   resource "pathlib" do
@@ -58,8 +58,8 @@ class EyeD3 < Formula
   end
 
   resource "pylast" do
-    url "https://files.pythonhosted.org/packages/85/15/9d85a52b9d5700ce2d7b19b391225e47dc218db3aeb51f059c41157925f5/pylast-3.2.0.tar.gz"
-    sha256 "87c433ac63b592c92a5e8d5176fc8b65794ca239f7e295e6e46851e0c67b11d5"
+    url "https://files.pythonhosted.org/packages/d5/6e/52cc82855010d6d9bdc75417e0c92b4b6ac2b071879faed790be712f564e/pylast-3.2.1.tar.gz"
+    sha256 "3c984be04c9a22a884c3106a7f75749466d27c68870d6fb7e1f56b71becea7c0"
   end
 
   resource "pyparsing" do
@@ -73,8 +73,8 @@ class EyeD3 < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
   end
 
   resource "six" do
