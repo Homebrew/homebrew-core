@@ -6,12 +6,9 @@ class Nudoku < Formula
   head "https://github.com/jubalh/nudoku.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "849d95cd3bcad09b584a0b692cd7982a31f3e455ec47bc888e13309650cfacb3" => :catalina
-    sha256 "d82e9887a876b3762c2f676c95e36fbf5b98bc4306f584618397c0fb30c97f46" => :mojave
-    sha256 "b6a14adadee0fb01f92397a5fdc31189492468e3d87875bed408ca41824d09b4" => :high_sierra
-    sha256 "d4cea1e1c0f97655feb301910aa70c65a223959ba39a8493f31ca1a614eec175" => :sierra
-    sha256 "8f4cd53a9cd87ac8b9b1b48a986329708134608e3ff4423e8f449e1a6c81d6f1" => :el_capitan
+    sha256 "42af644b71eee33e827eb588221eddc0a2b16d552907f9bd80116177e91b748a" => :catalina
+    sha256 "c31813e8e20e6a7f3869bd0869d21e24877ee15de9f00f7eaf812bc81244418f" => :mojave
+    sha256 "fabdc0fc21df7b01f097ae89884d8234d8efe1a3b4335a4d2897f98df5291e67" => :high_sierra
   end
 
   depends_on "autoconf" => :build
