@@ -38,8 +38,9 @@ class Katago < Formula
       bin.install "katago"
       pkgshare.install "configs"
     end
-    pkgshare.install resource("15b-network")
     pkgshare.install resource("20b-network")
+    pkgshare.install resource("30b-network")
+    pkgshare.install resource("40b-network")
   end
 
   test do
