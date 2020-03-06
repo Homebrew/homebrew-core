@@ -1,8 +1,8 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-6.3.1.tar.gz"
-  sha256 "6de0112778438dcae30fcc6942dee472ce31399b9e5a2b67e8642529868c86f8"
+  url "https://download.osgeo.org/proj/proj-7.0.0.tar.gz"
+  sha256 "ee0e14c1bd2f9429b1a28999240304c0342ed739ebaea3d4ff44c585b1097be8"
 
   bottle do
     sha256 "d474645f6668743fdc1560840a1aaacd38c66e8fa327ed2bf3d97d7555309f86" => :catalina
@@ -18,6 +18,7 @@ class Proj < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libtiff"
 
   uses_from_macos "sqlite"
 
