@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v1.2.0.tar.gz"
-  sha256 "93b3288aea72feb8ea95e59e5c2bf5fc3cbf8adf342b2cfc8c9d95282e75917a"
+  url "https://github.com/certbot/certbot/archive/v1.3.0.tar.gz"
+  sha256 "9b531a527bc7908fa23f81ecb449ad8351791342a9bd5b1d09b15acd78dc8840"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -22,8 +22,8 @@ class Certbot < Formula
   uses_from_macos "libffi"
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/40/0c/eeac8a14019d6f297fbd3b2bacfa57d38e60147cc03542214662253a694c/acme-1.2.0.tar.gz"
-    sha256 "0630c740d49bda945e97bd35fc8d6f02d082c8cb9e18f8fec0dbb3d395ac26ab"
+    url "https://files.pythonhosted.org/packages/37/6c/fbf55777f813eed9db446182c5adad51a1f56cdb5a10c454590c35551b07/acme-1.3.0.tar.gz"
+    sha256 "c0de9e1fbcb4a28509825a4d19ab5455910862b23fa338acebc7bbe7c0abd20d"
   end
 
   resource "certifi" do
@@ -62,8 +62,8 @@ class Certbot < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
+    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
   end
 
   resource "josepy" do
@@ -82,8 +82,8 @@ class Certbot < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "pyOpenSSL" do
@@ -112,8 +112,8 @@ class Certbot < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
   end
 
   resource "requests-toolbelt" do
