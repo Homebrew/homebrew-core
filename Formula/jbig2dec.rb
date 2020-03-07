@@ -1,8 +1,8 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://jbig2dec.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/jbig2dec-0.16.tar.gz"
-  sha256 "a4f6bf15d217e7816aa61b92971597c801e81f0a63f9fe1daee60fb88e0f0602"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/jbig2dec-0.17.tar.gz"
+  sha256 "f72bad7102638b31fa96be7492fb3d447a83d71c644cffd01f2a7ec52bd5fb72"
 
   bottle do
     cellar :any
