@@ -3,8 +3,8 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/ce/e1/b9234b258086f80f8507afb80f6774c6daf3bd9b2765190ee8e3cd2c4759/ipython-7.12.0.tar.gz"
-  sha256 "d9459e7237e2e5858738ff9c3e26504b79899b58a6d49e574d352493d80684c6"
+  url "https://files.pythonhosted.org/packages/76/d4/13001e8671e8b012ec25acb9a695d3271ceed2dc6aa8f94103a6dd0c4577/ipython-7.13.0.tar.gz"
+  sha256 "ca478e52ae1f88da0102360e57e528b92f3ae4316aabac80a2cd7f7ab2efb48a"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -28,8 +28,8 @@ class Ipython < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/dc/c3/9d378af09f5737cfd524b844cd2fbb0d2263a35c11d712043daab290144d/decorator-4.4.1.tar.gz"
-    sha256 "54c38050039232e1db4ad7375cfce6748d7b41c29e95a081c8a6d2c30364a2ce"
+    url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
+    sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
   end
 
   resource "ipykernel" do
@@ -48,18 +48,18 @@ class Ipython < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/c4/cf/ccd7bc6935b60fe4470d7c209e4edde5e18058938f6e81aa0e9db5578c54/jupyter_client-5.3.4.tar.gz"
-    sha256 "60e6faec1031d63df57f1cc671ed673dced0ed420f4377ea33db37b1c188b910"
+    url "https://files.pythonhosted.org/packages/b9/ae/6abdd7d5df5a3af23b9c7ee1a509b7606eeb17f5857bb97de93bf92cf0dc/jupyter_client-6.0.0.tar.gz"
+    sha256 "1fac6e3be1e797aea33d5cd1cfa568ff1ee71e01180bc89f64b24ee274f1f126"
   end
 
   resource "jupyter-core" do
-    url "https://files.pythonhosted.org/packages/a6/cd/6369e30b4cda4769401d0654f917302edef6395630822a20996b25361eb5/jupyter_core-4.6.2.tar.gz"
-    sha256 "185dfe42800585ca860aa47b5fe0211ee2c33246576d2d664b0b0b8d22aacf3a"
+    url "https://files.pythonhosted.org/packages/28/64/8bdde111be57a2a3d54376db29b5f25ab9c68ffd3d6554989db24d5c1b7a/jupyter_core-4.6.3.tar.gz"
+    sha256 "394fd5dd787e7c8861741880bdf8a00ce39f95de5d18e579c74b882522219e7e"
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/db/f4/f714d71a23b65d0be451131137152764e01e5f74607678cb8318a20d564a/parso-0.6.1.tar.gz"
-    sha256 "56b2105a80e9c4df49de85e125feb6be69f49920e121406f15e7acde6c9dfc57"
+    url "https://files.pythonhosted.org/packages/e7/43/d1a87101b7d738ffae32951c140fcbca12b35daf11a918e0964a2fd07fbd/parso-0.6.2.tar.gz"
+    sha256 "0c5659e0c6eba20636f99a04f469798dca8da279645ce5c387315b2c23912157"
   end
 
   resource "pexpect" do
@@ -73,8 +73,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/8f/bc/58ba47a2a864d8e3d968d03b577c85fbdf52c8d324a030df71ac9c06c1b5/prompt_toolkit-3.0.3.tar.gz"
-    sha256 "a402e9bf468b63314e37460b68ba68243d55b2f8c4d0192f85a019af3945050e"
+    url "https://files.pythonhosted.org/packages/61/c9/56131b4753ef14bffd06754846c63de78b3a868e995763f6410381a6fb98/prompt_toolkit-3.0.4.tar.gz"
+    sha256 "ebe6b1b08c888b84c50d7f93dee21a09af39860144ff6130aadbd61ae8d29783"
   end
 
   resource "ptyprocess" do
@@ -93,8 +93,8 @@ class Ipython < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/3c/83/7ecbe9b762829f589fa9734026e0ccb63cb128fe5615ae1698f65df72bfe/pyzmq-18.1.1.tar.gz"
-    sha256 "8c69a6cbfa94da29a34f6b16193e7c15f5d3220cb772d6d17425ff3faa063a6d"
+    url "https://files.pythonhosted.org/packages/16/4c/762c2c3063c4d45baf4a49acea7a4f561f7b78a45cd04b58d63f4c5f6b8d/pyzmq-19.0.0.tar.gz"
+    sha256 "5e1f65e576ab07aed83f444e201d86deb01cd27dcf3f37c727bc8729246a60a8"
   end
 
   resource "six" do
@@ -103,8 +103,8 @@ class Ipython < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/30/78/2d2823598496127b21423baffaa186b668f73cd91887fcef78b6eade136b/tornado-6.0.3.tar.gz"
-    sha256 "c845db36ba616912074c5b1ee897f8e0124df269468f25e4fe21fe72f6edd7a9"
+    url "https://files.pythonhosted.org/packages/95/84/119a46d494f008969bf0c775cb2c6b3579d3c4cc1bb1b41a022aa93ee242/tornado-6.0.4.tar.gz"
+    sha256 "0fe2d45ba43b00a41cd73f8be321a44936dc1aba233dee979f17a042b83eb6dc"
   end
 
   resource "traitlets" do
