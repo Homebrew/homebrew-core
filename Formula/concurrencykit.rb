@@ -27,7 +27,9 @@ class Concurrencykit < Formula
       #include <ck_spinlock.h>
       int main()
       {
-          return 0;
+        ck_spinlock_t spinlock;
+        ck_spinlock_init(&spinlock);
+        return 0;
       }
     EOS
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lck",
