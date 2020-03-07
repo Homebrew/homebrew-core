@@ -24,7 +24,7 @@ class Fop < Formula
     (bin/"fop").write_env_script executable, :JAVA_HOME => Formula["openjdk"].opt_prefix
 
     resource("hyph").stage do
-      (libexec/"build").install "fop-hyph.jar"
+      (libexec/"fop/build").install "fop-hyph.jar"
     end
   end
 
