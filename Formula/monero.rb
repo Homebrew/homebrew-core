@@ -22,15 +22,8 @@ class Monero < Formula
   depends_on "unbound"
   depends_on "zeromq"
 
-  resource "cppzmq" do
-    url "https://github.com/zeromq/cppzmq/archive/v4.3.0.tar.gz"
-    sha256 "27d1f56406ba94ee779e639203218820975cf68174f92fbeae0f645df0fcada4"
-  end
-
   def install
-    (buildpath/"cppzmq").install resource("cppzmq")
-    system "cmake", ".", "-DZMQ_INCLUDE_PATH=#{buildpath}/cppzmq",
-                         "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
+    system "cmake", ".", "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
                          *std_cmake_args
     system "make", "install"
 
