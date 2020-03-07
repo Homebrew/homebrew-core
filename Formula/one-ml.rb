@@ -17,9 +17,13 @@ class OneMl < Formula
 
   depends_on "ocaml" => :build
 
-  def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+  # OCaml 4.06 and later compatibility
+  patch do
+    url "https://github.com/rossberg/1ml/commit/f99c0b3497c1f18c950dfb2ae3989573f90eaafd.patch?full_index=1"
+    sha256 "778c9635f170a29fa6a53358e65fe85f32320eb678683ddd23e0e2c6139e7a6e"
+  end
 
+  def install
     system "make"
     bin.install "1ml"
     (pkgshare/"stdlib").install Dir.glob("*.1ml")
