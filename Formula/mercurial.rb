@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-5.3.tar.gz"
-  sha256 "e57ff61d6b67695149dd451922b40aa455ab02e01711806a131a1e95c544f9b9"
+  url "https://www.mercurial-scm.org/release/mercurial-5.3.1.tar.gz"
+  sha256 "f7c1f96de2199d6b38593ea865f08c0521fbd8e2fd52bd332414bf9fe5bf72d9"
 
   bottle do
     sha256 "ba84d5d87e01555abab1120ac667f6945a9ebec27e0969bb8afb2e88e8a24ce5" => :catalina
