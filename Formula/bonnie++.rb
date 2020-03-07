@@ -1,10 +1,8 @@
 class Bonniexx < Formula
   desc "Benchmark suite for file systems and hard drives"
   homepage "https://www.coker.com.au/bonnie++/"
-  url "https://www.coker.com.au/bonnie++/bonnie++-1.97.3.tgz"
-  mirror "https://fossies.org/linux/privat/bonnie++-1.97.3.tgz"
-  sha256 "e27b386ae0dc054fa7b530aab6bdead7aea6337a864d1f982bc9ebacb320746e"
-  revision 1
+  url "https://www.coker.com.au/bonnie++/bonnie++-1.98.tgz"
+  sha256 "6e0bcbc08b78856fd998dd7bcb352d4615a99c26c2dc83d5b8345b102bad0b04"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +19,8 @@ class Bonniexx < Formula
   # also incorrectly tests for it in the first place. The ideal fix would be to
   # replace the AC_TRY_RUN() in configure.in if the fail code actually worked.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/57a21ef/bonnie%2B%2B/remove-large-file-support-macros.diff"
-    sha256 "4d38a57f8a3d99405d945bb27ffe81e0ab542b520f2de6fad021a6ad3ff8a3b6"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/913b5a25087d2c64d3b6459635d5d64012b83042/bonnie%2B%2B/remove-large-file-support-macros.diff"
+    sha256 "368a7ea0cf202a169467efb81cb6649c1b6306999ccd54b85641fd4b458a46b7"
   end
 
   def install
