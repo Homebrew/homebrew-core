@@ -29,6 +29,7 @@ class Hyperkit < Formula
     system "opam", "init", "--disable-sandboxing", "--no-setup"
     opam_dir = "#{buildpath}/.brew_home/.opam"
     ENV["CAML_LD_LIBRARY_PATH"] = "#{opam_dir}/system/lib/stublibs:#{Formula["ocaml"].opt_lib}/ocaml/stublibs"
+    ENV["OPAMEXTERNALSOLVER"] = "aspcud"
     ENV["OPAMUTF8MSGS"] = "1"
     ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
     ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
