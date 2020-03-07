@@ -15,7 +15,7 @@ class Buildifier < Formula
   depends_on "bazel" => :build
 
   def install
-    system "bazel", "build", "--workspace_status_command=#{buildpath}/status.py", "buildifier:buildifier"
+    system "bazel", "build", "--config=release", "buildifier:buildifier"
     bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
 
