@@ -14,5 +14,7 @@ class CloudflareWrangler < Formula
   test do
     system "#{bin}/wrangler", "--help"
     assert_match "wrangler " + version.to_s, shell_output("#{bin}/wrangler -V").chomp
+    assert_match /Succesfully created a `wrangler.toml`/, shell_output("#{bin}/wrangler init")
+    assert_predicate testpath/"wrangler.toml", :exist?
   end
 end
