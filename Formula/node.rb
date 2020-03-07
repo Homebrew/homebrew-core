@@ -3,6 +3,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v13.10.1/node-v13.10.1.tar.xz"
   sha256 "83899ee1db6db806338c84c908a21e320ba30880f58381ec0741601a21c7fb92"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
