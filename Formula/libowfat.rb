@@ -16,7 +16,7 @@ class Libowfat < Formula
 
   patch do
     url "https://github.com/mistydemeo/libowfat/commit/278a675a6984e5c202eee9f7e36cda2ae5da658d.patch?full_index=1"
-    sha256 "c3251de8ab374700b2123cd35f3406ebe3fca31a7c63b771e4ba683fe3d82b36"
+    sha256 "32eab2348f495f483f7cd34ffd7543bd619f312b7094a4b55be9436af89dd341"
   end
 
   def install
