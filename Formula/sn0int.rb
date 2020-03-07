@@ -1,8 +1,8 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.17.1.tar.gz"
-  sha256 "230977e3eac9b052a4ef4cf4a134d58885d9884cf0412e5b91c19ecf5aab2a25"
+  url "https://github.com/kpcyrd/sn0int/archive/v0.18.0.tar.gz"
+  sha256 "12dfe19d2734a8c8c3bcd4e8e9a43e5ae58cab61cc980b7fe6fe9526e7933074"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,8 +11,10 @@ class Sn0int < Formula
     sha256 "b648960d804ed3f06b6e0f711608ecdd361dc84e867b193d9a30aecb2f294484" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "libsodium"
 
   uses_from_macos "sqlite"
 
