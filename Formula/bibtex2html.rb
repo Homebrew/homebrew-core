@@ -16,8 +16,6 @@ class Bibtex2html < Formula
   depends_on "ocaml" => :build
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
-
     # See: https://trac.macports.org/ticket/26724
     inreplace "Makefile.in" do |s|
       s.remove_make_var! "STRLIB"
