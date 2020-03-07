@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.0.tar.xz"
   sha256 "e5e514e47d169cdb4111c3ea4af0300e1b1a5f428a474d2d7ddadf38dd061280"
+  revision 1
 
   bottle do
     sha256 "d8337688b45c724480859e94036aef581549d4fced5a782411abaa68adf60c50" => :catalina
@@ -16,7 +17,7 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
   uses_from_macos "util-linux" # for libmount.so
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
