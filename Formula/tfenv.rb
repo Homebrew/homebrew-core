@@ -11,6 +11,7 @@ class Tfenv < Formula
 
   def install
     prefix.install ["bin", "libexec", "share"]
+    prefix.install "lib" if build.head?
   end
 
   test do
