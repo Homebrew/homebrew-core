@@ -1,9 +1,10 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
-  sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
+  url "https://sourceware.org/pub/libffi/libffi-3.3.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.3.orig.tar.gz"
+  mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
+  sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
 
   bottle do
     cellar :any
@@ -81,7 +82,7 @@ class Libffi < Formula
       }
     EOS
 
-    flags = ["-L#{lib}", "-lffi", "-I#{lib}/libffi-#{version}/include"]
+    flags = ["-L#{lib}", "-lffi", "-I#{include}"]
     system ENV.cc, "-o", "closure", "closure.c", *(flags + ENV.cflags.to_s.split)
     system "./closure"
   end
