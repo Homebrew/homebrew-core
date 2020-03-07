@@ -3,6 +3,7 @@ class Meson < Formula
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.53.2/meson-0.53.2.tar.gz"
   sha256 "3e8f830f33184397c2eb0b651ec502adb63decb28978bdc84b3558d71284c21f"
+  revision 1
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Meson < Formula
   end
 
   depends_on "ninja"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     version = Language::Python.major_minor_version("python3")
