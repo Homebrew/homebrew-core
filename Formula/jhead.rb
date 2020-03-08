@@ -1,8 +1,8 @@
 class Jhead < Formula
   desc "Extract Digicam setting info from EXIF JPEG headers"
   homepage "https://www.sentex.net/~mwandel/jhead/"
-  url "https://www.sentex.net/~mwandel/jhead/jhead-3.03.tar.gz"
-  sha256 "82194e0128d9141038f82fadcb5845391ca3021d61bc00815078601619f6c0c2"
+  url "https://www.sentex.net/~mwandel/jhead/jhead-3.04.tar.gz"
+  sha256 "ef89bbcf4f6c25ed88088cf242a47a6aedfff4f08cc7dc205bf3e2c0f10a03c9"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,8 @@ class Jhead < Formula
   # been submitted upstream through email. We need to carry this patch until
   # upstream decides to incorporate it.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/jhead/3.00.patch"
-    sha256 "743811070c31424b2a0dab3b6ced7aa3cd40bff637fb2eab295b742586873b8f"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e37226eb9575636a728461fdc469c6706d81f564/jhead/3.04.patch"
+    sha256 "2812e109fff8c0215faaa5a443d4b0aaa2b3a913aaac6b42c106903f1d62381b"
   end
 
   def install
