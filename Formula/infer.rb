@@ -19,6 +19,8 @@ class Infer < Formula
   depends_on :java => ["1.8", :build, :test]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
+  depends_on "ocaml-findlib" => :build
+  depends_on "ocaml-num" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
   depends_on "gmp"
@@ -68,15 +70,22 @@ class Infer < Formula
     # Pin updated dependencies which are required to build on brew ocaml
     # Remove from this when Infer updates their opam.locked to use at least these versions
     pinned_deps = {
+      "mlgmpidl"  => "1.2.12",
       "octavius"  => "1.2.1",
       "parmap"    => "1.0-rc11",
       "ppx_tools" => "5.3+4.08.0",
     }
     pinned_deps.each { |dep, ver| system "opam", "pin", "add", dep, ver, "--locked" }
 
+    # Unfortunately, opam can't cope if a system ocaml-num happens to be installed.
+    # Instead, we depend on Homebrew's ocaml-num and fool opam into using it.
+    # https://github.com/ocaml/opam-repository/issues/14646
+    system "opam", "pin", "add", "ocamlfind", Formula["ocaml-findlib"].version.to_s, "--locked", "--fake"
+    system "opam", "pin", "add", "num", Formula["ocaml-num"].version.to_s, "--locked", "--fake"
+
     # Relax the dependency lock on a specific ocaml
     # Also ignore anything we pinned above
-    ENV["OPAMIGNORECONSTRAINTS"] = "ocaml,#{pinned_deps.keys.join(",")}"
+    ENV["OPAMIGNORECONSTRAINTS"] = "ocaml,ocamlfind,num,#{pinned_deps.keys.join(",")}"
 
     # Remove ocaml-variants dependency (we won't be using it)
     inreplace "opam.locked", /^ +"ocaml-variants" {= ".*?"}$\n/, ""
