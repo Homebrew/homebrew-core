@@ -1,9 +1,9 @@
 class Fatsort < Formula
   desc "Sorts FAT16 and FAT32 partitions"
   homepage "https://fatsort.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fatsort/fatsort-1.6.2.605.tar.xz"
+  url "https://github.com/sh-khashimov/fatsort/archive/master.tar.gz"
   version "1.6.2"
-  sha256 "08cafa36f86ab89e7a3241d437df9af8a008549d7d13416256b7aaa006d5ffb7"
+  sha256 "394aafccd8df0b4126e5029f0f507ad35a4e1cd22e3ca8e3b8e5ca3dac16482c"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,9 +16,10 @@ class Fatsort < Formula
   depends_on "help2man"
 
   def install
-    system "make", "CC=#{ENV.cc}"
-    bin.install "src/fatsort"
-    man1.install "man/fatsort.1"
+    cd "src" do
+      system "make", "CC=#{ENV.cc}"
+      bin.install "fatsort"
+    end
   end
 
   test do
