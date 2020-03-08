@@ -15,6 +15,8 @@ class Moarvm < Formula
   depends_on "libtommath"
   depends_on "libuv"
 
+  conflicts_with "rakudo-star", :because => "rakudo-star currently ships with moarvm included"
+
   resource("nqp") do
     url "https://github.com/perl6/nqp/releases/download/2020.01/nqp-2020.01.tar.gz"
     sha256 "4ccc9c194322c73f4c8ba681e277231479fcc2307642eeeb0f7caa149332965b"
