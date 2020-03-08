@@ -13,7 +13,16 @@ class Radamsa < Formula
     sha256 "3b09d787e73444964136ab042bc458610eb4cf08f4ba015cbe7e1d13ab8509f5" => :el_capitan
   end
 
+  resource "owl" do
+    url "https://gitlab.com/owl-lisp/owl/uploads/0d0730b500976348d1e66b4a1756cdc3/ol-0.1.19.c.gz"
+    sha256 "86917b9145cf3745ee8294c81fb822d17106698aa1d021916dfb2e0b8cfbb54d"
+  end
+
   def install
+    resource("owl").stage do
+      buildpath.install "ol.c"
+    end
+
     system "make"
     man1.install "doc/radamsa.1"
     prefix.install Dir["*"]
@@ -23,9 +32,6 @@ class Radamsa < Formula
     The Radamsa binary has been installed.
     The Lisp source code has been copied to:
       #{prefix}/rad
-
-    To be able to recompile the source to C, you will need run:
-      $ make get-owl
 
     Tests can be run with:
       $ make .seal-of-quality
