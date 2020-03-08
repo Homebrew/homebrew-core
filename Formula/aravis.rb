@@ -11,11 +11,11 @@ class Aravis < Formula
     sha256 "b97fa0af26f27a4a7ff3f56b6e24b300199ad7f208343a431e8ea90a806a9d9c" => :sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "glib"
@@ -29,15 +29,8 @@ class Aravis < Formula
   depends_on "libusb"
 
   def install
-    # icon cache update must happen in post_install
-    inreplace "viewer/Makefile.am", "install-data-hook: install-update-icon-cache", ""
-
-    system "autoreconf", "-fi"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-introspection",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "meson", "--prefix=#{prefix}", "build"
+    system "ninja", "-C", "build"
   end
 
   def post_install
