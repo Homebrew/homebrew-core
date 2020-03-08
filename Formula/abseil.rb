@@ -1,8 +1,8 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/20190808.tar.gz"
-  sha256 "8100085dada279bf3ee00cd064d43b5f55e5d913be0dfe2906f06f8f28d5b37e"
+  url "https://github.com/abseil/abseil-cpp/archive/20200225.1.tar.gz"
+  sha256 "0db0d26f43ba6806a8a3338da3e646bb581f0ca5359b3a201d8fb8e4752fd5f8"
 
   bottle do
     cellar :any_skip_relocation
