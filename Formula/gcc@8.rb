@@ -32,7 +32,7 @@ class GccAT8 < Formula
   # but this patch is a work around committed to GCC trunk
   if MacOS::Xcode.version >= "10.2"
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/be45d9d34a9b57e0414e2658fe004c07d8ad50a7/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
       sha256 "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84"
     end
   end
