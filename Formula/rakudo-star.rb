@@ -16,7 +16,9 @@ class RakudoStar < Formula
   depends_on "libffi"
   depends_on "pcre"
 
+  conflicts_with "moarvm", "nqp", :because => "rakudo-star currently ships with moarvm and nqp included"
   conflicts_with "parrot"
+  conflicts_with "rakudo"
 
   def install
     libffi = Formula["libffi"]
