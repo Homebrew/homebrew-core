@@ -12,10 +12,10 @@ class Buildifier < Formula
     sha256 "62f0325685b520d81ea00e5c59de99b1e9647a121808d60c0d6414fc6847db03" => :high_sierra
   end
 
-  depends_on "bazel" => :build
+  depends_on "bazelisk" => :build
 
   def install
-    system "bazel", "build", "--config=release", "buildifier:buildifier"
+    system "bazelisk", "build", "--config=release", "buildifier:buildifier"
     bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
 
