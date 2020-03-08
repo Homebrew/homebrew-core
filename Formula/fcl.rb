@@ -1,8 +1,8 @@
 class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
-  url "https://github.com/flexible-collision-library/fcl/archive/v0.6.0.tar.gz"
-  sha256 "6891abac5cc26d64f5ef8894bc6c2a30174558c5c83a3ed63cf65a21cb619b2b"
+  url "https://github.com/flexible-collision-library/fcl/archive/v0.6.1.tar.gz"
+  sha256 "c8a68de8d35a4a5cd563411e7577c0dc2c626aba1eef288cb1ca88561f8d8019"
 
   bottle do
     sha256 "20a679e735c69b58c4a97da7c03beac0f45ad80fa9230fcb25cf2f0c4a191f1d" => :catalina
