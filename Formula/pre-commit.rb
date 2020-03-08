@@ -13,9 +13,17 @@ class PreCommit < Formula
     sha256 "239b6b495d41b65e5746d3fce4a4866c5c24d04ff67ddd15d9c2bf7a1a0a5828" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  # To avoid breaking existing git hooks when we update Python,
+  # we should never depend on a versioned Python formula and
+  # always use the "default".
+  depends_on "python"
 
   def install
+    # Make sure we are actually using Homebrew's Python
+    inreplace "pre_commit/commands/install_uninstall.py",
+              "f'#!/usr/bin/env {py}'",
+              "'#!#{Formula["python"].opt_bin}/python3'"
+
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
