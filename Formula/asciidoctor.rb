@@ -24,9 +24,16 @@ class Asciidoctor < Formula
     sha256 "6f6bfb50d59dddfdbc5bf216907a790ede2fe5757884c726fd6b21b652aaa695"
   end
 
-  resource "ttfunk" do
-    url "https://rubygems.org/gems/ttfunk-1.6.2.1.gem"
-    sha256 "f663d866d7b5089367d90ba5416191b24cfed000e30a90ab21bba3318d950b70"
+  if MacOS.version < :catalina
+    resource "ttfunk" do
+      url "https://rubygems.org/downloads/ttfunk-1.5.1.gem"
+      sha256 "8da1c20cc9e010a4b083376e6ae6996c4aa517558420bb23d9a1d8a228b6f9d5"
+    end
+  else
+    resource "ttfunk" do
+      url "https://rubygems.org/gems/ttfunk-1.6.2.1.gem"
+      sha256 "f663d866d7b5089367d90ba5416191b24cfed000e30a90ab21bba3318d950b70"
+    end
   end
 
   resource "prawn" do
