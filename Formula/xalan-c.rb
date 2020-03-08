@@ -20,12 +20,12 @@ class XalanC < Formula
   # Fix segfault. See https://issues.apache.org/jira/browse/XALANC-751
   # Build with char16_t casts.  See https://issues.apache.org/jira/browse/XALANC-773
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/xerces-char16.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/xerces-char16.patch"
     sha256 "ebd4ded1f6ee002351e082dee1dcd5887809b94c6263bbe4e8e5599f56774ebf"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/locator-system-id.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/locator-system-id.patch"
     sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
   end
 
