@@ -31,6 +31,7 @@ class Aravis < Formula
   def install
     system "meson", "--prefix=#{prefix}", "-Dpacket-socket=false", "build"
     system "ninja", "-C", "build"
+    system "ninja", "install", "-C", "build"
   end
 
   def post_install
