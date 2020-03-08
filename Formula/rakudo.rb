@@ -12,6 +12,8 @@ class Rakudo < Formula
 
   depends_on "nqp"
 
+  conflicts_with "rakudo-star"
+
   def install
     system "perl", "Configure.pl",
                    "--backends=moar",
