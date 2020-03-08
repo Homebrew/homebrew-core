@@ -15,6 +15,12 @@ class Compcert < Formula
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
 
+  # coq 8.11 compatibility. Remove with the next release.
+  patch do
+    url "https://github.com/AbsInt/CompCert/commit/b7374d225af55ecc6f5d6aa8f3684bfae99ff465.patch?full_index=1"
+    sha256 "a873dcbf7855935e4b5087883ef07b3fb0c17b6e62a1a0c266a009e0bbd3c794"
+  end
+
   def install
     # We pass -ignore-coq-version, otherwise every new version of coq
     # breaks the strict version check.
