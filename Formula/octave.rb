@@ -63,7 +63,7 @@ class Octave < Formula
   # https://github.com/Homebrew/homebrew-core/issues/39848
   # Patch submitted upstream at: https://savannah.gnu.org/patch/index.php?9806
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/octave/5.1.0-java-version.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a8124b73c5216cc81d63627a4b41203ab1d91a4d/octave/5.1.0-java-version.patch"
     sha256 "7ea1e9b410a759fa136d153fb8482ecfc3425a39bfe71c1e71b3ff0f7d9a0b54"
   end
 
