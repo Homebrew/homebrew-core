@@ -29,7 +29,7 @@ class Aravis < Formula
   depends_on "libusb"
 
   def install
-    system "meson", "--prefix=#{prefix}", "build"
+    system "meson", "--prefix=#{prefix}", "-Dpacket-socket=false", "build"
     system "ninja", "-C", "build"
   end
 
