@@ -1,8 +1,8 @@
 class Ezstream < Formula
   desc "Client for Icecast streaming servers"
   homepage "https://icecast.org/ezstream/"
-  url "https://downloads.xiph.org/releases/ezstream/ezstream-0.6.0.tar.gz"
-  sha256 "f86eb8163b470c3acbc182b42406f08313f85187bd9017afb8b79b02f03635c9"
+  url "https://downloads.xiph.org/releases/ezstream/ezstream-1.0.1.tar.gz"
+  sha256 "fc4bf494897a8b1cf75dceefb1eb22ebd36967e5c3b5ce2af9858dbb94cf1157"
 
   bottle do
     cellar :any
@@ -16,12 +16,12 @@ class Ezstream < Formula
     sha256 "04e3a89b8b1e91ce160ec94c981b71d8fb08d7be8fef3da3f1c33b29dc9e3f8c" => :mavericks
   end
 
+  depends_on "check" => :build
   depends_on "pkg-config" => :build
-  depends_on "libogg"
   depends_on "libshout"
-  depends_on "libvorbis"
-  depends_on "speex"
-  depends_on "theora"
+  depends_on "taglib"
+
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-debug",
