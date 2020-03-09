@@ -1,8 +1,8 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.49.tar.gz"
-  sha256 "e8971bc6689ea72b174c194bd43ba2c0b65112b0c3f9fd2371562e0c3ab57d29"
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.52.tar.gz"
+  sha256 "e433da63af7161a6ce8b1e0c9f0b25bd59ad6d81bc4069e9277c97c1320a3ac4"
 
   bottle do
     sha256 "b56119ffd81313773bc72fe757bfde4505f2e9e7c16994235e2992390ecb8348" => :catalina
@@ -13,16 +13,16 @@ class Ktoblzcheck < Formula
     sha256 "becae478ba0d094c71ff876db74e9946b51e72df0c6d295e4bfbe0ea337294b0" => :yosemite
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "cmake", ".", *std_cmake_args
     system "make"
-    ENV.deparallelize
     system "make", "install"
   end
 
   test do
-    assert_match /Ok/, shell_output("#{bin}/ktoblzcheck --outformat=oneline 10000000 123456789", 0)
+    assert_match /Ok/, shell_output("#{bin}/ktoblzcheck --outformat=oneline 10000000 123456789")
     assert_match /unknown/, shell_output("#{bin}/ktoblzcheck --outformat=oneline 12345678 100000000", 3)
   end
 end
