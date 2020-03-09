@@ -3,7 +3,7 @@ class Gforth < Formula
   homepage "https://www.gnu.org/software/gforth/"
   url "https://www.complang.tuwien.ac.at/forth/gforth/gforth-0.7.3.tar.gz"
   sha256 "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
