@@ -1,8 +1,8 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.5.22.tar.gz"
-  sha256 "c2b47e9d20575a2367087c229636ffc3fb699a6c3a7f3a22f44402f25f5f1f93"
+  url "https://www.memcached.org/files/memcached-1.6.0.tar.gz"
+  sha256 "1a29d75a4004ebee92e19ad96b20100f45713c34594e25f8e8db0aecfff43e05"
   head "https://github.com/memcached/memcached.git"
 
   bottle do
@@ -13,12 +13,6 @@ class Memcached < Formula
   end
 
   depends_on "libevent"
-
-  # fix for https://github.com/memcached/memcached/issues/598, included in next version
-  patch do
-    url "https://github.com/memcached/memcached/commit/7e3a2991.diff?full_index=1"
-    sha256 "063a2d91f863c4c6139ff5f0355bd880aca89b6da813515e0f0d11d9295189b4"
-  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-coverage", "--enable-tls"
