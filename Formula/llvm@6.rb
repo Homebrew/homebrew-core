@@ -3,7 +3,7 @@ class LlvmAT6 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
   sha256 "b6d6c324f9c71494c0ccaf3dac1f16236d970002b42bb24a6c9e1634f7d0f4e2"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
