@@ -1,7 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1
+  revision 2
   head "https://github.com/llvm/llvm-project.git"
 
   stable do
