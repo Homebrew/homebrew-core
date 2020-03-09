@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.19.0.tar.gz"
-  sha256 "84dc77f517ca1f115e05e25e8a8cdbcacbf31df281217ebac31dc974560a4ffc"
+  url "https://github.com/dlang/dub/archive/v1.20.0.tar.gz"
+  sha256 "aa50d577f855b955b4236a4b06acc33a9ce2188258156d920b7231e30b386d01"
   version_scheme 1
   head "https://github.com/dlang/dub.git"
 
@@ -19,8 +19,12 @@ class Dub < Formula
 
   def install
     ENV["GITVER"] = version.to_s
-    system "./build.sh"
+    system "./build.d"
+    system "bin/dub", "scripts/man/gen_man.d"
     bin.install "bin/dub"
+    man1.install Dir["scripts/man/*.1"]
+    zsh_completion.install "scripts/zsh-completion/_dub"
+    fish_completion.install "scripts/fish-completion/dub.fish"
   end
 
   test do
