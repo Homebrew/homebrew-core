@@ -4,7 +4,6 @@ class Toilet < Formula
   url "http://caca.zoy.org/raw-attachment/wiki/toilet/toilet-0.3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/t/toilet/toilet_0.3.orig.tar.gz"
   sha256 "89d4b530c394313cc3f3a4e07a7394fa82a6091f44df44dfcd0ebcb3300a81de"
-
   bottle do
     sha256 "816162aa8f967f14e6db8f9b48024ef5119c04955575299e02fe88b2b0158ac6" => :catalina
     sha256 "27c9e1fe38ec012c5dd9199c8100d49c56e386c65c336a4fbcaaa25a9341cab2" => :mojave
@@ -15,10 +14,18 @@ class Toilet < Formula
     sha256 "ef2c34f742b366f84d2aeeb6d83fb94d6bd443f210e56968fb8b2b5700eab759" => :mavericks
   end
 
+  head do
+    url "https://github.com/cacalabs/toilet.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libcaca"
 
   def install
+    system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
