@@ -1,8 +1,9 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.92.3.tar.xz"
-  sha256 "c4453bb5ec8e16c4c3353769700466eb9aa48c1b2fcf7f3b0e08954dd727d2fd"
+  url "https://ftp.exim.org/pub/exim/exim4/fixes/exim-4.93.0.4.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/exim-4.93.0.4.tar.xz"
+  sha256 "537d366ee18ed357656f54f255f8f9e11bde9684fcaaecaaa56f84cdbcd3e405"
 
   bottle do
     sha256 "fad2158a04645f41d9633e6ee449b2a9cda95778aebb52fa25a8e8051e032503" => :catalina
@@ -17,7 +18,6 @@ class Exim < Formula
   def install
     cp "src/EDITME", "Local/Makefile"
     inreplace "Local/Makefile" do |s|
-      s.remove_make_var! "EXIM_MONITOR"
       s.change_make_var! "EXIM_USER", ENV["USER"]
       s.change_make_var! "SYSTEM_ALIASES_FILE", etc/"aliases"
       s.gsub! "/usr/exim/configure", etc/"exim.conf"
@@ -27,6 +27,7 @@ class Exim < Formula
       s.gsub! 'TMPDIR="/tmp"', "TMPDIR=/tmp"
       s << "AUTH_PLAINTEXT=yes\n"
       s << "SUPPORT_TLS=yes\n"
+      s << "USE_OPENSSL=yes\n"
       s << "TLS_LIBS=-lssl -lcrypto\n"
       s << "TRANSPORT_LMTP=yes\n"
 
@@ -36,8 +37,6 @@ class Exim < Formula
     end
 
     bdb4 = Formula["berkeley-db@4"]
-
-    mv Dir["OS/unsupported/*Darwin*"], "OS"
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
