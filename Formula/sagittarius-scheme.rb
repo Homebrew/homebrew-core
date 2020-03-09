@@ -3,6 +3,7 @@ class SagittariusScheme < Formula
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
   url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.6.tar.gz"
   sha256 "b946b168fca70f84d922bcfa2125e2e64ad5fb8cf67e4204deb43dd2dcdedb0e"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,9 +17,10 @@ class SagittariusScheme < Formula
   depends_on "bdw-gc"
   depends_on "libffi"
   depends_on "openssl@1.1"
+  depends_on "unixodbc"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DODBC_LIBRARIES=odbc"
     system "make", "install"
   end
 
