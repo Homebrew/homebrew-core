@@ -3,6 +3,7 @@ class Libarchive < Formula
   homepage "https://www.libarchive.org"
   url "https://www.libarchive.org/downloads/libarchive-3.4.2.tar.xz"
   sha256 "d8e10494b4d3a15ae9d67a130d3ab869200cfd60b2ab533b391b0a0d5500ada1"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,10 +14,14 @@ class Libarchive < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "libb2"
+  depends_on "lz4"
   depends_on "xz"
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "expat"
+  uses_from_macos "iconv"
   uses_from_macos "zlib"
 
   def install
