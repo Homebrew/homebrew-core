@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.2.tar.gz"
-  sha256 "ad432fcb0321f7fb1d73356f9cce5a28170fbda63466228e5d2be9673249a9ec"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.7.tar.gz"
+  sha256 "b80da9f6edecaf93edc00c7e7c630ae6cf934ce9ce061debb630f027e69b5c97"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -31,7 +31,7 @@ class Ibex < Formula
                                  "--with-optim"
     system "./waf", "install"
 
-    pkgshare.install %w[examples plugins/solver/benchs]
+    pkgshare.install %w[examples benchs/solver]
     (pkgshare/"examples/symb01.txt").write <<~EOS
       function f(x)
         return ((2*x,-x);(-x,3*x));
