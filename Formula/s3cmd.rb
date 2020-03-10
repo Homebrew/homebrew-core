@@ -5,7 +5,7 @@ class S3cmd < Formula
   homepage "https://s3tools.org/s3cmd"
   url "https://files.pythonhosted.org/packages/3a/f5/c70bfb80817c9d81b472e077e390d8c97abe130c9e86b61307a1d275532c/s3cmd-2.0.2.tar.gz"
   sha256 "6d7a3a49a12048a6c8e5fbb5ef42a83101e2fc69f16013d292b7f37ecfc574a0"
-  revision 2
+  revision 3
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
