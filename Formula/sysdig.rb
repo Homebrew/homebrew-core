@@ -1,6 +1,8 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
+  # The version used here should be the latest stable version from:
+  # https://github.com/draios/sysdig/releases/latest
   url "https://github.com/draios/sysdig/archive/0.26.5.tar.gz"
   sha256 "3a251eca408e71df9582eac93632d8927c5abcc8d09b25aa32ef6d9c99a07bd4"
 
