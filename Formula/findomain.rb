@@ -1,8 +1,8 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
   homepage "https://github.com/Edu4rdSHL/findomain"
-  url "https://github.com/Edu4rdSHL/findomain/archive/1.4.1.tar.gz"
-  sha256 "53cf6a6920ce10c77f0f325dd6f0425a568be6369bf64ce3fbeed2efcbeefb1c"
+  url "https://github.com/Edu4rdSHL/findomain/archive/1.4.2.tar.gz"
+  sha256 "01fc4e8adc6a61955c309cb8e8576048e35c45d6a9da002aa4589e06dc736029"
 
   bottle do
     cellar :any_skip_relocation
