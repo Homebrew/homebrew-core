@@ -3,6 +3,7 @@ class Ext2fuse < Formula
   homepage "https://sourceforge.net/projects/ext2fuse"
   url "https://downloads.sourceforge.net/project/ext2fuse/ext2fuse/0.8.1/ext2fuse-src-0.8.1.tar.gz"
   sha256 "431035797b2783216ec74b6aad5c721b4bffb75d2174967266ee49f0a3466cd9"
+  revision 1
 
   bottle do
     cellar :any
