@@ -5,7 +5,7 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://github.com/dbohdan/remarshal/archive/v0.11.2.tar.gz"
   sha256 "3f383e48f59722a4d93ef2b5e417b6a8c152f382a1faad416099ffcde5c87a66"
-  revision 2
+  revision 3
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
