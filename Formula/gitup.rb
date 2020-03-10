@@ -6,7 +6,7 @@ class Gitup < Formula
   url "https://github.com/earwig/git-repo-updater.git",
       :tag      => "v0.5.1",
       :revision => "b502b2eaa46a6a10d9db228209f984bb235444a7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
