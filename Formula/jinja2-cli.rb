@@ -5,7 +5,7 @@ class Jinja2Cli < Formula
   homepage "https://github.com/mattrobenolt/jinja2-cli"
   url "https://files.pythonhosted.org/packages/23/67/6f05f5f8a9fc108c58e4eac9b9b7876b400985d33149fe2faa87a9ca502b/jinja2-cli-0.7.0.tar.gz"
   sha256 "9ccd8d530dad5d031230afd968cf54637b49842a13ececa6e17c2f67f6e9336e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
