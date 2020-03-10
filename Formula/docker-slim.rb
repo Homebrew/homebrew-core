@@ -1,9 +1,8 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://dockersl.im"
-  url "https://github.com/docker-slim/docker-slim/archive/1.26.1.tar.gz"
-  sha256 "f3decf77b6a75cadd194085892469391cf39f7e54bf83d9ed9080308ec2d603a"
-  revision 1
+  url "https://github.com/docker-slim/docker-slim/archive/1.28.0.tar.gz"
+  sha256 "a6a88bf826dd8bf74ebead55dddfaad1977fae3885c7ec1bdacf4268e9e8d7f2"
 
   bottle do
     cellar :any_skip_relocation
