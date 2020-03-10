@@ -5,7 +5,7 @@ class Atdtool < Formula
   homepage "https://github.com/lpenz/atdtool"
   url "https://files.pythonhosted.org/packages/83/d1/55150f2dd9afda92e2f0dcb697d6f555f8b1f578f1df4d685371e8b81089/atdtool-1.3.3.tar.gz"
   sha256 "a83f50e7705c65e7ba5bc339f1a0624151bba9f7cdec7fb1460bb23e9a02dab9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
