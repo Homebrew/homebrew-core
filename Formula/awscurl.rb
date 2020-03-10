@@ -5,6 +5,7 @@ class Awscurl < Formula
   homepage "https://github.com/okigan/awscurl"
   url "https://github.com/okigan/awscurl/archive/v0.20.tar.gz"
   sha256 "3ce06d105067b42398cf0bb6696742b790258e16487d5e5afa025b7c3ca983e4"
+  revision 1
   head "https://github.com/okigan/awscurl.git"
 
   bottle do
