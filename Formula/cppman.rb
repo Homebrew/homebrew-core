@@ -5,6 +5,7 @@ class Cppman < Formula
   homepage "https://github.com/aitjcize/cppman"
   url "https://files.pythonhosted.org/packages/53/9a/4908e1de68541c43961bea068c7062e91f8c8b656ea5fcf6ce0d7138a702/cppman-0.5.0.tar.gz"
   sha256 "0041943ca756c4736e5b1daca56f1e07f0953bbd438464ee3b8322c95a9f4cff"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
