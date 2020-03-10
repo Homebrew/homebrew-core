@@ -5,7 +5,7 @@ class ZabbixCli < Formula
   homepage "https://github.com/usit-gd/zabbix-cli/"
   url "https://github.com/usit-gd/zabbix-cli/archive/2.1.1.tar.gz"
   sha256 "1f58b1374dc9e2711bab5d78740ab17fa81dc89aca14e7ea75c10631e6e81227"
-  revision 1
+  revision 2
   head "https://github.com/usit-gd/zabbix-cli.git"
 
   bottle do
