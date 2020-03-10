@@ -4,9 +4,9 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.7.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.7.tar.xz"
-  sha256 "4c27fededf620c0aa522fff1a48577ba08144445341257502e7730f2b1a296e8"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.0.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.0.tar.xz"
+  sha256 "b633cc2b0e030efb61e11029d8a3fb1123f719864c9992da2e52b471c96d0900"
 
   bottle do
     sha256 "947ec19c6eac9b3bcc782e3fa532ba68059015f2472201b8a889aa5a8d83f48b" => :catalina
@@ -23,6 +23,8 @@ class Dpkg < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  patch :DATA
 
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
@@ -92,3 +94,21 @@ class Dpkg < Formula
     assert_predicate testpath/"data/homebrew.txt", :exist?
   end
 end
+
+__END__
+diff --git a/lib/dpkg/i18n.c b/lib/dpkg/i18n.c
+index 4952700..81533ff 100644
+--- a/lib/dpkg/i18n.c
++++ b/lib/dpkg/i18n.c
+@@ -23,6 +23,11 @@
+
+ #include <dpkg/i18n.h>
+
++#ifdef __APPLE__
++#include <string.h>
++#include <xlocale.h>
++#endif
++
+ #ifdef HAVE_USELOCALE
+ static locale_t dpkg_C_locale;
+ #endif
