@@ -19,9 +19,8 @@ class Multimarkdown < Formula
   conflicts_with "discount", :because => "both install `markdown` binaries"
 
   def install
-    system "make", "release"
-
-    cd "build" do
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
       system "make"
       bin.install "multimarkdown"
     end
