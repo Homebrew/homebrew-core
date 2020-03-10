@@ -5,6 +5,7 @@ class Ykman < Formula
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.1.tar.gz"
   sha256 "68ef41ac3cd2e891019e755a492427ecdd63d8816525d05f2f32c37b8c440cfa"
+  revision 1
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
