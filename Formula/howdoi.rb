@@ -5,7 +5,7 @@ class Howdoi < Formula
   homepage "https://github.com/gleitz/howdoi"
   url "https://files.pythonhosted.org/packages/03/db/c9b5bb64adac16b0feab7924fb1134ce88bc38f7af4e74aca27c48de26df/howdoi-1.2.1.tar.gz"
   sha256 "3b322668606d29d8a841c3b28c0574851f512b55c33a7ceb982b6a98d82fa3e3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
