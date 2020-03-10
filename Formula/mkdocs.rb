@@ -5,7 +5,7 @@ class Mkdocs < Formula
   homepage "https://www.mkdocs.org/"
   url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
   sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
