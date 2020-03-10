@@ -1,10 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
-  version "4.3e"
-  sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
-  revision 1
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3g.tar.gz"
+  version "4.3g"
+  sha256 "c7b465079f5a0323b1c0e159ff8b8a18a775b1d7fc4542be0dfa6c32022b601c"
 
   bottle do
     sha256 "06c2d3728e778db36954a6fca8ecc8cb663d90122a884cfb0fc96ce1de36663a" => :catalina
