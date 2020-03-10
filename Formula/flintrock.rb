@@ -5,7 +5,7 @@ class Flintrock < Formula
   homepage "https://github.com/nchammas/flintrock"
   url "https://files.pythonhosted.org/packages/82/2e/c2aa7e8a98b03632f789e15854ee9716d6b3aef31580950458285819be95/Flintrock-0.11.0.tar.gz"
   sha256 "f203a5558acc5fc7d8fd6efefaf6f0b90625c9d9c938521cdecc44bc684b3605"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
