@@ -5,6 +5,7 @@ class Jrnl < Formula
   homepage "https://jrnl.sh/"
   url "https://github.com/jrnl-org/jrnl/releases/download/v2.2/jrnl-2.2-brew.tar.gz"
   sha256 "335c1629b5ae8bc1b8812d4f3ad5d188e4b2342842c9d033388c97f7049bec3a"
+  revision 1
 
   bottle do
     cellar :any
