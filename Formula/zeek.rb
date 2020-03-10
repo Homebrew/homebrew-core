@@ -2,9 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      :tag      => "v3.0.1",
-      :revision => "ae4740fa265701f494df23b65af80822f3e26a13"
-  revision 1
+      :tag      => "v3.1.0",
+      :revision => "cd75d21e24610ec9a594e1971dbb739ecdf4cc64"
   head "https://github.com/zeek/zeek.git"
 
   bottle do
@@ -25,16 +24,23 @@ class Zeek < Formula
   uses_from_macos "python@2" # See https://github.com/zeek/zeek/issues/706
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-caf=#{Formula["caf"].opt_prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--disable-broker-tests",
-                          "--localstatedir=#{var}",
-                          "--conf-files-dir=#{etc}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args,
+                      "-DDISABLE_PYTHON_BINDINGS=on",
+                      "-DBROKER_DISABLE_TESTS=on",
+                      "-DBUILD_SHARED_LIBS=on",
+                      "-DINSTALL_AUX_TOOLS=on",
+                      "-DINSTALL_ZEEKCTL=on",
+                      "-DCAF_ROOT_DIR=#{Formula["caf"].opt_prefix}",
+                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DZEEK_ETC_INSTALL_DIR=#{etc}",
+                      "-DZEEK_LOCAL_STATE_DIR=#{var}"
+      system "make", "install"
+    end
   end
 
   test do
-    system "#{bin}/zeek", "--version"
+    assert_match "version #{version}", shell_output("#{bin}/zeek --version")
+    assert_match "ARP Parsing", shell_output("#{bin}/zeek --print-plugins")
   end
 end
