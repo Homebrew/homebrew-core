@@ -5,7 +5,7 @@ class Pygments < Formula
   homepage "https://pygments.org/"
   url "https://files.pythonhosted.org/packages/7e/ae/26808275fc76bf2832deb10d3a3ed3107bc4de01b85dcccbe525f2cd6d1e/Pygments-2.4.2.tar.gz"
   sha256 "881c4c157e45f30af185c1ffe8d549d48ac9127433f2c380c24b84572ad66297"
-  revision 1
+  revision 2
 
   head "https://github.com/pygments/pygments.git"
 
