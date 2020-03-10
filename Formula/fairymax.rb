@@ -2,9 +2,9 @@ class Fairymax < Formula
   desc "AI for playing Chess variants"
   homepage "https://www.chessvariants.com/index/msdisplay.php?itemid=MSfairy-max"
   url "http://hgm.nubati.net/git/fairymax.git",
-      :tag      => "4.8V",
-      :revision => "b12e1192005c781f64ed9c25c9825d20384d2468"
-  version "4.8V"
+      :tag      => "5.0b",
+      :revision => "f7a7847ea2d4764d9a0a211ba6559fa98e8dbee6"
+  version "5.0b"
   head "http://hgm.nubati.net/git/fairymax.git"
 
   bottle do
