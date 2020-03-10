@@ -39,7 +39,7 @@ class Haxe < Formula
 
     # Rebuild haxelib as a valid binary
     cd "extra/haxelib_src" do
-      system "cmake", "."
+      system "cmake", ".", *std_cmake_args
       system "make"
     end
     rm "haxelib"
