@@ -1,8 +1,8 @@
 class Finatra < Formula
   desc "Scala web framework inspired by Sinatra"
   homepage "http://finatra.info/"
-  url "https://github.com/twitter/finatra/archive/1.5.3.tar.gz"
-  sha256 "aa4fab5ccdc012da9edf4650addf54b6ba64eb7e6a5e88d8c76e68e4d89216de"
+  url "https://github.com/twitter/finatra/archive/finatra-20.3.0.tar.gz"
+  sha256 "6450dd809cfbace2b3057aa9e4c059a32fd0aa047f83a6a6c1de8a1f9f30d578"
 
   bottle :unneeded
 
