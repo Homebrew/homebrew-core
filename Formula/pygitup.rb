@@ -5,7 +5,7 @@ class Pygitup < Formula
   homepage "https://github.com/msiemens/PyGitUp"
   url "https://files.pythonhosted.org/packages/46/45/32dc0bf07c620644a8ed899e381309f4f25b50f20a91e555285522592833/git-up-1.6.1.tar.gz"
   sha256 "ea83441e7ab05011624e2e7333ef875c263124db5eed74507acd32b07c48473f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
