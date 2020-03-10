@@ -5,7 +5,7 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
   url "https://files.pythonhosted.org/packages/46/5a/c01bbff96fcbe8051e0b59e6191e07f5917f7f2cf667557c7dcbb85f62c3/aws-shell-0.2.1.tar.gz"
   sha256 "2044b0ef78c7542c392f2cee4b74a4439545c63dda0a3e28b712fff53e8e5823"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
