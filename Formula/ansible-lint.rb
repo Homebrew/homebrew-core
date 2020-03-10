@@ -5,7 +5,7 @@ class AnsibleLint < Formula
   homepage "https://github.com/ansible/ansible-lint/"
   url "https://files.pythonhosted.org/packages/fc/e6/e3cf96cb73b1920584cdcc8579164a70b7e8aab276b198f2130a7939efcc/ansible-lint-4.2.0.tar.gz"
   sha256 "eb925d8682d70563ccb80e2aca7b3edf84fb0b768cea3edc6846aac7abdc414a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
