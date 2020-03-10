@@ -6,7 +6,7 @@ class Sshuttle < Formula
   url "https://github.com/sshuttle/sshuttle.git",
       :tag      => "v0.78.5",
       :revision => "752a95310198886515577463a4a7e36d7f218018"
-  revision 1
+  revision 2
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do
