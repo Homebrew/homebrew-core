@@ -1,9 +1,8 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz"
-  sha256 "55a2cce72049f0794e9a11a84862e9039af9183603b78bc60d89539f82cf533f"
-  revision 1
+  url "https://www.python.org/ftp/python/3.7.7/Python-3.7.7.tar.xz"
+  sha256 "06a0a9f1bf0d8cd1e4121194d666c4e28ddae4dd54346de6c343206599f02136"
   head "https://github.com/python/cpython.git"
 
   bottle do
@@ -39,18 +38,18 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/f7/b6/5b98441b6749ea1db1e41e5e6e7a93cbdd7ffd45e11fe1b22d45884bc777/setuptools-42.0.2.zip"
-    sha256 "c5b372090d7c8709ce79a6a66872a91e518f7d65af97fca78135e1cb10d4b940"
+    url "https://files.pythonhosted.org/packages/df/ed/bea598a87a8f7e21ac5bbf464102077c7102557c07db9ff4e207bd9f7806/setuptools-46.0.0.zip"
+    sha256 "2f00f25b780fbfd0787e46891dcccd805b08d007621f24629025f48afef444b5"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ce/ea/9b445176a65ae4ba22dce1d93e4b5fe182f953df71a145f557cffaffc1bf/pip-19.3.1.tar.gz"
-    sha256 "21207d76c1031e517668898a6b46a9fb1501c7a4710ef5dfd6a40ad9e6757ea7"
+    url "https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz"
+    sha256 "7db0c8ea4c7ea51c8049640e8e6e7fde949de672bfa4949920675563a5a6967f"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/59/b0/11710a598e1e148fb7cbf9220fd2a0b82c98e94efbdecb299cb25e7f0b39/wheel-0.33.6.tar.gz"
-    sha256 "10c9da68765315ed98850f8e048347c3eb06dd81822dc2ab1d4fde9dc9702646"
+    url "https://files.pythonhosted.org/packages/75/28/521c6dc7fef23a68368efefdcd682f5b3d1d58c2b90b06dc1d0b805b51ae/wheel-0.34.2.tar.gz"
+    sha256 "8788e9155fe14f54164c1b9eb0a319d98ef02c160725587ad60f14ddc57b6f96"
   end
 
   def install
@@ -154,6 +153,11 @@ class Python < Formula
     %w[setuptools pip wheel].each do |r|
       (libexec/r).install resource(r)
     end
+
+    # Remove wheel test data.
+    # It's for people editing wheel and contains binaries which fail `brew linkage`.
+    rm libexec/"wheel/tox.ini"
+    rm_r libexec/"wheel/tests"
 
     # Install unversioned symlinks in libexec/bin.
     {
