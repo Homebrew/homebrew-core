@@ -5,6 +5,7 @@ class Pwntools < Formula
   homepage "https://github.com/Gallopsled/pwntools"
   url "https://github.com/Gallopsled/pwntools/archive/4.0.1.tar.gz"
   sha256 "5598bf8ebb96264dab3663d296be3dfe783451cf3535ad611d094a7c550d467f"
+  revision 1
 
   bottle do
     cellar :any
