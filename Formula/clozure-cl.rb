@@ -1,8 +1,8 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com"
-  url "https://github.com/Clozure/ccl/archive/v1.11.6.tar.gz"
-  sha256 "6a496d35e05dc3e6e7637884552b1f14c82296525546f28337b222e4c3d7d50b"
+  url "https://github.com/Clozure/ccl/archive/v1.11.8.tar.gz"
+  sha256 "f810d7b272ee36d5885e74d0aec5d1613c239b81c2caf97c1505eba9b12296ad"
   head "https://github.com/Clozure/ccl.git"
 
   bottle do
