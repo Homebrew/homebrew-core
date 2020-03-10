@@ -23,7 +23,7 @@ class Lolcode < Formula
   conflicts_with "lci", :because => "both install `lci` binaries"
 
   def install
-    system "cmake", "."
+    system "cmake", ".", *std_cmake_args
     system "make"
     # Don't use `make install` for this one file
     bin.install "lci"
