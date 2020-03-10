@@ -5,7 +5,7 @@ class Awslogs < Formula
   homepage "https://github.com/jorgebastida/awslogs"
   url "https://github.com/jorgebastida/awslogs/archive/0.11.0.tar.gz"
   sha256 "6258a121629cb872ee61fe78bf112753c8782c971524f0943a0e21f74d5e28bd"
-  revision 1
+  revision 2
   head "https://github.com/jorgebastida/awslogs.git"
 
   bottle do
