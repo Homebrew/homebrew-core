@@ -6,6 +6,7 @@ class AwscliAT1 < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.18.10.tar.gz"
   sha256 "1a673a5fd9c85937131a9bcd975de469d9c07f8fad5249d58cf88840ac956b6d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
