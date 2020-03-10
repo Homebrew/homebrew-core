@@ -5,7 +5,7 @@ class Bzt < Formula
   homepage "https://gettaurus.org/"
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.14.0.tar.gz"
   sha256 "849ff649d92bfc8077e5070036d801f6544d7189aaa1007d77e20a4aa4359ee9"
-  revision 1
+  revision 2
   head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
