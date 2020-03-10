@@ -18,7 +18,7 @@ class Freeglut < Formula
 
   def install
     inreplace "src/x11/fg_main_x11.c", "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH" if MacOS.version < :sierra
-    system "cmake", "-DFREEGLUT_BUILD_DEMOS=OFF", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "."
+    system "cmake", *std_cmake_args, "-DFREEGLUT_BUILD_DEMOS=OFF", "."
     system "make", "all"
     system "make", "install"
   end
