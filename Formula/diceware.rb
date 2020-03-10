@@ -5,7 +5,7 @@ class Diceware < Formula
   homepage "https://github.com/ulif/diceware"
   url "https://github.com/ulif/diceware/archive/v0.9.6.tar.gz"
   sha256 "ff55832e725abff212dec1a2cb6e1c3545ae782b5f49ec91ec870a2b50e1f0e8"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
