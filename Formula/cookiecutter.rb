@@ -5,7 +5,7 @@ class Cookiecutter < Formula
   homepage "https://github.com/audreyr/cookiecutter"
   url "https://github.com/audreyr/cookiecutter/archive/1.7.0.tar.gz"
   sha256 "975c578050a040e77c9a68a49ba420137d8da820d8ebf109342144f73a02722d"
-  revision 1
+  revision 2
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
