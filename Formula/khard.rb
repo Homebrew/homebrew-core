@@ -5,7 +5,7 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/38/41/e54a6ef446701a4ba723df8850189f62e9e9a320de9ff2b1accadd589cc6/khard-0.15.1.tar.gz"
   sha256 "5ca8e678133e08fa4861cc31aedf9f30b4f8e3958ed66ede025c23ec5e176aa1"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
