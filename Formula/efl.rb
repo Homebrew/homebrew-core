@@ -34,6 +34,9 @@ class Efl < Formula
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
 
+  # Apply some idea from https://phab.enlightenment.org/T8562
+  patch :p2, :DATA
+
   def install
     ENV.cxx11
 
@@ -55,3 +58,27 @@ class Efl < Formula
     system bin/"eet", "-V"
   end
 end
+
+__END__
+diff --git a/src/lib/ecore_cocoa/ecore_cocoa_app.m b/src/lib/ecore_cocoa/ecore_cocoa_app.m
+index 8df1be1830..939f629ece 100644
+--- a/src/lib/ecore_cocoa/ecore_cocoa_app.m
++++ b/src/lib/ecore_cocoa/ecore_cocoa_app.m
+@@ -45,7 +45,7 @@ _ecore_cocoa_run_loop_cb(void *data EINA_UNUSED)
+
+ - (void)internalUpdate
+ {
+-   [_mainMenu update];
++   [[self mainMenu] update];
+    // FIXME Will not compile with GNUStep (member is named "_main_menu")
+ }
+
+@@ -76,7 +76,7 @@ _ecore_cocoa_run_loop_cb(void *data EINA_UNUSED)
+ {
+    [self finishLaunching];
+
+-   _running = 1;
++   [self setValue:[NSNumber numberWithShort:1] forKey:@"_running"];
+    _expiration = [NSDate distantPast];
+
+    _timer = ecore_timer_add(ECORE_COCOA_MAINLOOP_PERIOD,
