@@ -1,8 +1,8 @@
 class Hostess < Formula
   desc "Idempotent command-line utility for managing your /etc/hosts file"
   homepage "https://github.com/cbednarski/hostess"
-  url "https://github.com/cbednarski/hostess/archive/v0.5.0.tar.gz"
-  sha256 "38eba91ca471f76533a169c39048b7aad0c611352a3a5d3855f4341f04574b74"
+  url "https://github.com/cbednarski/hostess/archive/v0.5.1.tar.gz"
+  sha256 "9fbff04becc3d65a11de24f03604190eaafeb5f5117df297bdd84fb2df58c1ab"
   head "https://github.com/cbednarski/hostess.git"
 
   bottle do
