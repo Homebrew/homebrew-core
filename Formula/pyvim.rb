@@ -5,7 +5,7 @@ class Pyvim < Formula
   homepage "https://github.com/jonathanslenders/pyvim"
   url "https://files.pythonhosted.org/packages/6e/85/47543120e478ddc5d31e447a7fed1fe4ac81cbb066ca623a2cc54f685dff/pyvim-2.0.24.tar.gz"
   sha256 "27b8f244bebc49cf375b10d16046df24438798208d7eaf199e3d04babf08cc6f"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
