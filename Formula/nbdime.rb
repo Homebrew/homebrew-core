@@ -5,7 +5,7 @@ class Nbdime < Formula
   homepage "https://nbdime.readthedocs.io"
   url "https://files.pythonhosted.org/packages/1d/49/f173b8697f9868059739055c27f4263dcbcc2060669249b5e4d62765b3e5/nbdime-1.1.0.tar.gz"
   sha256 "80032f75d2a9a4b23bb1a0cd6411a68ced8c33b8a63d9ab7cfbb9c47ab3dde61"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
