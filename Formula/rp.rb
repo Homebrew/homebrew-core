@@ -24,7 +24,7 @@ class Rp < Formula
 
   def install
     mkdir "build" do
-      system "cmake", ".."
+      system "cmake", "..", *std_cmake_args
       system "make"
     end
     bin.install "bin/rp-osx"
