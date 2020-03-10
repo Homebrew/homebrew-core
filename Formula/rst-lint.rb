@@ -5,7 +5,7 @@ class RstLint < Formula
   homepage "https://github.com/twolfson/restructuredtext-lint"
   url "https://github.com/twolfson/restructuredtext-lint/archive/1.3.0.tar.gz"
   sha256 "4bf9d4724f59bc05ebe1cd5192c03d4597ee95c4bbf60bd5644422e1a2558da3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
