@@ -5,7 +5,7 @@ class DockerSquash < Formula
   homepage "https://github.com/goldmann/docker-squash"
   url "https://files.pythonhosted.org/packages/8c/b4/429be44bdb8ad42bbca4ab4a813f771ef517b00a8d733feb6d62716c4209/docker-squash-1.0.8.tar.gz"
   sha256 "f677bc9129d1156516454b0b334cdc2642f7b9a3328dca3a7477c43ac5ee23a9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
