@@ -5,6 +5,7 @@ class Dxpy < Formula
   homepage "https://github.com/dnanexus/dx-toolkit"
   url "https://files.pythonhosted.org/packages/47/18/b143d60134ec2aee2cc3e5c5fa2a53067013181c2856944c817bfc062f1c/dxpy-0.290.1.tar.gz"
   sha256 "621d34943f050a848765825a8be1c142578d0d9c19bb7e112c8b7d4ecebbf0ea"
+  revision 1
 
   bottle do
     cellar :any
