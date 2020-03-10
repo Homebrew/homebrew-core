@@ -1,8 +1,11 @@
 class Curaengine < Formula
   desc "C++ 3D printing GCode generator"
   homepage "https://github.com/Ultimaker/CuraEngine"
-  url "https://github.com/Ultimaker/CuraEngine/archive/15.04.6.tar.gz"
-  sha256 "4f2e3c5e74001b39cf5894a1e3f436a7724be0ae9ee30cd02bd2e3fd676ca4b1"
+  url "https://github.com/Ultimaker/CuraEngine/archive/4.5.0.tar.gz"
+  sha256 "c6e63526f860ef42950236333c8a33db9f5beb9493ac5c8b69f5336501f1179e"
+  # Looks like new version scheme was used for most recent releases since 15.04.6 in March 2016
+  # https://github.com/Ultimaker/CuraEngine/releases?after=2.6.1
+  version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git"
 
   bottle do
