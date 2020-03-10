@@ -5,6 +5,7 @@ class Httpie < Formula
   homepage "https://httpie.org/"
   url "https://files.pythonhosted.org/packages/35/6c/93da2ebd4eb768c3733437ce01b5fae297522434fdeabeeabdc4f42aabd3/httpie-2.0.0.tar.gz"
   sha256 "8c04f9756f1a7eac71a6dfa0834d0f6813dc8a982d8564f3a7418dcd19107c09"
+  revision 1
   head "https://github.com/jakubroztocil/httpie.git"
 
   bottle do
