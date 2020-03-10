@@ -5,6 +5,7 @@ class Molecule < Formula
   homepage "https://molecule.readthedocs.io"
   url "https://files.pythonhosted.org/packages/07/ea/bb957f10a823c860870332fb5bf83c6e2aad470b097b9a291b42dcfa3518/molecule-3.0.1.tar.gz"
   sha256 "f451af7a8793bea7e12d9f6a1b627af23a299f31063281fc401cbe17ad196a41"
+  revision 1
 
   bottle do
     cellar :any
