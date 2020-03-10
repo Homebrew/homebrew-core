@@ -32,7 +32,8 @@ class Tbb < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    system "cmake", "-DINSTALL_DIR=lib/cmake/TBB",
+    system "cmake", *std_cmake_args,
+                    "-DINSTALL_DIR=lib/cmake/TBB",
                     "-DSYSTEM_NAME=Darwin",
                     "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
                     "-P", "cmake/tbb_config_installer.cmake"
