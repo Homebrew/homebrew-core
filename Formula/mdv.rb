@@ -5,7 +5,7 @@ class Mdv < Formula
   homepage "https://github.com/axiros/terminal_markdown_viewer"
   url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
   sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
