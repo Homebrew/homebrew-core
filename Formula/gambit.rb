@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/v15.1.1.tar.gz"
-  sha256 "fb4dce2f386e46bbfc72cb75471f43716535937c96ad5a730cad22f97c6a65e6"
+  url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
+  sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
 
   bottle do
     cellar :any
