@@ -5,6 +5,7 @@ class Tox < Formula
   homepage "https://tox.readthedocs.org/"
   url "https://files.pythonhosted.org/packages/5b/e1/138ed5fa49ca20fdc05ab52f260276f9d0a1b464af831b43231f9df1f185/tox-3.14.5.tar.gz"
   sha256 "676f1e3e7de245ad870f956436b84ea226210587d1f72c8dfb8cd5ac7b6f0e70"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
