@@ -1,8 +1,8 @@
 class Dtc < Formula
   desc "Device tree compiler"
   homepage "https://www.devicetree.org/"
-  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.5.1.tar.xz"
-  sha256 "660b74039690fc37013660544d09191834efb58503c73c555c5513ba75ab031f"
+  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.0.tar.xz"
+  sha256 "10503b0217e1b07933e29e8d347a00015b2431bea5f59afe0bed3af30340c82d"
 
   bottle do
     cellar :any
