@@ -5,7 +5,7 @@ class Asciinema < Formula
   homepage "https://asciinema.org"
   url "https://files.pythonhosted.org/packages/a7/71/771c859795e02c71c187546f34f7535487b97425bc1dad1e5f6ad2651357/asciinema-2.0.2.tar.gz"
   sha256 "32f2c1a046564e030708e596f67e0405425d1eca9d5ec83cd917ef8da06bc423"
-  revision 1
+  revision 2
   head "https://github.com/asciinema/asciinema.git"
 
   bottle do
