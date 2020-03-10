@@ -5,7 +5,7 @@ class Scour < Formula
   homepage "https://www.codedread.com/scour/"
   url "https://github.com/scour-project/scour/archive/v0.37.tar.gz"
   sha256 "4fcb961586d8a6d98ac9343ca5647421b98fdc79b51d81a1d3d18576b7908823"
-  revision 2
+  revision 3
   head "https://github.com/scour-project/scour.git"
 
   bottle do
