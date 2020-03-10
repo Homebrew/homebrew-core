@@ -1,9 +1,8 @@
 class Cgns < Formula
   desc "CFD General Notation System"
   homepage "http://cgns.org/"
-  url "https://github.com/CGNS/CGNS/archive/v3.4.0.tar.gz"
-  sha256 "6372196caf25b27d38cf6f056258cb0bdd45757f49d9c59372b6dbbddb1e05da"
-  revision 1
+  url "https://github.com/CGNS/CGNS/archive/v4.1.0.tar.gz"
+  sha256 "4674de1fac3c47998248725fd670377be497f568312c5903d1bb8090a3cf4da0"
 
   bottle do
     sha256 "a54d74618a6b9dc4c9e67345ff9dd0fe32cfcef012f66c407aef0c3bfa8995da" => :catalina
