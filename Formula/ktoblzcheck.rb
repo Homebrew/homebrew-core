@@ -3,6 +3,7 @@ class Ktoblzcheck < Formula
   homepage "https://ktoblzcheck.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.52.tar.gz"
   sha256 "e433da63af7161a6ce8b1e0c9f0b25bd59ad6d81bc4069e9277c97c1320a3ac4"
+  revision 1
 
   bottle do
     sha256 "4deeacd897afde29f6c83c5567b0a7e840b17239ada9444bf443921b6a473077" => :catalina
@@ -11,6 +12,7 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8"
 
   def install
     system "cmake", ".", *std_cmake_args
