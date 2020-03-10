@@ -16,33 +16,31 @@ jobs:
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_NO_ANALYTICS: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
+      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
     steps:
-      - name: Setup tap
+      - name: Checkout repository
         run: |
-          git -C $(brew --repo) remote set-url origin https://github.com/Homebrew/brew
-          cd $(brew --repo ${{ github.repository }})
-          git config remote.origin.url https://github.com/Homebrew/homebrew-core/
-          git fetch origin refs/pull/${{ github.event.pull_request.number }}/merge
-          git checkout -f FETCH_HEAD
-      - name: Cleanup
-        run: |
-          BREW_LIST=$(brew list 2>/dev/null)
-          if [ -n "$BREW_LIST" ]; then
-            echo ">> brew uninstall"
-            brew uninstall --force --ignore-dependencies $BREW_LIST
-          fi
-          rm -rf bottles
-          rm -rf *
-          find . /usr/local/Homebrew -name .git/gc.log -delete
-          brew update-reset /usr/local/Homebrew
-          brew update
+          cd $(brew --repo ${{github.repository}})
+          git clean -ffdx
+          git fetch --prune --force origin master
+          git fetch --prune --force origin ${{github.sha}}
+          git checkout --force ${{github.sha}}
+          git log -1
       - name: Build bottles
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot --ci-pr
-      - name: Upload bottles
+          brew test-bot
+      - name: Count bottles
+        id: bottles
         if: always()
+        run: |
+          cd bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+      - name: Upload bottles
+        if: steps.bottles.outputs.count > 0
         uses: actions/upload-artifact@v1
         with:
           name: bottles
@@ -50,10 +48,5 @@ jobs:
       - name: Cleanup
         if: always()
         run: |
-          BREW_LIST=$(brew list 2>/dev/null)
-          if [ -n "$BREW_LIST" ]; then
-            echo ">> brew uninstall"
-            brew uninstall --force --ignore-dependencies $BREW_LIST
-          fi
-          rm -rf bottles
+          find .
           rm -rf *
