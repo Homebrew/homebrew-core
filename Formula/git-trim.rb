@@ -1,8 +1,8 @@
 class GitTrim < Formula
   desc "Trim your git remote tracking branches that are merged or gone"
   homepage "https://github.com/foriequal0/git-trim"
-  url "https://github.com/foriequal0/git-trim/archive/v0.2.3.tar.gz"
-  sha256 "b8c4dd5b50da689432d893f82005cec4f0252761e2c71dfe2dedd24b11168d7a"
+  url "https://github.com/foriequal0/git-trim/archive/v0.2.4.tar.gz"
+  sha256 "7c3c386cdca7eeec8a8a3d959e80ec088be9db5300d9db21d639878b725cf64f"
 
   bottle do
     cellar :any
@@ -18,6 +18,7 @@ class GitTrim < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    man1.install "docs/git-trim.md.1" => "git-trim.1"
   end
 
   test do
