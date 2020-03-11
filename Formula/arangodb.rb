@@ -21,7 +21,7 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
+      :revision => "598e7d7794ad4a98024548dd9061e03782542ecd"
   end
 
   def install
@@ -29,10 +29,11 @@ class Arangodb < Formula
 
     resource("starter").stage do
       ENV.append "GOPATH", Dir.pwd + "/.gobuild"
+      ENV.append "DOCKERCLI", ""
       system "make", "deps"
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.12 -X main.projectBuild=#{commit}",
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.14 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
