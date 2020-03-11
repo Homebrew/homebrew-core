@@ -2,8 +2,8 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag      => "v0.8.5",
-      :revision => "1d3fdf93bbe5002c5023da50402368a817488691"
+      :tag      => "v0.9.0",
+      :revision => "cd08d5c62353f383882b630bf238a77b4d5ef73b"
   head "https://github.com/hashicorp/serf.git"
 
   bottle do
