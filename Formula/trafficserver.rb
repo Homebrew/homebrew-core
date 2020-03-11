@@ -3,9 +3,9 @@ class Trafficserver < Formula
   homepage "https://trafficserver.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.0.5.tar.bz2"
-    mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.5.tar.bz2"
-    sha256 "8ede46ef4b7961b0f53dc3418985f30569725c671ea9e6626dc8bbf0ca46544f"
+    url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.0.6.tar.bz2"
+    mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.6.tar.bz2"
+    sha256 "0e3dd9302056b5a643e0fe521244622e12df5f09e5ea2db7a53aee2c67f7c9d4"
   end
 
   bottle do
