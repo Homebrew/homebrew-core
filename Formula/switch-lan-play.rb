@@ -2,8 +2,8 @@ class SwitchLanPlay < Formula
   desc "Make you and your friends play games like in a LAN"
   homepage "https://github.com/spacemeowx2/switch-lan-play"
   url "https://github.com/spacemeowx2/switch-lan-play.git",
-    :tag      => "v0.1.0",
-    :revision => "eda2c4dcb1db7948fcc0ae5d129fc4b8f4369ca2"
+    :tag      => "v0.2.1",
+    :revision => "1c26ca61bc35b35c4900a103edee41d138d64b8d"
 
   bottle do
     cellar :any_skip_relocation
