@@ -1,8 +1,8 @@
 class Terrahelp < Formula
   desc "Tool providing extra functionality for Terraform"
   homepage "https://github.com/opencredo/terrahelp"
-  url "https://github.com/opencredo/terrahelp/archive/v0.7.3.tar.gz"
-  sha256 "e0d281092e399804e7fcb7636c45af2709e5b69609af07c6b8929ac793afe7d9"
+  url "https://github.com/opencredo/terrahelp/archive/v0.7.4.tar.gz"
+  sha256 "2d70b6471bfb4b9c8ff3bb12050ecedca8d39830fa221bf8c319a1b6144ee6e5"
   head "https://github.com/opencredo/terrahelp.git"
 
   bottle do
