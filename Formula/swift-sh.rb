@@ -1,8 +1,8 @@
 class SwiftSh < Formula
   desc "Scripting with easy zero-conf dependency imports"
   homepage "https://github.com/mxcl/swift-sh"
-  url "https://github.com/mxcl/swift-sh/archive/1.16.1.tar.gz"
-  sha256 "fb70b075101594b146d4120b52d6132f8b34d3337d4d55ed289c57e4d7808519"
+  url "https://github.com/mxcl/swift-sh/archive/1.17.0.tar.gz"
+  sha256 "6e48fc5697bb19826ecd29ae01167299a5ab1fcece0453fba9318e51020f936d"
   head "https://github.com/mxcl/swift-sh.git"
 
   bottle do
