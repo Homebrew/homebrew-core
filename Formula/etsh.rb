@@ -1,8 +1,8 @@
 class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "https://etsh.nl/"
-  url "https://etsh.nl/src/etsh_5.3.1/etsh-5.3.1.tar.xz"
-  sha256 "83ae656da0ed39555818d3ac80841757672e55802632f6877037bc89a476ec2b"
+  url "https://etsh.nl/src/etsh_5.4.0/etsh-5.4.0.tar.xz"
+  sha256 "fd4351f50acbb34a22306996f33d391369d65a328e3650df75fb3e6ccacc8dce"
   version_scheme 1
 
   bottle do
