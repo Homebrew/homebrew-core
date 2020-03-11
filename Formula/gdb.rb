@@ -5,7 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
   sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
   revision 1
-  head "https://sourceware.org/git/binutils-gdb.git"
+  head "git://sourceware.org/git/binutils-gdb.git"
 
   bottle do
     sha256 "848a06573870a26ca89fe859fe8d2e159b1781db544841a55c0713f00b7c18bc" => :catalina
