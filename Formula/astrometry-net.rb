@@ -5,6 +5,7 @@ class AstrometryNet < Formula
   homepage "https://github.com/dstndstn/astrometry.net"
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.79/astrometry.net-0.79.tar.gz"
   sha256 "dd5d5403cc223eb6c51a06a22a5cb893db497d1895971735321354f882c80286"
+  revision 1
 
   bottle do
     cellar :any
