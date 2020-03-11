@@ -1,9 +1,9 @@
 class Vgmstream < Formula
   desc "Library for playing streamed audio formats from video games"
   homepage "https://hcs64.com/vgmstream.html"
-  url "https://github.com/losnoco/vgmstream/archive/r1050-2441-gd64c3872.tar.gz"
-  version "r1050-2441-gd64c3872"
-  sha256 "e1d7dfbf65b9b58ebb8c3c3792f8d7a04de55c03e5292e5ac68de5e60c65587b"
+  url "https://github.com/losnoco/vgmstream/archive/r1050-2861-g126e3b41.tar.gz"
+  version "r1050-2861-g126e3b41"
+  sha256 "767adda5bc3151feedb8afbcfcab948639e3cdcaef87e80e10e5e7c6f6a13961"
   head "https://github.com/kode54/vgmstream.git"
 
   bottle do
