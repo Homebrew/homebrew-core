@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://bitbucket.org/libtcod/libtcod/get/1.8.2.tar.bz2"
-  sha256 "a33aa463e78b6df327d2aceae875edad8dba7a9e5ea0f1299c486b99f4bed31c"
+  url "https://github.com/libtcod/libtcod/archive/1.15.1.tar.gz"
+  sha256 "2713d8719be53db7a529cbf53064e5bc9f3adf009db339d3a81b50d471bc306f"
 
   bottle do
     cellar :any
@@ -17,13 +17,14 @@ class Libtcod < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "sdl2"
 
   conflicts_with "libzip", "minizip2",
     :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
-    cd "build/autotools" do
+    cd "buildsys/autotools" do
       system "autoreconf", "-fiv"
       system "./configure"
       system "make"
