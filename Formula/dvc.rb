@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/0.87.0.tar.gz"
-  sha256 "ac19565a4c0d29cb7b9fba877d1a9cea84f6ce20d5b13c6faea8fbc6f89624f1"
+  url "https://github.com/iterative/dvc/archive/0.88.0.tar.gz"
+  sha256 "85c4aacd74895707fe85afcb80ae5ddda0e97b5f9c4b49d7018618b96ef1946b"
 
   bottle do
     cellar :any
@@ -16,6 +16,7 @@ class Dvc < Formula
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
   depends_on "openssl@1.1"
+  # `apache-arrow` currently depends on Python 3.7
   depends_on "python"
 
   def install
