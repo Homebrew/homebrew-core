@@ -2,8 +2,8 @@ class Duplicacy < Formula
   desc "The only cross-platform encrypted/deduplicative cloud backup tool"
   homepage "https://duplicacy.com"
   url "https://github.com/gilbertchen/duplicacy.git",
-      :tag      => "v2.3.0",
-      :revision => "504d07bd5100b62473cd438738f8bc2507c67ff9"
+      :tag      => "v2.4.0",
+      :revision => "b61906c99e17dca970f38c5b2c4ae88c9e170dd2"
   head "https://github.com/gilbertchen/duplicacy.git"
 
   depends_on "go" => :build
