@@ -1,8 +1,8 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.2.tar.gz"
-  sha256 "b074c27a4a2bb08bae30c724b28c1f33f2c5f37dc4b0c5dad0171ca39356a5c9"
+  url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz"
+  sha256 "07859071632ded58c5135d613438137022232da75f8bdc1687f3f75da2fe597f"
   head "https://github.com/nagios-plugins/nagios-plugins.git"
 
   bottle do
