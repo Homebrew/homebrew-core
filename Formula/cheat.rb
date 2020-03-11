@@ -2,9 +2,8 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.6.0",
-    :revision => "b13246978ab7ebb254b49d58c625f94aa2e08ee7"
-  revision 1
+    :tag      => "3.7.0",
+    :revision => "ce27cf2cc0ffdb4950ee7664b8b673be1f1dc646"
 
   bottle do
     cellar :any_skip_relocation
@@ -27,7 +26,5 @@ class Cheat < Formula
 
     output = shell_output("#{bin}/cheat --init 2>&1")
     assert_match "editor: vim", output
-
-    assert_match "Created config file", shell_output("#{bin}/cheat tar 2>&1")
   end
 end
