@@ -1,11 +1,8 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-
-  stable do
-    url "https://libsdl.org/release/SDL2-2.0.10.tar.gz"
-    sha256 "b4656c13a1f0d0023ae2f4a9cf08ec92fffb464e0f24238337784159b8b91d57"
-  end
+  url "https://libsdl.org/release/SDL2-2.0.12.tar.gz"
+  sha256 "349268f695c02efbc9b9148a70b85e58cefbbf704abd3e91be654db7f1e2c863"
 
   bottle do
     cellar :any
@@ -24,12 +21,12 @@ class Sdl2 < Formula
   end
 
   def install
-    # we have to do this because most build scripts assume that all sdl modules
+    # we have to do this because most build scripts assume that all SDL modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl2.pc.in sdl2-config.in], "@prefix@", HOMEBREW_PREFIX
 
-    system "./autogen.sh" if build.head? || build.devel?
+    system "./autogen.sh" if build.head?
 
     args = %W[--prefix=#{prefix} --without-x]
     system "./configure", *args
