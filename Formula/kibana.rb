@@ -13,8 +13,8 @@ class Kibana < Formula
     sha256 "8bcdc16b14a3f940f54384a42086e1e4af5d3f953734c7760131f275ceb32ee5" => :high_sierra
   end
 
-  depends_on "node@10"
   depends_on "yarn" => :build
+  depends_on "node@10"
 
   def install
     # remove non open source files
