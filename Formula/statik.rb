@@ -3,9 +3,8 @@ class Statik < Formula
 
   desc "Python-based, generic static web site generator aimed at developers"
   homepage "https://getstatik.com"
-  url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
-  sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
-  revision 3
+  url "https://github.com/thanethomson/statik/archive/v0.23.0.tar.gz"
+  sha256 "6159066f486811e5773da318d6e8d1b1dd4c99ac140f1a3c660ef1c1f5e7124f"
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
@@ -15,6 +14,7 @@ class Statik < Formula
     sha256 "9d898d64f57db338a4ece54d14d6cdda03a47eb8131fbb6b39067c9213ec838c" => :high_sierra
   end
 
+  depends_on "libpq"
   depends_on "python@3.8"
 
   uses_from_macos "libffi"
