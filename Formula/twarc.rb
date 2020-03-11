@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/52/ba/17184ea480f7674109f8f97ac14cdc6220db0ee19d1543c3f5ec2cd9ff2a/twarc-1.7.3.tar.gz"
-  sha256 "80b03740b38911d73a988ab3a0d44c3c542b7cdbe416a10439c4fe883e6b2715"
+  url "https://files.pythonhosted.org/packages/39/c2/384c5c82593345734caa26a559a21d29c6694549af03043e405c854dcda3/twarc-1.7.5.tar.gz"
+  sha256 "7fe1bd049f7f72215f4ac08fd3aef8e205232606a5e4af73a59acb3912edc684"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class Twarc < Formula
     sha256 "fd651808b565af0bbd66744e1452ce6675c851cc6940b5ce3a4dca894e594fce" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     venv = virtualenv_create(libexec, "python3")
