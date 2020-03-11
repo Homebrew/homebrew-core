@@ -7,6 +7,7 @@ class Qt < Formula
   mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.14/5.14.1/single/qt-everywhere-src-5.14.1.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.14/5.14.1/single/qt-everywhere-src-5.14.1.tar.xz"
   sha256 "6f17f488f512b39c2feb57d83a5e0a13dcef32999bea2e2a8f832f54a29badb8"
+  revision 1
 
   head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
@@ -28,6 +29,8 @@ class Qt < Formula
   uses_from_macos "sqlite"
 
   def install
+    ENV["SDKROOT"] = MacOS.sdk_path_if_needed
+
     args = %W[
       -verbose
       -prefix #{prefix}
