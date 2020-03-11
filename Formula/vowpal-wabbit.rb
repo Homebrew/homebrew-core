@@ -3,13 +3,12 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-    :tag      => "8.7.0",
-    :revision => "e63abfb6d76d8df9060ecd932dbb3d81216fe338"
+    :tag      => "8.8.1",
+    :revision => "5ff219ec0ff28af5d35e452f5f18e6808993e08a"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
     cellar :any
-    rebuild 1
     sha256 "f29120d5ead6004092ef340cd1323a7eeb79f4590d3189a3be1297a2ca4ca241" => :catalina
     sha256 "93c20c6cef498c1150dcfe4699a91bc546189c23ef9df59f63ffc1bbf64c671f" => :mojave
     sha256 "faf86d45ebc60e3101619d2ae6523a48dff56b71d996503101eb4690296ea379" => :high_sierra
@@ -31,7 +30,6 @@ class VowpalWabbit < Formula
     rm bin/"active_interactor.py"
     rm bin/"new_version"
     rm bin/"vw-validate.html"
-    rm bin/"release.ps1"
     rm bin/"clang-format"
   end
 
