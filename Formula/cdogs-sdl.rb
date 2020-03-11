@@ -28,10 +28,13 @@ class CdogsSdl < Formula
   end
 
   test do
-    server = fork do
-      system "#{bin}/cdogs-sdl"
+    pid = fork do
+      exec bin/"cdogs-sdl"
     end
-    sleep 5
-    Process.kill("TERM", server)
+    sleep 7
+    assert_predicate testpath/".config/cdogs-sdl",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end
