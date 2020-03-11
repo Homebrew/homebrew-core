@@ -33,6 +33,12 @@ class Efl < Formula
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
 
+  # Fix build with 10.15+ SDK
+  patch do
+    url "https://github.com/Enlightenment/efl/commit/51e4bcc32c8b3d20980dd4f669e92e32a95a82fb.patch?full_index=1"
+    sha256 "173f15e9154f76898ce090211a7c87675d9198a79a32c7ef59df870cfafea02c"
+  end
+
   def install
     ENV.cxx11
 
