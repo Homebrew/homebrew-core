@@ -1,8 +1,8 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "https://tboox.org/"
-  url "https://github.com/waruqi/tbox/archive/v1.6.3.tar.gz"
-  sha256 "1ea225195ad6d41a29389137683fee7a853fa42f3292226ddcb6d6d862f5b33c"
+  url "https://github.com/waruqi/tbox/archive/v1.6.5.tar.gz"
+  sha256 "076599f8699a21934f633f1732977d0df9181891ca982fd23ba172047d2cf4ab"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
@@ -17,6 +17,7 @@ class Tbox < Formula
 
   def install
     system "xmake", "config", "--charset=y", "--demo=n", "--small=y", "--xml=y"
+    system "xmake"
     system "xmake", "install", "-o", prefix
   end
 
