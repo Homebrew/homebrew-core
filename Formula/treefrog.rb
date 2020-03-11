@@ -1,8 +1,8 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.24.0.tar.gz"
-  sha256 "4060736e96bb3c84fe3d0a251cf140baf29724d4cb50212cee4dbf1d491982ed"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.28.0.tar.gz"
+  sha256 "0cab2ea618821e683ab6f5161c958884bb0700f589914376485f2b6935ce75c1"
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
@@ -14,10 +14,11 @@ class Treefrog < Formula
 
   depends_on :xcode => ["8.0", :build]
   depends_on :macos => :el_capitan
+  depends_on "mongo-c-driver"
   depends_on "qt"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
 
     cd "src" do
       system "make"
