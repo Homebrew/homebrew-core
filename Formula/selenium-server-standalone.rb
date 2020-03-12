@@ -3,12 +3,18 @@ class SeleniumServerStandalone < Formula
   homepage "https://www.seleniumhq.org/"
   url "https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar"
   sha256 "acf71b77d1b66b55db6fb0bed6d8bae2bbd481311bcbedfeff472c0d15e8f3cb"
+  revision 1
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install "selenium-server-standalone-#{version}.jar"
-    bin.write_jar_script libexec/"selenium-server-standalone-#{version}.jar", "selenium-server"
+    (bin/"selenium-server").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/selenium-server-standalone-#{version}.jar" "$@"
+    EOS
   end
 
   plist_options :manual => "selenium-server -port 4444"
@@ -44,9 +50,22 @@ class SeleniumServerStandalone < Formula
   end
 
   test do
-    selenium_version =
-      shell_output("unzip -p #{libexec}/selenium-server-standalone-#{version}.jar META-INF/MANIFEST.MF " \
-                   "| sed -nEe '/Selenium-Version:/p'")
-    assert_equal "Selenium-Version: #{version}", selenium_version.strip
+    port = 4444
+    pid = fork do
+      exec "#{bin}/selenium-server -port #{port}"
+    end
+    sleep 3
+
+    begin
+      output = shell_output("curl --silent localhost:4444/wd/hub/status")
+      output = JSON.parse(output)
+
+      assert_equal 0, output["status"]
+      assert_true output["value"]["ready"]
+      assert_equal version, output["value"]["build"]["version"]
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end
