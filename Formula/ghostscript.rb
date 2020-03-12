@@ -1,8 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostpdl-9.50.tar.gz"
-  sha256 "dd94c5a06c03c58b47b929d03260f491d4807eaf5be83abd283278927b11c9ee"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/ghostpdl-9.51.tar.gz"
+  sha256 "f0a6aab8c10f681f499b77dc2827978d2a0f93437f2b50f2b101a0eb9ee8bc28"
 
   bottle do
     sha256 "c1e11a68fdd8b406979fc51791cb1f2a25d76c48a94570c41d6baecc5b338ee1" => :catalina
@@ -47,12 +47,6 @@ class Ghostscript < Formula
     else
       system "./configure", *args
     end
-
-    # Fix for shared library bug https://bugs.ghostscript.com/show_bug.cgi?id=701211
-    # Can be removed in next version, and possibly replaced by passing
-    # --enable-gpdl to configure
-    inreplace "Makefile", "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET)",
-                          "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET) $(GPDL_TARGET)"
 
     # Install binaries and libraries
     system "make", "install"
