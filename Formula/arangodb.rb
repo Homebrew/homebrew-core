@@ -13,7 +13,7 @@ class Arangodb < Formula
 
   depends_on "ccache" => :build
   depends_on "cmake" => :build
-  depends_on "go" => :build
+  depends_on "go@1.13" => :build
   depends_on :macos => :mojave
   depends_on "openssl@1.1"
 
