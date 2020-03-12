@@ -18,5 +18,8 @@ class DhallYaml < Formula
 
   test do
     assert_match "1", pipe_output("#{bin}/dhall-to-yaml-ng", "1", 0)
+    assert_match "- 1\n- 2", pipe_output("#{bin}/dhall-to-yaml-ng", "[ 1, 2 ]", 0)
+    assert_match "x: 1\ny: 2", pipe_output("#{bin}/dhall-to-yaml-ng", "{ x = 1, y = 2 }", 0)
+    assert_match "null", pipe_output("#{bin}/dhall-to-yaml-ng", "None Natural", 0)
   end
 end
