@@ -1,8 +1,8 @@
 class Aqbanking < Formula
   desc "Generic online banking interface"
   homepage "https://www.aquamaniac.de/sites/aqbanking/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/107/aqbanking-5.8.2.tar.gz"
-  sha256 "93ca523fe175e72042db75f8c3fc6255ab058cf82caf52796e15f030809fb15e"
+  url "https://www.aquamaniac.de/rdm/attachments/download/269/aqbanking-6.1.2.tar.gz"
+  sha256 "0b54c70a8ab1bd5537d8b26d05a9e44db0600b64d8cbb63c34018dee11f67190"
 
   bottle do
     sha256 "95a5722e1489e556d98a230d56ddf577f31916e9d7d92624122d3b9e47d9db17" => :catalina
