@@ -1,9 +1,9 @@
 class Genometools < Formula
   desc "GenomeTools: The versatile open source genome analysis software"
   homepage "http://genometools.org/"
-  url "http://genometools.org/pub/genometools-1.5.10.tar.gz"
-  sha256 "0208591333b74594bc219fb67f5a29b81bb2ab872f540c408ac1743716274e6a"
-  revision 3
+  # genometools does not have source code on par with their binary dist on their website
+  url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
+  sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
   head "https://github.com/genometools/genometools.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Genometools < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "libslax", :because => "both install `bin/gt`"
 
