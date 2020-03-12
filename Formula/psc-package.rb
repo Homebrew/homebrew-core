@@ -5,8 +5,8 @@ class PscPackage < Formula
 
   desc "Package manager for PureScript based on package sets"
   homepage "https://psc-package.readthedocs.io"
-  url "https://github.com/purescript/psc-package/archive/v0.6.0.tar.gz"
-  sha256 "71815aedaac2d27267e5ec235805583a774c09aaf9e00ef5add74475587b3ef6"
+  url "https://github.com/purescript/psc-package/archive/v0.6.2.tar.gz"
+  sha256 "96c3bf2c65d381c61eff3d16d600eadd71ac821bbe7db02acec1d8b3b6dbecfc"
 
   bottle do
     cellar :any_skip_relocation
