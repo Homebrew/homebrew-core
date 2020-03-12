@@ -1,9 +1,9 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.5.7/apache-zookeeper-3.5.7.tar.gz"
-  sha256 "7470d30b17cc77be3b58171d820c432bf5181310fbc62e941e2be2745f7300d4"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.6.0/apache-zookeeper-3.6.0.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.6.0/apache-zookeeper-3.6.0.tar.gz"
+  sha256 "aabfaefb3164f3028d5ebc9265a22e3f62ee666bb31cb3eaedc9e709eec3163f"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
   bottle do
