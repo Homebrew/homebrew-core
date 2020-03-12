@@ -5,13 +5,14 @@ class Mackup < Formula
   homepage "https://github.com/lra/mackup"
   url "https://github.com/lra/mackup/archive/0.8.28.tar.gz"
   sha256 "b4a586d12460df00a8322e0ffc8454fe0816630bd97640cd08b87fa0de6c1ba6"
+  revision 1
   head "https://github.com/lra/mackup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "06bf4f9daac1ea99a2610a8aa999759143910000c99dccba20e026ac996e196d" => :catalina
-    sha256 "b7c11a4fcd021392c3a7f290143f7f971e6c5608f3a1ce03e8f61ea04dc66f8b" => :mojave
-    sha256 "d19deabf63c0518d4733458caa7f7f502ef90e30611836b8d3ffe394a46bfcb6" => :high_sierra
+    sha256 "dbc5ac8b84c362ff421aff6b75819145c9033b72cb1f819dc182964e59b8221e" => :catalina
+    sha256 "dcd2364073468374ed2d60f921546db1948ca14efc5e7f0751873b7d89b5c8ba" => :mojave
+    sha256 "3af5af899b13058a5887831beffbeada93ceb76a0c2598cbd9675cf11162d8c1" => :high_sierra
   end
 
   depends_on "python@3.8"

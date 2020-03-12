@@ -51,9 +51,13 @@ class Xplanet < Formula
 
   # Test all the supported image formats, jpg, png, gif and tiff, as well as the -num_times 2 patch
   test do
-    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
-    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff", "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
   end
 end

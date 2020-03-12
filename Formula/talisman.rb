@@ -3,14 +3,14 @@ class Talisman < Formula
   homepage "https://thoughtworks.github.io/talisman/"
   url "https://github.com/thoughtworks/talisman",
       :using    => :git,
-      :tag      => "v1.0.0",
-      :revision => "dd7b5898f7c4d9013d23d4dbd34685611524ac20"
+      :tag      => "v1.1.0",
+      :revision => "6171942938e92803c54309b3098cf662411a4f1f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "344233881bf3a42e7ce547852bd9e96c88dc3c5aadbb0c05de4fe1766cb2b64b" => :catalina
-    sha256 "d59d5b2cf4d8ab5aa5dfd03f5be19ed9fefdf0440b8d8fecf4f4b76f8bb37e8f" => :mojave
-    sha256 "172d14b6bdf44cba89030586816a74c4f5b6646ef546d02fa06202b7d85572cf" => :high_sierra
+    sha256 "c4440913a564ca0f032eaa0c385c13e71f425a41d7aff52506b90118984b8e32" => :catalina
+    sha256 "c2c7e787dcd4cabe6b278ee40e122c2933978aa0518de20f4fc49a4ff59a06c2" => :mojave
+    sha256 "c44fa4bfe8e660829cf927cdb847b8d7024823e3881f14d41174368af48bdf14" => :high_sierra
   end
 
   depends_on "go" => :build

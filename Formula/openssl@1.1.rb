@@ -37,9 +37,7 @@ class OpensslAT11 < Formula
     # This ensures where Homebrew's Perl is needed the Cellar path isn't
     # hardcoded into OpenSSL's scripts, causing them to break every Perl update.
     # Whilst our env points to opt_bin, by default OpenSSL resolves the symlink.
-    if which("perl") == Formula["perl"].opt_bin/"perl"
-      ENV["PERL"] = Formula["perl"].opt_bin/"perl"
-    end
+    ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
 

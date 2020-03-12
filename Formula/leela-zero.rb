@@ -25,7 +25,7 @@ class LeelaZero < Formula
   def install
     mkdir "build"
     cd "build" do
-      system "cmake", ".."
+      system "cmake", "..", *std_cmake_args
       system "cmake", "--build", "."
       bin.install "leelaz"
     end

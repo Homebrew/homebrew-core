@@ -1,14 +1,14 @@
 class Cgns < Formula
   desc "CFD General Notation System"
   homepage "http://cgns.org/"
-  url "https://github.com/CGNS/CGNS/archive/v3.4.0.tar.gz"
-  sha256 "6372196caf25b27d38cf6f056258cb0bdd45757f49d9c59372b6dbbddb1e05da"
-  revision 1
+  url "https://github.com/CGNS/CGNS/archive/v4.1.0.tar.gz"
+  sha256 "4674de1fac3c47998248725fd670377be497f568312c5903d1bb8090a3cf4da0"
 
   bottle do
-    sha256 "a54d74618a6b9dc4c9e67345ff9dd0fe32cfcef012f66c407aef0c3bfa8995da" => :catalina
-    sha256 "c529165fc8eb117dd0418ac66790c8668038bcce1795f4e3bd7a9de7f7a0fd25" => :mojave
-    sha256 "a0a565088bce07a85abbefe786af293bc66ea7ed138c19bb35b4e128038e7bbf" => :high_sierra
+    cellar :any
+    sha256 "793f64165c0a72514abc0ef026b57e0363ad3bf6dcf8cb6f235958ca2cd1627a" => :catalina
+    sha256 "8489af04beb15919be9b7b1e81d1b3bee5393ccbd51e4712aa3e40aa113af8d8" => :mojave
+    sha256 "4b95c53f1b492ec6cf4655f98423067a031eb3e114a9b39be2320efdaf5c29c2" => :high_sierra
   end
 
   depends_on "cmake" => :build

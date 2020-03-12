@@ -23,9 +23,7 @@ class Spdylay < Formula
   uses_from_macos "zlib"
 
   def install
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      ENV["ac_cv_search_clock_gettime"] = "no"
-    end
+    ENV["ac_cv_search_clock_gettime"] = "no" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
 
     Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
 

@@ -52,7 +52,8 @@ class Corsixth < Formula
                          "-DCORSIX_TH_DATADIR=#{prefix}/CorsixTH.app/Contents/Resources/",
                          *std_cmake_args
     system "make"
-    cp_r %w[CorsixTH/CorsixTH.lua CorsixTH/Lua CorsixTH/Levels CorsixTH/Campaigns CorsixTH/Graphics CorsixTH/Bitmap], "CorsixTH/CorsixTH.app/Contents/Resources/"
+    cp_r %w[CorsixTH/CorsixTH.lua CorsixTH/Lua CorsixTH/Levels CorsixTH/Campaigns CorsixTH/Graphics CorsixTH/Bitmap],
+         "CorsixTH/CorsixTH.app/Contents/Resources/"
     prefix.install "CorsixTH/CorsixTH.app"
 
     env = { :LUA_PATH => ENV["LUA_PATH"], :LUA_CPATH => ENV["LUA_CPATH"] }

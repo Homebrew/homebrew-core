@@ -19,9 +19,7 @@ class Xdotool < Formula
   def install
     # Work around an issue with Xcode 8 on El Capitan, which
     # errors out with `typedef redefinition with different types`
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT") if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
 
     system "make", "PREFIX=#{prefix}", "INSTALLMAN=#{man}", "install"
   end

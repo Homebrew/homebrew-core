@@ -91,14 +91,10 @@ class Opencv < Formula
     # extensions, failing with errors such as
     # "error: use of undeclared identifier '_mm256_cvtps_ph'"
     # Work around this by not trying to build AVX2 code.
-    if MacOS.version <= :yosemite
-      args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX"
-    end
+    args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX" if MacOS.version <= :yosemite
 
     args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    unless MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
-    end
+    args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args

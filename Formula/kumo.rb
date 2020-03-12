@@ -1,9 +1,8 @@
 class Kumo < Formula
   desc "Word Clouds in Java"
   homepage "https://github.com/kennycason/kumo"
-  url "https://search.maven.org/remotecontent?filepath=com/kennycason/kumo-cli/1.17/kumo-cli-1.17.jar"
-  sha256 "17f84d6287eeccf361c9eabe6d7449983c13d777afd161105a324c00adcadd0e"
-  revision 1
+  url "https://search.maven.org/remotecontent?filepath=com/kennycason/kumo-cli/1.22/kumo-cli-1.22.jar"
+  sha256 "5a4aebd6074a0dd4ae493380a54b96f9b571446673fd82c764ed0b9f37511cab"
 
   bottle :unneeded
 

@@ -23,6 +23,7 @@ class Pypy < Formula
   depends_on "tcl-tk"
 
   uses_from_macos "expat"
+  uses_from_macos "libffi"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 

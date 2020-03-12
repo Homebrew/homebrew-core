@@ -5,14 +5,14 @@ class Thefuck < Formula
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/19/b0/5a563805cd59ad99b46a82fad0008ff6d9b55b61db88d8839b448c45b63c/thefuck-3.29.tar.gz"
   sha256 "7b907b6ef6863cc0d3e9bb3e573054547a60f89572250b767ccadb317d3c8297"
-  revision 1
+  revision 2
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "762a5d749374bbda2f181728c971bc998ce9c32f4ea20d242be0c5879e97356b" => :catalina
-    sha256 "2e261bc8017c602761652100d4075a0a2dbb63eb4c385135defdd157ac0a1aaa" => :mojave
-    sha256 "e0d301ddb9c3f769939484e9d6078be4edb25f099a10d8d75d7f67f12b04e15d" => :high_sierra
+    sha256 "0a822134480ccd55e4205981e40d087b22ef54997f3c552139cbe80b2bbe24af" => :catalina
+    sha256 "6148a67e60772143a89ba87beb4715d88218ea21b40f85495ffa6b1b53e3b65f" => :mojave
+    sha256 "8f051631681251d562de831c82ea46f586b031de242ccc73517e6943d301bb74" => :high_sierra
   end
 
   depends_on "python@3.8"

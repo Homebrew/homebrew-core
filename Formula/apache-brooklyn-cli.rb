@@ -48,7 +48,8 @@ class ApacheBrooklynCli < Formula
 
     begin
       mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
-      assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n", shell_output("#{bin}/br login #{mock_brooklyn_url} username password")
+      assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n",
+        shell_output("#{bin}/br login #{mock_brooklyn_url} username password")
     ensure
       Process.kill("KILL", pid_mock_brooklyn)
     end

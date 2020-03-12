@@ -1,15 +1,15 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.2.tar.gz"
-  sha256 "b074c27a4a2bb08bae30c724b28c1f33f2c5f37dc4b0c5dad0171ca39356a5c9"
+  url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz"
+  sha256 "07859071632ded58c5135d613438137022232da75f8bdc1687f3f75da2fe597f"
   head "https://github.com/nagios-plugins/nagios-plugins.git"
 
   bottle do
     cellar :any
-    sha256 "eb1f8025571fee03e8e90fa5471248d7a4ce927580a5acdafe1b73b82b2fc526" => :catalina
-    sha256 "fefc1034868d6e9e27f760e5d5526f5d7238ae8486a1b24628ce853c9e7e214f" => :mojave
-    sha256 "3ff736372de65cfe7b5ab3b07d5c1887f42c42d0034794cf8c3f0fdfbc49cff7" => :high_sierra
+    sha256 "b90c6f268ed5a5310a797855d87730f016c5d5077fa7b131c929aee042a1ee6c" => :catalina
+    sha256 "9dc95d628b0ca0e63df426e933f2be374442fa6ea3c6db0ea24ffb5967d098b1" => :mojave
+    sha256 "873811a29453153cd0ace61f92be73ae33b4a5bec1a4ece13baf128b32250e6e" => :high_sierra
   end
 
   depends_on "autoconf" => :build

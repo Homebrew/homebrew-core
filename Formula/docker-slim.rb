@@ -1,15 +1,14 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://dockersl.im"
-  url "https://github.com/docker-slim/docker-slim/archive/1.26.1.tar.gz"
-  sha256 "f3decf77b6a75cadd194085892469391cf39f7e54bf83d9ed9080308ec2d603a"
-  revision 1
+  url "https://github.com/docker-slim/docker-slim/archive/1.28.0.tar.gz"
+  sha256 "a6a88bf826dd8bf74ebead55dddfaad1977fae3885c7ec1bdacf4268e9e8d7f2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f2d66638942a745dc8542afd3ef9f5bb41fb0592e60018098cfc552c978ba7d" => :catalina
-    sha256 "3f2d66638942a745dc8542afd3ef9f5bb41fb0592e60018098cfc552c978ba7d" => :mojave
-    sha256 "3f2d66638942a745dc8542afd3ef9f5bb41fb0592e60018098cfc552c978ba7d" => :high_sierra
+    sha256 "6faee22c4f3a09aa571f26156d78eecc3f2a33fa26a6207e7197d250b1d4b904" => :catalina
+    sha256 "6faee22c4f3a09aa571f26156d78eecc3f2a33fa26a6207e7197d250b1d4b904" => :mojave
+    sha256 "6faee22c4f3a09aa571f26156d78eecc3f2a33fa26a6207e7197d250b1d4b904" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,12 +18,14 @@ class DockerSlim < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
     ldflags = "-s -w -X github.com/docker-slim/docker-slim/pkg/version.appVersionTag=#{version}"
-    system "go", "build", "-trimpath", "-ldflags=#{ldflags}", "-o", bin/"docker-slim", "./cmd/docker-slim"
+    system "go", "build", "-trimpath", "-ldflags=#{ldflags}", "-o",
+           bin/"docker-slim", "./cmd/docker-slim"
 
     # docker-slim-sensor is a Linux binary that is used within Docker
     # containers rather than directly on the macOS host.
     ENV["GOOS"] = "linux"
-    system "go", "build", "-trimpath", "-ldflags=#{ldflags}", "-o", bin/"docker-slim-sensor", "./cmd/docker-slim-sensor"
+    system "go", "build", "-trimpath", "-ldflags=#{ldflags}", "-o",
+           bin/"docker-slim-sensor", "./cmd/docker-slim-sensor"
     (bin/"docker-slim-sensor").chmod 0555
   end
 

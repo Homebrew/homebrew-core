@@ -34,7 +34,7 @@ class Ledger < Formula
       -DBUILD_WEB_DOCS=1
       -DBoost_NO_BOOST_CMAKE=ON
       -DPython_FIND_VERSION_MAJOR=3
-    ]
+    ] + std_cmake_args
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
     system "./acprep", "opt", "make", "install", *args

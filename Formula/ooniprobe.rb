@@ -210,9 +210,7 @@ class Ooniprobe < Formula
       etc = #{etc}/ooni
     EOS
 
-    if MacOS.sdk_path_if_needed
-      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
-    end
+    ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if MacOS.sdk_path_if_needed
 
     virtualenv_install_with_resources
 

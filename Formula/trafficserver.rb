@@ -3,15 +3,15 @@ class Trafficserver < Formula
   homepage "https://trafficserver.apache.org/"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.0.5.tar.bz2"
-    mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.5.tar.bz2"
-    sha256 "8ede46ef4b7961b0f53dc3418985f30569725c671ea9e6626dc8bbf0ca46544f"
+    url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.0.6.tar.bz2"
+    mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.0.6.tar.bz2"
+    sha256 "0e3dd9302056b5a643e0fe521244622e12df5f09e5ea2db7a53aee2c67f7c9d4"
   end
 
   bottle do
-    sha256 "e6ea637eb779516b21ebae5e0df8ee10b6dfac8a0e710139ec9f5edcc4f6d6c6" => :catalina
-    sha256 "146b8cda24b90b8f8438bd8cd0684ce0324c2fc7ba18de598cc9f151e5fe59a7" => :mojave
-    sha256 "2016f7171e6633dfa7abf86833354c30b63d2517955f0e7695dd3f0bed5b99b1" => :high_sierra
+    sha256 "ad4d24ba38b3d4b3901221e9b06d103c44266529619bd5381a1ccfea94db0066" => :catalina
+    sha256 "6c5338fa30ff0f5494bfb74714d14ecfc8135fcd947ebd1ab6c2e3f488afa5c8" => :mojave
+    sha256 "5ca0277101665a2366019d960f1365c418f7a4f4032b9c277362e36e587547e5" => :high_sierra
   end
 
   head do

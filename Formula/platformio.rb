@@ -5,12 +5,13 @@ class Platformio < Formula
   homepage "https://platformio.org/"
   url "https://files.pythonhosted.org/packages/f4/c8/8e472c22602ec6cdc6f93e35357ff5f3dff3434da6fc76cd3cd57c7eefb6/platformio-4.2.1.tar.gz"
   sha256 "310fa8b624cf938ef95284ae3a40a9caa36aafef32ac30ad588b43df516945c3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "611439fe6e3d60db763c8efea5ea43cfd82b24bc8859d4a8642a56bf4900d016" => :catalina
-    sha256 "9d5681ba68d6abcbec242bc2fabef125f9e6185b7dd47b54aec142b407b28982" => :mojave
-    sha256 "318a9c72435c4fbb6a8b078c593184da4a5ea7ac03c200a43d2e7d6d226d97a1" => :high_sierra
+    sha256 "7f2e25cc622fe4540c80d7220f60ac23575a1a74ac97d2d6555081b48000a4d6" => :catalina
+    sha256 "187d8da185000471826b81ef06c35af85dffb88f8700e653d5e6a93dab98ce24" => :mojave
+    sha256 "f1602a50db77cab3e0bd09730e3bb7a023b052b0d625e8fd803cfbc7a2fea6e5" => :high_sierra
   end
 
   depends_on "python@3.8"

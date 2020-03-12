@@ -22,6 +22,8 @@ class ApacheSpark < Formula
   end
 
   test do
-    assert_match "Long = 1000", pipe_output(bin/"spark-shell --conf spark.driver.bindAddress=127.0.0.1", "sc.parallelize(1 to 1000).count()")
+    assert_match "Long = 1000",
+      pipe_output(bin/"spark-shell --conf spark.driver.bindAddress=127.0.0.1",
+                  "sc.parallelize(1 to 1000).count()")
   end
 end

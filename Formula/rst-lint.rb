@@ -5,13 +5,13 @@ class RstLint < Formula
   homepage "https://github.com/twolfson/restructuredtext-lint"
   url "https://github.com/twolfson/restructuredtext-lint/archive/1.3.0.tar.gz"
   sha256 "4bf9d4724f59bc05ebe1cd5192c03d4597ee95c4bbf60bd5644422e1a2558da3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5de2e78e3830b41f34e19e15d0a8d8c8922005e08f21be4c46778af5b0a65764" => :catalina
-    sha256 "fc083735d0449b72bc1934c1e06bf832e12b390e565ab2af82138442474394b6" => :mojave
-    sha256 "653b51d8d1b356ff314042c6f4d596abdfe0a703724ede6bd85df9e30eb97449" => :high_sierra
+    sha256 "f2e1f46bf019b4f7d1b7b5e749fe729ea070539c211626d5a0e69f059c39c30a" => :catalina
+    sha256 "a4c02982ae36f5ae3d2ac2b961e0f20d77bbf5135fe789fdc64196d8f307bc92" => :mojave
+    sha256 "791c788f3bf1f97cf11513fa8c2c775268c382c8d41bd406b6d45bd4dfabdac5" => :high_sierra
   end
 
   depends_on "python@3.8"

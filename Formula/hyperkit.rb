@@ -1,15 +1,14 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20190802.tar.gz"
-  sha256 "747e20f47167f7a03d31691503027eff5d5df0d10d7821be3f18ab8d3dccbbfa"
+  url "https://github.com/moby/hyperkit/archive/v0.20200224.tar.gz"
+  sha256 "c0f9e0eb4cd9efdfa099a8cb5b35483b64688d6d1fc0c7a01e591abd4cf76413"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e86fc4ca23cecd009b84741d9d8561027be3bc7a545d4745260781f63353e268" => :catalina
-    sha256 "ac39ff6177953b5d6d7822e0313950e51451a6a1a201d527a366829a05d19088" => :mojave
-    sha256 "52410ae755b13b2f599dd3f694fbfad6af8c7b5b8114854fa1a2cd6611b888db" => :high_sierra
+    sha256 "ba8679cca5d4532aa1afd0f5e6558b38f673e66c48b274dbf73228c632478c3c" => :catalina
+    sha256 "6e658f44e70586cd209fee359e1f303e3f4c8ed24f2ae1f53d845557fa420ee2" => :mojave
+    sha256 "e9d9fda51a2c05a37d0d872a80b6dbf26f56b5842c5dc03ad7be13fd1224d5c1" => :high_sierra
   end
 
   depends_on "aspcud" => :build

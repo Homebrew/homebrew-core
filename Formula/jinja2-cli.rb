@@ -5,13 +5,13 @@ class Jinja2Cli < Formula
   homepage "https://github.com/mattrobenolt/jinja2-cli"
   url "https://files.pythonhosted.org/packages/23/67/6f05f5f8a9fc108c58e4eac9b9b7876b400985d33149fe2faa87a9ca502b/jinja2-cli-0.7.0.tar.gz"
   sha256 "9ccd8d530dad5d031230afd968cf54637b49842a13ececa6e17c2f67f6e9336e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b5f190961c1fef880d3228ff7de263cae3a0af1fc9823e2f2a727018be6d6be" => :catalina
-    sha256 "70d4911837f36db19e26e3f0761e39dd8f00432536f67115732156ccd70a7d87" => :mojave
-    sha256 "08e713022ccb6c30eb4cff5d6d483798cf6da722e2fb5335967d74a611242fa5" => :high_sierra
+    sha256 "31848f994850d25890342ec76c1259e6b19738105cf7cb8d58eae1f3abb29252" => :catalina
+    sha256 "c1f403a72668b4ffdc5da4e02d6d35cdb712a3b0cd8cf2b91a844b34e5b21370" => :mojave
+    sha256 "972f68142054b8201968d19962ad237b29f9ab2d15b1f5b7b27d5798685db797" => :high_sierra
   end
 
   depends_on "python@3.8"

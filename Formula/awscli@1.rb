@@ -6,12 +6,13 @@ class AwscliAT1 < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.18.10.tar.gz"
   sha256 "1a673a5fd9c85937131a9bcd975de469d9c07f8fad5249d58cf88840ac956b6d"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2f3e613d4f82356c7fba6fb6cbfde6509832ba20ab240427649e375aac1762d3" => :catalina
-    sha256 "744d529f3857e4e228c6e1506c24107188889b29fbf36670b3c5a0bb4ec732ec" => :mojave
-    sha256 "ee32c9e42fabf80cc5ca05dfa74256fd73d42f7ad25f3c45258d16efa15ceeb8" => :high_sierra
+    cellar :any
+    sha256 "8232729cfb564d40d37688b604e9beb67785d0b35631d7046693f8f55f3ae04d" => :catalina
+    sha256 "85344466abd054e3aeb238124e5f2be6336f2f9668c30ab9688a45c0c8b9445c" => :mojave
+    sha256 "d461a71f56d4975a4eab9c137aa98b7f497b2ebbc7a0a215ba7e0ee8ad8c4398" => :high_sierra
   end
 
   keg_only :versioned_formula

@@ -5,13 +5,13 @@ class Yamllint < Formula
   homepage "https://github.com/adrienverge/yamllint"
   url "https://github.com/adrienverge/yamllint/archive/v1.20.0.tar.gz"
   sha256 "6391bfd0f3d360a418fef54c6ccf77615c25b2b62c54fb770c07823471016b18"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "1a39e71f5471a2ef25cbb48d4ad7978171385ff38d5c40125f2c258cc6682244" => :catalina
-    sha256 "ee0e9115ae2423d3691c59c85ee10e03a0109706e24b2f51e21773ff15096a6b" => :mojave
-    sha256 "cb73a80359f4c689e5051d11cb3931b23268c573e00f52900875391442e10f51" => :high_sierra
+    sha256 "c9af991306882a4fe21500a52a63d6e110d09e9c4ba6c9da2558a99bdcfcce8f" => :catalina
+    sha256 "1aee52bbc89a796c87eb838ec79de9f2d7e1ea371bf64bd4ca70b430966f8360" => :mojave
+    sha256 "16ff7600ad8d42d077f931bbd968ee41425e1a6c6a9e5fd4f827e83ca5b40bf1" => :high_sierra
   end
 
   depends_on "libyaml"

@@ -24,6 +24,7 @@ class ZshHistorySubstringSearch < Formula
 
   test do
     assert_match "i",
-      shell_output("zsh -c '. #{pkgshare}/zsh-history-substring-search.zsh && echo $HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS'")
+      shell_output("zsh -c '. #{pkgshare}/zsh-history-substring-search.zsh && " \
+                   "echo $HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS'")
   end
 end

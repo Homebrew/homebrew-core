@@ -5,12 +5,13 @@ class Cppman < Formula
   homepage "https://github.com/aitjcize/cppman"
   url "https://files.pythonhosted.org/packages/53/9a/4908e1de68541c43961bea068c7062e91f8c8b656ea5fcf6ce0d7138a702/cppman-0.5.0.tar.gz"
   sha256 "0041943ca756c4736e5b1daca56f1e07f0953bbd438464ee3b8322c95a9f4cff"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "63448446323c8ea20143657aea0c247257c26b53db415461fbc35d469bc62238" => :catalina
-    sha256 "9d0ebc84c9b1f7b9981c641373b3996869fb6fb876fc8659d3629a861cc375c5" => :mojave
-    sha256 "cea1ac63fb20dd66938bb023d4bad51c2fc704baf0ef5233fcc6bcb036decf64" => :high_sierra
+    sha256 "dbb2e70d0843395577a38d7f69ca8d1ad038bdd5f5660cfeb96ae85737d2bfd2" => :catalina
+    sha256 "32ea0e98475d464c6ba0b7abd4471836e1f0a1ab54fba8e37008ac5593601387" => :mojave
+    sha256 "5671d5634754c20e664efdd99f27f5a93adbbbd3e599fdb3a084b73ffc04c8a9" => :high_sierra
   end
 
   depends_on "python@3.8"

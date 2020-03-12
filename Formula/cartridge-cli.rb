@@ -1,15 +1,15 @@
 class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
-  url "https://github.com/tarantool/cartridge-cli/archive/1.4.0.tar.gz"
-  sha256 "b5f59d1bc165cb99972943a11c59e78b5a8902f62c171667a637033f9fe3ac6a"
+  url "https://github.com/tarantool/cartridge-cli/archive/1.4.1.tar.gz"
+  sha256 "c227ecc7e2f7766ec1824f97e094bfcf2e7db655c7c7dbb203dd44b2342affef"
   head "https://github.com/tarantool/cartridge-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ccccde3d362ced39c24f45832bb854eeaa0a6202dac6e2818faa4e55038011ff" => :catalina
-    sha256 "ccccde3d362ced39c24f45832bb854eeaa0a6202dac6e2818faa4e55038011ff" => :mojave
-    sha256 "ccccde3d362ced39c24f45832bb854eeaa0a6202dac6e2818faa4e55038011ff" => :high_sierra
+    sha256 "cd4eef31b91ded7b6ff9b174a61afebee8206debeaa0b90f2fed331959aa484b" => :catalina
+    sha256 "cd4eef31b91ded7b6ff9b174a61afebee8206debeaa0b90f2fed331959aa484b" => :mojave
+    sha256 "cd4eef31b91ded7b6ff9b174a61afebee8206debeaa0b90f2fed331959aa484b" => :high_sierra
   end
 
   depends_on "cmake" => :build

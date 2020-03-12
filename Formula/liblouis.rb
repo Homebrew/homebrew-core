@@ -26,9 +26,7 @@ class Liblouis < Formula
   end
 
   def install
-    if build.head?
-      system "./autogen.sh"
-    end
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

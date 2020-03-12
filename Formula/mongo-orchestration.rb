@@ -5,14 +5,14 @@ class MongoOrchestration < Formula
   homepage "https://github.com/10gen/mongo-orchestration"
   url "https://files.pythonhosted.org/packages/6d/b5/624a02d5f6cbfa8eb3c6554f5387c4739ad283bac7efb27ee99434a4d314/mongo-orchestration-0.6.11.tar.gz"
   sha256 "7a09706d36e94ae767e90646fed98a52b426a4d14b0f4f724b185e292ac8f425"
-  revision 2
+  revision 3
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d850df4424b4e55814ddc7b881957cf07476810284c495cfa461b342ce0c6534" => :catalina
-    sha256 "14ba4c270f31ce76279e5c0072d2962bca3908ff74fab6460cbe424a4e3b6a81" => :mojave
-    sha256 "7f750e2e677a1ec32e07c6270c3391ce294ac821d77fd81b7cdf135488917be0" => :high_sierra
+    sha256 "ca2f1aa5e42d7034892714d40e880b55c2c600c41340469a0c7920f5745ee318" => :catalina
+    sha256 "74f0f48ec48f2e52b4ce7787ba03b4dd67673bc434f90ab0f209eea1cae05a57" => :mojave
+    sha256 "fbb1f7ae46b230e912072383e54150c2a48ded086fa25f3f5a4c030dd92458d4" => :high_sierra
   end
 
   depends_on "python@3.8"

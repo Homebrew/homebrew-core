@@ -22,14 +22,10 @@ class Purescript < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  if build.head?
-    depends_on "hpack" => :build
-  end
+  depends_on "hpack" => :build if build.head?
 
   def install
-    if build.head?
-      system "hpack"
-    end
+    system "hpack" if build.head?
 
     install_cabal_package "-f", "release", :using => ["alex", "happy-1.19.9"]
   end

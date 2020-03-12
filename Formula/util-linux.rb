@@ -38,9 +38,7 @@ class UtilLinux < Formula
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
-      if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
-        bash_completion.install prog
-      end
+      bash_completion.install prog if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
     end
   end
 

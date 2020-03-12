@@ -5,13 +5,13 @@ class Howdoi < Formula
   homepage "https://github.com/gleitz/howdoi"
   url "https://files.pythonhosted.org/packages/03/db/c9b5bb64adac16b0feab7924fb1134ce88bc38f7af4e74aca27c48de26df/howdoi-1.2.1.tar.gz"
   sha256 "3b322668606d29d8a841c3b28c0574851f512b55c33a7ceb982b6a98d82fa3e3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "576f5aba58a444486f8cb57ac06bde018ffb17be52a024bf7f21a75f1267c0c1" => :catalina
-    sha256 "edb6184fc8ce91e409ec1914f7cac62c203b336c1a96071380f9f7b51204bd3d" => :mojave
-    sha256 "b61bddf5e645a2916ae87b4791fc13a882eb18c6bd0bfca1ce27df9f2f070cd5" => :high_sierra
+    sha256 "b2a140c27beb5eb6cf0828112a4c90983014d36d50c66096a68773b0d47410a8" => :catalina
+    sha256 "eba1481a04f930805a0033c3213ae837464c600d6bc4f7bf3a3db4d17e328ae2" => :mojave
+    sha256 "bb5109a1450ea626cfaacae8001b086495ba7b33a14e7ea6b27dcb243f2421be" => :high_sierra
   end
 
   depends_on "python@3.8"

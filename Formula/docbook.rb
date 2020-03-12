@@ -72,9 +72,7 @@ class Docbook < Formula
 
     # only create catalog file if it doesn't exist already to avoid content added
     # by other formulae to be removed
-    unless File.file?("#{etc}/xml/catalog")
-      system "xmlcatalog", "--noout", "--create", "#{etc}/xml/catalog"
-    end
+    system "xmlcatalog", "--noout", "--create", "#{etc}/xml/catalog" unless File.file?("#{etc}/xml/catalog")
 
     %w[4.2 4.1.2 4.3 4.4 4.5 5.0].each do |version|
       catalog = prefix/"docbook/xml/#{version}/catalog.xml"

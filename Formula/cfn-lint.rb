@@ -5,12 +5,13 @@ class CfnLint < Formula
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
   url "https://files.pythonhosted.org/packages/ca/c4/0f25bf9194b87d1e5976f267b69e72c23b05ec87ad44b1b123981510cc9c/cfn-lint-0.28.4.tar.gz"
   sha256 "d6664c0acff6ebaf26d4df79f7fc7453b8c7c58edc761f55a0eac31641400c67"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bd6a5f6e8f667c793066ed6812327c7bb2225f64cc177c22f4b9c858bf5de5a6" => :catalina
-    sha256 "3811cf107c29524f521e6fb486b89a7400873779ade6cd10e751e37224781bca" => :mojave
-    sha256 "9cf67adaf076c95b8d1be31a83fbb0d03733b7387f2d1c02ed499a47c14d9e74" => :high_sierra
+    cellar :any
+    sha256 "60cd5d1712de4823405a184ed4c37a77931416af7c963ee63b0736ddbc10f571" => :catalina
+    sha256 "4b285d2f7c13682db72cc4811bfb3ea1981cddaa3cd95066b8b972f9cd648674" => :mojave
+    sha256 "25d1cbfa78336de5d16be4255dd3ce161938f13ed9044602dd0aa2f1f86938ed" => :high_sierra
   end
 
   depends_on "python@3.8"

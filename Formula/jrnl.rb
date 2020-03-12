@@ -5,12 +5,13 @@ class Jrnl < Formula
   homepage "https://jrnl.sh/"
   url "https://github.com/jrnl-org/jrnl/releases/download/v2.2/jrnl-2.2-brew.tar.gz"
   sha256 "335c1629b5ae8bc1b8812d4f3ad5d188e4b2342842c9d033388c97f7049bec3a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "cc3c51a9fae2ded1b38be04fe88f912a8af510841c3eded1601d637c68f45fa9" => :catalina
-    sha256 "c2d1e90ee23e1e4b272a2a8ffc4167282cd06882203993d25f6d5d2a23b349c9" => :mojave
-    sha256 "d887c5052a8b4e950e7ff1184ed0f00bceab72032685815b9fb02ed08e2651bc" => :high_sierra
+    sha256 "66560351ee5ed2909729339bdc23d86d1b6b10d36b31a45eccdf76410f174334" => :catalina
+    sha256 "44f0dad29c60b5cc69e1c6b537d61ca3af1c560159b2ec6ff975b944a24666bc" => :mojave
+    sha256 "5a82ad2e43651f7c0947dc11aa1e155ed5dc5cd1bc27b6e99d651459949df19f" => :high_sierra
   end
 
   depends_on "python@3.8"

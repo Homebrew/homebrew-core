@@ -1,14 +1,14 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.26.0.tar.bz2"
-  sha256 "4b7e39c0ba1c8a129027ae9c6472a169af1db26790b3009d99d5e4f0d01d760f"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.27.0.tar.bz2"
+  sha256 "7a4ff5f1a311fbda71f09dec1d90255a07bec2bcdbfa1168d03ae9add96a89d7"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "a99611fe1b8eca063b7a77f7e8fde2d45e70113cf2be13489a326fd0d0e11e5d" => :catalina
-    sha256 "90530f98c9d1382ddf507d265327fde31d281937b597fd17b54e097006d43612" => :mojave
-    sha256 "fc3adf8f1fb857d63b485644274dbd0a1f6561fa2b811fc926fcac6276966c17" => :high_sierra
+    sha256 "efcb95733da69be5d76e7c10ff0e4225c8eaaf03ac603bec036525172622893c" => :catalina
+    sha256 "6d39fea7cec81a909cb8cfcf04e9b10efc44ae7c40dee8b629e5a1f3911f4a69" => :mojave
+    sha256 "0487210a42375fcf98e0dfe7f52eaa3a33516c29bba15026402f5c053aa4a93e" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +24,6 @@ class Pushpin < Formula
                           "--logdir=#{var}/log",
                           "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 

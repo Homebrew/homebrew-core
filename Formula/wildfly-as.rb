@@ -77,7 +77,9 @@ class WildflyAs < Formula
     mkdir testpath/"standalone/deployments"
     cp_r libexec/"standalone/configuration", testpath/"standalone"
     fork do
-      exec opt_libexec/"bin/standalone.sh", "--server-config=standalone.xml", "-Djboss.http.port=#{port}", "-Djboss.server.base.dir=#{testpath}/standalone"
+      exec opt_libexec/"bin/standalone.sh", "--server-config=standalone.xml",
+                                            "-Djboss.http.port=#{port}",
+                                            "-Djboss.server.base.dir=#{testpath}/standalone"
     end
     sleep 10
 

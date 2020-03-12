@@ -3,13 +3,13 @@ class Lgogdownloader < Formula
   homepage "https://sites.google.com/site/gogdownloader/"
   url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.5.tar.gz"
   sha256 "eeeaad098929a71b5fb42d14e1ca87c73fc08010ab168687bab487a763782ada"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "333037e7939e4f349b7eb6715c1ea6591e1d76b55b0fa1c43fd7df2f1bde471c" => :catalina
-    sha256 "1f50e4ea949c448593d140dcc28647f1fca259e535fe475876507549a5ccfbed" => :mojave
-    sha256 "fefc84b1838e57dad41508f927ff70feb91ab0ce372ec2540f197774909b61d5" => :high_sierra
+    sha256 "18fa3023183d52fda887d8718e752117cc8d5b290dd324257aa3ccf4bf3408e5" => :catalina
+    sha256 "e5011ad88bd93373966c069cf5eef1dc127d4fbb22fdad7b0b8a474123b1b700" => :mojave
+    sha256 "c91d528e4ed9306ccd1f2558676e947671c366868b55387fe457437afb5fb3f9" => :high_sierra
   end
 
   depends_on "cmake" => :build

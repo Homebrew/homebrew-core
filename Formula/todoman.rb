@@ -5,14 +5,14 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/42/5a/b11c0df8bb9bfd4404d596a9ed1966aece1510a07b89499074080334297c/todoman-3.7.0.tar.gz"
   sha256 "1eb65c05ec82db501065d1a90d885a4352d92958121b1b9dab6a970abfe07999"
-  revision 1
+  revision 2
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "339bef292df297e3e4e0eec51f57f49cbf70e0ae3b5c19f0fbf71c0e46578d41" => :catalina
-    sha256 "5c5cbcb5df2132b9d683e5e6ae4cc3b86fca5fa26c4603e8a7d9f7b6be6f84b8" => :mojave
-    sha256 "981eaa665b9fdce0c1a63d5b15032efbd366dd7fe5bc1a108a48354c743bacc1" => :high_sierra
+    sha256 "e9d8d359bb2660250a0d0f6f3b34963d6968f048d59d9a96d392bf3b8d85d427" => :catalina
+    sha256 "b3376663c5e13b7ac84d71c6c65f2b725ac430034100401bf9172109df309dda" => :mojave
+    sha256 "2e0974ab0353f8bd10c19dd19ec7ca9e807997a1f3cbd2ac8d15ca5de548f936" => :high_sierra
   end
 
   depends_on "python@3.8"

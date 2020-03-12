@@ -35,7 +35,9 @@ class Zim < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python3.7/site-packages"
     system "python3", "./setup.py", "install", "--prefix=#{libexec}"
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"], :XDG_DATA_DIRS => ["#{HOMEBREW_PREFIX}/share", libexec/"share"].join(":")
+    bin.env_script_all_files libexec/"bin",
+      :PYTHONPATH    => ENV["PYTHONPATH"],
+      :XDG_DATA_DIRS => ["#{HOMEBREW_PREFIX}/share", libexec/"share"].join(":")
     pkgshare.install "zim"
   end
 
@@ -45,10 +47,12 @@ class Zim < Formula
 
     mkdir_p %w[Notes/Homebrew HTML]
     # Equivalent of (except doesn't require user interaction):
-    # zim --plugin quicknote --notebook ./Notes --page Homebrew --basename Homebrew  --text "[[https://brew.sh|Homebrew]]"
+    # zim --plugin quicknote --notebook ./Notes --page Homebrew --basename Homebrew
+    #     --text "[[https://brew.sh|Homebrew]]"
     File.write(
       "Notes/Homebrew/Homebrew.txt",
-      "Content-Type: text/x-zim-wiki\nWiki-Format: zim 0.4\nCreation-Date: 2020-03-02T07:17:51+02:00\n\n[[https://brew.sh|Homebrew]]",
+      "Content-Type: text/x-zim-wiki\nWiki-Format: zim 0.4\n" \
+      "Creation-Date: 2020-03-02T07:17:51+02:00\n\n[[https://brew.sh|Homebrew]]",
     )
     system "#{bin}/zim", "--index", "./Notes"
     system "#{bin}/zim", "--export", "-r", "-o", "HTML", "./Notes"

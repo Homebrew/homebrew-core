@@ -1,9 +1,8 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://www.owasp.org/index.php/OWASP_Dependency_Check"
-  url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.3.0-release.zip"
-  sha256 "1af524b02cb6bb8a03ea57f6ae2880bf8db67479b92a0815b70b03051bf20743"
-  revision 1
+  url "https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.3.1-release.zip"
+  sha256 "fa7b38b5bffced0455f30173ae613e5304c6a82a1a0f341fb6c44fd3eafc2e85"
 
   bottle :unneeded
 
@@ -15,7 +14,8 @@ class DependencyCheck < Formula
     chmod 0755, "bin/dependency-check.sh"
     libexec.install Dir["*"]
 
-    (bin/"dependency-check").write_env_script libexec/"bin/dependency-check.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"dependency-check").write_env_script libexec/"bin/dependency-check.sh",
+      :JAVA_HOME => Formula["openjdk"].opt_prefix
 
     (var/"dependencycheck").mkpath
     libexec.install_symlink var/"dependencycheck" => "data"

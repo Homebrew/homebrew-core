@@ -41,9 +41,7 @@ class ShibbolethSp < Formula
       DYLD_LIBRARY_PATH=#{lib}
     ]
 
-    if MacOS.version >= :high_sierra
-      args << "--with-apxs24=#{Formula["httpd"].opt_bin}/apxs"
-    end
+    args << "--with-apxs24=#{Formula["httpd"].opt_bin}/apxs" if MacOS.version >= :high_sierra
 
     system "./configure", *args
     system "make", "install"

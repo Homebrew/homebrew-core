@@ -2,14 +2,14 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      :tag      => "2.6.4",
-      :revision => "969ffae856b36c8b92e22afd11c71d8ef9d8c173"
+      :tag      => "2.7.0",
+      :revision => "ced556795aecc6e2ac514032e78f3096d17bfa25"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c9c02581bcad55309a8b159b50363b9aa936def8088a9f8ae62af797a17fea8" => :catalina
-    sha256 "8d695dc812c9f41550001eb33c5c90296f405d4c2b5e4779ca9b5a4f5f2f71fe" => :mojave
-    sha256 "af0e13fb751ac48b9b709f51ceadf0cd19c284ee341c15e221a876ac4687165e" => :high_sierra
+    sha256 "d49fb89dc621c3a94e38a1ba4ce40e0d1ca40a8a7609b6b0934f449d2bb4192e" => :catalina
+    sha256 "6bbfc25c045ba3b6c5ac7891c41d6e27e2850281afb97b717a5beebf266b5b07" => :mojave
+    sha256 "bbe5682309639393ad89d4cadd86791283c90fc04e55c6ec032ea8f9af5560d7" => :high_sierra
   end
 
   depends_on "go" => :build

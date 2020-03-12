@@ -1,21 +1,21 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
-  homepage "https://quantstack.net/xtensor"
-  url "https://github.com/QuantStack/xtensor/archive/0.21.3.tar.gz"
-  sha256 "f63c25cafea4bfc268edb26e6f5004a28a2f689e6a852bb3559c553106c8d6bf"
+  homepage "https://xtensor.readthedocs.io/en/latest/"
+  url "https://github.com/xtensor-stack/xtensor/archive/0.21.4.tar.gz"
+  sha256 "143ef2536f1671e1c7c7834de4a040f1694112e23222fcd2ae59b0f5e5124b57"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a028e1077b2b97c927efe0ac97b01a94a5b57289f1120e142d4b5d352fdbcc9" => :catalina
-    sha256 "5a028e1077b2b97c927efe0ac97b01a94a5b57289f1120e142d4b5d352fdbcc9" => :mojave
-    sha256 "5a028e1077b2b97c927efe0ac97b01a94a5b57289f1120e142d4b5d352fdbcc9" => :high_sierra
+    sha256 "391eee2fb8fb1562f809e1879b267a9f26f3979ccd24bab69e59ea4636497a13" => :catalina
+    sha256 "391eee2fb8fb1562f809e1879b267a9f26f3979ccd24bab69e59ea4636497a13" => :mojave
+    sha256 "391eee2fb8fb1562f809e1879b267a9f26f3979ccd24bab69e59ea4636497a13" => :high_sierra
   end
 
   depends_on "cmake" => :build
 
   resource "xtl" do
-    url "https://github.com/QuantStack/xtl/archive/0.6.11.tar.gz"
-    sha256 "e3cb622def174b76547c29ce0d63ae1407ed19fcbbd233913613e9859568eadd"
+    url "https://github.com/xtensor-stack/xtl/archive/0.6.13.tar.gz"
+    sha256 "12bd628dee4a7a55db79bff5a47fb7d96b1a4dba780fbd5c81c3a15becfdd99c"
   end
 
   def install

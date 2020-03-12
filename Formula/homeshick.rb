@@ -18,9 +18,7 @@ class Homeshick < Formula
     bin.install "bin/homeshick"
     zsh_completion.install "completions/_homeshick"
     bash_completion.install "completions/homeshick-completion.bash"
-    if build.head?
-      fish_completion.install "completions/homeshick.fish"
-    end
+    fish_completion.install "completions/homeshick.fish" if build.head?
   end
 
   def caveats; <<~EOS

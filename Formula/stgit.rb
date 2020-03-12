@@ -1,16 +1,15 @@
 class Stgit < Formula
   desc "Push/pop utility built on top of Git"
   homepage "https://github.com/ctmarinas/stgit"
-  url "https://github.com/ctmarinas/stgit/releases/download/v0.21/stgit-0.21.tar.gz"
-  sha256 "0f67a3c0ed3e0408aa8e9be6ff6c7be0a2981ca43639bc94bda7b6124717e71f"
-  revision 1
+  url "https://github.com/ctmarinas/stgit/releases/download/v0.22/stgit-0.22.tar.gz"
+  sha256 "394438e7f7de9fac2532632bd3e202137f9f8b6b91ad3667e467766571551bd0"
   head "https://github.com/ctmarinas/stgit.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3156fd71a826606d77fd2dbd469dac3bbcde1f3553eb1e05f825c985c5d65f4e" => :catalina
-    sha256 "3156fd71a826606d77fd2dbd469dac3bbcde1f3553eb1e05f825c985c5d65f4e" => :mojave
-    sha256 "3156fd71a826606d77fd2dbd469dac3bbcde1f3553eb1e05f825c985c5d65f4e" => :high_sierra
+    sha256 "1a965a4f7b50412601a6517d5b7ea2faf62ab2ac1cb0dc5049b42dc595d517d4" => :catalina
+    sha256 "1a965a4f7b50412601a6517d5b7ea2faf62ab2ac1cb0dc5049b42dc595d517d4" => :mojave
+    sha256 "1a965a4f7b50412601a6517d5b7ea2faf62ab2ac1cb0dc5049b42dc595d517d4" => :high_sierra
   end
 
   depends_on "asciidoc" => :build

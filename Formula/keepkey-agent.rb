@@ -5,13 +5,13 @@ class KeepkeyAgent < Formula
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "87c1e88b122c66019f24a0c21cc0a6a2b01803129279a4e8ae2e13ab5641b9d8" => :catalina
-    sha256 "6b75efd2438d4486e182a5f269575f42cccdf967adef0899836cd9eb8da9c6c4" => :mojave
-    sha256 "1eaef62aac81c53d99bbcf743151301de5bcfdb6c37bf15732757c9cc3c82eba" => :high_sierra
+    sha256 "d63b20fa73ca477c96862ff34e60bd54ff52ba88408212960dd4a772e8fa5643" => :catalina
+    sha256 "143afaf234c996ac776b3eb09cf271bdf8d70f91ce17de9dfb6f60b08f6dfe98" => :mojave
+    sha256 "90f8bed92a8c541ae0d3b4ba75f03094249d2081abd92be51a90feb4dbf2e401" => :high_sierra
   end
 
   depends_on "python@3.8"

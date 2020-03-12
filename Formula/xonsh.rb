@@ -5,13 +5,14 @@ class Xonsh < Formula
   homepage "https://xon.sh/"
   url "https://github.com/xonsh/xonsh/archive/0.9.14.tar.gz"
   sha256 "98936fb7ea3cf6b2b720dd1ae98f081f4bdfb472ebc02a41eae7eac61dece5ef"
+  revision 1
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6518ee6e314bc7a44270f8dacea2a3b5e5f3b5808ff2c653aded834b8aee1af1" => :catalina
-    sha256 "61fcfd71f7368311e12e98f01c39aaec15a47f9024492a9e5e83950c814ff70f" => :mojave
-    sha256 "dd20b590171005fc7918a789dedb2eb2c5d1f7be734aae26ac64650e0996a079" => :high_sierra
+    sha256 "7402482d0b7ff76ae36abb9335bd485395df4669d5db608d18c397be02e89dc2" => :catalina
+    sha256 "3f26068cef87a0ef23c3f181efb50c521b690366dfde198519a88a4fecd7bce5" => :mojave
+    sha256 "077dd4221373e8adb5b6039a2aa4ce1935f34dbc7543ba551ef06dd7a45b5001" => :high_sierra
   end
 
   depends_on "python@3.8"

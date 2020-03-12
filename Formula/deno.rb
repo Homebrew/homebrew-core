@@ -60,9 +60,9 @@ class Deno < Formula
     (testpath/"hello.ts").write <<~EOS
       console.log("hello", "deno");
     EOS
-    hello = shell_output("#{bin}/deno run hello.ts")
-    assert_includes hello, "hello deno"
-    cat = shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts #{testpath}/hello.ts")
-    assert_includes cat, "console.log"
+    assert_match "hello deno", shell_output("#{bin}/deno run hello.ts")
+    assert_match "console.log",
+      shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts " \
+                   "#{testpath}/hello.ts")
   end
 end

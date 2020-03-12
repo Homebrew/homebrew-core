@@ -5,12 +5,13 @@ class LiterateGit < Formula
   homepage "https://github.com/bennorth/literate-git"
   url "https://github.com/bennorth/literate-git/archive/v0.3.1.tar.gz"
   sha256 "f1dec77584236a5ab2bcee9169e16b5d976e83cd53d279512136bdc90b04940a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fbf303ecbea9942380695ec4fc385ee6cd61713b88da4681f61b2aeca8f4ed6f" => :catalina
-    sha256 "4b2b1cc91d729459c5effdb9a9b5e425589208bbd68764c9e2dd241747e91aed" => :mojave
-    sha256 "8b3458f7e5337f396d85cb00f9cbb5a0be6fe89943f5175b52e0a80f4d37e672" => :high_sierra
+    sha256 "9178197fb25710c7a75643218dd8089a042d6bb4a9f7aa5559807d62d451d723" => :catalina
+    sha256 "13e3bfb78683ef24b7eb6bade4986fb92a1934cf9f976c5c561b1c05589da241" => :mojave
+    sha256 "a9c03c8bbc4aab6043f663ca9dcc78c8fa94d080080625fbe22b2341ef8b50d9" => :high_sierra
   end
 
   depends_on "libgit2"

@@ -25,6 +25,7 @@ class Pypy3 < Formula
   depends_on "xz"
 
   uses_from_macos "expat"
+  uses_from_macos "libffi"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
@@ -67,9 +68,7 @@ class Pypy3 < Formula
     ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
     ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
     # Work around "dyld: Symbol not found: _utimensat"
-    if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT") if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
 
     # Fix build on High Sierra
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|

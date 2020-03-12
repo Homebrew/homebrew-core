@@ -69,6 +69,7 @@ class Netdata < Formula
     end
     (var/"cache/netdata/unittest-dbengine/dbengine").mkpath
     (var/"lib/netdata/registry").mkpath
+    (var/"log/netdata").mkpath
     (var/"netdata").mkpath
   end
 

@@ -20,6 +20,7 @@ class CreateDmg < Formula
     File.write(testpath/"Brew-Eula.txt", "Eula")
     (testpath/"Test-Source").mkpath
     (testpath/"Test-Source/Brew.app").mkpath
-    system "#{bin}/create-dmg", "--sandbox-safe", "--eula", testpath/"Brew-Eula.txt", testpath/"Brew-Test.dmg", testpath/"Test-Source"
+    system "#{bin}/create-dmg", "--sandbox-safe", "--eula",
+           testpath/"Brew-Eula.txt", testpath/"Brew-Test.dmg", testpath/"Test-Source"
   end
 end

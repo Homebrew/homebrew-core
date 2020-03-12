@@ -62,17 +62,23 @@ class Cassandra < Formula
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
-    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR", "-Dcassandra.logdir\=#{var}/log/cassandra"
+    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR",
+                               "-Dcassandra.logdir\=#{var}/log/cassandra"
     inreplace "bin/cassandra.in.sh" do |s|
-      s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"", "CASSANDRA_HOME=\"#{libexec}\""
+      s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"",
+              "CASSANDRA_HOME=\"#{libexec}\""
       # Store configs in etc, outside of keg
-      s.gsub! "CASSANDRA_CONF=\"$CASSANDRA_HOME/conf\"", "CASSANDRA_CONF=\"#{etc}/cassandra\""
+      s.gsub! "CASSANDRA_CONF=\"$CASSANDRA_HOME/conf\"",
+              "CASSANDRA_CONF=\"#{etc}/cassandra\""
       # Jars installed to prefix, no longer in a lib folder
-      s.gsub! "\"$CASSANDRA_HOME\"/lib/*.jar", "\"$CASSANDRA_HOME\"/*.jar"
+      s.gsub! "\"$CASSANDRA_HOME\"/lib/*.jar",
+              "\"$CASSANDRA_HOME\"/*.jar"
       # The jammm Java agent is not in a lib/ subdir either:
-      s.gsub! "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/lib/jamm-", "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/jamm-"
+      s.gsub! "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/lib/jamm-",
+              "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/jamm-"
       # Storage path
-      s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"", "cassandra_storagedir\=\"#{var}/lib/cassandra\""
+      s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"",
+              "cassandra_storagedir\=\"#{var}/lib/cassandra\""
     end
 
     rm Dir["bin/*.bat", "bin/*.ps1"]
@@ -85,9 +91,13 @@ class Cassandra < Formula
     libexec.install Dir["lib/*.jar"]
 
     pkgshare.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
-    inreplace Dir["#{libexec}/bin/cassandra*", "#{libexec}/bin/debug-cql", "#{libexec}/bin/nodetool", "#{libexec}/bin/sstable*"],
-              %r{`dirname "?\$0"?`/cassandra.in.sh},
-              "#{pkgshare}/cassandra.in.sh"
+    inreplace Dir[
+      "#{libexec}/bin/cassandra*",
+      "#{libexec}/bin/debug-cql",
+      "#{libexec}/bin/nodetool",
+      "#{libexec}/bin/sstable*",
+    ], %r{`dirname "?\$0"?`/cassandra.in.sh},
+       "#{pkgshare}/cassandra.in.sh"
 
     # Make sure tools are installed
     rm Dir[buildpath/"tools/bin/*.bat"] # Delete before install to avoid copying useless files

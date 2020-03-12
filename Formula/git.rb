@@ -57,9 +57,7 @@ class Git < Formula
       "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
     end.join(":")
 
-    unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
-      ENV["NO_PERL_MAKEMAKER"] = "1"
-    end
+    ENV["NO_PERL_MAKEMAKER"] = "1" unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
 
     # Ensure we are using the correct system headers (for curl) to workaround
     # mismatched Xcode/CLT versions:
@@ -139,9 +137,7 @@ class Git < Formula
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
     # To avoid this feature hooking into the system OpenSSL, remove it
-    if MacOS.version >= :yosemite
-      rm "#{libexec}/git-core/git-imap-send"
-    end
+    rm "#{libexec}/git-core/git-imap-send" if MacOS.version >= :yosemite
 
     # git-send-email needs Net::SMTP::SSL
     resource("Net::SMTP::SSL").stage do

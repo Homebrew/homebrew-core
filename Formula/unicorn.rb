@@ -16,6 +16,10 @@ class Unicorn < Formula
 
   depends_on "pkg-config" => :build
 
+  # See https://github.com/Homebrew/linuxbrew-core/pull/19728
+  # Might work with Python 3 starting with next release (1.0.2)
+  uses_from_macos "python@2" # Does not work with Python 3
+
   def install
     ENV["PREFIX"] = prefix
     ENV["UNICORN_ARCHS"] = "x86 x86_64 arm mips aarch64 m64k ppc sparc"

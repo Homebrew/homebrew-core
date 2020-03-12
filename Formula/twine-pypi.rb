@@ -5,14 +5,14 @@ class TwinePypi < Formula
   homepage "https://github.com/pypa/twine"
   url "https://files.pythonhosted.org/packages/7e/2f/e2a91a8ab97e8c9830ce297132631aef5dcd599f076123d1ebb26f1941b6/twine-3.1.1.tar.gz"
   sha256 "d561a5e511f70275e5a485a6275ff61851c16ffcb3a95a602189161112d9f160"
-  revision 1
+  revision 2
   head "https://github.com/pypa/twine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf24fa66bd707af6c82b9f4a15ae9f9d0f89d2979e8728c45bee4fc2e232d526" => :catalina
-    sha256 "3361f04b027e09a3816c8faba24ea9ad18381754a420605be2070dab048ac0c2" => :mojave
-    sha256 "d83e742f2d90a6c7154073189be2903ce35773f589c2bd637e95e20dc495adf3" => :high_sierra
+    sha256 "2a790f856202eb237908d07767a1b048605c8fe8e23af2858ccf2bd49b30ea98" => :catalina
+    sha256 "5a3c9250a67a5f3986ee5bac5b8d0093d8675e70b137ac0911fa640841657258" => :mojave
+    sha256 "e6ba4437d91e869216f794753492df41c0c875034f6c63e93721a3c6a971989a" => :high_sierra
   end
 
   depends_on "python@3.8"

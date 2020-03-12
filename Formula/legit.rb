@@ -5,13 +5,14 @@ class Legit < Formula
   homepage "https://frostming.github.io/legit/"
   url "https://files.pythonhosted.org/packages/75/99/e17f2b4d1939e806091721949acc664de5ad36a32187cd3222107b002400/legit-1.2.0.tar.gz"
   sha256 "2c78b97b5947d03d55160b36255dafd3c3f3b1994148519c09a5846db21af059"
+  revision 1
   head "https://github.com/frostming/legit.git", :branch => "master"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "127d027cd0814c3920c22040f9f55ce0e0d840799309208668dbfadc5f50bff0" => :catalina
-    sha256 "8169a1412d7051abf9c9f1d3006e4632650cf958a8ca67b53f85a9f1c46f71e4" => :mojave
-    sha256 "557a989c72baf8bdef6a23600cc473bd1002c64ea9ef8571432c8862695999e4" => :high_sierra
+    sha256 "6f7e454a8d416d41ec0a3a002c54e9db0563afc4a1cc8ad6be14eeaaf21c4f9b" => :catalina
+    sha256 "68f2b1e810daaa6ff691a756055d833c69578c441b390e04f365942f5dd64a3f" => :mojave
+    sha256 "47c79ac839d525b1df535fd72bd790675a1b05b96b75153e2bdb6f3ce65e0f0a" => :high_sierra
   end
 
   depends_on "python@3.8"

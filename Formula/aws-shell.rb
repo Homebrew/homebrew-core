@@ -5,13 +5,13 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
   url "https://files.pythonhosted.org/packages/46/5a/c01bbff96fcbe8051e0b59e6191e07f5917f7f2cf667557c7dcbb85f62c3/aws-shell-0.2.1.tar.gz"
   sha256 "2044b0ef78c7542c392f2cee4b74a4439545c63dda0a3e28b712fff53e8e5823"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "31cbbe5d81a4f19927d148cdf09090baf0f3b60d0d879986ebb6de3d86fed78b" => :catalina
-    sha256 "dc1f1951cee4823efe8ab0bdfde72c024aa2a0dee1eafdaaa2c14805852df83a" => :mojave
-    sha256 "db4cb7f0285c0fac6af635083c8921c074995f7fd6c6b1bf4926c601d456b06a" => :high_sierra
+    cellar :any
+    sha256 "80649fd9dfb5ef9c0506db4f74e0a4ff275617a718249cbc12d2c62efb46657f" => :catalina
+    sha256 "174cce4bc60dfa38babc3bae1dd3b1ab8614c2339340eaaf438012724ebc3646" => :mojave
+    sha256 "e59a26cea8549c99c0f6586db2f85d9400b53911902ec9ebdac1e6379d2518ac" => :high_sierra
   end
 
   depends_on "python@3.8"

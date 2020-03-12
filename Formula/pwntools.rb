@@ -5,12 +5,13 @@ class Pwntools < Formula
   homepage "https://github.com/Gallopsled/pwntools"
   url "https://github.com/Gallopsled/pwntools/archive/4.0.1.tar.gz"
   sha256 "5598bf8ebb96264dab3663d296be3dfe783451cf3535ad611d094a7c550d467f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e6f0a0e76060ff3204153e51f5b90e55b35430e7bd21654d3baf9c5f2e5c2e98" => :catalina
-    sha256 "df885db96480262ded84f3e1bb43092abea0fd44e650010d83fe8afee7b84618" => :mojave
-    sha256 "22c30c298a42f2a49b286270675521d63b7185a54b68e897137b0f427920c2cb" => :high_sierra
+    sha256 "b1afc874b8374f8e1963f0cc4b0c02401210cd74ba064f001381b490ef9711b3" => :catalina
+    sha256 "06fd27211ebe7ef3aadf37e7b05c9e78cdb40fdc33b7d10a3f0c73ab4f07b5d8" => :mojave
+    sha256 "28eda39a5179c7634edcd1eab79524c1e5b68316d387374a768e62d5258942f0" => :high_sierra
   end
 
   depends_on "openssl@1.1"

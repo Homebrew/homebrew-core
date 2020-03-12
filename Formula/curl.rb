@@ -1,34 +1,14 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  revision 1
-
-  stable do
-    url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
-    sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
-
-    # The below three patches all fix critical bugs. Remove them with curl 7.69.1.
-    patch do
-      url "https://github.com/curl/curl/commit/8aa04e9a24932b830bc5eaf6838dea5a3329341e.patch?full_index=1"
-      sha256 "77595ec475e692bd24832e0e6e98de5d68a43bf7199c632ae0443fcb932791fb"
-    end
-
-    patch do
-      url "https://github.com/curl/curl/commit/e040146f22608fd92c44be2447a6505141a8a867.patch?full_index=1"
-      sha256 "f4267c146592067e84eacb62cdb22e0a35636699a8237470ccaf27d68cb17a86"
-    end
-
-    patch do
-      url "https://github.com/curl/curl/commit/64258bd0aa6ad23195f6be32e6febf7439ab7984.patch?full_index=1"
-      sha256 "afeb69e09b3402926acd40d76f6b28d9790ac1f1e080f4eb3f2500d5aaf46971"
-    end
-  end
+  url "https://curl.haxx.se/download/curl-7.69.1.tar.bz2"
+  sha256 "2ff5e5bd507adf6aa88ff4bbafd4c7af464867ffb688be93b9930717a56c4de8"
 
   bottle do
     cellar :any
-    sha256 "201cb204c2a8fff166af6650d5a1e5a925d77a8edacecbae27a89a98c0acdd15" => :catalina
-    sha256 "b310f1da8a6d86eee7733f0c010ea324c1dbbc3cb817224425fa97fd6c7ae132" => :mojave
-    sha256 "82b4720c1651a98a57a9652ea92fe4f5cd9d5cf6024660ce9acd2d384b2eacb1" => :high_sierra
+    sha256 "400500fede02f9335bd38c16786b2bbf5e601e358dfac8c21e363d2a8fdd8fac" => :catalina
+    sha256 "f082c275f9af1e8e93be12b63a1aff659ba6efa48c8528a97e26c9858a6f95b6" => :mojave
+    sha256 "ad023093c252799a4c60646a149bfe14ffa6984817cf463a6f0e98f6551057fe" => :high_sierra
   end
 
   head do

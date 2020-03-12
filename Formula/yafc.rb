@@ -29,7 +29,8 @@ class Yafc < Formula
   test do
     download_file = testpath/"512KB.zip"
     expected_checksum = Checksum.new("sha256", "07854d2fef297a06ba81685e660c332de36d5d18d546927d30daad6d7fda1541")
-    output = pipe_output("#{bin}/yafc -W #{testpath} -a ftp://speedtest.tele2.net/", "get #{download_file.basename}", 0)
+    output = pipe_output("#{bin}/yafc -W #{testpath} -a ftp://speedtest.tele2.net/",
+                         "get #{download_file.basename}", 0)
     assert_match version.to_s, output
     download_file.verify_checksum expected_checksum
   end

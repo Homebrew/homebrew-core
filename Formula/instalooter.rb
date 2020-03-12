@@ -5,13 +5,13 @@ class Instalooter < Formula
   homepage "https://github.com/althonos/instalooter"
   url "https://files.pythonhosted.org/packages/72/47/181d89914f9cd7cb066a32f5e21a49023bb4fec2d5e6aefa645f1874c972/instalooter-2.4.1.tar.gz"
   sha256 "aa65caaff3b43bd05288476765282165c7ca78e9de2e8ab9b796977b73d0320a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d92a3563c5ec99f272ae547aa781b611f909d9fe50f14c3f0036e74779229199" => :catalina
-    sha256 "270c856593fa3dee1b0650b73f05ea938944dd0e4fc56b5a071b66cf8ace7552" => :mojave
-    sha256 "3906bde9eba23b61b9e83d91a28c3f35ffa563fded04683bc6ec89bf2a7e6279" => :high_sierra
+    sha256 "e104124fc1aea7acb2827e8fd99af7d177051044d8847263c80346322a1a0f62" => :catalina
+    sha256 "1aa93b38cdbfd6dd4d91fa1e74c432dae4f0c36aee7f3f82534f10c5006f6375" => :mojave
+    sha256 "9197e9cf489480f2ec933bdde662b736a99dfb52179e4f7858d99b51bccd3348" => :high_sierra
   end
 
   depends_on "python@3.8"

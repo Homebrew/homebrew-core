@@ -2,16 +2,15 @@ class Krew < Formula
   desc "Package manager for kubectl plugins"
   homepage "https://sigs.k8s.io/krew/"
   url "https://github.com/kubernetes-sigs/krew.git",
-      :tag      => "v0.3.3",
-      :revision => "71418fab437b55a740118ed9fac43fe79be98549"
+      :tag      => "v0.3.4",
+      :revision => "324f5ed8fa7c2469ed6cd5a3dadbcbc0ce1d8b97"
   sha256 "d63e0ccc08f32bfc314b3bc574f20842041e2f58ab89ddc88a24cb25c1caee38"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "02f59277639b23de8638d475eb541a825fd0ed3f13abcd451598f012266a9ec7" => :catalina
-    sha256 "cea370c93a43aa395003cf87430460746c29504c6b9bd8d8545ff9db31fa3fcf" => :mojave
-    sha256 "69856b8926a34eac58aee438f52638553fda02d6ccbde22a09fbc2bded4b2cc1" => :high_sierra
+    sha256 "530b8df4b6c973f2aa45b8e4ed565979963771b1f5d3638231f8705a97c162b3" => :catalina
+    sha256 "e51ee6903e65b289910dbccb11ac8de741a9f52d8ac3adb555a6b5684e6ec938" => :mojave
+    sha256 "ee763d27b51175e050bb3bd00335c7f950eaf823d6b73aeb03e8d67f41240227" => :high_sierra
   end
 
   depends_on "go" => :build

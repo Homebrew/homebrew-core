@@ -5,13 +5,13 @@ class Mdv < Formula
   homepage "https://github.com/axiros/terminal_markdown_viewer"
   url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
   sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2fcb9eccdbbea185a283d4b56da15cbf71fdb8a8d34139d7d9a54d8523981591" => :catalina
-    sha256 "22a148919646e046da5af4c20c465cb16655add99fad11579a58178112a791f9" => :mojave
-    sha256 "2e3db65a118614ea9cc3f734b5158460dce1e07f50ed241a468e0fe4d53136b1" => :high_sierra
+    cellar :any
+    sha256 "890a4b74e721fb435e1d4ef0ff0c8f5b6e3571bf36e0d57562d720ef197524ef" => :catalina
+    sha256 "b9570e94bcc659b48b3c3629e16e03f12f484f0d9212108ebae958c5464294ab" => :mojave
+    sha256 "89ca2ef413cebd689db91754227919ebbc28934558fadd81dde681bccabe99a7" => :high_sierra
   end
 
   depends_on "python@3.8"

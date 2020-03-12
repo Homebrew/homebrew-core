@@ -5,14 +5,14 @@ class Awslogs < Formula
   homepage "https://github.com/jorgebastida/awslogs"
   url "https://github.com/jorgebastida/awslogs/archive/0.11.0.tar.gz"
   sha256 "6258a121629cb872ee61fe78bf112753c8782c971524f0943a0e21f74d5e28bd"
-  revision 1
+  revision 2
   head "https://github.com/jorgebastida/awslogs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f830a44cb54fceac76e0588cc8cbc12ef61bce9fefde7395f6eaa8d459bfaf94" => :catalina
-    sha256 "8dc15f74822ee782d470c17cda9796ab2859639382b6b85196fa95df1e0467c3" => :mojave
-    sha256 "2adb8376393d9f0922bbe8938980d612995389d05794605cd565d4d4cf1874fc" => :high_sierra
+    sha256 "7918feeb3d8bd6ff0944c55afae7864eaf5cea516029b33647aa2ce87288ce86" => :catalina
+    sha256 "5079a8ee7893316f2febeb41caf7afe6a0a2efad9f553f04dcfb80be9109e1d0" => :mojave
+    sha256 "04e319b2b99b8c62ce50d8c4cce6804aac585d063ac4da9ec8459dc9a8719512" => :high_sierra
   end
 
   depends_on "python@3.8"

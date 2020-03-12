@@ -2,15 +2,14 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      :tag      => "v3.0.1",
-      :revision => "ae4740fa265701f494df23b65af80822f3e26a13"
-  revision 1
+      :tag      => "v3.1.0",
+      :revision => "cd75d21e24610ec9a594e1971dbb739ecdf4cc64"
   head "https://github.com/zeek/zeek.git"
 
   bottle do
-    sha256 "db4d565aa97ae24e5dcfa252500eb5dedd9a01fe9b12ac75498eba3a1be8efa6" => :catalina
-    sha256 "afa8d8b9d78ac1a21869422fe67eb9743a37a1c8359937ac7a3760b91d690824" => :mojave
-    sha256 "95fd222759604cb74140d9b19305b339ac334221aaae83f2de4e3e6d7ff6a6a9" => :high_sierra
+    sha256 "860785ea11ee30ae21713e43e48b01d20134ef274ddfed08cef3ec00c8cb984d" => :catalina
+    sha256 "a3033d1bac9fe0e3cd2fed91abb007dc1c7d811b23a2d135d9c64a12476cfaf5" => :mojave
+    sha256 "141eb85540783018abfc4dc8345b68ef06b83a9e4244c552dd7e7befd4c0acfb" => :high_sierra
   end
 
   depends_on "bison" => :build
@@ -25,16 +24,23 @@ class Zeek < Formula
   uses_from_macos "python@2" # See https://github.com/zeek/zeek/issues/706
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-caf=#{Formula["caf"].opt_prefix}",
-                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--disable-broker-tests",
-                          "--localstatedir=#{var}",
-                          "--conf-files-dir=#{etc}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args,
+                      "-DDISABLE_PYTHON_BINDINGS=on",
+                      "-DBROKER_DISABLE_TESTS=on",
+                      "-DBUILD_SHARED_LIBS=on",
+                      "-DINSTALL_AUX_TOOLS=on",
+                      "-DINSTALL_ZEEKCTL=on",
+                      "-DCAF_ROOT_DIR=#{Formula["caf"].opt_prefix}",
+                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DZEEK_ETC_INSTALL_DIR=#{etc}",
+                      "-DZEEK_LOCAL_STATE_DIR=#{var}"
+      system "make", "install"
+    end
   end
 
   test do
-    system "#{bin}/zeek", "--version"
+    assert_match "version #{version}", shell_output("#{bin}/zeek --version")
+    assert_match "ARP Parsing", shell_output("#{bin}/zeek --print-plugins")
   end
 end

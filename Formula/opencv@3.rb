@@ -80,9 +80,7 @@ class OpencvAT3 < Formula
     ]
 
     args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    unless MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
-    end
+    args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args

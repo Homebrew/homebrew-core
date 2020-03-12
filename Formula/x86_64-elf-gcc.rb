@@ -45,6 +45,7 @@ class X8664ElfGcc < Formula
       }
     EOS
     system "#{bin}/x86_64-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
-    assert_match "file format elf64-x86-64", shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
+    assert_match "file format elf64-x86-64",
+      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
   end
 end

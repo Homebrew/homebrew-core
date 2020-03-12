@@ -33,6 +33,7 @@ class X8664ElfBinutils < Formula
           int $0x80
     EOS
     system "#{bin}/x86_64-elf-as", "--64", "-o", "test-s.o", "test-s.s"
-    assert_match "file format elf64-x86-64", shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-s.o")
+    assert_match "file format elf64-x86-64",
+      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-s.o")
   end
 end

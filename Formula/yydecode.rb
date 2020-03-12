@@ -17,9 +17,7 @@ class Yydecode < Formula
   def install
     # Redefinition of type found in 10.13 system headers
     # https://sourceforge.net/p/yydecode/bugs/5/
-    if DevelopmentTools.clang_build_version >= 900
-      inreplace "src/crc32.h", "typedef unsigned long int u_int32_t;", ""
-    end
+    inreplace "src/crc32.h", "typedef unsigned long int u_int32_t;", "" if DevelopmentTools.clang_build_version >= 900
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

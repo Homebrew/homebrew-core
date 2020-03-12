@@ -19,7 +19,8 @@ class DockerMachineDriverXhyve < Formula
   depends_on :macos => :yosemite
 
   def install
-    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]
+    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install \
+      Dir["{*,.git,.gitignore,.gitmodules}"]
 
     ENV["GOPATH"] = "#{buildpath}/gopath"
     build_root = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"

@@ -32,7 +32,9 @@ class Couchdb < Formula
     # install files
     bin.install Dir["rel/couchdb/bin/*"]
     prefix.install Dir["rel/couchdb/*"]
-    (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete if File.exist?(prefix/"Library/LaunchDaemons/org.apache.couchdb.plist")
+    if File.exist?(prefix/"Library/LaunchDaemons/org.apache.couchdb.plist")
+      (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete
+    end
   end
 
   def post_install

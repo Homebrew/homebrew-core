@@ -65,9 +65,7 @@ class Mesos < Formula
     ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
     # work around to avoid `_clock_gettime` symbol not found error.
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      ENV["ac_have_clock_syscall"] = "no"
-    end
+    ENV["ac_have_clock_syscall"] = "no" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
 
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
@@ -140,9 +138,7 @@ class Mesos < Formula
     ENV.prepend_create_path "PYTHONPATH", protobuf_path
     %w[six protobuf].each do |r|
       resource(r).stage do
-        if r == "protobuf"
-          ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils"
-        end
+        ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils" if r == "protobuf"
         system "python", *Language::Python.setup_install_args(libexec/"protobuf")
       end
     end

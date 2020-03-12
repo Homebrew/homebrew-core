@@ -91,9 +91,7 @@ class FfmpegAT28 < Formula
 
     inreplace "config.mak" do |s|
       shflags = s.get_make_var "SHFLAGS"
-      if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-        s.change_make_var! "SHFLAGS", shflags
-      end
+      s.change_make_var! "SHFLAGS", shflags if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
     end
 
     system "make", "install"

@@ -5,13 +5,13 @@ class Black < Formula
   homepage "https://black.readthedocs.io/en/stable/"
   url "https://files.pythonhosted.org/packages/b0/dc/ecd83b973fb7b82c34d828aad621a6e5865764d52375b8ac1d7a45e23c8d/black-19.10b0.tar.gz"
   sha256 "c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f67772566b3334f6a2c6d6d70d3f5b4a775db05b5953e721364d79e54fad369" => :catalina
-    sha256 "0344cc00f35d00398f73346681b4acf5f15eb165e7e8f6ccb4eb69dd44ea5cae" => :mojave
-    sha256 "cdf830b2a2d3e008de06e54afac17eb22e368aca1ff562fa870bf87dc9f26302" => :high_sierra
+    sha256 "144397ea511cf3baaf36d229797a6329406c47a0bbdffce10821e6458064f59c" => :catalina
+    sha256 "ce49495988a237b4b1463bca860d3eb778c4c9bb4cae1978828fcbe49e40250c" => :mojave
+    sha256 "1b1ec4e639f666ca3ea506e89ea1fffbcc1c2a21111fd494874cffd6f422643c" => :high_sierra
   end
 
   depends_on "python@3.8"
