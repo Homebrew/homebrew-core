@@ -29,13 +29,16 @@ class Aqbanking < Formula
   depends_on "libxslt"
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["gwenhywfar"].lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libxmlsec1"].lib
+
     ENV.deparallelize
+
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-cli",
-                          "--with-gwen-dir=#{HOMEBREW_PREFIX}"
+                          "--enable-cli"
     system "make", "check"
     system "make", "install"
   end
