@@ -1,10 +1,10 @@
 class GnuGo < Formula
   desc "GNU Go"
   homepage "https://www.gnu.org/software/gnugo/gnugo.html"
-  url "https://ftp.gnu.org/gnu/gnugo/gnugo-3.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnugo/gnugo-3.8.tar.gz"
-  sha256 "da68d7a65f44dcf6ce6e4e630b6f6dd9897249d34425920bfdd4e07ff1866a72"
-  revision 1
+  # latest release should be v3.9.1 (released on Dec/21/2010)
+  # gnu ftp server does not have v3.9.1 though
+  url "https://gentoo.c3sl.ufpr.br/distfiles/8c/gnugo-3.9.1.tar.gz"
+  sha256 "b80bde5b31bf1e90f78ffc11f49c65ee866bf007ea3f210ce1ce652cd5484794"
   head "https://git.savannah.gnu.org/git/gnugo.git"
 
   bottle do
