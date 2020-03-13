@@ -3,7 +3,7 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v7.0.0.tar.bz2"
   sha256 "aa20dfff3596f08a7f427aab74315a6cb80c2b086b4a107ed35af02f9496b628"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d7a256ed5cbbda5c055c05d628a1469abe72707961f3960d768de25035b7f4fe" => :catalina
@@ -20,15 +20,15 @@ class MingwW64 < Formula
   depends_on "mpfr"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.33.1.tar.xz"
-    sha256 "ab66fc2d1c3ec0359b8e08843c9f33b63e8707efdff5e4cc5c200eae24722cbf"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.xz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.xz"
+    sha256 "f00b0e8803dc9bab1e2165bd568528135be734df3fabf8d0161828cd56028952"
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-    sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
+    sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
   end
 
   def target_archs
