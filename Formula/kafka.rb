@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/2.4.0/kafka_2.12-2.4.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/2.4.0/kafka_2.12-2.4.0.tgz"
-  sha256 "b9582bab0c3e8d131953b1afa72d6885ca1caae0061c2623071e7f396f2ccfee"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/2.4.1/kafka_2.12-2.4.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/2.4.1/kafka_2.12-2.4.1.tgz"
+  sha256 "2177cbd14118999e1d76fec628ca78ace7e6f841219dbc6035027c796bbe1a2a"
 
   bottle do
     cellar :any_skip_relocation
