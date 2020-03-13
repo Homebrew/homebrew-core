@@ -3,6 +3,7 @@ class Libvirt < Formula
   homepage "https://www.libvirt.org"
   url "https://libvirt.org/sources/libvirt-6.1.0.tar.xz"
   sha256 "167c185be45560e73dd3e14ed375778b555c01455192de2dafc4d0f74fabebc0"
+  revision 1
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -11,8 +12,8 @@ class Libvirt < Formula
     sha256 "eff1091d09dac40553394faa0ee02c836441f43c9b11416d52e914bbaa5f4a0f" => :high_sierra
   end
 
+  depends_on "docutils" => :build
   depends_on "pkg-config" => :build
-  depends_on "docutils"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
