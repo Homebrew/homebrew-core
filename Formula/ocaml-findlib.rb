@@ -3,7 +3,7 @@ class OcamlFindlib < Formula
   homepage "http://projects.camlcity.org/projects/findlib.html"
   url "http://download.camlcity.org/download/findlib-1.8.1.tar.gz"
   sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "be41efac9afcaa4d670c7069df0431c5f4168b0b4f100267972bcf2b9363f8c1" => :catalina
