@@ -1,8 +1,8 @@
 class Jam < Formula
   desc "Make-like build tool"
   homepage "https://www.perforce.com/resources/documentation/jam"
-  url "https://swarm.workshop.perforce.com/projects/perforce_software-jam/download/main/jam-2.6.zip"
-  sha256 "7c510be24dc9d0912886c4364dc17a013e042408386f6b937e30bd9928d5223c"
+  url "https://swarm.workshop.perforce.com/projects/perforce_software-jam/download/main/jam-2.6.1.zip"
+  sha256 "72ea48500ad3d61877f7212aa3d673eab2db28d77b874c5a0b9f88decf41cb73"
 
   bottle do
     cellar :any_skip_relocation
