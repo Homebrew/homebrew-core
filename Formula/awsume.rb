@@ -3,9 +3,8 @@ class Awsume < Formula
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
   homepage "https://www.trek10.com/blog/awsume-aws-assume-made-awesome"
-  url "https://github.com/trek10inc/awsume/archive/4.2.7.tar.gz"
-  sha256 "96a7f3fef76aabf459ba5533ec72f5303c59267a0b6cb03f8b6f67415c848a67"
-  revision 1
+  url "https://github.com/trek10inc/awsume/archive/4.3.0.tar.gz"
+  sha256 "71323eb04bfbbf61aa22f0f4c947329be3883e8111452cc91b4dbe1b481518c6"
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
