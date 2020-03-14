@@ -22,6 +22,7 @@ class Asdf < Formula
   def install
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
+    zsh_completion.install "completions/_asdf"
     libexec.install "bin/private"
     prefix.install Dir["*"]
   end
