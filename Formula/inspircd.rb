@@ -23,6 +23,6 @@ class Inspircd < Formula
   end
 
   test do
-    system "#{bin}/inspircd", "--version"
+    assert_match("ERROR: Cannot open config file", shell_output("#{bin}/inspircd", 2))
   end
 end
