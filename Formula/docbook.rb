@@ -1,12 +1,11 @@
 class Docbook < Formula
   desc "Standard SGML representation system for technical documents"
   homepage "https://docbook.org/"
-  url "https://docbook.org/xml/5.0/docbook-5.0.zip"
-  sha256 "3dcd65e1f5d9c0c891b3be204fa2bb418ce485d32310e1ca052e81d36623208e"
+  url "https://docbook.org/xml/5.1/docbook-v5.1-os.zip"
+  sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 4
     sha256 "348f0b59ab5dff66af897a065f1bbb510ac4862adf3c46cf2a1e595e350aa1a1" => :catalina
     sha256 "8ddedcb7fc0fa34ce6f641d85fb5ed2ecc470d8bd323648bf00b571b597d3d02" => :mojave
     sha256 "6ac70ee56739ffbe8d99e18164bc42d8d0df9ce62cc2a5c55be4b65cd74092aa" => :high_sierra
@@ -47,10 +46,15 @@ class Docbook < Formula
     sha256 "3dcd65e1f5d9c0c891b3be204fa2bb418ce485d32310e1ca052e81d36623208e"
   end
 
+  resource "xml51" do
+    url "https://docbook.org/xml/5.1/docbook-v5.1-os.zip"
+    sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
+  end
+
   def install
     (etc/"xml").mkpath
 
-    %w[42 412 43 44 45 50].each do |version|
+    %w[42 412 43 44 45 50 51].each do |version|
       resource("xml#{version}").stage do |r|
         if version == "412"
           cp prefix/"docbook/xml/4.2/catalog.xml", "catalog.xml"
@@ -74,7 +78,7 @@ class Docbook < Formula
     # by other formulae to be removed
     system "xmlcatalog", "--noout", "--create", "#{etc}/xml/catalog" unless File.file?("#{etc}/xml/catalog")
 
-    %w[4.2 4.1.2 4.3 4.4 4.5 5.0].each do |version|
+    %w[4.2 4.1.2 4.3 4.4 4.5 5.0 5.1].each do |version|
       catalog = prefix/"docbook/xml/#{version}/catalog.xml"
 
       system "xmlcatalog", "--noout", "--del",
