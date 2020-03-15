@@ -1,9 +1,17 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz"
-  sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
-  revision 1
+  revision 2
+  stable do
+    url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz"
+    sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
+
+    # Fails to build on Xcode 9+. Fixed upstream in a0bc659c7ff0205cfa2b2fc3429ee4d944e1bcc3
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3933b61bbae505fa95a24f8d7681a9c5fa26dbc2/ntfs-3g/lowntfs-3g.c.patch"
+      sha256 "749653cfdfe128b9499f02625e893c710e2167eb93e7b117e33cfa468659f697"
+    end
+  end
 
   bottle do
     cellar :any
@@ -24,17 +32,9 @@ class Ntfs3g < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "coreutils" => :test
   depends_on "gettext"
   depends_on :osxfuse
-
-  # Detection of struct stat members fails Xcode 9
-  # Reported by email on 2017-09-19
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e0b6faaa0d/ntfs-3g/10.13.patch"
-      sha256 "7550061c6ad7fd99e7c004d437a66af54af983acb9839e098156480106cd7a92"
-    end
-  end
 
   def install
     ENV.append "LDFLAGS", "-lintl"
@@ -83,6 +83,7 @@ class Ntfs3g < Formula
           -o uid=$USER_ID \\
           -o gid=$GROUP_ID \\
           -o allow_other \\
+          -o big_writes \\
           "$@" >> /var/log/mount-ntfs-3g.log 2>&1
 
         exit $?;
@@ -91,7 +92,13 @@ class Ntfs3g < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ntfs-3g --version 2>&1")
-    assert_match version.to_s, output
+    # create a small raw image, format and check it
+    ntfs_raw = testpath/"ntfs.raw"
+    system Formula["coreutils"].libexec/"gnubin/truncate", "--size=10M", ntfs_raw
+    ntfs_label_input = "Homebrew"
+    system sbin/"mkntfs", "--force", "--fast", "--label", ntfs_label_input, ntfs_raw
+    system bin/"ntfsfix", "--no-action", ntfs_raw
+    ntfs_label_output = shell_output("#{sbin}/ntfslabel #{ntfs_raw}")
+    assert_match ntfs_label_input, ntfs_label_output
   end
 end
