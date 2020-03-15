@@ -17,7 +17,7 @@ class Asciidoctorj < Formula
 
   test do
     (testpath/"test.adoc").write <<~EOS
-      = This Is A Title
+      = AsciiDoc is Writing Zen
       Random J. Author <rjauthor@example.com>
       :icons: font
 
@@ -38,7 +38,9 @@ class Asciidoctorj < Formula
       - two
       - three
     EOS
-    system bin/"asciidoctorj", "-b", "pdf", "test.adoc"
-    assert_predicate testpath/"test.pdf", :exist?
+    system bin/"asciidoctorj", "-b", "html5", "-o", "test.html", "test.adoc"
+    assert_match "<h1>AsciiDoc is Writing Zen</h1>", File.read("test.html")
+    system bin/"asciidoctorj", "-r", "asciidoctor-pdf", "-b", "pdf", "-o", "test.pdf", "test.adoc"
+    assert_match "/Title (AsciiDoc is Writing Zen)", File.read("test.pdf", :mode => "rb")
   end
 end
