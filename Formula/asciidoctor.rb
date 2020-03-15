@@ -135,7 +135,28 @@ class Asciidoctor < Formula
   end
 
   test do
-    (testpath/"test.adoc").write("= AsciiDoc is Writing Zen")
+    (testpath/"test.adoc").write <<~EOS
+      = AsciiDoc is Writing Zen
+      Random J. Author <rjauthor@example.com>
+      :icons: font
+
+      Hello, World!
+
+      == Syntax Highlighting
+
+      Python source.
+
+      [source, python]
+      ----
+      import something
+      ----
+
+      List
+
+      - one
+      - two
+      - three
+    EOS
     system bin/"asciidoctor", "-b", "html5", "-o", "test.html", "test.adoc"
     assert_match "<h1>AsciiDoc is Writing Zen</h1>", File.read("test.html")
     system bin/"asciidoctor", "-r", "asciidoctor-pdf", "-b", "pdf", "-o", "test.pdf", "test.adoc"
