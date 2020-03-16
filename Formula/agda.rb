@@ -5,16 +5,15 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
-  revision 2
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.0.1/Agda-2.6.0.1.tar.gz"
-    sha256 "7bb88a9cd4a556259907ccc71d54e2acc9d3e9ce05486ffdc83f721c7c06c0e8"
+    url "https://hackage.haskell.org/package/Agda-2.6.1/Agda-2.6.1.tar.gz"
+    sha256 "678f416af8f30d017825309f15fac41d239b07f66a4c40497e8435a6bdb7c129"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :tag      => "v1.2",
-          :revision => "e47adf6ba5aa52ae394a7c60a3b5d3f4790db9d7"
+          :tag      => "v1.3",
+          :revision => "9f929b4fe28bb7ba74b6b95d01ed0958343f3451"
     end
   end
 
@@ -32,9 +31,9 @@ class Agda < Formula
     end
   end
 
-  depends_on "cabal-install" => [:build, :test]
+  depends_on "cabal-install"
   depends_on "emacs"
-  depends_on "ghc@8.6" # 8.8 will be supported in the next release
+  depends_on "ghc"
 
   uses_from_macos "zlib"
 
@@ -147,7 +146,7 @@ class Agda < Formula
 
     # test the GHC backend
     cabal_sandbox do
-      cabal_install "text", "ieee754"
+      cabal_install "ieee754"
       dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
       dbopt = "--ghc-flag=-package-db=#{dbpath}"
 
