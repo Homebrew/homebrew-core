@@ -51,7 +51,7 @@ class ShadowsocksLibev < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json -u"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"
 
   def plist
     <<~EOS
@@ -66,7 +66,6 @@ class ShadowsocksLibev < Formula
             <string>#{opt_bin}/ss-local</string>
             <string>-c</string>
             <string>#{etc}/shadowsocks-libev.json</string>
-            <string>-u</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
