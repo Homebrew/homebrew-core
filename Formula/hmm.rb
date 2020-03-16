@@ -1,8 +1,8 @@
-class Starship < Formula
-  desc "A small command-line note taking app written in Rust. Notes are written in plain text and indexed by the time they were written."
+class Hmm < Formula
+  desc "Command-line note taking app written in Rust"
   homepage "https://github.com/samwho/hmm"
-  url "https://github.com/samwho/hmm/archive/v0.1.2.tar.gz"
-  sha256 "968bc9f9fa54b4935200754b0096e7f55b4db16f7db118807071535668015f72"
+  url "https://github.com/samwho/hmm/archive/v0.2.tar.gz"
+  sha256 "4e2d474d2eb70f313ef6a97a5f392310e0317be9f7d88d46ddf5fe9b9e6a1910"
   head "https://github.com/samwho/hmm.git"
 
   depends_on "rust" => :build
