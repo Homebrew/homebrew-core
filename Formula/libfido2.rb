@@ -3,6 +3,7 @@ class Libfido2 < Formula
   homepage "https://developers.yubico.com/libfido2/"
   url "https://github.com/Yubico/libfido2/archive/1.3.1.tar.gz"
   sha256 "ba35e22016b60c1e4be66dff3cd6a60c1fe4bfa0d91ec0b89ca9da25ebeaaf41"
+  revision 1
 
   bottle do
     cellar :any
