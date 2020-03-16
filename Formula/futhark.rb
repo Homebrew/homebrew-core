@@ -5,8 +5,8 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.14.1.tar.gz"
-  sha256 "375ec3e8cc7bb54cfb042684353446c1df792c3d409cd0082256e6446d696235"
+  url "https://github.com/diku-dk/futhark/archive/v0.15.1.tar.gz"
+  sha256 "0aedd5cd1bfdef721dae4ab5776d0e3dc6646775c35e45f2053f0cbf3236eaa8"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
@@ -18,16 +18,14 @@ class Futhark < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "hpack" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
-    system "hpack"
-
-    install_cabal_package :using => ["alex", "happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]
