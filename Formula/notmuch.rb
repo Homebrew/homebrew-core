@@ -29,6 +29,8 @@ class Notmuch < Formula
       --mandir=#{man}
       --emacslispdir=#{elisp}
       --emacsetcdir=#{elisp}
+      --bashcompletiondir=#{bash_completion}
+      --zshcompletiondir=#{zsh_completion}
       --without-ruby
     ]
 
@@ -36,6 +38,12 @@ class Notmuch < Formula
 
     system "./configure", *args
     system "make", "V=1", "install"
+
+    bash_completion.install "completion/notmuch-completion.bash"
+
+    (prefix/"vim/plugin").install "vim/notmuch.vim"
+    (prefix/"vim/doc").install "vim/notmuch.txt"
+    (prefix/"vim").install "vim/syntax"
 
     cd "bindings/python" do
       system "python3", *Language::Python.setup_install_args(prefix)
