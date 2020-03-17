@@ -4,6 +4,7 @@ class Mmseqs2 < Formula
   url "https://github.com/soedinglab/MMseqs2/archive/11-e1a1c.tar.gz"
   version "11-e1a1c"
   sha256 "ffe1ae300dbe1a0e3d72fc9e947356a4807f07951cb56316f36974d8d5875cbb"
+  revision 1
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
@@ -32,9 +33,9 @@ class Mmseqs2 < Formula
     args << "-DHAVE_SSE4_1=1"
 
     libomp = Formula["libomp"]
-    args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+    args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
     args << "-DOpenMP_C_LIB_NAMES=omp"
-    args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+    args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
     args << "-DOpenMP_CXX_LIB_NAMES=omp"
     args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
 
