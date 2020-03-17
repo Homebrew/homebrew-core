@@ -39,6 +39,15 @@ class GitGui < Formula
     system "make", "-C", "gitk-git", "install", *args
   end
 
+  def caveats
+    <<~EOS
+      When using Dark Mode, the UI for git-gui may be unusable. To work around
+      this you can force light mode for all Tcl/Tk applications by running:
+
+          defaults write com.tcltk.wish NSRequiresAquaSystemAppearance -bool Yes
+    EOS
+  end
+
   test do
     system bin/"git-gui", "--version"
   end
