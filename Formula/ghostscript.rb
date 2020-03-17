@@ -39,7 +39,7 @@ class Ghostscript < Formula
   # This should be removed in Ghostscript 9.52, as we are cherrypicking this
   # from the master branch of changes that will appear in 9.52.
   patch do
-    url "http://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=aaf5edb15fceaae962569bae30eb4633480c1d15"
+    url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=aaf5edb15fceaae962569bae30eb4633480c1d15"
     sha256 "bdf9741c7b8a069a523e9a7f2736af21469989b8332148a8bd3682085346c662"
   end
 
