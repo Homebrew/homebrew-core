@@ -3,6 +3,7 @@ class KnotResolver < Formula
   homepage "https://www.knot-resolver.cz"
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.0.1.tar.xz"
   sha256 "4a93264ad0cda7ea2252d1ba057e474722f77848165f2893e0c76e21ae406415"
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
