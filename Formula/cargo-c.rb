@@ -13,13 +13,6 @@ class CargoC < Formula
 
   depends_on "rust" => [:build, :test]
 
-  # Fixes crash issue with v2 Cargo.lock files - detected while building rav1e.
-  # Remove with the next version.
-  patch do
-    url "https://github.com/lu-zero/cargo-c/commit/0cb09ac3c1950a2c05758b344131ff7b7a38c42d.patch?full_index=1"
-    sha256 "746a6a9e6fc9a3b15afa9167011a2a06b9c70d7c9adbf7bb20b4e376fa0ab667"
-  end
-
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
