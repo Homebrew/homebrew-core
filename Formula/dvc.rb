@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/0.88.0.tar.gz"
-  sha256 "85c4aacd74895707fe85afcb80ae5ddda0e97b5f9c4b49d7018618b96ef1946b"
+  url "https://github.com/iterative/dvc/archive/0.89.0.tar.gz"
+  sha256 "5b419483d084cbf44aece02e0ae0e3ec168939b18d311f49ca5d2cd3f90bb44c"
 
   bottle do
     cellar :any
