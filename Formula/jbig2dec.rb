@@ -1,8 +1,8 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://jbig2dec.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/jbig2dec-0.17.tar.gz"
-  sha256 "f72bad7102638b31fa96be7492fb3d447a83d71c644cffd01f2a7ec52bd5fb72"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/jbig2dec-0.18.tar.gz"
+  sha256 "9e19775237350e299c422b7b91b0c045e90ffa4ba66abf28c8fb5eb005772f5e"
 
   bottle do
     cellar :any
@@ -12,6 +12,8 @@ class Jbig2dec < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   resource("test") do
     url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
@@ -26,7 +28,7 @@ class Jbig2dec < Formula
       --without-libpng
     ]
 
-    system "./configure", *args
+    system "./autogen.sh", *args
     system "make", "install"
   end
 
