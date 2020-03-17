@@ -4,6 +4,7 @@ class Helm < Formula
   url "https://github.com/helm/helm.git",
       :tag      => "v3.1.2",
       :revision => "d878d4d45863e42fd5cff6743294a11d28a9abce"
+  revision 1
   head "https://github.com/helm/helm.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Helm < Formula
     sha256 "90235f18ce7502aeb4a6d060161f53219eb825f8b529ec662fa9e97b2a730257" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.13" => :build
 
   def install
     ENV["GOPATH"] = buildpath
