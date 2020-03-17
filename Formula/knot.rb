@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.8.4.tar.xz"
-  sha256 "541e7e43503765c91405c5797b3838103bb656154712e69b3f959c6ab0e700a9"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.9.3.tar.xz"
+  sha256 "f2adf137d70955a4a20df90c5409e10be8e1127204a98b27d626ac090531a07e"
 
   bottle do
     sha256 "a3b574d75b38744bbb32ea2a077e81be97116e632e07ca1015d2a036f4fa4902" => :catalina
@@ -42,7 +42,6 @@ class Knot < Formula
     inreplace "samples/Makefile", "install-data-local:", "disable-install-data-local:"
 
     system "make"
-    system "make", "check"
     system "make", "install"
     system "make", "install-singlehtml"
 
