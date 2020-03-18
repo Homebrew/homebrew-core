@@ -1,8 +1,8 @@
 class Miller < Formula
   desc "Like sed, awk, cut, join & sort for name-indexed data such as CSV"
   homepage "https://github.com/johnkerl/miller"
-  url "https://github.com/johnkerl/miller/releases/download/v5.6.2/mlr-5.6.2.tar.gz"
-  sha256 "29b69cf8d0051688aeba3f6998d9b69baea1c9d0a2c14fef56cdb6fa03110eab"
+  url "https://github.com/johnkerl/miller/releases/download/v5.7.0/mlr-5.7.0.tar.gz"
+  sha256 "3896a8be073427671e7ba84993c071891fb39769696fd566b8b77ec0abd3ea51"
   head "https://github.com/johnkerl/miller.git"
 
   bottle do
@@ -20,7 +20,7 @@ class Miller < Formula
 
   def install
     # Profiling build fails with Xcode 11, remove it
-    inreplace "c/Makefile.am", /noinst_PROGRAMS=\s*mlrg\s*\\\n\s*mlrp/, ""
+    inreplace "c/Makefile.am", /noinst_PROGRAMS=\s*mlrg/, ""
     system "autoreconf", "-fvi"
 
     system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
