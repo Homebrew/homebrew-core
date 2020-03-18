@@ -3,9 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/ca/c4/0f25bf9194b87d1e5976f267b69e72c23b05ec87ad44b1b123981510cc9c/cfn-lint-0.28.4.tar.gz"
-  sha256 "d6664c0acff6ebaf26d4df79f7fc7453b8c7c58edc761f55a0eac31641400c67"
-  revision 1
+  url "https://files.pythonhosted.org/packages/a1/55/1ca7d08b2e37a2e5fe3b9663dec97dc1f6283132e1e4a1a9ec6dd3146a6e/cfn-lint-0.29.0.tar.gz"
+  sha256 "bceff7ce8556b1e6ea129e9cbf89834561820f63ed1fc96b250015498a041c03"
 
   bottle do
     cellar :any
@@ -22,18 +21,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/95/a0/d16995d752587afcee8a649051f66af44386ab434209683813807f10d708/aws-sam-translator-1.21.0.tar.gz"
-    sha256 "320a341d659580ad04e79c46fc93f50996363745a0c2728f9cd025ad78c43e36"
+    url "https://files.pythonhosted.org/packages/f3/c3/c24bc68e6d1b905bfd9b407e00a71e5ac86b143e6064073d5a3fbc332897/aws-sam-translator-1.22.0.tar.gz"
+    sha256 "3ba6a821eda29ca8ea1306e27a8135256d6136f1b0b29c6cbf9a107dfd1c2dd9"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7e/16/f07e426420979f1126443c08874fb39fe753df95a15c4d066ab936fb2e6f/boto3-1.12.12.tar.gz"
-    sha256 "f191e02140e9691e91fac8cb87d74ad111015a1c98c3b99a24bba9982dc5ae7e"
+    url "https://files.pythonhosted.org/packages/db/64/cb282f4cb1e4afd21d73851f7ee23f8a9c410f370442ab387a8e3be16072/boto3-1.12.23.tar.gz"
+    sha256 "0080ea1cce4c87d9f1e4e47fed4b994451b0022fcf6e120d1fb653eb3874506d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/c1/89/03a043aee3d12fabf102367252de48a3752b7db6d628e503e408989f49d0/botocore-1.15.12.tar.gz"
-    sha256 "f12dd27c759992460b8ce70bfeed600437829b0293e6a08211237f11757678e5"
+    url "https://files.pythonhosted.org/packages/ea/6b/128b3c5dbf2d73de6ec44ee0a124bb8f7daf60a311e41a4f21ac249f3c02/botocore-1.15.23.tar.gz"
+    sha256 "e4fc86574043b20267f863b9168bd1c9ed50a53f0f7222ce8c99f64355174515"
   end
 
   resource "certifi" do
