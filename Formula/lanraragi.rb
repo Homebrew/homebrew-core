@@ -15,7 +15,7 @@ class Lanraragi < Formula
   depends_on "libarchive"
   depends_on "libpng"
   depends_on "node"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "perl"
   depends_on "redis"
 
