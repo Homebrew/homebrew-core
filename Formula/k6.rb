@@ -2,8 +2,8 @@ class K6 < Formula
   desc "Modern load testing tool, using Go and JavaScript"
   homepage "https://k6.io"
   url "https://github.com/loadimpact/k6.git",
-    :tag      => "v0.26.1",
-    :revision => "4c49f9a3b075e958435800f2a8a0c83b0174cfd7"
+    :tag      => "v0.26.2",
+    :revision => "459da79ef51b37e5eaba4575c9065d9e592e5c49"
 
   bottle do
     cellar :any_skip_relocation
