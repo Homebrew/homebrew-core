@@ -1,9 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.6.8.tar.gz"
-  sha256 "7df23c81ca37f0e070574fe74414403cf25183016433d07add6134366fb45df6"
-  revision 1
+  url "https://mosquitto.org/files/source/mosquitto-1.6.9.tar.gz"
+  sha256 "412979b2db0a0020bd02fa64f0a0de9e7000b84462586e32b67f29bb1f6c1685"
 
   bottle do
     cellar :any
@@ -18,7 +17,8 @@ class Mosquitto < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON"
+    system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON",
+      "-DWITH_BUNDLED_DEPS=ON"
     system "make", "install"
   end
 
