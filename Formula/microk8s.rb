@@ -3,8 +3,8 @@ class Microk8s < Formula
 
   desc "Small, fast, single-package Kubernetes for developers, IoT and edge"
   homepage "https://microk8s.io/"
-  url "https://github.com/ubuntu/homebrew-microk8s/releases/download/v1.0.0/installer.tar.gz"
-  sha256 "76974a5de774f5b3a6aeee47d23b96c5b1f200497e669fae15a4d409abf67f45"
+  url "https://github.com/ubuntu/microk8s/archive/installer-v1.0.0.tar.gz"
+  sha256 "a9bc24c364234c6ead372119009667214b41a00344a8448a0f33861ab3de5112"
 
   depends_on "python"
 
@@ -79,7 +79,9 @@ class Microk8s < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+    venv.pip_install_and_link buildpath/"installer"
   end
 
   test do
