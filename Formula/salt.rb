@@ -5,6 +5,7 @@ class Salt < Formula
   homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/b5/7b/e591ad97f038f32298ee6303414767cdd8df811c9daf5b48c37afe9610c3/salt-3000.1.tar.gz"
   sha256 "5ad18044b4a47690d09c3ebc842a64d58144d63f40019e867683377dbf337aab"
+  revision 1
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -47,14 +48,15 @@ class Salt < Formula
     sha256 "f991347f5b11589ac8dc5a3c8257a514cf802545b75c11133a43ae9f76388278"
   end
 
+  # Fix loading of unversioned /usr/lib/libcrypto.dylib, taken from https://github.com/saltstack/salt/pull/56958
+  # Remove when merged or https://github.com/saltstack/salt/issues/55084 is fixed
+  patch do
+    url "https://github.com/saltstack/salt/pull/56958/commits/3dea0e31759b6c2a2c7b46647827a72f7a20dafd.patch?full_index=1"
+    sha256 "ddc760333341afb41cbe4083d33b35b8f9a3a0370abd34d6929574d10688de91"
+  end
+
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
-
-    # Workaround for https://github.com/saltstack/salt/issues/55084
-    # Remove when fixed
-    inreplace "salt/utils/rsax931.py",
-              "lib = find_library('crypto')",
-              "lib = '#{Formula["openssl@1.1"].opt_lib}/libcrypto.dylib'"
 
     # Fix building of M2Crypto on High Sierra https://github.com/Homebrew/homebrew-core/pull/45895
     ENV.delete("HOMEBREW_SDKROOT") if MacOS.version == :high_sierra
