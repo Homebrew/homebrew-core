@@ -8,7 +8,7 @@ class Maven < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on :java => "1.8"
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
@@ -29,7 +29,7 @@ class Maven < Formula
       basename = file.basename
       next if basename.to_s == "m2.conf"
 
-      (bin/basename).write_env_script file, :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      (bin/basename).write_env_script file, :JAVA_HOME => "$(/usr/libexec/java_home --version 1.8)"
     end
   end
 
