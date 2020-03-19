@@ -1,7 +1,7 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
-  homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-7.0.0.tar.gz"
+  homepage "https://proj.org/"
+  url "https://github.com/OSGeo/PROJ/releases/download/7.0.0/proj-7.0.0.tar.gz"
   sha256 "ee0e14c1bd2f9429b1a28999240304c0342ed739ebaea3d4ff44c585b1097be8"
 
   bottle do
@@ -11,7 +11,7 @@ class Proj < Formula
   end
 
   head do
-    url "https://github.com/OSGeo/proj.4.git"
+    url "https://github.com/OSGeo/proj.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -33,9 +33,18 @@ class Proj < Formula
     sha256 "b9838ae7e5f27ee732fb0bfed618f85b36e8bb56d7afb287d506338e9f33861e"
   end
 
+  # Fixes https://github.com/OSGeo/PROJ/issues/2064 using https://github.com/OSGeo/PROJ/pull/2067
+  # Remove after version > 7.0.0
+  patch do
+    url "https://github.com/OSGeo/PROJ/commit/d8835f1288207ba9a7e78082050ef61af3ded1e3.diff?full_index=1"
+    sha256 "9a579a7a0fa33ea8c03639aef95f2b1d22afbc1d5167a927ce0670ff5432719e"
+  end
+
   def install
     (buildpath/"nad").install resource("datumgrid")
-
+    # we need to touch these files to stop autoreconf running and then failing due to the patch op above
+    # Remove touch op after version > 7.0.0
+    touch ["configure.ac", "aclocal.m4", "configure", "Makefile.am", "Makefile.in", "src/proj_config.h.in"]
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
