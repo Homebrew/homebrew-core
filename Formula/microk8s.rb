@@ -6,6 +6,7 @@ class Microk8s < Formula
   url "https://github.com/ubuntu/microk8s/archive/installer-v1.0.0.tar.gz"
   sha256 "a9bc24c364234c6ead372119009667214b41a00344a8448a0f33861ab3de5112"
 
+  depends_on :macos
   depends_on "python"
 
   resource "altgraph" do
@@ -85,7 +86,6 @@ class Microk8s < Formula
   end
 
   test do
-    ENV["LC_ALL"]="en_US.UTF-8"
     system "#{bin}/microk8s", "uninstall"
   end
 end
