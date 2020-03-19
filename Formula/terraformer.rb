@@ -27,12 +27,13 @@ class Terraformer < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/terraformer version")
+    assert_match version.to_s,
+      shell_output("#{bin}/terraformer version")
 
-    help_output = "Available Commands"
-    assert_match help_output.to_s, shell_output("#{bin}/terraformer -h")
+    assert_match "Available Commands",
+      shell_output("#{bin}/terraformer -h")
 
-    import_error = "aaa"
-    assert_match import_error.to_s, shell_output("#{bin}/terraformer import google --resources=gcs --projects=aaa 2>&1", 1)
+    assert_match "aaa",
+      shell_output("#{bin}/terraformer import google --resources=gcs --projects=aaa 2>&1", 1)
   end
 end

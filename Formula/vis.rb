@@ -43,10 +43,11 @@ class Vis < Formula
     mv man1/"vis.1", man1/"vise.1"
   end
 
-  def caveats; <<~EOS
-    To avoid a name conflict with the macOS system utility /usr/bin/vis,
-    this text editor must be invoked by calling `vise` ("vis-editor").
-  EOS
+  def caveats
+    <<~EOS
+      To avoid a name conflict with the macOS system utility /usr/bin/vis,
+      this text editor must be invoked by calling `vise` ("vis-editor").
+    EOS
   end
 
   test do

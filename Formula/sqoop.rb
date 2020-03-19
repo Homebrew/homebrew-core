@@ -38,10 +38,11 @@ class Sqoop < Formula
     envs.write(sqoop_envs) unless envs.exist?
   end
 
-  def caveats; <<~EOS
-    Hadoop, Hive, HBase and ZooKeeper must be installed and configured
-    for Sqoop to work.
-  EOS
+  def caveats
+    <<~EOS
+      Hadoop, Hive, HBase and ZooKeeper must be installed and configured
+      for Sqoop to work.
+    EOS
   end
 
   test do

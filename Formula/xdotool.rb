@@ -24,13 +24,14 @@ class Xdotool < Formula
     system "make", "PREFIX=#{prefix}", "INSTALLMAN=#{man}", "install"
   end
 
-  def caveats; <<~EOS
-    You will probably want to enable XTEST in your X11 server now by running:
-      defaults write org.x.X11 enable_test_extensions -boolean true
+  def caveats
+    <<~EOS
+      You will probably want to enable XTEST in your X11 server now by running:
+        defaults write org.x.X11 enable_test_extensions -boolean true
 
-    For the source of this useful hint:
-      https://stackoverflow.com/questions/1264210/does-mac-x11-have-the-xtest-extension
-  EOS
+      For the source of this useful hint:
+        https://stackoverflow.com/questions/1264210/does-mac-x11-have-the-xtest-extension
+    EOS
   end
 
   test do

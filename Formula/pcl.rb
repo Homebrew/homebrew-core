@@ -49,10 +49,10 @@ class Pcl < Formula
       -DWITH_TUTORIALS:BOOL=OFF
     ]
 
-    if build.head?
-      args << "-DBUILD_apps_modeler=AUTO_OFF"
+    args << if build.head?
+      "-DBUILD_apps_modeler=AUTO_OFF"
     else
-      args << "-DBUILD_apps_modeler:BOOL=OFF"
+      "-DBUILD_apps_modeler:BOOL=OFF"
     end
 
     mkdir "build" do

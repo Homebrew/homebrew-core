@@ -56,12 +56,13 @@ class Gstreamer < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Consider also installing gst-plugins-base and gst-plugins-good.
+  def caveats
+    <<~EOS
+      Consider also installing gst-plugins-base and gst-plugins-good.
 
-    The gst-plugins-* packages contain gstreamer-video-1.0, gstreamer-audio-1.0,
-    and other components needed by most gstreamer applications.
-  EOS
+      The gst-plugins-* packages contain gstreamer-video-1.0, gstreamer-audio-1.0,
+      and other components needed by most gstreamer applications.
+    EOS
   end
 
   test do

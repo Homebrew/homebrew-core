@@ -47,34 +47,35 @@ class Openvpn < Formula
 
   plist_options :startup => true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd";>
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/openvpn</string>
-        <string>--config</string>
-        <string>#{etc}/openvpn/openvpn.conf</string>
-      </array>
-      <key>OnDemand</key>
-      <false/>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>TimeOut</key>
-      <integer>90</integer>
-      <key>WatchPaths</key>
-      <array>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd";>
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/openvpn</string>
+          <string>--config</string>
+          <string>#{etc}/openvpn/openvpn.conf</string>
+        </array>
+        <key>OnDemand</key>
+        <false/>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>TimeOut</key>
+        <integer>90</integer>
+        <key>WatchPaths</key>
+        <array>
+          <string>#{etc}/openvpn</string>
+        </array>
+        <key>WorkingDirectory</key>
         <string>#{etc}/openvpn</string>
-      </array>
-      <key>WorkingDirectory</key>
-      <string>#{etc}/openvpn</string>
-    </dict>
-    </plist>
-  EOS
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

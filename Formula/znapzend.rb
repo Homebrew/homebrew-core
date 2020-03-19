@@ -29,40 +29,41 @@ class Znapzend < Formula
 
   plist_options :startup => true, :manual => "sudo znapzend --daemonize"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/znapzend</string>
+            <string>--connectTimeout=120</string>
+            <string>--logto=#{var}/log/znapzend/znapzend.log</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/znapzend/znapzend.err.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/znapzend/znapzend.out.log</string>
+          <key>ThrottleInterval</key>
+          <integer>30</integer>
+          <key>WorkingDirectory</key>
+          <string>#{var}/run/znapzend</string>
         </dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/znapzend</string>
-          <string>--connectTimeout=120</string>
-          <string>--logto=#{var}/log/znapzend/znapzend.log</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/znapzend/znapzend.err.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/znapzend/znapzend.out.log</string>
-        <key>ThrottleInterval</key>
-        <integer>30</integer>
-        <key>WorkingDirectory</key>
-        <string>#{var}/run/znapzend</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

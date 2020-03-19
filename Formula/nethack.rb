@@ -25,10 +25,10 @@ class Nethack < Formula
     ENV.O0
 
     cd "sys/unix" do
-      if MacOS.version >= :mojave
-        hintfile = "macosx10.14"
+      hintfile = if MacOS.version >= :mojave
+        "macosx10.14"
       else
-        hintfile = "macosx10.10"
+        "macosx10.10"
       end
 
       # Enable wizard mode for all users
@@ -40,7 +40,8 @@ class Nethack < Formula
         s.change_make_var! "HACKDIR", libexec
         s.change_make_var! "CHOWN", "true"
         s.change_make_var! "CHGRP", "true"
-        s.gsub! "#WANT_WIN_CURSES=1", "WANT_WIN_CURSES=1\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
+        s.gsub! "#WANT_WIN_CURSES=1",
+                "WANT_WIN_CURSES=1\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
       end
 
       system "sh", "setup.sh", "hints/#{hintfile}"

@@ -25,12 +25,13 @@ class TomeeJaxRs < Formula
     (bin/"tomee-jax-rs-configtest").write_env_script libexec/"bin/configtest.sh", env
   end
 
-  def caveats; <<~EOS
-    The home of Apache TomEE JAX-RS is:
-      #{opt_libexec}
-    To run Apache TomEE:
-      #{opt_libexec}/bin/tomee-jax-rs-startup
-  EOS
+  def caveats
+    <<~EOS
+      The home of Apache TomEE JAX-RS is:
+        #{opt_libexec}
+      To run Apache TomEE:
+        #{opt_libexec}/bin/tomee-jax-rs-startup
+    EOS
   end
 
   test do

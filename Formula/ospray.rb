@@ -17,7 +17,7 @@ class Ospray < Formula
   depends_on "tbb"
 
   def install
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DCMAKE_INSTALL_RPATH=#{opt_lib}
       -DOSPRAY_ENABLE_APPS=OFF

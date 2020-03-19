@@ -28,12 +28,13 @@ class Opam < Formula
     zsh_completion.install "src/state/shellscripts/complete.zsh" => "_opam"
   end
 
-  def caveats; <<~EOS
-    OPAM uses ~/.opam by default for its package database, so you need to
-    initialize it first by running:
+  def caveats
+    <<~EOS
+      OPAM uses ~/.opam by default for its package database, so you need to
+      initialize it first by running:
 
-    $ opam init
-  EOS
+      $ opam init
+    EOS
   end
 
   test do

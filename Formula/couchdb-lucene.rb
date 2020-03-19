@@ -34,63 +34,67 @@ class CouchdbLucene < Formula
     ini_path.write(ini_file) unless ini_path.exist?
   end
 
-  def shim_script(target); <<~EOS
-    #!/bin/bash
-    export CL_BASEDIR=#{libexec}/bin
-    exec "$CL_BASEDIR/#{target}" "$@"
-  EOS
+  def shim_script(target)
+    <<~EOS
+      #!/bin/bash
+      export CL_BASEDIR=#{libexec}/bin
+      exec "$CL_BASEDIR/#{target}" "$@"
+    EOS
   end
 
   def ini_path
     etc/"couchdb/local.d/couchdb-lucene.ini"
   end
 
-  def ini_file; <<~EOS
-    [httpd_global_handlers]
-    _fti = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
-  EOS
+  def ini_file
+    <<~EOS
+      [httpd_global_handlers]
+      _fti = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
+    EOS
   end
 
-  def caveats; <<~EOS
-    All commands have been installed with the prefix 'cl_'.
+  def caveats
+    <<~EOS
+      All commands have been installed with the prefix 'cl_'.
 
-    If you really need to use these commands with their normal names, you
-    can add a "clbin" directory to your PATH from your bashrc like:
+      If you really need to use these commands with their normal names, you
+      can add a "clbin" directory to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/clbin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/clbin:$PATH"
+    EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+        "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>HOME</key>
-          <string>~</string>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>HOME</key>
+            <string>~</string>
+          </dict>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/cl_run</string>
+          </array>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <true/>
         </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/cl_run</string>
-        </array>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -40,25 +40,26 @@ class Artifactory < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>com.jfrog.artifactory</string>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>com.jfrog.artifactory</string>
 
-        <key>WorkingDirectory</key>
-        <string>#{libexec}</string>
+          <key>WorkingDirectory</key>
+          <string>#{libexec}</string>
 
-        <key>Program</key>
-        <string>#{bin}/artifactory.sh</string>
+          <key>Program</key>
+          <string>#{bin}/artifactory.sh</string>
 
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+          <key>KeepAlive</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -26,15 +26,16 @@ class Radamsa < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<~EOS
-    The Radamsa binary has been installed.
-    The Lisp source code has been copied to:
-      #{prefix}/rad
+  def caveats
+    <<~EOS
+      The Radamsa binary has been installed.
+      The Lisp source code has been copied to:
+        #{prefix}/rad
 
-    Tests can be run with:
-      $ make .seal-of-quality
+      Tests can be run with:
+        $ make .seal-of-quality
 
-  EOS
+    EOS
   end
 
   test do

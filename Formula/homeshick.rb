@@ -21,13 +21,14 @@ class Homeshick < Formula
     fish_completion.install "completions/homeshick.fish" if build.head?
   end
 
-  def caveats; <<~EOS
-    To enable the `homeshick cd <CASTLE>` command, you need to
-      `export HOMESHICK_DIR=#{opt_prefix}`
-    and
-      `source "#{opt_prefix}/homeshick.sh"`
-    in your $HOME/.bashrc
-  EOS
+  def caveats
+    <<~EOS
+      To enable the `homeshick cd <CASTLE>` command, you need to
+        `export HOMESHICK_DIR=#{opt_prefix}`
+      and
+        `source "#{opt_prefix}/homeshick.sh"`
+      in your $HOME/.bashrc
+    EOS
   end
 
   test do

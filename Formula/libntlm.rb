@@ -23,7 +23,8 @@ class Libntlm < Formula
 
   test do
     cp pkgshare.children, testpath
-    system ENV.cc, "test_ntlm.c", "md4.c", "-I#{testpath}", "-L#{lib}", "-lntlm", "-DNTLM_SRCDIR=\"#{testpath}\"", "-o", "test_ntlm"
+    system ENV.cc, "test_ntlm.c", "md4.c", "-I#{testpath}", "-L#{lib}", "-lntlm",
+                   "-DNTLM_SRCDIR=\"#{testpath}\"", "-o", "test_ntlm"
     system "./test_ntlm"
   end
 end

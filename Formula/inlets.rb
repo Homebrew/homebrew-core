@@ -111,8 +111,10 @@ class Inlets < Formula
       end
 
       client_pid = fork do
-        puts "Starting inlets client with remote localhost:#{remote_port}, upstream localhost:#{upstream_port}, token: #{SECRET_TOKEN}"
-        exec "#{bin}/inlets client --remote localhost:#{remote_port} --upstream localhost:#{upstream_port} --token #{SECRET_TOKEN}"
+        puts "Starting inlets client with remote localhost:#{remote_port}, " \
+             "upstream localhost:#{upstream_port}, token: #{SECRET_TOKEN}"
+        exec "#{bin}/inlets client --remote localhost:#{remote_port} " \
+             "--upstream localhost:#{upstream_port} --token #{SECRET_TOKEN}"
       end
 
       puts "Waiting for inlets websocket tunnel"

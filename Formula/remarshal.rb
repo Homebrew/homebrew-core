@@ -72,6 +72,7 @@ class Remarshal < Formula
     assert_equal toml, pipe_output("#{bin}/yaml2toml", yaml)
     assert_equal json, pipe_output("#{bin}/remarshal -if=toml -of=json", toml).chomp
     assert_equal json, pipe_output("#{bin}/toml2json", toml).chomp
-    assert_equal pipe_output("#{bin}/remarshal -if=yaml -of=msgpack", yaml), pipe_output("#{bin}/remarshal -if=json -of=msgpack", json)
+    assert_equal pipe_output("#{bin}/remarshal -if=yaml -of=msgpack", yaml),
+      pipe_output("#{bin}/remarshal -if=json -of=msgpack", json)
   end
 end

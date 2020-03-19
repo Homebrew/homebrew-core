@@ -52,13 +52,14 @@ class Corectl < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Starting with 0.7 "corectl" has a client/server architecture. So before you
-    can use the "corectl" cli, you have to start the server daemon:
+  def caveats
+    <<~EOS
+      Starting with 0.7 "corectl" has a client/server architecture. So before you
+      can use the "corectl" cli, you have to start the server daemon:
 
-    $ corectld start
+      $ corectld start
 
-  EOS
+    EOS
   end
 
   test do

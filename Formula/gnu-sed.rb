@@ -33,13 +33,14 @@ class GnuSed < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    GNU "sed" has been installed as "gsed".
-    If you need to use it as "sed", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    <<~EOS
+      GNU "sed" has been installed as "gsed".
+      If you need to use it as "sed", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

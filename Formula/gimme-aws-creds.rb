@@ -31,8 +31,9 @@ class GimmeAwsCreds < Formula
     config_file = Pathname(".okta_aws_login_config")
     touch(config_file)
 
-    output = pipe_output("#{bin}/gimme-aws-creds --action-configure 2>&1", "TESTPROFILE\nhttps://something.oktapreview.com\n\n\n\n\n\n\n\n\n\n\n")
-    assert_match "Okta Configuration Profile Name", output
+    assert_match "Okta Configuration Profile Name",
+      pipe_output("#{bin}/gimme-aws-creds --action-configure 2>&1",
+                  "TESTPROFILE\nhttps://something.oktapreview.com\n\n\n\n\n\n\n\n\n\n\n")
     assert_match "", config_file.read
 
     assert_match version.to_s, shell_output("#{bin}/gimme-aws-creds --version")

@@ -50,45 +50,46 @@ class Bitlbee < Formula
 
   plist_options :manual => "bitlbee -D"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>OnDemand</key>
-      <true/>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/bitlbee</string>
-      </array>
-      <key>ServiceDescription</key>
-      <string>bitlbee irc-im proxy</string>
-      <key>Sockets</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
       <dict>
-        <key>Listener</key>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>OnDemand</key>
+        <true/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/bitlbee</string>
+        </array>
+        <key>ServiceDescription</key>
+        <string>bitlbee irc-im proxy</string>
+        <key>Sockets</key>
         <dict>
-          <key>SockFamily</key>
-          <string>IPv4</string>
-          <key>SockProtocol</key>
-          <string>TCP</string>
-          <key>SockNodeName</key>
-          <string>127.0.0.1</string>
-          <key>SockServiceName</key>
-          <string>6667</string>
-          <key>SockType</key>
-          <string>stream</string>
+          <key>Listener</key>
+          <dict>
+            <key>SockFamily</key>
+            <string>IPv4</string>
+            <key>SockProtocol</key>
+            <string>TCP</string>
+            <key>SockNodeName</key>
+            <string>127.0.0.1</string>
+            <key>SockServiceName</key>
+            <string>6667</string>
+            <key>SockType</key>
+            <string>stream</string>
+          </dict>
+        </dict>
+        <key>inetdCompatibility</key>
+        <dict>
+          <key>Wait</key>
+          <false/>
         </dict>
       </dict>
-      <key>inetdCompatibility</key>
-      <dict>
-        <key>Wait</key>
-        <false/>
-      </dict>
-    </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

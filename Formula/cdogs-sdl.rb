@@ -6,9 +6,10 @@ class CdogsSdl < Formula
   head "https://github.com/cxong/cdogs-sdl.git"
 
   bottle do
-    sha256 "e26c3640130974477c5577df4d2629b07b8ea40af46abc9abab37d45608f530f" => :catalina
-    sha256 "5e136002cb8733b5cd4ca11624e5175cf39d9909e99e211f8e1d8be08071dad8" => :mojave
-    sha256 "2eefa54af63f981a35a4713234d43f0a5b451b66828f6a51d5d5c91748a64e6c" => :high_sierra
+    rebuild 1
+    sha256 "7b4abbbe4084475ccce4fd97cccf634be329455ac660c1190c1aebcc6cdf03f5" => :catalina
+    sha256 "8cf4159493f97517f58f36a9b1821da13bd7055a1042543375f614ed22ff4512" => :mojave
+    sha256 "c790b1f8d14f88eee49029870963ea7ece4c5d5b2137d6992ff043e70337bba1" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -28,10 +29,13 @@ class CdogsSdl < Formula
   end
 
   test do
-    server = fork do
-      system "#{bin}/cdogs-sdl"
+    pid = fork do
+      exec bin/"cdogs-sdl"
     end
-    sleep 5
-    Process.kill("TERM", server)
+    sleep 7
+    assert_predicate testpath/".config/cdogs-sdl",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end

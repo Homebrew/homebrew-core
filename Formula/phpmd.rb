@@ -21,6 +21,7 @@ class Phpmd < Formula
       }
     EOS
 
-    assert_match /Avoid unused parameters such as '\$name'\.$/, shell_output("#{bin}/phpmd --ignore-violations-on-exit src/HelloWorld/Greetings.php text unusedcode")
+    assert_match /Avoid unused parameters such as '\$name'\.$/,
+      shell_output("#{bin}/phpmd --ignore-violations-on-exit src/HelloWorld/Greetings.php text unusedcode")
   end
 end

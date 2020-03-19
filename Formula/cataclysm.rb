@@ -9,10 +9,10 @@ class Cataclysm < Formula
 
   bottle do
     cellar :any
-    sha256 "7b91e03feeb2a2d9fcce1ffecdfc96e19d2fef80e88f8b3374dd76c9ad4c7194" => :catalina
-    sha256 "24454f33d052b39afe8dbe1e82498e939754f45c8b370385485070b2efbed20c" => :mojave
-    sha256 "f885e61b707330bf1346e215156a22956b3da5016e645ba3ef5d00829aac984a" => :high_sierra
-    sha256 "f96c3b668439311126dc8064d0b3590aebb6e21ecd5bcba01303e78dca9c4a7c" => :sierra
+    rebuild 1
+    sha256 "e4709c4d9b01f108913de4c3cf8c3dafe0cdd490dbfa54f623755f98d6464bb3" => :catalina
+    sha256 "192f052d4474364cf61fdb920329dbd5ac1ca2a81f8f8d10be2dad22bd41d96b" => :mojave
+    sha256 "68a5e83bc0ff554b9b74d5062b93ad9a313c2e9e448ef1a02c1c2799eb8a9134" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -58,19 +58,18 @@ class Cataclysm < Formula
     user_config_dir = testpath/"Library/Application Support/Cataclysm/"
     user_config_dir.mkpath
 
-    # run cataclysm for 5 seconds
-    game = fork do
-      system bin/"cataclysm"
+    # run cataclysm for 7 seconds
+    pid = fork do
+      exec bin/"cataclysm"
     end
-
-    sleep 5
-    Process.kill("HUP", game)
-
+    sleep 7
     assert_predicate user_config_dir/"config",
                      :exist?, "User config directory should exist"
     assert_predicate user_config_dir/"templates",
                      :exist?, "User template directory should exist"
     assert_predicate user_config_dir/"save",
                      :exist?, "User save directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end

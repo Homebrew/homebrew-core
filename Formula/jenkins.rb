@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://jenkins.io/"
-  url "http://mirrors.jenkins.io/war/2.225/jenkins.war"
-  sha256 "e968e10a379c2136492ff7f8d8f1016aea58009a79a86df569c7f936e2daea8f"
+  url "http://mirrors.jenkins.io/war/2.226/jenkins.war"
+  sha256 "5a74f640fbc022e2c8b0a3b62d5a6c2f1b885876d3abde016dd04094d07bb3be"
 
   head do
     url "https://github.com/jenkinsci/jenkins.git"
@@ -24,38 +24,40 @@ class Jenkins < Formula
     bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-cli", :java_version => "1.8"
   end
 
-  def caveats; <<~EOS
-    Note: When using launchctl the port will be 8080.
-  EOS
+  def caveats
+    <<~EOS
+      Note: When using launchctl the port will be 8080.
+    EOS
   end
 
   plist_options :manual => "jenkins"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>/usr/libexec/java_home</string>
-          <string>-v</string>
-          <string>1.8</string>
-          <string>--exec</string>
-          <string>java</string>
-          <string>-Dmail.smtp.starttls.enable=true</string>
-          <string>-jar</string>
-          <string>#{opt_libexec}/jenkins.war</string>
-          <string>--httpListenAddress=127.0.0.1</string>
-          <string>--httpPort=8080</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>/usr/libexec/java_home</string>
+            <string>-v</string>
+            <string>1.8</string>
+            <string>--exec</string>
+            <string>java</string>
+            <string>-Dmail.smtp.starttls.enable=true</string>
+            <string>-jar</string>
+            <string>#{opt_libexec}/jenkins.war</string>
+            <string>--httpListenAddress=127.0.0.1</string>
+            <string>--httpPort=8080</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

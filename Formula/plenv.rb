@@ -7,6 +7,8 @@ class Plenv < Formula
 
   bottle :unneeded
 
+  depends_on "perl-build"
+
   def install
     prefix.install "bin", "plenv.d", "completions", "libexec"
 
@@ -14,17 +16,18 @@ class Plenv < Formula
     system "#{bin}/plenv", "rehash"
   end
 
-  def caveats; <<~EOS
-    To enable shims add to your profile:
-      if which plenv > /dev/null; then eval "$(plenv init -)"; fi
-    With zsh, add to your .zshrc:
-      if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
-    With fish, add to your config.fish
-      if plenv > /dev/null; plenv init - | source ; end
-  EOS
+  def caveats
+    <<~EOS
+      To enable shims add to your profile:
+        if which plenv > /dev/null; then eval "$(plenv init -)"; fi
+      With zsh, add to your .zshrc:
+        if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
+      With fish, add to your config.fish
+        if plenv > /dev/null; plenv init - | source ; end
+    EOS
   end
 
   test do
-    system "#{bin}/plenv", "--version"
+    assert_match(/\* system \(set by/, shell_output("#{bin}/plenv versions"))
   end
 end

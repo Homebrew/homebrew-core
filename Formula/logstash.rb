@@ -43,9 +43,10 @@ class Logstash < Formula
     ln_s etc/"logstash", libexec/"config"
   end
 
-  def caveats; <<~EOS
-    Configuration files are located in #{etc}/logstash/
-  EOS
+  def caveats
+    <<~EOS
+      Configuration files are located in #{etc}/logstash/
+    EOS
   end
 
   plist_options :manual => "logstash"

@@ -69,10 +69,11 @@ class Qt < Formula
     Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
   end
 
-  def caveats; <<~EOS
-    We agreed to the Qt open source license for you.
-    If this is unacceptable you should uninstall.
-  EOS
+  def caveats
+    <<~EOS
+      We agreed to the Qt open source license for you.
+      If this is unacceptable you should uninstall.
+    EOS
   end
 
   test do

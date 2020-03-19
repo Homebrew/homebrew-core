@@ -4,15 +4,14 @@ class AwscliAT1 < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.18.10.tar.gz"
-  sha256 "1a673a5fd9c85937131a9bcd975de469d9c07f8fad5249d58cf88840ac956b6d"
-  revision 1
+  url "https://github.com/aws/aws-cli/archive/1.18.20.tar.gz"
+  sha256 "b7490e7ef19337d77df7d2e965b6a41e09d1366c525aee7c5db79aee54ad5b12"
 
   bottle do
-    cellar :any
-    sha256 "8232729cfb564d40d37688b604e9beb67785d0b35631d7046693f8f55f3ae04d" => :catalina
-    sha256 "85344466abd054e3aeb238124e5f2be6336f2f9668c30ab9688a45c0c8b9445c" => :mojave
-    sha256 "d461a71f56d4975a4eab9c137aa98b7f497b2ebbc7a0a215ba7e0ee8ad8c4398" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "0b3f49795620ec6b118937cd4eabac3f2cdd826e69e1e354c468c328276c9c3e" => :catalina
+    sha256 "e1c1fb167d241cec5ea663b6cb79b228b09f388e3c201b6370bcf79cd4ea9ea7" => :mojave
+    sha256 "069dd3dbb92d74d353414ae43436ff6994b74fcc858ae270310dc3edf80e8ae4" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -44,10 +43,11 @@ class AwscliAT1 < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    The "examples" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/awscli/examples
-  EOS
+  def caveats
+    <<~EOS
+      The "examples" directory has been installed to:
+        #{HOMEBREW_PREFIX}/share/awscli/examples
+    EOS
   end
 
   test do

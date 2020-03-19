@@ -88,16 +88,17 @@ class Csound < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    To use the Python bindings, you may need to add to #{shell_profile}:
-      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
+  def caveats
+    <<~EOS
+      To use the Python bindings, you may need to add to #{shell_profile}:
+        export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
 
-    To use the Java bindings, you may need to add to #{shell_profile}:
-      export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
-    and link the native shared library into your Java Extensions folder:
-      mkdir -p ~/Library/Java/Extensions
-      ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
-  EOS
+      To use the Java bindings, you may need to add to #{shell_profile}:
+        export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
+      and link the native shared library into your Java Extensions folder:
+        mkdir -p ~/Library/Java/Extensions
+        ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
+    EOS
   end
 
   test do

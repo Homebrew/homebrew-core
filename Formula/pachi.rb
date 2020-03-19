@@ -39,14 +39,15 @@ class Pachi < Formula
     pkgshare.install resource("book")
   end
 
-  def caveats; <<~EOS
-    This formula also downloads additional data, such as opening books
-    and pattern files. They are stored in #{opt_pkgshare}.
+  def caveats
+    <<~EOS
+      This formula also downloads additional data, such as opening books
+      and pattern files. They are stored in #{opt_pkgshare}.
 
-    At present, pachi cannot be pointed to external files, so make sure
-    to set the working directory to #{opt_pkgshare} if you want pachi
-    to take advantage of these additional files.
-  EOS
+      At present, pachi cannot be pointed to external files, so make sure
+      to set the working directory to #{opt_pkgshare} if you want pachi
+      to take advantage of these additional files.
+    EOS
   end
 
   test do

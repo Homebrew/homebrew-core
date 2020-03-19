@@ -24,16 +24,17 @@ class Wemux < Formula
     etc.install "wemux.conf.example" => "wemux.conf"
   end
 
-  def caveats; <<~EOS
-    Your current user account has been automatically added as a wemux host.
+  def caveats
+    <<~EOS
+      Your current user account has been automatically added as a wemux host.
 
-    To give a user the ability to host wemux sessions add them to the
-    host_list array in:
-      #{etc}/wemux.conf
+      To give a user the ability to host wemux sessions add them to the
+      host_list array in:
+        #{etc}/wemux.conf
 
-    Either edit the file in your text editor of choice or run `wemux conf` to
-    open the file in your $EDITOR.
-  EOS
+      Either edit the file in your text editor of choice or run `wemux conf` to
+      open the file in your $EDITOR.
+    EOS
   end
 
   test do

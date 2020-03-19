@@ -2,16 +2,16 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.0.1.tar.xz"
-  mirror "https://www.mesa3d.org/archive/mesa-20.0.1.tar.xz"
-  sha256 "6153ba3f8cb0524bbfc08e4db76b408126b2d1be8f789dffe28d1a0461eedde4"
+  url "https://mesa.freedesktop.org/archive/mesa-20.0.2.tar.xz"
+  mirror "https://www.mesa3d.org/archive/mesa-20.0.2.tar.xz"
+  sha256 "aa54f1cb669550606aab8ceb475105d15aeb814fca5a778ce70d0fd10e98e86f"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
     cellar :any
-    sha256 "2eff3234cfc1a0748fdf9c6080b9f824a48fbcfda9a03a01e63e9fa2693f9743" => :catalina
-    sha256 "7336812a8827fa12e2ba7b11565c48797a6c9cb8751377933823972170f2b8fa" => :mojave
-    sha256 "5b49c1b423d7a91ec956c08255ac85dc2ea5ffa4a3204bb2e2fae2de01d61ae9" => :high_sierra
+    sha256 "ac53539ca15ff7424684d66c60cd936087fd09fe22581fcb291c75e5fc8de16a" => :catalina
+    sha256 "2ec403b7dc05931f1a6494b88a8b5a96e67c531ffd13afaea203d34e4880e763" => :mojave
+    sha256 "5add0b795f62ee9425d7eebe04ad6889589b3d947d5d3f9f911524321ff445cf" => :high_sierra
   end
 
   depends_on "meson-internal" => :build
@@ -43,7 +43,8 @@ class Mesa < Formula
     resource("gears.c").stage(pkgshare.to_s)
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dbuildtype=plain", "-Db_ndebug=true", "-Dplatforms=surfaceless", "-Dglx=disabled", ".."
+      system "meson", "--prefix=#{prefix}", "-Dbuildtype=plain", "-Db_ndebug=true",
+                      "-Dplatforms=surfaceless", "-Dglx=disabled", ".."
       system "ninja"
       system "ninja", "install"
     end

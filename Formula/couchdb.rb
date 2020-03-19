@@ -55,37 +55,39 @@ class Couchdb < Formula
 COUCHDB_BIN_DIR=$(canonical_readlink $0)'
   end
 
-  def caveats; <<~EOS
-    If your upgrade from version 1.7.2_1 then your old database path is "/usr/local/var/lib/couchdb".
+  def caveats
+    <<~EOS
+      If your upgrade from version 1.7.2_1 then your old database path is "/usr/local/var/lib/couchdb".
 
-    The database path of this installation: #{var}/couchdb/data".
+      The database path of this installation: #{var}/couchdb/data".
 
-    If you want to migrate your data from 1.x to 2.x then follow this guide:
-    https://docs.couchdb.org/en/stable/install/upgrading.html
+      If you want to migrate your data from 1.x to 2.x then follow this guide:
+      https://docs.couchdb.org/en/stable/install/upgrading.html
 
-  EOS
+    EOS
   end
 
   plist_options :manual => "couchdb"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{bin}/couchdb</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{bin}/couchdb</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

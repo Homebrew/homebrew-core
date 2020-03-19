@@ -112,10 +112,11 @@ class SubversionAT18 < Formula
     system "make", "install-tools"
   end
 
-  def caveats; <<~EOS
-    svntools have been installed to:
-      #{opt_libexec}
-  EOS
+  def caveats
+    <<~EOS
+      svntools have been installed to:
+        #{opt_libexec}
+    EOS
   end
 
   test do

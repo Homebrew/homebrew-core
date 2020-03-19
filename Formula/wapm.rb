@@ -1,15 +1,15 @@
 class Wapm < Formula
   desc "WebAssembly Package Manager (CLI)"
   homepage "https://wapm.io/"
-  url "https://github.com/wasmerio/wapm-cli/archive/0.4.3.tar.gz"
-  sha256 "0a4057217a539a013549fd2bf3913bff28f0ec01d6606ebc278c2057c6e268a2"
+  url "https://github.com/wasmerio/wapm-cli/archive/v0.5.0.tar.gz"
+  sha256 "7731d476585105fbb0ac5766661b4b68f1680b7071635654042bdaeef3b66987"
   head "https://github.com/wasmerio/wapm-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "15d984bd969f4d207549ae6c51f2ba34d945c4b18f8acf0ba0c001dc54fb9039" => :catalina
-    sha256 "b5be8c6e0592ef6a7133afbb6e9bbb97e62d7eadc36a2e97b505179dd6c35f85" => :mojave
-    sha256 "b0228e63f09a647ebf5942adbfe32e82323eb9c20eb04d333f01ed7f18ffbe28" => :high_sierra
+    sha256 "4f1c18ce08a6f4a483a50888ad9769898a203bd826b992f877010f38a80ca710" => :catalina
+    sha256 "db34bd4d679207ae7d903a4beada8e30e3568f16c55fd610a196931c440716ef" => :mojave
+    sha256 "70e4c8f038838547a2e70116567c1042f2f4cec53542e0750d4d061f80dc7b23" => :high_sierra
   end
 
   depends_on "rust" => :build

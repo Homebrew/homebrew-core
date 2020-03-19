@@ -24,35 +24,36 @@ class Kettle < Formula
 
   plist_options :manual => "pdicarte #{HOMEBREW_PREFIX}/etc/kettle/carte-config.xml"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/pdicarte</string>
-          <string>#{etc}/kettle/carte-config.xml</string>
-        </array>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>KETTLE_HOME</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/pdicarte</string>
+            <string>#{etc}/kettle/carte-config.xml</string>
+          </array>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>KETTLE_HOME</key>
+            <string>#{etc}/kettle</string>
+          </dict>
+          <key>WorkingDirectory</key>
           <string>#{etc}/kettle</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/kettle/carte.log</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/kettle/carte.log</string>
+          <key>RunAtLoad</key>
+          <true/>
         </dict>
-        <key>WorkingDirectory</key>
-        <string>#{etc}/kettle</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/kettle/carte.log</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/kettle/carte.log</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -3,15 +3,18 @@ class Frege < Formula
   homepage "https://github.com/Frege/frege/"
   url "https://github.com/Frege/frege/releases/download/3.24public/frege3.24.405.jar"
   sha256 "f5a6e40d1438a676de85620e3304ada4760878879e02dbb7c723164bd6087fc4"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*"]
-    bin.write_jar_script libexec/"frege#{version}.jar", "fregec", "-Xss1m"
+    libexec.install "frege#{version}.jar"
+    (bin/"fregec").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/frege#{version}.jar" "$@"
+    EOS
   end
 
   test do
@@ -24,6 +27,7 @@ class Frege < Formula
           println (greeting "World")
     EOS
     system bin/"fregec", "-d", testpath, "test.fr"
-    system "#{Formula["openjdk"].bin}/java", "-Xss1m", "-cp", "#{testpath}:#{libexec}/frege#{version}.jar", "Hello"
+    output = shell_output "#{Formula["openjdk"].bin}/java -Xss1m -cp #{testpath}:#{libexec}/frege#{version}.jar Hello"
+    assert_equal "Hello, World!\n", output
   end
 end

@@ -22,12 +22,13 @@ class Hive < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Hadoop must be in your path for hive executable to work.
+  def caveats
+    <<~EOS
+      Hadoop must be in your path for hive executable to work.
 
-    If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
-      export HCAT_HOME=#{opt_libexec}/hcatalog
-  EOS
+      If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
+        export HCAT_HOME=#{opt_libexec}/hcatalog
+    EOS
   end
 
   test do

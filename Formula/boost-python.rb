@@ -49,12 +49,13 @@ class BoostPython < Formula
     doc.install Dir["libs/python/doc/*"]
   end
 
-  def caveats; <<~EOS
-    This formula provides Boost.Python for Python 2. Due to a
-    collision with boost-python3, the CMake Config files are not
-    available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
-    with CMake or switch to Python 3.
-  EOS
+  def caveats
+    <<~EOS
+      This formula provides Boost.Python for Python 2. Due to a
+      collision with boost-python3, the CMake Config files are not
+      available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
+      with CMake or switch to Python 3.
+    EOS
   end
 
   test do

@@ -1,14 +1,14 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7.7/ccache-3.7.7.tar.xz"
-  sha256 "b7c1d6d6fe42f18e424de92746af863e0bc85794da3d69e44300840c478c98cd"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.8/ccache-3.7.8.tar.xz"
+  sha256 "99ea7b8fc34fdd5dc628169f452086c1f4d8ca3a1e52bd484fbdef3516893672"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cdd14e7b2bb913f3597d0ba651c8db8745f8e460a96af1d2e590037bbad5e54" => :catalina
-    sha256 "e41456c1bac6d2ee59a40f133d72dd5bdeb7e2a1e98a40720decae3d2f52df02" => :mojave
-    sha256 "6052db4c0f8e65d74e66ac01aa79ae245dc1ae2afcd98a651b9c3d680683926f" => :high_sierra
+    sha256 "0f0bf49831d1469fb89b508fb6ee93c48d648d2f25c012c82ae4b05cd432ccff" => :catalina
+    sha256 "82627c2ab9ed1b728e480dafcfc9d8be0f0d3a5f909699c434fc7606a3dfc6b6" => :mojave
+    sha256 "e7090229972da6f590d1915a0e6812f2a8a2e0b1d14027c9ad793bdafd86b64f" => :high_sierra
   end
 
   head do
@@ -50,18 +50,19 @@ class Ccache < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To install symlinks for compilers that will automatically use
-    ccache, prepend this directory to your PATH:
-      #{opt_libexec}
+  def caveats
+    <<~EOS
+      To install symlinks for compilers that will automatically use
+      ccache, prepend this directory to your PATH:
+        #{opt_libexec}
 
-    If this is an upgrade and you have previously added the symlinks to
-    your PATH, you may need to modify it to the path specified above so
-    it points to the current version.
+      If this is an upgrade and you have previously added the symlinks to
+      your PATH, you may need to modify it to the path specified above so
+      it points to the current version.
 
-    NOTE: ccache can prevent some software from compiling.
-    ALSO NOTE: The brew command, by design, will never use ccache.
-  EOS
+      NOTE: ccache can prevent some software from compiling.
+      ALSO NOTE: The brew command, by design, will never use ccache.
+    EOS
   end
 
   test do

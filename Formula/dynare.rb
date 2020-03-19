@@ -61,10 +61,11 @@ class Dynare < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    To get started with Dynare, open Octave and type
-      addpath #{opt_lib}/dynare/matlab
-  EOS
+  def caveats
+    <<~EOS
+      To get started with Dynare, open Octave and type
+        addpath #{opt_lib}/dynare/matlab
+    EOS
   end
 
   test do

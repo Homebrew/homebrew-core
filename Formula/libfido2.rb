@@ -3,12 +3,13 @@ class Libfido2 < Formula
   homepage "https://developers.yubico.com/libfido2/"
   url "https://github.com/Yubico/libfido2/archive/1.3.1.tar.gz"
   sha256 "ba35e22016b60c1e4be66dff3cd6a60c1fe4bfa0d91ec0b89ca9da25ebeaaf41"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "36d863ea43cd12c32837a07ac1be8fba927e8ef45cb6cddd37806821e5973e63" => :catalina
-    sha256 "e8eb8e5200afbf11932e52df9156b8e3f4ef93f05cf24dcffa69618255207afb" => :mojave
-    sha256 "c44cf47b3d7787992d89e85cd85ce9b95da775575ad3bbfb28f62d01247f3155" => :high_sierra
+    sha256 "f1f5de29336fe0b77fee7ea83bc5937dd8b6c35676895d178c68cbcdec45af24" => :catalina
+    sha256 "4e5894279f2521dc23f754a6378d9b89d033d85352bb0ea9d2b8121c8196074b" => :mojave
+    sha256 "a8be51438333d65f1ba019f302d322ee2b11102a854406c282a9635524e6b49d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -48,7 +49,8 @@ class Libfido2 < Formula
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF
-    system ENV.cc, "-std=c99", "test.c", "-I#{include}", "-I#{Formula["openssl@1.1"].include}", "-o", "test", "-L#{lib}", "-lfido2"
+    system ENV.cc, "-std=c99", "test.c", "-I#{include}", "-I#{Formula["openssl@1.1"].include}", "-o", "test",
+                   "-L#{lib}", "-lfido2"
     system "./test"
   end
 end

@@ -35,7 +35,8 @@ class I386ElfGrub < Formula
       # did you mean 'GRUB_FILE_TYPE_NO_DECOMPRESS'?
       #
       # Upstream issue has been reported at https://www.mail-archive.com/grub-devel@gnu.org/msg29007.html
-      inreplace buildpath/"grub-core/osdep/generic/blocklist.c", "FILE_TYPE_NO_DECOMPRESS", "GRUB_FILE_TYPE_NO_DECOMPRESS"
+      inreplace buildpath/"grub-core/osdep/generic/blocklist.c",
+               "FILE_TYPE_NO_DECOMPRESS", "GRUB_FILE_TYPE_NO_DECOMPRESS"
 
       system "make"
       system "make", "install"

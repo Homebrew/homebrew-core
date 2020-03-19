@@ -50,10 +50,11 @@ class Pytouhou < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    The default path for the game data is:
-      #{pkgshare}/game
-  EOS
+  def caveats
+    <<~EOS
+      The default path for the game data is:
+        #{pkgshare}/game
+    EOS
   end
 
   test do

@@ -1,14 +1,14 @@
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
-  url "https://github.com/golang-migrate/migrate/archive/v4.9.1.tar.gz"
-  sha256 "6be8806c9e7cc95dea74560292061735642aad45de5de2ebc7e83ae789850655"
+  url "https://github.com/golang-migrate/migrate/archive/v4.10.0.tar.gz"
+  sha256 "ff55f958b869a94cfa892e61195e97def0d8cad2404963f0ce2dfadaa406bb42"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69455cf25056fe92de684dbb7cc1e6e5ed40ce5ba283975b8a6cd0b71c54a6f0" => :catalina
-    sha256 "932ad427c9d30c2fe5703ee1b5a303935ce67b7707ca2670dfe086a822c691f5" => :mojave
-    sha256 "128dae78f429722aec6b3d537357ccc31fb36ba88bf986e8a6ef3d880de09390" => :high_sierra
+    sha256 "7c123be8ebd6c27ec7dd405ef4430d51a0200aebff16aa3a7b85ce2ebce4cd3c" => :catalina
+    sha256 "15a02a1b2534b3078ece9ef5197cd822688154ccc74288fde0770ccebbd8608f" => :mojave
+    sha256 "d154952644c694027e3931fba144201db04fee996a59f32982b5dfddb37fa1ab" => :high_sierra
   end
 
   depends_on "go" => :build

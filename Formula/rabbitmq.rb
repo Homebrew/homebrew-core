@@ -53,49 +53,52 @@ class Rabbitmq < Formula
     (bash_completion/"rabbitmqadmin.bash").write Utils.popen_read("#{sbin}/rabbitmqadmin --bash-completion")
   end
 
-  def caveats; <<~EOS
-    Management Plugin enabled by default at http://localhost:15672
-  EOS
+  def caveats
+    <<~EOS
+      Management Plugin enabled by default at http://localhost:15672
+    EOS
   end
 
-  def rabbitmq_env; <<~EOS
-    CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
-    NODE_IP_ADDRESS=127.0.0.1
-    NODENAME=rabbit@localhost
-    RABBITMQ_LOG_BASE=#{var}/log/rabbitmq
-  EOS
+  def rabbitmq_env
+    <<~EOS
+      CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
+      NODE_IP_ADDRESS=127.0.0.1
+      NODENAME=rabbit@localhost
+      RABBITMQ_LOG_BASE=#{var}/log/rabbitmq
+    EOS
   end
 
   plist_options :manual => "rabbitmq-server"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/rabbitmq-server</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <!-- need erl in the path -->
-          <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
-          <!-- specify the path to the rabbitmq-env.conf file -->
-          <key>CONF_ENV_FILE</key>
-          <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/rabbitmq-server</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <!-- need erl in the path -->
+            <key>PATH</key>
+            <string>#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
+            <!-- specify the path to the rabbitmq-env.conf file -->
+            <key>CONF_ENV_FILE</key>
+            <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>
+          </dict>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/rabbitmq/std_error.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/rabbitmq/std_out.log</string>
         </dict>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/rabbitmq/std_error.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/rabbitmq/std_out.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

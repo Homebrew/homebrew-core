@@ -32,17 +32,14 @@ class Sonobuoy < Formula
   end
 
   test do
-    resources.each do |r|
-      r.verify_download_integrity(r.fetch)
-    end
-    output = shell_output("#{bin}/sonobuoy 2>&1")
-    assert_match "Sonobuoy is an introspective kubernetes component that generates reports on cluster conformance", output
-    assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")
-
-    output = shell_output("#{bin}/sonobuoy gen --kube-conformance-image-version=v1.14 2>&1")
-    assert_match "name: sonobuoy", output
-
-    output = shell_output("#{bin}/sonobuoy e2e --show=all " + resource("sonobuoyresults").cached_download + " 2>&1")
-    assert_match "all tests", output
+    resources.each { |r| r.verify_download_integrity(r.fetch) }
+    assert_match "Sonobuoy is an introspective kubernetes component that generates reports on cluster conformance",
+      shell_output("#{bin}/sonobuoy 2>&1")
+    assert_match version.to_s,
+      shell_output("#{bin}/sonobuoy version 2>&1")
+    assert_match "name: sonobuoy",
+      shell_output("#{bin}/sonobuoy gen --kube-conformance-image-version=v1.14 2>&1")
+    assert_match "all tests",
+      shell_output("#{bin}/sonobuoy e2e --show=all " + resource("sonobuoyresults").cached_download + " 2>&1")
   end
 end

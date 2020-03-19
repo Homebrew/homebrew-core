@@ -144,7 +144,8 @@ class Libtensorflow < Formula
     assert_not_equal variables_names, new_variables_names, "transform_graph didn't obfuscate variable names"
 
     benchmark_model_match = /benchmark_model -- (.+)$/.match(new_summarize_graph_output)
-    assert_not_nil benchmark_model_match, "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
+    assert_not_nil benchmark_model_match,
+      "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
 
     benchmark_model_args = benchmark_model_match[1].split(" ")
     benchmark_model_args.delete("--show_flops")
@@ -157,7 +158,8 @@ class Libtensorflow < Formula
       "2>&1",
     ].join(" ")
 
-    benchmark_model_output = shell_output(benchmark_model_command)
-    assert_includes benchmark_model_output, "Timings (microseconds):", "Unexpected benchmark_model output (no timings)"
+    assert_includes shell_output(benchmark_model_command),
+      "Timings (microseconds):",
+      "Unexpected benchmark_model output (no timings)"
   end
 end

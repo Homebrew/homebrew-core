@@ -56,35 +56,37 @@ class Exim < Formula
   end
 
   # Inspired by MacPorts startup script. Fixes restart issue due to missing setuid.
-  def startup_script; <<~EOS
-    #!/bin/sh
-    PID=#{var}/spool/exim/exim-daemon.pid
-    case "$1" in
-    start)
-      echo "starting exim mail transfer agent"
-      #{bin}/exim -bd -q30m
-      ;;
-    restart)
-      echo "restarting exim mail transfer agent"
-      /bin/kill -15 `/bin/cat $PID` && sleep 1 && #{bin}/exim -bd -q30m
-      ;;
-    stop)
-      echo "stopping exim mail transfer agent"
-      /bin/kill -15 `/bin/cat $PID`
-      ;;
-    *)
-      echo "Usage: #{bin}/exim_ctl {start|stop|restart}"
-      exit 1
-      ;;
-    esac
-  EOS
+  def startup_script
+    <<~EOS
+      #!/bin/sh
+      PID=#{var}/spool/exim/exim-daemon.pid
+      case "$1" in
+      start)
+        echo "starting exim mail transfer agent"
+        #{bin}/exim -bd -q30m
+        ;;
+      restart)
+        echo "restarting exim mail transfer agent"
+        /bin/kill -15 `/bin/cat $PID` && sleep 1 && #{bin}/exim -bd -q30m
+        ;;
+      stop)
+        echo "stopping exim mail transfer agent"
+        /bin/kill -15 `/bin/cat $PID`
+        ;;
+      *)
+        echo "Usage: #{bin}/exim_ctl {start|stop|restart}"
+        exit 1
+        ;;
+      esac
+    EOS
   end
 
-  def caveats; <<~EOS
-    Start with:
-      exim_ctl start
-    Don't forget to run it as root to be able to bind port 25.
-  EOS
+  def caveats
+    <<~EOS
+      Start with:
+        exim_ctl start
+      Don't forget to run it as root to be able to bind port 25.
+    EOS
   end
 
   test do

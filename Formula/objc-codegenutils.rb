@@ -18,7 +18,8 @@ class ObjcCodegenutils < Formula
   depends_on :xcode => :build
 
   def install
-    xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
+    xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen",
+               "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/objc-assetgen"
     xcodebuild "-target", "colordump", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
     bin.install "build/Release/objc-colordump"

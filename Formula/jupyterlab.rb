@@ -270,10 +270,11 @@ class Jupyterlab < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Additional kernels can be installed into the shared jupyter directory
-      #{etc}/jupyter
-  EOS
+  def caveats
+    <<~EOS
+      Additional kernels can be installed into the shared jupyter directory
+        #{etc}/jupyter
+    EOS
   end
 
   test do

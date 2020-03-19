@@ -32,9 +32,10 @@ class Sdlpop < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    Save and replay files are stored in the following directory:
-      #{var}/sdlpop
-  EOS
+  def caveats
+    <<~EOS
+      Save and replay files are stored in the following directory:
+        #{var}/sdlpop
+    EOS
   end
 end

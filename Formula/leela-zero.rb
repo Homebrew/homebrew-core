@@ -34,6 +34,7 @@ class LeelaZero < Formula
 
   test do
     system "#{bin}/leelaz", "--help"
-    assert_match /^= [A-T][0-9]+$/, pipe_output("#{bin}/leelaz --cpu-only --gtp -w #{pkgshare}/*.gz", "genmove b\n", 0)
+    assert_match /^= [A-T][0-9]+$/,
+      pipe_output("#{bin}/leelaz --cpu-only --gtp -w #{pkgshare}/*.gz", "genmove b\n", 0)
   end
 end

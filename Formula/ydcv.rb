@@ -23,9 +23,10 @@ class Ydcv < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    You need to add a config for API Key, read more at https://github.com/felixonmars/ydcv
-  EOS
+  def caveats
+    <<~EOS
+      You need to add a config for API Key, read more at https://github.com/felixonmars/ydcv
+    EOS
   end
 
   test do

@@ -27,13 +27,14 @@ class GnuTime < Formula
     (libexec/"gnubin").install_symlink bin/"gtime" => "time"
   end
 
-  def caveats; <<~EOS
-    GNU "time" has been installed as "gtime".
-    If you need to use it as "time", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    <<~EOS
+      GNU "time" has been installed as "gtime".
+      If you need to use it as "time", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

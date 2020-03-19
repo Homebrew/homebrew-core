@@ -39,9 +39,10 @@ class ProofGeneral < Formula
     doc.install "doc/ProofGeneral", "doc/PG-adapting"
   end
 
-  def caveats; <<~EOS
-    HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
-  EOS
+  def caveats
+    <<~EOS
+      HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
+    EOS
   end
 
   test do

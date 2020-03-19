@@ -21,7 +21,8 @@ class OpentracingCpp < Formula
   end
 
   test do
-    system ENV.cxx, "#{pkgshare}/tutorial-example.cpp", "-std=c++11", "-L#{lib}", "-I#{include}", "-lopentracing", "-lopentracing_mocktracer", "-o", "tutorial-example"
+    system ENV.cxx, "#{pkgshare}/tutorial-example.cpp", "-std=c++11", "-L#{lib}", "-I#{include}",
+                    "-lopentracing", "-lopentracing_mocktracer", "-o", "tutorial-example"
     system "./tutorial-example"
   end
 end

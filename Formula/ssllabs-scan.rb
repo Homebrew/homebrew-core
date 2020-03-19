@@ -19,13 +19,14 @@ class SsllabsScan < Formula
     system "go", "build", "-o", bin/"ssllabs-scan", "ssllabs-scan-v3.go"
   end
 
-  def caveats; <<~EOS
-    By installing this package you agree to the Terms and Conditions defined by Qualys.
-    You can find the terms and conditions at this link:
-       https://www.ssllabs.com/about/terms.html
+  def caveats
+    <<~EOS
+      By installing this package you agree to the Terms and Conditions defined by Qualys.
+      You can find the terms and conditions at this link:
+         https://www.ssllabs.com/about/terms.html
 
-    If you do not agree with those you should uninstall the formula.
-  EOS
+      If you do not agree with those you should uninstall the formula.
+    EOS
   end
 
   test do

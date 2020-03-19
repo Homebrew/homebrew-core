@@ -30,12 +30,13 @@ class PinentryMac < Formula
     bin.write_exec_script "#{prefix}/pinentry-mac.app/Contents/MacOS/pinentry-mac"
   end
 
-  def caveats; <<~EOS
-    You can now set this as your pinentry program like
+  def caveats
+    <<~EOS
+      You can now set this as your pinentry program like
 
-    ~/.gnupg/gpg-agent.conf
-        pinentry-program #{HOMEBREW_PREFIX}/bin/pinentry-mac
-  EOS
+      ~/.gnupg/gpg-agent.conf
+          pinentry-program #{HOMEBREW_PREFIX}/bin/pinentry-mac
+    EOS
   end
 
   test do

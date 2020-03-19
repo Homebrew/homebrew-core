@@ -31,22 +31,23 @@ class Squirrel < Formula
     (lib+"pkgconfig/libsquirrel.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=/${exec_prefix}/lib
-    includedir=/${prefix}/include
-    bindir=/${prefix}/bin
-    ldflags=  -L/${prefix}/lib
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=/${exec_prefix}/lib
+      includedir=/${prefix}/include
+      bindir=/${prefix}/bin
+      ldflags=  -L/${prefix}/lib
 
-    Name: libsquirrel
-    Description: squirrel library
-    Version: #{version}
+      Name: libsquirrel
+      Description: squirrel library
+      Version: #{version}
 
-    Requires:
-    Libs: -L${libdir} -lsquirrel -lsqstdlib
-    Cflags: -I${includedir}
-  EOS
+      Requires:
+      Libs: -L${libdir} -lsquirrel -lsqstdlib
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do

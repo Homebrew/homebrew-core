@@ -21,14 +21,14 @@ class KymaCli < Formula
   end
 
   test do
-    output = shell_output("#{bin}/kyma --help")
-    assert_match "Kyma is a flexible and easy way to connect and extend enterprise applications in a cloud-native world.", output
+    assert_match "Kyma is a flexible and easy way to connect and extend enterprise applications",
+      shell_output("#{bin}/kyma --help")
 
-    output = shell_output("#{bin}/kyma version --client")
-    assert_match "Kyma CLI version", output
+    assert_match "Kyma CLI version",
+      shell_output("#{bin}/kyma version --client")
 
     touch testpath/"kubeconfig"
-    output = shell_output("#{bin}/kyma install --kubeconfig ./kubeconfig 2>&1", 1)
-    assert_match "invalid configuration", output
+    assert_match "invalid configuration",
+      shell_output("#{bin}/kyma install --kubeconfig ./kubeconfig 2>&1", 1)
   end
 end

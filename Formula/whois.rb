@@ -24,10 +24,11 @@ class Whois < Formula
     man5.install "whois.conf.5"
   end
 
-  def caveats; <<~EOS
-    Debian whois has been installed as `whois` and may shadow the
-    system binary of the same name.
-  EOS
+  def caveats
+    <<~EOS
+      Debian whois has been installed as `whois` and may shadow the
+      system binary of the same name.
+    EOS
   end
 
   test do

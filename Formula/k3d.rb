@@ -14,10 +14,11 @@ class K3d < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", \
-        "-mod", "vendor", \
-        "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} -X github.com/rancher/k3d/version.K3sVersion=v1.0.1", \
-        "-trimpath", "-o", bin/"k3d"
+    system "go", "build",
+           "-mod", "vendor",
+           "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} " \
+                       "-X github.com/rancher/k3d/version.K3sVersion=v1.0.1",
+           "-trimpath", "-o", bin/"k3d"
     prefix.install_metafiles
   end
 

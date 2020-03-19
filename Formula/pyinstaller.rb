@@ -43,7 +43,8 @@ class Pyinstaller < Formula
 
   test do
     xy = Language::Python.major_minor_version "python3"
-    system bin/"pyinstaller", "-F", "--distpath=#{testpath}/dist", "--workpath=#{testpath}/build", libexec/"lib/python#{xy}/site-packages/easy_install.py"
+    system bin/"pyinstaller", "-F", "--distpath=#{testpath}/dist", "--workpath=#{testpath}/build",
+                              libexec/"lib/python#{xy}/site-packages/easy_install.py"
     assert_predicate testpath/"dist/easy_install", :exist?
   end
 end

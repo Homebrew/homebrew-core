@@ -2,14 +2,14 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.xz"
-  sha256 "222796cc6e3bf2f9fd765f8f097daa3c3999bb7865ac88a8c974d98182e29f26"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.25.2.tar.xz"
+  sha256 "9b937103e048e2d3bf964d4132a0e7edccc2583d4ef30bc8a516f93a76de7123"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "d5f4fe130b33cc5f2af441a1031b82fe0d76b6c455fd518b5e82eae15e2b859b" => :catalina
-    sha256 "66d765e7e020ab9b962c2879baedcb0eb2313cbdd2e28c86fc3928b7601c55e0" => :mojave
-    sha256 "b202c14c37b5e3aae4f37722bee4df7dc49a29eb950dd8af2ca645d5d3e4e223" => :high_sierra
+    sha256 "ad829f26f240c638306b1d3d832bf6bcb4fe02862d4569610e753a55b1737a53" => :catalina
+    sha256 "1b8665c4c94dfc8b0ae9c4746de9f28e72a852fad189e424a5dc0ffb2cb0aa17" => :mojave
+    sha256 "eed052de242f9ae843b40e58ccff63955ff0356acb1ce90814c79b67cb7a2ea8" => :high_sierra
   end
 
   depends_on "gettext"
@@ -21,13 +21,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.25.1.tar.xz"
-    sha256 "2d8f206f12bfd7d9edd74dea25bc457e4bc9ca6eb1a14e09104b549342fcc377"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.25.2.tar.xz"
+    sha256 "90f10350933ce4fcafadacfcdca4184ed5acbed5a326e11c1523086b358ef380"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.25.1.tar.xz"
-    sha256 "30886372c1962a5e087f919998b02f816605368201b564d3f519614ee4a9ee96"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.25.2.tar.xz"
+    sha256 "78bbe92b0c7c2f9a227025a7b7207951c185adda38a968499e5b6dacb6e1d41a"
   end
 
   resource "Net::SMTP::SSL" do

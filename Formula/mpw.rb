@@ -34,6 +34,7 @@ class Mpw < Formula
 
   test do
     assert_equal "Jejr5[RepuSosp",
-      shell_output("#{bin}/mpw -q -Fnone -u 'Robert Lee Mitchell' -M 'banana colored duckling' -tlong -c1 -a3 'masterpasswordapp.com'").strip
+      shell_output("#{bin}/mpw -q -Fnone -u 'Robert Lee Mitchell' -M 'banana colored duckling' " \
+                   "-tlong -c1 -a3 'masterpasswordapp.com'").strip
   end
 end

@@ -1,13 +1,14 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostpdl-9.50.tar.gz"
-  sha256 "dd94c5a06c03c58b47b929d03260f491d4807eaf5be83abd283278927b11c9ee"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/ghostpdl-9.51.tar.gz"
+  sha256 "f0a6aab8c10f681f499b77dc2827978d2a0f93437f2b50f2b101a0eb9ee8bc28"
+  revision 1
 
   bottle do
-    sha256 "c1e11a68fdd8b406979fc51791cb1f2a25d76c48a94570c41d6baecc5b338ee1" => :catalina
-    sha256 "8d035baadee0af460d3703593dfa646225499de19e97df29ce415e46ac414590" => :mojave
-    sha256 "e3327de86ff58f2f348c40cda8b0e4c6eebb120187dbb5d93be14fd887b54c05" => :high_sierra
+    sha256 "d41745337c5e65765a65db3d9695fc1da7b268780a4907c9b455b71ae99b5973" => :catalina
+    sha256 "265140d1033ea66ec8442b156e7b223c2d4c2cb5a90314c53e5e244f7781a80c" => :mojave
+    sha256 "c098b0d348b448ca0232811b4c3d76a61ace904628a699c23534b8d13a1c8082" => :high_sierra
   end
 
   head do
@@ -30,6 +31,18 @@ class Ghostscript < Formula
 
   patch :DATA # Uncomment macOS-specific make vars
 
+  # This patch fixes a regression that seems to occur when Ghostscript is told
+  # to render a subset of PDF pages as images, such as with the arguments
+  # -dFirstPage and -dLastPage. Programs that use Ghostscript as a PDF backend
+  # often use these arguments. If not applied, there will be seg faults,
+  # floating point exceptions and other undefined behavior.
+  # This should be removed in Ghostscript 9.52, as we are cherrypicking this
+  # from the master branch of changes that will appear in 9.52.
+  patch do
+    url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=aaf5edb15fceaae962569bae30eb4633480c1d15"
+    sha256 "bdf9741c7b8a069a523e9a7f2736af21469989b8332148a8bd3682085346c662"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -47,12 +60,6 @@ class Ghostscript < Formula
     else
       system "./configure", *args
     end
-
-    # Fix for shared library bug https://bugs.ghostscript.com/show_bug.cgi?id=701211
-    # Can be removed in next version, and possibly replaced by passing
-    # --enable-gpdl to configure
-    inreplace "Makefile", "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET)",
-                          "PCL_XPS_TARGETS=$(PCL_TARGET) $(XPS_TARGET) $(GPDL_TARGET)"
 
     # Install binaries and libraries
     system "make", "install"

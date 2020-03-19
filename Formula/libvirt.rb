@@ -3,16 +3,17 @@ class Libvirt < Formula
   homepage "https://www.libvirt.org"
   url "https://libvirt.org/sources/libvirt-6.1.0.tar.xz"
   sha256 "167c185be45560e73dd3e14ed375778b555c01455192de2dafc4d0f74fabebc0"
+  revision 1
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "8fa2bf2a7e65176f75b8fe6d3fd55700fc5e685653e63af892694f1f87a33ef2" => :catalina
-    sha256 "07977c35c89f4bfa0e8c29bd19f8cf13735992735bf5c3791da9d6828ed51bd3" => :mojave
-    sha256 "eff1091d09dac40553394faa0ee02c836441f43c9b11416d52e914bbaa5f4a0f" => :high_sierra
+    sha256 "28037d70773c71c23f91109280927d500d4fe90b83f00a57c53dcd6584beda50" => :catalina
+    sha256 "f1071e61f11bc08feec031f4351675e3dcdf31824dde2b0ba39b234911cd92d7" => :mojave
+    sha256 "0bdb416af45261fb6781ffc0da447dbb0ea4e23a253afb50297df8851fe7c601" => :high_sierra
   end
 
+  depends_on "docutils" => :build
   depends_on "pkg-config" => :build
-  depends_on "docutils"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
@@ -64,29 +65,30 @@ class Libvirt < Formula
 
   plist_options :manual => "libvirtd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/bin</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/libvirtd</string>
+          </array>
+          <key>KeepAlive</key>
+          <true/>
+          <key>RunAtLoad</key>
+          <true/>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/libvirtd</string>
-        </array>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

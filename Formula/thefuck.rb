@@ -51,13 +51,14 @@ class Thefuck < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    Add the following to your .bash_profile, .bashrc or .zshrc:
+  def caveats
+    <<~EOS
+      Add the following to your .bash_profile, .bashrc or .zshrc:
 
-      eval $(thefuck --alias)
+        eval $(thefuck --alias)
 
-    For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
-  EOS
+      For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
+    EOS
   end
 
   test do

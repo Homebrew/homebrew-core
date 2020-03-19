@@ -28,40 +28,42 @@ class Riemann < Formula
     (bin+"riemann").write shim_script
   end
 
-  def caveats; <<~EOS
-    You may also wish to install these Ruby gems:
-      riemann-client
-      riemann-tools
-      riemann-dash
-  EOS
+  def caveats
+    <<~EOS
+      You may also wish to install these Ruby gems:
+        riemann-client
+        riemann-tools
+        riemann-dash
+    EOS
   end
 
   plist_options :manual => "riemann"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/riemann</string>
-          <string>#{etc}/riemann.config</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/riemann.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/riemann.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/riemann</string>
+            <string>#{etc}/riemann.config</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/riemann.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/riemann.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

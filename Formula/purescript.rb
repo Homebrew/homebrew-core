@@ -4,7 +4,7 @@ class Purescript < Formula
   include Language::Haskell::Cabal
 
   desc "Strongly typed programming language that compiles to JavaScript"
-  homepage "http://www.purescript.org"
+  homepage "https://www.purescript.org/"
   url "https://hackage.haskell.org/package/purescript-0.13.6/purescript-0.13.6.tar.gz"
   sha256 "12f5efa2e157a8d57e6f5a4318d08ff57796802ec3e404f5436371b32f1f5af7"
   head "https://github.com/purescript/purescript.git"

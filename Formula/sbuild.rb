@@ -12,7 +12,8 @@ class Sbuild < Formula
   def install
     libexec.install Dir["*"]
     chmod 0755, libexec/"bin/sbuild"
-    (bin/"sbuild").write_env_script libexec/"bin/sbuild", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    (bin/"sbuild").write_env_script libexec/"bin/sbuild",
+      :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
   end
 
   test do

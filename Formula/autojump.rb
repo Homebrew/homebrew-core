@@ -26,14 +26,15 @@ class Autojump < Formula
     bin.write_exec_script libexec/"bin/autojump"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
-    to source the file to update your current session):
-      [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
+  def caveats
+    <<~EOS
+      Add the following line to your ~/.bash_profile or ~/.zshrc file (and remember
+      to source the file to update your current session):
+        [ -f #{etc}/profile.d/autojump.sh ] && . #{etc}/profile.d/autojump.sh
 
-    If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
-      [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
-  EOS
+      If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
+        [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
+    EOS
   end
 
   test do

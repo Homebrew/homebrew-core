@@ -29,57 +29,59 @@ class DnscryptProxy < Formula
     end
   end
 
-  def caveats; <<~EOS
-    After starting dnscrypt-proxy, you will need to point your
-    local DNS server to 127.0.0.1. You can do this by going to
-    System Preferences > "Network" and clicking the "Advanced..."
-    button for your interface. You will see a "DNS" tab where you
-    can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
+  def caveats
+    <<~EOS
+      After starting dnscrypt-proxy, you will need to point your
+      local DNS server to 127.0.0.1. You can do this by going to
+      System Preferences > "Network" and clicking the "Advanced..."
+      button for your interface. You will see a "DNS" tab where you
+      can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
 
-    By default, dnscrypt-proxy runs on localhost (127.0.0.1), port 53,
-    balancing traffic across a set of resolvers. If you would like to
-    change these settings, you will have to edit the configuration file:
-      #{etc}/dnscrypt-proxy.toml
+      By default, dnscrypt-proxy runs on localhost (127.0.0.1), port 53,
+      balancing traffic across a set of resolvers. If you would like to
+      change these settings, you will have to edit the configuration file:
+        #{etc}/dnscrypt-proxy.toml
 
-    To check that dnscrypt-proxy is working correctly, open Terminal and enter the
-    following command. Replace en1 with whatever network interface you're using:
+      To check that dnscrypt-proxy is working correctly, open Terminal and enter the
+      following command. Replace en1 with whatever network interface you're using:
 
-      sudo tcpdump -i en1 -vvv 'port 443'
+        sudo tcpdump -i en1 -vvv 'port 443'
 
-    You should see a line in the result that looks like this:
+      You should see a line in the result that looks like this:
 
-     resolver.dnscrypt.info
-  EOS
+       resolver.dnscrypt.info
+    EOS
   end
 
   plist_options :startup => true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/dnscrypt-proxy</string>
-          <string>-config</string>
-          <string>#{etc}/dnscrypt-proxy.toml</string>
-        </array>
-        <key>UserName</key>
-        <string>root</string>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <true/>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/dnscrypt-proxy</string>
+            <string>-config</string>
+            <string>#{etc}/dnscrypt-proxy.toml</string>
+          </array>
+          <key>UserName</key>
+          <string>root</string>
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

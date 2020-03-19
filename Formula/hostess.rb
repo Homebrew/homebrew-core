@@ -1,15 +1,15 @@
 class Hostess < Formula
   desc "Idempotent command-line utility for managing your /etc/hosts file"
   homepage "https://github.com/cbednarski/hostess"
-  url "https://github.com/cbednarski/hostess/archive/v0.5.1.tar.gz"
-  sha256 "9fbff04becc3d65a11de24f03604190eaafeb5f5117df297bdd84fb2df58c1ab"
+  url "https://github.com/cbednarski/hostess/archive/v0.5.2.tar.gz"
+  sha256 "ece52d72e9e886e5cc877379b94c7d8fe6ba5e22ab823ef41b66015e5326da87"
   head "https://github.com/cbednarski/hostess.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f81fb164e79a68747d694a9f44788086e27ba646e0e05d12bcbfb57bf4733c5d" => :catalina
-    sha256 "4c6b07faed95a772ce07e4e0634d784abc223433e3a49c31740d238e8052e900" => :mojave
-    sha256 "ad68ebfe0c89d97c1790b8c10b2cbc9fbda50ec5e96bef0da5c499d82cc7a5b0" => :high_sierra
+    sha256 "80480773a167fdcad3fadb3feeb298b51aeb89aec5863204f512f941af7271da" => :catalina
+    sha256 "f3f06881067507c0d115209d515e6ebbe4090d7aa8fcff7bc685027c49ea6479" => :mojave
+    sha256 "15050f5b2f5936fe74e47937323c8a872ec12b75ed639b3df2c6eac11cf7da6f" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -40,37 +40,38 @@ class GitlabRunner < Formula
 
   plist_options :manual => "gitlab-runner start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>SessionCreate</key><false/>
-        <key>KeepAlive</key><true/>
-        <key>RunAtLoad</key><true/>
-        <key>Disabled</key><false/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/gitlab-runner</string>
-          <string>run</string>
-          <string>--working-directory</string>
-          <string>#{ENV["HOME"]}</string>
-          <string>--config</string>
-          <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
-          <string>--service</string>
-          <string>gitlab-runner</string>
-          <string>--syslog</string>
-        </array>
-        <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>SessionCreate</key><false/>
+          <key>KeepAlive</key><true/>
+          <key>RunAtLoad</key><true/>
+          <key>Disabled</key><false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/gitlab-runner</string>
+            <string>run</string>
+            <string>--working-directory</string>
+            <string>#{ENV["HOME"]}</string>
+            <string>--config</string>
+            <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
+            <string>--service</string>
+            <string>gitlab-runner</string>
+            <string>--syslog</string>
+          </array>
+          <key>EnvironmentVariables</key>
+            <dict>
+              <key>PATH</key>
+              <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

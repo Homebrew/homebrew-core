@@ -1,14 +1,14 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/7.5/racket-minimal-7.5-src-builtpkgs.tgz"
-  sha256 "232d53aef4233a1f50325da0e6455f84b77eb0829f8184e1219d0382c066073a"
+  url "https://mirror.racket-lang.org/installers/7.6/racket-minimal-7.6-src-builtpkgs.tgz"
+  sha256 "2e2e8e5664f1c8fe51b193d620399e6e97d14547945e331af42a5ed35847b63c"
 
   bottle do
     cellar :any
-    sha256 "70ea8d21e62a5843b6c07cf46269ea9458001f6111b4a6c07aa5ba777ccfa87e" => :catalina
-    sha256 "68d761a6679fddaf422e0fbec5897116ca409e50f12aafb3589a06586403caaa" => :mojave
-    sha256 "938471c9139a10efa9c4b6f7a5d4955f7e53a1f43578662f366102086a9ed33c" => :high_sierra
+    sha256 "21fb442885da3ab4e2fe82c7983f2295447a076c92c95332f2e68afded5455df" => :catalina
+    sha256 "d31c1e3ef4d3195f99ac71525a9cbeca2c2fff6b60274325179b0f48886bdd71" => :mojave
+    sha256 "ec76cf3d17d3c3ec45a93d1930ae3ebe54210aa65d4b43f355accd56828bec31" => :high_sierra
   end
 
   uses_from_macos "libffi"
@@ -30,6 +30,7 @@ class MinimalRacket < Formula
         --prefix=#{prefix}
         --mandir=#{man}
         --sysconfdir=#{etc}
+        --enable-useprefix
       ]
 
       system "./configure", *args
@@ -38,14 +39,15 @@ class MinimalRacket < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This is a minimal Racket distribution.
-    If you want to build the DrRacket IDE, you may run:
-      raco pkg install --auto drracket
+  def caveats
+    <<~EOS
+      This is a minimal Racket distribution.
+      If you want to build the DrRacket IDE, you may run:
+        raco pkg install --auto drracket
 
-    The full Racket distribution is available as a cask:
-      brew cask install racket
-  EOS
+      The full Racket distribution is available as a cask:
+        brew cask install racket
+    EOS
   end
 
   test do

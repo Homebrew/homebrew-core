@@ -3,11 +3,12 @@ class Suricata < Formula
   homepage "https://suricata-ids.org/"
   url "https://www.openinfosecfoundation.org/download/suricata-5.0.2.tar.gz"
   sha256 "7f30cac92feeab2a9281b6059b96f9f163dce9aadcc959a6c0b9a2f6d750cee7"
+  revision 1
 
   bottle do
-    sha256 "c53984e39929bf1649a63c44ed33ca04d669a9e4214637d4ade862331f004315" => :catalina
-    sha256 "4db4344400d879ec86f10a381b507ef16a6fd41f83ec7aa009c10d3cb82d60d0" => :mojave
-    sha256 "4ad2a8c5dee845881c60942cf7118ed083516a9d8d630d67b046f57a462a23ec" => :high_sierra
+    sha256 "03ed0b8b71a417afd9a49baeb3930f2be3a7c1153490751b5fd162ec04aec899" => :catalina
+    sha256 "69f509afc6483ba5de19a8745ad74bc93363db6ea067048712f9dad77de77f09" => :mojave
+    sha256 "8c624326996faab5ded85355dcc739bbacd4b9edfbe13f012a6223acb3267154" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

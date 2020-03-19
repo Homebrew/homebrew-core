@@ -49,41 +49,43 @@ class Orientdb < Formula
     system "#{bin}/orientdb", "stop"
   end
 
-  def caveats; <<~EOS
-    The OrientDB root password was set to 'orientdb'. To reset it:
-      https://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
-  EOS
+  def caveats
+    <<~EOS
+      The OrientDB root password was set to 'orientdb'. To reset it:
+        https://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
+    EOS
   end
 
   plist_options :manual => "orientdb start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-        <key>Label</key>
-        <string>homebrew.mxcl.orientdb</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>/usr/local/opt/orientdb/libexec/bin/server.sh</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>/usr/local/var</string>
-        <key>StandardErrorPath</key>
-        <string>/usr/local/var/log/orientdb/serror.log</string>
-        <key>StandardOutPath</key>
-        <string>/usr/local/var/log/orientdb/sout.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+            <dict>
+              <key>SuccessfulExit</key>
+              <false/>
+            </dict>
+          <key>Label</key>
+          <string>homebrew.mxcl.orientdb</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>/usr/local/opt/orientdb/libexec/bin/server.sh</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>/usr/local/var</string>
+          <key>StandardErrorPath</key>
+          <string>/usr/local/var/log/orientdb/serror.log</string>
+          <key>StandardOutPath</key>
+          <string>/usr/local/var/log/orientdb/sout.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

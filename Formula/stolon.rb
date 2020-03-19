@@ -17,10 +17,14 @@ class Stolon < Formula
   depends_on "postgresql"
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}", "-trimpath", "-o", bin/"stolonctl", "./cmd/stolonctl"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}", "-trimpath", "-o", bin/"stolon-keeper", "./cmd/keeper"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}", "-trimpath", "-o", bin/"stolon-sentinel", "./cmd/sentinel"
-    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}", "-trimpath", "-o", bin/"stolon-proxy", "./cmd/proxy"
+    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
+                          "-trimpath", "-o", bin/"stolonctl", "./cmd/stolonctl"
+    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
+                          "-trimpath", "-o", bin/"stolon-keeper", "./cmd/keeper"
+    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
+                          "-trimpath", "-o", bin/"stolon-sentinel", "./cmd/sentinel"
+    system "go", "build", "-ldflags", "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}",
+                          "-trimpath", "-o", bin/"stolon-proxy", "./cmd/proxy"
     prefix.install_metafiles
   end
 
@@ -30,11 +34,16 @@ class Stolon < Formula
     end
     sleep 2
 
-    assert_match "stolonctl version #{version}", shell_output("#{bin}/stolonctl version 2>&1")
-    assert_match "nil cluster data: <nil>", shell_output("#{bin}/stolonctl status --cluster-name test --store-backend consul 2>&1", 1)
-    assert_match "stolon-keeper version #{version}", shell_output("#{bin}/stolon-keeper --version 2>&1")
-    assert_match "stolon-sentinel version #{version}", shell_output("#{bin}/stolon-sentinel --version 2>&1")
-    assert_match "stolon-proxy version #{version}", shell_output("#{bin}/stolon-proxy --version 2>&1")
+    assert_match "stolonctl version #{version}",
+      shell_output("#{bin}/stolonctl version 2>&1")
+    assert_match "nil cluster data: <nil>",
+      shell_output("#{bin}/stolonctl status --cluster-name test --store-backend consul 2>&1", 1)
+    assert_match "stolon-keeper version #{version}",
+      shell_output("#{bin}/stolon-keeper --version 2>&1")
+    assert_match "stolon-sentinel version #{version}",
+      shell_output("#{bin}/stolon-sentinel --version 2>&1")
+    assert_match "stolon-proxy version #{version}",
+      shell_output("#{bin}/stolon-proxy --version 2>&1")
 
     Process.kill("TERM", pid)
     Process.wait(pid)

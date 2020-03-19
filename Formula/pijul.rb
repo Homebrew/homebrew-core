@@ -20,6 +20,10 @@ class Pijul < Formula
   depends_on "openssl@1.1"
 
   def install
+    # Applies a bugfix (0.20.7 -> 0.20.8) update to a dependency to fix compile.
+    # Remove with the next version.
+    system "cargo", "update", "-p", "thrussh", "--precise", "0.20.8"
+
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix

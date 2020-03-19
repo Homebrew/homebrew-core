@@ -70,7 +70,8 @@ class Jnethack < Formula
       end
 
       # Stage the data
-      libexec.install %w[jhelp jhh jcmdhelp jhistory jopthelp jwizhelp dungeon license data jdata.base joracles options jrumors.tru jrumors.fal quest.dat jquest.txt]
+      libexec.install %w[jhelp jhh jcmdhelp jhistory jopthelp jwizhelp dungeon license data
+                         jdata.base joracles options jrumors.tru jrumors.fal quest.dat jquest.txt]
       libexec.install Dir["*.lev"]
     end
 

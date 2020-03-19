@@ -3,12 +3,13 @@ class Arping < Formula
   homepage "https://github.com/ThomasHabets/arping"
   url "https://github.com/ThomasHabets/arping/archive/arping-2.21.tar.gz"
   sha256 "7bf550571aa1d4a2b00878bb2f6fb857a09d30bf65411c90d62afcd86755bd81"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ef1888a0b7fef648f4f2bb72e62b5c9760f99e200353ab1f73a57b955012ed50" => :catalina
-    sha256 "857799b8c49838abb0fbe7d54b7c87de397233535fb1bfc04a88800e10a0f629" => :mojave
-    sha256 "673a70e73e435f275d8d47c6034cebdffe57908d417abd617fa3c8973b393ce9" => :high_sierra
+    sha256 "24cb6f161d06e9f2bc38d819a7d724d3f0d337f322cbb6e5b685118829e6cd32" => :catalina
+    sha256 "19a737592d390d0bdf06e03c1a49e22a2d9860e065153e1b84bd325fcfa7640c" => :mojave
+    sha256 "5019bb51a8cf372fd070b0b2686a3bbb2b7c262e2d39c8cae83d0c384971a82c" => :high_sierra
   end
 
   depends_on "autoconf" => :build
