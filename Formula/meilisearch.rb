@@ -1,8 +1,8 @@
 class Meilisearch < Formula
   desc "Ultra relevant, instant and typo-tolerant full-text search API"
   homepage "https://docs.meilisearch.com/"
-  url "https://github.com/meilisearch/MeiliSearch/archive/v0.8.4.tar.gz"
-  sha256 "a45e128248bc911e9c4358b44e8afc0e29bbb8dd7b79fd9384c11b8a215256e6"
+  url "https://github.com/meilisearch/MeiliSearch/archive/v0.9.0.tar.gz"
+  sha256 "61ae632adb8dd8307f5fd362ac348404d6066e7f4cb93e36bbfd8648f58e9cbd"
 
   bottle do
     cellar :any_skip_relocation
