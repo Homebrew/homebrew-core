@@ -2,8 +2,8 @@ class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.2.28.tar.xz"
-  sha256 "afe1863301da572dee2e0bad8014813bcced162f980ddc8ec8e41fd72263eb2d"
+  url "https://www.php.net/distributions/php-7.2.29.tar.xz"
+  sha256 "b117de74136bf4b439d663be9cf0c8e06a260c1f340f6b75ccadb609153a7fe8"
 
   bottle do
     sha256 "c1113f11d2a1be9f698b47219e16aadf9e7a97bfa631ee4726bcd66ad33f2d73" => :catalina
