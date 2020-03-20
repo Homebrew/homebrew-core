@@ -15,34 +15,9 @@ class SqlTranslator < Formula
 
   uses_from_macos "perl"
 
-  resource "Class::Method::Modifiers" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz"
-    sha256 "ab5807f71018a842de6b7a4826d6c1f24b8d5b09fcce5005a3309cf6ea40fd63"
-  end
-
-  resource "DBI" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
-    sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
-  end
-
   resource "File::ShareDir::Install" do
     url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.13.tar.gz"
     sha256 "45befdf0d95cbefe7c25a1daf293d85f780d6d2576146546e6828aad26e580f9"
-  end
-
-  resource "Import::Into" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Import-Into-1.002005.tar.gz"
-    sha256 "bd9e77a3fb662b40b43b18d3280cd352edf9fad8d94283e518181cc1ce9f0567"
-  end
-
-  resource "Module::Runtime" do
-    url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
-    sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
-  end
-
-  resource "Moo" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003006.tar.gz"
-    sha256 "bcb2092ab18a45005b5e2e84465ebf3a4999d8e82a43a09f5a94d859ae7f2472"
   end
 
   resource "Package::Variant" do
@@ -50,24 +25,9 @@ class SqlTranslator < Formula
     sha256 "b2ed849d2f4cdd66467512daa3f143266d6df810c5fae9175b252c57bc1536dc"
   end
 
-  resource "Role::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz"
-    sha256 "92ba5712850a74102c93c942eb6e7f62f7a4f8f483734ed289d08b324c281687"
-  end
-
   resource "strictures" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/strictures-2.000006.tar.gz"
     sha256 "09d57974a6d1b2380c802870fed471108f51170da81458e2751859f2714f8d57"
-  end
-
-  resource "Sub::Quote" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz"
-    sha256 "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d"
-  end
-
-  resource "Try::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
-    sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
   end
 
   def install
@@ -75,7 +35,7 @@ class SqlTranslator < Formula
 
     resources.each do |r|
       r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "perl", "Makefile.PL", "--defaultdeps", "INSTALL_BASE=#{libexec}"
         system "make"
         system "make", "install"
       end
@@ -90,8 +50,7 @@ class SqlTranslator < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    perl_files = Dir["#{bin}/sqlt*"]
-    inreplace perl_files, "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    inreplace Dir["#{bin}/*"], "#!/usr/bin/env perl", "#!/usr/bin/perl"
 
     bin.env_script_all_files libexec/"bin", :PERL5LIB => ENV["PERL5LIB"]
   end
