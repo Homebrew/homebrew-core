@@ -13,7 +13,7 @@ class Skaffold < Formula
     sha256 "ab839262b9450e55b1c580f571cfd14daa068ad913f0a6ad5ab7ec5d2340edd7" => :high_sierra
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
