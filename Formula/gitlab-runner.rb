@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag      => "v12.8.0",
-      :revision => "1b659122341969efcf635cc4f9c33b73ca2ee09c"
+      :tag      => "v12.9.0",
+      :revision => "4c96e5adc3be45507cbd66a50c4c5b716621e6a2"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
@@ -16,7 +16,6 @@ class GitlabRunner < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
 
