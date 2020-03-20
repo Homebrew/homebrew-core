@@ -17,6 +17,10 @@ class PostgresqlAT10 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  # GSSAPI provided by Kerberos.framework crashes when forked.
+  # See https://github.com/Homebrew/homebrew-core/issues/47494.
+  depends_on "krb5"
+
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
