@@ -1,0 +1,60 @@
+name: Publish and commit bottles
+
+on: repository_dispatch
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Set up git information
+        uses: actions/github-script@0.8.0
+        id: env
+        with:
+          script: |
+            let user = await github.users.getByUsername({
+              username: context.actor
+            })
+            user.data.email = (user.data.email || user.data.id + "+" + user.data.login + "@users.noreply.github.com")
+            console.log(user.data.email)
+            return user.data
+      - name: Download artifacts
+        uses: Homebrew/actions/download-artifact@master
+        with:
+          github_token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          workflow: tests.yml
+          pr: ${{github.event.client_payload.pull_request}}
+          name: bottles
+          path: bottles
+      - name: Upload bottles
+        env:
+          HOMEBREW_BINTRAY_USER: BrewTestBot
+          HOMEBREW_BINTRAY_KEY: ${{ secrets.HOMEBREW_BINTRAY_KEY }}
+        run: |
+          cd ~/bottles
+          brew update-reset
+          brew test-bot --ci-upload --publish
+      - name: Push bottle commit
+        env:
+          GIT_COMMITTER_NAME: ${{steps.env.outputs.name}}
+          GIT_COMMITTER_EMAIL: ${{steps.env.outputs.email}}
+        run: |
+          cd $(brew --repo ${{github.repository}})
+          git rebase --force master
+          git show --pretty=fuller
+          for try in $(seq 5); do
+            git fetch
+            git rebase origin/master
+            if git push https://x-access-token:${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@github.com/${{github.repository}} master; then
+              exit 0
+            else
+              sleep $(shuf -i 3-10 -n 1)
+            fi
+          done
+          exit 1
