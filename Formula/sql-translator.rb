@@ -35,13 +35,14 @@ class SqlTranslator < Formula
 
     resources.each do |r|
       r.stage do
-        system "perl", "Makefile.PL", "--defaultdeps", "INSTALL_BASE=#{libexec}"
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"
         system "make", "install"
       end
     end
 
-    system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
+    system "perl", "Makefile.PL", "--defaultdeps",
+                                  "INSTALL_BASE=#{libexec}",
                                   "INSTALLSITESCRIPT=#{bin}",
                                   "INSTALLSITEMAN1DIR=#{man1}",
                                   "INSTALLSITEMAN3DIR=#{man3}"
