@@ -3,7 +3,7 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
   sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
-  revision 11
+  revision 12
 
   bottle do
     cellar :any
@@ -48,7 +48,7 @@ class Dynare < Formula
       system "make", "lib", "OPTS=-fPIC -fdefault-integer-8",
              "FORTRAN=gfortran", "LOADER=gfortran",
              "SLICOTLIB=../libslicot64_pic.a"
-      (buildpath/"slicot").install "libslicot_pic.a", "libslicot64_pic.a"
+      (buildpath/"slicot/lib").install "libslicot_pic.a", "libslicot64_pic.a"
     end
 
     system "autoreconf", "-fvi" if build.head?
@@ -57,8 +57,13 @@ class Dynare < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--disable-matlab",
-                          "--with-slicot=#{buildpath}/slicot"
-    system "make", "install"
+                          "--with-slicot=#{buildpath}/slicot",
+                          "--with-boost=#{Formula["boost"].prefix}",
+                          "--disable-doc"
+    # Octave hardcodes its paths which causes problems on GCC minor version bumps
+    gcc = Formula["gcc"]
+    flibs = "-L#{gcc.lib/"gcc"/gcc.version_suffix} -lgfortran -lquadmath -lm"
+    system "make", "install", "FLIBS=#{flibs}"
   end
 
   def caveats
