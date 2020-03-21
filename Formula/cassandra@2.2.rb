@@ -1,9 +1,9 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
-  sha256 "7109f50a5a12f62b41e692521622344ba1e79381d713fc578e60e554f7c83334"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.16/apache-cassandra-2.2.16-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/2.2.16/apache-cassandra-2.2.16-bin.tar.gz"
+  sha256 "827474c965242be4788beefa3e28d05d909e0bb068e03b65c73f1669796ddb84"
 
   bottle do
     cellar :any_skip_relocation
