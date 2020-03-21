@@ -1,9 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs951/ghostpdl-9.51.tar.gz"
-  sha256 "f0a6aab8c10f681f499b77dc2827978d2a0f93437f2b50f2b101a0eb9ee8bc28"
-  revision 1
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostpdl-9.52.tar.gz"
+  sha256 "8f6e48325c106ae033bbae3e55e6c0b9ee5c6b57e54f7cd24fb80a716a93b06a"
 
   bottle do
     sha256 "d41745337c5e65765a65db3d9695fc1da7b268780a4907c9b455b71ae99b5973" => :catalina
@@ -30,18 +29,6 @@ class Ghostscript < Formula
   end
 
   patch :DATA # Uncomment macOS-specific make vars
-
-  # This patch fixes a regression that seems to occur when Ghostscript is told
-  # to render a subset of PDF pages as images, such as with the arguments
-  # -dFirstPage and -dLastPage. Programs that use Ghostscript as a PDF backend
-  # often use these arguments. If not applied, there will be seg faults,
-  # floating point exceptions and other undefined behavior.
-  # This should be removed in Ghostscript 9.52, as we are cherrypicking this
-  # from the master branch of changes that will appear in 9.52.
-  patch do
-    url "https://git.ghostscript.com/?p=ghostpdl.git;a=patch;h=aaf5edb15fceaae962569bae30eb4633480c1d15"
-    sha256 "bdf9741c7b8a069a523e9a7f2736af21469989b8332148a8bd3682085346c662"
-  end
 
   def install
     args = %W[
