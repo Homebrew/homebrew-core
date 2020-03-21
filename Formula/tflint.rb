@@ -2,8 +2,8 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.15.2",
-    :revision => "4d470f9f0dcd5adbc911c500cb3fc2cd225e962e"
+    :tag      => "v0.15.3",
+    :revision => "b4e81dd5bc2cd14e0aaee3db4b88999d6d111683"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
