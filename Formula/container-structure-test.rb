@@ -1,9 +1,8 @@
 class ContainerStructureTest < Formula
   desc "Validate the structure of your container images"
   homepage "https://github.com/GoogleContainerTools/container-structure-test"
-  url "https://github.com/GoogleContainerTools/container-structure-test.git",
-      :tag      => "v1.8.0",
-      :revision => "19abf36d1451cb27f8e0f5ec8260815c73184bd4"
+  url "https://github.com/GoogleContainerTools/container-structure-test/archive/v1.9.0.tar.gz"
+  sha256 "6a70b123a5a7781501109912249bc1209527d5dbee026e38777a25340b77a1df"
   head "https://github.com/GoogleContainerTools/container-structure-test.git"
 
   bottle do
@@ -50,8 +49,15 @@ class ContainerStructureTest < Formula
           permissions: '-rwxr-xr-x'
     EOF
 
+    args = %w[
+      --driver tar
+      --json
+      --image busybox-1.31.1.tar
+      --config test.yml
+    ].join(" ")
+
     resource("busybox-image-tar").stage testpath
-    json_text = shell_output("#{bin}/container-structure-test test --driver tar --json --image busybox-1.31.1.tar --config test.yml")
+    json_text = shell_output("#{bin}/container-structure-test test #{args}")
     res = JSON.parse(json_text)
     assert_equal res["Pass"], 2
     assert_equal res["Fail"], 0
