@@ -1,9 +1,8 @@
 class Fox < Formula
   desc "Toolkit for developing Graphical User Interfaces easily"
   homepage "http://www.fox-toolkit.org/"
-  url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
-  sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
-  revision 1
+  url "http://fox-toolkit.org/ftp/fox-1.6.57.tar.gz"
+  sha256 "65ef15de9e0f3a396dc36d9ea29c158b78fad47f7184780357b929c94d458923"
 
   bottle do
     cellar :any
