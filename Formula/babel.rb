@@ -4,8 +4,8 @@ require "json"
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/@babel/core/-/core-7.8.7.tgz"
-  sha256 "e43c2bea6203f99e4964fc9bfac997d7b917fb43e24936db7dc425466c066ce0"
+  url "https://registry.npmjs.org/@babel/core/-/core-7.9.0.tgz"
+  sha256 "8490214c5335651254d42edec53eae0441633b531f3b9fbe03bb0545065e32c6"
 
   bottle do
     sha256 "1a5a985a9ec01bc5b3a917fc840b4abcc43d73099f9e2587f2c18c001519c5e6" => :catalina
