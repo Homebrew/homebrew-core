@@ -13,11 +13,11 @@ class Libpq < Formula
 
   keg_only "conflicts with postgres formula"
 
-  depends_on "openssl@1.1"
-
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"
+
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug",
