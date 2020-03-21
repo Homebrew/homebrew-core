@@ -1,6 +1,6 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
-  homepage "https://www.gtk.org/gtk-doc/"
+  homepage "https://gitlab.gnome.org/GNOME/gtk-doc"
   url "https://download.gnome.org/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz"
   sha256 "de0ef034fb17cb21ab0c635ec730d19746bce52984a6706e7bbec6fb5e0b907c"
 
