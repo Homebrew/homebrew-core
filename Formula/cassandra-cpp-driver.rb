@@ -1,8 +1,8 @@
 class CassandraCppDriver < Formula
   desc "DataStax C/C++ Driver for Apache Cassandra"
   homepage "https://docs.datastax.com/en/developer/cpp-driver/latest"
-  url "https://github.com/datastax/cpp-driver/archive/2.15.0.tar.gz"
-  sha256 "8cccffc7f3b7a8edc51c5c4344fd6a60d5a7beec27a1a3fd52742003a2675cb9"
+  url "https://github.com/datastax/cpp-driver/archive/2.15.1.tar.gz"
+  sha256 "b3095e154f10d7a740dfa3155f66be50880b0110a06dd02dd097f1121a72d88d"
   head "https://github.com/datastax/cpp-driver.git"
 
   bottle do
