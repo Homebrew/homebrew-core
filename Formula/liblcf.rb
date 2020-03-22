@@ -4,6 +4,7 @@ class Liblcf < Formula
   url "https://github.com/EasyRPG/liblcf/archive/0.6.1.tar.gz"
   sha256 "224068ede007098d8fad45348da3b47f00a33d5e8a4a693514d5c9290ab1883f"
   head "https://github.com/EasyRPG/liblcf.git"
+  revision 1
 
   bottle do
     cellar :any
