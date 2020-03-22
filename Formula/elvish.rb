@@ -1,8 +1,8 @@
 class Elvish < Formula
   desc "Friendly and expressive shell"
   homepage "https://github.com/elves/elvish"
-  url "https://github.com/elves/elvish/archive/v0.13.tar.gz"
-  sha256 "07d2205546186bd6c196653f14552ce07d6d9661a9fa437cf0caac4fe66bf749"
+  url "https://github.com/elves/elvish/archive/v0.13.1.tar.gz"
+  sha256 "83275a4c36f66b831ba4864d1f5ffdc823616ed0a8e41b2a9a3e9fcba9279e27"
   head "https://github.com/elves/elvish.git"
 
   bottle do
