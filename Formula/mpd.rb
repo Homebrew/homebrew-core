@@ -4,6 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.21.tar.xz"
   sha256 "e1bdb15f0e3b62c18e91257a7b41530dc36eb91cc03eabc6e6bffd947ec168ce"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
+  revision 1
 
   bottle do
     cellar :any
