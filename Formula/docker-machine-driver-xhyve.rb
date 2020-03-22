@@ -19,7 +19,8 @@ class DockerMachineDriverXhyve < Formula
   depends_on :macos => :yosemite
 
   def install
-    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]
+    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install \
+      Dir["{*,.git,.gitignore,.gitmodules}"]
 
     ENV["GOPATH"] = "#{buildpath}/gopath"
     build_root = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"
@@ -40,12 +41,13 @@ class DockerMachineDriverXhyve < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This driver requires superuser privileges to access the hypervisor. To
-    enable, execute
-        sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
-        sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
-  EOS
+  def caveats
+    <<~EOS
+      This driver requires superuser privileges to access the hypervisor. To
+      enable, execute
+          sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
+          sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
+    EOS
   end
 
   test do

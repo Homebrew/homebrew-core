@@ -35,7 +35,8 @@ class Minizip2 < Formula
         return hZip != NULL && mz_zip_close(NULL) == MZ_PARAM_ERROR ? 0 : 1;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lminizip", "-lz", "-lbz2", "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lminizip", "-lz", "-lbz2",
+                   "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
     system "./test"
   end
 end

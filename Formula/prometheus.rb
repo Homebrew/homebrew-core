@@ -43,41 +43,43 @@ class Prometheus < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    When used with `brew services`, prometheus' configuration is stored as command line flags in:
-      #{etc}/prometheus.args
+  def caveats
+    <<~EOS
+      When used with `brew services`, prometheus' configuration is stored as command line flags in:
+        #{etc}/prometheus.args
 
-    Configuration for prometheus is located in the #{etc}/prometheus.yml file.
+      Configuration for prometheus is located in the #{etc}/prometheus.yml file.
 
-  EOS
+    EOS
   end
 
   plist_options :manual => "prometheus"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>sh</string>
-          <string>-c</string>
-          <string>#{opt_bin}/prometheus $(&lt; #{etc}/prometheus.args)</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/prometheus.err.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/prometheus.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>sh</string>
+            <string>-c</string>
+            <string>#{opt_bin}/prometheus $(&lt; #{etc}/prometheus.args)</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/prometheus.err.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/prometheus.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

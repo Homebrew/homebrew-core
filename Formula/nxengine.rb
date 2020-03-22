@@ -65,9 +65,10 @@ class Nxengine < Formula
     ln_sf "/Library/Fonts/Courier New.ttf", "#{var}/nxengine/font.ttf"
   end
 
-  def caveats; <<~EOS
-    When the game runs first time, it will extract data files into the following directory:
-      #{var}/nxengine
-  EOS
+  def caveats
+    <<~EOS
+      When the game runs first time, it will extract data files into the following directory:
+        #{var}/nxengine
+    EOS
   end
 end

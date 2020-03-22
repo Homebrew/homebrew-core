@@ -59,13 +59,14 @@ class Gitfs < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    gitfs clones repos in /var/lib/gitfs. You can either create it with
-    sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
-    repo_path argument.
+  def caveats
+    <<~EOS
+      gitfs clones repos in /var/lib/gitfs. You can either create it with
+      sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
+      repo_path argument.
 
-    Also make sure OSXFUSE is properly installed by running brew info osxfuse.
-  EOS
+      Also make sure OSXFUSE is properly installed by running brew info osxfuse.
+    EOS
   end
 
   test do

@@ -1,15 +1,14 @@
 class Ensmallen < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://github.com/mlpack/ensmallen/archive/2.11.3.tar.gz"
-  sha256 "52ddd26549ae014423d07c5ef8f1f418dc2cdfaa00e093db58392818154ce7f6"
-  revision 1
+  url "https://github.com/mlpack/ensmallen/archive/2.11.5.tar.gz"
+  sha256 "caa714f14dec80a7b146d829c9e90732ad9b7d54aa322288aedaed6def4a9259"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e24b5d6fb684fe67805b4f3850cb94c0b544979754528306b50db3f1b447258d" => :catalina
-    sha256 "e24b5d6fb684fe67805b4f3850cb94c0b544979754528306b50db3f1b447258d" => :mojave
-    sha256 "e24b5d6fb684fe67805b4f3850cb94c0b544979754528306b50db3f1b447258d" => :high_sierra
+    sha256 "48b4f57bf148fd75ae94b464a609bb1963b5d426a574490c5ba6829cbf1572fb" => :catalina
+    sha256 "48b4f57bf148fd75ae94b464a609bb1963b5d426a574490c5ba6829cbf1572fb" => :mojave
+    sha256 "48b4f57bf148fd75ae94b464a609bb1963b5d426a574490c5ba6829cbf1572fb" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -35,11 +34,7 @@ class Ensmallen < Formula
         return 0;
       }
     EOS
-    cxx_with_flags = ENV.cxx.split + ["test.cpp",
-                                      "-std=c++11",
-                                      "-I#{include}",
-                                      "-I#{Formula["armadillo"].opt_lib}/libarmadillo",
-                                      "-o", "test"]
-    system *cxx_with_flags
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-I#{Formula["armadillo"].opt_lib}/libarmadillo",
+                    "-o", "test"
   end
 end

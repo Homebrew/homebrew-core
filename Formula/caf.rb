@@ -39,7 +39,7 @@ class Caf < Formula
       CAF_MAIN()
     EOS
     ENV.cxx11
-    system *(ENV.cxx.split + %W[test.cpp -L#{lib} -lcaf_core -o test])
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
     system "./test"
   end
 end

@@ -24,17 +24,18 @@ class GoogleAuthenticatorLibpam < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Add 2-factor authentication for ssh:
-      echo "auth required #{opt_lib}/security/pam_google_authenticator.so" \\
-      | sudo tee -a /etc/pam.d/sshd
+  def caveats
+    <<~EOS
+      Add 2-factor authentication for ssh:
+        echo "auth required #{opt_lib}/security/pam_google_authenticator.so" \\
+        | sudo tee -a /etc/pam.d/sshd
 
-    Add 2-factor authentication for ssh allowing users to log in without OTP:
-      echo "auth required #{opt_lib}/security/pam_google_authenticator.so" \\
-      "nullok" | sudo tee -a /etc/pam.d/sshd
+      Add 2-factor authentication for ssh allowing users to log in without OTP:
+        echo "auth required #{opt_lib}/security/pam_google_authenticator.so" \\
+        "nullok" | sudo tee -a /etc/pam.d/sshd
 
-    (Or just manually edit /etc/pam.d/sshd)
-  EOS
+      (Or just manually edit /etc/pam.d/sshd)
+    EOS
   end
 
   test do

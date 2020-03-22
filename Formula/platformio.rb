@@ -3,15 +3,14 @@ class Platformio < Formula
 
   desc "An open-source ecosystem for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/f4/c8/8e472c22602ec6cdc6f93e35357ff5f3dff3434da6fc76cd3cd57c7eefb6/platformio-4.2.1.tar.gz"
-  sha256 "310fa8b624cf938ef95284ae3a40a9caa36aafef32ac30ad588b43df516945c3"
-  revision 1
+  url "https://files.pythonhosted.org/packages/15/58/49a7134412731bd585f996d9c69e70f7eff0bacf795a7a55524dadf412cd/platformio-4.3.1.tar.gz"
+  sha256 "fa36a8ba1a321709d0bbc37f76e8c763eee8d5a06f8f01375cd79c7b56f1e919"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f2e25cc622fe4540c80d7220f60ac23575a1a74ac97d2d6555081b48000a4d6" => :catalina
-    sha256 "187d8da185000471826b81ef06c35af85dffb88f8700e653d5e6a93dab98ce24" => :mojave
-    sha256 "f1602a50db77cab3e0bd09730e3bb7a023b052b0d625e8fd803cfbc7a2fea6e5" => :high_sierra
+    sha256 "57fd95ebc84ab37a3ac4d52d6c7bc7f27c9f26231baf4032237121db939ea822" => :catalina
+    sha256 "5479db901ef6a541b9337b481fa5d0487c4dfbee8271de20a8d057642d1148cb" => :mojave
+    sha256 "64bdeec13390cef81ea0f6cf32b67ddda2c811320daa77b2c1d20a5b2f087c07" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -32,8 +31,8 @@ class Platformio < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
-    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+    url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
+    sha256 "8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc"
   end
 
   resource "colorama" do
@@ -42,13 +41,13 @@ class Platformio < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
+    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/58/29/e142bc21808ec966dfcf70fe3a395f61e70bb8abce6bee0bd30a3c1d7a17/marshmallow-3.4.0.tar.gz"
-    sha256 "c9d277f6092f32300395fb83d343be9f61b5e99d66d22bae1e5e7cd82608fee6"
+    url "https://files.pythonhosted.org/packages/a8/74/5aa84008ddc6e8fee93d961a9f04a745a349ad197d95ab89723c097b330d/marshmallow-3.5.1.tar.gz"
+    sha256 "90854221bbb1498d003a0c3cc9d8390259137551917961c8b5258c64026b2f85"
   end
 
   resource "pyelftools" do
@@ -62,8 +61,8 @@ class Platformio < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/01/62/ddcf76d1d19885e8579acb1b1df26a852b03472c0e46d2b959a714c90608/requests-2.22.0.tar.gz"
-    sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
+    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
+    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
   end
 
   resource "semantic-version" do

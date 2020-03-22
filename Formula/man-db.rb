@@ -76,12 +76,13 @@ class ManDb < Formula
     man1.install_symlink "glexgrog.1" => "lexgrog.1"
   end
 
-  def caveats; <<~EOS
-    Commands also provided by macOS have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "bin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/bin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      Commands also provided by macOS have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "bin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/bin:$PATH"
+    EOS
   end
 
   test do

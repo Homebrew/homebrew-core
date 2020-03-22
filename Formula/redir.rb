@@ -1,6 +1,6 @@
 class Redir < Formula
   desc "Port redirector"
-  homepage "http://sammy.net/~sammy/hacks/"
+  homepage "https://web.archive.org/web/20190817033513/sammy.net/~sammy/hacks/"
   url "https://github.com/TracyWebTech/redir/archive/2.2.1-9.tar.gz"
   version "2.2.1-9"
   sha256 "7e6612a0eee1626a0e7d9888de49b9c0fa4b7f75c5c4caca7804bf73d73f01fe"

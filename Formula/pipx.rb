@@ -47,7 +47,8 @@ class Pipx < Formula
 
     system "python3", *Language::Python.setup_install_args(libexec)
     (bin/"pipx").write_env_script(libexec/"bin/pipx", :PYTHONPATH => ENV["PYTHONPATH"])
-    (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete", :PYTHONPATH => ENV["PYTHONPATH"])
+    (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete",
+      :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

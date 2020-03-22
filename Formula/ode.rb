@@ -22,7 +22,11 @@ class Ode < Formula
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
 
-    system "./configure", "--prefix=#{prefix}", "--enable-libccd", "--enable-shared", "--disable-static", "--enable-double-precision"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-libccd",
+                          "--enable-shared",
+                          "--disable-static",
+                          "--enable-double-precision"
     system "make"
     system "make", "install"
   end

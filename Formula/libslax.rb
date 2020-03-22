@@ -26,9 +26,7 @@ class Libslax < Formula
     # configure remembers "-lcrypto" but not the link path.
     ENV.append "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib}"
 
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     system "sh", "./bin/setup.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

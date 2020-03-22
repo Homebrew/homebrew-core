@@ -44,7 +44,8 @@ class KibanaAT56 < Formula
     system "npm", "install", "-ddd", "--build-from-source", "--#{Language::Node.npm_cache_config}"
     system "npm", "run", "build", "--", "--release", "--skip-os-packages", "--skip-archives"
 
-    prefix.install Dir["build/kibana-#{version}-darwin-x86_64/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
+    prefix.install Dir["build/kibana-#{version}-darwin-x86_64/"\
+                       "{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
     inreplace "#{bin}/kibana-plugin", %r{/node/bin/node}, "/libexec/node/bin/node"
@@ -62,31 +63,33 @@ class KibanaAT56 < Formula
     (prefix/"plugins").mkdir
   end
 
-  def caveats; <<~EOS
-    Config: #{etc}/kibana/
-    If you wish to preserve your plugins upon upgrade, make a copy of
-    #{opt_prefix}/plugins before upgrading, and copy it into the
-    new keg location after upgrading.
-  EOS
+  def caveats
+    <<~EOS
+      Config: #{etc}/kibana/
+      If you wish to preserve your plugins upon upgrade, make a copy of
+      #{opt_prefix}/plugins before upgrading, and copy it into the
+      new keg location after upgrading.
+    EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/kibana@5.6/bin/kibana"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_bin}/kibana</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_bin}/kibana</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

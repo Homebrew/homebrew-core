@@ -4,13 +4,13 @@ require "json"
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/@babel/core/-/core-7.8.7.tgz"
-  sha256 "e43c2bea6203f99e4964fc9bfac997d7b917fb43e24936db7dc425466c066ce0"
+  url "https://registry.npmjs.org/@babel/core/-/core-7.9.0.tgz"
+  sha256 "8490214c5335651254d42edec53eae0441633b531f3b9fbe03bb0545065e32c6"
 
   bottle do
-    sha256 "1a5a985a9ec01bc5b3a917fc840b4abcc43d73099f9e2587f2c18c001519c5e6" => :catalina
-    sha256 "aea88eec45e5f99d1e79cdd24ad9af9d51568417ef3e7c471fe3e8d282e516ef" => :mojave
-    sha256 "48434e27fd11c8a229b662224e4e81925162385e8d1ac8f127347b8657be6bb8" => :high_sierra
+    sha256 "cfa4166aa99b7c60460d9c7807bcfd90850c23b95acc05d05e1e0e2b239ca999" => :catalina
+    sha256 "3534e620e87db348a7a898e9aad067393c6b8009fa04c21f173d002576616c39" => :mojave
+    sha256 "97643655911d9843f3c3682a407aabb8dc32e8cfae400799199e8bceccfcce3b" => :high_sierra
   end
 
   depends_on "node"

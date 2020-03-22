@@ -17,12 +17,15 @@ class Miruo < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--with-libpcap=#{MacOS.sdk_path}/usr"
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--with-libpcap=#{MacOS.sdk_path}/usr"
     system "make", "install"
   end
 
   test do
-    (testpath/"dummy.pcap").write("\xd4\xc3\xb2\xa1\x02\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\x00\x00\x01\x00\x00\x00")
+    (testpath/"dummy.pcap").write "\xd4\xc3\xb2\xa1\x02\x00\x04\x00\x00\x00\x00\x00" \
+                                  "\x00\x00\x00\x00\xff\xff\x00\x00\x01\x00\x00\x00"
     system "#{sbin}/miruo", "--file=dummy.pcap"
   end
 end

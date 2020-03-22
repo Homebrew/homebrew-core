@@ -16,10 +16,11 @@ class Slimerjs < Formula
     bin.install_symlink libexec/"slimerjs"
   end
 
-  def caveats; <<~EOS
-    The configuration file was installed in:
-      #{libexec}/application.ini
-  EOS
+  def caveats
+    <<~EOS
+      The configuration file was installed in:
+        #{libexec}/application.ini
+    EOS
   end
 
   test do

@@ -27,13 +27,14 @@ class Make < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    GNU "make" has been installed as "gmake".
-    If you need to use it as "make", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    <<~EOS
+      GNU "make" has been installed as "gmake".
+      If you need to use it as "make", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

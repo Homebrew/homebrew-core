@@ -69,9 +69,10 @@ class Strongswan < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    You will have to run both "ipsec" and "charon-cmd" with "sudo".
-  EOS
+  def caveats
+    <<~EOS
+      You will have to run both "ipsec" and "charon-cmd" with "sudo".
+    EOS
   end
 
   test do

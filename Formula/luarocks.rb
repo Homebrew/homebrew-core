@@ -22,13 +22,14 @@ class Luarocks < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    LuaRocks supports multiple versions of Lua. By default it is configured
-    to use Lua5.3, but you can require it to use another version at runtime
-    with the `--lua-dir` flag, like this:
+  def caveats
+    <<~EOS
+      LuaRocks supports multiple versions of Lua. By default it is configured
+      to use Lua5.3, but you can require it to use another version at runtime
+      with the `--lua-dir` flag, like this:
 
-      luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
-  EOS
+        luarocks --lua-dir=#{Formula["lua@5.1"].opt_prefix} install say
+    EOS
   end
 
   test do

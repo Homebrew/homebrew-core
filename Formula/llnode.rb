@@ -60,18 +60,19 @@ class Llnode < Formula
     prefix.install "llnode.dylib"
   end
 
-  def caveats; <<~EOS
-    `brew install llnode` does not link the plugin to LLDB PlugIns dir.
+  def caveats
+    <<~EOS
+      `brew install llnode` does not link the plugin to LLDB PlugIns dir.
 
-    To load this plugin in LLDB, one will need to either
+      To load this plugin in LLDB, one will need to either
 
-    * Type `plugin load #{opt_prefix}/llnode.dylib` on each run of lldb
-    * Install plugin into PlugIns dir manually:
+      * Type `plugin load #{opt_prefix}/llnode.dylib` on each run of lldb
+      * Install plugin into PlugIns dir manually:
 
-        mkdir -p ~/Library/Application\\ Support/LLDB/PlugIns
-        ln -sf #{opt_prefix}/llnode.dylib \\
-            ~/Library/Application\\ Support/LLDB/PlugIns/
-  EOS
+          mkdir -p ~/Library/Application\\ Support/LLDB/PlugIns
+          ln -sf #{opt_prefix}/llnode.dylib \\
+              ~/Library/Application\\ Support/LLDB/PlugIns/
+    EOS
   end
 
   test do

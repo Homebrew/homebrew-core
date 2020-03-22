@@ -2,13 +2,13 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.3.tar.xz"
-  sha256 "cf1f856d877c268124ded1ede40c9fb6142b125fdaafdc54f855120b8bc6982a"
+  url "https://www.php.net/distributions/php-7.4.4.tar.xz"
+  sha256 "1873c4cefdd3df9a78dcffb2198bba5c2f0464f55c9c960720c84df483fca74c"
 
   bottle do
-    sha256 "9370af1b117049783f81968fc800d1710224581cb8d9f396c38d9eef8aedf3ac" => :catalina
-    sha256 "364332e23b489c53fe9efddc881bd9fa8366df5ea66f9e69c9c843d6ec64518d" => :mojave
-    sha256 "c0c2fa82be5609534d3fdf875515e0d98ea17ed4de4f27aece8e275c840e889b" => :high_sierra
+    sha256 "3796e6c3090e6eba696d2ea61b5bc87960cd8d3737539cb4a18501b738ae9675" => :catalina
+    sha256 "d329b7c67a86885032d0b97c11c92ab711715388f6f379f5764a6cf9bf02ee13" => :mojave
+    sha256 "b324e60671539a5674898d46c9a4b38cfe8bbf71eca81af969cc6c2741a774c2" => :high_sierra
   end
 
   head do
@@ -48,10 +48,10 @@ class Php < Formula
 
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
+  uses_from_macos "krb5"
   uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
-  uses_from_macos "krb5"
   uses_from_macos "zlib"
 
   # PHP build system incorrectly links system libraries
@@ -60,9 +60,7 @@ class Php < Formula
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
-    if MacOS.version == :el_capitan || MacOS.version == :sierra
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -302,29 +300,30 @@ class Php < Formula
 
   plist_options :manual => "php-fpm"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/php-fpm</string>
-          <string>--nodaemonize</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/php-fpm.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/php-fpm</string>
+            <string>--nodaemonize</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/php-fpm.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -369,10 +368,10 @@ class Php < Formula
         DirectoryIndex index.php
       EOS
 
-      if head?
-        php_module = "LoadModule php_module #{lib}/httpd/modules/libphp.so"
+      php_module = if head?
+        "LoadModule php_module #{lib}/httpd/modules/libphp.so"
       else
-        php_module = "LoadModule php7_module #{lib}/httpd/modules/libphp7.so"
+        "LoadModule php7_module #{lib}/httpd/modules/libphp7.so"
       end
 
       (testpath/"httpd.conf").write <<~EOS

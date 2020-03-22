@@ -26,10 +26,11 @@ class Chisel < Formula
       "LD_DYLIB_INSTALL_NAME=#{opt_prefix}/lib/Chisel.framework/Chisel"
   end
 
-  def caveats; <<~EOS
-    Add the following line to ~/.lldbinit to load chisel when Xcode launches:
-      command script import #{opt_libexec}/fblldb.py
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to ~/.lldbinit to load chisel when Xcode launches:
+        command script import #{opt_libexec}/fblldb.py
+    EOS
   end
 
   test do

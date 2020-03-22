@@ -14,14 +14,12 @@ class Gitleaks < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -X github.com/zricethezav/gitleaks/version.Version=#{version}
-    ]
-
-    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"gitleaks"
+    system "go", "build", "-ldflags", "-X github.com/zricethezav/gitleaks/version.Version=#{version}",
+                 "-o", bin/"gitleaks"
   end
 
   test do
-    assert_includes shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git", 2), "remote repository is empty"
+    assert_match "remote repository is empty",
+      shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git", 2)
   end
 end

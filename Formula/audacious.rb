@@ -80,11 +80,12 @@ class Audacious < Formula
     end
   end
 
-  def caveats; <<~EOS
-    audtool does not work due to a broken dbus implementation on macOS, so is not built
-    coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
-    GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
-  EOS
+  def caveats
+    <<~EOS
+      audtool does not work due to a broken dbus implementation on macOS, so is not built
+      coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
+      GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
+    EOS
   end
 
   test do

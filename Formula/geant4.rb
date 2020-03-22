@@ -90,12 +90,13 @@ class Geant4 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Because Geant4 expects a set of environment variables for
-    datafiles, you should source:
-      . #{HOMEBREW_PREFIX}/bin/geant4.sh (or .csh)
-    before running an application built with Geant4.
-  EOS
+  def caveats
+    <<~EOS
+      Because Geant4 expects a set of environment variables for
+      datafiles, you should source:
+        . #{HOMEBREW_PREFIX}/bin/geant4.sh (or .csh)
+      before running an application built with Geant4.
+    EOS
   end
 
   test do

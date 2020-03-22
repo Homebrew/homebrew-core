@@ -47,9 +47,7 @@ class Mmseqs2 < Formula
   end
 
   def caveats
-    unless Hardware::CPU.sse4?
-      "MMseqs2 requires at least SSE4.1 CPU instruction support."
-    end
+    "MMseqs2 requires at least SSE4.1 CPU instruction support." unless Hardware::CPU.sse4?
   end
 
   test do

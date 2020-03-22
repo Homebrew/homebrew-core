@@ -24,7 +24,8 @@ class Elasticsearch < Formula
       # Extract the package to the tar directory
       mkdir "tar"
       cd "tar"
-      system "tar", "--strip-components=1", "-xf", Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
+      system "tar", "--strip-components=1", "-xf",
+        Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
     end
 
     # Remove Windows files

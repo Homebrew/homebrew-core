@@ -38,7 +38,8 @@ class Dc3dd < Formula
       # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
       # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
       inreplace "lib/vasnprintf.c",
-                "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) || ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
+                "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) " \
+                "|| ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
                 "# if !(defined __APPLE__ && defined __MACH__)"
 
       chmod 0555, ["build-aux/install-sh", "configure"]

@@ -67,24 +67,23 @@ class Mutt < Formula
     # This permits the `mutt_dotlock` file to be installed under a group
     # that isn't `mail`.
     # https://github.com/Homebrew/homebrew/issues/45400
-    unless user_in_mail_group
-      inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = #{effective_group}"
-    end
+    inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = #{effective_group}" unless user_in_mail_group
 
     system "make", "install"
     doc.install resource("html") if build.head?
   end
 
-  def caveats; <<~EOS
-    mutt_dotlock(1) has been installed, but does not have the permissions lock
-    spool files in /var/mail. To grant the necessary permissions, run
+  def caveats
+    <<~EOS
+      mutt_dotlock(1) has been installed, but does not have the permissions lock
+      spool files in /var/mail. To grant the necessary permissions, run
 
-      sudo chgrp mail #{bin}/mutt_dotlock
-      sudo chmod g+s #{bin}/mutt_dotlock
+        sudo chgrp mail #{bin}/mutt_dotlock
+        sudo chmod g+s #{bin}/mutt_dotlock
 
-    Alternatively, you may configure `spoolfile` in your .muttrc to a file inside
-    your home directory.
-  EOS
+      Alternatively, you may configure `spoolfile` in your .muttrc to a file inside
+      your home directory.
+    EOS
   end
 
   test do

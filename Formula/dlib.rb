@@ -30,9 +30,7 @@ class Dlib < Formula
       -DUSE_SSE2_INSTRUCTIONS=ON
     ]
 
-    if MacOS.version.requires_sse4?
-      args << "-DUSE_SSE4_INSTRUCTIONS=ON"
-    end
+    args << "-DUSE_SSE4_INSTRUCTIONS=ON" if MacOS.version.requires_sse4?
 
     mkdir "dlib/build" do
       system "cmake", "..", *args

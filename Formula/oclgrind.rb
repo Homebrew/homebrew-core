@@ -21,7 +21,7 @@ class Oclgrind < Formula
   end
 
   test do
-    (testpath/"rot13.c").write <<~EOS
+    (testpath/"rot13.c").write <<~'EOS'
       #include <stdio.h>
       #include <string.h>
 
@@ -92,6 +92,19 @@ class Oclgrind < Formula
         cl_program prog=clCreateProgramWithSource(context,
                 1, srcptr, &srcsize, &error);
         error=clBuildProgram(prog, 0, NULL, "", NULL, NULL);
+
+        if (error == CL_BUILD_PROGRAM_FAILURE) {
+          size_t logsize;
+          clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &logsize);
+
+          char *log=(char *)malloc(logsize);
+          clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, logsize, log, NULL);
+
+          fprintf(stderr, "%s\n", log);
+          free(log);
+
+          return 1;
+        }
 
         cl_mem mem1, mem2;
         mem1=clCreateBuffer(context, CL_MEM_READ_ONLY, worksize, NULL, &error);

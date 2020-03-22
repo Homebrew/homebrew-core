@@ -62,6 +62,7 @@ class LaunchSocketServer < Formula
   end
 
   test do
-    assert_includes shell_output("#{opt_sbin}/launch_socket_server 2>&1; true"), "usage: #{opt_sbin}/launch_socket_server"
+    assert_includes shell_output("#{opt_sbin}/launch_socket_server 2>&1; true"),
+      "usage: #{opt_sbin}/launch_socket_server"
   end
 end

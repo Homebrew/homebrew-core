@@ -52,7 +52,8 @@ class LibtensorflowAT1 < Formula
     bazel_compatibility_flags = %w[
       --noincompatible_remove_legacy_whole_archive
     ]
-    system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt", "--copt=-march=native", *bazel_compatibility_flags, "tensorflow:libtensorflow.so"
+    system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt",
+                    "--copt=-march=native", *bazel_compatibility_flags, "tensorflow:libtensorflow.so"
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
     (include/"tensorflow/c").install %w[
       tensorflow/c/c_api.h

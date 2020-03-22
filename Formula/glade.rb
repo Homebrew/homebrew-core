@@ -31,7 +31,8 @@ class Glade < Formula
                           "--prefix=#{prefix}",
                           "--enable-gladeui",
                           "--enable-introspection"
-    # objective-c is needed for glade-registration.c. unfortunately build fails if -x objective-c is added to global CFLAGS.
+    # objective-c is needed for glade-registration.c.
+    # unfortunately build fails if -x objective-c is added to global CFLAGS.
     # Bugreport Upstream: https://bugzilla.gnome.org/show_bug.cgi?id=768032
     inreplace "src/Makefile", "-c -o glade-glade-registration.o", "-x objective-c -c -o glade-glade-registration.o"
 

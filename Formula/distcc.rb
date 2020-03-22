@@ -44,29 +44,30 @@ class Distcc < Formula
 
   plist_options :manual => "distccd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_prefix}/bin/distccd</string>
-            <string>--daemon</string>
-            <string>--no-detach</string>
-            <string>--allow=192.168.0.1/24</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{opt_prefix}</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_prefix}/bin/distccd</string>
+              <string>--daemon</string>
+              <string>--no-detach</string>
+              <string>--allow=192.168.0.1/24</string>
+          </array>
+          <key>WorkingDirectory</key>
+          <string>#{opt_prefix}</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

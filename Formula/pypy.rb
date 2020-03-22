@@ -129,24 +129,25 @@ class Pypy < Formula
     %w[easy_install_pypy pip_pypy].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
-  def caveats; <<~EOS
-    A "distutils.cfg" has been written to:
-      #{distutils}
-    specifying the install-scripts folder as:
-      #{scripts_folder}
+  def caveats
+    <<~EOS
+      A "distutils.cfg" has been written to:
+        #{distutils}
+      specifying the install-scripts folder as:
+        #{scripts_folder}
 
-    If you install Python packages via "pypy setup.py install", easy_install_pypy,
-    or pip_pypy, any provided scripts will go into the install-scripts folder
-    above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
-    so you don't overwrite tools from CPython.
+      If you install Python packages via "pypy setup.py install", easy_install_pypy,
+      or pip_pypy, any provided scripts will go into the install-scripts folder
+      above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
+      so you don't overwrite tools from CPython.
 
-    Setuptools and pip have been installed, so you can use easy_install_pypy and
-    pip_pypy.
-    To update setuptools and pip between pypy releases, run:
-        pip_pypy install --upgrade pip setuptools
+      Setuptools and pip have been installed, so you can use easy_install_pypy and
+      pip_pypy.
+      To update setuptools and pip between pypy releases, run:
+          pip_pypy install --upgrade pip setuptools
 
-    See: https://docs.brew.sh/Homebrew-and-Python
-  EOS
+      See: https://docs.brew.sh/Homebrew-and-Python
+    EOS
   end
 
   # The HOMEBREW_PREFIX location of site-packages

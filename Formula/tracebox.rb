@@ -32,12 +32,13 @@ class Tracebox < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Tracebox requires superuser privileges e.g. run with sudo.
+  def caveats
+    <<~EOS
+      Tracebox requires superuser privileges e.g. run with sudo.
 
-    You should be certain that you trust any software you are executing with
-    elevated privileges.
-  EOS
+      You should be certain that you trust any software you are executing with
+      elevated privileges.
+    EOS
   end
 
   test do

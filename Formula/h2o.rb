@@ -37,45 +37,48 @@ class H2o < Formula
   end
 
   # This is simplified from examples/h2o/h2o.conf upstream.
-  def conf_example; <<~EOS
-    listen: 8080
-    hosts:
-      "127.0.0.1.xip.io:8080":
-        paths:
-          /:
-            file.dir: #{var}/h2o/
-  EOS
+  def conf_example
+    <<~EOS
+      listen: 8080
+      hosts:
+        "127.0.0.1.xip.io:8080":
+          paths:
+            /:
+              file.dir: #{var}/h2o/
+    EOS
   end
 
-  def caveats; <<~EOS
-    A basic example configuration file has been placed in #{etc}/h2o.
+  def caveats
+    <<~EOS
+      A basic example configuration file has been placed in #{etc}/h2o.
 
-    You can find fuller, unmodified examples in #{opt_pkgshare}/examples.
-  EOS
+      You can find fuller, unmodified examples in #{opt_pkgshare}/examples.
+    EOS
   end
 
   plist_options :manual => "h2o"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/h2o</string>
-            <string>-c</string>
-            <string>#{etc}/h2o/h2o.conf</string>
-        </array>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_bin}/h2o</string>
+              <string>-c</string>
+              <string>#{etc}/h2o/h2o.conf</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -29,10 +29,11 @@ class Bettercap < Formula
     end
   end
 
-  def caveats; <<~EOS
-    bettercap requires root privileges so you will need to run `sudo bettercap`.
-    You should be certain that you trust any software you grant root privileges.
-  EOS
+  def caveats
+    <<~EOS
+      bettercap requires root privileges so you will need to run `sudo bettercap`.
+      You should be certain that you trust any software you grant root privileges.
+    EOS
   end
 
   test do

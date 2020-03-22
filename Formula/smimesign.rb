@@ -28,6 +28,7 @@ class Smimesign < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/smimesign --version")
     system "#{bin}/smimesign", "--list-keys"
-    assert_match "could not find identity matching specified user-id: bad@identity", shell_output("#{bin}/smimesign -su bad@identity 2>&1", 1)
+    assert_match "could not find identity matching specified user-id: bad@identity",
+      shell_output("#{bin}/smimesign -su bad@identity 2>&1", 1)
   end
 end

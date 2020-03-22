@@ -20,9 +20,7 @@ class MongoCDriver < Formula
 
   def install
     cmake_args = std_cmake_args
-    if build.head?
-      cmake_args << "-DBUILD_VERSION=1.17.0-pre"
-    end
+    cmake_args << "-DBUILD_VERSION=1.17.0-pre" if build.head?
     system "cmake", ".", *cmake_args
     system "make", "install"
     (pkgshare/"libbson").install "src/libbson/examples"

@@ -27,6 +27,8 @@ class Libgraphqlparser < Formula
       { user }
     EOS
 
+    # A nightmare to get these lines shorter.
+    # rubocop:disable Layout/LineLength
     sample_ast = { "kind"        => "Document",
                    "loc"         => { "start" => { "line"=>1, "column"=>1 },
                                       "end"   => { "line"=>1, "column"=>9 } },
@@ -56,6 +58,7 @@ class Libgraphqlparser < Formula
                                                                                      "directives"   => nil,
                                                                                      "selectionSet" => nil }] } }] }
 
+    # rubocop:enable Layout/LineLength
     test_ast = JSON.parse pipe_output("#{libexec}/dump_json_ast", sample_query)
     assert_equal sample_ast, test_ast
   end

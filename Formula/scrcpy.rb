@@ -36,12 +36,13 @@ class Scrcpy < Formula
     end
   end
 
-  def caveats; <<~EOS
-    At runtime, adb must be accessible from your PATH.
+  def caveats
+    <<~EOS
+      At runtime, adb must be accessible from your PATH.
 
-    You can install adb from Homebrew Cask:
-      brew cask install android-platform-tools
-  EOS
+      You can install adb from Homebrew Cask:
+        brew cask install android-platform-tools
+    EOS
   end
 
   test do

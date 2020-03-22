@@ -16,10 +16,11 @@ class Glassfish < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
-  def caveats; <<~EOS
-    You may want to add the following to your .bash_profile:
-      export GLASSFISH_HOME=#{opt_libexec}
-  EOS
+  def caveats
+    <<~EOS
+      You may want to add the following to your .bash_profile:
+        export GLASSFISH_HOME=#{opt_libexec}
+    EOS
   end
 
   test do

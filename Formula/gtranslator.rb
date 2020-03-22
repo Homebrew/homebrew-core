@@ -1,14 +1,13 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/3.34/gtranslator-3.34.0.tar.xz"
-  sha256 "b2f25c02bdfd246896803756078c3006ef433c83eb802bc23a33413046bffb17"
-  revision 1
+  url "https://download.gnome.org/sources/gtranslator/3.36/gtranslator-3.36.0.tar.xz"
+  sha256 "2daa1d3b59b4a35ef54df087345b03e1703e725081f9dac543539228a715add3"
 
   bottle do
-    sha256 "159e755282296b401507b791b4c4b7121b995a8055b75271aca6c4ff95c7fcf6" => :catalina
-    sha256 "4b5a43b5bd598eab15e66156b3491c43ad20dc7a226880ee9b720e4bb6b43188" => :mojave
-    sha256 "17ac4683c97685ceedbda84a6680124f04d6181e2397c373633dc8c99eb835b2" => :high_sierra
+    sha256 "90ddfb2acb333a7fb7ee2ab3d6de67c370cfcf05b4644c389dab6da55ae09698" => :catalina
+    sha256 "f812c486897ba964e13cb02fc17e3f1d02ff9c78616eee69d055a3fd1d72120a" => :mojave
+    sha256 "4657887f0ab62e4d4ed176d7625cacc752d2bf9d8a93e05404d26aa8a3b09fb4" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -23,6 +22,7 @@ class Gtranslator < Formula
   depends_on "iso-codes"
   depends_on "itstool"
   depends_on "json-glib"
+  depends_on "libdazzle"
   depends_on "libgda"
   depends_on "libsoup"
 

@@ -26,12 +26,13 @@ class SstpClient < Formula
     (var/"run/sstpc").mkpath
   end
 
-  def caveats; <<~EOS
-    sstpc reads PPP configuration options from /etc/ppp/options. If this file
-    does not exist yet, type the following command to create it:
+  def caveats
+    <<~EOS
+      sstpc reads PPP configuration options from /etc/ppp/options. If this file
+      does not exist yet, type the following command to create it:
 
-    sudo touch /etc/ppp/options
-  EOS
+      sudo touch /etc/ppp/options
+    EOS
   end
 
   test do

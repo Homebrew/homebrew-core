@@ -1,6 +1,6 @@
 class Grace < Formula
   desc "WYSIWYG 2D plotting tool for X11"
-  homepage "http://plasma-gate.weizmann.ac.il/Grace/"
+  homepage "https://plasma-gate.weizmann.ac.il/Grace/"
   url "https://deb.debian.org/debian/pool/main/g/grace/grace_5.1.25.orig.tar.gz"
   sha256 "751ab9917ed0f6232073c193aba74046037e185d73b77bab0f5af3e3ff1da2ac"
   revision 2

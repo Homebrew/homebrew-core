@@ -16,9 +16,7 @@ class Portmidi < Formula
   depends_on "cmake" => :build
 
   def install
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
 

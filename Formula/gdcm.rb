@@ -24,7 +24,8 @@ class Gdcm < Formula
     ENV.cxx11
 
     xy = Language::Python.major_minor_version "python3"
-    python_include = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+    python_include =
+      Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
     python_executable = Utils.popen_read("python3 -c 'import sys;print(sys.executable)'").chomp
 
     args = std_cmake_args + %W[

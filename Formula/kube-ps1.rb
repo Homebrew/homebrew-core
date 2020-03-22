@@ -13,11 +13,12 @@ class KubePs1 < Formula
     share.install "kube-ps1.sh"
   end
 
-  def caveats; <<~EOS
-    Make sure kube-ps1 is loaded from your ~/.zshrc and/or ~/.bashrc:
-      source "#{opt_share}/kube-ps1.sh"
-      PS1='$(kube_ps1)'$PS1
-  EOS
+  def caveats
+    <<~EOS
+      Make sure kube-ps1 is loaded from your ~/.zshrc and/or ~/.bashrc:
+        source "#{opt_share}/kube-ps1.sh"
+        PS1='$(kube_ps1)'$PS1
+    EOS
   end
 
   test do

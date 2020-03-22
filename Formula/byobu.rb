@@ -34,10 +34,11 @@ class Byobu < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Add the following to your shell configuration file:
-      export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
-  EOS
+  def caveats
+    <<~EOS
+      Add the following to your shell configuration file:
+        export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
+    EOS
   end
 
   test do

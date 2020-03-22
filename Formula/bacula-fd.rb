@@ -1,13 +1,13 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.2/bacula-9.6.2.tar.gz"
-  sha256 "5c41e5913420a70e16bce63f3993428b41ea66b212c756b2f2befa03dfe68743"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.3/bacula-9.6.3.tar.gz"
+  sha256 "ec1365a678e1b49505c1cdbc59a3cef5ca5f5a5a25fb1b0cced822eeb88c5b0a"
 
   bottle do
-    sha256 "5bf67e13cb6ba2434acafdd9cc5c0248783a44fcee52439418d4e560a5aaf8e1" => :catalina
-    sha256 "6ae5f82dc4266b46303d765b837b553403ca2edda9b6afbeafc6a700a3e7aeac" => :mojave
-    sha256 "51e0a36012a4a7a394bfa5444b9cee6c0a059a15401cc6af8f4b004d974b474b" => :high_sierra
+    sha256 "582fafcb8a0f9f483a94cf124a03f88be86f34cc94739efbc2624002ba25c4fc" => :catalina
+    sha256 "c4785c8a422d053a7a65892748c22283dc2f61b8a8c1512e61c2a0a0911da80e" => :mojave
+    sha256 "897dbcb7fef86658445edd6e6e8a2327157ff0dc1467ac527a905e19e2eccb50" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -48,23 +48,24 @@ class BaculaFd < Formula
 
   plist_options :startup => true, :manual => "bacula-fd"
 
-  def plist; <<~EOS
-    <?xml version="0.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/bacula-fd</string>
-          <string>-f</string>
-        </array>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="0.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/bacula-fd</string>
+            <string>-f</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

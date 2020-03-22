@@ -1,14 +1,14 @@
 class GoAT113 < Formula
   desc "Go programming environment (1.13)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.13.8.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.13.8.src.tar.gz"
-  sha256 "b13bf04633d4d8cf53226ebeaace8d4d2fd07ae6fa676d0844a688339debec34"
+  url "https://dl.google.com/go/go1.13.9.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.13.9.src.tar.gz"
+  sha256 "34bb19d806e0bc4ad8f508ae24bade5e9fedfa53d09be63b488a9314d2d4f31d"
 
   bottle do
-    sha256 "647f72f84425166b67839eb251402c870e5448a9d6c04ef9210d198c8813a0e5" => :catalina
-    sha256 "0f5f5cdeef29173a7152c250bc55a81693a097434fd0454a59b61e70bd47ce84" => :mojave
-    sha256 "cfa1d0e7b34a96f2f184ee56f58079c724a996830aec5df329eae8c3e94a14e6" => :high_sierra
+    sha256 "e8e1246dc9fac26fa703eaad363e16c22eb2619e0260cbf31d19adcb4462e76b" => :catalina
+    sha256 "59d606ebd9cdb476d721e0baddc7a3ba3707e44b14f27f9800d17a596a832e2a" => :mojave
+    sha256 "b6abee06b74a69a7c631031e33f224cfa8f5b6b05427346fff82046bd22da91c" => :high_sierra
   end
 
   keg_only :versioned_formula

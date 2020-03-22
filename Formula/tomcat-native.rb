@@ -29,21 +29,24 @@ class TomcatNative < Formula
       # fixes occasional compiling issue: glibtool: compile: specify a tag with `--tag'
       args = ["LIBTOOL=glibtool --tag=CC"]
       # fixes a broken link in mountain lion's apr-1-config (it should be /XcodeDefault.xctoolchain/):
-      # usr/local/opt/libtool/bin/glibtool: line 1125: /Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.8.xctoolchain/usr/bin/cc: No such file or directory
+      # usr/local/opt/libtool/bin/glibtool: line 1125:
+      # /Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.8.xctoolchain/usr/bin/cc:
+      # No such file or directory
       args << "CC=#{ENV.cc}"
       system "make", *args
       system "make", "install"
     end
   end
 
-  def caveats; <<~EOS
-    In order for tomcat's APR lifecycle listener to find this library, you'll
-    need to add it to java.library.path. This can be done by adding this line
-    to $CATALINA_HOME/bin/setenv.sh
+  def caveats
+    <<~EOS
+      In order for tomcat's APR lifecycle listener to find this library, you'll
+      need to add it to java.library.path. This can be done by adding this line
+      to $CATALINA_HOME/bin/setenv.sh
 
-      CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
+        CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
 
-    If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
-  EOS
+      If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
+    EOS
   end
 end

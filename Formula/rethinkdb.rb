@@ -41,32 +41,33 @@ class Rethinkdb < Formula
 
   plist_options :manual => "rethinkdb"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-          <string>#{opt_bin}/rethinkdb</string>
-          <string>--config-file</string>
-          <string>#{etc}/rethinkdb.conf</string>
-      </array>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/rethinkdb/rethinkdb.log</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/rethinkdb/rethinkdb.log</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>#{opt_bin}/rethinkdb</string>
+            <string>--config-file</string>
+            <string>#{etc}/rethinkdb.conf</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/rethinkdb/rethinkdb.log</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/rethinkdb/rethinkdb.log</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

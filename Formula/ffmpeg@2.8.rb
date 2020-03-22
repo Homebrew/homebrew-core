@@ -81,19 +81,17 @@ class FfmpegAT28 < Formula
     # prevents GCC from building VDA support. GCC has no problems on
     # 10.9 and earlier.
     # See: https://github.com/Homebrew/homebrew/issues/33741
-    if MacOS.version < :yosemite || ENV.compiler == :clang
-      args << "--enable-vda"
+    args << if MacOS.version < :yosemite || ENV.compiler == :clang
+      "--enable-vda"
     else
-      args << "--disable-vda"
+      "--disable-vda"
     end
 
     system "./configure", *args
 
     inreplace "config.mak" do |s|
       shflags = s.get_make_var "SHFLAGS"
-      if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-        s.change_make_var! "SHFLAGS", shflags
-      end
+      s.change_make_var! "SHFLAGS", shflags if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
     end
 
     system "make", "install"

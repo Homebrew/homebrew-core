@@ -37,7 +37,8 @@ class Evince < Formula
     # Add MacOS mime-types to the list of supported comic book archive mime-types
     # Submitted upstream at https://gitlab.gnome.org/GNOME/evince/merge_requests/157
     inreplace "configure", "COMICS_MIME_TYPES=\"",
-      "COMICS_MIME_TYPES=\"application/x-rar;application/zip;application/x-cb7;application/x-7z-comperssed;application/x-tar;"
+      "COMICS_MIME_TYPES=\"application/x-rar;application/zip;application/x-cb7;" \
+                          "application/x-7z-comperssed;application/x-tar;"
 
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache

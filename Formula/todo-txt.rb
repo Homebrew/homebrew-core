@@ -13,10 +13,11 @@ class TodoTxt < Formula
     bash_completion.install "todo_completion"
   end
 
-  def caveats; <<~EOS
-    To configure, copy the default config to your HOME and edit it:
-      cp #{prefix}/todo.cfg ~/.todo.cfg
-  EOS
+  def caveats
+    <<~EOS
+      To configure, copy the default config to your HOME and edit it:
+        cp #{prefix}/todo.cfg ~/.todo.cfg
+    EOS
   end
 
   test do

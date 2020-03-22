@@ -33,28 +33,29 @@ class Frps < Formula
 
   plist_options :manual => "frps -c #{HOMEBREW_PREFIX}/etc/frp/frps.ini"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/frps</string>
-          <string>-c</string>
-          <string>#{etc}/frp/frps.ini</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/frps.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/frps.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/frps</string>
+            <string>-c</string>
+            <string>#{etc}/frp/frps.ini</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/frps.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/frps.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

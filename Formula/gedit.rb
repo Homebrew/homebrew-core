@@ -1,13 +1,13 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.36/gedit-3.36.0.tar.xz"
-  sha256 "c983dd12a4e9db7af1aaa3062e6f042811ef99a4d6382659096f2ef8fc559435"
+  url "https://download.gnome.org/sources/gedit/3.36/gedit-3.36.1.tar.xz"
+  sha256 "6dc38eda227d1c368e039e9bff485d0bee9a49d5f9560c387ee08f5818a4e387"
 
   bottle do
-    sha256 "27300727b546549c379cd116e54fbf4322139d10ab0e661c1c2c5289b7e0afed" => :catalina
-    sha256 "cfc9bd9e8c9cdec2ed73e84db3f1a1afb74a4d89ed86c5c284d4eafc872a3985" => :mojave
-    sha256 "a6f422581c87419f30e313fc124e884af5a887c00b92ecc589559d35ca783b8b" => :high_sierra
+    sha256 "6c19428d04cc675a778f3fec056ca5275ebbf4efd3ff5fd3ed86bd22defe8585" => :catalina
+    sha256 "55192cacaac7d6bb990bd7d40c8182e9dc44b421e2ae4c562b8fe9c384e80597" => :mojave
+    sha256 "95fac8e5c87b702c88fba9f3d927b92faa349b903193c75b94b4b8e0d2280580" => :high_sierra
   end
 
   depends_on "itstool" => :build
@@ -31,9 +31,6 @@ class Gedit < Formula
   depends_on "libxml2"
   depends_on "pango"
   depends_on "tepl"
-
-  # see https://gitlab.gnome.org/GNOME/gedit/-/merge_requests/74
-  patch :DATA
 
   def install
     ENV["DESTDIR"] = "/"
@@ -137,33 +134,3 @@ class Gedit < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gedit/gedit-app-osx.m b/gedit/gedit-app-osx.m
-index 07774cc53..5df1b94da 100644
---- a/gedit/gedit-app-osx.m
-+++ b/gedit/gedit-app-osx.m
-@@ -32,6 +32,10 @@
- #include "gedit-commands.h"
- #include "gedit-commands-private.h"
- #include "gedit-recent.h"
-+#import <AppKit/AppKit.h>
-+
-+NSWindow *gdk_quartz_window_get_nswindow(GdkWindow *window);
-+NSEvent *gdk_quartz_event_get_nsevent(GdkEvent *event);
-
- static GeditWindow *
- ensure_window (GeditAppOSX *app,
-diff --git a/gedit/gedit-file-chooser-dialog-osx.m b/gedit/gedit-file-chooser-dialog-osx.m
-index ecfbee62a..f897c81cd 100644
---- a/gedit/gedit-file-chooser-dialog-osx.m
-+++ b/gedit/gedit-file-chooser-dialog-osx.m
-@@ -29,6 +29,8 @@
- #include "gedit-encodings-dialog.h"
- #include "gedit-utils.h"
-
-+NSWindow *gdk_quartz_window_get_nswindow(GdkWindow *window);
-+
- struct _GeditFileChooserDialogOSX
- {
-	GObject parent_instance;

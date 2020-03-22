@@ -45,6 +45,7 @@ class Circleci < Formula
     assert_match "Local builds do not support that version at this time", output
     # assert update is not included in output of help meaning it was not included in the build
     assert_match "update      This command is unavailable on your platform", shell_output("#{bin}/circleci help")
-    assert_match "`update` is not available because this tool was installed using `homebrew`.", shell_output("#{bin}/circleci update")
+    assert_match "`update` is not available because this tool was installed using `homebrew`.",
+      shell_output("#{bin}/circleci update")
   end
 end

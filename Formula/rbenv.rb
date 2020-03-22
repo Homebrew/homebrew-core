@@ -20,9 +20,7 @@ class Rbenv < Formula
   def install
     inreplace "libexec/rbenv" do |s|
       s.gsub! '"${BASH_SOURCE%/*}"/../libexec', libexec
-      if HOMEBREW_PREFIX.to_s != "/usr/local"
-        s.gsub! ":/usr/local/etc/rbenv.d", ":#{HOMEBREW_PREFIX}/etc/rbenv.d\\0"
-      end
+      s.gsub! ":/usr/local/etc/rbenv.d", ":#{HOMEBREW_PREFIX}/etc/rbenv.d\\0" if HOMEBREW_PREFIX.to_s != "/usr/local"
     end
 
     # Compile optional bash extension.

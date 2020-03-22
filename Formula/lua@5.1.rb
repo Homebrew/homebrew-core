@@ -63,10 +63,11 @@ class LuaAT51 < Formula
     (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
   end
 
-  def caveats; <<~EOS
-    You may also want luarocks:
-      brew install luarocks
-  EOS
+  def caveats
+    <<~EOS
+      You may also want luarocks:
+        brew install luarocks
+    EOS
   end
 
   test do

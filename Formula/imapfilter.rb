@@ -26,11 +26,12 @@ class Imapfilter < Formula
     prefix.install "samples"
   end
 
-  def caveats; <<~EOS
-    You will need to create a ~/.imapfilter/config.lua file.
-    Samples can be found in:
-      #{prefix}/samples
-  EOS
+  def caveats
+    <<~EOS
+      You will need to create a ~/.imapfilter/config.lua file.
+      Samples can be found in:
+        #{prefix}/samples
+    EOS
   end
 
   test do

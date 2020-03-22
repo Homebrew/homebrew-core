@@ -5,29 +5,27 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.14.1.tar.gz"
-  sha256 "375ec3e8cc7bb54cfb042684353446c1df792c3d409cd0082256e6446d696235"
+  url "https://github.com/diku-dk/futhark/archive/v0.15.2.tar.gz"
+  sha256 "81816386aaf649f967b75bd411cecc6026f3fedf58d15f84c4f305c30a6631c6"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1038fcde32b0aa624f9df67d29091762cd3f26055738fa457d9363e18dd36490" => :catalina
-    sha256 "bbfaa41253c3e5a32e49eddedaf0e4692910f4fe2e1d7fe4818039256d961723" => :mojave
-    sha256 "82127e3488b7ef46d6f64afe20e3bcd4fd444d35058e92c833a81748c912d2a5" => :high_sierra
+    sha256 "e4c9f6fa2fa1faa1ed3197779a3df29374be8f00a87773c272a4e4d96bff35f1" => :catalina
+    sha256 "d61886843de065ac46e1674880c36f0b830cb47d9fa32463ee77fc3bf3402c64" => :mojave
+    sha256 "e726a5876f27bde35703e19bb3a78c8e8b3c29e2254dda99c0a7002b96b4e166" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "hpack" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
-    system "hpack"
-
-    install_cabal_package :using => ["alex", "happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]

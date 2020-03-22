@@ -14,7 +14,8 @@ class DependencyCheck < Formula
     chmod 0755, "bin/dependency-check.sh"
     libexec.install Dir["*"]
 
-    (bin/"dependency-check").write_env_script libexec/"bin/dependency-check.sh", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"dependency-check").write_env_script libexec/"bin/dependency-check.sh",
+      :JAVA_HOME => Formula["openjdk"].opt_prefix
 
     (var/"dependencycheck").mkpath
     libexec.install_symlink var/"dependencycheck" => "data"

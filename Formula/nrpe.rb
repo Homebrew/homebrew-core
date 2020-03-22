@@ -47,29 +47,30 @@ class Nrpe < Formula
 
   plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>org.nrpe.agent</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/nrpe</string>
-        <string>-c</string>
-        <string>#{etc}/nrpe.cfg</string>
-        <string>-d</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>ServiceDescription</key>
-      <string>Homebrew NRPE Agent</string>
-      <key>Debug</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>org.nrpe.agent</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/nrpe</string>
+          <string>-c</string>
+          <string>#{etc}/nrpe.cfg</string>
+          <string>-d</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>ServiceDescription</key>
+        <string>Homebrew NRPE Agent</string>
+        <key>Debug</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -23,7 +23,7 @@ class Idris < Formula
   def install
     args = ["-f", "FFI"]
     args << "-f" << "release" if build.stable?
-    install_cabal_package *args
+    install_cabal_package(*args)
   end
 
   test do

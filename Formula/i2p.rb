@@ -12,7 +12,8 @@ class I2p < Formula
   def install
     (buildpath/"path.conf").write "INSTALL_PATH=#{libexec}"
 
-    system "#{Formula["openjdk"].opt_bin}/java", "-jar", "i2pinstall_#{version}.jar", "-options", "path.conf", "-language", "eng"
+    system "#{Formula["openjdk"].opt_bin}/java", "-jar", "i2pinstall_#{version}.jar",
+                                                 "-options", "path.conf", "-language", "eng"
 
     wrapper_name = "i2psvc-macosx-universal-64"
     libexec.install_symlink libexec/wrapper_name => "i2psvc"

@@ -9,6 +9,7 @@ jobs:
       matrix:
         version: [10.15, 10.14, 10.13]
     runs-on: ${{ matrix.version }}
+    timeout-minutes: 4320
     env:
       HOMEBREW_GIT_NAME: BrewTestBot
       HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'

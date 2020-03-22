@@ -1,9 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://wildfly.org/"
-  url "https://download.jboss.org/wildfly/18.0.1.Final/wildfly-18.0.1.Final.tar.gz"
-  sha256 "54498e9c16b29c7f0a2cbab91edab6dfb9e2002259ee07c6d1247c23dc0cbb6c"
-  revision 1
+  url "https://download.jboss.org/wildfly/19.0.0.Final/wildfly-19.0.0.Final.tar.gz"
+  sha256 "00e011f88c36b30dcf61ed1c54eb6f5d64f6bed9039e3774684fa152328e6535"
 
   bottle :unneeded
 
@@ -19,46 +18,48 @@ class WildflyAs < Formula
     mkdir_p libexec/"standalone/log"
   end
 
-  def caveats; <<~EOS
-    The home of WildFly Application Server #{version} is:
-      #{opt_libexec}
-    You may want to add the following to your .bash_profile:
-      export JBOSS_HOME=#{opt_libexec}
-      export PATH=${PATH}:${JBOSS_HOME}/bin
-  EOS
+  def caveats
+    <<~EOS
+      The home of WildFly Application Server #{version} is:
+        #{opt_libexec}
+      You may want to add the following to your .bash_profile:
+        export JBOSS_HOME=#{opt_libexec}
+        export PATH=${PATH}:${JBOSS_HOME}/bin
+    EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/wildfly-as/libexec/bin/standalone.sh --server-config=standalone.xml"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
       <dict>
-        <key>SuccessfulExit</key>
-        <false/>
-        <key>Crashed</key>
-        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>KeepAlive</key>
+        <dict>
+          <key>SuccessfulExit</key>
+          <false/>
+          <key>Crashed</key>
+          <true/>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_libexec}/bin/standalone.sh</string>
+          <string>--server-config=standalone.xml</string>
+        </array>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>JBOSS_HOME</key>
+          <string>#{opt_libexec}</string>
+          <key>WILDFLY_HOME</key>
+          <string>#{opt_libexec}</string>
+        </dict>
       </dict>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_libexec}/bin/standalone.sh</string>
-        <string>--server-config=standalone.xml</string>
-      </array>
-      <key>EnvironmentVariables</key>
-      <dict>
-        <key>JBOSS_HOME</key>
-        <string>#{opt_libexec}</string>
-        <key>WILDFLY_HOME</key>
-        <string>#{opt_libexec}</string>
-      </dict>
-    </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

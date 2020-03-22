@@ -12,28 +12,29 @@ class Nvm < Formula
     bash_completion.install "bash_completion" => "nvm"
   end
 
-  def caveats; <<~EOS
-    Please note that upstream has asked us to make explicit managing
-    nvm via Homebrew is unsupported by them and you should check any
-    problems against the standard nvm install method prior to reporting.
+  def caveats
+    <<~EOS
+      Please note that upstream has asked us to make explicit managing
+      nvm via Homebrew is unsupported by them and you should check any
+      problems against the standard nvm install method prior to reporting.
 
-    You should create NVM's working directory if it doesn't exist:
+      You should create NVM's working directory if it doesn't exist:
 
-      mkdir ~/.nvm
+        mkdir ~/.nvm
 
-    Add the following to #{shell_profile} or your desired shell
-    configuration file:
+      Add the following to #{shell_profile} or your desired shell
+      configuration file:
 
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "#{opt_prefix}/nvm.sh" ] && \. "#{opt_prefix}/nvm.sh"  # This loads nvm
-      [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "#{opt_prefix}/nvm.sh" ] && \. "#{opt_prefix}/nvm.sh"  # This loads nvm
+        [ -s "#{opt_prefix}/etc/bash_completion.d/nvm" ] && \. "#{opt_prefix}/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-    You can set $NVM_DIR to any location, but leaving it unchanged from
-    #{prefix} will destroy any nvm-installed Node installations
-    upon upgrade/reinstall.
+      You can set $NVM_DIR to any location, but leaving it unchanged from
+      #{prefix} will destroy any nvm-installed Node installations
+      upon upgrade/reinstall.
 
-    Type `nvm help` for further information.
-  EOS
+      Type `nvm help` for further information.
+    EOS
   end
 
   test do

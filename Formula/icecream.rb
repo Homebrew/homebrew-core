@@ -34,48 +34,51 @@ class Icecream < Formula
     (prefix/"#{plist_name}-scheduler.plist").write scheduler_plist
   end
 
-  def caveats; <<~EOS
-    To override the toolset with icecc, add to your path:
-      #{opt_libexec}/icecc/bin
-  EOS
+  def caveats
+    <<~EOS
+      To override the toolset with icecc, add to your path:
+        #{opt_libexec}/icecc/bin
+    EOS
   end
 
   plist_options :manual => "iceccd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-        <string>#{sbin}/iceccd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+          <string>#{sbin}/iceccd</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
-  def scheduler_plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>Label</key>
-        <string>#{plist_name}-scheduler</string>
-        <key>ProgramArguments</key>
-        <array>
-        <string>#{sbin}/icecc-scheduler</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-    </dict>
-    </plist>
-  EOS
+  def scheduler_plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>#{plist_name}-scheduler</string>
+          <key>ProgramArguments</key>
+          <array>
+          <string>#{sbin}/icecc-scheduler</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

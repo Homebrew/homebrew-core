@@ -37,10 +37,11 @@ class Augeas < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Lenses have been installed to:
-      #{HOMEBREW_PREFIX}/share/augeas/lenses/dist
-  EOS
+  def caveats
+    <<~EOS
+      Lenses have been installed to:
+        #{HOMEBREW_PREFIX}/share/augeas/lenses/dist
+    EOS
   end
 
   test do

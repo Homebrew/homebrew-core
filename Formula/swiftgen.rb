@@ -52,28 +52,40 @@ class Swiftgen < Formula
 
     fixtures = pkgshare/"fixtures"
 
-    output = shell_output("#{bin}/swiftgen colors --templatePath #{pkgshare/"templates/colors/swift4.stencil"} #{fixtures}/colors.xml").strip
-    assert_equal output, (fixtures/"colors.swift").read.strip, "swiftgen colors failed"
+    assert_equal shell_output("#{bin}/swiftgen colors --templatePath " \
+                              "#{pkgshare/"templates/colors/swift4.stencil"} #{fixtures}/colors.xml").strip,
+      (fixtures/"colors.swift").read.strip, "swiftgen colors failed"
 
-    output = shell_output("#{bin}/swiftgen coredata --templatePath #{pkgshare/"templates/coredata/swift4.stencil"} #{fixtures}/Model.xcdatamodeld").strip
-    assert_equal output, (fixtures/"coredata.swift").read.strip, "swiftgen coredata failed"
+    assert_equal shell_output("#{bin}/swiftgen coredata --templatePath " \
+                              "#{pkgshare/"templates/coredata/swift4.stencil"} #{fixtures}/Model.xcdatamodeld").strip,
+      (fixtures/"coredata.swift").read.strip, "swiftgen coredata failed"
 
-    output = shell_output("#{bin}/swiftgen fonts --templatePath #{pkgshare/"templates/fonts/swift4.stencil"} #{fixtures}/Fonts").strip
-    assert_equal output, (fixtures/"fonts.swift").read.strip, "swiftgen fonts failed"
+    assert_equal shell_output("#{bin}/swiftgen fonts --templatePath " \
+                              "#{pkgshare/"templates/fonts/swift4.stencil"} #{fixtures}/Fonts").strip,
+      (fixtures/"fonts.swift").read.strip, "swiftgen fonts failed"
 
-    output = shell_output("#{bin}/swiftgen ib --templatePath #{pkgshare/"templates/ib/scenes-swift4.stencil"} --param module=SwiftGen #{fixtures}/IB-iOS").strip
-    assert_equal output, (fixtures/"ib-scenes.swift").read.strip, "swiftgen ib failed"
+    assert_equal shell_output("#{bin}/swiftgen ib --templatePath " \
+                              "#{pkgshare/"templates/ib/scenes-swift4.stencil"} --param module=SwiftGen " \
+                              "#{fixtures}/IB-iOS").strip,
+      (fixtures/"ib-scenes.swift").read.strip, "swiftgen ib failed"
 
-    output = shell_output("#{bin}/swiftgen plist --templatePath #{pkgshare/"templates/plist/runtime-swift4.stencil"} #{fixtures}/Plist").strip
-    assert_equal output, (fixtures/"plists.swift").read.strip, "swiftgen plist failed"
+    assert_equal shell_output("#{bin}/swiftgen plist --templatePath " \
+                              "#{pkgshare/"templates/plist/runtime-swift4.stencil"} #{fixtures}/Plist").strip,
+      (fixtures/"plists.swift").read.strip, "swiftgen plist failed"
 
-    output = shell_output("#{bin}/swiftgen strings --templatePath #{pkgshare/"templates/strings/structured-swift4.stencil"} #{fixtures}/Localizable.strings").strip
-    assert_equal output, (fixtures/"strings.swift").read.strip, "swiftgen strings failed"
+    assert_equal shell_output("#{bin}/swiftgen strings --templatePath " \
+                              "#{pkgshare/"templates/strings/structured-swift4.stencil"} " \
+                              "#{fixtures}/Localizable.strings").strip,
+      (fixtures/"strings.swift").read.strip, "swiftgen strings failed"
 
-    output = shell_output("#{bin}/swiftgen xcassets --templatePath #{pkgshare/"templates/xcassets/swift4.stencil"} #{fixtures}/XCAssets/*.xcassets").strip
-    assert_equal output, (fixtures/"xcassets.swift").read.strip, "swiftgen xcassets failed"
+    assert_equal shell_output("#{bin}/swiftgen xcassets --templatePath " \
+                              "#{pkgshare/"templates/xcassets/swift4.stencil"} " \
+                              "#{fixtures}/XCAssets/*.xcassets").strip,
+      (fixtures/"xcassets.swift").read.strip, "swiftgen xcassets failed"
 
-    output = shell_output("#{bin}/swiftgen yaml --templatePath #{pkgshare/"templates/yaml/inline-swift4.stencil"} --filter '.(json|ya?ml)$' #{fixtures}/YAML").strip
-    assert_equal output, (fixtures/"yaml.swift").read.strip, "swiftgen yaml failed"
+    assert_equal shell_output("#{bin}/swiftgen yaml --templatePath " \
+                              "#{pkgshare/"templates/yaml/inline-swift4.stencil"} --filter '.(json|ya?ml)$' " \
+                              "#{fixtures}/YAML").strip,
+      (fixtures/"yaml.swift").read.strip, "swiftgen yaml failed"
   end
 end

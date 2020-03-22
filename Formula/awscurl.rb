@@ -86,7 +86,7 @@ class Awscurl < Formula
   test do
     assert_match "Curl", shell_output("#{bin}/awscurl --help")
 
-    output = shell_output("#{bin}/awscurl --service s3 https://homebrew-test-none-existant-bucket.s3.amazonaws.com 2>&1", 1)
-    assert_match "No access key is available", output
+    assert_match "No access key is available",
+      shell_output("#{bin}/awscurl --service s3 https://homebrew-test-none-existant-bucket.s3.amazonaws.com 2>&1", 1)
   end
 end

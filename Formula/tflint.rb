@@ -1,22 +1,22 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
-  url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.15.1",
-    :revision => "2a68a623a5202c7e7cea24003b5ea05985435c79"
+  url "https://github.com/terraform-linters/tflint/archive/v0.15.3.tar.gz"
+  sha256 "878498373f45e6a34a3e1016339309ba973d7f13887430ec9674d745a751e170"
+  revision 1
   head "https://github.com/wata727/tflint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e6167fdacb45b50ff8b6ec86fb50b6dfe5da4c682d50462c4487cc790c7d4f3c" => :catalina
-    sha256 "e26ffa14cab4a6184eef0745f209ea74b587584d3270268696742afee2fbe5e3" => :mojave
-    sha256 "821cdc8f6652534ff9d223d9bbc637ee09551baebd84ad8b5483956e65c2726b" => :high_sierra
+    sha256 "92e921c2a56f43033cb16de281a6f0b2701cf717fab71d687833570f8b650479" => :catalina
+    sha256 "2327c3e983c8af87448c77b74be7abbc2cfcd160a39f24a5fd3aaf8585750af0" => :mojave
+    sha256 "91d0c9090017907240b65392a5e7a1906dd510c2dda21cf84eac9d0e2f85bd73" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"tflint"
+    system "go", "build", "-ldflags", "-s -w", "-o", bin/"tflint"
   end
 
   test do

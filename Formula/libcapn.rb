@@ -32,9 +32,7 @@ class Libcapn < Formula
 
   def install
     # head gets jansson as a git submodule
-    if build.stable?
-      (buildpath/"src/third_party/jansson").install resource("jansson")
-    end
+    (buildpath/"src/third_party/jansson").install resource("jansson") if build.stable?
     system "cmake", ".", "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                          *std_cmake_args
     system "make", "install"

@@ -25,34 +25,35 @@ class ApacheArchiva < Formula
 
   plist_options :manual => "ARCHIVA_BASE=#{HOMEBREW_PREFIX}/var/archiva #{HOMEBREW_PREFIX}/opt/apache-archiva/bin/archiva console"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/archiva</string>
-          <string>console</string>
-        </array>
-        <key>Disabled</key>
-        <false/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>UserName</key>
-        <string>archiva</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/archiva/logs/launchd.log</string>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>ARCHIVA_BASE</key>
-          <string>#{var}/archiva</string>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/archiva</string>
+            <string>console</string>
+          </array>
+          <key>Disabled</key>
+          <false/>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>UserName</key>
+          <string>archiva</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/archiva/logs/launchd.log</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>ARCHIVA_BASE</key>
+            <string>#{var}/archiva</string>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

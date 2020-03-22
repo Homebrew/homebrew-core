@@ -33,13 +33,14 @@ class GnuIndent < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    GNU "indent" has been installed as "gindent".
-    If you need to use it as "indent", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    <<~EOS
+      GNU "indent" has been installed as "gindent".
+      If you need to use it as "indent", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

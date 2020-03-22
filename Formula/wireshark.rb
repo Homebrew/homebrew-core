@@ -64,16 +64,17 @@ class Wireshark < Formula
     (include/"wireshark/wsutil").install Dir["wsutil/*.h"]
   end
 
-  def caveats; <<~EOS
-    This formula only installs the command-line utilities by default.
+  def caveats
+    <<~EOS
+      This formula only installs the command-line utilities by default.
 
-    Install Wireshark.app with Homebrew Cask:
-      brew cask install wireshark
+      Install Wireshark.app with Homebrew Cask:
+        brew cask install wireshark
 
-    If your list of available capture interfaces is empty
-    (default macOS behavior), install ChmodBPF:
-      brew cask install wireshark-chmodbpf
-  EOS
+      If your list of available capture interfaces is empty
+      (default macOS behavior), install ChmodBPF:
+        brew cask install wireshark-chmodbpf
+    EOS
   end
 
   test do

@@ -3,25 +3,25 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.39.10.tar.gz"
-    sha256 "63c40e3c01eb416d48f1d46b7a180f7fcac67bd6cef23999457a1a6f9c7ba645"
+    url "https://github.com/emscripten-core/emscripten/archive/1.39.11.tar.gz"
+    sha256 "4da8d99cbc73d71a69020888933245b2ff01b009909230290f7248de76e3881a"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.10.tar.gz"
-      sha256 "12335fcdbaca1d13fb48b754cd34c1b0d641208bc26b9716d2d15132980b1a84"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.11.tar.gz"
+      sha256 "6af67379b3a722debb278d0dcc47fcba6e2115612b19c5430e63dbf07d377f38"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.10.tar.gz"
-      sha256 "d9f6be46eb7fbd34b55cdf55f24d88a207bff0e2a3d14e50a184723ec5071604"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.11.tar.gz"
+      sha256 "42040b77370ba1f78ae1f3b33f7a82c60dfba8a88a09ad175990bfa200253a10"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "2bc9f9f717a831304ea899dd0fcd4ddf91fb24a14cc48887706c7e46ba12e49c" => :catalina
-    sha256 "e9e21e75970ddb6580d4d55587354359f038c703fc4b6dfe0f08350cff1d81a6" => :mojave
-    sha256 "ca9bfa9a945f817ff84b9f6a3488c3d1cff7128ef2c4cd02e0eda409ed2546a7" => :high_sierra
+    sha256 "1415b0f37f10ac07f70e352869327a1259bff631ccda3cd8c0dd7f98bee0404d" => :catalina
+    sha256 "13c9d970d31dbe6641336107dab60b3e02259ae678cca597b69dc0b1270860b8" => :mojave
+    sha256 "77b515d9f6c51ee3c96d3abcbc8b76b47d4a4f1ce800a7a92b5791562ba89ff3" => :high_sierra
   end
 
   head do
@@ -77,13 +77,14 @@ class Emscripten < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Manually set LLVM_ROOT to
-      #{opt_libexec}/llvm/bin
-    and BINARYEN_ROOT to
-      #{Formula["binaryen"].opt_prefix}
-    in ~/.emscripten after running `emcc` for the first time.
-  EOS
+  def caveats
+    <<~EOS
+      Manually set LLVM_ROOT to
+        #{opt_libexec}/llvm/bin
+      and BINARYEN_ROOT to
+        #{Formula["binaryen"].opt_prefix}
+      in ~/.emscripten after running `emcc` for the first time.
+    EOS
   end
 
   test do

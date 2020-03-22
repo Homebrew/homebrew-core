@@ -36,11 +36,12 @@ class Nuxeo < Formula
     libexec.install_symlink var/"cache/nuxeo/packages"
   end
 
-  def caveats; <<~EOS
-    You need to edit #{etc}/nuxeo.conf file to configure manually the server.
-    Also, in case of upgrade, run 'nuxeoctl mp-upgrade' to ensure all
-    downloaded addons are up to date.
-  EOS
+  def caveats
+    <<~EOS
+      You need to edit #{etc}/nuxeo.conf file to configure manually the server.
+      Also, in case of upgrade, run 'nuxeoctl mp-upgrade' to ensure all
+      downloaded addons are up to date.
+    EOS
   end
 
   test do

@@ -18,10 +18,11 @@ class Geoserver < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    To start geoserver:
-      geoserver path/to/data/dir
-  EOS
+  def caveats
+    <<~EOS
+      To start geoserver:
+        geoserver path/to/data/dir
+    EOS
   end
 
   test do

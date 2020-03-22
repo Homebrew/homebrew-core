@@ -25,10 +25,11 @@ class Pari < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    If you need the graphical plotting functions you need to install X11 with:
-      brew cask install xquartz
-  EOS
+  def caveats
+    <<~EOS
+      If you need the graphical plotting functions you need to install X11 with:
+        brew cask install xquartz
+    EOS
   end
 
   test do

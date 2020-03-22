@@ -2,13 +2,13 @@ class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.2.28.tar.xz"
-  sha256 "afe1863301da572dee2e0bad8014813bcced162f980ddc8ec8e41fd72263eb2d"
+  url "https://www.php.net/distributions/php-7.2.29.tar.xz"
+  sha256 "b117de74136bf4b439d663be9cf0c8e06a260c1f340f6b75ccadb609153a7fe8"
 
   bottle do
-    sha256 "c1113f11d2a1be9f698b47219e16aadf9e7a97bfa631ee4726bcd66ad33f2d73" => :catalina
-    sha256 "391d87bcc35ecd71800b588c5081066b6dfd45130310ef0bb7e1937717cee24b" => :mojave
-    sha256 "0e0ee695bc340bf4c5fe2fc62e565bc9fdead438bcbcc2fe1efea07364cba1f3" => :high_sierra
+    sha256 "1af2da199898a98788f89bcf0f83fce354bda950bec306504d294406dfec9129" => :catalina
+    sha256 "33c0b62d6d2fdcf8d0d7931901e28dc01a22b5742f21c680e1a9d4946ed2525d" => :mojave
+    sha256 "1d4b566b54212cf0257d14c9e228e3854a1946971b126ddaa0dc322c2c6d93ad" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -50,9 +50,7 @@ class PhpAT72 < Formula
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
-    if MacOS.version == :el_capitan || MacOS.version == :sierra
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
 
     # buildconf required due to system library linking bug patch
     system "./buildconf", "--force"
@@ -294,29 +292,30 @@ class PhpAT72 < Formula
 
   plist_options :manual => "php-fpm"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/php-fpm</string>
-          <string>--nodaemonize</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/php-fpm.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/php-fpm</string>
+            <string>--nodaemonize</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/php-fpm.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

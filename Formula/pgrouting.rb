@@ -20,7 +20,8 @@ class Pgrouting < Formula
   depends_on "postgis"
   depends_on "postgresql"
 
-  # Patch for CGAL 5.0. To be removed next release. see https://github.com/pgRouting/pgrouting/pull/1188 for fix upstream
+  # Patch for CGAL 5.0. To be removed next release.
+  # see https://github.com/pgRouting/pgrouting/pull/1188 for fix upstream
   patch do
     url "https://cgal.geometryfactory.com/~mgimeno/pgrouting-for-cgal-5-0.diff"
     sha256 "9dab335d9782b1214852d85a3559bc1092ea95b9abd6b5701759799050005c98"

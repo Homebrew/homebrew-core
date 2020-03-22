@@ -27,11 +27,12 @@ class Alluxio < Formula
     ln_sf "#{etc}/alluxio/alluxio-site.properties", "#{libexec}/conf/alluxio-site.properties"
   end
 
-  def caveats; <<~EOS
-    To configure alluxio, edit
-      #{etc}/alluxio/alluxio-env.sh
-      #{etc}/alluxio/alluxio-site.properties
-  EOS
+  def caveats
+    <<~EOS
+      To configure alluxio, edit
+        #{etc}/alluxio/alluxio-env.sh
+        #{etc}/alluxio/alluxio-site.properties
+    EOS
   end
 
   test do

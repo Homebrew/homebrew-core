@@ -141,10 +141,11 @@ class Salt < Formula
     (etc/"saltstack").install (buildpath/"conf").children # sample config files
   end
 
-  def caveats; <<~EOS
-    Sample configuration files have been placed in #{etc}/saltstack.
-    Saltstack will not use these by default.
-  EOS
+  def caveats
+    <<~EOS
+      Sample configuration files have been placed in #{etc}/saltstack.
+      Saltstack will not use these by default.
+    EOS
   end
 
   test do

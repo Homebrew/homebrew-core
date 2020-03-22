@@ -30,9 +30,10 @@ class AircrackNg < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
-  EOS
+  def caveats
+    <<~EOS
+      Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
+    EOS
   end
 
   test do

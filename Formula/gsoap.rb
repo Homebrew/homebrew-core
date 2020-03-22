@@ -1,13 +1,13 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.98.zip"
-  sha256 "56460362ca8f9decdf880d82601e50ae13fb2185582a704b037060acacb7fc3a"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.99.zip"
+  sha256 "c1c99a64eecf96cfd781a611171b58a39326f5811eb98c619aa7c54ec7bcc84b"
 
   bottle do
-    sha256 "a4a7949ac587ce0dc43849d5d8fbed38b9571d504b6c8af7db1ba3bf8a779e68" => :catalina
-    sha256 "44bbe46df4293c171b1f99603f828391c4616784c8d014c6101c7ea582bd03b2" => :mojave
-    sha256 "0f1c164348d7aa8f85b1ce13413f3753f024c96365246c0e1452a7d0fab6ee5c" => :high_sierra
+    sha256 "f0b1a85c94b996b9200f29df9b421b6b0d5f6d4df6465848caaff60c2b386fbe" => :catalina
+    sha256 "7464b26728c66eba6ef312b59e1b30c8bec3ea2fbe41d37d9e7692c8235b0458" => :mojave
+    sha256 "78db6e81d2d963b09b83c69a89fedfdebcf849196b5936e2f22eef98210d1fb2" => :high_sierra
   end
 
   depends_on "autoconf" => :build

@@ -31,13 +31,14 @@ class GnuWhich < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    GNU "which" has been installed as "gwhich".
-    If you need to use it as "which", you can add a "gnubin" directory
-    to your PATH from your bashrc like:
+  def caveats
+    <<~EOS
+      GNU "which" has been installed as "gwhich".
+      If you need to use it as "which", you can add a "gnubin" directory
+      to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

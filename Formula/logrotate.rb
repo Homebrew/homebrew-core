@@ -28,30 +28,31 @@ class Logrotate < Formula
 
   plist_options :manual => "logrotate"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/logrotate</string>
-          <string>#{etc}/logrotate.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <false/>
-        <key>StartCalendarInterval</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Hour</key>
-          <integer>6</integer>
-          <key>Minute</key>
-          <integer>25</integer>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/logrotate</string>
+            <string>#{etc}/logrotate.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <false/>
+          <key>StartCalendarInterval</key>
+          <dict>
+            <key>Hour</key>
+            <integer>6</integer>
+            <key>Minute</key>
+            <integer>25</integer>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

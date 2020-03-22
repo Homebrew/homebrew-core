@@ -17,7 +17,9 @@ class Ext2fuse < Formula
 
   def install
     ENV.append "LIBS", "-losxfuse"
-    ENV.append "CFLAGS", "-D__FreeBSD__=10 -DENABLE_SWAPFS -I/usr/local/include/osxfuse/fuse -I#{HOMEBREW_PREFIX}/opt/osxfuse/include/osxfuse/fuse"
+    ENV.append "CFLAGS",
+      "-D__FreeBSD__=10 -DENABLE_SWAPFS -I/usr/local/include/osxfuse/fuse " \
+      "-I#{HOMEBREW_PREFIX}/opt/osxfuse/include/osxfuse/fuse"
     ENV.append "CFLAGS", "--std=gnu89" if ENV.compiler == :clang
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

@@ -23,9 +23,7 @@ class ZeroInstall < Formula
     ENV.append_path "PATH", Formula["gnupg"].opt_bin
 
     # Use correct curl headers
-    if MacOS.version >= :mojave && MacOS::CLT.installed?
-      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
-    end
+    ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version) if MacOS.version >= :mojave && MacOS::CLT.installed?
 
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot

@@ -26,10 +26,14 @@ class InteractiveRebaseTool < Formula
       system "git", "init"
       touch "FILE1"
       system "git", "add", "FILE1"
-      system "git", "commit", "--date='2005-04-07T22:13:13-3:30'", "--author='Test <test@example.com>'", "--message='File 1'"
+      system "git", "commit", "--date='2005-04-07T22:13:13-3:30'",
+                              "--author='Test <test@example.com>'",
+                              "--message='File 1'"
       touch "FILE2"
       system "git", "add", "FILE2"
-      system "git", "commit", "--date='2005-04-07T22:13:13-3:30'", "--author='Test <test@example.com>'", "--message='File 2'"
+      system "git", "commit", "--date='2005-04-07T22:13:13-3:30'",
+                              "--author='Test <test@example.com>'",
+                              "--message='File 2'"
     end
 
     (testpath/"repo/.git/rebase-merge/git-rebase-todo").write <<~EOS
@@ -42,7 +46,10 @@ class InteractiveRebaseTool < Formula
       pick 32bd1bb File 2
     EOS
 
-    PTY.spawn({ "GIT_DIR" => testpath/"repo/.git/" }, bin/"interactive-rebase-tool", testpath/"repo/.git/rebase-merge/git-rebase-todo") do |stdout, stdin, _pid|
+    env = { "GIT_DIR" => testpath/"repo/.git/" }
+    executable = bin/"interactive-rebase-tool"
+    file = testpath/"repo/.git/rebase-merge/git-rebase-todo"
+    PTY.spawn(env, executable, file) do |stdout, stdin, _pid|
       # simulate user input
       stdin.putc "d"
       stdin.putc "W"

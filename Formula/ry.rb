@@ -22,14 +22,15 @@ class Ry < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    Please add to your profile:
-      which ry &>/dev/null && eval "$(ry setup)"
+  def caveats
+    <<~EOS
+      Please add to your profile:
+        which ry &>/dev/null && eval "$(ry setup)"
 
-    If you want your Rubies to persist across updates you
-    should set the `RY_RUBIES` variable in your profile, i.e.
-      export RY_RUBIES="#{HOMEBREW_PREFIX}/var/ry/rubies"
-  EOS
+      If you want your Rubies to persist across updates you
+      should set the `RY_RUBIES` variable in your profile, i.e.
+        export RY_RUBIES="#{HOMEBREW_PREFIX}/var/ry/rubies"
+    EOS
   end
 
   test do

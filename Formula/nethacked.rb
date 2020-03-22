@@ -72,7 +72,8 @@ class Nethacked < Formula
       end
 
       # Stage the data
-      libexec.install %w[help hh cmdhelp history opthelp wizhelp dungeon license data oracles options rumors quest.dat]
+      libexec.install %w[help hh cmdhelp history opthelp wizhelp dungeon
+                         license data oracles options rumors quest.dat]
       libexec.install Dir["*.lev"]
     end
 

@@ -30,9 +30,7 @@ class BoostPython < Formula
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++14"
-    if ENV.compiler == :clang
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-    end
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     pyver = Language::Python.major_minor_version "python"
 
@@ -51,12 +49,13 @@ class BoostPython < Formula
     doc.install Dir["libs/python/doc/*"]
   end
 
-  def caveats; <<~EOS
-    This formula provides Boost.Python for Python 2. Due to a
-    collision with boost-python3, the CMake Config files are not
-    available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
-    with CMake or switch to Python 3.
-  EOS
+  def caveats
+    <<~EOS
+      This formula provides Boost.Python for Python 2. Due to a
+      collision with boost-python3, the CMake Config files are not
+      available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
+      with CMake or switch to Python 3.
+    EOS
   end
 
   test do

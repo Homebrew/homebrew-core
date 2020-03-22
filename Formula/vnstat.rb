@@ -39,38 +39,40 @@ class Vnstat < Formula
     (var/"run/vnstat").mkpath
   end
 
-  def caveats; <<~EOS
-    To monitor interfaces other than "en0" edit #{etc}/vnstat.conf
-  EOS
+  def caveats
+    <<~EOS
+      To monitor interfaces other than "en0" edit #{etc}/vnstat.conf
+    EOS
   end
 
   plist_options :startup => true, :manual => "#{HOMEBREW_PREFIX}/opt/vnstat/bin/vnstatd --nodaemon --config #{HOMEBREW_PREFIX}/etc/vnstat.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/vnstatd</string>
-          <string>--nodaemon</string>
-          <string>--config</string>
-          <string>#{etc}/vnstat.conf</string>
-        </array>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>ProcessType</key>
-        <string>Background</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/vnstatd</string>
+            <string>--nodaemon</string>
+            <string>--config</string>
+            <string>#{etc}/vnstat.conf</string>
+          </array>
+          <key>KeepAlive</key>
+          <true/>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>ProcessType</key>
+          <string>Background</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
