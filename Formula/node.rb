@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v13.11.0/node-v13.11.0.tar.xz"
   sha256 "e5402183e68806785b3c40c2cb0a6b6aa43bb61aee1cec5efde9c65825ef291f"
   head "https://github.com/nodejs/node.git"
+  revision 1
 
   bottle do
     cellar :any
