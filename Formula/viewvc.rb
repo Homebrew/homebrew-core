@@ -1,8 +1,8 @@
 class Viewvc < Formula
   desc "Browser interface for CVS and Subversion repositories"
   homepage "http://www.viewvc.org"
-  url "https://github.com/viewvc/viewvc/releases/download/1.1.27/viewvc-1.1.27.tar.gz"
-  sha256 "f5def1dda61568b468c608a0805fe73c15c2073b263cb5395de96ad3218973a0"
+  url "https://github.com/viewvc/viewvc/releases/download/1.2.0/viewvc-1.2.0.tar.gz"
+  sha256 "6b273a987a6f4362983bac5ffc80255c7be686b76365b795afe7a4071d64f089"
 
   bottle do
     cellar :any_skip_relocation
