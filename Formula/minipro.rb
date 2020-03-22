@@ -5,8 +5,8 @@ class Minipro < Formula
   sha256 "05e0090eab33a236992f5864f3485924fb5dfad95d8f16916a17296999c094cc"
 
   depends_on "pkg-config" => :build
-  depends_on "srecord"
   depends_on "libusb"
+  depends_on "srecord"
 
   def install
     system "make"
