@@ -5,6 +5,7 @@ class Openrct2 < Formula
       :tag      => "v0.2.4",
       :revision => "d645338752fbda54bed2cf2a4183ae8b44be6e95"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
+  revision 1
 
   bottle do
     cellar :any
