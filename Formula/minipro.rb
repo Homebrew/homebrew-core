@@ -5,15 +5,18 @@ class Minipro < Formula
   sha256 "05e0090eab33a236992f5864f3485924fb5dfad95d8f16916a17296999c094cc"
 
   depends_on "pkg-config" => :build
+  depends_on "srecord"
   depends_on "libusb"
 
   def install
     system "make"
-    bin.install "minipro"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
-    output = shell_output("#{bin}/minipro 2>&1")
-    assert_match "minipro version", output
+    output_minipro = shell_output("#{bin}/minipro 2>&1")
+    assert_match "minipro version #{version}", output_minipro
+    output_miniprohex = shell_output("#{bin}/miniprohex 2>&1")
+    assert_match "miniprohex by Al Williams", output_miniprohex
   end
 end
