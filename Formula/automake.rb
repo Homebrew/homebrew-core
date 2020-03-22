@@ -1,10 +1,9 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftp.gnu.org/gnu/automake/automake-1.16.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.1.tar.xz"
-  sha256 "5d05bb38a23fd3312b10aea93840feec685bdf4a41146e78882848165d3ae921"
-  revision 1
+  url "https://ftp.gnu.org/gnu/automake/automake-1.16.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.2.tar.xz"
+  sha256 "ccc459de3d710e066ab9e12d2f119bd164a08c9341ca24ba22c9adaa179eedd0"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,14 +15,6 @@ class Automake < Formula
   end
 
   depends_on "autoconf"
-
-  # https://lists.gnu.org/archive/html/bug-automake/2018-04/msg00002.html
-  # https://git.savannah.gnu.org/cgit/automake.git/commit/?id=a348d830659fffd2cfc42994524783b07e69b4b5
-  # Remove this when applying any future 1.16.2 update.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6c632516/automake/python.diff"
-    sha256 "c048ce853eef073a5dfce34fcf9af786e8525e384e01dbbf4e6066623985d4c7"
-  end
 
   def install
     ENV["PERL"] = "/usr/bin/perl"
