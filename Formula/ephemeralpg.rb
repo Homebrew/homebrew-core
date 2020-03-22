@@ -18,6 +18,8 @@ class Ephemeralpg < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     system "#{bin}/pg_tmp", "selftest"
   end
 end
