@@ -6,6 +6,7 @@ class Manticoresearch < Formula
   sha256 "f62801f6eb50bd08cb8fe976f0a3a43c7600b979a1ced8d14b8261ca06eaf22c"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
+  revision 1
 
   bottle do
     sha256 "9eca403053abe7eb5308501aec1b8bfeed12444cb15e585c9e4e50190008ddd5" => :catalina
