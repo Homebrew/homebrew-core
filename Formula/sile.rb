@@ -3,8 +3,8 @@ class Sile < Formula
   homepage "https://www.sile-typesetter.org"
   url "https://github.com/sile-typesetter/sile/releases/download/v0.10.3/sile-0.10.3.tar.bz2"
   sha256 "d89d5ce7d2bf46fb062e5299ffd8b5d821dc3cb3462a0e7c1109edeee111d856"
-
   head "https://github.com/sile-typesetter/sile.git", :shallow => false
+  revision 1
 
   bottle do
     sha256 "a5e035b0a1283de83d67e5e2b4b4dcdbd48f7f420f5665905ef18877247ff4c6" => :catalina
