@@ -12,6 +12,7 @@ class CargoC < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "openssl@1.1"
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
