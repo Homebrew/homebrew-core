@@ -1,9 +1,9 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
-  url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.15.3",
-    :revision => "b4e81dd5bc2cd14e0aaee3db4b88999d6d111683"
+  url "https://github.com/terraform-linters/tflint/archive/v0.15.3.tar.gz"
+  sha256 "878498373f45e6a34a3e1016339309ba973d7f13887430ec9674d745a751e170"
+  revision 1
   head "https://github.com/wata727/tflint.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Tflint < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"tflint"
+    system "go", "build", "-ldflags", "-s -w", "-o", bin/"tflint"
   end
 
   test do
