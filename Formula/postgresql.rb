@@ -72,6 +72,8 @@ class Postgresql < Formula
   end
 
   def post_install
+    return if ENV["CI"]
+
     (var/"log").mkpath
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
@@ -118,7 +120,7 @@ class Postgresql < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath/"test"
+    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
     assert_equal "#{HOMEBREW_PREFIX}/share/postgresql", shell_output("#{bin}/pg_config --sharedir").chomp
     assert_equal "#{HOMEBREW_PREFIX}/lib", shell_output("#{bin}/pg_config --libdir").chomp
     assert_equal "#{HOMEBREW_PREFIX}/lib/postgresql", shell_output("#{bin}/pg_config --pkglibdir").chomp
