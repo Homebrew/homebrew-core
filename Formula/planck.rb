@@ -4,6 +4,7 @@ class Planck < Formula
   url "https://github.com/planck-repl/planck/archive/2.24.0.tar.gz"
   sha256 "b4b1b36786fd55be829a6b0a42771d9134152b503dafa92ee0f2c6e57c8cb3ca"
   head "https://github.com/planck-repl/planck.git"
+  revision 1
 
   bottle do
     cellar :any
