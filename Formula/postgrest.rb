@@ -26,6 +26,8 @@ class Postgrest < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin  = Formula["postgresql"].bin
     pg_port = 55561
     pg_user = "postgrest_test_user"
