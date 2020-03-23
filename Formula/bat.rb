@@ -19,8 +19,9 @@ class Bat < Formula
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
-    man1.install "target/release/build/bat-df82c97c3bd64ddc/out/assets/manual/bat.1"
-    fish_completion.install "target/release/build/bat-df82c97c3bd64ddc/out/assets/completions/bat.fish"
+    assets_dir = Dir["target/release/build/bat-*/out/assets"].first
+    man1.install "#{assets_dir}/manual/bat.1"
+    fish_completion.install "#{assets_dir}/completions/bat.fish"
   end
 
   test do
