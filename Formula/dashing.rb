@@ -3,6 +3,7 @@ class Dashing < Formula
   homepage "https://github.com/technosophos/dashing"
   url "https://github.com/technosophos/dashing/archive/0.4.0.tar.gz"
   sha256 "81b21acae83c144f10d9eea05a0b89f0dcdfa694c3760c2a25bd4eab72a2a3b9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,16 +17,13 @@ class Dashing < Formula
   # Use ruby docs just as dummy documentation to test with
   resource "ruby_docs_tarball" do
     url "https://ruby-doc.com/downloads/ruby_2_6_5_core_rdocs.tgz"
-    sha256 "1ef2923161031789a88ac40630c93b7c4feb74147b47fd14c0dfe53559dc6622"
+    sha256 "9b5fc2814e4ce33701b3f6614a3309b8ed7a229e8b9b87cc5e75d5d4dbda1e12"
   end
 
   def install
-    (buildpath/"src/github.com/technosophos/dashing").install buildpath.children
-    cd "src/github.com/technosophos/dashing" do
-      system "go", "build", "-o", bin/"dashing", "-ldflags",
+    system "go", "build", "-o", bin/"dashing", "-ldflags",
              "-X main.version=#{version}"
-      prefix.install_metafiles
-    end
+    prefix.install_metafiles
   end
 
   test do
