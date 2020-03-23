@@ -22,8 +22,9 @@ class Curl < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
+  depends_on "nghttp2"
+  depends_on "openssl@1.1"
 
-  uses_from_macos "openssl"
   uses_from_macos "zlib"
 
   def install
@@ -35,6 +36,7 @@ class Curl < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --with-secure-transport
+      --with-nghttp2
       --without-ca-bundle
       --without-ca-path
     ]
