@@ -1,8 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.18/newsboat-2.18.tar.xz"
-  sha256 "f23932c0226ec3f69eac7668da444e73175048498e15e9d773451648b2cba4b0"
+  url "https://newsboat.org/releases/2.19/newsboat-2.19.tar.xz"
+  sha256 "ba484c825bb903daf6d33d55126107b59e41111b455d368362208f1825403d1b"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
@@ -11,8 +11,7 @@ class Newsboat < Formula
     sha256 "9e3ce4ad4a7230aa6356651c7dca731d56366bba7ba42e73eeb8d3dfdbf8ca45" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "docbook-xsl" => :build
+  depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "gettext"
