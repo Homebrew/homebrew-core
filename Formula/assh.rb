@@ -2,7 +2,8 @@ class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://github.com/moul/advanced-ssh-config"
   url "https://github.com/moul/advanced-ssh-config/archive/v2.8.0.tar.gz"
-  sha256 "e04de57ab048f1abee75e9e739514c4f47e6cbb8acacb9d58a6e2892df30dc42"
+  sha256 "17656a6ac562707d6e85df44c1ccd04276fb1c08f1ff6a002291f4cb88880069"
+  revision 1
   head "https://github.com/moul/advanced-ssh-config.git"
 
   bottle do
@@ -25,6 +26,14 @@ class Assh < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/assh --version")
+    assh_config = testpath/"assh.yml"
+    assh_config.write <<~EOS
+      hosts:
+        hosta:
+          Hostname: 127.0.0.1
+    EOS
+
+    output = "hosta assh ping statistics"
+    assert_match output, shell_output("#{bin}/assh --config #{assh_config} ping -c 4 hosta 2>&1")
   end
 end
