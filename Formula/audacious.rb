@@ -1,15 +1,14 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
-  revision 1
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2"
-    sha256 "8366e840bb3c9448c2cf0cf9a0800155b0bd7cc212a28ba44990c3d2289c6b93"
+    url "https://distfiles.audacious-media-player.org/audacious-4.0.tar.bz2"
+    sha256 "3f46025334cc79332ef87a0c94297632f8eceb8e1497bf5a76a57003453c8bea"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.tar.bz2"
-      sha256 "eec3177631f99729bf0e94223b627406cc648c70e6646e35613c7b55040a2642"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.0.tar.bz2"
+      sha256 "e1ad3223c7833f167642563f3c30c68d292b1a457c9f0159fdedd58e575e3ee4"
     end
   end
 
