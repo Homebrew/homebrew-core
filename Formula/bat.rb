@@ -19,13 +19,8 @@ class Bat < Formula
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
-    # In https://github.com/sharkdp/bat/pull/673,
-    # documentation and fish autocompletion got parameterized
-    inreplace "assets/manual/bat.1.in", "{{PROJECT_EXECUTABLE | upcase}}", "bat"
-    inreplace "assets/manual/bat.1.in", "{{PROJECT_EXECUTABLE}}", "bat"
-    inreplace "assets/completions/bat.fish.in", "{{PROJECT_EXECUTABLE}}", "bat"
-    man1.install "assets/manual/bat.1.in" => "bat.1"
-    fish_completion.install "assets/completions/bat.fish.in" => "bat.fish"
+    man1.install "target/release/build/bat-df82c97c3bd64ddc/out/assets/manual/bat.1"
+    fish_completion.install "target/release/build/bat-df82c97c3bd64ddc/out/assets/completions/bat.fish"
   end
 
   test do
