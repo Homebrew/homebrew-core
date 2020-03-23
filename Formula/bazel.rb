@@ -37,7 +37,7 @@ class Bazel < Formula
              "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
-      ln_s bin/"bazel", bin/"bazel-#{version}"
+      ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
 
@@ -75,5 +75,18 @@ class Bazel < Formula
            "--javabase=@bazel_tools//tools/jdk:jdk",
            "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
+
+    # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
+    # project-specific `tools/bazel` if present. Invoking `bazel-VERSION`
+    # bypasses this behavior.
+    (testpath/"tools"/"bazel").write <<~EOS
+      #!/bin/bash
+      echo "stub-wrapper"
+      exit 1
+    EOS
+    (testpath/"tools/bazel").chmod 0755
+
+    assert_equal "stub-wrapper\n", shell_output("#{bin}/bazel --version", 1)
+    assert_equal "bazel #{version}-homebrew\n", shell_output("#{bin}/bazel-#{version} --version")
   end
 end
