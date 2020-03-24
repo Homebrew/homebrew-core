@@ -1,8 +1,8 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.01/tintin-2.02.01.tar.gz"
-  sha256 "decc933d18f91e0d890e13325d8e9e60eff4238bdf3f431a647dac0c9ad15295"
+  url "https://github.com/scandum/tintin/releases/download/2.02.02/tintin-2.02.02.tar.gz"
+  sha256 "c5d8b6c930ec0beb9f45de434e079dddb17b48f8a3acff08acbc9d1bd15dd487"
 
   bottle do
     cellar :any
@@ -13,12 +13,6 @@ class Tintin < Formula
 
   depends_on "gnutls"
   depends_on "pcre"
-
-  # fix for https://github.com/scandum/tintin/pull/7, included in next version
-  patch do
-    url "https://github.com/scandum/tintin/commit/259d33ae40c601dc2fd2ce23c10928b08a9b1c15.diff?full_index=1"
-    sha256 "85b9f6f263b16836cd1619d22f039aa37da4e4661c167d5aff020475868d5354"
-  end
 
   def install
     # find Homebrew's libpcre
@@ -34,6 +28,6 @@ class Tintin < Formula
   end
 
   test do
-    shell_output("#{bin}/tt++ -e \"#nop; #info system; #end;\"")
+    assert_match version.to_s, shell_output("#{bin}/tt++ -V", 1)
   end
 end
