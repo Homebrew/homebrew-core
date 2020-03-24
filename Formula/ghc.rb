@@ -15,7 +15,7 @@ class Ghc < Formula
   end
 
   head do
-    url "https://gitlab.haskell.org/ghc/ghc.git", :branch => "ghc-8.8"
+    url "https://gitlab.haskell.org/ghc/ghc.git", :branch => "ghc-8.10"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
