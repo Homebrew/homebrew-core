@@ -16,7 +16,7 @@ class AnycableGo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}",
+    system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}",
                           "-trimpath", "-o", "#{bin}/anycable-go",
                           "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
