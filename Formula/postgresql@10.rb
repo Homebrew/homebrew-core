@@ -59,7 +59,7 @@ class PostgresqlAT10 < Formula
     # to inside the SDK, so we need to use `-iwithsysroot` instead
     # of `-I` to point to the correct location.
     # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-    ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib} -R#{lib}/postgresql"
+    ENV.prepend "LDFLAGS", "-R#{lib}/postgresql"
 
     system "./configure", *args
     system "make"
