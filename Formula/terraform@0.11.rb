@@ -31,7 +31,8 @@ class TerraformAT011 < Formula
 
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = "amd64"
-      system "make", "tools", "test", "bin"
+      system "go", "mod", "vendor" # Needed for Go 1.14+
+      system "make", "tools", "bin"
 
       bin.install "pkg/darwin_amd64/terraform"
       prefix.install_metafiles
