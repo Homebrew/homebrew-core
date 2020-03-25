@@ -20,8 +20,34 @@ class Monit < Formula
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
                           "--with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}"
+    system "make"
     system "make", "install"
     etc.install "monitrc"
+  end
+
+  plist_options :manual => "monit -I -c #{HOMEBREW_PREFIX}/etc/monitrc"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>              <string>#{plist_name}</string>
+          <key>ProcessType</key>        <string>Adaptive</string>
+          <key>Disabled</key>           <false/>
+          <key>RunAtLoad</key>          <true/>
+          <key>LaunchOnlyOnce</key>     <false/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/monit</string>
+            <string>-I</string>
+            <string>-c</string>
+            <string>#{etc}/monitrc</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
