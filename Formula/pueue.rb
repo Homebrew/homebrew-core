@@ -1,8 +1,8 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.1.6.tar.gz"
-  sha256 "6b11643497cedfa7517d1c041951be907f6e138e8efc339cd36309943995b8f1"
+  url "https://github.com/Nukesor/pueue/archive/v0.2.1.tar.gz"
+  sha256 "a8411d6e5648c4b42ccc458bb1908bef47515a4f015abcf34af0e2b5181a7850"
   head "https://github.com/Nukesor/pueue.git"
 
   bottle do
@@ -17,10 +17,11 @@ class Pueue < Formula
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
-    prefix.install_metafiles
-
+    system "./build_completions.sh"
     bash_completion.install "utils/completions/pueue.bash" => "pueue"
     fish_completion.install "utils/completions/pueue.fish" => "pueue.fish"
+
+    prefix.install_metafiles
   end
 
   plist_options :manual => "pueued"
