@@ -1,6 +1,6 @@
 require "language/haskell"
 
-class Ghc < Formula
+class GhcAT88 < Formula
   include Language::Haskell::Cabal
 
   desc "Glorious Glasgow Haskell Compilation System"
