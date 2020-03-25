@@ -8,7 +8,7 @@ class Cvs < Formula
   homepage "https://www.nongnu.org/cvs/"
   url "https://ftp.gnu.org/non-gnu/cvs/source/feature/1.12.13/cvs-1.12.13.tar.bz2"
   sha256 "78853613b9a6873a30e1cc2417f738c330e75f887afdaf7b3d0800cb19ca515e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
