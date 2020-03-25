@@ -3,7 +3,7 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
-  revision 5
+  revision 6
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
@@ -16,6 +16,7 @@ class Pytouhou < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glfw"
   depends_on "gtk+3"
   depends_on "libepoxy"
   depends_on "py3cairo"
