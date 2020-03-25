@@ -13,14 +13,14 @@ class Perkeep < Formula
     sha256 "e4e42c68017500af8a8aa7b542e89905849b09b398a547da818323f08a6e680a" => :el_capitan
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.10" => :build
   depends_on "pkg-config" => :build
 
   conflicts_with "hello", :because => "both install `hello` binaries"
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/perkeep.org").install buildpath.children
+    (buildpath/"src/perkeep.org").install buildpath.children - [buildpath/".brew_home"]
     cd "src/perkeep.org" do
       system "go", "run", "make.go"
       prefix.install_metafiles
