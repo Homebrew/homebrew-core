@@ -9,18 +9,7 @@ class GhcAT88 < Formula
   sha256 "e0dcc0aaf3e234c5978f29e6df62947e97720ab404ec0158343df211c5480f89"
 
 
-  head do
-    url "https://gitlab.haskell.org/ghc/ghc.git", :branch => "ghc-8.8"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-
-    resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-3.0.0.0/cabal-install-3.0.0.0.tar.gz"
-      sha256 "a432a7853afe96c0fd80f434bd80274601331d8c46b628cd19a0d8e96212aaf1"
-    end
-  end
+  keg_only :versioned_formula
 
   depends_on "python" => :build
   depends_on "sphinx-doc" => :build
