@@ -88,6 +88,7 @@ class Ffmpeg < Formula
       --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
+      --extra-cflags="-fno-stack-check"
     ]
 
     system "./configure", *args
