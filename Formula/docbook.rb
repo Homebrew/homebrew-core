@@ -3,6 +3,7 @@ class Docbook < Formula
   homepage "https://docbook.org/"
   url "https://docbook.org/xml/5.1/docbook-v5.1-os.zip"
   sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -70,19 +71,20 @@ class Docbook < Formula
   end
 
   def post_install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    etc_catalog = etc/"xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc_catalog
 
     # only create catalog file if it doesn't exist already to avoid content added
     # by other formulae to be removed
-    system "xmlcatalog", "--noout", "--create", "#{etc}/xml/catalog" unless File.file?("#{etc}/xml/catalog")
+    system "xmlcatalog", "--noout", "--create", etc_catalog unless File.file?(etc_catalog)
 
     %w[4.2 4.1.2 4.3 4.4 4.5 5.0 5.1].each do |version|
-      catalog = prefix/"docbook/xml/#{version}/catalog.xml"
+      catalog = opt_prefix/"docbook/xml/#{version}/catalog.xml"
 
       system "xmlcatalog", "--noout", "--del",
-             "file://#{catalog}", "#{etc}/xml/catalog"
+             "file://#{catalog}", etc_catalog
       system "xmlcatalog", "--noout", "--add", "nextCatalog",
-             "", "file://#{catalog}", "#{etc}/xml/catalog"
+             "", "file://#{catalog}", etc_catalog
     end
   end
 
