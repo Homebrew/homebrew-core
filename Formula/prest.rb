@@ -15,14 +15,11 @@ class Prest < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/prest/prest").install buildpath.children
-    cd "src/github.com/prest/prest" do
-      system "go", "build", "-ldflags",
-             "-X github.com/prest/prest/vendor/github.com/prest/helpers.PrestVersionNumber=#{version}",
-             "-o", bin/"prest"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags",
+           "-s -w -X github.com/prest/helpers.PrestVersionNumber=#{version}",
+           "-trimpath",
+           "-o", bin/"prest"
+    prefix.install_metafiles
   end
 
   test do
