@@ -1,8 +1,8 @@
 class Click < Formula
   desc "The command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
-  url "https://github.com/databricks/click/archive/v0.4.3.tar.gz"
-  sha256 "2f7f2cd2c53ef1fefe251ddf5f69fa5d6128c1776800a12461495f3e1af24c8b"
+  url "https://github.com/databricks/click/archive/v0.5.0.tar.gz"
+  sha256 "0d7b119d73f830a7cef2339e86cfa1bbfe0ce9fb57a00cce343d3e271a824dc4"
   head "https://github.com/databricks/click.git"
 
   bottle do
