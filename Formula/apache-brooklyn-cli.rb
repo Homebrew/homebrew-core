@@ -1,8 +1,8 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-0.12.0.tar.gz"
-  sha256 "1d0975252a41f1fd65268b915778d4974a0eff2a8a315280e3dedc0e39ef486f"
+  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-1.0.0.tar.gz"
+  sha256 "9eb52ac3cd76adf219b66eb8b5a7899c86e25736294bca666a5b4e24d34e911b"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,19 +11,13 @@ class ApacheBrooklynCli < Formula
     sha256 "39f56956e1ed81dfae64401caa333f910b70312d6e45950ac5e2bb3c0db59cfe" => :el_capitan
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/apache/brooklyn-client").install "cli"
     cd "src/github.com/apache/brooklyn-client/cli" do
-      system "glide", "install"
-      system "go", "install", ".../br"
+      system "go", "build", "-o", bin/"br", ".../br"
       prefix.install_metafiles
     end
   end
