@@ -16,7 +16,11 @@ class Stout < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
+
+    # Compatibility with newer Go.
+    # Reported upstream, but the project is unmaintained.
+    mkdir_p buildpath/"vendor/github.com/sspencer"
+    ln_s buildpath/"vendor/github.com/zackbloom/go-ini", buildpath/"vendor/github.com/sspencer/go-ini"
 
     mkdir_p buildpath/"src/github.com/cloudflare"
     ln_s buildpath, buildpath/"src/github.com/cloudflare/stout"
