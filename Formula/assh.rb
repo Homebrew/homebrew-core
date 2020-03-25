@@ -18,7 +18,7 @@ class Assh < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
-    cd "src/github.com/moul/advanced-ssh-config/cmd/assh" do
+    cd "src/github.com/moul/advanced-ssh-config" do
       system "go", "build", "-o", bin/"assh"
       prefix.install_metafiles
     end
