@@ -8,6 +8,7 @@ jobs:
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
+      fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
     env:
