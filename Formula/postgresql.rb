@@ -89,7 +89,8 @@ class Postgresql < Formula
     EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
+  plist_options :manual => "brew services run postgres # starts postgres, will not auto start in future\n"\
+                            "  brew services stop postgres # stops postgres"
 
   def plist
     <<~EOS
