@@ -1,9 +1,9 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
-  homepage "https://github.com/bitly/oauth2_proxy"
-  url "https://github.com/bitly/oauth2_proxy/archive/v2.2.tar.gz"
-  sha256 "dae9bae213ccf2a98bf36177e04c1edf4688989c58c383525258956679ddcc19"
-  head "https://github.com/bitly/oauth2_proxy.git"
+  homepage "https://pusher.github.io/oauth2_proxy"
+  url "https://github.com/pusher/oauth2_proxy/archive/v5.0.0.tar.gz"
+  sha256 "a775357f3a8952da2495b423765fe7d77e2fbbe4c9282fc28e910642e27caafb"
+  head "https://github.com/pusher/oauth2_proxy.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,17 +15,13 @@ class Oauth2Proxy < Formula
   end
 
   depends_on "go" => :build
-  depends_on "gpm" => :build
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/bitly"
-    ln_s buildpath, "#{buildpath}/src/github.com/bitly/oauth2_proxy"
-
-    ENV["GOPATH"] = buildpath
-
-    system "gpm", "install"
-    system "go", "build", "-o", "#{bin}/oauth2_proxy"
+    system "go", "build", "-ldflags", "-s -w -X main.VERSION=#{version}",
+                          "-trimpath",
+                          "-o", bin/"oauth2_proxy"
     (etc/"oauth2_proxy").install "contrib/oauth2_proxy.cfg.example"
+    bash_completion.install "contrib/oauth2_proxy_autocomplete.sh" => "oauth2_proxy"
   end
 
   def caveats
