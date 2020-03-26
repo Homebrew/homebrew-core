@@ -31,7 +31,8 @@ class Redis < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  plist_options :manual => "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
+  plist_options :manual => "brew services start redis # starts redis, will not auto start in future\n"\
+                            "  brew services stop redis # stops redis"
 
   def plist
     <<~EOS
