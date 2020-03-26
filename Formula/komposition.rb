@@ -12,7 +12,7 @@ class Komposition < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "gobject-introspection"

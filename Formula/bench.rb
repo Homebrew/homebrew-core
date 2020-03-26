@@ -17,7 +17,7 @@ class Bench < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
 
   # Compatibility with GHC 8.8. Remove with the next release.
   patch do

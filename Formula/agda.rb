@@ -33,7 +33,7 @@ class Agda < Formula
 
   depends_on "cabal-install"
   depends_on "emacs"
-  depends_on "ghc"
+  depends_on "ghc@8.8"
 
   uses_from_macos "zlib"
 
