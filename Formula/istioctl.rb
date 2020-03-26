@@ -21,7 +21,7 @@ class Istioctl < Formula
     ENV["HUB"] = "docker.io/istio"
 
     srcpath = buildpath/"src/istio.io/istio"
-    outpath = buildpath/"out/darwin_amd64/release"
+    outpath = buildpath/"out/darwin_amd64"
     srcpath.install buildpath.children
 
     cd srcpath do
