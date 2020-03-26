@@ -14,7 +14,7 @@ class Oclgrind < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@9"
 
   def install
     system "cmake", ".", *std_cmake_args
