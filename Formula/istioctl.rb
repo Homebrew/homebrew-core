@@ -1,7 +1,7 @@
 class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
-  url "https://github.com/istio/istio.git",
+  url "https://github.com/istio/istio.git", 
       :tag      => "1.5.1",
       :revision => "9d07e185b0dd50e6fb1418caa4b4d879788807e3"
 
