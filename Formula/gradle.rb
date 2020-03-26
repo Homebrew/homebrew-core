@@ -22,6 +22,6 @@ class Gradle < Formula
       println "gradle works!"
     EOS
     gradle_output = shell_output("#{bin}/gradle build --no-daemon")
-    assert_includes gradle_output, "gradle works!"   
+    assert_includes gradle_output, "gradle works!"
   end
 end
