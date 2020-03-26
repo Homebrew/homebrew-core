@@ -17,5 +17,11 @@ class Gradle < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gradle --version")
+
+    (testpath/"build.gradle").write <<~EOS
+      println "gradle works!"
+    EOS
+    gradle_output = shell_output("#{bin}/gradle build --no-daemon")
+    assert_includes gradle_output, "gradle works!"   
   end
 end
