@@ -36,6 +36,6 @@ class Spdylay < Formula
   test do
     # Check here for popular websites using SPDY:
     # https://w3techs.com/technologies/details/ce-spdy/all/all
-    system "#{bin}/spdycat", "-ns", "https://www.twitter.com/"
+    system "#{bin}/spdycat", "-ns", "https://www.academia.edu/"
   end
 end
