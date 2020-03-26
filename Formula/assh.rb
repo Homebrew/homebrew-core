@@ -33,6 +33,6 @@ class Assh < Formula
     EOS
 
     output = "hosta assh ping statistics"
-    assert_match output, shell_output("#{bin}/assh --config #{assh_config} --ignore-known-hosts ping -c 4 hosta 2>&1")
+    assert_match output, shell_output("#{bin}/assh --config #{assh_config} ping -c 4 hosta 2>&1")
   end
 end
