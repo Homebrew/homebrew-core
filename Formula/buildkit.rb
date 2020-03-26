@@ -2,8 +2,8 @@ class Buildkit < Formula
   desc "Сoncurrent, cache-efficient, and Dockerfile-agnostic builder toolkit"
   homepage "https://github.com/moby/buildkit"
   url "https://github.com/moby/buildkit.git",
-      :tag      => "v0.6.4",
-      :revision => "ebcef1f69af0bbca077efa9a960a481e579a0e89"
+      :tag      => "v0.7.0",
+      :revision => "c60a1eb215d795a12e43ceff6a5ed67ce1ad958d"
   head "https://github.com/moby/buildkit.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Buildkit < Formula
       -X github.com/moby/buildkit/version.Package=github.com/moby/buildkit
     ]
 
-    system "go", "build", "-mod", "vendor", "-trimpath",
+    system "go", "build", "-mod=vendor", "-trimpath",
       "-ldflags", ldflags.join(" "), "-o", bin/"buildctl", "./cmd/buildctl"
 
     doc.install Dir["docs/*.md"]
