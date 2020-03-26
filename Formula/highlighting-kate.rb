@@ -19,7 +19,7 @@ class HighlightingKate < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
 
   def install
     install_cabal_package "-f", "executable"

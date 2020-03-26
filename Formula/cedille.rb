@@ -33,7 +33,7 @@ class Cedille < Formula
 
   depends_on "agda" => :build
   depends_on "cabal-install" => :build
-  depends_on "ghc"
+  depends_on "ghc@8.8"
 
   def install
     resource("ial").stage buildpath/"ial"
