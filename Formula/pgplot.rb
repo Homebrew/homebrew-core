@@ -1,6 +1,6 @@
 class Pgplot < Formula
   desc "Device-independent graphics package for making simple scientific graphs"
-  homepage "http://www.astro.caltech.edu/~tjp/pgplot/"
+  homepage "https://www.astro.caltech.edu/~tjp/pgplot/"
   url "ftp://ftp.astro.caltech.edu/pub/pgplot/pgplot522.tar.gz"
   mirror "https://distfiles.macports.org/pgplot/pgplot522.tar.gz"
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
