@@ -15,6 +15,8 @@ class Ice < Formula
   depends_on "lmdb"
   depends_on "mcpp"
 
+  # Build failure and code generation (slice2swift) fixes for Swift 5.2
+  # Can be removed in next upstream release
   patch do
     url "https://github.com/zeroc-ice/ice/commit/c6306e50ce3e5d48c3a0b0e3aab4129c3f430eeb.patch?full_index=1"
     sha256 "09178ee9792587411df6592a4c2a6d01ea7b706cf68d0d5501c0e91d398e0c38"
