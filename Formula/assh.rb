@@ -1,9 +1,9 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
-  homepage "https://github.com/moul/advanced-ssh-config"
-  url "https://github.com/moul/advanced-ssh-config/archive/v2.9.1.tar.gz"
+  homepage "https://manfred.life/assh"
+  url "https://github.com/moul/assh/archive/v2.9.1.tar.gz"
   sha256 "fed8876c574061c239a1d159d9c7197e8bda94f6610f6e29e682d8b6dde60852"
-  head "https://github.com/moul/advanced-ssh-config.git"
+  head "https://github.com/moul/assh.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,12 +15,8 @@ class Assh < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
-    cd "src/github.com/moul/advanced-ssh-config" do
-      system "go", "build", "-o", bin/"assh"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"assh"
+    prefix.install_metafiles
   end
 
   test do
