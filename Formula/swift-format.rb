@@ -11,7 +11,7 @@ class SwiftFormat < Formula
     sha256 "bab43b73e8322b8acf5478f282bc6b8f019632569dfb0f487715c2633ba869c8" => :mojave
   end
 
-  depends_on :xcode => ["11.0", :build]
+  depends_on :xcode => ["11.4", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
