@@ -3,6 +3,7 @@ class Gjs < Formula
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
   url "https://download.gnome.org/sources/gjs/1.64/gjs-1.64.3.tar.xz"
   sha256 "9d96e154601c39f901ea2205b85f3bf4106cffe80dd5d97ab9f5ae56331185e6"
+  revision 1
 
   bottle do
     sha256 "df98384f46fed27842f6891a3a7fe46afc198c370275b98fd0b720e8952ca293" => :catalina
@@ -10,7 +11,6 @@ class Gjs < Formula
     sha256 "611383231c504ea40be930359e663d6e91e5130c30bc1ac78ec4de96339bc1d3" => :high_sierra
   end
 
-  depends_on "autoconf@2.13" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -21,6 +21,12 @@ class Gjs < Formula
   depends_on "nspr"
   depends_on "readline"
 
+  resource "autoconf@213" do
+    url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz"
+    mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz"
+    sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
+  end
+
   resource "mozjs68" do
     url "https://archive.mozilla.org/pub/firefox/releases/68.8.0esr/source/firefox-68.8.0esr.source.tar.xz"
     sha256 "fa5b2266d225878d4b35694678f79fd7e7a6d3c62759a40326129bd90f63e842"
@@ -28,6 +34,16 @@ class Gjs < Formula
 
   def install
     ENV.cxx11
+
+    resource("autoconf@213").stage do
+      system "./configure", "--disable-debug",
+                            "--disable-dependency-tracking",
+                            "--program-suffix=213",
+                            "--prefix=#{buildpath}/autoconf",
+                            "--infodir=#{buildpath}/autoconf/share/info",
+                            "--datadir=#{buildpath}/autoconf/share"
+      system "make", "install"
+    end
 
     resource("mozjs68").stage do
       inreplace "config/rules.mk",
@@ -43,6 +59,7 @@ class Gjs < Formula
         ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
         ENV["CC"] = Formula["llvm"].opt_bin/"clang"
         ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
+        ENV.prepend_path "PATH", buildpath/"autoconf/bin"
         system "../js/src/configure", "--prefix=#{prefix}",
                               "--with-system-nspr",
                               "--with-system-zlib",
