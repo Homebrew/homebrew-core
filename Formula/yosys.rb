@@ -1,4 +1,5 @@
 class Yosys < Formula
+  include Hardware
   desc "Framework for Verilog RTL synthesis"
   homepage "http://www.clifford.at/yosys/"
   url "https://github.com/YosysHQ/yosys/archive/yosys-0.9.tar.gz"
@@ -19,7 +20,7 @@ class Yosys < Formula
   depends_on "readline"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "PRETTY=0"
+    system "make", "install", "PREFIX=#{prefix}", "PRETTY=0", "-j#{CPU.cores}"
   end
 
   test do
