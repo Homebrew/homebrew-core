@@ -4,7 +4,6 @@ class JbossForge < Formula
   url "https://downloads.jboss.org/forge/releases/3.9.7.Final/forge-distribution-3.9.7.Final-offline.zip"
   version "3.9.7.Final"
   sha256 "d9ed822e48ef40147ef3e33d3c5998f027109f4d901d809065503f86076f4bbf"
-  revision 1
 
   bottle :unneeded
 
