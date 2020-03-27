@@ -109,6 +109,8 @@ class Llvm < Formula
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
+  # We intentionally use Make instead of Ninja.
+  # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
