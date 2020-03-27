@@ -2,8 +2,8 @@ class HelmAT2 < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v2.16.4",
-      :revision => "5e135cc465d4231d9bfe2c5a43fd2978ef527e83"
+      :tag      => "v2.16.5",
+      :revision => "89bd14c1541fa93a09492010030fd3699ca65a97"
 
   bottle do
     cellar :any_skip_relocation
