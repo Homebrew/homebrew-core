@@ -1,8 +1,8 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.3.6.tar.bz2"
-  sha256 "e842ab14a335c09ee2941ecdac4b47ce9a9e916d523dfe30e98e0569b6f13036"
+  url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.3.7.tar.bz2"
+  sha256 "e7a996e11b9af2e3bc5634304c5a7144a1d56767177a7cb79a6e50b7ce45b38e"
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.3/"
 
   bottle do
