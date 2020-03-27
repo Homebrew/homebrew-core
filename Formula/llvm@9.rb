@@ -1,64 +1,8 @@
 class LlvmAT9 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-
-  stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz"
-    sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
-
-    resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz"
-      sha256 "5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-tools-extra-9.0.1.src.tar.xz"
-      sha256 "b26fd72a78bd7db998a26270ec9ec6a01346651d88fa87b4b323e13049fb6f07"
-    end
-
-    resource "compiler-rt" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/compiler-rt-9.0.1.src.tar.xz"
-      sha256 "c2bfab95c9986318318363d7f371a85a95e333bc0b34fbfa52edbd3f5e3a9077"
-    end
-
-    resource "libcxx" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/libcxx-9.0.1.src.tar.xz"
-      sha256 "0981ff11b862f4f179a13576ab0a2f5530f46bd3b6b4a90f568ccc6a62914b34"
-    end
-
-    resource "libunwind" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/libunwind-9.0.1.src.tar.xz"
-      sha256 "535a106a700889274cc7b2f610b2dcb8fc4b0ea597c3208602d7d037141460f1"
-    end
-
-    resource "lld" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/lld-9.0.1.src.tar.xz"
-      sha256 "86262bad3e2fd784ba8c5e2158d7aa36f12b85f2515e95bc81d65d75bb9b0c82"
-    end
-
-    resource "lldb" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/lldb-9.0.1.src.tar.xz"
-      sha256 "8a7b9fd795c31a3e3cba6ce1377a2ae5c67376d92888702ce27e26f0971beb09"
-    end
-
-    resource "openmp" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/openmp-9.0.1.src.tar.xz"
-      sha256 "5c94060f846f965698574d9ce22975c0e9f04c9b14088c3af5f03870af75cace"
-    end
-
-    resource "polly" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/polly-9.0.1.src.tar.xz"
-      sha256 "9a4ac69df923230d13eb6cd0d03f605499f6a854b1dc96a9b72c4eb075040fcf"
-    end
-  end
-
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "ded898b5800305985074c1196d79452a92ed2f006a12a99c8cbb727537f36daf" => :catalina
-    sha256 "2c728a1080f7d8816287690e4ce2833a5cbf407f3d01e5a4021eb707ed90fb70" => :mojave
-    sha256 "627f4f1959f9287eecec7abf337058eee08edc10006fe1d82d9ce689eb90da53" => :high_sierra
-  end
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz"
+  sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
@@ -66,53 +10,58 @@ class LlvmAT9 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  head do
-    url "https://git.llvm.org/git/llvm.git"
-
-    resource "clang" do
-      url "https://git.llvm.org/git/clang.git"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://git.llvm.org/git/clang-tools-extra.git"
-    end
-
-    resource "compiler-rt" do
-      url "https://git.llvm.org/git/compiler-rt.git"
-    end
-
-    resource "libcxx" do
-      url "https://git.llvm.org/git/libcxx.git"
-    end
-
-    resource "libunwind" do
-      url "https://git.llvm.org/git/libunwind.git"
-    end
-
-    resource "lld" do
-      url "https://git.llvm.org/git/lld.git"
-    end
-
-    resource "lldb" do
-      url "https://git.llvm.org/git/lldb.git"
-    end
-
-    resource "openmp" do
-      url "https://git.llvm.org/git/openmp.git"
-    end
-
-    resource "polly" do
-      url "https://git.llvm.org/git/polly.git"
-    end
-  end
-
-  keg_only :provided_by_macos
+  keg_only :versioned_formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
   depends_on "swig"
+
+  resource "clang" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz"
+    sha256 "5778512b2e065c204010f88777d44b95250671103e434f9dc7363ab2e3804253"
+  end
+
+  resource "clang-extra-tools" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-tools-extra-9.0.1.src.tar.xz"
+    sha256 "b26fd72a78bd7db998a26270ec9ec6a01346651d88fa87b4b323e13049fb6f07"
+  end
+
+  resource "compiler-rt" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/compiler-rt-9.0.1.src.tar.xz"
+    sha256 "c2bfab95c9986318318363d7f371a85a95e333bc0b34fbfa52edbd3f5e3a9077"
+  end
+
+  resource "libcxx" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/libcxx-9.0.1.src.tar.xz"
+    sha256 "0981ff11b862f4f179a13576ab0a2f5530f46bd3b6b4a90f568ccc6a62914b34"
+  end
+
+  resource "libunwind" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/libunwind-9.0.1.src.tar.xz"
+    sha256 "535a106a700889274cc7b2f610b2dcb8fc4b0ea597c3208602d7d037141460f1"
+  end
+
+  resource "lld" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/lld-9.0.1.src.tar.xz"
+    sha256 "86262bad3e2fd784ba8c5e2158d7aa36f12b85f2515e95bc81d65d75bb9b0c82"
+  end
+
+  resource "lldb" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/lldb-9.0.1.src.tar.xz"
+    sha256 "8a7b9fd795c31a3e3cba6ce1377a2ae5c67376d92888702ce27e26f0971beb09"
+  end
+
+  resource "openmp" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/openmp-9.0.1.src.tar.xz"
+    sha256 "5c94060f846f965698574d9ce22975c0e9f04c9b14088c3af5f03870af75cace"
+  end
+
+  resource "polly" do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/polly-9.0.1.src.tar.xz"
+    sha256 "9a4ac69df923230d13eb6cd0d03f605499f6a854b1dc96a9b72c4eb075040fcf"
+  end
 
   def install
     # Apple's libstdc++ is too old to build LLVM
