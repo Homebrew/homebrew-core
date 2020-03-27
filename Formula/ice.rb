@@ -3,6 +3,7 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.7.3.tar.gz"
   sha256 "7cbfac83684a7434499f165e784a7a7bb5b89140717537067d7b969eccc111eb"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,6 +14,11 @@ class Ice < Formula
 
   depends_on "lmdb"
   depends_on "mcpp"
+
+  patch do
+    url "https://github.com/zeroc-ice/ice/commit/c6306e50ce3e5d48c3a0b0e3aab4129c3f430eeb.patch?full_index=1"
+    sha256 "09178ee9792587411df6592a4c2a6d01ea7b706cf68d0d5501c0e91d398e0c38"
+  end
 
   def install
     ENV.O2 # Os causes performance issues
