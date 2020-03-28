@@ -26,9 +26,11 @@ class Fish < Formula
   # Fixes severe performance issues with one of the default prompt
   # integrations. This has already been applied upstream and will
   # be in the next release.
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/8743c955ae8809f692c92ef6b4bc78595bf98f50/fish/disable_svn_prompt.patch"
-    sha256 "953dfc21f45575022d8f47c8654da1908682de1711712a60d4220e3a4c8133b9"
+  unless build.head?
+    patch do
+      url "https://github.com/Homebrew/formula-patches/raw/8743c955ae8809f692c92ef6b4bc78595bf98f50/fish/disable_svn_prompt.patch"
+      sha256 "953dfc21f45575022d8f47c8654da1908682de1711712a60d4220e3a4c8133b9"
+    end
   end
 
   def install
