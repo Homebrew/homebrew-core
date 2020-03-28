@@ -1,9 +1,9 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/snoe/clojure-lsp"
-  url "https://github.com/snoe/clojure-lsp/archive/release-20200305T151710.tar.gz"
-  version "20200305T151710"
-  sha256 "684f7233f25970e6a6dd2136f0cbaff7812380e9e6da8c6a7fd17fd425ffe44a"
+  url "https://github.com/snoe/clojure-lsp/archive/release-20200314T202821.tar.gz"
+  version "20200314T202821"
+  sha256 "4a3fb5a4b88ebf286fc2e5dc500bc4ddb65962c05ab21a46453a33d867627433"
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
