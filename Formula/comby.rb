@@ -37,8 +37,6 @@ class Comby < Formula
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/comby -version").strip
-
     expect = <<~EXPECT
       --- /dev/null
       +++ /dev/null
