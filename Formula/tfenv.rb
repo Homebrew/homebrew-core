@@ -7,6 +7,8 @@ class Tfenv < Formula
 
   bottle :unneeded
 
+  uses_from_macos "unzip"
+
   conflicts_with "terraform", :because => "tfenv symlinks terraform binaries"
 
   def install
