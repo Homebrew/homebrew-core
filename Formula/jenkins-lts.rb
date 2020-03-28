@@ -1,8 +1,8 @@
 class JenkinsLts < Formula
   desc "Extendable open-source CI server"
   homepage "https://jenkins.io/index.html#stable"
-  url "http://mirrors.jenkins.io/war-stable/2.204.6/jenkins.war"
-  sha256 "a7d16a4d470695cd77ae95238bd0cb90bfc2374478b8dcb46554ff2d0582b8c9"
+  url "http://mirrors.jenkins.io/war-stable/2.222.1/jenkins.war"
+  sha256 "5a6cbb836ceb79728c2d9f72645d0680f789cdb09a44485076aba6143bea953e"
 
   bottle :unneeded
 
@@ -10,9 +10,9 @@ class JenkinsLts < Formula
 
   def install
     system "jar", "xvf", "jenkins.war"
-    libexec.install "jenkins.war", "WEB-INF/jenkins-cli.jar"
+    libexec.install "jenkins.war", "WEB-INF/lib/cli-#{version}.jar"
     bin.write_jar_script libexec/"jenkins.war", "jenkins-lts", :java_version => "1.8"
-    bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-lts-cli", :java_version => "1.8"
+    bin.write_jar_script libexec/"cli-#{version}.jar", "jenkins-lts-cli", :java_version => "1.8"
   end
 
   def caveats
