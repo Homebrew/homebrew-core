@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.1.tar.xz"
   sha256 "17967603bcb44b6dbaac47988d80c29a3d28519210b28157c2bd10997595bbc7"
+  revision 1
 
   bottle do
     sha256 "95aad8af50c0e84cc271b7843e0ef35a0c94fe96a1f1c721d5cb20674ccb7537" => :catalina
@@ -16,7 +17,8 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
+
   uses_from_macos "util-linux" # for libmount.so
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
@@ -28,6 +30,8 @@ class Glib < Formula
   end
 
   def install
+    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
+
     inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
@@ -42,6 +46,8 @@ class Glib < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", *args, ".."
       system "ninja", "-v"
+      # Some files have been generated with a Python shebang, rewrite these too
+      Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
       system "ninja", "install", "-v"
     end
 
