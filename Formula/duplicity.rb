@@ -3,9 +3,8 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://code.launchpad.net/duplicity/0.8-series/0.8.11/+download/duplicity-0.8.11.1596.tar.gz"
-  sha256 "09826a6e5706db1fc9a2c5624fc7f13c0ec1289111676eb9b323b0c69757aae1"
-  revision 2
+  url "https://code.launchpad.net/duplicity/0.8-series/0.8.12/+download/duplicity-0.8.12.1612.tar.gz"
+  sha256 "074cf847b273644459c840253bc39f5ed3d0a7f8545339d98b6e9a87f945c51a"
 
   bottle do
     cellar :any
@@ -45,13 +44,13 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/03/b3/2c77b84a2bdc2f2abf44e453786ffc4c910470a97018cf1ee4b613a39526/boto3-1.12.11.tar.gz"
-    sha256 "41cb779ff393a9a0a3e9dccce7689ec10c383c18deb5c69059181db8c0ccecc3"
+    url "https://files.pythonhosted.org/packages/ac/78/407b51ebc5fbace8b8f33db182619af554a8a109db384993f3c638e12083/boto3-1.12.31.tar.gz"
+    sha256 "913fc7bbb9df147ed6fa0bd2b391469652ee8cad3e26ca2355e6ff774d9516fb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/76/c4/66e657a86c8a058e94392e591eacbe331fdfac2f152be99844b85ef8422b/botocore-1.15.11.tar.gz"
-    sha256 "87a53301ee9e32e776d2d805c121753091fbddc3457dfdb8d6bdf7dbd945295a"
+    url "https://files.pythonhosted.org/packages/5c/1a/67251d80cad738e428e3db9452dd7e8cea47d70d18fd3930cf5a93a1c2b4/botocore-1.15.31.tar.gz"
+    sha256 "3d4684f61ff07aa1b4cd30d13a6b8e6416142be5a2a55aedcc1d7974b9415bb1"
   end
 
   resource "cachetools" do
@@ -80,13 +79,13 @@ class Duplicity < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/93/22/953e071b589b0b1fee420ab06a0d15e5aa0c7470eb9966d60393ce58ad61/docutils-0.15.2.tar.gz"
-    sha256 "a2aeea129088da402665e92e0b25b04b073c04b2dce4ab65caaa38b7ce2e1a99"
+    url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"
+    sha256 "c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"
   end
 
   resource "dropbox" do
-    url "https://files.pythonhosted.org/packages/1f/7d/6e90b169fe4142b3b2332fd22d2aecfdc971e42eef19ea1c50b2384067f2/dropbox-6.9.0.tar.gz"
-    sha256 "db1be6dab980f6819508c9f70d2c82b32aad4b7f5f0c52354fdb48ca4abdee49"
+    url "https://files.pythonhosted.org/packages/20/6c/e48d2ee92514240ce8b779985f108cad3833f2ef7a1b004af575e279220e/dropbox-9.5.0.tar.gz"
+    sha256 "118a0c376cb9e7db63b2dbf560ba5c966cf1f0bfef7b67d4842ce123c383e947"
   end
 
   resource "fasteners" do
@@ -105,13 +104,13 @@ class Duplicity < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/5e/19/9fd511734c0dee8fa3d49f4109c75e7f95d3c31ed76c0e4a93fbba147807/google-api-python-client-1.7.11.tar.gz"
-    sha256 "a8a88174f66d92aed7ebbd73744c2c319b4b1ce828e565f9ec721352d2e2fb8c"
+    url "https://files.pythonhosted.org/packages/50/94/e30a5118dbb178d8ea4bde737e7722209b7018349a2fbdadadc159ba931c/google-api-python-client-1.8.0.tar.gz"
+    sha256 "0f5b42a14e2d2f7dee40f2e4514531dbe95ebde9c2173b1c4040a65c427e7900"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/dc/c3/5b178f23ebd9b7b3714c3abf0e33e50c75ad4386dca5e622a8594dc1446b/google-auth-1.11.2.tar.gz"
-    sha256 "1ee22e22f35d6e00f068d7b3999b2ce24ecb5d0dcbd485aa6896d2b83c8907d6"
+    url "https://files.pythonhosted.org/packages/6d/12/5afecb87270df4730893909178f180632973e1d178b6786f490b8dd1ffc4/google-auth-1.12.0.tar.gz"
+    sha256 "016924388770b7e66c7e9ade1c4c3144ee88812d79697fd6c0dad9abdfcda2fd"
   end
 
   resource "google-auth-httplib2" do
@@ -140,8 +139,8 @@ class Duplicity < Formula
   end
 
   resource "mock" do
-    url "https://files.pythonhosted.org/packages/1c/fd/141c477591ab50e27cd16a4969c957f915f4fb3c6323a624c548f38b507f/mock-4.0.1.tar.gz"
-    sha256 "2a572b715f09dd2f0a583d8aeb5bb67d7ed7a8fd31d193cf1227a99c16a67bc3"
+    url "https://files.pythonhosted.org/packages/2e/35/594f501b2a0fb3732c8190ca885dfdf60af72d678cd5fa8169c358717567/mock-4.0.2.tar.gz"
+    sha256 "dd33eb70232b6118298d516bbcecd26704689c386594f0f3c4f13867b2c56f72"
   end
 
   resource "monotonic" do
@@ -185,8 +184,8 @@ class Duplicity < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
-    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "PyDrive" do
@@ -205,8 +204,8 @@ class Duplicity < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
-    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "requests" do
@@ -235,8 +234,8 @@ class Duplicity < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/7a/cf/625e53bb8c6ad88302192c7aa50d45cdfb2b0fe97892869ec3dd9309f67f/tqdm-4.43.0.tar.gz"
-    sha256 "f35fb121bafa030bd94e74fcfd44f3c2830039a2ddef7fc87ef1c2d205237b24"
+    url "https://files.pythonhosted.org/packages/69/56/14c4fc2be50a3e252cbffc572ae4a8ac130c2f2fa06b7ca013aa74b0e2be/tqdm-4.44.0.tar.gz"
+    sha256 "4f882b23c492e7060f50d83af86f163b67e4cfbe35dfe12077e748c56282f438"
   end
 
   resource "typing" do
@@ -279,6 +278,7 @@ class Duplicity < Formula
       (testpath/"test/hello.txt").write "Hello!"
       (testpath/"command.sh").write <<~EOS
         #!/bin/sh
+        ulimit -n 1024
         PASSPHRASE=brew #{bin}/duplicity #{testpath} "file://test"
       EOS
       chmod 0555, testpath/"command.sh"
