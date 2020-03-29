@@ -1,8 +1,8 @@
 class GoBindata < Formula
   desc "Small utility that generates Go code from any file"
   homepage "https://github.com/kevinburke/go-bindata"
-  url "https://github.com/kevinburke/go-bindata/archive/v3.18.0.tar.gz"
-  sha256 "80f5fcad8e9b92e0fdb020e2f115b0208dadd05a8179f0d29c00a8e660731c3a"
+  url "https://github.com/kevinburke/go-bindata/archive/v3.19.0.tar.gz"
+  sha256 "a8820063819ed22c679cb781bc9bc6d4f208c0d40c55d8a556fdfd992a56c636"
 
   bottle do
     cellar :any_skip_relocation
