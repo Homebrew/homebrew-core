@@ -11,6 +11,9 @@ class Mpg123 < Formula
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
