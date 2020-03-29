@@ -24,7 +24,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "a5bcbd726ac7bd342ca6ee3e3a006478fd1f00b5"
+      :revision => "fd3d768bcfd44a8d9639fe278581bd9851d0ce3a"
   end
 
   def install
@@ -37,6 +37,13 @@ class Deno < Formula
 
     # env args for building a release build with our clang, ninja and gn
     ENV["GN"] = buildpath/"gn/out/gn"
+    # Ensure build rust_v8 from the source
+    ENV["V8_FROM_SOURCE"] = "1"
+    # Chromium has decided to require the 10.15 sdk in their build config
+    ENV["FORCE_MAC_SDK_MIN"] = "10.13"
+    # Set no_inline_line_tables to false as required for custom (non-Chromium) `clang` builds.
+    ENV["GN_ARGS"] = "no_inline_line_tables=false"
+
     if DevelopmentTools.clang_build_version < 1100
       # build with llvm and link against system libc++ (no runtime dep)
       ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
