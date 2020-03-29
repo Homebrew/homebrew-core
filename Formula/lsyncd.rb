@@ -72,14 +72,17 @@ class Lsyncd < Formula
     "10.15.1" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
     "10.15.2" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
     "10.15.3" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.4" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
   }
 
-  if xnu_headers.key? MacOS.full_version
-    tarball, checksum = xnu_headers.fetch(MacOS.full_version)
-    resource "xnu" do
-      url "https://opensource.apple.com/tarballs/xnu/#{tarball}"
-      sha256 checksum
-    end
+  tarball, checksum = if xnu_headers.key? MacOS.full_version
+    xnu_headers.fetch(MacOS.full_version)
+  else
+    xnu_headers.values.last # Fallback
+  end
+  resource "xnu" do
+    url "https://opensource.apple.com/tarballs/xnu/#{tarball}"
+    sha256 checksum
   end
 
   def install
