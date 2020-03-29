@@ -1,8 +1,8 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.13.4.tar.gz"
-  sha256 "fd9af3df87f61dbce01c262c71d07cd11221602da7662c321501772eb9a68fff"
+  url "https://github.com/Canop/broot/archive/v0.13.5.tar.gz"
+  sha256 "9c62ff8fefc5999a07ba8c16158fe0d574ec6cbe7b359d405b17d6fa97bad73c"
   head "https://github.com/Canop/broot.git"
 
   bottle do
@@ -21,9 +21,7 @@ class Broot < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/broot --version")
-
-    assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
+    assert_match "A tree explorer and a customizable launcher", shell_output("#{bin}/broot --help 2>&1")
 
     require "pty"
     require "io/console"
