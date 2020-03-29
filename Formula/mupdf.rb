@@ -18,6 +18,9 @@ class Mupdf < Formula
     :because => "mupdf and mupdf-tools install the same binaries."
 
   def install
+    # Work around Xcode 11 clang bug
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "make", "install",
            "build=release",
            "verbose=yes",
