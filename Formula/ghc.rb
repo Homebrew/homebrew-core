@@ -47,6 +47,10 @@ class Ghc < Formula
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
