@@ -22,14 +22,8 @@ class Monero < Formula
   depends_on "zeromq"
 
   def install
-    system "cmake", ".", "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
-                         *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    # Avoid conflicting with miniupnpc
-    # Reported upstream 25 May 2018 https://github.com/monero-project/monero/issues/3862
-    rm lib/"libminiupnpc.a"
-    rm_rf include/"miniupnpc"
   end
 
   plist_options :manual => "monerod"
