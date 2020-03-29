@@ -27,11 +27,12 @@ class Dvm < Formula
     end
   end
 
-  def caveats; <<~EOS
-    dvm is a shell function, and must be sourced before it can be used.
-    Add the following command to your bash profile:
-        [ -f #{opt_prefix}/dvm.sh ] && . #{opt_prefix}/dvm.sh
-  EOS
+  def caveats
+    <<~EOS
+      dvm is a shell function, and must be sourced before it can be used.
+      Add the following command to your bash profile:
+          [ -f #{opt_prefix}/dvm.sh ] && . #{opt_prefix}/dvm.sh
+    EOS
   end
 
   test do

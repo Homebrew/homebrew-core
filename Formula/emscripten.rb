@@ -1,27 +1,27 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
-  homepage "https://kripken.github.io/emscripten-site/"
+  homepage "https://emscripten.org/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.39.8.tar.gz"
-    sha256 "bd370e3a34a597340d6bd38b6c036491e0a580b3bdc4be7e68078ec45092325f"
+    url "https://github.com/emscripten-core/emscripten/archive/1.39.11.tar.gz"
+    sha256 "4da8d99cbc73d71a69020888933245b2ff01b009909230290f7248de76e3881a"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.8.tar.gz"
-      sha256 "bb4c86be3fbfaa80531806689cf9fb0da35a92616b42ee58d79c25a481775f7a"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.11.tar.gz"
+      sha256 "6af67379b3a722debb278d0dcc47fcba6e2115612b19c5430e63dbf07d377f38"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.8.tar.gz"
-      sha256 "c9346d792393dbc78226b105a36eca830e66be2f54ac5adc33244da4f1717cbc"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.11.tar.gz"
+      sha256 "42040b77370ba1f78ae1f3b33f7a82c60dfba8a88a09ad175990bfa200253a10"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "d4c2064073906c5fcd66581532398299d61c3ec05826e44ec999b57701362ffc" => :catalina
-    sha256 "a9fb62e8399f3c0b511e43b458a94d3ef72dedb84ff466826d1590f9df64e42e" => :mojave
-    sha256 "c346da4dd68207f4f6bd1e3242f7ca02563e800a04f8491639dc730a5529ecde" => :high_sierra
+    sha256 "1415b0f37f10ac07f70e352869327a1259bff631ccda3cd8c0dd7f98bee0404d" => :catalina
+    sha256 "13c9d970d31dbe6641336107dab60b3e02259ae678cca597b69dc0b1270860b8" => :mojave
+    sha256 "77b515d9f6c51ee3c96d3abcbc8b76b47d4a4f1ce800a7a92b5791562ba89ff3" => :high_sierra
   end
 
   head do
@@ -37,6 +37,7 @@ class Emscripten < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "binaryen"
   depends_on "node"
   depends_on "python"
   depends_on "yuicompressor"
@@ -76,12 +77,14 @@ class Emscripten < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Manually set LLVM_ROOT to
-      #{opt_libexec}/llvm/bin
-    and comment out BINARYEN_ROOT
-    in ~/.emscripten after running `emcc` for the first time.
-  EOS
+  def caveats
+    <<~EOS
+      Manually set LLVM_ROOT to
+        #{opt_libexec}/llvm/bin
+      and BINARYEN_ROOT to
+        #{Formula["binaryen"].opt_prefix}
+      in ~/.emscripten after running `emcc` for the first time.
+    EOS
   end
 
   test do

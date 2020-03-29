@@ -108,13 +108,20 @@ class MoltenVk < Formula
     include.install "MoltenVK/MoltenVK/API" => "MoltenVK"
 
     bin.install "Package/Release/MoltenVKShaderConverter/Tools/MoltenVKShaderConverter"
-    frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/framework/MoltenVKGLSLToSPIRVConverter.framework"
-    frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/macOS/framework/MoltenVKSPIRVToMSLConverter.framework"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/dynamic/libMoltenVKGLSLToSPIRVConverter.dylib"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/macOS/static/libMoltenVKGLSLToSPIRVConverter.a"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/macOS/dynamic/libMoltenVKSPIRVToMSLConverter.dylib"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/macOS/static/libMoltenVKSPIRVToMSLConverter.a"
-    include.install Dir["Package/Release/MoltenVKShaderConverter/include/{MoltenVKGLSLToSPIRVConverter,MoltenVKSPIRVToMSLConverter}"]
+    frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/" \
+                       "macOS/framework/MoltenVKGLSLToSPIRVConverter.framework"
+    frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/" \
+                       "macOS/framework/MoltenVKSPIRVToMSLConverter.framework"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/" \
+                "macOS/dynamic/libMoltenVKGLSLToSPIRVConverter.dylib"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/" \
+                "macOS/static/libMoltenVKGLSLToSPIRVConverter.a"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/" \
+                "macOS/dynamic/libMoltenVKSPIRVToMSLConverter.dylib"
+    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/" \
+                "macOS/static/libMoltenVKSPIRVToMSLConverter.a"
+    include.install Dir["Package/Release/MoltenVKShaderConverter/include/" \
+                        "{MoltenVKGLSLToSPIRVConverter,MoltenVKSPIRVToMSLConverter}"]
 
     (share/"vulkan").install "MoltenVK/icd" => "icd.d"
   end

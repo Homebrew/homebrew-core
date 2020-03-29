@@ -23,6 +23,10 @@ class Qt < Formula
   depends_on :xcode => :build
   depends_on :macos => :sierra
 
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+  uses_from_macos "sqlite"
+
   def install
     args = %W[
       -verbose
@@ -65,10 +69,11 @@ class Qt < Formula
     Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
   end
 
-  def caveats; <<~EOS
-    We agreed to the Qt open source license for you.
-    If this is unacceptable you should uninstall.
-  EOS
+  def caveats
+    <<~EOS
+      We agreed to the Qt open source license for you.
+      If this is unacceptable you should uninstall.
+    EOS
   end
 
   test do

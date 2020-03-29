@@ -52,22 +52,23 @@ class GnupgAT14 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This formula does not install either `gpg` or `gpgv` executables into
-    the PATH.
+  def caveats
+    <<~EOS
+      This formula does not install either `gpg` or `gpgv` executables into
+      the PATH.
 
-    If you simply require `gpg` and `gpgv` executables without explicitly
-    needing GnuPG 1.x we recommend:
-      brew install gnupg
+      If you simply require `gpg` and `gpgv` executables without explicitly
+      needing GnuPG 1.x we recommend:
+        brew install gnupg
 
-    If you really need to use these tools without the "1" suffix you can
-    add a "gpgbin" directory to your PATH from your #{shell_profile} like:
+      If you really need to use these tools without the "1" suffix you can
+      add a "gpgbin" directory to your PATH from your #{shell_profile} like:
 
-        PATH="#{opt_libexec}/gpgbin:$PATH"
+          PATH="#{opt_libexec}/gpgbin:$PATH"
 
-    Note that doing so may interfere with GPG-using formulae installed via
-    Homebrew.
-  EOS
+      Note that doing so may interfere with GPG-using formulae installed via
+      Homebrew.
+    EOS
   end
 
   test do

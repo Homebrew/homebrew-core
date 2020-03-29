@@ -1,6 +1,6 @@
 class Augeas < Formula
   desc "Configuration editing tool and API"
-  homepage "http://augeas.net"
+  homepage "https://augeas.net/"
   url "http://download.augeas.net/augeas-1.12.0.tar.gz"
   sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
 
@@ -22,6 +22,7 @@ class Augeas < Formula
 
   depends_on "pkg-config" => :build
   depends_on "readline"
+
   uses_from_macos "libxml2"
 
   def install
@@ -36,10 +37,11 @@ class Augeas < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Lenses have been installed to:
-      #{HOMEBREW_PREFIX}/share/augeas/lenses/dist
-  EOS
+  def caveats
+    <<~EOS
+      Lenses have been installed to:
+        #{HOMEBREW_PREFIX}/share/augeas/lenses/dist
+    EOS
   end
 
   test do

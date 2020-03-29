@@ -15,6 +15,9 @@ class Freetype < Formula
 
   depends_on "libpng"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-freetype-config",

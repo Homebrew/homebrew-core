@@ -13,6 +13,8 @@ class Pacvim < Formula
     sha256 "b8ef8cdba34802db97fba770e013393973e908e11486b87a4f5189f139e468dc" => :high_sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     ENV.cxx11
     system "make", "install", "PREFIX=#{prefix}"

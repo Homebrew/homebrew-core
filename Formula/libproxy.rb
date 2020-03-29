@@ -16,6 +16,8 @@ class Libproxy < Formula
   depends_on "cmake" => :build
   depends_on "python"
 
+  uses_from_macos "perl"
+
   def install
     args = std_cmake_args + %W[
       ..

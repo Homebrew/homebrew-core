@@ -19,6 +19,7 @@ class Ipv6calc < Formula
   end
 
   test do
-    assert_equal "192.168.251.97", shell_output("#{bin}/ipv6calc -q --action conv6to4 --in ipv6 2002:c0a8:fb61::1 --out ipv4").strip
+    assert_equal "192.168.251.97",
+      shell_output("#{bin}/ipv6calc -q --action conv6to4 --in ipv6 2002:c0a8:fb61::1 --out ipv4").strip
   end
 end

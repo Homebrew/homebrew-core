@@ -3,12 +3,13 @@ class Clp < Formula
   homepage "https://github.com/coin-or/Clp"
   url "https://github.com/coin-or/Clp/archive/releases/1.17.5.tar.gz"
   sha256 "7e2856ef7cab4bc1a439756cf101d5184a7af09d2921452a22a459ac8f949b7b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d1a33cab0f8dcf831ac90298ed32f654c421c050cdd896ae1fb668b918c3a2de" => :catalina
-    sha256 "289e8a0a562e795ef4c88395ea41098d62965f474249839bd53c8aa7f14f4ef8" => :mojave
-    sha256 "26e2a26ff6c1212ca867fd41bfb827969e414e540b5bbe2f28a034ea9e32293b" => :high_sierra
+    sha256 "de6acb93eae4ed1e3226df1e4d65b9d555ef73117e50cfd15515484be616d159" => :catalina
+    sha256 "2360151579138d91675ccd46e7d4166601f4e52c11d87ab942cd950014f8ed79" => :mojave
+    sha256 "b05e706d730b7d2293856e4793661d0bc95096222ef84ca0be7b48f9da987ac7" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]

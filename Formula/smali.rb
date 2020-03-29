@@ -1,19 +1,18 @@
 class Smali < Formula
   desc "Assembler/disassembler for Android's Java VM implementation"
   homepage "https://github.com/JesusFreke/smali"
-  url "https://github.com/JesusFreke/smali/archive/v2.3.4.tar.gz"
-  sha256 "d364ebb60ac954cac7c974d72def897a373430fcd4e3349816743147fbaba375"
-  revision 1
+  url "https://github.com/JesusFreke/smali/archive/v2.4.0.tar.gz"
+  sha256 "6a9014ecffd7d374f1b9e3c236b11d18a8d8f9c33dbb8ca171c79cc243a0f902"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0e9ddb33964040e89a7f044064b21ccdb30d47ed4901ac6d00ee963352ee48d4" => :catalina
-    sha256 "9883912d849479221c68ba6cba6a25f4fd89c20e80b44ac67e5e7341265cdf49" => :mojave
-    sha256 "7989f3aadb1f980d2c40addf62418ff03a0abd1e1e55262d3d2b96ad4e366cb6" => :high_sierra
+    sha256 "efa9c4eae8301de352ce02cb8180a8e21c4df6e6aaf080e9dfd7ec493a1467ba" => :catalina
+    sha256 "cd91042aa24ff1f209ce3b4461114f9c2cfb773df77258a029449873e2eab9ed" => :mojave
+    sha256 "3c6001a0005d2b80c5e646a0823cc48cd752f9ad37e9badc50d3d100a0a88885" => :high_sierra
   end
 
   depends_on "gradle" => :build
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     system "gradle", "build", "--no-daemon"
@@ -22,7 +21,12 @@ class Smali < Formula
       jarfile = "#{name}-#{version}-dev-fat.jar"
 
       libexec.install "#{name}/build/libs/#{jarfile}"
-      bin.write_jar_script libexec/jarfile, name, :java_version => "1.8+"
+
+      (bin/name).write <<~EOS
+        #!/bin/bash
+        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/#{jarfile}" "$@"
+      EOS
     end
   end
 

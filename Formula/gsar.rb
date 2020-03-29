@@ -22,6 +22,7 @@ class Gsar < Formula
   end
 
   test do
-    assert_match /1 occurrence changed/, shell_output("#{bin}/gsar -sCourier -rMonaco #{test_fixtures("test.ps")} new.ps")
+    assert_match "1 occurrence changed",
+      shell_output("#{bin}/gsar -sCourier -rMonaco #{test_fixtures("test.ps")} new.ps")
   end
 end

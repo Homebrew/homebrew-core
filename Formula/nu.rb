@@ -33,14 +33,15 @@ class Nu < Formula
     system "./mininush", "tools/nuke", "install"
   end
 
-  def caveats; <<~EOS
-    Nu.framework was installed to:
-      #{frameworks}/Nu.framework
+  def caveats
+    <<~EOS
+      Nu.framework was installed to:
+        #{frameworks}/Nu.framework
 
-    You may want to symlink this Framework to a standard macOS location,
-    such as:
-      ln -s "#{frameworks}/Nu.framework" /Library/Frameworks
-  EOS
+      You may want to symlink this Framework to a standard macOS location,
+      such as:
+        ln -s "#{frameworks}/Nu.framework" /Library/Frameworks
+    EOS
   end
 
   test do

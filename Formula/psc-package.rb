@@ -5,14 +5,14 @@ class PscPackage < Formula
 
   desc "Package manager for PureScript based on package sets"
   homepage "https://psc-package.readthedocs.io"
-  url "https://github.com/purescript/psc-package/archive/v0.6.0.tar.gz"
-  sha256 "71815aedaac2d27267e5ec235805583a774c09aaf9e00ef5add74475587b3ef6"
+  url "https://github.com/purescript/psc-package/archive/v0.6.2.tar.gz"
+  sha256 "96c3bf2c65d381c61eff3d16d600eadd71ac821bbe7db02acec1d8b3b6dbecfc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a75a27be86752582bcac4e48106c988a58eb3646c19c5d23f5263953fb2a0e4" => :catalina
-    sha256 "d079267dd53b3d701017cca093a79a21bd4dd1bc10ea8c99bd470e98dbcae85e" => :mojave
-    sha256 "18f98b6491efe2dde9bfd15fad74f6c04f247202e090f99efa7eb8a04fc1bc7f" => :high_sierra
+    sha256 "6cb82e86e3345b771e1cefa7ddc19f0a2cdad2708b9c313c0d6939d6935f68ee" => :catalina
+    sha256 "bea963bcef4f13b0b43118ee5230ccc3df88fea815fcf55e455360406d5ae9a6" => :mojave
+    sha256 "2254f260a569baeb84999bf42cf2ae5563dae197039a7c4c9ee6862996f2523c" => :high_sierra
   end
 
   depends_on "cabal-install" => :build

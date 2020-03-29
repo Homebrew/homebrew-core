@@ -20,13 +20,14 @@ class G2 < Formula
     system "make", "prefix=#{prefix}", "install"
   end
 
-  def caveats; <<~EOS
-    To complete the installation:
-      . #{prefix}/g2-install.sh
+  def caveats
+    <<~EOS
+      To complete the installation:
+        . #{prefix}/g2-install.sh
 
-    NOTE: This will install a new ~/.gitconfig, backing up any existing
-    file first. For more information view:
-      #{prefix}/README.md
-  EOS
+      NOTE: This will install a new ~/.gitconfig, backing up any existing
+      file first. For more information view:
+        #{prefix}/README.md
+    EOS
   end
 end

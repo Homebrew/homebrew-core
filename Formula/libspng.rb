@@ -30,6 +30,7 @@ class Libspng < Formula
     cp pkgshare/"example.c", testpath/"example.c"
     system ENV.cc, "example.c", "-L#{lib}", "-I#{include}", "-lspng", "-o", "example"
     output = shell_output("./example #{fixture}")
-    assert_match "width: 8\nheight: 8\nbit depth: 1\ncolor type: 3 - indexed color\ncompression method: 0\nfilter method: 0\ninterlace method: 0", output
+    assert_match "width: 8\nheight: 8\nbit depth: 1\ncolor type: 3 - indexed color\n" \
+                 "compression method: 0\nfilter method: 0\ninterlace method: 0", output
   end
 end

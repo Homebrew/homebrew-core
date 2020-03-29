@@ -17,6 +17,8 @@ class Libmetalink < Formula
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "expat"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

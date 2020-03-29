@@ -3,7 +3,7 @@ class Pypy < Formula
   homepage "https://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.0-src.tar.bz2"
   sha256 "b0b25c7f8938ab0fedd8dedf26b9e73c490913b002b484c1b2f19d5844a518de"
-  head "https://bitbucket.org/pypy/pypy", :using => :hg
+  head "https://foss.heptapod.net/pypy/pypy", :using => :hg
 
   bottle do
     cellar :any
@@ -21,6 +21,11 @@ class Pypy < Formula
   depends_on "openssl@1.1"
   depends_on "sqlite"
   depends_on "tcl-tk"
+
+  uses_from_macos "expat"
+  uses_from_macos "libffi"
+  uses_from_macos "unzip"
+  uses_from_macos "zlib"
 
   resource "bootstrap" do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.0-osx64.tar.bz2"
@@ -124,24 +129,25 @@ class Pypy < Formula
     %w[easy_install_pypy pip_pypy].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
-  def caveats; <<~EOS
-    A "distutils.cfg" has been written to:
-      #{distutils}
-    specifying the install-scripts folder as:
-      #{scripts_folder}
+  def caveats
+    <<~EOS
+      A "distutils.cfg" has been written to:
+        #{distutils}
+      specifying the install-scripts folder as:
+        #{scripts_folder}
 
-    If you install Python packages via "pypy setup.py install", easy_install_pypy,
-    or pip_pypy, any provided scripts will go into the install-scripts folder
-    above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
-    so you don't overwrite tools from CPython.
+      If you install Python packages via "pypy setup.py install", easy_install_pypy,
+      or pip_pypy, any provided scripts will go into the install-scripts folder
+      above, so you may want to add it to your PATH *after* #{HOMEBREW_PREFIX}/bin
+      so you don't overwrite tools from CPython.
 
-    Setuptools and pip have been installed, so you can use easy_install_pypy and
-    pip_pypy.
-    To update setuptools and pip between pypy releases, run:
-        pip_pypy install --upgrade pip setuptools
+      Setuptools and pip have been installed, so you can use easy_install_pypy and
+      pip_pypy.
+      To update setuptools and pip between pypy releases, run:
+          pip_pypy install --upgrade pip setuptools
 
-    See: https://docs.brew.sh/Homebrew-and-Python
-  EOS
+      See: https://docs.brew.sh/Homebrew-and-Python
+    EOS
   end
 
   # The HOMEBREW_PREFIX location of site-packages

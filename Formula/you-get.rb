@@ -3,15 +3,16 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.1403.tar.gz"
-  sha256 "1d5a46c273418ee971cb44a9e4b6060c1d9488b88692740c3ed6dc7669686c13"
+  url "https://github.com/soimort/you-get/archive/v0.4.1410.tar.gz"
+  sha256 "59aa94a045518b39ae24ad5d24fd7bc9d01246aa87d20178eb9f38e49214c03f"
+  revision 1
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69d504f3eca3f7b7892da9d8624d92a56b4f647a92141bf2dcb7bb11d4be490f" => :catalina
-    sha256 "7d7dec77b67db738da8a625c354834a4ee79bc097c1c7f9156cdef92550eca6b" => :mojave
-    sha256 "52642a70d4ed428938790e6c4df75f2020c4fdca6d5d34da2be074d951722056" => :high_sierra
+    sha256 "58831026cf9e75bf6e64593b5801575fa6813bc5f467128c58cf5567f7a93593" => :catalina
+    sha256 "00c0171d2bb859189e776bd49533d904680858a7584f9135bc4af2db69f61453" => :mojave
+    sha256 "99542b4f6a4e32e3d63319935b74f273f8fb1ed995fa03bd1ccb39d0430c8341" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -27,7 +28,7 @@ class YouGet < Formula
   end
 
   def caveats
-    "To use post-processing options, `brew install ffmpeg` or `brew install libav`."
+    "To use post-processing options, run `brew install ffmpeg` or `brew install libav`."
   end
 
   test do

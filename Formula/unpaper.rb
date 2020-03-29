@@ -22,6 +22,8 @@ class Unpaper < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
 
+  uses_from_macos "libxslt"
+
   def install
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

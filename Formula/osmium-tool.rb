@@ -15,6 +15,8 @@ class OsmiumTool < Formula
   depends_on "libosmium" => :build
   depends_on "boost"
 
+  uses_from_macos "expat"
+
   def install
     protozero = Formula["libosmium"].opt_libexec/"include"
     system "cmake", ".", "-DPROTOZERO_INCLUDE_DIR=#{protozero}", *std_cmake_args

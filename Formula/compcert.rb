@@ -6,14 +6,21 @@ class Compcert < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e904948cfca89178fa8c3c30c915297dac6e7c2e6d0b6e92c73751840dc7d93e" => :mojave
-    sha256 "bf146ab08494dbc6980eb6ec1974293c429bfad58e7bc1dcd1d9ee38bfb2d40c" => :high_sierra
-    sha256 "cec12dd570caf6a5ac749a73adb88e5dd2d3a0ab354e586857a00a0d1ee2aaa3" => :sierra
+    rebuild 1
+    sha256 "7c09396cc678b8a62fec2baac29a470d0dbbe4c1b32ab0cb4dcca494c5473b42" => :catalina
+    sha256 "367a724e0c91c3e10ae23a0e8967b2e9138ac772f62d496aef9ea321ed33353d" => :mojave
+    sha256 "b4f5ed998f34cd4d16537c580f8bf5ada8a95730ac0645bab208652c2a3057ce" => :high_sierra
   end
 
   depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
+
+  # coq 8.11 compatibility. Remove with the next release.
+  patch do
+    url "https://github.com/AbsInt/CompCert/commit/b7374d225af55ecc6f5d6aa8f3684bfae99ff465.patch?full_index=1"
+    sha256 "a873dcbf7855935e4b5087883ef07b3fb0c17b6e62a1a0c266a009e0bbd3c794"
+  end
 
   def install
     # We pass -ignore-coq-version, otherwise every new version of coq

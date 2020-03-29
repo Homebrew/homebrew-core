@@ -17,7 +17,9 @@ class Hledger < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   resource "hledger-web" do
     url "https://hackage.haskell.org/package/hledger-web-1.16.2/hledger-web-1.16.2.tar.gz"

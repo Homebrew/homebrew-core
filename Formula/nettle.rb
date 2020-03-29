@@ -15,6 +15,8 @@ class Nettle < Formula
 
   depends_on "gmp"
 
+  uses_from_macos "m4" => :build
+
   def install
     # macOS doesn't use .so libs. Emailed upstream 04/02/2016.
     inreplace "testsuite/dlopen-test.c", "libnettle.so", "libnettle.dylib"

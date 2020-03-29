@@ -23,18 +23,19 @@ class Ahoy < Formula
     end
   end
 
-  def caveats; <<~EOS
-    ===== UPGRADING FROM 1.x TO 2.x =====
+  def caveats
+    <<~EOS
+      ===== UPGRADING FROM 1.x TO 2.x =====
 
-    If you are upgrading from ahoy 1.x, note that you'll
-    need to upgrade your ahoyapi settings in your .ahoy.yml
-    files to 'v2' instead of 'v1'.
+      If you are upgrading from ahoy 1.x, note that you'll
+      need to upgrade your ahoyapi settings in your .ahoy.yml
+      files to 'v2' instead of 'v1'.
 
-    See other changes at:
+      See other changes at:
 
-    https://github.com/ahoy-cli/ahoy
+      https://github.com/ahoy-cli/ahoy
 
-  EOS
+    EOS
   end
 
   test do

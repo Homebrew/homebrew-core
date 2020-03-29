@@ -1,15 +1,15 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.3.3.tar.gz"
-  sha256 "b3a1440808d6ed4dc0d194c482de029f6c116b1de7f7a3bf927324d965ff3853"
+  url "https://github.com/golang/protobuf/archive/v1.3.5.tar.gz"
+  sha256 "a3ab705fc75b48cba9ac18d10cb4012416714cc8edaeb151a85c46ac3a65033b"
   head "https://github.com/golang/protobuf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2eb49e35e2e347cb61216269fa6a8308ed33ab02f00b6f161903eda39eb3a28" => :catalina
-    sha256 "c013bfd815378763f3c99eb2025a72e1d2cf2ca35ba0045c475b678f4e1ea4f2" => :mojave
-    sha256 "8e3788a3da762b667b7706f38d9da66e1373480003433c1f54f44f54375d9dd6" => :high_sierra
+    sha256 "f294fc2731f7068038f435d20a995efb55b5887a1330623f9eca092b46f152c6" => :catalina
+    sha256 "a7c861710913754302eaccd62b3fc1b506f31a2d3a1bd98dc809e5ca7adcc4b5" => :mojave
+    sha256 "bb8d5634d39418a315e8410b734b77b59706a4e96cfb267bf187193f73dbad23" => :high_sierra
   end
 
   depends_on "go" => :build

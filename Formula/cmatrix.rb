@@ -14,6 +14,8 @@ class Cmatrix < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  uses_from_macos "ncurses"
+
   def install
     system "autoreconf", "-i"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"

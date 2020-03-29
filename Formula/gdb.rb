@@ -4,13 +4,20 @@ class Gdb < Formula
   url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
   sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
-    sha256 "efa76a0bc52bef935730afb32ab848446d92d7f8c38f2ef694fdcf3d20b67a44" => :catalina
-    sha256 "e3159449ff06712174dae7c3f513196eb02439e83057e2779531ec94b422c278" => :mojave
-    sha256 "4cde626aa5d32dde54d70bd531a06e65051e7ac7371f1970b6b9c838f565239c" => :high_sierra
+    sha256 "848a06573870a26ca89fe859fe8d2e159b1781db544841a55c0713f00b7c18bc" => :catalina
+    sha256 "24640c71e5cdbb1ccd69e5da454267e3929e0b1d73abf91c162c4658f756d755" => :mojave
+    sha256 "d279ccc0f8eefc8a7b3ac5f182290af201345adf4523b3a2671ab752e821d186" => :high_sierra
   end
+
+  depends_on "python@3.8"
+  depends_on "xz" # required for lzma support
+
+  uses_from_macos "expat"
+  uses_from_macos "ncurses"
 
   conflicts_with "i386-elf-gdb", :because => "both install include/gdb, share/gdb and share/info"
 
@@ -24,11 +31,12 @@ class Gdb < Formula
 
   def install
     args = %W[
+      --enable-targets=all
       --prefix=#{prefix}
       --disable-debug
       --disable-dependency-tracking
-      --enable-targets=all
-      --with-python=/usr
+      --with-lzma
+      --with-python=#{Formula["python@3.8"].opt_bin}/python3
       --disable-binutils
     ]
 
@@ -41,16 +49,17 @@ class Gdb < Formula
     end
   end
 
-  def caveats; <<~EOS
-    gdb requires special privileges to access Mach ports.
-    You will need to codesign the binary. For instructions, see:
+  def caveats
+    <<~EOS
+      gdb requires special privileges to access Mach ports.
+      You will need to codesign the binary. For instructions, see:
 
-      https://sourceware.org/gdb/wiki/BuildingOnDarwin
+        https://sourceware.org/gdb/wiki/BuildingOnDarwin
 
-    On 10.12 (Sierra) or later with SIP, you need to run this:
+      On 10.12 (Sierra) or later with SIP, you need to run this:
 
-      echo "set startup-with-shell off" >> ~/.gdbinit
-  EOS
+        echo "set startup-with-shell off" >> ~/.gdbinit
+    EOS
   end
 
   test do

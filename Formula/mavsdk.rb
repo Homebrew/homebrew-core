@@ -15,10 +15,9 @@ class Mavsdk < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-Bbuild/default",
+    system "cmake", *std_cmake_args,
+                    "-Bbuild/default",
                     "-DBUILD_BACKEND=ON",
-                    "-DCMAKE_BUILD_TYPE=Release",
-                    "-DCMAKE_INSTALL_PREFIX=#{prefix}",
                     "-H."
     system "cmake", "--build", "build/default", "--target", "install"
   end

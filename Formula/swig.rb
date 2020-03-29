@@ -20,6 +20,8 @@ class Swig < Formula
 
   depends_on "pcre"
 
+  uses_from_macos "ruby" => :test
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

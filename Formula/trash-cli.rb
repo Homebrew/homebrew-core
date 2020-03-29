@@ -5,14 +5,14 @@ class TrashCli < Formula
   homepage "https://github.com/andreafrancia/trash-cli"
   url "https://github.com/andreafrancia/trash-cli/archive/0.17.1.14.tar.gz"
   sha256 "8fdd20e5e9c55ea4e24677e602a06a94a93f1155f9970c55b25dede5e037b974"
-  revision 2
+  revision 3
   head "https://github.com/andreafrancia/trash-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5eed46cd5290cbb7db8ca2cd272e3334727f02e33d696bc7cdf161bdc1bbeb00" => :catalina
-    sha256 "28570bf1d2f37d27ceac413d0dbfb191af1a764d42e543e1f7f102f63cf84ccf" => :mojave
-    sha256 "c91899fb2e3eea76501cd3961abe8537e77eed264cf25b3a214a6123a37c6391" => :high_sierra
+    sha256 "11d325db1d011fbc8e148e21418fc7b28acc5ed709f1650326691fd276342494" => :catalina
+    sha256 "da23c8fae828c479cf01dffeb4c9838d734b9da6022991a1561572a82e913ef2" => :mojave
+    sha256 "2bdc29f08a37d62fabc5ff53535209320f009b6f8c5a94a091d3acb3c3e16118" => :high_sierra
   end
 
   depends_on "python@3.8"

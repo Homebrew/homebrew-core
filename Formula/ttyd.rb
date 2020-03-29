@@ -3,13 +3,14 @@ class Ttyd < Formula
   homepage "https://tsl0922.github.io/ttyd/"
   url "https://github.com/tsl0922/ttyd/archive/1.6.0.tar.gz"
   sha256 "d14740bc82be0d0760dd0a3c97acbcbde490412a4edc61edabe46d311b068f83"
+  revision 1
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
     cellar :any
-    sha256 "5d4775fb114fc7758e1a67deccb2fb2d1fb8290548f5ee808f08a689a3e8265d" => :catalina
-    sha256 "fb0a0532053de90147c4f02a79b321430a0444a0586438ea0260bffe6ba5b96a" => :mojave
-    sha256 "af8e0d5340329843bdee2aab019608d83ee5dfcb190c165e33a0f6590cbf08be" => :high_sierra
+    sha256 "200057b5acc12cc45115145e56a074f4d7b47d5ad886ecc5a9cb36e7fa66344d" => :catalina
+    sha256 "2622c50c776719257ec250d25c4d4837f3cbebdf025372fa023ade0ea9f5bc46" => :mojave
+    sha256 "44820b071a3e4ab8e2a4bf3dea4be710ea348bd8e50149576e971630d0bd63d9" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,6 +19,8 @@ class Ttyd < Formula
   depends_on "libuv"
   depends_on "libwebsockets"
   depends_on "openssl@1.1"
+
+  uses_from_macos "vim"
 
   def install
     system "cmake", ".",

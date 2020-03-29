@@ -3,12 +3,12 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.9.tar.gz"
   sha256 "b7ea364de7273cfb3b771a0d9c111b8b8dfb42ff2bcd2d84681902fb8f49892a"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "26cdf6eb9124f389db3eaf0df185096b1b225110e16df0b00650d8a3b3efebbc" => :catalina
-    sha256 "a0c6ffae49ec4c32c002711f0c5b1573cfbaceeb8b8adb1a25486aed86fd6681" => :mojave
-    sha256 "1792e7e2b67a20161371aa0f82c9db509171377a2b32caea30f11f2927851b74" => :high_sierra
+    sha256 "49565d7f268abd0ebb1ededc9161861e68e1f6a556f3f7adee9783689158fa9d" => :catalina
+    sha256 "9105495184e8d77e5bc28227dbbe72fb1e809694b713409f7d5f5d58097050e7" => :mojave
+    sha256 "8e94aba69d3d369cc5b4d9e45b5d2a1a4862338a761343ddde8b3c1f2853846d" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -80,9 +80,7 @@ class OpencvAT3 < Formula
     ]
 
     args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    unless MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
-    end
+    args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args

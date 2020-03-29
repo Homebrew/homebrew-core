@@ -23,6 +23,9 @@ class Libdap < Formula
   depends_on "libxml2"
   depends_on "openssl@1.1"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
+
   def install
     args = %W[
       --prefix=#{prefix}

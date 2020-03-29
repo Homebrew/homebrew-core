@@ -18,9 +18,10 @@ class Unoconv < Formula
     system "make", "install", "prefix=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    In order to use unoconv, a copy of LibreOffice between versions 3.6.0.1 - 4.3.x must be installed.
-  EOS
+  def caveats
+    <<~EOS
+      In order to use unoconv, a copy of LibreOffice between versions 3.6.0.1 - 4.3.x must be installed.
+    EOS
   end
 
   test do

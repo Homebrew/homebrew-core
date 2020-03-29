@@ -14,6 +14,8 @@ class Nnn < Formula
 
   depends_on "readline"
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
 

@@ -14,6 +14,8 @@ class Mcrypt < Formula
 
   depends_on "mhash"
 
+  uses_from_macos "zlib"
+
   resource "libmcrypt" do
     url "https://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
     sha256 "e4eb6c074bbab168ac47b947c195ff8cef9d51a211cdd18ca9c9ef34d27a373e"

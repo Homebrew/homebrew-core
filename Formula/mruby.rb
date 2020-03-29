@@ -14,6 +14,8 @@ class Mruby < Formula
 
   depends_on "bison" => :build
 
+  uses_from_macos "ruby"
+
   def install
     system "make"
 

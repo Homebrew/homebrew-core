@@ -20,43 +20,45 @@ class Gpsd < Formula
     system "scons", "install"
   end
 
-  def caveats; <<~EOS
-    gpsd does not automatically detect GPS device addresses. Once started, you
-    need to force it to connect to your GPS:
+  def caveats
+    <<~EOS
+      gpsd does not automatically detect GPS device addresses. Once started, you
+      need to force it to connect to your GPS:
 
-      GPSD_SOCKET="#{var}/gpsd.sock" #{sbin}/gpsdctl add /dev/tty.usbserial-XYZ
-  EOS
+        GPSD_SOCKET="#{var}/gpsd.sock" #{sbin}/gpsdctl add /dev/tty.usbserial-XYZ
+    EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/gpsd -N -F #{HOMEBREW_PREFIX}/var/gpsd.sock /dev/tty.usbserial-XYZ"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/gpsd</string>
-        <string>-N</string>
-        <string>-F</string>
-        <string>#{var}/gpsd.sock</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/gpsd.log</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/gpsd.log</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/gpsd</string>
+          <string>-N</string>
+          <string>-F</string>
+          <string>#{var}/gpsd.sock</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/gpsd.log</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/gpsd.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -62,9 +62,7 @@ class Pcb2gcode < Formula
         cxxflags=-std=c++11
       ]
 
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
       system "./bootstrap.sh", *bootstrap_args
       system "./b2", "headers"

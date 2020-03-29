@@ -1,16 +1,17 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.8.10.tar.gz"
-  sha256 "77f43de7c1e686e2b8eca3f467047de9687c4021c4a12f46dcf1e0f3e63a96c3"
+  url "https://github.com/travis-ci/travis.rb/archive/v1.8.12.tar.gz"
+  sha256 "3409f03528c19f2a936c70929af37e5e3447b3bd2d84fef477ec8e26f6e7c8a4"
 
   bottle do
-    rebuild 1
-    sha256 "58794172ef335a7a15c7969257debbb6bb64a35364dbb10293af1a70cc78e5e7" => :catalina
-    sha256 "5f49254c2ad3a135a20299f7c25df27cb1ccb7c9ab7d093b207e5e52c91f6c3a" => :high_sierra
+    sha256 "1097f1601d5df1bd4393d47b1c5049efc3fc1287cc852af2a2ac4001bba9834f" => :catalina
+    sha256 "b4836be26d819a06d2e4a27ec4619a0c06477faf92b053f57fa8f894260f21d5" => :mojave
+    sha256 "054eb5d547588e5a727a6bd0a2f83fb17095410e6029a1f3c4e94ce39e8b513f" => :high_sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
+
   uses_from_macos "libffi"
 
   resource "addressable" do
@@ -19,8 +20,8 @@ class Travis < Formula
   end
 
   resource "backports" do
-    url "https://rubygems.org/gems/backports-3.11.3.gem"
-    sha256 "57b04d4e2806c199bff3663d810db25e019cf88c42cacc0edbb36d3038d6a5ab"
+    url "https://rubygems.org/gems/backports-3.17.0.gem"
+    sha256 "bb18a4c7a2a13828d18e348ea81183554adcaac4fc9db0ecd1f3d1dfbd7fdc8f"
   end
 
   resource "ethon" do
@@ -29,13 +30,13 @@ class Travis < Formula
   end
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.15.2.gem"
-    sha256 "affa23f5e5ee27170cbb5045c580af9b396bac525516c6583661c2bb08038f92"
+    url "https://rubygems.org/gems/faraday-0.17.3.gem"
+    sha256 "c27a8fd7614f1abe9889d8b797246a8e0e5aa6e9d7f1e34ba05a445bf5844f8d"
   end
 
   resource "faraday_middleware" do
-    url "https://rubygems.org/gems/faraday_middleware-0.12.2.gem"
-    sha256 "2d90093c18c23e7f5a6f602ed3114d2c62abc3f7f959dd3046745b24a863f1dc"
+    url "https://rubygems.org/gems/faraday_middleware-0.14.0.gem"
+    sha256 "4cb37ddd656b2c4de0bd684b72b08c34486f70560c31cb303cd506faef7ef2f4"
   end
 
   resource "ffi" do
@@ -102,6 +103,9 @@ class Travis < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
+    # gem issue on Mojave
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :mojave
+
     resources.each do |r|
       r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",

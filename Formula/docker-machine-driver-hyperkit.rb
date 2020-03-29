@@ -33,12 +33,13 @@ class DockerMachineDriverHyperkit < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This driver requires superuser privileges to access the hypervisor. To
-    enable, execute:
-      sudo chown root:wheel #{opt_bin}/docker-machine-driver-hyperkit
-      sudo chmod u+s #{opt_bin}/docker-machine-driver-hyperkit
-  EOS
+  def caveats
+    <<~EOS
+      This driver requires superuser privileges to access the hypervisor. To
+      enable, execute:
+        sudo chown root:wheel #{opt_bin}/docker-machine-driver-hyperkit
+        sudo chmod u+s #{opt_bin}/docker-machine-driver-hyperkit
+    EOS
   end
 
   test do

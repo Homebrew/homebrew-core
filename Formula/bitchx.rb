@@ -20,15 +20,12 @@ class Bitchx < Formula
     # https://sourceforge.net/p/bitchx/git/ci/184af728c73c379d1eee57a387b6012572794fa8/
     inreplace "configure", "SSLeay", "OpenSSL_version_num"
 
-    args = %W[
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --enable-ipv6
-      --with-plugins=acro,aim,arcfour,amp,autocycle,blowfish,cavlink,encrypt,fserv,hint,identd,nap,pkga,possum,qbx,qmail
-      --with-ssl
-    ]
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--mandir=#{man}",
+                          "--enable-ipv6",
+                          "--with-plugins=acro,aim,arcfour,amp,autocycle,blowfish,cavlink,encrypt,fserv," \
+                                         "hint,identd,nap,pkga,possum,qbx,qmail",
+                          "--with-ssl"
     system "make"
     system "make", "install"
   end

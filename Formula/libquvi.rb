@@ -16,6 +16,8 @@ class Libquvi < Formula
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
 
+  uses_from_macos "curl"
+
   resource "scripts" do
     url "https://downloads.sourceforge.net/project/quvi/0.4/libquvi-scripts/libquvi-scripts-0.4.14.tar.xz"
     sha256 "b8d17d53895685031cd271cf23e33b545ad38cad1c3bddcf7784571382674c65"

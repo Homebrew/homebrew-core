@@ -20,14 +20,15 @@ class Chruby < Formula
     system "make", "install", "PREFIX=#{prefix}"
   end
 
-  def caveats; <<~EOS
-    Add the following to the ~/.bash_profile or ~/.zshrc file:
-      source #{opt_pkgshare}/chruby.sh
+  def caveats
+    <<~EOS
+      Add the following to the ~/.bash_profile or ~/.zshrc file:
+        source #{opt_pkgshare}/chruby.sh
 
-    To enable auto-switching of Rubies specified by .ruby-version files,
-    add the following to ~/.bash_profile or ~/.zshrc:
-      source #{opt_pkgshare}/auto.sh
-  EOS
+      To enable auto-switching of Rubies specified by .ruby-version files,
+      add the following to ~/.bash_profile or ~/.zshrc:
+        source #{opt_pkgshare}/auto.sh
+    EOS
   end
 
   test do

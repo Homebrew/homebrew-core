@@ -1,61 +1,57 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
-  homepage "https://github.com/bitly/oauth2_proxy"
-  url "https://github.com/bitly/oauth2_proxy/archive/v2.2.tar.gz"
-  sha256 "dae9bae213ccf2a98bf36177e04c1edf4688989c58c383525258956679ddcc19"
-  head "https://github.com/bitly/oauth2_proxy.git"
+  homepage "https://pusher.github.io/oauth2_proxy"
+  url "https://github.com/pusher/oauth2_proxy/archive/v5.0.0.tar.gz"
+  sha256 "a775357f3a8952da2495b423765fe7d77e2fbbe4c9282fc28e910642e27caafb"
+  head "https://github.com/pusher/oauth2_proxy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c73a65a1965ae0d0b25bc8160f6bdabb743461a039415ae350af95cab233bb0" => :mojave
-    sha256 "062e2e65e4a9e233eeb94b711b642eb061f9eee949ef43e10845353b8fbcb9d8" => :high_sierra
-    sha256 "48fde51ae6c8f7c1ea348526117953ced48616c0e9a7678867c31998fdc13612" => :sierra
-    sha256 "56c173bc0afde492037cd5c572ae600562058ae0c9c0dc8b0155d902332bbe37" => :el_capitan
-    sha256 "bf940346696e4c891da94647640886d5aa78c261649730ddb08bc7efc3bea63e" => :yosemite
+    sha256 "fa2c02bd5d715dd0ea01ba9e253ed0909b363d40f7a6d716e0ef5baeae40cb67" => :catalina
+    sha256 "3ce3d33e4db8a89eb3c2e4f78fb6e8964f3a1647ef90facd29cb3c4941c21963" => :mojave
+    sha256 "3e9400a194397e4aeb85bc01d018554a5efcfa613e37096a20464738878f781b" => :high_sierra
   end
 
   depends_on "go" => :build
-  depends_on "gpm" => :build
 
   def install
-    mkdir_p "#{buildpath}/src/github.com/bitly"
-    ln_s buildpath, "#{buildpath}/src/github.com/bitly/oauth2_proxy"
-
-    ENV["GOPATH"] = buildpath
-
-    system "gpm", "install"
-    system "go", "build", "-o", "#{bin}/oauth2_proxy"
+    system "go", "build", "-ldflags", "-s -w -X main.VERSION=#{version}",
+                          "-trimpath",
+                          "-o", bin/"oauth2_proxy"
     (etc/"oauth2_proxy").install "contrib/oauth2_proxy.cfg.example"
+    bash_completion.install "contrib/oauth2_proxy_autocomplete.sh" => "oauth2_proxy"
   end
 
-  def caveats; <<~EOS
-    #{etc}/oauth2_proxy/oauth2_proxy.cfg must be filled in.
-  EOS
+  def caveats
+    <<~EOS
+      #{etc}/oauth2_proxy/oauth2_proxy.cfg must be filled in.
+    EOS
   end
 
   plist_options :manual => "oauth2_proxy"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/oauth2_proxy</string>
-            <string>--config=#{etc}/oauth2_proxy/oauth2_proxy.cfg</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_bin}/oauth2_proxy</string>
+              <string>--config=#{etc}/oauth2_proxy/oauth2_proxy.cfg</string>
+          </array>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

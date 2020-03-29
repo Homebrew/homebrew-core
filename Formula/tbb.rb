@@ -3,13 +3,14 @@ class Tbb < Formula
   homepage "https://www.threadingbuildingblocks.org/"
   url "https://github.com/intel/tbb/archive/v2020.1.tar.gz"
   version "2020_U1"
-  sha256 "48d51c63b16787af54e1ee4aaf30042087f20564b4eecf9a032d5568bc2f0bf8"
+  sha256 "7c96a150ed22bc3c6628bc3fef9ed475c00887b26d37bca61518d76a56510971"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6840b9a3fd3f8fdaaf47c21dbaecf8e05c439ebb3f3f3cda844678ecb45ab59f" => :catalina
-    sha256 "1ea0fab506500b8031ab3058bdca7498f3c2a57b135eb5c675b47f459804a0d0" => :mojave
-    sha256 "152c900ed0699f87588032d1b02a7dd4d88fe2838070d783bc255a65ff3248f7" => :high_sierra
+    sha256 "1f949738237859a87bf40da697d2adec6603c4dd4338c2fadc9f2b8b2f2dfe52" => :catalina
+    sha256 "d299eab47b9b7e471b09f688d080d362b40ec71160cffe143b23130e07f3d221" => :mojave
+    sha256 "e14f3b69b1850b912c4942100d24f70d5bf02ff8977af893e97fcca904aaac61" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,8 @@ class Tbb < Formula
       system "python3", *Language::Python.setup_install_args(prefix)
     end
 
-    system "cmake", "-DINSTALL_DIR=lib/cmake/TBB",
+    system "cmake", *std_cmake_args,
+                    "-DINSTALL_DIR=lib/cmake/TBB",
                     "-DSYSTEM_NAME=Darwin",
                     "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
                     "-P", "cmake/tbb_config_installer.cmake"

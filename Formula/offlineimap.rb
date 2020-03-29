@@ -12,6 +12,8 @@ class Offlineimap < Formula
     sha256 "843997b39d0b652700a5c6ccb2ce1a7efe76c32577018d792e25690c4166bb12" => :high_sierra
   end
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
   # Will never support Python 3
   # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
   uses_from_macos "python@2"
@@ -52,50 +54,52 @@ class Offlineimap < Formula
       :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    To get started, copy one of these configurations to ~/.offlineimaprc:
-    * minimal configuration:
-        cp -n #{etc}/offlineimap.conf.minimal ~/.offlineimaprc
+  def caveats
+    <<~EOS
+      To get started, copy one of these configurations to ~/.offlineimaprc:
+      * minimal configuration:
+          cp -n #{etc}/offlineimap.conf.minimal ~/.offlineimaprc
 
-    * advanced configuration:
-        cp -n #{etc}/offlineimap.conf ~/.offlineimaprc
-  EOS
+      * advanced configuration:
+          cp -n #{etc}/offlineimap.conf ~/.offlineimaprc
+    EOS
   end
 
   plist_options :manual => "offlineimap"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/offlineimap</string>
+            <string>-q</string>
+            <string>-u</string>
+            <string>basic</string>
+          </array>
+          <key>StartInterval</key>
+          <integer>300</integer>
+          <key>RunAtLoad</key>
+          <true />
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
         </dict>
-        <key>KeepAlive</key>
-        <false/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/offlineimap</string>
-          <string>-q</string>
-          <string>-u</string>
-          <string>basic</string>
-        </array>
-        <key>StartInterval</key>
-        <integer>300</integer>
-        <key>RunAtLoad</key>
-        <true />
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -5,14 +5,14 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://github.com/dbohdan/remarshal/archive/v0.11.2.tar.gz"
   sha256 "3f383e48f59722a4d93ef2b5e417b6a8c152f382a1faad416099ffcde5c87a66"
-  revision 2
+  revision 3
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "838a5c8b35bb130ec4ba8f7f0a1bff42c53b483f59b6f895cbbb61c87e8acaac" => :catalina
-    sha256 "93382c3689ea68644435c6b1d552718d05e22d52bd60540ef422638b08ea84a6" => :mojave
-    sha256 "bdfdd97a2c095ad6d391e2f7c258fa8301e5597222061b0f88b24675cff5bf84" => :high_sierra
+    sha256 "2e239a6f7fed381016f36bffa0e287731b5e2bcb61334b8f2d9efa88b88918f1" => :catalina
+    sha256 "eea1d2b51cc88366a1da55464cf58545286f9d26a74c9e93fca775dab47db006" => :mojave
+    sha256 "8fa23a4540ddb0cc04b0f25ce5faa83ca0dc31a456cb6da28a94e8a7365cde2a" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -72,6 +72,7 @@ class Remarshal < Formula
     assert_equal toml, pipe_output("#{bin}/yaml2toml", yaml)
     assert_equal json, pipe_output("#{bin}/remarshal -if=toml -of=json", toml).chomp
     assert_equal json, pipe_output("#{bin}/toml2json", toml).chomp
-    assert_equal pipe_output("#{bin}/remarshal -if=yaml -of=msgpack", yaml), pipe_output("#{bin}/remarshal -if=json -of=msgpack", json)
+    assert_equal pipe_output("#{bin}/remarshal -if=yaml -of=msgpack", yaml),
+      pipe_output("#{bin}/remarshal -if=json -of=msgpack", json)
   end
 end

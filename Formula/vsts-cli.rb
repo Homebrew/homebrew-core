@@ -5,16 +5,18 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
   sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fff87d43f92ff97b5e094754215674a31a359f6f5420d18a67d9f173d69cba56" => :catalina
-    sha256 "f9a79bfd88a3b20cfc74c657341ecce3b10c0ef10f1c6c46bc9434cfd46d829c" => :mojave
-    sha256 "1e128e9095734bbd8e8b673ebe132e5e8657436aa30427b5421ce968e3a4b441" => :high_sierra
+    cellar :any
+    sha256 "b37f51f73b543f2c9403e0a982aa1ae625f170b971a75b1ab07a23a62aa01949" => :catalina
+    sha256 "27a52ac2afc49b4392804ce47984f8ea1986dde0a221d599d2f3afa0e93ca6b3" => :mojave
+    sha256 "59d1ccaa24e3356771bd998de79c226803957811170765933d5ca03f3547f99a" => :high_sierra
   end
 
   depends_on "python@3.8"
+
+  uses_from_macos "libffi"
 
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/3c/21/9741e5e5e63245a8cdafb32ffc738bff6e7ef6253b65953e77933e56ce88/argcomplete-1.9.4.tar.gz"

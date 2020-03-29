@@ -16,6 +16,7 @@ class Zurl < Formula
   depends_on "python" => :test
   depends_on "qt"
   depends_on "zeromq"
+
   uses_from_macos "curl"
 
   resource "pyzmq" do

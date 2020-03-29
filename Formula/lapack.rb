@@ -1,16 +1,14 @@
 class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "https://www.netlib.org/lapack/"
-  url "https://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
-  sha256 "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
-  revision 2
+  url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
+  sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
-    sha256 "9e57f69368a3fb7c750e55bb3770253ac0da38552bdc42ba6ed127cefb8b166a" => :catalina
-    sha256 "fa78953406938636ce45034e192d7611db5f72fbe46a934a2b4072ab2bb3a289" => :mojave
-    sha256 "7de1e297afb68bcbcf867b5b996934e5f5d2278bbf28e95ea8c953cb3f74b0f7" => :high_sierra
-    sha256 "76c5a310ea6e8a78650ab8518a57745b2aac13a93d31a95b66f23181c63c2a24" => :sierra
+    sha256 "c5f8a726a57ffe294cfc488752ed2ad9f15e76ab211be020834df4f196b81b59" => :catalina
+    sha256 "47760f1eba02ad2c66f536acfff97e4bafaff4c6088822c8547f7df35a92fb33" => :mojave
+    sha256 "25833d6cbc3e54bb2c055727865ddd3ab74ffb53bf5a7fb285e73f9f5737ad05" => :high_sierra
   end
 
   keg_only :provided_by_macos
@@ -31,7 +29,7 @@ class Lapack < Formula
   end
 
   test do
-    (testpath/"lp.cpp").write <<~EOS
+    (testpath/"lp.c").write <<~EOS
       #include "lapacke.h"
       int main() {
         void *p = LAPACKE_malloc(sizeof(char)*100);
@@ -41,7 +39,7 @@ class Lapack < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "lp.cpp", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
+    system ENV.cc, "lp.c", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
     system "./lp"
   end
 end

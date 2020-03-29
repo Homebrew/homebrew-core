@@ -8,9 +8,10 @@ class Pgrouting < Formula
 
   bottle do
     cellar :any
-    sha256 "1fd00deaacb827085f5da2db9904c730484f84c83a5266afc4bd5de26d228a9e" => :catalina
-    sha256 "1f947e5cef6eac50a0221a0fcceae694ef0142b8b44af76a2110762e97805660" => :mojave
-    sha256 "8714a692bac159642193e8557c3061a2802fa419a826d8928cc559513583e3d1" => :high_sierra
+    rebuild 1
+    sha256 "e16069bdff854de4c36c78323a486e5a2dad731a4a0f978cceb5cff0c29e24a1" => :catalina
+    sha256 "c6780faaf6730a4e64e066002f07170385552a71b7b4e408b80c8db09be40666" => :mojave
+    sha256 "df9def3ea12a91c30f193a0de2a0c6214de51b27f7621d173d3117db51cb1651" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,8 @@ class Pgrouting < Formula
   depends_on "postgis"
   depends_on "postgresql"
 
-  # Patch for CGAL 5.0. To be removed next release. see https://github.com/pgRouting/pgrouting/pull/1188 for fix upstream
+  # Patch for CGAL 5.0. To be removed next release.
+  # see https://github.com/pgRouting/pgrouting/pull/1188 for fix upstream
   patch do
     url "https://cgal.geometryfactory.com/~mgimeno/pgrouting-for-cgal-5-0.diff"
     sha256 "9dab335d9782b1214852d85a3559bc1092ea95b9abd6b5701759799050005c98"
@@ -39,6 +41,8 @@ class Pgrouting < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin = Formula["postgresql"].opt_bin
     pg_port = "55561"
     system "#{pg_bin}/initdb", testpath/"test"

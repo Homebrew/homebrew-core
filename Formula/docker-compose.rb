@@ -5,17 +5,20 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
   url "https://github.com/docker/compose/archive/1.25.4.tar.gz"
   sha256 "844a3d9c9ad13f1227bd828b3693dfb2001dcaea14de7c2a71f8aee47dbf19a7"
+  revision 1
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "ebe367f2fb704314ae2875d865c40c9b8b1e870cf888742c99216356f114961f" => :catalina
-    sha256 "54f367f476359b1a12e8b0f23fc9a7583732f2bd678ab031fd6ea980350dbad3" => :mojave
-    sha256 "ef81d6ad5b72e9fc2233e0f314d7b71eb20a9641e763957a2a1b2adc594791cf" => :high_sierra
+    sha256 "463bd4a012d5bed971040db53b737bd4c89ae9ee05a14d4d738cf06e9bebd9f9" => :catalina
+    sha256 "e3572703ef4cf05000d0eac018b0a01d2d82d7a54941667f2581bfd26e12959f" => :mojave
+    sha256 "3c74f2f820c364a88e66667a372fa0c5bf06516e8f0e234b70990cc1cf99fd80" => :high_sierra
   end
 
   depends_on "libyaml"
   depends_on "python@3.8"
+
+  uses_from_macos "libffi"
 
   def install
     system "./script/build/write-git-sha" if build.head?

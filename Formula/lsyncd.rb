@@ -6,11 +6,10 @@ class Lsyncd < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "79143a6d1505de3fee15c1137236501c5d0b6b7a9d7e58da05eba5d4f0a48150" => :mojave
-    sha256 "df6dd8f53c045216218e7c323bfcf67a638df49c6e9e33783892f349e49b34ab" => :high_sierra
-    sha256 "fb96c8e31a06e71725c2b2ccba2cf450532337e4d1e84d49d08887010c64bf12" => :sierra
-    sha256 "febda4db3866e4f047bf95fbe53730988c2d89897f7c99443e101216e8956f17" => :el_capitan
+    rebuild 2
+    sha256 "37feb9c288332b31a161ab6ac246c7c596713313728bf0cb943f5f92561d12d1" => :catalina
+    sha256 "e4362d2f1e8b295efa92887cff6b3278d705e583d5b1df020f74efc17b15081f" => :mojave
+    sha256 "d0bf0e91103959dff8d10cd8ba68d0f875e09099617e0fcf530076fb8b955bfd" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -59,10 +58,20 @@ class Lsyncd < Formula
     "10.13.1" => ["xnu-4570.20.62.tar.gz",  "4968ae345a83d7aca3a8da65bf09bdc637e2eefbc236f7931c38abb879fe05df"],
     "10.13.2" => ["xnu-4570.31.3.tar.gz",   "1c364646d001f1a6eee80fa71f746b1142121203eabd808f1eab18317ade576c"],
     "10.13.3" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.13.4" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.13.5" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.13.6" => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
-    "10.14"   => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.4" => ["xnu-4570.51.1.tar.gz",   "2c392ff711d596ffd8833c794f45f2781d4f66e09b949df974f2fed4871d5642"],
+    "10.13.5" => ["xnu-4570.61.1.tar.gz",   "7655d0864e2b1c45c543ea65deab41cf093dc2cda1c78707d75488849ddd9670"],
+    "10.13.6" => ["xnu-4570.71.2.tar.gz",   "7dc621cbf4345315badae37dfab6bf133265fff43a4daaf47bea1feb00f490cc"],
+    "10.14"   => ["xnu-4903.221.2.tar.gz",  "c7a4f66bacfd4432b217ef4883798499fd223e1b717f7c5814fccc3a4ae7f4eb"],
+    "10.14.1" => ["xnu-4903.221.2.tar.gz",  "c7a4f66bacfd4432b217ef4883798499fd223e1b717f7c5814fccc3a4ae7f4eb"],
+    "10.14.2" => ["xnu-4903.231.4.tar.gz",  "4aeb745dd26aecc82e44d293fc125099d93e50fe1248bd9178df272e9503be0a"],
+    "10.14.3" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.4" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.5" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.14.6" => ["xnu-4903.241.1.tar.gz",  "6de5253718f93401dc752eb69d08b6253c7abcd9a60349f7e0617776eeda1924"],
+    "10.15"   => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.1" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.2" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
+    "10.15.3" => ["xnu-6153.11.26.tar.gz",  "ec75b9ec8aaed5619cc81836f09fac9aa2c26d5ffda8444d4ae0edbb10bac574"],
   }
 
   if xnu_headers.key? MacOS.full_version

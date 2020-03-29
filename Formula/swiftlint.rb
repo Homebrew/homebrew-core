@@ -21,9 +21,10 @@ class Swiftlint < Formula
 
   test do
     (testpath/"Test.swift").write "import Foundation"
-    assert_match "Test.swift:1:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)",
-                 shell_output("SWIFTLINT_SWIFT_VERSION=3 SWIFTLINT_DISABLE_SOURCEKIT=1 #{bin}/swiftlint lint --no-cache").chomp
+    assert_match "Test.swift:1:1: warning: Trailing Newline Violation: " \
+                 "Files should have a single trailing newline. (trailing_newline)",
+      shell_output("SWIFTLINT_SWIFT_VERSION=3 SWIFTLINT_DISABLE_SOURCEKIT=1 #{bin}/swiftlint lint --no-cache").chomp
     assert_match version.to_s,
-                 shell_output("#{bin}/swiftlint version").chomp
+      shell_output("#{bin}/swiftlint version").chomp
   end
 end

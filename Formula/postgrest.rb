@@ -12,13 +12,14 @@ class Postgrest < Formula
 
   bottle do
     cellar :any
-    sha256 "fc0ed59614a15faba14a43cb2034c0f13429347a092f82ec88e06f4f013067bc" => :mojave
-    sha256 "c3f2b71886b7a2f609f78d3f0ac756a016533674520c778586cac3242063b225" => :high_sierra
-    sha256 "151e3406cd3b46b327bf745f99d9e0cf1f7c8208590a54d576ee0672a6f8c8ba" => :sierra
+    rebuild 1
+    sha256 "0faf148fc9d7e2335d0e8914ef4a705b1489ba7b848853d0cfafbdc3fd4a7c37" => :catalina
+    sha256 "6a9bef86530f93884fe167bd146e277f4433202ef22c5fc142ac3aa654150ad4" => :mojave
+    sha256 "de1af5d881a13d20e4b742f108a141ef846d6b222b88a71f69eee384241b6ac9" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
   depends_on "postgresql"
 
   def install
@@ -26,6 +27,8 @@ class Postgrest < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     pg_bin  = Formula["postgresql"].bin
     pg_port = 55561
     pg_user = "postgrest_test_user"

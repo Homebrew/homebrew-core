@@ -23,6 +23,7 @@ class Sops < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/sops --version")
 
-    assert_match "Recovery failed because no master key was able to decrypt the file.", shell_output("#{bin}/sops #{pkgshare}/example.yaml 2>&1", 128)
+    assert_match "Recovery failed because no master key was able to decrypt the file.",
+      shell_output("#{bin}/sops #{pkgshare}/example.yaml 2>&1", 128)
   end
 end

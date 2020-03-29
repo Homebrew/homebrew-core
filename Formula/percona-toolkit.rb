@@ -3,13 +3,14 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.1.0/source/tarball/percona-toolkit-3.1.0.tar.gz"
   sha256 "722593773825efe7626ff0b74de6a2133483c9c89fd7812bfe440edaacaec9cc"
+  revision 2
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "d03904f208a454aa020770ff88daacf5358afd7b445b079aee8a9fd30a392a1c" => :catalina
-    sha256 "d3d044c5015898fcba816d2dc1cb5d92f4f7263373005c0318970682104bbb69" => :mojave
-    sha256 "82c54ae873973d9f1f22217488163ef8d4d4136478f21f72d97854c4fe2ff929" => :high_sierra
+    sha256 "0fb82a067b4e7c0e2f2f289d190a530bf3e8f92501f12f77d9661142d1cad2b1" => :catalina
+    sha256 "f2e6a4ae25951283fd83a182091eebbd563590ef0142a14a0b9c64a2d7eb6cc4" => :mojave
+    sha256 "31a7a1201d51ba09551381560eade7ecb2a238712608fb09c8eb29871a78af67" => :high_sierra
   end
 
   depends_on "mysql-client"
@@ -37,6 +38,7 @@ class PerconaToolkit < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
@@ -47,6 +49,17 @@ class PerconaToolkit < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "install"
     share.install prefix/"man"
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    bin.find do |f|
+      next unless f.file?
+      next unless f.read("#!/usr/bin/env perl".length) == "#!/usr/bin/env perl"
+
+      inreplace f, "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    end
+
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 

@@ -15,6 +15,8 @@ class Stormssh < Formula
 
   depends_on "python@3.8"
 
+  uses_from_macos "libffi"
+
   conflicts_with "storm", :because => "both install 'storm' binary"
 
   resource "click" do

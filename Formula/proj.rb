@@ -1,13 +1,13 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-6.3.1.tar.gz"
-  sha256 "6de0112778438dcae30fcc6942dee472ce31399b9e5a2b67e8642529868c86f8"
+  url "https://download.osgeo.org/proj/proj-7.0.0.tar.gz"
+  sha256 "ee0e14c1bd2f9429b1a28999240304c0342ed739ebaea3d4ff44c585b1097be8"
 
   bottle do
-    sha256 "d474645f6668743fdc1560840a1aaacd38c66e8fa327ed2bf3d97d7555309f86" => :catalina
-    sha256 "a2ab8fd173f8cf5d07644a2a6c9dcde9a8c8bb05c550aca1eea962b50da62499" => :mojave
-    sha256 "81bbf9b52771cf20dd97731f05c8b12ee96f76b2d3e0abac123a6dd39c880134" => :high_sierra
+    sha256 "8016d7ac0def06a09f219ad4b567cee8ee96c5f3f5dd9b7ab2a10970aaa9fc85" => :catalina
+    sha256 "9510aa998aeab55db840127a70743322063ac9e95c0ff615410e6c4a048e1b64" => :mojave
+    sha256 "168b8ebbee214dcb84e0bf8f1db600f000d6f95c43daee76b59dc96d65191ad4" => :high_sierra
   end
 
   head do
@@ -18,6 +18,10 @@ class Proj < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libtiff"
+
+  uses_from_macos "curl"
+  uses_from_macos "sqlite"
 
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 

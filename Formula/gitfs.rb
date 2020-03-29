@@ -18,6 +18,8 @@ class Gitfs < Formula
   depends_on :osxfuse
   depends_on "python"
 
+  uses_from_macos "libffi"
+
   resource "atomiclong" do
     url "https://files.pythonhosted.org/packages/86/8c/70aea8215c6ab990f2d91e7ec171787a41b7fbc83df32a067ba5d7f3324f/atomiclong-0.1.1.tar.gz"
     sha256 "cb1378c4cd676d6f243641c50e277504abf45f70f1ea76e446efcdbb69624bbe"
@@ -57,13 +59,14 @@ class Gitfs < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    gitfs clones repos in /var/lib/gitfs. You can either create it with
-    sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
-    repo_path argument.
+  def caveats
+    <<~EOS
+      gitfs clones repos in /var/lib/gitfs. You can either create it with
+      sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
+      repo_path argument.
 
-    Also make sure OSXFUSE is properly installed by running brew info osxfuse.
-  EOS
+      Also make sure OSXFUSE is properly installed by running brew info osxfuse.
+    EOS
   end
 
   test do

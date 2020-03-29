@@ -12,6 +12,8 @@ class PerlBuild < Formula
     sha256 "6f32d771c449780efeca88dbb50f841ed15021053932958ce8bd6385a19b9f20" => :high_sierra
   end
 
+  uses_from_macos "perl"
+
   resource "Module::Build" do
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz"
     sha256 "1fe491a6cda914b01bc8e592faa2b5404e9f35915ca15322f8f2a8d8f9008c18"

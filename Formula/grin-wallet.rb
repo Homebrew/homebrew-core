@@ -1,14 +1,14 @@
 class GrinWallet < Formula
   desc "Official wallet for the cryptocurrency Grin"
   homepage "https://grin.mw"
-  url "https://github.com/mimblewimble/grin-wallet/archive/v3.0.0.tar.gz"
-  sha256 "81681c042cc3d62f695087df4160748aef3a63d6919bcca8103bbbd8a51ef14c"
+  url "https://github.com/mimblewimble/grin-wallet/archive/v3.1.1.tar.gz"
+  sha256 "0151e7235ca52381ffa30ebe06cdb6841afd48331f68fb477bf7d5b740e03cc1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ac32e41a85ffacf929820c3970c04ce4d168dfda8896e2bf2552657d9b557c39" => :catalina
-    sha256 "ed83fb73f593f056bfce91b2bde5652950153dccc5ceb7a497e8621b618988ce" => :mojave
-    sha256 "b15137f4a5f3aef44d5f7440fa430dd724715e7684164a82e36f2599c7b43f67" => :high_sierra
+    sha256 "76459e3d2e8254a95149cb700a027e871a5e3c840f40e2ec0b070360b576df63" => :catalina
+    sha256 "0f76a01e6a06fd848d6298c8b748b9822107da1f64ce60c6423f1318f8c4de72" => :mojave
+    sha256 "a3da4046c64fe6d0b7be1e7c9fc048cc4d2d375455e53e39a04f56d2641e66b6" => :high_sierra
   end
 
   depends_on "rust" => :build

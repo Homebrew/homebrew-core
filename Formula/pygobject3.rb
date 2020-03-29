@@ -1,15 +1,14 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.34/pygobject-3.34.0.tar.xz"
-  sha256 "87e2c9aa785f352ef111dcc5f63df9b85cf6e05e52ff04f803ffbebdacf5271a"
+  url "https://download.gnome.org/sources/pygobject/3.36/pygobject-3.36.0.tar.xz"
+  sha256 "8683d2dfb5baa9e501a9a64eeba5c2c1117eadb781ab1cd7a9d255834af6daef"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "19438d4f683d7c240842f9ae4793ac7628b2e412e1fc9ece7f11bb7ae6cfa2a1" => :catalina
-    sha256 "bc8b4c3b891a179d532e2ef4352d6c6f767472d37f2d800ce2042c83b11c482f" => :mojave
-    sha256 "7c7b94ec1114c60af7d943b3d5230b1986515a6eeb057905940711084b43d14b" => :high_sierra
+    sha256 "63c1f6a01fd1d27a252cdeabdd0e084598ec9b79eb05a523e48f7f13c4f05746" => :catalina
+    sha256 "9b3863938691e7992ed55d37837a30f6bc851f0af1444d4eb32b735f4a1b10c8" => :mojave
+    sha256 "f2cdd475ed9816f815bb1d6874780df09b82d3f925b2571a4567ee90ab89a073" => :high_sierra
   end
 
   depends_on "meson" => :build

@@ -5,15 +5,18 @@ class Streamlink < Formula
   homepage "https://streamlink.github.io/"
   url "https://github.com/streamlink/streamlink/releases/download/1.3.1/streamlink-1.3.1.tar.gz"
   sha256 "dee047f688dc31429842ad29870ab19e63b292d73e79d709adcdbca1f278d432"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3089f0534194d738e51626d70900ba418b8a3bae122f6ee2c272733d273325b" => :catalina
-    sha256 "2b8274bd795e1ec131f2cfd3b18c8a2b127fde67876f5d4099c46ca819a85f57" => :mojave
-    sha256 "7643fdffaa5fa03309c83fb2ffe8efb8a2290787b23100b9180ff45b0e40c82a" => :high_sierra
+    sha256 "83a7a42ffc99436daf495cb9bbcfe09a483cb31e0f76c0ba11212cf58155ad0d" => :catalina
+    sha256 "5e8aadebb77954be29c1cf97e9e66763c01667e27c87270b740f77ce96a4c80b" => :mojave
+    sha256 "9c9f19cbc7352c0a4f31b3d86dd26740f863ae2761263947c23340dbe20840b3" => :high_sierra
   end
 
   depends_on "python@3.8"
+
+  uses_from_macos "libffi"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"

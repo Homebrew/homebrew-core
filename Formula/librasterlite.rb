@@ -3,14 +3,13 @@ class Librasterlite < Formula
   homepage "https://www.gaia-gis.it/fossil/librasterlite/index"
   url "https://www.gaia-gis.it/gaia-sins/librasterlite-sources/librasterlite-1.1g.tar.gz"
   sha256 "0a8dceb75f8dec2b7bd678266e0ffd5210d7c33e3d01b247e9e92fa730eebcb3"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "a66bb073375cf60241540cedba00415ac85fde9b64106f76a5a052a1da508661" => :catalina
-    sha256 "e50438fe42116fd2206c46ad813bd65ea732513f2993293d5c8211b38c7642e0" => :mojave
-    sha256 "b622c859952b981aea4443d46fc24948a653ed4faaf83184347af82699f2f74e" => :high_sierra
-    sha256 "7605cd6756f69c93737ae300e946b81e559d8c5c697bcdfae1f9c1b80b84f657" => :sierra
+    sha256 "566f8ba211d425ca07a06d98f4d6e2ef961eba32293fc83730eb654c3f9a0d2f" => :catalina
+    sha256 "28508bacd17ad8c11369d11a99bdc7118c41b50de1a0bbb8b3a0c50117b02c2d" => :mojave
+    sha256 "23792ab784c100ea583bbcd570ba2f093aa591438fa2f660b365bb7d99f0b999" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -13,6 +13,8 @@ class Sniffglue < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "libpcap"
+
   resource "testdata" do
     url "https://github.com/kpcyrd/sniffglue/raw/163ca299bab711fb0082de216d07d7089c176de6/pcaps/SkypeIRC.pcap"
     sha256 "bac79a9c3413637f871193589d848697af895b7f2700d949022224d59aa6830f"

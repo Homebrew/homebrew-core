@@ -27,6 +27,7 @@ class Komposition < Formula
   depends_on "gstreamer"
   depends_on "gtk+3"
   depends_on "sox"
+
   uses_from_macos "libffi"
 
   def install

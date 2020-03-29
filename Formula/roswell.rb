@@ -14,6 +14,8 @@ class Roswell < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
+  uses_from_macos "curl"
+
   def install
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",

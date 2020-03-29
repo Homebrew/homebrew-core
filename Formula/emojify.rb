@@ -12,8 +12,9 @@ class Emojify < Formula
   end
 
   test do
-    input = "Hey, I just :raising_hand: you, and this is :scream: , but here's my :calling: , so :telephone_receiver: me, maybe?"
-    expected = "Hey, I just 🙋 you, and this is 😱 , but here's my 📲 , so 📞 me, maybe?"
-    assert_equal(expected, shell_output("#{bin}/emojify \"#{input}\"").strip)
+    input = "Hey, I just :raising_hand: you, and this is :scream: , but here's my :calling: , "\
+            "so :telephone_receiver: me, maybe?"
+    assert_equal "Hey, I just 🙋 you, and this is 😱 , but here's my 📲 , so 📞 me, maybe?",
+      shell_output("#{bin}/emojify \"#{input}\"").strip
   end
 end

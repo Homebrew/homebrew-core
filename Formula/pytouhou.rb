@@ -3,19 +3,18 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
-  revision 5
+  revision 6
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "9d69c15cda311bcf63cb37ff939d4ea4f1b7d675de4450ea00f35d2ec628305c" => :catalina
-    sha256 "f2bf5020d5fbf9e83847d416e8909bb583cbea9ce406453d2471dbbb6945b202" => :mojave
-    sha256 "f5e3c88bea9e1a533f0a96b401df4c2df90195d684ab8ecc2fc9471b9a09a4cd" => :high_sierra
-    sha256 "48d508217894d69689ba1d9c1ee65fab622f0895a7358e928dba38516c004de0" => :sierra
-    sha256 "edb451dc773f69a0550c687b90326d9baecb5d2bd1898b32cc550662b90c6eeb" => :el_capitan
+    sha256 "da770fbd2301c23ee7a674866d6a7708359f29d4de0691b77f3b83d42ff32584" => :catalina
+    sha256 "137b520306f3c5a3a2070c3c5741f8efcd7b057c91d364d754ad16ddb9e7408c" => :mojave
+    sha256 "4e91f1ee4b708327308e1927f499d137bbb35589ab097743023cf6e0ae2cccb3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "glfw"
   depends_on "gtk+3"
   depends_on "libepoxy"
   depends_on "py3cairo"
@@ -50,10 +49,11 @@ class Pytouhou < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    The default path for the game data is:
-      #{pkgshare}/game
-  EOS
+  def caveats
+    <<~EOS
+      The default path for the game data is:
+        #{pkgshare}/game
+    EOS
   end
 
   test do

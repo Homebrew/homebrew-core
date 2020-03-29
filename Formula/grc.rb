@@ -31,9 +31,7 @@ class Grc < Formula
   def post_install
     grc_bashrc = etc/"grc.bashrc"
     bad = /^    alias ls='colourify ls --color'$/
-    if grc_bashrc.exist? && File.read(grc_bashrc) =~ bad
-      inreplace grc_bashrc, bad, "    alias ls='colourify ls'"
-    end
+    inreplace grc_bashrc, bad, "    alias ls='colourify ls'" if grc_bashrc.exist? && File.read(grc_bashrc) =~ bad
   end
 
   test do

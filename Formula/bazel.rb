@@ -1,19 +1,22 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/2.1.0/bazel-2.1.0-dist.zip"
-  sha256 "3371cd9050989173a3b27364668328653a65653a50a85c320adc53953b4d5f46"
+  url "https://github.com/bazelbuild/bazel/releases/download/2.2.0/bazel-2.2.0-dist.zip"
+  sha256 "9379878a834d105a47a87d3d7b981852dd9f64bc16620eacd564b48533e169a7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b0b00383570e791c53baf7d0183977eccd221f461522f69454c64cfd4be6712" => :catalina
-    sha256 "423cd54a7ed236ab19844285357f117d019014951421fd784af85bd456d4e300" => :mojave
-    sha256 "62e8fe7a8154b0773a0b9df1101b462f5987dda1457feb2f326928269adc3855" => :high_sierra
+    sha256 "efcb511e145934583bd890874f7f46e4d07755e07d160e7345633bd303caf391" => :catalina
+    sha256 "087ce9d26b67f254f9a4cdca9eb6319e75aa857b3cf5dbfb6b7e50144fea8631" => :mojave
+    sha256 "54790f257823b8e226a718cd323301340714223b30c31f912c77b3dbdb4cea31" => :high_sierra
   end
 
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on :java => "1.8"
   depends_on :macos => :yosemite
+
+  uses_from_macos "zip"
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
@@ -35,7 +38,7 @@ class Bazel < Formula
              "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
-      ln_s bin/"bazel", bin/"bazel-#{version}"
+      ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
 
@@ -73,5 +76,18 @@ class Bazel < Formula
            "--javabase=@bazel_tools//tools/jdk:jdk",
            "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
+
+    # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
+    # project-specific `tools/bazel` if present. Invoking `bazel-VERSION`
+    # bypasses this behavior.
+    (testpath/"tools"/"bazel").write <<~EOS
+      #!/bin/bash
+      echo "stub-wrapper"
+      exit 1
+    EOS
+    (testpath/"tools/bazel").chmod 0755
+
+    assert_equal "stub-wrapper\n", shell_output("#{bin}/bazel --version", 1)
+    assert_equal "bazel #{version}-homebrew\n", shell_output("#{bin}/bazel-#{version} --version")
   end
 end

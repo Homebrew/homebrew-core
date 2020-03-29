@@ -2,15 +2,15 @@ class GitGui < Formula
   desc "Tcl/Tk UI for the git revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.25.0.tar.xz"
-  sha256 "c060291a3ffb43d7c99f4aa5c4d37d3751cf6bca683e7344ea407ea504d9a8d0"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.26.0.tar.xz"
+  sha256 "9ece0dcb07a5e0d7366a92b613b201cca11ae368ab7687041364b3e756e495d6"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "861ac3a97825ee6a044dd62f012b418b117d84d6dc5cb826dc2c1cf9407c665d" => :catalina
-    sha256 "861ac3a97825ee6a044dd62f012b418b117d84d6dc5cb826dc2c1cf9407c665d" => :mojave
-    sha256 "861ac3a97825ee6a044dd62f012b418b117d84d6dc5cb826dc2c1cf9407c665d" => :high_sierra
+    sha256 "d74e6b1f0efe641c8f0c663fe3a19c2d8557b91d779e1bedb5c5445278790444" => :catalina
+    sha256 "d74e6b1f0efe641c8f0c663fe3a19c2d8557b91d779e1bedb5c5445278790444" => :mojave
+    sha256 "d74e6b1f0efe641c8f0c663fe3a19c2d8557b91d779e1bedb5c5445278790444" => :high_sierra
   end
 
   depends_on "tcl-tk"

@@ -30,6 +30,9 @@ class Makepkg < Formula
   depends_on :macos => :yosemite
   depends_on "openssl@1.1"
 
+  uses_from_macos "m4" => :build
+  uses_from_macos "libxslt"
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 

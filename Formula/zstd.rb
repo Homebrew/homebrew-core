@@ -13,6 +13,8 @@ class Zstd < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "install", "PREFIX=#{prefix}/"
 

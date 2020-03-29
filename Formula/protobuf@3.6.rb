@@ -34,7 +34,7 @@ class ProtobufAT36 < Formula
   def install
     (buildpath/"gtest").install resource "gtest"
     (buildpath/"gtest/googletest").cd do
-      system "cmake", "."
+      system "cmake", ".", *std_cmake_args
       system "make"
     end
     ENV["CXXFLAGS"] = "-I../gtest/googletest/include"

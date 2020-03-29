@@ -3,12 +3,13 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
   sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
+  revision 2
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
-    sha256 "f3fafbee57e8d1fa960065c82f27b493267fbaf8f032bd987973b31ddf7e8317" => :catalina
-    sha256 "ee309aca5eab1921c9c544c4d8ef9a30f7e45df6ff2e978da3bda6450354a0ff" => :mojave
-    sha256 "3983060036956544aebbba3322d76d7d294c97ece23c42c4b5454f82d4d2f6b3" => :high_sierra
+    sha256 "2e175c39f1333e2edce7a8bad013ea80cf6788d298f06e154a77a7fe48253f03" => :catalina
+    sha256 "f93d84a03a568ebd085ec42aee528d125f86ed2cad11add631636fa3a573fbcb" => :mojave
+    sha256 "312d951ea184c95f9a96f399b6908ebca09071dd0a546178a476acb70c0f4537" => :high_sierra
   end
 
   depends_on "asio" => :build
@@ -21,16 +22,17 @@ class Csound < Formula
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
-  depends_on :java
   depends_on "liblo"
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
+  depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
   depends_on "stk"
   depends_on "wiiuse"
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "curl"
@@ -51,6 +53,9 @@ class Csound < Formula
   end
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    ENV.prepend "CFLAGS", "-DH5_USE_110_API -DH5Oget_info_vers=1"
+
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
@@ -83,16 +88,17 @@ class Csound < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    To use the Python bindings, you may need to add to #{shell_profile}:
-      export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
+  def caveats
+    <<~EOS
+      To use the Python bindings, you may need to add to #{shell_profile}:
+        export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
 
-    To use the Java bindings, you may need to add to #{shell_profile}:
-      export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
-    and link the native shared library into your Java Extensions folder:
-      mkdir -p ~/Library/Java/Extensions
-      ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
-  EOS
+      To use the Java bindings, you may need to add to #{shell_profile}:
+        export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
+      and link the native shared library into your Java Extensions folder:
+        mkdir -p ~/Library/Java/Extensions
+        ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
+    EOS
   end
 
   test do
@@ -150,7 +156,8 @@ class Csound < Formula
           }
       }
     EOS
-    system "javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
-    system "java", "-classpath", "#{libexec}/csnd6.jar:.", "-Djava.library.path=#{libexec}", "test"
+    system "#{Formula["openjdk"].bin}/javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
+    system "#{Formula["openjdk"].bin}/java", "-classpath", "#{libexec}/csnd6.jar:.",
+                                             "-Djava.library.path=#{libexec}", "test"
   end
 end

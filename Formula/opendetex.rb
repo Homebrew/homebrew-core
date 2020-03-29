@@ -12,6 +12,8 @@ class Opendetex < Formula
     sha256 "ed5ae661b1244d2d3b6c300176ba9cf797c50df7ae7e116cd077b1e1ff3f2bc3" => :sierra
   end
 
+  uses_from_macos "flex" => :build
+
   def install
     system "make"
     bin.install "detex"

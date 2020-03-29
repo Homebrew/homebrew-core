@@ -5,13 +5,13 @@ class Atdtool < Formula
   homepage "https://github.com/lpenz/atdtool"
   url "https://files.pythonhosted.org/packages/83/d1/55150f2dd9afda92e2f0dcb697d6f555f8b1f578f1df4d685371e8b81089/atdtool-1.3.3.tar.gz"
   sha256 "a83f50e7705c65e7ba5bc339f1a0624151bba9f7cdec7fb1460bb23e9a02dab9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6b4caae97223c76d2d3f41a45ecb7721aac8f90cbcd54de2412abf60e351e59" => :catalina
-    sha256 "b81608e6b0b99684c095c2e0fb88430e4e54f6b285ae85ef1355657a563be373" => :mojave
-    sha256 "c0a9496c43531cd2b3d03da346ada7f938118d7dfab91cd276122feb9eb2b478" => :high_sierra
+    sha256 "f02a78aa9dbb19e8ca8670a6890f3d51949d014e6890ba5039fd9695bc1f46ce" => :catalina
+    sha256 "17b2ed63f8b4f8aa53e367572b53344fa3e6fa8569e5a9fb48f3a0d5257d04cc" => :mojave
+    sha256 "0f301757a596e02344c15171a834557e19e4c4145fd440cd9e960b72993e459a" => :high_sierra
   end
 
   depends_on "python@3.8"

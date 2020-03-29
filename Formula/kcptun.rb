@@ -1,15 +1,15 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20200201.tar.gz"
-  sha256 "dc7293d601e8f063562bfa298133e79320ebe1c1b92737c22b2c2696cb004f48"
+  url "https://github.com/xtaci/kcptun/archive/v20200321.tar.gz"
+  sha256 "450e586528bd7b2e586605e3a664f77ebd9baa869918fcc6d6a41f84d4cfb4fd"
   head "https://github.com/xtaci/kcptun.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f969d199437cdcb1db7aecdbf499a4f6af83439635fde44ed38ef0e01f68c0a4" => :catalina
-    sha256 "e66a96b36b684bebb5afaae793a9d523a942a465a787e3a211e4f4cead581b2b" => :mojave
-    sha256 "11e93789f6dafc2748f3b666c85e9224e2c12ba791f26c288e7097e965ca3de4" => :high_sierra
+    sha256 "fe133e37201fb3eefc7da0be3e4bb3f8ff5544e18560101a67142e16e4ef5a21" => :catalina
+    sha256 "0aade89e5e2d12ec2258d026579c1b68b9211efa6aa0bfa2b30a5c72bdc390cb" => :mojave
+    sha256 "37190ecd3026ebdd4db09d31e2c86eb907a7368ac26338db0e65ece806ac4737" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -25,37 +25,38 @@ class Kcptun < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/kcptun/bin/kcptun_client -c #{HOMEBREW_PREFIX}/etc/kcptun_client.json"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/kcptun_client</string>
-          <string>-c</string>
-          <string>#{etc}/kcptun_client.json</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Crashed</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/kcptun_client</string>
+            <string>-c</string>
+            <string>#{etc}/kcptun_client.json</string>
+          </array>
+          <key>RunAtLoad</key>
           <true/>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProcessType</key>
+          <string>Background</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/kcptun.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/kcptun.log</string>
         </dict>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/kcptun.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/kcptun.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

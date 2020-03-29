@@ -11,6 +11,8 @@ class Spin < Formula
     sha256 "3ffbbe34633fa0e177bd25343b3bbd35d706988ab04c4a617fff530cf3dc542a" => :high_sierra
   end
 
+  uses_from_macos "bison" => :build
+
   def install
     cd "Src" do
       system "make"

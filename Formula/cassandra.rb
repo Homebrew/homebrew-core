@@ -1,14 +1,15 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/3.11.5/apache-cassandra-3.11.5-bin.tar.gz"
-  sha256 "a765adcaa42a6c881f5e79d030854d082900992cc11da40eee413bb235970a6a"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz"
+  sha256 "ce34edebd1b6bb35216ae97bd06d3efc338c05b273b78267556a99f85d30e45b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42b99821ce8118fcdee212008bc3363d6db290030c54b5fc757a297af9df439d" => :catalina
-    sha256 "4fd242d2203108e0abd038b6a1e780325e7e66ee21b7441950012458b33f424e" => :mojave
-    sha256 "96c3282be35a4f27abba9c157a9f6c431ee5819ce2c729444fd9d3e60c4992b6" => :high_sierra
+    sha256 "dfaa9d095d10a421bfede45dcaa0b1b270e164211d2ec3624cee15fd20fc55bb" => :catalina
+    sha256 "fa2aa303c5d3f325a2b421a142b6c156feba8e0858d3dfd2f37f64ca47837cbd" => :mojave
+    sha256 "63d57a707328b31e8cd05ffc3eca71923dab593d9dab6d8fed8f3e24f3995a5b" => :high_sierra
   end
 
   depends_on "cython" => :build
@@ -61,17 +62,23 @@ class Cassandra < Formula
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
-    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR", "-Dcassandra.logdir\=#{var}/log/cassandra"
+    inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR",
+                               "-Dcassandra.logdir\=#{var}/log/cassandra"
     inreplace "bin/cassandra.in.sh" do |s|
-      s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"", "CASSANDRA_HOME=\"#{libexec}\""
+      s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"",
+              "CASSANDRA_HOME=\"#{libexec}\""
       # Store configs in etc, outside of keg
-      s.gsub! "CASSANDRA_CONF=\"$CASSANDRA_HOME/conf\"", "CASSANDRA_CONF=\"#{etc}/cassandra\""
+      s.gsub! "CASSANDRA_CONF=\"$CASSANDRA_HOME/conf\"",
+              "CASSANDRA_CONF=\"#{etc}/cassandra\""
       # Jars installed to prefix, no longer in a lib folder
-      s.gsub! "\"$CASSANDRA_HOME\"/lib/*.jar", "\"$CASSANDRA_HOME\"/*.jar"
+      s.gsub! "\"$CASSANDRA_HOME\"/lib/*.jar",
+              "\"$CASSANDRA_HOME\"/*.jar"
       # The jammm Java agent is not in a lib/ subdir either:
-      s.gsub! "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/lib/jamm-", "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/jamm-"
+      s.gsub! "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/lib/jamm-",
+              "JAVA_AGENT=\"$JAVA_AGENT -javaagent:$CASSANDRA_HOME/jamm-"
       # Storage path
-      s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"", "cassandra_storagedir\=\"#{var}/lib/cassandra\""
+      s.gsub! "cassandra_storagedir\=\"$CASSANDRA_HOME/data\"",
+              "cassandra_storagedir\=\"#{var}/lib/cassandra\""
     end
 
     rm Dir["bin/*.bat", "bin/*.ps1"]
@@ -84,9 +91,13 @@ class Cassandra < Formula
     libexec.install Dir["lib/*.jar"]
 
     pkgshare.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
-    inreplace Dir["#{libexec}/bin/cassandra*", "#{libexec}/bin/debug-cql", "#{libexec}/bin/nodetool", "#{libexec}/bin/sstable*"],
-              %r{`dirname "?\$0"?`/cassandra.in.sh},
-              "#{pkgshare}/cassandra.in.sh"
+    inreplace Dir[
+      "#{libexec}/bin/cassandra*",
+      "#{libexec}/bin/debug-cql",
+      "#{libexec}/bin/nodetool",
+      "#{libexec}/bin/sstable*",
+    ], %r{`dirname "?\$0"?`/cassandra.in.sh},
+       "#{pkgshare}/cassandra.in.sh"
 
     # Make sure tools are installed
     rm Dir[buildpath/"tools/bin/*.bat"] # Delete before install to avoid copying useless files
@@ -125,27 +136,28 @@ class Cassandra < Formula
 
   plist_options :manual => "cassandra -f"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/cassandra</string>
-            <string>-f</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}/lib/cassandra</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_bin}/cassandra</string>
+              <string>-f</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}/lib/cassandra</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

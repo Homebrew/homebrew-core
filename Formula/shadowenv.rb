@@ -1,14 +1,14 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/1.3.0.tar.gz"
-  sha256 "e5b202f75234f47ea8ca94331192223c28877021f978a6ed39e50927b2381e06"
+  url "https://github.com/Shopify/shadowenv/archive/1.3.1.tar.gz"
+  sha256 "2ecb61475c75022a4cfe378e750b23fbf3c559452465bc399ea1369c18d9054b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a016af9b61eb34448862c31aec95703fdd4fff1fcd219cf1674edc7f6cd44d8" => :catalina
-    sha256 "b24c917bb47805a2253f87878da85d2dbfb3bbe34b968cb773953e04efdc6cbc" => :mojave
-    sha256 "47635809fcac1223b736bf2ad9a4a5065595f92bc6a7c240dc16ead2475de188" => :high_sierra
+    sha256 "6eb21077d08aa62b92b162a40c94f2b68c50deb3c8f0a38b68ce225f1d7af91c" => :catalina
+    sha256 "3e93b9b98ba2dcb84dcf19115c5650bd49241260bec2751e6e2843417024025d" => :mojave
+    sha256 "aff6c727929ab3a9de176a341f55997777318d65e0ef2c547baa981e32455e8d" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -45,9 +45,10 @@ class Shadowenv < Formula
     }
     # Read ...'\"'\"'... on the next line as a ruby `...' + "'" + '...` but for bash
     shadowenv_command = "#{bin}/shadowenv hook '\"'\"'#{hash}:#{data.to_json}'\"'\"' 2> /dev/null"
-    print_vars = "echo EXAMPLE:$EXAMPLE; echo EXAMPLE2:$EXAMPLE2; echo EXAMPLE3:$EXAMPLE3; echo EXAMPLE_PATH:$EXAMPLE_PATH;"
-    actual_output = shell_output("bash -c '#{environment} #{print_vars} echo ---; eval \"$(#{shadowenv_command})\"; #{print_vars}'")
+    print_vars =
+      "echo EXAMPLE:$EXAMPLE; echo EXAMPLE2:$EXAMPLE2; echo EXAMPLE3:$EXAMPLE3; echo EXAMPLE_PATH:$EXAMPLE_PATH;"
 
-    assert_equal expected_output, actual_output
+    assert_equal expected_output,
+      shell_output("bash -c '#{environment} #{print_vars} echo ---; eval \"$(#{shadowenv_command})\"; #{print_vars}'")
   end
 end

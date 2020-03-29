@@ -18,7 +18,6 @@ class Dfix < Formula
 
   def install
     system "make"
-    system "make", "test"
     bin.install "bin/dfix"
     pkgshare.install "test/testfile_expected.d", "test/testfile_master.d"
   end

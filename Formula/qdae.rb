@@ -22,10 +22,11 @@ class Qdae < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Data files are located in the following directory:
-      #{share}/QDAE
-  EOS
+  def caveats
+    <<~EOS
+      Data files are located in the following directory:
+        #{share}/QDAE
+    EOS
   end
 
   test do

@@ -18,7 +18,9 @@ class Sxiv < Formula
   depends_on :x11
 
   def install
-    system "make", "PREFIX=#{prefix}", "AUTORELOAD=nop", "CPPFLAGS=-I/opt/X11/include", "LDFLAGS=-L/opt/X11/lib", "LDLIBS=-lpthread", "install"
+    system "make", "PREFIX=#{prefix}", "AUTORELOAD=nop",
+                   "CPPFLAGS=-I/opt/X11/include", "LDFLAGS=-L/opt/X11/lib",
+                   "LDLIBS=-lpthread", "install"
   end
 
   test do

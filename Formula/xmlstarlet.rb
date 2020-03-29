@@ -15,6 +15,8 @@ class Xmlstarlet < Formula
     sha256 "7004b98b4dd9195a35f736ba3f6282369a2c63397a710056c5d1ae71d149fa3a" => :mavericks
   end
 
+  uses_from_macos "libxslt"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

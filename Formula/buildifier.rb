@@ -2,20 +2,20 @@ class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
   url "https://github.com/bazelbuild/buildtools.git",
-      :tag      => "1.0.0",
-      :revision => "9e63c6f02e63adaab63e21a3a8feb75f4f7503cb"
+      :tag      => "2.2.1",
+      :revision => "22e56e7356b839fca53d4d20aff02e1a0dce32ae"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3e43331d6ffa2eac418857c30d53d97e428d08cb6267db09a06d259eb8b01aef" => :catalina
-    sha256 "3e43331d6ffa2eac418857c30d53d97e428d08cb6267db09a06d259eb8b01aef" => :mojave
-    sha256 "3e43331d6ffa2eac418857c30d53d97e428d08cb6267db09a06d259eb8b01aef" => :high_sierra
+    sha256 "89399cb878ff42751f4d7da1e8c11a8b74f262ec8c0635ec9b9c975ca3b984a5" => :catalina
+    sha256 "89399cb878ff42751f4d7da1e8c11a8b74f262ec8c0635ec9b9c975ca3b984a5" => :mojave
+    sha256 "89399cb878ff42751f4d7da1e8c11a8b74f262ec8c0635ec9b9c975ca3b984a5" => :high_sierra
   end
 
-  depends_on "bazel" => :build
+  depends_on "bazelisk" => :build
 
   def install
-    system "bazel", "build", "--workspace_status_command=#{buildpath}/status.py", "buildifier:buildifier"
+    system "bazelisk", "build", "--config=release", "buildifier:buildifier"
     bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
 

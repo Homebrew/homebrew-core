@@ -1,8 +1,8 @@
 class Grails < Formula
   desc "Web application framework for the Groovy language"
   homepage "https://grails.org"
-  url "https://github.com/grails/grails-core/releases/download/v4.0.1/grails-4.0.1.zip"
-  sha256 "451ce38ddf2d19c396f5495629084e05c72c77db6a1a8e34b99b9aea70fff345"
+  url "https://github.com/grails/grails-core/releases/download/v4.0.2/grails-4.0.2.zip"
+  sha256 "897496c61b6d87fb61e5adf3d0ba27783cb779c4492930d1c8ad7e603bf9c267"
 
   bottle :unneeded
 
@@ -12,10 +12,11 @@ class Grails < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
-  def caveats; <<~EOS
-    The GRAILS_HOME directory is:
-      #{opt_libexec}
-  EOS
+  def caveats
+    <<~EOS
+      The GRAILS_HOME directory is:
+        #{opt_libexec}
+    EOS
   end
 
   test do

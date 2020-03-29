@@ -3,12 +3,12 @@ class Vips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/releases/download/v8.9.1/vips-8.9.1.tar.gz"
   sha256 "45633798877839005016c9d3494e98dee065f5cb9e20f4552d3b315b8e8bce91"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "b70ae725cab853130ac9a1c14873a8cb4929a4ca8d5ddbfdb65908cb345fe74a" => :catalina
-    sha256 "62b0f72d537fe8b92efaaa37563f6840caafa16f89c602a89a4b560dbb4c5fa2" => :mojave
-    sha256 "4558e29fb5b4ab515e3d21b8d116edead14c847b3fd3f306a47b93e9440e94fd" => :high_sierra
+    sha256 "829e61bb95814efc2623bbf356b431dc9447f880548181e9474c2da352ebf28f" => :catalina
+    sha256 "fa36c68fe16fde6b40d99e6f092a6b2879cae656816ae0aa97b9b757c8c02601" => :mojave
+    sha256 "22d7ff71d95b6def2d3651d1097e58f23313f5aa4e7400becd6029bc7e4106f1" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -35,6 +35,8 @@ class Vips < Formula
   depends_on "pango"
   depends_on "poppler"
   depends_on "webp"
+
+  uses_from_macos "curl"
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used

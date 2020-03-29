@@ -13,11 +13,11 @@ class MysqlClient < Formula
   keg_only "it conflicts with mysql (which contains client libraries)"
 
   depends_on "cmake" => :build
-
   # GCC is not supported either, so exclude for El Capitan.
   depends_on :macos => :sierra if DevelopmentTools.clang_build_version < 900
-
   depends_on "openssl@1.1"
+
+  uses_from_macos "libedit"
 
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)

@@ -63,13 +63,14 @@ class ElasticsearchAT24 < Formula
     (libexec/"plugins").mkpath
   end
 
-  def caveats; <<~EOS
-    Data:    #{var}/elasticsearch/#{cluster_name}/
-    Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
-    Plugins: #{libexec}/plugins/
-    Config:  #{etc}/elasticsearch/
-    plugin script: #{libexec}/bin/plugin
-  EOS
+  def caveats
+    <<~EOS
+      Data:    #{var}/elasticsearch/#{cluster_name}/
+      Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
+      Plugins: #{libexec}/plugins/
+      Config:  #{etc}/elasticsearch/
+      plugin script: #{libexec}/bin/plugin
+    EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/elasticsearch@2.4/bin/elasticsearch"

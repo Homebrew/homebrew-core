@@ -19,6 +19,12 @@ class Bench < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
+  # Compatibility with GHC 8.8. Remove with the next release.
+  patch do
+    url "https://github.com/Gabriel439/bench/commit/846dea7caeb0aee81870898b80345b9d71484f86.patch?full_index=1"
+    sha256 "fac63cd1ddb0af3bda78900df3ac5a4e6b6d2bb8a3d4d94c2f55d3f21dc681d1"
+  end
+
   def install
     install_cabal_package
   end

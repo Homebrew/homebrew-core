@@ -29,7 +29,9 @@ class HighlightingKate < Formula
     test_input = "*hello, world*\n"
     test_output = `/bin/echo -n "#{test_input}" | #{bin}/highlighting-kate -s markdown`
     test_output_last_line = test_output.split("\n")[-1]
-    expected_last_line = '</style></head><body><div class="sourceCode"><pre class="sourceCode"><code class="sourceCode">*hello, world*</code></pre></div></body>'
+    expected_last_line =
+      '</style></head><body><div class="sourceCode"><pre class="sourceCode"><code class="sourceCode">' \
+      "*hello, world*</code></pre></div></body>"
     assert_equal expected_last_line, test_output_last_line
   end
 end

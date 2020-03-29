@@ -1,15 +1,15 @@
 class Wal2json < Formula
   desc "Convert PostgreSQL changesets to JSON format"
   homepage "https://github.com/eulerto/wal2json"
-  url "https://github.com/eulerto/wal2json/archive/wal2json_2_0.tar.gz"
-  sha256 "99088b9cb0d67705332c96dd3bba0074e552c19c8b6642a68aff2975e7011dcd"
-  revision 1
+  url "https://github.com/eulerto/wal2json/archive/wal2json_2_2.tar.gz"
+  sha256 "e2cb764ee1fccb86ba38dbc8a5e2acd2d272e96172203db67fd9c102be0ae3b5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e0bded8e6dd112a6b7499df6b6896330f6531d4a7672be3034b498dcb645a22" => :catalina
-    sha256 "0477ae37c209fc5f1943d657b369feb5207c4ab025ed938a3a72a5d5d8560906" => :mojave
-    sha256 "f6839489b2a141242fcecf5b8d795ac352670033ca929e036f19e0192632ec78" => :high_sierra
+    rebuild 1
+    sha256 "f8d15f5d13d6e4942ccd4baa3ec633a39cd62337224eb1a165689cd2aebcbe51" => :catalina
+    sha256 "9f7218381271a905d4da6a943599cc1db3bbe92965dadc49ac2ae94a35350003" => :mojave
+    sha256 "18182f272c0ada8069adc54d65b3607c51c12e144b0cbe2620ee8fb3fb09c00f" => :high_sierra
   end
 
   depends_on "postgresql"
@@ -21,6 +21,8 @@ class Wal2json < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     system "initdb", testpath/"datadir"
     mkdir testpath/"socket"
     File.open(testpath/"datadir"/"postgresql.conf", "a") do |f|

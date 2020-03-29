@@ -5,14 +5,14 @@ class Cookiecutter < Formula
   homepage "https://github.com/audreyr/cookiecutter"
   url "https://github.com/audreyr/cookiecutter/archive/1.7.0.tar.gz"
   sha256 "975c578050a040e77c9a68a49ba420137d8da820d8ebf109342144f73a02722d"
-  revision 1
+  revision 2
   head "https://github.com/audreyr/cookiecutter.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23b8752332bdb70a0a64dc403c989ac67d1873c3eba069140dba096b41db4b0f" => :catalina
-    sha256 "b446a605afc6477e6bc0feffbc0784244f1ff43c87a5f60f08baed3b5d08e615" => :mojave
-    sha256 "7eb340644aff0deb39a2d6be9d887547e1913063e39709575213734cfaef452b" => :high_sierra
+    sha256 "77cd3bd1805e433d60f4865c9019d9f0252c4c1e3d440692302d822bba62d5ac" => :catalina
+    sha256 "7a90a88ac29d88f03cb1a1e7e7caa2d201bb8b1d6523eb630bd061c095e79f03" => :mojave
+    sha256 "a0e68ab4e634a115063e292d76ca3ecb7fdfc460a98b62e98bd90d45443469d7" => :high_sierra
   end
 
   depends_on "python@3.8"

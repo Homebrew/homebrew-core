@@ -34,13 +34,14 @@ class Hunspell < Formula
     pkgshare.install "tests"
   end
 
-  def caveats; <<~EOS
-    Dictionary files (*.aff and *.dic) should be placed in
-    ~/Library/Spelling/ or /Library/Spelling/.  Homebrew itself
-    provides no dictionaries for Hunspell, but you can download
-    compatible dictionaries from other sources, such as
-    https://wiki.openoffice.org/wiki/Dictionaries .
-  EOS
+  def caveats
+    <<~EOS
+      Dictionary files (*.aff and *.dic) should be placed in
+      ~/Library/Spelling/ or /Library/Spelling/.  Homebrew itself
+      provides no dictionaries for Hunspell, but you can download
+      compatible dictionaries from other sources, such as
+      https://wiki.openoffice.org/wiki/Dictionaries .
+    EOS
   end
 
   test do

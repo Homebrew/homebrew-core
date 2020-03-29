@@ -1,15 +1,16 @@
 class Xmake < Formula
-  desc "A cross-platform build utility based on Lua"
+  desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.2.9/xmake-v2.2.9.tar.gz"
-  sha256 "7d7b4b368808c78cda4bcdd00a140cd8b4cab8f32c7b3c31aa22fdd08dde4940"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.3.1/xmake-v2.3.1.tar.gz"
+  sha256 "c927efad5412c3bdb8bad1be5b1b2ea40a998dff2a252edb443782865b7472b9"
+  revision 1
   head "https://github.com/xmake-io/xmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "060a9e262ac2abb340f7c6329c9bad9dc0926015e863da2b5f6af504884eb0ab" => :catalina
-    sha256 "1de44a55ca9e37aa4e863bb027925d72a9f1975a7131048dd32bebb7d470f9f1" => :mojave
-    sha256 "f5d7779349809fe9f06ffca861a121ad1face3b00bf871079abd336e8fe9fec3" => :high_sierra
+    sha256 "a12437737aba64b40409f345ac309fe09f209702b15248fa3cd372f86836f806" => :catalina
+    sha256 "b787d43f1ff93493c4235ebf2aaa09c4f564661c4b0381ccde001867d4b75870" => :mojave
+    sha256 "50fe8f9745ba10b7aeaf6cf642eb81c826361e24aa6293d6bc3da3b4d0eee4f9" => :high_sierra
   end
 
   def install
@@ -18,8 +19,10 @@ class Xmake < Formula
   end
 
   test do
-    system bin/"xmake", "create", "-P", testpath
-    system bin/"xmake"
-    assert_equal "hello world!", shell_output("#{bin}/xmake run").chomp
+    system bin/"xmake", "create", "test"
+    cd "test" do
+      system bin/"xmake"
+      assert_equal "hello world!", shell_output("#{bin}/xmake run").chomp
+    end
   end
 end

@@ -12,6 +12,8 @@ class Mandoc < Formula
     sha256 "6176fcab59057d2188db3047849f96170bcb2133bfbe1f8c94845895d6a89bec" => :sierra
   end
 
+  uses_from_macos "zlib"
+
   def install
     localconfig = [
 

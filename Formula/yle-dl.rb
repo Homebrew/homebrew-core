@@ -1,19 +1,21 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/20191231.tar.gz"
-  sha256 "3f791d846bedfade18fdc47906c699c4e97e835537c4f0616b5a46bf166b510f"
+  url "https://github.com/aajanki/yle-dl/archive/20200222.tar.gz"
+  sha256 "e382dd123459c732c2fd3e680f57f006c0c28e6dc9fbd8446b3834686ad22cad"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a50e53e7fc1b294cffc5db5b1a8df020dd70c263c72fdc7d85c172919fdda84" => :catalina
-    sha256 "5c78443260df480f1f65b12f2b4c2bbb0b39d0661ba2146a6ec3ea8d3eef99b3" => :mojave
-    sha256 "e125ef186064c1ac824ae06603986bd9638f9d0b2e5b3229d033b5ad3c606816" => :high_sierra
+    sha256 "0aa8587c0974c31fd89c46506809bdffcbf7a6b1a69a12a25e7ddde3596c7235" => :catalina
+    sha256 "ca63a705bb31937c5f5ff0ffcf2c0aeea66d435580038cd98311c812751c9a12" => :mojave
+    sha256 "036d1811b7d5e0a90022ef083d83c758af2d459ed1579bc78508336525a108fc" => :high_sierra
   end
 
   depends_on "python"
   depends_on "rtmpdump"
+
+  uses_from_macos "libxslt"
 
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.

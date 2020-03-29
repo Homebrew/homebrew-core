@@ -11,6 +11,8 @@ class Rubyfmt < Formula
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :high_sierra
   end
 
+  uses_from_macos "ruby"
+
   def install
     system "make"
     bin.install "build/rubyfmt.rb" => "rubyfmt"

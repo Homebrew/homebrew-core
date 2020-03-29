@@ -2,14 +2,14 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
   url "https://github.com/istio/istio.git",
-      :tag      => "1.4.4",
-      :revision => "30c10500ee49689826b87db65db133cbc4a7f52a"
+      :tag      => "1.5.1",
+      :revision => "9d07e185b0dd50e6fb1418caa4b4d879788807e3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dcdb7cd7cf4906be4a43271ac6e5f339f633fa48fe38c7f61a054df22205bbd0" => :catalina
-    sha256 "dcdb7cd7cf4906be4a43271ac6e5f339f633fa48fe38c7f61a054df22205bbd0" => :mojave
-    sha256 "dcdb7cd7cf4906be4a43271ac6e5f339f633fa48fe38c7f61a054df22205bbd0" => :high_sierra
+    sha256 "f12671b853ba1a12be44d2d78beeb7b880fa158be33b426e1785998d02726735" => :catalina
+    sha256 "f12671b853ba1a12be44d2d78beeb7b880fa158be33b426e1785998d02726735" => :mojave
+    sha256 "f12671b853ba1a12be44d2d78beeb7b880fa158be33b426e1785998d02726735" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Istioctl < Formula
     ENV["HUB"] = "docker.io/istio"
 
     srcpath = buildpath/"src/istio.io/istio"
-    outpath = buildpath/"out/darwin_amd64/release"
+    outpath = srcpath/"out/darwin_amd64"
     srcpath.install buildpath.children
 
     cd srcpath do

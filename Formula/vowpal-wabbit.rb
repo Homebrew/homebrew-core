@@ -3,20 +3,27 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-    :tag      => "8.7.0",
-    :revision => "e63abfb6d76d8df9060ecd932dbb3d81216fe338"
+    :tag      => "8.8.1",
+    :revision => "5ff219ec0ff28af5d35e452f5f18e6808993e08a"
+  revision 1
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f29120d5ead6004092ef340cd1323a7eeb79f4590d3189a3be1297a2ca4ca241" => :catalina
-    sha256 "93c20c6cef498c1150dcfe4699a91bc546189c23ef9df59f63ffc1bbf64c671f" => :mojave
-    sha256 "faf86d45ebc60e3101619d2ae6523a48dff56b71d996503101eb4690296ea379" => :high_sierra
+    sha256 "67b1a1ff72db3a4fb3a8feecf372999b09a9c0eb429d449fe3038aaf1c866a52" => :catalina
+    sha256 "420d53c0004628986811ad2c7e0b83fd20bad1db5bac9b8775e40daf788b0a9b" => :mojave
+    sha256 "ff5920ae1294c66d9b4752326818d4b9aa88f6ecfdffbd740691f13b99b4e6e7" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "rapidjson" => :build
   depends_on "boost"
+
+  # Support using brewed rapidjson
+  patch do
+    url "https://github.com/VowpalWabbit/vowpal_wabbit/commit/9aea63874e70eee477b9b281ef12515f70f5d1bd.patch?full_index=1"
+    sha256 "e69037901f0027dbcd21204822875efb98c676805d383818483fbe7badc3d6b4"
+  end
 
   def install
     ENV.cxx11
@@ -24,14 +31,15 @@ class VowpalWabbit < Formula
     # that does not accept *std_cmake_args.
     # The following should be equivalent, while supporting Homebrew's standard args.
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_TESTS=OFF"
+      system "cmake", "..", *std_cmake_args,
+                            "-DBUILD_TESTS=OFF",
+                            "-DRAPIDJSON_SYS_DEP=ON"
       system "make", "install"
     end
     bin.install Dir["utl/*"]
     rm bin/"active_interactor.py"
     rm bin/"new_version"
     rm bin/"vw-validate.html"
-    rm bin/"release.ps1"
     rm bin/"clang-format"
   end
 
@@ -41,7 +49,8 @@ class VowpalWabbit < Formula
       1 2 'second_house | price:.18 sqft:.15 age:.35 1976
       0 1 0.5 'third_house | price:.53 sqft:.32 age:.87 1924
     EOS
-    system bin/"vw", "house_dataset", "-l", "10", "-c", "--passes", "25", "--holdout_off", "--audit", "-f", "house.model", "--nn", "5"
+    system bin/"vw", "house_dataset", "-l", "10", "-c", "--passes", "25", "--holdout_off",
+                     "--audit", "-f", "house.model", "--nn", "5"
     system bin/"vw", "-t", "-i", "house.model", "-d", "house_dataset", "-p", "house.predict"
 
     (testpath/"csoaa.dat").write <<~EOS

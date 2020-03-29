@@ -36,7 +36,9 @@ class Flac < Formula
   end
 
   test do
-    system "#{bin}/flac", "--decode", "--force-raw", "--endian=little", "--sign=signed", "--output-name=out.raw", test_fixtures("test.flac")
-    system "#{bin}/flac", "--endian=little", "--sign=signed", "--channels=1", "--bps=8", "--sample-rate=8000", "--output-name=out.flac", "out.raw"
+    system "#{bin}/flac", "--decode", "--force-raw", "--endian=little", "--sign=signed",
+                          "--output-name=out.raw", test_fixtures("test.flac")
+    system "#{bin}/flac", "--endian=little", "--sign=signed", "--channels=1", "--bps=8",
+                          "--sample-rate=8000", "--output-name=out.flac", "out.raw"
   end
 end

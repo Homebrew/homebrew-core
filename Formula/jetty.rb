@@ -1,27 +1,28 @@
 class Jetty < Formula
   desc "Java servlet engine and webserver"
   homepage "https://www.eclipse.org/jetty/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.26.v20200117/jetty-distribution-9.4.26.v20200117.tar.gz"
-  version "9.4.26.v20200117"
-  sha256 "31a157c493687e9b7be7366a5dc4ee7ef9cae1663ea279cd9fcf4070d53ef071"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.27.v20200227/jetty-distribution-9.4.27.v20200227.tar.gz"
+  version "9.4.27.v20200227"
+  sha256 "b47b0990493196acdb82325e355019485f96ee12f9bf3d4f47a9ac748ab3d56a"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-    (libexec+"logs").mkpath
+    (libexec/"logs").mkpath
 
     bin.mkpath
     Dir.glob("#{libexec}/bin/*.sh") do |f|
       scriptname = File.basename(f, ".sh")
-      (bin+scriptname).write <<~EOS
+      (bin/scriptname).write <<~EOS
         #!/bin/bash
-        JETTY_HOME=#{libexec}
-        #{f} "$@"
+        export JETTY_HOME='#{libexec}'
+        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        exec #{f} "$@"
       EOS
-      chmod 0755, bin+scriptname
+      chmod 0755, bin/scriptname
     end
   end
 

@@ -13,6 +13,8 @@ class Pigz < Formula
     sha256 "d0c4ec5ac96ab0262d5e67bd5df5432d7dc40ac1404341962c02835ca8451b5c" => :el_capitan
   end
 
+  uses_from_macos "zlib"
+
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _deflatePending
     # Reported 8 Dec 2016 to madler at alumni.caltech.edu

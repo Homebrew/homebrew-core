@@ -20,6 +20,8 @@ class Pixz < Formula
   depends_on "libarchive"
   depends_on "xz"
 
+  uses_from_macos "libxslt"
+
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
     system "./configure", "--prefix=#{prefix}"

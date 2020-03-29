@@ -21,4 +21,30 @@ class Yazpp < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <yazpp/zoom.h>
+
+      using namespace ZOOM;
+
+      int main(int argc, char **argv){
+        try
+        {
+          connection conn("wrong-example.xyz", 210);
+        }
+        catch (exception &e)
+        {
+          std::cout << "Exception caught";
+        }
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-std=c++11", "-I#{include}/src", "-L#{lib}",
+           "-lzoompp", "test.cpp", "-o", "test"
+    output = shell_output("./test")
+    assert_match "Exception caught", output
+  end
 end

@@ -35,44 +35,46 @@ class SpoofMac < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
-  def caveats; <<~EOS
-    Although spoof-mac can run without root, you must be root to change the MAC.
+  def caveats
+    <<~EOS
+      Although spoof-mac can run without root, you must be root to change the MAC.
 
-    The launchdaemon is set to randomize en0.
-    You can find the interfaces available by running:
-        "spoof-mac list"
+      The launchdaemon is set to randomize en0.
+      You can find the interfaces available by running:
+          "spoof-mac list"
 
-    If you wish to change interface randomized at startup change the plist line:
-        <string>en0</string>
-    to e.g.:
-        <string>en1</string>
-  EOS
+      If you wish to change interface randomized at startup change the plist line:
+          <string>en0</string>
+      to e.g.:
+          <string>en1</string>
+    EOS
   end
 
   plist_options :startup => true, :manual => "spoof-mac"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/spoof-mac</string>
-          <string>randomize</string>
-          <string>en0</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/spoof-mac</string>
+            <string>randomize</string>
+            <string>en0</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

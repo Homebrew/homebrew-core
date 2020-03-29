@@ -53,16 +53,17 @@ class Inetutils < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    The following commands have been installed with the prefix 'g'.
+  def caveats
+    <<~EOS
+      The following commands have been installed with the prefix 'g'.
 
-        #{noshadow.sort.join("\n    ")}
+          #{noshadow.sort.join("\n    ")}
 
-    If you really need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
+      If you really need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+          PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

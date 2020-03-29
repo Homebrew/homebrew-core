@@ -15,7 +15,8 @@ class DroneCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"drone", "drone/main.go"
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
+           bin/"drone", "drone/main.go"
     prefix.install_metafiles
   end
 

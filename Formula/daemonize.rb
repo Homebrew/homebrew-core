@@ -30,9 +30,11 @@ class Daemonize < Formula
     EOS
     chmod 0700, dummy_script_file
     system "#{sbin}/daemonize", "-p", pid_file, dummy_script_file
-    assert_predicate pid_file, :exist?, "The file containing the PID of the child process was not created."
+    assert_predicate pid_file, :exist?,
+      "The file containing the PID of the child process was not created."
     sleep(4) # sleep while waiting for the dummy script to finish
-    assert_predicate output_file, :exist?, "The file which should have been created by the child process doesn't exist."
+    assert_predicate output_file, :exist?,
+      "The file which should have been created by the child process doesn't exist."
     assert_match version.to_s, output_file.read
   end
 end

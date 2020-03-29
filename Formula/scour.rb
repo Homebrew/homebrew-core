@@ -5,14 +5,14 @@ class Scour < Formula
   homepage "https://www.codedread.com/scour/"
   url "https://github.com/scour-project/scour/archive/v0.37.tar.gz"
   sha256 "4fcb961586d8a6d98ac9343ca5647421b98fdc79b51d81a1d3d18576b7908823"
-  revision 2
+  revision 3
   head "https://github.com/scour-project/scour.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cfd43767bc7e4fa7ee903db637b45c3117ea2e3250e5459387546c97bc8f08ca" => :catalina
-    sha256 "c2a82bca29949c3162b21d35af0e1ec7ab54697511ac3e25e79abbb2ea418161" => :mojave
-    sha256 "51e2a9e3abba88c05924fb48b2337836c3baf147bd1058d8e1e4af9343cb596a" => :high_sierra
+    sha256 "03bac92a88319ff21d807b0d7438284b299262003b592987b38dda5a49389e48" => :catalina
+    sha256 "927a6beeb623f29806e592eed6e2e3ee99861bc946bc24d5fd711dab50c29d15" => :mojave
+    sha256 "4c5956feecd0b017e5165a4602d3d42ef4403141f35280fd1e4a0bc2369b69ea" => :high_sierra
   end
 
   depends_on "python@3.8"

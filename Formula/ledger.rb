@@ -18,6 +18,8 @@ class Ledger < Formula
   depends_on "mpfr"
   depends_on "python@3.8"
 
+  uses_from_macos "groff"
+
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
@@ -32,7 +34,7 @@ class Ledger < Formula
       -DBUILD_WEB_DOCS=1
       -DBoost_NO_BOOST_CMAKE=ON
       -DPython_FIND_VERSION_MAJOR=3
-    ]
+    ] + std_cmake_args
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
     system "./acprep", "opt", "make", "install", *args

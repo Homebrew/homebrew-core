@@ -13,6 +13,8 @@ class Sickle < Formula
     sha256 "138b38a20aefc55ec4005ee4c4622ec332cbb13ff4ebc39ff45d91a2c12afde8" => :el_capitan
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "make"
     bin.install "sickle"

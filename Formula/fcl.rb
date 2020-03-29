@@ -1,13 +1,13 @@
 class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
-  url "https://github.com/flexible-collision-library/fcl/archive/v0.6.0.tar.gz"
-  sha256 "6891abac5cc26d64f5ef8894bc6c2a30174558c5c83a3ed63cf65a21cb619b2b"
+  url "https://github.com/flexible-collision-library/fcl/archive/v0.6.1.tar.gz"
+  sha256 "c8a68de8d35a4a5cd563411e7577c0dc2c626aba1eef288cb1ca88561f8d8019"
 
   bottle do
-    sha256 "20a679e735c69b58c4a97da7c03beac0f45ad80fa9230fcb25cf2f0c4a191f1d" => :catalina
-    sha256 "7bd24120f684a275154b6275cb9668e3447c2607cbb51c5ca40e6878171a6626" => :mojave
-    sha256 "9e4e2abcf7c2ce96c2208e097d27845041788b1a66e3a209756ea0d78ed45389" => :high_sierra
+    sha256 "05a5dfa094009376e5915ad14289490fa370462153102eb43e402d50663a23f4" => :catalina
+    sha256 "7fc28b6f1bd196e83873f61617e590af68ebf861cfc76af9d892c8ef40b25601" => :mojave
+    sha256 "625f6117a551777a1f12eba3253886a441a5a00e2759218b9566d40bb9f3ab2c" => :high_sierra
   end
 
   depends_on "cmake" => :build

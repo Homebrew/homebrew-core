@@ -20,6 +20,9 @@ class Pcre < Formula
     depends_on "libtool" => :build
   end
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     args = %W[
       --disable-dependency-tracking

@@ -11,6 +11,8 @@ class Libxlsxwriter < Formula
     sha256 "52c8e1f318f0faebfd5bb5d9fb99fdb00e38e3239d07115f82755deecb9016e4" => :high_sierra
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "V=1"
   end

@@ -71,22 +71,23 @@ class IscDhcp < Formula
     (prefix+"homebrew.mxcl.dhcpd6.plist").chmod 0644
   end
 
-  def caveats; <<~EOS
-    This install of dhcpd expects config files to be in #{etc}.
-    All state files (leases and pids) are stored in #{var}/dhcpd.
+  def caveats
+    <<~EOS
+      This install of dhcpd expects config files to be in #{etc}.
+      All state files (leases and pids) are stored in #{var}/dhcpd.
 
-    Dhcpd needs to run as root since it listens on privileged ports.
+      Dhcpd needs to run as root since it listens on privileged ports.
 
-    There are two plists because a single dhcpd process may do either
-    DHCPv4 or DHCPv6 but not both. Use one or both as needed.
+      There are two plists because a single dhcpd process may do either
+      DHCPv4 or DHCPv6 but not both. Use one or both as needed.
 
-    Note that you must create the appropriate config files before starting
-    the services or dhcpd will refuse to run.
-      DHCPv4: #{etc}/dhcpd.conf
-      DHCPv6: #{etc}/dhcpd6.conf
+      Note that you must create the appropriate config files before starting
+      the services or dhcpd will refuse to run.
+        DHCPv4: #{etc}/dhcpd.conf
+        DHCPv6: #{etc}/dhcpd6.conf
 
-    Sample config files may be found in #{etc}.
-  EOS
+      Sample config files may be found in #{etc}.
+    EOS
   end
 
   plist_options :startup => true

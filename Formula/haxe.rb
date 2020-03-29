@@ -39,7 +39,7 @@ class Haxe < Formula
 
     # Rebuild haxelib as a valid binary
     cd "extra/haxelib_src" do
-      system "cmake", "."
+      system "cmake", ".", *std_cmake_args
       system "make"
     end
     rm "haxelib"
@@ -50,10 +50,11 @@ class Haxe < Formula
            "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{lib}/haxe/std"
   end
 
-  def caveats; <<~EOS
-    Add the following line to your .bashrc or equivalent:
-      export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
-  EOS
+  def caveats
+    <<~EOS
+      Add the following line to your .bashrc or equivalent:
+        export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
+    EOS
   end
 
   test do

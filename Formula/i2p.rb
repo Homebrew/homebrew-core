@@ -1,10 +1,9 @@
 class I2p < Formula
   desc "Anonymous overlay network - a network within a network"
   homepage "https://geti2p.net"
-  url "https://download.i2p2.de/releases/0.9.44/i2pinstall_0.9.44.jar"
-  mirror "https://launchpad.net/i2p/trunk/0.9.44/+download/i2pinstall_0.9.44.jar"
-  sha256 "265729c1d676939bc81f96689b72c5f413083f4bbd849393f7629db05523d238"
-  revision 1
+  url "https://download.i2p2.de/releases/0.9.45/i2pinstall_0.9.45.jar"
+  mirror "https://launchpad.net/i2p/trunk/0.9.45/+download/i2pinstall_0.9.45.jar"
+  sha256 "3032022952a4028d6fd0ffc0bc72433aeefa3224748e143002b376b5b3760f79"
 
   bottle :unneeded
 
@@ -13,7 +12,8 @@ class I2p < Formula
   def install
     (buildpath/"path.conf").write "INSTALL_PATH=#{libexec}"
 
-    system "#{Formula["openjdk"].opt_bin}/java", "-jar", "i2pinstall_#{version}.jar", "-options", "path.conf", "-language", "eng"
+    system "#{Formula["openjdk"].opt_bin}/java", "-jar", "i2pinstall_#{version}.jar",
+                                                 "-options", "path.conf", "-language", "eng"
 
     wrapper_name = "i2psvc-macosx-universal-64"
     libexec.install_symlink libexec/wrapper_name => "i2psvc"

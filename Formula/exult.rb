@@ -47,16 +47,17 @@ class Exult < Formula
     bin.write_exec_script "#{prefix}/Exult.app/Contents/MacOS/exult"
   end
 
-  def caveats; <<~EOS
-    This formula only includes the game engine; you will need to supply your own
-    own legal copy of the Ultima 7 game files for the software to fully function.
+  def caveats
+    <<~EOS
+      This formula only includes the game engine; you will need to supply your own
+      own legal copy of the Ultima 7 game files for the software to fully function.
 
-    Update audio settings accordingly with configuration file:
-      ~/Library/Preferences/exult.cfg
+      Update audio settings accordingly with configuration file:
+        ~/Library/Preferences/exult.cfg
 
-      To use CoreAudio, set `driver` to `CoreAudio`.
-      To use audio pack, set `use_oggs` to `yes`.
-  EOS
+        To use CoreAudio, set `driver` to `CoreAudio`.
+        To use audio pack, set `use_oggs` to `yes`.
+    EOS
   end
 
   test do

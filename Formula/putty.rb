@@ -21,6 +21,8 @@ class Putty < Formula
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "expect" => :test
+
   conflicts_with "pssh", :because => "both install `pscp` binaries"
 
   def install

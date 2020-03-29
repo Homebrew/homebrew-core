@@ -28,8 +28,6 @@ class Freerdp < Formula
   test do
     success = `#{bin}/xfreerdp --version` # not using system as expected non-zero exit code
     details = $CHILD_STATUS
-    if !success && details.exitstatus != 128
-      raise "Unexpected exit code #{$CHILD_STATUS} while running xfreerdp"
-    end
+    raise "Unexpected exit code #{$CHILD_STATUS} while running xfreerdp" if !success && details.exitstatus != 128
   end
 end

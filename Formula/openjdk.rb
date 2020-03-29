@@ -13,7 +13,7 @@ class Openjdk < Formula
     sha256 "358101f25201e4c942297223d854ef95003798fe5396ebc671efa359c27e3d22" => :high_sierra
   end
 
-  keg_only :provided_by_macos
+  keg_only "it shadows the macOS `java` wrapper"
 
   depends_on "autoconf" => :build
 

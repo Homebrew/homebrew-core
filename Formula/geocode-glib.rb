@@ -1,15 +1,14 @@
 class GeocodeGlib < Formula
   desc "GNOME library for gecoding and reverse geocoding"
   homepage "https://developer.gnome.org/geocode-glib"
-  url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.1.tar.xz"
-  sha256 "5baa6ab76a76c9fc567e4c32c3af2cd1d1784934c255bc5a62c512e6af6bde1c"
+  url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz"
+  sha256 "01fe84cfa0be50c6e401147a2bc5e2f1574326e2293b55c69879be3e82030fd1"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c820f7a59a67873f06b17fa6bb9b67c1bc2413f969a9ec1c2b403fe50fc81fb1" => :catalina
-    sha256 "eb925bc4c5d4282f30a1eebda10de28309786f57e9b41c12e2805ea0f84a84f1" => :mojave
-    sha256 "e399aaff2c1f8c4490c2b592244e0ef5896772f6809cebddfe64d69a0bf7a4ed" => :high_sierra
+    sha256 "0e79392bb60a588eaa86cbf4e756cad668cbf6ac6fd86606827874415e3e89fb" => :catalina
+    sha256 "ba3f2db7d23a1985abbcf09871cb98991fbc65f1935711dd6a2bc4d90bddeb10" => :mojave
+    sha256 "0ab0e0ed8f43285b66a27ccb0309fa719887298a9bcc95c8178ee07c84441a09" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,9 +18,6 @@ class GeocodeGlib < Formula
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "libsoup"
-
-  # submitted upstream as https://gitlab.gnome.org/GNOME/geocode-glib/merge_requests/7
-  patch :DATA
 
   def install
     mkdir "build" do
@@ -65,54 +61,3 @@ class GeocodeGlib < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/geocode-glib/meson.build b/geocode-glib/meson.build
-index 8bc2bfc..b48ec62 100644
---- a/geocode-glib/meson.build
-+++ b/geocode-glib/meson.build
-@@ -43,15 +43,32 @@ endif
-
- include = include_directories('..')
- gclib_map = join_paths(meson.current_source_dir(), 'geocode-glib.map')
-+link_depends = []
-+link_args = []
-+
-+if cc.has_link_argument('-Wl,--version-script,' + gclib_map)
-+	link_depends += gclib_map
-+	link_args += ['-Wl,--version-script,' + gclib_map]
-+endif
-+
-+version = '0.0.0'
-+version_arr = version.split('.')
-+major_version = version_arr[0].to_int()
-+minor_version = version_arr[1].to_int()
-+micro_version = version_arr[2].to_int()
-+current = major_version + minor_version + 1
-+interface_age = micro_version
-+darwin_versions = [current, '@0@.@1@'.format(current, interface_age)]
-
- libgcglib = shared_library('geocode-glib',
-                            sources,
-                            dependencies: deps,
-                            include_directories: include,
--                           link_depends: gclib_map,
--                           link_args: [ '-Wl,--version-script,' + gclib_map ],
-+                           link_depends: link_depends,
-+                           link_args: link_args,
-                            soversion: '0',
-                            version: '0.0.0',
-+                           darwin_versions: darwin_versions,
-                            install: true)
-
- install_headers(headers, subdir: header_subdir)
-diff --git a/meson.build b/meson.build
-index 0873c6c..78e5079 100644
---- a/meson.build
-+++ b/meson.build
-@@ -1,4 +1,4 @@
--project('geocode-glib', 'c', version: '3.26.1')
-+project('geocode-glib', 'c', version: '3.26.1', meson_version : '>= 0.48.0')
-
- gclib_version = meson.project_version() # set in project() below
- ver_arr = gclib_version.split('.')

@@ -1,0 +1,80 @@
+name: Publish and commit bottles
+
+on: repository_dispatch
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Set up git information
+        uses: actions/github-script@0.8.0
+        id: env
+        with:
+          script: |
+            const user = await github.users.getByUsername({
+              username: context.actor
+            })
+            const email = (user.data.email || user.data.id + "+" + user.data.login + "@users.noreply.github.com")
+            console.log("Dispatched by " + user.data.name + " <" + email + ">")
+            process.stdout.write("::set-output name=name::" + user.data.name + "\n")
+            process.stdout.write("::set-output name=email::" + email + "\n")
+      - name: Checkout tap
+        uses: actions/checkout@v2
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          fetch-depth: 0
+      - name: Setup tap
+        env:
+          GIT_COMMITTER_NAME: ${{steps.env.outputs.name}}
+          GIT_COMMITTER_EMAIL: ${{steps.env.outputs.email}}
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+          cd $(brew --repository ${{github.repository}})
+          git fetch origin +refs/pull/${{ github.event.client_payload.pull_request }}/head:current-pr
+          git rebase current-pr master
+          git show
+      - name: Download artifacts
+        uses: Homebrew/actions/download-artifact@master
+        with:
+          github_token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          workflow: tests.yml
+          pr: ${{github.event.client_payload.pull_request}}
+          name: bottles
+          path: bottles
+      - name: Upload bottles
+        env:
+          HOMEBREW_BINTRAY_USER: brewtestbot
+          HOMEBREW_BINTRAY_KEY: ${{ secrets.HOMEBREW_BINTRAY_KEY }}
+        run: |
+          cd bottles
+          brew test-bot --ci-upload --publish
+      - name: Push bottle commit
+        env:
+          GIT_COMMITTER_NAME: ${{steps.env.outputs.name}}
+          GIT_COMMITTER_EMAIL: ${{steps.env.outputs.email}}
+        run: |
+          cd $(brew --repo ${{github.repository}})
+          git rebase --force origin/master
+          MESSAGE="$(git log HEAD^.. --format=%B)
+
+          Closes #${{github.event.client_payload.pull_request}}."
+          git commit --amend --signoff --allow-empty -m "$MESSAGE"
+          git show --pretty=fuller
+          for try in $(seq 5); do
+            git fetch
+            git rebase origin/master
+            if git push; then
+              exit 0
+            else
+              sleep $(shuf -i 3-10 -n 1)
+            fi
+          done
+          exit 1

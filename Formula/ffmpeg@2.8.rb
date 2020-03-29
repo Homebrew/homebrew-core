@@ -3,12 +3,12 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 8
+  revision 9
 
   bottle do
-    sha256 "74065f85e29e7e9c2e19e31145855e7a123e24ea700499378722d0ae008bccac" => :catalina
-    sha256 "29c21307edc34fb9fcbddf7bcaa7a8aaee843c65c3bb0520e713073f09e07bdd" => :mojave
-    sha256 "02c91ab047a63b1f7fe8420cd0ca05e0d68ea9ef95de20421f6970b2e85a45bd" => :high_sierra
+    sha256 "74a510628d121c10ebd22f3a65cbd74eb28f46464d6d985bcb162e21760af452" => :catalina
+    sha256 "b4f820fce31600bcf3f863918204962f20756406dc568df3f87edda82527ee4d" => :mojave
+    sha256 "703e6862dff3b5a48fd18dad1d8d3015098028d70a5c28a31d60ca638ccb9565" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -42,10 +42,6 @@ class FfmpegAT28 < Formula
       inreplace %w[libavdevice/v4l2.c libavutil/time.c], "HAVE_CLOCK_GETTIME",
                                                          "UNDEFINED_GIBBERISH"
     end
-
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     args = %W[
       --prefix=#{prefix}
@@ -85,19 +81,17 @@ class FfmpegAT28 < Formula
     # prevents GCC from building VDA support. GCC has no problems on
     # 10.9 and earlier.
     # See: https://github.com/Homebrew/homebrew/issues/33741
-    if MacOS.version < :yosemite || ENV.compiler == :clang
-      args << "--enable-vda"
+    args << if MacOS.version < :yosemite || ENV.compiler == :clang
+      "--enable-vda"
     else
-      args << "--disable-vda"
+      "--disable-vda"
     end
 
     system "./configure", *args
 
     inreplace "config.mak" do |s|
       shflags = s.get_make_var "SHFLAGS"
-      if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-        s.change_make_var! "SHFLAGS", shflags
-      end
+      s.change_make_var! "SHFLAGS", shflags if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
     end
 
     system "make", "install"

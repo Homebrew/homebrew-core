@@ -1,14 +1,14 @@
 class X8664ElfGcc < Formula
   desc "The GNU compiler collection for x86_64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
+  sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
 
   bottle do
-    sha256 "08e58deea0e230490676590c0094dd4c27586d6ef1a5dfdfa808be46508ac81e" => :catalina
-    sha256 "eee7d6ac62924a8322ba09687aee4f10f48f32a2caf5497cad3bf67dadfe6e9b" => :mojave
-    sha256 "f00c75602affbe7012f22524633b0df235667ab65f91c9bad51ca874305620de" => :high_sierra
+    sha256 "a18c6acf4979f96244584de989ab47791670bc5404e0eca8626708f9e3375702" => :catalina
+    sha256 "0a08de6bb7983d836f619979c84c15d5acbf4df3d83b7affeb11555285addd16" => :mojave
+    sha256 "fce7ea1027a3925c243cd37d5038b915a57293443acf12758bfc00a6399ff0d0" => :high_sierra
   end
 
   depends_on "gmp"
@@ -45,6 +45,7 @@ class X8664ElfGcc < Formula
       }
     EOS
     system "#{bin}/x86_64-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
-    assert_match "file format elf64-x86-64", shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
+    assert_match "file format elf64-x86-64",
+      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
   end
 end

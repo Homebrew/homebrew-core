@@ -20,10 +20,11 @@ class Pex < Formula
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"
   end
 
-  def caveats; <<~EOS
-    If installing for the first time, perform the following in order to setup the necessary directory structure:
-      pex init
-  EOS
+  def caveats
+    <<~EOS
+      If installing for the first time, perform the following in order to setup the necessary directory structure:
+        pex init
+    EOS
   end
 
   test do

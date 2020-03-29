@@ -29,24 +29,24 @@ class Zsh < Formula
     system "Util/preconfig" if build.head?
 
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-fndir=#{pkgshare}/functions",
-                          "--enable-scriptdir=#{pkgshare}/scripts",
-                          "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
-                          "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
-                          "--enable-runhelpdir=#{pkgshare}/help",
-                          "--enable-cap",
-                          "--enable-maildir-support",
-                          "--enable-multibyte",
-                          "--enable-pcre",
-                          "--enable-zsh-secure-free",
-                          "--enable-unicode9",
-                          "--enable-etcdir=/etc",
-                          "--with-tcsetpgrp",
-                          "DL_EXT=bundle"
+           "--enable-fndir=#{pkgshare}/functions",
+           "--enable-scriptdir=#{pkgshare}/scripts",
+           "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
+           "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
+           "--enable-runhelpdir=#{pkgshare}/help",
+           "--enable-cap",
+           "--enable-maildir-support",
+           "--enable-multibyte",
+           "--enable-pcre",
+           "--enable-zsh-secure-free",
+           "--enable-unicode9",
+           "--enable-etcdir=/etc",
+           "--with-tcsetpgrp",
+           "DL_EXT=bundle"
 
     # Do not version installation directories.
     inreplace ["Makefile", "Src/Makefile"],
-      "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
+              "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
 
     if build.head?
       # disable target install.man, because the required yodl comes neither with macOS nor Homebrew

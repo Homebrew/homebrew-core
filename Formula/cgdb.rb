@@ -21,6 +21,8 @@ class Cgdb < Formula
   depends_on "help2man" => :build
   depends_on "readline"
 
+  uses_from_macos "flex" => :build
+
   def install
     system "sh", "autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

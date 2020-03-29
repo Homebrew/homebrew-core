@@ -16,14 +16,14 @@ class Idris < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build # 8.8 will be supported in the next release
   depends_on "pkg-config" => :build
   depends_on "libffi"
 
   def install
     args = ["-f", "FFI"]
     args << "-f" << "release" if build.stable?
-    install_cabal_package *args
+    install_cabal_package(*args)
   end
 
   test do

@@ -12,13 +12,14 @@ class Funcoeszz < Formula
     bin.install "funcoeszz-#{version}.sh" => "funcoeszz"
   end
 
-  def caveats; <<~EOS
-    To use this software add to your profile:
-      export ZZPATH="#{opt_bin}/funcoeszz"
-      source "$ZZPATH"
+  def caveats
+    <<~EOS
+      To use this software add to your profile:
+        export ZZPATH="#{opt_bin}/funcoeszz"
+        source "$ZZPATH"
 
-    Usage of a newer Bash than the macOS default is required.
-  EOS
+      Usage of a newer Bash than the macOS default is required.
+    EOS
   end
 
   test do

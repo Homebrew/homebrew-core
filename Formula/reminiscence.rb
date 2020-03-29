@@ -19,6 +19,8 @@ class Reminiscence < Formula
   depends_on "libogg"
   depends_on "sdl2"
 
+  uses_from_macos "zlib"
+
   resource "tremor" do
     url "https://git.xiph.org/tremor.git",
         :revision => "7c30a66346199f3f09017a09567c6c8a3a0eedc8"

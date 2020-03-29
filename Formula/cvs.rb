@@ -42,7 +42,8 @@ class Cvs < Formula
     sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
   end
 
-  # Fixes "cvs [init aborted]: cannot get working directory: No such file or directory" on Catalina. Original patch idea by Jason White from stackoverflow
+  # Fixes "cvs [init aborted]: cannot get working directory: No such file or directory" on Catalina.
+  # Original patch idea by Jason White from stackoverflow
   patch :DATA
 
   def install

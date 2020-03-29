@@ -21,6 +21,8 @@ class Libpng < Formula
     depends_on "libtool" => :build
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

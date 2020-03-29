@@ -5,14 +5,14 @@ class Rtv < Formula
   homepage "https://github.com/michael-lazar/rtv"
   url "https://github.com/michael-lazar/rtv/archive/v1.27.0.tar.gz"
   sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
-  revision 1
+  revision 2
   head "https://github.com/michael-lazar/rtv.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6696970e4ef065c0de51b1bcebcd8299ee5ef1af006f61b7b7c2826ffba1772b" => :catalina
-    sha256 "b604b939703f82ad867a4a8921b1cef0745dfb45da74244d420878da0e1b2aae" => :mojave
-    sha256 "d4f6689640d868afa9340d4f00dd240b3ba0529a84bfeb1c45a035215c6b2ff3" => :high_sierra
+    sha256 "bcb3e97de9fc2df6b3903b0286dfd47b4599c7bbfe3e557561884b84fe1dd83b" => :catalina
+    sha256 "a3c02e3552df47986bc5a0f3a92e7317fd873167b2aac429f188646994c71b9d" => :mojave
+    sha256 "a12678c3f7c95c3d45c2e631fda28d1da29fd6768f8dcce235b3599f580e264b" => :high_sierra
   end
 
   depends_on "python@3.8"

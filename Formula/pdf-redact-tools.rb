@@ -16,6 +16,7 @@ class PdfRedactTools < Formula
   depends_on "exiftool"
   depends_on "ghostscript"
   depends_on "imagemagick"
+
   # https://github.com/firstlookmedia/pdf-redact-tools/pull/34
   uses_from_macos "python@2" # does not support Python 3
 

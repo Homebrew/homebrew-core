@@ -19,6 +19,9 @@ class Mediaconch < Formula
   depends_on "libevent"
   depends_on "sqlite"
 
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
+
   def install
     cd "ZenLib/Project/GNU/Library" do
       args = ["--disable-debug",

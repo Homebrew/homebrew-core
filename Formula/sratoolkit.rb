@@ -14,6 +14,7 @@ class Sratoolkit < Formula
 
   depends_on "hdf5"
   depends_on "libmagic"
+
   uses_from_macos "libxml2"
   uses_from_macos "perl"
 

@@ -5,14 +5,14 @@ class S3cmd < Formula
   homepage "https://s3tools.org/s3cmd"
   url "https://files.pythonhosted.org/packages/3a/f5/c70bfb80817c9d81b472e077e390d8c97abe130c9e86b61307a1d275532c/s3cmd-2.0.2.tar.gz"
   sha256 "6d7a3a49a12048a6c8e5fbb5ef42a83101e2fc69f16013d292b7f37ecfc574a0"
-  revision 2
+  revision 3
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b1bec3d698b4a94ecad38a8a6321923465200724ef58fd7d05fbe3c1204d86b" => :catalina
-    sha256 "20d486647abe96f6ec32069ad52b4a191983073aceb836f9837e352af33f9de1" => :mojave
-    sha256 "876980c1a4073e32dbd58d6c63bf81ad57c5d30fdf9a00445e636e5279df73a2" => :high_sierra
+    sha256 "f0627257d8f5f897d8e256646ec08ab3a5275b8eb0f477f3227a95d5fed9ba8c" => :catalina
+    sha256 "b64f9fa8cb6ba4c2eb5183f6bf40735dbee52d673d198cdf1fdcedf4d29ed1b3" => :mojave
+    sha256 "570fd3c229506b4afaf8f9a78e9566537d649ed53f99a3a732bd35eb637f85ac" => :high_sierra
   end
 
   depends_on "python@3.8"

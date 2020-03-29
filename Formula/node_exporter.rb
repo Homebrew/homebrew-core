@@ -25,44 +25,46 @@ class NodeExporter < Formula
     prefix.install_metafiles
   end
 
-  def caveats; <<~EOS
-    When used with `brew services`, node_exporter's configuration is stored as command line flags in
-      #{etc}/node_exporter.args
+  def caveats
+    <<~EOS
+      When used with `brew services`, node_exporter's configuration is stored as command line flags in
+        #{etc}/node_exporter.args
 
-    Example configuration:
-      echo --web.listen-address :9101 > #{etc}/node_exporter.args
+      Example configuration:
+        echo --web.listen-address :9101 > #{etc}/node_exporter.args
 
-    For the full list of options, execute
-      node_exporter -h
-  EOS
+      For the full list of options, execute
+        node_exporter -h
+    EOS
   end
 
   plist_options :manual => "node_exporter"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>sh</string>
-          <string>-c</string>
-          <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/node_exporter.err.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/node_exporter.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>sh</string>
+            <string>-c</string>
+            <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/node_exporter.err.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/node_exporter.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -16,6 +16,7 @@ class Xml2 < Formula
   end
 
   depends_on "pkg-config" => :build
+
   uses_from_macos "libxml2"
 
   def install

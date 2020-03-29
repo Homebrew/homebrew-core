@@ -48,33 +48,35 @@ class Lua < Formula
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-5.3.pc"
   end
 
-  def pc_file; <<~EOS
-    V= 5.3
-    R= #{version}
-    prefix=#{HOMEBREW_PREFIX}
-    INSTALL_BIN= ${prefix}/bin
-    INSTALL_INC= ${prefix}/include/lua
-    INSTALL_LIB= ${prefix}/lib
-    INSTALL_MAN= ${prefix}/share/man/man1
-    INSTALL_LMOD= ${prefix}/share/lua/${V}
-    INSTALL_CMOD= ${prefix}/lib/lua/${V}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include/lua
+  def pc_file
+    <<~EOS
+      V= 5.3
+      R= #{version}
+      prefix=#{HOMEBREW_PREFIX}
+      INSTALL_BIN= ${prefix}/bin
+      INSTALL_INC= ${prefix}/include/lua
+      INSTALL_LIB= ${prefix}/lib
+      INSTALL_MAN= ${prefix}/share/man/man1
+      INSTALL_LMOD= ${prefix}/share/lua/${V}
+      INSTALL_CMOD= ${prefix}/lib/lua/${V}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include/lua
 
-    Name: Lua
-    Description: An Extensible Extension Language
-    Version: #{version}
-    Requires:
-    Libs: -L${libdir} -llua -lm
-    Cflags: -I${includedir}
-  EOS
+      Name: Lua
+      Description: An Extensible Extension Language
+      Version: #{version}
+      Requires:
+      Libs: -L${libdir} -llua -lm
+      Cflags: -I${includedir}
+    EOS
   end
 
-  def caveats; <<~EOS
-    You may also want luarocks:
-      brew install luarocks
-  EOS
+  def caveats
+    <<~EOS
+      You may also want luarocks:
+        brew install luarocks
+    EOS
   end
 
   test do

@@ -17,6 +17,8 @@ class Jose < Formula
   depends_on "jansson"
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

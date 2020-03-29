@@ -36,39 +36,41 @@ class Freediameter < Formula
     cp doc/"freediameter.conf.sample", etc/"freeDiameter.conf"
   end
 
-  def caveats; <<~EOS
-    To configure freeDiameter, edit #{etc}/freeDiameter.conf to taste.
+  def caveats
+    <<~EOS
+      To configure freeDiameter, edit #{etc}/freeDiameter.conf to taste.
 
-    Sample configuration files can be found in #{doc}.
+      Sample configuration files can be found in #{doc}.
 
-    For more information about freeDiameter configuration options, read:
-      http://www.freediameter.net/trac/wiki/Configuration
+      For more information about freeDiameter configuration options, read:
+        http://www.freediameter.net/trac/wiki/Configuration
 
-    Other potentially useful files can be found in #{opt_pkgshare}/contrib.
-  EOS
+      Other potentially useful files can be found in #{opt_pkgshare}/contrib.
+    EOS
   end
 
   plist_options :startup => true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/freeDiameterd</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>NetworkState</key>
-          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/freeDiameterd</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>NetworkState</key>
+            <true/>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

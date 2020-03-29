@@ -29,27 +29,28 @@ class Olsrd < Formula
 
   plist_options :startup => true, :manual => "olsrd -f #{HOMEBREW_PREFIX}/etc/olsrd.conf"
 
-  def startup_plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{HOMEBREW_PREFIX}/sbin/olsrd</string>
-          <string>-f</string>
-          <string>#{etc}/olsrd.conf</string>
-        </array>
-        <key>KeepAlive</key>
+  def startup_plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>NetworkState</key>
-          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{HOMEBREW_PREFIX}/sbin/olsrd</string>
+            <string>-f</string>
+            <string>#{etc}/olsrd.conf</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>NetworkState</key>
+            <true/>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -17,6 +17,8 @@ class Sloccount < Formula
 
   depends_on "md5sha1sum"
 
+  uses_from_macos "flex" => :build
+
   patch :DATA
 
   def install

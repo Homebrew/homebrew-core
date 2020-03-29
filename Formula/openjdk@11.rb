@@ -1,16 +1,15 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.5+10.tar.bz2"
-  version "11.0.5+10"
-  sha256 "5375ca18b2c9f301e8ae6f77192962a5ec560d808f3e899bb17719c82eae5407"
-  revision 2
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.6+10.tar.bz2"
+  version "11.0.6+10"
+  sha256 "b42915ad92d8b23dfe40faed00096cec0b303447869766292aa86f22b0c67601"
 
   bottle do
     cellar :any
-    sha256 "597c5a1a01e0cc1c6b6c0eeb7d09496858f2190463c6f24ef56ccb0dc441fadd" => :catalina
-    sha256 "3834baedb47ad0d2b2630f4df8c5671b2d295aa33e5fbc314564478be044a98b" => :mojave
-    sha256 "74017e2f409b0e64e5e03bab785b0ccc565206fa4fd7f4aa00c4c0f0c6582b4d" => :high_sierra
+    sha256 "985e0fc09118eeabd6d4542c7dd129baaebf240b1ee71d00f0617e8aa1d97cca" => :catalina
+    sha256 "9946a2c9f65a38e2b6e49c08c6da80947e7d18654bd5c68c4fdca4d3b4c0091b" => :mojave
+    sha256 "54f064ad1a7ee8a0c9d42270ebce38941b1aa80989fc2fa09b07d59322c1b6f4" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -46,7 +45,8 @@ class OpenjdkAT11 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    libexec.install "build/macosx-x86_64-normal-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
+    jdk = "build/macosx-x86_64-normal-server-release/images/jdk-bundle/jdk-#{short_version}.jdk"
+    libexec.install jdk => "openjdk.jdk"
     bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]

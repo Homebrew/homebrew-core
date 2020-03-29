@@ -5,16 +5,19 @@ class Awscurl < Formula
   homepage "https://github.com/okigan/awscurl"
   url "https://github.com/okigan/awscurl/archive/v0.20.tar.gz"
   sha256 "3ce06d105067b42398cf0bb6696742b790258e16487d5e5afa025b7c3ca983e4"
+  revision 1
   head "https://github.com/okigan/awscurl.git"
 
   bottle do
     cellar :any
-    sha256 "9dd84da18a45e016d458999e5d8a703cef475b0a212c4f288f0897d9eb6d14bc" => :catalina
-    sha256 "c86a60007a3e91216efaa564d5e0a3e4d11d8aadaa6b2cc9d832307e30c6cd89" => :mojave
-    sha256 "b79f8ec8705abe4dd8d55d55bf4f4c7d297b7635ddecc7da591797c3e0c295c4" => :high_sierra
+    sha256 "b6eb9274da3699bce4675068f5476e63c900b9e1aaecaaf3a7d80845143ff919" => :catalina
+    sha256 "2de296f8d1c89e5532526017faba23cdb36ec34bae668308c671d4a56a252995" => :mojave
+    sha256 "38ad9e69f5e0d14d4c8007d059b8faf61cec1f6a6ec9f61cf2e25fc19ba3d005" => :high_sierra
   end
 
   depends_on "python@3.8"
+
+  uses_from_macos "libffi"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
@@ -83,7 +86,7 @@ class Awscurl < Formula
   test do
     assert_match "Curl", shell_output("#{bin}/awscurl --help")
 
-    output = shell_output("#{bin}/awscurl --service s3 https://homebrew-test-none-existant-bucket.s3.amazonaws.com 2>&1", 1)
-    assert_match "No access key is available", output
+    assert_match "No access key is available",
+      shell_output("#{bin}/awscurl --service s3 https://homebrew-test-none-existant-bucket.s3.amazonaws.com 2>&1", 1)
   end
 end

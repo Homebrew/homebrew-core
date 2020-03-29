@@ -1,17 +1,20 @@
 class WiremockStandalone < Formula
   desc "Simulator for HTTP-based APIs"
   homepage "http://wiremock.org/docs/running-standalone/"
-  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.26.0/wiremock-standalone-2.26.0.jar"
-  sha256 "2e700abcd02c29e835522a306584a0483d8e3ce6a93d2af1c0766c8d7702cb7b"
+  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.26.3/wiremock-standalone-2.26.3.jar"
+  sha256 "de1f60e88565649a3a1c1a1e59f2ed58c2b5bd6417d91b6c77b93a5dd1bb3d77"
   head "https://github.com/tomakehurst/wiremock.git"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install "wiremock-standalone-#{version}.jar"
-    bin.write_jar_script libexec/"wiremock-standalone-#{version}.jar", "wiremock"
+    (bin/"wiremock").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/wiremock-standalone-#{version}.jar" "$@"
+    EOS
   end
 
   test do

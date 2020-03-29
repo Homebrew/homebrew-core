@@ -3,14 +3,14 @@ class Lcov < Formula
   homepage "https://github.com/linux-test-project/lcov"
   url "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
   sha256 "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
-  revision 1
+  revision 2
   head "https://github.com/linux-test-project/lcov.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b21ae046fb2ea8d55d55b5a2c6b0286a7fc046dba89b14bf84f8454451c83db7" => :catalina
-    sha256 "f06ff8fa92f115d51d046e910036559bd93b03793c6622ed23e67051528917a6" => :mojave
-    sha256 "9553c52a9ca708173708d13f56e763f136e35504e8202147fec8ba8604399181" => :high_sierra
+    sha256 "90c994926b62eed98249982152fdc763805c14f700dab908410a2a7c66f1cce6" => :catalina
+    sha256 "4ffc0d4d6051ae4f8e3f53526433725f270e8dabca57acf41f7e99773b5a8889" => :mojave
+    sha256 "efa4bb222f6e9f8b12ca687d470b2c4f4ff2e23e88287bc2fe8c07eb81460f8d" => :high_sierra
   end
 
   depends_on "gcc" => :test
@@ -42,21 +42,24 @@ class Lcov < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
 
-    resource("JSON").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
-    end
-
-    resource("PerlIO::gzip").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-      system "make"
-      system "make", "install"
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make"
+        system "make", "install"
+      end
     end
 
     inreplace %w[bin/genhtml bin/geninfo bin/lcov],
       "/etc/lcovrc", "#{prefix}/etc/lcovrc"
     system "make", "PREFIX=#{prefix}", "BIN_DIR=#{bin}", "MAN_DIR=#{man}", "install"
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    perl_files = Dir["#{bin}/*"]
+    inreplace perl_files, "#!/usr/bin/env perl", "#!/usr/bin/perl"
+
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 

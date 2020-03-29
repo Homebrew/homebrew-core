@@ -1,15 +1,17 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.1.tar.gz"
-  sha256 "b6b5dd0fbf01b1a85293dca7b2d5ece256f1ef51b7a49f388d4d870840d0bd03"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.8.2.tar.gz"
+  sha256 "6baa0603da9589cd6b78abe4c80cf3b9fec57133198b4c66e8d28e8e63888738"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d59f01cc470c56b285b35eddd9e70652435760ced2b5b2d7c47fdce3638c9fa" => :catalina
-    sha256 "3506a2c0d76517cc6aea1ac7c5de1c20c9bc49f2c1834cce609ab449274bf55f" => :mojave
-    sha256 "25d63c0b1dc812d8a657b3548952cfdc8c2147d44b3b818d4bb5a693300d2a39" => :high_sierra
+    sha256 "2c78999f2976390c2cd6724e5c8532b84915fc4e9724abd966c3f5bb4254071c" => :catalina
+    sha256 "bf82c487cb2094ef2dc0085bb379665dbe54328c65aac333490b52428976bc5a" => :mojave
+    sha256 "247a46a1f54e3075807ce405d5bd0e971a59bfeb9d57a651ed6ce458ffa2cd67" => :high_sierra
   end
+
+  uses_from_macos "perl"
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
@@ -79,8 +81,8 @@ class Rex < Formula
   end
 
   resource "HTTP::Message" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz"
-    sha256 "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.22.tar.gz"
+    sha256 "970efd151b81c95831d2a5f9e117f8032b63a1768cd2cd3f092ad634c85175c3"
   end
 
   resource "HTTP::Negotiate" do
@@ -169,8 +171,8 @@ class Rex < Formula
   end
 
   resource "XML::Parser" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
-    sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz"
+    sha256 "d331332491c51cccfb4cb94ffc44f9cd73378e618498d4a37df9e043661c515d"
   end
 
   resource "XML::Simple" do
@@ -179,8 +181,8 @@ class Rex < Formula
   end
 
   resource "YAML" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-1.29.tar.gz"
-    sha256 "9c5c57389c31fa1d863ae9235ca6d694b364c741df7856105b54aa96b7d6853e"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-1.30.tar.gz"
+    sha256 "5030a6d6cbffaf12583050bf552aa800d4646ca9678c187add649227f57479cd"
   end
 
   resource "inc::latest" do
@@ -214,7 +216,8 @@ class Rex < Formula
   test do
     assert_match "\(R\)\?ex #{version}", shell_output("#{bin}/rex -v"), "rex -v is expected to print out Rex version"
     system bin/"rexify", "brewtest"
-    assert_predicate testpath/"brewtest/Rexfile", :exist?, "rexify is expected to create a new Rex project and pre-populate its Rexfile"
+    assert_predicate testpath/"brewtest/Rexfile", :exist?,
+                     "rexify is expected to create a new Rex project and pre-populate its Rexfile"
   end
 
   private
@@ -225,7 +228,8 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
+                     "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else

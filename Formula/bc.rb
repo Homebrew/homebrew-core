@@ -17,6 +17,9 @@ class Bc < Formula
 
   keg_only :provided_by_macos
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex"
+
   def install
     # prevent user BC_ENV_ARGS from interfering with or influencing the
     # bootstrap phase of the build, particularly

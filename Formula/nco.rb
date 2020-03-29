@@ -1,15 +1,15 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
-  url "https://github.com/nco/nco/archive/4.9.1.tar.gz"
-  sha256 "9592efaf0dfd6ccdefd0b417d990cfccae7e89c20d90fb44ead6263009778834"
+  url "https://github.com/nco/nco/archive/4.9.2.tar.gz"
+  sha256 "1a98c37c946c00232fa7319d00d1d80f77603adda7c9239d10d68a8a3545a4d5"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "cae7ab582591c009783f97b0d43ffdbefde0daf8b9dd40c174760f6f7167876d" => :catalina
-    sha256 "3eb3e938472cf52b95a26a0ba0f25878f88d9c8658f70976913d7e7a69ae8ada" => :mojave
-    sha256 "00dc03f50181256ba6f816e5dce9a387d19e9b77a98f8381d9c695b0e1b1ca6d" => :high_sierra
+    sha256 "35f0438126a52c6ddfbf1f301be740c0589303a8fb61a63c695ca3d06cb2745a" => :catalina
+    sha256 "836dde6df4d77bca7a2e8f505241b1f2d0855c6cf5846ab13b2dd6d865fec519" => :mojave
+    sha256 "bb8b22c4ae16a13b48ec4f89fe3e521f71fd394d7550222c23762ea32ca9f67a" => :high_sierra
   end
 
   head do

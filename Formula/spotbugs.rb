@@ -3,7 +3,7 @@ class Spotbugs < Formula
   homepage "https://spotbugs.github.io/"
   url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.12/spotbugs-3.1.12.tgz"
   sha256 "9c475d6c7096ed7af783e04dc2db40462145291de75a80029391600b6eb2d401"
-  revision 1
+  revision 2
 
   head do
     url "https://github.com/spotbugs/spotbugs.git"
@@ -13,10 +13,10 @@ class Spotbugs < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk@12"
+  depends_on "openjdk@11"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@12"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     if build.head?
       system "gradle", "build"
       system "gradle", "installDist"
@@ -39,8 +39,8 @@ class Spotbugs < Formula
         }
       }
     EOS
-    system "#{Formula["openjdk@12"].bin}/javac", "HelloWorld.java"
-    system "#{Formula["openjdk@12"].bin}/jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
+    system "#{Formula["openjdk@11"].bin}/javac", "HelloWorld.java"
+    system "#{Formula["openjdk@11"].bin}/jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
     output = shell_output("#{bin}/spotbugs -textui HelloWorld.jar")
     assert_match /M V EI.*\nM C UwF.*\n/, output
   end

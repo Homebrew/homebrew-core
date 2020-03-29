@@ -18,6 +18,8 @@ class Ncdu < Formula
     depends_on "automake" => :build
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking",

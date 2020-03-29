@@ -1,23 +1,22 @@
 class Ltl2ba < Formula
   desc "Translate LTL formulae to Buchi automata"
   homepage "https://www.lsv.ens-cachan.fr/~gastin/ltl2ba/"
-  url "https://www.lsv.ens-cachan.fr/~gastin/ltl2ba/ltl2ba-1.2b1.tar.gz"
-  sha256 "950f304c364ffb567a4fba9b88f1853087c0dcf57161870b6314493fddb492b8"
+  url "https://www.lsv.fr/~gastin/ltl2ba/ltl2ba-1.2.tar.gz"
+  sha256 "9dfe16c2362e953982407eabf773fff49d69b137b13bd5360b241fb4cf2bfb6f"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "6a19718cf7ed4c57fa938520fc5fa2fc02239cc35b55e21e77c27f3ac4b0e586" => :catalina
-    sha256 "754dd15206872409b2af919b68dfc65a30d6343ba31aead8a8db16416af9f916" => :mojave
-    sha256 "9d1e6e9bca1073e604a7aa1e693c2df5a0636c8e6a5b82f85db491929520ae1b" => :high_sierra
-    sha256 "151f207ca2627b0916371b49918f3b97174f5c2bab56abab0eb11d17d604037d" => :sierra
-    sha256 "45916a60bb32849e1bc3709d019dcf6ac9d140d92e6f6b65bb5ca05de5c63e3b" => :el_capitan
-    sha256 "d4c93b1f70b126540dae9d77e16f7e0b42e58ff1997fce63f51820621693588d" => :yosemite
-    sha256 "75c0b88b4be2658bc02feb02214f833f7b27758381924b3e3a742ee9309579f6" => :mavericks
+    sha256 "453d994d206ec034580146ff6da2661db60c90fd105867fef4be5eb6f7ff062a" => :catalina
+    sha256 "c5a444d20a1811bf071cdc9c95ffbc272f68283978cbdd676b588ffd9c58735b" => :mojave
+    sha256 "e2d8c66cb983cdcca984048d83a3938158f5286d283cf69df40cc2d8b0c70ff4" => :high_sierra
   end
 
   def install
     system "make"
     bin.install "ltl2ba"
+  end
+
+  test do
+    assert_match ":: (p) -> goto accept_all", shell_output("#{bin}/ltl2ba -f 'p if p ∈ w(0)'")
   end
 end

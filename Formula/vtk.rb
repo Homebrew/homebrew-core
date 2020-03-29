@@ -1,7 +1,7 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  revision 7
+  revision 8
   head "https://github.com/Kitware/VTK.git"
 
   stable do
@@ -16,9 +16,9 @@ class Vtk < Formula
   end
 
   bottle do
-    sha256 "ac746258546ac527205977f927dadd4d1e731b6bad5fff198158b9453f2791ca" => :catalina
-    sha256 "8a9478215a8f23d34a47815ec96d268227e4f102f1b37cb223e23687e3af1f17" => :mojave
-    sha256 "870a14f3b1973b2c3e5523e1377eb8f151893f242e5d2d2ae01b2782537468e6" => :high_sierra
+    sha256 "f599579a67dd14daf7021338888a149f8953d4753ee2583993eb31d71bb131d3" => :catalina
+    sha256 "82e6bb1ddd01bcec0487ebe917f8b35504bd5a44f715502b83309115c8a581dc" => :mojave
+    sha256 "3943bb648fbd484dec3a0dea7ba49644336fb957172aa308217af49234c685df" => :high_sierra
   end
 
   depends_on "cmake" => :build

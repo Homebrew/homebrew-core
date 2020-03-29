@@ -3,13 +3,13 @@ class Mlpack < Formula
   homepage "https://www.mlpack.org"
   url "https://mlpack.org/files/mlpack-3.2.2.tar.gz"
   sha256 "7aef8c27645c9358262fec9ebba380720a086789d6519d5d1034346412a52ad6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "a17acc9c885bcc783b36174eec7f6679daa1453d79faf16fab1a872731a74a8c" => :catalina
-    sha256 "44c51c47f81f5382d8e07f9049431d88bff41b8e1ce4ec1006d828f234067271" => :mojave
-    sha256 "427afcb1af58c19e13c7f733f35ccf0f2f5127473b0162f3fdef4d8db03f4b31" => :high_sierra
+    sha256 "6d06faa9c44c1daff2404c0f289749ef47ca93d7c5cf15f13643da5bd218356b" => :catalina
+    sha256 "cda7feba2e6be17005f0c14a95480d4e0919835e704879c8b0bd992b33a29682" => :mojave
+    sha256 "09749ff5392d0175de3dfdd96737397d4b5c89828054cd5a95c2defa2212dab7" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -66,13 +66,8 @@ class Mlpack < Formula
         Log::Warn << "A false alarm!" << std::endl;
       }
     EOS
-    cxx_with_flags = ENV.cxx.split + ["test.cpp",
-                                      "-std=c++11",
-                                      "-I#{include}",
-                                      "-I#{Formula["armadillo"].opt_lib}/libarmadillo",
-                                      "-L#{lib}", "-lmlpack",
-                                      "-o", "test"]
-    system *cxx_with_flags
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-I#{Formula["armadillo"].opt_lib}/libarmadillo",
+                    "-L#{lib}", "-lmlpack", "-o", "test"
     system "./test", "--verbose"
   end
 end

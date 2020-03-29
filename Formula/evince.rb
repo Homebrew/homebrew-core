@@ -1,13 +1,13 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.34/evince-3.34.2.tar.xz"
-  sha256 "3cc0955f11204e3a2db1c7ab99b866692749592257485b87304134ad69da0617"
+  url "https://download.gnome.org/sources/evince/3.36/evince-3.36.0.tar.xz"
+  sha256 "851d9b5234d479ab4c8f7c5cbaceb0e91ad79ccba1a7b733cde72dacc928fba8"
 
   bottle do
-    sha256 "d2f32a656495d150351f73bcb0c0f1c389d5092bc6dde4e598023040950593d1" => :catalina
-    sha256 "22467d7958452e607ca57b5c1b13375a4e1beb5674fdc0925c1147ff1f9b6bea" => :mojave
-    sha256 "569f413b261f5fb3b30bdc4a9a0fcb4bbbdb8b6e756492f0fc425396a99f9442" => :high_sierra
+    sha256 "c372ef0d0575ac0300002e12f0861a01c7c5336b0211df820d49dc6b250d594d" => :catalina
+    sha256 "620822d240845f9c74bbf9763bfa62f9815d49d71f088833eb67827967ff7dda" => :mojave
+    sha256 "9f46f2023c40ecf6d5c09c90e50ad1703fcbf8404f0476b40460db6d1eabb5ba" => :high_sierra
   end
 
   depends_on "appstream-glib" => :build
@@ -37,7 +37,8 @@ class Evince < Formula
     # Add MacOS mime-types to the list of supported comic book archive mime-types
     # Submitted upstream at https://gitlab.gnome.org/GNOME/evince/merge_requests/157
     inreplace "configure", "COMICS_MIME_TYPES=\"",
-      "COMICS_MIME_TYPES=\"application/x-rar;application/zip;application/x-cb7;application/x-7z-comperssed;application/x-tar;"
+      "COMICS_MIME_TYPES=\"application/x-rar;application/zip;application/x-cb7;" \
+                          "application/x-7z-comperssed;application/x-tar;"
 
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache

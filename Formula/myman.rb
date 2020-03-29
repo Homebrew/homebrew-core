@@ -19,6 +19,8 @@ class Myman < Formula
   depends_on "gnu-sed" => :build
   depends_on "groff" => :build
 
+  uses_from_macos "ncurses"
+
   def install
     ENV["RMDIR"] = "grmdir"
     ENV["SED"] = "gsed"

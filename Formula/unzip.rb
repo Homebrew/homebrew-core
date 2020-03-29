@@ -14,6 +14,8 @@ class Unzip < Formula
     sha256 "f4d59c04a44f93a30a23ec403784c73f9c06db9b72f3277679f66b1870a94331" => :sierra
   end
 
+  uses_from_macos "bzip2"
+
   keg_only :provided_by_macos
 
   # Upstream is unmaintained so we use the Debian patchset:

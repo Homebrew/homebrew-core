@@ -4,15 +4,18 @@ class CloudWatch < Formula
   url "https://ec2-downloads.s3.amazonaws.com/CloudWatch-2010-08-01.zip"
   version "1.0.20.0"
   sha256 "7b241dc6b49ea2aafdeb66f859be9d30128fb0ab5833074f6596762c9bd84417"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
-    env = Language::Java.java_home_env
-    env[:AWS_CLOUDWATCH_HOME] = libexec
-    env[:SERVICE_HOME] = libexec
+    env = {
+      :JAVA_HOME           => Formula["openjdk"].opt_prefix,
+      :AWS_CLOUDWATCH_HOME => libexec,
+      :SERVICE_HOME        => libexec,
+    }
     rm Dir["bin/*.cmd"] # Remove Windows versions
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|

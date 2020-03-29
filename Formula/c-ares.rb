@@ -1,15 +1,14 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.haxx.se/"
-  url "https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz"
-  sha256 "6cdb97871f2930530c97deb7cf5c8fa4be5a0b02c7cea6e7c7667672a39d6852"
+  url "https://c-ares.haxx.se/download/c-ares-1.16.0.tar.gz"
+  sha256 "de058ad7c128156e2db6dc98b8a359924d6f210a1b99dd36ba15c8f839a83a89"
 
   bottle do
     cellar :any
-    sha256 "cab176e28c4fb73ab44c4695ad2dfa154f139f27d7db5224fb30726cbf412855" => :catalina
-    sha256 "6c1782cd4a17e74f8f7b6258faa754ddcf9bf3a388cb862d6b5da8832668f9ef" => :mojave
-    sha256 "45fcb6953de6f43026bc28f3d8798ced5e5a0bbd28c18240fc0e9bc66174fc1e" => :high_sierra
-    sha256 "3d2c45de57a6c1e9fe867d67fa4509d2d42aae5fef8f5d5fc1ea34afff2ff22b" => :sierra
+    sha256 "e2382f3a03ef2e311eacd300f256a9aff61f706337b9c6e0ec0ee66be68b373b" => :catalina
+    sha256 "5b47cb575d75bad499ba8fea85748f6dc05375f4d2dab67ba7a8a189b768d2ae" => :mojave
+    sha256 "a91f2fd5c5cf75b08e2631ddec005d7cdcf777b0e380d2fbe1bb8f8643bd9b21" => :high_sierra
   end
 
   head do

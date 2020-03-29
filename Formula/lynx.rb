@@ -15,6 +15,8 @@ class Lynx < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

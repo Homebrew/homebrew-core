@@ -1,5 +1,5 @@
 class Msgpuck < Formula
-  desc "A simple and efficient MsgPack binary serialization library"
+  desc "Simple and efficient MsgPack binary serialization library"
   homepage "https://rtsisyk.github.io/msgpuck/"
   url "https://github.com/rtsisyk/msgpuck/archive/2.0.tar.gz"
   sha256 "01e6aa55d4d52a5b19f7ce9a9845506d9ab3f5abcf844a75e880b8378150a63d"

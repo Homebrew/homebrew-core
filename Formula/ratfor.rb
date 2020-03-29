@@ -1,17 +1,14 @@
 class Ratfor < Formula
   desc "Rational Fortran"
   homepage "http://www.dgate.org/ratfor/"
-  url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
-  sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
-  revision 2
+  url "http://www.dgate.org/ratfor/tars/ratfor-1.04.tar.gz"
+  sha256 "c1d99c1a9e17693a4f605c20a1bb27adc9d1616e95eb7c104ec1fe2d8b96da6b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e98f4edddd16530a9fed1092cac305336a8c3ef46389c8208278c3ff2337b4b7" => :catalina
-    sha256 "1778a37f2498200cef410a1b208d1f21f591f909f13b566b139bb66f70734f88" => :mojave
-    sha256 "4a9b3b69f2eadb0023747734a5b1145717d3d776742eb555c35ae20edd0e5d59" => :high_sierra
-    sha256 "ab06a92daf0033b37df76b0a8f8b0191718017d1b7c629c1af82eca0117c8da2" => :sierra
-    sha256 "f6556cca206a70a3dca1ac897078cdbbe61be5c3b2c5e70e540b11998f8f0f5e" => :el_capitan
+    sha256 "6710039b41c9561502656c7982a05979deb0540610497486d5d91110551298a1" => :catalina
+    sha256 "f4e9c020af7fe076ed992246fb4ed12cc57792072a4663d26dabe3b911ed51ed" => :mojave
+    sha256 "289e404734d337b687b6d1042ac3ca693c2b8e6a10393b5e84c2170f79f1d39b" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran

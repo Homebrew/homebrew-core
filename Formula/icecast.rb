@@ -15,6 +15,7 @@ class Icecast < Formula
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
   depends_on "openssl@1.1"
+
   uses_from_macos "curl"
   uses_from_macos "libxslt"
 

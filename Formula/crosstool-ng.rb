@@ -34,9 +34,7 @@ class CrosstoolNg < Formula
   depends_on "xz"
 
   def install
-    if build.head?
-      system "./bootstrap"
-    end
+    system "./bootstrap" if build.head?
 
     ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"

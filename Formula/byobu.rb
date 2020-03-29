@@ -1,14 +1,14 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://launchpad.net/byobu"
-  url "https://launchpad.net/byobu/trunk/5.131/+download/byobu_5.131.orig.tar.gz"
-  sha256 "77ac751ae79d8e3f0377ac64b64bc9738fa68d68466b8d2ff652b63b1d985e52"
+  url "https://launchpad.net/byobu/trunk/5.133/+download/byobu_5.133.orig.tar.gz"
+  sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97da32cd6561674fdacde58c4ffb298218f04982f68c0769f39c755fabbc870d" => :catalina
-    sha256 "97da32cd6561674fdacde58c4ffb298218f04982f68c0769f39c755fabbc870d" => :mojave
-    sha256 "97da32cd6561674fdacde58c4ffb298218f04982f68c0769f39c755fabbc870d" => :high_sierra
+    sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :catalina
+    sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :mojave
+    sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :high_sierra
   end
 
   head do
@@ -34,10 +34,11 @@ class Byobu < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Add the following to your shell configuration file:
-      export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
-  EOS
+  def caveats
+    <<~EOS
+      Add the following to your shell configuration file:
+        export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
+    EOS
   end
 
   test do

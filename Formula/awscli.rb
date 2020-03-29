@@ -3,20 +3,22 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/2.0.0.tar.gz"
-  sha256 "c6064a4419432cfae0a7866a7ab08ab2b2a686c6452ddac1369a45a3cf003c7e"
+  url "https://github.com/aws/aws-cli/archive/2.0.5.tar.gz"
+  sha256 "d1727a8251da51426f71daae2d79a685ec5e53011b7103e37f63e54253744b4c"
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
-    sha256 "3033f2cccdaa092b04280859f72b510cab3d680e4b86eaa626ffccdcbfe9790c" => :catalina
-    sha256 "10584b5630f3247ecea6cc68b2b3f74ed3b4d165ced46a7646e1b7a02e98db48" => :mojave
-    sha256 "d9360809cb789c75c9b379564a8168d7f41baa052d14062473bdbc119077435b" => :high_sierra
+    sha256 "9c5584c1e6cfa1d857bf97d26f13a04c3d26dbb8c315381fb506b075f9912024" => :catalina
+    sha256 "d872a3d0a3ea847a8ab113d8e360a3166102c88e5312f1bbab3c4e829ee33f5b" => :mojave
+    sha256 "c4180a66aebe47083268dadae44bd4257aaf8665849a1aecd6a4fc20f9898c9f" => :high_sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
   depends_on "python@3.8"
+
+  uses_from_macos "groff"
+  uses_from_macos "libyaml"
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -39,10 +41,11 @@ class Awscli < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    The "examples" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/awscli/examples
-  EOS
+  def caveats
+    <<~EOS
+      The "examples" directory has been installed to:
+        #{HOMEBREW_PREFIX}/share/awscli/examples
+    EOS
   end
 
   test do

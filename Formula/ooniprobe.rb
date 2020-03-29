@@ -210,9 +210,7 @@ class Ooniprobe < Formula
       etc = #{etc}/ooni
     EOS
 
-    if MacOS.sdk_path_if_needed
-      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
-    end
+    ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if MacOS.sdk_path_if_needed
 
     virtualenv_install_with_resources
 
@@ -227,9 +225,10 @@ class Ooniprobe < Formula
     ln_s pkgshare/"decks/web.yaml", pkgshare/"current.deck"
   end
 
-  def caveats; <<~EOS
-    Decks are installed to #{opt_pkgshare}/decks.
-  EOS
+  def caveats
+    <<~EOS
+      Decks are installed to #{opt_pkgshare}/decks.
+    EOS
   end
 
   plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"

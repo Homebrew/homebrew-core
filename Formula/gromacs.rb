@@ -1,28 +1,24 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2019.3.tar.gz"
-  sha256 "4211a598bf3b7aca2b14ad991448947da9032566f13239b1a05a2d4824357573"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.1.tar.gz"
+  sha256 "e1666558831a3951c02b81000842223698016922806a8ce152e8f616e29899cf"
 
   bottle do
-    sha256 "6b5ebbac12d72bce693c4fa1c424cdc884afefa4ba11264922be52c2974f69fe" => :catalina
-    sha256 "6f423386809bbdb219b41c619b8a7b241e36e7a4881c155cd6deecb78fe2edfa" => :mojave
-    sha256 "582b641126dcc98177587a85a0a75d953c51ae981976a895e243b33fe6e3e089" => :high_sierra
-    sha256 "08c431f5f67fe71aaf24fdd501ba0d6e2816b273b18a08fa00079a0eeac6d948" => :sierra
+    sha256 "72d49c0e34e42499f3f415d2eb0945a6a92446237b7175b385e546c3534e5b98" => :catalina
+    sha256 "bfab3f87481535fbfbfb6c03b22b0ffd27ebebf98fef1b3dba88fe5d36394f1d" => :mojave
+    sha256 "159631826837201f2d33cd1e6b018928c5e2fe82a3973439ed9e62a4f461da6e" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
+  depends_on "openblas"
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
                                         "CMAKE_INSTALL_DATADIR"
-    # fix an error on detecting CPU. see https://redmine.gromacs.org/issues/2927
-    inreplace "cmake/gmxDetectCpu.cmake",
-              "\"${GCC_INLINE_ASM_DEFINE} -I${PROJECT_SOURCE_DIR}/src -DGMX_CPUINFO_STANDALONE ${GMX_STDLIB_CXX_FLAGS} -DGMX_TARGET_X86=${GMX_TARGET_X86_VALUE}\")",
-              "${GCC_INLINE_ASM_DEFINE} -I${PROJECT_SOURCE_DIR}/src -DGMX_CPUINFO_STANDALONE ${GMX_STDLIB_CXX_FLAGS} -DGMX_TARGET_X86=${GMX_TARGET_X86_VALUE})"
 
     args = std_cmake_args + %w[
       -DCMAKE_C_COMPILER=gcc-9
@@ -40,10 +36,11 @@ class Gromacs < Formula
     zsh_completion.install "build/scripts/GMXRC.zsh" => "_gromacs"
   end
 
-  def caveats; <<~EOS
-    GMXRC and other scripts installed to:
-      #{HOMEBREW_PREFIX}/share/gromacs
-  EOS
+  def caveats
+    <<~EOS
+      GMXRC and other scripts installed to:
+        #{HOMEBREW_PREFIX}/share/gromacs
+    EOS
   end
 
   test do

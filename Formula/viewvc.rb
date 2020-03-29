@@ -1,18 +1,20 @@
 class Viewvc < Formula
   desc "Browser interface for CVS and Subversion repositories"
   homepage "http://www.viewvc.org"
-  url "https://github.com/viewvc/viewvc/releases/download/1.1.27/viewvc-1.1.27.tar.gz"
-  sha256 "f5def1dda61568b468c608a0805fe73c15c2073b263cb5395de96ad3218973a0"
+  url "https://github.com/viewvc/viewvc/releases/download/1.2.1/viewvc-1.2.1.tar.gz"
+  sha256 "afbc2d35fc0469df90f5cc2e855a9e99865ae8c22bf21328cbafcb9578a23e49"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0157860001cda22491da3389179f69e3a13f6edb9d525d64c48e09360c5bbe9d" => :catalina
-    sha256 "a42a0ce05dbc1e36a8a1a75e4b16fe22a5c7501c54f0459283c1d112aedd3644" => :mojave
-    sha256 "a42a0ce05dbc1e36a8a1a75e4b16fe22a5c7501c54f0459283c1d112aedd3644" => :high_sierra
-    sha256 "abc850e402813a1208bfff6f59b82ed8bc695d3e192b72cbb9873f50a1200c30" => :sierra
+    sha256 "18ef8237be4eb2ad2578b31e21ad74f226bb7d4c92075474c92619547047a0f2" => :catalina
+    sha256 "709c0f7f7badc7bce0b5e18edf1372a6c1ef3bfb01006d38a51d596a069fd516" => :mojave
+    sha256 "709c0f7f7badc7bce0b5e18edf1372a6c1ef3bfb01006d38a51d596a069fd516" => :high_sierra
   end
 
   depends_on "subversion"
+
+  # https://github.com/viewvc/viewvc/issues/138
+  uses_from_macos "python@2" # does not support Python 3
 
   def install
     system "python", "./viewvc-install", "--prefix=#{libexec}", "--destdir="

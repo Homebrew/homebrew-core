@@ -101,10 +101,10 @@ module Homebrew
 
         next if value.empty?
 
-        if setting == "server_encoding"
-          initdb_args += ["-E #{value}"]
+        initdb_args += if setting == "server_encoding"
+          ["-E #{value}"]
         else
-          initdb_args += ["--#{setting.tr!("_", "-")}=#{value}"]
+          ["--#{setting.tr!("_", "-")}=#{value}"]
         end
       end
 

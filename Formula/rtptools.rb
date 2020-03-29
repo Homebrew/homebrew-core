@@ -1,7 +1,7 @@
 class Rtptools < Formula
   desc "Set of tools for processing RTP data"
-  homepage "http://www.cs.columbia.edu/irt/software/rtptools/"
-  url "http://www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
+  homepage "https://web.archive.org/web/20190924020700/www.cs.columbia.edu/irt/software/rtptools/"
+  url "https://web.archive.org/web/20190714051650/www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
   sha256 "2c76b2a423fb943820c91194372133a44cbdc456ebf69c51616ec50eeb068c28"
 
   bottle do

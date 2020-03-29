@@ -27,31 +27,32 @@ class Nsq < Formula
 
   plist_options :manual => "nsqd -data-path=#{HOMEBREW_PREFIX}/var/nsq"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{bin}/nsqd</string>
-        <string>-data-path=#{var}/nsq</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}/nsq</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/nsqd.error.log</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/nsqd.log</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{bin}/nsqd</string>
+          <string>-data-path=#{var}/nsq</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}/nsq</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/nsqd.error.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/nsqd.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

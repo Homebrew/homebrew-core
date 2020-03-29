@@ -1,13 +1,13 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.2.4.tar.gz"
-  sha256 "9ebd6d766765631a56c0eb332eac26b310fa39f662e5582c8210488cf91ef27c"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.3.0.tar.gz"
+  sha256 "7a007d655d30f1edd001206839107e651966e1e519d53ba2c036491044111e97"
 
   bottle do
-    sha256 "a1f78501e36816697c037ff8d08672971b8aefc84ee5afdad76382c5690ed4c0" => :catalina
-    sha256 "365d92511cc39d4bcf0b901b2397d3e101a8e33a5d696c7bcda59063171799c6" => :mojave
-    sha256 "780d020fd1f68ef2c132e6cd52ec8989b5f593b28ecf8a31515105566fd70598" => :high_sierra
+    sha256 "07d7fdac349bb1f35b746247f29b97e2379f9d19fd66cc6e1a81c6b5641c2b7d" => :catalina
+    sha256 "e43570ffacdf14e58a5d80d955cd154b17ab4b5f4558b120b8d694733aa6e539" => :mojave
+    sha256 "1e402a7ed8f5fbf048dd855072c38826f549d20af621f5829bab4a12422ab233" => :high_sierra
   end
 
   depends_on "libevent"

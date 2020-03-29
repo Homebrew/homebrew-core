@@ -15,6 +15,8 @@ class Gettext < Formula
   keg_only :shadowed_by_macos,
     "macOS provides the BSD gettext library & some software gets confused if both are in the library path"
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

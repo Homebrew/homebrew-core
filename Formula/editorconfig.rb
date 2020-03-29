@@ -17,7 +17,7 @@ class Editorconfig < Formula
   depends_on "pcre2"
 
   def install
-    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 

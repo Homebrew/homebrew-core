@@ -17,6 +17,8 @@ class Liberasurecode < Formula
   depends_on "libtool" => :build
   depends_on "jerasure"
 
+  uses_from_macos "zlib"
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",
@@ -52,7 +54,8 @@ class Liberasurecode < Formula
           exit(0);
       }
     EOS
-    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode", "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
+    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode",
+                    "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
     system "./liberasurecode-test"
   end
 end

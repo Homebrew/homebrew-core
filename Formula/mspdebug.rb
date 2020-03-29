@@ -22,11 +22,12 @@ class Mspdebug < Formula
     system "make", "PREFIX=#{prefix}", "install"
   end
 
-  def caveats; <<~EOS
-    You may need to install a kernel extension if you're having trouble with
-    RF2500-like devices such as the TI Launchpad:
-      https://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
-  EOS
+  def caveats
+    <<~EOS
+      You may need to install a kernel extension if you're having trouble with
+      RF2500-like devices such as the TI Launchpad:
+        https://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
+    EOS
   end
 
   test do

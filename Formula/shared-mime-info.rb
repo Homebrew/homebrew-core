@@ -23,6 +23,7 @@ class SharedMimeInfo < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+
   uses_from_macos "libxml2"
 
   def install

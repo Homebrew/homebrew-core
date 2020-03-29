@@ -1,7 +1,8 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.9.2/c/avro-c-1.9.2.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.9.2/c/avro-c-1.9.2.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.9.2/c/avro-c-1.9.2.tar.gz"
   sha256 "08697f7dc9ff52829ff90368628a80f6fd5c118004ced931211c26001e080cd2"
 
   bottle do
@@ -15,6 +16,7 @@ class AvroC < Formula
   depends_on "jansson"
   depends_on "snappy"
   depends_on "xz"
+
   uses_from_macos "zlib"
 
   def install

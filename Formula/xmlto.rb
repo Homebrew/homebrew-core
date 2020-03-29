@@ -21,6 +21,8 @@ class Xmlto < Formula
   # does not support longopts in the optstring, so use GNU getopt.
   depends_on "gnu-getopt"
 
+  uses_from_macos "libxslt"
+
   # xmlto forces --nonet on xsltproc, which causes it to fail when
   # DTDs/entities aren't available locally.
   patch :DATA

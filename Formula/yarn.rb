@@ -2,8 +2,8 @@ class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
   # Should only be updated if the new version is listed as a stable release on the homepage
-  url "https://yarnpkg.com/downloads/1.22.0/yarn-v1.22.0.tar.gz"
-  sha256 "de8871c4e2822cba80d58c2e72366fb78567ec56e873493c9ca0cca76c60f9a5"
+  url "https://yarnpkg.com/downloads/1.22.4/yarn-v1.22.4.tar.gz"
+  sha256 "bc5316aa110b2f564a71a3d6e235be55b98714660870c5b6b2d2d3f12587fb58"
 
   bottle :unneeded
 
@@ -13,8 +13,12 @@ class Yarn < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"yarn").write_env_script "#{libexec}/bin/yarn.js", :PREFIX => HOMEBREW_PREFIX, :NPM_CONFIG_PYTHON => "/usr/bin/python"
-    (bin/"yarnpkg").write_env_script "#{libexec}/bin/yarn.js", :PREFIX => HOMEBREW_PREFIX, :NPM_CONFIG_PYTHON => "/usr/bin/python"
+    (bin/"yarn").write_env_script "#{libexec}/bin/yarn.js",
+      :PREFIX            => HOMEBREW_PREFIX,
+      :NPM_CONFIG_PYTHON => "/usr/bin/python"
+    (bin/"yarnpkg").write_env_script "#{libexec}/bin/yarn.js",
+      :PREFIX            => HOMEBREW_PREFIX,
+      :NPM_CONFIG_PYTHON => "/usr/bin/python"
     inreplace "#{libexec}/package.json", '"installationMethod": "tar"', '"installationMethod": "homebrew"'
   end
 

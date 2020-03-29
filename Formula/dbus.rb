@@ -1,5 +1,5 @@
 class Dbus < Formula
-  # releases: even (1.10.x) = stable, odd (1.11.x) = development
+  # releases: even (1.12.x) = stable, odd (1.13.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz"

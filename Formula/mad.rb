@@ -22,19 +22,20 @@ class Mad < Formula
     (lib+"pkgconfig/mad.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
 
-    Name: mad
-    Description: MPEG Audio Decoder
-    Version: #{version}
-    Requires:
-    Conflicts:
-    Libs: -L${libdir} -lmad -lm
-    Cflags: -I${includedir}
-  EOS
+      Name: mad
+      Description: MPEG Audio Decoder
+      Version: #{version}
+      Requires:
+      Conflicts:
+      Libs: -L${libdir} -lmad -lm
+      Cflags: -I${includedir}
+    EOS
   end
 end

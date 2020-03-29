@@ -16,6 +16,8 @@ class Bettercap < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
+  uses_from_macos "libpcap"
+
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
@@ -27,10 +29,11 @@ class Bettercap < Formula
     end
   end
 
-  def caveats; <<~EOS
-    bettercap requires root privileges so you will need to run `sudo bettercap`.
-    You should be certain that you trust any software you grant root privileges.
-  EOS
+  def caveats
+    <<~EOS
+      bettercap requires root privileges so you will need to run `sudo bettercap`.
+      You should be certain that you trust any software you grant root privileges.
+    EOS
   end
 
   test do

@@ -15,6 +15,8 @@ class Wordgrinder < Formula
   depends_on "ninja" => :build
   depends_on "lua"
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "OBJDIR=#{buildpath}/wg-build"
     bin.install "bin/wordgrinder-builtin-curses-release" => "wordgrinder"

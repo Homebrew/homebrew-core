@@ -1,13 +1,13 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.58/vte-0.58.3.tar.xz"
-  sha256 "22dcb54ac2ad1a56ab0a745e16ccfeb383f0b5860b5bfa1784561216f98d4975"
+  url "https://download.gnome.org/sources/vte/0.60/vte-0.60.1.tar.xz"
+  sha256 "5e25807233f8a7e15204be7ff694bbcf6facbb0136092b5ba12584a7b70cf0c4"
 
   bottle do
-    sha256 "aeeb66c9db3a2dba30cd5e3e96dbc564ccb0b106209976331ca2fc8ea569a991" => :catalina
-    sha256 "f0e9a775f5258e9408f40b8226390aebeec699f75193d89d2a6da7ed118a6d5d" => :mojave
-    sha256 "f90dfe49cd6594238b190281f652c26227b82730becbfa441ecbf11619d8328d" => :high_sierra
+    sha256 "39f2eac270d54152ef935ee128366214ae345d68af8138d9cda861b3e442bd81" => :catalina
+    sha256 "08cef36c52988939c6b237c0099c45aa29d3a4849401ab7e96622b4005770d71" => :mojave
+    sha256 "09288f4fc195a667acbc28ddfd79101e6371168ca0de962532c70978c73e0824" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -32,6 +32,7 @@ class Vte3 < Formula
       "-Dgtk3=true",
       "-Dgnutls=true",
       "-Dvapi=true",
+      "-D_b_symbolic_functions=false",
     ]
 
     mkdir "build" do
@@ -119,10 +120,10 @@ end
 
 __END__
 diff --git a/meson.build b/meson.build
-index 82266cf7..2e49d669 100644
+index e2200a75..df98872f 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -72,6 +72,8 @@ lt_age = vte_minor_version * 100 + vte_micro_version - lt_revision
+@@ -78,6 +78,8 @@ lt_age = vte_minor_version * 100 + vte_micro_version - lt_revision
  lt_current = vte_major_version + lt_age
 
  libvte_gtk3_soversion = '@0@.@1@.@2@'.format(libvte_soversion, lt_current, lt_revision)
@@ -132,34 +133,14 @@ index 82266cf7..2e49d669 100644
 
  # i18n
 diff --git a/src/meson.build b/src/meson.build
-index 1481c089..b9590d26 100644
+index 79d4a702..0495dea8 100644
 --- a/src/meson.build
 +++ b/src/meson.build
-@@ -178,6 +178,7 @@ if get_option('gtk3')
+@@ -224,6 +224,7 @@ if get_option('gtk3')
      vte_gtk3_api_name,
      sources: libvte_gtk3_sources,
      version: libvte_gtk3_soversion,
 +    darwin_versions: libvte_gtk3_osxversions,
      include_directories: incs,
      dependencies: libvte_gtk3_deps,
-     cpp_args: libvte_common_cppflags,
-
-diff --git a/meson.build b/meson.build
-index 2e49d669..ed8c2ab4 100644
---- a/meson.build
-+++ b/meson.build
-@@ -359,13 +359,8 @@ linker_flags = [
-   '-Wl,-Bsymbolic-functions'
- ]
-
--foreach flag: linker_flags
--  assert(cc.has_link_argument(flag), flag + ' is required but not supported')
--  add_project_link_arguments(flag, language: 'c')
--
--  assert(cxx.has_link_argument(flag), flag + ' is required but not supported')
--  add_project_link_arguments(flag, language: 'cpp')
--endforeach
-+add_project_link_arguments(cc.get_supported_link_arguments(linker_flags), language: 'c')
-+add_project_link_arguments(cxx.get_supported_link_arguments(linker_flags), language: 'cpp')
-
- # Dependencies
+     cpp_args: libvte_gtk3_cppflags,

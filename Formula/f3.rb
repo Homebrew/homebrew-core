@@ -1,6 +1,6 @@
 class F3 < Formula
   desc "Test various flash cards"
-  homepage "http://oss.digirati.com.br/f3/"
+  homepage "https://web.archive.org/web/20200110163924/oss.digirati.com.br/f3/"
   url "https://github.com/AltraMayor/f3/archive/v7.2.tar.gz"
   sha256 "ba9210a0fc3a42c2595fe19bf13b8114bb089c4f274b4813c8f525a695467f64"
   head "https://github.com/AltraMayor/f3.git"

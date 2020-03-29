@@ -13,6 +13,8 @@ class Splint < Formula
     sha256 "b95c7e4981cb11c23b686dbb01dcc01c1317909371b5d21ba0aa155e47569eec" => :high_sierra
   end
 
+  uses_from_macos "flex"
+
   # fix compiling error of osd.c
   patch :DATA
 

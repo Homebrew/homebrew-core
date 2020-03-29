@@ -3,13 +3,12 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.29.tar.bz2"
-  sha256 "6c0c4336bed6e2f79c91ace6d6914145ee03d0bd5025473b5918aec2b0657f7a"
-  revision 3
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.30.tar.bz2"
+  sha256 "823cf3374b08fbfe8f580d08ae063913d021ff92f8ef1365d317e8ea38ecc8bf"
 
   bottle do
-    sha256 "53ad78ad86d6939a94214c80b57c204c337fa57e97f6ea36a94bff4f329fb193" => :catalina
-    sha256 "aa273480061b9800a0088d06543f75db9769417905841033e5696993869258f4" => :mojave
+    sha256 "4d6feff34ab191012affa5fc88932d348473d38d51398fa2dc123451bb805eaf" => :catalina
+    sha256 "84a8f4a22404762ed079bc5546d99e808bed32aa3e536b73c8435f984b9c3dd3" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -63,19 +62,6 @@ class GraphTool < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
     sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
-  end
-
-  # Fix ForwardIterator error
-  # Remove when next version releases
-  patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/ab7952170aa4a5022e9cbe6b19483c6303a24f02.diff"
-    sha256 "f03072db108d69aaadaf41ae433501d517cc4a02d4108f37de99d81480ea3a94"
-  end
-
-  # Patch for CGAL-5.0. Look here for related issue : https://git.skewed.de/count0/graph-tool/issues/625
-  patch do
-    url "https://cgal.geometryfactory.com/~mgimeno/graph-tool-for-cgal.diff"
-    sha256 "c45330ed6117a02204e356695f5784192258a37a9263d3ca887a9d89248590b8"
   end
 
   def install

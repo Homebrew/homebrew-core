@@ -5,12 +5,13 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/e0/47/9e78f8d1072c684639b3f44c44e00f1efedc855cb57921dc1a27bef746a8/fdroidserver-1.1.6.tar.gz"
   sha256 "7a368c9224cefee7a3306c5a4e4cd81e50e7219373f325f5cf9505493e4d8001"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "25fd697491d5db059f852694dab4fc66b2fc31bc8797e41197cd7f051c38b776" => :catalina
-    sha256 "3a6925e4f7c0ead584c59aa6e4bf5633433cffd3cd2e23c7dd878f1792e64d8b" => :mojave
-    sha256 "915531a9d4a1a347dc1e209b0f1378341f4445e657c56f867c93277b2dc5d39a" => :high_sierra
+    sha256 "1699a24a781e6fd51a36ca8a7a97ef0478a80119b27bbea9f8d8eaa4b4d21d70" => :catalina
+    sha256 "f07f50564384845bcbb8622d718f9471b59214b7487bfed7180d5fe75605ab5b" => :mojave
+    sha256 "657d6aaf9e40e10d4644f14f97a02394260da7ea35bc1fa42a09c9b21d2693fc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -21,6 +22,7 @@ class Fdroidserver < Formula
   depends_on "python@3.8"
   depends_on "s3cmd"
   depends_on "webp"
+
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
@@ -337,15 +339,22 @@ class Fdroidserver < Formula
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
         sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        s.gsub! "openjpeg.h",
+                "probably_not_a_header_called_this_eh.h"
+        s.gsub! "ZLIB_ROOT = None",
+                "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        s.gsub! "JPEG_ROOT = None",
+                "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None",
+                "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', " \
+                                 "'#{Formula["freetype"].opt_prefix}/include')"
       end
 
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
       ENV.delete "SDKROOT"
-      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
+      unless MacOS::CLT.installed?
+        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+      end
       venv.pip_install Pathname.pwd
     end
 
@@ -374,13 +383,14 @@ class Fdroidserver < Formula
     doc.install "examples"
   end
 
-  def caveats; <<~EOS
-    In order to function, fdroidserver requires that the Android SDK's
-    "Build-tools" and "Platform-tools" are installed.  Also, it is best if the
-    base path of the Android SDK is set in the standard environment variable
-    ANDROID_HOME.  To install them from the command line, run:
-    android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.0
-  EOS
+  def caveats
+    <<~EOS
+      In order to function, fdroidserver requires that the Android SDK's
+      "Build-tools" and "Platform-tools" are installed.  Also, it is best if the
+      base path of the Android SDK is set in the standard environment variable
+      ANDROID_HOME.  To install them from the command line, run:
+      android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.0
+    EOS
   end
 
   test do

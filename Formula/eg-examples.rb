@@ -5,13 +5,13 @@ class EgExamples < Formula
   homepage "https://github.com/srsudar/eg"
   url "https://files.pythonhosted.org/packages/a6/93/38075713a7968a9e8484e894f604f99a68e443e0f9db0ed48063b1241969/eg-1.1.1.tar.gz"
   sha256 "3faa5fb453d8ba113975a1f31e37ace94867539ba9d46a40af4cea90028a04e4"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a8453abcc4cc4cc2919b78e1649ac3640279d8f9fe0e44f9db083b3d3f4aa9f1" => :catalina
-    sha256 "330a1d604b7889bedc72b8fb2d73a8c42ef1cea5234ade62a7db094debb6d9a1" => :mojave
-    sha256 "d5f28b0a7c13377e6cc43ff4f13d2beadfea46b471bb2b52721d60e904d78189" => :high_sierra
+    sha256 "46a9ac200202e3701ced8127521ef3d717675d8460453b4c4280990381e4f4b7" => :catalina
+    sha256 "882c95a2e4ff16639e596869fab1459acc2b40326ad85d1a2e22352933522cb7" => :mojave
+    sha256 "1e806034a1d7ec1f50654e33e71e72670237ffa33358c7e7490af5d703ec4d62" => :high_sierra
   end
 
   depends_on "python@3.8"

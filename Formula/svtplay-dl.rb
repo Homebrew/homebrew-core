@@ -5,13 +5,13 @@ class SvtplayDl < Formula
   homepage "https://svtplay-dl.se/"
   url "https://files.pythonhosted.org/packages/0c/19/b590fd5ca34ca7cc0c2aa9e7d935d5c1330ef5a99e93136ce040667adac4/svtplay-dl-2.4.tar.gz"
   sha256 "bfe3b61c3294e01ee17fa670a10204e8369393fbc2d9f0c917fdc73026355761"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "7ae6430ed2d32e68527c3f271aaf83ca6674a667c282d44339c53c072132d37d" => :catalina
-    sha256 "b17347b4554938e86d10fed73317705a9b7b0f357cb13b1125670bbd60bb83f2" => :mojave
-    sha256 "adb2764eb31d032300bbaf97152581cf16ac04d357881d49054731fbb4561b49" => :high_sierra
+    sha256 "c1604b5e5ea983254d487160d36c58e25c7211c5d6093eba4b83e7446d0eba09" => :catalina
+    sha256 "2d9f0213ed6bdf558fb3da4beb03081c4b7bde285aee8a429cc4589a657f1148" => :mojave
+    sha256 "8674391ac83165aa74bcf27f6384c31de8f2dad9dccae36d5b5d4e3287612a80" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -81,10 +81,11 @@ class SvtplayDl < Formula
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    To use post-processing options:
-      `brew install ffmpeg` or `brew install libav`.
-  EOS
+  def caveats
+    <<~EOS
+      To use post-processing options:
+        `brew install ffmpeg` or `brew install libav`.
+    EOS
   end
 
   test do

@@ -1,14 +1,14 @@
 class Rav1e < Formula
   desc "The fastest and safest AV1 encoder"
   homepage "https://github.com/xiph/rav1e"
-  url "https://github.com/xiph/rav1e/archive/v0.3.0.tar.gz"
-  sha256 "6f51888eb0d3710f4f8c519a2a8b859a88019e0c335efc6abf7f940abc8dc57b"
+  url "https://github.com/xiph/rav1e/archive/v0.3.1.tar.gz"
+  sha256 "581b50e1e550835b65dd20f3c851cf2dae93eac0ee016caadfaa5faef8eee6f0"
 
   bottle do
     cellar :any
-    sha256 "063f54a70d80641a439b1e123a2a9f6d3b6f2a79fb54277be445bae5c6e64db5" => :catalina
-    sha256 "86c960c361f5d99f70541b804730ab2440681c3f1d04f8d206b4f650f07d42cb" => :mojave
-    sha256 "ef08d4a319dbdda565ee4489a1fe1d8c94ff9773f17b596e9246b99522aa62f2" => :high_sierra
+    sha256 "d1ce660afb9506d0543330bf5257171458aac6801fd5c4c56af379767cde38e7" => :catalina
+    sha256 "f90aafd98174b4a5041ae9bd57acda090fe7b95275cd14158e167cfe401ed15a" => :mojave
+    sha256 "21c0c59a4d32db38e3e7251cd90b54f0b1db2c7e9a7c7f1ab3b79b40277b703e" => :high_sierra
   end
 
   depends_on "cargo-c" => :build

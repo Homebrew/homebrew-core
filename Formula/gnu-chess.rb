@@ -43,11 +43,12 @@ class GnuChess < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This formula also downloads the additional opening book.  The
-    opening book is a PGN file located in #{doc} that can be added
-    using gnuchess commands.
-  EOS
+  def caveats
+    <<~EOS
+      This formula also downloads the additional opening book.  The
+      opening book is a PGN file located in #{doc} that can be added
+      using gnuchess commands.
+    EOS
   end
 
   test do

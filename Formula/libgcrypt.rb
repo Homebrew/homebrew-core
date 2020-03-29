@@ -14,6 +14,8 @@ class Libgcrypt < Formula
 
   depends_on "libgpg-error"
 
+  uses_from_macos "libxslt"
+
   def install
     # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
     # Seems to be a Clang issue rather than an upstream one, so

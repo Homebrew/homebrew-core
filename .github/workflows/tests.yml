@@ -1,0 +1,54 @@
+name: 'New CI Testing (Ignore Failures)'
+
+on:
+  pull_request: []
+
+jobs:
+  tests:
+    strategy:
+      matrix:
+        version: [10.15, 10.14, 10.13]
+      fail-fast: false
+    runs-on: ${{ matrix.version }}
+    timeout-minutes: 4320
+    env:
+      HOMEBREW_GIT_NAME: BrewTestBot
+      HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'
+      PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
+    steps:
+      - name: Checkout repository
+        run: |
+          cd $(brew --repo ${{github.repository}})
+          git clean -ffdx
+          git fetch --prune --force origin master
+          git fetch --prune --force origin ${{github.sha}}
+          git checkout --force ${{github.sha}}
+          git log -1
+      - name: Build bottles
+        run: |
+          mkdir bottles
+          cd bottles
+          brew test-bot
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+      - name: Upload bottles
+        if: steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@v1
+        with:
+          name: bottles
+          path: bottles
+      - name: Cleanup
+        if: always()
+        run: |
+          find .
+          rm -rf *

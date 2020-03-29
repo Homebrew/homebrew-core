@@ -2,14 +2,14 @@ class HelmAT2 < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v2.16.3",
-      :revision => "1ee0254c86d4ed6887327dabed7aa7da29d7eb0d"
+      :tag      => "v2.16.5",
+      :revision => "89bd14c1541fa93a09492010030fd3699ca65a97"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "335da9e7cd9c44c7190425f37a1aeec376aee63370e8b563483dbf5cde8cb40e" => :catalina
-    sha256 "8d5b557f8102443e5a01d2c031722775c1c815648e894b8644515e25890fdac5" => :mojave
-    sha256 "51ddd1349b7f5d656fe5a9250303edfa26796ed1ad5cd81228c5a311f42288d5" => :high_sierra
+    sha256 "bde48a20c099114118e3c41c2bd1273ff1676375899c24ce26d12a695c45cbf7" => :catalina
+    sha256 "36d8479ab5013f3e736c9e51d3b3f80851d9c6abde490d423c3d18090896ce5d" => :mojave
+    sha256 "322938ad3e773e54b609d6815b059061521676bef15b119537597f2ec4e08dc4" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -49,6 +49,8 @@ class HelmAT2 < Formula
 
     version_output = shell_output("#{bin}/helm version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
-    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
+    if build.stable?
+      assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output
+    end
   end
 end

@@ -3,10 +3,11 @@ class Prestodb < Formula
   homepage "https://prestodb.io"
   url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.230/presto-server-0.230.tar.gz"
   sha256 "dfa98c7d709e2c2c81e400f746cfec28665ba2005faaa8d87ed38d82b5550503"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   conflicts_with "prestosql", :because => "both install `presto` and `presto-server` binaries"
 
@@ -51,11 +52,16 @@ class Prestodb < Formula
 
     (bin/"presto-server").write <<~EOS
       #!/bin/bash
+      export JAVA_HOME="#{Formula["openjdk"].opt_prefix}"
       exec "#{libexec}/bin/launcher" "$@"
     EOS
 
     resource("presto-cli").stage do
-      bin.install "presto-cli-#{version}-executable.jar" => "presto"
+      libexec.install "presto-cli-#{version}-executable.jar"
+      (bin/"presto").write <<~EOS
+        #!/bin/bash
+        exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/presto-cli-#{version}-executable.jar" "$@"
+      EOS
     end
   end
 
@@ -63,36 +69,38 @@ class Prestodb < Formula
     (var/"presto/data").mkpath
   end
 
-  def caveats; <<~EOS
-    Add connectors to #{opt_libexec}/etc/catalog/. See:
-    https://prestodb.io/docs/current/connector.html
-  EOS
+  def caveats
+    <<~EOS
+      Add connectors to #{opt_libexec}/etc/catalog/. See:
+      https://prestodb.io/docs/current/connector.html
+    EOS
   end
 
   plist_options :manual => "presto-server run"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>AbandonProcessGroup</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{opt_libexec}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/presto-server</string>
-          <string>run</string>
-        </array>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>AbandonProcessGroup</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{opt_libexec}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/presto-server</string>
+            <string>run</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

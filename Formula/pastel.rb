@@ -1,15 +1,14 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
-  url "https://github.com/sharkdp/pastel/archive/v0.6.1.tar.gz"
-  sha256 "ece0004d725133bcf552bbfe5508c087513eb52f6c363fbad6eeb9c74769a932"
+  url "https://github.com/sharkdp/pastel/archive/v0.7.1.tar.gz"
+  sha256 "38ae098610aceb876fd29cfcd3b0bed6c9f1237a65e691ef7cbd670c27aa59b2"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "98a1ba143f1675f3c9a24ace7dc3047cd9b80c462b3b57a38448a81414d911a6" => :catalina
-    sha256 "9ff2230b5d4405ca5d889aa6938ebc2d0189e3012fc6e367a6a4c5f4f28ecd3a" => :mojave
-    sha256 "fa282f3adbef4bc3fe48690b0e539bf73b1abbf594c5ea93b9cc26cb25217c3b" => :high_sierra
+    sha256 "a353ed8c114b5a65c2f82bd42d9e0a6e634a416ab852236999ade4e9ede86406" => :catalina
+    sha256 "9e3c04c2ae69fb50826e45ae9249f983390dd8791833c074d6e50f10cd52b3e2" => :mojave
+    sha256 "361a8200e697ca04c2e348264cda9dfd2caa4133c07a2c261e8ef68be472942d" => :high_sierra
   end
 
   depends_on "rust" => :build

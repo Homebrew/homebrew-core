@@ -12,6 +12,7 @@ class IncludeWhatYouUse < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm" # include-what-you-use 0.13 is compatible with llvm 9.0
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

@@ -5,11 +5,12 @@ class Openssh < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.2p1.tar.gz"
   version "8.2p1"
   sha256 "43925151e6cf6cee1450190c0e9af4dc36b41c12737619edff8bcebdff64e671"
+  revision 1
 
   bottle do
-    sha256 "d4881d69f149e5b08f6a77c3320be4b8b5c92fba30cb05eb6e815845689c1413" => :catalina
-    sha256 "5c40bc0685a07980cd50d06e5141f160fe4840b8604cb680c3e422672b3a0e06" => :mojave
-    sha256 "06b2df3fdbf15cd1c6b807e8c1f465072ba44c3a3493667d930e1e7861583e2b" => :high_sierra
+    sha256 "e1fed635b6186348398bab423cad7526553098aeca633c7f8e4cb5cef6ce8339" => :catalina
+    sha256 "4993404b540da5831d8ba8abfe6b3b17db683f428bd616b1ce7a1f7876aec68b" => :mojave
+    sha256 "014fecadf9d869036d63e8b52d9c9c11fe30697e2a38dee793420d41991d558b" => :high_sierra
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -17,6 +18,7 @@ class Openssh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ldns"
+  depends_on "libfido2"
   depends_on "openssl@1.1"
 
   resource "com.openssh.sshd.sb" do
@@ -50,6 +52,7 @@ class Openssh < Formula
       --with-kerberos5
       --with-pam
       --with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}
+      --with-security-key-builtin
     ]
 
     system "./configure", *args

@@ -7,10 +7,10 @@ class Monit < Formula
 
   bottle do
     cellar :any
-    sha256 "8d458edfa882fb548687207ad596b0514a1a97b3946b518986dcae487289c74a" => :catalina
-    sha256 "ef1b1dfc18ef4b3e570c085df6ad526f2556dec0d1f9f8f37ecc46c85fb0c23f" => :mojave
-    sha256 "e87f450a96b87b7fa3d4d5fa4556b6ecf9a31f7f71bcbd23329d8a413aa2f127" => :high_sierra
-    sha256 "5ba37a630257fb070648d1eb7117b94e31dd8f30f3ca351098192dc4974e9ca4" => :sierra
+    rebuild 1
+    sha256 "2469520cd629319f5ca58f4791d1f830be411643199658e5c249b401d143f8b2" => :catalina
+    sha256 "6bad371cf6ef0737965a8bc0af08838e4272a1fd12462123878185e0e477c50b" => :mojave
+    sha256 "049b5bc40d764cd3b4e27d651e4c28c58d3438d07714bb566ba1af6cfcbd8011" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -21,10 +21,10 @@ class Monit < Formula
                           "--sysconfdir=#{etc}/monit",
                           "--with-ssl-dir=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
-    pkgshare.install "monitrc"
+    etc.install "monitrc"
   end
 
   test do
-    system bin/"monit", "-c", pkgshare/"monitrc", "-t"
+    system bin/"monit", "-c", "#{etc}/monitrc", "-t"
   end
 end

@@ -3,13 +3,13 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
   sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
-  revision 8
+  revision 11
 
   bottle do
     cellar :any
-    sha256 "b825614e0ed957d272e4e724603cbb338fdb27f3eda71e0792eb0a9fce36996a" => :catalina
-    sha256 "e7a622a78cf42fd7e5ab9ab21cae7e3965028afec59707b4fb89ad54ce64d09b" => :mojave
-    sha256 "d2152557a3e674574f756deadbcb5f4a786be2087ec640246499eaaaf0cfb669" => :high_sierra
+    sha256 "0b9d3e559598201348db583e8a494cd197bb71a728c178c882614b8276fe2699" => :catalina
+    sha256 "9df710e826814a7dab1b82514f39e5abddc28a5e2476ae8e348613c66ebc0d92" => :mojave
+    sha256 "3bdd90dc2c325f0e744929de97aab3196d0aebeb520ab676d911eabfaff7b041" => :high_sierra
   end
 
   head do
@@ -61,10 +61,11 @@ class Dynare < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    To get started with Dynare, open Octave and type
-      addpath #{opt_lib}/dynare/matlab
-  EOS
+  def caveats
+    <<~EOS
+      To get started with Dynare, open Octave and type
+        addpath #{opt_lib}/dynare/matlab
+    EOS
   end
 
   test do

@@ -26,6 +26,8 @@ class Global < Formula
   depends_on "ctags"
   depends_on "python@3.8"
 
+  uses_from_macos "ncurses"
+
   skip_clean "lib/gtags"
 
   resource "Pygments" do

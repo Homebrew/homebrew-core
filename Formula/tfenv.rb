@@ -7,10 +7,13 @@ class Tfenv < Formula
 
   bottle :unneeded
 
+  uses_from_macos "unzip"
+
   conflicts_with "terraform", :because => "tfenv symlinks terraform binaries"
 
   def install
     prefix.install ["bin", "libexec", "share"]
+    prefix.install "lib" if build.head?
   end
 
   test do

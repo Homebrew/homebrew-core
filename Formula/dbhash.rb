@@ -12,6 +12,9 @@ class Dbhash < Formula
     sha256 "881d1f7bebd40c356fc343029a1deadebdd67086f8da86621403837d3f703228" => :high_sierra
   end
 
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite" => :test
+
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "dbhash"

@@ -13,6 +13,8 @@ class Sgrep < Formula
     sha256 "a243589e79a4cde4f7bba21ec618e3c323c049589707bde6e2c20c4bf1014464" => :high_sierra
   end
 
+  uses_from_macos "m4"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",

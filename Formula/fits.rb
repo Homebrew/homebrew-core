@@ -7,6 +7,7 @@ class Fits < Formula
   bottle :unneeded
 
   depends_on :java => "1.7+"
+
   uses_from_macos "zlib"
 
   def install

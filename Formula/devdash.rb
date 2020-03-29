@@ -1,14 +1,14 @@
 class Devdash < Formula
   desc "Highly Configurable Terminal Dashboard for Developers"
   homepage "https://thedevdash.com"
-  url "https://github.com/Phantas0s/devdash/archive/v0.2.0.tar.gz"
-  sha256 "11760bb308680bcbfb138dd57df4a6b4b069ce082cf9e53275028bd23ea23b78"
+  url "https://github.com/Phantas0s/devdash/archive/v0.3.0.tar.gz"
+  sha256 "a3198c9c5ae8b45f000fd24b60d4e26f7bd0fe24f8f484259832f70725ff35fb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61dad3989ec4abe1974a3c4f3b07df45c2b1595a5130cde2fcf318b30f3c5183" => :catalina
-    sha256 "5ac83d288c59595929f60649342a0f858063c34588b50a7419b55b85fe3173e9" => :mojave
-    sha256 "b4111ca6ffa4de540c174abbbd902d533a63c628d1bdd050f9b5afc3e5aeb19c" => :high_sierra
+    sha256 "bc3e56b0b9cefdb3e2871cd27ca5499d61ec1e2d182a9390e3303d2d6aee3a62" => :catalina
+    sha256 "565f301ac09f5f55cade8db7d70bf559a8e1c422b7c88b2859e418e08e760914" => :mojave
+    sha256 "72e269d84c8a1e0d973fcf892a343a1f3b11db63b69788581997cb62e91588f8" => :high_sierra
   end
 
   depends_on "go" => :build

@@ -16,6 +16,8 @@ class Sqlite < Formula
 
   depends_on "readline"
 
+  uses_from_macos "zlib"
+
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many

@@ -1,22 +1,20 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/v0.5.0.tar.gz"
-  sha256 "5b7c91bdf35e1a17ca006efa0354712301886c5c50952a2162401aef77faced0"
-  revision 2
+  url "https://github.com/svenstaro/miniserve/archive/v0.6.0.tar.gz"
+  sha256 "cad2608ff5459e5497b73b6b8635b76b0c38ce0bcee24bf4f2192984f386de93"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "82eca53aa5ca2e90b82bbce87ab964bae0e83b536ecf164a7f1c39a89571b855" => :catalina
-    sha256 "3b2d47cf800219c31be4767036e8ddfc4dc6bf67793a24f3a7bc83710414cc84" => :mojave
-    sha256 "076ced27fb5a0dccfcf1c6059675369360685ba2f939fd7fd70b775a33dfa863" => :high_sierra
+    sha256 "534cd0d7b79d8c06a5246a3d11dfb0fbbaac5aad634922883ebfd5fe958b2711" => :catalina
+    sha256 "b150191be231782aec0a73ed3a83245de22eedf9682ace58532d67857c042f47" => :mojave
+    sha256 "ccae720adeff3ef96f858a1709657c9a1608fd7a86689f9947174824cf9a4081" => :high_sierra
   end
 
   # Miniserve requires a known-good Rust nightly release to use.
   resource "rust-nightly" do
-    url "https://static.rust-lang.org/dist/2019-08-24/rust-nightly-x86_64-apple-darwin.tar.xz"
-    sha256 "104ddea51b758f4962960097e9e0f3cabf2c671ec3148bc745344431bb93605d"
+    url "https://static.rust-lang.org/dist/2020-03-14/rust-nightly-x86_64-apple-darwin.tar.xz"
+    sha256 "6cfe5b598502d4bc6afb1bec3b1e87306d3b4057ce1ffcd8a306817c2ff5fc87"
   end
 
   def install

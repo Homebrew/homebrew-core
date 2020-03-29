@@ -11,6 +11,9 @@ class UtilLinux < Formula
     sha256 "fe781f80737fd6353a86d43e485d04694e5147d00e38790bd8c8b45cb9da1591" => :high_sierra
   end
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   keg_only "macOS provides the uuid.h header"
 
   def install
@@ -35,9 +38,7 @@ class UtilLinux < Formula
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
-      if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
-        bash_completion.install prog
-      end
+      bash_completion.install prog if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
     end
   end
 

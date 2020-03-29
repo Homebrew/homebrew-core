@@ -26,6 +26,7 @@ class Remind < Formula
 
   test do
     (testpath/"reminders").write "ONCE 2015-01-01 Homebrew Test"
-    assert_equal "Reminders for Thursday, 1st January, 2015:\n\nHomebrew Test\n\n", shell_output("#{bin}/remind reminders 2015-01-01")
+    assert_equal "Reminders for Thursday, 1st January, 2015:\n\nHomebrew Test\n\n",
+      shell_output("#{bin}/remind reminders 2015-01-01")
   end
 end

@@ -13,6 +13,8 @@ class Mdp < Formula
     sha256 "b38a74964fd0ac22fcbb50eb569b165128799f77a32d582f102278252b6bd291" => :sierra
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"

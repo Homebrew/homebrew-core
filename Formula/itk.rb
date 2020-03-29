@@ -1,15 +1,15 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
-  homepage "https://www.itk.org/"
+  homepage "https://itk.org"
   url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.0.1/InsightToolkit-5.0.1.tar.gz"
   sha256 "613b125cbf58481e8d1e36bdeacf7e21aba4b129b4e524b112f70c4d4e6d15a6"
-  head "https://itk.org/ITK.git"
+  revision 1
+  head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
   bottle do
-    rebuild 1
-    sha256 "ba127cfed370c5a6eb3347d8d1757de7056912b8cc9b0fbd6962fcdcccd9c84e" => :catalina
-    sha256 "a35ea39ac9e64e205e66eff865d8b1cfb82b0ad1e9e6a910bbd06902d2c4b054" => :mojave
-    sha256 "df8231f2b9768c986d3c446f643a1c03eacb5de3d1fb08c4d4e8a2c860edd349" => :high_sierra
+    sha256 "2baca856421c5089926dc09a573743e101fabd11cae5ac611e26d0609bb5f6a6" => :catalina
+    sha256 "85695ce0ee0cbf98a77acb458ae3d6f0bc90c86a3126a90abe9ecbdc0b72e8eb" => :mojave
+    sha256 "d8122820121a4ab59c76276eb8acfda4483c80fb767857d0ec7d77120ec1ef7b" => :high_sierra
   end
 
   depends_on "cmake" => :build

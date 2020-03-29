@@ -1,13 +1,13 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.3.2.tgz"
-  sha256 "0823744e54a5f0bf7c7871e4c2600e81723bc75e3e42596474a6aa01db87aab8"
+  url "https://varnish-cache.org/_downloads/varnish-6.4.0.tgz"
+  sha256 "f636ba2d881b146f480fb52efefae468b36c2c3e6620d07460f9ccbe364a76c2"
 
   bottle do
-    sha256 "c89102c510344a0dfbdcc94189ca4d8ac86c818d829163b82a4551a1cba7452f" => :catalina
-    sha256 "56704e94ee99e8cd1e423eefb8d895bac2d9b81b87a048552a65aaa1157b9161" => :mojave
-    sha256 "5236fe94463b9c750d1cd2ce03734526e1f853475efff72251a31bf81e52d00f" => :high_sierra
+    sha256 "b112adc0d1789bfe4bea6c3dd7777ce48bbdd8c5d2dd80d42b22b014f5fec988" => :catalina
+    sha256 "432d0cbd340a6e12856a9cba72130142565632c88200386e6f7411dd787f8fa0" => :mojave
+    sha256 "0113688047f37015d042d9650695f885a8fab888e029cd16ea3a62366f06c015" => :high_sierra
   end
 
   depends_on "docutils" => :build

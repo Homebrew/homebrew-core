@@ -15,6 +15,12 @@ class Rethinkdb < Formula
   depends_on "boost" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "curl"
+  # Does not support python 3, as stated in the readme
+  # v8 and gyp fail to build: https://github.com/Homebrew/linuxbrew-core/pull/19614
+  # See also https://github.com/rethinkdb/rethinkdb/pull/6401
+  uses_from_macos "python@2"
+
   def install
     args = ["--prefix=#{prefix}"]
 
@@ -35,32 +41,33 @@ class Rethinkdb < Formula
 
   plist_options :manual => "rethinkdb"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-          <string>#{opt_bin}/rethinkdb</string>
-          <string>--config-file</string>
-          <string>#{etc}/rethinkdb.conf</string>
-      </array>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/rethinkdb/rethinkdb.log</string>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/rethinkdb/rethinkdb.log</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+            <string>#{opt_bin}/rethinkdb</string>
+            <string>--config-file</string>
+            <string>#{etc}/rethinkdb.conf</string>
+        </array>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/rethinkdb/rethinkdb.log</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/rethinkdb/rethinkdb.log</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

@@ -17,6 +17,8 @@ class SshPermitA38 < Formula
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
@@ -28,6 +30,7 @@ class SshPermitA38 < Formula
   test do
     system bin/"ssh-permit-a38 host 1.exmaple.com add"
 
-    assert(File.readlines("ssh-permit.json").grep(/1.exmaple.com/).size == 1, "Test host not found in ssh-permit.json")
+    assert File.readlines("ssh-permit.json").grep(/1.exmaple.com/).size == 1,
+      "Test host not found in ssh-permit.json"
   end
 end

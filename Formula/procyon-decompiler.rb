@@ -3,14 +3,19 @@ class ProcyonDecompiler < Formula
   homepage "https://bitbucket.org/mstrobel/procyon/wiki/Java%20Decompiler"
   url "https://bitbucket.org/mstrobel/procyon/downloads/procyon-decompiler-0.5.36.jar"
   sha256 "74f9f1537113207521a075fafe64bd8265c47a9c73574bbf9fa8854bbf7126bc"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     libexec.install "procyon-decompiler-#{version}.jar"
-    bin.write_jar_script libexec/"procyon-decompiler-#{version}.jar", "procyon-decompiler"
+    (bin/"procyon-decompiler").write <<~EOS
+      #!/bin/bash
+      export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+      exec "${JAVA_HOME}/bin/java" -jar "#{libexec}/procyon-decompiler-#{version}.jar" "$@"
+    EOS
   end
 
   test do
@@ -23,7 +28,7 @@ class ProcyonDecompiler < Formula
       }
     EOS
     (testpath/"T.java").write fixture
-    system "javac", "T.java"
+    system "#{Formula["openjdk"].bin}/javac", "T.java"
     fixture.match pipe_output("#{bin}/procyon-decompiler", "T.class")
   end
 end

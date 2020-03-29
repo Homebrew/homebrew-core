@@ -3,16 +3,16 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3712
-  version "10.86.07"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3750
+  version "10.86.10"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    sha256 "6640bdd9642b8dc0920678a2c85cbd5741e72fe81a097d63110fc667b1dacf79" => :catalina
-    sha256 "f537e20d981cc3aba9f53cadee4cb65231844395cf6fde7d737a6c8e8b010f48" => :mojave
-    sha256 "5d5a95822446eb6a95a945a03c555d6dea969ae57f2b1e08811f7d3f4e8b95e8" => :high_sierra
+    sha256 "c7cf82ed41bd852db10406ccec8db7a2c723e676bd1e3ccd38ecff899859c436" => :catalina
+    sha256 "2f7c19e918f0eec6c0836e83ea5950f03c97fc85b0807546119cee0ab91dc092" => :mojave
+    sha256 "1b17e7f2410acb05bd2e717ccfead91027d7c6428e57b7eacc2d04a9032ba40b" => :high_sierra
   end
 
   depends_on "jasper"
@@ -20,14 +20,16 @@ class Netpbm < Formula
   depends_on "libpng"
   depends_on "libtiff"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
   conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :el_capitan
 
     cp "config.mk.in", "config.mk"
 

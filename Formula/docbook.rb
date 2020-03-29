@@ -1,17 +1,15 @@
 class Docbook < Formula
   desc "Standard SGML representation system for technical documents"
   homepage "https://docbook.org/"
-  url "https://docbook.org/xml/5.0/docbook-5.0.zip"
-  sha256 "3dcd65e1f5d9c0c891b3be204fa2bb418ce485d32310e1ca052e81d36623208e"
+  url "https://docbook.org/xml/5.1/docbook-v5.1-os.zip"
+  sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 4
-    sha256 "348f0b59ab5dff66af897a065f1bbb510ac4862adf3c46cf2a1e595e350aa1a1" => :catalina
-    sha256 "8ddedcb7fc0fa34ce6f641d85fb5ed2ecc470d8bd323648bf00b571b597d3d02" => :mojave
-    sha256 "6ac70ee56739ffbe8d99e18164bc42d8d0df9ce62cc2a5c55be4b65cd74092aa" => :high_sierra
-    sha256 "6ac70ee56739ffbe8d99e18164bc42d8d0df9ce62cc2a5c55be4b65cd74092aa" => :sierra
-    sha256 "6ac70ee56739ffbe8d99e18164bc42d8d0df9ce62cc2a5c55be4b65cd74092aa" => :el_capitan
+    sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :catalina
+    sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :mojave
+    sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :high_sierra
   end
 
   uses_from_macos "libxml2"
@@ -47,10 +45,15 @@ class Docbook < Formula
     sha256 "3dcd65e1f5d9c0c891b3be204fa2bb418ce485d32310e1ca052e81d36623208e"
   end
 
+  resource "xml51" do
+    url "https://docbook.org/xml/5.1/docbook-v5.1-os.zip"
+    sha256 "b3f3413654003c1e773360d7fc60ebb8abd0e8c9af8e7d6c4b55f124f34d1e7f"
+  end
+
   def install
     (etc/"xml").mkpath
 
-    %w[42 412 43 44 45 50].each do |version|
+    %w[42 412 43 44 45 50 51].each do |version|
       resource("xml#{version}").stage do |r|
         if version == "412"
           cp prefix/"docbook/xml/4.2/catalog.xml", "catalog.xml"
@@ -68,30 +71,30 @@ class Docbook < Formula
   end
 
   def post_install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    etc_catalog = etc/"xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc_catalog
 
     # only create catalog file if it doesn't exist already to avoid content added
     # by other formulae to be removed
-    unless File.file?("#{etc}/xml/catalog")
-      system "xmlcatalog", "--noout", "--create", "#{etc}/xml/catalog"
-    end
+    system "xmlcatalog", "--noout", "--create", etc_catalog unless File.file?(etc_catalog)
 
-    %w[4.2 4.1.2 4.3 4.4 4.5 5.0].each do |version|
-      catalog = prefix/"docbook/xml/#{version}/catalog.xml"
+    %w[4.2 4.1.2 4.3 4.4 4.5 5.0 5.1].each do |version|
+      catalog = opt_prefix/"docbook/xml/#{version}/catalog.xml"
 
       system "xmlcatalog", "--noout", "--del",
-             "file://#{catalog}", "#{etc}/xml/catalog"
+             "file://#{catalog}", etc_catalog
       system "xmlcatalog", "--noout", "--add", "nextCatalog",
-             "", "file://#{catalog}", "#{etc}/xml/catalog"
+             "", "file://#{catalog}", etc_catalog
     end
   end
 
-  def caveats; <<~EOS
-    To use the DocBook package in your XML toolchain,
-    you need to add the following to your ~/.bashrc:
+  def caveats
+    <<~EOS
+      To use the DocBook package in your XML toolchain,
+      you need to add the following to your ~/.bashrc:
 
-    export XML_CATALOG_FILES="#{etc}/xml/catalog"
-  EOS
+      export XML_CATALOG_FILES="#{etc}/xml/catalog"
+    EOS
   end
 
   test do

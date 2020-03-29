@@ -1,22 +1,21 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
-  revision 1
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2"
-    sha256 "8366e840bb3c9448c2cf0cf9a0800155b0bd7cc212a28ba44990c3d2289c6b93"
+    url "https://distfiles.audacious-media-player.org/audacious-4.0.tar.bz2"
+    sha256 "3f46025334cc79332ef87a0c94297632f8eceb8e1497bf5a76a57003453c8bea"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.tar.bz2"
-      sha256 "eec3177631f99729bf0e94223b627406cc648c70e6646e35613c7b55040a2642"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.0.tar.bz2"
+      sha256 "e1ad3223c7833f167642563f3c30c68d292b1a457c9f0159fdedd58e575e3ee4"
     end
   end
 
   bottle do
-    sha256 "158dca9a2823c05fa18355c498c98dc7499adcb0c47307f513f0ae4194a0a29c" => :catalina
-    sha256 "e543093afa490963a3a18befc35964fb8693a9c9c6d34e86a346799159ea5781" => :mojave
-    sha256 "867c89b2a22b253cbb645c7a171144e3a8868d90417cd6c06b7ac4674b860c41" => :high_sierra
+    sha256 "6e6348dcc4b8b0c07338cd230ee45e2c751f02e945d279043d2c8ba868f85a5a" => :catalina
+    sha256 "bd744580a408ed7069d47fe576e00d8d672f0fad06133f5c5e5a939ff040b259" => :mojave
+    sha256 "9c7132c30a0bf3c7ac98d11fba51a9abb16581759c456b5272d9acf77d73cd2d" => :high_sierra
   end
 
   head do
@@ -51,6 +50,7 @@ class Audacious < Formula
   depends_on "qt"
   depends_on "sdl2"
   depends_on "wavpack"
+
   uses_from_macos "python@2"
 
   def install
@@ -79,11 +79,12 @@ class Audacious < Formula
     end
   end
 
-  def caveats; <<~EOS
-    audtool does not work due to a broken dbus implementation on macOS, so is not built
-    coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
-    GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
-  EOS
+  def caveats
+    <<~EOS
+      audtool does not work due to a broken dbus implementation on macOS, so is not built
+      coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
+      GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
+    EOS
   end
 
   test do

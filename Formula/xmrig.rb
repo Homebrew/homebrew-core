@@ -1,14 +1,14 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v5.5.3.tar.gz"
-  sha256 "267a7b7eff22a7f7e5eb93ef1602c65dfe986e19e4f65e8e64fea6596e42835a"
+  url "https://github.com/xmrig/xmrig/archive/v5.9.0.tar.gz"
+  sha256 "d08fe47bd5c03d7a9e9bcc36ce940a8fc07f802712303d1fc70c20bd80ef695c"
   head "https://github.com/xmrig/xmrig.git"
 
   bottle do
-    sha256 "f6d7e0a978e25575edd0001815de29ad29d50d024bd3d1130374a4d0870158d2" => :catalina
-    sha256 "b3b9afaae316a0d8533dd44c81930d1cbd21a6d3163f36a0f8489529c6c473b8" => :mojave
-    sha256 "33f236509adb20bbe96a3b52a5a94f384882d3a50166664cd0497f7ba1894965" => :high_sierra
+    sha256 "a84f749f15e65d444968347b95a7f4e7439b0fd0a9776d531a1a557c7fd998d6" => :catalina
+    sha256 "a07e60733e836fce899a1740939c4903a48bad1ad6f6b0593ca459d9d3142f4f" => :mojave
+    sha256 "e9bd079680e67f45b6d917ec3cb5815c6c8951a1a83404d2a39e0dfceaf05e6c" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -5,14 +5,14 @@ class GitPlus < Formula
   homepage "https://github.com/tkrajina/git-plus"
   url "https://files.pythonhosted.org/packages/72/75/5de42fceb6a7feb50386f29bd2a9d5391c90ba4e74ab78d86c095edd9f21/git-plus-v0.3.3.tar.gz"
   sha256 "54fa88f82e52863dcf5f2d44c258a22e8d31232473300a4384eba8e2f71df1ea"
-  revision 1
+  revision 2
   head "https://github.com/tkrajina/git-plus.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bdcfe17d7687fad2e523e104b473744831806b1bf5915d9248a6d36dd6d28e6" => :catalina
-    sha256 "ee281bb04fe93d458c63dba2648861dd30e2003f5bb8871e650959134c6daca7" => :mojave
-    sha256 "72ec0aecb258232a837709d55ae03b4068db623c5f6b214bb2cbedd826c1152e" => :high_sierra
+    sha256 "468fa18f8d027cf6218c48d2ca2a593c70bea13a0138ef5a10c0e8f02ce673ff" => :catalina
+    sha256 "603af1693567409c616a81e382176dc22ab9623404e78ca2b024668ca3a6e17e" => :mojave
+    sha256 "fdf09b61e60b1e9b8bbd880f8ab39163c8caf07e545fb88adea90823b36eda3d" => :high_sierra
   end
 
   depends_on "python@3.8"

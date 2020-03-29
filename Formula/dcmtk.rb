@@ -15,6 +15,7 @@ class Dcmtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openssl@1.1"
+
   uses_from_macos "libxml2"
 
   def install

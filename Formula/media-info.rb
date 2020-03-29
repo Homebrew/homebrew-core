@@ -15,6 +15,9 @@ class MediaInfo < Formula
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   def install
     cd "ZenLib/Project/GNU/Library" do
       args = ["--disable-debug",

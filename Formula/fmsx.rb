@@ -81,12 +81,13 @@ class Fmsx < Formula
     resources.each { |r| pkgshare.install r }
   end
 
-  def caveats; <<~EOS
-    No sound under OS X due to missing /dev/dsp.
-    Bundled ROM files are located the following directory:
-      #{pkgshare}
-    You may want to use this directory to set `-home` option.
-  EOS
+  def caveats
+    <<~EOS
+      No sound under OS X due to missing /dev/dsp.
+      Bundled ROM files are located the following directory:
+        #{pkgshare}
+      You may want to use this directory to set `-home` option.
+    EOS
   end
 
   test do

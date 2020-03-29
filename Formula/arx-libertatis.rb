@@ -39,7 +39,7 @@ class ArxLibertatis < Formula
   depends_on "innoextract"
   depends_on "sdl"
 
-  conflicts_with "arx", "rnv", :because => "arx-libertatis, arx and rnv all install `arx` binaries"
+  conflicts_with "rnv", :because => "both install `arx` binaries"
 
   def install
     args = std_cmake_args
@@ -74,13 +74,14 @@ class ArxLibertatis < Formula
     end
   end
 
-  def caveats; <<~EOS
-    This package only contains the Arx Libertatis binary, not the game data.
-    To play Arx Fatalis you will need to obtain the game from GOG.com and
-    install the game data with:
+  def caveats
+    <<~EOS
+      This package only contains the Arx Libertatis binary, not the game data.
+      To play Arx Fatalis you will need to obtain the game from GOG.com and
+      install the game data with:
 
-      arx-install-data /path/to/setup_arx_fatalis.exe
-  EOS
+        arx-install-data /path/to/setup_arx_fatalis.exe
+    EOS
   end
 
   test do

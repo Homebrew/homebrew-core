@@ -5,13 +5,13 @@ class Diceware < Formula
   homepage "https://github.com/ulif/diceware"
   url "https://github.com/ulif/diceware/archive/v0.9.6.tar.gz"
   sha256 "ff55832e725abff212dec1a2cb6e1c3545ae782b5f49ec91ec870a2b50e1f0e8"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f86f57c5ebcdbab709ee24572459743f92cd60a1877225af5124ca56ac592d1e" => :catalina
-    sha256 "83c6ce549c1b824d0bc3c9c550ba8f0837cf0021ce0dc62b22ed43df33a31fbc" => :mojave
-    sha256 "fe863d5aa48b47eb18aa8b294cf0a9e63fea4d9c58c0d14d1938fb649a1e074f" => :high_sierra
+    sha256 "510a0f4aca2e72306d28a54c0c5d5a2d5dd98b6a7c5e8b5a104e637b1499866a" => :catalina
+    sha256 "f5dfaf498b1d3097b8b5346b215e81f1af6dcd98da65ec123a8b129690df3650" => :mojave
+    sha256 "a5838d0d6d69978d1bd9d56699ae4256af9a56bd5636614e783b4e4379c8365f" => :high_sierra
   end
 
   depends_on "python@3.8"

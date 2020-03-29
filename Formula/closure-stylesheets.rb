@@ -4,14 +4,18 @@ class ClosureStylesheets < Formula
   url "https://github.com/google/closure-stylesheets/releases/download/v1.5.0/closure-stylesheets.jar"
   version "1.5.0"
   sha256 "aa4e9b23093187a507a4560d13e59411fc92e285bc911b908a6bcf39479df03c"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
   def install
     libexec.install "closure-stylesheets.jar"
-    bin.write_jar_script libexec/"closure-stylesheets.jar", "closure-stylesheets"
+    (bin/"closure-stylesheets").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/closure-stylesheets.jar" "$@"
+    EOS
   end
 
   test do

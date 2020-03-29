@@ -1,8 +1,8 @@
 class Metabase < Formula
   desc "Business intelligence report server"
   homepage "https://www.metabase.com/"
-  url "https://downloads.metabase.com/v0.34.2/metabase.jar"
-  sha256 "f3ca633444c60f8b8dd4ece4969c576a1431efd07a9971b4f45d379420aa170a"
+  url "https://downloads.metabase.com/v0.34.3/metabase.jar"
+  sha256 "cf8bd7fa27bae5337a80a22b65cabdd687a3514f636135052b66fd947fc3724f"
 
   head do
     url "https://github.com/metabase/metabase.git"
@@ -33,30 +33,31 @@ class Metabase < Formula
 
   plist_options :startup => true, :manual => "metabase"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/metabase</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}/metabase</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/metabase/server.log</string>
-      <key>StandardErrorPath</key>
-      <string>/dev/null</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/metabase</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}/metabase</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/metabase/server.log</string>
+        <key>StandardErrorPath</key>
+        <string>/dev/null</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

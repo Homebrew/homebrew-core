@@ -1,15 +1,14 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz"
-  sha256 "491fec9e89f1372f02a0ab66579aa2e9d63cac5178dfa672c204c88e693a908b"
+  url "https://github.com/logrotate/logrotate/releases/download/3.16.0/logrotate-3.16.0.tar.xz"
+  sha256 "442f6fdf61c349eeae5f76799878b88fe45a11c8863a38b618bac6988f4a7ce5"
 
   bottle do
     cellar :any
-    sha256 "95f2d314052e8c01a227231483b649186f9c6b1e489c0c14f83864420f8825bb" => :catalina
-    sha256 "19923834d4fb0303cfda1825d5bdf0916cd7bd6bd094a76036b5d6f2e3a2f0e0" => :mojave
-    sha256 "d01fb02bceeccb6d21e7db2ccdffc49edd21f61553c1d4e5684eb4e63c8523d1" => :high_sierra
-    sha256 "bb2de9bc3d629bce8f0e49a145a0cfde09e3f41b8fb59a1cb846641505edb6c6" => :sierra
+    sha256 "685db75f3f5c08510db50a7966f2b8d4028709cd02fd586ed21b17e978fd5446" => :catalina
+    sha256 "f32319879033d83978b6dbd4dc970880e733ae437df2de5954c3ca2a6708c850" => :mojave
+    sha256 "38b4e975405eb2a32b7a0d1c8904846198364036deaec47393e6475dc340ca7b" => :high_sierra
   end
 
   depends_on "popt"
@@ -29,30 +28,31 @@ class Logrotate < Formula
 
   plist_options :manual => "logrotate"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/logrotate</string>
-          <string>#{etc}/logrotate.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <false/>
-        <key>StartCalendarInterval</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Hour</key>
-          <integer>6</integer>
-          <key>Minute</key>
-          <integer>25</integer>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/logrotate</string>
+            <string>#{etc}/logrotate.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <false/>
+          <key>StartCalendarInterval</key>
+          <dict>
+            <key>Hour</key>
+            <integer>6</integer>
+            <key>Minute</key>
+            <integer>25</integer>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

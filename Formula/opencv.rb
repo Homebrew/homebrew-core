@@ -3,12 +3,12 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.2.0.tar.gz"
   sha256 "9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "472eb704dd3314e66ae8d891d935a6d3064d7456f2a523bb4fdb6b0eff3abd09" => :catalina
-    sha256 "f3b89894ec7d52ed32f6f8563d668037c0bd8f2aaa8ec83b05dbf8d1a43a2aee" => :mojave
-    sha256 "34d5dd7862daf84e586033fd9093602a82655b8959688547d9c97e4e8044bdc8" => :high_sierra
+    sha256 "ba6068061d29aa4626365aeb644f0672b942069b51e6c9d7569559182afd7006" => :catalina
+    sha256 "6d3be935f596bb82230c4151d2f1aa8bf3030e6f7d3150d0025bc6e164427e42" => :mojave
+    sha256 "e5cb939cec3458d9d769338594f3776906e5ea7b3870a5b17efe827fba71072f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,9 +22,12 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
+  depends_on "openblas"
   depends_on "openexr"
+  depends_on "protobuf"
   depends_on "python"
   depends_on "tbb"
+  depends_on "webp"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.2.0.tar.gz"
@@ -36,6 +39,9 @@ class Opencv < Formula
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    # Avoid Accelerate.framework
+    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
+
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
 
@@ -46,12 +52,14 @@ class Opencv < Formula
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
+      -DBUILD_PROTOBUF=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
+      -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
@@ -59,6 +67,7 @@ class Opencv < Formula
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON
+      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
@@ -82,14 +91,10 @@ class Opencv < Formula
     # extensions, failing with errors such as
     # "error: use of undeclared identifier '_mm256_cvtps_ph'"
     # Work around this by not trying to build AVX2 code.
-    if MacOS.version <= :yosemite
-      args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX"
-    end
+    args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX" if MacOS.version <= :yosemite
 
     args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    unless MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
-    end
+    args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args

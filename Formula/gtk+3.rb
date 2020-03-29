@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz"
-  sha256 "1384eba5614fed160044ae0d32369e3df7b4f517b03f4b1f24d383e528f4be83"
-  revision 1
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.14.tar.xz"
+  sha256 "1c4d69f93ab884fd80c6b95115bfbc12d51ecd029178b6dad3672fdc5ff91e88"
 
   bottle do
-    sha256 "4ccac8c178075606f275a258c215d6b805e184335306d9a78cd4b7c7fbf4a13b" => :catalina
-    sha256 "5198ebdb8d360fbc1d70b980f99b189348db793aa7a694c79cd7445f2ed7e6dd" => :mojave
-    sha256 "23682d476062f2ca5324f2ba584f44712b4d3264c1c9b70d452fead937a77346" => :high_sierra
+    sha256 "ca2e4c5b6c39d67efa8d9af0a00b9f6fe462aa583bb72c14c48eb5e405377386" => :catalina
+    sha256 "350d92b3d8f778830ff284a9ca4b395d315da35129ea834881d9ae67e0db816a" => :mojave
+    sha256 "98c288ee2b92c91b3f5f9029555d378d6d93d4f407c462e9bed009644e895670" => :high_sierra
   end
 
   depends_on "docbook" => :build
@@ -25,10 +24,7 @@ class Gtkx3 < Formula
   depends_on "libepoxy"
   depends_on "pango"
 
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gtk/commit/fa07007389c9662b654680464cf88d8894e4e64d.diff"
-    sha256 "995173a076e6984789e862e81b332fa4b3c5794c113251c66b6d8708a1614d8a"
-  end
+  uses_from_macos "libxslt" => :build # for xsltproc
 
   def install
     args = %W[

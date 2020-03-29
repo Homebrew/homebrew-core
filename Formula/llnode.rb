@@ -1,15 +1,14 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v2.2.0.tar.gz"
-  sha256 "fb1ef8eddc67abcbd5c65f6b6a712b3ff4948814539f1313eed7cd3b58d60fb3"
+  url "https://github.com/nodejs/llnode/archive/v3.1.0.tar.gz"
+  sha256 "86331e70d8e7a00a16bbbe42a717c6d35f7467e78b2a50f264080189f05dd97d"
 
   bottle do
     cellar :any
-    sha256 "9b46a438bd683a821468b2ebe7f579af4a318b131ca853516dba98a5e4d66d93" => :catalina
-    sha256 "bd25f25283d4da121c4b64a34ffa060f46e20efbdd463b8af088ed1568cf64ca" => :mojave
-    sha256 "5e3d8bfdcafce47c4f36da32a4820b0970020459e8a22d0d28eb3d38fd1c89f3" => :high_sierra
-    sha256 "fc975b5e0cb5ee39039100a8da42db92e3359e3e5e3b6c2465e4e969dbee0e7d" => :sierra
+    sha256 "13589fff6cc3c9da8996104061f4a36049019e18dc5642c0848e0b386a0f7733" => :catalina
+    sha256 "82e8f822baf727fb802cd2605f0ce4c6a0f002a4492434caa0e2cbf956b13841" => :mojave
+    sha256 "56003e9b89b590692a4f0c3b4baf08a92ce126000f3165583fd0d657740221e6" => :high_sierra
   end
 
   depends_on "node" => :build
@@ -60,18 +59,19 @@ class Llnode < Formula
     prefix.install "llnode.dylib"
   end
 
-  def caveats; <<~EOS
-    `brew install llnode` does not link the plugin to LLDB PlugIns dir.
+  def caveats
+    <<~EOS
+      `brew install llnode` does not link the plugin to LLDB PlugIns dir.
 
-    To load this plugin in LLDB, one will need to either
+      To load this plugin in LLDB, one will need to either
 
-    * Type `plugin load #{opt_prefix}/llnode.dylib` on each run of lldb
-    * Install plugin into PlugIns dir manually:
+      * Type `plugin load #{opt_prefix}/llnode.dylib` on each run of lldb
+      * Install plugin into PlugIns dir manually:
 
-        mkdir -p ~/Library/Application\\ Support/LLDB/PlugIns
-        ln -sf #{opt_prefix}/llnode.dylib \\
-            ~/Library/Application\\ Support/LLDB/PlugIns/
-  EOS
+          mkdir -p ~/Library/Application\\ Support/LLDB/PlugIns
+          ln -sf #{opt_prefix}/llnode.dylib \\
+              ~/Library/Application\\ Support/LLDB/PlugIns/
+    EOS
   end
 
   test do

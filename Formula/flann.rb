@@ -3,13 +3,13 @@ class Flann < Formula
   homepage "https://www.cs.ubc.ca/research/flann/"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
-  revision 8
+  revision 9
 
   bottle do
     cellar :any
-    sha256 "3292091ca87b96e55066037d23a36b3a1e4a7da976692376c7ed8aa1e38db71e" => :catalina
-    sha256 "4d1b3d6e306e54bb160f1698a36d9b85d1d01b411651284ea00717b2e91c0089" => :mojave
-    sha256 "8c91ce1046b4f961f5c6b4c2fcb3602ab8f889d7a3a1c3806f8aeaa52d4b7ac0" => :high_sierra
+    sha256 "8bee2438249ae71560fb12fd9d2b7b8a63f09d29f09d11628f8603a4c3f14d8d" => :catalina
+    sha256 "234f35c606e1d5a6420a8ad8b26ef40234497caf757358063a71dd672d0436da" => :mojave
+    sha256 "f23d114ea25d8dcf60d14a829d79293b6bc1b868900c8a0abae25c0c45a68bba" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -20,6 +20,8 @@ class Swift < Formula
   # https://github.com/apple/swift#system-requirements
   depends_on :xcode => ["10.0", :build]
 
+  uses_from_macos "icu4c"
+
   # This formula is expected to have broken/missing linkage to
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.

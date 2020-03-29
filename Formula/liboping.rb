@@ -13,6 +13,8 @@ class Liboping < Formula
     sha256 "c4f46d01bdace450a49e2c4fc4ba4056070bf1b869ed07f1b0a1d6a4f7646bc9" => :yosemite
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

@@ -6,13 +6,13 @@ class Gitup < Formula
   url "https://github.com/earwig/git-repo-updater.git",
       :tag      => "v0.5.1",
       :revision => "b502b2eaa46a6a10d9db228209f984bb235444a7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5dcdbf2449908ad41fbcc4609087cd4634ddf55178b9e9e584f99fb90f171b3e" => :catalina
-    sha256 "57c43e99e03b2010963444a9725f9b2255585090a7cc7286b1ce026a1e5898a6" => :mojave
-    sha256 "69c69212d8a8444997b197b33f65e9821b597240147f918982fcd8111c033a60" => :high_sierra
+    sha256 "61b9abe9e481e9fa3a86074756d065f48f92cf71420e6855e95ad1ecdc92cecb" => :catalina
+    sha256 "2e1fb0d6519682a80737b73136fd6cf1c81928d993e88e835cb053725ff40bf2" => :mojave
+    sha256 "63c2169d68aed5aca9a91bba014cdb96238b61316267691dd7c63ef566b89fc8" => :high_sierra
   end
 
   depends_on "python@3.8"

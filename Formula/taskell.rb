@@ -19,6 +19,9 @@ class Taskell < Formula
   depends_on "ghc" => :build
   depends_on "hpack" => :build
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     system "hpack"
     install_cabal_package

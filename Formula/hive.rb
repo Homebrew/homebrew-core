@@ -1,7 +1,8 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
   sha256 "d75dcf36908b4e7b9b0ec9aec57a46a6628b97b276c233cb2c2f1a3e89b13462"
 
   bottle :unneeded
@@ -21,12 +22,13 @@ class Hive < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Hadoop must be in your path for hive executable to work.
+  def caveats
+    <<~EOS
+      Hadoop must be in your path for hive executable to work.
 
-    If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
-      export HCAT_HOME=#{opt_libexec}/hcatalog
-  EOS
+      If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
+        export HCAT_HOME=#{opt_libexec}/hcatalog
+    EOS
   end
 
   test do

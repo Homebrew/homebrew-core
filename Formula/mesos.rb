@@ -1,7 +1,7 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.8.1/mesos-1.8.1.tar.gz"
   mirror "https://archive.apache.org/dist/mesos/1.8.1/mesos-1.8.1.tar.gz"
   sha256 "583f2ad0de36c3e3ce08609a6df1a3ef1145e84f453b3d56fd8332767c3a84e7"
   revision 1
@@ -15,8 +15,8 @@ class Mesos < Formula
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on :java => "1.8"
-
   depends_on "subversion"
+
   uses_from_macos "python@2"
 
   conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"
@@ -65,9 +65,7 @@ class Mesos < Formula
     ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
     # work around to avoid `_clock_gettime` symbol not found error.
-    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
-      ENV["ac_have_clock_syscall"] = "no"
-    end
+    ENV["ac_have_clock_syscall"] = "no" if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
 
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
@@ -140,9 +138,7 @@ class Mesos < Formula
     ENV.prepend_create_path "PYTHONPATH", protobuf_path
     %w[six protobuf].each do |r|
       resource(r).stage do
-        if r == "protobuf"
-          ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils"
-        end
+        ln_s buildpath/"protobuf/lib/python2.7/site-packages/google/apputils", "google/apputils" if r == "protobuf"
         system "python", *Language::Python.setup_install_args(libexec/"protobuf")
       end
     end

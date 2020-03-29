@@ -1,26 +1,30 @@
 class Wdc < Formula
   desc "WebDAV Client provides easy and convenient to work with WebDAV-servers"
   homepage "https://cloudpolis.github.io/webdav-client-cpp"
-  url "https://github.com/CloudPolis/webdav-client-cpp/archive/v1.0.1.tar.gz"
-  sha256 "64b01de188032cb9e09f5060965bd90ed264e7c0b4ceb62bfc036d0caec9fd82"
-  revision 2
+  url "https://github.com/CloudPolis/webdav-client-cpp/archive/v1.1.5.tar.gz"
+  sha256 "3c45341521da9c68328c5fa8909d838915e8a768e7652ff1bcc2fbbd46ab9f64"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba175bbe8a5c6ba732b4fc93386315b1d616c651eea748d821021b970758cd0b" => :catalina
-    sha256 "8ea1fa726f01bca89007add6ef9560d14b3f5413df360dd5d6e9bb6f597402ce" => :mojave
-    sha256 "35868afa90ec0e1573fe41225a666cf66a2bb30629d06f8ca82da3a6117290fd" => :high_sierra
+    sha256 "18365f76dafd05a312e9a7862f2fa747caa8c63e881469719a8ef45d07dce3c6" => :catalina
+    sha256 "fbcaccbaa2440ac38f9efa41a342eef4d883e522fa5df7d642aaa1563d38f28b" => :mojave
+    sha256 "92dcb68d02f64ff51446052bf5c41fa178cc48ade406a9533199461476f7c849" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "openssl@1.1"
   depends_on "pugixml"
+
+  uses_from_macos "curl"
 
   def install
     pugixml = Formula["pugixml"]
     ENV.prepend "CXXFLAGS", "-I#{pugixml.opt_include.children.first}"
+    inreplace "CMakeLists.txt", "CURL CONFIG REQUIRED", "CURL REQUIRED"
     system "cmake", ".", "-DPUGIXML_INCLUDE_DIR=#{pugixml.opt_include}",
-                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}", *std_cmake_args
+                         "-DPUGIXML_LIBRARY=#{pugixml.opt_lib}",
+                         "-DHUNTER_ENABLED=OFF", *std_cmake_args
     system "make", "install"
   end
 
@@ -38,7 +42,7 @@ class Wdc < Formula
           {"webdav_login",    "webdav_login"},
           {"webdav_password", "webdav_password"}
         };
-        std::shared_ptr<WebDAV::Client> client(WebDAV::Client::Init(options));
+        std::unique_ptr<WebDAV::Client> client{ new WebDAV::Client{ options } };
         auto check_connection = client->check();
         assert(!check_connection);
       }

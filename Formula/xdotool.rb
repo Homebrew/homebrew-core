@@ -19,20 +19,19 @@ class Xdotool < Formula
   def install
     # Work around an issue with Xcode 8 on El Capitan, which
     # errors out with `typedef redefinition with different types`
-    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
-      ENV.delete("SDKROOT")
-    end
+    ENV.delete("SDKROOT") if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
 
     system "make", "PREFIX=#{prefix}", "INSTALLMAN=#{man}", "install"
   end
 
-  def caveats; <<~EOS
-    You will probably want to enable XTEST in your X11 server now by running:
-      defaults write org.x.X11 enable_test_extensions -boolean true
+  def caveats
+    <<~EOS
+      You will probably want to enable XTEST in your X11 server now by running:
+        defaults write org.x.X11 enable_test_extensions -boolean true
 
-    For the source of this useful hint:
-      https://stackoverflow.com/questions/1264210/does-mac-x11-have-the-xtest-extension
-  EOS
+      For the source of this useful hint:
+        https://stackoverflow.com/questions/1264210/does-mac-x11-have-the-xtest-extension
+    EOS
   end
 
   test do

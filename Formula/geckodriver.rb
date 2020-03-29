@@ -36,6 +36,8 @@ class Geckodriver < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "unzip"
+
   def install
     unless build.head?
       # we need to do this, because all archives are containing a top level testing directory

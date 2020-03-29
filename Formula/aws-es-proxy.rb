@@ -39,7 +39,8 @@ class AwsEsProxy < Formula
 
   test do
     begin
-      io = IO.popen("#{bin}/aws-es-proxy -endpoint https://dummy-host.eu-west-1.es.amazonaws.com", :err => [:child, :out])
+      io = IO.popen("#{bin}/aws-es-proxy -endpoint https://dummy-host.eu-west-1.es.amazonaws.com",
+                    :err => [:child, :out])
       sleep 2
     ensure
       Process.kill("SIGINT", io.pid)

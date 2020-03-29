@@ -2,17 +2,17 @@ class GitReview < Formula
   include Language::Python::Virtualenv
 
   desc "Submit git branches to gerrit for review"
-  homepage "https://git.openstack.org/cgit/openstack-infra/git-review"
+  homepage "https://opendev.org/opendev/git-review"
   url "https://files.pythonhosted.org/packages/2c/e6/e4f1b999af2493a5cc5e050f0869b29f30914f94016abf48c77c6307745b/git-review-1.28.0.tar.gz"
   sha256 "8e3aabb7b9484063e49c2504d137609401e32ad5128ff2a5cf43e98d5d3dc15a"
-  revision 1
-  head "https://git.openstack.org/openstack-infra/git-review.git"
+  revision 2
+  head "https://opendev.org/opendev/git-review.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "219c2d8d7a31eb8b574abd3cab053662e3e9c3303a4b0238f2f6dee84159b9a5" => :catalina
-    sha256 "6d348cd0ef827adf60c6f6c569ef4fc606777abfc3413055eaa7dcfaebc8c921" => :mojave
-    sha256 "4dea8ae739c4855b2858b875c13f11b91a8221497f7b62d6ae22651c7eda3750" => :high_sierra
+    sha256 "8bb267cb74c37af45200381f60f84dc49af52a0d2eed65c23db6e582d0d407b9" => :catalina
+    sha256 "acd209ffed9affc75582b7ef94e3232abc0f2ab6490b634fc9abcb53a2e0f08d" => :mojave
+    sha256 "cb9721c5b767816de394884dbb83a7274b43fcb495015d445253d3820ac07b32" => :high_sierra
   end
 
   depends_on "python@3.8"

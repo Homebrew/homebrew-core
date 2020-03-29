@@ -1,21 +1,21 @@
 class Diesel < Formula
   desc "Command-line tool for Rust ORM Diesel"
   homepage "https://diesel.rs"
-  url "https://github.com/diesel-rs/diesel/archive/v1.4.3.tar.gz"
-  sha256 "79769964028e5cc85219d100d4945d69a5d2ec5a4125c36fd50b9ef1dc326d5a"
-
+  url "https://github.com/diesel-rs/diesel/archive/v1.4.4.tar.gz"
+  sha256 "e3f80fbc31d3233821f90f6830750373810ddb739f2300c94cf68b342e6bcacb"
   head "https://github.com/diesel-rs/diesel.git"
 
   bottle do
     cellar :any
-    sha256 "214ec8bbdbb80d992a10cab12223b7c288c629b0d6683fd096a3dcb8d7097832" => :catalina
-    sha256 "e505f21815ff044a269f377dd79a79f2f1a11390637ae45cc6561625fc575c57" => :mojave
-    sha256 "c4d113930238a802a007a767068766b388b987374b79a188619a2b36f9f4ca13" => :high_sierra
+    sha256 "0ec3b3e14f123c80b4ad66ae4ca3f157466816851b888e87b510a9d963eae55c" => :catalina
+    sha256 "3bb69602a4de796c29d7307b9d1ad743bec7b92566d9c5ccab49f625f0c3a45d" => :mojave
+    sha256 "5654e9d9fe8a8fef958f9db3efe93d007dce571cb3a30ee81443c8608e5864c3" => :high_sierra
   end
 
   depends_on "rust" => [:build, :test]
   depends_on "libpq"
   depends_on "mysql-client"
+
   uses_from_macos "sqlite"
 
   def install

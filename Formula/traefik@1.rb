@@ -1,15 +1,15 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.20/traefik-v1.7.20.src.tar.gz"
-  version "1.7.20"
-  sha256 "cc56693c9775bcc6f7a031d64c754e5325c0bcc0fb66f57f45f216c8c23a1545"
+  url "https://github.com/containous/traefik/releases/download/v1.7.24/traefik-v1.7.24.src.tar.gz"
+  version "1.7.24"
+  sha256 "8f9e0ba3cbb6537e47c675c806d6e6de3267241a48ea7291b19673d524f78a88"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b89863145fb016401b62b50c9b1593ac1cb92a3d50ccf2cc4c60634c824ebad2" => :catalina
-    sha256 "822606e4d711c5bfd9167c15324933d5a60d4a182e51ab295140fe176ad2a966" => :mojave
-    sha256 "71b7ff0941dee9c9a8c09592659f669125cb1e27864858f7b8eb8a32490261ed" => :high_sierra
+    sha256 "f50589618ba4147731cadda2451d08f95a6d56ad79f823b657ab64db73f590ed" => :catalina
+    sha256 "993885ac94857dd2828fdf05188326a6ebd9e8da38d5deaafbcfa4094b4738d2" => :mojave
+    sha256 "2c00bae6b3c468a32cdaaa59f58d33cc3de61899723a355d99cf34f0bd93c773" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -80,10 +80,9 @@ class TraefikAT1 < Formula
 
     (testpath/"traefik.toml").write <<~EOS
       [web]
-      address = ":#{web_port}"
-
+        address = ":#{web_port}"
       [entryPoints.http]
-      address = ":#{http_port}"
+        address = ":#{http_port}"
     EOS
 
     begin
@@ -91,10 +90,14 @@ class TraefikAT1 < Formula
         exec bin/"traefik", "--configfile=#{testpath}/traefik.toml"
       end
       sleep 5
+      cmd = "curl -sIm3 -XGET http://127.0.0.1:#{http_port}/"
+      assert_match /404 Not Found/m, shell_output(cmd)
+      sleep 1
       cmd = "curl -sIm3 -XGET http://localhost:#{web_port}/dashboard/"
       assert_match /200 OK/m, shell_output(cmd)
     ensure
-      Process.kill("HUP", pid)
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end

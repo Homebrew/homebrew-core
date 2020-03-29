@@ -1,15 +1,14 @@
 class Tealdeer < Formula
   desc "Very fast implementation of tldr in Rust"
   homepage "https://github.com/dbrgn/tealdeer"
-  url "https://github.com/dbrgn/tealdeer/archive/v1.2.0.tar.gz"
-  sha256 "5cf286059b823501d05da445b9b7a609ec2da91d711d990df76397f79d800c52"
+  url "https://github.com/dbrgn/tealdeer/archive/v1.3.0.tar.gz"
+  sha256 "d384176263c1377b241f4e41f8efd564052e506af00e014240f3874419e187e0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "778935472a63f1b04b68597158467aa4ccf4633592aa6b9a781634bd4774c877" => :catalina
-    sha256 "1c8932dac2f578a4b64d472a6fce712309c998b05128a77e6fb4be4353112bc5" => :mojave
-    sha256 "b9c9181ba84b47b2dadaf49bfc9e8726273a071615e8229ed646181d4cbe5a49" => :high_sierra
+    sha256 "a75bdb28063e5c0c4d1882ecabba461eeb719b7f596ab0131011c5334816c7bb" => :catalina
+    sha256 "b10ecb37c597fc4ab8cd5078a2389ea2b6f7a8357a46ab459620b8b5a7492d61" => :mojave
+    sha256 "cc51ff0b589a0a8a299ee69689a421092bdbe9e47c23ccad2c0d4f27c85a5b0d" => :high_sierra
   end
 
   depends_on "rust" => :build

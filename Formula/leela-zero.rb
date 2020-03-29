@@ -25,7 +25,7 @@ class LeelaZero < Formula
   def install
     mkdir "build"
     cd "build" do
-      system "cmake", ".."
+      system "cmake", "..", *std_cmake_args
       system "cmake", "--build", "."
       bin.install "leelaz"
     end
@@ -34,6 +34,7 @@ class LeelaZero < Formula
 
   test do
     system "#{bin}/leelaz", "--help"
-    assert_match /^= [A-T][0-9]+$/, pipe_output("#{bin}/leelaz --cpu-only --gtp -w #{pkgshare}/*.gz", "genmove b\n", 0)
+    assert_match /^= [A-T][0-9]+$/,
+      pipe_output("#{bin}/leelaz --cpu-only --gtp -w #{pkgshare}/*.gz", "genmove b\n", 0)
   end
 end

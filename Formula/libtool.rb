@@ -17,6 +17,8 @@ class Libtool < Formula
     sha256 "2e51ef82ef2bd1ad9d921a9016b9e5d7fa82d131849e2c32a3c90daa119e2eda" => :mavericks
   end
 
+  uses_from_macos "m4" => :build
+
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
     system "./configure", "--disable-dependency-tracking",
@@ -26,10 +28,11 @@ class Libtool < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    In order to prevent conflicts with Apple's own libtool we have prepended a "g"
-    so, you have instead: glibtool and glibtoolize.
-  EOS
+  def caveats
+    <<~EOS
+      In order to prevent conflicts with Apple's own libtool we have prepended a "g"
+      so, you have instead: glibtool and glibtoolize.
+    EOS
   end
 
   test do

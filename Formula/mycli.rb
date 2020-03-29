@@ -5,13 +5,13 @@ class Mycli < Formula
   homepage "https://mycli.net/"
   url "https://files.pythonhosted.org/packages/11/dd/ddb8650471155b43b83888f0efce74214c175115e0e37ff415d2f991f1b3/mycli-1.20.1.tar.gz"
   sha256 "d4414ef8573a957b2cbb91db87bc48d48bfc3714ef23cf41cd4a5ad227561c6e"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "aa58544a49ad7ead938ab76e697d7ee9970713caebe3fc4159a02c7849a2a909" => :catalina
-    sha256 "f0f080d264f4e6290a254091c840fbe4db23c7872e8bcb451d79d920618dfb43" => :mojave
-    sha256 "7c7c30472e81644846dc5cbdf32835042101bfbedd40988cb7fa1f596b7725d6" => :high_sierra
+    sha256 "3878fbee0b13b6f1f46929fb2bb53796dfb2b5d266a63013b6beeb3303a109a1" => :catalina
+    sha256 "ebda849b7984a7b0193c33a518ca5ac0ab475d3895a0535b27f93bc8a696cea5" => :mojave
+    sha256 "0c206cfc2421b7ed96652323971ab1f373b0b3e1eca334f5bf616c6710f29cb0" => :high_sierra
   end
 
   depends_on "openssl@1.1"

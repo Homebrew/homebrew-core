@@ -3,20 +3,24 @@ class Libstfl < Formula
   homepage "http://www.clifford.at/stfl/"
   url "http://www.clifford.at/stfl/stfl-0.24.tar.gz"
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
-  revision 8
+  revision 10
 
   bottle do
     cellar :any
-    sha256 "3d9ad970cb1f4fb003ee51f6c8bba9cdc4e949a9bf9f3abed40287b7d7cffb06" => :catalina
-    sha256 "69c2c6c2c41794fcf12784a4314718def6065bfec14dd15e822e8be245ba2b5b" => :mojave
-    sha256 "3cfbe818441f2f60d24e36a7957c3a27df33e4668060aa045dd8a470c6982f7f" => :high_sierra
-    sha256 "d2b2f9c58980f858a80bc930be71590aae52e09dfe21dbb49047f8e876180305" => :sierra
+    sha256 "a72700193b9de0b12b5886043e39da52c71f6159c38477d8c63ec552ba42f4e9" => :catalina
+    sha256 "05dd3bc8aa05eb7f0d236b0f17891f3b8f8eed959c22489c8adab8cd5217ee61" => :mojave
+    sha256 "be2fa58735e737b334952209f35cb19824c6f7b7b8115727f175537cc28a6b12" => :high_sierra
   end
 
   depends_on "swig" => :build
+  depends_on "python@3.8"
   depends_on "ruby"
 
+  uses_from_macos "perl"
+
   def install
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
+
     ENV.append "LDLIBS", "-liconv"
     ENV.append "LIBS", "-lncurses -liconv -lruby"
 
@@ -37,12 +41,15 @@ class Libstfl < Formula
       s.gsub! "libstfl.so", "libstfl.dylib"
     end
 
+    xy = "3.8"
+    python_config = Formula["python@3.8"].opt_libexec/"bin/python-config"
+
     inreplace "python/Makefile.snippet" do |s|
       # Install into the site-packages in the Cellar (so uninstall works)
-      s.change_make_var! "PYTHON_SITEARCH", lib/"python2.7/site-packages"
+      s.change_make_var! "PYTHON_SITEARCH", lib/"python#{xy}/site-packages"
       s.gsub! "lib-dynload/", ""
       s.gsub! "ncursesw", "ncurses"
-      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
+      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`#{python_config} --cflags`.chomp}"
       s.gsub! "-lncurses", "-lncurses -liconv"
     end
 

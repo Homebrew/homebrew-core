@@ -36,10 +36,11 @@ class Resty < Formula
     bin.install "pypp"
   end
 
-  def caveats; <<~EOS
-    To activate the resty, add the following at the end of your #{shell_profile}:
-    source #{opt_pkgshare}/resty
-  EOS
+  def caveats
+    <<~EOS
+      To activate the resty, add the following at the end of your #{shell_profile}:
+      source #{opt_pkgshare}/resty
+    EOS
   end
 
   test do

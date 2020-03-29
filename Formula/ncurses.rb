@@ -1,15 +1,14 @@
 class Ncurses < Formula
   desc "Text-based UI library"
   homepage "https://www.gnu.org/software/ncurses/"
-  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.1.tar.gz"
-  sha256 "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17"
-  revision 1
+  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.2.tar.gz"
+  sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
 
   bottle do
-    sha256 "4776644ae1dde76e4f1afa169278cd8a8f1b38a845866db57a542829b9c9e60c" => :catalina
-    sha256 "9ae7d52a9fdc8941884b4cf606555f939450e68f3eb90fa2c8cd1d3e432727b6" => :mojave
-    sha256 "7c02ea1f682af10b1ec7e98da52bb408d5f6fdb6668bdd0170b0707e6ec74e94" => :high_sierra
+    sha256 "eae51ad3391edafe3d6c649ba44f607ee1464b4b5d9ee48770e9817ee5f0ccdd" => :catalina
+    sha256 "1771e0ce821cf8cbe38d0ce8d1843fd559532923222edc5dbf5b31fcf24fed90" => :mojave
+    sha256 "4648be8457b081026d3da80f290abaf3fbfdcb49d62914861a63fc706f9adabe" => :high_sierra
   end
 
   keg_only :provided_by_macos

@@ -23,6 +23,8 @@ class Mosh < Formula
   depends_on "tmux" => :build
   depends_on "protobuf"
 
+  uses_from_macos "ncurses"
+
   # Fix mojave build.
   unless build.head?
     patch do

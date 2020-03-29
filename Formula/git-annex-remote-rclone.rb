@@ -32,7 +32,8 @@ class GitAnnexRemoteRclone < Formula
     assert File.symlink?("Hello.txt")
 
     ENV["RCLONE_CONFIG_TMPLOCAL_TYPE"]="local"
-    system "git", "annex", "initremote", "testremote", "type=external", "externaltype=rclone", "target=tmplocal", "encryption=none", "rclone_layout=lower"
+    system "git", "annex", "initremote", "testremote", "type=external", "externaltype=rclone",
+                  "target=tmplocal", "encryption=none", "rclone_layout=lower"
 
     system "git", "annex", "copy", "Hello.txt", "--to=testremote"
 

@@ -25,6 +25,8 @@ class Pdns < Formula
   depends_on "openssl@1.1"
   depends_on "sqlite"
 
+  uses_from_macos "curl"
+
   def install
     # Fix "configure: error: cannot find boost/program_options.hpp"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
@@ -45,27 +47,28 @@ class Pdns < Formula
 
   plist_options :manual => "pdns_server start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/pdns_server</string>
-      </array>
-      <key>EnvironmentVariables</key>
-      <key>KeepAlive</key>
-      <true/>
-      <key>SHAuthorizationRight</key>
-      <string>system.preferences</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/pdns_server</string>
+        </array>
+        <key>EnvironmentVariables</key>
+        <key>KeepAlive</key>
+        <true/>
+        <key>SHAuthorizationRight</key>
+        <string>system.preferences</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

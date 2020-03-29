@@ -16,17 +16,19 @@ class Volt < Formula
 
   depends_on "go" => :build
 
-  def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/vim-volt/volt").install buildpath.children
-    cd "src/github.com/vim-volt/volt" do
-      system "go", "build", "-o", bin/"volt"
-      prefix.install_metafiles
+  # Go 1.14+ compatibility.
+  patch do
+    url "https://github.com/vim-volt/volt/commit/aa9586901d249aa40e67bc0b3e0e7d4f13d5a88b.patch?full_index=1"
+    sha256 "62bed17b5c58198f44a669e41112335928e2fa93d71554aa6bddc782cf124872"
+  end
 
-      bash_completion.install "_contrib/completion/bash" => "volt"
-      zsh_completion.install "_contrib/completion/zsh" => "_volt"
-      cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
-    end
+  def install
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"volt"
+    prefix.install_metafiles
+
+    bash_completion.install "_contrib/completion/bash" => "volt"
+    zsh_completion.install "_contrib/completion/zsh" => "_volt"
+    cp "#{bash_completion}/volt", "#{zsh_completion}/volt-completion.bash"
   end
 
   test do

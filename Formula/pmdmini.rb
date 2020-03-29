@@ -26,7 +26,8 @@ class Pmdmini < Formula
     system "make"
 
     # Makefile doesn't build a dylib
-    system "#{ENV.cc} -dynamiclib -install_name #{lib}/libpmdmini.dylib -o libpmdmini.dylib -undefined dynamic_lookup obj/*.o"
+    system "#{ENV.cc} -dynamiclib -install_name #{lib}/libpmdmini.dylib " \
+                     "-o libpmdmini.dylib -undefined dynamic_lookup obj/*.o"
 
     bin.install "pmdplay"
     lib.install "libpmdmini.a", "libpmdmini.dylib"
