@@ -34,7 +34,7 @@ class Ungit < Formula
     if ppid
       Process.kill("TERM", ppid)
       # ensure that there are no spawned child processes left
-      child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
+      child_p = pipe_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
       child_p.each { |pid| Process.kill("TERM", pid) }
       Process.wait(ppid)
     end
