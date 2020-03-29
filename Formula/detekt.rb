@@ -1,8 +1,8 @@
 class Detekt < Formula
   desc "Static code analysis for Kotlin"
   homepage "https://github.com/arturbosch/detekt"
-  url "https://jcenter.bintray.com/io/gitlab/arturbosch/detekt/detekt-cli/1.7.1/detekt-cli-1.7.1-all.jar"
-  sha256 "d4f54ac9bfc04a3046cad00a91433b2294e04d27b079de238d3842e1e1e42860"
+  url "https://jcenter.bintray.com/io/gitlab/arturbosch/detekt/detekt-cli/1.7.2/detekt-cli-1.7.2-all.jar"
+  sha256 "33be77452ccef1ffe8f90ab6abb5c1763fb383c93004325e53ea32ff4cd0033e"
 
   bottle :unneeded
 
