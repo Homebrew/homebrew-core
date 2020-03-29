@@ -1,8 +1,8 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "https://eyed3.nicfit.net/"
-  url "https://eyed3.nicfit.net/releases/eyeD3-0.9.4.tar.gz"
-  sha256 "11099464e438c11a1d701e723a5065c1556fb59878ad9dce29f924dac3a07a96"
+  url "https://eyed3.nicfit.net/releases/eyeD3-0.9.5.tar.gz"
+  sha256 "faf5806197f2093e82c2830d41f2378f07b3a9da07a16fafb14fc6fbdebac50a"
 
   bottle do
     cellar :any_skip_relocation
