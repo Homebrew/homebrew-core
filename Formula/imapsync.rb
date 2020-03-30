@@ -1,9 +1,9 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "https://imapsync.lamiral.info/"
-  url "https://imapsync.lamiral.info/dist2/imapsync-1.945.tgz"
+  url "https://imapsync.lamiral.info/dist2/imapsync-1.977.tgz"
   # Note the mirror will return 404 until the version becomes outdated.
-  sha256 "38c8bceea28ff9a4f533d67e945ef5c0025d81a1d312239c17f38234971ce529"
+  sha256 "1ce601150568a6b13a5d8730bee07fdc05b35f3f4e35775f1b471ba221940c2a"
   head "https://github.com/imapsync/imapsync.git"
 
   bottle do
@@ -14,6 +14,11 @@ class Imapsync < Formula
   end
 
   uses_from_macos "perl"
+
+  resource "Encode::IMAPUTF7" do
+    url "https://cpan.metacpan.org/authors/id/P/PM/PMAKHOLM/Encode-IMAPUTF7-1.05.tar.gz"
+    sha256 "470305ddc37483cfe8d3c16d13770a28011f600bf557acb8c3e07739997c37e1"
+  end
 
   resource "Unicode::String" do
     url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/GAAS/Unicode-String-2.10.tar.gz"
@@ -110,6 +115,7 @@ class Imapsync < Formula
 
     system "perl", "-c", "imapsync"
     system "pod2man", "imapsync", "imapsync.1"
+    inreplace "imapsync", "#!/usr/bin/env perl", "#!/usr/bin/perl"
     bin.install "imapsync"
     man1.install "imapsync.1"
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
