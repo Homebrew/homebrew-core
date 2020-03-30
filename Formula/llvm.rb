@@ -1,6 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz"
@@ -138,7 +139,7 @@ class Llvm < Formula
 
     args = %W[
       -DLIBOMP_ARCH=x86_64
-      -DLINK_POLLY_INTO_TOOLS=ON
+      -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
@@ -149,7 +150,6 @@ class Llvm < Formula
       -DLLVM_INSTALL_UTILS=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
-      -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
