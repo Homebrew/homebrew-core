@@ -256,12 +256,11 @@ class Llvm < Formula
     # Testing Command Line Tools
     if MacOS::CLT.installed?
       toolchain_path = "/Library/Developer/CommandLineTools"
-      sdk_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       system "#{bin}/clang++", "-v",
-             "-isysroot", sdk_path,
+             "-isysroot", MacOS::CLT.sdk_path,
              "-isystem", "#{toolchain_path}/usr/include/c++/v1",
              "-isystem", "#{toolchain_path}/usr/include",
-             "-isystem", "#{sdk_path}/usr/include",
+             "-isystem", "#{MacOS::CLT.sdk_path}/usr/include",
              "-std=c++11", "test.cpp", "-o", "testCLT++"
       assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testCLT++").chomp
@@ -272,10 +271,10 @@ class Llvm < Formula
     # Testing Xcode
     if MacOS::Xcode.installed?
       system "#{bin}/clang++", "-v",
-             "-isysroot", MacOS.sdk_path,
+             "-isysroot", MacOS::Xcode.sdk_path,
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
-             "-isystem", "#{MacOS.sdk_path}/usr/include",
+             "-isystem", "#{MacOS::Xcode.sdk_path}/usr/include",
              "-std=c++11", "test.cpp", "-o", "testXC++"
       assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./testXC++").chomp
