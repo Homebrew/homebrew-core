@@ -5,6 +5,7 @@ class Pympress < Formula
   homepage "https://github.com/Cimbali/pympress/"
   url "https://files.pythonhosted.org/packages/d1/cf/a81c579fa9b65daa7b159220038adaaeb144d21616dc83868ed7c42589d9/pympress-1.5.2.tar.gz"
   sha256 "3f19236897ba7b3106b0b8ccd04ca32aee42fe3a604ea1d7ced305abcceeecf2"
+  revision 1
   head "https://github.com/Cimbali/pympress.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Pympress < Formula
   depends_on "gtk+3"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argh" do
     url "https://files.pythonhosted.org/packages/e3/75/1183b5d1663a66aebb2c184e0398724b624cecd4f4b679cb6e25de97ed15/argh-0.26.2.tar.gz"
