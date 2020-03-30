@@ -5,8 +5,8 @@ class DhallLspServer < Formula
 
   desc "Language Server Protocol (LSP) server for Dhall"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server"
-  url "https://hackage.haskell.org/package/dhall-lsp-server-1.0.5/dhall-lsp-server-1.0.5.tar.gz"
-  sha256 "e8da592d106b3b9360d8e957a704297d501ac16cc34e7dd38e28fe77f3033dd3"
+  url "https://hackage.haskell.org/package/dhall-lsp-server-1.0.6/dhall-lsp-server-1.0.6.tar.gz"
+  sha256 "9b5a963daf3b7c0622ea519433b5046127bc945a8c90df9ec37cd9ae92fe7ddd"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
