@@ -75,7 +75,6 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
-  depends_on "swig"
 
   def install
     projects = %w[
@@ -101,6 +100,8 @@ class Llvm < Formula
     # Needed until https://reviews.llvm.org/D63883 lands again.
     # Use system libcxxabi.
     rm_r "libcxxabi" if build.head?
+
+    py_ver = "2.7"
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -133,37 +134,27 @@ class Llvm < Formula
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_ENABLE_PYTHON=OFF
+      -DLLDB_ENABLE_LUA=OFF
       -DLIBOMP_INSTALL_ALIASES=OFF
+      -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
     ]
 
-    mkdir llvmpath/"build" do
-      if MacOS.version >= :mojave
-        sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
-        args << "-DDEFAULT_SYSROOT=#{sdk_path}"
-      end
+    sdk = MacOS.sdk_path_if_needed
+    args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
 
+    mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
       system "make", "install-xcode-toolchain"
     end
 
-    (share/"clang/tools").install Dir["clang/tools/scan-{build,view}"]
-    (share/"cmake").install llvmpath/"cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
-    bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
-    man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
+    # Install LLVM Python bindings
+    # Clang Python bindings are installed by CMake
+    (lib/"python#{py_ver}/site-packages").install llvmpath/"bindings/python/llvm"
 
-    # install llvm python bindings
-    (lib/"python2.7/site-packages").install llvmpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"clang/bindings/python/clang"
-
-    # install emacs modes
-    elisp.install Dir["utils/emacs/*.el"] + %w[
-      clang/tools/clang-format/clang-format.el
-      clang/tools/clang-rename/clang-rename.el
-      clang/tools/extra/clang-include-fixer/tool/clang-include-fixer.el
-    ]
+    # Install Emacs modes
+    elisp.install Dir[llvmpath/"utils/emacs/*.el"] + Dir[share/"clang/*.el"]
   end
 
   def caveats
