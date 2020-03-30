@@ -3,8 +3,8 @@ class Vapoursynth < Formula
 
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R48.tar.gz"
-  sha256 "3e98d134e16af894cf7040e4383e4ef753cafede34d5d77c42a2bb89790c50a8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R49.tar.gz"
+  sha256 "126d1e68d3a3e80d1e215c8a2a5dc8773f5fcac70a6c22dadc837bccb603bccd"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -19,14 +19,13 @@ class Vapoursynth < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-
   depends_on :macos => :el_capitan # due to zimg dependency
   depends_on "python"
   depends_on "zimg"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/9c/9b/706dac7338c2860cd063a28cdbf5e9670995eaea408abbf2e88ba070d90d/Cython-0.29.14.tar.gz"
-    sha256 "e4d6bb8703d0319eb04b7319b12ea41580df44fd84d83ccda13ea463c6801414"
+    url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
+    sha256 "60d859e1efa5cc80436d58aecd3718ff2e74b987db0518376046adedba97ac30"
   end
 
   def install
