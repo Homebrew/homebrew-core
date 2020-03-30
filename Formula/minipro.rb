@@ -9,8 +9,8 @@ class Minipro < Formula
   depends_on "srecord"
 
   def install
-    system "make"
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "CC=clang"
+    system "make", "PREFIX=#{prefix}", "MANDIR=#{share}", "install"
   end
 
   test do
