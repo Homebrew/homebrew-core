@@ -1,8 +1,8 @@
 class VapoursynthOcr < Formula
   desc "VapourSynth filters - Tesseract OCR filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R48.tar.gz"
-  sha256 "3e98d134e16af894cf7040e4383e4ef753cafede34d5d77c42a2bb89790c50a8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R49.tar.gz"
+  sha256 "126d1e68d3a3e80d1e215c8a2a5dc8773f5fcac70a6c22dadc837bccb603bccd"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -17,7 +17,6 @@ class VapoursynthOcr < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-
   depends_on "tesseract"
   depends_on "vapoursynth"
 
