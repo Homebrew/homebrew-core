@@ -5,8 +5,8 @@ class DhallYaml < Formula
 
   desc "Convert between Dhall and YAML"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-yaml"
-  url "https://hackage.haskell.org/package/dhall-yaml-1.0.1/dhall-yaml-1.0.1.tar.gz"
-  sha256 "4ed4351c1850363607ed025a035f973db5c375b4650da692f69652837935a3de"
+  url "https://hackage.haskell.org/package/dhall-yaml-1.0.3/dhall-yaml-1.0.3.tar.gz"
+  sha256 "b6314d2e189d72dc56ad277c1bdef0fcfd12515b163635852befbf85b9b8ddd2"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
