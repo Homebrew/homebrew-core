@@ -2,6 +2,7 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   revision 1
+  head "https://github.com/llvm/llvm-project.git"
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz"
@@ -12,7 +13,7 @@ class Llvm < Formula
       sha256 "885b062b00e903df72631c5f98b9579ed1ed2790f74e5646b4234fa084eacb21"
     end
 
-    resource "clang-extra-tools" do
+    resource "clang-tools-extra" do
       url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang-tools-extra-10.0.0.src.tar.xz"
       sha256 "acdf8cf6574b40e6b1dabc93e76debb84a9feb6f22970126b04d4ba18b92911c"
     end
@@ -66,46 +67,6 @@ class Llvm < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  head do
-    url "https://git.llvm.org/git/llvm.git"
-
-    resource "clang" do
-      url "https://git.llvm.org/git/clang.git"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://git.llvm.org/git/clang-tools-extra.git"
-    end
-
-    resource "compiler-rt" do
-      url "https://git.llvm.org/git/compiler-rt.git"
-    end
-
-    resource "libcxx" do
-      url "https://git.llvm.org/git/libcxx.git"
-    end
-
-    resource "libunwind" do
-      url "https://git.llvm.org/git/libunwind.git"
-    end
-
-    resource "lld" do
-      url "https://git.llvm.org/git/lld.git"
-    end
-
-    resource "lldb" do
-      url "https://git.llvm.org/git/lldb.git"
-    end
-
-    resource "openmp" do
-      url "https://git.llvm.org/git/openmp.git"
-    end
-
-    resource "polly" do
-      url "https://git.llvm.org/git/polly.git"
-    end
-  end
-
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
@@ -117,18 +78,32 @@ class Llvm < Formula
   depends_on "swig"
 
   def install
+    projects = %w[
+      clang
+      clang-tools-extra
+      lld
+      lldb
+      openmp
+      polly
+    ]
+    runtimes = %w[
+      compiler-rt
+      libcxx
+      libunwind
+    ]
+
+    llvmpath = buildpath/"llvm"
+    unless build.head?
+      llvmpath.install buildpath.children - [buildpath/".brew_home"]
+      (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
+    end
+
+    # Needed until https://reviews.llvm.org/D63883 lands again.
+    # Use system libcxxabi.
+    rm_r "libcxxabi" if build.head?
+
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
-
-    (buildpath/"tools/clang").install resource("clang")
-    (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
-    (buildpath/"projects/openmp").install resource("openmp")
-    (buildpath/"projects/libcxx").install resource("libcxx")
-    (buildpath/"projects/libunwind").install resource("libunwind")
-    (buildpath/"tools/lld").install resource("lld")
-    (buildpath/"tools/lldb").install resource("lldb")
-    (buildpath/"tools/polly").install resource("polly")
-    (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
     # compiler-rt has some iOS simulator features that require i386 symbols
     # I'm assuming the rest of clang needs support too for 32-bit compilation
@@ -138,6 +113,8 @@ class Llvm < Formula
     ENV.permit_arch_flags
 
     args = %W[
+      -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
+      -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
       -DLIBOMP_ARCH=x86_64
       -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
@@ -147,6 +124,7 @@ class Llvm < Formula
       -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
+      -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
@@ -158,7 +136,7 @@ class Llvm < Formula
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
 
-    mkdir "build" do
+    mkdir llvmpath/"build" do
       if MacOS.version >= :mojave
         sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
         args << "-DDEFAULT_SYSROOT=#{sdk_path}"
@@ -170,21 +148,21 @@ class Llvm < Formula
       system "make", "install-xcode-toolchain"
     end
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-    (share/"cmake").install "cmake/modules"
+    (share/"clang/tools").install Dir["clang/tools/scan-{build,view}"]
+    (share/"cmake").install llvmpath/"cmake/modules"
     inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    (lib/"python2.7/site-packages").install llvmpath/"bindings/python/llvm"
+    (lib/"python2.7/site-packages").install buildpath/"clang/bindings/python/clang"
 
     # install emacs modes
     elisp.install Dir["utils/emacs/*.el"] + %w[
-      tools/clang/tools/clang-format/clang-format.el
-      tools/clang/tools/clang-rename/clang-rename.el
-      tools/clang/tools/extra/clang-include-fixer/tool/clang-include-fixer.el
+      clang/tools/clang-format/clang-format.el
+      clang/tools/clang-rename/clang-rename.el
+      clang/tools/extra/clang-include-fixer/tool/clang-include-fixer.el
     ]
   end
 
