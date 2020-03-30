@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.4.6/zabbix-4.4.6.tar.gz"
-  sha256 "22bb28e667424ad4688f47732853f4241df0e78a7607727b043d704ba726ae0e"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.4.7/zabbix-4.4.7.tar.gz"
+  sha256 "497b8fe7905576d4d450c6fa486693c10d42915b6b55564f111957edcb9fec8d"
 
   bottle do
     sha256 "5b6604bbc81948ff42ca1653f9ab9aaded21637379e966c5e3384ebff5d76eeb" => :catalina
