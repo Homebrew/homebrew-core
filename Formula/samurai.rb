@@ -1,8 +1,8 @@
 class Samurai < Formula
   desc "Ninja-compatible build tool written in C"
   homepage "https://github.com/michaelforney/samurai"
-  url "https://github.com/michaelforney/samurai/releases/download/1.0/samurai-1.0.tar.gz"
-  sha256 "55c73da66b5b8af8b6e26e74b55b3a9f06b763547fe6d0a6206dae68274a1438"
+  url "https://github.com/michaelforney/samurai/releases/download/1.1/samurai-1.1.tar.gz"
+  sha256 "cb3ce624f26eb6f0ec0118a02b8f5f7953c3b644e229f50043698fc458f2c98e"
   head "https://github.com/michaelforney/samurai.git"
 
   bottle do
