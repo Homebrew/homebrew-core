@@ -1,5 +1,5 @@
 class Confd < Formula
-    desc "Manage local application configuration files using templates and data from etcd or consul"
+    desc "Manage local application configuration files using templates"
     homepage "https://github.com/kelseyhightower/confd"
     url "https://github.com/kelseyhightower/confd/archive/v0.16.0.tar.gz"
     sha256 "4a6c4d87fab77aa9827370541024a365aa6b4c8c25a3a9cab52f95ba6b9a97ea"
