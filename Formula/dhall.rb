@@ -5,8 +5,8 @@ class Dhall < Formula
 
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.30.0/dhall-1.30.0.tar.gz"
-  sha256 "f2be9599ddd88602c1577b0ca57849c9827c9e700e105102cecc17c56b7c4a81"
+  url "https://hackage.haskell.org/package/dhall-1.31.0/dhall-1.31.0.tar.gz"
+  sha256 "3c98d11602a4be453624a9f9281017324a418c7606e819a025bfa53227fcb732"
 
   bottle do
     cellar :any_skip_relocation
