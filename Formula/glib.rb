@@ -58,8 +58,8 @@ class Glib < Formula
     inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
       s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
-      s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
-              "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+      s.gsub! "Cflags:-I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
+              "Cflags:-I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
     end
 
     # `pkg-config --print-requires-private gobject-2.0` includes libffi,
