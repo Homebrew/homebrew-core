@@ -15,7 +15,7 @@ class Confd < Formula
       bin.install buildpath/"bin/confd"
     end
   end
-  
+
   test do
     templatefile = testpath/"templates/test.tmpl"
     templatefile.write <<~EOS
@@ -35,7 +35,7 @@ class Confd < Formula
 
     keysfile = testpath/"keys.yaml"
     keysfile.write <<~EOS
-      version: v1 
+      version: v1
     EOS
 
     system "confd", "-backend", "file", "-file", "keys.yaml", "-onetime", "-confdir=."
