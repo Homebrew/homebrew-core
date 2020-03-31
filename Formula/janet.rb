@@ -1,8 +1,8 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/v1.8.0.tar.gz"
-  sha256 "e02ae5c7b4579a23e3f30636c16d248273ed119467a076d18c9362e858eb9812"
+  url "https://github.com/janet-lang/janet/archive/v1.8.1.tar.gz"
+  sha256 "0f3ee438fb159d3081b38506e51df6406b355eb241c662ca1a3529dac0140b92"
   head "https://github.com/janet-lang/janet.git"
 
   bottle do
