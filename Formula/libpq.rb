@@ -3,6 +3,7 @@ class Libpq < Formula
   homepage "https://www.postgresql.org/docs/12/libpq.html"
   url "https://ftp.postgresql.org/pub/source/v12.2/postgresql-12.2.tar.bz2"
   sha256 "ad1dcc4c4fc500786b745635a9e1eba950195ce20b8913f50345bb7d5369b5de"
+  revision 1
 
   bottle do
     sha256 "64bab543c341a2e26246aa434c8ef27c48985f397996a975751f2c5ea91cd3c3" => :catalina
@@ -11,6 +12,10 @@ class Libpq < Formula
   end
 
   keg_only "conflicts with postgres formula"
+
+  # GSSAPI provided by Kerberos.framework crashes when forked.
+  # See https://github.com/Homebrew/homebrew-core/issues/47494.
+  depends_on "krb5"
 
   depends_on "openssl@1.1"
 
