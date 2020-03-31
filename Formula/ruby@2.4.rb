@@ -1,8 +1,8 @@
 class RubyAT24 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.9.tar.xz"
-  sha256 "0c4e000253ef7187feeb940a01a1c7594f28d63aa16f978e892a0e2864f58614"
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.10.tar.xz"
+  sha256 "d5668ed11544db034f70aec37d11e157538d639ed0d0a968e2f587191fc530df"
 
   bottle do
     sha256 "f0fb7c1d2d72dbcb46f3963a3fa893e1f0aad0cad2ab3a79447eb5b233649120" => :catalina
