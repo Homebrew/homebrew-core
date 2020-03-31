@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.1.tar.xz"
   sha256 "17967603bcb44b6dbaac47988d80c29a3d28519210b28157c2bd10997595bbc7"
+  revision 1
 
   bottle do
     sha256 "95aad8af50c0e84cc271b7843e0ef35a0c94fe96a1f1c721d5cb20674ccb7537" => :catalina
@@ -40,7 +41,7 @@ class Glib < Formula
     ]
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", *args, ".."
+      system "meson", "--prefix=#{prefix}", "--default-library=both", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
