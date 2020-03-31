@@ -2,8 +2,8 @@ class Rke < Formula
   desc "Rancher Kubernetes Engine, a Kubernetes installer that works everywhere"
   homepage "https://rancher.com/docs/rke/v0.1.x/en/"
   url "https://github.com/rancher/rke.git",
-      :tag      => "v1.0.5",
-      :revision => "40d8c7089a033dc7b14700f1cbc7c81d6bf876d6"
+      :tag      => "v1.1.0",
+      :revision => "ee820f55a93215e460a8ef2201b94a8f741c8e8d"
 
   bottle do
     cellar :any_skip_relocation
