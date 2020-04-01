@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://proxy.binaries.openttd.org/openttd-releases/1.9.3/openttd-1.9.3-source.tar.xz"
-  sha256 "1988e17f5b6f4b8f423c849ef1c579c21f678722ae4440f87b27a5fea6385846"
+  url "https://cdn.openttd.org/openttd-releases/1.10.0/openttd-1.10.0-source.tar.xz"
+  sha256 "1ba21aac9a1de98b23f80fee952b4b9c5e2d3cc4ac187f5203730826b3f0e253"
   head "https://github.com/OpenTTD/OpenTTD.git"
 
   bottle do
@@ -17,21 +17,23 @@ class Openttd < Formula
   depends_on "xz"
 
   resource "opengfx" do
-    url "https://binaries.openttd.org/extra/opengfx/0.5.5/opengfx-0.5.5-all.zip"
-    sha256 "c648d56c41641f04e48873d83f13f089135909cc55342a91ed27c5c1683f0dfe"
+    url "https://cdn.openttd.org/opengfx-releases/0.6.0/opengfx-0.6.0-all.zip"
+    sha256 "d419c0f5f22131de15f66ebefde464df3b34eb10e0645fe218c59cbc26c20774"
   end
 
   resource "opensfx" do
-    url "https://binaries.openttd.org/extra/opensfx/0.2.3/opensfx-0.2.3-all.zip"
+    url "https://cdn.openttd.org/opensfx-releases/0.2.3/opensfx-0.2.3-all.zip"
     sha256 "6831b651b3dc8b494026f7277989a1d757961b67c17b75d3c2e097451f75af02"
   end
 
   resource "openmsx" do
-    url "https://binaries.openttd.org/extra/openmsx/0.3.1/openmsx-0.3.1-all.zip"
+    url "https://cdn.openttd.org/openmsx-releases/0.3.1/openmsx-0.3.1-all.zip"
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
   end
 
   def install
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     system "./configure", "--prefix-dir=#{prefix}"
     system "make", "bundle"
 
