@@ -1,8 +1,8 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/geek1011/kepubify/archive/v3.1.0.tar.gz"
-  sha256 "11b995d95219c2d6ac933d365d90e40d9f1ac79bcb9af619bb0128c6d64a6ad9"
+  url "https://github.com/geek1011/kepubify/archive/v3.1.1.tar.gz"
+  sha256 "500f8711cb8e9023d3e6534e0ff769ebfb8d05377e9d8f6ae20cad74e903c753"
   head "https://github.com/geek1011/kepubify.git"
 
   bottle do
@@ -17,16 +17,15 @@ class Kepubify < Formula
   def install
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
 
-    ldflags = "-s -w -X main.version=#{version}"
-
-    system "go", "build", "-o", bin/"kepubify",
-                 "-ldflags", ldflags
-
-    system "go", "build", "-o", bin/"covergen",
-                 "-ldflags", ldflags, "./covergen"
-
-    system "go", "build", "-o", bin/"seriesmeta",
-                 "-ldflags", ldflags, "./seriesmeta"
+    %w[
+      kepubify
+      covergen
+      seriesmeta
+    ].each do |p|
+      system "go", "build", "-o", bin/p,
+                   "-ldflags", "-s -w -X main.version=#{version}",
+                   "./cmd/#{p}"
+    end
 
     pkgshare.install "kepub/test.epub"
   end
