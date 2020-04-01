@@ -1,9 +1,9 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.3.8/sbt-1.3.8.tgz"
-  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.8/sbt-1.3.8.tgz"
-  sha256 "27b2ed49758011fefc1bd05e1f4156544d60673e082277186fdd33b6f55d995d"
+  url "https://github.com/sbt/sbt/releases/download/v1.3.9/sbt-1.3.9.tgz"
+  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.9/sbt-1.3.9.tgz"
+  sha256 "ecd4e9b23a07d739065ecc2e00d040063a156131cbc9a9c0e9d8ca57966f641a"
   revision 1
 
   bottle :unneeded
