@@ -3,6 +3,7 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.7.1.tar.gz"
   sha256 "5ba5add1663d51a1b6fb128b50fe869b497f3096765ff7f8212f0ede044b9557"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,6 +15,7 @@ class SuiteSparse < Formula
   depends_on "cmake" => :build
   depends_on "metis"
   depends_on "openblas"
+  depends_on "tbb"
 
   uses_from_macos "m4"
 
