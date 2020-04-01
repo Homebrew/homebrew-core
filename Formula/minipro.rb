@@ -18,5 +18,11 @@ class Minipro < Formula
     assert_match "minipro version #{version}", output_minipro
     output_miniprohex = shell_output("#{bin}/miniprohex 2>&1")
     assert_match "miniprohex by Al Williams", output_miniprohex
+
+    output_minipro_read_nonexistent = shell_output("#{bin}/minipro -p \"ST21C325@DIP7\" -b 2>&1", 1)
+    if (!output_minipro_read_nonexistent.include? "Device ST21C325@DIP7 not found!") &&
+       (!output_minipro_read_nonexistent.include? "Error opening device")
+      raise "Error validating minipro device database."
+    end
   end
 end
