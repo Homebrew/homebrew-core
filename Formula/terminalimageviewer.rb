@@ -14,7 +14,7 @@ class Terminalimageviewer < Formula
   end
 
   test do
-    # Downloads a public domain test file from wikimedia commons and displays it
-    system "#{bin}/tiv", "https://upload.wikimedia.org/wikipedia/commons/2/24/Cornell_box.png"
+    # Downloads a public domain test file from wikimedia commons and displays it. For some reason, when you redirect the output it is blank.
+    assert_equal "", shell_output("#{bin}/tiv -0 https://upload.wikimedia.org/wikipedia/commons/2/24/Cornell_box.png").strip
   end
 end
