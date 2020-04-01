@@ -1,9 +1,8 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/v1.3.3.tar.gz"
-  sha256 "de346ea2e0e58f584df482c4ba28703d961dbdb6569bc4203d3edb98ca6c0b1a"
-  revision 1
+  url "https://github.com/lightvector/KataGo/archive/v1.3.5.tar.gz"
+  sha256 "0e4cc52a82bf708567d592db07f17e1866eb8146381fc2904ebf075115d91ef8"
 
   bottle do
     cellar :any
@@ -17,18 +16,18 @@ class Katago < Formula
   depends_on "libzip"
 
   resource "20b-network" do
-    url "https://github.com/lightvector/KataGo/releases/download/v1.3.3-nets/g170e-b20c256x2-s2971705856-d633407024.bin.gz", :using => :nounzip
-    sha256 "dba074142b9da4822ed9ad91c676372fd943c0c115b7975773dd292b9e96a899"
+    url "https://github.com/lightvector/KataGo/releases/download/v1.3.4/g170e-b20c256x2-s3354994176-d716845198.bin.gz", :using => :nounzip
+    sha256 "fa73912ad2fc84940e5b9edc78a3ef2d775ed18f3c9a735f4051c378b7526d6e"
   end
 
   resource "30b-network" do
-    url "https://github.com/lightvector/KataGo/releases/download/v1.3.3-nets/g170-b30c320x2-s1840604672-d633482024.bin.gz", :using => :nounzip
-    sha256 "2f066112e163de396f5bd56b94162419f16ff48e9fb9836c35a711122ecc9a32"
+    url "https://github.com/lightvector/KataGo/releases/download/v1.3.4/g170-b30c320x2-s2271129088-d716970897.bin.gz", :using => :nounzip
+    sha256 "16a907dca44709d69c64f738c9cce727c91406d10aea212631db30da66bef98a"
   end
 
   resource "40b-network" do
-    url "https://github.com/lightvector/KataGo/releases/download/v1.3.3-nets/g170-b40c256x2-s1929311744-d633132024.bin.gz", :using => :nounzip
-    sha256 "acbdd1aa883d7d8d60101cdcd0c75754ec25dba66b4d60d8d284427cf645124d"
+    url "https://github.com/lightvector/KataGo/releases/download/v1.3.4/g170-b40c256x2-s2383550464-d716628997.bin.gz", :using => :nounzip
+    sha256 "08721ba6daef132f12255535352c6b15bcc51c56f48761ddfefcd522ec47a3f2"
   end
 
   def install
