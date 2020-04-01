@@ -5,7 +5,7 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v5.0.1.tar.gz"
   sha256 "1fe41a6e5b2eec818f457a28772cf2924571078ff1150f928e8bd543a7d3999e"
-  revision 2
+  revision 3
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -187,6 +187,13 @@ class Mitmproxy < Formula
   resource "zstandard" do
     url "https://files.pythonhosted.org/packages/71/bb/dbd6b2f27b94574b51e6055abd753b1f4b211933d478329e37eaae76f721/zstandard-0.12.0.tar.gz"
     sha256 "a110fb3ad1db344fbb563942d314ec5f0f3bdfd6753ec6331dded03ad6c2affb"
+  end
+
+  # Apply patch on 5.0.1 (#3779). Remove after next release
+  # https://github.com/mitmproxy/mitmproxy/pull/3779
+  patch do
+    url "https://github.com/mitmproxy/mitmproxy/pull/3779/commits/d7f43e72ca643ac16e48f58d511cd2a4e6043b88.patch?full_index=1"
+    sha256 "af2e5ba4416d5b53fc17dd123e2a31ef0ce94afed89645aad14ac8a2b455438f"
   end
 
   def install
