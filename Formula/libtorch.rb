@@ -6,6 +6,7 @@ class Libtorch < Formula
   url "https://github.com/pytorch/pytorch.git",
       :tag      => "v1.5.0",
       :revision => "4ff3872a2099993bf7e8c588f7182f3df777205b"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,6 +21,7 @@ class Libtorch < Formula
   depends_on "libomp"
   depends_on "libyaml"
   depends_on "protobuf"
+  depends_on "pybind11"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
