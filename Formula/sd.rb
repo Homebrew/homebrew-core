@@ -1,8 +1,8 @@
 class Sd < Formula
   desc "Intuitive find & replace CLI"
   homepage "https://github.com/chmln/sd"
-  url "https://github.com/chmln/sd/archive/0.6.5.tar.gz"
-  sha256 "ed38e5103080373b00443f72683ac2785b18e354ab6ef4797e27af028be9baf2"
+  url "https://github.com/chmln/sd/archive/v0.7.2.tar.gz"
+  sha256 "8efd38c7641f94f0cf83f04ac4e6033c1794b93dbfdaca893c3403801afe7cc2"
 
   bottle do
     cellar :any_skip_relocation
