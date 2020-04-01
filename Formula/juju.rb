@@ -1,8 +1,8 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
-  url "https://launchpad.net/juju/2.7/2.7.4/+download/juju-core_2.7.4.tar.gz"
-  sha256 "1c914973ca1920e341870f725cd7cda71a66cf9513898ba51fc1a77a660b589c"
+  url "https://launchpad.net/juju/2.7/2.7.5/+download/juju-core_2.7.5.tar.gz"
+  sha256 "096c2ea02f6262d85dfb1915d34b3be2f6832b224555f8d8e99631a4b9f785b8"
 
   bottle do
     cellar :any_skip_relocation
