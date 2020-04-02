@@ -5,6 +5,7 @@ class Flake8 < Formula
   homepage "https://flake8.pycqa.org/"
   url "https://gitlab.com/pycqa/flake8/-/archive/3.7.9/flake8-3.7.9.tar.bz2"
   sha256 "2fd4dfaaeb507e1bb5a598f76e61eca50d27930e550c215f73ed2e5454681c1e"
+  revision 1
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
@@ -14,7 +15,7 @@ class Flake8 < Formula
     sha256 "0d1162d279110a265420fe2f93f04f330e2ac47fdf410368ae1ba260749cb661" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "entrypoints" do
     url "https://files.pythonhosted.org/packages/b4/ef/063484f1f9ba3081e920ec9972c96664e2edb9fdc3d8669b0e3b8fc0ad7c/entrypoints-0.3.tar.gz"
@@ -37,26 +38,14 @@ class Flake8 < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    resource("entrypoints").stage do
-      # Without removing this file, `pip` will ignore the `setup.py` file and
-      # attempt to download the [`flit`](https://github.com/takluyver/flit)
-      # build system.
-      rm_f "pyproject.toml"
-      venv.pip_install Pathname.pwd
-    end
-    (resources.map(&:name).to_set - ["entrypoints"]).each do |r|
-      venv.pip_install resource(r)
-    end
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
-    # flake8 version 3.7.8 will fail this test with `E203` warnings.
-    # Adding `E203` to the list of ignores makes the test pass.
-    # Remove the customized ignore list once the problem is fixed upstream.
-    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8",
-           "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
+    (testpath/"test.py").write <<~EOS
+      print("Hello World!")
+    EOS
+
+    system "#{bin}/flake8", "test.py"
   end
 end
