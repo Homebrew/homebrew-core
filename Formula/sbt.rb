@@ -4,7 +4,6 @@ class Sbt < Formula
   url "https://github.com/sbt/sbt/releases/download/v1.3.9/sbt-1.3.9.tgz"
   mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.3.9/sbt-1.3.9.tgz"
   sha256 "ecd4e9b23a07d739065ecc2e00d040063a156131cbc9a9c0e9d8ca57966f641a"
-  revision 1
 
   bottle :unneeded
 
