@@ -4,6 +4,7 @@ class Couchdb < Formula
   url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.0.0/apache-couchdb-3.0.0.tar.gz"
   mirror "https://archive.apache.org/dist/couchdb/source/3.0.0/apache-couchdb-3.0.0.tar.gz"
   sha256 "d109bb1a70fe746c04a9bf79a2bb1096cb949c750c29dbd196e9c2efd4167fd9"
+  revision 1
 
   bottle do
     cellar :any
