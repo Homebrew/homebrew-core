@@ -14,6 +14,7 @@ class Imagemagick < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
+  depends_on "ghostscript"
   depends_on "jpeg"
   depends_on "libheif"
   depends_on "libomp"
@@ -46,7 +47,7 @@ class Imagemagick < Formula
       --with-openexr
       --with-webp=yes
       --with-heic=yes
-      --without-gslib
+      --with-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-fftw
       --without-pango
@@ -71,5 +72,6 @@ class Imagemagick < Formula
     %w[Modules freetype jpeg png tiff].each do |feature|
       assert_match feature, features
     end
+    assert_match "Helvetica", shell_output("#{bin}/identify -list font")
   end
 end
