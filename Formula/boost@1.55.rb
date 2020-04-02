@@ -38,6 +38,13 @@ class BoostAT155 < Formula
     sha256 "96ba2f3a028df323e9bdffb400cc7c30c0c67e3d681c8c5a867c40ae0549cb62"
   end
 
+  # Fix build on Xcode 11.4
+  patch :p2 do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build/v2"
+  end
+
   def install
     # Patch boost::serialization for Clang
     # https://svn.boost.org/trac/boost/raw-attachment/ticket/8757/0005-Boost.S11n-include-missing-algorithm.patch
