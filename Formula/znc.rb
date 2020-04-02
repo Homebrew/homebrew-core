@@ -3,6 +3,7 @@ class Znc < Formula
   homepage "https://wiki.znc.in/ZNC"
   url "https://znc.in/releases/archive/znc-1.7.5.tar.gz"
   sha256 "a8941e1385c8654287a4428018d93459482e9d5eeedf86bef7b020ddc5f24721"
+  revision 1
 
   bottle do
     rebuild 1
