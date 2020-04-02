@@ -42,7 +42,7 @@ jobs:
           echo "$count bottles"
           echo "::set-output name=count::$count"
       - name: Upload bottles
-        if: steps.bottles.outputs.count > 0
+        if: always() && steps.bottles.outputs.count > 0
         uses: actions/upload-artifact@v1
         with:
           name: bottles
