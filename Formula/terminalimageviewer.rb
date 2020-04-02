@@ -2,7 +2,7 @@ class Terminalimageviewer < Formula
   desc "Display images in a terminal using block graphic characters"
   homepage "https://github.com/stefanhaustein/TerminalImageViewer"
   url "https://github.com/stefanhaustein/TerminalImageViewer/archive/v1.0.0.tar.gz"
-  sha256 "ab44f7d7b26152590a929fec6586e33a3b47737426467fc02c5d5149593ba094"
+  sha256 "d28c5746d25d83ea707db52b54288c4fc1851c642ae021951967e69296450c8c"
   head "https://github.com/stefanhaustein/TerminalImageViewer.git"
   depends_on "gcc"
   depends_on "imagemagick"
