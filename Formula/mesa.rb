@@ -2,9 +2,9 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.0.2.tar.xz"
-  mirror "https://www.mesa3d.org/archive/mesa-20.0.2.tar.xz"
-  sha256 "aa54f1cb669550606aab8ceb475105d15aeb814fca5a778ce70d0fd10e98e86f"
+  url "https://mesa.freedesktop.org/archive/mesa-20.0.4.tar.xz"
+  mirror "https://www.mesa3d.org/archive/mesa-20.0.4.tar.xz"
+  sha256 "c4ed491517a94118a7a611810eeb92645d42ffd82280dcd51be8cc2ba1aabba5"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
@@ -23,8 +23,8 @@ class Mesa < Formula
   depends_on "gettext"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/28/03/329b21f00243fc2d3815399413845dbbfb0745cff38a29d3597e97f8be58/Mako-1.1.1.tar.gz"
-    sha256 "2984a6733e1d472796ceef37ad48c26f4a984bb18119bb2dbc37a44d8f6e75a4"
+    url "https://files.pythonhosted.org/packages/42/64/fc7c506d14d8b6ed363e7798ffec2dfe4ba21e14dda4cfab99f4430cba3a/Mako-1.1.2.tar.gz"
+    sha256 "3139c5d64aa5d175dbafb95027057128b5fbd05a40c53999f3905ceb53366d9d"
   end
 
   resource "gears.c" do
@@ -43,8 +43,8 @@ class Mesa < Formula
     resource("gears.c").stage(pkgshare.to_s)
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dbuildtype=plain", "-Db_ndebug=true",
-                      "-Dplatforms=surfaceless", "-Dglx=disabled", ".."
+      system "meson", "--prefix=#{prefix}", "..", "-Dbuildtype=plain", "-Db_ndebug=true",
+                      "-Dplatforms=surfaceless", "-Dglx=disabled"
       system "ninja"
       system "ninja", "install"
     end
