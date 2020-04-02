@@ -12,9 +12,9 @@ class Libnetworkit < Formula
     mkdir "build" do
       system "cmake", ".", *std_cmake_args,
                            "-DNETWORKIT_EXT_TLX=#{Formula["tlx"].opt_prefix}",
-                           "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I/usr/local/opt/libomp/include'",
+                           "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{Formula["libomp"].opt_prefix}/include'",
                            "-DOpenMP_CXX_LIB_NAMES='omp'",
-                           "-DOpenMP_omp_LIBRARY=/usr/local/opt/libomp/lib/libomp.dylib",
+                           "-DOpenMP_omp_LIBRARY=#{Formula["libomp"].opt_prefix}/lib/libomp.dylib",
                            ".."
       system "make", "install"
     end
