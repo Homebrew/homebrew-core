@@ -3,6 +3,7 @@ class BoostBuild < Formula
   homepage "https://www.boost.org/build/"
   url "https://github.com/boostorg/build/archive/boost-1.72.0.tar.gz"
   sha256 "657d175aa59bcb307f75990fe2ae43793d30e40540c6d964b96ab5db3aa8629c"
+  revision 1
   version_scheme 1
   head "https://github.com/boostorg/build.git"
 
@@ -14,6 +15,13 @@ class BoostBuild < Formula
   end
 
   conflicts_with "b2-tools", :because => "both install `b2` binaries"
+
+  # Fix Xcode 11.4 compatibility.
+  # Remove with the next release.
+  patch do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+  end
 
   def install
     system "./bootstrap.sh"
