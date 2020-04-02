@@ -4,6 +4,7 @@ class Openrct2 < Formula
   url "https://github.com/OpenRCT2/OpenRCT2.git",
       :tag      => "v0.2.6",
       :revision => "6c3c857dfa5cd0d267b89a9d70930fbacdfbaea4"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
