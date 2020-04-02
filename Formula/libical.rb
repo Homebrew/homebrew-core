@@ -3,6 +3,7 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.8/libical-3.0.8.tar.gz"
   sha256 "09fecacaf75ba5a242159e3a9758a5446b5ce4d0ab684f98a7040864e1d1286f"
+  revision 1
 
   bottle do
     cellar :any
