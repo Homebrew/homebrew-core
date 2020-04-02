@@ -3,6 +3,7 @@ class Yaz < Formula
   homepage "https://www.indexdata.com/yaz"
   url "http://ftp.indexdata.dk/pub/yaz/yaz-5.30.2.tar.gz"
   sha256 "ce0c155a172ee4011e21ed02a9aed2d3e88761bd26abf652cc8f09196c40fe43"
+  revision 1
 
   bottle do
     cellar :any
