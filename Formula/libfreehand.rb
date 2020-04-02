@@ -3,7 +3,7 @@ class Libfreehand < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
   url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz"
   sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -18,6 +18,12 @@ class Libfreehand < Formula
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
+
+  # remove with version >=0.1.3
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7bb2149f314dd174f242a76d4dde8d95d20cbae0/libfreehand/0.1.2.patch"
+    sha256 "abfa28461b313ccf3c59ce35d0a89d0d76c60dd2a14028b8fea66e411983160e"
+  end
 
   def install
     system "./configure", "--without-docs",
