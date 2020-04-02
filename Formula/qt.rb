@@ -3,10 +3,10 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.14/5.14.1/single/qt-everywhere-src-5.14.1.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.14/5.14.1/single/qt-everywhere-src-5.14.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.14/5.14.1/single/qt-everywhere-src-5.14.1.tar.xz"
-  sha256 "6f17f488f512b39c2feb57d83a5e0a13dcef32999bea2e2a8f832f54a29badb8"
+  url "https://download.qt.io/official_releases/qt/5.14/5.14.2/single/qt-everywhere-src-5.14.2.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.14/5.14.2/single/qt-everywhere-src-5.14.2.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.14/5.14.2/single/qt-everywhere-src-5.14.2.tar.xz"
+  sha256 "c6fcd53c744df89e7d3223c02838a33309bd1c291fcb6f9341505fe99f7f19fa"
 
   head "https://code.qt.io/qt/qt5.git", :branch => "dev", :shallow => false
 
@@ -26,6 +26,10 @@ class Qt < Formula
   uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "sqlite"
+
+  # Fix build on 10.15.4 SDK, included in 5.15
+  # https://github.com/qt/qtwebengine/commit/5d2026cb04ef8fd408e5722a84e2affb5b9a3119
+  patch :DATA
 
   def install
     args = %W[
@@ -47,6 +51,11 @@ class Qt < Formula
     ]
 
     system "./configure", *args
+
+    # Remove reference to shims directory
+    inreplace "qtbase/mkspecs/qmodule.pri",
+              /^PKG_CONFIG_EXECUTABLE = .*$/,
+              "PKG_CONFIG_EXECUTABLE = #{Formula["pkg-config"].opt_bin/"pkg-config"}"
     system "make"
     ENV.deparallelize
     system "make", "install"
@@ -106,3 +115,27 @@ class Qt < Formula
     system "./hello"
   end
 end
+
+__END__
+--- a/qtwebengine/src/buildtools/config/mac_osx.pri
++++ b/qtwebengine/src/buildtools/config/mac_osx.pri
+@@ -9,6 +9,10 @@
+      isEmpty(QMAKE_MAC_SDK_VERSION): error("Could not resolve SDK version for \'$${QMAKE_MAC_SDK}\'")
+ }
+ 
++# chromium/build/mac/find_sdk.py expects the SDK version (mac_sdk_min) in Major.Minor format.
++# If Patch version is provided it fails with "Exception: No Major.Minor.Patch+ SDK found"
++QMAKE_MAC_SDK_VERSION_MAJOR_MINOR = $$section(QMAKE_MAC_SDK_VERSION, ".", 0, 1)
++
+ QMAKE_CLANG_DIR = "/usr"
+ QMAKE_CLANG_PATH = $$eval(QMAKE_MAC_SDK.macx-clang.$${QMAKE_MAC_SDK}.QMAKE_CXX)
+ !isEmpty(QMAKE_CLANG_PATH) {
+@@ -28,7 +32,7 @@
+     clang_base_path=\"$${QMAKE_CLANG_DIR}\" \
+     clang_use_chrome_plugins=false \
+     mac_deployment_target=\"$${QMAKE_MACOSX_DEPLOYMENT_TARGET}\" \
+-    mac_sdk_min=\"$${QMAKE_MAC_SDK_VERSION}\" \
++    mac_sdk_min=\"$${QMAKE_MAC_SDK_VERSION_MAJOR_MINOR}\" \
+     use_external_popup_menu=false
+ 
+ qtConfig(webengine-spellchecker) {
