@@ -4,7 +4,7 @@ class Php < Formula
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.4.5.tar.xz"
   sha256 "d059fd7f55bdc4d2eada15a00a2976697010d3631ef6f83149cc5289e1f23c2c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3596c9b801e2b1990c667a85095cb80d15555b47ed9a0943e2de2c0cc6e6503b" => :catalina
