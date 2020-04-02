@@ -1,7 +1,7 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
   stable do
