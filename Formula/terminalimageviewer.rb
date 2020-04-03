@@ -8,8 +8,8 @@ class Terminalimageviewer < Formula
   depends_on "imagemagick"
   def install
     cd "src/main/cpp" do
-      system "g++-9", "-std=c++17","-Wall", "-fpermissive", "-fexceptions", "-O2", "-c", "tiv.cpp", "-o", "tiv.o"
-      system "g++-9", "tiv.o", "-o", "tiv", "-lstdc++fs", "-pthread", "-s"
+      system "#{Formula["gcc"].opt_bin}/g++", "-std=c++17","-Wall", "-fpermissive", "-fexceptions", "-O2", "-c", "tiv.cpp", "-o", "tiv.o"
+      system "#{Formula["gcc"].opt_bin}/g++", "tiv.o", "-o", "tiv", "-lstdc++fs", "-pthread", "-s"
       bin.install "tiv"
     end
   end
