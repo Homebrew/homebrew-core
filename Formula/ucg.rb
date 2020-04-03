@@ -25,7 +25,7 @@ class Ucg < Formula
   # Fix Xcode 9 compilation issue: https://github.com/gvansickle/ucg/issues/118
   # Patch adapted from upstream: https://github.com/gvansickle/ucg/commit/395f89
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/00615b/ucg/xcode9.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/00615b433f5d2e3eaaf0075fbf4c63d0d732f8c8/ucg/xcode9.patch"
     sha256 "3005fda5923cfa3093ce53ad84435fd7a5974f960b2e222e0e59afa90414af90"
   end
 
