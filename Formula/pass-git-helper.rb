@@ -6,6 +6,7 @@ class PassGitHelper < Formula
   url "https://github.com/languitar/pass-git-helper/archive/v1.1.0.tar.gz"
   sha256 "85c9e2f1f544227da9129503d91ce5d502be127c83ad24cbc6dc8ba3ab746b8e"
 
+  depends_on "gnupg" => :test
   depends_on "pass"
   depends_on "python@3.8"
 
@@ -19,34 +20,44 @@ class PassGitHelper < Formula
   end
 
   test do
-    (testpath/"password-store/homebrew/pass-git-helper-test").write <<~EOS
+    require "open3"
+
+    ENV["GNUPGHOME"] = testpath/".gnupg"
+    ENV["PASSWORD_STORE_DIR"] = testpath/".password-store"
+
+    # Generate temporary GPG key for use with pass
+    Open3.popen3(Formula["gnupg"].opt_bin/"gpg", "--generate-key", "--batch") do |stdin, _|
+      stdin.write <<~EOS
+        %no-protection
+        %transient-key
+        Key-Type: RSA
+        Name-Real: Homebrew Test
+      EOS
+    end
+
+    system "pass", "init", "Homebrew Test"
+
+    stdin, _ = Open3.popen3("pass", "insert", "-m", "-f", "homebrew/pass-git-helper-test")
+    stdin.write <<~EOS
       test_password
       test_username
     EOS
-
-    (testpath/"bin/pass").write <<~EOS
-      #!/bin/sh
-      if [ $1 = show ]; then
-        cat #{testpath}/password-store/$2
-      fi
-    EOS
-    chmod 0755, testpath/"bin/pass"
-
-    ENV.prepend_path "PATH", testpath/"bin"
+    stdin.close
 
     (testpath/"config.ini").write <<~EOS
       [github.com*]
       target=homebrew/pass-git-helper-test
     EOS
 
-    (testpath/"credential").write <<~EOS
+    stdin, stdout, _ = Open3.popen3(bin/"pass-git-helper", "-m", testpath/"config.ini", "get")
+    stdin.write <<~EOS
       protocol=https
       host=github.com
       path=homebrew/homebrew-core
-
     EOS
+    stdin.close
 
-    s = shell_output("#{bin}/pass-git-helper -m #{testpath}/config.ini get < #{testpath}/credential")
-    assert_match "password=test_password\nusername=test_username", s
+    assert_match "password=test_password\nusername=test_username", stdout.read
+    stdout.close
   end
 end
