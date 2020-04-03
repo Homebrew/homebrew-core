@@ -23,9 +23,6 @@ class Ndpi < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-
-    # temp fix to move sample files, reported upstream: https://github.com/ntop/nDPI/issues/826
-    mv sbin, share
   end
 
   test do
