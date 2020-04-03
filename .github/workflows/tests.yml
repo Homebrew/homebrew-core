@@ -20,6 +20,8 @@ jobs:
       HOMEBREW_NO_AUTO_UPDATE: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
     steps:
+      - name: Update Homebrew
+        run: brew update-reset
       - name: Checkout repository
         run: |
           cd $(brew --repo ${{github.repository}})
