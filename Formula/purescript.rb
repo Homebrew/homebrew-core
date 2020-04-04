@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Purescript < Formula
-  include Language::Haskell::Cabal
-
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
   url "https://hackage.haskell.org/package/purescript-0.13.6/purescript-0.13.6.tar.gz"
@@ -27,7 +23,8 @@ class Purescript < Formula
   def install
     system "hpack" if build.head?
 
-    install_cabal_package "-f", "release", :using => ["alex", "happy-1.19.9"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
