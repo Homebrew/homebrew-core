@@ -15,14 +15,14 @@ class CabalInstall < Formula
   depends_on "ghc"
   uses_from_macos "zlib"
 
+  # Update bootstrap dependencies to work with base-4.13.0.0
+  patch do
+    url "https://github.com/haskell/cabal/commit/b6f7ec5f3598f69288bddbdba352e246e337fb90.patch?full_index=1"
+    sha256 "f4c869e74968c5892cd1fa1001adf96eddcec73e03fb5cf70d3a0c0de08d9e4e"
+  end
+
   def install
     cd "cabal-install" if build.head?
-
-    # Update bootstrap dependencies to work with base-4.13.0.0
-    patch do
-      url "https://github.com/haskell/cabal/compare/b6f7ec5%5E...b6f7ec5.patch"
-      sha256 "03ca4ed798e9ae79e77f16023ca97c9f18560fdb20416085f538ae2ec662c0b8"
-    end
 
     system "sh", "bootstrap.sh", "--sandbox"
     bin.install ".cabal-sandbox/bin/cabal"
