@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Komposition < Formula
-  include Language::Haskell::Cabal
-
   desc "Video editor built for screencasters"
   homepage "https://github.com/owickstrom/komposition"
   url "https://github.com/owickstrom/komposition/archive/v0.2.0.tar.gz"
@@ -31,10 +27,8 @@ class Komposition < Formula
   uses_from_macos "libffi"
 
   def install
-    # The --allow-newer=base may be removed when the ffmpeg-light
-    # bound on base is relaxed, or when Homebrew moves to Cabal 3
-    # builds.
-    install_cabal_package "--allow-newer=base", :using => ["alex", "happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
