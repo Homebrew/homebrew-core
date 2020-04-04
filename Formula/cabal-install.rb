@@ -18,6 +18,9 @@ class CabalInstall < Formula
   def install
     cd "cabal-install" if build.head?
 
+    # bump HTTP package upper bound
+    patch :DATA
+
     system "sh", "bootstrap.sh", "--sandbox"
     bin.install ".cabal-sandbox/bin/cabal"
     bash_completion.install "bash-completion/cabal"
@@ -27,3 +30,15 @@ class CabalInstall < Formula
     system "#{bin}/cabal", "--config-file=#{testpath}/config", "info", "Cabal"
   end
 end
+__END__
+--- bootstrap.sh	2001-09-09 09:46:40.000000000 +0800
++++ bootstrap.sh	2020-04-04 18:07:56.000000000 +0800
+@@ -230,7 +230,7 @@ TRANS_VER="0.5.5.0";   TRANS_VER_REGEXP=
+                        # >= 0.2.* && < 0.6
+ MTL_VER="2.2.2";       MTL_VER_REGEXP="[2]\."
+                        #  >= 2.0 && < 3
+-HTTP_VER="4000.3.12";  HTTP_VER_REGEXP="4000\.(2\.([5-9]|1[0-9]|2[0-9])|3\.?)"
++HTTP_VER="4000.3.14";  HTTP_VER_REGEXP="4000\.(2\.([5-9]|1[0-9]|2[0-9])|3\.?)"
+                        # >= 4000.2.5 < 4000.4
+ ZLIB_VER="0.6.2";      ZLIB_VER_REGEXP="(0\.5\.([3-9]|1[0-9])|0\.6)"
+                        # >= 0.5.3 && <= 0.7
