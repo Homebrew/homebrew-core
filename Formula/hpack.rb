@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Hpack < Formula
-  include Language::Haskell::Cabal
-
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
   url "https://github.com/sol/hpack/archive/0.33.0.tar.gz"
@@ -20,7 +16,8 @@ class Hpack < Formula
   depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   # Testing hpack is complicated by the fact that it is not guaranteed
