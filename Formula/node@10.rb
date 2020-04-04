@@ -3,6 +3,7 @@ class NodeAT10 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v10.20.1/node-v10.20.1.tar.xz"
   sha256 "ee1f88a04c608aeda1299bbcb0895eebb6394e901f03398c377236905d95f492"
+  revision 1
 
   bottle do
     cellar :any
