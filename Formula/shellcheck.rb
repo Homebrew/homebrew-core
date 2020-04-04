@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Shellcheck < Formula
-  include Language::Haskell::Cabal
-
   desc "Static analysis and lint tool, for (ba)sh scripts"
   homepage "https://www.shellcheck.net/"
   url "https://github.com/koalaman/shellcheck/archive/v0.7.0.tar.gz"
@@ -27,7 +23,8 @@ class Shellcheck < Formula
   end
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     system "pandoc", "-s", "-f", "markdown-smart", "-t", "man",
                      "shellcheck.1.md", "-o", "shellcheck.1"
     man1.install "shellcheck.1"
