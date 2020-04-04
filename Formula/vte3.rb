@@ -3,6 +3,7 @@ class Vte3 < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.60/vte-0.60.1.tar.xz"
   sha256 "5e25807233f8a7e15204be7ff694bbcf6facbb0136092b5ba12584a7b70cf0c4"
+  revision 1
 
   bottle do
     sha256 "39f2eac270d54152ef935ee128366214ae345d68af8138d9cda861b3e442bd81" => :catalina
