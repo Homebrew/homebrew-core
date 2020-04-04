@@ -4,7 +4,7 @@ class Exiftool < Formula
   # Ensure release is tagged production before submitting.
   # https://exiftool.org/history.html
   url "https://exiftool.org/Image-ExifTool-11.93.tar.gz"
-  sha256 "8b0aaa8e080adfc8736c3b179c140ad3c05dc58a84540f1e56772ce129a8f897"
+  sha256 "cecdcbd8befac5a0850ec74152d86ebb6ecad260cc75f208fde79c70c9907629"
 
   bottle do
     cellar :any_skip_relocation
