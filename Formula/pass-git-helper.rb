@@ -20,44 +20,32 @@ class PassGitHelper < Formula
   end
 
   test do
-    require "open3"
-
-    ENV["GNUPGHOME"] = testpath/".gnupg"
-    ENV["PASSWORD_STORE_DIR"] = testpath/".password-store"
-
     # Generate temporary GPG key for use with pass
-    Open3.popen3(Formula["gnupg"].opt_bin/"gpg", "--generate-key", "--batch") do |stdin, _|
-      stdin.write <<~EOS
-        %no-protection
-        %transient-key
-        Key-Type: RSA
-        Name-Real: Homebrew Test
-      EOS
-    end
+    pipe_output("#{Formula["gnupg"].opt_bin}/gpg --generate-key --batch", <<~EOS, 0)
+      %no-protection
+      %transient-key
+      Key-Type: RSA
+      Name-Real: Homebrew Test
+    EOS
 
     system "pass", "init", "Homebrew Test"
 
-    stdin, _ = Open3.popen3("pass", "insert", "-m", "-f", "homebrew/pass-git-helper-test")
-    stdin.write <<~EOS
+    pipe_output("pass insert -m -f homebrew/pass-git-helper-test", <<~EOS, 0)
       test_password
       test_username
     EOS
-    stdin.close
 
     (testpath/"config.ini").write <<~EOS
       [github.com*]
       target=homebrew/pass-git-helper-test
     EOS
 
-    stdin, stdout, _ = Open3.popen3(bin/"pass-git-helper", "-m", testpath/"config.ini", "get")
-    stdin.write <<~EOS
+    result = pipe_output("#{bin}/pass-git-helper -m #{testpath}/config.ini get", <<~EOS, 0)
       protocol=https
       host=github.com
       path=homebrew/homebrew-core
     EOS
-    stdin.close
 
-    assert_match "password=test_password\nusername=test_username", stdout.read
-    stdout.close
+    assert_match "password=test_password\nusername=test_username", result
   end
 end
