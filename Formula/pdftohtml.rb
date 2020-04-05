@@ -12,7 +12,8 @@ class Pdftohtml < Formula
     sha256 "200be428031e013f58b792b092b56e74743d6362d747b0c883bb95269d7a5e72" => :high_sierra
   end
 
-  conflicts_with "poppler", :because => "both install `pdftohtml` binaries"
+  conflicts_with "pdf2image", "poppler", "xpdf",
+    :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   def install
     system "make"
