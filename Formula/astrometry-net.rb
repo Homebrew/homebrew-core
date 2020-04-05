@@ -5,7 +5,7 @@ class AstrometryNet < Formula
   homepage "https://github.com/dstndstn/astrometry.net"
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.79/astrometry.net-0.79.tar.gz"
   sha256 "dd5d5403cc223eb6c51a06a22a5cb893db497d1895971735321354f882c80286"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -31,7 +31,7 @@ class AstrometryNet < Formula
     sha256 "42b88214f9d8ed34a7911c3b41a680ce1bdee4880c58e441f00010058e97c0aa"
 
     patch do
-      url "https://patch-diff.githubusercontent.com/raw/esheldon/fitsio/pull/297.patch?full_index=1"
+      url "https://github.com/esheldon/fitsio/pull/297.patch?full_index=1"
       sha256 "d317355af23101b2bc49b6844ac83061a6485f4fa9741b2ecae0782972bcd675"
     end
   end
@@ -52,6 +52,8 @@ class AstrometryNet < Formula
     xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV["PY_BASE_INSTALL_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
     ENV["PY_BASE_LINK_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
+
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     system "make"
     system "make", "py"
