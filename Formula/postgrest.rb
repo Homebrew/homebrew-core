@@ -1,5 +1,4 @@
 require "language/haskell"
-require "net/http"
 
 class Postgrest < Formula
   include Language::Haskell::Cabal
@@ -30,7 +29,7 @@ class Postgrest < Formula
     return if ENV["CI"]
 
     pg_bin  = Formula["postgresql"].bin
-    pg_port = 55561
+    pg_port = free_port
     pg_user = "postgrest_test_user"
     test_db = "test_postgrest_formula"
 
@@ -41,20 +40,21 @@ class Postgrest < Formula
       testpath/"#{test_db}.log", "-w", "-o", %Q("-p #{pg_port}"), "start"
 
     begin
+      port = free_port
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
       (testpath/"postgrest.config").write <<~EOS
         db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
         db-schema = "public"
         db-anon-role = "#{pg_user}"
-        server-port = 55560
+        server-port = #{port}
       EOS
       pid = fork do
         exec "#{bin}/postgrest", "postgrest.config"
       end
-      Process.detach(pid)
-      sleep(5) # Wait for the server to start
-      response = Net::HTTP.get(URI("http://localhost:55560"))
-      assert_match /responses.*200.*OK/, response
+      sleep 5 # Wait for the server to start
+
+      output = shell_output("curl -s http://localhost:#{port}")
+      assert_match "200", output
     ensure
       begin
         Process.kill("TERM", pid) if pid
