@@ -1,8 +1,8 @@
 class Librsvg < Formula
   desc "Library to render SVG files using Cairo"
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
-  url "https://download.gnome.org/sources/librsvg/2.48/librsvg-2.48.0.tar.xz"
-  sha256 "4a348b76cf4c52838e9c337ca767a38fe7f742db40ccccf8ac99f1946872cda6"
+  url "https://download.gnome.org/sources/librsvg/2.48/librsvg-2.48.2.tar.xz"
+  sha256 "272658a0e04fce21eb1368c345cc1305bfeada4ca6d7db99e77323ed0668bdca"
 
   bottle do
     sha256 "303cd5b6a41a194add3e5a34080a2e5e1aa67d9c326aa96db2b5fc6788004c20" => :catalina
@@ -20,6 +20,8 @@ class Librsvg < Formula
   depends_on "pango"
 
   def install
+    ENV.append "LDFLAGS", "-lobjc"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
