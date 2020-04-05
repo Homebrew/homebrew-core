@@ -24,11 +24,7 @@ class Imgproxy < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     cp(test_fixtures("test.jpg"), testpath/"test.jpg")
 
