@@ -59,12 +59,16 @@ class Webdis < Formula
   end
 
   test do
+    port = free_port
+    cp "#{etc}/webdis.json", "#{testpath}/webdis.json"
+    inreplace "#{testpath}/webdis.json", "\"http_port\":\t7379,", "\"http_port\":\t#{port},"
+
     server = fork do
-      exec "#{bin}/webdis", "#{etc}/webdis.json"
+      exec "#{bin}/webdis", "#{testpath}/webdis.json"
     end
     sleep 0.5
     # Test that the response is from webdis
-    assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:7379/PING"))
+    assert_match(/Server: Webdis/, shell_output("curl --silent -XGET -I http://localhost:#{port}/PING"))
   ensure
     Process.kill "TERM", server
     Process.wait server
