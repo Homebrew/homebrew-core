@@ -13,9 +13,10 @@ class Serveit < Formula
   end
 
   test do
-    pid = fork { exec bin/"serveit" }
+    port = free_port
+    pid = fork { exec bin/"serveit", "-p", port.to_s }
     sleep 2
-    assert_match(/Listing for/, shell_output("curl localhost:8000"))
+    assert_match(/Listing for/, shell_output("curl localhost:#{port}"))
   ensure
     Process.kill("SIGINT", pid)
     Process.wait(pid)
