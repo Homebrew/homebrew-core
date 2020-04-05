@@ -43,12 +43,13 @@ class Carrot2 < Formula
   test do
     cp_r Dir["#{prefix}/*"], testpath
     inreplace testpath/"bin/carrot2", "cd #{libexec}", "cd #{testpath}/libexec"
+    port = free_port
     begin
-      pid = fork { exec testpath/"bin/carrot2" }
+      pid = fork { exec testpath/"bin/carrot2", "-port", port.to_s }
       sleep 5
       assert_match /data mining/m,
         shell_output("curl -s -F dcs.c2stream=@#{libexec}/examples/shared/data-mining.xml " \
-                     "http://localhost:8080/dcs/rest")
+                     "http://localhost:#{port}/dcs/rest")
     ensure
       Process.kill "INT", pid
     end
