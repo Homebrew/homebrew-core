@@ -21,10 +21,7 @@ class Ungit < Formula
   end
 
   test do
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
+    port = free_port
     ppid = fork do
       exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
     end
