@@ -21,7 +21,7 @@ class Nanomsg < Formula
   end
 
   test do
-    bind = "tcp://127.0.0.1:8000"
+    bind = "tcp://127.0.0.1:#{free_port}"
 
     pid = fork do
       exec "#{bin}/nanocat --rep --bind #{bind} --format ascii --data home"
