@@ -116,12 +116,8 @@ class Elasticsearch < Formula
 
   test do
     assert_includes(stable.url, "-oss-")
-    require "socket"
 
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
+    port = free_port
     system "#{bin}/elasticsearch-plugin", "list"
     pid = testpath/"pid"
     begin
@@ -132,10 +128,7 @@ class Elasticsearch < Formula
       Process.kill(9, pid.read.to_i)
     end
 
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
+    port = free_port
     (testpath/"config/elasticsearch.yml").write <<~EOS
       path.data: #{testpath}/data
       path.logs: #{testpath}/logs
