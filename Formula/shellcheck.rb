@@ -5,8 +5,8 @@ class Shellcheck < Formula
 
   desc "Static analysis and lint tool, for (ba)sh scripts"
   homepage "https://www.shellcheck.net/"
-  url "https://github.com/koalaman/shellcheck/archive/v0.7.0.tar.gz"
-  sha256 "946cf3421ffd418f0edc380d1184e4cb08c2ec7f098c79b1c8a2c482fe91d877"
+  url "https://github.com/koalaman/shellcheck/archive/v0.7.1.tar.gz"
+  sha256 "50a219bde5c16fc0a40e2e3725b6c192ff589bc8a2569c32b62dcaece0495896"
   head "https://github.com/koalaman/shellcheck.git"
 
   bottle do
