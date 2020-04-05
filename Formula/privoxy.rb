@@ -63,7 +63,7 @@ class Privoxy < Formula
   end
 
   test do
-    bind_address = "127.0.0.1:8118"
+    bind_address = "127.0.0.1:#{free_port}"
     (testpath/"config").write("listen-address #{bind_address}\n")
     begin
       server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")
