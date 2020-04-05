@@ -28,7 +28,7 @@ class Leaps < Formula
   end
 
   test do
-    port = ":8080"
+    port = ":#{free_port}"
 
     # Start the server in a fork
     leaps_pid = fork do
