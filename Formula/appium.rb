@@ -24,13 +24,15 @@ class Appium < Formula
   test do
     output = shell_output("#{bin}/appium --show-config 2>&1")
     assert_match version.to_str, output
+
+    port = free_port
     begin
       pid = fork do
-        exec bin/"appium &>appium-start.out"
+        exec bin/"appium --port #{port} &>appium-start.out"
       end
       sleep 3
 
-      assert_match "The URL '/' did not map to a valid resource", shell_output("curl -s 127.0.0.1:4723")
+      assert_match "The URL '/' did not map to a valid resource", shell_output("curl -s 127.0.0.1:#{port}")
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
