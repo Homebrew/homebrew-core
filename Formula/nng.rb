@@ -23,7 +23,7 @@ class Nng < Formula
   end
 
   test do
-    bind = "tcp://127.0.0.1:8000"
+    bind = "tcp://127.0.0.1:#{free_port}"
 
     pid = fork do
       exec "#{bin}/nngcat --rep --bind #{bind} --format ascii --data home"
