@@ -61,3 +61,24 @@ jobs:
             fi
           done
           exit 1
+      - name: Post comment on failure
+        if: failure()
+        uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          script: |
+            const run_id = process.env.GITHUB_RUN_ID
+            const actor = context.actor
+            const pr = context.payload.client_payload.pull_request
+            console.log("run_id=" + run_id)
+            console.log("actor=" + actor)
+            console.log("pr=" + pr)
+
+            const repository = context.repo.owner + '/' + context.repo.repo
+            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+
+            github.issues.createComment({
+              ...context.repo,
+              issue_number: pr,
+              body: '@' + actor + ' bottle publish failed: ' + url
+            })
