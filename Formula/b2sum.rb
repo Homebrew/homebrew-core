@@ -15,6 +15,8 @@ class B2sum < Formula
     sha256 "d2adbbbe2cce0efe380586ebbfd6a765fdc092c9d205134119613b0dbf9964ab" => :mavericks
   end
 
+  conflicts_with "coreutils", :because => "both install `b2sum` binaries"
+
   def install
     cd "b2sum" do
       system "make", "NO_OPENMP=1"
