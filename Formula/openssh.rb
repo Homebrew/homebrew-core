@@ -72,10 +72,11 @@ class Openssh < Formula
   test do
     assert_match "OpenSSH_", shell_output("#{bin}/ssh -V 2>&1")
 
+    port = free_port
     begin
-      pid = fork { exec sbin/"sshd", "-D", "-p", "8022" }
+      pid = fork { exec sbin/"sshd", "-D", "-p", port.to_s }
       sleep 2
-      assert_match "sshd", shell_output("lsof -i :8022")
+      assert_match "sshd", shell_output("lsof -i :#{port}")
     ensure
       Process.kill(9, pid)
       Process.wait(pid)
