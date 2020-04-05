@@ -78,14 +78,15 @@ class Cosi < Formula
   end
 
   test do
+    port = free_port
     (testpath/"config.toml").write <<~EOS
       Public = "7b6d6361686d0c76d9f4b40961736eb5d0849f7db3f8bfd8f869b8015d831d45"
       Private = "01a80f4fef21db2aea18e5288fe9aa71324a8ad202609139e5cfffc4ffdc4484"
-      Addresses = ["0.0.0.0:6879"]
+      Addresses = ["0.0.0.0:#{port}"]
     EOS
     (testpath/"group.toml").write <<~EOS
       [[servers]]
-        Addresses = ["127.0.0.1:6879"]
+        Addresses = ["127.0.0.1:#{port}"]
         Public = "e21jYWhtDHbZ9LQJYXNutdCEn32z+L/Y+Gm4AV2DHUU="
     EOS
     begin
