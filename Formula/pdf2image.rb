@@ -17,8 +17,8 @@ class Pdf2image < Formula
   depends_on "ghostscript"
   depends_on :x11
 
-  conflicts_with "poppler", "xpdf",
-    :because => "pdf2image, poppler, and xpdf install conflicting executables"
+  conflicts_with "pdftohtml", "poppler", "xpdf",
+    :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   def install
     system "./configure", "--prefix=#{prefix}"
