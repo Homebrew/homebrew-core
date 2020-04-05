@@ -55,13 +55,9 @@ class Oauth2Proxy < Formula
   end
 
   test do
-    require "socket"
     require "timeout"
 
-    # Get an unused TCP port.
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     pid = fork do
       exec "#{bin}/oauth2_proxy",
