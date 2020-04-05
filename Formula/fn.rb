@@ -19,13 +19,12 @@ class Fn < Formula
   end
 
   test do
-    require "socket"
     assert_match version.to_s, shell_output("#{bin}/fn --version")
     system "#{bin}/fn", "init", "--runtime", "go", "--name", "myfunc"
     assert_predicate testpath/"func.go", :exist?, "expected file func.go doesn't exist"
     assert_predicate testpath/"func.yaml", :exist?, "expected file func.yaml doesn't exist"
-    server = TCPServer.new("localhost", 0)
-    port = server.addr[1]
+    port = free_port
+    server = TCPServer.new("localhost", port)
     pid = fork do
       loop do
         socket = server.accept
