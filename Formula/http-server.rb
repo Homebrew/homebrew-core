@@ -22,9 +22,7 @@ class HttpServer < Formula
   end
 
   test do
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     pid = fork do
       exec "#{bin}/http-server", "-p#{port}"
