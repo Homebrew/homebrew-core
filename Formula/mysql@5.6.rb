@@ -139,12 +139,13 @@ class MysqlAT56 < Formula
     system bin/"mysql_install_db", "--user=#{ENV["USER"]}",
     "--basedir=#{prefix}", "--datadir=#{dir}", "--tmpdir=#{dir}"
 
+    port = free_port
     pid = fork do
-      exec bin/"mysqld", "--datadir=#{dir}"
+      exec bin/"mysqld", "--datadir=#{dir}", "--port=#{port}"
     end
     sleep 2
 
-    output = shell_output("curl 127.0.0.1:3306")
+    output = shell_output("curl 127.0.0.1:#{port}")
     output.force_encoding("ASCII-8BIT") if output.respond_to?(:force_encoding)
     assert_match version.to_s, output
   ensure
