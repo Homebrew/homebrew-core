@@ -37,11 +37,7 @@ class Libhttpserver < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     cp pkgshare/"examples/hello_world.cpp", testpath
     inreplace "hello_world.cpp", "create_webserver(8080)",
