@@ -12,12 +12,7 @@ class Woof < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
+    port = free_port
     pid = fork do
       exec "#{bin}/woof", "-s", "-p", port.to_s
     end
