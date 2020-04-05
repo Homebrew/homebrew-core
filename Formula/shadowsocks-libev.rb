@@ -76,12 +76,15 @@ class ShadowsocksLibev < Formula
   end
 
   test do
+    server_port = free_port
+    local_port = free_port
+
     (testpath/"shadowsocks-libev.json").write <<~EOS
       {
           "server":"127.0.0.1",
-          "server_port":9998,
+          "server_port":#{server_port},
           "local":"127.0.0.1",
-          "local_port":9999,
+          "local_port":#{local_port},
           "password":"test",
           "timeout":600,
           "method":null
@@ -91,7 +94,7 @@ class ShadowsocksLibev < Formula
     client = fork { exec bin/"ss-local", "-c", testpath/"shadowsocks-libev.json" }
     sleep 3
     begin
-      system "curl", "--socks5", "127.0.0.1:9999", "github.com"
+      system "curl", "--socks5", "127.0.0.1:#{local_port}", "github.com"
     ensure
       Process.kill 9, server
       Process.wait server
