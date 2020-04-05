@@ -15,7 +15,7 @@ class Hello < Formula
     sha256 "c80495cb6d1ad8f2c3a64c22c9dcee9d0117ca25fa6426f20a6acca275cd6c56" => :mavericks
   end
 
-  conflicts_with "camlistore", :because => "both install `hello` binaries"
+  conflicts_with "perkeep", :because => "both install `hello` binaries"
 
   def install
     system "./configure", "--disable-debug",
