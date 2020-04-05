@@ -95,6 +95,8 @@ COUCHDB_BIN_DIR=$(canonical_readlink $0)'
     cp_r prefix/"etc", testpath
     # setting database path to testpath
     inreplace "#{testpath}/etc/default.ini", "#{var}/couchdb/data", "#{testpath}/data"
+    port = free_port
+    inreplace "#{testpath}/etc/default.ini", "port = 5984", "port = #{port}"
 
     # start CouchDB with test environment
     pid = fork do
@@ -103,7 +105,7 @@ COUCHDB_BIN_DIR=$(canonical_readlink $0)'
     sleep 2
 
     begin
-      assert_match "The Apache Software Foundation", shell_output("curl --silent localhost:5984")
+      assert_match "The Apache Software Foundation", shell_output("curl --silent localhost:#{port}")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
