@@ -4,12 +4,12 @@ class Terminalimageviewer < Formula
   url "https://github.com/stefanhaustein/TerminalImageViewer/archive/v1.0.0.tar.gz"
   sha256 "d28c5746d25d83ea707db52b54288c4fc1851c642ae021951967e69296450c8c"
   head "https://github.com/stefanhaustein/TerminalImageViewer.git"
-  depends_on "gcc"
+  depends_on "gcc@5"
   depends_on "imagemagick"
   def install
     cd "src/main/cpp" do
-      system "#{Formula["gcc"].opt_bin}/g++", "-std=c++17","-Wall", "-fpermissive", "-fexceptions", "-O2", "-c", "tiv.cpp", "-o", "tiv.o"
-      system "#{Formula["gcc"].opt_bin}/g++", "tiv.o", "-o", "tiv", "-lstdc++fs", "-pthread", "-s"
+      system "#{Formula["gcc@5"].opt_bin}/g++-5", "-std=c++17","-Wall", "-fpermissive", "-fexceptions", "-O2", "-c", "tiv.cpp", "-o", "tiv.o"
+      system "#{Formula["gcc@5"].opt_bin}/g++-5", "tiv.o", "-o", "tiv", "-lstdc++fs", "-pthread", "-s"
       bin.install "tiv"
     end
   end
