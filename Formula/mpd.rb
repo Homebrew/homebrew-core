@@ -105,14 +105,21 @@ class Mpd < Formula
   end
 
   test do
+    port = free_port
+
+    (testpath/"mpd.conf").write <<~EOS
+      bind_to_address "127.0.0.1"
+      port "#{port}"
+    EOS
+
     pid = fork do
-      exec "#{bin}/mpd --stdout --no-daemon --no-config"
+      exec "#{bin}/mpd --stdout --no-daemon #{testpath}/mpd.conf"
     end
     sleep 2
 
     begin
-      ohai "Connect to MPD command (localhost:6600)"
-      TCPSocket.open("localhost", 6600) do |sock|
+      ohai "Connect to MPD command (localhost:#{port})"
+      TCPSocket.open("localhost", port) do |sock|
         assert_match "OK MPD", sock.gets
         ohai "Ping server"
         sock.puts("ping")
