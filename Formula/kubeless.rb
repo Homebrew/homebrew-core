@@ -24,10 +24,9 @@ class Kubeless < Formula
   end
 
   test do
-    require "socket"
+    port = free_port
+    server = TCPServer.new("127.0.0.1", port)
 
-    server = TCPServer.new("127.0.0.1", 0)
-    port = server.addr[1]
     pid = fork do
       loop do
         socket = server.accept
