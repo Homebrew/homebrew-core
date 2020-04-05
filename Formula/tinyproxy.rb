@@ -1,6 +1,6 @@
 class Tinyproxy < Formula
   desc "HTTP/HTTPS proxy for POSIX systems"
-  homepage "https://www.banu.com/tinyproxy/"
+  homepage "https://tinyproxy.github.io/"
   url "https://github.com/tinyproxy/tinyproxy/releases/download/1.10.0/tinyproxy-1.10.0.tar.xz"
   sha256 "59be87689c415ba0d9c9bc6babbdd3df3b372d60b21e526b118d722dbc995682"
   revision 1
@@ -67,13 +67,17 @@ class Tinyproxy < Formula
   end
 
   test do
+    port = free_port
+    cp etc/"tinyproxy/tinyproxy.conf", testpath/"tinyproxy.conf"
+    inreplace testpath/"tinyproxy.conf", "Port 8888", "Port #{port}"
+
     pid = fork do
-      exec "#{bin}/tinyproxy"
+      exec "#{bin}/tinyproxy", "-c", testpath/"tinyproxy.conf"
     end
     sleep 2
 
     begin
-      assert_match /tinyproxy/, shell_output("curl localhost:8888")
+      assert_match /tinyproxy/, shell_output("curl localhost:#{port}")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
