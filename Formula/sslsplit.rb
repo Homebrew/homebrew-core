@@ -26,11 +26,7 @@ class Sslsplit < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     cmd = "#{bin}/sslsplit -D http 0.0.0.0 #{port} www.roe.ch 80"
     output = pipe_output("(#{cmd} & PID=$! && sleep 3 ; kill $PID) 2>&1")
