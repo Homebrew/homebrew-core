@@ -20,10 +20,9 @@ class Hss < Formula
   end
 
   test do
-    require "socket"
+    port = free_port
     begin
-      server = TCPServer.new(0)
-      port = server.addr[1]
+      server = TCPServer.new(port)
       accept_pid = fork do
         msg = server.accept.gets
         assert_match "SSH", msg
