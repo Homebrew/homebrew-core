@@ -150,11 +150,7 @@ class Httpd < Formula
     assert_predicate lib/"httpd/modules/mod_xml2enc.so", :exist?
 
     begin
-      require "socket"
-
-      server = TCPServer.new(0)
-      port = server.addr[1]
-      server.close
+      port = free_port
 
       expected_output = "Hello world!"
       (testpath/"index.html").write expected_output
