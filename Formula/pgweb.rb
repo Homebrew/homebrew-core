@@ -29,11 +29,7 @@ class Pgweb < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     begin
       pid = fork do
