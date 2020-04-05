@@ -28,12 +28,14 @@ class Fortio < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/fortio version -s")
+
+    port = free_port
     begin
       pid = fork do
-        exec bin/"fortio", "server", "-http-port", "8080"
+        exec bin/"fortio", "server", "-http-port", port.to_s
       end
       sleep 2
-      output = shell_output("#{bin}/fortio load http://localhost:8080/ 2>&1")
+      output = shell_output("#{bin}/fortio load http://localhost:#{port}/ 2>&1")
       assert_match /^All\sdone/, output.lines.last
     ensure
       Process.kill("SIGTERM", pid)
