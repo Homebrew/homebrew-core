@@ -58,11 +58,7 @@ class Solr < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     # Info detects no Solr node => exit code 3
     shell_output(bin/"solr -i", 3)
