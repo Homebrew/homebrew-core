@@ -73,11 +73,12 @@ class Chronograf < Formula
   end
 
   test do
+    port = free_port
     pid = fork do
-      exec "#{bin}/chronograf"
+      exec "#{bin}/chronograf --port=#{port}"
     end
     sleep 10
-    output = shell_output("curl -s 0.0.0.0:8888/chronograf/v1/")
+    output = shell_output("curl -s 0.0.0.0:#{port}/chronograf/v1/")
     sleep 1
     assert_match %r{/chronograf/v1/layouts}, output
   ensure
