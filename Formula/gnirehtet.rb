@@ -51,15 +51,16 @@ class Gnirehtet < Formula
     gnirehtet_err = "#{testpath}/gnirehtet.err"
     gnirehtet_out = "#{testpath}/gnirehtet.out"
 
+    port = free_port
     begin
       child_pid = fork do
         Process.setsid
         $stdout.reopen(gnirehtet_out, "w")
         $stderr.reopen(gnirehtet_err, "w")
-        exec bin/"gnirehtet", "relay"
+        exec bin/"gnirehtet", "relay", "-p", port.to_s
       end
       sleep 3
-      system "socat", "-T", "1", "-", "TCP4:127.0.0.1:31416"
+      system "socat", "-T", "1", "-", "TCP4:127.0.0.1:#{port}"
     ensure
       pgid = Process.getpgid(child_pid)
       Process.kill("HUP", -pgid)
