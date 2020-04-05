@@ -52,14 +52,15 @@ class Caddy < Formula
   end
 
   test do
+    port = free_port
     begin
-      io = IO.popen("#{bin}/caddy")
+      io = IO.popen("#{bin}/caddy -port #{port}")
       sleep 2
     ensure
       Process.kill("SIGINT", io.pid)
       Process.wait(io.pid)
     end
 
-    io.read =~ /0\.0\.0\.0:2015/
+    io.read =~ /0\.0\.0\.0:#{port}/
   end
 end
