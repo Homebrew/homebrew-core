@@ -16,6 +16,8 @@ class Delta < Formula
     sha256 "04102ae55ffc2cc4351816b010544b854c21f1c5e2a462a6af0e57ec2f57b501" => :mavericks
   end
 
+  conflicts_with "git-delta", :because => "both install a `delta` binary"
+
   def install
     system "make"
     bin.install "delta", "multidelta", "topformflat"
