@@ -23,9 +23,8 @@ class ApacheBrooklynCli < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new("localhost", 0)
+    port = free_port
+    server = TCPServer.new("localhost", port)
     pid_mock_brooklyn = fork do
       loop do
         socket = server.accept
@@ -41,7 +40,7 @@ class ApacheBrooklynCli < Formula
     end
 
     begin
-      mock_brooklyn_url = "http://localhost:#{server.addr[1]}"
+      mock_brooklyn_url = "http://localhost:#{port}"
       assert_equal "Connected to Brooklyn version 1.2.3 at #{mock_brooklyn_url}\n",
         shell_output("#{bin}/br login #{mock_brooklyn_url} username password")
     ensure
