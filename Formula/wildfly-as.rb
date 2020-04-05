@@ -66,9 +66,7 @@ class WildflyAs < Formula
     ENV["JBOSS_HOME"] = opt_libexec
     system "#{opt_libexec}/bin/standalone.sh --version | grep #{version}"
 
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     pidfile = testpath/"pidfile"
     ENV["LAUNCH_JBOSS_IN_BACKGROUND"] = "true"
