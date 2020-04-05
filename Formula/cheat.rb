@@ -13,6 +13,8 @@ class Cheat < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "bash-snippets", :because => "Both install a `cheat` executable"
+
   def install
     system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
 
