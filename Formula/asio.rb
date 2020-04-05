@@ -35,16 +35,16 @@ class Asio < Formula
   end
 
   test do
-    found = [pkgshare/"examples/cpp11/http/server/http_server",
-             pkgshare/"examples/cpp03/http/server/http_server"].select(&:exist?)
+    found = Dir[pkgshare/"examples/cpp{11,03}/http/server/http_server"]
     raise "no http_server example file found" if found.empty?
 
+    port = free_port
     pid = fork do
-      exec found.first, "127.0.0.1", "8080", "."
+      exec found.first, "127.0.0.1", port.to_s, "."
     end
     sleep 1
     begin
-      assert_match /404 Not Found/, shell_output("curl http://127.0.0.1:8080")
+      assert_match /404 Not Found/, shell_output("curl http://127.0.0.1:#{port}")
     ensure
       Process.kill 9, pid
       Process.wait pid
