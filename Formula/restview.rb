@@ -94,14 +94,9 @@ class Restview < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-
     testpath.install resource("sample")
 
+    port = free_port
     begin
       pid = fork do
         exec bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst"
