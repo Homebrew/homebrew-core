@@ -18,11 +18,7 @@ class WiremockStandalone < Formula
   end
 
   test do
-    require "socket"
-
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
     wiremock = fork do
       exec "#{bin}/wiremock", "-port", port.to_s
