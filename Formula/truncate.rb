@@ -16,6 +16,8 @@ class Truncate < Formula
     sha256 "d8751674842b772bd3a5318c1234f262518d05d66a7fe3b06ce5f59b2176bba8" => :mavericks
   end
 
+  conflicts_with "coreutils", :because => "both install `truncate` binaries"
+
   def install
     system "make"
     bin.install "truncate"
