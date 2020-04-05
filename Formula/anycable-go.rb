@@ -21,11 +21,12 @@ class AnycableGo < Formula
   end
 
   test do
+    port = free_port
     pid = fork do
-      exec "#{bin}/anycable-go"
+      exec "#{bin}/anycable-go --port=#{port}"
     end
     sleep 1
-    output = shell_output("curl -sI http://localhost:8080/health")
+    output = shell_output("curl -sI http://localhost:#{port}/health")
     assert_match(/200 OK/m, output)
   ensure
     Process.kill("HUP", pid)
