@@ -4,6 +4,7 @@ class Istioctl < Formula
   url "https://github.com/istio/istio.git",
       :tag      => "1.5.1",
       :revision => "9d07e185b0dd50e6fb1418caa4b4d879788807e3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -25,9 +26,11 @@ class Istioctl < Formula
     srcpath.install buildpath.children
 
     cd srcpath do
-      system "make", "istioctl"
+      system "make", "istioctl", "istioctl.completion"
       prefix.install_metafiles
       bin.install outpath/"istioctl"
+      bash_completion.install outpath/"release/istioctl.bash"
+      zsh_completion.install outpath/"release/_istioctl"
     end
   end
 
