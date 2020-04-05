@@ -51,14 +51,14 @@ class SeleniumServerStandalone < Formula
   end
 
   test do
-    port = 4444
+    port = free_port
     pid = fork do
       exec "#{bin}/selenium-server -port #{port}"
     end
     sleep 3
 
     begin
-      output = shell_output("curl --silent localhost:4444/wd/hub/status")
+      output = shell_output("curl --silent localhost:#{port}/wd/hub/status")
       output = JSON.parse(output)
 
       assert_equal 0, output["status"]
