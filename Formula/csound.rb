@@ -1,9 +1,10 @@
 class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
-  url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
-  sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
-  revision 3
+  url "https://github.com/csound/csound.git",
+    :tag      => "6.14.0",
+    :revision => "1073b4d1bc2304a1e06defd266781a9c441a5be0"
+  revision 4
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
@@ -94,10 +95,10 @@ class Csound < Formula
         export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
 
       To use the Java bindings, you may need to add to #{shell_profile}:
-        export CLASSPATH='#{opt_libexec}/csnd6.jar:.'
+        export CLASSPATH="#{opt_libexec}/csnd6.jar:."
       and link the native shared library into your Java Extensions folder:
         mkdir -p ~/Library/Java/Extensions
-        ln -s '#{opt_libexec}/lib_jcsound6.jnilib' ~/Library/Java/Extensions
+        ln -s "#{opt_libexec}/lib_jcsound6.jnilib" ~/Library/Java/Extensions
     EOS
   end
 
