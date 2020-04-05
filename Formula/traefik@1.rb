@@ -69,14 +69,8 @@ class TraefikAT1 < Formula
   end
 
   test do
-    require "socket"
-
-    web_server = TCPServer.new(0)
-    http_server = TCPServer.new(0)
-    web_port = web_server.addr[1]
-    http_port = http_server.addr[1]
-    web_server.close
-    http_server.close
+    web_port = free_port
+    http_port = free_port
 
     (testpath/"traefik.toml").write <<~EOS
       [web]
