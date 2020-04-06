@@ -11,7 +11,7 @@ class Hledger < Formula
     sha256 "25441f756ef6cccf285cd437416999502c0fe9387f44c6be66a7a2bf56db5ec1" => :high_sierra
   end
 
-  depends_on "cabal-install" => :build
+  depends_on "stack" => :build
   depends_on "ghc@8.8" => :build
 
   uses_from_macos "ncurses"
