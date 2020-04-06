@@ -4,7 +4,7 @@ class PkgConfig < Formula
   url "https://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/pkg-config-0.29.2.tar.gz"
   sha256 "6fc69c01688c9458a57eb9a1664c9aba372ccda420a02bf4429fe610e7e7d591"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,7 @@ class PkgConfig < Formula
       #{HOMEBREW_PREFIX}/share/pkgconfig
       /usr/local/lib/pkgconfig
       /usr/lib/pkgconfig
+      #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}
     ].uniq.join(File::PATH_SEPARATOR)
 
     system "./configure", "--disable-debug",
