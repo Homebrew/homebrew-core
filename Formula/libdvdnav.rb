@@ -1,9 +1,8 @@
 class Libdvdnav < Formula
   desc "DVD navigation library"
   homepage "https://www.videolan.org/developers/libdvdnav.html"
-  url "https://download.videolan.org/pub/videolan/libdvdnav/6.0.1/libdvdnav-6.0.1.tar.bz2"
-  sha256 "e566a396f1950017088bfd760395b0565db44234195ada5413366c9d23926733"
-  revision 1
+  url "https://download.videolan.org/pub/videolan/libdvdnav/6.1.0/libdvdnav-6.1.0.tar.bz2"
+  sha256 "f697b15ea9f75e9f36bdf6ec3726308169f154e2b1e99865d0bbe823720cee5b"
 
   bottle do
     cellar :any
@@ -13,7 +12,7 @@ class Libdvdnav < Formula
   end
 
   head do
-    url "https://git.videolan.org/git/libdvdnav.git"
+    url "https://code.videolan.org/videolan/libdvdnav.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
