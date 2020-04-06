@@ -17,7 +17,7 @@ class Libbdplus < Formula
   end
 
   head do
-    url "https://git.videolan.org/git/libbdplus.git"
+    url "https://code.videolan.org/videolan/libbdplus.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
