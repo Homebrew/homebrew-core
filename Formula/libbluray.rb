@@ -1,8 +1,8 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/pub/videolan/libbluray/1.1.2/libbluray-1.1.2.tar.bz2"
-  sha256 "a3dd452239b100dc9da0d01b30e1692693e2a332a7d29917bf84bb10ea7c0b42"
+  url "https://download.videolan.org/videolan/libbluray/1.2.0/libbluray-1.2.0.tar.bz2"
+  sha256 "cd41ea06fd2512a77ebf63872873641908ef81ce2fe4e4c842f6035a47696c11"
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Libbluray < Formula
   end
 
   head do
-    url "https://git.videolan.org/git/libbluray.git"
+    url "https://code.videolan.org/videolan/libbluray.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
