@@ -11,6 +11,8 @@ class Libcoap < Formula
     sha256 "a68df19a4ca87c677173c14b534848592bb35e46a715ca066bcd114f8c735236" => :high_sierra
   end
 
+  option "with-examples", "Will build the included POSIX examples"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "doxygen" => :build
@@ -19,10 +21,15 @@ class Libcoap < Formula
   depends_on "openssl@1.1" if MacOS.version <= :sierra
 
   def install
+    args = %W[
+      --prefix=#{prefix}
+      --disable-manpages
+    ]
+
+    args << "--disable-examples" if !build.with? "examples"
+
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-examples",
-                          "--disable-manpages"
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
