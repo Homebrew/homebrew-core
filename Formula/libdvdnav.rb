@@ -3,6 +3,7 @@ class Libdvdnav < Formula
   homepage "https://www.videolan.org/developers/libdvdnav.html"
   url "https://download.videolan.org/pub/videolan/libdvdnav/6.1.0/libdvdnav-6.1.0.tar.bz2"
   sha256 "f697b15ea9f75e9f36bdf6ec3726308169f154e2b1e99865d0bbe823720cee5b"
+  revision 1
 
   bottle do
     cellar :any
