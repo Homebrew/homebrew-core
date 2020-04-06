@@ -4,7 +4,7 @@ class Cassandra < Formula
   url "https://www.apache.org/dyn/closer.lua?path=cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz"
   mirror "https://archive.apache.org/dist/cassandra/3.11.6/apache-cassandra-3.11.6-bin.tar.gz"
   sha256 "ce34edebd1b6bb35216ae97bd06d3efc338c05b273b78267556a99f85d30e45b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Cassandra < Formula
   end
 
   depends_on "cython" => :build
-  depends_on "python@3.8"
+  depends_on :macos # Due to Python 2 (https://issues.apache.org/jira/browse/CASSANDRA-10190)
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
@@ -51,12 +51,11 @@ class Cassandra < Formula
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
 
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    pypath = libexec/"vendor/lib/python#{xy}/site-packages"
+    pypath = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", pypath
     resources.each do |r|
       r.stage do
-        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
