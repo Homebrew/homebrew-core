@@ -9,6 +9,8 @@ class SshCopyId < Formula
 
   bottle :unneeded
 
+  keg_only :provided_by_macos
+
   def install
     bin.install "contrib/ssh-copy-id"
     man1.install "contrib/ssh-copy-id.1"
