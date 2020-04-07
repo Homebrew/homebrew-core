@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/8.0.426.27.tar.gz"
-  sha256 "de34a09d47074345fab2fcb2920f732b6d44bff028dbb81329fe1fa7556a96fd"
+  url "https://github.com/v8/v8/archive/8.1.307.28.tar.gz"
+  sha256 "09665555e7f9bcc5beedac12843b6d9467efcb2d25946b62b3ba21c2165a0a50"
 
   bottle do
     cellar :any
@@ -21,13 +21,13 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "ad9e442d92dcd9ee73a557428cfc336b55cbd533"
+      :revision => "97cc440d84f050f99ff0161f9414bfa2ffa38f65"
   end
 
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "e35470d98289c1f82179839d7657d45b59e982c9"
+      :revision => "2f17606c25956e800b6c4670c294a03620e78551"
   end
 
   resource "v8/third_party/icu" do
@@ -37,12 +37,12 @@ class V8 < Formula
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      :revision => "5e4fce17a9d2439c44a7b57ceecef6df9287ec2f"
+      :revision => "bd79231eb1f9e7de2efb4ad79e530d9a7e70d9a5"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "5395345ca4f0c596110188688ed990e0de5a181c"
+      :revision => "306f3754a71d6d1ac644681d3544d06744914228"
   end
 
   resource "v8/third_party/jinja2" do
@@ -57,7 +57,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-      :revision => "e77e1c06c8881abff0c7418368d147ff4a474d08"
+      :revision => "b9b9a5af7cca2e683e5f2aead8418e5bf9d5a7d5"
   end
 
   def install
