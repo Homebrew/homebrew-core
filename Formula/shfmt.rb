@@ -1,8 +1,8 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/v3.0.2.tar.gz"
-  sha256 "4ce55f902c6c405f740357a1ccf095b605d14eb5b56d882c74bced4d6410d4ae"
+  url "https://github.com/mvdan/sh/archive/v3.1.0.tar.gz"
+  sha256 "b05b0c0fdd7dd202c1be75920d501b3735a065322f09c280db0949631e7e0d92"
   head "https://github.com/mvdan/sh.git"
 
   bottle do
@@ -18,7 +18,8 @@ class Shfmt < Formula
     ENV["CGO_ENABLED"] = "0"
     (buildpath/"src/mvdan.cc").mkpath
     ln_sf buildpath, buildpath/"src/mvdan.cc/sh"
-    system "go", "build", "-a", "-tags", "production brew", "-ldflags", "-w -s -extldflags '-static'",
+    system "go", "build", "-a", "-tags", "production brew", "-ldflags",
+                          "-w -s -extldflags '-static' -X main.version=#{version}",
                           "-o", "#{bin}/shfmt", "./cmd/shfmt"
   end
 
