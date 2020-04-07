@@ -1,9 +1,8 @@
 class Mat2 < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://0xacab.org/jvoisin/mat2"
-  url "https://0xacab.org/jvoisin/mat2/-/archive/0.10.1/mat2-0.10.1.tar.gz"
-  sha256 "5ed3d9c945d1475479a42e87879821440c66c2881db157aa480ccdcefc13d202"
-  revision 1
+  url "https://0xacab.org/jvoisin/mat2/-/archive/0.11.0/mat2-0.11.0.tar.gz"
+  sha256 "c37be119f4bc6226257cd72048bba4eaf3bb24a62fd38c2a34d9b937e6bd36b7"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,14 +21,11 @@ class Mat2 < Formula
   depends_on "python@3.8"
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/30/4c/5ad1a6e1ccbcfaf6462db727989c302d9d721beedd9b09c11e6f0c7065b0/mutagen-1.42.0.tar.gz"
-    sha256 "bb61e2456f59a9a4a259fbc08def6d01ba45a42da8eeaa97d00633b0ec5de71c"
+    url "https://files.pythonhosted.org/packages/96/9f/280220926cabbf4822f80e094a5190fb3df245209648e169c8bcf708697b/mutagen-1.44.0.tar.gz"
+    sha256 "56065d8a9ca0bc64610a4d0f37e2bd4453381dde3226b8835ee656faa3287be4"
   end
 
   def install
-    inreplace "libmat2/exiftool.py", "/usr/bin/exiftool", "#{Formula["exiftool"].opt_bin}/exiftool"
-    inreplace "libmat2/video.py", "/usr/bin/ffmpeg", "#{Formula["ffmpeg"].opt_bin}/ffmpeg"
-
     version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
     pygobject3 = Formula["pygobject3"]
     ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
