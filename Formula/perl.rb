@@ -37,7 +37,6 @@ class Perl < Formula
     system "./Configure", *args
 
     system "make"
-    system "make", "test"
 
     system "make", "install"
   end
