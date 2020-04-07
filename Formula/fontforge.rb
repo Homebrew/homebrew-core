@@ -3,7 +3,7 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20190801/fontforge-20190801.tar.gz"
   sha256 "d92075ca783c97dc68433b1ed629b9054a4b4c74ac64c54ced7f691540f70852"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
