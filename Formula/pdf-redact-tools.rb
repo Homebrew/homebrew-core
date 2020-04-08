@@ -16,6 +16,7 @@ class PdfRedactTools < Formula
   depends_on "exiftool"
   depends_on "ghostscript"
   depends_on "imagemagick"
+  depends_on :macos # Due to Python 2 (https://github.com/firstlookmedia/pdf-redact-tools/pull/34)
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
