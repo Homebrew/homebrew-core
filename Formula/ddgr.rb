@@ -1,8 +1,10 @@
 class Ddgr < Formula
+  include Language::Python::Shebang
+
   desc "DuckDuckGo from the terminal"
   homepage "https://github.com/jarun/ddgr"
-  url "https://github.com/jarun/ddgr/archive/v1.7.tar.gz"
-  sha256 "1e3d01dc71337b2a59b96ab89ee422a7ef9e6ddcd42813ac08d57db194bc4fea"
+  url "https://github.com/jarun/ddgr/archive/v1.8.tar.gz"
+  sha256 "882972441fcbcc94b52387e8ede8d3dd4e9dee47c83619b9d0b55357819682a9"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,9 +14,10 @@ class Ddgr < Formula
     sha256 "a42b9e6ed21cbcc507eb01fa11ad1264b2e16e8a7f1b47c3b97d881d6ab145ab" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
+    rewrite_shebang detected_python_shebang, "ddgr"
     system "make", "install", "PREFIX=#{prefix}"
     bash_completion.install "auto-completion/bash/ddgr-completion.bash"
     fish_completion.install "auto-completion/fish/ddgr.fish"
