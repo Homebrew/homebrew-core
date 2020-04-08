@@ -14,6 +14,7 @@ class Kibana < Formula
   end
 
   depends_on "yarn" => :build
+  depends_on :macos # Due to Python 2
   depends_on "node@10"
 
   def install
