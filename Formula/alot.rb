@@ -5,6 +5,7 @@ class Alot < Formula
   homepage "https://github.com/pazz/alot"
   url "https://github.com/pazz/alot/archive/0.9.tar.gz"
   sha256 "64bfa2f550d775940348c93532bf5cbdde57b9fcec4bcf2447a72510d2add6cf"
+  revision 1
   head "https://github.com/pazz/alot.git"
 
   bottle do
@@ -19,16 +20,16 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python"
-
-  resource "Automat" do
-    url "https://files.pythonhosted.org/packages/4c/9a/3052851fa3a888d1ff32f053fba424ed929b47383fb5327855fdf70018cd/Automat-0.8.0.tar.gz"
-    sha256 "269a09dfb063a3b078983f4976d83f0a0d3e6e7aaf8e27d8df1095e09dc4a484"
-  end
+  depends_on "python@3.8"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
     sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+  end
+
+  resource "Automat" do
+    url "https://files.pythonhosted.org/packages/80/c5/82c63bad570f4ef745cc5c2f0713c8eddcd07153b4bee7f72a8dc9f9384b/Automat-20.2.0.tar.gz"
+    sha256 "7979803c74610e11ef0c0d68a2942b152df52da55336e0c9d58daf1831cbdf33"
   end
 
   resource "configobj" do
@@ -41,19 +42,14 @@ class Alot < Formula
     sha256 "586372eb92059873e29eba4f9dec8381541b4d3834660707faf8ba59146dfc35"
   end
 
-  resource "gpg" do
-    url "https://files.pythonhosted.org/packages/ef/86/c5a34243a932346c59cb25eb49a4d1dec227974209eb9b618d0ed57ea5be/gpg-1.10.0.tar.gz"
-    sha256 "349214a866c84aa548bc35ed14eccd2ec9085b3958d5753a63a19a71a1f523ca"
-  end
-
   resource "hyperlink" do
     url "https://files.pythonhosted.org/packages/e0/46/1451027b513a75edf676d25a47f601ca00b06a6a7a109e5644d921e7462d/hyperlink-19.0.0.tar.gz"
     sha256 "4288e34705da077fada1111a24a0aa08bb1e76699c9ce49876af722441845654"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
-    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
+    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
   end
 
   resource "incremental" do
@@ -62,8 +58,8 @@ class Alot < Formula
   end
 
   resource "PyHamcrest" do
-    url "https://files.pythonhosted.org/packages/eb/3f/3b762dbc1a66494d9ef4562d24e0b1eb0b57dfa74124ef69f3eb2dd2eaaa/PyHamcrest-2.0.0.tar.gz"
-    sha256 "5959cb4ab465b303522d2e0d270a6ee581c3ad9ba419e304bb6ebe50a60ea37a"
+    url "https://files.pythonhosted.org/packages/58/05/7b993fabb44ff0b52a90916d96bfd91a65ecf90b8248e72bba325ba8e438/PyHamcrest-2.0.2.tar.gz"
+    sha256 "412e00137858f04bde0729913874a48485665f2d36fe9ee449f26be864af9316"
   end
 
   resource "python-magic" do
@@ -77,8 +73,8 @@ class Alot < Formula
   end
 
   resource "Twisted" do
-    url "https://files.pythonhosted.org/packages/0b/95/5fff90cd4093c79759d736e5f7c921c8eb7e5057a70d753cdb4e8e5895d7/Twisted-19.10.0.tar.bz2"
-    sha256 "7394ba7f272ae722a74f3d969dcf599bc4ef093bc392038748a490f1724a515d"
+    url "https://files.pythonhosted.org/packages/4a/b4/4973c7ccb5be2ec0abc779b7d5f9d5f24b17b0349e23240cfc9dc3bd83cc/Twisted-20.3.0.tar.bz2"
+    sha256 "d72c55b5d56e176563b91d11952d13b01af8725c623e498db5507b6614fc1e10"
   end
 
   resource "urwid" do
@@ -92,8 +88,8 @@ class Alot < Formula
   end
 
   resource "zope.interface" do
-    url "https://files.pythonhosted.org/packages/c3/05/bf3130eb799548882ce61b7c3d2dbc5d4d5cc6e821efa8786c5273d56844/zope.interface-4.7.1.tar.gz"
-    sha256 "4bb937e998be9d5e345f486693e477ba79e4344674484001a0b646be1d530487"
+    url "https://files.pythonhosted.org/packages/af/d2/9675302d7ced7ec721481f4bbecd28a390a8db4ff753d28c64057b975396/zope.interface-5.1.0.tar.gz"
+    sha256 "40e4c42bd27ed3c11b2c983fecfb03356fae1209de10686d03c02c8696a1d90e"
   end
 
   def install
