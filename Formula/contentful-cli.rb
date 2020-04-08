@@ -3,8 +3,8 @@ require "language/node"
 class ContentfulCli < Formula
   desc "Contentful command-line tools"
   homepage "https://github.com/contentful/contentful-cli"
-  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.3.10.tgz"
-  sha256 "13448cb81db98c63ec998314b3bc6b9408a22cbffa705e41e86883b56c498a32"
+  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-1.3.12.tgz"
+  sha256 "e7dfbf608ba66c2c8c1b15dd0b1da51f655ca5720e497f5db34b1e136f16a3fc"
   head "https://github.com/contentful/contentful-cli.git"
 
   bottle do
