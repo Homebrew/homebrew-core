@@ -12,6 +12,7 @@ class Botan < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on :macos # Due to Python 2
   depends_on "openssl@1.1"
 
   uses_from_macos "bzip2"
