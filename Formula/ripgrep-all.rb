@@ -1,8 +1,8 @@
 class RipgrepAll < Formula
   desc "Wrapper around ripgrep that adds multiple rich file types"
   homepage "https://github.com/phiresky/ripgrep-all"
-  url "https://github.com/phiresky/ripgrep-all/archive/0.9.3.tar.gz"
-  sha256 "06259e7c1734a9246c2d113bf5e914f4d418e53c201efc697bfc041a713fbef3"
+  url "https://github.com/phiresky/ripgrep-all/archive/v0.9.5.tar.gz"
+  sha256 "7939a9cb5ee8944f5a62f96b72507241647287b1f6257f3123c525ffb7e38c44"
   head "https://github.com/phiresky/ripgrep-all.git"
 
   bottle do
