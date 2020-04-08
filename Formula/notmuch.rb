@@ -3,6 +3,7 @@ class Notmuch < Formula
   homepage "https://notmuchmail.org/"
   url "https://notmuchmail.org/releases/notmuch-0.29.3.tar.xz"
   sha256 "d5f704b9a72395e43303de9b1f4d8e14dd27bf3646fdbb374bb3dbb7d150dc35"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", :using => :git
 
   bottle do
@@ -47,7 +48,7 @@ class Notmuch < Formula
     (prefix/"vim").install "vim/syntax"
 
     cd "bindings/python" do
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
