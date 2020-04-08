@@ -3,6 +3,7 @@ class Otf2 < Formula
   homepage "https://www.vi-hps.org/projects/score-p/"
   url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
   sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
+  revision 1
 
   bottle do
     sha256 "e3641f75553e24a7911b5e0128efdc2dd13ef805a121f66c3fe91fa0f97f4362" => :catalina
@@ -13,7 +14,7 @@ class Otf2 < Formula
   depends_on "sphinx-doc" => :build
   depends_on "gcc"
   depends_on "open-mpi"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
@@ -21,13 +22,14 @@ class Otf2 < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    python3 = Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("future").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system python3, *Language::Python.setup_install_args(libexec/"vendor")
     end
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = python3
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
     system "./configure", "--disable-debug",
