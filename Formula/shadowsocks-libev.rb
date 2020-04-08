@@ -25,6 +25,7 @@ class ShadowsocksLibev < Formula
   depends_on "c-ares"
   depends_on "libev"
   depends_on "libsodium"
+  depends_on :macos # Due to Python 2
   depends_on "mbedtls"
   depends_on "pcre"
 
