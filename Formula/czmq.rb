@@ -23,6 +23,7 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
+  depends_on :macos # Due to Python 2
   depends_on "zeromq"
 
   def install
