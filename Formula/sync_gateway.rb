@@ -15,6 +15,7 @@ class SyncGateway < Formula
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
+  depends_on :macos # Due to Python 2
 
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
