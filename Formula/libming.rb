@@ -18,6 +18,7 @@ class Libming < Formula
   depends_on "freetype"
   depends_on "giflib"
   depends_on "libpng"
+  depends_on :macos # Due to Python 2
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
