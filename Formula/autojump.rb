@@ -13,6 +13,8 @@ class Autojump < Formula
     sha256 "c95107719bd784e0e348be6dbfb3a780240d96f8d76710271c3642335babbd8f" => :sierra
   end
 
+  depends_on :macos # Due to Python 2
+
   def install
     system "./install.py", "-d", prefix, "-z", zsh_completion
 
