@@ -1,15 +1,15 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.13.4.tar.gz"
-  sha256 "fd9af3df87f61dbce01c262c71d07cd11221602da7662c321501772eb9a68fff"
+  url "https://github.com/Canop/broot/archive/v0.13.6.tar.gz"
+  sha256 "f28eea78bba1660ecdbdb9ebac8e215b7523b94f7d490d69d8022df44eacec3c"
   head "https://github.com/Canop/broot.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "021434c2352da97a183a70dbdf82ccca86eb46f552d8ec5dc1a127c95f1ae01f" => :catalina
-    sha256 "f8565c22874e3afb0c525ff101939f5c03696f972710e8f3f81f003216a923ea" => :mojave
-    sha256 "1d029f5e322b1516ecda366e1265a5e86a4088400cc94ea506097690db95abf4" => :high_sierra
+    sha256 "a9854899ce658d45148ce8f194d9bdda84799a7d552e4d264a0118b49ea707d4" => :catalina
+    sha256 "221d7097a8d1f731c10a7b498d76886e5b46238ce9b4fe94f38deafe1247b0d4" => :mojave
+    sha256 "619d04bce458d7adccdddfe222fa0bfc600556337a870def65ab4e7406a43d99" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -21,9 +21,7 @@ class Broot < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/broot --version")
-
-    assert_match "BFS", shell_output("#{bin}/broot --help 2>&1")
+    assert_match "A tree explorer and a customizable launcher", shell_output("#{bin}/broot --help 2>&1")
 
     require "pty"
     require "io/console"

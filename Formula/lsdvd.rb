@@ -3,13 +3,13 @@ class Lsdvd < Formula
   homepage "https://sourceforge.net/projects/lsdvd"
   url "https://downloads.sourceforge.net/project/lsdvd/lsdvd/lsdvd-0.17.tar.gz"
   sha256 "7d2c5bd964acd266b99a61d9054ea64e01204e8e3e1a107abe41b1274969e488"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "cf5b1b4f5291edca2f210f74f391a625c06ef930a00b769aee3cf46e8f2c217c" => :catalina
-    sha256 "0db26707f1960dd5354f14e4ad779ad4a29e3066b124e0b11af0a179b3a36256" => :mojave
-    sha256 "c106839fc9f9378eb0d72ada198a13e279d7ef5afd73bc8bcafd1e99566bf50e" => :high_sierra
+    sha256 "63e52d4264e765ca6095153de37b08dee02d59676ae98b2f0c36b29c0fdae48e" => :catalina
+    sha256 "1489bcdd29d86d725cbf76a68ff77335729c676fcf1155555da799d7096ee933" => :mojave
+    sha256 "d5a945ffb9e6172df4625d0ed5b3e5c6aecd2dfc6c9ab5b2a83d88267027edc8" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
