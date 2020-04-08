@@ -13,6 +13,7 @@ class NumpyAT116 < Formula
   end
 
   depends_on "gcc" => :build # for gfortran
+  depends_on :macos # Due to Python 2
   depends_on "openblas"
 
   resource "Cython" do
