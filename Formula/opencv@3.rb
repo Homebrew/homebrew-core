@@ -1,9 +1,8 @@
 class OpencvAT3 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.9.tar.gz"
-  sha256 "b7ea364de7273cfb3b771a0d9c111b8b8dfb42ff2bcd2d84681902fb8f49892a"
-  revision 3
+  url "https://github.com/opencv/opencv/archive/3.4.10.tar.gz"
+  sha256 "1ed6f5b02a7baf14daca04817566e7c98ec668cec381e0edf534fa49f10f58a2"
 
   bottle do
     sha256 "93a1d4c8650c957f159f293bc47002b1cc7a9d7c3e6724022f4397045a6cc921" => :catalina
@@ -29,8 +28,8 @@ class OpencvAT3 < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.9.tar.gz"
-    sha256 "dc7d95be6aaccd72490243efcec31e2c7d3f21125f88286186862cf9edb14a57"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.10.tar.gz"
+    sha256 "45be02486feaa5c66efc497c463a9b9d6671aa4a125ca8ea2467b8c81201971c"
   end
 
   def install
