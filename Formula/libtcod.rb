@@ -16,6 +16,7 @@ class Libtcod < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
+  depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
   conflicts_with "libzip", "minizip2",
