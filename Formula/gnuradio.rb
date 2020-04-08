@@ -20,6 +20,7 @@ class Gnuradio < Formula
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
+  depends_on :macos # Due to Python 2
   depends_on "numpy@1.16"
   depends_on "portaudio"
   depends_on "uhd"
