@@ -14,6 +14,7 @@ class AppscaleTools < Formula
   end
 
   depends_on "libyaml"
+  depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)
   depends_on "openssl@1.1"
 
   uses_from_macos "libffi"
