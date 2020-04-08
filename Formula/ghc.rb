@@ -27,7 +27,7 @@ class Ghc < Formula
     end
   end
 
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -53,6 +53,7 @@ class Ghc < Formula
 
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
     # executables link to Homebrew's GMP.
