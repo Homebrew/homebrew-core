@@ -4,6 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-3/R-3.6.3.tar.gz"
   sha256 "89302990d8e8add536e12125ec591d6951022cf8475861b3690bc8bf1cefaa8f"
   revision 1
+  head "https://stat.ethz.ch/R/daily/R-devel.tar.gz"
 
   bottle do
     sha256 "87a9a56265163f342725418365989afbdab02abc997df0304e403034094f1117" => :catalina
@@ -17,7 +18,11 @@ class R < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "openblas"
-  depends_on "pcre"
+  if build.head?
+    depends_on "pcre2"
+  else
+    depends_on "pcre"
+  end
   depends_on "readline"
   depends_on "xz"
 
