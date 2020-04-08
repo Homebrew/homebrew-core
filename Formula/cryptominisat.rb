@@ -3,6 +3,7 @@ class Cryptominisat < Formula
   homepage "https://www.msoos.org/cryptominisat5/"
   url "https://github.com/msoos/cryptominisat/archive/5.6.8.tar.gz"
   sha256 "38add382c2257b702bdd4f1edf73544f29efc6e050516b6cacd2d81e35744b55"
+  revision 1
 
   bottle do
     sha256 "2344fee3bb2a80ec14eb320faabade428e32d1bbb9570b2867b54e9f94c5fe69" => :catalina
@@ -14,7 +15,7 @@ class Cryptominisat < Formula
   depends_on "cmake" => :build
   depends_on :arch => :x86_64
   depends_on "boost"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     mkdir "build" do
@@ -33,5 +34,15 @@ class Cryptominisat < Formula
     EOS
     result = shell_output("#{bin}/cryptominisat5 simple.cnf", 20)
     assert_match /s UNSATISFIABLE/, result
+
+    (testpath/"test.py").write <<~EOS
+      import pycryptosat
+      solver = pycryptosat.Solver()
+      solver.add_clause([1])
+      solver.add_clause([-2])
+      solver.add_clause([-1, 2, 3])
+      print(solver.solve()[1])
+    EOS
+    assert_equal "(None, True, False, True)\n", shell_output("#{Formula["python@3.8"].opt_bin}/python3 test.py")
   end
 end
