@@ -1,8 +1,8 @@
 class Killswitch < Formula
   desc "VPN kill switch for macOS"
   homepage "https://vpn-kill-switch.com"
-  url "https://github.com/vpn-kill-switch/killswitch/archive/0.7.1.tar.gz"
-  sha256 "64be2ea4ebc62cea724b3dad7ddf61a6be7ea285012f99651380f7b189aa0dc5"
+  url "https://github.com/vpn-kill-switch/killswitch/archive/v0.7.2.tar.gz"
+  sha256 "21b5f755fd5f23f9785bab6815f83056b0291ea9200706debd490a69aa565558"
 
   bottle do
     cellar :any_skip_relocation
