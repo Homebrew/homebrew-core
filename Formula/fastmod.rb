@@ -1,8 +1,8 @@
 class Fastmod < Formula
   desc "Fast partial replacement for the codemod tool"
   homepage "https://github.com/facebookincubator/fastmod"
-  url "https://github.com/facebookincubator/fastmod/archive/v0.3.0.tar.gz"
-  sha256 "95925c73d06f6bd9ea9a6ca66c847e9722fe7bff5c8c3ee9a3245a37f630dfc0"
+  url "https://github.com/facebookincubator/fastmod/archive/v0.4.0.tar.gz"
+  sha256 "c36786acd75944cf50b77f6f61e22cf6e6833a0647b1f3bafbc7ff5c3e2c8153"
 
   bottle do
     cellar :any_skip_relocation
