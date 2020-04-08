@@ -1,8 +1,8 @@
 class AwsEsProxy < Formula
   desc "Small proxy between HTTP client and AWS Elasticsearch"
   homepage "https://github.com/abutaha/aws-es-proxy"
-  url "https://github.com/abutaha/aws-es-proxy/archive/v0.9.tar.gz"
-  sha256 "c5a2943c79737874b7fc84ee298925e33aeece58fcf0e2b8b7d2f416bc872491"
+  url "https://github.com/abutaha/aws-es-proxy/archive/v1.0.tar.gz"
+  sha256 "9e4177610369f149cc64db59564e1621e06d7203d0acdaa56cdbd14c47079171"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,20 +12,11 @@ class AwsEsProxy < Formula
     sha256 "a7909d452eae3f5f34f982f98af35be8c814d9b9476c3c7a2f479fa6f5e9f631" => :sierra
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GLIDE_HOME"] = buildpath/"glide_home"
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/abutaha/aws-es-proxy").install buildpath.children
-    cd "src/github.com/abutaha/aws-es-proxy" do
-      system "glide", "install"
-      system "go", "build", "-o", "aws-es-proxy"
-
-      bin.install "aws-es-proxy"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
+    prefix.install_metafiles
   end
 
   def caveats
