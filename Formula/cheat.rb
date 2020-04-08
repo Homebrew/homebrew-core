@@ -1,8 +1,8 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat/archive/3.8.0.tar.gz"
-  sha256 "daa183b9328704bbd00fc423144ce29652b1750e895dbf9c99b131d98b7f01ec"
+  url "https://github.com/cheat/cheat/archive/3.9.0.tar.gz"
+  sha256 "404081005628cccbbe576567cf3aa1e8d93c618230c9119ae74ce27366cddb1e"
 
   bottle do
     cellar :any_skip_relocation
