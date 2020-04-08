@@ -13,6 +13,9 @@ class Rethinkdb < Formula
   end
 
   depends_on "boost" => :build
+  depends_on :macos # Due to Python 2 (v8 and gyp fail to build)
+  # https://github.com/Homebrew/linuxbrew-core/pull/19614
+  # https://github.com/rethinkdb/rethinkdb/pull/6401
   depends_on "openssl@1.1"
 
   uses_from_macos "curl"
