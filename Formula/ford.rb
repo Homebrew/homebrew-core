@@ -5,7 +5,7 @@ class Ford < Formula
   homepage "https://github.com/cmacmackin/ford/"
   url "https://github.com/cmacmackin/ford/archive/v6.0.0.tar.gz"
   sha256 "45fd53c7e5263fea2e751c436de6a1513d250647e98e32668b9965677974309e"
-  revision 1
+  revision 2
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
@@ -17,34 +17,29 @@ class Ford < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/fa/8d/1d14391fdaed5abada4e0f63543fef49b8331a34ca60c88bd521bcf7f782/beautifulsoup4-4.6.0.tar.gz"
-    sha256 "808b6ac932dccb0a4126558f7dfdcf41710dd44a4ef497a0bb59a77f9f078e89"
+    url "https://files.pythonhosted.org/packages/3b/e4/7cfc641f11e0eef60123912611a5c9ee7d4638da7325878b695b9ae4bb6f/beautifulsoup4-4.9.0.tar.gz"
+    sha256 "594ca51a10d2b3443cbac41214e12dbb2a1cd57e1a7344659849e2e20ba6a8d8"
   end
 
   resource "graphviz" do
-    url "https://files.pythonhosted.org/packages/21/e8/13b0523da93d7189d9ab30097cdd2ffe78f88b0cc69f341749dec562b731/graphviz-0.8.4.zip"
-    sha256 "4958a19cbd8461757a08db308a4a15c3d586660417e1e364f0107d2fe481689f"
+    url "https://files.pythonhosted.org/packages/5d/71/f63fe59145fca7667d92475f1574dd583ad1f48ab228e9a5dddd5733197f/graphviz-0.13.2.zip"
+    sha256 "60acbeee346e8c14555821eab57dbf68a169e6c10bce40e83c1bf44f63a62a01"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/54/a6/43be8cf1cc23e3fa208cab04ba2f9c3b7af0233aab32af6b5089122b44cd/lxml-4.2.3.tar.gz"
-    sha256 "622f7e40faef13d232fb52003661f2764ce6cdef3edb0a59af7c1559e4cc36d1"
+    url "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz"
+    sha256 "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
-    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
+    url "https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz"
+    sha256 "90fee683eeabe1a92e149f7ba74e5ccdc81cd397bd6c516d93a8da0ef90b6902"
   end
 
   resource "markdown-include" do
@@ -53,8 +48,8 @@ class Ford < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
-    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
+    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
+    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
   resource "md-environ" do
@@ -63,8 +58,13 @@ class Ford < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
+    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+  end
+
+  resource "soupsieve" do
+    url "https://files.pythonhosted.org/packages/15/53/3692c565aea19f7d9dd696fee3d0062782e9ad5bf9535267180511a15967/soupsieve-2.0.tar.gz"
+    sha256 "e914534802d7ffd233242b785229d5ba0766a7f487385e3f714446a07bf540ae"
   end
 
   resource "toposort" do
@@ -73,17 +73,15 @@ class Ford < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/41/61/d36ff28878ca73bb3932dfa6bab36ff872e6dac18c9ace328879b1798279/tqdm-4.23.4.tar.gz"
-    sha256 "77b8424d41b31e68f437c6dd9cd567aebc9a860507cb42fbd880a5f822d966fe"
+    url "https://files.pythonhosted.org/packages/12/67/e736c012c6c8b4092dd54bb9bdd7737acf9a140a98c58b87c35363d0105d/tqdm-4.45.0.tar.gz"
+    sha256 "00339634a22c10a7a22476ee946bbde2dbe48d042ded784e4d88e0236eca5d81"
   end
 
   def install
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resources
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
     doc.install "2008standard.pdf", "2003standard.pdf"
     pkgshare.install "example-project-file.md"
   end
