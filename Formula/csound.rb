@@ -27,6 +27,7 @@ class Csound < Formula
   depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on :macos # Due to Python 2
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
