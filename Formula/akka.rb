@@ -1,9 +1,8 @@
 class Akka < Formula
   desc "Toolkit for building concurrent, distributed, and fault tolerant apps"
   homepage "https://github.com/akka/akka"
-  url "https://downloads.typesafe.com/akka/akka_2.11-2.4.20.zip"
-  sha256 "6f6af368672640512f8e0099a5d88277f4ac64de7d4edd151411e6a80cc78d0f"
-  revision 1
+  url "https://github.com/akka/akka/archive/v2.6.4.tar.gz"
+  sha256 "c9fcdf2e04f83be63b3f2ae647c2388a8dda7097379cf4e0e1d7d9342b4b2716"
 
   bottle :unneeded
 
