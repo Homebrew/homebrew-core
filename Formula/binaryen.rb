@@ -3,6 +3,7 @@ class Binaryen < Formula
   homepage "https://webassembly.org/"
   url "https://github.com/WebAssembly/binaryen/archive/version_91.tar.gz"
   sha256 "522a30c0fd29f55d44dbc299aa768eccbda67ef134c8563085f874daa5622d7a"
+  revision 1
   head "https://github.com/WebAssembly/binaryen.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Binaryen < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on :macos => :el_capitan # needs thread-local storage
 
   def install
