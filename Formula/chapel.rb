@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.20.0/chapel-1.20.0.tar.gz"
-  sha256 "08bc86df13e4ad56d0447f52628b0f8e36b0476db4e19a90eeb2bd5f260baece"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.21.0/chapel-1.21.0.tar.gz"
+  sha256 "886f7ba0e0e86c86dba99417e3165f90b1d3eca59c8cd5a7f645ce28cb5d82a0"
 
   bottle do
     sha256 "057e5c71d41f2ff71434f446ffd8f9aa932b553612313729d4651fdc58233650" => :catalina
@@ -23,7 +23,6 @@ class Chapel < Formula
     cd libexec do
       system "make"
       system "make", "chpldoc"
-      system "make", "test-venv"
       system "make", "mason"
       system "make", "cleanall"
     end
@@ -39,7 +38,7 @@ class Chapel < Formula
   test do
     ENV["CHPL_HOME"] = libexec
     cd libexec do
-      system "make", "check"
+      system "util/test/checkChplInstall"
     end
   end
 end
