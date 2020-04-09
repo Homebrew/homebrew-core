@@ -7,6 +7,7 @@ class Jp2a < Formula
   # jp2a v1.0.6 is stable, but it is only available on SourceForge, not GitHub.
   url "https://downloads.sourceforge.net/project/jp2a/jp2a/1.0.6/jp2a-1.0.6.tar.gz"
   sha256 "0930ac8a9545c8a8a65dd30ff80b1ae0d3b603f2ef83b04226da0475c7ccce1c"
+  revision 1
   version_scheme 1
 
   bottle do
