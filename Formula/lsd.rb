@@ -1,8 +1,8 @@
 class Lsd < Formula
   desc "Clone of ls with colorful output, file type icons, and more"
   homepage "https://github.com/Peltoche/lsd"
-  url "https://github.com/Peltoche/lsd/archive/0.16.0.tar.gz"
-  sha256 "e2406748d78431a1c03bdd2404a204a006c19905d926e41a36587b93a791e003"
+  url "https://github.com/Peltoche/lsd/archive/0.17.0.tar.gz"
+  sha256 "65b03ae322c4d3ed47f502866b4da2b2c7029b6cb5dc989e98664d564a57de1d"
 
   bottle do
     cellar :any_skip_relocation
