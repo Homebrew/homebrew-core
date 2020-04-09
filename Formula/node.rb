@@ -3,6 +3,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v13.13.0/node-v13.13.0.tar.xz"
   sha256 "6711730dfaae2423c8f74f4b5f389bb3f3f0d770eac271287fa9444a9568c773"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
@@ -25,7 +26,7 @@ class Node < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
