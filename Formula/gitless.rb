@@ -3,9 +3,9 @@ class Gitless < Formula
 
   desc "Simplified version control system on top of git"
   homepage "https://gitless.com/"
-  url "https://github.com/sdg-mit/gitless/archive/v0.8.8.tar.gz"
+  url "https://github.com/gitless-vcs/gitless/archive/v0.8.8.tar.gz"
   sha256 "470aab13d51baec2ab54d7ceb6d12b9a2937f72d840516affa0cb34a6360523c"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Gitless < Formula
   end
 
   depends_on "libgit2"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libffi"
 
