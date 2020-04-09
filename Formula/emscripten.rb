@@ -1,6 +1,7 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
+  revision 1
 
   stable do
     url "https://github.com/emscripten-core/emscripten/archive/1.39.12.tar.gz"
@@ -39,7 +40,7 @@ class Emscripten < Formula
   depends_on "cmake" => :build
   depends_on "binaryen"
   depends_on "node"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "yuicompressor"
 
   def install
@@ -73,7 +74,7 @@ class Emscripten < Formula
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
-      (bin/emscript).write_env_script libexec/emscript, :PYTHON => Formula["python"].opt_bin/"python3"
+      (bin/emscript).write_env_script libexec/emscript, :PYTHON => Formula["python@3.8"].opt_bin/"python3"
     end
   end
 
