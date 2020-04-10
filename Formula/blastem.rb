@@ -17,6 +17,7 @@ class Blastem < Formula
   depends_on "libpng" => :build # for xcftools
   depends_on "pkg-config" => :build
   depends_on "glew"
+  depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
   resource "Pillow" do

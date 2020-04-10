@@ -12,6 +12,8 @@ class Lv2 < Formula
     sha256 "b0f163fce66e26fefa0c1dc35db01662d5bacae2f96760e4e5b79b1ec383cfed" => :sierra
   end
 
+  depends_on :macos # Due to Python 2
+
   def install
     system "./waf", "configure", "--prefix=#{prefix}", "--no-plugins", "--lv2dir=#{lib}"
     system "./waf", "build"

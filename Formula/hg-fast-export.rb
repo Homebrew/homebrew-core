@@ -13,6 +13,8 @@ class HgFastExport < Formula
     sha256 "1da8e73f749516b112815209ab914d1929820004db9d91170d99666f993e15a8" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
+
   # mercurial 5.3 support will be added in the next release
   # Ref https://github.com/frej/fast-export/pull/197
   resource "hg" do

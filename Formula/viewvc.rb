@@ -6,12 +6,14 @@ class Viewvc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18ef8237be4eb2ad2578b31e21ad74f226bb7d4c92075474c92619547047a0f2" => :catalina
-    sha256 "709c0f7f7badc7bce0b5e18edf1372a6c1ef3bfb01006d38a51d596a069fd516" => :mojave
-    sha256 "709c0f7f7badc7bce0b5e18edf1372a6c1ef3bfb01006d38a51d596a069fd516" => :high_sierra
+    rebuild 1
+    sha256 "d56de2b10e8bd8f161071b9d39ae435ee1fc70e4be5056b39d48dec7e77f185e" => :catalina
+    sha256 "6cd2fbb98cdc1ff4f689aae5ebea8cf4bee6f078671f812c492758274f22a5d6" => :mojave
+    sha256 "19c07a79667814ccb1b14b6214a3d5fcca65ec31381e6e46a5db3ac3f72fc2d4" => :high_sierra
   end
 
   depends_on "subversion"
+  depends_on :macos # Due to Python 2 (https://github.com/viewvc/viewvc/issues/138)
 
   def install
     system "python", "./viewvc-install", "--prefix=#{libexec}", "--destdir="
@@ -23,17 +25,18 @@ class Viewvc < Formula
   end
 
   test do
-    require "net/http"
-    require "uri"
+    port = free_port
 
     begin
-      pid = fork { exec "#{bin}/viewvc-standalone.py", "--port=9000" }
+      pid = fork do
+        exec "#{bin}/viewvc-standalone.py", "--port=#{port}"
+      end
       sleep 2
-      uri = URI.parse("http://127.0.0.1:9000/viewvc")
-      Net::HTTP.get_response(uri) # First request always returns 400
-      assert_equal "200", Net::HTTP.get_response(uri).code
+
+      output = shell_output("curl -s http://localhost:#{port}/viewvc")
+      assert_match "[ViewVC] Repository Listing", output
     ensure
-      Process.kill "SIGINT", pid
+      Process.kill "SIGTERM", pid
       Process.wait pid
     end
   end

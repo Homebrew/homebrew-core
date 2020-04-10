@@ -12,6 +12,9 @@ class Quex < Formula
     sha256 "f3d39a7468e8c529ce1c0d6ab5b2d028f50771304993e9f2e996490f846c4b6c" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2 (Migration to Python 3 has started)
+  # https://sourceforge.net/p/quex/git/ci/e0d9de092751dc0b61e0c7fa2777fdc49ea1d13e/)
+
   def install
     libexec.install "quex", "quex-exe.py"
     doc.install "README", "demo"

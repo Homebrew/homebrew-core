@@ -14,6 +14,7 @@ class Deno < Formula
   depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
+  depends_on :macos # Due to Python 2 (see https://github.com/denoland/deno/issues/2893)
 
   depends_on :xcode => ["10.0", :build] # required by v8 7.9+
 

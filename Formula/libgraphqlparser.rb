@@ -13,6 +13,7 @@ class Libgraphqlparser < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on :macos # Due to Python 2
 
   def install
     system "cmake", ".", "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",

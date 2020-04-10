@@ -14,6 +14,7 @@ class BoostPython < Formula
   end
 
   depends_on "boost"
+  depends_on :macos # Due to Python 2
 
   # Fix build on Xcode 11.4
   patch do

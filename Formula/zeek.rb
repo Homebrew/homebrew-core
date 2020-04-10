@@ -17,6 +17,7 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "caf"
   depends_on "geoip"
+  depends_on :macos # Due to Python 2 (https://github.com/zeek/zeek/issues/706)
   depends_on "openssl@1.1"
 
   uses_from_macos "flex"

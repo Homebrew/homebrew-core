@@ -15,6 +15,7 @@ class Ibex < Formula
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on :macos # Due to Python 2
 
   uses_from_macos "zlib"
 

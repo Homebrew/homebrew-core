@@ -17,6 +17,8 @@ class Volatility < Formula
 
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on :macos # Due to Python 2 (Python 3 support will come with volatility 3)
+  # https://github.com/volatilityfoundation/volatility3
   depends_on "yara"
 
   resource "distorm3" do

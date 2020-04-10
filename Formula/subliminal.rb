@@ -15,6 +15,8 @@ class Subliminal < Formula
     sha256 "de941a422e12c8ed0f70284c9ec2ae9e2c48d14f7f9d78112bbbfcbd8fcb12b6" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
+
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
     sha256 "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"

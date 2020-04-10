@@ -3,13 +3,14 @@ class Doctl < Formula
   homepage "https://github.com/digitalocean/doctl"
   url "https://github.com/digitalocean/doctl/archive/v1.40.0.tar.gz"
   sha256 "2a1877097183b9a47bad7a0942174b4a98ad6182db29d7d76720ee709fcf4c02"
+  revision 1
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d2e9299897198232be035d7f9e44548f1f30a4fd6017a985171f62ca8726432" => :catalina
-    sha256 "1447c8b1ccf051028d66a0f2f40a5a741120a1a179daea3af2c71cf6aeb935e1" => :mojave
-    sha256 "5f16e005f514d492247a90d4eec34af46485d6ae4012e48324476967656cc97b" => :high_sierra
+    sha256 "a6a9aed27da78a3841555e1cf1ee16c8d74c8ad3ec5bbd7746c26976e4102a87" => :catalina
+    sha256 "54f40fde3b2a06ce1a7714c9162734dec4b0b3076818e141cb06a643d061b841" => :mojave
+    sha256 "8f9e046605109fc38e5e762629cb563c479ca6cff35a587f45bba54897c457a0" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -34,6 +35,7 @@ class Doctl < Formula
 
     (bash_completion/"doctl").write `#{bin}/doctl completion bash`
     (zsh_completion/"_doctl").write `#{bin}/doctl completion zsh`
+    (fish_completion/"doctl.fish").write `#{bin}/doctl completion fish`
   end
 
   test do

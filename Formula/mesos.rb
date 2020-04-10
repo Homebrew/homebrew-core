@@ -15,6 +15,7 @@ class Mesos < Formula
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on :java => "1.8"
+  depends_on :macos # Due to Python 2
   depends_on "subversion"
 
   conflicts_with "nanopb-generator", :because => "they depend on an incompatible version of protobuf"

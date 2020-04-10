@@ -17,6 +17,7 @@ class Ooniprobe < Formula
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
+  depends_on :macos # Due to Python 2 (Unmaintained, use https://github.com/ooni/probe-cli once out of pre-release)
   depends_on "openssl@1.1"
   depends_on "tor"
 

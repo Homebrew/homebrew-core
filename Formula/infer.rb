@@ -25,6 +25,7 @@ class Infer < Formula
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
   depends_on "gmp"
+  depends_on :macos # Due to Python 2 (https://github.com/facebook/infer/issues/934)
   depends_on "mpfr"
   depends_on "sqlite"
 

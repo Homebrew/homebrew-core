@@ -14,6 +14,7 @@ class Nanomsgxx < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on :macos # Due to Python 2
   depends_on "nanomsg"
 
   def install
