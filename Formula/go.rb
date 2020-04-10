@@ -1,6 +1,7 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
+  revision 1
 
   stable do
     url "https://dl.google.com/go/go1.14.2.src.tar.gz"
