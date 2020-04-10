@@ -3,8 +3,8 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-    :tag      => "stable-2.7.0",
-    :revision => "b9caae0cd9c28abe9542c77a2883ce1ef524e7b8"
+    :tag      => "stable-2.7.1",
+    :revision => "4a91892387d422755e66a76995ecf77f060a06e2"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,29 +13,23 @@ class Linkerd < Formula
     sha256 "588139f4dc9bc11cb7f4230d44a154c9a50ce924f2a36b556ad90a5b0c5ce714" => :high_sierra
   end
 
-  depends_on "go@1.12" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["CI_FORCE_CLEAN"] = "1"
 
-    srcpath = buildpath/"src/github.com/linkerd/linkerd2"
-    srcpath.install buildpath.children - [buildpath/".brew_home"]
+    system "bin/build-cli-bin"
+    bin.install "target/cli/darwin/linkerd"
 
-    cd srcpath do
-      system "bin/build-cli-bin"
-      bin.install "target/cli/darwin/linkerd"
+    # Install bash completion
+    output = Utils.popen_read("#{bin}/linkerd completion bash")
+    (bash_completion/"linkerd").write output
 
-      # Install bash completion
-      output = Utils.popen_read("#{bin}/linkerd completion bash")
-      (bash_completion/"linkerd").write output
+    # Install zsh completion
+    output = Utils.popen_read("#{bin}/linkerd completion zsh")
+    (zsh_completion/"linkerd").write output
 
-      # Install zsh completion
-      output = Utils.popen_read("#{bin}/linkerd completion zsh")
-      (zsh_completion/"linkerd").write output
-
-      prefix.install_metafiles
-    end
+    prefix.install_metafiles
   end
 
   test do
