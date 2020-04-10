@@ -14,8 +14,8 @@ class CassandraAT22 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "cython" => :build
+  depends_on :macos # Due to Python 2 (does not support Python 3)
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
