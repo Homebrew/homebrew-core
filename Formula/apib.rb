@@ -3,7 +3,6 @@ class Apib < Formula
   homepage "https://github.com/apigee/apib"
   url "https://github.com/apigee/apib/archive/APIB_1_2.tar.gz"
   sha256 "f2ed580a84ceb456ab3ca6e81c14e61b13c067dc447c65dd8f63dc0e8db15244"
-  revision 1
   head "https://github.com/apigee/apib.git"
 
   bottle do
