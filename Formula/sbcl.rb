@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.2/sbcl-2.0.2-source.tar.bz2"
-  sha256 "4864046e3b8bc0d0af7523491cf0e2be6155518864e63cf2e6f8326865fbfe1e"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.3/sbcl-2.0.3-source.tar.bz2"
+  sha256 "b5543f123214b2023ff5fc32dfd00b6cfeabd92c8edb33ad208842c4fd642f00"
 
   bottle do
     sha256 "6a149417139c1362d10c67ae9c2e7d291ceabe34396c0f2c257f8f1835f58124" => :catalina
@@ -19,7 +19,7 @@ class Sbcl < Formula
   end
 
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb1118ce0c125c42ab396fa244a7aa01f863/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
   end
 
@@ -54,7 +54,9 @@ class Sbcl < Formula
     system "sh", "install.sh"
 
     # Install sources
-    bin.env_script_all_files(libexec/"bin", :SBCL_SOURCE_ROOT => pkgshare/"src")
+    bin.env_script_all_files libexec/"bin",
+                             :SBCL_SOURCE_ROOT => pkgshare/"src",
+                             :SBCL_HOME        => lib/"sbcl"
     pkgshare.install %w[contrib src]
     (lib/"sbcl/sbclrc").write <<~EOS
       (setf (logical-pathname-translations "SYS")
