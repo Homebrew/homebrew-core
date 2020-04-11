@@ -1,8 +1,8 @@
 class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
-  url "https://github.com/flame/blis/archive/0.6.1.tar.gz"
-  sha256 "76b22f29b7789cf117c0873d2a6b2a6d61f903869168148f2e7306353c105c37"
+  url "https://github.com/flame/blis/archive/0.7.0.tar.gz"
+  sha256 "7e345d666799e15bba570bd125f97042f17bf752a61dcf314486a6cd096d5f68"
   head "https://github.com/flame/blis.git"
 
   bottle do
