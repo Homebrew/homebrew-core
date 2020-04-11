@@ -3,17 +3,17 @@ class Emscripten < Formula
   homepage "https://emscripten.org/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.39.11.tar.gz"
-    sha256 "4da8d99cbc73d71a69020888933245b2ff01b009909230290f7248de76e3881a"
+    url "https://github.com/emscripten-core/emscripten/archive/1.39.12.tar.gz"
+    sha256 "b7e7c6918055a2a36c75ceeef27b507198ffbf590677cf82b6b3759c4e0c474d"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.11.tar.gz"
-      sha256 "6af67379b3a722debb278d0dcc47fcba6e2115612b19c5430e63dbf07d377f38"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.12.tar.gz"
+      sha256 "af2bd0d606e081492c58289742fc29a41d0ea6daabfb80fbc01a804a447b3ef0"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.11.tar.gz"
-      sha256 "42040b77370ba1f78ae1f3b33f7a82c60dfba8a88a09ad175990bfa200253a10"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.12.tar.gz"
+      sha256 "c52b2ad9827cb92afe5f7b5d185420aa971b0e91b172fd1966a4f95f10b8a236"
     end
   end
 
@@ -73,7 +73,7 @@ class Emscripten < Formula
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
-      bin.install_symlink libexec/emscript
+      (bin/emscript).write_env_script libexec/emscript, :PYTHON => Formula["python"].opt_bin/"python3"
     end
   end
 
