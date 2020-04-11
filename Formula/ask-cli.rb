@@ -3,8 +3,8 @@ require "language/node"
 class AskCli < Formula
   desc "CLI tool for Alexa Skill Kit"
   homepage "https://www.npmjs.com/package/ask-cli"
-  url "https://registry.npmjs.org/ask-cli/-/ask-cli-1.7.23.tgz"
-  sha256 "b04d378136d40fd7a5a8462bd32de23b90c3fcbbd28c3f03f8c340272e38804d"
+  url "https://registry.npmjs.org/ask-cli/-/ask-cli-2.0.1.tgz"
+  sha256 "8be5a30551024a8e790f4a2bd42bd49a9346a448b5bd7db0870967b8710c22e0"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +22,7 @@ class AskCli < Formula
 
   test do
     output = shell_output("#{bin}/ask deploy 2>&1", 1)
-    assert_match %r{\AInvalid json: [^ ]+\/.ask\/cli_config\Z}, output
+    assert_match "cli_config not exists", output
     system "#{bin}/ask", "lambda", "--help"
   end
 end
