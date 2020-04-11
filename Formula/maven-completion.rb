@@ -1,9 +1,8 @@
 class MavenCompletion < Formula
   desc "Bash completion for Maven"
   homepage "https://github.com/juven/maven-bash-completion"
-  url "https://github.com/juven/maven-bash-completion.git",
-    :revision => "106b6ca03badc9474cf7b6b1b7039ad950a17f89"
-  version "20160501"
+  url "https://github.com/juven/maven-bash-completion/archive/20200420.tar.gz"
+  sha256 "eb4ef412d140e19e7d3ce23adb7f8fcce566f44388cfdc8c1e766a3c4b183d3d"
   head "https://github.com/juven/maven-bash-completion.git"
 
   bottle :unneeded
