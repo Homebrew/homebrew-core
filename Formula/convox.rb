@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.0.14.tar.gz"
-  sha256 "3721f11628d43e7277bbefe64c91e7aa79b8e97c01c2ce338cf5f99028413562"
+  url "https://github.com/convox/convox/archive/3.0.15.tar.gz"
+  sha256 "0c5a5d0f2a7f4a6787de0e601d6ac7e2a84cfce36851ff9c6e970428fa77f1fa"
   version_scheme 1
 
   bottle do
@@ -14,24 +14,9 @@ class Convox < Formula
 
   depends_on "go" => :build
 
-  resource "packr" do
-    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
-    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath/"go"
-
-    (buildpath/"src").install Dir["*"]
-
-    resource("packr").stage { system "go", "install", "./packr" }
-
-    cd buildpath/"src" do
-      system "../go/bin/packr"
-      system "go", "build", "-mod=vendor", "-ldflags=-X main.version=#{version}",
-             "-o", bin/"convox", "-v", "./cmd/convox"
-    end
-
+    system "go", "build", "-mod=vendor", "-ldflags=-X main.version=#{version}",
+            "-o", bin/"convox", "-v", "./cmd/convox"
     prefix.install_metafiles
   end
 
