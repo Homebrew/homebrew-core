@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-5.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-5.2.0.tar.xz"
   sha256 "2757b5cc1854c9326d6c99d2900c7cec2909ac7ed500212d170d0df592bfd26b"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "ad41dc63a8fffc4daa3f0e924c4312868ee045721ccf972e2a488c25bb4a82f8" => :catalina
