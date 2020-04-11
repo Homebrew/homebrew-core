@@ -3,9 +3,9 @@ class Weboob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://weboob.org/"
-  url "https://git.weboob.org/weboob/weboob/uploads/007b56516cfeeea4d5c7e97fd3a1ba1f/weboob-1.5.tar.gz"
-  mirror "https://files.pythonhosted.org/packages/a7/46/4f9c9786706ecc1c115fe7c94d8b5d121c5105ce964b65bae0b741742ba8/weboob-1.5.tar.gz"
-  sha256 "7ac1851281a127182f8e8630853c8ab2e635a534928b35150b75d5d0e24b3fb1"
+  url "https://git.weboob.org/weboob/weboob/uploads/7b91875f693b60e93c5976daa051034b/weboob-2.0.tar.gz"
+  mirror "https://files.pythonhosted.org/packages/88/c1/b3423348d8e2a557c7e0d53b5977cf1a382703c7b4d1397876836184b493/weboob-2.0.tar.gz"
+  sha256 "fc8be1f77ad3a53285cef8b20a8b747960c163fad729c56838043d8ddcdfc9b0"
 
   bottle do
     cellar :any
@@ -101,6 +101,16 @@ class Weboob < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
+  resource "Babel" do
+    url "https://files.pythonhosted.org/packages/34/18/8706cfa5b2c73f5a549fdc0ef2e24db71812a2685959cff31cbdfc010136/Babel-2.8.0.tar.gz"
+    sha256 "1aac2ae2d0d8ea368fa90906567f5c08463d98ade155c0c4bfedd6a0f7160e38"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/82/c3/534ddba230bd4fbbd3b7a3d35f3341d014cca213f369a9940925e7e5f691/pytz-2019.3.tar.gz"
+    sha256 "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
+  end
+
   def install
     venv = virtualenv_create(libexec, "python3")
 
@@ -136,6 +146,6 @@ class Weboob < Formula
   end
 
   test do
-    system bin/"weboob-config", "update"
+    system bin/"weboob-config", "modules"
   end
 end
