@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v6.7.1.tar.gz"
-  sha256 "5750d286273069a195679d5586e810b0ca8cdd08ee07dcdd9b52cfaac8c62b89"
+  url "https://github.com/grafana/grafana/archive/v6.7.2.tar.gz"
+  sha256 "dc81cdb77c1c0ae99ae3302a0ef8b3d577f4a717208a90df65da8fcb282122fc"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -116,7 +116,7 @@ class Grafana < Formula
     w = res[1]
     pid = res[2]
 
-    listening = Timeout.timeout(5) do
+    listening = Timeout.timeout(10) do
       li = false
       r.each do |l|
         if /Initializing HTTPServer/.match?(l)
