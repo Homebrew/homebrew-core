@@ -1,8 +1,8 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.3.0.tar.gz"
-  sha256 "9d4f707e46410a4bbd07a3f8de20eaf856f01e87109f0733e0d1d470eceae718"
+  url "https://github.com/Nukesor/pueue/archive/v0.3.1.tar.gz"
+  sha256 "b8eaa4d0e35edd572410849a1d1c1a7c4ae9da70c56ce26a037e7d833c4ab872"
   head "https://github.com/Nukesor/pueue.git"
 
   bottle do
