@@ -1,8 +1,8 @@
 class Tunnel < Formula
   desc "Expose local servers to the internet securely"
   homepage "https://tunnel.labstack.com/docs"
-  url "https://github.com/labstack/tunnel-client/archive/v0.5.14.tar.gz"
-  sha256 "83f7d63520171f052ff50d2e3f56675545350b0aa812b3634397c8d6916292fb"
+  url "https://github.com/labstack/tunnel-client/archive/v0.5.15.tar.gz"
+  sha256 "7a57451416b76dbf220e69c7dd3e4c33dc84758a41cdb9337a464338565e3e6e"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class Tunnel < Formula
     sha256 "94fe0f4a2841c10c8f1031cd9083d0c683b52ed8f94c8d657eefc2de76e7c5c2" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
+  depends_on "go@1.14" => :build
 
   def install
     system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
