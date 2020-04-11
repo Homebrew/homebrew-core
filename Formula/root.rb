@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.20.02.source.tar.gz"
-  version "6.20.02"
-  sha256 "0997586bf097c0afbc6f08edbffcebf5eb6a4237262216114ba3f5c8087dcba6"
-  revision 2
+  url "https://root.cern.ch/download/root_v6.20.04.source.tar.gz"
+  version "6.20.04"
+  sha256 "1f8c76ccdb550e64e6ddb092b4a7e9d0a10655ef80044828cba12d5e7c874472"
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -66,6 +65,7 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
+      -Dbuiltin_glew=ON
       -Ddavix=ON
       -Dfftw3=ON
       -Dfitsio=ON
