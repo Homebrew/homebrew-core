@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/42/3d/782904a76f11cb468a0f09b9f7b5419f394f6a7ae0b311c9ff42d783be8d/cfn-lint-0.29.4.tar.gz"
-  sha256 "58652622b28732223a9a4c2b5625c5f4f4d9509bbf8d06b1b891a1ef9782f1fd"
+  url "https://files.pythonhosted.org/packages/ef/1b/f982d38f6b5c33c6e009c14d7a186df097531cb44b2d98ae32f2de8defb0/cfn-lint-0.29.5.tar.gz"
+  sha256 "9873c82b710c60eacdbed68faebd835e2f0108a037babc1c7ccd3ed7d7e921e5"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,18 +26,18 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/62/99/46ddb8bcca174d9c0ec87217cab44152a58c0f13b46602421f9a9725bc0d/boto3-1.12.36.tar.gz"
-    sha256 "911994ef46595e8ab9f08eee6b666caea050937b96d54394292e958330cd7ad5"
+    url "https://files.pythonhosted.org/packages/2e/ed/c78be6e55442756a53c3dafe086e3c72534bfe7904e683ecca3678521f9b/boto3-1.12.39.tar.gz"
+    sha256 "970bd7b332e73d7b51077ed36772c634811b38c81b0cc6ed0f910e50d7ebadf8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/cd/af/3a02532cd87ca06ae905c9496ef6d982230f46c05e86f42c43f06495aadc/botocore-1.15.36.tar.gz"
-    sha256 "5fc5e8629b5375d591a47d05baaff6ccdf5c3b617aad1e14286be458092c9e53"
+    url "https://files.pythonhosted.org/packages/87/9e/8c548fc924e2ebee4d2723705c557234550af6872bc6d9e505d05b0eeee9/botocore-1.15.39.tar.gz"
+    sha256 "94232b44e1540b7e043e220bd43f855400d0a243e926b26b3fb72994e971d518"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/bf/9d214a5af07debc6acf7f3f257265618f1db242a3f8e49a9b516f24523a6/certifi-2019.11.28.tar.gz"
-    sha256 "25b64c7da4cd7479594d035c08c2d809eb4aab3a26e5a990ea98cc450c320f1f"
+    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
+    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
   end
 
   resource "chardet" do
