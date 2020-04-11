@@ -3,8 +3,8 @@ require "language/node"
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.11.5.tgz"
-  sha256 "c1d3c6ed18d58fa463db20ae062ab0750e7887122321474cf9166aadf0e435a4"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.11.7.tgz"
+  sha256 "80ad7f8be6a8c013ed78b1415ffdfe040511c19e6ee09cf9a2fe18d04273c930"
 
   bottle do
     cellar :any_skip_relocation
