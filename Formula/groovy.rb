@@ -1,8 +1,8 @@
 class Groovy < Formula
   desc "Java-based scripting language"
   homepage "https://www.groovy-lang.org/"
-  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.2.zip"
-  sha256 "3ce9d9097f3bc42cc23b80cb5bd7e3790c5ca12493bd6ebee104f29ab11bbcb5"
+  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-3.0.3.zip"
+  sha256 "291078486c3277efbce39bc7b361f9979995bc095f21f0c647b2dd601638b575"
 
   bottle :unneeded
 
