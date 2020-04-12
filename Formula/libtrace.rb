@@ -1,8 +1,8 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.11.tar.bz2"
-  sha256 "75a2a8bc1c3cb32a6a5e1ef41d5e3740505880d94cc97df94cf33f7a8f65750e"
+  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.12.tar.bz2"
+  sha256 "ab18e5ce39c6071a4e97efc7e239753e28df3b809cc3f20de48aa267c6305817"
 
   bottle do
     cellar :any
