@@ -24,8 +24,6 @@ class Codequery < Formula
     mkdir "build" do
       system "cmake", "..", "-G", "Unix Makefiles", *args
       system "make"
-      system "strip ./codequery"
-      system "strip ./cq*"
       system "make", "install"
     end
   end
