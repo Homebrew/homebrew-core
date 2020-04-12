@@ -1,9 +1,8 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
-  sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 15
+  url "https://github.com/facebook/osquery/archive/4.2.0.tar.gz"
+  sha256 "8b1710bf9c2bfb6febd45b077164da58a6db6865a63c43c382364f6713f67545"
 
   bottle do
     cellar :any
@@ -36,13 +35,13 @@ class Osquery < Formula
   depends_on "zstd"
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
-    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
+    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
+    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/5f/bd/5815d4d925a2b8cbbb4b4960f018441b0c65f24ba29f3bdcfb3c8218a307/Jinja2-2.8.1.tar.gz"
-    sha256 "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"
+    url "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz"
+    sha256 "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
   end
 
   resource "third-party" do
@@ -53,20 +52,6 @@ class Osquery < Formula
   resource "aws-sdk-cpp" do
     url "https://github.com/aws/aws-sdk-cpp/archive/1.4.55.tar.gz"
     sha256 "0a70c2998d29cc4d8a4db08aac58eb196d404073f6586a136d074730317fe408"
-  end
-
-  # Upstream fix for boost 1.69, remove in next version
-  # https://github.com/facebook/osquery/pull/5496
-  patch do
-    url "https://github.com/facebook/osquery/commit/130b3b3324e2.diff?full_index=1"
-    sha256 "46bce0c62f1a8f0df506855049991e6fceb6d1cc4e1113a2f657e76b5c5bdd14"
-  end
-
-  # Patch for compatibility with OpenSSL 1.1
-  # submitted upstream: https://github.com/osquery/osquery/issues/5755
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/osquery/openssl-1.1.diff"
-    sha256 "18ace03c11e06b0728060382284a8da115bd6e14247db20ac0188246e5ff8af4"
   end
 
   def install
