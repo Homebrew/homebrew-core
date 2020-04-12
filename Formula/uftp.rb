@@ -6,7 +6,6 @@ class Uftp < Formula
 
   bottle do
     cellar :any
-    rebuild 1
     sha256 "f0459c3a5f56b16a2b636a1f37cff5220f08265400b18a2f3bea5640856ae608" => :catalina
     sha256 "23bf3d26128baf28b1204c3b574eeb1c108607b0dc2a3b7d1725f3289ef5b8cf" => :mojave
     sha256 "bc8d7ee7eeee6fa2f586681ca68d892bb504bbeef1d25f156a8039fdb33862d9" => :high_sierra
