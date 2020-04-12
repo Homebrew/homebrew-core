@@ -27,8 +27,8 @@ class Qtads < Formula
   def install
     sdl_sound_include = Formula["sdl_sound"].opt_include
     inreplace "qtads.pro",
-      "INCLUDEPATH += src $$T2DIR $$T3DIR $$HTDIR",
-      "INCLUDEPATH += src $$T2DIR $$T3DIR $$HTDIR #{sdl_sound_include}/SDL"
+      "$$T3DIR \\",
+      "$$T3DIR #{sdl_sound_include}/SDL \\"
 
     system "qmake", "DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"
     system "make"
