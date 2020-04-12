@@ -47,7 +47,7 @@ class Libinfinity < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gnutls.opt_include}
       -I#{gsasl.opt_include}
-      -I#{include}/libinfinity-0.6
+      -I#{include}/libinfinity-0.7
       -I#{libtasn1.opt_include}
       -I#{nettle.opt_include}
       -D_REENTRANT
@@ -61,7 +61,7 @@ class Libinfinity < Formula
       -lgobject-2.0
       -lgsasl
       -lgthread-2.0
-      -linfinity-0.6
+      -linfinity-0.7
       -lintl
       -lxml2
     ]
