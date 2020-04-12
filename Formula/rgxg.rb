@@ -1,8 +1,8 @@
 class Rgxg < Formula
   desc "C library and command-line tool to generate (extended) regular expressions"
   homepage "https://rgxg.github.io"
-  url "https://github.com/rgxg/rgxg/releases/download/v0.1.1/rgxg-0.1.1.tar.gz"
-  sha256 "6566cd05d116475e98ceb57a5fdb25d8743f7381799aeb8e218433ff4fbb139f"
+  url "https://github.com/rgxg/rgxg/releases/download/v0.1.2/rgxg-0.1.2.tar.gz"
+  sha256 "554741f95dcc320459875c248e2cc347b99f809d9555c957d763d3d844e917c6"
 
   bottle do
     cellar :any
