@@ -1,9 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://files.pythonhosted.org/packages/7c/5b/e760ec4f868cb77cee45b4554bf15d3fe6972176e89c4e3faac941213694/PyQt5-5.14.0.tar.gz"
-  sha256 "0145a6b7de15756366decb736c349a0cb510d706c83fda5b8cd9e0557bc1da72"
-  revision 1
+  url "https://files.pythonhosted.org/packages/4d/81/b9a66a28fb9a7bbeb60e266f06ebc4703e7e42b99e3609bf1b58ddd232b9/PyQt5-5.14.2.tar.gz"
+  sha256 "bd230c6fd699eabf1ceb51e13a8b79b74c00a80272c622427b80141a22269eb0"
 
   bottle do
     cellar :any
