@@ -1,8 +1,8 @@
 class Opendetex < Formula
   desc "Tool to strip TeX or LaTeX commands from documents"
   homepage "https://github.com/pkubowicz/opendetex"
-  url "https://github.com/pkubowicz/opendetex/releases/download/v2.8.5/opendetex-2.8.5.tar.bz2"
-  sha256 "90be111ec1f47af25317d1dbe2f07a350cc46e1bc4cdc995dde79219d7c2623d"
+  url "https://github.com/pkubowicz/opendetex/releases/download/v2.8.6/opendetex-2.8.6.tar.bz2"
+  sha256 "dbfcbffbc70e8cac304f2a926eba84e2db7c6937847a7c5e3bc38b83bce5ab1a"
 
   bottle do
     cellar :any_skip_relocation
