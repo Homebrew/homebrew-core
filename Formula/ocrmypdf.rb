@@ -5,6 +5,7 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/4d/13/a9969946ee6a02a3dfc89fb487b8039bd93940036c43715f35760beb18eb/ocrmypdf-9.7.1.tar.gz"
   sha256 "fd029b97463e054d95eed361843397a76b2aa35913ac96c57cf8c15a15411971"
+  revision 1
 
   bottle do
     cellar :any
@@ -58,8 +59,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/7c/36/12fa475b50ad6740c78873b9a801c3c29e2212eb18a2847f39fcef3c1ed7/pikepdf-1.10.4.tar.gz"
-    sha256 "33cb95de843947222686d584852152e95a1a4e40f80f9fbd9c87e82f2993c15a"
+    url "https://files.pythonhosted.org/packages/96/6b/fa2619a014453b67c3152222a1fdaeda84d6ce30dd9bf799760fe6946456/pikepdf-1.11.0.tar.gz"
+    sha256 "bad914a8b1d9be0a7451feba29f25dbc47e14aed85fdb11bfa1b3405a3ca3a6d"
   end
 
   resource "Pillow" do
