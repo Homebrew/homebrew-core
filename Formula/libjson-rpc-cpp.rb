@@ -1,9 +1,8 @@
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
-  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.2.0.tar.gz"
-  sha256 "485556bd27bd546c025d9f9a2f53e89b4460bf820fd5de847ede2539f7440091"
-  revision 2
+  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.3.0.tar.gz"
+  sha256 "cf132ad9697b034f22ff37d12a1f1c6f2647ec2236701de5e76f6036ab664156"
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
   bottle do
@@ -23,7 +22,7 @@ class LibjsonRpcCpp < Formula
   uses_from_macos "curl"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DCOMPILE_EXAMPLES=OFF", "-DCOMPILE_TESTS=OFF"
     system "make"
     system "make", "install"
   end
