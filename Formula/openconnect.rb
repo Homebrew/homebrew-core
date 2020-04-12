@@ -1,9 +1,9 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz"
-  mirror "https://fossies.org/linux/privat/openconnect-8.05.tar.gz"
-  sha256 "335c2952d0cb36822acb112eaaf5e3b4acffc6874985fb614fec0b76c4c12992"
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.08.tar.gz"
+  mirror "https://fossies.org/linux/privat/openconnect-8.08.tar.gz"
+  sha256 "b74b30ebabbd4801056e46c0373e71f3d41c75b805fcc7ee8fc586fe559379e8"
 
   bottle do
     sha256 "75337e3ef5910b8236bddb38c949bdcb0b8032716f24a67ae0f05c5a563b86ed" => :catalina
