@@ -15,6 +15,7 @@ class ConfluentPlatform < Formula
     prefix.install "bin"
     rm_rf "#{bin}/windows"
     prefix.install "etc"
+    prefix.install "libexec"
     prefix.install "share"
   end
 
