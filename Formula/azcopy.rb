@@ -1,8 +1,8 @@
 class Azcopy < Formula
   desc "Azure Storage data transfer utility"
   homepage "https://github.com/Azure/azure-storage-azcopy"
-  url "https://github.com/Azure/azure-storage-azcopy/archive/10.3.4.tar.gz"
-  sha256 "3a0a1450889af252ef251ae5bc86a145f3f77922d316947d7a90088fd1427619"
+  url "https://github.com/Azure/azure-storage-azcopy/archive/v10.4.0.tar.gz"
+  sha256 "14ace836568146745f4d6117329ca2154d1168f783e104596694dcb59491b7c6"
 
   bottle do
     cellar :any_skip_relocation
