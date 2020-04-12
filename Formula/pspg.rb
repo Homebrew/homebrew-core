@@ -1,8 +1,8 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/2.7.2.tar.gz"
-  sha256 "d657c53d9571ce97553295f407ae6c041705663c6b0e78bc01ac37d2868b513e"
+  url "https://github.com/okbob/pspg/archive/3.0.4.tar.gz"
+  sha256 "e4549d70d8400268b5562c758f79fe6196c03bcad10c24e2cace8dfa71818bfc"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
@@ -32,6 +32,6 @@ class Pspg < Formula
   end
 
   test do
-    assert_match "pspg-#{version.to_f}", shell_output("#{bin}/pspg --version")
+    assert_match "pspg-#{version.to_f}", shell_output("#{bin}/pspg --version", 1)
   end
 end
