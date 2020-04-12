@@ -1,9 +1,8 @@
 class Opentsdb < Formula
   desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
-  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.1/opentsdb-2.3.1.tar.gz"
-  sha256 "4dba914a19cf0a56b1d0cc22b4748ebd0d0136e633eb4514a5518790ad7fc1d1"
-  revision 1
+  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.4.0/opentsdb-2.4.0.tar.gz"
+  sha256 "a2d6a34369612b3f91bf81bfab24ec573ab4118127dc1c0f0ed6fc57318d102c"
 
   bottle do
     cellar :any_skip_relocation
