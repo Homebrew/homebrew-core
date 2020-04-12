@@ -1,8 +1,10 @@
 class Olsrd < Formula
   desc "Implementation of the optimized link state routing protocol"
   homepage "http://www.olsr.org"
-  url "http://www.olsr.org/releases/0.9/olsrd-0.9.0.3.tar.bz2"
-  sha256 "1f038ed3ea72e4f73dfc9701de83de7313f5049161c8df17b9aaeba8e9711e92"
+  # olsr's website is "ill" and does not contain the latest release.
+  # https://github.com/OLSR/olsrd/issues/48
+  url "https://github.com/OLSR/olsrd/archive/v0.9.8.tar.gz"
+  sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +17,10 @@ class Olsrd < Formula
     sha256 "842c328edcde3ccbffcc8dfddae63f802c716fb18aa63aea4fe620bbed5d8562" => :mavericks
   end
 
+  depends_on "coreutils" => :build # needs GNU cp
+
   def install
+    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
     lib.mkpath
     args = %W[
       DESTDIR=#{prefix}
@@ -54,6 +59,6 @@ class Olsrd < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{sbin}/olsrd", 1)
+    assert_match version.to_s, pipe_output("#{sbin}/olsrd")
   end
 end
