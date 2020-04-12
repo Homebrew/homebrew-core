@@ -1,26 +1,11 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
-  revision 1
   head "https://github.com/realnc/qtads.git"
 
   stable do
-    url "https://downloads.sourceforge.net/project/qtads/qtads-2.x/2.1.7/qtads-2.1.7.tar.bz2"
-    sha256 "7477bb3cb1f74dcf7995a25579be8322c13f64fb02b7a6e3b2b95a36276ef231"
-
-    # Remove for > 2.1.7
-    # fix infinite recursion
-    patch do
-      url "https://github.com/realnc/qtads/commit/d22054b.patch?full_index=1"
-      sha256 "e6af1eb7a8a4af72c9319ac6032a0bb8ffa098e7dd64d76da08ed0c7e50eaa7f"
-    end
-
-    # Remove for > 2.1.7
-    # fix pointer/integer comparison
-    patch do
-      url "https://github.com/realnc/qtads/commit/46701a2.patch?full_index=1"
-      sha256 "02c86bfa44769ec15844bbefa066360fb83ac923360ced140545fb782f4f3397"
-    end
+    url "https://downloads.sourceforge.net/project/qtads/v3.0.0/qtads-3.0.0-source.tar.xz"
+    sha256 "430b5de04d2d2cafe4cd2614cd034c5fb71e0ba39ec1e5d058613b43a92e0407"
 
     # Fix "error: ordered comparison between pointer and zero"
     # Reported 11 Dec 2017 https://github.com/realnc/qtads/issues/7
