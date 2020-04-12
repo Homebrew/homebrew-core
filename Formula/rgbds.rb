@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/archive/v0.3.9.tar.gz"
-  sha256 "218d5456807f390fd80276f418fdd884c9077aa9d8ab1784819e5fd62d524587"
+  url "https://github.com/rednex/rgbds/archive/v0.4.0.tar.gz"
+  sha256 "18be4a8ec79e43a6343fa128c6790dae33a229e0ed10e3dcccbbdc0b0c363933"
   head "https://github.com/rednex/rgbds.git"
 
   bottle do
@@ -20,15 +20,11 @@ class Rgbds < Formula
   end
 
   test do
+    # https://github.com/rednex/rgbds/blob/master/test/asm/assert-const.asm
     (testpath/"source.asm").write <<~EOS
-      SECTION "Org $100",HOME[$100]
-      nop
-      jp begin
-      begin:
-        ld sp, $ffff
-        ld a, $1
-        ld b, a
-        add a, b
+      SECTION "rgbasm passing asserts", ROM0[0]
+        db 0
+        assert @
     EOS
     system "#{bin}/rgbasm", "source.asm"
   end
