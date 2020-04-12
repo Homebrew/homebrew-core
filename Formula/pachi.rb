@@ -1,8 +1,8 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.40.tar.gz"
-  sha256 "f523d23aa855f78a171df334b9712bca540d3ef4ef69b7306b84e4c35446d097"
+  url "https://github.com/pasky/pachi/archive/pachi-12.45.tar.gz"
+  sha256 "3fc8f47fdb92d67374cf6953d45b71153d477ffe92382e845fc570e5112ff210"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
