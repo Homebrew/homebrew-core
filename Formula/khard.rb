@@ -3,9 +3,8 @@ class Khard < Formula
 
   desc "Console carddav client"
   homepage "https://github.com/scheibler/khard/"
-  url "https://files.pythonhosted.org/packages/38/41/e54a6ef446701a4ba723df8850189f62e9e9a320de9ff2b1accadd589cc6/khard-0.15.1.tar.gz"
-  sha256 "5ca8e678133e08fa4861cc31aedf9f30b4f8e3958ed66ede025c23ec5e176aa1"
-  revision 2
+  url "https://files.pythonhosted.org/packages/5e/55/a4b34562af0f604b703fde449e18d4b452205daa303aeff832b6387f8849/khard-0.16.1.tar.gz"
+  sha256 "0d9f67a575ac945365c7748cf71f39d3b2281462977254d2e325ceff0ac4e439"
 
   bottle do
     cellar :any
@@ -32,13 +31,13 @@ class Khard < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
-    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/de/76/cf97d739365eff258e2af0457a150bf2818f3eaa460328610eafeed0894a/ruamel.yaml-0.16.5.tar.gz"
-    sha256 "412a6f5cfdc0525dee6a27c08f5415c7fd832a7afcb7a0ed7319628aed23d408"
+    url "https://files.pythonhosted.org/packages/16/8b/54a26c1031595e5edd0e616028b922d78d8ffba8bc775f0a4faeada846cc/ruamel.yaml-0.16.10.tar.gz"
+    sha256 "099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"
   end
 
   resource "ruamel.yaml.clib" do
@@ -47,8 +46,8 @@ class Khard < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "Unidecode" do
@@ -63,7 +62,7 @@ class Khard < Formula
 
   def install
     virtualenv_install_with_resources
-    (etc/"khard").install "misc/khard/khard.conf.example"
+    (etc/"khard").install "doc/source/examples/khard.conf.example"
     zsh_completion.install "misc/zsh/_khard"
     pkgshare.install (buildpath/"misc").children - [buildpath/"misc/zsh"]
   end
