@@ -1,8 +1,8 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
   homepage "https://liburcu.org"
-  url "https://lttng.org/files/urcu/userspace-rcu-0.11.1.tar.bz2"
-  sha256 "92b9971bf3f1c443edd6c09e7bf5ff3b43531e778841f16377a812c8feeb3350"
+  url "https://lttng.org/files/urcu/userspace-rcu-0.12.0.tar.bz2"
+  sha256 "409b1be506989e1d26543194df1a79212be990fe5d4fd84f34f019efed989f97"
 
   bottle do
     cellar :any_skip_relocation
