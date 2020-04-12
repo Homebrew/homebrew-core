@@ -1,8 +1,8 @@
 class VulkanHeaders < Formula
   desc "Vulkan Header files and API registry"
   homepage "https://github.com/KhronosGroup/Vulkan-Headers"
-  url "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.136.tar.gz"
-  sha256 "d67e61ade037906d76ae4f1a6d5adf38008b30783774a5957a84527f3a5ebdb4"
+  url "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.137.tar.gz"
+  sha256 "dcf378bab5e316b9aaf40d089945d04fbff5c9abeddf8e584a8439b2d1dbd30a"
 
   bottle do
     cellar :any_skip_relocation
