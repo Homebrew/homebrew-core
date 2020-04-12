@@ -1,9 +1,19 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
   homepage "https://www.graphviz.org/"
-  url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.3.tar.gz"
-  sha256 "8faf3fc25317b1d15166205bf64c1b4aed55a8a6959dcabaa64dbad197e47add"
   version_scheme 1
+
+  stable do
+    url "https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.0.tar.gz"
+    sha256 "9aabd13a8018b708ab3c822de2326c19d0a52ed59f50a6b0f9318c07e2a6d93b"
+
+    # Fix compile on macOS.
+    # Remove with the next release.
+    patch do
+      url "https://gitlab.com/graphviz/graphviz/-/commit/4b9079d9fc8634961d146609a420d674225dbe95.diff"
+      sha256 "689b54eda5b19e92cd51322c874116b46aa76c5f1b43cf9869fd7c5a2b771f0f"
+    end
+  end
 
   bottle do
     sha256 "ad22bb28b684c6fb9c51e32000ada1df8cc2f6f2711f8e85c4599fbb5e213e7e" => :catalina
@@ -24,6 +34,7 @@ class Graphviz < Formula
   depends_on "gts"
   depends_on "libpng"
   depends_on "libtool"
+  depends_on "pango"
 
   uses_from_macos "flex" => :build
 
