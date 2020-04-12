@@ -1,8 +1,8 @@
 class Polynote < Formula
   desc "The polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  url "https://github.com/polynote/polynote/releases/download/0.3.0/polynote-dist.tar.gz"
-  sha256 "b0ad435bd93b36ffcf07da2de5ab1755c02953d902892c5e4a2948144ca5b92f"
+  url "https://github.com/polynote/polynote/releases/download/0.3.6/polynote-dist.tar.gz"
+  sha256 "79f34b89b7d6b85493f8d769d4c5cc831c7df3f0889be6a1c3e6cbdfb2c8357c"
 
   bottle :unneeded
 
@@ -11,7 +11,7 @@ class Polynote < Formula
   def install
     libexec.install Dir["*"]
 
-    (bin/"polynote").write_env_script libexec/"polynote", Language::Java.overridable_java_home_env
+    (bin/"polynote").write_env_script libexec/"polynote.jar", Language::Java.overridable_java_home_env
   end
 
   test do
