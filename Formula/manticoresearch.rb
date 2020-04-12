@@ -1,9 +1,9 @@
 class Manticoresearch < Formula
   desc "Open source text search engine"
   homepage "https://www.manticoresearch.com"
-  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.4.0/manticore-3.4.0-200326-0686d9f-release.tar.gz"
-  version "3.4.0"
-  sha256 "d1e7a8568b5af05cc0a0c7e50b5a180972608f6f063900179c595e39ba03daae"
+  url "https://github.com/manticoresoftware/manticoresearch/releases/download/3.4.2/manticore-3.4.2-200410-6903305-release.tar.gz"
+  version "3.4.2"
+  sha256 "a5dcdb561db57fd59fab63531eb23f0585f48432ef8be2b94ec6d979d0f35894"
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git"
 
