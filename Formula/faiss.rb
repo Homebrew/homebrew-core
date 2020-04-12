@@ -1,8 +1,8 @@
 class Faiss < Formula
   desc "Efficient similarity search and clustering of dense vectors"
   homepage "https://github.com/facebookresearch/faiss"
-  url "https://github.com/facebookresearch/faiss/archive/v1.6.2.tar.gz"
-  sha256 "8be8fcb943e94a93fb0796cad02a991432c0d912d8ae946f4beb5a8a9c5d4932"
+  url "https://github.com/facebookresearch/faiss/archive/v1.6.3.tar.gz"
+  sha256 "e1a41c159f0b896975fbb133e0240a233af5c9286c09a28fde6aefff5336e542"
 
   bottle do
     cellar :any
