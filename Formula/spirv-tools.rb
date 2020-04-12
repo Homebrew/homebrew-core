@@ -29,7 +29,7 @@ class SpirvTools < Formula
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        :revision => "dc77030acc9c6fe7ca21fff54c5a9d7b532d7da6"
+        :revision => "f8bf11a0253a32375c32cad92c841237b96696c0"
   end
 
   def install
