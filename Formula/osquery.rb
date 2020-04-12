@@ -12,6 +12,7 @@ class Osquery < Formula
   end
 
   depends_on "bison" => :build
+  depends_on "ccache" => :build
   depends_on "cmake" => :build
   depends_on "python" => :build
   depends_on "augeas"
