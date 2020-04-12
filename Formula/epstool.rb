@@ -1,9 +1,9 @@
 class Epstool < Formula
   desc "Edit preview images and fix bounding boxes in EPS files"
   homepage "http://www.ghostgum.com.au/software/epstool.htm"
-  url "https://src.fedoraproject.org/repo/pkgs/epstool/epstool-3.08.tar.gz/465a57a598dbef411f4ecbfbd7d4c8d7/epstool-3.08.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/epstool-3.08.tar.gz"
-  sha256 "f3f14b95146868ff3f93c8720d5539deef3b6531630a552165664c7ee3c2cfdd"
+  url "https://deb.debian.org/debian/pool/main/e/epstool/epstool_3.09.orig.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/epstool-3.09.tar.xz"
+  sha256 "1e85249d1a44f9418b1f95a3aebd8b0784dab8e49deb6417ac9b996ca08f6011"
 
   bottle do
     cellar :any_skip_relocation
