@@ -1,9 +1,8 @@
 class Jflex < Formula
   desc "Lexical analyzer generator for Java, written in Java"
   homepage "https://jflex.de/"
-  url "https://jflex.de/release/jflex-1.7.0.zip"
-  sha256 "833ea6371a4b5ee16023f328fbf7babd41a71e93155cf869c53f3ff670508107"
-  revision 1
+  url "https://jflex.de/release/jflex-1.8.1.tar.gz"
+  sha256 "3d9d63f4940f8452885bc63048b8b621a1a3a6e99d406f6d0b8c9f183ee15743"
 
   bottle :unneeded
 
@@ -20,7 +19,7 @@ class Jflex < Formula
   end
 
   test do
-    system bin/"jflex", "-d", testpath, pkgshare/"examples/java/java.flex"
+    system bin/"jflex", "-d", testpath, pkgshare/"examples/cup-java/src/main/jflex/java.flex"
     assert_match /public static void/, (testpath/"Scanner.java").read
   end
 end
