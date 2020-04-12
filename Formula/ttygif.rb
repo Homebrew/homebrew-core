@@ -1,8 +1,8 @@
 class Ttygif < Formula
   desc "Converts a ttyrec file into gif files"
   homepage "https://github.com/icholy/ttygif"
-  url "https://github.com/icholy/ttygif/archive/1.4.0.tar.gz"
-  sha256 "6ca3dc5dcade2bdcf8000068ae991eac518204960c157634d92f87248c3cee2a"
+  url "https://github.com/icholy/ttygif/archive/1.5.0.tar.gz"
+  sha256 "b5cc9108b1add88c6175e3e001ad4615a628f93f2fffcb7da9e85a9ec7f23ef6"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,6 +23,6 @@ class Ttygif < Formula
 
   test do
     ENV["TERM_PROGRAM"] = "Something"
-    assert_match version.to_s, shell_output("#{bin}/ttygif --version")
+    system "#{bin}/ttygif", "--version"
   end
 end
