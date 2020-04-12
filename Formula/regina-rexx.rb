@@ -1,8 +1,8 @@
 class ReginaRexx < Formula
   desc "Regina REXX interpreter"
   homepage "https://regina-rexx.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.1/Regina-REXX-3.9.1.tar.gz"
-  sha256 "5d13df26987e27f25e7779a2efa87a5775213beeda449a9efac59b57a5d5f3ee"
+  url "https://downloads.sourceforge.net/project/regina-rexx/regina-rexx/3.9.3/regina-rexx-3.9.3.tar.gz"
+  sha256 "1712aabee5978fdf57aeac82cd5a1a112b8980db8c5d7d045523f6a8b74b0531"
 
   bottle do
     sha256 "93243469c810b73ff5230caefd2e9e94547f1525d3d872233444636937f50d09" => :catalina
