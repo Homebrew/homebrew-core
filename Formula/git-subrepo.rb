@@ -1,8 +1,8 @@
 class GitSubrepo < Formula
   desc "Git Submodule Alternative"
   homepage "https://github.com/ingydotnet/git-subrepo"
-  url "https://github.com/ingydotnet/git-subrepo/archive/0.4.0.tar.gz"
-  sha256 "e60243efeebd9ae195559400220366e7e04718123481b9da38344e75bab71d21"
+  url "https://github.com/ingydotnet/git-subrepo/archive/0.4.1.tar.gz"
+  sha256 "64cc2490c54fe1e5396bb14f6bbf0aa8378085f3b8847fd8ed171e5ddd886065"
   head "https://github.com/ingydotnet/git-subrepo.git"
 
   bottle do
@@ -12,6 +12,8 @@ class GitSubrepo < Formula
     sha256 "ef78a20f6438aa9975c4aa8e65882b0f935e96f53d4e832e97fe3948d77e406e" => :high_sierra
     sha256 "ef78a20f6438aa9975c4aa8e65882b0f935e96f53d4e832e97fe3948d77e406e" => :sierra
   end
+
+  depends_on "bash"
 
   def install
     libexec.mkpath
