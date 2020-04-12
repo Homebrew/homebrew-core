@@ -6,15 +6,6 @@ class Qtads < Formula
   stable do
     url "https://downloads.sourceforge.net/project/qtads/v3.0.0/qtads-3.0.0-source.tar.xz"
     sha256 "430b5de04d2d2cafe4cd2614cd034c5fb71e0ba39ec1e5d058613b43a92e0407"
-
-    # Fix "error: ordered comparison between pointer and zero"
-    # Reported 11 Dec 2017 https://github.com/realnc/qtads/issues/7
-    if DevelopmentTools.clang_build_version >= "900"
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/e189341/qtads/xcode9.diff"
-        sha256 "2016fef6e867b7b8dfe1bd5db64d588161aad1357faa1962ee48edbe35042ddc"
-      end
-    end
   end
 
   bottle do
