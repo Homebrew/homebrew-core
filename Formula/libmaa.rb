@@ -1,8 +1,8 @@
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
   homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.4/libmaa-1.4.4.tar.gz"
-  sha256 "fbd739e8467c4b7213594b172cfe3059443127313f8365224aa9c269498869e2"
+  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.7/libmaa-1.4.7.tar.gz"
+  sha256 "4e01a9ebc5d96bc9284b6706aa82bddc2a11047fa9bd02e94cf8753ec7dcb98e"
 
   bottle do
     cellar :any
