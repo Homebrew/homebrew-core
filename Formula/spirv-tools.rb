@@ -1,8 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.1.tar.gz"
-  sha256 "1eaa5e09c638d7113b60d825e6ce44406b35031be68db894a016b5faf45de568"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.2.tar.gz"
+  sha256 "29f376f6ebc24d3ce39c1aa47101c4b5d256c8247e41068b541dd43bb88d4174"
 
   bottle do
     cellar :any
