@@ -19,6 +19,10 @@ class Xrootd < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON=OFF"
