@@ -17,6 +17,10 @@ class TranslateShell < Formula
   depends_on "gawk"
   depends_on "rlwrap"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "make"
     bin.install "build/trans"
