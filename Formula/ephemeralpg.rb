@@ -14,6 +14,7 @@ class Ephemeralpg < Formula
   depends_on "postgresql"
 
   def install
+    system "make"
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "install"
   end
 
