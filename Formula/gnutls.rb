@@ -39,7 +39,7 @@ class Gnutls < Formula
     args << "gl_cv_func_ftello_works=yes"
 
     system "./configure", *args
-    system "make", "install"
+    system "make", "LDFLAGS=", "install"
 
     # certtool shadows the macOS certtool utility
     mv bin/"certtool", bin/"gnutls-certtool"
