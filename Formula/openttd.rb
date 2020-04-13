@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://cdn.openttd.org/openttd-releases/1.10.0/openttd-1.10.0-source.tar.xz"
-  sha256 "1ba21aac9a1de98b23f80fee952b4b9c5e2d3cc4ac187f5203730826b3f0e253"
+  url "https://cdn.openttd.org/openttd-releases/1.10.1/openttd-1.10.1-source.tar.xz"
+  sha256 "0d22a3c50f7a321f4f211594f4987ac16c381e8e3e40f116848e63e91e7fbb9b"
   head "https://github.com/OpenTTD/OpenTTD.git"
 
   bottle do
@@ -54,6 +54,6 @@ class Openttd < Formula
   end
 
   test do
-    assert_match /OpenTTD #{version}\n/, shell_output("#{bin}/openttd -h")
+    assert_match "OpenTTD #{version}\n", shell_output("#{bin}/openttd -h")
   end
 end
