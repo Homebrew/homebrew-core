@@ -1,9 +1,9 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz"
-  mirror "https://fossies.org/linux/privat/openconnect-8.05.tar.gz"
-  sha256 "335c2952d0cb36822acb112eaaf5e3b4acffc6874985fb614fec0b76c4c12992"
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.08.tar.gz"
+  mirror "https://fossies.org/linux/privat/openconnect-8.08.tar.gz"
+  sha256 "b74b30ebabbd4801056e46c0373e71f3d41c75b805fcc7ee8fc586fe559379e8"
 
   bottle do
     sha256 "75337e3ef5910b8236bddb38c949bdcb0b8032716f24a67ae0f05c5a563b86ed" => :catalina
@@ -25,8 +25,8 @@ class Openconnect < Formula
   depends_on "stoken"
 
   resource "vpnc-script" do
-    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/c84fb8e5a523a647a01a1229a9104db934e19f00:/vpnc-script"
-    sha256 "20f05baf2857cb48073aca8b90d84ddc523f09b9700a5986a2f7e60e76917385"
+    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/c0122e891f7e033f35f047dad963702199d5cb9e:/vpnc-script"
+    sha256 "3ddd9d6b46e92d76e6e26d89447e3a82d797ecda125d31792f14c203742dea0f"
   end
 
   def install
@@ -50,6 +50,6 @@ class Openconnect < Formula
   end
 
   test do
-    assert_match "Open client for multiple VPN protocols", pipe_output("#{bin}/openconnect 2>&1")
+    assert_match "POST https://localhost/", pipe_output("#{bin}/openconnect localhost 2>&1")
   end
 end
