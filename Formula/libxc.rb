@@ -41,8 +41,9 @@ class Libxc < Formula
 
     (testpath/"test.f90").write <<~EOS
       program lxctest
-        use xc_f90_types_m
         use xc_f90_lib_m
+        TYPE(xc_f90_func_t) :: xc_func
+        TYPE(xc_f90_func_info_t) :: xc_info
       end program lxctest
     EOS
     system "gfortran", "test.f90", "-L#{lib}", "-lxc", "-I#{include}",
