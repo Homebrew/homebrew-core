@@ -1,8 +1,8 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.6.3.tar.gz"
-  sha256 "1c64b3220ee345d28f939f0b96e30a59adf435599a51237b42c887dfc7a31540"
+  url "https://www.memcached.org/files/memcached-1.6.4.tar.gz"
+  sha256 "6b36b3a8a10c58c63933b6c279418e2f3dd2a5f75c18fb492ab1b8bf35ed5cbc"
   head "https://github.com/memcached/memcached.git"
 
   bottle do
@@ -48,8 +48,7 @@ class Memcached < Formula
 
   test do
     pidfile = testpath/"memcached.pid"
-    # Assumes port 11211 is not already taken
-    system bin/"memcached", "--listen=localhost:11211", "--daemon", "--pidfile=#{pidfile}"
+    system bin/"memcached", "--listen=localhost:#{free_port}", "--daemon", "--pidfile=#{pidfile}"
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
     pid = (testpath/"memcached.pid").read.chomp.to_i
