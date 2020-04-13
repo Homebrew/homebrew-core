@@ -1,8 +1,8 @@
 class Msmtp < Formula
   desc "SMTP client that can be used as an SMTP plugin for Mutt"
   homepage "https://marlam.de/msmtp/"
-  url "https://marlam.de/msmtp/releases/msmtp-1.8.7.tar.xz"
-  sha256 "9a53bcdc244ec5b1a806934ecc7746d9d09db581f587bedf597e9da2f48c51f1"
+  url "https://marlam.de/msmtp/releases/msmtp-1.8.8.tar.xz"
+  sha256 "eccb53e48f025f7e6f60210316df61cf6097a491728341c1e375fc1acc6459e5"
 
   bottle do
     sha256 "196849aebd2d300df9fa340ef5d3d18aaf77a287f987026d902492b9de376846" => :catalina
