@@ -44,7 +44,7 @@ jobs:
             github.issues.createComment({
               ...context.repo,
               issue_number: pr,
-              body: '@' + actor + ' has triggered a merge, running bottle pull: ' + url
+              body: '@' + actor + ' has [triggered a merge](%s).', url
             })
       - name: Update Homebrew
         run: |
@@ -100,5 +100,5 @@ jobs:
             github.issues.createComment({
               ...context.repo,
               issue_number: pr,
-              body: '@' + actor + ' bottle publish failed: ' + url
+              body: '@' + actor + ' bottle publish [failed](%s).', url
             })
