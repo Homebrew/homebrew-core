@@ -1,10 +1,12 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://github.com/GitTools/GitVersion"
-  url "https://github.com/GitTools/GitVersion/releases/download/5.2.4/gitversion-osx-5.2.4.tar.gz"
-  sha256 "a06ae6cf8062a2b26b858feab01fceb94951627cc732f7422472785ff3ccde4c"
+  url "https://github.com/GitTools/GitVersion/releases/download/5.0.1/GitVersion-bin-fullfx-v5.0.1.zip"
+  sha256 "9b543d3e42e0d5e6fab0b44553cb6bbbb0e31431030ef761fc1a50c845fd166a"
 
   bottle :unneeded
+
+  depends_on "mono"
 
   uses_from_macos "icu4c"
 
@@ -12,7 +14,7 @@ class Gitversion < Formula
     libexec.install Dir["*"]
     (bin/"gitversion").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/GitVersion" "$@"
+      exec "#{Formula["mono"].opt_bin}/mono" "#{libexec}/GitVersion.exe" "$@"
     EOS
   end
 
