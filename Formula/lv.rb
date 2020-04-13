@@ -4,6 +4,7 @@ class Lv < Formula
   url "https://web.archive.org/web/20150915000000/www.ff.iij4u.or.jp/~nrt/freeware/lv451.tar.gz"
   version "4.51"
   sha256 "e1cd2e27109fbdbc6d435f2c3a99c8a6ef2898941f5d2f7bacf0c1ad70158bcf"
+  revision 1
 
   bottle do
     rebuild 1
@@ -15,6 +16,9 @@ class Lv < Formula
     sha256 "f31281558dc9da38402a86b2b3c03efb10ab471561bf72dd556c3cd8df23ba14" => :yosemite
     sha256 "6e1894088a741aba921e77a4935d6ad2d11f06f03a4ff775c45e4256728511a4" => :mavericks
   end
+
+  # See https://github.com/Homebrew/homebrew-core/pull/53085
+  patch :DATA
 
   def install
     # zcat doesn't handle gzip'd data on OSX.
@@ -31,4 +35,23 @@ class Lv < Formula
     man1.install "lv.1"
     (lib+"lv").install "lv.hlp"
   end
+
+  test do
+    system "lv", "-V"
+  end
 end
+
+__END__
+--- a/src/escape.c
++++ b/src/escape.c
+@@ -62,6 +62,10 @@
+ 	break;
+     } while( 'm' != ch );
+ 
++    if( 'K' == ch ){
++        return TRUE;
++    }
++
+     SIDX = index;
+ 
+     if( 'm' != ch ){
