@@ -19,6 +19,7 @@ class Qtads < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libsndfile"
   depends_on "qt"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
