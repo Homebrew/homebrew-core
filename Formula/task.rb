@@ -18,6 +18,10 @@ class Task < Formula
   depends_on "cmake" => :build
   depends_on "gnutls"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
