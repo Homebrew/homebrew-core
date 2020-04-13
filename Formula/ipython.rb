@@ -5,6 +5,7 @@ class Ipython < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/76/d4/13001e8671e8b012ec25acb9a695d3271ceed2dc6aa8f94103a6dd0c4577/ipython-7.13.0.tar.gz"
   sha256 "ca478e52ae1f88da0102360e57e528b92f3ae4316aabac80a2cd7f7ab2efb48a"
+  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Ipython < Formula
     sha256 "6c3a5c109500899a2409c47c5bb36e7e8abcb11bbaa667cf3ad1d527abd2dd8c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "zeromq"
 
   resource "appnope" do
@@ -33,8 +34,8 @@ class Ipython < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/3a/a4/335439bbaaccfe9d88e09f3df6ba391938a2e3e175ec92ff040462125c68/ipykernel-5.1.4.tar.gz"
-    sha256 "7f1f01df22f1229c8879501057877ccaf92a3b01c1d00db708aad5003e5f9238"
+    url "https://files.pythonhosted.org/packages/6a/1a/6b15e6086f869d9367ed1289ea190b61382768624c4eb80c3419e5cb5e88/ipykernel-5.2.0.tar.gz"
+    sha256 "37c65d2e2da3326e5cf114405df6d47d997b8a3eba99e2cc4b75833bf71a5e18"
   end
 
   resource "ipython_genutils" do
@@ -48,8 +49,8 @@ class Ipython < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/b9/ae/6abdd7d5df5a3af23b9c7ee1a509b7606eeb17f5857bb97de93bf92cf0dc/jupyter_client-6.0.0.tar.gz"
-    sha256 "1fac6e3be1e797aea33d5cd1cfa568ff1ee71e01180bc89f64b24ee274f1f126"
+    url "https://files.pythonhosted.org/packages/5e/f2/29dc6ef4c734cdad56ae15dd50af00c2804ed2f1271c5b2413d0ae6ad091/jupyter_client-6.1.2.tar.gz"
+    sha256 "5724827aedb1948ed6ed15131372bc304a8d3ad9ac67ac19da7c95120d6b17e0"
   end
 
   resource "jupyter-core" do
@@ -73,8 +74,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/61/c9/56131b4753ef14bffd06754846c63de78b3a868e995763f6410381a6fb98/prompt_toolkit-3.0.4.tar.gz"
-    sha256 "ebe6b1b08c888b84c50d7f93dee21a09af39860144ff6130aadbd61ae8d29783"
+    url "https://files.pythonhosted.org/packages/69/19/3aa4bf17e1cbbdfe934eb3d5b394ae9a0a7fb23594a2ff27e0fdaf8b4c59/prompt_toolkit-3.0.5.tar.gz"
+    sha256 "563d1a4140b63ff9dd587bda9557cffb2fe73650205ab6f4383092fb882e7dc8"
   end
 
   resource "ptyprocess" do
@@ -83,8 +84,8 @@ class Ipython < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/cb/9f/27d4844ac5bf158a33900dbad7985951e2910397998e85712da03ce125f0/Pygments-2.5.2.tar.gz"
-    sha256 "98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
+    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
+    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
   end
 
   resource "python-dateutil" do
@@ -113,25 +114,25 @@ class Ipython < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/33/92333eb80be0c96385dee338f30b53e24a8b415d5785e225d789b3f90feb/wcwidth-0.1.8.tar.gz"
-    sha256 "f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
+    url "https://files.pythonhosted.org/packages/25/9d/0acbed6e4a4be4fc99148f275488580968f44ddb5e69b8ceb53fc9df55a0/wcwidth-0.1.9.tar.gz"
+    sha256 "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # install other resources
     ipykernel = resource("ipykernel")
     (resources - [ipykernel]).each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     # install and link IPython
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     bin.install libexec/"bin/ipython"
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
@@ -140,7 +141,7 @@ class Ipython < Formula
 
     # install IPyKernel
     ipykernel.stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     # install kernel
