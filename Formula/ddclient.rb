@@ -1,8 +1,8 @@
 class Ddclient < Formula
   desc "Update dynamic DNS entries"
-  homepage "https://sourceforge.net/p/ddclient/wiki/Home"
-  url "https://downloads.sourceforge.net/project/ddclient/ddclient/ddclient-3.9.0/ddclient-3.9.0.tar.gz"
-  sha256 "9c4ae902742e8a37790d3cc8fad4e5b0f38154c76bba3643f4423d8f96829e3b"
+  homepage "https://ddclient.net/"
+  url "https://github.com/ddclient/ddclient/archive/v3.9.1.tar.gz"
+  sha256 "e4969e15cc491fc52bdcd649d4c2b0e4b1bf0c9f9dba23471c634871acc52470"
   head "https://github.com/wimpunk/ddclient.git"
 
   bottle do
@@ -64,7 +64,7 @@ class Ddclient < Formula
   def caveats
     <<~EOS
       For ddclient to work, you will need to create a configuration file
-      in #{etc}/ddclient, a sample configuration can be found in
+      in #{etc}/ddclient. A sample configuration can be found in
       #{opt_share}/doc/ddclient.
 
       Note: don't enable daemon mode in the configuration file; see
@@ -73,8 +73,7 @@ class Ddclient < Formula
       The next reboot of the system will automatically start ddclient.
 
       You can adjust the execution interval by changing the value of
-      StartInterval (in seconds) in /Library/LaunchDaemons/#{plist_path.basename},
-      and then
+      StartInterval (in seconds) in /Library/LaunchDaemons/#{plist_path.basename}.
     EOS
   end
 
