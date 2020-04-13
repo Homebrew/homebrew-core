@@ -17,7 +17,7 @@ class Liboauth < Formula
 
   # Patch for compatibility with OpenSSL 1.1
   patch :p0 do
-    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/master/net/liboauth/files/patch-src_hash.c"
+    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/121e6c77a8e6b9532ce6e45c8dd8dbf38ca4f97d/net/liboauth/files/patch-src_hash.c"
     sha256 "a7b0295dab65b5fb8a5d2a9bbc3d7596b1b58b419bd101cdb14f79aa5cc78aea"
   end
 
