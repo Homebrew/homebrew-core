@@ -14,6 +14,10 @@ class Hub < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "make", "install", "prefix=#{prefix}"
 
