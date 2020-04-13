@@ -28,17 +28,11 @@ class Unar < Formula
     # stripping of the first path component during extraction of the archive.
     mv Dir["The Unarchiver/*"], "."
 
-    args = %W[
-      -project ./XADMaster/XADMaster.xcodeproj
-      SYMROOT=..
-      -configuration Release
-      MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
-    ]
-
     # Build XADMaster.framework, unar and lsar
-    xcodebuild "-target", "XADMaster", *args
-    xcodebuild "-target", "unar", *args
-    xcodebuild "-target", "lsar", *args
+    %w[XADMaster unar lsar].each do |target|
+      xcodebuild "-target", target, "-project", "./XADMaster/XADMaster.xcodeproj", "SYMROOT=..",
+                 "-configuration", "Release", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    end
 
     bin.install "./Release/unar", "./Release/lsar"
     lib.install "./Release/libXADMaster.a"
