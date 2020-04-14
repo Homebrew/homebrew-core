@@ -5,6 +5,7 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/03/f2/71cd4de6bdb1a9b2c415239c7f7ee271b3f4ad9f70d56197c74749088255/ocrmypdf-9.7.2.tar.gz"
   sha256 "9809a443067de3b41169790e3c109d1a37d803f1eecf62e33d44cfaefa07626f"
+  revision 1
 
   bottle do
     cellar :any
