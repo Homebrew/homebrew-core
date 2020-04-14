@@ -3,6 +3,7 @@ class Profanity < Formula
   homepage "https://profanity-im.github.io"
   url "https://profanity-im.github.io/profanity-0.8.1.tar.gz"
   sha256 "6b7ff1f0f1b54ed3a55efce40237db775fe9475af276e5e4ed342e91a3e8d997"
+  revision 1
 
   bottle do
     sha256 "301cf17605c91fc2c1d61a6ca5c08bca3b91676133f6cb208be0cd4539a4657b" => :catalina
@@ -24,6 +25,7 @@ class Profanity < Formula
   depends_on "gnutls"
   depends_on "gpgme"
   depends_on "libotr"
+  depends_on "libsignal-protocol-c"
   depends_on "libstrophe"
   depends_on "openssl@1.1"
   depends_on "readline"
