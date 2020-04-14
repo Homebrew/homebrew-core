@@ -1,8 +1,8 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
-  url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.1.1.tar.gz"
-  sha256 "01591b42e76f396869ffc84672f4eaa90ee8ec2a8939755d9c0b5b8ecdcf47d3"
+  url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
+  sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
 
   bottle do
     sha256 "24d03eef4fee4e1cf533f4f015a51d04ceb0d086f96f5f7d070b329b44938819" => :catalina
@@ -17,8 +17,8 @@ class Otf2 < Formula
   depends_on "python"
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/90/52/e20466b85000a181e1e144fd8305caf2cf475e2f9674e797b222f8105f5f/future-0.17.1.tar.gz"
-    sha256 "67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
+    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
+    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
   end
 
   def install
