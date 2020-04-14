@@ -1,10 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
-  mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
-  sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
-  revision 1
+  url "https://www.snort.org/downloads/snort/snort-2.9.16.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort-2.9.16.tar.gz"
+  sha256 "9688d8edf1da09dec6574000fb3c0e62f99c56428587616e17c60103c0bcbad7"
 
   bottle do
     cellar :any
@@ -54,8 +53,11 @@ class Snort < Formula
     system "./configure", *args
     system "make", "install"
 
+    # Currently configuration files in etc have strange permissions which causes postinstall to fail
+    # Reported to upstream: https://lists.snort.org/pipermail/snort-devel/2020-April/011466.html
+    (buildpath/"etc").children.each { |f| chmod 0644, f }
     rm Dir[buildpath/"etc/Makefile*"]
-    (etc/"snort").install Dir[buildpath/"etc/*"]
+    (etc/"snort").install (buildpath/"etc").children
   end
 
   def caveats
