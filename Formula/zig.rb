@@ -1,8 +1,8 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.5.0/zig-0.5.0.tar.xz"
-  sha256 "55ae16960f152bcb9cf98b4f8570902d0e559a141abf927f0d3555b7cc838a31"
+  url "https://ziglang.org/download/0.6.0/zig-0.6.0.tar.xz"
+  sha256 "5d167dc19354282dd35dd17b38e99e1763713b9be8a4ba9e9e69284e059e7204"
   head "https://github.com/ziglang/zig.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Zig < Formula
   depends_on "llvm"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DZIG_PREFER_CLANG_CPP_DYLIB=ON"
     system "make", "install"
   end
 
@@ -23,8 +23,8 @@ class Zig < Formula
     (testpath/"hello.zig").write <<~EOS
       const std = @import("std");
       pub fn main() !void {
-          var stdout_file = try std.io.getStdOut();
-          try stdout_file.write("Hello, world!");
+          var stdout_file: std.fs.File = std.io.getStdOut();
+          _ = try stdout_file.write("Hello, world!");
       }
     EOS
     system "#{bin}/zig", "build-exe", "hello.zig"
