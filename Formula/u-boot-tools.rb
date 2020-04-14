@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2020.01.tar.bz2"
-  sha256 "aa453c603208b1b27bd03525775a7f79b443adec577fdc6e8f06974025a135f1"
+  url "http://ftp.denx.de/pub/u-boot/u-boot-2020.04.tar.bz2"
+  sha256 "fe732aaf037d9cc3c0909bad8362af366ae964bbdac6913a34081ff4ad565372"
 
   bottle do
     cellar :any
