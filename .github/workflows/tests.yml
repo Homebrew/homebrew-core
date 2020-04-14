@@ -2,7 +2,69 @@ name: GitHub Actions CI
 on:
   pull_request: []
 jobs:
+  pretests:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Setup tap
+        run: |
+          cd $(brew --repo ${{github.repository}})
+          git clean -ffdx
+          git remote set-url origin https://github.com/${{github.repository}}
+          git fetch --prune --force origin master
+          git fetch --prune --force origin ${{github.sha}}
+          git checkout --force ${{github.sha}}
+          git clean -ffdx
+          git log -1
+          rm -rf $GITHUB_WORKSPACE
+          ln -s $(brew --repository ${{github.repository}}) $GITHUB_WORKSPACE
+      - name: Check formulae
+        run: brew readall
+      - name: Audit changed formulae
+        run: |
+          cat > brew-audit.json <<EOS
+          { "problemMatcher": [ {
+              "owner": "brew-audit",
+              "pattern": [ {
+                  "regexp": "^(.+): \\\* (?:[RCWEF]: (\\\d+): )?(?:col (\\\d+): )?(.+)$",
+                  "file": 1,
+                  "line": 2,
+                  "column": 3,
+                  "message": 4
+                  } ] } ] }
+          EOS
+
+          echo "::add-matcher::brew-audit.json"
+
+          cd $(brew --repo ${{github.repository}})
+          start_sha=$(git rev-parse origin/$GITHUB_BASE_REF)
+          end_sha=$GITHUB_SHA
+
+          cat <<EOS
+          Testing with:
+            diff_start_sha1 $start_sha
+            diff_end_sha1   $end_sha
+          EOS
+
+          new_formulae=$(git diff-tree -r --name-only --diff-filter=A $start_sha $end_sha -- Formula/)
+          modified_formulae=$(git diff-tree -r --name-only --diff-filter=M $start_sha $end_sha -- Formula/)
+
+          cat <<EOS
+          Formula to be audited:
+            added formulae    $new_formulae
+            modified formulae $modified_formulae
+          EOS
+
+          [ ! -z "$new_formulae" ] && brew audit --display-filename --new-formula --online $new_formulae
+          [ ! -z "$modified_formulae" ] && brew audit --display-filename --online $modified_formulae
+          echo "::remove-matcher owner=brew-audit::"
   tests:
+    needs: pretests
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
