@@ -1,8 +1,8 @@
 class B3sum < Formula
   desc "The BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/0.3.1.tar.gz"
-  sha256 "200587a49098957b5c119936ebee248cae4fb437827e444c7708e92ddf55836c"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/0.3.2.tar.gz"
+  sha256 "be9c7a1fd79be5821a2b073036a860fcf518737948db776af2aef79f47d6e292"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,14 +11,9 @@ class B3sum < Formula
     sha256 "1bd0a9cddba682167b84e8ea52eaf1a5f3303ca477fd0bbcae75ade764a1acba" => :high_sierra
   end
 
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1000
   depends_on "rust" => :build
 
   def install
-    if DevelopmentTools.clang_build_version <= 1000
-      ENV["HOMEBREW_CC"] = "llvm_clang"
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    end
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./b3sum/"
   end
 
