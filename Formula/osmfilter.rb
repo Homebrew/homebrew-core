@@ -17,7 +17,7 @@ class Osmfilter < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "zlib" => :build
+  depends_on "zlib" => :build unless OS.mac?
   uses_from_macos "zlib"
 
   resource "pbf" do
