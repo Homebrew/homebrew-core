@@ -2,8 +2,8 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.26.0.tar.xz"
-  sha256 "9ece0dcb07a5e0d7366a92b613b201cca11ae368ab7687041364b3e756e495d6"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.26.1.tar.xz"
+  sha256 "888228408f254634330234df3cece734d190ef6381063821f31ec020538f0368"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -21,13 +21,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.26.0.tar.xz"
-    sha256 "5be14d0835177f8ada0310c98b0248c7caaea0a302b7b58f1ccc0c0f7ece2466"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.26.1.tar.xz"
+    sha256 "e857bfef9f7f63b2a553564226500ccca8da40b71e1009fcc4fab84ad951b1b0"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.26.0.tar.xz"
-    sha256 "387e46a0b67c148be7ef80759b1930a3b64ac77782630c18afc784f35ed93426"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.26.1.tar.xz"
+    sha256 "a93cb7f45dab1fc45a9a4a6cfc32f1a8edd0894c0441e163951c323c7a184048"
   end
 
   resource "Net::SMTP::SSL" do
