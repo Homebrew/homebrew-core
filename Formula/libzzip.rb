@@ -1,8 +1,8 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://github.com/gdraheim/zziplib"
-  url "https://github.com/gdraheim/zziplib/archive/v0.13.69.tar.gz"
-  sha256 "846246d7cdeee405d8d21e2922c6e97f55f24ecbe3b6dcf5778073a88f120544"
+  url "https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz"
+  sha256 "2ee1e0fbbb78ec7cc46bde5b62857bc51f8d665dd265577cf93584344b8b9de2"
 
   bottle do
     cellar :any
@@ -14,19 +14,16 @@ class Libzzip < Formula
     sha256 "2ed4dd48a0e3ae9b528164456652b0d5e8730153c398b6441a1ffb7d44e45f4d" => :el_capitan
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "xmlto" => :build
+  depends_on "python@3.8" => :build
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    args = %W[
-      --without-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DZZIPSDL=OFF"
+      system "make", "man"
+      system "make", "install"
+    end
   end
 
   test do
