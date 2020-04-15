@@ -1,9 +1,8 @@
 class Apib < Formula
   desc "HTTP performance-testing tool"
   homepage "https://github.com/apigee/apib"
-  url "https://github.com/apigee/apib/archive/APIB_1_0.tar.gz"
-  sha256 "1592e55c01f2f9bc8085b39f09c49cd7b786b6fb6d02441ca665eef262e7b87e"
-  revision 3
+  url "https://github.com/apigee/apib/archive/APIB_1_2_1.tar.gz"
+  sha256 "e47f639aa6ffc14a2e5b03bf95e8b0edc390fa0bb2594a521f779d6e17afc14c"
   head "https://github.com/apigee/apib.git"
 
   bottle do
@@ -14,28 +13,21 @@ class Apib < Formula
     sha256 "bbe9bc25a8584f163347662675d78b69cdfaac495be5f2fa026dfca112f8d4a4" => :sierra
   end
 
-  depends_on "apr"
-  depends_on "apr-util"
+  depends_on "cmake" => :build
+  depends_on "libev"
   depends_on "openssl@1.1"
 
   def install
-    # Fix detection of libcrypto for OpenSSL 1.1
-    inreplace "configure", "CRYPTO_num_locks", "EVP_sha1"
+    ENV.append "EXTRA_INCLUDE_DIR", "${prefix}/include"
+    ENV.append "EXTRA_LIB_DIR", "${prefix}/lib"
+    ENV.append "OPENSSL_INCLUDE_DIR", "#{Formula["openssl@1.1"]}/include"
+    ENV.append "OPENSSL_LIB_DIR", "#{Formula["openssl@1.1"]}/lib"
 
-    # Upstream hardcodes finding apr in /usr/include
-    # https://github.com/apigee/apib/issues/11
-    inreplace "configure" do |s|
-      s.gsub! "/usr/include/apr-1.0", "#{Formula["apr"].opt_libexec}/include/apr-1"
-      s.gsub! "/usr/include/apr-1", "#{Formula["apr"].opt_libexec}/include/apr-1"
-    end
-    ENV.append "LDFLAGS", "-L#{Formula["apr-util"].opt_libexec}/lib"
-    ENV.append "LDFLAGS", "-L#{Formula["apr"].opt_libexec}/lib"
-    ENV.append "CFLAGS", "-I#{Formula["apr"].opt_libexec}/include/apr-1"
-    ENV.append "CFLAGS", "-I#{Formula["apr-util"].opt_libexec}/include/apr-1"
+    mkdir "release"
+    system "cmake", ".", "-DCMAKE_BUILD_TYPE=Release"
+    system "make", "apib", "apibmon"
 
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    bin.install "apib", "apibmon"
+    bin.install "apib/apib", "apib/apibmon"
   end
 
   test do
