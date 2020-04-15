@@ -82,7 +82,7 @@ class Chronograf < Formula
     sleep 1
     assert_match %r{/chronograf/v1/layouts}, output
   ensure
-    Process.kill("SIGINT", pid)
+    Process.kill("SIGTERM", pid)
     Process.wait(pid)
   end
 end
