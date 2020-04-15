@@ -1,0 +1,24 @@
+name: Scheduled tasks
+
+on:
+  schedule:
+    # Once every hour
+    - cron:  '*/60 * * * *'
+
+jobs:
+  autopublish:
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/brew
+    env:
+      HOMEBREW_NO_ANALYTICS: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - name: Update Homebrew
+        run: |
+          brew update-reset $(brew --repo)
+      - name: Run automerge
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+        run: |
+          brew pr-automerge --verbose
