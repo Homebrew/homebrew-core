@@ -3,6 +3,7 @@ class RubyAT26 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.6.tar.xz"
   sha256 "5db187882b7ac34016cd48d7032e197f07e4968f406b0690e20193b9b424841f"
+  revision 1
 
   bottle do
     sha256 "469dd5dc27e9fab71d9feb49d2ba24d9c60e3db3b842d489afc4eb3904bc2bc8" => :catalina
@@ -42,6 +43,9 @@ class RubyAT26 < Formula
       --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
+
+    # Correct MJIT_CC to not use superenv shim
+    args << "MJIT_CC=/usr/bin/clang"
 
     system "./configure", *args
 
