@@ -4,6 +4,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.10-6.tar.xz"
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.10-6.tar.xz"
   sha256 "30ac7ce423cef9fb7baf0aefc734ae7b2593b9499c3782057ab73b7a360a0ac5"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
@@ -33,6 +34,9 @@ class Imagemagick < Formula
   skip_clean :la
 
   def install
+    # Avoid references to shim
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     args = %W[
       --disable-osx-universal-binary
       --prefix=#{prefix}
