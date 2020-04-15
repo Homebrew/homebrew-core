@@ -1,8 +1,8 @@
 class Gif2png < Formula
   desc "Convert GIFs to PNGs"
   homepage "http://www.catb.org/~esr/gif2png/"
-  url "http://www.catb.org/~esr/gif2png/gif2png-2.5.13.tar.gz"
-  sha256 "997275b20338e6cfe3bd4adb084f82627c34c856bc1d67c915c397cf55146924"
+  url "http://www.catb.org/~esr/gif2png/gif2png-3.0.0.tar.gz"
+  sha256 "98e185fa62d8d5b355a8b3980db0025b2fbdea991bd9f78547a1e0bc08b81d3a"
 
   bottle do
     cellar :any
@@ -12,7 +12,7 @@ class Gif2png < Formula
     sha256 "25aa7ef95b5ca8e7a79bf884fa8e9c8eafb21f2887caabc3ffb40de5fda2ab26" => :sierra
   end
 
-  depends_on "libpng"
+  depends_on "go" => :build
 
   def install
     system "make", "install", "prefix=#{prefix}"
