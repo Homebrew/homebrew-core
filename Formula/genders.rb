@@ -1,8 +1,9 @@
 class Genders < Formula
   desc "Static cluster configuration database for cluster management"
-  homepage "https://computing.llnl.gov/linux/genders.html"
-  url "https://downloads.sourceforge.net/project/genders/genders/1.22-1/genders-1.22.tar.gz"
-  sha256 "0ff292825a29201106239c4d47d9ce4c6bda3f51c78c0463eb2634ecc337b774"
+  homepage "https://github.com/chaos/genders"
+  url "https://github.com/chaos/genders/archive/genders-1-27-3.tar.gz"
+  version "1.27.3"
+  sha256 "c176045a7dd125313d44abcb7968ded61826028fe906028a2967442426229894"
 
   bottle do
     cellar :any
@@ -18,5 +19,16 @@ class Genders < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--with-java-extensions=no"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"cluster").write <<~EOS
+      # slc cluster genders file
+      slci,slcj,slc[0-15]  eth2=e%n,cluster=slc,all
+      slci                 passwdhost
+      slci,slcj            management
+      slc[1-15]            compute
+    EOS
+    assert_match "0 parse errors discovered", shell_output("#{bin}/nodeattr -f cluster -k 2>&1")
   end
 end
