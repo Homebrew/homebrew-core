@@ -38,6 +38,8 @@ class Glib < Formula
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
       -Ddtrace=false
+      -Ddefault_library=both
+      -Db_staticpic=true
     ]
 
     mkdir "build" do
