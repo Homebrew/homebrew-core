@@ -2,8 +2,8 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch.git",
-      :tag      => "4.1.0",
-      :revision => "be2404129aa6141b00a2e7fd61e7dd8ab088d1d6"
+      :tag      => "4.1.1",
+      :revision => "201b0b02c196dcda14c806a539ab963284abeeaf"
   head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do
