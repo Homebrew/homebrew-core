@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.40.0/deno_src.tar.gz"
-  sha256 "d2ed1ac06fd2901145374eb39adf4519e4119f86d82851b5947e58937116c2b0"
+  url "https://github.com/denoland/deno/releases/download/v0.41.0/deno_src.tar.gz"
+  sha256 "8f42201d9242384629d419fc584bfe2385035d96937ee1cafd702ce4b06253c4"
 
   bottle do
     cellar :any_skip_relocation
