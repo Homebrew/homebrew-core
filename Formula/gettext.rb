@@ -33,7 +33,8 @@ class Gettext < Formula
                           # Don't use VCS systems to create these archives
                           "--without-git",
                           "--without-cvs",
-                          "--without-xz"
+                          "--without-xz",
+                          "--enable-static"
     system "make"
     ENV.deparallelize # install doesn't support multiple make jobs
     system "make", "install"
