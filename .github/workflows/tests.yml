@@ -5,7 +5,7 @@ jobs:
   tests:
     strategy:
       matrix:
-        version: [10.15, 10.14, 10.13]
+        version: [10.15, 10.14, 10.13, self-hosted]
       fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
