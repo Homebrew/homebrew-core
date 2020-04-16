@@ -27,7 +27,7 @@ class Libffi < Formula
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--enable-static", "--prefix=#{prefix}"
     system "make", "install"
   end
 
