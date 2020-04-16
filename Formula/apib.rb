@@ -18,13 +18,7 @@ class Apib < Formula
   depends_on "openssl@1.1"
 
   def install
-    ENV.append "EXTRA_INCLUDE_DIR", "${prefix}/include"
-    ENV.append "EXTRA_LIB_DIR", "${prefix}/lib"
-    ENV.append "OPENSSL_INCLUDE_DIR", "#{Formula["openssl@1.1"]}/include"
-    ENV.append "OPENSSL_LIB_DIR", "#{Formula["openssl@1.1"]}/lib"
-
-    mkdir "release"
-    system "cmake", ".", "-DCMAKE_BUILD_TYPE=Release"
+    system "cmake", ".", *std_cmake_args
     system "make", "apib", "apibmon"
 
     bin.install "apib/apib", "apib/apibmon"
