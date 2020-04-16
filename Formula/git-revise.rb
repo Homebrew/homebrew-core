@@ -19,6 +19,7 @@ class GitRevise < Formula
 
   def install
     virtualenv_install_with_resources
+    man1.install "git-revise.1"
   end
 
   test do
