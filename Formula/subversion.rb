@@ -4,7 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.13.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
   sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "1af68c125bb42f92ba447bb12bf42dee0f5c1d043a26e1967d29f4a360376ed8" => :catalina
@@ -31,9 +31,11 @@ class Subversion < Formula
   # gettext, lz4, perl, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
+  depends_on :macos # Due to Python 2
+  # See https://github.com/Homebrew/homebrew-core/issues/53193#issue-600482673
+  # Will work with Python 3.8 in subversion 1.14
   depends_on "openssl@1.1" # For Serf
   depends_on "perl"
-  depends_on "python@3.8"
   depends_on "sqlite"
   depends_on "utf8proc"
 
@@ -54,8 +56,6 @@ class Subversion < Formula
   patch :DATA
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
-
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
@@ -125,7 +125,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
