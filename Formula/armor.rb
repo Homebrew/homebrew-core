@@ -16,19 +16,16 @@ class Armor < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"armor", "cmd/armor/main.go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "cmd/armor/main.go"
     prefix.install_metafiles
   end
 
   test do
     port = free_port
-    pid = fork do
+    fork do
       exec "#{bin}/armor --port #{port}"
     end
     sleep 1
-    output = shell_output("curl -sI http://localhost:#{port}")
-    assert_match(/200 OK/m, output)
-  ensure
-    Process.kill("HUP", pid)
+    assert_match /200 OK/, shell_output("curl -sI http://localhost:#{port}")
   end
 end

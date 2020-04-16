@@ -1,8 +1,8 @@
 class Winetricks < Formula
   desc "Automatic workarounds for problems in Wine"
   homepage "https://github.com/Winetricks/winetricks"
-  url "https://github.com/Winetricks/winetricks/archive/20191224.tar.gz"
-  sha256 "c1223bb90e76c468f15784a701696a184aaee802bc9c236797166dea33d0d0a2"
+  url "https://github.com/Winetricks/winetricks/archive/20200412.tar.gz"
+  sha256 "4b0aa4f11dbc30d10a8edd2bb83fcc34f9b143ab58ccce7b99cd54ebff7ec260"
   head "https://github.com/Winetricks/winetricks.git"
 
   bottle :unneeded

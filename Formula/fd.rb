@@ -1,15 +1,15 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v7.5.0.tar.gz"
-  sha256 "8a78ca24323c832cf205c1fce8276fc25ae90371531c32e155301937986ea713"
+  url "https://github.com/sharkdp/fd/archive/v8.0.0.tar.gz"
+  sha256 "fba93204c10266317e0981914c630b08e12cd322c75ff2a2e504ff1dce17d557"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0bdb984cbb1a2f5ad31edb64125f92cb7f258f6942f4e6cc8e4a03bf10ac02a7" => :catalina
-    sha256 "25bafcd08c49e4efa084e821eb29dec4e1a116b3ba158ab17bd861cb01d16522" => :mojave
-    sha256 "a0e40188915c506a58e4ff48e4eec0d636cded72c7d0bb773cc543fecb930830" => :high_sierra
+    sha256 "d3eafb3efc4c62d824ebc316c73ca1562cb92eca8049864ae1716144969c8c3d" => :catalina
+    sha256 "c6c7349e7bfbe9893478d06c7c599934c1e07e017ced1b5d13a5716487327de3" => :mojave
+    sha256 "49998bf05261897f03f5026a8394c5106e83bec4eb79dcd1b0846c3248e2573b" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -48,17 +48,17 @@ diff -pur a/Cargo.toml b/Cargo.toml
  diff = "0.1"
  tempdir = "0.3"
 diff -pur a/src/main.rs b/src/main.rs
---- a/src/main.rs	2019-09-15 19:29:15.000000000 +0200
-+++ b/src/main.rs	2019-10-19 10:14:39.000000000 +0200
-@@ -35,11 +35,6 @@ use crate::internal::{
-     pattern_has_uppercase_char, transform_args_with_exec, FileTypes,
- };
-
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -29,11 +29,6 @@ use crate::filter::{SizeFilter, TimeFilter};
+ use crate::options::Options;
+ use crate::regex_helper::pattern_has_uppercase_char;
+ 
 -// We use jemalloc for performance reasons, see https://github.com/sharkdp/fd/pull/481
 -#[cfg(all(not(windows), not(target_env = "musl")))]
 -#[global_allocator]
 -static ALLOC: jemallocator::Jemalloc = jemallocator::Jemalloc;
 -
- fn main() {
-     let checked_args = transform_args_with_exec(env::args_os());
-     let matches = app::build_app().get_matches_from(checked_args);
+ fn run() -> Result<ExitCode> {
+     let matches = app::build_app().get_matches_from(env::args_os());
+
