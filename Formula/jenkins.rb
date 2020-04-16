@@ -70,12 +70,8 @@ class Jenkins < Formula
     end
     sleep 60
 
-    begin
-      output = shell_output("curl localhost:#{port}/")
-      assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
+    output = shell_output("curl localhost:#{port}/")
+    assert_match /Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output
     end
   end
 end
