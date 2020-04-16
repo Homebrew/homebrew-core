@@ -72,6 +72,5 @@ class Jenkins < Formula
 
     output = shell_output("curl localhost:#{port}/")
     assert_match /Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output
-    end
   end
 end
