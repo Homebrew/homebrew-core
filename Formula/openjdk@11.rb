@@ -1,9 +1,9 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.6+10.tar.bz2"
-  version "11.0.6+10"
-  sha256 "b42915ad92d8b23dfe40faed00096cec0b303447869766292aa86f22b0c67601"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.7+10.tar.bz2"
+  version "11.0.7+10"
+  sha256 "e86d27cc3119be2178fc20c0115f8863fa86ac3ffd0c825fef7d16683f78b852"
 
   bottle do
     cellar :any
