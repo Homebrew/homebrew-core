@@ -65,7 +65,7 @@ class Jenkins < Formula
     ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
 
     port = free_port
-    pid = fork do
+    fork do
       exec "#{bin}/jenkins --httpPort=#{port}"
     end
     sleep 60
