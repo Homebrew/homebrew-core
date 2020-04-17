@@ -1,9 +1,9 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/2.3.1/apache-couchdb-2.3.1.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/2.3.1/apache-couchdb-2.3.1.tar.gz"
-  sha256 "43eb8cec41eb52871bf22d35f3e2c2ce5b806ebdbce3594cf6b0438f2534227d"
+  url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.0.0/apache-couchdb-3.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/3.0.0/apache-couchdb-3.0.0.tar.gz"
+  sha256 "d109bb1a70fe746c04a9bf79a2bb1096cb949c750c29dbd196e9c2efd4167fd9"
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Couchdb < Formula
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
-  depends_on "erlang@21" => :build
+  depends_on "erlang" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -30,7 +30,6 @@ class Couchdb < Formula
     # remove windows startup script
     File.delete("rel/couchdb/bin/couchdb.cmd") if File.exist?("rel/couchdb/bin/couchdb.cmd")
     # install files
-    bin.install Dir["rel/couchdb/bin/*"]
     prefix.install Dir["rel/couchdb/*"]
     if File.exist?(prefix/"Library/LaunchDaemons/org.apache.couchdb.plist")
       (prefix/"Library/LaunchDaemons/org.apache.couchdb.plist").delete
@@ -40,19 +39,6 @@ class Couchdb < Formula
   def post_install
     # creating database directory
     (var/"couchdb/data").mkpath
-    # patching to start couchdb from symlinks
-    inreplace "#{bin}/couchdb", 'COUCHDB_BIN_DIR=$(cd "${0%/*}" && pwd)',
-'canonical_readlink ()
-  {
-  cd $(dirname $1);
-  FILE=$(basename $1);
-  if [ -h "$FILE" ]; then
-    canonical_readlink $(readlink $FILE);
-  else
-    echo "$(pwd -P)";
-  fi
-}
-COUCHDB_BIN_DIR=$(canonical_readlink $0)'
   end
 
   def caveats
@@ -91,24 +77,18 @@ COUCHDB_BIN_DIR=$(canonical_readlink $0)'
   end
 
   test do
-    # copy config files
     cp_r prefix/"etc", testpath
-    # setting database path to testpath
-    inreplace "#{testpath}/etc/default.ini", "#{var}/couchdb/data", "#{testpath}/data"
     port = free_port
     inreplace "#{testpath}/etc/default.ini", "port = 5984", "port = #{port}"
+    inreplace "#{testpath}/etc/default.ini", "#{var}/couchdb/data", "#{testpath}/data"
+    inreplace "#{testpath}/etc/local.ini", ";admin = mysecretpassword", "admin = mysecretpassword"
 
-    # start CouchDB with test environment
-    pid = fork do
+    fork do
       exec "#{bin}/couchdb -couch_ini #{testpath}/etc/default.ini #{testpath}/etc/local.ini"
     end
     sleep 2
 
-    begin
-      assert_match "The Apache Software Foundation", shell_output("curl --silent localhost:#{port}")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = JSON.parse shell_output("curl --silent localhost:#{port}")
+    assert_equal "Welcome", output["couchdb"]
   end
 end
