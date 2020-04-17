@@ -4,6 +4,7 @@ class Git < Formula
   # Note: Please keep these values in sync with git-gui.rb when updating.
   url "https://www.kernel.org/pub/software/scm/git/git-2.26.1.tar.xz"
   sha256 "888228408f254634330234df3cece734d190ef6381063821f31ec020538f0368"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -33,6 +34,15 @@ class Git < Formula
   resource "Net::SMTP::SSL" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
     sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
+  end
+
+  # Fixes a bug where fast-forwarding via `git rebase` doesn't work with rebase.abbreviateCommands.
+  # This bug broke `brew update` for some users.
+  # **Please verify the bug is fixed before removing this patch.**
+  # https://github.com/Homebrew/brew/issues/7374
+  patch do
+    url "https://github.com/agrn/git/commit/058d9c128c63b0a4849b384b358cca9bb19c56db.patch?full_index=1"
+    sha256 "40a243ccc566721bc4df6d9300772fdd367cb9e35a1652f888b89f3f32823227"
   end
 
   def install
