@@ -28,38 +28,87 @@ class Libgraphqlparser < Formula
       { user }
     EOS
 
-    # A nightmare to get these lines shorter.
-    # rubocop:disable Layout/LineLength
-    sample_ast = { "kind"        => "Document",
-                   "loc"         => { "start" => { "line"=>1, "column"=>1 },
-                                      "end"   => { "line"=>1, "column"=>9 } },
-                   "definitions" =>
-                                    [{ "kind"                => "OperationDefinition",
-                                       "loc"                 => { "start" => { "line"=>1, "column"=>1 },
-                                                                  "end"   => { "line"=>1, "column"=>9 } },
-                                       "operation"           => "query",
-                                       "name"                => nil,
-                                       "variableDefinitions" => nil,
-                                       "directives"          => nil,
-                                       "selectionSet"        =>
-                                                                { "kind"       => "SelectionSet",
-                                                                  "loc"        => { "start" => { "line"=>1, "column"=>1 },
-                                                                                    "end"   => { "line"=>1, "column"=>9 } },
-                                                                  "selections" =>
-                                                                                  [{ "kind"         => "Field",
-                                                                                     "loc"          => { "start" => { "line"=>1, "column"=>3 },
-                                                                                                         "end"   => { "line"=>1, "column"=>7 } },
-                                                                                     "alias"        => nil,
-                                                                                     "name"         =>
-                                                                                                       { "kind"  => "Name",
-                                                                                                         "loc"   => { "start" => { "line"=>1, "column"=>3 },
-                                                                                                                      "end"   => { "line"=>1, "column"=>7 } },
-                                                                                                         "value" => "user" },
-                                                                                     "arguments"    => nil,
-                                                                                     "directives"   => nil,
-                                                                                     "selectionSet" => nil }] } }] }
+    sample_ast = JSON.parse(<<~EOS)
+      {
+        "kind": "Document",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 1
+          },
+          "end": {
+            "line": 1,
+            "column": 9
+          }
+        },
+        "definitions": [
+          {
+            "kind": "OperationDefinition",
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 1
+              },
+              "end": {
+                "line": 1,
+                "column": 9
+              }
+            },
+            "operation": "query",
+            "name": null,
+            "variableDefinitions": null,
+            "directives": null,
+            "selectionSet": {
+              "kind": "SelectionSet",
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 1
+                },
+                "end": {
+                  "line": 1,
+                  "column": 9
+                }
+              },
+              "selections": [
+                {
+                  "kind": "Field",
+                  "loc": {
+                    "start": {
+                      "line": 1,
+                      "column": 3
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 7
+                    }
+                  },
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "loc": {
+                      "start": {
+                        "line": 1,
+                        "column": 3
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7
+                      }
+                    },
+                    "value": "user"
+                  },
+                  "arguments": null,
+                  "directives": null,
+                  "selectionSet": null
+                }
+              ]
+            }
+          }
+        ]
+      }
+    EOS
 
-    # rubocop:enable Layout/LineLength
     test_ast = JSON.parse pipe_output("#{libexec}/dump_json_ast", sample_query)
     assert_equal sample_ast, test_ast
   end
