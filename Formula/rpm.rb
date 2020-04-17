@@ -92,13 +92,10 @@ class Rpm < Formula
   test do
     (testpath/"rpmbuild").mkpath
 
-    # Falsely flagged by RuboCop.
-    # rubocop:disable Style/FormatStringToken
     (testpath/".rpmmacros").write <<~EOS
       %_topdir		#{testpath}/rpmbuild
-      %_tmppath		%{_topdir}/tmp
+      %_tmppath		%\{_topdir}/tmp
     EOS
-    # rubocop:enable Style/FormatStringToken
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"
     assert_predicate testpath/"var/lib/rpm/Packages", :exist?,
