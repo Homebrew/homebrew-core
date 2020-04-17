@@ -3,6 +3,7 @@ class ScummvmTools < Formula
   homepage "https://www.scummvm.org/"
   url "https://www.scummvm.org/frs/scummvm-tools/2.1.0/scummvm-tools-2.1.0.tar.xz"
   sha256 "cfc62d285d0e304061db72691cdfb8ce4ead868cffb2658b1f1c81934f404665"
+  revision 1
   head "https://github.com/scummvm/scummvm-tools.git"
 
   bottle do
