@@ -103,11 +103,16 @@ class CouchdbLucene < Formula
     cp_r Dir[opt_prefix/"*"], testpath
     inreplace "bin/cl_run", "CL_BASEDIR=#{libexec}/bin",
                             "CL_BASEDIR=#{testpath}/libexec/bin"
+    port = free_port
+    inreplace "libexec/conf/couchdb-lucene.ini", "port=5985", "port=#{port}"
 
-    io = IO.popen("#{testpath}/bin/cl_run")
-    sleep 2
-    Process.kill("SIGINT", io.pid)
-    Process.wait(io.pid)
-    io.read !~ /Exception/
+    fork do
+      exec "#{testpath}/bin/cl_run"
+    end
+    sleep 5
+
+    output = JSON.parse shell_output("curl --silent localhost:#{port}")
+    assert_equal "Welcome", output["couchdb-lucene"]
+    assert_equal version, output["version"]
   end
 end
