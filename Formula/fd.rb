@@ -27,6 +27,13 @@ class Fd < Formula
     zsh_completion.install "_fd"
   end
 
+  def caveats
+    <<~EOS
+      Install the optional dependency coreutils for -l/--list-details support:
+        brew install coreutils
+    EOS
+  end
+
   test do
     touch "foo_file"
     touch "test_file"
