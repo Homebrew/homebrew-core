@@ -1,8 +1,8 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20200320.tar.gz"
-  sha256 "69daf2e0633dee7e8bdba74ab714adfa70e8f078028b56d612228c2aa836aafa"
+  url "https://github.com/neomutt/neomutt/archive/20200417.tar.gz"
+  sha256 "6ed358053ae17694b580f3b5b13eec9f00f5a7320e76fae6fba767607c40cc48"
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
@@ -11,6 +11,7 @@ class Neomutt < Formula
     sha256 "3423fe201ef33bb8d77644aa40773c9d5d7c93cd4c228a4b52b772d2fcbc5aae" => :high_sierra
   end
 
+  depends_on "docbook-xsl" => :build
   depends_on "gettext"
   depends_on "gpgme"
   depends_on "libidn"
@@ -22,7 +23,6 @@ class Neomutt < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-doc",
                           "--enable-gpgme",
                           "--with-gpgme=#{Formula["gpgme"].opt_prefix}",
                           "--gss",
