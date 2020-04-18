@@ -10,18 +10,21 @@ jobs:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: Homebrew/actions/git-ssh@master
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Setup git-ssh
+        uses: Homebrew/actions/git-ssh@master
         with:
           git_user: BrewTestBot
           git_email: homebrew-test-bot@lists.sfconservancy.org
           key: ${{ secrets.FORMULAE_DEPLOY_KEY }}
-      - run: |
+      - name: Generate formulae.brew.sh data
+        env:
+          ANALYTICS_JSON_KEY: ${{ secrets.ANALYTICS_JSON_KEY }}
+        run: |
           brew update-reset "$(brew --repository)"
           brew tap "$GITHUB_REPOSITORY"
           brew update-reset "$(brew --repository "$GITHUB_REPOSITORY")"
-
-          export PATH="$(brew --repo)/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH"
 
           git clone --depth=1 git@github.com:Homebrew/formulae.brew.sh
           cd formulae.brew.sh
@@ -29,8 +32,10 @@ jobs:
           # setup analytics
           echo "$ANALYTICS_JSON_KEY" > ~/.homebrew_analytics.json
 
-          # run rake (without a rake binary)
-          ruby -e "load Gem.bin_path('rake', 'rake')"
+          # Prefer macOS Ruby over whatever else is installed
+          export PATH="/usr/bin:$PATH"
+          bundle install --jobs 4 --retry 3
+          bundle exec rake
 
           # commit and push generated files
           git add _data/formula api/formula formula
@@ -41,5 +46,3 @@ jobs:
             git rebase origin/master
             git push
           fi
-        env:
-          ANALYTICS_JSON_KEY: ${{ secrets.ANALYTICS_JSON_KEY }}
