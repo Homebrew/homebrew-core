@@ -1,8 +1,8 @@
 class MariadbAT103 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.21/source/mariadb-10.3.21.tar.gz"
-  sha256 "f95bd4b670fb86082d1e3f0c4299ebcd40bda856b111e3f02ab647b0e9ba5e8f"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.22/source/mariadb-10.3.22.tar.gz"
+  sha256 "3200055dbdc27746981b3bb4bc182e2cb79dcf28ea88014b641a5b81280ccec7"
 
   bottle do
     sha256 "bad7798f578ee24af5d769e5912657c2a1cf8ef46b0bb2761cf68b1d3dd4ffba" => :catalina
@@ -16,6 +16,12 @@ class MariadbAT103 < Formula
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+
+  # Fix for https://jira.mariadb.org/browse/MDEV-21592
+  patch do
+    url "https://github.com/MariaDB/server/commit/42b29d41335d2f6991b8c9f110fe1e1476764ace.patch?full_index=1"
+    sha256 "7f61bf5dde90a80f6af6f37e27fbce67f853dace98483a030a3dce9b1c1481f0"
+  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
