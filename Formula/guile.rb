@@ -4,7 +4,7 @@ class Guile < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.2.7.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.2.7.tar.xz"
   sha256 "cdf776ea5f29430b1258209630555beea6d2be5481f9da4d64986b077ff37504"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "ff3901954ca852b7df05de9111f4222bacfe2689dc02ffb6492f459555d5cb46" => :catalina
@@ -34,6 +34,9 @@ class Guile < Formula
     # Work around Xcode 11 clang bug
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
     ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
+    # Avoid superenv shim
+    inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
 
     system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
