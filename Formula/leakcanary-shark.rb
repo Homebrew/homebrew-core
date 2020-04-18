@@ -6,7 +6,7 @@ class LeakcanaryShark < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
