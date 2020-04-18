@@ -3,7 +3,7 @@ class LlvmAT9 < Formula
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz"
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -101,6 +101,7 @@ class LlvmAT9 < Formula
       -DLLVM_ENABLE_FFI=ON
       -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
+      -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
       -DLLVM_OPTIMIZED_TABLEGEN=ON
