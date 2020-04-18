@@ -1,8 +1,8 @@
 class Wpscan < Formula
   desc "Black box WordPress vulnerability scanner"
   homepage "https://wpscan.org"
-  url "https://github.com/wpscanteam/wpscan/archive/v3.8.0.tar.gz"
-  sha256 "1b49db871177044101160a992ef739980e2898f11bf0afe820aad4eced3a80cf"
+  url "https://github.com/wpscanteam/wpscan/archive/v3.8.1.tar.gz"
+  sha256 "d2ba1e66a7c3421dfb756096cd048eacd78e4dcb5504e25153091dba2af047ee"
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
@@ -12,12 +12,19 @@ class Wpscan < Formula
     sha256 "40b791348bd997263372d71c28352e6776e94876ad1d667b35d15f2f3eb3878b" => :high_sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "ruby"
 
   uses_from_macos "curl"
   uses_from_macos "unzip"
   uses_from_macos "xz" # for liblxma
   uses_from_macos "zlib"
+
+  if MacOS.version < :catalina
+    depends_on "libffi"
+  else
+    uses_from_macos "libffi"
+  end
 
   # Fixes the --no-update commandline option
   # https://github.com/wpscanteam/wpscan/pull/1455
