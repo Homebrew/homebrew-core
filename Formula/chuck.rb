@@ -1,8 +1,8 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.0.0.tgz"
-  sha256 "2caee332b8d48e2fddad0f8a0a1811b6cf4c5afab73ae8a17b85ec759cce27ac"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.0.1.tgz"
+  sha256 "11a20c34b385e132bf43d5ae6a562c652f631828cc6b1562a4c029bc9a850ed4"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,11 +16,6 @@ class Chuck < Formula
   depends_on :xcode => :build
 
   def install
-    # Support for newer macOS versions
-    inreplace "src/core/makefile.x/makefile.osx",
-              "10\\.(6|7|8|9|10|11|12|13)",
-              "10\\.(6|7|8|9|10|11|12|1[0-9])"
-
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"
