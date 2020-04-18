@@ -22,7 +22,6 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
-  depends_on "xdot"
 
   def install
     install_cabal_package "--constraint", "http-conduit>=2.3",
