@@ -1,9 +1,9 @@
 class Daq < Formula
   desc "Network intrusion prevention and detection system"
   homepage "https://www.snort.org/"
-  url "https://www.mirrorservice.org/sites/distfiles.macports.org/daq/daq-2.0.6.tar.gz"
-  mirror "https://fossies.org/linux/misc/daq-2.0.6.tar.gz"
-  sha256 "b40e1d1273e08aaeaa86e69d4f28d535b7e53bdb3898adf539266b63137be7cb"
+  url "https://www.snort.org/downloads/snort/daq-2.0.7.tar.gz"
+  mirror "https://fossies.org/linux/misc/daq-2.0.7.tar.gz"
+  sha256 "bdc4e5a24d1ea492c39ee213a63c55466a2e8114b6a9abed609927ae13a7705e"
 
   bottle do
     cellar :any
@@ -16,24 +16,26 @@ class Daq < Formula
     sha256 "8ce4fbbbb9f6189f6ee51d3223a81ebc7ea76069353bd284822989d6ccc364a5" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libpcap"
 
   # libpcap on >= 10.12 has pcap_lib_version() instead of pcap_version
   # Reported 8 Oct 2017 to bugs AT snort DOT org
-  if MacOS.version >= :sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b345dac/daq/patch-pcap-version.diff"
-      sha256 "20d2bf6aec29824e2b7550f32251251cdc9d7aac3a0861e81a68cd0d1e513bf3"
-    end
-  end
+  patch :p0, :DATA if MacOS.version >= :sierra
 
   def install
+    rm_f "./configure"
+    system "autoreconf", "-fiv"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make", "install"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
@@ -53,3 +55,19 @@ class Daq < Formula
     system "./test"
   end
 end
+
+__END__
+--- ./m4/sf.m4
++++ ./m4/sf.m4
+@@ -141,10 +141,9 @@
+     [[
+     #include <pcap.h>
+     #include <string.h>
+-    extern char pcap_version[];
+     ]],
+     [[
+-        if (strcmp(pcap_version, $1) < 0)
++        if (strcmp(pcap_lib_version(), $1) < 0)
+             return 1;
+     ]])],
+     [daq_cv_libpcap_version_1x="yes"],
