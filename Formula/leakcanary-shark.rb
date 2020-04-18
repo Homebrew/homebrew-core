@@ -16,7 +16,14 @@ class LeakcanaryShark < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
+  resource "sample_hprof" do
+    url "https://github.com/square/leakcanary/raw/v2.2/shark-android/src/test/resources/leak_asynctask_m.hprof"
+    sha256 "7575158108b701e0f7233bc208decc243e173c75357bf0be9231a1dcb5b212ab"
+  end
+  
   test do
-    assert_match "Usage: shark-cli", shell_output("#{bin}/shark-cli").strip
+    resource("sample_hprof").stage do
+      assert_match "1 APPLICATION LEAKS", shell_output("#{bin}/shark-cli --hprof ./leak_asynctask_m.hprof analyze").strip
+    end
   end
 end
