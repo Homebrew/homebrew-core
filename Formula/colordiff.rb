@@ -1,9 +1,9 @@
 class Colordiff < Formula
   desc "Color-highlighted diff(1) output"
   homepage "https://www.colordiff.org/"
-  url "https://www.colordiff.org/colordiff-1.0.18.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/colordiff-1.0.18.tar.gz"
-  sha256 "29cfecd8854d6e19c96182ee13706b84622d7b256077df19fbd6a5452c30d6e0"
+  url "https://www.colordiff.org/colordiff-1.0.19.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/colordiff-1.0.19.tar.gz"
+  sha256 "46e8c14d87f6c4b77a273cdd97020fda88d5b2be42cf015d5d84aca3dfff3b19"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,16 +15,14 @@ class Colordiff < Formula
     sha256 "19c797b186c5b2ec4e4692a21d25f3c8e48addea3cc8aaa2809cf37dcc0f1100" => :yosemite
   end
 
-  conflicts_with "cdiff", :because => "both install `cdiff` binaries"
+  depends_on "coreutils" => :build # GNU install
 
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/colordiff/1.0.16.patch"
-    sha256 "715ae7c2f053937606c7fe576acbb7ab6f2c58d6021a9a0d40e7c64a508ec8d0"
-  end
+  conflicts_with "cdiff", :because => "both install `cdiff` binaries"
 
   def install
     man1.mkpath
-    system "make", "INSTALL_DIR=#{bin}",
+    system "make", "INSTALL=ginstall",
+                   "INSTALL_DIR=#{bin}",
                    "ETC_DIR=#{etc}",
                    "MAN_DIR=#{man1}",
                    "install"
