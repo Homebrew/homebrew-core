@@ -1,10 +1,9 @@
 class GnuChess < Formula
   desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.5.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.5.tar.gz"
-  sha256 "9a99e963355706cab32099d140b698eda9de164ebce40a5420b1b9772dd04802"
-  revision 1
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.6.tar.gz"
+  sha256 "d617f875d6411378c6ce521663ebda42db9006a5eb5706bcd821a918c06eb04f"
 
   bottle do
     sha256 "c974d47804b8d31d5291b7fa5aa7cc2b4caee43d9b92db9ac9e63713e7f4d4f7" => :catalina
@@ -29,6 +28,9 @@ class GnuChess < Formula
   end
 
   def install
+    #  Fix "install-sh: Permission denied" issue
+    chmod "+x", "install-sh"
+
     if build.head?
       system "autoreconf", "--install"
       chmod 0755, "install-sh"
