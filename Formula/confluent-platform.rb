@@ -21,5 +21,9 @@ class ConfluentPlatform < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/kafka-broker-api-versions --version")
+
+    ENV["CONFLUENT_HOME"] = "/usr/local/Cellar/confluent-platform/5.4.1/)
+    shell_output("#{bin}/confluent local start")
+    assert_equal "0\n", shell_output("echo $?") 
   end
 end
