@@ -34,6 +34,12 @@ class ErlangAT21 < Formula
     sha256 "258b1e0ed1d07abbf08938f62c845450e90a32ec542e94455e5d5b7c333da362"
   end
 
+  # Fix build on Xcode 11.4
+  patch do
+    url "https://github.com/erlang/otp/commit/3edba0dad391431cbadad44a8bd15c75254fc239.patch?full_index=1"
+    sha256 "0c82d9f3bdb668ba78025988c9447bebe91a2f6bb00daa7f0ae7bd1916cd9bfd"
+  end
+
   def install
     # Work around Xcode 11 clang bug
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
