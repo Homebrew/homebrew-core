@@ -46,8 +46,8 @@ class Libvirt < Formula
     # Work around a gnulib issue with macOS Catalina
     args << "gl_cv_func_ftello_works=yes"
 
-    system "./autogen.sh" if build.head?
     mkdir "build" do
+      system "../autogen.sh" if build.head?
       system "../configure", *args
 
       # Compilation of docs doesn't get done if we jump straight to "make install"
