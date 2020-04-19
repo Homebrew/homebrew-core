@@ -1,9 +1,8 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.0.4/shibboleth-sp-3.0.4.tar.bz2"
-  sha256 "f5dc0fd028b74db4aaae76b59ec98e8a719c38cfe0f1d722feb2d5e0b9880cff"
-  revision 1
+  url "https://shibboleth.net/downloads/service-provider/3.1.0/shibboleth-sp-3.1.0.tar.bz2"
+  sha256 "40dfedbb0f8e604ed4b6d606143de7980b4f8c13fc4682375ace94f8ac194654"
 
   bottle do
     rebuild 1
