@@ -54,12 +54,6 @@ class Libvirt < Formula
       system "make"
       system "make", "install"
     end
-
-    # Update the libvirt daemon config file to reflect the Homebrew prefix
-    inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
-      s.gsub! "/etc/", "#{etc}/"
-      s.gsub! "/var/", "#{var}/"
-    end
   end
 
   plist_options :manual => "libvirtd"
