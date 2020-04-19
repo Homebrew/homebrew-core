@@ -28,7 +28,7 @@ class ConfluentPlatform < Formula
     system "ls", "#{home}/.confluent"
 
     ENV["CONFLUENT_HOME"] = "/usr/local/Cellar/confluent-platform/5.4.1/"
-    shell_output("#{bin}/confluent local status")
+    system "#{bin}/confluent", "local", "status"
     assert_equal "0\n", shell_output("echo $?")
   end
 end
