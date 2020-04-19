@@ -3,6 +3,7 @@ class Libvirt < Formula
   homepage "https://www.libvirt.org"
   url "https://libvirt.org/sources/libvirt-6.2.0.tar.xz"
   sha256 "aec8881f236917c4f8064918df546ed3aacd0bb8a2f312f4d37485721cce0fb1"
+  revision 1
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -75,6 +76,8 @@ class Libvirt < Formula
           <key>ProgramArguments</key>
           <array>
             <string>#{sbin}/libvirtd</string>
+            <string>-f</string>
+            <string>#{etc}/libvirt/libvirtd.conf</string>
           </array>
           <key>KeepAlive</key>
           <true/>
