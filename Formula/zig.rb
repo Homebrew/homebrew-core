@@ -3,6 +3,7 @@ class Zig < Formula
   homepage "https://ziglang.org/"
   url "https://ziglang.org/download/0.6.0/zig-0.6.0.tar.xz"
   sha256 "5d167dc19354282dd35dd17b38e99e1763713b9be8a4ba9e9e69284e059e7204"
+  revision 1
   head "https://github.com/ziglang/zig.git"
 
   bottle do
@@ -15,8 +16,12 @@ class Zig < Formula
   depends_on "cmake" => :build
   depends_on "llvm"
 
+  # Fix linking issues
+  # https://github.com/Homebrew/homebrew-core/issues/53198
+  patch :DATA
+
   def install
-    system "cmake", ".", *std_cmake_args, "-DZIG_PREFER_CLANG_CPP_DYLIB=ON"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
@@ -32,3 +37,15 @@ class Zig < Formula
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
+
+__END__
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -384,6 +384,9 @@ target_link_libraries(zig_cpp LINK_PUBLIC
+     ${CLANG_LIBRARIES}
+     ${LLD_LIBRARIES}
+     ${LLVM_LIBRARIES}
++    "-Wl,/usr/local/opt/llvm/lib/libPolly.a"
++    "-Wl,/usr/local/opt/llvm/lib/libPollyPPCG.a"
++    "-Wl,/usr/local/opt/llvm/lib/libPollyISL.a"
+ )
