@@ -1,9 +1,10 @@
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
-  url "https://github.com/json-c/json-c/archive/json-c-0.13.1-20180305.tar.gz"
-  version "0.13.1"
-  sha256 "5d867baeb7f540abe8f3265ac18ed7a24f91fe3c5f4fd99ac3caba0708511b90"
+  url "https://github.com/json-c/json-c/archive/json-c-0.14-20200419.tar.gz"
+  version "0.14"
+  sha256 "ec4eb70e0f6c0d707b9b1ec646cf7c860f4abb3562a90ea6e4d78d177fd95303"
+  head "https://github.com/json-c/json-c.git"
 
   bottle do
     cellar :any
@@ -14,21 +15,13 @@ class JsonC < Formula
     sha256 "724bffe043ecc73611fb4e7b2fcefbe35cb8b3a64aabf5cec92d43938b8e02d3" => :el_capitan
   end
 
-  head do
-    url "https://github.com/json-c/json-c.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    ENV.deparallelize
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
