@@ -1,9 +1,8 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-3.2.2.tar.gz"
-  sha256 "7aef8c27645c9358262fec9ebba380720a086789d6519d5d1034346412a52ad6"
-  revision 2
+  url "https://mlpack.org/files/mlpack-3.3.0.tar.gz"
+  sha256 "63cdc3569f2e929899cc30c2e808a42709723c2ea56f8c2953edc7188eab5559"
 
   bottle do
     cellar :any
@@ -20,30 +19,38 @@ class Mlpack < Formula
   depends_on "ensmallen"
   depends_on "graphviz"
 
-  resource "stb" do
-    url "https://github.com/nothings/stb/archive/f67165c2bb2af3060ecae7d20d6f731173485ad0.tar.gz"
-    sha256 "ad5d34b385494cf68c52fad5762d00181c0c6d4787988fc75f17295c3c726bf8"
+  resource "stb_image" do
+    url "https://mlpack.org/files/stb-2.22/stb_image.h"
+    sha256 "0e28238d865510073b5740ae8eba8cd8032cc5b25f94e0f7505fac8036864909"
+  end
+
+  resource "stb_image_write" do
+    url "https://mlpack.org/files/stb-1.13/stb_image_write.h"
+    sha256 "0e8b3d80bc6eb8fdb64abc4db9fec608b489bc73418eaf14beda102a0699a4c9"
   end
 
   def install
-    resource("stb").stage do
-      (include/"stb").install Dir["*.h"]
+    resources.each do |r|
+      r.stage do
+        (include/"stb").install "#{r.name}.h"
+      end
     end
     cmake_args = std_cmake_args + %W[
       -DDEBUG=OFF
       -DPROFILE=OFF
-      -DDOWNLOAD_STB_IMAGE=OFF
+      -DBUILD_TESTS=OFF
+      -DDISABLE_DOWNLOADS=ON
       -DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}
       -DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}
       -DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.dylib
-      -DSTB_IMAGE_INCLUDE_DIR=#{(include/"stb")}
+      -DSTB_IMAGE_INCLUDE_DIR=#{include/"stb"}
     ]
     mkdir "build" do
       system "cmake", "..", *cmake_args
       system "make", "install"
     end
     doc.install Dir["doc/*"]
-    pkgshare.install "src/mlpack/tests" # Includes test data.
+    (pkgshare/"tests").install "src/mlpack/tests/data" # Includes test data.
   end
 
   test do
@@ -55,7 +62,7 @@ class Mlpack < Formula
         "-k", "5", "-v"
     end
 
-    (testpath / "test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<-EOS
       #include <mlpack/core.hpp>
 
       using namespace mlpack;
