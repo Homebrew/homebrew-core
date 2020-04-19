@@ -1,8 +1,8 @@
 class Archivemount < Formula
   desc "File system for accessing archives using libarchive"
   homepage "https://www.cybernoia.de/software/archivemount.html"
-  url "https://www.cybernoia.de/software/archivemount/archivemount-0.8.12.tar.gz"
-  sha256 "247e475539b84e6d2a13083fd6df149995560ff1ea92fe9fdbfc87569943cb89"
+  url "https://www.cybernoia.de/software/archivemount/archivemount-0.9.0.tar.gz"
+  sha256 "a608fd18bf2240dd1e15ff4d9e2a988af99d4cfd6b06e8c413b4c294a6c8be3c"
 
   bottle do
     cellar :any
