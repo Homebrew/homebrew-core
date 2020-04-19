@@ -16,10 +16,8 @@ class ProtocGenGo < Formula
   depends_on "protobuf"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/golang/protobuf").install buildpath.children
-    system "go", "install", "github.com/golang/protobuf/protoc-gen-go"
-    bin.install buildpath/"bin/protoc-gen-go"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./protoc-gen-go"
+    prefix.install_metafiles
   end
 
   test do
