@@ -1,12 +1,11 @@
 # Note that odd release numbers indicate unstable releases.
-# Please only submit PRs for [x.x.even] version numbers:
+# Please only submit PRs for [x.even.x] version numbers:
 # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/1.2/mu-1.2.0.tar.xz"
-  sha256 "f634c7f244dc6844ff71dc3c3e1893e48e193caa9e0e747eba616309775f053a"
-  revision 1
+  url "https://github.com/djcb/mu/releases/download/1.4/mu-1.4.tar.xz"
+  sha256 "fe3af9362e41f8f215ed8ceb60fed5832aed427ebf366eea17d73e4b6146c6ab"
 
   bottle do
     cellar :any
@@ -76,12 +75,10 @@ class Mu < Formula
       This used to happen outdoors. It was more fun then.
     EOS
 
-    system "#{bin}/mu", "index",
-                        "--muhome",
-                        testpath,
-                        "--maildir=#{testpath}"
+    system "#{bin}/mu", "init", "--muhome=#{testpath}", "--maildir=#{testpath}" 
+    system "#{bin}/mu", "index", "--muhome=#{testpath}"
 
-    mu_find = "#{bin}/mu find --muhome #{testpath} "
+    mu_find = "#{bin}/mu find --muhome=#{testpath} "
     find_message = "#{mu_find} msgid:2222222222@example.com"
     find_message_and_related = "#{mu_find} --include-related msgid:2222222222@example.com"
 
