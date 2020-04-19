@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class ComposerSwitcher < Formula
   desc "Composer Mirror Repository Switcher"
   homepage "https://www.github.com/persiliao/composer-switcher"
