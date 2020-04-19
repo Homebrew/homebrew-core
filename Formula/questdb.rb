@@ -3,7 +3,6 @@ class Questdb < Formula
   homepage "https://www.questdb.io"
   url "https://github.com/questdb/questdb/releases/download/4.2.0/questdb-4.2.0-bin.tar.gz"
   sha256 "6e262f3f987c37636e0a92eb62291c395d5e215fad61fe885c7bcb2d54b6d720"
-  version "4.2.0"
 
   bottle :unneeded
 
