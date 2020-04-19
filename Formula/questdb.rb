@@ -61,9 +61,9 @@ class Questdb < Formula
       fork do
         exec "#{bin}/questdb start -d  #{testpath}/data"
       end
-      sleep 2
+      sleep 4
       output = shell_output("curl -Is localhost:9000/js?q=x")
-      sleep 1
+      sleep 4
       assert_match /questDB/, output
     ensure
       system "#{bin}/questdb", "stop"
