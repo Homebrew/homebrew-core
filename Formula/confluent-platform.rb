@@ -27,12 +27,8 @@ class ConfluentPlatform < Formula
     system "mkdir", "#{home}/.confluent/"
     system "ls", "#{home}/.confluent"
 
-    (testpath/".confluent/config.json").write <<~EOS
-{"disable_updates": true}
-    EOS
-
     ENV["CONFLUENT_HOME"] = "/usr/local/Cellar/confluent-platform/5.4.1/"
-    system "#{bin}/confluent", "local", "status"
+    system "#{bin}/confluent", "--version"
     assert_equal "0\n", shell_output("echo $?")
     home = ENV["HOME"]
     system "echo", "#{home}/.confluent"
