@@ -1,8 +1,8 @@
 class Termrec < Formula
   desc "Record videos of terminal output"
   homepage "https://angband.pl/termrec.html"
-  url "https://github.com/kilobyte/termrec/archive/v0.18.tar.gz"
-  sha256 "b74aeea0526b606d0c0a8dfe4149670f7d34be9d4369e974a15abc67509a02ac"
+  url "https://github.com/kilobyte/termrec/archive/v0.19.tar.gz"
+  sha256 "0550c12266ac524a8afb764890c420c917270b0a876013592f608ed786ca91dc"
   head "https://github.com/kilobyte/termrec.git"
 
   bottle do
