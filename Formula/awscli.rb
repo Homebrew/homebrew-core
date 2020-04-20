@@ -6,6 +6,7 @@ class Awscli < Formula
   url "https://github.com/aws/aws-cli/archive/2.0.8.tar.gz"
   sha256 "16bc81eae154d2151b3e699e5377983a0032591256ea8d6a8cf217642dfd54b4"
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
+  revision 1
 
   bottle do
     sha256 "333cb2cf92892bed6c8299c5520607549852960a2743bfb34f1ca8da0d4d16e6" => :catalina
@@ -20,7 +21,7 @@ class Awscli < Formula
   uses_from_macos "groff"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "-r", "requirements.txt",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"

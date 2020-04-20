@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v2.2.0.tar.gz"
   sha256 "53a5d39e8b2063a004ecdabd4b459ae826cfe47eca449720e4fdde06a7d43cc0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,15 +17,15 @@ class PreCommit < Formula
   # To avoid breaking existing git hooks when we update Python,
   # we should never depend on a versioned Python formula and
   # always use the "default".
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     # Make sure we are actually using Homebrew's Python
     inreplace "pre_commit/commands/install_uninstall.py",
               "f'#!/usr/bin/env {py}'",
-              "'#!#{Formula["python"].opt_bin}/python3'"
+              "'#!#{Formula["python@3.8"].opt_bin}/python3'"
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"

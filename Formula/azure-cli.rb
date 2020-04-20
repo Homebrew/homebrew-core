@@ -7,6 +7,7 @@ class AzureCli < Formula
   version "2.3.1"
   sha256 "05b7c868afd2c95aa8362252336a9477aa88ccd0de91131ff9a1f1a46c2619f1"
   head "https://github.com/Azure/azure-cli.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -653,7 +654,7 @@ class AzureCli < Formula
     # https://code.videolan.org/videolan/libbluray/issues/20
     ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resources
 
     # Get the CLI components we'll install

@@ -5,6 +5,7 @@ class Termtosvg < Formula
   homepage "https://nbedos.github.io/termtosvg"
   url "https://github.com/nbedos/termtosvg/archive/1.1.0.tar.gz"
   sha256 "53e9ad5976978684699d14b83cac37bf173d76c787f1b849859ad8aef55f22d2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +14,10 @@ class Termtosvg < Formula
     sha256 "24b342f95d1700df9485dba70ef456a7f8bb64391a3b58502ca4c651e330f494" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-U", "-e", "."
     venv.pip_install_and_link buildpath
     bin.install_symlink libexec/"bin/termtosvg"

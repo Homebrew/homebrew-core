@@ -5,7 +5,7 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.6.9.tar.gz"
   sha256 "b5ebba187d27b3474b36acd715df015b198c0e5df8aefb32200ba4f3f3de17f4"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -254,7 +254,7 @@ class ConjureUp < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
     res = resources.map(&:name).to_set - ["cffi"]
 

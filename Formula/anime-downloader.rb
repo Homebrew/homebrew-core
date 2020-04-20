@@ -6,6 +6,7 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/9a/41/a4afd6d8f2473280210f24d5f9b1d24b20f4f3e78681196094aa8f631f32/anime-downloader-4.1.0.tar.gz"
   sha256 "0f14194488586e996824da80a7a29f7996790d524f04920e737366eff36f13b6"
   head "https://github.com/vn-ki/anime-downloader.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -94,7 +95,7 @@ class AnimeDownloader < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install "beautifulsoup4"
     venv.pip_install "certifi"
     venv.pip_install "cfscrape"

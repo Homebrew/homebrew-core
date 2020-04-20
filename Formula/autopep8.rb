@@ -5,6 +5,7 @@ class Autopep8 < Formula
   homepage "https://github.com/hhatto/autopep8"
   url "https://files.pythonhosted.org/packages/ca/d3/bb1c5781415b2a4f7d48bcd4c62e735d5ebf40d4f8c325d654870bedb7a6/autopep8-1.5.1.tar.gz"
   sha256 "cc6be1dfd46f2c7fa00e84a357f1a269683985b09eaffb47654ed551194399eb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +14,10 @@ class Autopep8 < Formula
     sha256 "9178c1e4b633eaad87163a18b55a7818969b3464569d6bb87ceba0e2d1fbb8b4" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name

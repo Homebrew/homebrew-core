@@ -6,6 +6,7 @@ class Weboob < Formula
   url "https://git.weboob.org/weboob/weboob/uploads/7b91875f693b60e93c5976daa051034b/weboob-2.0.tar.gz"
   mirror "https://files.pythonhosted.org/packages/88/c1/b3423348d8e2a557c7e0d53b5977cf1a382703c7b4d1397876836184b493/weboob-2.0.tar.gz"
   sha256 "fc8be1f77ad3a53285cef8b20a8b747960c163fad729c56838043d8ddcdfc9b0"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class Weboob < Formula
   depends_on "gnupg"
   depends_on "jpeg"
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/3c/7e/443be24431324bd34d22dd9d11cc845d995bcd3b500676bcf23142756975/Pillow-5.4.1.tar.gz"
@@ -111,7 +112,7 @@ class Weboob < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|

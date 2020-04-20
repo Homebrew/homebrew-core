@@ -6,6 +6,7 @@ class Vit < Formula
   url "https://github.com/scottkosty/vit/archive/v2.0.0.tar.gz"
   sha256 "0c8739c16b5922880e762bd38f887240923d16181b2f85bb88c4f9f6faf38d6d"
   head "https://github.com/scottkosty/vit.git", :branch => "2.x"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +15,11 @@ class Vit < Formula
     sha256 "220f52f07f57fc07e7805a5d3162e9fbde3f08b8255177b6cefddb4748f6988b" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "task"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name

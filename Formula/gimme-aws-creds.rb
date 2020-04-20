@@ -5,6 +5,7 @@ class GimmeAwsCreds < Formula
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
   url "https://files.pythonhosted.org/packages/e2/a7/53d5f021a1b41a680d5c558c683e37e3000085c1a4132695e3378e4b477d/gimme%20aws%20creds-2.3.3.tar.gz"
   sha256 "b7bc10cd09faf995e44063bb6125b910ee85cf2f3e95ddb2908afade4bbd3973"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class GimmeAwsCreds < Formula
   uses_from_macos "libffi"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "gimme-aws-creds"

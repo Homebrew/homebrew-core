@@ -5,7 +5,7 @@ class Conan < Formula
   homepage "https://github.com/conan-io/conan"
   url "https://github.com/conan-io/conan/archive/1.24.0.tar.gz"
   sha256 "fe7fc766d3ff4997a700d141485ba7dd2768cf78eb710fed413a6ccea8b7f9a1"
-  revision 1
+  revision 2
   head "https://github.com/conan-io/conan.git"
 
   bottle do
@@ -21,7 +21,7 @@ class Conan < Formula
   depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "PyYAML==3.13", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name

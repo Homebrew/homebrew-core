@@ -7,6 +7,7 @@ class Khal < Formula
       :tag      => "v0.10.1",
       :revision => "a6d7d62388d33459e85dfb5cf57a31c46f120769"
   head "https://github.com/pimutils/khal.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +17,10 @@ class Khal < Formula
     sha256 "f3fc8e90d8d5e5f452a56954563d2c5e40f17cbda7f1552ad9ad2bd5e8bda30a" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name

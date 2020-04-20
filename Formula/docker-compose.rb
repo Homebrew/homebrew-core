@@ -6,6 +6,7 @@ class DockerCompose < Formula
   url "https://github.com/docker/compose/archive/1.25.5.tar.gz"
   sha256 "c04d4858b456f5806618fe7a49fadd3f1ccb8f10cf6e499bcf7fdee80a93c21a"
   head "https://github.com/docker/compose.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,7 +22,7 @@ class DockerCompose < Formula
 
   def install
     system "./script/build/write-git-sha" if build.head?
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "docker-compose"

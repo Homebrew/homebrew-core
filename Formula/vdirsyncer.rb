@@ -17,10 +17,10 @@ class Vdirsyncer < Formula
     sha256 "81eaa19b3cbc91007a0a5cfe9979cca1f207b2ac2a72b87aabca41ae019838f7" => :el_capitan
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "requests-oauthlib",
                               buildpath

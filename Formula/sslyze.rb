@@ -14,6 +14,8 @@ class Sslyze < Formula
     end
   end
 
+  revision 1
+
   bottle do
     cellar :any
     sha256 "65e5b3d3127c1ca9899c22fff2234a0b4347b5e053869ad2c412d2c0f053f73e" => :catalina
@@ -33,7 +35,7 @@ class Sslyze < Formula
   depends_on :arch => :x86_64
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
@@ -71,7 +73,7 @@ class Sslyze < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     res = resources.map(&:name).to_set
     res -= %w[nassl]

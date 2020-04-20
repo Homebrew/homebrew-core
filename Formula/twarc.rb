@@ -5,6 +5,7 @@ class Twarc < Formula
   homepage "https://github.com/DocNow/twarc"
   url "https://files.pythonhosted.org/packages/d9/e7/d65758f2cb7267b2fb8a905b53987ce4f21240a40d0317d8d085c83875a8/twarc-1.8.3.tar.gz"
   sha256 "7b1d9f418152e00ebd709a8a64b12a1b0b102823409dc4524288173e36b948f1"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,7 @@ class Twarc < Formula
   depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "twarc"

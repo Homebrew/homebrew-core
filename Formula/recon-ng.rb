@@ -5,6 +5,7 @@ class ReconNg < Formula
   homepage "https://github.com/lanmaster53/recon-ng"
   url "https://github.com/lanmaster53/recon-ng/archive/v5.1.1.tar.gz"
   sha256 "470e293e931c23a0dc76e6915098e04db7f2e254a0639bb2c0383e0758c4fbc2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class ReconNg < Formula
     sha256 "fcf86a9934bcc8fb7cb5611736361225a0ec4f2141be5ba965bfc79f0b327f38" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -88,11 +89,11 @@ class ReconNg < Formula
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     libexec.install Dir["*"]
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resources
 
     # Replace shebang with virtualenv python
-    inreplace libexec/"recon-ng", "#!/usr/bin/env python3", "#!#{libexec}/bin/python"
+    inreplace libexec/"recon-ng", "#!/usr/bin/env python3", "'#!#{Formula["python@3.8"].opt_bin}/python3'"
 
     bin.install_symlink libexec/"recon-ng"
   end

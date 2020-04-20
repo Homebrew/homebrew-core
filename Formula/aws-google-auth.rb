@@ -6,6 +6,7 @@ class AwsGoogleAuth < Formula
   url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.34.tar.gz"
   sha256 "d9051cdc91b1499f8ddd0aaf97ee42c9b7f8c5e9e0e0c47b13aa59f942a14a4b"
   head "https://github.com/cevoaustralia/aws-google-auth.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,7 @@ class AwsGoogleAuth < Formula
 
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
@@ -141,7 +142,7 @@ class AwsGoogleAuth < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resource("entrypoints").stage do
       # Without removing this file, `pip` will ignore the `setup.py` file and

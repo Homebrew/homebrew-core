@@ -5,7 +5,7 @@ class Pipenv < Formula
   homepage "https://pipenv.pypa.io/"
   url "https://files.pythonhosted.org/packages/fd/e9/01822318551caa0d62a181ba3b10f0f3757bb1e270da97165bd52db92776/pipenv-2018.11.26.tar.gz"
   sha256 "a673e606e8452185e9817a987572b55360f4d28b50831ef3b42ac3cab3fee846"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
@@ -55,7 +55,7 @@ class Pipenv < Formula
     # Using the virtualenv DSL here because the alternative of using
     # write_env_script to set a PYTHONPATH breaks things.
     # https://github.com/Homebrew/homebrew-core/pull/19060#issuecomment-338397417
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resources
     venv.pip_install buildpath
 

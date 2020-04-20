@@ -6,6 +6,7 @@ class AwscliAT1 < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.18.20.tar.gz"
   sha256 "b7490e7ef19337d77df7d2e965b6a41e09d1366c525aee7c5db79aee54ad5b12"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -23,7 +24,7 @@ class AwscliAT1 < Formula
   uses_from_macos "groff"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"

@@ -5,6 +5,7 @@ class S3ql < Formula
   homepage "https://github.com/s3ql/s3ql"
   url "https://github.com/s3ql/s3ql/releases/download/release-3.3.2/s3ql-3.3.2.tar.bz2"
   sha256 "72b310052752e281a17468a8bbe9006db7fa1f0184b83b38c5667239dfd59e73"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class S3ql < Formula
 
   depends_on "pkg-config" => :build
   depends_on :osxfuse
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "apsw" do
     url "https://files.pythonhosted.org/packages/b5/a1/3de5a2d35fc34939672f4e1bd7d68cca359a31b76926f00d95f434c63aaa/apsw-3.9.2-r1.tar.gz"
@@ -128,7 +129,7 @@ class S3ql < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     resources.each do |r|
       venv.pip_install r
     end
@@ -139,7 +140,7 @@ class S3ql < Formula
     # Final names: fsck_s3ql, mkfs_s3ql, mount_s3ql, umount_s3ql
     inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
 
-    system libexec/"bin/python3", "setup.py", "build_ext", "--inplace"
+    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "build_ext", "--inplace"
     venv.pip_install_and_link buildpath
   end
 

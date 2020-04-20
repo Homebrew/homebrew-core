@@ -5,7 +5,7 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/e0/47/9e78f8d1072c684639b3f44c44e00f1efedc855cb57921dc1a27bef746a8/fdroidserver-1.1.6.tar.gz"
   sha256 "7a368c9224cefee7a3306c5a4e4cd81e50e7219373f325f5cf9505493e4d8001"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -334,7 +334,7 @@ class Fdroidserver < Formula
 
   def install
     bash_completion.install "completion/bash-completion" => "fdroid"
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|

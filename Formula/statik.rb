@@ -6,6 +6,7 @@ class Statik < Formula
   url "https://github.com/thanethomson/statik/archive/v0.23.0.tar.gz"
   sha256 "6159066f486811e5773da318d6e8d1b1dd4c99ac140f1a3c660ef1c1f5e7124f"
   head "https://github.com/thanethomson/statik.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Statik < Formula
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "statik"
