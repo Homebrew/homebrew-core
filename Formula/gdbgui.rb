@@ -7,7 +7,7 @@ class Gdbgui < Formula
   sha256 "325e4c6dd417d59b95ceb123173eee69d754f6ff3f97110c0cb960670460f858"
 
   depends_on "gdb"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
