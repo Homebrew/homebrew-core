@@ -1,12 +1,8 @@
-require "language/haskell"
-
 class Postgrest < Formula
-  include Language::Haskell::Cabal
-
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/PostgREST/postgrest"
-  url "https://github.com/PostgREST/postgrest/archive/v6.0.2.tar.gz"
-  sha256 "8355719e6c6bdf03a93204c5bcf2246521e0ffc02694b2cebfc576d4eae9a0c9"
+  url "https://github.com/PostgREST/postgrest/archive/v7.0.0.tar.gz"
+  sha256 "f3018c23d859255248cc741909e68bb3f12b87bf14d51cf275f54ec64b6eb891"
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
@@ -18,15 +14,16 @@ class Postgrest < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "postgresql"
 
   def install
-    install_cabal_package :using => ["happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
-    return if ENV["CI"]
+    # return if ENV["CI"]
 
     pg_bin  = Formula["postgresql"].bin
     pg_port = free_port
