@@ -1,9 +1,8 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.10.2.tar.gz"
-  sha256 "179e84c68e24696c171238a72bcfe5e28198e4c4e9f9043704f36e5c0b17c38a"
-  revision 2
+  url "https://megatools.megous.com/builds/megatools-1.10.3.tar.gz"
+  sha256 "8dc1ca348633fd49de7eb832b323e8dc295f1c55aefb484d30e6475218558bdb"
 
   bottle do
     cellar :any
