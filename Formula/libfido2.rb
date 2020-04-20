@@ -1,9 +1,8 @@
 class Libfido2 < Formula
   desc "Provides library functionality for FIDO U2F & FIDO 2.0, including USB"
   homepage "https://developers.yubico.com/libfido2/"
-  url "https://github.com/Yubico/libfido2/archive/1.3.1.tar.gz"
-  sha256 "ba35e22016b60c1e4be66dff3cd6a60c1fe4bfa0d91ec0b89ca9da25ebeaaf41"
-  revision 2
+  url "https://github.com/Yubico/libfido2/archive/1.4.0.tar.gz"
+  sha256 "ad921fbe7d4bb70e4a971e564cd01f341daf9b5ed5d69b3cbab94a8a811d2a6c"
 
   bottle do
     cellar :any
@@ -26,7 +25,6 @@ class Libfido2 < Formula
       system "make", "man_symlink"
       system "make", "install"
     end
-    mv prefix/"man", share/"man"
   end
 
   test do
