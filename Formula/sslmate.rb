@@ -1,8 +1,12 @@
+require "language/perl"
+
 class Sslmate < Formula
+  include Language::Perl::Shebang
+
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
-  url "https://packages.sslmate.com/other/sslmate-1.7.0.tar.gz"
-  sha256 "55d273bd3983aee1b88a8b7ca6f31281dbe369eb9f46c7fcba11de5dfcbe176e"
+  url "https://packages.sslmate.com/other/sslmate-1.7.1.tar.gz"
+  sha256 "454e19338910363189b349cfe3477351a20c34c6fda0f312ad143b1688faa6c4"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +16,9 @@ class Sslmate < Formula
     sha256 "fd6edadfa6af0d2a2bb7390ac37b588a3c1970678e0bfcb306958902e4aea4e5" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
+
+  uses_from_macos "perl"
 
   resource "boto" do
     url "https://files.pythonhosted.org/packages/c8/af/54a920ff4255664f5d238b5aebd8eedf7a07c7a5e71e27afcfe840b82f51/boto-2.49.0.tar.gz"
@@ -21,11 +27,13 @@ class Sslmate < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
-    xy = Language::Python.major_minor_version "python3"
+
+    python3 = Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("boto").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system python3, *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "make", "PREFIX=#{prefix}"
@@ -35,9 +43,7 @@ class Sslmate < Formula
     env[:PYTHONPATH] = ENV["PYTHONPATH"]
     bin.env_script_all_files(libexec/"bin", env)
 
-    # Fix failure when Homebrew perl is selected at runtime
-    inreplace libexec/"bin/sslmate",
-      "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    rewrite_shebang detected_perl_shebang, libexec/"bin/sslmate"
   end
 
   test do
