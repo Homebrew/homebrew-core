@@ -1,8 +1,8 @@
 class Freediameter < Formula
   desc "Open source Diameter (Authentication) protocol implementation"
   homepage "http://www.freediameter.net"
-  url "http://www.freediameter.net/hg/freeDiameter/archive/1.3.2.tar.gz"
-  sha256 "ce05b4bf2a04cd2f472e77ba4b86fbfca690bfc83e51da8ce0e575804b763eda"
+  url "http://www.freediameter.net/hg/freeDiameter/archive/1.4.0.tar.gz"
+  sha256 "7a537401bd110c606594b7c6be71b993f0ccc73ae151ad68040979286ba4e50e"
   head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
