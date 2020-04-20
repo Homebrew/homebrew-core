@@ -92,7 +92,7 @@ class Gdbgui < Formula
   test do
     assert_equal "0.13.2.0", shell_output("#{bin}/gdbgui -v").strip
 
-    pid = fork do
+    fork do
       exec bin/"gdbgui", "-n"
     end
     sleep 3
