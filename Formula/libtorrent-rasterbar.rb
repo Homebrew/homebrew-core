@@ -1,9 +1,8 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_5/libtorrent-rasterbar-1.2.5.tar.gz"
-  sha256 "84b79f85ffa4e4a5f434bf5c53b0d5a63dfea17b7623143caaa695faf61b2d1b"
-  revision 1
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_6/libtorrent-rasterbar-1.2.6.tar.gz"
+  sha256 "8f69befe449f7211afc665726d24fde62f019800b060b5c6c9804793929a4407"
 
   bottle do
     cellar :any
@@ -48,6 +47,8 @@ class LibtorrentRasterbar < Formula
     end
 
     system "make", "install"
+
+    rm Dir["examples/Makefile*"]
     libexec.install "examples"
   end
 
