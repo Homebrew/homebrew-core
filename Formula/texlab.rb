@@ -1,8 +1,8 @@
 class Texlab < Formula
   desc "Implementation of the Language Server Protocol for LaTeX"
   homepage "https://texlab.netlify.com/"
-  url "https://github.com/latex-lsp/texlab/archive/v1.10.0.tar.gz"
-  sha256 "af8686a84983992487e2ec2df61478a62581db0d803dcbd77727fb969fd694c0"
+  url "https://github.com/latex-lsp/texlab/archive/v2.0.0.tar.gz"
+  sha256 "72fe464a7f148843a1076041e3a5888a2b1c06be63790a32dd85725d114d3828"
   head "https://github.com/latex-lsp/texlab.git"
 
   bottle do
@@ -30,7 +30,7 @@ class Texlab < Formula
         {"jsonrpc": "2.0", "id": 0, "method": "initialize", "params": { "rootUri": null, "capabilities": {}}}
 
       EOF
-      assert_match "Content-Length: 543", stdout.gets("\n")
+      assert_match "Content-Length:", stdout.gets("\n")
     ensure
       Process.kill "SIGKILL", pid
     end
