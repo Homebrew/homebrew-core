@@ -1,8 +1,8 @@
 class Src < Formula
   desc "Simple revision control: RCS reloaded with a modern UI"
   homepage "http://www.catb.org/~esr/src/"
-  url "http://www.catb.org/~esr/src/src-1.27.tar.gz"
-  sha256 "7d587db28dbdaf644b9aaf6b1bb63d067e7db9410042ef76fdf492023d9bc41c"
+  url "http://www.catb.org/~esr/src/src-1.28.tar.gz"
+  sha256 "ee448f17e0de07eed749188bf2b977211fc609314b079ebe6c23485ac72f79ba"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,8 +18,6 @@ class Src < Formula
   end
 
   depends_on "rcs"
-
-  conflicts_with "srclib", :because => "both install a 'src' binary"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" if build.head?
