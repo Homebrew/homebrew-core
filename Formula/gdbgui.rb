@@ -91,5 +91,12 @@ class Gdbgui < Formula
 
   test do
     assert_equal "0.13.2.0", shell_output("#{bin}/gdbgui -v").strip
+
+    pid = fork do
+      exec bin/"gdbgui", "-n"
+    end
+    sleep 3
+
+    assert_match "gdbgui - gdb in a browser", shell_output("curl -s 127.0.0.1:5000")
   end
 end
