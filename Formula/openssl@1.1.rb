@@ -5,6 +5,7 @@ class OpensslAT11 < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1g.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1g.tar.gz"
   sha256 "ddb04774f1e32f0c49751e21b67216ac87852ceb056b75209af2443400636d46"
+  revision 1
   version_scheme 1
 
   bottle do
