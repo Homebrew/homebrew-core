@@ -90,7 +90,7 @@ class Gdbgui < Formula
   end
 
   test do
-    assert_equal "0.13.2.0", shell_output("#{bin}/gdbgui -v").strip
+    assert_equal version.to_s, shell_output("#{bin}/gdbgui -v").strip
 
     fork do
       exec bin/"gdbgui", "-n"
