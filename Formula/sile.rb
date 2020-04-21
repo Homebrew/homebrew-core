@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.3/sile-0.10.3.tar.bz2"
-  sha256 "d89d5ce7d2bf46fb062e5299ffd8b5d821dc3cb3462a0e7c1109edeee111d856"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.4/sile-0.10.4.tar.bz2"
+  sha256 "d136fbe9bc86c3e235d34db170d48af14779c36e8b0b03f542ffdbabcdde4222"
 
   head "https://github.com/sile-typesetter/sile.git", :shallow => false
 
@@ -45,14 +45,13 @@ class Sile < Formula
   end
 
   resource "lpeg" do
-    url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.1.tar.gz"
-    mirror "https://mirror.sobukus.de/files/grimoire/lua-forge/lpeg-1.0.1.tar.gz"
-    sha256 "62d9f7a9ea3c1f215c77e0cadd8534c6ad9af0fb711c3f89188a8891c72f026b"
+    url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz"
+    sha256 "48d66576051b6c78388faad09b70493093264588fcd0f258ddaab1cdd4a15ffe"
   end
 
   resource "lua_cliargs" do
-    url "https://github.com/amireh/lua_cliargs/archive/v3.0-2.tar.gz"
-    sha256 "971d6f1440a55bdf9db581d4b2bcbf472a301d76f696a0d0ed9423957c7d176e"
+    url "https://github.com/amireh/lua_cliargs/archive/v2.3-3.tar.gz"
+    sha256 "288eea7c12b2e37bb40241c59e592472f835c526cd807ffc3e2fe21def772481"
   end
 
   resource "lua-zlib" do
@@ -61,8 +60,8 @@ class Sile < Formula
   end
 
   resource "luaexpat" do
-    url "https://matthewwild.co.uk/projects/luaexpat/luaexpat-1.3.0.tar.gz"
-    sha256 "d060397960d87b2c89cf490f330508b7def1a0677bdc120531c571609fc57dc3"
+    url "https://github.com/tomasguisasola/luaexpat/archive/v1.3.3.tar.gz"
+    sha256 "a17a0e6ffa6977406b072d67a13ca0e125fad63e1229cec4efcd8d83f1c3eed9"
   end
 
   resource "luaepnf" do
@@ -86,8 +85,8 @@ class Sile < Formula
   end
 
   resource "luasec" do
-    url "https://github.com/brunoos/luasec/archive/luasec-0.7.tar.gz"
-    sha256 "2176e95b1d2a72a3235ede5d2aa9838050feee55dade8fdbde4be7fdc66f3a31"
+    url "https://github.com/brunoos/luasec/archive/luasec-0.8.1.tar.gz"
+    sha256 "cc9fc92df3be56add5c9687319951f457c31f5d12ac19cfc09d53056dc24f04e"
   end
 
   resource "penlight" do
