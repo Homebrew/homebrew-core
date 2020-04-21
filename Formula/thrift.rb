@@ -22,7 +22,7 @@ class Thrift < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "boost"
+  depends_on "boost" => [:build, :test]
   depends_on "openssl@1.1"
 
   def install
@@ -59,6 +59,17 @@ class Thrift < Formula
   end
 
   test do
-    system "#{bin}/thrift", "--version"
+    (testpath/"test.thrift").write <<~'EOS'
+      service MultiplicationService {
+        i32 multiply(1:i32 x, 2:i32 y),
+      }
+    EOS
+
+    system "#{bin}/thrift", "-r", "--gen", "cpp", "test.thrift"
+
+    system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
+      "gen-cpp/MultiplicationService_server.skeleton.cpp",
+      "-I#{include}/include",
+      "-L#{lib}", "-lthrift"
   end
 end
