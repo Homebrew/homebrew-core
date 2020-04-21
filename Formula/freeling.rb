@@ -3,7 +3,7 @@ class Freeling < Formula
   homepage "http://nlp.lsi.upc.edu/freeling/"
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.1/FreeLing-4.1.tar.gz"
   sha256 "ccb3322db6851075c9419bb5e472aa6b2e32cc7e9fa01981cff49ea3b212247e"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "ef41339b443cbacf31b4e67cfeb8574afcb6d1b180fba12635c351752b4994f8" => :catalina
@@ -13,67 +13,20 @@ class Freeling < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "icu4c"
 
   conflicts_with "hunspell", :because => "both install 'analyze' binary"
 
-  resource "boost" do
-    url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
-    sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
+  # Fix linking with icu4c
+  patch do
+    url "https://github.com/TALP-UPC/FreeLing/commit/5e323a5f3c7d2858a6ebb45617291b8d4126cedb.patch?full_index=1"
+    sha256 "0814211cd1fb9b075d370f10df71a4398bc93d64fd7f32ccba1e34fb4e6b7452"
   end
 
   def install
-    resource("boost").stage do
-      # Force boost to compile with the desired compiler
-      open("user-config.jam", "a") do |file|
-        file.write "using darwin : : #{ENV.cxx} ;\n"
-      end
-
-      bootstrap_args = %W[
-        --prefix=#{libexec}/boost
-        --libdir=#{libexec}/boost/lib
-        --with-icu=#{Formula["icu4c"].opt_prefix}
-        --with-libraries=atomic,chrono,date_time,filesystem,program_options,regex,system,thread
-      ]
-
-      args = %W[
-        --prefix=#{libexec}/boost
-        --libdir=#{libexec}/boost/lib
-        -d2
-        -j#{ENV.make_jobs}
-        --ignore-site-config
-        --layout=tagged
-        --user-config=user-config.jam
-        install
-        threading=multi
-        link=shared
-        optimization=space
-        variant=release
-        cxxflags=-std=c++11
-      ]
-
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
-
-      system "./bootstrap.sh", *bootstrap_args
-      system "./b2", "headers"
-      system "./b2", *args
-    end
-
-    (libexec/"boost/lib").each_child do |dylib|
-      MachO::Tools.change_dylib_id(dylib.to_s, dylib.to_s)
-    end
-
-    %w[chrono filesystem thread].each do |library|
-      macho = MachO.open("#{libexec}/boost/lib/libboost_#{library}-mt.dylib")
-      macho.change_dylib("libboost_system-mt.dylib",
-                         "#{libexec}/boost/lib/libboost_system-mt.dylib")
-      macho.write!
-    end
-
     mkdir "build" do
-      system "cmake", "..",  "-DBoost_INCLUDE_DIR=#{libexec}/boost/include",
-                             "-DBoost_LIBRARY_DIR_RELEASE=#{libexec}/boost/lib",
-                             *std_cmake_args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
 
