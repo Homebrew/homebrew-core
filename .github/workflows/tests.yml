@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot
+          brew test-bot --skip-recursive-dependents
       - name: Count bottles
         id: bottles
         if: always()
