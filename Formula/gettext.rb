@@ -4,14 +4,13 @@ class Gettext < Formula
   url "https://ftp.gnu.org/gnu/gettext/gettext-0.20.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gettext/gettext-0.20.2.tar.xz"
   sha256 "b22b818e644c37f6e3d1643a1943c32c3a9bff726d601e53047d2682019ceaba"
+  revision 1
 
   bottle do
     sha256 "90adf1ef48f8ba71c73b03db871551b5ff3e9704ce6fe5d6532df0056223de80" => :catalina
     sha256 "f79ca95c2216e5b599d57f96fe99081af8780c31bd013f60c296bc7d3800845a" => :mojave
     sha256 "f6248b134438427eec73cbe099fb19dc20dbce1119d02b23ec7a0c8f0f34da7e" => :high_sierra
   end
-
-  keg_only :shadowed_by_macos, "macOS provides BSD gettext"
 
   uses_from_macos "ncurses"
 
