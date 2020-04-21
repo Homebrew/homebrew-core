@@ -4,7 +4,6 @@ class Davix < Formula
   url "https://github.com/cern-fts/davix.git",
       :tag      => "R_0_7_5",
       :revision => "4b04a98027ff5ce94e18e3b110420f1ff912a32c"
-  version "0.7.5"
   head "https://github.com/cern-fts/davix.git"
 
   bottle do
@@ -29,6 +28,6 @@ class Davix < Formula
   end
 
   test do
-    system "#{bin}/davix-get", "https://www.google.com"
+    system "#{bin}/davix-get", "https://brew.sh"
   end
 end
