@@ -1,9 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/2.3/src/tarantool-2.3.1.1.tar.gz"
-  sha256 "5ea7e5dba6300cdcc0769b0cd7ce46848dc398187159a24ffaea5057bea73aa2"
-  revision 1
+  url "https://download.tarantool.org/tarantool/2.3/src/tarantool-2.3.2.1.tar.gz"
+  sha256 "03f3b839926bd40f9bd98d3573040ac7ff430cd90384dbe34a1aa5ff29c5e3f3"
   head "https://github.com/tarantool/tarantool.git", :branch => "2.3", :shallow => false
 
   bottle do
@@ -26,6 +25,11 @@ class Tarantool < Formula
 
     # Necessary for luajit to build on macOS Mojave (see luajit formula)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Avoid keeping references to Homebrew's clang/clang++ shims
+    inreplace "src/trivia/config.h.cmake",
+              "#define COMPILER_INFO \"@CMAKE_C_COMPILER@ @CMAKE_CXX_COMPILER@\"",
+              "#define COMPILER_INFO \"/usr/bin/clang /usr/bin/clang++\""
 
     args = std_cmake_args
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
