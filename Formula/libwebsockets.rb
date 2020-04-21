@@ -19,9 +19,14 @@ class Libwebsockets < Formula
   uses_from_macos "zlib"
 
   def install
+    # Upstream recommends using -DLWS_WITH_DISTRO_RECOMMENDED=ON,
+    # which enables a lot more features and options.
+    # Consider doing that (or at least more of the recommended options), though
+    # note it enables LWS_WITH_LIBEV which conflicts with LWS_WITH_LIBEVENT.
     system "cmake", ".", *std_cmake_args,
                     "-DLWS_IPV6=ON",
                     "-DLWS_WITH_HTTP2=ON",
+                    "-DLWS_WITH_ZIP_FOPS=ON",
                     "-DLWS_WITH_LIBEVENT=ON",
                     "-DLWS_WITH_LIBUV=ON",
                     "-DLWS_WITH_PLUGINS=ON",
