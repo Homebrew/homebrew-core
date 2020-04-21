@@ -1,7 +1,7 @@
 class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
-  revision 1
+  revision 2
   head "https://github.com/RefactoringTools/wrangler.git"
 
   stable do
@@ -10,8 +10,14 @@ class Wrangler < Formula
 
     # upstream commit "Fix -spec's to compile in Erlang/OTP 19"
     patch do
-      url "https://github.com/RefactoringTools/wrangler/commit/d81b888f.patch?full_index=1"
+      url "https://github.com/RefactoringTools/wrangler/commit/d81b888fd200dda17d341ec457d6786ef912b25d.patch?full_index=1"
       sha256 "b7911206315c32ee08fc89776015cf5b26c97b6cb4f6eff0b73dcf2d583cfe31"
+    end
+
+    # upstream commit "fixes to make wrangler compile with R21"
+    patch do
+      url "https://github.com/RefactoringTools/wrangler/commit/1149d6150eb92dcfefb91445179e7566952e184f.patch?full_index=1"
+      sha256 "e84cba2ead98f47a16d9bb50182bbf3edf3ea27afefa36b78adc5afdf4aeabd5"
     end
   end
 
@@ -23,7 +29,7 @@ class Wrangler < Formula
     sha256 "7708561c89c92c61b67907ca43fa351e9a39da572c43e1f9d15d4dc0cd4855da" => :high_sierra
   end
 
-  depends_on "erlang@20"
+  depends_on "erlang"
 
   def install
     system "./configure", "--prefix=#{prefix}"
