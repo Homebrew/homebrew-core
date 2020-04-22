@@ -3,7 +3,7 @@ class Needle < Formula
   homepage "https://github.com/uber/needle"
   url "https://github.com/uber/needle.git",
       :tag      => "v0.14.0",
-      :revision => "v0.14.0"
+      :revision => "626bcbb2751ae314850faa54484294dd660e9c70"
 
   bottle do
     cellar :any_skip_relocation
