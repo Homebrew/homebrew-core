@@ -1,4 +1,4 @@
-class InteractiveRebaseTool < Formula
+class GitInteractiveRebaseTool < Formula
   desc "Native sequence editor for Git interactive rebase"
   homepage "https://gitrebasetool.mitmaro.ca/"
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.2.1.tar.gz"
