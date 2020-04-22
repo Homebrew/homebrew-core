@@ -34,6 +34,11 @@ jobs:
           mkdir bottles
           cd bottles
           brew test-bot
+      - name: Output brew test-bot failures
+        if: always()
+        run: |
+          cat bottles/steps_output.txt
+          rm bottles/steps_output.txt
       - name: Count bottles
         id: bottles
         if: always()
