@@ -1,8 +1,8 @@
 class Archivemount < Formula
   desc "File system for accessing archives using libarchive"
   homepage "https://www.cybernoia.de/software/archivemount.html"
-  url "https://www.cybernoia.de/software/archivemount/archivemount-0.8.12.tar.gz"
-  sha256 "247e475539b84e6d2a13083fd6df149995560ff1ea92fe9fdbfc87569943cb89"
+  url "https://www.cybernoia.de/software/archivemount/archivemount-0.9.1.tar.gz"
+  sha256 "c529b981cacb19541b48ddafdafb2ede47a40fcaf16c677c1e2cd198b159c5b3"
 
   bottle do
     cellar :any
@@ -17,6 +17,7 @@ class Archivemount < Formula
   depends_on :osxfuse
 
   def install
+    ENV.append_to_cflags "-I/usr/local/include/osxfuse"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
