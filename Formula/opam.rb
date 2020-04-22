@@ -1,8 +1,8 @@
 class Opam < Formula
   desc "The OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.0.6/opam-full-2.0.6.tar.gz"
-  sha256 "7c4bff5e5f3628ad00c53ee1b044ced8128ffdcfbb7582f8773fb433e12e07f4"
+  url "https://github.com/ocaml/opam/releases/download/2.0.7/opam-full-2.0.7.tar.gz"
+  sha256 "9c0dac1094ed624158fff13000cdfa8edbc96798d32b9fab40b0b5330f9490a2"
   head "https://github.com/ocaml/opam.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Opam < Formula
     system "make"
     system "make", "install"
 
-    bash_completion.install "src/state/shellscripts/complete.sh"
+    bash_completion.install "src/state/shellscripts/complete.sh" => "opam"
     zsh_completion.install "src/state/shellscripts/complete.zsh" => "_opam"
   end
 
