@@ -1,8 +1,8 @@
 class PowerlineGo < Formula
   desc "Beautiful and useful low-latency prompt for your shell"
   homepage "https://github.com/justjanne/powerline-go"
-  url "https://github.com/justjanne/powerline-go/archive/v1.15.0.tar.gz"
-  sha256 "25d54855473c13348423d56406ebd0edc9318b3d4518d151994d90e49f496cb8"
+  url "https://github.com/justjanne/powerline-go/archive/v1.16.1.tar.gz"
+  sha256 "3c9ba9265ae3c53eeb08cd0ee4324961f0a6b1f99cd0059318180796959bf5df"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,7 @@ class PowerlineGo < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", "#{bin}/#{name}"
+    system "go", "build", "-ldflags", "-s -w", *std_go_args
   end
 
   test do
