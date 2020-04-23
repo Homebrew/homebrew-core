@@ -1,10 +1,9 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
-  homepage "https://www.wolfssl.com/wolfSSL/Home.html"
+  homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      :tag      => "v4.3.0-stable",
-      :revision => "3f13b49fa318fbd3216d7da36d942e7c276d3413"
-  sha256 "4e15f494604e41725499f8b708798f8ddc2fcaa8f39b4369bcd000b3cab482d8"
+      :tag      => "v4.4.0-stable",
+      :revision => "e116c89a58af750421d82ece13f80516d2bde02e"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
@@ -19,10 +18,6 @@ class Wolfssl < Formula
   depends_on "libtool" => :build
 
   def install
-    # https://github.com/Homebrew/homebrew-core/pull/1046
-    # https://github.com/Homebrew/brew/pull/251
-    ENV.delete("SDKROOT")
-
     args = %W[
       --disable-silent-rules
       --disable-dependency-tracking
@@ -78,7 +73,7 @@ class Wolfssl < Formula
     ]
 
     # Extra flag is stated as a needed for the Mac platform.
-    # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
+    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
     # Also, only applies if fastmath is enabled.
     ENV.append_to_cflags "-mdynamic-no-pic"
 
