@@ -5,6 +5,7 @@ class Bcoin < Formula
   homepage "https://bcoin.io"
   url "https://github.com/bcoin-org/bcoin/archive/v2.0.0.tar.gz"
   sha256 "ff99b735d3b23624455d72eada0de7f7ba4207f4a4cc0cab963ca2036de254a3"
+  revision 1
 
   bottle do
     sha256 "4213df6b695d8fef6991a6d8a911b23599b8539487d5a6f1897d95845a281efc" => :catalina
