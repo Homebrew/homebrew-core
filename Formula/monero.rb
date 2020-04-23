@@ -1,3 +1,4 @@
+# monero: build bottle
 class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://getmonero.org/"
