@@ -1,7 +1,7 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
@@ -47,6 +47,9 @@ class Nut < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
+                          "--sysconfdir=#{etc}/nut",
+                          "--with-statepath=#{var}/state/ups",
+                          "--with-pidpath=#{var}/run",
                           "--with-macosx_ups",
                           "--with-openssl",
                           "--with-serial",
@@ -62,7 +65,36 @@ class Nut < Formula
                           "--without-powerman",
                           "--without-snmp",
                           "--without-wrap"
+
     system "make", "install"
+  end
+
+  def post_install
+    (var/"state/ups").mkpath
+    (var/"run").mkpath
+  end
+
+  plist_options :manual => "upsmon -D"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/upsmon</string>
+            <string>-D</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
