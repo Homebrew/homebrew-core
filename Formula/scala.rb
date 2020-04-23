@@ -1,11 +1,10 @@
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.13.1/scala-2.13.1.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.13.1.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.13.1/scala-2.13.1.tgz"
-  sha256 "6918ccc494e34810a7254ad2c4e6f0e1183784c22e7b4801b7dbc8d1994a04db"
-  revision 1
+  url "https://downloads.lightbend.com/scala/2.13.2/scala-2.13.2.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.13.2.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.13.2/scala-2.13.2.tgz"
+  sha256 "574df949d21edb2337ba652cea13964c67004e0a974da44a44b6ca0729ef6dbf"
 
   bottle :unneeded
 
