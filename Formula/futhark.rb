@@ -5,8 +5,8 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.15.4.tar.gz"
-  sha256 "dea6eb835a2a3ffb8d80d2fab28803771deace3cb84434d0e1f81d5e8f60406a"
+  url "https://github.com/diku-dk/futhark/archive/v0.15.5.tar.gz"
+  sha256 "79209fe5cd51316d86b83dc5928de24ec6fdb35516c2511aa261ab80307ff405"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
