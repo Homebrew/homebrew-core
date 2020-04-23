@@ -1,8 +1,8 @@
 class Jrtplib < Formula
   desc "Fully featured C++ Library for RTP (Real-time Transport Protocol)"
   homepage "https://research.edm.uhasselt.be/jori/jrtplib"
-  url "https://research.edm.uhasselt.be/jori/jrtplib/jrtplib-3.11.1.tar.bz2"
-  sha256 "e24745f22418fb5d741b6b9871b89ed43964870f292dda92fd11cfbb5d6d0e43"
+  url "https://research.edm.uhasselt.be/jori/jrtplib/jrtplib-3.11.2.tar.bz2"
+  sha256 "2c01924c1f157fb1a4616af5b9fb140acea39ab42bfb28ac28d654741601b04c"
 
   bottle do
     cellar :any
