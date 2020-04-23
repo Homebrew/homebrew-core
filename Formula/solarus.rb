@@ -27,12 +27,12 @@ class Solarus < Formula
 
   def install
     mkdir "build" do
+      ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
       system "cmake", "..",
                       "-DSOLARUS_GUI=OFF",
                       "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
                       "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
-                      "-DGLM_INCLUDE_DIR=#{Formula["glm"].opt_include}",
                       *std_cmake_args
       system "make", "install"
     end
