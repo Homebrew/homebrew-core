@@ -2,8 +2,8 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.132.0",
-      :revision => "7e3f8a8892e9c5643e74c200b552d670ef2be11a"
+      :tag      => "v0.132.1",
+      :revision => "244ca69a09735fdd712bd802ff4aefb5d5da60cd"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class Goreleaser < Formula
   def install
     system "go", "build", "-ldflags",
              "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
-             "-o", bin/"goreleaser"
+             *std_go_args
   end
 
   test do
