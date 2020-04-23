@@ -32,6 +32,7 @@ class Solarus < Formula
                       "-DSOLARUS_GUI=OFF",
                       "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
                       "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
+                      "-DGLM_INCLUDE_DIR=#{Formula["glm"].opt_include}",
                       *std_cmake_args
       system "make", "install"
     end
