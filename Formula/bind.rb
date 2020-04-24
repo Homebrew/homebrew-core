@@ -10,6 +10,7 @@ class Bind < Formula
 
   url "https://downloads.isc.org/isc/bind9/9.16.4/bind-9.16.4.tar.xz"
   sha256 "7522088d3daac8bcabaae37998178e09139ef5ccae6631cb1d8a625b770f370a"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
