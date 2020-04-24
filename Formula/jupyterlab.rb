@@ -3,9 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/5c/fa/ae6b7623234710b6df9610787f2fb32e0a1a5a4f94772bf544aeb3d8849e/jupyterlab-2.1.0.tar.gz"
-  sha256 "8c239aababf5baa0b3d36e375fddeb9fd96f3a9a24a8cda098d6a414f5bbdc81"
-  revision 1
+  url "https://files.pythonhosted.org/packages/7c/33/4464c4966b2e4c164ff56302e66f82cf0b75ce955d8bb10b315104a03a77/jupyterlab-2.1.1.tar.gz"
+  sha256 "2dec7e509ffa3892c67d9ac7c89d7c6a860c151d969d89420d9e20e753b2fb29"
 
   bottle do
     cellar :any
@@ -73,8 +72,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/6a/1a/6b15e6086f869d9367ed1289ea190b61382768624c4eb80c3419e5cb5e88/ipykernel-5.2.0.tar.gz"
-    sha256 "37c65d2e2da3326e5cf114405df6d47d997b8a3eba99e2cc4b75833bf71a5e18"
+    url "https://files.pythonhosted.org/packages/c1/43/a7c6398e3ca3748781f7cd13c1b0d17725ee5bd3c1df39a3e8d66341ca3a/ipykernel-5.2.1.tar.gz"
+    sha256 "2937373c356fa5b634edb175c5ea0e4b25de8008f7c194f2d49cfbd1f9c970a8"
   end
 
   resource "ipython" do
@@ -88,13 +87,13 @@ class Jupyterlab < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/5a/b7/d7bdce4e0ae654125404b397b293ec8a0060a55c9e860794538701b19653/jedi-0.16.0.tar.gz"
-    sha256 "d5c871cb9360b414f981e7072c52c33258d598305280fef91c6cae34739d65d5"
+    url "https://files.pythonhosted.org/packages/e3/5b/65ff9c102d92bf719dfaeff57bc8074d68f26ea480005704a956da995799/jedi-0.17.0.tar.gz"
+    sha256 "df40c97641cb943661d2db4c33c2e1ff75d491189423249e989bcea4464f3030"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz"
-    sha256 "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
+    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
+    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
   end
 
   resource "json5" do
@@ -108,8 +107,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/5e/f2/29dc6ef4c734cdad56ae15dd50af00c2804ed2f1271c5b2413d0ae6ad091/jupyter_client-6.1.2.tar.gz"
-    sha256 "5724827aedb1948ed6ed15131372bc304a8d3ad9ac67ac19da7c95120d6b17e0"
+    url "https://files.pythonhosted.org/packages/fa/84/440ef480bb829ac648f8e9d7f17c9e2b2470de18ccab989ffa25a64c8c9f/jupyter_client-6.1.3.tar.gz"
+    sha256 "3a32fa4d0b16d1c626b30c3002a62dfd86d6863ed39eaba3f537fade197bb756"
   end
 
   resource "jupyter-console" do
@@ -143,8 +142,8 @@ class Jupyterlab < Formula
   end
 
   resource "nbformat" do
-    url "https://files.pythonhosted.org/packages/7b/55/21fa0554181db56f28b51171e14e90cf0aa2bbc9b3a6252ca437d67fed9b/nbformat-5.0.5.tar.gz"
-    sha256 "f0c47cf93c505cb943e2f131ef32b8ae869292b5f9f279db2bafb35867923f69"
+    url "https://files.pythonhosted.org/packages/bb/b5/6a1c886c7d3f4794e59bc8d1045363ede95a0dc49b6f38fdd037ff30e51c/nbformat-5.0.6.tar.gz"
+    sha256 "049af048ed76b95c3c44043620c17e56bc001329e07f83fec4f177f0e3d7b757"
   end
 
   resource "notebook" do
@@ -158,8 +157,8 @@ class Jupyterlab < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/e7/43/d1a87101b7d738ffae32951c140fcbca12b35daf11a918e0964a2fd07fbd/parso-0.6.2.tar.gz"
-    sha256 "0c5659e0c6eba20636f99a04f469798dca8da279645ce5c387315b2c23912157"
+    url "https://files.pythonhosted.org/packages/fe/24/c30eb4be8a24b965cfd6e2e6b41180131789b44042112a16f9eb10c80f6e/parso-0.7.0.tar.gz"
+    sha256 "908e9fae2144a076d72ae4e25539143d40b8e3eafbaeae03c1bfe226f4cdf12c"
   end
 
   resource "pexpect" do
@@ -243,8 +242,8 @@ class Jupyterlab < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   resource "wcwidth" do
