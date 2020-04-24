@@ -4,6 +4,7 @@ class Libu2fHost < Formula
   url "https://developers.yubico.com/libu2f-host/Releases/libu2f-host-1.1.10.tar.xz"
   sha256 "4265789ec59555a1f383ea2d75da085f78ee4cf1cd7c44a2b38662de02dd316f"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,6 +17,12 @@ class Libu2fHost < Formula
   depends_on "pkg-config" => :build
   depends_on "hidapi"
   depends_on "json-c"
+
+  # Compatibility with json-c 0.14. Remove with the next release.
+  patch do
+    url "https://github.com/Yubico/libu2f-host/commit/840f01135d2892f45e71b9e90405de587991bd03.patch?full_index=1"
+    sha256 "6752463ca79fb312d4524f39d2ac02707ef6c182450d631e35f02bb49565c651"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}"
