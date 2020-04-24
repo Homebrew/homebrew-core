@@ -4,6 +4,7 @@ class Ykpers < Formula
   url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.20.0.tar.gz"
   sha256 "0ec84d0ea862f45a7d85a1a3afe5e60b8da42df211bb7d27a50f486e31a79b93"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,6 +20,12 @@ class Ykpers < Formula
 
   on_linux do
     depends_on "libusb"
+  end
+
+  # Compatibility with json-c 0.14. Remove with the next release.
+  patch do
+    url "https://github.com/Yubico/yubikey-personalization/commit/0aa2e2cae2e1777863993a10c809bb50f4cde7f8.patch?full_index=1"
+    sha256 "349064c582689087ad1f092e95520421562c70ff4a45e411e86878b63cf8f8bd"
   end
 
   def install
