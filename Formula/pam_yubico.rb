@@ -4,6 +4,7 @@ class PamYubico < Formula
   url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.26.tar.gz"
   sha256 "2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any
