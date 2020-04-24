@@ -16,16 +16,7 @@ class Lightgbm < Formula
 
   def install
     mkdir "build" do
-      libomp = Formula["libomp"]
-      args = std_cmake_args
-      args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-      args << "-DOpenMP_C_LIB_NAMES=omp"
-      args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-      args << "-DOpenMP_CXX_LIB_NAMES=omp"
-      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-      args << "-DAPPLE_OUTPUT_DYLIB=ON"
-
-      system "cmake", *args, ".."
+      system "cmake", *std_cmake_args, "-DAPPLE_OUTPUT_DYLIB=ON", ".."
       system "make"
       system "make", "install"
     end
