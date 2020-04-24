@@ -1,9 +1,8 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.12.0.tar.gz"
-  sha256 "9ebc29adcdf477659b45155d0f91e61120a12084e42113d0e9f4ce5cfdfbdcab"
-  revision 1
+  url "https://github.com/ispc/ispc/archive/v1.13.0.tar.gz"
+  sha256 "cc74c4c490ddf4e0a63f01948ec8d6eb575d85ab5932d30ca4ad01c0e8f079ce"
 
   bottle do
     cellar :any
