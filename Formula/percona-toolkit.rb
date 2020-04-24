@@ -1,9 +1,12 @@
+require "language/perl"
+
 class PerconaToolkit < Formula
+  include Language::Perl::Shebang
+
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.1.0/source/tarball/percona-toolkit-3.1.0.tar.gz"
-  sha256 "722593773825efe7626ff0b74de6a2133483c9c89fd7812bfe440edaacaec9cc"
-  revision 2
+  url "https://www.percona.com/downloads/percona-toolkit/3.2.0/source/tarball/percona-toolkit-3.2.0.tar.gz"
+  sha256 "e7c7028631d5b1c66ba21841c55919537bd4ed2f3a5975f989fa4abd7d9d753d"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
@@ -18,30 +21,43 @@ class PerconaToolkit < Formula
 
   uses_from_macos "perl"
 
+  # Should be installed before DBD::mysql
+  resource "Devel::CheckLib" do
+    url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.14.tar.gz"
+    sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
+  end
+
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave
     resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.642.tar.gz"
-      sha256 "3f2025023a56286cebd15cb495e36ccd9b456c3cc229bf2ce1f69e9ebfc27f5d"
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
     end
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
-    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
+    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-4.050.tar.gz"
+    sha256 "4f48541ff15a0a7405f76adc10f81627c33996fbf56c95c26c094444c0928d78"
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.00.tar.gz"
-    sha256 "c4da1f1075878604b7b1f085ff3963e1073ed1c603c3bc9f0b0591e3831a1068"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz"
+    sha256 "444a88755a89ffa2a5424ab4ed1d11dca61808ebef57e81243424619a9e8627c"
   end
 
   def install
+    ENV.prepend_create_path "PERL5LIB", buildpath/"build_deps/lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
+    build_only_deps = %w[Devel::CheckLib]
     resources.each do |r|
       r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        install_base = if build_only_deps.include? r.name
+          buildpath/"build_deps"
+        else
+          libexec
+        end
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{install_base}"
         system "make", "install"
       end
     end
@@ -53,12 +69,7 @@ class PerconaToolkit < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    bin.find do |f|
-      next unless f.file?
-      next unless f.read("#!/usr/bin/env perl".length) == "#!/usr/bin/env perl"
-
-      inreplace f, "#!/usr/bin/env perl", "#!/usr/bin/perl"
-    end
+    bin.find { |f| rewrite_shebang detected_perl_shebang, f }
 
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
