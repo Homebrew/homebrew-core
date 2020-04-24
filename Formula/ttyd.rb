@@ -4,6 +4,7 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/1.6.1.tar.gz"
   sha256 "d72dcca3dec00cda87b80a0a25ae4fee2f8b9098c1cdb558508dcb14fbb6fafc"
   license "MIT"
+  revision 1
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
