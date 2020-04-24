@@ -1,9 +1,8 @@
 class Cattle < Formula
   desc "Brainfuck language toolkit"
   homepage "https://github.com/andreabolognani/cattle"
-  url "https://kiyuko.org/software/cattle/releases/cattle-1.2.2.tar.gz"
-  sha256 "e8e9baba41c4b25a1fdac552c5b03ad62a4dbb782e9866df3c3463baf6411826"
-  revision 2
+  url "https://kiyuko.org/software/cattle/releases/cattle-1.4.0.tar.xz"
+  sha256 "9ba2d746f940978b5bfc6c39570dde7dc55d5b4d09d0d25f29252d6a25fb562f"
 
   bottle do
     sha256 "351e447fdd9020945375ad5db0884e1f4f80915d4af4911cfebd37636afd2fe6" => :catalina
@@ -34,10 +33,13 @@ class Cattle < Formula
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
       system "sh", "autogen.sh"
     end
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+
+    mkdir "build" do
+      system "../configure", "--disable-dependency-tracking",
+                             "--disable-silent-rules",
+                             "--prefix=#{prefix}"
+      system "make", "install"
+    end
   end
 
   test do
