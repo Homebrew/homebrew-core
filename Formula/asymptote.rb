@@ -10,9 +10,9 @@ class Asymptote < Formula
     sha256 "ddf5e782e6bfc87998ebf3b90ab7b0f125d2665b1dd4f8cebb7a4477bae33523" => :high_sierra
   end
 
+  depends_on "glm" => :build
   depends_on "fftw"
   depends_on "ghostscript"
-  depends_on "glm"
   depends_on "gsl"
 
   resource "manual" do

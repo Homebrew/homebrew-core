@@ -13,10 +13,10 @@ class Libetonyek < Formula
   end
 
   depends_on "boost" => :build
+  depends_on "glm" => :build
+  depends_on "mdds" => :build
   depends_on "pkg-config" => :build
-  depends_on "glm"
   depends_on "librevenge"
-  depends_on "mdds"
 
   uses_from_macos "libxml2"
 
