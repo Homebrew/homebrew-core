@@ -3,7 +3,7 @@ class Libu2fServer < Formula
   homepage "https://developers.yubico.com/libu2f-server/"
   url "https://developers.yubico.com/libu2f-server/Releases/libu2f-server-1.1.0.tar.xz"
   sha256 "8dcd3caeacebef6e36a42462039fd035e45fa85653dcb2013f45e15aad49a277"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -19,6 +19,12 @@ class Libu2fServer < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "openssl@1.1"
+
+  # Compatibility with json-c 0.14. Remove with the next release.
+  patch do
+    url "https://github.com/Yubico/libu2f-server/commit/f7c4983b31909299c47bf9b2627c84b6bfe225de.patch?full_index=1"
+    sha256 "012d1d759604ea80f6075b74dc9c7d8a864e4e5889fb82a222db93a6bd72cd1b"
+  end
 
   def install
     ENV["LIBSSL_LIBS"] = "-lssl -lcrypto -lz"
