@@ -2,8 +2,8 @@ class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-sdk-cpp/archive/1.7.310.tar.gz"
-  sha256 "bf2c5c634f708b5042b6c8c08444781557e63b05d4366c8b5d11efde83ea5207"
+  url "https://github.com/aws/aws-sdk-cpp/archive/1.7.320.tar.gz"
+  sha256 "49b61175bb532e494fdc90bdc8f2564027a1d62b31cbbb988e793cdc2de39507"
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
