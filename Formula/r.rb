@@ -1,9 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-3/R-3.6.3.tar.gz"
-  sha256 "89302990d8e8add536e12125ec591d6951022cf8475861b3690bc8bf1cefaa8f"
-  revision 2
+  url "https://cran.r-project.org/src/base/R-4/R-4.0.0.tar.gz"
+  sha256 "06beb0291b569978484eb0dcb5d2339665ec745737bdfb4e873e7a5a75492940"
 
   bottle do
     sha256 "c05a51529bae3464274f9648f70fcc36e3d0fef06209bb77255095b7fb784290" => :catalina
@@ -17,7 +16,7 @@ class R < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "openblas"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "readline"
   depends_on "xz"
 
