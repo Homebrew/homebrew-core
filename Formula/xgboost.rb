@@ -4,6 +4,7 @@ class Xgboost < Formula
   url "https://github.com/dmlc/xgboost.git",
       :tag      => "v1.0.2",
       :revision => "917b0a7b46954e9be36cbc430a1727bb093234bb"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,10 +14,11 @@ class Xgboost < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libomp"
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, "-DUSE_OPENMP=0", ".."
+      system "cmake", *std_cmake_args, ".."
       system "make"
       system "make", "install"
     end
