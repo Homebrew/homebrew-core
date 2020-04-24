@@ -1,8 +1,8 @@
 class Glm < Formula
   desc "C++ mathematics library for graphics software"
   homepage "https://glm.g-truc.net/"
-  url "https://github.com/g-truc/glm/releases/download/0.9.9.5/glm-0.9.9.5.zip"
-  sha256 "4fe34860ce69156f63eea6c3d84c91cadfc330353cf275ff394aef4e163cafee"
+  url "https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip"
+  sha256 "37e2a3d62ea3322e43593c34bae29f57e3e251ea89f4067506c94043769ade4c"
   head "https://github.com/g-truc/glm.git"
 
   bottle do
@@ -19,8 +19,19 @@ class Glm < Formula
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make", "install"
+      system "make"
     end
+    include.install "glm"
+    lib.install "cmake"
+    (lib/"pkgconfig/glm.pc").write <<~EOS
+      prefix=#{prefix}
+      includedir=${prefix}/include
+
+      Name: GLM
+      Description: OpenGL Mathematics
+      Version: #{version.to_s.match(/\d+\.\d+\.\d+/)}
+      Cflags: -I${includedir}
+    EOS
 
     cd "doc" do
       system "doxygen", "man.doxy"
