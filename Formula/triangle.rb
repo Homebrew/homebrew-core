@@ -14,16 +14,8 @@ class Triangle < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
-
-    dir = buildpath/"src/github.com/esimov/triangle"
-
-    dir.install buildpath.children
-
-    cd dir/"cmd/triangle" do
-      system "go", "install"
-    end
+    system "go", "build", "-mod=vendor", "-o", "#{bin}/triangle", "./cmd/triangle"
+    prefix.install_metafiles
   end
 
   test do
