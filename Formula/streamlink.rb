@@ -3,8 +3,8 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/1.4.0/streamlink-1.4.0.tar.gz"
-  sha256 "5499287d634c28e72ccc16a677f7873213dc6beaa4fdbe47cda7b997f1460192"
+  url "https://github.com/streamlink/streamlink/releases/download/1.4.1/streamlink-1.4.1.tar.gz"
+  sha256 "ed3278d18f17e473bf3b35c8943da9dc19a37d43ba6b8122e260d3f0d14485e8"
 
   bottle do
     cellar :any_skip_relocation
