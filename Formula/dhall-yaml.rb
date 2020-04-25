@@ -7,6 +7,7 @@ class DhallYaml < Formula
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-yaml"
   url "https://hackage.haskell.org/package/dhall-yaml-1.0.3/dhall-yaml-1.0.3.tar.gz"
   sha256 "b6314d2e189d72dc56ad277c1bdef0fcfd12515b163635852befbf85b9b8ddd2"
+  revision 1
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
