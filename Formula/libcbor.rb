@@ -1,8 +1,8 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "http://libcbor.org/"
-  url "https://github.com/PJK/libcbor/archive/v0.6.1.tar.gz"
-  sha256 "2f805f5fa2790c4fdd16046287f5814703229547da2b83009dd32357623aa182"
+  url "https://github.com/PJK/libcbor/archive/v0.7.0.tar.gz"
+  sha256 "fb731afe0a9980581d85e4b8d4ef128b175f782d92e0cd898935f3d26dd3dde7"
 
   bottle do
     cellar :any
