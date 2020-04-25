@@ -7,6 +7,7 @@ class DhallBash < Formula
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
   url "https://hackage.haskell.org/package/dhall-bash-1.0.28/dhall-bash-1.0.28.tar.gz"
   sha256 "f20fc4bdd181f2ead61e5b92b4fc4c155e21d516bc21c0f7196c59ae5327782f"
+  revision 1
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
@@ -17,7 +18,7 @@ class DhallBash < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   def install
     install_cabal_package
