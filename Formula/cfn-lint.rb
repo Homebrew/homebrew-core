@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/ef/1b/f982d38f6b5c33c6e009c14d7a186df097531cb44b2d98ae32f2de8defb0/cfn-lint-0.29.5.tar.gz"
-  sha256 "9873c82b710c60eacdbed68faebd835e2f0108a037babc1c7ccd3ed7d7e921e5"
+  url "https://files.pythonhosted.org/packages/51/53/594f54e97e1744eeb01459c1f77ad967b3e7c2ab37d92e1a17357f617fab/cfn-lint-0.29.6.tar.gz"
+  sha256 "d3a127e19f36cd0492c00aedec9bf2dc42911622d879755b24f6f8ed57e4902c"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,13 +26,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/2e/ed/c78be6e55442756a53c3dafe086e3c72534bfe7904e683ecca3678521f9b/boto3-1.12.39.tar.gz"
-    sha256 "970bd7b332e73d7b51077ed36772c634811b38c81b0cc6ed0f910e50d7ebadf8"
+    url "https://files.pythonhosted.org/packages/42/ec/7c7383defbaf6cb51b774219c63905b61e977983cab983959c873f6c0f91/boto3-1.12.46.tar.gz"
+    sha256 "4f7f11e7489c267f9ea0c6193bfbe20ef1a8dd639d780aea0ac61a769de722e1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/87/9e/8c548fc924e2ebee4d2723705c557234550af6872bc6d9e505d05b0eeee9/botocore-1.15.39.tar.gz"
-    sha256 "94232b44e1540b7e043e220bd43f855400d0a243e926b26b3fb72994e971d518"
+    url "https://files.pythonhosted.org/packages/2b/d9/d1a341bec0f264eddba169b0d40aaa6da064fabba3e4a0d482b149c6fb84/botocore-1.15.46.tar.gz"
+    sha256 "ae39899dc450570968e3e128d2c8a011e5f8d4f6fd07a7d1f01df10a11ef332d"
   end
 
   resource "certifi" do
@@ -127,8 +127,8 @@ class CfnLint < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/09/06/3bc5b100fe7e878d3dee8f807a4febff1a40c213d2783e3246edde1f3419/urllib3-1.25.8.tar.gz"
-    sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   resource "zipp" do
