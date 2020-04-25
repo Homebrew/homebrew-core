@@ -3,8 +3,8 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   # pull from git tag to get submodules
   url "https://github.com/Microsoft/cpprestsdk.git",
-      :tag      => "v2.10.15",
-      :revision => "b94bc32ff84e815ba44c567f6fe4af5f5f6b3048"
+      :tag      => "v2.10.16",
+      :revision => "18212a2a7967e12d740bfb957e500892b3463c88"
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
@@ -17,13 +17,6 @@ class Cpprestsdk < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "openssl@1.1"
-
-  # Fix for boost 1.70.0 https://github.com/microsoft/cpprestsdk/issues/1054
-  # From websocketpp pull request https://github.com/zaphoyd/websocketpp/pull/814
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/cpprestsdk/2.10.14.diff"
-    sha256 "fdfd1d6c3108bd463f3a6e3c8056a4f82268d6def1867b5fbbd9682f617c8c25"
-  end
 
   def install
     system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF", "Release", *std_cmake_args
