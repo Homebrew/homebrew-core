@@ -1,8 +1,8 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
-  url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.1.19.tar.gz"
-  sha256 "1f502da0452c9ce164d91ca5882ced80705a70863db0a8b0d118f94f766f4576"
+  url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.1.20.tar.gz"
+  sha256 "5fbc14d0181ec7eeb024a628af070ce7286f2cb92147c3ffa8504201cfcc3f8b"
   head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
