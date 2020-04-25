@@ -7,7 +7,11 @@ class SshAudit < Formula
 
   bottle :unneeded
 
-  uses_from_macos "python@3"
+  if MacOS.version >= :catalina
+    uses_from_macos "python@3"
+  else
+    depends_on "python"
+  end
 
   def install
     bin.install "ssh-audit.py" => "ssh-audit"
