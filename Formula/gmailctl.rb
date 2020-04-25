@@ -1,8 +1,8 @@
 class Gmailctl < Formula
   desc "Declarative configuration for Gmail filters"
   homepage "https://github.com/mbrt/gmailctl"
-  url "https://github.com/mbrt/gmailctl/archive/v0.6.0.tar.gz"
-  sha256 "e188d5d18ac84ca86c94fb2b90d219ae3bea1e1ddee1966fae904c93bf27f233"
+  url "https://github.com/mbrt/gmailctl/archive/v0.7.0.tar.gz"
+  sha256 "8c3d88c06709d4c96414fa0ba1a90f0f8f12026d726a1ddb54b439b4b5b6ec5f"
 
   bottle do
     cellar :any_skip_relocation
