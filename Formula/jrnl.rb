@@ -3,9 +3,8 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://github.com/jrnl-org/jrnl/releases/download/v2.2/jrnl-2.2-brew.tar.gz"
-  sha256 "335c1629b5ae8bc1b8812d4f3ad5d188e4b2342842c9d033388c97f7049bec3a"
-  revision 1
+  url "https://github.com/jrnl-org/jrnl/archive/v2.4.tar.gz"
+  sha256 "f4955323d0d907d7e4f4caa3e93775d7779be3b689c165a80879d3ada4bfdd60"
 
   bottle do
     cellar :any
