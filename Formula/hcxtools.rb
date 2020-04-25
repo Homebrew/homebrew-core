@@ -13,6 +13,21 @@ class Hcxtools < Formula
   end
 
   test do
-    system "#{bin}/hcxpcapngtool", "--version"
+    # Create file with 22000 hash line
+    testhash = testpath/"test.22000"
+    (testpath/"test.22000").write <<~EOS
+        WPA*01*4d4fe7aac3a2cecab195321ceb99a7d0*fc690c158264*f4747f87f9f4*686173686361742d6573736964***
+    EOS
+
+    # Convert hash to .cap file
+    testcap = testpath/"test.cap"
+    system "#{bin}/hcxhash2cap", "--pmkid-eapol=#{testhash}", "-c", testpath/"test.cap"
+
+    # Convert .cap file back to hash file
+    newhash = testpath/"new.22000"
+    system "#{bin}/hcxpcapngtool", "-o", newhash, testcap
+
+    # Diff old and new hash file to check if they are identical
+    system "diff", newhash, testhash
   end
 end
