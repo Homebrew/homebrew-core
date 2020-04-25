@@ -1,8 +1,8 @@
 class Modman < Formula
   desc "Module deployment script geared towards Magento development"
   homepage "https://github.com/colinmollenhour/modman"
-  url "https://github.com/colinmollenhour/modman/archive/1.12.tar.gz"
-  sha256 "437547bb54f62101215038a678506e87b1e9d5a8f04eed68e0c823198dd0b6ec"
+  url "https://github.com/colinmollenhour/modman/archive/1.13.tar.gz"
+  sha256 "d9efe8786826f54c3d2afa16f62a08e9a4e108cac429653a447055f6e5a0e8ec"
 
   bottle :unneeded
 
