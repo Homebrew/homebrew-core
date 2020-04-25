@@ -1,10 +1,17 @@
 class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://fbredex.com"
-  url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
-  sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
   revision 3
   head "https://github.com/facebook/redex.git"
+
+  stable do
+    url "https://github.com/facebook/redex/archive/v2017.10.31.tar.gz"
+    sha256 "18a840e4db0fc51f79e17dfd749b2ffcce65a28e7ef9c2b3c255c5ad89f6fd6f"
+
+    # Fix compilation on High Sierra
+    # Remove for next release
+    patch :DATA
+  end
 
   bottle do
     cellar :any
@@ -40,3 +47,17 @@ class Redex < Formula
     end
   end
 end
+
+__END__
+diff --git a/libresource/RedexResources.cpp b/libresource/RedexResources.cpp
+index 525601ec..a359f49f 100644
+--- a/libresource/RedexResources.cpp
++++ b/libresource/RedexResources.cpp
+@@ -16,6 +16,7 @@
+ #include <map>
+ #include <boost/regex.hpp>
+ #include <sstream>
++#include <stack>
+ #include <string>
+ #include <unordered_set>
+ #include <vector>
