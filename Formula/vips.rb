@@ -35,7 +35,7 @@ class Vips < Formula
   depends_on "poppler"
   depends_on "webp"
 
-  uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used
