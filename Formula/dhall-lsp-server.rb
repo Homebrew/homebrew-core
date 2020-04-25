@@ -7,6 +7,7 @@ class DhallLspServer < Formula
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server"
   url "https://hackage.haskell.org/package/dhall-lsp-server-1.0.6/dhall-lsp-server-1.0.6.tar.gz"
   sha256 "9b5a963daf3b7c0622ea519433b5046127bc945a8c90df9ec37cd9ae92fe7ddd"
+  revision 1
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
