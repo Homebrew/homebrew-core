@@ -7,6 +7,7 @@ class DhallJson < Formula
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-json"
   url "https://hackage.haskell.org/package/dhall-json-1.6.3/dhall-json-1.6.3.tar.gz"
   sha256 "6b41f69f1c97515061b02fdbb82f867076d7ad1c345c1d1a6249348b6ca6a6b6"
+  revision 1
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
@@ -17,7 +18,7 @@ class DhallJson < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
