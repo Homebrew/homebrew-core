@@ -2,8 +2,8 @@ class Crc < Formula
   desc "OpenShift 4 cluster on your local machine"
   homepage "https://code-ready.github.io/crc/"
   url "https://github.com/code-ready/crc.git",
-      :tag      => "1.8.0",
-      :revision => "0a318dc9335a1e7cc24c5b19b5aa383ec619f9c4"
+      :tag      => "1.9.0",
+      :revision => "a68b5e05157a3a1c2a2b95e3900bffa7435c3343"
   head "https://github.com/code-ready/crc.git"
 
   bottle do
