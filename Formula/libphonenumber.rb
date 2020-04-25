@@ -1,9 +1,8 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/v8.12.1.tar.gz"
-  sha256 "fb008f1cac0713ce09fd8602534bae55666089e40cd442b94b5d8b8e8dab8adb"
-  revision 1
+  url "https://github.com/google/libphonenumber/archive/v8.12.2.tar.gz"
+  sha256 "0adb1a3cfd891f7c142538297b43f221943e2f9b1977a670b7ea78ac878281a0"
 
   bottle do
     cellar :any
@@ -19,8 +18,8 @@ class Libphonenumber < Formula
   depends_on "re2"
 
   resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
+    url "https://github.com/google/googletest/archive/release-1.10.0.tar.gz"
+    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
   end
 
   def install
