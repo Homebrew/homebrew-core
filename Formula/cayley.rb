@@ -16,12 +16,13 @@ class Cayley < Formula
   depends_on "mercurial" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
     dir = buildpath/"src/github.com/cayleygraph/cayley"
     dir.install buildpath.children
 
     cd dir do
+      # Run packr to generate .go files that pack the static files into bytes that can be bundled into the Go binary.
+      system "go", "run", "github.com/gobuffalo/packr/v2/packr2"
+
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
 
       ldflags = %W[
@@ -30,7 +31,8 @@ class Cayley < Formula
         -X github.com/cayleygraph/cayley/version.GitHash=#{commit}
       ]
 
-      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags.join(" "), ".../cmd/cayley"
+      # Build the binary
+      system "go", "build", "-o", bin/"cayley", "-ldflags", ldflags.join(" "), "./cmd/cayley"
 
       inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
       etc.install "cayley_example.yml" => "cayley.yml"
@@ -85,5 +87,13 @@ class Cayley < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cayley version")
+
+    http_port = free_port
+    fork do
+      exec "#{bin}/cayley", "http", "--host=127.0.0.1:#{http_port}"
+    end
+    sleep 3
+    response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
+    assert_match "HTTP\/1.1 200 OK", response
   end
 end
