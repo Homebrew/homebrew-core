@@ -3,9 +3,8 @@ class MongoOrchestration < Formula
 
   desc "REST API to manage MongoDB configurations on a single host"
   homepage "https://github.com/10gen/mongo-orchestration"
-  url "https://files.pythonhosted.org/packages/6d/b5/624a02d5f6cbfa8eb3c6554f5387c4739ad283bac7efb27ee99434a4d314/mongo-orchestration-0.6.11.tar.gz"
-  sha256 "7a09706d36e94ae767e90646fed98a52b426a4d14b0f4f724b185e292ac8f425"
-  revision 3
+  url "https://files.pythonhosted.org/packages/72/34/9f010c4ac8569314569ea69a93a234d1dedf211666ab0b01b919d7843dba/mongo-orchestration-0.6.12.tar.gz"
+  sha256 "d73f7666424ee6e4b2143c1e2f72025b15236dacd07c80a374a44bb056d53a6b"
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
@@ -18,8 +17,8 @@ class MongoOrchestration < Formula
   depends_on "python@3.8"
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"
-    sha256 "39b751aee0b167be8dffb63ca81b735bbf1dd0905b3bc42761efedee8f123355"
+    url "https://files.pythonhosted.org/packages/d9/4f/57887a07944140dae0d039d8bc270c249fc7fc4a00744effd73ae2cde0a9/bottle-0.12.18.tar.gz"
+    sha256 "0819b74b145a7def225c0e83b16a4d5711fde751cd92bae467a69efce720f69e"
   end
 
   resource "CherryPy" do
