@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/eb/b2/5c53a630d1ac9acb551f2157d5cf8fad44d4d4a07090b3d602790a3da956/snakemake-5.14.0.tar.gz"
-  sha256 "b11b7ac30808f573883d5db79595ac62db6d1416b24fd71e1a27dc7b3e5678e8"
+  url "https://files.pythonhosted.org/packages/89/d7/e6e9325fee68002c6f8328a34240fb217e842c7068d5372fa6e217a9c676/snakemake-5.15.0.tar.gz"
+  sha256 "dacf0642483c1989e80dc72e5c6b15d0748e09a0ab5d7cad2b2aa3b7cb0c8d81"
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do
@@ -37,8 +37,8 @@ class Snakemake < Formula
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/6d/74/be92e22dac88b31adc4079134360486117de4bed4ccfa2ff9ddb2d24a570/ConfigArgParse-1.2.1.tar.gz"
-    sha256 "f30736dcd4e00455ffe3087454799ccb7f9b61d765492dd4b35bbcd62379db12"
+    url "https://files.pythonhosted.org/packages/bb/79/3045743bb26ca2e44a1d317c37395462bfed82dbbd38e69a3280b63696ce/ConfigArgParse-1.2.3.tar.gz"
+    sha256 "edd17be986d5c1ba2e307150b8e5f5107aba125f3574dddd02c85d5cdcfd37dc"
   end
 
   resource "datrie" do
