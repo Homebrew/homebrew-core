@@ -1,8 +1,8 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.22.4.tar.xz"
-  sha256 "454002b98922f5590048ff523237c41f93d8ab0a76174be167dea0677c879120"
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.23.3.tar.xz"
+  sha256 "53cea69eaabe443a099fb204b7353e968e7bb62b41fbb0da24451403c7a56901"
 
   bottle do
     sha256 "d04b2c44f519e791014658b0994f49eee9940ca684ea2de402923bea23db4adc" => :mojave
@@ -10,14 +10,17 @@ class Efl < Formula
     sha256 "5e303d498b339b5c248e9167efd68c362013d9198fdf5dbed98138721688a8db" => :sierra
   end
 
-  depends_on "gettext" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "bullet"
   depends_on "dbus"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "fribidi"
+  depends_on "gettext"
   depends_on "giflib"
+  depends_on "glib"
   depends_on "gst-plugins-good"
   depends_on "gstreamer"
   depends_on "jpeg"
@@ -28,10 +31,13 @@ class Efl < Formula
   depends_on "libspectre"
   depends_on "libtiff"
   depends_on "luajit"
+  depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
+
+  uses_from_macos "zlib"
 
   # Fix build with 10.15+ SDK
   patch do
@@ -40,15 +46,32 @@ class Efl < Formula
   end
 
   def install
-    ENV.cxx11
-
     args = %W[
-      --disable-dependency-tracking
       --prefix=#{prefix}
+      -Davahi=false
+      -Dbuild-examples=false
+      -Dbuild-tests=false
+      -Dcocoa=true
+      -Dembedded-lz4=false
+      -Deeze=false
+      -Dglib=true
+      -Dlibmount=false
+      -Dopengl=full
+      -Dphysics=true
+      -Dsystemd=false
+      -Dv4l2=false
+      -Dx11=false
     ]
 
-    system "./configure", *args
-    system "make", "install"
+    # Install in our Cellar - not dbus's
+    inreplace "dbus-services/meson.build", "dep.get_pkgconfig_variable('session_bus_services_dir')",
+                                           "'#{share}/dbus-1/services'"
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install
