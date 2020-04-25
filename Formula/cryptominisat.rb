@@ -1,9 +1,8 @@
 class Cryptominisat < Formula
   desc "Advanced SAT solver"
   homepage "https://www.msoos.org/cryptominisat5/"
-  url "https://github.com/msoos/cryptominisat/archive/5.6.8.tar.gz"
-  sha256 "38add382c2257b702bdd4f1edf73544f29efc6e050516b6cacd2d81e35744b55"
-  revision 1
+  url "https://github.com/msoos/cryptominisat/archive/5.7.1.tar.gz"
+  sha256 "d09f118a3d4392e3352a6285f600a5897e301b186a764404a37a911f4d91528e"
 
   bottle do
     sha256 "6de78ffbfa1ae394f9e0ce868ae7a49412014d63fcaccb22dfefc8909564a18b" => :catalina
@@ -12,11 +11,17 @@ class Cryptominisat < Formula
   end
 
   depends_on "cmake" => :build
+  # fix `'stdio.h' file not found` on macosx-10.13
+  # open issue https://github.com/msoos/cryptominisat/issues/617
+  depends_on :macos => :mojave
   depends_on :arch => :x86_64
   depends_on "boost"
   depends_on "python@3.8"
 
   def install
+    # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
+    inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DNOM4RI=ON"
       system "make", "install"
