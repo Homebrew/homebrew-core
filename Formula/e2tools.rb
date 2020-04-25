@@ -1,8 +1,8 @@
 class E2tools < Formula
   desc "Utilities to read, write, and manipulate files in ext2/3/4 filesystems"
-  homepage "https://web.archive.org/web/home.earthlink.net/~k_sheff/sw/e2tools/"
-  url "https://web.archive.org/web/20190302014158/home.earthlink.net/~k_sheff/sw/e2tools/e2tools-0.0.16.tar.gz"
-  sha256 "4e3c8e17786ccc03fc9fb4145724edf332bb50e1b3c91b6f33e0e3a54861949b"
+  homepage "https://e2tools.github.io/"
+  url "https://github.com/e2tools/e2tools/releases/download/v0.1.0/e2tools-0.1.0.tar.gz"
+  sha256 "c1a06b5ae2cbddb6f04d070e889b8bebf87015b8585889999452ce9846122edf"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +13,13 @@ class E2tools < Formula
     sha256 "058158b36410bb749abe3bce7476a7f1c837417a38e8d3fa1dd54924df2d80a7" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "e2fsprogs"
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
