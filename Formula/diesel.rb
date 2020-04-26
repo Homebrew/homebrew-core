@@ -19,6 +19,10 @@ class Diesel < Formula
   uses_from_macos "sqlite"
 
   def install
+    # Fix compile on newer Rust.
+    # Remove with 1.5.x.
+    ENV["RUSTFLAGS"] = "--cap-lints allow"
+
     system "cargo", "install", "--root", prefix, "--path", "diesel_cli"
 
     system "#{bin}/diesel completions bash > diesel.bash"
