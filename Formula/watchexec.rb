@@ -19,8 +19,10 @@ class Watchexec < Formula
   end
 
   test do
-    o = IO.popen("#{bin}/watchexec -- echo 'saw file change'")
-    sleep 0.1
+    o = IO.popen("#{bin}/watchexec -1 --postpone -- echo 'saw file change'")
+    sleep 1
+    touch "test"
+    sleep 1
     Process.kill("INT", o.pid)
     assert_match "saw file change", o.read
   end
