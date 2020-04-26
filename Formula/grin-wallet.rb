@@ -11,9 +11,12 @@ class GrinWallet < Formula
     sha256 "a3da4046c64fe6d0b7be1e7c9fc048cc4d2d375455e53e39a04f56d2641e66b6" => :high_sierra
   end
 
+  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
