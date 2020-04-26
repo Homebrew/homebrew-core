@@ -12,11 +12,15 @@ class GrinWallet < Formula
     sha256 "bf9d41682a4f6a0a0ccd5c8affede0d4233d2050627fefd06aeff83c0d213156" => :high_sierra
   end
 
-  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
-    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+    # clang-sys breaks things if it finds the LLVM formula
+    ENV["LIBCLANG_PATH"] = if MacOS::CLT.installed?
+      "/Library/Developer/CommandLineTools/usr/lib"
+    else
+      MacOS::Xcode.toolchain_path/"usr/lib"
+    end
 
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
