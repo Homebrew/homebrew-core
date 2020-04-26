@@ -30,6 +30,13 @@ class Pcb2gcode < Formula
   resource "boost" do
     url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
     sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+
+    # Fix build on Xcode 11.4
+    patch do
+      url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+      sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+      directory "tools/build"
+    end
   end
 
   def install
