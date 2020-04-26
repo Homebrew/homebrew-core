@@ -1,9 +1,12 @@
+require "language/perl"
+
 class Kpcli < Formula
+  include Language::Perl::Shebang
+
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.3.pl"
-  sha256 "04de984d6b79bdeb84689bf8eaa0e2e3aa8756b7cca9ffdf36e1a9d1c0f1cdfc"
-  revision 1
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.4.pl"
+  sha256 "403e5d73cc4685722a5e4207c5fcbdad8e30475434cfba151c095e13a2658668"
 
   bottle do
     cellar :any
@@ -14,14 +17,16 @@ class Kpcli < Formula
 
   depends_on "readline"
 
+  uses_from_macos "perl"
+
   resource "File::KeePass" do
     url "https://cpan.metacpan.org/authors/id/R/RH/RHANDOM/File-KeePass-2.03.tar.gz"
     sha256 "c30c688027a52ff4f58cd69d6d8ef35472a7cf106d4ce94eb73a796ba7c7ffa7"
   end
 
   resource "Crypt::Rijndael" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Crypt-Rijndael-1.13.tar.gz"
-    sha256 "cd7209a6dfe0a3dc8caffe1aa2233b0e6effec7572d76a7a93feefffe636214e"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Crypt-Rijndael-1.14.tar.gz"
+    sha256 "6451c3dffe8703523be2bb08d1adca97e77df2a8a4dd46944d18a99330b7850e"
   end
 
   resource "Sort::Naturally" do
@@ -35,8 +40,8 @@ class Kpcli < Formula
   end
 
   resource "Term::Readline::Gnu" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.35.tar.gz"
-    sha256 "575d32d4ab67cd656f314e8d0ee3d45d2491078f3b2421e520c4273e92eb9125"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.36.tar.gz"
+    sha256 "9a08f7a4013c9b865541c10dbba1210779eb9128b961250b746d26702bab6925"
   end
 
   resource "Data::Password" do
@@ -55,8 +60,8 @@ class Kpcli < Formula
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.46.tar.gz"
-    sha256 "5d7a6a830cf7f2b2960bf8b8afaac16a537ede64f3023827acea5bd24ca77015"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
+    sha256 "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
   end
 
   def install
@@ -89,6 +94,8 @@ class Kpcli < Formula
                      "--libdir=#{Formula["readline"].opt_lib}"
       system "make", "install"
     end
+
+    rewrite_shebang detected_perl_shebang, "kpcli-#{version}.pl"
 
     libexec.install "kpcli-#{version}.pl" => "kpcli"
     chmod 0755, libexec/"kpcli"
