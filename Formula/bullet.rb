@@ -1,19 +1,9 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  revision 1
+  url "https://github.com/bulletphysics/bullet3/archive/2.89.tar.gz"
+  sha256 "621b36e91c0371933f3c2156db22c083383164881d2a6b84636759dc4cbb0bb8"
   head "https://github.com/bulletphysics/bullet3.git"
-
-  stable do
-    url "https://github.com/bulletphysics/bullet3/archive/2.88.tar.gz"
-    sha256 "21c135775527754fc2929db1db5144e92ad0218ae72840a9f162acb467a7bbf9"
-
-    # Fix Xcode 11 compile errors
-    patch do
-      url "https://github.com/bulletphysics/bullet3/commit/7638b7c5a659dceb4e580ae87d4d60b00847ef94.patch?full_index=1"
-      sha256 "2b08ff21dce85562bd6ff24ae6b71ed55de84b24a0a74d1e8323b7a0f783f528"
-    end
-  end
 
   bottle do
     sha256 "2871bb63205a9fb0f9911422729628339be0fa84b903063a8ca39abda15e6f4b" => :catalina
