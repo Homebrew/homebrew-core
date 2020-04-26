@@ -3,7 +3,7 @@ class Adios2 < Formula
   homepage "https://adios2.readthedocs.io"
   url "https://github.com/ornladios/ADIOS2/archive/v2.5.0.tar.gz"
   sha256 "7c8ff3bf5441dd662806df9650c56a669359cb0185ea232ecb3578de7b065329"
-  revision 1
+  revision 2
   head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
 
   bottle do
@@ -32,6 +32,12 @@ class Adios2 < Formula
   end
 
   def install
+    # fix `include/adios2/common/ADIOSConfig.h` file audit failure
+    inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
+      s.gsub! ": @CMAKE_C_COMPILER@", ": /usr/bin/clang"
+      s.gsub! ": @CMAKE_CXX_COMPILER@", ": /usr/bin/clang++"
+    end
+
     args = std_cmake_args + %W[
       -DADIOS2_USE_Blosc=ON
       -DADIOS2_USE_BZip2=ON
