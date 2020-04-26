@@ -3,6 +3,7 @@ class CargoC < Formula
   homepage "https://github.com/lu-zero/cargo-c"
   url "https://github.com/lu-zero/cargo-c/archive/v0.6.2.tar.gz"
   sha256 "c0a3e612b41f441081098e3f3e1716fc709421f3d17654a9f0303f420fdbc1ee"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,9 +13,14 @@ class CargoC < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "libgit2"
+  depends_on "libssh2"
   depends_on "openssl@1.1"
 
   def install
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
