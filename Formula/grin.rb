@@ -12,11 +12,15 @@ class Grin < Formula
     sha256 "b9aa14bd8c6f7bdb5e5189888bf563f1c3d64be4944ac1fe843ed84c5ed99ebf" => :high_sierra
   end
 
-  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
-    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+    # clang-sys breaks things if it finds the LLVM formula
+    ENV["LIBCLANG_PATH"] = if MacOS::CLT.installed?
+      "/Library/Developer/CommandLineTools/usr/lib"
+    else
+      MacOS::Xcode.toolchain_path/"usr/lib"
+    end
 
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
