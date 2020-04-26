@@ -29,7 +29,6 @@ jobs:
             core.setOutput("email", email)
       - name: Post comment once started
         uses: actions/github-script@0.9.0
-        if: context.actor != "BrewTestBot"
         with:
           github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           script: |
