@@ -29,12 +29,18 @@ jobs:
           git fetch --prune --force origin ${{github.sha}}
           git checkout --force ${{github.sha}}
           git log -1
-      - name: Run brew test-bot
+      - name: Run brew test-bot --only-cleanup-before
+        run: brew test-bot --only-cleanup-before
+      - name: Run brew test-bot --only-setup
+        run: brew test-bot --only-setup
+      - name: Run brew test-bot --only-tap-syntax
+        run: brew test-bot --only-tap-syntax
+      - name: Run brew test-bot --only-formulae
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot
-      - name: Output brew test-bot failures
+          brew test-bot --only-formulae
+      - name: Output brew test-bot --only-formulae failures
         if: always()
         run: |
           cat bottles/steps_output.txt
@@ -53,6 +59,9 @@ jobs:
         with:
           name: bottles
           path: bottles
+      - name: Run brew test-bot --only-cleanup-after
+        if: always()
+        run: brew test-bot --only-cleanup-after
       - name: Cleanup
         if: always()
         run: |
