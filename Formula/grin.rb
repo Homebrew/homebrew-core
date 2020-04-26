@@ -11,9 +11,12 @@ class Grin < Formula
     sha256 "cba0fed4f35a80bbc1d9de9c9efe2aa549f8b3eb5b018826e70965f9a3bf3a63" => :high_sierra
   end
 
+  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
