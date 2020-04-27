@@ -18,8 +18,8 @@ class Bazaar < Formula
   # CVE-2017-14176
   # https://bugs.launchpad.net/brz/+bug/1710979
   patch do
-    url "https://deb.debian.org/debian/pool/main/b/bzr/bzr_2.7.0+bzr6622-16.debian.tar.xz"
-    sha256 "e9b155ff03d37c3ae1f8cd8fede884c74f8c4c88b4051db17fbf9e2060cb9dbf"
+    url "https://deb.debian.org/debian/pool/main/b/bzr/bzr_2.7.0+bzr6622-15.debian.tar.xz"
+    sha256 "d2198b93059cc9d37c551f7bfda19a199c18f4c9c6104a8c40ccd6d0c65e6fd3"
     apply "patches/27_fix_sec_ssh"
   end
 
