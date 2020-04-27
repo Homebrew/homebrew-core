@@ -59,7 +59,7 @@ class Deno < Formula
     EOS
     assert_match "hello deno", shell_output("#{bin}/deno run hello.ts")
     assert_match "console.log",
-      shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std/examples/cat.ts " \
+      shell_output("#{bin}/deno run --allow-read=#{testpath} https://deno.land/std@v#{version}/examples/cat.ts " \
                    "#{testpath}/hello.ts")
   end
 end
