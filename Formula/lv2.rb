@@ -1,8 +1,8 @@
 class Lv2 < Formula
   desc "Portable plugin standard for audio systems"
   homepage "https://lv2plug.in/"
-  url "https://lv2plug.in/spec/lv2-1.16.0.tar.bz2"
-  sha256 "dec3727d7bd34a413a344a820678848e7f657b5c6019a0571c61df76d7bdf1de"
+  url "https://lv2plug.in/spec/lv2-1.18.0.tar.bz2"
+  sha256 "90a3e5cf8bdca81b49def917e89fd6bba1d5845261642cd54e7888df0320473f"
 
   bottle do
     cellar :any_skip_relocation
