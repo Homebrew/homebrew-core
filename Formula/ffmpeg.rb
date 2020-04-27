@@ -35,7 +35,7 @@ class Ffmpeg < Formula
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
-  depends on "srt"
+  depends_on "srt"
   depends_on "tesseract"
   depends_on "theora"
   depends_on "webp"
