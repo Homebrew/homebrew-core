@@ -1,9 +1,8 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
-  url "https://github.com/EasyRPG/liblcf/archive/0.6.1.tar.gz"
-  sha256 "224068ede007098d8fad45348da3b47f00a33d5e8a4a693514d5c9290ab1883f"
-  revision 1
+  url "https://easyrpg.org/downloads/player/0.6.2/liblcf-0.6.2.tar.xz"
+  sha256 "c48b4f29ee0c115339a6886fc435b54f17799c97ae134432201e994b1d3e0d34"
   head "https://github.com/EasyRPG/liblcf.git"
 
   bottle do
@@ -13,19 +12,20 @@ class Liblcf < Formula
     sha256 "536503d61c79bb93f47712da0eae7917f79def7d7e2565ae243c1b8fd1f643a4" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "expat"
   depends_on "icu4c"
 
+  if MacOS.version < :el_capitan
+    depends_on "expat"
+  else
+    uses_from_macos "expat"
+  end
+
   def install
-    system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make", "check"
+    system "make"
     system "make", "install"
   end
 
