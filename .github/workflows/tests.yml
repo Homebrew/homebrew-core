@@ -2,7 +2,50 @@ name: GitHub Actions CI
 on:
   pull_request: []
 jobs:
+  tap_syntax:
+    runs-on: macOS-latest
+    steps:
+    - name: Set up Homebrew
+      id: set-up-homebrew
+      run: |
+        HOMEBREW_REPOSITORY="$(brew --repo)"
+        brew update-reset "$HOMEBREW_REPOSITORY"
+
+        GEMS_HASH=$(shasum -a 256 "$HOMEBREW_REPOSITORY/Library/Homebrew/Gemfile.lock" | cut -f1 -d' ')
+        echo "::set-output name=gems-hash::$GEMS_HASH"
+
+        HOMEBREW_CORE_REPOSITORY="$(brew --repo homebrew/core)"
+
+        cd "$HOMEBREW_CORE_REPOSITORY"
+        rm -rf "$GITHUB_WORKSPACE"
+        ln -s "$HOMEBREW_CORE_REPOSITORY" "$GITHUB_WORKSPACE"
+        git fetch origin "${{github.sha}}"
+        git checkout --force -B master FETCH_HEAD
+        cd -
+
+    - name: Install taps
+      run: |
+        brew tap homebrew/test-bot
+        brew update-reset Library/Taps/homebrew/homebrew-test-bot
+
+    - name: Cache Bundler RubyGems
+      id: cache
+      uses: actions/cache@v1
+      with:
+        path: /usr/local/Homebrew/Library/Homebrew/vendor/bundle/
+        key: ${{ runner.os }}-gems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Install Bundler RubyGems
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: brew install-bundler-gems
+
+    - name: Run brew test-bot --only-tap-syntax
+      run: brew test-bot --only-tap-syntax
+
   tests:
+    needs: tap_syntax
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
@@ -21,6 +64,7 @@ jobs:
     steps:
       - name: Update Homebrew
         run: brew update-reset
+
       - name: Set up Git repository
         run: |
           cd $(brew --repo ${{github.repository}})
@@ -29,22 +73,25 @@ jobs:
           git fetch --prune --force origin ${{github.sha}}
           git checkout --force ${{github.sha}}
           git log -1
+
       - name: Run brew test-bot --only-cleanup-before
         run: brew test-bot --only-cleanup-before
+
       - name: Run brew test-bot --only-setup
         run: brew test-bot --only-setup
-      - name: Run brew test-bot --only-tap-syntax
-        run: brew test-bot --only-tap-syntax
+
       - name: Run brew test-bot --only-formulae
         run: |
           mkdir bottles
           cd bottles
           brew test-bot --only-formulae
+
       - name: Output brew test-bot --only-formulae failures
         if: always()
         run: |
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
+
       - name: Count bottles
         id: bottles
         if: always()
@@ -53,15 +100,18 @@ jobs:
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
           echo "::set-output name=count::$count"
+
       - name: Upload bottles
         if: always() && steps.bottles.outputs.count > 0
         uses: actions/upload-artifact@v1
         with:
           name: bottles
           path: bottles
+
       - name: Run brew test-bot --only-cleanup-after
         if: always()
         run: brew test-bot --only-cleanup-after
+
       - name: Cleanup
         if: always()
         run: |
