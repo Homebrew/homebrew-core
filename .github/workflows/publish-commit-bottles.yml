@@ -42,10 +42,18 @@ jobs:
             const repository = context.repo.owner + '/' + context.repo.repo
             const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
 
+            let comment = ''
+            if (actor == 'BrewTestBot') {
+                comment += ':robot: A scheduled task'
+            } else {
+                comment += ':shipit: @' + actor
+            }
+            comment += ' has [triggered a merge](' + url + ').'
+
             github.issues.createComment({
               ...context.repo,
               issue_number: pr,
-              body: '@' + actor + ' has [triggered a merge](' + url + ').'
+              body: comment
             })
       - name: Update Homebrew
         run: |
@@ -98,10 +106,16 @@ jobs:
             const repository = context.repo.owner + '/' + context.repo.repo
             const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
 
+            let comment = ':warning: '
+            if (actor != 'BrewTestBot') {
+                comment += '@' + actor
+            }
+            comment += ' bottle publish [failed](' + url + ').'
+
             github.issues.createComment({
               ...context.repo,
               issue_number: pr,
-              body: '@' + actor + ' bottle publish [failed](' + url + ').'
+              body: comment
             })
 
             github.issues.removeLabel({
