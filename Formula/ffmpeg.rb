@@ -35,6 +35,7 @@ class Ffmpeg < Formula
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
+  depends on "srt"
   depends_on "tesseract"
   depends_on "theora"
   depends_on "webp"
@@ -69,6 +70,7 @@ class Ffmpeg < Formula
       --enable-libopus
       --enable-librubberband
       --enable-libsnappy
+      --enable-libsrt
       --enable-libtesseract
       --enable-libtheora
       --enable-libvidstab
