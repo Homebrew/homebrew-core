@@ -1,8 +1,8 @@
 class Bgpdump < Formula
   desc "C library for analyzing MRT/Zebra/Quagga dump files"
-  homepage "https://bitbucket.org/ripencc/bgpdump/wiki/Home"
-  url "https://bitbucket.org/ripencc/bgpdump/get/1.6.0.tar.gz"
-  sha256 "0a9f97ac79b6f093a54e39a6b952bd8fec7ca4d7352abf2509c464fdbdb2a79b"
+  homepage "https://github.com/RIPE-NCC/bgpdump/wiki"
+  url "https://github.com/RIPE-NCC/bgpdump/archive/v1.6.1.tar.gz"
+  sha256 "abf52f2c50844b61dcac9fae74628e47cf3e854e1e2a62003e814ea8c3882950"
 
   bottle do
     cellar :any
@@ -21,7 +21,6 @@ class Bgpdump < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
