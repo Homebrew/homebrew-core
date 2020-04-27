@@ -1,12 +1,8 @@
-require "language/haskell"
-
 class Darcs < Formula
-  include Language::Haskell::Cabal
-
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.14.2/darcs-2.14.2.tar.gz"
-  sha256 "65d160a43874960dcba114c0b74d9c7b25d098486f515655502f42ff0c22a27e"
+  url "https://hackage.haskell.org/package/darcs-2.14.3/darcs-2.14.3.tar.gz"
+  sha256 "240f2c0bbd4a019428d87ed89db3aeaebebd2019f835b08680a59ac5eb673e78"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,11 +12,12 @@ class Darcs < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "gmp"
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
