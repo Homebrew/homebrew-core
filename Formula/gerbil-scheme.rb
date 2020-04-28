@@ -3,7 +3,7 @@ class GerbilScheme < Formula
   homepage "https://cons.io"
   url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
   sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "0add37e8d09b169414d5d2bcee92b7a538627736bcbf645e2fd98d4192564951" => :catalina
@@ -27,9 +27,36 @@ class GerbilScheme < Formula
       gxtags
     ]
 
+    # Find the installation correctly if GERBIL_HOME unset
     inreplace ["src/gerbil/gxi", "src/gerbil/gxi-build-script"] do |s|
       s.gsub! /GERBIL_HOME=[^\n]*/, "GERBIL_HOME=#{libexec}"
+    end
+    inreplace [
+      "src/gerbil/boot/gx-init-exe.scm",
+      "src/gerbil/boot/gx-init.scm",
+      "src/gerbil/boot/gxi-init.scm",
+      "src/gerbil/compiler/driver.ss",
+      "src/gerbil/runtime/gx-gambc.scm",
+      "src/std/build.ss",
+      "src/tools/build.ss",
+    ] do |s|
+      s.gsub! /\(getenv "GERBIL_HOME"(?: #f)?\)/, "(getenv \"GERBIL_HOME\" \"#{libexec}\")"
+    end
+
+    # Find Gambit's compiler and interpreter correctly if GERBIL_GSC is unset
+    inreplace ["src/gerbil/gxi", "src/gerbil/gxi-build-script"] do |s|
       s.gsub! /\bgsi\b/, "#{Formula["gambit-scheme"].opt_prefix}/current/bin/gsi"
+    end
+    gsc_path = "#{Formula["gambit-scheme"].opt_prefix}/current/bin/gsc"
+    inreplace ["src/bootstrap/gerbil/compiler/driver__0.scm"] do |s|
+      s.gsub! "(getenv '\"GERBIL_GSC\" '\"gsc\")", "(getenv '\"GERBIL_GSC\" '\"#{gsc_path}\")"
+    end
+    inreplace [
+      "src/gerbil/compiler/driver.ss",
+      "src/gerbil/runtime/build.scm",
+      "src/std/make.ss",
+    ] do |s|
+      s.gsub! '(getenv "GERBIL_GSC" "gsc")', "(getenv \"GERBIL_GSC\" \"#{gsc_path}\")"
     end
 
     cd "src" do
