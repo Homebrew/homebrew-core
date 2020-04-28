@@ -2,9 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      :tag      => "v0.4.23",
-      :revision => "6ce9a355f9757a921d1e30f4a702028d5e4fb7eb"
-  revision 1
+      :tag      => "v0.5.0",
+      :revision => "36789eaa88a7277c06a22b7955f128409c705746"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
