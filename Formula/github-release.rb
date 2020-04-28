@@ -1,9 +1,9 @@
 class GithubRelease < Formula
   desc "Create and edit releases on Github (and upload artifacts)"
-  homepage "https://github.com/aktau/github-release"
-  url "https://github.com/aktau/github-release/archive/v0.7.2.tar.gz"
-  sha256 "057d57b01cd45d0316e2d32b7593ff0f4bb493d4767b5701b21b54301d74ff48"
-  head "https://github.com/aktau/github-release.git"
+  homepage "https://github.com/github-release/github-release"
+  url "https://github.com/github-release/github-release/archive/v0.8.0.tar.gz"
+  sha256 "abe9bf867d26736361c267114f8ece35301fe2e2f063b77e79122f6386d22bf8"
+  head "https://github.com/github-release/github-release.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,7 +24,7 @@ class GithubRelease < Formula
   end
 
   test do
-    system "#{bin}/github-release", "info", "--user", "aktau",
+    system "#{bin}/github-release", "info", "--user", "github-release",
                                             "--repo", "github-release",
                                             "--tag", "v#{version}"
   end
