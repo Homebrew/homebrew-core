@@ -2,8 +2,8 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag      => "v0.24.1",
-      :revision => "58aa6c608af3387d0c2bf5d028be4960be1dbe56"
+      :tag      => "v0.25.0",
+      :revision => "edf364d29c5e2ab565081cd902cb37cb7a53bf11"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
@@ -18,11 +18,12 @@ class ConsulTemplate < Formula
   def install
     project = "github.com/hashicorp/consul-template"
     commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-    ldflags = ["-s", "-w",
-               "-X #{project}/version.Name=consul-template",
-               "-X #{project}/version.GitCommit=#{commit}"]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
-           "-o", bin/"consul-template"
+    ldflags = %W[
+      -s -w
+      -X #{project}/version.Name=consul-template
+      -X #{project}/version.GitCommit=#{commit}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args
     prefix.install_metafiles
   end
 
