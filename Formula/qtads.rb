@@ -1,12 +1,9 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/qtads/v3.0.0/qtads-3.0.0-source.tar.xz"
+  sha256 "430b5de04d2d2cafe4cd2614cd034c5fb71e0ba39ec1e5d058613b43a92e0407"
   head "https://github.com/realnc/qtads.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/qtads/v3.0.0/qtads-3.0.0-source.tar.xz"
-    sha256 "430b5de04d2d2cafe4cd2614cd034c5fb71e0ba39ec1e5d058613b43a92e0407"
-  end
 
   bottle do
     cellar :any
@@ -20,6 +17,7 @@ class Qtads < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libsndfile"
+  depends_on "mpg123"
   depends_on "qt"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
