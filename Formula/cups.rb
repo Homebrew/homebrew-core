@@ -1,8 +1,8 @@
 class Cups < Formula
   desc "Common UNIX Printing System"
   homepage "https://www.cups.org"
-  url "https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz"
-  sha256 "1bca9d89507e3f68cbc84482fe46ae8d5333af5bc2b9061347b2007182ac77ce"
+  url "https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz"
+  sha256 "261fd948bce8647b6d5cb2a1784f0c24cc52b5c4e827b71d726020bcc502f3ee"
 
   bottle do
     sha256 "028330028dca9194605bdf6ec807b413adae82b1491bb69cbee64d31fc04a6f3" => :catalina
