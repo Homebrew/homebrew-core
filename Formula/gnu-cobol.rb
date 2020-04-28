@@ -1,7 +1,7 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
   homepage "https://sourceforge.net/projects/open-cobol/"
-  url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.2/gnucobol-2.2.tar.xz"
+  url "https://downloads.sourceforge.net/project/open-cobol/gnucobol/2.2/gnucobol-2.2.tar.xz"
   sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
   revision 1
 
@@ -15,9 +15,6 @@ class GnuCobol < Formula
 
   depends_on "berkeley-db"
   depends_on "gmp"
-
-  conflicts_with "open-cobol",
-    :because => "both install `cob-config`, `cobc` and `cobcrun` binaries"
 
   def install
     # both environment variables are needed to be set

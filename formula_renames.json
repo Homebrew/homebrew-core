@@ -80,6 +80,7 @@
   "nimrod": "nim",
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
+  "open-cobol": "gnu-cobol",
   "opencv3": "opencv",
   "osh": "etsh",
   "perl518": "perl@5.18",
