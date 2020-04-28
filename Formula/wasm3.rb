@@ -1,8 +1,8 @@
 class Wasm3 < Formula
   desc "The fastest WebAssembly interpreter"
   homepage "https://github.com/wasm3/wasm3"
-  url "https://github.com/wasm3/wasm3/archive/v0.4.6.tar.gz"
-  sha256 "e6b3cd44c6e4d3ba6d7ada7d10b0c5b87e0592dbb994bcec1e02bedbc5b6250a"
+  url "https://github.com/wasm3/wasm3/archive/v0.4.7.tar.gz"
+  sha256 "11e863a643f605d62a5276e342abb01a65d33d138d01ea0070622a3f78fa1bd5"
 
   bottle do
     cellar :any_skip_relocation
