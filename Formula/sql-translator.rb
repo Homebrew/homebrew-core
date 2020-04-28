@@ -1,8 +1,12 @@
+require "language/perl"
+
 class SqlTranslator < Formula
+  include Language::Perl::Shebang
+
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
-  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-1.60.tar.gz"
-  sha256 "6bb0cb32ca25da69df65e5de71f679f3ca90044064526fa336cabd342f220e87"
+  url "https://cpan.metacpan.org/authors/id/M/MS/MSTROUT/SQL-Translator-1.61.tar.gz"
+  sha256 "840e3c77cd48b47e1343c79ae8ef4fca46d036356d143d33528900740416dfe8"
 
   bottle do
     cellar :any_skip_relocation
@@ -49,7 +53,7 @@ class SqlTranslator < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    inreplace Dir["#{bin}/*"], "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    bin.find { |f| rewrite_shebang detected_perl_shebang, f }
 
     bin.env_script_all_files libexec/"bin", :PERL5LIB => ENV["PERL5LIB"]
   end
