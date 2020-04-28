@@ -2,8 +2,8 @@ class Envconsul < Formula
   desc "Launch process with environment variables from Consul and Vault"
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul.git",
-    :tag      => "v0.9.2",
-    :revision => "e00ce74043ac1204566ece60f12919c8b56467f3"
+    :tag      => "v0.9.3",
+    :revision => "1729aafafcc96929db40400eaf10bc0d70840480"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Envconsul < Formula
   depends_on "consul" => :test
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"envconsul"
+    system "go", "build", "-ldflags", "-s -w", *std_go_args
     prefix.install_metafiles
   end
 
