@@ -16,6 +16,7 @@ class Qtads < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "fluid-synth"
   depends_on "libsndfile"
   depends_on "mpg123"
   depends_on "qt"
