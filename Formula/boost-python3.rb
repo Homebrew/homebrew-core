@@ -1,11 +1,10 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
+  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   license "BSL-1.0"
-  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
