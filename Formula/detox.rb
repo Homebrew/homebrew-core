@@ -1,8 +1,8 @@
 class Detox < Formula
   desc "Utility to replace problematic characters in filenames"
   homepage "https://detox.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/detox/detox/1.2.0/detox-1.2.0.tar.bz2"
-  sha256 "abfad90ee7d3e0fc53ce3b9da3253f9a800cdd92e3f8cc12a19394a7b1dcdbf8"
+  url "https://github.com/dharple/detox/archive/v1.3.0.tar.gz"
+  sha256 "00daf6b019b51c7bbc3ac96deeeec18fd886c144eeee97c3372dd297bb134c84"
 
   bottle do
     sha256 "2cc99380391d297e584a9404e9d34bb170de0a4d13604fe3f8022d387466f110" => :catalina
@@ -14,7 +14,11 @@ class Detox < Formula
     sha256 "a7bc2b7ecd5ae46a389973aab9f1506fa8ce67117bc4fbdead2b38d7eae732ce" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--mandir=#{man}", "--prefix=#{prefix}"
     system "make"
     (prefix/"etc").mkpath
@@ -24,7 +28,6 @@ class Detox < Formula
 
   test do
     (testpath/"rename this").write "foobar"
-
     assert_equal "rename this -> rename_this\n", shell_output("#{bin}/detox --dry-run rename\\ this")
   end
 end
