@@ -1,9 +1,8 @@
 class FfmpegAT28 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
-  sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 9
+  url "https://ffmpeg.org/releases/ffmpeg-2.8.16.tar.xz"
+  sha256 "6b895902f1ec0d738af40f514dfeac6caba143aa2d0a17af22397c2fc4ebc092"
 
   bottle do
     sha256 "74a510628d121c10ebd22f3a65cbd74eb28f46464d6d985bcb162e21760af452" => :catalina
@@ -42,10 +41,6 @@ class FfmpegAT28 < Formula
       inreplace %w[libavdevice/v4l2.c libavutil/time.c], "HAVE_CLOCK_GETTIME",
                                                          "UNDEFINED_GIBBERISH"
     end
-
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     args = %W[
       --prefix=#{prefix}
