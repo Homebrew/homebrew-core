@@ -1,8 +1,8 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
   homepage "https://www.liquigraph.org/"
-  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-3.1.1.tar.gz"
-  sha256 "614f80a553d13549f42c8ac47d0f7ab40db60754223be73fa040bac37f67651a"
+  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.1.tar.gz"
+  sha256 "76c056afb16a40c4cd9e43a0dc2664dbb0ea082431c25cc23b783742a09d99b9"
   head "https://github.com/liquigraph/liquigraph.git"
 
   bottle do
@@ -13,17 +13,16 @@ class Liquigraph < Formula
   end
 
   depends_on "maven" => :build
-  depends_on :java => "1.8"
+  depends_on "openjdk"
 
   def install
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     system "mvn", "-B", "-q", "-am", "-pl", "liquigraph-cli", "clean", "package", "-DskipTests"
     (buildpath/"binaries").mkpath
     system "tar", "xzf", "liquigraph-cli/target/liquigraph-cli-bin.tar.gz", "-C", "binaries"
     libexec.install "binaries/liquigraph-cli/liquigraph.sh"
     libexec.install "binaries/liquigraph-cli/liquigraph-cli.jar"
-    (bin/"liquigraph").write_env_script libexec/"liquigraph.sh", Language::Java.java_home_env("1.8")
+    (bin/"liquigraph").write_env_script libexec/"liquigraph.sh", :JAVA_HOME => "${JAVA_HOME:-#{ENV["JAVA_HOME"]}}"
   end
 
   test do
@@ -43,6 +42,6 @@ class Liquigraph < Formula
 
     jdbc = "jdbc:neo4j:http://#{failing_hostname}:7474/"
     output = shell_output("#{bin}/liquigraph -c #{changelog.realpath} -g #{jdbc} 2>&1", 1)
-    assert_match "UnknownHostException: #{failing_hostname}", output
+    assert_match "Exception: #{failing_hostname}", output
   end
 end
