@@ -1,8 +1,8 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
-  homepage "https://github.com/heptio/sonobuoy"
-  url "https://github.com/heptio/sonobuoy/archive/v0.18.0.tar.gz"
-  sha256 "8333e5af4483b154e339de168e3fc67d296983fb480a5d3845e8c78cfb9fbeee"
+  homepage "https://github.com/vmware-tanzu/sonobuoy"
+  url "https://github.com/vmware-tanzu/sonobuoy/archive/v0.18.1.tar.gz"
+  sha256 "2443b098de78c457776ce6d13803547d33ffd563984a269be6d449886652592c"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,16 +19,10 @@ class Sonobuoy < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/heptio/sonobuoy").install buildpath.children
-
-    cd "src/github.com/heptio/sonobuoy" do
-      system "go", "build", "-o", bin/"sonobuoy", "-installsuffix", "static",
-                   "-ldflags",
-                   "-s -w -X github.com/heptio/sonobuoy/pkg/buildinfo.Version=#{version}",
-                   "./"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags",
+                   "-s -w -X github.com/vmware-tanzu/sonobuoy/pkg/buildinfo.Version=v#{version}",
+                   *std_go_args
+    prefix.install_metafiles
   end
 
   test do
