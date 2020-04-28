@@ -1,9 +1,9 @@
 class NestopiaUe < Formula
   desc "Nestopia UE (Undead Edition): NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://downloads.sourceforge.net/project/nestopiaue/1.49/nestopia-1.49.tgz"
-  sha256 "653e6a39376b883196a32926691aef0071cc881d3256d2f0394c248a010560ba"
-  head "https://github.com/rdanbrook/nestopia.git"
+  url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
+  sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"
+  head "https://github.com/0ldsk00l/nestopia.git"
 
   bottle do
     sha256 "64ca845207bcc0dbb8b9163aed6b60956f50dd707bd705850a11694566c8762a" => :catalina
