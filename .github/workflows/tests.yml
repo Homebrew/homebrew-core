@@ -1,8 +1,7 @@
 name: GitHub Actions CI
 on:
   push:
-    branches:
-      - master
+    branches: master
   pull_request: []
 jobs:
   tap_syntax:
