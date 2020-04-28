@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.3.2.tar.gz"
-  sha256 "4a3719c71a7998e4f57e73920439b4b1606f7c045e437a0f0f9f1613594d3eaa"
+  url "https://github.com/erlang/otp/archive/OTP-22.3.3.tar.gz"
+  sha256 "58ef3623cad5f490fdc0719514fe1a9626c8b177a4fb8fa25b5bec0216693eb9"
   head "https://github.com/erlang/otp.git"
 
   bottle do
@@ -22,22 +22,18 @@ class Erlang < Formula
   uses_from_macos "m4" => :build
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_22.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_22.2.tar.gz"
-    sha256 "aad7e3795a44091aa33a460e3fdc94efe8757639caeba0b5ba7d79bd91c972b3"
+    url "https://www.erlang.org/download/otp_doc_man_22.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_22.3.tar.gz"
+    sha256 "43b6d62d9595e1dc51946d55c9528c706c5ae753876b9bf29303b7d11a7ccb16"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_22.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_22.2.tar.gz"
-    sha256 "09d41810d79fafde293feb48ebb249940eca6f9f5733abb235e37d06b8f482e3"
+    url "https://www.erlang.org/download/otp_doc_html_22.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_22.3.tar.gz"
+    sha256 "9b01c61f2898235e7f6643c66215d6419f8706c8fdd7c3e0123e68960a388c34"
   end
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
