@@ -1,9 +1,9 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
-  url "https://github.com/ablab/spades/releases/download/v3.14.0/SPAdes-3.14.0.tar.gz"
-  mirror "http://cab.spbu.ru/files/release3.14.0/SPAdes-3.14.0.tar.gz"
-  sha256 "18988dd51762863a16009aebb6e873c1fbca92328b0e6a5af0773e2b1ad7ddb9"
+  url "https://github.com/ablab/spades/releases/download/v3.14.1/SPAdes-3.14.1.tar.gz"
+  mirror "http://cab.spbu.ru/files/release3.14.1/SPAdes-3.14.1.tar.gz"
+  sha256 "d71ce756daa0a889b8881bd129a761200a0bb971e6fd2bed1384a1df9b585d1b"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,18 +24,8 @@ class Spades < Formula
   def install
     Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
 
-    # Use libomp due to issues with headers in GCC.
-    libomp = Formula["libomp"]
-    args = std_cmake_args
-    args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-    args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
-    args << "-DOpenMP_CXX_LIB_NAMES=omp"
-    args << "-DOpenMP_C_LIB_NAMES=omp"
-    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-    args << "-DAPPLE_OUTPUT_DYLIB=ON"
-
     mkdir "src/build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
