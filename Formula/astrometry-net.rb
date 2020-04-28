@@ -3,9 +3,8 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.79/astrometry.net-0.79.tar.gz"
-  sha256 "dd5d5403cc223eb6c51a06a22a5cb893db497d1895971735321354f882c80286"
-  revision 3
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.80/astrometry.net-0.80.tar.gz"
+  sha256 "6eb73c2371df30324d6532955c46d5f324f2aad87f1af67c12f9354cfd4a7864"
 
   bottle do
     cellar :any
@@ -27,13 +26,8 @@ class AstrometryNet < Formula
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/9c/7d/99906853351108cd5abea387240b5b58109a91e349f0ae22e33c63969393/fitsio-1.1.1.tar.gz"
-    sha256 "42b88214f9d8ed34a7911c3b41a680ce1bdee4880c58e441f00010058e97c0aa"
-
-    patch do
-      url "https://github.com/esheldon/fitsio/pull/297.patch?full_index=1"
-      sha256 "d317355af23101b2bc49b6844ac83061a6485f4fa9741b2ecae0782972bcd675"
-    end
+    url "https://files.pythonhosted.org/packages/5e/d7/58ef112ec42a23a866351b09f802e1b1fa6967ac01df0c9f3ea5ee8223ce/fitsio-1.1.2.tar.gz"
+    sha256 "20e689bdbb8cbf5fc6c4a1f7154e7407ed1aa68e2d045e3e2cd814f57d85002f"
   end
 
   def install
@@ -53,11 +47,11 @@ class AstrometryNet < Formula
     ENV["PY_BASE_INSTALL_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
     ENV["PY_BASE_LINK_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
 
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     system "make"
     system "make", "py"
     system "make", "install"
+
+    rm prefix/"doc/report.txt"
   end
 
   test do
