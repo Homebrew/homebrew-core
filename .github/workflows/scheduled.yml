@@ -7,6 +7,7 @@ on:
 
 jobs:
   autopublish:
+    if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
