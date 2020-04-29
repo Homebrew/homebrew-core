@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/liquidata-inc/dolt"
-  url "https://github.com/liquidata-inc/dolt/archive/v0.16.2.tar.gz"
-  sha256 "2475d5fb67f2480a06844d5d4183490bf363f318ee1853e92fa227bf8c465b0a"
+  url "https://github.com/liquidata-inc/dolt/archive/v0.16.3.tar.gz"
+  sha256 "c4ed0b0a17b5d42e57efadf5efefef1ceef813f309d11e757deb675c8e2e05c9"
 
   bottle do
     cellar :any_skip_relocation
