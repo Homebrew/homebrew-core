@@ -1,8 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/ee/51/ff68e10f00b29eaea34c03306e4a5cacb3e4564bf1e64c04e2558f0daa53/urh-2.8.6.tar.gz"
-  sha256 "b5d1b54c25b2cfa888d6d03c522975f1d0b429fbca1fa423df21b3d916ed59f4"
+  url "https://files.pythonhosted.org/packages/7a/4b/d343f4cd7409d61cf69fdf9c450fc1b048c24258e248747670f653dba9c7/urh-2.8.7.tar.gz"
+  sha256 "def9be4f4464875549e4d49bf3c7fa4bdc496c1b34e275aa62128b401f8efca6"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -19,8 +19,8 @@ class Urh < Formula
   depends_on "zeromq"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/49/8a/6a4135469372da2e3d9f88f71c6d00d8a07ef65f121eeca0c7ae21697219/Cython-0.29.16.tar.gz"
-    sha256 "232755284f942cbb3b43a06cd85974ef3c970a021aef19b5243c03ee2b08fa05"
+    url "https://files.pythonhosted.org/packages/99/36/a3dc962cc6d08749aa4b9d85af08b6e354d09c5468a3e0edc610f44c856b/Cython-0.29.17.tar.gz"
+    sha256 "6361588cb1d82875bcfbad83d7dd66c442099759f895cf547995f00601f9caf2"
   end
 
   resource "psutil" do
