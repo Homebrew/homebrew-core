@@ -2,8 +2,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.8.7",
-      :revision => "64089136f7faf8a9ec40a65279a512ffd92b427e"
+      :tag      => "v6.8.8",
+      :revision => "dc91d17ffcdc72efa4fe5944ac5abd22f9a8620d"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -28,6 +28,7 @@ class Kibana < Formula
       s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
     end
 
+    inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
     system "yarn", "kbn", "bootstrap"
     system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
