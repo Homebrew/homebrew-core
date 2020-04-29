@@ -1,8 +1,9 @@
 class Blitz < Formula
-  desc "C++ class library for scientific computing"
-  homepage "https://blitz.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/blitz/blitz/Blitz++%200.10/blitz-0.10.tar.gz"
-  sha256 "804ef0e6911d43642a2ea1894e47c6007e4c185c866a7d68bad1e4c8ac4e6f94"
+  desc "Multi-dimensional array library for C++"
+  homepage "https://github.com/blitzpp/blitz/wiki"
+  url "https://github.com/blitzpp/blitz/archive/1.0.2.tar.gz"
+  sha256 "500db9c3b2617e1f03d0e548977aec10d36811ba1c43bb5ef250c0e3853ae1c2"
+  head "https://github.com/blitzpp/blitz.git"
 
   bottle do
     cellar :any
@@ -13,25 +14,14 @@ class Blitz < Formula
     sha256 "b676b24071752779faadf53d71b53b0c632b8ba62d1cd7c1f90d40ee5b13a85b" => :sierra
   end
 
-  head do
-    url "https://github.com/blitzpp/blitz.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "autoreconf", "-fi" if build.head?
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--infodir=#{info}",
-                          "--enable-shared",
-                          "--disable-doxygen",
-                          "--disable-dot",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "lib"
+      system "make", "install"
+    end
   end
 
   test do
