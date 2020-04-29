@@ -1,8 +1,8 @@
 class Makeself < Formula
   desc "Make self-extractable archives on UNIX"
   homepage "http://www.megastep.org/makeself/"
-  url "https://github.com/megastep/makeself/archive/release-2.4.0.tar.gz"
-  sha256 "76a8c3f3fad1b55c39ba2904a19e74962151f9481df03091d4e54938bdd13f50"
+  url "https://github.com/megastep/makeself/archive/release-2.4.2.tar.gz"
+  sha256 "8789312db5e93fc471a1e4fb88ec13227ef63a9c7aad297f3bbf35f9511f8d62"
   head "https://github.com/megastep/makeself.git"
 
   bottle :unneeded
