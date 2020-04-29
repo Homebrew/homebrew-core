@@ -3,7 +3,7 @@ class TeensyLoaderCli < Formula
   homepage "https://www.pjrc.com/teensy/loader_cli.html"
   url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/2.1.tar.gz"
   sha256 "5c36fe45b9a3a71ac38848b076cd692bf7ca8826a69941c249daac3a1d95e388"
-  revision 1
+  revision 2
   head "https://github.com/PaulStoffregen/teensy_loader_cli.git"
 
   bottle do
@@ -18,6 +18,8 @@ class TeensyLoaderCli < Formula
   def install
     ENV["OS"] = "MACOSX"
     ENV["SDK"] = MacOS.sdk_path || "/"
+
+    inreplace "teensy_loader_cli.c", /ret != kIOReturnSuccess/, "0"
 
     system "make"
     bin.install "teensy_loader_cli"
