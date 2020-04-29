@@ -1,8 +1,8 @@
 class Quazip < Formula
   desc "C++ wrapper over Gilles Vollant's ZIP/UNZIP package"
   homepage "https://github.com/stachenov/quazip/"
-  url "https://github.com/stachenov/quazip/archive/v0.8.1.tar.gz"
-  sha256 "4fda4d4248e08015b5090d0369ef9e68bdc4475aa12494f7c0f6d79e43270d14"
+  url "https://github.com/stachenov/quazip/archive/v0.9.tar.gz"
+  sha256 "377ebf77630e4cff7411fe149cb342e10f3be55ba123cc0b1ee09a25fc3faa06"
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class Quazip < Formula
     sha256 "f098b6dd9cc67d73ea2454664bb139e1e7c85315aed66757306d0155fe7a1eaf" => :sierra
   end
 
+  depends_on :xcode => :build
   depends_on "qt"
 
   def install
