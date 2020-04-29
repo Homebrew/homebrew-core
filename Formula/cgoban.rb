@@ -1,8 +1,8 @@
 class Cgoban < Formula
   desc "Go-related services"
   homepage "https://cgoban1.sourceforge.io/"
-  url "https://web.archive.org/web/20190926163208/www.igoweb.org/~wms/comp/cgoban/cgoban-1.9.12.tar.gz"
-  sha256 "b9e8b0d2f793fecbc26803d673de11d8cdc88af9d286a6d49b7523f8b4fa20e1"
+  url "https://downloads.sourceforge.net/project/cgoban1/cgoban1/1.9.14/cgoban-1.9.14.tar.gz"
+  sha256 "3b8a6fc0e989bf977fcd9a65a367aa18e34c6e25800e78dd8f0063fa549c9b62"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,15 +19,13 @@ class Cgoban < Formula
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--disable-silent-rules"
-
-    bin.mkpath
-    man6.mkpath
-
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}",
+                          "--with-x"
+    system "make", "install"
   end
 
   test do
-    system "#{bin}/cgoban", "--version"
+    assert_match "version #{version}", shell_output("#{bin}/cgoban --version")
   end
 end
