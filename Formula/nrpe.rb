@@ -1,8 +1,8 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.0/nrpe-4.0.2.tar.gz"
-  sha256 "c5d9d7023eaa49e6fe8cf95c6d101731f07972cf0f8818fa130c171bc9eabd55"
+  url "https://downloads.sourceforge.net/project/nagios/nrpe-4.x/nrpe-4.0.3/nrpe-4.0.3.tar.gz"
+  sha256 "f907ba15381adfc6eef211508abd027f8e1973116080faa4534a1191211c0340"
 
   bottle do
     cellar :any
