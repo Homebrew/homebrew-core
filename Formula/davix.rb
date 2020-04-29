@@ -1,9 +1,8 @@
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://dmc.web.cern.ch/projects/davix/home"
-  url "https://github.com/cern-fts/davix.git",
-      :tag      => "R_0_7_5",
-      :revision => "4b04a98027ff5ce94e18e3b110420f1ff912a32c"
+  url "https://github.com/cern-fts/davix/releases/download/R_0_7_6/davix-0.7.6.tar.gz"
+  sha256 "a2e7fdff29f7ba247a3bcdb08ab1db6d6ed745de2d3971b46526986caf360673"
   head "https://github.com/cern-fts/davix.git"
 
   bottle do
@@ -20,9 +19,6 @@ class Davix < Formula
   depends_on "openssl@1.1"
 
   def install
-    ENV.libcxx
-
-    cp "release.cmake", "version.cmake"
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
