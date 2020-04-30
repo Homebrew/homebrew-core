@@ -1,9 +1,8 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.23.3.tar.xz"
-  sha256 "53cea69eaabe443a099fb204b7353e968e7bb62b41fbb0da24451403c7a56901"
-  revision 1
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.24.0.tar.xz"
+  sha256 "b3b96e443c5e36a93e5fe443304ecb661a4707ef921385bf7d9ff24c9e980cfa"
 
   bottle do
     sha256 "457fb34df5c78927bd93080ecc39a823d6a227b5d650324658751de482b6e460" => :catalina
@@ -39,12 +38,6 @@ class Efl < Formula
   depends_on "shared-mime-info"
 
   uses_from_macos "zlib"
-
-  # Fix build with 10.15+ SDK
-  patch do
-    url "https://github.com/Enlightenment/efl/commit/51e4bcc32c8b3d20980dd4f669e92e32a95a82fb.patch?full_index=1"
-    sha256 "173f15e9154f76898ce090211a7c87675d9198a79a32c7ef59df870cfafea02c"
-  end
 
   def install
     args = %W[
