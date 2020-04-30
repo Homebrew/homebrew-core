@@ -3,6 +3,7 @@ class NodeAT12 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v12.17.0/node-v12.17.0.tar.xz"
   sha256 "ca6d9e86a7fffc95f0ac6424ae242ed03026ed1f15a96ed5ac5ae3603f6f4e33"
+  revision 1
 
   bottle do
     cellar :any
