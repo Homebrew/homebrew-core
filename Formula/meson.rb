@@ -3,7 +3,7 @@ class Meson < Formula
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.54.1/meson-0.54.1.tar.gz"
   sha256 "2f76fb4572762be13ee479292610091b4509af5788bcceb391fe222bcd0296dc"
-  revision 1
+  revision 2
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
