@@ -1,8 +1,8 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.6.0.tar.gz"
-  sha256 "19c2500f22c547b69d314fda55a91c40b0d2a9c269496a5da5d32ae1b835d6d1"
+  url "https://dist.opendnssec.org/source/softhsm-2.6.1.tar.gz"
+  sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
 
   bottle do
     sha256 "6191b8427b45b0d497df2442326a1ef771d780528a1af630283921314631d7f5" => :catalina
@@ -11,13 +11,6 @@ class Softhsm < Formula
   end
 
   depends_on "openssl@1.1"
-
-  # Fix macOS compile.
-  # Remove with the next release.
-  patch do
-    url "https://github.com/opendnssec/SoftHSMv2/commit/0601e4014dc2c1296b25d4868f8d7a50c0e31e75.patch?full_index=1"
-    sha256 "e860d142e8e6aa757b381789d8aad0bae09f93caed3ae37c3fc67dcefea18099"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
