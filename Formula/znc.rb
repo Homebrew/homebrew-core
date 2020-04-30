@@ -3,6 +3,7 @@ class Znc < Formula
   homepage "https://wiki.znc.in/ZNC"
   url "https://znc.in/releases/archive/znc-1.8.0.tar.gz"
   sha256 "94fdb227c1afa3abff468e0b7b1309120ad99d6aa64c4fd35bef02928171bd54"
+  revision 1
 
   bottle do
     sha256 "709f3ab4bcf9e6a257d4033ff73cdeb44ec1c53b16a63a2c9135543cdc80dc82" => :catalina
