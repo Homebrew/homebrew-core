@@ -4,7 +4,7 @@ class Monero < Formula
   url "https://github.com/monero-project/monero.git",
       :tag      => "v0.15.0.5",
       :revision => "17ec003c06eb95207c91f0e9186889f83266e461"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -28,6 +28,10 @@ class Monero < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    # Fix conflict with miniupnpc.
+    # This has been reported at https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
   end
 
   plist_options :manual => "monerod"
