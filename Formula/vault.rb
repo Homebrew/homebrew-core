@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag      => "v1.4.0",
-      :revision => "d808ace758b9bac5c84a9634ffbfae43c5f5a3ad"
+      :tag      => "v1.4.1",
+      :revision => "b2b4ab9577e413b00d9b727e2c3f465561bd38bd"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
@@ -16,17 +16,11 @@ class Vault < Formula
     sha256 "9c1fa0610b597f5a3dce30415aa634b5c5381376f48774b2bd3e12b9c3434b6c" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
+  depends_on "go" => :build
   depends_on "gox" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-
-    # GOPRIVATE should be removed when v1.4.1 is released.
-    #
-    # https://github.com/macports/macports-ports/pull/6818
-    # https://github.com/hashicorp/vault/issues/8696
-    ENV["GOPRIVATE"] = "github.com/hashicorp/vault-plugin*"
 
     contents = buildpath.children - [buildpath/".brew_home"]
     (buildpath/"src/github.com/hashicorp/vault").install contents
