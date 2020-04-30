@@ -4,6 +4,7 @@ class PhpAT72 < Formula
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.2.31.tar.xz"
   sha256 "8beaa634bb878a96af9bc8643811ea46973f5f41ad2bfb6ab4cfd290e5a39806"
+  revision 1
 
   bottle do
     sha256 "2196d071cb0db0da7eaca2eee897993184db0ba1836b5a8124c771d5a7ded682" => :catalina
