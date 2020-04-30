@@ -1,6 +1,6 @@
 class Delta < Formula
   desc "Programatically minimize files to isolate features of interest"
-  homepage "http://delta.tigris.org/"
+  homepage "https://web.archive.org/web/20170805142100/delta.tigris.org/"
   url "https://deb.debian.org/debian/pool/main/d/delta/delta_2006.08.03.orig.tar.gz"
   sha256 "38184847a92b01b099bf927dbe66ef88fcfbe7d346a7304eeaad0977cb809ca0"
 
