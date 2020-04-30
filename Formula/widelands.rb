@@ -3,7 +3,7 @@ class Widelands < Formula
   homepage "https://www.widelands.org/"
   url "https://launchpad.net/widelands/build20/build20/+download/widelands-build20.tar.bz2"
   sha256 "38594d98c74f357d4c31dd8ee2b056bfe921f42935935af915d11b792677bcb2"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "566e4df28ebad91fd302e08eee44f7187cc313c8f56f27013e332e31f3801f80" => :catalina
