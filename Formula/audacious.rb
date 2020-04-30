@@ -3,12 +3,12 @@ class Audacious < Formula
   homepage "https://audacious-media-player.org/"
 
   stable do
-    url "https://distfiles.audacious-media-player.org/audacious-4.0.tar.bz2"
-    sha256 "3f46025334cc79332ef87a0c94297632f8eceb8e1497bf5a76a57003453c8bea"
+    url "https://distfiles.audacious-media-player.org/audacious-4.0.3.tar.bz2"
+    sha256 "f30177c51857f32ac62b8a4d79e84ab19baf660da4b35abb7215dc8a231f76d6"
 
     resource "plugins" do
-      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.0.tar.bz2"
-      sha256 "e1ad3223c7833f167642563f3c30c68d292b1a457c9f0159fdedd58e575e3ee4"
+      url "https://distfiles.audacious-media-player.org/audacious-plugins-4.0.3.tar.bz2"
+      sha256 "e2a88f5cac3efe03eedbb8d320ca1bb9300788ce66056d2ceba60eb00f8aef97"
     end
   end
 
@@ -41,7 +41,9 @@ class Audacious < Formula
   depends_on "lame"
   depends_on "libbs2b"
   depends_on "libcue"
+  depends_on "libmodplug"
   depends_on "libnotify"
+  depends_on "libopenmpt"
   depends_on "libsamplerate"
   depends_on "libsoxr"
   depends_on "libvorbis"
@@ -55,10 +57,8 @@ class Audacious < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --disable-coreaudio
+      --disable-dbus
       --disable-gtk
-      --disable-mpris2
-      --enable-mac-media-keys
       --enable-qt
     ]
 
@@ -68,6 +68,13 @@ class Audacious < Formula
     system "make", "install"
 
     resource("plugins").stage do
+      args += %w[
+        --disable-coreaudio
+        --disable-mpris2
+        --enable-mac-media-keys
+      ]
+      inreplace "src/glspectrum/gl-spectrum.cc", "#include <GL/", "#include <"
+      inreplace "src/qtglspectrum/gl-spectrum.cc", "#include <GL/", "#include <"
       ENV.prepend_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
 
       system "./autogen.sh" if build.head?
@@ -80,9 +87,9 @@ class Audacious < Formula
 
   def caveats
     <<~EOS
-      audtool does not work due to a broken dbus implementation on macOS, so is not built
-      coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
-      GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
+      audtool does not work due to a broken dbus implementation on macOS, so it is not built.
+      Core Audio output has been disabled as it does not work (fails to set audio unit input property).
+      GTK+ GUI is not built by default as the Qt GUI has better integration with macOS, and the GTK GUI would take precedence if present.
     EOS
   end
 
