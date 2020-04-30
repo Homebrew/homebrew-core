@@ -1,9 +1,8 @@
 class Wxmac < Formula
   desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2"
-  sha256 "96157f988d261b7368e5340afa1a0cad943768f35929c22841f62c25b17bf7f0"
-  revision 2
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5/wxWidgets-3.0.5.tar.bz2"
+  sha256 "8aacd56b462f42fb6e33b4d8f5d40be5abc3d3b41348ea968aa515cc8285d813"
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
@@ -17,11 +16,6 @@ class Wxmac < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-
-  # Adjust assertion which fails for wxGLCanvas due to changes in macOS 10.14.
-  # Patch taken from upstream WX_3_0_BRANCH:
-  # https://github.com/wxWidgets/wxWidgets/commit/531fdbcb64b265e6f24f1f0cc7469f308b9fb697
-  patch :DATA
 
   def install
     args = [
@@ -64,29 +58,3 @@ class Wxmac < Formula
     system bin/"wx-config", "--libs"
   end
 end
-
-__END__
---- a/src/osx/carbon/dcclient.cpp
-+++ b/src/osx/carbon/dcclient.cpp
-@@ -189,10 +189,20 @@ wxPaintDCImpl::wxPaintDCImpl( wxDC *owner )
- {
- }
-
-+#if wxDEBUG_LEVEL
-+static bool IsGLCanvas( wxWindow * window )
-+{
-+    // If the wx gl library isn't loaded then ciGLCanvas will be NULL.
-+    static const wxClassInfo* const ciGLCanvas = wxClassInfo::FindClass("wxGLCanvas");
-+    return ciGLCanvas && window->IsKindOf(ciGLCanvas);
-+}
-+#endif
-+
- wxPaintDCImpl::wxPaintDCImpl( wxDC *owner, wxWindow *window ) :
-     wxWindowDCImpl( owner, window )
- {
--    wxASSERT_MSG( window->MacGetCGContextRef() != NULL, wxT("using wxPaintDC without being in a native paint event") );
-+    // With macOS 10.14, wxGLCanvas windows have a NULL CGContextRef.
-+    wxASSERT_MSG( window->MacGetCGContextRef() != NULL || IsGLCanvas(window), wxT("using wxPaintDC without being in a native paint event") );
-     wxPoint origin = window->GetClientAreaOrigin() ;
-     m_window->GetClientSize( &m_width , &m_height);
-     SetDeviceOrigin( origin.x, origin.y );
