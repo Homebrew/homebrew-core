@@ -19,7 +19,6 @@ class Lanraragi < Formula
   depends_on "perl"
   depends_on "redis"
 
-
   resource "Image::Magick" do
     url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-6.89-1.tar.gz"
     sha256 "c8f81869a4f007be63e67fddf724b23256f6209f16aa95e14d0eaef283772a59"
