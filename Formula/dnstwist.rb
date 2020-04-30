@@ -3,8 +3,8 @@ class Dnstwist < Formula
 
   desc "Test domains for typo squatting, phishing and corporate espionage"
   homepage "https://github.com/elceef/dnstwist"
-  url "https://github.com/elceef/dnstwist/archive/20200427.tar.gz"
-  sha256 "ee1e0b6b1710b09ae1d3db2279f00bab8a95eddada5af904f30b7643c8dc2731"
+  url "https://github.com/elceef/dnstwist/archive/20200429.tar.gz"
+  sha256 "f7287bf6bffdb4469ea58bedad1e9985896e613b4114512039aaea8ba1273bbc"
 
   bottle do
     cellar :any
