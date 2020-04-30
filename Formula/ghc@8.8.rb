@@ -8,7 +8,6 @@ class GhcAT88 < Formula
   url "https://downloads.haskell.org/~ghc/8.8.3/ghc-8.8.3-src.tar.xz"
   sha256 "e0dcc0aaf3e234c5978f29e6df62947e97720ab404ec0158343df211c5480f89"
 
-
   keg_only :versioned_formula
 
   depends_on "python" => :build
@@ -21,13 +20,12 @@ class GhcAT88 < Formula
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_6_5.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_8_3.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
-  # Need to use 8.6.5 to build 8.8.1 because of
-  # https://gitlab.haskell.org/ghc/ghc/issues/17146
+  # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    url "https://downloads.haskell.org/~ghc/8.8.3/ghc-8.8.3-x86_64-apple-darwin.tar.xz"
+    sha256 "7016de90dd226b06fc79d0759c5d4c83c2ab01d8c678905442c28bd948dbb782"
   end
 
   def install
