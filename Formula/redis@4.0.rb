@@ -14,6 +14,8 @@ class RedisAT40 < Formula
 
   keg_only :versioned_formula
 
+  deprecate!
+
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
