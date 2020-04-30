@@ -1,6 +1,6 @@
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
-  homepage "https://github.com/cjbassi/gotop"
+  homepage "https://github.com/xxxserxxx/gotop"
   url "https://github.com/xxxserxxx/gotop/archive/v3.5.2.tar.gz"
   sha256 "d175d370491c1d1b98c8cd1015674f5cfc04d3dbe6ea4a528b641698f0fafb34"
 
