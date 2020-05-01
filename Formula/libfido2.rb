@@ -42,9 +42,8 @@ class Libfido2 < Formula
         return 1;
       size_t found_devices = 0;
       int error;
-      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) != FIDO_OK)
-        return 1;
-      printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
+      if ((error = fido_dev_info_manifest(devlist, max_devices, &found_devices)) == FIDO_OK)
+        printf("FIDO/U2F devices found: %s\\n", found_devices ? "Some" : "None");
       fido_dev_info_free(&devlist, max_devices);
     }
     EOF
