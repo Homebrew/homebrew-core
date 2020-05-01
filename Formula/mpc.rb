@@ -17,7 +17,7 @@ class Mpc < Formula
   depends_on "libmpdclient"
 
   def install
-    system "meson", "--prefix=#{prefix}", ".", "output"
+    system "meson", *std_meson_args, ".", "output"
     system "ninja", "-C", "output"
     system "ninja", "-C", "output", "install"
 
