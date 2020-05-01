@@ -29,7 +29,7 @@ class Gexiv2 < Formula
     pyver = Language::Python.major_minor_version "python3"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dpython3_girdir=#{lib}/python#{pyver}/site-packages/gi/overrides", ".."
+      system "meson", *std_meson_args, "-Dpython3_girdir=#{lib}/python#{pyver}/site-packages/gi/overrides", ".."
       system "ninja"
       system "ninja", "install"
     end
