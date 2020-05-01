@@ -26,13 +26,12 @@ class Vte3 < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    args = [
-      "--prefix=#{prefix}",
-      "-Dgir=true",
-      "-Dgtk3=true",
-      "-Dgnutls=true",
-      "-Dvapi=true",
-      "-D_b_symbolic_functions=false",
+    args = std_meson_args + %w[
+      -Dgir=true
+      -Dgtk3=true
+      -Dgnutls=true
+      -Dvapi=true
+      -D_b_symbolic_functions=false
     ]
 
     mkdir "build" do
