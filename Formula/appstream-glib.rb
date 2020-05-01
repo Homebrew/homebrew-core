@@ -32,7 +32,7 @@ class AppstreamGlib < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dbuilder=false", "-Drpm=false", "-Ddep11=false", "-Dstemmer=false", ".."
+      system "meson", *std_meson_args, "-Dbuilder=false", "-Drpm=false", "-Ddep11=false", "-Dstemmer=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
