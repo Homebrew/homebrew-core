@@ -21,13 +21,8 @@ class Babl < Formula
   depends_on "little-cms2"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      -Dwith-docs=false
-    ]
-
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *std_meson_args, "-Dwith-docs=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
