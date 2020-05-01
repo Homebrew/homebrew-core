@@ -43,7 +43,7 @@ class Mesa < Formula
     resource("gears.c").stage(pkgshare.to_s)
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "..", "-Dbuildtype=plain", "-Db_ndebug=true",
+      system "meson", *std_meson_args, "..", "-Dbuildtype=plain", "-Db_ndebug=true",
                       "-Dplatforms=surfaceless", "-Dglx=disabled"
       system "ninja"
       system "ninja", "install"
