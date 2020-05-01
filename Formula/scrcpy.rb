@@ -27,7 +27,7 @@ class Scrcpy < Formula
     cp r.cached_download, buildpath/"prebuilt-server.jar"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
                       ".."
