@@ -22,7 +22,7 @@ class Libosinfo < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Denable-gtk-doc=false", ".."
+      system "meson", *std_meson_args, "-Denable-gtk-doc=false", ".."
       system "ninja", "install", "-v"
     end
   end
