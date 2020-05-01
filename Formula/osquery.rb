@@ -1,8 +1,9 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/osquery/osquery/archive/4.3.0.tar.gz"
-  sha256 "a7d5252b0363fb20a85ab58e9939a21b3ad959602d1acde4a6080f5f372d9d0d"
+  url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
+  sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
+  revision 16
 
   bottle do
     cellar :any
@@ -31,7 +32,7 @@ class Osquery < Formula
   depends_on "ssdeep"
   depends_on "thrift"
   depends_on "xz"
-  depends_on "yara"
+  depends_on "yara" => "3.11"
   depends_on "zstd"
 
   resource "MarkupSafe" do
