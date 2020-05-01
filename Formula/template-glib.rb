@@ -22,7 +22,7 @@ class TemplateGlib < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=false", ".."
+      system "meson", *std_meson_args, "-Dwith_vapi=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
