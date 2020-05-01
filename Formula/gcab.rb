@@ -20,7 +20,7 @@ class Gcab < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Ddocs=false", ".."
+      system "meson", *std_meson_args, "-Ddocs=false", ".."
       system "ninja"
       system "ninja", "install"
     end
