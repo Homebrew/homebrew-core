@@ -3,9 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/03/f2/71cd4de6bdb1a9b2c415239c7f7ee271b3f4ad9f70d56197c74749088255/ocrmypdf-9.7.2.tar.gz"
-  sha256 "9809a443067de3b41169790e3c109d1a37d803f1eecf62e33d44cfaefa07626f"
-  revision 1
+  url "https://files.pythonhosted.org/packages/d9/c8/ba5a67e1d0cac320a0087bde9aa3937299250010b920317aebd9c66dbc52/ocrmypdf-9.8.0.tar.gz"
+  sha256 "168b4b6a423acfaf4fe93530e72e8ecfbb9f211a6f0d953a72c197d024c69ddc"
 
   bottle do
     cellar :any
@@ -44,8 +43,8 @@ class Ocrmypdf < Formula
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/f4/f8/0dff30a3bf2a46ebda2dc59c513b3384ee6320d16c242f512dba9fe427d6/img2pdf-0.3.4.tar.gz"
-    sha256 "0b482b7f317b76051fabf6e50e5eea1584b20bdf76b6b54c16b6ef1d5298ee49"
+    url "https://files.pythonhosted.org/packages/65/12/6ee1a77614df6decefd88f781cf95b73acf93f0cc9eb03bd5042d116b85d/img2pdf-0.3.6.tar.gz"
+    sha256 "8cd5509a60b75f4442b897bad3d593e25ebd314105f3034a8f17def396a4a0fb"
   end
 
   resource "lxml" do
