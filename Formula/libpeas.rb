@@ -22,8 +22,7 @@ class Libpeas < Formula
   depends_on "python@3.8"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dpython3=true
       -Dintrospection=true
       -Dvapi=true
