@@ -40,8 +40,7 @@ class Efl < Formula
   uses_from_macos "zlib"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Davahi=false
       -Dbuild-examples=false
       -Dbuild-tests=false
