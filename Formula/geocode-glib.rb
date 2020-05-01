@@ -21,7 +21,7 @@ class GeocodeGlib < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Denable-installed-tests=false", "-Denable-gtk-doc=false", ".."
+      system "meson", *std_meson_args, "-Denable-installed-tests=false", "-Denable-gtk-doc=false", ".."
       system "ninja"
       system "ninja", "install"
     end
