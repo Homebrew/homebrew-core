@@ -34,13 +34,9 @@ class GobjectIntrospection < Formula
       "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', join_paths(get_option('prefix'), get_option('libdir')))",
       "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', '#{HOMEBREW_PREFIX}/lib')"
 
-    args = %W[
-      --prefix=#{prefix}
-      -Dpython=#{Formula["python@3.8"].opt_bin}/python3
-    ]
-
     mkdir "build" do
-      system "meson", *args, ".."
+      system "meson", *std_meson_args,
+        "-Dpython=#{Formula["python@3.8"].opt_bin}/python3", ".."
       Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
       system "ninja", "-v"
       system "ninja", "install", "-v"
