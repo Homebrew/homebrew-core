@@ -31,7 +31,7 @@ class Gtranslator < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
