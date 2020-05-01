@@ -41,7 +41,7 @@ class Gitg < Formula
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dpython=false", ".."
+      system "meson", *std_meson_args, "-Dpython=false", ".."
       system "ninja"
       system "ninja", "install"
     end
