@@ -3,7 +3,7 @@ class Gdal < Formula
   homepage "https://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.4.4/gdal-2.4.4.tar.xz"
   sha256 "a383bd3cf555d6e1169666b01b5b3025b2722ed39e834f1b65090f604405dcd8"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "d6fbd6dc124a0fd525a2092cf87b3d0bd5d1c5158b0bd992a0baf54189878dab" => :catalina
@@ -47,6 +47,12 @@ class Gdal < Formula
   depends_on "zstd"
 
   conflicts_with "cpl", :because => "both install cpl_error.h"
+
+  # Patch for Poppler v0.85 and above
+  patch :p2 do
+    url "https://github.com/OSGeo/gdal/commit/d587c2b0.diff?full_index=1"
+    sha256 "9a6f473751e4e940f499b09fa0113a69c9977ef13f9a619f654142d4388ae568"
+  end
 
   def install
     args = [
