@@ -23,7 +23,7 @@ class KnotResolver < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "--default-library=static", ".."
+      system "meson", *std_meson_args, "--default-library=static", ".."
       system "ninja"
       system "ninja", "install"
     end
