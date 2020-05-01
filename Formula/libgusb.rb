@@ -32,7 +32,7 @@ class Libgusb < Formula
   def install
     (share/"hwdata/").install resource("usb.ids")
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Ddocs=false", "-Dusb_ids=#{share}/hwdata/usb.ids", ".."
+      system "meson", *std_meson_args, "-Ddocs=false", "-Dusb_ids=#{share}/hwdata/usb.ids", ".."
       system "ninja"
       system "ninja", "install"
     end
