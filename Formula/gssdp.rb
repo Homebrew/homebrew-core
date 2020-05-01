@@ -21,7 +21,7 @@ class Gssdp < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dsniffer=false", ".."
+      system "meson", *std_meson_args, "-Dsniffer=false", ".."
       system "ninja"
       system "ninja", "install"
     end
