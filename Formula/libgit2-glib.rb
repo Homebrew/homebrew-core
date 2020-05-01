@@ -23,7 +23,7 @@ class Libgit2Glib < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "-Dpython=false",
                       "-Dvapi=true",
                       ".."
