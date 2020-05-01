@@ -26,7 +26,7 @@ class Pango < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "-Ddefault_library=both",
                       "-Dintrospection=true",
                       "-Duse_fontconfig=true",
