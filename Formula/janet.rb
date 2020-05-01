@@ -16,7 +16,7 @@ class Janet < Formula
   depends_on "ninja" => :build
 
   def install
-    system "meson", "setup", "build", "--buildtype=release", "--prefix=#{prefix}"
+    system "meson", "setup", "build", "--buildtype=release", *std_meson_args
     cd "build" do
       system "ninja"
       system "ninja", "install"
