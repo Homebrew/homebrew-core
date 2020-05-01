@@ -25,7 +25,7 @@ class GtkVnc < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith-vala=false", ".."
+      system "meson", *std_meson_args, "-Dwith-vala=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
