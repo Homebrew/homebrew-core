@@ -18,8 +18,7 @@ class Gtksourceview4 < Formula
   depends_on "gtk+3"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dgir=true
       -Dvapi=true
     ]
