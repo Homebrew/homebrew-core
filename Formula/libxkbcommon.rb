@@ -20,7 +20,7 @@ class Libxkbcommon < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Denable-wayland=false", "-Denable-docs=false", ".."
+      system "meson", *std_meson_args, "-Denable-wayland=false", "-Denable-docs=false", ".."
       system "ninja", "install", "-v"
     end
   end
