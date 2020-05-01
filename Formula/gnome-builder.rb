@@ -41,8 +41,7 @@ class GnomeBuilder < Formula
     # prevent sandbox violation
     pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
 
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %W[
       -Dwith_git=true
       -Dwith_autotools=true
       -Dwith_history=true
