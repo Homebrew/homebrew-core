@@ -5,18 +5,44 @@ on:
   pull_request: []
 jobs:
   tap_syntax:
-    runs-on: macOS-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macOS-latest]
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
       run: |
-        HOMEBREW_REPOSITORY="$(brew --repo)"
-        brew update-reset "$HOMEBREW_REPOSITORY"
+        if which brew &>/dev/null; then
+          HOMEBREW_REPOSITORY="$(brew --repo)"
+          brew update-reset "$HOMEBREW_REPOSITORY"
 
+          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
+          ln -s "$PWD" "$HOMEBREW_CORE_REPOSITORY"
+        else
+          HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
+          HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
+          sudo mkdir -p "$HOMEBREW_PREFIX"
+          sudo git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY"
+
+          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
+          sudo mkdir -p "$HOMEBREW_CORE_REPOSITORY"
+          git -C "$HOMEBREW_CORE_REPOSITORY" init
+          git -C "$HOMEBREW_CORE_REPOSITORY" remote add origin "https://github.com/$GITHUB_REPOSITORY"
+
+          cd "$HOMEBREW_PREFIX"
+          sudo mkdir -p bin etc include lib opt sbin share var/homebrew/linked Cellar
+          sudo ln -sf ../Homebrew/bin/brew "$HOMEBREW_PREFIX/bin/"
+          cd -
+
+          export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+          echo "::add-path::$HOMEBREW_PREFIX/bin"
+        fi
+
+        GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/"
+        echo "::set-output name=gems-path::$GEMS_PATH"
         GEMS_HASH=$(shasum -a 256 "$HOMEBREW_REPOSITORY/Library/Homebrew/Gemfile.lock" | cut -f1 -d' ')
         echo "::set-output name=gems-hash::$GEMS_HASH"
-
-        HOMEBREW_CORE_REPOSITORY="$(brew --repo homebrew/core)"
 
         cd "$HOMEBREW_CORE_REPOSITORY"
         rm -rf "$GITHUB_WORKSPACE"
@@ -25,23 +51,33 @@ jobs:
         git checkout --force -B master FETCH_HEAD
         cd -
 
-    - name: Install taps
-      run: |
-        brew tap homebrew/test-bot
-        brew update-reset Library/Taps/homebrew/homebrew-test-bot
+        if [ "$RUNNER_OS" = "Linux" ]; then
+          sudo chown -R "$USER" "$HOMEBREW_PREFIX"
+          sudo chmod -R g-w,o-w "$HOMEBREW_CORE_REPOSITORY"
+        fi
+
+    - name: Set up Ruby
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/setup-ruby@master
+      with:
+        ruby-version: '2.6'
 
     - name: Cache Bundler RubyGems
       id: cache
       uses: actions/cache@v1
       with:
-        path: /usr/local/Homebrew/Library/Homebrew/vendor/bundle/
+        path: ${{ steps.set-up-homebrew.outputs.gems-path }}
         key: ${{ runner.os }}-gems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-        restore-keys: |
-          ${{ runner.os }}-gems-
+        restore-keys: ${{ runner.os }}-gems-
 
     - name: Install Bundler RubyGems
       if: steps.cache.outputs.cache-hit != 'true'
       run: brew install-bundler-gems
+
+    - name: Install taps
+      run: |
+        brew tap homebrew/test-bot
+        brew update-reset "$(brew --repo)/Library/Taps/homebrew/homebrew-test-bot"
 
     - name: Run brew test-bot --only-tap-syntax
       run: brew test-bot --only-tap-syntax
