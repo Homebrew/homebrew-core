@@ -22,7 +22,7 @@ class Gxml < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dintrospection=true", ".."
+      system "meson", *std_meson_args, "-Dintrospection=true", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
