@@ -21,7 +21,7 @@ class Pygobject3 < Formula
 
   def install
     mkdir "buildpy3" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "-Dpycairo=true",
                       "-Dpython=#{Formula["python@3.8"].opt_bin}/python3",
                       ".."
