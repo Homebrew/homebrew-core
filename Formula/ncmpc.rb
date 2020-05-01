@@ -1,8 +1,8 @@
 class Ncmpc < Formula
   desc "Curses Music Player Daemon (MPD) client"
   homepage "https://www.musicpd.org/clients/ncmpc/"
-  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.37.tar.xz"
-  sha256 "7c8eb727f6e12d8f97a53915b1b5632898b4afb335a1121c5e01c81df695615c"
+  url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.38.tar.xz"
+  sha256 "2bc1aa38aacd23131895cd9aa3abd9d1ca5700857034d9f35209e13e061e27a2"
 
   bottle do
     cellar :any
@@ -27,7 +27,7 @@ class Ncmpc < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dcolors=false", "-Dnls=disabled", ".."
+      system "meson", *std_meson_args, "-Dcolors=false", "-Dnls=disabled", ".."
       system "ninja", "install"
     end
   end
