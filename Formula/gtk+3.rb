@@ -32,8 +32,7 @@ class Gtkx3 < Formula
   patch :DATA
 
   def install
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dx11_backend=false
       -Dquartz_backend=true
       -Dgtk_doc=false
