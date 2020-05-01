@@ -24,7 +24,7 @@ class Gom < Formula
     pyver = Language::Python.major_minor_version "python3"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
         "-Dpygobject-override-dir=#{lib}/python#{pyver}/site-packages", ".."
       system "ninja"
       system "ninja", "install"
