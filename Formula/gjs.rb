@@ -71,8 +71,7 @@ class Gjs < Formula
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
 
-    args = %W[
-      --prefix=#{prefix}
+    args = std_meson_args + %w[
       -Dprofiler=disabled
       -Dinstalled_tests=false
       -Dbsymbolic_functions=false
