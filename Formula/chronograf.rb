@@ -3,8 +3,8 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.8.3.tar.gz"
-  sha256 "743cfec5eb1fce9f77e93d5bcf2e9bbceab6ebc035907354713ea25c9b40024f"
+  url "https://github.com/influxdata/chronograf/archive/1.8.4.tar.gz"
+  sha256 "9f3564d382abe96077e4f819702d43b2152ff2891899278605f2bb7897417b8c"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
@@ -29,8 +29,8 @@ class Chronograf < Formula
     chronograf_path.install buildpath.children
 
     cd chronograf_path do
-      cd "ui" do # fix node 12 compatibility
-        system "yarn", "upgrade", "parcel@1.11.0", "node-sass@4.12.0"
+      cd "ui" do # fix compatibility with the latest node
+        system "yarn", "upgrade", "parcel@1.11.0"
       end
       system "make", "dep"
       system "make", ".jssrc"
