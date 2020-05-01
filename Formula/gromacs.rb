@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.1.tar.gz"
-  sha256 "e1666558831a3951c02b81000842223698016922806a8ce152e8f616e29899cf"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.2.tar.gz"
+  sha256 "7465e4cd616359d84489d919ec9e4b1aaf51f0a4296e693c249e83411b7bd2f3"
 
   bottle do
     sha256 "72d49c0e34e42499f3f415d2eb0945a6a92446237b7175b385e546c3534e5b98" => :catalina
@@ -20,9 +20,13 @@ class Gromacs < Formula
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
                                         "CMAKE_INSTALL_DATADIR"
 
-    args = std_cmake_args + %w[
-      -DCMAKE_C_COMPILER=gcc-9
-      -DCMAKE_CXX_COMPILER=g++-9
+    # Avoid superenv shim reference
+    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
+                                                             "/usr/bin/ld"
+
+    args = std_cmake_args + %W[
+      -DCMAKE_C_COMPILER=gcc-#{Formula["gcc"].version_suffix}
+      -DCMAKE_CXX_COMPILER=g++-#{Formula["gcc"].version_suffix}
     ]
 
     mkdir "build" do
