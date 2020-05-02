@@ -2,9 +2,8 @@ class Libzt < Formula
   desc "Encrypted P2P networking library for applications (GPLv3)"
   homepage "https://www.zerotier.com"
   url "https://github.com/zerotier/libzt.git",
-    :tag      => "1.3.1-hb1",
-    :revision => "d5b064623e1161196fd5bc14668e83bec2c27717"
-  version "1.3.1"
+    :tag      => "1.3.3",
+    :revision => "a0b50530d37d9c13d30a68bf1d4686485be36327"
 
   bottle do
     cellar :any
@@ -20,13 +19,13 @@ class Libzt < Formula
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     system "make", "install"
-    prefix.install "LICENSE.GPL-3" => "LICENSE"
+    prefix.install "LICENSE.txt" => "LICENSE"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <cstdlib>
-      #include <ZeroTier.h>
+      #include <ZeroTierSockets.h>
       int main()
       {
         return zts_socket(0,0,0) != -2;
