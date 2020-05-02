@@ -12,7 +12,7 @@ class Hledger < Formula
   end
 
   depends_on "ghc@8.8" => :build
-  depends_on "stack" => :build
+  depends_on "haskell-stack" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
