@@ -23,16 +23,19 @@ class Prometheus < Formula
     system "make", "build"
     bin.install %w[promtool prometheus]
     libexec.install %w[consoles console_libraries]
-  end
 
-  def post_install
-    (etc/"prometheus.args").write <<~EOS
+    (bin/"prometheus_brew_services").write <<~EOS
+      #!/bin/bash
+      exec #{bin}/prometheus_brew_services $(<#{etc}/prometheus.args)
+    EOS
+
+    (buildpath/"prometheus.args").write <<~EOS
       --config.file #{etc}/prometheus.yml
       --web.listen-address=127.0.0.1:9090
       --storage.tsdb.path #{var}/prometheus
     EOS
 
-    (etc/"prometheus.yml").write <<~EOS
+    (buildpath/"prometheus.yml").write <<~EOS
       global:
         scrape_interval: 15s
 
@@ -41,15 +44,14 @@ class Prometheus < Formula
           static_configs:
           - targets: ["localhost:9090"]
     EOS
+    etc.install "prometheus.args", "prometheus.yml"
   end
 
   def caveats
     <<~EOS
-      When used with `brew services`, prometheus' configuration is stored as command line flags in:
-        #{etc}/prometheus.args
-
-      Configuration for prometheus is located in the #{etc}/prometheus.yml file.
-
+      When run from `brew services`, `prometheus` is run from
+      `prometheus_brew_services` and uses the flags in:
+         #{etc}/prometheus.args
     EOS
   end
 
@@ -65,9 +67,7 @@ class Prometheus < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>sh</string>
-            <string>-c</string>
-            <string>#{opt_bin}/prometheus $(&lt; #{etc}/prometheus.args)</string>
+            <string>#{opt_bin}/prometheus_brew_services</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
