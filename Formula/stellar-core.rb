@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "The backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      :tag      => "v12.5.0",
-      :revision => "703982cd3e60f5981d156659b1d3e447ea1b15a8"
+      :tag      => "v13.0.0",
+      :revision => "9ed3da29be1c2c932b946025ca2907646a9072f4"
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
