@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/6b/3e/4141fb952d335fcd8243412a62e2a717d50d1de1d7e4b6a8fe485aa9ff5b/awsebcli-3.18.0.tar.gz"
-  sha256 "26b419b5a5c6b971a1c19f1b8e1ccc01c76b799d14ad1ecd1dc482e757401d59"
+  url "https://files.pythonhosted.org/packages/13/c4/fbdbb9a6d0fb3f268240d0506c5b48bc31ee1bf0303f3f90fda81b149824/awsebcli-3.18.1.tar.gz"
+  sha256 "a44fb91b3f6b35ea1166200df1954f8dde2228e0e1b37267b2ca6b8fa66809b5"
 
   bottle do
     cellar :any
@@ -26,8 +26,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "blessed" do
-    url "https://files.pythonhosted.org/packages/16/f2/9b5a546b7aad60fdbaa21da06e017cf263953b0769aaf706c1282b6050b9/blessed-1.17.4.tar.gz"
-    sha256 "320a619c83298a9c9d632dbd8fafbb90ba9a38b83c7e64726c572fb186dd0781"
+    url "https://files.pythonhosted.org/packages/e1/53/38b2da489d31a111c85d5040a65eee3ef001c8d80f78bd45bfd1816652e1/blessed-1.17.5.tar.gz"
+    sha256 "926916492220af741657ec4668aba95f54a8c32445e765cfa38c7ccd3343cc6f"
   end
 
   resource "botocore" do
@@ -66,8 +66,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9d/0a/d7060601834b1a0a84845d6ae2cd59be077aafa2133455062e47c9733024/cryptography-2.9.tar.gz"
-    sha256 "0cacd3ef5c604b8e5f59bf2582c076c98a37fe206b31430d0cd08138aff0986e"
+    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
+    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
   end
 
   resource "docker" do
