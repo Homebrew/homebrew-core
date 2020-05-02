@@ -11,9 +11,9 @@ class Agda < Formula
     sha256 "678f416af8f30d017825309f15fac41d239b07f66a4c40497e8435a6bdb7c129"
 
     resource "stdlib" do
+      # version needed to build with ghc-8.10.1
       url "https://github.com/agda/agda-stdlib.git",
-          :tag      => "v1.3",
-          :revision => "9f929b4fe28bb7ba74b6b95d01ed0958343f3451"
+          :revision => "b859bd363a96bc862ead0509bdf5869837651896"
     end
   end
 
