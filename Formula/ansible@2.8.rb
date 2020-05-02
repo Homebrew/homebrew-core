@@ -5,6 +5,7 @@ class AnsibleAT28 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.11.tar.gz"
   sha256 "156caa8b6c60b9f0d5c7d57ee0f4e46d8e226147b58546be6a8ac52925a9c191"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,7 +19,7 @@ class AnsibleAT28 < Formula
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
@@ -593,7 +594,7 @@ class AnsibleAT28 < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
