@@ -1,14 +1,12 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
   homepage "https://www.supertux.org/"
-  url "https://github.com/SuperTux/supertux/releases/download/v0.5.1/SuperTux-v0.5.1-Source.tar.gz"
-  sha256 "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
-  revision 3
+  url "https://github.com/SuperTux/supertux/releases/download/v0.6.1.1/SuperTux-v0.6.1.1-Source.tar.gz"
+  sha256 "2e8df0637b6e17534f7d7c2bd9b4f0f99aaf92389afc1abb9eb44d2a79c76658"
   head "https://github.com/SuperTux/supertux.git"
 
   bottle do
     cellar :any
-    rebuild 1
     sha256 "a3d50acf760264c99f3f2bb9e02bca8dbbadc2d4f2c3a7e9b9995316a22cfa3d" => :catalina
     sha256 "006225504f80952487eb62f66359ac5976248ec4de46f266915f41f543e4742a" => :mojave
     sha256 "66385b85ba64e6ce35f5d74e9c2304e73795b977b75f814ff4eeb55cbfccba0b" => :high_sierra
@@ -25,22 +23,6 @@ class Supertux < Formula
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
-
-  # Fix symlink passing to physfs
-  # https://github.com/SuperTux/supertux/issues/614
-  patch do
-    url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff?full_index=1"
-    sha256 "2b12aeead4f425a0626051e246a9f6d527669624803d53d6d0b5758e51099059"
-  end
-
-  # Fix compilation issue with Xcode 9
-  # https://github.com/SuperTux/supertux/issues/762
-  # using Squirrel's patch
-  # https://github.com/albertodemichelis/squirrel/commit/a3a78eec
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/834e41a/supertux/squirrel_xcode9.patch"
-    sha256 "1830dcb88f635f611aa3236abdaee75b53293df407ebc8214f31635a75876831"
-  end
 
   def install
     ENV.cxx11
