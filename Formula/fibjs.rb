@@ -1,8 +1,8 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "https://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.29.0/fullsrc.zip"
-  sha256 "4e858fcfaf0e62bd06a7dfb8090c2bfabc9f5b7307d32908b33e0b93cae8052f"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.30.0/fullsrc.zip"
+  sha256 "4d3e000c7aeded81f74cf1beb497dbb8476a485b948deda73458cb49600251d5"
   head "https://github.com/fibjs/fibjs.git"
 
   bottle do
@@ -12,7 +12,6 @@ class Fibjs < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
 
   def install
     # the build script breaks when CI is set by Homebrew
