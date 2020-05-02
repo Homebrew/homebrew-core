@@ -3,6 +3,7 @@ class Sslyze < Formula
 
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
+  revision 1
 
   stable do
     url "https://github.com/nabla-c0d3/sslyze/archive/3.0.3.tar.gz"
@@ -33,12 +34,7 @@ class Sslyze < Formula
   depends_on :arch => :x86_64
   depends_on "libffi"
   depends_on "openssl@1.1"
-  depends_on "python"
-
-  resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
-    sha256 "5a215cb8dc12f892244e3a113fe05397ee23c5c4ca7a69cd6e69811755efc42d"
-  end
+  depends_on "python@3.8"
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
@@ -65,13 +61,8 @@ class Sslyze < Formula
     sha256 "869ad3c8a45e73bcbb3bf0dd094f0345675c830e851576f42585af1a60c2b0e5"
   end
 
-  resource "typing_extensions" do
-    url "https://files.pythonhosted.org/packages/6a/28/d32852f2af6b5ead85d396249d5bdf450833f3a69896d76eb480d9c5e406/typing_extensions-3.7.4.2.tar.gz"
-    sha256 "79ee589a3caca649a9bfd2a8de4709837400dfa00b6cc81962a1e6a1815969ae"
-  end
-
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.8")
 
     res = resources.map(&:name).to_set
     res -= %w[nassl]
@@ -82,6 +73,7 @@ class Sslyze < Formula
 
     resource("nassl").stage do
       nassl_path = Pathname.pwd
+      inreplace "Pipfile", 'python_version = "3.7"', 'python_version = "3.8"'
       system "pipenv", "install", "--dev"
       system "pipenv", "run", "invoke", "build.all"
       venv.pip_install nassl_path
