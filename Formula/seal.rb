@@ -14,16 +14,47 @@ class Seal < Formula
   depends_on "cmake" => [:build, :test]
 
   def install
-    cd "native/src" do
-      system "cmake", "-DSEAL_LIB_BUILD_TYPE=SHARED", ".", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-DBUILD_SHARED_LIBS=ON", ".", *std_cmake_args
+    system "make"
+    system "make", "install"
     pkgshare.install "native/examples"
   end
 
   test do
     cp_r (pkgshare/"examples"), testpath
+
+    # remove the partial CMakeLists
+    File.delete testpath/"examples/CMakeLists.txt"
+
+    # Chip in a new "CMakeLists.txt" for example code tests
+    (testpath/"examples/CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.12)
+      project(SEALExamples VERSION 3.5.1 LANGUAGES CXX)
+      # Executable will be in ../bin
+      set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SEALExamples_SOURCE_DIR}/../bin)
+
+      add_executable(sealexamples examples.cpp)
+      target_sources(sealexamples
+          PRIVATE
+              1_bfv_basics.cpp
+              2_encoders.cpp
+              3_levels.cpp
+              4_ckks_basics.cpp
+              5_rotation.cpp
+              6_serialization.cpp
+              7_performance.cpp
+      )
+
+      # Import Microsoft SEAL
+      find_package(SEAL 3.5.1 EXACT REQUIRED
+          # Providing a path so this can be built without installing Microsoft SEAL
+          PATHS ${SEALExamples_SOURCE_DIR}/../src/cmake
+      )
+
+      # Link Microsoft SEAL
+      target_link_libraries(sealexamples SEAL::seal)
+    EOS
+
     system "cmake", "examples"
     system "make"
     # test examples 1-5 and exit
