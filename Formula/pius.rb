@@ -5,6 +5,7 @@ class Pius < Formula
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v3.0.0.tar.gz"
   sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
+  revision 1
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
@@ -16,12 +17,7 @@ class Pius < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python"
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
-  end
+  depends_on "python@3.8"
 
   def install
     # Replace hardcoded gpg path (WONTFIX)
