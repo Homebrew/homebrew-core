@@ -5,6 +5,7 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
   sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
@@ -16,7 +17,8 @@ class Passpie < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python"
+  depends_on "libyaml"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
@@ -24,8 +26,8 @@ class Passpie < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "rstr" do
@@ -44,6 +46,9 @@ class Passpie < Formula
   end
 
   def install
+    # PyYAML 3.11 cannot be compiled on Python 3.7+
+    inreplace "setup.py", "PyYAML==3.11", "PyYAML==3.13"
+
     virtualenv_install_with_resources
   end
 
