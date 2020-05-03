@@ -13,11 +13,11 @@ class Glslang < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
 
   def install
-    args = %W[
-      -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
+    args = %w[
+      -DBUILD_EXTERNAL=OFF
+      -DENABLE_CTEST=OFF
     ]
 
     system "cmake", ".", *std_cmake_args, *args
