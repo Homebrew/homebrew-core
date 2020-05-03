@@ -3,6 +3,7 @@ class Ispc < Formula
   homepage "https://ispc.github.io"
   url "https://github.com/ispc/ispc/archive/v1.13.0.tar.gz"
   sha256 "cc74c4c490ddf4e0a63f01948ec8d6eb575d85ab5932d30ca4ad01c0e8f079ce"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,8 +15,8 @@ class Ispc < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+  depends_on "python@3.8" => :build
   depends_on "llvm"
-  depends_on "python"
 
   def install
     args = std_cmake_args + %W[
