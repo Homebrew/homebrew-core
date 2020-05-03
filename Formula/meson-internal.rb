@@ -5,6 +5,7 @@ class MesonInternal < Formula
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.46.1/meson-0.46.1.tar.gz"
   sha256 "19497a03e7e5b303d8d11f98789a79aba59b5ad4a81bd00f4d099be0212cee78"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -23,7 +24,7 @@ class MesonInternal < Formula
   EOS
 
   depends_on "ninja"
-  depends_on "python"
+  depends_on "python@3.8"
 
   # see https://github.com/mesonbuild/meson/pull/2577
   patch do
