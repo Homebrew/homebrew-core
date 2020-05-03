@@ -4,6 +4,7 @@ class OpenBabel < Formula
   url "https://github.com/openbabel/openbabel/archive/openbabel-3-0-0.tar.gz"
   version "3.0.0"
   sha256 "5c630c4145abae9bb4ab6c56a940985acb6dadf3a8c3a8073d750512c0220f30"
+  revision 1
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do
@@ -18,13 +19,13 @@ class OpenBabel < Formula
   depends_on "swig" => :build
   depends_on "cairo"
   depends_on "eigen"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     args = std_cmake_args + %W[
       -DRUN_SWIG=ON
       -DPYTHON_BINDINGS=ON
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
     ]
 
     mkdir "build" do
