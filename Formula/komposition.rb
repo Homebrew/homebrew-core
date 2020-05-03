@@ -26,6 +26,14 @@ class Komposition < Formula
 
   uses_from_macos "libffi"
 
+  # fix a constraint issue with protolude
+  # remove once new version with
+  # https://github.com/owickstrom/komposition/pull/102 is included
+  patch do
+    url "https://github.com/owickstrom/komposition/pull/102.patch?full_index=1"
+    sha256 "f5bce2ad08c4432ada12756c17d3c54487f120d2c6a9093e44801e84caa433ff"
+  end
+
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
