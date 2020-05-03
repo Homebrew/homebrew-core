@@ -1,8 +1,8 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.30/ircd-hybrid-8.2.30.tgz"
-  sha256 "f92d837306b11621b25eb449b341207c80ba634280bd7c29b2b7be3019b259f1"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.31/ircd-hybrid-8.2.31.tgz"
+  sha256 "ab8dbd2152cb9c7f228d1efa9f9f1c1e3fc545959c9a9df0dc3ebb1e087d708f"
 
   bottle do
     sha256 "4f9af65b03a153f6f6ff92f96b6fe7a14784f8dce6852656cc0f130c88b2eebc" => :catalina
@@ -16,11 +16,6 @@ class IrcdHybrid < Formula
 
   # ircd-hybrid needs the .la files
   skip_clean :la
-
-  patch do
-    url "https://github.com/ircd-hybrid/ircd-hybrid/commit/f2428b2cc215b2227f10840ba63a85b2a812f585.patch?full_index=1"
-    sha256 "7073595aba16ff77484a94617b507552bf146032e4e1cbfff4675d83015360e3"
-  end
 
   def install
     ENV.deparallelize # build system trips over itself
