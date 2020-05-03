@@ -35,6 +35,13 @@ class Cedille < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8"
 
+  # needed to build with agda 2.6.1
+  # taken from https://github.com/cedille/cedille/pull/144/files
+  # but added at the bottom to apply cleanly on v1.1.2
+  # remove once this is merged into cedille, AND formula updated to
+  # a release that contains it
+  patch :DATA
+
   def install
     resource("ial").stage buildpath/"ial"
 
@@ -122,3 +129,21 @@ class Cedille < Formula
     system bin/"cedille", cedilletest
   end
 end
+__END__
+diff --git a/src/to-string.agda b/src/to-string.agda
+index 2505942..051a2da 100644
+--- a/src/to-string.agda
++++ b/src/to-string.agda
+@@ -100,9 +100,9 @@ no-parens {TK} _ _ _ = tt
+ no-parens {QUALIF} _ _ _ = tt
+ no-parens {ARG} _ _ _ = tt
+ 
+-pattern ced-ops-drop-spine = cedille-options.options.mk-options _ _ _ _ ff _ _ _ ff _
+-pattern ced-ops-conv-arr = cedille-options.options.mk-options _ _ _ _ _ _ _ _ ff _
+-pattern ced-ops-conv-abs = cedille-options.options.mk-options _ _ _ _ _ _ _ _ tt _
++pattern ced-ops-drop-spine = cedille-options.mk-options _ _ _ _ ff _ _ _ ff _
++pattern ced-ops-conv-arr = cedille-options.mk-options _ _ _ _ _ _ _ _ ff _
++pattern ced-ops-conv-abs = cedille-options.mk-options _ _ _ _ _ _ _ _ tt _
+ 
+ drop-spine : cedille-options.options → {ed : exprd} → ctxt → ⟦ ed ⟧ → ⟦ ed ⟧
+ drop-spine ops @ ced-ops-drop-spine = h
