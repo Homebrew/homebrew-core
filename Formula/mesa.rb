@@ -1,5 +1,4 @@
 class Mesa < Formula
-  include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
   url "https://mesa.freedesktop.org/archive/mesa-20.0.6.tar.xz"
@@ -17,7 +16,7 @@ class Mesa < Formula
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "freeglut" => :test
   depends_on "expat"
   depends_on "gettext"
@@ -33,11 +32,12 @@ class Mesa < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    python3 = Formula["python@3.8"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
 
     resource("Mako").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
+      system python3, *Language::Python.setup_install_args(buildpath/"vendor")
     end
 
     resource("gears.c").stage(pkgshare.to_s)
