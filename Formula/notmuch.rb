@@ -35,7 +35,7 @@ class Notmuch < Formula
       --without-ruby
     ]
 
-    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.7/site-packages"
+    ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.8/site-packages"
 
     system "./configure", *args
     system "make", "V=1", "install"
