@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.0.tar.gz"
-  sha256 "cc5beafa32bde866b5f54b46229feb743abee7dbd84becc9735709efb8189283"
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.1.tar.gz"
+  sha256 "222c6c4e2ec15bfab0e327b9ba4af92a3fcdd0ff76f1917529a11503ab4a2833"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
@@ -31,6 +31,6 @@ class DosboxX < Formula
   end
 
   test do
-    assert_match /DOSBox version #{version}/, shell_output("#{bin}/dosbox-x -version 2>&1", 1)
+    assert_match /DOSBox-X version #{version}/, shell_output("#{bin}/dosbox-x -version 2>&1", 1)
   end
 end
