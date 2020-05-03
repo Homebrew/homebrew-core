@@ -13,12 +13,11 @@ class IsoCodes < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
