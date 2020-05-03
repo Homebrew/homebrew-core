@@ -3,7 +3,7 @@ class Ponysay < Formula
   homepage "https://github.com/erkin/ponysay/"
   url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"
   sha256 "c382d7f299fa63667d1a4469e1ffbf10b6813dcd29e861de6be55e56dc52b28a"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Ponysay < Formula
   end
 
   depends_on "coreutils"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "./setup.py",
@@ -23,6 +23,7 @@ class Ponysay < Formula
            "--prefix=#{prefix}",
            "--cache-dir=#{prefix}/var/cache",
            "--sysconf-dir=#{prefix}/etc",
+           "--with-custom-env-python=#{Formula["python@3.8"].opt_bin}/python3",
            "install"
   end
 
