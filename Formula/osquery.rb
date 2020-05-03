@@ -3,7 +3,7 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
   sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
-  revision 15
+  revision 16
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Osquery < Formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
@@ -36,13 +36,13 @@ class Osquery < Formula
   depends_on "zstd"
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
-    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
+    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
+    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/5f/bd/5815d4d925a2b8cbbb4b4960f018441b0c65f24ba29f3bdcfb3c8218a307/Jinja2-2.8.1.tar.gz"
-    sha256 "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"
+    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
+    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
   end
 
   resource "third-party" do
@@ -104,16 +104,17 @@ class Osquery < Formula
     # Set the version
     ENV["OSQUERY_BUILD_VERSION"] = version
 
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python#{xy}/site-packages"
 
     res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
-        system "python3", "setup.py", "install",
-                          "--prefix=#{buildpath}/third-party/python/",
-                          "--single-version-externally-managed",
-                          "--record=installed.txt"
+        system Formula["python@3.8"].opt_bin/"python3",
+               "setup.py", "install",
+               "--prefix=#{buildpath}/third-party/python/",
+               "--single-version-externally-managed",
+               "--record=installed.txt"
       end
     end
 
