@@ -5,6 +5,7 @@ class Theharvester < Formula
   homepage "http://www.edge-security.com/theharvester.php"
   url "https://github.com/laramies/theHarvester/archive/V3.1.tar.gz"
   sha256 "5157f61bdd8fa2a7e5f4c055709e251a1664a86b0265450e5a68d2cdf8c55c13"
+  revision 1
   head "https://github.com/laramies/theHarvester.git"
 
   bottle do
@@ -14,7 +15,8 @@ class Theharvester < Formula
     sha256 "fa44985ba8c6761d27b5c26582dfc79e14ede1c55d9e320d843095b419acdece" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "libyaml"
+  depends_on "python@3.8"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
