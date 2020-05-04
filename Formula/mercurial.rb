@@ -3,8 +3,8 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://www.mercurial-scm.org/release/mercurial-5.3.2.tar.gz"
-  sha256 "fed24cbc314d31b0780309ee324c38d45476f00f555969551badcc2a1d5f1329"
+  url "https://www.mercurial-scm.org/release/mercurial-5.4.tar.gz"
+  sha256 "1df8d1978aefcbb65dc51e3666a452583f47aeaf3c5682e4c00a3b23cd805d6a"
 
   bottle do
     sha256 "821d3b027366bc2663eb183340165aef3f12dbc134b3c9462811ebc87af75b73" => :catalina
@@ -12,7 +12,7 @@ class Mercurial < Formula
     sha256 "19f8fe1b03c3c6d464515f1a173935eeb2acf427befb3609eed56695b1886a7b" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     ENV["HGPYTHON3"] = "1"
