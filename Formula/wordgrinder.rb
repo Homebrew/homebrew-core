@@ -3,6 +3,7 @@ class Wordgrinder < Formula
   homepage "https://cowlark.com/wordgrinder"
   url "https://github.com/davidgiven/wordgrinder/archive/0.7.2.tar.gz"
   sha256 "4e1bc659403f98479fe8619655f901c8c03eb87743374548b4d20a41d31d1dff"
+  revision 1
   head "https://github.com/davidgiven/wordgrinder.git"
 
   bottle do
@@ -13,11 +14,14 @@ class Wordgrinder < Formula
   end
 
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "lua"
+  depends_on "ncurses"
 
   uses_from_macos "zlib"
 
   def install
+    ENV["CURSES_PACKAGE"] = "ncursesw"
     system "make", "OBJDIR=#{buildpath}/wg-build"
     bin.install "bin/wordgrinder-builtin-curses-release" => "wordgrinder"
     man1.install "bin/wordgrinder.1"
