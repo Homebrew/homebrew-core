@@ -23,18 +23,20 @@ class NodeExporter < Formula
     system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
            "-o", bin/"node_exporter"
     prefix.install_metafiles
+
+    touch etc/"node_exporter.args"
+
+    (bin/"node_exporter_brew_services").write <<~EOS
+      #!/bin/bash
+      exec #{bin}/node_exporter $(<#{etc}/node_exporter.args)
+    EOS
   end
 
   def caveats
     <<~EOS
-      When used with `brew services`, node_exporter's configuration is stored as command line flags in
+      When run from `brew services`, `node_exporter` is run from
+      `node_exporter_brew_services` and uses the flags in:
         #{etc}/node_exporter.args
-
-      Example configuration:
-        echo --web.listen-address :9101 > #{etc}/node_exporter.args
-
-      For the full list of options, execute
-        node_exporter -h
     EOS
   end
 
@@ -50,9 +52,7 @@ class NodeExporter < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>sh</string>
-            <string>-c</string>
-            <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
+            <string>#{opt_bin}/node_exporter_brew_services</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
@@ -69,13 +69,9 @@ class NodeExporter < Formula
 
   test do
     assert_match /node_exporter/, shell_output("#{bin}/node_exporter --version 2>&1")
-    begin
-      pid = fork { exec bin/"node_exporter" }
-      sleep 2
-      assert_match "# HELP", shell_output("curl -s localhost:9100/metrics")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+
+    fork { exec bin/"node_exporter" }
+    sleep 2
+    assert_match "# HELP", shell_output("curl -s localhost:9100/metrics")
   end
 end
