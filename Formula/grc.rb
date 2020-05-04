@@ -1,13 +1,16 @@
 class Grc < Formula
+  include Language::Python::Shebang
+
   desc "Colorize logfiles and command output"
   homepage "https://korpus.juls.savba.sk/~garabik/software/grc.html"
   url "https://github.com/garabik/grc/archive/v1.11.3.tar.gz"
   sha256 "b167babd8f073a68f5a3091f833e4036fb8d86504e746694747a3ee5048fa7a9"
+  revision 1
   head "https://github.com/garabik/grc.git"
 
   bottle :unneeded
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "cc65", :because => "both install `grc` binaries"
 
@@ -19,6 +22,8 @@ class Grc < Formula
     # so that the completions don't end up in etc/profile.d
     inreplace "install.sh",
       "mkdir -p $PROFILEDIR\ncp -fv grc.bashrc $PROFILEDIR", ""
+
+    rewrite_shebang detected_python_shebang, "grc", "grcat"
 
     system "./install.sh", prefix, HOMEBREW_PREFIX
     etc.install "grc.bashrc"
