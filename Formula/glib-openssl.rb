@@ -3,7 +3,7 @@ class GlibOpenssl < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -24,7 +24,7 @@ class GlibOpenssl < Formula
                           "--disable-silent-rules",
                           "--disable-static",
                           "--prefix=#{prefix}",
-                          "--with-ca-certificates=#{etc}/openssl/cert.pem"
+                          "--with-ca-certificates=#{etc}/openssl@1.1/cert.pem"
     system "make", "install"
 
     # Delete the cache, will regenerate it in post_install
