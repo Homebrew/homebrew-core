@@ -30,8 +30,8 @@ class Komposition < Formula
   # remove once new version with
   # https://github.com/owickstrom/komposition/pull/102 is included
   patch do
-    url "https://github.com/owickstrom/komposition/pull/102.patch?full_index=1"
-    sha256 "f5bce2ad08c4432ada12756c17d3c54487f120d2c6a9093e44801e84caa433ff"
+    url "https://github.com/owickstrom/komposition/pull/102.diff?full_index=1"
+    sha256 "bdf561d07f1b8d41a4c030e121becab3b70882da8ccee53c1e91c6c0931fee0c"
   end
 
   def install
