@@ -54,8 +54,6 @@ class AstrometryNet < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
     system "#{bin}/image2pnm", "-h"
     system "#{bin}/build-astrometry-index", "-d", "3", "-o", "index-9918.fits",
                                             "-P", "18", "-S", "mag", "-B", "0.1",
