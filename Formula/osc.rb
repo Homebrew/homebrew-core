@@ -5,7 +5,7 @@ class Osc < Formula
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.168.2.tar.gz"
   sha256 "070637e052ad18416cf27b49b53685f802addac8da9f9a36ac8069dcdb1757c4"
-  revision 1
+  revision 2
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
@@ -34,7 +34,7 @@ class Osc < Formula
   def install
     ENV["SWIG_FEATURES"] = "-I#{Formula["openssl@1.1"].opt_include}"
 
-    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl/cert.pem'"
+    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl@1.1/cert.pem'"
     virtualenv_install_with_resources
     mv bin/"osc-wrapper.py", bin/"osc"
   end
