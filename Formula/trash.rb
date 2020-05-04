@@ -14,6 +14,7 @@ class Trash < Formula
     sha256 "75cebaa2b12cd75eeb1bb8deb4737639064f68f010cab94e378bd5ce727d4c34" => :el_capitan
   end
 
+  conflicts_with "macos-trash", :because => "both install a `trash` binary"
   conflicts_with "trash-cli", :because => "both install a `trash` binary"
 
   def install
