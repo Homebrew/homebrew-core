@@ -31,12 +31,9 @@ class AstrometryNet < Formula
   end
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
     ENV["SYSTEM_GSL"] = "yes"
-    ENV["PYTHON_SCRIPT"] = Formula["python@3.8"].opt_bin/"python3"
     ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
@@ -46,6 +43,7 @@ class AstrometryNet < Formula
     xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV["PY_BASE_INSTALL_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
     ENV["PY_BASE_LINK_DIR"] = libexec/"lib/python#{xy}/site-packages/astrometry"
+    ENV["PYTHON_SCRIPT"] = libexec/"bin/python3"
 
     system "make"
     system "make", "py"
@@ -57,6 +55,7 @@ class AstrometryNet < Formula
   test do
     xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
+    system "#{bin}/image2pnm", "-h"
     system "#{bin}/build-astrometry-index", "-d", "3", "-o", "index-9918.fits",
                                             "-P", "18", "-S", "mag", "-B", "0.1",
                                             "-s", "0", "-r", "1", "-I", "9918", "-M",
