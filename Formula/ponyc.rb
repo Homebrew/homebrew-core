@@ -1,9 +1,9 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.33.2.tar.gz"
-  sha256 "5917903e17af77b54ae692e832e11078569cecbc24811c03940257a6e9e61f93"
-  head "https://github.com/ponylang/ponyc.git"
+  url "https://github.com/ponylang/ponyc.git",
+      :tag      => "0.35.1",
+      :revision => "579475721b14487e225e57a64ecd44781d244b33"
 
   bottle do
     cellar :any
@@ -12,23 +12,16 @@ class Ponyc < Formula
     sha256 "216889f9856cfb4da8bb46a9aaac3af38e4f1f8f349b5928645ea0d266231b8b" => :high_sierra
   end
 
-  # https://github.com/ponylang/ponyc/issues/1274
-  # https://github.com/Homebrew/homebrew-core/issues/5346
-  pour_bottle? do
-    reason <<~EOS
-      The bottle requires Xcode/CLT 8.0 or later to work properly.
-    EOS
-    satisfy { DevelopmentTools.clang_build_version >= 800 }
-  end
-
-  depends_on "llvm@7"
-  depends_on :macos => :yosemite
+  depends_on "cmake" => :build
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"] = "#{Formula["llvm@7"].opt_bin}/llvm-config"
-    system "make", "install", "verbose=1", "config=release",
-           "ponydir=#{prefix}", "prefix="
+
+    ENV["MAKEFLAGS"] = "build_flags=-j#{ENV.make_jobs}"
+    system "make", "libs"
+    system "make", "configure"
+    system "make", "build"
+    system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do
