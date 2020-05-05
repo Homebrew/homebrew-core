@@ -13,6 +13,7 @@ class ApacheArrow < Formula
     sha256 "b8f0b32f2da88189410c9588a9fbd44488477e087d71a92373c99e729318f3dc" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "brotli"
   depends_on "glog"
