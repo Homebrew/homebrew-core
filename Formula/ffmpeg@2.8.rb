@@ -3,6 +3,7 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.16.tar.xz"
   sha256 "6b895902f1ec0d738af40f514dfeac6caba143aa2d0a17af22397c2fc4ebc092"
+  revision 1
 
   bottle do
     sha256 "858c27ee5f7220c59cc2bd4f6edb78e18b7b9e4320e252b51f307a5663e9ce7b" => :catalina
@@ -102,8 +103,8 @@ class FfmpegAT28 < Formula
 
   test do
     # Create an example mp4 file
-    system "#{bin}/ffmpeg", "-y", "-filter_complex",
-        "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert_predicate testpath/"video.mp4", :exist?
+    mp4out = testpath/"video.mp4"
+    system bin/"ffmpeg", "-y", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
+    assert_predicate mp4out, :exist?
   end
 end
