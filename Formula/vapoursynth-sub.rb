@@ -3,6 +3,7 @@ class VapoursynthSub < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
   sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
