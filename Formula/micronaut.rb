@@ -9,7 +9,7 @@ class Micronaut < Formula
 
   def install
     system "gradle", "build"
-    (bin/"mn").write_env_script libexec/"bin/mn", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env
   end
 
   test do
