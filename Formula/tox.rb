@@ -3,8 +3,8 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/c0/7f/46ff5bae3cef87400719e65de5f6b488699687a2e8a3a02f91c89c775aeb/tox-3.14.6.tar.gz"
-  sha256 "a4a6689045d93c208d77230853b28058b7513f5123647b67bf012f82fa168303"
+  url "https://files.pythonhosted.org/packages/f1/bc/a3b7fcacf763b23c047cf25e52708855bda873e48022a69a8e74a0387aeb/tox-3.15.0.tar.gz"
+  sha256 "af09c19478e8fc7ce7555b3d802ddf601b82684b874812c5857f774b8aee1b67"
 
   bottle do
     cellar :any_skip_relocation
@@ -46,8 +46,8 @@ class Tox < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz"
-    sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "six" do
@@ -61,8 +61,8 @@ class Tox < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/98/30/13ec6895dd1e2aaef956cc587e19c88fca00b2be52bb29cc4b09995aded5/virtualenv-20.0.15.tar.gz"
-    sha256 "9e81279f4a9d16d1c0654a127c2c86e5bca2073585341691882c1e66e31ef8a5"
+    url "https://files.pythonhosted.org/packages/cc/d4/b0e9c0926b08ae4d3f2439bae3c370917ff8c32fc254acf7023fd131eeb0/virtualenv-20.0.20.tar.gz"
+    sha256 "fd0e54dec8ac96c1c7c87daba85f0a59a7c37fe38748e154306ca21c73244637"
   end
 
   def install
