@@ -23,13 +23,6 @@ class Futhark < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  # needed to fix a build error in v0.15.5
-  # remove in v0.15.6+!
-  patch do
-    url "https://github.com/diku-dk/futhark/commit/b862de37f1e2cd7e7b561b723d01da9c8d248881.diff?full_index=1"
-    sha256 "be6a39f0eb259b190e60f5c4d363e11008adf789261ca258a3fb6e1be75f3afd"
-  end
-
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
