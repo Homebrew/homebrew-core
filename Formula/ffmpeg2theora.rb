@@ -3,8 +3,8 @@ class Ffmpeg2theora < Formula
   homepage "https://v2v.cc/~j/ffmpeg2theora/"
   url "https://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2"
   sha256 "4f6464b444acab5d778e0a3359d836e0867a3dcec4ad8f1cdcf87cb711ccc6df"
-  revision 4
-  head "https://git.xiph.org/ffmpeg2theora.git"
+  revision 5
+  head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git"
 
   bottle do
     cellar :any
@@ -21,7 +21,16 @@ class Ffmpeg2theora < Formula
   depends_on "libvorbis"
   depends_on "theora"
 
+  # Use python3 print()
+  patch do
+    url "https://salsa.debian.org/multimedia-team/ffmpeg2theora/-/raw/master/debian/patches/0002-Use-python3-print.patch"
+    sha256 "8cf333e691cf19494962b51748b8246502432867d9feb3d7919d329cb3696e97"
+  end
+
   def install
+    # Fix unrecognized "PRId64" format specifier
+    inreplace "src/theorautils.c", "#include <limits.h>", "#include <limits.h>\n#include <inttypes.h>"
+
     args = [
       "prefix=#{prefix}",
       "mandir=PREFIX/share/man",
