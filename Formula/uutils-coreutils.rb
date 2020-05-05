@@ -1,4 +1,4 @@
-class Uutils < Formula
+class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
   url "https://github.com/uutils/coreutils/archive/0.0.1.tar.gz"
@@ -9,7 +9,7 @@ class Uutils < Formula
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
 
-  conflicts_with "coreutils", :because => "uutils and coreutils install the same binaries"
+  conflicts_with "coreutils", :because => "uutils-coreutils and coreutils install the same binaries"
   conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
   conflicts_with "truncate", :because => "both install `truncate` binaries"
 
