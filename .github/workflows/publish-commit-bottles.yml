@@ -100,12 +100,12 @@ jobs:
             const run_id = process.env.GITHUB_RUN_ID
             const actor = context.actor
             const pr = context.payload.client_payload.pull_request
+            const repository = context.repo.owner + '/' + context.repo.repo
+            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+
             console.log("run_id=" + run_id)
             console.log("actor=" + actor)
             console.log("pr=" + pr)
-
-            const repository = context.repo.owner + '/' + context.repo.repo
-            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
 
             let comment = ':warning: '
             if (actor != 'BrewTestBot') {
@@ -120,8 +120,19 @@ jobs:
               body: comment
             })
 
-            github.issues.removeLabel({
+            const reviews = await github.pulls.listReviews({
               ...context.repo,
-              issue_number: pr,
-              name: "ready to merge"
+              pull_number: pr
             })
+
+            for (const review of reviews.data) {
+              if (review.state != "APPROVED")
+                continue
+
+              github.pulls.dismissReview({
+                ...context.repo,
+                pull_number: pr,
+                review_id: review.id,
+                message: "bottle publish failed"
+              });
+            }
