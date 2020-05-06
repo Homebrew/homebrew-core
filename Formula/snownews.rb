@@ -27,7 +27,7 @@ class Snownews < Formula
 
     # Must supply -lz because configure relies on "xml2-config --libs"
     # for it, which doesn't work on OS X prior to 10.11
-    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz",
+    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl@1.1"].opt_lib} -lz",
            "CC=#{ENV.cc}", "INSTALL=ginstall"
   end
 
