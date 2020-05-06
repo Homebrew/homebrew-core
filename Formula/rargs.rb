@@ -1,8 +1,8 @@
 class Rargs < Formula
   desc "Util like xargs + awk with pattern matching support"
   homepage "https://github.com/lotabout/rargs"
-  url "https://github.com/lotabout/rargs/archive/v0.2.3.tar.gz"
-  sha256 "b33205cab0d410cd7f25e3bcb4efbfec48de76a8ad9c01ee4c286e407552f982"
+  url "https://github.com/lotabout/rargs/archive/v0.3.0.tar.gz"
+  sha256 "22d9aa4368a0f9d1fd82391439d3aabf4ddfb24ad674a680d6407c9e22969da3"
 
   bottle do
     cellar :any_skip_relocation
