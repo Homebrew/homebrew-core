@@ -15,7 +15,9 @@ class UutilsCoreutils < Formula
 
   def install
     man1.mkpath
-    ENV["PATH"]="#{Formula["make"].opt_libexec}/gnubin:#{ENV["PATH"]}"
+
+    ENV.prepend_path Formula["make"].opt_libexec/"gnubin"
+
     system "make", "install",
            "PROG_PREFIX=u",
            "PREFIX=#{prefix}",
@@ -25,18 +27,19 @@ class UutilsCoreutils < Formula
     coreutils_filenames(bin).each do |cmd|
       (libexec/"uubin").install_symlink bin/"u#{cmd}" => cmd
     end
+
     # Symlink all man(1) pages into libexec/uuman without the 'u' prefix
     coreutils_filenames(man1).each do |cmd|
       (libexec/"uuman"/"man1").install_symlink man1/"u#{cmd}" => cmd
     end
+
     libexec.install_symlink "uuman" => "man"
 
     # Symlink non-conflicting binaries
-    no_conflict = %w[
+    %w[
       base32 dircolors factor hashsum hostid nproc numfmt pinky ptx realpath
       shred shuf stdbuf tac timeout truncate
-    ]
-    no_conflict.each do |cmd|
+    ].each do |cmd|
       bin.install_symlink "u#{cmd}" => cmd
       man1.install_symlink "u#{cmd}.1.gz" => "#{cmd}.1.gz"
     end
