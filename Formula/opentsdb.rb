@@ -3,7 +3,7 @@ class Opentsdb < Formula
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.1/opentsdb-2.3.1.tar.gz"
   sha256 "4dba914a19cf0a56b1d0cc22b4748ebd0d0136e633eb4514a5518790ad7fc1d1"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -124,21 +124,17 @@ class Opentsdb < Formula
 
       tsdb_err = "#{testpath}/tsdb.err"
       tsdb_out = "#{testpath}/tsdb.out"
-      tsdb_daemon_pid = fork do
+      fork do
         $stderr.reopen(tsdb_err, "w")
         $stdout.reopen(tsdb_out, "w")
         exec("#{bin}/start-tsdb.sh")
       end
       sleep 15
 
-      begin
-        pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
+      pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
 
-        system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum",
-                              "homebrew.install.test", "host=webserver01", "cpu=0"
-      ensure
-        Process.kill(9, tsdb_daemon_pid)
-      end
+      system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum",
+             "homebrew.install.test", "host=webserver01", "cpu=0"
     ensure
       system "#{Formula["hbase"].opt_bin}/stop-hbase.sh"
     end
