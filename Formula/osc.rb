@@ -32,9 +32,10 @@ class Osc < Formula
   end
 
   def install
-    ENV["SWIG_FEATURES"] = "-I#{Formula["openssl@1.1"].opt_include}"
+    openssl = Formula["openssl@1.1"]
+    ENV["SWIG_FEATURES"] = "-I#{openssl.opt_include}"
 
-    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl@1.1/cert.pem'"
+    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{openssl.pkgetc}/cert.pem'"
     virtualenv_install_with_resources
     mv bin/"osc-wrapper.py", bin/"osc"
   end
