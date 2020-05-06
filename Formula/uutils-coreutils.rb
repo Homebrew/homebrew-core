@@ -16,7 +16,7 @@ class UutilsCoreutils < Formula
   def install
     man1.mkpath
 
-    ENV.prepend_path Formula["make"].opt_libexec/"gnubin"
+    ENV.prepend_path "PATH", Formula["make"].opt_libexec/"gnubin"
 
     system "make", "install",
            "PROG_PREFIX=u",
