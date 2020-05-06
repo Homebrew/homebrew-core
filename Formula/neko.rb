@@ -23,6 +23,10 @@ class Neko < Formula
   depends_on "pcre"
 
   def install
+    inreplace "libs/mysql/CMakeLists.txt",
+              %r{https://downloads.mariadb.org/f/},
+              "https://downloads.mariadb.com/Connectors/c/"
+
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-client.
