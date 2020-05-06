@@ -6,7 +6,7 @@ class Luneta < Formula
 
   depends_on "dub" => :build
   depends_on "ldc" => :build
-  depends_on "ncurses"
+  uses_from_macos "ncurses"
 
   def install
     system "dub", "build", "-b", "release", "--compiler", "ldc2"
