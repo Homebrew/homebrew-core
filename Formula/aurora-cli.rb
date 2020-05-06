@@ -14,6 +14,10 @@ class AuroraCli < Formula
 
   depends_on "python"
 
+  # Does not build on catalina anymore
+  # Has been moved to the appache attic: https://github.com/apache/attic-aurora
+  disable!
+
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there
     ENV["PANTS_BINARIES_PATH_BY_ID"] =
