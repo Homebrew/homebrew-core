@@ -4,6 +4,7 @@ class Gnutls < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.13.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.13.tar.xz"
   sha256 "32041df447d9f4644570cf573c9f60358e865637d69b7e59d1159b7240b52f38"
+  revision 1
 
   bottle do
     sha256 "4b704a699428a852a8cab36803440e07d9fe4bb2d699000f7afd50194258ec71" => :catalina
@@ -29,7 +30,7 @@ class Gnutls < Formula
       --disable-static
       --prefix=#{prefix}
       --sysconfdir=#{etc}
-      --with-default-trust-store-file=#{etc}/openssl/cert.pem
+      --with-default-trust-store-file=#{pkgetc}/cert.pem
       --disable-guile
       --disable-heartbeat-support
       --with-p11-kit
@@ -65,9 +66,8 @@ class Gnutls < Formula
       $CHILD_STATUS.success?
     end
 
-    openssldir = etc/"openssl"
-    openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+    pkgetc.mkpath
+    (pkgetc/"cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
   test do
