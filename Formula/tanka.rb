@@ -2,8 +2,8 @@ class Tanka < Formula
   desc "Flexible, reusable and concise configuration for Kubernetes using Jsonnet"
   homepage "https://tanka.dev"
   url "https://github.com/grafana/tanka.git",
-    :tag     => "v0.9.2",
-    :revsion => "178f4bef263581a8cdf298a11365d412e11b6351"
+    :tag      => "v0.10.0",
+    :revision => "7f5f485a411aa08752fd6ed4847c8013e95f92d1"
   head "https://github.com/grafana/tanka.git"
 
   bottle do
