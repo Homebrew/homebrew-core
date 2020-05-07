@@ -39,7 +39,7 @@ jobs:
           echo "::add-path::$HOMEBREW_PREFIX/bin"
         fi
 
-        GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/"
+        GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/ruby/"
         echo "::set-output name=gems-path::$GEMS_PATH"
         GEMS_HASH=$(shasum -a 256 "$HOMEBREW_REPOSITORY/Library/Homebrew/Gemfile.lock" | cut -f1 -d' ')
         echo "::set-output name=gems-hash::$GEMS_HASH"
@@ -67,8 +67,8 @@ jobs:
       uses: actions/cache@v1
       with:
         path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-        key: ${{ runner.os }}-gems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-        restore-keys: ${{ runner.os }}-gems-
+        key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+        restore-keys: ${{ runner.os }}-rubygems-
 
     - name: Install Bundler RubyGems
       if: steps.cache.outputs.cache-hit != 'true'
