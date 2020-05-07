@@ -15,11 +15,11 @@ class Yaegi < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"yaegi", "cmd/yaegi/yaegi.go"
+    system "go", "build", *std_go_args, "cmd/yaegi/yaegi.go"
     prefix.install_metafiles
   end
 
   test do
-    assert_match "4", pipe_output("#{bin}/yaegi", "3 + 1", 0)
+    assert_match "4", pipe_output("#{bin}/yaegi", "println(3 + 1)", 0)
   end
 end
