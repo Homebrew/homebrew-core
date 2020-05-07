@@ -28,7 +28,7 @@ If you are already well versed in the use of `git`, then you can find the local
 copy of the `homebrew-core` repository in this directory
 (`$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/`), modify the formula there
 leaving the section `bottle do ... end` unchanged, and prepare a pull request
-as you usually do.  Before submitting your pull request, be sure to test it
+as you usually do. Before submitting your pull request, be sure to test it
 with these commands:
 
 ```
@@ -55,3 +55,24 @@ follows:
 * open a pull request as described in the introduction linked to above, wait for the automated test results, and fix any failing tests
 
 Thanks!
+
+### Getting your pull request merged
+
+All Homebrew maintainers are volunteers. We make use of scheduled tasks to help
+us with merging pull requests, as we get hundreds a day. These are triggered by
+a maintainer submitting a valid approving review ("green tick") on your PR.
+Within an hour after that approval, our scheduled GitHub Action will merge your
+PR.
+
+If you push commits - for example to fix CI failures - after an approval has
+been granted by a maintainer, GitHub will dismiss the reviews and we'll have to
+start from scratch. Don't be discouraged, though - further improvements are
+welcome!
+
+If your PR fixes a formula security vulnerability, or is something we otherwise
+would like to release quickly, maintainers can run the commands manually to
+publish your changes right away.
+
+Your PR will show up as "closed, with unmerged commits", but this is normal:
+you'll still get author credit for the changes. In the GitHub UI, it will
+show up as "Closed in <master-branch-commit-sha>".
