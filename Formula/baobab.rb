@@ -3,7 +3,7 @@ class Baobab < Formula
   homepage "https://wiki.gnome.org/Apps/Baobab"
   url "https://download.gnome.org/sources/baobab/3.34/baobab-3.34.0.tar.xz"
   sha256 "46ebd9466da6a68c340653e9095f1e905b6fac79305879a9e644634f7da98607"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "26429e535b510d1c75991c097d28190711b42f996d5b67b530278e82d712b1fe" => :catalina
@@ -15,7 +15,7 @@ class Baobab < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
