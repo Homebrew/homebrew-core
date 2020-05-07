@@ -1,9 +1,8 @@
 class Abook < Formula
   desc "Address book with mutt support"
   homepage "https://abook.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/abook/abook/0.5.6/abook-0.5.6.tar.gz"
-  sha256 "0646f6311a94ad3341812a4de12a5a940a7a44d5cb6e9da5b0930aae9f44756e"
-  revision 2
+  url "http://abook.sourceforge.net/devel/abook-0.6.1.tar.gz"
+  sha256 "f0a90df8694fb34685ecdd45d97db28b88046c15c95e7b0700596028bd8bc0f9"
   head "https://git.code.sf.net/p/abook/git.git"
 
   bottle do
@@ -13,9 +12,16 @@ class Abook < Formula
     sha256 "b078b7af5c5fca8c97e693b70a0700ab91d9bed44bdccbf037ed5eb800c32d7b" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext"
   depends_on "readline"
 
   def install
+    # fix "undefined symbols" error caused by C89 inline behaviour
+    inreplace "database.c", "inline int", "int"
+
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
