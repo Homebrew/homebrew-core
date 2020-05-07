@@ -3,6 +3,7 @@ class Prometheus < Formula
   homepage "https://prometheus.io/"
   url "https://github.com/prometheus/prometheus/archive/v2.18.0.tar.gz"
   sha256 "5eaffd8017309c61e37752599cd53821a4f204a489524e9e520a237d9c471a5c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -26,7 +27,7 @@ class Prometheus < Formula
 
     (bin/"prometheus_brew_services").write <<~EOS
       #!/bin/bash
-      exec #{bin}/prometheus_brew_services $(<#{etc}/prometheus.args)
+      exec #{bin}/prometheus $(<#{etc}/prometheus.args)
     EOS
 
     (buildpath/"prometheus.args").write <<~EOS
