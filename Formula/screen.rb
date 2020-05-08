@@ -23,13 +23,6 @@ class Screen < Formula
 
   head do
     url "https://git.savannah.gnu.org/git/screen.git"
-
-    # This patch avoid a bug that prevents detached sessions to reattach
-    # See https://lists.gnu.org/archive/html/screen-users/2016-10/msg00007.html
-    patch do
-      url "https://gist.githubusercontent.com/sobrinho/5a7672e088868c2d036957dbe7825dd0/raw/c6fe5dc20cb7dbd0e23f9053aa3867fcbc01d983/diff.patch"
-      sha256 "47892633ccb137316a0532b034d0be81edc26fc72a6babca9761a1649bc67fd1"
-    end
   end
 
   depends_on "autoconf" => :build
