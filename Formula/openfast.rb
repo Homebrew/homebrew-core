@@ -3,6 +3,7 @@ class Openfast < Formula
   homepage "https://openfast.readthedocs.io"
   url "https://github.com/openfast/openfast/archive/v2.3.0.tar.gz"
   sha256 "2b368e8c8211ebed03e87fb3e89ef733b7e4be4848834da4034f8419d618446c"
+  revision 1
 
   bottle do
     cellar :any
