@@ -15,6 +15,13 @@ class Sd < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+
+    # Completion scripts and manpage are generated in the crate's build
+    # directory, which includes a fingerprint hash. Try to locate it first
+    out_dir = Dir["target/release/build/sd-*/out"].first
+    man1.install "#{out_dir}/sd.1"
+    bash_completion.install "#{out_dir}/sd.bash"
+    zsh_completion.install "#{out_dir}/_sd"
   end
 
   test do
