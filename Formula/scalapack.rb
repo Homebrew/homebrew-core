@@ -3,7 +3,7 @@ class Scalapack < Formula
   homepage "https://www.netlib.org/scalapack/"
   url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
   sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,6 +16,12 @@ class Scalapack < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
+
+  # Patch for compatibility with GCC 10
+  patch do
+    url "https://github.com/Reference-ScaLAPACK/scalapack/pull/23.diff?full_index=1"
+    sha256 "6e97008a0dd8624a63718a0882aa870f31883ec00d7bfac49e9e901979359039"
+  end
 
   def install
     mkdir "build" do
