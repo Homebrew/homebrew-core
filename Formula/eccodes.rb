@@ -3,6 +3,7 @@ class Eccodes < Formula
   homepage "https://confluence.ecmwf.int/display/ECC"
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.18.0-Source.tar.gz"
   sha256 "d88943df0f246843a1a062796edbf709ef911de7269648eef864be259e9704e3"
+  revision 1
 
   bottle do
     sha256 "0fb7a83f5bee61fa6a8fffd42e1c85a4d346ff29138c5cb3ecfbce71f3ef1219" => :catalina
@@ -17,6 +18,10 @@ class Eccodes < Formula
   depends_on "netcdf"
 
   def install
+    # Fix for GCC 10, remove with next version
+    # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=957159
+    ENV.prepend "FFLAGS", "-fallow-argument-mismatch"
+
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
