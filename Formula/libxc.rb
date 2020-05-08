@@ -3,6 +3,7 @@ class Libxc < Formula
   homepage "https://tddft.org/programs/libxc/"
   url "https://gitlab.com/libxc/libxc/-/archive/4.3.4/libxc-4.3.4.tar.bz2"
   sha256 "0efe8b33d151de8787e33c4ba8e2161ffb9da978753f3bd12c5c0a018e7d3ef5"
+  revision 1
 
   bottle do
     cellar :any
