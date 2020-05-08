@@ -3,6 +3,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-4/R-4.0.2.tar.gz"
   sha256 "d3bceab364da0876625e4097808b42512395fdf41292f4915ab1fd257c1bbe75"
+  revision 1
 
   bottle do
     sha256 "ccbb18220233c6d55de69ca8a57a134305868d5e34438f9e939e5a6f1bedc464" => :catalina
