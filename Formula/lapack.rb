@@ -3,6 +3,7 @@ class Lapack < Formula
   homepage "https://www.netlib.org/lapack/"
   url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
   sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
+  revision 1
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
