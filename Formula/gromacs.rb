@@ -3,6 +3,7 @@ class Gromacs < Formula
   homepage "http://www.gromacs.org/"
   url "https://ftp.gromacs.org/pub/gromacs/gromacs-2020.2.tar.gz"
   sha256 "7465e4cd616359d84489d919ec9e4b1aaf51f0a4296e693c249e83411b7bd2f3"
+  revision 1
 
   bottle do
     sha256 "1d66612a7301aaf5ef4de6e75c3c3946795f08b2dc37007ac898ad1e9f22fc14" => :catalina
