@@ -3,7 +3,7 @@ class Arpack < Formula
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.7.0.tar.gz"
   sha256 "972e3fc3cd0b9d6b5a737c9bf6fd07515c0d6549319d4ffb06970e64fa3cc2d6"
-  revision 4
+  revision 5
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
@@ -33,6 +33,10 @@ class Arpack < Formula
       --enable-icb
       --enable-icb-exmm
     ]
+
+    # Fix for GCC 10, remove with next version
+    # https://github.com/opencollab/arpack-ng/commit/ad82dcbc
+    args << "FFLAGS=-fallow-argument-mismatch"
 
     system "./bootstrap"
     system "./configure", *args
