@@ -3,6 +3,7 @@ class KimApi < Formula
   homepage "https://openkim.org"
   url "https://s3.openkim.org/kim-api/kim-api-2.1.3.txz"
   sha256 "88a5416006c65a2940d82fad49de0885aead05bfa8b59f87d287db5516b9c467"
+  revision 1
 
   bottle do
     sha256 "ae59f45bf8d539f1b633120cdb942c2a0a0f1880eee4ee91981f268792e1b1c4" => :catalina
