@@ -3,6 +3,7 @@ class Pnetcdf < Formula
   homepage "https://parallel-netcdf.github.io/index.html"
   url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz"
   sha256 "56f5afaa0ddc256791c405719b6436a83b92dcd5be37fe860dea103aee8250a2"
+  revision 1
 
   bottle do
     sha256 "04ba040b61d2c7a5418b4af93746f42a52133d18879d9a07c770ffd3f8875b91" => :catalina
@@ -18,7 +19,11 @@ class Pnetcdf < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--enable-shared"
+                          "--enable-shared",
+                          # Fix for GCC 10, remove in next version
+                          # https://github.com/Parallel-NetCDF/PnetCDF/pull/63
+                          "FFLAGS=-fallow-argument-mismatch",
+                          "FCFLAGS=-fallow-argument-mismatch"
     system "make", "install"
   end
 
