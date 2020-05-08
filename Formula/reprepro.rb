@@ -3,7 +3,7 @@ class Reprepro < Formula
   homepage "https://salsa.debian.org/brlink/reprepro"
   url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.0.orig.tar.gz"
   sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
