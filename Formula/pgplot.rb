@@ -6,7 +6,7 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 8
+  revision 9
 
   bottle do
     cellar :any
@@ -50,7 +50,7 @@ class Pgplot < Formula
       TK_INCL=""
       RV_INCL=""
       FCOMPL="gfortran"
-      FFLAGC="-ffixed-line-length-none"
+      FFLAGC="-ffixed-line-length-none -fallow-argument-mismatch"
       FFLAGD=""
       CCOMPL="#{ENV.cc}"
       CFLAGC="#{ENV.cppflags}"
