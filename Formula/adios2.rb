@@ -3,6 +3,7 @@ class Adios2 < Formula
   homepage "https://adios2.readthedocs.io"
   url "https://github.com/ornladios/ADIOS2/archive/v2.6.0.tar.gz"
   sha256 "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
 
   bottle do
