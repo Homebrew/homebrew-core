@@ -1,8 +1,8 @@
 class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "https://www.openexr.com/"
-  url "https://github.com/openexr/openexr/archive/v2.4.1.tar.gz"
-  sha256 "3ebbe9a8e67edb4a25890b98c598e9fe23b10f96d1416d6a3ff0732e99d001c1"
+  url "https://github.com/openexr/openexr/archive/v2.5.1.tar.gz"
+  sha256 "11f806bf256453e39fc33bd1cf1fa576a54f144cedcdd3e6935a177e5a89d02e"
 
   bottle do
     rebuild 1
@@ -12,9 +12,6 @@ class Ilmbase < Formula
   end
 
   depends_on "cmake" => :build
-
-  # From https://github.com/openexr/openexr/commit/0b26a9dedda4924841323677f1ce0bce37bfbeb4.patch
-  patch :DATA
 
   def install
     cd "IlmBase" do
@@ -44,22 +41,3 @@ class Ilmbase < Formula
     assert_equal "2, -2, -1\n", shell_output("./test")
   end
 end
-
-__END__
-diff --git a/IlmBase/config/CMakeLists.txt b/IlmBase/config/CMakeLists.txt
-index 508176a4..a6bff04a 100644
---- a/IlmBase/config/CMakeLists.txt
-+++ b/IlmBase/config/CMakeLists.txt
-@@ -71,9 +71,9 @@ if(ILMBASE_INSTALL_PKG_CONFIG)
-   # use a helper function to avoid variable pollution, but pretty simple
-   function(ilmbase_pkg_config_help pcinfile)
-     set(prefix ${CMAKE_INSTALL_PREFIX})
--    set(exec_prefix ${CMAKE_INSTALL_BINDIR})
--    set(libdir ${CMAKE_INSTALL_LIBDIR})
--    set(includedir ${CMAKE_INSTALL_INCLUDEDIR})
-+    set(exec_prefix "\${prefix}")
-+    set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
-+    set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
-     set(LIB_SUFFIX_DASH ${ILMBASE_LIB_SUFFIX})
-     if(TARGET Threads::Threads)
-       # hrm, can't use properties as they end up as generator expressions
