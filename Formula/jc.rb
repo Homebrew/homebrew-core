@@ -15,11 +15,6 @@ class Jc < Formula
 
   depends_on "python@3.8"
 
-  resource "ifconfig-parser" do
-    url "https://files.pythonhosted.org/packages/19/58/887683fe9baa51f307e1fe58d8beea5beb714a210b2ff6e6430a1430bb34/ifconfig-parser-0.0.5.tar.gz"
-    sha256 "6c512f12da0d7f314bb16f883e2d7d89d53198e88f6272a2465330cef117c58a"
-  end
-
   resource "ruamel.yaml" do
     url "https://files.pythonhosted.org/packages/16/8b/54a26c1031595e5edd0e616028b922d78d8ffba8bc775f0a4faeada846cc/ruamel.yaml-0.16.10.tar.gz"
     sha256 "099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"
