@@ -3,6 +3,7 @@ class Augustus < Formula
   homepage "https://bioinf.uni-greifswald.de/augustus/"
   url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
   sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
+  revision 1
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   bottle do
