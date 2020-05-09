@@ -3,6 +3,7 @@ class Libgweather < Formula
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
   url "https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.0.tar.xz"
   sha256 "d2ffeec01788d03d1bbf35113fc2f054c6c3600721088f827bcc31e5c603a32d"
+  revision 1
 
   bottle do
     sha256 "f0cf67eaf633582b06a77d8b4eec9585e8fc1ff21184758e7cdc32d3b71d4624" => :catalina
@@ -14,7 +15,6 @@ class Libgweather < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "geocode-glib"
   depends_on "gtk+3"
   depends_on "libsoup"
