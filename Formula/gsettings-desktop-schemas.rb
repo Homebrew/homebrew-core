@@ -3,6 +3,7 @@ class GsettingsDesktopSchemas < Formula
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
   url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.36/gsettings-desktop-schemas-3.36.1.tar.xz"
   sha256 "004bdbe43cf8290f2de7d8537e14d8957610ca479a4fa368e34dbd03f03ec9d9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,6 @@ class GsettingsDesktopSchemas < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
   depends_on "glib"
 
   uses_from_macos "expat"
