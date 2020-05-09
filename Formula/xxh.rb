@@ -28,6 +28,41 @@ class Xxh < Formula
   end
 
   test do
-    system "#{bin}/xxh", "--version"
+    assert_match version.to_s, shell_output("#{bin}/xxh --version")
+
+    (testpath/"config.xxhc").write <<~EOS
+      hosts:
+        test.localhost:
+          -o: HostName=127.0.0.1
+          +s: xxh-shell-zsh
+    EOS
+    begin
+      port = free_port
+      server = TCPServer.new(port)
+      server_pid = fork do
+        msg = server.accept.gets
+        server.close
+        assert_match "SSH", msg
+      end
+
+      stdout, stderr, = Open3.capture3(
+        "#{bin}/xxh", "test.localhost",
+        "-p", port.to_s,
+        "+xc", "#{testpath}/config.xxhc",
+        "+v"
+      )
+
+      argv = stdout.lines.grep(/^Final arguments list:/).first.split(":").second
+      args = JSON.parse argv.tr("'", "\"")
+      assert_include args, "xxh-shell-zsh"
+
+      ssh_argv = stderr.lines.grep(/^ssh arguments:/).first.split(":").second
+      ssh_args = JSON.parse ssh_argv.tr("'", "\"")
+      assert_include ssh_args, "Port=#{port}"
+      assert_include ssh_args, "HostName=127.0.0.1"
+      assert_match "Connection closed by remote host", stderr
+    ensure
+      Process.kill("TERM", server_pid)
+    end
   end
 end
