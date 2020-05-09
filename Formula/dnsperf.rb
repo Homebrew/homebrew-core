@@ -1,8 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.2.tar.gz"
-  sha256 "292bbaeb95389b549a91f4bfc7faf8062326ef75a0382e879ca86cdfe71df408"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.3.tar.gz"
+  sha256 "de5270401c1b553deb965a90c1cf071ba64eda7cdbc58d07026c7e20e9529163"
 
   bottle do
     cellar :any
