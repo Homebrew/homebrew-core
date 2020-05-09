@@ -1,9 +1,11 @@
 class Concurrencykit < Formula
   desc "Aid design and implementation of concurrent systems"
   homepage "http://concurrencykit.org"
-  url "http://concurrencykit.org/releases/ck-0.6.0.tar.gz"
-  mirror "https://github.com/concurrencykit/ck/archive/0.6.0.tar.gz"
-  sha256 "d7e27dd0a679e45632951e672f8288228f32310dfed2d5855e9573a9cf0d62df"
+  # latest release on github is 0.7.0
+  # release on concurrencykit.org is 0.6.0
+  url "https://github.com/concurrencykit/ck/archive/0.7.0.tar.gz"
+  mirror "http://concurrencykit.org/releases/ck-0.7.0.tar.gz"
+  sha256 "e730cb448fb0ecf9d19bf4c7efe9efc3c04dd9127311d87d8f91484742b0da24"
   head "https://github.com/concurrencykit/ck.git"
 
   bottle do
