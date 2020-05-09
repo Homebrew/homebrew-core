@@ -4,6 +4,7 @@ class Picat < Formula
   url "http://picat-lang.org/download/picat28_5_src.tar.gz"
   version "2.8#5"
   sha256 "3e88f2d2afdda77754e3dde2da50b7a6ee738c98766b03fb9e25cd006ee13652"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
