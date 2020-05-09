@@ -3,6 +3,7 @@ class JsonrpcGlib < Formula
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
   url "https://download.gnome.org/sources/jsonrpc-glib/3.34/jsonrpc-glib-3.34.0.tar.xz"
   sha256 "d1ceb24b503e49e7bfe6e44630c03abc65f2d047a68271eb62e332b13be90548"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,6 @@ class JsonrpcGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "json-glib"
