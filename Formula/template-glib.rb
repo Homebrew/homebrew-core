@@ -3,7 +3,7 @@ class TemplateGlib < Formula
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
   url "https://download.gnome.org/sources/template-glib/3.34/template-glib-3.34.0.tar.xz"
   sha256 "216bef6ac3607666b8ca72b936467f7020ce6421c02755c301d079576c9c3dfd"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,7 +16,6 @@ class TemplateGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
