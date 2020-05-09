@@ -3,9 +3,8 @@ class Duplicity < Formula
 
   desc "Bandwidth-efficient encrypted backup"
   homepage "https://launchpad.net/duplicity"
-  url "https://code.launchpad.net/duplicity/0.8-series/0.8.12/+download/duplicity-0.8.12.1612.tar.gz"
-  sha256 "074cf847b273644459c840253bc39f5ed3d0a7f8545339d98b6e9a87f945c51a"
-  revision 2
+  url "https://code.launchpad.net/duplicity/0.8-series/0.8.13/+download/duplicity-0.8.13.tar.gz"
+  sha256 "46f515848427e809509b98102cc28b8339a23e14dec07a3f4e9c60e25578d451"
 
   bottle do
     cellar :any
