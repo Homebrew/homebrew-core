@@ -3,6 +3,7 @@ class FileRoller < Formula
   homepage "https://wiki.gnome.org/Apps/FileRoller"
   url "https://download.gnome.org/sources/file-roller/3.36/file-roller-3.36.2.tar.xz"
   sha256 "268f7fdad8d2a78dfed5e82eb8710bad389c311b720666d6f07a04ed51056bd2"
+  revision 1
 
   bottle do
     sha256 "f5e19d928a57a9682fa124ca664dfe124a971276232f1c84734aa8f8494ad054" => :catalina
@@ -14,7 +15,6 @@ class FileRoller < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
