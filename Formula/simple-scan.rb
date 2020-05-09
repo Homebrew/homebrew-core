@@ -3,6 +3,7 @@ class SimpleScan < Formula
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
   url "https://download.gnome.org/sources/simple-scan/3.36/simple-scan-3.36.2.1.tar.xz"
   sha256 "bb8ce5750cd0405e14e4ac8b09f4a587c2fa3a418614ad425a6694c981bb012b"
+  revision 1
 
   bottle do
     sha256 "fb4c476289f457aabb84ba10ebad5c8443c90ebb02df82a1ecf841fe8fbf748f" => :catalina
@@ -14,7 +15,6 @@ class SimpleScan < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "gtk+3"
