@@ -3,7 +3,7 @@ class Babl < Formula
   homepage "http://www.gegl.org/babl/"
   url "https://download.gimp.org/pub/babl/0.1/babl-0.1.74.tar.xz"
   sha256 "9a710b6950da37ada94cd9e2046cbce26de12473da32a7b79b7d1432fc66ce0e"
-  revision 1
+  revision 2
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git"
 
@@ -18,7 +18,6 @@ class Babl < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
   depends_on "little-cms2"
 
   def install
