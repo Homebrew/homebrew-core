@@ -17,6 +17,7 @@ class Salt < Formula
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
+  # Does not support python 3.8: https://github.com/saltstack/salt/issues/55310
   depends_on "python"
   depends_on "zeromq"
 
