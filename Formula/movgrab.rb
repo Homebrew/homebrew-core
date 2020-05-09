@@ -3,7 +3,7 @@ class Movgrab < Formula
   homepage "https://sites.google.com/site/columscode/home/movgrab"
   url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
   sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
