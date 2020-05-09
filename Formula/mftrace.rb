@@ -4,7 +4,7 @@ class Mftrace < Formula
   url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.19.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.19.tar.gz"
   sha256 "778126f4220aa31fc91fa8baafd26aaf8be9c5e8fed5c0e92a61de04d32bbdb5"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +22,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "t1utils"
 
   def install
