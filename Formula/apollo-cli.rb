@@ -3,8 +3,8 @@ require "language/node"
 class ApolloCli < Formula
   desc "Command-line tool for Apollo GraphQL"
   homepage "https://apollographql.com"
-  url "https://registry.npmjs.org/apollo/-/apollo-2.27.3.tgz"
-  sha256 "77959a3f8d388ee8ba7428314c52674bb63e641abbfb2a38806dca6d1086776b"
+  url "https://registry.npmjs.org/apollo/-/apollo-2.27.4.tgz"
+  sha256 "56bc7c47532c3aca1bb3d0523bd1447b1af9ae0b68693f3745707ebf8f612783"
 
   bottle do
     cellar :any_skip_relocation
