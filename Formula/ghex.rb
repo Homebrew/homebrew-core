@@ -3,7 +3,7 @@ class Ghex < Formula
   homepage "https://wiki.gnome.org/Apps/Ghex"
   url "https://download.gnome.org/sources/ghex/3.18/ghex-3.18.4.tar.xz"
   sha256 "c2d9c191ff5bce836618779865bee4059db81a3a0dff38bda3cc7a9e729637c0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "74ef6e73cc29bce3ee6d7a8a97eb54b54d5794fbfe7e924c85d8cfdde0431d45" => :catalina
@@ -15,7 +15,6 @@ class Ghex < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
 
