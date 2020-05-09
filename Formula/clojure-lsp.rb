@@ -1,9 +1,12 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/snoe/clojure-lsp"
-  url "https://github.com/snoe/clojure-lsp/archive/release-20200413T141742.tar.gz"
-  version "20200413T141742"
-  sha256 "7f09bd3c7970a47c82cc00f4a610fd68127357af21a35d5f75e0c40edb6b351d"
+  # Switch to use git tag/revision as needed by `lein-git-version`
+  url "https://github.com/snoe/clojure-lsp.git",
+    :tag      => "release-20200507T034423",
+    :revision => "a1e30bc4c3d84f9cf6c8d5fe097eef2d25676796"
+  version "20200507T034423"
+  sha256 "7444795a6a9655ae8e1ec1df00392f24bad2a73a1f890353e2b7c98dca681061"
   head "https://github.com/snoe/clojure-lsp.git"
 
   bottle do
@@ -14,6 +17,8 @@ class ClojureLsp < Formula
   end
 
   depends_on "leiningen" => :build
+  # The Java Runtime version only recognizes class file versions up to 52.0
+  depends_on :java => "1.8"
 
   def install
     system "lein", "uberjar"
