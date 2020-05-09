@@ -3,7 +3,7 @@ class Graphene < Formula
   homepage "https://ebassi.github.io/graphene/"
   url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.0.tar.xz"
   sha256 "406d97f51dd4ca61e91f84666a00c3e976d3e667cd248b76d92fdb35ce876499"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,7 +16,6 @@ class Graphene < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
   depends_on "glib"
 
   def install
