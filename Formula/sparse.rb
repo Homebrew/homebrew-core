@@ -3,6 +3,7 @@ class Sparse < Formula
   homepage "https://sparse.wiki.kernel.org/"
   url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.2.tar.xz"
   sha256 "519ca0de92c1c5dbb76494176c7e567ce4cc8f64a2ecd27b2fae32ce156421fc"
+  revision 1
   head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
 
   bottle do
