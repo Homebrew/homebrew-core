@@ -6,7 +6,7 @@ class Xxh < Formula
   url "https://files.pythonhosted.org/packages/6b/c0/148dbdac379ecf0fa33b90e5ef86e70acdaf35341c7688c0bfcce1ed44b9/xxh-xxh-0.8.2.tar.gz"
   sha256 "38aff928df11f72f41fdcb775cd75768db7cb7da063f844261b08f78fbe147a8"
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
