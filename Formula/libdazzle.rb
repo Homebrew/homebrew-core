@@ -3,6 +3,7 @@ class Libdazzle < Formula
   homepage "https://gitlab.gnome.org/GNOME/libdazzle"
   url "https://download.gnome.org/sources/libdazzle/3.36/libdazzle-3.36.0.tar.xz"
   sha256 "82b31bbf550fc62970c78bf7f9d55e5fae5b8ea13b24fe2d13c8c6039409d958"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,6 @@ class Libdazzle < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "gtk+3"
