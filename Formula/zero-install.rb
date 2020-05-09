@@ -2,8 +2,8 @@ class ZeroInstall < Formula
   desc "Zero Install is a decentralised software installation system"
   homepage "https://0install.net/"
   url "https://github.com/0install/0install.git",
-      :tag      => "v2.16",
-      :revision => "102cbedea0bec5eaf85e48856b701ff56939cc20"
+      :tag      => "v2.17",
+      :revision => "4a837bd638d93905b96d073c28c644894f8d4a0b"
   head "https://github.com/0install/0install.git"
 
   bottle do
