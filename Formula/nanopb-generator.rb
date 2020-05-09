@@ -3,6 +3,7 @@ class NanopbGenerator < Formula
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
   url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.4.1.tar.gz"
   sha256 "bae4202983c39d7546a0a464ada00faf9263ac186d8426f0497fefab0abb5eea"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class NanopbGenerator < Formula
   end
 
   depends_on "protobuf"
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "mesos",
     :because => "they depend on an incompatible version of protobuf"
@@ -21,7 +22,7 @@ class NanopbGenerator < Formula
     cd "generator" do
       system "make", "-C", "proto"
       inreplace "nanopb_generator.py", %r{^#!/usr/bin/env python$},
-                                       "#!/usr/bin/env python3"
+                                       "#!/usr/bin/env #{Formula["python@3.8"].opt_bin}/python3"
       libexec.install "nanopb_generator.py", "protoc-gen-nanopb", "proto"
       bin.install_symlink libexec/"protoc-gen-nanopb", libexec/"nanopb_generator.py"
     end
