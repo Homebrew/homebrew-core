@@ -1,9 +1,8 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20190801/fontforge-20190801.tar.gz"
-  sha256 "d92075ca783c97dc68433b1ed629b9054a4b4c74ac64c54ced7f691540f70852"
-  revision 1
+  url "https://github.com/fontforge/fontforge/archive/20200314.tar.gz"
+  sha256 "ad0eb017379c6f7489aa8e2d7c160f19140d1ac6351f20df1d9857d9428efcf2"
 
   bottle do
     cellar :any
@@ -12,6 +11,8 @@ class Fontforge < Formula
     sha256 "0e91f1858662fa08537287af6e1884ef94377a46a5eb24cec61f3f9f41c48e8a" => :high_sierra
   end
 
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -26,29 +27,30 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "readline"
+
   uses_from_macos "libxml2"
 
+  # Remove with next release (cmake: adjust Python linkage)
+  # https://github.com/fontforge/fontforge/pull/4258
+  patch do
+    url "https://github.com/fontforge/fontforge/pull/4258.patch?full_index=1"
+    sha256 "3deed4d79a1fdf5fb6de2fca7da8ffe14301acbeb015441574a7a28e902561f5"
+  end
+
   def install
-    ENV["PYTHON_CFLAGS"] = `python3-config --cflags`.chomp
-    ENV["PYTHON_LIBS"] = `python3-config --ldflags`.chomp
+    mkdir "build" do
+      system "cmake", "..",
+                      "-GNinja",
+                      "-DENABLE_GUI=OFF",
+                      "-DENABLE_FONTFORGE_EXTRAS=ON",
+                      *std_cmake_args
+      system "ninja"
+      system "ninja", "install"
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-python-scripting=3",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--without-x"
-    system "make", "install"
-
-    # The app here is not functional.
-    # If you want GUI/App support, check the caveats to see how to get it.
-    (pkgshare/"osx/FontForge.app").rmtree
-
-    # Build extra tools
-    cd "contrib/fonttools" do
-      system "make"
-      bin.install Dir["*"].select { |f| File.executable? f }
+      # The "extras" built above don't get installed by default.
+      bin.install Dir["bin/*"].select { |f| File.executable? f }
     end
   end
 
@@ -67,8 +69,6 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    xy = Language::Python.major_minor_version "python3"
-    ENV.append_path "PYTHONPATH", lib/"python#{xy}/site-packages"
-    system "python3", "-c", "import fontforge; fontforge.font()"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
   end
 end
