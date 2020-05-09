@@ -3,6 +3,7 @@ class Gcab < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz"
   sha256 "67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f"
+  revision 1
 
   bottle do
     sha256 "e570c13861c6c889291e1fc67a12c6f0df05129f2e9e80e52b3dbd1a0c406e94" => :catalina
@@ -14,7 +15,6 @@ class Gcab < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "vala" => :build
   depends_on "glib"
 
