@@ -3,7 +3,7 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 11
+  revision 12
 
   bottle do
     sha256 "11b15754a891fa31f6f21d15a0604694828b8ba11f3339675e5694481093bd81" => :catalina
@@ -15,7 +15,6 @@ class GnomeRecipes < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gnome-autoar"
   depends_on "gnu-tar"
