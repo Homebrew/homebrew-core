@@ -1,8 +1,9 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
-  homepage "https://launchpad.net/glib-networking"
+  homepage "https://gitlab.gnome.org/GNOME/glib-networking"
   url "https://download.gnome.org/sources/glib-networking/2.64/glib-networking-2.64.2.tar.xz"
   sha256 "45def0715c551f9b0b41a4e4f730ac95f3d5d4f3de8162260fbf9421cff695a7"
+  revision 1
 
   bottle do
     sha256 "3cbb58f638d28668205aef4a314cab88b092c77823189ef0e262e6293cacbc33" => :catalina
@@ -13,7 +14,6 @@ class GlibNetworking < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
