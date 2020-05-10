@@ -1,8 +1,8 @@
 class Nqp < Formula
   desc "Lightweight Perl 6-like environment for virtual machines"
   homepage "https://github.com/perl6/nqp"
-  url "https://github.com/perl6/nqp/releases/download/2020.02.1/nqp-2020.02.1.tar.gz"
-  sha256 "f2b5757231b006cfb440d511ccdcfc999bffabe05c51e0392696601ff779837f"
+  url "https://github.com/perl6/nqp/releases/download/2020.05/nqp-2020.05.tar.gz"
+  sha256 "291b92d9db968a691195adb1c9533edc1076d12d6617d6d931e40595e906b577"
 
   bottle do
     sha256 "58ca53d3d4cd2fecec525fbbe5a1da23e78900370481064be743525557e92b7b" => :catalina
