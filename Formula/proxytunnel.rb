@@ -1,9 +1,8 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
   homepage "https://github.com/proxytunnel/proxytunnel"
-  url "https://github.com/proxytunnel/proxytunnel/archive/1.9.1.tar.gz"
-  sha256 "4a68d2c33bf53c290346b0a76e2c3d25556e954ba346be68cf65ae8f73ae8007"
-  revision 1
+  url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20200507.tar.gz"
+  sha256 "6495430e9c60d3df53824a7a0f3bea9953a89d083a3718c72db04dc4d40755ac"
 
   bottle do
     cellar :any
@@ -16,27 +15,6 @@ class Proxytunnel < Formula
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
   depends_on "openssl@1.1"
-
-  # Remove for > 1.9.1
-  # Remove conflicting strlcpy/strlcat declarations
-  # Upstream commit 8 Nov 2016 "Make building on OSX work out of the box"
-  patch do
-    url "https://github.com/proxytunnel/proxytunnel/commit/0cfce96.patch?full_index=1"
-    sha256 "9d1341860cebfed4851896f657bf8d204dc3efdc57f973f969ca1782b55e2fe3"
-  end
-
-  # Fix "install: illegal option -- D"
-  # Upstream PR from 14 May 2018 "Makefile: don't use non-portable -D option"
-  patch do
-    url "https://github.com/proxytunnel/proxytunnel/pull/27.patch?full_index=1"
-    sha256 "981737b32526b7ff9520236175ac36831d23d71195275f68f444c3832c5db8ab"
-  end
-
-  # Upstream commit for OpenSSL 1.1 compatibility
-  patch do
-    url "https://github.com/proxytunnel/proxytunnel/commit/2a26224b.diff?full_index=1"
-    sha256 "53fa9fc73c88a1ee157c0d47cb93f4199ec89ce2636bd61ca7706f2a3d30ffed"
-  end
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
