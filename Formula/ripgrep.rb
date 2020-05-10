@@ -3,6 +3,7 @@ class Ripgrep < Formula
   homepage "https://github.com/BurntSushi/ripgrep"
   url "https://github.com/BurntSushi/ripgrep/archive/12.1.0.tar.gz"
   sha256 "ca2d11dd7b7346734d47ad8073468e9c409fbe85842a608d372b8d4fb36be291"
+  revision 1
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
@@ -12,15 +13,12 @@ class Ripgrep < Formula
     sha256 "be49cef17dbf58a02e02f45d062fd833424280e7b9402332186603397c1573c2" => :high_sierra
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "docbook-xsl" => :build
+  depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "pcre2"
 
   def install
-    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-
     system "cargo", "install", "--locked",
                                "--root", prefix,
                                "--path", ".",
