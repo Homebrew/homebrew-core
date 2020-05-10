@@ -1,8 +1,8 @@
 class Seexpr < Formula
   desc "Embeddable expression evaluation engine"
   homepage "https://www.disneyanimation.com/technology/seexpr.html"
-  url "https://github.com/wdas/SeExpr/archive/v2.11.tar.gz"
-  sha256 "bf4a498f86aa3fc19aad3d7384de11d5df76f7f71587c9bd789f5e50f8090e1a"
+  url "https://github.com/wdas/SeExpr/archive/v3.0.1.tar.gz"
+  sha256 "1e4cd35e6d63bd3443e1bffe723dbae91334c2c94a84cc590ea8f1886f96f84e"
 
   bottle do
     cellar :any
