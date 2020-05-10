@@ -45,8 +45,8 @@ class Duplicity < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ac/78/407b51ebc5fbace8b8f33db182619af554a8a109db384993f3c638e12083/boto3-1.12.31.tar.gz"
-    sha256 "913fc7bbb9df147ed6fa0bd2b391469652ee8cad3e26ca2355e6ff774d9516fb"
+    url "https://files.pythonhosted.org/packages/e9/98/5991f792f96e475da864cc3782e2cdb21d92b2bc943522eaf886539c1d48/boto3-1.13.6.tar.gz"
+    sha256 "f1ac7eb23ff8b1d7e314123668ff1e93b874dd396ac5424adc443d68bd8a6fbf"
   end
 
   resource "botocore" do
@@ -85,8 +85,8 @@ class Duplicity < Formula
   end
 
   resource "dropbox" do
-    url "https://files.pythonhosted.org/packages/20/6c/e48d2ee92514240ce8b779985f108cad3833f2ef7a1b004af575e279220e/dropbox-9.5.0.tar.gz"
-    sha256 "118a0c376cb9e7db63b2dbf560ba5c966cf1f0bfef7b67d4842ce123c383e947"
+    url "https://files.pythonhosted.org/packages/27/50/604faf78df15d4b8111a700129e77316baf858845e9360939a05da290bde/dropbox-10.1.2.tar.gz"
+    sha256 "1d0bb2a919da26c46bbd1ba936ae44165385e08f22be64fb634a952a751b4f04"
   end
 
   resource "fasteners" do
