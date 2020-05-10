@@ -30,13 +30,6 @@ class Wxpython < Formula
     sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
-  # Fix build for 10.15 SDK (WebKit errors).
-  # Fixed in 4.1.x.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/20da70f67040d40f8420bd7d543c875739261e24/wxpython/10.15-sdk.patch"
-    sha256 "c54f2bb97532f483219c63a3c9e463d4aeda759bee2fff1f07820f3c752f68f1"
-  end
-
   def install
     # Fix build of included wxwidgets
     # see https://github.com/wxWidgets/Phoenix/issues/1247
