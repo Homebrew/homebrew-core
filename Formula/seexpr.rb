@@ -12,6 +12,7 @@ class Seexpr < Formula
     sha256 "7547836d1b40c29fbfa118d3c25c6cdec2c9311c7ce7d1b254430196bc854c46" => :high_sierra
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "libpng"
