@@ -1,9 +1,8 @@
 class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2020.02.1/MoarVM-2020.02.1.tar.gz"
-  sha256 "82cb80b29ad7aebb0c0b42449d371eafa8935b07884526345f9788c8bcf4d632"
-  revision 1
+  url "https://github.com/MoarVM/MoarVM/releases/download/2020.05/MoarVM-2020.05.tar.gz"
+  sha256 "9368d2c691ea8710459a48c323915df6648c4a67d2ce24c27fc74f6b084a824b"
 
   bottle do
     sha256 "4e24f71dedceab020c3aab38a57c654705471af24035eea59aeca9622bab6065" => :catalina
@@ -19,8 +18,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", :because => "rakudo-star currently ships with moarvm included"
 
   resource("nqp") do
-    url "https://github.com/perl6/nqp/releases/download/2020.02.1/nqp-2020.02.1.tar.gz"
-    sha256 "f2b5757231b006cfb440d511ccdcfc999bffabe05c51e0392696601ff779837f"
+    url "https://github.com/perl6/nqp/releases/download/2020.05/nqp-2020.05.tar.gz"
+    sha256 "291b92d9db968a691195adb1c9533edc1076d12d6617d6d931e40595e906b577"
   end
 
   def install
