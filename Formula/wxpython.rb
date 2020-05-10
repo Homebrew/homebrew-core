@@ -34,8 +34,8 @@ class Wxpython < Formula
     # Fix build of included wxwidgets
     # see https://github.com/wxWidgets/Phoenix/issues/1247
     inreplace "buildtools/build_wxwidgets.py",
-              /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
-              "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
+              "#wxpy_configure_opts.append(\"--enable-monolithic\")",
+              "wxpy_configure_opts.append(\"--disable-precomp-headers\")"
 
     venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
