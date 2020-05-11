@@ -1,9 +1,8 @@
 class Frotz < Formula
   desc "Infocom-style interactive fiction player"
   homepage "https://661.org/proj/if/frotz/"
-  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.51/frotz-2.51.tar.gz"
-  sha256 "7916f17061e845e4fa5047c841306c4be2614e9c941753f9739c5d39c7e9f05b"
-  revision 1
+  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.52/frotz-2.52.tar.bz2"
+  sha256 "7e81789d7958ef42426a3067855cb3dc8eda04a5aa80d2803e32dd9282452932"
   head "https://gitlab.com/DavidGriffith/frotz.git"
 
   bottle do
@@ -27,6 +26,11 @@ class Frotz < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  resource("testdata") do
+    url "https://gitlab.com/DavidGriffith/frotz/-/raw/master/src/test/etude/etude.z5"
+    sha256 "bfa2ef69f2f5ce3796b96f9b073676902e971aedb3ba690b8835bb1fb0daface"
+  end
+
   def install
     args = %W[PREFIX=#{prefix} MANDIR=#{man} SYSCONFDIR=#{etc}]
     system "make", "all", *args
@@ -35,8 +39,10 @@ class Frotz < Formula
   end
 
   test do
-    assert_match "FROTZ", shell_output("#{bin}/frotz --version").strip
-    assert_match "FROTZ", shell_output("#{bin}/sfrotz --version").strip
-    assert_match "FROTZ", shell_output("#{bin}/dfrotz --version").strip
+    resource("testdata").stage do
+      assert_match "TerpEtude", shell_output("echo \".\" | #{bin}/dfrotz etude.z5")
+    end
+    assert_match "FROTZ", shell_output("#{bin}/frotz -v").strip
+    assert_match "FROTZ", shell_output("#{bin}/sfrotz -v").strip
   end
 end
