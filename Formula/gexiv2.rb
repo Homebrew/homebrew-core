@@ -3,7 +3,7 @@ class Gexiv2 < Formula
   homepage "https://wiki.gnome.org/Projects/gexiv2"
   url "https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz"
   sha256 "58f539b0386f36300b76f3afea3a508de4914b27e78f58ee4d142486a42f926a"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Gexiv2 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
@@ -26,7 +26,7 @@ class Gexiv2 < Formula
   patch :DATA
 
   def install
-    pyver = Language::Python.major_minor_version "python3"
+    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
 
     mkdir "build" do
       system "meson", *std_meson_args, "-Dpython3_girdir=#{lib}/python#{pyver}/site-packages/gi/overrides", ".."
