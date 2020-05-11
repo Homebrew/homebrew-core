@@ -1,7 +1,7 @@
 class Semgrep < Formula
   include Language::Python::Virtualenv
 
-  desc "Easily detect and prevent bugs and anti-patterns in your codebase”"
+  desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep/archive/v0.6.1.tar.gz"
   sha256 "77cc3b49da0ccd442d8637d201bad4a1fc4065dd68d15bfe4cf7e52d127c0630"
