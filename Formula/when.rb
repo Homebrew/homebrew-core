@@ -1,8 +1,8 @@
 class When < Formula
   desc "Tiny personal calendar"
   homepage "http://www.lightandmatter.com/when/when.html"
-  url "https://deb.debian.org/debian/pool/main/w/when/when_1.1.38.orig.tar.gz"
-  sha256 "139834945142f5e3ea6b20f43ba740d30b4a87b42ce5767026094e633dca999f"
+  url "https://github.com/bcrowell/when/archive/1.1.40.tar.gz"
+  sha256 "1363d48c32c4bb528514abf012ae0a61e7c686504a047ce870e72e791447c3d1"
   head "https://github.com/bcrowell/when.git"
 
   bottle do
