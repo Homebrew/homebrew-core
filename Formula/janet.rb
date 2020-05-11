@@ -1,8 +1,8 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/v1.8.1.tar.gz"
-  sha256 "0f3ee438fb159d3081b38506e51df6406b355eb241c662ca1a3529dac0140b92"
+  url "https://github.com/janet-lang/janet/archive/v1.9.0.tar.gz"
+  sha256 "30ca113843e597127912719a03a7da5f93fd1cf321245d8dbbcbae64d307ad5c"
   head "https://github.com/janet-lang/janet.git"
 
   bottle do
@@ -14,6 +14,12 @@ class Janet < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+
+  # should be removed in the next release
+  patch do
+    url "https://github.com/janet-lang/janet/commit/7275370ae563e8bfa7e907c9931bb1e0c88686d3.patch?full_index=1"
+    sha256 "fcd581e38edfc89aef8c4164a7d36da0b55ce6965f85f01bca0ff92e1bf9019e"
+  end
 
   def install
     system "meson", "setup", "build", "--buildtype=release", *std_meson_args
