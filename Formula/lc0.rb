@@ -5,6 +5,7 @@ class Lc0 < Formula
   url "https://github.com/LeelaChessZero/lc0.git",
       :tag      => "v0.25.1",
       :revision => "69105b4eb0a3cf4fbc76960d18d519a0bdd19838"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Lc0 < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build # required to compile .pb files
 
   resource "network" do
     url "https://training.lczero.org/get_network?sha=00af53b081e80147172e6f281c01daf5ca19ada173321438914c730370aa4267", :using => :nounzip
@@ -23,7 +24,7 @@ class Lc0 < Formula
   end
 
   def install
-    system "meson", *std_meson_args, "--buildtype", "release", "build/release"
+    system "meson", *std_meson_args, "-Dgtest=false", "--buildtype", "release", "build/release"
 
     cd "build/release" do
       system "ninja", "-v"
