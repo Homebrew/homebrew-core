@@ -28,4 +28,9 @@ class A52dec < Formula
     touch testpath/"test"
     system "#{bin}/a52dec", "-o", "null", "test"
   end
+
+  livecheck do
+    url "http://liba52.sourceforge.net"
+    regex /a52dec-(\d+(?:\.\d+)+)/
+  end
 end
