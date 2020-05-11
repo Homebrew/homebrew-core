@@ -3,8 +3,11 @@ class Semgrep < Formula
 
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
-  url "https://github.com/returntocorp/semgrep/archive/v0.6.1.tar.gz"
-  sha256 "77cc3b49da0ccd442d8637d201bad4a1fc4065dd68d15bfe4cf7e52d127c0630"
+  url "https://github.com/returntocorp/semgrep.git",
+    :tag      => "v0.6.1",
+    :revision => "13480105829770168af10c20ff0ab5df0405df74"
+  revision 1
+  head "https://github.com/returntocorp/semgrep.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,11 +22,6 @@ class Semgrep < Formula
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.8"
-
-  resource "pfff" do
-    url "https://github.com/returntocorp/pfff.git",
-      :revision => "0ec4eb89963f85739c83af11c5ce39f53c1342a1"
-  end
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
@@ -61,7 +59,6 @@ class Semgrep < Formula
   end
 
   def install
-    (buildpath/"pfff").install resource("pfff")
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
@@ -80,13 +77,9 @@ class Semgrep < Formula
     end
 
     python_path = "semgrep"
-
     cd python_path do
       venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3.8")
-      python_deps = resources.reject do |resource|
-        resource.name == "pfff"
-      end
-      venv.pip_install python_deps
+      venv.pip_install resources
       venv.pip_install_and_link buildpath/python_path
     end
   end
