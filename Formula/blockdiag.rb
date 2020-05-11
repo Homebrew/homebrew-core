@@ -13,7 +13,7 @@ class Blockdiag < Formula
   depends_on "little-cms2"
   depends_on "python"
   depends_on "webp"
-  
+
   uses_from_macos "zlib"
 
   resource "funcparserlib" do
