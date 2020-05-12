@@ -61,6 +61,6 @@ class Blockdiag < Formula
       }
     EOS
     system "#{bin}/blockdiag", "-a", "test.diag"
-    # output is test.png, but how do I verify good png?
+    assert_predicate testpath/"test.png", :exist?
   end
 end
