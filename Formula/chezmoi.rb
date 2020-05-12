@@ -4,6 +4,7 @@ class Chezmoi < Formula
   url "https://github.com/twpayne/chezmoi.git",
       :tag      => "v1.8.1",
       :revision => "4def4f3b96cb01cefe8d7887e8dbfb77908ef267"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -27,7 +28,7 @@ class Chezmoi < Formula
 
     bash_completion.install "completions/chezmoi-completion.bash"
     fish_completion.install "completions/chezmoi.fish"
-    zsh_completion.install "completions/chezmoi.zsh"
+    zsh_completion.install "completions/chezmoi.zsh" => "_chezmoi"
 
     prefix.install_metafiles
   end
