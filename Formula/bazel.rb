@@ -3,6 +3,7 @@ class Bazel < Formula
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/3.1.0/bazel-3.1.0-dist.zip"
   sha256 "d7f40d0cac95a06cea6cb5b7f7769085257caebc3ee84269dd9298da760d5615"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,13 +12,14 @@ class Bazel < Formula
     sha256 "166729984573d0f70b2e16322d5bdab350c7ddec411afa7c8330dfa20fa7be1e" => :high_sierra
   end
 
+  depends_on "openjdk@11" => :build
   depends_on "python@3.8" => :build
-  depends_on :java => "1.8"
   depends_on :macos => :yosemite
 
   uses_from_macos "zip"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
