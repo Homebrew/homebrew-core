@@ -14,11 +14,13 @@ jobs:
       id: set-up-homebrew
       run: |
         if which brew &>/dev/null; then
-          HOMEBREW_REPOSITORY="$(brew --repo)"
+          HOMEBREW_PREFIX="$(brew --prefix)"
+          HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
           brew update-reset "$HOMEBREW_REPOSITORY"
 
           HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-          ln -s "$PWD" "$HOMEBREW_CORE_REPOSITORY"
+          git -C "$HOMEBREW_CORE_REPOSITORY" remote set-url origin "https://github.com/$GITHUB_REPOSITORY"
+          brew update-reset "$HOMEBREW_CORE_REPOSITORY"
         else
           HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
           HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
@@ -34,10 +36,10 @@ jobs:
           sudo mkdir -p bin etc include lib opt sbin share var/homebrew/linked Cellar
           sudo ln -sf ../Homebrew/bin/brew "$HOMEBREW_PREFIX/bin/"
           cd -
-
-          export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-          echo "::add-path::$HOMEBREW_PREFIX/bin"
         fi
+
+        export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+        echo "::add-path::$HOMEBREW_PREFIX/bin"
 
         GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/ruby/"
         echo "::set-output name=gems-path::$GEMS_PATH"
