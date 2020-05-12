@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.3.0-rc.7.tgz"
-  sha256 "22b7df81f2a5d372bac5bf5251407ca18493675ee3d50113b4d7817b711503b2"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.3.0-rc.9.tgz"
+  sha256 "1020a9d21225c4b0b4f95e804213849663290a8b74ae7fd1922c99445c4e39c8"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,8 +22,44 @@ class CodeServer < Formula
     (bin/"code-server").make_symlink "#{libexec}/out/node/entry.js"
   end
 
+  def caveats
+    <<~EOS
+      The launchd service runs on http://127.0.0.1:8080. Logs are located at #{var}/log/code-server.log.
+    EOS
+  end
+
+  plist_options :manual => "code-server"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{HOMEBREW_PREFIX}/bin/node</string>
+          <string>#{libexec}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{ENV["HOME"]}</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/code-server.log</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/code-server.log</string>
+      </dict>
+      </plist>
+    EOS
+  end
+
   test do
-    system bin/"code-server", "--install-extension", "ms-python.python"
-    assert_equal "ms-python.python\n", shell_output("#{bin/"code-server"} --list-extensions")
+    system bin/"code-server", "--extensions-dir=.", "--install-extension", "ms-python.python"
+    assert_equal "ms-python.python\n", shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
   end
 end
