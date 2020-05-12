@@ -69,6 +69,12 @@ class Travis < Formula
     sha256 "19e808539681bbf2e65df30dfbe27bb402bde916a1dceb4c7496dbe8de14334a"
   end
 
+  # required by typhoeus
+  resource "ffi" do
+    url "https://rubygems.org/gems/ffi-1.12.2.gem"
+    sha256 "048ad01d5369f67075f943c16f1058f10663af2a66eedb87d921316ba1828e82"
+  end
+
   resource "gh" do
     url "https://rubygems.org/gems/gh-0.17.0.gem"
     sha256 "7219a131780f2f21b7495e60e94dd5170e5ab6dc9a219f4623ca4175456d42da"
