@@ -1,8 +1,8 @@
 class Quill < Formula
   desc "C++14 Asynchronous Low Latency Logging Library"
   homepage "https://github.com/odygrd/quill"
-  url "https://github.com/odygrd/quill/archive/v1.2.3.tar.gz"
-  sha256 "f318fa87a39aea76c66cfe09c686f5ce2cacaf2980678ada310acac8cf42ffd0"
+  url "https://github.com/odygrd/quill/archive/v1.3.1.tar.gz"
+  sha256 "00e491212139462d87897af02794d19b8a213ff190be59a6799aed515463ca78"
   head "https://github.com/odygrd/quill.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Quill < Formula
 
     mkdir "quill-build" do
       args = std_cmake_args
-      args << "-Dpkg_config_libdir=#{lib}" << ".."
+      args << ".."
       system "cmake", *args
       system "make", "install"
     end
