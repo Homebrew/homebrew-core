@@ -2,8 +2,8 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v2.1.1",
-      :revision => "9e91afc2f00e4c4965cc61d3d9a18d6ca9a8396d"
+      :tag      => "v2.2.1",
+      :revision => "d01a84eee899af57a871125720ce227619bbb303"
 
   bottle do
     cellar :any_skip_relocation
@@ -28,7 +28,7 @@ class Pulumi < Formula
       cd "./pkg" do
         system "go", "mod", "download"
       end
-      system "make", "dist"
+      system "make", "brew"
       bin.install Dir["#{buildpath}/bin/*"]
       prefix.install_metafiles
 
