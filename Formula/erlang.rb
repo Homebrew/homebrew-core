@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.3.4.tar.gz"
-  sha256 "79657e07aee0cc174f89c1bd7d8d251295f64144cced6ea72b98777ec6a6660d"
+  url "https://github.com/erlang/otp/archive/OTP-23.0.tar.gz"
+  sha256 "a12263e031374130f5bd4ff01c13f2d39ced241c695267498b19c66012e03d6a"
   head "https://github.com/erlang/otp.git"
 
   bottle do
@@ -22,15 +22,15 @@ class Erlang < Formula
   uses_from_macos "m4" => :build
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_22.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_22.3.tar.gz"
-    sha256 "43b6d62d9595e1dc51946d55c9528c706c5ae753876b9bf29303b7d11a7ccb16"
+    url "https://www.erlang.org/download/otp_doc_man_23.0.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_23.0.tar.gz"
+    sha256 "c0804cb5bead8780de24cf9ba656efefd9307a457e0541cc513109523731bf6f"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_22.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_22.3.tar.gz"
-    sha256 "9b01c61f2898235e7f6643c66215d6419f8706c8fdd7c3e0123e68960a388c34"
+    url "https://www.erlang.org/download/otp_doc_html_23.0.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_23.0.tar.gz"
+    sha256 "4da19f0de96d1c516d91c621a5ddf20837303cc25695b944e263e3ea46dd31da"
   end
 
   def install
