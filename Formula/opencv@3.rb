@@ -3,6 +3,7 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.10.tar.gz"
   sha256 "1ed6f5b02a7baf14daca04817566e7c98ec668cec381e0edf534fa49f10f58a2"
+  revision 1
 
   bottle do
     sha256 "5a875aa407bf2ed5e3f25e105c049b0daf83227109a8f5d5b53da9b90afcc5ca" => :catalina
@@ -77,10 +78,12 @@ class OpencvAT3 < Formula
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
