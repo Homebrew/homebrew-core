@@ -129,7 +129,6 @@ class Threesdk < Formula
     end
 
     def install
-      ENV["PATH"] += ":/usr/local/bin"
       system 'cd install; version=$(git describe --tags); gsed -i "s/_unreleased_/${version}/" threesdk/__init__.py;'
       system "cd install; pyinstaller 3sdk.spec"
       bin.install "install/dist/3sdk"
