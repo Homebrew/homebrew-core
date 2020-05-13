@@ -1,9 +1,8 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/Kong/kuma.git",
-      :tag      => "0.4.0",
-      :revision => "a37aaadf84e97fa9e5135c31353b51ba6a2245f3"
+  url "https://github.com/Kong/kuma/archive/0.5.0.tar.gz"
+  sha256 "a5d84ca9e1d91a8c0cb0095ab3a68bb40c49f09eb0989e3aaa89b89424a58ae1"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +19,7 @@ class Kumactl < Formula
     srcpath.install buildpath.children
 
     cd srcpath do
-      system "make", "build/kumactl"
+      system "make", "build/kumactl", "BUILD_INFO_VERSION=#{version}"
       prefix.install_metafiles
       bin.install outpath/"kumactl"
     end
