@@ -24,6 +24,8 @@ class LibtorrentRasterbar < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
+  conflicts_with "libtorrent-rakshasa", :because => "they both use the same libname"
+
   def install
     pyver = Language::Python.major_minor_version(Formula["python@3.8"].bin/"python3").to_s.delete(".")
     args = %W[
