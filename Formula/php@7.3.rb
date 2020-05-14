@@ -2,9 +2,8 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.17.tar.xz"
-  sha256 "6a30304c27f7e7a94538f5ffec599f600ee93aedbbecad8aa4f8bec539b10ad8"
-  revision 1
+  url "https://www.php.net/distributions/php-7.3.18.tar.xz"
+  sha256 "7b3e2479a8d6fd7666dcdef8aec50d49c4599cc6ee86e48d41724cfd99cc9e58"
 
   bottle do
     rebuild 1
