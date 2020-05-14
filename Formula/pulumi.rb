@@ -1,46 +1,14 @@
 class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
-  url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v2.1.1",
-      :revision => "9e91afc2f00e4c4965cc61d3d9a18d6ca9a8396d"
+  version "2.1.1"
+  bottle :unneeded
+  url "https://get.pulumi.com/releases/sdk/pulumi-v#{version}-darwin-x64.tar.gz"
+  sha256 "3efe812e88e0edc55107efad8ef0f65ca35b2bdcc669fa656cde68cbcbe11808"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "6c77f013818e808be70f76ad299b6cbd8fd96cb952033b9941c176ce9128dbd7" => :catalina
-    sha256 "de13070e3ef31853c3100cb1e900c3042badb05e75a52175df2c3ea726798443" => :mojave
-    sha256 "1d770bc8226281a0429ac89b365c426ef812d3f77b6ded71fb6611e12f7cfcfb" => :high_sierra
-  end
-
-  depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
-
-    dir = buildpath/"src/github.com/pulumi/pulumi"
-    dir.install buildpath.children
-
-    cd dir do
-      cd "./sdk" do
-        system "go", "mod", "download"
-      end
-      cd "./pkg" do
-        system "go", "mod", "download"
-      end
-      system "make", "ensure"
-      system "make", "dist"
-      bin.install Dir["#{buildpath}/bin/*"]
-      prefix.install_metafiles
-
-      # Install bash completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion bash")
-      (bash_completion/"pulumi").write output
-
-      # Install zsh completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion zsh")
-      (zsh_completion/"_pulumi").write output
-    end
+    bin.install Dir["*"]
   end
 
   test do
@@ -51,3 +19,4 @@ class Pulumi < Formula
     assert_predicate testpath/"Pulumi.yaml", :exist?, "Project was not created"
   end
 end
+
