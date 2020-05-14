@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.5.2.tar.gz"
-  sha256 "8ea05b07343d3ee7f3f8e5135935a27749885781585d6c793ce5425bfe2afc29"
+  url "https://github.com/witten/borgmatic/archive/1.5.3.tar.gz"
+  sha256 "e480f167cb6e102a76df1c4d969174107984c318ef51b61c60db925023c208c3"
 
   bottle do
     cellar :any
