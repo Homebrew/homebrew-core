@@ -1,9 +1,8 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.9.1.tar.gz"
-  sha256 "0add34d53cd27f8c468a59b8e931a636ad3174b60581c0387abb98a9fc9cddb6"
-  revision 8
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.0.tar.gz"
+  sha256 "4255c3d3572e9774b5a1dccc235711b7a723197b79430ef539c2044e9ce65954"
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
@@ -18,16 +17,11 @@ class Pcl < Formula
   depends_on "cminpack"
   depends_on "eigen"
   depends_on "flann"
-  depends_on "glew"
+  depends_on "libomp"
+  depends_on "libpcap"
   depends_on "libusb"
   depends_on "qhull"
   depends_on "vtk"
-
-  # Upstream patch for boost 1.70.0
-  patch do
-    url "https://github.com/PointCloudLibrary/pcl/commit/648932bc.diff?full_index=1"
-    sha256 "23f2cced7786715c59b49a48e4037eb9dea9abee099c4c5c92d95a647636b5ec"
-  end
 
   def install
     args = std_cmake_args + %w[
@@ -36,15 +30,15 @@ class Pcl < Formula
       -DBUILD_apps_3d_rec_framework=AUTO_OFF
       -DBUILD_apps_cloud_composer=AUTO_OFF
       -DBUILD_apps_in_hand_scanner=AUTO_OFF
-      -DBUILD_apps_optronic_viewer=AUTO_OFF
       -DBUILD_apps_point_cloud_editor=AUTO_OFF
-      -DBUILD_examples:BOOL=ON
+      -DBUILD_examples:BOOL=OFF
       -DBUILD_global_tests:BOOL=OFF
       -DBUILD_outofcore:BOOL=AUTO_OFF
       -DBUILD_people:BOOL=AUTO_OFF
-      -DBUILD_simulation:BOOL=AUTO_OFF
+      -DBUILD_simulation:BOOL=OFF
       -DWITH_CUDA:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
+      -DWITH_OPENGL:BOOL=OFF
       -DWITH_QT:BOOL=FALSE
       -DWITH_TUTORIALS:BOOL=OFF
     ]
