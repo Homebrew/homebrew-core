@@ -5,6 +5,7 @@ class GhzWeb < Formula
   sha256 "6f7e4e0cd81ad00c2c4e17c93257810e2ea8897f60713352c9d9583231e2739a"
 
   depends_on "go" => :build
+  depends_on :xcode => :build
 
   def install
     ENV["CGO_ENABLED"] = "1"
