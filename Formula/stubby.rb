@@ -17,7 +17,8 @@ class Stubby < Formula
   depends_on "libyaml"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", "-DCMAKE_INSTALL_RUNSTATEDIR=#{HOMEBREW_PREFIX}/var/run/", \
+                    "-DCMAKE_INSTALL_SYSCONFDIR=#{HOMEBREW_PREFIX}/etc", ".", *std_cmake_args
     system "make", "install"
   end
 
