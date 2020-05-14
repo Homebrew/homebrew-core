@@ -15,7 +15,7 @@ class Libmemcached < Formula
     sha256 "4e7e0cfb8f4d8f31e36c23b545ad3b0153c2f6d99645abf603f7e9f1ed427296" => :yosemite
   end
 
-  depends_on "memcached"
+  depends_on "memcached" => :test
 
   # https://bugs.launchpad.net/libmemcached/+bug/1245562
   patch do
