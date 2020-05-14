@@ -28,6 +28,7 @@ class Pulumi < Formula
       cd "./pkg" do
         system "go", "mod", "download"
       end
+      system "make", "ensure"
       system "make", "dist"
       bin.install Dir["#{buildpath}/bin/*"]
       prefix.install_metafiles
