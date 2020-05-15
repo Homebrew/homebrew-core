@@ -3,7 +3,7 @@ class Lcm < Formula
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
   sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
-  revision 2
+  revision 3
 
   head "https://github.com/lcm-proj/lcm.git"
 
@@ -18,14 +18,14 @@ class Lcm < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "openjdk"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     args = std_cmake_args + %W[
       -DLCM_ENABLE_EXAMPLES=OFF
       -DLCM_ENABLE_TESTS=OFF
       -DLCM_JAVA_TARGET_VERSION=8
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
     ]
 
     mkdir "build" do
