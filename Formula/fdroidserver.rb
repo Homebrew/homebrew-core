@@ -3,9 +3,8 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/e0/47/9e78f8d1072c684639b3f44c44e00f1efedc855cb57921dc1a27bef746a8/fdroidserver-1.1.6.tar.gz"
-  sha256 "7a368c9224cefee7a3306c5a4e4cd81e50e7219373f325f5cf9505493e4d8001"
-  revision 2
+  url "https://files.pythonhosted.org/packages/1b/91/7109fe628ad7cc70fe503d6fbbb81819d796346d08c3e52a2dcdcc8ddd5b/fdroidserver-1.1.7.tar.gz"
+  sha256 "6b58b10299778b1d5c0d0caabd5a234acb5aa77784dbdc7180c3732fbb9815a7"
 
   bottle do
     cellar :any
