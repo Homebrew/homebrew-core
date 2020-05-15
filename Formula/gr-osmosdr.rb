@@ -3,7 +3,7 @@ class GrOsmosdr < Formula
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
   sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class GrOsmosdr < Formula
   depends_on "gnuradio"
   depends_on "hackrf"
   depends_on "librtlsdr"
-  depends_on "python"
+  depends_on :macos # gnuradio uses Python 2
   depends_on "uhd"
 
   resource "Cheetah" do
