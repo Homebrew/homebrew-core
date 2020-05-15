@@ -3,8 +3,8 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/3d/1b/dafaa1c7ecc48656fe06e8b16abd258968e36743a353b78c6eb076d2efb1/jrnl-2.4.1.tar.gz"
-  sha256 "d1198a50d28adce63713c065737840e0a76cd85a4b4f455914a9069ad0cb973f"
+  url "https://files.pythonhosted.org/packages/7f/84/d428e5dc9af1aca6e6c7a373dfefdfc095dbf95456f43532004cecd7854e/jrnl-2.4.2.tar.gz"
+  sha256 "1d13a635c7bff42a9b833a56f47ac5086eb4ed8d3d91e5a7b96ef05f4d82a616"
 
   bottle do
     cellar :any
