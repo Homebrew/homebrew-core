@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.9.7.tar.gz"
-  sha256 "7222ce925536a25b2912364e13b03a3e21dbf2f96799ebff304f48509324de7b"
+  url "https://releases.ansible.com/ansible/ansible-2.9.9.tar.gz"
+  sha256 "e83d84ae8bf131c0499d8a4c0e1144bf969454c43086e61cca3c224227df29d1"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -53,8 +53,8 @@ class Ansible < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/82/c3/534ddba230bd4fbbd3b7a3d35f3341d014cca213f369a9940925e7e5f691/pytz-2019.3.tar.gz"
-    sha256 "b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
+    url "https://files.pythonhosted.org/packages/f4/f6/94fee50f4d54f58637d4b9987a1b862aeb6cd969e73623e02c5c00755577/pytz-2020.1.tar.gz"
+    sha256 "c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
   end
   ### end
 
@@ -113,8 +113,8 @@ class Ansible < Formula
   end
 
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
+    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
   end
 
   resource "asn1crypto" do
@@ -138,13 +138,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/42/ec/7c7383defbaf6cb51b774219c63905b61e977983cab983959c873f6c0f91/boto3-1.12.46.tar.gz"
-    sha256 "4f7f11e7489c267f9ea0c6193bfbe20ef1a8dd639d780aea0ac61a769de722e1"
+    url "https://files.pythonhosted.org/packages/e9/0a/7a512c839cf5c67f38571db41d2a68e12e577b346e7e87328490d4a2cbc3/boto3-1.13.12.tar.gz"
+    sha256 "c46f31f085de660b95162c66057bae9ebb1658a245c9210162cee9671b0ff678"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2b/d9/d1a341bec0f264eddba169b0d40aaa6da064fabba3e4a0d482b149c6fb84/botocore-1.15.46.tar.gz"
-    sha256 "ae39899dc450570968e3e128d2c8a011e5f8d4f6fd07a7d1f01df10a11ef332d"
+    url "https://files.pythonhosted.org/packages/67/61/360e71652ce2596af042e7f2310373c653ec75a3e77dd11f5044bced9870/botocore-1.16.12.tar.gz"
+    sha256 "b75a5dc97f9ac795139ea2c651c07a8522e31dc280db17243e2b20e5c210547b"
   end
 
   resource "cachetools" do
@@ -223,8 +223,8 @@ class Ansible < Formula
   end
 
   resource "dogpile.cache" do
-    url "https://files.pythonhosted.org/packages/ac/6a/9ac405686a94b7f009a20a50070a5786b0e1aedc707b88d40d0c4b51a82e/dogpile.cache-0.9.0.tar.gz"
-    sha256 "b348835825c9dcd251d9aad1f89f257277ac198a3e35a61980ab4cb28c75216b"
+    url "https://files.pythonhosted.org/packages/b5/02/9692c82808341747afc87a7c2b701c8eed76c05ec6bc98844c102a537de7/dogpile.cache-0.9.2.tar.gz"
+    sha256 "bc9dde1ffa5de0179efbcdc73773ef0553921130ad01955422f2932be35c059e"
   end
 
   resource "funcsigs" do
@@ -233,8 +233,8 @@ class Ansible < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/d8/47/0b6f9d832fe0699c8daf8b645408752e995f5afbb466cfa76d9954fcf8e1/google-auth-1.14.1.tar.gz"
-    sha256 "e63b2210e03c4ed829063b72c4af0c4b867c2788efb3210b6b9439b488bd3afd"
+    url "https://files.pythonhosted.org/packages/06/c1/54ebb8fe45524c0f84ff56a772e80b7a65975ff3825139ab604182da01be/google-auth-1.15.0.tar.gz"
+    sha256 "fbf25fee328c0828ef293459d9c649ef84ee44c0b932bb999d19df0ead1b40cf"
   end
 
   resource "ipaddress" do
@@ -248,8 +248,8 @@ class Ansible < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/5c/40/3bed01fc17e2bb1b02633efc29878dfa25da479ad19a69cfb11d2b88ea8e/jmespath-0.9.5.tar.gz"
-    sha256 "cca55c8d153173e21baa59983015ad0daf603f9cb799904ff057bfb8ff8dc2d9"
+    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
+    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
   end
 
   resource "jsonpatch" do
@@ -263,8 +263,8 @@ class Ansible < Formula
   end
 
   resource "junos-eznc" do
-    url "https://files.pythonhosted.org/packages/76/14/3bbc7b6abbef498cb74c8166ab7ae9ac6550a09a73fd3b501d68d4c53e90/junos-eznc-2.4.0.tar.gz"
-    sha256 "a94d0a9f42be54dcd2b3671f554da7e8072bb2830f6fb952b2aded1030517e7f"
+    url "https://files.pythonhosted.org/packages/a6/96/16230c56d98c9c6cc1df0151ac32b1f90c0115d7ebf5403f1029d3a4663f/junos-eznc-2.4.1.tar.gz"
+    sha256 "8f3ecf06ab4d630f27e7ed7a7b605122ee5c5e5386b1f5186f6cb52810750b18"
   end
 
   resource "jxmlease" do
