@@ -30,15 +30,7 @@ class Asdf < Formula
 
   def caveats
     <<~EOS
-      In order to enable asdf, add the following to your .bash_profile or .zshrc
-
-        . $(brew --prefix asdf)/asdf.sh
-
-      Or, to your ~/.config/fish/config.fish
-
-        source (brew --prefix asdf)/asdf.fish
-
-      Then, restart your shell
+      to complete configuration of asdf, see the docs at https://asdf-vm.com/#/core-manage-asdf-vm
     EOS
   end
 
