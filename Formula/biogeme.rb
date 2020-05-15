@@ -13,6 +13,8 @@ class Biogeme < Formula
     sha256 "cad38740685b800f07bece9dd13238b900427155697582fc689bd3eee42e8c38" => :sierra
   end
 
+  deprecate! :date => "October 1, 2018"
+
   depends_on "gtkmm3"
   depends_on "python"
 
