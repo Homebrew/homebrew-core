@@ -1,10 +1,20 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "https://github.com/klacke/yaws/archive/yaws-2.0.7.tar.gz"
-  sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
-  revision 1
-  head "https://github.com/klacke/yaws.git"
+  revision 2
+  head "https://github.com/erlyaws/yaws.git"
+
+  stable do
+    url "https://github.com/erlyaws/yaws/archive/yaws-2.0.7.tar.gz"
+    sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
+
+    # Erlang 23 compatibility
+    # Remove with the next release. Also remove `WARNINGS_AS_ERRORS=` flag from `make install` call
+    patch do
+      url "https://github.com/erlyaws/yaws/compare/c0fd79f17d52628fcec527da7fa3e788c283c445..28eecfd1c65c369de5b4b99cea9407205bbe8f8e.patch?full_index=1"
+      sha256 "0dbcb92e961ae9dc9d6613436f5d39e0c1b675635cfbeef888e1d2b487add413"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -29,7 +39,7 @@ class Yaws < Formula
                           # Ensure pam headers are found on Xcode-only installs
                           "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security",
                           "SED=/usr/bin/sed"
-    system "make", "install"
+    system "make", "install", "WARNINGS_AS_ERRORS="
 
     cd "applications/yapp" do
       system "make"
