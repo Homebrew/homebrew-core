@@ -1,9 +1,8 @@
 class PythonYq < Formula
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://kislyuk.github.io/yq/"
-  url "https://files.pythonhosted.org/packages/c7/3d/79eef9b78f2245a28446196c43d3744163b5e1783904f6bad2adb6cb4154/yq-2.10.0.tar.gz"
-  sha256 "abaf2c0728f1c38dee852e976b0a6def5ab660d67430ee5af76b7a37072eba46"
-  revision 1
+  url "https://files.pythonhosted.org/packages/b5/b6/84cf7ea7f30c340f8bb40e29ff4b154f787d0fdacf2d47a7c180e3d2b256/yq-2.10.1.tar.gz"
+  sha256 "f6252a0757d0c2a9e55b4402e176a7e41a99e0e6dd5be4f9d5a4d651eeb4d6c0"
 
   bottle do
     cellar :any_skip_relocation
