@@ -12,7 +12,7 @@ class SpirvTools < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
 
   resource "re2" do
     # revision number could be found in ./DEPS
