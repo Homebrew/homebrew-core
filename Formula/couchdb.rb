@@ -4,6 +4,7 @@ class Couchdb < Formula
   url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.1.0/apache-couchdb-3.1.0.tar.gz"
   mirror "https://archive.apache.org/dist/couchdb/source/3.1.0/apache-couchdb-3.1.0.tar.gz"
   sha256 "4867c796a1ff6f0794b7bd3863089ea6397bd5c47544f9b97db8cdacff90f8ed"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,12 +16,14 @@ class Couchdb < Formula
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
-  depends_on "erlang" => :build
+  depends_on "erlang@22" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
   depends_on "spidermonkey"
+
+  conflicts_with "ejabberd", :because => "both install `jiffy` lib"
 
   def install
     system "./configure"
