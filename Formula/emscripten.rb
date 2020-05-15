@@ -1,19 +1,21 @@
+require "language/node"
+
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.39.15.tar.gz"
-    sha256 "e40f6ba8caca653d5fd5f2d25debec56a8ec48e0409f82dbf1fc677824de1dcd"
+    url "https://github.com/emscripten-core/emscripten/archive/1.39.16.tar.gz"
+    sha256 "60e4841c06f33d0506e2df18caa00a7fd38ae2d9a197ce200611920646426af2"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.15.tar.gz"
-      sha256 "d220d1d2529ea26be65ad554233de63613f8e407f6177cd572c56cde44eab34e"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.39.16.tar.gz"
+      sha256 "7f386d46b7c14aa891fc41939e9e6249e21f7e1a2750e53e8f38a2f3d9f86942"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.15.tar.gz"
-      sha256 "850ff41724a3594ab4eae1008c661b77887cfa06aef24f87667a65924ca22bad"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.39.16.tar.gz"
+      sha256 "2da40a75b9efa9603bbd2f1ae776ea59d32e0360b9d52050acbb667bda33840d"
     end
   end
 
@@ -69,6 +71,11 @@ class Emscripten < Formula
       system "cmake", "..", *cmake_args
       system "make"
       system "make", "install"
+    end
+
+    cd libexec do
+      system "npm", "install", *Language::Node.local_npm_install_args
+      rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
     end
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
