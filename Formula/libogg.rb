@@ -22,7 +22,7 @@ class Libogg < Formula
   end
 
   head do
-    url "https://git.xiph.org/ogg.git"
+    url "https://gitlab.xiph.org/xiph/ogg.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

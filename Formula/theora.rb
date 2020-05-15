@@ -17,7 +17,7 @@ class Theora < Formula
   end
 
   head do
-    url "https://git.xiph.org/theora.git"
+    url "https://gitlab.xiph.org/xiph/theora.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

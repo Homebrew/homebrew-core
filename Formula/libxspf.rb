@@ -21,7 +21,7 @@ class Libxspf < Formula
   depends_on "uriparser"
 
   # Fix build against clang and GCC 4.7+
-  # https://git.xiph.org/?p=libxspf.git;a=commit;h=7f1f68d433f03484b572657ff5df47bba1b03ba6
+  # https://gitlab.xiph.org/xiph/libxspf/-/commit/7f1f68d433f03484b572657ff5df47bba1b03ba6
   patch :DATA
 
   def install

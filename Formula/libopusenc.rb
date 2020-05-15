@@ -13,7 +13,7 @@ class Libopusenc < Formula
   end
 
   head do
-    url "https://git.xiph.org/libopusenc.git"
+    url "https://gitlab.xiph.org/xiph/libopusenc.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

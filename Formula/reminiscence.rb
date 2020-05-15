@@ -22,7 +22,7 @@ class Reminiscence < Formula
   uses_from_macos "zlib"
 
   resource "tremor" do
-    url "https://git.xiph.org/tremor.git",
+    url "https://gitlab.xiph.org/xiph/tremor.git",
         :revision => "7c30a66346199f3f09017a09567c6c8a3a0eedc8"
   end
 

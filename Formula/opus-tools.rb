@@ -13,7 +13,7 @@ class OpusTools < Formula
   end
 
   head do
-    url "https://git.xiph.org/opus-tools.git"
+    url "https://gitlab.xiph.org/xiph/opus-tools.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
