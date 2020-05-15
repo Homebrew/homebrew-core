@@ -3,7 +3,7 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.3.0.tar.gz"
   sha256 "68bc40cbf47fdb8ee73dfaf0d9c6494cd095cf6294d99de445ab64cf853d278a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c604766948708badb00d7ab6415c74be04a7752161e1e8cf2e1a997fb187139d" => :catalina
