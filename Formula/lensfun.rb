@@ -1,9 +1,11 @@
 class Lensfun < Formula
+  include Language::Python::Shebang
+
   desc "Remove defects from digital images"
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "51bfd4a5907768d1449902b4d6ab730563d21e0cf509379ea6dcf783351daf5a" => :catalina
@@ -17,11 +19,14 @@ class Lensfun < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libpng"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    rewrite_shebang detected_python_shebang,
+      bin/"lensfun-add-adapter", bin/"lensfun-convert-lcp", bin/"lensfun-update-data"
   end
 
   test do
