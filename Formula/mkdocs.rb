@@ -3,8 +3,8 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://files.pythonhosted.org/packages/07/7f/07d0f92c9debe9ffe621c9a8f5de351a3c47614c93c3ba3c0344def4ea2d/mkdocs-1.1.tar.gz"
-  sha256 "9243291392f59e20b655e4e46210233453faf97787c2cf72176510e868143174"
+  url "https://files.pythonhosted.org/packages/78/a3/ec98a4eab53b7adf435df6c17765e1d7b603e1487ad6ab7c824d5488bf5c/mkdocs-1.1.2.tar.gz"
+  sha256 "f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"
 
   bottle do
     cellar :any_skip_relocation
@@ -36,8 +36,8 @@ class Mkdocs < Formula
   end
 
   resource "lunr" do
-    url "https://files.pythonhosted.org/packages/38/0d/7246e257d4b6013047b46b2ab97b148fe076df1a6ca0c55c70688490565f/lunr-0.5.6.tar.gz"
-    sha256 "7be69d7186f65784a4f2adf81e5c58efd6a9921aa95966babcb1f2f2ada75c20"
+    url "https://files.pythonhosted.org/packages/ad/c0/431b92d6707a4bf7692ea76bcfb00aa0f1db737cd3daf4b4f6a85e2b9d6c/lunr-0.5.8.tar.gz"
+    sha256 "c4fb063b98eff775dd638b3df380008ae85e6cb1d1a24d1cd81a10ef6391c26e"
   end
 
   resource "Markdown" do
