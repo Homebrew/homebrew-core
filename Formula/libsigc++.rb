@@ -35,7 +35,7 @@ class Libsigcxx < Formula
 
         signal_print.connect(sigc::ptr_fun(&on_print));
 
-        signal_print.emit("hello world\\n");
+        signal_print.emit("hello world\n");
         return 0;
       }
     EOS
