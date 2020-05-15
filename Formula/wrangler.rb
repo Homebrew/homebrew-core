@@ -1,7 +1,7 @@
 class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
-  revision 2
+  revision 3
   head "https://github.com/RefactoringTools/wrangler.git"
 
   stable do
@@ -28,7 +28,7 @@ class Wrangler < Formula
     sha256 "35f891e2ab69591e3d4bd907197b21fae3b23f9b727278e1c2cc577d10277660" => :high_sierra
   end
 
-  depends_on "erlang"
+  depends_on "erlang@22"
 
   def install
     system "./configure", "--prefix=#{prefix}"
