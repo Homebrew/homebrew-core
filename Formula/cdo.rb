@@ -23,4 +23,8 @@ class Cdo < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/cdo", "-h"
+  end
 end
