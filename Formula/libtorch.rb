@@ -6,7 +6,7 @@ class Libtorch < Formula
   url "https://github.com/pytorch/pytorch.git",
       :tag      => "v1.5.0",
       :revision => "4ff3872a2099993bf7e8c588f7182f3df777205b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -16,7 +16,7 @@ class Libtorch < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "eigen"
   depends_on "libomp"
   depends_on "libyaml"
@@ -44,7 +44,7 @@ class Libtorch < Formula
   patch :DATA
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[
