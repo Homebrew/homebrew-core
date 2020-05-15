@@ -3,6 +3,7 @@ class Fmt < Formula
   homepage "https://fmtlib.github.io/"
   url "https://github.com/fmtlib/fmt/archive/6.2.1.tar.gz"
   sha256 "5edf8b0f32135ad5fafb3064de26d063571e95e8ae46829c2f4f4b52696bbff0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Fmt < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
     system "make", "install"
   end
 
