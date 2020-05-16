@@ -22,7 +22,13 @@ class Nushell < Formula
   end
 
   test do
-    assert_equal shell_output("#{bin}/nu -c 'echo \\'{\"foo\":1, \"bar\":2}\\' | from json | get bar | echo $it'"),
-    "2"
+    input = <<<~INPUT.strip
+      echo '{"foo":1, "bar": 2}' | from json | get bar | echo $it
+    INPUT
+    output = <<<~OUTPUT.strip
+      Welcome to Nushell 0.14.0 (type 'help' for more info)
+      2
+    OUTPUT
+    assert_equal pipe_output("#{bin}/nu", input), output
   end
 end
