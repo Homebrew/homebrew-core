@@ -1,8 +1,8 @@
 class Fargatecli < Formula
   desc "CLI for AWS Fargate"
   homepage "https://github.com/awslabs/fargatecli"
-  url "https://github.com/awslabs/fargatecli/archive/v0.3.1.tar.gz"
-  sha256 "fd8627e6ab85d70f6b2633d8b35cfb1daad232ed0a29c72df57b9869810ab221"
+  url "https://github.com/awslabs/fargatecli/archive/0.3.2.tar.gz"
+  sha256 "f457745c74859c3ab19abc0695530fde97c1932b47458706c835b3ff79c6eba8"
 
   bottle do
     cellar :any_skip_relocation
