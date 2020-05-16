@@ -22,10 +22,10 @@ class Nushell < Formula
   end
 
   test do
-    input = <<<~INPUT.strip
+    input = <<~INPUT.strip
       echo '{"foo":1, "bar": 2}' | from json | get bar | echo $it
     INPUT
-    output = <<<~OUTPUT.strip
+    output = <<~OUTPUT.strip
       Welcome to Nushell 0.14.0 (type 'help' for more info)
       2
     OUTPUT
