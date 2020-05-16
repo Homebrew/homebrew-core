@@ -2,8 +2,8 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++11"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-    :tag      => "v0.25.0",
-    :revision => "0ad7baf3ec2e92c05e212679e4b38319e3d89c01"
+    :tag      => "v0.26.0",
+    :revision => "62fa8925d1d7e98b0dd4f167b9a319e84d16c152"
 
   bottle do
     cellar :any
