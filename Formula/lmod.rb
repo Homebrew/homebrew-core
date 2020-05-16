@@ -1,8 +1,8 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
-  url "https://github.com/TACC/Lmod/archive/8.3.10.tar.gz"
-  sha256 "de042ef6809fc18f54693bd570da6b517ad48b6aabb2f34babdd498fcf63fb19"
+  url "https://github.com/TACC/Lmod/archive/8.3.12.tar.gz"
+  sha256 "f64d718a508abd740d45f08649946a74adff6c24698045df3bef0711a179366c"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,8 @@ class Lmod < Formula
   depends_on "lua"
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
-    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_8_0.tar.gz"
+    sha256 "16d17c788b8093f2047325343f5e9b74cccb1ea96001e45914a58bbae8932495"
   end
 
   resource "luaposix" do
