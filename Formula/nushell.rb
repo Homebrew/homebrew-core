@@ -25,10 +25,11 @@ class Nushell < Formula
     input = <<~INPUT.strip
       echo '{"foo":1, "bar": 2}' | from json | get bar | echo $it
     INPUT
-    output = <<~OUTPUT.strip
-      Welcome to Nushell 0.14.0 (type 'help' for more info)
-      2
-    OUTPUT
+    output = 
+      "Welcome to Nushell 0.14.0 (type 'help' for more info)\n" + 
+      "~ \n" + 
+      "❯ 2~ \n" + 
+      "❯ "
     assert_equal pipe_output("#{bin}/nu", input), output
   end
 end
