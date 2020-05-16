@@ -1,8 +1,8 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.4.1.tar.gz"
-  sha256 "5dff64cb26554c51d0e0fd9eacb1a0a528322e9d920a5937f0287ee397ba30d4"
+  url "http://homebank.free.fr/public/homebank-5.4.2.tar.gz"
+  sha256 "c6ce84b421e7199ae545ea8b8d981f347af4d67b4cd5912b6789cf1450db722e"
 
   bottle do
     sha256 "19428dfc7ea700df634f4200cfac4d5dad97e000e6ba82a5803bb6a369875e0a" => :catalina
