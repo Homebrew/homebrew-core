@@ -1,8 +1,8 @@
 class Chadwick < Formula
   desc "Tools for parsing Retrosheet MLB play-by-play files"
   homepage "https://chadwick.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/chadwick/chadwick-0.6/chadwick-0.6.5/chadwick-0.6.5.tar.gz"
-  sha256 "fed87dee762eb8550253ac86b42e5ffcd5abbd87509b708e523fffed105ab547"
+  url "https://downloads.sourceforge.net/project/chadwick/chadwick-0.7/chadwick-0.7.2/chadwick-0.7.2.tar.gz"
+  sha256 "f7b3af15281106e101e2ccc4cb182a3f15dbdc3327f2bcb045bfc486a8fda46e"
 
   bottle do
     cellar :any
