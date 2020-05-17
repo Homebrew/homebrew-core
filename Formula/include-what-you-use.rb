@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.13.src.tar.gz"
-  sha256 "49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.14.src.tar.gz"
+  sha256 "43184397db57660c32e3298a6b1fd5ab82e808a1f5ab0591d6745f8d256200ef"
 
   bottle do
     sha256 "94a1fa82e1a198f0e7548cb7b4895303b52432eb83836ce84896cc5af6bd3340" => :catalina
