@@ -1,8 +1,8 @@
 class RdiffBackup < Formula
   desc "Reverse differential backup tool, over a network or locally"
   homepage "https://rdiff-backup.net/"
-  url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.0/rdiff-backup-2.0.0.tar.gz"
-  sha256 "5b0e7afec624862c01acb5470da0519d8945af12819a4303a13ba82b654d8ee8"
+  url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.3/rdiff-backup-2.0.3.tar.gz"
+  sha256 "04e2d2c28588d6bb4abb0b7dc7c922e5974f3cb3e7f0671ecc5a90b438dfd5e1"
 
   bottle do
     cellar :any
