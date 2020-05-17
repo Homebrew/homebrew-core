@@ -1,8 +1,8 @@
 class Star < Formula
   desc "Standard tap archiver"
   homepage "https://cdrtools.sourceforge.io/private/star.html"
-  url "https://downloads.sourceforge.net/project/s-tar/star-1.5.3.tar.bz2"
-  sha256 "070342833ea83104169bf956aa880bcd088e7af7f5b1f8e3d29853b49b1a4f5b"
+  url "https://downloads.sourceforge.net/project/s-tar/star-1.6.tar.bz2"
+  sha256 "1b18662ebae6c3509020953d4464e654c7ded4752774de987d8dc307dc43f776"
 
   bottle do
     cellar :any_skip_relocation
