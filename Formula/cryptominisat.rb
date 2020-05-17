@@ -19,6 +19,9 @@ class Cryptominisat < Formula
     # fix audit failure with `lib/libcryptominisat5.5.7.dylib`
     inreplace "src/GitSHA1.cpp.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
 
+    # Fix fatal error: 'stdio.h' file not found
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :high_sierra
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DNOM4RI=ON"
       system "make", "install"
