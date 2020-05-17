@@ -1,8 +1,8 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/0.33.0.tar.gz"
-  sha256 "954b02fd01ee3e1bc5fddff7ec625839ee4b64bef51efa02306fbcf33008081e"
+  url "https://github.com/sol/hpack/archive/0.34.1.tar.gz"
+  sha256 "cbbec1f6dd8cf867c0dd65b3e8d1f1f8d64b370cd018fb4fef9e5745c4968d3e"
   head "https://github.com/sol/hpack.git"
 
   bottle do
@@ -50,6 +50,6 @@ class Hpack < Formula
     system "#{bin}/hpack"
 
     # Skip the first lines because they contain the hpack version number.
-    assert_equal expected, (testpath/"homebrew.cabal").read.lines[8..].join
+    assert_equal expected, (testpath/"homebrew.cabal").read.lines[6..].join
   end
 end
