@@ -6,6 +6,7 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.14.2.tar.gz"
   sha256 "b79298e80516e42997c68951d15bce772d366eed2d23d1d42ac7f24b06345837"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Bzt < Formula
   end
 
   # can only run with python 3.7 due to this issue, https://github.com/simonpercivall/astunparse/issues/43
-  depends_on "python"
+  depends_on "python@3.7"
 
   resource "apiritif" do
     url "https://files.pythonhosted.org/packages/96/23/78c03e12b2d1b12b3e4451b7bcf432befc81568eed90e7629aa5620a1bc3/apiritif-0.9.2.tar.gz"
