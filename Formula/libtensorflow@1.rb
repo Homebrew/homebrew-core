@@ -3,8 +3,8 @@ class LibtensorflowAT1 < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.15.2.tar.gz"
-  sha256 "d95d75d26a298211b5e802842e87fda5b8b14f6ad83719377b391e5fb71b8746"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.15.3.tar.gz"
+  sha256 "9ab1d92e58eb813922b040acc7622b32d73c2d8d971fe6491a06f9df4c778151"
 
   bottle do
     cellar :any
@@ -16,15 +16,11 @@ class LibtensorflowAT1 < Formula
   keg_only :versioned_formula
 
   depends_on "bazel" => :build
-  depends_on :java => ["1.8", :build]
   depends_on "python@3.8" => :build
 
   def install
     venv_root = "#{buildpath}/venv"
     virtualenv_create(venv_root, "python3")
-
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
 
     ENV["PYTHON_BIN_PATH"] = "#{venv_root}/bin/python"
     ENV["CC_OPT_FLAGS"] = "-march=native"
