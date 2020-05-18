@@ -12,7 +12,7 @@ class AuroraCli < Formula
     sha256 "0a1b506e5d75c9fa8d587bfc9945e78c9cb5342c17a4062d18aafb942e111eca" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.7"
 
   # Does not build on catalina anymore
   # Has been moved to the appache attic: https://github.com/apache/attic-aurora
