@@ -1,15 +1,8 @@
-class Python < Formula
+class PythonAT37 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz"
   sha256 "43a543404b363f0037f89df8478f19db2dbc0d6f3ffee310bc2997fa71854a63"
-  head "https://github.com/python/cpython.git"
-
-  bottle do
-    sha256 "f7fb660ba03f202d739f38ded3ac5952569103855d8a8e9aa1a7bfff764bdfc2" => :catalina
-    sha256 "41f002aafc187556d0f247590d4b554ca9b361a66c7b14341cf63a21eaee1b0f" => :mojave
-    sha256 "d2315dbe4f3266b7c6efe8bfda3ae0bedc60792cfff00f4bcdf87e5923274ef3" => :high_sierra
-  end
 
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
@@ -21,6 +14,8 @@ class Python < Formula
     EOS
     satisfy { MacOS::CLT.installed? }
   end
+
+  keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
