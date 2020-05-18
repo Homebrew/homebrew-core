@@ -27,7 +27,7 @@ class Opusfile < Formula
   depends_on "opus"
 
   resource "music_48kbps.opus" do
-    url "https://www.opus-codec.org/examples/samples/music_48kbps.opus"
+    url "https://www.opus-codec.org/static/examples/samples/music_48kbps.opus"
     sha256 "64571f56bb973c078ec784472944aff0b88ba0c88456c95ff3eb86f5e0c1357d"
   end
 
@@ -39,6 +39,7 @@ class Opusfile < Formula
   end
 
   test do
+    testpath.install resource("music_48kbps.opus")
     (testpath/"test.c").write <<~EOS
       #include <opus/opusfile.h>
       #include <stdlib.h>
@@ -59,7 +60,6 @@ class Opusfile < Formula
                              "-L#{lib}",
                              "-lopusfile",
                              "-o", "test"
-    resource("music_48kbps.opus").stage testpath
     system "./test", "music_48kbps.opus"
   end
 end
