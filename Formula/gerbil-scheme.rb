@@ -1,9 +1,8 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
-  sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
-  revision 5
+  url "https://github.com/vyzo/gerbil/archive/v0.16.tar.gz"
+  sha256 "1157d4ef60dab6a0f7c4986d5c938391973045093c470a03ffe02266c4d3e119"
 
   bottle do
     sha256 "0add37e8d09b169414d5d2bcee92b7a538627736bcbf645e2fd98d4192564951" => :catalina
@@ -18,38 +17,20 @@ class GerbilScheme < Formula
   depends_on "openssl@1.1"
 
   def install
-    bins = %w[
-      gxi
-      gxc
-      gxi-build-script
-      gxpkg
-      gxprof
-      gxtags
-    ]
-
-    inreplace ["src/gerbil/gxi", "src/gerbil/gxi-build-script"] do |s|
-      s.gsub! /GERBIL_HOME=[^\n]*/, "GERBIL_HOME=#{libexec}"
-      s.gsub! /\bgsi\b/, "#{Formula["gambit-scheme"].opt_prefix}/current/bin/gsi"
-    end
-
     cd "src" do
       ENV.append_path "PATH", "#{Formula["gambit-scheme"].opt_prefix}/current/bin"
       ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
-
-      inreplace "std/build-features.ss" do |s|
-        s.gsub! "(enable leveldb #f)", "(enable leveldb #t)"
-        s.gsub! "(enable libxml #f)", "(enable libxml #t)"
-        s.gsub! "(enable libyaml #f)", "(enable libyaml #t)"
-        s.gsub! "(enable lmdb #f)", "(enable lmdb #t)"
-      end
-
+      system "./configure", "--prefix=#{prefix}",
+                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}/current",
+                            "--enable-leveldb",
+                            "--enable-libxml",
+                            "--enable-libyaml",
+                            "--enable-lmdb"
       system "./build.sh"
-    end
+      system "./install"
 
-    libexec.install "bin", "lib", "doc"
-
-    bins.each do |b|
-      bin.install_symlink libexec/"bin/#{b}"
+      rm "#{bin}/.keep"
+      mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
     end
   end
 
