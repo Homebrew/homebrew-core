@@ -1,9 +1,8 @@
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://github.com/pipxproject/pipx"
-  url "https://files.pythonhosted.org/packages/24/34/643ee280e42da87d033deae55e624575f4ea8e2e655169143da91cd76c36/pipx-0.15.1.3.tar.gz"
-  sha256 "01aa3a9549ea4ce8428ccb1b770d5fd428159f17635cad208effc17b42ccb72e"
-  revision 1
+  url "https://files.pythonhosted.org/packages/18/67/66f44387b01bb2ebb5c8a06fda8909fb4e4c1e5ef3f9ec0494d817a73f83/pipx-0.15.3.0.tar.gz"
+  sha256 "6ca426c95e600e8e2cfd56478e82f0152a272edccbb8ca864e1d4eaa8c09bca7"
   head "https://github.com/pipxproject/pipx.git"
 
   bottle do
