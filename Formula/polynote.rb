@@ -1,8 +1,8 @@
 class Polynote < Formula
   desc "The polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  url "https://github.com/polynote/polynote/releases/download/0.3.8/polynote-dist.tar.gz"
-  sha256 "06720a940a9bc2b72526bc5a87f17bdaabf02fd1a4c3ea7844bcbc23103000ba"
+  url "https://github.com/polynote/polynote/releases/download/0.3.9/polynote-dist.tar.gz"
+  sha256 "693e53cb42249c3da6b45afcfcfbdada134fa67e79385e1c0ae6d88d5fa8d182"
 
   bottle :unneeded
 
