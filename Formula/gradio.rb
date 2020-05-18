@@ -4,6 +4,7 @@ class Gradio < Formula
   url "https://github.com/haecker-felix/Gradio/archive/v7.3.tar.gz"
   sha256 "5c5afed83fceb9a9f8bc7414b8a200128b3317ccf1ed50a0e7321ca15cf19412"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     sha256 "51fcbc324b7f1a95ce0b98c9382053d7f035db79f74f1d560f2a5452d2d081df" => :catalina
@@ -26,7 +27,7 @@ class Gradio < Formula
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "libsoup"
-  depends_on "python"
+  depends_on "python@3.7"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
