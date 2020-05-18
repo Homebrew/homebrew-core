@@ -3,6 +3,7 @@ class Dasm < Formula
   homepage "https://dasm-assembler.github.io/"
   url "https://github.com/dasm-assembler/dasm/archive/2.20.13.tar.gz"
   sha256 "48be84858d578dd7e1ac702fb2dca713a2e0be930137cbb3d6ecbeac1944ff5c"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -14,7 +15,7 @@ class Dasm < Formula
 
   def install
     system "make"
-    prefix.install "bin", "doc"
+    prefix.install "bin", "doc", "machines"
   end
 
   test do
