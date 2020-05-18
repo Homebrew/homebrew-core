@@ -1,5 +1,5 @@
 class Deno < Formula
-  desc "Command-line JavaScript / TypeScript engine"
+  desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno/releases/download/v1.0.0/deno_src.tar.gz"
   sha256 "89709f489e4cbbcfd6913d14e903fcb47c92f329d077477190b0dbd8bd23acc7"
