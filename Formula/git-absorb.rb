@@ -3,6 +3,7 @@ class GitAbsorb < Formula
   homepage "https://github.com/tummychow/git-absorb"
   url "https://github.com/tummychow/git-absorb/archive/0.6.0.tar.gz"
   sha256 "945534d1f6bf99314085c16d2c13ec9d0fe75c8b3e88b83723858004c5e6e928"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +18,7 @@ class GitAbsorb < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    man1.install "Documentation/git-absorb.1"
   end
 
   test do
