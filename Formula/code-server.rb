@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.3.0.tgz"
-  sha256 "e59a1e40f32fd69ac9b0554a14ae385dbc1c55bd04c29d85f55d1300cad951bc"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.3.1.tgz"
+  sha256 "576c31f3dbd542becb2f6fc408c38f2cc30755525feff1060be83a1b2214c6e1"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class CodeServer < Formula
   depends_on "node"
 
   def install
-    system "yarn", "--production"
+    system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
     bin.mkdir
     (bin/"code-server").make_symlink "#{libexec}/out/node/entry.js"
