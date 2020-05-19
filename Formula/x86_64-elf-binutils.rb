@@ -1,5 +1,5 @@
 class X8664ElfBinutils < Formula
-  desc "FSF Binutils for x86_64-elf cross development"
+  desc "GNU Binutils for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
