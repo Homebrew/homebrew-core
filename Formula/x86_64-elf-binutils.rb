@@ -13,7 +13,9 @@ class X8664ElfBinutils < Formula
 
   def install
     system "./configure", "--target=x86_64-elf",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}/x86_64-elf-binutils",
+                          "--disable-nls"
     system "make"
     system "make", "install"
   end
