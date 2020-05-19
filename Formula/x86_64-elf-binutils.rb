@@ -4,6 +4,7 @@ class X8664ElfBinutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
   sha256 "53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3"
+  revision 1
 
   bottle do
     sha256 "57141264369389b9c50019aac6bb0f6dcf19935f20ea8fab57b56d4c4451066a" => :catalina
@@ -32,6 +33,6 @@ class X8664ElfBinutils < Formula
     EOS
     system "#{bin}/x86_64-elf-as", "--64", "-o", "test-s.o", "test-s.s"
     assert_match "file format elf64-x86-64",
-      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-s.o")
+      shell_output("#{bin}/x86_64-elf-objdump -a test-s.o")
   end
 end
