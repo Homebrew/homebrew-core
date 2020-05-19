@@ -1,11 +1,11 @@
 class GstValidate < Formula
+  include Language::Python::Shebang
+
   desc "Tools to validate GstElements from GStreamer"
   homepage "https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
-
-  stable do
-    url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.16.2.tar.xz"
-    sha256 "4861ccb9326200e74d98007e316b387d48dd49f072e0b78cb9d3303fdecfeeca"
-  end
+  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.16.2.tar.xz"
+  sha256 "4861ccb9326200e74d98007e316b387d48dd49f072e0b78cb9d3303fdecfeeca"
+  revision 1
 
   bottle do
     sha256 "1d1b40183962c3ff22122b708b33dfa1d640ac75c48b6dda784b5bbd3eaed7bc" => :catalina
@@ -27,6 +27,7 @@ class GstValidate < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "json-glib"
+  depends_on "python@3.8"
 
   def install
     args = %W[
@@ -49,6 +50,8 @@ class GstValidate < Formula
       system "make"
       system "make", "install"
     end
+
+    rewrite_shebang detected_python_shebang, bin/"gst-validate-launcher"
   end
 
   test do
