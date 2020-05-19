@@ -1,8 +1,8 @@
 class Gleam < Formula
   desc "✨ A statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/lpil/gleam/archive/v0.8.0.tar.gz"
-  sha256 "5b49b3121392550ce026fafb92c426a4435737002ebeed9c8326afa2750818a2"
+  url "https://github.com/lpil/gleam/archive/v0.8.1.tar.gz"
+  sha256 "bf6854e9aa352516436828a22628a4b7e17a8ed7c916e508a97b93b56212cd80"
 
   bottle do
     cellar :any_skip_relocation
