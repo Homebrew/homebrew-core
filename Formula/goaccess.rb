@@ -1,9 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.3.tar.gz"
-  sha256 "8c775c5c24bf85a933fd6f1249004847342d6542aa533e4ec02aaf7be41d7b9b"
-  revision 1
+  url "https://tar.goaccess.io/goaccess-1.4.tar.gz"
+  sha256 "e8fbb9ff852556d72dfd9f1d0134ba075ce5b4c41289902a6f4e0d97c69377be"
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
@@ -22,6 +21,9 @@ class Goaccess < Formula
   def install
     ENV.append_path "PATH", Formula["gettext"].bin
     system "autoreconf", "-vfi"
+
+    # upstream issue: https://github.com/allinurl/goaccess/issues/1779
+    inreplace "src/parser.c", "#include <malloc.h>", ""
 
     args = %W[
       --disable-debug
