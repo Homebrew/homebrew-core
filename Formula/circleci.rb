@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.7340",
-      :revision => "b62ffd39e3f89b903cb8b23180fad4e71814f560"
+      :tag      => "v0.1.7645",
+      :revision => "5b80b52f6e87116d96bda9ecadd4002e16ddc789"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,7 +25,7 @@ class Circleci < Formula
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
-        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
+        -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
