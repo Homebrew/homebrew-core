@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/yahoojapan/NGT"
-  url "https://github.com/yahoojapan/NGT/archive/v1.11.4.tar.gz"
-  sha256 "3b54ab93ecb8345184dee9d94e3aa5ecc005f934d25ac724a709314ff643467b"
+  url "https://github.com/yahoojapan/NGT/archive/v1.11.5.tar.gz"
+  sha256 "b9005a923a5e474b67c395851ba1511cdf099b56710702d434905eb812668f05"
 
   bottle do
     cellar :any
