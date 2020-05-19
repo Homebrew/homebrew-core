@@ -4,6 +4,7 @@ class X8664ElfGcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
   sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
+  revision 1
 
   bottle do
     sha256 "a18c6acf4979f96244584de989ab47791670bc5404e0eca8626708f9e3375702" => :catalina
@@ -20,6 +21,8 @@ class X8664ElfGcc < Formula
     mkdir "x86_64-elf-gcc-build" do
       system "../configure", "--target=x86_64-elf",
                              "--prefix=#{prefix}",
+                             "--infodir=#{info}/x86_64-elf-gcc",
+                             "--disable-nls",
                              "--without-isl",
                              "--without-headers",
                              "--with-as=#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-as",
@@ -30,6 +33,9 @@ class X8664ElfGcc < Formula
       system "make", "install-gcc"
       system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
+
+      # FSF-related man pages may conflict with native gcc
+      (share/"man/man7").rmtree
     end
   end
 
