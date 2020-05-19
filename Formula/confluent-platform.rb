@@ -21,8 +21,6 @@ class ConfluentPlatform < Formula
   end
 
   test do
-    require "open3"
-
     assert_match version.to_s, shell_output("#{bin}/kafka-broker-api-versions --version")
 
     # The executable "confluent" tries to create .confluent under the home directory
@@ -30,8 +28,7 @@ class ConfluentPlatform < Formula
     # due to sandbox-exec.
     # The message "unable to load config" means that the execution will succeed
     # if the user has write permission.
-    err, = Open3.capture2e("#{bin}/confluent")
-    assert_match /\Aunable to load config/, err
+    assert_match /unable to load config/, shell_output("#{bin}/confluent 2>&1", 1)
 
     assert_match /usage: confluent-hub/, shell_output("#{bin}/confluent-hub help")
   end
