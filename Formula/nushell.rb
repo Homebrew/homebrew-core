@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.13.0.tar.gz"
-  sha256 "a07f730fa5dfe96ea3104b1cc13d2e72951a754870f22fb0dac6e30a359c6d8e"
+  url "https://github.com/nushell/nushell/archive/0.14.0.tar.gz"
+  sha256 "8084bb21433aa3598475470abf78e6653440b51db2f28392212eee00238c3346"
   head "https://github.com/nushell/nushell.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Nushell < Formula
   end
 
   test do
-    assert_equal pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from-json | get bar | echo $it'),
+    assert_equal pipe_output("#{bin}/nu", 'echo \'{"foo":1, "bar":2}\' | from json | get bar | echo $it'),
     "Welcome to Nushell #{version} (type 'help' for more info)\n~ \n❯ 2~ \n❯ "
   end
 end
