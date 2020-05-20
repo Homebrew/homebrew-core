@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/0d/d9/1ed56ec2d1282c522a1b369e0545e226b885373ee2b261b04f579c516a2d/cfn-lint-0.31.1.tar.gz"
-  sha256 "ef3a33a4df06b4955c938274e816a6ad16da5bf36abc9c80821b06d0ec9a340c"
+  url "https://files.pythonhosted.org/packages/63/cd/688fe28ade2a7db0a7bd7d5d75c0d8176ab3f8eba3f37b0cbf9f15e1eb58/cfn-lint-0.32.1.tar.gz"
+  sha256 "96dedfaa72b84aed2c93c82f0ad68e0d0385cb986a3cc3fa8b7491cc5f565292"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,8 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/f3/c3/c24bc68e6d1b905bfd9b407e00a71e5ac86b143e6064073d5a3fbc332897/aws-sam-translator-1.22.0.tar.gz"
-    sha256 "3ba6a821eda29ca8ea1306e27a8135256d6136f1b0b29c6cbf9a107dfd1c2dd9"
+    url "https://files.pythonhosted.org/packages/bf/22/4f51e6d337c165051dd4e455d2935987558e747d98aba10acb8f69cefb41/aws-sam-translator-1.23.0.tar.gz"
+    sha256 "6e847b02661247e5d9b99b3bd22351fc6ed614e0f12e0598c0181cb796b3967e"
   end
 
   resource "boto3" do
