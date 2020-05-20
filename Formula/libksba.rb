@@ -1,9 +1,8 @@
 class Libksba < Formula
   desc "X.509 and CMS library"
   homepage "https://www.gnupg.org/related_software/libksba/"
-  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libksba/libksba-1.3.5.tar.bz2"
-  sha256 "41444fd7a6ff73a79ad9728f985e71c9ba8cd3e5e53358e70d5f066d35c1a340"
+  url "https://gnupg.org/ftp/gcrypt/libksba/libksba-1.4.0.tar.bz2"
+  sha256 "bfe6a8e91ff0f54d8a329514db406667000cb207238eded49b599761bfca41b6"
 
   bottle do
     cellar :any
