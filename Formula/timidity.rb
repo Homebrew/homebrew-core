@@ -3,6 +3,7 @@ class Timidity < Formula
   homepage "https://timidity.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
+  revision 1
 
   bottle do
     sha256 "3af812745e3ce97091362541143f4f019d39c30fba5adef4922bddd146671063" => :catalina
@@ -23,8 +24,7 @@ class Timidity < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--enable-audio=darwin,vorbis,flac,speex,ao"
