@@ -1,8 +1,8 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.9.0.tar.gz"
-  sha256 "a9a37fb56657489e3650bb743f8a7eb400c75865cf86458b80440bd44afa7500"
+  url "https://github.com/travis-ci/travis.rb/archive/v1.9.1.tar.gz"
+  sha256 "efe64321ba52e1ce62e46209a70c27d7909129bd0dd7c6166657e871b149a692"
 
   bottle do
     cellar :any
