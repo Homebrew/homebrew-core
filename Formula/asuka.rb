@@ -20,39 +20,21 @@ class Asuka < Formula
   end
 
   test do
-    require "openssl"
-    require "pty"
+    input, _, wait_thr = Open3.popen2 "script -q screenlog.txt"
+    input.puts "stty rows 80 cols 43"
+    input.puts "env LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 TERM=xterm #{bin}/asuka"
+    sleep 1
+    input.putc "g"
+    sleep 1
+    input.puts "gemini://gemini.circumlunar.space"
+    sleep 10
+    input.putc "q"
+    input.puts "exit"
 
-    system "openssl", "req", "-newkey", "rsa:2048",
-           "-nodes", "-keyout", "localhost.key",
-           "-nodes", "-x509", "-out", "localhost.crt",
-           "-subj", "/CN=localhost"
-
-    ssl_context = OpenSSL::SSL::SSLContext.new
-    ssl_context.cert = OpenSSL::X509::Certificate.new(File.open("localhost.crt"))
-    ssl_context.key = OpenSSL::PKey::RSA.new(File.open("localhost.key"))
-
-    begin
-      server = OpenSSL::SSL::SSLServer.new(TCPServer.new(1965), ssl_context)
-      server_pid = fork do
-        connection = server.accept
-        msg = connection.gets
-        assert_match "gemini://127.0.0.1/\r\n", msg
-        connection.puts "20 text/plain\r\n"
-        connection.puts "Hello world!"
-        server.close
-      end
-
-      output, input, client_pid = PTY.spawn "#{bin}/asuka"
-      sleep 1
-      input.putc "g"
-      sleep 1
-      input.puts "gemini://127.0.0.1"
-      output.gets
-
-      Process.wait server_pid
-    ensure
-      Process.kill("TERM", client_pid)
-    end
+    screenlog = (testpath/"screenlog.txt").read
+    assert_match /# Project Gemini/, screenlog
+    assert_match /Gemini is a new internet protocol/, screenlog
+  ensure
+    Process.kill("TERM", wait_thr.pid)
   end
 end
