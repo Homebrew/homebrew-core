@@ -1,8 +1,8 @@
 class Sentencepiece < Formula
   desc "Unsupervised text tokenizer and detokenizer"
   homepage "https://github.com/google/sentencepiece"
-  url "https://github.com/google/sentencepiece/archive/v0.1.90.tar.gz"
-  sha256 "e87b491d1d9e58657d3856e521e37ebff4f03e5501047c709db125d0375c7e83"
+  url "https://github.com/google/sentencepiece/archive/v0.1.91.tar.gz"
+  sha256 "acbc7ea12713cd2a8d64892f8d2033c7fd2bb4faecab39452496120ace9a4b1b"
 
   bottle do
     sha256 "a76efbe9aa72abd0a119faf3b3694e77102284b22ec567a2d18472ec52d7c402" => :catalina
