@@ -1,8 +1,8 @@
 class Exif < Formula
   desc "Read, write, modify, and display EXIF data on the command-line"
   homepage "https://libexif.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/libexif/exif/0.6.21/exif-0.6.21.tar.gz"
-  sha256 "1e2e40e5d919edfb23717308eb5aeb5a11337741e6455c049852128a42288e6d"
+  url "https://github.com/libexif/exif/releases/download/exif-0_6_22-release/exif-0.6.22.tar.xz"
+  sha256 "0fe268736e0ca0538d4af941022761a438854a64c8024a4175e57bf0418117b9"
 
   bottle do
     cellar :any
