@@ -1,9 +1,8 @@
 class Wabt < Formula
   desc "Web Assembly Binary Toolkit"
   homepage "https://github.com/WebAssembly/wabt"
-  url "https://github.com/WebAssembly/wabt.git",
-    :tag      => "1.0.15",
-    :revision => "9068d3927b404ce1e9c600473255a90504034eee"
+  url "https://github.com/WebAssembly/wabt/archive/1.0.16.tar.gz"
+  sha256 "426c688be74de1bc18bfcc3d5b3b50327b7753ad84bed7b78e6c7f1190afbbae"
 
   bottle do
     cellar :any_skip_relocation
