@@ -1,8 +1,8 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://salsa.debian.org/iso-codes-team/iso-codes"
-  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.4.orig.tar.xz"
-  sha256 "5124ba64e5ce6e1a73c24d1a1cdc42f6a2d0db038791b28ac77aafeb07654e86"
+  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.5.0.orig.tar.xz"
+  sha256 "2a63118f8c91faa2102e6381ae498e7fa83b2bdf667963e0f7dbae2a23b827dd"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
   bottle do
