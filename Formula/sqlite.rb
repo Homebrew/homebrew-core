@@ -26,6 +26,7 @@ class Sqlite < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_UNLOCK_NOTIFY"
 
     args = %W[
       --prefix=#{prefix}
