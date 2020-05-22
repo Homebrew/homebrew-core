@@ -1,9 +1,9 @@
 class Biogeme < Formula
   desc "Maximum likelihood estimation of choice models"
   homepage "https://biogeme.epfl.ch/"
-  url "https://biogeme.epfl.ch/distrib/biogeme-2.6a.tar.gz"
-  sha256 "f6de0ea12f83ed183f31a41b9a56d1ec7226d2305549fb89ea7b1de8273ede49"
-  revision 5
+  url "https://files.pythonhosted.org/packages/0a/8b/1228805ea0ad03dbfac3c15e22be6451b09a40438524cf2bff2aeeb4075d/biogeme-3.2.5.tar.gz"
+  sha256 "cbee2d318dddb6cf4bd6714961435aae201440b78185f2bc3eeab16cf28a98d6"
+  revision 6
 
   bottle do
     cellar :any
@@ -13,14 +13,41 @@ class Biogeme < Formula
     sha256 "cad38740685b800f07bece9dd13238b900427155697582fc689bd3eee42e8c38" => :sierra
   end
 
-  deprecate! :date => "October 1, 2018"
+  depends_on "cython" => :build
+  depends_on "python@3.8"
+  depends_on "numpy"
+  depends_on "scipy"
 
-  depends_on "gtkmm3"
-  depends_on "python"
+  resource "Unidecode" do
+    url "https://files.pythonhosted.org/packages/b1/d6/7e2a98e98c43cf11406de6097e2656d31559f788e9210326ce6544bd7d40/Unidecode-1.1.1.tar.gz"
+    sha256 "2b6aab710c2a1647e928e36d69c21e76b453cd455f4e2621000e54b2a9b8cce8"
+  end
+
+  resource "pandas" do
+    url "https://files.pythonhosted.org/packages/2f/79/f236ab1cfde94bac03d7b58f3f2ab0b1cc71d6a8bda3b25ce370a9fe4ab1/pandas-1.0.3.tar.gz"
+    sha256 "32f42e322fb903d0e189a4c10b75ba70d90958cc4f66a1781ed027f1a1d14586"
+  end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+
+    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
+
+    ENV.prepend "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
+    %w[numpy scipy].each do |d|
+      ENV.prepend "PYTHONPATH", Formula[d].opt_lib/"python#{xy}/site-packages"
+    end
+
+    resources.each do |r|
+      r.stage do
+        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
+    site_packages = libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", site_packages
+    system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
   end
 
   test do
