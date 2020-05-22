@@ -13,10 +13,15 @@ class Biogeme < Formula
     sha256 "cad38740685b800f07bece9dd13238b900427155697582fc689bd3eee42e8c38" => :sierra
   end
 
-  depends_on "cython" => :build
+  # depends_on "cython" => :build
   depends_on "python@3.8"
   depends_on "numpy"
   depends_on "scipy"
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/79/36/69246177114d0b6cb7bd4f9aef177b434c0f4a767e05201b373e8c8d7092/Cython-0.29.19.tar.gz"
+    sha256 "97f98a7dc0d58ea833dc1f8f8b3ce07adf4c0f030d1886c5399a2135ed415258"
+  end
 
   resource "Unidecode" do
     url "https://files.pythonhosted.org/packages/b1/d6/7e2a98e98c43cf11406de6097e2656d31559f788e9210326ce6544bd7d40/Unidecode-1.1.1.tar.gz"
@@ -34,12 +39,16 @@ class Biogeme < Formula
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
-    ENV.prepend "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{xy}/site-packages"
+    resource("Cython").stage do
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"cython")
+    end
     %w[numpy scipy].each do |d|
       ENV.prepend "PYTHONPATH", Formula[d].opt_lib/"python#{xy}/site-packages"
     end
 
     resources.each do |r|
+      next if r.name == "Cython"
       r.stage do
         system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
