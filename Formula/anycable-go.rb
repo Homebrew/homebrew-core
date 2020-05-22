@@ -15,16 +15,16 @@ class AnycableGo < Formula
   depends_on "go" => :build
 
   def install
-    build_vars =
-      if build.head?
-        "github.com/anycable/anycable-go/utils.sha=#{version.commit}"
-      else
-        "main.version=#{version}"
-      end
+    ldflags = %w[
+      -s -w
+    ]
+    ldflags << if build.head?
+      "-X github.com/anycable/anycable-go/utils.sha=#{version.commit}"
+    else
+      "-X main.version=#{version}"
+    end
 
-    system "go", "build", "-mod=vendor", "-ldflags",
-                          "-s -w -X #{build_vars}",
-                          *std_go_args,
+    system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args,
                           "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
 
