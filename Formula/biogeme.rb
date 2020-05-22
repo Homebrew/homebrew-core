@@ -13,9 +13,8 @@ class Biogeme < Formula
     sha256 "cad38740685b800f07bece9dd13238b900427155697582fc689bd3eee42e8c38" => :sierra
   end
 
-  # depends_on "cython" => :build
-  depends_on "python@3.8"
   depends_on "numpy"
+  depends_on "python@3.8"
   depends_on "scipy"
 
   resource "Cython" do
@@ -49,6 +48,7 @@ class Biogeme < Formula
 
     resources.each do |r|
       next if r.name == "Cython"
+
       r.stage do
         system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
