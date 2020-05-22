@@ -1,10 +1,11 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-svm1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-svm1.tar.gz"
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10.tar.gz"
   version "10.1.10"
-  sha256 "36ad0aba50d60309c21e7f061c46c1aad1dda0ad73d2bb396684e49a268904e4"
+  sha256 "1513bd24ac16b8d94005c140dccea82782648b983d8f435e8139e463ea813d1e"
+  revision 1
 
   bottle do
     sha256 "aeec8e0d463f173b7e1bf1aa5840d7d119559379c9c4024f72ccbcc18649ee40" => :catalina
@@ -17,6 +18,11 @@ class MitScheme < Formula
   # https://github.com/Homebrew/homebrew-x11/issues/103#issuecomment-125014423
   depends_on :xcode => :build
   depends_on "openssl@1.1"
+
+  resource "bootstrap" do
+    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-x86-64.tar.gz"
+    sha256 "4f14dd754703736c1843a8c709cd704a24e92b02d6021652d57ae5d6a2d992e6"
+  end
 
   def install
     # Setting -march=native, which is what --build-from-source does, can fail
@@ -31,6 +37,13 @@ class MitScheme < Formula
     # the environment than to change_make_var, because there are Makefiles
     # littered everywhere
     ENV.deparallelize
+
+    resource("bootstrap").stage do
+      cd "src"
+      system "./configure", "--prefix=#{buildpath}/staging", "--without-x"
+      system "make"
+      system "make", "install"
+    end
 
     # Liarc builds must launch within the src dir, not using the top-level
     # Makefile
@@ -57,6 +70,8 @@ class MitScheme < Formula
     inreplace "edwin/compile.sh" do |s|
       s.gsub! "mit-scheme", "#{bin}/mit-scheme"
     end
+
+    ENV.prepend_path "PATH", buildpath/"staging/bin"
 
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
     system "make"
