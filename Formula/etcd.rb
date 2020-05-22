@@ -2,8 +2,8 @@ class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
   url "https://github.com/etcd-io/etcd.git",
-    :tag      => "v3.4.8",
-    :revision => "0de2b1f8607a27a226204bd8a0ec01aa639f4c1d"
+    :tag      => "v3.4.9",
+    :revision => "54ba9589114fc3fa5cc36c313550b3c0c0938c91"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
@@ -15,7 +15,16 @@ class Etcd < Formula
 
   depends_on "go" => :build
 
+  # remove in the next release
+  patch do
+    url "https://github.com/etcd-io/etcd/pull/11937.patch?full_index=1"
+    sha256 "90f44278806323ddb8cc8160cb0bd00dd892698d90f27db505dca57e3c773df2"
+  end
+
   def install
+    # Fix vendored deps issue (remove this in the next release)
+    system "go", "mod", "vendor"
+
     system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
       bin/"etcd"
     system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o",
