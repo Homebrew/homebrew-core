@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0d/67/e437b65007e98d1a7831a031ad7b97015fb00392447b51601c418872f5bb/snakemake-5.18.0.tar.gz"
-  sha256 "4ff6dd82965e0db88ed84d5a795d6a2bd6a40d147dda149ad2a21774c2b6a45d"
+  url "https://files.pythonhosted.org/packages/bd/84/a0714091367c2929030259886ab79b1bf642c1408112214b2ccb246850c7/snakemake-5.18.1.tar.gz"
+  sha256 "3527687a8f17d2c409ef84ed9386ba2bb6f34e74ab6bdef2abfeca5e7223d08f"
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do
@@ -117,8 +117,8 @@ class Snakemake < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "smmap" do
