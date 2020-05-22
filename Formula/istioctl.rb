@@ -12,6 +12,7 @@ class Istioctl < Formula
     sha256 "e2fa03231877875b91a44d93f2e6a7ddfe660bed5228b6e4168784b6ede056bf" => :high_sierra
   end
 
+  depends_on "docker" => :build
   depends_on "go" => :build
 
   def install
