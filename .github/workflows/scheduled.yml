@@ -9,8 +9,6 @@ jobs:
   autopublish:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
-    container:
-      image: homebrew/brew
     env:
       HOMEBREW_NO_ANALYTICS: 1
       HOMEBREW_NO_AUTO_UPDATE: 1

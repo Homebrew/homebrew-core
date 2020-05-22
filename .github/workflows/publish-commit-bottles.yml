@@ -5,9 +5,6 @@ on: repository_dispatch
 jobs:
   upload:
     runs-on: ubuntu-latest
-    container:
-      image: homebrew/brew
-      options: -v /usr/bin/unzip:/usr/bin/unzip
     env:
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
