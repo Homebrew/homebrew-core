@@ -3,8 +3,8 @@ class Dnstwist < Formula
 
   desc "Test domains for typo squatting, phishing and corporate espionage"
   homepage "https://github.com/elceef/dnstwist"
-  url "https://github.com/elceef/dnstwist/archive/20200429.tar.gz"
-  sha256 "f7287bf6bffdb4469ea58bedad1e9985896e613b4114512039aaea8ba1273bbc"
+  url "https://github.com/elceef/dnstwist/archive/20200521.tar.gz"
+  sha256 "d382da5ec9c85531f418a07d7cf944cea31273551629a5552d35f1ad109219d6"
 
   bottle do
     cellar :any
@@ -95,10 +95,11 @@ class Dnstwist < Formula
   end
 
   test do
-    output = shell_output("#{bin}/dnstwist -rsw brew.sh")
+    output = shell_output("#{bin}/dnstwist -rsw --thread=1 brew.sh")
 
     assert_match version.to_s, output
-    assert_match /Processing \d+ domain variants/, output
+    assert_match "Fetching content from: http://brew.sh", output
+    assert_match /Processing \d+ permutations/, output
     assert_not_match /notice: missing module/, output
   end
 end
