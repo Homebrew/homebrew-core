@@ -24,8 +24,6 @@ class Netpbm < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
-  conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
-
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
@@ -59,9 +57,6 @@ class Netpbm < Formula
       end
 
       prefix.install %w[bin include lib misc]
-      # do man pages explicitly; otherwise a junk file is installed in man/web
-      man1.install Dir["man/man1/*.1"]
-      man5.install Dir["man/man5/*.5"]
       lib.install Dir["staticlink/*.a"], Dir["sharedlink/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
