@@ -15,6 +15,12 @@ class Istioctl < Formula
   depends_on "docker" => :build
   depends_on "go" => :build
 
+  # Remove `-t` flag for docker build on non tty device
+  patch do
+    url "https://github.com/istio/istio/pull/24059.patch?full_index=1"
+    sha256 "f930da04e908caa64ca5b474a545eae9d9823c58183d725f4527691014c397d5"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["TAG"] = version.to_s
