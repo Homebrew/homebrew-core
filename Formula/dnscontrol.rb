@@ -14,15 +14,8 @@ class Dnscontrol < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    srcpath = buildpath/"src/github.com/StackExchange/dnscontrol"
-    srcpath.install buildpath.children
-
-    cd srcpath do
-      system "go", "build", "-o", bin/"dnscontrol"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
+    prefix.install_metafiles
   end
 
   test do
