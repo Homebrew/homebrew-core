@@ -23,7 +23,7 @@ class Asciinema < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    system "#{bin}/asciinema", "--version"
-    system "#{bin}/asciinema", "--help"
+    output = shell_output("#{bin}/asciinema auth")
+    assert_match "Open the following URL in a web browser to link your install ID", output
   end
 end
