@@ -3,7 +3,6 @@ class MitScheme < Formula
   homepage "https://www.gnu.org/software/mit-scheme/"
   url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10.tar.gz"
-  version "10.1.10"
   sha256 "1513bd24ac16b8d94005c140dccea82782648b983d8f435e8139e463ea813d1e"
   revision 1
 
