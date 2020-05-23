@@ -2,8 +2,8 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-      :tag      => "v2.0.3",
-      :revision => "f59468642dd37c64fc374a9916faaa7cee8b1807"
+      :tag      => "v2.0.4",
+      :revision => "c5b0c2d41f67048ba859cbf7d7aba6a3b547e1ef"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
