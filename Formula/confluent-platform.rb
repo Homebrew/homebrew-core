@@ -11,11 +11,19 @@ class ConfluentPlatform < Formula
 
   conflicts_with "kafka", :because => "kafka also ships with identically named Kafka related executables"
 
-  patch :p0, :DATA
-
   def install
     libexec.install %w[bin etc libexec share]
     rm_rf libexec/"bin/windows"
+
+    # Delete some lines to avoid the error like
+    # "cd: ../Cellar/confluent-platform/5.4.1/bin/../share/java: No such file or directory"
+    inreplace libexec/"bin/confluent-hub", <<~'EOS', ""
+      if [ -L /usr/local/bin/confluent-hub ]; then
+          #brew cask installation
+          base_dir=$(dirname $( ls -l /usr/local/bin/confluent-hub | awk '{print $11}' ))
+          #base_dir refers to Caskrooom/confluent-hub-client
+      fi
+    EOS
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
@@ -33,19 +41,3 @@ class ConfluentPlatform < Formula
     assert_match /usage: confluent-hub/, shell_output("#{bin}/confluent-hub help")
   end
 end
-
-__END__
---- bin/confluent-hub.orig	2020-03-03 08:53:14.000000000 +0900
-+++ bin/confluent-hub	2020-05-18 03:57:04.000000000 +0900
-@@ -4,11 +4,6 @@
- 
- base_dir=$(dirname $0)
- 
--if [ -L /usr/local/bin/confluent-hub ]; then
--    #brew cask installation
--    base_dir=$(dirname $( ls -l /usr/local/bin/confluent-hub | awk '{print $11}' ))
--    #base_dir refers to Caskrooom/confluent-hub-client
--fi
- #cd -P deals with symlink from /bin to /usr/bin
- java_base_dir=$( cd -P "$base_dir/../share/java" && pwd )
- HUB_CLI_CLASSPATH="${HUB_CLI_CLASSPATH}:${java_base_dir}/confluent-hub-client/*"
