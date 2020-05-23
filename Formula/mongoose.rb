@@ -1,8 +1,8 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.17.tar.gz"
-  sha256 "5bff3cc70bb2248cf87d06a3543f120f3b29b9368d25a7715443cb10612987cc"
+  url "https://github.com/cesanta/mongoose/archive/6.18.tar.gz"
+  sha256 "f5c10346abc9c72f7cac7885d853ca064fb09aad57580433941a8fd7a3543769"
 
   bottle do
     cellar :any
@@ -45,7 +45,7 @@ class Mongoose < Formula
 
     begin
       pid = fork { exec "#{bin}/mongoose" }
-      sleep 2
+      sleep 20
       assert_match "Hi!", shell_output("curl http://localhost:8000/hello.html")
     ensure
       Process.kill("SIGINT", pid)
