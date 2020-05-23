@@ -2,8 +2,8 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag      => "4.1.0",
-      :revision => "9cbc59342013d1d7a767e9831604ae3eb187be24"
+      :tag      => "4.1.1",
+      :revision => "5e3f33b5c1c66d22607b264f7cd3107881788765"
   head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
@@ -17,6 +17,7 @@ class Haxe < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "mbedtls"
   depends_on "neko"
   depends_on "pcre"
 
