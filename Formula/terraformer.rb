@@ -4,6 +4,7 @@ class Terraformer < Formula
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
     :tag      => "0.8.7",
     :revision => "9b154ac3d2237fb623c80eadbac17f1d3956bd7e"
+  head "https://github.com/GoogleCloudPlatform/terraformer.git"
 
   bottle do
     cellar :any_skip_relocation
