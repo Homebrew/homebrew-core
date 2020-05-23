@@ -1,9 +1,8 @@
 class Libnice < Formula
   desc "GLib ICE implementation"
   homepage "https://wiki.freedesktop.org/nice/"
-  url "https://nice.freedesktop.org/releases/libnice-0.1.16.tar.gz"
-  sha256 "06b678066f94dde595a4291588ed27acd085ee73775b8c4e8399e28c01eeefdf"
-  revision 1
+  url "https://nice.freedesktop.org/releases/libnice-0.1.17.tar.gz"
+  sha256 "1952a0dec58b5c9ccc3f25193df4e2d1244cb382cac611b71e25afcd7b069526"
 
   bottle do
     cellar :any
