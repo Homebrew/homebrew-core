@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "It is system for maintaining DNS zones"
   homepage "https://github.com/StackExchange/dnscontrol"
-  url "https://github.com/StackExchange/dnscontrol/archive/v3.0.0.tar.gz"
-  sha256 "6bb718c787aeb6b048644e4b437fcbe3a805d9b844cd71e21cd29c82aaba42d7"
+  url "https://github.com/StackExchange/dnscontrol/archive/v3.1.1.tar.gz"
+  sha256 "5787171c486de01dd1e5f2378d1098e64212c0ee18559aff515bd8c0a06cdcf3"
 
   bottle do
     cellar :any_skip_relocation
