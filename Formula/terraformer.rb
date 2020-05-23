@@ -1,9 +1,8 @@
 class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
-  url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.8.7",
-    :revision => "9b154ac3d2237fb623c80eadbac17f1d3956bd7e"
+  url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.7.tar.gz"
+  sha256 "8884528c84f2b70480f16e7c8a1f79e9723671415365b2bd36d21e5142eb4746"
   head "https://github.com/GoogleCloudPlatform/terraformer.git"
 
   bottle do
@@ -16,15 +15,8 @@ class Terraformer < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/GoogleCloudPlatform/terraformer"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"terraformer"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
+    prefix.install_metafiles
   end
 
   test do
