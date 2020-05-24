@@ -17,13 +17,7 @@ class ConfluentPlatform < Formula
 
     # Delete some lines to avoid the error like
     # "cd: ../Cellar/confluent-platform/5.4.1/bin/../share/java: No such file or directory"
-    inreplace libexec/"bin/confluent-hub", <<~'EOS', ""
-      if [ -L /usr/local/bin/confluent-hub ]; then
-          #brew cask installation
-          base_dir=$(dirname $( ls -l /usr/local/bin/confluent-hub | awk '{print $11}' ))
-          #base_dir refers to Caskrooom/confluent-hub-client
-      fi
-    EOS
+    inreplace libexec/"bin/confluent-hub", "[ -L /usr/local/bin/confluent-hub ]", "false"
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
