@@ -15,6 +15,8 @@ class Mongoose < Formula
 
   conflicts_with "suite-sparse", :because => "suite-sparse vendors libmongoose.dylib"
 
+  patch :DATA
+
   def install
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326
@@ -31,6 +33,9 @@ class Mongoose < Formula
   end
 
   test do
+    port = free_port.to_s
+    ENV["HTTP_PORT"] = port
+
     (testpath/"hello.html").write <<~EOS
       <!DOCTYPE html>
       <html>
@@ -45,11 +50,37 @@ class Mongoose < Formula
 
     begin
       pid = fork { exec "#{bin}/mongoose" }
-      sleep 20
-      assert_match "Hi!", shell_output("curl http://localhost:8000/hello.html")
+      sleep 2
+      assert_match "Hi!", shell_output("curl -s http://localhost:#{port}/hello.html")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
     end
   end
 end
+
+__END__
+diff --git a/examples/simplest_web_server/simplest_web_server.c b/examples/simplest_web_server/simplest_web_server.c
+index 94d5933..407d7ed 100644
+--- a/examples/simplest_web_server/simplest_web_server.c
++++ b/examples/simplest_web_server/simplest_web_server.c
+@@ -3,7 +3,7 @@
+
+ #include "mongoose.h"
+
+-static const char *s_http_port = "8000";
++static const char *default_http_port = "8000";
+ static struct mg_serve_http_opts s_http_server_opts;
+
+ static void ev_handler(struct mg_connection *nc, int ev, void *p) {
+@@ -17,6 +17,10 @@ int main(void) {
+   struct mg_connection *nc;
+
+   mg_mgr_init(&mgr, NULL);
++
++  const char *http_port = getenv("HTTP_PORT");
++  const char *s_http_port = (http_port != NULL)? http_port: default_http_port;
++
+   printf("Starting web server on port %s\n", s_http_port);
+   nc = mg_bind(&mgr, s_http_port, ev_handler);
+   if (nc == NULL) {
