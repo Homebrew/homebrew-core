@@ -1,10 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
-  sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gdb/gdb-9.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.2.tar.xz"
+  sha256 "360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555"
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
@@ -13,6 +12,7 @@ class Gdb < Formula
     sha256 "d279ccc0f8eefc8a7b3ac5f182290af201345adf4523b3a2671ab752e821d186" => :high_sierra
   end
 
+  depends_on "guile"
   depends_on "python@3.8"
   depends_on "xz" # required for lzma support
 
