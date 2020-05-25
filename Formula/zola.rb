@@ -1,8 +1,8 @@
 class Zola < Formula
   desc "Fast static site generator in a single binary with everything built-in"
   homepage "https://www.getzola.org/"
-  url "https://github.com/getzola/zola/archive/v0.10.1.tar.gz"
-  sha256 "cf5992e935d2f236985b57f357bb6e6738e83b13b0ae50278da66382a0af106c"
+  url "https://github.com/getzola/zola/archive/v0.11.0.tar.gz"
+  sha256 "09840a55d13a81a7a04767d01e5e44cc3710e79c78f43f0ebde4a6a17e0728ca"
 
   bottle do
     cellar :any_skip_relocation
