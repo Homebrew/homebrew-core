@@ -25,6 +25,8 @@ class PerconaServer < Formula
 
   conflicts_with "mariadb", "mysql",
     :because => "percona, mariadb, and mysql install the same binaries."
+  conflicts_with "protobuf",
+    :because => "both install libprotobuf(-lite) libraries."
 
   # https://bugs.mysql.com/bug.php?id=86711
   # https://github.com/Homebrew/homebrew-core/pull/20538
