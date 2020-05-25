@@ -1,8 +1,8 @@
 class Bloaty < Formula
   desc "Size profiler for binaries"
   homepage "https://github.com/google/bloaty"
-  url "https://github.com/google/bloaty/releases/download/v1.0/bloaty-1.0.tar.bz2"
-  sha256 "e1cf9830ba6c455218fdb50e7a8554ff256da749878acfaf77c032140d7ddde0"
+  url "https://github.com/google/bloaty/releases/download/v1.1/bloaty-1.1.tar.bz2"
+  sha256 "a308d8369d5812aba45982e55e7c3db2ea4780b7496a5455792fb3dcba9abd6f"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,14 +14,18 @@ class Bloaty < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "capstone"
+  depends_on "protobuf"
+  depends_on "re2"
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make"
-    bin.install buildpath/"bloaty"
+    system "make", "install"
   end
 
   test do
-    system bin/"bloaty", bin/"bloaty"
+    assert_match /100\.0%\s+(\d\.)?\d+(M|K)i\s+100\.0%\s+(\d\.)?\d+(M|K)i\s+TOTAL/,
+                 shell_output("#{bin}/bloaty #{bin}/bloaty").lines.last
   end
 end
