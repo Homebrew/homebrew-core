@@ -1,8 +1,8 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.15.1.tar.gz"
-  sha256 "6f64899870bb16abd82a86c6a34c165f78603514e6ebb8ddf920b59095eba57d"
+  url "https://github.com/sharkdp/bat/archive/v0.15.2.tar.gz"
+  sha256 "7922e03c3b9da2abe76b294ac5cda4529bce8a1974ecf1c9228f334c82c132bc"
 
   bottle do
     cellar :any_skip_relocation
