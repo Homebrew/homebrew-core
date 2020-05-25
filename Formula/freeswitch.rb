@@ -2,9 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://github.com/signalwire/freeswitch.git",
-      :tag      => "v1.10.1",
-      :revision => "f9990221e6094886066ec2bf9685648135bd405a"
-  revision 1
+      :tag      => "v1.10.3",
+      :revision => "129de34d845098b7864a49281f3eb946e0b50314"
   head "https://github.com/signalwire/freeswitch.git"
 
   bottle do
