@@ -1,8 +1,8 @@
 class Opencc < Formula
   desc "Simplified-traditional Chinese conversion tool"
   homepage "https://github.com/BYVoid/OpenCC"
-  url "https://github.com/BYVoid/OpenCC/archive/ver.1.1.0.tar.gz"
-  sha256 "5f5e33ba91e2a36fe84a7ef61d0172410a97813ff2bd0618cd70b37ae3ec560c"
+  url "https://github.com/BYVoid/OpenCC/archive/ver.1.1.1.tar.gz"
+  sha256 "2d4987dc84275f252d47bc6d8c81b452f6a6e82caa26f284c854a8153ccf5933"
 
   bottle do
     sha256 "4406670454c6ddd241093780a0b4bd239b0d62d2b1f4dacd0f525d3de12264eb" => :catalina
