@@ -15,14 +15,16 @@ class Curaengine < Formula
 
   depends_on "cmake" => :build
 
+  # The version tag in these resources (e.g., `/1.2.3/`) should be changed as
+  # part of updating this formula to a new version.
   resource "fdmextruder_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/master/resources/definitions/fdmextruder.def.json"
-    sha256 "c56bdf9cc3e2edd85a158f14b891c8d719a1b6056c817145913495f7e907b1d2"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.6.1/resources/definitions/fdmextruder.def.json"
+    sha256 "9f0b42c98e023b32784c340db2db91a25f78fc30ca770a4914ae9c48a24d3db3"
   end
 
   resource "fdmprinter_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/master/resources/definitions/fdmprinter.def.json"
-    sha256 "e16ffd9f6412dc7160485f3452041ac1d56ba786d8cf65a009bdfc4be526d070"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.6.1/resources/definitions/fdmprinter.def.json"
+    sha256 "142b4c17ed0270dfb76f23eb644a3a10c4e1c6be8ab35ff78ea2d3ea8a90f12d"
   end
 
   def install
