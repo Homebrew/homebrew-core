@@ -3,6 +3,7 @@ class GameMusicEmu < Formula
   homepage "https://bitbucket.org/mpyne/game-music-emu"
   url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.xz"
   sha256 "aba34e53ef0ec6a34b58b84e28bf8cfbccee6585cebca25333604c35db3e051d"
+  revision 1
   head "https://bitbucket.org/mpyne/game-music-emu.git"
 
   bottle do
