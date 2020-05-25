@@ -23,17 +23,12 @@ class Nanomsg < Formula
   test do
     bind = "tcp://127.0.0.1:#{free_port}"
 
-    pid = fork do
+    fork do
       exec "#{bin}/nanocat --rep --bind #{bind} --format ascii --data home"
     end
     sleep 2
 
-    begin
-      output = shell_output("#{bin}/nanocat --req --connect #{bind} --format ascii --data brew")
-      assert_match /home/, output
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = shell_output("#{bin}/nanocat --req --connect #{bind} --format ascii --data brew")
+    assert_match /home/, output
   end
 end
