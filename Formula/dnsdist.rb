@@ -3,6 +3,7 @@ class Dnsdist < Formula
   homepage "https://www.dnsdist.org/"
   url "https://downloads.powerdns.com/releases/dnsdist-1.4.0.tar.bz2"
   sha256 "a336fa2c3eb381c2464d9d9790014fd6d4505029ed2c1b73ee1dc9115a2f1dc0"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,14 @@ class Dnsdist < Formula
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "lua"
+  depends_on "cdb"
+  depends_on "fstrm"
+  depends_on "h2o"
+  depends_on "libsodium"
+  depends_on "luajit"
+  depends_on "openssl@1.1"
+  depends_on "protobuf"
+  depends_on "re2"
 
   uses_from_macos "libedit"
 
@@ -25,6 +33,10 @@ class Dnsdist < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--without-net-snmp",
+                          "--enable-dns-over-tls",
+                          "--enable-dns-over-https",
+                          "--enable-dnscrypt",
+                          "--with-re2",
                           "--sysconfdir=#{etc}/dnsdist"
     system "make", "install"
   end
