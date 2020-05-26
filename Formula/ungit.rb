@@ -22,18 +22,12 @@ class Ungit < Formula
 
   test do
     port = free_port
-    ppid = fork do
-      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
+
+    fork do
+      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}"
     end
     sleep 5
+
     assert_includes shell_output("curl -s 127.0.0.1:#{port}/"), "<title>ungit</title>"
-  ensure
-    if ppid
-      Process.kill("TERM", ppid)
-      # ensure that there are no spawned child processes left
-      child_p = pipe_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
-      child_p.each { |pid| Process.kill("TERM", pid) }
-      Process.wait(ppid)
-    end
   end
 end
