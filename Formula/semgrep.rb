@@ -4,9 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep.git",
-    :tag      => "v0.6.1",
-    :revision => "13480105829770168af10c20ff0ab5df0405df74"
-  revision 1
+    :tag      => "v0.8.1",
+    :revision => "b328f288fd27090df2fc648b72560a1f20669557"
   head "https://github.com/returntocorp/semgrep.git", :branch => "develop"
 
   bottle do
@@ -58,6 +57,11 @@ class Semgrep < Formula
     sha256 "87716c2d2a7121198ebcb7ce7cccf6ce5e9ba539041cfbaeecfb641dc0bf6acc"
   end
 
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
+    sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
+  end
+
   def install
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
@@ -70,9 +74,7 @@ class Semgrep < Formula
         system "opam", "install", "-y", "."
         system "opam", "exec", "--", "make", "all"
         system "opam", "exec", "--", "make", "install"
-        build_dir = "_build/default/bin/"
-        File.rename(build_dir + "main_semgrep_core.exe", build_dir + "semgrep-core")
-        bin.install build_dir + "semgrep-core"
+        bin.install "_build/default/bin/Main.exe" => "semgrep-core"
       end
     end
 
