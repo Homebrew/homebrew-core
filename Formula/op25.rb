@@ -6,6 +6,7 @@ class Op25 < Formula
   depends_on "cmake" => :build
   depends_on "cppunit" => :build
   depends_on "swig" => :build
+  depends_on "boost"
   depends_on "gnuradio"
   depends_on "gr-osmosdr"
   depends_on "itpp"
