@@ -11,7 +11,7 @@ class Op25 < Formula
   depends_on "itpp"
 
   def install
-    ENV.prepend_path "DYLD_LIBRARY_PATH", Formula["gnuradio"].opt_lib
+    ENV.append "LDFLAGS", "-L#{Formula["gnuradio"].opt_lib} -lgnuradio-runtime -lgnuradio-pmt"
 
     # TODO: apply patch if gnuradio >= 3.8?
 
