@@ -1,10 +1,10 @@
 class Tldr < Formula
   desc "Simplified and community-driven man pages"
   homepage "https://tldr.sh/"
-  url "https://github.com/tldr-pages/tldr-cpp-client/archive/v1.3.0.tar.gz"
+  url "https://github.com/tldr-pages/tldr-c-client/archive/v1.3.0.tar.gz"
   sha256 "6210ece3f5d8f8e55b404e2f6c84be50bfdde9f0d194a271bce751a3ed6141be"
   revision 2
-  head "https://github.com/tldr-pages/tldr-cpp-client.git"
+  head "https://github.com/tldr-pages/tldr-c-client.git"
 
   bottle do
     cellar :any
