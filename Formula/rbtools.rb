@@ -42,7 +42,7 @@ class Rbtools < Formula
 
   test do
     system "git", "init"
-    system "#{bin}/rbt", "setup-repo", "--server", "http://demo.reviewboard.org"
+    system "#{bin}/rbt", "setup-repo", "--server", "https://demo.reviewboard.org"
     out = shell_output("#{bin}/rbt clear-cache")
     assert_match "Cleared cache in", out
   end
