@@ -1,8 +1,8 @@
 class Sourcedocs < Formula
   desc "Generate Markdown files from inline source code documentation"
   homepage "https://github.com/eneko/SourceDocs"
-  url "https://github.com/eneko/sourcedocs/archive/1.0.0.tar.gz"
-  sha256 "bd70502b6271d96cb39d7aa143407f7aa6a82af4305012701a402d8fdcb66d35"
+  url "https://github.com/eneko/sourcedocs/archive/1.1.0.tar.gz"
+  sha256 "cf3df9522f66d7a89c0a4291c0b9dd63cfaacc12c1f4210a792d55bcfe8d59cc"
 
   bottle do
     cellar :any_skip_relocation
