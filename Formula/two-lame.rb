@@ -1,6 +1,6 @@
 class TwoLame < Formula
   desc "Optimized MPEG Audio Layer 2 (MP2) encoder"
-  homepage "http://www.twolame.org/"
+  homepage "https://www.twolame.org/"
   url "https://downloads.sourceforge.net/twolame/0.4.0/twolame-0.4.0.tar.gz"
   sha256 "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d"
 
