@@ -3,6 +3,7 @@ class Gh < Formula
   homepage "https://github.com/cli/cli"
   url "https://github.com/cli/cli/archive/v0.9.0.tar.gz"
   sha256 "318295e5a662f785662751f1e2cd4b1f613ec3aced1c4e7f1755d27922dbfdbf"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +20,9 @@ class Gh < Formula
       -X github.com/cli/cli/command.BuildDate=#{Date.today}
       -s -w
     ]
-    system "go", "build", "-trimpath", "-ldflags", ldflags.join(" "), "-o", bin/name, "./cmd/gh"
-
+    system "make", "bin/gh", "manpages", "LDFLAGS=#{ldflags.join(" ")}"
+    bin.install "bin/gh"
+    man1.install Dir["share/man/man1/gh*.1"]
     (bash_completion/"gh").write `#{bin}/gh completion -s bash`
     (fish_completion/"gh.fish").write `#{bin}/gh completion -s fish`
     (zsh_completion/"_gh").write `#{bin}/gh completion -s zsh`
