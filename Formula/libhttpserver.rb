@@ -1,16 +1,15 @@
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
-  url "https://github.com/etr/libhttpserver/archive/0.17.5.tar.gz"
-  sha256 "778fa0aec199bf8737b2d540c2563a694c18957329f9885e372f7aaafb838351"
+  url "https://github.com/etr/libhttpserver/archive/0.18.0.tar.gz"
+  sha256 "b4a745a9f32a1ac02b545c062fc85342a655c3770cd8d4d7218f34509ea27d98"
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do
     cellar :any
-    sha256 "e0166077c271995554782fdbf558be98893e2ef64aadbcec200398b81db87f3d" => :catalina
-    sha256 "086dcf919fa2afba8883e7d6c26bdd9823d8741b93ffe3864226534f71a218d9" => :mojave
-    sha256 "948c65b78b36e0baf3682fb94459c33ae5283b811b836b7f4abdf27a94aa8859" => :high_sierra
-    sha256 "59d96bc3f9f33c84c0700318deed666528a9ee60da8a55d45fd3450185ecfed0" => :sierra
+    sha256 "95189595f6b252fb49de7d388416fca1c7107347d2e72401cc2f59dff9bb61ab" => :catalina
+    sha256 "a7ba4e925c9e5597721523f528f16e76c427a54f3986ffa213f3c66c62e60a83" => :mojave
+    sha256 "190a74ca1999a1e42877971ee39b1f79f2ef5742ced8db46c2115d4fa5729d9c" => :high_sierra
   end
 
   depends_on "autoconf" => :build

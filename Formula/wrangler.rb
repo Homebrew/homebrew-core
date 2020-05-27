@@ -1,7 +1,7 @@
 class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
-  revision 2
+  revision 3
   head "https://github.com/RefactoringTools/wrangler.git"
 
   stable do
@@ -23,12 +23,12 @@ class Wrangler < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f666670522f930ed3b9412f2301bfaf6514db08c3ce48d1aa86419611dcd6783" => :catalina
-    sha256 "f285e272fd51ca316f073bd5c0bbcaf285b5a0cbd453bc1f945efd67eca7c034" => :mojave
-    sha256 "35f891e2ab69591e3d4bd907197b21fae3b23f9b727278e1c2cc577d10277660" => :high_sierra
+    sha256 "8d67285352be09f209dba8e1fe678bb9e88a77c74e5178687f890cf5ba19c8ca" => :catalina
+    sha256 "1f122b48da35f344074d239e3d23fcf3d66e309dd0425062547d080bd3285a12" => :mojave
+    sha256 "b3aa1c943b1de15308be2cf7ac540daa95b4a843788a662fcdf34ed30e2ec29d" => :high_sierra
   end
 
-  depends_on "erlang"
+  depends_on "erlang@22"
 
   def install
     system "./configure", "--prefix=#{prefix}"

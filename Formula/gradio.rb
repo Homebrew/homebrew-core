@@ -10,6 +10,8 @@ class Gradio < Formula
     sha256 "5c3f745ad431c61ef3d19b4a2a03d6f24eb99dd47768178e6d1810edba4f12fa" => :high_sierra
   end
 
+  deprecate! :date => "November 16, 2019"
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "adwaita-icon-theme"

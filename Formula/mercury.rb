@@ -1,14 +1,14 @@
 class Mercury < Formula
   desc "Logic/functional programming language"
   homepage "https://mercurylang.org/"
-  url "https://dl.mercurylang.org/release/mercury-srcdist-20.01.1.tar.gz"
-  sha256 "579cf00fa485d3918dbf9e50bb8057662b66fb82f69b3b824542e42a814bb76f"
+  url "https://dl.mercurylang.org/release/mercury-srcdist-20.01.2.tar.gz"
+  sha256 "95e0aa596a6437f08d7323f032dcf8356a6ce53ff88d15eb93583daea7a19520"
 
   bottle do
     cellar :any
-    sha256 "c6871399da6751d5407e22221a78e439d98b64c3826a2a98862561f013baa379" => :catalina
-    sha256 "4735a23f1f6d8d1c9d828e37cb62068c459c922262ea20e8c6daac000d7cf268" => :mojave
-    sha256 "e01491987cf0aaa54e733bc68b4f81ba02fbbfcff07c61b15b8224d31ed2b4b6" => :high_sierra
+    sha256 "929bf01a6bb21f8eb21049c5f9204f732f8cef4352a9c35bf8a74dfea3ff68db" => :catalina
+    sha256 "c789a13ab24a2d0fe87084611fe2329e69babed231ab71c8f7488dd196d9688b" => :mojave
+    sha256 "6193c6ea63f456f66c9137945a4b333d7c1d4e7370bf2a333d38ac9fff7ebd7a" => :high_sierra
   end
 
   depends_on "openjdk"
@@ -21,6 +21,10 @@ class Mercury < Formula
     system "./configure", *args
 
     system "make", "install", "PARALLEL=-j"
+
+    # Avoid references to Homebrew shims
+    inreplace bin/"mgnuc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/gcc", "/usr/bin/clang"
+    inreplace lib/"mercury/reconf/scripts/mgnuc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/gcc", "/usr/bin/clang"
 
     # Remove batch files for windows.
     rm Dir.glob("#{bin}/*.bat")

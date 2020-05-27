@@ -1,14 +1,14 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.31.0.tar.gz"
-  sha256 "7e37abcf49e9f59ef6939069f4d74fc6bf29b09deec111bd3561021fc1349528"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.32.0.tar.gz"
+  sha256 "a68bcc3585fb150bb3781a77ddab97d2618fe58dc004543a9dddb74518e22e58"
 
   bottle do
     cellar :any
-    sha256 "a91e1a83f1ad4da78a9385b7f822edf6ce0cb0ddc521038f71eba44de7e3aebe" => :catalina
-    sha256 "0a15abc72bce0f602fcdaee3fa6fee1f20f30e009561bc58acbbf4d4c347fef4" => :mojave
-    sha256 "9304596e16fc65b4f49b2c9ec1e140056ae252e0d3deb975b327b6b174eb0dd8" => :high_sierra
+    sha256 "20a70b43019fff1b44574ccdcf063dc9ec1f124981ef440f9f4965876ccc91ed" => :catalina
+    sha256 "3d969437dbcfd2478c9f9f7d15198b82688f2a4f7e8c5baf899cf222f295fa4d" => :mojave
+    sha256 "7ac28062bb7630d5ccedbdbd87b529576b1d22c76e92c28a99ea9305316f24aa" => :high_sierra
   end
 
   depends_on "boost"

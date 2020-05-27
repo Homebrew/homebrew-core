@@ -84,16 +84,11 @@ class H2o < Formula
   test do
     port = free_port
     (testpath/"h2o.conf").write conf_example(port)
-    pid = fork do
+    fork do
       exec "#{bin}/h2o -c #{testpath}/h2o.conf"
     end
     sleep 2
 
-    begin
-      assert_match "Welcome to H2O", shell_output("curl localhost:#{port}")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    assert_match "Welcome to H2O", shell_output("curl localhost:#{port}")
   end
 end

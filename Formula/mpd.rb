@@ -3,13 +3,14 @@ class Mpd < Formula
   homepage "https://www.musicpd.org/"
   url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.23.tar.xz"
   sha256 "439f522ca9800f375e4fb459ec31e61b3d824fc5c0580ff06dac48b5d21207a3"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
     cellar :any
-    sha256 "a23fab9584321aeb90354c9f221a31e17a912a198cb9ec6437c87ede8120de6d" => :catalina
-    sha256 "31c5f6acf2e7fcec454bc0a52cee053836d178a40e3d6fa1d16809a687556988" => :mojave
-    sha256 "299e9cf5b5ea05c35c18f570f3c2134c6c5f1f8f01660b07c8aca47765fb17e8" => :high_sierra
+    sha256 "5a25db0293942e9dba70ebed531e24fadf146830f25193d9c4d0d7f7101d71b6" => :catalina
+    sha256 "7197a6cff054cb09e04555c68f3f885a4704eb4b88c814f82f4c49059f1805cb" => :mojave
+    sha256 "23b2714bcc0a975050b7a9809764f40e2cf93f21268f8c3a7b1d1e68c1951b78" => :high_sierra
   end
 
   depends_on "boost" => :build

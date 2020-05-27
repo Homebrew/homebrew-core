@@ -3,13 +3,13 @@ class Mosh < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
   sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
-  revision 10
+  revision 11
 
   bottle do
     cellar :any
-    sha256 "1f77a276cbba48a41505658a146853a01fd49e68f5ed39592e95f4b982860fa6" => :catalina
-    sha256 "5489299d991ac0ede82de439b94e6148fc6620b60ab795d8da21c976f09ed6eb" => :mojave
-    sha256 "9994025f67ff132e87310f596539af84f57ba53ce05b71fd9d0bd6069c681e84" => :high_sierra
+    sha256 "d864ba6a3869df2fd47894862f5f0b7d8e5f5f55daf58742243fa3ca8c69d474" => :catalina
+    sha256 "1f46edf8fbd83303ea4156530357207b6ad538a6abbbd5118f9c39e4898a4a19" => :mojave
+    sha256 "c8aa1ef313d62059bd8abee131880d5fa73f45e961388c055bc5f89970bcaf24" => :high_sierra
   end
 
   head do

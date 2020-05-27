@@ -12,7 +12,7 @@ class Llnode < Formula
   end
 
   depends_on "node" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on :macos => :yosemite
 
   resource "lldb" do

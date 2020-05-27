@@ -1,13 +1,13 @@
 class Sourcedocs < Formula
   desc "Generate Markdown files from inline source code documentation"
   homepage "https://github.com/eneko/SourceDocs"
-  url "https://github.com/eneko/sourcedocs/archive/1.0.0.tar.gz"
-  sha256 "bd70502b6271d96cb39d7aa143407f7aa6a82af4305012701a402d8fdcb66d35"
+  url "https://github.com/eneko/sourcedocs/archive/1.1.0.tar.gz"
+  sha256 "cf3df9522f66d7a89c0a4291c0b9dd63cfaacc12c1f4210a792d55bcfe8d59cc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "29a72afd48dfcc0fde3868579de6e85ee04304e33517c2fd482fdccff07784ef" => :catalina
-    sha256 "b1a4f82b6294bb86f4c785d11aafab59626b3f91de77e7ac7db39b4a3d0f8890" => :mojave
+    sha256 "709fe9bcd8d9bf1cb5285618983eb6934807eb1c58d893d0576e7889815d9a03" => :catalina
+    sha256 "ae52c1dcdd808cb5da7bf34f0b293c25056df18308ed95754b0f9cef0a4fabfc" => :mojave
   end
 
   depends_on :xcode => ["10.3", :build, :test]

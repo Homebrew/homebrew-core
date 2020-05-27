@@ -25,7 +25,7 @@ class Multimarkdown < Formula
       bin.install "multimarkdown"
     end
 
-    bin.install Dir["scripts/*"].reject { |f| f =~ /\.bat$/ }
+    bin.install Dir["scripts/*"].reject { |f| f.end_with?(".bat") }
   end
 
   test do

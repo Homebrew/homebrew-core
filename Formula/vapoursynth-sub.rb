@@ -3,13 +3,14 @@ class VapoursynthSub < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R50.tar.gz"
   sha256 "b9dc7ce904c6a3432df7491b7052bc4cf09ccf1e7a703053f8079a2267522f97"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
     cellar :any
-    sha256 "9e248fad2cf15145bd14e1b3f5ec48e34752aa328d461b649ec3ae99c5554945" => :catalina
-    sha256 "22a8a42bbb525994646d8bb6de85928de00c8073abfbd8a2400c04bbc51fd3c4" => :mojave
-    sha256 "f3d5420ef8f88c51684b0b0ca8325713ce3ea11f4b04145b497934832a0be5ed" => :high_sierra
+    sha256 "61aa955a21de088cb8f53ef014a6ed0bbca3435ee70ac958f38bdec42540ca79" => :catalina
+    sha256 "deeea5620be2867e3fab4a89bbf93074bf9e8d10a3b01fba9e8161f333293bd3" => :mojave
+    sha256 "1f4e14c3572fcb8e1e65b59f41639bab5a7e28ff4509de6af42afc8e7f8931ff" => :high_sierra
   end
 
   depends_on "autoconf" => :build

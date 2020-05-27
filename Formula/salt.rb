@@ -3,14 +3,14 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://s.saltstack.com/community/"
-  url "https://files.pythonhosted.org/packages/74/b7/c7f1ba7a787307c6013f07d506b062bfa2112a583ad58de5f37110e35895/salt-3000.2.tar.gz"
-  sha256 "0e33429d094a6109dfed955c4b1c638baee9641eca2f7609bbc4adad21c620d9"
+  url "https://files.pythonhosted.org/packages/dd/af/a655b055173603f6b8dfb87202604076887d67f186f2f5aedd5a49a7dbe5/salt-3000.3.tar.gz"
+  sha256 "fcca49985e697d914e5a7f34b2fd8bbd833bcf7779d30174a279a4de2294cea7"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
-    sha256 "778c5cb28a0c87e4ed03ad08022da680f3702d781b8f092210c106862bc70cc0" => :catalina
-    sha256 "b28fc676d3c42bd671cb04675c070185548434f4751abeb99de53c8fc52d82e2" => :mojave
-    sha256 "3b53eba80fe3df81b69be0c02c53c4b00f9af90685e2130a006c6f4f0c99d49b" => :high_sierra
+    sha256 "b3328fee3f6f663b1a35637c79206b5339a5bdd68c72df77581c1f3b6c59cf7f" => :catalina
+    sha256 "bf446290e5002a241f64867d375e12a246371d159e95c682eed0359f0ad40c11" => :mojave
+    sha256 "19747f83f997b2cd2532c376b69f782ae4aca2794d823bcb0aaead73f001096f" => :high_sierra
   end
 
   depends_on "swig" => :build
@@ -44,8 +44,8 @@ class Salt < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/a5/97/49cb02500d851a172c287cafe04eca864771d99ace6a81967d9a99f0c39e/pygit2-1.2.0.tar.gz"
-    sha256 "f991347f5b11589ac8dc5a3c8257a514cf802545b75c11133a43ae9f76388278"
+    url "https://files.pythonhosted.org/packages/d0/c6/33e2df5722e3adf49adc6a2d3c2cdb5a5247236fd8f2063a0c4d058116a1/pygit2-1.2.1.tar.gz"
+    sha256 "de9421118a99c79cbba1e512d60e5caed1d63273ce30a0e8d4edef4a2e500387"
   end
 
   # Fix loading of unversioned /usr/lib/libcrypto.dylib, taken from https://github.com/saltstack/salt/pull/56958

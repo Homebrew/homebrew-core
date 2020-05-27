@@ -3,13 +3,14 @@ class Qcli < Formula
   homepage "https://bavc.org/preserve-media/preservation-tools"
   url "https://github.com/bavc/qctools/archive/v1.1.tar.gz"
   sha256 "e11eb93b02f9c75f88182a57b8ab44248ac10ca931cf066e7f02bd1835f2900c"
+  revision 1
   head "https://github.com/bavc/qctools.git"
 
   bottle do
     cellar :any
-    sha256 "487fe5bc5a37c19da70cca2838be9a831c5eaf92a92c463fde45fd3759c57b55" => :catalina
-    sha256 "eaaeacd546cc94e4a9f291970e4e8f65f30cd8bb2bd1b284d1496f978de99779" => :mojave
-    sha256 "8e3b7434776ef1d2f21baa4de1854dc37398c99e7ade12f08bff9ce63a28eb2b" => :high_sierra
+    sha256 "7c92e518aba3e06cd3442b2c2c7cf426660d5cfdb73e1cb3e3b81ff8064eda43" => :catalina
+    sha256 "25f7fb43d401ba9ebf7043629dc2e66c12489fe06886723e535548e20d651152" => :mojave
+    sha256 "6e3b5d65bb6511acbe090146ca25695d33799032d4e20a3458652f81757d7ecc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

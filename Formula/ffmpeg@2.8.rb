@@ -3,11 +3,12 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.16.tar.xz"
   sha256 "6b895902f1ec0d738af40f514dfeac6caba143aa2d0a17af22397c2fc4ebc092"
+  revision 1
 
   bottle do
-    sha256 "858c27ee5f7220c59cc2bd4f6edb78e18b7b9e4320e252b51f307a5663e9ce7b" => :catalina
-    sha256 "55a0639513fc5e876b8d65b54725a6a79d69d6a9b56f7b280d8a4082c0643ffe" => :mojave
-    sha256 "eacd1a6566db61be9d48b245cefc0f3784cc12e8b5bbf08941918c0d5425f7e1" => :high_sierra
+    sha256 "81d8dd0225a66030fbfb3e181d0ec358afbbe1f1116a740e6cbdab9ab84523ef" => :catalina
+    sha256 "1ebac78f59a9ad1de2736fe2f1fa29a1a43488918d7536db9db1ae12baed9dd1" => :mojave
+    sha256 "9fd292fee0714bf6539d44427d754a8af74c443b51c02537cacdd0aa802f843e" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -102,8 +103,8 @@ class FfmpegAT28 < Formula
 
   test do
     # Create an example mp4 file
-    system "#{bin}/ffmpeg", "-y", "-filter_complex",
-        "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert_predicate testpath/"video.mp4", :exist?
+    mp4out = testpath/"video.mp4"
+    system bin/"ffmpeg", "-y", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
+    assert_predicate mp4out, :exist?
   end
 end

@@ -1,12 +1,11 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
-  revision 1
 
   stable do
-    url "https://dl.google.com/go/go1.14.2.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.14.2.src.tar.gz"
-    sha256 "98de84e69726a66da7b4e58eac41b99cbe274d7e8906eeb8a5b7eb0aadee7f7c"
+    url "https://dl.google.com/go/go1.14.3.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.14.3.src.tar.gz"
+    sha256 "93023778d4d1797b7bc6a53e86c3a9b150c923953225f8a48a2d5fabc971af56"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -16,9 +15,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "15b5623471330edcc681d7f9d57b449660e6d4b98c7f67af67f4991fc75d61fc" => :catalina
-    sha256 "fa65e7dabe514e65ae625ed3c84a6bf58df01aceffc6e9aa99752ca8c320ce69" => :mojave
-    sha256 "0997f6f5cda0e3bdb7789a80b53621cb588202ab37fd89bcd269f8dfafd23351" => :high_sierra
+    sha256 "e3c4f834acba4e4db3f2b848860a040de1d8dec158545e8aaa3dd2f380c9c950" => :catalina
+    sha256 "70ae2f7f10ccd4926be3f5f7482afe8f0d0fe78f0e4fa2eea05c20a80ffa9c6e" => :mojave
+    sha256 "9b334b2eff3b1d40c74d89daeec0b08d4a0e331103c6c10c08d060e86605f61b" => :high_sierra
   end
 
   head do

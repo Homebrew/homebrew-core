@@ -2,14 +2,14 @@ class Spim < Formula
   desc "MIPS32 simulator"
   homepage "https://spimsimulator.sourceforge.io/"
   # No source code tarball exists
-  url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 729
-  version "9.1.21"
+  url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 732
+  version "9.1.22"
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
-    sha256 "8f40eace38d5ab140b039aee04d62cda9ccc49b084b1596f9c7aeffb8e322c74" => :catalina
-    sha256 "8b75517a00a1aff52b3b36725d82af07ff542713df1364881cb7e6a7d2ec99f9" => :mojave
-    sha256 "6066f72f0ea0c14e962d489f276fbb671f0ef2afbf4bafa7079a18732d599166" => :high_sierra
+    sha256 "553aee29312b5b491d20c139652f87d8bd1547abd078285c5c80a13e02a868ff" => :catalina
+    sha256 "429ed6272e9255d16227b58bbc405c58d19ecb360540d2d228a91029b62506ab" => :mojave
+    sha256 "dfb4e24f378665fee30af8a3c362b1bc13e83b33196b66b4102c400fcee99b2e" => :high_sierra
   end
 
   def install

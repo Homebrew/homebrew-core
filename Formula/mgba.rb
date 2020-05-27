@@ -3,12 +3,13 @@ class Mgba < Formula
   homepage "https://mgba.io/"
   url "https://github.com/mgba-emu/mgba/archive/0.8.1.tar.gz"
   sha256 "df136ea50c9cca380ab93e00fd8d87811e41a49a804c5b0e018babef0c490f13"
+  revision 1
   head "https://github.com/mgba-emu/mgba.git"
 
   bottle do
-    sha256 "74846398875420c4fb877be7c646753b852f747c749dee8d9e67c4c64d42941d" => :catalina
-    sha256 "ded67173cd9422c5eedf350f740139fdbb6ff80f4d7024098f407c0566296a40" => :mojave
-    sha256 "bd290fed1f0f69cdf857fd3f8f7bb41f92c1d50b8af41044407e2daa9b4a2599" => :high_sierra
+    sha256 "0f98579d167984c58e1946f501666427949e948fce69cc98be9bd525b1aa924e" => :catalina
+    sha256 "503bdba850b29faf5e6daf4960cc4203ca24bd99808df5db175afe3d53b90da2" => :mojave
+    sha256 "5f2c9f2396102c081bbd389c9d27a3adddb9b4f621859157f45da6840748f848" => :high_sierra
   end
 
   depends_on "cmake" => :build

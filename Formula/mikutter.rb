@@ -1,16 +1,15 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.4.0.4.tar.gz"
-  sha256 "67b6d9a0e726aae43d1bffb880a543ff88c7bb8d3d9c8a622810d6c6422defa8"
-  revision 1
-  head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
+  url "https://mikutter.hachune.net/bin/mikutter-4.0.5.tar.gz"
+  sha256 "abd56904cb39c6d3490bc21cc4e40b2c23e93ef7e2a16d27eea43b09ec20dbf6"
+  head "git://mikutter.hachune.net/mikutter.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "17481142e6b8ef7683584be1e4a1a43934e7b1701741a1a62982f16d752d66b7" => :catalina
-    sha256 "4cb7a4e80664d9db31205400cb46f252aa8fb02bef6a4bb43c84082a32fdf2e7" => :mojave
-    sha256 "21cb6de1558c9fc4030985ec4da77c8b41d75149d9c2fb2a78b4ff05e18a49c9" => :high_sierra
+    sha256 "f5a80b458870ced8d7ac5f891c6a2b2c8dfde0e8e80cb1c4ed4f5468e61dff97" => :catalina
+    sha256 "c534514895efea43fe4e2a71debf947b7b366936946436428e0d7abc124cefdd" => :mojave
+    sha256 "c58da76f8142632ae26e718c89f6dd642273a6e8309103a36c23a7421a3c1255" => :high_sierra
   end
 
   depends_on "gobject-introspection"
@@ -62,8 +61,8 @@ class Mikutter < Formula
   end
 
   resource "gettext" do
-    url "https://rubygems.org/gems/gettext-3.2.9.gem"
-    sha256 "990392498a757dce3936ddaf4a65fefccbdf0ca9c62d51af57c032f58edcc41c"
+    url "https://rubygems.org/gems/gettext-3.3.5.gem"
+    sha256 "955f115e1099ea705949c4e221164efdbbf07ec6e148131a777873c0f419bb04"
   end
 
   resource "gio2" do
@@ -122,8 +121,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/downloads/nokogiri-1.10.8.gem"
-    sha256 "0806b8b0541850b59c4f588c53cff42ef2da6c7fa2f0b1cbcb83d1cc219228fa"
+    url "https://rubygems.org/downloads/nokogiri-1.10.9.gem"
+    sha256 "d562108c5cdf7e9208c267107a0a54581d868689aefed9c5480898bb4033478a"
   end
 
   resource "oauth" do
@@ -147,8 +146,8 @@ class Mikutter < Formula
   end
 
   resource "public_suffix" do
-    url "https://rubygems.org/downloads/public_suffix-4.0.3.gem"
-    sha256 "87a9b64575e6d04a2e83882a2610470ea47132828c96650610b4c511b4c1d3b0"
+    url "https://rubygems.org/downloads/public_suffix-4.0.5.gem"
+    sha256 "efbc976b8f8cd7e2f9387b41ad4dc5447bcc7e862cf3afd909f13b0048a3dc6f"
   end
 
   resource "rake" do
@@ -206,7 +205,7 @@ class Mikutter < Formula
     (lib/"mikutter/vendor").mkpath
     (buildpath/"vendor/cache").mkpath
     resources.each do |r|
-      (buildpath/"vendor/cache").install r
+      r.unpack buildpath/"vendor/cache"
     end
 
     gemfile_remove_test!

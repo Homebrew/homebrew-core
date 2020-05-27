@@ -1,16 +1,16 @@
 class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.0.6.tar.xz"
-  mirror "https://www.mesa3d.org/archive/mesa-20.0.6.tar.xz"
-  sha256 "30b5d8e9201a01a0e88e18bb79850e67b1d28443b34c4c5cacad4bd10f668b96"
+  url "https://mesa.freedesktop.org/archive/mesa-20.0.7.tar.xz"
+  mirror "https://www.mesa3d.org/archive/mesa-20.0.7.tar.xz"
+  sha256 "fe6e258fe772c3cd2ac01741bf7408058c3ac02d66acff9a6e669bd72e3ea178"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
     cellar :any
-    sha256 "c48a91e985e30a993bf4c092bbd4fab15055c389ac5a6de1edddb683b8d9c4a2" => :catalina
-    sha256 "5aaf9fad6abf3a46294340927472bc7352662ba43c2cd31ee498e8486d1d7ee9" => :mojave
-    sha256 "f8a43571b0aa18aa5033ffcf04ab1e4023d54dafe009817ccaf04c633b60692e" => :high_sierra
+    sha256 "5e98f4fba62e64508af92a79632c24927b03893a8df2d95a47a46ed2e8f93fba" => :catalina
+    sha256 "6bf76a7dbf8961ac8ebd910cc776b0ecf75a54b16728f2ae6362e95fb72d6215" => :mojave
+    sha256 "7d72059dda9e4d6b2f9166b8edee0e9696283f1377d114baff9200a6977622f1" => :high_sierra
   end
 
   depends_on "meson-internal" => :build

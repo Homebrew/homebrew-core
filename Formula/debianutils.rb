@@ -1,14 +1,14 @@
 class Debianutils < Formula
   desc "Miscellaneous utilities specific to Debian"
   homepage "https://packages.debian.org/sid/debianutils"
-  url "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_4.9.1.tar.xz"
-  sha256 "af826685d9c56abfa873e84cd392539cd363cb0ba04a09d21187377e1b764091"
+  url "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_4.10.tar.xz"
+  sha256 "bd6e39a563cd8169bad76df80a4782f151f7213a2ebce84940237f54798642d6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1f977f77dcca9def37363e95e3ccd1c908accb73085874174588624c69bc283" => :catalina
-    sha256 "d35377b1fd012794a0dea183979cd01cdcf8d20d6c8244c9982c23a0fb8763d5" => :mojave
-    sha256 "b99af4db44a1f0a81188fe871a731debe8760e5c435ed41f6fc037ab3a6d799a" => :high_sierra
+    sha256 "49c760f562c361b8d376f6d5787efde6ca4d16c20716143585f0fb717d37a087" => :catalina
+    sha256 "8cd65dd6b938fcdd97c7f5f507e610ce3823ba5b5bde178db5f6c6ec01ae4a71" => :mojave
+    sha256 "6d2c992bc7eef974fa56c8ab43bcb2ea487c3128b53fa4e11bac005e2c30c6f8" => :high_sierra
   end
 
   def install

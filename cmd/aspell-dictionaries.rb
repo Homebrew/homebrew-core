@@ -26,8 +26,8 @@ module Homebrew
 
     URI.parse("#{dict_url}/0index.html").open do |content|
       content.each_line do |line|
-        break if %r{^</table}.match?(line)
-        next unless /^<tr><td><a/.match?(line)
+        break if line.start_with?("</table")
+        next unless line.start_with?("<tr><td><a/")
 
         fields = line.split('"')
         lang = fields[1]

@@ -3,15 +3,13 @@ class Minidlna < Formula
   homepage "https://sourceforge.net/projects/minidlna/"
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.2.1/minidlna-1.2.1.tar.gz"
   sha256 "67388ba23ab0c7033557a32084804f796aa2a796db7bb2b770fb76ac2a742eec"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "8018faef1d11436216b0c945ba682f52ee37ae437413371f788ff833f88f4334" => :catalina
-    sha256 "e47addf7d21436e3b534b14024271d1d3355818f2e11a04da53a924f2acfe8e3" => :mojave
-    sha256 "ed1b022aaea8beed91a26b9907c8253da9c5c441fa52482ae0255571cd1744ad" => :high_sierra
-    sha256 "5145b3bae1ebb4add544bc8877668a5cea2e80a380a5a0beaba94a6e88cbf33c" => :sierra
-    sha256 "16fb753050582f030bcc16de31ccac3faa74f5ada3d1bed4d17895dd8628f772" => :el_capitan
+    sha256 "0a82c3c230a67f0271ccd965714a311f91cca8245f1ac99fe3da224a77767f17" => :catalina
+    sha256 "c0dd14e634b64fffddd900a81db969fe74b26a3a01638f4959852c1b9cf544c9" => :mojave
+    sha256 "120b4962ca10c9463ebe1c1af3df56ce2b31def22e9e97a8327c879a7ae4c5c0" => :high_sierra
   end
 
   head do

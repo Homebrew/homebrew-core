@@ -12,6 +12,8 @@ class Osquery < Formula
     sha256 "9c70ccbcc111293ceddc2421035cf6b0748709d96979c3db01a5d8dee1053db4" => :high_sierra
   end
 
+  disable!
+
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "python@3.8" => :build

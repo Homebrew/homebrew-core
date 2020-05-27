@@ -5,19 +5,20 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-163.tar.gz"
   version "8.2-163"
   sha256 "3af72f22b25cf4f94b1b6e27a74d74bdefa8ed1529fe6edec59ae2756b3ca209"
+  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
     cellar :any
-    sha256 "e970af58d654178888bb0ba2a953c4c12611b666fab04f9f2e3a8820d3c4527c" => :catalina
-    sha256 "a74cd5165d1fd5ad7cc4c153acd6d642e4e64b1e6d0b33285bcf5be3fc95b203" => :mojave
-    sha256 "aad6f1ca9577d5bd5572647420c541049778dd03e7f18a6368314118e9de9f85" => :high_sierra
+    sha256 "316de5c66d247961309a072307784c1073f650b5fac87af32c67ca80bf62b0c1" => :catalina
+    sha256 "56c860f1dd98ebe374cf0721bac29e830dfc9665a5fe4f2dd26697d58713f9e1" => :mojave
+    sha256 "4b67795ddfcf1018ac1f260231f8a534072edbcb7b4ff060296667fd965a0abb" => :high_sierra
   end
 
   depends_on :xcode => :build
   depends_on "cscope"
   depends_on "lua"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "ruby"
 
   conflicts_with "vim",
@@ -35,7 +36,6 @@ class Macvim < Formula
 
     system "./configure", "--with-features=huge",
                           "--enable-multibyte",
-                          "--with-macarchs=#{MacOS.preferred_arch}",
                           "--enable-perlinterp",
                           "--enable-rubyinterp",
                           "--enable-tclinterp",
@@ -65,7 +65,7 @@ class Macvim < Formula
     assert_match "+ruby", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
-    py3_exec_prefix = Utils.popen_read("python3-config", "--exec-prefix")
+    py3_exec_prefix = Utils.popen_read(Formula["python@3.8"].opt_bin/"python3-config", "--exec-prefix")
     assert_match py3_exec_prefix.chomp, output
     (testpath/"commands.vim").write <<~EOS
       :python3 import vim; vim.current.buffer[0] = 'hello python3'

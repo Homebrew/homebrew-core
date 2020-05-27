@@ -3,12 +3,12 @@ class Ctl < Formula
   homepage "https://github.com/ampas/CTL"
   url "https://github.com/ampas/CTL/archive/ctl-1.5.2.tar.gz"
   sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "e76d1577ae18eff19a8a4b82941ab42d1be88e0cede2e6f53daaf611363a1eee" => :catalina
-    sha256 "42fae5bdcc9ebd6fdcf65048748659a0f5d27169396cf4dc2aef6668263ff8a4" => :mojave
-    sha256 "1a63d9afedf0845adb9daf5b7700c5715217e477b99453dc02c50be0eb9e8565" => :high_sierra
+    sha256 "e44cbdbb013b350d22ff4cafeeb2a8e93dd164dc36bb6e181fb5cf086a8345c1" => :catalina
+    sha256 "6c88c03a0826a11e7267bf056e15362d4824cea2291b16af6db172d21f3654ce" => :mojave
+    sha256 "61b7606c62fb60aa86d887084e1cb0aa194ff5c64cb9726208ee364f870d7b43" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -64,16 +64,13 @@ class Stubby < Formula
     EOS
     output = shell_output("#{bin}/stubby -i -C stubby_test.yml")
     assert_match "bindata for 145.100.185.15", output
-    pid = fork do
+
+    fork do
       exec "#{bin}/stubby", "-C", testpath/"stubby_test.yml"
     end
-    begin
-      sleep 2
-      output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
-      assert_match "status: NOERROR", output
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
+    sleep 2
+
+    output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
+    assert_match "status: NOERROR", output
   end
 end

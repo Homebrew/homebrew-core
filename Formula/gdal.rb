@@ -3,12 +3,12 @@ class Gdal < Formula
   homepage "https://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.4.4/gdal-2.4.4.tar.xz"
   sha256 "a383bd3cf555d6e1169666b01b5b3025b2722ed39e834f1b65090f604405dcd8"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 "972cfcc9bed122b16d4bbd9c77ecaa87dee32973e9083f0d97f7135f6d36bba6" => :catalina
-    sha256 "b86252d85296db5b0723df6382e6d104c14e60163d03af952cbcf0ebaee30782" => :mojave
-    sha256 "115163fd5205878efe6f3f82128a8fdb0bbe3106cccca3d40a3a57b0aea93585" => :high_sierra
+    sha256 "c95b8b7a57439c00ed619c017b4a40a095f8fde774abe3114415698d38dff053" => :catalina
+    sha256 "548d2e280ae6c43a5e8ece3640b7c50a70f0d8862bd3f41df443af2afe02f809" => :mojave
+    sha256 "9e411c1c66c5811686fa43f542361d55e6139bfeb4d18413d99e1859f7a63353" => :high_sierra
   end
 
   head do

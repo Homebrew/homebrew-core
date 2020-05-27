@@ -1,18 +1,18 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
-  sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gdb/gdb-9.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.2.tar.xz"
+  sha256 "360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555"
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
-    sha256 "848a06573870a26ca89fe859fe8d2e159b1781db544841a55c0713f00b7c18bc" => :catalina
-    sha256 "24640c71e5cdbb1ccd69e5da454267e3929e0b1d73abf91c162c4658f756d755" => :mojave
-    sha256 "d279ccc0f8eefc8a7b3ac5f182290af201345adf4523b3a2671ab752e821d186" => :high_sierra
+    sha256 "9ad6c9a4147783a50f9e67a8d683c6dc070c738da06bfe8e2bf5cdd7bdfb5763" => :catalina
+    sha256 "4908f6954fbcccf317e4297e42f6b85ebcab003ff9d96f00f25023616782c0c1" => :mojave
+    sha256 "ac2a55847a2cf167e05e639003813606b32827e5f05995ff3544530e49b09d7a" => :high_sierra
   end
 
+  depends_on "guile"
   depends_on "python@3.8"
   depends_on "xz" # required for lzma support
 

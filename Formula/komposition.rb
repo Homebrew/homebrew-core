@@ -3,14 +3,14 @@ class Komposition < Formula
   homepage "https://github.com/owickstrom/komposition"
   url "https://github.com/owickstrom/komposition/archive/v0.2.0.tar.gz"
   sha256 "cedb41c68866f8d6a87579f566909fcd32697b03f66c0e2a700a94b6a9263b88"
+  revision 1
   head "https://github.com/owickstrom/komposition.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "9f7f1d01243d96dacd400b01ea769d0ca958f0a68c932996c10795b3aa93ebdd" => :catalina
-    sha256 "45aaa35a34546a5f53bff691eef76d569a4e3b7ac38f98fa65671f139aebf867" => :mojave
-    sha256 "f97514563baca2bc2b744bf0a22d6f346dace4b5ea6caa55ede5142023dc8205" => :high_sierra
+    sha256 "a3e41338fe5cdaa4745c7474034e0cdaec05db8ce4a78d8968f073b167c2140b" => :catalina
+    sha256 "e3e7217341af01242291cc0f72f5b43e9a357cebeff90f28cbc863bde2099db5" => :mojave
+    sha256 "28679e559da361a27761bf1398d5c6cfeb48baba4d7b56e034d7e65621a873ec" => :high_sierra
   end
 
   depends_on "cabal-install" => :build

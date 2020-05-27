@@ -1,15 +1,15 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-src.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.5.1/apache-pulsar-2.5.1-src.tar.gz"
-  sha256 "e269744fc549db7775d9c6e6e0022ec67b42301264e29b8e8e29d1340047f035"
+  url "https://www.apache.org/dyn/closer.lua?path=pulsar/pulsar-2.5.2/apache-pulsar-2.5.2-src.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-2.5.2/apache-pulsar-2.5.2-src.tar.gz"
+  sha256 "3903ec6a396833096e82ba8867b101dc5e907f94fb0ffecee9fa802c4ad4732f"
 
   bottle do
     cellar :any
-    sha256 "da5e0215ca5c0d10c8271575555b225a7b0dc48fef1be73941832cd2002ba97a" => :catalina
-    sha256 "92b3f55782789d455f0bec4b311f9f0c409ff0168c24f588ef34fa8878c218db" => :mojave
-    sha256 "65c1a5c6e15e3b7ab044ff89818d50889421a3c6a24ded1b1ba6a24383c78386" => :high_sierra
+    sha256 "edc767dbe2f848b050ece0acba4aca4dc9ed19e4c32d92e11323fbee68d1d9e5" => :catalina
+    sha256 "af30e5237a5328313c9dd866fa43b83b93a918709fb428a721410f51373a0c70" => :mojave
+    sha256 "32831766bafadb2db4ef39ad55d904de3f3dffef45f6ca41e123549913571a22" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -12,6 +12,9 @@ class ProtobufSwift < Formula
     sha256 "42327634f717f0f9276d61af56df6a4595eea57f17d779f405703fdecae55bed" => :sierra
   end
 
+  # https://github.com/Homebrew/homebrew-core/pull/54471#issuecomment-627430555
+  disable!
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

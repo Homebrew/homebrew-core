@@ -3,11 +3,12 @@ class OpencvAT3 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.10.tar.gz"
   sha256 "1ed6f5b02a7baf14daca04817566e7c98ec668cec381e0edf534fa49f10f58a2"
+  revision 2
 
   bottle do
-    sha256 "5a875aa407bf2ed5e3f25e105c049b0daf83227109a8f5d5b53da9b90afcc5ca" => :catalina
-    sha256 "bfe11946c5994b793d2a78b35445dab47aab378cf6f6698071aeb384e469c596" => :mojave
-    sha256 "3e6f5018bbd69d5c583ceb5565c864974174ee572942afd8a096a4987d608f63" => :high_sierra
+    sha256 "393a2cd5e97eb6161214d2fc6ccef38e7799263a3a4a2d94f8ccbb62ea01933d" => :catalina
+    sha256 "c68e4449aec6a09ba4b255622496fae396dcc2a8aa9162eaf5ce335921c8fb8f" => :mojave
+    sha256 "dd1fe01aa971fb23c16b14c506b66fb5f2edc7c15ceaf283edcd45de140cb6a6" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -77,10 +78,12 @@ class OpencvAT3 < Formula
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]

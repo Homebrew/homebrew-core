@@ -1,14 +1,14 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.3.0-rc.9.tgz"
-  sha256 "1020a9d21225c4b0b4f95e804213849663290a8b74ae7fd1922c99445c4e39c8"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.3.1.tgz"
+  sha256 "576c31f3dbd542becb2f6fc408c38f2cc30755525feff1060be83a1b2214c6e1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "50a9c5d95880d9bd681d350f9e7aed4673ad3d44031278e790b941dc33378cac" => :catalina
-    sha256 "dc3772694186baf83b3cf5c58dddced422bd5b536d117e15de209d7709cdfaf3" => :mojave
-    sha256 "73e50a6cefd12f146537dabbc6dad43d595decd9c198ec312516ef4813773219" => :high_sierra
+    sha256 "264a0e3f0d0599162849cfb15b2168d99598ecefc5e8e557acf19ee66d38af12" => :catalina
+    sha256 "53fb6108f1191f1c58aed508142f85bc2e4bdc598e2620b03339567f215c1829" => :mojave
+    sha256 "ea8feb22ef6521c511562e693a8f4779b581ea2930fdb927bbf41b3260959467" => :high_sierra
   end
 
   depends_on "python@3.8" => :build
@@ -16,7 +16,7 @@ class CodeServer < Formula
   depends_on "node"
 
   def install
-    system "yarn", "--production"
+    system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
     bin.mkdir
     (bin/"code-server").make_symlink "#{libexec}/out/node/entry.js"

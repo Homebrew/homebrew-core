@@ -10,9 +10,10 @@ class Netpbm < Formula
 
   bottle do
     cellar :any
-    sha256 "10c033ec8fc69f78d1c1a6596aade3565bc8699e73c0a444263827adda8291e6" => :catalina
-    sha256 "2ea093204af483bc1a4c110aee89b8e5553c57ffaab70deafa313fa5a0dfca68" => :mojave
-    sha256 "96e0fbae44ba923aa1c31f9d1687c16771a1cd897d2c4ec0f6bed16069ed8186" => :high_sierra
+    rebuild 1
+    sha256 "9e71235d1f28b7d929f73a17711946e4424af4a65788e7b8dbf4090c6b99f87a" => :catalina
+    sha256 "ef247da24981c815fdc80b8f1efcaf7132fcbe1fcc78947a983a8a2a06b28146" => :mojave
+    sha256 "13780d3a1ab3ec9856a8da98909829a4457f514031db7844245158a649d9feea" => :high_sierra
   end
 
   depends_on "jasper"
@@ -23,8 +24,6 @@ class Netpbm < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
-
-  conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
@@ -59,9 +58,6 @@ class Netpbm < Formula
       end
 
       prefix.install %w[bin include lib misc]
-      # do man pages explicitly; otherwise a junk file is installed in man/web
-      man1.install Dir["man/man1/*.1"]
-      man5.install Dir["man/man5/*.5"]
       lib.install Dir["staticlink/*.a"], Dir["sharedlink/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end

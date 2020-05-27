@@ -1,14 +1,14 @@
 class Nift < Formula
   desc "Cross-platform open source framework for managing and generating websites"
   homepage "https://nift.cc/"
-  url "https://github.com/nifty-site-manager/nsm/archive/v2.3.8.tar.gz"
-  sha256 "4bd42efbdbc05e121e7ee4ccf93640635dd4ee32532232f5e5a9e59f11238ad9"
+  url "https://github.com/nifty-site-manager/nsm/archive/v2.3.10.tar.gz"
+  sha256 "ef4410d423fca8dfb67a349a188a0a46bec67f7eb0157d146ae2fbb28f2f2295"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "801ddbb3b789d00425b908c2b11e0410dc486a3ef4ef52ebc97021bba4477571" => :catalina
-    sha256 "47bed5d6082af273eced0323100ffd67874fcfe03d131d8e9745dec67f846f4c" => :mojave
-    sha256 "b4560359c2f69e2ddf978c7dd57f7b9d8182a8d60c3539ecb6737ee4d290719e" => :high_sierra
+    sha256 "f08a936baa0f3e81ec0aa8343fb4970c39a7c73b308bad8df4e21fd665320ade" => :catalina
+    sha256 "56e8f7ea837fbff3d3a887bd57134364c55f352c0c4e9a5bf38301dbb7e4bdda" => :mojave
+    sha256 "ad7c89b1c61ba4659dff5fb3b021b3283f253e158ed72830b0598afdc33198c8" => :high_sierra
   end
 
   def install

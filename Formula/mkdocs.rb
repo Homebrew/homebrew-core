@@ -3,14 +3,14 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://files.pythonhosted.org/packages/07/7f/07d0f92c9debe9ffe621c9a8f5de351a3c47614c93c3ba3c0344def4ea2d/mkdocs-1.1.tar.gz"
-  sha256 "9243291392f59e20b655e4e46210233453faf97787c2cf72176510e868143174"
+  url "https://files.pythonhosted.org/packages/78/a3/ec98a4eab53b7adf435df6c17765e1d7b603e1487ad6ab7c824d5488bf5c/mkdocs-1.1.2.tar.gz"
+  sha256 "f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b65a09b5522567f318a750443f1470b8859cf2dc693615b8b32a0c555801af63" => :catalina
-    sha256 "f967c60bc8154dc0e28475891c6148e50e6dc6f37b1a99f7778aa2733b73d02f" => :mojave
-    sha256 "80196ec89ffe059a03f03c05d5f1401e6a8514d7b314c7d24f1838e26d8d1975" => :high_sierra
+    sha256 "3f45e40b1f8cb82988b294a9a44c57b33fcfcc718b4130b2aa684ba6b95fa08f" => :catalina
+    sha256 "456b37b9de877e5bf5836337075add02d844169aa28dd39c3d42c69b04b887a0" => :mojave
+    sha256 "9f8fbedf9f950579f4c6496807ff8de30d47b117ea76877ada80133f9fd795ee" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -36,8 +36,8 @@ class Mkdocs < Formula
   end
 
   resource "lunr" do
-    url "https://files.pythonhosted.org/packages/38/0d/7246e257d4b6013047b46b2ab97b148fe076df1a6ca0c55c70688490565f/lunr-0.5.6.tar.gz"
-    sha256 "7be69d7186f65784a4f2adf81e5c58efd6a9921aa95966babcb1f2f2ada75c20"
+    url "https://files.pythonhosted.org/packages/ad/c0/431b92d6707a4bf7692ea76bcfb00aa0f1db737cd3daf4b4f6a85e2b9d6c/lunr-0.5.8.tar.gz"
+    sha256 "c4fb063b98eff775dd638b3df380008ae85e6cb1d1a24d1cd81a10ef6391c26e"
   end
 
   resource "Markdown" do

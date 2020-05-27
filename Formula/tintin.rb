@@ -1,14 +1,14 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.02/tintin-2.02.02.tar.gz"
-  sha256 "c5d8b6c930ec0beb9f45de434e079dddb17b48f8a3acff08acbc9d1bd15dd487"
+  url "https://github.com/scandum/tintin/releases/download/2.02.03/tintin-2.02.03.tar.gz"
+  sha256 "e44c88b1c97283525062ce15efdddebf5067e84ea37491903bcd8c8824f26f79"
 
   bottle do
     cellar :any
-    sha256 "895be37bb90b25cdc58591aa166bd464538715c3104901c7159d3c58906a485b" => :catalina
-    sha256 "ecdd874018dd20cd4d8807a8c2adc5a8955622f8c97277a3a6fdc79e3d8a4198" => :mojave
-    sha256 "29c68a3db90dee5cef629f629629d50469f2dd0ef9426b4bd8aaa374d2b6334e" => :high_sierra
+    sha256 "5655e2bfaf4fb9932f2b9317745f97b73162bd12d926a8fd9783002449d8ed3a" => :catalina
+    sha256 "b10d78dd09e94adac5f9a4aaeddc756b7ee578e9a77ef9f81f8c4f1941f90c3c" => :mojave
+    sha256 "9f4a88c8da68bde84fc56b34ef86b53e1691d33a59e340c54aa18b50c7c88f46" => :high_sierra
   end
 
   depends_on "gnutls"

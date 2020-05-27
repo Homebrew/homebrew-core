@@ -2,14 +2,13 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.5.tar.xz"
-  sha256 "d059fd7f55bdc4d2eada15a00a2976697010d3631ef6f83149cc5289e1f23c2c"
-  revision 2
+  url "https://www.php.net/distributions/php-7.4.6.tar.xz"
+  sha256 "d740322f84f63019622b9f369d64ea5ab676547d2bdcf12be77a5a4cffd06832"
 
   bottle do
-    sha256 "12ee1750d72b4ab0be05c61c3e67485b2464f4e429b44f1808aaff0b48ce2e53" => :catalina
-    sha256 "1b313c50d4beaf0d0ef4459793a68ff0cb44a62b228e280829f38ee600d6b842" => :mojave
-    sha256 "92d45bd8a7247e3fe060ea34446c088747179a6d1715940f03f973f3f7ee2e98" => :high_sierra
+    sha256 "833dad4c93ac81718d70f209d05ee998a29ca70ef5798f39597a4cabc7d63e96" => :catalina
+    sha256 "8166a2659e6cd1c83840f588ad1985edf6c965d6f792a73142736446db36ceb1" => :mojave
+    sha256 "26ab95a1a29cf98e851f4e4dcd0f1dad67f690915a429cb606c8b73ae3f8f1e9" => :high_sierra
   end
 
   head do

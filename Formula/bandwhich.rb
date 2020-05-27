@@ -1,14 +1,14 @@
 class Bandwhich < Formula
   desc "Terminal bandwidth utilization tool"
   homepage "https://github.com/imsnif/bandwhich"
-  url "https://github.com/imsnif/bandwhich/archive/0.14.0.tar.gz"
-  sha256 "9b9eec854bc9fe5ee8e563d3f65b0acd2cb0ae1b014e51f77cbabf990aaa1398"
+  url "https://github.com/imsnif/bandwhich/archive/0.15.0.tar.gz"
+  sha256 "c4922734bbb3ec17c8a0c9fbff4096ee3e28b4efa7dbca9abbd92e0ad6ff3483"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb963089848f4c9bb994c8cf3e1842b3ba6d70a2320b0f2a58e537c6ba857a69" => :catalina
-    sha256 "2a2364b3fecd65bbd92151c5ac165cdfb79ad0568fe13545a7691332e509d2f8" => :mojave
-    sha256 "530155a24c7c701fd12455a53d2d4a5af7022ad054c3c27a22d82a50524e5d1e" => :high_sierra
+    sha256 "fb83c727c5291d983c43865d1b6f6ce27c173ad883e24f1d9ff61909fe159580" => :catalina
+    sha256 "e84c13bce1bf2e21052fbc23f8f77ffb18fa61840af4881895df8164e2bb1c09" => :mojave
+    sha256 "247f4d7303f2053bbb920b260b39e017ab2cc8140862edfebcabdb5c2464c0e5" => :high_sierra
   end
 
   depends_on "rust" => :build

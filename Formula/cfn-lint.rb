@@ -3,14 +3,14 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/6d/e4/9cfbff9aeae701095a4005e281e5199d180dd34cdaacefab5839ec1c3a4c/cfn-lint-0.30.1.tar.gz"
-  sha256 "5001d5fa0e1b255d546fe966c0111a6aeaf26dc583249df626488622929e419b"
+  url "https://files.pythonhosted.org/packages/63/cd/688fe28ade2a7db0a7bd7d5d75c0d8176ab3f8eba3f37b0cbf9f15e1eb58/cfn-lint-0.32.1.tar.gz"
+  sha256 "96dedfaa72b84aed2c93c82f0ad68e0d0385cb986a3cc3fa8b7491cc5f565292"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "207c834fc4bd3cb9fe488c2ee854cc5dabe4661597265ad40debb2039dfdd000" => :catalina
-    sha256 "c85bc73be2feccd3101dbcc690ab1b4634231ac535df00a2c8550efc20a12c0a" => :mojave
-    sha256 "392f691e4d28ccf2cd2a01e3b4b56ce6ad68fcb5fa639fbf31bd0f7346adcaef" => :high_sierra
+    sha256 "f95feaa4276cf6b882a389c4b418f2ce3398bbca933676a6692b2bd0abecc56c" => :catalina
+    sha256 "92d042be16eabf6dbd095f44cba009662f0dc167ce15e92298dce4ce989f5605" => :mojave
+    sha256 "0db0d0e89c73e73b92e6b3fb1a5c9c658b69956b67324f3f2a319d3dd3793293" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -21,8 +21,8 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/f3/c3/c24bc68e6d1b905bfd9b407e00a71e5ac86b143e6064073d5a3fbc332897/aws-sam-translator-1.22.0.tar.gz"
-    sha256 "3ba6a821eda29ca8ea1306e27a8135256d6136f1b0b29c6cbf9a107dfd1c2dd9"
+    url "https://files.pythonhosted.org/packages/bf/22/4f51e6d337c165051dd4e455d2935987558e747d98aba10acb8f69cefb41/aws-sam-translator-1.23.0.tar.gz"
+    sha256 "6e847b02661247e5d9b99b3bd22351fc6ed614e0f12e0598c0181cb796b3967e"
   end
 
   resource "boto3" do
@@ -84,6 +84,12 @@ class CfnLint < Formula
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+  end
+
+  # only doing this because junit-xml source is not available in PyPI for v1.9
+  resource "junit-xml" do
+    url "https://github.com/kyrus/python-junit-xml.git",
+        :revision => "4bd08a272f059998cedf9b7779f944d49eba13a6"
   end
 
   resource "more-itertools" do

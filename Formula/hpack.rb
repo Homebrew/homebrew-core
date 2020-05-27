@@ -1,15 +1,15 @@
 class Hpack < Formula
   desc "Modern format for Haskell packages"
   homepage "https://github.com/sol/hpack"
-  url "https://github.com/sol/hpack/archive/0.33.0.tar.gz"
-  sha256 "954b02fd01ee3e1bc5fddff7ec625839ee4b64bef51efa02306fbcf33008081e"
+  url "https://github.com/sol/hpack/archive/0.34.1.tar.gz"
+  sha256 "cbbec1f6dd8cf867c0dd65b3e8d1f1f8d64b370cd018fb4fef9e5745c4968d3e"
   head "https://github.com/sol/hpack.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07e202936d3d52f9a70975d879115876b667daf26af468500c5117e1c235aedd" => :catalina
-    sha256 "43ce8ac6c6f0b1642b3912c875f3c1f47732994411beae48819aa105bd97a55e" => :mojave
-    sha256 "f4de8c3939a1fbc917740d0694dc729619f706962d7015af9f931d7291c952bd" => :high_sierra
+    sha256 "54170eb908e046af2cb0da4625862a2afed235a61551c78efdb19d7cd6f03ad0" => :catalina
+    sha256 "9390fdbbf69427e7935fd4147353e04216c4d61d87f05059ded991040e7cb5f6" => :mojave
+    sha256 "c560a84009a6a77cf32a6c60d72e9d297671eadd85e2400d9815473adc80a2d7" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -50,6 +50,6 @@ class Hpack < Formula
     system "#{bin}/hpack"
 
     # Skip the first lines because they contain the hpack version number.
-    assert_equal expected, (testpath/"homebrew.cabal").read.lines[8..].join
+    assert_equal expected, (testpath/"homebrew.cabal").read.lines[6..].join
   end
 end

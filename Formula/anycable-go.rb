@@ -7,16 +7,25 @@ class AnycableGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3f6edcc690d9e4f1ecf50fa4625d76d0fca2858a9161685e43e3685b547e05b" => :catalina
-    sha256 "f310bb7559e50790bf25124b1ef2565fa7a6ebd4b59f0c251d8bbffd832960de" => :mojave
-    sha256 "b3d5e34b11249ddc4e8b9494434cd308719321d63a62788d7bef46bb95155a73" => :high_sierra
+    rebuild 1
+    sha256 "4bd9d4f3702cb24aa1d4d3e771e9646eb9afb6579d3a0392b5d96193636e06ac" => :catalina
+    sha256 "c682c175323bf559a06aefe02c0382f8b2ba8efdede367ccc876cd4287b42fee" => :mojave
+    sha256 "8221be54a2ae4a1ca0d3b5bb6821d7dc3217e6f41bf25ee8716b93f2d5e002ce" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-mod=vendor", "-ldflags", "-s -w -X main.version=#{version}",
-                          "-trimpath", "-o", "#{bin}/anycable-go",
+    ldflags = %w[
+      -s -w
+    ]
+    ldflags << if build.head?
+      "-X github.com/anycable/anycable-go/utils.sha=#{version.commit}"
+    else
+      "-X main.version=#{version}"
+    end
+
+    system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args,
                           "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
 

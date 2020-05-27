@@ -1,21 +1,21 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.2.2.tar.xz"
-  sha256 "cb754255ab0ee2ea5f66f8850e1bd6ad5cac1cd855d0a2f4990fb8c668b0d29c"
-  revision 3
+  url "https://ffmpeg.org/releases/ffmpeg-4.2.3.tar.xz"
+  sha256 "9df6c90aed1337634c1fb026fb01c154c29c82a64ea71291ff2da9aacb9aad31"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "7dbea3535cdc5fe2e01aa4e28ff8f0b310460907f561f2919e9947ae09a66281" => :catalina
-    sha256 "9c55fd68f98c7e1ad3421bfc0829ebc0c49448abea1492f0031a7da8f6a9bc80" => :mojave
-    sha256 "94d8764004fd4d871ddd30a104aa17d2c39a74e063e9716518c0fdc404054a6a" => :high_sierra
+    sha256 "ddb666ec5e4e1e6cdf0a2069388a2396935ee420ae5a5aa0cb3e196183c9a675" => :catalina
+    sha256 "a1330763738e2d6474bd34bf8707a5b24721e9eb733e690855a3bf048dee4c33" => :mojave
+    sha256 "9d895f4cde8d14d9dc781cf030c07b4263a7d7ce48fa0933d592f498b1934eb0" => :high_sierra
   end
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
   depends_on "aom"
+  depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -66,6 +66,7 @@ class Ffmpeg < Formula
       --enable-gpl
       --enable-libaom
       --enable-libbluray
+      --enable-libdav1d
       --enable-libmp3lame
       --enable-libopus
       --enable-librubberband

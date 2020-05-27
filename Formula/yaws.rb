@@ -1,16 +1,26 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "https://github.com/klacke/yaws/archive/yaws-2.0.7.tar.gz"
-  sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
-  revision 1
-  head "https://github.com/klacke/yaws.git"
+  revision 2
+  head "https://github.com/erlyaws/yaws.git"
+
+  stable do
+    url "https://github.com/erlyaws/yaws/archive/yaws-2.0.7.tar.gz"
+    sha256 "083b1b6be581fdfb66d77a151bbb2fc3897b1b0497352ff6c93c2256ef2b08f6"
+
+    # Erlang 23 compatibility
+    # Remove with the next release. Also remove `WARNINGS_AS_ERRORS=` flag from `make install` call
+    patch do
+      url "https://github.com/erlyaws/yaws/compare/c0fd79f17d52628fcec527da7fa3e788c283c445..28eecfd1c65c369de5b4b99cea9407205bbe8f8e.patch?full_index=1"
+      sha256 "0dbcb92e961ae9dc9d6613436f5d39e0c1b675635cfbeef888e1d2b487add413"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d01998af826e2f88ac63dccef32ad3645e8bcb4669600920c7901170c3f8c41c" => :catalina
-    sha256 "967e1b4304211fb8923d6b03e467b6d851ab90b36901046b7e88e99238c7e758" => :mojave
-    sha256 "425c18805885559508bbdb1e41a3fdde09e57bb5b5e7e7e9d6a9b82cbea6021b" => :high_sierra
+    sha256 "09997293c21d6a547bd35e3c6384eae48376665729e02e9008d3fe59e2436c4d" => :catalina
+    sha256 "bb522ea70a11984cb30b10ad4a0fe6a8140d4a6b55916ded173fb44732d185e4" => :mojave
+    sha256 "627c282c11101b0f7b036e52ddff6e33db668540bb8c94a7ba9e45ab510f46f4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +39,7 @@ class Yaws < Formula
                           # Ensure pam headers are found on Xcode-only installs
                           "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security",
                           "SED=/usr/bin/sed"
-    system "make", "install"
+    system "make", "install", "WARNINGS_AS_ERRORS="
 
     cd "applications/yapp" do
       system "make"

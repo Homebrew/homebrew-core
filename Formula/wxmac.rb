@@ -1,15 +1,15 @@
 class Wxmac < Formula
   desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS)"
   homepage "https://www.wxwidgets.org"
-  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5/wxWidgets-3.0.5.tar.bz2"
-  sha256 "8aacd56b462f42fb6e33b4d8f5d40be5abc3d3b41348ea968aa515cc8285d813"
+  url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5.1/wxWidgets-3.0.5.1.tar.bz2"
+  sha256 "440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807"
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
     cellar :any
-    sha256 "de27c768e8b52cbe84cb683a487f2fd2dce115aef7f5fb1f5f59c7362da4b5ca" => :catalina
-    sha256 "fe7ac4ce6c1ef5c0654fc60b749300d1188fbbc2a55bee35bfd668b6ed7e0dac" => :mojave
-    sha256 "7dfdfdc1d5cf44b3ebf12cd4d28f14b04c0677b2639561f3e0707a75026d53ee" => :high_sierra
+    sha256 "4fdfe968d1a5cb02e4a7e471da8e2720acd5115a4ea8c4d37e50868ba902dbeb" => :catalina
+    sha256 "cfafdd11d3d6d243c49ed265d815116761cec2a5571016cd85ebf175a3acf345" => :mojave
+    sha256 "2868c7658bc88c332db80f9010c3a0f03cacbccb54bb9edf94255bd1b49ab0df" => :high_sierra
   end
 
   depends_on "jpeg"

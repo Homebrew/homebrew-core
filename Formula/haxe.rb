@@ -2,21 +2,22 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag      => "4.0.5",
-      :revision => "67feacebc59d5cd9dce232058f12cb933622d619"
+      :tag      => "4.1.1",
+      :revision => "5e3f33b5c1c66d22607b264f7cd3107881788765"
   head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "e08d077a5ef5fb969ab8054ce75b60c1f73a5405a655c49671a211390b1bcaef" => :catalina
-    sha256 "c204cefc408d68628d25b11c66331b8fc4f8b37573029480fc6ebc781991ce97" => :mojave
-    sha256 "b90a4c12a07d00919081941b000bf98fcb8e560cd226beadb9123f67f6734049" => :high_sierra
+    sha256 "2c0b674d41fb136237974ffbde36a164d259f14fe080ca55f1240ca1c58b5557" => :catalina
+    sha256 "50c5f77a145d276a0364d74930beae1e0c9682d696de83be623dc23f6d11d9d0" => :mojave
+    sha256 "0219ce46db55d386581d6eff4ddeb08b60c49fd48964ef06ba5dea31c2332c54" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "mbedtls"
   depends_on "neko"
   depends_on "pcre"
 
@@ -61,5 +62,16 @@ class Haxe < Formula
     ENV["HAXE_STD_PATH"] = "#{HOMEBREW_PREFIX}/lib/haxe/std"
     system "#{bin}/haxe", "-v", "Std"
     system "#{bin}/haxelib", "version"
+
+    (testpath/"HelloWorld.hx").write <<~EOS
+      import js.html.Console;
+
+      class HelloWorld {
+          static function main() Console.log("Hello world!");
+      }
+    EOS
+    system "#{bin}/haxe", "-js", "out.js", "-main", "HelloWorld"
+    _, stderr, = Open3.capture3("osascript -so -lJavaScript out.js")
+    assert_match /^Hello world!$/, stderr
   end
 end

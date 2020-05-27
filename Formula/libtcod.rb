@@ -6,16 +6,17 @@ class Libtcod < Formula
 
   bottle do
     cellar :any
-    sha256 "48c1dc06ec54ec78c8f4cda6c7fd15792cf4a2ae6c9b65f015cc243c9cb47649" => :catalina
-    sha256 "29c26abf54281335e0b06960fb8a9c1f99c86f9f1e0a95ef323e3767ecd44898" => :mojave
-    sha256 "8b92b6d780acbdf957141cc30f76f967949bd15519b060a163133a55888c20f1" => :high_sierra
+    rebuild 1
+    sha256 "03bed35243ebc9f4579cd1a7caf64400ce3d9123176d7b1b7ecf6f04e42292ac" => :catalina
+    sha256 "cfb9de18466a896b671cc5fafdd7549297ae32887733142fe7c3d99e748399c9" => :mojave
+    sha256 "aa57810f89ab4518d9e730fffbc885e46e1c8cede7b6877b066e001b14917fe0" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on :macos # Due to Python 2
   depends_on "sdl2"
 

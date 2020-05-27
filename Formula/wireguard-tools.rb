@@ -1,15 +1,15 @@
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200510.tar.xz"
-  sha256 "cd526c7ea177e59ae4c0ebc4f3cc360b8524881b090d043426bdf7e3c85ac8e7"
+  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200513.tar.xz"
+  sha256 "e73409a9fb8c90506db241d1e1a4e7372a60dbfa400e37f4ab2fd70a92ba495f"
   head "https://git.zx2c4.com/wireguard-tools", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2a4f475a5e486d53927f300e8750e8140e0a0a29c79f09f9b892f417fed6378f" => :catalina
-    sha256 "a6f1db3668b30d2438b1bb435ec76807f1ea0a861c1b87a4516a13388487260e" => :mojave
-    sha256 "8cad1ffad53a3ddd4ceac6612f9f344c85ecefffa21b943408419c5ad66a8487" => :high_sierra
+    sha256 "d8f18c2d3f4e08b616a8621367adfc30881d5bf5a5de19daca1b7828a59c5e96" => :catalina
+    sha256 "b00ca10dd4dc519a8dae57cff6df2cb224f52018334ed8464810329c28677520" => :mojave
+    sha256 "71ebb1ada0ede665499754dc5b2af1dc524714c0eb35e631e3dd7aca18a71d02" => :high_sierra
   end
 
   depends_on "bash"

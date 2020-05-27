@@ -1,14 +1,14 @@
 class Findent < Formula
   desc "Indent and beautify Fortran sources and generate dependency information"
-  homepage "https://www.ratrabbit.nl/ratrabbit/content/findent/introduction"
-  url "https://downloads.sourceforge.net/project/findent/findent-3.1.3.tar.gz"
-  sha256 "046c2a274536bd29a07385019c51b3c63e6b553df25b45b41b757b5cf2dab607"
+  homepage "https://www.ratrabbit.nl/ratrabbit/content/sw/findent/introduction"
+  url "https://downloads.sourceforge.net/project/findent/findent-3.1.6.tar.gz"
+  sha256 "c228eb3711bfa05c3db13521488e0a2ba73951472701cca7cd3b5d884ed42579"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "861762ea85d5b614c84f403ae99d6e2bdad9897c7fcc49d306ea7846f79048e1" => :catalina
-    sha256 "8f52dc6c2689ed411875e77a29f18138d11c3363bf665352e1bb11d0e2bbe9e6" => :mojave
-    sha256 "dba900038c4e5f601ea78171ccfd02700e1c451889f1ff41b87f9283b839a32c" => :high_sierra
+    sha256 "da0eefdb70f76e0f31443b510725d483941a0ba58c7a7c2bd85e2934ab8ed04e" => :catalina
+    sha256 "bf2e8d595feae56fd6a8568abb08c3d3b9d6e7d7da2a1e0126a8bfa39eff7ad0" => :mojave
+    sha256 "93181b8b1f49db914b56caf888313bbba6223f9d9dffa39e12c2985bebce0f55" => :high_sierra
   end
 
   def install

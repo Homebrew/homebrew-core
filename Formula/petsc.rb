@@ -1,14 +1,13 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (real)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.12.4.tar.gz"
-  sha256 "800a965dd01adac099a186588cda68e4fcb224af326d8aaf55978361c019258f"
-  revision 1
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.13.1.tar.gz"
+  sha256 "74a895e44e2ff1146838aaccb7613e7626d99e0eed64ca032c87c72d084efac3"
 
   bottle do
-    sha256 "f6b9afb3d5ab24dfabf2bacabf184218b89912d741c68966eb116ac139a95cba" => :catalina
-    sha256 "220a1fdfb465da86a875a9dae7a95561b5169250ffd77feea0b76f057d5b0027" => :mojave
-    sha256 "cc3fa4441aa7c56ff94bf70554ecb48970f03bfe6f642513fe957eace5de5d38" => :high_sierra
+    sha256 "108acd68bb4ace327eee14ba47293b2ab6dba5f616638b690633e3989012ad43" => :catalina
+    sha256 "09230fa80044053a8c6a909c5c0951c21fba10d9a1c216674259870de08358f7" => :mojave
+    sha256 "0db88d5dbb6a68c2102cd9aeceaced75a10d68609439455f294257811dd98501" => :high_sierra
   end
 
   depends_on "hdf5"
@@ -22,20 +21,25 @@ class Petsc < Formula
   conflicts_with "petsc-complex", :because => "petsc must be installed with either real or complex support, not both"
 
   def install
-    ENV["CC"] = "mpicc"
-    ENV["CXX"] = "mpicxx"
-    ENV["F77"] = "mpif77"
-    ENV["FC"] = "mpif90"
     system "./configure", "--prefix=#{prefix}",
                           "--with-debugging=0",
                           "--with-scalar-type=real",
-                          "--with-x=0"
+                          "--with-x=0",
+                          "--CC=mpicc",
+                          "--CXX=mpicxx",
+                          "--F77=mpif77",
+                          "--FC=mpif90",
+                          "MAKEFLAGS=$MAKEFLAGS"
     system "make", "all"
     system "make", "install"
+
+    # Avoid references to Homebrew shims
+    rm_f lib/"petsc/conf/configure-hash"
+    inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
   end
 
   test do
-    test_case = "#{pkgshare}/examples/src/ksp/ksp/examples/tutorials/ex1.c"
+    test_case = "#{pkgshare}/examples/src/ksp/ksp/tutorials/ex1.c"
     system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc", "-o", "test"
     output = shell_output("./test")
     # This PETSc example prints several lines of output. The last line contains

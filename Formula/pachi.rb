@@ -1,15 +1,15 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.45.tar.gz"
-  sha256 "3fc8f47fdb92d67374cf6953d45b71153d477ffe92382e845fc570e5112ff210"
+  url "https://github.com/pasky/pachi/archive/pachi-12.50.tar.gz"
+  sha256 "62c8d44bd4610fe9534a1f21bb092da209c9fb8dcb8d39558d79adabe31e740a"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8481a1aaa57deb0b0899eaa4f9457d46407e289e8bf5e9206dc94921eb24215b" => :catalina
-    sha256 "3112537672262b5497287087fd355e368a695148b409a8aa8b98f92f061f4d56" => :mojave
-    sha256 "8fd665e94fcaab1a1c0bacce23eade2182be7a3bd3010bd53af5a1e2b8bb57b4" => :high_sierra
+    sha256 "e1cac19564a176a50d27f08b4e395a53ff4144dc17fd93dcaa013adfc8cca83a" => :catalina
+    sha256 "76edc1b521dfb93e8c6573b689c8bc5a01103888f2f7310fd46aa53d8b6ea0dc" => :mojave
+    sha256 "476509041b907edfd0380bc91a3fd4fc41b359bae58524ab4ab8017df4f61fe0" => :high_sierra
   end
 
   fails_with :clang if MacOS.version == :mavericks

@@ -3,18 +3,14 @@ require "language/go"
 class Cosi < Formula
   desc "Implementation of scalable collective signing"
   homepage "https://github.com/dedis/cosi"
-  url "https://github.com/dedis/cosi/archive/0.8.5.tar.gz"
-  sha256 "7dd25c83a838ebadff3c8f6b8a5bd84702cf74e5e6eb545359b7816f89b85e73"
+  url "https://github.com/dedis/cosi/archive/0.8.6.tar.gz"
+  sha256 "007e4c4def13fcecf7301d86f177f098c583151c8a3d940ccb4c65a84413a9eb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3d5d2579e3a0f54b032908843a6aa6433bfeade0170ddd740f6a5c77825094b1" => :catalina
-    sha256 "f368b353b76109a1ef3d4f3859bbac2179bf09bb8ce8a7d349a816d12e9fa298" => :mojave
-    sha256 "91a07519054c07be10182099d75adf74d017a74053d14985653e272ec1238fff" => :high_sierra
-    sha256 "b387fbd7aa15c4348e56fd1e28adbabee656cd142c979ea556e2d5e8dc56d4b1" => :sierra
-    sha256 "e73fd1b11e66d3931c91d6504b9958d44059aa4f3bbc547ed6cc8bdbc3717c6e" => :el_capitan
-    sha256 "2953f8c62a93c976bf450d9605cab850d6d442e9e1885f3a455243942e59f6dd" => :yosemite
-    sha256 "73d73bd817f6700c751a9065133ea460115ee5e5dbbff89d0655137bee30ef1f" => :mavericks
+    sha256 "30bbb457c0fb67ee264331e434068a4a747ece4cbc536cb75d289a06e93988e2" => :catalina
+    sha256 "2ddd695441977b1cd435fbae28d9aa864d48b7a90ec24971348d91b5d0e551df" => :mojave
+    sha256 "00663999a04ee29f52e334022cc828d7ebe89a442f1e713afb2167112f4ebf75" => :high_sierra
   end
 
   depends_on "go" => :build

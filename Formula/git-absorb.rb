@@ -1,15 +1,14 @@
 class GitAbsorb < Formula
   desc "Automatic git commit --fixup"
   homepage "https://github.com/tummychow/git-absorb"
-  url "https://github.com/tummychow/git-absorb/archive/0.5.0.tar.gz"
-  sha256 "c4ef4fa28222773d695aab7711abbfac7e81c35a37eafe45f79d045516df28b1"
+  url "https://github.com/tummychow/git-absorb/archive/0.6.2.tar.gz"
+  sha256 "0fc46c5e6bbb0b0be8b8c116f1713abe2c03d96e169c1d1e7efd470955a2238f"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a4c692c6a939cb32c74a9a0d307a6c7b724ba6119893261b0b8d0805d1ac18c8" => :catalina
-    sha256 "d09dccdcb396edabf3238f73b92f5f9f389c91cfd7cd1a45702984db67229b69" => :mojave
-    sha256 "ba2a3614b72b498ed571d8cccbe9ecdfd6874a960eb0d4b466d3086fa4c10142" => :high_sierra
+    sha256 "8eaeea8615d48bc6d6cd16afb279411798ead7f7c18bf0bf335385bc4f544595" => :catalina
+    sha256 "65f175f7acfb9b08f7eddad5dd422fae72f951c9995b1e36bc4c3f191d143c59" => :mojave
+    sha256 "66c15f4eb683b12857385a9c458609366b49a54e9c21dfd533fb260d4f453127" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -18,6 +17,7 @@ class GitAbsorb < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    man1.install "Documentation/git-absorb.1"
   end
 
   test do

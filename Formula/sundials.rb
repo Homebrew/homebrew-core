@@ -1,15 +1,15 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computation.llnl.gov/projects/sundials/download/sundials-5.2.0.tar.gz"
-  sha256 "95f058acce5bd66e654de65acdbb1c9f44c90cf1b4e28f8d933cdb4415ebba3e"
+  url "https://computation.llnl.gov/projects/sundials/download/sundials-5.3.0.tar.gz"
+  sha256 "88dff7e11a366853d8afd5de05bf197a8129a804d9d4461fb64297f1ef89bca7"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "09aeb5e0b4d6aac87785626f133b5fe25118dc9c9d163551dd46ce730f66c481" => :catalina
-    sha256 "89fabca832a6aa0b3017b2c7252beb2e6cb8955358c975d99fdb063c39a7291b" => :mojave
-    sha256 "54784d6070e0d0eddfda4258992085d0b6ef3c683d26539c04f0f8a85ebdb9ef" => :high_sierra
+    sha256 "fff1df3841c80eb3c2a6471e53ad2e8f29f97eb1e8498f8e85dc919616c68d0f" => :catalina
+    sha256 "63e63e0f7f928cd656613dc6344aaaaf11acd25e8c3148d3ac9a5b86dfe6c3df" => :mojave
+    sha256 "04f549daeb21124cfa74aeddb7c7baf58f7f482faec96cd4f5bc96f206414896" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,6 @@ class Sundials < Formula
   def install
     blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
     args = std_cmake_args + %W[
-      -DCMAKE_C_COMPILER=#{ENV["CC"]}
       -DBUILD_SHARED_LIBS=ON
       -DKLU_ENABLE=ON
       -DKLU_LIBRARY_DIR=#{Formula["suite-sparse"].opt_lib}
@@ -39,10 +38,15 @@ class Sundials < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
+
+    # Only keep one example for testing purposes
+    (pkgshare/"examples").install Dir[prefix/"examples/nvector/serial/*"] \
+                                  - Dir[prefix/"examples/nvector/serial/{CMake*,Makefile}"]
+    rm_rf prefix/"examples"
   end
 
   test do
-    cp Dir[prefix/"examples/nvector/serial/*"], testpath
+    cp Dir[pkgshare/"examples/*"], testpath
     system ENV.cc, "-I#{include}", "test_nvector.c", "sundials_nvector.c",
                    "test_nvector_serial.c", "-L#{lib}", "-lsundials_nvecserial"
     assert_match "SUCCESS: NVector module passed all tests",

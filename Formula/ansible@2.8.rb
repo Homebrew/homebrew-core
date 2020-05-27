@@ -3,15 +3,14 @@ class AnsibleAT28 < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.8.11.tar.gz"
-  sha256 "156caa8b6c60b9f0d5c7d57ee0f4e46d8e226147b58546be6a8ac52925a9c191"
-  revision 1
+  url "https://releases.ansible.com/ansible/ansible-2.8.12.tar.gz"
+  sha256 "2a4ce2a3f387d2595ee3f968c3ea50d6db0ab2d8306f0e81ab96c2a15a683124"
 
   bottle do
     cellar :any
-    sha256 "50f002c921c8b618be56f21bdff3134e6b543a5166a63cf98a18b613ba766be3" => :catalina
-    sha256 "0026bad18caa3e005fa7e8b9529ac35c82cd11d5291410473021e5ce4dc1a2a0" => :mojave
-    sha256 "b28065fe9900addaa30e3873141768e7532c34762493cfce94f743431d740c9e" => :high_sierra
+    sha256 "3f0467a5aca03c891f6c2102f5ca2b1264146187db78e6618d94696886ed6a17" => :catalina
+    sha256 "fd902917ccd334d1e247f5e49777458ec65fb91efd21c408be9ca0f4a3d7a6f7" => :mojave
+    sha256 "601eed0bea47d9bcea98a403a0a5c13d5ffb1a5a9598bdde3c7c170c22d3bf0f" => :high_sierra
   end
 
   keg_only :versioned_formula

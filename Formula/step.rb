@@ -1,14 +1,14 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.14.3/step-cli_0.14.3.tar.gz"
-  sha256 "7837098d5bc726791f5a010343b5923953ea23cd675439aa898674bc5c8a4a00"
+  url "https://github.com/smallstep/cli/releases/download/v0.14.4/step-cli_0.14.4.tar.gz"
+  sha256 "c7f2b49536ac220ff026b05f077979888559e47b0ce296519d7d89c8a934bce8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3107e8fbaf0cf0e3b3d794f07f359d3502481d02031855da534f071024847c5" => :catalina
-    sha256 "d28ef6c9039972543f78ebb73d8cab06c3534d4fbb81e2046d775f853e69cdc9" => :mojave
-    sha256 "e72088273aa7059762ba26ce2af1ffc494315b173dca1de1cca0622b5c1c92c4" => :high_sierra
+    sha256 "c782cdbce5ca41cde43000a273e4d4e906e28c03083221244760eb0a55dabcb5" => :catalina
+    sha256 "bcd1da4331084133d1c3bb3d37d8fce899b383ec4ebaeab42833bb9fbf28a841" => :mojave
+    sha256 "84292f7430ba31f38cce86049fd08ef8a2ab5a92368e018f90372439f23aebd2" => :high_sierra
   end
 
   depends_on "dep" => :build

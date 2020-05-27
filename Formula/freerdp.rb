@@ -1,13 +1,13 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/2.0.0-rc4.tar.gz"
-  sha256 "3406f3bfab63f81c1533029a5bf73949ff60f22f6e155c5a08005b8b8afe6d49"
+  url "https://github.com/FreeRDP/FreeRDP/archive/2.1.1.tar.gz"
+  sha256 "ce363a6578530cf508df802bb980a8dd49a874919bfa33b8c61d992ad0882bfb"
 
   bottle do
-    sha256 "70925b1a37136343df3c26e9448a292df3bb4fd697e7932810ffd75cea986049" => :catalina
-    sha256 "fc6e45063612edd6ef3ab54824f9241eea4c36b3a3037b24fdcdb9b2770943f7" => :mojave
-    sha256 "d5ac989528db05487c37363ea78d529a6773fdd2c27bafdb509c943ad377a0b6" => :high_sierra
+    sha256 "9c6d91706f66e424f89403204b4639cb8b0babd8dd221ff9d0267fbed8061250" => :catalina
+    sha256 "22e617ec1d15745f4a697e5ecceacc260d9273dabcd9a3245e6e9acb26f1f15e" => :mojave
+    sha256 "ce892ae166686e122a9f83e688d154330b2a3771bb13f6bb9dac7ca3bb01e954" => :high_sierra
   end
 
   head do
@@ -17,6 +17,7 @@ class Freerdp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "libusb"
   depends_on "openssl@1.1"
   depends_on :x11
 

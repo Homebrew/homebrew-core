@@ -3,22 +3,22 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/a8/aa/2f21521e2fdf9dc04094d3cf89257e1f95ac95649464e9852ffd59043a0b/snakemake-5.16.0.tar.gz"
-  sha256 "671480fcbf7489b6af07bd845bc89cbf98255e5969fa337e2fbbbdb0901f8e4a"
+  url "https://files.pythonhosted.org/packages/bd/84/a0714091367c2929030259886ab79b1bf642c1408112214b2ccb246850c7/snakemake-5.18.1.tar.gz"
+  sha256 "3527687a8f17d2c409ef84ed9386ba2bb6f34e74ab6bdef2abfeca5e7223d08f"
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "afa0f699d100e4d967bb9116c9a6992f5eb18da90208cd955ba9267191704f16" => :catalina
-    sha256 "4e0669d7dcb0c5a56a01b0f6574cb7efb88befea14fcf1c3823b0faaf94f3b01" => :mojave
-    sha256 "e6e127d28d631c4ea7c1baf97ad681f5c5c916d21b1dfb64591dbf6ca37896b9" => :high_sierra
+    sha256 "e16aec70ac3be9dc40d60241fa50b96dc031a57eec1ae34dca78fe6b6ef94237" => :catalina
+    sha256 "f99a846040a2a0676b4c1810e6746733ae9891f61edfa7265a16d84008022d54" => :mojave
+    sha256 "ad92f83f3b2dbca8046bb94221211d30bd4dcba88ed7000b7120f9a316f65aad" => :high_sierra
   end
 
   depends_on "python@3.8"
 
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
+    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
   end
 
   resource "attrs" do
@@ -57,18 +57,13 @@ class Snakemake < Formula
   end
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/bc/f2/a2191834e7f9bb34ff14a0c2db90d2bf8510cf74fa395544c9f10731dc25/gitdb-4.0.4.tar.gz"
-    sha256 "6f0ecd46f99bb4874e5678d628c3a198e2b4ef38daea2756a2bfd8df7dd5c1a5"
-  end
-
-  resource "gitdb2" do
-    url "https://files.pythonhosted.org/packages/97/97/6ad081c9f3efa1545fd11149f14602a53e2003c153312c8bfa825ba27b89/gitdb2-4.0.2.tar.gz"
-    sha256 "0986cb4003de743f2b3aba4c828edd1ab58ce98e1c4a8acf72ef02760d4beb4e"
+    url "https://files.pythonhosted.org/packages/d1/05/eaf2ac564344030d8b3ce870b116d7bb559020163e80d9aa4a3d75f3e820/gitdb-4.0.5.tar.gz"
+    sha256 "c9e1f2d0db7ddb9a704c2a0217be31214e91a4fe1dea1efad19ae42ba0c285c9"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/ac/3d/9fe11d9cf14b49553e8e35a4dce360e18f25f964638b631dc5b9ca23a88f/GitPython-3.1.1.tar.gz"
-    sha256 "6d4f10e2aaad1864bb0f17ec06a2c2831534140e5883c350d58b4e85189dab74"
+    url "https://files.pythonhosted.org/packages/36/5d/23c3f9a527a1e1c79e8622c7bb74704f6468351cd756e20f65f2ea7aba44/GitPython-3.1.2.tar.gz"
+    sha256 "864a47472548f3ba716ca202e034c1900f197c0fb3a08f641c20c3cafd15ed94"
   end
 
   resource "idna" do
@@ -122,13 +117,13 @@ class Snakemake < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/89/2f/8902ee436e7e24e059973f9d7cbc1a433df10c93239f59c1d8539a86a6a5/smmap-3.0.2.tar.gz"
-    sha256 "b46d3fc69ba5f367df96d91f8271e8ad667a198d5a28e215a6c3d9acd133a911"
+    url "https://files.pythonhosted.org/packages/75/fb/2f594e5364f9c986b2c89eb662fc6067292cb3df2b88ae31c939b9138bb9/smmap-3.0.4.tar.gz"
+    sha256 "9c98bbd1f9786d22f14b3d4126894d56befb835ec90cef151af566c7e19b5d24"
   end
 
   resource "toposort" do

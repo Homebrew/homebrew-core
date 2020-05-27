@@ -7,9 +7,10 @@ class Augustus < Formula
 
   bottle do
     cellar :any
-    sha256 "397da54388ec9d56ee891b021fe313e0e4cfa2e46e80ef177ddd6d24723abec3" => :catalina
-    sha256 "67298cd2aa811dfa953f8d0c9019df12fe2f7aec6cd35ebf1cf27e38fb39e858" => :mojave
-    sha256 "030d9fced4d6863a77e5058f145e2d13560ef0b9aedd1cb01e96c593c9e3cbc6" => :high_sierra
+    rebuild 1
+    sha256 "14e2ca7f36d9f579c4c04e9cd50dd941abcafcb1d7195dcef4a299773aa199b6" => :catalina
+    sha256 "4525c482c78d272c6094e2689a3cfa2221c9a57f455d34e5f497015938a3550e" => :mojave
+    sha256 "217c1233a38cc11b261fa1481b41362b14afeeaaa16ec83f1afff04639961054" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -38,7 +39,7 @@ class Augustus < Formula
     # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
     # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      with_env("HOMEBREW_CC" => "gcc-9") do
+      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}") do
         system "make"
       end
     end

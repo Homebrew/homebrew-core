@@ -3,12 +3,13 @@ class Ejabberd < Formula
   homepage "https://www.ejabberd.im"
   url "https://static.process-one.net/ejabberd/downloads/20.04/ejabberd-20.04.tgz"
   sha256 "130673a835a9768a47c78c6bfe9c622a3b5916dd8aaf12aad0acd2d0f7f3a5cf"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "997235f90e98b5b2ca80b4a7412cb4742103b4cd87c16a241aff1f63b2ebb13a" => :catalina
-    sha256 "991fee58cc52c71dc5591349e07799c569dde5120eef02a4717a3bb9f9f5d513" => :mojave
-    sha256 "c23057a68ad47f6210997380e25c2bc9e45a4526e4fa69917964958011bc06c7" => :high_sierra
+    sha256 "7e50060f5ad3a6d7c55db410eb3762b2a95c5bd2fd296f31729b1393ceb5edcd" => :catalina
+    sha256 "6bc2b55c5d2c46703937ade4be7b8c6cce8bd32bd5f7119f084a7497f647434d" => :mojave
+    sha256 "31250e200d52ba9b03bcc4d699e74b868eb357391b4ac4864f765a87c9e77868" => :high_sierra
   end
 
   head do
@@ -18,10 +19,12 @@ class Ejabberd < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "erlang"
+  depends_on "erlang@22"
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl@1.1"
+
+  conflicts_with "couchdb", :because => "both install `jiffy` lib"
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"

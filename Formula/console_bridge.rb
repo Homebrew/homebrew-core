@@ -1,14 +1,14 @@
 class ConsoleBridge < Formula
   desc "Robot Operating System-independent package for logging"
   homepage "https://wiki.ros.org/console_bridge/"
-  url "https://github.com/ros/console_bridge/archive/0.5.0.tar.gz"
-  sha256 "1cecdf232b1eb883b41cc50d1d38443b2163fdc0497072dc1aa6e7ba30696060"
+  url "https://github.com/ros/console_bridge/archive/0.5.1.tar.gz"
+  sha256 "c4ad60c82cd510d4078273a9e210faed572bef6014322456afd14999d2daf130"
 
   bottle do
     cellar :any
-    sha256 "abb88e030690ad35e0be3167e4135101037ca4b841b1343f21e3b88858871df5" => :catalina
-    sha256 "366956b5c93c9b0edb378017254d652d748869e5a61323331479b1d70a854541" => :mojave
-    sha256 "e2a6886856f882767fcffc65826da0485130fcc8e0444a8584f2c703cc5dbe93" => :high_sierra
+    sha256 "e98131216958db0f3933e7fee94f37d5e356e599802e828f06423930fae66412" => :catalina
+    sha256 "f79326ff43c19d1fe5cb51af9728a52dd74953ab69c24712fcd8c7c1cc0586f0" => :mojave
+    sha256 "f1bc8a6b2fd18aa320dec8239f0a2f2082518289fe29da765600e728fa9e2765" => :high_sierra
   end
 
   depends_on "cmake" => :build

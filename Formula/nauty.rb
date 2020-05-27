@@ -1,7 +1,7 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
-  homepage "http://pallini.di.uniroma1.it"
-  url "http://pallini.di.uniroma1.it/nauty26r12.tar.gz"
+  homepage "https://pallini.di.uniroma1.it/"
+  url "https://pallini.di.uniroma1.it/nauty26r12.tar.gz"
   version "26r12"
   sha256 "862ae0dc3656db34ede6fafdb0999f7b875b14c7ab4fedbb3da4f28291eb95dc"
 

@@ -1,14 +1,14 @@
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
   homepage "https://github.com/XAMPPRocky/tokei"
-  url "https://github.com/XAMPPRocky/tokei/archive/v11.1.1.tar.gz"
-  sha256 "aeb1829ac886f0f4b17e9d16048c61638c0f70342d0638247a377c742c35f99a"
+  url "https://github.com/XAMPPRocky/tokei/archive/v11.2.0.tar.gz"
+  sha256 "13f6753655c6b4b0b6d5d2208154647609fd3a16ce2a13f414cf0f6c01752e55"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "384db4f880e7c9cd370da97264275a0022f9438af2d92602bd928aca0d6dd56c" => :catalina
-    sha256 "d05d2a5ce945915c1cb62c466b0072c9b0ea291305fa4de7cebdf0b3a9f79bc2" => :mojave
-    sha256 "dba9e17f4efdd40743b40e05fd1b571f2de15ef34e980b9c76c88ea908962f91" => :high_sierra
+    sha256 "ea39f045396a61ae07444a7dc95912567a8313598ae75f098a7a983e5c799f90" => :catalina
+    sha256 "38559400167c41ee51d5a995a21d1cf37b6592e7f92a672edc6f299a7d83957a" => :mojave
+    sha256 "6cb69ce91d38373bdcae3427f61b12e251f70bb4eb2e45be9f2b5b8cffdcb279" => :high_sierra
   end
 
   depends_on "rust" => :build

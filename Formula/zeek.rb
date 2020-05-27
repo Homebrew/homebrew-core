@@ -4,12 +4,13 @@ class Zeek < Formula
   url "https://github.com/zeek/zeek.git",
       :tag      => "v3.1.3",
       :revision => "4f695cae3ba720981ab7e38c16d4ab1adf4f01f5"
+  revision 1
   head "https://github.com/zeek/zeek.git"
 
   bottle do
-    sha256 "2bf9011ff6d224e82e972ca29fe6d37ad3bead47ceb495168592ee77e0a7bfdf" => :catalina
-    sha256 "37722b4b8cb194ca93affe448ca9330ae8978640374e47a8e11e5efdb5fcba97" => :mojave
-    sha256 "e7060d439cd05a646afae4d6fd538f991c0d656ccc5acb4f49f52fb3b3f57478" => :high_sierra
+    sha256 "1d87ba343d034214a1ae746020136f57204f68b9e4f02f2b181aa05c1558c0da" => :catalina
+    sha256 "20ae87dfb2d6f51ce25ec25dffd41f1c8d3c759b51eed049cc5e336a02774a8f" => :mojave
+    sha256 "eb97aa9b288b7848705abba3c51742a1ef94d374bff2f8fcaf61d9c17f39c436" => :high_sierra
   end
 
   depends_on "bison" => :build

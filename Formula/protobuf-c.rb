@@ -3,12 +3,13 @@ class ProtobufC < Formula
   homepage "https://github.com/protobuf-c/protobuf-c"
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.3.3/protobuf-c-1.3.3.tar.gz"
   sha256 "22956606ef50c60de1fabc13a78fbc50830a0447d780467d3c519f84ad527e78"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d3d18a6f8ca5566c980b7f96f8dc6dc1068a2cb0c922241590d7df2199385597" => :catalina
-    sha256 "26c3fd5bebba098312f8ddbd11cd54295624a75c40663dd6e1d8109144a733e2" => :mojave
-    sha256 "162d74ce599bfe498da7b3846b2d9305efca113e6f5a2a858cbdc9024acbf303" => :high_sierra
+    sha256 "2af1cf51bac889177c41922236c9a1433749952e4bc76e7a7493bb9c96745319" => :catalina
+    sha256 "0a8fc62ce9acd99178e21afc4a994cb762c9e13a3d3fec887a19ab0706f9acc8" => :mojave
+    sha256 "1a66fd256c32caaff9e52748fd7f9987580b36425682d5a6263c0c0db011c405" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

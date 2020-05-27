@@ -3,15 +3,15 @@ class HomeassistantCli < Formula
 
   desc "Command-line utility for Home Assistant"
   homepage "https://github.com/home-assistant/home-assistant-cli"
-  url "https://files.pythonhosted.org/packages/0a/41/830c8fe6f58583d316ed1e42b5a48f2705630401621170c1abb41cb3b996/homeassistant-cli-0.9.0.tar.gz"
-  sha256 "3f35ad8b26b9e1ee010112db52ade7d0037f06d5867b4c8da6db5ad853c330ba"
+  url "https://files.pythonhosted.org/packages/ea/14/3e1f0327335a2a50409efbcdd35f4eea2961308a735bb1b1dd5b70ff6cec/homeassistant-cli-0.9.1.tar.gz"
+  sha256 "eec1b7f16d688fb8781b554f8c41325222316237aa3eb980f30bf172859f61a8"
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a4aeb7fcb11960e5e2f6219eaa6263fc0ba42bcf35ef9294c54ce6ef29d64727" => :catalina
-    sha256 "4e061bbea6075ef8af9d6f42e9d73460ff30cdf3d5b0ad7a0c7bb2866a5d7c19" => :mojave
-    sha256 "d4408fbdea81343ffcaabbe38f7be4fd1ba8a23d3e33f9b7fa77d9195931f87a" => :high_sierra
+    sha256 "147e080fb5b9377766c8788a371ac336da5568e960b6857468a94c2410d8ff15" => :catalina
+    sha256 "70ebba0eb012d61f1d523ecbb72cb95ec411d63a358c06d881f0c50599919d11" => :mojave
+    sha256 "a7d4301ca443bc0e0a2761d4592515e027e1bfa964a07de6752bb0f714e0f2bf" => :high_sierra
   end
 
   depends_on "python@3.8"

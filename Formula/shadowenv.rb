@@ -1,14 +1,14 @@
 class Shadowenv < Formula
   desc "Reversible directory-local environment variable manipulations"
   homepage "https://shopify.github.io/shadowenv/"
-  url "https://github.com/Shopify/shadowenv/archive/2.0.0.tar.gz"
-  sha256 "362b2ab8f70d51ac012a1e777a59303634a3c0d9db7ee5f275b3651916e08371"
+  url "https://github.com/Shopify/shadowenv/archive/2.0.2.tar.gz"
+  sha256 "cd84eae312073b7ff3d799b9f095d16c8d97edc4700a2af0c359a1db744714e6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "52b7c4f1fc51de46be4b4aeaea906e0731d2c38588d93b710da4b79db4207253" => :catalina
-    sha256 "a04059c1cad563201760d0972dd22f18906087455120457d766fdab6a9c0310c" => :mojave
-    sha256 "95d6a37741a4c6e75893ae9f2cadad33f29b27ced06f2ae2eabb0572bf00c189" => :high_sierra
+    sha256 "8392eac6bf8d09067b6688d6bc713d6ef36bbdf16111253f6da7f355164a6e24" => :catalina
+    sha256 "65aa5ddb76b7ebb453f4aa138847d237616d5c36a41376e5349bb9b87e5f656c" => :mojave
+    sha256 "000b9f2d6fb73be7d466fce5cf948eeba3df27261bc410f6d0064cd3a4d09e92" => :high_sierra
   end
 
   depends_on "rust" => :build

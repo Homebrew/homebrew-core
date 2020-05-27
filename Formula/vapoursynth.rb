@@ -63,7 +63,7 @@ class Vapoursynth < Formula
         brew install ffms2
         ln -s "../libffms2.dylib" "#{HOMEBREW_PREFIX}/lib/vapoursynth/libffms2.dylib"
       For more information regarding plugins, please visit:
-        \x1B[4mhttp://www.vapoursynth.com/doc/pluginlist.html\x1B[0m
+        \x1B[4mhttp://www.vapoursynth.com/doc/plugins.html\x1B[0m
     EOS
   end
 

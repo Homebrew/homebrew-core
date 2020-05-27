@@ -3,13 +3,13 @@ class GrOsmosdr < Formula
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
   sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
-    sha256 "7fd2370bc3f22dd0448e827f12d41dea8b04fdecf57669ddf8b437fb982fce55" => :catalina
-    sha256 "8b0d2f0803b136645d597787a74d3f7d5079136e0dc16e2c7919e09ae3211283" => :mojave
-    sha256 "494b8a534f23ac18f613bf5042e9f2baa3235fc58be303b362942910f223c6e8" => :high_sierra
+    sha256 "65570c9ef4058f8ace042beeed7672b445e7d7c069ca9c6b28c535bbe0a2b711" => :catalina
+    sha256 "971a785a7acf94c36761047326a56ce5e375bf9d5e633b24df196cef4c0035e6" => :mojave
+    sha256 "0a79c514b8da09932af265cf6582789edb8fd1b87cef0796e10dab7b847779bb" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -19,7 +19,7 @@ class GrOsmosdr < Formula
   depends_on "gnuradio"
   depends_on "hackrf"
   depends_on "librtlsdr"
-  depends_on "python"
+  depends_on :macos # gnuradio uses Python 2
   depends_on "uhd"
 
   resource "Cheetah" do

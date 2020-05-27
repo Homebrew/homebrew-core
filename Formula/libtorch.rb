@@ -6,17 +6,17 @@ class Libtorch < Formula
   url "https://github.com/pytorch/pytorch.git",
       :tag      => "v1.5.0",
       :revision => "4ff3872a2099993bf7e8c588f7182f3df777205b"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "6e3ebac533fa77f696db57865d8894975f9b0433962ff76b8241fcfebb1c8bf2" => :catalina
-    sha256 "815a9ca7b58d36ee60242d8f6df85834d2c87553456aedce6d0710f625fce006" => :mojave
-    sha256 "43ce1603d36b4dfe1dcf830efe185e649b0854a703586aba8e5450ca61b3ee34" => :high_sierra
+    sha256 "88c7795ca29b9efd106b5bbacd68bed2b1fd6843578905d4edf4a9e45b38dbca" => :catalina
+    sha256 "df248f48b6a1258dd2e90d03dc461a26e4b3afe6fff85e51504c7602400e3b9b" => :mojave
+    sha256 "8efd5e5376de105613f83b5c5cacb2102cb66c438ad8ce27eccb8dbecd2fee97" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "eigen"
   depends_on "libomp"
   depends_on "libyaml"
@@ -44,7 +44,7 @@ class Libtorch < Formula
   patch :DATA
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[

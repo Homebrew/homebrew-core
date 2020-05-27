@@ -1,14 +1,14 @@
 class DatetimeFortran < Formula
   desc "Fortran time and date manipulation library"
   homepage "https://github.com/wavebitscientific/datetime-fortran"
-  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.6.2/datetime-fortran-1.6.2.tar.gz"
-  sha256 "765f4ea77e9057f099612f66e52f92162f9f6325a8d219e67cb9d5ebaa41b67e"
+  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.7.0/datetime-fortran-1.7.0.tar.gz"
+  sha256 "cff4c1f53af87a9f8f31256a3e04176f887cc3e947a4540481ade4139baf0d6f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "73f230fd02a4dcc810e5dff0b6c91fd652d71d205aabad40b781fb5cc4b85ce3" => :catalina
-    sha256 "53b0711bb7bae0a6ceab81d1c81475ab7d9b4a3faf9293ef5ef425d9f008cd51" => :mojave
-    sha256 "4da37b7d4a520168a526cc63ed413c1bea31f769b02a7a471de1cf854623a379" => :high_sierra
+    sha256 "82d8b0e2a51fb7df321659ed4f5da43c24edd5aba81e5e05250508b541f2eb4b" => :catalina
+    sha256 "ef59feabc30610c41a5ac4b2e594f1378d3edeb3b13dd7912825c48815d547e2" => :mojave
+    sha256 "cf59b21c0539aa14f5e0274387669d13dae47b3e11267cdb1baed8545f2bd535" => :high_sierra
   end
 
   head do
@@ -26,7 +26,7 @@ class DatetimeFortran < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make", "install"
-    (pkgshare/"test").install "src/tests/datetime_tests.f90"
+    (pkgshare/"test").install "tests/datetime_tests.f90"
   end
 
   test do

@@ -3,14 +3,14 @@ class Platformio < Formula
 
   desc "Open-source ecosystem for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/84/30/fbeab6f6269df25dda9d25c3ab999511c0aedfb30ea76a817b74f36644aa/platformio-4.3.3.tar.gz"
-  sha256 "bf1d945aa5910a902dd21e7d82f4a54114a58b1d10e093394b29251e9536a9c9"
+  url "https://files.pythonhosted.org/packages/af/7a/07e5fa67f08eb738bcea35c9a5aa862463e693de26e02d9f4d393a75f567/platformio-4.3.4.tar.gz"
+  sha256 "9385860a7072ac7bb4a71c4d7644acf1cdd4bc1e88af8a5ab53ee0e935c31b07"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7f8ffc0f64c6db34701b2e727c6a2a83ffef63ae1c3580666271c1f38cafacd1" => :catalina
-    sha256 "6e159b5929f53a08f772af37d7a453c829295d5234bce648c34c324f84db5317" => :mojave
-    sha256 "eec4db4f6047a1bd65734a26ac3216523bd3c679e3da0c6a79243129c32bf206" => :high_sierra
+    sha256 "b31ae7f3a3e958a2bfde5ee2c063f2b37e76dbedba83bb54a0a65c48579899d6" => :catalina
+    sha256 "be8b970478e406e3208b1bcd691bcf0790918ca98080b4bb34be0c02881958e2" => :mojave
+    sha256 "fcef6a7f1eb39afbf29e92212d62fec5264e121ae90818e8b1809b7f82dabe11" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -46,8 +46,8 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/a8/74/5aa84008ddc6e8fee93d961a9f04a745a349ad197d95ab89723c097b330d/marshmallow-3.5.1.tar.gz"
-    sha256 "90854221bbb1498d003a0c3cc9d8390259137551917961c8b5258c64026b2f85"
+    url "https://files.pythonhosted.org/packages/8d/1c/145aa43187ddf07ac63f7ab5907591e13710f357b1a7087679832de151bc/marshmallow-3.6.0.tar.gz"
+    sha256 "c2673233aa21dde264b84349dc2fd1dce5f30ed724a0a00e75426734de5b84ab"
   end
 
   resource "pyelftools" do
@@ -66,8 +66,8 @@ class Platformio < Formula
   end
 
   resource "semantic-version" do
-    url "https://files.pythonhosted.org/packages/67/24/7e8fcb6aa88bfc018f8e4c48c4dbc8e87d8c7b3c0d0d8b3b0c61a34d32c7/semantic_version-2.8.4.tar.gz"
-    sha256 "352459f640f3db86551d8054d1288608b29a96e880c7746f0a59c92879d412a3"
+    url "https://files.pythonhosted.org/packages/d4/52/3be868c7ed1f408cb822bc92ce17ffe4e97d11c42caafce0589f05844dd0/semantic_version-2.8.5.tar.gz"
+    sha256 "d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
   end
 
   resource "tabulate" do
@@ -85,8 +85,7 @@ class Platformio < Formula
   end
 
   test do
-    system bin/"platformio"
-    system bin/"pio"
-    system bin/"piodebuggdb", "--help"
+    output = shell_output("#{bin}/pio boards ststm32")
+    assert_match "ST Nucleo F401RE", output
   end
 end

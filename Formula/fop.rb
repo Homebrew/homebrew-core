@@ -1,10 +1,9 @@
 class Fop < Formula
   desc "XSL-FO print formatter for making PDF or PS documents"
   homepage "https://xmlgraphics.apache.org/fop/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.4-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.4-bin.tar.gz"
-  sha256 "d97f7318ca1aab9937d68aa6ce2a00379d8d4a0b692515246c84d328a6bf4f0c"
-  revision 2
+  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
+  sha256 "6a3c5f8915be5ef90fff202c818152d8252bb45b96d9c5d6550594903739e5ed"
 
   bottle :unneeded
 

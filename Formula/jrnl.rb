@@ -3,14 +3,14 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/3d/1b/dafaa1c7ecc48656fe06e8b16abd258968e36743a353b78c6eb076d2efb1/jrnl-2.4.1.tar.gz"
-  sha256 "d1198a50d28adce63713c065737840e0a76cd85a4b4f455914a9069ad0cb973f"
+  url "https://files.pythonhosted.org/packages/7f/84/d428e5dc9af1aca6e6c7a373dfefdfc095dbf95456f43532004cecd7854e/jrnl-2.4.2.tar.gz"
+  sha256 "1d13a635c7bff42a9b833a56f47ac5086eb4ed8d3d91e5a7b96ef05f4d82a616"
 
   bottle do
     cellar :any
-    sha256 "a8798df7e2389ea90934ba4dc6f0364767916ebc82eaa63f6f5d1d767929e24a" => :catalina
-    sha256 "0f485652a861698c7593ff4b5b07b762233445f68ec49216c958582793d5db4f" => :mojave
-    sha256 "4b4575198dbe69ca69b98bd77f20770521e77db31c9590cffc4d33c1d1a8af49" => :high_sierra
+    sha256 "8feb03d437926dc69b073ecf530c17534a5a2b6cd36d98130e87c55b0064b83c" => :catalina
+    sha256 "03b31823e5050107b8a666bd2112f7d3d55242d4c43b73c28dca784ea29d8f2b" => :mojave
+    sha256 "7332a4ce057a45b5bba63f00f664426f33020c8d41b74b96ddd42933ca8e2653" => :high_sierra
   end
 
   depends_on "python@3.8"

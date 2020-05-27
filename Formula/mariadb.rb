@@ -1,13 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.12/source/mariadb-10.4.12.tar.gz"
-  sha256 "fef1e1d38aa253dd8a51006bd15aad184912fce31c446bb69434fcde735aa208"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.4.13/source/mariadb-10.4.13.tar.gz"
+  sha256 "45bbbb12d1de8febd9edf630e940c23cf14efd60570c743b268069516a5d91df"
 
   bottle do
-    sha256 "eaaf500f730bfed25cf8015e80ba224b9873be9706e6eca21d9ca53711c0bcd8" => :catalina
-    sha256 "5bd71c3904a522667fbe441b6bb1c3cf8544fb44fd321e4c5d6b511129a83f58" => :mojave
-    sha256 "17f341bec7258535a90747a3b79db8465deb5949589100c497e27d605c645782" => :high_sierra
+    sha256 "114d02c80a84ce764b21e8b013f053ce0c66198a6530c1c56ca73318993c718e" => :catalina
+    sha256 "e444515e91d27dd3fb11e923ae81fd87cbd057170419cea061992253ba1ab7c9" => :mojave
+    sha256 "70e0007bfdaf8a8667b3c0d57f9441db0cc22c55e8dafc666be777f689a0d58e" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -25,12 +25,6 @@ class Mariadb < Formula
   conflicts_with "mytop", :because => "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
-
-  # Fix for https://jira.mariadb.org/browse/MDEV-21592
-  patch do
-    url "https://github.com/MariaDB/server/commit/42b29d41335d2f6991b8c9f110fe1e1476764ace.patch?full_index=1"
-    sha256 "7f61bf5dde90a80f6af6f37e27fbce67f853dace98483a030a3dce9b1c1481f0"
-  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

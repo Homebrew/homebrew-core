@@ -4,14 +4,13 @@ class Ffms2 < Formula
   url "https://github.com/FFMS/ffms2/archive/2.23.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/f/ffms2/ffms2_2.23.orig.tar.gz"
   sha256 "b09b2aa2b1c6f87f94a0a0dd8284b3c791cbe77f0f3df57af99ddebcd15273ed"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "e83b73db4d441dd37b0811650f690756a863e629f7c5f89818ca59f300acafce" => :catalina
-    sha256 "638fda6fb3d0cf6af50ab122056e8fc23da52c0ab3d3b3df999b9ffcd2c7dbd1" => :mojave
-    sha256 "e42a13a433f713ec01ac496a36716c44f225c9ebe8ea397eb9d3d8d872faad7a" => :high_sierra
-    sha256 "c6fdb79a9e1bdbfd0bc0da134c7f8f845015527de866170e0d542ecef9861bdb" => :sierra
+    sha256 "09986c3c0185b4947c078a755d52117b309b82fb271ced093f7a29c97a1d5c4b" => :catalina
+    sha256 "52e80b7671459161fcd103e4330e2641fe3701560dc08ddb924b562066ae465a" => :mojave
+    sha256 "a32ddc2efaf4ce050c2d3decc2bba75d94d40d26f11460a706b57eadb1ecea4f" => :high_sierra
   end
 
   head do

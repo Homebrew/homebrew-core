@@ -1,20 +1,16 @@
 class Ilmbase < Formula
   desc "OpenEXR ILM Base libraries (high dynamic-range image file format)"
   homepage "https://www.openexr.com/"
-  url "https://github.com/openexr/openexr/archive/v2.4.1.tar.gz"
-  sha256 "3ebbe9a8e67edb4a25890b98c598e9fe23b10f96d1416d6a3ff0732e99d001c1"
+  url "https://github.com/openexr/openexr/archive/v2.5.1.tar.gz"
+  sha256 "11f806bf256453e39fc33bd1cf1fa576a54f144cedcdd3e6935a177e5a89d02e"
 
   bottle do
-    rebuild 1
-    sha256 "77fa3ade193f751b7301feae07da4f801adf693ddba02915778c77d142f03311" => :catalina
-    sha256 "26209d6086178373e08d8ca6f5acf1c3b49e6896e1fa4eff0c06a3bd91f7b550" => :mojave
-    sha256 "9d141246fae66f97b71e864f2c8b7264d5f317380f3872017dc52ea1efd3ea3d" => :high_sierra
+    sha256 "4748d38413303488484f98d5fbb94bb90a3f2e6a7fc9830fe5ce12463ef6812b" => :catalina
+    sha256 "c3645960e26293a38a9ed68996c21f9bdd00bf138c66a187d97b3be9a6f63247" => :mojave
+    sha256 "833b56397ee633635ae29f4b7c5f526590038cdda44bf1250fbee59bbada4013" => :high_sierra
   end
 
   depends_on "cmake" => :build
-
-  # From https://github.com/openexr/openexr/commit/0b26a9dedda4924841323677f1ce0bce37bfbeb4.patch
-  patch :DATA
 
   def install
     cd "IlmBase" do
@@ -44,22 +40,3 @@ class Ilmbase < Formula
     assert_equal "2, -2, -1\n", shell_output("./test")
   end
 end
-
-__END__
-diff --git a/IlmBase/config/CMakeLists.txt b/IlmBase/config/CMakeLists.txt
-index 508176a4..a6bff04a 100644
---- a/IlmBase/config/CMakeLists.txt
-+++ b/IlmBase/config/CMakeLists.txt
-@@ -71,9 +71,9 @@ if(ILMBASE_INSTALL_PKG_CONFIG)
-   # use a helper function to avoid variable pollution, but pretty simple
-   function(ilmbase_pkg_config_help pcinfile)
-     set(prefix ${CMAKE_INSTALL_PREFIX})
--    set(exec_prefix ${CMAKE_INSTALL_BINDIR})
--    set(libdir ${CMAKE_INSTALL_LIBDIR})
--    set(includedir ${CMAKE_INSTALL_INCLUDEDIR})
-+    set(exec_prefix "\${prefix}")
-+    set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
-+    set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
-     set(LIB_SUFFIX_DASH ${ILMBASE_LIB_SUFFIX})
-     if(TARGET Threads::Threads)
-       # hrm, can't use properties as they end up as generator expressions
