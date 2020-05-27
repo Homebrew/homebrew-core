@@ -1,8 +1,8 @@
 class Cpputest < Formula
   desc "C /C++ based unit xUnit test framework"
   homepage "https://www.cpputest.org/"
-  url "https://github.com/cpputest/cpputest/releases/download/v3.8/cpputest-3.8.tar.gz"
-  sha256 "c81dccc5a1bfc7fc6511590c0a61def5f78e3fb19cb8e1f889d8d3395a476456"
+  url "https://github.com/cpputest/cpputest/releases/download/v4.0/cpputest-4.0.tar.gz"
+  sha256 "81c4958a3ec20ebe87b2cb658c334d27496c715972ddb71262357f449a7c1df3"
   head "https://github.com/cpputest/cpputest.git"
 
   bottle do
@@ -28,12 +28,21 @@ class Cpputest < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include "CppUTest/CommandLineTestRunner.h"
+
+      TEST_GROUP(HomebrewTest)
+      {
+      };
+
+      TEST(HomebrewTest, passing)
+      {
+        CHECK(true);
+      }
       int main(int ac, char** av)
       {
         return CommandLineTestRunner::RunAllTests(ac, av);
       }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lCppUTest", "-o", "test"
-    assert_match /OK \(0 tests/, shell_output("./test")
+    assert_match /OK \(1 tests/, shell_output("./test")
   end
 end
