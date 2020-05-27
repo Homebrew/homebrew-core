@@ -3,7 +3,7 @@ class Visp < Formula
   homepage "https://visp.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.3.0.tar.gz"
   sha256 "f2ed11f8fee52c89487e6e24ba6a31fa604b326e08fb0f561a22c877ebdb640d"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "ba28b194717945e8114583256144012b67aefb09f81f3ce4301e0390433a9a57" => :catalina
@@ -21,6 +21,11 @@ class Visp < Formula
   depends_on "opencv"
   depends_on "pcl"
   depends_on "zbar"
+
+  patch do
+    url "https://github.com/lagadic/visp/commit/61c8beb8442f9e0fe7df8966e2e874929af02344.patch?full_index=1"
+    sha256 "429bf02498fc03fff7bc2a2ad065dea6d8a8bfbde6bb1adb516fa821b1e5c96f"
+  end
 
   def install
     ENV.cxx11
