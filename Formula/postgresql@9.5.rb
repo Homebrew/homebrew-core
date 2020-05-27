@@ -3,7 +3,7 @@ class PostgresqlAT95 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.5.22/postgresql-9.5.22.tar.bz2"
   sha256 "48555470a17248cb204d25ab1ad4231ef16295db55161922f006b9942d69640f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9ad944bf158f180a3a3c8771b6f3d179b96b099b9921069d47842126d9a41766" => :catalina
@@ -45,6 +45,10 @@ class PostgresqlAT95 < Formula
       --with-tcl
       --with-uuid=e2fs
     ]
+
+    # PostgreSQL by default uses xcodebuild internally to determine this,
+    # which does not work on CLT-only installs.
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
     system "./configure", *args
     system "make"
