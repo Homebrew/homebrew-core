@@ -13,9 +13,11 @@ class Tfenv < Formula
 
   # fix bash 3.x compatibility
   # removed in the next release
-  patch do
-    url "https://github.com/tfutils/tfenv/pull/181.patch?full_index=1"
-    sha256 "b1365be51a8310a44b330f9b008dabcdfe2d16b0349f38988e7a24bcef6cae09"
+  unless build.head?
+    patch do
+      url "https://github.com/tfutils/tfenv/pull/181.patch?full_index=1"
+      sha256 "b1365be51a8310a44b330f9b008dabcdfe2d16b0349f38988e7a24bcef6cae09"
+    end
   end
 
   def install
