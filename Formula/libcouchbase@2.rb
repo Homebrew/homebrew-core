@@ -1,9 +1,9 @@
-class Libcouchbase < Formula
+class LibcouchbaseAT2 < Formula
   desc "C library for Couchbase"
-  homepage "https://docs.couchbase.com/c-sdk/3.0/hello-world/start-using-sdk.html"
-  url "https://packages.couchbase.com/clients/c/libcouchbase-3.0.1.tar.gz"
-  sha256 "488cd906450c797b014910f5b9239cf1e14c7e0f94d3b7dc5f9cfb76ce1085b1"
-  head "https://github.com/couchbase/libcouchbase.git"
+  homepage "https://docs.couchbase.com/c-sdk/2.10/start-using-sdk.html"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-2.10.6.tar.gz"
+  sha256 "341d7af60d637c81a4de623168746b699f49a75358aa33d9b1b99dd0a63a7cf3"
+  keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "libev"
@@ -23,7 +23,7 @@ class Libcouchbase < Formula
   end
 
   test do
-    assert_match /LCB_ERR_CONNECTION_REFUSED/,
+    assert_match /LCB_ECONNREFUSED/,
       shell_output("#{bin}/cbc cat document_id -U couchbase://localhost:1 2>&1", 1).strip
   end
 end
