@@ -3,7 +3,7 @@ class PostgresqlAT11 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v11.8/postgresql-11.8.tar.bz2"
   sha256 "eaf2f4329ccc349c89e950761b81daf8c99bb8966abcab5665ccd6ee95c77ae2"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "0b7485f02a4645bc0c835d5bfd5766c871c27282acbcc0dedfce8652c318cae8" => :catalina
@@ -47,6 +47,10 @@ class PostgresqlAT11 < Formula
       --with-tcl
       --with-uuid=e2fs
     ]
+
+    # PostgreSQL by default uses xcodebuild internally to determine this,
+    # which does not work on CLT-only installs.
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
     system "./configure", *args
     system "make"
