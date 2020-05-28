@@ -1,8 +1,8 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/3.1.1.tar.gz"
-  sha256 "891d4dcfe4e911c9666d76781f5c55b33d47e9398a44a24eaac6b03b4e6ebb05"
+  url "https://github.com/okbob/pspg/archive/3.1.2.tar.gz"
+  sha256 "f88fe56b08ec00ec4894aa370f90677817af85581154642dd155466e9d64a465"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
