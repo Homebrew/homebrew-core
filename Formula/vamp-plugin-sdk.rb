@@ -1,8 +1,8 @@
 class VampPluginSdk < Formula
   desc "Audio processing plugin system sdk"
   homepage "https://www.vamp-plugins.org/"
-  url "https://code.soundsoftware.ac.uk/attachments/download/2588/vamp-plugin-sdk-2.9.0.tar.gz"
-  sha256 "b72a78ef8ff8a927dc2ed7e66ecf4c62d23268a5d74d02da25be2b8d00341099"
+  url "https://code.soundsoftware.ac.uk/attachments/download/2691/vamp-plugin-sdk-2.10.0.tar.gz"
+  sha256 "aeaf3762a44b148cebb10cde82f577317ffc9df2720e5445c3df85f3739ff75f"
   head "https://code.soundsoftware.ac.uk/hg/vamp-plugin-sdk", :using => :hg
 
   bottle do
