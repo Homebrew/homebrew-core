@@ -1,9 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.74.tar.xz"
-  sha256 "9a710b6950da37ada94cd9e2046cbce26de12473da32a7b79b7d1432fc66ce0e"
-  revision 2
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.76.tar.xz"
+  sha256 "0084749f7f6050c1d3543067e527665b65e183c1fb80816ea37b2380bd9073a0"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git"
 
@@ -22,7 +21,7 @@ class Babl < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dwith-docs=false", ".."
+      system "meson", *std_meson_args, "-Dwith-docs=false", "-Denable-vapi=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
