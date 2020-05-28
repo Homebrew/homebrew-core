@@ -57,6 +57,7 @@
   "httpd24": "httpd",
   "i386-elf-binutils": "x86_64-elf-binutils",
   "i386-elf-gcc": "x86_64-elf-gcc",
+  "jfrog-cli-go": "jfrog-cli",
   "juju2": "juju",
   "juju@2.0": "juju",
   "jupyter": "jupyterlab",
