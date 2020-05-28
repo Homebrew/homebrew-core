@@ -1,10 +1,9 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.13.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2"
-  sha256 "bc50ce2c3faa7b1ae9103c432017df98dfd989c4239f9f8270bb3a314ed9e5bd"
-  revision 5
+  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.14.0.tar.bz2"
+  sha256 "6ba8e218f9f97a83a799e58a3c6da1221d034b18d9d8cbbcb6ec52ab11722102"
 
   bottle do
     sha256 "0c131c339c9d452563aeda9dffc0acbe2f75be6d4ab3f8eda3ffdab7b0e06a67" => :catalina
@@ -22,8 +21,9 @@ class Subversion < Formula
 
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.8" => :build
   depends_on "scons" => :build # For Serf
-  depends_on "swig@3" => :build # https://issues.apache.org/jira/browse/SVN-4818
+  depends_on "swig" => :build
   depends_on "apr"
   depends_on "apr-util"
 
@@ -31,9 +31,6 @@ class Subversion < Formula
   # gettext, lz4, perl, sqlite and utf8proc for consistency
   depends_on "gettext"
   depends_on "lz4"
-  depends_on :macos # Due to Python 2
-  # See https://github.com/Homebrew/homebrew-core/issues/53193#issue-600482673
-  # Will work with Python 3.8 in subversion 1.14
   depends_on "openssl@1.1" # For Serf
   depends_on "perl"
   depends_on "sqlite"
@@ -44,20 +41,25 @@ class Subversion < Formula
   uses_from_macos "ruby"
   uses_from_macos "zlib"
 
+  resource "py3c" do
+    url "https://github.com/encukou/py3c/archive/v1.1.tar.gz"
+    sha256 "c7ffc22bc92dded0ca859db53ef3a0b466f89a9f8aad29359c9fe4ff18ebdd20"
+  end
+
   resource "serf" do
     url "https://www.apache.org/dyn/closer.lua?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
     sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
 
-  # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
-  # Prevent linking into a Python Framework
   patch :DATA
 
   def install
+    py3c_prefix = buildpath/"py3c"
     serf_prefix = libexec/"serf"
 
+    resource("py3c").unpack py3c_prefix
     resource("serf").stage do
       inreplace "SConstruct" do |s|
         s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
@@ -95,6 +97,7 @@ class Subversion < Formula
       --with-apxs=no
       --with-jdk=#{Formula["openjdk"].opt_prefix}
       --with-ruby-sitedir=#{lib}/ruby
+      --with-py3c=#{py3c_prefix}
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-zlib=#{MacOS.sdk_path_if_needed}/usr
@@ -103,12 +106,9 @@ class Subversion < Formula
       --without-gpg-agent
       --enable-javahl
       --without-jikes
+      PYTHON=#{Formula["python@3.8"].opt_bin}/python3
       RUBY=/usr/bin/ruby
     ]
-
-    # The system Python is built with llvm-gcc, so we override this
-    # variable to prevent failures due to incompatible CFLAGS
-    ENV["ac_cv_python_compile"] = ENV.cc
 
     inreplace "Makefile.in",
               "toolsdir = @bindir@/svn-tools",
@@ -125,7 +125,7 @@ class Subversion < Formula
 
     system "make", "swig-py"
     system "make", "install-swig-py"
-    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
+    (lib/"python3.8/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     # Java and Perl support don't build correctly in parallel:
     # https://github.com/Homebrew/homebrew/issues/20415
@@ -193,17 +193,3 @@ index a60430b..bd9b017 100644
      INC  => join(' ', $includes, $cppflags,
                   " -I$swig_srcdir/perl/libsvn_swig_perl",
                   " -I$svnlib_srcdir/include",
-
-diff --git a/build/get-py-info.py b/build/get-py-info.py
-index 29a6c0a..dd1a5a8 100644
---- a/build/get-py-info.py
-+++ b/build/get-py-info.py
-@@ -83,7 +83,7 @@ def link_options():
-   options = sysconfig.get_config_var('LDSHARED').split()
-   fwdir = sysconfig.get_config_var('PYTHONFRAMEWORKDIR')
-
--  if fwdir and fwdir != "no-framework":
-+  if fwdir and fwdir != "no-framework" and sys.platform != 'darwin':
-
-     # Setup the framework prefix
-     fwprefix = sysconfig.get_config_var('PYTHONFRAMEWORKPREFIX')
