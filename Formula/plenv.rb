@@ -1,8 +1,8 @@
 class Plenv < Formula
   desc "Perl binary manager"
   homepage "https://github.com/tokuhirom/plenv"
-  url "https://github.com/tokuhirom/plenv/archive/2.3.0.tar.gz"
-  sha256 "49ea2770627f40d1fafccf03bf459839bf1d005b3d8c3c5772f0242c84423876"
+  url "https://github.com/tokuhirom/plenv/archive/2.3.1.tar.gz"
+  sha256 "12004cfed7ed083911dbda3228a9fb9ce6e40e259b34e791d970c4f335935fa3"
   head "https://github.com/tokuhirom/plenv.git"
 
   bottle :unneeded
