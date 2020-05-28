@@ -60,6 +60,7 @@ class Thefuck < Formula
     EOS
   end
 
+  # Adding a comment to kick off testing on CI...
   test do
     ENV["THEFUCK_REQUIRE_CONFIRMATION"] = "false"
     ENV["LC_ALL"] = "en_US.UTF-8"
