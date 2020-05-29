@@ -4,6 +4,7 @@ class Pulumi < Formula
   url "https://github.com/pulumi/pulumi.git",
       :tag      => "v2.3.0",
       :revision => "aa5dfe4289bec3c48d1ec599bd0b747cfc3da33f"
+  head "https://github.com/pulumi/pulumi.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -39,6 +40,10 @@ class Pulumi < Formula
       # Install zsh completion
       output = Utils.popen_read("#{bin}/pulumi gen-completion zsh")
       (zsh_completion/"_pulumi").write output
+
+      # Install fish completion
+      output = Utils.popen_read("#{bin}/pulumi gen-completion fish")
+      (fish_completion/"_pulumi").write output
     end
   end
 
