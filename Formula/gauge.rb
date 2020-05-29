@@ -1,8 +1,8 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
   homepage "https://getgauge.io"
-  url "https://github.com/getgauge/gauge/archive/v1.0.8.tar.gz"
-  sha256 "9757b568e53730caa3699f0d9ccc87af0b30091b3655674c61aaf6de8164837c"
+  url "https://github.com/getgauge/gauge/archive/v1.0.9.tar.gz"
+  sha256 "e3897d96eb581b89815e5a5d7aaf7e3baa49b4efa500624290743a53e06752de"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
@@ -15,18 +15,25 @@ class Gauge < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOROOT"] = Formula["go"].opt_libexec
-    dir = buildpath/"src/github.com/getgauge/gauge"
-    dir.install buildpath.children
-    ln_s buildpath/"src", dir
-    cd dir do
-      system "go", "run", "build/make.go"
-      system "go", "run", "build/make.go", "--install", "--prefix", prefix
-    end
+    system "go", "run", "build/make.go"
+    system "go", "run", "build/make.go", "--install", "--prefix", prefix
   end
 
   test do
-    assert_match version.to_s[0, 5], shell_output("#{bin}/gauge -v")
+    (testpath/"manifest.json").write <<~EOS
+      {
+        "Plugins": [
+          "html-report"
+        ]
+      }
+    EOS
+
+    system("#{bin}/gauge install")
+    assert_predicate testpath/".gauge/plugins", :exist?
+
+    system("#{bin}/gauge config check_updates false")
+    assert_match "false", shell_output("#{bin}/gauge config check_updates")
+
+    assert_match version.to_s, shell_output("#{bin}/gauge -v 2>&1")
   end
 end
