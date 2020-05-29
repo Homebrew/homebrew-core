@@ -1,8 +1,8 @@
 class CreateDmg < Formula
   desc "Shell script to build fancy DMGs"
-  homepage "https://github.com/andreyvit/create-dmg"
-  url "https://github.com/andreyvit/create-dmg/archive/v1.0.0.5.tar.gz"
-  sha256 "de76c8a7a1f4705720d61d39de7c87b7bc2acc7c35f6ec8d6d2dbdafcedc21b6"
+  homepage "https://github.com/create-dmg/create-dmg"
+  url "https://github.com/create-dmg/create-dmg/archive/v1.0.8.tar.gz"
+  sha256 "6eb256e6835e650e4a529c9ea0630c409e6d1d5413fc9076b94d231674fa4cae"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,8 +12,7 @@ class CreateDmg < Formula
   end
 
   def install
-    system "support/brew-me.sh"
-    bin.install "create-dmg"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
