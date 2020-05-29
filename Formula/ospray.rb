@@ -1,8 +1,8 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v2.1.0.tar.gz"
-  sha256 "ab38106beac3868cb39ef35f5564d51277641ecd982afc45e463aada6a124502"
+  url "https://github.com/ospray/ospray/archive/v2.1.1.tar.gz"
+  sha256 "342061794dd0851f1580e53256c8e506b4e0950dd67209e1df573694c4d85e6f"
   head "https://github.com/ospray/ospray.git"
 
   bottle do
@@ -18,8 +18,8 @@ class Ospray < Formula
   depends_on "tbb"
 
   resource "ospcommon" do
-    url "https://github.com/ospray/ospcommon/archive/v1.3.0.tar.gz"
-    sha256 "23f17fd930e63af9dd0f76ea3505e5d11f91a138b8e8bdec50efd51162544042"
+    url "https://github.com/ospray/ospcommon/archive/v1.3.1.tar.gz"
+    sha256 "1c043c4a09e68fb7319db61f28a5830fc09f1457b24155a42b5f7c6421bcca73"
   end
 
   resource "openvkl" do
