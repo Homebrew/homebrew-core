@@ -1,8 +1,8 @@
 class JenkinsLts < Formula
   desc "Extendable open-source CI server"
   homepage "https://jenkins.io/index.html#stable"
-  url "http://mirrors.jenkins.io/war-stable/2.222.1/jenkins.war"
-  sha256 "5a6cbb836ceb79728c2d9f72645d0680f789cdb09a44485076aba6143bea953e"
+  url "http://mirrors.jenkins.io/war-stable/2.222.4/jenkins.war"
+  sha256 "6c95721b90272949ed8802cab8a84d7429306f72b180c5babc33f5b073e1c47c"
 
   bottle :unneeded
 
@@ -56,17 +56,12 @@ class JenkinsLts < Formula
     ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
 
     port = free_port
-    pid = fork do
+    fork do
       exec "#{bin}/jenkins-lts --httpPort=#{port}"
     end
     sleep 60
 
-    begin
-      output = shell_output("curl localhost:#{port}/")
-      assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = shell_output("curl localhost:#{port}/")
+    assert_match /Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output
   end
 end
