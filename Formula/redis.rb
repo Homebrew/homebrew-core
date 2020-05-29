@@ -3,6 +3,7 @@ class Redis < Formula
   homepage "https://redis.io/"
   url "http://download.redis.io/releases/redis-6.0.4.tar.gz"
   sha256 "3337005a1e0c3aa293c87c313467ea8ac11984921fab08807998ba765c9943de"
+  revision 1
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
@@ -12,8 +13,10 @@ class Redis < Formula
     sha256 "86e6cb79be1c3b61e6b448f2b5db92320990cf4dc4a908ddd2445eb160805c71" => :high_sierra
   end
 
+  depends_on "openssl@1.1"
+
   def install
-    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
