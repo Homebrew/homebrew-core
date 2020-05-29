@@ -1,9 +1,8 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.4/passenger-6.0.4.tar.gz"
-  sha256 "ec1e4b555c176642c1c316897177d54b6f7d369490280e8ee3e54644e40b250b"
-  revision 7
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.5/passenger-6.0.5.tar.gz"
+  sha256 "94c25d5669c6cd1bc93854a020701c9869012eec621bce331bfe2d0c9c8c3532"
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
@@ -17,12 +16,6 @@ class Passenger < Formula
   depends_on "nginx" => [:build, :test]
   depends_on "openssl@1.1"
   depends_on "pcre"
-
-  # Enables setting temp path to avoid sandbox violations, already merged upstream
-  patch do
-    url "https://github.com/phusion/passenger/commit/e512231f.patch?full_index=1"
-    sha256 "9f39f5c1c8b68516f7bac0ba07921144a5de30b6a72ef2423ea83a77d512bea8"
-  end
 
   def install
     if MacOS.version >= :mojave && MacOS::CLT.installed?
