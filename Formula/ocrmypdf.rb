@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/d9/c8/ba5a67e1d0cac320a0087bde9aa3937299250010b920317aebd9c66dbc52/ocrmypdf-9.8.0.tar.gz"
-  sha256 "168b4b6a423acfaf4fe93530e72e8ecfbb9f211a6f0d953a72c197d024c69ddc"
+  url "https://files.pythonhosted.org/packages/14/45/a2315680b83ec61fee6771408338754b37b678e56dacb9abdc770190b759/ocrmypdf-9.8.1.tar.gz"
+  sha256 "5eb039dc460038517a20650de74b05744a7808ee89c387a6e9aedf258ebd0afc"
 
   bottle do
     cellar :any
@@ -48,20 +48,21 @@ class Ocrmypdf < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/39/2b/0a66d5436f237aff76b91e68b4d8c041d145ad0a2cdeefe2c42f76ba2857/lxml-4.5.0.tar.gz"
-    sha256 "8620ce80f50d023d414183bf90cc2576c2837b88e00bea3f33ad2630133bbb60"
+    url "https://files.pythonhosted.org/packages/03/a8/73d795778143be51d8b86750b371b3efcd7139987f71618ad9f4b8b65543/lxml-4.5.1.tar.gz"
+    sha256 "27ee0faf8077c7c1a589573b1450743011117f1aa1a91d5ae776bbc5ca6070f2"
   end
 
   resource "pdfminer.six" do
-    url "https://files.pythonhosted.org/packages/7e/5c/005dacc83be82de399f20355e6deb89791d9b81d286e961730c8e85558f8/pdfminer.six-20200402.tar.gz"
-    sha256 "dd163540391ac8b50c74f0c40f21b7c0a350591d72d516714aa198d103f306a3"
+    url "https://files.pythonhosted.org/packages/62/d1/d5132e95f0e708de344d69eef8309aadd21721a5d12b5770c120a2225797/pdfminer.six-20200517.tar.gz"
+    sha256 "429a099d2ca76cedff79652e17cfc37d7751a26d50f30af0fa791a69f68a3ddc"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/ba/84/eff1f7803fa43614e139b30ecf3f7ccfdccaa23b73209535358c3b7f3a2c/pikepdf-1.11.1.tar.gz"
-    sha256 "c6a061bab765134d74698f0ec0b9cdd231d95158716535d2518c9044291c0ffc"
+    url "https://files.pythonhosted.org/packages/35/17/052f485a334cc0e0585d695acb1593861cb2c9add23177e3eab0c6977b24/pikepdf-1.13.0.tar.gz"
+    sha256 "b35e286edf158b194483944066358d283471800e51fbbf66cd15a8796f96fa3a"
   end
 
+  # leave at v7.0.0 to avoid "'xcb/xcb.h' file not found" errors
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/39/47/f28067b187dd664d205f75b07dcc6e0e95703e134008a14814827eebcaab/Pillow-7.0.0.tar.gz"
     sha256 "4d9ed9a64095e031435af120d3c910148067087541131e82b3e8db302f4c8946"
@@ -88,8 +89,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/12/67/e736c012c6c8b4092dd54bb9bdd7737acf9a140a98c58b87c35363d0105d/tqdm-4.45.0.tar.gz"
-    sha256 "00339634a22c10a7a22476ee946bbde2dbe48d042ded784e4d88e0236eca5d81"
+    url "https://files.pythonhosted.org/packages/3b/42/d14dda3dc578485ec6e24d66fac5b731b2a4c5441db0e2fdc31672864115/tqdm-4.46.0.tar.gz"
+    sha256 "4733c4a10d0f2a4d098d801464bdaf5240c7dadd2a7fde4ee93b0a0efd9fb25e"
   end
 
   def install
