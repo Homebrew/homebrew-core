@@ -23,6 +23,16 @@ class Dromeaudio < Formula
   end
 
   test do
-    system "#{bin}/DromeAudioPlayer", test_fixtures("test.mp3")
+    assert_predicate include/"DromeAudio", :exist?
+    assert_predicate lib/"libDromeAudio.a", :exist?
+
+    # We don't test DromeAudioPlayer with an audio file because it only works
+    # with certain audio devices and will fail on CI with this error:
+    #   DromeAudio Exception: AudioDriverOSX::AudioDriverOSX():
+    #   AudioUnitSetProperty (for StreamFormat) failed
+    #
+    # Related PR: https://github.com/Homebrew/homebrew-core/pull/55292
+    assert_match /Usage: .*?DromeAudioPlayer <filename>/i,
+                 shell_output(bin/"DromeAudioPlayer 2>&1", 1)
   end
 end
