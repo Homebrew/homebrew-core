@@ -1,8 +1,8 @@
 class Latexdiff < Formula
   desc "Compare and mark up LaTeX file differences"
   homepage "https://www.ctan.org/pkg/latexdiff"
-  url "https://github.com/ftilmann/latexdiff/releases/download/1.3.0/latexdiff-1.3.0.tar.gz"
-  sha256 "523d4bb579531286e05d6be5c6a10aaf4cad02bcc1eb70f1cf048be703971ebb"
+  url "https://github.com/ftilmann/latexdiff/releases/download/1.3.1/latexdiff-1.3.1.tar.gz"
+  sha256 "2643355a4528bf6e4578741ec15af41089be0183dbc2be6799bc418491833a41"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +11,9 @@ class Latexdiff < Formula
     sha256 "84bfed3b50311df8d6b11a7a8df65c55c228c3e5cf6d094e65a20596d345ba13" => :high_sierra
     sha256 "84bfed3b50311df8d6b11a7a8df65c55c228c3e5cf6d094e65a20596d345ba13" => :sierra
   end
+
+  # osx default perl cause compilation error
+  depends_on "perl"
 
   def install
     bin.install %w[latexdiff-fast latexdiff-so latexdiff-vc latexrevise]
