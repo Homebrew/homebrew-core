@@ -13,5 +13,15 @@ class TerraformBackendGit < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/terraform-backend-git version")
+    tf = testpath/"tf.tf"
+    tf.write <<~EOS
+      resource "null_resource" "fixture" {}
+    EOS
+    hcl = testpath/"terraform-backend-git.hcl"
+    hcl.write <<~EOS
+      git.repository = "git@github.com:plumber-cd/terraform-backend-git-fixture-state.git"
+      git.state = "state.json"
+    EOS
+    assert_match "foo", pipe_output("#{bin}/terraform-backend-git git terraform init")
   end
 end
