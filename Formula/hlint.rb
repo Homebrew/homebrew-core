@@ -5,8 +5,8 @@ class Hlint < Formula
 
   desc "Haskell source code suggestions"
   homepage "https://github.com/ndmitchell/hlint"
-  url "https://hackage.haskell.org/package/hlint-3.1.1/hlint-3.1.1.tar.gz"
-  sha256 "7b5f8626eb9349eb9e9a7d773ab19ca6f77bfcfd7610d2ae0e15e80f653f6ce0"
+  url "https://hackage.haskell.org/package/hlint-3.1.3/hlint-3.1.3.tar.gz"
+  sha256 "84c16dae0df445dc98665de92bd5949448d901747ee62f59d35a3b047e4c4555"
   head "https://github.com/ndmitchell/hlint.git"
 
   bottle do
@@ -29,6 +29,11 @@ class Hlint < Formula
     (testpath/"test.hs").write <<~EOS
       main = do putStrLn "Hello World"
     EOS
-    assert_match "Redundant do", shell_output("#{bin}/hlint test.hs", 1)
+    assert_match "No hints", shell_output("#{bin}/hlint test.hs")
+
+    (testpath/"test1.hs").write <<~EOS
+      main = do foo x; return 3; bar z
+    EOS
+    assert_match "Redundant return", shell_output("#{bin}/hlint test1.hs", 1)
   end
 end
