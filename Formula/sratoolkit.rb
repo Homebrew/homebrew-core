@@ -19,13 +19,13 @@ class Sratoolkit < Formula
   uses_from_macos "perl"
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/2.10.0.tar.gz"
-    sha256 "4139adff83af213d7880bc80d1c0f5ee9b00c6c4e615d00aa47aaa267e40ed25"
+    url "https://github.com/ncbi/ngs/archive/2.10.5.tar.gz"
+    sha256 "c39ee65a625e3646e0212c5d8be846e45d368c644a053d3b54cf63f53853f02f"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.0.tar.gz"
-    sha256 "a6cc88e8d12f536dc96d5f60698d0ef4cf2f63e31d3d12d23da39b1de39563e1"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.7.tar.gz"
+    sha256 "ca8c87b7a852dca4cb44256bd05bc9353eac862a6158b2cfed75e81c7dbe3f22"
   end
 
   def install
