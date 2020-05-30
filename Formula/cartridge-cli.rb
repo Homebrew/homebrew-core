@@ -1,8 +1,8 @@
 class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
-  url "https://github.com/tarantool/cartridge-cli/archive/1.8.1.tar.gz"
-  sha256 "47c028792caf69fbfa8dd8e1c989555d09141de8cea5154ae71e8b34845f601a"
+  url "https://github.com/tarantool/cartridge-cli/archive/1.8.2.tar.gz"
+  sha256 "28d98427d7d2cc72232cae501c9fe37ea5a8bf726b8e6d0d226a3714d53695a7"
   head "https://github.com/tarantool/cartridge-cli.git"
 
   bottle do
