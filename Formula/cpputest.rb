@@ -2,7 +2,7 @@ class Cpputest < Formula
   desc "C /C++ based unit xUnit test framework"
   homepage "https://www.cpputest.org/"
   url "https://github.com/cpputest/cpputest/releases/download/v4.0/cpputest-4.0.tar.gz"
-  sha256 "81c4958a3ec20ebe87b2cb658c334d27496c715972ddb71262357f449a7c1df3"
+  sha256 "21c692105db15299b5529af81a11a7ad80397f92c122bd7bf1e4a4b0e85654f7"
   head "https://github.com/cpputest/cpputest.git"
 
   bottle do
