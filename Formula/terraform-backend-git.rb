@@ -23,6 +23,6 @@ class TerraformBackendGit < Formula
       git.state = "state.json"
     EOS
     msg = "Error refreshing state: Failed to get state: GET http://localhost:6061/?type=git&repository=git@github.com:foo/bar.git&ref=master&state=state.json giving up after 3 attempts"
-    assert_match msg, pipe_output("#{bin}/terraform-backend-git git terraform init", 1)
+    assert_match msg, pipe_output("#{bin}/terraform-backend-git git terraform init 2>&1", 1)
   end
 end
