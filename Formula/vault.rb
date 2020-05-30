@@ -7,6 +7,7 @@ class Vault < Formula
   url "https://github.com/hashicorp/vault.git",
       :tag      => "v1.4.2",
       :revision => "18f1c494be8b06788c2fdda1a4296eb3c4b174ce"
+  revision 1
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
@@ -18,6 +19,8 @@ class Vault < Formula
 
   depends_on "go" => :build
   depends_on "gox" => :build
+  depends_on "node@10" => :build
+  depends_on "yarn" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -27,8 +30,10 @@ class Vault < Formula
 
     (buildpath/"bin").mkpath
 
+    ENV.prepend_path "PATH", buildpath/"bin"
+
     cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
+      system "make", "bootstrap", "static-dist", "dev-ui"
       bin.install "bin/vault"
       prefix.install_metafiles
     end
