@@ -1,7 +1,7 @@
 class TerraformBackendGit < Formula
   desc "Terraform HTTP Backend implementation that uses Git repository as storage"
   homepage "https://github.com/plumber-cd/terraform-backend-git"
-  url "https://github.com/plumber-cd/terraform-backend-git/archive/v0.0.12.tar.gz"
+  url "https://github.com/plumber-cd/terraform-backend-git/archive/v0.0.13.tar.gz"
   sha256 "f1262c52f8b6751c4674c885775ad62f87c7bc13dedd1fa9fb23d9065f483bd0"
 
   bottle do
@@ -19,6 +19,6 @@ class TerraformBackendGit < Formula
   end
 
   test do
-    shell_output("#{bin}/terraform-backend-git --help")
+    assert_match version.to_s, shell_output("#{bin}/terraform-backend-git version")
   end
 end
