@@ -8,7 +8,7 @@ class TerraformBackendGit < Formula
   depends_on "terraform"
 
   def install
-    system "go", "build", "-ldflags", "-X main.VERSION=v#{version}", *std_go_args
+    system "go", "build", "-ldflags", "-X main.Version=v#{version}", *std_go_args
   end
 
   test do
