@@ -1,8 +1,8 @@
 class Fcct < Formula
   desc "Fedora CoreOS Config Transpiler"
   homepage "https://github.com/coreos/fcct"
-  url "https://github.com/coreos/fcct/archive/v0.5.0.tar.gz"
-  sha256 "50912f67ecc2da62b45f597522a685350422998d5840a18828fc9505a5dc51db"
+  url "https://github.com/coreos/fcct/archive/v0.6.0.tar.gz"
+  sha256 "2cd630f37fcd549e931df9a01f94f0f783e06463701b9f8b5ab9b293515f9915"
   head "https://github.com/coreos/fcct.git"
 
   bottle do
@@ -25,7 +25,7 @@ class Fcct < Formula
   test do
     (testpath/"example.fcc").write <<~EOS
       variant: fcos
-      version: 1.0.0
+      version: 1.1.0
       passwd:
         users:
           - name: core
@@ -35,7 +35,7 @@ class Fcct < Formula
 
     (testpath/"broken.fcc").write <<~EOS
       variant: fcos
-      version: 1.0.0
+      version: 1.1.0
       passwd:
         users:
           - name: core
