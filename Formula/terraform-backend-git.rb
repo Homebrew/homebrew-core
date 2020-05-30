@@ -2,7 +2,7 @@ class TerraformBackendGit < Formula
   desc "Terraform HTTP Backend implementation that uses Git repository as storage"
   homepage "https://github.com/plumber-cd/terraform-backend-git"
   url "https://github.com/plumber-cd/terraform-backend-git/archive/v0.0.13.tar.gz"
-  sha256 "f1262c52f8b6751c4674c885775ad62f87c7bc13dedd1fa9fb23d9065f483bd0"
+  sha256 "a97c4b4c56cff393550d5da1ae4add9e37e353e569d5846f680506e88a44027c"
 
   bottle do
     cellar :any_skip_relocation
