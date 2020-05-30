@@ -19,9 +19,10 @@ class TerraformBackendGit < Formula
     EOS
     hcl = testpath/"terraform-backend-git.hcl"
     hcl.write <<~EOS
-      git.repository = "git@github.com:plumber-cd/terraform-backend-git-fixture-state.git"
+      git.repository = "git@github.com:foo/bar.git"
       git.state = "state.json"
     EOS
-    assert_match "foo", pipe_output("#{bin}/terraform-backend-git git terraform init")
+    msg = "Error refreshing state: Failed to get state: GET http://localhost:6061/?type=git&repository=git@github.com:foo/bar.git&ref=master&state=state.json giving up after 3 attempts"
+    assert_match msg, pipe_output("#{bin}/terraform-backend-git git terraform init", 1)
   end
 end
