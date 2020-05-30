@@ -1,4 +1,4 @@
-class Terragrunt < Formula
+class TerraformBackendGit < Formula
   desc "Terraform HTTP Backend implementation that uses Git repository as storage"
   homepage "https://github.com/plumber-cd/terraform-backend-git"
   url "https://github.com/plumber-cd/terraform-backend-git/archive/v0.0.12.tar.gz"
