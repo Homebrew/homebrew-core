@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-    :tag      => "v1.2.0",
-    :revision => "dacb42fe0480e5632a5b6d9ece5cd92558c8e177"
+    :tag      => "v1.3.0",
+    :revision => "eb5da13bb5744c92583e03f8c7a7ddd8198e6771"
 
   bottle do
     cellar :any
