@@ -3,6 +3,7 @@ class Scrcpy < Formula
   homepage "https://github.com/Genymobile/scrcpy"
   url "https://github.com/Genymobile/scrcpy/archive/v1.14.tar.gz"
   sha256 "45353b6e6cf1efbc8aadf2a51103242460562f6a55c6772037f492716b3fca07"
+  revision 1
 
   bottle do
     sha256 "5e5d9398b908dc42c7a88b1968299fbde78edb4fbe8cd9c88d714c8404f13d3d" => :catalina
