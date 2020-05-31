@@ -2,8 +2,8 @@ class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
   # Stable versions have numbers of the form 201x0000.y
-  url "https://github.com/coin-or/CppAD/archive/20200000.2.tar.gz"
-  sha256 "1f28951f2d4785aac6ede0138c86b70844560f1ee8f76e61adf82a4c41eb641a"
+  url "https://github.com/coin-or/CppAD/archive/20200000.3.tar.gz"
+  sha256 "b37f3bc13d1e653828fefec604260d93224dc66a5f70da5500bc7bf2ba13c3d3"
   version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
