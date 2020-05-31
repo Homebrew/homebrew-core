@@ -1,8 +1,8 @@
 class Asyncplusplus < Formula
   desc "Concurrency framework for C++11"
   homepage "https://github.com/Amanieu/asyncplusplus"
-  url "https://github.com/Amanieu/asyncplusplus/archive/v1.0.tar.gz"
-  sha256 "eb2b7a900435ef10fcb62a1d364aa7b4c2ef092ebe2b6a83d0ec80904e22514d"
+  url "https://github.com/Amanieu/asyncplusplus/archive/v1.1.tar.gz"
+  sha256 "d160d3a433a1e08f51c785742843182c2b81a7bc872766f57bf5f3108377b858"
 
   bottle do
     cellar :any
