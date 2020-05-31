@@ -1,8 +1,8 @@
 class Eureka < Formula
   desc "CLI tool to input and store your ideas without leaving the terminal"
   homepage "https://github.com/simeg/eureka"
-  url "https://github.com/simeg/eureka/archive/v1.6.2.tar.gz"
-  sha256 "a8fb41cdf0c8c5a00e5c17fd2cdde71ce8fa1babb2b5d69d68cee7a0df5d1b4b"
+  url "https://github.com/simeg/eureka/archive/v1.6.3.tar.gz"
+  sha256 "ba11b03de24fae9909ceaecec1ba5a5bb6c109603192d7273d750d0dcc9b6da4"
   head "https://github.com/simeg/eureka.git"
 
   bottle do
@@ -21,7 +21,10 @@ class Eureka < Formula
   test do
     assert_match "eureka [FLAGS]", shell_output("#{bin}/eureka --help 2>&1")
 
-    assert_match "Could not remove editor config file", shell_output("#{bin}/eureka --clear-editor 2>&1", 101)
-    assert_match "No path to repository found", shell_output("#{bin}/eureka --view 2>&1", 101)
+    (testpath/".eureka/repo_path").write <<~EOS
+      homebrew
+    EOS
+
+    assert_match "homebrew/README.md: No such file or directory", shell_output("#{bin}/eureka --view 2>&1")
   end
 end
