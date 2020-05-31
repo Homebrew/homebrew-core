@@ -36,7 +36,7 @@ class Mlt < Formula
                           "--enable-gpl",
                           "--enable-gpl3",
                           "--enable-opencv", # opencv.tracker
-                          "--disable-gtk2" # mlt <= 6.20.0, otherwise <gdk/gdk.h> not found if "gdk-pixbuf"
+                          "--disable-gtk2" # mlt <= 6.20.0: "<gdk/gdk.h> not found" if "gdk-pixbuf" installed; remove >=6.21
     system "make"
     system "make", "install"
   end
