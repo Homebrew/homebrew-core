@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.4/sbcl-2.0.4-source.tar.bz2"
-  sha256 "122b4641766be8fde87ea4464cf706ddc161a1c05f48dbebf2cdcd80318982d1"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.5/sbcl-2.0.5-source.tar.bz2"
+  sha256 "0050f88dd12893c90f03e7b6c3b998929dcd08e7bb0ca5c4003be6110337e2cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -34,7 +34,7 @@ class Sbcl < Formula
     end
 
     tmpdir = Pathname.new(Dir.mktmpdir)
-    tmpdir.install resource("bootstrap64")
+    resource("bootstrap64").unpack tmpdir
 
     command = "#{tmpdir}/src/runtime/sbcl"
     core = "#{tmpdir}/output/sbcl.core"
