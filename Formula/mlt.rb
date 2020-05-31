@@ -12,28 +12,19 @@ class Mlt < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+  depends_on "fftw" # fft, lightshow, dance
   depends_on "frei0r"
   depends_on "libdv"
+  depends_on "libexif" # qt module needs libexif
   depends_on "libsamplerate"
   depends_on "libvorbis"
-  depends_on "sox"
-
+  # mlt >= v6.21.0: depends_on "gdk-pixbuf"
+  # mlt >= v6.21.0: depends_on "pango"
+  depends_on "opencv@3" # mlt = v6.20.0 - opencv.tracker
+  # mlt >= v6.21.0: depends_on "opencv@4" # opencv.tracker
+  depends_on "qt" # qtblend, qtext, audiospectrum
   depends_on "sdl2" # Class SDLTranslatorResponder is implemented in both
-
-  depends_on "fftw" # fft, lightshow, dance
-
-  depends_on "qt5" # qtblend, qtext, audiospectrum
-  depends_on "libexif" # qt module needs libexif
-
-  # mlt >= v6.21.0
-  # depends_on "gdk-pixbuf"
-  # depends_on "pango"
-
-  # opencv.tracker
-  # mlt = v6.20.0
-  depends_on "opencv@3"
-  # mlt >= v6.21.0
-  # depends_on "opencv@4"
+  depends_on "sox"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -45,7 +36,7 @@ class Mlt < Formula
                           "--enable-gpl",
                           "--enable-gpl3",
                           "--enable-opencv", # opencv.tracker
-                          "--disable-gtk2" # mlt <= 6.20.0: "<gdk/gdk.h> not found" if "gdk-pixbuf" installed; remove >=6.21
+                          "--disable-gtk2" # mlt <= 6.20.0, otherwise <gdk/gdk.h> not found if "gdk-pixbuf"
     system "make"
     system "make", "install"
   end
