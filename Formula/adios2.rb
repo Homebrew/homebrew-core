@@ -1,9 +1,8 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/v2.5.0.tar.gz"
-  sha256 "7c8ff3bf5441dd662806df9650c56a669359cb0185ea232ecb3578de7b065329"
-  revision 2
+  url "https://github.com/ornladios/ADIOS2/archive/v2.6.0.tar.gz"
+  sha256 "45b41889065f8b840725928db092848b8a8b8d1bfae1b92e72f8868d1c76216c"
   head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
 
   bottle do
@@ -24,11 +23,12 @@ class Adios2 < Formula
   depends_on "zeromq"
   uses_from_macos "bzip2"
 
-  # HighSierra build issue with JSON support, fix already in post-2.5.0 master
-  # reference: https://github.com/ornladios/ADIOS2/pull/1805
+  # macOS 10.13 configuration-time issue detecting float types
+  # reference: https://github.com/ornladios/ADIOS2/pull/2305
+  # can be removed after v2.6.0
   patch do
-    url "https://github.com/ornladios/ADIOS2/pull/1805.patch?full_index=1"
-    sha256 "6760801cfddc48c6df158295e58d007c8b07abb82a1e79ee89c5a1e3e955d2c1"
+    url "https://github.com/ornladios/ADIOS2/pull/2305.patch?full_index=1"
+    sha256 "6d0b84af71d6ccf4cf1cdad5e064cca837d505334316e7e78d18fa30a959666a"
   end
 
   def install
@@ -44,6 +44,7 @@ class Adios2 < Formula
       -DADIOS2_USE_DataSpaces=OFF
       -DADIOS2_USE_Fortran=ON
       -DADIOS2_USE_HDF5=OFF
+      -DADIOS2_USE_IME=OFF
       -DADIOS2_USE_MGARD=OFF
       -DADIOS2_USE_MPI=ON
       -DADIOS2_USE_PNG=ON
