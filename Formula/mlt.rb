@@ -16,15 +16,36 @@ class Mlt < Formula
   depends_on "libdv"
   depends_on "libsamplerate"
   depends_on "libvorbis"
-  depends_on "sdl"
   depends_on "sox"
+
+  depends_on "sdl2" # Class SDLTranslatorResponder is implemented in both
+
+  depends_on "fftw" # fft, lightshow, dance
+
+  depends_on "qt5" # qtblend, qtext, audiospectrum
+  depends_on "libexif" # qt module needs libexif
+
+  # mlt >= v6.21.0
+  # depends_on "gdk-pixbuf"
+  # depends_on "pango"
+
+  # opencv.tracker
+  # mlt = v6.20.0
+  depends_on "opencv@3"
+  # mlt >= v6.21.0
+  # depends_on "opencv@4"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-jackrack",
                           "--disable-swfdec",
                           "--disable-gtk",
-                          "--enable-gpl"
+                          "--disable-sdl", # Don't need SDL because we have SDL2
+                          "--enable-motion_est", # audiowaveform
+                          "--enable-gpl",
+                          "--enable-gpl3",
+                          "--enable-opencv", # opencv.tracker
+                          "--disable-gtk2" # mlt <= 6.20.0: "<gdk/gdk.h> not found" if "gdk-pixbuf" installed; remove >=6.21
     system "make"
     system "make", "install"
   end
