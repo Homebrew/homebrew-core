@@ -14,6 +14,7 @@ class Geant4 < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "expat"
   depends_on "qt"
   depends_on "xerces-c"
 
