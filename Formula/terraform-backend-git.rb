@@ -2,7 +2,7 @@ class TerraformBackendGit < Formula
   desc "HTTP Backend that uses Git repository as storage"
   homepage "https://github.com/plumber-cd/terraform-backend-git"
   url "https://github.com/plumber-cd/terraform-backend-git/archive/v0.0.14.tar.gz"
-  sha256 "a97c4b4c56cff393550d5da1ae4add9e37e353e569d5846f680506e88a44027c"
+  sha256 "559920006d870b904e4ef5982e40d75452e6a74082bea206274202c2ab5d0da9"
 
   depends_on "go" => :build
   depends_on "terraform"
