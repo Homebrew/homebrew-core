@@ -4,6 +4,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-20.1.0.tar.xz"
   mirror "https://www.mesa3d.org/archive/mesa-20.1.0.tar.xz"
   sha256 "2109055d7660514fc4c1bcd861bcba9db00c026119ae222720111732dba27c83"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
@@ -22,8 +23,8 @@ class Mesa < Formula
   depends_on "gettext"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/42/64/fc7c506d14d8b6ed363e7798ffec2dfe4ba21e14dda4cfab99f4430cba3a/Mako-1.1.2.tar.gz"
-    sha256 "3139c5d64aa5d175dbafb95027057128b5fbd05a40c53999f3905ceb53366d9d"
+    url "https://files.pythonhosted.org/packages/72/89/402d2b4589e120ca76a6aed8fee906a0f5ae204b50e455edd36eda6e778d/Mako-1.1.3.tar.gz"
+    sha256 "8195c8c1400ceb53496064314c6736719c6f25e7479cd24c77be3d9361cddc27"
   end
 
   resource "gears.c" do
