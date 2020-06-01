@@ -1,8 +1,8 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.6.9/dar-2.6.9.tar.gz"
-  sha256 "db48f5beb0671afc4443730910e010d7ba846f4b1912491b163db6c049c1f8cb"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.6.10/dar-2.6.10.tar.gz"
+  sha256 "16a0b755c648c4ce6598e258ccf375f55d4f2f943448341ed41085ac7a27d2e7"
 
   bottle do
     cellar :any
@@ -22,7 +22,6 @@ class Dar < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-build-html",
                           "--disable-dar-static",
-                          "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-libxz-linking",
                           "--enable-mode=64"
