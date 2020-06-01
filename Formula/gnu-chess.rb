@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "GNU Chess"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.6.tar.gz"
-  sha256 "d617f875d6411378c6ce521663ebda42db9006a5eb5706bcd821a918c06eb04f"
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.7.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.7.tar.gz"
+  sha256 "e536675a61abe82e61b919f6b786755441d9fcd4c21e1c82fb9e5340dd229846"
 
   bottle do
     sha256 "205554eca1980a965a22d14a6d0ce23b2e31a76c9034131dd471269a71467baf" => :catalina
