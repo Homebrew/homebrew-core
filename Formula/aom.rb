@@ -2,8 +2,8 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      :tag      => "v1.0.0",
-      :revision => "d14c5bb4f336ef1842046089849dee4a301fbbf0"
+      :tag      => "v2.0.0",
+      :revision => "bb35ba9148543f22ba7d8642e4fbd29ae301f5dc"
 
   bottle do
     cellar :any_skip_relocation
