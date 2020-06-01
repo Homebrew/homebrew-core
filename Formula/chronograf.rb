@@ -22,22 +22,15 @@ class Chronograf < Formula
   depends_on "kapacitor"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Node.setup_npm_environment
-    chronograf_path = buildpath/"src/github.com/influxdata/chronograf"
-    chronograf_path.install buildpath.children
 
-    cd chronograf_path do
-      cd "ui" do # fix compatibility with the latest node
-        system "yarn", "upgrade", "parcel@1.11.0"
-      end
-      system "make", "dep"
-      system "make", ".jssrc"
-      system "make", "chronograf"
-      bin.install "chronograf"
-      prefix.install_metafiles
+    cd "ui" do # fix compatibility with the latest node
+      system "yarn", "upgrade", "parcel@1.11.0"
     end
+    system "make", "dep"
+    system "make", ".jssrc"
+    system "make", "chronograf"
+    bin.install "chronograf"
   end
 
   plist_options :manual => "chronograf"
