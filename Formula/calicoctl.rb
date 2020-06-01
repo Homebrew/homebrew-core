@@ -15,21 +15,12 @@ class Calicoctl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/projectcalico/calicoctl"
-    dir.install buildpath.children
-
-    cd dir do
-      commands = "github.com/projectcalico/calicoctl/calicoctl/commands"
-      system "go", "build", "-v", "-o", "dist/calicoctl-darwin-amd64",
-                            "-ldflags", "-X #{commands}.VERSION=#{stable.specs[:tag]} " \
-                                        "-X #{commands}.GIT_REVISION=#{stable.specs[:revision][0, 8]} " \
-                                        "-s -w",
-                            "calicoctl/calicoctl.go"
-      bin.install "dist/calicoctl-darwin-amd64" => "calicoctl"
-      prefix.install_metafiles
-    end
+    commands = "github.com/projectcalico/calicoctl/calicoctl/commands"
+    system "go", "build", *std_go_args,
+                          "-ldflags", "-X #{commands}.VERSION=#{stable.specs[:tag]} " \
+                                      "-X #{commands}.GIT_REVISION=#{stable.specs[:revision][0, 8]} " \
+                                      "-s -w",
+                          "calicoctl/calicoctl.go"
   end
 
   test do
