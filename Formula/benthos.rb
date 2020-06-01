@@ -14,15 +14,8 @@ class Benthos < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/Jeffail/benthos"
-    src.install buildpath.children
-    src.cd do
-      system "make", "VERSION=#{version}"
-      bin.install "target/bin/benthos"
-      prefix.install_metafiles
-    end
+    system "make", "VERSION=#{version}"
+    bin.install "target/bin/benthos"
   end
 
   test do
