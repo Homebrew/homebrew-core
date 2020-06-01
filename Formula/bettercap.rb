@@ -19,14 +19,8 @@ class Bettercap < Formula
   uses_from_macos "libpcap"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
-
-    cd "src/github.com/bettercap/bettercap" do
-      system "make", "build"
-      bin.install "bettercap"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "bettercap"
   end
 
   def caveats
