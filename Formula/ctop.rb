@@ -15,14 +15,8 @@ class Ctop < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/bcicen/ctop"
-    src.install buildpath.children
-    src.cd do
-      system "make", "build"
-      bin.install "ctop"
-      prefix.install_metafiles
-    end
+    system "make", "build"
+    bin.install "ctop"
   end
 
   test do
