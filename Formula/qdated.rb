@@ -4,10 +4,6 @@ class Qdated < Formula
   url "https://web.archive.org/web/http://www.palomine.net/qdated/qdated-0.53.tar.gz"
   sha256 "002391c656c705838965cab8231261f2474b26711c03e24cf0ecf2978b3cf934"
 
-  bottle do
-    cellar :any_skip_relocation
-  end
-
   def install
     Dir.chdir("qdated-#{version}") do
       system "package/compile"
