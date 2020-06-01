@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.1.tar.gz"
-  sha256 "222c6c4e2ec15bfab0e327b9ba4af92a3fcdd0ff76f1917529a11503ab4a2833"
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.2.tar.gz"
+  sha256 "87cfdf515b6c5a71afb3f5b1960d5cd323a0cce5643094713db3cf2ccb82b4bc"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
@@ -15,6 +15,7 @@ class DosboxX < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on :macos => :high_sierra # needs futimens
 
