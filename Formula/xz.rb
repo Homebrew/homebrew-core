@@ -21,6 +21,8 @@ class Xz < Formula
                           "--prefix=#{prefix}"
     system "make", "check"
     system "make", "install"
+    # macOS already provides liblzma, remove it so it isn't linked!
+    rm Dir["#{lib}/liblzma.*"]
   end
 
   test do
