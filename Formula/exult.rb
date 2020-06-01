@@ -1,8 +1,8 @@
 class Exult < Formula
   desc "Recreation of Ultima 7"
   homepage "https://exult.sourceforge.io/"
-  url "https://github.com/exult/exult.git", :revision => "75aff2e97a4867d7810f8907796f58cb11b87a39"
-  version "1.4.9rc1+r7520"
+  url "https://github.com/exult/exult/archive/v1.6.tar.gz"
+  sha256 "6176d9feba28bdf08fbf60f9ebb28a530a589121f3664f86711ff8365c86c17a"
   head "https://github.com/exult/exult.git"
 
   bottle do
@@ -21,14 +21,6 @@ class Exult < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl2"
-
-  # Upstream's fix for recent clang (Xcode 9)
-  # https://github.com/exult/exult/commit/083ea2fa
-  # Can be removed in next version
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c9cb2e28/exult/clang9.patch"
-    sha256 "e661b7e2e30820bcb74938a203bd367c66c00bc2a7c8de8525e78d70a87a3bd8"
-  end
 
   def install
     # Use ~/Library/... instead of /Library for the games
