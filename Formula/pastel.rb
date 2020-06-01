@@ -1,8 +1,8 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
-  url "https://github.com/sharkdp/pastel/archive/v0.7.1.tar.gz"
-  sha256 "38ae098610aceb876fd29cfcd3b0bed6c9f1237a65e691ef7cbd670c27aa59b2"
+  url "https://github.com/sharkdp/pastel/archive/v0.8.0.tar.gz"
+  sha256 "603dc63d6aa261f159178dffeb389471a845c1a5d62187a275a3d33a66fe9a69"
 
   bottle do
     cellar :any_skip_relocation
