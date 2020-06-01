@@ -4,6 +4,7 @@ class Pulumi < Formula
   url "https://github.com/pulumi/pulumi.git",
       :tag      => "v2.3.0",
       :revision => "aa5dfe4289bec3c48d1ec599bd0b747cfc3da33f"
+  revision 1
   head "https://github.com/pulumi/pulumi.git"
 
   bottle do
@@ -34,17 +35,10 @@ class Pulumi < Formula
       bin.install Dir["#{buildpath}/bin/*"]
       prefix.install_metafiles
 
-      # Install bash completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion bash")
-      (bash_completion/"pulumi").write output
-
-      # Install zsh completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion zsh")
-      (zsh_completion/"_pulumi").write output
-
-      # Install fish completion
-      output = Utils.popen_read("#{bin}/pulumi gen-completion fish")
-      (fish_completion/"_pulumi").write output
+      # Install shell completions
+      (bash_completion/"pulumi.bash").write `#{bin}/pulumi gen-completion bash`
+      (zsh_completion/"_pulumi").write `#{bin}/pulumi gen-completion zsh`
+      (fish_completion/"pulumi.fish").write `#{bin}/pulumi gen-completion fish`
     end
   end
 
