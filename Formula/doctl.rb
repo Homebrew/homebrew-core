@@ -15,22 +15,16 @@ class Doctl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
     doctl_version = version.to_s.split(/\./)
+    base_flag = "-X github.com/digitalocean/doctl"
+    ldflags = %W[
+      #{base_flag}.Major=#{doctl_version[0]}
+      #{base_flag}.Minor=#{doctl_version[1]}
+      #{base_flag}.Patch=#{doctl_version[2]}
+      #{base_flag}.Label=release
+    ].join(" ")
 
-    src = buildpath/"src/github.com/digitalocean/doctl"
-    src.install buildpath.children
-    src.cd do
-      base_flag = "-X github.com/digitalocean/doctl"
-      ldflags = %W[
-        #{base_flag}.Major=#{doctl_version[0]}
-        #{base_flag}.Minor=#{doctl_version[1]}
-        #{base_flag}.Patch=#{doctl_version[2]}
-        #{base_flag}.Label=release
-      ].join(" ")
-      system "go", "build", "-ldflags", ldflags, "-o", bin/"doctl", "github.com/digitalocean/doctl/cmd/doctl"
-    end
+    system "go", "build", "-ldflags", ldflags, *std_go_args, "github.com/digitalocean/doctl/cmd/doctl"
 
     (bash_completion/"doctl").write `#{bin}/doctl completion bash`
     (zsh_completion/"_doctl").write `#{bin}/doctl completion zsh`
