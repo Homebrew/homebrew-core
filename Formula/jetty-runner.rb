@@ -31,7 +31,7 @@ class JettyRunner < Formula
 
     begin
       output = shell_output("curl -I http://localhost:#{port}")
-      assert_match %r{HTTP\/1\.1 200 OK}, output
+      assert_match %r{HTTP/1\.1 200 OK}, output
     ensure
       Process.kill 9, pid
       Process.wait pid
