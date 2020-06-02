@@ -3,9 +3,9 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/029e73b1c2ef96d17df2b8b8a511cd76b1ce717f"
-  version "2.6.0"
-  sha256 "3212597154cebcfcf541f0e545c6c2ae30b0ae17d325b2a921d0956273910b36"
+  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/168e50e956111d460c74d6cd596edd7430009240"
+  version "2.7.0"
+  sha256 "b0976458b3fc2006567be84d5601035d1b9e29b4b12dd72a0430c3a80278a764"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -254,8 +254,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-loganalytics" do
-    url "https://files.pythonhosted.org/packages/87/a2/cc70fb71277d36f0b10c5ed63b70ae0aed7ac659c666d62fe7c098e48da5/azure-mgmt-loganalytics-0.5.0.zip"
-    sha256 "16f4c4f676ea718b7e1c59bd9a516fcfc796f1aff844b183a7ce9afe69fb214d"
+    url "https://files.pythonhosted.org/packages/a5/fa/4ab21d84921e8ba30869c23c82f79c3e22a953cb5cb8c0f469e4c74f64df/azure-mgmt-loganalytics-0.6.0.zip"
+    sha256 "a1527fe8b1e8a47558bfa03bd6c587706d8fb9213142aea42da07397daa2d039"
   end
 
   resource "azure-mgmt-managedservices" do
@@ -299,8 +299,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-network" do
-    url "https://files.pythonhosted.org/packages/e7/30/748269554c55ba8641dd7b6c8c07177cd45e8b7ae3a80e1017db99c792f5/azure-mgmt-network-10.1.0.zip"
-    sha256 "e5ac0ee14b71ab57035c45bef15d3698b0b6026ecafb8320a7c704eb3f6fba3a"
+    url "https://files.pythonhosted.org/packages/e7/65/b75d8d1fb8a520e6f522107a72629fb145a998d53e2d09c54d96718438e5/azure-mgmt-network-10.2.0.zip"
+    sha256 "d50c74cdc1c9be6861ddef9adffd3b05afc5a5092baf0209eea30f4439cba2d9"
   end
 
   resource "azure-mgmt-nspkg" do
@@ -499,8 +499,8 @@ class AzureCli < Formula
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/2c/30/f0162d3d83e398c7a3b70c91eef61d409dea205fb4dc2b47d335f429de32/jmespath-0.9.4.tar.gz"
-    sha256 "bde2aef6f44302dfb30320115b17d030798de8c4110e28d5cf6cf91a7a31074c"
+    url "https://files.pythonhosted.org/packages/5c/40/3bed01fc17e2bb1b02633efc29878dfa25da479ad19a69cfb11d2b88ea8e/jmespath-0.9.5.tar.gz"
+    sha256 "cca55c8d153173e21baa59983015ad0daf603f9cb799904ff057bfb8ff8dc2d9"
   end
 
   resource "jsmin" do
@@ -539,8 +539,8 @@ class AzureCli < Formula
   end
 
   resource "msrest" do
-    url "https://files.pythonhosted.org/packages/f6/0d/bc78f3d63a4d202d64ee8c706af4d84b5716a8052a7e1e79aed1915c49d5/msrest-0.6.13.tar.gz"
-    sha256 "9050fbbb95dd9e8f4008d7227e4dc5662e8b605c89e5621b0dd09ac7f04cf01d"
+    url "https://files.pythonhosted.org/packages/32/5d/d42d519a3943247e65ba48f6fef4c4ace6f336b003c47b14f2b4b6d198c0/msrest-0.6.14.tar.gz"
+    sha256 "f52f880a2145c075f436083ee9a274ddc54c62181e4c41c9ac11520fbae547e5"
   end
 
   resource "msrestazure" do
