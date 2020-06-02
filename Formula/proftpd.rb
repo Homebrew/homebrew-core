@@ -1,10 +1,10 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6c.tar.gz"
-  mirror "https://fossies.org/linux/misc/proftpd-1.3.6c.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6c.tar.gz"
-  sha256 "fa3541c4b34136a7b80cb12a2f6f9a0cab5118a5b0a1653d40af49c6479c35ad"
+  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6d.tar.gz"
+  mirror "https://fossies.org/linux/misc/proftpd-1.3.6d.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6d.tar.gz"
+  sha256 "c338e2e25d1b6f51d397af154a0124fc42eee6b7ff99a2d976777d6b2f97c096"
 
   bottle do
     sha256 "096d6a619238c4077e541a3cd9e2b9f68aaf1d89ce5c6fa5432d31a25f66115f" => :catalina
