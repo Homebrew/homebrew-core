@@ -20,7 +20,7 @@ class Crowdin < Formula
   test do
     generate_output = shell_output("#{bin}/crowdin generate").chomp
     assert_predicate testpath/"crowdin.yml", :exist?
-    assert_match /^Generates Crowdin CLI configuration skeleton .*crowdin\.yml\'- OK$/, generate_output
+    assert_match /^Generates Crowdin CLI configuration skeleton .*crowdin\.yml'- OK$/, generate_output
     lint_output = shell_output("#{bin}/crowdin lint", 1).split("\n")
     lint_output.each do |line|
       assert_match /^Project [^ ]+ is empty$/, line
