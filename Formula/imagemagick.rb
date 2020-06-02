@@ -55,6 +55,7 @@ class Imagemagick < Formula
       --with-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --with-lqr
+      --without-fftw
       --without-pango
       --without-x
       --without-wmf
