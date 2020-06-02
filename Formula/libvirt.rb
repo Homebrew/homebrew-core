@@ -6,9 +6,9 @@ class Libvirt < Formula
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "fb27c175162a8a56ff682bc24e9c7f7273ff2ab483f3de0bd6dc2eb83c92e70a" => :catalina
-    sha256 "233a3222b3178fcf7a46cd642597fa910ec3cf48f4ccb90c508aa1324947aead" => :mojave
-    sha256 "08e87edcf8fa92c16ac9f99a7e8ebdcdeb2c203abe97ed7e8cc3f0b25065ba2d" => :high_sierra
+    sha256 "738469abff543832c8ac6a0cf35279abb2c4fa25a550cfa052c039f6f7dcceee" => :catalina
+    sha256 "371e06d82b3ed17e833a9c42b0495c00b986407cac59a2a2f6dff469be6e436a" => :mojave
+    sha256 "6a28ef5b6fdc3108dc651f62b21a3cf0178c8884a0120bd149626bb946ca7550" => :high_sierra
   end
 
   depends_on "docutils" => :build
