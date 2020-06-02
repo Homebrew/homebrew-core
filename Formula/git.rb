@@ -2,9 +2,8 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.26.2.tar.xz"
-  sha256 "6d65132471df9e531807cb2746f8be317e22a343b9385bbe11c9ce7f0d2fc848"
-  revision 1
+  url "https://www.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz"
+  sha256 "73ca9774d7fa226e1d87c1909401623f96dca6a044e583b9a762e84d7d1a73f9"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -22,27 +21,18 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.26.2.tar.xz"
-    sha256 "763c2ab83b980edb210d45d9ad25337afd3610ac3749f4124964f86bbdbb201e"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.27.0.tar.xz"
+    sha256 "ffa91681b6a8f558745924b1dbb76d604c9e52b27c525c6bd470c0123f7f4af3"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.26.2.tar.xz"
-    sha256 "433de104f74a855b7074d88a27e77bf6f0764074e449ffc863f987c124716465"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.27.0.tar.xz"
+    sha256 "e6cbab49b04c975886fdddf46eb24c5645c6799224208db8b01143091d9bd49c"
   end
 
   resource "Net::SMTP::SSL" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
     sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
-  end
-
-  # Fixes a bug where fast-forwarding via `git rebase` doesn't work with rebase.abbreviateCommands.
-  # This bug broke `brew update` for some users.
-  # **Please verify the bug is fixed before removing this patch.**
-  # https://github.com/Homebrew/brew/issues/7374
-  patch do
-    url "https://github.com/agrn/git/commit/058d9c128c63b0a4849b384b358cca9bb19c56db.patch?full_index=1"
-    sha256 "40a243ccc566721bc4df6d9300772fdd367cb9e35a1652f888b89f3f32823227"
   end
 
   def install
