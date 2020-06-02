@@ -5,6 +5,7 @@ class Imagemagick < Formula
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.10-16.tar.xz"
   sha256 "7f97da9e14c68ec291afbd5f97f9df91593dd2df7e96bc306cc60fb08d5bd195"
   head "https://github.com/ImageMagick/ImageMagick.git"
+  revision 1
 
   bottle do
     sha256 "9fa91b9807a7b136e0326978c0cefb163c819c919584dfcdccd2626892f69e4c" => :catalina
@@ -13,7 +14,6 @@ class Imagemagick < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "fftw"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "jpeg"
@@ -54,7 +54,6 @@ class Imagemagick < Formula
       --with-heic=yes
       --with-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
-      --with-fftw
       --with-lqr
       --without-pango
       --without-x
