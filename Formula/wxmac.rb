@@ -3,6 +3,7 @@ class Wxmac < Formula
   homepage "https://www.wxwidgets.org"
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5.1/wxWidgets-3.0.5.1.tar.bz2"
   sha256 "440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807"
+  revision 1
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
@@ -29,6 +30,7 @@ class Wxmac < Formula
       "--enable-svg",
       "--enable-unicode",
       "--enable-webkit",
+      "--enable-webview",
       "--with-expat",
       "--with-libjpeg",
       "--with-libpng",
