@@ -5,10 +5,9 @@ class CucumberRuby < Formula
   sha256 "de1eb7b99d0e03e851e8d7d1aacb9939590dc7f5d2d2d91180917e6f20c22ebe"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4dae16a128b3647f45cae985f994092c7455a3ea0de285a2a8a5f6bb2558f614" => :catalina
-    sha256 "2ba7581d65bb36c8417f25a9275db93b52f03f57552f6cb7abd11b7cde88bb1d" => :mojave
-    sha256 "290a326dfcdae9a4cb61765761814ba070729a8d0076e4110e6bc536905b6976" => :high_sierra
+    sha256 "1bbd39ef420f725cd23b38f43993a1fd34b1c8d72b20895b57d5a3f7505435dc" => :catalina
+    sha256 "9cfc5742cad48dc3c4d469600dc42b90778c82e89f41a2aecc8b6a4d7832ad6e" => :mojave
+    sha256 "5a675b87cce18a91a495077d37c7d57afc645e6b973fb09720d18756fef223b3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
