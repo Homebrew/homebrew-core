@@ -27,7 +27,7 @@ class Atlantis < Formula
     pid = Process.spawn(command)
     system "sleep", "5"
     output = `curl -vk# 'http://localhost:#{port}/' 2>&1`
-    assert_match %r{HTTP\/1.1 200 OK}m, output
+    assert_match %r{HTTP/1.1 200 OK}m, output
     assert_match "atlantis", output
     Process.kill("TERM", pid)
   end
