@@ -20,7 +20,7 @@ class Minio < Formula
       system "go", "build", "-trimpath", "-o", bin/"minio"
     else
       release = `git tag --points-at HEAD`.chomp
-      version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
+      version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
       commit = `git rev-parse HEAD`.chomp
       proj = "github.com/minio/minio"
 
