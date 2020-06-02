@@ -23,7 +23,7 @@ class Findent < Formula
   test do
     cp_r pkgshare/"test/progfree.f.in", testpath
     cp_r pkgshare/"test/progfree.f.try.f.ref", testpath
-    flags = File.open(testpath/"progfree.f.in", &:readline).sub(/ *[!] */, "").chomp
+    flags = File.open(testpath/"progfree.f.in", &:readline).sub(/ *! */, "").chomp
     system "#{bin}/findent #{flags} < progfree.f.in > progfree.f.out.f90"
     assert_predicate testpath/"progfree.f.out.f90", :exist?
     assert compare_file(testpath/"progfree.f.try.f.ref", testpath/"progfree.f.out.f90")
