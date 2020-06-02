@@ -25,7 +25,7 @@ class Cvsync < Formula
     # Makefile from 2005 assumes Darwin doesn't define `socklen_t' and defines
     # it with a CC macro parameter making gcc unhappy about double define.
     inreplace "mk/network.mk",
-      /^CFLAGS \+= \-Dsocklen_t=int/, ""
+      /^CFLAGS \+= -Dsocklen_t=int/, ""
 
     # Remove owner and group parameters from install.
     inreplace "mk/base.mk",
