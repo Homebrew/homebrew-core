@@ -7,9 +7,10 @@ class Calicoctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0a4bede065a95f53668bd45f88446d2a30d87b6e4a2b72be04ceb27d8f54399b" => :catalina
-    sha256 "a0b74a08c607a55cd3b1485bd55a4a6d5ef02a2ee3b1c8bd230c113ec6deb9c3" => :mojave
-    sha256 "1e43d96c2fe04420119c51e504ca9659e963eecd7ae0b2770a0c82df622c9dd0" => :high_sierra
+    rebuild 1
+    sha256 "c54ed319108c12dfc2240485e47201d2ea9a24d46103703db2bbfbf8ec9a79f4" => :catalina
+    sha256 "733acfb76724283e82f1d888ee452fcd8e377749d464925c145bad18551604a7" => :mojave
+    sha256 "af30a792d0df3653c9cc0fe0620471aac40db94319fcee83229d80dfd253d346" => :high_sierra
   end
 
   depends_on "go" => :build
