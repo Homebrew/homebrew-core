@@ -15,8 +15,8 @@ class Imagemagick < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "ghostscript"
-  depends_on "jpeg"
   depends_on "fftw"
+  depends_on "jpeg"
   depends_on "libheif"
   depends_on "liblqr"
   depends_on "libomp"
