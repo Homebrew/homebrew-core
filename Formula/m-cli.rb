@@ -14,8 +14,8 @@ class MCli < Formula
       s.gsub! /^\[ -L.*|^\s+\|\| pushd.*|^popd.*/, ""
       s.gsub! /MPATH=.*/, "MPATH=#{prefix}"
       # Disable options "update" && "uninstall", they must be handled by brew
-      s.gsub! /update_mcli \&\&.*/, "printf \"Try: brew update && brew upgrade m-cli \\n\" && exit 0"
-      s.gsub! /uninstall_mcli \&\&.*/, "printf \"Try: brew uninstall m-cli \\n\" && exit 0"
+      s.gsub! /update_mcli &&.*/, "printf \"Try: brew update && brew upgrade m-cli \\n\" && exit 0"
+      s.gsub! /uninstall_mcli &&.*/, "printf \"Try: brew uninstall m-cli \\n\" && exit 0"
     end
 
     bin.install_symlink "#{prefix}/m" => "m"
