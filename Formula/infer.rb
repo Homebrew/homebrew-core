@@ -89,7 +89,7 @@ class Infer < Formula
     ENV["OPAMIGNORECONSTRAINTS"] = "ocaml,ocamlfind,num,#{pinned_deps.keys.join(",")}"
 
     # Remove ocaml-variants dependency (we won't be using it)
-    inreplace "opam.locked", /^ +"ocaml-variants" {= ".*?"}$\n/, ""
+    inreplace "opam.locked", /^ +"ocaml-variants" \{= ".*?"\}$\n/, ""
 
     system "opam", "exec", "--", "./build-infer.sh", "all", "--yes", "--user-opam-switch"
     system "opam", "exec", "--", "make", "install-with-libs"
