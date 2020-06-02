@@ -76,7 +76,7 @@ class Pgplot < Formula
       cp "../drivers.list", "."
       %w[GIF VGIF LATEX PNG TPNG PS
          VPS CPS VCPS XWINDOW XSERVE].each do |drv|
-        inreplace "drivers.list", %r{^! (.*\/#{drv} .*)}, '  \1'
+        inreplace "drivers.list", %r{^! (.*/#{drv} .*)}, '  \1'
       end
 
       # make everything
