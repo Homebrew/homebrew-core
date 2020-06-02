@@ -14,6 +14,6 @@ class Jmxterm < Formula
   end
 
   test do
-    assert_match(/\"software\.name\".=.\"jmxterm\";/, shell_output("echo about | #{bin}/jmxterm -n"))
+    assert_match(/"software\.name".=."jmxterm";/, shell_output("echo about | #{bin}/jmxterm -n"))
   end
 end
