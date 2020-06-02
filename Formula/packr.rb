@@ -4,6 +4,13 @@ class Packr < Formula
   url "https://github.com/gobuffalo/packr/archive/v2.8.0.tar.gz"
   sha256 "2cab1e8d60734af05d594346f8e4bffcef0ac2aea4895b08bd9f3c40fc24c639"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "8561f6d5f99b51a6df9fb1df10f8f421daacf63a5548e043c0fbc970bf5f6dba" => :catalina
+    sha256 "ee4c60e7fc20bd3323fa89d0ef296162e05435cbab809b6365b75cfbde6c6ddb" => :mojave
+    sha256 "2317f06a9fe8d49069f0ed59eca5aac45d82caa5f45d88f7f3c1f60e679c8cd9" => :high_sierra
+  end
+
   depends_on "go" => [:build, :test]
 
   def install
