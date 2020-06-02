@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep.git",
-    :tag      => "v0.8.1",
-    :revision => "b328f288fd27090df2fc648b72560a1f20669557"
+    :tag      => "v0.9.0",
+    :revision => "1225d5f753ce45e4571f79e75e754a95b4adb81e"
   head "https://github.com/returntocorp/semgrep.git", :branch => "develop"
 
   bottle do
@@ -71,7 +71,7 @@ class Semgrep < Formula
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
       system "opam", "install", "./pfff"
       cd "semgrep-core" do
-        system "opam", "install", "-y", "."
+        system "opam", "install", "--deps-only", "-y", "."
         system "opam", "exec", "--", "make", "all"
         system "opam", "exec", "--", "make", "install"
         bin.install "_build/default/bin/Main.exe" => "semgrep-core"
