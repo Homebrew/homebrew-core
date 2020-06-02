@@ -71,8 +71,8 @@ class Fmsx < Formula
     chdir "fMSX/Unix" do
       inreplace "Makefile" do |s|
         pa = Formula["pulseaudio"]
-        s.gsub! %r{(DEFINES\s*\+=\s*[-\/$()\w\t ]*)}, "\\1 -DPULSE_AUDIO"
-        s.gsub! %r{(CFLAGS\s*\+=\s*[-\/$()\w\t ]*)}, "\\1 -I#{pa.include}\nLIBS += -L#{pa.lib} -lpulse-simple"
+        s.gsub! %r{(DEFINES\s*\+=\s*[-/$()\w\t ]*)}, "\\1 -DPULSE_AUDIO"
+        s.gsub! %r{(CFLAGS\s*\+=\s*[-/$()\w\t ]*)}, "\\1 -I#{pa.include}\nLIBS += -L#{pa.lib} -lpulse-simple"
       end
       system "make"
       bin.install "fmsx"
