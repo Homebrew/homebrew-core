@@ -21,7 +21,7 @@ class Fits < Formula
     end
 
     inreplace %w[fits.sh fits-ngserver.sh],
-              %r{\$\(dirname .*\)\/fits-env\.sh}, "#{libexec}/fits-env.sh"
+              %r{\$\(dirname .*\)/fits-env\.sh}, "#{libexec}/fits-env.sh"
 
     # fits-env.sh is a helper script that sets up environment
     # variables, so we want to tuck this away in libexec
