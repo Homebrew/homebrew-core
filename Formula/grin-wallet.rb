@@ -1,8 +1,8 @@
 class GrinWallet < Formula
   desc "Official wallet for the cryptocurrency Grin"
   homepage "https://grin.mw"
-  url "https://github.com/mimblewimble/grin-wallet/archive/v3.1.1.tar.gz"
-  sha256 "0151e7235ca52381ffa30ebe06cdb6841afd48331f68fb477bf7d5b740e03cc1"
+  url "https://github.com/mimblewimble/grin-wallet/archive/v3.1.2.tar.gz"
+  sha256 "651b3f6b9be5b0cbf04a4f81d24eef7c5804aa4534600d441671f0144b21311c"
 
   bottle do
     cellar :any_skip_relocation
