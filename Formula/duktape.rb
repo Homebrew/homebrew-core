@@ -13,7 +13,7 @@ class Duktape < Formula
 
   def install
     inreplace "Makefile.sharedlibrary" do |s|
-      s.gsub! %r{\/usr\/local}, prefix
+      s.gsub! %r{/usr/local}, prefix
     end
     system "make", "-f", "Makefile.sharedlibrary"
     system "make", "-f", "Makefile.sharedlibrary", "install"
