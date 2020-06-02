@@ -1,11 +1,11 @@
 class Asciidoc < Formula
+  include Language::Python::Shebang
+
   desc "Formatter/translator for text files to numerous formats. Includes a2x"
-  homepage "http://asciidoc.org/"
-  # This release is listed as final on GitHub, but not listed on asciidoc.org.
-  url "https://github.com/asciidoc/asciidoc/archive/8.6.10.tar.gz"
-  sha256 "9e52f8578d891beaef25730a92a6e723596ddbd07bfe0d2a56486fcf63a0b983"
-  revision 2
-  head "https://github.com/asciidoc/asciidoc.git"
+  homepage "https://asciidoc.org/"
+  url "https://github.com/asciidoc/asciidoc-py3/archive/9.0.0.tar.gz"
+  sha256 "04f219e24476ce169508917766e93279d13b3de69ae9ce40fdfd908162e441c4"
+  head "https://github.com/asciidoc/asciidoc-py3.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,23 +18,23 @@ class Asciidoc < Formula
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
-  depends_on :macos # Due to Python 2 (will never support Python 3)
+  depends_on "python@3.8"
   depends_on "source-highlight"
 
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build
 
   def install
-    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
 
-    inreplace %w[a2x.py asciidoc.py filters/code/code-filter.py
-                 filters/graphviz/graphviz2png.py filters/latex/latex2img.py
-                 filters/music/music2png.py filters/unwraplatex.py],
-      "#!/usr/bin/env python2", "#!/usr/bin/python"
+    %w[
+      a2x.py asciidoc.py filters/code/code-filter.py
+      filters/graphviz/graphviz2png.py filters/latex/latex2img.py
+      filters/music/music2png.py filters/unwraplatex.py
+    ].map { |f| rewrite_shebang detected_python_shebang, f }
 
     # otherwise macOS's xmllint bails out
     inreplace "Makefile", "-f manpage", "-f manpage -L"
