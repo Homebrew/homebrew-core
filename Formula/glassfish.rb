@@ -44,7 +44,7 @@ class Glassfish < Formula
 
     # assign port to glassfish admin console
     text = File.read(domain_xml_path)
-    new_contents = text.gsub(/port\=\"4848\"/, "port=\"#{port}\"")
+    new_contents = text.gsub(/port="4848"/, "port=\"#{port}\"")
     File.open(domain_xml_path, "w") { |file| file.puts new_contents }
 
     fork do
