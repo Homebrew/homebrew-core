@@ -60,6 +60,6 @@ class Asciidoc < Formula
   test do
     (testpath/"test.txt").write("== Hello World!")
     system "#{bin}/asciidoc", "-b", "html5", "-o", "test.html", "test.txt"
-    assert_match %r{\<h2 id="_hello_world"\>Hello World!\</h2\>}, File.read("test.html")
+    assert_match %r{<h2 id="_hello_world">Hello World!</h2>}, File.read("test.html")
   end
 end
