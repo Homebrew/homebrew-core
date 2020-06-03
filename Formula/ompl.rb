@@ -19,10 +19,9 @@ class Ompl < Formula
   depends_on "flann"
   depends_on "ode"
 
-    
   def install
     ENV.cxx11
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DOMPL_REGISTRATION=OFF
       -DOMPL_BUILD_DEMOS=OFF
       -DOMPL_BUILD_TESTS=OFF
