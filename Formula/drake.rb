@@ -2,7 +2,6 @@ class Drake < Formula
   desc "Data workflow tool meant to be 'make for data'"
   homepage "https://github.com/Factual/drake"
   url "https://raw.githubusercontent.com/Factual/drake/1.0.3/bin/drake-pkg"
-  version "1.0.3"
   sha256 "adeb0bb14dbe39789273c5c766da9a019870f2a491ba1f0c8c328bd9a95711cc"
   head "https://github.com/Factual/drake.git"
 
