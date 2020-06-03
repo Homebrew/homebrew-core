@@ -5,7 +5,7 @@ class Pipenv < Formula
   homepage "https://pipenv.pypa.io/"
   url "https://files.pythonhosted.org/packages/5f/0a/ef03dd42bed968f779eeaf9a98e32e875bfd18cf9ba61ede407364903c1e/pipenv-2020.5.28.tar.gz"
   sha256 "81862314929e3e532502e25bab3c6ba969c0cf67dcaa9d63c2c931ee2d61541c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -68,10 +68,14 @@ class Pipenv < Formula
     }
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, libexec/"bin/pipenv", "--completion", { :err => :err })
+    output = Utils.safe_popen_read(
+      { "PIPENV_SHELL" => "bash" }, libexec/"bin/pipenv", "--completion", { :err => :err }
+    )
     (bash_completion/"pipenv").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, libexec/"bin/pipenv", "--completion", { :err => :err })
+    output = Utils.safe_popen_read(
+      { "PIPENV_SHELL" => "zsh" }, libexec/"bin/pipenv", "--completion", { :err => :err }
+    )
     (zsh_completion/"_pipenv").write output
   end
 
