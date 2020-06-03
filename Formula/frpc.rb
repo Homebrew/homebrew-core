@@ -15,20 +15,13 @@ class Frpc < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/fatedier/frp").install contents
-
     (buildpath/"bin").mkpath
     (etc/"frp").mkpath
 
-    cd "src/github.com/fatedier/frp" do
-      system "make", "frpc"
-      bin.install "bin/frpc"
-      etc.install "conf/frpc.ini" => "frp/frpc.ini"
-      etc.install "conf/frpc_full.ini" => "frp/frpc_full.ini"
-      prefix.install_metafiles
-    end
+    system "make", "frpc"
+    bin.install "bin/frpc"
+    etc.install "conf/frpc.ini" => "frp/frpc.ini"
+    etc.install "conf/frpc_full.ini" => "frp/frpc_full.ini"
   end
 
   plist_options :manual => "frpc -c #{HOMEBREW_PREFIX}/etc/frp/frpc.ini"
@@ -59,7 +52,7 @@ class Frpc < Formula
   end
 
   test do
-    system bin/"frpc", "-v"
+    assert_match version.to_s, shell_output("#{bin}/frpc -v")
     assert_match "Commands", shell_output("#{bin}/frpc help")
     assert_match "local_port", shell_output("#{bin}/frpc http", 1)
     assert_match "local_port", shell_output("#{bin}/frpc https", 1)
