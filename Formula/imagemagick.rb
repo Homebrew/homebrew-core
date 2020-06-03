@@ -4,6 +4,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.10-16.tar.xz"
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.10-16.tar.xz"
   sha256 "7f97da9e14c68ec291afbd5f97f9df91593dd2df7e96bc306cc60fb08d5bd195"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
@@ -17,6 +18,7 @@ class Imagemagick < Formula
   depends_on "ghostscript"
   depends_on "jpeg"
   depends_on "libheif"
+  depends_on "liblqr"
   depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
@@ -52,6 +54,7 @@ class Imagemagick < Formula
       --with-heic=yes
       --with-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --with-lqr
       --without-fftw
       --without-pango
       --without-x
