@@ -2,8 +2,8 @@ class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
   url "https://github.com/bazelbuild/buildtools.git",
-      :tag      => "3.0.0",
-      :revision => "dbd4ef8997abb3a7bef0ba4867caaf206db86b6e"
+      :tag      => "3.2.0",
+      :revision => "35db43bc5bf30a158ea1d2775402f51fac7865f1"
 
   bottle do
     cellar :any_skip_relocation
