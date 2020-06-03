@@ -15,18 +15,12 @@ class GithubMarkdownToc < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/ekalinin/github-markdown-toc.go"
-    dir.install buildpath.children
-    cd dir do
-      system "go", "build", "-o", bin/"gh-md-toc"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-trimpath", "-o", bin/"gh-md-toc"
   end
 
   test do
     (testpath/"README.md").write("# Header")
-    system bin/"gh-md-toc", "--version"
+    assert_match version.to_s, shell_output("#{bin}/gh-md-toc --version 2>&1")
     assert_match "* [Header](#header)", shell_output("#{bin}/gh-md-toc ./README.md")
   end
 end
