@@ -48,6 +48,10 @@ class Mtr < Formula
     <<~EOS
       mtr requires root privileges so you will need to run `sudo mtr`.
       You should be certain that you trust any software you grant root privileges.
+      Note: Default install will be in /usr/local/sbin. This will not be in your path by default. 
+        Options to fix in your bash / zsh profle config:
+          - alias mtr=‘/usr/local/sbin/mtr’
+          - export PATH="$PATH:/usr/local/sbin"
     EOS
   end
 
