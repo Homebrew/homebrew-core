@@ -1,8 +1,8 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/Kong/kuma/archive/0.5.0.tar.gz"
-  sha256 "a5d84ca9e1d91a8c0cb0095ab3a68bb40c49f09eb0989e3aaa89b89424a58ae1"
+  url "https://github.com/Kong/kuma/archive/0.5.1.tar.gz"
+  sha256 "110589c3db3e744000c35d6c5f93a75e32861c871a8dafe8a74cfd1acc5145d3"
 
   bottle do
     cellar :any_skip_relocation
