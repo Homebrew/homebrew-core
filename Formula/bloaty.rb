@@ -5,12 +5,10 @@ class Bloaty < Formula
   sha256 "a308d8369d5812aba45982e55e7c3db2ea4780b7496a5455792fb3dcba9abd6f"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "437f08da84822e2912af5db09437afb2f214df97443dd10d66c289e933fce1b1" => :catalina
-    sha256 "e0eaa91cfad61274a41ffb94f335cf61ad8217e9d47eff8bb77a390d7bcdb165" => :mojave
-    sha256 "1c06ab5eb36a968ba9755028760f1dfc4958273325e5d243d9562cb571912fa6" => :high_sierra
-    sha256 "aa8aa6c63e5cd626ce78146912c8abf79d2ed110d3ed0501482a88f421dce4b5" => :sierra
-    sha256 "2657c5809a086a8bba8d2ed81ca56f5640a5eab69723aa3ef342160c64c84cbd" => :el_capitan
+    cellar :any
+    sha256 "5be88b30573e9dfe1beaa3b5d7ee0f6114b23a07ff9a6cc539e3a962a2a45783" => :catalina
+    sha256 "fde9f093c351e8ef57e6b8df5f6b0a2faade0eee0cdddfaf3ebf5927e8fd52c1" => :mojave
+    sha256 "c54b0712732e3943c2ea3ca2e0eb9b7dcfce2a9b4793a353315b7142af8c156d" => :high_sierra
   end
 
   depends_on "cmake" => :build
