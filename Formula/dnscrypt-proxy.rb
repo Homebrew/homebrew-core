@@ -15,13 +15,7 @@ class DnscryptProxy < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    prefix.install_metafiles
-    dir = buildpath/"src/github.com/jedisct1/dnscrypt-proxy"
-    dir.install buildpath.children
-
-    cd dir/"dnscrypt-proxy" do
+    cd "dnscrypt-proxy" do
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o",
              sbin/"dnscrypt-proxy"
       pkgshare.install Dir["example*"]
