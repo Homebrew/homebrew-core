@@ -3,8 +3,8 @@ class Liblouis < Formula
   homepage "http://liblouis.org"
 
   stable do
-    url "https://github.com/liblouis/liblouis/releases/download/v3.13.0/liblouis-3.13.0.tar.gz"
-    sha256 "2803b89a2bff9f02032125fa7b7d0a204a60d8d14f232242344b5f09535e9a01"
+    url "https://github.com/liblouis/liblouis/releases/download/v3.14.0/liblouis-3.14.0.tar.gz"
+    sha256 "f5b25f8059dd76595aeb419b1522dda78f281a75a7c56dceaaa443f8c437306a"
     depends_on "help2man" => :build
     depends_on "pkg-config" => :build
     depends_on "python@3.8"
