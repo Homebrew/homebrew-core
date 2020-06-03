@@ -1,8 +1,8 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.13.1.tar.gz"
-  sha256 "02c480764f4d87217de3b3f068feee6f9ad08ee6f72b563fe0189ef90a1735cc"
+  url "https://github.com/mithrandie/csvq/archive/v1.13.2.tar.gz"
+  sha256 "c94e13d58d3e1cc68168fd177d673662a76bb7fde88e9b9b8cebfd9af5db0089"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,7 @@ class Csvq < Formula
   depends_on "go" => :build
 
   def install
-    system "make"
-    bin.install "csvq"
+    system "go", "build", *std_go_args
   end
 
   test do
