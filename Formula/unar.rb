@@ -2,7 +2,6 @@ class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://unarchiver.c3.cx/commandline"
   url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10.1_src.zip"
-  version "1.10.1"
   sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
   head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
 
