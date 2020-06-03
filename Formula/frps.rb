@@ -15,20 +15,13 @@ class Frps < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/fatedier/frp").install contents
-
     (buildpath/"bin").mkpath
     (etc/"frp").mkpath
 
-    cd "src/github.com/fatedier/frp" do
-      system "make", "frps"
-      bin.install "bin/frps"
-      etc.install "conf/frps.ini" => "frp/frps.ini"
-      etc.install "conf/frps_full.ini" => "frp/frps_full.ini"
-      prefix.install_metafiles
-    end
+    system "make", "frps"
+    bin.install "bin/frps"
+    etc.install "conf/frps.ini" => "frp/frps.ini"
+    etc.install "conf/frps_full.ini" => "frp/frps_full.ini"
   end
 
   plist_options :manual => "frps -c #{HOMEBREW_PREFIX}/etc/frp/frps.ini"
@@ -59,21 +52,16 @@ class Frps < Formula
   end
 
   test do
-    system bin/"frps", "-v"
+    assert_match version.to_s, shell_output("#{bin}/frps -v")
     assert_match "Flags", shell_output("#{bin}/frps --help")
 
-    begin
-      read, write = IO.pipe
-      pid = fork do
-        exec bin/"frps", :out => write
-      end
-      sleep 3
-
-      output = read.gets
-      assert_match "frps tcp listen on", output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    read, write = IO.pipe
+    fork do
+      exec bin/"frps", :out => write
     end
+    sleep 3
+
+    output = read.gets
+    assert_match "frps tcp listen on", output
   end
 end
