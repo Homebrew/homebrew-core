@@ -2,8 +2,8 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.12.2",
-      :revision => "678da4f76eb9168c9965afc2149944a66cd48546"
+      :tag      => "v3.12.3",
+      :revision => "31ebe2ac71400344a5db91ffc13c4ddfb7589f92"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
@@ -19,8 +19,8 @@ class Protobuf < Formula
   depends_on "python@3.8" => [:build, :test]
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   def install
