@@ -166,17 +166,11 @@ class Mailhog < Formula
   end
 
   test do
-    pid = fork do
-      exec "#{bin}/MailHog"
-    end
+    address = "127.0.0.1:#{free_port}"
+    fork { exec "#{bin}/MailHog", "-ui-bind-addr", address }
     sleep 2
 
-    begin
-      output = shell_output("curl -s http://localhost:8025")
-      assert_match "<title>MailHog</title>", output
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
-    end
+    output = shell_output("curl --silent #{address}")
+    assert_match "<title>MailHog</title>", output
   end
 end
