@@ -1,8 +1,8 @@
 class Jolie < Formula
   desc "The Jolie Language Interpreter"
   homepage "https://www.jolie-lang.org/"
-  url "https://github.com/jolie/jolie/releases/download/v1.9.0/jolie-1.9.0.jar"
-  sha256 "1510ed7f114909eb79670462571ab0734a5b01e57d26da6fd1cf9ef6c67eff6e"
+  url "https://github.com/jolie/jolie/releases/download/v1.9.1/jolie-1.9.1.jar"
+  sha256 "e4b43f2b247102f49c05fb48d64ca294141b3488de38bd089c99653ca83c644d"
 
   bottle do
     cellar :any_skip_relocation
