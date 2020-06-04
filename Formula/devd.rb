@@ -27,14 +27,15 @@ class Devd < Formula
   end
 
   test do
-    begin
-      io = IO.popen("#{bin}/devd -s #{testpath}")
-      sleep 2
-    ensure
-      Process.kill("SIGINT", io.pid)
-      Process.wait(io.pid)
-    end
+    (testpath/"www/example.txt").write <<~EOS
+      Hello World!
+    EOS
 
-    assert_match "Listening on https://devd.io", io.read
+    port = free_port
+    fork { exec "#{bin}/devd", "--port=#{port}", "#{testpath}/www" }
+    sleep 2
+
+    output = shell_output("curl --silent 127.0.0.1:#{port}/example.txt")
+    assert_equal "Hello World!\n", output
   end
 end
