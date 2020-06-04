@@ -7,9 +7,9 @@ class Axel < Formula
 
   bottle do
     cellar :any
-    sha256 "f12f3ffed7b2957dbc3477bbcf14569a98e27e52daaa52506b43f4d2834db69a" => :catalina
-    sha256 "ff420fc6ddda19d06e2c74f8060730dd53b44022caf86a5a89c266bac8917c64" => :mojave
-    sha256 "e3e948578de22fd1cd44b24c38456cad1ccdf0c708b843685576d44c5e2d36d9" => :high_sierra
+    sha256 "8c4c87ce64a4aaa3691e965a7c5843503f80d348f5d17b0e9d1840c45bbc1aaf" => :catalina
+    sha256 "e1ab7026adcf06373662caad04dbc1d93b5fcabb40ff79b6bbba466e0f6d8da4" => :mojave
+    sha256 "d27855f8ffa19450a2ba4b54a6338105004f342e85527efaa074d67d245af943" => :high_sierra
   end
 
   depends_on "autoconf" => :build
