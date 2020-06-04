@@ -6,6 +6,13 @@ class Airshare < Formula
   url "https://files.pythonhosted.org/packages/52/ad/898d5b0a4b079531e67fcb50f437184f03de952ad3aad635527c11b5f5f6/Airshare-0.1.5.tar.gz"
   sha256 "a18479dc37032d3d4383d29a4e2f518f279a0166d7860c25b4102f605c6626e9"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "20aa8515ca61394c7b323a96fa296bfbb577dfe9892a2a4ef0384d521ea8c1e6" => :catalina
+    sha256 "09776845e8fbb37fee1e59e0e2d92957cbc276759b52eef91e8e66c46c178ab0" => :mojave
+    sha256 "87a6ad389a786a69fc4b346c77d30a11f23f2e733c6d1ba2efc5ccf88bb44bcb" => :high_sierra
+  end
+
   depends_on "python@3.8"
 
   resource "aiohttp" do
