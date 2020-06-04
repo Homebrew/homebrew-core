@@ -1,8 +1,8 @@
 class Cogl < Formula
   desc "Low level OpenGL abstraction library developed for Clutter"
   homepage "https://developer.gnome.org/cogl/"
-  url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.6.tar.xz"
-  sha256 "6d134bd3e48c067507167c001200b275997fb9c68b08b48ff038211c8c251b75"
+  url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz"
+  sha256 "a805b2b019184710ff53d0496f9f0ce6dcca420c141a0f4f6fcc02131581d759"
 
   bottle do
     sha256 "380a30aa14058b080ecde8b31c6ed9d2f6635655898d4d084cae08858a3e9c44" => :catalina
@@ -14,18 +14,11 @@ class Cogl < Formula
     url "https://gitlab.gnome.org/GNOME/cogl.git"
   end
 
-  # The tarball contains a malfunctioning GNU Autotools setup
-  # Running autoreconf is necessary to fix the build
-  # Reported upstream at https://gitlab.gnome.org/GNOME/cogl/issues/8
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "gtk-doc"
   depends_on "pango"
 
   def install
@@ -42,10 +35,8 @@ class Cogl < Formula
       --without-x
     ]
 
-    system "autoreconf", "-fi"
     system "./configure", *args
     system "make", "install"
-    doc.install "examples"
   end
   test do
     (testpath/"test.c").write <<~EOS
