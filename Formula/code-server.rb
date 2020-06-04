@@ -1,8 +1,8 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.4.0.tgz"
-  sha256 "05aae18c0be0b6d2a2ae3c6ec3347d28c3f1b9d313fdac5a7a80792b8dac8c26"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.4.1.tgz"
+  sha256 "38f14f7e9307e4fea7eeeaabdcbd7ff414c41136337a04530692207263101a2a"
 
   bottle do
     cellar :any_skip_relocation
@@ -60,6 +60,7 @@ class CodeServer < Formula
 
   test do
     system bin/"code-server", "--extensions-dir=.", "--install-extension", "ms-python.python"
-    assert_equal "ms-python.python\n", shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
+    assert_equal "info  Using config file ~/.config/code-server/config.yaml\nms-python.python\n",
+      shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
   end
 end
