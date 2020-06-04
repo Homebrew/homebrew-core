@@ -1,8 +1,9 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
-  url "https://launchpad.net/juju/2.7/2.7.6/+download/juju-core_2.7.6.tar.gz"
-  sha256 "5497bcdd61cb46c7b6ece8ccf939b99c78a3ea6c234854d0e4bfae229a7c18bc"
+  url "https://github.com/juju/juju.git",
+    :tag      => "juju-2.8.0",
+    :revision => "d816abe62fbf6787974e5c4e140818ca08586e44"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,14 +15,25 @@ class Juju < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "go", "build", "github.com/juju/juju/cmd/juju"
-    system "go", "build", "github.com/juju/juju/cmd/plugins/juju-metadata"
-    bin.install "juju", "juju-metadata"
-    bash_completion.install "src/github.com/juju/juju/etc/bash_completion.d/juju"
+    git_commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
+    ld_flags = %W[
+      -s -w
+      -X version.GitCommit=#{git_commit}
+      -X version.GitTreeState=clean
+    ]
+    system "go", "build", *std_go_args,
+                 "-ldflags", ld_flags.join(" "),
+                 "./cmd/juju"
+    system "go", "build", *std_go_args,
+                 "-ldflags", ld_flags.join(" "),
+                 "-o", bin/"juju-metadata",
+                 "./cmd/plugins/juju-metadata"
+    bash_completion.install "etc/bash_completion.d/juju"
   end
 
   test do
     system "#{bin}/juju", "version"
+    assert_match "No controllers registered", shell_output("#{bin}/juju list-users 2>&1", 1)
+    assert_match "No controllers registered", shell_output("#{bin}/juju-metadata list-images 2>&1", 2)
   end
 end
