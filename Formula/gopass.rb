@@ -3,6 +3,7 @@ class Gopass < Formula
   homepage "https://github.com/gopasspw/gopass"
   url "https://github.com/gopasspw/gopass/releases/download/v1.9.2/gopass-1.9.2.tar.gz"
   sha256 "1017264678d3a2cdc862fc81e3829f390facce6c4a334cb314192ff321837bf5"
+  revision 1
   head "https://github.com/gopasspw/gopass.git"
 
   bottle do
@@ -14,6 +15,7 @@ class Gopass < Formula
 
   depends_on "go" => :build
   depends_on "gnupg"
+  depends_on "terminal-notifier"
 
   def install
     ENV["GOPATH"] = buildpath
