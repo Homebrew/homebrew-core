@@ -1,9 +1,9 @@
 class DockerSwarm < Formula
   desc "Turn a pool of Docker hosts into a single, virtual host"
-  homepage "https://github.com/docker/swarm"
-  url "https://github.com/docker/swarm/archive/v1.2.9.tar.gz"
-  sha256 "2f58872ddf3c92aa5e3dc4cc5302eb42aaf29c818d264986c6ade34ad7a1fa35"
-  head "https://github.com/docker/swarm.git"
+  homepage "https://github.com/docker/classicswarm"
+  url "https://github.com/docker/classicswarm/archive/v1.2.9.tar.gz"
+  sha256 "13d0d39dbd2bccb32016e6aa782da67b6207f203e253e06b0f6eb4f25da85474"
+  head "https://github.com/docker/classicswarm.git"
 
   bottle do
     cellar :any_skip_relocation
