@@ -10,9 +10,9 @@ class Hadolint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93f0d394892e8a508027e4d46e53c8df3b5e13c12d747a78ac8fd20e390a2fb6" => :catalina
-    sha256 "6087ee380c2b66cc7b7c2cf926402077c5d2deac7333237eecb7a4c82286b8b2" => :mojave
-    sha256 "397569db01cf56a8fa5693d70598d4bf48c361db11b3b51479a7887c7ed93cef" => :high_sierra
+    sha256 "7bd313740e10757294d520da94d948640ceed039bbe2d18078433ff9a1d49114" => :catalina
+    sha256 "a1eac5f81e5e981ac77cb4bdf35f593f14c874f560b4305dfd2a2aefc26cfdd9" => :mojave
+    sha256 "79fed0ab543f61b75aa424680dd685545e62f041a01f11bbf9afe1b5216de6df" => :high_sierra
   end
 
   depends_on "haskell-stack" => :build
