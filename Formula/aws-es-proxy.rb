@@ -28,15 +28,14 @@ class AwsEsProxy < Formula
   end
 
   test do
-    begin
-      io = IO.popen("#{bin}/aws-es-proxy -endpoint https://dummy-host.eu-west-1.es.amazonaws.com",
-                    :err => [:child, :out])
-      sleep 2
-    ensure
-      Process.kill("SIGINT", io.pid)
-      Process.wait(io.pid)
-    end
+    address = "127.0.0.1:#{free_port}"
+    endpoint = "https://dummy-host.eu-west-1.es.amazonaws.com"
 
-    assert_match "Listening on", io.read
+    fork { exec "#{bin}/aws-es-proxy", "-listen=#{address}", "-endpoint=#{endpoint}" }
+    sleep 2
+
+    output = shell_output("curl --silent #{address}")
+    assert_match endpoint, output
+    assert_match "no such host", output
   end
 end
