@@ -1,8 +1,8 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.8/axel-2.17.8.tar.xz"
-  sha256 "19c82a095e3ea84f1e24fe6fd6018ee06af73ee03ca8ecf31b34dcc57ef4351e"
+  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.9/axel-2.17.9.tar.xz"
+  sha256 "f1364d9b55d435efc6d32218097a50a63be7b1300138e698133cf19ad3aa3a54"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
