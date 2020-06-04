@@ -168,7 +168,6 @@ class Acmetool < Formula
       -X github.com/hlandau/acme/hooks.DefaultPath=#{lib}/hooks
       -X github.com/hlandau/acme/responder.StandardWebrootPath=#{var}/run/acmetool/acme-challenge
     ]
-    ldflags << "#{Utils.popen_read("#{buildpath}/src/github.com/hlandau/buildinfo/gen")}" unless build.head?
 
     if build.head?
       inreplace "Makefile" do |s|
@@ -176,7 +175,7 @@ class Acmetool < Formula
         s.gsub! /(\$\(call BUILDINFO.*\)\))/, '-ldflags "$(LDFLAGS) \1"'
         s.gsub! /(install) -Dp/, '\1 -d $(DESTDIR)$(PREFIX)/bin && \1 -p'
       end
-      ldflags.each do |s| s.gsub!('hlandau/acme', 'hlandau/acmetool') end
+      ldflags.each { |s| s.gsub! "hlandau/acme", "hlandau/acmetool" }
       system "make", "LDFLAGS=#{ldflags.join(" ")}", "PREFIX=#{prefix}", "USE_BUILDINFO=1", "V=1", "install"
     else
       (buildpath/"src/github.com/hlandau").mkpath
@@ -184,6 +183,7 @@ class Acmetool < Formula
       Language::Go.stage_deps resources, buildpath/"src"
 
       cd "cmd/acmetool" do
+        ldflags << Utils.popen_read("#{buildpath}/src/github.com/hlandau/buildinfo/gen")
         system "go", "build", "-o", bin/"acmetool", "-ldflags", ldflags.join(" ")
       end
     end
@@ -199,6 +199,6 @@ class Acmetool < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/acmetool --version", 2)
+    assert_match version.to_s.gsub(/.*-/, " "), shell_output("#{bin}/acmetool --version", 2)
   end
 end
