@@ -3,8 +3,8 @@ class Trailscraper < Formula
 
   desc "Tool to get valuable information out of AWS CloudTrail"
   homepage "https://github.com/flosell/trailscraper"
-  url "https://github.com/flosell/trailscraper/archive/0.5.1.tar.gz"
-  sha256 "6793353bef9cf17379d556e7811d225ee852c6c2e975deb7219d684be7b12c5b"
+  url "https://github.com/flosell/trailscraper/archive/0.6.1.tar.gz"
+  sha256 "9ca2535d397282ffc09e5ca05af19bc36dd3da02235df963c3016b9f2dc4d151"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Trailscraper < Formula
   depends_on "python@3.8"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ee/b9/482d396fdbfab0e83f4c5f11b46a74b01a3ccdfdd84d54dd069083670b52/boto3-1.13.11.tar.gz"
-    sha256 "a7c5c7251b76336e697ccf368f125720e1947d58b218c228b61b5b654187fe4e"
+    url "https://files.pythonhosted.org/packages/29/7f/5f76466f99177245e8fc405d6604b206ef85872817bed429a846d34d12d0/boto3-1.13.19.tar.gz"
+    sha256 "c774003dc13d6de74b5e19d2b84d625da4456e64bd97f44baa1fcf40d808d29a"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ec/ce/12ad4123cc3dc0284408ad6dead2f0490ec38998a3b01a357e04106b655c/botocore-1.16.11.tar.gz"
-    sha256 "b82083f1ba65624017d53fa2d2a44aa801ea3da0948fba56ccf4d29a88ef0b71"
+    url "https://files.pythonhosted.org/packages/94/23/dddd1e62449b0c3669632079ecb8fd4d8c3c628480b6619b57234f4aabe1/botocore-1.16.22.tar.gz"
+    sha256 "eb077e2da1654558c9d97888a2e0710b92cc3162a6641959545451e1a21eea8a"
   end
 
   resource "click" do
@@ -31,8 +31,8 @@ class Trailscraper < Formula
   end
 
   resource "dateparser" do
-    url "https://files.pythonhosted.org/packages/89/03/e8890489fe1c458f155e88f92cfc4d399894ff38721629fda925c3793b66/dateparser-0.6.0.tar.gz"
-    sha256 "f8c24317120b06f71691d28076764ec084a132be2a250a78fdf54f6b427cac95"
+    url "https://files.pythonhosted.org/packages/e2/da/c58ecd3b4183849b7373e6bbe140fdc0e0cc4640b960a1ddb5f550c2b283/dateparser-0.7.4.tar.gz"
+    sha256 "fb5bfde4795fa4b179fe05c2c25b3981f785de26bec37e247dee1079c63d5689"
   end
 
   resource "docutils" do
@@ -46,8 +46,8 @@ class Trailscraper < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "pytz" do
@@ -76,8 +76,8 @@ class Trailscraper < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "toolz" do
