@@ -1,8 +1,8 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.13.2.tar.gz"
-  sha256 "c94e13d58d3e1cc68168fd177d673662a76bb7fde88e9b9b8cebfd9af5db0089"
+  url "https://github.com/mithrandie/csvq/archive/v1.13.3.tar.gz"
+  sha256 "3242f1dd4b1d36794642356610a8709dbcb257e9bf5fdb287222694c93853242"
 
   bottle do
     cellar :any_skip_relocation
