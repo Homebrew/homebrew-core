@@ -32,6 +32,10 @@ class Freeswitch < Formula
   depends_on "speexdsp"
   depends_on "sqlite"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   # https://github.com/Homebrew/homebrew/issues/42865
 
   #----------------------- Begin sound file resources -------------------------
