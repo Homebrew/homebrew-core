@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class Bnfc < Formula
-  include Language::Haskell::Cabal
-
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
   url "https://github.com/BNFC/bnfc/archive/v2.8.3.tar.gz"
   sha256 "ba0b6ab36954a0891b4ad3125cefdd6d441d2c73d174cd8eff344e68ae2fd203"
   head "https://github.com/BNFC/bnfc.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -27,7 +24,8 @@ class Bnfc < Formula
 
   def install
     cd "source" do
-      install_cabal_package :using => ["alex", "happy"]
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
       doc.install "changelog"
       doc.install "src/BNF.cf" => "BNF.cf"
     end
@@ -42,6 +40,8 @@ class Bnfc < Formula
   end
 
   test do
+    ENV.prepend_create_path "PATH", testpath/"tools-bin"
+
     (testpath/"calc.cf").write <<~EOS
       EAdd. Exp  ::= Exp  "+" Exp1 ;
       ESub. Exp  ::= Exp  "-" Exp1 ;
@@ -85,26 +85,28 @@ class Bnfc < Formula
     end
 
     mktemp "haskell-test" do
-      cabal_sandbox do
-        cabal_install_tools "alex", "happy"
-        system bin/"bnfc", "-m", "-o.", "--haskell", "--ghc", "-d", testpath/"calc.cf"
-        system "make"
-        test_out = shell_output("./Calc/Test #{testpath/"test.calc"}")
-        check_out_hs = <<~EOS
-          #{testpath/"test.calc"}
+      system "cabal", "v2-update"
+      system "cabal", "v2-install",
+             "--jobs=#{ENV.make_jobs}", "--max-backjumps=100000",
+             "--install-method=copy", "--installdir=#{testpath/"tools-bin"}",
+             "alex", "happy"
+      system bin/"bnfc", "-m", "-o.", "--haskell", "--ghc", "-d", testpath/"calc.cf"
+      system "make"
+      test_out = shell_output("./Calc/Test #{testpath/"test.calc"}")
+      check_out_hs = <<~EOS
+        #{testpath/"test.calc"}
 
-          Parse Successful!
+        Parse Successful!
 
-          [Abstract Syntax]
+        [Abstract Syntax]
 
-          EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8))
+        EMul (EInt 14) (ESub (EAdd (EInt 3) (EDiv (EInt 2) (EInt 5))) (EInt 8))
 
-          [Linearized tree]
+        [Linearized tree]
 
-          14 * (3 + 2 / 5 - 8)
-        EOS
-        assert_equal check_out_hs, test_out
-      end
+        14 * (3 + 2 / 5 - 8)
+      EOS
+      assert_equal check_out_hs, test_out
     end
 
     mktemp "java-test" do
