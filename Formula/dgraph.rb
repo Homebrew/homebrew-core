@@ -1,8 +1,8 @@
 class Dgraph < Formula
   desc "Fast, Distributed Graph DB"
   homepage "https://dgraph.io"
-  url "https://github.com/dgraph-io/dgraph/archive/v20.03.1.tar.gz"
-  sha256 "abe217853134d86b9dba2814d5ef521730cc9eb9c6e0825658cc62af2562b363"
+  url "https://github.com/dgraph-io/dgraph/archive/v20.03.3.tar.gz"
+  sha256 "1e2145d8921b980882ef4475c82337e80c15fa3012a012424dadc9f636bffaa1"
 
   bottle do
     cellar :any_skip_relocation
