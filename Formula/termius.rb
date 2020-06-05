@@ -21,6 +21,10 @@ class Termius < Formula
 
   uses_from_macos "libffi"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"
     sha256 "f7b7ce16570fe9965acd6d30101a28f62fb4a7f9e926b3bbc9b61f8b04247e72"
