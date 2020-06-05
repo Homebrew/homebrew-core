@@ -17,6 +17,10 @@ class Molecule < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   # Collect requirements from:
   #  molecule
   #  docker-py
