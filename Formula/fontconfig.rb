@@ -33,6 +33,10 @@ class Fontconfig < Formula
   uses_from_macos "bzip2"
   uses_from_macos "expat"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     font_dirs = %w[
       /System/Library/Fonts
