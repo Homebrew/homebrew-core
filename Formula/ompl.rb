@@ -46,7 +46,7 @@ class Ompl < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lompl", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/ompl-1.5", "-L#{lib}", "-lompl", "-o", "test"
     system "./test"
   end
 end
