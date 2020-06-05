@@ -3,6 +3,7 @@ class PhpAT72 < Formula
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.2.31.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.2.31.tar.xz"
   sha256 "8beaa634bb878a96af9bc8643811ea46973f5f41ad2bfb6ab4cfd290e5a39806"
   revision 1
 
