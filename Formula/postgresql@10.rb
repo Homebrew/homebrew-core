@@ -21,6 +21,10 @@ class PostgresqlAT10 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@1.1"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@1.1"].opt_include} -I#{Formula["readline"].opt_include}"
