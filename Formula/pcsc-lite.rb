@@ -13,6 +13,10 @@ class PcscLite < Formula
 
   keg_only :shadowed_by_macos, "macOS provides PCSC.framework"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
