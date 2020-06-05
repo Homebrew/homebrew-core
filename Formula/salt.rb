@@ -21,6 +21,10 @@ class Salt < Formula
   depends_on "python"
   depends_on "zeromq"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   # Homebrew installs optional dependencies: M2Crypto, pygit2
 
   resource "cached-property" do
