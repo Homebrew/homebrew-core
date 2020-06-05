@@ -16,6 +16,10 @@ class Progress < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
