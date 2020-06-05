@@ -1,12 +1,9 @@
-require "language/haskell"
-
 class Dhall < Formula
-  include Language::Haskell::Cabal
-
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
   url "https://hackage.haskell.org/package/dhall-1.32.0/dhall-1.32.0.tar.gz"
   sha256 "17a47b3b640da7334c76a4fee05e9c0aa6073ee6822fb97f6cb79851e002b2c6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +13,11 @@ class Dhall < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
