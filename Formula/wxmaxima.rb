@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.04.0.tar.gz"
-  sha256 "ce65b461bd0dde1dbc8d61d3d4104f95c1122e3a77620239d469ff317ba1e5a7"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-20.06.3.tar.gz"
+  sha256 "8de5a16b7147569f02426db9fe3f6ebc2424333f90e22e5ae6674fdf4f12a5b5"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
@@ -13,6 +13,7 @@ class Wxmaxima < Formula
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
+  depends_on "maxima"
   depends_on "wxmac"
 
   def install
