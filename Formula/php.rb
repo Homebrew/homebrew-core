@@ -3,6 +3,7 @@ class Php < Formula
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.4.6.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.6.tar.xz"
   sha256 "d740322f84f63019622b9f369d64ea5ab676547d2bdcf12be77a5a4cffd06832"
   revision 1
 
