@@ -16,6 +16,10 @@ class TclTk < Formula
 
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "critcl" do
     url "https://github.com/andreas-kupries/critcl/archive/3.1.18.tar.gz"
     sha256 "6fb0263cc8dfb787ab162ae130570c19f665a03229b8a046ec1c11809c2ff70e"
