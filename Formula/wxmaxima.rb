@@ -14,6 +14,7 @@ class Wxmaxima < Formula
   depends_on "cmake" => :build
   depends_on "gettext" => :build
   depends_on "wxmac"
+  depends_on "maxima"
 
   def install
     system "cmake", ".", *std_cmake_args
