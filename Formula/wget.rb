@@ -24,6 +24,10 @@ class Wget < Formula
   depends_on "libidn2"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--prefix=#{prefix}",
