@@ -18,6 +18,10 @@ class VstsCli < Formula
 
   uses_from_macos "libffi"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/3c/21/9741e5e5e63245a8cdafb32ffc738bff6e7ef6253b65953e77933e56ce88/argcomplete-1.9.4.tar.gz"
     sha256 "06c8a54ffaa6bfc9006314498742ec8843601206a3b94212f82657673662ecf1"
