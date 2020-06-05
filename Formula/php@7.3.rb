@@ -3,6 +3,7 @@ class PhpAT73 < Formula
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.3.18.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.18.tar.xz"
   sha256 "7b3e2479a8d6fd7666dcdef8aec50d49c4599cc6ee86e48d41724cfd99cc9e58"
   revision 1
 
