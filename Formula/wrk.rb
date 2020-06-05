@@ -15,6 +15,10 @@ class Wrk < Formula
 
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   conflicts_with "wrk-trello", :because => "both install `wrk` binaries"
 
   def install
