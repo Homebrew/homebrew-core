@@ -21,6 +21,10 @@ class Ykman < Formula
   depends_on "python@3.8"
   depends_on "ykpers"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/2d/bf/960e5a422db3ac1a5e612cb35ca436c3fc985ed4b7ed13a1b4879006f450/cffi-1.13.2.tar.gz"
     sha256 "599a1e8ff057ac530c9ad1778293c665cb81a791421f46922d80a86473c13346"
