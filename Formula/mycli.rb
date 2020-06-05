@@ -16,6 +16,10 @@ class Mycli < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
     sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
