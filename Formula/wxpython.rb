@@ -22,6 +22,10 @@ class Wxpython < Formula
   depends_on "numpy"
   depends_on "python@3.8"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/5b/bb/cdc8086db1f15d0664dd22a62c69613cdc00f1dd430b5b19df1bea83f2a3/Pillow-6.2.1.tar.gz"
     sha256 "bf4e972a88f8841d8fdc6db1a75e0f8d763e66e3754b03006cbc3854d89f1cb1"
