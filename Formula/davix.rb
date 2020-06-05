@@ -16,6 +16,10 @@ class Davix < Formula
   depends_on "doxygen" => :build
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
