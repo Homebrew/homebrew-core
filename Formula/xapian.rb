@@ -16,6 +16,10 @@ class Xapian < Formula
   depends_on "sphinx-doc" => :build
   depends_on "python@3.8"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   skip_clean :la
 
   resource "bindings" do
