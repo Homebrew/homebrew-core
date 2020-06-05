@@ -14,6 +14,10 @@ class Mdcat < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
