@@ -16,6 +16,10 @@ class Wxmac < Formula
   depends_on "libpng"
   depends_on "libtiff"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     args = [
       "--prefix=#{prefix}",
