@@ -32,6 +32,8 @@ class Freeswitch < Formula
   depends_on "speexdsp"
   depends_on "sqlite"
 
+  uses_from_macos "zlib"
+
   on_linux do
     depends_on "util-linux"
   end
