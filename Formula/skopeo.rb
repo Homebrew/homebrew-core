@@ -13,6 +13,10 @@ class Skopeo < Formula
   depends_on "go" => :build
   depends_on "gpgme"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "1"
