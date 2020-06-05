@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class DhallBash < Formula
-  include Language::Haskell::Cabal
-
   desc "Compile Dhall to Bash"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
   url "https://hackage.haskell.org/package/dhall-bash-1.0.29/dhall-bash-1.0.29.tar.gz"
   sha256 "3ca8c0e6802d7c002d9e1553135fe47431eae91f0acfd065fe3a645ca998b042"
   head "https://github.com/dhall-lang/dhall-haskell.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,10 +15,11 @@ class DhallBash < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
