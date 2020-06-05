@@ -1,13 +1,10 @@
-require "language/haskell"
-
 class DhallYaml < Formula
-  include Language::Haskell::Cabal
-
   desc "Convert between Dhall and YAML"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-yaml"
   url "https://hackage.haskell.org/package/dhall-yaml-1.1.0/dhall-yaml-1.1.0.tar.gz"
   sha256 "72919ce641af46b6f2e8884ad358f545b58023682f65b2b3d1d1499974fc9c1a"
   head "https://github.com/dhall-lang/dhall-haskell.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,10 +14,11 @@ class DhallYaml < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
