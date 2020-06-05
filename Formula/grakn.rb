@@ -1,8 +1,8 @@
 class Grakn < Formula
   desc "The distributed hyper-relational database for knowledge engineering"
   homepage "https://grakn.ai"
-  url "https://github.com/graknlabs/grakn/releases/download/1.7.1/grakn-core-all-mac-1.7.1.zip"
-  sha256 "4ff35f85e7f7f6884969a41088f0f027379817822b208967e80cab455beee728"
+  url "https://github.com/graknlabs/grakn/releases/download/1.7.2/grakn-core-all-mac-1.7.2.zip"
+  sha256 "3f9c7e6d80877f84f017335f9f42422807cb7cf30ff5075052eee356ad9ce5f4"
 
   bottle :unneeded
 
