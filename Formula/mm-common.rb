@@ -6,9 +6,9 @@ class MmCommon < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f39efe929465c1035f91d2a71e313a7d96f8644d052a057a87d62ae7173720e7" => :catalina
-    sha256 "f39efe929465c1035f91d2a71e313a7d96f8644d052a057a87d62ae7173720e7" => :mojave
-    sha256 "f39efe929465c1035f91d2a71e313a7d96f8644d052a057a87d62ae7173720e7" => :high_sierra
+    sha256 "d7a3510229c192e7aad13d7099a922ad2626eb9edccefc5428cb62dc6eb3b31e" => :catalina
+    sha256 "bba33c2217224dc5a3ed1c091201db2c3cf5ce1a497ec690e39eb63fedb63116" => :mojave
+    sha256 "bba33c2217224dc5a3ed1c091201db2c3cf5ce1a497ec690e39eb63fedb63116" => :high_sierra
   end
 
   depends_on "meson" => :build
