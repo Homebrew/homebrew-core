@@ -20,6 +20,10 @@ class Sdl2 < Formula
     depends_on "libtool" => :build
   end
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   # Fix library extension in CMake config file.
   # https://bugzilla.libsdl.org/show_bug.cgi?id=5039
   patch do
