@@ -16,6 +16,10 @@ class OpenjdkAT11 < Formula
 
   depends_on "autoconf" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "boot-jdk" do
     url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
     sha256 "77ea7675ee29b85aa7df138014790f91047bfdafbc997cb41a1030a0417356d7"
