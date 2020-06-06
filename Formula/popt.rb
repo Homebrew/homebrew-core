@@ -7,9 +7,10 @@ class Popt < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "23f177b2638e756dd47d53b25ea1e55d3de5dff01c111287992634624501052d" => :catalina
-    sha256 "8df86bf6b02122bdb415a4846974efdaf4a70d9a458d641b0272605950dfcfa9" => :high_sierra
+    rebuild 3
+    sha256 "26d76db3d80802bbc9c93b935bea569d8640cb081d75ff58e240cc90cb0bdb5a" => :catalina
+    sha256 "62d43c019e6968bc603f4e5ae323ca957d50bccb0d1e797eba6d411c8f3941e4" => :mojave
+    sha256 "bc17d5c36c45dfba60d51599cc910f0533f7a600d983e433000c445d261a204f" => :high_sierra
   end
 
   def install
