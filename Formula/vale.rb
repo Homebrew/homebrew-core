@@ -6,9 +6,9 @@ class Vale < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32f7ec916a1be6e6c506a9236190da5ba45fa10b032c21e3f4ac517ee70d5841" => :catalina
-    sha256 "f6fdf5cbcc1eea14019f137c750e5d9234c1ae8281c6d1554926519f6cbedc3a" => :mojave
-    sha256 "779c1e4d33d3d53d01b0fa307496e5ed39ab53eda8195f75aeb5794628f80556" => :high_sierra
+    sha256 "9adcdb7c49fec71387a0cd4a4beb8c81e0bb5467eb2e16db27a02ab94c0d4b2f" => :catalina
+    sha256 "fcf77f5465bef0f72403fe09154e591cecc03637d85bd0bad767fd66c6ce9a3c" => :mojave
+    sha256 "2294ed7b45cfd56714e540a89f408345e925cba457b64f5dd177b64257a218fb" => :high_sierra
   end
 
   depends_on "go" => :build
