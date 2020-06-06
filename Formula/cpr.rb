@@ -6,6 +6,13 @@ class Cpr < Formula
       :revision => "3f76ef3fd6acecc7142cd181c8bd8ce1acb8cd14"
   head "https://github.com/whoshuu/cpr.git"
 
+  bottle do
+    cellar :any
+    sha256 "31b3d6d47fe56afa134d75e06acb914f0943610a41720d754d10d6b19904316c" => :catalina
+    sha256 "c0988aa83530bf48778bbf28595044c25282b10db1bdde7f73a84f994cdf0ca1" => :mojave
+    sha256 "f72e1991559282e2f45ef3e92efe99aa7d864a5501085b0a127da50620760f6f" => :high_sierra
+  end
+
   depends_on "cmake" => :build
 
   uses_from_macos "curl"
