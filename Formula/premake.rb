@@ -19,10 +19,9 @@ class Premake < Formula
   def install
     if build.head?
       system "make", "-f", "Bootstrap.mak", "osx"
-      system "./premake5", "gmake"
+    else
+      system "make", "-C", "build/gmake.macosx"
     end
-
-    system "make", "-C", "build/gmake.macosx"
 
     if build.head?
       bin.install "bin/release/premake5"
