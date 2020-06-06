@@ -26,15 +26,29 @@ class HaskellStack < Formula
 
   # Stack requires stack to build itself. Yep.
   resource "bootstrap-stack" do
-    url "https://github.com/commercialhaskell/stack/releases/download/v2.3.1/stack-2.3.1-osx-x86_64.tar.gz"
-    sha256 "73eee7e5f24d11fd0af00cb05f16119e86be5d578c35083250e6b85ed1ca3621"
+    on_macos do
+      url "https://github.com/commercialhaskell/stack/releases/download/v2.3.1/stack-2.3.1-osx-x86_64.tar.gz"
+      sha256 "73eee7e5f24d11fd0af00cb05f16119e86be5d578c35083250e6b85ed1ca3621"
+    end
+
+    on_linux do
+      url "https://github.com/commercialhaskell/stack/releases/download/v2.3.1/stack-2.3.1-linux-x86_64.tar.gz"
+      sha256 "b753cd21d446aea16a221326ec686e3acdf1b146c714a77b5d27fd855475554d"
+    end
   end
 
   # Stack has very specific GHC requirements.
   # For 2.3.1, it requires 8.6.5.
   resource "bootstrap-ghc" do
-    url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
-    sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    on_macos do
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-apple-darwin.tar.xz"
+      sha256 "dfc1bdb1d303a87a8552aa17f5b080e61351f2823c2b99071ec23d0837422169"
+    end
+
+    on_linux do
+      url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-deb8-linux.tar.xz"
+      sha256 "c419fd0aa9065fe4d2eb9a248e323860c696ddf3859749ca96a84938aee49107"
+    end
   end
 
   def install
