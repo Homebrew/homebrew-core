@@ -2,9 +2,8 @@ class Ldid < Formula
   desc "Lets you manipulate the signature block in a Mach-O binary"
   homepage "https://cydia.saurik.com/info/ldid/"
   url "https://git.saurik.com/ldid.git",
-      :tag      => "v1.2.1",
-      :revision => "e4b7adc1e02c9f0e16cc9ae2841192b386f6d4ea"
-  revision 1
+      :tag      => "v2.1.2",
+      :revision => "c2f8abf013b22c335f44241a6a552a7767e73419"
   head "https://git.saurik.com/ldid.git"
 
   bottle do
@@ -14,18 +13,21 @@ class Ldid < Formula
     sha256 "1b0d2d4b611a914b8cf688ac3f35eba21490654bc8b7401bf47e9e1be77e0f3f" => :sierra
   end
 
+  depends_on "libplist"
   depends_on "openssl@1.1"
 
   def install
-    inreplace "make.sh" do |s|
-      s.gsub! %r{^.*/Applications/Xcode-5.1.1.app.*}, ""
-
-      # Reported upstream 2 Sep 2018 (to saurik via email)
-      s.gsub! "-mmacosx-version-min=10.4", "-mmacosx-version-min=#{MacOS.version}"
-      s.gsub! "for arch in i386 x86_64; do", "for arch in x86_64; do" if MacOS.version >= :mojave
-    end
-    system "./make.sh"
+    system ENV.cc, "-c",
+                   "-o", "lookup2.o", "lookup2.c",
+                   "-I."
+    system ENV.cxx, "-std=c++11",
+                    "-o", "ldid", "lookup2.o", "ldid.cpp",
+                    "-I.",
+                    "-framework", "CoreFoundation",
+                    "-framework", "Security",
+                    "-lcrypto", "-lplist", "-lxml2"
     bin.install "ldid"
+    ln_s bin/"ldid", bin/"ldid2"
   end
 
   test do
