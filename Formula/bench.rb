@@ -1,12 +1,8 @@
-require "language/haskell"
-
 class Bench < Formula
-  include Language::Haskell::Cabal
-
   desc "Command-line benchmark tool"
   homepage "https://github.com/Gabriel439/bench"
-  url "https://hackage.haskell.org/package/bench-1.0.12/bench-1.0.12.tar.gz"
-  sha256 "a6376f4741588201ab6e5195efb1e9921bc0a899f77a5d9ac84a5db32f3ec9eb"
+  head "https://github.com/Gabriel439/bench.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -19,14 +15,20 @@ class Bench < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build
 
-  # Compatibility with GHC 8.8. Remove with the next release.
-  patch do
-    url "https://github.com/Gabriel439/bench/commit/846dea7caeb0aee81870898b80345b9d71484f86.patch?full_index=1"
-    sha256 "fac63cd1ddb0af3bda78900df3ac5a4e6b6d2bb8a3d4d94c2f55d3f21dc681d1"
+  stable do
+    url "https://hackage.haskell.org/package/bench-1.0.12/bench-1.0.12.tar.gz"
+    sha256 "a6376f4741588201ab6e5195efb1e9921bc0a899f77a5d9ac84a5db32f3ec9eb"
+
+    # Compatibility with GHC 8.8. Remove with the next release.
+    patch do
+      url "https://github.com/Gabriel439/bench/commit/846dea7caeb0aee81870898b80345b9d71484f86.patch?full_index=1"
+      sha256 "fac63cd1ddb0af3bda78900df3ac5a4e6b6d2bb8a3d4d94c2f55d3f21dc681d1"
+    end
   end
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
