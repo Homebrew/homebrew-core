@@ -1,8 +1,8 @@
 class Rex < Formula
   desc "Command-line tool which executes commands on remote servers"
   homepage "https://www.rexify.org"
-  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.10.0.tar.gz"
-  sha256 "120d450863cad3fb6215e394d1121912de69ac270dedb04173e024130a65b3f2"
+  url "https://cpan.metacpan.org/authors/id/F/FE/FERKI/Rex-1.11.0.tar.gz"
+  sha256 "73269e5ddad0b88f1cf269173a9eff2f2addff230c303112fda5f43e269c49c5"
 
   bottle do
     cellar :any_skip_relocation
