@@ -6,9 +6,9 @@ class Navi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd7432f723f657709bf9dc0fe378de6fc498c012f7e6db32823c3b6e45e41e23" => :catalina
-    sha256 "7b12857ae9904c9c7202960655739c374eb8cf07b30aaa7e24f1fe16a8abc18e" => :mojave
-    sha256 "ba4f09d3fc9bb35478c6774a1d5f9ed1ded994c22fbce66842c8c38c5cae6f22" => :high_sierra
+    sha256 "4bb0a094d284ae344216ff510acab238c0ac9de53d62718736692ddcfa82b4d3" => :catalina
+    sha256 "d01ac98c9b810e673232f9e56aaa8e3316866d0e3579d7a3ab349fc68cc68f6f" => :mojave
+    sha256 "05e2b50a3d499792f11f3faa95afb74e4c4d3b1556a6ab53b65f43cbb62ff1f2" => :high_sierra
   end
 
   depends_on "rust" => :build
