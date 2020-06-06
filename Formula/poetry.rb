@@ -3,9 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/2c/79/7fc6e1ac5ebff02e39f24a17ddf56ef6370797a8371e6cfc5c7b56d3a1ea/poetry-1.0.5.tar.gz"
-  sha256 "8e195ea8a4bce4f418a23fd828aa2f9ce06be7655720efd1d95beb0ee641030a"
-  revision 2
+  url "https://files.pythonhosted.org/packages/97/65/6de531fc3bedaa98751d1afbfdb4840c489bd1a828a94e9704cf6f841b44/poetry-1.0.8.tar.gz"
+  sha256 "2e1d932ac2bc300feecf001837d854ca692bce4083822591da4596ebfb5576e9"
 
   bottle do
     cellar :any_skip_relocation
