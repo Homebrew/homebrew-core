@@ -1,12 +1,11 @@
-require "language/haskell"
-
 class Cmt < Formula
-  include Language::Haskell::Cabal
-
   desc "Write consistent git commit messages based on a custom template"
   homepage "https://github.com/smallhadroncollider/cmt"
   url "https://github.com/smallhadroncollider/cmt/archive/0.7.1.tar.gz"
   sha256 "364faaf5f44544f952b511be184a724e2011fba8f0f88fdfc05fef6985dd32f6"
+  license "BSD-3-Clause"
+  revision 1
+  head "https://github.com/smallhadroncollider/cmt.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +21,8 @@ class Cmt < Formula
 
   def install
     system "hpack"
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
