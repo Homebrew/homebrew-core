@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/1.4.8/mu-1.4.8.tar.xz"
-  sha256 "b5cc7e716f5456a55dc83f25069b0ddbd076ddd0ea4319bd24d45d938f459c6f"
+  url "https://github.com/djcb/mu/archive/1.4.9.tar.gz"
+  sha256 "1d025e75ee3a0fc8b680963a4e61b8644cb89d98f4155ac0ef55f4b99cbbe6f7"
 
   bottle do
     cellar :any
