@@ -112,12 +112,10 @@ class Mailhog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f079f8175a4669000f5d0cc30e3c091675cc97cf03473503f0974f20bdfbf88b" => :catalina
-    sha256 "f74c763c363961bf74dbd9aec7ee4d4a1faa010184c765889f23b7018dc58e39" => :mojave
-    sha256 "be78e98dffa8a35f0aa435fdc4f56b40614b6dad6759ab23d7c55ea88f999644" => :high_sierra
-    sha256 "fa2fad0872e20bc0d8e302306e38c0a66fa7c92f3f0c61ff6952e3ec2de089dc" => :sierra
-    sha256 "ee9851eae56a0b8f2e52274ee358323dc4887a1e7c40ee8f1e7a9b0ae0bc07dd" => :el_capitan
-    sha256 "6832c9139e927cfd708604db23e95c3d3cee79f64d5cb2902137dca85007ed53" => :yosemite
+    rebuild 1
+    sha256 "e127d4cd9bc97838be1586912d0fa14370062f9f98f901ce0de9faf6c9d4fba4" => :catalina
+    sha256 "58b7a9427521adeb1f65aa961e7548532c3d2c1141bd167deba8ff031d90d2c9" => :mojave
+    sha256 "de3accd2587eb597e92b31fcf6dd93e78b0c0e52511680a6354d17d066ed776f" => :high_sierra
   end
 
   depends_on "go" => :build
