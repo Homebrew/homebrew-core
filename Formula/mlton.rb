@@ -4,6 +4,7 @@ class Mlton < Formula
   url "https://downloads.sourceforge.net/project/mlton/mlton/20180207/mlton-20180207.src.tgz"
   version "20180207"
   sha256 "872cd98da3db720cbe05f673eaa1776d020d828713753f18fa5dd6a268195fef"
+  revision 1
   head "https://github.com/MLton/mlton.git"
 
   bottle do
@@ -18,8 +19,15 @@ class Mlton < Formula
 
   # The corresponding upstream binary release used to bootstrap.
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/mlton/mlton/20180207/mlton-20180207-1.amd64-darwin.gmp-static.tgz"
-    sha256 "bb2d982ef97d6ef4efe078d23a09baf3e52f6fd6c8f1a60016e1624438f487b3"
+    on_macos do
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20180207/mlton-20180207-1.amd64-darwin.gmp-static.tgz"
+      sha256 "bb2d982ef97d6ef4efe078d23a09baf3e52f6fd6c8f1a60016e1624438f487b3"
+    end
+
+    on_linux do
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20180207/mlton-20180207-1.amd64-linux.tgz"
+      sha256 "8e4abdb9f3ef81c01b989a66734dca2a7f4189c55673a1c8bbad54e7cb299838"
+    end
   end
 
   def install
@@ -27,7 +35,7 @@ class Mlton < Formula
     bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage do
       args = %W[
-        WITH_GMP=#{Formula["gmp"].opt_prefix}
+        WITH_GMP_DIR=#{Formula["gmp"].opt_prefix}
         PREFIX=#{bootstrap}
         MAN_PREFIX_EXTRA=/share
       ]
@@ -38,7 +46,7 @@ class Mlton < Formula
     # Support parallel builds (https://github.com/MLton/mlton/issues/132)
     ENV.deparallelize
     args = %W[
-      WITH_GMP=#{Formula["gmp"].opt_prefix}
+      WITH_GMP_DIR=#{Formula["gmp"].opt_prefix}
       DESTDIR=
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share
