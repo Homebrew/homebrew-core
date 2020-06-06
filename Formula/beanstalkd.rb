@@ -1,8 +1,8 @@
 class Beanstalkd < Formula
   desc "Generic work queue originally designed to reduce web latency"
   homepage "https://beanstalkd.github.io/"
-  url "https://github.com/beanstalkd/beanstalkd/archive/v1.11.tar.gz"
-  sha256 "5e3414e49d00e9ef9530897983e56bdba98da6f8f1f30f5fe7e6064b2f68c544"
+  url "https://github.com/beanstalkd/beanstalkd/archive/v1.12.tar.gz"
+  sha256 "f43a7ea7f71db896338224b32f5e534951a976f13b7ef7a4fb5f5aed9f57883f"
 
   bottle do
     cellar :any_skip_relocation
