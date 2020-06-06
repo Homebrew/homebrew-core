@@ -1,12 +1,9 @@
-require "language/haskell"
-
 class Mighttpd2 < Formula
-  include Language::Haskell::Cabal
-
   desc "HTTP server"
   homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
   url "https://hackage.haskell.org/package/mighttpd2-3.4.6/mighttpd2-3.4.6.tar.gz"
   sha256 "fe14264ea0e45281591c86030cad2b349480f16540ad1d9e3a29657ddf62e471"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -17,12 +14,13 @@ class Mighttpd2 < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.8" => :build
+  depends_on "ghc" => :build
 
   uses_from_macos "zlib"
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "-ftls", *std_cabal_v2_args
   end
 
   test do
