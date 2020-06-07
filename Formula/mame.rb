@@ -63,6 +63,13 @@ class Mame < Formula
     end
     pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
   end
+  
+  def caveats
+    <<~EOS
+      To use mame on OS X 10.15
+        mame -video opengl
+    EOS
+  end
 
   test do
     assert shell_output("#{bin}/mame -help").start_with? "MAME v#{version}"
