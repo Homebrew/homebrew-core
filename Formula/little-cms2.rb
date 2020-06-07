@@ -9,9 +9,9 @@ class LittleCms2 < Formula
 
   bottle do
     cellar :any
-    sha256 "73e92367d80b786140172f2fedc96e8dc935fbd5daa53b796e1572707ba7788d" => :catalina
-    sha256 "1d92fdb6dfbacebb2431da4c3c9e2c8d791fa6db7705a90b6cc1547b3b55747a" => :mojave
-    sha256 "5018fd6feb5608d7f773c4de548cef619b6d0a306d317c2f81129885af523311" => :high_sierra
+    sha256 "0a03a16dbbb3628e5ab6ce8a99c302222aa062cb412d94939a59ec9ff15af843" => :catalina
+    sha256 "cd6e44776acd687870dcde0a5d0e180f0023c9ea4d1cf0010ff2084a286c0153" => :mojave
+    sha256 "7d397c359911bea902ae0bb5463a8bad2f5cf1ecd08fddcdceadb26a7474b0a9" => :high_sierra
   end
 
   depends_on "jpeg"
