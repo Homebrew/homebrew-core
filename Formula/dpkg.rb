@@ -14,14 +14,22 @@ class Dpkg < Formula
     sha256 "de1c3a3f1f2042699e6df4e9a793fb1e0fff1d194e2eff56c37d9cf4d24ab025" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnu-tar"
   depends_on "gpatch"
   depends_on "perl"
   depends_on "xz" # For LZMA
+  depends_on "zstd"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  patch do
+    url "https://bugs.debian.org/cgi-bin/bugreport.cgi?att=1;bug=892664;filename=0001-dpkg-Add-Zstandard-compression-and-decompression-sup.patch;msg=20"
+    sha256 "72228a83b7472ec2776abba525f09e1bb8de6620b0e7c1c3e7a50c9bdb8c5503"
+  end
 
   patch :DATA
 
@@ -42,6 +50,7 @@ class Dpkg < Formula
     ENV["PERL_LIBDIR"] = libexec/"lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
+    system "autoreconf", "-f"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{libexec}",
