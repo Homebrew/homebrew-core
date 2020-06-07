@@ -1,8 +1,8 @@
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
   homepage "https://github.com/xxxserxxx/gotop"
-  url "https://github.com/xxxserxxx/gotop/archive/v3.5.3.tar.gz"
-  sha256 "fd9ecc1f9fcd622dc88f93af87fdf6a12020cec424d742deb1865853b38d5605"
+  url "https://github.com/xxxserxxx/gotop/archive/v4.0.0.tar.gz"
+  sha256 "13c62c522dae2da97703c600703a6d89081362744ab29a4ce6459c1382600958"
 
   bottle do
     cellar :any_skip_relocation
