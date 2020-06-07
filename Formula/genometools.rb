@@ -37,6 +37,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system "python3", "-c", "import gt"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import gt"
   end
 end
