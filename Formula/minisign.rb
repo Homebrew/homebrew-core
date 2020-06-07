@@ -6,11 +6,9 @@ class Minisign < Formula
 
   bottle do
     cellar :any
-    sha256 "f4f2ead633dca744121338c3fc79e964348fa6d97d5361267df6d4ecbe9a6643" => :catalina
-    sha256 "b2862f35643f396fafff03c76697b2d25b8907bd14b4dc4c31c913b60ab88c82" => :mojave
-    sha256 "6826fa79c308cc321871704d79baab4deb71e916c00656c0b6cc656042889103" => :high_sierra
-    sha256 "bb3f8c4d58e195960606e1f155775da72ba7c019d9dd72b818ed7d232bf4e22c" => :sierra
-    sha256 "2884120953aeac755a39365d5905ece08b90b1bfd9568677cd1ed45046fe8491" => :el_capitan
+    sha256 "ff5a04ebf89d246f641855d36290a38810d18308dbc37377e15e0ae008137685" => :catalina
+    sha256 "25fc3bf106e6df3ad1e32d074faa895ebe22611b3af25df32efd399d88f1a094" => :mojave
+    sha256 "6bcd186e46f2cb55b9c07e6c4562caa2b3c16c5cd10c67c4294356a592e5c01b" => :high_sierra
   end
 
   depends_on "cmake" => :build
