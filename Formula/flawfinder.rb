@@ -3,7 +3,7 @@ class Flawfinder < Formula
   homepage "https://www.dwheeler.com/flawfinder/"
   url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.11.tar.gz"
   sha256 "9b4929fca5c6703880d95f201e470b7f19262ff63e991b3ac4ea3257f712f5ec"
-  head "https://git.code.sf.net/p/flawfinder/code.git"
+  head "https://github.com/david-a-wheeler/flawfinder.git"
 
   bottle do
     cellar :any_skip_relocation
