@@ -4,9 +4,8 @@ class Sshuttle < Formula
   desc "Proxy server that works as a poor man's VPN"
   homepage "https://github.com/sshuttle/sshuttle"
   url "https://github.com/sshuttle/sshuttle.git",
-      :tag      => "v0.78.5",
-      :revision => "752a95310198886515577463a4a7e36d7f218018"
-  revision 2
+      :tag      => "v1.0.1",
+      :revision => "8c9dad1c6badf772b3e1dcac37e285768940299c"
   head "https://github.com/sshuttle/sshuttle.git"
 
   bottle do
