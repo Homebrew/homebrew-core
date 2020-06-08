@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/e7/90/1850ce3d3e0221d6c8a37e54b4071a7615f45fe61d31fd4988bd64eca3f9/twarc-1.8.5.tar.gz"
-  sha256 "4e98053b726c46e35afd8a80005219507637aac0f4b01cfdea6a7785781be84f"
+  url "https://files.pythonhosted.org/packages/f2/db/c2868c9842e86e730d99b188dcab3d0271a30cb16188464220a2f849fd73/twarc-1.9.0.tar.gz"
+  sha256 "9ed74c8a4777876b9eb608a877aa637b25e2eece37bbc46f0e8d9ddc303a6b47"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,8 @@ class Twarc < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
+    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
   end
 
   resource "chardet" do
@@ -66,8 +66,8 @@ class Twarc < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/49/10/4a8f2f7828b195fe9c9e2b910e9b0dd3d4a263bffbab54f09bf6c2f488bb/pytest-5.4.2.tar.gz"
-    sha256 "eb2b5e935f6a019317e455b6da83dd8650ac9ffd2ee73a7b657a30873d67a698"
+    url "https://files.pythonhosted.org/packages/8f/c4/e4a645f8a3d6c6993cb3934ee593e705947dfafad4ca5148b9a0fde7359c/pytest-5.4.3.tar.gz"
+    sha256 "7979331bfcba207414f5e1263b5a0f8f521d0f457318836a7355531ed1a4c7d8"
   end
 
   resource "python-dateutil" do
@@ -96,8 +96,8 @@ class Twarc < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/25/9d/0acbed6e4a4be4fc99148f275488580968f44ddb5e69b8ceb53fc9df55a0/wcwidth-0.1.9.tar.gz"
-    sha256 "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
+    url "https://files.pythonhosted.org/packages/2e/30/268d9d3ed18439b6983a8e630cd52d81fd7460a152d6e801d1b8394e51a1/wcwidth-0.2.4.tar.gz"
+    sha256 "8c6b5b6ee1360b842645f336d9e5d68c55817c26d3050f46b235ef2bc650e48f"
   end
 
   def install
