@@ -29,7 +29,7 @@ class Seal < Formula
     # Chip in a new "CMakeLists.txt" for example code tests
     (testpath/"examples/CMakeLists.txt").write <<~EOS
       cmake_minimum_required(VERSION 3.12)
-      project(SEALExamples VERSION 3.5.1 LANGUAGES CXX)
+      project(SEALExamples VERSION #{version} LANGUAGES CXX)
       # Executable will be in ../bin
       set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${SEALExamples_SOURCE_DIR}/../bin)
 
@@ -46,7 +46,7 @@ class Seal < Formula
       )
 
       # Import Microsoft SEAL
-      find_package(SEAL 3.5.1 EXACT REQUIRED
+      find_package(SEAL #{version} EXACT REQUIRED
           # Providing a path so this can be built without installing Microsoft SEAL
           PATHS ${SEALExamples_SOURCE_DIR}/../src/cmake
       )
