@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/bd/84/a0714091367c2929030259886ab79b1bf642c1408112214b2ccb246850c7/snakemake-5.18.1.tar.gz"
-  sha256 "3527687a8f17d2c409ef84ed9386ba2bb6f34e74ab6bdef2abfeca5e7223d08f"
+  url "https://files.pythonhosted.org/packages/8f/cc/b207d1991f1c386402bcb7ec19942950a4c8f44f61b50a3598a1edd13d4b/snakemake-5.19.2.tar.gz"
+  sha256 "e5e80b482a73d3a3c3f58f9391a857d58cb80aa92498ac7468e6893ee3e2de60"
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do
@@ -27,8 +27,8 @@ class Snakemake < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
+    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
   end
 
   resource "chardet" do
@@ -62,8 +62,8 @@ class Snakemake < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/36/5d/23c3f9a527a1e1c79e8622c7bb74704f6468351cd756e20f65f2ea7aba44/GitPython-3.1.2.tar.gz"
-    sha256 "864a47472548f3ba716ca202e034c1900f197c0fb3a08f641c20c3cafd15ed94"
+    url "https://files.pythonhosted.org/packages/5b/ef/96dd6b06400821bbad3f7e275f4a4f88af324124c5c04958e2f2c14ce2c8/GitPython-3.1.3.tar.gz"
+    sha256 "e107af4d873daed64648b4f4beb89f89f0cfbe3ef558fc7821ed2331c2f8da1a"
   end
 
   resource "idna" do
