@@ -3,8 +3,8 @@ class Airshare < Formula
 
   desc "Cross-platform content sharing in a local network"
   homepage "https://airshare.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/52/ad/898d5b0a4b079531e67fcb50f437184f03de952ad3aad635527c11b5f5f6/Airshare-0.1.5.tar.gz"
-  sha256 "a18479dc37032d3d4383d29a4e2f518f279a0166d7860c25b4102f605c6626e9"
+  url "https://files.pythonhosted.org/packages/cb/a2/d59c18cd6a143bf860c29acb70552b7351fd7e0f56213be86b624601106b/Airshare-0.1.6.tar.gz"
+  sha256 "138976933bcf2c0bc99f18901242544919e9fafe43735b4f83b19d4ae5964be7"
 
   bottle do
     cellar :any_skip_relocation
@@ -36,8 +36,8 @@ class Airshare < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
+    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
   end
 
   resource "chardet" do
@@ -71,8 +71,8 @@ class Airshare < Formula
   end
 
   resource "ifaddr" do
-    url "https://files.pythonhosted.org/packages/9f/54/d92bda685093ebc70e2057abfa83ef1b3fb0ae2b6357262a3e19dfe96bb8/ifaddr-0.1.6.tar.gz"
-    sha256 "c19c64882a7ad51a394451dabcbbed72e98b5625ec1e79789924d5ea3e3ecb93"
+    url "https://files.pythonhosted.org/packages/3d/fc/4ce147e3997cd0ea470ad27112087545cf83bf85015ddb3054673cb471bb/ifaddr-0.1.7.tar.gz"
+    sha256 "1f9e8a6ca6f16db5a37d3356f07b6e52344f6f9f7e806d618537731669eb1a94"
   end
 
   resource "multidict" do
@@ -121,8 +121,8 @@ class Airshare < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/1b/d1/3af9bc404c771375efb4b1e2e8c83f8fce9647b4fe018f92f5d8f2eb85f3/zeroconf-0.27.0.tar.gz"
-    sha256 "74093f3c4e90898b992b47d324ac4c991fbb372d8dbbadfbf38cd25eae2586fd"
+    url "https://files.pythonhosted.org/packages/9b/6e/4ee8219d80b62b24728860434ad30e467a4a957fae2b4386da47f69168ed/zeroconf-0.27.1.tar.gz"
+    sha256 "51a8bc581036cabcf82523c81b72f6a11b2c7913eb7eb418b6dad60cd40f9ef2"
   end
 
   def install
