@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/63/cd/688fe28ade2a7db0a7bd7d5d75c0d8176ab3f8eba3f37b0cbf9f15e1eb58/cfn-lint-0.32.1.tar.gz"
-  sha256 "96dedfaa72b84aed2c93c82f0ad68e0d0385cb986a3cc3fa8b7491cc5f565292"
+  url "https://files.pythonhosted.org/packages/5b/20/73404af43417f48aed58acc295644b2118aee779158be0cd42337a7a6490/cfn-lint-0.33.0.tar.gz"
+  sha256 "b74bb89a3d0da4a744179b07bc186b9fbc4800f929bf635bb6246e80fb91a953"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,18 +21,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/bf/22/4f51e6d337c165051dd4e455d2935987558e747d98aba10acb8f69cefb41/aws-sam-translator-1.23.0.tar.gz"
-    sha256 "6e847b02661247e5d9b99b3bd22351fc6ed614e0f12e0598c0181cb796b3967e"
+    url "https://files.pythonhosted.org/packages/11/51/9503e15a529ec982d0dc37685235adc642ecaf6ab570b9e55b7c55e67a08/aws-sam-translator-1.24.0.tar.gz"
+    sha256 "f6b67545a87ec1e276bd5bf06abcc84332c4eb9dfa2fd415113e07a908fe55bb"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/0a/d9/41ad5cc02dc36e9b9a92a6179e5e1a3689a21a908d01890d49f75ffcdf74/boto3-1.13.1.tar.gz"
-    sha256 "7a2474db6576d7d3f5c3336ec54450e34211d44e2342e501a67e2fae35916e63"
+    url "https://files.pythonhosted.org/packages/1d/f5/160801c0499c9fbea54d5b33a362b11240fd55d67a4c77f0dfd022052f1f/boto3-1.13.24.tar.gz"
+    sha256 "5df1f3f84587b4d812f6f178031119b80920822b459bbb70ad49f431128655dc"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e5/bf/75a853c77538aebc3ce7c6bcbde51153468e6347321d6ddd441a8ef3c71d/botocore-1.16.1.tar.gz"
-    sha256 "879cedb22baf9446323240f1cf57d4e0e7ba262ba6fde6d3540cf7fdd7ddad34"
+    url "https://files.pythonhosted.org/packages/ec/fd/b800df09d32bb1470ae86ad7e3af343c5e15ff996b798b56990564c9ad1a/botocore-1.16.24.tar.gz"
+    sha256 "17bc71415186efb86a25dd674f78064cdd85139485967d5a0741c7b83d62cf5b"
   end
 
   resource "certifi" do
@@ -62,13 +62,13 @@ class CfnLint < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/b4/1b/baab42e3cd64c9d5caac25a9d6c054f8324cdc38975a44d600569f1f7158/importlib_metadata-1.6.0.tar.gz"
-    sha256 "34513a8a0c4962bc66d35b359558fd8a5e10cd472d37aec5f66858addef32c1e"
+    url "https://files.pythonhosted.org/packages/aa/9a/8483b77e2decd95963d7e34bc9bc91a26e71fd89b57d8cf978ca24747c7f/importlib_metadata-1.6.1.tar.gz"
+    sha256 "0505dd08068cfec00f53a74a0ad927676d7757da81b7436a6eefe4c7cf75c545"
   end
 
   resource "jmespath" do
-    url "https://files.pythonhosted.org/packages/5c/40/3bed01fc17e2bb1b02633efc29878dfa25da479ad19a69cfb11d2b88ea8e/jmespath-0.9.5.tar.gz"
-    sha256 "cca55c8d153173e21baa59983015ad0daf603f9cb799904ff057bfb8ff8dc2d9"
+    url "https://files.pythonhosted.org/packages/3c/56/3f325b1eef9791759784aa5046a8f6a1aff8f7c898a2e34506771d3b99d8/jmespath-0.10.0.tar.gz"
+    sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
   end
 
   resource "jsonpatch" do
@@ -93,8 +93,8 @@ class CfnLint < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/a0/47/6ff6d07d84c67e3462c50fa33bf649cda859a8773b53dc73842e84455c05/more-itertools-8.2.0.tar.gz"
-    sha256 "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"
+    url "https://files.pythonhosted.org/packages/16/e8/b371710ad458e56b6c74b82352fdf1625e75c03511c66a75314f1084f057/more-itertools-8.3.0.tar.gz"
+    sha256 "558bb897a2232f5e4f8e2399089e35aecb746e1f9191b6584a151647e89267be"
   end
 
   resource "networkx" do
@@ -128,8 +128,8 @@ class CfnLint < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "urllib3" do
