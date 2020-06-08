@@ -17,7 +17,7 @@ class ConsulTemplate < Formula
 
   def install
     project = "github.com/hashicorp/consul-template"
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+    commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
     ldflags = %W[
       -s -w
       -X #{project}/version.Name=consul-template

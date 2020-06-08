@@ -20,7 +20,7 @@ class Inlets < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/inlets/inlets").install buildpath.children
     cd "src/github.com/inlets/inlets" do
-      commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
+      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
              "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
              "-a",

@@ -18,8 +18,8 @@ class AwsIamAuthenticator < Formula
 
   def install
     # project = "github.com/kubernetes-sigs/aws-iam-authenticator"
-    revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
-    version = Utils.popen_read("git describe --tags").strip
+    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
+    version = Utils.safe_popen_read("git describe --tags").strip
     ldflags = ["-s", "-w",
                "-X main.version=#{version}",
                "-X main.commit=#{revision}"]

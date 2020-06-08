@@ -16,7 +16,7 @@ class Buildkit < Formula
   depends_on "go" => :build
 
   def install
-    revision = Utils.popen_read("git rev-parse HEAD").chomp
+    revision = Utils.safe_popen_read("git rev-parse HEAD").chomp
     ldflags = %W[
       -s -w
       -X github.com/moby/buildkit/version.Version=#{version}

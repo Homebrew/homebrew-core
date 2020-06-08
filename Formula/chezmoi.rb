@@ -15,7 +15,7 @@ class Chezmoi < Formula
   depends_on "go" => :build
 
   def install
-    commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     ldflags = %W[
       -s -w
       -X main.version=#{version}

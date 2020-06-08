@@ -30,11 +30,11 @@ class KubernetesCli < Formula
       bin.install "_output/local/bin/darwin/amd64/kubectl"
 
       # Install bash completion
-      output = Utils.popen_read("#{bin}/kubectl completion bash")
+      output = Utils.safe_popen_read("#{bin}/kubectl completion bash")
       (bash_completion/"kubectl").write output
 
       # Install zsh completion
-      output = Utils.popen_read("#{bin}/kubectl completion zsh")
+      output = Utils.safe_popen_read("#{bin}/kubectl completion zsh")
       (zsh_completion/"_kubectl").write output
 
       prefix.install_metafiles

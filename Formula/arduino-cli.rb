@@ -16,7 +16,7 @@ class ArduinoCli < Formula
   depends_on "go" => :build
 
   def install
-    commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
     system "go", "build", "-ldflags",
            "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} " \
            "-X github.com/arduino/arduino-cli/version.commit=#{commit}",

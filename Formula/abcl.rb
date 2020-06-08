@@ -18,7 +18,7 @@ class Abcl < Formula
 
   def install
     cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+    ENV["JAVA_HOME"] = Utils.safe_popen_read(cmd).chomp
 
     system "ant"
 

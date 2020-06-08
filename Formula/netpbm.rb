@@ -64,7 +64,7 @@ class Netpbm < Formula
   end
 
   test do
-    fwrite = Utils.popen_read("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
+    fwrite = shell_output("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
     (testpath/"test.pam").write fwrite
     system "#{bin}/pamdice", "test.pam", "-outstem", testpath/"testing"
     assert_predicate testpath/"testing_0_0.", :exist?

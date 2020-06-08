@@ -16,7 +16,7 @@ class Kustomize < Formula
   depends_on "go" => :build
 
   def install
-    revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
+    revision = Utils.safe_popen_read("git", "rev-parse", "HEAD").strip
 
     cd "kustomize" do
       ldflags = %W[

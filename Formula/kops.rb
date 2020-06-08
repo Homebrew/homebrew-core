@@ -24,11 +24,11 @@ class Kops < Formula
     bin.install("bin/kops")
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/kops completion bash")
+    output = Utils.safe_popen_read("#{bin}/kops completion bash")
     (bash_completion/"kops").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/kops completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kops completion zsh")
     (zsh_completion/"_kops").write output
   end
 

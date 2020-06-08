@@ -21,10 +21,10 @@ class Minikube < Formula
     system "make"
     bin.install "out/minikube"
 
-    output = Utils.popen_read("#{bin}/minikube completion bash")
+    output = Utils.safe_popen_read("#{bin}/minikube completion bash")
     (bash_completion/"minikube").write output
 
-    output = Utils.popen_read("#{bin}/minikube completion zsh")
+    output = Utils.safe_popen_read("#{bin}/minikube completion zsh")
     (zsh_completion/"_minikube").write output
   end
 

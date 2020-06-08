@@ -23,10 +23,10 @@ class Kamel < Formula
 
     prefix.install_metafiles
 
-    output = Utils.popen_read("#{bin}/kamel completion bash")
+    output = Utils.safe_popen_read("#{bin}/kamel completion bash")
     (bash_completion/"kamel").write output
 
-    output = Utils.popen_read("#{bin}/kamel completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kamel completion zsh")
     (zsh_completion/"_kamel").write output
   end
 

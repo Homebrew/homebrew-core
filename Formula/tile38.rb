@@ -19,7 +19,7 @@ class Tile38 < Formula
   end
 
   def install
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+    commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
 
     ldflags = %W[
       -s -w

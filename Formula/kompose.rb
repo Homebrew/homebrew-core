@@ -20,10 +20,10 @@ class Kompose < Formula
     system "make", "bin"
     bin.install "kompose"
 
-    output = Utils.popen_read("#{bin}/kompose completion bash")
+    output = Utils.safe_popen_read("#{bin}/kompose completion bash")
     (bash_completion/"kompose").write output
 
-    output = Utils.popen_read("#{bin}/kompose completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kompose completion zsh")
     (zsh_completion/"_kompose").write output
   end
 

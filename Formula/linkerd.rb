@@ -22,11 +22,11 @@ class Linkerd < Formula
     bin.install "target/cli/darwin/linkerd"
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/linkerd completion bash")
+    output = Utils.safe_popen_read("#{bin}/linkerd completion bash")
     (bash_completion/"linkerd").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/linkerd completion zsh")
+    output = Utils.safe_popen_read("#{bin}/linkerd completion zsh")
     (zsh_completion/"linkerd").write output
 
     prefix.install_metafiles

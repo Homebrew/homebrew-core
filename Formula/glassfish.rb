@@ -37,7 +37,7 @@ class Glassfish < Formula
     domaindir_arg = "--domaindir=#{domains_path}"
 
     # tell glassfish to use Java 8
-    java8_home = Utils.popen_read(Language::Java.java_home_cmd("1.8")).chomp
+    java8_home = shell_output(Language::Java.java_home_cmd("1.8")).chomp
     File.open(asenv_conf_path, "a") { |file| file.puts "AS_JAVA=\"#{java8_home}\"" }
 
     port = free_port

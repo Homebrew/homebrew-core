@@ -31,11 +31,11 @@ class Nagios < Formula
   end
 
   def user
-    Utils.popen_read("id -un").chomp
+    Utils.safe_popen_read("id -un").chomp
   end
 
   def group
-    Utils.popen_read("id -gn").chomp
+    Utils.safe_popen_read("id -gn").chomp
   end
 
   def install

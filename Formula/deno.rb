@@ -47,9 +47,9 @@ class Deno < Formula
     end
 
     # Install bash and zsh completion
-    output = Utils.popen_read("#{bin}/deno completions bash")
+    output = Utils.safe_popen_read("#{bin}/deno completions bash")
     (bash_completion/"deno").write output
-    output = Utils.popen_read("#{bin}/deno completions zsh")
+    output = Utils.safe_popen_read("#{bin}/deno completions zsh")
     (zsh_completion/"_deno").write output
   end
 

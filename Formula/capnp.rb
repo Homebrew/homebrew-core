@@ -25,7 +25,7 @@ class Capnp < Formula
     file = testpath/"test.capnp"
     text = "\"Is a happy little duck\""
 
-    file.write Utils.popen_read("#{bin}/capnp id").chomp + ";\n"
+    file.write shell_output("#{bin}/capnp id").chomp + ";\n"
     file.append_lines "const dave :Text = #{text};"
     assert_match text, shell_output("#{bin}/capnp eval #{file} dave")
   end

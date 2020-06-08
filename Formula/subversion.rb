@@ -134,7 +134,7 @@ class Subversion < Formula
     system "make", "javahl"
     system "make", "install-javahl"
 
-    archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
+    archlib = Utils.safe_popen_read("perl -MConfig -e 'print $Config{archlib}'")
     perl_core = Pathname.new(archlib)/"CORE"
     onoe "'#{perl_core}' does not exist" unless perl_core.exist?
 

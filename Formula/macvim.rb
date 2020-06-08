@@ -65,7 +65,7 @@ class Macvim < Formula
     assert_match "+ruby", output
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
-    py3_exec_prefix = Utils.popen_read(Formula["python@3.8"].opt_bin/"python3-config", "--exec-prefix")
+    py3_exec_prefix = shell_output(Formula["python@3.8"].opt_bin/"python3-config --exec-prefix")
     assert_match py3_exec_prefix.chomp, output
     (testpath/"commands.vim").write <<~EOS
       :python3 import vim; vim.current.buffer[0] = 'hello python3'

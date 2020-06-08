@@ -77,7 +77,7 @@ class Crystal < Formula
     crystal_build_opts << "FLAGS=--no-debug"
     crystal_build_opts << "CRYSTAL_CONFIG_LIBRARY_PATH="
     if build.head?
-      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.popen_read("git rev-parse --short HEAD").strip}"
+      crystal_build_opts << "CRYSTAL_CONFIG_BUILD_COMMIT=#{Utils.safe_popen_read("git rev-parse --short HEAD").strip}"
     end
     (buildpath/".build").mkpath
     system "make", "deps"

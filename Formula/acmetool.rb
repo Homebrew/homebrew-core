@@ -170,12 +170,12 @@ class Acmetool < Formula
         -X github.com/hlandau/acme/storage.RecommendedPath=#{var}/lib/acmetool
         -X github.com/hlandau/acme/hooks.DefaultPath=#{lib}/hooks
         -X github.com/hlandau/acme/responder.StandardWebrootPath=#{var}/run/acmetool/acme-challenge
-        #{Utils.popen_read("#{buildpath}/src/github.com/hlandau/buildinfo/gen")}
+        #{Utils.safe_popen_read("#{buildpath}/src/github.com/hlandau/buildinfo/gen")}
       ]
       system "go", "build", "-o", bin/"acmetool", "-ldflags", ldflags.join(" ")
     end
 
-    (man8/"acmetool.8").write Utils.popen_read(bin/"acmetool", "--help-man")
+    (man8/"acmetool.8").write Utils.safe_popen_read(bin/"acmetool", "--help-man")
 
     doc.install Dir["_doc/*"]
   end

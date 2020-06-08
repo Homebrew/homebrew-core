@@ -68,7 +68,7 @@ class Neovim < Formula
       ].each do |rock|
         dir, rock = rock.split("/")
         cd "build/src/#{dir}" do
-          output = Utils.popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{buildpath}/deps-build")
+          output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{buildpath}/deps-build")
           unpack_dir = output.split("\n")[-2]
           cd unpack_dir do
             system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"

@@ -88,8 +88,8 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = Utils.popen_read("#{Formula["python@3.8"].opt_bin}/python3-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("#{Formula["python@3.8"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
+    pyincludes = shell_output("#{Formula["python@3.8"].opt_bin}/python3-config --includes").chomp.split(" ")
+    pylib = shell_output("#{Formula["python@3.8"].opt_bin}/python3-config --ldflags --embed").chomp.split(" ")
     pyver = Language::Python.major_minor_version(Formula["python@3.8"].opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",

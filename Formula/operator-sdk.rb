@@ -29,11 +29,11 @@ class OperatorSdk < Formula
       bin.install buildpath/"bin/operator-sdk"
 
       # Install bash completion
-      output = Utils.popen_read("#{bin}/operator-sdk completion bash")
+      output = Utils.safe_popen_read("#{bin}/operator-sdk completion bash")
       (bash_completion/"operator-sdk").write output
 
       # Install zsh completion
-      output = Utils.popen_read("#{bin}/operator-sdk completion zsh")
+      output = Utils.safe_popen_read("#{bin}/operator-sdk completion zsh")
       (zsh_completion/"_operator-sdk").write output
 
       prefix.install_metafiles

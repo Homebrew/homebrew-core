@@ -19,9 +19,9 @@ class NewrelicCli < Formula
     system "make", "compile-only"
     bin.install "bin/darwin/newrelic"
 
-    output = Utils.popen_read("#{bin}/newrelic completion --shell bash")
+    output = Utils.safe_popen_read("#{bin}/newrelic completion --shell bash")
     (bash_completion/"newrelic").write output
-    output = Utils.popen_read("#{bin}/newrelic completion --shell zsh")
+    output = Utils.safe_popen_read("#{bin}/newrelic completion --shell zsh")
     (zsh_completion/"_newrelic").write output
   end
 

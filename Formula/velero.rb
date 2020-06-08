@@ -25,11 +25,11 @@ class Velero < Formula
                    "./cmd/velero"
 
       # Install bash completion
-      output = Utils.popen_read("#{bin}/velero completion bash")
+      output = Utils.safe_popen_read("#{bin}/velero completion bash")
       (bash_completion/"velero").write output
 
       # Install zsh completion
-      output = Utils.popen_read("#{bin}/velero completion zsh")
+      output = Utils.safe_popen_read("#{bin}/velero completion zsh")
       (zsh_completion/"_velero").write output
 
       prefix.install_metafiles

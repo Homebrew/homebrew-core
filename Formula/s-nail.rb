@@ -28,8 +28,8 @@ class SNail < Formula
   test do
     ENV["SOURCE_DATE_EPOCH"] = "844221007"
 
-    date1 = Utils.popen_read("date", "-r", "844221007", "+%a %b %e %T %Y")
-    date2 = Utils.popen_read("date", "-r", "844221007", "+%a, %d %b %Y %T %z")
+    date1 = shell_output("date -r 844221007 '+%a %b %e %T %Y'")
+    date2 = shell_output("date -r 844221007 '+%a, %d %b %Y %T %z'")
 
     expected = <<~EOS
       From reproducible_build #{date1.chomp}

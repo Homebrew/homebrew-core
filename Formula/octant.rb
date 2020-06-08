@@ -32,8 +32,8 @@ class Octant < Formula
       system "go", "generate", "./pkg/icon"
       system "go", "run", "build.go", "web-build"
 
-      commit = Utils.popen_read("git rev-parse HEAD").chomp
-      build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+      commit = Utils.safe_popen_read("git rev-parse HEAD").chomp
+      build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
       ldflags = ["-X \"main.version=#{version}\"",
                  "-X \"main.gitCommit=#{commit}\"",
                  "-X \"main.buildTime=#{build_time}\""]

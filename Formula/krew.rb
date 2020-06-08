@@ -17,7 +17,7 @@ class Krew < Formula
   depends_on "kubernetes-cli"
 
   def install
-    commit = Utils.popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short=8", "HEAD").chomp
     ENV["CGO_ENABLED"] = "0"
     # build in local dir to avoid this error:
     # go build: cannot write multiple packages to non-directory /usr/local/Cellar/krew/0.3.2/bin/krew

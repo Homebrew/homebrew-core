@@ -50,7 +50,7 @@ class Rabbitmq < Formula
 
     sbin.install "rabbitmqadmin"
     (sbin/"rabbitmqadmin").chmod 0755
-    (bash_completion/"rabbitmqadmin.bash").write Utils.popen_read("#{sbin}/rabbitmqadmin --bash-completion")
+    (bash_completion/"rabbitmqadmin.bash").write Utils.safe_popen_read("#{sbin}/rabbitmqadmin --bash-completion")
   end
 
   def caveats

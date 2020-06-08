@@ -27,7 +27,7 @@ class Qhull < Formula
   end
 
   test do
-    input = Utils.popen_read(bin/"rbox", "c", "D2")
+    input = shell_output(bin/"rbox c D2")
     output = pipe_output("#{bin}/qconvex s n 2>&1", input, 0)
     assert_match "Number of facets: 4", output
   end

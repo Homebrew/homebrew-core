@@ -19,11 +19,11 @@ class Certigo < Formula
     bin.install "bin/certigo"
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/certigo --completion-script-bash")
+    output = Utils.safe_popen_read("#{bin}/certigo --completion-script-bash")
     (bash_completion/"certigo").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/certigo --completion-script-zsh")
+    output = Utils.safe_popen_read("#{bin}/certigo --completion-script-zsh")
     (zsh_completion/"_certigo").write output
   end
 

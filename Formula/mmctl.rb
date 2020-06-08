@@ -18,16 +18,16 @@ class Mmctl < Formula
   def install
     ENV["GOBIN"] = buildpath/bin
     ENV["ADVANCED_VET"] = "FALSE"
-    ENV["BUILD_HASH"] = Utils.popen_read("git rev-parse HEAD").chomp
+    ENV["BUILD_HASH"] = Utils.safe_popen_read("git rev-parse HEAD").chomp
     ENV["BUILD_VERSION"] = version.to_s
     (buildpath/"src/github.com/mattermost/mmctl").install buildpath.children
     cd "src/github.com/mattermost/mmctl" do
       system "make", "install"
 
       # Install the zsh and bash completions
-      output = Utils.popen_read("#{bin}/mmctl completion bash")
+      output = Utils.safe_popen_read("#{bin}/mmctl completion bash")
       (bash_completion/"mmctl").write output
-      output = Utils.popen_read("#{bin}/mmctl completion zsh")
+      output = Utils.safe_popen_read("#{bin}/mmctl completion zsh")
       (zsh_completion/"_mmctl").write output
     end
   end

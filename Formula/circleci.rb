@@ -22,7 +22,7 @@ class Circleci < Formula
     dir.install buildpath.children
 
     cd dir do
-      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+      commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
         -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew

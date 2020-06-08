@@ -38,7 +38,7 @@ class Botan < Formula
 
   test do
     (testpath/"test.txt").write "Homebrew"
-    (testpath/"testout.txt").write Utils.popen_read("#{bin}/botan base64_enc test.txt")
+    (testpath/"testout.txt").write shell_output("#{bin}/botan base64_enc test.txt")
     assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
   end
 end

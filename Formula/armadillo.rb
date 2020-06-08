@@ -34,6 +34,6 @@ class Armadillo < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
-    assert_equal Utils.popen_read("./test").to_i, version.to_s.to_i
+    assert_equal shell_output("./test").to_i, version.to_s.to_i
   end
 end

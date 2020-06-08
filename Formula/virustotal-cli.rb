@@ -27,10 +27,10 @@ class VirustotalCli < Formula
       prefix.install_metafiles
     end
 
-    output = Utils.popen_read("#{bin}/vt completion bash")
+    output = Utils.safe_popen_read("#{bin}/vt completion bash")
     (bash_completion/"vt").write output
 
-    output = Utils.popen_read("#{bin}/vt completion zsh")
+    output = Utils.safe_popen_read("#{bin}/vt completion zsh")
     (zsh_completion/"_vt").write output
   end
 

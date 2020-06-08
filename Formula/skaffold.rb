@@ -23,10 +23,10 @@ class Skaffold < Formula
       system "make"
       bin.install "out/skaffold"
 
-      output = Utils.popen_read("#{bin}/skaffold completion bash")
+      output = Utils.safe_popen_read("#{bin}/skaffold completion bash")
       (bash_completion/"skaffold").write output
 
-      output = Utils.popen_read("#{bin}/skaffold completion zsh")
+      output = Utils.safe_popen_read("#{bin}/skaffold completion zsh")
       (zsh_completion/"_skaffold").write output
 
       prefix.install_metafiles

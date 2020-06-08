@@ -21,7 +21,7 @@ class FaasCli < Formula
     (buildpath/"src/github.com/openfaas/faas-cli").install buildpath.children
     cd "src/github.com/openfaas/faas-cli" do
       project = "github.com/openfaas/faas-cli"
-      commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
+      commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
              "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"

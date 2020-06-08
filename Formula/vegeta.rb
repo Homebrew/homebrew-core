@@ -14,7 +14,7 @@ class Vegeta < Formula
   depends_on "go" => :build
 
   def install
-    build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+    build_time = Utils.safe_popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
 
     ldflags = %W[
       -s -w

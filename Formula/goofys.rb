@@ -24,7 +24,7 @@ class Goofys < Formula
     ENV["GOPATH"] = gopath
 
     cd gopath/"src/github.com/kahing/goofys" do
-      commit = Utils.popen_read("git rev-parse HEAD").chomp
+      commit = Utils.safe_popen_read("git rev-parse HEAD").chomp
       system "go", "build", "-o", "goofys", "-ldflags",
              "-X main.Version=#{commit}"
       bin.install "goofys"

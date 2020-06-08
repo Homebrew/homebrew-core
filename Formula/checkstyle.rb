@@ -15,7 +15,7 @@ class Checkstyle < Formula
     path = testpath/"foo.java"
     path.write "public class Foo{ }\n"
 
-    output = Utils.popen_read("#{bin}/checkstyle -c /sun_checks.xml #{path}")
+    output = shell_output("#{bin}/checkstyle -c /sun_checks.xml #{path}", 2)
     errors = output.lines.select { |line| line.start_with?("[ERROR] #{path}") }
     assert_match "#{path}:1:17: '{' is not preceded with whitespace.", errors.join(" ")
     assert_equal errors.size, $CHILD_STATUS.exitstatus

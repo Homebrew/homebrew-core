@@ -19,11 +19,11 @@ class Kind < Formula
     prefix.install_metafiles
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/kind completion bash")
+    output = Utils.safe_popen_read("#{bin}/kind completion bash")
     (bash_completion/"kind").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/kind completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kind completion zsh")
     (zsh_completion/"_kind").write output
   end
 

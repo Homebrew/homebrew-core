@@ -27,7 +27,7 @@ class Gopass < Formula
       system "make", "install"
     end
 
-    output = Utils.popen_read("#{bin}/gopass completion bash")
+    output = Utils.safe_popen_read("#{bin}/gopass completion bash")
     (bash_completion/"gopass-completion").write output
   end
 

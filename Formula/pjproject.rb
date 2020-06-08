@@ -21,8 +21,8 @@ class Pjproject < Formula
     system "make"
     system "make", "install"
 
-    arch = Utils.popen_read("uname -m").chomp
-    rel = Utils.popen_read("uname -r").chomp
+    arch = Utils.safe_popen_read("uname -m").chomp
+    rel = Utils.safe_popen_read("uname -r").chomp
     bin.install "pjsip-apps/bin/pjsua-#{arch}-apple-darwin#{rel}" => "pjsua"
   end
 
