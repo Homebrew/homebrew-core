@@ -3,7 +3,6 @@ class Mdds < Formula
   homepage "https://gitlab.com/mdds/mdds"
   url "https://kohei.us/files/mdds/src/mdds-1.6.0.tar.bz2"
   sha256 "f1585c9cbd12f83a6d43d395ac1ab6a9d9d5d77f062c7b5f704e24ed72dae07d"
-  head "https://gitlab.com/mdds/mdds.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,15 +12,32 @@ class Mdds < Formula
     sha256 "3a34d290152006eb29ab3995754f57de22dddd7c8d95c95c98af206324a12041" => :high_sierra
   end
 
+  head do
+    url "https://gitlab.com/mdds/mdds.git"
+
+    depends_on "automake" => :build
+  end
+
   depends_on "autoconf" => :build
   depends_on "boost"
 
   def install
+    args = %W[
+      --prefix=#{prefix}
+      --disable-openmp
+    ]
+
     # Gets it to work when the CLT is installed
     inreplace "configure.ac", "$CPPFLAGS -I/usr/include -I/usr/local/include",
                               "$CPPFLAGS -I/usr/local/include"
-    system "autoconf"
-    system "./configure", "--prefix=#{prefix}", "--disable-openmp"
+
+    if build.head?
+      system "./autogen.sh", *args
+    else
+      system "autoconf"
+      system "./configure", *args
+    end
+
     system "make", "install"
   end
 
