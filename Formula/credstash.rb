@@ -19,6 +19,10 @@ class Credstash < Formula
 
   uses_from_macos "libffi"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/2e/ed/c78be6e55442756a53c3dafe086e3c72534bfe7904e683ecca3678521f9b/boto3-1.12.39.tar.gz"
     sha256 "970bd7b332e73d7b51077ed36772c634811b38c81b0cc6ed0f910e50d7ebadf8"
