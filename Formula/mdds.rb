@@ -3,6 +3,7 @@ class Mdds < Formula
   homepage "https://gitlab.com/mdds/mdds"
   url "https://kohei.us/files/mdds/src/mdds-1.6.0.tar.bz2"
   sha256 "f1585c9cbd12f83a6d43d395ac1ab6a9d9d5d77f062c7b5f704e24ed72dae07d"
+  head "https://gitlab.com/mdds/mdds.git"
 
   bottle do
     cellar :any_skip_relocation
