@@ -97,9 +97,15 @@ class Lanraragi < Formula
   end
 
   test do
-    ENV["PERL5LIB"] = libexec/"lib/perl5"
-    ENV["LRR_LOG_DIRECTORY"] = testpath/"log"
-
-    system "npm", "--prefix", libexec, "test"
+    # This can't have its _user-facing_ functionality tested in the `brew test`
+    # environment because it needs Redis. It fails spectacularly tho with some
+    # table flip emoji. So let's use those to confirm _some_ functionality.
+    output = <<~EOS
+      ｷﾀ━━━━━━(ﾟ∀ﾟ)━━━━━━!!!!!
+      (╯・_>・）╯︵ ┻━┻
+      It appears your Redis database is currently not running.
+      The program will cease functioning now.
+    EOS
+    assert_match output, shell_output("#{bin}/lanraragi", 1)
   end
 end
