@@ -15,9 +15,12 @@ class Sloccount < Formula
     sha256 "16433612bab2bc3fd6d3b804210c1d71980756b02e5e034aa9402c8229e1c968" => :mavericks
   end
 
-  depends_on "md5sha1sum"
-
   uses_from_macos "flex" => :build
+
+  patch do
+    url "https://sourceforge.net/p/sloccount/patches/21/attachment/sloccount-suppress-exec-warnings.patch"
+    sha256 "4e68a7d9c61d62d4b045d1e5d099c6853456d15f874d659f3ab473e7fc40d565"
+  end
 
   patch :DATA
 
