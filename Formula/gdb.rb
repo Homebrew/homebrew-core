@@ -19,6 +19,10 @@ class Gdb < Formula
   uses_from_macos "expat"
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   conflicts_with "i386-elf-gdb", :because => "both install include/gdb, share/gdb and share/info"
 
   fails_with :clang do
