@@ -29,7 +29,7 @@ class LastpassCli < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_MANDIR:PATH=#{man}"
-      system "make", "all", "lpass-test", "test", "install", "install-doc"
+      system "make", "install", "install-doc"
     end
 
     bash_completion.install "contrib/lpass_bash_completion"
