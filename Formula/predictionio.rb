@@ -8,7 +8,7 @@ class Predictionio < Formula
   bottle :unneeded
 
   depends_on "apache-spark"
-  depends_on "elasticsearch"
+  depends_on "elasticsearch@6.8"
   depends_on "hadoop"
   depends_on "hbase"
   depends_on :java => "1.8"
@@ -20,7 +20,7 @@ class Predictionio < Formula
     (bin/"pio").write_env_script libexec/"bin/pio", Language::Java.java_home_env("1.8")
 
     inreplace libexec/"conf/pio-env.sh" do |s|
-      s.gsub! /#\s*ES_CONF_DIR=.+$/, "ES_CONF_DIR=#{Formula["elasticsearch"].opt_prefix}/config"
+      s.gsub! /#\s*ES_CONF_DIR=.+$/, "ES_CONF_DIR=#{Formula["elasticsearch@6.8"].opt_prefix}/config"
       s.gsub! /SPARK_HOME=.+$/, "SPARK_HOME=#{Formula["apache-spark"].opt_prefix}"
     end
   end
