@@ -3,8 +3,8 @@ class Breezy < Formula
 
   desc "Version control system implemented in Python with multi-format support"
   homepage "https://www.breezy-vcs.org"
-  url "https://files.pythonhosted.org/packages/6b/81/ae2ddb07ef93d62689a98b6b711394bfbe3e35c719253b18e6b84221d500/breezy-3.0.2.tar.gz"
-  sha256 "50f16bc7faf299f98fe58573da55b0664078f94b1a0e7f0ce9e1e6a0d47e68e0"
+  url "https://launchpad.net/brz/3.1/3.1.0/+download/breezy-3.1.0.tar.gz"
+  sha256 "1eff207403f48898fa3b3ffa7a4275197c6c58fec105ef267caf1f5fd5a6c7be"
   revision 1
 
   bottle do
