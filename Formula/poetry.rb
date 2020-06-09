@@ -3,8 +3,8 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/97/65/6de531fc3bedaa98751d1afbfdb4840c489bd1a828a94e9704cf6f841b44/poetry-1.0.8.tar.gz"
-  sha256 "2e1d932ac2bc300feecf001837d854ca692bce4083822591da4596ebfb5576e9"
+  url "https://files.pythonhosted.org/packages/65/76/3ce57248bc821634955ffd43eb58e7ea17ed5cf6c15f94059885cb1b6155/poetry-1.0.9.tar.gz"
+  sha256 "0a4c56983546964b47cbbe0e1b49fef5662277bbf0673e3e350e1215560377ab"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,8 +31,8 @@ class Poetry < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
+    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
   end
 
   resource "chardet" do
@@ -135,8 +135,8 @@ class Poetry < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "tomlkit" do
