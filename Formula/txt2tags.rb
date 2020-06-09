@@ -5,6 +5,7 @@ class Txt2tags < Formula
   homepage "https://txt2tags.org/"
   url "https://files.pythonhosted.org/packages/0e/80/dc4215b549ddbe1d1251bc4cd47ad6f4a65e1f9803815997817ff297d22e/txt2tags-3.7.tar.gz"
   sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,11 +17,7 @@ class Txt2tags < Formula
   depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
-    system libexec/"bin/pip", "uninstall", "-y", "txt2tags"
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
