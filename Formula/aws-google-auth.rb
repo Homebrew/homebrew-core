@@ -22,6 +22,10 @@ class AwsGoogleAuth < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "soupsieve" do
     url "https://files.pythonhosted.org/packages/15/53/3692c565aea19f7d9dd696fee3d0062782e9ad5bf9535267180511a15967/soupsieve-2.0.tar.gz"
     sha256 "e914534802d7ffd233242b785229d5ba0766a7f487385e3f714446a07bf540ae"
