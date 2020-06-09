@@ -3,16 +3,9 @@ class Kamel < Formula
   homepage "https://camel.apache.org/"
 
   url "https://github.com/apache/camel-k.git",
-    :tag      => "0.3.4",
-    :revision => "c47fb2c85e89852f0fd111d1662f57917030ced5"
+    :tag      => "1.0.0",
+    :revision => "38c24698b16da41926be5f7984115d428a825a02"
   head "https://github.com/apache/camel-k.git"
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "1bca7ed6593fd50b219353b033b76195881576d5edce8154241edb3d249f665e" => :catalina
-    sha256 "349b58bd34eeb004baca62ee0e56746cb1256979c83f87aceb62882003b902a3" => :mojave
-    sha256 "7dc0dd18e8b3fa8ebaf322db37369929909510c65e8b5472a4624ee822771698" => :high_sierra
-  end
 
   depends_on "go" => :build
   depends_on "openjdk" => :build
@@ -35,27 +28,27 @@ class Kamel < Formula
     assert_match "Apache Camel K is a lightweight", run_output
 
     help_output = shell_output("echo $(#{bin}/kamel help 2>&1)")
-    assert_match "Error: cannot get current namespace", help_output.chomp
-
-    context_output = shell_output("#{bin}/kamel context 2>&1")
-    assert_match "Configure an Integration Context", context_output
+    assert_match "Error: cannot get command client: could not locate a kubeconfig", help_output.chomp
 
     get_output = shell_output("echo $(#{bin}/kamel get 2>&1)")
-    assert_match "Error: cannot get current namespace", get_output
+    assert_match "Error: cannot get command client: could not locate a kubeconfig", get_output
 
     version_output = shell_output("echo $(#{bin}/kamel version 2>&1)")
-    assert_match "Error: cannot get current namespace", version_output
-
-    version_config_output = shell_output("echo $(#{bin}/kamel version --config=\"/\"2>&1)")
-    assert_match "Error: cannot get current namespace", version_config_output
+    assert_match "1.0.0", version_output
 
     run_output = shell_output("echo $(#{bin}/kamel run 2>&1)")
-    assert_match "Error: accepts at least 1 arg, received 0", run_output
+    assert_match "Error: run expects at least 1 argument, received 0", run_output
 
     run_none_output = shell_output("echo $(#{bin}/kamel run None.java 2>&1)")
-    assert_match "Error: file None.java does not exist", run_none_output
+    assert_match "Error: cannot read file None.java: open None.java: no such file or directory", run_none_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
-    assert_match "Error: cannot get current namespace", reset_output
+    assert_match "Error: cannot get command client: could not locate a kubeconfig", reset_output
+
+    rebuild_output = shell_output("echo $(#{bin}/kamel rebuild 2>&1)")
+    assert_match "Config not found", rebuild_output
+
+    reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
+    assert_match "Config not found", reset_output
   end
 end
