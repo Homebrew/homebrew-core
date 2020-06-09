@@ -38,6 +38,7 @@ class LastpassCli < Formula
   end
 
   test do
-    system "#{bin}/lpass", "--version"
+    assert_equal("Error: Could not find decryption key. Perhaps you need to login with `#{bin}/lpass login`.",
+      shell_output("#{bin}/lpass passwd 2>&1", 1).chomp)
   end
 end
