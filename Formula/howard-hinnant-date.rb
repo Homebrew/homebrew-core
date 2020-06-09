@@ -1,8 +1,8 @@
 class HowardHinnantDate < Formula
   desc "C++ library for date and time operations based on <chrono>"
   homepage "https://github.com/HowardHinnant/date"
-  url "https://github.com/HowardHinnant/date/archive/v2.4.1.tar.gz"
-  sha256 "98907d243397483bd7ad889bf6c66746db0d7d2a39cc9aacc041834c40b65b98"
+  url "https://github.com/HowardHinnant/date/archive/v3.0.0.tar.gz"
+  sha256 "87bba2eaf0ebc7ec539e5e62fc317cb80671a337c1fb1b84cb9e4d42c6dbebe3"
 
   bottle do
     cellar :any
@@ -18,7 +18,8 @@ class HowardHinnantDate < Formula
     system "cmake", ".", *std_cmake_args,
                          "-DENABLE_DATE_TESTING=OFF",
                          "-DUSE_SYSTEM_TZ_DB=ON",
-                         "-DBUILD_SHARED_LIBS=ON"
+                         "-DBUILD_SHARED_LIBS=ON",
+                         "-DBUILD_TZ_LIB=ON"
     system "make", "install"
   end
 
@@ -32,7 +33,7 @@ class HowardHinnantDate < Formula
         std::cout << t << std::endl;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-ltz", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-ldate-tz", "-o", "test"
     system "./test"
   end
 end
