@@ -18,6 +18,10 @@ class GimmeAwsCreds < Formula
 
   uses_from_macos "libffi"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
     sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
