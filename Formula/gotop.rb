@@ -1,8 +1,8 @@
 class Gotop < Formula
   desc "Terminal based graphical activity monitor inspired by gtop and vtop"
   homepage "https://github.com/xxxserxxx/gotop"
-  url "https://github.com/xxxserxxx/gotop/archive/v3.5.3.tar.gz"
-  sha256 "fd9ecc1f9fcd622dc88f93af87fdf6a12020cec424d742deb1865853b38d5605"
+  url "https://github.com/xxxserxxx/gotop/archive/v4.0.1.tar.gz"
+  sha256 "38a34543ed828ed8cedd93049d9634c2e578390543d4068c19f0d0c20aaf7ba0"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,10 +14,15 @@ class Gotop < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/gotop"
+    time = `date +%Y%m%dT%H%M%S`.chomp
+    system "go", "build", *std_go_args, "-ldflags",
+           "-X main.Version=#{version} -X main.BuildDate=#{time}", "./cmd/gotop"
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/gotop --version").chomp
+    assert_match version.to_s, shell_output("#{bin}/gotop --version").chomp
+
+    system bin/"gotop", "--write-config"
+    assert_predicate testpath/"Library/Application Support/gotop/gotop.conf", :exist?
   end
 end
