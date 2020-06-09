@@ -16,6 +16,10 @@ class CargoC < Formula
   depends_on "libssh2"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
