@@ -16,6 +16,10 @@ class GitTrim < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "docs/git-trim.man" => "git-trim.1"
