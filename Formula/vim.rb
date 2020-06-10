@@ -2,8 +2,8 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.2.0900.tar.gz"
-  sha256 "657fc25aa669727dc2cbe80ee684f5922978300822854ec0f0543ec840421a3f"
+  url "https://github.com/vim/vim/archive/v8.2.0950.tar.gz"
+  sha256 "e09deb7a77b66cd2dfe3dc8a73d28e5133ac194915ade667a36dd31c098ecac7"
   head "https://github.com/vim/vim.git"
 
   bottle do
