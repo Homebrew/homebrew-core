@@ -21,16 +21,15 @@ class Skopeo < Formula
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "1"
     ENV.append "CGO_FLAGS", ENV.cppflags
-    ENV.append "CGO_FLAGS", Utils.popen_read("#{Formula["gpgme"].bin}/gpgme-config --cflags")
+    ENV.append "CGO_FLAGS", Utils.safe_popen_read("#{Formula["gpgme"].bin}/gpgme-config --cflags")
 
     (buildpath/"src/github.com/containers/skopeo").install buildpath.children
     cd buildpath/"src/github.com/containers/skopeo" do
       buildtags = [
         "containers_image_ostree_stub",
-        Utils.popen_read("hack/btrfs_tag.sh").chomp,
-        Utils.popen_read("hack/btrfs_installed_tag.sh").chomp,
-        Utils.popen_read("hack/libdm_tag.sh").chomp,
-        Utils.popen_read("hack/ostree_tag.sh").chomp,
+        Utils.safe_popen_read("hack/btrfs_tag.sh").chomp,
+        Utils.safe_popen_read("hack/btrfs_installed_tag.sh").chomp,
+        Utils.safe_popen_read("hack/libdm_tag.sh").chomp,
       ].uniq.join(" ")
 
       ldflags = [
