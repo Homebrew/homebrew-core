@@ -3,6 +3,7 @@ class AflFuzz < Formula
   homepage "https://github.com/google/AFL"
   url "https://github.com/google/AFL/archive/v2.56b.tar.gz"
   sha256 "1d4a372e49af02fbcef0dc3ac436d03adff577afc2b6245c783744609d9cdd22"
+  head "https://github.com/google/AFL.git"
 
   bottle do
     sha256 "7b72b8e23c2227ced43e7cd51fd14e9134af5dab41acefcd76b2dd9671f483ad" => :catalina
