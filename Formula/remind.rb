@@ -3,6 +3,7 @@ class Remind < Formula
   homepage "https://dianne.skoll.ca/projects/remind/"
   url "https://dianne.skoll.ca/projects/remind/download/remind-03.03.01.tar.gz"
   sha256 "d1a164d1c2d1e963d5f1f251457a8065cae12f36e3914cac1e54275180499478"
+  head "https://dianne.skoll.ca/projects/remind/git/Remind.git"
 
   bottle do
     cellar :any_skip_relocation
