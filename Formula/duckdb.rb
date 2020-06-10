@@ -1,8 +1,8 @@
 class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
-  url "https://github.com/cwida/duckdb/archive/v0.1.7.tar.gz"
-  sha256 "07b6db4512cf41647043160dc64dfd919948ca7f96c31c1085ce2c79e2059a1c"
+  url "https://github.com/cwida/duckdb/archive/v0.1.8.tar.gz"
+  sha256 "18a984e80e14136f6a61f482387a6e159f5cafd256884e66cc21d6d7a511e33c"
 
   bottle do
     cellar :any
