@@ -15,6 +15,12 @@ class Ldc < Formula
   depends_on "libconfig" => :build
   depends_on "llvm"
 
+  uses_from_macos "libxml2" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "ldc-bootstrap" do
     url "https://github.com/ldc-developers/ldc/releases/download/v1.20.1/ldc2-1.20.1-osx-x86_64.tar.xz"
     version "1.20.1"
