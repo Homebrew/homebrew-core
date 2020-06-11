@@ -21,6 +21,9 @@ class Haxe < Formula
   depends_on "neko"
   depends_on "pcre"
 
+  uses_from_macos "m4" => :build
+  uses_from_macos "unzip" => :build
+
   def install
     # Build requires targets to be built in specific order
     ENV.deparallelize
