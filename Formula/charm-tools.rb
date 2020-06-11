@@ -21,6 +21,11 @@ class CharmTools < Formula
 
   uses_from_macos "libffi"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "gmp"
+  end
+
   # Additionally include ndg-httpsclient for requests[security]
   resource "Cheetah3" do
     url "https://files.pythonhosted.org/packages/4e/72/e6a7d92279e3551db1b68fd336fd7a6e3d2f2ec742bf486486e6150d77d2/Cheetah3-3.2.4.tar.gz"
