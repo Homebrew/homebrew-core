@@ -26,6 +26,8 @@ class Cairo < Formula
   depends_on "lzo"
   depends_on "pixman"
 
+  uses_from_macos "zlib"
+
   def install
     if build.head?
       ENV["NOCONFIGURE"] = "1"
