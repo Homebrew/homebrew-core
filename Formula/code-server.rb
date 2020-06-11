@@ -15,6 +15,11 @@ class CodeServer < Formula
   depends_on "yarn" => :build
   depends_on "node"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libsecret"
+  end
+
   def install
     system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
