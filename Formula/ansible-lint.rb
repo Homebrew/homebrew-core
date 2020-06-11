@@ -19,6 +19,12 @@ class AnsibleLint < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
+  uses_from_macos "libffi"
+
+  on_linux do
+    depends_on "gmp"
+  end
+
   resource "ansible" do
     url "https://files.pythonhosted.org/packages/f3/0d/ee54843308769f2c78be849d9e9f65dc8d63781941dc880f68507aae33ba/ansible-2.9.2.tar.gz"
     sha256 "2f83f8ccc50640aa41a24f6e7757ac06b0ee6189fdcaacab68851771d3b42f3a"
