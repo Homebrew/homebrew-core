@@ -16,6 +16,11 @@ class Asuka < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
+  end
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
