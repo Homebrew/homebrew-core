@@ -1,8 +1,8 @@
 class Ultralist < Formula
   desc "Simple GTD-style task management for the command-line"
   homepage "https://ultralist.io"
-  url "https://github.com/ultralist/ultralist/archive/0.9.5.tar.gz"
-  sha256 "60228adc4506b5f99ac8786acf0927c6898f9b945f2dce2e86188842485e9615"
+  url "https://github.com/ultralist/ultralist/archive/0.9.6.tar.gz"
+  sha256 "8d4f6e0c65d96cb87ff09c01ee28123cd0e5c8875bd41ffd430fb4d50000a613"
 
   bottle do
     cellar :any_skip_relocation
