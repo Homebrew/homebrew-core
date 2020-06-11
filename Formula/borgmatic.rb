@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://github.com/witten/borgmatic/archive/1.5.5.tar.gz"
-  sha256 "e945fae6f4fc343afcf8afc5459dbd921642a1d1a700e281737813c1782b1290"
+  url "https://github.com/witten/borgmatic/archive/1.5.6.tar.gz"
+  sha256 "ecef1e6206986914db69b2f4b63dc108a307ec993d3a4784d32f5435cc089378"
 
   bottle do
     cellar :any
@@ -17,8 +17,8 @@ class Borgmatic < Formula
   depends_on "python@3.8"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
+    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
   end
 
   resource "chardet" do
