@@ -1,9 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v0.9.0.tar.gz"
-  sha256 "318295e5a662f785662751f1e2cd4b1f613ec3aced1c4e7f1755d27922dbfdbf"
-  revision 1
+  url "https://github.com/cli/cli/archive/v0.10.0.tar.gz"
+  sha256 "5d7474a89cd0d284387f1b58dc8b1771ebae8fc83cfa2410b354435b295c07df"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,7 +29,7 @@ class Gh < Formula
 
   test do
     assert_match "gh version #{version}", shell_output("#{bin}/gh --version")
-    assert_match "Work with GitHub issues.", shell_output("#{bin}/gh issue 2>&1", 1)
-    assert_match "Work with GitHub pull requests.", shell_output("#{bin}/gh pr 2>&1", 1)
+    assert_match "Work with GitHub issues", shell_output("#{bin}/gh issue 2>&1")
+    assert_match "Work with GitHub pull requests", shell_output("#{bin}/gh pr 2>&1")
   end
 end
