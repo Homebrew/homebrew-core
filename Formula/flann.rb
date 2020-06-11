@@ -1,9 +1,9 @@
 class Flann < Formula
   desc "Fast Library for Approximate Nearest Neighbors"
   homepage "https://www.cs.ubc.ca/research/flann/"
-  url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
-  sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
-  revision 9
+  url "https://github.com/xlingsky/flann/archive/m1.9.1.tar.gz"
+  sha256 "acd1e95cdf6e942061a4a4d373ff921c96062018736a4a448a5f2ca9024c8fd2"
+  revision 10086
 
   bottle do
     cellar :any
@@ -14,6 +14,7 @@ class Flann < Formula
 
   depends_on "cmake" => :build
   depends_on "hdf5"
+  depends_on "lz4"
 
   resource("dataset.dat") do
     url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.dat"
@@ -31,7 +32,11 @@ class Flann < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_PYTHON_BINDINGS:BOOL=OFF", "-DBUILD_MATLAB_BINDINGS:BOOL=OFF"
+    args = std_cmake_args + %w[
+      -DBUILD_PYTHON_BINDINGS:BOOL=OFF
+      -DBUILD_MATLAB_BINDINGS:BOOL=OFF
+    ]
+    system "cmake", ".", *args
     system "make", "install"
   end
 
