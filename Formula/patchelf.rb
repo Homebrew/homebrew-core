@@ -1,8 +1,8 @@
 class Patchelf < Formula
   desc "Modify dynamic ELF executables"
-  homepage "https://nixos.org/patchelf.html"
-  url "https://nixos.org/releases/patchelf/patchelf-0.10/patchelf-0.10.tar.gz"
-  sha256 "b2deabce05c34ce98558c0efb965f209de592197b2c88e930298d740ead09019"
+  homepage "https://github.com/NixOS/patchelf"
+  url "https://github.com/NixOS/patchelf/archive/0.11.tar.gz"
+  sha256 "e9dc4dbed842e475176ef60531c2805ed37a71c34cc6dc5d1b9ad68d889aeb6b"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,12 +12,16 @@ class Patchelf < Formula
     sha256 "2504614537c2837d9668389349586730c38b93a632175e1cf80568b0650eb5aa" => :sierra
   end
 
-  resource "hellworld" do
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
+  resource "helloworld" do
     url "http://timelessname.com/elfbin/helloworld.tar.gz"
     sha256 "d8c1e93f13e0b7d8fc13ce75d5b089f4d4cec15dad91d08d94a166822d749459"
   end
 
   def install
+    system "./bootstrap.sh"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
@@ -25,7 +29,7 @@ class Patchelf < Formula
   end
 
   test do
-    resource("hellworld").stage do
+    resource("helloworld").stage do
       assert_equal "/lib/ld-linux.so.2\n", shell_output("#{bin}/patchelf --print-interpreter chello")
       assert_equal "libc.so.6\n", shell_output("#{bin}/patchelf --print-needed chello")
       assert_equal "\n", shell_output("#{bin}/patchelf --print-rpath chello")
