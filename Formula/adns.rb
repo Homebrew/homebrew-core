@@ -1,8 +1,8 @@
 class Adns < Formula
   desc "C/C++ resolver library and DNS resolver utilities"
   homepage "https://www.chiark.greenend.org.uk/~ian/adns/"
-  url "https://www.chiark.greenend.org.uk/~ian/adns/ftp/adns-1.5.1.tar.gz"
-  sha256 "5b1026f18b8274be869245ed63427bf8ddac0739c67be12c4a769ac948824eeb"
+  url "https://www.chiark.greenend.org.uk/~ian/adns/ftp/adns-1.6.0.tar.gz"
+  sha256 "fb427265a981e033d1548f2b117cc021073dc8be2eaf2c45fd64ab7b00ed20de"
   head "git://git.chiark.greenend.org.uk/~ianmdlvl/adns.git"
 
   bottle do
