@@ -1,8 +1,8 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-4.4.tar.gz"
-  sha256 "b4392abda19c9982127cbd7f21b9ed88aabec4cdda66d4789ce644c7fca084c7"
+  url "https://www.finnie.org/software/2ping/2ping-4.4.1.tar.gz"
+  sha256 "0aa52cba661abdbf51f2f344c93ec116ca2e1e4ba2e82519b8a65ae5b08b0316"
   head "https://github.com/rfinnie/2ping.git"
 
   bottle do
