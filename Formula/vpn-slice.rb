@@ -3,8 +3,8 @@ class VpnSlice < Formula
 
   desc "Vpnc-script replacement for easy and secure split-tunnel VPN setup"
   homepage "https://github.com/dlenski/vpn-slice"
-  url "https://github.com/dlenski/vpn-slice/archive/v0.14.1.tar.gz"
-  sha256 "75403735e0ff95ff8b1c9620e5d272fbde37d6a54881de5582956aeb31ff01b7"
+  url "https://github.com/dlenski/vpn-slice/archive/v0.14.2.tar.gz"
+  sha256 "cae69cfe2994fea487f563edb601f7ef8a59b5059baa104349121764da9d37a2"
   head "https://github.com/dlenski/vpn-slice.git"
 
   bottle do
