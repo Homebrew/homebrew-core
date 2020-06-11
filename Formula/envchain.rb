@@ -5,6 +5,12 @@ class Envchain < Formula
   sha256 "09af1fe1cfba3719418f90d59c29c081e1f22b38249f0110305b657bd306e9ae"
   head "https://github.com/sorah/envchain.git"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libsecret"
+    depends_on "readline"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a8658954176e96b463565ea6b5c891b3635622c550ca32efb8ee2e3baec30062" => :catalina
