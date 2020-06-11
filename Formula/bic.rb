@@ -24,6 +24,10 @@ class Bic < Formula
 
   depends_on "gmp"
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "autoreconf", "-fi" if build.head?
     system "./configure", "--disable-debug",
