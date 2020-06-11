@@ -19,6 +19,10 @@ class Awslogs < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/fd/50/3868735fae36e0f93216019551ca0f75b6cf9f933a55891244efefdcc3bd/boto3-1.9.62.tar.gz"
     sha256 "e9e93029b0d4f91ff342ffd953048c5a64e6a1522c2362c4521864bcc88cc365"
