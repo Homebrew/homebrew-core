@@ -23,8 +23,11 @@ class Curl < Formula
 
   depends_on "pkg-config" => :build
 
-  uses_from_macos "openssl@1.1"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   def install
     system "./buildconf" if build.head?
