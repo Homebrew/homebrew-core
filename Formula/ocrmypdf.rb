@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/e9/15/f126999a5fa467662835013d51793ea20eb24aac509252b0a5b1a5f403f3/ocrmypdf-9.8.2.tar.gz"
-  sha256 "ab67b6780a32add781c1a21c9fc9ac7957b958ac0ffd32bb2fc6ea5be6c369cd"
+  url "https://files.pythonhosted.org/packages/c1/80/4dbbba5aa3dda3be01209657cf86bb1bffb9280777ce16358f5c0abaf657/ocrmypdf-10.0.0.tar.gz"
+  sha256 "56574ff2177cf073d743ed1f93e261f97ae7f752300fc2eb56c922bbecec415b"
 
   bottle do
     cellar :any
@@ -42,6 +42,16 @@ class Ocrmypdf < Formula
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
+  resource "coloredlogs" do
+    url "https://files.pythonhosted.org/packages/84/1b/1ecdd371fa68839cfbda15cc671d0f6c92d2c42688df995a9bf6e36f3511/coloredlogs-14.0.tar.gz"
+    sha256 "a1fab193d2053aa6c0a97608c4342d031f1f93a3d1218432c59322441d31a505"
+  end
+
+  resource "humanfriendly" do
+    url "https://files.pythonhosted.org/packages/6c/19/8e3b4c6fa7cca4788817db398c05274d98ecc6a35e0eaad2846fde90c863/humanfriendly-8.2.tar.gz"
+    sha256 "bf52ec91244819c780341a3438d5d7b09f431d3f113a475147ac9b7b167a3d12"
+  end
+
   resource "img2pdf" do
     url "https://files.pythonhosted.org/packages/65/12/6ee1a77614df6decefd88f781cf95b73acf93f0cc9eb03bd5042d116b85d/img2pdf-0.3.6.tar.gz"
     sha256 "8cd5509a60b75f4442b897bad3d593e25ebd314105f3034a8f17def396a4a0fb"
@@ -58,14 +68,19 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/35/17/052f485a334cc0e0585d695acb1593861cb2c9add23177e3eab0c6977b24/pikepdf-1.13.0.tar.gz"
-    sha256 "b35e286edf158b194483944066358d283471800e51fbbf66cd15a8796f96fa3a"
+    url "https://files.pythonhosted.org/packages/b3/02/44aeefd14ca24761680443c47ad6bd38f2493c0bbcd0fb1ce79c9aad9b6e/pikepdf-1.14.0.tar.gz"
+    sha256 "5b371c71b0da42d87371ed39973f07c7eb67d939ca5031f0c1637cfb3a2d79f5"
   end
 
   # leave at v7.0.0 to avoid "'xcb/xcb.h' file not found" errors
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/39/47/f28067b187dd664d205f75b07dcc6e0e95703e134008a14814827eebcaab/Pillow-7.0.0.tar.gz"
     sha256 "4d9ed9a64095e031435af120d3c910148067087541131e82b3e8db302f4c8946"
+  end
+
+  resource "pluggy" do
+    url "https://files.pythonhosted.org/packages/f8/04/7a8542bed4b16a65c2714bf76cf5a0b026157da7f75e87cc88774aa10b14/pluggy-0.13.1.tar.gz"
+    sha256 "15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"
   end
 
   resource "pycparser" do
@@ -84,13 +99,13 @@ class Ocrmypdf < Formula
   end
 
   resource "sortedcontainers" do
-    url "https://files.pythonhosted.org/packages/29/e0/135df2e733790a3d3bcda970fd080617be8cea3bd98f411e76e6847c17ef/sortedcontainers-2.1.0.tar.gz"
-    sha256 "974e9a32f56b17c1bac2aebd9dcf197f3eb9cd30553c5852a3187ad162e1a03a"
+    url "https://files.pythonhosted.org/packages/3b/fb/48f6fa11e4953c530b09fa0f2976df5234b0eaabcd158625c3e73535aeb8/sortedcontainers-2.2.2.tar.gz"
+    sha256 "4e73a757831fc3ca4de2859c422564239a31d8213d09a2a666e375807034d2ba"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3b/42/d14dda3dc578485ec6e24d66fac5b731b2a4c5441db0e2fdc31672864115/tqdm-4.46.0.tar.gz"
-    sha256 "4733c4a10d0f2a4d098d801464bdaf5240c7dadd2a7fde4ee93b0a0efd9fb25e"
+    url "https://files.pythonhosted.org/packages/a9/03/df1d77e852dd697c0ff7b7b1b9888739517e5f97dfbd2cf7ebd13234084c/tqdm-4.46.1.tar.gz"
+    sha256 "cd140979c2bebd2311dfb14781d8f19bd5a9debb92dcab9f6ef899c987fcf71f"
   end
 
   def install
