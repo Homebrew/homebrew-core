@@ -1,8 +1,8 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.3/bacula-9.6.3.tar.gz"
-  sha256 "ec1365a678e1b49505c1cdbc59a3cef5ca5f5a5a25fb1b0cced822eeb88c5b0a"
+  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.5/bacula-9.6.5.tar.gz"
+  sha256 "510f35b86138472abe6c559caded7bc773bf5eb1b9ee10905ee8f4f827c7c77a"
 
   bottle do
     sha256 "582fafcb8a0f9f483a94cf124a03f88be86f34cc94739efbc2624002ba25c4fc" => :catalina
@@ -38,6 +38,10 @@ class BaculaFd < Formula
 
     system "make"
     system "make", "install"
+
+    # Avoid references to the Homebrew shims directory
+    inreplace Dir[prefix/"etc/bacula_config"],
+              HOMEBREW_SHIMS_PATH/"mac/super/", ""
 
     (var/"lib/bacula").mkpath
   end
