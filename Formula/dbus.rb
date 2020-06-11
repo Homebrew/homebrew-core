@@ -23,6 +23,12 @@ class Dbus < Formula
 
   depends_on "xmlto" => :build
 
+  uses_from_macos "expat"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
   patch do
