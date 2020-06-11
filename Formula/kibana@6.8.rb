@@ -1,29 +1,30 @@
-class Kibana < Formula
+class KibanaAT68 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v7.6.2",
-      :revision => "c14a620411be7e6e463520eafa61fa8d7efb84ce"
-  head "https://github.com/elastic/kibana.git"
+      :tag      => "v6.8.8",
+      :revision => "dc91d17ffcdc72efa4fe5944ac5abd22f9a8620d"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "14d034d6c8c98eb7f0cb7b9c5b3edf06748d66fdce2edff4b8c7bd2189854c36" => :catalina
-    sha256 "f3d350517136582a75e5f457cf2a363b51021e71f7ff514ffa05dadc49569e21" => :mojave
-    sha256 "21d01f2b1a4e462b0cf48443eb2334bea56f9ea8c4d5302202279924fa8499f4" => :high_sierra
-  end
+  keg_only :versioned_formula
 
-  depends_on "python@3.8" => :build
   depends_on "yarn" => :build
+  depends_on :macos # Due to Python 2
   depends_on "node@10"
 
   def install
     # remove non open source files
     rm_rf "x-pack"
+    inreplace "package.json", /"x-pack":.*/, ""
+
+    # patch build to not try to read tsconfig.json's from the removed x-pack folder
+    inreplace "src/dev/typescript/projects.ts" do |s|
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/tsconfig.json')),", ""
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
+    end
 
     inreplace "package.json", /"node": "10\.\d+\.\d+"/, %Q("node": "#{Formula["node@10"].version}")
     system "yarn", "kbn", "bootstrap"
-    system "node", "scripts/build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
+    system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
     prefix.install Dir
       .glob("build/oss/kibana-#{version}-darwin-x86_64/**")
@@ -74,19 +75,6 @@ class Kibana < Formula
 
   test do
     ENV["BABEL_CACHE_PATH"] = testpath/".babelcache.json"
-
-    (testpath/"data").mkdir
-    (testpath/"config.yml").write <<~EOS
-      path.data: #{testpath}/data
-    EOS
-
-    port = free_port
-    fork do
-      exec bin/"kibana", "-p", port.to_s, "-c", testpath/"config.yml"
-    end
-    sleep 5
-    output = shell_output("curl -s 127.0.0.1:#{port}")
-    # Kibana returns this message until it connects to Elasticsearch
-    assert_equal "Kibana server is not ready yet", output
+    assert_match /#{version}/, shell_output("#{bin}/kibana -V")
   end
 end
