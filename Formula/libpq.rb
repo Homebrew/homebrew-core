@@ -18,6 +18,10 @@ class Libpq < Formula
 
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
