@@ -15,6 +15,12 @@ class Foma < Formula
     sha256 "19b54c8f060b5adf9e6a0c37a6e59dcf20017b6ae1fe642ea373f0ee0a03f01f" => :mavericks
   end
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"
