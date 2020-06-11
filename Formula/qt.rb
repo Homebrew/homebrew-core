@@ -27,6 +27,10 @@ class Qt < Formula
   uses_from_macos "flex"
   uses_from_macos "sqlite"
 
+  # Fix build on 10.15.0 SDK, included in 10.15.1
+  # https://github.com/qt/qtbase/commit/a9f82b8b2c19ecc5bf5ab0d376780c34e8435202
+  patch :DATA
+
   def install
     args = %W[
       -verbose
@@ -111,3 +115,95 @@ class Qt < Formula
     system "./hello"
   end
 end
+
+__END__
+--- a/qtbase/src/plugins/styles/mac/qmacstyle_mac.mm
++++ b/qtbase/src/plugins/styles/mac/qmacstyle_mac.mm
+@@ -4655,15 +4655,13 @@ static void setLayoutItemMargins(int left, int top, int right, int bottom, QRect
+             auto frameRect = cw.adjustedControlFrame(btn->rect);
+             if (sr == SE_PushButtonContents) {
+                 frameRect -= cw.titleMargins();
+-            } else {
++            } else if (cw.type != QMacStylePrivate::Button_SquareButton) {
+                 auto *pb = static_cast<NSButton *>(d->cocoaControl(cw));
+-                if (cw.type != QMacStylePrivate::Button_SquareButton) {
+-                    frameRect = QRectF::fromCGRect([pb alignmentRectForFrame:pb.frame]);
+-                    if (cw.type == QMacStylePrivate::Button_PushButton)
+-                        frameRect -= pushButtonShadowMargins[cw.size];
+-                    else if (cw.type == QMacStylePrivate::Button_PullDown)
+-                        frameRect -= pullDownButtonShadowMargins[cw.size];
+-                }
++                frameRect = QRectF::fromCGRect([pb alignmentRectForFrame:frameRect.toCGRect()]);
++                if (cw.type == QMacStylePrivate::Button_PushButton)
++                    frameRect -= pushButtonShadowMargins[cw.size];
++                else if (cw.type == QMacStylePrivate::Button_PullDown)
++                    frameRect -= pullDownButtonShadowMargins[cw.size];
+             }
+             rect = frameRect.toRect();
+         }
+--- a/qtbase/src/widgets/styles/qstylesheetstyle.cpp
++++ b/qtbase/src/widgets/styles/qstylesheetstyle.cpp
+@@ -5821,6 +5821,7 @@ QRect QStyleSheetStyle::subElementRect(SubElement se, const QStyleOption *opt, c
+
+     switch (se) {
+     case SE_PushButtonContents:
++    case SE_PushButtonBevel:
+     case SE_PushButtonFocusRect:
+         if (const QStyleOptionButton *btn = qstyleoption_cast<const QStyleOptionButton *>(opt)) {
+             if (rule.hasBox() || !rule.hasNativeBorder())
+--- a/qtbase/tests/auto/widgets/widgets/qpushbutton/tst_qpushbutton.cpp
++++ b/qtbase/tests/auto/widgets/widgets/qpushbutton/tst_qpushbutton.cpp
+@@ -67,6 +67,7 @@ private slots:
+     void sizeHint();
+     void taskQTBUG_20191_shortcutWithKeypadModifer();
+     void emitReleasedAfterChange();
++    void hitButton();
+
+ protected slots:
+     void resetCounters();
+@@ -648,5 +649,45 @@ void tst_QPushButton::emitReleasedAfterChange()
+     QCOMPARE(spy.count(), 1);
+ }
+
++/*
++    Test that QPushButton::hitButton returns true for points that
++    are certainly inside the bevel, also when a style sheet is set.
++*/
++void tst_QPushButton::hitButton()
++{
++    class PushButton : public QPushButton
++    {
++    public:
++        PushButton(const QString &text = {})
++        : QPushButton(text)
++        {}
++
++        bool hitButton(const QPoint &point) const override
++        {
++            return QPushButton::hitButton(point);
++        }
++    };
++
++    QDialog dialog;
++    QVBoxLayout *layout = new QVBoxLayout;
++    PushButton *button1 = new PushButton("Ok");
++    PushButton *button2 = new PushButton("Cancel");
++    button2->setStyleSheet("QPushButton { margin: 10px; border-radius: 4px; border: 1px solid black; }");
++
++    layout->addWidget(button1);
++    layout->addWidget(button2);
++
++    dialog.setLayout(layout);
++    dialog.show();
++    QVERIFY(QTest::qWaitForWindowExposed(&dialog));
++
++    const QPoint button1Center = button1->rect().center();
++    QVERIFY(button1->hitButton(button1Center));
++
++    const QPoint button2Center = button2->rect().center();
++    QVERIFY(button2->hitButton(button2Center));
++    QVERIFY(!button2->hitButton(QPoint(0, 0)));
++}
++
+ QTEST_MAIN(tst_QPushButton)
+ #include "tst_qpushbutton.moc"
