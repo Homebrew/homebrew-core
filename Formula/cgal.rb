@@ -19,6 +19,10 @@ class Cgal < Formula
   depends_on "gmp"
   depends_on "mpfr"
 
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   def install
     args = std_cmake_args + %w[
       -DCMAKE_CXX_FLAGS='-std=c++14'
