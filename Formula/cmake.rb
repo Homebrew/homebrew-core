@@ -24,6 +24,10 @@ class Cmake < Formula
 
   depends_on "sphinx-doc" => :build
 
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   # The completions were removed because of problems with system bash
 
   # The `with-qt` GUI option was removed due to circular dependencies if
