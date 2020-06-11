@@ -17,6 +17,10 @@ class Latexml < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "Image::Size" do
     url "https://cpan.metacpan.org/authors/id/R/RJ/RJRAY/Image-Size-3.300.tar.gz"
     sha256 "53c9b1f86531cde060ee63709d1fda73cabc0cf2d581d29b22b014781b9f026b"
