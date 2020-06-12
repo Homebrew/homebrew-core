@@ -23,6 +23,11 @@ class Unpaper < Formula
 
   uses_from_macos "libxslt"
 
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   def install
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
