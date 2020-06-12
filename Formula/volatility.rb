@@ -21,6 +21,10 @@ class Volatility < Formula
   # https://github.com/volatilityfoundation/volatility3
   depends_on "yara"
 
+  on_linux do
+    depends_on "gmp"
+  end
+
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/2c/e3/84a3a99904c368daa1de5e85a6e9cc07189e7f66cb1338a9ebf93fa051bd/distorm3-3.4.1.tar.gz"
     sha256 "0ed65741b31cc113f1c98641594fc3e24f0563b6977c5ea2a7d97983095caa0c"
