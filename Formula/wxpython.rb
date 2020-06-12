@@ -22,8 +22,11 @@ class Wxpython < Formula
   depends_on "numpy"
   depends_on "python@3.8"
 
+  uses_from_macos "zlib"
+
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "gtk+3"
   end
 
   resource "Pillow" do
