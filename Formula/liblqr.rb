@@ -1,11 +1,10 @@
 class Liblqr < Formula
   desc "C/C++ seam carving library"
-  homepage "https://liblqr.wikidot.com/"
-  url "https://liblqr.wdfiles.com/local--files/en:download-page/liblqr-1-0.4.2.tar.bz2"
-  version "0.4.2"
-  sha256 "173a822efd207d72cda7d7f4e951c5000f31b10209366ff7f0f5972f7f9ff137"
+  homepage "http://liblqr.wikidot.com/"
+  url "https://github.com/carlobaldassi/liblqr/archive/v0.4.2.tar.gz"
+  sha256 "1019a2d91f3935f1f817eb204a51ec977a060d39704c6dafa183b110fd6280b0"
   revision 1
-  head "https://repo.or.cz/liblqr.git"
+  head "https://github.com/carlobaldassi/liblqr.git"
 
   bottle do
     cellar :any
