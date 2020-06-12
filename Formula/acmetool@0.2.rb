@@ -4,7 +4,7 @@ class AcmetoolAT02 < Formula
   url "https://github.com/hlandau/acmetool.git",
       :tag      => "v0.2.1",
       :revision => "f68b275d0a0ca526525b1d11e58be9b7e995251f"
-  head "https://github.com/hlandau/acmetool.git"
+  # head "https://github.com/hlandau/acmetool.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,8 @@ class AcmetoolAT02 < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "acmetool", :because => "Differing version of same formula"
+  # conflicts_with "acmetool", :because => "Differing version of same formula"
+  keg_only :versioned_formula
 
   def install
     ENV["GO111MODULE"] = "on"
