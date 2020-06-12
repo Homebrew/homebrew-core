@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/55/57/a3f18ef4b5427c13d65e132caa2ef7290c3eb574579f269ce59b0cee913f/jc-1.11.4.tar.gz"
-  sha256 "f889e086d2bb91ba1771fed24e501113106b776bd66a32ab8d6df6c379c677ad"
+  url "https://files.pythonhosted.org/packages/bc/71/9c459fa977d83ee25f8cb7bf306271b86e4e7f305ec4f29424b4328f0f25/jc-1.11.5.tar.gz"
+  sha256 "57d96f62ae8bc883685617a83c9f8e165c7fc786fff5de870fb34f96b00bab3a"
 
   bottle do
     cellar :any_skip_relocation
