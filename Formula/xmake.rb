@@ -12,6 +12,10 @@ class Xmake < Formula
     sha256 "71d6cb1de6da0071819d0e6054305d319e16accdf45d1d35c917ef1811896001" => :high_sierra
   end
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "make", "build"
     system "make", "install", "prefix=#{prefix}"
