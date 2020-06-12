@@ -16,6 +16,10 @@ class Ykpers < Formula
   depends_on "json-c"
   depends_on "libyubikey"
 
+  on_linux do
+    depends_on "libusb"
+  end
+
   def install
     libyubikey_prefix = Formula["libyubikey"].opt_prefix
     system "./configure", "--disable-dependency-tracking",
