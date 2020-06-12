@@ -12,6 +12,8 @@ class Qwtpolar < Formula
     sha256 "5bd97a27b353a338b97b1e5f33f1c95b568dacc9e49f9d56a1e085bf554264bb" => :high_sierra
   end
 
+  depends_on :xcode => :build
+
   depends_on "qt"
   depends_on "qwt"
 
