@@ -11,6 +11,9 @@ class Tippecanoe < Formula
     sha256 "a1c78f268f0e54f6856f9e6be6dd9225d2f79ef0fc6905b60d69ef53fd542828" => :high_sierra
   end
 
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
