@@ -36,6 +36,10 @@ class Vips < Formula
   depends_on "poppler"
   depends_on "webp"
 
+  on_linux do
+    depends_on "gobject-introspection"
+  end
+
   uses_from_macos "zlib"
 
   def install
