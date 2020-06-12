@@ -16,6 +16,7 @@ class Tealdeer < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
   end
 
   conflicts_with "tldr", :because => "both install `tldr` binaries"
