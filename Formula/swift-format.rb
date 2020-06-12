@@ -1,8 +1,10 @@
 class SwiftFormat < Formula
   desc "Formatting technology for Swift source code"
   homepage "https://github.com/apple/swift-format"
-  url "https://github.com/apple/swift-format.git", :revision => "5cdf916a09ee8b581ff348c0e395b221d02d253b"
-  version "5.2"
+  url "https://github.com/apple/swift-format.git",
+    :tag      => "0.50200.1",
+    :revision => "f22aade8a6ee061b4a7041601ededd8ad7bc2122"
+  version_scheme 1
   head "https://github.com/apple/swift-format.git"
 
   bottle do
