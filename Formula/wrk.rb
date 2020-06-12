@@ -16,6 +16,7 @@ class Wrk < Formula
   depends_on "openssl@1.1"
 
   on_linux do
+    depends_on "makedepend" => :build
     depends_on "pkg-config" => :build
   end
 
