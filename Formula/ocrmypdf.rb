@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/c1/80/4dbbba5aa3dda3be01209657cf86bb1bffb9280777ce16358f5c0abaf657/ocrmypdf-10.0.0.tar.gz"
-  sha256 "56574ff2177cf073d743ed1f93e261f97ae7f752300fc2eb56c922bbecec415b"
+  url "https://files.pythonhosted.org/packages/d5/70/afc5489ad475aa31637c479c47ace61847b0c37ab784929a2ba4f1e5c770/ocrmypdf-10.0.1.tar.gz"
+  sha256 "1a49d6c357a9915e33a5343a4a0e67649f084e00bb806f3605c54b2d870403f8"
 
   bottle do
     cellar :any
