@@ -3,8 +3,7 @@ class KdeExtraCmakeModules < Formula
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
   url "https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz"
   sha256 "830da8d84cc737e024ac90d6ed767d10f9e21531e5f576a1660d4ca88bee8581"
-
-  head "git://anongit.kde.org/extra-cmake-modules"
+  head "https://invent.kde.org/frameworks/extra-cmake-modules.git"
 
   bottle do
     cellar :any_skip_relocation
