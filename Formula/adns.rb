@@ -12,6 +12,8 @@ class Adns < Formula
     sha256 "6cbe64a32b077c9abd61337c51c4e17a2286f9bee04b33f24a5dd762125798d1" => :high_sierra
   end
 
+  uses_from_macos "m4" => :build
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dynamic"
     system "make"
