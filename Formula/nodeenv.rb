@@ -1,8 +1,8 @@
 class Nodeenv < Formula
   desc "Node.js virtual environment builder"
   homepage "https://github.com/ekalinin/nodeenv"
-  url "https://github.com/ekalinin/nodeenv/archive/1.3.5.tar.gz"
-  sha256 "825944b102e44f6a7a10e3f32a2004cbb62755becbe8ed188494e5d962bc7ea3"
+  url "https://github.com/ekalinin/nodeenv/archive/1.4.0.tar.gz"
+  sha256 "dbe5f7e966c6130038aa1966e432ff67a9e99f8e489d5ea8849b02770096389d"
 
   bottle :unneeded
 
