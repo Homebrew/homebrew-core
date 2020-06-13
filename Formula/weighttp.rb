@@ -3,7 +3,7 @@ class Weighttp < Formula
   homepage "https://redmine.lighttpd.net/projects/weighttp/wiki"
   url "https://github.com/lighttpd/weighttp/archive/weighttp-0.4.tar.gz"
   sha256 "b4954f2a1eca118260ffd503a8e3504dd32942e2e61d0fa18ccb6b8166594447"
-  head "https://git.lighttpd.net/weighttp.git"
+  head "https://git.lighttpd.net/lighttpd/weighttp.git"
 
   bottle do
     cellar :any
