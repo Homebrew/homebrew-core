@@ -1,8 +1,8 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v4.0.15.tar.gz"
-  sha256 "adce8152c3e802b8fe71b26d7252944944c49954ba6b5ba9fbb7fa5c4aad93dc"
+  url "https://github.com/warmcat/libwebsockets/archive/v4.0.16.tar.gz"
+  sha256 "883cc0595656d712b331dd0607e05224b514fd1d24d64356cc4f50bfe3d9527b"
   head "https://github.com/warmcat/libwebsockets.git"
 
   bottle do
