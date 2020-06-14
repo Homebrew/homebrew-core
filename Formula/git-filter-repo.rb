@@ -3,8 +3,8 @@ class GitFilterRepo < Formula
 
   desc "Quickly rewrite git repository history"
   homepage "https://github.com/newren/git-filter-repo"
-  url "https://github.com/newren/git-filter-repo/releases/download/v2.27.0/git-filter-repo-2.27.0.tar.xz"
-  sha256 "41edbb53eb83fce292eb28f044002dc772849ce72053c74715e882c8f1053eef"
+  url "https://github.com/newren/git-filter-repo/releases/download/v2.27.1/git-filter-repo-2.27.1.tar.xz"
+  sha256 "48d0bf96c1b0fdf56bf25bf1cef488f4ec1e872ebf0dddc27fd4f91c8615231f"
 
   bottle :unneeded
 
