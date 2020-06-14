@@ -1,7 +1,7 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  revision 2
+  revision 3
   stable do
     url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz"
     sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
@@ -45,6 +45,7 @@ class Ntfs3g < Formula
       --exec-prefix=#{prefix}
       --mandir=#{man}
       --with-fuse=external
+      --enable-extra
     ]
 
     system "./autogen.sh" if build.head?
@@ -64,23 +65,22 @@ class Ntfs3g < Formula
         USER_ID=#{Process.uid}
         GROUP_ID=#{Process.gid}
 
-        if [ `/usr/bin/stat -f %u /dev/console` -ne 0 ]; then
-          USER_ID=`/usr/bin/stat -f %u /dev/console`
-          GROUP_ID=`/usr/bin/stat -f %g /dev/console`
+        if [ "$(/usr/bin/stat -f %u /dev/console)" -ne 0 ]; then
+          USER_ID=$(/usr/bin/stat -f %u /dev/console)
+          GROUP_ID=$(/usr/bin/stat -f %g /dev/console)
         fi
 
         #{opt_bin}/ntfs-3g \\
           -o volname="${VOLUME_NAME}" \\
           -o local \\
           -o negative_vncache \\
-          -o auto_xattr \\
           -o auto_cache \\
           -o noatime \\
           -o windows_names \\
-          -o user_xattr \\
+          -o streams_interface=openxattr \\
           -o inherit \\
-          -o uid=$USER_ID \\
-          -o gid=$GROUP_ID \\
+          -o uid="$USER_ID" \\
+          -o gid="$GROUP_ID" \\
           -o allow_other \\
           -o big_writes \\
           "$@" >> /var/log/mount-ntfs-3g.log 2>&1
