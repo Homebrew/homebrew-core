@@ -4,6 +4,7 @@ class Ed < Formula
   url "https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz"
   mirror "https://ftpmirror.gnu.org/ed/ed-1.16.tar.lz"
   sha256 "cfc07a14ab048a758473ce222e784fbf031485bcd54a76f74acfee1f390d8b2c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +12,8 @@ class Ed < Formula
     sha256 "639a5594fbb41ac9481087e7ab76fdcca0f0a61be34dd1e0d24cc8b4786636ef" => :mojave
     sha256 "ff2c9457fb43d7785ffadf3b15a95f31c9c77758ccfb97cc3cbac2651309064d" => :high_sierra
   end
+
+  keg_only :provided_by_macos
 
   def install
     ENV.deparallelize
