@@ -1,9 +1,9 @@
 class ConfluentPlatform < Formula
   desc "Developer-optimized distribution of Apache Kafka"
   homepage "https://www.confluent.io/product/confluent-platform/"
-  url "https://packages.confluent.io/archive/5.4/confluent-5.4.1-2.12.tar.gz"
-  version "5.4.1"
-  sha256 "3a0fb84e9b22f91eead27490840c2c21d79778ecf1c69ae9d8bbe44ee0f5e48b"
+  url "https://packages.confluent.io/archive/5.5/confluent-5.5.0-2.12.tar.gz"
+  version "5.5.0"
+  sha256 "910da4e1dac50990e5570796406270b94bcdecc61ab8182a0060799f7513cc2d"
 
   bottle :unneeded
 
@@ -16,7 +16,7 @@ class ConfluentPlatform < Formula
     rm_rf libexec/"bin/windows"
 
     # Delete some lines to avoid the error like
-    # "cd: ../Cellar/confluent-platform/5.4.1/bin/../share/java: No such file or directory"
+    # "cd: ../Cellar/confluent-platform/5.5.0/bin/../share/java: No such file or directory"
     inreplace libexec/"bin/confluent-hub", "[ -L /usr/local/bin/confluent-hub ]", "false"
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
