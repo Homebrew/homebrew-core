@@ -5,7 +5,7 @@ class Binwalk < Formula
   homepage "https://github.com/ReFirmLabs/binwalk"
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
   sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
-  revision 1
+  revision 2
   head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
@@ -18,7 +18,6 @@ class Binwalk < Formula
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "freetype"
-  depends_on "gcc" # for gfortran
   depends_on "libpng"
   depends_on "p7zip"
   depends_on "python@3.8"
