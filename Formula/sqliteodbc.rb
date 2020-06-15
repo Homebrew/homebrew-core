@@ -2,6 +2,7 @@ class Sqliteodbc < Formula
   desc "SQLite ODBC driver"
   homepage "https://ch-werner.homepage.t-online.de/sqliteodbc/"
   url "https://ch-werner.homepage.t-online.de/sqliteodbc/sqliteodbc-0.9997.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/sqliteodbc-0.9997.tar.gz"
   sha256 "a50cc328a7def2b3389eebeee43c598322ed338506cbd13d8e9d1892db5e0cfe"
 
   bottle do
