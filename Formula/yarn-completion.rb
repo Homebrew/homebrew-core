@@ -1,8 +1,8 @@
 class YarnCompletion < Formula
   desc "Bash completion for Yarn"
   homepage "https://github.com/dsifford/yarn-completion"
-  url "https://github.com/dsifford/yarn-completion/archive/v0.8.0.tar.gz"
-  sha256 "f359dbfd4d9dd28e231e81da16f308e73662fd586546672569a0eac994f2bcd6"
+  url "https://github.com/dsifford/yarn-completion/archive/v0.16.0.tar.gz"
+  sha256 "ec2f949a0b283bd7d99e8a3320c84afbac19a885a0d3c3b34909dfe3fa9bb09d"
 
   bottle :unneeded
 
