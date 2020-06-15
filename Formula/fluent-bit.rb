@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.4.5.tar.gz"
-  sha256 "5ce6a8269402d1800e79671fe30bea38926c959cbdf0e87ae7939da61f23f35e"
+  url "https://github.com/fluent/fluent-bit/archive/v1.4.6.tar.gz"
+  sha256 "3ff32b163eb57c6f82fa4a8e3d2797f1896a43a65667c6fffaf7b7f8f8f1e8ee"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
@@ -15,13 +15,15 @@ class FluentBit < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+  # bug report, https://github.com/fluent/fluent-bit/issues/2332
+  depends_on :macos => :mojave
 
   conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries"
   conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries"
 
   def install
     # Work around Xcode 11 clang bug
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+    ENV.append_to_cflags "-fno-stack-check -fno-common" if DevelopmentTools.clang_build_version >= 1010
 
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
