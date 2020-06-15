@@ -1,6 +1,6 @@
 class OsspUuid < Formula
   desc "ISO-C API and CLI for generating UUIDs"
-  homepage "https://web.archive.org/web/www.ossp.org/pkg/lib/uuid/"
+  homepage "http://www.ossp.org/pkg/lib/uuid/"
   url "https://deb.debian.org/debian/pool/main/o/ossp-uuid/ossp-uuid_1.6.2.orig.tar.gz"
   sha256 "11a615225baa5f8bb686824423f50e4427acd3f70d394765bdff32801f0fd5b0"
   revision 2
