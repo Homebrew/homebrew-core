@@ -26,6 +26,10 @@ class Emacs < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "jpeg"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
