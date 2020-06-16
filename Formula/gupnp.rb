@@ -1,8 +1,11 @@
 class Gupnp < Formula
+  include Language::Python::Shebang
+
   desc "Framework for creating UPnP devices and control points"
   homepage "https://wiki.gnome.org/Projects/GUPnP"
   url "https://download.gnome.org/sources/gupnp/1.2/gupnp-1.2.2.tar.xz"
   sha256 "9a80bd953e5c8772ad26b72f8da01cbe7241a113edd6084903f413ce751c9989"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,11 +26,11 @@ class Gupnp < Formula
   depends_on "python@3.8"
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
     mkdir "build" do
       system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
+      bin.find { |f| rewrite_shebang detected_python_shebang, f }
     end
   end
 
