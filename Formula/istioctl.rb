@@ -2,8 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
   url "https://github.com/istio/istio.git",
-      :tag      => "1.5.4",
-      :revision => "f27639c7369f8a6ef144ed8768f8acb27566d999"
+      :tag      => "1.6.2",
+      :revision => "70f86ede30e826dd18542e95d856255e9780a24f"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,7 @@ class Istioctl < Formula
     ENV["TAG"] = version.to_s
     ENV["ISTIO_VERSION"] = version.to_s
     ENV["HUB"] = "docker.io/istio"
+    ENV["BUILD_WITH_CONTAINER"] = "0"
 
     srcpath = buildpath/"src/istio.io/istio"
     outpath = srcpath/"out/darwin_amd64"
