@@ -18,6 +18,7 @@ class Bc < Formula
   keg_only :provided_by_macos
 
   uses_from_macos "bison" => :build
+  uses_from_macos "ed" => :build
   uses_from_macos "flex"
 
   def install
