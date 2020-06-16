@@ -18,6 +18,10 @@ class Exa < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "libgit2"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
 
