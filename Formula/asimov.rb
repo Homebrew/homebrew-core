@@ -1,8 +1,8 @@
 class Asimov < Formula
   desc "Automatically exclude development dependencies from Time Machine backups"
   homepage "https://github.com/stevegrunwell/asimov"
-  url "https://github.com/stevegrunwell/asimov/archive/v0.2.0.tar.gz"
-  sha256 "2efb456975af066a17f928787062522de06c14eb322b2d133a8bc3a764cc5376"
+  url "https://github.com/stevegrunwell/asimov/archive/v0.3.0.tar.gz"
+  sha256 "77a0ef09c86d9d6ff146547902c749c43bc054f331a12ecb9992db9673469fab"
   head "https://github.com/stevegrunwell/asimov.git", :branch => "develop"
 
   bottle :unneeded
@@ -33,7 +33,7 @@ class Asimov < Formula
   end
 
   test do
-    assert_match %r{Finding node_modules/ directories with corresponding ../package.json files...},
+    assert_match "Finding dependency directories with corresponding definition files…",
                  shell_output("#{bin}/asimov")
   end
 end
