@@ -2,8 +2,8 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-7.4.0.32960.tar.gz"
-  sha256 "a32d9bee22ab9ccd9bdfb4457041d5e00726f871b6bb11760a2ba52805e4b7e8"
+  url "https://dist.duck.sh/duck-src-7.4.1.33065.tar.gz"
+  sha256 "b535188cf37946c350f090aa493d5240ee1ef2b077d673613cd5655c337ef912"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
