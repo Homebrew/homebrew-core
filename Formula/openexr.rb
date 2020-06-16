@@ -1,8 +1,8 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  url "https://github.com/openexr/openexr/archive/v2.5.1.tar.gz"
-  sha256 "11f806bf256453e39fc33bd1cf1fa576a54f144cedcdd3e6935a177e5a89d02e"
+  url "https://github.com/openexr/openexr/archive/v2.5.2.tar.gz"
+  sha256 "5da8dff448d0c4a529e52c97daf238a461d01cd233944f75095668d6d7528761"
 
   bottle do
     sha256 "47c325cb83311e1e25666d3863623682a077a8ee80ad10f1d659c1095650b5c4" => :catalina
