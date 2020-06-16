@@ -23,6 +23,10 @@ class Freetds < Formula
   depends_on "openssl@1.1"
   depends_on "unixodbc"
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
