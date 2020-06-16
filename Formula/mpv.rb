@@ -3,7 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.32.0.tar.gz"
   sha256 "9163f64832226d22e24bbc4874ebd6ac02372cd717bef15c28a0aa858c5fe592"
-  revision 4
+  revision 5
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -25,6 +25,7 @@ class Mpv < Formula
   depends_on "lua@5.1"
   depends_on "mujs"
   depends_on "uchardet"
+  depends_on "vapoursynth"
   depends_on "youtube-dl"
 
   def install
@@ -59,5 +60,6 @@ class Mpv < Formula
 
   test do
     system bin/"mpv", "--ao=null", test_fixtures("test.wav")
+    assert_match "vapoursynth", shell_output(bin/"mpv --vf=help")
   end
 end
