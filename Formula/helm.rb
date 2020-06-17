@@ -4,6 +4,7 @@ class Helm < Formula
   url "https://github.com/helm/helm.git",
       :tag      => "v3.2.4",
       :revision => "0ad800ef43d3b826f31a5ad8dfbb4fe05d143688"
+  revision 1
   head "https://github.com/helm/helm.git"
 
   bottle do
@@ -13,30 +14,22 @@ class Helm < Formula
     sha256 "a390ab2d2b29e7cb7a214ea7983f8c37b659a9c90b71988f6c7754455b49a65f" => :high_sierra
   end
 
-  depends_on "go@1.13" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    ENV["TARGETS"] = "darwin/amd64"
-    dir = buildpath/"src/helm.sh/helm"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    system "make", "build"
+    bin.install "bin/helm"
 
-    cd dir do
-      system "make", "build"
-
-      bin.install "bin/helm"
-      man1.install Dir["docs/man/man1/*"]
-
-      output = Utils.safe_popen_read("SHELL=bash #{bin}/helm completion bash")
-      (bash_completion/"helm").write output
-
-      output = Utils.safe_popen_read("SHELL=zsh #{bin}/helm completion zsh")
-      (zsh_completion/"_helm").write output
-
-      prefix.install_metafiles
+    mkdir "man1" do
+      system bin/"helm", "docs", "--type", "man"
+      man1.install Dir["*"]
     end
+
+    output = Utils.safe_popen_read("SHELL=bash #{bin}/helm completion bash")
+    (bash_completion/"helm").write output
+
+    output = Utils.safe_popen_read("SHELL=zsh #{bin}/helm completion zsh")
+    (zsh_completion/"_helm").write output
   end
 
   test do
@@ -44,7 +37,7 @@ class Helm < Formula
     assert File.directory? "#{testpath}/foo/charts"
 
     version_output = shell_output("#{bin}/helm version 2>&1")
-    assert_match "GitTreeState:\"clean\"", version_output
+    assert_match "Version:\"v#{version}\"", version_output
     if build.stable?
       assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output
     end
