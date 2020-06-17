@@ -12,6 +12,10 @@ class Lv < Formula
     sha256 "90a79ade2abcd36772eb50db1c93298a67766d626a5316a3eeb1638312fbd377" => :high_sierra
   end
 
+  on_linux do
+    depends_on "gzip"
+  end
+
   # See https://github.com/Homebrew/homebrew-core/pull/53085
   patch :DATA
 
