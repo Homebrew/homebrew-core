@@ -3,6 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.3.tar.xz"
   sha256 "1d0ad06484f44bcb97eba5e93c40bcb893890f9f64aeb43e46cd9bb4cbd6795d"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -30,6 +31,7 @@ class Ffmpeg < Formula
   depends_on "opencore-amr"
   depends_on "openjpeg"
   depends_on "opus"
+  depends_on "rav1e"
   depends_on "rtmpdump"
   depends_on "rubberband"
   depends_on "sdl2"
@@ -65,6 +67,7 @@ class Ffmpeg < Formula
       --enable-libdav1d
       --enable-libmp3lame
       --enable-libopus
+      --enable-librav1e
       --enable-librubberband
       --enable-libsnappy
       --enable-libsrt
