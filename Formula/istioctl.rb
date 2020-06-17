@@ -13,6 +13,7 @@ class Istioctl < Formula
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -26,7 +27,7 @@ class Istioctl < Formula
     srcpath.install buildpath.children
 
     cd srcpath do
-      system "make", "istioctl", "istioctl.completion"
+      system "make", "gen-charts", "istioctl", "istioctl.completion"
       prefix.install_metafiles
       bin.install outpath/"istioctl"
       bash_completion.install outpath/"release/istioctl.bash"
