@@ -20,6 +20,10 @@ class HaskellStack < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gmp"
+  end
+
   # Stack requires stack to build itself. Yep.
   resource "bootstrap-stack" do
     url "https://github.com/commercialhaskell/stack/releases/download/v2.3.1/stack-2.3.1-osx-x86_64.tar.gz"
