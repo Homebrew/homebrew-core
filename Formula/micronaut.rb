@@ -1,17 +1,28 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-core/releases/download/v1.3.6/micronaut-1.3.6.zip"
-  sha256 "271a5af14f87e78ec8c72cfd09d04c50c96826532a5496bd9651a2775815693f"
+  version "2.0.0.RC1"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/v#{version}.zip"
+  sha256 "7bbbcab85e70c126ea4ffb20c178b1fc17f44b9758df7d2f348e20920c79aad5"
 
-  bottle :unneeded
-
-  depends_on "openjdk"
-
+  GRAALVM_HOME="./graalvm/Contents/Home"
+  
   def install
-    rm_f Dir["bin/*.bat"]
-    libexec.install %W[bin media cli-#{version}.jar]
-    (bin/"mn").write_env_script libexec/"bin/mn", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    with_env "GRAAL_OS" => "darwin-amd64", "GRAAL_VERSION" => "20.1.0" do
+      system "./install-graal.sh"
+    end
+    
+    
+    system "#{GRAALVM_HOME}/bin/gu", "install", "native-image"
+    
+    with_env "JAVA_HOME" => GRAALVM_HOME do
+      system "./gradlew", "micronaut-cli:shadowJar", "--no-daemon"
+    end
+    
+    system "echo", "#{GRAALVM_HOME}/bin/native-image", "--no-fallback", "--no-server", "-cp", "starter-cli/build/libs/micronaut-cli-#{version}-all.jar" 
+    system "#{GRAALVM_HOME}/bin/native-image", "--no-fallback", "--no-server", "-cp", "starter-cli/build/libs/micronaut-cli-#{version}-all.jar" 
+    
+    bin.install "mn"
   end
 
   test do
