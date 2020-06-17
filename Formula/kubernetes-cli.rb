@@ -15,6 +15,8 @@ class KubernetesCli < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "rsync" => :build
+
   def install
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/k8s.io/kubernetes"
