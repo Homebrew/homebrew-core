@@ -3,8 +3,8 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://s.saltstack.com/community/"
-  url "https://files.pythonhosted.org/packages/dd/af/a655b055173603f6b8dfb87202604076887d67f186f2f5aedd5a49a7dbe5/salt-3000.3.tar.gz"
-  sha256 "fcca49985e697d914e5a7f34b2fd8bbd833bcf7779d30174a279a4de2294cea7"
+  url "https://files.pythonhosted.org/packages/cc/03/a66a65209aa867c6f8414e5f99a52428400ecc93ab1657102284914a5d52/salt-3001.tar.gz"
+  sha256 "5ca60d1b2cc8e63db50995bd8b117914eeaf57c48ce2b3a3731ee57163adf154"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -17,8 +17,7 @@ class Salt < Formula
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  # Does not support python 3.8: https://github.com/saltstack/salt/issues/55310
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "zeromq"
 
   on_linux do
@@ -52,13 +51,6 @@ class Salt < Formula
     sha256 "de9421118a99c79cbba1e512d60e5caed1d63273ce30a0e8d4edef4a2e500387"
   end
 
-  # Fix loading of unversioned /usr/lib/libcrypto.dylib, taken from https://github.com/saltstack/salt/pull/56958
-  # Remove when merged or https://github.com/saltstack/salt/issues/55084 is fixed
-  patch do
-    url "https://github.com/saltstack/salt/pull/56958/commits/3dea0e31759b6c2a2c7b46647827a72f7a20dafd.patch?full_index=1"
-    sha256 "ddc760333341afb41cbe4083d33b35b8f9a3a0370abd34d6929574d10688de91"
-  end
-
   def install
     ENV["SWIG_FEATURES"]="-I#{Formula["openssl@1.1"].opt_include}"
 
@@ -69,7 +61,7 @@ class Salt < Formula
     # https://github.com/Homebrew/homebrew-core/pull/52835#issuecomment-617502578
     File.write(buildpath/"pkg/osx/req_pyobjc.txt", "")
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3.8")
     venv.pip_install resources
 
     system libexec/"bin/pip", "install", "-v", "--ignore-installed", buildpath
