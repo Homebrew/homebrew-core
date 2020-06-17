@@ -2,9 +2,8 @@ class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
   homepage "http://www.littlecms.com/"
   # Ensure release is announced on http://www.littlecms.com/download.html
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.10/lcms2-2.10.tar.gz"
-  sha256 "50d411fd494c7c6973866e08c05dea83245d7e23a0db6237a9d00f88b2e0f346"
-  revision 1
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.11/lcms2-2.11.tar.gz"
+  sha256 "dc49b9c8e4d7cdff376040571a722902b682a795bf92985a85b48854c270772e"
   version_scheme 1
 
   bottle do
