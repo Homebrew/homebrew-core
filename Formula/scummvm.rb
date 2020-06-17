@@ -26,7 +26,7 @@ class Scummvm < Formula
 
   # Support fluid-synth 2.1
   patch do
-    url "https://sources.debian.org/data/main/s/scummvm/2.1.1+dfsg1-1/debian/patches/git_fluidsynth_update.patch"
+    url "https://sources.debian.org/data/main/s/scummvm/2.1.2+dfsg1-1/debian/patches/git_fluidsynth_update.patch"
     sha256 "4e03d4b685bf38c2367bb669867175bd4b84039a678613bf6e32a34591b382c6"
   end
 
