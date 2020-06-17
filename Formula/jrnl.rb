@@ -17,6 +17,10 @@ class Jrnl < Formula
 
   uses_from_macos "expect" => :test
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   resource "ansiwrap" do
     url "https://files.pythonhosted.org/packages/7c/45/2616341cfcace37d4619d5106a85fcc24f2170d1a161bc5f7fdb81772fbc/ansiwrap-0.8.4.zip"
     sha256 "ca0c740734cde59bf919f8ff2c386f74f9a369818cdc60efe94893d01ea8d9b7"
