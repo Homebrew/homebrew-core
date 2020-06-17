@@ -4,6 +4,7 @@ class Istioctl < Formula
   url "https://github.com/istio/istio.git",
       :tag      => "1.6.2",
       :revision => "70f86ede30e826dd18542e95d856255e9780a24f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
