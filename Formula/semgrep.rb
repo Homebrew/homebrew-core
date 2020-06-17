@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep.git",
-    :tag      => "v0.10.1",
-    :revision => "2e246e4e1ae84a10948d81a479f3bc17f8a1fe5b"
+    :tag      => "v0.11.0",
+    :revision => "21d49ea1cdda2df9535067411075277822d2f63b"
   head "https://github.com/returntocorp/semgrep.git", :branch => "develop"
 
   bottle do
@@ -70,6 +70,11 @@ class Semgrep < Formula
   resource "ruamel.yaml.clib" do
     url "https://files.pythonhosted.org/packages/92/28/612085de3fae9f82d62d80255d9f4cf05b1b341db1e180adcf28c1bf748d/ruamel.yaml.clib-0.2.0.tar.gz"
     sha256 "b66832ea8077d9b3f6e311c4a53d06273db5dc2db6e8a908550f3c14d67e718c"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/a9/03/df1d77e852dd697c0ff7b7b1b9888739517e5f97dfbd2cf7ebd13234084c/tqdm-4.46.1.tar.gz"
+    sha256 "cd140979c2bebd2311dfb14781d8f19bd5a9debb92dcab9f6ef899c987fcf71f"
   end
 
   def install
