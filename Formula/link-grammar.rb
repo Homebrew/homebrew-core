@@ -18,6 +18,8 @@ class LinkGrammar < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
 
+  uses_from_macos "sqlite"
+
   def install
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
     inreplace "bindings/python/Makefile.am",
