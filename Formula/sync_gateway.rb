@@ -2,8 +2,8 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag      => "2.7.1",
-      :revision => "a08bf70a05fc5b94e62c6aa2d349d3f1e261f1cc"
+      :tag      => "2.7.3",
+      :revision => "33d352f97798e45360155b63c022e8a39485134e"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
@@ -15,31 +15,24 @@ class SyncGateway < Formula
 
   depends_on "gnupg" => :build
   depends_on "go" => :build
-  depends_on :macos # Due to Python 2
-
-  resource "depot_tools" do
-    url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        :revision => "b97d193baafa7343cc869e2b48d3bffec46a0c31"
-  end
+  depends_on "repo" => :build
+  depends_on "python@3.8"
 
   def install
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
     repo_cache = buildpath/"repo_cache/#{name}/.repo"
     repo_cache.mkpath
 
-    (buildpath/"depot_tools").install resource("depot_tools")
-    ENV.prepend_path "PATH", buildpath/"depot_tools"
-
     (buildpath/"build").install_symlink repo_cache
     cp Dir["*.sh"], "build"
 
     git_commit = `git rev-parse HEAD`.chomp
     manifest = buildpath/"new-manifest.xml"
-    manifest.write Utils.popen_read "python", "rewrite-manifest.sh",
-                                    "--manifest-url",
-                                    "file://#{buildpath}/manifest/default.xml",
-                                    "--project-name", "sync_gateway",
-                                    "--set-revision", git_commit
+    manifest.write Utils.safe_popen_read "python", "rewrite-manifest.sh",
+                                         "--manifest-url",
+                                         "file://#{buildpath}/manifest/default.xml",
+                                         "--project-name", "sync_gateway",
+                                         "--set-revision", git_commit
     cd "build" do
       mkdir "godeps"
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
@@ -52,7 +45,7 @@ class SyncGateway < Formula
   end
 
   test do
-    pid = fork { exec "#{bin}/sync_gateway" }
+    pid = fork { exec "#{bin}/sync_gateway_ce" }
     sleep 1
     Process.kill("SIGINT", pid)
     Process.wait(pid)
