@@ -30,6 +30,10 @@ class Guile < Formula
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
+  on_linux do
+    depends_on "gperf"
+  end
+
   def install
     # Work around Xcode 11 clang bug
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
