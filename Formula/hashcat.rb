@@ -1,8 +1,12 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
+  # MacOS curl complains about https://hashcat.net SSL cert
+  # See https://github.com/Homebrew/homebrew-core/pull/56503#issuecomment-660728358
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-5.1.0.tar.gz"
-  sha256 "283beaa68e1eab41de080a58bb92349c8e47a2bb1b93d10f36ea30f418f1e338"
+  url "https://hashcat.net/files/hashcat-6.0.0.tar.gz"
+  mirror "https://github.com/hashcat/hashcat/archive/v6.0.0.tar.gz"
+  sha256 "e8e70f2a5a608a4e224ccf847ad2b8e4d68286900296afe00eb514d8c9ec1285"
+  license "MIT"
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git"
 
