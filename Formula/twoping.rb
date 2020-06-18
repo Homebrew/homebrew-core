@@ -1,9 +1,9 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-4.4.1.tar.gz"
-  sha256 "0aa52cba661abdbf51f2f344c93ec116ca2e1e4ba2e82519b8a65ae5b08b0316"
-  head "https://github.com/rfinnie/2ping.git"
+  url "https://www.finnie.org/software/2ping/2ping-4.5.tar.gz"
+  sha256 "867009928bf767d36279f90ff8f891855804c0004849f9554ac77fcd7f0fdb7b"
+  head "https://github.com/rfinnie/2ping.git", :branch => "main"
 
   bottle do
     cellar :any_skip_relocation
@@ -56,6 +56,9 @@ class Twoping < Formula
   end
 
   test do
-    system bin/"2ping", "-c", "5", "test.2ping.net"
+    assert_match "OK 2PING", shell_output(
+      "#{bin}/2ping --count=10 --interval=0.2 --port=-1 --interface-address=127.0.0.1 "\
+      "--listen --nagios=1000,5%,1000,5% 127.0.0.1",
+    )
   end
 end
