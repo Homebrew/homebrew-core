@@ -3,7 +3,7 @@ class Rethinkdb < Formula
   homepage "https://rethinkdb.com/"
   url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.0.tgz"
   sha256 "bfb0708710595c6762f42e25613adec692cf568201cd61da74c254f49fa9ee4c"
-  revision 1
+  head "https://github.com/rethinkdb/rethinkdb.git", :branch => "next"
 
   bottle do
     cellar :any
@@ -22,6 +22,7 @@ class Rethinkdb < Formula
 
   def install
     args = ["--prefix=#{prefix}"]
+    args += ["--allow-fetch"] if build.head?
 
     # rethinkdb requires that protobuf be linked against libc++
     # but brew's protobuf is sometimes linked against libstdc++
