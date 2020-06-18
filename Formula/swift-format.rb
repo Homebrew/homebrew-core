@@ -5,7 +5,8 @@ class SwiftFormat < Formula
     :tag      => "0.50200.1",
     :revision => "f22aade8a6ee061b4a7041601ededd8ad7bc2122"
   version_scheme 1
-  head "https://github.com/apple/swift-format.git"
+  head "https://github.com/apple/swift-format.git",
+    :branch => "swift-5.2-branch"
 
   bottle do
     cellar :any_skip_relocation
