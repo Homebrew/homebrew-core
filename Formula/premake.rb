@@ -16,6 +16,9 @@ class Premake < Formula
     sha256 "4b1ce1c63cc3ecca7e195d4c0350fb6f823f659c36ff6c1193fd99023ed25b12" => :yosemite
   end
 
+  # See: https://groups.google.com/g/premake-development/c/i1uA1Wk6zYM/m/kbp9q4Awu70J
+  deprecate! :date => "2015-05-28"
+
   def install
     if build.head?
       system "make", "-f", "Bootstrap.mak", "osx"
