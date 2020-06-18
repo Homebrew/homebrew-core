@@ -2,8 +2,8 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-      :tag      => "v2.0.4",
-      :revision => "c5b0c2d41f67048ba859cbf7d7aba6a3b547e1ef"
+      :tag      => "v2.0.5",
+      :revision => "fb258dd57a5880f4e34822578a88135ae6f67cd0"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Micro < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build"
+    system "make", "build-tags"
     bin.install "micro"
     man1.install "assets/packaging/micro.1"
     prefix.install_metafiles
