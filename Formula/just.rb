@@ -1,8 +1,8 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/v0.5.11.tar.gz"
-  sha256 "a46cad0ddff8b60ed54211b5bd156e3d33665eac7daa81a4b40da6ca06df06bc"
+  url "https://github.com/casey/just/archive/v0.6.0.tar.gz"
+  sha256 "412a8c98537022909600968b1458af9f13e51372bad2c6816cb26a1704387c90"
 
   bottle do
     cellar :any_skip_relocation
