@@ -14,6 +14,8 @@ class Bleachbit < Formula
     system "python3", "setup.py", "install", "--prefix=#{prefix}",
                       "--single-version-externally-managed",
                       "--record=installed.txt"
+    (libexec/"bin").install "bleachbit.py"
+    (bin/"bleachbit").write_env_script libexec/"bin/bleachbit.py", :PYTHONHOME => libexec/"bin/python3.8", :PYTHONPATH => libexec/"lib/python3.8/site-packages"
     venv.pip_install_and_link buildpath
   end
 
