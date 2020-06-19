@@ -22,7 +22,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * `git commit` with message formatted `foo 2.3.4 (new formula)`
 * [open a pull request](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request) and fix any failing tests
 
-Once you've addressed any potential feedback and a Member of the Homebrew org has approved your Pull Request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
+Once you've addressed any potential feedback and a member of the Homebrew org has approved your pull request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
 
 ### To contribute a fix to the `foo` formula
 
