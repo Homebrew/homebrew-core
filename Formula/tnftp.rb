@@ -1,9 +1,8 @@
 class Tnftp < Formula
   desc "NetBSD's FTP client (built from macOS Sierra sources)"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/lukemftp/lukemftp-16.tar.gz"
-  version "20070806"
-  sha256 "ba35a8e3c2e524e5772e729f592ac0978f9027da2433753736e1eb1f1351ae9d"
+  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20151004.tar.gz"
+  sha256 "c94a8a49d3f4aec1965feea831d4d5bf6f90c65fd8381ee0863d11a5029a43a0"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,28 +13,15 @@ class Tnftp < Formula
     sha256 "fdaf7c1ab1fcb48226a9846452b352e4da302ac6aca61a74a67f97b8bb21c942" => :el_capitan
   end
 
-  depends_on :xcode => :build
-
   conflicts_with "inetutils", :because => "both install `ftp' binaries"
 
   def install
-    # Trying to use Apple's pre-supplied Makefile resulted
-    # in headaches... they have made the build process
-    # specifically for installing to /usr/bin and so it
-    # just doesn't play well with homebrew.
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "all"
 
-    # so just build straight from ftp's own sources
-    # from the extracted 20070806 tarball which have
-    # already been patched
-    cd "tnftp" do
-      system "./configure"
-      system "make", "all"
-      system "strip", "-x", "src/ftp" # this is done in Apple's `post-install` target
-
-      bin.install "src/ftp"
-      man1.install "src/ftp.1"
-      prefix.install_metafiles
-    end
+    bin.install "src/tnftp" => "ftp"
+    man1.install "src/ftp.1"
+    prefix.install_metafiles
   end
 
   test do
