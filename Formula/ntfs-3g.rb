@@ -45,7 +45,7 @@ class Ntfs3g < Formula
       --exec-prefix=#{prefix}
       --mandir=#{man}
       --with-fuse=external
-      --enable-extra
+      --enable-extras
     ]
 
     system "./autogen.sh" if build.head?
