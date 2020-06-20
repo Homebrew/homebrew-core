@@ -11,6 +11,6 @@ class Heksa < Formula
   end
 
   test do
-    assert_match /G.*I.*F.*8.*9.*a/, shell_output("#{bin}/heksa -l 16 -f asc -o no #{test_fixtures("test.gif")}")
+    assert_match /P.*N.*G/, shell_output("#{bin}/heksa -l 16 -f asc -o no #{test_fixtures("test.png")}")
   end
 end
