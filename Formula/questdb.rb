@@ -1,8 +1,8 @@
 class Questdb < Formula
   desc "Time Series Database"
   homepage "https://www.questdb.io"
-  url "https://github.com/questdb/questdb/releases/download/4.2.1/questdb-4.2.1-bin.tar.gz"
-  sha256 "e617c8e703c27d95718a7a4d3083b50b5bd1cfd683a4359ec7f5f13722fbdc65"
+  url "https://github.com/questdb/questdb/releases/download/5.0.0/questdb-5.0.0-bin.tar.gz"
+  sha256 "c2cb611169fc1bf8472aea4a8c993b349db34b8de1d28cf665f934c0b0a1886d"
 
   bottle :unneeded
 
@@ -61,8 +61,8 @@ class Questdb < Formula
       fork do
         exec "#{bin}/questdb start -d  #{testpath}/data"
       end
-      sleep 4
-      output = shell_output("curl -Is localhost:9000/js?q=x")
+      sleep 30
+      output = shell_output("curl -Is localhost:9000/index.html")
       sleep 4
       assert_match /questDB/, output
     ensure
