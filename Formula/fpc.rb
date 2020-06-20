@@ -1,9 +1,8 @@
 class Fpc < Formula
   desc "Free Pascal: multi-architecture Pascal compiler"
   homepage "https://www.freepascal.org/"
-  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.4/fpc-3.0.4.source.tar.gz"
-  sha256 "69b3b7667b72b6759cf27226df5eb54112ce3515ff5efb79d95ac14bac742845"
-  revision 1
+  url "https://downloads.sourceforge.net/project/freepascal/Source/3.2.0/fpc-3.2.0.source.tar.gz"
+  sha256 "d595b72de7ed9e53299694ee15534e5046a62efa57908314efa02d5cc3b1cf75"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,17 +13,22 @@ class Fpc < Formula
   end
 
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/freepascal/Bootstrap/3.0.0/x86_64-macosx-10.7-ppcx64.tar.bz2"
-    sha256 "a67ef5def356d122a4692e21b209c328f6d46deef4539f4d4506c3dc1eecb4b0"
+    url "https://downloads.sourceforge.net/project/freepascal/Mac%20OS%20X/3.0.4/fpc-3.0.4a.intel-macosx.dmg"
+    sha256 "56b870fbce8dc9b098ecff3c585f366ad3e156ca32a6bf3b20091accfb252616"
   end
+
+  depends_on "subversion" => :build if MacOS.version >= :catalina
 
   # Help fpc find the startup files (crt1.o and friends) with 10.14 SDK
   patch :DATA
 
   def install
     fpc_bootstrap = buildpath/"bootstrap"
-    resource("bootstrap").stage { fpc_bootstrap.install Dir["*"] }
-    fpc_compiler = fpc_bootstrap/"ppcx64"
+    resource("bootstrap").stage do
+      system "pkgutil", "--expand-full", "fpc-3.0.4a.intel-macosx.pkg", "contents"
+      (fpc_bootstrap/"fpc-3.0.4a").install Dir["contents/fpc-3.0.4a.intel-macosx.pkg/Payload/usr/local/*"]
+    end
+    fpc_compiler = fpc_bootstrap/"fpc-3.0.4a/bin/ppcx64"
 
     # Help fpc find the startup files (crt1.o and friends) with 10.14 SDK
     args = (MacOS.version >= :mojave) ? ['OPT="-XR/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"'] : []
@@ -60,15 +64,15 @@ diff --git a/compiler/systems/t_bsd.pas b/compiler/systems/t_bsd.pas
 index b35a78ae..61d0817d 100644
 --- a/compiler/systems/t_bsd.pas
 +++ b/compiler/systems/t_bsd.pas
-@@ -310,7 +310,10 @@ begin
+@@ -465,7 +465,10 @@ begin
    if startupfile<>'' then
      begin
       if not librarysearchpath.FindFile(startupfile,false,result) then
--       result:='/usr/lib/'+startupfile
+-       result:='/usr/lib/'+startupfile;
 +       if sysutils.fileexists('/usr/lib/'+startupfile) then
 +         result:='/usr/lib/'+startupfile
 +       else if sysutils.fileexists('/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/') then
-+         result:='/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/'+startupfile
-     end
-   else
-     result:='';
++         result:='/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/'+startupfile;
+     end;
+   result:=maybequoted(result);
+ end;
