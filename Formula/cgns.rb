@@ -4,6 +4,7 @@ class Cgns < Formula
   url "https://github.com/CGNS/CGNS/archive/v4.1.1.tar.gz"
   sha256 "055d345c3569df3ae832fb2611cd7e0bc61d56da41b2be1533407e949581e226"
   revision 1
+  head "https://github.com/CGNS/CGNS.git"
 
   bottle do
     cellar :any
