@@ -48,6 +48,10 @@ class Gdal < Formula
   depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
 
+  on_linux do
+    depends_on "bash-completion"
+  end
+
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   def install
