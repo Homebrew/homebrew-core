@@ -1,8 +1,8 @@
 class Proteinortho < Formula
   desc "Detecting orthologous genes within different species"
   homepage "https://gitlab.com/paulklemm_PHD/proteinortho"
-  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.17/proteinortho-v6.0.17.tar.gz"
-  sha256 "b9ed0cf30342952fa6f44eb96103074c8122bebae90b4a311f3edd97f9279053"
+  url "https://gitlab.com/paulklemm_PHD/proteinortho/-/archive/v6.0.18/proteinortho-v6.0.18.tar.gz"
+  sha256 "c9157bd6c6498d5d54af86acd2a55217c3815177848dc1d4e1e29c514950c00e"
 
   bottle do
     cellar :any
