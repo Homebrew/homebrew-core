@@ -11,6 +11,10 @@ class Check < Formula
     sha256 "b61bb914f053c31a8dcb86394d10d3e3b77b2d71ebe2c4f21585f05f15594d8e" => :high_sierra
   end
 
+  on_linux do
+    depends_on "gawk" => :build
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
