@@ -14,6 +14,10 @@ class Igraph < Formula
   depends_on "glpk"
   depends_on "gmp"
 
+  on_linux do
+    depends_on "openblas"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
