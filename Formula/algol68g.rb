@@ -10,6 +10,10 @@ class Algol68g < Formula
     sha256 "18013401e3eed914022e0a34c6b9b1ed415ec679113de78970d74aa52b0a35e8" => :high_sierra
   end
 
+  on_linux do
+    depends_on "postgresql"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
