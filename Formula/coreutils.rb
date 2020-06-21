@@ -30,6 +30,7 @@ class Coreutils < Formula
   conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
   conflicts_with "md5sha1sum", :because => "both install `md5sum` and `sha1sum` binaries"
   conflicts_with "truncate", :because => "both install `truncate` binaries"
+  conflicts_with "uutils-coreutils", :because => "coreutils and uutils-coreutils install the same binaries"
 
   def install
     system "./bootstrap" if build.head?

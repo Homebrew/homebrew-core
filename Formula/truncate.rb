@@ -17,6 +17,7 @@ class Truncate < Formula
   end
 
   conflicts_with "coreutils", :because => "both install `truncate` binaries"
+  conflicts_with "uutils-coreutils", :because => "both install `truncate` binaries"
 
   def install
     system "make"
