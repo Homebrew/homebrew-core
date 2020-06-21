@@ -28,6 +28,10 @@ class Libass < Formula
   depends_on "fribidi"
   depends_on "harfbuzz"
 
+  on_linux do
+    depends_on "fontconfig"
+  end
+
   def install
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking",
