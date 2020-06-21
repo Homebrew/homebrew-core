@@ -2,7 +2,7 @@ class Kettle < Formula
   desc "Pentaho Data Integration software"
   homepage "https://community.hitachivantara.com/docs/DOC-1009931-downloads"
   url "https://downloads.sourceforge.net/project/pentaho/Pentaho%208.3/client-tools/pdi-ce-8.3.0.0-371.zip"
-  sha256 "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  sha256 "c0dbb17248135423fe6336bc8f45b01c2cf15a9b0498fa1d27c24588b3fa2872"
 
   bottle :unneeded
 
