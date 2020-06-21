@@ -17,6 +17,10 @@ class GlibNetworking < Formula
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
 
+  on_linux do
+    depends_on "libidn"
+  end
+
   link_overwrite "lib/gio/modules"
 
   def install
