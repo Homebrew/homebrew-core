@@ -3,6 +3,7 @@ class MariadbConnectorC < Formula
   homepage "https://downloads.mariadb.org/connector-c/"
   url "https://downloads.mariadb.org/f/connector-c-3.1.8/mariadb-connector-c-3.1.8-src.tar.gz"
   sha256 "431434d3926f4bcce2e5c97240609983f60d7ff50df5a72083934759bb863f7b"
+  head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
 
   bottle do
     sha256 "9b46c115a5e52eda9c098ddb5f426119af1b2fe706c936a23af9dcd8396e5a2d" => :catalina
