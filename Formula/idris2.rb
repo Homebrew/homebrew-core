@@ -3,6 +3,7 @@ class Idris2 < Formula
   homepage "https://www.idris-lang.org/"
   url "https://github.com/idris-lang/Idris2/archive/v0.2.0.tar.gz"
   sha256 "cc7c48d3fbaa55e536890c9eb4701755081d2b5df9a65f0ecc3e00ee5ccf0a0f"
+  head "https://github.com/idris-lang/Idris2.git"
 
   bottle do
     cellar :any
