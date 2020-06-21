@@ -1,8 +1,8 @@
 class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
-  url "https://github.com/cwida/duckdb/archive/v0.1.8.tar.gz"
-  sha256 "18a984e80e14136f6a61f482387a6e159f5cafd256884e66cc21d6d7a511e33c"
+  url "https://github.com/cwida/duckdb/archive/v0.1.9.tar.gz"
+  sha256 "235f5b9b39cdbb92de09960c887ad020edad2ad836fb18e19bcc4b11274041cc"
 
   bottle do
     cellar :any
@@ -21,7 +21,10 @@ class Duckdb < Formula
       system "cmake", "../..", *std_cmake_args, "-DAMALGAMATION_BUILD=ON"
       system "make"
       system "make", "install"
-      bin.install "duckdb_cli"
+      bin.install "duckdb"
+      # The cli tool was renamed (0.1.8 -> 0.1.9)
+      # Create a symlink to not break compatibility
+      bin.install_symlink bin/"duckdb" => "duckdb_cli"
     end
   end
 
