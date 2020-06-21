@@ -1,8 +1,8 @@
 class Keystone < Formula
   desc "Assembler framework: Core + bindings"
   homepage "https://www.keystone-engine.org/"
-  url "https://github.com/keystone-engine/keystone/archive/0.9.1.tar.gz"
-  sha256 "e9d706cd0c19c49a6524b77db8158449b9c434b415fbf94a073968b68cf8a9f0"
+  url "https://github.com/keystone-engine/keystone/archive/0.9.2.tar.gz"
+  sha256 "c9b3a343ed3e05ee168d29daf89820aff9effb2c74c6803c2d9e21d55b5b7c24"
   head "https://github.com/keystone-engine/keystone.git"
 
   bottle do
