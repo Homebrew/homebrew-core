@@ -1,9 +1,8 @@
 class Ipopt < Formula
   desc "Interior point optimizer"
   homepage "https://projects.coin-or.org/Ipopt/"
-  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
-  sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
-  revision 7
+  url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.13.2.tgz"
+  sha256 "891ab9e9c7db29fc8ac5c779ccec6313301098de7bbf735ca230cd5544c49496"
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
