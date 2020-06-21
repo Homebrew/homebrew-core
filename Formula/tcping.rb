@@ -1,8 +1,9 @@
 class Tcping < Formula
   desc "TCP connect to the given IP/port combo"
-  homepage "https://web.archive.org/web/20171102193822/linuxco.de/tcping/tcping.html"
-  url "https://mirrors.kernel.org/gentoo/distfiles/tcping-1.3.5.tar.gz"
-  sha256 "1ad52e904094d12b225ac4a0bc75297555e931c11a1501445faa548ff5ecdbd0"
+  homepage "https://github.com/mkirchner/tcping"
+  url "https://github.com/mkirchner/tcping/archive/1.3.6.tar.gz"
+  sha256 "a731f0e48ff931d7b2a0e896e4db40867043740fe901dd225780f2164fdbdcf3"
+  head "https://github.com/mkirchner/tcping.git"
 
   bottle do
     cellar :any_skip_relocation
