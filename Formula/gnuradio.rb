@@ -88,7 +88,7 @@ class Gnuradio < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", "#{Formula["qt"].opt_bin}"
+    ENV.prepend_path "PATH", Formula["qt"].opt_bin
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     venv_root = libexec/"venv"
