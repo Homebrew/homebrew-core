@@ -14,6 +14,10 @@ class Gl2ps < Formula
   depends_on "cmake" => :build
   depends_on "libpng"
 
+  on_linux do
+    depends_on "freeglut"
+  end
+
   def install
     # Prevent linking against X11's libglut.dylib when it's present
     # Reported to upstream's mailing list gl2ps@geuz.org (1st April 2016)
