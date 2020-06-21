@@ -28,6 +28,10 @@ class Global < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "libtool" => :build
+  end
+
   skip_clean "lib/gtags"
 
   resource "Pygments" do
