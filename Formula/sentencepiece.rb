@@ -3,6 +3,7 @@ class Sentencepiece < Formula
   homepage "https://github.com/google/sentencepiece"
   url "https://github.com/google/sentencepiece/archive/v0.1.91.tar.gz"
   sha256 "acbc7ea12713cd2a8d64892f8d2033c7fd2bb4faecab39452496120ace9a4b1b"
+  head "https://github.com/google/sentencepiece.git"
 
   bottle do
     sha256 "d65c679bb760be25ab088947503541a62d4fe3bf73d182bc618702fc29463d45" => :catalina
