@@ -16,7 +16,6 @@ class Bleachbit < Formula
                       "--record=installed.txt"
     (libexec/"bin").install "bleachbit.py"
     (bin/"bleachbit").write_env_script libexec/"bin/bleachbit.py",
-      :PYTHONHOME => libexec,
       :PYTHONPATH => libexec/"lib/python3.8/site-packages"
     venv.pip_install_and_link buildpath
   end
