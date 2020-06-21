@@ -20,6 +20,7 @@ class Libsoup < Formula
   depends_on :macos # Due to Python 2
   depends_on "vala"
 
+  uses_from_macos "krb5"
   uses_from_macos "libxml2"
 
   def install
