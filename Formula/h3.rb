@@ -1,8 +1,8 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v3.6.3.tar.gz"
-  sha256 "3ba219959ecb0ef6956f05113aa659d7b605e4eebbdca561b8243ce309e4684e"
+  url "https://github.com/uber/h3/archive/v3.6.4.tar.gz"
+  sha256 "b80c2eee2b3e645de77893e27ca149e63d3bb6bf95d33e3a384e3f390e2681bb"
 
   bottle do
     cellar :any
@@ -12,6 +12,12 @@ class H3 < Formula
   end
 
   depends_on "cmake" => :build
+
+  # remove in next release
+  patch do
+    url "https://github.com/uber/h3/pull/362.patch?full_index=1"
+    sha256 "a86d8dc0296fcf5fafd3ce071c85725e768886e350905bc88d13a01d98601a94"
+  end
 
   def install
     mkdir "build" do
