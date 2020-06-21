@@ -19,6 +19,10 @@ class Awscli < Formula
 
   uses_from_macos "groff"
 
+  on_linux do
+    depends_on "libyaml"
+  end
+
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "-r", "requirements.txt",
