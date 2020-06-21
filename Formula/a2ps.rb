@@ -20,6 +20,10 @@ class A2ps < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
+  on_linux do
+    depends_on "gperf"
+  end
+
   # Software was last updated in 2007.
   # https://svn.macports.org/ticket/20867
   # https://trac.macports.org/ticket/18255
