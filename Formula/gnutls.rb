@@ -22,6 +22,10 @@ class Gnutls < Formula
   depends_on "p11-kit"
   depends_on "unbound"
 
+  on_linux do
+    depends_on "autogen" => :build
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
