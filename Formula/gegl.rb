@@ -27,6 +27,10 @@ class Gegl < Formula
   depends_on "json-glib"
   depends_on "libpng"
 
+  on_linux do
+    depends_on "cairo"
+  end
+
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
 
   def install
