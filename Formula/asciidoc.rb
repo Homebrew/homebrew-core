@@ -23,6 +23,10 @@ class Asciidoc < Formula
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build
 
+  on_linux do
+    depends_on "xmlto" => :build
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
