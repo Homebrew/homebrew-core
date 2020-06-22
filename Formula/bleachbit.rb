@@ -10,14 +10,10 @@ class Bleachbit < Formula
   depends_on "python@3.8"
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    system "python3", "setup.py", "install", "--prefix=#{prefix}",
-                      "--single-version-externally-managed",
-                      "--record=installed.txt"
+    virtualenv_install_with_resources
     (libexec/"bin").install "bleachbit.py"
     (bin/"bleachbit").write_env_script libexec/"bin/bleachbit.py",
       :PYTHONPATH => libexec/"lib/python3.8/site-packages"
-    venv.pip_install_and_link buildpath
   end
 
   test do
