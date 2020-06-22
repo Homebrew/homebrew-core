@@ -17,6 +17,8 @@ class Acmetool < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "libpcap"
+
   go_resource "github.com/alecthomas/template" do
     url "https://github.com/alecthomas/template.git",
         :revision => "a0175ee3bccc567396460bf5acd36800cb10c49c"
