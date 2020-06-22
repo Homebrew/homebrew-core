@@ -3,6 +3,7 @@ class Nest < Formula
   homepage "https://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.20.0.tar.gz"
   sha256 "40e33187c22d6e843d80095b221fa7fd5ebe4dbc0116765a91fc5c425dd0eca4"
+  revision 1
 
   bottle do
     sha256 "96409c8e4dd306475f10723d2e5f9f4882c77f58a24a8a62181c7bf8991a6d4c" => :catalina
@@ -41,11 +42,8 @@ class Nest < Formula
     args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
     args << "-DOpenMP_CXX_LIB_NAMES=omp"
     args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
-    python_exec = "python3"
-
-    python_version = Language::Python.major_minor_version(python_exec)
-    bundle_path = libexec/"lib/python#{python_version}/site-packages"
-    bundle_path.mkpath
+    python = Formula["python@3.8"]
+    python_exec = python.opt_bin/"python3"
 
     resource("nose").stage do
       system python_exec, *Language::Python.setup_install_args(libexec)
@@ -53,8 +51,13 @@ class Nest < Formula
     resource("six").stage do
       system python_exec, *Language::Python.setup_install_args(libexec)
     end
+    version = Language::Python.major_minor_version python.opt_bin/"python3"
+    site_packages = "lib/python#{version}/site-packages"
+    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+    (prefix/site_packages/"homebrew-nest.pth").write pth_contents
+
     ENV.prepend_create_path "PATH", libexec/"bin"
-    ENV.prepend_create_path "PYTHONPATH", bundle_path
+    ENV.prepend_create_path "PYTHONPATH", libexec/site_packages
 
     mkdir "build" do
       system "cmake", "..", *args
