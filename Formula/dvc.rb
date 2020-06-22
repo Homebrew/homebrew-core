@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/0.94.1.tar.gz"
-  sha256 "a884a3e26891ef164ab7d75b297edcef8bcf894a6df945d76325085a5f17f953"
+  url "https://github.com/iterative/dvc/archive/1.0.0.tar.gz"
+  sha256 "d143d7adc00b190be60a161687a03efc1b98b14eecd023d1287640dd050277e6"
 
   bottle do
     cellar :any
@@ -48,11 +48,11 @@ class Dvc < Formula
 
     venv.pip_install_and_link buildpath
 
-    bash_completion.install "scripts/completion/dvc.bash" => "dvc"
-    zsh_completion.install "scripts/completion/dvc.zsh"
+    (bash_completion/"dvc").write `#{bin}/dvc completion -s bash`
+    (zsh_completion/"_dvc").write `#{bin}/dvc completion -s zsh`
   end
 
   test do
-    system "#{bin}/dvc", "--version"
+    system "#{bin}/dvc", "version"
   end
 end
