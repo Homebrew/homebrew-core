@@ -1,6 +1,6 @@
 class Tnftp < Formula
-  desc "NetBSD's FTP client (built from macOS Sierra sources)"
-  homepage "https://opensource.apple.com/"
+  desc "NetBSD's FTP client"
+  homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
   url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20151004.tar.gz"
   sha256 "c94a8a49d3f4aec1965feea831d4d5bf6f90c65fd8381ee0863d11a5029a43a0"
 
