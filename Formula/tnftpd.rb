@@ -1,9 +1,8 @@
 class Tnftpd < Formula
-  desc "NetBSD's FTP server (built from macOS Sierra sources)"
-  homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/lukemftpd/lukemftpd-51.tar.gz"
-  version "20100324"
-  sha256 "969b8a35fabcc82759da2433973b9606b7b62f73527e76ac8f18d0a19f473c2a"
+  desc "NetBSD's FTP server"
+  homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
+  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20190602.tar.gz"
+  sha256 "905519d239745ebec41c91e357af299f3bce04b59f84f2ba5f7654738439ac1c"
 
   bottle do
     sha256 "b1682283462d7838ce7d4a180cfee8be9ea4db601d3b112f0d50b1e6ad90fd56" => :catalina
@@ -13,23 +12,17 @@ class Tnftpd < Formula
     sha256 "4ef4b7c1a35307c4a3e6b70dad1ba193aceda75920da79b0a2bd135446863d5e" => :el_capitan
   end
 
-  depends_on :xcode => :build
-
   def install
-    system "tar", "zxvf", "tnftpd-20100324.tar.gz"
+    system "./configure", "--prefix=#{prefix}"
+    system "make"
 
-    cd "tnftpd-20100324" do
-      system "./configure"
-      system "make"
-
-      sbin.install "src/tnftpd" => "ftpd"
-      man8.install "src/tnftpd.man" => "ftpd.8"
-      man5.install "src/ftpusers.man" => "ftpusers.5"
-      man5.install "src/ftpd.conf.man" => "ftpd.conf.5"
-      etc.install "examples/ftpd.conf"
-      etc.install "examples/ftpusers"
-      prefix.install_metafiles
-    end
+    sbin.install "src/tnftpd" => "ftpd"
+    man8.install "src/tnftpd.man" => "ftpd.8"
+    man5.install "src/ftpusers.man" => "ftpusers.5"
+    man5.install "src/ftpd.conf.man" => "ftpd.conf.5"
+    etc.install "examples/ftpd.conf"
+    etc.install "examples/ftpusers"
+    prefix.install_metafiles
   end
 
   def caveats
