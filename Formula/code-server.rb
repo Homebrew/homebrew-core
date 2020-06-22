@@ -3,6 +3,7 @@ class CodeServer < Formula
   homepage "https://github.com/cdr/code-server"
   url "https://registry.npmjs.org/code-server/-/code-server-3.4.1.tgz"
   sha256 "38f14f7e9307e4fea7eeeaabdcbd7ff414c41136337a04530692207263101a2a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
