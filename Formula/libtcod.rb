@@ -3,6 +3,7 @@ class Libtcod < Formula
   homepage "https://github.com/libtcod/libtcod"
   url "https://github.com/libtcod/libtcod/archive/1.15.1.tar.gz"
   sha256 "2713d8719be53db7a529cbf53064e5bc9f3adf009db339d3a81b50d471bc306f"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,9 +21,6 @@ class Libtcod < Formula
   depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
-  conflicts_with "libzip", "minizip2",
-    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
-
   def install
     cd "buildsys/autotools" do
       system "autoreconf", "-fiv"
@@ -30,8 +28,36 @@ class Libtcod < Formula
       system "make"
       lib.install Dir[".libs/*{.a,.dylib}"]
     end
-    include.install Dir["include/*"]
+    Dir.chdir("src") do
+      Dir.glob("libtcod/**/*.{h,hpp}") do |f|
+        (include/File.dirname(f)).install f
+      end
+    end
     # don't yet know what this is for
     libexec.install "data"
+  end
+
+  test do
+    (testpath/"version-c.c").write <<~EOS
+      #include <libtcod/libtcod.h>
+      #include <stdio.h>
+      int main()
+      {
+        puts(TCOD_STRVERSION);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-ltcod", "version-c.c", "-o", "version-c"
+    assert_equal "#{version}\n", `./version-c`
+    (testpath/"version-cc.cc").write <<~EOS
+      #include <libtcod/libtcod.hpp>
+      int main()
+      {
+        std::cout << TCOD_STRVERSION << std::endl;
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-std=c++14", "-I#{include}", "-L#{lib}", "-ltcod", "version-cc.cc", "-o", "version-cc"
+    assert_equal "#{version}\n", `./version-cc`
   end
 end
