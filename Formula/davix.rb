@@ -16,6 +16,8 @@ class Davix < Formula
   depends_on "doxygen" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
+
   on_linux do
     depends_on "util-linux"
   end
