@@ -30,8 +30,16 @@ class CrosstoolNg < Formula
   depends_on "lzip"
   depends_on "m4"
   depends_on "make"
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses"
   depends_on "xz"
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "gperf" => :build
+  end
 
   def install
     system "./bootstrap" if build.head?
