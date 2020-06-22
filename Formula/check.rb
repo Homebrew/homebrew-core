@@ -12,7 +12,7 @@ class Check < Formula
   end
 
   on_linux do
-    depends_on "gawk" => :build
+    depends_on "gawk"
   end
 
   def install
