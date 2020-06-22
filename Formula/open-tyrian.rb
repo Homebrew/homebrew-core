@@ -1,9 +1,9 @@
 class OpenTyrian < Formula
   desc "Open-source port of Tyrian"
-  homepage "https://bitbucket.org/opentyrian/opentyrian"
+  homepage "https://github.com/opentyrian/opentyrian"
   url "https://www.camanis.net/opentyrian/releases/opentyrian-2.1.20130907-src.tar.gz"
   sha256 "f54b6b3cedcefa187c9f605d6164aae29ec46a731a6df30d351af4c008dee45f"
-  head "https://bitbucket.org/opentyrian/opentyrian", :using => :hg
+  head "https://github.com/opentyrian/opentyrian.git"
 
   bottle do
     sha256 "6f880409157ba2da97e9753177aae05c5ad64bcb7f55f02f11b99e19f68763fe" => :catalina

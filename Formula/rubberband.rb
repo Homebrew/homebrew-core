@@ -4,7 +4,7 @@ class Rubberband < Formula
   url "https://breakfastquay.com/files/releases/rubberband-1.8.2.tar.bz2"
   sha256 "86bed06b7115b64441d32ae53634fcc0539a50b9b648ef87443f936782f6c3ca"
   revision 1
-  head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
+  head "https://hg.sr.ht/~breakfastquay/rubberband", :using => :hg
 
   bottle do
     cellar :any

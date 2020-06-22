@@ -3,7 +3,7 @@ class Ode < Formula
   homepage "https://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.1.tar.gz"
   sha256 "b228acad81f33781d53eaf313437cc5d6f66aec5a4e56c515fc1b2d51e6e8eba"
-  head "https://bitbucket.org/odedevs/ode/", :using => :hg
+  head "https://bitbucket.org/odedevs/ode.git"
 
   bottle do
     cellar :any
