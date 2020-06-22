@@ -22,6 +22,10 @@ class Bnfc < Formula
   uses_from_macos "bison" => :test
   uses_from_macos "flex" => :test
 
+  on_linux do
+    depends_on "make" => [:build, :test]
+  end
+
   def install
     cd "source" do
       system "cabal", "v2-update"
