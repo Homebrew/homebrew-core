@@ -3,7 +3,7 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz"
   sha256 "f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "ed9e8a9f86277a05187c6ba5ad62ed06047d1c5ae70a6393e138b22fc4ee86ef" => :catalina
@@ -28,6 +28,7 @@ class GstPluginsBad < Formula
   depends_on "jpeg"
   depends_on "libmms"
   depends_on "libnice"
+  depends_on "libusrsctp"
   depends_on "musepack"
   depends_on "openssl@1.1"
   depends_on "opus"
