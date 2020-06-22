@@ -3,6 +3,7 @@ class CodeServer < Formula
   homepage "https://github.com/cdr/code-server"
   url "https://registry.npmjs.org/code-server/-/code-server-3.4.1.tgz"
   sha256 "38f14f7e9307e4fea7eeeaabdcbd7ff414c41136337a04530692207263101a2a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -23,8 +24,8 @@ class CodeServer < Formula
   def install
     system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
-    bin.mkdir
-    (bin/"code-server").make_symlink "#{libexec}/out/node/entry.js"
+    env = { :PATH => "#{HOMEBREW_PREFIX}/opt/node/bin:$PATH" }
+    (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
   end
 
   def caveats
@@ -47,8 +48,7 @@ class CodeServer < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{HOMEBREW_PREFIX}/bin/node</string>
-          <string>#{libexec}</string>
+          <string>#{HOMEBREW_PREFIX}/bin/code-server</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
