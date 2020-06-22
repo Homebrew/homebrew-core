@@ -17,6 +17,8 @@ class Consul < Formula
   depends_on "go" => :build
   depends_on "gox" => :build
 
+  uses_from_macos "zip" => :build
+
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
