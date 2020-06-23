@@ -1,8 +1,8 @@
 class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
-  url "https://github.com/MoarVM/MoarVM/releases/download/2020.05/MoarVM-2020.05.tar.gz"
-  sha256 "9368d2c691ea8710459a48c323915df6648c4a67d2ce24c27fc74f6b084a824b"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2020.06/MoarVM-2020.06.tar.gz"
+  sha256 "db9759f16f76cb6d3b1f4baff9616c5ddb99fbb47ea62f54a5cc251b6ea99dc2"
 
   bottle do
     sha256 "6bd4dd19c0377aac0637cd4a992a3c8aa928d1e8fc346955a6f2d3a5c5ed2d69" => :catalina
