@@ -1,8 +1,8 @@
 class Mp3fs < Formula
   desc "Read-only FUSE file system: transcodes audio formats to MP3"
   homepage "https://khenriks.github.io/mp3fs/"
-  url "https://github.com/khenriks/mp3fs/releases/download/v0.91/mp3fs-0.91.tar.gz"
-  sha256 "a47b5e351b7660e6f535a3c5b489c5a8191209957f8c0b8d066a5c221e8ecf92"
+  url "https://github.com/khenriks/mp3fs/releases/download/v1.0/mp3fs-1.0.tar.gz"
+  sha256 "cbb52062d712e8dfd3491d0b105e2e05715d493a0fd14b53a23919694a348069"
 
   bottle do
     cellar :any
@@ -18,6 +18,7 @@ class Mp3fs < Formula
   depends_on "flac"
   depends_on "lame"
   depends_on "libid3tag"
+  depends_on "libvorbis"
   depends_on :osxfuse
 
   def install
