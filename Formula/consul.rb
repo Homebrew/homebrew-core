@@ -54,7 +54,6 @@ class Consul < Formula
           <array>
             <string>#{opt_bin}/consul</string>
             <string>agent</string>
-            <string>-dev</string>
             <string>-advertise</string>
             <string>127.0.0.1</string>
           </array>
