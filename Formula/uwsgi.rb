@@ -1,19 +1,11 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  revision 4
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
-    url "https://projects.unbit.it/downloads/uwsgi-2.0.18.tar.gz"
-    sha256 "4972ac538800fb2d421027f49b4a1869b66048839507ccf0aa2fda792d99f583"
-
-    # Fix "library not found for -lgcc_s.10.5" with 10.14 SDK
-    # Remove in next release
-    patch do
-      url "https://github.com/unbit/uwsgi/commit/6b1b397f.diff?full_index=1"
-      sha256 "b2c3a22f980a4e3bd2ab2fe5c5356d8a91e567a3ab3e6ccbeeeb2ba4efe4568a"
-    end
+    url "https://projects.unbit.it/downloads/uwsgi-2.0.19.1.tar.gz"
+    sha256 "56be307f3bfcf6cc074f4354de6403778d7ec3e44addac896e26ffb3c4d9a608"
   end
 
   bottle do
