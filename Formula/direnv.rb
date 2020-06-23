@@ -15,12 +15,7 @@ class Direnv < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/direnv/direnv").install buildpath.children
-    cd "src/github.com/direnv/direnv" do
-      system "make", "install", "DESTDIR=#{prefix}"
-      prefix.install_metafiles
-    end
+    system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do
