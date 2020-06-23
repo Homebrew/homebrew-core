@@ -3,8 +3,8 @@ class Talisman < Formula
   homepage "https://thoughtworks.github.io/talisman/"
   url "https://github.com/thoughtworks/talisman",
       :using    => :git,
-      :tag      => "v1.2.0",
-      :revision => "6e6178be65665ce84b9e2c9b100c59846e75f494"
+      :tag      => "v1.3.0",
+      :revision => "01d957c30db6a1db844627b447a96887b53f4032"
 
   bottle do
     cellar :any_skip_relocation
