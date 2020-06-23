@@ -20,7 +20,7 @@ class Atlantis < Formula
 
   test do
     system bin/"atlantis", "version"
-    port = 4141
+    port = free_port
     loglevel = "info"
     gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-whitelist INVALID"
     command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
