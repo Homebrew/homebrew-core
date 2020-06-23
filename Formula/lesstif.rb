@@ -45,5 +45,18 @@ class Lesstif < Formula
     # try to make the same directory and `mkdir` will fail.
     ENV.deparallelize
     system "make", "install"
+
+    # LessTif ships Core.3, which causes a conflict with CORE.3 from
+    # Perl in case-insensitive file systems. Rename it to LessTifCore.3
+    # to avoid this problem.
+    mv man3/"Core.3", man3/"LessTifCore.3"
+  end
+
+  def caveats
+    <<~EOS
+      The man page for Core.3 has been renamed to LessTifCore.3 to 
+      avoid conflicts with CORE.3 from Perl in case-insensitive file 
+      systems. Please use "man LessTifCore" instead.
+    EOS
   end
 end
