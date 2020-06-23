@@ -13,6 +13,7 @@ class Tnftp < Formula
 
   conflicts_with "inetutils", :because => "both install `ftp' binaries"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "ncurses"
 
   def install
