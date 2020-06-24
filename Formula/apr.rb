@@ -15,8 +15,17 @@ class Apr < Formula
 
   keg_only :provided_by_macos, "Apple's CLT provides apr"
 
+  depends_on "autoconf" => :build
+
   on_linux do
     depends_on "util-linux"
+  end
+
+  # Apply r1871981 which fixes a compile error on macOS 11.0.
+  # Remove with the next release, along with the autoconf call & dependency.
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7e2246542543bbd3111a4ec29f801e6e4d538f88/apr/r1871981-macos11.patch"
+    sha256 "8754b8089d0eb53a7c4fd435c9a9300560b675a8ff2c32315a5e9303408447fe"
   end
 
   def install
@@ -25,6 +34,9 @@ class Apr < Formula
     # https://bz.apache.org/bugzilla/show_bug.cgi?id=57359
     # The internal libtool throws an enormous strop if we don't do...
     ENV.deparallelize
+
+    # Needed to apply the patch.
+    system "autoconf"
 
     # Stick it in libexec otherwise it pollutes lib with a .exp file.
     system "./configure", "--prefix=#{libexec}"
