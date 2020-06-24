@@ -1,8 +1,8 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.15.2.tar.gz"
-  sha256 "d1c570b7a0f47794a92f66e21cccdc86b8f56a7028a389780e705db41bfd3cab"
+  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.16.0.tar.gz"
+  sha256 "f4256e6e1ca04776a9fd48f1388a30edfa8d11fdcf870ba62ce5b0ad62a87372"
 
   bottle do
     sha256 "1a1376f997d783d0ecfbb59f4061059c11bce6fb9ff6b50b412b9e6008e35bad" => :catalina
@@ -15,8 +15,8 @@ class Cfengine < Formula
   depends_on "pcre"
 
   resource "masterfiles" do
-    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.15.1.tar.gz"
-    sha256 "051369054a2e17a4ea1f68a41198fe5377fbbf33f600168246bf0b667fc1ab74"
+    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.16.0.tar.gz"
+    sha256 "2f63ad1ee2d49af651c0911fc44778cbebb5a1afd33f5f93fa4644e71322a091"
   end
 
   def install
