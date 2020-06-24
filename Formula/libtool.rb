@@ -4,7 +4,7 @@ class Libtool < Formula
   url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,7 +19,20 @@ class Libtool < Formula
 
   uses_from_macos "m4" => :build
 
+  # Fixes the build on macOS 11:
+  # https://lists.gnu.org/archive/html/libtool-patches/2020-06/msg00001.html
+  patch :p0 do
+    url "https://github.com/Homebrew/formula-patches/raw/e5fbd46a25e35663059296833568667c7b572d9a/libtool/dynamic_lookup-11.patch"
+    sha256 "5ff495a597a876ce6e371da3e3fe5dd7f78ecb5ebc7be803af81b6f7fcef1079"
+  end
+
   def install
+    # Ensure configure is happy with the patched files
+    %w[aclocal.m4 libltdl/aclocal.m4 Makefile.in libltdl/Makefile.in
+       config-h.in libltdl/config-h.in configure libltdl/configure].each do |file|
+      touch file
+    end
+
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
