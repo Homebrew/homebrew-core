@@ -14,6 +14,8 @@ class Ngircd < Formula
   depends_on "libident"
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
