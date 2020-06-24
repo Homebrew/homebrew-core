@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "Anycable Go WebSocket Server"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/v0.6.5.tar.gz"
-  sha256 "3112a04db1984151b9e4111a0131b711f6a0a79ccf789fbaf6da1ea9e28608dc"
+  url "https://github.com/anycable/anycable-go/archive/v1.0.0.tar.gz"
+  sha256 "66c6039ad96433cb0a4851f30c917050a1062d269594259bb1665ee03c23e7e9"
   head "https://github.com/anycable/anycable-go.git"
 
   bottle do
@@ -22,7 +22,7 @@ class AnycableGo < Formula
     ldflags << if build.head?
       "-X github.com/anycable/anycable-go/utils.sha=#{version.commit}"
     else
-      "-X main.version=#{version}"
+      "-X github.com/anycable/anycable-go/utils.version=#{version}"
     end
 
     system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args,
