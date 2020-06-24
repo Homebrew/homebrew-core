@@ -13,7 +13,7 @@ class Node < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.8" => :build
+#   depends_on "python@3.8" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
@@ -25,7 +25,7 @@ class Node < Formula
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
+    ENV["PYTHON"] = "$(which python3)"
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
