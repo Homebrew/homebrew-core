@@ -1,8 +1,8 @@
 class Vlang < Formula
   desc "V programming language"
   homepage "https://vlang.io"
-  url "https://github.com/vlang/v/archive/0.1.28.tar.gz"
-  sha256 "0690764f60ceb50dd2ae3fb489c45548a30c569c7ac0e28f9f84c58a643f550f"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-10.0.0.tgz"
+  sha256 "daa2190d483061ad6e3bdd83c404f6ded08743525a99179b82934a3306e9d4f9"
 
   bottle do
     cellar :any_skip_relocation
