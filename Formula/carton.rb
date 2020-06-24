@@ -1,8 +1,9 @@
 class Carton < Formula
-  desc "Bundler or pip freeze for Perl"
-  homepage "https://github.com/perl-carton/carton"
-  url "https://github.com/perl-carton/carton/archive/v1.0.34.tar.gz"
-  sha256 "c55d9e25b39fe7cfa5d9c5fac4b75572b4965b1ea1588ba97a37f1ade3a0c517"
+  desc "Perl module dependency manager (aka Bundler for Perl)"
+  homepage "https://metacpan.org/pod/Carton"
+  url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/Carton-v1.0.34.tar.gz"
+  sha256 "77d42b92732bcfc18a59d341e56ce476205b1c4d380eab3a07224f5745c23e45"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -152,8 +153,8 @@ class Carton < Formula
     system "make", "install"
 
     (bin/"carton").write_env_script("#{libexec}/bin/carton", :PERL5LIB => ENV["PERL5LIB"])
-    man1.install libexec/"man/man1/carton.1"
-    man3.install Dir[libexec/"man/man3/Carton*"]
+    man1.install_symlink libexec/"man/man1/carton.1"
+    man3.install_symlink Dir[libexec/"man/man3/Carton*"]
   end
 
   test do
