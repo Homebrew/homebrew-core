@@ -4,6 +4,13 @@ class PythonAT38 < Formula
   url "https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tar.xz"
   sha256 "dfab5ec723c218082fe3d5d7ae17ecbdebffa9a1aea4d64aa3a2ecdd2e795864"
 
+  # Remove for > 3.8.3
+  # Upstream commit from 2020-06-25 "Support macOS 11 when building"
+  patch do
+    url "https://github.com/python/cpython/commit/8ea6353.patch?full_index=1"
+    sha256 "c47680c85f201f5830bf71741f09ece031b99386040f3c70b20190b4c47fb81d"
+  end
+
   bottle do
     sha256 "67cceb372f3b0f45ff90beb70d6e92ce1416fdd0b3df4df95643fa21451b4fec" => :catalina
     sha256 "6173014910a8902f0601a1b9e1c55bea85d25193bd64180f363e9f37c2d23244" => :mojave
