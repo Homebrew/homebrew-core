@@ -18,7 +18,7 @@ class Grin < Formula
   def install
     ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
