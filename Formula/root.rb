@@ -26,12 +26,12 @@ class Root < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "glew"
   depends_on "cfitsio"
   depends_on "davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "gl2ps"
+  depends_on "glew"
   depends_on "graphviz"
   depends_on "gsl"
   # Temporarily depend on Homebrew libxml2 to work around a brew issue:
