@@ -3,6 +3,7 @@ class NodeExporter < Formula
   homepage "https://prometheus.io/"
   url "https://github.com/prometheus/node_exporter/archive/v1.0.1.tar.gz"
   sha256 "a841bf3e236376840be9e1d8e6c4a38196be6f3957b0982d1c7970a5e416b0ad"
+  head "https://github.com/prometheus/node_exporter.git"
 
   bottle do
     cellar :any_skip_relocation
