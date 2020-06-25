@@ -2,8 +2,8 @@ class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
   homepage "https://wiki.archlinux.org/index.php/makepkg"
   url "https://git.archlinux.org/pacman.git",
-      :tag      => "v5.0.2",
-      :revision => "0c633c27eaeab2a9d30efb01199579896ccf63c9"
+      :tag      => "v5.2.1",
+      :revision => "f6564377a2b0a0dd6294fb366a3f91a31142e124"
   head "https://git.archlinux.org/pacman.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Makepkg < Formula
 
   depends_on "asciidoc" => :build
   depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "libtool" => :build
