@@ -16,7 +16,7 @@ class Gitui < Formula
   uses_from_macos "libiconv"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
