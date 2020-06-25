@@ -15,7 +15,7 @@ class Cmdshelf < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
     man.install Dir["docs/man/*"]
     bash_completion.install "cmdshelf-completion.bash"
   end
