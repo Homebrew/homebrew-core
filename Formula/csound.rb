@@ -4,7 +4,7 @@ class Csound < Formula
   url "https://github.com/csound/csound.git",
     :tag      => "6.14.0",
     :revision => "1073b4d1bc2304a1e06defd266781a9c441a5be0"
-  revision 4
+  revision 5
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
@@ -49,12 +49,12 @@ class Csound < Formula
   end
 
   resource "getfem" do
-    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.3.tar.gz"
-    sha256 "9d10a1379fca69b769c610c0ee93f97d3dcb236d25af9ae4cadd38adf2361749"
+    url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
+    sha256 "6b58cc960634d0ecf17679ba12f8e8cfe4e36b25a5fa821925d55c42ff38a64e"
   end
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    ENV["JAVA_HOME"] = Formula["openjdk"].libexec/"openjdk.jdk/Contents/Home"
     ENV.prepend "CFLAGS", "-DH5_USE_110_API -DH5Oget_info_vers=1"
 
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
@@ -83,7 +83,7 @@ class Csound < Formula
 
     libexec.install buildpath/"interfaces/ctcsound.py"
 
-    python_version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    python_version = Language::Python.major_minor_version Formula["python@3.8"].bin/"python3"
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
@@ -145,9 +145,9 @@ class Csound < Formula
     EOS
     system bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
 
-    ENV["DYLD_FRAMEWORK_PATH"] = frameworks
-    system Formula["python@3.8"].opt_bin/"python3", "-c", "import ctcsound"
-    ENV.delete("DYLD_FRAMEWORK_PATH")
+    with_env("DYLD_FRAMEWORK_PATH" => frameworks) do
+      system Formula["python@3.8"].bin/"python3", "-c", "import ctcsound"
+    end
 
     (testpath/"test.java").write <<~EOS
       import csnd6.*;
@@ -157,8 +157,8 @@ class Csound < Formula
           }
       }
     EOS
-    system "#{Formula["openjdk"].bin}/javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
-    system "#{Formula["openjdk"].bin}/java", "-classpath", "#{libexec}/csnd6.jar:.",
-                                             "-Djava.library.path=#{libexec}", "test"
+    system Formula["openjdk"].bin/"javac", "-classpath", "#{libexec}/csnd6.jar", "test.java"
+    system Formula["openjdk"].bin/"java", "-classpath", "#{libexec}/csnd6.jar:.",
+                                          "-Djava.library.path=#{libexec}", "test"
   end
 end
