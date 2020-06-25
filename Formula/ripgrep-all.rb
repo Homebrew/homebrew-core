@@ -16,7 +16,7 @@ class RipgrepAll < Formula
   depends_on "ripgrep"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
