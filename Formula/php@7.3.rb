@@ -14,7 +14,7 @@ class PhpAT73 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! :date => "December 6, 2021"
+  deprecate! :date => "2021-12-06"
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
