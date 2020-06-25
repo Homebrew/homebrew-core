@@ -5,6 +5,7 @@ class Root < Formula
   version "6.22.00"
   sha256 "efd961211c0f9cd76cf4a486e4f89badbcf1d08e7535bba556862b3c1a80beed"
   head "https://github.com/root-project/root.git"
+  revision 2
 
   bottle do
     sha256 "89875687bce5d216d8e76104702150031d7b71339513966e359f2961cd18721a" => :catalina
@@ -25,6 +26,7 @@ class Root < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "glew"
   depends_on "cfitsio"
   depends_on "davix"
   depends_on "fftw"
@@ -65,7 +67,7 @@ class Root < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
-      -Dbuiltin_glew=ON
+      -Dbuiltin_glew=OFF
       -Ddavix=ON
       -Dfftw3=ON
       -Dfitsio=ON
