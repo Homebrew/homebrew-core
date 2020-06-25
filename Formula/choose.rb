@@ -16,6 +16,7 @@ class Choose < Formula
   depends_on "python@3.8"
 
   conflicts_with "choose-gui", :because => "both install a `choose` binary"
+  conflicts_with "choose-rust", :because => "both install a `choose` binary"
 
   resource "urwid" do
     url "https://files.pythonhosted.org/packages/45/dd/d57924f77b0914f8a61c81222647888fbb583f89168a376ffeb5613b02a6/urwid-2.1.0.tar.gz"
