@@ -1,9 +1,8 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/profanity-0.8.1.tar.gz"
-  sha256 "6b7ff1f0f1b54ed3a55efce40237db775fe9475af276e5e4ed342e91a3e8d997"
-  revision 1
+  url "https://profanity-im.github.io/profanity-0.9.4.tar.gz"
+  sha256 "661ce37ad28f5e4e204e28719403daba5330612f607c3d636050d69ad1d5901a"
 
   bottle do
     sha256 "c447b714d3f1dff8a32cbc6d7d3ffea2738bb37cd2c7b296d9f7caf97acd18d1" => :catalina
