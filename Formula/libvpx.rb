@@ -3,7 +3,7 @@ class Libvpx < Formula
   homepage "https://www.webmproject.org/code/"
   url "https://github.com/webmproject/libvpx/archive/v1.8.2.tar.gz"
   sha256 "8735d9fcd1a781ae6917f28f239a8aa358ce4864ba113ea18af4bb2dc8b474ac"
-  head "https://chromium.googlesource.com/webm/libvpx", :using => :git
+  head "https://chromium.googlesource.com/webm/libvpx.git"
 
   bottle do
     cellar :any_skip_relocation
