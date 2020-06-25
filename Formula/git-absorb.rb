@@ -16,7 +16,7 @@ class GitAbsorb < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
     man1.install "Documentation/git-absorb.1"
   end
 
