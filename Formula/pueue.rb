@@ -15,7 +15,7 @@ class Pueue < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     system "./build_completions.sh"
     bash_completion.install "utils/completions/pueue.bash" => "pueue"
