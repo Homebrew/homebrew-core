@@ -5,6 +5,12 @@ class GitHooks < Formula
   sha256 "8197ca1de975ff1f795a2b9cfcac1a6f7ee24276750c757eecf3bcb49b74808e"
   head "https://github.com/icefox/git-hooks.git"
 
+  # The icefox/git-hooks repository has been deleted and it doesn't appear to
+  # have moved to an alternative location. There is a rewrite in Go by a
+  # different author which someone may want to work into a new formula as a
+  # replacement: https://github.com/git-hooks/git-hooks
+  deprecate!
+
   bottle do
     cellar :any_skip_relocation
     sha256 "d33514436cb623e468314418876fe1e7bb8c31ee64fdcd3c9a297f26a7e7ae42" => :catalina
