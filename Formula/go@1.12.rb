@@ -14,7 +14,7 @@ class GoAT112 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! :date => "February 25, 2020"
+  deprecate! :date => "2020-02-25"
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
