@@ -15,7 +15,7 @@ class CargoInstruments < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
