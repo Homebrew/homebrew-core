@@ -14,7 +14,7 @@ class Watchexec < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
     man1.install "doc/watchexec.1"
   end
 
