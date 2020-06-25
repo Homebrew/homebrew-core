@@ -51,7 +51,7 @@ class Geckodriver < Formula
     end
 
     cd "testing/geckodriver" do
-      system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+      system "cargo", "install", *std_cargo_args
     end
     bin.install_symlink bin/"geckodriver" => "wires"
   end
