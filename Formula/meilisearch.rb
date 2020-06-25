@@ -17,8 +17,42 @@ class Meilisearch < Formula
     system "cargo", "install", "--locked", "--root", prefix, "--path", "meilisearch-http"
   end
 
+  plist_options :manual => "meilisearch"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/meilisearch</string>
+            <string>--db-path</string>
+            <string>#{var}/meilisearch/data.ms</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/meilisearch.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/meilisearch.log</string>
+        </dict>
+      </plist>
+    EOS
+  end
+
   test do
-    output = shell_output("#{bin}/meilisearch --version")
-    assert_match(/^meilisearch-http [0-9]*[.][0-9]*[.][0-9]*/, output)
+    port = free_port
+    fork { exec bin/"meilisearch", "--http-addr", "127.0.0.1:#{port}" }
+    sleep(3)
+    output = shell_output("curl -s 127.0.0.1:#{port}/version")
+    assert_match version.to_s, output
   end
 end
