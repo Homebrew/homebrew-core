@@ -16,7 +16,7 @@ class Pastel < Formula
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath/"completions"
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     bash_completion.install "completions/pastel.bash"
     zsh_completion.install "completions/_pastel"
