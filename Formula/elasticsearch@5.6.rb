@@ -8,7 +8,7 @@ class ElasticsearchAT56 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! :date => "March 11, 2019"
+  deprecate! :date => "2019-03-11"
 
   depends_on :java => "1.8"
 
