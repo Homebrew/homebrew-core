@@ -17,8 +17,9 @@ class Spotifyd < Formula
   depends_on "dbus"
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", ".",
-      "--no-default-features", "--features=dbus_keyring,rodio_backend"
+    system "cargo", "install", "--no-default-features",
+                               "--features=dbus_keyring,rodio_backend",
+                               *std_cargo_args
   end
 
   def caveats
