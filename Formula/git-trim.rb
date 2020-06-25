@@ -21,7 +21,7 @@ class GitTrim < Formula
   end
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
     man1.install "docs/git-trim.man" => "git-trim.1"
   end
 
