@@ -21,7 +21,7 @@ class Sniffglue < Formula
   end
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     etc.install "sniffglue.conf"
     man1.install "docs/sniffglue.1"
