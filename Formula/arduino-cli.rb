@@ -2,8 +2,8 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     :tag      => "0.10.0",
-     :revision => "ec5c3ed105b32c5654fd60131a667f8557b196d5"
+     :tag      => "0.11.0",
+     :revision => "0296f4df116385f868b67c5ffa7393936c3345c9"
   head "https://github.com/arduino/arduino-cli.git"
 
   bottle do
@@ -17,10 +17,12 @@ class ArduinoCli < Formula
 
   def install
     commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
-    system "go", "build", "-ldflags",
-           "-s -w -X github.com/arduino/arduino-cli/version.versionString=#{version} " \
-           "-X github.com/arduino/arduino-cli/version.commit=#{commit}",
-           "-o", bin/"arduino-cli"
+    ldflags = %W[
+      -s -w
+      -X github.com/arduino/arduino-cli/version.versionString=#{version}
+      -X github.com/arduino/arduino-cli/version.commit=#{commit}
+    ]
+    system "go", "build", *std_go_args, "-ldflags", ldflags
   end
 
   test do
