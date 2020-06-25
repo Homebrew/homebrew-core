@@ -18,8 +18,7 @@ class RustupInit < Formula
     cargo_home.mkpath
     ENV["CARGO_HOME"] = cargo_home
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", ".",
-                    "--features", "no-self-update"
+    system "cargo", "install", "--features", "no-self-update", *std_cargo_args
   end
 
   test do
