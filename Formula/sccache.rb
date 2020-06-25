@@ -20,8 +20,7 @@ class Sccache < Formula
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--locked", "--root", prefix, "--path", ".",
-                               "--features", "all"
+    system "cargo", "install", "--features", "all", *std_cargo_args
   end
 
   test do
