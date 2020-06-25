@@ -2,8 +2,8 @@ class Chezmoi < Formula
   desc "Manage your dotfiles across multiple machines, securely"
   homepage "https://chezmoi.io/"
   url "https://github.com/twpayne/chezmoi.git",
-      :tag      => "v1.8.2",
-      :revision => "323cba56195179ade6b061fa2d6af37d16cd193e"
+      :tag      => "v1.8.3",
+      :revision => "6d2be34cda3461ddf1211f98fdb10c00a4e18d67"
 
   bottle do
     cellar :any_skip_relocation
