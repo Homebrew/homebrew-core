@@ -1,9 +1,8 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
   homepage "https://confluence.ecmwf.int/display/ECC"
-  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.17.0-Source.tar.gz"
-  sha256 "762d6b71993b54f65369d508f88e4c99e27d2c639c57a5978c284c49133cc335"
-  revision 1
+  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.18.0-Source.tar.gz"
+  sha256 "d88943df0f246843a1a062796edbf709ef911de7269648eef864be259e9704e3"
 
   bottle do
     sha256 "4e6dbef0ba2bac100a7b7da2e13085156910d3502d39c55cc09cfe1f6a6c966a" => :catalina
@@ -25,6 +24,11 @@ class Eccodes < Formula
                             "-DENABLE_PYTHON=OFF", *std_cmake_args
       system "make", "install"
     end
+
+    # Avoid references to Homebrew shims directory
+    inreplace include/"eccodes_ecbuild_config.h", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    inreplace lib/"pkgconfig/eccodes.pc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    inreplace lib/"pkgconfig/eccodes_f90.pc", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
   end
 
   test do
