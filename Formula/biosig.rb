@@ -1,8 +1,8 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.0.3.src.tar.gz"
-  sha256 "9b072345d2ee4b5c399c3338bb080ecb82a2980c2e2ecf6df8da053d71d281d4"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.0.4.src.tar.gz"
+  sha256 "2b2b5d0cdb7a886b7c390d000bb9210b9b6e03f790c6443730dab96496926928"
 
   bottle do
     cellar :any
