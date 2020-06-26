@@ -43,7 +43,7 @@ class Deno < Formula
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     cd "cli" do
-      system "cargo", "install", "-vv", "--locked", "--root", prefix, "--path", "."
+      system "cargo", "install", "-vv", *std_cargo_args
     end
 
     # Install bash and zsh completion
