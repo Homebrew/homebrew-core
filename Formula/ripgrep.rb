@@ -18,10 +18,7 @@ class Ripgrep < Formula
   depends_on "pcre2"
 
   def install
-    system "cargo", "install", "--locked",
-                               "--root", prefix,
-                               "--path", ".",
-                               "--features", "pcre2"
+    system "cargo", "install", "--features", "pcre2", *std_cargo_args
 
     # Completion scripts and manpage are generated in the crate's build
     # directory, which includes a fingerprint hash. Try to locate it first
