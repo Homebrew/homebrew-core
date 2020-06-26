@@ -20,9 +20,7 @@ class Websocat < Formula
   end
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix,
-                               "--path", ".",
-                               "--features", "ssl"
+    system "cargo", "install", "--features", "ssl", *std_cargo_args
   end
 
   test do
