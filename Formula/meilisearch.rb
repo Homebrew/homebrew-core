@@ -14,7 +14,9 @@ class Meilisearch < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "meilisearch-http"
+    cd "meilisearch-http" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
