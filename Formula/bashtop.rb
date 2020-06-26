@@ -5,7 +5,7 @@ class Bashtop < Formula
   homepage "https://github.com/aristocratos/bashtop"
   url "https://github.com/aristocratos/bashtop/archive/v0.9.16.tar.gz"
   sha256 "836a80864f85dd41fb818f30c2be789931055e45ce1a5842e739e2ec28531367"
-  head "https://github.com/aristocratos/bashtop.git", :tag => "v0.9.16"
+  head "https://github.com/aristocratos/bashtop.git"
   # version "0.9.16"
 
   depends_on "bash"
