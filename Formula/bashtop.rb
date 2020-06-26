@@ -5,13 +5,12 @@ class Bashtop < Formula
   homepage "https://github.com/aristocratos/bashtop"
   url "https://github.com/aristocratos/bashtop/archive/v0.9.16.tar.gz"
   sha256 "836a80864f85dd41fb818f30c2be789931055e45ce1a5842e739e2ec28531367"
-  head "https://github.com/aristocratos/bashtop.git", :tag => "v0.9.16"
-  # version "0.9.16"
+  head "https://github.com/aristocratos/bashtop.git"
 
   depends_on "bash"
   depends_on "coreutils"
   depends_on "gnu-sed"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/c4/b8/3512f0e93e0db23a71d82485ba256071ebef99b227351f0f5540f744af41/psutil-5.7.0.tar.gz"
