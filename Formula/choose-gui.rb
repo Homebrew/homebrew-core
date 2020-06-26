@@ -6,14 +6,16 @@ class ChooseGui < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "56e072eddbb83e48e719cd4e66b25a3c1b72883d8837310f86b7c12798f9617c" => :catalina
-    sha256 "ae372dc62e19e3617efa2cabfab18e55ea2734c2b38dc9960ae3de9ab8935269" => :mojave
-    sha256 "3cd12daccad8f8381c3b37f2eb59a48ff2671f18e4cbc539daa1cb6ee606568c" => :high_sierra
+    rebuild 1
+    sha256 "397e6aaafb87524e0baa3f52376814a3d5e5dcf87e909719116742b57a513e4b" => :catalina
+    sha256 "b1f2b4a734d1cb3eca56eddac1a0a0c89a1bb1a57f4b3412843e971fd24a01ad" => :mojave
+    sha256 "7b5031da703f0297a387fc3f8220e28070b120c91ae4989327164955eedc56d6" => :high_sierra
   end
 
   depends_on :xcode => :build
 
   conflicts_with "choose", :because => "both install a `choose` binary"
+  conflicts_with "choose-rust", :because => "both install a `choose` binary"
 
   def install
     xcodebuild "SDKROOT=", "SYMROOT=build"

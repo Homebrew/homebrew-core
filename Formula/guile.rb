@@ -1,14 +1,14 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-3.0.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.3.tar.xz"
-  sha256 "b3242d61c5583560cbc9adadf1c8b4333139d9ad129d4481b5c6aa7cfa73e63b"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.4.tar.xz"
+  sha256 "6b7947dc2e3d115983846a268b8f5753c12fd5547e42fbf2b97d75a3b79f0d31"
 
   bottle do
-    sha256 "84f9160c062fe6dfd56cb62bdd985cafb9e3e94943aaa65dbb679865d09f01a7" => :catalina
-    sha256 "9cf1acf32eb7df6b18a70d140d2f0fe3f85c28a98401bc344f251389a7d33453" => :mojave
-    sha256 "32ecfe5e0741b197eb057d1fbe61dd0897eb4e8887e811ce345056e8a13cb7f3" => :high_sierra
+    sha256 "ebc624a09a10ff033ac3027a44e39b6794f5c45fd3098dc7d1d7e991392474db" => :catalina
+    sha256 "ee6ba8b247f3db6e463da22a828a599adacefe987cac32377e279c508418be83" => :mojave
+    sha256 "b60e3ffe45ac702a4d02edcf85a878ec88ead3a059e0db9c56cbd7e07152a550" => :high_sierra
   end
 
   head do

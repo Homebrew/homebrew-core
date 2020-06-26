@@ -3,12 +3,13 @@ class CodeServer < Formula
   homepage "https://github.com/cdr/code-server"
   url "https://registry.npmjs.org/code-server/-/code-server-3.4.1.tgz"
   sha256 "38f14f7e9307e4fea7eeeaabdcbd7ff414c41136337a04530692207263101a2a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0089f5d7991510d1169fb359fe8df26d3a82a4aae2248182a4e6acd7a197feef" => :catalina
-    sha256 "07c0bd4b68f52cad4e17361295df7ffbb8136fe8348fa6957b70de7e5a43706d" => :mojave
-    sha256 "7f9f8a007a054e8630eb3661eba7f210e0d7062eafc5a09cfe212045c11ca9b3" => :high_sierra
+    sha256 "e60052993a7053e4814d3ea9aa1b516b5ab7131c71dc524e2edd7abdf1fa7aee" => :catalina
+    sha256 "eda0ef4457730392ec9fbd0354ef3c25e67d6c658563876837c16cc994200b02" => :mojave
+    sha256 "f795b83b4a1333b0da1ef805257473937783aefecc0bb93c6e6ef36d83df07e9" => :high_sierra
   end
 
   depends_on "python@3.8" => :build
@@ -23,8 +24,8 @@ class CodeServer < Formula
   def install
     system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
-    bin.mkdir
-    (bin/"code-server").make_symlink "#{libexec}/out/node/entry.js"
+    env = { :PATH => "#{HOMEBREW_PREFIX}/opt/node/bin:$PATH" }
+    (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
   end
 
   def caveats
@@ -47,8 +48,7 @@ class CodeServer < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{HOMEBREW_PREFIX}/bin/node</string>
-          <string>#{libexec}</string>
+          <string>#{HOMEBREW_PREFIX}/bin/code-server</string>
         </array>
         <key>RunAtLoad</key>
         <true/>

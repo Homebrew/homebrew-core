@@ -1,14 +1,14 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat/archive/3.10.1.tar.gz"
-  sha256 "e87c5352e74d7644f9138e7a56f00872ce73ec1e57dbdc6836a05fee939236d6"
+  url "https://github.com/cheat/cheat/archive/4.0.0.tar.gz"
+  sha256 "19145c93739b7fd93588bf432b8a17b703e6d97e159954e476e9d5f9a99dca1a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "43d5bce2836980ecfe6234ec68b5869655419ef2df558254c9d47ceda5e620d1" => :catalina
-    sha256 "d73890166e1ec3487c8046e235d17e0b39cc7bec5cd3b9f4519d59dd38baafab" => :mojave
-    sha256 "2b62a0465ebeb2a263f32e75f4dd780e4eba1223757e336227a8ac071eb935de" => :high_sierra
+    sha256 "4ed11a1db2629f73844a9707d0b01a3995b3cfc07d5dbeb7b07763bdfdeadd23" => :catalina
+    sha256 "7214cd69926ce3339c194fb22db34215519bc5f5314cafd64b730436cd545a68" => :mojave
+    sha256 "cfd7c2862fb6180e362a45a6dc142e9c3b8ae524d9c0105cfc7f963812ef22d8" => :high_sierra
   end
 
   depends_on "go" => :build

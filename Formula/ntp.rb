@@ -1,15 +1,15 @@
 class Ntp < Formula
   desc "The Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
-  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p14.tar.gz"
-  version "4.2.8p14"
-  sha256 "1960e4f081f6aafd108d721bc3ab15f9e8dfd08dc08339aa95bca9d2545e4eb7"
+  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz"
+  version "4.2.8p15"
+  sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
 
   bottle do
     cellar :any
-    sha256 "ab0e452c294590e48d80f2905b8088c4ec393d4e0fd5e53e260667c67634ccf4" => :catalina
-    sha256 "281e84d4a074ddb75937e9f6a1e5b58502e79c4255dc5c5ee2c9e0f9117f78b4" => :mojave
-    sha256 "3369881e6bff45235eb11c23a034247a63dfb16077d5a8ecaeea2aca59866fbc" => :high_sierra
+    sha256 "3c6a8893b0e76b8af1a4fd19ab664279b5409c1129062bf1feee4643318236b3" => :catalina
+    sha256 "b69ded37b2c8304157c3f46e4484af9099b4fd1e077929c35bb630903d059856" => :mojave
+    sha256 "9f7ce9c3ff545ff738fcf4049445923c968ec807cf1ecde451be76412442e6f1" => :high_sierra
   end
 
   depends_on "openssl@1.1"

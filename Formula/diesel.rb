@@ -7,9 +7,10 @@ class Diesel < Formula
 
   bottle do
     cellar :any
-    sha256 "ac45d9f820900b225514e4be60f1dc464bcfbbe761dc859c0819251bd1b14cdd" => :catalina
-    sha256 "3c7b792fc6a675e7024fcc5fc476f73acf4f4a905a3daf0e123c013a7e5d9fa5" => :mojave
-    sha256 "dc19ce6a50fe00903838cfea5135840db899a04cb0176d053343a23b8aad749c" => :high_sierra
+    rebuild 1
+    sha256 "a63b7299a7b32a4c6f581ce4aac9b264bb4b1fbd555268126f2db791606846f2" => :catalina
+    sha256 "ecff18f1ca293e846f0a1742311c89a146315a051531a3fff6ff27ddb14f9e95" => :mojave
+    sha256 "f63d5ac49ce152f424ce1d0072177857a0c9724156bdb5faad34f74af58e24e6" => :high_sierra
   end
 
   depends_on "rust" => [:build, :test]
@@ -23,7 +24,9 @@ class Diesel < Formula
     # Remove with 1.5.x.
     ENV["RUSTFLAGS"] = "--cap-lints allow"
 
-    system "cargo", "install", "--root", prefix, "--path", "diesel_cli"
+    cd "diesel_cli" do
+      system "cargo", "install", *std_cargo_args
+    end
 
     system "#{bin}/diesel completions bash > diesel.bash"
     system "#{bin}/diesel completions zsh > _diesel"
