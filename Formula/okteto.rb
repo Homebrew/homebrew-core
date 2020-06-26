@@ -1,8 +1,8 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/1.8.12.tar.gz"
-  sha256 "75b76b7519d263db1b3bc85f0114e24d5f0e29744b0aeb349ebdf24fce8306d6"
+  url "https://github.com/okteto/okteto/archive/1.8.13.tar.gz"
+  sha256 "7befb37276815995302b71efe3b6eaa684eaef2977cccc16348278542b481219"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,8 +24,13 @@ class Okteto < Formula
     system "echo | okteto init --overwrite --file test.yml"
     expected = <<~EOS
       name: #{Pathname.getwd.basename}
+      image: okteto/ruby:2
+      command:
+      - bash
+      workdir: /okteto
       forward:
       - 1234:1234
+      - 8080:8080
     EOS
     got = File.read("test.yml")
     assert_equal expected, got
