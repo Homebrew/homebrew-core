@@ -14,7 +14,9 @@ class B3sum < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "./b3sum/"
+    cd "b3sum" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
