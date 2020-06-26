@@ -17,8 +17,6 @@ class Bashtop < Formula
     sha256 "685ec16ca14d079455892f25bd124df26ff9137664af445563c1bd36629b5e0e"
   end
 
-  patch :DATA
-
   def install
     # install psutil resource using python3.8 dependency
     resource("psutil").stage do
@@ -37,22 +35,12 @@ class Bashtop < Formula
   end
 
   test do
-    assert_match "function", shell_output("bash -c \"source #{bin}/bashtop && type -t main_loop\"").strip
+    loader=<<~EOS
+      #!/usr/bin/env bash
+      source "#{bin}/bashtop"
+      type -t main_loop    
+    EOS
+
+    assert_match "function", shell_output("echo '#{loader}' > tmp.sh && chmod +x tmp.sh && ./tmp.sh ")
   end
 end
-
-__END__
-diff --git a/bashtop b/bashtop
-index 977ba04..4536c35 100755
---- a/bashtop
-+++ b/bashtop
-@@ -4791,7 +4791,7 @@ if [[ $use_psutil == true ]]; then
- fi
- 
- #* if we have been sourced by another shell, quit. Allows sourcing only function definition.
--[[ "${#BASH_SOURCE[@]}" -gt 1 ]] && { return 0; }
-+[[ "${#BASH_SOURCE[@]}" -ge 1 ]] && { return 0; }
- 
- #* Setup psutil script
- if [[ $use_psutil == true ]]; then
-
