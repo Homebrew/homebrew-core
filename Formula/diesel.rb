@@ -23,7 +23,9 @@ class Diesel < Formula
     # Remove with 1.5.x.
     ENV["RUSTFLAGS"] = "--cap-lints allow"
 
-    system "cargo", "install", "--root", prefix, "--path", "diesel_cli"
+    cd "diesel_cli" do
+      system "cargo", "install", *std_cargo_args
+    end
 
     system "#{bin}/diesel completions bash > diesel.bash"
     system "#{bin}/diesel completions zsh > _diesel"
