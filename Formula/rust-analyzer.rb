@@ -14,8 +14,9 @@ class RustAnalyzer < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path",
-           "crates/rust-analyzer", "--bin", "rust-analyzer"
+    cd "crates/rust-analyzer" do
+      system "cargo", "install", "--bin", "rust-analyzer", *std_cargo_args
+    end
   end
 
   test do
