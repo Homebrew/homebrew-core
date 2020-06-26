@@ -15,7 +15,9 @@ class Gluon < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "repl"
+    cd "repl" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
