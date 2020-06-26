@@ -21,9 +21,7 @@ class Rav1e < Formula
   end
 
   def install
-    system "cargo", "install", "--locked",
-                               "--root", prefix,
-                               "--path", "."
+    system "cargo", "install", *std_cargo_args
     system "cargo", "cinstall", "--prefix", prefix
   end
 
