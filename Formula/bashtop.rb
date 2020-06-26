@@ -36,11 +36,10 @@ class Bashtop < Formula
 
   test do
     loader=<<~EOS
-      #!/usr/bin/env bash
       source "#{bin}/bashtop"
       type -t main_loop    
     EOS
 
-    assert_match "function", shell_output("echo '#{loader}' > tmp.sh && chmod +x tmp.sh && ./tmp.sh ")
+    assert_match "function", shell_output("echo '#{loader}' >  tmp.sh && bash tmp.sh ")
   end
 end
