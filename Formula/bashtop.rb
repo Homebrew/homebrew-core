@@ -18,12 +18,20 @@ class Bashtop < Formula
   end
 
   def install
-    # install psutil resource using python3 dependency
-    resource("psutil").stage { system "python3", *Language::Python.setup_install_args(libexec/"vendor") }
+    # install psutil resource using python3.8 dependency
+    resource("psutil").stage do
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
+    end
 
-    # mirror what Makefile for bashtop does
+    # mirror what Makefile for bashtop does (make has permission errors)
     bin.install "bashtop"
     doc.install "README.md"
+  end
+
+  def caveats
+    <<~EOS
+      Bashtop will need to be run as superuser (sudo) on OSX to display stats for processes not owned by user (eg root).
+    EOS
   end
 
   test do
