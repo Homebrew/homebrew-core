@@ -22,7 +22,7 @@ class Nushell < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "stable", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", "--features", "stable", *std_cargo_args
   end
 
   test do
