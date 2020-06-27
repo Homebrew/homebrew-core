@@ -4,9 +4,9 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.0.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.0.tar.xz"
-  sha256 "b633cc2b0e030efb61e11029d8a3fb1123f719864c9992da2e52b471c96d0900"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.1.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.1.tar.xz"
+  sha256 "3e5cc2bb86332224039c4dc6d5f0f2f36b615b0396b7e32d58103ce48ec27827"
 
   bottle do
     sha256 "41dcad707b4741c74282184d8eda0e2d02121dd5cb52ad4ef816bfb842725994" => :catalina
@@ -18,6 +18,7 @@ class Dpkg < Formula
   depends_on "gnu-tar"
   depends_on "gpatch"
   depends_on "perl"
+  depends_on "po4a"
   depends_on "xz" # For LZMA
 
   uses_from_macos "bzip2"
