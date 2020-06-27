@@ -1,9 +1,9 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/fixes/exim-4.93.0.4.tar.xz"
-  mirror "https://dl.bintray.com/homebrew/mirror/exim-4.93.0.4.tar.xz"
-  sha256 "537d366ee18ed357656f54f255f8f9e11bde9684fcaaecaaa56f84cdbcd3e405"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/exim-4.94.tar.xz"
+  sha256 "f77ee8faf04f5db793243c3ae81c1f4e452cd6ad7dd515a80edf755c4b144bdb"
 
   bottle do
     sha256 "f31d37d1402ba863051e37097c8450f6459dcd1fffb080c437af587cb0ef106d" => :catalina
