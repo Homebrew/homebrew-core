@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.22.1/netdata-v1.22.1.tar.gz"
-  sha256 "f169c8615a6823448c2f1923c87c286d798132ea29d26f366e96d26e0aec3697"
+  url "https://github.com/netdata/netdata/releases/download/v1.23.0/netdata-v1.23.0.tar.gz"
+  sha256 "27c4968fb9ad7ba93d23fc0a8b242a722da4da655e342fa5b3eaa5948d4ae488"
 
   bottle do
     rebuild 1
@@ -102,7 +102,6 @@ class Netdata < Formula
     system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file",
                               "#{testpath}/netdata.unittest.unique.id",
                               "-W", "set", "registry", "netdata management api key file",
-                              "#{testpath}/netdata.api.key",
-                              "-W", "unittest"
+                              "#{testpath}/netdata.api.key"
   end
 end
