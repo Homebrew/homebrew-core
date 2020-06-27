@@ -18,6 +18,10 @@ class LSmash < Formula
     sha256 "78c5c52a90e1609694b43a45240126515f97be8a1d129a57215d4a7ba9e3717f" => :mavericks
   end
 
+  # failed to upgrade since 02-11-2018
+  # upstream patch never got merged, https://github.com/l-smash/l-smash/issues/80
+  disable!
+
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
     system "make", "install"
