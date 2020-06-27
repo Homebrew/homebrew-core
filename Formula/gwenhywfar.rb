@@ -24,7 +24,7 @@ class Gwenhywfar < Formula
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
       "--with-guis=cocoa"
-    system "make", "install"
+      system "make", "install"
   end
 
   test do
