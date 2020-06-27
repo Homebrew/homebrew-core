@@ -3,9 +3,8 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.4.2.tar.gz"
-  sha256 "2d6382b94af59dcaa44dd546252807e0364d1b61f169584829ebbf82458e7078"
-  revision 1
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v2.0.0.tar.gz"
+  sha256 "c7ebc5650e7d5d8945fc004056bffea06e8278e54053b3dacd2d2daaac242565"
 
   bottle do
     cellar :any_skip_relocation
