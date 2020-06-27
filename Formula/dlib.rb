@@ -4,6 +4,7 @@ class Dlib < Formula
   url "http://dlib.net/files/dlib-19.20.tar.bz2"
   sha256 "df9aa456ed5e190597fa8dafc1471670ced0128d0f115f2be7677c9c42f4328d"
   head "https://github.com/davisking/dlib.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -28,6 +29,7 @@ class Dlib < Formula
       -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
       -DDLIB_NO_GUI_SUPPORT=ON
       -DUSE_SSE2_INSTRUCTIONS=ON
+      -DBUILD_SHARED_LIBS=ON
     ]
 
     args << "-DUSE_SSE4_INSTRUCTIONS=ON" if MacOS.version.requires_sse4?
