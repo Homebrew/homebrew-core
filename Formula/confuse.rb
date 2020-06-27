@@ -1,8 +1,8 @@
 class Confuse < Formula
   desc "Configuration file parser library written in C"
   homepage "https://github.com/martinh/libconfuse"
-  url "https://github.com/martinh/libconfuse/releases/download/v3.2.2/confuse-3.2.2.tar.xz"
-  sha256 "a9240b653d02e8cfc52db48e8c4224426e528e1faa09b65e8ca08a197fad210b"
+  url "https://github.com/martinh/libconfuse/releases/download/v3.3/confuse-3.3.tar.xz"
+  sha256 "1dd50a0320e135a55025b23fcdbb3f0a81913b6d0b0a9df8cc2fdf3b3dc67010"
 
   bottle do
     cellar :any
