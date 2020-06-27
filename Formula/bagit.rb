@@ -9,6 +9,10 @@ class Bagit < Formula
 
   depends_on "openjdk"
 
+  # bagit Java 5.x no longer has a CLI.
+  # alternatively, move the formula to https://github.com/LibraryOfCongress/bagit-python
+  disable!
+
   def install
     # put logs in var, not in the Cellar
     (var/"log/bagit").mkpath
