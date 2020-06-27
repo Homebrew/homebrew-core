@@ -1,9 +1,8 @@
 class Liblwgeom < Formula
   desc "Allows SpatiaLite to support ST_MakeValid() like PostGIS"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz"
-  sha256 "b6cb286c5016029d984f8c440947bf9178da72e1f6f840ed639270e1c451db5e"
-  revision 2
+  url "https://download.osgeo.org/postgis/source/postgis-2.5.4.tar.gz"
+  sha256 "146d59351cf830e2a2a72fa14e700cd5eab6c18ad3e7c644f57c4cee7ed98bbe"
   head "https://git.osgeo.org/gitea/postgis/postgis"
 
   bottle do
@@ -30,8 +29,6 @@ class Liblwgeom < Formula
   def install
     # See postgis.rb for comments about these settings
     ENV.deparallelize
-
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     args = [
       "--disable-dependency-tracking",
