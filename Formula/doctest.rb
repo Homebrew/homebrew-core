@@ -1,8 +1,8 @@
 class Doctest < Formula
   desc "The fastest feature-rich C++11/14/17/20 single-header testing framework"
   homepage "https://github.com/onqtam/doctest"
-  url "https://github.com/onqtam/doctest/archive/2.3.8.tar.gz"
-  sha256 "d7232437eceb46ad5de03cacdee770c80f2e53e7b8efc1c8a8ed29539f64efa5"
+  url "https://github.com/onqtam/doctest/archive/2.4.0.tar.gz"
+  sha256 "f689f48e92c088928d88d8481e769c8e804f0a608b484ab8ef3d6ab6045b5444"
 
   bottle do
     cellar :any_skip_relocation
