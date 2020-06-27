@@ -1,8 +1,8 @@
 class Javacc < Formula
   desc "Parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/javacc-7.0.6.tar.gz"
-  sha256 "d35222e13a505952dfd3d25d4d241dbb4244e972d07a2f07c01461f79747b47c"
+  url "https://github.com/javacc/javacc/archive/javacc-7.0.8.tar.gz"
+  sha256 "7ef354fd9631ae04007fb8f19d100d8af99c429a7bd1627c9222e3334b5682b8"
 
   bottle do
     cellar :any_skip_relocation
