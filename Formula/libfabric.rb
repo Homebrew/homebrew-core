@@ -3,6 +3,7 @@ class Libfabric < Formula
   homepage "https://ofiwg.github.io/libfabric/"
   url "https://github.com/ofiwg/libfabric/releases/download/v1.10.1/libfabric-1.10.1.tar.bz2"
   sha256 "889fa8c99eed1ff2a5fd6faf6d5222f2cf38476b24f3b764f2cbb5900fee8284"
+  revision 1
   head "https://github.com/ofiwg/libfabric.git"
 
   bottle do
