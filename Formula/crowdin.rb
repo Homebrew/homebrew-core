@@ -1,9 +1,8 @@
 class Crowdin < Formula
   desc "Command-line tool that allows to manage your resources with crowdin.com"
   homepage "https://support.crowdin.com/cli-tool/"
-  url "https://downloads.crowdin.com/cli/v2/crowdin-cli-2.0.31.zip"
-  sha256 "93defe16706783e92cbe3b32e528e495ddffa9e2a68471c3b70a2eb6c487e245"
-  revision 1
+  url "https://github.com/crowdin/crowdin-cli/releases/download/3.1.15/crowdin-cli.zip"
+  sha256 "391aa2d41b3d2671340e631139a8b8023d75a4933132f19f2f5249fc19e0ea17"
 
   bottle :unneeded
 
@@ -18,12 +17,26 @@ class Crowdin < Formula
   end
 
   test do
-    generate_output = shell_output("#{bin}/crowdin generate").chomp
-    assert_predicate testpath/"crowdin.yml", :exist?
-    assert_match /^Generates Crowdin CLI configuration skeleton .*crowdin\.yml'- OK$/, generate_output
-    lint_output = shell_output("#{bin}/crowdin lint", 1).split("\n")
-    lint_output.each do |line|
-      assert_match /^Project [^ ]+ is empty$/, line
-    end
+    (testpath/"crowdin.yml").write <<~EOS
+      "project_id": "12"
+      "api_token": "54e01--your-personal-token--2724a"
+      "base_path": "."
+      "base_url": "https://api.crowdin.com" # https://{organization-name}.crowdin.com
+
+      "preserve_hierarchy": true
+
+      "files": [
+        {
+          "source" : "/t1/**/*",
+          "translation" : "/%two_letters_code%/%original_file_name%"
+        }
+      ]
+    EOS
+
+    assert "Your configuration file looks good",
+      shell_output("#{bin}/crowdin lint")
+
+    assert "Failed to authorize in Crowdin",
+      shell_output("#{bin}/crowdin upload sources --config #{testpath}/crowdin.yml", 1)
   end
 end
