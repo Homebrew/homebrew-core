@@ -22,9 +22,9 @@ class Ldc < Formula
   end
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.20.1/ldc2-1.20.1-osx-x86_64.tar.xz"
-    version "1.20.1"
-    sha256 "b0e711b97d7993ca77fed0f49a7d2cf279249406d46e9cf005dd77d5a4e23956"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.22.0/ldc2-1.22.0-osx-x86_64.tar.xz"
+    version "1.22.0"
+    sha256 "05e3a6048aadcfc2ba8f81b236e6da9c1f36c538a0f4e5e6ae22667328c7e8f2"
   end
 
   def install
