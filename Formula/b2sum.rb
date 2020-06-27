@@ -1,8 +1,8 @@
 class B2sum < Formula
   desc "BLAKE2 b2sum reference binary"
   homepage "https://github.com/BLAKE2/BLAKE2"
-  url "https://github.com/BLAKE2/BLAKE2/archive/20160619.tar.gz"
-  sha256 "cbac833ccae56b5c6173dbeaf871aa99b32745cf7a994c7451d4533ecda55633"
+  url "https://github.com/BLAKE2/BLAKE2/archive/20190724.tar.gz"
+  sha256 "7f2c72859d462d604ab3c9b568c03e97b50a4052092205ad18733d254070ddc2"
 
   bottle do
     cellar :any_skip_relocation
