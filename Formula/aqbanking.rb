@@ -4,6 +4,13 @@ class Aqbanking < Formula
   url "https://www.aquamaniac.de/rdm/attachments/download/328/aqbanking-6.2.1.tar.gz"
   sha256 "bab601bf7c3402912438aa2919cd84d498a65749238214fcf881d2a2cfea1fd4"
 
+  bottle do
+    sha256 "95a5722e1489e556d98a230d56ddf577f31916e9d7d92624122d3b9e47d9db17" => :catalina
+    sha256 "7c2baa7fb1391d73701d3853ff42c2e54c34d08e0924cf8cfac188c65a7098ae" => :mojave
+    sha256 "3486dd0c279143a270b1dcc7522a515a5f911a738d639f71591f800b2afdbfc2" => :high_sierra
+    sha256 "75e86959e6461de20b46cd9706570aee118cc243bbe6b5cb36ff3fb046bf8697" => :sierra
+  end
+
   head do
     url "https://git.aquamaniac.de/git/aqbanking.git"
 
