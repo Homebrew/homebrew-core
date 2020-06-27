@@ -3,9 +3,8 @@ class GitRevise < Formula
 
   desc "Rebase alternative for easy & efficient in-memory rebases and fixups"
   homepage "https://github.com/mystor/git-revise"
-  url "https://github.com/mystor/git-revise/archive/0.5.1.tar.gz"
-  sha256 "3f64521eb056ff097eb282811459820e1afd138cf2de113d609051060459d24d"
-  revision 2
+  url "https://github.com/mystor/git-revise/archive/v0.6.0.tar.gz"
+  sha256 "99c3804ddb73f1115bd6be05d10e640a7066e4019c6c223433e55136e66fa4c8"
   head "https://github.com/mystor/git-revise.git"
 
   bottle do
