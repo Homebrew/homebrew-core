@@ -19,7 +19,7 @@ class Cassowary < Formula
   end
 
   test do
-    system("#{bin}/cassowary run -u http://www.example.com -c 10 -n 100 --json-metrics")
+    system("#{bin}/cassowary", "run", "-u", "http://www.example.com", "-c", "10", "-n", "100", "--json-metrics")
     assert_match "\"base_url\":\"http://www.example.com\"", File.read("#{testpath}/out.json")
 
     assert_match version.to_s, shell_output("#{bin}/cassowary --version")
