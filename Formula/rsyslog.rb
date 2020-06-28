@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2004.0.tar.gz"
-  sha256 "5fc3d7b775f0879a40606d960491812a602e22f62e006ce027ed7bcf4c9f27d9"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2006.0.tar.gz"
+  sha256 "d9589e64866f2fdc5636af4cae9d60ebf1e3257bb84b81ee953ede6a05878e97"
 
   bottle do
     sha256 "e96baca2b20bcd84d5e0344387c7df8d48cf087d73911dcecf52c3ad546353bd" => :catalina
