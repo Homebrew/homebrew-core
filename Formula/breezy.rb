@@ -19,8 +19,8 @@ class Breezy < Formula
   depends_on "python@3.8"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
-    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "configobj" do
@@ -29,8 +29,8 @@ class Breezy < Formula
   end
 
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/16/8e/b43e8e612cfe0e03410cd23da18094cbb78296fd56a8275f8213ac9a7699/dulwich-0.20.2.tar.gz"
-    sha256 "273fa401e11c215ed81a4a0c8474ed06aeae31900974fdd4a87af5df0e458115"
+    url "https://files.pythonhosted.org/packages/b3/34/adcd6646c5ed59a1206216d4a418121be57df3406f7a46570112db57ba6c/dulwich-0.20.5.tar.gz"
+    sha256 "98484ede022da663c96b54bc8dcdb4407072cb50efd5d20d58ca4e7779931305"
   end
 
   resource "fastimport" do
