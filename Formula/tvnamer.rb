@@ -1,9 +1,8 @@
 class Tvnamer < Formula
   desc "Automatic TV episode file renamer that uses data from thetvdb.com"
   homepage "https://github.com/dbr/tvnamer"
-  url "https://files.pythonhosted.org/packages/ed/93/f8fbe119844c79ea488332b9ff43702be674332672ea84e9361321985fbd/tvnamer-2.5.tar.gz"
-  sha256 "75e38454757c77060ad3782bd071682d6d316de86f9aec1c2042d236f93aec7b"
-  revision 1
+  url "https://files.pythonhosted.org/packages/8f/a5/c5cef0f433d92c5b6108d390f7dd3fdfba02b591e1dbfe9a3a2c5e8f2ca2/tvnamer-2.5.1.tar.gz"
+  sha256 "ba181a947dcfe20c860825b3580d2a6f1a896cf9b5fef093b8c3f00640581a1f"
   head "https://github.com/dbr/tvnamer.git"
 
   bottle do
@@ -16,8 +15,8 @@ class Tvnamer < Formula
   depends_on "python@3.8"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b8/e2/a3a86a67c3fc8249ed305fc7b7d290ebe5e4d46ad45573884761ef4dea7b/certifi-2020.4.5.1.tar.gz"
-    sha256 "51fcb31174be6e6664c5f69e3e1691a2d72a1a12e90f872cbdb1567eb47b6519"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "chardet" do
@@ -26,13 +25,13 @@ class Tvnamer < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
+    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "requests-cache" do
@@ -40,7 +39,7 @@ class Tvnamer < Formula
     sha256 "813023269686045f8e01e2289cc1e7e9ae5ab22ddd1e2849a9093ab3ab7270eb"
   end
 
-  resource "tvdb_api" do
+  resource "tvdb-api" do
     url "https://files.pythonhosted.org/packages/ba/c5/abcff2dd75e63daae3466fffd05a28428e57828f8b878125571a8e8343a8/tvdb_api-2.0.tar.gz"
     sha256 "b1de28a5100121d91b1f6a8ec7e86f2c4bdf48fb22fab3c6fe21e7fb7346bf8f"
   end
