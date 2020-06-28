@@ -1,9 +1,8 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.0.0.tar.gz"
-  sha256 "3b7e8cdc58852294d95b0ed705933f528a9e56428863490f5a27f22153cd713e"
-  revision 1
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.1.0.tar.gz"
+  sha256 "ee546f0e002e83434862c7a5a2171a2276038d239909a09adb36e148e7d7319a"
   head "https://github.com/pcb2gcode/pcb2gcode.git"
 
   bottle do
@@ -132,7 +131,6 @@ class Pcb2gcode < Formula
       M30
     EOS
     (testpath/"millproject").write <<~EOS
-      dpi=500
       metric=true
       zchange=10
       zsafe=5
@@ -150,7 +148,6 @@ class Pcb2gcode < Formula
       cut-speed=10000
       cutter-diameter=3
       fill-outline=true
-      outline-width=0.15
       zbridges=-0.6
       zcut=-2.5
       al-front=true
