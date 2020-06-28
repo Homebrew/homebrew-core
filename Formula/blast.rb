@@ -1,9 +1,9 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-src.tar.gz"
-  version "2.10.0"
-  sha256 "3acdd9cec01c4f43e56aeaf89049cb8f8013d60b9c1705eced10166967f1d926"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.1/ncbi-blast-2.10.1+-src.tar.gz"
+  version "2.10.1"
+  sha256 "110729decf082f69b90b058c0cabaea38f771983a564308ae19cb30a68ce7b86"
 
   bottle do
     rebuild 1
