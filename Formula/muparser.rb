@@ -13,11 +13,16 @@ class Muparser < Formula
     sha256 "d5d3fd87e54d300578836ed61e066ef08b665050d7986e46ed6995eeee819088" => :sierra
   end
 
+  depends_on "cmake" => :build
+  depends_on "gcc"
+
+  fails_with :clang # no OpenMP support
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
