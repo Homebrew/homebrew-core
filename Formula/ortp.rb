@@ -1,8 +1,8 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.3.2/ortp-4.3.2.tar.bz2"
-  sha256 "1796a7faaaced1278fae55657686e7b9fee66ca4d9dabd8f1c83f21957fc002b"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.4.0/ortp-4.4.0.tar.bz2"
+  sha256 "9d939ee57161cf3060e1b3fe11060e5dd1f1575939e62974ca5ae7f959ebe881"
   head "https://gitlab.linphone.org/BC/public/ortp.git"
 
   bottle do
@@ -16,8 +16,8 @@ class Ortp < Formula
   depends_on "mbedtls"
 
   resource "bctoolbox" do
-    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.3.1/bctoolbox-4.3.1.tar.bz2"
-    sha256 "1b7ec1a7fa2af2a6741ebda7602c82996752aa46fb17d6c9ddb2ed0846872384"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.4.0/bctoolbox-4.4.0.tar.bz2"
+    sha256 "d0efabb579d02f0fdff319a047eb487943edb5761d4b872f16762b4b4ef40d62"
   end
 
   def install
