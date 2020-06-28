@@ -30,7 +30,7 @@ class Serverless < Formula
         region: eu-west-1
     EOS
 
-    system("#{bin}/serverless config credentials --provider aws --key aa --secret xx")
+    system("#{bin}/serverless", "config", "credentials", "--provider", "aws", "--key", "aa", "--secret", "xx")
     output = shell_output("#{bin}/serverless package")
     assert_match "Serverless: Packaging service...", output
   end
