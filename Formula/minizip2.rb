@@ -1,8 +1,8 @@
 class Minizip2 < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/nmoinvaz/minizip"
-  url "https://github.com/nmoinvaz/minizip/archive/2.9.3.tar.gz"
-  sha256 "f64b2d228a03673a8ec36a53402e2108437226fd9170d49b7f0c0bca94708b93"
+  url "https://github.com/nmoinvaz/minizip/archive/2.10.0.tar.gz"
+  sha256 "4c7f236268fef57ce5dcbd9645235a22890d62480a592e1b0515ecff93f9989b"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,8 +12,11 @@ class Minizip2 < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "zstd"
 
+  uses_from_macos "bzip2"
   uses_from_macos "libiconv"
+  uses_from_macos "zlib"
 
   conflicts_with "minizip",
     :because => "both install a `libminizip.a` library"
@@ -37,7 +40,9 @@ class Minizip2 < Formula
         return hZip != NULL && mz_zip_close(NULL) == MZ_PARAM_ERROR ? 0 : 1;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lminizip", "-lz", "-lbz2", "-liconv",
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
+                   "-lminizip", "-lz", "-lbz2", "-liconv",
+                   "-L#{Formula["zstd"].opt_lib}", "-lzstd",
                    "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
     system "./test"
   end
