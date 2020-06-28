@@ -1,8 +1,8 @@
 class Sonic < Formula
   desc "Fast, lightweight & schema-less search backend"
   homepage "https://github.com/valeriansaliou/sonic"
-  url "https://github.com/valeriansaliou/sonic/archive/v1.2.4.tar.gz"
-  sha256 "290da969d39260abe5772fc7f084d256a8c0a53c702fe9eb44593d43a179b9d1"
+  url "https://github.com/valeriansaliou/sonic/archive/v1.3.0.tar.gz"
+  sha256 "6f8c1a8779f71bb57978f0baaf65ca65493f4d8a030895b74f579ce2b4e1fa5e"
 
   bottle do
     cellar :any_skip_relocation
