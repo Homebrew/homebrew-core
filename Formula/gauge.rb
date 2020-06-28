@@ -1,6 +1,6 @@
 class Gauge < Formula
   desc "Test automation tool that supports executable documentation"
-  homepage "https://getgauge.io"
+  homepage "https://gauge.org"
   url "https://github.com/getgauge/gauge/archive/v1.1.1.tar.gz"
   sha256 "b136727d0ed114ab18d9d380e1ff70ad70e60b56bbacf854be2aeddc9b20044a"
   head "https://github.com/getgauge/gauge.git"
@@ -28,10 +28,10 @@ class Gauge < Formula
       }
     EOS
 
-    system("#{bin}/gauge install")
+    system("#{bin}/gauge", "install")
     assert_predicate testpath/".gauge/plugins", :exist?
 
-    system("#{bin}/gauge config check_updates false")
+    system("#{bin}/gauge", "config", "check_updates", "false")
     assert_match "false", shell_output("#{bin}/gauge config check_updates")
 
     assert_match version.to_s, shell_output("#{bin}/gauge -v 2>&1")
