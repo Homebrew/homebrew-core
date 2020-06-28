@@ -1,8 +1,8 @@
 class Libnfc < Formula
   desc "Low level NFC SDK and Programmers API"
   homepage "https://github.com/nfc-tools/libnfc"
-  url "https://bintray.com/artifact/download/nfc-tools/sources/libnfc-1.7.1.tar.bz2"
-  sha256 "945e74d8e27683f9b8a6f6e529557b305d120df347a960a6a7ead6cb388f4072"
+  url "https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2"
+  sha256 "6d9ad31c86408711f0a60f05b1933101c7497683c2e0d8917d1611a3feba3dd5"
 
   bottle do
     sha256 "241577cd369d23294bd5509d9c30a5bc85e89eda6bc212c28831b2389fb44096" => :catalina
