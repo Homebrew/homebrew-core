@@ -39,6 +39,6 @@ class Flashrom < Formula
   end
 
   test do
-    system "#{bin}/flashrom" " --version"
+    system bin/"flashrom", "--version"
   end
 end
