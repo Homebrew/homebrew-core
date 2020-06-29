@@ -1,9 +1,8 @@
 class Cgit < Formula
   desc "Hyperfast web frontend for Git repositories written in C"
   homepage "https://git.zx2c4.com/cgit/"
-  url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.1.tar.xz"
-  sha256 "3c547c146340fb16d4134326e7524bfb28ffa681284f1e3914bde1c27a9182bf"
-  revision 1
+  url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.3.tar.xz"
+  sha256 "5a5f12d2f66bd3629c8bc103ec8ec2301b292e97155d30a9a61884ea414a6da4"
 
   bottle do
     rebuild 1
@@ -17,10 +16,10 @@ class Cgit < Formula
   depends_on "openssl@1.1"
 
   # git version is mandated by cgit: see GIT_VER variable in Makefile
-  # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2#n17
+  # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2.3#n17
   resource "git" do
-    url "https://www.kernel.org/pub/software/scm/git/git-2.18.0.tar.gz"
-    sha256 "94faf2c0b02a7920b0b46f4961d8e9cad08e81418614102898a55f980fa3e7e4"
+    url "https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.gz"
+    sha256 "4999ae0ee6cc7dfb280d7051e39a82a5630b00c1d8cd54890f07b4b7193d25aa"
   end
 
   def install
