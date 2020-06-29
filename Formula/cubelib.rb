@@ -1,8 +1,8 @@
 class Cubelib < Formula
   desc "Cube, is a performance report explorer for Scalasca and Score-P"
   homepage "https://scalasca.org/software/cube-4.x/download.html"
-  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.4/dist/cubelib-4.4.4.tar.gz"
-  sha256 "adb8216ee3b7701383884417374e7ff946edb30e56640307c65465187dca7512"
+  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.5/dist/cubelib-4.5.tar.gz"
+  sha256 "98f66837b4a834b1aacbcd4480a242d7a8c4a1b8dd44e02e836b8c7a4f0ffd98"
 
   bottle do
     sha256 "fd120eec0c9e3898317b924b1e0ab320afbc52730f2a97bc7d73e2164e7e9b87" => :catalina
@@ -12,6 +12,8 @@ class Cubelib < Formula
   end
 
   def install
+    ENV.deparallelize
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -20,7 +22,6 @@ class Cubelib < Formula
                           "LDFLAGS=-stdlib=libc++",
                           "--prefix=#{prefix}"
     system "make"
-    ENV.deparallelize
     system "make", "install"
   end
 
