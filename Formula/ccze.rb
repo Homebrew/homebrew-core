@@ -13,6 +13,9 @@ class Ccze < Formula
     sha256 "506875e8cc54203395a7aad87f8e1d4eebaa0ecc55095556e0f27c214b9fd23f" => :high_sierra
   end
 
+  # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`
+  deprecate! :date => "2020-05-24"
+
   depends_on "pcre"
 
   uses_from_macos "ncurses"
