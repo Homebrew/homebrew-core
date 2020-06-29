@@ -1,7 +1,8 @@
 class Ccal < Formula
   desc "Create Chinese calendars for print or browsing"
-  homepage "https://ccal.chinesebay.com/ccal"
-  url "https://ccal.chinesebay.com/ccal/ccal-2.5.3.tar.gz"
+  # no https urls
+  homepage "http://ccal.chinesebay.com/ccal/ccal.htm"
+  url "http://ccal.chinesebay.com/ccal/ccal-2.5.3.tar.gz"
   sha256 "3d4cbdc9f905ce02ab484041fbbf7f0b7a319ae6a350c6c16d636e1a5a50df96"
 
   bottle do
