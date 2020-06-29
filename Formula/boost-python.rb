@@ -78,8 +78,8 @@ class BoostPython < Formula
     EOS
 
     pyprefix = `python-config --prefix`.chomp
-    pyincludes = Utils.popen_read("python-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("python-config --ldflags").chomp.split(" ")
+    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split(" ")
+    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split(" ")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",
