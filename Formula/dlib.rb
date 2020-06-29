@@ -18,6 +18,7 @@ class Dlib < Formula
   depends_on "libpng"
   depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "openblas"
+  depends_on :x11
 
   def install
     ENV.cxx11
@@ -27,7 +28,8 @@ class Dlib < Formula
       -DDLIB_USE_LAPACK=ON
       -Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
       -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
-      -DDLIB_NO_GUI_SUPPORT=ON
+      -DUSE_AVX_INSTRUCTIONS=ON
+      -DUSE_SSE4_INSTRUCTIONS=ON
       -DUSE_SSE2_INSTRUCTIONS=ON
       -DBUILD_SHARED_LIBS=ON
     ]
