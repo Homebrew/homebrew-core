@@ -1,8 +1,9 @@
 class Cdargs < Formula
-  desc "Bookmarks for the shell"
-  homepage "https://www.skamphausen.de/cgi-bin/ska/CDargs"
-  url "https://www.skamphausen.de/downloads/cdargs/cdargs-1.35.tar.gz"
-  sha256 "ee35a8887c2379c9664b277eaed9b353887d89480d5749c9ad957adf9c57ed2c"
+  desc "Directory bookmarking system - Enhanced cd utilities"
+  homepage "https://github.com/cbxbiker61/cdargs"
+  url "https://github.com/cbxbiker61/cdargs/archive/2.0.tar.gz"
+  sha256 "d6c7b0a3636338916f6d8efa069b3b9521330b3da79d9d625ab7a9a1091162a8"
+  head "https://github.com/cbxbiker61/cdargs.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +16,10 @@ class Cdargs < Formula
     sha256 "2bb555d4cf65f3d11595350135582599fd6ccf988bc7bb76c58155ddcef29223" => :mavericks
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+
   # fixes zsh usage using the patch provided at the cdargs homepage
   # (See https://www.skamphausen.de/cgi-bin/ska/CDargs)
   patch do
@@ -23,9 +28,11 @@ class Cdargs < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
-    system "make"
-    system "make", "install-strip"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
 
     rm Dir["contrib/Makefile*"]
     prefix.install "contrib"
