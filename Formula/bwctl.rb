@@ -15,6 +15,10 @@ class Bwctl < Formula
     sha256 "f10efbf8f41f526130340cc6087ce3dfad83b71b69d21e0b01c11b3169d88bdd" => :mavericks
   end
 
+  # https://software.internet2.edu/bwctl/
+  # The use of BWCTL became deprecated with the release of pScheduler in perfSONAR 4.0 in April, 2017.
+  deprecate! :date => "2017-04-01"
+
   depends_on "i2util" => :build
 
   def install
