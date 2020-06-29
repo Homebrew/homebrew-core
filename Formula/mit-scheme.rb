@@ -1,10 +1,9 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10.tar.gz"
-  sha256 "1513bd24ac16b8d94005c140dccea82782648b983d8f435e8139e463ea813d1e"
-  revision 1
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11.tar.gz"
+  sha256 "03a6df3b9d4c2472b9db7ad92010ea06423d81b018b12d0231d4241b57c80d54"
 
   bottle do
     sha256 "aeec8e0d463f173b7e1bf1aa5840d7d119559379c9c4024f72ccbcc18649ee40" => :catalina
@@ -19,8 +18,8 @@ class MitScheme < Formula
   depends_on "openssl@1.1"
 
   resource "bootstrap" do
-    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-x86-64.tar.gz"
-    sha256 "4f14dd754703736c1843a8c709cd704a24e92b02d6021652d57ae5d6a2d992e6"
+    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11-x86-64.tar.gz"
+    sha256 "32c29fe08588ed325774113bac00dce72c2454955c64ba32fc40f30db011c21c"
   end
 
   def install
