@@ -12,29 +12,32 @@ class Wren < Formula
   end
 
   def install
-    cd "projects/make.mac" do
-      system "make"
-    end
+    system "make", "-C", "projects/make.mac"
     lib.install Dir["lib/*"]
     include.install Dir["src/include/*"]
+    pkgshare.install "example"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
       #include <assert.h>
-      #include <wren.h>
+      #include <stdio.h>
+      #include "wren.h"
 
       int main()
       {
         WrenConfiguration config;
         wrenInitConfiguration(&config);
         WrenVM* vm = wrenNewVM(&config);
-        WrenInterpretResult result = wrenInterpret(vm, "test", "1 + 2");
+        WrenInterpretResult result = wrenInterpret(vm, "test", "var result = 1 + 2");
         assert(result == WREN_RESULT_SUCCESS);
+        wrenEnsureSlots(vm, 0);
+        wrenGetVariable(vm, "test", "result", 0);
+        printf("1 + 2 = %d\\n", (int) wrenGetSlotDouble(vm, 0));
         wrenFreeVM(vm);
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lwren", "-o", "test"
-    system "./test"
+    assert_equal "1 + 2 = 3", shell_output("./test").strip
   end
 end
