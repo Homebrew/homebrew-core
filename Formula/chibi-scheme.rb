@@ -1,8 +1,9 @@
 class ChibiScheme < Formula
   desc "Small footprint Scheme for use as a C Extension Language"
   homepage "https://github.com/ashinn/chibi-scheme"
-  url "https://web.archive.org/web/20190316072536/synthcode.com/scheme/chibi/chibi-scheme-0.8.0.tgz"
-  sha256 "c39287628cb7762d6cd51fbdab39e797ef7f7e576a3c7650a8a2a02b4f35749a"
+  url "https://github.com/ashinn/chibi-scheme/archive/0.8.tar.gz"
+  sha256 "8a077859b123216c123c243db391b0fe4c0cf73978c7cdd7b8ea853a48192756"
+  revision 1
   head "https://github.com/ashinn/chibi-scheme.git"
 
   bottle do
