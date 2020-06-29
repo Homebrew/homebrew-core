@@ -81,6 +81,9 @@ class Rust < Formula
       ENV["RUSTC"] = bin/"rustc"
       args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
       system "cargo", "install", *args
+      man.install Dir["src/etc/man/*"]
+      bash_completion.install "src/etc/cargo.bashcomp.sh"
+      zsh_completion.install "src/etc/_cargo"
     end
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"
