@@ -15,6 +15,10 @@ class Cvsps < Formula
     sha256 "72af55d9573f7de107155e0a5e2160a2ef45d729e3970be27e60ecacc4baebbf" => :mavericks
   end
 
+  # http://www.catb.org/~esr/cvsps/
+  # Deprecation warning: this code has been end-of-lifed by its maintainer. Use cvs-fast-export instead.
+  deprecate! :date => "2013-12-11"
+
   depends_on "asciidoc"
   depends_on "docbook"
 
