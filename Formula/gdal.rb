@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.1.0/gdal-3.1.0.tar.xz"
-  sha256 "e754a22242ccbec731aacdb2333b567d4c95b9b02d3ba1ea12f70508d244fcda"
+  url "https://download.osgeo.org/gdal/3.1.1/gdal-3.1.1.tar.xz"
+  sha256 "97154a606339a6c1d87c80fb354d7456fe49828b2ef9a3bc9ed91771a03d2a04"
 
   bottle do
     sha256 "0fa8ba696f7997dece5800fa019e886a408c9928b7ca01d2b54314f2d082b992" => :catalina
