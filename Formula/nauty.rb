@@ -1,9 +1,9 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
   homepage "https://pallini.di.uniroma1.it/"
-  url "https://pallini.di.uniroma1.it/nauty26r12.tar.gz"
-  version "26r12"
-  sha256 "862ae0dc3656db34ede6fafdb0999f7b875b14c7ab4fedbb3da4f28291eb95dc"
+  url "https://pallini.di.uniroma1.it/nauty27r1.tar.gz"
+  version "27r1"
+  sha256 "76ca5d196e402c83a987f90c28ff706bcc5a333bb4a8fbb979a62d3b99c34e77"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,25 +13,26 @@ class Nauty < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "all"
-    system "make", "nauty.a"
 
     bin.install %w[
-      NRswitchg addedgeg amtog biplabg catg complg converseg copyg countg
-      cubhamg deledgeg delptg directg dreadnaut dretodot dretog genbg genbgL
-      geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic
-      labelg linegraphg listg multig newedgeg pickg planarg ranlabg shortg
-      showg subdivideg twohamg vcolg watercluster2
+      NRswitchg addedgeg amtog assembleg biplabg catg complg converseg
+      copyg countg cubhamg deledgeg delptg directg dreadnaut dretodot
+      dretog edgetransg genbg genbgL geng gengL genquarticg genrang
+      genspecialg gentourng gentreeg hamheuristic labelg linegraphg
+      listg multig newedgeg pickg planarg ranlabg shortg showg
+      subdivideg twohamg underlyingg vcolg watercluster2
     ]
 
-    include.install "nauty.h"
+    (include/"nauty").install Dir["*.h"]
 
     lib.install "nauty.a" => "libnauty.a"
 
-    doc.install "nug26.pdf"
+    doc.install "nug27.pdf", "README", Dir["*.txt"]
+
+    # Ancillary source files listed in README
+    pkgshare.install %w[sumlines.c sorttemplates.c bliss2dre.c blisstog.c poptest.c dretodot.c]
   end
 
   test do
@@ -55,7 +56,7 @@ class Nauty < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lnauty", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}/nauty", "-L#{lib}", "-lnauty", "-o", "test"
     system "./test"
   end
 end
