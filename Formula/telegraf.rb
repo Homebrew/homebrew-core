@@ -1,8 +1,8 @@
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/v1.14.4.tar.gz"
-  sha256 "146110daee518a1abf22f03fe87b633fb1d4455c053bf4fdf8b02ea0905d0bca"
+  url "https://github.com/influxdata/telegraf/archive/v1.14.5.tar.gz"
+  sha256 "66a02a8d9afe5621bb65297f74b9f2d62fbe28415771ac1dea0a13950642684c"
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do
@@ -15,16 +15,8 @@ class Telegraf < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/influxdata/telegraf"
-    dir.install buildpath.children
-    cd dir do
-      system "go", "mod", "download"
-      system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
-      prefix.install_metafiles
-    end
-    bin.install "bin/telegraf"
-    etc.install dir/"etc/telegraf.conf" => "telegraf.conf"
+    system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "./cmd/telegraf"
+    etc.install "etc/telegraf.conf" => "telegraf.conf"
   end
 
   def post_install
