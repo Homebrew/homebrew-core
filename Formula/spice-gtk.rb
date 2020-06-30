@@ -1,9 +1,8 @@
 class SpiceGtk < Formula
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.37.tar.bz2"
-  sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
-  revision 3
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.38.tar.xz"
+  sha256 "5ae974731baf2b41316d4f0b3ae0c2e47f00bff91a5a617e189cd3dedcd96d8e"
 
   bottle do
     sha256 "c1ff4c17afdcb6dbd3e6dcaa35ef019b2ead8ee11828a289fb0ac9fd15df7139" => :catalina
@@ -11,12 +10,11 @@ class SpiceGtk < Formula
     sha256 "d1f17b78feeecfcd9f86bf0ee5f2918e81033fce629a3f2b3a9ad00300bf0ec6" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "autogen" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
 
@@ -50,22 +48,11 @@ class SpiceGtk < Formula
   end
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-introspection
-      --enable-gstvideo
-      --enable-gstaudio
-      --enable-gstreamer=1.0
-      --enable-vala
-      --with-coroutine=gthread
-      --with-gtk=3.0
-      --with-lz4
-      --prefix=#{prefix}
-    ]
-    system "autoreconf"
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
