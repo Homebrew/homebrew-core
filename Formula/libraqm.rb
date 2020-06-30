@@ -24,9 +24,6 @@ class Libraqm < Formula
     ENV["LIBTOOL"] = Formula["libtool"].bin
     ENV["PKG_CONFIG"] = Formula["pkg-config"].bin/"pkg-config"
 
-    ENV["HARFBUZZ_CFLAGS"] = "-I#{Formula["harfbuzz"].include/"harfbuzz"}"
-    ENV["HARFBUZZ_LIBS"] = Formula["harfbuzz"].lib
-
     # for the docs
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
