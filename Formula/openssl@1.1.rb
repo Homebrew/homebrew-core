@@ -39,6 +39,7 @@ class OpensslAT11 < Formula
     ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
+    arch_args << "no-asm" if Hardware::CPU.arm?
 
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
