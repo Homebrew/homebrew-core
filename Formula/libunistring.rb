@@ -27,7 +27,7 @@ class Libunistring < Formula
     (testpath/"test.c").write <<~EOS
       #include <uniname.h>
       #include <unistdio.h>
-      #include <stdio.h>
+      #include <unistr.h>
       #include <stdlib.h>
       int main (void) {
         uint32_t s[2] = {};
