@@ -11,19 +11,6 @@ jobs:
       HOMEBREW_NO_ANALYTICS: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
-      - name: Set up git information
-        uses: actions/github-script@0.9.0
-        id: env
-        with:
-          script: |
-            const user = await github.users.getByUsername({
-              username: context.actor
-            })
-            const email = (user.data.email || user.data.id + "+" + user.data.login + "@users.noreply.github.com")
-            const name = (user.data.name || user.data.login)
-            console.log("Dispatched by " + name + " <" + email + ">")
-            core.setOutput("name", name)
-            core.setOutput("email", email)
       - name: Post comment once started
         uses: actions/github-script@0.9.0
         with:
@@ -65,9 +52,7 @@ jobs:
           rm -rf $(brew --repository ${{github.repository}})
           ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
       - name: Setup git
-        run: |
-          git config --global user.name "${{steps.env.outputs.name}}"
-          git config --global user.email "${{steps.env.outputs.email}}"
+        uses: Homebrew/actions/git-user-config@master
       - name: Pull bottles
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
