@@ -3,8 +3,8 @@ class Kamel < Formula
   homepage "https://camel.apache.org/"
 
   url "https://github.com/apache/camel-k.git",
-    :tag      => "1.0.0",
-    :revision => "38c24698b16da41926be5f7984115d428a825a02"
+    :tag      => "1.0.1",
+    :revision => "21b88a3bfc07ae9fd9ff5f129ce3a22f1dfc5318"
   head "https://github.com/apache/camel-k.git"
 
   bottle do
@@ -41,7 +41,7 @@ class Kamel < Formula
     assert_match "Error: cannot get command client: could not locate a kubeconfig", get_output
 
     version_output = shell_output("echo $(#{bin}/kamel version 2>&1)")
-    assert_match "1.0.0", version_output
+    assert_match version.to_s, version_output
 
     run_output = shell_output("echo $(#{bin}/kamel run 2>&1)")
     assert_match "Error: run expects at least 1 argument, received 0", run_output
