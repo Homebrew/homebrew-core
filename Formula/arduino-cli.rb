@@ -22,7 +22,7 @@ class ArduinoCli < Formula
       -X github.com/arduino/arduino-cli/version.versionString=#{version}
       -X github.com/arduino/arduino-cli/version.commit=#{commit}
     ]
-    system "go", "build", *std_go_args, "-ldflags", ldflags
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
   end
 
   test do
