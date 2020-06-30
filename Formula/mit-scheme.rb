@@ -30,12 +30,6 @@ class MitScheme < Formula
     # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
-    # The build breaks __HORRIBLY__ with parallel make -- one target will
-    # erase something before another target gets it, so it's easier to change
-    # the environment than to change_make_var, because there are Makefiles
-    # littered everywhere
-    ENV.deparallelize
-
     resource("bootstrap").stage do
       cd "src"
       system "./configure", "--prefix=#{buildpath}/staging", "--without-x"
@@ -74,6 +68,14 @@ class MitScheme < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
     system "make"
     system "make", "install"
+    # Copy over all.com and runtime.com from the original bootstrap
+    # binaries to avoid shims
+    %w[
+      mit-scheme-x86-64/all.com
+      mit-scheme-x86-64/runtime.com
+    ].each do |f|
+      cp buildpath/"staging/lib/#{f}", lib/f
+    end
   end
 
   test do
