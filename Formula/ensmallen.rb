@@ -3,6 +3,7 @@ class Ensmallen < Formula
   homepage "https://ensmallen.org"
   url "https://github.com/mlpack/ensmallen/archive/2.12.1.tar.gz"
   sha256 "9d574de6a7096282502113bd80fe8d8ebdbbf0118b01c7fe7298b92f5f47e53b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
