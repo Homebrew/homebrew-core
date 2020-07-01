@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep.git",
-    :tag      => "v0.12.0",
-    :revision => "080eca69c9d03067dda2796af5acf52baefc1988"
+    :tag      => "v0.13.0",
+    :revision => "0d9ef514e8cc98ab8e548035240c70ab240ae9e5"
   head "https://github.com/returntocorp/semgrep.git", :branch => "develop"
 
   bottle do
