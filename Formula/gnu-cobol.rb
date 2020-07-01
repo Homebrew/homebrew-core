@@ -1,8 +1,8 @@
 class GnuCobol < Formula
-  desc "Implements much of the COBOL 85 and COBOL 2002 standards"
-  homepage "https://sourceforge.net/projects/open-cobol/"
-  url "https://downloads.sourceforge.net/project/open-cobol/gnucobol/2.2/gnucobol-2.2.tar.xz"
-  sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
+  desc "a free and modern COBOL compiler, implements much of COBOL 85-202x standards and lots of extensions"
+  homepage "https://www.gnu.org/software/gnucobol/"
+  url "https://alpha.gnu.org/gnu/gnucobol/gnucobol-3.1-rc1.tar.xz"
+  sha256 "DC18FC45C269DEBFE86A4BBE20A7250983CBA6238EA1917E135DF5926CD024A0"
   revision 1
 
   bottle do
@@ -12,13 +12,32 @@ class GnuCobol < Formula
     sha256 "257ab86b68ebb00c5e29ae347cd71f041644a779ab0c1dcf6146509546603a46" => :high_sierra
   end
 
+  head do
+    url "https://svn.code.sf.net/p/open-cobol/code/trunk", :using => :svn
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gnu-sed" => :build
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "help2man" => :build
+    depends_on "texinfo" => :build
+  end
+
   depends_on "berkeley-db"
   depends_on "gmp"
+  depends_on "cjson" => :recommended
+  # actually berkeley-db is recommended, if not used then configure must use --without-db
+  # further optional packages:
+  #    libxml2 and ncurses, but may be used from macos
+  #    lmdb  -> only for "head"
+  
 
   def install
     # both environment variables are needed to be set
     # the cobol compiler takes these variables for calling cc during its run
     # if the paths to gmp and bdb are not provided, the run of cobc fails
+    # preferable alternative: use pkg-config to set it up during configure
     gmp = Formula["gmp"]
     bdb = Formula["berkeley-db"]
     ENV.append "CPPFLAGS", "-I#{gmp.opt_include} -I#{bdb.opt_include}"
