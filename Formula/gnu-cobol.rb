@@ -25,8 +25,8 @@ class GnuCobol < Formula
   end
 
   depends_on "berkeley-db"
-  depends_on "gmp"
   depends_on "cjson"
+  depends_on "gmp"
   # actually berkeley-db is recommended, if not used then configure must use --without-db
   # cjson is also only recommended - but for homebrew-core this attribute should not be used
   # further optional packages:
