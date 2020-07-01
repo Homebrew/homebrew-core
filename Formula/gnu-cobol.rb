@@ -2,7 +2,7 @@ class GnuCobol < Formula
   desc "COBOL85-202x compiler supporting lots of dialect specific extensions"
   homepage "https://www.gnu.org/software/gnucobol/"
   url "https://alpha.gnu.org/gnu/gnucobol/gnucobol-3.1-rc1.tar.xz"
-  sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
+  sha256 "c2e41c2ba520681a67c570d7246d25c31f7f55c8a145aaec3f6273a500a93a76"
   revision 1
 
   bottle do
@@ -13,7 +13,7 @@ class GnuCobol < Formula
   end
 
   head do
-    url "https://svn.code.sf.net/p/open-cobol/code/trunk", :using => :svn
+    url "https://svn.code.sf.net/p/open-cobol/code/trunk"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -26,8 +26,9 @@ class GnuCobol < Formula
 
   depends_on "berkeley-db"
   depends_on "gmp"
-  depends_on "cjson" => :recommended
+  depends_on "cjson"
   # actually berkeley-db is recommended, if not used then configure must use --without-db
+  # cjson is also only recommended - but for homebrew-core this attribute should not be used
   # further optional packages:
   #    libxml2 and ncurses, but may be used from macos
   #    lmdb  -> only for "head"
