@@ -1,5 +1,5 @@
 class GnuCobol < Formula
-  desc "GnuCOBOL, a free and modern COBOL compiler, implements much of COBOL 85-202x standards and lots of extensions"
+  desc "COBOL85-202x compiler supporting lots of dialect specific extensions"
   homepage "https://www.gnu.org/software/gnucobol/"
   url "https://alpha.gnu.org/gnu/gnucobol/gnucobol-3.1-rc1.tar.xz"
   sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
