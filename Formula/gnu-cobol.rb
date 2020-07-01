@@ -1,8 +1,8 @@
 class GnuCobol < Formula
-  desc "a free and modern COBOL compiler, implements much of COBOL 85-202x standards and lots of extensions"
+  desc "GnuCOBOL, a free and modern COBOL compiler, implements much of COBOL 85-202x standards and lots of extensions"
   homepage "https://www.gnu.org/software/gnucobol/"
   url "https://alpha.gnu.org/gnu/gnucobol/gnucobol-3.1-rc1.tar.xz"
-  sha256 "DC18FC45C269DEBFE86A4BBE20A7250983CBA6238EA1917E135DF5926CD024A0"
+  sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
   revision 1
 
   bottle do
@@ -17,9 +17,9 @@ class GnuCobol < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "gnu-sed" => :build
     depends_on "bison" => :build
     depends_on "flex" => :build
+    depends_on "gnu-sed" => :build
     depends_on "help2man" => :build
     depends_on "texinfo" => :build
   end
@@ -31,7 +31,6 @@ class GnuCobol < Formula
   # further optional packages:
   #    libxml2 and ncurses, but may be used from macos
   #    lmdb  -> only for "head"
-  
 
   def install
     # both environment variables are needed to be set
