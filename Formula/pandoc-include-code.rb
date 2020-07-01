@@ -10,7 +10,6 @@ class PandocIncludeCode < Formula
     sha256 "86aaeb61035401d0288d5352ee6613e688c3d22ff26f785e76ef5065cf13f993" => :high_sierra
   end
 
-  license "MPL-2.0"
   head "https://github.com/owickstrom/pandoc-include-code.git"
 
   depends_on "cabal-install" => :build
