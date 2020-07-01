@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/aa/ac/fbd3d6ed1ea5e34c2e53cde5659c4f122af2d921a1ed3a63baff0742a801/borgmatic-1.5.7.tar.gz"
-  sha256 "838c3a63c8d092219ebbc07fca2ba4f62122eab1c52d0ebe29c75a256f8b1d1a"
+  url "https://files.pythonhosted.org/packages/16/72/905a5da1da114f1f4fa3bc6ed31f23fcc8ccea90a705817131a3042b0394/borgmatic-1.5.8.tar.gz"
+  sha256 "707ed1bdffd6b8bec2d74dca36cc2665081c8db8590241bf6a72a3378928dd65"
 
   bottle do
     cellar :any
@@ -37,8 +37,8 @@ class Borgmatic < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "pykwalify" do
