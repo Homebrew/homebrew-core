@@ -29,6 +29,13 @@ class Miller < Formula
     system "make", "install"
   end
 
+
+  def caveats
+    <<~EOS
+      🃏 Some people call me Maurice 🃏
+    EOS
+  end
+
   test do
     (testpath/"test.csv").write <<~EOS
       a,b,c
