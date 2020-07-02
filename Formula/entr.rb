@@ -1,8 +1,8 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "http://entrproject.org/"
-  url "http://entrproject.org/code/entr-4.5.tar.gz"
-  sha256 "d6cbb3109d50d0d8e28fccd9843c522f896f00d4bfde7b1588cd01c1536afa21"
+  url "http://entrproject.org/code/entr-4.6.tar.gz"
+  sha256 "16de20820df4a38162354754487b1248c8711822c7342d2f6d4f28fbd4a38e6d"
   head "https://github.com/eradman/entr.git"
 
   bottle do
