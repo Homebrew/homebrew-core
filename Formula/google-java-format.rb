@@ -1,8 +1,8 @@
 class GoogleJavaFormat < Formula
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/archive/google-java-format-1.7.tar.gz"
-  sha256 "199c70851146bc15c8e828f5ca78d6c2d7b338def9cc70786ac3ef5967796399"
+  url "https://github.com/google/google-java-format/archive/google-java-format-1.8.tar.gz"
+  sha256 "7ae8449441a15fc76e58d0cd69628a5e5135f01a5dea5184738c9b5ba57b525e"
 
   bottle do
     cellar :any_skip_relocation
