@@ -15,6 +15,8 @@ class Glew < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "root", :because => "root ships its own copy of glew"
+
   def install
     cd "build" do
       system "cmake", "./cmake", *std_cmake_args
