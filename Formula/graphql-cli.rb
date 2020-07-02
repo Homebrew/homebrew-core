@@ -3,8 +3,9 @@ require "language/node"
 class GraphqlCli < Formula
   desc "Command-line tool for common GraphQL development workflows"
   homepage "https://github.com/Urigo/graphql-cli"
-  url "https://registry.npmjs.org/graphql-cli/-/graphql-cli-3.0.14.tgz"
-  sha256 "bf56bbe425795198bf6fcc488f24fe10779327749671b1a331d4137684d8a72d"
+  url "https://registry.npmjs.org/graphql-cli/-/graphql-cli-4.0.0.tgz"
+  sha256 "1517777bc00b35f3ca3cc7a5a0a639ee9562871e4f4ac3b67143cabc0b4e2222"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,32 +21,33 @@ class GraphqlCli < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Avoid references to Homebrew shims
+    rm_f "#{libexec}/lib/node_modules/graphql-cli/node_modules/websocket/builderror.log"
   end
 
   test do
-    (testpath/".graphqlconfig.yaml").write <<~EOS
-      projects:
-        test:
-          schemaPath: schema.graphql
-    EOS
-
     script = (testpath/"test.sh")
     script.write <<~EOS
       #!/usr/bin/env expect -f
       set timeout -1
 
-      spawn #{bin}/graphql add-project
+      spawn #{bin}/graphql init
 
-      expect -exact "? Enter project name for new project: "
-      send -- "homebrew\r"
+      expect -exact "? What is the type of the project?"
+      send -- "1\r"
 
-      expect -exact "? Local schema file path: "
-      send -- "\r"
+      expect -exact "Select the best option for you"
+      send -- "1\r"
 
-      expect -exact "? Endpoint URL (Enter to skip): "
-      send -- "\r"
+      expect -exact "? What is the name of the project?"
+      send -- "brew\r"
 
-      expect -exact "? Is this ok? (Y/n) "
+      expect -exact "? Which template do you want to start with your new Full Stack project?"
+      send -- "1\r"
+      expect -exact "? Do you want to have GraphQL Inspector tools for your frontend?"
+      send -- "Y\r"
+      expect -exact "? Do you want to have GraphQL Inspector tools for your backend?"
       send -- "Y\r"
 
       expect eof
@@ -54,6 +56,8 @@ class GraphqlCli < Formula
     script.chmod 0700
     system "./test.sh"
 
-    assert_match "homebrew", File.read(testpath/".graphqlconfig.yaml")
+    assert_predicate testpath/"Full Stack", :exist?
+    assert_predicate testpath/"brew", :exist?
+    assert_match "full-stack-template", File.read(testpath/"brew/package.json")
   end
 end
