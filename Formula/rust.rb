@@ -1,7 +1,6 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.44.1-src.tar.gz"
@@ -82,7 +81,7 @@ class Rust < Formula
       ENV["RUSTC"] = bin/"rustc"
       args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
       system "cargo", "install", *args
-      man1.install Dir["src/etc/man/*.1"]
+      man.install Dir["src/etc/man/*"]
       bash_completion.install "src/etc/cargo.bashcomp.sh"
       zsh_completion.install "src/etc/_cargo"
     end
