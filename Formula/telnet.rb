@@ -38,7 +38,7 @@ class Telnet < Formula
                    "DSTROOT=build/Archive",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   "RC_ARCHS=%s" % Hardware::CPU.arch,
+                   "RC_ARCHS=#{Hardware::CPU.arch}",
                    "install"
 
     bin.install "telnet.tproj/build/Archive/usr/local/bin/telnet"
