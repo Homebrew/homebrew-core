@@ -32,15 +32,13 @@ class Telnet < Formula
       libtelnet_dst.install "build/Release/usr/local/include/libtelnet/"
     end
 
-    arch_arg = Hardware::CPU.arm? ? "RC_ARCHS=arm64" : "RC_ARCHS=x86_64"
-
     system "make", "-C", "telnet.tproj",
                    "OBJROOT=build/Intermediates",
                    "SYMROOT=build/Products",
                    "DSTROOT=build/Archive",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   *arch_arg,
+                   "RC_ARCHS=%s" % Hardware::CPU.arch,
                    "install"
 
     bin.install "telnet.tproj/build/Archive/usr/local/bin/telnet"
