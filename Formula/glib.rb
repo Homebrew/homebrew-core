@@ -1,9 +1,16 @@
 class Glib < Formula
+  include Language::Python::Shebang
+
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
+<<<<<<< HEAD
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.3.tar.xz"
   sha256 "fe9cbc97925d14c804935f067a3ad77ef55c0bbe9befe68962318f5a767ceb22"
   license "LGPL-2.1"
+=======
+  url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
+  sha256 "f7e0b325b272281f0462e0f7fff25a833820cac19911ff677251daf6d87bce50"
+>>>>>>> 85a7bf3831... glib 2.64.4
 
   bottle do
     sha256 "c7259832a3bf3fe8093962473718a2ca030a94c54f21cbdc46369974d6e80be8" => :catalina
@@ -32,8 +39,6 @@ class Glib < Formula
   end
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
@@ -48,9 +53,8 @@ class Glib < Formula
     mkdir "build" do
       system "meson", *args, ".."
       system "ninja", "-v"
-      # Some files have been generated with a Python shebang, rewrite these too
-      Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
       system "ninja", "install", "-v"
+      bin.find { |f| rewrite_shebang detected_python_shebang, f }
     end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
