@@ -1,8 +1,8 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
   homepage "https://www.latex2html.org"
-  url "https://github.com/latex2html/latex2html/archive/v2020.tar.gz"
-  sha256 "414194e7c5164b447b72e1f70b9cfe3e2aeb0c60d81a84def6a8a08bf47c3771"
+  url "https://github.com/latex2html/latex2html/archive/v2020.2.tar.gz"
+  sha256 "09f2d7f086fee9538523fd5074ada8ebadbdbc2227ca11d9d36189e698e5cfaf"
 
   bottle do
     cellar :any_skip_relocation
