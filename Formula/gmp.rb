@@ -21,7 +21,7 @@ class Gmp < Formula
 
     # Enable --with-pic to avoid linking issues with the static library
     args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
-    if Hardware::CPU.arm? 
+    if Hardware::CPU.arm?
       args << "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
       args << "--disable-assembly"
     else
