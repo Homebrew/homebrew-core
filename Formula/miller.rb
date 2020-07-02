@@ -29,7 +29,6 @@ class Miller < Formula
     system "make", "install"
   end
 
-
   def caveats
     <<~EOS
       🃏 Some people call me Maurice 🃏
