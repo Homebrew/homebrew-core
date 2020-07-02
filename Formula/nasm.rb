@@ -12,7 +12,7 @@ class Nasm < Formula
   end
 
   head do
-    url "https://repo.or.cz/nasm.git"
+    url "https://github.com/netwide-assembler/nasm.git"
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
