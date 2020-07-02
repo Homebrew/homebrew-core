@@ -3,7 +3,6 @@ class GnuCobol < Formula
   homepage "https://www.gnu.org/software/gnucobol/"
   url "https://alpha.gnu.org/gnu/gnucobol/gnucobol-3.1-rc1.tar.xz"
   sha256 "c2e41c2ba520681a67c570d7246d25c31f7f55c8a145aaec3f6273a500a93a76"
-  revision 1
 
   bottle do
     rebuild 1
