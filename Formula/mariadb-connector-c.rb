@@ -16,8 +16,7 @@ class MariadbConnectorC < Formula
 
   uses_from_macos "curl"
 
-  conflicts_with "mariadb",
-                 :because => "both install mariadb_config"
+  conflicts_with "mariadb", :because => "both install `mariadb_config`"
 
   def install
     args = std_cmake_args
