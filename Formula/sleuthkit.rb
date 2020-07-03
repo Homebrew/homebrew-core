@@ -20,7 +20,7 @@ class Sleuthkit < Formula
   uses_from_macos "sqlite"
 
   conflicts_with "ffind",
-    :because => "both install a 'ffind' executable."
+    :because => "both install a `ffind` executable"
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
