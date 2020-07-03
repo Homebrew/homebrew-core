@@ -20,8 +20,7 @@ class Manticoresearch < Formula
   depends_on "unixodbc" => :build
   depends_on "openssl@1.1"
 
-  conflicts_with "sphinx",
-   :because => "manticore, sphinx install the same binaries."
+  conflicts_with "sphinx", :because => "manticoresearch is a fork of sphinx"
 
   def install
     args = %W[
