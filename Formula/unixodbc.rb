@@ -14,8 +14,8 @@ class Unixodbc < Formula
 
   depends_on "libtool"
 
-  conflicts_with "libiodbc", :because => "both install 'odbcinst.h' header"
-  conflicts_with "virtuoso", :because => "Both install `isql` binaries."
+  conflicts_with "libiodbc", :because => "both install `odbcinst.h`"
+  conflicts_with "virtuoso", :because => "both install `isql` binaries"
 
   def install
     system "./configure", "--disable-debug",
