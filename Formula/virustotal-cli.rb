@@ -1,8 +1,8 @@
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
-  url "https://github.com/VirusTotal/vt-cli/archive/0.7.0.tar.gz"
-  sha256 "39a566be0e2ee1102c0bd9d3ddefa4a0e423c9ffe02962d4a48897a875312c95"
+  url "https://github.com/VirusTotal/vt-cli/archive/0.8.0.tar.gz"
+  sha256 "48de52aaafa5790e36d6522086c49c73bac3aff9a814164aa1b0c5f6487f1669"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,21 +11,12 @@ class VirustotalCli < Formula
     sha256 "118eaafec3d20e709091266c786d5121b27e0d1c8d8ded2f5c21c77046b571d5" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    repo = "github.com/VirusTotal/vt-cli"
-    (buildpath/"src/#{repo}").install buildpath.children
-
-    cd "src/#{repo}" do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-ldflags",
-             "-X #{repo}/cmd.Version=#{version}",
-             "-o", bin/"vt", "./vt/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags",
+            "-X cmd.Version=#{version}",
+            "-o", bin/"vt", "./vt/main.go"
 
     output = Utils.safe_popen_read("#{bin}/vt completion bash")
     (bash_completion/"vt").write output
