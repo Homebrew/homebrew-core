@@ -22,6 +22,10 @@ class Gmp < Formula
     sha256 "517ef7c22102e7ce15e71b75e4e4edcd2149dccfcf02a2b2f19f1407107fde18"
   end
 
+  # Remove when upstream fix is released
+  # Fixes arm64-darwin assembly/linkage issue
+  patch :DATA
+
   depends_on "autoconf" if Hardware::CPU.arm?
   depends_on "automake" if Hardware::CPU.arm?
   depends_on "libtool" if Hardware::CPU.arm?
@@ -70,3 +74,32 @@ class Gmp < Formula
     system "./test"
   end
 end
+__END__
+diff --git a/mpn/arm64/bdiv_q_1.asm b/mpn/arm64/bdiv_q_1.asm
+index ecc4fbc..4226524 100644
+--- a/mpn/arm64/bdiv_q_1.asm
++++ b/mpn/arm64/bdiv_q_1.asm
+@@ -75,7 +75,7 @@ PROLOGUE(mpn_bdiv_q_1)
+ 	mul	x6, x6, x6
+ 	msub	di, x6, d, x7
+ 
+-	b	mpn_pi1_bdiv_q_1
++	b	__pi1_bdiv_q_1
+ EPILOGUE()
+ 
+ PROLOGUE(mpn_pi1_bdiv_q_1)
+diff --git a/mpn/asm-defs.m4 b/mpn/asm-defs.m4
+index 7b7e53e..5032f69 100644
+--- a/mpn/asm-defs.m4
++++ b/mpn/asm-defs.m4
+@@ -1508,6 +1508,10 @@ deflit(__clz_tab,
+ m4_assert_defined(`GSYM_PREFIX')
+ `GSYM_PREFIX`'MPN(`clz_tab')')
+ 
++deflit(__pi1_bdiv_q_1,
++m4_assert_defined(`GSYM_PREFIX')
++`GSYM_PREFIX`'MPN(`pi1_bdiv_q_1')')
++
+ deflit(binvert_limb_table,
+ m4_assert_defined(`GSYM_PREFIX')
+ `GSYM_PREFIX`'__gmp_binvert_limb_table')
