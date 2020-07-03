@@ -19,9 +19,9 @@ class Moreutils < Formula
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build
 
-  conflicts_with "parallel", :because => "Both install a `parallel` executable."
-  conflicts_with "pwntools", :because => "Both install an `errno` executable."
-  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
+  conflicts_with "parallel", :because => "both install a `parallel` executable"
+  conflicts_with "pwntools", :because => "both install an `errno` executable"
+  conflicts_with "task-spooler", :because => "both install a `ts` executable"
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
