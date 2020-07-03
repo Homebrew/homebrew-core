@@ -1,6 +1,7 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.35.1.tar.gz"
@@ -14,9 +15,9 @@ class Crystal < Formula
 
   bottle do
     cellar :any
-    sha256 "30ff80e4ecf74d90f348b0d67f4d56a226011cc913eede7404f2aa85ad2dcf56" => :catalina
-    sha256 "3dbac82a2904c35628c7af5d55975fd15cfd5147b60c369875a7fc95ceacc88e" => :mojave
-    sha256 "997a4ea8263263d8aac54b25ec7d992b3190e328f84e03262e57cf18069dfe52" => :high_sierra
+    sha256 "c88fb022d427de1833402d63b50d3dcf1ecfdf1f04ead9d8f2cd4f55c45ac6c4" => :catalina
+    sha256 "05e3112f9d73062a6791a022b436a08c934c30cb77e11a2428056faa65e075aa" => :mojave
+    sha256 "c8ab8d42381afa9706390b8bda63f936922f26d70574542403f28047ec7d1609" => :high_sierra
   end
 
   head do
@@ -110,7 +111,7 @@ class Crystal < Formula
       #!/bin/bash
       EMBEDDED_CRYSTAL_PATH=$("#{libexec/"crystal"}" env CRYSTAL_PATH)
       export CRYSTAL_PATH="${CRYSTAL_PATH:-"$EMBEDDED_CRYSTAL_PATH:#{prefix/"src"}"}"
-      export CRYSTAL_LIBRARY_PATH="${CRYSTAL_LIBRARY_PATH:+$CRYSTAL_LIBRARY_PATH:}#{prefix/"embedded/lib"}:/usr/lib:/usr/local/lib"
+      export CRYSTAL_LIBRARY_PATH="${CRYSTAL_LIBRARY_PATH:+$CRYSTAL_LIBRARY_PATH:}#{prefix/"embedded/lib"}:/usr/local/lib"
       export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}#{Formula["openssl"].opt_lib/"pkgconfig"}"
       exec "#{libexec/"crystal"}" "${@}"
     SH

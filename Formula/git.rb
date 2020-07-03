@@ -7,9 +7,10 @@ class Git < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "5bfe46796926e48d2d78ee87e93195c0a36f7c70d9aa4ff8ab77277a6582441a" => :catalina
-    sha256 "dffad4b938672dda3aef783f88cf38d67923f8f8e68df77b198476816fd37d4f" => :mojave
-    sha256 "c9f1d9ac100e43a2e6f1df9785d98119d08bf144d862fb541c1212ccfb700041" => :high_sierra
+    rebuild 1
+    sha256 "731a77dd23d63ca8a0a5ba5c990218e37f1c8d9313fa1f9e58771cf5abd97bef" => :catalina
+    sha256 "a752212149e96e67fd8c42e1d68d7612de94bc67f06ffdc13ed7236aa33debf4" => :mojave
+    sha256 "c9b1c7d3686fac0f7006b13b1afd46e38f2d6c73dd72049d9e8fc49b1bb34599" => :high_sierra
   end
 
   depends_on "gettext"
@@ -41,7 +42,7 @@ class Git < Formula
     ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
-    perl_version = Utils.safe_popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+    perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
     ENV["PERLLIB_EXTRA"] = %W[
       #{MacOS.active_developer_dir}

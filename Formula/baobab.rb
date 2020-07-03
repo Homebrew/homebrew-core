@@ -3,11 +3,12 @@ class Baobab < Formula
   homepage "https://wiki.gnome.org/Apps/Baobab"
   url "https://download.gnome.org/sources/baobab/3.34/baobab-3.34.1.tar.xz"
   sha256 "7f981d4f135e4f80fba3f66e86b0eeedc94a2434649262ff01a5f0cb027b20c5"
+  revision 1
 
   bottle do
-    sha256 "353541c0846978cc3e7b44b9f2ad75b04e4c7515014903356ce3eb672931e27d" => :catalina
-    sha256 "09eefe6e55e61258578eb35cfe7ada9174ff17cf7daeef8dee875c2d5ca2c333" => :mojave
-    sha256 "a4f50d8cfa3cfb9f5ae6621c91767aefde34c12e1934f2f4ab5ba3587a30d281" => :high_sierra
+    sha256 "8724ad2149b4e8d51b5de9268a3a7cdd99855736478bac1dcf97b3ea6d741ac6" => :catalina
+    sha256 "21588b8f71e80696d785cbbe33284214c38f73b2a72a62f537de4e3393ed2bfa" => :mojave
+    sha256 "922b36653952a0c8e4c44678faf7d042a1e89c3b455ac1d3e46a4292606f26d9" => :high_sierra
   end
 
   depends_on "itstool" => :build

@@ -3,11 +3,12 @@ class Gtksourceview4 < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/4.6/gtksourceview-4.6.1.tar.xz"
   sha256 "63f487a7ab59612ffa9e7be1883dbd274ab1016afcede3239b93b0fc384df874"
+  revision 1
 
   bottle do
-    sha256 "d3785b03f417154f7894f8f55b7a0ca59ff173a88cf660eafee56382cc299e25" => :catalina
-    sha256 "4c958a06978f49ad25c50ccd5e2af975ac9770bd40c6f111b986bfdf5c96fe04" => :mojave
-    sha256 "cddf1622cad5a3ae1b053b9042d76e4e4cf472ca555e1a37d7fa086a4b530d81" => :high_sierra
+    sha256 "3372d364163e22dcbd3306835788a6cb6578bd8e6828a456f4d89bc8779aa756" => :catalina
+    sha256 "e0653a0d167b7daaf1642f322d4c3b40e4e068958328cefa0b5f473e0797bb00" => :mojave
+    sha256 "9ac5ec8943202490a696877b8df00395588f14cf9331c7badda0f316c8de6d97" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

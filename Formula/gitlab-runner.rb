@@ -2,15 +2,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag      => "v13.1.0",
-      :revision => "6214287e7858c309802b3627bc62d5cd060a0e75"
+      :tag      => "v13.1.1",
+      :revision => "6fbc747426d91528fcc5a7a3b47b2ef3e430bd3a"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ddc5752b93ae6dc4569ae0641ebe051e2150245ed20df654582d317832be8474" => :catalina
-    sha256 "8bd0baf785e2c7c5689f7a1ba34b5773afb40db09d6bee0d89b1487db0c4e7e1" => :mojave
-    sha256 "09bde3fbdfc356e5e98f487ca824da1fa824c8cd90fabcae65b286961c36593d" => :high_sierra
+    sha256 "3a91a0ef04cf878b0e98d0897ce58888b3872e4844f820adc7dfcfa9204653a0" => :catalina
+    sha256 "c30a9bff71c9148659bc9893231782aeb10e33b7c368e00325032dbaa8027cec" => :mojave
+    sha256 "7395fd0fc8f8344bf51a4a0bc78374f8e4131a98c5fd3308674cfddcac40ea8a" => :high_sierra
   end
 
   depends_on "go" => :build

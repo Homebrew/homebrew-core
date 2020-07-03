@@ -3,12 +3,12 @@ class Libpeas < Formula
   homepage "https://developer.gnome.org/libpeas/stable/"
   url "https://download.gnome.org/sources/libpeas/1.26/libpeas-1.26.0.tar.xz"
   sha256 "a976d77e20496479a8e955e6a38fb0e5c5de89cf64d9f44e75c2213ee14f7376"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "651336617036378ee99c5c7115a03d3f77c08b8f6bd6d58af3b8ac942663a70f" => :catalina
-    sha256 "e29d6d1f62ff47096b8e112b20c894dd5d96fdc52527636b3d1337b7b0be805a" => :mojave
-    sha256 "85b98c01fe647be16fd635743a4a14e48423da2bafeabd2aff32bfcd087de45c" => :high_sierra
+    sha256 "814ed5d3d4c27c2d831c5e2f4cd632283707e9e558d80bc61770a441abd8da0b" => :catalina
+    sha256 "e31b60a59aa04040766e6220bf732532e843e048fe197a87e82d217e79ac77b7" => :mojave
+    sha256 "ec9c9f97d99a774219e1cb280592264d90ceee1b4294c602d90df05f6694711b" => :high_sierra
   end
 
   depends_on "meson" => :build

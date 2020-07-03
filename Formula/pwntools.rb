@@ -3,14 +3,14 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://github.com/Gallopsled/pwntools"
-  url "https://files.pythonhosted.org/packages/39/d2/37c5cdb9f19b346bfd22daf5c1c49106c7277ac3f317853093bf71e3ae6a/pwntools-4.1.5.tar.gz"
-  sha256 "c0d48b468ab505eefce2d3fc1ee3479d0d42e1fbb792b87d4af1167ee2ef910c"
+  url "https://files.pythonhosted.org/packages/c1/ac/86608632e81808470c337c2966f56974e83ff8d7686a3be0d0dfe3a813bb/pwntools-4.1.7.tar.gz"
+  sha256 "9d8566d3971fced2a1566a4a767b39a046598582f9a9b6d65cc8ebc7876dbe1f"
 
   bottle do
     cellar :any
-    sha256 "816782aff25f3ae858104ab5fb45db10f1a52957f1142a4da8ce009e7142b809" => :catalina
-    sha256 "2aed0e44fd564068fc5c46a59685c6245b7886529296bb1cf7980d817bc91848" => :mojave
-    sha256 "f006deb61fe6b14d0cc6d672f7a3feda98c56fce4013f5a6f802706b6a012bda" => :high_sierra
+    sha256 "fd41703276ffdccb3c1f73056bb9d07ff51fa10f251f3a57b0c0d901913e4f21" => :catalina
+    sha256 "102c8488fc5fc12c1d06aca9dac49c70dcf86549e08b8732a05799538b812889" => :mojave
+    sha256 "36ca00eff0f500882ba80f4ac3b9eed850b49692a5b22b7a8a9f252ea97acd5c" => :high_sierra
   end
 
   depends_on "openssl@1.1"

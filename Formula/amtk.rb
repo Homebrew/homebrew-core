@@ -3,11 +3,12 @@ class Amtk < Formula
   homepage "https://wiki.gnome.org/Projects/Amtk"
   url "https://download.gnome.org/sources/amtk/5.0/amtk-5.0.2.tar.xz"
   sha256 "71cc891fbaaa3d0cb87eeef9a2f7e1a2acab62f738d09ea922fb4b9ea2f84f86"
+  revision 1
 
   bottle do
-    sha256 "297402e4b375cfdaa49c9b257336290ade7b21f2808f5446f0c377c9d515b6d1" => :catalina
-    sha256 "9ed596da18bfcb188d0fa586f9f34ef39ca9fd8bdfaff8cfcb48bbd5f5221539" => :mojave
-    sha256 "ce27bff89e6ca83c5a232780d8db8c89f241b6b1ea1cc51011b2c08492fcd081" => :high_sierra
+    sha256 "539876f4666d5338b21594ab5e2de55cf8d13813cd5525713cc08e46f2e42a90" => :catalina
+    sha256 "dba9b06ac527c556fca194606ed68ebad20d3fdf7d6b809d547f9edec00c99cd" => :mojave
+    sha256 "5ca2f1ec7a77b82e1e02dcc3e3a603f83247f9235c376ebf955608c27d8a6397" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

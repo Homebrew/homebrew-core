@@ -25,8 +25,7 @@ class Telnet < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
-      # Force 64 bit-only build, otherwise it fails on Mojave
-      xcodebuild "SYMROOT=build", "-arch", "x86_64"
+      xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
 
       libtelnet_dst = buildpath/"telnet.tproj/build/Products"
       libtelnet_dst.install "build/Release/libtelnet.a"
@@ -39,7 +38,7 @@ class Telnet < Formula
                    "DSTROOT=build/Archive",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   "RC_ARCHS=x86_64", # Force 64-bit build for Mojave
+                   "RC_ARCHS=#{Hardware::CPU.arch}",
                    "install"
 
     bin.install "telnet.tproj/build/Archive/usr/local/bin/telnet"

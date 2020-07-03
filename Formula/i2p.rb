@@ -7,18 +7,18 @@ class I2p < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     (buildpath/"path.conf").write "INSTALL_PATH=#{libexec}"
 
-    system "#{Formula["openjdk"].opt_bin}/java", "-jar", "i2pinstall_#{version}.jar",
+    system "#{Formula["openjdk@11"].opt_bin}/java", "-jar", "i2pinstall_#{version}.jar",
                                                  "-options", "path.conf", "-language", "eng"
 
     wrapper_name = "i2psvc-macosx-universal-64"
     libexec.install_symlink libexec/wrapper_name => "i2psvc"
-    (bin/"eepget").write_env_script libexec/"eepget", :JAVA_HOME => Formula["openjdk"].opt_prefix
-    (bin/"i2prouter").write_env_script libexec/"i2prouter", :JAVA_HOME => Formula["openjdk"].opt_prefix
+    (bin/"eepget").write_env_script libexec/"eepget", :JAVA_HOME => Formula["openjdk@11"].opt_prefix
+    (bin/"i2prouter").write_env_script libexec/"i2prouter", :JAVA_HOME => Formula["openjdk@11"].opt_prefix
     man1.install Dir["#{libexec}/man/*"]
   end
 

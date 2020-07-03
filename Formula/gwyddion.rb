@@ -1,13 +1,13 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.55/gwyddion-2.55.tar.gz"
-  sha256 "5c247e3dd459f43f7a1e224ff1d2b071cfffa32e14e571a193892064aa458ba5"
+  url "http://gwyddion.net/download/2.56/gwyddion-2.56.tar.gz"
+  sha256 "4714ebd28482decceb0d9f83f7af200df5919530e02416b8b2121affe5ae6818"
 
   bottle do
-    sha256 "4d0bac6254f4480cd3b8cdaf15761505c012c6a97d9301a3331abdaec6341518" => :catalina
-    sha256 "17e7b9380edc09815e6213c6efc5b61464ae68fa6005606dfa977ae70e7af742" => :mojave
-    sha256 "1967a856355eddbbc34f61b7b75226ffd82b4a30aaf949237e2292b845a33931" => :high_sierra
+    sha256 "4172123e804c37db82b8b2ce473f36f4f644f1c2af6029f4e36a35576f792635" => :catalina
+    sha256 "a7d84f53539e1f9d77e0f11ccddd17a000733bf50d169c1af567ed157755502f" => :mojave
+    sha256 "e9a3d12639dc7018e50a0b422b5ea144a651c692818b9e7eb5b168670b8462d3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

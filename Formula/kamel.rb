@@ -3,15 +3,15 @@ class Kamel < Formula
   homepage "https://camel.apache.org/"
 
   url "https://github.com/apache/camel-k.git",
-    :tag      => "1.0.0",
-    :revision => "38c24698b16da41926be5f7984115d428a825a02"
+    :tag      => "1.0.1",
+    :revision => "21b88a3bfc07ae9fd9ff5f129ce3a22f1dfc5318"
   head "https://github.com/apache/camel-k.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7ec8586715a660ab0b640c842e582db9cd7c5a533c0cfe6d8adf6b794018cbaa" => :catalina
-    sha256 "56c045f37e84b5bbad71e9eb46fedd2e7e4db914a6212d46276b06dcb0cb5403" => :mojave
-    sha256 "ba15c2fb6f75861c545c2a4c013b855b49a3238f352afaa5c71ff3437f297405" => :high_sierra
+    sha256 "a1179ff945ce1b94dfb803c84f2085af89ea7938f79a78c2097941ac8c08dcff" => :catalina
+    sha256 "9629e063b3965d77b910b6fea258c357922416331f80cf5b5004b577d69cfa03" => :mojave
+    sha256 "e484a3a6241e35dc03a1ff089764ddaa6f405231d4636330d33e078974e3865c" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -41,7 +41,7 @@ class Kamel < Formula
     assert_match "Error: cannot get command client: could not locate a kubeconfig", get_output
 
     version_output = shell_output("echo $(#{bin}/kamel version 2>&1)")
-    assert_match "1.0.0", version_output
+    assert_match version.to_s, version_output
 
     run_output = shell_output("echo $(#{bin}/kamel run 2>&1)")
     assert_match "Error: run expects at least 1 argument, received 0", run_output

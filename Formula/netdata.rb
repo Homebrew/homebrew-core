@@ -1,13 +1,13 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.23.0/netdata-v1.23.0.tar.gz"
-  sha256 "27c4968fb9ad7ba93d23fc0a8b242a722da4da655e342fa5b3eaa5948d4ae488"
+  url "https://github.com/netdata/netdata/releases/download/v1.23.1/netdata-v1.23.1.tar.gz"
+  sha256 "2bc16dbe9eb7a41513efc068e4c78af6b8fde0549fbe1c99a87205c8101d33db"
 
   bottle do
-    sha256 "b5be4242da66ef1c8d5eba52c0c668d5c908c503af016cce5dd3ebcc6de9a7b6" => :catalina
-    sha256 "a8e4a1658ff554a5c76cfc576f57e348a9013d6f4c2b54868ad82d8f3f3212d9" => :mojave
-    sha256 "c29ecf2cde02894688876521010485299f26e91c52879a32aae9642d0af3ce4a" => :high_sierra
+    sha256 "f4a10ab5fc5de3ed2a22df5159601d3a58c7e650b5711f8b2af346cb8773ae11" => :catalina
+    sha256 "85f267f4b8044a01f779691cee74a3ed3dd4442c0939f1d0563c735d67a0bd81" => :mojave
+    sha256 "e2fff21180f6e29b794a8a9a5222ebffc406a6e53a0eac208d9c63a5046fc228" => :high_sierra
   end
 
   depends_on "autoconf" => :build

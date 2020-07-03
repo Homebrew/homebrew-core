@@ -3,12 +3,12 @@ class EasyTag < Formula
   homepage "https://projects.gnome.org/easytag"
   url "https://download.gnome.org//sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "24cb5501265cc7bb90a83d648dfb6f13319b9cfdcd6df378947ee6c0729a58d1" => :catalina
-    sha256 "d8afc8a319869681aebbd12e839dccb9a594477ab5a874907af94c3997220ade" => :mojave
-    sha256 "f61312175726838a562db215aa076c1924aa7c038ec2b90099a9bbeedfb1b94a" => :high_sierra
+    sha256 "6fda43462f5a0942e376131e368c1bbf77ce073342bbaa2b78287f96761ab062" => :catalina
+    sha256 "7740222af438d4b9a7dc9b176d0bc3f76a96e523b041ed48a6e4d542fc660684" => :mojave
+    sha256 "150b21e06df0c5a2299ad2c4ed0b020237c1c13d570f4ad4b09549fc0a52eba2" => :high_sierra
   end
 
   depends_on "intltool" => :build

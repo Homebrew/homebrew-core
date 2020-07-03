@@ -3,12 +3,12 @@ class FileRoller < Formula
   homepage "https://wiki.gnome.org/Apps/FileRoller"
   url "https://download.gnome.org/sources/file-roller/3.36/file-roller-3.36.2.tar.xz"
   sha256 "268f7fdad8d2a78dfed5e82eb8710bad389c311b720666d6f07a04ed51056bd2"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "ad0c1b0d39b61d0a105f8cde1be322d5b7fe33a342fff49ed4ec00ae305b2020" => :catalina
-    sha256 "352425588d02daa4819afd6ff188364910db5545eb8a3745659e2393006ed626" => :mojave
-    sha256 "4f44da8566ebfc9122d08fc6490f3a4ce585ad6b73490e20583df37e65a1d549" => :high_sierra
+    sha256 "1f40f32ba82ba12527c78cd3d4657a15b7b0aa6baface98da837de70630d9e26" => :catalina
+    sha256 "da9e2dea4e80b26ed582ad5cd1516b29dbc0cd9929b0cd0a796ba1d8df140157" => :mojave
+    sha256 "2c1df7ce4eb84dfcedbb9b92d05d4a44462ace1910cd7b20f5de252624ac9fd2" => :high_sierra
   end
 
   depends_on "itstool" => :build

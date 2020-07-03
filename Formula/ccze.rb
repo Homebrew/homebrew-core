@@ -7,11 +7,14 @@ class Ccze < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "8db7bc8c44c05aa107468a5f0b6e3d56a7072f698d85337cb97efa537b20d424" => :catalina
-    sha256 "22a65a5daecfba0918a535040b81a7ba75a01b9421742c6de80e28bc88721fc5" => :mojave
-    sha256 "506875e8cc54203395a7aad87f8e1d4eebaa0ecc55095556e0f27c214b9fd23f" => :high_sierra
+    rebuild 2
+    sha256 "1d7fe7ec73840e77d3f76f6f9d38757e4ab62d9d6a951e6d9ccf83782f73a29a" => :catalina
+    sha256 "f748556612ca69454aec71083d8cedbb3def5091c9663c7df046c597fe26048f" => :mojave
+    sha256 "fdc8abe565f7cec57dd3461d6840e2676c556fa54eaccada60df4958310ff8a7" => :high_sierra
   end
+
+  # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`
+  deprecate! :date => "2020-05-24"
 
   depends_on "pcre"
 

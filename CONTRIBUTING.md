@@ -22,6 +22,8 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * `git commit` with message formatted `foo 2.3.4 (new formula)`
 * [open a pull request](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request) and fix any failing tests
 
+Once you've addressed any potential feedback and a member of the Homebrew org has approved your pull request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
+
 ### To contribute a fix to the `foo` formula
 
 If you are already well versed in the use of `git`, then you can find the local
@@ -53,5 +55,7 @@ follows:
 * test your changes using the commands listed above
 * run `git commit` with message formatted `foo <insert new version number>` or `foo: <insert details>`
 * open a pull request as described in the introduction linked to above, wait for the automated test results, and fix any failing tests
+
+Once you've addressed any potential feedback and a member of the Homebrew org has approved your pull request, the [BrewTestBot](https://github.com/BrewTestBot) will automatically merge it a couple of minutes later.
 
 Thanks!

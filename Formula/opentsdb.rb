@@ -3,14 +3,13 @@ class Opentsdb < Formula
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.1/opentsdb-2.3.1.tar.gz"
   sha256 "4dba914a19cf0a56b1d0cc22b4748ebd0d0136e633eb4514a5518790ad7fc1d1"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d69dc06b39bbd3c886e984c6819a13e805fb47fb3535a1d42011e1bf7012475" => :catalina
-    sha256 "77dafdce7c2266014bb30a23305ed8398105b817709f75b366f526f6d0a7ae29" => :mojave
-    sha256 "2acf457946206c1e66ca10f4da7dc1befd08876190031b66c9543652e03eda83" => :high_sierra
-    sha256 "0fd255aa6371bdfbf074e775dcba6191a8e38cea2d8eec265401919df576da2b" => :sierra
+    sha256 "c7a7848d2299118c202814b09e6ca78e06633b37466b13fe345bd0473195331a" => :catalina
+    sha256 "11f786340e681f624b8377062449c2d71c6e2aaaec7c286acdac6d5d761c25d6" => :mojave
+    sha256 "61eb190b7e44b4cfad0c1aceb09bd56525195ae5ec87bf6c63108f4e373d5dcc" => :high_sierra
   end
 
   depends_on "gnuplot"
@@ -124,21 +123,17 @@ class Opentsdb < Formula
 
       tsdb_err = "#{testpath}/tsdb.err"
       tsdb_out = "#{testpath}/tsdb.out"
-      tsdb_daemon_pid = fork do
+      fork do
         $stderr.reopen(tsdb_err, "w")
         $stdout.reopen(tsdb_out, "w")
         exec("#{bin}/start-tsdb.sh")
       end
       sleep 15
 
-      begin
-        pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
+      pipe_output("nc localhost 4242 2>&1", "put homebrew.install.test 1356998400 42.5 host=webserver01 cpu=0\n")
 
-        system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum",
-                              "homebrew.install.test", "host=webserver01", "cpu=0"
-      ensure
-        Process.kill(9, tsdb_daemon_pid)
-      end
+      system "#{bin}/tsdb", "query", "1356998000", "1356999000", "sum",
+             "homebrew.install.test", "host=webserver01", "cpu=0"
     ensure
       system "#{Formula["hbase"].opt_bin}/stop-hbase.sh"
     end

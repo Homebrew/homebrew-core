@@ -1,50 +1,47 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/1.3.5/hbase-1.3.5-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/1.3.5/hbase-1.3.5-bin.tar.gz"
-  sha256 "71837369f67c98afd978256ae4012b774fed27dcfbefc30293311e534a376c93"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.2.3/hbase-2.2.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.2.3/hbase-2.2.3-bin.tar.gz"
+  sha256 "ea8fa72aa6220e038e30bd7c439d181b10bd7225383f7f2d224ebb5f5397310a"
 
   bottle do
-    sha256 "a177355b8ce34287e500aeabb66b78ade4ada4b529166e686dc354a4edee6830" => :catalina
-    sha256 "29ee8f76f61fe2f63fdedf9ea134102f0ee81ac845def37b4d2a981dd8bdcbbc" => :mojave
-    sha256 "2a742f55e213f602128e8b706636ea5020b4771bd0cb3b49bd0370aba09ff840" => :high_sierra
-    sha256 "a3b8e770d3410633bc19be0f41d0c2e4e9702e922d7688069663595769c80702" => :sierra
+    sha256 "a9ec56fc8c2a4629decb24c71c940f6fe455f5805d8935d5bc5f735cc1598711" => :catalina
+    sha256 "1c7e1f742b67d5309ff781c8956e6626a618218f340df3a829c43179b2b2c11b" => :mojave
+    sha256 "188b5091ec942c61b789b823aa3537a0cb0ffc808d7c20a37262c18899c5e394" => :high_sierra
   end
 
   depends_on "ant" => :build
-  # 64 bit is required because of three things:
-  # the lzo jar has a native extension
-  # building native extensions requires a version of java that matches the architecture
-  # there is no 32 bit version of java for macOS since Java 1.7, and 1.8 is required for hbase
-  depends_on :arch => :x86_64
-  depends_on :java => "1.8"
   depends_on "lzo"
+  depends_on "openjdk@11"
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
     sha256 "aa8ddbb8b3f9e1c4b8cc3523486acdb7841cd97c002a9f2959c5b320c7bb0e6c"
+
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b89da3afad84bbf69deed0611e5dddaaa5d39325/hbase/build.xml.patch"
+      sha256 "d1d65330a4367db3e17ee4f4045641b335ed42449d9e6e42cc687e2a2e3fa5bc"
+    end
   end
 
   def install
+    java_home = Formula["openjdk@11"].opt_prefix
     rm_f Dir["bin/*.cmd", "conf/*.cmd"]
-    libexec.install %w[bin conf docs lib hbase-webapps]
+    libexec.install %w[bin conf lib hbase-webapps]
 
     # Some binaries have really generic names (like `test`) and most seem to be
     # too special-purpose to be permanently available via PATH.
     %w[hbase start-hbase.sh stop-hbase.sh].each do |script|
-      (bin/script).write_env_script "#{libexec}/bin/#{script}", Language::Java.java_home_env("1.8")
+      (bin/script).write_env_script "#{libexec}/bin/#{script}", :JAVA_HOME => "${JAVA_HOME:-#{java_home}}"
     end
 
     resource("hadoop-lzo").stage do
       # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/HEAD/build.xml#L235
-      inreplace "build.xml",
-                %r{(<class name="com.hadoop.compression.lzo.LzoDecompressor" />)},
-                "\\1\n<classpath refid=\"classpath\"/>"
       ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
       ENV["CFLAGS"] = "-m64"
       ENV["CXXFLAGS"] = "-m64"
-      ENV["CPPFLAGS"] = "-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers"
+      ENV["CPPFLAGS"] = "-I#{Formula["openjdk@11"].include}"
       system "ant", "compile-native", "tar"
       (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
       (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
@@ -54,17 +51,15 @@ class Hbase < Formula
       # upstream bugs for ipv6 incompatibility:
       # https://issues.apache.org/jira/browse/HADOOP-8568
       # https://issues.apache.org/jira/browse/HADOOP-3619
-      s.gsub!("export HBASE_OPTS=\"-XX:+UseConcMarkSweepGC\"",
-              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
-      s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
-              "export JAVA_HOME=\"$(/usr/libexec/java_home --version 1.8)\"")
-      # avoid deprecated-option warning issued by Java 8
-      s.gsub!(" -XX:PermSize=128m -XX:MaxPermSize=128m", "")
+      s.gsub! /^export HBASE_OPTS=.*/,
+              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\""
+      s.gsub! /^# export JAVA_HOME=.*/,
+              "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\""
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
-      s.gsub!(/^# export HBASE_LOG_DIR=.*$/,
-              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\"")
+      s.gsub! /^# export HBASE_LOG_DIR=.*$/,
+              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\""
     end
 
     # makes hbase usable out of the box
@@ -155,12 +150,14 @@ class Hbase < Formula
   end
 
   test do
+    port = free_port
     assert_match "HBase #{version}", shell_output("#{bin}/hbase version 2>&1")
 
     cp_r (libexec/"conf"), testpath
     inreplace (testpath/"conf/hbase-site.xml") do |s|
       s.gsub! /(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>"
       s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
+      s.gsub! /(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>"
     end
 
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
@@ -170,7 +167,7 @@ class Hbase < Formula
     system "#{bin}/start-hbase.sh"
     sleep 10
     begin
-      assert_match "Zookeeper", pipe_output("nc 127.0.0.1 2181 2>&1", "stats")
+      assert_match "Zookeeper", pipe_output("nc 127.0.0.1 #{port} 2>&1", "stats")
     ensure
       system "#{bin}/stop-hbase.sh"
     end

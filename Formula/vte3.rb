@@ -3,11 +3,12 @@ class Vte3 < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.60/vte-0.60.3.tar.xz"
   sha256 "feb76e1181a357d86112d447a08d127e2081438df76ece83243b18609dd9822a"
+  revision 1
 
   bottle do
-    sha256 "556276756ab64a8376d5ba523cb414dfe86344828bab24c30c97e5ee8d2815c4" => :catalina
-    sha256 "cd6b5531605b177e1c3831f7a40d16a8c6fcc38fa3fdacd07a30079a98ed7768" => :mojave
-    sha256 "2eb0360ba2def0ccdf24ee92ef056bf879ab6fc56d358e8b2869142b145ea4f6" => :high_sierra
+    sha256 "783483804a85b6616bea1754e8c9f7695938eb34ce5ea86723b23221e508fcf2" => :catalina
+    sha256 "69ecc587660a67fa8138063a7152af533fa6dd9841a8b84021f78099380f043f" => :mojave
+    sha256 "a06d9e99ed510244171aaee721971bb9b7a2ac33c4dcfa354ec0b68e56b7bd2e" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

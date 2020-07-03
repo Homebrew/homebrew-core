@@ -1,14 +1,14 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.1.1.tar.xz"
-  sha256 "f72214046df8aae2b1a5c6d1ad0bc8b166aa060df5b008f6e88b4f6ba79cbf4e"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.1.2.tar.xz"
+  sha256 "caa4f941caf39080184554fb1310f383eba4b30d9c4c2215670d6b0a2de8f836"
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
-    sha256 "fd5b8ce098b349dfddd50a923763fd605f38f7aadffb655e62f30ec1b0da893f" => :catalina
-    sha256 "b91ebd34fe0d2742006856a58b53714138743c504147a4d87220931733c41730" => :mojave
-    sha256 "9a84bb0b6c69023e5e722df92cac31f9d4a0627aeac36bfe6a27f74845a38c36" => :high_sierra
+    sha256 "341d13941123e359dc5f1cb6147e6058296691c95ea2cfe4a2a436d1125ae9e1" => :catalina
+    sha256 "7a861d87a84b2e8572bb9b76fbd3768b516821dc046c1a34f1d27caa4b511748" => :mojave
+    sha256 "5050ebacd49658cde25168edc4e40575dfb1934b554eac5b1e28c29dfc520cea" => :high_sierra
   end
 
   depends_on "meson" => :build

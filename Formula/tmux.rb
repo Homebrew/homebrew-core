@@ -6,9 +6,10 @@ class Tmux < Formula
 
   bottle do
     cellar :any
-    sha256 "f26bd0c3f5696350dcaf229d0fadaf6ab677c0ebbb550fc499ca0a37da59ab55" => :catalina
-    sha256 "e9995ca765078be9cfdef4f1b6a628bcded0e96e36649e084a7f5480d165547a" => :mojave
-    sha256 "7a04ece8143c0647be18bb14c160a984a5a9f855fa2ee888d21fc19374790ee5" => :high_sierra
+    rebuild 1
+    sha256 "785c1b2e2518478621eb5ac894b3f0ed06d8fdc4d223dd476451ab26974e3803" => :catalina
+    sha256 "a8fb2df02c2e094404b6c56e2b9d15a35abd012913771ad311e08cc3572f0e4b" => :mojave
+    sha256 "5d43e03fc71740ec38c98b309adb2b6d198a20fcb14f76bc163232fda61fac23" => :high_sierra
   end
 
   head do
@@ -22,7 +23,10 @@ class Tmux < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "ncurses"
-  depends_on "utf8proc"
+
+  # Old versions of macOS libc disagree with utf8proc character widths.
+  # https://github.com/tmux/tmux/issues/2223
+  depends_on "utf8proc" if MacOS.version >= :high_sierra
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
@@ -33,11 +37,12 @@ class Tmux < Formula
     system "sh", "autogen.sh" if build.head?
 
     args = %W[
-      --enable-utf8proc
       --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
     ]
+
+    args << "--enable-utf8proc" if MacOS.version >= :high_sierra
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args

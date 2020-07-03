@@ -3,15 +3,16 @@ class Questdb < Formula
   homepage "https://www.questdb.io"
   url "https://github.com/questdb/questdb/releases/download/5.0.1/questdb-5.0.1-no-jre-bin.tar.gz"
   sha256 "812c4d9e9aab003d39374a63b5de865762d35b72c9776c87f5556944aad4d36e"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@11"
 
   def install
     rm_rf "questdb.exe"
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/questdb.sh" => "questdb"
+    (bin/"questdb").write_env_script libexec/"questdb.sh", :java_version => "11"
   end
 
   plist_options :manual => "questdb start"
@@ -59,7 +60,7 @@ class Questdb < Formula
     mkdir_p testpath/"data"
     begin
       fork do
-        exec "#{bin}/questdb start -d  #{testpath}/data"
+        exec "#{bin}/questdb start -d #{testpath}/data"
       end
       sleep 30
       output = shell_output("curl -Is localhost:9000/index.html")

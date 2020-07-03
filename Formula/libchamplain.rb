@@ -3,12 +3,13 @@ class Libchamplain < Formula
   homepage "https://wiki.gnome.org/Projects/libchamplain"
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz"
   sha256 "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b6be73601f13ea2e273909b9946071e1904ef379d1b001366f347d78b5a8643c" => :catalina
-    sha256 "9722cf78615bca8249d01e0df046ac75cfa056afe66fdf88eadbb4cc442a9665" => :mojave
-    sha256 "0ab75bc1d716f572c0eeef649f8bbdd390e87debb519faa6e350d02646139b09" => :high_sierra
+    sha256 "fedbe30042344858891ce3163a927ff83ae17ee2759d962bf197889cd741ba4e" => :catalina
+    sha256 "030d34bf228b24ad645e21c3145c4c105aeceefd38313b2ef0367f93faf97699" => :mojave
+    sha256 "8e3f324c075a081b82df5235d63386c2dee530606e8f51eb35f5e4d417c45371" => :high_sierra
   end
 
   depends_on "gnome-common" => :build

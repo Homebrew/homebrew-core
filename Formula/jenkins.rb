@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://jenkins.io/"
-  url "http://mirrors.jenkins.io/war/2.242/jenkins.war"
-  sha256 "95d4e5f6353d6227dd96903a7d892815b6764aa249644724b5c267ac7c1673d2"
+  url "http://mirrors.jenkins.io/war/2.243/jenkins.war"
+  sha256 "b63815fcc5fe9738978462d8ab7659f5f8fd6576a27ce94da57365a3cafb80a4"
 
   head do
     url "https://github.com/jenkinsci/jenkins.git"
@@ -11,17 +11,17 @@ class Jenkins < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@11"
 
   def install
     if build.head?
       system "mvn", "clean", "install", "-pl", "war", "-am", "-DskipTests"
     else
-      system "jar", "xvf", "jenkins.war"
+      system "#{Formula["openjdk@11"].opt_bin}/jar", "xvf", "jenkins.war"
     end
     libexec.install Dir["**/jenkins.war", "**/jenkins-cli.jar"]
-    bin.write_jar_script libexec/"jenkins.war", "jenkins", :java_version => "1.8"
-    bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-cli", :java_version => "1.8"
+    bin.write_jar_script libexec/"jenkins.war", "jenkins", :java_version => "11"
+    bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-cli", :java_version => "11"
   end
 
   def caveats
@@ -42,11 +42,7 @@ class Jenkins < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>/usr/libexec/java_home</string>
-            <string>-v</string>
-            <string>1.8</string>
-            <string>--exec</string>
-            <string>java</string>
+            <string>#{Formula["openjdk@11"].opt_bin}/java</string>
             <string>-Dmail.smtp.starttls.enable=true</string>
             <string>-jar</string>
             <string>#{opt_libexec}/jenkins.war</string>

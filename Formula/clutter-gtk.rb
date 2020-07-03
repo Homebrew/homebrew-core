@@ -3,12 +3,12 @@ class ClutterGtk < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz"
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "2070f5b3fe4a7c8772fa878e3dbf1248e0dfe4d37ed5474aa10d4c27621a7ae3" => :catalina
-    sha256 "dc49dd1f20acd2fe4f0670e3a7d547831a998f5a1660f88b3c16ec45af63c041" => :mojave
-    sha256 "476db379f8fef52caa97c7880f17a0a978bfafad7821856adb8152b57f767abb" => :high_sierra
+    sha256 "4b5c17d3567f1a5c03f98ccc8d9275f07fa733770d4ee741800505b8894442a1" => :catalina
+    sha256 "665ed256370965e0f1e8660bf1f0372a7e5a9ea0fde176c06cb4c8e390a0739c" => :mojave
+    sha256 "90929f36d6105b2b046e32f2d661c91305b785da535a7654fde19eb89617008e" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

@@ -3,11 +3,12 @@ class Libgweather < Formula
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
   url "https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz"
   sha256 "de2709f0ee233b20116d5fa9861d406071798c4aa37830ca25f5ef2c0083e450"
+  revision 1
 
   bottle do
-    sha256 "91ee84da62437a5ffc319aa99b76abbeee6f97fb22e82014be5b496941978acd" => :catalina
-    sha256 "5885e3662391556b98f57fa3864d762c71aa2f57457ef25c2628a331b098d284" => :mojave
-    sha256 "ab9dc76afc463b12f3a0e3f7fc47bf74b882c674502062c4ed9a8a817a14ba5c" => :high_sierra
+    sha256 "52010805ebdedbc7761a4bb2cc2e33af60c6c788ce6262f47b182aeb4c222e36" => :catalina
+    sha256 "15d6e0f13efe2a3a4be42dbd2ee5e8830c840571bc614580490972e0bff9e23b" => :mojave
+    sha256 "4626a11133788aee3a06e6de45b6a653731f2a91137a61b914c1e566a155fb10" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build

@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.18.tar.xz"
-  sha256 "f5eaff7f4602e44a9ca7bfad5382d7a73e509a8f00b0bcab91c198d096172ad2"
-  revision 1
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.21.tar.xz"
+  sha256 "aeea6ae7cd35e83dfc7699be716519faefca346c62e784dd1a37d9df94c08f52"
 
   bottle do
-    sha256 "a45ed17500b46bd419b997e075fb3a582879f3047015fe9cb66e16160ea3f15b" => :catalina
-    sha256 "f81129c8d12fc7add02cab6767463ec2e6a39175d3a1cccb39481da0074db573" => :mojave
-    sha256 "ea6753e8e8266c289c131211ee420527673f5c5339d6128cafe052241fb82cf9" => :high_sierra
+    sha256 "d0db8f581501a4046ba74ca0f3666f96a1c211f39961395b83375edb17247f43" => :catalina
+    sha256 "4ee0638ebd51d281f71b42fbb3db48d5888877d08399d8c8226e3f87c9ee4ec3" => :mojave
+    sha256 "b3aba62ebbae85a9a3686e099f4cfaa1e81d5d4a52de3dbf783740bd6be47764" => :high_sierra
   end
 
   depends_on "docbook" => :build
@@ -26,10 +25,6 @@ class Gtkx3 < Formula
   depends_on "pango"
 
   uses_from_macos "libxslt" => :build # for xsltproc
-
-  # Fixes version in pkg-config file -> remove when gtk+3 is updated
-  # See https://github.com/Homebrew/linuxbrew-core/issues/20221
-  patch :DATA
 
   def install
     args = std_meson_args + %w[
@@ -127,17 +122,3 @@ class Gtkx3 < Formula
     assert_match version.to_s, shell_output("cat #{lib}/pkgconfig/gtk+-3.0.pc").strip
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 0240cc3..7ec6a9e 100644
---- a/meson.build
-+++ b/meson.build
-@@ -1,5 +1,5 @@
- project('gtk+-3.0', 'c',
--        version: '3.24.17',
-+        version: '3.24.18',
-         default_options: [
-           'buildtype=debugoptimized',
-           'warning_level=1'
-

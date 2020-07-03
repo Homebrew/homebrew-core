@@ -6,9 +6,10 @@ class Nebula < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d3c7165792a6af1ca242ad8cb2e1466eb2ed29973f0b0a303cc1b995389a7d8" => :catalina
-    sha256 "3da3e3c250ab1727bff0b22c0d84daa4d6ea52d113b46626d6990bdc046cdfd2" => :mojave
-    sha256 "f82f0b0f5d11c9b5e82ee2719270f9a5260689c75fe4074e499c3891b0a177bd" => :high_sierra
+    rebuild 1
+    sha256 "4a8afd93fe529dae21fdbd7a9fa25d0aee5411b1601563f660bbd4b539488645" => :catalina
+    sha256 "71d30d68a8a92cd82a522348010020a358e50487571f0e147deb89d1afefdadb" => :mojave
+    sha256 "ed3fa03a2fe956c9cf610d17a8df6b60e3d75508c15dc3fd46c47cd7decf2967" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -19,6 +20,38 @@ class Nebula < Formula
     bin.install "./nebula"
     bin.install "./nebula-cert"
     prefix.install_metafiles
+  end
+
+  plist_options :startup => true
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/nebula</string>
+          <string>-config</string>
+          <string>#{etc}/nebula/config.yml</string>
+        </array>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/nebula.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/nebula.log</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <dict>
+          <key>NetworkState</key>
+          <true/>
+        </dict>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

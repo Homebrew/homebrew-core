@@ -1,37 +1,38 @@
 class Nauty < Formula
   desc "Automorphism groups of graphs and digraphs"
   homepage "https://pallini.di.uniroma1.it/"
-  url "https://pallini.di.uniroma1.it/nauty26r12.tar.gz"
-  version "26r12"
-  sha256 "862ae0dc3656db34ede6fafdb0999f7b875b14c7ab4fedbb3da4f28291eb95dc"
+  url "https://pallini.di.uniroma1.it/nauty27r1.tar.gz"
+  version "27r1"
+  sha256 "76ca5d196e402c83a987f90c28ff706bcc5a333bb4a8fbb979a62d3b99c34e77"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8a50e7c738926c887d8b460d2fcd4c2f888e21f8f6f5c3d42315d69c3781853" => :catalina
-    sha256 "e2adc9f094ff8a25d44f23f7772ccea4b229729869f646e4d7af2aacf090e8fd" => :mojave
-    sha256 "b2faeacdb5b39f262d7e444ea7bb63ba8ff752e55ee83cd75311b212bfbb5ba5" => :high_sierra
+    sha256 "5d118260b6fdabceb476c1421e4b4dd41d3027943b623ff7a4dc81baf6e284b9" => :catalina
+    sha256 "2fa3783663f6e67d9a6e42c492c68412fdeeff7201d81e557b75927ff50b78f1" => :mojave
+    sha256 "a5333c52eecb023c23be9638ebd916606db43f8f7ef1d7ada4877ca00355d65a" => :high_sierra
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "all"
-    system "make", "nauty.a"
 
     bin.install %w[
-      NRswitchg addedgeg amtog biplabg catg complg converseg copyg countg
-      cubhamg deledgeg delptg directg dreadnaut dretodot dretog genbg genbgL
-      geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic
-      labelg linegraphg listg multig newedgeg pickg planarg ranlabg shortg
-      showg subdivideg twohamg vcolg watercluster2
+      NRswitchg addedgeg amtog assembleg biplabg catg complg converseg
+      copyg countg cubhamg deledgeg delptg directg dreadnaut dretodot
+      dretog edgetransg genbg genbgL geng gengL genquarticg genrang
+      genspecialg gentourng gentreeg hamheuristic labelg linegraphg
+      listg multig newedgeg pickg planarg ranlabg shortg showg
+      subdivideg twohamg underlyingg vcolg watercluster2
     ]
 
-    include.install "nauty.h"
+    (include/"nauty").install Dir["*.h"]
 
     lib.install "nauty.a" => "libnauty.a"
 
-    doc.install "nug26.pdf"
+    doc.install "nug27.pdf", "README", Dir["*.txt"]
+
+    # Ancillary source files listed in README
+    pkgshare.install %w[sumlines.c sorttemplates.c bliss2dre.c blisstog.c poptest.c dretodot.c]
   end
 
   test do
@@ -55,7 +56,7 @@ class Nauty < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lnauty", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}/nauty", "-L#{lib}", "-lnauty", "-o", "test"
     system "./test"
   end
 end

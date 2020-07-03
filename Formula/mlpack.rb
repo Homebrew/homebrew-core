@@ -1,14 +1,14 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-3.3.1.tar.gz"
-  sha256 "310f95faa93b975c1489344ae4a499eddcd825ef9db76909eb680e1695cd1e36"
+  url "https://mlpack.org/files/mlpack-3.3.2.tar.gz"
+  sha256 "11904a39a7e34ee66028292fd054afb460eacd07ec5e6c63789aba117e4d854c"
 
   bottle do
     cellar :any
-    sha256 "3868c3f2078feaa91644069ac7bb3080d8392eb8cbef75494589d228dcbc3c88" => :catalina
-    sha256 "62af450c16d656bde9641b171203c1067307190d2fc539a6a99913b1f1fa1289" => :mojave
-    sha256 "e4c4549410185c85425ef5af5071e59ca9035faf7512e36c126f0bb03e97ac71" => :high_sierra
+    sha256 "27c59633a936fd31833c5c6f2043508472150c14ab7bc81861a6c3cec0da0c9f" => :catalina
+    sha256 "02258bb1646b2fc8aa99e1b4033b69b00b3fd70d34be55090d8c593191c8fb66" => :mojave
+    sha256 "eebd7bba90143afd6a23b44e1b158387c5b68191bcd1f94475f46c5e22a422dd" => :high_sierra
   end
 
   depends_on "cmake" => :build

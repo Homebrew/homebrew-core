@@ -56,10 +56,11 @@ class Gitbucket < Formula
   end
 
   test do
-    io = IO.popen("'#{Formula["openjdk"].opt_bin}/java' -jar #{libexec}/gitbucket.war")
+    java = Formula["openjdk"].opt_bin/"java"
+    fork do
+      exec "'#{java}' -jar #{libexec}/gitbucket.war --port=#{free_port} > output"
+    end
     sleep 12
-    Process.kill("SIGINT", io.pid)
-    Process.wait(io.pid)
-    io.read !~ /Exception/
+    File.read("output") !~ /Exception/
   end
 end

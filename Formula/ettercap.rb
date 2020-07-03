@@ -3,13 +3,13 @@ class Ettercap < Formula
   homepage "https://ettercap.github.io/ettercap/"
   url "https://github.com/Ettercap/ettercap/archive/v0.8.3.tar.gz"
   sha256 "d561a554562e447f4d7387a9878ba745e1aa8c4690cc4e9faaa779cfdaa61fbb"
-  revision 3
+  revision 4
   head "https://github.com/Ettercap/ettercap.git"
 
   bottle do
-    sha256 "17d4d1deaca562552dbe663bb2175198135ca704e08b3a7643a3da4f8cffd3a3" => :catalina
-    sha256 "712914e4a2080930f19896326820b1c015e26368d6129fb7cc35096dca90a91c" => :mojave
-    sha256 "5d951890d628099a7c6c3203d3b4705a3d4d86e3ec218310db0e5a31b8cfdcdf" => :high_sierra
+    sha256 "bf0ff6a7811739607b89238cf506127b07f778a9324ec29c26ef653eb1f0308a" => :catalina
+    sha256 "49f51aa40ed1a82102bcdaeb5255de50f3f0683cb7f17606b7a4c8ea49fc1aa2" => :mojave
+    sha256 "63b7e5b4c73d5f4606bf98d5e4b11a8231c2aa700cbfd4b832c75a405e7ed69b" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -20,8 +20,7 @@ class Telnetd < Formula
 
   def install
     resource("libtelnet").stage do
-      # Force 64 bit-only build, otherwise it fails on Mojave
-      xcodebuild "SYMROOT=build", "-arch", "x86_64"
+      xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
 
       libtelnet_dst = buildpath/"telnetd.tproj/build/Products"
       libtelnet_dst.install "build/Release/libtelnet.a"
@@ -35,7 +34,7 @@ class Telnetd < Formula
                    "CC=#{ENV.cc}",
                    "CFLAGS=$(CC_Flags) -isystembuild/Products/",
                    "LDFLAGS=$(LD_Flags) -Lbuild/Products/",
-                   "RC_ARCHS=x86_64" # Force 64-bit build for Mojave
+                   "RC_ARCHS=#{Hardware::CPU.arch}"
 
     sbin.install "telnetd.tproj/build/Products/telnetd"
     man8.install "telnetd.tproj/telnetd.8"

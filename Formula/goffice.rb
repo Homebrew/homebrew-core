@@ -3,11 +3,12 @@ class Goffice < Formula
   homepage "https://developer.gnome.org/goffice/"
   url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.47.tar.xz"
   sha256 "258895abaee72fb4bd2ed6e7166946ac57c8781faea6c31d5097d6fd9b7bb176"
+  revision 1
 
   bottle do
-    sha256 "a3ae06e5869506d4efec4de643ad4acfd7448f91922fe205741c5d9cc2ae8d30" => :catalina
-    sha256 "aeff0fd37bf6f8dcf34262b2a9071e76f310c271b626d0766d3e00ec38a054dc" => :mojave
-    sha256 "09994832b7a64ef7fdd89096817e23c2f42602a6d8f6fb980dea94a36f9728e9" => :high_sierra
+    sha256 "983c0ffa880b04fff6e29283a5d02fa089a08c86f0e203abff977e1dae1d9468" => :catalina
+    sha256 "c33d7ef544bec3d218f80d43998e6e5b80583699f9f6066b78c39fd21c87b5f6" => :mojave
+    sha256 "25961ad399e8d8e0bdde62ad3cfbed0ec2926ae39f8eb4facc6f9ad303a1487e" => :high_sierra
   end
 
   head do

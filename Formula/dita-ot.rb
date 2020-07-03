@@ -1,8 +1,8 @@
 class DitaOt < Formula
   desc "DITA Open Toolkit is an implementation of the OASIS DITA specification"
   homepage "https://www.dita-ot.org/"
-  url "https://github.com/dita-ot/dita-ot/releases/download/3.5.1/dita-ot-3.5.1.zip"
-  sha256 "524ffdc575eb04a4f3e1a59ad608984c1b505955ccc3de575124c5b5a5fe1b56"
+  url "https://github.com/dita-ot/dita-ot/releases/download/3.5.2/dita-ot-3.5.2.zip"
+  sha256 "f88361b54b5225e2f0ce8b486f4e9a6c5e713620658350178249fa0c9da5edd2"
 
   bottle :unneeded
 

@@ -6,13 +6,13 @@ class Grails < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     rm_f Dir["bin/*.bat", "bin/cygrails", "*.bat"]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+    bin.env_script_all_files libexec/"bin", :JAVA_HOME => "${JAVA_HOME:-#{Formula["openjdk@11"].opt_prefix}}"
   end
 
   def caveats

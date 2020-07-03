@@ -1,16 +1,14 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk13u/archive/jdk-13.0.2+8.tar.bz2"
-  version "13.0.2+8"
-  sha256 "01059532335fefc5e0e7a23cc79eeb1dc6fea477606981b89f259aa0e0f9abc1"
-  revision 2
+  url "https://hg.openjdk.java.net/jdk-updates/jdk14u/archive/jdk-14.0.1-ga.tar.bz2"
+  sha256 "f9c4a55ac858f858222bc5fe6e4b890f9b4a3f942fd0211575b0418aec5c14d6"
 
   bottle do
     cellar :any
-    sha256 "65adca036393f528e3830cab8b0aafec94be870de087d94cfe098fd593517307" => :catalina
-    sha256 "6034ec5a0927803eae37a5e85b6c6efadb930527827b45ecc593e25a9750061c" => :mojave
-    sha256 "358101f25201e4c942297223d854ef95003798fe5396ebc671efa359c27e3d22" => :high_sierra
+    sha256 "d44db8c5b212a36d73f1102468106124e5f5e2f20600768a9d8cecc172df4601" => :catalina
+    sha256 "4549644dc93f35362c65fe12543bd77d580944673d836f71108f4bcaabf7c206" => :mojave
+    sha256 "b72286cb7187fa0682761f70ea5e6f6922667ceac4de4ac3ebd855786358c773" => :high_sierra
   end
 
   keg_only "it shadows the macOS `java` wrapper"
@@ -21,9 +19,10 @@ class Openjdk < Formula
     depends_on "pkg-config" => :build
   end
 
+  # From https://jdk.java.net/archive/
   resource "boot-jdk" do
-    url "https://download.java.net/java/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-12.0.2_osx-x64_bin.tar.gz"
-    sha256 "675a739ab89b28a8db89510f87cb2ec3206ec6662fb4b4996264c16c72cdd2a1"
+    url "https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882ca7/8/GPL/openjdk-13.0.2_osx-x64_bin.tar.gz"
+    sha256 "08fd2db3a3ab6fb82bb9091a035f9ffe8ae56c31725f4e17d573e48c39ca10dd"
   end
 
   def install
@@ -32,7 +31,7 @@ class Openjdk < Formula
     boot_jdk = boot_jdk_dir/"Contents/Home"
     java_options = ENV.delete("_JAVA_OPTIONS")
 
-    short_version, _, build = version.to_s.rpartition("+")
+    _, _, build = version.to_s.rpartition("+")
 
     chmod 0755, "configure"
     system "./configure", "--without-version-pre",
@@ -50,7 +49,8 @@ class Openjdk < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    libexec.install "build/macosx-x86_64-server-release/images/jdk-bundle/jdk-#{short_version}.jdk" => "openjdk.jdk"
+    jdk = Dir["build/*/images/jdk-bundle/*"].first
+    libexec.install jdk => "openjdk.jdk"
     bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
     include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]

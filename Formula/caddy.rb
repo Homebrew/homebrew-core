@@ -1,15 +1,15 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/v2.1.0.tar.gz"
-  sha256 "b5948b3fc1dcf65428756856b6c315dfb392e6cc0d78b7ad56ad334a81425440"
+  url "https://github.com/caddyserver/caddy/archive/v2.1.1.tar.gz"
+  sha256 "77beb13b39b670bfe9e0cc1c71b720d5b037cca60e1426a9a485bbfae34ba8d2"
   head "https://github.com/caddyserver/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4681a72c0ee2a755ea73bbe415ba3d87fd9b19e0756374fb837866f30aaf2387" => :catalina
-    sha256 "59e3ba33a4c1eef0aaf03378b5433fdcaed1030134480643b3064c889cc1f5c3" => :mojave
-    sha256 "65489a4bd5ccca0346205d3b5ba0898cef9d92352ae00af05ab672bae6c8c056" => :high_sierra
+    sha256 "7df16c3b4486a906b41875c7f0f3bba6f6483891d390630f9454f8d506c9d94a" => :catalina
+    sha256 "4f6d47929676c285640e5d1a0153197e6fdc049cbc776f492b12c593701c3585" => :mojave
+    sha256 "2d08ea709294ac4b08b85dad8e5328b9b3c478ebc9c4d745c0e02d694ee2eb90" => :high_sierra
   end
 
   depends_on "go" => :build

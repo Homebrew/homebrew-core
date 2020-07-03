@@ -3,11 +3,12 @@ class Geeqie < Formula
   homepage "http://www.geeqie.org/"
   url "http://www.geeqie.org/geeqie-1.5.1.tar.xz"
   sha256 "4854d5d323c31f8f4068fd73ab2c454ff91e826c4ca4d37b22c246ad14dea10a"
+  revision 1
 
   bottle do
-    sha256 "a7bbe36c785e34b9c8b03aad0f654104cb771fff926e231f0996541ec4fec6af" => :catalina
-    sha256 "888a5a8a95a9c560203470469732c6a78933ef6936c0e30be9217fb48a61c024" => :mojave
-    sha256 "34bd849466a1f2c6984553a070e9b42446562c1b3e49867cd12457f8c2ce4db4" => :high_sierra
+    sha256 "5d344202876e8d095f69c10241a7018a97d4033f1e6c5fabc8db0f8152dc4d1c" => :catalina
+    sha256 "80074bcd449427974fafe01f1292d3d77111bb380eac0b94f91797a4802a2108" => :mojave
+    sha256 "bb5923d1d1a922ea077796653061d98b571bb96a89bb16d555ed5bf91770e79c" => :high_sierra
   end
 
   depends_on "autoconf" => :build

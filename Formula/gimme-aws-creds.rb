@@ -3,15 +3,14 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/e2/a7/53d5f021a1b41a680d5c558c683e37e3000085c1a4132695e3378e4b477d/gimme%20aws%20creds-2.3.3.tar.gz"
-  sha256 "b7bc10cd09faf995e44063bb6125b910ee85cf2f3e95ddb2908afade4bbd3973"
-  revision 1
+  url "https://files.pythonhosted.org/packages/bc/44/306b41996e0cf62082c4ff5bc4863cc488d8475ae7d8c6ce5db8b26137c5/gimme%20aws%20creds-2.3.4.tar.gz"
+  sha256 "a9cf1c816c9d0f8401832bca7f1ae05061edc0632a37853f3de9d942ad5d60d6"
 
   bottle do
     cellar :any
-    sha256 "eacd3675525424d7037ba47d81f7b4082cda80d7fefea63f85152a4ea0302530" => :catalina
-    sha256 "373d17d151ae4f43ab99dee2f6b89a20076e85a320fcc1bdbf8ce9aeba929a6c" => :mojave
-    sha256 "6a715fe2a9ac1f4def3bbd19b9d6ccadf0c26a146360992c2d7eeb542f85e88d" => :high_sierra
+    sha256 "736faae3b3e9f48ea386933bc68de1cb64a293e13e5ae4111d437997964386ec" => :catalina
+    sha256 "9f6234bc623c5c32a120b3dfaa7d507e56e92d0b7386b71d768f15bf942e13e9" => :mojave
+    sha256 "d2e420d0a093b64c25f766c8a79bae90d5504324829bea3a0f50add60b7f1839" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -28,18 +27,18 @@ class GimmeAwsCreds < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6d/e3/bdd48e60b6ec83e77c4f5e300aff9999f0eac97f92b468cc69bd0871f096/boto3-1.13.25.tar.gz"
-    sha256 "1c37c727e0e6f872f5262a893a1ed5422ef0f1ed6075d35b809e20c3072dad5b"
+    url "https://files.pythonhosted.org/packages/71/46/ce23f690eddf36c6a8cba3b162a11a58da79c0a323e9083010bbd851d8f2/boto3-1.14.15.tar.gz"
+    sha256 "3c654c1b8f9708e0b457ea1d312ee53451368d09b571ce737dc1f46484112bc1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7c/b4/fd5f0e872c910db2685737c50797db273e6d8de706d9131aef4e8f0f04a5/botocore-1.16.25.tar.gz"
-    sha256 "b55b3acab42b58c24481a9fbb33d53fb7d8d03dfc0338af0132f6c5010006d0d"
+    url "https://files.pythonhosted.org/packages/eb/b7/b058c816f3af8cb14abe47fc41daa58cabb49646ae1b433281c873c1bfa0/botocore-1.17.15.tar.gz"
+    sha256 "34ebc56471a75ea28bfd39f1665d58ee13229c75e8cd6c62b2e2abf1f3e75f0f"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b4/19/53433f37a31543364c8676f30b291d128cdf4cd5b31b755b7890f8e89ac8/certifi-2020.4.5.2.tar.gz"
-    sha256 "5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "cffi" do
@@ -68,13 +67,13 @@ class GimmeAwsCreds < Formula
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/bd/36/e82228ad388417bde961845e1820a754ed456caf1aa18c48dabfdd97fb3f/fido2-0.7.3.tar.gz"
-    sha256 "8b592ec0e51348f29636706fe3266423a0e41c35c9df63a259a91488450c1285"
+    url "https://files.pythonhosted.org/packages/97/03/9ce85396423a4b9897cc3295a605b63dffd06940e65c1cccd51c2c016864/fido2-0.8.1.tar.gz"
+    sha256 "449068f6876f397c8bb96ebc6a75c81c2692f045126d3f13ece21d409acdf7c3"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cb/19/57503b5de719ee45e83472f339f617b0c01ad75cba44aba1e4c97c2b0abd/idna-2.9.tar.gz"
-    sha256 "7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "jmespath" do
@@ -103,8 +102,8 @@ class GimmeAwsCreds < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
-    sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
+    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
+    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "s3transfer" do

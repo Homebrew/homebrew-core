@@ -3,11 +3,12 @@ class Glade < Formula
   homepage "https://glade.gnome.org/"
   url "https://download.gnome.org/sources/glade/3.36/glade-3.36.0.tar.xz"
   sha256 "19b546b527cc46213ccfc8022d49ec57e618fe2caa9aa51db2d2862233ea6f08"
+  revision 1
 
   bottle do
-    sha256 "864bfad92694725723aaf2f128a8d0f67052bc60737c3224a1b91581276fc467" => :catalina
-    sha256 "7a2ea170b3f09787fd59511ec656ada64ec32123fdf923e9a2e361a6c2ddc38f" => :mojave
-    sha256 "40ba1031ec89c17e255825f8040c1ad1a6b94c20fc03e3f73a552603df9ebe10" => :high_sierra
+    sha256 "9131bb138ba8e7b7b2f3d593342846fdabebd28b33c755ae0feaba4f52a39ab9" => :catalina
+    sha256 "2c95e5cb5f386fbacf1fb4ca17b2dc9ad6c6b2d83b9d0891460905f87cb608c4" => :mojave
+    sha256 "89b48942bd5c136dae47bf534e6f99d425aebd9165432c07411ce341d210cda9" => :high_sierra
   end
 
   depends_on "docbook-xsl" => :build
