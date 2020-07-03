@@ -1,9 +1,8 @@
 class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "http://nlp.lsi.upc.edu/freeling/"
-  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.1/FreeLing-4.1.tar.gz"
-  sha256 "ccb3322db6851075c9419bb5e472aa6b2e32cc7e9fa01981cff49ea3b212247e"
-  revision 6
+  url "https://github.com/TALP-UPC/FreeLing/archive/4.1.1.tar.gz"
+  sha256 "c58822f262e6a9c550ce7dd080025aa322a0801b61aff10d5d085f8c168bee60"
 
   bottle do
     sha256 "a5500cffa2b4b1bdc057e43376ea5327d38866289cd44f6a89a60655223f6527" => :catalina
