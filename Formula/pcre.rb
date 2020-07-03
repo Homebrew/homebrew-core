@@ -35,7 +35,7 @@ class Pcre < Formula
       --enable-pcregrep-libz
       --enable-pcregrep-libbz2
     ]
-    args << "--enable-jit" if MacOS.version >= :sierra
+    args << "--enable-jit" if MacOS.version >= :sierra && Hardware::CPU.arch == :x86_64
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
