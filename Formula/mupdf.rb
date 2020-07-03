@@ -15,7 +15,7 @@ class Mupdf < Formula
   depends_on :x11
 
   conflicts_with "mupdf-tools",
-    :because => "mupdf and mupdf-tools install the same binaries."
+    :because => "mupdf and mupdf-tools install the same binaries"
 
   def install
     # Work around Xcode 11 clang bug
