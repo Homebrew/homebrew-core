@@ -14,7 +14,7 @@ class Fastbit < Formula
 
   depends_on "openjdk"
 
-  conflicts_with "iniparser", :because => "Both install `include/dictionary.h`"
+  conflicts_with "iniparser", :because => "both install `include/dictionary.h`"
 
   # Fix compilation with Xcode 9, reported by email on 2018-03-13
   patch do
