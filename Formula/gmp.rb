@@ -12,19 +12,25 @@ class Gmp < Formula
     sha256 "63f220c9ac4ebc386711c8c4c5e1f955cfb0a784bdc41bfd6c701dc789be7fcc" => :high_sierra
   end
 
+  patch do
+    # https://gmplib.org/list-archives/gmp-bugs/2020-July/004837.html
+    # arm64-darwin patch
+    url "https://gmplib.org/list-archives/gmp-bugs/attachments/20200703/6c9b827c/attachment.bin"
+    sha256 "517ef7c22102e7ce15e71b75e4e4edcd2149dccfcf02a2b2f19f1407107fde18"
+  end
+
   uses_from_macos "m4" => :build
 
   def install
-    # Work around macOS Catalina / Xcode 11 code generation bug
-    # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
-    ENV.append_to_cflags "-fno-stack-check"
-
-    # Enable --with-pic to avoid linking issues with the static library
-    args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
     if Hardware::CPU.arm?
-      args << "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
-      args << "--disable-assembly"
+      args = "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
     else
+      # Work around macOS Catalina / Xcode 11 code generation bug
+      # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
+      ENV.append_to_cflags "-fno-stack-check"
+
+      # Enable --with-pic to avoid linking issues with the static library
+      args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
       args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
     end
     system "./configure", *args
