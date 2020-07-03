@@ -82,7 +82,9 @@ class Howdoi < Formula
   end
 
   test do
-    output = shell_output("#{bin}/howdoi square root python")
-    assert_match "sqrt=x**(1/2)", output
+    assert_match "pow", shell_output("#{bin}/howdoi square root python")
+
+    assert_match "# put current date as yyyy-mm-dd in $date",
+      shell_output("#{bin}/howdoi format date bash 2>&1")
   end
 end
