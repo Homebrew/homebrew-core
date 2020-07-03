@@ -13,7 +13,7 @@ class TaskSpooler < Formula
     sha256 "9403d0c240bad09d576288d6b5ed94057dad03ceb30a4893a935c13f9e58af7f" => :el_capitan
   end
 
-  conflicts_with "moreutils", :because => "both install a `ts` executable."
+  conflicts_with "moreutils", :because => "both install a `ts` executable"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
