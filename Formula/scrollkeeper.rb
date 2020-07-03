@@ -18,7 +18,7 @@ class Scrollkeeper < Formula
   uses_from_macos "perl"
 
   conflicts_with "rarian",
-    :because => "scrollkeeper and rarian install the same binaries."
+    :because => "scrollkeeper and rarian install the same binaries"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
