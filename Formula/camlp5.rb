@@ -5,6 +5,7 @@ class Camlp5 < Formula
   version "7.12"
   sha256 "fc4b50b9d917c2f844b909bdfd55735f3f658e32a415f0decc1c265bf3af42be"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/camlp5/camlp5.git"
 
   bottle do
