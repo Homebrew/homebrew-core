@@ -41,6 +41,7 @@ class Mlpack < Formula
       -DPROFILE=OFF
       -DBUILD_TESTS=OFF
       -DDISABLE_DOWNLOADS=ON
+      -DUSE_OPENMP=OFF
       -DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}
       -DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}
       -DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.dylib
