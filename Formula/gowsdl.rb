@@ -2,8 +2,8 @@ class Gowsdl < Formula
   desc "WSDL2Go code generation as well as its SOAP proxy"
   homepage "https://github.com/hooklift/gowsdl"
   url "https://github.com/hooklift/gowsdl.git",
-      :tag      => "v0.3.1",
-      :revision => "2375731131398bde30666dc45b48cd92f937de98"
+      :tag      => "v0.4.0",
+      :revision => "7a3e6bce010b32c1672884a6d478a16fee8f2d05"
   head "https://github.com/hooklift/gowsdl.git"
 
   bottle do
