@@ -15,7 +15,7 @@ class Awk < Formula
   end
 
   conflicts_with "gawk",
-    :because => "both install awk executables."
+    :because => "both install an `awk` executable"
 
   def install
     ENV.O3 # Docs recommend higher optimization
