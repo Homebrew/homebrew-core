@@ -3,6 +3,7 @@ class Muparser < Formula
   homepage "https://beltoforion.de/en/muparser/"
   url "https://github.com/beltoforion/muparser/archive/v2.3.2.tar.gz"
   sha256 "b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301"
+  revision 1
   head "https://github.com/beltoforion/muparser.git"
 
   bottle do
