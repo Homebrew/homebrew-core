@@ -22,7 +22,7 @@ class Pwntools < Formula
     depends_on "pkg-config" => :build
   end
 
-  conflicts_with "moreutils", :because => "Both install `errno` binaries"
+  conflicts_with "moreutils", :because => "both install an `errno` executable"
 
   resource "bcrypt" do
     url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
