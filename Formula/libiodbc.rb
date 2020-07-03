@@ -16,7 +16,7 @@ class Libiodbc < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  conflicts_with "unixodbc", :because => "both install 'odbcinst.h' header"
+  conflicts_with "unixodbc", :because => "both install `odbcinst.h`"
 
   def install
     system "./autogen.sh"
