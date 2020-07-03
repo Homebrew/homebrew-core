@@ -15,7 +15,7 @@ class Lesstif < Formula
   depends_on :x11
 
   conflicts_with "openmotif",
-    :because => "Lesstif and Openmotif are complete replacements for each other"
+    :because => "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
     # LessTif does naughty, naughty, things by assuming we want autoconf macros
