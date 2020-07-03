@@ -1,10 +1,11 @@
 class Atomicparsley < Formula
   desc "MPEG-4 command-line tool"
-  homepage "https://bitbucket.org/wez/atomicparsley/overview/"
-  url "https://bitbucket.org/wez/atomicparsley/get/0.9.6.tar.bz2"
-  sha256 "e28d46728be86219e6ce48695ea637d831ca0170ca6bdac99810996a8291ee50"
-  revision 1
-  head "https://bitbucket.org/wez/atomicparsley", :using => :hg
+  homepage "https://github.com/wez/atomicparsley"
+  url "https://github.com/wez/atomicparsley/archive/20200701.154658.b0d6223.tar.gz"
+  version "20200701.154658.b0d6223"
+  sha256 "52f11dc0cbd8964fcdaf019bfada2102f9ee716a1d480cd43ae5925b4361c834"
+  version_scheme 1
+  head "https://github.com/wez/atomicparsley.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,27 +16,13 @@ class Atomicparsley < Formula
     sha256 "c0a7964ced998b2db7150f95b9329e138f28f0768be50d531fd4d82754e0ebde" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
+  depends_on "cmake" => :build
   uses_from_macos "zlib"
 
-  # Fix Xcode 9 pointer warnings
-  # https://bitbucket.org/wez/atomicparsley/issues/52/xcode-9-build-failure
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ac8624c36e/atomicparsley/xcode9.patch"
-      sha256 "15b87be1800760920ac696a93131cab1c0f35ce4c400697bb8b0648765767e5f"
-    end
-  end
-
   def install
-    system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-universal"
-    system "make", "install"
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", ".", "--config", "Release"
+    bin.install "AtomicParsley"
   end
 
   test do
