@@ -15,6 +15,7 @@ class Gmp < Formula
   uses_from_macos "m4" => :build
 
   patch do
+    # Remove when upstream fix is released
     # https://gmplib.org/list-archives/gmp-bugs/2020-July/004837.html
     # arm64-darwin patch
     url "https://gmplib.org/list-archives/gmp-bugs/attachments/20200703/6c9b827c/attachment.bin"
