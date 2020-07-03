@@ -1,9 +1,12 @@
 class Spades < Formula
+  include Language::Python::Shebang
+
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
   url "https://github.com/ablab/spades/releases/download/v3.14.1/SPAdes-3.14.1.tar.gz"
   mirror "http://cab.spbu.ru/files/release3.14.1/SPAdes-3.14.1.tar.gz"
-  sha256 "d71ce756daa0a889b8881bd129a761200a0bb971e6fd2bed1384a1df9b585d1b"
+  sha256 "d629b78f7e74c82534ac20f5b3c2eb367f245e6840a67b9ef6a76f6fac5323ca"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,12 +24,11 @@ class Spades < Formula
   uses_from_macos "zlib"
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+    bin.find { |f| rewrite_shebang detected_python_shebang, f }
   end
 
   test do
