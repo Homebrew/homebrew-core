@@ -24,7 +24,7 @@ class MidnightCommander < Formula
   depends_on "openssl@1.1"
   depends_on "s-lang"
 
-  conflicts_with "minio-mc", :because => "Both install a `mc` binary"
+  conflicts_with "minio-mc", :because => "both install an `mc` binary"
 
   def install
     args = %W[
