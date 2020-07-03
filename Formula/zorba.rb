@@ -18,7 +18,7 @@ class Zorba < Formula
 
   uses_from_macos "libxml2"
 
-  conflicts_with "xqilla", :because => "Both supply xqc.h"
+  conflicts_with "xqilla", :because => "both supply `xqc.h`"
 
   def install
     # icu4c 61.1 compatability
