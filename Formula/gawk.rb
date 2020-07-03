@@ -15,6 +15,9 @@ class Gawk < Formula
   depends_on "mpfr"
   depends_on "readline"
 
+  conflicts_with "awk",
+    :because => "both install an `awk` executable"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
