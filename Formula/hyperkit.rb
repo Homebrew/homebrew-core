@@ -4,6 +4,7 @@ class Hyperkit < Formula
   url "https://github.com/moby/hyperkit/archive/v0.20200224.tar.gz"
   sha256 "c0f9e0eb4cd9efdfa099a8cb5b35483b64688d6d1fc0c7a01e591abd4cf76413"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
