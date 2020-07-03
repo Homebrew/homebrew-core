@@ -25,6 +25,6 @@ class Ddgr < Formula
 
   test do
     ENV["PYTHONIOENCODING"] = "utf-8"
-    assert_match "Homebrew", shell_output("#{bin}/ddgr --noprompt Homebrew")
+    assert_match "q:Homebrew", shell_output("#{bin}/ddgr --debug --noprompt Homebrew 2>&1")
   end
 end
