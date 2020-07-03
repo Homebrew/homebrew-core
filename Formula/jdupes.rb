@@ -3,6 +3,7 @@ class Jdupes < Formula
   homepage "https://github.com/jbruchon/jdupes"
   url "https://github.com/jbruchon/jdupes/archive/v1.17.1.tar.gz"
   sha256 "e16858c91d7f58b2778ba16aef582a33cca208ce3b8e6ddafa591a81e82d3473"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Jdupes < Formula
   end
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "ENABLE_DEDUPE=1"
   end
 
   test do
