@@ -3,7 +3,7 @@ class Mapserver < Formula
   homepage "https://mapserver.org/"
   url "https://download.osgeo.org/mapserver/mapserver-7.6.0.tar.gz"
   sha256 "12380737ce71d78520ddaad90d1562a7e321436ad78d463923999030a03b4bda"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
