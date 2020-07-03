@@ -21,9 +21,15 @@ class Gmp < Formula
 
   uses_from_macos "m4" => :build
 
+  depends_on "autoconf" if Hardware::CPU.arm?
+  depends_on "automake" if Hardware::CPU.arm?
+  depends_on "libtool" if Hardware::CPU.arm?
+
   def install
     if Hardware::CPU.arm?
-      args = "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
+      args =  %W[--prefix=#{prefix}]
+      args << "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
+      system "autoreconf", "-fiv"
     else
       # Work around macOS Catalina / Xcode 11 code generation bug
       # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
