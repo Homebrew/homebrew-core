@@ -1,8 +1,8 @@
 class Cdargs < Formula
   desc "Directory bookmarking system - Enhanced cd utilities"
   homepage "https://github.com/cbxbiker61/cdargs"
-  url "https://github.com/cbxbiker61/cdargs/archive/2.0.tar.gz"
-  sha256 "d6c7b0a3636338916f6d8efa069b3b9521330b3da79d9d625ab7a9a1091162a8"
+  url "https://github.com/cbxbiker61/cdargs/archive/2.1.tar.gz"
+  sha256 "062515c3fbd28c68f9fa54ff6a44b81cf647469592444af0872b5ecd7444df7d"
   head "https://github.com/cbxbiker61/cdargs.git"
 
   bottle do
