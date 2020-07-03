@@ -15,7 +15,7 @@ class MinioMc < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "midnight-commander", :because => "Both install a `mc` binary"
+  conflicts_with "midnight-commander", :because => "both install an `mc` binary"
 
   def install
     if build.head?
