@@ -16,8 +16,8 @@ class FluentBit < Formula
   depends_on "cmake" => :build
   depends_on "flex" => :build
 
-  conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries."
-  conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries."
+  conflicts_with "mbedtls", :because => "fluent-bit includes mbedtls libraries"
+  conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries"
 
   def install
     # Work around Xcode 11 clang bug
