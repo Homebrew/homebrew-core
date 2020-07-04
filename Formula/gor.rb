@@ -1,19 +1,10 @@
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://gortool.com"
-  revision 1
+  url "https://github.com/buger/goreplay.git",
+    :tag      => "v1.1.0",
+    :revision => "5cbb5ea85fcb33c40b314d8baf84cac65a623098"
   head "https://github.com/buger/goreplay.git"
-
-  stable do
-    url "https://github.com/buger/goreplay.git",
-      :tag      => "v1.0.0",
-      :revision => "a8cfaa75812ac176b253ffe1d11eb9bbc7be7522"
-
-    resource "gopacket" do
-      url "https://github.com/google/gopacket/archive/v1.1.17.tar.gz"
-      sha256 "12baa5a471f7eb586be2852b6d46350fe48b474fdf78524ec340638543a4912c"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
@@ -27,16 +18,6 @@ class Gor < Formula
   uses_from_macos "libpcap"
 
   def install
-    if build.stable?
-      ENV["GOPATH"] = buildpath
-
-      # The vendored version of gopacket fails to build with Go 1.12+ due to the following issue, so replace
-      # it with a newer version: https://github.com/google/gopacket/issues/656
-      rm_rf "vendor/github.com/google/gopacket"
-      (buildpath/"src/github.com/buger/goreplay").install buildpath.children
-      resource("gopacket").stage buildpath/"src/github.com/buger/goreplay/vendor/github.com/google/gopacket"
-      cd "src/github.com/buger/goreplay"
-    end
     system "go", "build", "-ldflags", "-X main.VERSION=#{version}", *std_go_args
   end
 
