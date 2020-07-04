@@ -1,9 +1,8 @@
 class Libinfinity < Formula
   desc "GObject-based C implementation of the Infinote protocol"
   homepage "https://gobby.github.io"
-  url "http://releases.0x539.de/libinfinity/libinfinity-0.6.8.tar.gz"
-  sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
-  revision 2
+  url "http://releases.0x539.de/libinfinity/libinfinity-0.7.1.tar.gz"
+  sha256 "626ee0841bfe24f471580cd17d906dd83b973cf4f10019574adfdfc5327482cb"
 
   bottle do
     sha256 "4d367978cb9ee0612c37947080939b3006c5bb7972673cc2c6175242c5809c28" => :catalina
@@ -17,12 +16,6 @@ class Libinfinity < Formula
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "gtk+3"
-
-  # MacPorts patch to fix pam include. This is still applicable to 0.6.4.
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f8e3d2e4/libinfinity/patch-infinoted-infinoted-pam.c.diff"
-    sha256 "d5924d6ee90c3aa756e52b97e32345dc1d77afdb5e4e0de8eac2a343d95ade00"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -54,7 +47,7 @@ class Libinfinity < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gnutls.opt_include}
       -I#{gsasl.opt_include}
-      -I#{include}/libinfinity-0.6
+      -I#{include}/libinfinity-0.7
       -I#{libtasn1.opt_include}
       -I#{nettle.opt_include}
       -D_REENTRANT
@@ -68,7 +61,7 @@ class Libinfinity < Formula
       -lgobject-2.0
       -lgsasl
       -lgthread-2.0
-      -linfinity-0.6
+      -linfinity-0.7
       -lintl
       -lxml2
     ]
