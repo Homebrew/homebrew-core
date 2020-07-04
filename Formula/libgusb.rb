@@ -1,8 +1,10 @@
 class Libgusb < Formula
+  include Language::Python::Shebang
+
   desc "GObject wrappers for libusb1"
   homepage "https://github.com/hughsie/libgusb"
-  url "https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.1.tar.xz"
-  sha256 "4b677a372e97748970b1bb3dac076da2d051e4376c5960e77b7159701c851fed"
+  url "https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.4.tar.xz"
+  sha256 "581fd24e12496654b9b2a0732f810b554dfd9212516c18c23586c0cd0b382e04"
 
   bottle do
     sha256 "76f5259965a34d7103b135620a99a241d201ddbbc8ae487f5baf27f2fb5b9c0f" => :catalina
@@ -26,11 +28,14 @@ class Libgusb < Formula
     sha256 "ceceb3759e48eaf47451d7bca81ef4174fced1d4300f9ed33e2b53ee23160c6b"
   end
 
-  # see https://github.com/hughsie/libgusb/issues/11
+  # remove in next release
+  # patch submitted, https://github.com/hughsie/libgusb/pull/38
   patch :DATA
 
   def install
+    rewrite_shebang detected_python_shebang, "contrib/generate-version-script.py"
     (share/"hwdata/").install resource("usb.ids")
+
     mkdir "build" do
       system "meson", *std_meson_args, "-Ddocs=false", "-Dusb_ids=#{share}/hwdata/usb.ids", ".."
       system "ninja"
@@ -77,23 +82,15 @@ end
 
 __END__
 diff --git a/gusb/meson.build b/gusb/meson.build
-index c39a8f1..4bee8ef 100644
+index fa2b924..f8d4b70 100644
 --- a/gusb/meson.build
 +++ b/gusb/meson.build
-@@ -37,8 +37,6 @@ install_headers([
-   subdir : 'gusb-1/gusb',
- )
+@@ -41,7 +41,7 @@ install_headers([
 
--mapfile = 'libgusb.ver'
--vflag = '-Wl,--version-script,@0@/@1@'.format(meson.current_source_dir(), mapfile)
- gusb = shared_library(
-   'gusb',
-   sources : [
-@@ -62,8 +60,6 @@ gusb = shared_library(
-       root_incdir,
-       lib_incdir,
-   ],
--  link_args : vflag,
--  link_depends : mapfile,
-   install : true
- )
+ mapfile = 'libgusb.ver'
+ vflag = []
+-if host_machine.system() in ['linux', 'windows']
++if host_machine.system() == 'linux' or host_machine.system() == 'windows'
+   vflag += '-Wl,--version-script,@0@/@1@'.format(meson.current_source_dir(), mapfile)
+ endif
+ gusb = library(
