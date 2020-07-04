@@ -16,13 +16,17 @@ class Pcre2 < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-pcre2-16",
-                          "--enable-pcre2-32",
-                          "--enable-pcre2grep-libz",
-                          "--enable-pcre2grep-libbz2",
-                          "--enable-jit"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-pcre2-16
+      --enable-pcre2-32
+      --enable-pcre2grep-libz
+      --enable-pcre2grep-libbz2
+    ]
+    args << "--enable-jit" if Hardware::CPU.arch == :x86_64
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
