@@ -1,9 +1,8 @@
 class Heimdal < Formula
   desc "Free Kerberos 5 implementation"
   homepage "https://www.h5l.org"
-  url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.6.0/heimdal-7.6.0.tar.gz"
-  sha256 "afb996e27e722f51bf4d9e8d1d51e47cd10bfa1a41a84106af926e5639a52e4d"
-  revision 1
+  url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.7.0/heimdal-7.7.0.tar.gz"
+  sha256 "f02d3314d634cc55eb9cf04a1eae0d96b293e45a1f837de9d894e800161b7d1b"
 
   bottle do
     sha256 "31f22d798ecf68a1b8c18dda1956a936faa3e2d647044492093af99dadf89e26" => :catalina
@@ -14,6 +13,11 @@ class Heimdal < Formula
 
   keg_only :shadowed_by_macos, "macOS provides Kerberos"
 
+  depends_on "bison" => :build
+  depends_on "berkeley-db"
+  depends_on "flex"
+  depends_on "lmdb"
+  depends_on "openldap"
   depends_on "openssl@1.1"
 
   resource "JSON" do
@@ -30,11 +34,24 @@ class Heimdal < Formula
       system "make", "install"
     end
 
+    ENV.append "LDFLAGS", "-L#{Formula["berkeley-db"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["lmdb"].opt_lib}"
+    ENV.append "CFLAGS", "-I#{Formula["lmdb"].opt_include}"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
       --without-x
+      --enable-static=no
+      --enable-pthread-support
+      --disable-afs-support
+      --disable-ndbm-db
+      --with-openldap=#{Formula["openldap"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-hcrypto-default-backend=ossl
+      --with-berkeley-db
+      --with-berkeley-db-include=#{Formula["berkeley-db"].opt_include}
     ]
 
     system "./configure", *args
