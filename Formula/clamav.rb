@@ -4,6 +4,7 @@ class Clamav < Formula
   url "https://www.clamav.net/downloads/production/clamav-0.102.3.tar.gz"
   mirror "https://fossies.org/linux/misc/clamav-0.102.3.tar.gz"
   sha256 "ed3050c4569989ee7ab54c7b87246b41ed808259632849be0706467442dc0693"
+  revision 1
 
   bottle do
     sha256 "14f69086a768c2a4a30fd5c4316201363b5265eb4a303159fd7773bc44d42e05" => :catalina
@@ -44,7 +45,7 @@ class Clamav < Formula
       --with-llvm=no
       --with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}
       --with-iconv=#{Formula["libiconv"].opt_prefix}
-      --with-libjson-static=#{Formula["json-c"].opt_prefix}/lib/libjson-c.a
+      --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre2"].opt_prefix}
       --with-zlib=#{MacOS.sdk_path_if_needed}/usr
