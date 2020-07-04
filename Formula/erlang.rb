@@ -4,6 +4,7 @@ class Erlang < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-23.0.2.tar.gz"
   sha256 "6bab92d1a1b20cc319cd845c23db3611cc99f8c99a610d117578262e3c108af3"
+  revision 1
   head "https://github.com/erlang/otp.git"
 
   bottle do
@@ -15,17 +16,12 @@ class Erlang < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "fop" => :build
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
   uses_from_macos "m4" => :build
-
-  resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_23.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_23.0.tar.gz"
-    sha256 "c0804cb5bead8780de24cf9ba656efefd9307a457e0541cc513109523731bf6f"
-  end
 
   resource "html" do
     url "https://www.erlang.org/download/otp_doc_html_23.0.tar.gz"
@@ -64,7 +60,10 @@ class Erlang < Formula
     system "make"
     system "make", "install"
 
-    (lib/"erlang").install resource("man").files("man")
+    # Build the doc chunks (manpages are also built by default)
+    system "make", "docs", "DOC_TARGETS=chunks"
+    system "make", "install-docs"
+
     doc.install resource("html")
   end
 
@@ -79,5 +78,30 @@ class Erlang < Formula
 
   test do
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
+    (testpath/"factorial").write <<~EOS
+      #!/usr/bin/env escript
+      %% -*- erlang -*-
+      %%! -smp enable -sname factorial -mnesia debug verbose
+      main([String]) ->
+          try
+              N = list_to_integer(String),
+              F = fac(N),
+              io:format("factorial ~w = ~w\n", [N,F])
+          catch
+              _:_ ->
+                  usage()
+          end;
+      main(_) ->
+          usage().
+      
+      usage() ->
+          io:format("usage: factorial integer\n").
+      
+      fac(0) -> 1;
+      fac(N) -> N * fac(N-1).
+    EOS
+    chmod 0755, "factorial"
+    assert_match "usage: factorial integer", shell_output("./factorial")
+    assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end
