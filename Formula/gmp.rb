@@ -26,22 +26,24 @@ class Gmp < Formula
   # Fixes arm64-darwin assembly/linkage issue
   patch :DATA
 
-  depends_on "autoconf" if Hardware::CPU.arm?
-  depends_on "automake" if Hardware::CPU.arm?
-  depends_on "libtool" if Hardware::CPU.arm?
+  if Hardware::CPU.arm?
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   def install
+    # Work around macOS Catalina / Xcode 11 code generation bug
+    # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
+    ENV.append_to_cflags "-fno-stack-check"
+
+    # Enable --with-pic to avoid linking issues with the static library
+    args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
+
     if Hardware::CPU.arm?
-      args =  %W[--prefix=#{prefix}]
       args << "--build=aarch64-apple-darwin#{`uname -r`.to_i}"
       system "autoreconf", "-fiv"
     else
-      # Work around macOS Catalina / Xcode 11 code generation bug
-      # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
-      ENV.append_to_cflags "-fno-stack-check"
-
-      # Enable --with-pic to avoid linking issues with the static library
-      args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
       args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
     end
     system "./configure", *args
