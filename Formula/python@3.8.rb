@@ -62,6 +62,27 @@ class PythonAT38 < Formula
     sha256 "c47680c85f201f5830bf71741f09ece031b99386040f3c70b20190b4c47fb81d"
   end
 
+  # Remove this block when upstream adds arm64 compatibility
+  if Hardware::CPU.arm?
+    # Upstream PR #21114, "Support `arm64` in Mac/Tools/pythonw"
+    patch do
+      url "https://github.com/python/cpython/pull/21114.patch?full_index=1"
+      sha256 "a50ddeb9f3a51277c935d681a4607f6e73c0817ec7a10c5e77bc8389814ccb19"
+    end
+
+    # Upstream PR #21224, "allow python to build for macosx-11.0-arm64"
+    patch do
+      url "https://github.com/python/cpython/pull/21224.patch?full_index=1"
+      sha256 "2a02ad3412a3f41cd67ae26a20f70ffd42dd15ef6791f8c8ef86129572e8f1d7"
+    end
+
+    # Upstream PR #21249, "ctypes fixes for arm64 Mac OS"
+    patch do
+      url "https://github.com/python/cpython/pull/21249.patch?full_index=1"
+      sha256 "11923d4a249da7b050cc2093bd9d4547dcdfbf61718b20896e8b6447e1967cb3"
+    end
+  end
+
   def install
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
