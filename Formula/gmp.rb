@@ -18,13 +18,9 @@ class Gmp < Formula
     # Remove when upstream fix is released
     # https://gmplib.org/list-archives/gmp-bugs/2020-July/004837.html
     # arm64-darwin patch
-    url "https://gmplib.org/list-archives/gmp-bugs/attachments/20200703/6c9b827c/attachment.bin"
-    sha256 "517ef7c22102e7ce15e71b75e4e4edcd2149dccfcf02a2b2f19f1407107fde18"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6f75ed4d/gmp/6.2.0-arm.patch"
+    sha256 "4c5b926f47c78f9cc6f900130d020e7f3aa6f31a6e84246e8886f6da04f7424c"
   end
-
-  # Remove when upstream fix is released
-  # Fixes arm64-darwin assembly/linkage issue
-  patch :DATA
 
   if Hardware::CPU.arm?
     depends_on "autoconf" => :build
@@ -76,32 +72,3 @@ class Gmp < Formula
     system "./test"
   end
 end
-__END__
-diff --git a/mpn/arm64/bdiv_q_1.asm b/mpn/arm64/bdiv_q_1.asm
-index ecc4fbc..4226524 100644
---- a/mpn/arm64/bdiv_q_1.asm
-+++ b/mpn/arm64/bdiv_q_1.asm
-@@ -75,7 +75,7 @@ PROLOGUE(mpn_bdiv_q_1)
- 	mul	x6, x6, x6
- 	msub	di, x6, d, x7
- 
--	b	mpn_pi1_bdiv_q_1
-+	b	__pi1_bdiv_q_1
- EPILOGUE()
- 
- PROLOGUE(mpn_pi1_bdiv_q_1)
-diff --git a/mpn/asm-defs.m4 b/mpn/asm-defs.m4
-index 7b7e53e..5032f69 100644
---- a/mpn/asm-defs.m4
-+++ b/mpn/asm-defs.m4
-@@ -1508,6 +1508,10 @@ deflit(__clz_tab,
- m4_assert_defined(`GSYM_PREFIX')
- `GSYM_PREFIX`'MPN(`clz_tab')')
- 
-+deflit(__pi1_bdiv_q_1,
-+m4_assert_defined(`GSYM_PREFIX')
-+`GSYM_PREFIX`'MPN(`pi1_bdiv_q_1')')
-+
- deflit(binvert_limb_table,
- m4_assert_defined(`GSYM_PREFIX')
- `GSYM_PREFIX`'__gmp_binvert_limb_table')
