@@ -1,8 +1,8 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.6.tar.gz"
-  sha256 "9f0a69fec1216ac947991bb1e506cc97f130ae14cef1fc5bbce08daaea566b63"
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.7.tar.gz"
+  sha256 "e82dcb75b262807c03f12c2eb100f184d0091b2dcada169b5faf4104937c0e6e"
   revision 1
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
@@ -20,13 +20,6 @@ class IosWebkitDebugProxy < Formula
   depends_on "libimobiledevice"
   depends_on "libplist"
   depends_on "openssl@1.1"
-
-  # Allow ios-webkit-debug-proxy to build with latest libplist/libimobiledevice:
-  # https://github.com/google/ios-webkit-debug-proxy/pull/361
-  patch do
-    url "https://github.com/google/ios-webkit-debug-proxy/commit/7195575fc5981c9c92ad337029ee90d997551369.patch?full_index=1"
-    sha256 "fbdf1e593cbfcf5a47007bef4a6f9b9b0209fb4349396b0f994c940d0e9c0dfa"
-  end
 
   def install
     system "./autogen.sh"
