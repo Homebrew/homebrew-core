@@ -5,7 +5,7 @@ class Tracebox < Formula
       :tag      => "v0.4.4",
       :revision => "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/tracebox/tracebox.git"
 
   bottle do
