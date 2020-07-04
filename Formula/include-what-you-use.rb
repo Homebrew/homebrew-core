@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.13.src.tar.gz"
-  sha256 "49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.14.src.tar.gz"
+  sha256 "43184397db57660c32e3298a6b1fd5ab82e808a1f5ab0591d6745f8d256200ef"
 
   bottle do
     sha256 "94a1fa82e1a198f0e7548cb7b4895303b52432eb83836ce84896cc5af6bd3340" => :catalina
@@ -11,10 +11,16 @@ class IncludeWhatYouUse < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" # include-what-you-use 0.13 is compatible with llvm 9.0
+  depends_on "llvm@9" # include-what-you-use 0.14 is compatible with llvm 9.0
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  # patch to make the build work with llvm9
+  patch do
+    url "https://github.com/include-what-you-use/include-what-you-use/pull/807.patch?full_index=1"
+    sha256 "afcc5bdf1377e36feacd699c194ef8e6645c8590d79f8cb15a57b43fa03c9102"
+  end
 
   def install
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
@@ -23,7 +29,7 @@ class IncludeWhatYouUse < Formula
     # and is not configurable, is also located under libexec.
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
-      -DCMAKE_PREFIX_PATH=#{Formula["llvm"].opt_lib}
+      -DCMAKE_PREFIX_PATH=#{Formula["llvm@9"].opt_lib}
     ]
 
     mkdir "build" do
@@ -41,11 +47,11 @@ class IncludeWhatYouUse < Formula
     # formula. This would be indicated by include-what-you-use failing to
     # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    mkdir_p libexec/"lib/clang/#{Formula["llvm"].version}"
-    cp_r Formula["llvm"].opt_lib/"clang/#{Formula["llvm"].version}/include",
-      libexec/"lib/clang/#{Formula["llvm"].version}"
+    mkdir_p libexec/"lib/clang/#{Formula["llvm@9"].version}"
+    cp_r Formula["llvm@9"].opt_lib/"clang/#{Formula["llvm@9"].version}/include",
+      libexec/"lib/clang/#{Formula["llvm@9"].version}"
     mkdir_p libexec/"include"
-    cp_r Formula["llvm"].opt_include/"c++", libexec/"include"
+    cp_r Formula["llvm@9"].opt_include/"c++", libexec/"include"
   end
 
   test do
