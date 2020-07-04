@@ -1,8 +1,8 @@
 class Serve < Formula
   desc "Static http server anywhere you need one"
   homepage "https://github.com/syntaqx/serve"
-  url "https://github.com/syntaqx/serve/archive/v0.4.0.tar.gz"
-  sha256 "5329738cc72bcee9c7d327981e256369c623257f7f9bd282592deafccacee6f1"
+  url "https://github.com/syntaqx/serve/archive/v0.5.0.tar.gz"
+  sha256 "fab576aa29b14dcfc45ba6e0e7e6b5284a83e873b75992399b3f5ef8d415d6ae"
   head "https://github.com/syntaqx/serve.git"
 
   bottle do
@@ -16,14 +16,7 @@ class Serve < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/syntaqx/serve"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"serve", "./cmd/serve"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-X main.version=#{version}", *std_go_args, "./cmd/serve"
   end
 
   test do
