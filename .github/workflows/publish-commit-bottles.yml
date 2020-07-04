@@ -12,33 +12,13 @@ jobs:
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
       - name: Post comment once started
-        uses: actions/github-script@0.9.0
+        uses: Homebrew/actions/post-comment@master
         with:
-          github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          script: |
-            const run_id = process.env.GITHUB_RUN_ID
-            const actor = context.actor
-            const pr = context.payload.client_payload.pull_request
-            console.log("run_id=" + run_id)
-            console.log("actor=" + actor)
-            console.log("pr=" + pr)
-
-            const repository = context.repo.owner + '/' + context.repo.repo
-            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
-
-            let comment = ''
-            if (actor == 'BrewTestBot') {
-                comment += ':robot: A scheduled task'
-            } else {
-                comment += ':shipit: @' + actor
-            }
-            comment += ' has [triggered a merge](' + url + ').'
-
-            github.issues.createComment({
-              ...context.repo,
-              issue_number: pr,
-              body: comment
-            })
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          issue: ${{github.event.client_payload.pull_request}}
+          body: ':shipit: @${{github.actor}} has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
+          bot_body: ':robot: A scheduled task has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
+          bot: BrewTestBot
       - name: Update Homebrew
         run: |
           brew update-reset $(brew --repository)
@@ -64,46 +44,18 @@ jobs:
         uses: Homebrew/actions/git-try-push@master
       - name: Post comment on failure
         if: ${{!success()}}
-        uses: actions/github-script@0.9.0
+        uses: Homebrew/actions/post-comment@master
         with:
-          github-token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          script: |
-            const run_id = process.env.GITHUB_RUN_ID
-            const actor = context.actor
-            const pr = context.payload.client_payload.pull_request
-            const repository = context.repo.owner + '/' + context.repo.repo
-            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          issue: ${{github.event.client_payload.pull_request}}
+          body: ':warning: @${{github.actor}} bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
+          bot_body: ':warning: Bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
+          bot: BrewTestBot
+      - name: Dismiss approvals on failure
+        if: ${{!success()}}
+        uses: Homebrew/actions/dismiss-approvals@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          pr: ${{github.event.client_payload.pull_request}}
+          message: 'bottle publish failed'
 
-            console.log("run_id=" + run_id)
-            console.log("actor=" + actor)
-            console.log("pr=" + pr)
-
-            let comment = ':warning: '
-            if (actor != 'BrewTestBot') {
-                comment += '@' + actor
-            }
-            let status = '${{job.status}}'.toLowerCase()
-            comment += ' bottle publish [' + status + '](' + url + ').'
-
-            github.issues.createComment({
-              ...context.repo,
-              issue_number: pr,
-              body: comment
-            })
-
-            const reviews = await github.pulls.listReviews({
-              ...context.repo,
-              pull_number: pr
-            })
-
-            for (const review of reviews.data) {
-              if (review.state != "APPROVED")
-                continue
-
-              github.pulls.dismissReview({
-                ...context.repo,
-                pull_number: pr,
-                review_id: review.id,
-                message: "bottle publish failed"
-              });
-            }
