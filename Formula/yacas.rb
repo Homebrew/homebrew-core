@@ -1,8 +1,8 @@
 class Yacas < Formula
   desc "General purpose computer algebra system"
   homepage "https://www.yacas.org/"
-  url "https://github.com/grzegorzmazur/yacas/archive/v1.8.0.tar.gz"
-  sha256 "25ebdafaec032eb4f39a12d87afc6cf9bf63ab952479a4839a71df92da5a981b"
+  url "https://github.com/grzegorzmazur/yacas/archive/v1.9.1.tar.gz"
+  sha256 "36333e9627a0ed27def7a3d14628ecaab25df350036e274b37f7af1d1ff7ef5b"
   license "LGPL-2.1"
 
   bottle do
@@ -16,9 +16,14 @@ class Yacas < Formula
   depends_on :xcode => :build
 
   def install
+    cmake_args = std_cmake_args + [
+      "-DENABLE_CYACAS_GUI=OFF",
+      "-DENABLE_CYACAS_KERNEL=OFF",
+      "-DCMAKE_C_COMPILER=#{ENV.cc}",
+      "-DCMAKE_CXX_COMPILER=#{ENV.cxx}",
+    ]
     mkdir "build" do
-      system "cmake", "..", "-G", "Xcode", "-DENABLE_CYACAS_GUI=OFF",
-                            "-DENABLE_CYACAS_KERNEL=OFF", *std_cmake_args
+      system "cmake", "..", "-G", "Xcode", *cmake_args
       ln_s "../libyacas/Release", "cyacas/libyacas_mp/Release"
       xcodebuild "-project", "yacas.xcodeproj", "-scheme", "ALL_BUILD",
                  "-configuration", "Release", "SYMROOT=build/cyacas/libyacas"
