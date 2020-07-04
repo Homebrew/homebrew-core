@@ -1,8 +1,9 @@
 class Html2text < Formula
   desc "Advanced HTML-to-text converter"
   homepage "http://www.mbayer.de/html2text/"
-  url "http://www.mbayer.de/html2text/downloads/html2text-1.3.2a.tar.gz"
-  sha256 "000b39d5d910b867ff7e087177b470a1e26e2819920dcffd5991c33f6d480392"
+  url "https://github.com/grobian/html2text/archive/v2.0.0.tar.gz"
+  sha256 "061125bfac658c6d89fa55e9519d90c5eeb3ba97b2105748ee62f3a3fa2449de"
+  head "https://github.com/grobian/html2text.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,24 +16,17 @@ class Html2text < Formula
     sha256 "b691a4fa679e2ae4562afe36d216b13ecaf2355167d4142bdb0f697f753eac19" => :mavericks
   end
 
-  # Patch provided by author. See:
-  # http://www.mbayer.de/html2text/faq.shtml#sect6
-  patch do
-    url "http://www.mbayer.de/html2text/downloads/patch-utf8-html2text-1.3.2a.diff"
-    sha256 "be4e90094d2854059924cb2c59ca31a5e9e0e22d2245fa5dc0c03f604798c5d1"
-  end
-
   def install
-    inreplace "configure",
-              'for i in "CC" "g++" "cc" "$CC"; do',
-              'for i in "g++"; do'
+    ENV.cxx11
 
-    system "./configure"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-debug",
+                          "--prefix=#{prefix}"
     system "make", "all"
 
     bin.install "html2text"
-    man1.install "html2text.1.gz"
-    man5.install "html2textrc.5.gz"
+    man1.install "html2text.1"
+    man5.install "html2textrc.5"
   end
 
   test do
