@@ -26,9 +26,13 @@ class Nettle < Formula
                                           "get_pc_thunk|(_*chkstk_darwin)"
     end
 
+    # Disable assembly as a temporary measure
+    args = "--disable-assembler" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-shared"
+                          "--enable-shared",
+                          *args
     system "make"
     system "make", "install"
     system "make", "check"
