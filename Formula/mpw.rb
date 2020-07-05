@@ -24,7 +24,8 @@ class Mpw < Formula
     cd "platform-independent/c/cli" if build.head?
 
     ENV["targets"] = "mpw"
-    ENV["mpw_json"] = "1"
+    # not compatible with json-c 0.14 yet
+    ENV["mpw_json"] = "0"
     ENV["mpw_color"] = "1"
 
     system "./build"
