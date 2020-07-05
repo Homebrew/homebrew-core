@@ -1,8 +1,8 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2020.06.30.zip"
-  sha256 "ed33382bbff23c6ceb1eed1e30160fc94f97e1db483eb8e33fc0b8ac72efd332"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2020.07.05.zip"
+  sha256 "a33d8369cbb7b4ad6b944fa72345c4698792cf194616b9c84f87a71d6f6e25f2"
 
   bottle do
     cellar :any_skip_relocation
