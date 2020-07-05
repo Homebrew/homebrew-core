@@ -4,7 +4,6 @@ class Gmt < Formula
   url "https://github.com/GenericMappingTools/gmt/releases/download/6.1.0/gmt-6.1.0-src.tar.xz"
   mirror "ftp://ftp.soest.hawaii.edu/gmt/gmt-6.1.0-src.tar.xz"
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.1.0-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-6.1.0-src.tar.xz"
   sha256 "ad02780153c53a1116ae0cc7945b6f533f066af44c30d7f95ff138cfede1867c"
   head "https://github.com/GenericMappingTools/gmt.git"
 
@@ -24,7 +23,6 @@ class Gmt < Formula
     url "https://github.com/GenericMappingTools/gshhg-gmt/releases/download/2.3.7/gshhg-gmt-2.3.7.tar.gz"
     mirror "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
     mirror "https://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 
@@ -32,7 +30,6 @@ class Gmt < Formula
     url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/1.1.4/dcw-gmt-1.1.4.tar.gz"
     mirror "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.4.tar.gz"
     mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz"
-    mirror "https://fossies.org/linux/misc/GMT/dcw-gmt-1.1.4.tar.gz"
     sha256 "8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3"
   end
 
