@@ -3,7 +3,7 @@ class PandocIncludeCode < Formula
   homepage "https://github.com/owickstrom/pandoc-include-code"
   url "https://hackage.haskell.org/package/pandoc-include-code-1.5.0.0/pandoc-include-code-1.5.0.0.tar.gz"
   sha256 "5d01a95f8a28cd858144d503631be6bb2d015faf9284326ee3c82c8d8433501d"
-
+  revision 1
   head "https://github.com/owickstrom/pandoc-include-code.git"
 
   bottle do
