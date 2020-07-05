@@ -19,7 +19,8 @@ class GitTown < Formula
     (buildpath/"src/github.com/git-town").mkpath
     ln_sf buildpath, buildpath/"src/github.com/git-town/git-town"
     system "go", "build", "-o", bin/"git-town", "-ldflags",
-           "-X github.com/git-town/git-town/src/cmd.version=v7.4.0 -X github.com/git-town/git-town/src/cmd.buildDate=2020/07/05"
+           "-X github.com/git-town/git-town/src/cmd.version=v7.4.0 "\
+           "-X github.com/git-town/git-town/src/cmd.buildDate=2020/07/05"
   end
 
   test do
