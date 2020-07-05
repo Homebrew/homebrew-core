@@ -15,7 +15,6 @@ class GitTown < Formula
   depends_on :macos => :el_capitan
 
   def install
-    ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/git-town").mkpath
     ln_sf buildpath, buildpath/"src/github.com/git-town/git-town"
     system "go", "build", "-o", bin/"git-town", "-ldflags",
