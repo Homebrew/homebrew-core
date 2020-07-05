@@ -15,7 +15,7 @@ class CartridgeCli < Formula
   depends_on "go" => :build
 
   def install
-    commit = Utils.safe_popen_read("git rev-parse --short HEAD").chomp
+    commit = Utils.safe_popen_read("git", "rev-parse", "--short", "HEAD").chomp
 
     ldflags = %W[
       -s -w
