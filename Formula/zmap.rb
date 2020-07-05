@@ -23,6 +23,10 @@ class Zmap < Formula
   depends_on "json-c"
   depends_on "libdnet"
 
+  # fix json-c 0.14 compat
+  # ref PR, https://github.com/zmap/zmap/pull/609
+  patch :DATA
+
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
 
@@ -36,3 +40,17 @@ class Zmap < Formula
     system "#{sbin}/zmap", "--version"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8bd825f..c70b651 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -71,7 +71,7 @@ if(WITH_JSON)
+         message(FATAL_ERROR "Did not find libjson")
+     endif()
+
+-    add_definitions("-DJSON")
++    string(REPLACE ";" " " JSON_CFLAGS "${JSON_CFLAGS}")
+     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${JSON_CFLAGS}")
+ endif()
