@@ -2,9 +2,9 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag      => "6.2.0",
-      :revision => "c62c7ff1c86323b9c1e4c12bccfca19737dd2e56"
-  head "https://github.com/SwiftGen/SwiftGen.git", :branch => "stable"
+      :tag      => "6.2.1",
+      :revision => "74ec417bfb39ed3191b385d3cafecfbbcc0fad72"
+  head "https://github.com/SwiftGen/SwiftGen.git", :branch => "develop"
 
   bottle do
     cellar :any
@@ -29,6 +29,7 @@ class Swiftgen < Formula
       "Tests/Fixtures/Resources/Colors/colors.xml"                           => "colors.xml",
       "Tests/Fixtures/Resources/CoreData/Model.xcdatamodeld"                 => "Model.xcdatamodeld",
       "Tests/Fixtures/Resources/Fonts"                                       => "Fonts",
+      "Tests/Fixtures/Resources/JSON"                                        => "JSON",
       "Tests/Fixtures/Resources/IB-iOS"                                      => "IB-iOS",
       "Tests/Fixtures/Resources/Plist/good"                                  => "Plist",
       "Tests/Fixtures/Resources/Strings/Localizable.strings"                 => "Localizable.strings",
@@ -38,6 +39,7 @@ class Swiftgen < Formula
       "Tests/Fixtures/Generated/CoreData/swift5/defaults.swift"              => "coredata.swift",
       "Tests/Fixtures/Generated/Fonts/swift5/defaults.swift"                 => "fonts.swift",
       "Tests/Fixtures/Generated/IB-iOS/scenes-swift5/all.swift"              => "ib-scenes.swift",
+      "Tests/Fixtures/Generated/JSON/runtime-swift5/all.swift"               => "json.swift",
       "Tests/Fixtures/Generated/Plist/runtime-swift5/all.swift"              => "plists.swift",
       "Tests/Fixtures/Generated/Strings/structured-swift5/localizable.swift" => "strings.swift",
       "Tests/Fixtures/Generated/XCAssets/swift5/all.swift"                   => "xcassets.swift",
@@ -51,40 +53,52 @@ class Swiftgen < Formula
 
     fixtures = pkgshare/"fixtures"
 
-    assert_equal shell_output("#{bin}/swiftgen run colors --templatePath " \
-                              "#{pkgshare/"templates/colors/swift5.stencil"} #{fixtures}/colors.xml").strip,
-      (fixtures/"colors.swift").read.strip, "swiftgen run colors failed"
+    assert_equal (fixtures/"colors.swift").read.strip,
+      shell_output("#{bin}/swiftgen run colors --templatePath " \
+                   "#{pkgshare/"templates/colors/swift5.stencil"} #{fixtures}/colors.xml").strip,
+      "swiftgen run colors failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run coredata --templatePath " \
-                              "#{pkgshare/"templates/coredata/swift5.stencil"} #{fixtures}/Model.xcdatamodeld").strip,
-      (fixtures/"coredata.swift").read.strip, "swiftgen run coredata failed"
+    assert_equal (fixtures/"coredata.swift").read.strip,
+      shell_output("#{bin}/swiftgen run coredata --templatePath " \
+                   "#{pkgshare/"templates/coredata/swift5.stencil"} #{fixtures}/Model.xcdatamodeld").strip,
+      "swiftgen run coredata failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run fonts --templatePath " \
-                              "#{pkgshare/"templates/fonts/swift5.stencil"} #{fixtures}/Fonts").strip,
-      (fixtures/"fonts.swift").read.strip, "swiftgen run fonts failed"
+    assert_equal (fixtures/"fonts.swift").read.strip,
+      shell_output("#{bin}/swiftgen run fonts --templatePath " \
+                   "#{pkgshare/"templates/fonts/swift5.stencil"} #{fixtures}/Fonts").strip,
+      "swiftgen run fonts failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run ib --templatePath " \
-                              "#{pkgshare/"templates/ib/scenes-swift5.stencil"} --param module=SwiftGen " \
-                              "#{fixtures}/IB-iOS").strip,
-      (fixtures/"ib-scenes.swift").read.strip, "swiftgen run ib failed"
+    assert_equal (fixtures/"ib-scenes.swift").read.strip,
+      shell_output("#{bin}/swiftgen run ib --templatePath " \
+                   "#{pkgshare/"templates/ib/scenes-swift5.stencil"} --param module=SwiftGen " \
+                   "#{fixtures}/IB-iOS").strip,
+      "swiftgen run ib failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run plist --templatePath " \
-                              "#{pkgshare/"templates/plist/runtime-swift5.stencil"} #{fixtures}/Plist").strip,
-      (fixtures/"plists.swift").read.strip, "swiftgen run plist failed"
+    assert_equal (fixtures/"json.swift").read.strip,
+      shell_output("#{bin}/swiftgen run json --templatePath " \
+                   "#{pkgshare/"templates/json/runtime-swift5.stencil"} #{fixtures}/JSON").strip,
+      "swiftgen run json failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run strings --templatePath " \
-                              "#{pkgshare/"templates/strings/structured-swift5.stencil"} " \
-                              "#{fixtures}/Localizable.strings").strip,
-      (fixtures/"strings.swift").read.strip, "swiftgen run strings failed"
+    assert_equal (fixtures/"plists.swift").read.strip,
+      shell_output("#{bin}/swiftgen run plist --templatePath " \
+                   "#{pkgshare/"templates/plist/runtime-swift5.stencil"} #{fixtures}/Plist").strip,
+      "swiftgen run plist failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run xcassets --templatePath " \
-                              "#{pkgshare/"templates/xcassets/swift5.stencil"} " \
-                              "#{fixtures}/XCAssets/*.xcassets").strip,
-      (fixtures/"xcassets.swift").read.strip, "swiftgen run xcassets failed"
+    assert_equal (fixtures/"strings.swift").read.strip,
+      shell_output("#{bin}/swiftgen run strings --templatePath " \
+                   "#{pkgshare/"templates/strings/structured-swift5.stencil"} " \
+                   "#{fixtures}/Localizable.strings").strip,
+      "swiftgen run strings failed"
 
-    assert_equal shell_output("#{bin}/swiftgen run yaml --templatePath " \
-                              "#{pkgshare/"templates/yaml/inline-swift5.stencil"} --filter '.(json|ya?ml)$' " \
-                              "#{fixtures}/YAML").strip,
-      (fixtures/"yaml.swift").read.strip, "swiftgen run yaml failed"
+    assert_equal (fixtures/"xcassets.swift").read.strip,
+      shell_output("#{bin}/swiftgen run xcassets --templatePath " \
+                   "#{pkgshare/"templates/xcassets/swift5.stencil"} " \
+                   "#{fixtures}/XCAssets/*.xcassets").strip,
+      "swiftgen run xcassets failed"
+
+    assert_equal (fixtures/"yaml.swift").read.strip,
+      shell_output("#{bin}/swiftgen run yaml --templatePath " \
+                   "#{pkgshare/"templates/yaml/inline-swift5.stencil"} #{fixtures}/YAML").strip,
+      "swiftgen run yaml failed"
   end
 end
