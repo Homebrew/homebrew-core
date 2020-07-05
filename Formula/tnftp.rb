@@ -1,8 +1,8 @@
 class Tnftp < Formula
   desc "NetBSD's FTP client"
   homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20151004.tar.gz"
-  sha256 "c94a8a49d3f4aec1965feea831d4d5bf6f90c65fd8381ee0863d11a5029a43a0"
+  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20200705.tar.gz"
+  sha256 "ba4a92b693d04179664524eef0801c8eed4447941c9855f377f98f119f221c03"
 
   bottle do
     cellar :any_skip_relocation
