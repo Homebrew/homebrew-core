@@ -13,9 +13,8 @@ class Polipo < Formula
     sha256 "7a943f9e9952d78c692d5ec155b407319181a6a66ee1367801f77da8f7bb8459" => :sierra
   end
 
-  # https://www.irif.fr/~jch/software/polipo/
-  # Polipo is no longer maintained
-  deprecate!
+  # https://github.com/jech/polipo/commit/4d42ca1b5849518762d110f34b6ce2e03d6df9ec
+  deprecate! :date => "2016-11-06"
 
   def install
     cache_root = (var + "cache/polipo")
