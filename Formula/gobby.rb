@@ -23,6 +23,10 @@ class Gobby < Formula
   depends_on "libinfinity"
   depends_on "libxml++"
 
+  # open issue since 2017-04-23, https://github.com/gobby/gobby/issues/143
+  # no active release and maintenance since 2018-08-26
+  disable!
+
   # Necessary to remove mandatory gtk-mac-integration
   # it's badly broken as it depends on an ancient version of ige-mac-integration
   # since it depends on gtk3, it doesn't even need gtk-mac-integration anymore
