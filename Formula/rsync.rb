@@ -1,10 +1,10 @@
 class Rsync < Formula
   desc "Utility that provides fast incremental file transfer"
   homepage "https://rsync.samba.org/"
-  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.1.tar.gz"
-  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.1.tar.gz"
-  sha256 "95f2dd62979b500a99b34c1a6453a0787ada0330e4bec7fcffad37b9062d58d3"
+  url "https://rsync.samba.org/ftp/rsync/rsync-3.2.2.tar.gz"
+  mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.2.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.2.tar.gz"
+  sha256 "644bd3841779507665211fd7db8359c8a10670c57e305b4aab61b4e40037afa8"
 
   bottle do
     cellar :any
@@ -22,11 +22,11 @@ class Rsync < Formula
   uses_from_macos "zlib"
 
   # hfs-compression.diff has been marked by upstream as broken since 3.1.3
-  # and has not been reported fixed as of 3.2.1
+  # and has not been reported fixed as of 3.2.2
   patch do
-    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.1.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.1.tar.gz"
-    sha256 "6e0233a3c2381bff36b91d791d0c16a9c362856c6baf70dbaa1c43049992e336"
+    url "https://download.samba.org/pub/rsync/src/rsync-patches-3.2.2.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-patches-3.2.2.tar.gz"
+    sha256 "eeccf4c7f178c936e451b679e64b670f707b989b7a40e2d22286407f8987ae9a"
     apply "patches/fileflags.diff",
           "patches/crtimes.diff"
   end
