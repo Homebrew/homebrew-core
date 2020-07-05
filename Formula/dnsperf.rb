@@ -21,6 +21,14 @@ class Dnsperf < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
+    # Extra linker flags are needed to build this on macOS.
+    # Upstream bug ticket: https://github.com/DNS-OARC/dnsperf/issues/80
+    ENV.append "LDFLAGS", "-framework CoreFoundation"
+    ENV.append "LDFLAGS", "-framework CoreServices"
+    ENV.append "LDFLAGS", "-framework Security"
+    ENV.append "LDFLAGS", "-framework GSS"
+    ENV.append "LDFLAGS", "-framework Kerberos"
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
