@@ -1,6 +1,9 @@
 name: Publish and commit bottles
 
-on: repository_dispatch
+on:
+  repository_dispatch:
+    types:
+      - 'Publish *'
 
 jobs:
   upload:
