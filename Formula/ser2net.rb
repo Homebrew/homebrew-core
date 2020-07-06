@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-3.5.1.tar.gz"
-  sha256 "02f5dd0abbef5a17b80836b0de1ef0588e257106fb5e269b86822bfd001dc862"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.1.8.tar.gz"
+  sha256 "cffb5147021202b064eb0a9389d0db63d1bb2dcde5a896f7785f97b1b5f51a72"
   license "GPL-2.0"
 
   bottle do
@@ -13,23 +13,44 @@ class Ser2net < Formula
     sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
   end
 
+  depends_on "libyaml"
   depends_on :macos => :sierra # needs clock_gettime
 
+  resource "gensio" do
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.1.tar.gz"
+    sha256 "e81df2c55d8830ac4f3c28eda54c3f690c4b62e186ea3879815b101a4902a703"
+
+    # Pull request submitted upstream as https://github.com/cminyard/gensio/pull/19
+    patch do
+      url "https://github.com/cminyard/gensio/pull/19.patch?full_index=1"
+      sha256 "2513ebcaf0395e59d846834eb59a5f0bacc077a0070bf9d1239ad223f16e6735"
+    end
+  end
+
   def install
+    resource("gensio").stage do
+      system "./configure", "--with-python=no",
+                            "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/gensio"
+      system "make", "install"
+    end
+
+    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/gensio/lib/pkgconfig"
+    ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
+    ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
 
-    # LIBS is set to "-lpthread -lrt" but librt doesn't exist on macOS
-    # https://github.com/cminyard/ser2net/issues/3
-    system "make", "install", "LIBS=-lpthread"
+    system "make", "install"
 
-    etc.install "ser2net.conf"
+    (etc/"ser2net").install "ser2net.yaml"
   end
 
   def caveats
     <<~EOS
-      To configure ser2net, edit the example configuration in #{etc}/ser2net.conf
+      To configure ser2net, edit the example configuration in #{etc}/ser2net/ser2net.yaml
     EOS
   end
 
@@ -59,6 +80,7 @@ class Ser2net < Formula
       </plist>
     EOS
   end
+
   test do
     assert_match version.to_s, shell_output("#{sbin}/ser2net -v")
   end
