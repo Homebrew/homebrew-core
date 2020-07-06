@@ -18,7 +18,7 @@ class Gmp < Formula
     # Remove when upstream fix is released
     # https://gmplib.org/list-archives/gmp-bugs/2020-July/004837.html
     # arm64-darwin patch
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6f75ed4d/gmp/6.2.0-arm.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c53834b4/gmp/6.2.0-arm.patch"
     sha256 "4c5b926f47c78f9cc6f900130d020e7f3aa6f31a6e84246e8886f6da04f7424c"
   end
 
