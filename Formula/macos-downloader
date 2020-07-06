@@ -1,0 +1,16 @@
+class MacosDownloader < Formula
+  desc "Command line tool for downloading macOS installers and beta updates"
+  homepage "https://github.com/rmc-team/macos-downloader"
+  url "https://github.com/rmc-team/macos-downloader/archive/2.4.3.tar.gz"
+  sha256 "3c0cca7b3d9060e5ca722749f0b6875283a02848a5f4677b74d19b2706596a26"
+
+  def install
+  system "PREFIX=#{prefix}"
+  end
+
+  bottle :unneeded
+
+  test do
+    system "false"
+  end
+end
