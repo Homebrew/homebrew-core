@@ -53,9 +53,7 @@ class Mapserver < Formula
     args << "-DPHP_EXTENSION_DIR=#{lib}/php/extensions"
 
     # Install within our sandbox
-    inreplace "mapscript/python/CMakeLists.txt" do |s|
-      s.gsub! "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup"
-    end
+    inreplace "mapscript/python/CMakeLists.txt", "${PYTHON_LIBRARIES}", "-Wl,-undefined,dynamic_lookup"
 
     # Using rpath on python module seems to cause problems if you attempt to
     # import it with an interpreter it wasn't built against.
