@@ -59,9 +59,7 @@ class MitScheme < Formula
       s.gsub! /SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}"
     end
 
-    inreplace "edwin/compile.sh" do |s|
-      s.gsub! "mit-scheme", "#{bin}/mit-scheme"
-    end
+    inreplace "edwin/compile.sh", "mit-scheme", "#{bin}/mit-scheme"
 
     ENV.prepend_path "PATH", buildpath/"staging/bin"
 
