@@ -13,15 +13,15 @@ class Perl < Formula
 
   uses_from_macos "expat"
 
+  # Prevent site_perl directories from being removed
+  skip_clean "lib/perl5/site_perl"
+
   patch do
     # Enable build support on macOS 11.x
     # https://github.com/Perl/perl5/pull/17946
     url "https://github.com/Perl/perl5/pull/17946.diff?full_index=1"
     sha256 "677a6e63412a4cfd2dc1fe16ccca53d789be5ac1acfb5ebb3130c40b51e5e94a"
   end
-
-  # Prevent site_perl directories from being removed
-  skip_clean "lib/perl5/site_perl"
 
   def install
     args = %W[
