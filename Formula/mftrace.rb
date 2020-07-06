@@ -1,11 +1,10 @@
 class Mftrace < Formula
   desc "Trace TeX bitmap font to PFA, PFB, or TTF font"
   homepage "https://lilypond.org/mftrace/"
-  url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.19.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.19.tar.gz"
-  sha256 "778126f4220aa31fc91fa8baafd26aaf8be9c5e8fed5c0e92a61de04d32bbdb5"
+  url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.20.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.20.tar.gz"
+  sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
   license "GPL-2.0"
-  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -24,7 +23,14 @@ class Mftrace < Formula
   depends_on "python@3.8"
   depends_on "t1utils"
 
+  # Fixed in https://github.com/hanwen/mftrace/pull/14
+  resource "manpage" do
+    url "https://github.com/hanwen/mftrace/raw/release/1.2.20/gf2pbm.1"
+    sha256 "f2a7234cba5f59237e3cc1f67e395046b381a012456d4e6e9963673cf35d46fb"
+  end
+
   def install
+    buildpath.install resource("manpage") if build.stable?
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
