@@ -20,7 +20,7 @@ class Carthage < Formula
     # Fix erroneously re-throwing reduce (on Swift 5.3 pre-release)
     # https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f
     url "https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f.diff?full_index=1"
-    sha256 "c9d00f786c5b15aaa7faf51778b13945e4e05917872fe99b008cf281dfceb360"
+    sha256 "75610a77cafbf447ea040d8dea1a4beb626944c577351ea5435ab5e8dda71b1c"
   end
 
   def install
