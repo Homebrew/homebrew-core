@@ -14,6 +14,13 @@ class Carthage < Formula
     sha256 "130fcb9bc06ef8e7f1c5ac9af0d155bd347db039b2cf80fa0fef764b3627ffbf" => :high_sierra
   end
 
+  patch do
+    # Fix erroneously re-throwing reduce (on Swift 5.3 pre-release)
+    # https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f
+    url "https://github.com/Carthage/Carthage/commit/a33d3483b31e28e0488ea51e3efb6b44025f1b5f.diff"
+    sha256 "c9d00f786c5b15aaa7faf51778b13945e4e05917872fe99b008cf281dfceb360"
+  end
+
   depends_on :xcode => ["10.0", :build]
 
   def install
