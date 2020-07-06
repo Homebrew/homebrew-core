@@ -5,6 +5,7 @@ class Awscli < Formula
   homepage "https://aws.amazon.com/cli/"
   url "https://github.com/aws/aws-cli/archive/2.0.28.tar.gz"
   sha256 "8433691f1f877f6e3ca5f9ebc0aee494243d0d4c9cafa29c8aec5eaceb551245"
+  revision 1
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
@@ -42,6 +43,8 @@ class Awscli < Formula
         if [[ -f $e ]]; then source $e; fi
       }
     EOS
+
+    system libexec/"bin/python3", "scripts/gen-ac-index", "--include-builtin-index"
   end
 
   def caveats
@@ -53,5 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
+    assert_include Dir["#{libexec}/lib/python3.8/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.8/site-packages/awscli/data/ac.index"
   end
 end
