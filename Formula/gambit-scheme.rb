@@ -26,9 +26,8 @@ class GambitScheme < Formula
     system "./configure", *args
 
     # Fixed in gambit HEAD, but they haven't cut a release
-    inreplace "config.status" do |s|
-      s.gsub! %r{/usr/local/opt/openssl(?!@1\.1)}, "/usr/local/opt/openssl@1.1"
-    end
+    inreplace "config.status", %r{/usr/local/opt/openssl(?!@1\.1)}, "/usr/local/opt/openssl@1.1"
+
     system "./config.status"
 
     system "make"
