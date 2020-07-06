@@ -21,7 +21,7 @@ class Gitui < Formula
 
   test do
     system "git", "clone", "https://github.com/extrawurst/gitui.git"
-    (testpath/"gitui").cd { system "git", "checkout", "v0.7.0" }
+    (testpath/"gitui").cd { system "git", "checkout", "v0.8.0" }
 
     input, _, wait_thr = Open3.popen2 "script -q screenlog.ansi"
     input.puts "stty rows 80 cols 130"
@@ -39,8 +39,8 @@ class Gitui < Formula
     # remove ANSI colors
     screenlog.gsub! /\e\[([;\d]+)?m/, ""
     assert_match "Author: Stephan Dilly", screenlog
-    assert_match "Date: 2020-06-15", screenlog
-    assert_match "SHA: 9c2a31846c417d8775a346ceaf38e77b710d3aab", screenlog
+    assert_match "Date: 2020-07-06", screenlog
+    assert_match "SHA: 2c53c0948788adc732fe5273f0288065224cac4d", screenlog
   ensure
     Process.kill("TERM", wait_thr.pid)
   end
