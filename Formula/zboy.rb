@@ -16,12 +16,10 @@ class Zboy < Formula
 
   depends_on "sdl2"
 
-  # Compile and link drv_sdl2.o
-  patch :DATA
-
   def install
     sdl2 = Formula["sdl2"]
     ENV.append_to_cflags "-std=gnu89 -D__zboy4linux__ -DNETPLAY -DLFNAVAIL -I#{sdl2.include} -L#{sdl2.lib}"
+    inreplace "Makefile.linux", "zboy.o", "zboy.o drv_sdl2.o"
     system "make", "-f", "Makefile.linux", "CFLAGS=#{ENV.cflags}"
     bin.install "zboy"
   end
@@ -30,18 +28,3 @@ class Zboy < Formula
     system "#{bin}/zboy", "--help"
   end
 end
-
-__END__
-diff --git a/Makefile.linux b/Makefile.linux
-index 3af9c65..e4ad434 100644
---- a/Makefile.linux
-+++ b/Makefile.linux
-@@ -12,7 +12,7 @@ LDLIBS = -lSDL2
- 
- all: zboy
- 
--zboy: zboy.o about.o loadpal.o loadrom.o net_sock.o crc32.o wordwrap.o libunzip/libunzip.a
-+zboy: zboy.o about.o drv_sdl2.o loadpal.o loadrom.o net_sock.o crc32.o wordwrap.o libunzip/libunzip.a
- 
- aboutgen: aboutgen.c
- 
