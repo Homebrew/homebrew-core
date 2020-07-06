@@ -3,6 +3,7 @@ class Caddy < Formula
   homepage "https://caddyserver.com/"
   url "https://github.com/caddyserver/caddy/archive/v2.1.1.tar.gz"
   sha256 "77beb13b39b670bfe9e0cc1c71b720d5b037cca60e1426a9a485bbfae34ba8d2"
+  license "Apache-2.0"
   head "https://github.com/caddyserver/caddy.git"
 
   bottle do

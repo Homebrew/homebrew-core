@@ -3,6 +3,7 @@ class Eless < Formula
   homepage "https://eless.scripter.co/"
   url "https://github.com/kaushalmodi/eless/archive/v0.6.tar.gz"
   sha256 "a691a56da6d92f279e46c10d72d3ef6e4951f0e30092ca394622b6e94aae551b"
+  license "MIT"
 
   bottle :unneeded
 

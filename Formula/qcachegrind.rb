@@ -3,6 +3,7 @@ class Qcachegrind < Formula
   homepage "https://kcachegrind.github.io/"
   url "https://download.kde.org/stable/applications/19.08.3/src/kcachegrind-19.08.3.tar.xz"
   sha256 "8fc5e0643bb826b07cb5d283b8bd6fd5da4979f6125b43b1db3a9db60b02a36a"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

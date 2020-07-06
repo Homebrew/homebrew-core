@@ -5,6 +5,7 @@ class MinioMc < Formula
       :tag      => "RELEASE.2020-06-26T19-56-55Z",
       :revision => "bb3c0d45f2e64eab2b83e7f5376e1b621f0821a9"
   version "20200626195655"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

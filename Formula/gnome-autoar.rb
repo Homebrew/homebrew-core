@@ -3,6 +3,7 @@ class GnomeAutoar < Formula
   homepage "https://github.com/GNOME/gnome-autoar"
   url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz"
   sha256 "0a34c377f8841abbf4c29bc848b301fbd8e4e20c03d7318c777c58432033657a"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

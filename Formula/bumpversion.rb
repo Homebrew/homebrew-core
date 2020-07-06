@@ -7,6 +7,7 @@ class Bumpversion < Formula
   # Ongoing maintenance discussion for the project, https://github.com/c4urself/bump2version/issues/86
   url "https://github.com/c4urself/bump2version/archive/v1.0.0.tar.gz"
   sha256 "06a7cb0fb7155b9283c4d10180e477f658754595b4dedb249f1e143e899d0e6c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

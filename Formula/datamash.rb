@@ -4,6 +4,7 @@ class Datamash < Formula
   url "https://ftp.gnu.org/gnu/datamash/datamash-1.7.tar.gz"
   mirror "https://ftpmirror.gnu.org/datamash/datamash-1.7.tar.gz"
   sha256 "574a592bb90c5ae702ffaed1b59498d5e3e7466a8abf8530c5f2f3f11fa4adb3"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

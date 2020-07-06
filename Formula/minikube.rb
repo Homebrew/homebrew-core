@@ -4,6 +4,7 @@ class Minikube < Formula
   url "https://github.com/kubernetes/minikube.git",
       :tag      => "v1.11.0",
       :revision => "57e2f55f47effe9ce396cea42a1e0eb4f611ebbd"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/minikube.git"
 
   bottle do

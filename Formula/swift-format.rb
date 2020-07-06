@@ -4,6 +4,7 @@ class SwiftFormat < Formula
   url "https://github.com/apple/swift-format.git",
     :tag      => "0.50200.1",
     :revision => "f22aade8a6ee061b4a7041601ededd8ad7bc2122"
+  license "Apache-2.0"
   version_scheme 1
   head "https://github.com/apple/swift-format.git"
 

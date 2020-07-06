@@ -3,6 +3,7 @@ class Eureka < Formula
   homepage "https://github.com/simeg/eureka"
   url "https://github.com/simeg/eureka/archive/v1.7.0.tar.gz"
   sha256 "3a4475fcce16acdb5bfc705641dbfc99ab7d8d7739de1da44d1f9c2fec8ea92d"
+  license "MIT"
   head "https://github.com/simeg/eureka.git"
 
   bottle do

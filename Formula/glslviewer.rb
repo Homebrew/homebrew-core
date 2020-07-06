@@ -3,6 +3,7 @@ class Glslviewer < Formula
   homepage "http://patriciogonzalezvivo.com/2015/glslViewer/"
   url "https://github.com/patriciogonzalezvivo/glslViewer/archive/1.6.0.tar.gz"
   sha256 "9235fefc41130ad4088c50c76a1f246069fe4986e42df972e352549d16d935b7"
+  license "BSD-3-Clause"
   head "https://github.com/patriciogonzalezvivo/glslViewer.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Pugixml < Formula
   homepage "https://pugixml.org/"
   url "https://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz"
   sha256 "55f399fbb470942410d348584dc953bcaec926415d3462f471ef350f29b5870a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

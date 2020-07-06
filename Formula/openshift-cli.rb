@@ -5,6 +5,7 @@ class OpenshiftCli < Formula
       :tag      => "v4.1.0",
       :revision => "b4261e07eda19d9c42aa9d1c748c34f8cba09168",
       :shallow  => false
+  license "Apache-2.0"
   revision 1
   head "https://github.com/openshift/origin.git",
       :shallow  => false

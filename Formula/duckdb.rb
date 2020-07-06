@@ -3,6 +3,7 @@ class Duckdb < Formula
   homepage "https://www.duckdb.org"
   url "https://github.com/cwida/duckdb/archive/v0.1.9.tar.gz"
   sha256 "235f5b9b39cdbb92de09960c887ad020edad2ad836fb18e19bcc4b11274041cc"
+  license "MIT"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Qrcp < Formula
   homepage "https://claudiodangelis.com/qrcp"
   url "https://github.com/claudiodangelis/qrcp/archive/0.6.3.tar.gz"
   sha256 "2d39ba661aad9c60b816bc06f53ef4f3d8747e11d5fc27c104d3687d1e77204c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

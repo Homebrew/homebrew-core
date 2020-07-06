@@ -3,6 +3,7 @@ class Launchdns < Formula
   homepage "https://github.com/josh/launchdns"
   url "https://github.com/josh/launchdns/archive/v1.0.4.tar.gz"
   sha256 "60f6010659407e3d148c021c88e1c1ce0924de320e99a5c58b21c8aece3888aa"
+  license "MIT"
   revision 1
   head "https://github.com/josh/launchdns.git"
 

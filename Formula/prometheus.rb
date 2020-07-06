@@ -3,6 +3,7 @@ class Prometheus < Formula
   homepage "https://prometheus.io/"
   url "https://github.com/prometheus/prometheus/archive/v2.19.2.tar.gz"
   sha256 "d4e84cae2fed6761bb8a80fcc69b6e0e9f274d19dffc0f38fb5845f11da1bbc3"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

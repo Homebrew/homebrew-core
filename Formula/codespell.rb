@@ -5,6 +5,7 @@ class Codespell < Formula
   homepage "https://github.com/codespell-project/codespell"
   url "https://files.pythonhosted.org/packages/7e/37/b15b4133e90bbef5acecfd2f3f3871c1352ee281c042fd64a22a72735fb8/codespell-1.17.1.tar.gz"
   sha256 "25a2ecd86b9cdc111dc40a30d0ed28c578e13a0ce158d1c383f9d47811bfcd23"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

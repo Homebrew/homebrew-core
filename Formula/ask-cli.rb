@@ -5,6 +5,7 @@ class AskCli < Formula
   homepage "https://www.npmjs.com/package/ask-cli"
   url "https://registry.npmjs.org/ask-cli/-/ask-cli-2.11.1.tgz"
   sha256 "4df127b2cae43d45fe6d2b4fb56d53fa10b48e1c79c72a166017074c688a2da8"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

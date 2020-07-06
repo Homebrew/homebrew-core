@@ -4,6 +4,7 @@ class ZeroInstall < Formula
   url "https://github.com/0install/0install.git",
       :tag      => "v2.17",
       :revision => "4a837bd638d93905b96d073c28c644894f8d4a0b"
+  license "LGPL-2.1"
   head "https://github.com/0install/0install.git"
 
   bottle do

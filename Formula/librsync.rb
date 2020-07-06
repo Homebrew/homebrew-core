@@ -3,6 +3,7 @@ class Librsync < Formula
   homepage "https://librsync.github.io/"
   url "https://github.com/librsync/librsync/archive/v2.3.1.tar.gz"
   sha256 "dbd7eb643665691bdf4009174461463737b19b4814b789baad62914cabfe4569"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "eb1526a88a99556f1ae98c7fa008a8c17ddbe2efe2e55de0192ccbccf9840937" => :catalina

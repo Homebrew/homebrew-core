@@ -3,6 +3,7 @@ class Libsbol < Formula
   homepage "https://synbiodex.github.io/libSBOL"
   url "https://github.com/SynBioDex/libSBOL/archive/v2.3.2.tar.gz"
   sha256 "c85de13b35dec40c920ff8a848a91c86af6f7c7ee77ed3c750f414bbbbb53924"
+  license "Apache-2.0"
   revision 1
 
   bottle do

@@ -3,6 +3,7 @@ class Libosmium < Formula
   homepage "https://osmcode.org/libosmium/"
   url "https://github.com/osmcode/libosmium/archive/v2.15.6.tar.gz"
   sha256 "55879b9da0f3756f3216f9fb857f35afb3b01294b5f18e0d1719334e7d4f5ac9"
+  license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation

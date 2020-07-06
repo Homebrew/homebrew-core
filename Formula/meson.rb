@@ -3,6 +3,7 @@ class Meson < Formula
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.54.3/meson-0.54.3.tar.gz"
   sha256 "f2bdf4cf0694e696b48261cdd14380fb1d0fe33d24744d8b2df0c12f33ebb662"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/mesonbuild/meson.git"
 

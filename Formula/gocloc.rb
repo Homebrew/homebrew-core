@@ -3,6 +3,7 @@ class Gocloc < Formula
   homepage "https://github.com/hhatto/gocloc"
   url "https://github.com/hhatto/gocloc/archive/v0.3.3.tar.gz"
   sha256 "308461beea124991c1558d8278e3a7cc0c8411c5730d444ebbd54187edeb688d"
+  license "MIT"
   head "https://github.com/hhatto/gocloc.git"
 
   bottle do

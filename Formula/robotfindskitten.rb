@@ -3,6 +3,7 @@ class Robotfindskitten < Formula
   homepage "http://robotfindskitten.org/"
   url "https://downloads.sourceforge.net/project/rfk/robotfindskitten-POSIX/ship_it_anyway/robotfindskitten-2.8284271.702.tar.gz"
   sha256 "020172e4f4630f7c4f62c03b6ffe2eeeba5637b60374d3e6952ae5816a9f99af"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/robotfindskitten/robotfindskitten.git", :branch => "main"
 

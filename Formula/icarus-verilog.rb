@@ -4,6 +4,7 @@ class IcarusVerilog < Formula
   url "https://github.com/steveicarus/iverilog/archive/v10_3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.3.orig.tar.gz"
   sha256 "4b884261645a73b37467242d6ae69264fdde2e7c4c15b245d902531efaaeb234"
+  license "LGPL-2.1"
   head "https://github.com/steveicarus/iverilog.git"
 
   bottle do

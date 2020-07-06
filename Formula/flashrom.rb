@@ -3,6 +3,7 @@ class Flashrom < Formula
   homepage "https://flashrom.org/"
   url "https://download.flashrom.org/releases/flashrom-v1.2.tar.bz2"
   sha256 "e1f8d95881f5a4365dfe58776ce821dfcee0f138f75d0f44f8a3cd032d9ea42b"
+  license "GPL-2.0"
   head "https://review.coreboot.org/flashrom.git"
 
   bottle do

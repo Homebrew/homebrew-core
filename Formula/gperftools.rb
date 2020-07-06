@@ -3,6 +3,7 @@ class Gperftools < Formula
   homepage "https://github.com/gperftools/gperftools"
   url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.7/gperftools-2.7.tar.gz"
   sha256 "1ee8c8699a0eff6b6a203e59b43330536b22bbcbe6448f54c7091e5efb0763c9"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

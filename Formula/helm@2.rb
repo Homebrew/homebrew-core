@@ -4,6 +4,7 @@ class HelmAT2 < Formula
   url "https://github.com/helm/helm.git",
       :tag      => "v2.16.9",
       :revision => "8ad7037828e5a0fca1009dabe290130da6368e39"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

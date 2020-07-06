@@ -3,6 +3,7 @@ class Dolt < Formula
   homepage "https://github.com/liquidata-inc/dolt"
   url "https://github.com/liquidata-inc/dolt/archive/v0.18.0.tar.gz"
   sha256 "326426242a4e6dc7ec372c701e2e90f506f85dc33fa876ee5c4337b2f851d08a"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

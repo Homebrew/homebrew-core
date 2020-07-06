@@ -3,6 +3,7 @@ class Wartremover < Formula
   homepage "https://github.com/wartremover/wartremover"
   url "https://github.com/wartremover/wartremover/archive/v2.4.9.tar.gz"
   sha256 "98fc15dfa9cd1da06116a8ea22413c021f1542547ada5985dc92336bca42208e"
+  license "Apache-2.0"
   head "https://github.com/wartremover/wartremover.git"
 
   bottle do

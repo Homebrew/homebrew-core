@@ -3,6 +3,7 @@ class Lsd < Formula
   homepage "https://github.com/Peltoche/lsd"
   url "https://github.com/Peltoche/lsd/archive/0.17.0.tar.gz"
   sha256 "65b03ae322c4d3ed47f502866b4da2b2c7029b6cb5dc989e98664d564a57de1d"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

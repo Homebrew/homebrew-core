@@ -4,6 +4,7 @@ class Watch < Formula
   url "https://gitlab.com/procps-ng/procps.git",
       :tag      => "v3.3.16",
       :revision => "59c88e18f29000ceaf7e5f98181b07be443cf12f"
+  license "GPL-2.0"
   head "https://gitlab.com/procps-ng/procps.git"
 
   bottle do

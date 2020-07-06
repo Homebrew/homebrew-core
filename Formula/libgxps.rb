@@ -3,6 +3,7 @@ class Libgxps < Formula
   homepage "https://wiki.gnome.org/Projects/libgxps"
   url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
   sha256 "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "74f4662c40830e4697255a05447171637c749ce28a6aa7262ab29cbfca32d642" => :catalina

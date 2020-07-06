@@ -4,6 +4,7 @@ class Cflow < Formula
   url "https://ftp.gnu.org/gnu/cflow/cflow-1.6.tar.bz2"
   mirror "https://ftpmirror.gnu.org/cflow/cflow-1.6.tar.bz2"
   sha256 "34487b4116e9b7ecde142b24480ce036887921ed5defb2958068bb069c1fedd7"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

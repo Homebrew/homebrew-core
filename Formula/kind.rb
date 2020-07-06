@@ -3,6 +3,7 @@ class Kind < Formula
   homepage "https://kind.sigs.k8s.io/"
   url "https://github.com/kubernetes-sigs/kind/archive/v0.8.1.tar.gz"
   sha256 "2a04a6427d45fa558fc4bfe90fde0b7ea2c7f2d6fcf3b7c581fc281ae49b5447"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kind.git"
 
   bottle do

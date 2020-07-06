@@ -3,6 +3,7 @@ class Terragrunt < Formula
   homepage "https://github.com/gruntwork-io/terragrunt"
   url "https://github.com/gruntwork-io/terragrunt/archive/v0.23.31.tar.gz"
   sha256 "7bb9859fd968220bcae1908079448834a789fca03d644d405a61441cd4a655a2"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

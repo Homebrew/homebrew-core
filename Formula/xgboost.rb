@@ -4,6 +4,7 @@ class Xgboost < Formula
   url "https://github.com/dmlc/xgboost.git",
       :tag      => "v1.1.1",
       :revision => "34408a7fdcebc0e32142ed2f52156ea65d813400"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class NestopiaUe < Formula
   homepage "http://0ldsk00l.ca/nestopia/"
   url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
   sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"
+  license "GPL-2.0"
   head "https://github.com/0ldsk00l/nestopia.git"
 
   bottle do

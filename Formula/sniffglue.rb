@@ -3,6 +3,7 @@ class Sniffglue < Formula
   homepage "https://github.com/kpcyrd/sniffglue"
   url "https://github.com/kpcyrd/sniffglue/archive/v0.11.1.tar.gz"
   sha256 "f3d4a42ee12113ef82a8033bb0d64359af5425c821407a7469e99c7a5af3186d"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -1,14 +1,14 @@
 class Calceph < Formula
   desc "C library to access the binary planetary ephemeris files"
   homepage "https://www.imcce.fr/inpop/calceph"
-  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-3.4.4.tar.gz"
-  sha256 "d65d83fbddc9f940ead3d5bb59a15b6e939f040a0eed5c5d36f388f00a4647ba"
+  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-3.4.5.tar.gz"
+  sha256 "e1b9076b49fee51f7efda22194c8b66aaeebedbdb41d731c5af2cd0b16b39b56"
 
   bottle do
     cellar :any
-    sha256 "a802022cd32748bace434c30ee3158b0d7f881611910499b86ff9139db35a736" => :catalina
-    sha256 "f851c7aba23bd20b4a589c74a9e61d82968f9a7898193ac2d9b289bb3605f9ca" => :mojave
-    sha256 "7486d6888b3b78219d2e804e1a929b183152f069ea394652ccd4fc7bda41fc67" => :high_sierra
+    sha256 "d05d76368447fbaef129c9ffa993fb9e8ba948884c6b9409e2282953f887dbfe" => :catalina
+    sha256 "4147bd6caffd7f2f03731420d9d2bf4db2123f9ce605a920630dca26ac711afe" => :mojave
+    sha256 "ce583c86b55ca06a9c05b13e81fb096502e261513427c100f46d2c298a8bf98e" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran

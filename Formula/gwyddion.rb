@@ -3,6 +3,7 @@ class Gwyddion < Formula
   homepage "http://gwyddion.net/"
   url "http://gwyddion.net/download/2.56/gwyddion-2.56.tar.gz"
   sha256 "4714ebd28482decceb0d9f83f7af200df5919530e02416b8b2121affe5ae6818"
+  license "GPL-2.0"
 
   bottle do
     sha256 "4172123e804c37db82b8b2ce473f36f4f644f1c2af6029f4e36a35576f792635" => :catalina

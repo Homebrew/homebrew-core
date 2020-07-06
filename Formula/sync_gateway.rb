@@ -4,6 +4,7 @@ class SyncGateway < Formula
   url "https://github.com/couchbase/sync_gateway.git",
       :tag      => "2.7.3",
       :revision => "33d352f97798e45360155b63c022e8a39485134e"
+  license "Apache-2.0"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do

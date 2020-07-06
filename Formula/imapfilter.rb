@@ -3,6 +3,7 @@ class Imapfilter < Formula
   homepage "https://github.com/lefcha/imapfilter/"
   url "https://github.com/lefcha/imapfilter/archive/v2.6.16.tar.gz"
   sha256 "90af9bc9875e03fb5a09a3233287b74dd817867cb18ec9ff52fead615755563e"
+  license "MIT"
 
   bottle do
     sha256 "bc61c3bb6e5679d7b4f8b767e659c0cb3d4ff2f4fdd9e66a0ae38bc7df693965" => :catalina

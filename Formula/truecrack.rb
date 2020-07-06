@@ -4,6 +4,7 @@ class Truecrack < Formula
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/truecrack/truecrack_v35.tar.gz"
   version "3.5"
   sha256 "25bf270fa3bc3591c3d795e5a4b0842f6581f76c0b5d17c0aef260246fe726b3"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

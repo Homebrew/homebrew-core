@@ -3,6 +3,7 @@ class Botan < Formula
   homepage "https://botan.randombit.net/"
   url "https://botan.randombit.net/releases/Botan-2.14.0.tar.xz"
   sha256 "0c10f12b424a40ee19bde00292098e201d7498535c062d8d5b586d07861a54b5"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/randombit/botan.git"
 

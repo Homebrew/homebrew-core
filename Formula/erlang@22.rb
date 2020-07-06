@@ -4,12 +4,14 @@ class ErlangAT22 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-22.3.4.2.tar.gz"
   sha256 "722d53e8ae170080a85f25c10bd73dee99a81733ae684ea92a857c91f67deec3"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "ae50a728ad458fe9378e9c2d90028851363d5cacef137070af0493c6aa863899" => :catalina
-    sha256 "e439188bcc0a7e11cb3f03e0d13685c06f3a40e0ab88a1134a6ad366752e9b0a" => :mojave
-    sha256 "61e9910ff82d3751df19b29ce87439ea161f45e0a2c149dc1d957635fcc16085" => :high_sierra
+    rebuild 1
+    sha256 "9aacfa71260e7450e0f9ed163e0d795fdf4f4a365b9461eff0da827444ad0cbb" => :catalina
+    sha256 "8ebfcb1b094ced2da74a77c24d3c2f2e5dd3c6f390cd503be2a2262e9627b0fc" => :mojave
+    sha256 "7b12221cd5e7c6a15efa224f8dbe33538f23ffeae0eedd41d0a9d335a7d498b8" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -80,5 +82,30 @@ class ErlangAT22 < Formula
 
   test do
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
+    (testpath/"factorial").write <<~EOS
+      #!#{bin}/escript
+      %% -*- erlang -*-
+      %%! -smp enable -sname factorial -mnesia debug verbose
+      main([String]) ->
+          try
+              N = list_to_integer(String),
+              F = fac(N),
+              io:format("factorial ~w = ~w\n", [N,F])
+          catch
+              _:_ ->
+                  usage()
+          end;
+      main(_) ->
+          usage().
+      
+      usage() ->
+          io:format("usage: factorial integer\n").
+      
+      fac(0) -> 1;
+      fac(N) -> N * fac(N-1).
+    EOS
+    chmod 0755, "factorial"
+    assert_match "usage: factorial integer", shell_output("./factorial")
+    assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end

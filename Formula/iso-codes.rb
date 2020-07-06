@@ -3,6 +3,7 @@ class IsoCodes < Formula
   homepage "https://salsa.debian.org/iso-codes-team/iso-codes"
   url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.5.0.orig.tar.xz"
   sha256 "2a63118f8c91faa2102e6381ae498e7fa83b2bdf667963e0f7dbae2a23b827dd"
+  license "LGPL-2.1"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
   bottle do

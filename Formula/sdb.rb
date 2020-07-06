@@ -3,6 +3,7 @@ class Sdb < Formula
   homepage "https://github.com/radare/sdb"
   url "https://github.com/radareorg/sdb/archive/1.5.0.tar.gz"
   sha256 "af15354b9bc4ded881513f0f95009cc659f5d1dc4e4fa883f407729075a512ce"
+  license "MIT"
   head "https://github.com/radare/sdb.git"
 
   bottle do

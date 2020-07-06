@@ -5,6 +5,7 @@ class Appium < Formula
   homepage "https://appium.io/"
   url "https://registry.npmjs.org/appium/-/appium-1.17.1.tgz"
   sha256 "967aac00940015e17807d227a37fbee62c569a7b770b408a558944a2bbe27c5f"
+  license "Apache-2.0"
   head "https://github.com/appium/appium.git"
 
   bottle do

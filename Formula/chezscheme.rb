@@ -3,6 +3,7 @@ class Chezscheme < Formula
   homepage "https://cisco.github.io/ChezScheme/"
   url "https://github.com/cisco/ChezScheme/archive/v9.5.2.tar.gz"
   sha256 "3a370fdf2ffd67d6a0ccbb993dfab1cbaf4a0a97983c869cfaab40528c33c48b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

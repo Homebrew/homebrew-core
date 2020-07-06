@@ -3,6 +3,7 @@ class Lsyncd < Formula
   homepage "https://github.com/axkibe/lsyncd"
   url "https://github.com/axkibe/lsyncd/archive/release-2.2.3.tar.gz"
   sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

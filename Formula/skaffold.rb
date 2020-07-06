@@ -4,6 +4,7 @@ class Skaffold < Formula
   url "https://github.com/GoogleContainerTools/skaffold.git",
       :tag      => "v1.12.0",
       :revision => "e680a831292e1c7efc54e0c6d40544ae141e6354"
+  license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git"
 
   bottle do

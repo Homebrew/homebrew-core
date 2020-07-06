@@ -3,6 +3,7 @@ class Geeqie < Formula
   homepage "http://www.geeqie.org/"
   url "http://www.geeqie.org/geeqie-1.5.1.tar.xz"
   sha256 "4854d5d323c31f8f4068fd73ab2c454ff91e826c4ca4d37b22c246ad14dea10a"
+  license "GPL-2.0"
   revision 1
 
   bottle do

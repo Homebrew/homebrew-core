@@ -3,6 +3,7 @@ class S3fs < Formula
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
   url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.86.tar.gz"
   sha256 "9cf7ffc8f48cedd70e3fd4fd97e8d6d049d8d370867df10ceb7630b5bc1a9662"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 

@@ -3,6 +3,7 @@ class Gist < Formula
   homepage "https://github.com/defunkt/gist"
   url "https://github.com/defunkt/gist/archive/v5.1.0.tar.gz"
   sha256 "843cea035c137d23d786965688afc9ee70610ac6c3d6f6615cb958d6c792fbb2"
+  license "MIT"
   head "https://github.com/defunkt/gist.git"
 
   bottle do

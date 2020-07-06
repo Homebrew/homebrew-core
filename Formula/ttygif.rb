@@ -3,6 +3,7 @@ class Ttygif < Formula
   homepage "https://github.com/icholy/ttygif"
   url "https://github.com/icholy/ttygif/archive/1.5.0.tar.gz"
   sha256 "b5cc9108b1add88c6175e3e001ad4615a628f93f2fffcb7da9e85a9ec7f23ef6"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

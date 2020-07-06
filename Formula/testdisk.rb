@@ -3,6 +3,7 @@ class Testdisk < Formula
   homepage "https://www.cgsecurity.org/wiki/TestDisk"
   url "https://www.cgsecurity.org/testdisk-7.1.tar.bz2"
   sha256 "1413c47569e48c5b22653b943d48136cb228abcbd6f03da109c4df63382190fe"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

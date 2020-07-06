@@ -3,6 +3,7 @@ class Libvterm < Formula
   homepage "http://www.leonerd.org.uk/code/libvterm/"
   url "http://www.leonerd.org.uk/code/libvterm/libvterm-0.1.3.tar.gz"
   sha256 "e41724466a4658e0f095e8fc5aeae26026c0726dce98ee71d6920d06f7d78e2b"
+  license "MIT"
   version_scheme 1
 
   bottle do

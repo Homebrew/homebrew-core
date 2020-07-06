@@ -3,6 +3,7 @@ class LibsignalProtocolC < Formula
   homepage "https://github.com/signalapp/libsignal-protocol-c"
   url "https://github.com/signalapp/libsignal-protocol-c/archive/v2.3.3.tar.gz"
   sha256 "c22e7690546e24d46210ca92dd808f17c3102e1344cd2f9a370136a96d22319d"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

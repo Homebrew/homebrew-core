@@ -3,6 +3,7 @@ class TerraformProviderLibvirt < Formula
   homepage "https://github.com/dmacvicar/terraform-provider-libvirt"
   url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.6.2.tar.gz"
   sha256 "2bdb5e013b0f4ff576c4c023c02fb8936661bde766f42fd07221cd2c9210c633"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

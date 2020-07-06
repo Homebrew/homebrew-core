@@ -3,6 +3,7 @@ class Pc6001vx < Formula
   homepage "https://eighttails.seesaa.net/"
   url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.5.2_src.tar.gz"
   sha256 "0e3052a6c9f8504943b46a92f950d1d706ed4e47b9cff312306eb82ad27b553c"
+  license "LGPL-2.1"
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do

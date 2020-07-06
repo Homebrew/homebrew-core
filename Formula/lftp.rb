@@ -3,6 +3,7 @@ class Lftp < Formula
   homepage "https://lftp.yar.ru/"
   url "https://lftp.yar.ru/ftp/lftp-4.9.1.tar.xz"
   sha256 "5969fcaefd102955dd882f3bcd8962198bc537224749ed92f206f415207a024b"
+  license "GPL-3.0"
 
   bottle do
     sha256 "88341463e443203acace85f22c68bfecc1e374e97c3bc61a4d55992a7894dbdc" => :catalina

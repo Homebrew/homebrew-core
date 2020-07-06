@@ -3,6 +3,7 @@ class Broot < Formula
   homepage "https://dystroy.org/broot"
   url "https://github.com/Canop/broot/archive/v0.18.5.tar.gz"
   sha256 "ec63f8223dcf7039cc9921ee9cc4a5b3196abb8df2b25a9c3dad3307db662770"
+  license "MIT"
   head "https://github.com/Canop/broot.git"
 
   bottle do

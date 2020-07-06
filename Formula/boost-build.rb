@@ -3,6 +3,7 @@ class BoostBuild < Formula
   homepage "https://www.boost.org/build/"
   url "https://github.com/boostorg/build/archive/boost-1.73.0.tar.gz"
   sha256 "3490f9859a08cf46d963f0cfb834d30cd2c9f4cf5e0738dc19287b5849a316c2"
+  license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git"
 

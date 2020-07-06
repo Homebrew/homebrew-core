@@ -3,6 +3,7 @@ class Nift < Formula
   homepage "https://nift.cc/"
   url "https://github.com/nifty-site-manager/nsm/archive/v2.3.10.tar.gz"
   sha256 "ef4410d423fca8dfb67a349a188a0a46bec67f7eb0157d146ae2fbb28f2f2295"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

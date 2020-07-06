@@ -3,6 +3,7 @@ class Gnunet < Formula
   homepage "https://gnunet.org/"
   url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.12.2.tar.gz"
   sha256 "ac288b047d1156fc5e739062b11242bad0487993631e79781aede620ddf18cd7"
+  license "AGPL-3.0"
   revision 1
 
   bottle do

@@ -3,6 +3,7 @@ class CrushTools < Formula
   homepage "https://github.com/google/crush-tools"
   url "https://github.com/google/crush-tools/releases/download/20150716/crush-tools-20150716.tar.gz"
   sha256 "ef2f9c919536a2f13b3065af3a9a9756c90ede53ebd67d3e169c90ad7cd1fb05"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

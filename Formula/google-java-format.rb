@@ -3,6 +3,7 @@ class GoogleJavaFormat < Formula
   homepage "https://github.com/google/google-java-format"
   url "https://github.com/google/google-java-format/archive/google-java-format-1.8.tar.gz"
   sha256 "7ae8449441a15fc76e58d0cd69628a5e5135f01a5dea5184738c9b5ba57b525e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

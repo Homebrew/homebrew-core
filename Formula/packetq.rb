@@ -3,6 +3,7 @@ class Packetq < Formula
   homepage "https://www.dns-oarc.net/tools/packetq"
   url "https://www.dns-oarc.net/files/packetq/packetq-1.4.2.tar.gz"
   sha256 "696cfcae6d341b910b86673baa428ffa09d00dd42a70d2d3ac57db13c6977122"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

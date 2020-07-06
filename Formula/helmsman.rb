@@ -4,6 +4,7 @@ class Helmsman < Formula
   url "https://github.com/Praqma/helmsman.git",
     :tag      => "v3.4.4",
     :revision => "9568064b9f1e0bbcb208f1083355861a63da86ba"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

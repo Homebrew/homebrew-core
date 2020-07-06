@@ -3,6 +3,7 @@ class Autodiff < Formula
   homepage "https://autodiff.github.io"
   url "https://github.com/autodiff/autodiff/archive/v0.5.10.tar.gz"
   sha256 "d0e62994b7984014b2944d13f6ce9a75fc6b681d2d81f9051ec44410912dc5d7"
+  license "MIT"
   head "https://github.com/autodiff/autodiff.git"
 
   bottle do

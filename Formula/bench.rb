@@ -1,6 +1,7 @@
 class Bench < Formula
   desc "Command-line benchmark tool"
   homepage "https://github.com/Gabriel439/bench"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/Gabriel439/bench.git"
 

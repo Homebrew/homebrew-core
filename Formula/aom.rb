@@ -4,6 +4,7 @@ class Aom < Formula
   url "https://aomedia.googlesource.com/aom.git",
       :tag      => "v2.0.0",
       :revision => "bb35ba9148543f22ba7d8642e4fbd29ae301f5dc"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

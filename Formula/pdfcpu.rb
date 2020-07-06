@@ -3,6 +3,7 @@ class Pdfcpu < Formula
   homepage "https://pdfcpu.io"
   url "https://github.com/pdfcpu/pdfcpu/archive/v0.3.4.tar.gz"
   sha256 "e4a088b008e29ef037665811abc027266fca1f5c5866d96d67c69de59ba87b15"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

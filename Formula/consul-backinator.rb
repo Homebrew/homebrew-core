@@ -3,6 +3,7 @@ class ConsulBackinator < Formula
   homepage "https://github.com/myENA/consul-backinator"
   url "https://github.com/myENA/consul-backinator/archive/v1.6.5.tar.gz"
   sha256 "e464d597a3a28c6376e0d602c9484a465476db13684585bd52c6b5d81b07019d"
+  license "MPL-2.0"
   head "https://github.com/myENA/consul-backinator.git"
 
   bottle do

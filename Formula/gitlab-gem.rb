@@ -3,6 +3,7 @@ class GitlabGem < Formula
   homepage "https://github.com/NARKOZ/gitlab"
   url "https://github.com/NARKOZ/gitlab/archive/v4.15.0.tar.gz"
   sha256 "13157f6f99f17b387b1af7adb7a2afcb4037c7e148fb903d459e2d4ad433ce82"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

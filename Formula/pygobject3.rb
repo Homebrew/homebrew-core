@@ -3,6 +3,7 @@ class Pygobject3 < Formula
   homepage "https://wiki.gnome.org/Projects/PyGObject"
   url "https://download.gnome.org/sources/pygobject/3.36/pygobject-3.36.1.tar.xz"
   sha256 "d1bf42802d1cec113b5adaa0e7bf7f3745b44521dc2163588d276d5cd61d718f"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

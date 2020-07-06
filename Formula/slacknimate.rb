@@ -3,6 +3,7 @@ class Slacknimate < Formula
   homepage "https://github.com/mroth/slacknimate"
   url "https://github.com/mroth/slacknimate/archive/v1.0.1.tar.gz"
   sha256 "ddac6002edd57a334ce828e2662264598ea7d471757747cffd85ffdfedbb044b"
+  license "MPL-2.0"
   head "https://github.com/mroth/slacknimate.git"
 
   bottle do

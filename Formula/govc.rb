@@ -3,6 +3,7 @@ class Govc < Formula
   homepage "https://github.com/vmware/govmomi/tree/master/govc"
   url "https://github.com/vmware/govmomi/archive/v0.23.1.tar.gz"
   sha256 "792f295975f86e86ebe43c5de520267295a8a4346440d89fc36624370d4264af"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

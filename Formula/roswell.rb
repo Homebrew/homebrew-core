@@ -3,6 +3,7 @@ class Roswell < Formula
   homepage "https://github.com/roswell/roswell"
   url "https://github.com/roswell/roswell/archive/v20.06.14.107.tar.gz"
   sha256 "fc3fd46c55a50e2b76aba60ebbfeab393f345cdca7f2a87a6772c8b4fce3c2e4"
+  license "MIT"
   head "https://github.com/roswell/roswell.git"
 
   bottle do

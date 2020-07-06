@@ -5,6 +5,7 @@ class LibtensorflowAT1 < Formula
   homepage "https://www.tensorflow.org/"
   url "https://github.com/tensorflow/tensorflow/archive/v1.15.3.tar.gz"
   sha256 "9ab1d92e58eb813922b040acc7622b32d73c2d8d971fe6491a06f9df4c778151"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

@@ -5,6 +5,8 @@ class Lc0 < Formula
   url "https://github.com/LeelaChessZero/lc0.git",
       :tag      => "v0.26.0",
       :revision => "09edc73cf177f5f1d00e54549b6fa491e0507b56"
+  license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation

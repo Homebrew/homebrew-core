@@ -3,6 +3,7 @@ class Omega < Formula
   homepage "https://xapian.org/"
   url "https://oligarchy.co.uk/xapian/1.4.16/xapian-omega-1.4.16.tar.xz"
   sha256 "b4fbeb9922d84af42ba80c0258cd07d103fd7f56c719f147049aa84598557694"
+  license "GPL-2.0"
 
   bottle do
     sha256 "21def29541640883bd956e842a3370d9ac7dde45bd166add19ca83013f86189f" => :catalina

@@ -3,6 +3,7 @@ class Fastlane < Formula
   homepage "https://fastlane.tools"
   url "https://github.com/fastlane/fastlane/archive/2.150.3.tar.gz"
   sha256 "469ceba4b7a78e39a9ef96b91b221a8cd7f55ed231276c8b41265a4a32f010be"
+  license "MIT"
   head "https://github.com/fastlane/fastlane.git"
 
   bottle do

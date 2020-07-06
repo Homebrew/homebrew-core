@@ -3,6 +3,7 @@ class Libspectre < Formula
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
   url "https://libspectre.freedesktop.org/releases/libspectre-0.2.9.tar.gz"
   sha256 "49ae9c52b5af81b405455c19fe24089d701761da2c45d22164a99576ceedfbed"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

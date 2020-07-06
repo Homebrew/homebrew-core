@@ -3,6 +3,7 @@ class Tofrodos < Formula
   homepage "https://www.thefreecountry.com/tofrodos/"
   url "https://tofrodos.sourceforge.io/download/tofrodos-1.7.13.tar.gz"
   sha256 "3457f6f3e47dd8c6704049cef81cb0c5a35cc32df9fe800b5fbb470804f0885f"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

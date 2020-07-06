@@ -5,6 +5,7 @@ class Openrtsp < Formula
   mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2020.06.25.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
   sha256 "f206309f10d281990889b7a0c92c26a7fa55ac0e8568bf594b9b27433b4db585"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

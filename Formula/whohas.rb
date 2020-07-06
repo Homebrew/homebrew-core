@@ -3,6 +3,7 @@ class Whohas < Formula
   homepage "http://www.philippwesche.org/200811/whohas/intro.html"
   url "https://github.com/whohas/whohas/releases/download/0.29.1/whohas-0.29.1.tar.gz"
   sha256 "dbf2396838cb0f97726041213c04426b818d48cc510bd529faf30a8411682878"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

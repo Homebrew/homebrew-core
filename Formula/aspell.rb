@@ -4,6 +4,7 @@ class Aspell < Formula
   url "https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/aspell/aspell-0.60.8.tar.gz"
   sha256 "f9b77e515334a751b2e60daab5db23499e26c9209f5e7b7443b05235ad0226f2"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "f34a5b53fa80f6f0ea3cef83d04eceed93f918153463e0b77a596374a842249d" => :catalina

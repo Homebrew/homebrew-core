@@ -3,6 +3,7 @@ class TemporalTables < Formula
   homepage "https://pgxn.org/dist/temporal_tables/"
   url "https://github.com/arkhipov/temporal_tables/archive/v1.2.0.tar.gz"
   sha256 "e6d1b31a124e8597f61b86f08b6a18168f9cd9da1db77f2a8dd1970b407b7610"
+  license "BSD-2-Clause"
   revision 2
 
   bottle do

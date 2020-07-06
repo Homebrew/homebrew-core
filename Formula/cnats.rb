@@ -3,6 +3,7 @@ class Cnats < Formula
   homepage "https://github.com/nats-io/nats.c"
   url "https://github.com/nats-io/nats.c/archive/v2.1.0.tar.gz"
   sha256 "1493ae3d790e2ebc4d77c65ef2957e2fb77182d69afeeeb2be1e1e6bee0ca12e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

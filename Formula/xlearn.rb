@@ -3,6 +3,7 @@ class Xlearn < Formula
   homepage "https://xlearn-doc.readthedocs.io/en/latest/index.html"
   url "https://github.com/aksnzhy/xlearn/archive/v0.4.4.tar.gz"
   sha256 "7b0e9db901c0e6feda4dfb793748ec959b2b56188fc2a80de5983c37e2b9f7d2"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

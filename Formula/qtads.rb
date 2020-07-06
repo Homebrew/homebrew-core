@@ -1,6 +1,7 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
+  license "GPL-3.0"
   revision 1
   head "https://github.com/realnc/qtads.git"
 

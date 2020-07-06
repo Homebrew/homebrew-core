@@ -5,6 +5,7 @@ class Gdm < Formula
   homepage "https://github.com/sparrc/gdm"
   url "https://github.com/sparrc/gdm/archive/1.4.tar.gz"
   sha256 "2ac8800319d922fe2816e57f30e23ddd9a11ce2e93294c533318b9f081debde4"
+  license "Unlicense"
   head "https://github.com/sparrc/gdm.git"
 
   bottle do

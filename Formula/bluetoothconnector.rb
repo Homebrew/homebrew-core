@@ -3,6 +3,7 @@ class Bluetoothconnector < Formula
   homepage "https://github.com/lapfelix/BluetoothConnector"
   url "https://github.com/lapfelix/BluetoothConnector/archive/2.0.0.tar.gz"
   sha256 "41474f185fd40602fb197e79df5cd4783ff57b92c1dfe2b8e2c4661af038ed9b"
+  license "MIT"
   head "https://github.com/lapfelix/BluetoothConnector.git"
 
   bottle do

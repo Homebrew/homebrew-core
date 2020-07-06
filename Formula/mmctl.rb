@@ -4,6 +4,7 @@ class Mmctl < Formula
   url "https://github.com/mattermost/mmctl.git",
       :tag      => "v5.25.0",
       :revision => "c81bdf8d687f76c5da0205f8f612dc7f48969ca0"
+  license "Apache-2.0"
   head "https://github.com/mattermost/mmctl.git"
 
   bottle do

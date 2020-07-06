@@ -1,6 +1,7 @@
 class Dmd < Formula
   desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
+  license "BSL-1.0"
 
   stable do
     url "https://github.com/dlang/dmd/archive/v2.092.1.tar.gz"

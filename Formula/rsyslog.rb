@@ -3,6 +3,7 @@ class Rsyslog < Formula
   homepage "https://www.rsyslog.com/"
   url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.2006.0.tar.gz"
   sha256 "d9589e64866f2fdc5636af4cae9d60ebf1e3257bb84b81ee953ede6a05878e97"
+  license "GPL-3.0"
 
   bottle do
     sha256 "6e2da2c80153db338ae7acb282ee690fa888e11e3f2bc0c5d7cd86640e1d5264" => :catalina

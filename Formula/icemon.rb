@@ -3,6 +3,7 @@ class Icemon < Formula
   homepage "https://github.com/icecc/icemon"
   url "https://github.com/icecc/icemon/archive/v3.3.tar.gz"
   sha256 "3caf14731313c99967f6e4e11ff261b061e4e3d0c7ef7565e89b12e0307814ca"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Nebula < Formula
   homepage "https://github.com/slackhq/nebula"
   url "https://github.com/slackhq/nebula/archive/v1.2.0.tar.gz"
   sha256 "1d00594d74e147406f5809380860f538ceed5c19c3f390dd1d8e364f99b303b6"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

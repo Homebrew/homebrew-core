@@ -3,6 +3,7 @@ class Igraph < Formula
   homepage "https://igraph.org/"
   url "https://github.com/igraph/igraph/releases/download/0.8.2/igraph-0.8.2.tar.gz"
   sha256 "718a471e7b8cbf02e3e8006153b7be6a22f85bb804283763a0016280e8a60e95"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

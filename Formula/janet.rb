@@ -3,6 +3,7 @@ class Janet < Formula
   homepage "https://janet-lang.org"
   url "https://github.com/janet-lang/janet/archive/v1.10.1.tar.gz"
   sha256 "5d830a01ced5b97f99b9c71a9d869751df72266a88eb7b3ff7a8bff9da39afde"
+  license "MIT"
   head "https://github.com/janet-lang/janet.git"
 
   bottle do

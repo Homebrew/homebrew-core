@@ -4,6 +4,7 @@ class Tanka < Formula
   url "https://github.com/grafana/tanka.git",
     :tag      => "v0.10.0",
     :revision => "7f5f485a411aa08752fd6ed4847c8013e95f92d1"
+  license "Apache-2.0"
   head "https://github.com/grafana/tanka.git"
 
   bottle do

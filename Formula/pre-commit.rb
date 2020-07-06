@@ -5,6 +5,7 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v2.6.0.tar.gz"
   sha256 "2e97b47762f75a2dbbb863cfe824ffab6782fc2bb6763e83876efa6164665038"
+  license "MIT"
 
   bottle do
     cellar :any

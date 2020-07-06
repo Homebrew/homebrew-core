@@ -3,6 +3,7 @@ class Tcping < Formula
   homepage "https://github.com/mkirchner/tcping"
   url "https://github.com/mkirchner/tcping/archive/1.3.6.tar.gz"
   sha256 "a731f0e48ff931d7b2a0e896e4db40867043740fe901dd225780f2164fdbdcf3"
+  license "LGPL-3.0"
   head "https://github.com/mkirchner/tcping.git"
 
   bottle do

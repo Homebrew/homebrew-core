@@ -3,6 +3,7 @@ class Bandwhich < Formula
   homepage "https://github.com/imsnif/bandwhich"
   url "https://github.com/imsnif/bandwhich/archive/0.15.0.tar.gz"
   sha256 "c4922734bbb3ec17c8a0c9fbff4096ee3e28b4efa7dbca9abbd92e0ad6ff3483"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

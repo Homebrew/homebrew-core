@@ -5,6 +5,7 @@ class GxGo < Formula
   homepage "https://github.com/whyrusleeping/gx-go"
   url "https://github.com/whyrusleeping/gx-go/archive/v1.9.0.tar.gz"
   sha256 "f3a0ee17359e0e5efab8008361da0e312ca723a0c9e165342a0306caba55a535"
+  license "MIT"
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do

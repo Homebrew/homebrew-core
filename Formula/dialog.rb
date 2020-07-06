@@ -3,6 +3,7 @@ class Dialog < Formula
   homepage "https://invisible-island.net/dialog/"
   url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20200327.tgz"
   sha256 "466163e8b97c2b7709d00389199add3156bd813f60ccb0335d0a30f2d4a17f99"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any_skip_relocation

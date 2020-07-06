@@ -4,6 +4,7 @@ class Dockerize < Formula
   url "https://github.com/jwilder/dockerize.git",
       :tag      => "v0.6.1",
       :revision => "7c5cd7c34dcf1c81f6b4db132ebceabdaae17153"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

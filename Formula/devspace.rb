@@ -4,6 +4,7 @@ class Devspace < Formula
   url "https://github.com/devspace-cloud/devspace.git",
     :tag      => "v4.13.1",
     :revision => "db7996b0004dae9ed7b0ccefc4bb0c0296a2a312"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

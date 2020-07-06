@@ -3,6 +3,7 @@ class Ncdu < Formula
   homepage "https://dev.yorhel.nl/ncdu"
   url "https://dev.yorhel.nl/download/ncdu-1.15.1.tar.gz"
   sha256 "b02ddc4dbf1db139cc6fbbe2f54a282770380f0ca5c17089855eab52a9ea3fb0"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

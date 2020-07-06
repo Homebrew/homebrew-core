@@ -4,6 +4,7 @@ class Onnxruntime < Formula
   url "https://github.com/microsoft/onnxruntime.git",
     :tag      => "v1.3.1",
     :revision => "530117cfdb230228c3429ab39d1b7cf1f68c0567"
+  license "MIT"
 
   bottle do
     cellar :any

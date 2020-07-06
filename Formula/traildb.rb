@@ -3,6 +3,7 @@ class Traildb < Formula
   homepage "http://traildb.io/"
   url "https://github.com/traildb/traildb/archive/0.6.tar.gz"
   sha256 "f73515fe56c547f861296cf8eecc98b8e8bf00d175ad9fb7f4b981ad7cf8b67c"
+  license "MIT"
 
   bottle do
     cellar :any

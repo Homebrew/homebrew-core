@@ -4,6 +4,7 @@ class Hbase < Formula
   url "https://www.apache.org/dyn/closer.lua?path=hbase/2.2.3/hbase-2.2.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/hbase/2.2.3/hbase-2.2.3-bin.tar.gz"
   sha256 "ea8fa72aa6220e038e30bd7c439d181b10bd7225383f7f2d224ebb5f5397310a"
+  license "Apache-2.0"
 
   bottle do
     sha256 "a9ec56fc8c2a4629decb24c71c940f6fe455f5805d8935d5bc5f735cc1598711" => :catalina

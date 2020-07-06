@@ -3,6 +3,7 @@ class Libspiro < Formula
   homepage "https://github.com/fontforge/libspiro"
   url "https://github.com/fontforge/libspiro/releases/download/20200505/libspiro-dist-20200505.tar.gz"
   sha256 "06c69a1e8dcbcabcf009fd96fd90b1a244d0257246e376c2c4d57c4ea4af0e49"
+  license "GPL-3.0"
   version_scheme 1
 
   bottle do

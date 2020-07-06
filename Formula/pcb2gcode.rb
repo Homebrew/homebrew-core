@@ -3,6 +3,7 @@ class Pcb2gcode < Formula
   homepage "https://github.com/pcb2gcode/pcb2gcode"
   url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.1.0.tar.gz"
   sha256 "ee546f0e002e83434862c7a5a2171a2276038d239909a09adb36e148e7d7319a"
+  license "GPL-3.0"
   head "https://github.com/pcb2gcode/pcb2gcode.git"
 
   bottle do

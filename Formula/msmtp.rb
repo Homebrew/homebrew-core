@@ -3,6 +3,7 @@ class Msmtp < Formula
   homepage "https://marlam.de/msmtp/"
   url "https://marlam.de/msmtp/releases/msmtp-1.8.11.tar.xz"
   sha256 "f25f0fa177ce9e0ad65c127e790a37f35fb64fee9e33d90345844c5c86780e60"
+  license "GPL-3.0"
 
   bottle do
     sha256 "465356913ededba9a76ab0f76f597913a3e7eb5901f47780494e140917a94447" => :catalina

@@ -5,6 +5,7 @@ class ReconNg < Formula
   homepage "https://github.com/lanmaster53/recon-ng"
   url "https://github.com/lanmaster53/recon-ng/archive/v5.1.1.tar.gz"
   sha256 "470e293e931c23a0dc76e6915098e04db7f2e254a0639bb2c0383e0758c4fbc2"
+  license "GPL-3.0"
   revision 1
 
   bottle do

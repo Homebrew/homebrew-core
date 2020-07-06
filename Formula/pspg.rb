@@ -3,6 +3,7 @@ class Pspg < Formula
   homepage "https://github.com/okbob/pspg"
   url "https://github.com/okbob/pspg/archive/3.1.2.tar.gz"
   sha256 "f88fe56b08ec00ec4894aa370f90677817af85581154642dd155466e9d64a465"
+  license "BSD-2-Clause"
   head "https://github.com/okbob/pspg.git"
 
   bottle do

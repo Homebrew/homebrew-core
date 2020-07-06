@@ -3,6 +3,7 @@ class Liblinear < Formula
   homepage "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
   url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.30.tar.gz"
   sha256 "881c7039c6cf93119c781fb56263de91617b3eca8c3951f2c19a3797de95c6ac"
+  license "BSD-3-Clause"
   head "https://github.com/cjlin1/liblinear.git"
 
   bottle do

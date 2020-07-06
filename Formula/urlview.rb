@@ -4,6 +4,7 @@ class Urlview < Formula
   url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9.orig.tar.gz"
   version "0.9-20"
   sha256 "746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

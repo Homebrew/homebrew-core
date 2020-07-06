@@ -3,6 +3,7 @@ class Liberasurecode < Formula
   homepage "https://github.com/openstack/liberasurecode"
   url "https://github.com/openstack/liberasurecode/archive/1.6.1.tar.gz"
   sha256 "958b01ff91efe7b21a19ca72937a93b2a5c7af41c08790d4fe9df82d8c5e24f0"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

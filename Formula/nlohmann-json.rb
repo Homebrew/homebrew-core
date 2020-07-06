@@ -3,6 +3,7 @@ class NlohmannJson < Formula
   homepage "https://github.com/nlohmann/json"
   url "https://github.com/nlohmann/json/archive/v3.8.0.tar.gz"
   sha256 "7d0edf65f2ac7390af5e5a0b323b31202a6c11d744a74b588dc30f5a8c9865ba"
+  license "MIT"
   head "https://github.com/nlohmann/json.git", :branch => "develop"
 
   bottle do

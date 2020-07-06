@@ -3,6 +3,7 @@ class WiremockStandalone < Formula
   homepage "http://wiremock.org/docs/running-standalone/"
   url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.27.1/wiremock-standalone-2.27.1.jar"
   sha256 "e98c07e202eb3f8b470b7d0ae2703c880736ac0de870bba31b231df9b9db7833"
+  license "Apache-2.0"
   head "https://github.com/tomakehurst/wiremock.git"
 
   bottle :unneeded

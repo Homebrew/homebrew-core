@@ -3,6 +3,7 @@ class Atool < Formula
   homepage "https://savannah.nongnu.org/projects/atool/"
   url "https://savannah.nongnu.org/download/atool/atool-0.39.0.tar.gz"
   sha256 "aaf60095884abb872e25f8e919a8a63d0dabaeca46faeba87d12812d6efc703b"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

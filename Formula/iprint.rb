@@ -4,6 +4,7 @@ class Iprint < Formula
   url "https://deb.debian.org/debian/pool/main/i/iprint/iprint_1.3.orig.tar.gz"
   version "1.3-9"
   sha256 "1079b2b68f4199bc286ed08abba3ee326ce3b4d346bdf77a7b9a5d5759c243a3"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

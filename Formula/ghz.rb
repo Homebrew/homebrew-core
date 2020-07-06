@@ -3,6 +3,7 @@ class Ghz < Formula
   homepage "https://ghz.sh"
   url "https://github.com/bojand/ghz/archive/v0.55.0.tar.gz"
   sha256 "d968e7841ec5c06bed2ab297308defa8ff268acd1ecdc7c003aebfc593f29d5d"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

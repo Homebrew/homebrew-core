@@ -5,6 +5,7 @@ class Alexjs < Formula
   homepage "https://alexjs.com"
   url "https://github.com/get-alex/alex/archive/8.1.1.tar.gz"
   sha256 "eb9b7b29f1c4dcd660da35e79bcca63bdfb8cab6eab2a7c28e77345bb6348f5b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

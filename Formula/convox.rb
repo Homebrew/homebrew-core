@@ -3,6 +3,7 @@ class Convox < Formula
   homepage "https://convox.com/"
   url "https://github.com/convox/convox/archive/3.0.26.tar.gz"
   sha256 "bbd7f17830525bac4e91d4ffde1734c2acc51f1b25716b291ea0d02e0a976c81"
+  license "Apache-2.0"
   version_scheme 1
 
   bottle do

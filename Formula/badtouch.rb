@@ -3,6 +3,7 @@ class Badtouch < Formula
   homepage "https://github.com/kpcyrd/badtouch"
   url "https://github.com/kpcyrd/badtouch/archive/v0.7.1.tar.gz"
   sha256 "c188bb1df106761a436fd25d3530323a47633c4c937d186e82c00981ffc94b5f"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

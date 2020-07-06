@@ -3,6 +3,7 @@ class TmuxXpanes < Formula
   homepage "https://github.com/greymd/tmux-xpanes"
   url "https://github.com/greymd/tmux-xpanes/archive/v4.1.2.tar.gz"
   sha256 "390c6878d2a6e521f0ea323dca3c1ee175f246eda178214de3232a30881d32a5"
+  license "MIT"
 
   bottle :unneeded
 

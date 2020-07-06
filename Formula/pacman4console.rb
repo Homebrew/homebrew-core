@@ -3,6 +3,7 @@ class Pacman4console < Formula
   homepage "https://sites.google.com/site/doctormike/pacman.html"
   url "https://sites.google.com/site/doctormike/pacman-1.3.tar.gz"
   sha256 "9a5c4a96395ce4a3b26a9896343a2cdf488182da1b96374a13bf5d811679eb90"
+  license "GPL-2.0"
 
   bottle do
     sha256 "6fdf8244cec5bb8ab55eefb1be9dc8f034c31ddbb3b39b21cd83f535e4e1a500" => :catalina

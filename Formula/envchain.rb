@@ -3,6 +3,7 @@ class Envchain < Formula
   homepage "https://github.com/sorah/envchain"
   url "https://github.com/sorah/envchain/archive/v1.0.1.tar.gz"
   sha256 "09af1fe1cfba3719418f90d59c29c081e1f22b38249f0110305b657bd306e9ae"
+  license "MIT"
   head "https://github.com/sorah/envchain.git"
 
   bottle do

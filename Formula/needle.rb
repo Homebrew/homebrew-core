@@ -4,6 +4,7 @@ class Needle < Formula
   url "https://github.com/uber/needle.git",
       :tag      => "v0.15.0",
       :revision => "f2bf540f14d671ad809548bcaea87cea21782d8f"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

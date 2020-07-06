@@ -3,6 +3,7 @@ class Squashfs < Formula
   homepage "https://github.com/plougher/squashfs-tools"
   url "https://github.com/plougher/squashfs-tools/archive/4.4.tar.gz"
   sha256 "a7fa4845e9908523c38d4acf92f8a41fdfcd19def41bd5090d7ad767a6dc75c3"
+  license "GPL-2.0"
   head "https://github.com/plougher/squashfs-tools",
     :using  => :git,
     :commit => "52eb4c279cd283ed9802dd1ceb686560b22ffb67"

@@ -3,6 +3,7 @@ class Freerdp < Formula
   homepage "https://www.freerdp.com/"
   url "https://github.com/FreeRDP/FreeRDP/archive/2.1.2.tar.gz"
   sha256 "9b4e49153808fa4ff149221f64957dfe6f2dcecd400e3e29979f8baf6712ed45"
+  license "Apache-2.0"
 
   bottle do
     sha256 "5aaaf5a31822a94384dbeed8f4ed04b66fb968861a1f5133051db887175e6c8f" => :catalina

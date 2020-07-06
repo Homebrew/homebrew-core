@@ -5,6 +5,7 @@ class Termshare < Formula
   homepage "https://github.com/progrium/termshare"
   url "https://github.com/progrium/termshare/archive/v0.2.0.tar.gz"
   sha256 "fa09a5492d6176feff32bbcdb3b2dc3ff1b5ab2d1cf37572cc60eb22eb531dcd"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/progrium/termshare.git"
 

@@ -4,6 +4,7 @@ class Gobuster < Formula
   url "https://github.com/OJ/gobuster.git",
       :tag      => "v3.0.1",
       :revision => "9ef3642d170d71fd79093c0aa0c23b6f2a4c1c64"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

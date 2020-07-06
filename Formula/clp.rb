@@ -3,6 +3,7 @@ class Clp < Formula
   homepage "https://github.com/coin-or/Clp"
   url "https://github.com/coin-or/Clp/archive/releases/1.17.6.tar.gz"
   sha256 "afff465b1620cfcbb7b7c17b5d331d412039650ff471c4160c7eb24ae01284c9"
+  license "EPL-1.0"
 
   bottle do
     cellar :any

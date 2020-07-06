@@ -3,6 +3,7 @@ class Asuka < Formula
   homepage "https://git.sr.ht/~julienxx/asuka"
   url "https://git.sr.ht/~julienxx/asuka/archive/0.8.0.tar.gz"
   sha256 "c06dc528b8588be4922a7b4357f8e9701b1646db0828ccfcad3a5be178d31582"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

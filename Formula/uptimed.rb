@@ -3,6 +3,7 @@ class Uptimed < Formula
   homepage "https://github.com/rpodgorny/uptimed/"
   url "https://github.com/rpodgorny/uptimed/archive/v0.4.2.tar.gz"
   sha256 "5f803eccc1247b4a22171de4670a896e05adb9a82f018facda1b2cc5b19dbc97"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

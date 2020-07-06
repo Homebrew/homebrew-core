@@ -3,6 +3,7 @@ class Tengo < Formula
   homepage "https://tengolang.com"
   url "https://github.com/d5/tengo/archive/v2.6.0.tar.gz"
   sha256 "3a1c4c53b9791da67b261929fd742d24cbd678832fdc896de382f0c4e97bc5c2"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

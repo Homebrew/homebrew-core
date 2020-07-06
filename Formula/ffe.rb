@@ -3,6 +3,7 @@ class Ffe < Formula
   homepage "https://ff-extractor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.9/ffe-0.3.9.tar.gz"
   sha256 "78bab8fa1068a62600c3de153122b8fc9252080ddbc521f71b938b5dbd9afb0d"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Pup < Formula
   homepage "https://github.com/EricChiang/pup"
   url "https://github.com/ericchiang/pup/archive/v0.4.0.tar.gz"
   sha256 "0d546ab78588e07e1601007772d83795495aa329b19bd1c3cde589ddb1c538b0"
+  license "MIT"
   head "https://github.com/EricChiang/pup.git"
 
   bottle do

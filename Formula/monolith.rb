@@ -3,6 +3,7 @@ class Monolith < Formula
   homepage "https://github.com/Y2Z/monolith"
   url "https://github.com/Y2Z/monolith/archive/v2.2.7.tar.gz"
   sha256 "8fa8ea66383f7278f6fcbe1ba75ffc9243b93031a88725135ca3b0eeb38c7df9"
+  license "Unlicense"
 
   bottle do
     cellar :any_skip_relocation

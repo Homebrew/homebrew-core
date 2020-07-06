@@ -4,6 +4,7 @@ class Frpc < Formula
   url "https://github.com/fatedier/frp.git",
       :tag      => "v0.33.0",
       :revision => "2406ecdfea62567a576bdb71e38adbafa3b4814a"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

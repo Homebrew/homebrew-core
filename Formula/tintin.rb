@@ -3,6 +3,7 @@ class Tintin < Formula
   homepage "https://tintin.mudhalla.net/"
   url "https://github.com/scandum/tintin/releases/download/2.02.03/tintin-2.02.03.tar.gz"
   sha256 "e44c88b1c97283525062ce15efdddebf5067e84ea37491903bcd8c8824f26f79"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Minizinc < Formula
   homepage "https://www.minizinc.org/"
   url "https://github.com/MiniZinc/libminizinc/archive/2.4.3.tar.gz"
   sha256 "c5c379b0275cc6c0fefd4568e621a43b6f1f0b4af793fea5995be7c6cf73cc07"
+  license "MPL-2.0"
   head "https://github.com/MiniZinc/libminizinc.git", :branch => "develop"
 
   bottle do

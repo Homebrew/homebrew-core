@@ -4,6 +4,7 @@ class Pdnsd < Formula
   url "http://members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-1.2.9a-par.tar.gz"
   version "1.2.9a-par"
   sha256 "bb5835d0caa8c4b31679d6fd6a1a090b71bdf70950db3b1d0cea9cf9cb7e2a7b"
+  license "GPL-3.0"
 
   bottle do
     rebuild 2

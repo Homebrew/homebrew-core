@@ -3,6 +3,7 @@ class Ivykis < Formula
   homepage "https://sourceforge.net/projects/libivykis/"
   url "https://github.com/buytenh/ivykis/archive/v0.42.4-trunk.tar.gz"
   sha256 "b724516d6734f4d5c5f86ad80bde8fc7213c5a70ce2d46b9a2d86e8d150402b5"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

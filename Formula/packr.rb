@@ -3,6 +3,7 @@ class Packr < Formula
   homepage "https://github.com/gobuffalo/packr"
   url "https://github.com/gobuffalo/packr/archive/v2.8.0.tar.gz"
   sha256 "2cab1e8d60734af05d594346f8e4bffcef0ac2aea4895b08bd9f3c40fc24c639"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

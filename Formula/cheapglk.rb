@@ -4,6 +4,7 @@ class Cheapglk < Formula
   url "https://www.eblong.com/zarf/glk/cheapglk-106.tar.gz"
   version "1.0.6"
   sha256 "2753562a173b4d03ae2671df2d3c32ab7682efd08b876e7e7624ebdc8bf1510b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

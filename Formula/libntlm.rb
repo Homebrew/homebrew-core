@@ -3,6 +3,7 @@ class Libntlm < Formula
   homepage "https://www.nongnu.org/libntlm/"
   url "https://www.nongnu.org/libntlm/releases/libntlm-1.6.tar.gz"
   sha256 "f2376b87b06d8755aa3498bb1226083fdb1d2cf4460c3982b05a9aa0b51d6821"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Ahoy < Formula
   homepage "https://ahoy-cli.readthedocs.io/"
   url "https://github.com/ahoy-cli/ahoy/archive/2.0.0.tar.gz"
   sha256 "cc3e426083bf7b7309e484fa69ed53b33c9b00adf9be879cbe74c19bdaef027c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

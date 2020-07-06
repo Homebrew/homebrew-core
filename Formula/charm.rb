@@ -5,6 +5,7 @@ class Charm < Formula
   homepage "https://github.com/juju/charmstore-client"
   url "https://github.com/juju/charmstore-client/archive/v2.4.0.tar.gz"
   sha256 "02f5b9c5211467353dbcf9589ecf70d6e7debf16e3a8b85fa870084525466731"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

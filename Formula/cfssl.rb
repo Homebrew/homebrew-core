@@ -3,6 +3,7 @@ class Cfssl < Formula
   homepage "https://cfssl.org/"
   url "https://github.com/cloudflare/cfssl/archive/v1.4.1.tar.gz"
   sha256 "c8a86ef10cbb0c168f3b597db15b31f98b170edb7958f7154edeb29aee41315e"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/cloudflare/cfssl.git"
 

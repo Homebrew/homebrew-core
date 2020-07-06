@@ -4,6 +4,7 @@ class Moe < Formula
   url "https://ftp.gnu.org/gnu/moe/moe-1.10.tar.lz"
   mirror "https://ftpmirror.gnu.org/moe/moe-1.10.tar.lz"
   sha256 "8cfd44ab5623ed4185ee53962b879fd9bdd18eab47bf5dd9bdb8271f1bf7d53b"
+  license "GPL-2.0"
 
   bottle do
     sha256 "204f87443d288dd953d310ca2e2fa3de0051f460f1586e357ddfdcc540411412" => :catalina

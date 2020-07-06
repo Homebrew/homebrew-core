@@ -3,6 +3,7 @@ class Squid < Formula
   homepage "http://www.squid-cache.org/"
   url "http://www.squid-cache.org/Versions/v4/squid-4.12.tar.xz"
   sha256 "f42a03c8b3dc020722c88bf1a87da8cb0c087b2f66b41d8256c77ee1b527e317"
+  license "GPL-2.0"
 
   bottle do
     sha256 "9910eea9598125a80e3282a09781dda3bb73b5edc9b3a155e2e41361b672c9b3" => :catalina

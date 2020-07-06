@@ -3,6 +3,7 @@ class Lcs < Formula
   homepage "https://sourceforge.net/projects/lcsgame/"
   url "https://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
   version "4.07.4b"
+  license "GPL-2.0"
   head "https://svn.code.sf.net/p/lcsgame/code/trunk"
 
   bottle do

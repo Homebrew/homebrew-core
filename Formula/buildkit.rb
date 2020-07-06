@@ -4,6 +4,7 @@ class Buildkit < Formula
   url "https://github.com/moby/buildkit.git",
       :tag      => "v0.7.1",
       :revision => "ddd175c5a2cc24530ea8ff427887c22939ca4289"
+  license "Apache-2.0"
   head "https://github.com/moby/buildkit.git"
 
   bottle do

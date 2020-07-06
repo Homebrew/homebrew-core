@@ -3,6 +3,7 @@ class NatsServer < Formula
   homepage "https://nats.io"
   url "https://github.com/nats-io/nats-server/archive/v2.1.7.tar.gz"
   sha256 "2e571b8c23c5ba1b083b2b4822bb2b4aca99692112a0cd4212237a92d5aa1e2e"
+  license "Apache-2.0"
   head "https://github.com/nats-io/nats-server.git"
 
   bottle do

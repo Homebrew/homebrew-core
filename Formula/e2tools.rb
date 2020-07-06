@@ -3,6 +3,7 @@ class E2tools < Formula
   homepage "https://e2tools.github.io/"
   url "https://github.com/e2tools/e2tools/releases/download/v0.1.0/e2tools-0.1.0.tar.gz"
   sha256 "c1a06b5ae2cbddb6f04d070e889b8bebf87015b8585889999452ce9846122edf"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

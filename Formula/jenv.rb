@@ -3,6 +3,7 @@ class Jenv < Formula
   homepage "https://www.jenv.be/"
   url "https://github.com/jenv/jenv/archive/0.5.3.tar.gz"
   sha256 "b30b1a4c2a213f01c89ac111df1be7e027a93512e34d14cdbdd263a0fbec5fff"
+  license "MIT"
 
   head "https://github.com/gcuisinier/jenv.git"
 

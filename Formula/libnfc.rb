@@ -3,6 +3,7 @@ class Libnfc < Formula
   homepage "https://github.com/nfc-tools/libnfc"
   url "https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2"
   sha256 "6d9ad31c86408711f0a60f05b1933101c7497683c2e0d8917d1611a3feba3dd5"
+  license "LGPL-3.0"
 
   bottle do
     sha256 "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26" => :catalina

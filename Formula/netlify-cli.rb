@@ -5,6 +5,7 @@ class NetlifyCli < Formula
   homepage "https://www.netlify.com/docs/cli"
   url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-2.57.0.tgz"
   sha256 "b9af8cc3428c03e7d82a3e0ac4200263e16be5bbc04a8622a1984471d30b51e7"
+  license "MIT"
   head "https://github.com/netlify/cli.git"
 
   bottle do

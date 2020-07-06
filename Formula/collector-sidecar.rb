@@ -3,6 +3,7 @@ class CollectorSidecar < Formula
   homepage "https://github.com/Graylog2/collector-sidecar"
   url "https://github.com/Graylog2/collector-sidecar/archive/1.0.2.tar.gz"
   sha256 "ee7ddb725d3475656df0bb08476e64c7f919acfc011a338b4532249363778130"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Opa < Formula
   homepage "https://www.openpolicyagent.org"
   url "https://github.com/open-policy-agent/opa/archive/v0.21.0.tar.gz"
   sha256 "dde2c49e1d133216da8ce33b0d5276a00dfea18535ed91ca3b3fad514ec0175d"
+  license "Apache-2.0"
   head "https://github.com/open-policy-agent/opa.git"
 
   bottle do

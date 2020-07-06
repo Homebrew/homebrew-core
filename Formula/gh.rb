@@ -3,6 +3,7 @@ class Gh < Formula
   homepage "https://github.com/cli/cli"
   url "https://github.com/cli/cli/archive/v0.10.1.tar.gz"
   sha256 "5265f9594cca6c4c2f0d573c810f4ddb16e3baed0c18b18a353529506fc41297"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

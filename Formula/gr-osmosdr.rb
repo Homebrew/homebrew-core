@@ -3,6 +3,7 @@ class GrOsmosdr < Formula
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
   sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
+  license "GPL-3.0"
   revision 10
 
   bottle do

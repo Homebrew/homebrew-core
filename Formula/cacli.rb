@@ -3,6 +3,7 @@ class Cacli < Formula
   homepage "https://cloud.annotations.ai"
   url "https://github.com/cloud-annotations/training/archive/v1.3.2.tar.gz"
   sha256 "9f164636367af848de93459cf0e7919aa099c408e6ad91a58874db6bc9986bfb"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

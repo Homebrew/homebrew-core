@@ -4,6 +4,7 @@ class KubernetesCli < Formula
   url "https://github.com/kubernetes/kubernetes.git",
       :tag      => "v1.18.5",
       :revision => "e6503f8d8f769ace2f338794c914a96fc335df0f"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do

@@ -4,6 +4,7 @@ class Erlang < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-23.0.2.tar.gz"
   sha256 "6bab92d1a1b20cc319cd845c23db3611cc99f8c99a610d117578262e3c108af3"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/erlang/otp.git"
 
@@ -79,7 +80,7 @@ class Erlang < Formula
   test do
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
     (testpath/"factorial").write <<~EOS
-      #!/usr/bin/env escript
+      #!#{bin}/escript
       %% -*- erlang -*-
       %%! -smp enable -sname factorial -mnesia debug verbose
       main([String]) ->
@@ -93,10 +94,10 @@ class Erlang < Formula
           end;
       main(_) ->
           usage().
-      
+
       usage() ->
           io:format("usage: factorial integer\n").
-      
+
       fac(0) -> 1;
       fac(N) -> N * fac(N-1).
     EOS

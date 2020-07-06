@@ -5,6 +5,7 @@ class Coffeescript < Formula
   homepage "https://coffeescript.org/"
   url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.5.1.tgz"
   sha256 "0ab43e873a859d323f2f5a0069a8bef3acfa72b09769be3350c9d43c5bb489a0"
+  license "MIT"
   head "https://github.com/jashkenas/coffeescript.git"
 
   bottle do

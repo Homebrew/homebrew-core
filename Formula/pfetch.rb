@@ -3,6 +3,7 @@ class Pfetch < Formula
   homepage "https://github.com/dylanaraps/pfetch/"
   url "https://github.com/dylanaraps/pfetch/archive/0.6.0.tar.gz"
   sha256 "d1f611e61c1f8ae55bd14f8f6054d06fcb9a2d973095367c1626842db66b3182"
+  license "MIT"
   head "https://github.com/dylanaraps/pfetch.git"
 
   bottle do

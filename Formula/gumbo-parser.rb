@@ -3,6 +3,7 @@ class GumboParser < Formula
   homepage "https://github.com/google/gumbo-parser"
   url "https://github.com/google/gumbo-parser/archive/v0.10.1.tar.gz"
   sha256 "28463053d44a5dfbc4b77bcf49c8cee119338ffa636cc17fc3378421d714efad"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

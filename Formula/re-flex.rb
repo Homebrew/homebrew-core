@@ -3,6 +3,7 @@ class ReFlex < Formula
   homepage "https://www.genivia.com/doc/reflex/html"
   url "https://github.com/Genivia/RE-flex/archive/v2.1.0.tar.gz"
   sha256 "b4c1b06fabf2ef6301e0210138c1ad16aa8a9384bfe7f3533155ef279e0b714f"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

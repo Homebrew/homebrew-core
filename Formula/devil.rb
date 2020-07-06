@@ -1,6 +1,7 @@
 class Devil < Formula
   desc "Cross-platform image library"
   homepage "https://sourceforge.net/projects/openil/"
+  license "LGPL-2.1"
   revision 1
   head "https://github.com/DentonW/DevIL.git"
 

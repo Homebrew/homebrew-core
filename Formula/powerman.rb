@@ -3,6 +3,7 @@ class Powerman < Formula
   homepage "https://code.google.com/p/powerman/"
   url "https://github.com/chaos/powerman/releases/download/2.3.26/powerman-2.3.26.tar.gz"
   sha256 "19e213127f468b835165b8e2082ff2dfff62d6832f3332160f2c6ba8b2d286ad"
+  license "GPL-2.0"
 
   bottle do
     sha256 "aaa93f0be2fa1d4092c2d06cec0b7fbcc00d4817ff2d6dc4601301a8cb3917fc" => :catalina

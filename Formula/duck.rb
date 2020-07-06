@@ -4,6 +4,7 @@ class Duck < Formula
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
   url "https://dist.duck.sh/duck-src-7.4.1.33065.tar.gz"
   sha256 "b535188cf37946c350f090aa493d5240ee1ef2b077d673613cd5655c337ef912"
+  license "GPL-3.0"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do

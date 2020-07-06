@@ -3,6 +3,7 @@ class Ccheck < Formula
   homepage "https://github.com/nerdlem/ccheck"
   url "https://github.com/nerdlem/ccheck/archive/v1.0.1.tar.gz"
   sha256 "2325ea8476cce5111b8f848ca696409092b1d1d9c41bd46de7e3145374ed32cf"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Velero < Formula
   homepage "https://github.com/vmware-tanzu/velero"
   url "https://github.com/vmware-tanzu/velero/archive/v1.4.0.tar.gz"
   sha256 "0139071f6e69059a0a1d4897f4331b55cb53bda3d29202d099aea03268891c31"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

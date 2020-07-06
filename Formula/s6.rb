@@ -3,6 +3,7 @@ class S6 < Formula
   homepage "https://skarnet.org/software/s6/"
   url "https://skarnet.org/software/s6/s6-2.9.2.0.tar.gz"
   sha256 "363db72af8fffba764b775c872b0749d052805b893b07888168f59a841e9dddd"
+  license "ISC"
 
   bottle do
     sha256 "94906378d458e78a0909dc89bd5672ca8d33645b1b070be4974ac7ebe0f3aa15" => :catalina

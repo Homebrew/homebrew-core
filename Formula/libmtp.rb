@@ -3,6 +3,7 @@ class Libmtp < Formula
   homepage "https://libmtp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.17/libmtp-1.1.17.tar.gz"
   sha256 "f8a34cf52d9f9b9cb8c7f26b12da347d4af7eb904c13189602e4c6b62d1a79dc"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

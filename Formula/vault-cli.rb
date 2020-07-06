@@ -3,6 +3,7 @@ class VaultCli < Formula
   homepage "https://jackrabbit.apache.org/filevault/index.html"
   url "https://search.maven.org/remotecontent?filepath=org/apache/jackrabbit/vault/vault-cli/3.4.4/vault-cli-3.4.4-bin.tar.gz"
   sha256 "562e8b331936faa9e1735f48fe0da65cadf58c17638174211339cdee075cdf1c"
+  license "Apache-2.0"
   head "https://github.com/apache/jackrabbit-filevault.git"
 
   bottle :unneeded

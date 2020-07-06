@@ -3,6 +3,7 @@ class Zabbix < Formula
   homepage "https://www.zabbix.com/"
   url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/zabbix-5.0.1.tar.gz"
   sha256 "20a19e5cf2354ffcbbe24521b04becfc9875e57289c00da71999de60c4a853b6"
+  license "GPL-2.0"
 
   bottle do
     sha256 "2ac9eaa79b953244dda80543660b22150d7c6e9ce444386e5448f63cf76df412" => :catalina

@@ -5,6 +5,7 @@ class Eslint < Formula
   homepage "https://eslint.org"
   url "https://registry.npmjs.org/eslint/-/eslint-7.4.0.tgz"
   sha256 "597285bfec862ccc80108448fe364b6d9b5ce98ffecdcdfe29d8f907e3a591b9"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

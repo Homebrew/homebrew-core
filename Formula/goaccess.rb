@@ -3,6 +3,7 @@ class Goaccess < Formula
   homepage "https://goaccess.io/"
   url "https://tar.goaccess.io/goaccess-1.4.tar.gz"
   sha256 "e8fbb9ff852556d72dfd9f1d0134ba075ce5b4c41289902a6f4e0d97c69377be"
+  license "MIT"
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do

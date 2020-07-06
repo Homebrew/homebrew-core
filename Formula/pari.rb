@@ -3,6 +3,7 @@ class Pari < Formula
   homepage "https://pari.math.u-bordeaux.fr/"
   url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.11.4.tar.gz"
   sha256 "bfc88fc4f7352f4840e6e352c72f0369cbea8a45403b1834a6269f3709970b1c"
+  license "GPL-2.0"
 
   bottle do
     sha256 "34bff086dc53fc97511828c3329f71ab67c394011f88d551dc5d820fad455a93" => :catalina

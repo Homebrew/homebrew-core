@@ -3,6 +3,7 @@ class PicardTools < Formula
   homepage "https://broadinstitute.github.io/picard/"
   url "https://github.com/broadinstitute/picard/releases/download/2.23.1/picard.jar"
   sha256 "b3aeabd152e8a24c913e9d994fda8f05277c6bd4f60061577e3220207a1a85bc"
+  license "MIT"
 
   bottle :unneeded
 

@@ -3,6 +3,7 @@ class Libgnt < Formula
   homepage "https://keep.imfreedom.org/libgnt/libgnt"
   url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.0/libgnt-2.14.0.tar.xz"
   sha256 "6b7ea2030c9755ad9756ab4b1d3396dccaef4a712eccce34d3990042bb4b3abf"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

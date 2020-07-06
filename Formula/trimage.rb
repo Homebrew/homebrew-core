@@ -3,6 +3,7 @@ class Trimage < Formula
   homepage "https://trimage.org"
   url "https://github.com/Kilian/Trimage/archive/1.0.6.tar.gz"
   sha256 "60448b5a827691087a1bd016a68f84d8c457fc29179271f310fe5f9fa21415cf"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class PdfRedactTools < Formula
   homepage "https://github.com/firstlookmedia/pdf-redact-tools"
   url "https://github.com/firstlookmedia/pdf-redact-tools/archive/v0.1.2.tar.gz"
   sha256 "5874a7b76be15ccaa4c20874299ef51fbaf520a858229a58678bc72a305305fc"
+  license "GPL-3.0"
   revision 1
   head "https://github.com/firstlookmedia/pdf-redact-tools.git"
 

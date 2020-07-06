@@ -3,6 +3,7 @@ class Hss < Formula
   homepage "https://github.com/six-ddc/hss"
   url "https://github.com/six-ddc/hss/archive/1.8.tar.gz"
   sha256 "60481274403c551f5b717599c813d619877a009832c4a8a84fcead18e39382fa"
+  license "MIT"
 
   bottle do
     cellar :any

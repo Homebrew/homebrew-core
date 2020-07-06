@@ -3,6 +3,7 @@ class Henplus < Formula
   homepage "https://github.com/neurolabs/henplus"
   url "https://github.com/downloads/neurolabs/henplus/henplus-0.9.8.tar.gz"
   sha256 "ea7ca363d0503317235e97f66aa0efefe44463d8445e88b304ec0ac1748fe1ff"
+  license "GPL-2.0"
   revision 1
 
   bottle do

@@ -3,6 +3,7 @@ class Libmrss < Formula
   homepage "https://www.autistici.org/bakunin/libmrss/"
   url "https://www.autistici.org/bakunin/libmrss/libmrss-0.19.2.tar.gz"
   sha256 "071416adcae5c1a9317a4a313f2deb34667e3cc2be4487fb3076528ce45b210b"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

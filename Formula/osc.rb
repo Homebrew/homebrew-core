@@ -5,6 +5,7 @@ class Osc < Formula
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.169.1.tar.gz"
   sha256 "ae87225d4ce3ca115a95188235ecd90b008b0e6b25b79ba818c5e7d09e7ec7d6"
+  license "GPL-2.0"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do

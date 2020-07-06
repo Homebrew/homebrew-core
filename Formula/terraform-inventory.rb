@@ -5,6 +5,7 @@ class TerraformInventory < Formula
   homepage "https://github.com/adammck/terraform-inventory"
   url "https://github.com/adammck/terraform-inventory/archive/v0.9.tar.gz"
   sha256 "e0f5876b2272ac3f9702e3599078aede1e448f617526beec147cd3fbbf0836bd"
+  license "MIT"
   head "https://github.com/adammck/terraform-inventory.git"
 
   bottle do

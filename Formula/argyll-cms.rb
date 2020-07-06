@@ -3,6 +3,7 @@ class ArgyllCms < Formula
   homepage "https://www.argyllcms.com/"
   url "https://www.argyllcms.com/Argyll_V2.1.2_src.zip"
   sha256 "be378ca836b17b8684db05e9feaab138d711835ef00a04a76ac0ceacd386a3e3"
+  license "AGPL-3.0"
 
   bottle do
     cellar :any

@@ -4,6 +4,7 @@ class CassandraAT22 < Formula
   url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.16/apache-cassandra-2.2.16-bin.tar.gz"
   mirror "https://archive.apache.org/dist/cassandra/2.2.16/apache-cassandra-2.2.16-bin.tar.gz"
   sha256 "827474c965242be4788beefa3e28d05d909e0bb068e03b65c73f1669796ddb84"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

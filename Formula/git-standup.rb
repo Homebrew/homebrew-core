@@ -3,6 +3,7 @@ class GitStandup < Formula
   homepage "https://github.com/kamranahmedse/git-standup"
   url "https://github.com/kamranahmedse/git-standup/archive/2.3.2.tar.gz"
   sha256 "48d5aaa3c585037c950fa99dd5be8a7e9af959aacacde9fe94143e4e0bfcd6ba"
+  license "MIT"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do

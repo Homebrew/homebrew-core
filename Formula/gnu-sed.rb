@@ -4,6 +4,7 @@ class GnuSed < Formula
   url "https://ftp.gnu.org/gnu/sed/sed-4.8.tar.xz"
   mirror "https://ftpmirror.gnu.org/sed/sed-4.8.tar.xz"
   sha256 "f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

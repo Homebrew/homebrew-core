@@ -3,6 +3,7 @@ class Swift < Formula
   homepage "https://swift.org"
   url "https://github.com/apple/swift/archive/swift-5.2.4-RELEASE.tar.gz"
   sha256 "94c44101c3dd6774887029110269bbaf9aff68cce5ea0783588157cc08d82ed8"
+  license "Apache-2.0"
 
   bottle do
     sha256 "3ab59265cd42fb656737cddfa4a31012d50762526623a7ccb6655846e9609398" => :catalina

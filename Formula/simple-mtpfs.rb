@@ -3,6 +3,7 @@ class SimpleMtpfs < Formula
   homepage "https://github.com/phatina/simple-mtpfs"
   url "https://github.com/phatina/simple-mtpfs/archive/simple-mtpfs-0.3.0.tar.gz"
   sha256 "5556cae4414254b071d79ce656cce866b42fd7ba40ce480abfc3ba4e357cd491"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

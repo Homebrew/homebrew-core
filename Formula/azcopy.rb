@@ -3,6 +3,7 @@ class Azcopy < Formula
   homepage "https://github.com/Azure/azure-storage-azcopy"
   url "https://github.com/Azure/azure-storage-azcopy/archive/v10.4.3.tar.gz"
   sha256 "c363d22db83bd3549494c5e922918b245aeb29db024ab5b904d26b498292457d"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

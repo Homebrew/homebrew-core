@@ -3,6 +3,7 @@ class Kubeless < Formula
   homepage "https://kubeless.io"
   url "https://github.com/kubeless/kubeless/archive/v1.0.7.tar.gz"
   sha256 "8aedb768da672e60c489cce1a8757cb21841c9651bfe3ef7112570eaa13720fa"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

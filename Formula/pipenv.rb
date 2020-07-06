@@ -5,6 +5,7 @@ class Pipenv < Formula
   homepage "https://pipenv.pypa.io/"
   url "https://files.pythonhosted.org/packages/2f/e2/434a35cde4ebcb4588e452ea6a59634098f521eb996874f3fe8411dea839/pipenv-2020.6.2.tar.gz"
   sha256 "7dd49a7345fa5da7843907bab42a996dece474e45dd309dbd7619739dc60478b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

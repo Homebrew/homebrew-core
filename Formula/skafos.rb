@@ -3,6 +3,7 @@ class Skafos < Formula
   homepage "https://skafos.ai/"
   url "https://github.com/MetisMachine/skafos/archive/1.7.7.tar.gz"
   sha256 "42eecd6094126f1e4febf94541c4b640f2b4ed39829af2686cd83a60fafcd994"
+  license "Apache-2.0"
   revision 2
 
   bottle do

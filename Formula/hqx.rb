@@ -4,6 +4,7 @@ class Hqx < Formula
   url "https://github.com/grom358/hqx.git",
       :tag      => "v1.2",
       :revision => "124c9399fa136fb0f743417ca27dfa2ca2860c2d"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

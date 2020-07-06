@@ -3,6 +3,7 @@ class Nailgun < Formula
   homepage "http://www.martiansoftware.com/nailgun/"
   url "https://github.com/facebook/nailgun/archive/nailgun-all-1.0.1.tar.gz"
   sha256 "c05fc01d28c895d0003b8ec6151c10ee38690552dcfaeb304497836f558006d5"
+  license "Apache-2.0"
   head "https://github.com/facebook/nailgun.git"
 
   bottle do

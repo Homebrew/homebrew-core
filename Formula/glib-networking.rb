@@ -3,6 +3,7 @@ class GlibNetworking < Formula
   homepage "https://gitlab.gnome.org/GNOME/glib-networking"
   url "https://download.gnome.org/sources/glib-networking/2.64/glib-networking-2.64.3.tar.xz"
   sha256 "937a06b124052813bfc0b0b86bff42016ff01067582e1aca65bb6dbe0845a168"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "52991dae042721d0bc9af98a7a777435b76fd6ef3a66ce8bf89928fd549537ee" => :catalina

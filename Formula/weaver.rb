@@ -3,6 +3,7 @@ class Weaver < Formula
   homepage "https://github.com/scribd/Weaver"
   url "https://github.com/scribd/Weaver/archive/1.0.7.tar.gz"
   sha256 "600a49ea7dbe58f57bf40afb7be7a42fb382ce41d807549e427b23e8504d5e02"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

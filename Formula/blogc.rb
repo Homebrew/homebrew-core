@@ -3,6 +3,7 @@ class Blogc < Formula
   homepage "https://blogc.rgm.io/"
   url "https://github.com/blogc/blogc/releases/download/v0.19.0/blogc-0.19.0.tar.xz"
   sha256 "b409deede82513448fac460c27dbfa96093c6974cf324eaf8e6ab21dc53924ef"
+  license "BSD-3-Clause"
   head "https://github.com/blogc/blogc.git"
 
   bottle do

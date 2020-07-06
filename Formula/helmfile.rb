@@ -3,6 +3,7 @@ class Helmfile < Formula
   homepage "https://github.com/roboll/helmfile"
   url "https://github.com/roboll/helmfile/archive/v0.120.0.tar.gz"
   sha256 "2fe0df3970fd93ce6b49be941eef33a2cd0f90355ef120852a5d0964ec105c2e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

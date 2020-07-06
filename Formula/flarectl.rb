@@ -3,6 +3,7 @@ class Flarectl < Formula
   homepage "https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl"
   url "https://github.com/cloudflare/cloudflare-go/archive/v0.12.0.tar.gz"
   sha256 "66b2768674b248ea46c6775c5f8f55916459583937606727677a4c7690348f07"
+  license "BSD-3-Clause"
   head "https://github.com/cloudflare/cloudflare-go.git"
 
   bottle do

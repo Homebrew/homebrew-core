@@ -5,6 +5,7 @@ class LeelaZero < Formula
   url "https://github.com/leela-zero/leela-zero.git",
       :tag      => "v0.17",
       :revision => "3f297889563bcbec671982c655996ccff63fa253"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

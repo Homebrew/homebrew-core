@@ -4,6 +4,7 @@ class ConsulTemplate < Formula
   url "https://github.com/hashicorp/consul-template.git",
       :tag      => "v0.25.0",
       :revision => "edf364d29c5e2ab565081cd902cb37cb7a53bf11"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do

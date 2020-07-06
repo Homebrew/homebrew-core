@@ -4,6 +4,7 @@ class Wtfutil < Formula
   url "https://github.com/wtfutil/wtf.git",
     :tag      => "v0.30.0",
     :revision => "13b421b08e550637b3d77fde0ff8894fd3a127d8"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

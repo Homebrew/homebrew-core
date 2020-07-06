@@ -4,6 +4,7 @@ class Libexosip < Formula
   url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.1.1.tar.gz"
   mirror "https://download-mirror.savannah.gnu.org/releases/exosip/libexosip2-5.1.1.tar.gz"
   sha256 "21420c00bf8e0895ff36161766beec12b7e6f1d371030c389dba845e271272e2"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

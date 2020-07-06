@@ -3,6 +3,7 @@ class Cups < Formula
   homepage "https://www.cups.org"
   url "https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz"
   sha256 "261fd948bce8647b6d5cb2a1784f0c24cc52b5c4e827b71d726020bcc502f3ee"
+  license "Apache-2.0"
 
   bottle do
     sha256 "1bed38f7aa9ee2c76fed5393e308cf7de5dd6d443debb0455ee7739e010b0e20" => :catalina

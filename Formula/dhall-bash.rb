@@ -3,6 +3,7 @@ class DhallBash < Formula
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
   url "https://hackage.haskell.org/package/dhall-bash-1.0.30/dhall-bash-1.0.30.tar.gz"
   sha256 "384476a4fb3bf5cca70104f093faef580764e56fc9998a56eeb9fe8918ca5de4"
+  license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do

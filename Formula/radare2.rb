@@ -3,6 +3,7 @@ class Radare2 < Formula
   homepage "https://radare.org"
   url "https://github.com/radareorg/radare2/archive/4.4.0.tar.gz"
   sha256 "401ab89f39f7e70e03336f6890dc4fdf52dae4f61201e4cd8a1fbe5a4b9eb451"
+  license "LGPL-3.0"
   head "https://github.com/radare/radare2.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Opensubdiv < Formula
   homepage "https://graphics.pixar.com/opensubdiv/docs/intro.html"
   url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v3_4_3.tar.gz"
   sha256 "7b22eb27d636ab0c1e03722c7a5a5bd4f11664ee65c9b48f341a6d0ce7f36745"
+  license "Apache-2.0"
 
   bottle do
     sha256 "ef8b813dc962503a90798c4327805730eb6eba3989dfa7a3a137ea6021777e56" => :catalina

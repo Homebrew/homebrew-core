@@ -5,6 +5,7 @@ class Snakemake < Formula
   homepage "https://snakemake.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/b9/8b/61689a6501f908be53ec4fa58f47cda72061327863eac39b8000aeae6855/snakemake-5.19.3.tar.gz"
   sha256 "b83f3ef73e25dafcb39b3565030e33fa2f7e80ed70256c535dc7e58ea762305d"
+  license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
   bottle do

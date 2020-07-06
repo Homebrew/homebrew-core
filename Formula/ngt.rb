@@ -3,6 +3,7 @@ class Ngt < Formula
   homepage "https://github.com/yahoojapan/NGT"
   url "https://github.com/yahoojapan/NGT/archive/v1.12.0.tar.gz"
   sha256 "1fc8342c0f0568d2cb3b3b641bcc70893c4088166bd48145432bf6a045a15105"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class YleDl < Formula
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
   url "https://github.com/aajanki/yle-dl/archive/20200628.tar.gz"
   sha256 "4b8ef130b80b0bcfe953d56aef640f09227e6e64486104c53bc8f5af79615e9f"
+  license "GPL-3.0"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do

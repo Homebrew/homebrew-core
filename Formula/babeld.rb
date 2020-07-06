@@ -3,6 +3,7 @@ class Babeld < Formula
   homepage "https://www.irif.fr/~jch/software/babel/"
   url "https://www.irif.fr/~jch/software/files/babeld-1.9.2.tar.gz"
   sha256 "154f00e0a8bf35d6ea9028886c3dc5c3c342dd1a367df55ef29a547b75867f07"
+  license "MIT"
   head "https://github.com/jech/babeld.git"
 
   bottle do

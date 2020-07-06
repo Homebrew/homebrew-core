@@ -3,6 +3,7 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
   sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
+  license "MIT"
   revision 4
 
   bottle do

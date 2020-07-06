@@ -3,6 +3,7 @@ class JfrogCli < Formula
   homepage "https://github.com/jfrog/jfrog-cli"
   url "https://github.com/jfrog/jfrog-cli/archive/1.37.1.tar.gz"
   sha256 "8f40d56a20a26ad5f59e1b355c22b726ffeacc2dfceaa2b808e7258ff68e41df"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

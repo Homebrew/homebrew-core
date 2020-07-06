@@ -3,6 +3,7 @@ class Coredns < Formula
   homepage "https://coredns.io/"
   url "https://github.com/coredns/coredns/archive/v1.7.0.tar.gz"
   sha256 "7e436e9d0c0b84af863685e05d701b84247bb0f12b6dbf05ea87e165c1398b2b"
+  license "Apache-2.0"
   head "https://github.com/coredns/coredns.git"
 
   bottle do

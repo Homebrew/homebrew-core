@@ -3,6 +3,7 @@ class Lepton < Formula
   homepage "https://github.com/dropbox/lepton"
   url "https://github.com/dropbox/lepton/archive/1.2.1.tar.gz"
   sha256 "c4612dbbc88527be2e27fddf53aadf1bfc117e744db67e373ef8940449cdec97"
+  license "Apache-2.0"
   head "https://github.com/dropbox/lepton.git"
 
   bottle do

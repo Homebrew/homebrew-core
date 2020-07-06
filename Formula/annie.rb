@@ -3,6 +3,7 @@ class Annie < Formula
   homepage "https://github.com/iawia002/annie"
   url "https://github.com/iawia002/annie/archive/0.10.2.tar.gz"
   sha256 "62ce7ecad18b09970048537fc62be2ad75e1936d57710b3058c9c8a866675aae"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

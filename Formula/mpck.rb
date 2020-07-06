@@ -3,6 +3,7 @@ class Mpck < Formula
   homepage "https://checkmate.gissen.nl/"
   url "https://checkmate.gissen.nl/checkmate-0.21.tar.gz"
   sha256 "a27b4843ec06b069a46363836efda3e56e1daaf193a73a4da875e77f0945dd7a"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

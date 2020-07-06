@@ -3,6 +3,7 @@ class Gegl < Formula
   homepage "http://www.gegl.org/"
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.24.tar.xz"
   sha256 "7765499f27341b0d16032e665319cbc12876483ff6a944fcdf24a9c58e3e254a"
+  license "LGPL-3.0"
 
   bottle do
     sha256 "2067ee4af3b1ddc40a49765e5612bcd23f0724ce2702db200f2ed7fc28792df5" => :catalina

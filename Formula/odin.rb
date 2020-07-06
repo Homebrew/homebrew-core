@@ -3,6 +3,7 @@ class Odin < Formula
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin/archive/v0.12.0.tar.gz"
   sha256 "8356124c8cc7e08ac39872e5bb10593a412e67f81df621124097facd9b2b26cc"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/odin-lang/Odin.git"
 

@@ -5,6 +5,7 @@ class Yapf < Formula
   homepage "https://github.com/google/yapf"
   url "https://files.pythonhosted.org/packages/65/44/c2aa8743cada222eaede6b9bd4b644e84f04eaa6dede2258ec7562b705d3/yapf-0.30.0.tar.gz"
   sha256 "3000abee4c28daebad55da6c85f3cd07b8062ce48e2e9943c8da1b9667d48427"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

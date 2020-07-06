@@ -3,6 +3,7 @@ class Pgbadger < Formula
   homepage "https://pgbadger.darold.net/"
   url "https://github.com/darold/pgbadger/archive/v11.2.tar.gz"
   sha256 "74527a09e2e68918d2714c55a776f8f19bba9dd62a9f49a3f5ffd59e0812bfa3"
+  license "PostgreSQL"
   head "https://github.com/darold/pgbadger.git"
 
   bottle do

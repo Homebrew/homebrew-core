@@ -3,6 +3,7 @@ class Tinyxml2 < Formula
   homepage "http://grinninglizard.com/tinyxml2"
   url "https://github.com/leethomason/tinyxml2/archive/8.0.0.tar.gz"
   sha256 "6ce574fbb46751842d23089485ae73d3db12c1b6639cda7721bf3a7ee862012c"
+  license "Zlib"
   head "https://github.com/leethomason/tinyxml2.git"
 
   bottle do

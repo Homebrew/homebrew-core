@@ -3,6 +3,7 @@ class Oxipng < Formula
   homepage "https://github.com/shssoichiro/oxipng"
   url "https://github.com/shssoichiro/oxipng/archive/v3.0.0.tar.gz"
   sha256 "fd7584299375a630322b152878756297b0083492b7e4b9b17ae9978662e8c36a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

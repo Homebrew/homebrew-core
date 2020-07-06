@@ -1,6 +1,7 @@
 class Perkeep < Formula
   desc "Lets you permanently keep your stuff, for life"
   homepage "https://perkeep.org/"
+  license "Apache-2.0"
 
   stable do
     url "https://github.com/perkeep/perkeep.git",

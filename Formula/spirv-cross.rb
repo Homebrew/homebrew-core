@@ -4,6 +4,7 @@ class SpirvCross < Formula
   url "https://github.com/KhronosGroup/SPIRV-Cross/archive/2020-06-29.tar.gz"
   version "2020-06-29"
   sha256 "29523168867fcfa55b03a65970a8572be67e37accb08ce1051b2d3ae19011452"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

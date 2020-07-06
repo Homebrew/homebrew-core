@@ -3,6 +3,7 @@ class Di < Formula
   homepage "https://gentoo.com/di/"
   url "https://gentoo.com/di/di-4.48.tar.gz"
   sha256 "19d549feb59ccde7ff1cd2c48fea7b9ba99fa2285da81424603e23d8b5db3b33"
+  license "Zlib"
 
   bottle do
     cellar :any_skip_relocation

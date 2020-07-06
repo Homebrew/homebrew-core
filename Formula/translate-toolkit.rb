@@ -5,6 +5,7 @@ class TranslateToolkit < Formula
   homepage "https://toolkit.translatehouse.org/"
   url "https://github.com/translate/translate/archive/3.0.0.tar.gz"
   sha256 "edbd6035ca20f2edffb434fb80378f77494fdf41698f006fc93e0c4ce2eea8f2"
+  license "GPL-2.0"
   head "https://github.com/translate/translate.git"
 
   bottle do

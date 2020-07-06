@@ -3,6 +3,7 @@ class OpencoreAmr < Formula
   homepage "https://opencore-amr.sourceforge.io/"
   url "https://downloads.sourceforge.net/opencore-amr/opencore-amr-0.1.5.tar.gz"
   sha256 "2c006cb9d5f651bfb5e60156dbff6af3c9d35c7bbcc9015308c0aff1e14cd341"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

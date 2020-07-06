@@ -3,6 +3,7 @@ class Ncdc < Formula
   homepage "https://dev.yorhel.nl/ncdc"
   url "https://dev.yorhel.nl/download/ncdc-1.22.1.tar.gz"
   sha256 "d15fd378aa345f423e59a38691c668f69b516cd4b8afbbcdc446007740c3afad"
+  license "MIT"
 
   bottle do
     cellar :any

@@ -4,6 +4,7 @@ class Mmseqs2 < Formula
   url "https://github.com/soedinglab/MMseqs2/archive/11-e1a1c.tar.gz"
   version "11-e1a1c"
   sha256 "ffe1ae300dbe1a0e3d72fc9e947356a4807f07951cb56316f36974d8d5875cbb"
+  license "GPL-3.0"
   revision 1
   head "https://github.com/soedinglab/MMseqs2.git"
 

@@ -3,6 +3,7 @@ class SbtAT013 < Formula
   homepage "https://www.scala-sbt.org/"
   url "https://github.com/sbt/sbt/releases/download/v0.13.18/sbt-0.13.18.tgz"
   sha256 "afe82322ca8e63e6f1e10fc1eb515eb7dc6c3e5a7f543048814072a03d83b331"
+  license "Apache-2.0"
 
   bottle :unneeded
 

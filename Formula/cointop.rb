@@ -3,6 +3,7 @@ class Cointop < Formula
   homepage "https://cointop.sh"
   url "https://github.com/miguelmota/cointop/archive/1.4.6.tar.gz"
   sha256 "69391a7c6f3a920c175685b9917086d449f4c1ff72c5b98ab08118489f15c0a9"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

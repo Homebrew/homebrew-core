@@ -3,6 +3,7 @@ class Lilv < Formula
   homepage "https://drobilla.net/software/lilv/"
   url "https://download.drobilla.net/lilv-0.24.8.tar.bz2"
   sha256 "cadc3654c481aec6a6db504439cf8c0572c06128a6fbca1953a30df77e89c300"
+  license "ISC"
 
   bottle do
     cellar :any

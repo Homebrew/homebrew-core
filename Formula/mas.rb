@@ -4,6 +4,7 @@ class Mas < Formula
   url "https://github.com/mas-cli/mas.git",
       :tag      => "v1.7.0",
       :revision => "35575ff962687cfd9a12f859668cf61d5ea819c2"
+  license "MIT"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do

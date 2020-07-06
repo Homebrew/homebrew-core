@@ -5,6 +5,7 @@ class Subliminal < Formula
   homepage "https://subliminal.readthedocs.org"
   url "https://files.pythonhosted.org/packages/dd/3a/ac02011988ad013f24a11cb6123a7ff9e17a75369964c7edd9f64bfea80f/subliminal-2.1.0.tar.gz"
   sha256 "c6439cc733a4f37f01f8c14c096d44fd28d75d1f6f6e2d1d1003b1b82c65628b"
+  license "MIT"
   head "https://github.com/Diaoul/subliminal.git"
 
   bottle do

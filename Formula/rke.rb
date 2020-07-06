@@ -4,6 +4,7 @@ class Rke < Formula
   url "https://github.com/rancher/rke.git",
       :tag      => "v1.1.3",
       :revision => "b3082ecb934e5761de9846d336b6a77350169368"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

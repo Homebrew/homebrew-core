@@ -3,6 +3,7 @@ class Gtksourceview4 < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/4.6/gtksourceview-4.6.1.tar.xz"
   sha256 "63f487a7ab59612ffa9e7be1883dbd274ab1016afcede3239b93b0fc384df874"
+  license "LGPL-2.1"
   revision 1
 
   bottle do

@@ -3,6 +3,7 @@ class Ship < Formula
   homepage "https://www.replicated.com/ship"
   url "https://github.com/replicatedhq/ship/archive/v0.53.0.tar.gz"
   sha256 "da1b0bba9e7431c27ae08774be906c17e278ef4703c288767bbaaedf0cc8d2c5"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

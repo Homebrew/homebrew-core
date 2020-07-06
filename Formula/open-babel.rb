@@ -4,6 +4,7 @@ class OpenBabel < Formula
   url "https://github.com/openbabel/openbabel/archive/openbabel-3-1-1.tar.gz"
   version "3.1.1"
   sha256 "c97023ac6300d26176c97d4ef39957f06e68848d64f1a04b0b284ccff2744f02"
+  license "GPL-2.0"
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do

@@ -3,6 +3,7 @@ class LeanCli < Formula
   homepage "https://github.com/leancloud/lean-cli"
   url "https://github.com/leancloud/lean-cli/archive/v0.22.0.tar.gz"
   sha256 "c00aa7f6510aa9d19e4299acdadd8f726b37d5ce7c664514e6e44c287c5a2cf1"
+  license "Apache-2.0"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do

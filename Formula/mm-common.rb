@@ -3,6 +3,7 @@ class MmCommon < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.1.tar.xz"
   sha256 "28a2d775afbf05c5c957b24b220ed6e9b2023179b98ecde471d89e9754ea5ac9"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Flvstreamer < Formula
   homepage "https://www.nongnu.org/flvstreamer/"
   url "https://download.savannah.gnu.org/releases/flvstreamer/source/flvstreamer-2.1c1.tar.gz"
   sha256 "e90e24e13a48c57b1be01e41c9a7ec41f59953cdb862b50cf3e667429394d1ee"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

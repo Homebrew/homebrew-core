@@ -3,6 +3,7 @@ class Mp3cat < Formula
   homepage "https://tomclegg.ca/mp3cat"
   url "https://github.com/tomclegg/mp3cat/archive/0.5.tar.gz"
   sha256 "b1ec915c09c7e1c0ff48f54844db273505bc0157163bed7b2940792dca8ff951"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

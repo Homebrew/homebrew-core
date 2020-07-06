@@ -5,6 +5,7 @@ class Kubeseal < Formula
       :tag      => "v0.12.4",
       :revision => "29441fc8416fd2e1363904ddd481859deed37d07"
   sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

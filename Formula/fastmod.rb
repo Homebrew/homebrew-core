@@ -3,6 +3,7 @@ class Fastmod < Formula
   homepage "https://github.com/facebookincubator/fastmod"
   url "https://github.com/facebookincubator/fastmod/archive/v0.4.0.tar.gz"
   sha256 "c36786acd75944cf50b77f6f61e22cf6e6833a0647b1f3bafbc7ff5c3e2c8153"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

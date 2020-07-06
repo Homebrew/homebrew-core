@@ -3,6 +3,7 @@ class Hiredis < Formula
   homepage "https://github.com/redis/hiredis"
   url "https://github.com/redis/hiredis/archive/v0.14.1.tar.gz"
   sha256 "2663b2aed9fd430507e30fc5e63274ee40cdd1a296026e22eafd7d99b01c8913"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/redis/hiredis.git"
 

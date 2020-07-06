@@ -4,6 +4,7 @@ class Makepkg < Formula
   url "https://git.archlinux.org/pacman.git",
       :tag      => "v5.0.2",
       :revision => "0c633c27eaeab2a9d30efb01199579896ccf63c9"
+  license "GPL-2.0"
   head "https://git.archlinux.org/pacman.git"
 
   bottle do

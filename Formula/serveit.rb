@@ -3,6 +3,7 @@ class Serveit < Formula
   homepage "https://github.com/garybernhardt/serveit"
   url "https://github.com/garybernhardt/serveit/archive/v0.0.3.tar.gz"
   sha256 "5bbefdca878aab4a8c8a0c874c02a0a033cf4321121c9e006cb333d9bd7b6d52"
+  license "MIT"
   revision 1
   head "https://github.com/garybernhardt/serveit.git"
 

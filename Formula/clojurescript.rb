@@ -3,6 +3,7 @@ class Clojurescript < Formula
   homepage "https://github.com/clojure/clojurescript"
   url "https://github.com/clojure/clojurescript/releases/download/r1.10.758/cljs.jar"
   sha256 "dcc98e103d281d4eab21ca94fba11728e9f587c3aa09c8ffc3b96cff210adcce"
+  license "EPL-1.0"
   head "https://github.com/clojure/clojurescript.git"
 
   bottle :unneeded

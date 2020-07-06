@@ -3,6 +3,7 @@ class Smimesign < Formula
   homepage "https://github.com/github/smimesign"
   url "https://github.com/github/smimesign/archive/v0.0.13.tar.gz"
   sha256 "baf3e1c0a64ca1d49be8a4e99640679ba2b2870e907e88be1e9c7f1566d0f206"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

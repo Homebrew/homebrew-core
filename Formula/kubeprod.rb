@@ -3,6 +3,7 @@ class Kubeprod < Formula
   homepage "https://kubeprod.io"
   url "https://github.com/bitnami/kube-prod-runtime/archive/v1.5.1.tar.gz"
   sha256 "247a37f9526bdec49377be4f1eefd1f37e4f8380cc515d73246518f2731ff8fc"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

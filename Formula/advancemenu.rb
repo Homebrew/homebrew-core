@@ -3,6 +3,7 @@ class Advancemenu < Formula
   homepage "https://www.advancemame.it/menu-readme.html"
   url "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz"
   sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
+  license "GPL-2.0"
 
   bottle do
     sha256 "07f9a82231936429257190078d28ec7313b39dfe9ecf3ed9e82b15fbe1615366" => :catalina

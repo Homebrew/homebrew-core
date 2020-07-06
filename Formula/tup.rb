@@ -3,6 +3,7 @@ class Tup < Formula
   homepage "http://gittup.org/tup/"
   url "https://github.com/gittup/tup/archive/v0.7.9.tar.gz"
   sha256 "9b0951afaa749186eb55d88860405b2f6b3d88632d1b5df1ec4a0bf973d8d326"
+  license "GPL-2.0"
   head "https://github.com/gittup/tup.git"
 
   bottle do

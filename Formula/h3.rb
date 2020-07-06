@@ -3,6 +3,7 @@ class H3 < Formula
   homepage "https://uber.github.io/h3/"
   url "https://github.com/uber/h3/archive/v3.6.4.tar.gz"
   sha256 "b80c2eee2b3e645de77893e27ca149e63d3bb6bf95d33e3a384e3f390e2681bb"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

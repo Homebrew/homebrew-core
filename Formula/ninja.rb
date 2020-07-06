@@ -3,6 +3,7 @@ class Ninja < Formula
   homepage "https://ninja-build.org/"
   url "https://github.com/ninja-build/ninja/archive/v1.10.0.tar.gz"
   sha256 "3810318b08489435f8efc19c05525e80a993af5a55baa0dfeae0465a9d45f99f"
+  license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git"
 
   bottle do

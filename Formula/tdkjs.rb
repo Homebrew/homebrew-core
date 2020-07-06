@@ -5,6 +5,7 @@ class Tdkjs < Formula
   homepage "https://tdk.developer.tixte.com/"
   url "https://registry.npmjs.org/tdkjs/-/tdkjs-3.2.0.tgz"
   sha256 "6c0e28b22fdb50b8bfe8d113457d048364e8be7dbe09df84dbf4135a5a0c0665"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Ccrypt < Formula
   homepage "https://ccrypt.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ccrypt/1.11/ccrypt-1.11.tar.gz"
   sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
+  license "GPL-2.0"
 
   bottle do
     sha256 "e09c7818b7de98e36d433080334e169ac970e1a020114ddab1fdbbd54135ddbc" => :catalina

@@ -5,6 +5,7 @@ class Talisman < Formula
       :using    => :git,
       :tag      => "v1.3.0",
       :revision => "01d957c30db6a1db844627b447a96887b53f4032"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -4,6 +4,7 @@ class Coreutils < Formula
   url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.32.tar.xz"
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.32.tar.xz"
   sha256 "4458d8de7849df44ccab15e16b1548b285224dbba5f08fac070c1c0e0bcc4cfa"
+  license "GPL-3.0"
 
   bottle do
     sha256 "67a4452d75a1882bd7fb977b384204edfa2758276d66290e595487922368e093" => :catalina

@@ -3,6 +3,7 @@ class QalculateGtk < Formula
   homepage "https://qalculate.github.io/"
   url "https://github.com/Qalculate/qalculate-gtk/releases/download/v3.11.0/qalculate-gtk-3.11.0.tar.gz"
   sha256 "eb2a0502e9c5e93b43d2b2c42608bbafd475d70caf236a51285fea606d9d3167"
+  license "GPL-2.0"
   revision 1
 
   bottle do

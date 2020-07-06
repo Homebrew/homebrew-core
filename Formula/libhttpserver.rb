@@ -3,6 +3,7 @@ class Libhttpserver < Formula
   homepage "https://github.com/etr/libhttpserver"
   url "https://github.com/etr/libhttpserver/archive/0.18.1.tar.gz"
   sha256 "c830cb40b448a44cfc9000713aefff15d4ab1f6ebd6b47280a3cb64cb020f326"
+  license "LGPL-2.1"
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do

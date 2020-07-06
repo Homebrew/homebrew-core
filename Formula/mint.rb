@@ -3,6 +3,7 @@ class Mint < Formula
   homepage "https://github.com/yonaskolb/Mint"
   url "https://github.com/yonaskolb/Mint/archive/0.14.2.tar.gz"
   sha256 "0ed7107159ee00fbc3f69b3325363406e868bdd0dd23ee50670eca8f14622ef5"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class GitQuickStats < Formula
   homepage "https://github.com/arzzen/git-quick-stats"
   url "https://github.com/arzzen/git-quick-stats/archive/2.1.2.tar.gz"
   sha256 "0355f4f26ffc349206ee543aa155111d29cfa90ec71252fb7270f22f57eeb828"
+  license "MIT"
 
   bottle :unneeded
 

@@ -4,6 +4,7 @@ class Unrtf < Formula
   url "https://ftp.gnu.org/gnu/unrtf/unrtf-0.21.10.tar.gz"
   mirror "https://ftpmirror.gnu.org/unrtf/unrtf-0.21.10.tar.gz"
   sha256 "b49f20211fa69fff97d42d6e782a62d7e2da670b064951f14bbff968c93734ae"
+  license "GPL-3.0"
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", :using => :hg
 
   bottle do

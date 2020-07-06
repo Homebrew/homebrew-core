@@ -4,6 +4,7 @@ class TraefikAT1 < Formula
   url "https://github.com/containous/traefik/releases/download/v1.7.24/traefik-v1.7.24.src.tar.gz"
   version "1.7.24"
   sha256 "8f9e0ba3cbb6537e47c675c806d6e6de3267241a48ea7291b19673d524f78a88"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

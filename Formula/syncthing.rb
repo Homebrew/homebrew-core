@@ -4,6 +4,7 @@ class Syncthing < Formula
   url "https://github.com/syncthing/syncthing.git",
       :tag      => "v1.6.1",
       :revision => "d7c3d81dfb014e147bd96d4a4eeb52a185bf7dda"
+  license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do

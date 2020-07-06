@@ -3,6 +3,7 @@ class Winetricks < Formula
   homepage "https://github.com/Winetricks/winetricks"
   url "https://github.com/Winetricks/winetricks/archive/20200412.tar.gz"
   sha256 "4b0aa4f11dbc30d10a8edd2bb83fcc34f9b143ab58ccce7b99cd54ebff7ec260"
+  license "LGPL-2.1"
   head "https://github.com/Winetricks/winetricks.git"
 
   bottle :unneeded

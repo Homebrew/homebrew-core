@@ -3,6 +3,7 @@ class BibTool < Formula
   homepage "http://www.gerd-neugebauer.de/software/TeX/BibTool/en/"
   url "https://github.com/ge-ne/bibtool/releases/download/BibTool_2_68/BibTool-2.68.tar.gz"
   sha256 "e1964d199b0726f431f9a1dc4ff7257bb3dba879b9fa221803e0aa7840dee0e0"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

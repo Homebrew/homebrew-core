@@ -3,6 +3,7 @@ class Onioncat < Formula
   homepage "https://www.onioncat.org"
   url "https://www.cypherpunk.at/ocat/download/Source/0.2.x/onioncat-0.2.8.tar.gz"
   sha256 "fed003e151458ef2b6964e957266afbbb493e048cb54a46b948edb70df171d62"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

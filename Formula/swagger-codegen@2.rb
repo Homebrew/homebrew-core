@@ -3,6 +3,7 @@ class SwaggerCodegenAT2 < Formula
   homepage "https://swagger.io/swagger-codegen/"
   url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.14.tar.gz"
   sha256 "0042eb69d804fb80316c8aeccd52eb2b2a573e6e08883395de9168c55b14a2f5"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

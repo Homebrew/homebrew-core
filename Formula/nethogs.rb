@@ -3,6 +3,7 @@ class Nethogs < Formula
   homepage "https://raboof.github.io/nethogs/"
   url "https://github.com/raboof/nethogs/archive/v0.8.6.tar.gz"
   sha256 "317c1d5235d4be677e494e931c41d063a783ac0ac51e35e345e621d261c2e5a0"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

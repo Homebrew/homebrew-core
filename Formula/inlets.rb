@@ -4,6 +4,7 @@ class Inlets < Formula
   url "https://github.com/inlets/inlets.git",
       :tag      => "2.7.3",
       :revision => "2934c3c247ea28996ebb50889403befced94b29a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

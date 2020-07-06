@@ -3,6 +3,7 @@ class Curaengine < Formula
   homepage "https://github.com/Ultimaker/CuraEngine"
   url "https://github.com/Ultimaker/CuraEngine/archive/4.6.1.tar.gz"
   sha256 "c72249b52ddab30fe41bccad4cbba14baa84a51b4069f79450ea0fd6dea78130"
+  license "AGPL-3.0"
   version_scheme 1
   head "https://github.com/Ultimaker/CuraEngine.git"
 

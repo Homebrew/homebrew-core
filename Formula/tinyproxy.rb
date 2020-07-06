@@ -3,6 +3,7 @@ class Tinyproxy < Formula
   homepage "https://tinyproxy.github.io/"
   url "https://github.com/tinyproxy/tinyproxy/releases/download/1.10.0/tinyproxy-1.10.0.tar.xz"
   sha256 "59be87689c415ba0d9c9bc6babbdd3df3b372d60b21e526b118d722dbc995682"
+  license "GPL-2.0"
   revision 1
 
   bottle do

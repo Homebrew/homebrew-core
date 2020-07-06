@@ -3,6 +3,7 @@ class Ssdb < Formula
   homepage "http://ssdb.io/"
   url "https://github.com/ideawu/ssdb/archive/1.9.7.tar.gz"
   sha256 "ef7c1c048c48671b039fee4c557bcd0150cbab8f3814fdfb782b7aeec9f071ec"
+  license "BSD-3-Clause"
   head "https://github.com/ideawu/ssdb.git"
 
   bottle do

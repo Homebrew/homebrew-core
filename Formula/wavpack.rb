@@ -3,6 +3,7 @@ class Wavpack < Formula
   homepage "http://www.wavpack.com/"
   url "http://www.wavpack.com/wavpack-5.3.0.tar.bz2"
   sha256 "b6f00b3a2185a1d2df6cf8d893ec60fd645d2eb90db7428a617fd27c9e8a6a01"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

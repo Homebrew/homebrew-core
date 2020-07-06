@@ -3,6 +3,7 @@ class GoJsonnet < Formula
   homepage "https://jsonnet.org/"
   url "https://github.com/google/go-jsonnet/archive/v0.16.0.tar.gz"
   sha256 "8ca930c892d34a119c1970431d159000321fe323734f06a1253bd78fc3625b84"
+  license "Apache-2.0"
   head "https://github.com/google/go-jsonnet.git"
 
   bottle do

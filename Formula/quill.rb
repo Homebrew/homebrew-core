@@ -3,6 +3,7 @@ class Quill < Formula
   homepage "https://github.com/odygrd/quill"
   url "https://github.com/odygrd/quill/archive/v1.3.2.tar.gz"
   sha256 "bf7090c4770cf548d0093499ffb15c0d80c87d74c9bd4cb648f6b6c1e8de35b5"
+  license "MIT"
   head "https://github.com/odygrd/quill.git"
 
   bottle do

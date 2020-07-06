@@ -3,6 +3,7 @@ class Jvmtop < Formula
   homepage "https://github.com/patric-r/jvmtop"
   url "https://github.com/patric-r/jvmtop/releases/download/0.8.0/jvmtop-0.8.0.tar.gz"
   sha256 "f9de8159240b400a51b196520b4c4f0ddbcaa8e587fab1f0a59be8a00dc128c4"
+  license "GPL-2.0"
 
   bottle :unneeded
 

@@ -11,6 +11,7 @@ class Gpac < Formula
   homepage "https://gpac.wp.mines-telecom.fr/"
   url "https://github.com/gpac/gpac/archive/v1.0.0.tar.gz"
   sha256 "ebcca41993e51706c891dba4e9fe03b59bc671c41910bc6c303ba3feeb7f1b20"
+  license "LGPL-2.1"
   head "https://github.com/gpac/gpac.git"
 
   bottle do

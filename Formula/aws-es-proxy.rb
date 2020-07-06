@@ -3,6 +3,7 @@ class AwsEsProxy < Formula
   homepage "https://github.com/abutaha/aws-es-proxy"
   url "https://github.com/abutaha/aws-es-proxy/archive/1.1.tar.gz"
   sha256 "290ec4ef5186b94e1f416550fe8a842fce04ed10937fd0d5580470e1552d5be8"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Avanor < Formula
   homepage "https://avanor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/avanor/avanor/0.5.8/avanor-0.5.8-src.tar.bz2"
   sha256 "8f55be83d985470b9a5220263fc87d0a0a6e2b60dbbc977c1c49347321379ef3"
+  license "GPL-2.0"
 
   bottle do
     sha256 "ecaf9be2ed4f7fac2f5cff16be121214bbbfd44477a5f3f5287ce26da94fed3e" => :catalina

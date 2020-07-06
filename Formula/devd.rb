@@ -3,6 +3,7 @@ class Devd < Formula
   homepage "https://github.com/cortesi/devd"
   url "https://github.com/cortesi/devd/archive/v0.9.tar.gz"
   sha256 "5aee062c49ffba1e596713c0c32d88340360744f57619f95809d01c59bff071f"
+  license "MIT"
   head "https://github.com/cortesi/devd.git"
 
   bottle do

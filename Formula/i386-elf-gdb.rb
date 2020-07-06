@@ -4,6 +4,7 @@ class I386ElfGdb < Formula
   url "https://ftp.gnu.org/gnu/gdb/gdb-9.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gdb/gdb-9.2.tar.xz"
   sha256 "360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555"
+  license "GPL-2.0"
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do

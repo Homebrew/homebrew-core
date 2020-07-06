@@ -4,6 +4,7 @@ class Infrakit < Formula
   url "https://github.com/docker/deploykit.git",
       :tag      => "v0.5",
       :revision => "3d2670e484176ce474d4b3d171994ceea7054c02"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -4,6 +4,7 @@ class GitBug < Formula
   url "https://github.com/MichaelMure/git-bug.git",
     :tag      => "0.7.1",
     :revision => "2d64b85db71a17ff3277bbbf7ac9d8e81f8e416c"
+  license "GPL-3.0"
   head "https://github.com/MichaelMure/git-bug.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Sispmctl < Formula
   homepage "https://sispmctl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sispmctl/sispmctl/sispmctl-4.7/sispmctl-4.7.tar.gz"
   sha256 "e7d2f32f590984b6f44d758946e57776d68146e47f6cdc41d21c9218f2d2317b"
+  license "GPL-2.0"
 
   bottle do
     sha256 "81744e45749770c78d2faf4dbbca0acafcfafbcddd13490aa34bc4b0f85376f5" => :catalina

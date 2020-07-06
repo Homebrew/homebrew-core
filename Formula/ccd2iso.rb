@@ -3,6 +3,7 @@ class Ccd2iso < Formula
   homepage "https://ccd2iso.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ccd2iso/ccd2iso/ccd2iso-0.3/ccd2iso-0.3.tar.gz"
   sha256 "f874b8fe26112db2cdb016d54a9f69cf286387fbd0c8a55882225f78e20700fc"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

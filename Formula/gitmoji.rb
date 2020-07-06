@@ -5,6 +5,7 @@ class Gitmoji < Formula
   homepage "https://gitmoji.carloscuesta.me"
   url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-3.2.6.tgz"
   sha256 "e10d84ee451f236e3be5ed487557c4b7bab46338d5115f5c58ecf4f6862b8bd6"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

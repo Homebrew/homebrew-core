@@ -5,6 +5,7 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://files.pythonhosted.org/packages/a2/98/8becf6a4ead798c1a517715fddfb73a8867ac58d833179a30f0dfc3dadf0/remarshal-0.12.0.tar.gz"
   sha256 "1df0016b3ad47e78e0d4d016a0e0cc7ad5cd6a60232e8dcbc89af4ccc42eb172"
+  license "MIT"
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do

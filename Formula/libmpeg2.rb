@@ -3,6 +3,7 @@ class Libmpeg2 < Formula
   homepage "https://libmpeg2.sourceforge.io/"
   url "https://libmpeg2.sourceforge.io/files/libmpeg2-0.5.1.tar.gz"
   sha256 "dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Fpp < Formula
   homepage "https://facebook.github.io/PathPicker/"
   url "https://github.com/facebook/PathPicker/releases/download/0.9.2/fpp.0.9.2.tar.gz"
   sha256 "f2b233b1e18bdafb1cd1728305e926aabe217406e65091f1e58589e6157e1952"
+  license "MIT"
   revision 1
   head "https://github.com/facebook/pathpicker.git"
 

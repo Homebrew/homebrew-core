@@ -3,6 +3,7 @@ class Lout < Formula
   homepage "https://savannah.nongnu.org/projects/lout"
   url "https://download.savannah.gnu.org/releases/lout/lout-3.40.tar.gz"
   sha256 "3d16f1ce3373ed96419ba57399c2e4d94f88613c2cb4968cb0331ecac3da68bd"
+  license "GPL-3.0"
 
   bottle do
     sha256 "67aec968bd2e1957d7b4fe7a2ae201b701ef45dd98c9766ffbc7a0ae3ca1af70" => :catalina

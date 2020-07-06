@@ -3,6 +3,7 @@ class Prest < Formula
   homepage "https://github.com/prest/prest"
   url "https://github.com/prest/prest/archive/v0.3.4.tar.gz"
   sha256 "cc45eb5de17a1957124545e11ae6dcc6e3957e9d5e9b06acf37a341113963829"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

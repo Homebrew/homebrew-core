@@ -3,6 +3,7 @@ class Cmockery2 < Formula
   homepage "https://github.com/lpabon/cmockery2"
   url "https://github.com/lpabon/cmockery2/archive/v1.3.9.tar.gz"
   sha256 "c38054768712351102024afdff037143b4392e1e313bdabb9380cab554f9dbf2"
+  license "Apache-2.0"
   head "https://github.com/lpabon/cmockery2.git"
 
   bottle do

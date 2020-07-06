@@ -3,6 +3,7 @@ class Vroom < Formula
   homepage "http://vroom-project.org/"
   url "https://github.com/VROOM-Project/vroom/archive/v1.6.0.tar.gz"
   sha256 "6bd8736f68c121cd8867f16b654cd36924605ebffea65f1e20fe042e4292175b"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

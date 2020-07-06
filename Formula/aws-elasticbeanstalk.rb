@@ -5,6 +5,7 @@ class AwsElasticbeanstalk < Formula
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
   url "https://files.pythonhosted.org/packages/13/c4/fbdbb9a6d0fb3f268240d0506c5b48bc31ee1bf0303f3f90fda81b149824/awsebcli-3.18.1.tar.gz"
   sha256 "a44fb91b3f6b35ea1166200df1954f8dde2228e0e1b37267b2ca6b8fa66809b5"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

@@ -4,6 +4,7 @@ class AflFuzz < Formula
   url "https://github.com/google/AFL/archive/v2.57b.tar.gz"
   version "2.57b"
   sha256 "a6416350ef40e042085337b0cbc12ac95d312f124d11f37076672f511fe31608"
+  license "Apache-2.0"
 
   bottle do
     sha256 "958368e0937e051e3330ffa78f93481f8c729a104b87fd24c04ff067fb8780ec" => :catalina

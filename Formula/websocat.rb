@@ -3,6 +3,7 @@ class Websocat < Formula
   homepage "https://github.com/vi/websocat"
   url "https://github.com/vi/websocat/archive/v1.5.0.tar.gz"
   sha256 "3ffdb25e937095d95b564eafd805cb7ca141570f95c1296b6dd336d4d016445f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

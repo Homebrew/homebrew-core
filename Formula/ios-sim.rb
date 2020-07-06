@@ -5,6 +5,7 @@ class IosSim < Formula
   homepage "https://github.com/phonegap/ios-sim"
   url "https://github.com/ios-control/ios-sim/archive/9.0.0.tar.gz"
   sha256 "8c72c8c5f9b0682c218678549c08ca01b3ac2685417fc2ab5b4b803d65a21958"
+  license "Apache-2.0"
   head "https://github.com/phonegap/ios-sim.git"
 
   bottle do

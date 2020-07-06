@@ -4,6 +4,7 @@ class GoAT19 < Formula
   url "https://dl.google.com/go/go1.9.7.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go1.9.7.src.tar.gz"
   sha256 "582814fa45e8ecb0859a208e517b48aa0ad951e3b36c7fff203d834e0ef27722"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 2

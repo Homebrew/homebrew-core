@@ -3,6 +3,7 @@ class TerraformAT011 < Formula
   homepage "https://www.terraform.io/"
   url "https://github.com/hashicorp/terraform/archive/v0.11.14.tar.gz"
   sha256 "50b75c94c4d3bfe44cfc12c740126747b6b34c014602777154356caa85a783f4"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

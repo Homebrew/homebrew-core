@@ -3,6 +3,7 @@ class Opencc < Formula
   homepage "https://github.com/BYVoid/OpenCC"
   url "https://github.com/BYVoid/OpenCC/archive/ver.1.1.1.tar.gz"
   sha256 "2d4987dc84275f252d47bc6d8c81b452f6a6e82caa26f284c854a8153ccf5933"
+  license "Apache-2.0"
 
   bottle do
     sha256 "dddf951ae0363e1e92c34d3d0087233d8d07053682557fd1bbed457aa98c677f" => :catalina

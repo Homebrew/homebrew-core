@@ -5,6 +5,7 @@ class Jc < Formula
   homepage "https://github.com/kellyjonbrazil/jc"
   url "https://files.pythonhosted.org/packages/7a/66/b3615391a0505ed535c304def859e9bef5b65997d52d9608954bca948ef8/jc-1.11.8.tar.gz"
   sha256 "2cd97b995dc485ccf135ecd84cef56348b0345b61b40f4f1f8e5a7c3681fe0dd"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

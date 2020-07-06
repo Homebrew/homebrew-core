@@ -3,6 +3,7 @@ class Kubeaudit < Formula
   homepage "https://github.com/Shopify/kubeaudit"
   url "https://github.com/Shopify/kubeaudit/archive/v0.8.0.tar.gz"
   sha256 "0efcbc176803e7a5ebc864b82d4cc6011f85f4d63778f0bae010f1d09b7e4d66"
+  license "MIT"
   head "https://github.com/Shopify/kubeaudit.git"
 
   bottle do

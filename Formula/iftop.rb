@@ -5,6 +5,7 @@ class Iftop < Formula
   homepage "https://www.ex-parrot.com/~pdw/iftop/"
   url "https://www.ex-parrot.com/pdw/iftop/download/iftop-1.0pre4.tar.gz"
   sha256 "f733eeea371a7577f8fe353d86dd88d16f5b2a2e702bd96f5ffb2c197d9b4f97"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Kore < Formula
   homepage "https://kore.io/"
   url "https://kore.io/releases/kore-3.3.1.tar.gz"
   sha256 "c80d7a817883e631adf9eb5271b4ffa6ebb06c2e2fca40ce6c3c75638c08b67a"
+  license "ISC"
   revision 1
   head "https://github.com/jorisvink/kore.git"
 

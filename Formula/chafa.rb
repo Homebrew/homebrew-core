@@ -3,6 +3,7 @@ class Chafa < Formula
   homepage "https://hpjansson.org/chafa/"
   url "https://hpjansson.org/chafa/releases/chafa-1.4.1.tar.xz"
   sha256 "46d34034f4c96d120e0639f87a26590427cc29e95fe5489e903a48ec96402ba3"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

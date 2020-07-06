@@ -4,6 +4,7 @@ class Parallel < Formula
   url "https://ftp.gnu.org/gnu/parallel/parallel-20200622.tar.bz2"
   mirror "https://ftpmirror.gnu.org/parallel/parallel-20200622.tar.bz2"
   sha256 "ff8fafe192a76850e5640b98adb6428f8bdd85ef52c7c43787438c0ac3bc1d3f"
+  license "GPL-3.0"
   head "https://git.savannah.gnu.org/git/parallel.git"
 
   bottle do

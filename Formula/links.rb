@@ -3,6 +3,7 @@ class Links < Formula
   homepage "http://links.twibright.com/"
   url "http://links.twibright.com/download/links-2.20.2.tar.bz2"
   sha256 "4b4f07d0e6261118d1365a5a5bfa31e1eafdbd280cfae6f0e9eedfea51a2f424"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

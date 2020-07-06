@@ -3,6 +3,7 @@ class Adplug < Formula
   homepage "https://adplug.github.io"
   url "https://github.com/adplug/adplug/releases/download/adplug-2.3.3/adplug-2.3.3.tar.bz2"
   sha256 "a0f3c1b18fb49dea7ac3e8f820e091a663afa5410d3443612bf416cff29fa928"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

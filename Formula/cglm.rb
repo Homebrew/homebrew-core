@@ -3,6 +3,7 @@ class Cglm < Formula
   homepage "https://github.com/recp/cglm"
   url "https://github.com/recp/cglm/archive/v0.7.6.tar.gz"
   sha256 "29ff8af4edc03697e36d3e6f99a80b884a80ee09d46055ce45765e5d6b2456d9"
+  license "MIT"
 
   bottle do
     cellar :any

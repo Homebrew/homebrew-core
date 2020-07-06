@@ -3,6 +3,7 @@ class Gauge < Formula
   homepage "https://gauge.org"
   url "https://github.com/getgauge/gauge/archive/v1.1.1.tar.gz"
   sha256 "b136727d0ed114ab18d9d380e1ff70ad70e60b56bbacf854be2aeddc9b20044a"
+  license "Apache-2.0"
   head "https://github.com/getgauge/gauge.git"
 
   bottle do

@@ -5,6 +5,7 @@ class Openstackclient < Formula
   homepage "https://openstack.org"
   url "https://files.pythonhosted.org/packages/56/e9/eb6e88074b8c1f20a622b7cc7f7d1e4be0e81ddf22ceb49949f414bd52c6/python-openstackclient-5.2.1.tar.gz"
   sha256 "7df547491f41f71f0b5f2c578a3837bbd6c93e5b3426d993b6fb85c1f48ae6e2"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

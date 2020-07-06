@@ -3,6 +3,7 @@ class Telegraf < Formula
   homepage "https://influxdata.com"
   url "https://github.com/influxdata/telegraf/archive/v1.14.5.tar.gz"
   sha256 "66a02a8d9afe5621bb65297f74b9f2d62fbe28415771ac1dea0a13950642684c"
+  license "MIT"
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do

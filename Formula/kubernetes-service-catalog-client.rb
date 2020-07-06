@@ -3,6 +3,7 @@ class KubernetesServiceCatalogClient < Formula
   homepage "https://svc-cat.io/"
   url "https://github.com/kubernetes-sigs/service-catalog/archive/v0.3.0.tar.gz"
   sha256 "3f79365cbe9c63513ddf3ad836177f0bd9ecee5b36cad015a3e9353e47cc874e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

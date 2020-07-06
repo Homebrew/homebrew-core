@@ -3,6 +3,7 @@ class AardvarkShellUtils < Formula
   homepage "http://www.laffeycomputer.com/shellutils.html"
   url "https://web.archive.org/web/20170106105512/downloads.laffeycomputer.com/current_builds/shellutils/aardvark_shell_utils-1.0.tar.gz"
   sha256 "aa2b83d9eea416aa31dd1ce9b04054be1a504e60e46426225543476c0ebc3f67"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

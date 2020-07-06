@@ -3,6 +3,7 @@ class Shadowenv < Formula
   homepage "https://shopify.github.io/shadowenv/"
   url "https://github.com/Shopify/shadowenv/archive/2.0.3.tar.gz"
   sha256 "9d86db156b84e8df9cdc3c6084af4e538a5928fb6817567778464b10fe12a095"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

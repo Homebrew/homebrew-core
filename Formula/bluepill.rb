@@ -4,6 +4,7 @@ class Bluepill < Formula
   url "https://github.com/linkedin/bluepill.git",
     :tag      => "v5.2.4.1",
     :revision => "b9e87eff54470fc6dc290cfefe80fc3486a06a1a"
+  license "BSD-2-Clause"
   head "https://github.com/linkedin/bluepill.git"
 
   bottle do

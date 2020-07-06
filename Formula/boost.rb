@@ -1,6 +1,7 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
+  license "BSL-1.0"
   revision 3
   head "https://github.com/boostorg/boost.git"
 

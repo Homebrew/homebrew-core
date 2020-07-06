@@ -3,6 +3,7 @@ class CssCrush < Formula
   homepage "https://the-echoplex.net/csscrush"
   url "https://github.com/peteboere/css-crush/archive/v3.0.1.tar.gz"
   sha256 "6f24a857b496edccc2eaf261a6f34d64ae1dc2c288304df8dd4fcddb905d89d8"
+  license "MIT"
   head "https://github.com/peteboere/css-crush.git"
 
   bottle :unneeded

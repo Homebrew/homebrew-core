@@ -4,6 +4,7 @@ class FaasCli < Formula
   url "https://github.com/openfaas/faas-cli.git",
       :tag      => "0.12.8",
       :revision => "16f6eb9522cff9622b78cbe6450d60f8b3cd7ead"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

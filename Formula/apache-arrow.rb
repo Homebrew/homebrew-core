@@ -4,6 +4,7 @@ class ApacheArrow < Formula
   url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
   mirror "https://archive.apache.org/dist/arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
   sha256 "cbc51c343bca08b10f7f1b2ef15cb15057c30e5e9017cfcee18337b7e2da9ea2"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/apache/arrow.git"
 

@@ -5,6 +5,7 @@ class Jrnl < Formula
   homepage "https://jrnl.sh/"
   url "https://files.pythonhosted.org/packages/d9/69/5b296efcdd95214f3377de40b5d7fdcf1a6a8e00646e94f703f37c0db16f/jrnl-2.4.3.tar.gz"
   sha256 "2e4b08973f4205e5d66cb1e0aac6f550c6aad2046cfe92be911d8699d4861652"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

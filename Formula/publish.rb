@@ -3,6 +3,7 @@ class Publish < Formula
   homepage "https://github.com/JohnSundell/Publish"
   url "https://github.com/JohnSundell/Publish/archive/0.7.0.tar.gz"
   sha256 "71ab0609567c2929639b919e5c52f5a8d02cacd35c9ba4de32c5c992ee49cd33"
+  license "MIT"
   head "https://github.com/JohnSundell/Publish.git"
 
   bottle do

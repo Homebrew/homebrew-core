@@ -3,6 +3,7 @@ class Blackbox < Formula
   homepage "https://github.com/StackExchange/blackbox"
   url "https://github.com/StackExchange/blackbox/archive/v1.20200429.tar.gz"
   sha256 "7a355bb4f44d43989a21f74b927fc2a5063a54c17539d5e5fa74e93e64c261ac"
+  license "MIT"
 
   bottle :unneeded
 

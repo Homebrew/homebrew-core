@@ -4,6 +4,7 @@ class Goreleaser < Formula
   url "https://github.com/goreleaser/goreleaser.git",
       :tag      => "v0.138.0",
       :revision => "fdfae298c6e4adfc941aaca0b96747c3a02c919b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

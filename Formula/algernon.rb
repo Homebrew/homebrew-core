@@ -3,6 +3,7 @@ class Algernon < Formula
   homepage "https://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon/archive/1.12.8.tar.gz"
   sha256 "562d6f1145980d5e4c8eaefc2780801b163d228720599f22165135182018d6bf"
+  license "MIT"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 

@@ -3,6 +3,7 @@ class Ejdb < Formula
   homepage "https://ejdb.org"
   url "https://github.com/Softmotions/ejdb/archive/v2.0.50.tar.gz"
   sha256 "cface2f4d77545479922177d87e19848530a46b2937527d2e9f68562e4a2cde0"
+  license "MIT"
   head "https://github.com/Softmotions/ejdb.git"
 
   bottle do

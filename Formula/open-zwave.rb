@@ -3,6 +3,7 @@ class OpenZwave < Formula
   homepage "http://www.openzwave.com"
   url "http://old.openzwave.com/downloads/openzwave-1.6.1080.tar.gz"
   sha256 "61c4b1857bb80c67b06f83bbeb956275184e30e12401984587dfe79070218d3c"
+  license "LGPL-3.0"
 
   bottle do
     sha256 "28b55791a9d9ab0a1c772e11ba7459d42b5e9cbed50d9e1db4af154b2ad84d5e" => :catalina

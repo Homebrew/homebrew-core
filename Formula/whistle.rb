@@ -5,6 +5,7 @@ class Whistle < Formula
   homepage "https://github.com/avwo/whistle"
   url "https://registry.npmjs.org/whistle/-/whistle-2.5.11.tgz"
   sha256 "a974bfbe24496c4da84f9e307e97274d0944d9ee9505e74cebef1d21c0f7835f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

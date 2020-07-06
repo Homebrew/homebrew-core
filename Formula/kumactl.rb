@@ -3,6 +3,7 @@ class Kumactl < Formula
   homepage "https://kuma.io/"
   url "https://github.com/Kong/kuma/archive/0.6.0.tar.gz"
   sha256 "c9087793f10ce094ae2910bffae62b5df8f108854d9b8950fa8bdc74f058b3da"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

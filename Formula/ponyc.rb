@@ -4,6 +4,7 @@ class Ponyc < Formula
   url "https://github.com/ponylang/ponyc.git",
       :tag      => "0.35.1",
       :revision => "579475721b14487e225e57a64ecd44781d244b33"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

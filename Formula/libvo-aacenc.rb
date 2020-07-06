@@ -3,6 +3,7 @@ class LibvoAacenc < Formula
   homepage "https://opencore-amr.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/opencore-amr/vo-aacenc/vo-aacenc-0.1.3.tar.gz"
   sha256 "e51a7477a359f18df7c4f82d195dab4e14e7414cbd48cf79cc195fc446850f36"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

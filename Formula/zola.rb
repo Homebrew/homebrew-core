@@ -3,6 +3,7 @@ class Zola < Formula
   homepage "https://www.getzola.org/"
   url "https://github.com/getzola/zola/archive/v0.11.0.tar.gz"
   sha256 "09840a55d13a81a7a04767d01e5e44cc3710e79c78f43f0ebde4a6a17e0728ca"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

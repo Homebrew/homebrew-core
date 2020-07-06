@@ -3,6 +3,7 @@ class Hashlink < Formula
   homepage "https://hashlink.haxe.org/"
   url "https://github.com/HaxeFoundation/hashlink/archive/1.11.tar.gz"
   sha256 "b087ded7b93c7077f5b093b999f279a37aa1e31df829d882fa965389b5ad1aea"
+  license "MIT"
   head "https://github.com/HaxeFoundation/hashlink.git"
 
   bottle do

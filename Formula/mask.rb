@@ -3,6 +3,7 @@ class Mask < Formula
   homepage "https://github.com/jakedeichert/mask/"
   url "https://github.com/jakedeichert/mask/archive/v0.8.0.tar.gz"
   sha256 "cbf660b083d162d0b8edd99fd320b56838dd7444099cf1988104d5b96d4c681b"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

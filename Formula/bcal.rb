@@ -3,6 +3,7 @@ class Bcal < Formula
   homepage "https://github.com/jarun/bcal"
   url "https://github.com/jarun/bcal/archive/v2.2.tar.gz"
   sha256 "506d17d6df35fad636d3ced425afee5921cd2b21242099b78b369cfcb5716e23"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

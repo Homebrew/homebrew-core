@@ -4,6 +4,7 @@ class Squirrel < Formula
   url "https://downloads.sourceforge.net/project/squirrel/squirrel3/squirrel%203.1%20stable/squirrel_3_1_stable.tar.gz"
   version "3.1.0"
   sha256 "4845a7fb82e4740bde01b0854112e3bb92a0816ad959c5758236e73f4409d0cb"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

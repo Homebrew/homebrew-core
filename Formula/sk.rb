@@ -3,6 +3,7 @@ class Sk < Formula
   homepage "https://github.com/lotabout/skim"
   url "https://github.com/lotabout/skim/archive/v0.8.2.tar.gz"
   sha256 "04af8e9facd8a9f10e9d18f02b78e6d80e987cd58937df960c9b48ae5f42b761"
+  license "MIT"
   head "https://github.com/lotabout/skim.git"
 
   bottle do

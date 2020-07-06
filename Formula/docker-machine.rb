@@ -4,6 +4,7 @@ class DockerMachine < Formula
   url "https://github.com/docker/machine.git",
       :tag      => "v0.16.2",
       :revision => "bd45ab13d88c32a3dd701485983354514abc41fa"
+  license "Apache-2.0"
   head "https://github.com/docker/machine.git"
 
   bottle do

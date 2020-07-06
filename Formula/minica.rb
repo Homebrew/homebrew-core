@@ -3,6 +3,7 @@ class Minica < Formula
   homepage "https://github.com/jsha/minica"
   url "https://github.com/jsha/minica/archive/v1.0.2.tar.gz"
   sha256 "c5b7e6c890ad472eb39f7e44d777da1b623930fd099b414213ced14bb599c6ec"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class CassandraCppDriver < Formula
   homepage "https://docs.datastax.com/en/developer/cpp-driver/latest"
   url "https://github.com/datastax/cpp-driver/archive/2.15.2.tar.gz"
   sha256 "d69a51f2a40da6c450acd95102c2c4693baeae8327cd60aaf4548b23696508ca"
+  license "Apache-2.0"
   head "https://github.com/datastax/cpp-driver.git"
 
   bottle do

@@ -4,6 +4,7 @@ class Chezmoi < Formula
   url "https://github.com/twpayne/chezmoi.git",
       :tag      => "v1.8.3",
       :revision => "6d2be34cda3461ddf1211f98fdb10c00a4e18d67"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

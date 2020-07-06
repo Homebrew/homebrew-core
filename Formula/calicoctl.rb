@@ -4,6 +4,7 @@ class Calicoctl < Formula
   url "https://github.com/projectcalico/calicoctl.git",
       :tag      => "v3.15.0",
       :revision => "7987fc57ae19d529c1289521f2e6371df90e2a4c"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

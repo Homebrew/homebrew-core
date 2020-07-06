@@ -3,6 +3,7 @@ class Gotop < Formula
   homepage "https://github.com/xxxserxxx/gotop"
   url "https://github.com/xxxserxxx/gotop/archive/v4.0.1.tar.gz"
   sha256 "38a34543ed828ed8cedd93049d9634c2e578390543d4068c19f0d0c20aaf7ba0"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

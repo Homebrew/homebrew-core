@@ -3,6 +3,7 @@ class CassandraReaper < Formula
   homepage "https://cassandra-reaper.io/"
   url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.3.0/cassandra-reaper-1.3.0-release.tar.gz"
   sha256 "79c190c51c3404c2efc7f7f1aafa7cfd91f2280cbb1fe719e668966836904efd"
+  license "Apache-2.0"
 
   bottle :unneeded
 

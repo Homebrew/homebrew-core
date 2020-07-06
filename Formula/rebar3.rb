@@ -3,6 +3,7 @@ class Rebar3 < Formula
   homepage "https://github.com/erlang/rebar3"
   url "https://github.com/erlang/rebar3/archive/3.13.2.tar.gz"
   sha256 "e14cdc1f5b7d363a238a9f555f89e878bc4fc836c970571b41b90ee947f91505"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

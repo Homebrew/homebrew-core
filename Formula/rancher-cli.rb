@@ -3,6 +3,7 @@ class RancherCli < Formula
   homepage "https://github.com/rancher/cli"
   url "https://github.com/rancher/cli/archive/v2.4.5.tar.gz"
   sha256 "538152806b030a27d81824fe1319203d0ff27f7c3487faf0cbdec2097aec6909"
+  license "Apache-2.0"
   head "https://github.com/rancher/cli.git"
 
   bottle do

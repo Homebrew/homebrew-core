@@ -4,6 +4,7 @@ class RaxmlNg < Formula
   url "https://github.com/amkozlov/raxml-ng.git",
     :tag      => "0.9.0",
     :revision => "0a064e9a40f2e00828662795141659d946440c81"
+  license "AGPL-3.0"
 
   bottle do
     cellar :any

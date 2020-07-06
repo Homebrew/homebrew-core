@@ -3,6 +3,7 @@ class GitExtras < Formula
   homepage "https://github.com/tj/git-extras"
   url "https://github.com/tj/git-extras/archive/6.0.0.tar.gz"
   sha256 "a823c12e4bf74e2f07ee80e597500e5f5120dcd8fa345e67e2c03544fd706ffe"
+  license "MIT"
   head "https://github.com/tj/git-extras.git"
 
   bottle do

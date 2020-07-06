@@ -3,6 +3,7 @@ class Pprint < Formula
   homepage "https://github.com/p-ranav/pprint"
   url "https://github.com/p-ranav/pprint/archive/v0.9.1.tar.gz"
   sha256 "b9cc0d42f7be4abbb50b2e3b6a89589c5399201a3dc1fd7cfa72d412afdb2f86"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Cidrmerge < Formula
   homepage "https://cidrmerge.sourceforge.io"
   url "https://downloads.sourceforge.net/project/cidrmerge/cidrmerge/cidrmerge-1.5.3/cidrmerge-1.5.3.tar.gz"
   sha256 "21b36fc8004d4fc4edae71dfaf1209d3b7c8f8f282d1a582771c43522d84f088"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

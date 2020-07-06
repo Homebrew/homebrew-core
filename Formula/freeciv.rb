@@ -3,6 +3,7 @@ class Freeciv < Formula
   homepage "http://freeciv.org"
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.2/freeciv-2.6.2.tar.bz2"
   sha256 "6181ef3d3c76264383aabbe0eaf1550d8a65ca42639e6c17cc2938165e176c8f"
+  license "GPL-2.0"
   revision 1
 
   bottle do

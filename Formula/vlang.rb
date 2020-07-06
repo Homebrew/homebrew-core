@@ -3,6 +3,7 @@ class Vlang < Formula
   homepage "https://vlang.io"
   url "https://github.com/vlang/v/archive/0.1.28.1.tar.gz"
   sha256 "cbaded862d56d943c119630bf13974ef4370bb7fff533d244c9f42f7f5c5f3ad"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

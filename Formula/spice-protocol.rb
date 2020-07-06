@@ -3,6 +3,7 @@ class SpiceProtocol < Formula
   homepage "https://www.spice-space.org/"
   url "https://www.spice-space.org/download/releases/spice-protocol-0.14.2.tar.xz"
   sha256 "8f3a63c8b68300dffe36f2e75eac57afa1e76d5d80af760fd138a0b3f44cf1e9"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

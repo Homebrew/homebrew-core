@@ -3,6 +3,7 @@ class Zig < Formula
   homepage "https://ziglang.org/"
   url "https://ziglang.org/download/0.6.0/zig-0.6.0.tar.xz"
   sha256 "5d167dc19354282dd35dd17b38e99e1763713b9be8a4ba9e9e69284e059e7204"
+  license "MIT"
   revision 1
   head "https://github.com/ziglang/zig.git"
 

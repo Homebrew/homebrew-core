@@ -4,6 +4,7 @@ class Kubebuilder < Formula
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
       :tag      => "v2.3.1",
       :revision => "8b53abeb4280186e494b726edf8f54ca7aa64a49"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do

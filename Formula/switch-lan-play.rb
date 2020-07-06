@@ -4,6 +4,7 @@ class SwitchLanPlay < Formula
   url "https://github.com/spacemeowx2/switch-lan-play.git",
     :tag      => "v0.2.3",
     :revision => "c0c663e3fdc95d6d6e8ab401caa2bfb5b5872e00"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

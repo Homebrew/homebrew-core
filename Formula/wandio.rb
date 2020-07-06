@@ -3,6 +3,7 @@ class Wandio < Formula
   homepage "https://research.wand.net.nz/software/libwandio.php"
   url "https://research.wand.net.nz/software/wandio/wandio-4.2.3.tar.gz"
   sha256 "78c781ce2c3783b85d894e29005b7e98fc246b33f94616047de3bb4d11d4d823"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

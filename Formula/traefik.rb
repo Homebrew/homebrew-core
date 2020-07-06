@@ -4,6 +4,7 @@ class Traefik < Formula
   url "https://github.com/containous/traefik/releases/download/v2.2.1/traefik-v2.2.1.src.tar.gz"
   version "2.2.1"
   sha256 "71f7ec0b957c48fc6c5612cdd942879c2759af3a3a9c1b3b45f852d8b3835821"
+  license "MIT"
   head "https://github.com/containous/traefik.git"
 
   bottle do

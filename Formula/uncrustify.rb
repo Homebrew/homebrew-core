@@ -3,6 +3,7 @@ class Uncrustify < Formula
   homepage "https://uncrustify.sourceforge.io/"
   url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.71.0.tar.gz"
   sha256 "403a0f34463c0d6b0fbf230d8a03b7af9f493faa235208417793350db062003c"
+  license "GPL-2.0"
   head "https://github.com/uncrustify/uncrustify.git"
 
   bottle do

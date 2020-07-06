@@ -4,6 +4,7 @@ class OpenjdkAT11 < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.7+10.tar.bz2"
   version "11.0.7+10"
   sha256 "e86d27cc3119be2178fc20c0115f8863fa86ac3ffd0c825fef7d16683f78b852"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Catch2 < Formula
   homepage "https://github.com/catchorg/Catch2"
   url "https://github.com/catchorg/Catch2/archive/v2.12.4.tar.gz"
   sha256 "5436725bbc6ee131a0bc9545bef31f0adabbb21fbc39fb6f1b2a42c12e4f8107"
+  license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation

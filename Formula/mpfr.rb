@@ -4,6 +4,7 @@ class Mpfr < Formula
   url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.2.tar.xz"
   sha256 "1d3be708604eae0e42d578ba93b390c2a145f17743a744d8f3f8c2ad5855a38a"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

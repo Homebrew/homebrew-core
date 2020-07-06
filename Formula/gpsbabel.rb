@@ -3,6 +3,7 @@ class Gpsbabel < Formula
   homepage "https://www.gpsbabel.org/"
   url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_6_0.tar.gz"
   sha256 "ad56796f725dcdb7f52d9a9509d4922f11198c382fe10fc2d6c9efa8159f2090"
+  license "GPL-2.0"
 
   bottle do
     sha256 "685947e84880f27a16a442c10456990f9ede1efa8adf723fa217ba7ac5123ff7" => :catalina

@@ -3,6 +3,7 @@ class Pla < Formula
   homepage "https://www.arpalert.org/pla.html"
   url "https://www.arpalert.org/src/pla-1.2.tar.gz"
   sha256 "c2f1ce50b04032abf7f88ac07648ea40bed2443e86e9f28f104d341965f52b9c"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

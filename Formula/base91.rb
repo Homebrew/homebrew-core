@@ -3,6 +3,7 @@ class Base91 < Formula
   homepage "https://base91.sourceforge.io"
   url "https://downloads.sourceforge.net/base91/base91-0.6.0.tar.gz"
   sha256 "02cfae7322c1f865ca6ce8f2e0bb8d38c8513e76aed67bf1c94eab1343c6c651"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

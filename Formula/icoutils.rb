@@ -3,6 +3,7 @@ class Icoutils < Formula
   homepage "https://www.nongnu.org/icoutils/"
   url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.3.tar.bz2"
   sha256 "17abe02d043a253b68b47e3af69c9fc755b895db68fdc8811786125df564c6e0"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

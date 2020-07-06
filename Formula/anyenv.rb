@@ -3,6 +3,7 @@ class Anyenv < Formula
   homepage "https://anyenv.github.io/"
   url "https://github.com/anyenv/anyenv/archive/v1.1.1.tar.gz"
   sha256 "d7f386f74d5fd40ded51b4e83f05490493fc6b63d22eb3d502836020548b0137"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

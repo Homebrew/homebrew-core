@@ -3,6 +3,7 @@ class Iniparser < Formula
   homepage "http://ndevilla.free.fr/iniparser/"
   url "https://github.com/ndevilla/iniparser/archive/v4.1.tar.gz"
   sha256 "960daa800dd31d70ba1bacf3ea2d22e8ddfc2906534bf328319495966443f3ae"
+  license "MIT"
   head "https://github.com/ndevilla/iniparser.git"
 
   bottle do

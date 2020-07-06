@@ -3,6 +3,7 @@ class Xapian < Formula
   homepage "https://xapian.org/"
   url "https://oligarchy.co.uk/xapian/1.4.16/xapian-core-1.4.16.tar.xz"
   sha256 "4937f2f49ff27e39a42150e928c8b45877b0bf456510f0785f50159a5cb6bf70"
+  license "GPL-2.0"
   version_scheme 1
 
   bottle do

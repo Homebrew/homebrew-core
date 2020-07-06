@@ -5,6 +5,7 @@ class Instalooter < Formula
   homepage "https://github.com/althonos/instalooter"
   url "https://files.pythonhosted.org/packages/72/ea/9d4d3321ec44cbb41738f8a0b89f14437f474008beaad31d23df6e0f9d20/instalooter-2.4.3.tar.gz"
   sha256 "092049a6f8d3da6c25d1ce9773ac5802ce56d9cc80e32f28f99bb47a240f1532"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

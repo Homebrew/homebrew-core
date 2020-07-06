@@ -4,6 +4,7 @@ class Pulumi < Formula
   url "https://github.com/pulumi/pulumi.git",
       :tag      => "v2.5.0",
       :revision => "ad721d3b5421b2a7b10a0dfdd8abae8cf4b80e69"
+  license "Apache-2.0"
   head "https://github.com/pulumi/pulumi.git"
 
   bottle do

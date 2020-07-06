@@ -5,6 +5,7 @@ class Nativefier < Formula
   homepage "https://github.com/jiahaog/nativefier"
   url "https://registry.npmjs.org/nativefier/-/nativefier-9.0.0.tgz"
   sha256 "2743c4c1339c15b8cf7f93ea0532b557ff6cdcc16dc38eeb64d0f7a99e7d997c"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

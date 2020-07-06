@@ -4,6 +4,7 @@ class Lightning < Formula
   url "https://ftp.gnu.org/gnu/lightning/lightning-2.1.3.tar.gz"
   mirror "https://ftpmirror.gnu.org/lightning/lightning-2.1.3.tar.gz"
   sha256 "ed856b866dc6f68678dc1151579118fab1c65fad687cf847fc2d94ca045efdc9"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

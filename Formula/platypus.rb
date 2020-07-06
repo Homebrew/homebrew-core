@@ -3,6 +3,7 @@ class Platypus < Formula
   homepage "https://sveinbjorn.org/platypus"
   url "https://sveinbjorn.org/files/software/platypus/platypus5.3.src.zip"
   sha256 "b5b707d4f664ab6f60eed545d49a7d38da7557ce8268cc4791886eee7b3ca571"
+  license "BSD-3-Clause"
   head "https://github.com/sveinbjornt/Platypus.git"
 
   bottle do

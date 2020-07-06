@@ -3,6 +3,7 @@ class Homeshick < Formula
   homepage "https://github.com/andsens/homeshick"
   url "https://github.com/andsens/homeshick/archive/v2.0.0.tar.gz"
   sha256 "14a538bfc2e7cb6bfd35c984cdedbf3d3293413a70cc67f685dbfbd33ce64fdd"
+  license "MIT"
   head "https://github.com/andsens/homeshick.git"
 
   bottle :unneeded

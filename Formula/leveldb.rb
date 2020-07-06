@@ -3,6 +3,7 @@ class Leveldb < Formula
   homepage "https://github.com/google/leveldb/"
   url "https://github.com/google/leveldb/archive/1.22.tar.gz"
   sha256 "55423cac9e3306f4a9502c738a001e4a339d1a38ffbee7572d4a07d5d63949b2"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

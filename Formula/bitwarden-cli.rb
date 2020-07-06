@@ -5,6 +5,7 @@ class BitwardenCli < Formula
   homepage "https://bitwarden.com/"
   url "https://registry.npmjs.org/@bitwarden/cli/-/cli-1.11.0.tgz"
   sha256 "05b8e98100b4b09cbe9947b590f287c23096ba2aa1cc7ee471d707de951a8982"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Bde < Formula
   homepage "https://github.com/bloomberg/bde"
   url "https://github.com/bloomberg/bde/archive/3.57.0.0.tar.gz"
   sha256 "68b456aebb6f0c532db221932a26730b01db5badca8dce99e10e3978930cafc2"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

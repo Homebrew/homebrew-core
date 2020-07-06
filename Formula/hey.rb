@@ -4,6 +4,7 @@ class Hey < Formula
   url "https://github.com/rakyll/hey.git",
     :tag      => "v0.1.3",
     :revision => "36f181ad99713ffd70c09a021ea8a689b8fb43d3"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

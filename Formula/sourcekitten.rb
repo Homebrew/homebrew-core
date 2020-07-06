@@ -4,6 +4,7 @@ class Sourcekitten < Formula
   url "https://github.com/jpsim/SourceKitten.git",
       :tag      => "0.29.0",
       :revision => "77a4dbbb477a8110eb8765e3c44c70fb4929098f"
+  license "MIT"
   head "https://github.com/jpsim/SourceKitten.git"
 
   bottle do

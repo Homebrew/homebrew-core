@@ -3,6 +3,7 @@ class Ocp < Formula
   homepage "https://stian.cubic.org/project-ocp.php"
   url "https://stian.cubic.org/ocp/ocp-0.2.1.tar.bz2"
   sha256 "238ed6547e4c96b775d93aa6e4252982a763f62ecd201f6312f041212edc1798"
+  license "GPL-2.0"
 
   bottle do
     sha256 "d9c557bc2f3161818fcf4701e7cc123bd6d2f85ff9e80df5976392de9102a737" => :catalina

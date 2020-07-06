@@ -3,6 +3,7 @@ class Fblog < Formula
   homepage "https://github.com/brocode/fblog"
   url "https://github.com/brocode/fblog/archive/v2.0.1.tar.gz"
   sha256 "36a0dd58be51dda0dec9a87412010f94e4ada9519727c015ae8449dd91140778"
+  license "WTFPL"
   head "https://github.com/brocode/fblog.git"
 
   bottle do

@@ -5,6 +5,7 @@ class AnimeDownloader < Formula
   homepage "https://github.com/vn-ki/anime-downloader"
   url "https://files.pythonhosted.org/packages/f5/61/feb32904b5fa1d1e36908bb781f722e924402e329dbb538ce5cb5eb8c44c/anime-downloader-4.3.0.tar.gz"
   sha256 "761a0be674a63438b0bce680eebba651fbb8624f14d9c84390d63515e033aff7"
+  license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
   bottle do

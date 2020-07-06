@@ -3,6 +3,7 @@ class Xmp < Formula
   homepage "https://xmp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xmp/xmp/4.1.0/xmp-4.1.0.tar.gz"
   sha256 "1dbd61074783545ac7bef5b5daa772fd2110764cb70f937af8c3fad30f73289e"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

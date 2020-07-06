@@ -5,6 +5,7 @@ class Lolcode < Formula
   # 0.11.x accidentally, should move back to stable when possible.
   url "https://github.com/justinmeza/lci/archive/v0.11.2.tar.gz"
   sha256 "cb1065936d3a7463928dcddfc345a8d7d8602678394efc0e54981f9dd98c27d2"
+  license "GPL-3.0"
   head "https://github.com/justinmeza/lolcode.git"
 
   bottle do

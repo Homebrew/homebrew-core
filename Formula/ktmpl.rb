@@ -3,6 +3,7 @@ class Ktmpl < Formula
   homepage "https://github.com/jimmycuadra/ktmpl"
   url "https://github.com/jimmycuadra/ktmpl/archive/0.9.0.tar.gz"
   sha256 "b2f05ae4b36f31f6801f4dcd2f5aec31d7b53b8b6dea6ddf974b22c88d8bc62b"
+  license "MIT"
   head "https://github.com/jimmycuadra/ktmpl.git"
 
   bottle do

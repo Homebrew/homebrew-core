@@ -5,6 +5,7 @@ class Ddgr < Formula
   homepage "https://github.com/jarun/ddgr"
   url "https://github.com/jarun/ddgr/archive/v1.8.1.tar.gz"
   sha256 "d223a3543866e44e4fb05df487bd3eb23d80debc95f116493ed5aad0d091149e"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

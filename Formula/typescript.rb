@@ -5,6 +5,7 @@ class Typescript < Formula
   homepage "https://www.typescriptlang.org/"
   url "https://registry.npmjs.org/typescript/-/typescript-3.9.6.tgz"
   sha256 "8ff4c1a65f9dd4f5293f47089b199a9f8a51600e1986ba86cf6b89a1092ff798"
+  license "Apache-2.0"
   head "https://github.com/Microsoft/TypeScript.git"
 
   bottle do

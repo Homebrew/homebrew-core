@@ -4,6 +4,7 @@ class Cayley < Formula
   url "https://github.com/cayleygraph/cayley.git",
     :tag      => "v0.7.7",
     :revision => "dcf764fef381f19ee49fad186b4e00024709f148"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -4,6 +4,7 @@ class I686ElfBinutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.34.tar.gz"
   sha256 "53537d334820be13eeb8acb326d01c7c81418772d626715c7ae927a7d401cab3"
+  license "GPL-2.0"
 
   bottle do
     sha256 "c2d082bc08ccb4ce1c870a3e670670eb756f0da433c9a29246277d42814263c1" => :catalina

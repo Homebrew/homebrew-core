@@ -3,6 +3,7 @@ class Sourcedocs < Formula
   homepage "https://github.com/eneko/SourceDocs"
   url "https://github.com/eneko/sourcedocs/archive/1.2.0.tar.gz"
   sha256 "edfbe37a267be4d5ddd795c74522dcbb72b6fd42e11a0922c3ad87f4bac0e55f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

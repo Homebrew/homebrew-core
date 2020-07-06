@@ -3,6 +3,7 @@ class Xu4 < Formula
   homepage "https://xu4.sourceforge.io/"
   url "https://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
   version "1.0beta4+r3088"
+  license "GPL-2.0"
   head "https://svn.code.sf.net/p/xu4/code/trunk/u4"
 
   bottle do

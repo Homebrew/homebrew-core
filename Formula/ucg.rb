@@ -3,6 +3,7 @@ class Ucg < Formula
   homepage "https://github.com/gvansickle/ucg"
   url "https://github.com/gvansickle/ucg/releases/download/0.3.3/universalcodegrep-0.3.3.tar.gz"
   sha256 "116d832bbc743c7dd469e5e7f1b20addb3b7a08df4b4441d59da3acf221caf2d"
+  license "GPL-3.0"
   head "https://github.com/gvansickle/ucg.git"
 
   bottle do

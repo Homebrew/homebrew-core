@@ -3,6 +3,7 @@ class N < Formula
   homepage "https://github.com/tj/n"
   url "https://github.com/tj/n/archive/v6.6.0.tar.gz"
   sha256 "c082e234e89928f5facd33dfa57ecb1de88b246429a8e88a3e14b7d69ce52964"
+  license "MIT"
   head "https://github.com/tj/n.git"
 
   bottle do

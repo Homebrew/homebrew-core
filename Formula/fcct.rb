@@ -3,6 +3,7 @@ class Fcct < Formula
   homepage "https://github.com/coreos/fcct"
   url "https://github.com/coreos/fcct/archive/v0.6.0.tar.gz"
   sha256 "2cd630f37fcd549e931df9a01f94f0f783e06463701b9f8b5ab9b293515f9915"
+  license "Apache-2.0"
   head "https://github.com/coreos/fcct.git"
 
   bottle do

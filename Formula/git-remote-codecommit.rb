@@ -5,6 +5,7 @@ class GitRemoteCodecommit < Formula
   homepage "https://github.com/aws/git-remote-codecommit"
   url "https://github.com/aws/git-remote-codecommit/archive/1.13.tar.gz"
   sha256 "2a8b641c0e8b4bac3162d7877d9eaf0f939fa8eda429c342d51ca33b8494ddad"
+  license "Apache-2.0"
   head "https://github.com/aws/git-remote-codecommit.git"
 
   bottle do

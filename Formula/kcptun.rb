@@ -3,6 +3,7 @@ class Kcptun < Formula
   homepage "https://github.com/xtaci/kcptun"
   url "https://github.com/xtaci/kcptun/archive/v20200701.tar.gz"
   sha256 "d5b2d212c6806f1c4eba5fbce8797734eaa8ae0f8cdd90dd06d0844392888ff0"
+  license "MIT"
   head "https://github.com/xtaci/kcptun.git"
 
   bottle do

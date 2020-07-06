@@ -3,6 +3,7 @@ class Algol68g < Formula
   homepage "https://jmvdveer.home.xs4all.nl/algol.html"
   url "https://jmvdveer.home.xs4all.nl/algol68g-2.8.5.tar.gz"
   sha256 "0f757c64a8342fe38ec501bde68b61d26d051dffd45742ca58b7288a99c7e2d8"
+  license "GPL-3.0"
 
   bottle do
     sha256 "046ba5e9ec0d0856557085fdf1acde227cd829d9955da28046e98c9a5ee84c09" => :catalina

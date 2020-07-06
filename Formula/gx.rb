@@ -3,6 +3,7 @@ class Gx < Formula
   homepage "https://github.com/whyrusleeping/gx"
   url "https://github.com/whyrusleeping/gx/archive/v0.14.3.tar.gz"
   sha256 "2c0b90ddfd3152863f815c35b37e94d027216c6ba1c6653a94b722bf6e2b015d"
+  license "MIT"
   head "https://github.com/whyrusleeping/gx.git"
 
   bottle do

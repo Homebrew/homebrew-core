@@ -3,6 +3,7 @@ class Rpl < Formula
   homepage "http://www.laffeycomputer.com/rpl.html"
   url "https://web.archive.org/web/20170106105512/downloads.laffeycomputer.com/current_builds/rpl-1.4.1.tar.gz"
   sha256 "291055dc8763c855bab76142b5f7e9625392bcefa524b796bc4ddbcf941a1310"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

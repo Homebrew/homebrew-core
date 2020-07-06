@@ -4,6 +4,7 @@ class Dockviz < Formula
   url "https://github.com/justone/dockviz.git",
       :tag      => "v0.6.3",
       :revision => "15f77275c4f7e459eb7d9f824b5908c165cd0ba4"
+  license "Apache-2.0"
   head "https://github.com/justone/dockviz.git"
 
   bottle do

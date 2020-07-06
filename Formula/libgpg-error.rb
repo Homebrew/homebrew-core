@@ -3,6 +3,7 @@ class LibgpgError < Formula
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
   url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.38.tar.bz2"
   sha256 "d8988275aa69d7149f931c10442e9e34c0242674249e171592b430ff7b3afd02"
+  license "GPL-2.0"
 
   bottle do
     sha256 "e75e41ea083a1d480fd60a0a45e5ab838ad032f961ea5fb0cf8aafff070e3925" => :catalina

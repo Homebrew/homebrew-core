@@ -3,6 +3,7 @@ class Twoping < Formula
   homepage "https://www.finnie.org/software/2ping/"
   url "https://www.finnie.org/software/2ping/2ping-4.5.tar.gz"
   sha256 "867009928bf767d36279f90ff8f891855804c0004849f9554ac77fcd7f0fdb7b"
+  license "GPL-2.0"
   head "https://github.com/rfinnie/2ping.git", :branch => "main"
 
   bottle do

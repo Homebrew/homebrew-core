@@ -5,6 +5,7 @@ class WriteGood < Formula
   homepage "https://github.com/btford/write-good"
   url "https://registry.npmjs.org/write-good/-/write-good-1.0.2.tgz"
   sha256 "7a69215e1fcf1f5cb376086e6e56c3e5e6113b34ccb2747157b2d84e4a53b35e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

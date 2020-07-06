@@ -4,6 +4,7 @@ class GnuUnits < Formula
   url "https://ftp.gnu.org/gnu/units/units-2.19.tar.gz"
   mirror "https://ftpmirror.gnu.org/units/units-2.19.tar.gz"
   sha256 "4262136bdfc152b63ff5a9b93a7d80ce18b5e8bebdcffddc932dda769e306556"
+  license "GPL-3.0"
 
   bottle do
     sha256 "cb6d07ccc60529a687f7e175c982ae065aa56a580bc13ba5a53949c058c072d7" => :catalina

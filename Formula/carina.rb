@@ -4,6 +4,7 @@ class Carina < Formula
   url "https://github.com/getcarina/carina.git",
         :tag      => "v2.1.3",
         :revision => "2b3ec267e298e095d7c2f81a2d82dc50a720e81c"
+  license "Apache-2.0"
   head "https://github.com/getcarina/carina.git"
 
   bottle do

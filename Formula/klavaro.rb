@@ -3,6 +3,7 @@ class Klavaro < Formula
   homepage "https://klavaro.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.10.tar.bz2"
   sha256 "25e1387aa1553447fa759f364e5930985cf8ca3f27b5f8f802d5e0d86c6edf4a"
+  license "GPL-3.0"
   revision 1
 
   bottle do

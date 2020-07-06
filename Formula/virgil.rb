@@ -4,6 +4,7 @@ class Virgil < Formula
   url "https://github.com/VirgilSecurity/virgil-cli.git",
      :tag      => "v5.2.4",
      :revision => "46ad6eba489482a5eaff5ba89424f822525a6063"
+  license "BSD-3-Clause"
   head "https://github.com/VirgilSecurity/virgil-cli.git"
 
   bottle do

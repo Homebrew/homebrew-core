@@ -6,6 +6,7 @@ class Cake < Formula
   homepage "https://cakebuild.net/"
   url "https://github.com/cake-build/cake/releases/download/v0.38.4/Cake-bin-net461-v0.38.4.zip"
   sha256 "95629cf444d6c07ad79b60a390fa9c2ef22bd8fef113cb82018de245ce09b659"
+  license "MIT"
 
   bottle :unneeded
 

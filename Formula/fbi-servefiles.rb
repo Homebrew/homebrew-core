@@ -5,6 +5,7 @@ class FbiServefiles < Formula
   homepage "https://github.com/Steveice10/FBI"
   url "https://github.com/Steveice10/FBI/archive/2.6.0.tar.gz"
   sha256 "4948d4c53d754cc411b51edbf35c609ba514ae21d9d0e8f4b66a26d5c666be68"
+  license "MIT"
   revision 1
 
   bottle do

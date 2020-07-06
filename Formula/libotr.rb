@@ -3,6 +3,7 @@ class Libotr < Formula
   homepage "https://otr.cypherpunks.ca/"
   url "https://otr.cypherpunks.ca/libotr-4.1.1.tar.gz"
   sha256 "8b3b182424251067a952fb4e6c7b95a21e644fbb27fbd5f8af2b2ed87ca419f5"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

@@ -4,6 +4,7 @@ class Consul < Formula
   url "https://github.com/hashicorp/consul.git",
       :tag      => "v1.8.0",
       :revision => "3111cb8c7df8545abaa0c96347996b5341ff625d"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 

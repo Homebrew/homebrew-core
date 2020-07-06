@@ -4,6 +4,7 @@ class Ctop < Formula
   url "https://github.com/bcicen/ctop.git",
     :tag      => "v0.7.3",
     :revision => "4741b276e4bbaa41a67d62443239d50b5a936623"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

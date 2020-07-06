@@ -3,6 +3,7 @@ class Nagios < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.6/nagios-4.4.6.tar.gz"
   sha256 "ab0d5a52caf01e6f4dcd84252c4eb5df5a24f90bb7f951f03875eef54f5ab0f4"
+  license "GPL-2.0"
 
   bottle do
     rebuild 1

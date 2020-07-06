@@ -4,6 +4,7 @@ class Dcd < Formula
   url "https://github.com/dlang-community/DCD.git",
       :tag      => "v0.12.0",
       :revision => "33dbd7653ecf830b735382e11d9bee66853a6dcf"
+  license "GPL-3.0"
   head "https://github.com/dlang-community/dcd.git", :shallow => false
 
   bottle do

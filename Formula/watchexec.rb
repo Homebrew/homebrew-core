@@ -3,6 +3,7 @@ class Watchexec < Formula
   homepage "https://github.com/watchexec/watchexec"
   url "https://github.com/watchexec/watchexec/archive/1.14.0.tar.gz"
   sha256 "605f58028adf7a9fac42e992633e6291503eefbbbef056607b4b90ed71931f2b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

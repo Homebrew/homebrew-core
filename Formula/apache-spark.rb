@@ -5,6 +5,7 @@ class ApacheSpark < Formula
   mirror "https://archive.apache.org/dist/spark/spark-3.0.0/spark-3.0.0-bin-hadoop3.2.tgz"
   version "3.0.0"
   sha256 "3c9bef2d002d706b5331415884d3f890ecfdd7c6a692f36ed7a981ad120b2482"
+  license "Apache-2.0"
   head "https://github.com/apache/spark.git"
 
   bottle :unneeded

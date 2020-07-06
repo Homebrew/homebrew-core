@@ -3,6 +3,7 @@ class Castxml < Formula
   homepage "https://github.com/CastXML/CastXML"
   url "https://github.com/CastXML/CastXML/archive/v0.3.4.tar.gz"
   sha256 "a597ef37fe2b43fe3cf2c0c4e2ed0069d5aba2714016c319ac47787760859df4"
+  license "Apache-2.0"
   head "https://github.com/CastXML/castxml.git"
 
   bottle do

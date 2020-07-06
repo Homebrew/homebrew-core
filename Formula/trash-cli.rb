@@ -5,6 +5,7 @@ class TrashCli < Formula
   homepage "https://github.com/andreafrancia/trash-cli"
   url "https://github.com/andreafrancia/trash-cli/archive/0.17.1.14.tar.gz"
   sha256 "8fdd20e5e9c55ea4e24677e602a06a94a93f1155f9970c55b25dede5e037b974"
+  license "GPL-2.0"
   revision 3
   head "https://github.com/andreafrancia/trash-cli.git"
 

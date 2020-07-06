@@ -3,6 +3,7 @@ class Vegeta < Formula
   homepage "https://github.com/tsenart/vegeta"
   url "https://github.com/tsenart/vegeta/archive/v12.8.3.tar.gz"
   sha256 "2e6326b2fe0ef273ae784600e2181e32d307b62beb29cc84ffc8ddd0d5352df9"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

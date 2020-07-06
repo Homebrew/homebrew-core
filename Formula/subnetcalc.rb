@@ -3,6 +3,7 @@ class Subnetcalc < Formula
   homepage "https://www.uni-due.de/~be0001/subnetcalc/"
   url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.16.tar.xz"
   sha256 "37dae5da0b5d0423ee44d6b86cf811ca6fb78e0768ce9d77b95544634ce68390"
+  license "GPL-3.0"
   head "https://github.com/dreibh/subnetcalc.git"
 
   bottle do

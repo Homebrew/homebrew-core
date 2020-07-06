@@ -3,6 +3,7 @@ class Spotbugs < Formula
   homepage "https://spotbugs.github.io/"
   url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.0.6/spotbugs-4.0.6.tgz"
   sha256 "9fa5d77421a34c44a647bf1e03f75e9767c69aea35d626f41330ead7f84bd45e"
+  license "LGPL-2.1"
 
   head do
     url "https://github.com/spotbugs/spotbugs.git"

@@ -3,6 +3,7 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://files.pythonhosted.org/packages/8c/90/82c62bbbadcca98e8c6fa84f1a638de1ed1c89e85368241e9cc43fcbc320/PyQt5-5.15.0.tar.gz"
   sha256 "c6f75488ffd5365a65893bc64ea82a6957db126fbfe33654bcd43ae1c30c52f9"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Xcodegen < Formula
   homepage "https://github.com/yonaskolb/XcodeGen"
   url "https://github.com/yonaskolb/XcodeGen/archive/2.16.0.tar.gz"
   sha256 "ae813fdbc3cc26a5af7de50fa1378292e23a0a719c20cb9b461d4bbd7099078a"
+  license "MIT"
   head "https://github.com/yonaskolb/XcodeGen.git"
 
   bottle do

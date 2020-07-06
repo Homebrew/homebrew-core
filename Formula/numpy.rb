@@ -3,6 +3,7 @@ class Numpy < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/f1/2c/717bdd12404c73ec0c8c734c81a0bad7048866bc36a88a1b69fd52b01c07/numpy-1.19.0.zip"
   sha256 "76766cc80d6128750075378d3bb7812cf146415bd29b588616f72c943c00d598"
+  license "BSD-3-Clause"
   head "https://github.com/numpy/numpy.git"
 
   bottle do

@@ -4,6 +4,7 @@ class Cpr < Formula
   url "https://github.com/whoshuu/cpr.git",
       :tag      => "1.5.0",
       :revision => "c8d33915dbd88ad6c92b258869b03aba06587ff9"
+  license "MIT"
   head "https://github.com/whoshuu/cpr.git"
 
   bottle do

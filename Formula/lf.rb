@@ -3,6 +3,7 @@ class Lf < Formula
   homepage "https://godoc.org/github.com/gokcehan/lf"
   url "https://github.com/gokcehan/lf/archive/r14.tar.gz"
   sha256 "5266afa808f4612733af65289024c9eb182864f6a224fdfdf58f405a30c79644"
+  license "MIT"
   revision 1
 
   bottle do

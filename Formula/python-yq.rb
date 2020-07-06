@@ -3,6 +3,7 @@ class PythonYq < Formula
   homepage "https://kislyuk.github.io/yq/"
   url "https://files.pythonhosted.org/packages/b5/b6/84cf7ea7f30c340f8bb40e29ff4b154f787d0fdacf2d47a7c180e3d2b256/yq-2.10.1.tar.gz"
   sha256 "f6252a0757d0c2a9e55b4402e176a7e41a99e0e6dd5be4f9d5a4d651eeb4d6c0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

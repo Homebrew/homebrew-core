@@ -3,6 +3,7 @@ class Mockolo < Formula
   homepage "https://github.com/uber/mockolo"
   url "https://github.com/uber/mockolo/archive/1.2.4.tar.gz"
   sha256 "c2394a4f5e94cd0a6c8d380085b806e0fa4e52586ea3c888148ad9767ad9ef3b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

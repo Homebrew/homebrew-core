@@ -4,6 +4,7 @@ class DroneCli < Formula
   url "https://github.com/drone/drone-cli.git",
     :tag      => "v1.2.1",
     :revision => "a5f8e7c245635a3855cebfde61c29b805d0b46a0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

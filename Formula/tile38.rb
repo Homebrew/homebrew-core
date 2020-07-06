@@ -4,6 +4,7 @@ class Tile38 < Formula
   url "https://github.com/tidwall/tile38.git",
     :tag      => "1.21.1",
     :revision => "c1ba2d86aa5c99532f08c368376077646ec742b0"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

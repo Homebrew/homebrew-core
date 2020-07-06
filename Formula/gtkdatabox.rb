@@ -3,6 +3,7 @@ class Gtkdatabox < Formula
   homepage "https://sourceforge.net/projects/gtkdatabox/"
   url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.3.1/gtkdatabox-0.9.3.1.tar.gz"
   sha256 "d04938d969d5458bd0df1b4fa22f647fb2eeeef75555a71f967e6c039fb4bde5"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

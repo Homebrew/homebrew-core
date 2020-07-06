@@ -3,6 +3,7 @@ class VulkanHeaders < Formula
   homepage "https://github.com/KhronosGroup/Vulkan-Headers"
   url "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.146.tar.gz"
   sha256 "2b068692cedf549274bb6a314499d14a2a84ff83560cb26983c21c7e2422c253"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

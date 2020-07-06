@@ -3,6 +3,7 @@ class Cheat < Formula
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat/archive/4.0.1.tar.gz"
   sha256 "98242fa3efd4b5fd57d6ad7e69a2570e7defacb580e30ae274deec3e1939f494"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

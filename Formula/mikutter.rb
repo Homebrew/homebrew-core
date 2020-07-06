@@ -3,6 +3,7 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter-4.0.6.tar.gz"
   sha256 "3ac0292aafbbd6a8f978091244ef20f3911ecb1c26a85e8e3c6ef86211f279cd"
+  license "MIT"
   head "git://mikutter.hachune.net/mikutter.git", :branch => "develop"
 
   bottle do

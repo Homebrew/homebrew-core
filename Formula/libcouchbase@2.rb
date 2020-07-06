@@ -3,6 +3,7 @@ class LibcouchbaseAT2 < Formula
   homepage "https://docs.couchbase.com/c-sdk/2.10/start-using-sdk.html"
   url "https://packages.couchbase.com/clients/c/libcouchbase-2.10.7.tar.gz"
   sha256 "bbee97ef2394f275b8cd4b9b940010566a2d34d4754ba3532a7fca3d94029b75"
+  license "Apache-2.0"
   bottle do
     sha256 "d3065af67b6c27379c674fadeca9a3a37eda0323d701769c34ab4aa5d5e1a345" => :catalina
     sha256 "b0fc35ac0a09d79476957fef601928fce6e9bc1abee8ec3522d59a389754fa39" => :mojave

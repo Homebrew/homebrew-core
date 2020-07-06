@@ -3,6 +3,7 @@ class Quilt < Formula
   homepage "https://savannah.nongnu.org/projects/quilt"
   url "https://download.savannah.gnu.org/releases/quilt/quilt-0.66.tar.gz"
   sha256 "314b319a6feb13bf9d0f9ffa7ce6683b06919e734a41275087ea457cc9dc6e07"
+  license "GPL-2.0"
   head "https://git.savannah.gnu.org/git/quilt.git"
 
   bottle do

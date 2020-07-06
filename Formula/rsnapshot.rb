@@ -3,6 +3,7 @@ class Rsnapshot < Formula
   homepage "https://www.rsnapshot.org/"
   url "https://github.com/rsnapshot/rsnapshot/releases/download/1.4.3/rsnapshot-1.4.3.tar.gz"
   sha256 "2b0c7aad3e14e0260513331425a605d73c3bdd7936d66d418d7714a76bc55bd1"
+  license "GPL-2.0"
   head "https://github.com/rsnapshot/rsnapshot.git"
 
   bottle do

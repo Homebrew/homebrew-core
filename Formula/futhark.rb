@@ -7,6 +7,7 @@ class Futhark < Formula
   homepage "https://futhark-lang.org/"
   url "https://github.com/diku-dk/futhark/archive/v0.15.8.tar.gz"
   sha256 "f18e7f2ee6f71368f3faba2b4c82f83b922a4c37d43e28889abd4d58d582a526"
+  license "ISC"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do

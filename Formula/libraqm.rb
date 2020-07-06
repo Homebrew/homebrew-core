@@ -3,6 +3,7 @@ class Libraqm < Formula
   homepage "https://github.com/HOST-Oman/libraqm"
   url "https://github.com/HOST-Oman/libraqm/archive//v0.7.0.tar.gz"
   sha256 "21ed67b8d0d2217f3801878f2ceef9b2da24495eeff830552051cef21f95938e"
+  license "MIT"
 
   bottle do
     cellar :any

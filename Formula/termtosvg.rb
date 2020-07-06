@@ -5,6 +5,7 @@ class Termtosvg < Formula
   homepage "https://nbedos.github.io/termtosvg"
   url "https://github.com/nbedos/termtosvg/archive/1.1.0.tar.gz"
   sha256 "53e9ad5976978684699d14b83cac37bf173d76c787f1b849859ad8aef55f22d2"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do

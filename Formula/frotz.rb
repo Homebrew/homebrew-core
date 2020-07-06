@@ -3,6 +3,7 @@ class Frotz < Formula
   homepage "https://661.org/proj/if/frotz/"
   url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.52/frotz-2.52.tar.bz2"
   sha256 "7e81789d7958ef42426a3067855cb3dc8eda04a5aa80d2803e32dd9282452932"
+  license "GPL-2.0"
   head "https://gitlab.com/DavidGriffith/frotz.git"
 
   bottle do

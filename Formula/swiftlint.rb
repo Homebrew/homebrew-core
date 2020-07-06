@@ -4,6 +4,7 @@ class Swiftlint < Formula
   url "https://github.com/realm/SwiftLint.git",
       :tag      => "0.39.2",
       :revision => "b1c72069cafa6cdebfb9274806cd976c54d8dde5"
+  license "MIT"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do

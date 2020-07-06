@@ -3,6 +3,7 @@ class Terraform < Formula
   homepage "https://www.terraform.io/"
   url "https://github.com/hashicorp/terraform/archive/v0.12.28.tar.gz"
   sha256 "8381058d49ce3804efc72c2afdc4691194418e0da61b8a553fb1c0e81e0c2087"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do

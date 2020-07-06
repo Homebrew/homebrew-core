@@ -7,6 +7,7 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.2.0/source/tarball/percona-toolkit-3.2.0.tar.gz"
   sha256 "e7c7028631d5b1c66ba21841c55919537bd4ed2f3a5975f989fa4abd7d9d753d"
+  license "GPL-2.0"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do

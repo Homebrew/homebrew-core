@@ -5,6 +5,7 @@ class Wellington < Formula
   homepage "https://getwt.io/"
   url "https://github.com/wellington/wellington/archive/v1.0.4.tar.gz"
   sha256 "ef92d6c2b11fe36f66b88612e7a9cfff3ea6f81f29f4c21481d358f474a191d6"
+  license "Apache-2.0"
   head "https://github.com/wellington/wellington.git"
 
   bottle do

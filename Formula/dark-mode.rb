@@ -3,6 +3,7 @@ class DarkMode < Formula
   homepage "https://github.com/sindresorhus/dark-mode"
   url "https://github.com/sindresorhus/dark-mode/archive/v3.0.0.tar.gz"
   sha256 "c79eb0a96e179953a12f69ec3486b2d89751599c5f5e3cf72ff4def7fd49dcbb"
+  license "MIT"
   head "https://github.com/sindresorhus/dark-mode.git"
 
   bottle do

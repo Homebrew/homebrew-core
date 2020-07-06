@@ -3,6 +3,7 @@ class Genact < Formula
   homepage "https://github.com/svenstaro/genact"
   url "https://github.com/svenstaro/genact/archive/0.7.0.tar.gz"
   sha256 "9bfb241d8d3e77dae63fa3f5c84ef67e459a03a8fc18ed4661e53765264288ce"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

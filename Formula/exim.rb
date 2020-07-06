@@ -4,6 +4,7 @@ class Exim < Formula
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz"
   mirror "https://dl.bintray.com/homebrew/mirror/exim-4.94.tar.xz"
   sha256 "f77ee8faf04f5db793243c3ae81c1f4e452cd6ad7dd515a80edf755c4b144bdb"
+  license "GPL-2.0"
 
   bottle do
     sha256 "74e195304b29ce8ce47fbccc2c58e468a677482a94efecc1cfd9dcc0210c07d1" => :catalina

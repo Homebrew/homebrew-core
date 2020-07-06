@@ -3,6 +3,7 @@ class Libcbor < Formula
   homepage "http://libcbor.org/"
   url "https://github.com/PJK/libcbor/archive/v0.7.0.tar.gz"
   sha256 "fb731afe0a9980581d85e4b8d4ef128b175f782d92e0cd898935f3d26dd3dde7"
+  license "MIT"
 
   bottle do
     cellar :any

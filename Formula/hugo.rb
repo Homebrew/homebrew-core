@@ -3,6 +3,7 @@ class Hugo < Formula
   homepage "https://gohugo.io/"
   url "https://github.com/gohugoio/hugo/archive/v0.73.0.tar.gz"
   sha256 "36e106c96b6c66bd558759a069b227f797a996235a39bb6fa0397fa32eb8434a"
+  license "Apache-2.0"
   head "https://github.com/gohugoio/hugo.git"
 
   bottle do

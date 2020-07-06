@@ -5,6 +5,7 @@ class Proftpd < Formula
   mirror "https://fossies.org/linux/misc/proftpd-1.3.6d.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6d.tar.gz"
   sha256 "c338e2e25d1b6f51d397af154a0124fc42eee6b7ff99a2d976777d6b2f97c096"
+  license "GPL-2.0"
 
   bottle do
     sha256 "64921070d5fec1b23e70f1f94083278005c3075e60064e2bb6842837a5f47f70" => :catalina

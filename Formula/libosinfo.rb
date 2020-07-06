@@ -3,6 +3,7 @@ class Libosinfo < Formula
   homepage "https://libosinfo.org/"
   url "https://releases.pagure.org/libosinfo/libosinfo-1.8.0.tar.xz"
   sha256 "49ff32be0d209f6c99480e28b94340ac3dd0158322ae4303adfbdfe973a108a5"
+  license "GPL-2.0"
 
   bottle do
     sha256 "4630d49afe37d27ddb3402e9630ba7366c22e461b2da61d394ee883d376d4568" => :catalina

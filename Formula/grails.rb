@@ -3,6 +3,7 @@ class Grails < Formula
   homepage "https://grails.org"
   url "https://github.com/grails/grails-core/releases/download/v4.0.3/grails-4.0.3.zip"
   sha256 "4a1b219451a4a64d0236ad1e1b6e1946ca916258db069c526eb751b1f9dbed80"
+  license "Apache-2.0"
 
   bottle :unneeded
 

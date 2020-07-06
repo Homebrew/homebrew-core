@@ -3,6 +3,7 @@ class Ifstat < Formula
   homepage "http://gael.roualland.free.fr/ifstat/"
   url "http://gael.roualland.free.fr/ifstat/ifstat-1.1.tar.gz"
   sha256 "8599063b7c398f9cfef7a9ec699659b25b1c14d2bc0f535aed05ce32b7d9f507"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

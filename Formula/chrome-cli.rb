@@ -3,6 +3,7 @@ class ChromeCli < Formula
   homepage "https://github.com/prasmussen/chrome-cli"
   url "https://github.com/prasmussen/chrome-cli/archive/1.6.0.tar.gz"
   sha256 "ff1fba560743cba7b661e8daef52d4494acc084da4a21c3fad211f7cdf5e971f"
+  license "MIT"
   head "https://github.com/prasmussen/chrome-cli.git"
 
   bottle do

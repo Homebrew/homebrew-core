@@ -4,6 +4,7 @@ class Etcd < Formula
   url "https://github.com/etcd-io/etcd.git",
     :tag      => "v3.4.9",
     :revision => "54ba9589114fc3fa5cc36c313550b3c0c0938c91"
+  license "Apache-2.0"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do

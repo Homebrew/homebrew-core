@@ -3,6 +3,7 @@ class Rakudo < Formula
   homepage "https://rakudo.org"
   url "https://github.com/rakudo/rakudo/releases/download/2020.06/rakudo-2020.06.tar.gz"
   sha256 "4cd8fe8afae3a2b561544c8e0dad5b4bc6cabbbfc2fdd17c63f5ea39dd46721a"
+  license "Artistic-2.0"
 
   bottle do
     sha256 "80870b47549bfbee7413bd31e6027c0f538e52572fa1cf0656371480d34016e7" => :catalina

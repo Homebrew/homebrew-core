@@ -3,6 +3,7 @@ class Postgrest < Formula
   homepage "https://github.com/PostgREST/postgrest"
   url "https://github.com/PostgREST/postgrest/archive/v7.0.1.tar.gz"
   sha256 "12f621065b17934c474c85f91ad7b276bff46f684a5f49795b10b39eaacfdcaa"
+  license "MIT"
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do

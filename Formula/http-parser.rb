@@ -3,6 +3,7 @@ class HttpParser < Formula
   homepage "https://github.com/nodejs/http-parser"
   url "https://github.com/nodejs/http-parser/archive/v2.9.4.tar.gz"
   sha256 "467b9e30fd0979ee301065e70f637d525c28193449e1b13fbcb1b1fab3ad224f"
+  license "MIT"
 
   bottle do
     cellar :any

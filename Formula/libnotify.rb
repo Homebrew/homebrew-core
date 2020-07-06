@@ -3,6 +3,7 @@ class Libnotify < Formula
   homepage "https://developer.gnome.org/libnotify"
   url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz"
   sha256 "66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

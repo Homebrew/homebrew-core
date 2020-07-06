@@ -3,6 +3,7 @@ class CargoInstruments < Formula
   homepage "https://github.com/cmyr/cargo-instruments"
   url "https://github.com/cmyr/cargo-instruments/archive/v0.3.1.tar.gz"
   sha256 "55a71300045a689b9a416a4367b0c1f6823c5bc837156e774bfd52eba105726f"
+  license "MIT"
 
   bottle do
     cellar :any

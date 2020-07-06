@@ -5,6 +5,7 @@ class Mage < Formula
       :tag      => "v1.9.0",
       :revision => "1c36bf78a98209d91af71354deb001cca75e11fc"
   sha256 "e8fdfa30f68c8a90fcadd4e82f49c9136011accabff55e073ea26f5ee4280cf0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

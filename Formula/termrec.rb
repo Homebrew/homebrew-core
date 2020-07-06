@@ -3,6 +3,7 @@ class Termrec < Formula
   homepage "https://angband.pl/termrec.html"
   url "https://github.com/kilobyte/termrec/archive/v0.19.tar.gz"
   sha256 "0550c12266ac524a8afb764890c420c917270b0a876013592f608ed786ca91dc"
+  license "LGPL-3.0"
   head "https://github.com/kilobyte/termrec.git"
 
   bottle do

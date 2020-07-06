@@ -3,6 +3,7 @@ class Typespeed < Formula
   homepage "https://typespeed.sourceforge.io"
   url "https://downloads.sourceforge.net/project/typespeed/typespeed/0.6.5/typespeed-0.6.5.tar.gz"
   sha256 "5c860385ceed8a60f13217cc0192c4c2b4705c3e80f9866f7d72ff306eb72961"
+  license "GPL-2.0"
 
   bottle do
     sha256 "cff9da11f7441f1ff4db7cbfa57f0711ff0bbe08a80ee7067021c619bc01cb06" => :catalina

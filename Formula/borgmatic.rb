@@ -5,6 +5,7 @@ class Borgmatic < Formula
   homepage "https://torsion.org/borgmatic/"
   url "https://files.pythonhosted.org/packages/16/72/905a5da1da114f1f4fa3bc6ed31f23fcc8ccea90a705817131a3042b0394/borgmatic-1.5.8.tar.gz"
   sha256 "707ed1bdffd6b8bec2d74dca36cc2665081c8db8590241bf6a72a3378928dd65"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

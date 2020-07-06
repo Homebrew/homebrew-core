@@ -3,6 +3,7 @@ class Tunnel < Formula
   homepage "https://tunnel.labstack.com/docs"
   url "https://github.com/labstack/tunnel-client/archive/v0.5.15.tar.gz"
   sha256 "7a57451416b76dbf220e69c7dd3e4c33dc84758a41cdb9337a464338565e3e6e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

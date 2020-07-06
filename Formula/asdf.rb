@@ -3,6 +3,7 @@ class Asdf < Formula
   homepage "https://asdf-vm.com/"
   url "https://github.com/asdf-vm/asdf/archive/v0.7.8.tar.gz"
   sha256 "6225d822a189ab02f88e2afa9f46c52cb876885ea21b56827e564f73c99369d3"
+  license "MIT"
   head "https://github.com/asdf-vm/asdf.git"
 
   bottle :unneeded

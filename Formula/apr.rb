@@ -4,6 +4,7 @@ class Apr < Formula
   url "https://www.apache.org/dyn/closer.lua?path=apr/apr-1.7.0.tar.bz2"
   mirror "https://archive.apache.org/dist/apr/apr-1.7.0.tar.bz2"
   sha256 "e2e148f0b2e99b8e5c6caa09f6d4fb4dd3e83f744aa72a952f94f5a14436f7ea"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

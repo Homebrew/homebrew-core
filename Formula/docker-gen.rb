@@ -5,6 +5,7 @@ class DockerGen < Formula
   homepage "https://github.com/jwilder/docker-gen"
   url "https://github.com/jwilder/docker-gen/archive/0.7.4.tar.gz"
   sha256 "7951b63684e4ace9eab4f87f0c5625648f8add2559fa7779fabdb141a8a83908"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

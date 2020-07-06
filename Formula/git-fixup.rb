@@ -3,6 +3,7 @@ class GitFixup < Formula
   homepage "https://github.com/keis/git-fixup"
   url "https://github.com/keis/git-fixup/archive/v1.3.0.tar.gz"
   sha256 "29665151f82cac5f5807b8241392150e7c8ee8024ce37f23752c23c134516d57"
+  license "ISC"
   head "https://github.com/keis/git-fixup.git", :branch => "master"
 
   bottle :unneeded

@@ -3,6 +3,7 @@ class Cgoban < Formula
   homepage "https://cgoban1.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/cgoban1/cgoban1/1.9.14/cgoban-1.9.14.tar.gz"
   sha256 "3b8a6fc0e989bf977fcd9a65a367aa18e34c6e25800e78dd8f0063fa549c9b62"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

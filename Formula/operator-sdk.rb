@@ -4,6 +4,7 @@ class OperatorSdk < Formula
   url "https://github.com/operator-framework/operator-sdk.git",
       :tag      => "v0.18.2",
       :revision => "f059b5e17447b0bbcef50846859519340c17ffad"
+  license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git"
 
   bottle do

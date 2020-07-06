@@ -4,6 +4,7 @@ class Httpd < Formula
   url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.43.tar.bz2"
   mirror "https://archive.apache.org/dist/httpd/httpd-2.4.43.tar.bz2"
   sha256 "a497652ab3fc81318cdc2a203090a999150d86461acff97c1065dc910fe10f43"
+  license "Apache-2.0"
 
   bottle do
     sha256 "016ec294067375e0a0080d1c06812e4323b9d834452e937057e3c84387c44f02" => :catalina

@@ -3,6 +3,7 @@ class Vnstat < Formula
   homepage "https://humdi.net/vnstat/"
   url "https://humdi.net/vnstat/vnstat-2.6.tar.gz"
   sha256 "89276e0a7281943edb554b874078278ad947dc312938a2451e03eb80679f7ff7"
+  license "GPL-2.0"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do

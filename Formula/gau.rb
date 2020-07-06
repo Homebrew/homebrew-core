@@ -3,6 +3,7 @@ class Gau < Formula
   homepage "https://github.com/lc/gau"
   url "https://github.com/lc/gau/archive/v1.0.2.tar.gz"
   sha256 "058a0818b3b1465af9878566c6cb01e2b2835903b5630f63afb0645c07b28663"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

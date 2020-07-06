@@ -4,6 +4,7 @@ class DejaGnu < Formula
   url "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.2.tar.gz"
   sha256 "0d0671e1b45189c5fc8ade4b3b01635fb9eeab45cf54f57db23e4c4c1a17d261"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

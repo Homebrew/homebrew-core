@@ -3,6 +3,7 @@ class Restic < Formula
   homepage "https://restic.github.io/"
   url "https://github.com/restic/restic/archive/v0.9.6.tar.gz"
   sha256 "1cc8655fa99f06e787871a9f8b5ceec283c856fa341a5b38824a0ca89420b0fe"
+  license "BSD-2-Clause"
   head "https://github.com/restic/restic.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Jcal < Formula
   homepage "https://savannah.nongnu.org/projects/jcal/"
   url "https://download.savannah.gnu.org/releases/jcal/jcal-0.4.1.tar.gz"
   sha256 "e8983ecad029b1007edc98458ad13cd9aa263d4d1cf44a97e0a69ff778900caa"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

@@ -5,6 +5,7 @@ class Kamel < Formula
   url "https://github.com/apache/camel-k.git",
     :tag      => "1.0.1",
     :revision => "21b88a3bfc07ae9fd9ff5f129ce3a22f1dfc5318"
+  license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
   bottle do

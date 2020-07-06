@@ -3,6 +3,7 @@ class Gobby < Formula
   homepage "https://gobby.github.io/"
   url "http://releases.0x539.de/gobby/gobby-0.5.0.tar.gz"
   sha256 "8ceb3598d27cfccdf9c9889b781c4c5c8e1731ca6beb183f5d4555644c06bd98"
+  license "ISC"
   revision 8
   head "https://github.com/gobby/gobby"
 
@@ -22,6 +23,10 @@ class Gobby < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libinfinity"
   depends_on "libxml++"
+
+  # open issue since 2017-04-23, https://github.com/gobby/gobby/issues/143
+  # no active release and maintenance since 2018-08-26
+  disable!
 
   # Necessary to remove mandatory gtk-mac-integration
   # it's badly broken as it depends on an ancient version of ige-mac-integration

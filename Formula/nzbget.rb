@@ -3,6 +3,7 @@ class Nzbget < Formula
   homepage "https://nzbget.net/"
   url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
   sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/nzbget/nzbget.git", :branch => "develop"
 

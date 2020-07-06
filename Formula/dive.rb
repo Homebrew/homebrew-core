@@ -4,6 +4,7 @@ class Dive < Formula
   url "https://github.com/wagoodman/dive.git",
     :tag      => "v0.9.2",
     :revision => "0872cc18d44a96ed9f59202ac95c556f7e7919a7"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

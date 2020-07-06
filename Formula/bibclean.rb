@@ -4,6 +4,7 @@ class Bibclean < Formula
   url "http://ftp.math.utah.edu/pub/bibclean/bibclean-3.04.tar.xz"
   mirror "https://dl.bintray.com/homebrew/mirror/bibclean-3.04.tar.xz"
   sha256 "4fa68bfd97611b0bb27b44a82df0984b300267583a313669c1217983b859b258"
+  license "GPL-2.0"
 
   bottle do
     sha256 "15dbbabace79aafd93546976d8a899a393c6489d7951ce2bd2bb148a45f262a3" => :catalina

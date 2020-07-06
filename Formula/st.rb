@@ -3,6 +3,7 @@ class St < Formula
   homepage "https://github.com/nferraz/st"
   url "https://github.com/nferraz/st/archive/v1.1.4.tar.gz"
   sha256 "c02a16f67e4c357690a5438319843149fd700c223128f9ffebecab2849c58bb8"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

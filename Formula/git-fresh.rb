@@ -3,6 +3,7 @@ class GitFresh < Formula
   homepage "https://github.com/imsky/git-fresh"
   url "https://github.com/imsky/git-fresh/archive/v1.12.1.tar.gz"
   sha256 "48be2629113ba77a2a6d8fd478b7186f7237669e9495e768b9d3133704c49dde"
+  license "MIT"
 
   bottle :unneeded
 

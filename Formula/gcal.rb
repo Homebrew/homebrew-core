@@ -4,6 +4,7 @@ class Gcal < Formula
   url "https://ftp.gnu.org/gnu/gcal/gcal-4.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcal/gcal-4.1.tar.xz"
   sha256 "91b56c40b93eee9bda27ec63e95a6316d848e3ee047b5880ed71e5e8e60f61ab"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

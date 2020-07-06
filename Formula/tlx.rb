@@ -3,6 +3,7 @@ class Tlx < Formula
   homepage "https://tlx.github.io"
   url "https://github.com/tlx/tlx/archive/v0.5.20191212.tar.gz"
   sha256 "5e67d3042a390dbb831b6d46437e3c7fadf738bff362aa7376b210b10ecd532d"
+  license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation

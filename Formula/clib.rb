@@ -3,6 +3,7 @@ class Clib < Formula
   homepage "https://github.com/clibs/clib"
   url "https://github.com/clibs/clib/archive/1.11.3.tar.gz"
   sha256 "93af31d1bccfc828c185c012ab1f737d60408bd8402bcef20ed96ac337270afe"
+  license "MIT"
   head "https://github.com/clibs/clib.git"
 
   bottle do

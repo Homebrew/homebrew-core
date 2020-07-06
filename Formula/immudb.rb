@@ -3,6 +3,7 @@ class Immudb < Formula
   homepage "https://www.codenotary.io"
   url "https://github.com/codenotary/immudb/archive/v0.6.1.tar.gz"
   sha256 "313f09b82f89208705daaf0be16238e1a4f90e590edd038c1719d181ce0ed653"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

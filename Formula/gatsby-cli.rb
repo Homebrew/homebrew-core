@@ -6,6 +6,7 @@ class GatsbyCli < Formula
   # gatsby-cli should only be updated every 10 releases on multiples of 10
   url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.12.56.tgz"
   sha256 "cc8658c75108fd1ed1aaeae928b7bc61ea854d4c2d77ec501bc2c44981800336"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

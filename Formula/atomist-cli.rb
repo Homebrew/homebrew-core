@@ -5,6 +5,7 @@ class AtomistCli < Formula
   homepage "https://github.com/atomist/cli#readme"
   url "https://registry.npmjs.org/@atomist/cli/-/@atomist/cli-1.8.0.tgz"
   sha256 "64bcc7484fa2f1b7172984c278ae928450149fb02b750f79454b1a6683d17f62"
+  license "Apache-2.0"
 
   bottle do
     sha256 "9682c4b3bcc11581ade4335bf5c4d4b4d2c1fbd141f8677aee8b399d5573ab0a" => :catalina

@@ -3,6 +3,7 @@ class Amtk < Formula
   homepage "https://wiki.gnome.org/Projects/Amtk"
   url "https://download.gnome.org/sources/amtk/5.0/amtk-5.0.2.tar.xz"
   sha256 "71cc891fbaaa3d0cb87eeef9a2f7e1a2acab62f738d09ea922fb4b9ea2f84f86"
+  license "LGPL-2.1"
   revision 1
 
   bottle do

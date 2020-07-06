@@ -3,6 +3,7 @@ class Voldemort < Formula
   homepage "https://www.project-voldemort.com/"
   url "https://github.com/voldemort/voldemort/archive/release-1.10.26-cutoff.tar.gz"
   sha256 "8bd41b53c3b903615d281e7277d5a9225075c3d00ea56c6e44d73f6327c73d55"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

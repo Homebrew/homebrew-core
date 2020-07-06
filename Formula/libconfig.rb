@@ -3,6 +3,7 @@ class Libconfig < Formula
   homepage "https://hyperrealm.github.io/libconfig/"
   url "https://github.com/hyperrealm/libconfig/archive/v1.7.2.tar.gz"
   sha256 "f67ac44099916ae260a6c9e290a90809e7d782d96cdd462cac656ebc5b685726"
+  license "LGPL-2.1"
   head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do

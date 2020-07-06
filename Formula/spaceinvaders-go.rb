@@ -5,6 +5,7 @@ class SpaceinvadersGo < Formula
   homepage "https://github.com/asib/spaceinvaders"
   url "https://github.com/asib/spaceinvaders/archive/v1.2.tar.gz"
   sha256 "e5298c4c13ff42f5cb3bf3913818c5155cf6918fd757124920045485d7ab5b9e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

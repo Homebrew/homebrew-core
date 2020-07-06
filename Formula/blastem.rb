@@ -3,6 +3,7 @@ class Blastem < Formula
   homepage "https://www.retrodev.com/blastem/"
   url "https://www.retrodev.com/repos/blastem/archive/v0.6.2.tar.gz"
   sha256 "d460632eff7e2753a0048f6bd18e97b9d7c415580c358365ff35ac64af30a452"
+  license "GPL-3.0"
   head "https://www.retrodev.com/repos/blastem", :using => :hg
 
   bottle do

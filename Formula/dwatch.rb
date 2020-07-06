@@ -3,6 +3,7 @@ class Dwatch < Formula
   homepage "https://siag.nu/dwatch/"
   url "https://siag.nu/pub/dwatch/dwatch-0.1.1.tar.gz"
   sha256 "ba093d11414e629b4d4c18c84cc90e4eb079a3ba4cfba8afe5026b96bf25d007"
+  license "GPL-2.0"
 
   bottle do
     rebuild 2

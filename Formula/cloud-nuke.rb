@@ -3,6 +3,7 @@ class CloudNuke < Formula
   homepage "https://gruntwork.io/"
   url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.1.20.tar.gz"
   sha256 "9a8df713129afe2c4a536dcf3286353ecfb1899655efb95a6608c078cc66f89e"
+  license "MIT"
   head "https://github.com/gruntwork-io/cloud-nuke.git"
 
   bottle do

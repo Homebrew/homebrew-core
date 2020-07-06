@@ -3,6 +3,7 @@ class Libofx < Formula
   homepage "https://libofx.sourceforge.io"
   url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.9.15.tar.gz"
   sha256 "e95c14e09fc37b331af3ef4ef7bea29eb8564a06982959fbd4bca7e331816144"
+  license "GPL-2.0"
 
   bottle do
     sha256 "aa4c73d9fe09d54bc4fb0a1dde14bd927949f4d0ce100dae987f03df79236958" => :catalina

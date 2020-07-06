@@ -5,6 +5,7 @@ class Sift < Formula
   homepage "https://sift-tool.org"
   url "https://github.com/svent/sift/archive/v0.9.0.tar.gz"
   sha256 "bbbd5c472c36b78896cd7ae673749d3943621a6d5523d47973ed2fc6800ae4c8"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

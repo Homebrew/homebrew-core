@@ -4,6 +4,7 @@ class Bartycrouch < Formula
   url "https://github.com/Flinesoft/BartyCrouch.git",
       :tag      => "4.2.0",
       :revision => "49b4cf27d5b521abf615d4ccb7754d642205f802"
+  license "MIT"
   head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do

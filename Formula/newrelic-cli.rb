@@ -3,6 +3,7 @@ class NewrelicCli < Formula
   homepage "https://github.com/newrelic/newrelic-cli"
   url "https://github.com/newrelic/newrelic-cli/archive/v0.9.0.tar.gz"
   sha256 "4c64549baaefae241ae8ff152e600e6092f33a1e1525a39a323cc69e459c66cd"
+  license "Apache-2.0"
   head "https://github.com/newrelic/newrelic-cli.git"
 
   bottle do

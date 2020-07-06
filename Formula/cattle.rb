@@ -3,6 +3,7 @@ class Cattle < Formula
   homepage "https://kiyuko.org/software/cattle"
   url "https://kiyuko.org/software/cattle/releases/cattle-1.4.0.tar.xz"
   sha256 "9ba2d746f940978b5bfc6c39570dde7dc55d5b4d09d0d25f29252d6a25fb562f"
+  license "GPL-2.0"
 
   bottle do
     sha256 "d721fea1c78f6b79eb7ae7e325442e276638919bdef0a21604e910501d4cc67f" => :catalina

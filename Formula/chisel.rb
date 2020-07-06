@@ -3,6 +3,7 @@ class Chisel < Formula
   homepage "https://github.com/facebook/chisel"
   url "https://github.com/facebook/chisel/archive/2.0.0.tar.gz"
   sha256 "e2ededa84fbe68904f01ff12f2c9607a87626e33c17ed35989278f15c3543385"
+  license "MIT"
   head "https://github.com/facebook/chisel.git"
 
   bottle do

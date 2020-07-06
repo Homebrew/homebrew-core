@@ -3,6 +3,7 @@ class ConsoleBridge < Formula
   homepage "https://wiki.ros.org/console_bridge/"
   url "https://github.com/ros/console_bridge/archive/1.0.0.tar.gz"
   sha256 "880bbded7fcdc71479e9b1efc3ba5353f08eed23f0009c93d6bea8ba3974d078"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

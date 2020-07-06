@@ -3,6 +3,7 @@ class Gitversion < Formula
   homepage "https://github.com/GitTools/GitVersion"
   url "https://github.com/GitTools/GitVersion/releases/download/5.0.1/GitVersion-bin-fullfx-v5.0.1.zip"
   sha256 "9b543d3e42e0d5e6fab0b44553cb6bbbb0e31431030ef761fc1a50c845fd166a"
+  license "MIT"
 
   bottle :unneeded
 

@@ -3,6 +3,7 @@ class RubyBuild < Formula
   homepage "https://github.com/rbenv/ruby-build"
   url "https://github.com/rbenv/ruby-build/archive/v20200520.tar.gz"
   sha256 "52be6908a94fbd4a94f5064e8b19d4a3baa4b773269c3884165518d83bcc8922"
+  license "MIT"
   head "https://github.com/rbenv/ruby-build.git"
 
   bottle :unneeded

@@ -3,6 +3,7 @@ class Bundletool < Formula
   homepage "https://github.com/google/bundletool"
   url "https://github.com/google/bundletool/releases/download/1.0.0/bundletool-all-1.0.0.jar"
   sha256 "b40142e1e04e1e2fbf1588495082fafedb629c6c78dab0e193d2ebd6ec75f655"
+  license "Apache-2.0"
 
   bottle :unneeded
 

@@ -3,6 +3,7 @@ class SsllabsScan < Formula
   homepage "https://github.com/ssllabs/ssllabs-scan/"
   url "https://github.com/ssllabs/ssllabs-scan/archive/v1.5.0.tar.gz"
   sha256 "51c52e958d5da739910e9271a3abf4902892b91acb840ea74f5c052a71e3a008"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Lbdb < Formula
   homepage "https://www.spinnaker.de/lbdb/"
   url "https://www.spinnaker.de/lbdb/download/lbdb_0.48.1.tar.gz"
   sha256 "b0cbc68abeb70be779b234f736dd7eb14bf3f7cd1a2ea41e636de1949da025bf"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -5,6 +5,7 @@ class Whatmp3 < Formula
   homepage "https://github.com/RecursiveForest/whatmp3"
   url "https://github.com/RecursiveForest/whatmp3/archive/v3.8.tar.gz"
   sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
+  license "MIT"
   revision 3
   head "https://github.com/RecursiveForest/whatmp3.git"
 

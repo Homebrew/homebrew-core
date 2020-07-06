@@ -3,6 +3,7 @@ class Byobu < Formula
   homepage "https://launchpad.net/byobu"
   url "https://launchpad.net/byobu/trunk/5.133/+download/byobu_5.133.orig.tar.gz"
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

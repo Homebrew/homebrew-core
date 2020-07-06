@@ -3,6 +3,7 @@ class Namebench < Formula
   homepage "https://code.google.com/archive/p/namebench/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/namebench/namebench-1.3.1-source.tgz"
   sha256 "30ccf9e870c1174c6bf02fca488f62bba280203a0b1e8e4d26f3756e1a5b9425"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

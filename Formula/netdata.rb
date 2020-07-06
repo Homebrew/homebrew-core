@@ -3,6 +3,7 @@ class Netdata < Formula
   homepage "https://netdata.cloud/"
   url "https://github.com/netdata/netdata/releases/download/v1.23.1/netdata-v1.23.1.tar.gz"
   sha256 "2bc16dbe9eb7a41513efc068e4c78af6b8fde0549fbe1c99a87205c8101d33db"
+  license "GPL-3.0"
 
   bottle do
     sha256 "f4a10ab5fc5de3ed2a22df5159601d3a58c7e650b5711f8b2af346cb8773ae11" => :catalina

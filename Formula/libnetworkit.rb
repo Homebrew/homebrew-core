@@ -3,6 +3,7 @@ class Libnetworkit < Formula
   homepage "https://networkit.github.io"
   url "https://github.com/networkit/networkit/archive/7.0.tar.gz"
   sha256 "4faf16c5fae3e14d3c1b6f30e25c6e093dcf6a3dbf021235f3161ac2a527f682"
+  license "MIT"
 
   bottle do
     cellar :any

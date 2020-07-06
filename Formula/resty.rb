@@ -3,6 +3,7 @@ class Resty < Formula
   homepage "https://github.com/micha/resty"
   url "https://github.com/micha/resty/archive/v3.0.tar.gz"
   sha256 "9ed8f50dcf70a765b3438840024b557470d7faae2f0c1957a011ebb6c94b9dd1"
+  license "MIT"
   head "https://github.com/micha/resty.git"
 
   bottle do

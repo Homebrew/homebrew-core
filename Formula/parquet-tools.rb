@@ -4,6 +4,7 @@ class ParquetTools < Formula
   url "https://github.com/apache/parquet-mr.git",
       :tag      => "apache-parquet-1.10.0",
       :revision => "031a6654009e3b82020012a18434c582bd74c73a"
+  license "Apache-2.0"
   head "https://github.com/apache/parquet-mr.git"
 
   bottle do

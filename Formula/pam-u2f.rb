@@ -3,6 +3,7 @@ class PamU2f < Formula
   homepage "https://developers.yubico.com/pam-u2f/"
   url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.0.8.tar.gz"
   sha256 "52a203a6fab6160e06c1369ff104afed62007ca3ffbb40c297352232fa975c99"
+  license "BSD-2-Clause"
   head "https://github.com/Yubico/pam-u2f.git"
 
   bottle do

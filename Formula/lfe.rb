@@ -3,6 +3,7 @@ class Lfe < Formula
   homepage "http://lfe.io/"
   url "https://github.com/rvirding/lfe/archive/v1.3.tar.gz"
   sha256 "1946c0df595ae49ac33fe583f359812dec6349da6acf43c1458534de3267036b"
+  license "Apache-2.0"
   head "https://github.com/rvirding/lfe.git", :branch => "develop"
 
   bottle do

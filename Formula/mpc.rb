@@ -3,6 +3,7 @@ class Mpc < Formula
   homepage "https://www.musicpd.org/clients/mpc/"
   url "https://www.musicpd.org/download/mpc/0/mpc-0.33.tar.xz"
   sha256 "4f40ccbe18f5095437283cfc525a97815e983cbfd3a29e48ff610fa4f1bf1296"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

@@ -3,6 +3,7 @@ class Kyua < Formula
   homepage "https://github.com/jmmv/kyua"
   url "https://github.com/jmmv/kyua/releases/download/kyua-0.13/kyua-0.13.tar.gz"
   sha256 "db6e5d341d5cf7e49e50aa361243e19087a00ba33742b0855d2685c0b8e721d6"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do

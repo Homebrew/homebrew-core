@@ -4,6 +4,7 @@ class QpidProton < Formula
   url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.31.0/qpid-proton-0.31.0.tar.gz"
   mirror "https://archive.apache.org/dist/qpid/proton/0.31.0/qpid-proton-0.31.0.tar.gz"
   sha256 "9ae3845188afd5988fed7e640a493c21fa02d3e77d26d39c013abfd937aedcea"
+  license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git"
 
   bottle do

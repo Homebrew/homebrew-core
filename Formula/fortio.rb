@@ -4,6 +4,7 @@ class Fortio < Formula
   url "https://github.com/fortio/fortio.git",
       :tag      => "v1.4.1",
       :revision => "11f2dececb6ac224ca492f01b02a82f48f94f8c2"
+  license "Apache-2.0"
 
   bottle do
     sha256 "2cd5f952ee237726111ca74eabafe3fe8d6919c7cb80d88ccbc9b9fff3879005" => :catalina

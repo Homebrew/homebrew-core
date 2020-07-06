@@ -4,6 +4,7 @@ class Libserdes < Formula
   url "https://github.com/confluentinc/libserdes.git",
     :tag      => "v5.5.1",
     :revision => "b259d15f68dce65591700b0ccccb73311db1de3d"
+  license "Apache-2.0"
   head "https://github.com/confluentinc/libserdes.git"
 
   bottle do

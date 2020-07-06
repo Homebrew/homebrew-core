@@ -3,6 +3,7 @@ class Glances < Formula
   homepage "https://nicolargo.github.io/glances/"
   url "https://github.com/nicolargo/glances/archive/v3.1.4.1.tar.gz"
   sha256 "0347a0b949451fd0022c0f22e54092fe526120a776af1f2bde1ea7ba61d6b792"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

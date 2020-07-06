@@ -3,6 +3,7 @@ class Inadyn < Formula
   homepage "https://troglobit.com/projects/inadyn/"
   url "https://github.com/troglobit/inadyn/releases/download/v2.7/inadyn-2.7.tar.xz"
   sha256 "eb03bc9d9c09dfbbc651b43a2eb5a967d0454a8293576df23784710dac50c6a4"
+  license "GPL-2.0"
 
   bottle do
     sha256 "15adb75ac20d48ad952fce27a06f8b8ce8728d5084b9e1b3632215aa7ed2fc64" => :catalina

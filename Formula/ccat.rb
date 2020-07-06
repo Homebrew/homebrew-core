@@ -3,6 +3,7 @@ class Ccat < Formula
   homepage "https://github.com/jingweno/ccat"
   url "https://github.com/jingweno/ccat/archive/v1.1.0.tar.gz"
   sha256 "b02d2c8d573f5d73595657c7854c9019d3bd2d9e6361b66ce811937ffd2bfbe1"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

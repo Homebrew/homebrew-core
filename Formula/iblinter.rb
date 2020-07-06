@@ -3,6 +3,7 @@ class Iblinter < Formula
   homepage "https://github.com/IBDecodable/IBLinter"
   url "https://github.com/IBDecodable/IBLinter/archive/0.4.23.tar.gz"
   sha256 "f39241980244cb97fccb11ef3aac6b6deb9c6cfbcf1253e1280f18499c43e739"
+  license "MIT"
   head "https://github.com/IBDecodable/IBLinter.git"
 
   bottle do

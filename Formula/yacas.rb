@@ -3,6 +3,7 @@ class Yacas < Formula
   homepage "https://www.yacas.org/"
   url "https://github.com/grzegorzmazur/yacas/archive/v1.8.0.tar.gz"
   sha256 "25ebdafaec032eb4f39a12d87afc6cf9bf63ab952479a4839a71df92da5a981b"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any_skip_relocation

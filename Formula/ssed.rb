@@ -3,6 +3,7 @@ class Ssed < Formula
   homepage "https://sed.sourceforge.io/grabbag/ssed/"
   url "https://sed.sourceforge.io/grabbag/ssed/sed-3.62.tar.gz"
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

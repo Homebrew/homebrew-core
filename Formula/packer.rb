@@ -4,6 +4,7 @@ class Packer < Formula
   url "https://github.com/hashicorp/packer.git",
       :tag      => "v1.6.0",
       :revision => "b05ca9e9e1989e832e02b5f676917a5b9c683606"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do

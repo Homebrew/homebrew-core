@@ -3,6 +3,7 @@ class Okteto < Formula
   homepage "https://okteto.com"
   url "https://github.com/okteto/okteto/archive/1.8.14.tar.gz"
   sha256 "ead78ef55439f66f775757886ccce26cf741e9acbeb557dd6a4ee0e2f7c463ea"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

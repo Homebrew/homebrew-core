@@ -4,6 +4,7 @@ class Glooctl < Formula
   url "https://github.com/solo-io/gloo.git",
       :tag      => "v1.4.2",
       :revision => "8f064c02d58be7cf86b3aa4ffb59b8ae2856a729"
+  license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do

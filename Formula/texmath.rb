@@ -7,6 +7,7 @@ class Texmath < Formula
   homepage "https://johnmacfarlane.net/texmath.html"
   url "https://hackage.haskell.org/package/texmath-0.12.0.2/texmath-0.12.0.2.tar.gz"
   sha256 "2fec285a2266e56bba17914c122045f31b38de3efcd202dcf32a4f8b830bd184"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

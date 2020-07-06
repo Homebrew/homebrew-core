@@ -3,6 +3,7 @@ class Alpine < Formula
   homepage "http://alpine.x10host.com/alpine/release/"
   url "http://alpine.x10host.com/alpine/release/src/alpine-2.23.tar.xz"
   sha256 "793a61215c005b5fcffb48f642f125915276b7ec7827508dd9e83d4c4da91f7b"
+  license "Apache-2.0"
   head "https://repo.or.cz/alpine.git"
 
   bottle do

@@ -5,6 +5,7 @@ class Conan < Formula
   homepage "https://github.com/conan-io/conan"
   url "https://github.com/conan-io/conan/archive/1.27.0.tar.gz"
   sha256 "07d818c52cafdbbf68d8910e15d3ed91eac0389e1d538c0c01f532aff35741fa"
+  license "MIT"
   head "https://github.com/conan-io/conan.git"
 
   bottle do

@@ -4,6 +4,7 @@ class Zookeeper < Formula
   url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.5.8/apache-zookeeper-3.5.8.tar.gz"
   mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.5.8/apache-zookeeper-3.5.8.tar.gz"
   sha256 "bafc0abe7da696a2020ba11b8ce7d06f6e28e9bf1e5504de09be25b8b589777d"
+  license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
   bottle do

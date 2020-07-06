@@ -3,6 +3,7 @@ class Forcecli < Formula
   homepage "https://force-cli.herokuapp.com/"
   url "https://github.com/ForceCLI/force/archive/v0.28.1.tar.gz"
   sha256 "dcba3a9e4e8f4956af46b797dae0a701f6043e879746b33cc744ea2a5542ae76"
+  license "MIT"
   head "https://github.com/ForceCLI/force.git"
 
   bottle do

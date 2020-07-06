@@ -4,6 +4,7 @@ class CfrDecompiler < Formula
   url "https://github.com/leibnitz27/cfr.git",
       :tag      => "0.150",
       :revision => "1361cd7fa74f25f30a6bbf72c825d83647d2cdaf"
+  license "MIT"
   head "https://github.com/leibnitz27/cfr.git"
 
   bottle do

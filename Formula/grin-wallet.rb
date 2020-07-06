@@ -3,6 +3,7 @@ class GrinWallet < Formula
   homepage "https://grin.mw"
   url "https://github.com/mimblewimble/grin-wallet/archive/v4.0.0.tar.gz"
   sha256 "b31e7e0271c7c821c66153fbc2b70aa7db365309a5460fde9dc004a5dcc72986"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

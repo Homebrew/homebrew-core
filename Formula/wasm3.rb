@@ -3,6 +3,7 @@ class Wasm3 < Formula
   homepage "https://github.com/wasm3/wasm3"
   url "https://github.com/wasm3/wasm3/archive/v0.4.7.tar.gz"
   sha256 "11e863a643f605d62a5276e342abb01a65d33d138d01ea0070622a3f78fa1bd5"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

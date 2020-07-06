@@ -3,6 +3,7 @@ class Abcm2ps < Formula
   homepage "http://moinejf.free.fr"
   url "https://github.com/leesavide/abcm2ps/archive/v8.14.9.tar.gz"
   sha256 "9d91c215d59bb3704fe174ba0729f634e656ab42210cfabf02f0c5c4e0c9d877"
+  license "GPL-3.0"
 
   bottle do
     sha256 "c67da1ca155904d0794fc458add9bd5cd4a446a212e3aef790083c68e9aef252" => :catalina

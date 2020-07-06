@@ -3,6 +3,7 @@ class Embree < Formula
   homepage "https://embree.github.io/"
   url "https://github.com/embree/embree/archive/v3.11.0.tar.gz"
   sha256 "2ccc365c00af4389aecc928135270aba7488e761c09d7ebbf1bf3e62731b147d"
+  license "Apache-2.0"
   head "https://github.com/embree/embree.git"
 
   bottle do

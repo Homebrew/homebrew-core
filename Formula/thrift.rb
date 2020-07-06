@@ -4,6 +4,7 @@ class Thrift < Formula
   url "https://www.apache.org/dyn/closer.lua?path=thrift/0.13.0/thrift-0.13.0.tar.gz"
   mirror "https://archive.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz"
   sha256 "7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

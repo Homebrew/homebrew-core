@@ -4,6 +4,7 @@ class Landscaper < Formula
   url "https://github.com/Eneco/landscaper.git",
       :tag      => "v1.0.24",
       :revision => "1199b098bcabc729c885007d868f38b2cf8d2370"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/Eneco/landscaper.git"
 

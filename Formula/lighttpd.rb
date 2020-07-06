@@ -3,6 +3,7 @@ class Lighttpd < Formula
   homepage "https://www.lighttpd.net/"
   url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.55.tar.xz"
   sha256 "6a0b50e9c9d5cc3d9e48592315c25a2d645858f863e1ccd120507a30ce21e927"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "7cb7b6026dbba9a3afde8a0e2e2740499564687fb61ee6c49d5cabc29f780a2d" => :catalina

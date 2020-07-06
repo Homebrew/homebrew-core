@@ -3,6 +3,7 @@ class Libsndfile < Formula
   homepage "http://www.mega-nerd.com/libsndfile/"
   url "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz"
   sha256 "1ff33929f042fa333aed1e8923aa628c3ee9e1eb85512686c55092d1e5a9dfa9"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any

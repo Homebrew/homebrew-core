@@ -3,6 +3,7 @@ class Html2text < Formula
   homepage "http://www.mbayer.de/html2text/"
   url "https://github.com/grobian/html2text/archive/v2.0.0.tar.gz"
   sha256 "061125bfac658c6d89fa55e9519d90c5eeb3ba97b2105748ee62f3a3fa2449de"
+  license "GPL-2.0"
   head "https://github.com/grobian/html2text.git"
 
   bottle do

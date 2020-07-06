@@ -5,6 +5,7 @@ class Readline < Formula
   mirror "https://ftpmirror.gnu.org/readline/readline-8.0.tar.gz"
   version "8.0.4"
   sha256 "e339f51971478d369f8a053a330a190781acb9864cf4c541060f12078948e461"
+  license "GPL-3.0"
 
   %w[
     001 d8e5e98933cf5756f862243c0601cb69d3667bb33f2c7b751fe4e40b2c3fd069

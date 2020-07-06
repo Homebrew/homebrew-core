@@ -3,6 +3,7 @@ class Launch < Formula
   homepage "https://sabi.net/nriley/software/#launch"
   url "https://sabi.net/nriley/software/launch-1.2.5.tar.gz"
   sha256 "486632b11bee04d9f6bcb595fd2a68b5fde2f748ebdc182274778cc5cf97ff70"
+  license "BSD-3-Clause"
   head "https://github.com/nriley/launch.git"
 
   bottle do

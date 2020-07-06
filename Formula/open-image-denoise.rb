@@ -3,6 +3,7 @@ class OpenImageDenoise < Formula
   homepage "https://openimagedenoise.github.io"
   url "https://github.com/OpenImageDenoise/oidn/releases/download/v1.2.1/oidn-1.2.1.src.tar.gz"
   sha256 "bc75d28f472628c80768435e800a28fdb18a5d058c16dac98c00f9aae8c536e6"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

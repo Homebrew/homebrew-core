@@ -3,6 +3,7 @@ class GitDelta < Formula
   homepage "https://github.com/dandavison/delta"
   url "https://github.com/dandavison/delta/archive/0.2.0.tar.gz"
   sha256 "c093d40e7a069572fc31407a39dcb6a77094acb5b52518691de6f8f0c21530de"
+  license "MIT"
   head "https://github.com/dandavison/delta.git"
 
   bottle do

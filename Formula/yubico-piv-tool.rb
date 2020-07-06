@@ -3,6 +3,7 @@ class YubicoPivTool < Formula
   homepage "https://developers.yubico.com/yubico-piv-tool/"
   url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.0.0.tar.gz"
   sha256 "dae510ea88922720019029c7f0296ddc74bb30573e40d9bc18fc155023859488"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

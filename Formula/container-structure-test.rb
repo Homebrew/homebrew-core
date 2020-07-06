@@ -3,6 +3,7 @@ class ContainerStructureTest < Formula
   homepage "https://github.com/GoogleContainerTools/container-structure-test"
   url "https://github.com/GoogleContainerTools/container-structure-test/archive/v1.9.0.tar.gz"
   sha256 "6a70b123a5a7781501109912249bc1209527d5dbee026e38777a25340b77a1df"
+  license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/container-structure-test.git"
 
   bottle do

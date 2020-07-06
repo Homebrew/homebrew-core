@@ -5,6 +5,7 @@ class HttpServer < Formula
   homepage "https://github.com/http-party/http-server"
   url "https://registry.npmjs.org/http-server/-/http-server-0.12.3.tgz"
   sha256 "7a4f4c768bedbdfd72de849efcbf65a437000004f5cabf958bc2d73caa1a1623"
+  license "MIT"
   head "https://github.com/http-party/http-server.git"
 
   bottle do

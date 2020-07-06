@@ -3,6 +3,7 @@ class Foma < Formula
   homepage "https://code.google.com/p/foma/"
   url "https://bitbucket.org/mhulden/foma/downloads/foma-0.9.18.tar.gz"
   sha256 "cb380f43e86fc7b3d4e43186db3e7cff8f2417e18ea69cc991e466a3907d8cbd"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

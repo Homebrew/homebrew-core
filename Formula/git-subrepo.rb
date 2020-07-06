@@ -3,6 +3,7 @@ class GitSubrepo < Formula
   homepage "https://github.com/ingydotnet/git-subrepo"
   url "https://github.com/ingydotnet/git-subrepo/archive/0.4.1.tar.gz"
   sha256 "64cc2490c54fe1e5396bb14f6bbf0aa8378085f3b8847fd8ed171e5ddd886065"
+  license "MIT"
   head "https://github.com/ingydotnet/git-subrepo.git"
 
   bottle do

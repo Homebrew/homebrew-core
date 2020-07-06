@@ -3,6 +3,7 @@ class Honcho < Formula
   homepage "https://github.com/nickstenning/honcho"
   url "https://github.com/nickstenning/honcho/archive/v1.0.1.tar.gz"
   sha256 "3271f986ff7c4732cfd390383078bfce68c46f9ad74f1804c1b0fc6283b13f7e"
+  license "MIT"
   revision 2
 
   bottle do

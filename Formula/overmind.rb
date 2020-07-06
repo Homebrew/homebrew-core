@@ -3,6 +3,7 @@ class Overmind < Formula
   homepage "https://github.com/DarthSim/overmind"
   url "https://github.com/DarthSim/overmind/archive/v2.1.1.tar.gz"
   sha256 "250d60bebb5d353b449a34f4eae7e036e0b6f46bd23b2c7b8d333acff7c7a615"
+  license "MIT"
   head "https://github.com/DarthSim/overmind.git"
 
   bottle do

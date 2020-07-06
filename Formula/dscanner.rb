@@ -4,6 +4,7 @@ class Dscanner < Formula
   url "https://github.com/dlang-community/D-Scanner.git",
       :tag      => "v0.9.0",
       :revision => "6d91031302fd611cbb3ce36f9b7499ddc3cd2ce7"
+  license "BSL-1.0"
   head "https://github.com/dlang-community/D-Scanner.git"
 
   bottle do

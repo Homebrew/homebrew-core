@@ -3,6 +3,7 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.com/"
   url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200513.tar.xz"
   sha256 "e73409a9fb8c90506db241d1e1a4e7372a60dbfa400e37f4ab2fd70a92ba495f"
+  license "GPL-2.0"
   head "https://git.zx2c4.com/wireguard-tools", :using => :git
 
   bottle do

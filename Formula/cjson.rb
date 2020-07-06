@@ -3,6 +3,7 @@ class Cjson < Formula
   homepage "https://github.com/DaveGamble/cJSON"
   url "https://github.com/DaveGamble/cJSON/archive/v1.7.13.tar.gz"
   sha256 "d4e77a38f540f2c37f55758f2666655314f1f51c716fea5f279659940efdcf04"
+  license "MIT"
 
   bottle do
     cellar :any

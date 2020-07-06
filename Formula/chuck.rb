@@ -3,6 +3,7 @@ class Chuck < Formula
   homepage "https://chuck.cs.princeton.edu/"
   url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.0.1.tgz"
   sha256 "11a20c34b385e132bf43d5ae6a562c652f631828cc6b1562a4c029bc9a850ed4"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

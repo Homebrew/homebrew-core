@@ -3,6 +3,7 @@ class Paket < Formula
   homepage "https://fsprojects.github.io/Paket/"
   url "https://github.com/fsprojects/Paket/releases/download/5.247.4/paket.exe"
   sha256 "17f3b54647491dcc246f1fd2099813de211446afa67c9aba359ceccada2ee6d8"
+  license "MIT"
 
   bottle :unneeded
 

@@ -3,6 +3,7 @@ class Grakn < Formula
   homepage "https://grakn.ai"
   url "https://github.com/graknlabs/grakn/releases/download/1.8.0/grakn-core-all-mac-1.8.0.zip"
   sha256 "5d9e4e7067e53be2868d8a9a56f9e64fe2dee2b46039a303655d32911cbbdf56"
+  license "AGPL-3.0"
 
   bottle :unneeded
 

@@ -3,6 +3,7 @@ class Archey < Formula
   homepage "https://obihann.github.io/archey-osx/"
   url "https://github.com/obihann/archey-osx/archive/1.6.0.tar.gz"
   sha256 "0f0ffcf8c5f07610b98f0351dcb38bb8419001f40906d5dc4bfd28ef12dbd0f8"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/obihann/archey-osx.git"
 

@@ -3,6 +3,7 @@ class LiquidDsp < Formula
   homepage "https://liquidsdr.org/"
   url "https://github.com/jgaeddert/liquid-dsp/archive/v1.3.2.tar.gz"
   sha256 "85093624ef9cb90ead64c836d2f42690197edace1a86257d6524c4e4dc870483"
+  license "MIT"
 
   bottle do
     cellar :any

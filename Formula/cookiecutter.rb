@@ -5,6 +5,7 @@ class Cookiecutter < Formula
   homepage "https://github.com/cookiecutter/cookiecutter"
   url "https://github.com/cookiecutter/cookiecutter/archive/1.7.2.tar.gz"
   sha256 "32d176621bbbe76f11012e015930d2382f0fbe803362091e79a5dddbf5612abc"
+  license "BSD-3-Clause"
   head "https://github.com/cookiecutter/cookiecutter.git"
 
   bottle do

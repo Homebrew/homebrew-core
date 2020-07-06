@@ -3,6 +3,7 @@ class Blockhash < Formula
   homepage "https://github.com/commonsmachinery/blockhash"
   url "https://github.com/commonsmachinery/blockhash/archive/v0.3.1.tar.gz"
   sha256 "56e8d2fecf2c7658c9f8b32bfb2d29fdd0d0535ddb3082e44b45a5da705aca86"
+  license "MIT"
   revision 1
   head "https://github.com/commonsmachinery/blockhash.git"
 

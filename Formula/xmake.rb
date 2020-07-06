@@ -3,6 +3,7 @@ class Xmake < Formula
   homepage "https://xmake.io/"
   url "https://github.com/xmake-io/xmake/releases/download/v2.3.5/xmake-v2.3.5.tar.gz"
   sha256 "5be491fd023333225ab347dc209f18f453e61d52988ae84f485e1b2552a440d6"
+  license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Verilator < Formula
   homepage "https://www.veripool.org/wiki/verilator"
   url "https://www.veripool.org/ftp/verilator-4.036.tgz"
   sha256 "307cf2657328b6e529af48c2d7d06b78b98d00d4f0148a484173cf81df15c0eb"
+  license "LGPL-3.0"
 
   bottle do
     sha256 "b5cf626c764981beb0c7c2d687478c49aaec9def3a4c0c03def9a918630601e7" => :catalina

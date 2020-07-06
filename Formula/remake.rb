@@ -4,6 +4,7 @@ class Remake < Formula
   url "https://downloads.sourceforge.net/project/bashdb/remake/4.3%2Bdbg-1.5/remake-4.3%2Bdbg-1.5.tar.gz"
   version "4.3-1.5"
   sha256 "2e6eb709f3e6b85893f14f15e34b4c9b754aceaef0b92bb6ca3a025f10119d76"
+  license "GPL-3.0"
 
   bottle do
     sha256 "ad7371427c7aa33cc28ac17f8f91fd6dd6a4e15b031a8aedabdc38a8da5ae7f7" => :catalina

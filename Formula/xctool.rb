@@ -3,6 +3,7 @@ class Xctool < Formula
   homepage "https://github.com/facebook/xctool"
   url "https://github.com/facebook/xctool/archive/0.3.7.tar.gz"
   sha256 "608522865dc42959a6240010c8295ce01278f4b7a8276d838f21a8973938206d"
+  license "Apache-2.0"
   head "https://github.com/facebook/xctool.git"
 
   bottle do

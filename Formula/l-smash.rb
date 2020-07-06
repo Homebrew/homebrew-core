@@ -5,6 +5,7 @@ class LSmash < Formula
       :shallow  => false,
       :tag      => "v2.9.1",
       :revision => "4cea08d264933634db5bc06da9d8d88fb5ddae07"
+  license "ISC"
   head "https://github.com/l-smash/l-smash.git"
 
   bottle do

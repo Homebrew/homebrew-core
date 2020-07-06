@@ -5,6 +5,7 @@ class Pnpm < Formula
   homepage "https://pnpm.js.org"
   url "https://registry.npmjs.org/pnpm/-/pnpm-5.2.9.tgz"
   sha256 "cc26f5f93300cf9b12d3a08fc8343516150fb3572cb956c72b5da5b1f710eee7"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

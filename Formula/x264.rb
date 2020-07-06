@@ -1,6 +1,7 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
+  license "GPL-2.0"
   head "https://code.videolan.org/videolan/x264.git"
 
   stable do

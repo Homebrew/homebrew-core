@@ -3,6 +3,7 @@ class Hivemind < Formula
   homepage "https://github.com/DarthSim/hivemind"
   url "https://github.com/DarthSim/hivemind/archive/v1.0.6.tar.gz"
   sha256 "8ca7884db49268b7938d0503e7e95443cb3a56696478d5dcc2b9813705525a39"
+  license "MIT"
   head "https://github.com/DarthSim/hivemind.git"
 
   bottle do

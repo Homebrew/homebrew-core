@@ -3,6 +3,7 @@ class WireguardGo < Formula
   homepage "https://www.wireguard.com/"
   url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20200320.tar.xz"
   sha256 "c8262da949043976d092859843d3c0cdffe225ec6f1398ba119858b6c1b3552f"
+  license "MIT"
   head "https://git.zx2c4.com/wireguard-go", :using => :git
 
   bottle do

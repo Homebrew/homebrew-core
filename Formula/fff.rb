@@ -3,6 +3,7 @@ class Fff < Formula
   homepage "https://github.com/dylanaraps/fff"
   url "https://github.com/dylanaraps/fff/archive/2.1.tar.gz"
   sha256 "776870d11c022fa40468d5d582831c0ab5beced573489097deaaf5dd690e7eab"
+  license "MIT"
 
   bottle :unneeded
 

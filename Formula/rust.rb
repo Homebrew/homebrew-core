@@ -1,6 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.44.1-src.tar.gz"
@@ -15,9 +16,10 @@ class Rust < Formula
 
   bottle do
     cellar :any
-    sha256 "51233359f026f3dfcecbdf5a0cb616a96c28d2fe0b7e05b888052b7d32236bdd" => :catalina
-    sha256 "f1f929eaa75409dc4534180cbb15fabc42af497ce1da90ef12c4103d03c9478f" => :mojave
-    sha256 "95e7a35a2f7588c72f19c1347dd3063c14d3812bafdaf466c3a0224882a3a78a" => :high_sierra
+    rebuild 1
+    sha256 "5128f7d93695a04ba887284a8d6061202031524251053371b406f94d29738758" => :catalina
+    sha256 "4679c3c77c502d67097ec602860dae400c64ea90e6064a45cd4444f27971eabb" => :mojave
+    sha256 "0a2c02fe10827d361d888532adf4471de7df37edd509bd59c710358cb4e32494" => :high_sierra
   end
 
   head do
@@ -81,7 +83,7 @@ class Rust < Formula
       ENV["RUSTC"] = bin/"rustc"
       args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
       system "cargo", "install", *args
-      man.install Dir["src/etc/man/*"]
+      man1.install Dir["src/etc/man/*.1"]
       bash_completion.install "src/etc/cargo.bashcomp.sh"
       zsh_completion.install "src/etc/_cargo"
     end

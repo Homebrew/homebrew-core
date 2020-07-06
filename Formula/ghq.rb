@@ -4,6 +4,7 @@ class Ghq < Formula
   url "https://github.com/x-motemen/ghq.git",
       :tag      => "v1.1.4",
       :revision => "5b8d4e4ca8099e8de0188d6174eb58217e05d503"
+  license "MIT"
   head "https://github.com/x-motemen/ghq.git"
 
   bottle do

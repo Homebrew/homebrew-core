@@ -3,6 +3,7 @@ class Wwwoffle < Formula
   homepage "https://www.gedanken.org.uk/software/wwwoffle/"
   url "https://www.gedanken.org.uk/software/wwwoffle/download/wwwoffle-2.9j.tgz"
   sha256 "b16dd2549dd47834805343025638c06a0d67f8ea7022101c0ce2b6847ba011c6"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

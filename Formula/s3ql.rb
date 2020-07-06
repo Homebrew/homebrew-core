@@ -5,6 +5,7 @@ class S3ql < Formula
   homepage "https://github.com/s3ql/s3ql"
   url "https://github.com/s3ql/s3ql/releases/download/release-3.3.2/s3ql-3.3.2.tar.bz2"
   sha256 "72b310052752e281a17468a8bbe9006db7fa1f0184b83b38c5667239dfd59e73"
+  license "GPL-3.0"
   revision 1
 
   bottle do

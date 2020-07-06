@@ -4,6 +4,7 @@ class SourceToImage < Formula
   url "https://github.com/openshift/source-to-image.git",
       :tag      => "v1.3.0",
       :revision => "eed2850f2187435ef5d83487e05bf3dc18622ceb"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/openshift/source-to-image.git"
 

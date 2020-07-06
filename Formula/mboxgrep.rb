@@ -3,6 +3,7 @@ class Mboxgrep < Formula
   homepage "https://datatipp.se/mboxgrep/"
   url "https://downloads.sourceforge.net/project/mboxgrep/mboxgrep/0.7.9/mboxgrep-0.7.9.tar.gz"
   sha256 "78d375a05c3520fad4bca88509d4da0dbe9fba31f36790bd20880e212acd99d7"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

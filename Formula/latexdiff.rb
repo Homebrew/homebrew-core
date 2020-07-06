@@ -3,6 +3,7 @@ class Latexdiff < Formula
   homepage "https://www.ctan.org/pkg/latexdiff"
   url "https://github.com/ftilmann/latexdiff/releases/download/1.3.1.1/latexdiff-1.3.1.1.tar.gz"
   sha256 "5e55ee205750ccbea8d69cf98791707e7a42ab88e92d3a1101f9de53643aa1d3"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

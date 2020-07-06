@@ -3,6 +3,7 @@ class Rhash < Formula
   homepage "https://sourceforge.net/projects/rhash/"
   url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.9/rhash-1.3.9-src.tar.gz"
   sha256 "42b1006f998adb189b1f316bf1a60e3171da047a85c4aaded2d0d26c1476c9f6"
+  license "0BSD"
   head "https://github.com/rhash/RHash.git"
 
   bottle do

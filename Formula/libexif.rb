@@ -3,6 +3,7 @@ class Libexif < Formula
   homepage "https://libexif.github.io/"
   url "https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz"
   sha256 "5048f1c8fc509cc636c2f97f4b40c293338b6041a5652082d5ee2cf54b530c56"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "7379f6990018006122bba69098864e8877e8e6e7be3af535f7e301d8ff097e98" => :catalina

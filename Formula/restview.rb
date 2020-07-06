@@ -5,6 +5,7 @@ class Restview < Formula
   homepage "https://mg.pov.lt/restview/"
   url "https://github.com/mgedmin/restview/archive/2.9.2.tar.gz"
   sha256 "155a5744111d3d1f9e7903f4445ff41c04b42c0be29705f57fb98b3d33b283bd"
+  license "GPL-3.0"
   revision 2
 
   bottle do

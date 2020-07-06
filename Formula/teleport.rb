@@ -3,6 +3,7 @@ class Teleport < Formula
   homepage "https://gravitational.com/teleport"
   url "https://github.com/gravitational/teleport/archive/v4.2.11.tar.gz"
   sha256 "e0c8f0123fd2c87fccd5464abc1079a82f0097999efeed32059a01f6fab19616"
+  license "Apache-2.0"
   head "https://github.com/gravitational/teleport.git"
 
   bottle do

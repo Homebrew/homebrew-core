@@ -3,6 +3,7 @@ class Le < Formula
   homepage "https://github.com/lavv17/le"
   url "https://github.com/lavv17/le/releases/download/v1.16.7/le-1.16.7.tar.gz"
   sha256 "1cbe081eba31e693363c9b8a8464af107e4babfd2354a09a17dc315b3605af41"
+  license "GPL-3.0"
 
   bottle do
     sha256 "704e7762fb13634aa7b2fe4cc271747894d8ffcf5028abd0d27497bceb6bc378" => :catalina

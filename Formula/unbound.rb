@@ -3,6 +3,7 @@ class Unbound < Formula
   homepage "https://www.unbound.net"
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.10.1.tar.gz"
   sha256 "b73677c21a71cf92f15cc8cfe76a3d875e40f65b6150081c39620b286582d536"
+  license "BSD-3-Clause"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do

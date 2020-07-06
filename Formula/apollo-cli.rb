@@ -5,6 +5,7 @@ class ApolloCli < Formula
   homepage "https://apollographql.com"
   url "https://registry.npmjs.org/apollo/-/apollo-2.28.3.tgz"
   sha256 "648334e38f9b8d45ceb59e216b5352d8edd60301b81d035084f823480b7136a7"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

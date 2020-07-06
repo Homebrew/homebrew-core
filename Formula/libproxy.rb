@@ -3,6 +3,7 @@ class Libproxy < Formula
   homepage "https://libproxy.github.io/libproxy/"
   url "https://github.com/libproxy/libproxy/archive/0.4.15.tar.gz"
   sha256 "18f58b0a0043b6881774187427ead158d310127fc46a1c668ad6d207fb28b4e0"
+  license "LGPL-2.1"
   revision 2
   head "https://github.com/libproxy/libproxy.git"
 

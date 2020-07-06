@@ -3,6 +3,7 @@ class Mtr < Formula
   homepage "https://www.bitwizard.nl/mtr/"
   url "https://github.com/traviscross/mtr/archive/v0.93.tar.gz"
   sha256 "3a1ab330104ddee3135af3cfa567b9608001c5deecbf200c08b545ed6d7a4c8f"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/traviscross/mtr.git"
 

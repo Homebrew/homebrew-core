@@ -3,6 +3,7 @@ class SshPermitA38 < Formula
   homepage "https://github.com/ierror/ssh-permit-a38"
   url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
   sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
+  license "MIT"
   revision 1
 
   bottle do

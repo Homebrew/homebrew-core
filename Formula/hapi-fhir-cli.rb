@@ -3,6 +3,7 @@ class HapiFhirCli < Formula
   homepage "https://hapifhir.io/hapi-fhir/docs/tools/hapi_fhir_cli.html"
   url "https://github.com/jamesagnew/hapi-fhir/releases/download/v5.0.0/hapi-fhir-5.0.0-cli.zip"
   sha256 "a08877a6d07cd480cc85966ff66025fe378101fedd3a287f9b29813579929214"
+  license "Apache-2.0"
 
   bottle :unneeded
 

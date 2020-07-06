@@ -3,6 +3,7 @@ class Biosig < Formula
   homepage "https://biosig.sourceforge.io"
   url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.0.4.src.tar.gz"
   sha256 "2b2b5d0cdb7a886b7c390d000bb9210b9b6e03f790c6443730dab96496926928"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

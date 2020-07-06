@@ -3,6 +3,7 @@ class WlaDx < Formula
   homepage "https://github.com/vhelin/wla-dx"
   url "https://github.com/vhelin/wla-dx/archive/v9.10.tar.gz"
   sha256 "a04eb7b0bdc314ba7cefd5ed1f8529ecc1b18ef524e8f7446e1a2cbf76fdcc4f"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

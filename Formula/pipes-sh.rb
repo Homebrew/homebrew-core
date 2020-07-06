@@ -3,6 +3,7 @@ class PipesSh < Formula
   homepage "https://github.com/pipeseroni/pipes.sh"
   url "https://github.com/pipeseroni/pipes.sh/archive/v1.3.0.tar.gz"
   sha256 "532976dd8dc2d98330c45a8bcb6d7dc19e0b0e30bba8872dcce352361655a426"
+  license "MIT"
   head "https://github.com/pipeseroni/pipes.sh.git"
 
   bottle do

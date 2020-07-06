@@ -4,6 +4,7 @@ class KymaCli < Formula
   url "https://github.com/kyma-project/cli.git",
       :tag      => "1.13.0",
       :revision => "4b943c861be35b5d563be4a5ebb6108752128c81"
+  license "Apache-2.0"
   head "https://github.com/kyma-project/cli.git"
 
   bottle do

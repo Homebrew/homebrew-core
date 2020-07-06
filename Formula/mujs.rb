@@ -5,6 +5,7 @@ class Mujs < Formula
   url "https://github.com/ccxvii/mujs.git",
       :tag      => "1.0.7",
       :revision => "90aca80865e28a1b9be9bc5ef1118438f62e4f8f"
+  license "ISC"
   head "https://github.com/ccxvii/mujs.git"
 
   bottle do

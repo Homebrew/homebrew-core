@@ -4,6 +4,7 @@ class Docker < Formula
   url "https://github.com/docker/docker-ce.git",
       :tag      => "v19.03.12",
       :revision => "48a66213fe1747e8873f849862ff3fb981899fc6"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

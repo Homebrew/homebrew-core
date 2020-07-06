@@ -3,6 +3,7 @@ class Ejabberd < Formula
   homepage "https://www.ejabberd.im"
   url "https://static.process-one.net/ejabberd/downloads/20.04/ejabberd-20.04.tgz"
   sha256 "130673a835a9768a47c78c6bfe9c622a3b5916dd8aaf12aad0acd2d0f7f3a5cf"
+  license "GPL-2.0"
   revision 1
 
   bottle do

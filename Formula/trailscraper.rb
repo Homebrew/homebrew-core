@@ -5,6 +5,7 @@ class Trailscraper < Formula
   homepage "https://github.com/flosell/trailscraper"
   url "https://github.com/flosell/trailscraper/archive/0.6.1.tar.gz"
   sha256 "9ca2535d397282ffc09e5ca05af19bc36dd3da02235df963c3016b9f2dc4d151"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

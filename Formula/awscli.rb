@@ -5,12 +5,13 @@ class Awscli < Formula
   homepage "https://aws.amazon.com/cli/"
   url "https://github.com/aws/aws-cli/archive/2.0.28.tar.gz"
   sha256 "8433691f1f877f6e3ca5f9ebc0aee494243d0d4c9cafa29c8aec5eaceb551245"
+  revision 1
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
-    sha256 "3b83be95ba5113c2d3ed994f31e17e35baef9517f8686f86a8ae911aed582995" => :catalina
-    sha256 "2a748f2c03b3c957e77c86fd2b089a4028bf9e8be685a7a395049d8a36b14625" => :mojave
-    sha256 "6c0515dfcf2b640aa6b3b7144d728392affec9656c63502b9cbdc84074700285" => :high_sierra
+    sha256 "9ccda93a89e585db08fa5ea113c158f6fe5c65bbab558e60f38f7a94256db0a1" => :catalina
+    sha256 "f113e0cc6520184d4a311c905a8b727d1b180b141198b685156ed673ef144309" => :mojave
+    sha256 "c0e144f0bff81abd16f70afa047d1208de7c515c87487c0e927004fc0b9287d2" => :high_sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
@@ -42,6 +43,8 @@ class Awscli < Formula
         if [[ -f $e ]]; then source $e; fi
       }
     EOS
+
+    system libexec/"bin/python3", "scripts/gen-ac-index", "--include-builtin-index"
   end
 
   def caveats
@@ -53,5 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
+    assert_include Dir["#{libexec}/lib/python3.8/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.8/site-packages/awscli/data/ac.index"
   end
 end

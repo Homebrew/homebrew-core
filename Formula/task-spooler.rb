@@ -3,6 +3,7 @@ class TaskSpooler < Formula
   homepage "https://vicerveza.homeunix.net/~viric/soft/ts/"
   url "https://vicerveza.homeunix.net/~viric/soft/ts/ts-1.0.tar.gz"
   sha256 "4f53e34fff0bb24caaa44cdf7598fd02f3e5fa7cacaea43fa0d081d03ffbb395"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

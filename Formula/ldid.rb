@@ -4,6 +4,7 @@ class Ldid < Formula
   url "https://git.saurik.com/ldid.git",
       :tag      => "v2.1.2",
       :revision => "c2f8abf013b22c335f44241a6a552a7767e73419"
+  license "AGPL-3.0"
   revision 1
   head "https://git.saurik.com/ldid.git"
 

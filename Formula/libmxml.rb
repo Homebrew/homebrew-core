@@ -3,6 +3,7 @@ class Libmxml < Formula
   homepage "https://michaelrsweet.github.io/mxml/"
   url "https://github.com/michaelrsweet/mxml/releases/download/v3.1/mxml-3.1.tar.gz"
   sha256 "1ac8d252f62f9dc2b2004518c70d2da313bdfcd92b8350e215f46064a34b52fc"
+  license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do

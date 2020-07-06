@@ -3,6 +3,7 @@ class Wslay < Formula
   homepage "https://wslay.sourceforge.io/"
   url "https://github.com/tatsuhiro-t/wslay/releases/download/release-1.1.1/wslay-1.1.1.tar.xz"
   sha256 "166cfa9e3971f868470057ed924ae1b53f428db061b361b9a17c0508719d2cb5"
+  license "MIT"
 
   bottle do
     cellar :any

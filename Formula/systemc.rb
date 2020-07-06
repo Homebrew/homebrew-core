@@ -3,6 +3,7 @@ class Systemc < Formula
   homepage "https://accellera.org/"
   url "https://www.accellera.org/images/downloads/standards/systemc/systemc-2.3.2.tar.gz"
   sha256 "a28eeee00189f0e39f51461dcd7dbed7fb38e4e07dbd9e723473000ce6ef73c5"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

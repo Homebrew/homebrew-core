@@ -3,6 +3,7 @@ class Berglas < Formula
   homepage "https://github.com/GoogleCloudPlatform/berglas"
   url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.3.tar.gz"
   sha256 "d85cf4b049346b8e643f0870c37c4ea7dee147f10c7f001c828071c13df2fa70"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

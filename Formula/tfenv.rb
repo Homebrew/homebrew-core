@@ -3,6 +3,7 @@ class Tfenv < Formula
   homepage "https://github.com/tfutils/tfenv"
   url "https://github.com/tfutils/tfenv/archive/v2.0.0.tar.gz"
   sha256 "de3dcf13768cb078e94d68ca85071b8d6e44104394336d952255ca558b854b0b"
+  license "MIT"
   head "https://github.com/tfutils/tfenv.git"
 
   bottle :unneeded

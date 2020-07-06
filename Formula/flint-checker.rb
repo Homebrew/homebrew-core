@@ -3,6 +3,7 @@ class FlintChecker < Formula
   homepage "https://github.com/pengwynn/flint"
   url "https://github.com/pengwynn/flint/archive/v0.1.0.tar.gz"
   sha256 "ec865ec5cad191c7fc9c7c6d5007754372696a708825627383913367f3ef8b7f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

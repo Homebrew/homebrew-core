@@ -3,6 +3,7 @@ class K3d < Formula
   homepage "https://github.com/rancher/k3d"
   url "https://github.com/rancher/k3d/archive/v1.7.0.tar.gz"
   sha256 "e741809eb27f707c0f22c19a41ebbd6be7c20ec275285bb12bbf437a675aafb7"
+  license "MIT"
   revision 1
 
   bottle do

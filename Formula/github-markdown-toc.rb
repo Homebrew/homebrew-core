@@ -3,6 +3,7 @@ class GithubMarkdownToc < Formula
   homepage "https://github.com/ekalinin/github-markdown-toc.go"
   url "https://github.com/ekalinin/github-markdown-toc.go/archive/1.0.0.tar.gz"
   sha256 "0a13627a29114ee817160ecd3eba130c05f95c4aeedb9d0805d8b5a587fce55a"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

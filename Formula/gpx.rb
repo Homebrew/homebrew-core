@@ -3,6 +3,7 @@ class Gpx < Formula
   homepage "https://github.com/markwal/GPX/blob/HEAD/README.md"
   url "https://github.com/markwal/GPX/archive/2.5.2.tar.gz"
   sha256 "8b637a366a2863ca3a11b4c6a33d8ebc10806bf7de3e3ac90f2a3a57529ea864"
+  license "GPL-2.0"
   head "https://github.com/markwal/GPX.git"
 
   bottle do

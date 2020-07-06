@@ -3,6 +3,7 @@ class Sentencepiece < Formula
   homepage "https://github.com/google/sentencepiece"
   url "https://github.com/google/sentencepiece/archive/v0.1.92.tar.gz"
   sha256 "6e9863851e6277862083518cc9f96211f334215d596fc8c65e074d564baeef0c"
+  license "Apache-2.0"
   head "https://github.com/google/sentencepiece.git"
 
   bottle do

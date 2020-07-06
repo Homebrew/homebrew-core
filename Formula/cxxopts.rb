@@ -3,6 +3,7 @@ class Cxxopts < Formula
   homepage "https://github.com/jarro2783/cxxopts"
   url "https://github.com/jarro2783/cxxopts/archive/v2.2.0.tar.gz"
   sha256 "447dbfc2361fce9742c5d1c9cfb25731c977b405f9085a738fbd608626da8a4d"
+  license "MIT"
   head "https://github.com/jarro2783/cxxopts.git"
 
   bottle do

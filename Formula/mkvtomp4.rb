@@ -5,6 +5,7 @@ class Mkvtomp4 < Formula
   homepage "https://github.com/gavinbeatty/mkvtomp4/"
   url "https://github.com/gavinbeatty/mkvtomp4/archive/mkvtomp4-v2.0.tar.gz"
   sha256 "0f9aa1754d4b33a6a83c0a71a373836d4872b3288dae9cfb6168c35f09887f2d"
+  license "MIT"
   revision 1
 
   bottle do

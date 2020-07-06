@@ -4,6 +4,7 @@ class Terraforming < Formula
   url "https://github.com/dtan4/terraforming.git",
       :tag      => "v0.18.0",
       :revision => "67cb9299f283bc16bd70c197f25edc419bee280f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

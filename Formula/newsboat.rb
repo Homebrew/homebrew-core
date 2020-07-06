@@ -3,6 +3,7 @@ class Newsboat < Formula
   homepage "https://newsboat.org/"
   url "https://newsboat.org/releases/2.19/newsboat-2.19.tar.xz"
   sha256 "ba484c825bb903daf6d33d55126107b59e41111b455d368362208f1825403d1b"
+  license "MIT"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do

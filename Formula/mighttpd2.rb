@@ -3,6 +3,7 @@ class Mighttpd2 < Formula
   homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
   url "https://hackage.haskell.org/package/mighttpd2-3.4.6/mighttpd2-3.4.6.tar.gz"
   sha256 "fe14264ea0e45281591c86030cad2b349480f16540ad1d9e3a29657ddf62e471"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do

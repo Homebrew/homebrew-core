@@ -3,6 +3,7 @@ class Lasso < Formula
   homepage "https://lasso.entrouvert.org/"
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.1.tar.gz"
   sha256 "f8a8dbce238802f6bb9c3b8bd528b4dce2a1dc44e2d34d8d839aa54fbc8ed1de"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

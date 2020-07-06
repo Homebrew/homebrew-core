@@ -5,6 +5,7 @@ class Minio < Formula
       :tag      => "RELEASE.2020-07-02T00-15-09Z",
       :revision => "11021b6a002c8ea32f8849f91ddd5e5c2aa47198"
   version "20200702001509"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

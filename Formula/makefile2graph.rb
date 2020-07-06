@@ -3,6 +3,7 @@ class Makefile2graph < Formula
   homepage "https://github.com/lindenb/makefile2graph"
   url "https://github.com/lindenb/makefile2graph/archive/v1.5.0.tar.gz"
   sha256 "9464c6c1291609c211284a9889faedbab22ef504ce967b903630d57a27643b40"
+  license "MIT"
   head "https://github.com/lindenb/makefile2graph.git"
 
   bottle do

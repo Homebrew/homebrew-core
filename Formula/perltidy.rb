@@ -3,6 +3,7 @@ class Perltidy < Formula
   homepage "https://perltidy.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/perltidy/20200619/Perl-Tidy-20200619.tar.gz"
   sha256 "03b0e1b777c95920053d37942d6398a56b746d7c78090d522371138785c8a09e"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

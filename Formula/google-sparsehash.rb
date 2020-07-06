@@ -3,6 +3,7 @@ class GoogleSparsehash < Formula
   homepage "https://github.com/sparsehash/sparsehash"
   url "https://github.com/sparsehash/sparsehash/archive/sparsehash-2.0.3.tar.gz"
   sha256 "05e986a5c7327796dad742182b2d10805a8d4f511ad090da0490f146c1ff7a8c"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

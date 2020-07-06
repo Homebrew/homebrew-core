@@ -3,6 +3,7 @@ class Gnupg < Formula
   homepage "https://gnupg.org/"
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.20.tar.bz2"
   sha256 "04a7c9d48b74c399168ee8270e548588ddbe52218c337703d7f06373d326ca30"
+  license "GPL-3.0"
 
   bottle do
     sha256 "527ac31afe998a9931a6648c6fcc7288462ae73d6e6e8b84ecf46561c82d50ec" => :catalina

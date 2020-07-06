@@ -3,6 +3,7 @@ class Flow < Formula
   homepage "https://flowtype.org/"
   url "https://github.com/facebook/flow/archive/v0.128.0.tar.gz"
   sha256 "91a6c83840ce7daa36d1c67272c5526b7118ce24ae106a4fb93e692f0f58f530"
+  license "MIT"
   head "https://github.com/facebook/flow.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Msitools < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/msitools/0.100/msitools-0.100.tar.xz"
   sha256 "bbf1a6e3a9c2323b860a3227ac176736a3eafc4a44a67346c6844591f10978ea"
+  license "GPL-2.0"
 
   bottle do
     sha256 "f9b65f68c973c323e96a0492df562bae32e3ede79d9e5a6f24b89f53ef085883" => :catalina

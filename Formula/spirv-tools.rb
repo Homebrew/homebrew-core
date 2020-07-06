@@ -3,6 +3,7 @@ class SpirvTools < Formula
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.3.tar.gz"
   sha256 "8b538a1cb2a4275ef9617abcb047d54e8292f975ac1d93323d5dd1e19c85280b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

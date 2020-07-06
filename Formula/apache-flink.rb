@@ -5,6 +5,7 @@ class ApacheFlink < Formula
   mirror "https://archive.apache.org/dist/flink/flink-1.10.1/flink-1.10.1-bin-scala_2.12.tgz"
   version "1.10.1"
   sha256 "cd3159a6d288349768787a1b57968e108e28e7d31c06d44c6ed241c102f56deb"
+  license "Apache-2.0"
   head "https://github.com/apache/flink.git"
 
   bottle :unneeded

@@ -3,6 +3,7 @@ class Lcov < Formula
   homepage "https://github.com/linux-test-project/lcov"
   url "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
   sha256 "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/linux-test-project/lcov.git"
 

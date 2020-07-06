@@ -3,6 +3,7 @@ class Tgui < Formula
   homepage "https://tgui.eu"
   url "https://github.com/texus/TGUI/archive/v0.8.8.tar.gz"
   sha256 "a00e34eea7dc584211b2ebbfabc026af7c261d7935c32ca77fd90ed7a6c85230"
+  license "Zlib"
 
   bottle do
     cellar :any

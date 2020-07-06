@@ -1,15 +1,18 @@
 class Spades < Formula
+  include Language::Python::Shebang
+
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
   url "https://github.com/ablab/spades/releases/download/v3.14.1/SPAdes-3.14.1.tar.gz"
   mirror "http://cab.spbu.ru/files/release3.14.1/SPAdes-3.14.1.tar.gz"
-  sha256 "d71ce756daa0a889b8881bd129a761200a0bb971e6fd2bed1384a1df9b585d1b"
+  sha256 "d629b78f7e74c82534ac20f5b3c2eb367f245e6840a67b9ef6a76f6fac5323ca"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2a3bcd1c2b83517676f45d3381b72e4644beeb98af2add918d8b30271eb8012" => :catalina
-    sha256 "a3074628545245497991275ef869a42fa30b465f523fc63c69c37fecdc5e4349" => :mojave
-    sha256 "c6d252bcbfe704a634cfbd929d87c003f1c2023abab767db6cd04e2c778c227b" => :high_sierra
+    sha256 "a6f57aca314cbe6d46554308a1b6a54c6c76bab341ac0813e9d0e68187428023" => :catalina
+    sha256 "0f536b922fba137fca8f2ba6634a90fc09e71b683342a0d331ac2bd1676d5fac" => :mojave
+    sha256 "c2bc400de41d30e04ad78cdc1894a5c9af1a15a237ae6aa71d73d2807b93e029" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -21,12 +24,11 @@ class Spades < Formula
   uses_from_macos "zlib"
 
   def install
-    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
-
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+    bin.find { |f| rewrite_shebang detected_python_shebang, f }
   end
 
   test do

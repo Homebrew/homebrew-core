@@ -4,6 +4,7 @@ class Whalebrew < Formula
   url "https://github.com/whalebrew/whalebrew.git",
     :tag      => "0.2.3",
     :revision => "7b371f6e0fa414e61761359441268b61c8a741ff"
+  license "Apache-2.0"
   head "https://github.com/whalebrew/whalebrew.git"
 
   bottle do

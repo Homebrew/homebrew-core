@@ -3,6 +3,7 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.99/libgit2-glib-0.99.0.1.tar.xz"
   sha256 "e05a75c444d9c8d5991afc4a5a64cd97d731ce21aeb7c1c651ade1a3b465b9de"
+  license "LGPL-2.1"
   revision 1
   head "https://github.com/GNOME/libgit2-glib.git"
 

@@ -3,6 +3,7 @@ class Pachi < Formula
   homepage "https://pachi.or.cz/"
   url "https://github.com/pasky/pachi/archive/pachi-12.50.tar.gz"
   sha256 "62c8d44bd4610fe9534a1f21bb092da209c9fb8dcb8d39558d79adabe31e740a"
+  license "GPL-2.0"
   head "https://github.com/pasky/pachi.git"
 
   bottle do

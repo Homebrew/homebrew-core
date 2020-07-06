@@ -3,6 +3,7 @@ class Xa < Formula
   homepage "https://www.floodgap.com/retrotech/xa/"
   url "https://www.floodgap.com/retrotech/xa/dists/xa-2.3.11.tar.gz"
   sha256 "32f2164c99e305218e992970856dd8e2309b5cb6ac4758d7b2afe3bfebc9012d"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

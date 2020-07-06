@@ -3,6 +3,7 @@ class Terraformer < Formula
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.8.tar.gz"
   sha256 "a9cabe0889ebf823abb552f6e24276a8bf7667923918814623fe5129c34f47f0"
+  license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/terraformer.git"
 
   bottle do

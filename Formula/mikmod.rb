@@ -3,6 +3,7 @@ class Mikmod < Formula
   homepage "https://mikmod.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mikmod/mikmod/3.2.8/mikmod-3.2.8.tar.gz"
   sha256 "dbb01bc36797ce25ffcab2b3bf625537b85b42534344e1808236ca612fbaa4cc"
+  license "GPL-2.0"
 
   bottle do
     sha256 "6d6794da1daf749a56cf55738f796fe5b6a7b337456730b21a5efba2fab60f38" => :catalina

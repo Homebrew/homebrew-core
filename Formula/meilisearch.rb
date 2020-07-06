@@ -3,6 +3,7 @@ class Meilisearch < Formula
   homepage "https://docs.meilisearch.com/"
   url "https://github.com/meilisearch/MeiliSearch/archive/v0.12.0.tar.gz"
   sha256 "69dc0492083b26c365954b9d65d8c3f601b6b4b11a45f789a70e2413b82a8429"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

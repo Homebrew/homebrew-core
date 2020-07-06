@@ -4,6 +4,7 @@ class Influxdb < Formula
   url "https://github.com/influxdata/influxdb.git",
       :tag      => "v1.8.0",
       :revision => "781490de48220d7695a05c29e5a36f550a4568f5"
+  license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do

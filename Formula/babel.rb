@@ -6,6 +6,7 @@ class Babel < Formula
   homepage "https://babeljs.io/"
   url "https://registry.npmjs.org/@babel/core/-/core-7.10.4.tgz"
   sha256 "42c048a0ed1f597472f539153f339da0963324925c1131770caad9896577b1d6"
+  license "MIT"
 
   bottle do
     sha256 "a91bf9298747d0b3a067094627f6ba514a5ba49813edd83e81e649609434f5ec" => :catalina

@@ -3,6 +3,7 @@ class Libupnp < Formula
   homepage "https://pupnp.sourceforge.io/"
   url "https://github.com/pupnp/pupnp/releases/download/release-1.12.1/libupnp-1.12.1.tar.bz2"
   sha256 "fc36642b1848fe5a81296d496291d350ecfc12b85fd0b268478ab230976d4009"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

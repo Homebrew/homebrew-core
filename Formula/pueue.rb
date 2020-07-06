@@ -3,6 +3,7 @@ class Pueue < Formula
   homepage "https://github.com/Nukesor/pueue"
   url "https://github.com/Nukesor/pueue/archive/v0.6.1.tar.gz"
   sha256 "fa9691ff7441bee19eab2bf15238a1c014059968dcc26cc394772061f1000122"
+  license "MIT"
   head "https://github.com/Nukesor/pueue.git"
 
   bottle do

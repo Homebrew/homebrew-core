@@ -3,6 +3,7 @@ class Pjproject < Formula
   homepage "https://www.pjsip.org/"
   url "https://github.com/pjsip/pjproject/archive/2.10.tar.gz"
   sha256 "936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de"
+  license "GPL-2.0"
   head "https://github.com/pjsip/pjproject.git"
 
   bottle do

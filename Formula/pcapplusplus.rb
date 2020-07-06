@@ -3,6 +3,7 @@ class Pcapplusplus < Formula
   homepage "https://pcapplusplus.github.io"
   url "https://github.com/seladb/PcapPlusPlus/archive/v19.12.tar.gz"
   sha256 "9bebe2972a6678b8fb80f93b92a3caf9babae346137f2171e6941f35b56f88bb"
+  license "Unlicense"
 
   bottle do
     cellar :any_skip_relocation

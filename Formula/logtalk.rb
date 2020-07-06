@@ -4,6 +4,7 @@ class Logtalk < Formula
   url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3390stable.tar.gz"
   version "3.39.0"
   sha256 "766890e64e43967bf8c7d8e8bb69369d2992a87d9adee2df90cc715542103d53"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

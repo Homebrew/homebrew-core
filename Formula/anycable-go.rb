@@ -3,6 +3,7 @@ class AnycableGo < Formula
   homepage "https://github.com/anycable/anycable-go"
   url "https://github.com/anycable/anycable-go/archive/v1.0.0.tar.gz"
   sha256 "66c6039ad96433cb0a4851f30c917050a1062d269594259bb1665ee03c23e7e9"
+  license "MIT"
   head "https://github.com/anycable/anycable-go.git"
 
   bottle do

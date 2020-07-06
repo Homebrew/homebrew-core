@@ -5,6 +5,7 @@ class Newman < Formula
   homepage "https://www.getpostman.com"
   url "https://registry.npmjs.org/newman/-/newman-5.1.0.tgz"
   sha256 "8d528fcce3cee4ede6542396d8c6b24ee1cb822126aece19e883a342c1822d1d"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

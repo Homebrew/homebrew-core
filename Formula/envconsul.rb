@@ -4,6 +4,7 @@ class Envconsul < Formula
   url "https://github.com/hashicorp/envconsul.git",
     :tag      => "v0.9.3",
     :revision => "1729aafafcc96929db40400eaf10bc0d70840480"
+  license "MPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

@@ -3,6 +3,7 @@ class Earthly < Formula
   homepage "https://docs.earthly.dev/"
   url "https://github.com/earthly/earthly/archive/v0.1.3.tar.gz"
   sha256 "bfbfddc52eb39dd6ea389dc5c8a86386e72005ea17d04af6b36ca5400492e328"
+  license "MPL-2.0"
   head "https://github.com/earthly/earthly.git"
 
   bottle do

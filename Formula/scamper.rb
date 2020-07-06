@@ -3,6 +3,7 @@ class Scamper < Formula
   homepage "https://www.caida.org/tools/measurement/scamper/"
   url "https://www.caida.org/tools/measurement/scamper/code/scamper-cvs-20191102b.tar.gz"
   sha256 "bb9199476a94c922bac8d5337ac35abd559027152a7147e7a07bd5022fc59dba"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

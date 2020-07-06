@@ -3,6 +3,7 @@ class Rmlint < Formula
   homepage "https://github.com/sahib/rmlint"
   url "https://github.com/sahib/rmlint/archive/v2.9.0.tar.gz"
   sha256 "a2d26863e0018efad60f0b1123e7cffd8ef764c8fb574a7987a49260e4e51c8f"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

@@ -5,6 +5,7 @@ class Dvc < Formula
   homepage "https://dvc.org"
   url "https://github.com/iterative/dvc/archive/1.1.7.tar.gz"
   sha256 "d38ae17fb75f8b7be62d6f67899638bdde5a17163871fba82e94e2b4ce3f4f78"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

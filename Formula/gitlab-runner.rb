@@ -4,6 +4,7 @@ class GitlabRunner < Formula
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
       :tag      => "v13.1.1",
       :revision => "6fbc747426d91528fcc5a7a3b47b2ef3e430bd3a"
+  license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do

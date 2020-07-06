@@ -3,6 +3,7 @@ class ChocolateDoom < Formula
   homepage "https://www.chocolate-doom.org/"
   url "https://www.chocolate-doom.org/downloads/3.0.1/chocolate-doom-3.0.1.tar.gz"
   sha256 "d435d6177423491d60be706da9f07d3ab4fabf3e077ec2a3fc216e394fcfc8c7"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

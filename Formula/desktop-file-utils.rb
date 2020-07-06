@@ -3,6 +3,7 @@ class DesktopFileUtils < Formula
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
   url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz"
   sha256 "b26dbde79ea72c8c84fb7f9d870ffd857381d049a86d25e0038c4cef4c747309"
+  license "GPL-2.0"
 
   bottle do
     sha256 "fba87a1749b744c74510df1a49ed7627615ab10a2398922eac1389f4e35a5cb8" => :catalina

@@ -3,6 +3,7 @@ class Jolie < Formula
   homepage "https://www.jolie-lang.org/"
   url "https://github.com/jolie/jolie/releases/download/v1.9.1/jolie-1.9.1.jar"
   sha256 "e4b43f2b247102f49c05fb48d64ca294141b3488de38bd089c99653ca83c644d"
+  license "LGPL-2.1"
 
   bottle do
     cellar :any_skip_relocation

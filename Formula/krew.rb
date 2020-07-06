@@ -5,6 +5,7 @@ class Krew < Formula
       :tag      => "v0.3.4",
       :revision => "324f5ed8fa7c2469ed6cd5a3dadbcbc0ce1d8b97"
   sha256 "d63e0ccc08f32bfc314b3bc574f20842041e2f58ab89ddc88a24cb25c1caee38"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

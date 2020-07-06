@@ -3,6 +3,7 @@ class GnomeLatex < Formula
   homepage "https://wiki.gnome.org/Apps/GNOME-LaTeX"
   url "https://download.gnome.org/sources/gnome-latex/3.36/gnome-latex-3.36.0.tar.xz"
   sha256 "1657238f4e2b419fe211e4b0b51a20889f44e6e3f498b87e25e032f8439ec9a0"
+  license "GPL-3.0"
   revision 1
 
   bottle do

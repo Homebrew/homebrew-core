@@ -3,6 +3,7 @@ class Libolm < Formula
   homepage "https://gitlab.matrix.org/matrix-org/olm"
   url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.1.5/olm-3.1.5.tar.gz"
   sha256 "92ac1eccacbff620a1bc1a168ba204893d83bcb72646e456990ebe2480638696"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

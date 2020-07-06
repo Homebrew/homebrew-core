@@ -4,6 +4,7 @@ class Braid < Formula
   url "https://github.com/cristibalan/braid.git",
       :tag      => "v1.1.3",
       :revision => "74bde1426c2a2713f8a56a879e5ff2e1e4213ad8"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

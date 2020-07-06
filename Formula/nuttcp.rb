@@ -3,6 +3,7 @@ class Nuttcp < Formula
   homepage "https://www.nuttcp.net/nuttcp"
   url "https://www.nuttcp.net/nuttcp/nuttcp-8.2.2.tar.bz2"
   sha256 "7ead7a89e7aaa059d20e34042c58a198c2981cad729550d1388ddfc9036d3983"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

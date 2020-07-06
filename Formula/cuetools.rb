@@ -3,6 +3,7 @@ class Cuetools < Formula
   homepage "https://github.com/svend/cuetools"
   url "https://github.com/svend/cuetools/archive/1.4.1.tar.gz"
   sha256 "24a2420f100c69a6539a9feeb4130d19532f9f8a0428a8b9b289c6da761eb107"
+  license "GPL-2.0"
   head "https://github.com/svend/cuetools.git"
 
   bottle do

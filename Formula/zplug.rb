@@ -3,6 +3,7 @@ class Zplug < Formula
   homepage "https://github.com/zplug/zplug/"
   url "https://github.com/zplug/zplug/archive/2.4.2.tar.gz"
   sha256 "82a51e8c388844acbfb64196623bede07eee2384f1fc30966eac880373aa9030"
+  license "MIT"
   head "https://github.com/zplug/zplug.git"
 
   bottle :unneeded

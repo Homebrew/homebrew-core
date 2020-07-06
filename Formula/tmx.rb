@@ -3,6 +3,7 @@ class Tmx < Formula
   homepage "https://github.com/baylej/tmx"
   url "https://github.com/baylej/tmx/archive/tmx_1.1.0.tar.gz"
   sha256 "79a9a72fea3c512969e8262a6abbb5886ad39eefe2762b3554f7538c59be6b74"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

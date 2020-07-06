@@ -3,6 +3,7 @@ class Cask < Formula
   homepage "https://cask.readthedocs.org/"
   url "https://github.com/cask/cask/archive/v0.8.4.tar.gz"
   sha256 "02f8bb20b33b23fb11e7d2a1d282519dfdb8b3090b9672448b8c2c2cacd3e478"
+  license "GPL-3.0"
   head "https://github.com/cask/cask.git"
 
   bottle :unneeded

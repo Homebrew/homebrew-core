@@ -4,6 +4,7 @@ class Srmio < Formula
   url "http://www.zuto.de/project/files/srmio/srmio-0.1.1~git1.tar.gz"
   version "0.1.1~git1"
   sha256 "00b3772202034aaada94f1f1c79a1072fac1f69d10ef0afcb751cce74e5ccd31"
+  license "MIT"
 
   bottle do
     cellar :any

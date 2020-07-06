@@ -3,6 +3,7 @@ class Polynote < Formula
   homepage "https://polynote.org/"
   url "https://github.com/polynote/polynote/releases/download/0.3.11/polynote-dist.tar.gz"
   sha256 "3a35a828554709d61b29ded87af4214d1bbc2eb0ff9609b291559bb2f729dfc0"
+  license "Apache-2.0"
 
   bottle :unneeded
 

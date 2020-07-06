@@ -3,6 +3,7 @@ class Libdvdread < Formula
   homepage "https://www.videolan.org/developers/libdvdnav.html"
   url "https://download.videolan.org/pub/videolan/libdvdread/6.1.1/libdvdread-6.1.1.tar.bz2"
   sha256 "3e357309a17c5be3731385b9eabda6b7e3fa010f46022a06f104553bf8e21796"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

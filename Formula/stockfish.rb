@@ -3,6 +3,7 @@ class Stockfish < Formula
   homepage "https://stockfishchess.org/"
   url "https://github.com/official-stockfish/Stockfish/archive/sf_11.tar.gz"
   sha256 "802261cc601b67bed00c0ef7d21e2125959630f0852a06db9fc9bd74f440b199"
+  license "GPL-3.0"
   head "https://github.com/official-stockfish/Stockfish.git"
 
   bottle do

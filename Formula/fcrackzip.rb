@@ -3,6 +3,7 @@ class Fcrackzip < Formula
   homepage "http://oldhome.schmorp.de/marc/fcrackzip.html"
   url "http://oldhome.schmorp.de/marc/data/fcrackzip-1.0.tar.gz"
   sha256 "4a58c8cb98177514ba17ee30d28d4927918bf0bdc3c94d260adfee44d2d43850"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation

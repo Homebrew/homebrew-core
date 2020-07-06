@@ -4,6 +4,7 @@ class Mtools < Formula
   url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.24.tar.gz"
   mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.24.tar.gz"
   sha256 "3483bdf233e77d0cf060de31df8e9f624c4bf26bd8a38ef22e06ca799d60c74e"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation

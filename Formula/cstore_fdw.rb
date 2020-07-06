@@ -3,6 +3,7 @@ class CstoreFdw < Formula
   homepage "https://github.com/citusdata/cstore_fdw"
   url "https://github.com/citusdata/cstore_fdw/archive/v1.7.0.tar.gz"
   sha256 "bd8a06654b483d27b48d8196cf6baac0c7828b431b49ac097923ac0c54a1c38c"
+  license "Apache-2.0"
 
   bottle do
     cellar :any

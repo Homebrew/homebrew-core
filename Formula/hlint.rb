@@ -7,6 +7,7 @@ class Hlint < Formula
   homepage "https://github.com/ndmitchell/hlint"
   url "https://hackage.haskell.org/package/hlint-3.1.6/hlint-3.1.6.tar.gz"
   sha256 "dd420c3da81837bfe65f2de2bf9adacec0c9964a0783d2c5f224e7c1f1907fcd"
+  license "BSD-3-Clause"
   head "https://github.com/ndmitchell/hlint.git"
 
   bottle do
