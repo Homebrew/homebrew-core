@@ -80,5 +80,30 @@ class ErlangAT22 < Formula
 
   test do
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
+    (testpath/"factorial").write <<~EOS
+      #!#{bin}/escript
+      %% -*- erlang -*-
+      %%! -smp enable -sname factorial -mnesia debug verbose
+      main([String]) ->
+          try
+              N = list_to_integer(String),
+              F = fac(N),
+              io:format("factorial ~w = ~w\n", [N,F])
+          catch
+              _:_ ->
+                  usage()
+          end;
+      main(_) ->
+          usage().
+      
+      usage() ->
+          io:format("usage: factorial integer\n").
+      
+      fac(0) -> 1;
+      fac(N) -> N * fac(N-1).
+    EOS
+    chmod 0755, "factorial"
+    assert_match "usage: factorial integer", shell_output("./factorial")
+    assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end
