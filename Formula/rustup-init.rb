@@ -1,8 +1,8 @@
 class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang/rustup.rs"
-  url "https://github.com/rust-lang/rustup.rs/archive/1.21.1.tar.gz"
-  sha256 "3dd54cb15313ff01c930ad4e36326f7d60caadd2d6707790d83bea26fbb8bbe1"
+  url "https://github.com/rust-lang/rustup.rs/archive/1.22.0.tar.gz"
+  sha256 "1810c0b12f32d85cd0302c1cc73b88893fb8aa7f20ec22cb4bf53ed25bb130fe"
 
   bottle do
     cellar :any_skip_relocation
