@@ -2,8 +2,8 @@ class KubeAws < Formula
   desc "Command-line tool to declaratively manage Kubernetes clusters on AWS"
   homepage "https://kubernetes-incubator.github.io/kube-aws/"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
-      :tag      => "v0.16.1",
-      :revision => "f2781f8f76de408cd7dbc9dd832bb3e364961e30"
+      :tag      => "v0.16.2",
+      :revision => "4c8ca963a4af9c4f1f0bde0e29eb39a9b4455f99"
   license "Apache-2.0"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
@@ -18,13 +18,7 @@ class KubeAws < Formula
   depends_on "packr" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/kubernetes-incubator/kube-aws"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    cd dir do
-      system "make", "OUTPUT_PATH=#{bin}/kube-aws"
-      prefix.install_metafiles
-    end
+    system "make", "OUTPUT_PATH=#{bin}/kube-aws"
   end
 
   test do
