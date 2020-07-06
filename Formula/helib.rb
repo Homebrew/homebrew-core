@@ -1,8 +1,8 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v1.0.1.tar.gz"
-  sha256 "428b61075cfe313071bb59ccd07736dae07244a065c2001662c9c3d3988ab349"
+  url "https://github.com/homenc/HElib/archive/v1.0.2.tar.gz"
+  sha256 "b907eaa8381af3d001d7fb8383273f4c652415b3320c11d5be2ad8f19757c998"
 
   bottle do
     cellar :any
