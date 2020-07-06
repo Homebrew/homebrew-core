@@ -1,8 +1,8 @@
 class Zboy < Formula
   desc "GameBoy emulator"
   homepage "https://zboy.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/zboy/zBoy%20v0.70/zboy-0.70.tar.gz"
-  sha256 "55cd235fba759eb888e508f463e12bfa7ffc0336bd93c581477463612d6ef4ba"
+  url "https://downloads.sourceforge.net/project/zboy/zBoy%20v0.71/zboy-0.71.tar.xz"
+  sha256 "d359b87e3149418fbe1599247c9ca71e870d213b64a912616ffc6e77d1dff506"
   license "GPL-3.0"
   head "https://svn.code.sf.net/p/zboy/code/trunk"
 
@@ -16,6 +16,9 @@ class Zboy < Formula
 
   depends_on "sdl2"
 
+  # Compile and link drv_sdl2.o
+  patch :DATA
+
   def install
     sdl2 = Formula["sdl2"]
     ENV.append_to_cflags "-std=gnu89 -D__zboy4linux__ -DNETPLAY -DLFNAVAIL -I#{sdl2.include} -L#{sdl2.lib}"
@@ -27,3 +30,18 @@ class Zboy < Formula
     system "#{bin}/zboy", "--help"
   end
 end
+
+__END__
+diff --git a/Makefile.linux b/Makefile.linux
+index 3af9c65..e4ad434 100644
+--- a/Makefile.linux
++++ b/Makefile.linux
+@@ -12,7 +12,7 @@ LDLIBS = -lSDL2
+ 
+ all: zboy
+ 
+-zboy: zboy.o about.o loadpal.o loadrom.o net_sock.o crc32.o wordwrap.o libunzip/libunzip.a
++zboy: zboy.o about.o drv_sdl2.o loadpal.o loadrom.o net_sock.o crc32.o wordwrap.o libunzip/libunzip.a
+ 
+ aboutgen: aboutgen.c
+ 
