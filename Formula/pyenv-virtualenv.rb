@@ -19,17 +19,11 @@ class PyenvVirtualenv < Formula
     # addresses the following issue and PR:
     # https://github.com/pyenv/pyenv-virtualenv/issues/307
     # https://github.com/pyenv/pyenv-virtualenv/pull/308
-    inreplace bin/"pyenv-virtualenv-prefix" do |s|
-      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
-    end
+    inreplace bin/"pyenv-virtualenv-prefix", '"${BASH_SOURCE%/*}"/../libexec', libexec
 
-    inreplace bin/"pyenv-virtualenvs" do |s|
-      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
-    end
+    inreplace bin/"pyenv-virtualenvs", '"${BASH_SOURCE%/*}"/../libexec', libexec
 
-    inreplace libexec/"pyenv-virtualenv-realpath" do |s|
-      s.gsub!('"${BASH_SOURCE%/*}"/../libexec', libexec.to_s)
-    end
+    inreplace libexec/"pyenv-virtualenv-realpath", '"${BASH_SOURCE%/*}"/../libexec', libexec
   end
 
   def caveats
