@@ -5,6 +5,7 @@ class ErlangAT20 < Formula
   url "https://github.com/erlang/otp/archive/OTP-20.3.8.26.tar.gz"
   sha256 "dce78b60938a48b887317e5222cff946fd4af36666153ab2f0f022aa91755813"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -35,6 +36,12 @@ class ErlangAT20 < Formula
     sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
+  # Backport of https://github.com/erlang/otp/pull/2577 to OTP-20
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/8249b31bd8ad59f19a3b5e7f161f0e189739ccaf/erlang/otp20_xcode11.4.patch"
+    sha256 "75ac5fcd05a4acef2b9f1c59ea14c0976c334b8d03ea320c30dbc6eadf836dde"
+  end
+
   def install
     # Work around Xcode 11 clang bug
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
@@ -53,7 +60,6 @@ class ErlangAT20 < Formula
       --prefix=#{prefix}
       --enable-dynamic-ssl-lib
       --enable-hipe
-      --enable-kernel-poll
       --enable-sctp
       --enable-shared-zlib
       --enable-smp-support
@@ -85,5 +91,30 @@ class ErlangAT20 < Formula
 
   test do
     system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
+    (testpath/"factorial").write <<~EOS
+      #!#{bin}/escript
+      %% -*- erlang -*-
+      %%! -smp enable -sname factorial -mnesia debug verbose
+      main([String]) ->
+          try
+              N = list_to_integer(String),
+              F = fac(N),
+              io:format("factorial ~w = ~w\n", [N,F])
+          catch
+              _:_ ->
+                  usage()
+          end;
+      main(_) ->
+          usage().
+
+      usage() ->
+          io:format("usage: factorial integer\n").
+
+      fac(0) -> 1;
+      fac(N) -> N * fac(N-1).
+    EOS
+    chmod 0755, "factorial"
+    assert_match "usage: factorial integer", shell_output("./factorial")
+    assert_match "factorial 42 = 1405006117752879898543142606244511569936384000000000", shell_output("./factorial 42")
   end
 end
