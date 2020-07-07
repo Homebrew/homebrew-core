@@ -1,8 +1,8 @@
 class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/asymptote/2.65/asymptote-2.65.src.tgz"
-  sha256 "15e3d71a0c492c9f2142dd86a7390bcbf59c944ec8b86970833599ff37c59844"
+  url "https://downloads.sourceforge.net/project/asymptote/2.66/asymptote-2.66.src.tgz"
+  sha256 "a2605bdec8cbf3f87b84f51860abeb7e5c1073572a54f5489d124b8786d84cd0"
   license "GPL-3.0"
 
   bottle do
