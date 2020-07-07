@@ -4,7 +4,7 @@ class Cpio < Formula
   url "https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2"
   mirror "https://ftpmirror.gnu.org/cpio/cpio-2.13.tar.bz2"
   sha256 "eab5bdc5ae1df285c59f2a4f140a98fc33678a0bf61bdba67d9436ae26b46f6d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,7 @@ class Cpio < Formula
     sha256 "11b5aff617eb9113a92e5eed3ba783d418e5af64d93f04b96536fa48aeb7f090" => :high_sierra
   end
 
-  keg_only :provided_by_macos
+  keg_only :shadowed_by_macos, "macOS provides cpio"
 
   def install
     system "./configure",
