@@ -10,7 +10,7 @@ class Aacgain < Formula
 
   livecheck do
     url "https://aacgain.altosdesign.com/alvarez/"
-    regex(/href=.+?aacgain-(\d+(?:\.\d+)+)\.t/)
+    regex(/href=.*?aacgain[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
