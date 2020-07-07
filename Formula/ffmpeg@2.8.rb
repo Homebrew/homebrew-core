@@ -1,9 +1,8 @@
 class FfmpegAT28 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-2.8.16.tar.xz"
-  sha256 "6b895902f1ec0d738af40f514dfeac6caba143aa2d0a17af22397c2fc4ebc092"
-  revision 3
+  url "https://ffmpeg.org/releases/ffmpeg-2.8.17.tar.xz"
+  sha256 "d0734fec613fe12bee0b5a84f917779b854c1ede7882793f618490e6bbf0c148"
 
   bottle do
     sha256 "d0fbb19aef0c21f5730db5ca6326d6277d77b3f7b0aafa8e62f94e0f952a241a" => :catalina
