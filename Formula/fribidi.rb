@@ -1,8 +1,8 @@
 class Fribidi < Formula
   desc "Implementation of the Unicode BiDi algorithm"
   homepage "https://github.com/fribidi/fribidi"
-  url "https://github.com/fribidi/fribidi/releases/download/v1.0.9/fribidi-1.0.9.tar.xz"
-  sha256 "c5e47ea9026fb60da1944da9888b4e0a18854a0e2410bbfe7ad90a054d36e0c7"
+  url "https://github.com/fribidi/fribidi/releases/download/v1.0.10/fribidi-1.0.10.tar.xz"
+  sha256 "7f1c687c7831499bcacae5e8675945a39bacbad16ecaa945e9454a32df653c01"
   license "LGPL-2.1"
 
   bottle do
