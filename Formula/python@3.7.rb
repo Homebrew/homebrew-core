@@ -3,6 +3,7 @@ class PythonAT37 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz"
   sha256 "43a543404b363f0037f89df8478f19db2dbc0d6f3ffee310bc2997fa71854a63"
+  revision 1
 
   bottle do
     sha256 "ccfeeedbeedc0b75b4a13b38616118dd34da7b0ee1749ff090c4cbe8c3b9a623" => :catalina
@@ -223,11 +224,6 @@ class PythonAT37 < Formula
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
 
-    # post_install happens after link
-    %W[pip3 pip#{xy} easy_install-#{xy} wheel3].each do |e|
-      (HOMEBREW_PREFIX/"bin").install_symlink bin/e
-    end
-
     # Help distutils find brewed stuff when building extensions
     include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
                     Formula["sqlite"].opt_include]
@@ -296,14 +292,14 @@ class PythonAT37 < Formula
     end
     <<~EOS
       Python has been installed as
-        #{HOMEBREW_PREFIX}/bin/python3
+        #{opt_bin}/python3
 
       Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
       `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
         #{opt_libexec}/bin
 
       You can install Python packages with
-        pip3 install <package>
+        #{opt_bin}/pip3 install <package>
       They will install into the site-package directory
         #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
