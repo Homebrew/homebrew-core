@@ -1,9 +1,8 @@
 class Libftdi < Formula
   desc "Library to talk to FTDI chips"
   homepage "https://www.intra2net.com/en/developer/libftdi"
-  url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.4.tar.bz2"
-  sha256 "ec36fb49080f834690c24008328a5ef42d3cf584ef4060f3a35aa4681cb31b74"
-  revision 2
+  url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2"
+  sha256 "7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049"
 
   bottle do
     cellar :any
@@ -15,6 +14,7 @@ class Libftdi < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
+  depends_on "confuse"
   depends_on "libusb"
 
   def install
