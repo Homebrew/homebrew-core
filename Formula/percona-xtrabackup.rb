@@ -18,6 +18,9 @@ class PerconaXtrabackup < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
+  conflicts_with "protobuf",
+    :because => "both install libprotobuf(-lite) libraries"
+
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
     sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
