@@ -14,6 +14,13 @@ class Redis < Formula
 
   depends_on "openssl@1.1"
 
+  patch do
+    # Remove when upstream fix is released
+    # https://github.com/redis/redis/pull/7453
+    url "https://github.com/redis/redis/pull/7453.diff?full_index=1"
+    sha256 "e1df0543442b75fea67a43eeddade50097d655fe3fef948840bf9d99bb63c157"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
 
