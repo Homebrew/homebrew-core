@@ -1,10 +1,10 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.12.2.tar.gz"
-  sha256 "ac288b047d1156fc5e739062b11242bad0487993631e79781aede620ddf18cd7"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.13.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.13.0.tar.gz"
+  sha256 "a3f78af7f85402cccadc21cfdd5febf8d64a5d5b699645644fff7b2233ba5f3c"
   license "AGPL-3.0"
-  revision 1
 
   bottle do
     cellar :any
@@ -22,6 +22,7 @@ class Gnunet < Formula
   depends_on "libidn2"
   depends_on "libmicrohttpd"
   depends_on "libmpc"
+  depends_on "libsodium"
   depends_on "libunistring"
   depends_on "unbound"
 
