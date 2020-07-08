@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://wildfly.org/"
-  url "https://download.jboss.org/wildfly/20.0.0.Final/wildfly-20.0.0.Final.tar.gz"
-  sha256 "403eeaa21e92d5c7000c2f1961e12ac505949648fbc2229af565e4efcaed8dec"
+  url "https://download.jboss.org/wildfly/20.0.1.Final/wildfly-20.0.1.Final.tar.gz"
+  sha256 "63ced690c05149f444e8d0418c1d76ab82941d1e3763ef4c49b0c43de5f95ae7"
 
   bottle :unneeded
 
