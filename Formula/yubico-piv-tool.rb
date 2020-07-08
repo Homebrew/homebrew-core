@@ -1,8 +1,8 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.0.0.tar.gz"
-  sha256 "dae510ea88922720019029c7f0296ddc74bb30573e40d9bc18fc155023859488"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.1.0.tar.gz"
+  sha256 "ae6a51cc20c5aa92c3ff2d18411edc49512564cb824ce28e533755cea16287f5"
   license "BSD-2-Clause"
 
   bottle do
@@ -13,14 +13,20 @@ class YubicoPivTool < Formula
   end
 
   depends_on "check" => :build
+  depends_on "cmake" => :build
+  depends_on "gengetopt" => :build
+  depends_on "help2man" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "check"
   depends_on "openssl@1.1"
+  depends_on "pcsc-lite"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_C_FLAGS=-I#{Formula["pcsc-lite"].opt_include}/PCSC"
+      system "make", "install"
+    end
   end
 
   test do
