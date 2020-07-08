@@ -3,7 +3,7 @@ class PythonAT38 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tar.xz"
   sha256 "dfab5ec723c218082fe3d5d7ae17ecbdebffa9a1aea4d64aa3a2ecdd2e795864"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "142f7ace3f1d12472569e89eaab40526604ea4011dcfc02ecc362e7e9f1cafba" => :catalina
@@ -264,7 +264,7 @@ class PythonAT38 < Formula
     end
 
     # post_install happens after link
-    %W[pip#{xy} easy_install-#{xy}].each do |e|
+    %W[pip3 pip#{xy} easy_install-#{xy} wheel3].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
@@ -331,12 +331,16 @@ class PythonAT38 < Formula
     end
     <<~EOS
       Python has been installed as
-        #{opt_bin}/python3
+        #{HOMEBREW_PREFIX}/bin/python3
+
+      Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
+      `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
+        #{opt_libexec}/bin
 
       You can install Python packages with
-        #{opt_bin}/pip3 install <package>
+        pip3 install <package>
       They will install into the site-package directory
-        #{prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"}
+        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
