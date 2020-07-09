@@ -5,7 +5,7 @@ class AnsibleAT28 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.12.tar.gz"
   sha256 "2a4ce2a3f387d2595ee3f968c3ea50d6db0ab2d8306f0e81ab96c2a15a683124"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class AnsibleAT28 < Formula
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.7"
   # Ansible 2.8 would probably never work with Python > 3.7
   # https://github.com/ansible/ansible/issues/63973
 
