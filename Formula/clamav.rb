@@ -5,6 +5,7 @@ class Clamav < Formula
   mirror "https://fossies.org/linux/misc/clamav-0.102.4.tar.gz"
   sha256 "eebd426a68020ecad0d2084b8c763e6898ccfd5febcae833d719640bb3ff391b"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 "6ca687f707713bf0d5bd4898add75c98ba5b7b53067856e368373b309554ae2b" => :catalina
@@ -23,6 +24,7 @@ class Clamav < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libiconv"
+  depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "pcre2"
   depends_on "yara"
@@ -68,5 +70,11 @@ class Clamav < Formula
 
   test do
     system "#{bin}/clamav-config", "--version"
+    (testpath/"freshclam.conf").write <<~EOS
+      DNSDatabaseInfo current.cvd.clamav.net
+      DatabaseMirror database.clamav.net
+    EOS
+    system "#{bin}/freshclam", "--datadir=#{testpath}", "--config-file=#{testpath}/freshclam.conf"
+    system "#{bin}/clamscan", "--database=#{testpath}", testpath
   end
 end
