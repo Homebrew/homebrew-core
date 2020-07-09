@@ -1,9 +1,11 @@
 class Ppl < Formula
   desc "Parma Polyhedra Library: numerical abstractions for analysis, verification"
   homepage "https://bugseng.com/ppl"
-  url "https://deb.debian.org/debian/pool/main/p/ppl/ppl_1.2.orig.tar.xz"
+  url "https://www.bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/p/ppl/ppl_1.2.orig.tar.xz"
   sha256 "691f0d5a4fb0e206f4e132fc9132c71d6e33cdda168470d40ac3cf62340e9a60"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -15,12 +17,12 @@ class Ppl < Formula
 
   depends_on "gmp"
 
-  # Fix compilation with Xcode 10
-  # Upstream commit, remove for next version
-  patch do
-    url "http://www.cs.unipr.it/git/gitweb.cgi?p=ppl/ppl.git;a=commitdiff_plain;h=c39f6a07b51f89e365b05ba4147aa2aa448febd7"
-    sha256 "6786f432784b74b81805b1d97e97cd1cc9f68653077681bb4f531466cbf8dc99"
-  end
+  # Fix build failure with clang 5+.
+  # https://www.cs.unipr.it/mantis/view.php?id=2128
+  # http://www.cs.unipr.it/git/gitweb.cgi?p=ppl/ppl.git;a=commit;h=c39f6a07b51f89e365b05ba4147aa2aa448febd7
+  # since 401 error on the `www.cs.unipr.it` links adopt the patch from macports
+  # patch reference, https://github.com/macports/macports-ports/commit/e5de9cc65a8e91fcbb9a3d90911569169f0ccf88
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -45,3 +47,33 @@ class Ppl < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/src/Determinate_inlines.hh b/src/Determinate_inlines.hh
+index c918b23..de672a0 100644
+--- a/src/Determinate_inlines.hh
++++ b/src/Determinate_inlines.hh
+@@ -289,8 +289,8 @@ operator()(Determinate& x, const Determinate& y) const {
+
+ template <typename PSET>
+ template <typename Binary_Operator_Assign>
+-inline
+-Determinate<PSET>::Binary_Operator_Assign_Lifter<Binary_Operator_Assign>
++inline typename
++Determinate<PSET>::template Binary_Operator_Assign_Lifter<Binary_Operator_Assign>
+ Determinate<PSET>::lift_op_assign(Binary_Operator_Assign op_assign) {
+   return Binary_Operator_Assign_Lifter<Binary_Operator_Assign>(op_assign);
+ }
+diff --git a/src/OR_Matrix_inlines.hh b/src/OR_Matrix_inlines.hh
+index a5f2856..560f8d6 100644
+--- a/src/OR_Matrix_inlines.hh
++++ b/src/OR_Matrix_inlines.hh
+@@ -97,7 +97,7 @@ OR_Matrix<T>::Pseudo_Row<U>::Pseudo_Row(const Pseudo_Row<V>& y)
+
+ template <typename T>
+ template <typename U>
+-inline OR_Matrix<T>::Pseudo_Row<U>&
++inline typename OR_Matrix<T>::template Pseudo_Row<U>&
+ OR_Matrix<T>::Pseudo_Row<U>::operator=(const Pseudo_Row& y) {
+   first = y.first;
+ #if PPL_OR_MATRIX_EXTRA_DEBUG
