@@ -3,9 +3,8 @@ class Scons < Formula
 
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.1.2/scons-3.1.2.tar.gz"
-  sha256 "7801f3f62f654528e272df780be10c0e9337e897650b62ddcee9f39fde13f8fb"
-  revision 2
+  url "https://downloads.sourceforge.net/project/scons/scons/4.0.0/scons-4.0.0.tar.gz"
+  sha256 "6cc50dc3eecfe56549dd102039a44461b1c8326d328d474eeb060808202d7cc6"
 
   bottle do
     cellar :any_skip_relocation
