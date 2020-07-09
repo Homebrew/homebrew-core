@@ -13,6 +13,11 @@ class Tbb < Formula
     sha256 "e1efb8aec2b87e2facdb824971718d6fa531caa5043b10e811dc86a6c5e1e797" => :high_sierra
   end
 
+  patch do
+    url "https://github.com/oneapi-src/oneTBB/pull/258/commits/86f6dcdc17a8f5ef2382faaef860cfa5243984fe.diff"
+    sha256 "504f539f0096286390a5ef92ac67b8d751f109a0a9ff40ae1b20b2e87e641d57"
+  end
+
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "python@3.8"
