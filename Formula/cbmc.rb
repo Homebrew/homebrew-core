@@ -3,8 +3,8 @@ class Cbmc < Formula
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
       :using    => :git,
-      :tag      => "cbmc-5.12.2",
-      :revision => "7405bfb6d6971ab53e430e553910b940522213ed"
+      :tag      => "cbmc-5.12.3",
+      :revision => "354b2c1b7532cf62c9e4e78031282c0471fccca8"
 
   bottle do
     cellar :any_skip_relocation
