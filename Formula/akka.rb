@@ -7,6 +7,10 @@ class Akka < Formula
 
   bottle :unneeded
 
+  # Recommended to use Akka with a build tool
+  # https://github.com/akka/akka/issues/25046
+  deprecate!
+
   depends_on "openjdk"
 
   def install
