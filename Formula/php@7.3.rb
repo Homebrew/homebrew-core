@@ -2,9 +2,9 @@ class PhpAT73 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.3.19.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.3.19.tar.xz"
-  sha256 "6402faa19b1a8c4317c7612632bce985684a5bbae0980a5779a4019439882422"
+  url "https://www.php.net/distributions/php-7.3.20.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.3.20.tar.xz"
+  sha256 "43292046f6684eb13acb637276d4aa1dd9f66b0b7045e6f1493bc90db389b888"
 
   bottle do
     rebuild 1
