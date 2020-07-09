@@ -15,6 +15,15 @@ class Pcre2 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  if Hardware::CPU.arch == :arm64
+    patch do
+      # Remove when upstream fix is released
+      # https://bugs.exim.org/show_bug.cgi?id=2618
+      url "https://bugs.exim.org/attachment.cgi?id=1324"
+      sha256 "5e710997b822a14e0e71129e6d1232f91efb0f4d2a0aca15e1e09a31ba4c8ff2"
+    end
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -23,8 +32,9 @@ class Pcre2 < Formula
       --enable-pcre2-32
       --enable-pcre2grep-libz
       --enable-pcre2grep-libbz2
+      --enable-jit
     ]
-    args << "--enable-jit" if Hardware::CPU.arch == :x86_64
+    args << "--enable-jit-sealloc" if Hardware::CPU.arch == :arm64
 
     system "./configure", *args
     system "make"
