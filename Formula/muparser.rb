@@ -4,7 +4,7 @@ class Muparser < Formula
   url "https://github.com/beltoforion/muparser/archive/v2.3.2.tar.gz"
   sha256 "b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   head "https://github.com/beltoforion/muparser.git"
 
   bottle do
@@ -15,13 +15,10 @@ class Muparser < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
-
-  fails_with :clang # no OpenMP support
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DENABLE_OPENMP=OFF"
       system "make", "install"
     end
   end
@@ -60,7 +57,7 @@ class Muparser < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lmuparser",
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lmuparser",
            testpath/"test.cpp", "-o", testpath/"test"
     system "./test"
   end
