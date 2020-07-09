@@ -18,7 +18,10 @@ class Acmetool < Formula
   deprecate! date: "2020-06-01"
 
   depends_on "go" => :build
-  uses_from_macos "libpcap"
+
+  on_linux do
+    depends_on "libcap"
+  end
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/f782e15/acmetool/stable-gomod.diff"
