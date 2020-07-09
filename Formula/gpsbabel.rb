@@ -1,8 +1,8 @@
 class Gpsbabel < Formula
   desc "Converts/uploads GPS waypoints, tracks, and routes"
   homepage "https://www.gpsbabel.org/"
-  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_6_0.tar.gz"
-  sha256 "ad56796f725dcdb7f52d9a9509d4922f11198c382fe10fc2d6c9efa8159f2090"
+  url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_7_0.tar.gz"
+  sha256 "30b186631fb43db576b8177385ed5c31a5a15c02a6bc07bae1e0d7af9058a797"
   license "GPL-2.0"
 
   bottle do
@@ -12,15 +12,34 @@ class Gpsbabel < Formula
     sha256 "e982a298816049c9094762699799f238cfc8d7804cf5d72f6816ebd0e8aa414e" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libusb"
   depends_on "qt"
+  depends_on "shapelib"
+
+  uses_from_macos "zlib"
+
+  # upstream PR 611 added support for configuration of third party libraries.
+  patch do
+    url "https://github.com/gpsbabel/gpsbabel/pull/611.patch?full_index=1"
+    sha256 "8f6572aa8dc3a7b4db028bf75d952d97f7b47de278a91c3cc86bebed608be86a"
+  end
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    # force use of homebrew libusb-1.0 instead of included version.
+    # force use of homebrew shapelib instead of included version.
+    # force use of system zlib instead of included version.
+    rm_r "mac/libusb"
+    rm_r "shapelib"
+    rm_r "zlib"
+    shapelib = Formula["shapelib"]
+    system "qmake", "GPSBabel.pro",
+           "WITH_LIBUSB=pkgconfig",
+           "WITH_SHAPELIB=custom", "INCLUDEPATH+=#{shapelib.opt_include}", "LIBS+=-L#{shapelib.opt_lib} -lshp",
+           "WITH_ZLIB=pkgconfig"
+    system "make"
+    bin.install "gpsbabel"
   end
 
   test do
