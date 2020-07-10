@@ -17,13 +17,11 @@ class Doxygen < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
 
-  def install
-    args = std_cmake_args + %W[
-      -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}
-    ]
+  uses_from_macos "flex" => :build
 
+  def install
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
     end
     bin.install Dir["build/bin/*"]
