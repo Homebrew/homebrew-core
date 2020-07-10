@@ -56,7 +56,7 @@ class Prometheus < Formula
     EOS
   end
 
-  plist_options :manual => "prometheus"
+  plist_options :manual => "prometheus --config.file=#{HOMEBREW_PREFIX}/etc/prometheus.yml"
 
   def plist
     <<~EOS
