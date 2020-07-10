@@ -1,9 +1,11 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://jujucharms.com/"
+  # https://github.com/Homebrew/homebrew-core/pull/57456#issuecomment-656703975
   url "https://github.com/juju/juju.git",
-    :tag      => "juju-2.8.1",
-    :revision => "16439b3d1c528b7a0e019a16c2122ccfcf6aa41f"
+    :tag      => "juju-2.8.0",
+    :revision => "d816abe62fbf6787974e5c4e140818ca08586e44"
+  version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
