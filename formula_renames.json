@@ -114,6 +114,7 @@
   "thrift@0.90": "thrift@0.9",
   "todolist": "ultralist",
   "tomcat7": "tomcat@7",
+  "tomee-jax-rs": "tomee-plus",
   "transfig": "fig2dev",
   "transmission": "transmission-cli",
   "usbmuxd": "libusbmuxd",
