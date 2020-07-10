@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.16.0/logrotate-3.16.0.tar.xz"
-  sha256 "442f6fdf61c349eeae5f76799878b88fe45a11c8863a38b618bac6988f4a7ce5"
+  url "https://github.com/logrotate/logrotate/releases/download/3.17.0/logrotate-3.17.0.tar.xz"
+  sha256 "58cc2178ff57faa3c0490181cce041345aeca6cff18dba1c5cd1398bf1c19294"
   license "GPL-2.0"
 
   bottle do
@@ -13,6 +13,12 @@ class Logrotate < Formula
   end
 
   depends_on "popt"
+
+  # https://github.com/logrotate/logrotate/pull/344
+  patch do
+    url "https://github.com/logrotate/logrotate/commit/5aee3d4d73bbdca7531bf641a78bcb5ec58d93ea.diff?full_index=1"
+    sha256 "1fd0057b7b97cd5070a5bacacdfd5c2bc4f68c86dcd438b6efd76cdbab86710c"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
