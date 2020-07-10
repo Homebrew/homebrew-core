@@ -1,8 +1,8 @@
 class Ultralist < Formula
   desc "Simple GTD-style task management for the command-line"
   homepage "https://ultralist.io"
-  url "https://github.com/ultralist/ultralist/archive/0.9.7.tar.gz"
-  sha256 "cfc5740c717eca2410cfbd3c77c03ffd33f7e4f828ecef924c2f6c4b6e73dba9"
+  url "https://github.com/ultralist/ultralist/archive/1.0.tar.gz"
+  sha256 "c0c5ec731fdd5556de8996a29e13f19c90f25bbfc7c19a00abd2edbfd5068e28"
   license "MIT"
 
   bottle do
@@ -15,10 +15,7 @@ class Ultralist < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/ultralist/").mkpath
-    ln_s buildpath, buildpath/"src/github.com/ultralist/ultralist"
-    system "go", "build", "-o", bin/"ultralist", "./src/github.com/ultralist/ultralist"
+    system "go", "build", *std_go_args
   end
 
   test do
