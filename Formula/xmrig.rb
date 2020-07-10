@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v5.11.3.tar.gz"
-  sha256 "7bfc1ec5c6e2ceea61ceb792b1e7bdd6c651097059ee0622306c19597ff7ff82"
+  url "https://github.com/xmrig/xmrig/archive/v6.2.3.tar.gz"
+  sha256 "c9f76c792a782f4c82952c4180f161d56570b2d09cc2ce3a1cb645b4d197cffd"
   license "GPL-3.0"
   head "https://github.com/xmrig/xmrig.git"
 
@@ -40,7 +40,7 @@ class Xmrig < Formula
       start_time=Time.now
       loop do
         assert (Time.now - start_time <= timeout), "No server connect after timeout"
-        break if read.gets.include? "\] \[#{test_server}\] DNS error: \"unknown node or service\""
+        break if read.gets.include? "#{test_server} DNS error: \"unknown node or service\""
       end
     ensure
       Process.kill("SIGINT", pid)
