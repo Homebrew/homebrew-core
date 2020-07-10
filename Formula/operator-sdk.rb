@@ -2,8 +2,8 @@ class OperatorSdk < Formula
   desc "SDK for building Kubernetes applications"
   homepage "https://coreos.com/operators/"
   url "https://github.com/operator-framework/operator-sdk.git",
-      :tag      => "v0.18.2",
-      :revision => "f059b5e17447b0bbcef50846859519340c17ffad"
+      :tag      => "v0.19.0",
+      :revision => "8e28aca60994c5cb1aec0251b85f0116cc4c9427"
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git"
 
@@ -53,13 +53,10 @@ class OperatorSdk < Formula
       assert_match stable.specs[:revision], version_output
     end
 
-    # Create a new, blank operator
-    system "#{bin}/operator-sdk", "new", "test", "--repo=github.com/example-inc/app-operator"
-
-    cd "test" do
-      # Add an example API resource. This exercises most of the various pieces
-      # of generation logic.
-      system "#{bin}/operator-sdk", "add", "api", "--api-version=app.example.com/v1alpha1", "--kind=AppService"
-    end
+    # Create an example AppService operator. This exercises most of the various pieces
+    # of generation logic.
+    args = ["--type=ansible", "--api-version=app.example.com/v1alpha1", "--kind=AppService"]
+    system "#{bin}/operator-sdk", "new", "test", *args
+    assert_predicate testpath/"test/requirements.yml", :exist?
   end
 end
