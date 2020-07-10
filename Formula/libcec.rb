@@ -1,8 +1,8 @@
 class Libcec < Formula
   desc "Control devices with TV remote control and HDMI cabling"
   homepage "http://libcec.pulse-eight.com/"
-  url "https://github.com/Pulse-Eight/libcec/archive/libcec-5.0.0.tar.gz"
-  sha256 "7c6ef02f39918ac88a3dac8ea35021f6c4b4b695df9204b3ac9faca673c706cc"
+  url "https://github.com/Pulse-Eight/libcec/archive/libcec-6.0.0.tar.gz"
+  sha256 "7c6add855246952dd8d9be3ad24d2bd193394ed9f42c69cbb6905cea6eef42f4"
 
   bottle do
     cellar :any
