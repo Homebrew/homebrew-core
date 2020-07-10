@@ -18,8 +18,8 @@ class Tbb < Formula
   depends_on "python@3.8"
 
   patch do
-    url "https://github.com/oneapi-src/oneTBB/pull/258/commits/86f6dcdc17a8f5ef2382faaef860cfa5243984fe.diff"
-    sha256 "504f539f0096286390a5ef92ac67b8d751f109a0a9ff40ae1b20b2e87e641d57"
+    url "https://github.com/oneapi-src/oneTBB/commit/86f6dcdc17a8f5ef2382faaef860cfa5243984fe.diff?full_index=1"
+    sha256 "94d11e17f32efe6c3ffd1c610811b6d160c619e2a5da7debc5fd8eaca418d9aa"
   end
 
   def install
