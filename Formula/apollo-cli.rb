@@ -3,8 +3,8 @@ require "language/node"
 class ApolloCli < Formula
   desc "Command-line tool for Apollo GraphQL"
   homepage "https://apollographql.com"
-  url "https://registry.npmjs.org/apollo/-/apollo-2.28.3.tgz"
-  sha256 "648334e38f9b8d45ceb59e216b5352d8edd60301b81d035084f823480b7136a7"
+  url "https://registry.npmjs.org/apollo/-/apollo-2.29.1.tgz"
+  sha256 "0becb5a6e18b3cd7ba71f71cdda4a01e687db2b33f720b67454f0fe79f5f7d54"
   license "MIT"
 
   bottle do
@@ -27,6 +27,6 @@ class ApolloCli < Formula
     assert_match "Missing required flag:", shell_output("#{bin}/apollo codegen:generate 2>&1", 2)
 
     error_output = shell_output("#{bin}/apollo codegen:generate --target typescript 2>&1", 2)
-    assert_match "Please add either a client or service config", error_output
+    assert_match "Error: No schema provider was created", error_output
   end
 end
