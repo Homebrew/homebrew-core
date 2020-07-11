@@ -21,7 +21,7 @@ class Ser2net < Formula
 
     # Pull request submitted upstream as https://github.com/cminyard/gensio/pull/19
     patch do
-      url "https://github.com/cminyard/gensio/pull/19.patch?full_index=1"
+      url "https://github.com/cminyard/gensio/commit/9ac32a1e0adc314b54d333f96522ec41234b8714.patch?full_index=1"
       sha256 "2513ebcaf0395e59d846834eb59a5f0bacc077a0070bf9d1239ad223f16e6735"
     end
   end
