@@ -1,8 +1,8 @@
 class KdeExtraCmakeModules < Formula
   desc "Extra modules and scripts for CMake"
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz"
-  sha256 "64f41c0b4b3164c7be8fcab5c0181253d97d1e9d62455fd540cb463afd051878"
+  url "https://download.kde.org/stable/frameworks/5.72/extra-cmake-modules-5.72.0.tar.xz"
+  sha256 "077af496e208722365f095da59e02382b66f7498352c8666e903603062657940"
   head "https://invent.kde.org/frameworks/extra-cmake-modules.git"
 
   bottle do
