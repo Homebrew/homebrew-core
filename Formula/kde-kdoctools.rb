@@ -1,8 +1,8 @@
 class KdeKdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.71/kdoctools-5.71.0.tar.xz"
-  sha256 "1e2fcaa97a014e82f68c0c36591ce84568ead7abd59b66e534789103e162cd09"
+  url "https://download.kde.org/stable/frameworks/5.72/kdoctools-5.72.0.tar.xz"
+  sha256 "28836a88fd7107386b3a4c1037458d330d42dea7fa8213d06e9912dc5e19253b"
   head "https://invent.kde.org/frameworks/kdoctools.git"
 
   bottle do
