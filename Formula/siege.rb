@@ -1,8 +1,8 @@
 class Siege < Formula
   desc "HTTP regression testing and benchmarking utility"
   homepage "https://www.joedog.org/siege-home/"
-  url "http://download.joedog.org/siege/siege-4.0.5.tar.gz"
-  sha256 "3b4b7001afa4d80f3f4939066a4932e198e9f949dcc0e3affecbedd922800231"
+  url "http://download.joedog.org/siege/siege-4.0.6.tar.gz"
+  sha256 "dcde7ae2252ccbb46caf7297e2a8c3072fad6c3c5652cb5136cb92a3a68e800f"
   license "GPL-3.0"
 
   bottle do
