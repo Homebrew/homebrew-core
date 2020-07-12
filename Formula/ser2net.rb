@@ -4,6 +4,7 @@ class Ser2net < Formula
   url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.0.tar.gz"
   sha256 "1d895f005896e8c5bcff4fe573e2fec3611bf4feee1247857e476b74323d916c"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,14 +17,8 @@ class Ser2net < Formula
   depends_on :macos => :sierra # needs clock_gettime
 
   resource "gensio" do
-    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.1.tar.gz"
-    sha256 "e81df2c55d8830ac4f3c28eda54c3f690c4b62e186ea3879815b101a4902a703"
-
-    # Pull request submitted upstream as https://github.com/cminyard/gensio/pull/19
-    patch do
-      url "https://github.com/cminyard/gensio/commit/9ac32a1e0adc314b54d333f96522ec41234b8714.patch?full_index=1"
-      sha256 "2513ebcaf0395e59d846834eb59a5f0bacc077a0070bf9d1239ad223f16e6735"
-    end
+    url "https://downloads.sourceforge.net/project/ser2net/ser2net/gensio-2.1.2.tar.gz"
+    sha256 "4b84c81376bcc557818d771a995fc0dddf77f146365a836c70c3d4c55f503dbc"
   end
 
   def install
