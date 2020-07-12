@@ -2,8 +2,9 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v7.6.2",
-      :revision => "c14a620411be7e6e463520eafa61fa8d7efb84ce"
+      :tag      => "v7.8.0",
+      :revision => "1244c9fa76dccc0c8123a47aca33bddb66e298af"
+  license "Apache-2.0"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -84,7 +85,7 @@ class Kibana < Formula
     fork do
       exec bin/"kibana", "-p", port.to_s, "-c", testpath/"config.yml"
     end
-    sleep 5
+    sleep 15
     output = shell_output("curl -s 127.0.0.1:#{port}")
     # Kibana returns this message until it connects to Elasticsearch
     assert_equal "Kibana server is not ready yet", output
