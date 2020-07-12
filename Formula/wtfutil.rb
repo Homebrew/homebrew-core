@@ -2,8 +2,8 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.30.0",
-    :revision => "13b421b08e550637b3d77fde0ff8894fd3a127d8"
+    :tag      => "v0.31.0",
+    :revision => "d493c4d16f09cada889b1d323e01ea2f6ecdad80"
   license "MPL-2.0"
 
   bottle do
