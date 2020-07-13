@@ -6,6 +6,7 @@ class Libsndfile < Formula
   url "http://www.mega-nerd.com/libsndfile/files/1.0.29pre2/libsndfile-1.0.29pre2.tar.bz2"
   sha256 "ffe2d6bff622bc66e6f96059ada79cfcdc43b3e8bc9cc4f45dbc567dccbfae75"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,6 +22,7 @@ class Libsndfile < Formula
   depends_on "flac"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "opus"
 
   def install
     system "autoreconf", "-fvi"
