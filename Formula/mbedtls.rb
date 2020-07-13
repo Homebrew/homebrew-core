@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://tls.mbed.org/download/mbedtls-2.16.6-apache.tgz"
-  sha256 "66455e23a6190a30142cdc1113f7418158839331a9d8e6b0778631d077281770"
+  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.23.0.tar.gz"
+  sha256 "5c8998217402aa1fc734f4afaeac38fad2421470fac4b3abc112bd46391054fe"
   license "Apache-2.0"
   head "https://github.com/ARMmbed/mbedtls.git", :branch => "development"
 
@@ -14,6 +14,7 @@ class Mbedtls < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8" => :build
 
   def install
     inreplace "include/mbedtls/config.h" do |s|
