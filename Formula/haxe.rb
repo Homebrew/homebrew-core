@@ -4,6 +4,7 @@ class Haxe < Formula
   url "https://github.com/HaxeFoundation/haxe.git",
       :tag      => "4.1.2",
       :revision => "74ee129d6856c8fca8e375b795363eb64a14240e"
+  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
 
   bottle do
