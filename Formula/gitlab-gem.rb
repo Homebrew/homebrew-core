@@ -1,8 +1,8 @@
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://github.com/NARKOZ/gitlab"
-  url "https://github.com/NARKOZ/gitlab/archive/v4.16.0.tar.gz"
-  sha256 "e1e3e89ce60c214c21825a2deb42733367e7c2e8d88f9d1f5b29192b55c8ea1e"
+  url "https://github.com/NARKOZ/gitlab/archive/v4.16.1.tar.gz"
+  sha256 "f3c291a4bafb96ae2156d3b3d84aba549dc657a62832a57e254a6e4d2b6c1105"
   license "BSD-2-Clause"
 
   bottle do
@@ -15,8 +15,8 @@ class GitlabGem < Formula
   uses_from_macos "ruby", :since => :catalina
 
   resource "httparty" do
-    url "https://rubygems.org/gems/httparty-0.18.0.gem"
-    sha256 "c6f77f117ca6e7aeaf5405d0992edd43f19f4fa5eea79e9a4fdfdb287cfeee6f"
+    url "https://rubygems.org/gems/httparty-0.18.1.gem"
+    sha256 "878fe8038e344b219dbba9e20c442914a2be251d2f4a20bcdeb31f25dcb2f79d"
   end
 
   resource "mime-types" do
