@@ -1,8 +1,8 @@
 class Antibody < Formula
   desc "The fastest shell plugin manager"
   homepage "https://getantibody.github.io/"
-  url "https://github.com/getantibody/antibody/archive/v6.0.1.tar.gz"
-  sha256 "dad02a91cbf5715209ca2958dfeb29127f674a00615f80254efc87c33930dbe0"
+  url "https://github.com/getantibody/antibody/archive/v6.1.0.tar.gz"
+  sha256 "b2cf67af801ebf10c0d52b1767cbdb5e3ab5a1713e6c3d28616a109e1d7906a7"
   license "MIT"
 
   bottle do
