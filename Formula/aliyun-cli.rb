@@ -1,8 +1,8 @@
 class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
-  url "https://github.com/aliyun/aliyun-cli/archive/v3.0.51.tar.gz"
-  sha256 "2f710a087e1e088d1d831354e286e8f469dcf6843a1b925c71bac07ce1b7e774"
+  url "https://github.com/aliyun/aliyun-cli/archive/v3.0.53.tar.gz"
+  sha256 "6a8c18830ac2c068feca763212809325a28fe0ea9646879962b34aba94e8ec26"
   license "Apache-2.0"
 
   bottle do
@@ -23,7 +23,6 @@ class AliyunCli < Formula
       system "make", "metas"
       system "go", "build", "-o", bin/"aliyun", "-ldflags",
                             "-X 'github.com/aliyun/aliyun-cli/cli.Version=#{version}'", "main/main.go"
-      prefix.install_metafiles
     end
   end
 
