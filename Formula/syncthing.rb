@@ -2,8 +2,8 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-      :tag      => "v1.6.1",
-      :revision => "d7c3d81dfb014e147bd96d4a4eeb52a185bf7dda"
+      :tag      => "v1.7.1",
+      :revision => "d57694dc042ee24d7f76a3ed9743ea02f01e456d"
   license "MPL-2.0"
   head "https://github.com/syncthing/syncthing.git"
 
@@ -22,7 +22,7 @@ class Syncthing < Formula
     src = buildpath/"src/github.com/syncthing/syncthing"
     src.install buildpath.children
     src.cd do
-      system "./build.sh", "noupgrade"
+      system "go", "run", "build.go", "--no-upgrade", "tar"
       bin.install "syncthing"
       man1.install Dir["man/*.1"]
       man5.install Dir["man/*.5"]
