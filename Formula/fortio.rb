@@ -2,8 +2,8 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      :tag      => "v1.4.2",
-      :revision => "ae7b1a10a2fd4e08f6284e4da8f576b9d9d42e72"
+      :tag      => "v1.4.4",
+      :revision => "5840a17ec92d01f2969f354cabf9615339eb8286"
   license "Apache-2.0"
 
   bottle do
@@ -15,15 +15,8 @@ class Fortio < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    (buildpath/"src/fortio.org/fortio").install buildpath.children
-    cd "src/fortio.org/fortio" do
-      system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
-             "LIB_DIR=#{lib}"
-      lib.install "ui/static", "ui/templates"
-      prefix.install_metafiles
-    end
+    system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio", "LIB_DIR=#{lib}"
+    lib.install "ui/static", "ui/templates"
   end
 
   test do
