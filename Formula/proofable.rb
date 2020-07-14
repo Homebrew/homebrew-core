@@ -6,11 +6,6 @@ class Proofable < Formula
   license "AGPL-3.0"
   head "https://github.com/SouthbankSoftware/proofable.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "f33d9205d669652057599211232a40194a468b143984f97ee4fabb93655ad9f9" => :catalina
-  end
-
   depends_on "go" => :build
 
   def install
