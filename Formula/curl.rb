@@ -3,6 +3,7 @@ class Curl < Formula
   homepage "https://curl.haxx.se/"
   url "https://curl.haxx.se/download/curl-7.71.1.tar.bz2"
   sha256 "9d52a4d80554f9b0d460ea2be5d7be99897a1a9f681ffafe739169afd6b4f224"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,24 +23,33 @@ class Curl < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
+  depends_on "libressl"
+  depends_on "nghttp2-libressl"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "openssl@1.1"
-  end
 
   def install
     system "./buildconf" if build.head?
 
+    libressl = Formula["libressl"]
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-tls-srp
+      --enable-hidden-symbols
+      --enable-threaded-resolver
       --prefix=#{prefix}
+      --with-ca-bundle=#{libressl.pkgetc}/cert.pem
+      --with-ca-path=#{libressl.pkgetc}/certs
+      --with-default-ssl-backend=openssl
+      --with-gssapi
       --with-secure-transport
-      --without-ca-bundle
-      --without-ca-path
+      --with-ssl=#{libressl.opt_prefix}
+      --without-brotli
+      --without-libidn2
+      --without-libpsl
+      --without-librtmp
     ]
 
     system "./configure", *args
