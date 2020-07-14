@@ -3,8 +3,8 @@ class Openstackclient < Formula
 
   desc "OpenStack Client"
   homepage "https://openstack.org"
-  url "https://files.pythonhosted.org/packages/44/5e/d0785bd787af5f37b7f0b69c2b36a731cf222163a474aeb1be109252f4a7/python-openstackclient-5.3.0.tar.gz"
-  sha256 "caf75268d9a52e9bc114df55361483659660e4fa8f5288840c1ff499d516e3b2"
+  url "https://files.pythonhosted.org/packages/84/19/e2453fa06c4f481beda7a6c2326e65884cd1c623177d13c8efc7850bc05e/python-openstackclient-5.3.1.tar.gz"
+  sha256 "dcbdc95f6f577f621fc2b3862a3e1143dedd7d8a95e6ed08bd953d95aa24a1cf"
   license "Apache-2.0"
 
   bottle do
@@ -47,8 +47,8 @@ class Openstackclient < Formula
   end
 
   resource "cmd2" do
-    url "https://files.pythonhosted.org/packages/bc/38/c622733aceaaca9b1fb91ccbf8e2455cb1742fac6fe3255543d0ea1ece37/cmd2-1.1.0.tar.gz"
-    sha256 "d233b5ad4b9ee264a43fb14668f287d25f998f4b443a81b4efdfd292f1a77108"
+    url "https://files.pythonhosted.org/packages/d3/1e/224b4d3fcf96e5fa571efa0deb0a9a0485e7582ff76f1b6351dc0fe9a355/cmd2-1.2.1.tar.gz"
+    sha256 "5a5d3361fadada16cae0c99b65eba5d49d587fc2e02b3afb058da1872871e7a9"
   end
 
   resource "colorama" do
@@ -237,8 +237,8 @@ class Openstackclient < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/90/da/543bcd36658264100b58f0b6a9600c29dfe0c335a8efcc41678465b3fb4d/stevedore-2.0.1.tar.gz"
-    sha256 "609912b87df5ad338ff8e44d13eaad4f4170a65b79ae9cb0aa5632598994a1b7"
+    url "https://files.pythonhosted.org/packages/f9/70/b40722c96e8d1558e3a38ad49b21c25aad5c44146d933d66b738d00cad62/stevedore-3.1.0.tar.gz"
+    sha256 "79270bd5fb4a052e76932e9fef6e19afa77090c4000f2680eb8c2e887d2e6e36"
   end
 
   resource "urllib3" do
