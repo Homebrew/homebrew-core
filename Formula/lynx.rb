@@ -19,7 +19,6 @@ class Lynx < Formula
 
   def install
     ENV["PKG_CONFIG"] = Formula["openssl@1.1"].opt_lib/"pkgconfig"
-    
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
