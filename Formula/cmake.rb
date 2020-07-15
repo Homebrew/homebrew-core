@@ -4,22 +4,8 @@ class Cmake < Formula
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
   stable do
-    url "https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3.tar.gz"
-    sha256 "0bd60d512275dc9f6ef2a2865426a184642ceb3761794e6b65bff233b91d8c40"
-
-    # Allows CMAKE_FIND_FRAMEWORKS to work with CMAKE_FRAMEWORK_PATH, which brew sets.
-    # Remove with 3.18.0.
-    patch do
-      url "https://gitlab.kitware.com/cmake/cmake/-/commit/c841d43d70036830c9fe16a6dbf1f28acf49d7e3.diff"
-      sha256 "87de737abaf5f8c071abc4a4ae2e9cccced6a9780f4066b32ce08a9bc5d8edd5"
-    end
-
-    # Adds macOS 11.0 compatibility.
-    # Remove with 3.18.0.
-    patch do
-      url "https://gitlab.kitware.com/cmake/cmake/-/commit/a0c4c27443afe1c423c08063e2eaf96ffa2f54fb.diff"
-      sha256 "7b84bc0dbb71c620939fb1e354f671e1d0007c9c8060ed3f2afe54a11f5e578c"
-    end
+    url "https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0.tar.gz"
+    sha256 "83b4ffcb9482a73961521d2bafe4a16df0168f03f56e6624c419c461e5317e29"
   end
 
   bottle do
