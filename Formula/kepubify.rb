@@ -1,10 +1,10 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/geek1011/kepubify/archive/v3.1.3.tar.gz"
-  sha256 "f178c46b08a6211ed353c2cf625918d582dafce2b76349a0b4c0181c8ff9622b"
+  url "https://github.com/pgaskin/kepubify/archive/v3.1.4.tar.gz"
+  sha256 "52e2099ed130d85d828d11c9addaf8099d6b84c53a477caa2fce77954ab043c4"
   license "MIT"
-  head "https://github.com/geek1011/kepubify.git"
+  head "https://github.com/pgaskin/kepubify.git"
 
   bottle do
     cellar :any_skip_relocation
