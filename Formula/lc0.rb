@@ -3,10 +3,9 @@ class Lc0 < Formula
   homepage "https://lczero.org/"
 
   url "https://github.com/LeelaChessZero/lc0.git",
-      :tag      => "v0.26.0",
-      :revision => "09edc73cf177f5f1d00e54549b6fa491e0507b56"
+      :tag      => "v0.26.1",
+      :revision => "2520eb375d459c67e59edb11ca7be1726efef9c6"
   license "GPL-3.0"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
