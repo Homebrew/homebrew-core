@@ -1,9 +1,9 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.24/traefik-v1.7.24.src.tar.gz"
-  version "1.7.24"
-  sha256 "8f9e0ba3cbb6537e47c675c806d6e6de3267241a48ea7291b19673d524f78a88"
+  url "https://github.com/containous/traefik/releases/download/v1.7.25/traefik-v1.7.25.src.tar.gz"
+  version "1.7.25"
+  sha256 "5eb1bb7eedf687c3321d27aa3813d739935dca19099425b6f4bf56f4727dde4b"
   license "MIT"
 
   bottle do
