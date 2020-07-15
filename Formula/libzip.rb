@@ -1,8 +1,8 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
-  url "https://libzip.org/download/libzip-1.7.2.tar.xz"
-  sha256 "7213b665dc1296ede6ae06f35e44c146efbdb42e09bb9558ce1ed8877d41ff4e"
+  url "https://libzip.org/download/libzip-1.7.3.tar.xz"
+  sha256 "a60473ffdb7b4260c08bfa19c2ccea0438edac11193c3afbbb1f17fbcf6c6132"
 
   bottle do
     sha256 "2acdf43a976beae67dd1a1c8c17da3ea33e3097e091911edf58236afe811d599" => :catalina
@@ -21,7 +21,6 @@ class Libzip < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    share.install prefix/"man"
   end
 
   test do
