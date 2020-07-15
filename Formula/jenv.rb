@@ -5,7 +5,7 @@ class Jenv < Formula
   sha256 "b30b1a4c2a213f01c89ac111df1be7e027a93512e34d14cdbdd263a0fbec5fff"
   license "MIT"
 
-  head "https://github.com/gcuisinier/jenv.git"
+  head "https://github.com/jenv/jenv.git"
 
   bottle :unneeded
 
