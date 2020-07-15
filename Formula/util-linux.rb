@@ -4,6 +4,7 @@ class UtilLinux < Formula
   url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.35/util-linux-2.35.2.tar.xz"
   sha256 "21b7431e82f6bcd9441a01beeec3d57ed33ee948f8a5b41da577073c372eb58a"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,21 @@ class UtilLinux < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # These binaries are already available in macOS
+  def system_bins
+    %w[
+      cal col colcrt colrm
+      getopt
+      hexdump
+      logger look
+      mesg more
+      nologin
+      renice rev
+      ul
+      whereis
+    ]
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -29,7 +45,7 @@ class UtilLinux < Formula
     system "make", "install"
 
     # Remove binaries already shipped by macOS
-    %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
+    system_bins.each do |prog|
       rm_f bin/prog
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
@@ -41,6 +57,36 @@ class UtilLinux < Formula
     Pathname.glob("bash-completion/*") do |prog|
       bash_completion.install prog if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
     end
+  end
+
+  def caveats
+    linux_only_bins = %w[
+      addpart agetty
+      blkdiscard blkzone blockdev
+      chcpu chmem choom chrt ctrlaltdel
+      delpart dmesg
+      eject
+      fallocate fdformat fincore findmnt fsck fsfreeze fstrim
+      hwclock
+      ionice ipcrm ipcs
+      kill
+      last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
+      mount mountpoint
+      nsenter
+      partx pivot_root prlimit
+      raw readprofile resizepart rfkill rtcwake
+      script scriptlive setarch setterm sulogin swapoff swapon switch_root
+      taskset
+      umount unshare utmpdump uuidd
+      wall wdctl
+      zramctl
+    ]
+    <<~EOS
+      The following tools are not supported under macOS, and are therefore not included:
+      #{Formatter.wrap(Formatter.columns(linux_only_bins), 80)}
+      The following tools are already shipped by macOS, and are therefore not included:
+      #{Formatter.wrap(Formatter.columns(system_bins), 80)}
+    EOS
   end
 
   test do
