@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      :tag      => "v0.13.1",
-      :revision => "72c5ea94283ab48cc6c2b7e91d7c901af031ecb3"
+      :tag      => "v0.14.0",
+      :revision => "d64d961046a653b58083cff5753166011dc6b5f3"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
@@ -31,7 +31,7 @@ class Octant < Formula
       system "go", "run", "build.go", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
-      system "go", "generate", "./pkg/icon"
+      system "go", "generate", "./pkg/plugin/plugin.go"
       system "go", "run", "build.go", "web-build"
 
       commit = Utils.safe_popen_read("git", "rev-parse", "HEAD").chomp
@@ -46,10 +46,13 @@ class Octant < Formula
   end
 
   test do
-    kubeconfig = testpath/"config"
-    output = shell_output("#{bin}/octant --kubeconfig #{kubeconfig} 2>&1", 1)
-    assert_match "failed to init cluster client", output
+    fork do
+      exec bin/"octant", "--kubeconfig", testpath/"config", "--disable-open-browser"
+    end
+    sleep 2
 
+    output = shell_output("curl -s http://localhost:7777")
+    assert_match "<title>Octant</title>", output, "Octant did not start"
     assert_match version.to_s, shell_output("#{bin}/octant version")
   end
 end
