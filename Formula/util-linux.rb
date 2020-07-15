@@ -43,6 +43,21 @@ class UtilLinux < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      The following tools are not supported under macOS, and are therefore not included:
+        addpart agetty blkdiscard blkzone blockdev chcpu chmem choom chrt ctrlaltdel delpart
+        dmesg eject fallocate fdformat fincore findmnt fsck fsfreeze fstrim hwclock ionice
+        ipcrm ipcs kill last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
+        mount mountpoint nsenter partx pivot_root prlimit raw readprofile resizepart rfkill
+        rtcwake script scriptlive setarch setterm sulogin swapoff swapon switch_root taskset
+        umount unshare utmpdump uuidd wall wdctl zramctl
+
+      The following tools are already shipped by macOS, and are therefore not included:
+        cal col colcrt colrm getopt hexdump logger look mesg more nologin renice rev ul whereis
+    EOS
+  end
+
   test do
     stat  = File.stat "/usr"
     owner = Etc.getpwuid(stat.uid).name
