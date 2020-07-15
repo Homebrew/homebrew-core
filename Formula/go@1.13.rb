@@ -1,9 +1,9 @@
 class GoAT113 < Formula
   desc "Go programming environment (1.13)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.13.12.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.13.12.src.tar.gz"
-  sha256 "17ba2c4de4d78793a21cc659d9907f4356cd9c8de8b7d0899cdedcef712eba34"
+  url "https://dl.google.com/go/go1.13.13.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.13.13.src.tar.gz"
+  sha256 "ab7e44461e734ce1fd5f4f82c74c6d236e947194d868514d48a2b1ea73d25137"
   license "BSD-3-Clause"
 
   bottle do
