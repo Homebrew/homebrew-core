@@ -102,14 +102,12 @@ class Minidlna < Formula
       log_dir=#{testpath}/.config/minidlna
     EOS
 
-    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", "8081", "-P",
+    port = free_port
+
+    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", port.to_s, "-P",
                              testpath/"minidlna.pid"
     sleep 2
 
-    begin
-      assert_match /MiniDLNA #{version}/, shell_output("curl localhost:8081")
-    ensure
-      Process.kill("SIGINT", File.read("minidlna.pid").to_i)
-    end
+    assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
   end
 end
