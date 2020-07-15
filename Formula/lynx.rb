@@ -26,7 +26,8 @@ class Lynx < Formula
                           "--with-zlib",
                           "--with-bzlib",
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--enable-ipv6"
+                          "--enable-ipv6",
+                          "--with-screen=ncurses"
     system "make", "install"
   end
 
