@@ -3,10 +3,9 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.80/astrometry.net-0.80.tar.gz"
-  sha256 "6eb73c2371df30324d6532955c46d5f324f2aad87f1af67c12f9354cfd4a7864"
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.81/astrometry.net-0.81.tar.gz"
+  sha256 "2762ce20f4a0c08dd637564692fd4031f64c62f1dc1bf3bed67775b05c4b5616"
   license "BSD-3-Clause"
-  revision 3
 
   bottle do
     cellar :any
