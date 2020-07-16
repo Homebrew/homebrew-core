@@ -112,6 +112,7 @@ class Opentsdb < Formula
       s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
     end
 
+    ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}/tmp"
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
     ENV["HBASE_CONF_DIR"] = testpath/"conf"
     ENV["HBASE_PID_DIR"]  = testpath/"pid"
