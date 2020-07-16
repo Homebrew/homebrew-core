@@ -2,8 +2,8 @@ require "language/go"
 
 class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
-  homepage "https://github.com/hlandau/acme"
-  url "https://github.com/hlandau/acme.git",
+  homepage "https://github.com/hlandau/acmetool"
+  url "https://github.com/hlandau/acmetool.git",
       :tag      => "v0.0.67",
       :revision => "221ea15246f0bbcf254b350bee272d43a1820285"
 
@@ -167,7 +167,7 @@ class Acmetool < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "cmd/acmetool" do
-      # https://github.com/hlandau/acme/blob/HEAD/_doc/PACKAGING-PATHS.md
+      # https://github.com/hlandau/acmetool/blob/HEAD/_doc/PACKAGING-PATHS.md
       ldflags = %W[
         -X github.com/hlandau/acme/storage.RecommendedPath=#{var}/lib/acmetool
         -X github.com/hlandau/acme/hooks.DefaultPath=#{lib}/hooks
