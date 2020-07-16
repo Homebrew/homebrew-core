@@ -4,7 +4,7 @@ class Radare2 < Formula
   url "https://github.com/radareorg/radare2/archive/4.4.0.tar.gz"
   sha256 "401ab89f39f7e70e03336f6890dc4fdf52dae4f61201e4cd8a1fbe5a4b9eb451"
   license "LGPL-3.0"
-  head "https://github.com/radare/radare2.git"
+  head "https://github.com/radareorg/radare2.git"
 
   bottle do
     sha256 "cbf47bb485878d4fda41e03e67493b0628ed1021ac97ea663736b3725f243f43" => :catalina
