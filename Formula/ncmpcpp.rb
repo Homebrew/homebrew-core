@@ -14,7 +14,7 @@ class Ncmpcpp < Formula
   end
 
   head do
-    url "https://github.com/arybczak/ncmpcpp.git"
+    url "https://github.com/ncmpcpp/ncmpcpp.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
