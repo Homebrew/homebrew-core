@@ -32,6 +32,8 @@ class Mu < Formula
   depends_on "gmime"
   depends_on "xapian"
 
+  uses_from_macos "texinfo" => :build
+
   def install
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
