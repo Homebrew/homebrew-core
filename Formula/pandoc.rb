@@ -23,9 +23,8 @@ class Pandoc < Formula
   uses_from_macos "zlib"
 
   def install
-    cabal_sandbox do
-      install_cabal_package :flags => ["embed_data_files"]
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
     man1.install "man/pandoc.1"
   end
