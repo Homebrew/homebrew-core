@@ -4,8 +4,6 @@ class BaculaFdAT94 < Formula
   url "https://downloads.sourceforge.net/project/bacula/bacula/9.4.4/bacula-9.4.4.tar.gz"
   sha256 "0fe37a02ca768a720099d0d03509c364aff2390c05544d663f4819f8e7fc20be"
 
-  bottle do
-  end
 
   keg_only :versioned_formula
 
