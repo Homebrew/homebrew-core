@@ -1,8 +1,9 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.8/gnuplot-5.2.8.tar.gz"
-  sha256 "60a6764ccf404a1668c140f11cc1f699290ab70daa1151bb58fed6139a28ac37"
+  url "https://sourceforge.net/p/gnuplot/gnuplot-main/ci/5.4.0/tarball"
+  sha256 "70e3ab9eaa5d32c2bb3274273ccfdda49b738d81fdc8e955a52e1ae8b9c1bf25"
+  head "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
   bottle do
     sha256 "752b5a6f7e93af1e2a23e8ab27c6d19d286f50b054eb0b7accdfa5765c69b3b0" => :catalina
@@ -10,14 +11,9 @@ class Gnuplot < Formula
     sha256 "36f2d97fbf5772eef3cd0f1988997848e7367ab7943a2542ea15d93bbfd083ce" => :high_sierra
   end
 
-  head do
-    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "libcerf"
