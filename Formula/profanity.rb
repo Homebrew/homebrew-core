@@ -11,7 +11,7 @@ class Profanity < Formula
   end
 
   head do
-    url "https://github.com/boothj5/profanity.git"
+    url "https://github.com/profanity-im/profanity.git"
 
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
