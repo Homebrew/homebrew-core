@@ -1,10 +1,10 @@
 class Tflint < Formula
   desc "Linter for Terraform files"
-  homepage "https://github.com/wata727/tflint"
+  homepage "https://github.com/terraform-linters/tflint"
   url "https://github.com/terraform-linters/tflint/archive/v0.17.0.tar.gz"
   sha256 "da288a8077a059fca95614e60bada65595edbde138dfa9ca2ff8974eb34acbb6"
   license "MPL-2.0"
-  head "https://github.com/wata727/tflint.git"
+  head "https://github.com/terraform-linters/tflint.git"
 
   bottle do
     cellar :any_skip_relocation
