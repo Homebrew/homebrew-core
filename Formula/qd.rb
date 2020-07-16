@@ -1,7 +1,7 @@
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
-  homepage "https://crd.lbl.gov/~dhbailey/mpdist/"
-  url "https://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.22.tar.gz"
+  homepage "https://www.davidhbailey.com/dhbsoftware/"
+  url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.22.tar.gz"
   sha256 "30c1ffe46b95a0e9fa91085949ee5fca85f97ff7b41cd5fe79f79bab730206d3"
 
   bottle do
