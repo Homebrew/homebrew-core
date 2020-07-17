@@ -5,7 +5,7 @@ class Cedille < Formula
 
   desc "Language based on the Calculus of Dependent Lambda Eliminations"
   homepage "https://cedille.github.io/"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/cedille/cedille/archive/v1.1.2.tar.gz"
