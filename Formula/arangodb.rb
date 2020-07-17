@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.6.4.tar.gz"
-  sha256 "e2755fc3576edc0531ca2dd43c6edb690494bc7b44426c9236b1edb575be8aa9"
+  url "https://download.arangodb.com/Source/ArangoDB-3.6.5.tar.gz"
+  sha256 "e5edc1af5f186dda485f06aeeaba0e621a479f145eaa9d1b411be0bba9c3b547"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
@@ -22,19 +22,19 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-      :revision => "598e7d7794ad4a98024548dd9061e03782542ecd"
+      :revision => "e32307e9ae5a0046214cb066355a8577e6fc4148"
   end
 
   def install
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     resource("starter").stage do
-      ENV.append "GOPATH", Dir.pwd + "/.gobuild"
-      ENV.append "DOCKERCLI", ""
-      system "make", "deps"
+      ENV["GOPATH"] = Dir.pwd + "/.gobuild"
+      ENV["DOCKERCLI"] = ""
       # use commit-id as projectBuild
       commit = `git rev-parse HEAD`.chomp
-      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.14 -X main.projectBuild=#{commit}",
+      system "make", "deps"
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.14.15 -X main.projectBuild=#{commit}",
                             "-o", "arangodb",
                             "github.com/arangodb-helper/arangodb"
       bin.install "arangodb"
@@ -58,7 +58,7 @@ class Arangodb < Formula
         -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       ]
 
-      ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
+      ENV["V8_CXXFLAGS"] = "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
       system "cmake", "..", *args
       system "make", "install"
