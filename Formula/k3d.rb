@@ -1,10 +1,9 @@
 class K3d < Formula
   desc "Little helper to run Rancher Lab's k3s in Docker"
   homepage "https://github.com/rancher/k3d"
-  url "https://github.com/rancher/k3d/archive/v1.7.0.tar.gz"
-  sha256 "e741809eb27f707c0f22c19a41ebbd6be7c20ec275285bb12bbf437a675aafb7"
+  url "https://github.com/rancher/k3d/archive/v3.0.0.tar.gz"
+  sha256 "939fae09600ae7edb5e92ecab5c25ac2adec5be432c8a7ee34a14e01a0245b11"
   license "MIT"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,18 +17,12 @@ class K3d < Formula
   def install
     system "go", "build",
            "-mod", "vendor",
-           "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version}",
+           "-ldflags", "-s -w -X github.com/rancher/k3d/v3/version.Version=v#{version}",
            "-trimpath", "-o", bin/"k3d"
     prefix.install_metafiles
   end
 
   test do
     assert_match "k3d version v#{version}", shell_output("#{bin}/k3d --version")
-    code = if File.exist?("/var/run/docker.sock")
-      0
-    else
-      1
-    end
-    assert_match "Checking docker...", shell_output("#{bin}/k3d check-tools 2>&1", code)
   end
 end
