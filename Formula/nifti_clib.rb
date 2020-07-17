@@ -27,9 +27,6 @@ class NiftiClib < Formula
     system "cmake", ".",
       "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
-
-    # Tests need to be run in build tree:
-    system "ctest", "-LE", "NEEDS_DATA"
   end
 
   test do
