@@ -1,23 +1,17 @@
-class Lunchy < Formula
+class LunchyGo < Formula
   desc "Friendly wrapper for launchctl"
-  homepage "https://github.com/eddiezane/lunchy"
-  url "https://github.com/eddiezane/lunchy.git",
-      :tag      => "v0.10.4",
-      :revision => "c78e554b60e408449937893b3054338411af273f"
+  homepage "https://github.com/sosedoff/lunchy-go"
+  url "https://github.com/sosedoff/lunchy-go/archive/v0.2.1.tar.gz"
+  sha256 "58f10dd7d823eff369a3181b7b244e41c09ad8fec2820c9976b822b3daee022e"
   license "MIT"
 
-  uses_from_macos "ruby"
+  depends_on "go" => :build
 
-  conflicts_with "lunchy-go", :because => "both install a `lunchy` binary"
+  conflicts_with "lunchy", :because => "both install a `lunchy` binary"
 
   def install
-    ENV["GEM_HOME"] = libexec
-    system "gem", "build", "lunchy.gemspec"
-    system "gem", "install", "lunchy-#{version}.gem"
-    bin.install libexec/"bin/lunchy"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
-    bash_completion.install "extras/lunchy-completion.bash"
-    zsh_completion.install "extras/lunchy-completion.zsh" => "_lunchy"
+    system "go", "build", *std_go_args
+    bin.install bin/"lunchy-go" => "lunchy"
   end
 
   test do
@@ -44,9 +38,8 @@ class Lunchy < Formula
     assert_equal "com.example.echo\n", shell_output("#{bin}/lunchy list echo")
 
     system "launchctl", "load", plist
-    assert_equal <<~EOS, shell_output("#{bin}/lunchy uninstall com.example.echo")
-      stopped com.example.echo
-      uninstalled com.example.echo
+    assert_equal <<~EOS, shell_output("#{bin}/lunchy remove com.example.echo")
+      removed #{plist}
     EOS
 
     assert_not_predicate plist, :exist?
