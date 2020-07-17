@@ -26,8 +26,7 @@ class Nettle < Formula
                                           "get_pc_thunk|(_*chkstk_darwin)"
     end
 
-    # Disable assembly as a temporary measure
-    args = "--disable-assembler" if Hardware::CPU.arm?
+    args = "--build=aarch64-apple-darwin#{`uname -r`.to_i}" if Hardware::CPU.arm?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
