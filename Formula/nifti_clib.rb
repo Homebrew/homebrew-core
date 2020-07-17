@@ -30,10 +30,26 @@ class NiftiClib < Formula
   end
 
   test do
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "#{bin}/nifti_tool", "-help"
-    system "#{bin}/nifti1_tool", "-help"
-    system "#{bin}/nifti_stats", "-help"
+    # Run basic example of using cmake to link against libnifticdf as a downstream
+    (testpath/"test.c").write <<~EOS
+      #include <nifticdf.h>
+      int main()
+      {
+        double input= 7.0;
+        const double output = alnrel(&input);
+        return (output > 0.0) ? EXIT_SUCCESS: EXIT_FAILURE ;
+      }
+    EOS
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.10.2)
+      project(demo LANGUAGES C)
+      find_package(NIFTI REQUIRED)
+      add_executable(demo_exe test.c)
+      target_link_libraries(demo_exe PRIVATE NIFTI::nifticdf)
+    EOS
+
+    system "cmake", "."
+    system "make"
+    system "./demo_exe"
   end
 end
