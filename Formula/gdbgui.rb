@@ -3,8 +3,8 @@ class Gdbgui < Formula
 
   desc "Modern, browser-based frontend to gdb (gnu debugger)"
   homepage "https://www.gdbgui.com/"
-  url "https://github.com/cs01/gdbgui/archive/0.13.2.0.tar.gz"
-  sha256 "325e4c6dd417d59b95ceb123173eee69d754f6ff3f97110c0cb960670460f858"
+  url "https://files.pythonhosted.org/packages/86/de/8ed396df4cdd1d8d103d90fe138fb0f5f20491e0316fb35dd8a4c6f2f8b1/gdbgui-0.13.2.1.tar.gz"
+  sha256 "305003b719cf5c850e027d75fffb8dd6c38da1f7999cd2ab22f6a27a48e4c57e"
   license "GPL-3.0"
 
   bottle do
