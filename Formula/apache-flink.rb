@@ -34,9 +34,9 @@ class ApacheFlink < Formula
     system libexec/"bin/start-cluster.sh"
     system bin/"flink", "run", "-p", "1",
            libexec/"examples/streaming/WordCount.jar", "--input", "input",
-           "--output", "result"
+           "--output", "result/1"
     system libexec/"bin/stop-cluster.sh"
-    assert_predicate testpath/"result", :exist?
-    assert_equal expected, (testpath/"result").read
+    assert_predicate testpath/"result/1", :exist?
+    assert_equal expected, (testpath/"result/1").read
   end
 end
