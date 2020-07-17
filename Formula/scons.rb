@@ -1,11 +1,11 @@
 class Scons < Formula
-  include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "https://www.scons.org/"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.1.2/scons-3.1.2.tar.gz"
-  sha256 "7801f3f62f654528e272df780be10c0e9337e897650b62ddcee9f39fde13f8fb"
-  revision 2
+  url "https://files.pythonhosted.org/packages/ae/a4/2eb8d05b0ac9e168e8ff0681624c123a123c743487e528757c68ea995d20/SCons-4.0.1.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/scons/scons/4.0.1/scons-4.0.1.tar.gz"
+  sha256 "722ed104b5c624ecdc89bd4e02b094d2b14d99d47b5d0501961e47f579a2007c"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,24 +17,7 @@ class Scons < Formula
   depends_on "python@3.8"
 
   def install
-    man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
-    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install",
-             "--prefix=#{prefix}",
-             "--standalone-lib",
-             # SCons gets handsy with sys.path---`scons-local` is one place it
-             # will look when all is said and done.
-             "--install-lib=#{libexec}/scons-local",
-             "--install-scripts=#{bin}",
-             "--install-data=#{libexec}",
-             "--no-version-script", "--no-install-man"
-
-    bin.find { |f| rewrite_shebang detected_python_shebang, f }
-    # Re-root scripts to libexec so they can import SCons and symlink back into
-    # bin. Similar tactics are used in the duplicity formula.
-    bin.children.each do |p|
-      mv p, "#{libexec}/#{p.basename}.py"
-      bin.install_symlink "#{libexec}/#{p.basename}.py" => p.basename
-    end
+    virtualenv_install_with_resources
   end
 
   test do
