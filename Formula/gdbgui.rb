@@ -18,9 +18,24 @@ class Gdbgui < Formula
   depends_on "gdb"
   depends_on "python@3.8"
 
+  resource "Brotli" do
+    url "https://files.pythonhosted.org/packages/cd/9c/7955895f5672ecc85270244582c6b53ff95bb4c24bf77bd9271d42351635/Brotli-1.0.7.zip"
+    sha256 "0538dc1744fd17c314d2adc409ea7d1b779783b89fd95bcfb0c2acc93a6ea5a7"
+  end
+
   resource "click" do
-    url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
-    sha256 "8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+  end
+
+  resource "dnspython" do
+    url "https://files.pythonhosted.org/packages/67/d0/639a9b5273103a18c5c68a7a9fc02b01cffa3403e72d553acec444f85d5b/dnspython-2.0.0.zip"
+    sha256 "044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7"
+  end
+
+  resource "eventlet" do
+    url "https://files.pythonhosted.org/packages/2a/df/943d5aa7029b47dd3eb41e1ea48f843d3441d24b7e0b76a0b3af4df35a83/eventlet-0.25.2.tar.gz"
+    sha256 "4c8ab42c51bff55204fef43cff32616558bedbc7538d876bb6a96ce820c7f9ed"
   end
 
   resource "Flask" do
@@ -29,8 +44,8 @@ class Gdbgui < Formula
   end
 
   resource "Flask-Compress" do
-    url "https://files.pythonhosted.org/packages/0e/2a/378bd072928f6d92fd8c417d66b00c757dc361c0405a46a0134de6fd323d/Flask-Compress-1.4.0.tar.gz"
-    sha256 "468693f4ddd11ac6a41bca4eb5f94b071b763256d54136f77957cfee635badb3"
+    url "https://files.pythonhosted.org/packages/a0/96/cd684c1ffe97b513303b5bfd4bbfb4114c5f4a5ea8a737af6fd813273df8/Flask-Compress-1.5.0.tar.gz"
+    sha256 "f367b2b46003dd62be34f7fb1379938032656dca56377a9bc90e7188e4289a7c"
   end
 
   resource "Flask-SocketIO" do
@@ -43,9 +58,14 @@ class Gdbgui < Formula
     sha256 "b2814258e3b3fb32786bb73af271ad31f51e1ac01f33b37426b66cb8491b4c29"
   end
 
+  resource "gevent-websocket" do
+    url "https://files.pythonhosted.org/packages/98/d2/6fa19239ff1ab072af40ebf339acd91fb97f34617c2ee625b8e34bf42393/gevent-websocket-0.10.1.tar.gz"
+    sha256 "7eaef32968290c9121f7c35b973e2cc302ffb076d018c9068d2f5ca8b2d85fb0"
+  end
+
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/f8/e8/b30ae23b45f69aa3f024b46064c0ac8e5fcb4f22ace0dca8d6f9c8bbe5e7/greenlet-0.4.15.tar.gz"
-    sha256 "9416443e219356e3c31f1f918a91badf2e37acf297e2fa13d24d1cc2380f8fbc"
+    url "https://files.pythonhosted.org/packages/20/5e/b989a19f4597b825f44125345cd8a8574216fae7fafe69e2cb1238ebd18a/greenlet-0.4.16.tar.gz"
+    sha256 "6e06eac722676797e8fce4adb8ad3dc57a1bb3adfb0dd3fdf8306c055a38456c"
   end
 
   resource "itsdangerous" do
@@ -63,6 +83,11 @@ class Gdbgui < Formula
     sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
+  resource "monotonic" do
+    url "https://files.pythonhosted.org/packages/19/c1/27f722aaaaf98786a1b338b78cf60960d9fe4849825b071f4e300da29589/monotonic-1.5.tar.gz"
+    sha256 "23953d55076df038541e648a53676fb24980f7a1be290cdda21300b3bc21dfb0"
+  end
+
   resource "pygdbmi" do
     url "https://files.pythonhosted.org/packages/b1/06/f60cce2f9acb5ac4278cb1eedb7bb1a7bb52777b7ae74cd222c0068302fd/pygdbmi-0.9.0.3.tar.gz"
     sha256 "5bdf2f072e8f2f6471f19f8dcd87d6425c5d8069d47c0a5ffe8d0eff48cb171e"
@@ -74,18 +99,18 @@ class Gdbgui < Formula
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/71/5d/620b75396ce993001cbccc80dd786ab09a16a8e3f6c4878ad05f051064d6/python-engineio-3.12.1.tar.gz"
-    sha256 "2481732d93646998f7372ef0ecf003af7817b82720b881db173c3d50b4887916"
+    url "https://files.pythonhosted.org/packages/88/31/5b57e795c509f7312ea2b24ee23812981dbac616a5a8e41a2e48e5137ec7/python-engineio-3.13.1.tar.gz"
+    sha256 "133bdb5fb89f43a53f8612fb1ddbb3a453318713dea18a9ecf5346ed0c0f793c"
   end
 
   resource "python-socketio" do
-    url "https://files.pythonhosted.org/packages/9b/dd/45c2eb8fc9b8208cdf5948b468934b47f92ecca031c449863d8128d5cc15/python-socketio-4.5.1.tar.gz"
-    sha256 "149b98c33f8c3d09273fb4ebeb83781e4dc9411b56b27d9f058bec1bd1ed74b7"
+    url "https://files.pythonhosted.org/packages/6e/e2/515be319ec39bdf9d3344fb591b60f787b52e413fbb0cb3b5362d83bf037/python-socketio-4.6.0.tar.gz"
+    sha256 "358d8fbbc029c4538ea25bcaa283e47f375be0017fcba829de8a3a731c9df25a"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "Werkzeug" do
