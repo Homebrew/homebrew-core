@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep.git",
-    :tag      => "v0.14.0",
-    :revision => "49b51d93666fcd481e52f79b1e6ea3921ea6775b"
+    :tag      => "v0.15.0",
+    :revision => "b06d8aa793f57d543383efab6d5591f00fd79207"
   license "LGPL-2.1"
   head "https://github.com/returntocorp/semgrep.git", :branch => "develop"
 
@@ -18,6 +18,7 @@ class Semgrep < Formula
 
   depends_on "cmake" => :build
   depends_on "coreutils"=> :build
+  depends_on "dune" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
@@ -98,9 +99,33 @@ class Semgrep < Formula
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
       ENV["OPAMYES"] = "1"
+
+      # Used by semgrep-core for clang to find libtree-sitter.a
+      ENV["LIBRARY_PATH"] = lib
+
+      # Used by ocaml-tree-sitter to find tree-sitter/*.h headers
+      ENV["C_INCLUDE_PATH"] = include
+
+      # Used by tree-sitter to place libtree-sitter.a, and header files
+      ENV["PREFIX"] = prefix
+
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
+
+      system "opam", "exec", "--", "make", "config"
       system "opam", "install", "./pfff"
+
+      # Install tree-sitter
+      cd "ocaml-tree-sitter" do
+        cd "tree-sitter" do
+          system "opam", "exec", "--", "make"
+          lib.install "libtree-sitter.a"
+          include.install "lib/include/tree_sitter"
+        end
+        system "opam", "install", "-y", "."
+      end
+
+      # Install semgrep-core
       cd "semgrep-core" do
         system "opam", "install", "--deps-only", "-y", "."
         system "opam", "exec", "--", "make", "all"
