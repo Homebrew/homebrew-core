@@ -15,7 +15,6 @@ class Graphviz < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "gts"
