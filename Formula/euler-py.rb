@@ -16,7 +16,7 @@ class EulerPy < Formula
   depends_on "python@3.8"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/source/c/click/click-4.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/7b/61/80731d6bbf0dd05fe2fe9bac02cd7c5e3306f5ee19a9e6b9102b5784cf8c/click-4.0.tar.gz"
     sha256 "f49e03611f5f2557788ceeb80710b1c67110f97c5e6740b97edf70245eea2409"
   end
 
