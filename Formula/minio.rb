@@ -2,10 +2,11 @@ class Minio < Formula
   desc "High Performance, Kubernetes Native Object Storage"
   homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2020-07-11T06-07-16Z",
-      :revision => "2d17c16d93826800af9fd0e6642334737c35295a"
-  version "20200711060716"
+      :tag      => "RELEASE.2020-07-18T18-48-16Z",
+      :revision => "17747db93f9e2ef2450945feb082d0988dbd0a2f"
+  version "20200718184816"
   license "Apache-2.0"
+  head "https://github.com/minio/minio.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,21 +19,19 @@ class Minio < Formula
 
   def install
     if build.head?
-      system "go", "build", "-trimpath", "-o", bin/"minio"
+      system "go", "build", *std_go_args
     else
       release = `git tag --points-at HEAD`.chomp
       version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
       commit = `git rev-parse HEAD`.chomp
       proj = "github.com/minio/minio"
 
-      system "go", "build", "-trimpath", "-o", bin/"minio", "-ldflags", <<~EOS
+      system "go", "build", *std_go_args, "-ldflags", <<~EOS
         -X #{proj}/cmd.Version=#{version}
         -X #{proj}/cmd.ReleaseTag=#{release}
         -X #{proj}/cmd.CommitID=#{commit}
       EOS
     end
-
-    prefix.install_metafiles
   end
 
   def post_install
