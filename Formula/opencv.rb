@@ -27,6 +27,7 @@ class Opencv < Formula
   depends_on "protobuf"
   depends_on "python@3.8"
   depends_on "tbb"
+  depends_on "vtk"
   depends_on "webp"
 
   resource "contrib" do
@@ -75,7 +76,7 @@ class Opencv < Formula
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
       -DWITH_TBB=ON
-      -DWITH_VTK=OFF
+      -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
       -DPYTHON3_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
