@@ -18,6 +18,15 @@ class Krb5 < Formula
 
   def install
     cd "src" do
+      # Newer versions of clang are very picky about missing includes.
+      # One configure test fails because it doesn't #include the header needed
+      # for some functions used in the rest. The test isn't actually testing
+      # those functions, just using them for the feature they're
+      # actually testing. Adding the include fixes this.
+      # https://krbdev.mit.edu/rt/Ticket/Display.html?id=8928
+      inreplace "configure", "void foo1() __attribute__((constructor));",
+                             "#include <unistd.h>\nvoid foo1() __attribute__((constructor));"
+
       system "./configure", "--disable-debug",
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
