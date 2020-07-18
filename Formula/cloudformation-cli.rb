@@ -3,7 +3,7 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/source/c/cloudformation-cli/cloudformation-cli-0.1.5.tar.gz"
+  url "https://files.pythonhosted.org/packages/00/f2/d95f135f63b32214d1f99abc7b7bb26349a941a436654b7e6fc84a724b9e/cloudformation-cli-0.1.5.tar.gz"
   sha256 "04616a8bfb665cc6d0067ad30387fef93cf029d46626d86cf64e799ca909eebd"
   license "Apache-2.0"
 
