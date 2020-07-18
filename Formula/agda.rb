@@ -5,6 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
+  license "BSD-3-Clause"
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.1/Agda-2.6.1.tar.gz"
