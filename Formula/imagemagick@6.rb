@@ -4,9 +4,9 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-23.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-23.tar.xz"
-  sha256 "c7a6d4b114d2199657195a0dbdc708ce5209c482c6c291e523d2b976fce909e9"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-24.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-24.tar.xz"
+  sha256 "7361d66d894d79226c82085087db810be537c5e61bdff61df185401baf43b7e3"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
