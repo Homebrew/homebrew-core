@@ -18,7 +18,7 @@ class SpoofMac < Formula
   depends_on "python@3.8"
 
   resource "docopt" do
-    url "https://files.pythonhosted.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
+    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
     sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
   end
 
