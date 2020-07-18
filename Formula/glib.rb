@@ -1,6 +1,4 @@
 class Glib < Formula
-  include Language::Python::Shebang
-
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
@@ -19,7 +17,6 @@ class Glib < Formula
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
-  depends_on "python@3.8"
 
   on_linux do
     depends_on "util-linux"
@@ -49,7 +46,6 @@ class Glib < Formula
       system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
-      bin.find { |f| rewrite_shebang detected_python_shebang, f }
     end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
