@@ -26,7 +26,8 @@ class Nettle < Formula
                                           "get_pc_thunk|(_*chkstk_darwin)"
     end
 
-    args = "--build=aarch64-apple-darwin#{`uname -r`.to_i}" if Hardware::CPU.arm?
+    args = []
+    args << "--build=aarch64-apple-darwin#{`uname -r`.to_i}" if Hardware::CPU.arm?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
