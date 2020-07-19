@@ -5,6 +5,7 @@ class Dnstwist < Formula
   homepage "https://github.com/elceef/dnstwist"
   url "https://github.com/elceef/dnstwist/archive/20200707.tar.gz"
   sha256 "aedd6ce4a8df994caefb216fcaa808d84d5a0855c00db2fa055fa1a4b28d45a0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
