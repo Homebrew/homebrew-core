@@ -3,6 +3,7 @@ class Cmark < Formula
   homepage "https://commonmark.org/"
   url "https://github.com/commonmark/cmark/archive/0.29.0.tar.gz"
   sha256 "2558ace3cbeff85610de3bda32858f722b359acdadf0c4691851865bb84924a6"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
