@@ -1,6 +1,7 @@
 class Cmigemo < Formula
   desc "Migemo is a tool that supports Japanese incremental search with Romaji"
   homepage "https://www.kaoriya.net/software/cmigemo"
+  license "MIT"
   head "https://github.com/koron/cmigemo.git"
 
   stable do
