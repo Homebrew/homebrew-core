@@ -3,6 +3,7 @@ class Fastd < Formula
   homepage "https://github.com/NeoRaider/fastd"
   url "https://github.com/NeoRaider/fastd/releases/download/v19/fastd-19.tar.xz"
   sha256 "6054608e2103b634c9d19ecd1ae058d4ec694747047130719db180578729783a"
+  license "BSD-2-Clause"
   revision 1
   head "https://github.com/NeoRaider/fastd.git"
 
