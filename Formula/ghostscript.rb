@@ -3,6 +3,7 @@ class Ghostscript < Formula
   homepage "https://www.ghostscript.com/"
   url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs952/ghostpdl-9.52.tar.gz"
   sha256 "8f6e48325c106ae033bbae3e55e6c0b9ee5c6b57e54f7cd24fb80a716a93b06a"
+  license "AGPL-3.0"
 
   bottle do
     sha256 "8cd0efa1e5525f849be3ee1e50e1635b99667cb4d1eb6c3002a45378346882f4" => :catalina
