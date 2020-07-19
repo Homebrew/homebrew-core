@@ -5,6 +5,7 @@ class B2Tools < Formula
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
   url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v2.0.2.tar.gz"
   sha256 "1ac04158c73fa40734e8f206757aced0b1668c8f3433975361fa9d100ea85e68"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
