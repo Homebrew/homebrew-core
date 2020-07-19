@@ -3,6 +3,7 @@ class Chaiscript < Formula
   homepage "https://chaiscript.com/"
   url "https://github.com/ChaiScript/ChaiScript/archive/v6.1.0.tar.gz"
   sha256 "3ca9ba6434b4f0123b5ab56433e3383b01244d9666c85c06cc116d7c41e8f92a"
+  license "BSD-3-Clause"
   head "https://github.com/ChaiScript/ChaiScript.git", :branch => "develop"
 
   bottle do
