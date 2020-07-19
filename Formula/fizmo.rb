@@ -3,6 +3,7 @@ class Fizmo < Formula
   homepage "https://fizmo.spellbreaker.org"
   url "https://fizmo.spellbreaker.org/source/fizmo-0.8.5.tar.gz"
   sha256 "1c259a29b21c9f401c12fc24d555aca4f4ff171873be56fb44c0c9402c61beaa"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
