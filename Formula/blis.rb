@@ -3,6 +3,7 @@ class Blis < Formula
   homepage "https://github.com/flame/blis"
   url "https://github.com/flame/blis/archive/0.7.0.tar.gz"
   sha256 "7e345d666799e15bba570bd125f97042f17bf752a61dcf314486a6cd096d5f68"
+  license "BSD-3-Clause"
   head "https://github.com/flame/blis.git"
 
   bottle do
