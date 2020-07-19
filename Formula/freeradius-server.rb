@@ -3,6 +3,7 @@ class FreeradiusServer < Formula
   homepage "https://freeradius.org/"
   url "https://github.com/FreeRADIUS/freeradius-server/archive/release_3_0_21.tar.gz"
   sha256 "b2014372948a92f86cfe2cf43c58ef47921c03af05666eb9d6416bdc6eeaedc2"
+  license "GPL-2.0"
   head "https://github.com/FreeRADIUS/freeradius-server.git"
 
   bottle do
