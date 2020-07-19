@@ -3,6 +3,7 @@ class Bnfc < Formula
   homepage "https://bnfc.digitalgrammars.com/"
   url "https://github.com/BNFC/bnfc/archive/v2.8.3.tar.gz"
   sha256 "ba0b6ab36954a0891b4ad3125cefdd6d441d2c73d174cd8eff344e68ae2fd203"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/BNFC/bnfc.git"
 
