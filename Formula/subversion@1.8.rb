@@ -4,6 +4,7 @@ class SubversionAT18 < Formula
   url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.8.19.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
+  license "Apache-2.0"
   revision 1
 
   bottle do
