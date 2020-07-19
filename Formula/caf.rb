@@ -4,6 +4,7 @@ class Caf < Formula
   homepage "https://actor-framework.org/"
   url "https://github.com/actor-framework/actor-framework/archive/0.17.5.tar.gz"
   sha256 "a60be1e729de9cf32e2a10335679f311228d8f04997b57d5dcbb508acfe29bed"
+  license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
