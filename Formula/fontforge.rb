@@ -3,6 +3,7 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/archive/20200314.tar.gz"
   sha256 "ad0eb017379c6f7489aa8e2d7c160f19140d1ac6351f20df1d9857d9428efcf2"
+  license "GPL-3.0"
   revision 1
 
   bottle do
