@@ -4,6 +4,7 @@ class ApacheForrest < Formula
   url "https://www.apache.org/dyn/closer.lua?path=forrest/apache-forrest-0.9-sources.tar.gz"
   mirror "https://archive.apache.org/dist/forrest/apache-forrest-0.9-sources.tar.gz"
   sha256 "c6ac758db2eb0d4d91bd1733bbbc2dec4fdb33603895c464bcb47a34490fb64d"
+  license "Apache-2.0"
   revision 1
 
   bottle do
