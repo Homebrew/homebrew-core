@@ -3,6 +3,7 @@ class GerbilScheme < Formula
   homepage "https://cons.io"
   url "https://github.com/vyzo/gerbil/archive/v0.16.tar.gz"
   sha256 "1157d4ef60dab6a0f7c4986d5c938391973045093c470a03ffe02266c4d3e119"
+  license "Apache-2.0"
 
   bottle do
     sha256 "2e58cb74f57dd09a84bfed13aa1d44a1f1f8f5c057c59d2a27a338950c53ce82" => :catalina
