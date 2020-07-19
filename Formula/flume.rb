@@ -4,6 +4,7 @@ class Flume < Formula
   url "https://www.apache.org/dyn/closer.lua?path=flume/1.9.0/apache-flume-1.9.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz"
   sha256 "0373ed5abfd44dc4ab23d9a02251ffd7e3b32c02d83a03546e97ec15a7b23619"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded
