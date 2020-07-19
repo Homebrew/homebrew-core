@@ -3,6 +3,9 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.17.tar.xz"
   sha256 "d0734fec613fe12bee0b5a84f917779b854c1ede7882793f618490e6bbf0c148"
+  # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
+  # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
+  license "GPL-2.0"
 
   bottle do
     sha256 "f0d50cafeb730343feabdbe5226875104e1d11d31bb33d3e03ad5d05dcd8be2c" => :catalina
