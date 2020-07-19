@@ -4,6 +4,7 @@ class Buildozer < Formula
   url "https://github.com/bazelbuild/buildtools.git",
     :tag      => "3.3.0",
     :revision => "ce0cf814cb03dddf546ea92b3d6bafddb0b9eaf8"
+  license "Apache-2.0"
   head "https://github.com/bazelbuild/buildtools.git"
 
   bottle do
