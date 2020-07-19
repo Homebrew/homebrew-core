@@ -3,6 +3,7 @@ class Aha < Formula
   homepage "https://github.com/theZiz/aha"
   url "https://github.com/theZiz/aha/archive/0.5.tar.gz"
   sha256 "6f8b044bee9760a1a85dffbc362e532d7dd91bb20b7ed4f241ff1119ad74758f"
+  license "LGPL-2.1"
   head "https://github.com/theZiz/aha.git"
 
   bottle do
