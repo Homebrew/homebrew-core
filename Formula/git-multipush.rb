@@ -3,6 +3,7 @@ class GitMultipush < Formula
   homepage "https://github.com/gavinbeatty/git-multipush"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/git-multipush/git-multipush-2.3.tar.bz2"
   sha256 "1f3b51e84310673045c3240048b44dd415a8a70568f365b6b48e7970afdafb67"
+  license "GPL-3.0"
   head "https://github.com/gavinbeatty/git-multipush.git"
 
   bottle do
