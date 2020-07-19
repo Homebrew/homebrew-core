@@ -4,6 +4,7 @@ class Gmt < Formula
   url "https://github.com/GenericMappingTools/gmt/releases/download/6.1.0/gmt-6.1.0-src.tar.xz"
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.1.0-src.tar.xz"
   sha256 "ad02780153c53a1116ae0cc7945b6f533f066af44c30d7f95ff138cfede1867c"
+  license "LGPL-3.0"
   head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
