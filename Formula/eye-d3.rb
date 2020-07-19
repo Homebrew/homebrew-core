@@ -5,6 +5,7 @@ class EyeD3 < Formula
   homepage "https://eyed3.nicfit.net/"
   url "https://eyed3.nicfit.net/releases/eyeD3-0.9.5.tar.gz"
   sha256 "faf5806197f2093e82c2830d41f2378f07b3a9da07a16fafb14fc6fbdebac50a"
+  license "GPL-3.0"
   revision 1
 
   bottle do
