@@ -3,6 +3,7 @@ class Fmt < Formula
   homepage "https://fmtlib.github.io/"
   url "https://github.com/fmtlib/fmt/archive/7.0.1.tar.gz"
   sha256 "ac335a4ca6beaebec4ddb2bc35b9ae960b576f3b64a410ff2c379780f0cd4948"
+  license "MIT"
 
   bottle do
     cellar :any
