@@ -3,6 +3,7 @@ class BoostAT160 < Formula
   homepage "https://www.boost.org/"
   url "https://downloads.sourceforge.net/project/boost/boost/1.60.0/boost_1_60_0.tar.bz2"
   sha256 "686affff989ac2488f79a97b9479efb9f2abae035b5ed4d8226de6857933fd3b"
+  license "BSL-1.0"
 
   bottle do
     cellar :any
