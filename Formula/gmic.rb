@@ -3,6 +3,7 @@ class Gmic < Formula
   homepage "https://gmic.eu/"
   url "https://gmic.eu/files/source/gmic_2.9.1.tar.gz"
   sha256 "50c9dd418b8d0e80c703c2e2b179b6049343567483d37d9ff6c642c6ede95d8d"
+  license "CECILL-2.1"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
