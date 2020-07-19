@@ -3,6 +3,7 @@ class Angband < Formula
   homepage "https://rephial.org/"
   url "https://rephial.org/downloads/4.2/angband-4.2.1.tar.gz"
   sha256 "acd735c9d46bf86ee14337c71c56f743ad13ec2a95d62e7115604621e7560d0f"
+  license "GPL-2.0"
   head "https://github.com/angband/angband.git"
 
   bottle do
