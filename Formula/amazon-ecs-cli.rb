@@ -3,6 +3,7 @@ class AmazonEcsCli < Formula
   homepage "https://aws.amazon.com/ecs"
   url "https://github.com/aws/amazon-ecs-cli/archive/v1.20.0.tar.gz"
   sha256 "67a9db1d32e5cf42cf6e8ab5b746e23af60120fdd0d0fe38c9fa3b214cd7fcd1"
+  license "Apache-2.0"
   head "https://github.com/aws/amazon-ecs-cli.git"
 
   bottle do
