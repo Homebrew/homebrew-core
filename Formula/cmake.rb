@@ -1,6 +1,7 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
+  license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
   stable do
