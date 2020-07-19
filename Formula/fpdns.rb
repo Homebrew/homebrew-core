@@ -3,6 +3,7 @@ class Fpdns < Formula
   homepage "https://github.com/kirei/fpdns"
   url "https://github.com/kirei/fpdns/archive/20190131.tar.gz"
   sha256 "f6599ebed73c2d87d7c2bafc8c3a63fb76bda52478e9a1912410d481f7536100"
+  license "BSD-3-Clause"
   head "https://github.com/kirei/fpdns.git"
 
   bottle do
