@@ -5,6 +5,7 @@ class Awscli < Formula
   homepage "https://aws.amazon.com/cli/"
   url "https://github.com/aws/aws-cli/archive/2.0.32.tar.gz"
   sha256 "b3bf72a9b9b3a2d79fb940678f3467032e70a72e530e986c29d1c83cdf56edfc"
+  license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", :branch => "v2"
 
   bottle do
