@@ -3,6 +3,7 @@ class B3sum < Formula
   homepage "https://github.com/BLAKE3-team/BLAKE3"
   url "https://github.com/BLAKE3-team/BLAKE3/archive/0.3.5.tar.gz"
   sha256 "0f6892b7216291ab1a5b16cc40c01d7310b7d420ee38e779e5c45e49ca456e6b"
+  license "CC0-1.0"
 
   bottle do
     cellar :any_skip_relocation
