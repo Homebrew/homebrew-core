@@ -3,6 +3,7 @@ class Field3d < Formula
   homepage "https://sites.google.com/site/field3d/"
   url "https://github.com/imageworks/Field3D/archive/v1.7.3.tar.gz"
   sha256 "b6168bc27abe0f5e9b8d01af7794b3268ae301ac72b753712df93125d51a0fd4"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
