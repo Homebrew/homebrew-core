@@ -4,6 +4,7 @@ class CmarkGfm < Formula
   url "https://github.com/github/cmark-gfm/archive/0.29.0.gfm.0.tar.gz"
   version "0.29.0.gfm.0"
   sha256 "6a94aeaa59a583fadcbf28de81dea8641b3f56d935dda5b2447a3c8df6c95fea"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
