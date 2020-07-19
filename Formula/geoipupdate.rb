@@ -3,6 +3,7 @@ class Geoipupdate < Formula
   homepage "https://github.com/maxmind/geoipupdate"
   url "https://github.com/maxmind/geoipupdate/archive/v4.3.0.tar.gz"
   sha256 "0c6df6a563203e87e80c9998975c287cd4e3a5eb6c83b90dd5a0597298b098f0"
+  license "Apache-2.0"
   head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
