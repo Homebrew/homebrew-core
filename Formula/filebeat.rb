@@ -4,6 +4,9 @@ class Filebeat < Formula
   url "https://github.com/elastic/beats.git",
       :tag      => "v7.8.0",
       :revision => "f79387d32717d79f689d94fda1ec80b2cf285d30"
+  # Outside of the "x-pack" folder, source code in a given file is licensed
+  # under the Apache License Version 2.0
+  license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
