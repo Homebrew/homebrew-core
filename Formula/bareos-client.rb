@@ -3,6 +3,7 @@ class BareosClient < Formula
   homepage "https://www.bareos.org/"
   url "https://github.com/bareos/bareos/archive/Release/19.2.8.tar.gz"
   sha256 "694ccf3ce5e84800335fda1d20bc681fcab77ab746f70c072b7c37b5b9f71a44"
+  license "AGPL-3.0"
 
   bottle do
     sha256 "9d23bb8c20bc022d7426df495d12f79f49dc57c1b7cf0779c1be3d763e5e87fc" => :catalina
