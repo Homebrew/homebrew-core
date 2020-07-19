@@ -5,6 +5,7 @@ class Cosi < Formula
   homepage "https://github.com/dedis/cosi"
   url "https://github.com/dedis/cosi/archive/0.8.6.tar.gz"
   sha256 "007e4c4def13fcecf7301d86f177f098c583151c8a3d940ccb4c65a84413a9eb"
+  license "AGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
