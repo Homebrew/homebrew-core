@@ -4,6 +4,7 @@ class Genometools < Formula
   # genometools does not have source code on par with their binary dist on their website
   url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
   sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
+  license "ISC"
   revision 1
   head "https://github.com/genometools/genometools.git"
 
