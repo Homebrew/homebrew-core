@@ -4,6 +4,7 @@ class FonFlashCli < Formula
   url "https://www.gargoyle-router.com/downloads/src/gargoyle_1.12.0-src.tar.gz"
   version "1.12.0"
   sha256 "722520cb6774f011dccf80d6d91893de608b76ebf12372cfdd5d004d99a4012a"
+  license "GPL-2.0"
   head "https://github.com/ericpaulbishop/gargoyle.git"
 
   bottle do
