@@ -3,6 +3,7 @@ class Frugal < Formula
   homepage "https://github.com/Workiva/frugal"
   url "https://github.com/Workiva/frugal/archive/v3.9.6.tar.gz"
   sha256 "579aa376d6e9f8c406a8f8ade0635d8eae807337a12c6189633225763e221cea"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
