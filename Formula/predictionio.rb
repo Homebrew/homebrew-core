@@ -4,6 +4,7 @@ class Predictionio < Formula
   url "https://www.apache.org/dyn/closer.lua?path=predictionio/0.14.0/apache-predictionio-0.14.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/predictionio/0.14.0/apache-predictionio-0.14.0-bin.tar.gz"
   sha256 "049c9147ad9a6e2beddc2befcac5c73071845b2150c05a71118164c975de6ed7"
+  license "Apache-2.0"
 
   bottle :unneeded
 
