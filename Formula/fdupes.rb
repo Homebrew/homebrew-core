@@ -3,6 +3,7 @@ class Fdupes < Formula
   homepage "https://github.com/adrianlopezroche/fdupes"
   url "https://github.com/adrianlopezroche/fdupes/releases/download/v2.1.1/fdupes-2.1.1.tar.gz"
   sha256 "5ab60e6c0b10438f3e323c6d14f34d2f3eec33cc4cd95159f220a1722613b1b2"
+  license "MIT"
   version_scheme 1
 
   bottle do
