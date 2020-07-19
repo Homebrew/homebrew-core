@@ -3,6 +3,7 @@ class GitLfs < Formula
   homepage "https://github.com/git-lfs/git-lfs"
   url "https://github.com/git-lfs/git-lfs/releases/download/v2.11.0/git-lfs-v2.11.0.tar.gz"
   sha256 "8183c4cbef8cf9c2e86b0c0a9822451e2df272f89ceb357c498bfdf0ff1b36c7"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
