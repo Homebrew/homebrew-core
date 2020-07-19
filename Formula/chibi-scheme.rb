@@ -3,6 +3,7 @@ class ChibiScheme < Formula
   homepage "https://github.com/ashinn/chibi-scheme"
   url "https://github.com/ashinn/chibi-scheme/archive/0.8.tar.gz"
   sha256 "8a077859b123216c123c243db391b0fe4c0cf73978c7cdd7b8ea853a48192756"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/ashinn/chibi-scheme.git"
 
