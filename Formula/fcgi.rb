@@ -4,6 +4,7 @@ class Fcgi < Formula
   homepage "https://fastcgi-archives.github.io/"
   url "https://github.com/FastCGI-Archives/fcgi2/archive/2.4.2.tar.gz"
   sha256 "1fe83501edfc3a7ec96bb1e69db3fd5ea1730135bd73ab152186fd0b437013bc"
+  license "OML"
 
   bottle do
     cellar :any
