@@ -3,6 +3,7 @@ class CypherShell < Formula
   homepage "https://github.com/neo4j/cypher-shell"
   url "https://github.com/neo4j/cypher-shell/releases/download/4.1.1/cypher-shell.zip"
   sha256 "5216e57490fe95ff5e677f1790444bd0fda7522f81c5ffca133bb9edb8fddd25"
+  license "GPL-3.0"
   version_scheme 1
 
   bottle :unneeded
