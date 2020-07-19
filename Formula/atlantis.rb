@@ -3,6 +3,7 @@ class Atlantis < Formula
   homepage "https://www.runatlantis.io/"
   url "https://github.com/runatlantis/atlantis/archive/v0.14.0.tar.gz"
   sha256 "32e24f4d341be578137f74385c9c97dd10461d260e23c77ed84298c578ec39e6"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
