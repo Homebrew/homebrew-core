@@ -3,6 +3,7 @@ class Drafter < Formula
   homepage "https://apiblueprint.org/"
   url "https://github.com/apiaryio/drafter/releases/download/v5.0.0/drafter-5.0.0.tar.gz"
   sha256 "a35894a8f4de8b9ead216056b6a77c8c03a4156b6a6e7eae46d9e11d116a748e"
+  license "MIT"
   head "https://github.com/apiaryio/drafter.git"
 
   bottle do
