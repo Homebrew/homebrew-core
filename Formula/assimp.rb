@@ -3,6 +3,7 @@ class Assimp < Formula
   homepage "https://www.assimp.org/"
   url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
   sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
+  license "LGPL-3.0"
   head "https://github.com/assimp/assimp.git"
 
   bottle do
