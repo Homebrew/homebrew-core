@@ -5,6 +5,7 @@ class Cedille < Formula
 
   desc "Language based on the Calculus of Dependent Lambda Eliminations"
   homepage "https://cedille.github.io/"
+  license "MIT"
   revision 2
 
   stable do
@@ -138,13 +139,13 @@ index 2505942..051a2da 100644
 @@ -100,9 +100,9 @@ no-parens {TK} _ _ _ = tt
  no-parens {QUALIF} _ _ _ = tt
  no-parens {ARG} _ _ _ = tt
- 
+
 -pattern ced-ops-drop-spine = cedille-options.options.mk-options _ _ _ _ ff _ _ _ ff _
 -pattern ced-ops-conv-arr = cedille-options.options.mk-options _ _ _ _ _ _ _ _ ff _
 -pattern ced-ops-conv-abs = cedille-options.options.mk-options _ _ _ _ _ _ _ _ tt _
 +pattern ced-ops-drop-spine = cedille-options.mk-options _ _ _ _ ff _ _ _ ff _
 +pattern ced-ops-conv-arr = cedille-options.mk-options _ _ _ _ _ _ _ _ ff _
 +pattern ced-ops-conv-abs = cedille-options.mk-options _ _ _ _ _ _ _ _ tt _
- 
+
  drop-spine : cedille-options.options → {ed : exprd} → ctxt → ⟦ ed ⟧ → ⟦ ed ⟧
  drop-spine ops @ ced-ops-drop-spine = h
