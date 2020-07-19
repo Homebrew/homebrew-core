@@ -5,6 +5,7 @@ class Chronograf < Formula
   homepage "https://docs.influxdata.com/chronograf/latest/"
   url "https://github.com/influxdata/chronograf/archive/1.8.5.tar.gz"
   sha256 "62a77dd6804ce29ed87fc87a503bc2f4d8a96478b9d4e571f10b0df91a036a60"
+  license "AGPL-3.0"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
