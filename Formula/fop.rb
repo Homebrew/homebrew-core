@@ -4,6 +4,7 @@ class Fop < Formula
   url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
   mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.5-bin.tar.gz"
   sha256 "6a3c5f8915be5ef90fff202c818152d8252bb45b96d9c5d6550594903739e5ed"
+  license "Apache-2.0"
 
   bottle :unneeded
 
