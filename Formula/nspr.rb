@@ -3,6 +3,7 @@ class Nspr < Formula
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
   url "https://archive.mozilla.org/pub/nspr/releases/v4.26/src/nspr-4.26.tar.gz"
   sha256 "fc9d142d85b74ffd2e6374a0c9016f3f2dac074225e24df3070e5a72d31b773d"
+  license "MPL-2.0"
 
   bottle do
     cellar :any
