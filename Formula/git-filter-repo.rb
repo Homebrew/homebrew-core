@@ -5,6 +5,7 @@ class GitFilterRepo < Formula
   homepage "https://github.com/newren/git-filter-repo"
   url "https://github.com/newren/git-filter-repo/releases/download/v2.27.1/git-filter-repo-2.27.1.tar.xz"
   sha256 "48d0bf96c1b0fdf56bf25bf1cef488f4ec1e872ebf0dddc27fd4f91c8615231f"
+  license "MIT"
 
   bottle :unneeded
 
