@@ -3,6 +3,7 @@ class Daemontools < Formula
   homepage "https://cr.yp.to/daemontools.html"
   url "https://cr.yp.to/daemontools/daemontools-0.76.tar.gz"
   sha256 "a55535012b2be7a52dcd9eccabb9a198b13be50d0384143bd3b32b8710df4c1f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,16 +16,28 @@ class Daemontools < Formula
 
   def install
     cd "daemontools-#{version}" do
+      inreplace ["package/run", "src/svscanboot.sh"] do |s|
+        s.gsub! "/service", "#{etc}/service"
+      end
+
       system "package/compile"
       bin.install Dir["command/*"]
     end
   end
 
+  def post_install
+    (etc/"service").mkpath
+
+    Pathname.glob("/service/*") do |original|
+      target = "#{etc}/service/#{original.basename}"
+      ln_s original, target unless File.exist?(target)
+    end
+  end
+
   def caveats
     <<~EOS
-      You must create the /service directory before starting svscan:
-        sudo mkdir /service
-        sudo brew services start daemontools
+      Services are stored in:
+        #{etc}/service/
     EOS
   end
 
