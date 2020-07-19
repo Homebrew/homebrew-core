@@ -3,6 +3,7 @@ class Dcm2niix < Formula
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
   url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20200331.tar.gz"
   sha256 "d057f3dbfb0ec9474695075725bc09e28f1d1e021f5fe71c22903ed8cc18f7cb"
+  license "BSD-3-Clause"
   head "https://github.com/rordenlab/dcm2niix.git"
 
   bottle do
