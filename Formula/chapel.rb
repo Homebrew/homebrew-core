@@ -3,6 +3,7 @@ class Chapel < Formula
   homepage "https://chapel-lang.org/"
   url "https://github.com/chapel-lang/chapel/releases/download/1.22.1/chapel-1.22.1.tar.gz"
   sha256 "8235eb0869c9b04256f2e5ce3ac4f9eff558401582fba0eba05f254449a24989"
+  license "Apache-2.0"
 
   bottle do
     sha256 "aa7c3e7f089ac71f88c51eb06d0551d78661cb4fadaa86d9807a908c45650df8" => :catalina
