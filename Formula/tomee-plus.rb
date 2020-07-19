@@ -4,6 +4,7 @@ class TomeePlus < Formula
   url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.3/apache-tomee-8.0.3-plus.tar.gz"
   mirror "https://archive.apache.org/dist/tomee/tomee-8.0.3/apache-tomee-8.0.3-plus.tar.gz"
   sha256 "7b5bad40ea64a67cfb59763fb628b6611a65aa4762a1022e2a335d8a7289ffdd"
+  license "Apache-2.0"
 
   bottle :unneeded
 
