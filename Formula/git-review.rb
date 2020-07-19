@@ -5,6 +5,7 @@ class GitReview < Formula
   homepage "https://opendev.org/opendev/git-review"
   url "https://files.pythonhosted.org/packages/2c/e6/e4f1b999af2493a5cc5e050f0869b29f30914f94016abf48c77c6307745b/git-review-1.28.0.tar.gz"
   sha256 "8e3aabb7b9484063e49c2504d137609401e32ad5128ff2a5cf43e98d5d3dc15a"
+  license "Apache-2.0"
   revision 2
   head "https://opendev.org/opendev/git-review.git"
 
