@@ -3,6 +3,7 @@ class Blitz < Formula
   homepage "https://github.com/blitzpp/blitz/wiki"
   url "https://github.com/blitzpp/blitz/archive/1.0.2.tar.gz"
   sha256 "500db9c3b2617e1f03d0e548977aec10d36811ba1c43bb5ef250c0e3853ae1c2"
+  license "Artistic-2.0"
   head "https://github.com/blitzpp/blitz.git"
 
   bottle do
