@@ -3,6 +3,7 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/csmith-project/creduce.git"
 
