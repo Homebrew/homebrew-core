@@ -1,10 +1,9 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.12.3",
-      :revision => "31ebe2ac71400344a5db91ffc13c4ddfb7589f92"
-  head "https://github.com/protocolbuffers/protobuf.git"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protobuf-all-3.12.3.tar.gz"
+  sha256 "1a83f0525e5c8096b7b812181865da3c8637de88f9777056cefbf51a1eb0b83f"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,9 +12,14 @@ class Protobuf < Formula
     sha256 "ffc0bc6e68a6c48774854de177443ca852c107fe4e6e470486fa9d497334c28f" => :high_sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/protocolbuffers/protobuf.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "python@3.8" => [:build, :test]
 
   resource "six" do
@@ -30,7 +34,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
