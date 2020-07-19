@@ -3,6 +3,7 @@ class Fping < Formula
   homepage "https://fping.org/"
   url "https://fping.org/dist/fping-4.3.tar.gz"
   sha256 "92040ae842f7b8942d5cf26d8f58702a8d84c40a1fd492b415bd01b622bf372d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
