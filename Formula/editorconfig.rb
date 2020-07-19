@@ -3,6 +3,7 @@ class Editorconfig < Formula
   homepage "https://editorconfig.org/"
   url "https://github.com/editorconfig/editorconfig-core-c/archive/v0.12.3.tar.gz"
   sha256 "64edf79500e104e47035cace903f5c299edba778dcff71b814b7095a9f14cbc1"
+  license "BSD-2-Clause"
   head "https://github.com/editorconfig/editorconfig-core-c.git"
 
   bottle do
