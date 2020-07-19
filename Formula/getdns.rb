@@ -3,6 +3,7 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-6-0/getdns-1.6.0.tar.gz"
   sha256 "40e5737471a3902ba8304b0fd63aa7c95802f66ebbc6eae53c487c8e8a380f4a"
+  license "BSD-3-Clause"
   head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
 
   bottle do
