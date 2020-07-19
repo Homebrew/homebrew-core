@@ -5,6 +5,7 @@ class Cbmc < Formula
       :using    => :git,
       :tag      => "cbmc-5.12.3",
       :revision => "354b2c1b7532cf62c9e4e78031282c0471fccca8"
+  license "BSD-4-Clause"
 
   bottle do
     cellar :any_skip_relocation
