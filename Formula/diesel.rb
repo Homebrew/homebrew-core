@@ -3,6 +3,7 @@ class Diesel < Formula
   homepage "https://diesel.rs"
   url "https://github.com/diesel-rs/diesel/archive/v1.4.5.tar.gz"
   sha256 "cb034b398c664523f5d822a240f645a7a0fcc63de668acc9aa12e1d2aada470d"
+  license "Apache-2.0"
   head "https://github.com/diesel-rs/diesel.git"
 
   bottle do
