@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      tag:      "RELEASE.2020-07-11T05-18-52Z",
-      revision: "1513d76ca9d3a2cddda40d0e6e50be164b894889"
-  version "20200711051852"
+      tag:      "RELEASE.2020-07-17T02-52-20Z",
+      revision: "f19a10dce2ab5a0fbc8c0ff63cf8e4b4572ad582"
+  version "20200717025220"
   license "Apache-2.0"
 
   bottle do
@@ -33,8 +33,6 @@ class MinioMc < Formula
         -X #{proj}/cmd.CommitID=#{minio_commit}
       EOS
     end
-
-    prefix.install_metafiles
   end
 
   test do
