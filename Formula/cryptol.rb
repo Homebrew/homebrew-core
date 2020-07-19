@@ -7,6 +7,7 @@ class Cryptol < Formula
   homepage "https://www.cryptol.net/"
   url "https://hackage.haskell.org/package/cryptol-2.8.0/cryptol-2.8.0.tar.gz"
   sha256 "b061bf88de09de5034a3707960af01fbcc0425cdbff1085c50c00748df9910bb"
+  license "BSD-3-Clause"
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
