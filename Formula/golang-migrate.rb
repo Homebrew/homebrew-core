@@ -3,6 +3,7 @@ class GolangMigrate < Formula
   homepage "https://github.com/golang-migrate/migrate"
   url "https://github.com/golang-migrate/migrate/archive/v4.11.0.tar.gz"
   sha256 "e9b7a1fc834414584186cebb96ef59439d843d62f3d2c0b0c7aaa6da689d5d86"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
