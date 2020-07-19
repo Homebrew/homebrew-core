@@ -4,6 +4,7 @@ class AntAT19 < Formula
   url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.9.15-bin.tar.bz2"
   mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.9.15-bin.tar.bz2"
   sha256 "b91eb0c7412f7d4d7c205ea189cf3bfede4bed6a168144b2a222bcbc352edd79"
+  license "Apache-2.0"
 
   bottle :unneeded
 
