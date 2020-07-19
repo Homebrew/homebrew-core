@@ -21,6 +21,13 @@ class Nmap < Formula
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 
+  # Remove for > 7.80
+  # Big Sur fix; see also: https://github.com/nmap/nmap/pull/2085
+  patch do
+    url "https://github.com/nmap/nmap/commit/05763b620d4c92a7fe4afee649f3b317894f5ca6.patch?full_index=1"
+    sha256 "3efed6ca33f7a529053c8f913c62966014ebcc1b0ef406fe0c251767e1300d37"
+  end
+
   def install
     ENV.deparallelize
 
