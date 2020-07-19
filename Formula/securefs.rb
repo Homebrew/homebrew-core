@@ -4,6 +4,7 @@ class Securefs < Formula
   url "https://github.com/netheril96/securefs.git",
     :tag      => "0.11.1",
     :revision => "dfeebf8406871d020848edde668234715356158c"
+  license "MIT"
   head "https://github.com/netheril96/securefs.git"
 
   bottle do
