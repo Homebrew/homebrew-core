@@ -5,6 +5,7 @@ class AnsibleAT28 < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.12.tar.gz"
   sha256 "2a4ce2a3f387d2595ee3f968c3ea50d6db0ab2d8306f0e81ab96c2a15a683124"
+  license "GPL-3.0"
   revision 2
 
   bottle do
