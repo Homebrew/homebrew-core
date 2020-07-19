@@ -4,6 +4,7 @@ class GoAT110 < Formula
   url "https://dl.google.com/go/go1.10.8.src.tar.gz"
   mirror "https://fossies.org/linux/misc/go1.10.8.src.tar.gz"
   sha256 "6faf74046b5e24c2c0b46e78571cca4d65e1b89819da1089e53ea57539c63491"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 2
