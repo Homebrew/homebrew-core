@@ -4,6 +4,7 @@ class Hive < Formula
   url "https://www.apache.org/dyn/closer.lua?path=hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
   mirror "https://archive.apache.org/dist/hive/hive-3.1.2/apache-hive-3.1.2-bin.tar.gz"
   sha256 "d75dcf36908b4e7b9b0ec9aec57a46a6628b97b276c233cb2c2f1a3e89b13462"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded
