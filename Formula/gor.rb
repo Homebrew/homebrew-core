@@ -4,6 +4,7 @@ class Gor < Formula
   url "https://github.com/buger/goreplay.git",
     :tag      => "v1.1.0",
     :revision => "5cbb5ea85fcb33c40b314d8baf84cac65a623098"
+  license "LGPL-3.0"
   head "https://github.com/buger/goreplay.git"
 
   bottle do
