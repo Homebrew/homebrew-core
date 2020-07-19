@@ -5,6 +5,7 @@ class Carthage < Formula
       :tag      => "0.35.0",
       :revision => "c7550f832f23d2c00bf0c014351719839593c641",
       :shallow  => false
+  license "MIT"
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
   bottle do
