@@ -3,6 +3,7 @@ class GitInteractiveRebaseTool < Formula
   homepage "https://gitrebasetool.mitmaro.ca/"
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/1.2.1.tar.gz"
   sha256 "8df32f209d481580c3365a065882e40343ecc42d9e4ed593838092bb6746a197"
+  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
