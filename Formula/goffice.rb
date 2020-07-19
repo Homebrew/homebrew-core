@@ -3,6 +3,8 @@ class Goffice < Formula
   homepage "https://developer.gnome.org/goffice/"
   url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.47.tar.xz"
   sha256 "258895abaee72fb4bd2ed6e7166946ac57c8781faea6c31d5097d6fd9b7bb176"
+  # dual licensed under GPL-2.0 or GPL-3.0
+  license "GPL-3.0"
   revision 1
 
   bottle do
