@@ -3,6 +3,7 @@ class Glassfish < Formula
   homepage "https://github.com/eclipse-ee4j/glassfish"
   url "https://www.eclipse.org/downloads/download.php?file=/glassfish/glassfish-5.1.0.zip&r=1"
   sha256 "26f3fa6463d24c5ed3956e4cab24a97e834ca37d7a23d341aadaa78d9e0093ce"
+  license "EPL-2.0"
 
   bottle :unneeded
 
