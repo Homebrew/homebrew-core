@@ -4,6 +4,7 @@ class Gcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-10.1.0/gcc-10.1.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.1.0/gcc-10.1.0.tar.xz"
   sha256 "b6898a23844b656f1b68691c5c012036c2e694ac4b53a8918d4712ad876e7ea2"
+  license "GPL-3.0"
   head "https://gcc.gnu.org/git/gcc.git"
 
   bottle do
