@@ -4,6 +4,7 @@ class Cppad < Formula
   # Stable versions have numbers of the form 201x0000.y
   url "https://github.com/coin-or/CppAD/archive/20200000.3.tar.gz"
   sha256 "b37f3bc13d1e653828fefec604260d93224dc66a5f70da5500bc7bf2ba13c3d3"
+  license "EPL-2.0"
   version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
