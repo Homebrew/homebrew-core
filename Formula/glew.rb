@@ -3,6 +3,7 @@ class Glew < Formula
   homepage "https://glew.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/glew/glew/2.1.0/glew-2.1.0.tgz"
   sha256 "04de91e7e6763039bc11940095cd9c7f880baba82196a7765f727ac05a993c95"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/nigels-com/glew.git"
 
