@@ -3,6 +3,7 @@ class Celero < Formula
   homepage "https://github.com/DigitalInBlue/Celero"
   url "https://github.com/DigitalInBlue/Celero/archive/v2.6.0.tar.gz"
   sha256 "a5b72da254f81d42369382ba3157229b6b32ebbb670a22b185f80db95535e66e"
+  license "Apache-2.0"
 
   bottle do
     cellar :any
