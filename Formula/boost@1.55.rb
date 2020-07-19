@@ -3,6 +3,7 @@ class BoostAT155 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
   sha256 "fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52"
+  license "BSL-1.0"
   revision 1
 
   bottle do
