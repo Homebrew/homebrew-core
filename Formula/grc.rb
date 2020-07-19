@@ -5,6 +5,7 @@ class Grc < Formula
   homepage "https://korpus.juls.savba.sk/~garabik/software/grc.html"
   url "https://github.com/garabik/grc/archive/v1.11.3.tar.gz"
   sha256 "b167babd8f073a68f5a3091f833e4036fb8d86504e746694747a3ee5048fa7a9"
+  license "GPL-2.0"
   revision 1
   head "https://github.com/garabik/grc.git"
 
