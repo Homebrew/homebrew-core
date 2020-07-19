@@ -4,6 +4,7 @@ class NifiRegistry < Formula
   url "https://www.apache.org/dyn/closer.lua?path=nifi/nifi-registry/nifi-registry-0.6.0/nifi-registry-0.6.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/nifi/nifi-registry/nifi-registry-0.6.0/nifi-registry-0.6.0-bin.tar.gz"
   sha256 "e52d07e5689dbab5a04fa6afb4e89b316980daac781144c9651aa81a68c38068"
+  license "Apache-2.0"
 
   bottle :unneeded
 
