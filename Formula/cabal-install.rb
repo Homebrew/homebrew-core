@@ -3,6 +3,7 @@ class CabalInstall < Formula
   homepage "https://www.haskell.org/cabal/"
   url "https://hackage.haskell.org/package/cabal-install-3.2.0.0/cabal-install-3.2.0.0.tar.gz"
   sha256 "a0555e895aaf17ca08453fde8b19af96725da8398e027aa43a49c1658a600cb0"
+  license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", :branch => "3.2"
 
   bottle do
