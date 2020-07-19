@@ -3,6 +3,7 @@ class DockerSlim < Formula
   homepage "https://dockersl.im"
   url "https://github.com/docker-slim/docker-slim/archive/1.29.0.tar.gz"
   sha256 "538f623dde86d1cfeef4e645cf05260677dfc1f434c9596e54b0409669a4f1c5"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
