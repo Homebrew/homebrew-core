@@ -3,6 +3,7 @@ class CBlosc < Formula
   homepage "https://blosc.org/"
   url "https://github.com/Blosc/c-blosc/archive/v1.19.0.tar.gz"
   sha256 "cf3d6193fece9becddb62248b9981bf78cf1c7faf58150fd520d4755cd622488"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
