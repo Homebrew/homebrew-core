@@ -3,6 +3,7 @@ class Exiv2 < Formula
   homepage "https://www.exiv2.org/"
   url "https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz"
   sha256 "a79f5613812aa21755d578a297874fb59a85101e793edc64ec2c6bd994e3e778"
+  license "GPL-2.0"
   head "https://github.com/Exiv2/exiv2.git"
 
   bottle do
