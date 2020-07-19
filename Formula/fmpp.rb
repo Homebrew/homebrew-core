@@ -3,6 +3,7 @@ class Fmpp < Formula
   homepage "https://fmpp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/fmpp/fmpp/0.9.16/fmpp_0.9.16.tar.gz"
   sha256 "86561e3f3a2ccb436f5f3df88d79a7dad72549a33191901f49d12a38b53759cd"
+  license "Apache-2.0"
   revision 1
   head "https://github.com/freemarker/fmpp.git"
 
