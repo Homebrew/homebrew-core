@@ -3,6 +3,7 @@ class AppscaleTools < Formula
   homepage "https://github.com/AppScale/appscale-tools"
   url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
   sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
+  license "Apache-2.0"
   revision 3
   head "https://github.com/AppScale/appscale-tools.git"
 
