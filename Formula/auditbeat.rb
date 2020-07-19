@@ -4,6 +4,7 @@ class Auditbeat < Formula
   url "https://github.com/elastic/beats.git",
       :tag      => "v7.8.0",
       :revision => "f79387d32717d79f689d94fda1ec80b2cf285d30"
+  license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
