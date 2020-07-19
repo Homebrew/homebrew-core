@@ -3,6 +3,7 @@ class Dropbear < Formula
   homepage "https://matt.ucc.asn.au/dropbear/dropbear.html"
   url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2020.80.tar.bz2"
   sha256 "d927941b91f2da150b2033f1a88b6a47999bf0afb1493a73e9216cffdb5d7949"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
