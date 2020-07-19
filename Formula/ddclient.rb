@@ -3,6 +3,7 @@ class Ddclient < Formula
   homepage "https://ddclient.net/"
   url "https://github.com/ddclient/ddclient/archive/v3.9.1.tar.gz"
   sha256 "e4969e15cc491fc52bdcd649d4c2b0e4b1bf0c9f9dba23471c634871acc52470"
+  license "GPL-2.0"
   head "https://github.com/wimpunk/ddclient.git"
 
   bottle do
