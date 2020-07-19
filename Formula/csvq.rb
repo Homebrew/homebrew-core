@@ -3,6 +3,7 @@ class Csvq < Formula
   homepage "https://mithrandie.github.io/csvq"
   url "https://github.com/mithrandie/csvq/archive/v1.13.3.tar.gz"
   sha256 "3242f1dd4b1d36794642356610a8709dbcb257e9bf5fdb287222694c93853242"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
