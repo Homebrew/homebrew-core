@@ -3,6 +3,7 @@ class Freetds < Formula
   homepage "https://www.freetds.org/"
   url "https://www.freetds.org/files/stable/freetds-1.2.3.tar.gz"
   sha256 "50ca5f54a76088fcf54873d76806996c6f43a7b6defafafa2b11060caf2e05b8"
+  license "LGPL-2.0"
 
   bottle do
     sha256 "6aa188d6d4c85197a3bbaf9b1875562e4b6bf855328568e294233f98557ea5b6" => :catalina
