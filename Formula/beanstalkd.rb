@@ -3,6 +3,7 @@ class Beanstalkd < Formula
   homepage "https://beanstalkd.github.io/"
   url "https://github.com/beanstalkd/beanstalkd/archive/v1.12.tar.gz"
   sha256 "f43a7ea7f71db896338224b32f5e534951a976f13b7ef7a4fb5f5aed9f57883f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
