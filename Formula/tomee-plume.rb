@@ -4,6 +4,7 @@ class TomeePlume < Formula
   url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.3/apache-tomee-8.0.3-plume.tar.gz"
   mirror "https://archive.apache.org/dist/tomee/tomee-8.0.3/apache-tomee-8.0.3-plume.tar.gz"
   sha256 "8d08324eed84e183f35911ef35020590668ee591e43678d34d2f8545c1a78883"
+  license "Apache-2.0"
 
   bottle :unneeded
 
