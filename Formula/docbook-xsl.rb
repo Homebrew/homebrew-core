@@ -3,6 +3,9 @@ class DocbookXsl < Formula
   homepage "https://github.com/docbook/xslt10-stylesheets"
   url "https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F1.79.2/docbook-xsl-nons-1.79.2.tar.bz2"
   sha256 "ee8b9eca0b7a8f89075832a2da7534bce8c5478fc8fc2676f512d5d87d832102"
+  # Except as otherwise noted, for example, under some of the /contrib/
+  # directories, the DocBook XSLT 1.0 Stylesheets use The MIT License.
+  license "MIT"
   revision 1
 
   bottle do
