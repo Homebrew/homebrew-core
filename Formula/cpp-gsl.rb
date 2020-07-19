@@ -3,6 +3,7 @@ class CppGsl < Formula
   homepage "https://github.com/Microsoft/GSL"
   url "https://github.com/Microsoft/GSL/archive/v3.1.0.tar.gz"
   sha256 "d3234d7f94cea4389e3ca70619b82e8fb4c2f33bb3a070799f1e18eef500a083"
+  license "MIT"
   head "https://github.com/Microsoft/GSL.git"
 
   bottle do
