@@ -4,6 +4,7 @@ class Dep < Formula
   url "https://github.com/golang/dep.git",
       :tag      => "v0.5.4",
       :revision => "1f7c19e5f52f49ffb9f956f64c010be14683468b"
+  license "BSD-3-Clause"
   head "https://github.com/golang/dep.git"
 
   bottle do
