@@ -4,6 +4,7 @@ class Arabica < Formula
   url "https://github.com/jezhiggins/arabica/archive/2020-April.tar.gz"
   version "20200425"
   sha256 "b00c7b8afd2c3f17b5a22171248136ecadf0223b598fd9631c23f875a5ce87fe"
+  license "BSD-3-Clause"
   head "https://github.com/jezhiggins/arabica.git"
 
   bottle do
