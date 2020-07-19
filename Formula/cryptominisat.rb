@@ -3,6 +3,9 @@ class Cryptominisat < Formula
   homepage "https://www.msoos.org/cryptominisat5/"
   url "https://github.com/msoos/cryptominisat/archive/5.6.8.tar.gz"
   sha256 "38add382c2257b702bdd4f1edf73544f29efc6e050516b6cacd2d81e35744b55"
+  # Everything that's needed to run/build/install/link the system is MIT licensed. This allows
+  # easy distribution and running of the system everywhere.
+  license "MIT"
   revision 1
 
   bottle do
