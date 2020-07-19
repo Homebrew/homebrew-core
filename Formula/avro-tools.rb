@@ -4,6 +4,7 @@ class AvroTools < Formula
   url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.0/java/avro-tools-1.10.0.jar"
   mirror "https://archive.apache.org/dist/avro/avro-1.10.0/java/avro-tools-1.10.0.jar"
   sha256 "74c037354ba1bb43e07d336d46d95d54bc347f2d8073d7cf1087d447b5978a56"
+  license "Apache-2.0"
 
   bottle :unneeded
 
