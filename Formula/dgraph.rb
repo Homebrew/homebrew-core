@@ -3,6 +3,9 @@ class Dgraph < Formula
   homepage "https://dgraph.io"
   url "https://github.com/dgraph-io/dgraph/archive/v20.03.3.tar.gz"
   sha256 "1e2145d8921b980882ef4475c82337e80c15fa3012a012424dadc9f636bffaa1"
+  # Source code in this repository is variously licensed under the Apache Public License 2.0 (APL)
+  # and the Dgraph Community License (DCL). A copy of each license can be found in the licenses directory.
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
