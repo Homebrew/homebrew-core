@@ -3,6 +3,7 @@ class OpusTools < Formula
   homepage "https://www.opus-codec.org"
   url "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz"
   sha256 "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
