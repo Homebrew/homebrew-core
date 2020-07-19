@@ -4,6 +4,7 @@ class Tika < Formula
   url "https://www.apache.org/dyn/closer.lua?path=tika/tika-app-1.24.1.jar"
   mirror "https://archive.apache.org/dist/tika/tika-app-1.24.1.jar"
   sha256 "e56d2e38be4755c78b511f316bda2a55af5c3b3b36e7e5536d3584c71239b187"
+  license "Apache-2.0"
 
   bottle :unneeded
 
