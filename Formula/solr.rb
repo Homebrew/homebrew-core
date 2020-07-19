@@ -4,6 +4,7 @@ class Solr < Formula
   url "https://www.apache.org/dyn/closer.lua?path=lucene/solr/8.5.2/solr-8.5.2.tgz"
   mirror "https://archive.apache.org/dist/lucene/solr/8.5.2/solr-8.5.2.tgz"
   sha256 "c457d6c7243241cad141e1df34c6f669d58a6c60e537f4217d032616dd066dcf"
+  license "Apache-2.0"
 
   bottle :unneeded
 
