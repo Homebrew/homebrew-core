@@ -3,6 +3,7 @@ class Blueutil < Formula
   homepage "https://github.com/toy/blueutil"
   url "https://github.com/toy/blueutil/archive/v2.6.0.tar.gz"
   sha256 "5ba90cdedd886566e1304813891c0f9f6139db67aaf2829a8294973ee3d0b66c"
+  license "MIT"
   head "https://github.com/toy/blueutil.git"
 
   bottle do
