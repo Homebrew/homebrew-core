@@ -4,6 +4,7 @@ class ApacheDrill < Formula
   url "https://www.apache.org/dyn/closer.lua?path=drill/drill-1.17.0/apache-drill-1.17.0.tar.gz"
   mirror "https://archive.apache.org/dist/drill/drill-1.17.0/apache-drill-1.17.0.tar.gz"
   sha256 "a3d2d544bcc32b915fb53fced0f982670bd6fe2abd764423e566a5f6b54debf1"
+  license "Apache-2.0"
 
   bottle :unneeded
 
