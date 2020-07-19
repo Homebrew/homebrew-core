@@ -4,6 +4,7 @@ class CartridgeCli < Formula
   url "https://github.com/tarantool/cartridge-cli.git",
       :tag      => "2.1.0",
       :revision => "52f3f6837ea4896d9b476169813aa48de8e1e659"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
