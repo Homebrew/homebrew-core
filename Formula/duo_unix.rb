@@ -3,6 +3,7 @@ class DuoUnix < Formula
   homepage "https://www.duosecurity.com/docs/duounix"
   url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.4.tar.gz"
   sha256 "2fcba3e50fd477699d013c789ffc73a0b10c204d25c455abe7c81a2ecd886579"
+  license "GPL-2.0"
 
   bottle do
     sha256 "67a6ff6605578e287fc862f6fb2ee9360dea7c22f8fbaa97a1bf18dd13db5ec0" => :catalina
