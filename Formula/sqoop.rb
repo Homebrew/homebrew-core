@@ -5,6 +5,7 @@ class Sqoop < Formula
   mirror "https://archive.apache.org/dist/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz"
   version "1.4.7"
   sha256 "64111b136dbadcb873ce17e09201f723d4aea81e5e7c843e400eb817bb26f235"
+  license "Apache-2.0"
 
   bottle :unneeded
 
