@@ -3,6 +3,7 @@ class Capnp < Formula
   homepage "https://capnproto.org/"
   url "https://capnproto.org/capnproto-c++-0.8.0.tar.gz"
   sha256 "d1f40e47574c65700f0ec98bf66729378efabe3c72bc0cda795037498541c10d"
+  license "MIT"
   head "https://github.com/capnproto/capnproto.git"
 
   bottle do
