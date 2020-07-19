@@ -3,6 +3,7 @@ class Asio < Formula
   homepage "https://think-async.com/Asio"
   url "https://downloads.sourceforge.net/project/asio/asio/1.16.1%20%28Stable%29/asio-1.16.1.tar.bz2"
   sha256 "e271db76dbbcda9835ed1c9c94deb2ba3f4589c3ebcaa71d99ac694b8d62638c"
+  license "BSL-1.0"
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
