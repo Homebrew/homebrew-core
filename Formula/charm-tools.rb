@@ -5,6 +5,7 @@ class CharmTools < Formula
   homepage "https://github.com/juju/charm-tools"
   url "https://files.pythonhosted.org/packages/b9/1b/11c18424fc374f158a0f1a68ccd62f9484dbe3d1d656bd6df945b1751ecc/charm-tools-2.7.6.tar.gz"
   sha256 "ed53f561a7e1352f5c6f3b8636b68f6ea7c1ffd3e3fd7016e424a886c2b4526b"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
