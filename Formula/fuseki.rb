@@ -4,6 +4,7 @@ class Fuseki < Formula
   url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-fuseki-3.16.0.tar.gz"
   mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-3.16.0.tar.gz"
   sha256 "8494b016db4cec3ba17460fde0e25bd12518c038603f09cdf8dc6ac93253ab21"
+  license "Apache-2.0"
 
   bottle :unneeded
 
