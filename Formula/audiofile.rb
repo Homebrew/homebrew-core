@@ -1,6 +1,7 @@
 class Audiofile < Formula
   desc "Reads and writes many common audio file formats"
   homepage "https://audiofile.68k.org/"
+  license "LGPL-2.1"
   revision 1
 
   stable do
