@@ -1,6 +1,7 @@
 class GitFlow < Formula
   desc "Extensions to follow Vincent Driessen's branching model"
   homepage "https://github.com/nvie/gitflow"
+  license "BSD-2-Clause"
 
   stable do
     # Use the tag instead of the tarball to get submodules
