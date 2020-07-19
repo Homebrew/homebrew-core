@@ -4,6 +4,7 @@ class Clamav < Formula
   url "https://www.clamav.net/downloads/production/clamav-0.102.3.tar.gz"
   mirror "https://fossies.org/linux/misc/clamav-0.102.3.tar.gz"
   sha256 "ed3050c4569989ee7ab54c7b87246b41ed808259632849be0706467442dc0693"
+  license "GPL-2.0"
   revision 1
 
   bottle do
