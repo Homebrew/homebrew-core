@@ -3,6 +3,7 @@ class Nss < Formula
   homepage "https://developer.mozilla.org/docs/NSS"
   url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_54_RTM/src/nss-3.54.tar.gz"
   sha256 "dab18bbfcf5e347934cda664df75ce9fd912a5772686c40d3c805e53c08d6e43"
+  license "MPL-2.0"
 
   bottle do
     cellar :any
