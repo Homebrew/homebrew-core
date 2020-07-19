@@ -3,6 +3,7 @@ class Gecode < Formula
   homepage "https://www.gecode.org/"
   url "https://github.com/Gecode/gecode/archive/release-6.2.0.tar.gz"
   sha256 "27d91721a690db1e96fa9bb97cec0d73a937e9dc8062c3327f8a4ccb08e951fd"
+  license "MIT"
 
   bottle do
     cellar :any
