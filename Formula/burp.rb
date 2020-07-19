@@ -1,6 +1,7 @@
 class Burp < Formula
   desc "Network backup and restore"
   homepage "https://burp.grke.org/"
+  license "AGPL-3.0"
   revision 1
 
   stable do
