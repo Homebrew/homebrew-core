@@ -3,6 +3,7 @@ class Asciiquarium < Formula
   homepage "https://robobunny.com/projects/asciiquarium/html/"
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
+  license "GPL-2.0"
   revision 1
 
   bottle do
