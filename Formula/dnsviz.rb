@@ -5,6 +5,7 @@ class Dnsviz < Formula
   homepage "https://github.com/dnsviz/dnsviz/"
   url "https://files.pythonhosted.org/packages/25/d2/0ebfe23440a1adfdca403d7773570d3c05a3a8c5bcbaa0c091b5114d0224/dnsviz-0.8.2.tar.gz"
   sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
+  license "GPL-2.0"
   revision 3
 
   bottle do
