@@ -3,6 +3,7 @@ class Duktape < Formula
   homepage "https://duktape.org"
   url "https://github.com/svaarala/duktape/releases/download/v2.5.0/duktape-2.5.0.tar.xz"
   sha256 "83d411560a1cd36ea132bd81d8d9885efe9285c6bc6685c4b71e69a0c4329616"
+  license "MIT"
   revision 1
 
   bottle do
