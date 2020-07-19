@@ -4,6 +4,7 @@ class Blast < Formula
   url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.1/ncbi-blast-2.10.1+-src.tar.gz"
   version "2.10.1"
   sha256 "110729decf082f69b90b058c0cabaea38f771983a564308ae19cb30a68ce7b86"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "652c133a61840c1a1f69de4f5827bd358434f3d7caa7886c273b3bab034e0721" => :catalina
