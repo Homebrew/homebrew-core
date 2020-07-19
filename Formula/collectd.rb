@@ -3,6 +3,7 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.11.0.tar.bz2"
   sha256 "37b10a806e34aa8570c1cafa6006c604796fae13cc2e1b3e630d33dcba9e5db2"
+  license "MIT"
 
   bottle do
     sha256 "6b1fc316e7cab7aa33cfb8034a4e7485798ef2ceb477ceee88c212af480a1d3d" => :catalina
