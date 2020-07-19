@@ -3,6 +3,7 @@ class Fselect < Formula
   homepage "https://github.com/jhspetersson/fselect"
   url "https://github.com/jhspetersson/fselect/archive/0.6.10.tar.gz"
   sha256 "1fa86cd22fdb4a38338c343f9a917e579a6f680c961e9dca8d1a2178ab4d926b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
