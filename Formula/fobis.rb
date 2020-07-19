@@ -5,6 +5,7 @@ class Fobis < Formula
   homepage "https://github.com/szaghi/FoBiS"
   url "https://files.pythonhosted.org/packages/6e/bb/4217e14618b18427623b90fc57b50929c5c09ece31b47d4a9b5ece01ece7/FoBiS.py-3.0.2.tar.gz"
   sha256 "77cff83a6284f84f39e956ad761f9b49e8f826c71fe2230b2f8196537cdd3277"
+  license "GPL-3.0"
   revision 1
 
   bottle do
