@@ -3,6 +3,7 @@ class Fd < Formula
   homepage "https://github.com/sharkdp/fd"
   url "https://github.com/sharkdp/fd/archive/v8.1.1.tar.gz"
   sha256 "7b327dc4c2090b34c7fb3e5ac7147f7bbe6266c2d44b182038d36f3b1d347cc1"
+  license "Apache-2.0"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
