@@ -6,6 +6,7 @@ class Concurrencykit < Formula
   url "https://github.com/concurrencykit/ck/archive/0.7.0.tar.gz"
   mirror "http://concurrencykit.org/releases/ck-0.7.0.tar.gz"
   sha256 "e730cb448fb0ecf9d19bf4c7efe9efc3c04dd9127311d87d8f91484742b0da24"
+  license "BSD-2-Clause"
   head "https://github.com/concurrencykit/ck.git"
 
   bottle do
