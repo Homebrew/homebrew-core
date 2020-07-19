@@ -3,6 +3,7 @@ class ExtractUrl < Formula
   homepage "https://www.memoryhole.net/~kyle/extract_url/"
   url "https://github.com/m3m0ryh0l3/extracturl/archive/v1.6.2.tar.gz"
   sha256 "5f0b568d5c9449f477527b4077d8269f1f5e6d6531dfa5eb6ca72dbacab6f336"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
