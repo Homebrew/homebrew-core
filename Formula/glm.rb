@@ -3,6 +3,8 @@ class Glm < Formula
   homepage "https://glm.g-truc.net/"
   url "https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip"
   sha256 "37e2a3d62ea3322e43593c34bae29f57e3e251ea89f4067506c94043769ade4c"
+  # GLM is licensed under The Happy Bunny License or MIT License
+  license "MIT"
   head "https://github.com/g-truc/glm.git"
 
   bottle do
