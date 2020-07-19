@@ -3,6 +3,7 @@ class Entr < Formula
   homepage "http://entrproject.org/"
   url "http://entrproject.org/code/entr-4.6.tar.gz"
   sha256 "16de20820df4a38162354754487b1248c8711822c7342d2f6d4f28fbd4a38e6d"
+  license "ISC"
   head "https://github.com/eradman/entr.git"
 
   bottle do
