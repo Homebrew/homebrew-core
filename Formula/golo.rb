@@ -3,6 +3,7 @@ class Golo < Formula
   homepage "https://golo-lang.org/"
   url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.3.0.zip"
   sha256 "a9ff036518aee4280102b2d5b79752d8378857fd9714e5b701999a6c93b89316"
+  license "EPL-2.0"
   revision 2
   head "https://github.com/eclipse/golo-lang.git"
 
