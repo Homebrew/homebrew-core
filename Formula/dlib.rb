@@ -3,6 +3,7 @@ class Dlib < Formula
   homepage "http://dlib.net/"
   url "http://dlib.net/files/dlib-19.20.tar.bz2"
   sha256 "df9aa456ed5e190597fa8dafc1471670ced0128d0f115f2be7677c9c42f4328d"
+  license "BSL-1.0"
   revision 1
   head "https://github.com/davisking/dlib.git"
 
