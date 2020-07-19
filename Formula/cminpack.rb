@@ -3,6 +3,7 @@ class Cminpack < Formula
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
   url "https://github.com/devernay/cminpack/archive/v1.3.6.tar.gz"
   sha256 "3c07fd21308c96477a2c900032e21d937739c233ee273b4347a0d4a84a32d09f"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/devernay/cminpack.git"
 
