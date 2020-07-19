@@ -3,6 +3,7 @@ class Fizsh < Formula
   homepage "https://github.com/zsh-users/fizsh"
   url "https://downloads.sourceforge.net/project/fizsh/fizsh-1.0.9.tar.gz"
   sha256 "dbbbe03101f82e62f1dfe1f8af7cde23bc043833679bc74601a0a3d58a117b07"
+  license "BSD-3-Clause"
   head "https://github.com/zsh-users/fizsh", :using => :git
 
   bottle do
