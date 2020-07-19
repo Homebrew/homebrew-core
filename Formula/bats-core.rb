@@ -3,6 +3,7 @@ class BatsCore < Formula
   homepage "https://github.com/bats-core/bats-core"
   url "https://github.com/bats-core/bats-core/archive/v1.2.1.tar.gz"
   sha256 "91c49b1fe6f0656c46491929ed728f8dfa9a96df0cce294963e8c6082bff87a2"
+  license "MIT"
 
   bottle :unneeded
 
