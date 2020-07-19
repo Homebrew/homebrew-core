@@ -4,6 +4,7 @@ class Hadoop < Formula
   url "https://www.apache.org/dyn/closer.lua?path=hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz"
   mirror "https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz"
   sha256 "ea1a0f0afcdfb9b6b9d261cdce5a99023d7e8f72d26409e87f69bda65c663688"
+  license "Apache-2.0"
 
   bottle :unneeded
 
