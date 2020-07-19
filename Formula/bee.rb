@@ -3,6 +3,7 @@ class Bee < Formula
   homepage "https://github.com/bluesoft/bee"
   url "https://github.com/bluesoft/bee/releases/download/1.80/bee-1.80.zip"
   sha256 "42441cd6e48f1dc491b33384e4c80e72425bca660f4fb1c6e830840c3a397e7d"
+  license "MPL-1.1"
 
   bottle :unneeded
 
