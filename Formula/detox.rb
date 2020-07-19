@@ -3,6 +3,7 @@ class Detox < Formula
   homepage "https://detox.sourceforge.io/"
   url "https://github.com/dharple/detox/archive/v1.3.0.tar.gz"
   sha256 "00daf6b019b51c7bbc3ac96deeeec18fd886c144eeee97c3372dd297bb134c84"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "34cf8b1f4375e659bb76d81fbe298ae6afed01ecd6cd070755b3eabc409c329a" => :catalina
