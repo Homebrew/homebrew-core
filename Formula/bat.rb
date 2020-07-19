@@ -3,6 +3,7 @@ class Bat < Formula
   homepage "https://github.com/sharkdp/bat"
   url "https://github.com/sharkdp/bat/archive/v0.15.4.tar.gz"
   sha256 "03b7c8ad6221ca87cecd71f9e3e2167f04f750401e2d3dcc574183aabeb76a8b"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
