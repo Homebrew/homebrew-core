@@ -1,6 +1,7 @@
 class GitFlowAvh < Formula
   desc "AVH edition of git-flow"
   homepage "https://github.com/petervanderdoes/gitflow-avh"
+  license "BSD-2-Clause"
 
   stable do
     url "https://github.com/petervanderdoes/gitflow-avh/archive/1.12.3.tar.gz"
