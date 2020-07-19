@@ -3,6 +3,7 @@ class CurlOpenssl < Formula
   homepage "https://curl.haxx.se/"
   url "https://curl.haxx.se/download/curl-7.71.1.tar.bz2"
   sha256 "9d52a4d80554f9b0d460ea2be5d7be99897a1a9f681ffafe739169afd6b4f224"
+  license "ISC"
 
   bottle do
     sha256 "3eb7b47868af07e3b766a325a2576749dc2f10ea1ff7ff6ccca3be59d1345712" => :catalina
