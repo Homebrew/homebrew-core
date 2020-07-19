@@ -3,6 +3,7 @@ class Purescript < Formula
   homepage "https://www.purescript.org/"
   url "https://hackage.haskell.org/package/purescript-0.13.8/purescript-0.13.8.tar.gz"
   sha256 "701fac49de867ec01252b067185e8bbd1b72e4b96997044bac3cca91e3f8096a"
+  revision 1
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -24,7 +25,7 @@ class Purescript < Formula
     system "hpack" if build.head?
 
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-install", "-frelease", *std_cabal_v2_args
   end
 
   test do
