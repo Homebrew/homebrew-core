@@ -3,6 +3,7 @@ class Bgpdump < Formula
   homepage "https://github.com/RIPE-NCC/bgpdump/wiki"
   url "https://github.com/RIPE-NCC/bgpdump/archive/v1.6.2.tar.gz"
   sha256 "415692c173a84c48b1e927a6423a4f8fd3e6359bc3008c06b7702fe143a76223"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
