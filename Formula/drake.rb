@@ -3,6 +3,7 @@ class Drake < Formula
   homepage "https://github.com/Factual/drake"
   url "https://raw.githubusercontent.com/Factual/drake/1.0.3/bin/drake-pkg"
   sha256 "adeb0bb14dbe39789273c5c766da9a019870f2a491ba1f0c8c328bd9a95711cc"
+  license "EPL-1.0"
   head "https://github.com/Factual/drake.git"
 
   bottle :unneeded
