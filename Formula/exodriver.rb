@@ -1,6 +1,7 @@
 class Exodriver < Formula
   desc "Thin interface to LabJack devices"
   homepage "https://labjack.com/support/linux-and-mac-os-x-drivers"
+  license "MIT"
   revision 1
   head "https://github.com/labjack/exodriver.git"
 
