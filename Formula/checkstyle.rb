@@ -3,6 +3,7 @@ class Checkstyle < Formula
   homepage "https://checkstyle.sourceforge.io/"
   url "https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.34/checkstyle-8.34-all.jar"
   sha256 "ebbb437784e68983c4d89a7fd09080d092050985564eea3628be289b416bf461"
+  license "LGPL-2.1"
 
   bottle :unneeded
 
