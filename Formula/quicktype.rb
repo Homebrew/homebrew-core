@@ -3,11 +3,11 @@ require "language/node"
 class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/quicktype/quicktype"
-  # quicktype should only be updated every 10 releases on multiples of 10
   url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.240.tgz"
   sha256 "8d33ab80b03db7996d226eab38935505bd073c6d9ed75ca3db77fef0eabd6298"
   license "Apache-2.0"
   head "https://github.com/quicktype/quicktype.git"
+  throttle_rate 10
 
   bottle do
     cellar :any_skip_relocation
