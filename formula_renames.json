@@ -24,6 +24,7 @@
   "confluent-oss": "confluent-platform",
   "cppformat": "fmt",
   "crystal-lang": "crystal",
+  "curl-openssl": "curl",
   "cv": "progress",
   "cyassl": "wolfssl",
   "d-bus": "dbus",
