@@ -3,6 +3,7 @@ class Py3cairo < Formula
   homepage "https://cairographics.org/pycairo/"
   url "https://github.com/pygobject/pycairo/releases/download/v1.19.1/pycairo-1.19.1.tar.gz"
   sha256 "2c143183280feb67f5beb4e543fd49990c28e7df427301ede04fc550d3562e84"
+  license "LGPL-2.1"
   revision 1
 
   bottle do
