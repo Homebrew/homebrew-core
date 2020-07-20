@@ -3,8 +3,8 @@ class CharmTools < Formula
 
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
-  url "https://files.pythonhosted.org/packages/b9/1b/11c18424fc374f158a0f1a68ccd62f9484dbe3d1d656bd6df945b1751ecc/charm-tools-2.7.6.tar.gz"
-  sha256 "ed53f561a7e1352f5c6f3b8636b68f6ea7c1ffd3e3fd7016e424a886c2b4526b"
+  url "https://files.pythonhosted.org/packages/0e/70/490a5052b0cd4db74daaa60a5c52cbeead53aa2d47575a46197e7f4a00f1/charm-tools-2.7.7.tar.gz"
+  sha256 "2dc026e9e000b5c5a09074d49544adc1f10359232a967297325f30568ef1c8cc"
   license "GPL-3.0"
 
   bottle do
