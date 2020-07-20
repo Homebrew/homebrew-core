@@ -3,7 +3,7 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.1.1.tar.gz"
   sha256 "8fbcffc853b298a8497ab0f66b254c0c9ae4cbd31ab9889912a44a8c5c7cef0e"
-  revision 1
+  revision 2
   head "https://git.server-speed.net/users/flo/fb", using: :git
 
   livecheck do
@@ -20,14 +20,14 @@ class FbClient < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "curl-openssl"
+  depends_on "curl"
   depends_on "python@3.9"
 
   conflicts_with "findbugs", because: "findbugs and fb-client both install a `fb` binary"
 
   resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/ef/05/4b773f74f830a90a326b06f9b24e65506302ab049e825a3c0b60b1a6e26a/pycurl-7.43.0.5.tar.gz"
-    sha256 "ec7dd291545842295b7b56c12c90ffad2976cc7070c98d7b1517b7b6cd5994b3"
+    url "https://files.pythonhosted.org/packages/50/1a/35b1d8b8e4e23a234f1b17a8a40299fd550940b16866c9a1f2d47a04b969/pycurl-7.43.0.6.tar.gz"
+    sha256 "8301518689daefa53726b59ded6b48f33751c383cf987b0ccfbbc4ed40281325"
   end
 
   resource "pyxdg" do
@@ -46,7 +46,7 @@ class FbClient < Formula
     resource("pycurl").stage do
       system Formula["python@3.9"].opt_bin/"python3",
              *Language::Python.setup_install_args(libexec/"vendor"),
-             "--curl-config=#{Formula["curl-openssl"].opt_bin}/curl-config"
+             "--curl-config=#{Formula["curl"].opt_bin}/curl-config"
     end
 
     resource("pyxdg").stage do
