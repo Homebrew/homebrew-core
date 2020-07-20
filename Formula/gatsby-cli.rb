@@ -3,10 +3,10 @@ require "language/node"
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
-  # gatsby-cli should only be updated every 10 releases on multiples of 10
   url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.12.60.tgz"
   sha256 "070cd7da3e1cad1b1ec48233c4232f38c444649dce918d8bb731b5b2c363c578"
   license "MIT"
+  throttle_rate 10
 
   bottle do
     cellar :any_skip_relocation
