@@ -20,10 +20,13 @@ class Mas < Formula
     # Working around build issues in dependencies
     # - Prevent warnings from causing build failures
     # - Prevent linker errors by telling all lib builds to use max size install names
+    # - Ensure dependencies build for the current CPU; otherwise Commandant will
+    #   build for x86_64 when running arm64
     xcconfig = buildpath/"Overrides.xcconfig"
     xcconfig.write <<~EOS
       GCC_TREAT_WARNINGS_AS_ERRORS = NO
       OTHER_LDFLAGS = -headerpad_max_install_names
+      VALID_ARCHS = #{Hardware::CPU.arch}
     EOS
     ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
