@@ -3,6 +3,7 @@ class Openldap < Formula
   homepage "https://www.openldap.org/software/"
   url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.50.tgz"
   sha256 "5cb57d958bf5c55a678c6a0f06821e0e5504d5a92e6a33240841fbca1db586b8"
+  license "OLDAP-2.8"
 
   bottle do
     sha256 "c0f1fe7a472cba83a584bd574ba2a4d8e04b73fac95259855ee8697359f7e117" => :catalina
