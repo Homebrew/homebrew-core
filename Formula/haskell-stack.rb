@@ -7,6 +7,7 @@ class HaskellStack < Formula
   homepage "https://haskellstack.org/"
   url "https://github.com/commercialhaskell/stack/archive/v2.3.1.tar.gz"
   sha256 "6701ddfc6d0be0c2bf0f75c84375e41923c5617f04222c5e582e7011c7f8fb83"
+  license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
