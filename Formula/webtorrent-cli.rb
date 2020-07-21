@@ -3,8 +3,8 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.6.tgz"
-  sha256 "0690fc5f02163edcb1f7175d30bc637a9252e210e02284e2162c7fb2b20044ec"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.7.tgz"
+  sha256 "7c6da2d8c800b921af458c94d606dad53d01cdf013fc364bb041a713e886af92"
   license "MIT"
 
   bottle do
@@ -28,7 +28,7 @@ class WebtorrentCli < Formula
       &tr=https://tracker.archlinux.org:443/announce
     EOS
 
-    assert_equal <<~EOS.chomp, shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
+    expected_output_raw = <<~EOS
       {
         "xt": "urn:btih:9eae210fe47a073f991c83561e75d439887be3f3",
         "dn": "archlinux-2017.02.01-x86_64.iso",
@@ -45,5 +45,10 @@ class WebtorrentCli < Formula
         "urlList": []
       }
     EOS
+    expected_json = JSON.parse(expected_output_raw)
+    actual_output_raw = shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
+    actual_json = JSON.parse(actual_output_raw)
+    assert_equal expected_json["tr"].to_set, actual_json["tr"].to_set
+    assert_equal expected_json["announce"].to_set, actual_json["announce"].to_set
   end
 end
