@@ -3,8 +3,8 @@ class Kamel < Formula
   homepage "https://camel.apache.org/"
 
   url "https://github.com/apache/camel-k.git",
-    :tag      => "1.0.1",
-    :revision => "21b88a3bfc07ae9fd9ff5f129ce3a22f1dfc5318"
+    :tag      => "v1.1.0",
+    :revision => "29d581a49eacb4d191ff665a559fdd569c6deef7"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
@@ -49,7 +49,7 @@ class Kamel < Formula
     assert_match "Error: run expects at least 1 argument, received 0", run_output
 
     run_none_output = shell_output("echo $(#{bin}/kamel run None.java 2>&1)")
-    assert_match "Error: cannot read file None.java: open None.java: no such file or directory", run_none_output
+    assert_match "Error: cannot read file None.java", run_none_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
     assert_match "Error: cannot get command client: could not locate a kubeconfig", reset_output
