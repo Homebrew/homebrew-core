@@ -23,6 +23,11 @@ class Ghostscript < Formula
   depends_on "pkg-config" => :build
   depends_on "libtiff"
 
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "libidn"
+  end
+
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
