@@ -4,6 +4,7 @@ class Mpich < Formula
   url "https://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz"
   mirror "https://fossies.org/linux/misc/mpich-3.3.2.tar.gz"
   sha256 "4bfaf8837a54771d3e4922c84071ef80ffebddbb6971a006038d91ee7ef959b9"
+  license "mpich2"
   revision 1
 
   bottle do
