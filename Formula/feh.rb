@@ -3,6 +3,7 @@ class Feh < Formula
   homepage "https://feh.finalrewind.org/"
   url "https://feh.finalrewind.org/feh-3.4.1.tar.bz2"
   sha256 "782463034ab0135bc8438515191f986db23a79d502154d23a7c07a7574907b7b"
+  license "MIT-feh"
 
   bottle do
     sha256 "98b2f6ddf9c5c6a8125b21c61b26d0d3700ca162a93ec066a1561f5527a6a8e9" => :catalina
