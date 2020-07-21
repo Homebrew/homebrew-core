@@ -1,8 +1,8 @@
 class Feedgnuplot < Formula
   desc "Tool to plot realtime and stored data from the command-line"
   homepage "https://github.com/dkogan/feedgnuplot"
-  url "https://github.com/dkogan/feedgnuplot/archive/v1.54.tar.gz"
-  sha256 "5549e97d53a813e87938d73339df0dc858072ae5dff388541428741c9becb512"
+  url "https://github.com/dkogan/feedgnuplot/archive/v1.55.tar.gz"
+  sha256 "1205afedf8ce79d8531e0d0f8f9565df365a568a0ee6a8e17738602682095303"
   # licensed under either "GPL-3.0" or "Artistic-1.0"
   license "GPL-3.0"
 
