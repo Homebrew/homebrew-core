@@ -5,6 +5,7 @@ class PhpAT72 < Formula
   url "https://www.php.net/distributions/php-7.2.32.tar.xz"
   mirror "https://fossies.org/linux/www/php-7.2.32.tar.xz"
   sha256 "050fc16ca56d8d2365d980998220a4eb06439da71dfd38de49b42fea72310ef1"
+  license "PHP-3.01"
 
   bottle do
     sha256 "d88487a605a9236e1ecf87143838668191365d4a706f1f8afcddd7e8c83fc930" => :catalina
