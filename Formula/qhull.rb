@@ -4,6 +4,7 @@ class Qhull < Formula
   url "http://www.qhull.org/download/qhull-2020-src-8.0.0.tgz"
   version "2020.1"
   sha256 "1ac92a5538f61e297c72aebe4d4ffd731ceb3e6045d6d15faf1c212713798df4"
+  license "Qhull"
   head "https://github.com/qhull/qhull.git"
 
   bottle do
