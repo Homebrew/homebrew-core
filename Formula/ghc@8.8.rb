@@ -7,6 +7,7 @@ class GhcAT88 < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.8.4/ghc-8.8.4-src.tar.xz"
   sha256 "f0505e38b2235ff9f1090b51f44d6c8efd371068e5a6bb42a2a6d8b67b5ffc2d"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "04b5d947271af5cc9a6dda589fa29f28d53b34af20545e3d43ded0744a0daa79" => :catalina
