@@ -3,8 +3,8 @@ class CharmTools < Formula
 
   desc "Tools for authoring and maintaining juju charms"
   homepage "https://github.com/juju/charm-tools"
-  url "https://files.pythonhosted.org/packages/0e/70/490a5052b0cd4db74daaa60a5c52cbeead53aa2d47575a46197e7f4a00f1/charm-tools-2.7.7.tar.gz"
-  sha256 "2dc026e9e000b5c5a09074d49544adc1f10359232a967297325f30568ef1c8cc"
+  url "https://files.pythonhosted.org/packages/1a/77/552dbd44cfc28daa6db06436cce906bbdf452ba6de0059b58b5d892b3317/charm-tools-2.7.8.tar.gz"
+  sha256 "f16b3f8b1033451cc6503f2a2eca83e746dac548506ecf547c495cd83784f9f2"
   license "GPL-3.0"
 
   bottle do
@@ -62,8 +62,8 @@ class CharmTools < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
+    url "https://files.pythonhosted.org/packages/bf/ac/552fc8729d90393845cc3a2062facf4a89dcbe206fa78771d60ddaae7554/cryptography-3.0.tar.gz"
+    sha256 "8e924dbc025206e97756e8903039662aa58aa9ba357d8e1d8fc29e3092322053"
   end
 
   resource "dict2colander" do
