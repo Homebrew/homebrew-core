@@ -4,6 +4,7 @@ class Noweb < Formula
   # new canonical url (for newer versions): http://mirrors.ctan.org/web/noweb.zip
   url "https://deb.debian.org/debian/pool/main/n/noweb/noweb_2.11b.orig.tar.gz"
   sha256 "c913f26c1edb37e331c747619835b4cade000b54e459bb08f4d38899ab690d82"
+  license "Noweb"
 
   bottle do
     cellar :any_skip_relocation
