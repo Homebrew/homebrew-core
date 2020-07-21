@@ -5,6 +5,7 @@ class PhpAT73 < Formula
   url "https://www.php.net/distributions/php-7.3.20.tar.xz"
   mirror "https://fossies.org/linux/www/php-7.3.20.tar.xz"
   sha256 "43292046f6684eb13acb637276d4aa1dd9f66b0b7045e6f1493bc90db389b888"
+  license "PHP-3.01"
 
   bottle do
     sha256 "cc1ad9e9b7d3f0a51849a1b9a28415bed3f592fe70bfb0d429e1efa5ddeb80e4" => :catalina
