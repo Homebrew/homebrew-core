@@ -4,6 +4,7 @@ class Libpng < Formula
   url "https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz"
   mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.37/libpng-1.6.37.tar.xz"
   sha256 "505e70834d35383537b6491e7ae8641f1a4bed1876dbfe361201fc80868d88ca"
+  license "libpng-2.0"
 
   bottle do
     cellar :any
