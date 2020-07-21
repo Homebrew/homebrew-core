@@ -3,6 +3,7 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.13/postgresql-10.13.tar.bz2"
   sha256 "4d701f450cd92ffb123cf6c296e9656abbc2ab7ea6507894ff1e2475ae0754e1"
+  license "PostgreSQL"
   revision 3
 
   bottle do
