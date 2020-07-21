@@ -13,6 +13,8 @@ class Rsnapshot < Formula
     sha256 "e195b17e2c28a787e6bc183c3f57397256fba91c8d5c490f3c24576033d39a74" => :high_sierra
   end
 
+  uses_from_macos "rsync" => :build
+
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
