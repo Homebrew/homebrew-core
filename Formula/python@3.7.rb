@@ -3,6 +3,7 @@ class PythonAT37 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz"
   sha256 "43a543404b363f0037f89df8478f19db2dbc0d6f3ffee310bc2997fa71854a63"
+  license "Python-2.0"
   revision 1
 
   bottle do
