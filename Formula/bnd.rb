@@ -1,8 +1,8 @@
 class Bnd < Formula
   desc "The Swiss Army Knife for OSGi bundles"
   homepage "https://bnd.bndtools.org/"
-  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/5.1.1/biz.aQute.bnd-5.1.1.jar"
-  sha256 "edec6f9681c0a3e3f9803da1f188aca8d1d793c51b77fca9836713ecf893c921"
+  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/5.1.2/biz.aQute.bnd-5.1.2.jar"
+  sha256 "dc94fa5b87c604d43205674af4a8e0af8c524ed29f92c59a401572174b99e273"
 
   bottle :unneeded
 
