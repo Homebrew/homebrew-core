@@ -3,6 +3,7 @@ class PostgresqlAT96 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v9.6.18/postgresql-9.6.18.tar.bz2"
   sha256 "517ec282b785e6d22f360c30ba0c5e2a506fca5ca07dcc545427511d94c89999"
+  license "PostgreSQL"
   revision 2
 
   bottle do
