@@ -3,6 +3,7 @@ class Imlib2 < Formula
   homepage "https://sourceforge.net/projects/enlightenment/"
   url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.6.1/imlib2-1.6.1.tar.bz2"
   sha256 "4d393a77e13da883c8ee2da3b029da3570210fe37d000c9ac33d9fce751b166d"
+  license "Imlib2"
 
   bottle do
     sha256 "3f02ff8333cfc8a046432fb078a7ede7d45f0bcda7b7b1dfb7726306eee91a13" => :catalina
