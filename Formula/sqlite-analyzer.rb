@@ -4,6 +4,7 @@ class SqliteAnalyzer < Formula
   url "https://sqlite.org/2020/sqlite-src-3320300.zip"
   version "3.32.3"
   sha256 "9312f0865d3692384d466048f746d18f88e7ffd1758b77d4f07904e03ed5f5b9"
+  license "blessing"
 
   bottle do
     cellar :any_skip_relocation
