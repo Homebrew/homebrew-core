@@ -1,8 +1,8 @@
 class Slacknimate < Formula
   desc "Text animation for Slack messages"
   homepage "https://github.com/mroth/slacknimate"
-  url "https://github.com/mroth/slacknimate/archive/v1.0.1.tar.gz"
-  sha256 "ddac6002edd57a334ce828e2662264598ea7d471757747cffd85ffdfedbb044b"
+  url "https://github.com/mroth/slacknimate/archive/v1.1.0.tar.gz"
+  sha256 "71c7a65192c8bbb790201787fabbb757de87f8412e0d41fe386c6b4343cb845c"
   license "MPL-2.0"
   head "https://github.com/mroth/slacknimate.git"
 
@@ -20,14 +20,8 @@ class Slacknimate < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    pkgpath = buildpath/"src/github.com/mroth"
-    pkgpath.install Dir["*"]
-    cd pkgpath do
-      system "make"
-      bin.install "bin/slacknimate"
-      prefix.install_metafiles
-    end
+    system "go", "build",
+      "-ldflags", "-s -w -X main.version=#{version}", *std_go_args, "./cmd/slacknimate"
   end
 
   test do
