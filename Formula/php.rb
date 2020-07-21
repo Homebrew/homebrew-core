@@ -5,6 +5,7 @@ class Php < Formula
   url "https://www.php.net/distributions/php-7.4.8.tar.xz"
   mirror "https://fossies.org/linux/www/php-7.4.8.tar.xz"
   sha256 "642843890b732e8af01cb661e823ae01472af1402f211c83009c9b3abd073245"
+  license "PHP-3.01"
 
   bottle do
     sha256 "da81ec7dbe2ab2d9cbfcb5fcfa5f8e4fa0258f1947c52a13967c52dc6bab7f8f" => :catalina
