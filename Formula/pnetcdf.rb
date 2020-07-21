@@ -3,6 +3,7 @@ class Pnetcdf < Formula
   homepage "https://parallel-netcdf.github.io/index.html"
   url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.1.tar.gz"
   sha256 "56f5afaa0ddc256791c405719b6436a83b92dcd5be37fe860dea103aee8250a2"
+  license "NetCDF"
   revision 1
 
   bottle do
