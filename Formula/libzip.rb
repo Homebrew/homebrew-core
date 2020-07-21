@@ -3,6 +3,7 @@ class Libzip < Formula
   homepage "https://libzip.org/"
   url "https://libzip.org/download/libzip-1.7.3.tar.xz"
   sha256 "a60473ffdb7b4260c08bfa19c2ccea0438edac11193c3afbbb1f17fbcf6c6132"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "e5a16cd6fef05a7f6f44852f1008a3e5d27796e661079278643d9c1f0912672c" => :catalina
