@@ -3,6 +3,7 @@ class Jsoncpp < Formula
   homepage "https://github.com/open-source-parsers/jsoncpp"
   url "https://github.com/open-source-parsers/jsoncpp/archive/v1.9.3.tar.gz"
   sha256 "8593c1d69e703563d94d8c12244e2e18893eeb9a8a9f8aa3d09a327aa45c8f7d"
+  license "MIT"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   bottle do
