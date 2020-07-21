@@ -17,6 +17,13 @@ class Grafana < Formula
   depends_on "node" => :build
   depends_on "yarn" => :build
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "freetype"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     grafana_path = buildpath/"src/github.com/grafana/grafana"
