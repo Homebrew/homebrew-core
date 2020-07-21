@@ -1,8 +1,8 @@
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
-  url "https://github.com/hasura/graphql-engine/archive/v1.2.2.tar.gz"
-  sha256 "59e15fe760794bb0ec69b62d0bf13d7925c2f595d78ee4121fc82fa67c36dbf9"
+  url "https://github.com/hasura/graphql-engine/archive/v1.3.0.tar.gz"
+  sha256 "620ec18b644ef71a769086be868174752c261a639a8215472690fbf07a839ce0"
 
   bottle do
     cellar :any_skip_relocation
