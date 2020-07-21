@@ -4,6 +4,7 @@ class JsonC < Formula
   url "https://github.com/json-c/json-c/archive/json-c-0.14-20200419.tar.gz"
   version "0.14"
   sha256 "ec4eb70e0f6c0d707b9b1ec646cf7c860f4abb3562a90ea6e4d78d177fd95303"
+  license "MIT"
   head "https://github.com/json-c/json-c.git"
 
   bottle do
