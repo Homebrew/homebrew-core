@@ -7,6 +7,7 @@ class GhcAT86 < Formula
   homepage "https://haskell.org/ghc/"
   url "https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-src.tar.xz"
   sha256 "4d4aa1e96f4001b934ac6193ab09af5d6172f41f5a5d39d8e43393b9aafee361"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
