@@ -5,6 +5,7 @@ class Libffi < Formula
   mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.3.orig.tar.gz"
   mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
   sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
+  license "MIT"
 
   bottle do
     cellar :any
