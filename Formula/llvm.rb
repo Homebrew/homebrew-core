@@ -88,9 +88,11 @@ class Llvm < Formula
       clang-tools-extra
       lld
       lldb
-      openmp
       polly
     ]
+    # OpenMP currently fails to build on ARM
+    # https://github.com/Homebrew/brew/issues/7857#issuecomment-661484670
+    projects << "openmp" unless Hardware::CPU.arm?
     runtimes = %w[
       compiler-rt
       libcxx
