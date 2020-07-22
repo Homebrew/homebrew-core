@@ -3,6 +3,7 @@ class Harfbuzz < Formula
   homepage "https://github.com/harfbuzz/harfbuzz"
   url "https://github.com/harfbuzz/harfbuzz/releases/download/2.6.8/harfbuzz-2.6.8.tar.xz"
   sha256 "6648a571a27f186e47094121f0095e1b809e918b3037c630c7f38ffad86e3035"
+  license "MIT"
 
   bottle do
     cellar :any
