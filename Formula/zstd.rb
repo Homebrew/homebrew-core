@@ -3,6 +3,7 @@ class Zstd < Formula
   homepage "https://facebook.github.io/zstd/"
   url "https://github.com/facebook/zstd/archive/v1.4.5.tar.gz"
   sha256 "734d1f565c42f691f8420c8d06783ad818060fc390dee43ae0a89f86d0a4f8c2"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
