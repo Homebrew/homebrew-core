@@ -1,8 +1,8 @@
 class AwsOkta < Formula
   desc "Authenticate with AWS using your Okta credentials"
   homepage "https://github.com/segmentio/aws-okta"
-  url "https://github.com/segmentio/aws-okta/archive/v1.0.2.tar.gz"
-  sha256 "bc2b2ff383f3b7e63acbea6b0dc9131bb30ac101885101a6d274997d5c3716da"
+  url "https://github.com/segmentio/aws-okta/archive/v1.0.3.tar.gz"
+  sha256 "05a9bbac9d221c2232e72a4d49bd9ac3eadc2a722a13f64d4617951957eb7c91"
   license "MIT"
 
   bottle do
@@ -20,8 +20,7 @@ class AwsOkta < Formula
   end
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.Version=#{version}", "-trimpath", "-o", bin/"aws-okta"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.Version=#{version}"
   end
 
   test do
