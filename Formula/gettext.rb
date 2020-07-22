@@ -4,6 +4,7 @@ class Gettext < Formula
   url "https://ftp.gnu.org/gnu/gettext/gettext-0.20.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gettext/gettext-0.20.2.tar.xz"
   sha256 "b22b818e644c37f6e3d1643a1943c32c3a9bff726d601e53047d2682019ceaba"
+  license "GPL-3.0"
   revision 1
 
   bottle do
