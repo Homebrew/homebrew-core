@@ -3,6 +3,7 @@ class Libde265 < Formula
   homepage "https://github.com/strukturag/libde265"
   url "https://github.com/strukturag/libde265/releases/download/v1.0.5/libde265-1.0.5.tar.gz"
   sha256 "e3f277d8903408615a5cc34718b391b83c97c646faea4f41da93bac5ee08a87f"
+  license "LGPL-3.0"
 
   bottle do
     cellar :any
