@@ -3,6 +3,7 @@ class Libomp < Formula
   homepage "https://openmp.llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/openmp-10.0.0.src.tar.xz"
   sha256 "3b9ff29a45d0509a1e9667a0feb43538ef402ea8cfc7df3758a01f20df08adfa"
+  license "MIT"
 
   bottle do
     cellar :any
