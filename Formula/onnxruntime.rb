@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-    tag:      "v1.3.1",
-    revision: "530117cfdb230228c3429ab39d1b7cf1f68c0567"
+    tag:      "v1.4.0",
+    revision: "1f69a58105f320e9b79008698b4275fa3f113f2d"
   license "MIT"
 
   livecheck do
@@ -20,6 +20,7 @@ class Onnxruntime < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "flake8" => :build
   depends_on "python@3.8" => :build
 
   def install
