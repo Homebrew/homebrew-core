@@ -4,6 +4,7 @@ class Gnutls < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.14.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.14.tar.xz"
   sha256 "5630751adec7025b8ef955af4d141d00d252a985769f51b4059e5affa3d39d63"
+  license "LGPL-2.1"
 
   bottle do
     sha256 "ed76b5d22e195a797c2d01ab2f4a8e769a023b056b17e86f11cb6b9af200babe" => :catalina
