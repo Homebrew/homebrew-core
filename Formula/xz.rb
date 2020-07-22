@@ -6,6 +6,7 @@ class Xz < Formula
   url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz"
   mirror "https://tukaani.org/xz/xz-5.2.5.tar.gz"
   sha256 "f6f4910fd033078738bd82bfba4f49219d03b17eb0794eb91efbae419f4aba10"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
