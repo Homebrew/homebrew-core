@@ -3,6 +3,7 @@ class Lz4 < Formula
   homepage "https://lz4.org/"
   url "https://github.com/lz4/lz4/archive/v1.9.2.tar.gz"
   sha256 "658ba6191fa44c92280d4aa2c271b0f4fbc0e34d249578dd05e50e76d0e5efcc"
+  license "BSD-2-Clause"
   head "https://github.com/lz4/lz4.git"
 
   bottle do
