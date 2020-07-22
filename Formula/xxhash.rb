@@ -3,6 +3,7 @@ class Xxhash < Formula
   homepage "https://github.com/Cyan4973/xxHash"
   url "https://github.com/Cyan4973/xxHash/archive/v0.7.4.tar.gz"
   sha256 "4d9706c9da4fbdf901598f5e3b71db0eddd4ac962e827a73ebf75d66dfd820fe"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
