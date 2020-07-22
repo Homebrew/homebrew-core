@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.4.3",
-      revision: "491533b63ec9c1343eac3a24d8a7558185a0acb7"
+      tag:      "v1.5.0",
+      revision: "340cc2fa263f6cbd2861b41518da8a62c153e2e7"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
 
@@ -23,20 +23,9 @@ class Vault < Formula
   depends_on "yarn" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    contents = buildpath.children - [buildpath/".brew_home"]
-    (buildpath/"src/github.com/hashicorp/vault").install contents
-
-    (buildpath/"bin").mkpath
-
-    ENV.prepend_path "PATH", buildpath/"bin"
-
-    cd "src/github.com/hashicorp/vault" do
-      system "make", "bootstrap", "static-dist", "dev-ui"
-      bin.install "bin/vault"
-      prefix.install_metafiles
-    end
+    ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
+    system "make", "bootstrap", "static-dist", "dev-ui"
+    bin.install "bin/vault"
   end
 
   plist_options manual: "vault server -dev"
