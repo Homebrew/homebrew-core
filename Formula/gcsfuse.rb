@@ -1,8 +1,8 @@
 class Gcsfuse < Formula
   desc "User-space file system for interacting with Google Cloud"
   homepage "https://github.com/googlecloudplatform/gcsfuse"
-  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.30.0.tar.gz"
-  sha256 "930e3c15a9f3fa8b79023442b549f7813f5bf95739097f41000bff5ded9db66d"
+  url "https://github.com/GoogleCloudPlatform/gcsfuse/archive/v0.31.0.tar.gz"
+  sha256 "a4729343b1d8f5909ea1ef5629edb8bb3920b9043e04685a115eae50027060e6"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/gcsfuse.git"
 
@@ -17,10 +17,7 @@ class Gcsfuse < Formula
   depends_on :osxfuse
 
   def install
-    # Build the build_gcsfuse tool. Ensure that it doesn't pick up any
-    # libraries from the user's GOPATH; it should have no dependencies.
-    ENV.delete("GOPATH")
-    system "go", "build", "./tools/build_gcsfuse"
+    system "go", "build", *std_go_args, "./tools/build_gcsfuse"
 
     # Use that tool to build gcsfuse itself.
     gcsfuse_version = if build.head?
