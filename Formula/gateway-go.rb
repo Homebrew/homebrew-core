@@ -2,8 +2,8 @@ class GatewayGo < Formula
   desc "GateWay Client for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub"
   url "https://github.com/OpenIoTHub/gateway-go.git",
-      :tag      => "v0.1.79",
-      :revision => "e974826206ceff6c7d8fed3e8e290411b0437fd4"
+      :tag      => "v0.1.82",
+      :revision => "00ef621e82242a170181c057244756931607e955"
   license "MIT"
 
   bottle do
