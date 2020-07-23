@@ -20,15 +20,15 @@ class Acl2 < Formula
            "USE_QUICKLISP=0",
            "all", "basic"
     libexec.install Dir["*"]
-    
+
     (bin/"acl2").write <<~EOF
       #!/bin/sh
-      export ACL2_SYSTEM_BOOKS='#{prefix}/books'
+      export ACL2_SYSTEM_BOOKS='#{libexec}/books'
       #{Formula["sbcl"].opt_bin}/sbcl --core '#{libexec}/saved_acl2.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
     EOF
     (bin/"acl2p").write <<~EOF
       #!/bin/sh
-      export ACL2_SYSTEM_BOOKS='#{prefix}/books'
+      export ACL2_SYSTEM_BOOKS='#{libexec}/books'
       #{Formula["sbcl"].opt_bin}/sbcl --core '#{libexec}/saved_acl2p.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
     EOF
   end
