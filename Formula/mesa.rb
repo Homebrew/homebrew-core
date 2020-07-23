@@ -1,8 +1,8 @@
 class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-20.1.3.tar.xz"
-  sha256 "9872b8d46bee822177ffbe4292addff7bdb84cefc1fe776b8e6b2881a8362bf1"
+  url "https://mesa.freedesktop.org/archive/mesa-20.1.4.tar.xz"
+  sha256 "6800271c2be2a0447510eb4e9b67edd9521859a4d565310617c4b359eb6799fe"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
@@ -42,7 +42,7 @@ class Mesa < Formula
     resource("gears.c").stage(pkgshare.to_s)
 
     mkdir "build" do
-      system "meson", *std_meson_args, "..", "-Dbuildtype=plain", "-Db_ndebug=true",
+      system "meson", *std_meson_args, "..", "-Db_ndebug=true",
                       "-Dplatforms=surfaceless", "-Dglx=disabled"
       system "ninja"
       system "ninja", "install"
