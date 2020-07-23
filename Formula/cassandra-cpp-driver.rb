@@ -1,8 +1,8 @@
 class CassandraCppDriver < Formula
   desc "DataStax C/C++ Driver for Apache Cassandra"
   homepage "https://docs.datastax.com/en/developer/cpp-driver/latest"
-  url "https://github.com/datastax/cpp-driver/archive/2.15.2.tar.gz"
-  sha256 "d69a51f2a40da6c450acd95102c2c4693baeae8327cd60aaf4548b23696508ca"
+  url "https://github.com/datastax/cpp-driver/archive/2.15.3.tar.gz"
+  sha256 "eccb53c5151621c3b647fc83781a542cfb93e76687b4178ebce418fc4c817293"
   license "Apache-2.0"
   head "https://github.com/datastax/cpp-driver.git"
 
@@ -24,8 +24,7 @@ class CassandraCppDriver < Formula
   end
 
   def install
-    Dir.mkdir "build"
-    Dir.chdir "build" do
+    mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "install"
