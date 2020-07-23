@@ -19,22 +19,18 @@ class Acl2 < Formula
            "ACL2=#{buildpath}/saved_acl2p",
            "USE_QUICKLISP=0",
            "all", "basic"
-    rm_rf buildpath/"bin"
+    libexec.install Dir["*"]
+    
     (bin/"acl2").write <<~EOF
       #!/bin/sh
-      # See also https://github.com/macports/macports-ports/blob/master/math/acl2/Portfile
       export ACL2_SYSTEM_BOOKS='#{prefix}/books'
-      #{HOMEBREW_PREFIX}/bin/sbcl --core '#{prefix}/saved_acl2.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
+      #{Formula["sbcl"].opt_bin}/sbcl --core '#{libexec}/saved_acl2.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
     EOF
-    chmod 0755, bin/"acl2"
     (bin/"acl2p").write <<~EOF
       #!/bin/sh
-      # See also https://github.com/macports/macports-ports/blob/master/math/acl2/Portfile
       export ACL2_SYSTEM_BOOKS='#{prefix}/books'
-      #{HOMEBREW_PREFIX}/bin/sbcl --core '#{prefix}/saved_acl2p.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
+      #{Formula["sbcl"].opt_bin}/sbcl --core '#{libexec}/saved_acl2p.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
     EOF
-    chmod 0755, bin/"acl2p"
-    prefix.install Dir["*"]
   end
 
   test do
