@@ -18,6 +18,7 @@ class Gradle < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gradle --version")
 
+    (testpath/"settings.gradle").write ""
     (testpath/"build.gradle").write <<~EOS
       println "gradle works!"
     EOS
