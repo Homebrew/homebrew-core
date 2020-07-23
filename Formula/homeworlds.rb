@@ -2,8 +2,8 @@ class Homeworlds < Formula
   desc "C++ framework for the game of Binary Homeworlds"
   homepage "https://github.com/Quuxplusone/Homeworlds/"
   url "https://github.com/Quuxplusone/Homeworlds.git",
-    :revision => "917cd7e7e6d0a5cdfcc56cd69b41e3e80b671cde"
-  version "20141022"
+    :revision => "fe949703b15a193e2198235bc5f4ad8b79807fcd"
+  version "20200715"
 
   bottle do
     cellar :any
