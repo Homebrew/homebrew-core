@@ -24,7 +24,7 @@ class Lc0 < Formula
   end
 
   def install
-    system "meson", *std_meson_args, "-Dgtest=false", "--buildtype", "release", "build/release"
+    system "meson", *std_meson_args, "-Dgtest=false", "build/release"
 
     cd "build/release" do
       system "ninja", "-v"
