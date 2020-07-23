@@ -4,6 +4,7 @@ class Vcpkg < Formula
   url "https://github.com/microsoft/vcpkg/archive/2020.06.tar.gz"
   sha256 "cfaecee6f18b6e2763f41c4257b6d6a1d2ef536a2018a6c7f579df0b6ad42e56"
   revision 1
+  head "https://github.com/microsoft/vcpkg.git"
 
   bottle do
     cellar :any
