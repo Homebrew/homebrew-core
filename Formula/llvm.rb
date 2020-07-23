@@ -96,16 +96,14 @@ class Llvm < Formula
       libcxx
       libunwind
     ]
+    # Can likely be added to the base runtimes array when 11.0.0 is released.
+    runtimes << "libcxxabi" if build.head?
 
     llvmpath = buildpath/"llvm"
     unless build.head?
       llvmpath.install buildpath.children - [buildpath/".brew_home"]
       (projects + runtimes).each { |p| resource(p).stage(buildpath/p) }
     end
-
-    # Needed until https://reviews.llvm.org/D63883 lands again.
-    # Use system libcxxabi.
-    rm_r "libcxxabi" if build.head?
 
     py_ver = "3.8"
 
