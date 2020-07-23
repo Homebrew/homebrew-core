@@ -22,7 +22,7 @@ class Dav1d < Formula
   end
 
   def install
-    system "meson", *std_meson_args, "build", "--buildtype", "release"
+    system "meson", *std_meson_args, "build"
     system "ninja", "install", "-C", "build"
   end
 
