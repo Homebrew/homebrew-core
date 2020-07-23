@@ -3,6 +3,7 @@ class Htslib < Formula
   homepage "https://www.htslib.org/"
   url "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2"
   sha256 "e3b543de2f71723830a1e0472cf5489ec27d0fbeb46b1103e14a11b7177d1939"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,6 +17,14 @@ class Htslib < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "zlib"
+
+  # patch to allow htslib to work with newer libcurls that are packaged by homebrew
+  # see https://github.com/samtools/htslib/pull/1105
+  # this patch should be deleted on next release of htslib
+  patch do
+    url "https://github.com/samtools/htslib/commit/c7c7fb56dba6f81a56a5ec5ea20b8ad81ce62a43.patch?full_index=1"
+    sha256 "2d0244d066c07774ab6e372d0bfdd259fd7f64a918eb9595eae6c201e66db594"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
