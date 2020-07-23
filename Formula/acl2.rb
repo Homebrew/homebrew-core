@@ -9,34 +9,30 @@ class Acl2 < Formula
 
   def install
     system "make",
-           "-j", ENV.make_jobs,
            "LISP=#{HOMEBREW_PREFIX}/bin/sbcl",
            "ACL2=#{buildpath}/saved_acl2",
            "USE_QUICKLISP=0",
            "all", "basic"
-    (buildpath/"acl2").write <<~EOF
-      #!/bin/sh
-      # See also https://github.com/macports/macports-ports/blob/master/math/acl2/Portfile
-      export ACL2_SYSTEM_BOOKS='#{prefix}/books'
-      #{HOMEBREW_PREFIX}/bin/sbcl --core '#{prefix}/saved_acl2.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
-    EOF
     system "make",
-           "-j", ENV.make_jobs,
            "LISP=#{HOMEBREW_PREFIX}/bin/sbcl",
            "ACL2_PAR=p",
            "ACL2=#{buildpath}/saved_acl2p",
            "USE_QUICKLISP=0",
            "all", "basic"
-    (buildpath/"acl2p").write <<~EOF
+    rm_rf buildpath/"bin"
+    (bin/"acl2").write <<~EOF
+      #!/bin/sh
+      # See also https://github.com/macports/macports-ports/blob/master/math/acl2/Portfile
+      export ACL2_SYSTEM_BOOKS='#{prefix}/books'
+      #{HOMEBREW_PREFIX}/bin/sbcl --core '#{prefix}/saved_acl2.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
+    EOF
+    chmod 0755, bin/"acl2"
+    (bin/"acl2p").write <<~EOF
       #!/bin/sh
       # See also https://github.com/macports/macports-ports/blob/master/math/acl2/Portfile
       export ACL2_SYSTEM_BOOKS='#{prefix}/books'
       #{HOMEBREW_PREFIX}/bin/sbcl --core '#{prefix}/saved_acl2p.core' --userinit /dev/null --eval '(acl2::sbcl-restart)'
     EOF
-    rm_rf buildpath/"bin"
-    bin.install buildpath/"acl2"
-    chmod 0755, bin/"acl2"
-    bin.install buildpath/"acl2p"
     chmod 0755, bin/"acl2p"
     prefix.install Dir["*"]
   end
