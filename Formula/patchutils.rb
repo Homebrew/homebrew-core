@@ -1,9 +1,9 @@
 class Patchutils < Formula
   desc "Small collection of programs that operate on patch files"
   homepage "http://cyberelk.net/tim/software/patchutils/"
-  url "http://cyberelk.net/tim/data/patchutils/stable/patchutils-0.3.4.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/p/patchutils/patchutils_0.3.4.orig.tar.xz"
-  sha256 "cf55d4db83ead41188f5b6be16f60f6b76a87d5db1c42f5459d596e81dabe876"
+  url "http://cyberelk.net/tim/data/patchutils/stable/patchutils-0.4.2.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/p/patchutils/patchutils_0.4.2.orig.tar.xz"
+  sha256 "8875b0965fe33de62b890f6cd793be7fafe41a4e552edbf641f1fed5ebbf45ed"
   license "GPL-2.0"
 
   bottle do
