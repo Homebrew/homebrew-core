@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Hlint < Formula
-  include Language::Haskell::Cabal
-
   desc "Haskell source code suggestions"
   homepage "https://github.com/ndmitchell/hlint"
   url "https://hackage.haskell.org/package/hlint-3.1.6/hlint-3.1.6.tar.gz"
