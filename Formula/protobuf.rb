@@ -1,30 +1,26 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protobuf-all-3.12.3.tar.gz"
-  sha256 "1a83f0525e5c8096b7b812181865da3c8637de88f9777056cefbf51a1eb0b83f"
-  revision 1
+  url "https://github.com/protocolbuffers/protobuf.git",
+      :tag      => "v3.12.2",
+      :revision => "678da4f76eb9168c9965afc2149944a66cd48546"
+  head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
     cellar :any
-    sha256 "73c3c25ebcdbec0d91e414ca8760e5a025d3506a416b9fc252384257a8aa180e" => :catalina
-    sha256 "bfee101eeff52eb1c8a12dd3ffc7e005bafa4297c92a142cb84e9ff7d21b5c83" => :mojave
-    sha256 "d1437b5112a4947f373a7160bae2403ae9a99b8b8c15b5b9dfcfca4ba395a687" => :high_sierra
+    sha256 "4eb1d8143ae989f4c004ae971d1dfad719cc2042d04de267c8fca3193f9cfd71" => :catalina
+    sha256 "004f20bfe5faaf9e5b78bcfa1a9ff6f8e8119e4ccf68301be670dd0c8cf8280e" => :mojave
+    sha256 "fa471ecae354ef0226a7031a6236cd29e74a1d18500e4750a19e6ad3327fce46" => :high_sierra
   end
 
-  head do
-    url "https://github.com/protocolbuffers/protobuf.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "python@3.8" => [:build, :test]
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   def install
@@ -34,7 +30,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
