@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.8/sile-0.10.8.tar.xz"
-  sha256 "06705ba8f6ccbd72dcaa396767822a5c2d8d02ecdb713277547a07e3350cc855"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.9/sile-0.10.9.tar.xz"
+  sha256 "44eaaf286b059b46eb51f28ef813d149538b06f4541c1eb7fb6faef26d60a564"
   license "MIT"
   head "https://github.com/sile-typesetter/sile.git", :shallow => false
 
@@ -70,8 +70,8 @@ class Sile < Formula
   end
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
-    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_8_0.tar.gz"
+    sha256 "16d17c788b8093f2047325343f5e9b74cccb1ea96001e45914a58bbae8932495"
   end
 
   resource "luarepl" do
@@ -85,8 +85,8 @@ class Sile < Formula
   end
 
   resource "luasec" do
-    url "https://github.com/brunoos/luasec/archive/luasec-0.8.1.tar.gz"
-    sha256 "cc9fc92df3be56add5c9687319951f457c31f5d12ac19cfc09d53056dc24f04e"
+    url "https://github.com/brunoos/luasec/archive/v0.9.tar.gz"
+    sha256 "6b6b94e8517bf6baf545fad29a2112f9ac7957ad85b4aae8e0727bec77d7a325"
   end
 
   resource "penlight" do
@@ -94,14 +94,14 @@ class Sile < Formula
     sha256 "5b793fc93fa7227190e191e5b24a8f0ce9dd5958ccebe7a53842a58b5d46057f"
   end
 
-  resource "vstruct" do
-    url "https://github.com/ToxicFrog/vstruct/archive/v2.0.1.tar.gz"
-    sha256 "4529ab32691b5f6e3c798ddfac36013d24d7581715dc7a50a77f17bb2d575c13"
-  end
-
   resource "stdlib" do
     url "https://github.com/lua-stdlib/lua-stdlib/archive/release-v41.2.2.tar.gz"
     sha256 "42ca25ddcde59f608694a3335d24919a4df4cf6f14ea46c75249561a16c84711"
+  end
+
+  resource "vstruct" do
+    url "https://github.com/ToxicFrog/vstruct/archive/v2.0.1.tar.gz"
+    sha256 "4529ab32691b5f6e3c798ddfac36013d24d7581715dc7a50a77f17bb2d575c13"
   end
 
   def install
