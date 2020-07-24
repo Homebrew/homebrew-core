@@ -4,7 +4,7 @@ class Augustus < Formula
   url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
   sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
   license "Artistic-1.0"
-  revision 1
+  revision 2
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
   bottle do
@@ -40,7 +40,7 @@ class Augustus < Formula
     # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
     # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}") do
+      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version.to_s.slice(/\d+/)}") do
         system "make"
       end
     end
