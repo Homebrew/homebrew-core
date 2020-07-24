@@ -30,7 +30,13 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # version_suffix
+  # Returns: major version of installed GCC (or HEAD)
   def version_suffix
+    Formulary.resolve("gcc").version.to_s.slice(/\d+/) || "HEAD"
+  end
+
+  def buildver_suffix
     if build.head?
       "HEAD"
     else
@@ -54,11 +60,11 @@ class Gcc < Formula
     args = %W[
       --build=x86_64-apple-darwin#{osmajor}
       --prefix=#{prefix}
-      --libdir=#{lib}/gcc/#{version_suffix}
+      --libdir=#{lib}/gcc/#{buildver_suffix}
       --disable-nls
       --enable-checking=release
       --enable-languages=#{languages.join(",")}
-      --program-suffix=-#{version_suffix}
+      --program-suffix=-#{buildver_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
@@ -83,7 +89,7 @@ class Gcc < Formula
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{buildver_suffix}"
 
     mkdir "build" do
       system "../configure", *args
@@ -94,13 +100,13 @@ class Gcc < Formula
       system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       system "make", "install"
 
-      bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+      bin.install_symlink bin/"gfortran-#{buildver_suffix}" => "gfortran"
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
     # Rename man7.
-    Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    Dir.glob(man7/"*.7") { |file| add_suffix file, buildver_suffix }
     # Even when we disable building info pages some are still installed.
     info.rmtree
   end
@@ -121,7 +127,7 @@ class Gcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version_suffix}", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-#{buildver_suffix}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -132,7 +138,7 @@ class Gcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-#{buildver_suffix}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
