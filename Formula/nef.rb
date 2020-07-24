@@ -1,8 +1,8 @@
 class Nef < Formula
   desc "💊 steroids for Xcode Playgrounds"
   homepage "https://nef.bow-swift.io"
-  url "https://github.com/bow-swift/nef/archive/0.6.1.tar.gz"
-  sha256 "182d5f91e3048f046a63bf81d148f94acc7c667b5314cf76f36a9fb75efdb3a7"
+  url "https://github.com/bow-swift/nef/archive/0.6.2.tar.gz"
+  sha256 "23915dd21e6485829b5ad88b6a5f4ac6b4ea091fc70820d2322bafba09e2217a"
 
   bottle do
     cellar :any_skip_relocation
