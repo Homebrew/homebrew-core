@@ -3,7 +3,7 @@ class Kahip < Formula
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
   url "https://algo2.iti.kit.edu/schulz/software_releases/KaHIP_2.12.tar.gz"
   sha256 "b91abdbf9420e2691ed73cea999630e38dfaf0e03157c7a690a998564c652aac"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -17,8 +17,8 @@ class Kahip < Formula
   depends_on "open-mpi"
 
   def install
-    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}"
-    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{Formula["gcc"].version_suffix}"
+    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version.to_s.slice(/\d+/)}"
+    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{Formula["gcc"].version.to_s.slice(/\d+/)}"
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
       system "make", "install"
