@@ -4,7 +4,7 @@ class Lcov < Formula
   url "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
   sha256 "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
   license "GPL-2.0"
-  revision 2
+  revision 3
   head "https://github.com/linux-test-project/lcov.git"
 
   bottle do
@@ -65,8 +65,8 @@ class Lcov < Formula
   end
 
   test do
-    gcc = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}"
-    gcov = Formula["gcc"].opt_bin/"gcov-#{Formula["gcc"].version_suffix}"
+    gcc = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version.to_s.slice(/\d+/)}"
+    gcov = Formula["gcc"].opt_bin/"gcov-#{Formula["gcc"].version.to_s.slice(/\d+/)}"
 
     (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
