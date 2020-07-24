@@ -3,7 +3,7 @@ class Imake < Formula
   homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.8.tar.bz2"
   sha256 "b8d2e416b3f29cd6482bcffaaf19286d32917a164d07102a0e531ccd41a2a702"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "9397e56fac8b92243e8dbd73e9bf96d6bb932832a4571e8b571098ea251eb1e2" => :catalina
@@ -29,7 +29,7 @@ class Imake < Formula
     ENV.deparallelize
 
     # imake runtime is broken when used with clang's cpp
-    cpp_program = Formula["gcc"].opt_bin/"cpp-#{Formula["gcc"].version_suffix}"
+    cpp_program = Formula["gcc"].opt_bin/"cpp-#{Formula["gcc"].version.to_s.slice(/\d+/)}"
     inreplace "imakemdep.h", /::CPPCMD::/, cpp_program
     inreplace "imake.man", /__cpp__/, cpp_program
 
@@ -52,7 +52,7 @@ class Imake < Formula
   test do
     # Use pipe_output because the return code is unimportant here.
     output = pipe_output("#{bin}/imake -v -s/dev/null -f/dev/null -T/dev/null 2>&1")
-    gcc_major_ver = Formula["gcc"].version_suffix
+    gcc_major_ver = Formula["gcc"].version.to_s.slice(/\d+/)
     assert_match "#{Formula["gcc"].opt_bin}/cpp-#{gcc_major_ver}", output
   end
 end
