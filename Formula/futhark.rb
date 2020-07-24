@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Futhark < Formula
-  include Language::Haskell::Cabal
-
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
   url "https://github.com/diku-dk/futhark/archive/v0.16.2.tar.gz"
