@@ -16,8 +16,8 @@ class H3 < Formula
 
   # remove in next release
   patch do
-    url "https://github.com/uber/h3/pull/362.patch?full_index=1"
-    sha256 "a86d8dc0296fcf5fafd3ce071c85725e768886e350905bc88d13a01d98601a94"
+    url "https://github.com/uber/h3/commit/de1a7cb27891ed8b9934288ee645a4b307553c76.patch?full_index=1"
+    sha256 "1c31a9b6136190c8f8097cc3112de0a2a4d3074c3170ad4af21673cdf565162b"
   end
 
   def install
