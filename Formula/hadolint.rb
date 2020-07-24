@@ -1,8 +1,4 @@
-require "language/haskell"
-
 class Hadolint < Formula
-  include Language::Haskell::Cabal
-
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
   url "https://github.com/hadolint/hadolint/archive/v1.18.0.tar.gz"
