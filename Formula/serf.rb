@@ -2,8 +2,8 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag      => "v0.9.2",
-      :revision => "5642cc7572cebea332176ca3024bec4b3474a11a"
+      :tag      => "v0.9.3",
+      :revision => "959cea60eab1f12f0872ed3ee5344c647ec56c7b"
   license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git"
 
@@ -15,25 +15,14 @@ class Serf < Formula
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
-  depends_on "gox" => :build
 
   def install
-    contents = Dir["*"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/hashicorp/serf").install contents
+    ldflags = %W[
+      -X github.com/hashicorp/serf/version.Version=#{version}
+      -X github.com/hashicorp/serf/version.VersionPrerelease=
+    ].join(" ")
 
-    ENV["GOPATH"] = gopath
-    ENV["XC_ARCH"] = "amd64"
-    ENV["XC_OS"] = "darwin"
-
-    (gopath/"bin").mkpath
-
-    cd gopath/"src/github.com/hashicorp/serf" do
-      system "make", "bin"
-      bin.install "bin/serf"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/serf"
   end
 
   test do
