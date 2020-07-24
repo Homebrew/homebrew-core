@@ -3,8 +3,8 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/1a/7f/31a0f333af29e53b9224c99eaefc64f9eee48d1564d1415f883fb40a94ec/diffoscope-152.tar.gz"
-  sha256 "0b9084c32877c8b271716bff1c39bdd69676863074ab26bdea2da037e1e68e75"
+  url "https://files.pythonhosted.org/packages/94/63/f3dccaccc1bb741bd1890e5adc01aa5f529ad74f824b87e521756e6ad426/diffoscope-153.tar.gz"
+  sha256 "b5104b5e72252df45ba6b7cbb0169e2e3407715b6b063fa5b38a2649b0d719a2"
   license "GPL-3.0"
 
   bottle do
@@ -19,7 +19,7 @@ class Diffoscope < Formula
   depends_on "libmagic"
   depends_on "python@3.8"
 
-  # required by cmdline
+  # Use resources from diffoscope[cmdline]
   resource "argcomplete" do
     url "https://files.pythonhosted.org/packages/df/a0/3544d453e6b80792452d71fdf45aac532daf1c2b2d7fc6cb712e1c3daf11/argcomplete-1.12.0.tar.gz"
     sha256 "2fbe5ed09fd2c1d727d4199feca96569a5b50d44c71b16da9c742201f7cc295c"
@@ -30,7 +30,6 @@ class Diffoscope < Formula
     sha256 "9919344cec203f5db6596a29b5bc26b07ba9662925a05e24980b84709232ef60"
   end
 
-  # required by cmdline
   resource "progressbar" do
     url "https://files.pythonhosted.org/packages/a3/a6/b8e451f6cff1c99b4747a2f7235aa904d2d49e8e1464e0b798272aa84358/progressbar-2.5.tar.gz"
     sha256 "5d81cb529da2e223b53962afd6c8ca0f05c6670e40309a7219eacc36af9b6c63"
