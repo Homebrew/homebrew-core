@@ -18,8 +18,8 @@ class IncludeWhatYouUse < Formula
 
   # patch to make the build work with llvm9
   patch do
-    url "https://github.com/include-what-you-use/include-what-you-use/pull/807.patch?full_index=1"
-    sha256 "afcc5bdf1377e36feacd699c194ef8e6645c8590d79f8cb15a57b43fa03c9102"
+    url "https://github.com/include-what-you-use/include-what-you-use/commit/576c30a31ec3f6592a0fd68b0d19cb0880203569.diff?full_index=1"
+    sha256 "fe0ecc5a018d12a8865297747d293546f9fc35be22935ec74dc2a34234f90a73"
   end
 
   def install
