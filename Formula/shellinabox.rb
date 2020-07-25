@@ -18,18 +18,28 @@ class Shellinabox < Formula
   depends_on "openssl@1.1"
 
   # Upstream (Debian) patch for OpenSSL 1.1 compatibility
+  # Original patch cluster: https://github.com/shellinabox/shellinabox/pull/467
   patch do
-    url "https://github.com/shellinabox/shellinabox/pull/467.diff?full_index=1"
-    sha256 "3962166490c5769e450e46d40f577bf4042ac593440944f701fd64ee50d607d8"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/219cf2f/shellinabox/2.20.patch"
+    sha256 "86c2567f8f4d6c3eb6c39577ad9025dbc0d797565d6e642786e284ac8b66bd39"
   end
 
   def install
+    # Force use of native ptsname_r(), to work around a weird XCode issue on 10.13
+    ENV.append_to_cflags "-DHAVE_PTSNAME_R=1" if MacOS.version == :high_sierra
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/shellinaboxd", "--version"
+    port = free_port
+    pid = fork do
+      system bin/"shellinaboxd", "--port=#{port}", "--disable-ssl", "--localhost-only"
+    end
+    sleep 1
+    assert_match /ShellInABox - Make command line applications available as AJAX web applications/,
+                 shell_output("curl -s http://localhost:#{port}")
+    Process.kill "TERM", pid
   end
 end
