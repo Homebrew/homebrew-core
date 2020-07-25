@@ -67,8 +67,8 @@ class Gitless < Formula
   # Allow to be dependent on pygit2 1.1.1
   # Remove for next version
   patch do
-    url "https://github.com/gitless-vcs/gitless/pull/230.patch?full_index=1"
-    sha256 "fd4ef60552add5f95944083a8ba867a3b34a197bdbad6b13afcf5ab29ebe09be"
+    url "https://github.com/gitless-vcs/gitless/commit/daf352cae1f830bd4ca9adc949884b606cccdf49.diff?full_index=1"
+    sha256 "a8ef93c73a9055d59b496b1c8a1a78f42f8743b4224dd676dbe1b29ab086b3b4"
   end
 
   def install
