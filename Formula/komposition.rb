@@ -33,7 +33,7 @@ class Komposition < Formula
   # remove once new version with
   # https://github.com/owickstrom/komposition/pull/102 is included
   patch do
-    url "https://github.com/owickstrom/komposition/pull/102.diff?full_index=1"
+    url "https://github.com/owickstrom/komposition/commit/e6c575cf8eddc3be30471df9a9dd92b3cb9f70c1.diff?full_index=1"
     sha256 "bdf561d07f1b8d41a4c030e121becab3b70882da8ccee53c1e91c6c0931fee0c"
   end
 
