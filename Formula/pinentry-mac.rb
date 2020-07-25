@@ -20,7 +20,8 @@ class PinentryMac < Formula
 
   patch do
     # patch header locations for macOS 10.14
-    url "https://github.com/GPGTools/pinentry-mac/pull/7.patch?full_index=1"
+    # https://github.com/GPGTools/pinentry-mac/pull/7
+    url "https://github.com/GPGTools/pinentry-mac/commit/62fe9f9a3d21891e87883af2e0e3815155926b20.patch?full_index=1"
     sha256 "d4bcf2003fa1345ecb1809461140179a3737e8e03eb49d623435beb3c2f09b64"
   end
 
