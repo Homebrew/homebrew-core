@@ -18,7 +18,7 @@ class Hashpump < Formula
 
   # Remove on next release
   patch do
-    url "https://github.com/bwall/HashPump/pull/14.patch?full_index=1"
+    url "https://github.com/bwall/HashPump/commit/1d76a269d18319ea3cc9123901ea8cf240f7cc34.patch?full_index=1"
     sha256 "ffc978cbc07521796c0738df77a3e40d79de0875156f9440ef63eca06b2e2779"
   end
 
