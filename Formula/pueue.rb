@@ -1,8 +1,8 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.7.0.tar.gz"
-  sha256 "2763935c0b6c0cf95a94b67608ecb35200df5f264c77c413b09939729ed777fc"
+  url "https://github.com/Nukesor/pueue/archive/v0.7.1.tar.gz"
+  sha256 "bb114aa443624a4ceb5bbfe498b5be6e4dd8cde32e749602afdfdc24846bc82e"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git"
 
