@@ -1,8 +1,8 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://github.com/harfbuzz/harfbuzz"
-  url "https://github.com/harfbuzz/harfbuzz/releases/download/2.6.8/harfbuzz-2.6.8.tar.xz"
-  sha256 "6648a571a27f186e47094121f0095e1b809e918b3037c630c7f38ffad86e3035"
+  url "https://github.com/harfbuzz/harfbuzz/archive/2.7.0.tar.gz"
+  sha256 "4dba05de1fd44705f54c40d801e0e3d4833555d004cb611cc18675173feae75b"
   license "MIT"
 
   bottle do
@@ -13,7 +13,7 @@ class Harfbuzz < Formula
   end
 
   head do
-    url "https://github.com/behdad/harfbuzz.git"
+    url "https://github.com/harfbuzz/harfbuzz.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -30,7 +30,7 @@ class Harfbuzz < Formula
   depends_on "icu4c"
 
   resource "ttf" do
-    url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
+    url "https://github.com/harfbuzz/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
     sha256 "9535d35dab9e002963eef56757c46881f6b3d3b27db24eefcc80929781856c77"
   end
 
