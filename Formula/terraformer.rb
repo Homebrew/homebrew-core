@@ -16,8 +16,9 @@ class Terraformer < Formula
   depends_on "go" => :build
 
   # fix version check, remove in next release
+  # https://github.com/GoogleCloudPlatform/terraformer/pull/535
   patch do
-    url "https://github.com/GoogleCloudPlatform/terraformer/pull/535.patch?full_index=1"
+    url "https://github.com/GoogleCloudPlatform/terraformer/commit/3f75098f9e85e9630af5c4e0baa6529e52b0efb5.patch?full_index=1"
     sha256 "477581bc9a3be36427e181d2ccdcefcbf13b9230b8ddf5e9eea64de9357a6274"
   end
 
