@@ -29,8 +29,8 @@ class Adios2 < Formula
   # reference: https://github.com/ornladios/ADIOS2/pull/2305
   # can be removed after v2.6.0
   patch do
-    url "https://github.com/ornladios/ADIOS2/pull/2305.patch?full_index=1"
-    sha256 "6d0b84af71d6ccf4cf1cdad5e064cca837d505334316e7e78d18fa30a959666a"
+    url "https://github.com/ornladios/ADIOS2/commit/e92f052bc26816b30d3399343a005ea82b88afaf.diff?full_index=1"
+    sha256 "cd03664974906f84e592944e9ee9e5471f84d52a156815da49ed9a38943b6056"
   end
 
   def install
