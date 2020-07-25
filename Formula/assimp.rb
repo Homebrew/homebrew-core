@@ -17,15 +17,6 @@ class Assimp < Formula
 
   uses_from_macos "zlib"
 
-  # Fix "unzip.c:150:11: error: unknown type name 'z_crc_t'"
-  # Upstream PR from 12 Dec 2017 "unzip: fix build with older zlib"
-  if MacOS.version <= :el_capitan
-    patch do
-      url "https://github.com/assimp/assimp/pull/1634.patch?full_index=1"
-      sha256 "79b93f785ee141dc2f56d557b2b8ee290eed0afc7dd373ad84715c6c9aa23460"
-    end
-  end
-
   def install
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"
