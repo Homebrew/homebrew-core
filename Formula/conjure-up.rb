@@ -107,7 +107,7 @@ class ConjureUp < Formula
     # Python 3.8 compatibility platform.linux_distribution
     # Remove in next release
     patch do
-      url "https://github.com/go-macaroon-bakery/py-macaroon-bakery/pull/75.patch?full_index=1"
+      url "https://github.com/go-macaroon-bakery/py-macaroon-bakery/commit/78daf9d233e33da3f4bd2c34553843f82c09b21e.patch?full_index=1"
       sha256 "70b36abee3f9d93afee7fb4d4cb9018370aad83f16a2ab7c5b5770aa1178be86"
     end
   end
