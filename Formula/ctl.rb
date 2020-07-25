@@ -18,13 +18,15 @@ class Ctl < Formula
   depends_on "libtiff"
   depends_on "openexr"
 
+  # from https://github.com/ampas/CTL/pull/73
   patch do
-    url "https://github.com/ampas/CTL/pull/73.diff?full_index=1"
+    url "https://github.com/ampas/CTL/commit/bda2165b97e512a39ee67cf36fe95e1d897e823b.diff?full_index=1"
     sha256 "119c2410403d16d1ecfe88bc687c16a0a5645f91824eec8de2d996d1248a06fd"
   end
 
+  # from https://github.com/ampas/CTL/pull/74
   patch do
-    url "https://github.com/ampas/CTL/pull/74.diff?full_index=1"
+    url "https://github.com/ampas/CTL/commit/0646adf9dcf966db3c6ec9432901c08387c1a1eb.diff?full_index=1"
     sha256 "0c261caf34f14a097811ceb82fc1d9aa29bc6c4861921361e6eb1b4fe5f8ebae"
   end
 
