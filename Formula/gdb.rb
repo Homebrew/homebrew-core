@@ -5,6 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-9.2.tar.xz"
   sha256 "360cd7ae79b776988e89d8f9a01c985d0b1fa21c767a4295e5f88cb49175c555"
   license "GPL-2.0"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
@@ -13,7 +14,6 @@ class Gdb < Formula
     sha256 "ac2a55847a2cf167e05e639003813606b32827e5f05995ff3544530e49b09d7a" => :high_sierra
   end
 
-  depends_on "guile"
   depends_on "python@3.8"
   depends_on "xz" # required for lzma support
 
@@ -22,9 +22,10 @@ class Gdb < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "guile"
   end
 
-  conflicts_with "i386-elf-gdb", :because => "both install include/gdb, share/gdb and share/info"
+  conflicts_with "i386-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
 
   fails_with :clang do
     build 800
