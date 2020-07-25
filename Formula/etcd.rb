@@ -16,9 +16,9 @@ class Etcd < Formula
 
   depends_on "go" => :build
 
-  # remove in the next release
+  # See https://github.com/etcd-io/etcd/pull/11937
   patch do
-    url "https://github.com/etcd-io/etcd/pull/11937.patch?full_index=1"
+    url "https://github.com/etcd-io/etcd/commit/45297c8790bef13baf5b905b3927029a701848c4.patch?full_index=1"
     sha256 "90f44278806323ddb8cc8160cb0bd00dd892698d90f27db505dca57e3c773df2"
   end
 
