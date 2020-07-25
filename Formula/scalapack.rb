@@ -18,9 +18,10 @@ class Scalapack < Formula
   depends_on "openblas"
 
   # Patch for compatibility with GCC 10
+  # https://github.com/Reference-ScaLAPACK/scalapack/pull/26
   patch do
-    url "https://github.com/Reference-ScaLAPACK/scalapack/pull/23.diff?full_index=1"
-    sha256 "6e97008a0dd8624a63718a0882aa870f31883ec00d7bfac49e9e901979359039"
+    url "https://github.com/Reference-ScaLAPACK/scalapack/commit/bc6cad585362aa58e05186bb85d4b619080c45a9.patch?full_index=1"
+    sha256 "f0892888e5a83d984e023e76eabae8864ad89b90ae3a41d472b960c95fdab981"
   end
 
   def install
