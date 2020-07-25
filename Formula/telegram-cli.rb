@@ -26,8 +26,8 @@ class TelegramCli < Formula
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   # Pull Request: https://github.com/vysheng/tg/pull/1306
   patch do
-    url "https://github.com/vysheng/tg/pull/1306.patch?full_index=1"
-    sha256 "1cdaa1f3e1f7fd722681ea4e02ff31a538897ed9d704c61f28c819a52ed0f592"
+    url "https://github.com/vysheng/tg/commit/7fad505c344fdee68ea2af1096dc9357e50a8019.diff?full_index=1"
+    sha256 "4888e5841328723729a71592b8133dff72c228dcb9779630479e325fa93584d5"
   end
 
   # Patch for OpenSSL 1.1 compatibility
@@ -53,6 +53,6 @@ class TelegramCli < Formula
   end
 
   test do
-    assert_match "telegram-cli", (shell_output "#{bin}/telegram -h", 1)
+    assert_match "messages_allocated", shell_output("echo stats | #{bin}/telegram")
   end
 end
