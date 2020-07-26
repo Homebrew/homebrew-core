@@ -3,6 +3,7 @@ class IcalBuddy < Formula
   homepage "https://hasseg.org/icalBuddy/"
   url "https://github.com/DavidKaluta/icalBuddy64/releases/download/v1.10.1/icalBuddy-v1.10.1.zip"
   sha256 "720a6a3344ce32c2cab7c3d2b686ad8de8d9744b747ac48b275247ed54cb3945"
+  license "MIT"
   head "https://github.com/DavidKaluta/icalBuddy64.git"
 
   bottle do
