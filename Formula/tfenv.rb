@@ -14,9 +14,10 @@ class Tfenv < Formula
 
   # fix bash 3.x compatibility
   # removed in the next release
+  # Original source: "https://github.com/tfutils/tfenv/pull/181.patch?full_index=1"
   unless build.head?
     patch do
-      url "https://github.com/tfutils/tfenv/pull/181.patch?full_index=1"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/526faca9830646b974f563532fa27a1515e51ca1/tfenv/2.0.0.patch"
       sha256 "b1365be51a8310a44b330f9b008dabcdfe2d16b0349f38988e7a24bcef6cae09"
     end
   end
@@ -26,6 +27,6 @@ class Tfenv < Formula
   end
 
   test do
-    system bin/"tfenv", "list-remote"
+    assert_match "0.10.0", shell_output("#{bin}/tfenv list-remote")
   end
 end
