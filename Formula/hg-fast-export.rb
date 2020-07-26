@@ -5,6 +5,7 @@ class HgFastExport < Formula
   homepage "https://repo.or.cz/fast-export.git"
   url "https://github.com/frej/fast-export/archive/v200213.tar.gz"
   sha256 "358f501ab301c31525f23f29e94708fe361ed53e99b5fb9c77fbca81ff1a2b76"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
