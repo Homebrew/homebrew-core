@@ -4,6 +4,7 @@ class Kapacitor < Formula
   url "https://github.com/influxdata/kapacitor.git",
       tag:      "v1.5.5",
       revision: "71a67c40348a8dfdad3f76d4c699ff8ef938da2b"
+  license "MIT"
   head "https://github.com/influxdata/kapacitor.git"
 
   bottle do
