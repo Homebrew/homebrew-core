@@ -1,7 +1,9 @@
 class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
+  license "Zlib"
   head "https://github.com/dscharrer/innoextract.git"
+
   stable do
     url "https://constexpr.org/innoextract/files/innoextract-1.8.tar.gz"
     sha256 "5e78f6295119eeda08a54dcac75306a1a4a40d0cb812ff3cd405e9862c285269"
