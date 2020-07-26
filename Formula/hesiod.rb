@@ -3,6 +3,7 @@ class Hesiod < Formula
   homepage "https://github.com/achernya/hesiod"
   url "https://github.com/achernya/hesiod/archive/hesiod-3.2.1.tar.gz"
   sha256 "813ccb091ad15d516a323bb8c7693597eec2ef616f36b73a8db78ff0b856ad63"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
