@@ -1,8 +1,8 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/1.11.13-rbsec.tar.gz"
-  sha256 "8a09c4cd1400af2eeeec8436a2f645ed0aae5576f4de045a09ea9ff099f56f4a"
+  url "https://github.com/rbsec/sslscan/archive/2.0.0.tar.gz"
+  sha256 "f582c4b1c9ff6cadde4a3130a3f721866faf6048f5b1cddd1f696dc5a6fb7921"
   license "GPL-3.0"
   head "https://github.com/rbsec/sslscan.git"
 
@@ -14,22 +14,14 @@ class Sslscan < Formula
     sha256 "4b00ee57ccf8dfbc890bbc7ca978dd4f310e7f73dfc022c78c33b69b9b3449dc" => :sierra
   end
 
-  resource "insecure-openssl" do
-    url "https://github.com/openssl/openssl/archive/OpenSSL_1_0_2f.tar.gz"
-    sha256 "4c9492adcb800ec855f11121bd64ddff390160714d93f95f279a9bd7241c23a6"
-  end
+  depends_on "openssl@1.1"
 
   def install
-    (buildpath/"openssl").install resource("insecure-openssl")
+    # use `libcrypto.dylib` built from `openssl@1.1`
+    inreplace "Makefile", "static: openssl/libcrypto.a",
+                          "static: #{Formula["openssl@1.1"].opt_lib}/libcrypto.dylib"
 
-    # prevent sslscan from fetching the tip of the openssl fork
-    # at https://github.com/PeterMosmans/openssl
-    inreplace "Makefile", "openssl/Makefile: .openssl.is.fresh",
-                          "openssl/Makefile:"
-
-    ENV.deparallelize do
-      system "make", "static"
-    end
+    system "make", "static"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
