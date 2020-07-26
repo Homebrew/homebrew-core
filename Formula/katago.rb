@@ -3,6 +3,7 @@ class Katago < Formula
   homepage "https://github.com/lightvector/KataGo"
   url "https://github.com/lightvector/KataGo/archive/v1.4.5.tar.gz"
   sha256 "6d29ed8acb45bc4b1b0f39a9a3212f94708d3e2770642aefc3e3dfcf332e8c78"
+  license "MIT"
 
   bottle do
     cellar :any
