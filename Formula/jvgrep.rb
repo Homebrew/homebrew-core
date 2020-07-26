@@ -3,6 +3,7 @@ class Jvgrep < Formula
   homepage "https://github.com/mattn/jvgrep"
   url "https://github.com/mattn/jvgrep/archive/v5.8.8.tar.gz"
   sha256 "dc3b5f77189bf8f91d7c8f48e3908dcf4dfea9fd12cd23e71deb54e3ea64d724"
+  license "MIT"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
