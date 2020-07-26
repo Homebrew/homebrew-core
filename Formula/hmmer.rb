@@ -1,8 +1,8 @@
 class Hmmer < Formula
   desc "Build profile HMMs and scan against sequence databases"
   homepage "http://hmmer.org/"
-  url "http://eddylab.org/software/hmmer/hmmer-3.3.tar.gz"
-  sha256 "0186bf40af67032666014971ed8ddc3cf2834bebc2be5b3bc0304a93e763736c"
+  url "http://eddylab.org/software/hmmer/hmmer-3.3.1.tar.gz"
+  sha256 "8ce66a6930869534ad84bc7c9a5a566fd57188d6726c74c12fcd39c3c9c99bd5"
 
   bottle do
     cellar :any_skip_relocation
