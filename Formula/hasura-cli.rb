@@ -3,6 +3,7 @@ class HasuraCli < Formula
   homepage "https://hasura.io"
   url "https://github.com/hasura/graphql-engine/archive/v1.3.0.tar.gz"
   sha256 "620ec18b644ef71a769086be868174752c261a639a8215472690fbf07a839ce0"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
