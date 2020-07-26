@@ -3,6 +3,7 @@ class Htslib < Formula
   homepage "https://www.htslib.org/"
   url "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2"
   sha256 "e3b543de2f71723830a1e0472cf5489ec27d0fbeb46b1103e14a11b7177d1939"
+  license "MIT"
   revision 1
 
   bottle do
