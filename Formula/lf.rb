@@ -1,10 +1,9 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r14.tar.gz"
-  sha256 "5266afa808f4612733af65289024c9eb182864f6a224fdfdf58f405a30c79644"
+  url "https://github.com/gokcehan/lf/archive/r15.tar.gz"
+  sha256 "e389a3853ce02ffcab9de635cbe456e6fdc5c1696c9585614d80bb0fae88b27d"
   license "MIT"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,16 +15,10 @@ class Lf < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["version"] = version
-    (buildpath/"src/github.com/gokcehan/lf").install buildpath.children
-    cd "src/github.com/gokcehan/lf" do
-      system "./gen/build.sh", "-o", bin/"lf"
-      prefix.install_metafiles
-      man1.install "lf.1"
-      zsh_completion.install "etc/lf.zsh" => "_lf"
-      fish_completion.install "etc/lf.fish"
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-X main.gVersion=#{version}"
+    man1.install "lf.1"
+    zsh_completion.install "etc/lf.zsh" => "_lf"
+    fish_completion.install "etc/lf.fish"
   end
 
   test do
