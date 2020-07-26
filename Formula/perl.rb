@@ -18,9 +18,9 @@ class Perl < Formula
 
   patch do
     # Enable build support on macOS 11.x
-    # https://github.com/Perl/perl5/pull/17946
-    url "https://github.com/Perl/perl5/pull/17946.diff?full_index=1"
-    sha256 "677a6e63412a4cfd2dc1fe16ccca53d789be5ac1acfb5ebb3130c40b51e5e94a"
+    # Temporary until https://github.com/Perl/perl5/pull/17946 is merged
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/perl/version_check.patch"
+    sha256 "cff250437f141eb677ec2215a9f2dfcbacba77304dac06499db6c722c9d30b58"
   end
 
   def install
