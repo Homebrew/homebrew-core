@@ -15,9 +15,9 @@ class Geant4 < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "expat"
-  depends_on "qt"
   depends_on "boost-python3"
   depends_on "python@3.8"
+  depends_on "qt"
   depends_on "xerces-c"
 
   def install
