@@ -3,6 +3,7 @@ class Jdupes < Formula
   homepage "https://github.com/jbruchon/jdupes"
   url "https://github.com/jbruchon/jdupes/archive/v1.18.2.tar.gz"
   sha256 "97a08107b97472472c6b4a8f9c18c44c1a17e6cc988e6f9747345f4b3141b43f"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
