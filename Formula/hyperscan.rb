@@ -3,6 +3,7 @@ class Hyperscan < Formula
   homepage "https://www.hyperscan.io/"
   url "https://github.com/intel/hyperscan/archive/v5.3.0.tar.gz"
   sha256 "9b50e24e6fd1e357165063580c631a828157d361f2f27975c5031fc00594825b"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
