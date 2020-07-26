@@ -2,9 +2,9 @@ class Mycli < Formula
   include Language::Python::Virtualenv
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
-  homepage "https://mycli.net/"
-  url "https://files.pythonhosted.org/packages/dc/b4/4a252eb2ba8343a419b468655a8d1570c146db3e4ab3bc96fb1cd60acdba/mycli-1.21.1.tar.gz"
-  sha256 "8f630a0847243fbed2eeead05b0952963916e1b60a11a065bffbb234a30737e1"
+  homepage "https://www.mycli.net/"
+  url "https://files.pythonhosted.org/packages/ad/ac/e0ad44ecd36dcba4bb8808a855f7edd5eb876d323e15cefc8fb99ed1e71f/mycli-1.22.1.tar.gz"
+  sha256 "4e7f32c825531257a023fc687a434d6f9211f95cd31eb5c7d1e3e9d96eee1da3"
 
   bottle do
     cellar :any
@@ -26,13 +26,13 @@ class Mycli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/43/36/ba00975df9d393c0ccc3b1bf1610227bc4c4d611a5c69249b57be8ba6253/cli_helpers-1.2.1.tar.gz"
-    sha256 "98db22eaa86827d99ee6af9f5f3923142d04df256425204530842b032849a165"
+    url "https://files.pythonhosted.org/packages/54/c5/d660b7d34ef5fe558142e397310393a39ecd6568480f12d8b0ddfad5cffc/cli_helpers-2.0.1.tar.gz"
+    sha256 "18f7d8c5a22d85fc685d56a9f301d8b9f7f0d7d4e9033a27563b066c2ab41833"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
-    sha256 "8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
   end
 
   resource "configobj" do
@@ -41,14 +41,13 @@ class Mycli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9d/0a/d7060601834b1a0a84845d6ae2cd59be077aafa2133455062e47c9733024/cryptography-2.9.tar.gz"
-    sha256 "0cacd3ef5c604b8e5f59bf2582c076c98a37fe206b31430d0cd08138aff0986e"
+    url "https://files.pythonhosted.org/packages/bf/ac/552fc8729d90393845cc3a2062facf4a89dcbe206fa78771d60ddaae7554/cryptography-3.0.tar.gz"
+    sha256 "8e924dbc025206e97756e8903039662aa58aa9ba357d8e1d8fc29e3092322053"
   end
 
-  # prompt_toolkit>=2.0.6,<3.0.0
-  resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/0c/37/7ad3bf3c6dbe96facf9927ddf066fdafa0f86766237cff32c3c7355d3b7c/prompt_toolkit-2.0.10.tar.gz"
-    sha256 "f15af68f66e664eaa559d4ac8a928111eebd5feda0c11738b5998045224829db"
+  resource "prompt-toolkit" do
+    url "https://files.pythonhosted.org/packages/69/19/3aa4bf17e1cbbdfe934eb3d5b394ae9a0a7fb23594a2ff27e0fdaf8b4c59/prompt_toolkit-3.0.5.tar.gz"
+    sha256 "563d1a4140b63ff9dd587bda9557cffb2fe73650205ab6f4383092fb882e7dc8"
   end
 
   resource "pycparser" do
@@ -62,13 +61,13 @@ class Mycli < Formula
   end
 
   resource "PyMySQL" do
-    url "https://files.pythonhosted.org/packages/da/15/23ba6592920e21cb40eb0fe0ea002d2b6177beb1ca8a4c1add5a8f32754d/PyMySQL-0.9.3.tar.gz"
-    sha256 "d8c059dcd81dedb85a9f034d5e22dcb4442c0b201908bede99e306d65ea7c8e7"
+    url "https://files.pythonhosted.org/packages/20/89/f336b217bfa06a0c672d8653774361d0faec008f7d008ff04f538a5da6f4/PyMySQL-0.10.0.tar.gz"
+    sha256 "e14070bc84e050e0f80bf6063e31d276f03a0bb4d46b9eca2854566c4ae19837"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "sqlparse" do
@@ -87,8 +86,8 @@ class Mycli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/25/9d/0acbed6e4a4be4fc99148f275488580968f44ddb5e69b8ceb53fc9df55a0/wcwidth-0.1.9.tar.gz"
-    sha256 "ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
+    url "https://files.pythonhosted.org/packages/89/38/459b727c381504f361832b9e5ace19966de1a235d73cdbdea91c771a1155/wcwidth-0.2.5.tar.gz"
+    sha256 "c4d647b99872929fdb7bdcaa4fbe7f01413ed3d98077df798530e5b04f116c83"
   end
 
   def install
