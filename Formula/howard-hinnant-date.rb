@@ -3,6 +3,7 @@ class HowardHinnantDate < Formula
   homepage "https://github.com/HowardHinnant/date"
   url "https://github.com/HowardHinnant/date/archive/v3.0.0.tar.gz"
   sha256 "87bba2eaf0ebc7ec539e5e62fc317cb80671a337c1fb1b84cb9e4d42c6dbebe3"
+  license "MIT"
 
   bottle do
     cellar :any
