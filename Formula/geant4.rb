@@ -25,7 +25,6 @@ class Geant4 < Formula
       args = std_cmake_args + %w[
         ../
         -DGEANT4_USE_GDML=ON
-        -DGEANT4_BUILD_MULTITHREADED=ON
         -DGEANT4_USE_PYTHON=ON
         -DGEANT4_INSTALL_DATA=ON
         -DGEANT4_USE_QT=ON
