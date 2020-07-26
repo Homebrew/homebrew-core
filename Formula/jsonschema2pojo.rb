@@ -3,6 +3,7 @@ class Jsonschema2pojo < Formula
   homepage "http://www.jsonschema2pojo.org/"
   url "https://github.com/joelittlejohn/jsonschema2pojo/releases/download/jsonschema2pojo-1.0.2/jsonschema2pojo-1.0.2.tar.gz"
   sha256 "158e927558e3ae4779dc2b7cd00e2010e43465af5a5aebdb55c889ccacb4d6e3"
+  license "Apache-2.0"
   revision 1
 
   bottle :unneeded
