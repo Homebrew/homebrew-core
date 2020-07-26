@@ -3,6 +3,7 @@ class Just < Formula
   homepage "https://github.com/casey/just"
   url "https://github.com/casey/just/archive/v0.7.1.tar.gz"
   sha256 "eb721634a725b24d1c00caa8bc14c2993d5d512a8d040993ada0e4744e180669"
+  license "CC0-1.0"
 
   bottle do
     cellar :any_skip_relocation
