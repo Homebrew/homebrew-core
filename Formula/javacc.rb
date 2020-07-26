@@ -3,6 +3,7 @@ class Javacc < Formula
   homepage "https://javacc.org/"
   url "https://github.com/javacc/javacc/archive/javacc-7.0.9.tar.gz"
   sha256 "8f16103c741761f8fb6b9caef1c941ba9dd2d0cca01fd0bee26cdadf19a5af14"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
