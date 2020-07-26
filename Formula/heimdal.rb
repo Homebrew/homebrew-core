@@ -3,6 +3,7 @@ class Heimdal < Formula
   homepage "https://www.h5l.org"
   url "https://github.com/heimdal/heimdal/releases/download/heimdal-7.7.0/heimdal-7.7.0.tar.gz"
   sha256 "f02d3314d634cc55eb9cf04a1eae0d96b293e45a1f837de9d894e800161b7d1b"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "339287d54592d68d27ad3420f71c02bd0bf988b901116a4609ac05560fe38ca0" => :catalina
