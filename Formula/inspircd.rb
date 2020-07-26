@@ -3,6 +3,7 @@ class Inspircd < Formula
   homepage "https://www.inspircd.org/"
   url "https://github.com/inspircd/inspircd/archive/v3.6.0.tar.gz"
   sha256 "f9a80ddfd8354163e0935ec65ea2c596c93152560ebb56dbeb5f8b3e1b53eb1e"
+  license "GPL-2.0"
 
   bottle do
     sha256 "5ffffc7ee1d4a804d3bea62c0daacbc37113504cd540b107c7845c001613ea91" => :catalina
