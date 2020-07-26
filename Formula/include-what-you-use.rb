@@ -3,6 +3,7 @@ class IncludeWhatYouUse < Formula
   homepage "https://include-what-you-use.org/"
   url "https://include-what-you-use.org/downloads/include-what-you-use-0.14.src.tar.gz"
   sha256 "43184397db57660c32e3298a6b1fd5ab82e808a1f5ab0591d6745f8d256200ef"
+  license "NCSA"
 
   bottle do
     sha256 "045a0b40290cc8da9122eef0a51c8badbd972ae1a90a3bf101f9e26f90fb6b25" => :catalina
