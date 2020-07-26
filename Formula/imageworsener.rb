@@ -3,6 +3,7 @@ class Imageworsener < Formula
   homepage "https://entropymine.com/imageworsener/"
   url "https://entropymine.com/imageworsener/imageworsener-1.3.3.tar.gz"
   sha256 "7c4b6e5f3da333e336f014805c441bc08aded652dd9dde2abd40be33b1aa3e25"
+  license "MIT"
 
   bottle do
     cellar :any
