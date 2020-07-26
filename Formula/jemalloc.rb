@@ -3,6 +3,7 @@ class Jemalloc < Formula
   homepage "http://jemalloc.net/"
   url "https://github.com/jemalloc/jemalloc/releases/download/5.2.1/jemalloc-5.2.1.tar.bz2"
   sha256 "34330e5ce276099e2e8950d9335db5a875689a4c6a56751ef3b1d8c537f887f6"
+  license "BSD-2-Clause"
   revision 1
 
   bottle do
