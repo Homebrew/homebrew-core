@@ -3,6 +3,7 @@ class Hexyl < Formula
   homepage "https://github.com/sharkdp/hexyl"
   url "https://github.com/sharkdp/hexyl/archive/v0.8.0.tar.gz"
   sha256 "b2e69b4ca694afd580c7ce22ab83a207174d2bbc9dabbad020fee4a98a1205be"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
