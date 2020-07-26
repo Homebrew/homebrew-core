@@ -4,6 +4,7 @@ class KibanaAT6 < Formula
   url "https://github.com/elastic/kibana.git",
       tag:      "v6.8.10",
       revision: "8542051ee8adba98f671a18cff02910fcd1f06fc"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
