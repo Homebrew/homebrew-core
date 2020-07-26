@@ -3,6 +3,7 @@ class Jlog < Formula
   homepage "https://labs.omniti.com/labs/jlog"
   url "https://github.com/omniti-labs/jlog/archive/2.5.3.tar.gz"
   sha256 "66730afc62aa9c9f93ef686998a5396f8721edca3750097d4a2848a688d55bf9"
+  license "BSD-3-Clause"
   head "https://github.com/omniti-labs/jlog.git"
 
   bottle do
