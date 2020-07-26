@@ -23,6 +23,12 @@ class Unison < Formula
     sha256 "ad6b28dc2fe1c6c99863079c7e96b12452aa05c05ed010b6c551e32244ce76f2"
   end
 
+  # compatibility fix with ocaml 4.10
+  patch do
+    url "https://github.com/bcpierce00/unison/commit/acbce432.diff?full_index=1"
+    sha256 "db4f98547fb8e66c8c7d557387b352cece3d06c982bce361bda7f7c3806133d2"
+  end
+
   def install
     ENV.deparallelize
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
