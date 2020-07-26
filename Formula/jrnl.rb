@@ -3,8 +3,8 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/d9/69/5b296efcdd95214f3377de40b5d7fdcf1a6a8e00646e94f703f37c0db16f/jrnl-2.4.3.tar.gz"
-  sha256 "2e4b08973f4205e5d66cb1e0aac6f550c6aad2046cfe92be911d8699d4861652"
+  url "https://files.pythonhosted.org/packages/f5/e9/286e27e7d1f1136f7487ef42345b8841320442c031f535a2f224f49200df/jrnl-2.4.4.tar.gz"
+  sha256 "ec0d15cbfe3f003bfdf6e0829cf04006a23c830da3a304506b727e880f81cd62"
   license "GPL-3.0"
 
   bottle do
@@ -50,6 +50,11 @@ class Jrnl < Formula
   resource "keyring" do
     url "https://files.pythonhosted.org/packages/a6/52/eb8a0e13b54ec9240c7dd68fcd0951c52f62033d438af372831af770f7cc/keyring-21.2.1.tar.gz"
     sha256 "c53e0e5ccde3ad34284a40ce7976b5b3a3d6de70344c3f8ee44364cc340976ec"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/65/37/83e3f492eb52d771e2820e88105f605335553fe10422cba9d256faeb1702/packaging-20.3.tar.gz"
+    sha256 "3c292b474fda1671ec57d46d739d072bfd495a4f51ad01a055121d81e952b7a3"
   end
 
   resource "parsedatetime" do
