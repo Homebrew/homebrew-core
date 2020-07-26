@@ -3,6 +3,7 @@ class IosWebkitDebugProxy < Formula
   homepage "https://github.com/google/ios-webkit-debug-proxy"
   url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.7.tar.gz"
   sha256 "e82dcb75b262807c03f12c2eb100f184d0091b2dcada169b5faf4104937c0e6e"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
