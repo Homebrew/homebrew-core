@@ -3,6 +3,7 @@ class Librealsense < Formula
   homepage "https://github.com/IntelRealSense/librealsense"
   url "https://github.com/IntelRealSense/librealsense/archive/v2.36.0.tar.gz"
   sha256 "f72d51d0376071fbd906bfda02c3fad08aab44d3a9136cc0df0ac9c076249e27"
+  license "Apache-2.0"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
