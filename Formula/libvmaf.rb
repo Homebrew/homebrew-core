@@ -3,6 +3,7 @@ class Libvmaf < Formula
   homepage "https://github.com/Netflix/vmaf"
   url "https://github.com/Netflix/vmaf/archive/v1.5.2.tar.gz"
   sha256 "5f7785da0b0d66b2513ce11d3f81d0a9b3f79d49483c4652fde3a31c13f644da"
+  license "BSD-2-Clause-Patent"
 
   bottle do
     cellar :any
