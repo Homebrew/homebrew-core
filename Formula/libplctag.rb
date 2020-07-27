@@ -3,6 +3,7 @@ class Libplctag < Formula
   homepage "https://github.com/kyle-github/libplctag"
   url "https://github.com/kyle-github/libplctag/archive/v2.1.9.tar.gz"
   sha256 "39705326f4680bec20c0013858956b5a8dd558a2b4d81725f7849d59a99aeac7"
+  license "LGPL-2.0"
 
   bottle do
     cellar :any
