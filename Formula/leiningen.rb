@@ -3,6 +3,7 @@ class Leiningen < Formula
   homepage "https://github.com/technomancy/leiningen"
   url "https://github.com/technomancy/leiningen/archive/2.9.4.tar.gz"
   sha256 "be1b1e43c5376f2fdc8666aeb671df16c19776d5cfe64339292a3d35ce3a7faa"
+  license "EPL-1.0"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
