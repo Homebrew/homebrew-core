@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
   sha256 "f7e0b325b272281f0462e0f7fff25a833820cac19911ff677251daf6d87bce50"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     sha256 "4ddc126dde12d96499950c64ca5bd38a199ad636573a05b871cd355d7b09a077" => :catalina
@@ -31,6 +32,14 @@ class Glib < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6164294a75541c278f3863b111791376caa3ad26/glib/hardcoded-paths.diff"
     sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
+  end
+
+  # Fixes a runtime error on ARM and PowerPC Macs.
+  # Can be removed in the next release.
+  # https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566.patch"
+    sha256 "9e3de41571edaa4bce03959abf885aad4edd069a622a5b642bf40294d748792e"
   end
 
   def install
