@@ -3,6 +3,7 @@ class Macosvpn < Formula
   homepage "https://github.com/halo/macosvpn"
   url "https://github.com/halo/macosvpn/archive/1.0.2.tar.gz"
   sha256 "bcc1ddb7714c1c0030f1cf97c581dd03b30b189ffc33fd1f805dd9d0bd3e0363"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
