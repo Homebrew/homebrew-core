@@ -3,6 +3,7 @@ class Libpcap < Formula
   homepage "https://www.tcpdump.org/"
   url "https://www.tcpdump.org/release/libpcap-1.9.1.tar.gz"
   sha256 "635237637c5b619bcceba91900666b64d56ecb7be63f298f601ec786ce087094"
+  license "BSD-3-Clause"
   head "https://github.com/the-tcpdump-group/libpcap.git"
 
   bottle do
