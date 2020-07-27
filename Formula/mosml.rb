@@ -3,6 +3,7 @@ class Mosml < Formula
   homepage "https://mosml.org/"
   url "https://github.com/kfl/mosml/archive/ver-2.10.1.tar.gz"
   sha256 "fed5393668b88d69475b070999b1fd34e902591345de7f09b236824b92e4a78f"
+  license "GPL-2.0"
 
   bottle do
     sha256 "7a888abd233069f837cf9aba4021baa71387a4b720bc53323d40a963433b566a" => :high_sierra
