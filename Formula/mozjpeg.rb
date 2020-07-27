@@ -3,6 +3,7 @@ class Mozjpeg < Formula
   homepage "https://github.com/mozilla/mozjpeg"
   url "https://github.com/mozilla/mozjpeg/archive/v3.3.1.tar.gz"
   sha256 "aebbea60ea038a84a2d1ed3de38fdbca34027e2e54ee2b7d08a97578be72599d"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
