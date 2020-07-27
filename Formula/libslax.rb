@@ -3,6 +3,7 @@ class Libslax < Formula
   homepage "http://www.libslax.org/"
   url "https://github.com/Juniper/libslax/releases/download/0.22.1/libslax-0.22.1.tar.gz"
   sha256 "4da6fb9886e50d75478d5ecc6868c90dae9d30ba7fc6e6d154fc92e6a48d9a95"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "8b4506f10c72d75425ad849f17918a6574c349ebdf29ab740ad323811d1a4d02" => :catalina
