@@ -1,0 +1,28 @@
+name: Label pull requests
+
+on:
+  schedule:
+    # Once every 30 minutes
+    - cron: '*/30 * * * *'
+
+jobs:
+  autolabel:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label
+        uses: Homebrew/actions/label-pull-requests@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          def: |
+            [
+                {
+                    "label": "new formula",
+                    "status": "added",
+                    "path": "Formula/.+"
+                }, {
+                    "label": "marked for removal/rejection",
+                    "status": "removed",
+                    "path": "Formula/.+"
+                }
+            ]

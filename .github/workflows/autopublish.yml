@@ -1,4 +1,4 @@
-name: Scheduled tasks
+name: Publish and commit bottles on schedule
 
 on:
   schedule:
@@ -15,10 +15,8 @@ jobs:
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
       - name: Update Homebrew
-        run: |
-          brew update-reset $(brew --repo)
+        run: brew update-reset $(brew --repo)
       - name: Run automerge
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-        run: |
-          brew pr-automerge --verbose --publish
+        run: brew pr-automerge --verbose --publish
