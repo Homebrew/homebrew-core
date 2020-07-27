@@ -3,6 +3,7 @@ class Libpq < Formula
   homepage "https://www.postgresql.org/docs/12/libpq.html"
   url "https://ftp.postgresql.org/pub/source/v12.3/postgresql-12.3.tar.bz2"
   sha256 "94ed64a6179048190695c86ec707cc25d016056ce10fc9d229267d9a8f1dcf41"
+  license "PostgreSQL"
 
   bottle do
     sha256 "2278f4c6e51a0be17b8fe91667c2bda6318c2dabe39c120be1afa374ee68d4a5" => :catalina
