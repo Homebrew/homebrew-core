@@ -3,6 +3,7 @@ class Metabase < Formula
   homepage "https://www.metabase.com/"
   url "https://downloads.metabase.com/v0.36.0/metabase.jar"
   sha256 "a0f93452136deb88c19af5b02018d0d1dc35afed3dca2d1e2615309f2bc8cea6"
+  license "AGPL-3.0"
 
   head do
     url "https://github.com/metabase/metabase.git"
