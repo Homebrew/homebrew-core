@@ -3,6 +3,7 @@ class Miller < Formula
   homepage "https://github.com/johnkerl/miller"
   url "https://github.com/johnkerl/miller/releases/download/v5.7.0/mlr-5.7.0.tar.gz"
   sha256 "3896a8be073427671e7ba84993c071891fb39769696fd566b8b77ec0abd3ea51"
+  license "BSD-2-Clause"
   head "https://github.com/johnkerl/miller.git"
 
   bottle do
