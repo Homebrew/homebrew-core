@@ -1,9 +1,10 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
-  homepage "https://fmtlib.github.io/"
+  homepage "https://fmt.dev/"
   url "https://github.com/fmtlib/fmt/archive/7.0.1.tar.gz"
   sha256 "ac335a4ca6beaebec4ddb2bc35b9ae960b576f3b64a410ff2c379780f0cd4948"
   license "MIT"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,10 @@ class Fmt < Formula
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
     system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=FALSE", *std_cmake_args
+    system "make"
+    lib.install "libfmt.a"
   end
 
   test do
