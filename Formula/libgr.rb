@@ -3,6 +3,7 @@ class Libgr < Formula
   homepage "https://gr-framework.org/"
   url "https://github.com/sciapp/gr/archive/v0.51.1.tar.gz"
   sha256 "25e36908d4a78e21be465194a8678d60190d7ac7a972c55c465d820d7c56a0bb"
+  license "MIT"
 
   bottle do
     sha256 "a4d4d644ae080d529e74046a107241d143b7dda6eae6277a617d39f34c1633c9" => :catalina
