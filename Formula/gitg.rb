@@ -30,10 +30,10 @@ class Gitg < Formula
   depends_on "libsecret"
   depends_on "libsoup"
 
-  # Fix libgitg compile on macOS
+  # Fix libgitg compile on macOS from https://gitlab.gnome.org/GNOME/gitg/-/merge_requests/142
   # Remove for next version
   patch do
-    url "https://gitlab.gnome.org/GNOME/gitg/-/merge_requests/142.diff"
+    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/67f5cd6925e8bf1e4c7e5b65fe9370c2cdd1d273.diff"
     sha256 "b9b842d1be3e435ce14a57d30702138a0e08ba0f9ef95249876fc05aeac2417c"
   end
 
