@@ -3,6 +3,7 @@ class Libdnet < Formula
   homepage "https://github.com/dugsong/libdnet"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libdnet/libdnet-1.12.tgz"
   sha256 "83b33039787cf99990e977cef7f18a5d5e7aaffc4505548a83d31bd3515eb026"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
