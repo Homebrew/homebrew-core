@@ -3,6 +3,7 @@ class Lmod < Formula
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
   url "https://github.com/TACC/Lmod/archive/8.3.17.tar.gz"
   sha256 "adf5976c8d18ccef3165c919e593ae777dc64312841ada8fde994f4c25c2bd31"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
