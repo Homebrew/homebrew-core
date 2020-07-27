@@ -3,6 +3,7 @@ class Lsof < Formula
   homepage "https://people.freebsd.org/~abe/"
   url "https://github.com/lsof-org/lsof/archive/4.93.2.tar.gz"
   sha256 "3df912bd966fc24dc73ddea3e36a61d79270b21b085936a4caabca56e5b486a2"
+  license "Zlib"
 
   bottle do
     cellar :any_skip_relocation
