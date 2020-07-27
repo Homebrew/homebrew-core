@@ -3,6 +3,7 @@ class Logstash < Formula
   homepage "https://www.elastic.co/products/logstash"
   url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-7.8.0.tar.gz"
   sha256 "48b59d2b20f1b0bd21cbf3aa719ff51541a16166bca0d8298bb762e23a129d42"
+  license "Apache-2.0"
   head "https://github.com/elastic/logstash.git"
 
   bottle :unneeded
