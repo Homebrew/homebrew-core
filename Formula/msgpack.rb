@@ -3,6 +3,7 @@ class Msgpack < Formula
   homepage "https://msgpack.org/"
   url "https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz"
   sha256 "6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b"
+  license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git"
 
   bottle do
