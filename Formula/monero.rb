@@ -4,6 +4,7 @@ class Monero < Formula
   url "https://github.com/monero-project/monero.git",
       tag:      "v0.16.0.1",
       revision: "a498a1b4ce432941dee47d74c7e05bf87acd3ad6"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
