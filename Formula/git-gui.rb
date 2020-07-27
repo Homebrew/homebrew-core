@@ -2,8 +2,8 @@ class GitGui < Formula
   desc "Tcl/Tk UI for the git revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.27.0.tar.xz"
-  sha256 "73ca9774d7fa226e1d87c1909401623f96dca6a044e583b9a762e84d7d1a73f9"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.28.0.tar.xz"
+  sha256 "dfa5d1a253aa451465478fe45c6a40ab8605b340fdb4c4e80b16d7f87708439d"
   license "GPL-2.0"
   head "https://github.com/git/git.git", shallow: false
 
