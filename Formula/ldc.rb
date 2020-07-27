@@ -3,6 +3,7 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
   url "https://github.com/ldc-developers/ldc/releases/download/v1.20.1/ldc-1.20.1-src.tar.gz"
   sha256 "2b21dfffb6efd2c2158bc83422765335aae34b709ebdc406bb026c21967a1aaf"
+  license "BSD-3-Clause"
   head "https://github.com/ldc-developers/ldc.git", shallow: false
 
   bottle do
