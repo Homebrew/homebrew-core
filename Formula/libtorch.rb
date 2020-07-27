@@ -6,6 +6,7 @@ class Libtorch < Formula
   url "https://github.com/pytorch/pytorch.git",
       tag:      "v1.5.1",
       revision: "3c31d73c875d9a4a6ea8a843b9a0d1b19fbe36f3"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
