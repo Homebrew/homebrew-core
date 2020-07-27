@@ -3,6 +3,7 @@ class Libepoxy < Formula
   homepage "https://github.com/anholt/libepoxy"
   url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.4.tar.xz"
   sha256 "0bd2cc681dfeffdef739cb29913f8c3caa47a88a451fd2bc6e606c02997289d2"
+  license "MIT"
   revision 1
 
   bottle do
