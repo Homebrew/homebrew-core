@@ -4,6 +4,7 @@ class Mypy < Formula
   url "https://github.com/python/mypy.git",
       tag:      "v0.782",
       revision: "39b6bc47b9f7e7d72778886419d07eb4acf3c50a"
+  license "MIT"
   head "https://github.com/python/mypy.git"
 
   bottle do
