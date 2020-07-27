@@ -3,8 +3,9 @@ class Caf < Formula
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
   url "https://github.com/actor-framework/actor-framework/archive/0.17.6.tar.gz"
-  sha256 "2a39beed5b10a7632b9501317d16d9460da8dc303a4c3e7a30cb72f87b612440"
+  sha256 "e2bf5bd243f08bb7d8adde197cfe3e6d71314ed3378fe0692f8932f4c3b3928c"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
