@@ -3,6 +3,7 @@ class Libvidstab < Formula
   homepage "http://public.hronopik.de/vid.stab/"
   url "https://github.com/georgmartius/vid.stab/archive/v1.1.0.tar.gz"
   sha256 "14d2a053e56edad4f397be0cb3ef8eb1ec3150404ce99a426c4eb641861dc0bb"
+  license "GPL-2.0"
 
   bottle do
     cellar :any
