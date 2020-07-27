@@ -3,6 +3,7 @@ class Moarvm < Formula
   homepage "https://moarvm.org"
   url "https://github.com/MoarVM/MoarVM/releases/download/2020.07/MoarVM-2020.07.tar.gz"
   sha256 "da48887a1be0e397586b3470c2627d04c64d1e0caf9305ee7dc8db8db739f7cf"
+  license "Artistic-2.0"
 
   bottle do
     sha256 "e0c39e3ee08d26eee62ab00a11fb751e36e8739d3eb896e58992e38ed5c0c14f" => :catalina
