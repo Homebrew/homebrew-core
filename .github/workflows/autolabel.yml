@@ -27,14 +27,14 @@ jobs:
                 }, {
                     "label": "bottle unneeded",
                     "path": "Formula/.+",
-                    "content": "bottle :unneeded"
+                    "content": "\n  bottle :unneeded\n"
                 }, {
                     "label": "formula deprecated",
                     "path": "Formula/.+",
-                    "content": "deprecate!"
+                    "content": "\n  deprecate!.*\n"
                 }, {
                     "label": "formula disabled",
                     "path": "Formula/.+",
-                    "content": "disable!"
+                    "content": "\n  disable!\n"
                 }
             ]
