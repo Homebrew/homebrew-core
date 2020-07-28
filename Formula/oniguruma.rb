@@ -4,6 +4,7 @@ class Oniguruma < Formula
   url "https://github.com/kkos/oniguruma/releases/download/v6.9.5_rev1/onig-6.9.5-rev1.tar.gz"
   version "6.9.5-rev1"
   sha256 "d33c849d1672af227944878cefe0a8fcf26fc62bedba32aa517f2f63c314a99e"
+  license "BSD-2-Clause"
   head "https://github.com/kkos/oniguruma.git"
 
   bottle do
