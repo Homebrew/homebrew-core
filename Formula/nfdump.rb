@@ -3,6 +3,7 @@ class Nfdump < Formula
   homepage "https://nfdump.sourceforge.io"
   url "https://github.com/phaag/nfdump/archive/v1.6.20.tar.gz"
   sha256 "672f4fbe2b7424cfdba5917441100a440cbc9083f2a79147562fb5a966838543"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
