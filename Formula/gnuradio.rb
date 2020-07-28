@@ -185,14 +185,12 @@ class Gnuradio < Formula
     EOS
     system "python", testpath/"test.py"
 
-    cd testpath do
-      system "#{bin}/gr_modtool", "newmod", "test"
+    system "#{bin}/gr_modtool", "newmod", "test"
 
-      cd "gr-test" do
-        system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
-               "python", "-y", "--argument-list=''", "--add-python-qa",
-               "--copyright=brew"
-      end
+    cd "gr-test" do
+      system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
+              "python", "-y", "--argument-list=''", "--add-python-qa",
+              "--copyright=brew"
     end
   end
 end
