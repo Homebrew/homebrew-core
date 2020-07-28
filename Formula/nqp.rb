@@ -3,6 +3,7 @@ class Nqp < Formula
   homepage "https://github.com/perl6/nqp"
   url "https://github.com/perl6/nqp/releases/download/2020.07/nqp-2020.07.tar.gz"
   sha256 "1bf941f10fc4eeef511ef0b6366f8c87a6327062c8400b44a8a148af3bb22a4e"
+  license "Artistic-2.0"
 
   bottle do
     sha256 "282148386404a0eb1de8748d4f1cfc860159d43deefbd9d3b88dbe029b63fe0f" => :catalina
