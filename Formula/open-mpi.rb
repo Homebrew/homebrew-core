@@ -3,6 +3,7 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.4.tar.bz2"
   sha256 "47e24eb2223fe5d24438658958a313b6b7a55bb281563542e1afc9dec4a31ac4"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
