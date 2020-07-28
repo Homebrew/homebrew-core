@@ -52,7 +52,7 @@ class Hbase < Formula
       # upstream bugs for ipv6 incompatibility:
       # https://issues.apache.org/jira/browse/HADOOP-8568
       # https://issues.apache.org/jira/browse/HADOOP-3619
-      s.gsub! /^export HBASE_OPTS=.*/,
+      s.gsub! /^# export HBASE_OPTS$/,
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\""
       s.gsub! /^# export JAVA_HOME=.*/,
               "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\""
