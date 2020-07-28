@@ -3,6 +3,7 @@ class Norm < Formula
   homepage "https://www.nrl.navy.mil/itd/ncs/products/norm"
   url "https://github.com/USNavalResearchLaboratory/norm/archive/v1.5.8.tar.gz"
   sha256 "ee7493c9ae9a129e7cbcd090a412fb0d0e25ab3acaa4748e5dc696bf822a62b5"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any
