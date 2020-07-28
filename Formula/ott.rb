@@ -3,6 +3,7 @@ class Ott < Formula
   homepage "https://www.cl.cam.ac.uk/~pes20/ott/"
   url "https://github.com/ott-lang/ott/archive/0.31.tar.gz"
   sha256 "3203f1b3eeb30e6aead9f63f6df22f5ead2407964ac9bb3cd5b0ae78df4568f8"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/ott-lang/ott.git"
 
