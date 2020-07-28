@@ -1,6 +1,7 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
+  license "MIT"
   head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
   stable do
