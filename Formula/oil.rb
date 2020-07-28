@@ -3,6 +3,7 @@ class Oil < Formula
   homepage "https://www.oilshell.org/"
   url "https://www.oilshell.org/download/oil-0.7.0.tar.gz"
   sha256 "da462387a467661cb9d0ec9b667aecd7be3f54ce662cfbb2292f4795fd3f7f20"
+  license "Apache-2.0"
   head "https://github.com/oilshell/oil.git"
 
   bottle do
