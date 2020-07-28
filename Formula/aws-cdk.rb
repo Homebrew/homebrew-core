@@ -22,12 +22,13 @@ class AwsCdk < Formula
   end
 
   test do
-    mkdir "testapp"
-    cd testpath/"testapp"
-    shell_output("#{bin}/cdk init app --language=javascript")
-    list = shell_output("#{bin}/cdk list")
-    cdkversion = shell_output("#{bin}/cdk --version")
-    assert_match "TestappStack", list
-    assert_match version.to_s, cdkversion
+    # `cdk init` cannot be run in a non-empty directory
+    mkdir "testapp" do
+      shell_output("#{bin}/cdk init app --language=javascript")
+      list = shell_output("#{bin}/cdk list")
+      cdkversion = shell_output("#{bin}/cdk --version")
+      assert_match "TestappStack", list
+      assert_match version.to_s, cdkversion
+    end
   end
 end
