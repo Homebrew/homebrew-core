@@ -4,7 +4,7 @@ class Gnuradio < Formula
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
   license "GPL-3.0"
-  revision 15
+  revision 16
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -72,6 +72,12 @@ class Gnuradio < Formula
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+
+    # Avoid references to the Homebrew shims directory
+    inreplace ["CMakeLists.txt", "volk/lib/CMakeLists.txt"] do |s|
+      s.gsub! "${CMAKE_C_COMPILER}", ENV.cc
+      s.gsub! "${CMAKE_CXX_COMPILER}", ENV.cxx
+    end
 
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
