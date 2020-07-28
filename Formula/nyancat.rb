@@ -3,6 +3,7 @@ class Nyancat < Formula
   homepage "https://github.com/klange/nyancat"
   url "https://github.com/klange/nyancat/archive/1.5.2.tar.gz"
   sha256 "88cdcaa9c7134503dd0364a97fa860da3381a09cb555c3aae9918360827c2032"
+  license "NCSA"
 
   bottle do
     cellar :any_skip_relocation
