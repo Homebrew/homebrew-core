@@ -24,5 +24,17 @@ jobs:
                     "label": "marked for removal/rejection",
                     "status": "removed",
                     "path": "Formula/.+"
+                }, {
+                    "label": "bottle unneeded",
+                    "path": "Formula/.+",
+                    "content": "bottle :unneeded"
+                }, {
+                    "label": "formula deprecated",
+                    "path": "Formula/.+",
+                    "content": "deprecate!"
+                }, {
+                    "label": "formula disabled",
+                    "path": "Formula/.+",
+                    "content": "disable!"
                 }
             ]
