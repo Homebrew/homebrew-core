@@ -43,6 +43,13 @@ class Creduce < Formula
     sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
 
+  resource "URI::Escape" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.72.tar.gz"
+      sha256 "35f14431d4b300de4be1163b0b5332de2d7fbda4f05ff1ed198a8e9330d40a32"
+    end
+  end
+
   # Use shared libraries.
   # Remove with the next release.
   patch do
