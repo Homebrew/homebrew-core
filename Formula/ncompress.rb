@@ -3,6 +3,7 @@ class Ncompress < Formula
   homepage "https://github.com/vapier/ncompress"
   url "https://github.com/vapier/ncompress/archive/v4.2.4.6.tar.gz"
   sha256 "fb7b6a00060bd4c6e35ba4cc96a5ca7e78c193e6267487dd53376d80e061836b"
+  license "Unlicense"
   head "https://github.com/vapier/ncompress.git"
 
   bottle do
