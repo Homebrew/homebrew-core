@@ -3,6 +3,7 @@ class Nim < Formula
   homepage "https://nim-lang.org/"
   url "https://nim-lang.org/download/nim-1.2.4.tar.xz"
   sha256 "eef18f32fabe65f0d06a40f32e297d1f6daba66463c33f3ab57edc4d3530d636"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
