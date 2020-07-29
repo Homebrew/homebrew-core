@@ -3,6 +3,7 @@ class Pgtoolkit < Formula
   homepage "https://github.com/grayhemp/pgtoolkit"
   url "https://github.com/grayhemp/pgtoolkit/archive/v1.0.2.tar.gz"
   sha256 "d86f34c579a4c921b77f313d4c7efbf4b12695df89e6b68def92ffa0332a7351"
+  license "PostgreSQL"
 
   bottle :unneeded
 
