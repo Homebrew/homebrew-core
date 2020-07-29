@@ -3,6 +3,8 @@ class Plenv < Formula
   homepage "https://github.com/tokuhirom/plenv"
   url "https://github.com/tokuhirom/plenv/archive/2.3.1.tar.gz"
   sha256 "12004cfed7ed083911dbda3228a9fb9ce6e40e259b34e791d970c4f335935fa3"
+  # license ["Artistic-1.0", "GPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "Artistic-1.0"
   head "https://github.com/tokuhirom/plenv.git"
 
   bottle :unneeded
