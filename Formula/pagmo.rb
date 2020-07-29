@@ -3,6 +3,7 @@ class Pagmo < Formula
   homepage "https://esa.github.io/pagmo2/"
   url "https://github.com/esa/pagmo2/archive/v2.15.0.tar.gz"
   sha256 "07977be690b512ea11fc40d5b8bfa0a7a8507ce9053a615c2bc4725d355ef9a8"
+  license "GPL-3.0"
 
   bottle do
     cellar :any
