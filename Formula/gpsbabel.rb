@@ -18,9 +18,9 @@ class Gpsbabel < Formula
 
   uses_from_macos "zlib"
 
-  # upstream PR 611 added support for configuration of third party libraries.
+  # upstream https://github.com/gpsbabel/gpsbabel/pull/611 added support for configuration of third party libraries.
   patch do
-    url "https://github.com/gpsbabel/gpsbabel/pull/611.patch?full_index=1"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8122e505c149fdb42132a18a9749f7b8c9940b77/gpsbabel/1.7.0.patch"
     sha256 "8f6572aa8dc3a7b4db028bf75d952d97f7b47de278a91c3cc86bebed608be86a"
   end
 
