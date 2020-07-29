@@ -4,6 +4,7 @@ class Hyperfine < Formula
   url "https://github.com/sharkdp/hyperfine/archive/v1.10.0.tar.gz"
   sha256 "b949d6c1a78e9c1c5a7bb6c241fcd51d6faf00bba5719cc312f57b5b301cc854"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,12 @@ class Hyperfine < Formula
   depends_on "rust" => :build
 
   def install
+    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
+    man1.install "doc/hyperfine.1"
+    bash_completion.install "hyperfine.bash"
+    fish_completion.install "hyperfine.fish"
+    zsh_completion.install "_hyperfine"
   end
 
   test do
