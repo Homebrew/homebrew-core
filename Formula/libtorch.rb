@@ -4,8 +4,8 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.5.1",
-      revision: "3c31d73c875d9a4a6ea8a843b9a0d1b19fbe36f3"
+      tag:      "v1.6.0",
+      revision: "b31f58de6fa8bbda5353b3c77d9be4914399724d"
   license "BSD-3-Clause"
 
   bottle do
@@ -29,19 +29,9 @@ class Libtorch < Formula
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/67/b0/b2ea2bd67bfb80ea5d12a5baa1d12bda002cab3b6c9b48f7708cd40c34bf/typing-3.7.4.1.tar.gz"
-    sha256 "91dfe6f3f706ee8cc32d38edbbf304e9b7583fb37108fef38229617f8b3eba23"
+    url "https://files.pythonhosted.org/packages/05/d9/6eebe19d46bd05360c9a9aae822e67a80f9242aabbfc58b641b957546607/typing-3.7.4.3.tar.gz"
+    sha256 "1187fb9c82fd670d10aa07bbb6cfcfe4bdda42d6fab8d5134f04e8c4d0b71cc9"
   end
-
-  # Fix compile with Apple Clang 10.
-  patch do
-    url "https://github.com/google/XNNPACK/commit/b18783570f0643560be641b193367d3906955141.patch?full_index=1"
-    sha256 "5c17f0e38885ba48234cb89a9a0b101f9a760fa335efd1372b8fd1690dee5b21"
-    directory "third_party/XNNPACK"
-  end
-
-  # Fix compile with Apple Clang 11.0.3.
-  patch :DATA
 
   def install
     venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
@@ -51,6 +41,7 @@ class Libtorch < Formula
       -DBUILD_CUSTOM_PROTOBUF=OFF
       -DBUILD_PYTHON=OFF
       -DPYTHON_EXECUTABLE=#{libexec}/bin/python
+      -Dpybind11_PREFER_third_party=OFF
       -DUSE_CUDA=OFF
       -DUSE_METAL=OFF
       -DUSE_MKLDNN=OFF
@@ -80,26 +71,3 @@ class Libtorch < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/aten/src/ATen/native/SobolEngineOps.cpp b/aten/src/ATen/native/SobolEngineOps.cpp
-index 8a14a22b8894..407d68a7e87d 100644
---- a/aten/src/ATen/native/SobolEngineOps.cpp
-+++ b/aten/src/ATen/native/SobolEngineOps.cpp
-@@ -134,7 +134,15 @@ Tensor& _sobol_engine_initialize_state_(Tensor& sobolstate, int64_t dimension) {
-     int64_t m = bit_length(p) - 1;
-
-     for (int64_t i = 0; i < m; ++i) {
--      ss_a[d][i] = initsobolstate[d][i];
-+      // Note: [Workaround Clang9.0.0 bug]
-+      // Q: Why not use `ss_a[d][i] = initsobolstate[d][i];`?
-+      // A: It'll trigger a bug with Clang9.0.0 and segfaults pytorch build.
-+      //    The bug is fixed in 9.0.1 but we still want to work around it
-+      //    here so that we can keep using 9.0.0 in CircleCi jobs,
-+      //    since it is available through apt.
-+      //    See https://github.com/pytorch/pytorch/issues/36676 for details.
-+      const auto p = &(initsobolstate[d]);
-+      ss_a[d][i] = (*p)[i];
-     }
-
-     for (int64_t j = m; j < MAXBIT; ++j) {
