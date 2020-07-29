@@ -3,6 +3,7 @@ class Protobuf < Formula
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf/releases/download/v3.12.4/protobuf-all-3.12.4.tar.gz"
   sha256 "e7bf41873d1a87c05c2b0a6197f4445c6ea3469ce0165ff14de2df8b34262530"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any
