@@ -22,6 +22,11 @@ class IcarusVerilog < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gperf" => :build
+    depends_on "readline"
+  end
+
   def install
     system "autoconf"
     system "./configure", "--prefix=#{prefix}"
