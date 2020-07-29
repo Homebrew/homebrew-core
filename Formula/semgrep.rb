@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.live"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.16.0",
-    revision: "26bb98d50dd1350aee49ea9a345c12c271c9b0f4"
+    tag:      "v0.17.0",
+    revision: "382620ccaa12d6fbd64776346e21d800db789ebf"
   license "LGPL-2.1"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -90,6 +90,10 @@ class Semgrep < Formula
   end
 
   def install
+    # Remove Sudo Command in install script. Safe to remove patch on 0.18.0
+    # https://github.com/returntocorp/ocaml-tree-sitter/pull/83
+    inreplace "ocaml-tree-sitter/scripts/install-tree-sitter-lib", "sudo make install", "make install"
+
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
@@ -99,6 +103,7 @@ class Semgrep < Formula
       ENV["LIBRARY_PATH"] = lib
 
       # Used by ocaml-tree-sitter to find tree-sitter/*.h headers
+      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
       ENV["C_INCLUDE_PATH"] = include
 
       # Used by tree-sitter to place libtree-sitter.a, and header files
@@ -107,15 +112,14 @@ class Semgrep < Formula
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
 
-      system "opam", "exec", "--", "make", "config"
+      system "opam", "exec", "--", "make", "setup"
       system "opam", "install", "./pfff"
 
       # Install tree-sitter
       cd "ocaml-tree-sitter" do
         cd "tree-sitter" do
           system "opam", "exec", "--", "make"
-          lib.install "libtree-sitter.a"
-          include.install "lib/include/tree_sitter"
+          system "opam", "exec", "--", "make", "install"
         end
         system "opam", "install", "-y", "."
       end
