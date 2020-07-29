@@ -18,6 +18,10 @@ class Libnice < Formula
   depends_on "gnutls"
   depends_on "gstreamer"
 
+  on_linux do
+    depends_on "intltool" => :build
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
