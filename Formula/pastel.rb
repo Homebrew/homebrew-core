@@ -3,6 +3,7 @@ class Pastel < Formula
   homepage "https://github.com/sharkdp/pastel"
   url "https://github.com/sharkdp/pastel/archive/v0.8.0.tar.gz"
   sha256 "603dc63d6aa261f159178dffeb389471a845c1a5d62187a275a3d33a66fe9a69"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
