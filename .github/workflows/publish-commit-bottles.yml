@@ -27,18 +27,20 @@ jobs:
           bot: BrewTestBot
 
       - name: Update Homebrew
-        run: brew update-reset $(brew --repository)
-
-      - name: Checkout tap
-        uses: actions/checkout@v2
-        with:
-          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          fetch-depth: 0
+        run: brew update-reset $(brew --repo)
 
       - name: Setup tap
         run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+          cd ..
+          rmdir ${{github.workspace}}
+          ln -s $(brew --repo ${{github.repository}}) ${{github.workspace}}
+
+      - name: Checkout tap
+        run:
+          git remote set-url origin ${{github.event.repository.clone_url}}
+          git fetch --prune --force origin master
+          git reset --hard origin/master
+          git log -1
 
       - name: Setup git
         uses: Homebrew/actions/git-user-config@master
@@ -52,6 +54,8 @@ jobs:
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
 
       - name: Post comment on failure
         if: ${{!success()}}
