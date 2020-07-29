@@ -4,7 +4,7 @@ class Gopass < Formula
   url "https://github.com/gopasspw/gopass/releases/download/v1.9.2/gopass-1.9.2.tar.gz"
   sha256 "1017264678d3a2cdc862fc81e3829f390facce6c4a334cb314192ff321837bf5"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/gopasspw/gopass.git"
 
   bottle do
@@ -20,14 +20,8 @@ class Gopass < Formula
   depends_on "terminal-notifier"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/gopasspw/gopass").install buildpath.children
-
-    cd "src/github.com/gopasspw/gopass" do
-      prefix.install_metafiles
-      ENV["PREFIX"] = prefix
-      system "make", "install"
-    end
+    ENV["PREFIX"] = prefix
+    system "make", "install"
 
     output = Utils.safe_popen_read("#{bin}/gopass", "completion", "bash")
     (bash_completion/"gopass-completion").write output
