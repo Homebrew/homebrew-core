@@ -3,6 +3,7 @@ class Popt < Formula
   homepage "https://github.com/rpm-software-management/popt"
   url "http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz"
   sha256 "5159bc03a20b28ce363aa96765f37df99ea4d8850b1ece17d1e6ad5c24fdc5d1"
+  license "MIT"
 
   bottle do
     cellar :any
