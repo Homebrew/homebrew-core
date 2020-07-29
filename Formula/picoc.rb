@@ -1,8 +1,9 @@
 class Picoc < Formula
   desc "C interpreter for scripting"
-  homepage "https://github.com/zsaleeba/picoc"
+  homepage "https://gitlab.com/zsaleeba/picoc"
+  license "BSD-3-Clause"
   revision 1
-  head "https://github.com/zsaleeba/picoc.git"
+  head "https://gitlab.com/zsaleeba/picoc.git"
 
   stable do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/picoc/picoc-2.1.tar.bz2"
@@ -13,7 +14,7 @@ class Picoc < Formula
     # Fix abort trap due to stack overflow
     # Upstream commit from 14 Oct 2013 "Fixed a problem with PlatformGetLine()"
     patch do
-      url "https://github.com/zsaleeba/picoc/commit/ed54c51.patch?full_index=1"
+      url "https://gitlab.com/zsaleeba/picoc/commit/ed54c51.patch?full_index=1"
       sha256 "2111ad8d038cf0063430746bf868b56f4658e79b87e4b94b03d00fb58af8564f"
     end
   end
