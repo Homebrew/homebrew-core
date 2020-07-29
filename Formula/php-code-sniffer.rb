@@ -3,6 +3,7 @@ class PhpCodeSniffer < Formula
   homepage "https://github.com/squizlabs/PHP_CodeSniffer/"
   url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.5.5/phpcs.phar"
   sha256 "4a2f6aff1b1f760216bb00c0b3070431131e3ed91307436bb1bfb252281a804a"
+  license "BSD-3-Clause"
 
   bottle :unneeded
 
