@@ -14,6 +14,9 @@ class VstsCli < Formula
     sha256 "59d1ccaa24e3356771bd998de79c226803957811170765933d5ca03f3547f99a" => :high_sierra
   end
 
+  # https://github.com/Azure/azure-devops-cli-extension/pull/219#issuecomment-456404611
+  deprecate! date: "2019-01-22"
+
   depends_on "python@3.8"
 
   uses_from_macos "libffi"
