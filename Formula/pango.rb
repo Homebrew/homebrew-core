@@ -1,9 +1,20 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz"
-  sha256 "66a5b6cc13db73efed67b8e933584509f8ddb7b10a8a40c3850ca4a985ea1b1f"
   license "GPL-2.0"
+
+  stable do
+    url "https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz"
+    sha256 "66a5b6cc13db73efed67b8e933584509f8ddb7b10a8a40c3850ca4a985ea1b1f"
+
+    # Adopts an upstream patch to fix compilers that are picky about
+    # fallthrough (e.g., newer clang).
+    # Can be removed on the next release.
+    patch do
+      url "https://gitlab.gnome.org/GNOME/pango/-/commit/0b3cd20be5249c51ec981a66c07a39d54d1d1c9d.patch"
+      sha256 "252378845c5b1b09bf5ae1e06200bba7bf3d4bd679aff2888e95233cf8762a76"
+    end
+  end
 
   bottle do
     sha256 "38a8cab63ed7ea37fc5448b74dae21b7f935d4f4ea9c08b658f3553f20ec8f28" => :catalina
