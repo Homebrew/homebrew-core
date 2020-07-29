@@ -3,6 +3,7 @@ class Pycodestyle < Formula
   homepage "https://pycodestyle.pycqa.org/"
   url "https://github.com/PyCQA/pycodestyle/archive/2.6.0.tar.gz"
   sha256 "08347fbc48cc92afd33117c1e8af9b99b292a4e5889f6b776f402e062fc39c97"
+  license "MIT"
   head "https://github.com/PyCQA/pycodestyle.git"
 
   bottle :unneeded
