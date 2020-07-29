@@ -107,6 +107,27 @@ class Jrnl < Formula
     sha256 "643c97c5294aedc737780a49d9df30889321cbe1204eac2c2ec6134035a92e44"
   end
 
+  resource "asn1crypto" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
+      sha256 "5a215cb8dc12f892244e3a113fe05397ee23c5c4ca7a69cd6e69811755efc42d"
+    end
+  end
+
+  resource "jeepney" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/74/24/9b720cc6b2a73c908896a0ed64cb49780dcfbf4964e23a725aa6323f4452/jeepney-0.4.3.tar.gz"
+      sha256 "3479b861cc2b6407de5188695fa1a8d57e5072d7059322469b62628869b8e36e"
+    end
+  end
+
+  resource "secretstorage" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/fd/9f/36197c75d9a09b1ab63f56cb985af6cd858ca3fc41fd9cd890ce69bae5b9/SecretStorage-3.1.2.tar.gz"
+      sha256 "15da8a989b65498e29be338b3b279965f1b8f09b9668bd8010da183024c8bff6"
+    end
+  end
+
   def install
     # Avoid error "ModuleNotFoundError: No module named 'clikit'", which is only used in Poetry build process
     rm_f "pyproject.toml"
