@@ -3,6 +3,7 @@ class Percol < Formula
   homepage "https://github.com/mooz/percol"
   url "https://github.com/mooz/percol/archive/v0.2.1.tar.gz"
   sha256 "75056ba1fe190ae4c728e68df963c0e7d19bfe5a85649e51ae4193d4011042f9"
+  license "MIT"
   revision 2
   head "https://github.com/mooz/percol.git"
 
