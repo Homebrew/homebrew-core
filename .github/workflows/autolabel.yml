@@ -29,6 +29,10 @@ jobs:
                     "path": "Formula/.+",
                     "content": "\n  bottle :unneeded\n"
                 }, {
+                    "label": "gopath deprecation",
+                    "path": "Formula/.+",
+                    "content": "\"GOPATH\""
+                }, {
                     "label": "formula deprecated",
                     "path": "Formula/.+",
                     "content": "\n  deprecate!.*\n"
