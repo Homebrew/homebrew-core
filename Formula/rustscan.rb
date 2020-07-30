@@ -6,7 +6,7 @@ class Rustscan < Formula
   sha256 "3bbaf188fa4014a57596c4d4f928b75bdf42c058220424ae46b94f3a36b61f81"
   license "MIT"
   depends_on "rust" => :build
-  depends_on "nmap" => :optional
+  depends_on "nmap"
   def install
     system "cargo", "install", *std_cargo_args
     # bin.install "target/release/rustscan"
