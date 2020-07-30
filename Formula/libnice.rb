@@ -3,8 +3,7 @@ class Libnice < Formula
   homepage "https://wiki.freedesktop.org/nice/"
   url "https://nice.freedesktop.org/releases/libnice-0.1.17.tar.gz"
   sha256 "1952a0dec58b5c9ccc3f25193df4e2d1244cb382cac611b71e25afcd7b069526"
-  # license ["LGPL-2.1", "MPL-1.1"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "LGPL-2.1"
+  license ["LGPL-2.1", "MPL-1.1"]
 
   bottle do
     cellar :any
