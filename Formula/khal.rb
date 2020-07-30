@@ -3,10 +3,9 @@ class Khal < Formula
 
   desc "CLI calendar application"
   homepage "https://lostpackets.de/khal/"
-  url "https://files.pythonhosted.org/packages/f7/45/555398810c14f572ea9ff8e92cd4f6e492ba8c50da1241fad58e58234463/khal-0.10.1.tar.gz"
-  sha256 "d450f9da70ddead28d794eed81c2d2a074655980a16cbd9f47f1c0c9e59b0be5"
+  url "https://files.pythonhosted.org/packages/fc/21/e9d15ede629b2b167eecf08a8c506abbdf00191e2aa366aa48573475782a/khal-0.10.2.tar.gz"
+  sha256 "494f215c3d1cb7a1f8d756b440809d255bd20e2937f98bd0b5d44e42d4cb1087"
   license "MIT"
-  revision 2
   head "https://github.com/pimutils/khal.git"
 
   bottle do
@@ -69,8 +68,8 @@ class Khal < Formula
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/45/dd/d57924f77b0914f8a61c81222647888fbb583f89168a376ffeb5613b02a6/urwid-2.1.0.tar.gz"
-    sha256 "0896f36060beb6bf3801cb554303fef336a79661401797551ba106d23ab4cd86"
+    url "https://files.pythonhosted.org/packages/c0/b0/e4e8597cf93411cc85a70766227c8a113b153b7022699a080d22fac28a00/urwid-2.1.1.tar.gz"
+    sha256 "7870866e35b00b71b0c9ccdd1281c8e7fac3806d60b9c1075c95dd5dad88d526"
   end
 
   def install
