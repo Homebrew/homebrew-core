@@ -3,7 +3,7 @@ class JpegTurbo < Formula
   homepage "https://www.libjpeg-turbo.org/"
   url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.0.5/libjpeg-turbo-2.0.5.tar.gz"
   sha256 "16f8f6f2715b3a38ab562a84357c793dd56ae9899ce130563c72cd93d8357b5d"
-  license "IJG"
+  license ["IJG", "BSD-3-Clause", "Zlib"]
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
   bottle do
