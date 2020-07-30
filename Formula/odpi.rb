@@ -3,8 +3,7 @@ class Odpi < Formula
   homepage "https://oracle.github.io/odpi/"
   url "https://github.com/oracle/odpi/archive/v4.0.1.tar.gz"
   sha256 "7e4b9f09607e80f9836990678cd45a542eaedf99c3334e1c6f8956ffc5d88c02"
-  # license ["Apache-2.0", "UPL-1.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "Apache-2.0"
+  license ["Apache-2.0", "UPL-1.0"]
 
   bottle do
     cellar :any
