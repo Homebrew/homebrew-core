@@ -98,6 +98,11 @@ class PostgresqlAT96 < Formula
 
         You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
           Do not run `brew cleanup postgresql@9.6` until you have performed the migration.
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
     EOS
   end
 
