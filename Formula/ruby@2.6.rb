@@ -3,7 +3,7 @@ class RubyAT26 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.6.tar.xz"
   sha256 "5db187882b7ac34016cd48d7032e197f07e4968f406b0690e20193b9b424841f"
-  license "Ruby"
+  license ["BSD-2-Clause", "Ruby"]
   revision 1
 
   bottle do
