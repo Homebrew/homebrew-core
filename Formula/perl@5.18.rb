@@ -3,7 +3,7 @@ class PerlAT518 < Formula
   homepage "https://www.perl.org/"
   url "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz"
   sha256 "01a4e11a9a34616396c4a77b3cef51f76a297e1a2c2c490ae6138bf0351eb29f"
-  license "Artistic-1.0-Perl"
+  license ["GPL-1.0-or-later", "Artistic-1.0-Perl"]
   revision 1
 
   bottle do
