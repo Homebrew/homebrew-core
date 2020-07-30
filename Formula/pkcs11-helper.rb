@@ -3,8 +3,7 @@ class Pkcs11Helper < Formula
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
   url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.26/pkcs11-helper-1.26.0.tar.bz2"
   sha256 "e886ec3ad17667a3694b11a71317c584839562f74b29c609d54c002973b387be"
-  # license ["BSD-3-Clause", "GPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "BSD-3-Clause"
+  license ["BSD-3-Clause", "GPL-2.0"]
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   bottle do
