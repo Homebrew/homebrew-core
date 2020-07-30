@@ -38,7 +38,7 @@ class Glib < Formula
   # Can be removed in the next release.
   # https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566
   patch do
-    url "https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566.patch"
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/c60d6599c9182ce44fdfaa8dde2955f55fc0d628.patch"
     sha256 "9e3de41571edaa4bce03959abf885aad4edd069a622a5b642bf40294d748792e"
   end
 
