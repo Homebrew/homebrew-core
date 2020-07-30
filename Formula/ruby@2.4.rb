@@ -3,7 +3,7 @@ class RubyAT24 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.10.tar.xz"
   sha256 "d5668ed11544db034f70aec37d11e157538d639ed0d0a968e2f587191fc530df"
-  license "Ruby"
+  license ["BSD-2-Clause", "Ruby"]
 
   bottle do
     sha256 "0af834c6be2b5b377eb53b27895d0eb5cfcf9298b7613197f4d3cc83bc3fdad5" => :catalina
