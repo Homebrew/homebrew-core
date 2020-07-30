@@ -4,7 +4,7 @@ class Freetype < Formula
   url "https://downloads.sourceforge.net/project/freetype/freetype2/2.10.2/freetype-2.10.2.tar.xz"
   mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.2.tar.xz"
   sha256 "1543d61025d2e6312e0a1c563652555f17378a204a61e99928c9fcef030a2d8b"
-  license "FTL"
+  license ["FTL", "GPL-2.0"]
 
   bottle do
     cellar :any
