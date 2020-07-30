@@ -27,6 +27,14 @@ class X264 < Formula
     fails_with :clang
   end
 
+  # update config.* and configure: add Apple Silicon support.
+  # upstream PR https://code.videolan.org/videolan/x264/-/merge_requests/35
+  # Can be removed once it gets merged into stable branch
+  patch do
+    url "https://code.videolan.org/videolan/x264/-/commit/eb95c2965299ba5b8598e2388d71b02e23c9fba7.patch?full_index=1"
+    sha256 "59c65f4eb09d0a14024bdf911a4836c889401f3d8abdf641fa6fc9b8d6da058b"
+  end
+
   def install
     # Work around Xcode 11 clang bug
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
