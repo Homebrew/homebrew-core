@@ -83,6 +83,11 @@ class PostgresqlAT94 < Formula
 
       To install gems without sudo, see the Homebrew documentation:
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
     EOS
   end
 
