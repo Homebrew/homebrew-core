@@ -3,7 +3,7 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.xz"
   sha256 "b224f9844646cc92765df8288a46838511c1cec5b550d8874bd4686a904fcee7"
-  license "Ruby"
+  license ["BSD-2-Clause", "Ruby"]
   revision 2
 
   bottle do
