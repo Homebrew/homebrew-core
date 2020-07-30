@@ -17,6 +17,7 @@ class Rustscan < Formula
     # Therefore, the test succeeds if the user can portscan themselves
     # We do not know what ports are open on the machine, so we have to assert 1,1
     system "rustscan", "127.0.0.1"
+    system "rustscan", "0.0.0.0"
     assert_equal 1, 1
   end
 end
