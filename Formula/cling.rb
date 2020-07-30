@@ -4,9 +4,7 @@ class Cling < Formula
   url "https://github.com/root-project/cling.git",
       tag:      "v0.6",
       revision: "82ac7bf1870abbedb7fe44f8e34a429538f26a8d"
-  # You may license this software under one of the following licenses, marked
-  # "UI/NCSAOSL" and "LGPL".
-  license "LGPL-2.1"
+  license ["NCSA", "LGPL-2.1"]
 
   bottle do
     cellar :any
