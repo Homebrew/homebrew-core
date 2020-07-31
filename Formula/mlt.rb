@@ -2,19 +2,12 @@ class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
   license "LGPL-2.1"
-  revision 1
 
   stable do
-    url "https://github.com/mltframework/mlt/archive/v6.20.0.tar.gz"
-    sha256 "ab211e27c06c0688f9cbe2d74dc0623624ef75ea4f94eea915cdc313196be2dd"
+    url "https://github.com/mltframework/mlt/archive/v6.22.0.tar.gz"
+    sha256 "3392d70c528d7f32e78329232b1b93a5a36b058215f664953090315132b797e5"
 
     depends_on "opencv@3"
-
-    # Fix build with Qt 5.15.0, details: https://github.com/mltframework/mlt/pull/534
-    patch do
-      url "https://github.com/mltframework/mlt/commit/f58b44d73442986eeffec7431e59b7d19d214c1b.patch?full_index=1"
-      sha256 "9427dfffdc1a08fcbeb093d0575637386a6fd470807eecb32c55cba98af95708"
-    end
   end
 
   bottle do
@@ -26,19 +19,19 @@ class Mlt < Formula
   head do
     url "https://github.com/mltframework/mlt.git"
 
-    depends_on "gdk-pixbuf"
     depends_on "opencv"
-    depends_on "pango"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "frei0r"
+  depends_on "gdk-pixbuf"
   depends_on "libdv"
   depends_on "libexif"
   depends_on "libsamplerate"
   depends_on "libvorbis"
+  depends_on "pango"
   depends_on "qt"
   depends_on "sdl2"
   depends_on "sox"
