@@ -1,10 +1,9 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://github.com/cp2k/cp2k/releases/download/v6.1.0/cp2k-6.1.tar.bz2"
-  sha256 "af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b"
-  license "GPL-2.0"
-  revision 2
+  url "https://github.com/cp2k/cp2k/releases/download/v7.1.0/cp2k-7.1.tar.bz2"
+  sha256 "ccd711a09a426145440e666310dd01cc5772ab103493c4ae6a3470898cd0addb"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 "1b442188cb4e82050da9d26b142cc570a0288c1719069b5d9ef66905aa02631f" => :catalina
@@ -21,20 +20,14 @@ class Cp2k < Formula
   fails_with :clang # needs OpenMP support
 
   resource "libint" do
-    url "https://downloads.sourceforge.net/project/libint/v1-releases/libint-1.1.5.tar.gz"
-    sha256 "31d7dd553c7b1a773863fcddc15ba9358bdcc58f5962c9fcee1cd24f309c4198"
-  end
-
-  # Upstream fix for GCC 10, remove in next version
-  # https://github.com/cp2k/dbcsr/commit/fe71e6fe
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/0c086813/cp2k/gcc10.diff"
-    sha256 "dfaa319c999d49faae86cafe58ddb3b696f72a89f7cc85acd47b3288c6b9ac89"
+    url "https://github.com/cp2k/libint-cp2k/releases/download/v2.6.0/libint-v2.6.0-cp2k-lmax-4.tgz"
+    sha256 "7c8d28bfb03920936231228b79686ba0fd87ea922c267199789bc131cf21ac08"
   end
 
   def install
     resource("libint").stage do
-      system "./configure", "--prefix=#{libexec}"
+      system "./configure", "--prefix=#{libexec}", "--enable-eri=1",
+                            "--enable-fortran"
       system "make"
       ENV.deparallelize { system "make", "install" }
     end
@@ -43,7 +36,6 @@ class Cp2k < Formula
     # https://github.com/cp2k/cp2k/issues/969
     fcflags = %W[
       -I#{Formula["fftw"].opt_include}
-      -I#{libexec}/include
       -fallow-argument-mismatch
     ]
 
@@ -54,6 +46,7 @@ class Cp2k < Formula
 
     ENV["LIBXC_INCLUDE_DIR"] = Formula["libxc"].opt_include
     ENV["LIBXC_LIB_DIR"] = Formula["libxc"].opt_lib
+    ENV["LIBINT_INCLUDE_DIR"] = libexec/"include"
     ENV["LIBINT_LIB_DIR"] = libexec/"lib"
 
     # CP2K configuration is done through editing of arch files
@@ -72,12 +65,10 @@ class Cp2k < Formula
               "-lfftw3", "-lfftw3 -lfftw3_threads"
 
     # Now we build
-    cd "makefiles" do
-      %w[sopt ssmp popt psmp].each do |exe|
-        system "make", "ARCH=Darwin-IntelMacintosh-gfortran", "VERSION=#{exe}"
-        bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k.#{exe}"
-        bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k_shell.#{exe}"
-      end
+    %w[sopt ssmp popt psmp].each do |exe|
+      system "make", "ARCH=Darwin-IntelMacintosh-gfortran", "VERSION=#{exe}"
+      bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k.#{exe}"
+      bin.install "../exe/Darwin-IntelMacintosh-gfortran/cp2k_shell.#{exe}"
     end
 
     (pkgshare/"tests").install "tests/Fist/water512.inp"
