@@ -4,6 +4,7 @@ class Corsixth < Formula
   url "https://github.com/CorsixTH/CorsixTH/archive/v0.64.tar.gz"
   sha256 "12389a95de0031baec1a3fc77208d44228177f49564f1c79ae763ab4aeeafa98"
   license "MIT"
+  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
