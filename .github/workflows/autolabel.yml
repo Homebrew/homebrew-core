@@ -74,11 +74,11 @@ jobs:
                 }, {
                     "label": "php",
                     "path": "Formula/.+",
-                    "content": "depends_on \"php@?.+"
+                    "content": "(?:depends_on|uses_from_macos) \"php@?.+"
                 }, {
                     "label": "python",
                     "path": "Formula/.+",
-                    "content": "depends_on \"python@.+"
+                    "content": "(?:depends_on|uses_from_macos) \"python@?.+"
                 }, {
                     "label": "ruby",
                     "path": "Formula/.+",
