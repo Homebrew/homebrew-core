@@ -2,8 +2,8 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.4.6",
-      revision: "c11df0181457e809cd054ef966c497db08b43d26"
+      tag:      "v1.4.7",
+      revision: "099638fb6ca5eed4cc4380ab96e970df11b56c2c"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git"
 
@@ -17,14 +17,8 @@ class Glooctl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/solo-io/gloo"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      system "make", "glooctl", "TAGGED_VERSION=v#{version}"
-      bin.install "_output/glooctl"
-    end
+    system "make", "glooctl", "TAGGED_VERSION=v#{version}"
+    bin.install "_output/glooctl"
   end
 
   test do
