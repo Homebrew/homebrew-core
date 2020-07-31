@@ -6,10 +6,7 @@ on:
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
+    runs-on: ubuntu-latest
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
