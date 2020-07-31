@@ -25,7 +25,6 @@ class Freerdp < Formula
   on_linux do
     depends_on "ffmpeg"
     depends_on "glib"
-    depends_on "systemd"
   end
 
   def install
