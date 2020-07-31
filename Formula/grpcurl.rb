@@ -1,8 +1,8 @@
 class Grpcurl < Formula
   desc "Like cURL, but for gRPC"
   homepage "https://github.com/fullstorydev/grpcurl"
-  url "https://github.com/fullstorydev/grpcurl/archive/v1.6.1.tar.gz"
-  sha256 "d070b5e6f038ab8fda7366bd9371108564c9e1cb22c3cc2041feaeefdca53587"
+  url "https://github.com/fullstorydev/grpcurl/archive/v1.7.0.tar.gz"
+  sha256 "0999aa1516deb2575bdc1d11d3a5dd8494a5aa25fa899e6afc245c3ccc2bbeb5"
   license "MIT"
 
   bottle do
@@ -15,13 +15,7 @@ class Grpcurl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/fullstorydev/grpcurl").install buildpath.children
-    cd "src/github.com/fullstorydev/grpcurl/cmd" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
-             "-o", bin/"grpcurl", "./..."
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "./cmd/grpcurl"
   end
 
   test do
