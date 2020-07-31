@@ -6,6 +6,7 @@ class Pipgrip < Formula
   url "https://files.pythonhosted.org/packages/3f/d4/8abe6a21a78ed5ac2bcbb0afa52085912c74a0b5c635340875f8eca99159/pipgrip-0.5.1.tar.gz"
   sha256 "78a97a5552e4a513f566c8118d8e1e1a52630603d4c93d9ded85536c8072d0b0"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +15,7 @@ class Pipgrip < Formula
     sha256 "835b91fd72ee87d4949cb3a1690fea974edca4b44d8a39d4605b406b0752a6ce" => :high_sierra
   end
 
+  depends_on "gcc"
   depends_on "python@3.8"
 
   resource "anytree" do
@@ -47,10 +49,19 @@ class Pipgrip < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv.pip_install resources
+    venv.pip_install buildpath
+
+    gcc_path = Formula["gcc"].opt_bin
+    gcc_version = Formula["gcc"].version.to_s.split(".").first
+    (bin/"pipgrip").write_env_script(libexec/"bin/pipgrip",
+                                     { CC: gcc_path/"gcc-#{gcc_version}", CXX: gcc_path/"g++-#{gcc_version}" })
   end
 
   test do
-    assert_match "pipgrip==#{version}", shell_output("#{bin}/pipgrip pipgrip -v --no-cache-dir")
+    assert_match "pipgrip==#{version}", shell_output("#{bin}/pipgrip pipgrip --no-cache-dir")
+    # Test gcc dependency
+    assert_match "dxpy==", shell_output("#{bin}/pipgrip dxpy --no-cache-dir")
   end
 end
