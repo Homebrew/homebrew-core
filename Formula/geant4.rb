@@ -18,6 +18,63 @@ class Geant4 < Formula
   depends_on "qt"
   depends_on "xerces-c"
 
+  # Check for updates in cmake/Modules/Geant4DatasetDefinitions.cmake
+
+  resource "G4NDL" do
+    url "https://cern.ch/geant4-data/datasets/G4NDL.4.6.tar.gz"
+    sha256 "9d287cf2ae0fb887a2adce801ee74fb9be21b0d166dab49bcbee9408a5145408"
+  end
+
+  resource "G4EMLOW" do
+    url "https://cern.ch/geant4-data/datasets/G4EMLOW.7.9.1.tar.gz"
+    sha256 "820c106e501c64c617df6c9e33a0f0a3822ffad059871930f74b8cc37f043ccb"
+  end
+
+  resource "PhotonEvaporation" do
+    url "https://cern.ch/geant4-data/datasets/PhotonEvaporation.5.5.tar.gz"
+    sha256 "d049bf47b6a1cb5441d5be357a8c3f499ebf4ed7a5ac3d1686fed9df376494fa"
+  end
+
+  resource "RadioactiveDecay" do
+    url "https://cern.ch/geant4-data/datasets/RadioactiveDecay.5.4.tar.gz"
+    sha256 "d049bf47b6a1cb5441d5be357a8c3f499ebf4ed7a5ac3d1686fed9df376494fa"
+  end
+
+  resource "G4SAIDDATA" do
+    url "https://cern.ch/geant4-data/datasets/G4SAIDDATA.2.0.tar.gz"
+    sha256 "1d26a8e79baa71e44d5759b9f55a67e8b7ede31751316a9e9037d80090c72e91"
+  end
+
+  resource "G4PARTICLEXS" do
+    url "https://cern.ch/geant4-data/datasets/G4PARTICLEXS.2.1.tar.gz"
+    sha256 "094d103372bbf8780d63a11632397e72d1191dc5027f9adabaf6a43025520b41"
+  end
+
+  resource "G4ABLA" do
+    url "https://cern.ch/geant4-data/datasets/G4ABLA.3.1.tar.gz"
+    sha256 "7698b052b58bf1b9886beacdbd6af607adc1e099fc730ab6b21cf7f090c027ed"
+  end
+
+  resource "G4INCL" do
+    url "https://cern.ch/geant4-data/datasets/G4INCL.1.0.tar.gz"
+    sha256 "716161821ae9f3d0565fbf3c2cf34f4e02e3e519eb419a82236eef22c2c4367d"
+  end
+
+  resource "G4PII" do
+    url "https://cern.ch/geant4-data/datasets/G4PII.1.3.tar.gz"
+    sha256 "6225ad902675f4381c98c6ba25fc5a06ce87549aa979634d3d03491d6616e926"
+  end
+
+  resource "G4ENSDFSTATE" do
+    url "https://cern.ch/geant4-data/datasets/G4ENSDFSTATE.2.2.tar.gz"
+    sha256 "dd7e27ef62070734a4a709601f5b3bada6641b111eb7069344e4f99a01d6e0a6"
+  end
+
+  resource "RealSurface" do
+    url "https://cern.ch/geant4-data/datasets/RealSurface.2.1.1.tar.gz"
+    sha256 "d049bf47b6a1cb5441d5be357a8c3f499ebf4ed7a5ac3d1686fed9df376494fa"
+  end
+
   def install
     mkdir "geant-build" do
       args = std_cmake_args + %w[
