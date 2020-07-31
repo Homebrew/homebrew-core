@@ -4,6 +4,7 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20201120.tar.gz"
   sha256 "48191d4f17cb1e5fd094ca92c581e1bb9599f058c122cc0e35df4e1c0cb53f47"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
