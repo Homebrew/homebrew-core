@@ -4,6 +4,7 @@ class Instead < Formula
   url "https://github.com/instead-hub/instead/archive/3.3.2.tar.gz"
   sha256 "bdb827f36e693dc7b443e69d4678d24f1ccc20dc093c22f58b8d78192da15f2e"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 "4279441d1a315d876f9646a284ac3beefd109e7fa7c4ebce2fb8549bf0947d94" => :big_sur
