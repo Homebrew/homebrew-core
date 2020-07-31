@@ -3,7 +3,8 @@ class Mongoose < Formula
   homepage "https://github.com/cesanta/mongoose"
   url "https://github.com/cesanta/mongoose/archive/6.17.tar.gz"
   sha256 "5bff3cc70bb2248cf87d06a3543f120f3b29b9368d25a7715443cb10612987cc"
-  # license ["GPL-2.0", "Cesanta"] - pending https://github.com/Homebrew/brew/pull/7953
+  # Licensed under either GPL-2.0 or a Commercial license
+  # See https://www.cesanta.com/license/
   license "GPL-2.0"
 
   bottle do
