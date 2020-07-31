@@ -3,8 +3,7 @@ class Feedgnuplot < Formula
   homepage "https://github.com/dkogan/feedgnuplot"
   url "https://github.com/dkogan/feedgnuplot/archive/v1.55.tar.gz"
   sha256 "1205afedf8ce79d8531e0d0f8f9565df365a568a0ee6a8e17738602682095303"
-  # licensed under either "GPL-3.0" or "Artistic-1.0"
-  license "GPL-3.0"
+  license ["GPL-3.0", "Artistic-1.0-Perl"]
 
   bottle do
     cellar :any_skip_relocation
