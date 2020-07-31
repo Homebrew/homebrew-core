@@ -3,6 +3,7 @@ class Vis < Formula
   homepage "https://github.com/martanne/vis"
   url "https://github.com/martanne/vis/archive/v0.6.tar.gz"
   sha256 "9ab4a3f1c5953475130b3c286af272fe5cfdf7cbb7f9fbebd31e9ea4f34e487d"
+  revision 1
   head "https://github.com/martanne/vis.git"
 
   bottle do
