@@ -53,7 +53,10 @@ jobs:
         git checkout --force -B master FETCH_HEAD
         cd -
 
-        if [ "$RUNNER_OS" = "Linux" ]; then
+        if [ "$RUNNER_OS" = "macOS" ]; then
+          # don't care about `brew audit` here.
+          brew untap mongodb/brew
+        else
           sudo chown -R "$USER" "$HOMEBREW_PREFIX"
           sudo chmod -R g-w,o-w "$HOMEBREW_CORE_REPOSITORY"
         fi
