@@ -4,6 +4,7 @@ class Highlight < Formula
   url "http://www.andre-simon.de/zip/highlight-3.59.tar.bz2"
   sha256 "85926ca8e08e69b497fa4a0c93bec595e15c1ca18c4ee494ea3f1c9a78c249a2"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.com/saalen/highlight.git"
 
   bottle do
