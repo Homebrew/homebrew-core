@@ -49,6 +49,10 @@ class Caddy < Formula
           </array>
           <key>RunAtLoad</key>
           <true/>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/caddy.log</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/caddy.log</string>
         </dict>
       </plist>
     EOS
