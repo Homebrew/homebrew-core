@@ -2,8 +2,8 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://github.com/GoogleContainerTools/skaffold"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.12.1",
-      revision: "ccd40dcee12171c96fd96f9a959d549971c920c1"
+      tag:      "v1.13.0",
+      revision: "6520ff3fca78f1532542596bfe91ba51110a2c74"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git"
 
@@ -17,25 +17,17 @@ class Skaffold < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/GoogleContainerTools/skaffold"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    cd dir do
-      system "make"
-      bin.install "out/skaffold"
-
-      output = Utils.safe_popen_read("#{bin}/skaffold", "completion", "bash")
-      (bash_completion/"skaffold").write output
-
-      output = Utils.safe_popen_read("#{bin}/skaffold", "completion", "zsh")
-      (zsh_completion/"_skaffold").write output
-
-      prefix.install_metafiles
-    end
+    system "make"
+    bin.install "out/skaffold"
+    output = Utils.safe_popen_read("#{bin}/skaffold", "completion", "bash")
+    (bash_completion/"skaffold").write output
+    output = Utils.safe_popen_read("#{bin}/skaffold", "completion", "zsh")
+    (zsh_completion/"_skaffold").write output
   end
 
   test do
-    output = shell_output("#{bin}/skaffold version --output {{.GitTreeState}}")
-    assert_match "clean", output
+    (testpath/"Dockerfile").write "FROM scratch"
+    output = shell_output("#{bin}/skaffold init --analyze").chomp
+    assert_equal '{"dockerfiles":["Dockerfile"]}', output
   end
 end
