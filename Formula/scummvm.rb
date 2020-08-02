@@ -3,6 +3,7 @@ class Scummvm < Formula
   homepage "https://www.scummvm.org/"
   url "https://www.scummvm.org/frs/scummvm/2.1.2/scummvm-2.1.2.tar.xz"
   sha256 "c4c16c9b8650c3d512b7254551bbab0d47cd3ef4eac6983ab6d882e76cf88eb0"
+  license "GPL-2.0"
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
