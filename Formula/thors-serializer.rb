@@ -4,6 +4,7 @@ class ThorsSerializer < Formula
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
       tag:      "1.15.1",
       revision: "89ee7d6ae390547054c2c8603d8654dbfeff85e4"
+  license "MIT"
 
   bottle do
     cellar :any
