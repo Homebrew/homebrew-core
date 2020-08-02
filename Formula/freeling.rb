@@ -1,10 +1,9 @@
 class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "http://nlp.lsi.upc.edu/freeling/"
-  url "https://github.com/TALP-UPC/FreeLing/archive/4.1.1.tar.gz"
-  sha256 "c58822f262e6a9c550ce7dd080025aa322a0801b61aff10d5d085f8c168bee60"
+  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
+  sha256 "ef0eac3c82b1d1eb6b87094043c744f6517b3bd639415040eaa6e1e6b298d425"
   license "AGPL-3.0"
-  revision 1
 
   bottle do
     sha256 "3e5cbfb547396e03170a5c393b5fa5597fbbfef82d386b3cdaa808a8ab024737" => :catalina
@@ -17,12 +16,6 @@ class Freeling < Formula
   depends_on "icu4c"
 
   conflicts_with "hunspell", because: "both install 'analyze' binary"
-
-  # Fix linking with icu4c
-  patch do
-    url "https://github.com/TALP-UPC/FreeLing/commit/5e323a5f3c7d2858a6ebb45617291b8d4126cedb.patch?full_index=1"
-    sha256 "0814211cd1fb9b075d370f10df71a4398bc93d64fd7f32ccba1e34fb4e6b7452"
-  end
 
   def install
     mkdir "build" do
