@@ -1,8 +1,8 @@
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
-  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.5.0.tar.gz"
-  sha256 "2a61369e616c4c08310586c339a27bddee0482305e1dcc83ce08e3529cfa5b7a"
+  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.6.0.tar.gz"
+  sha256 "a5a86d5c1b233aba7111b9f4fc2d790843ac82cc3426fa3c32d86aef0a7bd956"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
@@ -17,6 +17,11 @@ class MongoCxxDriver < Formula
   depends_on "mongo-c-driver"
 
   def install
+    # We want to avoid shims referencing in examples,
+    # but we need to have examples/CMakeLists.txt file to make cmake happy
+    pkgshare.install "examples"
+    (buildpath / "examples/CMakeLists.txt").write ""
+
     mongo_c_prefix = Formula["mongo-c-driver"].opt_prefix
     system "cmake", ".", *std_cmake_args,
                         "-DBUILD_VERSION=#{version}",
@@ -24,7 +29,6 @@ class MongoCxxDriver < Formula
                         "-DLIBMONGOC_DIR=#{mongo_c_prefix}"
     system "make"
     system "make", "install"
-    pkgshare.install "examples"
   end
 
   test do
