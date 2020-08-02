@@ -1,10 +1,9 @@
 class SimpleAmqpClient < Formula
   desc "C++ interface to rabbitmq-c"
   homepage "https://github.com/alanxz/SimpleAmqpClient"
-  url "https://github.com/alanxz/SimpleAmqpClient/archive/v2.4.0.tar.gz"
-  sha256 "5735ccccd638b2e2c275ca254f2f947bdfe34511247a32822985c3c25239e06e"
+  url "https://github.com/alanxz/SimpleAmqpClient/archive/v2.5.0.tar.gz"
+  sha256 "ba7d6bfb2ac0fc31d5c98bf103f180e3ed3dd9a5902de533fd94417e15c577a6"
   license "MIT"
-  revision 2
   head "https://github.com/alanxz/SimpleAmqpClient.git"
 
   bottle do
@@ -20,8 +19,10 @@ class SimpleAmqpClient < Formula
   depends_on "rabbitmq-c"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DCMAKE_INSTALL_LIBDIR=lib", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
