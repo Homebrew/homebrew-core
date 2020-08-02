@@ -1,8 +1,8 @@
 class Igv < Formula
   desc "Interactive Genomics Viewer"
   homepage "https://www.broadinstitute.org/software/igv"
-  url "https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_2.8.7.zip"
-  sha256 "98a7cdc8818c99e4f830fbd1eb701bc099f6885ed5386a7e907c2465e1ff2362"
+  url "https://data.broadinstitute.org/igv/projects/downloads/2.8/IGV_2.8.8.zip"
+  sha256 "d9fb5ccf6f531a6f378c6640d7ccb5386c01ecec7a0ca29c64510fa4f0dc8b9a"
 
   bottle :unneeded
 
