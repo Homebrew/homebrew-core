@@ -4,6 +4,7 @@ class Re2 < Formula
   url "https://github.com/google/re2/archive/2020-08-01.tar.gz"
   version "20200801"
   sha256 "6f4c8514249cd65b9e85d3e6f4c35595809a63ad71c5d93083e4d1dcdf9e0cd6"
+  license "BSD-3-Clause"
   head "https://github.com/google/re2.git"
 
   bottle do
