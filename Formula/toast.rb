@@ -3,6 +3,7 @@ class Toast < Formula
   homepage "https://github.com/stepchowfun/toast"
   url "https://github.com/stepchowfun/toast/archive/v0.31.0.tar.gz"
   sha256 "03f766763314fd2930820a0bed8fdc3d4405a40408e9c7b74c320bf453a35a5e"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
