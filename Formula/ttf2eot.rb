@@ -3,6 +3,9 @@ class Ttf2eot < Formula
   homepage "https://github.com/wget/ttf2eot"
   url "https://github.com/wget/ttf2eot/archive/v0.0.3.tar.gz"
   sha256 "f363c4f2841b6d0b0545b30462e3c202c687d002da3d5dec7e2b827a032a3a65"
+  # License: Derived from WebKit, so BSD/LGPL 2/LGPL 2.1.
+  # license ["LGPL-2.0", "BSD-*"] - pending https://github.com/Homebrew/brew/pull/7953
+  license "LGPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
