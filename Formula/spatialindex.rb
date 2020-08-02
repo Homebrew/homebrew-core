@@ -3,6 +3,8 @@ class Spatialindex < Formula
   homepage "https://libspatialindex.org/"
   url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.3/spatialindex-src-1.9.3.tar.bz2"
   sha256 "4a529431cfa80443ab4dcd45a4b25aebbabe1c0ce2fa1665039c80e999dcc50a"
+  # `LGPL-2.0` to `MIT` for 1.8.0+ releases
+  license "MIT"
 
   bottle do
     cellar :any
