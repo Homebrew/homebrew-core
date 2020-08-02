@@ -1,9 +1,9 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/1.2.2.tar.gz"
-  sha256 "fc386fc996f24e67cbfb4963de438b2a80c82c9a46f6ca17ade69c7d562d8680"
-  license "GPL-2.0"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/1.3.0.tar.gz"
+  sha256 "1c0f229047491cf7d054c6f8fcb846eb3163c336340fa82035e19cc2bb7f0179"
+  license "GPL-2.0-only"
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
@@ -24,8 +24,8 @@ class Osm2pgsql < Formula
     # This is essentially a CMake disrespects superenv problem
     # rather than an upstream issue to handle.
     lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
-    inreplace "cmake/FindLua.cmake", "LUA_VERSIONS5 5.3 5.2 5.1 5.0",
-                                     "LUA_VERSIONS5 #{lua_version}"
+    inreplace "cmake/FindLua.cmake", /set\(LUA_VERSIONS5( \d\.\d)+\)/,
+                                     "set(LUA_VERSIONS5 #{lua_version})"
 
     # Use Proj 6.0.0 compatibility headers
     # https://github.com/openstreetmap/osm2pgsql/issues/922
