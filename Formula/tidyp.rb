@@ -3,6 +3,7 @@ class Tidyp < Formula
   homepage "https://github.com/petdance/tidyp"
   url "https://github.com/downloads/petdance/tidyp/tidyp-1.04.tar.gz"
   sha256 "20b0fad32c63575bd4685ed09b8c5ca222bbc7b15284210d4b576d0223f0b338"
+  license "Zlib"
 
   bottle do
     cellar :any
