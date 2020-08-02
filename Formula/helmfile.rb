@@ -1,8 +1,8 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.125.0.tar.gz"
-  sha256 "14ff7dd0004d19318e88d407af8d11da5f8d73755171473250a23fce9cd93e6a"
+  url "https://github.com/roboll/helmfile/archive/v0.125.1.tar.gz"
+  sha256 "e57a87eee32fd7480975b23e00d4958cb1fb033db8b7302ae483667f5bd68405"
   license "MIT"
 
   bottle do
@@ -24,14 +24,15 @@ class Helmfile < Formula
     (testpath/"helmfile.yaml").write <<-EOS
     repositories:
     - name: stable
-      url: https://kubernetes-charts.storage.googleapis.com/
+      url: https://kubernetes-charts.storage.googleapis.com
 
     releases:
     - name: vault                            # name of this release
       namespace: vault                       # target namespace
+      createNamespace: true                  # helm 3.2+ automatically create release namespace (default true)
       labels:                                # Arbitrary key value pairs for filtering releases
         foo: bar
-      chart: roboll/vault-secret-manager     # the chart being installed to create this release, referenced by `repository/chart` syntax
+      chart: stable/vault                    # the chart being installed to create this release, referenced by `repository/chart` syntax
       version: ~1.24.1                       # the semver of the chart. range constraint is supported
     EOS
     system Formula["helm"].opt_bin/"helm", "create", "foo"
