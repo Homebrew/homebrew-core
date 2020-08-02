@@ -5,6 +5,7 @@ class Svgo < Formula
   homepage "https://github.com/svg/svgo"
   url "https://github.com/svg/svgo/archive/v1.3.2.tar.gz"
   sha256 "b1e65808957d5eaa07173f1729a9fe04d985a3a50da01fa2cc85583f7b27df59"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation
