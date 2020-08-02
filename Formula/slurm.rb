@@ -3,6 +3,7 @@ class Slurm < Formula
   homepage "https://github.com/mattthias/slurm"
   url "https://github.com/mattthias/slurm/archive/upstream/0.4.3.tar.gz"
   sha256 "b960c0d215927be1d02c176e1b189321856030226c91f840284886b727d3a3ac"
+  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
