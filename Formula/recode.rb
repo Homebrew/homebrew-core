@@ -3,6 +3,7 @@ class Recode < Formula
   homepage "https://github.com/pinard/Recode"
   url "https://github.com/pinard/Recode/archive/v3.7-beta2.tar.gz"
   sha256 "72c3c0abcfe2887b83a8f27853a9df75d7e94a9ebacb152892cc4f25108e2144"
+  license "GPL-2.0"
   revision 1
 
   bottle do
