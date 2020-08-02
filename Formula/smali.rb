@@ -3,6 +3,7 @@ class Smali < Formula
   homepage "https://github.com/JesusFreke/smali"
   url "https://github.com/JesusFreke/smali/archive/v2.4.0.tar.gz"
   sha256 "6a9014ecffd7d374f1b9e3c236b11d18a8d8f9c33dbb8ca171c79cc243a0f902"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
