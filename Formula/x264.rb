@@ -32,8 +32,8 @@ class X264 < Formula
   # upstream PR https://code.videolan.org/videolan/x264/-/merge_requests/35
   # Can be removed once it gets merged into stable branch
   patch do
-    url "https://code.videolan.org/videolan/x264/-/commit/eb95c2965299ba5b8598e2388d71b02e23c9fba7.patch?full_index=1"
-    sha256 "59c65f4eb09d0a14024bdf911a4836c889401f3d8abdf641fa6fc9b8d6da058b"
+    url "https://code.videolan.org/videolan/x264/-/commit/eb95c2965299ba5b8598e2388d71b02e23c9fba7.diff?full_index=1"
+    sha256 "7cdc60cffa8f3004837ba0c63c8422fbadaf96ccedb41e505607ead2691d49b9"
   end
 
   def install
