@@ -8,17 +8,17 @@ class Emscripten < Formula
   license "MIT"
 
   stable do
-    url "https://github.com/emscripten-core/emscripten/archive/1.40.0.tar.gz"
-    sha256 "3a248111308c3b8304f2430f6118d7c3723c8f755ce85c2f61b64791519e86e1"
+    url "https://github.com/emscripten-core/emscripten/archive/1.40.1.tar.gz"
+    sha256 "e15ad7ffa1cce35c25cac7c797d6daa0c5868905eaaf5ed1431a8228b8803dfc"
 
     resource "fastcomp" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.40.0.tar.gz"
-      sha256 "127a649bf35c7fdb94cc75b1eecd45595ed265b9a9f7de6a633f3eeeb4249110"
+      url "https://github.com/emscripten-core/emscripten-fastcomp/archive/1.40.1.tar.gz"
+      sha256 "c34868ab566e9f073df319d9872608cef47ed1ea74852acacb12a22fd7c99a4c"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.40.0.tar.gz"
-      sha256 "51d5a541bde99fca58f46cb240cc53dd00e693abfecf79cbb19bc91bd3d87fbd"
+      url "https://github.com/emscripten-core/emscripten-fastcomp-clang/archive/1.40.1.tar.gz"
+      sha256 "9ce4612df39684348d78acb711ec10bee98ad4ac136fb0dcb70d4c884b8bb6b3"
     end
   end
 
