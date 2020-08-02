@@ -3,6 +3,7 @@ class TerminalNotifier < Formula
   homepage "https://github.com/julienXX/terminal-notifier"
   url "https://github.com/julienXX/terminal-notifier/archive/2.0.0.tar.gz"
   sha256 "6f22a7626e4e68e88df2005a5f256f7d3b432dbf4c0f8a0c15c968d9e38bf84c"
+  license "MIT"
   head "https://github.com/julienXX/terminal-notifier.git"
 
   bottle do
