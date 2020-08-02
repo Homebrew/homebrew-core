@@ -4,6 +4,7 @@ class RustAnalyzer < Formula
   url "https://github.com/rust-analyzer/rust-analyzer/archive/2020-07-27.tar.gz"
   version "2020-07-27"
   sha256 "74c98bb90a357bcc131656ec3926b7d03685a1f3be232fb16444d03093ebf2f9"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
