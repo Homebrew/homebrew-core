@@ -13,6 +13,10 @@ class Tj < Formula
     sha256 "679f41ee55f109604f19583683f43406e4af88f86b60534ab4e758d5b2192940" => :el_capitan
   end
 
+  # Does not have any license
+  # https://github.com/sgreben/tj/issues/5
+  disable!
+
   depends_on "go" => :build
 
   def install
