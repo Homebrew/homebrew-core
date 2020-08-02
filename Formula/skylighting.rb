@@ -3,6 +3,7 @@ class Skylighting < Formula
   homepage "https://github.com/jgm/skylighting"
   url "https://github.com/jgm/skylighting/archive/0.9.tar.gz"
   sha256 "a9087166ee341e9f2e7c67e2ce7840c9e8e0f6872380a773219498a198e76cd0"
+  license "GPL-2.0"
   head "https://github.com/jgm/skylighting.git"
 
   bottle do
@@ -89,13 +90,13 @@ class Skylighting < Formula
       \\newcommand{\\VerbatimStringTok}[1]{\\textcolor[rgb]{0.75,0.01,0.01}{\#1}}
       \\newcommand{\\WarningTok}[1]{\\textcolor[rgb]{0.75,0.01,0.01}{\#1}}
       \\title{#{testpath/"Test.java"}}
-      
+
       \\begin{document}
       \\maketitle
       \\begin{Shaded}
       \\begin{Highlighting}[]
       \\KeywordTok{import}\\ImportTok{ java.util.*;}
-      
+
       \\KeywordTok{public} \\KeywordTok{class}\\NormalTok{ Test \\{}
           \\KeywordTok{public} \\DataTypeTok{static} \\DataTypeTok{void} \\FunctionTok{main}\\NormalTok{(}\\BuiltInTok{String}\\NormalTok{[] args) }\\KeywordTok{throws} \\BuiltInTok{Exception}\\NormalTok{ \\{}
               \\DataTypeTok{final} \\BuiltInTok{ArrayDeque}\\NormalTok{\\textless{}}\\BuiltInTok{String}\\NormalTok{\\textgreater{} argDeque = }\\KeywordTok{new} \\BuiltInTok{ArrayDeque}\\NormalTok{\\textless{}\\textgreater{}(}\\BuiltInTok{Arrays}\\NormalTok{.}\\FunctionTok{asList}\\NormalTok{(args));}
@@ -108,7 +109,7 @@ class Skylighting < Formula
       \\NormalTok{\\}}
       \\end{Highlighting}
       \\end{Shaded}
-      
+
       \\end{document}
     EOF
     actual_out = shell_output("#{bin/"skylighting"} -f latex #{testpath/"Test.java"}")
