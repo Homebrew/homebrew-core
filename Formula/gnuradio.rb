@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.1.0/gnuradio-3.8.1.0.tar.gz"
   sha256 "e15311e7da9fe2bb790cc36321d7eb2d93b9dfa0c1552fa5d534dd99d22873be"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -22,12 +23,15 @@ class Gnuradio < Formula
   depends_on "fftw"
   depends_on "gmp"
   depends_on "gsl"
+  depends_on "gtk+3"
   depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
+  depends_on "pygobject3"
   depends_on "pyqt"
   depends_on "python@3.8"
   depends_on "qt"
+  depends_on "qwt"
   depends_on "uhd"
   depends_on "zeromq"
 
@@ -109,19 +113,20 @@ class Gnuradio < Formula
       -DENABLE_DEFAULT=OFF
       -DPYTHON_EXECUTABLE=#{venv_root}/bin/python
       -DPYTHON_VERSION_MAJOR=3
+      -DQWT_LIBRARIES=#{Formula["qwt"].lib}/qwt.framework/qwt
+      -DQWT_INCLUDE_DIRS=#{Formula["qwt"].lib}/qwt.framework/Headers
       -DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}
       -DQT_BINARY_DIR=#{Formula["qt"].opt_bin}
       -DENABLE_TESTING=OFF
     ]
 
-    enabled = %w[GNURADIO_RUNTIME GR_ANALOG GR_AUDIO GR_BLOCKS
+    enabled = %w[GNURADIO_RUNTIME GR_ANALOG GR_AUDIO GR_BLOCKS GRC
                  GR_CHANNELS GR_DIGITAL GR_DTV GR_FEC GR_FFT GR_FILTER
-                 GR_MODTOOL GR_TRELLIS GR_UHD GR_UTILS GR_VOCODER GR_WAVELET
-                 GR_ZEROMQ PYTHON VOLK]
+                 GR_MODTOOL GR_QTGUI GR_TRELLIS GR_UHD GR_UTILS GR_VOCODER
+                 GR_WAVELET GR_ZEROMQ PYTHON VOLK]
     enabled.each do |c|
       args << "-DENABLE_#{c}=ON"
     end
-    args << "-DENABLE_GRC=OFF"
 
     mkdir "build" do
       system "cmake", "..", *args
