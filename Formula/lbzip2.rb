@@ -5,6 +5,7 @@ class Lbzip2 < Formula
   mirror "https://fossies.org/linux/privat/lbzip2-2.5.tar.bz2"
   sha256 "eec4ff08376090494fa3710649b73e5412c3687b4b9b758c93f73aa7be27555b"
   license "GPL-3.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +16,12 @@ class Lbzip2 < Formula
     sha256 "91c1fb0593205365ff4ada30a34fe7f3afcb1c4e684a3bf239e9168d9fdfc4f7" => :el_capitan
     sha256 "983c8fe1c23dbfdb73d9e7320e776521c4998169a2d17cd1c6f3035674d8a147" => :yosemite
     sha256 "7e521c70fadae71ad2e7807cc844183c05751e4a2433d9f1210069fb2a34333e" => :mavericks
+  end
+
+  # Fix crash on macOS >= 10.13.
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6b276429dbe68323349e1eda09b7e5d5a1082671/lbzip2/gnulib-vasnprintf-port-to-macOS-10-13.diff"
+    sha256 "5b931e071e511a9c56e529278c249d7b2c82bbc3deda3dd9b739b3bd67d3d969"
   end
 
   def install
