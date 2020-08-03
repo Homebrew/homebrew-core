@@ -1,8 +1,8 @@
 class Benthos < Formula
   desc "Stream processor for mundane tasks written in Go"
   homepage "https://www.benthos.dev"
-  url "https://github.com/Jeffail/benthos/archive/v3.24.0.tar.gz"
-  sha256 "a945d4b5eca19453d09ba89e8f0cefb6a0e3e1141d46cc15ae49b9c1b2b2b571"
+  url "https://github.com/Jeffail/benthos/archive/v3.24.1.tar.gz"
+  sha256 "459d5cba4c29ff049de4e19dfad7417a840c97887c85ff00f01367516372f762"
   license "MIT"
 
   bottle do
