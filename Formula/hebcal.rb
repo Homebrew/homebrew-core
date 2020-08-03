@@ -1,8 +1,8 @@
 class Hebcal < Formula
   desc "Perpetual Jewish calendar for the command-line"
   homepage "https://github.com/hebcal/hebcal"
-  url "https://github.com/hebcal/hebcal/archive/v4.20.tar.gz"
-  sha256 "61021362e72f21bd7faacb5ff65605762344c1d7eea99bf362b566a4556e222a"
+  url "https://github.com/hebcal/hebcal/archive/v4.21.tar.gz"
+  sha256 "6295bc183d8a9694f2546100909fb0b1943f0acc55c9743937f435f17d47ddbc"
   license "GPL-2.0"
 
   bottle do
@@ -21,6 +21,7 @@ class Hebcal < Formula
   end
 
   test do
-    system "#{bin}/hebcal"
+    output = shell_output("#{bin}/hebcal 01 01 2020").chomp
+    assert_equal output, "1/1/2020 4th of Tevet, 5780"
   end
 end
