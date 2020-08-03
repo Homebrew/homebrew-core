@@ -3,8 +3,8 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/8b/6d/cc82f9b74116d63fb48ca6fa1a6930526f469ba8b3cd00e063f231ae86f3/anime-downloader-4.4.2.tar.gz"
-  sha256 "26ab6ee62fee93676f82d2c279292fa538d71db18ceebd455e72864d11cf7b58"
+  url "https://files.pythonhosted.org/packages/a8/16/d691bdeea087f2842330974601543e83f7edcffdbb0140064eaa2f4f553f/anime-downloader-4.5.0.tar.gz"
+  sha256 "520d143908f433cb07dc6565f9434020d2f2a32bd3f71aa969cadb7f0a0361fb"
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
@@ -99,8 +99,8 @@ class AnimeDownloader < Formula
   end
 
   test do
-    assert_match "anime, version #{version}", shell_output("#{bin}/anime --version")
+    assert_match "Download or watch your favourite anime", shell_output("#{bin}/anime --help 2>&1")
 
-    assert_match "Watch is deprecated in favour of adl", shell_output("#{bin}/anime watch 2>&1")
+    assert_match "anime-downloader #{version}", shell_output("#{bin}/anime watch 2>&1")
   end
 end
