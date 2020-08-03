@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/ef/95/d1b5aa0662572629110fb73c3730c4664040fbc2adc92f4e2d04ec789642/jc-1.13.1.tar.gz"
-  sha256 "0d743199ed58c3ce09f4171c97e5aaa7df91fc42bc18854a773f2e19041d9d1a"
+  url "https://files.pythonhosted.org/packages/7c/e9/d410b3542522c66b90c3e055ba3fe343306b083c54780505a495078cab41/jc-1.13.2.tar.gz"
+  sha256 "69acd043d75fdd7c459f7a8c2c84bc9d4d1ddd5a1a0176c30546c17aa9d55346"
   license "MIT"
 
   bottle do
@@ -15,6 +15,11 @@ class Jc < Formula
   end
 
   depends_on "python@3.8"
+
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
+    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+  end
 
   resource "ruamel.yaml" do
     url "https://files.pythonhosted.org/packages/16/8b/54a26c1031595e5edd0e616028b922d78d8ffba8bc775f0a4faeada846cc/ruamel.yaml-0.16.10.tar.gz"
@@ -29,11 +34,6 @@ class Jc < Formula
   resource "xmltodict" do
     url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
     sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
-    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
   end
 
   def install
