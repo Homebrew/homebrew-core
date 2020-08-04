@@ -40,6 +40,10 @@ jobs:
                     "label": "legacy",
                     "path": "Formula/.+@.+"
                 }, {
+                    "label": "missing license",
+                    "path": "Formula/.+",
+                    "missing_content": "\n  license .+\n"
+                }, {
                     "label": "go",
                     "path": "Formula/.+",
                     "content": "depends_on \"go(?:@[0-9.]+)?\""
