@@ -3,10 +3,9 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/3f/d4/8abe6a21a78ed5ac2bcbb0afa52085912c74a0b5c635340875f8eca99159/pipgrip-0.5.1.tar.gz"
-  sha256 "78a97a5552e4a513f566c8118d8e1e1a52630603d4c93d9ded85536c8072d0b0"
+  url "https://files.pythonhosted.org/packages/8a/fd/308a624ebeba713523b52402e492238cfb09200b1818b06be18a16cdbd77/pipgrip-0.6.0.tar.gz"
+  sha256 "f7d31f63708a9f6403d315324c43b80904e864028578d34e2b6351907212266e"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
