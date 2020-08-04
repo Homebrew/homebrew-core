@@ -1,8 +1,8 @@
 class Cointop < Formula
   desc "Interactive terminal based UI application for tracking cryptocurrencies"
   homepage "https://cointop.sh"
-  url "https://github.com/miguelmota/cointop/archive/1.4.7.tar.gz"
-  sha256 "ac5c038d9636fd99856a63b3257d6b9ca5bd79742c2a23e0aac439ba60812811"
+  url "https://github.com/miguelmota/cointop/archive/1.4.8.tar.gz"
+  sha256 "3f2038849b45c5f7eba70532ec0a62c69ec54d029e2984178a1bdd995b531807"
   license "Apache-2.0"
 
   bottle do
@@ -15,8 +15,7 @@ class Cointop < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"cointop"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-X github.com/miguelmota/cointop/cointop.version=#{version}"
   end
 
   test do
