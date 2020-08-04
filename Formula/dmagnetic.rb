@@ -1,15 +1,15 @@
 class Dmagnetic < Formula
   desc "Magnetic Scrolls Interpreter"
   homepage "https://www.dettus.net/dMagnetic/"
-  url "https://www.dettus.net/dMagnetic/dMagnetic_0.24.tar.bz2"
-  sha256 "0456b63c8b4b212e504887564a093bf0c8a72b2844347042aec696727243e8fd"
+  url "https://www.dettus.net/dMagnetic/dMagnetic_0.25.tar.bz2"
+  sha256 "5cbe2aee7e8870628eaeaf2fe3fc550f31736fe617897648a77283be6a381e6d"
   license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c586221b5c1b3eaac85f54fe4dad2a53fecf9ee2b50c7d2ab8ed55807282a3d1" => :catalina
-    sha256 "dab6ec22754e7ad4ce7a6443590156ca991818556f96e8bbba9aeb08f4f50a34" => :mojave
-    sha256 "50d7a04587450e65a91f455b649e750b31acc283247b28a29066bdf72d577254" => :high_sierra
+    sha256 "e4731f50eb5fb519c288b177211866aa5c9564c3128ccfd90cace9f17349f6ef" => :catalina
+    sha256 "e3fb3df08f05eaef9fcfd093300312997523292bae8c9497e008b3404d122faf" => :mojave
+    sha256 "c3d655f6787a40b59db97b491c3e057da87044f3a382debd00ec0bf61e528890" => :high_sierra
   end
 
   def install

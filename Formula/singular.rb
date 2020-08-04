@@ -4,6 +4,7 @@ class Singular < Formula
   url "ftp://jim.mathematik.uni-kl.de/pub/Math/Singular/SOURCES/4-1-3/singular-4.1.3p2.tar.gz"
   version "4.1.3p2"
   sha256 "ee7ac6076d7f8622a1f24d37e9b632bae0700c6e314f56728400be136df64494"
+  license "GPL-2.0"
   revision 1
 
   bottle do
@@ -13,7 +14,7 @@ class Singular < Formula
   end
 
   head do
-    url "https://github.com/Singular/Sources.git", branch: "spielwiese"
+    url "https://github.com/Singular/Singular.git", branch: "spielwiese"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

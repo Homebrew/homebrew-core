@@ -1,14 +1,14 @@
 class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "http://nlp.lsi.upc.edu/freeling/"
-  url "https://github.com/TALP-UPC/FreeLing/archive/4.1.1.tar.gz"
-  sha256 "c58822f262e6a9c550ce7dd080025aa322a0801b61aff10d5d085f8c168bee60"
+  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
+  sha256 "ef0eac3c82b1d1eb6b87094043c744f6517b3bd639415040eaa6e1e6b298d425"
   license "AGPL-3.0"
 
   bottle do
-    sha256 "5dd469d40bae3f742009896fa79d140730ebabcb2a3be596ac7f43eb223586c0" => :catalina
-    sha256 "440b48a5861925c697ea0612ebbb5c62e6b7ac4ce86dc9e0c4beac2849e72a76" => :mojave
-    sha256 "70f42b87f7684ca80c8c10d357225d2ae079c169255b79eec78c5757c2935475" => :high_sierra
+    sha256 "22ee0da143b9d7f402e36992a215891898c9cd9dc0caef7671126b841eca0402" => :catalina
+    sha256 "fdbea1f56535241d510d41c2e388045b402c8385528910a4f1b5f60aa12d364f" => :mojave
+    sha256 "e8bc020fb721b127999afa30985aa80de79baf62d70a838217730f6c89ddaed3" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,12 +16,6 @@ class Freeling < Formula
   depends_on "icu4c"
 
   conflicts_with "hunspell", because: "both install 'analyze' binary"
-
-  # Fix linking with icu4c
-  patch do
-    url "https://github.com/TALP-UPC/FreeLing/commit/5e323a5f3c7d2858a6ebb45617291b8d4126cedb.patch?full_index=1"
-    sha256 "0814211cd1fb9b075d370f10df71a4398bc93d64fd7f32ccba1e34fb4e6b7452"
-  end
 
   def install
     mkdir "build" do

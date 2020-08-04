@@ -3,6 +3,7 @@ class RangeV3 < Formula
   homepage "https://ericniebler.github.io/range-v3/"
   url "https://github.com/ericniebler/range-v3/archive/0.10.0.tar.gz"
   sha256 "5a1cd44e7315d0e8dcb1eee4df6802221456a9d1dbeac53da02ac7bd4ea150cd"
+  license "BSL-1.0"
 
   bottle do
     cellar :any_skip_relocation

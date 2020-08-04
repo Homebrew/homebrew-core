@@ -8,9 +8,10 @@ class Caddy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7df16c3b4486a906b41875c7f0f3bba6f6483891d390630f9454f8d506c9d94a" => :catalina
-    sha256 "4f6d47929676c285640e5d1a0153197e6fdc049cbc776f492b12c593701c3585" => :mojave
-    sha256 "2d08ea709294ac4b08b85dad8e5328b9b3c478ebc9c4d745c0e02d694ee2eb90" => :high_sierra
+    rebuild 1
+    sha256 "602b81872d922b82c774674e7adcd62057faebc79ba3e625dd428f985aeaa4a5" => :catalina
+    sha256 "2c5fefa2bc48ea2e0ba42f7940f8fb8282f74c38a63a92708ae67c6854d0d365" => :mojave
+    sha256 "96b8d15646c1396a1a28b583a7c13a2311bad789cd50e70c5499b74be7c4bd8e" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -49,6 +50,10 @@ class Caddy < Formula
           </array>
           <key>RunAtLoad</key>
           <true/>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/caddy.log</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/caddy.log</string>
         </dict>
       </plist>
     EOS

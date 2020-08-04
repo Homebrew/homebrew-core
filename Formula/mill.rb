@@ -3,6 +3,7 @@ class Mill < Formula
   homepage "https://www.lihaoyi.com/mill/"
   url "https://github.com/lihaoyi/mill/releases/download/0.8.0/0.8.0"
   sha256 "8162160264399d79b6db9f08ab4caca98166ab1319743da18002afeca339ee12"
+  license "MIT"
 
   bottle :unneeded
 

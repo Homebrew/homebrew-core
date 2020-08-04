@@ -6,10 +6,7 @@ on:
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macOS-latest]
+    runs-on: ubuntu-latest
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
@@ -53,7 +50,10 @@ jobs:
         git checkout --force -B master FETCH_HEAD
         cd -
 
-        if [ "$RUNNER_OS" = "Linux" ]; then
+        if [ "$RUNNER_OS" = "macOS" ]; then
+          # don't care about `brew audit` here.
+          brew untap mongodb/brew
+        else
           sudo chown -R "$USER" "$HOMEBREW_PREFIX"
           sudo chmod -R g-w,o-w "$HOMEBREW_CORE_REPOSITORY"
         fi

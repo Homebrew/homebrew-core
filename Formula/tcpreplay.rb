@@ -3,6 +3,7 @@ class Tcpreplay < Formula
   homepage "https://tcpreplay.appneta.com/"
   url "https://github.com/appneta/tcpreplay/releases/download/v4.3.3/tcpreplay-4.3.3.tar.gz"
   sha256 "ed2402caa9434ff5c74b2e7b31178c73e7c7c5c4ea1e1d0e2e39a7dc46958fde"
+  license "GPL-3.0"
 
   bottle do
     cellar :any

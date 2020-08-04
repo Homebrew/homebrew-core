@@ -3,6 +3,7 @@ class Pmd < Formula
   homepage "https://pmd.github.io"
   url "https://github.com/pmd/pmd/releases/download/pmd_releases/6.26.0/pmd-bin-6.26.0.zip"
   sha256 "640987d786809ba02b374efa32560c282aba080ba6cefe26ba8b898957e698ee"
+  license "BSD-4-Clause"
 
   bottle :unneeded
 

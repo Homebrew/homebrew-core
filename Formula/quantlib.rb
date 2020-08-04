@@ -3,6 +3,7 @@ class Quantlib < Formula
   homepage "https://www.quantlib.org/"
   url "https://dl.bintray.com/quantlib/releases/QuantLib-1.19.tar.gz"
   sha256 "4a5ff7d53ed5590944f2f0d6b96dd6fba041cc7601e25bc06b040257a455813a"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

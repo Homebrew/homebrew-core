@@ -5,12 +5,13 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-2.6.0/apache-pulsar-2.6.0-src.tar.gz"
   sha256 "70013be17c00cbefecb70962c4f0484a8b4421495b9a9a2ded65cbb19716ef94"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f3999e101d0705cc49f60c15c6e1c3ee11fd4cede6cec74f5d127ab0bccc90c9" => :catalina
-    sha256 "ce9297c5c3699dd166feac10467880ab467edb9547aa8a79de24178de83e6e2f" => :mojave
-    sha256 "9a72afdd9564a81c16a0cf09f196ba0651ebd2078bac1b36b0c2b2699117a9ae" => :high_sierra
+    sha256 "2e20bd91fc53b59c291a0524b15d0cf942ef26fef4552699b3082b41bd07ee39" => :catalina
+    sha256 "c17fcf1949065775391518b91aab30bc416858cb650da1ca523f90a328511553" => :mojave
+    sha256 "0ce9119dfff0783461055b0581ea12ce5e6630920edf509df111d5b0d781e23b" => :high_sierra
   end
 
   depends_on "cmake" => :build

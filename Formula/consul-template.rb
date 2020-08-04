@@ -2,17 +2,16 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      tag:      "v0.25.0",
-      revision: "edf364d29c5e2ab565081cd902cb37cb7a53bf11"
+      tag:      "v0.25.1",
+      revision: "171d54d1d3e732a7e960988b72ff9c2fddb3cd8f"
   license "MPL-2.0"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "18f8279c9d16c47dcd19f6847bee1e5559729902a4ac43861c41a16ff9475860" => :catalina
-    sha256 "e6603f56f2d2bb333d8cd1eec11360aafacbd7dc7109b8f5dbf1233a5619779d" => :mojave
-    sha256 "02412d96e01e84ee47af28e8107ee386e4a1cef01ea8df45ce4a108aefd52f44" => :high_sierra
+    sha256 "79c0b42239bae3e2771b9cce86d2e816654126aa6c5907be3999eadec34ecd8a" => :catalina
+    sha256 "169f7d647729d546330b8268f5e07eb378fc95e35831fb6f24d508901f607499" => :mojave
+    sha256 "37f32e5b0d9e2ffc20846be7f4e97607e76f5b27b29cf015c941c9c03cc506f4" => :high_sierra
   end
 
   depends_on "go" => :build

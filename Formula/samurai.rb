@@ -3,6 +3,7 @@ class Samurai < Formula
   homepage "https://github.com/michaelforney/samurai"
   url "https://github.com/michaelforney/samurai/releases/download/1.1/samurai-1.1.tar.gz"
   sha256 "cb3ce624f26eb6f0ec0118a02b8f5f7953c3b644e229f50043698fc458f2c98e"
+  license "Apache-2.0"
   head "https://github.com/michaelforney/samurai.git"
 
   bottle do

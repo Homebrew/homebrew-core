@@ -3,15 +3,15 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.0.34.tar.gz"
-  sha256 "d6e60e56514b6ffef9b101edd8e2b92d7b9bb11e73903a6327d790b7e5539cce"
+  url "https://github.com/aws/aws-cli/archive/2.0.36.tar.gz"
+  sha256 "5f0e5fbec608c974e55bc10bc05149976c44c9834efb8b0bfb947dc85b25126a"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 "19cdd983f90881d6856068298ea469c1608bfb5fafe80608ffb6befefcd73e85" => :catalina
-    sha256 "9f438540a6c7c8797b5f2dcd7e127813db42816883f14d76fb62bf5309a67273" => :mojave
-    sha256 "8229a1870ea70b2745e2c0b2aebcf2c952b0db82156e80cebfe1e6771e7b73f5" => :high_sierra
+    sha256 "a4d4835fb3e0c405ab826ad9a7f0c67de82b25a3b56892134b6adc30e38eff86" => :catalina
+    sha256 "7ad2dd23152c6dfed16d39890f0812c86c95bee44c342b88179e65a9dfd9e97b" => :mojave
+    sha256 "5dd32dd13e62ceff271e1f44fdb6bab4a9550cd8b5b35f92d9d3e2e5a04084d8" => :high_sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High

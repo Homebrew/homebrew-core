@@ -3,6 +3,7 @@ class Kerl < Formula
   homepage "https://github.com/kerl/kerl"
   url "https://github.com/kerl/kerl/archive/2.0.0.tar.gz"
   sha256 "76579a934d918e26731d7b0c7e2f41bb89512175b70886825ceb40f05110544f"
+  license "MIT"
   head "https://github.com/kerl/kerl.git"
 
   bottle :unneeded

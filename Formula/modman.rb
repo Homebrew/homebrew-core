@@ -3,6 +3,7 @@ class Modman < Formula
   homepage "https://github.com/colinmollenhour/modman"
   url "https://github.com/colinmollenhour/modman/archive/1.13.tar.gz"
   sha256 "d9efe8786826f54c3d2afa16f62a08e9a4e108cac429653a447055f6e5a0e8ec"
+  license "Apache-2.0"
 
   bottle :unneeded
 

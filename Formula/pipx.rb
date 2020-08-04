@@ -3,6 +3,7 @@ class Pipx < Formula
   homepage "https://github.com/pipxproject/pipx"
   url "https://files.pythonhosted.org/packages/c3/9e/5d93d784225a36c36d8be09144eea0a73f9f85385dfa02881c51644495be/pipx-0.15.4.0.tar.gz"
   sha256 "b90285a1c6eddf45ba4e48110b81d7c1e285b127e82fa99a61168937f98e5cb5"
+  license "MIT"
   head "https://github.com/pipxproject/pipx.git"
 
   bottle do

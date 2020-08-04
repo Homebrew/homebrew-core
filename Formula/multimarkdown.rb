@@ -3,6 +3,7 @@ class Multimarkdown < Formula
   homepage "https://fletcher.github.io/MultiMarkdown-6/"
   url "https://github.com/fletcher/MultiMarkdown-6/archive/6.5.2.tar.gz"
   sha256 "97e9bb25e8eb151f178fd34212852f5d40d8fd01b317e718fded11603fafb773"
+  license "MIT"
   head "https://github.com/fletcher/MultiMarkdown-6.git"
 
   bottle do

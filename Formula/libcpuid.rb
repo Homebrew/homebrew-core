@@ -3,6 +3,7 @@ class Libcpuid < Formula
   homepage "https://github.com/anrieff/libcpuid"
   url "https://github.com/anrieff/libcpuid/archive/v0.5.0.tar.gz"
   sha256 "49893f31475510aa0ebe2ad3a29fad95e2a592cc5f48451c95271c536f89a157"
+  license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Libuninameslist < Formula
   homepage "https://github.com/fontforge/libuninameslist"
   url "https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz"
   sha256 "5c0283b2e18d101e58b70a026119d66c9d3e749e4537def7799bba0bc8998f62"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any

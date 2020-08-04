@@ -1,15 +1,15 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://github.com/lu-zero/cargo-c/archive/v0.6.9.tar.gz"
-  sha256 "d88bad2ada3432b15d2a871a5071f2bd7554beec5ecc4807c91599533de76cb4"
+  url "https://github.com/lu-zero/cargo-c/archive/v0.6.10.tar.gz"
+  sha256 "3e0f6c70291e48b09f936a5918656159b1d840d7a3b010316d0fc61e9b048bca"
   license "MIT"
 
   bottle do
     cellar :any
-    sha256 "9dc00da6f8f3dc182d5308e6d369c828c7dd805ca124eb6b3a887ba7611af506" => :catalina
-    sha256 "400fb6dad38d59989a79a47f7b8e10bb5f7ae82f63d865a55c23dde147e9cbc3" => :mojave
-    sha256 "c0af52f84d2adcb56b3fc87987be77e38c2c6547cb4213137079dbf5383697d5" => :high_sierra
+    sha256 "0a309cfabc5077f0b9d86d1f964afc57a8e541d11f14492a08fec3bc7983f01e" => :catalina
+    sha256 "288f0722b00b073196f1f8ebe2a89d8ed8ef2684ebcc9329175e3266945ac2d7" => :mojave
+    sha256 "2bdfb189d7aa1a95d09a283c5f3b42acf4dacd823365022cd6f591f8f391f0dd" => :high_sierra
   end
 
   depends_on "rust" => :build

@@ -14,6 +14,7 @@ class Blast < Formula
 
   depends_on "lmdb"
 
+  uses_from_macos "cpio" => :build
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 

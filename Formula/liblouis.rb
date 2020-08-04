@@ -1,6 +1,7 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "http://liblouis.org"
+  license "LGPL-2.1"
 
   stable do
     url "https://github.com/liblouis/liblouis/releases/download/v3.14.0/liblouis-3.14.0.tar.gz"

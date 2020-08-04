@@ -3,6 +3,7 @@ class Ompl < Formula
   homepage "https://ompl.kavrakilab.org/"
   url "https://github.com/ompl/ompl/archive/1.5.0.tar.gz"
   sha256 "a7df8611b7823ef44c731f02897571adfc23551e85c6618d926e7720004267a5"
+  license "BSD-3-Clause"
   head "https://github.com/ompl/ompl.git"
 
   bottle do

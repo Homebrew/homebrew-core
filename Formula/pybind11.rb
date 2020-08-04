@@ -3,6 +3,7 @@ class Pybind11 < Formula
   homepage "https://github.com/pybind/pybind11"
   url "https://github.com/pybind/pybind11/archive/v2.5.0.tar.gz"
   sha256 "97504db65640570f32d3fdf701c25a340c8643037c3b69aec469c10c93dc8504"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

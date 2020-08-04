@@ -1,14 +1,27 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz"
-  sha256 "66a5b6cc13db73efed67b8e933584509f8ddb7b10a8a40c3850ca4a985ea1b1f"
   license "GPL-2.0"
 
+  stable do
+    url "https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz"
+    sha256 "66a5b6cc13db73efed67b8e933584509f8ddb7b10a8a40c3850ca4a985ea1b1f"
+
+    # Adopts an upstream patch to fix compilers that are picky about
+    # fallthrough (e.g., newer clang).
+    # Can be removed on the next release.
+    patch do
+      url "https://gitlab.gnome.org/GNOME/pango/-/commit/0b3cd20be5249c51ec981a66c07a39d54d1d1c9d.patch"
+      sha256 "252378845c5b1b09bf5ae1e06200bba7bf3d4bd679aff2888e95233cf8762a76"
+    end
+  end
+
   bottle do
-    sha256 "38a8cab63ed7ea37fc5448b74dae21b7f935d4f4ea9c08b658f3553f20ec8f28" => :catalina
-    sha256 "643284e68fcb4699572e7ab327a16ae3eb1c242527a96cb404cd98f14f22a893" => :mojave
-    sha256 "42552a9d26655f006f2361c9a1773d56bd5c5cabcd4f6ad5861fec29bd27c2cc" => :high_sierra
+    cellar :any
+    rebuild 1
+    sha256 "edc52d68cc6ccf07f5e7d7f183bfb2a8752e1d2210537a35ec5afa00925d237a" => :catalina
+    sha256 "21fdc9a528fbb0aaa018edcfbbea8de9bdcd68d2b067b16c56cc1abd5cf23a73" => :mojave
+    sha256 "bc15d893f34878dbc0f75f3d24e4b3d9e3f2884ffb8e81c5d484541c9ec2354c" => :high_sierra
   end
 
   head do

@@ -3,6 +3,7 @@ class Qtkeychain < Formula
   homepage "https://github.com/frankosterfeld/qtkeychain"
   url "https://github.com/frankosterfeld/qtkeychain/archive/v0.10.0.tar.gz"
   sha256 "5f916cd97843de550467db32d2e10f218b904af5b21cfdfcc7c6425d7dfc3ec2"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

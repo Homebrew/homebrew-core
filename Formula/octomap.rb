@@ -3,6 +3,7 @@ class Octomap < Formula
   homepage "https://octomap.github.io/"
   url "https://github.com/OctoMap/octomap/archive/v1.9.5.tar.gz"
   sha256 "adf87320c4c830c0fd85fe8d913d8aa174e2f72d0ea64c917599a50a561092b6"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 "dcf938ee253a527143d78cbc39c20046015519b5aff741656016f0a67ff705b9" => :catalina

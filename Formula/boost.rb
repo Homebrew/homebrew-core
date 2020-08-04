@@ -1,30 +1,17 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
+  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
+  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   license "BSL-1.0"
-  revision 3
   head "https://github.com/boostorg/boost.git"
-
-  stable do
-    url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-    mirror "https://dl.bintray.com/homebrew/mirror/boost_1_72_0.tar.bz2"
-    sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
-
-    # Fixes significant library search issues in the CMake scripts
-    # where it mixes single-threaded and multithreaded libraries.
-    # Remove with Boost 1.73.0.
-    patch do
-      url "https://github.com/boostorg/boost_install/compare/52ab9149544bae82e54f600303f5d6d1dda9a4f5...a1b5a477470ff9dc2e00f30be4ec4285583b33b6.patch?full_index=1"
-      sha256 "fb168dd2ddfa20983b565ead86d4355c6d6e3e49bce9c2c6ab7f6e9cd9350bd4"
-      directory "tools/boost_install"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "2e0d985997503d0f069ca63a7bcd1bc516d81341754de984f1953390d5540b76" => :catalina
-    sha256 "3a89882d5d2bb7ab3bd55f99f07020f8cc880df3e8f01a1996b6288df05bf93f" => :mojave
-    sha256 "9527177a4b362d9090526ab4b6c934a17a39ecbd2fe1349a00f352f41be82a91" => :high_sierra
+    sha256 "d2cbb9cee2af7c3f62513979030413e9fdb3a6b4cae69241fc36f33e36d3781d" => :catalina
+    sha256 "ff9e2f3587b878611b26b7bfb064b7c200e74c38d6553a0617510b6161361512" => :mojave
+    sha256 "ddbb7dcb02070127d9b7d897e8a3b66a51bf2a70fa4232c8bcf0f4001ae27eb1" => :high_sierra
   end
 
   depends_on "icu4c"

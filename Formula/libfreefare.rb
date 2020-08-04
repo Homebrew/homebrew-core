@@ -3,6 +3,7 @@ class Libfreefare < Formula
   homepage "https://github.com/nfc-tools/libfreefare"
   url "https://github.com/nfc-tools/libfreefare/releases/download/libfreefare-0.4.0/libfreefare-0.4.0.tar.bz2"
   sha256 "bfa31d14a99a1247f5ed49195d6373de512e3eb75bf1627658b40cf7f876bc64"
+  license "LGPL-3.0"
   revision 3
 
   bottle do

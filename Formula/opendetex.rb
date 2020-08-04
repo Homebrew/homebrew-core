@@ -3,6 +3,7 @@ class Opendetex < Formula
   homepage "https://github.com/pkubowicz/opendetex"
   url "https://github.com/pkubowicz/opendetex/releases/download/v2.8.8/opendetex-2.8.8.tar.bz2"
   sha256 "085a149f64bf497fbcc07745969c5c1e423c95a8f4caaadb36ed3f2287fb2ee1"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

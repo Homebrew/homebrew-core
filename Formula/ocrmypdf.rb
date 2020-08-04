@@ -3,15 +3,15 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/1b/9b/f0bf749d3c952fc25bf4b01b068f1c04f979fc880e10f2cc236b51a24716/ocrmypdf-10.3.0.tar.gz"
-  sha256 "e7a92ce59b1c53cb1738af1e55c9683de36ebea864d5c9c9ab670c7c9ce0944b"
+  url "https://files.pythonhosted.org/packages/8b/6a/079143b7677e5d356270e2fee0fe5b71e6d900a51c360d2b49d8356f134e/ocrmypdf-10.3.1.tar.gz"
+  sha256 "a0fce3edaaf37d32e5ab6fc832e671dc5a1867ab67d54b86723452cad40029b9"
   license "GPL-3.0"
 
   bottle do
     cellar :any
-    sha256 "c42de0508efae7bb7446e47a325eaeb534c09eeae27d0b588096e56209201d30" => :catalina
-    sha256 "7554bfacc81078db237f22b8cd5eb3d7398827e2d069bb2df2542441bfa8d114" => :mojave
-    sha256 "e88905ff24681a6a00947a30262c72c0458bc64b71e8d425fe88864ab0597120" => :high_sierra
+    sha256 "e98b72eb14ed0bf7ad0cab31fbe0b2c393cbb951698a788552133f79a1b5adda" => :catalina
+    sha256 "436c8ee99036ae1deb786327d3eb26d1e371e54939fb7f8f4b6d71352c5fcf9c" => :mojave
+    sha256 "1626c0e261fd9cdef9dc956ea194f18f068ca25fbc27c10d567d51433e060de8" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -34,8 +34,8 @@ class Ocrmypdf < Formula
   uses_from_macos "zlib"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/05/54/3324b0c46340c31b909fcec598696aaec7ddc8c18a63f2db352562d3354c/cffi-1.14.0.tar.gz"
-    sha256 "2d384f4a127a15ba701207f7639d94106693b6cd64173d6c8988e2c25f3ac2b6"
+    url "https://files.pythonhosted.org/packages/54/1d/15eae71ab444bd88a1d69f19592dcf32b9e3166ecf427dd9243ef0d3b7bc/cffi-1.14.1.tar.gz"
+    sha256 "b2a2b0d276a136146e012154baefaea2758ef1f56ae9f4e01c612b0831e0bd2f"
   end
 
   resource "chardet" do
@@ -46,6 +46,11 @@ class Ocrmypdf < Formula
   resource "coloredlogs" do
     url "https://files.pythonhosted.org/packages/84/1b/1ecdd371fa68839cfbda15cc671d0f6c92d2c42688df995a9bf6e36f3511/coloredlogs-14.0.tar.gz"
     sha256 "a1fab193d2053aa6c0a97608c4342d031f1f93a3d1218432c59322441d31a505"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/bf/ac/552fc8729d90393845cc3a2062facf4a89dcbe206fa78771d60ddaae7554/cryptography-3.0.tar.gz"
+    sha256 "8e924dbc025206e97756e8903039662aa58aa9ba357d8e1d8fc29e3092322053"
   end
 
   resource "humanfriendly" do
@@ -64,13 +69,13 @@ class Ocrmypdf < Formula
   end
 
   resource "pdfminer.six" do
-    url "https://files.pythonhosted.org/packages/62/d1/d5132e95f0e708de344d69eef8309aadd21721a5d12b5770c120a2225797/pdfminer.six-20200517.tar.gz"
-    sha256 "429a099d2ca76cedff79652e17cfc37d7751a26d50f30af0fa791a69f68a3ddc"
+    url "https://files.pythonhosted.org/packages/34/4a/bc38040c4a970870ccbef975bae2b6b1bccaa2d308e61111203cccc58e89/pdfminer.six-20200726.tar.gz"
+    sha256 "8513b27d780ac83e8474cef245c43d1ebf65ca9550dc07ac0525b4d47eb2c310"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/3f/29/1ed262c3783f2b3714dc9fe044b1b82d392465fb0c20ef6f0e8ed6f8986d/pikepdf-1.17.2.tar.gz"
-    sha256 "fb65004b46b377d5add1c76d249d05759ef2201fb772a7676afcdf9d84da4c94"
+    url "https://files.pythonhosted.org/packages/23/a8/4df6b1dfaabd8cef718cd112cb8d81d9788ecfe838f911546a3ae0dd5529/pikepdf-1.17.3.tar.gz"
+    sha256 "8413c31b0adf95efcad1222fd4d0a50b11d961ad26dbeb84e2abbc860ef8bc8d"
   end
 
   resource "Pillow" do
@@ -88,14 +93,14 @@ class Ocrmypdf < Formula
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
-  resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/4c/2b/eddbfc56076fae8deccca274a5c70a9eb1e0b334da0a33f894a420d0fe93/pycryptodome-3.9.8.tar.gz"
-    sha256 "0e24171cf01021bc5dc17d6a9d4f33a048f09d62cc3f62541e95ef104588bda4"
-  end
-
   resource "reportlab" do
     url "https://files.pythonhosted.org/packages/52/09/85beb77f215bf47de07d2041731bdba55d7290a9304daad2eda935d3337f/reportlab-3.5.46.tar.gz"
     sha256 "56d71b78e7e4bb31a93e1dff13c22d19b7fb3890b021a39b6c3661b095bd7de8"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "sortedcontainers" do

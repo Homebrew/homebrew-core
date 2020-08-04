@@ -4,6 +4,7 @@ class Ppsspp < Formula
   url "https://github.com/hrydgard/ppsspp.git",
       tag:      "v1.10.3",
       revision: "087de849bdc74205dd00d8e6e11ba17a591213ab"
+  license "BSD-3-Clause"
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do

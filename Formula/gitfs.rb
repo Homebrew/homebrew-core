@@ -93,7 +93,7 @@ class Gitfs < Formula
     system Formula["python@3.8"].opt_bin/"python3", "test.py"
     assert_predicate testpath/"testing/.git/config", :exist?
     cd "testing" do
-      system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew.git"
+      system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew-core.git"
       assert_match "homebrew", shell_output("git remote")
     end
   end

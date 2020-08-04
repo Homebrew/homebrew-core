@@ -1,18 +1,32 @@
 class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://project.carrot2.org"
-  url "https://github.com/carrot2/carrot2/releases/download/release%2F3.16.3/carrot2-dcs-3.16.3.zip"
-  sha256 "653221f8d11a5712f6889555110ffb4b8eab9ba1ac042cb35a5a16f4531e5ee1"
+  url "https://github.com/carrot2/carrot2.git",
+      tag:      "release/4.0.0",
+      revision: "6a5e2ff984b3ec60375fd475c7cdcd25f7403beb"
   license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a194d103ec94747cc1ff6b1c3d1dff55cb1881cd2abef6bd136d9e051d8318a9" => :catalina
+    sha256 "a10345d4b2edbecaedf57600101130e74d61c0bea18a9a8fb3eb5d07de32b5ee" => :mojave
+    sha256 "2e91d4f0ad08292b172485246c853214d930f32ff3980fbaf5021522efa4493b" => :high_sierra
+  end
 
+  depends_on "gradle" => :build
   depends_on "openjdk"
 
   def install
-    libexec.install Dir["*"]
-    bin.install libexec/"dcs.sh" => "carrot2"
-    inreplace bin/"carrot2", "java", "cd #{libexec} && exec '#{Formula["openjdk"].opt_bin}/java'"
+    system "gradle", "assemble"
+
+    cd "distribution/build/dist" do
+      inreplace "dcs/conf/logging/appender-file.xml", "${dcs:home}/logs", var/"log/carrot2"
+      libexec.install Dir["*"]
+    end
+
+    (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs.sh",
+      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
+      SCRIPT_HOME: libexec/"dcs"
   end
 
   plist_options manual: "carrot2"
@@ -42,17 +56,9 @@ class Carrot2 < Formula
   end
 
   test do
-    cp_r Dir["#{prefix}/*"], testpath
-    inreplace testpath/"bin/carrot2", "cd #{libexec}", "cd #{testpath}/libexec"
     port = free_port
-    begin
-      pid = fork { exec testpath/"bin/carrot2", "-port", port.to_s }
-      sleep 5
-      assert_match /data mining/m,
-        shell_output("curl -s -F dcs.c2stream=@#{libexec}/examples/shared/data-mining.xml " \
-                     "http://localhost:#{port}/dcs/rest")
-    ensure
-      Process.kill "INT", pid
-    end
+    fork { exec bin/"carrot2", "--port", port.to_s }
+    sleep 5
+    assert_match "Lingo", shell_output("curl -s localhost:#{port}/service/list")
   end
 end

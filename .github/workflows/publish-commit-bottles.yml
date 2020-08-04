@@ -1,64 +1,78 @@
 name: Publish and commit bottles
 
 on:
-  repository_dispatch:
-    types:
-      - 'Publish *'
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number
+        required: true
 
 jobs:
   upload:
     runs-on: ubuntu-latest
     env:
+      HOMEBREW_COLOR: 1
       HOMEBREW_DEVELOPER: 1
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
       HOMEBREW_NO_ANALYTICS: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_PATCHELF_RB: 1
     steps:
       - name: Post comment once started
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          issue: ${{github.event.client_payload.pull_request}}
+          issue: ${{github.event.inputs.pull_request}}
           body: ':shipit: @${{github.actor}} has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot_body: ':robot: A scheduled task has [triggered a merge](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot: BrewTestBot
+
       - name: Update Homebrew
-        run: |
-          brew update-reset $(brew --repository)
-      - name: Checkout tap
-        uses: actions/checkout@v2
-        with:
-          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          fetch-depth: 0
+        run: brew update-reset $(brew --repo)
+
       - name: Setup tap
         run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+          cd ..
+          rmdir ${{github.workspace}}
+          ln -s $(brew --repo ${{github.repository}}) ${{github.workspace}}
+
+      - name: Checkout tap
+        run: |
+          git remote set-url origin ${{github.event.repository.clone_url}}
+          git fetch --prune --force origin master
+          git reset --hard origin/master
+          git log -1
+
       - name: Setup git
         uses: Homebrew/actions/git-user-config@master
+
       - name: Pull bottles
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: |
-          brew pr-pull --verbose ${{github.event.client_payload.pull_request}}
+        run: brew pr-pull --debug ${{github.event.inputs.pull_request}}
+
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+
       - name: Post comment on failure
         if: ${{!success()}}
         uses: Homebrew/actions/post-comment@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          issue: ${{github.event.client_payload.pull_request}}
+          issue: ${{github.event.inputs.pull_request}}
           body: ':warning: @${{github.actor}} bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot_body: ':warning: Bottle publish [failed](${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}).'
           bot: BrewTestBot
+
       - name: Dismiss approvals on failure
         if: ${{!success()}}
         uses: Homebrew/actions/dismiss-approvals@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
-          pr: ${{github.event.client_payload.pull_request}}
+          pr: ${{github.event.inputs.pull_request}}
           message: 'bottle publish failed'
 

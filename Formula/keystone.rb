@@ -3,6 +3,7 @@ class Keystone < Formula
   homepage "https://www.keystone-engine.org/"
   url "https://github.com/keystone-engine/keystone/archive/0.9.2.tar.gz"
   sha256 "c9b3a343ed3e05ee168d29daf89820aff9effb2c74c6803c2d9e21d55b5b7c24"
+  license "GPL-2.0"
   head "https://github.com/keystone-engine/keystone.git"
 
   bottle do

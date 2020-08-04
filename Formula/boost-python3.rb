@@ -1,18 +1,17 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
+  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   license "BSL-1.0"
-  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "dbb68300aafb7dc618ed08e91ba34d07e8d2e80a28988a68ebb9fccba4e0e11e" => :catalina
-    sha256 "3c02bc31d2de7b3df8379ee24f70b9740c9fcd07f0d7ea5fcbf8de59be9edb1e" => :mojave
-    sha256 "ba57a38cc8bd70c95bc62b0c41dea57a931fbf4ee1b3601e4406f8f537129006" => :high_sierra
+    sha256 "36a3b2ffacb47649b51e0b3031b8f67bf7dcd87e61dfd6d594610cb3e21a1acc" => :catalina
+    sha256 "deda39650cec775da3e8a4915aec600cfd55b367f212be975bdcc70952f2e805" => :mojave
+    sha256 "237b8dcaaa8fcdc72ef8a57e6e38675a82579b736f819707f28bbf5f644ceffa" => :high_sierra
   end
 
   depends_on "numpy" => :build

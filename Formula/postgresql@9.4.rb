@@ -6,10 +6,10 @@ class PostgresqlAT94 < Formula
   license "PostgreSQL"
 
   bottle do
-    rebuild 2
-    sha256 "86d9c75e0454e8285764827fb24b96dc0cc75e07dfe7bb808fa3682629467aa6" => :catalina
-    sha256 "e90c1fd44cd76e40b5326fe7692466c4e21e2380e9856dea816ad8fc1a89ee5c" => :mojave
-    sha256 "0900dd52dda6b761f64e553274c2d3da33fefd38bfa0e06ed7e6df1636642d28" => :high_sierra
+    rebuild 3
+    sha256 "15217a46087cd4bef0227f5ca941ed843a4e024aafa4e7c7a3ebf746ca8a1344" => :catalina
+    sha256 "4d24193f0f0931c246a86407d3d8208a48b514b8969dc4567b7d62de2becc3ec" => :mojave
+    sha256 "2e09355d0bf2f70b5ea9c202f15aadee823902caad5cf35b64c882e4b969e70f" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -84,6 +84,11 @@ class PostgresqlAT94 < Formula
 
       To install gems without sudo, see the Homebrew documentation:
         https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
+
+      This formula has created a default database cluster with:
+        initdb #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
     EOS
   end
 

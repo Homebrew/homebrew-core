@@ -3,6 +3,7 @@ class Pianobar < Formula
   homepage "https://github.com/PromyLOPh/pianobar/"
   url "https://6xq.net/pianobar/pianobar-2020.04.05.tar.bz2"
   sha256 "6c173b6b29ccc1f432e0013fb425e8f9cb4261539b58d344e0b2274963726480"
+  license "MIT"
   revision 3
   head "https://github.com/PromyLOPh/pianobar.git"
 

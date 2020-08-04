@@ -1,22 +1,25 @@
 class BoostBcp < Formula
   desc "Utility for extracting subsets of the Boost library"
   homepage "https://www.boost.org/doc/tools/bcp/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_73_0.tar.bz2"
+  sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "206a46348fb75f752b6a7166c4a549888208f62b1d57d4aedc0abacb71e51e3d" => :catalina
-    sha256 "2d4b85c52ab0dceed07984c4c6f9e35c0f7dbcbb73528a5993177c3a94457ebc" => :mojave
-    sha256 "fde3e6baae64ff2297e6babed41147071065c4ac0f37c2ea5dd6530f49865582" => :high_sierra
+    sha256 "ac64b6a5c0a92b976adb030f252f3918ea40323afd1b499882a4f874cdcc67ba" => :catalina
+    sha256 "7369c7113fd30285736efe03270a1d1c3a299be137d2f9421fdbe9833686a869" => :mojave
+    sha256 "fa1bceff41b7c6cd70f2d5649e4b3a4a6e5c4afed65df14b9d593b7d5e026dfe" => :high_sierra
   end
 
   depends_on "boost-build" => :build
+  depends_on "boost" => :test
 
   def install
+    # remove internal reference to use brewed boost-build
+    rm "boost-build.jam"
     cd "tools/bcp" do
       system "b2"
       prefix.install "../../dist/bin"
@@ -24,6 +27,6 @@ class BoostBcp < Formula
   end
 
   test do
-    system bin/"bcp", "--help"
+    system bin/"bcp", "--boost=#{Formula["boost"].opt_include}", "--scan", "./"
   end
 end

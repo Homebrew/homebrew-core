@@ -2,18 +2,18 @@ class Semgrep < Formula
   include Language::Python::Virtualenv
 
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
-  homepage "https://semgrep.live"
+  homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-    tag:      "v0.16.0",
-    revision: "26bb98d50dd1350aee49ea9a345c12c271c9b0f4"
+    tag:      "v0.17.0",
+    revision: "382620ccaa12d6fbd64776346e21d800db789ebf"
   license "LGPL-2.1"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd74e00de184b3bd348aec3f461d0dccef7e1d955074410636e7c02da6dc7ab3" => :catalina
-    sha256 "b3b0b0dca2467a3c63cb7598eac87c87de9f74eb8c52e8c1bb7ce36da337dd89" => :mojave
-    sha256 "e2d56a08024418f5978f99d84130ed451427674f1cfc04fdbdc405adc2e81aab" => :high_sierra
+    cellar :any
+    sha256 "03233df07aa8301268a673992c66343d17f5ebdf3e121b40be865fba823fce56" => :catalina
+    sha256 "02dfbd98a4030d2d7d763b03103b4761ad7e5833115a53a5dd533ebeb5957fa4" => :mojave
+    sha256 "52a2bf82789c8678f67666d48ad0a27e042f7bde7a0cf7abe369d0d960a2194d" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -90,6 +90,10 @@ class Semgrep < Formula
   end
 
   def install
+    # Remove Sudo Command in install script. Safe to remove patch on 0.18.0
+    # https://github.com/returntocorp/ocaml-tree-sitter/pull/83
+    inreplace "ocaml-tree-sitter/scripts/install-tree-sitter-lib", "sudo make install", "make install"
+
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
@@ -99,6 +103,7 @@ class Semgrep < Formula
       ENV["LIBRARY_PATH"] = lib
 
       # Used by ocaml-tree-sitter to find tree-sitter/*.h headers
+      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
       ENV["C_INCLUDE_PATH"] = include
 
       # Used by tree-sitter to place libtree-sitter.a, and header files
@@ -107,15 +112,14 @@ class Semgrep < Formula
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
 
-      system "opam", "exec", "--", "make", "config"
+      system "opam", "exec", "--", "make", "setup"
       system "opam", "install", "./pfff"
 
       # Install tree-sitter
       cd "ocaml-tree-sitter" do
         cd "tree-sitter" do
           system "opam", "exec", "--", "make"
-          lib.install "libtree-sitter.a"
-          include.install "lib/include/tree_sitter"
+          system "opam", "exec", "--", "make", "install"
         end
         system "opam", "install", "-y", "."
       end

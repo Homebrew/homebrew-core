@@ -3,6 +3,7 @@ class Proxytunnel < Formula
   homepage "https://github.com/proxytunnel/proxytunnel"
   url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20200507.tar.gz"
   sha256 "6495430e9c60d3df53824a7a0f3bea9953a89d083a3718c72db04dc4d40755ac"
+  license "GPL-2.0"
 
   bottle do
     cellar :any

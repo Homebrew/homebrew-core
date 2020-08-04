@@ -4,13 +4,13 @@ class Distcc < Formula
   url "https://github.com/distcc/distcc/releases/download/v3.3.3/distcc-3.3.3.tar.gz"
   sha256 "bead25471d5a53ecfdf8f065a6fe48901c14d5008956c318c700e56bc87bf0bc"
   license "GPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/distcc/distcc.git"
 
   bottle do
-    sha256 "396eca7aa3ec899e2eff031b2cdcd7169939996efd98dafee94cfb9f2e658a68" => :catalina
-    sha256 "4a4f365ee6991e812eb3aba1aa8bab9ae2f780e49793efe12b6b2bcb5e792fcf" => :mojave
-    sha256 "f759768f1363120b7bd6b3ee7717ef75d2c703082c697f0bfc607809cf6c32f6" => :high_sierra
+    sha256 "3a6363381e34f80e4c589ae8029cac12f60fa317db23c1d1ef4a0419a88b562d" => :catalina
+    sha256 "b1dd27aba40dd04de69f094f07d6a474045d83cc09c7972ab07c6ad77e750109" => :mojave
+    sha256 "feff6f640a0b3154242e6f0a1567cd0a93b523f033fddd1ac5702bc47f0ea805" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -18,8 +18,8 @@ class Distcc < Formula
   depends_on "python@3.8"
 
   resource "libiberty" do
-    url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20190907.orig.tar.xz"
-    sha256 "4c649c2cee918399dd5c4051bbac8d4ca4bbfb8c8e83215c00143f413578f236"
+    url "https://deb.debian.org/debian/pool/main/libi/libiberty/libiberty_20200409.orig.tar.xz"
+    sha256 "1807b6d4c70040d71d5c93abdbcb2c05c9ad4f64ed1802583d1107fcdfc2c722"
   end
 
   def install

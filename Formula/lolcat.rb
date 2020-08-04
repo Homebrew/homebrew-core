@@ -4,6 +4,7 @@ class Lolcat < Formula
   url "https://github.com/busyloop/lolcat.git",
       tag:      "v100.0.1",
       revision: "27441adfb51bc16073d65dbef300c8d3d7e86dc7"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

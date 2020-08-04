@@ -1,16 +1,16 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2020.07.20.00.tar.gz"
-  sha256 "e48459d8f97e2dfaab199e10f5f23ce2315517170c17be3660a3c2484ea28b58"
+  url "https://github.com/facebook/folly/archive/v2020.08.03.00.tar.gz"
+  sha256 "30ec5103725703ce28377b087f12501a4bcaf632a46a079c88ecf0bcd34db114"
   license "Apache-2.0"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "ecfadac6e361750990a15a17787ea7ca8cdb790f6d2a0e39c51c030100800116" => :catalina
-    sha256 "7fa1865170af4c0f19fda3537dcd091a00bc34c8e19bf512a9a293c5f446500e" => :mojave
-    sha256 "4ab215895aff85576088299a76a63bef46eb723f319f1752590825554edc4663" => :high_sierra
+    sha256 "acbab8d6042f87a05015bec5f9a67b175a1e579f576b577057e8800e07e027c4" => :catalina
+    sha256 "c2a186ab5b67ea87ac2370273557b9936268aa9fc073531474b1be99e428d3a7" => :mojave
+    sha256 "f5555fcd892f2a477df052b2f669de3cc9f30c2324f110922a57f905f9c1f5c8" => :high_sierra
   end
 
   depends_on "cmake" => :build

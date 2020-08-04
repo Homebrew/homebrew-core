@@ -7,9 +7,10 @@ class PostgresqlAT11 < Formula
   revision 3
 
   bottle do
-    sha256 "420e0588a9c7d13bd60dbd14cd825e3ab94e8190aceae83a326469c2069eccff" => :catalina
-    sha256 "0f53a997e555a3dd79d58494b0b5d5e11d0d01bb20db2084d544cc750125ab2b" => :mojave
-    sha256 "2e37db63328194a9445083afbbd2e6ef22535bd6b15ba4514ee231b75e5a74f0" => :high_sierra
+    rebuild 1
+    sha256 "b66a90091a0cecd407bc21f076787177edde684b82cd0a161a1eb88116d8d65f" => :catalina
+    sha256 "fc3cf767f3674b578778105c3aea1d39fb955f9f7d68991a6ffe6c58a67f64b2" => :mojave
+    sha256 "61b646d16f93dc954f81225a2362486249d098c1a39e2be919393a8b144b8290" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -82,6 +83,11 @@ class PostgresqlAT11 < Formula
     <<~EOS
       To migrate existing data from a previous major version of PostgreSQL run:
         brew postgresql-upgrade-database
+
+      This formula has created a default database cluster with:
+        initdb --locale=C -E UTF-8 #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
     EOS
   end
 

@@ -1,0 +1,18 @@
+name: Cancel previous runs
+
+on:
+  schedule:
+    # Once every 15 minutes
+    - cron: '*/15 * * * *'
+
+jobs:
+  autocancel:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel
+        uses: Homebrew/actions/cancel-previous-runs@master
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          workflow: tests.yml
+          event: pull_request

@@ -6,33 +6,32 @@ class Geckodriver < Formula
 
   stable do
     # Get the hg_revision for stable releases from https://github.com/mozilla/geckodriver/releases
-    hg_revision = "e9783a644016aa9b317887076618425586730d73"
+    hg_revision = "90ec81285ff6287cb2824b29ddebb7818cc7b96b"
     url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/geckodriver/"
-    version "0.26.0"
-    sha256 "c5854000621938de2aac0bdc853da62539e694adcba98b61851adcbb9ce54dd3"
+    version "0.27.0"
+    sha256 "06d92c830016edd9c4f88c9a659343fd9c35cae168820f6808f5486b3e42456f"
 
     resource "webdriver" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/webdriver/"
-      sha256 "d84d6b84d4b37bb4fadda639026eca63dc61dd289bbeb3961eef1257be49266b"
+      sha256 "88ceccaba4df4ba57bdf3c9238a9834695fb51d67b749e37e1c158662ea2a6ef"
     end
 
     resource "mozbase" do
       url "https://hg.mozilla.org/mozilla-central/archive/#{hg_revision}.zip/testing/mozbase/rust/"
-      sha256 "a838ae82753aaed38eff52bd2076e47a418858be39c7dc5d833070c6ee2f7beb"
+      sha256 "65c723351868f2a8b2c8dc7cb72b06ed0372dbef34ca21420162cf870c4f8b5a"
     end
 
     resource "Cargo.lock" do
       url "https://hg.mozilla.org/mozilla-central/raw-file/#{hg_revision}/Cargo.lock"
-      sha256 "107aaf145d4840a389c2d4586660e95e3fa336a42bb9f94524f9a72c89c21d09"
+      sha256 "cb3d9f8f6daa3bc5cb884312c03cbd25fc754e7899c6c3ed90c452d1a90cb6ae"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2b9a2eb29b8199df3f0c8e3a4395337fcdd1ae00cea28970df0add10a36b94ce" => :catalina
-    sha256 "13dd973454d187da00ccd4ab24f72987ea47f4984caa2e1fa5b3c36273d96bfa" => :mojave
-    sha256 "2e57ba33554f7b0180873d49dc8dc1b1587e9c8d637d8f50146395dcb923afea" => :high_sierra
+    sha256 "bd5e9db1c72e65e9af516a5c8bc43c8896808b636b036b1467447418cb34a235" => :catalina
+    sha256 "d4d308dede5f3762694b6da1d21426e470bc8973b8e0084e1a44272b9673204d" => :mojave
+    sha256 "c1ccd105a99db9ad2cdbba28d2502ff3a215479e83248b419c44799c0ee68dec" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -58,6 +57,12 @@ class Geckodriver < Formula
   end
 
   test do
-    system bin/"geckodriver", "--help"
+    test_port = free_port
+    fork do
+      exec "#{bin}/geckodriver --port #{test_port}"
+    end
+    sleep 2
+
+    system "nc", "-z", "localhost", test_port
   end
 end

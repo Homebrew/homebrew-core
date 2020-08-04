@@ -16,6 +16,10 @@ class Bento4 < Formula
   depends_on xcode: :build
   depends_on "python@3.8"
 
+  on_linux do
+    depends_on "cmake" => :build
+  end
+
   conflicts_with "gpac", because: "both install `mp42ts` binaries"
   conflicts_with "mp4v2",
     because: "both install `mp4extract` and `mp4info` binaries"

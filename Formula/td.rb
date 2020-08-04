@@ -3,6 +3,7 @@ class Td < Formula
   homepage "https://github.com/Swatto/td"
   url "https://github.com/Swatto/td/archive/1.4.0.tar.gz"
   sha256 "b8080a73b274c201bc1fadaf5b83e5fab26b38838f4c82b49f1ae5dadaa94c20"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

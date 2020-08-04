@@ -5,6 +5,7 @@ class SshCopyId < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-8.3p1.tar.gz"
   version "8.3p1"
   sha256 "f2befbe0472fe7eb75d23340eb17531cb6b3aac24075e2066b41f814e12387b2"
+  license "SSH-OpenSSH"
   head "https://github.com/openssh/openssh-portable.git"
 
   bottle :unneeded

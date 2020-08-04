@@ -3,6 +3,7 @@ class Narwhal < Formula
   homepage "https://github.com/280north/narwhal"
   url "https://github.com/280north/narwhal/archive/v0.3.2.tar.gz"
   sha256 "a26ac20097839a5c7b5de665678fb76699371eea433d6e3b820d4d8de2ad4937"
+  license "MIT"
   head "https://github.com/280north/narwhal.git"
 
   bottle :unneeded

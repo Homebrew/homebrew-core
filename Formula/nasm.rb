@@ -3,6 +3,7 @@ class Nasm < Formula
   homepage "https://www.nasm.us/"
   url "https://www.nasm.us/pub/nasm/releasebuilds/2.15.03/nasm-2.15.03.tar.xz"
   sha256 "c0c39a305f08ccf0c5c6edba4294dd2851b3925b6d9642dd1efd62f72829822f"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

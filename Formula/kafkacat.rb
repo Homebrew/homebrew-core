@@ -4,6 +4,7 @@ class Kafkacat < Formula
   url "https://github.com/edenhill/kafkacat.git",
       tag:      "1.6.0",
       revision: "3cd845bf782296b3e8eb382020173782281746d2"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any

@@ -8,9 +8,10 @@ class Postgresql < Formula
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "069912aa3d10ecb548eb2dddd7e3e1be61d1689d236b5993bce3e1a31811bcd0" => :catalina
-    sha256 "06eb65f3f17b6bf08344cbae35adc295f5c6da22420ee81d1e8fe2787e05a03b" => :mojave
-    sha256 "93e3b484a26931374ece4ee4f5abd4b3eac0a6e519d2fba696871f2342f0e513" => :high_sierra
+    rebuild 1
+    sha256 "04bc235fe7f8c459dec8fc0bac18ef002207ae41f087b8609f0ba0a6e903d187" => :catalina
+    sha256 "1c5b0d008d9c9f7deeae50686544aeac817072c1fb34d464f42ad557f1c74d8d" => :mojave
+    sha256 "08ee9da0e2e6346902797443604132d7fcc3c613f87f3940fed2844cd7f1c0e5" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -86,6 +87,11 @@ class Postgresql < Formula
     <<~EOS
       To migrate existing data from a previous major version of PostgreSQL run:
         brew postgresql-upgrade-database
+
+      This formula has created a default database cluster with:
+        initdb --locale=C -E UTF-8 #{var}/postgres
+      For more details, read:
+        https://www.postgresql.org/docs/#{version.to_s.slice(/\d+/)}/app-initdb.html
     EOS
   end
 

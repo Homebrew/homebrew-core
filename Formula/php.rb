@@ -6,11 +6,12 @@ class Php < Formula
   mirror "https://fossies.org/linux/www/php-7.4.8.tar.xz"
   sha256 "642843890b732e8af01cb661e823ae01472af1402f211c83009c9b3abd073245"
   license "PHP-3.01"
+  revision 1
 
   bottle do
-    sha256 "da81ec7dbe2ab2d9cbfcb5fcfa5f8e4fa0258f1947c52a13967c52dc6bab7f8f" => :catalina
-    sha256 "c5dab2822c4d18b48379a1351854020dc81a52c94e400a7129f68220daa59fca" => :mojave
-    sha256 "d6525030277bf523c2e80a8ae5d8a5b3f0ce84a7679ec79c1fb89f4109c0f2f7" => :high_sierra
+    sha256 "ec3af8e7bcfda01b5b0370cd33e97b12ce0988c2743e2437be4efc7d15a15f74" => :catalina
+    sha256 "fb211d4a9cf8fddb20c0c40b0934c09db7c0d5514bd5cb4d7692b115fec4b9e2" => :mojave
+    sha256 "d3c4639e3b5d8ba7e33c73a5e52cf3e3825fd0c7e3a647af6364e8ddeb25d90d" => :high_sierra
   end
 
   head do
@@ -29,28 +30,26 @@ class Php < Formula
   depends_on "autoconf"
   depends_on "curl-openssl"
   depends_on "freetds"
-  depends_on "freetype"
+  depends_on "gd"
   depends_on "gettext"
   depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
-  depends_on "jpeg"
+  depends_on "krb5"
   depends_on "libffi"
-  depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "oniguruma"
   depends_on "openldap"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
-  depends_on "webp"
 
   uses_from_macos "xz" => :build
   uses_from_macos "bzip2"
-  uses_from_macos "krb5"
   uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -97,12 +96,8 @@ class Php < Formula
     ENV["lt_cv_path_SED"] = "sed"
 
     # system pkg-config missing
-    ENV["KERBEROS_CFLAGS"] = " "
-    ENV["KERBEROS_LIBS"] = "-lkrb5"
     ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
     ENV["SASL_LIBS"] = "-lsasl2"
-    ENV["EDIT_CFLAGS"] = " "
-    ENV["EDIT_LIBS"] = "-ledit"
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
@@ -141,14 +136,14 @@ class Php < Formula
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
       --with-curl
+      --with-external-gd
+      --with-external-pcre
       --with-ffi
       --with-fpm-user=_www
       --with-fpm-group=_www
-      --with-freetype
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-iconv#{headers_path}
-      --with-jpeg
       --with-kerberos
       --with-layout=GNU
       --with-ldap=#{Formula["openldap"].opt_prefix}
@@ -173,7 +168,6 @@ class Php < Formula
       --with-sqlite3
       --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC
-      --with-webp
       --with-xmlrpc
       --with-xsl
       --with-zip

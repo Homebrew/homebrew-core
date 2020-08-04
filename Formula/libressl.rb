@@ -5,6 +5,7 @@ class Libressl < Formula
   url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.1.3.tar.gz"
   mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.1.3.tar.gz"
   sha256 "c76b0316acf612ecb62f5cb014a20d972a663bd9e40abf952a86f3b998b69fa0"
+  license "OpenSSL"
 
   bottle do
     sha256 "7574171656070665bb3bda72ceb202753f969754efd538249c351b458c642cb5" => :catalina

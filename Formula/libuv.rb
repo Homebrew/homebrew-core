@@ -3,6 +3,7 @@ class Libuv < Formula
   homepage "https://github.com/libuv/libuv"
   url "https://github.com/libuv/libuv/archive/v1.38.1.tar.gz"
   sha256 "2177fca2426ac60c20f654323656e843dac4f568d46674544b78f416697bd32c"
+  license "MIT"
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
   bottle do

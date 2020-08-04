@@ -3,6 +3,7 @@ class Pngpaste < Formula
   homepage "https://github.com/jcsalterego/pngpaste"
   url "https://github.com/jcsalterego/pngpaste/archive/0.2.3.tar.gz"
   sha256 "6221201cb05191855f0d2707ce7f4055f6e1330de8efc09d386be2a6629f543b"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

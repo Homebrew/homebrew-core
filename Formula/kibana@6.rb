@@ -2,14 +2,15 @@ class KibanaAT6 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      tag:      "v6.8.10",
-      revision: "8542051ee8adba98f671a18cff02910fcd1f06fc"
+      tag:      "v6.8.11",
+      revision: "0bf552bd6baafe3053c68dd20af14a088065df69"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4cf63009be0527d228d72bb9fd922713bfdd5aeeb2de5fdfad9e91447cf698a0" => :catalina
-    sha256 "81ae98174c2474ccefa08d2ae299c657139fa7fe8a98ca2e3d1b86e2226b3555" => :mojave
-    sha256 "a9f6c005018b24384017a4b7bf572b87dfb1b0de8598a20b94233637900a534d" => :high_sierra
+    sha256 "14afbf843c4d5c49a9d954d97d14dfe5191441cdf80ae81b0938ce0f1caf0ab4" => :catalina
+    sha256 "a61a2125471d6f22601d938f4626f0d962cec6b17bc511bcff67ca6ce8d14655" => :mojave
+    sha256 "3c72706fade6f3ecf040761629a7a51bb709614e61d197285a268fd7f65f647d" => :high_sierra
   end
 
   keg_only :versioned_formula

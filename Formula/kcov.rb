@@ -3,6 +3,7 @@ class Kcov < Formula
   homepage "https://simonkagstrom.github.io/kcov/"
   url "https://github.com/SimonKagstrom/kcov/archive/38.tar.gz"
   sha256 "b37af60d81a9b1e3b140f9473bdcb7975af12040feb24cc666f9bb2bb0be68b4"
+  license "GPL-2.0"
   head "https://github.com/SimonKagstrom/kcov.git"
 
   bottle do

@@ -3,6 +3,7 @@ class Liboqs < Formula
   homepage "https://openquantumsafe.org/"
   url "https://github.com/open-quantum-safe/liboqs/archive/0.3.0.tar.gz"
   sha256 "b447133039a8fb8df3cc90e22db1453cd67987834d495ac6898ac6a63df7c14b"
+  license "MIT"
 
   bottle do
     cellar :any

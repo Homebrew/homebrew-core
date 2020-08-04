@@ -3,6 +3,7 @@ class Liquigraph < Formula
   homepage "https://www.liquigraph.org/"
   url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.2.tar.gz"
   sha256 "60d17bb39e7c070a99f4669516cae0c1b0939700127758a9e500e210943f0cca"
+  license "Apache-2.0"
   head "https://github.com/liquigraph/liquigraph.git"
 
   bottle do

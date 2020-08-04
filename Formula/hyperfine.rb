@@ -4,18 +4,24 @@ class Hyperfine < Formula
   url "https://github.com/sharkdp/hyperfine/archive/v1.10.0.tar.gz"
   sha256 "b949d6c1a78e9c1c5a7bb6c241fcd51d6faf00bba5719cc312f57b5b301cc854"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0442a6f327081df37ce855d91fdf7bdf2136b8ef4f2039313274820936314c2f" => :catalina
-    sha256 "4922076ae457efd2423a728e543fc2c3546f6e035f475e2f65b2cbcb977d2d38" => :mojave
-    sha256 "d489a6d7cb337646e3f9954bc888cc8c6f42af5181ab6c0c4da51c65e8e5efa6" => :high_sierra
+    sha256 "09e341141f121b5b0caf0b4a9552b79a0777f8076910b1c91a65c29483102b36" => :catalina
+    sha256 "29051b59797e70714593561f09901ef02e9c79bc9b9b4b6ae226c53ca021f4ca" => :mojave
+    sha256 "49ea032f8c1403e6ab23e0f451e9bdf2e16f6e581cbd84f94743243ced62910d" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
+    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
+    man1.install "doc/hyperfine.1"
+    bash_completion.install "hyperfine.bash"
+    fish_completion.install "hyperfine.fish"
+    zsh_completion.install "_hyperfine"
   end
 
   test do

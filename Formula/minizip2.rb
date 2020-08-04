@@ -3,6 +3,7 @@ class Minizip2 < Formula
   homepage "https://github.com/nmoinvaz/minizip"
   url "https://github.com/nmoinvaz/minizip/archive/2.10.0.tar.gz"
   sha256 "4c7f236268fef57ce5dcbd9645235a22890d62480a592e1b0515ecff93f9989b"
+  license "Zlib"
 
   bottle do
     cellar :any_skip_relocation

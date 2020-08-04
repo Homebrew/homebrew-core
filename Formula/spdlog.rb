@@ -3,25 +3,38 @@ class Spdlog < Formula
   homepage "https://github.com/gabime/spdlog"
   url "https://github.com/gabime/spdlog/archive/v1.7.0.tar.gz"
   sha256 "f0114a4d3c88be9e696762f37a7c379619443ce9d668546c61b21d41affe5b62"
+  license "MIT"
+  revision 1
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "71af7c09d04504baf8c310e32ebacb45262bc78beaebd80deaf44bfda3d2d807" => :catalina
-    sha256 "414bbd020a107884d56adc42e89d6e43d14e9b42c32fe4c845022d0dee886b85" => :mojave
-    sha256 "da30ba8690195fd103a10b53838dc67ed253893b2d1e6503d964739b0029dc1c" => :high_sierra
+    cellar :any
+    sha256 "04276c895db91e7bf90bae4aef73a39b7a8b018bf3c2a34dda50609723b96b47" => :catalina
+    sha256 "4c40c947691b56bbbc586b0a15d511f351d8980b8534229047558a801ddf33c9" => :mojave
+    sha256 "df958e08b8bfed9c6e4b9ce3e8148706e414634d27ca0ec6f50bda60caccd1f8" => :high_sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "fmt"
 
   def install
     ENV.cxx11
 
+    inreplace "include/spdlog/tweakme.h", "// #define SPDLOG_FMT_EXTERNAL", "#define SPDLOG_FMT_EXTERNAL"
+
     mkdir "spdlog-build" do
-      args = std_cmake_args
-      args << "-Dpkg_config_libdir=#{lib}" << "-DSPDLOG_BUILD_BENCH=OFF" << "-DSPDLOG_BUILD_TESTS=OFF" << ".."
-      system "cmake", *args
+      args = std_cmake_args + %W[
+        -Dpkg_config_libdir=#{lib}
+        -DSPDLOG_BUILD_BENCH=OFF
+        -DSPDLOG_BUILD_TESTS=OFF
+        -DSPDLOG_FMT_EXTERNAL=ON
+      ]
+      system "cmake", "..", "-DSPDLOG_BUILD_SHARED=ON", *args
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DSPDLOG_BUILD_SHARED=OFF", *args
+      system "make"
+      lib.install "libspdlog.a"
     end
   end
 
@@ -44,7 +57,7 @@ class Spdlog < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{Formula["fmt"].opt_lib}", "-lfmt", "-o", "test"
     system "./test"
     assert_predicate testpath/"basic-log.txt", :exist?
     assert_match "Test", (testpath/"basic-log.txt").read

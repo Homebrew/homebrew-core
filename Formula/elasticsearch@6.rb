@@ -1,15 +1,15 @@
 class ElasticsearchAT6 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.10.tar.gz"
-  sha256 "5f5320714aed506d2dac3574e5c629f3f745253dbb0c91118c609f199bd4c679"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.8.11.tar.gz"
+  sha256 "2d136743072ca810f1af982f1c5a270b9fcc970be923ca1ee967aa7b9836cd3e"
   license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6da7da7cf1a98ed2e6ecdb02e25d5ff48a3b63415d6951b3b174b640f744db23" => :catalina
-    sha256 "6da7da7cf1a98ed2e6ecdb02e25d5ff48a3b63415d6951b3b174b640f744db23" => :mojave
-    sha256 "6da7da7cf1a98ed2e6ecdb02e25d5ff48a3b63415d6951b3b174b640f744db23" => :high_sierra
+    sha256 "216e813f6a02fd87a7eb8fc19052cf99c7c6357a5977c5d15f35edbecfed5625" => :catalina
+    sha256 "dccf4a7e06e585eb81769211286ee183bc34721338970389a7adf29e8d910f5a" => :mojave
+    sha256 "dccf4a7e06e585eb81769211286ee183bc34721338970389a7adf29e8d910f5a" => :high_sierra
   end
 
   keg_only :versioned_formula

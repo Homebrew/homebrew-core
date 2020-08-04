@@ -3,6 +3,7 @@ class Llnode < Formula
   homepage "https://github.com/nodejs/llnode"
   url "https://github.com/nodejs/llnode/archive/v3.2.0.tar.gz"
   sha256 "499b970a5006c2e1057f6c61da79b5466715e830e4a91c71e6de9c1ff6fe1a52"
+  license "MIT"
 
   bottle do
     cellar :any

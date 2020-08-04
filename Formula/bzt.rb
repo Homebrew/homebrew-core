@@ -6,14 +6,14 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/3a/e5/04383f5a7b060b753a6ce741b9e3bf4150c83b0ff9b7a07cc3c6c18ebfb8/bzt-1.14.2.tar.gz"
   sha256 "b79298e80516e42997c68951d15bce772d366eed2d23d1d42ac7f24b06345837"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22ed44ba23cb8dec0defad0c8c4f8055769ddd8ce8db66b9c3d7317b5f78d6b9" => :catalina
-    sha256 "0181e2b001b08f8e0baa534a272738a15b7db65ca6cd26b3a441fc30a41e0063" => :mojave
-    sha256 "598bc69dcb152689464f0dfe8249de3ac2afbbe5629d722a8a9b863e9ac1d736" => :high_sierra
+    sha256 "0e7eb79ad2178176c18c2709c5d190c47d680d7cee79e115009149892094c193" => :catalina
+    sha256 "0839ad7a111ed998f1406c324883fa59f49f638891d046cfbb28c70c5de7b275" => :mojave
+    sha256 "0aa1b5f1b88e1a6f7178f3524038200c5d05623992c48eab18e8fc3d0bbe4bb4" => :high_sierra
   end
 
   # can only run with python 3.7 due to this issue, https://github.com/simonpercivall/astunparse/issues/43

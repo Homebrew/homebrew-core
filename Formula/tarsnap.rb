@@ -3,6 +3,7 @@ class Tarsnap < Formula
   homepage "https://www.tarsnap.com/"
   url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
   sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
+  license "0BSD"
   revision 1
 
   bottle do

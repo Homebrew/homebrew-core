@@ -1,14 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.6/sbcl-2.0.6-source.tar.bz2"
-  sha256 "fd92d64c1d97cc4f42fe3dcad2b183bcb225d01cdba4461634926f2f70adddae"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.7/sbcl-2.0.7-source.tar.bz2"
+  sha256 "f596eed82c50abdf48dee5aba0bc39f62d158be29d2e1306f2b0b804219c617c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1a0712251e374d34d8b6a8c456ed45f24f94b1b7d5f90d237e4a54ea92f350b" => :catalina
-    sha256 "2dfda3f01b4c7adb5c0ea65af79bbf164d8008bae56345242fee1be2b65c7556" => :mojave
-    sha256 "e487ad7b1a86d025dd11bda24f780768c448012bae30199978ddd2ed2f2535e3" => :high_sierra
+    sha256 "07d7dfed05a86aec933840d64ec534dc581cc0059f10b389d120044219515510" => :catalina
+    sha256 "ec883b7f67545d74f517055fa49864eba2158ea2fc66791151f5c44fde642d4c" => :mojave
+    sha256 "54364f8aa91c03efced4f014618360ffd4cc9627ca0a9757faa4019703476e8c" => :high_sierra
   end
 
   uses_from_macos "zlib"

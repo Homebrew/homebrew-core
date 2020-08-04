@@ -33,6 +33,11 @@ class Audiofile < Formula
     depends_on "libtool" => :build
   end
 
+  resource "aiff" do
+    url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
+    sha256 "a87279e3a101162f6ab0d4f70df78594d613e16b80e6257cf19c5fc957a375f9"
+  end
+
   # These have all been reported upstream but beside
   # 03_CVE-2015-7747 not yet merged or fixed.
   # https://github.com/mpruett/audiofile/issues/31
@@ -73,8 +78,12 @@ class Audiofile < Formula
   end
 
   test do
-    inn  = "/System/Library/Sounds/Glass.aiff"
-    out  = "Glass.wav"
+    resource("aiff").stage do
+      mv "wood24.aiff", testpath/"test.aiff"
+    end
+
+    inn  = testpath/"test.aiff"
+    out  = "test.wav"
 
     system bin/"sfconvert", inn, out, "format", "wave"
     system bin/"sfinfo", "--short", "--reporterror", out

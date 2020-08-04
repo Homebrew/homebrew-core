@@ -3,15 +3,15 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/1.1.11.tar.gz"
-  sha256 "f603831720b1313c2ab31392ef613fa93b3a18affa2b17d7b1e6251027faaf69"
+  url "https://github.com/iterative/dvc/archive/1.3.1.tar.gz"
+  sha256 "8e92c0f27f8af002e800c4d34d3de00de3fb2395e243bde102cdf785d0a79715"
   license "Apache-2.0"
 
   bottle do
     cellar :any
-    sha256 "ffee07548a00b707825471c29fde915cfd4e508514cdb6671aa558bf7ed69b9a" => :catalina
-    sha256 "45bcdc2a1af9699ce058db9dcc8b3a8846a49d55ddd9b63762ce538e05756891" => :mojave
-    sha256 "fd2057d1cb9f243c40f7745656ca1862f9afea78f282e573911d8c733cc4ea4b" => :high_sierra
+    sha256 "63cf787dff6b36e8853155dca955a00861e3a5dccbc701909789625447989fc3" => :catalina
+    sha256 "d912b2557c5189424fbdb9c33edd69feb5d9385a1b013e152d2553c6632c9f50" => :mojave
+    sha256 "5fedd97d40a1d67e4676fccc83c9603451cdf8a164877bc9f3610857d4a47225" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -27,10 +27,13 @@ class Dvc < Formula
       # NOTE: we will uninstall Pillow anyway, so there is no need to build it
       # from source.
       "--only-binary", "Pillow",
+      # NOTE: building rich requires poetry, which is problematic.
+      # See https://github.com/Homebrew/homebrew-core/pull/58501
+      "--only-binary", "rich",
       "--ignore-installed",
       # NOTE: pyarrow is already installed as a part of apache-arrow package,
       # so we don't need to specify `hdfs` option.
-      ".[gs,s3,azure,oss,ssh,gdrive]"
+      ".[gs,s3,azure,oss,ssh,gdrive,webdav]"
 
     # NOTE: dvc depends on asciimatics, which depends on Pillow, which
     # uses liblcms2.2.dylib that causes troubles on mojave. See [1]

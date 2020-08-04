@@ -3,6 +3,8 @@ class Parallelstl < Formula
   homepage "https://github.com/intel/parallelstl"
   url "https://github.com/intel/parallelstl/archive/20200330.tar.gz"
   sha256 "47d78920a7220828cde9b0c0cf808c70774b2db05ab4dd689b8bbd350afb9e6e"
+  # Apache License Version 2.0 with LLVM exceptions
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation

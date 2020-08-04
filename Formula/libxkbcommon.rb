@@ -3,6 +3,7 @@ class Libxkbcommon < Formula
   homepage "https://xkbcommon.org/"
   url "https://xkbcommon.org/download/libxkbcommon-0.10.0.tar.xz"
   sha256 "57c3630cdc38fb4734cd57fa349e92244f5ae3862813e533cedbd86721a0b6f2"
+  license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do

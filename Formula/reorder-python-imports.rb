@@ -3,15 +3,15 @@ class ReorderPythonImports < Formula
 
   desc "Rewrites source to reorder python imports"
   homepage "https://github.com/asottile/reorder_python_imports"
-  url "https://github.com/asottile/reorder_python_imports/archive/v2.3.2.tar.gz"
-  sha256 "aff0878ab99758535e18d487c46cc8e376d2eb3a098b5288a39826be86eb5e6c"
+  url "https://github.com/asottile/reorder_python_imports/archive/v2.3.5.tar.gz"
+  sha256 "e5c5b77efbd3a61fc2a4ab1ad36c57445dbec4313b8177725ead98ae05f8426e"
   license "MIT"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b3ff9c0f690350354bd60aa6f6e5c75dafcf09e59ca0f4ced5b93dba2fb39b2" => :catalina
-    sha256 "bc08c6a33c78e510100b836929d7b165a3ce2b564a6b50008d086803e501e579" => :mojave
-    sha256 "c866fcd422a28870131a0392733bab6cf231fb88665b4bf2c9ebf7b75d4990dc" => :high_sierra
+    sha256 "f82f81ae238fb1ea08d2847d85688226f665c247cee99e6928761139bd84f14a" => :catalina
+    sha256 "00b8dfb9fc9de88820c7115a701a86c582fe08651130eab710216e629fa748ab" => :mojave
+    sha256 "e068d759d9b9897c699e515c5a41791fd8029c990bb8bdedd2a38ce2f91122c1" => :high_sierra
   end
 
   depends_on "python@3.8"

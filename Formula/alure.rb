@@ -33,6 +33,7 @@ class Alure < Formula
   end
 
   test do
-    system bin/"alureplay", test_fixtures("test.wav")
+    output = shell_output("#{bin}/alureplay 2>&1", 1)
+    assert_match "Usage #{bin}/alureplay <soundfile>", output
   end
 end

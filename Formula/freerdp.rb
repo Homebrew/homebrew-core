@@ -22,6 +22,11 @@ class Freerdp < Formula
   depends_on "openssl@1.1"
   depends_on :x11
 
+  on_linux do
+    depends_on "ffmpeg"
+    depends_on "glib"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args, "-DWITH_X11=ON", "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"

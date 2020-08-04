@@ -3,6 +3,7 @@ class Mono < Formula
   homepage "https://www.mono-project.com/"
   url "https://download.mono-project.com/sources/mono/mono-6.8.0.123.tar.xz"
   sha256 "e2e42d36e19f083fc0d82f6c02f7db80611d69767112af353df2f279744a2ac5"
+  license "MIT"
 
   bottle do
     sha256 "5d9418923f6bc1705af86db81c56beff8b3a3d12c15e99ecbc7dffc2306817e1" => :catalina

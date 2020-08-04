@@ -3,6 +3,7 @@ class Sipp < Formula
   homepage "https://sipp.sourceforge.io/"
   url "https://github.com/SIPp/sipp/releases/download/v3.6.0/sipp-3.6.0.tar.gz"
   sha256 "e47e7b11fec0769cf76b30623a66390333bdb20323c66043ca535460858fa1bb"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

@@ -4,6 +4,7 @@ class Micro < Formula
   url "https://github.com/zyedidia/micro.git",
       tag:      "v2.0.6",
       revision: "60846f549ccd02598dea5889992f1e4cddc8e86d"
+  license "MIT"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do

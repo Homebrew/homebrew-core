@@ -6,11 +6,12 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
   sha256 "f7e0b325b272281f0462e0f7fff25a833820cac19911ff677251daf6d87bce50"
   license "LGPL-2.1"
+  revision 2
 
   bottle do
-    sha256 "4ddc126dde12d96499950c64ca5bd38a199ad636573a05b871cd355d7b09a077" => :catalina
-    sha256 "70e9afe4b735e858e15a5f958b572afb1a3811b8f9f70f83acc817b6b95d5f1b" => :mojave
-    sha256 "cf116ff6a983e16de79b4a2837a51d24ebd42b7fb69df191198391a7f7bf0d1c" => :high_sierra
+    sha256 "288fc814fdcc2b48b4296d700ce59468ae3a79bc11fa7978ca4de715afe88619" => :catalina
+    sha256 "0f0caafe83c71689fadef8bfd71339bbec3647101dfa623e98e566b0bda33b00" => :mojave
+    sha256 "60d204b976de73876d740a691f00e4c3d6af0255d5e8ee4787a93bf523ff84b4" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -31,6 +32,22 @@ class Glib < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6164294a75541c278f3863b111791376caa3ad26/glib/hardcoded-paths.diff"
     sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
+  end
+
+  # Fixes a runtime error on ARM and PowerPC Macs.
+  # Can be removed in the next release.
+  # https://gitlab.gnome.org/GNOME/glib/-/merge_requests/1566
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/c60d6599c9182ce44fdfaa8dde2955f55fc0d628.patch"
+    sha256 "9e3de41571edaa4bce03959abf885aad4edd069a622a5b642bf40294d748792e"
+  end
+
+  # Enables G_GNUC_FALLTHROUGH on clang.
+  # Necessary for pango to build on recent versions of clang.
+  # Will be in the next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/5f38ae5ffca3213addc5b279a46d537792d031db.patch"
+    sha256 "12128966a693dd45d2e20286437aea13b1fe554aed0907cbc33131d3b76be890"
   end
 
   def install

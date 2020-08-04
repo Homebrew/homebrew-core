@@ -3,6 +3,7 @@ class Rgf < Formula
   homepage "https://github.com/RGF-team/rgf"
   url "https://github.com/RGF-team/rgf/archive/3.8.0.tar.gz"
   sha256 "f21dce9b877bf802a5699ce58b1b87346337d3be838ddfe78b18cfec45813af7"
+  license "MIT"
 
   bottle do
     cellar :any_skip_relocation

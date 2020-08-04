@@ -1,9 +1,9 @@
 class Fmdiff < Formula
   desc "Use FileMerge as a diff command for Subversion and Mercurial"
-  homepage "https://www.defraine.net/~brunod/fmdiff/"
+  homepage "https://github.com/brunodefraine/fmscripts"
   url "https://github.com/brunodefraine/fmscripts/archive/20150915.tar.gz"
   sha256 "45ead0c972aa8ff5b3f9cf1bcefbc069931fd8218b2e28ff76958437a3fabf96"
-  license "Unlicense"
+  license :public_domain
   head "https://github.com/brunodefraine/fmscripts.git"
 
   bottle do

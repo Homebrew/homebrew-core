@@ -3,6 +3,7 @@ class Nq < Formula
   homepage "https://github.com/chneukirchen/nq"
   url "https://github.com/chneukirchen/nq/archive/v0.3.1.tar.gz"
   sha256 "8897a747843fe246a6f8a43e181ae79ef286122a596214480781a02ef4ea304b"
+  license "CC0-1.0"
   head "https://github.com/chneukirchen/nq.git"
 
   bottle do

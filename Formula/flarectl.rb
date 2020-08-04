@@ -1,16 +1,16 @@
 class Flarectl < Formula
   desc "CLI application for interacting with a Cloudflare account"
   homepage "https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl"
-  url "https://github.com/cloudflare/cloudflare-go/archive/v0.12.2.tar.gz"
-  sha256 "9a2e111034108716f965552c9d9899aae61bfbd5abe33e03c9fb272b37163f1f"
+  url "https://github.com/cloudflare/cloudflare-go/archive/v0.13.0.tar.gz"
+  sha256 "8efb25d4831842788656736c4a2604208bd6bf8ff47912a0a2dd1174a096e9c5"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/cloudflare-go.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f3886b656696bffc4741079528e07b3e180067e805056b44fcd4d0281d1e17d" => :catalina
-    sha256 "78dd8cefa702d07f612c6523019ec7bd96b4511daf324fd95a03e8f2f89c4849" => :mojave
-    sha256 "8834f55c3a458f7503078849c7c0ba49f20dc824fc23ca64acad084d3e3dc1ec" => :high_sierra
+    sha256 "ffd5f05f779bb2e10d5df7c33ec592cf7f09158ae16744175dff7504cc3fee5a" => :catalina
+    sha256 "2ae9d69c1c49863261676210e3d19c35008becd60e2f3b6d219afcdfae1530ff" => :mojave
+    sha256 "ec33f389866a93ab7f290a0d17ad287e2da64dee4173bda1527822ff27ad349e" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -18,7 +18,6 @@ class Flarectl < Formula
   def install
     cd "cmd/flarectl"
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./..."
-    prefix.install_metafiles
   end
 
   test do

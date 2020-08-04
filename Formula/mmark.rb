@@ -3,6 +3,7 @@ class Mmark < Formula
   homepage "https://mmark.miek.nl/"
   url "https://github.com/mmarkdown/mmark/archive/v2.2.8.tar.gz"
   sha256 "40b60dec408da6cc74844006ab3677b3e6218e1efbe9840ee4e96f9adc2e2564"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation

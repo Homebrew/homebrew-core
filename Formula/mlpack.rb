@@ -57,13 +57,11 @@ class Mlpack < Formula
   end
 
   test do
-    cd testpath do
-      system "#{bin}/mlpack_knn",
-        "-r", "#{pkgshare}/tests/data/GroupLensSmall.csv",
-        "-n", "neighbors.csv",
-        "-d", "distances.csv",
-        "-k", "5", "-v"
-    end
+    system "#{bin}/mlpack_knn",
+      "-r", "#{pkgshare}/tests/data/GroupLensSmall.csv",
+      "-n", "neighbors.csv",
+      "-d", "distances.csv",
+      "-k", "5", "-v"
 
     (testpath/"test.cpp").write <<-EOS
       #include <mlpack/core.hpp>

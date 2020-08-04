@@ -5,6 +5,7 @@ class Mdv < Formula
   homepage "https://github.com/axiros/terminal_markdown_viewer"
   url "https://files.pythonhosted.org/packages/70/6d/831e188f8079c9793eac4f62ae55d04a93d90979fd2d8271113687605380/mdv-1.7.4.tar.gz"
   sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation

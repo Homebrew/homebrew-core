@@ -3,6 +3,7 @@ class Luaradio < Formula
   homepage "https://luaradio.io/"
   url "https://github.com/vsergeev/luaradio/archive/v0.7.0.tar.gz"
   sha256 "7414c7bafc4ca3a9b0ac33e436987080602df53d0476f3618f0f37801e854aa6"
+  license "MIT"
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do

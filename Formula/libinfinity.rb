@@ -3,6 +3,7 @@ class Libinfinity < Formula
   homepage "https://gobby.github.io"
   url "http://releases.0x539.de/libinfinity/libinfinity-0.6.8.tar.gz"
   sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
+  license "LGPL-2.1"
   revision 2
 
   bottle do

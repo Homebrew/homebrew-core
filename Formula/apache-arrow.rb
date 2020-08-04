@@ -1,18 +1,17 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-0.17.1/apache-arrow-0.17.1.tar.gz"
-  sha256 "cbc51c343bca08b10f7f1b2ef15cb15057c30e5e9017cfcee18337b7e2da9ea2"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-1.0.0/apache-arrow-1.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-1.0.0/apache-arrow-1.0.0.tar.gz"
+  sha256 "86ddb9feb48203a5aaf9cc4f2827525e20a2ca4d7239e492af17e74532ccf243"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "f233da1f2e43a5a98f178cdaa6fe371f74255d3fec4943125d7cfaa219cafc40" => :catalina
-    sha256 "35fbe889ef3e548a2d55a91d75eb846a72d5fdd408993c1d85e93f354a6e44fb" => :mojave
-    sha256 "9af939cc5656770894b4fe2766125584df1fb67487e7000c52c995c1e9067cea" => :high_sierra
+    sha256 "b247c99402063e279a5c2d2aee20364d2228758a621be88cc5c565e6bc1027d5" => :catalina
+    sha256 "9b0f7dfeea7b6a5d33e12d8115279f82936916e4f4ba1e78516e1077ac86a4b1" => :mojave
+    sha256 "38e448180a7cf76cd34fe93e1eab0002773271c6424a11f1c4cd669ff3cba873" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -34,7 +33,7 @@ class ApacheArrow < Formula
     ENV.cxx11
     args = %W[
       -DARROW_FLIGHT=ON
-      -DARROW_JEMALLOC=OFF
+      -DARROW_JEMALLOC=ON
       -DARROW_ORC=ON
       -DARROW_PARQUET=ON
       -DARROW_PLASMA=ON
