@@ -3,6 +3,7 @@ class Bwfmetaedit < Formula
   homepage "https://mediaarea.net/BWFMetaEdit"
   url "https://mediaarea.net/download/binary/bwfmetaedit/20.05/BWFMetaEdit_CLI_20.05_GNU_FromSource.tar.bz2"
   sha256 "3eab6955aad9df5c6ab193492ea7d90709eb9214e9581cd190188a0933e4f1fe"
+  license :public_domain
 
   bottle do
     cellar :any_skip_relocation
