@@ -16,6 +16,8 @@ class Serf < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "zip" => :build
+
   def install
     ldflags = %W[
       -X github.com/hashicorp/serf/version.Version=#{version}
