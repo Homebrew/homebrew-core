@@ -17,12 +17,20 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libomp"
   depends_on "python@3.8"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "jemalloc"
+    depends_on "readline"
+  end
 
   def install
     mkdir "src/build" do
