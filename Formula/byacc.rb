@@ -3,6 +3,7 @@ class Byacc < Formula
   homepage "https://invisible-island.net/byacc/"
   url "https://invisible-mirror.net/archives/byacc/byacc-20200330.tgz"
   sha256 "e099e2dd8a684d739ac6b9a0e43d468314a5bc34fd21466502d120b18df51fb0"
+  license :public_domain
 
   bottle do
     cellar :any_skip_relocation
