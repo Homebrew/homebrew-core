@@ -1,8 +1,8 @@
 class DhallBash < Formula
   desc "Compile Dhall to Bash"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
-  url "https://hackage.haskell.org/package/dhall-bash-1.0.31/dhall-bash-1.0.31.tar.gz"
-  sha256 "573bbb2f8b041a38152279da10e979ab6cb0f479cde61eaffa96afbf5209b783"
+  url "https://hackage.haskell.org/package/dhall-bash-1.0.32/dhall-bash-1.0.32.tar.gz"
+  sha256 "3076073911f9ed917f74cec051e58e450a30c370bf0869599088e06567969778"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
