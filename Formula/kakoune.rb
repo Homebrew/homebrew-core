@@ -1,10 +1,9 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2020.01.16/kakoune-2020.01.16.tar.bz2"
-  sha256 "a094f1689f0228308f631e371b382b0c0522391fc8b6c23a6cbc71ff404a0dae"
+  url "https://github.com/mawww/kakoune/releases/download/v2020.08.04/kakoune-2020.08.04.tar.bz2"
+  sha256 "02469fac1ff83191165536fa52f01907db5be0a734bc90570924b3edbb9cf121"
   license "Unlicense"
-  revision 1
   head "https://github.com/mawww/kakoune.git"
 
   bottle do
