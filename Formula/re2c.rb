@@ -3,7 +3,7 @@ class Re2c < Formula
   homepage "https://re2c.org"
   url "https://github.com/skvadrik/re2c/releases/download/2.0.1/re2c-2.0.1.tar.xz"
   sha256 "aef8b50bb75905b2d55a7236380c0efdc756fa077fe16d808aaacbb10fb53531"
-  # re2c is in the public domain
+  license :public_domain
 
   bottle do
     sha256 "617a92159d2aefb4b454b81496c5c8615f27a303249c11f5ac40f887ee8ca392" => :catalina
