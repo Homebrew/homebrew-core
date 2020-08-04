@@ -3,6 +3,7 @@ class Aspectj < Formula
   homepage "https://eclipse.org/aspectj/"
   url "https://www.eclipse.org/downloads/download.php?r=1&file=/tools/aspectj/aspectj-1.9.6.jar"
   sha256 "afec62c03fe154adeecf9cd599ce033fff258d1d373a82511e5df54f79ab03e2"
+  license "EPL-1.0"
   revision 1
 
   bottle :unneeded
