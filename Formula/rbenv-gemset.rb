@@ -6,10 +6,6 @@ class RbenvGemset < Formula
   revision 1
   head "https://github.com/jf/rbenv-gemset.git"
 
-  # Does not have a valid license
-  # https://github.com/jf/rbenv-gemset/issues/93
-  disable!
-
   bottle :unneeded
 
   depends_on "rbenv"
