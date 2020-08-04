@@ -3,6 +3,7 @@ class Bcrypt < Formula
   homepage "https://bcrypt.sourceforge.io/"
   url "https://bcrypt.sourceforge.io/bcrypt-1.1.tar.gz"
   sha256 "b9c1a7c0996a305465135b90123b0c63adbb5fa7c47a24b3f347deb2696d417d"
+  license "BSD-3-Clause"
 
   bottle do
     cellar :any_skip_relocation
