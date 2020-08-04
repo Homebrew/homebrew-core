@@ -1,8 +1,8 @@
 class Bond < Formula
   desc "Cross-platform framework for working with schematized data"
   homepage "https://github.com/microsoft/bond"
-  url "https://github.com/microsoft/bond/archive/9.0.1.tar.gz"
-  sha256 "df56b97961ae1c6cf8399170051d977cda6ba30be45a0a50fb7bdea8c65fb076"
+  url "https://github.com/microsoft/bond/archive/9.0.2.tar.gz"
+  sha256 "1745d9d1fc5abf804d0d2b37ab722e1ba318dc0f89a6f2f158437d142710c0f4"
   license "MIT"
 
   bottle do
