@@ -3,6 +3,7 @@ class Duti < Formula
   homepage "https://github.com/moretension/duti/"
   url "https://github.com/moretension/duti/archive/duti-1.5.4.tar.gz"
   sha256 "3f8f599899a0c3b85549190417e4433502f97e332ce96cd8fa95c0a9adbe56de"
+  license "Unlicense"
   revision 1
   head "https://github.com/moretension/duti.git"
 
@@ -12,9 +13,6 @@ class Duti < Formula
     sha256 "ffb23db168b014703e505ef2d76d7bc431efd5d4d1244833d9b2ddf5723133a6" => :mojave
     sha256 "e495d02894655b516f79fa10671f5d768cae04c5b73c1aa077f8b0c573584cbf" => :high_sierra
   end
-
-  # Does not have a valid open-source license
-  disable!
 
   depends_on "autoconf" => :build
 
