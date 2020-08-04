@@ -3,6 +3,7 @@ class Afflib < Formula
   homepage "https://github.com/sshock/AFFLIBv3"
   url "https://github.com/sshock/AFFLIBv3/archive/v3.7.19.tar.gz"
   sha256 "d358b07153dd08df3f35376bab0202c6103808686bab5e8486c78a18b24e2665"
+  license "BSD-4-Clause"
 
   bottle do
     cellar :any
