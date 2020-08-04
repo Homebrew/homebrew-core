@@ -14,7 +14,19 @@ class Oxipng < Formula
 
   depends_on "rust" => :build
 
+  # Allows one of the dependencies to work on ARM at runtime.
+  # Will be in the next release.
+  # https://github.com/shssoichiro/oxipng/issues/276
+  patch do
+    url "https://github.com/shssoichiro/oxipng/commit/1d05a8a2241fdbd7697d1ba9207347f33611470f.patch?full_index=1"
+    sha256 "4533e32102ef5632b56c8e7843a14ead7b783b93bb8b44383e633b580da22555"
+  end
+
   def install
+    # Ensures that we're using up-to-date copies of these dependencies
+    # that will support ARM Macs.
+    system "cargo", "update", "--package", "cc", "--package", "libc" if Hardware::CPU.arm?
+
     system "cargo", "install", *std_cargo_args
   end
 
