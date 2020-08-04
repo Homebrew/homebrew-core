@@ -17,6 +17,9 @@ class Fmdiff < Formula
     sha256 "59d9c9d8a8759531a2f715619cfb2bce404fc7378235cf416ea5a426eb8d967f" => :yosemite
   end
 
+  # Does not have a valid open-source license
+  disable!
+
   # Needs FileMerge.app, which is part of Xcode.
   depends_on :xcode
 
