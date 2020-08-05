@@ -4,7 +4,6 @@ class I686ElfGcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
   sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
-  license "GPL-2.0"
 
   bottle do
     sha256 "8e258af70b398807c115631de8a1dc8c6ebdb3be870fe26410c14e91a7659a58" => :catalina
