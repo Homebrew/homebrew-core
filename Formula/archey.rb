@@ -1,7 +1,6 @@
 class Archey < Formula
   desc "Graphical system information display for macOS"
   homepage "https://obihann.github.io/archey-osx/"
-  license "GPL-2.0"
   revision 1
   head "https://github.com/obihann/archey-osx.git"
 
