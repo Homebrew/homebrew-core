@@ -1,7 +1,6 @@
 class Ponysay < Formula
   desc "Cowsay but with ponies"
   homepage "https://github.com/erkin/ponysay/"
-  license "GPL-3.0"
   revision 5
   head "https://github.com/erkin/ponysay.git"
 
