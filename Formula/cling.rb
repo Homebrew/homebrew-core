@@ -6,7 +6,6 @@ class Cling < Formula
       revision: "82ac7bf1870abbedb7fe44f8e34a429538f26a8d"
   # You may license this software under one of the following licenses, marked
   # "UI/NCSAOSL" and "LGPL".
-  license "LGPL-2.1"
 
   bottle do
     cellar :any
