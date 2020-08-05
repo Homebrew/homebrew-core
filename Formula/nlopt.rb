@@ -3,7 +3,6 @@ class Nlopt < Formula
   homepage "https://nlopt.readthedocs.io/"
   url "https://github.com/stevengj/nlopt/archive/v2.6.2.tar.gz"
   sha256 "cfa5981736dd60d0109c534984c4e13c615314d3584cf1c392a155bfe1a3b17e"
-  license "LGPL-2.1"
   head "https://github.com/stevengj/nlopt.git"
 
   bottle do
