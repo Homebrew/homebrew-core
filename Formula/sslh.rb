@@ -3,7 +3,6 @@ class Sslh < Formula
   homepage "https://www.rutschle.net/tech/sslh.shtml"
   url "https://www.rutschle.net/tech/sslh/sslh-v1.21.tar.gz"
   sha256 "a79de489a204b7a33cfd7633f4ad0eef38437f7077ab9eec9a3ded4db51da6aa"
-  license "GPL-2.0"
   head "https://github.com/yrutschle/sslh.git"
 
   bottle do
