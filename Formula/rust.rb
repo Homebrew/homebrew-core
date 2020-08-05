@@ -40,9 +40,17 @@ class Rust < Formula
   uses_from_macos "zlib"
 
   resource "cargobootstrap" do
-    # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2020-06-04/cargo-0.45.0-x86_64-apple-darwin.tar.gz"
-    sha256 "3a618459c8a22773a299d683e4ea0355e615372ae573300933caf6d00019bdd3"
+    on_macos do
+      # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2020-06-04/cargo-0.45.0-x86_64-apple-darwin.tar.gz"
+      sha256 "3a618459c8a22773a299d683e4ea0355e615372ae573300933caf6d00019bdd3"
+    end
+
+    on_linux do
+      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2020-06-04/cargo-0.45.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f9dec7c4f5af57e400cc90bb791e7dcf4dd8d11c65336ffe27a6e2516c6f371f"
+    end
   end
 
   def install
