@@ -3,7 +3,6 @@ class Sslscan < Formula
   homepage "https://github.com/rbsec/sslscan"
   url "https://github.com/rbsec/sslscan/archive/2.0.0.tar.gz"
   sha256 "f582c4b1c9ff6cadde4a3130a3f721866faf6048f5b1cddd1f696dc5a6fb7921"
-  license "GPL-3.0"
   head "https://github.com/rbsec/sslscan.git"
 
   bottle do
