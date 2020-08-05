@@ -3,7 +3,6 @@ class Geph2 < Formula
   homepage "https://geph.io"
   url "https://github.com/geph-official/geph2/archive/v0.22.2.tar.gz"
   sha256 "dd1ccd9c5aac06b46d57b9ba7aab00b6f42b3ec8fde85d00f09e2e474e7c1dc1"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
