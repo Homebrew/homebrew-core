@@ -3,7 +3,6 @@ class BashCompletionAT2 < Formula
   homepage "https://github.com/scop/bash-completion"
   url "https://github.com/scop/bash-completion/releases/download/2.11/bash-completion-2.11.tar.xz"
   sha256 "73a8894bad94dee83ab468fa09f628daffd567e8bef1a24277f1e9a0daf911ac"
-  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
