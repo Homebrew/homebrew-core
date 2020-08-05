@@ -1,10 +1,9 @@
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
-  url "https://github.com/redis/hiredis/archive/v0.14.1.tar.gz"
-  sha256 "2663b2aed9fd430507e30fc5e63274ee40cdd1a296026e22eafd7d99b01c8913"
+  url "https://github.com/redis/hiredis/archive/v1.0.0.tar.gz"
+  sha256 "2a0b5fe5119ec973a0c1966bfc4bd7ed39dbce1cb6d749064af9121fe971936f"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/redis/hiredis.git"
 
   bottle do
@@ -14,6 +13,12 @@ class Hiredis < Formula
     sha256 "4b089bee868b4fe533bea75917f21a42a11a9e04d5b396ec5a94d5623372ec0b" => :catalina
     sha256 "8974f8bacac7ce018f6f238915c6c5f07751c5183283337634a1715624d344b8" => :mojave
     sha256 "5ed94f51e6dbe91f7d195be5a5d085c7929f82bafeecba8645dd2315a94dad8d" => :high_sierra
+  end
+
+  # remove in next release
+  patch do
+    url "https://github.com/redis/hiredis/commit/8d86cb4.patch?full_index=1"
+    sha256 "2f1b20defbd882c220e2c2d88da8dae970b7fbd6445363303b2ae7b75263f0ff"
   end
 
   def install
