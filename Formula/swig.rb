@@ -3,7 +3,6 @@ class Swig < Formula
   homepage "http://www.swig.org/"
   url "https://downloads.sourceforge.net/project/swig/swig/swig-4.0.2/swig-4.0.2.tar.gz"
   sha256 "d53be9730d8d58a16bf0cbd1f8ac0c0c3e1090573168bfa151b01eb47fa906fc"
-  license "GPL-3.0"
 
   bottle do
     sha256 "530e80b7e7dcd28469b52fc3b668683a97b72642ebf2b6d4e6708d14f05e7286" => :catalina
