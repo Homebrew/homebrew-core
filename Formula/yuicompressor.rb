@@ -6,6 +6,8 @@ class Yuicompressor < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install "yuicompressor-#{version}.jar"
     bin.write_jar_script libexec/"yuicompressor-#{version}.jar", "yuicompressor"
