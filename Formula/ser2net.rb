@@ -3,7 +3,6 @@ class Ser2net < Formula
   homepage "https://ser2net.sourceforge.io"
   url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.2.0.tar.gz"
   sha256 "1d895f005896e8c5bcff4fe573e2fec3611bf4feee1247857e476b74323d916c"
-  license "GPL-2.0"
   revision 1
 
   bottle do
