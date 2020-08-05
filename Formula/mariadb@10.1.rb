@@ -3,7 +3,6 @@ class MariadbAT101 < Formula
   homepage "https://mariadb.org/"
   url "https://downloads.mariadb.org/f/mariadb-10.1.45/source/mariadb-10.1.45.tar.gz"
   sha256 "9d8f0f71f9613b2028ffc5c5be8b98948ec955eb0d89600d18ed7cc04807dad5"
-  license "GPL-2.0"
 
   bottle do
     sha256 "bc23160ad65b005fa2548a15279eba9514a93526c79fdfb311370b5215a1ba9d" => :catalina
