@@ -1,7 +1,6 @@
 class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
-  license "GPL-3.0"
   revision 11
 
   stable do
