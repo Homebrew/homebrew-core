@@ -3,7 +3,6 @@ class Openfortivpn < Formula
   homepage "https://github.com/adrienverge/openfortivpn"
   url "https://github.com/adrienverge/openfortivpn/archive/v1.14.1.tar.gz"
   sha256 "bc62fc6ecaaa6c6f8f2510e14a067a0cb9762158d9460c04555990bba44b50ca"
-  license "GPL-3.0"
   revision 1
 
   bottle do
