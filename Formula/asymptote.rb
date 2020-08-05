@@ -3,7 +3,6 @@ class Asymptote < Formula
   homepage "https://asymptote.sourceforge.io"
   url "https://downloads.sourceforge.net/project/asymptote/2.66/asymptote-2.66.src.tgz"
   sha256 "a2605bdec8cbf3f87b84f51860abeb7e5c1073572a54f5489d124b8786d84cd0"
-  license "GPL-3.0"
 
   bottle do
     sha256 "dc6d4f13df8030bb0cd0040cd6372af6f0bd7b94cb369821b73d5cb3d996b91f" => :catalina
