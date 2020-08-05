@@ -5,7 +5,6 @@ class Ffmpeg < Formula
   sha256 "ad009240d46e307b4e03a213a0f49c11b650e445b1f8be0dda2a9212b34d2ffb"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
-  license "GPL-2.0"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
