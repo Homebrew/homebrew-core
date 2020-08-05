@@ -3,7 +3,6 @@ class Midgard2 < Formula
   homepage "http://www.midgard-project.org/"
   url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
   sha256 "7c1d17e061df8f3b39fd8944ab97ab7220219b470f7874e74471702d2caca2cb"
-  license "LGPL-2.0"
   revision 2
 
   bottle do
