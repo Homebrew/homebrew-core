@@ -5,7 +5,6 @@ class GrOsmosdr < Formula
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.0.tar.gz"
   sha256 "9812429d97bc54f0a8917b880ca9e7e2421c66aeaac8ce5608161a8ae7007122"
-  license "GPL-3.0"
 
   bottle do
     sha256 "75db466ce0d982bfd23dae1966bcd5ec847b2f54318dec6f3ed12ebc4f87ccdb" => :catalina
