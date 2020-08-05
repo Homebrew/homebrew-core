@@ -3,7 +3,6 @@ class Arb < Formula
   homepage "http://arblib.org"
   url "https://github.com/fredrik-johansson/arb/archive/2.18.1.tar.gz"
   sha256 "9c5c6128c2e7bdc6e7e8d212f2b301068b87b956e1a238fe3b8d69d10175ceec"
-  license "LGPL-2.1"
   head "https://github.com/fredrik-johansson/arb.git"
 
   bottle do
