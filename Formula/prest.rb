@@ -1,8 +1,8 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v0.3.5.tar.gz"
-  sha256 "35aa1faaa33a47526cb836562ab095bcf610dbc3da4a569eebcbab0a8dd92e7a"
+  url "https://github.com/prest/prest/archive/v1.0.0.tar.gz"
+  sha256 "7f982067678787171ace8f48c473fceabe5c1a44a0346c91aa731e08f9e304e3"
   license "MIT"
   head "https://github.com/prest/prest.git"
 
@@ -16,8 +16,10 @@ class Prest < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags",
-           "-s -w -X github.com/prest/helpers.PrestVersionNumber=#{version}"
+    cd "cmd/prestd" do
+      system "go", "build", *std_go_args, "-ldflags",
+            "-s -w -X github.com/prest/helpers.PrestVersionNumber=#{version}"
+    end
   end
 
   test do
