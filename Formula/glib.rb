@@ -5,7 +5,6 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.64/glib-2.64.4.tar.xz"
   sha256 "f7e0b325b272281f0462e0f7fff25a833820cac19911ff677251daf6d87bce50"
-  license "LGPL-2.1"
   revision 2
 
   bottle do
