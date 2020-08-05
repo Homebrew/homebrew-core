@@ -3,7 +3,6 @@ class Libosinfo < Formula
   homepage "https://libosinfo.org/"
   url "https://releases.pagure.org/libosinfo/libosinfo-1.8.0.tar.xz"
   sha256 "49ff32be0d209f6c99480e28b94340ac3dd0158322ae4303adfbdfe973a108a5"
-  license "GPL-2.0"
   revision 2
 
   bottle do
