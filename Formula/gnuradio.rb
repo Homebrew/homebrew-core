@@ -5,7 +5,6 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.8.1.0/gnuradio-3.8.1.0.tar.gz"
   sha256 "e15311e7da9fe2bb790cc36321d7eb2d93b9dfa0c1552fa5d534dd99d22873be"
-  license "GPL-3.0"
   revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
