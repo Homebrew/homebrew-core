@@ -4,7 +4,6 @@ class Juju < Formula
   url "https://github.com/juju/juju.git",
     tag:      "juju-2.8.1",
     revision: "16439b3d1c528b7a0e019a16c2122ccfcf6aa41f"
-  license "AGPL-3.0"
   version_scheme 1
 
   bottle do
