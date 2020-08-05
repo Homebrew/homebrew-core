@@ -3,7 +3,6 @@ class Vgrep < Formula
   homepage "https://github.com/vrothberg/vgrep"
   url "https://github.com/vrothberg/vgrep/archive/v2.3.3.tar.gz"
   sha256 "062145687d4c33f66b35be15633ff60cd24fd467bf2791f1a8c3ffb069935aa4"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
