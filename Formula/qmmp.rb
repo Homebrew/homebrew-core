@@ -3,7 +3,6 @@ class Qmmp < Formula
   homepage "https://qmmp.ylsoftware.com/"
   url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.1.tar.bz2"
   sha256 "2ad5e5ce790166a162b942fe64b734559c515ba06c1de5bef46b9713b3c8285c"
-  license "GPL-2.0"
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
 
   bottle do
