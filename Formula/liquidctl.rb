@@ -5,7 +5,6 @@ class Liquidctl < Formula
   homepage "https://github.com/jonasmalacofilho/liquidctl"
   url "https://files.pythonhosted.org/packages/43/37/7d30f2ba5eade8715c8981d552bcc6b67a039426fc32aa2722b5af321e67/liquidctl-1.4.0.tar.gz"
   sha256 "b35e6f297e67f9e145794bb57b88c626ef2bfd97e7fbb5b098f3dbf9ae11213e"
-  license "GPL-3.0"
   head "https://github.com/jonasmalacofilho/liquidctl.git"
 
   bottle do
