@@ -7,7 +7,6 @@ class Dpkg < Formula
   url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.5.tar.xz"
   mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.5.tar.xz"
   sha256 "f2f23f3197957d89e54b87cf8fc42ab00e1b74f3a32090efe9acd08443f3e0dd"
-  license "GPL-2.0"
 
   bottle do
     sha256 "32ae6083fd4207f4cecd58087b68afc43a22d6020bd7a89184a0af20ecc9a2fb" => :catalina
