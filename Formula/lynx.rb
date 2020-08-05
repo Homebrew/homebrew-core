@@ -4,7 +4,6 @@ class Lynx < Formula
   url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2"
   version "2.8.9rel.1"
   sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
-  license "GPL-2.0"
   revision 1
 
   bottle do
