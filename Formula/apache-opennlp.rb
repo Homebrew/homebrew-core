@@ -8,9 +8,11 @@ class ApacheOpennlp < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install Dir["*"]
-    bin.write_exec_script libexec/"bin/opennlp"
+    (bin/"opennlp").write_env_script libexec/"bin/opennlp", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do
