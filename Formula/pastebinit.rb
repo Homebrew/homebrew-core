@@ -3,7 +3,6 @@ class Pastebinit < Formula
   homepage "https://launchpad.net/pastebinit"
   url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
   sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
-  license "GPL-2.0"
   revision 2
 
   bottle do
