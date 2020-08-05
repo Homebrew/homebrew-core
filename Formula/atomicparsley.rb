@@ -4,7 +4,6 @@ class Atomicparsley < Formula
   url "https://github.com/wez/atomicparsley/archive/20200701.154658.b0d6223.tar.gz"
   version "20200701.154658.b0d6223"
   sha256 "52f11dc0cbd8964fcdaf019bfada2102f9ee716a1d480cd43ae5925b4361c834"
-  license "GPL-2.0"
   version_scheme 1
   head "https://github.com/wez/atomicparsley.git"
 
