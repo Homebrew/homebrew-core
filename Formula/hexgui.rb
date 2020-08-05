@@ -3,7 +3,6 @@ class Hexgui < Formula
   homepage "https://sourceforge.net/p/benzene/hexgui/"
   url "https://github.com/apetresc/hexgui/archive/v0.9.3.tar.gz"
   sha256 "e7bf9daebe39c4efb06d758c5634c6fa25e97031ffa98592c378af89a03e9e8d"
-  license "GPL-3.0"
   head "https://github.com/apetresc/hexgui.git"
 
   bottle do
