@@ -3,7 +3,6 @@ class Zint < Formula
   homepage "http://www.zint.org.uk/"
   url "https://downloads.sourceforge.net/project/zint/zint/2.9.0/zint-2.9.0.tar.gz"
   sha256 "fa02fa637f1cecb242bcc751f02710cda4026d41f8f60e0c60a8884525e56fea"
-  license "GPL-3.0"
   head "https://git.code.sf.net/p/zint/code.git"
 
   bottle do
