@@ -4,7 +4,6 @@ class MitScheme < Formula
   url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/10.1.11/mit-scheme-10.1.11.tar.gz"
   sha256 "03a6df3b9d4c2472b9db7ad92010ea06423d81b018b12d0231d4241b57c80d54"
-  license "GPL-2.0"
 
   bottle do
     sha256 "5ae123ef4a76b34e2b927873991a823b0ab68a5518d1543f1e76bf9d3c36e589" => :catalina
