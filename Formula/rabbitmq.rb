@@ -105,7 +105,7 @@ class Rabbitmq < Formula
   test do
     ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
     system sbin/"rabbitmq-server", "-detached"
-    sleep 10
+    system "sleep", "10"
     system sbin/"rabbitmqctl", "status"
     system sbin/"rabbitmqctl", "stop"
   end
