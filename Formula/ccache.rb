@@ -3,7 +3,6 @@ class Ccache < Formula
   homepage "https://ccache.dev/"
   url "https://github.com/ccache/ccache/releases/download/v3.7.11/ccache-3.7.11.tar.xz"
   sha256 "8d450208099a4d202bd7df87caaec81baee20ce9dd62da91e9ea7b95a9072f68"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
