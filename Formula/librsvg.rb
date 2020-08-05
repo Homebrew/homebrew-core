@@ -3,7 +3,6 @@ class Librsvg < Formula
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
   url "https://download.gnome.org/sources/librsvg/2.48/librsvg-2.48.8.tar.xz"
   sha256 "f480a325bbdf26d1874eb6fb330ebc5920ba64e3e08de61931bb4506dfef2692"
-  license "LGPL-2.1"
 
   bottle do
     sha256 "cca0be741d91cb6dc402ef77cffa673787df7e2304ec3f78bf7a1af9cecb54f3" => :catalina
