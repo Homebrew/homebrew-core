@@ -4,7 +4,6 @@ class GitGui < Formula
   # Note: Please keep these values in sync with git.rb when updating.
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.28.0.tar.xz"
   sha256 "dfa5d1a253aa451465478fe45c6a40ab8605b340fdb4c4e80b16d7f87708439d"
-  license "GPL-2.0"
   head "https://github.com/git/git.git", shallow: false
 
   bottle do
