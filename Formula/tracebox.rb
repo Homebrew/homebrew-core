@@ -4,7 +4,6 @@ class Tracebox < Formula
   url "https://github.com/tracebox/tracebox.git",
       tag:      "v0.4.4",
       revision: "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
-  license "GPL-2.0"
   revision 2
   head "https://github.com/tracebox/tracebox.git"
 
