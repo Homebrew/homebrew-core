@@ -7,7 +7,7 @@ class Rabbitmq < Formula
 
   bottle :unneeded
 
-  depends_on "python3" => :build
+  depends_on "python@3.8" => :build
   depends_on "erlang"
 
   uses_from_macos "unzip" => :build
