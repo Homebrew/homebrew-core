@@ -3,7 +3,6 @@ class OpenjdkAT11 < Formula
   homepage "https://openjdk.java.net/"
   url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.8-ga.tar.bz2"
   sha256 "0c10838f708a5987d2980aee56c5c50c02637e21387215f3e13358b93d107192"
-  license "GPL-2.0"
 
   bottle do
     cellar :any
