@@ -1,11 +1,11 @@
 name: GitHub Actions CI
 on:
   push:
-    branches: master
+    branches: ci2
   pull_request: []
 jobs:
   tap_syntax:
-    if: github.repository == 'Homebrew/homebrew-core'
+    #    if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     steps:
     - name: Set up Homebrew
