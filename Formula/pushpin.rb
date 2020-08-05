@@ -3,7 +3,6 @@ class Pushpin < Formula
   homepage "https://pushpin.org/"
   url "https://dl.bintray.com/fanout/source/pushpin-1.30.0.tar.bz2"
   sha256 "927d83919d193e19e03d9217ece495c1a5c22bfcc344b19a6e948d206c3e1ddc"
-  license "AGPL-3.0"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
