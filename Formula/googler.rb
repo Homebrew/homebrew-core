@@ -5,7 +5,6 @@ class Googler < Formula
   homepage "https://github.com/jarun/googler"
   url "https://github.com/jarun/googler/archive/v4.2.tar.gz"
   sha256 "ee0887ec30aea14823bb32117c97f4af8cdba381244b393665d2e273f8b60b43"
-  license "GPL-3.0"
   head "https://github.com/jarun/googler.git"
 
   bottle do
