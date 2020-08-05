@@ -3,7 +3,6 @@ class OsmiumTool < Formula
   homepage "https://osmcode.org/osmium-tool/"
   url "https://github.com/osmcode/osmium-tool/archive/v1.12.1.tar.gz"
   sha256 "c8945b2b85fda7898faaf97b57faf759a06a4cf6a2c591f857779dcc503f32f2"
-  license "GPL-3.0"
 
   bottle do
     cellar :any
