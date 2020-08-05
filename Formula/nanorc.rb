@@ -3,7 +3,6 @@ class Nanorc < Formula
   homepage "https://github.com/scopatz/nanorc"
   url "https://github.com/scopatz/nanorc/releases/download/2020.1.25/nanorc-2020.1.25.tar.gz"
   sha256 "a7466a712315391559b010c224de0dc814e7fb4227853f66692ce9c4347ece7e"
-  license "GPL-3.0"
   head "https://github.com/scopatz/nanorc.git"
 
   bottle :unneeded
