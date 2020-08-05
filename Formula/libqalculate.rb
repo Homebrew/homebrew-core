@@ -3,7 +3,6 @@ class Libqalculate < Formula
   homepage "https://qalculate.github.io/"
   url "https://github.com/Qalculate/libqalculate/releases/download/v3.12.0/libqalculate-3.12.0.tar.gz"
   sha256 "ff6b56c2afbed4c37b37869fde3b45610722fa4bb4b802c84f7cb387968fbc68"
-  license "GPL-2.0"
 
   bottle do
     sha256 "dca1ef2a4ab82c30e04ba6dc2f0b63708dee3bf46269743ba12fcbd2ad695922" => :catalina
