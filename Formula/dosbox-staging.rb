@@ -3,7 +3,6 @@ class DosboxStaging < Formula
   homepage "https://dosbox-staging.github.io/"
   url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.75.0.tar.gz"
   sha256 "6279690a05b9cc134484b8c7d11e9c1cb53b50bdb9bf32bdf683bd66770b6658"
-  license "GPL-2.0"
   head "https://github.com/dosbox-staging/dosbox-staging.git"
 
   bottle do
