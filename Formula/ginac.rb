@@ -3,7 +3,6 @@ class Ginac < Formula
   homepage "https://www.ginac.de/"
   url "https://www.ginac.de/ginac-1.7.11.tar.bz2"
   sha256 "96529ddef6ae9788aca0093f4b85fc4e34318bc6704e628e6423ab5a92dfe929"
-  license "GPL-2.0"
 
   bottle do
     cellar :any
