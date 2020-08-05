@@ -1,7 +1,6 @@
 class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
-  license "LGPL-2.1"
 
   stable do
     url "https://github.com/minetest/minetest/archive/5.3.0.tar.gz"
