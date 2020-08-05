@@ -3,7 +3,6 @@ class Coq < Formula
   homepage "https://coq.inria.fr/"
   url "https://github.com/coq/coq/archive/V8.12.0.tar.gz"
   sha256 "ecde14c6132f5abb459e7f4724788788928174ad4484fff88e86b0086779bcee"
-  license "LGPL-2.1"
   head "https://github.com/coq/coq.git"
 
   bottle do
