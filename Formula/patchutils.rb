@@ -4,7 +4,6 @@ class Patchutils < Formula
   url "http://cyberelk.net/tim/data/patchutils/stable/patchutils-0.4.2.tar.xz"
   mirror "https://deb.debian.org/debian/pool/main/p/patchutils/patchutils_0.4.2.orig.tar.xz"
   sha256 "8875b0965fe33de62b890f6cd793be7fafe41a4e552edbf641f1fed5ebbf45ed"
-  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
