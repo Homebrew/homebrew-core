@@ -3,7 +3,6 @@ class RdiffBackup < Formula
   homepage "https://rdiff-backup.net/"
   url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
   sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
-  license "GPL-2.0"
 
   bottle do
     cellar :any
