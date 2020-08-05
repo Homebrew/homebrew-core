@@ -4,7 +4,6 @@ class K6 < Formula
   url "https://github.com/loadimpact/k6.git",
     tag:      "v0.27.1",
     revision: "4ee1ca9624bdd9fa68a0d534be11ac22328f1821"
-  license "AGPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
