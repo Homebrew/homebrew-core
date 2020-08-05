@@ -5,7 +5,6 @@ class Diffoscope < Formula
   homepage "https://diffoscope.org"
   url "https://files.pythonhosted.org/packages/da/66/45b9d025bcff48c2f9fad8077e82982b1bba367a729b8e62196cefacbff4/diffoscope-154.tar.gz"
   sha256 "d8ab3453c3ee25059cd0528a46bf6bced417fa49acac3ba3a0bfba7f48968b21"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
