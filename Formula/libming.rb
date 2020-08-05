@@ -3,7 +3,6 @@ class Libming < Formula
   homepage "http://www.libming.org"
   url "https://github.com/libming/libming/archive/ming-0_4_8.tar.gz"
   sha256 "2a44cc8b7f6506adaa990027397b6e0f60ba0e3c1fe8c9514be5eb8e22b2375c"
-  license "LGPL-2.1"
   revision 1
 
   bottle do
