@@ -3,7 +3,6 @@ class MysqlAT57 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.31.tar.gz"
   sha256 "85bd222e61846313d7ad7c095ad664c89ca8f52dd9c21b7ac343ead62d701200"
-  license "GPL-2.0"
 
   bottle do
     sha256 "14ae8121e150830abdf81c06028a0aeeeae3051e5571a0f60fe54ba60fcc0586" => :catalina
