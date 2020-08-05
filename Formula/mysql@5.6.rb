@@ -3,7 +3,6 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.47.tar.gz"
   sha256 "0919096705784c62af831bb607e99345083edd76967c8c65966728742a9127fe"
-  license "GPL-2.0"
 
   bottle do
     sha256 "3ae76dae15820186fc74aef54f6365a55e19abc7c6d7826db5a1c774b9d9c759" => :catalina
