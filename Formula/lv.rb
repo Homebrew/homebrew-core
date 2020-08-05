@@ -4,7 +4,6 @@ class Lv < Formula
   url "https://web.archive.org/web/20150915000000/www.ff.iij4u.or.jp/~nrt/freeware/lv451.tar.gz"
   version "4.51"
   sha256 "e1cd2e27109fbdbc6d435f2c3a99c8a6ef2898941f5d2f7bacf0c1ad70158bcf"
-  license "GPL-2.0"
   revision 1
 
   bottle do
