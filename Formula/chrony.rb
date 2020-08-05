@@ -3,7 +3,6 @@ class Chrony < Formula
   homepage "https://chrony.tuxfamily.org"
   url "https://download.tuxfamily.org/chrony/chrony-3.5.tar.gz"
   sha256 "4e02795b1260a4ec51e6ace84149036305cc9fc340e65edb9f8452aa611339b5"
-  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
