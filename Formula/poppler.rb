@@ -3,7 +3,6 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.90.1.tar.xz"
   sha256 "984d82e72e91418d280885298c8bdc855a2fd92665fd52a1345b27235e0c71c4"
-  license "GPL-2.0"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
