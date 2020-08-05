@@ -3,7 +3,6 @@ class Nvc < Formula
   homepage "https://github.com/nickg/nvc"
   url "https://github.com/nickg/nvc/releases/download/r1.5.0/nvc-1.5.tar.gz"
   sha256 "4da984ba95eb3b8dd2893fb7a676675de869ff114b827a9f5490dfd54bc95fcb"
-  license "GPL-3.0"
   revision 1
 
   bottle do
