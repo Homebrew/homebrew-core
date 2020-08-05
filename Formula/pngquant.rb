@@ -3,7 +3,6 @@ class Pngquant < Formula
   homepage "https://pngquant.org/"
   url "https://pngquant.org/pngquant-2.12.5-src.tar.gz"
   sha256 "3638936cf6270eeeaabcee42e10768d78e4dc07cac9310307835c1f58b140808"
-  license "GPL-3.0"
   head "https://github.com/kornelski/pngquant.git"
 
   bottle do
