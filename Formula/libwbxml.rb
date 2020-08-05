@@ -3,7 +3,6 @@ class Libwbxml < Formula
   homepage "https://github.com/libwbxml/libwbxml"
   url "https://github.com/libwbxml/libwbxml/archive/libwbxml-0.11.7.tar.gz"
   sha256 "35e2cf033066edebc0d96543c0bdde87273359e4f4e59291299d41e103bd6338"
-  license "LGPL-2.1"
   head "https://github.com/libwbxml/libwbxml.git"
 
   bottle do
