@@ -3,7 +3,6 @@ class Mp3fs < Formula
   homepage "https://khenriks.github.io/mp3fs/"
   url "https://github.com/khenriks/mp3fs/releases/download/v1.0/mp3fs-1.0.tar.gz"
   sha256 "cbb52062d712e8dfd3491d0b105e2e05715d493a0fd14b53a23919694a348069"
-  license "GPL-3.0"
 
   bottle do
     cellar :any
