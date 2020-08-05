@@ -4,7 +4,6 @@ class MozGitTools < Formula
   url "https://github.com/mozilla/moz-git-tools.git",
       tag:      "v0.1",
       revision: "cfe890e6f81745c8b093b20a3dc22d28f9fc0032"
-  license "GPL-2.0"
   head "https://github.com/mozilla/moz-git-tools.git"
 
   bottle do
