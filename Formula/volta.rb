@@ -4,6 +4,7 @@ class Volta < Formula
   url "https://github.com/volta-cli/volta.git",
       tag:      "v0.8.6",
       revision: "701d036d39cf9686625996f0e319ca89e8db91bc"
+  license "BSD-2-Clause"
 
   bottle do
     cellar :any_skip_relocation
