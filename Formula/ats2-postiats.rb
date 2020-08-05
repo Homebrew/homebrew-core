@@ -3,7 +3,6 @@ class Ats2Postiats < Formula
   homepage "http://www.ats-lang.org/"
   url "https://downloads.sourceforge.net/project/ats2-lang/ats2-lang/ats2-postiats-0.4.1/ATS2-Postiats-0.4.1.tgz"
   sha256 "03f4bf7205f76732624c32a4bf0b346ddace23fdb5a1cde25c378d33043aaa3c"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
