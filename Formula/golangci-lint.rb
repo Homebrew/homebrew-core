@@ -4,7 +4,6 @@ class GolangciLint < Formula
   url "https://github.com/golangci/golangci-lint.git",
     tag:      "v1.30.0",
     revision: "45b90f6c7f59a66b95512a813ad341b1b83190da"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
