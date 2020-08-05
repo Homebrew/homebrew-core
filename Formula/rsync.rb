@@ -5,7 +5,6 @@ class Rsync < Formula
   mirror "https://mirrors.kernel.org/gentoo/distfiles/rsync-3.2.2.tar.gz"
   mirror "https://www.mirrorservice.org/sites/rsync.samba.org/rsync-3.2.2.tar.gz"
   sha256 "644bd3841779507665211fd7db8359c8a10670c57e305b4aab61b4e40037afa8"
-  license "GPL-3.0"
 
   bottle do
     cellar :any
