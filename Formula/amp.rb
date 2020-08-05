@@ -3,7 +3,6 @@ class Amp < Formula
   homepage "https://amp.rs"
   url "https://github.com/jmacdonald/amp/archive/0.6.2.tar.gz"
   sha256 "9279efcecdb743b8987fbedf281f569d84eaf42a0eee556c3447f3dc9c9dfe3b"
-  license "GPL-3.0"
   head "https://github.com/jmacdonald/amp.git"
 
   bottle do
