@@ -3,7 +3,6 @@ class MariadbConnectorOdbc < Formula
   homepage "https://downloads.mariadb.org/connector-odbc/"
   url "https://downloads.mariadb.org/f/connector-odbc-3.1.9/mariadb-connector-odbc-3.1.9-ga-src.tar.gz"
   sha256 "5ead3f69ccde539fd7e3de6f4b8f0e6f9f6c32b4b4f082adf0e2ff110971fe1e"
-  license "LGPL-2.1"
 
   bottle do
     sha256 "339b4c5fa7121936bd5ed68e5d6c507400e43445bc46b63f6cea6212e047c66f" => :catalina
