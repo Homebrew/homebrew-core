@@ -3,7 +3,6 @@ class Distcc < Formula
   homepage "https://github.com/distcc/distcc/"
   url "https://github.com/distcc/distcc/releases/download/v3.3.3/distcc-3.3.3.tar.gz"
   sha256 "bead25471d5a53ecfdf8f065a6fe48901c14d5008956c318c700e56bc87bf0bc"
-  license "GPL-2.0"
   revision 2
   head "https://github.com/distcc/distcc.git"
 
