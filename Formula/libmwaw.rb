@@ -4,7 +4,6 @@ class Libmwaw < Formula
   url "https://downloads.sourceforge.net/project/libmwaw/libmwaw/libmwaw-0.3.16/libmwaw-0.3.16.tar.xz"
   sha256 "0c639edba5297bde5575193bf5b5f2f469956beaff5c0206d91ce9df6bde1868"
   # license ["LGPL-2.1", "MPL-2.0"] - pending https://github.com/Homebrew/brew/pull/7953
-  license "LGPL-2.1"
 
   bottle do
     cellar :any
