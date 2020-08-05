@@ -3,7 +3,6 @@ class Babl < Formula
   homepage "http://www.gegl.org/babl/"
   url "https://download.gimp.org/pub/babl/0.1/babl-0.1.80.tar.xz"
   sha256 "f75ccc39af42585099bcb4731071dc5316b7542c5e232f63e278cd1ea2c04f8e"
-  license "LGPL-3.0"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
   head "https://github.com/GNOME/babl.git"
 
