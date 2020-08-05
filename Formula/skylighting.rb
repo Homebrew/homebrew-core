@@ -3,7 +3,6 @@ class Skylighting < Formula
   homepage "https://github.com/jgm/skylighting"
   url "https://github.com/jgm/skylighting/archive/0.9.tar.gz"
   sha256 "a9087166ee341e9f2e7c67e2ce7840c9e8e0f6872380a773219498a198e76cd0"
-  license "GPL-2.0"
   head "https://github.com/jgm/skylighting.git"
 
   bottle do
