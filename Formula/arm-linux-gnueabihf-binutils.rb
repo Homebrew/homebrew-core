@@ -4,7 +4,6 @@ class ArmLinuxGnueabihfBinutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.35.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.35.tar.gz"
   sha256 "a3ac62bae4f339855b5449cfa9b49df90c635adbd67ecb8a0e7f3ae86a058da6"
-  license "GPL-2.0"
 
   bottle do
     sha256 "743bac0fdd042088a61631b9fca121fd89d0bab810a6814448a0b70897adc84c" => :catalina
