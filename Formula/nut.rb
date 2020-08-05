@@ -1,7 +1,6 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  license "GPL-3.0"
   revision 2
 
   stable do
