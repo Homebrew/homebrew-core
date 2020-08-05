@@ -3,7 +3,6 @@ class Nano < Formula
   homepage "https://www.nano-editor.org/"
   url "https://www.nano-editor.org/dist/v5/nano-5.0.tar.xz"
   sha256 "7c0d94be69cd066f20df2868a2da02f7b1d416ce8d47c0850a8bd270897caa36"
-  license "GPL-3.0"
 
   bottle do
     sha256 "364da878cbe90e6e09be7cfd252f01e55cdf787bf013530cba2d94e437eaffb1" => :catalina
