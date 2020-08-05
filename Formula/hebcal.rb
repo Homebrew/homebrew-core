@@ -3,7 +3,6 @@ class Hebcal < Formula
   homepage "https://github.com/hebcal/hebcal"
   url "https://github.com/hebcal/hebcal/archive/v4.21.tar.gz"
   sha256 "6295bc183d8a9694f2546100909fb0b1943f0acc55c9743937f435f17d47ddbc"
-  license "GPL-2.0"
 
   bottle do
     cellar :any_skip_relocation
