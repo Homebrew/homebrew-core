@@ -38,7 +38,7 @@ jobs:
 
   tests:
     needs: tap_syntax
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && ! contains(github.event.pull_request.labels.*.name, 'CI-syntax-only')
     strategy:
       matrix:
         version: [10.15, 10.14, 10.13]
