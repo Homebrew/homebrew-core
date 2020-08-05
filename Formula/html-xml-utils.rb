@@ -3,6 +3,7 @@ class HtmlXmlUtils < Formula
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
   url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.9.tar.gz"
   sha256 "d86ac96ea660316bef814c17b2a96d54cdf91c69e59614459865c2bfdaee433f"
+  license "W3C"
 
   bottle do
     cellar :any_skip_relocation
