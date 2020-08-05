@@ -3,7 +3,6 @@ class Zim < Formula
   homepage "https://zim-wiki.org/"
   url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.73.2.tar.gz"
   sha256 "f002e63d7c131e317225c2912d5cc2065da90448f7ebd330ad4931a57fa45eda"
-  license "GPL-2.0"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
