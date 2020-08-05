@@ -12,7 +12,6 @@ class Mutt < Formula
   homepage "http://www.mutt.org/"
   url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.14.6.tar.gz"
   sha256 "47972a0152b81b9f67ff322a0a6682b914c15545bfdeac6bcc2f2c0bf9361844"
-  license "GPL-2.0"
 
   bottle do
     sha256 "082daa6e0a39f0571b6d4ed96319783ea3bd0c466dec391161bd77bac602ff25" => :catalina
