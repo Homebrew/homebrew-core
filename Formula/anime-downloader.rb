@@ -3,8 +3,8 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/a8/16/d691bdeea087f2842330974601543e83f7edcffdbb0140064eaa2f4f553f/anime-downloader-4.5.0.tar.gz"
-  sha256 "520d143908f433cb07dc6565f9434020d2f2a32bd3f71aa969cadb7f0a0361fb"
+  url "https://files.pythonhosted.org/packages/27/c3/9769cb53261f5c8ead0261c50015e11f4129d481f01277c2c70d18683c99/anime-downloader-4.5.1.tar.gz"
+  sha256 "1c0137ee5e41a43680555a5923e954e2b8607dbda97958748de4243587c92f05"
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
@@ -101,6 +101,6 @@ class AnimeDownloader < Formula
   test do
     assert_match "Download or watch your favourite anime", shell_output("#{bin}/anime --help 2>&1")
 
-    assert_match "anime-downloader #{version}", shell_output("#{bin}/anime watch 2>&1")
+    assert_equal "anime, version #{version}", shell_output("#{bin}/anime --version").chomp
   end
 end
