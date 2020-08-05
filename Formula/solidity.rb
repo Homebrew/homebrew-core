@@ -3,7 +3,6 @@ class Solidity < Formula
   homepage "https://solidity.readthedocs.io"
   url "https://github.com/ethereum/solidity/releases/download/v0.7.0/solidity_0.7.0.tar.gz"
   sha256 "86e782a88eaaf4aa98f4e1e915f46b5bc5f596ea86c784fb911dc6e4c04309bf"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
