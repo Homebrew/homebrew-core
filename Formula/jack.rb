@@ -12,7 +12,6 @@ class Jack < Formula
   url "https://github.com/jackaudio/jack1.git",
       tag:      "0.125.0",
       revision: "f5e00e485e7aa4c5baa20355b27e3b84a6912790"
-  license "GPL-2.0"
   revision 4
   head "https://github.com/jackaudio/jack1.git"
 
