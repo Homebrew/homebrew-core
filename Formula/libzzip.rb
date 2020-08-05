@@ -3,7 +3,6 @@ class Libzzip < Formula
   homepage "https://github.com/gdraheim/zziplib"
   url "https://github.com/gdraheim/zziplib/archive/v0.13.71.tar.gz"
   sha256 "2ee1e0fbbb78ec7cc46bde5b62857bc51f8d665dd265577cf93584344b8b9de2"
-  license "LGPL-2.0"
 
   bottle do
     cellar :any
