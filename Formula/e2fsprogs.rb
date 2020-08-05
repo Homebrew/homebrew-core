@@ -9,7 +9,6 @@ class E2fsprogs < Formula
   # General Public License Version 2, the lib/uuid library which is made
   # available under a BSD-style license and the lib/et and lib/ss
   # libraries which are made available under an MIT-style license.
-  license "GPL-2.0"
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   bottle do
