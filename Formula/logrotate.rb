@@ -3,7 +3,6 @@ class Logrotate < Formula
   homepage "https://github.com/logrotate/logrotate"
   url "https://github.com/logrotate/logrotate/releases/download/3.17.0/logrotate-3.17.0.tar.xz"
   sha256 "58cc2178ff57faa3c0490181cce041345aeca6cff18dba1c5cd1398bf1c19294"
-  license "GPL-2.0"
 
   bottle do
     cellar :any
