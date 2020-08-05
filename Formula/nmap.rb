@@ -3,7 +3,6 @@ class Nmap < Formula
   homepage "https://nmap.org/"
   url "https://nmap.org/dist/nmap-7.80.tar.bz2"
   sha256 "fcfa5a0e42099e12e4bf7a68ebe6fde05553383a682e816a7ec9256ab4773faa"
-  license "GPL-2.0"
   revision 1
   head "https://svn.nmap.org/nmap/"
 
