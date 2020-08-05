@@ -3,7 +3,6 @@ class Siege < Formula
   homepage "https://www.joedog.org/siege-home/"
   url "http://download.joedog.org/siege/siege-4.0.7.tar.gz"
   sha256 "bfa75b3eaad372e7b89eee75d789cd6acbda34900a0c6e49030cf0f803b56df8"
-  license "GPL-3.0"
 
   bottle do
     sha256 "ccc545449c2a0bacb0054078faee630f23e4728d1bf137cba9c5d8aa82e02495" => :catalina
