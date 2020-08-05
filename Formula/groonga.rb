@@ -3,7 +3,6 @@ class Groonga < Formula
   homepage "https://groonga.org/"
   url "https://packages.groonga.org/source/groonga/groonga-10.0.5.tar.gz"
   sha256 "e0d60ecbf441f86fe8a7e2448ec2e5b1e0a9f26405a71258abb2940d69c53213"
-  license "LGPL-2.1"
 
   bottle do
     sha256 "5f2e76dc576e22a528d4f793153a08aaf2aeaaedeb682eb61886808355e273c0" => :catalina
