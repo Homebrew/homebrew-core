@@ -3,7 +3,6 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.36/evince-3.36.7.tar.xz"
   sha256 "65d61a423e3fbbe07001f65e87422dfb7d2e42b9edf0ca6a1d427af9a04b8f32"
-  license "GPL-2.0"
   revision 1
 
   bottle do
