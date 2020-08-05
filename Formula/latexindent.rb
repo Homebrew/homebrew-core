@@ -3,7 +3,6 @@ class Latexindent < Formula
   homepage "https://ctan.org/pkg/latexindent"
   url "https://github.com/cmhughes/latexindent.pl/archive/V3.8.2.tar.gz"
   sha256 "a134e27d56b7daee2bea37563424f996fc559bc8019e92213261b25cdb84a688"
-  license "GPL-3.0"
 
   bottle do
     cellar :any_skip_relocation
