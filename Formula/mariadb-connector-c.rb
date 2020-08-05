@@ -3,7 +3,6 @@ class MariadbConnectorC < Formula
   homepage "https://downloads.mariadb.org/connector-c/"
   url "https://downloads.mariadb.org/f/connector-c-3.1.9/mariadb-connector-c-3.1.9-src.tar.gz"
   sha256 "108d99bf2add434dcb3bd9526ba1d89a2b9a943b62dcd9d0a41fcbef8ffbf2c7"
-  license "LGPL-2.1"
   head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
 
   bottle do
