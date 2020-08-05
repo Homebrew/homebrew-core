@@ -1,7 +1,6 @@
 class Tcptraceroute < Formula
   desc "Traceroute implementation using TCP packets"
   homepage "https://github.com/mct/tcptraceroute"
-  license "GPL-2.0"
   revision 2
   head "https://github.com/mct/tcptraceroute.git"
 
