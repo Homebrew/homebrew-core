@@ -1,7 +1,6 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "https://www.pango.org/"
-  license "GPL-2.0"
 
   stable do
     url "https://download.gnome.org/sources/pango/1.44/pango-1.44.7.tar.xz"
