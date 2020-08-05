@@ -3,7 +3,6 @@ class Ethereum < Formula
   homepage "https://ethereum.github.io/go-ethereum/"
   url "https://github.com/ethereum/go-ethereum/archive/v1.9.18.tar.gz"
   sha256 "6d8e4bd9ab797f3e0df182b7220a65592bda1cf517a2130a044ec5f41ffa72db"
-  license "LGPL-3.0"
   head "https://github.com/ethereum/go-ethereum.git"
 
   bottle do
