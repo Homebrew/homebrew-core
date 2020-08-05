@@ -3,7 +3,6 @@ class Libvirt < Formula
   homepage "https://www.libvirt.org"
   url "https://libvirt.org/sources/libvirt-6.6.0.tar.xz"
   sha256 "94e52ddd2d71b650e1a7eb5ab7e651f9607ecee207891216714020b8ff081ef9"
-  license "LGPL-2.1"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
