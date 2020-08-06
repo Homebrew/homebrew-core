@@ -3,8 +3,8 @@ class Cbmc < Formula
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
       using:    :git,
-      tag:      "cbmc-5.12.4",
-      revision: "b0b322501b29b30d8767e756ae641dc338d95caa"
+      tag:      "cbmc-5.12.5",
+      revision: "b3a6cc4294136c1d2710f64ce5014f9043c92c95"
   license "BSD-4-Clause"
 
   bottle do
