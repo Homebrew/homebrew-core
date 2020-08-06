@@ -97,8 +97,10 @@ class R < Formula
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
     assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
 
-    system bin/"Rscript", "-e", "install.packages('statcheck', '.', 'https://cloud.r-project.org')"
-    assert_equal "[1] TRUE", shell_output("#{bin}/Rscript -e 'print(\"statcheck\" %in% rownames(installed.packages()))'").chomp
+    system bin/"Rscript", "-e", "install.packages('statcheck', '.', \
+      'https://cloud.r-project.org')"
+    assert_equal "[1] TRUE", shell_output("#{bin}/Rscript -e \
+      'print(\"statcheck\" %in% rownames(installed.packages()))'").chomp
 
     system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
     assert_predicate testpath/"gss/libs/gss.so", :exist?,
