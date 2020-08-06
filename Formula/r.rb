@@ -4,7 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.0.2.tar.gz"
   sha256 "d3bceab364da0876625e4097808b42512395fdf41292f4915ab1fd257c1bbe75"
   license "GPL-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "4d2073c7d93e1117cc35fcc375f6eb112f16c311cc4400d703a805d57f0de71a" => :catalina
@@ -21,6 +21,7 @@ class R < Formula
   depends_on "pcre2"
   depends_on "readline"
   depends_on "xz"
+  depends_on "tcl-tk"
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin", "lib/R/doc"
@@ -36,7 +37,9 @@ class R < Formula
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
       "--without-cairo",
-      "--without-tcltk",
+      "--with-tcltk=-L#{Formula["tcl-tk"].opt_lib}",
+      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--without-x",
       "--with-aqua",
       "--with-lapack",
