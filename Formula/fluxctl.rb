@@ -2,8 +2,8 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/fluxcd/flux"
   url "https://github.com/fluxcd/flux.git",
-      tag:      "1.20.0",
-      revision: "04e9e50311c3bf407629b0a9d75996ead187e952"
+      tag:      "1.20.1",
+      revision: "29e256a9095ed2a027e136f9115ab163e530114b"
   license "Apache-2.0"
 
   bottle do
@@ -18,7 +18,6 @@ class Fluxctl < Formula
   def install
     cd buildpath/"cmd/fluxctl" do
       system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"fluxctl"
-      prefix.install_metafiles
     end
   end
 
