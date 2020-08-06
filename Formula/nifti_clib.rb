@@ -1,8 +1,9 @@
 class NiftiClib < Formula
   desc "C libraries for NIFTI support"
   homepage "https://github.com/NIFTI-Imaging/nifti_clib"
-  url "https://github.com/leej3/nifti_clib/archive/v3.0.0.tar.gz"
-  sha256 "fe6cb1076974df01844f3f4dab1aa844953b3bc1d679126c652975158573d03d"
+  url "https://github.com/NIFTI-Imaging/nifti_clib/archive/v3.0.1.tar.gz"
+  sha256 "868b611b5f8a3a73809436c9072db50db4975615905f0bd5fb7b1432e6d24b37"
+  license :public_domain
 
   depends_on "cmake" => :build
   depends_on "help2man" => :build
