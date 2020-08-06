@@ -104,13 +104,8 @@ class Rabbitmq < Formula
 
   test do
     ENV["RABBITMQ_MNESIA_BASE"] = testpath/"var/lib/rabbitmq/mnesia"
-
-    pid = fork do
-      exec sbin/"rabbitmq-server"
-    end
-
+    pid = fork { exec sbin/"rabbitmq-server" }
     system sbin/"rabbitmq-diagnostics", "wait", "--pid", pid
-
     system sbin/"rabbitmqctl", "status"
     system sbin/"rabbitmqctl", "stop"
   end
