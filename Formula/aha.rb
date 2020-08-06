@@ -1,8 +1,8 @@
 class Aha < Formula
   desc "ANSI HTML adapter"
   homepage "https://github.com/theZiz/aha"
-  url "https://github.com/theZiz/aha/archive/0.5.tar.gz"
-  sha256 "6f8b044bee9760a1a85dffbc362e532d7dd91bb20b7ed4f241ff1119ad74758f"
+  url "https://github.com/theZiz/aha/archive/0.5.1.tar.gz"
+  sha256 "6aea13487f6b5c3e453a447a67345f8095282f5acd97344466816b05ebd0b3b1"
   license "LGPL-2.1"
   head "https://github.com/theZiz/aha.git"
 
