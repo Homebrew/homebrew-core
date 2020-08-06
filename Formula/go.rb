@@ -4,9 +4,9 @@ class Go < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://dl.google.com/go/go1.14.6.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.14.6.src.tar.gz"
-    sha256 "73fc9d781815d411928eccb92bf20d5b4264797be69410eac854babe44c94c09"
+    url "https://golang.org/dl/go1.14.7.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.14.7.src.tar.gz"
+    sha256 "064392433563660c73186991c0a315787688e7c38a561e26647686f89b6c30e3"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
