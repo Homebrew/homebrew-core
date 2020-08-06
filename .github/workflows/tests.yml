@@ -108,16 +108,26 @@ jobs:
           git fetch --prune --force origin ${{github.sha}}
           git checkout --force ${{github.sha}}
           git log -1
+          cd "$GITHUB_WORKSPACE"
+
+      - name: Cleanup
+        run: |
+           pwd
+           find .
+           rm -rvf bottles steps_output.txt /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/steps_output.txt
 
       - name: Run brew test-bot --only-cleanup-before
-        run: brew test-bot --only-cleanup-before
+        run: |
+          pwd
+          brew test-bot --only-cleanup-before
 
       - name: Run brew test-bot --only-setup
-        run: brew test-bot --only-setup
+        run: |
+          pwd
+          brew test-bot --only-setup
 
       - name: Run brew test-bot --only-formulae
         run: |
-          rm -rf bottles
           mkdir bottles
           cd bottles
           brew test-bot --only-formulae
@@ -138,8 +148,8 @@ jobs:
       - name: Delete logs and home
         if: always()
         run: |
-          rm -rf bottles/logs
-          rm -rf bottles/home
+          rm -rvf bottles/logs
+          rm -rvf bottles/home
 
       - name: Count bottles
         id: bottles
@@ -164,5 +174,6 @@ jobs:
       - name: Cleanup
         if: always()
         run: |
+          pwd
           find .
-          rm -rf *
+          rm -rvf bottles steps_output.txt
