@@ -1,9 +1,10 @@
 class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/asymptote/2.66/asymptote-2.66.src.tgz"
-  sha256 "a2605bdec8cbf3f87b84f51860abeb7e5c1073572a54f5489d124b8786d84cd0"
-  license "GPL-3.0"
+  # Keep version in sync with manual below
+  url "https://downloads.sourceforge.net/project/asymptote/2.67/asymptote-2.67.src.tgz"
+  sha256 "8a1e574b81140b3fc1f5be659468bf90a313255a5a548ddd9fd11d4155e72d9b"
+  license "LGPL-3.0-only"
 
   bottle do
     sha256 "dc6d4f13df8030bb0cd0040cd6372af6f0bd7b94cb369821b73d5cb3d996b91f" => :catalina
@@ -15,10 +16,13 @@ class Asymptote < Formula
   depends_on "fftw"
   depends_on "ghostscript"
   depends_on "gsl"
+  depends_on "readline"
+
+  uses_from_macos "ncurses"
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.65/asymptote.pdf"
-    sha256 "9a3aafacab8e09ca677972321d04c3fe9a335adad960e5f22ab30ab5fb82b705"
+    url "https://downloads.sourceforge.net/project/asymptote/2.67/asymptote.pdf"
+    sha256 "f1412782e639612050063eb66fcca6ecca415b1141b2142b3a310ccb21509694"
   end
 
   def install
