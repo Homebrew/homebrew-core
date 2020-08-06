@@ -3,6 +3,7 @@ class Mesa < Formula
   homepage "https://www.mesa3d.org/"
   url "https://mesa.freedesktop.org/archive/mesa-20.1.5.tar.xz"
   sha256 "fac1861e6e0bf1aec893f8d86dbfb9d8a0f426ff06b05256df10e3ad7e02c69b"
+  license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
