@@ -8,55 +8,18 @@ jobs:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     steps:
+    - name: Set up Git repository
+      uses: actions/checkout@master
+
+    - name: Set up Ruby
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/setup-ruby@main
+      with:
+        ruby-version: '2.6'
+
     - name: Set up Homebrew
       id: set-up-homebrew
-      run: |
-        if which brew &>/dev/null; then
-          HOMEBREW_PREFIX="$(brew --prefix)"
-          HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
-          brew update-reset "$HOMEBREW_REPOSITORY"
-
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-          git -C "$HOMEBREW_CORE_REPOSITORY" remote set-url origin "https://github.com/$GITHUB_REPOSITORY"
-        else
-          HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
-          HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
-          sudo mkdir -p "$HOMEBREW_PREFIX"
-          sudo git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY"
-
-          HOMEBREW_CORE_REPOSITORY="$HOMEBREW_REPOSITORY/Library/Taps/homebrew/homebrew-core"
-          sudo mkdir -p "$HOMEBREW_CORE_REPOSITORY"
-          git -C "$HOMEBREW_CORE_REPOSITORY" init
-          git -C "$HOMEBREW_CORE_REPOSITORY" remote add origin "https://github.com/$GITHUB_REPOSITORY"
-
-          cd "$HOMEBREW_PREFIX"
-          sudo mkdir -p bin etc include lib opt sbin share var/homebrew/linked Cellar
-          sudo ln -sf ../Homebrew/bin/brew "$HOMEBREW_PREFIX/bin/"
-          cd -
-        fi
-
-        export PATH="$HOMEBREW_PREFIX/bin:$PATH"
-        echo "::add-path::$HOMEBREW_PREFIX/bin"
-
-        GEMS_PATH="$HOMEBREW_REPOSITORY/Library/Homebrew/vendor/bundle/ruby/"
-        echo "::set-output name=gems-path::$GEMS_PATH"
-        GEMS_HASH=$(shasum -a 256 "$HOMEBREW_REPOSITORY/Library/Homebrew/Gemfile.lock" | cut -f1 -d' ')
-        echo "::set-output name=gems-hash::$GEMS_HASH"
-
-        cd "$HOMEBREW_CORE_REPOSITORY"
-        rm -rf "$GITHUB_WORKSPACE"
-        ln -s "$HOMEBREW_CORE_REPOSITORY" "$GITHUB_WORKSPACE"
-        git fetch origin "${{github.sha}}"
-        git checkout --force -B master FETCH_HEAD
-        cd -
-
-        if [ "$RUNNER_OS" = "macOS" ]; then
-          # don't care about `brew audit` here.
-          brew untap mongodb/brew
-        else
-          sudo chown -R "$USER" "$HOMEBREW_PREFIX"
-          sudo chmod -R g-w,o-w "$HOMEBREW_CORE_REPOSITORY"
-        fi
+      uses: Homebrew/actions/setup-homebrew@master
 
     - name: Cache Bundler RubyGems
       id: cache
@@ -69,11 +32,6 @@ jobs:
     - name: Install Bundler RubyGems
       if: steps.cache.outputs.cache-hit != 'true'
       run: brew install-bundler-gems
-
-    - name: Install taps
-      run: |
-        export HOMEBREW_NO_AUTO_UPDATE=1
-        brew tap homebrew/test-bot
 
     - name: Run brew test-bot --only-tap-syntax
       run: brew test-bot --only-tap-syntax
@@ -97,27 +55,22 @@ jobs:
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
-      - name: Update Homebrew
-        run: brew update-reset
-
-      - name: Set up Git repository
-        run: |
-          cd $(brew --repo ${{github.repository}})
-          git clean -ffdx
-          git fetch --prune --force origin master
-          git fetch --prune --force origin ${{github.sha}}
-          git checkout --force ${{github.sha}}
-          git log -1
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
       - name: Run brew test-bot --only-cleanup-before
-        run: brew test-bot --only-cleanup-before
+        run:  |
+          pwd
+          brew test-bot --only-cleanup-before
 
       - name: Run brew test-bot --only-setup
-        run: brew test-bot --only-setup
+        run: |
+          pwd
+          brew test-bot --only-setup
 
       - name: Run brew test-bot --only-formulae
         run: |
-          rm -rf bottles
           mkdir bottles
           cd bottles
           brew test-bot --only-formulae
@@ -138,8 +91,8 @@ jobs:
       - name: Delete logs and home
         if: always()
         run: |
-          rm -rf bottles/logs
-          rm -rf bottles/home
+          rm -rvf bottles/logs
+          rm -rvf bottles/home
 
       - name: Count bottles
         id: bottles
@@ -161,8 +114,6 @@ jobs:
         if: always()
         run: brew test-bot --only-cleanup-after
 
-      - name: Cleanup
+      - name: Post Cleanup
         if: always()
-        run: |
-          find .
-          rm -rf *
+        run: rm -rvf bottles
