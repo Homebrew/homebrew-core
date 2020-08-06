@@ -4,19 +4,19 @@ on:
   schedule:
     # Once every hour
     - cron: '*/60 * * * *'
-
+env:
+  HOMEBREW_COLOR: 1
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
 jobs:
   autopublish:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
-    env:
-      HOMEBREW_COLOR: 1
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
-      - name: Update Homebrew
-        run: brew update-reset $(brew --repo)
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
       - name: Run automerge
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}

@@ -3,27 +3,22 @@ on:
   push:
     branches: master
   pull_request: []
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
 jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Git repository
-      uses: actions/checkout@master
-
-    - name: Set up Ruby
-      if: matrix.os == 'ubuntu-latest'
-      uses: actions/setup-ruby@main
-      with:
-        ruby-version: '2.6'
-
     - name: Set up Homebrew
       id: set-up-homebrew
       uses: Homebrew/actions/setup-homebrew@master
 
     - name: Cache Bundler RubyGems
       id: cache
-      uses: actions/cache@v1
+      uses: actions/cache@main
       with:
         path: ${{ steps.set-up-homebrew.outputs.gems-path }}
         key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
@@ -46,12 +41,8 @@ jobs:
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
     env:
-      HOMEBREW_GIT_NAME: BrewTestBot
-      HOMEBREW_GIT_EMAIL: 'homebrew-test-bot@lists.sfconservancy.org'
       PATH: '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
       HOMEBREW_DEVELOPER: 1
-      HOMEBREW_NO_ANALYTICS: 1
-      HOMEBREW_NO_AUTO_UPDATE: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
@@ -60,14 +51,10 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Run brew test-bot --only-cleanup-before
-        run:  |
-          pwd
-          brew test-bot --only-cleanup-before
+        run: brew test-bot --only-cleanup-before
 
       - name: Run brew test-bot --only-setup
-        run: |
-          pwd
-          brew test-bot --only-setup
+        run: brew test-bot --only-setup
 
       - name: Run brew test-bot --only-formulae
         run: |
@@ -83,7 +70,7 @@ jobs:
 
       - name: Upload logs
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: logs (${{ matrix.version }})
           path: bottles/logs
@@ -105,7 +92,7 @@ jobs:
 
       - name: Upload bottles
         if: always() && steps.bottles.outputs.count > 0
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: bottles
           path: bottles
