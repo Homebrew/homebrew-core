@@ -26,6 +26,7 @@ class NiftiClib < Formula
 
     # Install shared object libraries, and all other components of build
     system "cmake", ".",
+      "-DNIFTI_INSTALL_NO_DOCS=FALSE",
       "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
   end
