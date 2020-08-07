@@ -4,6 +4,7 @@ class Reposurgeon < Formula
   url "https://gitlab.com/esr/reposurgeon.git",
     tag:      "4.16",
     revision: "f8717b4f0a8b4f051037f26201b0a340538b41c2"
+  license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
