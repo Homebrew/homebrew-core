@@ -3,6 +3,7 @@ class Phpunit < Formula
   homepage "https://phpunit.de"
   url "https://phar.phpunit.de/phpunit-9.2.6.phar"
   sha256 "8223865d3de82828009fb07abd3ab7640f6c58310c62a46a2ce98bce5655f295"
+  license "BSD-3-Clause"
 
   bottle :unneeded
 
