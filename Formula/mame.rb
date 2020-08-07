@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0222.tar.gz"
-  version "0.222"
-  sha256 "3380b86d1bc5bc09f5bb4099f3833b6fba924a8bd189aac4dab149afba799ce7"
+  url "https://github.com/mamedev/mame/archive/mame0223.tar.gz"
+  version "0.223"
+  sha256 "d94685aabe28e9bb2374162e3ca070949b67e3e97cc50eb25558baed5b8d3591"
   license "GPL-2.0"
   head "https://github.com/mamedev/mame.git"
 
@@ -21,7 +21,6 @@ class Mame < Formula
   depends_on "sphinx-doc" => :build
   depends_on "flac"
   depends_on "jpeg"
-  depends_on "lua"
   # Need C++ compiler and standard library support C++14.
   # Build failure on Sierra, see:
   # https://github.com/Homebrew/homebrew-core/pull/39388
@@ -32,21 +31,21 @@ class Mame < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
-  def install
-    inreplace "scripts/src/osd/sdl.lua", "--static", ""
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
-    # Mame's build system genie can't find headers and libraries with version suffix.
-    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
-    ENV.append "CPPFLAGS", "-I#{Formula["pugixml"].opt_include}/pugixml-1.9"
-    ENV.append "LDFLAGS", "-L#{Formula["pugixml"].opt_lib}/pugixml-1.9"
+  def install
+    # Cut sdl2-config's invalid option.
+    inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
     system "make", "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
+                   "USE_SYSTEM_LIB_ASIO=",
+                   "USE_SYSTEM_LIB_LUA=",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_GLM=1",
                    "USE_SYSTEM_LIB_JPEG=1",
-                   "USE_SYSTEM_LIB_LUA=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1",
                    "USE_SYSTEM_LIB_PUGIXML=1",
@@ -62,7 +61,7 @@ class Mame < Formula
       system "make", "man"
       man1.install "build/man/MAME.1" => "mame.1"
     end
-    pkgshare.install %w[artwork bgfx hash ini keymaps plugins samples uismall.bdf]
+    pkgshare.install %w[artwork bgfx hash ini language keymaps plugins samples uismall.bdf]
   end
 
   test do
