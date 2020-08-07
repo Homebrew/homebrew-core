@@ -2,9 +2,9 @@ class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.2.32.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.2.32.tar.xz"
-  sha256 "050fc16ca56d8d2365d980998220a4eb06439da71dfd38de49b42fea72310ef1"
+  url "https://www.php.net/distributions/php-7.2.33.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.2.33.tar.xz"
+  sha256 "0f160a3483ffce36be5962fab7bcf09d605ee66c5707df83e4195cb796bbb03a"
   license "PHP-3.01"
 
   bottle do
