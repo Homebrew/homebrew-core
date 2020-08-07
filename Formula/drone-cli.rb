@@ -2,8 +2,8 @@ class DroneCli < Formula
   desc "Drone CLI"
   homepage "https://drone.io"
   url "https://github.com/drone/drone-cli.git",
-    tag:      "v1.2.1",
-    revision: "a5f8e7c245635a3855cebfde61c29b805d0b46a0"
+    tag:      "v1.2.2",
+    revision: "2064b97d4ead040ae7bf7924e45a0707d10aef73"
   license "Apache-2.0"
 
   bottle do
