@@ -4,6 +4,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-20.1.5.tar.xz"
   sha256 "fac1861e6e0bf1aec893f8d86dbfb9d8a0f426ff06b05256df10e3ad7e02c69b"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Mesa < Formula
     sha256 "6bd906354d1b187e1858d520f9b87d00e55f6646fd998545c364ef726b5b839f" => :high_sierra
   end
 
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
