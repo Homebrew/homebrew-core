@@ -1,8 +1,8 @@
 class SwiftSh < Formula
   desc "Scripting with easy zero-conf dependency imports"
   homepage "https://github.com/mxcl/swift-sh"
-  url "https://github.com/mxcl/swift-sh/archive/1.18.0.tar.gz"
-  sha256 "e65b43609d43cc9163ef11d4a2b46e9f5f9387a6fd1645ed6ede5aac24333066"
+  url "https://github.com/mxcl/swift-sh/archive/2.0.1.tar.gz"
+  sha256 "e31ae29f524c0d8423f34434fda967e36f5f91de1e54e2f4a256f23b94f5a9d9"
   license "Unlicense"
   head "https://github.com/mxcl/swift-sh.git"
 
@@ -13,7 +13,7 @@ class SwiftSh < Formula
     sha256 "0339afad23f24918a45036a440dd833c91a0b6ce97d5b6641337d7a851d02c69" => :high_sierra
   end
 
-  depends_on xcode: ["10.0", :build]
+  depends_on xcode: ["11.0", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
