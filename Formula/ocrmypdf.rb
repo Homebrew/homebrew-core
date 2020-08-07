@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/8b/6a/079143b7677e5d356270e2fee0fe5b71e6d900a51c360d2b49d8356f134e/ocrmypdf-10.3.1.tar.gz"
-  sha256 "a0fce3edaaf37d32e5ab6fc832e671dc5a1867ab67d54b86723452cad40029b9"
+  url "https://files.pythonhosted.org/packages/24/e5/5f534c784afdcec76f8828aff1ad2e908929a85973188d0e833138f0f335/ocrmypdf-10.3.3.tar.gz"
+  sha256 "440c24b909f12991b7b8fb2ab56c82d200d8d93ece1010412296e8788bb4a624"
   license "GPL-3.0"
 
   bottle do
@@ -94,8 +94,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/52/09/85beb77f215bf47de07d2041731bdba55d7290a9304daad2eda935d3337f/reportlab-3.5.46.tar.gz"
-    sha256 "56d71b78e7e4bb31a93e1dff13c22d19b7fb3890b021a39b6c3661b095bd7de8"
+    url "https://files.pythonhosted.org/packages/11/36/8b01d3b6c2d44bbfc013ab6b61e876d576a38edc96b4bd508dcefe1b6e80/reportlab-3.5.47.tar.gz"
+    sha256 "45b2a7aa65e082bf481eea9994cdc00292698f8dc9e4a8c0ecfc6be90548803f"
   end
 
   resource "six" do
@@ -109,8 +109,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/71/6c/6530032ec26dddd47bb9e052781bcbbcaa560f05d10cdaf365ecb990d220/tqdm-4.48.0.tar.gz"
-    sha256 "6baa75a88582b1db6d34ce4690da5501d2a1cb65c34664840a456b2c9f794d29"
+    url "https://files.pythonhosted.org/packages/7c/a2/4cc95d7766a5d17ea2541d88da357d5905f75b6dbdfd17dfffd6c37647ae/tqdm-4.48.2.tar.gz"
+    sha256 "564d632ea2b9cb52979f7956e093e831c28d441c11751682f84c86fc46e4fd21"
   end
 
   def install
